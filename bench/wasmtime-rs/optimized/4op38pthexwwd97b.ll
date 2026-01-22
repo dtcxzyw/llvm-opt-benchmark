@@ -24980,7 +24980,6 @@ define hidden void @"_ZN4core3ptr72drop_in_place$LT$$u5b$regalloc2..ion..data_st
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !12243
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !12243
   call void @llvm.experimental.noalias.scope.decl(metadata !12248)
-  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %20 = load i64, ptr %13, align 8, !alias.scope !12248, !noalias !12251, !noundef !4
   %21 = icmp eq i64 %20, 0
   br i1 %21, label %22, label %25
@@ -25004,7 +25003,6 @@ define hidden void @"_ZN4core3ptr72drop_in_place$LT$$u5b$regalloc2..ion..data_st
 .noexc7.thread:                                   ; preds = %.noexc8, %24
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !12254
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !12253
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %"_ZN4core3ptr62drop_in_place$LT$regalloc2..ion..data_structures..PRegData$GT$17h12e212c97aff1e66E.exit"
 
 25:                                               ; preds = %.lr.ph.i.i.i.i.i.i
@@ -25025,6 +25023,7 @@ define hidden void @"_ZN4core3ptr72drop_in_place$LT$$u5b$regalloc2..ion..data_st
   unreachable
 
 30:                                               ; preds = %.noexc10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !12257
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %27, i64 24, i1 false), !noalias !12264
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !12265
@@ -25065,13 +25064,13 @@ define hidden void @"_ZN4core3ptr72drop_in_place$LT$$u5b$regalloc2..ion..data_st
   unreachable
 
 .noexc7:                                          ; preds = %.noexc.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(48) %4, i64 48, i1 false), !noalias !12253
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(48) %4, i64 48, i1 false), !noalias !12257
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !12265
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !12257
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %27, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false), !noalias !12251
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %14, i64 24, i1 false), !noalias !12248
-  %.pr = load ptr, ptr %9, align 8, !noalias !12243
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %27, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false), !noalias !12264
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  %.pr = load ptr, ptr %9, align 8, !noalias !12243
   %.not.i.i.i.i.i.i = icmp eq ptr %.pr, null
   br i1 %.not.i.i.i.i.i.i, label %"_ZN4core3ptr62drop_in_place$LT$regalloc2..ion..data_structures..PRegData$GT$17h12e212c97aff1e66E.exit", label %.lr.ph.i.i.i.i.i.i
 
@@ -26099,7 +26098,6 @@ define hidden void @"_ZN4core3ptr77drop_in_place$LT$$u5b$regalloc2..ion..data_st
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !12773
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !12773
   call void @llvm.experimental.noalias.scope.decl(metadata !12778)
-  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %20 = load i64, ptr %13, align 8, !alias.scope !12778, !noalias !12781, !noundef !4
   %21 = icmp eq i64 %20, 0
   br i1 %21, label %22, label %25
@@ -26123,7 +26121,6 @@ define hidden void @"_ZN4core3ptr77drop_in_place$LT$$u5b$regalloc2..ion..data_st
 .noexc7.thread:                                   ; preds = %.noexc8, %24
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !12784
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !12783
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %"_ZN4core3ptr67drop_in_place$LT$regalloc2..ion..data_structures..SpillSlotData$GT$17h3a0233d3b24c6823E.exit"
 
 25:                                               ; preds = %.lr.ph.i.i.i.i.i.i
@@ -26144,6 +26141,7 @@ define hidden void @"_ZN4core3ptr77drop_in_place$LT$$u5b$regalloc2..ion..data_st
   unreachable
 
 30:                                               ; preds = %.noexc10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !12787
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %27, i64 24, i1 false), !noalias !12794
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !12795
@@ -26184,13 +26182,13 @@ define hidden void @"_ZN4core3ptr77drop_in_place$LT$$u5b$regalloc2..ion..data_st
   unreachable
 
 .noexc7:                                          ; preds = %.noexc.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(48) %4, i64 48, i1 false), !noalias !12783
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(48) %4, i64 48, i1 false), !noalias !12787
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !12795
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !12787
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %27, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false), !noalias !12781
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %14, i64 24, i1 false), !noalias !12778
-  %.pr = load ptr, ptr %9, align 8, !noalias !12773
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %27, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false), !noalias !12794
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  %.pr = load ptr, ptr %9, align 8, !noalias !12773
   %.not.i.i.i.i.i.i = icmp eq ptr %.pr, null
   br i1 %.not.i.i.i.i.i.i, label %"_ZN4core3ptr67drop_in_place$LT$regalloc2..ion..data_structures..SpillSlotData$GT$17h3a0233d3b24c6823E.exit", label %.lr.ph.i.i.i.i.i.i
 

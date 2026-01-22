@@ -18291,8 +18291,8 @@ define internal fastcc void @"_ZN13deltalake_aws18DynamoDbLockClient16get_latest
   %8 = alloca { i64, [39 x i64] }, align 8
   %.sroa.5.i.i = alloca [200 x i8], align 8
   %9 = alloca { { [2 x i32], i32, [1 x i32] }, double, double, { i64, i32, [1 x i32] }, { i64, i32, [1 x i32] }, { i64, i32, [1 x i32] }, { { { i64, i32, [1 x i32] } } }, {} }, align 8
-  %.sroa.3.sroa.7.i = alloca [34 x i64], align 8
   %10 = alloca { { i64, ptr, {} }, i64 }, align 8
+  %.sroa.3.sroa.7.i = alloca [34 x i64], align 8
   %.sroa.850.sroa.8.i = alloca [34 x i64], align 8
   %11 = alloca { { i64, [26 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { ptr, [5 x i64] }, i32, i32 }, align 8
   %12 = alloca { ptr, ptr, i64, ptr, {}, { {} } }, align 8

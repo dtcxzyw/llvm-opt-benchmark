@@ -10120,6 +10120,8 @@ define void @"_ZN142_$LT$polars_arrow..array..binview..BinaryViewArrayGeneric$LT
   %6 = alloca [24 x i8], align 8
   %7 = alloca [24 x i8], align 8
   %8 = alloca [64 x i8], align 8
+  %.sroa.8 = alloca [48 x i8], align 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.8)
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %10 = load ptr, ptr %9, align 8, !invariant.load !28, !nonnull !28
   %11 = tail call { ptr, ptr } %10(ptr noundef nonnull align 1 %1)
@@ -10136,6 +10138,7 @@ define void @"_ZN142_$LT$polars_arrow..array..binview..BinaryViewArrayGeneric$LT
   br i1 %.sroa.0.0.i, label %.noexc.i, label %20
 
 20:                                               ; preds = %3
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !670)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !673)
@@ -10169,6 +10172,9 @@ define void @"_ZN142_$LT$polars_arrow..array..binview..BinaryViewArrayGeneric$LT
   call void @"_ZN72_$LT$polars_error..ErrString$u20$as$u20$core..convert..From$LT$T$GT$$GT$4from17ha8e8e4232d5beca2E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %.sroa.4.0..sroa_idx.i, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.sroa.6.0.copyload = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8
+  %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.8, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.8.0..sroa_idx, i64 48, i1 false)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !695)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !698)
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$7inspect17h07bb703c2e96bf9bE.exit"
@@ -10234,12 +10240,12 @@ _ZN12polars_arrow5array5Array10null_count17h9f27669555d6972aE.exit.i.i: ; preds 
 "_ZN4core6result19Result$LT$T$C$E$GT$7inspect17h07bb703c2e96bf9bE.exit": ; preds = %28, %52
   %.sroa.0.010 = phi i64 [ 4, %28 ], [ 17, %52 ]
   %.sroa.6.09 = phi ptr [ %.sroa.6.0.copyload, %28 ], [ %12, %52 ]
-  %53 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i64 %.sroa.0.010, ptr %0, align 8, !alias.scope !700
   %.sroa.6.0..sroa_idx2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.6.09, ptr %.sroa.6.0..sroa_idx2, align 8, !alias.scope !700
   %.sroa.8.0..sroa_idx4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.8.0..sroa_idx4, ptr noundef nonnull align 8 dereferenceable(48) %53, i64 48, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.8.0..sroa_idx4, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.8, i64 48, i1 false), !alias.scope !700
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8)
   ret void
 }
 
@@ -30956,9 +30962,9 @@ define void @"_ZN89_$LT$polars_arrow..array..union..UnionArray$u20$as$u20$polars
 
 "_ZN4core3ptr99drop_in_place$LT$core..option..Option$LT$polars_arrow..buffer..immutable..Buffer$LT$i32$GT$$GT$$GT$17h062fdafe1c7004f7E.exit.i.i": ; preds = %26
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %15, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false), !noalias !2039
   %31 = getelementptr inbounds nuw i8, ptr %15, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %31, ptr noundef nonnull align 8 dereferenceable(24) %30, i64 24, i1 false), !noalias !2039
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %15, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false), !noalias !2039
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !2035
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h432dbaeb18104f7dE.exit"
 

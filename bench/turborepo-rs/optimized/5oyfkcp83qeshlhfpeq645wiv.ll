@@ -32,6 +32,7 @@ define void @_RINvMsg_Cs4DJqE8qduBp_4poriINtB6_8StatefulINtB6_7LocatedeENtNtNtCs
   %.sroa.428 = alloca i64, align 8
   %.sroa.930 = alloca i64, align 8
   %4 = alloca [48 x i8], align 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_RINvXsc_Cs4DJqE8qduBp_4poriINtB6_7LocatedeENtNtCsaPKTPzkFU9s_3nom6traits19InputTakeAtPosition27split_at_position1_completeNCINvNtNtBJ_9character8complete6digit1INtB6_8StatefulBp_NtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEINtNtBJ_5error12VerboseErrorB2y_EE0INtB3H_5ErrorBp_EEB2W_(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, i8 noundef %2)
   %5 = load ptr, ptr %4, align 8, !noundef !4
   %6 = icmp eq ptr %5, null
@@ -49,6 +50,7 @@ define void @_RINvMsg_Cs4DJqE8qduBp_4poriINtB6_8StatefulINtB6_7LocatedeENtNtNtCs
   %9 = load i64, ptr %8, align 8, !alias.scope !5, !noalias !10, !noundef !4
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %11 = load i8, ptr %10, align 8, !range !13, !alias.scope !5, !noalias !10, !noundef !4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.sroa.05.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %9, ptr %.sroa.05.sroa.5.0..sroa_idx, align 8
   %.sroa.56.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -73,6 +75,7 @@ define void @_RINvMsg_Cs4DJqE8qduBp_4poriINtB6_8StatefulINtB6_7LocatedeENtNtNtCs
   %.sroa.0.sroa.6.0.copyload = load i64, ptr %.sroa.0.sroa.6.0..sroa_idx, align 8
   %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.619.0.copyload = load i8, ptr %.sroa.619.0..sroa_idx, align 8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.428)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.930)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14)
@@ -162,6 +165,7 @@ define void @_RINvMsg_Cs4DJqE8qduBp_4poriINtB6_8StatefulINtB6_7LocatedeENtNtNtCs
   %.sroa.428 = alloca i64, align 8
   %.sroa.930 = alloca i64, align 8
   %5 = alloca [48 x i8], align 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_RINvXsc_Cs4DJqE8qduBp_4poriINtB6_7LocatedeENtNtCsaPKTPzkFU9s_3nom6traits19InputTakeAtPosition27split_at_position1_completeNCNCINvNtNtBJ_5bytes8complete6is_notReINtB6_8StatefulBp_NtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEINtNtBJ_5error12VerboseErrorB2y_EE00INtB3H_5ErrorBp_EEB2W_(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2, i8 noundef %3)
   %6 = load ptr, ptr %5, align 8, !noundef !4
   %7 = icmp eq ptr %6, null
@@ -179,6 +183,7 @@ define void @_RINvMsg_Cs4DJqE8qduBp_4poriINtB6_8StatefulINtB6_7LocatedeENtNtNtCs
   %10 = load i64, ptr %9, align 8, !alias.scope !46, !noalias !51, !noundef !4
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %12 = load i8, ptr %11, align 8, !range !13, !alias.scope !46, !noalias !51, !noundef !4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.sroa.05.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %10, ptr %.sroa.05.sroa.5.0..sroa_idx, align 8
   %.sroa.56.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -203,6 +208,7 @@ define void @_RINvMsg_Cs4DJqE8qduBp_4poriINtB6_8StatefulINtB6_7LocatedeENtNtNtCs
   %.sroa.0.sroa.6.0.copyload = load i64, ptr %.sroa.0.sroa.6.0..sroa_idx, align 8
   %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.619.0.copyload = load i8, ptr %.sroa.619.0..sroa_idx, align 8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.428)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.930)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !54)

@@ -2194,7 +2194,7 @@ define hidden void @_ZN4gpui5style5Style5paint17hd79d1d28ad6a255aE.llvm.11807424
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !233
   br i1 %42, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h16e31a10c53c00b7E.exit.thread", label %69
 
-"_ZN4core6option15Option$LT$T$GT$6map_or17h16e31a10c53c00b7E.exit.thread": ; preds = %5, %"_ZN4core6option15Option$LT$T$GT$6map_or17h16e31a10c53c00b7E.exit", %39, %69
+"_ZN4core6option15Option$LT$T$GT$6map_or17h16e31a10c53c00b7E.exit.thread": ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17h16e31a10c53c00b7E.exit", %39, %5, %69
   call void @llvm.experimental.noalias.scope.decl(metadata !236)
   %43 = load ptr, ptr %3, align 8, !alias.scope !236, !noalias !239, !align !6, !noundef !4
   %44 = getelementptr inbounds nuw i8, ptr %3, i64 8
