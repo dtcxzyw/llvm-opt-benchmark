@@ -12893,23 +12893,23 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable1
   %60 = icmp eq i32 %58, 0
   %spec.store.select.i.i.i.i45 = select i1 %60, i64 %57, i64 %59
   %61 = icmp slt i64 %spec.store.select.i.i.i.i45, 0
-  %.v = select i1 %39, ptr %.val16, ptr %.val17
+  %.v = select i1 %39, ptr %.val16, ptr %.val17, !unpredictable !4
   %62 = ptrtoint ptr %.v to i64
   store i64 %62, ptr %1, align 8
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val3 = load i64, ptr %52, align 8
   %.val4 = load i64, ptr %50, align 8
-  %64 = select i1 %61, i64 %.val3, i64 %.val4
+  %64 = select i1 %61, i64 %.val3, i64 %.val4, !unpredictable !4
   store i64 %64, ptr %63, align 8
   %65 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.val5 = load i64, ptr %50, align 8
   %.val6 = load i64, ptr %52, align 8
-  %66 = select i1 %61, i64 %.val5, i64 %.val6
+  %66 = select i1 %61, i64 %.val5, i64 %.val6, !unpredictable !4
   store i64 %66, ptr %65, align 8
   %67 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.val7 = load i64, ptr %26, align 8
   %.val8 = load i64, ptr %30, align 8
-  %68 = select i1 %48, i64 %.val7, i64 %.val8
+  %68 = select i1 %48, i64 %.val7, i64 %.val8, !unpredictable !4
   store i64 %68, ptr %67, align 8
   ret void
 }
@@ -13016,23 +13016,23 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable1
   %60 = icmp eq i32 %58, 0
   %spec.store.select.i.i.i.i.i.i.i45 = select i1 %60, i64 %57, i64 %59
   %61 = icmp slt i64 %spec.store.select.i.i.i.i.i.i.i45, 0
-  %.v = select i1 %39, ptr %.val16, ptr %.val17
+  %.v = select i1 %39, ptr %.val16, ptr %.val17, !unpredictable !4
   %62 = ptrtoint ptr %.v to i64
   store i64 %62, ptr %1, align 8
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val3 = load i64, ptr %52, align 8
   %.val4 = load i64, ptr %50, align 8
-  %64 = select i1 %61, i64 %.val3, i64 %.val4
+  %64 = select i1 %61, i64 %.val3, i64 %.val4, !unpredictable !4
   store i64 %64, ptr %63, align 8
   %65 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.val5 = load i64, ptr %50, align 8
   %.val6 = load i64, ptr %52, align 8
-  %66 = select i1 %61, i64 %.val5, i64 %.val6
+  %66 = select i1 %61, i64 %.val5, i64 %.val6, !unpredictable !4
   store i64 %66, ptr %65, align 8
   %67 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.val7 = load i64, ptr %26, align 8
   %.val8 = load i64, ptr %30, align 8
-  %68 = select i1 %48, i64 %.val7, i64 %.val8
+  %68 = select i1 %48, i64 %.val7, i64 %.val8, !unpredictable !4
   store i64 %68, ptr %67, align 8
   ret void
 }
@@ -13964,23 +13964,23 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable1
   %60 = icmp eq i32 %58, 0
   %spec.store.select.i.i.i.i45 = select i1 %60, i64 %57, i64 %59
   %61 = icmp slt i64 %spec.store.select.i.i.i.i45, 0
-  %.v = select i1 %39, ptr %.val16, ptr %.val17
+  %.v = select i1 %39, ptr %.val16, ptr %.val17, !unpredictable !4
   %62 = ptrtoint ptr %.v to i64
   store i64 %62, ptr %1, align 8
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val3 = load i64, ptr %52, align 8
   %.val4 = load i64, ptr %50, align 8
-  %64 = select i1 %61, i64 %.val3, i64 %.val4
+  %64 = select i1 %61, i64 %.val3, i64 %.val4, !unpredictable !4
   store i64 %64, ptr %63, align 8
   %65 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.val5 = load i64, ptr %50, align 8
   %.val6 = load i64, ptr %52, align 8
-  %66 = select i1 %61, i64 %.val5, i64 %.val6
+  %66 = select i1 %61, i64 %.val5, i64 %.val6, !unpredictable !4
   store i64 %66, ptr %65, align 8
   %67 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.val7 = load i64, ptr %26, align 8
   %.val8 = load i64, ptr %30, align 8
-  %68 = select i1 %48, i64 %.val7, i64 %.val8
+  %68 = select i1 %48, i64 %.val7, i64 %.val8, !unpredictable !4
   store i64 %68, ptr %67, align 8
   ret void
 }
@@ -14395,23 +14395,23 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable1
   %60 = icmp eq i32 %58, 0
   %spec.store.select.i.i.i.i45 = select i1 %60, i64 %57, i64 %59
   %61 = icmp slt i64 %spec.store.select.i.i.i.i45, 0
-  %.v = select i1 %39, ptr %.val16, ptr %.val17
+  %.v = select i1 %39, ptr %.val16, ptr %.val17, !unpredictable !4
   %62 = ptrtoint ptr %.v to i64
   store i64 %62, ptr %1, align 8
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val3 = load i64, ptr %52, align 8
   %.val4 = load i64, ptr %50, align 8
-  %64 = select i1 %61, i64 %.val3, i64 %.val4
+  %64 = select i1 %61, i64 %.val3, i64 %.val4, !unpredictable !4
   store i64 %64, ptr %63, align 8
   %65 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.val5 = load i64, ptr %50, align 8
   %.val6 = load i64, ptr %52, align 8
-  %66 = select i1 %61, i64 %.val5, i64 %.val6
+  %66 = select i1 %61, i64 %.val5, i64 %.val6, !unpredictable !4
   store i64 %66, ptr %65, align 8
   %67 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.val7 = load i64, ptr %26, align 8
   %.val8 = load i64, ptr %30, align 8
-  %68 = select i1 %48, i64 %.val7, i64 %.val8
+  %68 = select i1 %48, i64 %.val7, i64 %.val8, !unpredictable !4
   store i64 %68, ptr %67, align 8
   ret void
 }
@@ -15332,23 +15332,23 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable1
   %60 = icmp eq i32 %58, 0
   %spec.store.select.i.i.i.i45 = select i1 %60, i64 %57, i64 %59
   %61 = icmp slt i64 %spec.store.select.i.i.i.i45, 0
-  %.v = select i1 %39, ptr %.val16, ptr %.val17
+  %.v = select i1 %39, ptr %.val16, ptr %.val17, !unpredictable !4
   %62 = ptrtoint ptr %.v to i64
   store i64 %62, ptr %1, align 8
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val3 = load i64, ptr %52, align 8
   %.val4 = load i64, ptr %50, align 8
-  %64 = select i1 %61, i64 %.val3, i64 %.val4
+  %64 = select i1 %61, i64 %.val3, i64 %.val4, !unpredictable !4
   store i64 %64, ptr %63, align 8
   %65 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.val5 = load i64, ptr %50, align 8
   %.val6 = load i64, ptr %52, align 8
-  %66 = select i1 %61, i64 %.val5, i64 %.val6
+  %66 = select i1 %61, i64 %.val5, i64 %.val6, !unpredictable !4
   store i64 %66, ptr %65, align 8
   %67 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.val7 = load i64, ptr %26, align 8
   %.val8 = load i64, ptr %30, align 8
-  %68 = select i1 %48, i64 %.val7, i64 %.val8
+  %68 = select i1 %48, i64 %.val7, i64 %.val8, !unpredictable !4
   store i64 %68, ptr %67, align 8
   ret void
 }
@@ -15612,23 +15612,23 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable1
   %60 = icmp eq i32 %58, 0
   %spec.store.select.i.i.i.i45 = select i1 %60, i64 %57, i64 %59
   %61 = icmp slt i64 %spec.store.select.i.i.i.i45, 0
-  %.v = select i1 %39, ptr %.val16, ptr %.val17
+  %.v = select i1 %39, ptr %.val16, ptr %.val17, !unpredictable !4
   %62 = ptrtoint ptr %.v to i64
   store i64 %62, ptr %1, align 8
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val3 = load i64, ptr %52, align 8
   %.val4 = load i64, ptr %50, align 8
-  %64 = select i1 %61, i64 %.val3, i64 %.val4
+  %64 = select i1 %61, i64 %.val3, i64 %.val4, !unpredictable !4
   store i64 %64, ptr %63, align 8
   %65 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.val5 = load i64, ptr %50, align 8
   %.val6 = load i64, ptr %52, align 8
-  %66 = select i1 %61, i64 %.val5, i64 %.val6
+  %66 = select i1 %61, i64 %.val5, i64 %.val6, !unpredictable !4
   store i64 %66, ptr %65, align 8
   %67 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.val7 = load i64, ptr %26, align 8
   %.val8 = load i64, ptr %30, align 8
-  %68 = select i1 %48, i64 %.val7, i64 %.val8
+  %68 = select i1 %48, i64 %.val7, i64 %.val8, !unpredictable !4
   store i64 %68, ptr %67, align 8
   ret void
 }
@@ -16670,23 +16670,23 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable1
   %60 = icmp eq i32 %58, 0
   %spec.store.select.i.i.i.i45 = select i1 %60, i64 %57, i64 %59
   %61 = icmp slt i64 %spec.store.select.i.i.i.i45, 0
-  %.v = select i1 %39, ptr %.val16, ptr %.val17
+  %.v = select i1 %39, ptr %.val16, ptr %.val17, !unpredictable !4
   %62 = ptrtoint ptr %.v to i64
   store i64 %62, ptr %1, align 8
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val3 = load i64, ptr %52, align 8
   %.val4 = load i64, ptr %50, align 8
-  %64 = select i1 %61, i64 %.val3, i64 %.val4
+  %64 = select i1 %61, i64 %.val3, i64 %.val4, !unpredictable !4
   store i64 %64, ptr %63, align 8
   %65 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.val5 = load i64, ptr %50, align 8
   %.val6 = load i64, ptr %52, align 8
-  %66 = select i1 %61, i64 %.val5, i64 %.val6
+  %66 = select i1 %61, i64 %.val5, i64 %.val6, !unpredictable !4
   store i64 %66, ptr %65, align 8
   %67 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.val7 = load i64, ptr %26, align 8
   %.val8 = load i64, ptr %30, align 8
-  %68 = select i1 %48, i64 %.val7, i64 %.val8
+  %68 = select i1 %48, i64 %.val7, i64 %.val8, !unpredictable !4
   store i64 %68, ptr %67, align 8
   ret void
 }
@@ -17223,23 +17223,23 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable1
   %60 = icmp eq i32 %58, 0
   %spec.store.select.i.i.i.i45 = select i1 %60, i64 %57, i64 %59
   %61 = icmp slt i64 %spec.store.select.i.i.i.i45, 0
-  %.v = select i1 %39, ptr %.val16, ptr %.val17
+  %.v = select i1 %39, ptr %.val16, ptr %.val17, !unpredictable !4
   %62 = ptrtoint ptr %.v to i64
   store i64 %62, ptr %1, align 8
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val3 = load i64, ptr %52, align 8
   %.val4 = load i64, ptr %50, align 8
-  %64 = select i1 %61, i64 %.val3, i64 %.val4
+  %64 = select i1 %61, i64 %.val3, i64 %.val4, !unpredictable !4
   store i64 %64, ptr %63, align 8
   %65 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.val5 = load i64, ptr %50, align 8
   %.val6 = load i64, ptr %52, align 8
-  %66 = select i1 %61, i64 %.val5, i64 %.val6
+  %66 = select i1 %61, i64 %.val5, i64 %.val6, !unpredictable !4
   store i64 %66, ptr %65, align 8
   %67 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.val7 = load i64, ptr %26, align 8
   %.val8 = load i64, ptr %30, align 8
-  %68 = select i1 %48, i64 %.val7, i64 %.val8
+  %68 = select i1 %48, i64 %.val7, i64 %.val8, !unpredictable !4
   store i64 %68, ptr %67, align 8
   ret void
 }
@@ -18058,23 +18058,23 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable1
   %60 = icmp eq i32 %58, 0
   %spec.store.select.i.i.i.i45 = select i1 %60, i64 %57, i64 %59
   %61 = icmp slt i64 %spec.store.select.i.i.i.i45, 0
-  %.v = select i1 %39, ptr %.val16, ptr %.val17
+  %.v = select i1 %39, ptr %.val16, ptr %.val17, !unpredictable !4
   %62 = ptrtoint ptr %.v to i64
   store i64 %62, ptr %1, align 8
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val3 = load i64, ptr %52, align 8
   %.val4 = load i64, ptr %50, align 8
-  %64 = select i1 %61, i64 %.val3, i64 %.val4
+  %64 = select i1 %61, i64 %.val3, i64 %.val4, !unpredictable !4
   store i64 %64, ptr %63, align 8
   %65 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.val5 = load i64, ptr %50, align 8
   %.val6 = load i64, ptr %52, align 8
-  %66 = select i1 %61, i64 %.val5, i64 %.val6
+  %66 = select i1 %61, i64 %.val5, i64 %.val6, !unpredictable !4
   store i64 %66, ptr %65, align 8
   %67 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.val7 = load i64, ptr %26, align 8
   %.val8 = load i64, ptr %30, align 8
-  %68 = select i1 %48, i64 %.val7, i64 %.val8
+  %68 = select i1 %48, i64 %.val7, i64 %.val8, !unpredictable !4
   store i64 %68, ptr %67, align 8
   ret void
 }
@@ -19457,23 +19457,23 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable1
   %60 = icmp eq i32 %58, 0
   %spec.store.select.i.i.i.i45 = select i1 %60, i64 %57, i64 %59
   %61 = icmp slt i64 %spec.store.select.i.i.i.i45, 0
-  %.v = select i1 %39, ptr %.val16, ptr %.val17
+  %.v = select i1 %39, ptr %.val16, ptr %.val17, !unpredictable !4
   %62 = ptrtoint ptr %.v to i64
   store i64 %62, ptr %1, align 8
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val3 = load i64, ptr %52, align 8
   %.val4 = load i64, ptr %50, align 8
-  %64 = select i1 %61, i64 %.val3, i64 %.val4
+  %64 = select i1 %61, i64 %.val3, i64 %.val4, !unpredictable !4
   store i64 %64, ptr %63, align 8
   %65 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.val5 = load i64, ptr %50, align 8
   %.val6 = load i64, ptr %52, align 8
-  %66 = select i1 %61, i64 %.val5, i64 %.val6
+  %66 = select i1 %61, i64 %.val5, i64 %.val6, !unpredictable !4
   store i64 %66, ptr %65, align 8
   %67 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.val7 = load i64, ptr %26, align 8
   %.val8 = load i64, ptr %30, align 8
-  %68 = select i1 %48, i64 %.val7, i64 %.val8
+  %68 = select i1 %48, i64 %.val7, i64 %.val8, !unpredictable !4
   store i64 %68, ptr %67, align 8
   ret void
 }
@@ -19991,17 +19991,17 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort8_stable1
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %.val3.i = load i32, ptr %23, align 4
   %.val4.i = load i32, ptr %21, align 4
-  %27 = select i1 %24, i32 %.val3.i, i32 %.val4.i
+  %27 = select i1 %24, i32 %.val3.i, i32 %.val4.i, !unpredictable !4
   store i32 %27, ptr %26, align 4
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val5.i = load i32, ptr %21, align 4
   %.val6.i = load i32, ptr %23, align 4
-  %29 = select i1 %24, i32 %.val5.i, i32 %.val6.i
+  %29 = select i1 %24, i32 %.val5.i, i32 %.val6.i, !unpredictable !4
   store i32 %29, ptr %28, align 4
   %30 = getelementptr i8, ptr %2, i64 12
   %.val7.i = load i32, ptr %13, align 4
   %.val8.i = load i32, ptr %17, align 4
-  %31 = select i1 %19, i32 %.val7.i, i32 %.val8.i
+  %31 = select i1 %19, i32 %.val7.i, i32 %.val8.i, !unpredictable !4
   store i32 %31, ptr %30, align 4
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %33 = getelementptr i8, ptr %2, i64 16
@@ -20041,17 +20041,17 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort8_stable1
   %56 = getelementptr i8, ptr %2, i64 20
   %.val3.i11 = load i32, ptr %53, align 4
   %.val4.i12 = load i32, ptr %51, align 4
-  %57 = select i1 %54, i32 %.val3.i11, i32 %.val4.i12
+  %57 = select i1 %54, i32 %.val3.i11, i32 %.val4.i12, !unpredictable !4
   store i32 %57, ptr %56, align 4
   %58 = getelementptr i8, ptr %2, i64 24
   %.val5.i13 = load i32, ptr %51, align 4
   %.val6.i14 = load i32, ptr %53, align 4
-  %59 = select i1 %54, i32 %.val5.i13, i32 %.val6.i14
+  %59 = select i1 %54, i32 %.val5.i13, i32 %.val6.i14, !unpredictable !4
   store i32 %59, ptr %58, align 4
   %60 = getelementptr i8, ptr %2, i64 28
   %.val7.i15 = load i32, ptr %43, align 4
   %.val8.i16 = load i32, ptr %47, align 4
-  %61 = select i1 %49, i32 %.val7.i15, i32 %.val8.i16
+  %61 = select i1 %49, i32 %.val7.i15, i32 %.val8.i16, !unpredictable !4
   store i32 %61, ptr %60, align 4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2444)
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 28
@@ -20562,17 +20562,17 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort8_stable1
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val3.i = load i64, ptr %23, align 8
   %.val4.i = load i64, ptr %21, align 8
-  %27 = select i1 %24, i64 %.val3.i, i64 %.val4.i
+  %27 = select i1 %24, i64 %.val3.i, i64 %.val4.i, !unpredictable !4
   store i64 %27, ptr %26, align 8
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.val5.i = load i64, ptr %21, align 8
   %.val6.i = load i64, ptr %23, align 8
-  %29 = select i1 %24, i64 %.val5.i, i64 %.val6.i
+  %29 = select i1 %24, i64 %.val5.i, i64 %.val6.i, !unpredictable !4
   store i64 %29, ptr %28, align 8
   %30 = getelementptr i8, ptr %2, i64 24
   %.val7.i = load i64, ptr %13, align 8
   %.val8.i = load i64, ptr %17, align 8
-  %31 = select i1 %19, i64 %.val7.i, i64 %.val8.i
+  %31 = select i1 %19, i64 %.val7.i, i64 %.val8.i, !unpredictable !4
   store i64 %31, ptr %30, align 8
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %33 = getelementptr i8, ptr %2, i64 32
@@ -20612,17 +20612,17 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort8_stable1
   %56 = getelementptr i8, ptr %2, i64 40
   %.val3.i11 = load i64, ptr %53, align 8
   %.val4.i12 = load i64, ptr %51, align 8
-  %57 = select i1 %54, i64 %.val3.i11, i64 %.val4.i12
+  %57 = select i1 %54, i64 %.val3.i11, i64 %.val4.i12, !unpredictable !4
   store i64 %57, ptr %56, align 8
   %58 = getelementptr i8, ptr %2, i64 48
   %.val5.i13 = load i64, ptr %51, align 8
   %.val6.i14 = load i64, ptr %53, align 8
-  %59 = select i1 %54, i64 %.val5.i13, i64 %.val6.i14
+  %59 = select i1 %54, i64 %.val5.i13, i64 %.val6.i14, !unpredictable !4
   store i64 %59, ptr %58, align 8
   %60 = getelementptr i8, ptr %2, i64 56
   %.val7.i15 = load i64, ptr %43, align 8
   %.val8.i16 = load i64, ptr %47, align 8
-  %61 = select i1 %49, i64 %.val7.i15, i64 %.val8.i16
+  %61 = select i1 %49, i64 %.val7.i15, i64 %.val8.i16, !unpredictable !4
   store i64 %61, ptr %60, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2570)
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 56

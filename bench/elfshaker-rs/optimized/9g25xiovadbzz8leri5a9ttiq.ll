@@ -2017,23 +2017,23 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable1
   %60 = icmp eq i32 %58, 0
   %spec.store.select.i.i.i.i37 = select i1 %60, i64 %57, i64 %59
   %61 = icmp slt i64 %spec.store.select.i.i.i.i37, 0
-  %.v = select i1 %39, ptr %.val8, ptr %.val9
+  %.v = select i1 %39, ptr %.val8, ptr %.val9, !unpredictable !3
   %62 = ptrtoint ptr %.v to i64
   store i64 %62, ptr %1, align 8
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val3 = load i64, ptr %52, align 8
   %.val4 = load i64, ptr %50, align 8
-  %64 = select i1 %61, i64 %.val3, i64 %.val4
+  %64 = select i1 %61, i64 %.val3, i64 %.val4, !unpredictable !3
   store i64 %64, ptr %63, align 8
   %65 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.val14 = load i64, ptr %50, align 8
   %.val15 = load i64, ptr %52, align 8
-  %66 = select i1 %61, i64 %.val14, i64 %.val15
+  %66 = select i1 %61, i64 %.val14, i64 %.val15, !unpredictable !3
   store i64 %66, ptr %65, align 8
   %67 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.val16 = load i64, ptr %26, align 8
   %.val17 = load i64, ptr %30, align 8
-  %68 = select i1 %48, i64 %.val16, i64 %.val17
+  %68 = select i1 %48, i64 %.val16, i64 %.val17, !unpredictable !3
   store i64 %68, ptr %67, align 8
   ret void
 }

@@ -452,14 +452,14 @@ _ZN5follyeqINS_5RangeIPKcEEA5_cEENSt9enable_ifIXsr6detail23ComparableAsStringPie
   %.sroa.4125.0.extract.trunc = trunc nuw i64 %.sroa.4125.0.extract.shift to i32
   %111 = and i64 %110, 255
   %112 = icmp eq i64 %111, 1
-  %.0.i = select i1 %112, i32 %.sroa.4125.0.extract.trunc, i32 -1
+  %.0.i = select i1 %112, i32 %.sroa.4125.0.extract.trunc, i32 -1, !prof !22
   %113 = icmp slt i32 %.0.i, 0
   br i1 %113, label %120, label %114
 
 114:                                              ; preds = %107
   %115 = getelementptr inbounds nuw i8, ptr %.054.ptr197, i64 4
-  %116 = load i32, ptr %115, align 4, !tbaa !22
-  %117 = load i32, ptr %.054.ptr197, align 8, !tbaa !25
+  %116 = load i32, ptr %115, align 4, !tbaa !23
+  %117 = load i32, ptr %.054.ptr197, align 8, !tbaa !26
   %118 = sub i32 %116, %117
   %119 = icmp ugt i32 %.0.i, %118
   br i1 %119, label %120, label %147
@@ -557,8 +557,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit112: ; preds = %_Z
   br label %_ZN5follyeqINS_5RangeIPKcEEA14_cEENSt9enable_ifIXsr6detail23ComparableAsStringPieceIT_T0_EE5valueEbE4typeERKS7_RKS8_.exit.thread
 
 149:                                              ; preds = %87
-  %.sroa.0.0.copyload = load ptr, ptr %5, align 8, !tbaa !26
-  %.sroa.2.0.copyload = load ptr, ptr %18, align 8, !tbaa !26
+  %.sroa.0.0.copyload = load ptr, ptr %5, align 8, !tbaa !27
+  %.sroa.2.0.copyload = load ptr, ptr %18, align 8, !tbaa !27
   %150 = invoke noundef i32 @_ZN5folly2toIjEENSt9enable_ifIXntsr3std7is_sameINS_5RangeIPKcEET_EE5valueES6_E4typeES5_(ptr %.sroa.0.0.copyload, ptr %.sroa.2.0.copyload)
           to label %_ZN5follyeqINS_5RangeIPKcEEA14_cEENSt9enable_ifIXsr6detail23ComparableAsStringPieceIT_T0_EE5valueEbE4typeERKS7_RKS8_.exit.thread unwind label %151
 
@@ -753,9 +753,9 @@ _ZN5follyeqIPKcEEbRKNS_5RangeIT_EES7_.exit:       ; preds = %17, %15, %2
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZN5follyeqINS_5RangeIPKcEEA6_cEENSt9enable_ifIXsr6detail23ComparableAsStringPieceIT_T0_EE5valueEbE4typeERKS7_RKS8_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 1 dereferenceable(6) %1) local_unnamed_addr #0 comdat {
-  %.sroa.02.0.copyload = load ptr, ptr %0, align 8, !tbaa !26
+  %.sroa.02.0.copyload = load ptr, ptr %0, align 8, !tbaa !27
   %.sroa.43.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.sroa.43.0.copyload = load ptr, ptr %.sroa.43.0..sroa_idx, align 8, !tbaa !26
+  %.sroa.43.0.copyload = load ptr, ptr %.sroa.43.0..sroa_idx, align 8, !tbaa !27
   %3 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #22
   %4 = ptrtoint ptr %.sroa.43.0.copyload to i64
   %5 = ptrtoint ptr %.sroa.02.0.copyload to i64
@@ -779,9 +779,9 @@ _ZN5follyeqIPKcEEbRKNS_5RangeIT_EES7_.exit:       ; preds = %2, %7, %9
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZN5follyeqINS_5RangeIPKcEEA4_cEENSt9enable_ifIXsr6detail23ComparableAsStringPieceIT_T0_EE5valueEbE4typeERKS7_RKS8_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 1 dereferenceable(4) %1) local_unnamed_addr #0 comdat {
-  %.sroa.02.0.copyload = load ptr, ptr %0, align 8, !tbaa !26
+  %.sroa.02.0.copyload = load ptr, ptr %0, align 8, !tbaa !27
   %.sroa.43.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.sroa.43.0.copyload = load ptr, ptr %.sroa.43.0..sroa_idx, align 8, !tbaa !26
+  %.sroa.43.0.copyload = load ptr, ptr %.sroa.43.0..sroa_idx, align 8, !tbaa !27
   %3 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #22
   %4 = ptrtoint ptr %.sroa.43.0.copyload to i64
   %5 = ptrtoint ptr %.sroa.02.0.copyload to i64
@@ -805,9 +805,9 @@ _ZN5follyeqIPKcEEbRKNS_5RangeIT_EES7_.exit:       ; preds = %2, %7, %9
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZN5follyeqINS_5RangeIPKcEEA8_cEENSt9enable_ifIXsr6detail23ComparableAsStringPieceIT_T0_EE5valueEbE4typeERKS7_RKS8_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 1 dereferenceable(8) %1) local_unnamed_addr #0 comdat {
-  %.sroa.02.0.copyload = load ptr, ptr %0, align 8, !tbaa !26
+  %.sroa.02.0.copyload = load ptr, ptr %0, align 8, !tbaa !27
   %.sroa.43.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.sroa.43.0.copyload = load ptr, ptr %.sroa.43.0..sroa_idx, align 8, !tbaa !26
+  %.sroa.43.0.copyload = load ptr, ptr %.sroa.43.0..sroa_idx, align 8, !tbaa !27
   %3 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #22
   %4 = ptrtoint ptr %.sroa.43.0.copyload to i64
   %5 = ptrtoint ptr %.sroa.02.0.copyload to i64
@@ -831,9 +831,9 @@ _ZN5follyeqIPKcEEbRKNS_5RangeIT_EES7_.exit:       ; preds = %2, %7, %9
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZN5follyeqINS_5RangeIPKcEEA9_cEENSt9enable_ifIXsr6detail23ComparableAsStringPieceIT_T0_EE5valueEbE4typeERKS7_RKS8_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 1 dereferenceable(9) %1) local_unnamed_addr #0 comdat {
-  %.sroa.02.0.copyload = load ptr, ptr %0, align 8, !tbaa !26
+  %.sroa.02.0.copyload = load ptr, ptr %0, align 8, !tbaa !27
   %.sroa.43.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.sroa.43.0.copyload = load ptr, ptr %.sroa.43.0..sroa_idx, align 8, !tbaa !26
+  %.sroa.43.0.copyload = load ptr, ptr %.sroa.43.0..sroa_idx, align 8, !tbaa !27
   %3 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #22
   %4 = ptrtoint ptr %.sroa.43.0.copyload to i64
   %5 = ptrtoint ptr %.sroa.02.0.copyload to i64
@@ -857,9 +857,9 @@ _ZN5follyeqIPKcEEbRKNS_5RangeIT_EES7_.exit:       ; preds = %2, %7, %9
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZN5follyeqINS_5RangeIPKcEEA7_cEENSt9enable_ifIXsr6detail23ComparableAsStringPieceIT_T0_EE5valueEbE4typeERKS7_RKS8_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 1 dereferenceable(7) %1) local_unnamed_addr #0 comdat {
-  %.sroa.02.0.copyload = load ptr, ptr %0, align 8, !tbaa !26
+  %.sroa.02.0.copyload = load ptr, ptr %0, align 8, !tbaa !27
   %.sroa.43.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.sroa.43.0.copyload = load ptr, ptr %.sroa.43.0..sroa_idx, align 8, !tbaa !26
+  %.sroa.43.0.copyload = load ptr, ptr %.sroa.43.0..sroa_idx, align 8, !tbaa !27
   %3 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #22
   %4 = ptrtoint ptr %.sroa.43.0.copyload to i64
   %5 = ptrtoint ptr %.sroa.02.0.copyload to i64
@@ -883,9 +883,9 @@ _ZN5follyeqIPKcEEbRKNS_5RangeIT_EES7_.exit:       ; preds = %2, %7, %9
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZN5follyeqINS_5RangeIPKcEEA10_cEENSt9enable_ifIXsr6detail23ComparableAsStringPieceIT_T0_EE5valueEbE4typeERKS7_RKS8_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 1 dereferenceable(10) %1) local_unnamed_addr #0 comdat {
-  %.sroa.02.0.copyload = load ptr, ptr %0, align 8, !tbaa !26
+  %.sroa.02.0.copyload = load ptr, ptr %0, align 8, !tbaa !27
   %.sroa.43.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.sroa.43.0.copyload = load ptr, ptr %.sroa.43.0..sroa_idx, align 8, !tbaa !26
+  %.sroa.43.0.copyload = load ptr, ptr %.sroa.43.0..sroa_idx, align 8, !tbaa !27
   %3 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #22
   %4 = ptrtoint ptr %.sroa.43.0.copyload to i64
   %5 = ptrtoint ptr %.sroa.02.0.copyload to i64
@@ -911,18 +911,18 @@ _ZN5follyeqIPKcEEbRKNS_5RangeIT_EES7_.exit:       ; preds = %2, %7, %9
 define linkonce_odr i64 @_ZN5folly5tryToIiEENSt9enable_ifIXntsr3std7is_sameINS_5RangeIPKcEET_EE5valueENS_8ExpectedIS6_NSt16remove_referenceIDTclsr6detailE11parseToWraptlS5_Eclsr3stdE7declvalIRS6_EEEEE4type10error_typeEEEE4typeES5_(ptr %0, ptr %1) local_unnamed_addr #4 comdat personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.folly::Range", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  store ptr %0, ptr %3, align 8, !noalias !27
+  store ptr %0, ptr %3, align 8, !noalias !28
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %1, ptr %4, align 8, !noalias !27
-  %5 = call i64 @_ZN5folly6detail15str_to_integralIiEENS_8ExpectedIT_NS_14ConversionCodeEEEPNS_5RangeIPKcEE(ptr noundef nonnull %3) #22, !noalias !27
+  store ptr %1, ptr %4, align 8, !noalias !28
+  %5 = call i64 @_ZN5folly6detail15str_to_integralIiEENS_8ExpectedIT_NS_14ConversionCodeEEEPNS_5RangeIPKcEE(ptr noundef nonnull %3) #22, !noalias !28
   %6 = and i64 %5, 255
   %7 = icmp eq i64 %6, 1
-  br i1 %7, label %8, label %16, !prof !30
+  br i1 %7, label %8, label %16, !prof !22
 
 8:                                                ; preds = %2
   %.sroa.53.0.extract.shift.i = and i64 %5, -4294967296
-  %.sroa.0.0.copyload.i.i.i.i = load ptr, ptr %3, align 8, !tbaa !26, !noalias !31
-  %.sroa.2.0.copyload.i.i.i.i = load ptr, ptr %4, align 8, !tbaa !26, !noalias !31
+  %.sroa.0.0.copyload.i.i.i.i = load ptr, ptr %3, align 8, !tbaa !27, !noalias !31
+  %.sroa.2.0.copyload.i.i.i.i = load ptr, ptr %4, align 8, !tbaa !27, !noalias !31
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not14.i.i.i.i = icmp eq ptr %.sroa.0.0.copyload.i.i.i.i, %.sroa.2.0.copyload.i.i.i.i
   br i1 %.not14.i.i.i.i, label %_ZN5folly15expected_detail30expected_detail_ExpectedHelper14ExpectedHelper5then_INS_8ExpectedINS_4UnitENS_14ConversionCodeEEEZNS_5tryToIiEENSt9enable_ifIXntsr3std7is_sameINS_5RangeIPKcEET_EE5valueENS4_ISE_NSt16remove_referenceIDTclsr6detailE11parseToWraptlSD_Eclsr3stdE7declvalIRSE_EEEEE4type10error_typeEEEE4typeESD_EUlS5_E_JES6_S2_EEDTclsrT3_5then_clsrSP_7return_IT2_Ecmclclsr3stdE7declvalIT0_EEcldtclsr3stdE7declvalISE_EE5valueEEL_ZNS_L4unitEEEspclsr3stdE7declvalIT1_EEEEOSE_OSR_DpOSS_.exit.i.i, label %.lr.ph.i.i.i.i
@@ -975,9 +975,9 @@ define linkonce_odr void @_ZN5folly2toINSt7__cxx1112basic_stringIcSt11char_trait
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 9, ptr %6, align 16, !tbaa !38
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %.sroa.0.0.copyload.i.i.i.i = load ptr, ptr %2, align 8, !tbaa !26
+  %.sroa.0.0.copyload.i.i.i.i = load ptr, ptr %2, align 8, !tbaa !27
   %.sroa.2.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %.sroa.2.0.copyload.i.i.i.i = load ptr, ptr %.sroa.2.0..sroa_idx.i.i.i.i, align 8, !tbaa !26
+  %.sroa.2.0.copyload.i.i.i.i = load ptr, ptr %.sroa.2.0..sroa_idx.i.i.i.i, align 8, !tbaa !27
   %11 = ptrtoint ptr %.sroa.2.0.copyload.i.i.i.i to i64
   %12 = ptrtoint ptr %.sroa.0.0.copyload.i.i.i.i to i64
   %13 = sub i64 %11, %12
@@ -1126,11 +1126,11 @@ define linkonce_odr noundef i32 @_ZN5folly2toIjEENSt9enable_ifIXntsr3std7is_same
   call void @llvm.experimental.noalias.scope.decl(metadata !52)
   %11 = and i64 %10, 255
   %12 = icmp eq i64 %11, 1
-  br i1 %12, label %13, label %20, !prof !30
+  br i1 %12, label %13, label %20, !prof !22
 
 13:                                               ; preds = %2
-  %.sroa.0.0.copyload.i.i.i.i.i = load ptr, ptr %3, align 8, !tbaa !26, !noalias !55
-  %.sroa.2.0.copyload.i.i.i.i.i = load ptr, ptr %9, align 8, !tbaa !26, !noalias !55
+  %.sroa.0.0.copyload.i.i.i.i.i = load ptr, ptr %3, align 8, !tbaa !27, !noalias !55
+  %.sroa.2.0.copyload.i.i.i.i.i = load ptr, ptr %9, align 8, !tbaa !27, !noalias !55
   store ptr %.sroa.0.0.copyload.i.i.i.i.i, ptr %5, align 8, !alias.scope !55
   %.sroa.46.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %.sroa.2.0.copyload.i.i.i.i.i, ptr %.sroa.46.0..sroa_idx.i.i.i.i, align 8, !alias.scope !55
@@ -1391,9 +1391,9 @@ define linkonce_odr void @_ZN5folly6detail18ToAppendStrImplAllISt16integer_seque
 
 _ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcEENSt9enable_ifIXaasr3std14is_convertibleIT0_S8_EE5valuesr12IsSomeStringIT_EE5valueEvE4typeESA_PSB_.exit: ; preds = %5
   %13 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 1 dereferenceable(9) %0, i64 noundef %7)
-  %.sroa.0.0.copyload.i = load ptr, ptr %1, align 8, !tbaa !26
+  %.sroa.0.0.copyload.i = load ptr, ptr %1, align 8, !tbaa !27
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.2.0.copyload.i = load ptr, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !26
+  %.sroa.2.0.copyload.i = load ptr, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !27
   %14 = ptrtoint ptr %.sroa.2.0.copyload.i to i64
   %15 = ptrtoint ptr %.sroa.0.0.copyload.i to i64
   %16 = sub i64 %14, %15
@@ -1455,9 +1455,9 @@ define linkonce_odr void @_ZZN5folly2toIjEENSt9enable_ifIXntsr3std7is_sameINS_5R
   %3 = alloca %"class.folly::ConversionError", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = load ptr, ptr %0, align 8, !tbaa !67
-  %.sroa.0.0.copyload = load ptr, ptr %4, align 8, !tbaa !26
+  %.sroa.0.0.copyload = load ptr, ptr %4, align 8, !tbaa !27
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %.sroa.2.0.copyload = load ptr, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !26
+  %.sroa.2.0.copyload = load ptr, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !27
   call void @_ZN5folly19makeConversionErrorENS_14ConversionCodeENS_5RangeIPKcEE(ptr dead_on_unwind nonnull writable sret(%"class.folly::ConversionError") align 8 %3, i8 noundef zeroext %1, ptr %.sroa.0.0.copyload, ptr %.sroa.2.0.copyload)
   invoke void @_ZN5folly15throw_exceptionINS_15ConversionErrorEEEvOT_(ptr noundef nonnull align 8 dereferenceable(17) %3) #6
           to label %5 unwind label %6
@@ -1532,9 +1532,9 @@ define linkonce_odr void @_ZZN5folly2toIjEENSt9enable_ifIXntsr3std7is_sameINS_5R
   unreachable
 
 _ZNR5folly8ExpectedINS_5RangeIPKcEENS_14ConversionCodeEE5valueEv.exit: ; preds = %2
-  %.sroa.0.0.copyload = load ptr, ptr %4, align 8, !tbaa !26
+  %.sroa.0.0.copyload = load ptr, ptr %4, align 8, !tbaa !27
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %.sroa.2.0.copyload = load ptr, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !26
+  %.sroa.2.0.copyload = load ptr, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !27
   call void @_ZN5folly19makeConversionErrorENS_14ConversionCodeENS_5RangeIPKcEE(ptr dead_on_unwind nonnull writable sret(%"class.folly::ConversionError") align 8 %3, i8 noundef zeroext %1, ptr %.sroa.0.0.copyload, ptr %.sroa.2.0.copyload)
   invoke void @_ZN5folly15throw_exceptionINS_15ConversionErrorEEEvOT_(ptr noundef nonnull align 8 dereferenceable(17) %3) #6
           to label %10 unwind label %11
@@ -1666,12 +1666,12 @@ define void @_ZN5folly16logLevelToStringB5cxx11ENS_8LogLevelE(ptr dead_on_unwind
   %.026.idx86 = phi i64 [ %.026.add, %67 ], [ 0, %2 ]
   %.026.ptr87 = getelementptr inbounds nuw i8, ptr @_ZN5folly12_GLOBAL__N_117numberedLogLevelsE, i64 %.026.idx86
   %36 = getelementptr inbounds nuw i8, ptr %.026.ptr87, i64 4
-  %37 = load i32, ptr %36, align 4, !tbaa !22
+  %37 = load i32, ptr %36, align 4, !tbaa !23
   %.not28 = icmp ugt i32 %1, %37
   br i1 %.not28, label %67, label %38
 
 38:                                               ; preds = %.preheader
-  %39 = load i32, ptr %.026.ptr87, align 8, !tbaa !25
+  %39 = load i32, ptr %.026.ptr87, align 8, !tbaa !26
   %40 = icmp ugt i32 %1, %39
   br i1 %40, label %.critedge, label %67
 
@@ -1689,9 +1689,9 @@ define void @_ZN5folly16logLevelToStringB5cxx11ENS_8LogLevelE(ptr dead_on_unwind
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !84
   store ptr %0, ptr %6, align 8, !tbaa !36, !noalias !84
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !84
-  %.sroa.0.0.copyload.i.i.i.i.i = load ptr, ptr %42, align 8, !tbaa !26, !noalias !84
+  %.sroa.0.0.copyload.i.i.i.i.i = load ptr, ptr %42, align 8, !tbaa !27, !noalias !84
   %.sroa.2.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.026.ptr87, i64 32
-  %.sroa.2.0.copyload.i.i.i.i.i = load ptr, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i, align 8, !tbaa !26, !noalias !84
+  %.sroa.2.0.copyload.i.i.i.i.i = load ptr, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i, align 8, !tbaa !27, !noalias !84
   %45 = ptrtoint ptr %.sroa.2.0.copyload.i.i.i.i.i to i64
   %46 = ptrtoint ptr %.sroa.0.0.copyload.i.i.i.i.i to i64
   %47 = sub i64 %45, %46
@@ -1855,9 +1855,9 @@ _ZN5folly2toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJA10_cjA2_cETnN
 define linkonce_odr void @_ZN5folly6detail18ToAppendStrImplAllISt16integer_sequenceImJLm0ELm1ELm2EEEE4callIJNS_5RangeIPKcEEjPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvDpRKT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca [20 x i8], align 16
   %5 = load ptr, ptr %2, align 8, !tbaa !36
-  %.sroa.0.0.copyload.i = load ptr, ptr %0, align 8, !tbaa !26
+  %.sroa.0.0.copyload.i = load ptr, ptr %0, align 8, !tbaa !27
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.sroa.2.0.copyload.i = load ptr, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !26
+  %.sroa.2.0.copyload.i = load ptr, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !27
   %6 = ptrtoint ptr %.sroa.2.0.copyload.i to i64
   %7 = ptrtoint ptr %.sroa.0.0.copyload.i to i64
   %8 = sub i64 %6, %7
@@ -2167,16 +2167,16 @@ attributes #25 = { noreturn nounwind }
 !19 = !{!"_ZTSN5folly5RangeIPKcEE", !9, i64 0, !9, i64 8}
 !20 = !{!19, !9, i64 8}
 !21 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!22 = !{!23, !24, i64 4}
-!23 = !{!"_ZTSN5folly12_GLOBAL__N_117NumberedLevelInfoE", !24, i64 0, !24, i64 4, !19, i64 8, !19, i64 24}
-!24 = !{!"_ZTSN5folly8LogLevelE", !11, i64 0}
-!25 = !{!23, !24, i64 0}
-!26 = !{!9, !9, i64 0}
-!27 = !{!28}
-!28 = distinct !{!28, !29, !"_ZN5folly7parseToIiEENSt9enable_ifIX15is_arithmetic_vIT_EENS_8ExpectedINS_5RangeIPKcEENS_14ConversionCodeEEEE4typeES7_RS2_: argument 0"}
-!29 = distinct !{!29, !"_ZN5folly7parseToIiEENSt9enable_ifIX15is_arithmetic_vIT_EENS_8ExpectedINS_5RangeIPKcEENS_14ConversionCodeEEEE4typeES7_RS2_"}
-!30 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!31 = !{!32, !34, !28}
+!22 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!23 = !{!24, !25, i64 4}
+!24 = !{!"_ZTSN5folly12_GLOBAL__N_117NumberedLevelInfoE", !25, i64 0, !25, i64 4, !19, i64 8, !19, i64 24}
+!25 = !{!"_ZTSN5folly8LogLevelE", !11, i64 0}
+!26 = !{!24, !25, i64 0}
+!27 = !{!9, !9, i64 0}
+!28 = !{!29}
+!29 = distinct !{!29, !30, !"_ZN5folly7parseToIiEENSt9enable_ifIX15is_arithmetic_vIT_EENS_8ExpectedINS_5RangeIPKcEENS_14ConversionCodeEEEE4typeES7_RS2_: argument 0"}
+!30 = distinct !{!30, !"_ZN5folly7parseToIiEENSt9enable_ifIX15is_arithmetic_vIT_EENS_8ExpectedINS_5RangeIPKcEENS_14ConversionCodeEEEE4typeES7_RS2_"}
+!31 = !{!32, !34, !29}
 !32 = distinct !{!32, !33, !"_ZN5folly15expected_detail30expected_detail_ExpectedHelper14ExpectedHelper5then_INS0_15ExpectedStorageIiNS_14ConversionCodeELNS0_11StorageTypeE0EEEZNS_7parseToIiEENSt9enable_ifIX15is_arithmetic_vIT_EENS_8ExpectedINS_5RangeIPKcEES5_EEE4typeESF_RSA_EUliE_JES5_S2_EEDTclsrT3_5then_clsrSL_7return_IT2_Ecmclclsr3stdE7declvalIT0_EEcldtclsr3stdE7declvalISA_EE5valueEEL_ZNS_L4unitEEEspclsr3stdE7declvalIT1_EEEEOSA_OSN_DpOSO_: argument 0"}
 !33 = distinct !{!33, !"_ZN5folly15expected_detail30expected_detail_ExpectedHelper14ExpectedHelper5then_INS0_15ExpectedStorageIiNS_14ConversionCodeELNS0_11StorageTypeE0EEEZNS_7parseToIiEENSt9enable_ifIX15is_arithmetic_vIT_EENS_8ExpectedINS_5RangeIPKcEES5_EEE4typeESF_RSA_EUliE_JES5_S2_EEDTclsrT3_5then_clsrSL_7return_IT2_Ecmclclsr3stdE7declvalIT0_EEcldtclsr3stdE7declvalISA_EE5valueEEL_ZNS_L4unitEEEspclsr3stdE7declvalIT1_EEEEOSA_OSN_DpOSO_"}
 !34 = distinct !{!34, !35, !"_ZNO5folly8ExpectedIiNS_14ConversionCodeEE4thenIJZNS_7parseToIiEENSt9enable_ifIX15is_arithmetic_vIT_EENS0_INS_5RangeIPKcEES1_EEE4typeESA_RS6_EUliE_ELb0ETnNS5_IXooT0_scbgesZT_Li1EEiE4typeELi0EEEDTclsr15expected_detail14ExpectedHelperE5then_clL_ZSt7declvalIONS_15expected_detail15ExpectedStorageIiS1_LNSJ_11StorageTypeE0EEEEDTcl9__declvalIS6_ELi0EEEvEEspclsr3stdE7declvalIT_EEEEDpOSP_: argument 0"}

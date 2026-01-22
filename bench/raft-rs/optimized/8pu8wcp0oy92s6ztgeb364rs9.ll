@@ -105,17 +105,17 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort8_stable1
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val3.i = load i64, ptr %23, align 8
   %.val4.i = load i64, ptr %21, align 8
-  %27 = select i1 %24, i64 %.val3.i, i64 %.val4.i
+  %27 = select i1 %24, i64 %.val3.i, i64 %.val4.i, !unpredictable !13
   store i64 %27, ptr %26, align 8
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.val14.i = load i64, ptr %21, align 8
   %.val15.i = load i64, ptr %23, align 8
-  %29 = select i1 %24, i64 %.val14.i, i64 %.val15.i
+  %29 = select i1 %24, i64 %.val14.i, i64 %.val15.i, !unpredictable !13
   store i64 %29, ptr %28, align 8
   %30 = getelementptr i8, ptr %2, i64 24
   %.val16.i = load i64, ptr %13, align 8
   %.val17.i = load i64, ptr %17, align 8
-  %31 = select i1 %19, i64 %.val16.i, i64 %.val17.i
+  %31 = select i1 %19, i64 %.val16.i, i64 %.val17.i, !unpredictable !13
   store i64 %31, ptr %30, align 8
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %33 = getelementptr i8, ptr %2, i64 32
@@ -155,17 +155,17 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort8_stable1
   %56 = getelementptr i8, ptr %2, i64 40
   %.val3.i11 = load i64, ptr %53, align 8
   %.val4.i12 = load i64, ptr %51, align 8
-  %57 = select i1 %54, i64 %.val3.i11, i64 %.val4.i12
+  %57 = select i1 %54, i64 %.val3.i11, i64 %.val4.i12, !unpredictable !13
   store i64 %57, ptr %56, align 8
   %58 = getelementptr i8, ptr %2, i64 48
   %.val14.i13 = load i64, ptr %51, align 8
   %.val15.i14 = load i64, ptr %53, align 8
-  %59 = select i1 %54, i64 %.val14.i13, i64 %.val15.i14
+  %59 = select i1 %54, i64 %.val14.i13, i64 %.val15.i14, !unpredictable !13
   store i64 %59, ptr %58, align 8
   %60 = getelementptr i8, ptr %2, i64 56
   %.val16.i15 = load i64, ptr %43, align 8
   %.val17.i16 = load i64, ptr %47, align 8
-  %61 = select i1 %49, i64 %.val16.i15, i64 %.val17.i16
+  %61 = select i1 %49, i64 %.val16.i15, i64 %.val17.i16, !unpredictable !13
   store i64 %61, ptr %60, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !19)
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 56

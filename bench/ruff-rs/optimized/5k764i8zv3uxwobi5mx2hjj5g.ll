@@ -3765,23 +3765,23 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort8_stable1
   %42 = getelementptr inbounds nuw i8, ptr %.val21.i, i64 48
   %43 = load i32, ptr %42, align 8, !noundef !3
   %44 = icmp ult i32 %41, %43
-  %.v.i = select i1 %30, ptr %.val16.i, ptr %.val17.i
+  %.v.i = select i1 %30, ptr %.val16.i, ptr %.val17.i, !unpredictable !3
   %45 = ptrtoint ptr %.v.i to i64
   store i64 %45, ptr %2, align 8
   %46 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val3.i = load i64, ptr %39, align 8
   %.val4.i = load i64, ptr %37, align 8
-  %47 = select i1 %44, i64 %.val3.i, i64 %.val4.i
+  %47 = select i1 %44, i64 %.val3.i, i64 %.val4.i, !unpredictable !3
   store i64 %47, ptr %46, align 8
   %48 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.val5.i = load i64, ptr %37, align 8
   %.val6.i = load i64, ptr %39, align 8
-  %49 = select i1 %44, i64 %.val5.i, i64 %.val6.i
+  %49 = select i1 %44, i64 %.val5.i, i64 %.val6.i, !unpredictable !3
   store i64 %49, ptr %48, align 8
   %50 = getelementptr i8, ptr %2, i64 24
   %.val7.i = load i64, ptr %21, align 8
   %.val8.i = load i64, ptr %25, align 8
-  %51 = select i1 %35, i64 %.val7.i, i64 %.val8.i
+  %51 = select i1 %35, i64 %.val7.i, i64 %.val8.i, !unpredictable !3
   store i64 %51, ptr %50, align 8
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %53 = getelementptr i8, ptr %2, i64 32
@@ -3836,23 +3836,23 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort8_stable1
   %92 = getelementptr inbounds nuw i8, ptr %.val21.i10, i64 48
   %93 = load i32, ptr %92, align 8, !noundef !3
   %94 = icmp ult i32 %91, %93
-  %.v.i11 = select i1 %80, ptr %.val16.i5, ptr %.val17.i6
+  %.v.i11 = select i1 %80, ptr %.val16.i5, ptr %.val17.i6, !unpredictable !3
   %95 = ptrtoint ptr %.v.i11 to i64
   store i64 %95, ptr %53, align 8
   %96 = getelementptr i8, ptr %2, i64 40
   %.val3.i12 = load i64, ptr %89, align 8
   %.val4.i13 = load i64, ptr %87, align 8
-  %97 = select i1 %94, i64 %.val3.i12, i64 %.val4.i13
+  %97 = select i1 %94, i64 %.val3.i12, i64 %.val4.i13, !unpredictable !3
   store i64 %97, ptr %96, align 8
   %98 = getelementptr i8, ptr %2, i64 48
   %.val5.i14 = load i64, ptr %87, align 8
   %.val6.i15 = load i64, ptr %89, align 8
-  %99 = select i1 %94, i64 %.val5.i14, i64 %.val6.i15
+  %99 = select i1 %94, i64 %.val5.i14, i64 %.val6.i15, !unpredictable !3
   store i64 %99, ptr %98, align 8
   %100 = getelementptr i8, ptr %2, i64 56
   %.val7.i16 = load i64, ptr %71, align 8
   %.val8.i17 = load i64, ptr %75, align 8
-  %101 = select i1 %85, i64 %.val7.i16, i64 %.val8.i17
+  %101 = select i1 %85, i64 %.val7.i16, i64 %.val8.i17, !unpredictable !3
   store i64 %101, ptr %100, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !361)
   %102 = getelementptr inbounds nuw i8, ptr %1, i64 56
@@ -5440,19 +5440,19 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_wit
   %64 = getelementptr inbounds nuw i8, ptr %.val21.i, i64 48
   %65 = load i32, ptr %64, align 8, !noundef !3
   %66 = icmp ult i32 %63, %65
-  %.v.i = select i1 %52, ptr %.val16.i, ptr %.val17.i
+  %.v.i = select i1 %52, ptr %.val16.i, ptr %.val17.i, !unpredictable !3
   %67 = ptrtoint ptr %.v.i to i64
   store i64 %67, ptr %2, align 8
   %68 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %69 = ptrtoint ptr %.val20.i to i64
   %70 = ptrtoint ptr %.val21.i to i64
-  %71 = select i1 %66, i64 %69, i64 %70
+  %71 = select i1 %66, i64 %69, i64 %70, !unpredictable !3
   store i64 %71, ptr %68, align 8
   %72 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %73 = select i1 %66, i64 %70, i64 %69
+  %73 = select i1 %66, i64 %70, i64 %69, !unpredictable !3
   store i64 %73, ptr %72, align 8
   %74 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %.v = select i1 %57, ptr %.val19.i, ptr %.val18.i
+  %.v = select i1 %57, ptr %.val19.i, ptr %.val18.i, !unpredictable !3
   %75 = ptrtoint ptr %.v to i64
   store i64 %75, ptr %74, align 8
   %76 = getelementptr inbounds nuw ptr, ptr %0, i64 %15
@@ -5508,19 +5508,19 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_wit
   %116 = getelementptr inbounds nuw i8, ptr %.val21.i28, i64 48
   %117 = load i32, ptr %116, align 8, !noundef !3
   %118 = icmp ult i32 %115, %117
-  %.v.i29 = select i1 %104, ptr %.val16.i23, ptr %.val17.i24
+  %.v.i29 = select i1 %104, ptr %.val16.i23, ptr %.val17.i24, !unpredictable !3
   %119 = ptrtoint ptr %.v.i29 to i64
   store i64 %119, ptr %77, align 8
   %120 = getelementptr inbounds nuw i8, ptr %77, i64 8
   %121 = ptrtoint ptr %.val20.i27 to i64
   %122 = ptrtoint ptr %.val21.i28 to i64
-  %123 = select i1 %118, i64 %121, i64 %122
+  %123 = select i1 %118, i64 %121, i64 %122, !unpredictable !3
   store i64 %123, ptr %120, align 8
   %124 = getelementptr inbounds nuw i8, ptr %77, i64 16
-  %125 = select i1 %118, i64 %122, i64 %121
+  %125 = select i1 %118, i64 %122, i64 %121, !unpredictable !3
   store i64 %125, ptr %124, align 8
   %126 = getelementptr inbounds nuw i8, ptr %77, i64 24
-  %.v52 = select i1 %109, ptr %.val19.i26, ptr %.val18.i25
+  %.v52 = select i1 %109, ptr %.val19.i26, ptr %.val18.i25, !unpredictable !3
   %127 = ptrtoint ptr %.v52 to i64
   store i64 %127, ptr %126, align 8
   br label %133

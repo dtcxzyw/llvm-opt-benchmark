@@ -93323,23 +93323,23 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort8_stable1
   %42 = getelementptr inbounds nuw i8, ptr %.val5.i, i64 44
   %43 = load i32, ptr %42, align 4, !noundef !8
   %44 = icmp ult i32 %41, %43
-  %.v.i = select i1 %30, ptr %.val8.i, ptr %.val9.i
+  %.v.i = select i1 %30, ptr %.val8.i, ptr %.val9.i, !unpredictable !8
   %45 = ptrtoint ptr %.v.i to i64
   store i64 %45, ptr %2, align 8
   %46 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val3.i = load i64, ptr %39, align 8
   %.val4.i = load i64, ptr %37, align 8
-  %47 = select i1 %44, i64 %.val3.i, i64 %.val4.i
+  %47 = select i1 %44, i64 %.val3.i, i64 %.val4.i, !unpredictable !8
   store i64 %47, ptr %46, align 8
   %48 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.val14.i = load i64, ptr %37, align 8
   %.val15.i = load i64, ptr %39, align 8
-  %49 = select i1 %44, i64 %.val14.i, i64 %.val15.i
+  %49 = select i1 %44, i64 %.val14.i, i64 %.val15.i, !unpredictable !8
   store i64 %49, ptr %48, align 8
   %50 = getelementptr i8, ptr %2, i64 24
   %.val16.i = load i64, ptr %21, align 8
   %.val17.i = load i64, ptr %25, align 8
-  %51 = select i1 %35, i64 %.val16.i, i64 %.val17.i
+  %51 = select i1 %35, i64 %.val16.i, i64 %.val17.i, !unpredictable !8
   store i64 %51, ptr %50, align 8
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %53 = getelementptr i8, ptr %2, i64 32
@@ -93394,23 +93394,23 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort8_stable1
   %92 = getelementptr inbounds nuw i8, ptr %.val5.i10, i64 44
   %93 = load i32, ptr %92, align 4, !noundef !8
   %94 = icmp ult i32 %91, %93
-  %.v.i11 = select i1 %80, ptr %.val8.i5, ptr %.val9.i6
+  %.v.i11 = select i1 %80, ptr %.val8.i5, ptr %.val9.i6, !unpredictable !8
   %95 = ptrtoint ptr %.v.i11 to i64
   store i64 %95, ptr %53, align 8
   %96 = getelementptr i8, ptr %2, i64 40
   %.val3.i12 = load i64, ptr %89, align 8
   %.val4.i13 = load i64, ptr %87, align 8
-  %97 = select i1 %94, i64 %.val3.i12, i64 %.val4.i13
+  %97 = select i1 %94, i64 %.val3.i12, i64 %.val4.i13, !unpredictable !8
   store i64 %97, ptr %96, align 8
   %98 = getelementptr i8, ptr %2, i64 48
   %.val14.i14 = load i64, ptr %87, align 8
   %.val15.i15 = load i64, ptr %89, align 8
-  %99 = select i1 %94, i64 %.val14.i14, i64 %.val15.i15
+  %99 = select i1 %94, i64 %.val14.i14, i64 %.val15.i15, !unpredictable !8
   store i64 %99, ptr %98, align 8
   %100 = getelementptr i8, ptr %2, i64 56
   %.val16.i16 = load i64, ptr %71, align 8
   %.val17.i17 = load i64, ptr %75, align 8
-  %101 = select i1 %85, i64 %.val16.i16, i64 %.val17.i17
+  %101 = select i1 %85, i64 %.val16.i16, i64 %.val17.i17, !unpredictable !8
   store i64 %101, ptr %100, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11138)
   %102 = getelementptr inbounds nuw i8, ptr %1, i64 56
@@ -93565,19 +93565,19 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_general17h5
   %60 = getelementptr inbounds nuw i8, ptr %.val5.i.i, i64 44
   %61 = load i32, ptr %60, align 4, !noalias !11155, !noundef !8
   %62 = icmp ult i32 %59, %61
-  %.v.i.i = select i1 %48, ptr %.val8.i.i, ptr %.val9.i.i
+  %.v.i.i = select i1 %48, ptr %.val8.i.i, ptr %.val9.i.i, !unpredictable !8
   %63 = ptrtoint ptr %.v.i.i to i64
   store i64 %63, ptr %5, align 8, !alias.scope !11153, !noalias !11150
   %64 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %65 = ptrtoint ptr %.val.i.i to i64
   %66 = ptrtoint ptr %.val5.i.i to i64
-  %67 = select i1 %62, i64 %65, i64 %66
+  %67 = select i1 %62, i64 %65, i64 %66, !unpredictable !8
   store i64 %67, ptr %64, align 8, !alias.scope !11153, !noalias !11150
   %68 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %69 = select i1 %62, i64 %66, i64 %65
+  %69 = select i1 %62, i64 %66, i64 %65, !unpredictable !8
   store i64 %69, ptr %68, align 8, !alias.scope !11153, !noalias !11150
   %70 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %.v.i = select i1 %53, ptr %.val7.i.i, ptr %.val6.i.i
+  %.v.i = select i1 %53, ptr %.val7.i.i, ptr %.val6.i.i, !unpredictable !8
   %71 = ptrtoint ptr %.v.i to i64
   store i64 %71, ptr %70, align 8, !alias.scope !11153, !noalias !11150
   %72 = getelementptr inbounds nuw ptr, ptr %0, i64 %11
@@ -93633,19 +93633,19 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_general17h5
   %112 = getelementptr inbounds nuw i8, ptr %.val5.i36.i, i64 44
   %113 = load i32, ptr %112, align 4, !noalias !11155, !noundef !8
   %114 = icmp ult i32 %111, %113
-  %.v.i37.i = select i1 %100, ptr %.val8.i31.i, ptr %.val9.i32.i
+  %.v.i37.i = select i1 %100, ptr %.val8.i31.i, ptr %.val9.i32.i, !unpredictable !8
   %115 = ptrtoint ptr %.v.i37.i to i64
   store i64 %115, ptr %73, align 8, !alias.scope !11153, !noalias !11150
   %116 = getelementptr inbounds nuw i8, ptr %73, i64 8
   %117 = ptrtoint ptr %.val.i35.i to i64
   %118 = ptrtoint ptr %.val5.i36.i to i64
-  %119 = select i1 %114, i64 %117, i64 %118
+  %119 = select i1 %114, i64 %117, i64 %118, !unpredictable !8
   store i64 %119, ptr %116, align 8, !alias.scope !11153, !noalias !11150
   %120 = getelementptr inbounds nuw i8, ptr %73, i64 16
-  %121 = select i1 %114, i64 %118, i64 %117
+  %121 = select i1 %114, i64 %118, i64 %117, !unpredictable !8
   store i64 %121, ptr %120, align 8, !alias.scope !11153, !noalias !11150
   %122 = getelementptr inbounds nuw i8, ptr %73, i64 24
-  %.v17.i = select i1 %105, ptr %.val7.i34.i, ptr %.val6.i33.i
+  %.v17.i = select i1 %105, ptr %.val7.i34.i, ptr %.val6.i33.i, !unpredictable !8
   %123 = ptrtoint ptr %.v17.i to i64
   store i64 %123, ptr %122, align 8, !alias.scope !11153, !noalias !11150
   br label %129
@@ -93870,8 +93870,8 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17hf
   %22 = getelementptr inbounds nuw i8, ptr %.val1.i.i, i64 44
   %23 = load i32, ptr %22, align 4, !noundef !8
   %24 = icmp ult i32 %21, %23
-  %25 = select i1 %24, ptr %.val1.i.i, ptr %.val.i.i
-  %.v.i.i = select i1 %24, ptr %.val.i.i, ptr %.val1.i.i
+  %25 = select i1 %24, ptr %.val1.i.i, ptr %.val.i.i, !unpredictable !8
+  %.v.i.i = select i1 %24, ptr %.val.i.i, ptr %.val1.i.i, !unpredictable !8
   %26 = ptrtoint ptr %.v.i.i to i64
   store i64 %26, ptr %.sroa.01.0, align 8, !alias.scope !11182
   store ptr %25, ptr %19, align 8, !alias.scope !11182
@@ -93884,8 +93884,8 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17hf
   %31 = getelementptr inbounds nuw i8, ptr %.val1.i2.i, i64 44
   %32 = load i32, ptr %31, align 4, !noundef !8
   %33 = icmp ult i32 %30, %32
-  %34 = select i1 %33, ptr %.val1.i2.i, ptr %.val.i1.i
-  %.v.i3.i = select i1 %33, ptr %.val.i1.i, ptr %.val1.i2.i
+  %34 = select i1 %33, ptr %.val1.i2.i, ptr %.val.i1.i, !unpredictable !8
+  %.v.i3.i = select i1 %33, ptr %.val.i1.i, ptr %.val1.i2.i, !unpredictable !8
   %35 = ptrtoint ptr %.v.i3.i to i64
   store i64 %35, ptr %27, align 8, !alias.scope !11182
   store ptr %34, ptr %28, align 8, !alias.scope !11182
@@ -93898,8 +93898,8 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17hf
   %40 = getelementptr inbounds nuw i8, ptr %.val1.i5.i, i64 44
   %41 = load i32, ptr %40, align 4, !noundef !8
   %42 = icmp ult i32 %39, %41
-  %43 = select i1 %42, ptr %.val1.i5.i, ptr %.val.i4.i
-  %.v.i6.i = select i1 %42, ptr %.val.i4.i, ptr %.val1.i5.i
+  %43 = select i1 %42, ptr %.val1.i5.i, ptr %.val.i4.i, !unpredictable !8
+  %.v.i6.i = select i1 %42, ptr %.val.i4.i, ptr %.val1.i5.i, !unpredictable !8
   %44 = ptrtoint ptr %.v.i6.i to i64
   store i64 %44, ptr %36, align 8, !alias.scope !11182
   store ptr %43, ptr %37, align 8, !alias.scope !11182
@@ -93912,8 +93912,8 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17hf
   %49 = getelementptr inbounds nuw i8, ptr %.val1.i8.i, i64 44
   %50 = load i32, ptr %49, align 4, !noundef !8
   %51 = icmp ult i32 %48, %50
-  %52 = select i1 %51, ptr %.val1.i8.i, ptr %.val.i7.i
-  %.v.i9.i = select i1 %51, ptr %.val.i7.i, ptr %.val1.i8.i
+  %52 = select i1 %51, ptr %.val1.i8.i, ptr %.val.i7.i, !unpredictable !8
+  %.v.i9.i = select i1 %51, ptr %.val.i7.i, ptr %.val1.i8.i, !unpredictable !8
   %53 = ptrtoint ptr %.v.i9.i to i64
   store i64 %53, ptr %45, align 8, !alias.scope !11182
   store ptr %52, ptr %46, align 8, !alias.scope !11182
@@ -93926,8 +93926,8 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17hf
   %58 = getelementptr inbounds nuw i8, ptr %.val1.i11.i, i64 44
   %59 = load i32, ptr %58, align 4, !noundef !8
   %60 = icmp ult i32 %57, %59
-  %61 = select i1 %60, ptr %.val1.i11.i, ptr %.val.i10.i
-  %.v.i12.i = select i1 %60, ptr %.val.i10.i, ptr %.val1.i11.i
+  %61 = select i1 %60, ptr %.val1.i11.i, ptr %.val.i10.i, !unpredictable !8
+  %.v.i12.i = select i1 %60, ptr %.val.i10.i, ptr %.val1.i11.i, !unpredictable !8
   %62 = ptrtoint ptr %.v.i12.i to i64
   store i64 %62, ptr %54, align 8, !alias.scope !11182
   store ptr %61, ptr %55, align 8, !alias.scope !11182
@@ -93940,8 +93940,8 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17hf
   %67 = getelementptr inbounds nuw i8, ptr %.val1.i14.i, i64 44
   %68 = load i32, ptr %67, align 4, !noundef !8
   %69 = icmp ult i32 %66, %68
-  %70 = select i1 %69, ptr %.val1.i14.i, ptr %.val.i13.i
-  %.v.i15.i = select i1 %69, ptr %.val.i13.i, ptr %.val1.i14.i
+  %70 = select i1 %69, ptr %.val1.i14.i, ptr %.val.i13.i, !unpredictable !8
+  %.v.i15.i = select i1 %69, ptr %.val.i13.i, ptr %.val1.i14.i, !unpredictable !8
   %71 = ptrtoint ptr %.v.i15.i to i64
   store i64 %71, ptr %63, align 8, !alias.scope !11182
   store ptr %70, ptr %64, align 8, !alias.scope !11182
@@ -93950,8 +93950,8 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17hf
   %74 = getelementptr inbounds nuw i8, ptr %.v.i3.i, i64 44
   %75 = load i32, ptr %74, align 4, !noundef !8
   %76 = icmp ult i32 %73, %75
-  %77 = select i1 %76, ptr %.v.i3.i, ptr %.v.i15.i
-  %.v.i18.i = select i1 %76, ptr %.v.i15.i, ptr %.v.i3.i
+  %77 = select i1 %76, ptr %.v.i3.i, ptr %.v.i15.i, !unpredictable !8
+  %.v.i18.i = select i1 %76, ptr %.v.i15.i, ptr %.v.i3.i, !unpredictable !8
   %78 = ptrtoint ptr %.v.i18.i to i64
   store i64 %78, ptr %27, align 8, !alias.scope !11182
   store ptr %77, ptr %63, align 8, !alias.scope !11182
@@ -93960,8 +93960,8 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17hf
   %81 = getelementptr inbounds nuw i8, ptr %.v.i6.i, i64 44
   %82 = load i32, ptr %81, align 4, !noundef !8
   %83 = icmp ult i32 %80, %82
-  %84 = select i1 %83, ptr %.v.i6.i, ptr %.v.i9.i
-  %.v.i21.i = select i1 %83, ptr %.v.i9.i, ptr %.v.i6.i
+  %84 = select i1 %83, ptr %.v.i6.i, ptr %.v.i9.i, !unpredictable !8
+  %.v.i21.i = select i1 %83, ptr %.v.i9.i, ptr %.v.i6.i, !unpredictable !8
   %85 = ptrtoint ptr %.v.i21.i to i64
   store i64 %85, ptr %36, align 8, !alias.scope !11182
   store ptr %84, ptr %45, align 8, !alias.scope !11182
@@ -93972,8 +93972,8 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17hf
   %89 = getelementptr inbounds nuw i8, ptr %.val1.i23.i, i64 44
   %90 = load i32, ptr %89, align 4, !noundef !8
   %91 = icmp ult i32 %88, %90
-  %92 = select i1 %91, ptr %.val1.i23.i, ptr %61
-  %.v.i24.i = select i1 %91, ptr %61, ptr %.val1.i23.i
+  %92 = select i1 %91, ptr %.val1.i23.i, ptr %61, !unpredictable !8
+  %.v.i24.i = select i1 %91, ptr %61, ptr %.val1.i23.i, !unpredictable !8
   %93 = ptrtoint ptr %.v.i24.i to i64
   store i64 %93, ptr %86, align 8, !alias.scope !11182
   store ptr %92, ptr %55, align 8, !alias.scope !11182
@@ -93982,8 +93982,8 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17hf
   %96 = getelementptr inbounds nuw i8, ptr %52, i64 44
   %97 = load i32, ptr %96, align 4, !noundef !8
   %98 = icmp ult i32 %95, %97
-  %99 = select i1 %98, ptr %52, ptr %43
-  %.v.i27.i = select i1 %98, ptr %43, ptr %52
+  %99 = select i1 %98, ptr %52, ptr %43, !unpredictable !8
+  %.v.i27.i = select i1 %98, ptr %43, ptr %52, !unpredictable !8
   %100 = ptrtoint ptr %.v.i27.i to i64
   store i64 %100, ptr %46, align 8, !alias.scope !11182
   store ptr %99, ptr %37, align 8, !alias.scope !11182
@@ -93992,8 +93992,8 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17hf
   %103 = getelementptr inbounds nuw i8, ptr %70, i64 44
   %104 = load i32, ptr %103, align 4, !noundef !8
   %105 = icmp ult i32 %102, %104
-  %106 = select i1 %105, ptr %70, ptr %34
-  %.v.i30.i = select i1 %105, ptr %34, ptr %70
+  %106 = select i1 %105, ptr %70, ptr %34, !unpredictable !8
+  %.v.i30.i = select i1 %105, ptr %34, ptr %70, !unpredictable !8
   %107 = ptrtoint ptr %.v.i30.i to i64
   store i64 %107, ptr %64, align 8, !alias.scope !11182
   store ptr %106, ptr %28, align 8, !alias.scope !11182
@@ -94003,8 +94003,8 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17hf
   %110 = getelementptr inbounds nuw i8, ptr %.val1.i32.i, i64 44
   %111 = load i32, ptr %110, align 4, !noundef !8
   %112 = icmp ult i32 %109, %111
-  %113 = select i1 %112, ptr %.val1.i32.i, ptr %.v.i24.i
-  %.v.i33.i = select i1 %112, ptr %.v.i24.i, ptr %.val1.i32.i
+  %113 = select i1 %112, ptr %.val1.i32.i, ptr %.v.i24.i, !unpredictable !8
+  %.v.i33.i = select i1 %112, ptr %.v.i24.i, ptr %.val1.i32.i, !unpredictable !8
   %114 = ptrtoint ptr %.v.i33.i to i64
   store i64 %114, ptr %.sroa.01.0, align 8, !alias.scope !11182
   store ptr %113, ptr %86, align 8, !alias.scope !11182
@@ -94013,8 +94013,8 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17hf
   %117 = getelementptr inbounds nuw i8, ptr %.v.i18.i, i64 44
   %118 = load i32, ptr %117, align 4, !noundef !8
   %119 = icmp ult i32 %116, %118
-  %120 = select i1 %119, ptr %.v.i18.i, ptr %.v.i21.i
-  %.v.i36.i = select i1 %119, ptr %.v.i21.i, ptr %.v.i18.i
+  %120 = select i1 %119, ptr %.v.i18.i, ptr %.v.i21.i, !unpredictable !8
+  %.v.i36.i = select i1 %119, ptr %.v.i21.i, ptr %.v.i18.i, !unpredictable !8
   %121 = ptrtoint ptr %.v.i36.i to i64
   store i64 %121, ptr %27, align 8, !alias.scope !11182
   store ptr %120, ptr %36, align 8, !alias.scope !11182
@@ -94023,8 +94023,8 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17hf
   %124 = getelementptr inbounds nuw i8, ptr %84, i64 44
   %125 = load i32, ptr %124, align 4, !noundef !8
   %126 = icmp ult i32 %123, %125
-  %127 = select i1 %126, ptr %84, ptr %77
-  %.v.i39.i = select i1 %126, ptr %77, ptr %84
+  %127 = select i1 %126, ptr %84, ptr %77, !unpredictable !8
+  %.v.i39.i = select i1 %126, ptr %77, ptr %84, !unpredictable !8
   %128 = ptrtoint ptr %.v.i39.i to i64
   store i64 %128, ptr %45, align 8, !alias.scope !11182
   store ptr %127, ptr %63, align 8, !alias.scope !11182
@@ -94033,8 +94033,8 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17hf
   %131 = getelementptr inbounds nuw i8, ptr %.v.i27.i, i64 44
   %132 = load i32, ptr %131, align 4, !noundef !8
   %133 = icmp ult i32 %130, %132
-  %134 = select i1 %133, ptr %.v.i27.i, ptr %.v.i30.i
-  %.v.i42.i = select i1 %133, ptr %.v.i30.i, ptr %.v.i27.i
+  %134 = select i1 %133, ptr %.v.i27.i, ptr %.v.i30.i, !unpredictable !8
+  %.v.i42.i = select i1 %133, ptr %.v.i30.i, ptr %.v.i27.i, !unpredictable !8
   %135 = ptrtoint ptr %.v.i42.i to i64
   store i64 %135, ptr %46, align 8, !alias.scope !11182
   store ptr %134, ptr %64, align 8, !alias.scope !11182
@@ -94043,8 +94043,8 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17hf
   %138 = getelementptr inbounds nuw i8, ptr %99, i64 44
   %139 = load i32, ptr %138, align 4, !noundef !8
   %140 = icmp ult i32 %137, %139
-  %141 = select i1 %140, ptr %99, ptr %106
-  %.v.i45.i = select i1 %140, ptr %106, ptr %99
+  %141 = select i1 %140, ptr %99, ptr %106, !unpredictable !8
+  %.v.i45.i = select i1 %140, ptr %106, ptr %99, !unpredictable !8
   %142 = ptrtoint ptr %.v.i45.i to i64
   store i64 %142, ptr %37, align 8, !alias.scope !11182
   store ptr %141, ptr %28, align 8, !alias.scope !11182
@@ -94053,8 +94053,8 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17hf
   %145 = getelementptr inbounds nuw i8, ptr %92, i64 44
   %146 = load i32, ptr %145, align 4, !noundef !8
   %147 = icmp ult i32 %144, %146
-  %148 = select i1 %147, ptr %92, ptr %25
-  %.v.i48.i = select i1 %147, ptr %25, ptr %92
+  %148 = select i1 %147, ptr %92, ptr %25, !unpredictable !8
+  %.v.i48.i = select i1 %147, ptr %25, ptr %92, !unpredictable !8
   %149 = ptrtoint ptr %.v.i48.i to i64
   store i64 %149, ptr %55, align 8, !alias.scope !11182
   store ptr %148, ptr %19, align 8, !alias.scope !11182
@@ -94063,8 +94063,8 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17hf
   %152 = getelementptr inbounds nuw i8, ptr %113, i64 44
   %153 = load i32, ptr %152, align 4, !noundef !8
   %154 = icmp ult i32 %151, %153
-  %155 = select i1 %154, ptr %113, ptr %127
-  %.v.i51.i = select i1 %154, ptr %127, ptr %113
+  %155 = select i1 %154, ptr %113, ptr %127, !unpredictable !8
+  %.v.i51.i = select i1 %154, ptr %127, ptr %113, !unpredictable !8
   %156 = ptrtoint ptr %.v.i51.i to i64
   store i64 %156, ptr %86, align 8, !alias.scope !11182
   store ptr %155, ptr %63, align 8, !alias.scope !11182
@@ -94074,8 +94074,8 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17hf
   %159 = getelementptr inbounds nuw i8, ptr %.val1.i53.i, i64 44
   %160 = load i32, ptr %159, align 4, !noundef !8
   %161 = icmp ult i32 %158, %160
-  %162 = select i1 %161, ptr %.val1.i53.i, ptr %.v.i45.i
-  %.v.i54.i = select i1 %161, ptr %.v.i45.i, ptr %.val1.i53.i
+  %162 = select i1 %161, ptr %.val1.i53.i, ptr %.v.i45.i, !unpredictable !8
+  %.v.i54.i = select i1 %161, ptr %.v.i45.i, ptr %.val1.i53.i, !unpredictable !8
   %163 = ptrtoint ptr %.v.i54.i to i64
   store i64 %163, ptr %54, align 8, !alias.scope !11182
   store ptr %162, ptr %37, align 8, !alias.scope !11182
@@ -94084,8 +94084,8 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17hf
   %166 = getelementptr inbounds nuw i8, ptr %134, i64 44
   %167 = load i32, ptr %166, align 4, !noundef !8
   %168 = icmp ult i32 %165, %167
-  %169 = select i1 %168, ptr %134, ptr %.v.i48.i
-  %.v.i57.i = select i1 %168, ptr %.v.i48.i, ptr %134
+  %169 = select i1 %168, ptr %134, ptr %.v.i48.i, !unpredictable !8
+  %.v.i57.i = select i1 %168, ptr %.v.i48.i, ptr %134, !unpredictable !8
   %170 = ptrtoint ptr %.v.i57.i to i64
   store i64 %170, ptr %64, align 8, !alias.scope !11182
   store ptr %169, ptr %55, align 8, !alias.scope !11182
@@ -94094,8 +94094,8 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17hf
   %173 = getelementptr inbounds nuw i8, ptr %141, i64 44
   %174 = load i32, ptr %173, align 4, !noundef !8
   %175 = icmp ult i32 %172, %174
-  %176 = select i1 %175, ptr %141, ptr %148
-  %.v.i60.i = select i1 %175, ptr %148, ptr %141
+  %176 = select i1 %175, ptr %141, ptr %148, !unpredictable !8
+  %.v.i60.i = select i1 %175, ptr %148, ptr %141, !unpredictable !8
   %177 = ptrtoint ptr %.v.i60.i to i64
   store i64 %177, ptr %28, align 8, !alias.scope !11182
   store ptr %176, ptr %19, align 8, !alias.scope !11182
@@ -94104,8 +94104,8 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17hf
   %180 = getelementptr inbounds nuw i8, ptr %.v.i33.i, i64 44
   %181 = load i32, ptr %180, align 4, !noundef !8
   %182 = icmp ult i32 %179, %181
-  %183 = select i1 %182, ptr %.v.i33.i, ptr %.v.i54.i
-  %.v.i63.i = select i1 %182, ptr %.v.i54.i, ptr %.v.i33.i
+  %183 = select i1 %182, ptr %.v.i33.i, ptr %.v.i54.i, !unpredictable !8
+  %.v.i63.i = select i1 %182, ptr %.v.i54.i, ptr %.v.i33.i, !unpredictable !8
   %184 = ptrtoint ptr %.v.i63.i to i64
   store i64 %184, ptr %.sroa.01.0, align 8, !alias.scope !11182
   store ptr %183, ptr %54, align 8, !alias.scope !11182
@@ -94114,8 +94114,8 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17hf
   %187 = getelementptr inbounds nuw i8, ptr %.v.i39.i, i64 44
   %188 = load i32, ptr %187, align 4, !noundef !8
   %189 = icmp ult i32 %186, %188
-  %190 = select i1 %189, ptr %.v.i39.i, ptr %.v.i57.i
-  %.v.i66.i = select i1 %189, ptr %.v.i57.i, ptr %.v.i39.i
+  %190 = select i1 %189, ptr %.v.i39.i, ptr %.v.i57.i, !unpredictable !8
+  %.v.i66.i = select i1 %189, ptr %.v.i57.i, ptr %.v.i39.i, !unpredictable !8
   %191 = ptrtoint ptr %.v.i66.i to i64
   store i64 %191, ptr %45, align 8, !alias.scope !11182
   store ptr %190, ptr %64, align 8, !alias.scope !11182
@@ -94124,8 +94124,8 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17hf
   %194 = getelementptr inbounds nuw i8, ptr %.v.i51.i, i64 44
   %195 = load i32, ptr %194, align 4, !noundef !8
   %196 = icmp ult i32 %193, %195
-  %197 = select i1 %196, ptr %.v.i51.i, ptr %.v.i42.i
-  %.v.i69.i = select i1 %196, ptr %.v.i42.i, ptr %.v.i51.i
+  %197 = select i1 %196, ptr %.v.i51.i, ptr %.v.i42.i, !unpredictable !8
+  %.v.i69.i = select i1 %196, ptr %.v.i42.i, ptr %.v.i51.i, !unpredictable !8
   %198 = ptrtoint ptr %.v.i69.i to i64
   store i64 %198, ptr %86, align 8, !alias.scope !11182
   store ptr %197, ptr %46, align 8, !alias.scope !11182
@@ -94134,8 +94134,8 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17hf
   %201 = getelementptr inbounds nuw i8, ptr %155, i64 44
   %202 = load i32, ptr %201, align 4, !noundef !8
   %203 = icmp ult i32 %200, %202
-  %204 = select i1 %203, ptr %155, ptr %169
-  %.v.i72.i = select i1 %203, ptr %169, ptr %155
+  %204 = select i1 %203, ptr %155, ptr %169, !unpredictable !8
+  %.v.i72.i = select i1 %203, ptr %169, ptr %155, !unpredictable !8
   %205 = ptrtoint ptr %.v.i72.i to i64
   store i64 %205, ptr %63, align 8, !alias.scope !11182
   store ptr %204, ptr %55, align 8, !alias.scope !11182
@@ -94144,8 +94144,8 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17hf
   %208 = getelementptr inbounds nuw i8, ptr %162, i64 44
   %209 = load i32, ptr %208, align 4, !noundef !8
   %210 = icmp ult i32 %207, %209
-  %211 = select i1 %210, ptr %162, ptr %.v.i60.i
-  %.v.i75.i = select i1 %210, ptr %.v.i60.i, ptr %162
+  %211 = select i1 %210, ptr %162, ptr %.v.i60.i, !unpredictable !8
+  %.v.i75.i = select i1 %210, ptr %.v.i60.i, ptr %162, !unpredictable !8
   %212 = ptrtoint ptr %.v.i75.i to i64
   store i64 %212, ptr %37, align 8, !alias.scope !11182
   store ptr %211, ptr %28, align 8, !alias.scope !11182
@@ -94155,8 +94155,8 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17hf
   %215 = getelementptr inbounds nuw i8, ptr %.v.i63.i, i64 44
   %216 = load i32, ptr %215, align 4, !noundef !8
   %217 = icmp ult i32 %214, %216
-  %218 = select i1 %217, ptr %.v.i63.i, ptr %.val.i76.i
-  %.v.i78.i = select i1 %217, ptr %.val.i76.i, ptr %.v.i63.i
+  %218 = select i1 %217, ptr %.v.i63.i, ptr %.val.i76.i, !unpredictable !8
+  %.v.i78.i = select i1 %217, ptr %.val.i76.i, ptr %.v.i63.i, !unpredictable !8
   %219 = ptrtoint ptr %.v.i78.i to i64
   store i64 %219, ptr %.sroa.01.0, align 8, !alias.scope !11182
   store ptr %218, ptr %27, align 8, !alias.scope !11182
@@ -94165,8 +94165,8 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17hf
   %222 = getelementptr inbounds nuw i8, ptr %120, i64 44
   %223 = load i32, ptr %222, align 4, !noundef !8
   %224 = icmp ult i32 %221, %223
-  %225 = select i1 %224, ptr %120, ptr %183
-  %.v.i81.i = select i1 %224, ptr %183, ptr %120
+  %225 = select i1 %224, ptr %120, ptr %183, !unpredictable !8
+  %.v.i81.i = select i1 %224, ptr %183, ptr %120, !unpredictable !8
   %226 = ptrtoint ptr %.v.i81.i to i64
   store i64 %226, ptr %36, align 8, !alias.scope !11182
   store ptr %225, ptr %54, align 8, !alias.scope !11182
@@ -94175,8 +94175,8 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17hf
   %229 = getelementptr inbounds nuw i8, ptr %.v.i72.i, i64 44
   %230 = load i32, ptr %229, align 4, !noundef !8
   %231 = icmp ult i32 %228, %230
-  %232 = select i1 %231, ptr %.v.i72.i, ptr %.v.i75.i
-  %.v.i84.i = select i1 %231, ptr %.v.i75.i, ptr %.v.i72.i
+  %232 = select i1 %231, ptr %.v.i72.i, ptr %.v.i75.i, !unpredictable !8
+  %.v.i84.i = select i1 %231, ptr %.v.i75.i, ptr %.v.i72.i, !unpredictable !8
   %233 = ptrtoint ptr %.v.i84.i to i64
   store i64 %233, ptr %63, align 8, !alias.scope !11182
   store ptr %232, ptr %37, align 8, !alias.scope !11182
@@ -94185,8 +94185,8 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17hf
   %236 = getelementptr inbounds nuw i8, ptr %197, i64 44
   %237 = load i32, ptr %236, align 4, !noundef !8
   %238 = icmp ult i32 %235, %237
-  %239 = select i1 %238, ptr %197, ptr %190
-  %.v.i87.i = select i1 %238, ptr %190, ptr %197
+  %239 = select i1 %238, ptr %197, ptr %190, !unpredictable !8
+  %.v.i87.i = select i1 %238, ptr %190, ptr %197, !unpredictable !8
   %240 = ptrtoint ptr %.v.i87.i to i64
   store i64 %240, ptr %46, align 8, !alias.scope !11182
   store ptr %239, ptr %64, align 8, !alias.scope !11182
@@ -94195,8 +94195,8 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17hf
   %243 = getelementptr inbounds nuw i8, ptr %211, i64 44
   %244 = load i32, ptr %243, align 4, !noundef !8
   %245 = icmp ult i32 %242, %244
-  %246 = select i1 %245, ptr %211, ptr %204
-  %.v.i90.i = select i1 %245, ptr %204, ptr %211
+  %246 = select i1 %245, ptr %211, ptr %204, !unpredictable !8
+  %.v.i90.i = select i1 %245, ptr %204, ptr %211, !unpredictable !8
   %247 = ptrtoint ptr %.v.i90.i to i64
   store i64 %247, ptr %28, align 8, !alias.scope !11182
   store ptr %246, ptr %55, align 8, !alias.scope !11182
@@ -94205,8 +94205,8 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17hf
   %250 = getelementptr inbounds nuw i8, ptr %218, i64 44
   %251 = load i32, ptr %250, align 4, !noundef !8
   %252 = icmp ult i32 %249, %251
-  %253 = select i1 %252, ptr %218, ptr %.v.i66.i
-  %.v.i93.i = select i1 %252, ptr %.v.i66.i, ptr %218
+  %253 = select i1 %252, ptr %218, ptr %.v.i66.i, !unpredictable !8
+  %.v.i93.i = select i1 %252, ptr %.v.i66.i, ptr %218, !unpredictable !8
   %254 = ptrtoint ptr %.v.i93.i to i64
   store i64 %254, ptr %27, align 8, !alias.scope !11182
   store ptr %253, ptr %45, align 8, !alias.scope !11182
@@ -94215,8 +94215,8 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17hf
   %257 = getelementptr inbounds nuw i8, ptr %.v.i81.i, i64 44
   %258 = load i32, ptr %257, align 4, !noundef !8
   %259 = icmp ult i32 %256, %258
-  %260 = select i1 %259, ptr %.v.i81.i, ptr %.v.i69.i
-  %.v.i96.i = select i1 %259, ptr %.v.i69.i, ptr %.v.i81.i
+  %260 = select i1 %259, ptr %.v.i81.i, ptr %.v.i69.i, !unpredictable !8
+  %.v.i96.i = select i1 %259, ptr %.v.i69.i, ptr %.v.i81.i, !unpredictable !8
   %261 = ptrtoint ptr %.v.i96.i to i64
   store i64 %261, ptr %36, align 8, !alias.scope !11182
   store ptr %260, ptr %86, align 8, !alias.scope !11182
@@ -94225,8 +94225,8 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17hf
   %264 = getelementptr inbounds nuw i8, ptr %225, i64 44
   %265 = load i32, ptr %264, align 4, !noundef !8
   %266 = icmp ult i32 %263, %265
-  %267 = select i1 %266, ptr %225, ptr %.v.i84.i
-  %.v.i99.i = select i1 %266, ptr %.v.i84.i, ptr %225
+  %267 = select i1 %266, ptr %225, ptr %.v.i84.i, !unpredictable !8
+  %.v.i99.i = select i1 %266, ptr %.v.i84.i, ptr %225, !unpredictable !8
   %268 = ptrtoint ptr %.v.i99.i to i64
   store i64 %268, ptr %54, align 8, !alias.scope !11182
   store ptr %267, ptr %63, align 8, !alias.scope !11182
@@ -94235,8 +94235,8 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17hf
   %271 = getelementptr inbounds nuw i8, ptr %232, i64 44
   %272 = load i32, ptr %271, align 4, !noundef !8
   %273 = icmp ult i32 %270, %272
-  %274 = select i1 %273, ptr %232, ptr %.v.i90.i
-  %.v.i102.i = select i1 %273, ptr %.v.i90.i, ptr %232
+  %274 = select i1 %273, ptr %232, ptr %.v.i90.i, !unpredictable !8
+  %.v.i102.i = select i1 %273, ptr %.v.i90.i, ptr %232, !unpredictable !8
   %275 = ptrtoint ptr %.v.i102.i to i64
   store i64 %275, ptr %37, align 8, !alias.scope !11182
   store ptr %274, ptr %28, align 8, !alias.scope !11182
@@ -94245,8 +94245,8 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17hf
   %278 = getelementptr inbounds nuw i8, ptr %.v.i93.i, i64 44
   %279 = load i32, ptr %278, align 4, !noundef !8
   %280 = icmp ult i32 %277, %279
-  %281 = select i1 %280, ptr %.v.i93.i, ptr %.v.i96.i
-  %.v.i105.i = select i1 %280, ptr %.v.i96.i, ptr %.v.i93.i
+  %281 = select i1 %280, ptr %.v.i93.i, ptr %.v.i96.i, !unpredictable !8
+  %.v.i105.i = select i1 %280, ptr %.v.i96.i, ptr %.v.i93.i, !unpredictable !8
   %282 = ptrtoint ptr %.v.i105.i to i64
   store i64 %282, ptr %27, align 8, !alias.scope !11182
   store ptr %281, ptr %36, align 8, !alias.scope !11182
@@ -94255,8 +94255,8 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17hf
   %285 = getelementptr inbounds nuw i8, ptr %253, i64 44
   %286 = load i32, ptr %285, align 4, !noundef !8
   %287 = icmp ult i32 %284, %286
-  %288 = select i1 %287, ptr %253, ptr %260
-  %.v.i108.i = select i1 %287, ptr %260, ptr %253
+  %288 = select i1 %287, ptr %253, ptr %260, !unpredictable !8
+  %.v.i108.i = select i1 %287, ptr %260, ptr %253, !unpredictable !8
   %289 = ptrtoint ptr %.v.i108.i to i64
   store i64 %289, ptr %45, align 8, !alias.scope !11182
   store ptr %288, ptr %86, align 8, !alias.scope !11182
@@ -94265,8 +94265,8 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17hf
   %292 = getelementptr inbounds nuw i8, ptr %.v.i99.i, i64 44
   %293 = load i32, ptr %292, align 4, !noundef !8
   %294 = icmp ult i32 %291, %293
-  %295 = select i1 %294, ptr %.v.i99.i, ptr %.v.i87.i
-  %.v.i111.i = select i1 %294, ptr %.v.i87.i, ptr %.v.i99.i
+  %295 = select i1 %294, ptr %.v.i99.i, ptr %.v.i87.i, !unpredictable !8
+  %.v.i111.i = select i1 %294, ptr %.v.i87.i, ptr %.v.i99.i, !unpredictable !8
   %296 = ptrtoint ptr %.v.i111.i to i64
   store i64 %296, ptr %54, align 8, !alias.scope !11182
   store ptr %295, ptr %46, align 8, !alias.scope !11182
@@ -94275,8 +94275,8 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17hf
   %299 = getelementptr inbounds nuw i8, ptr %267, i64 44
   %300 = load i32, ptr %299, align 4, !noundef !8
   %301 = icmp ult i32 %298, %300
-  %302 = select i1 %301, ptr %267, ptr %239
-  %.v.i114.i = select i1 %301, ptr %239, ptr %267
+  %302 = select i1 %301, ptr %267, ptr %239, !unpredictable !8
+  %.v.i114.i = select i1 %301, ptr %239, ptr %267, !unpredictable !8
   %303 = ptrtoint ptr %.v.i114.i to i64
   store i64 %303, ptr %63, align 8, !alias.scope !11182
   store ptr %302, ptr %64, align 8, !alias.scope !11182
@@ -94285,8 +94285,8 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17hf
   %306 = getelementptr inbounds nuw i8, ptr %281, i64 44
   %307 = load i32, ptr %306, align 4, !noundef !8
   %308 = icmp ult i32 %305, %307
-  %309 = select i1 %308, ptr %281, ptr %.v.i108.i
-  %.v.i117.i = select i1 %308, ptr %.v.i108.i, ptr %281
+  %309 = select i1 %308, ptr %281, ptr %.v.i108.i, !unpredictable !8
+  %.v.i117.i = select i1 %308, ptr %.v.i108.i, ptr %281, !unpredictable !8
   %310 = ptrtoint ptr %.v.i117.i to i64
   store i64 %310, ptr %36, align 8, !alias.scope !11182
   store ptr %309, ptr %45, align 8, !alias.scope !11182
@@ -94295,8 +94295,8 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17hf
   %313 = getelementptr inbounds nuw i8, ptr %288, i64 44
   %314 = load i32, ptr %313, align 4, !noundef !8
   %315 = icmp ult i32 %312, %314
-  %316 = select i1 %315, ptr %288, ptr %.v.i111.i
-  %.v.i120.i = select i1 %315, ptr %.v.i111.i, ptr %288
+  %316 = select i1 %315, ptr %288, ptr %.v.i111.i, !unpredictable !8
+  %.v.i120.i = select i1 %315, ptr %.v.i111.i, ptr %288, !unpredictable !8
   %317 = ptrtoint ptr %.v.i120.i to i64
   store i64 %317, ptr %86, align 8, !alias.scope !11182
   store ptr %316, ptr %54, align 8, !alias.scope !11182
@@ -94305,8 +94305,8 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17hf
   %320 = getelementptr inbounds nuw i8, ptr %.v.i114.i, i64 44
   %321 = load i32, ptr %320, align 4, !noundef !8
   %322 = icmp ult i32 %319, %321
-  %323 = select i1 %322, ptr %.v.i114.i, ptr %295
-  %.v.i123.i = select i1 %322, ptr %295, ptr %.v.i114.i
+  %323 = select i1 %322, ptr %.v.i114.i, ptr %295, !unpredictable !8
+  %.v.i123.i = select i1 %322, ptr %295, ptr %.v.i114.i, !unpredictable !8
   %324 = ptrtoint ptr %.v.i123.i to i64
   store i64 %324, ptr %63, align 8, !alias.scope !11182
   store ptr %323, ptr %46, align 8, !alias.scope !11182
@@ -94315,8 +94315,8 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17hf
   %327 = getelementptr inbounds nuw i8, ptr %302, i64 44
   %328 = load i32, ptr %327, align 4, !noundef !8
   %329 = icmp ult i32 %326, %328
-  %330 = select i1 %329, ptr %302, ptr %.v.i102.i
-  %.v.i126.i = select i1 %329, ptr %.v.i102.i, ptr %302
+  %330 = select i1 %329, ptr %302, ptr %.v.i102.i, !unpredictable !8
+  %.v.i126.i = select i1 %329, ptr %.v.i102.i, ptr %302, !unpredictable !8
   %331 = ptrtoint ptr %.v.i126.i to i64
   store i64 %331, ptr %64, align 8, !alias.scope !11182
   store ptr %330, ptr %37, align 8, !alias.scope !11182
@@ -94325,8 +94325,8 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17hf
   %334 = getelementptr inbounds nuw i8, ptr %309, i64 44
   %335 = load i32, ptr %334, align 4, !noundef !8
   %336 = icmp ult i32 %333, %335
-  %337 = select i1 %336, ptr %309, ptr %.v.i120.i
-  %.v.i129.i = select i1 %336, ptr %.v.i120.i, ptr %309
+  %337 = select i1 %336, ptr %309, ptr %.v.i120.i, !unpredictable !8
+  %.v.i129.i = select i1 %336, ptr %.v.i120.i, ptr %309, !unpredictable !8
   %338 = ptrtoint ptr %.v.i129.i to i64
   store i64 %338, ptr %45, align 8, !alias.scope !11182
   store ptr %337, ptr %86, align 8, !alias.scope !11182
@@ -94335,8 +94335,8 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17hf
   %341 = getelementptr inbounds nuw i8, ptr %316, i64 44
   %342 = load i32, ptr %341, align 4, !noundef !8
   %343 = icmp ult i32 %340, %342
-  %344 = select i1 %343, ptr %316, ptr %.v.i123.i
-  %.v.i132.i = select i1 %343, ptr %.v.i123.i, ptr %316
+  %344 = select i1 %343, ptr %316, ptr %.v.i123.i, !unpredictable !8
+  %.v.i132.i = select i1 %343, ptr %.v.i123.i, ptr %316, !unpredictable !8
   %345 = ptrtoint ptr %.v.i132.i to i64
   store i64 %345, ptr %54, align 8, !alias.scope !11182
   store ptr %344, ptr %63, align 8, !alias.scope !11182
@@ -94352,8 +94352,8 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17hf
   %350 = getelementptr inbounds nuw i8, ptr %.val1.i.i12, i64 44
   %351 = load i32, ptr %350, align 4, !noalias !11185, !noundef !8
   %352 = icmp ult i32 %349, %351
-  %353 = select i1 %352, ptr %.val1.i.i12, ptr %.val.i.i11
-  %.v.i.i13 = select i1 %352, ptr %.val.i.i11, ptr %.val1.i.i12
+  %353 = select i1 %352, ptr %.val1.i.i12, ptr %.val.i.i11, !unpredictable !8
+  %.v.i.i13 = select i1 %352, ptr %.val.i.i11, ptr %.val1.i.i12, !unpredictable !8
   %354 = getelementptr inbounds nuw i8, ptr %.sroa.01.0, i64 8
   %355 = getelementptr inbounds nuw i8, ptr %.sroa.01.0, i64 56
   %.val.i1.i14 = load ptr, ptr %355, align 8, !alias.scope !11185, !nonnull !8, !align !39, !noundef !8
@@ -94363,8 +94363,8 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17hf
   %358 = getelementptr inbounds nuw i8, ptr %.val1.i2.i15, i64 44
   %359 = load i32, ptr %358, align 4, !noalias !11185, !noundef !8
   %360 = icmp ult i32 %357, %359
-  %361 = select i1 %360, ptr %.val1.i2.i15, ptr %.val.i1.i14
-  %.v.i3.i16 = select i1 %360, ptr %.val.i1.i14, ptr %.val1.i2.i15
+  %361 = select i1 %360, ptr %.val1.i2.i15, ptr %.val.i1.i14, !unpredictable !8
+  %.v.i3.i16 = select i1 %360, ptr %.val.i1.i14, ptr %.val1.i2.i15, !unpredictable !8
   %362 = getelementptr inbounds nuw i8, ptr %.sroa.01.0, i64 16
   %363 = getelementptr inbounds nuw i8, ptr %.sroa.01.0, i64 40
   %.val.i4.i17 = load ptr, ptr %363, align 8, !alias.scope !11185, !nonnull !8, !align !39, !noundef !8
@@ -94374,8 +94374,8 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17hf
   %366 = getelementptr inbounds nuw i8, ptr %.val1.i5.i18, i64 44
   %367 = load i32, ptr %366, align 4, !noalias !11185, !noundef !8
   %368 = icmp ult i32 %365, %367
-  %369 = select i1 %368, ptr %.val1.i5.i18, ptr %.val.i4.i17
-  %.v.i6.i19 = select i1 %368, ptr %.val.i4.i17, ptr %.val1.i5.i18
+  %369 = select i1 %368, ptr %.val1.i5.i18, ptr %.val.i4.i17, !unpredictable !8
+  %.v.i6.i19 = select i1 %368, ptr %.val.i4.i17, ptr %.val1.i5.i18, !unpredictable !8
   %370 = getelementptr inbounds nuw i8, ptr %.sroa.01.0, i64 32
   %371 = getelementptr inbounds nuw i8, ptr %.sroa.01.0, i64 64
   %.val.i7.i20 = load ptr, ptr %371, align 8, !alias.scope !11185, !nonnull !8, !align !39, !noundef !8
@@ -94385,29 +94385,29 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17hf
   %374 = getelementptr inbounds nuw i8, ptr %.val1.i8.i21, i64 44
   %375 = load i32, ptr %374, align 4, !noalias !11185, !noundef !8
   %376 = icmp ult i32 %373, %375
-  %377 = select i1 %376, ptr %.val1.i8.i21, ptr %.val.i7.i20
-  %.v.i9.i22 = select i1 %376, ptr %.val.i7.i20, ptr %.val1.i8.i21
+  %377 = select i1 %376, ptr %.val1.i8.i21, ptr %.val.i7.i20, !unpredictable !8
+  %.v.i9.i22 = select i1 %376, ptr %.val.i7.i20, ptr %.val1.i8.i21, !unpredictable !8
   %378 = getelementptr inbounds nuw i8, ptr %361, i64 44
   %379 = load i32, ptr %378, align 4, !noalias !11185, !noundef !8
   %380 = getelementptr inbounds nuw i8, ptr %.v.i.i13, i64 44
   %381 = load i32, ptr %380, align 4, !noalias !11185, !noundef !8
   %382 = icmp ult i32 %379, %381
-  %383 = select i1 %382, ptr %.v.i.i13, ptr %361
-  %.v.i12.i23 = select i1 %382, ptr %361, ptr %.v.i.i13
+  %383 = select i1 %382, ptr %.v.i.i13, ptr %361, !unpredictable !8
+  %.v.i12.i23 = select i1 %382, ptr %361, ptr %.v.i.i13, !unpredictable !8
   %384 = getelementptr inbounds nuw i8, ptr %.v.i9.i22, i64 44
   %385 = load i32, ptr %384, align 4, !noalias !11185, !noundef !8
   %386 = getelementptr inbounds nuw i8, ptr %.v.i6.i19, i64 44
   %387 = load i32, ptr %386, align 4, !noalias !11185, !noundef !8
   %388 = icmp ult i32 %385, %387
-  %389 = select i1 %388, ptr %.v.i6.i19, ptr %.v.i9.i22
-  %.v.i15.i24 = select i1 %388, ptr %.v.i9.i22, ptr %.v.i6.i19
+  %389 = select i1 %388, ptr %.v.i6.i19, ptr %.v.i9.i22, !unpredictable !8
+  %.v.i15.i24 = select i1 %388, ptr %.v.i9.i22, ptr %.v.i6.i19, !unpredictable !8
   %390 = getelementptr inbounds nuw i8, ptr %377, i64 44
   %391 = load i32, ptr %390, align 4, !noalias !11185, !noundef !8
   %392 = getelementptr inbounds nuw i8, ptr %353, i64 44
   %393 = load i32, ptr %392, align 4, !noalias !11185, !noundef !8
   %394 = icmp ult i32 %391, %393
-  %395 = select i1 %394, ptr %353, ptr %377
-  %.v.i18.i25 = select i1 %394, ptr %377, ptr %353
+  %395 = select i1 %394, ptr %353, ptr %377, !unpredictable !8
+  %.v.i18.i25 = select i1 %394, ptr %377, ptr %353, !unpredictable !8
   %396 = getelementptr inbounds nuw i8, ptr %.sroa.01.0, i64 48
   %.val.i19.i = load ptr, ptr %396, align 8, !alias.scope !11185, !nonnull !8, !align !39, !noundef !8
   %397 = getelementptr inbounds nuw i8, ptr %.val.i19.i, i64 44
@@ -94415,64 +94415,64 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17hf
   %399 = getelementptr inbounds nuw i8, ptr %369, i64 44
   %400 = load i32, ptr %399, align 4, !noalias !11185, !noundef !8
   %401 = icmp ult i32 %398, %400
-  %402 = select i1 %401, ptr %369, ptr %.val.i19.i
-  %.v.i21.i26 = select i1 %401, ptr %.val.i19.i, ptr %369
+  %402 = select i1 %401, ptr %369, ptr %.val.i19.i, !unpredictable !8
+  %.v.i21.i26 = select i1 %401, ptr %.val.i19.i, ptr %369, !unpredictable !8
   %403 = getelementptr inbounds nuw i8, ptr %.v.i15.i24, i64 44
   %404 = load i32, ptr %403, align 4, !noalias !11185, !noundef !8
   %405 = getelementptr inbounds nuw i8, ptr %.v.i12.i23, i64 44
   %406 = load i32, ptr %405, align 4, !noalias !11185, !noundef !8
   %407 = icmp ult i32 %404, %406
-  %408 = select i1 %407, ptr %.v.i12.i23, ptr %.v.i15.i24
-  %.v.i24.i27 = select i1 %407, ptr %.v.i15.i24, ptr %.v.i12.i23
+  %408 = select i1 %407, ptr %.v.i12.i23, ptr %.v.i15.i24, !unpredictable !8
+  %.v.i24.i27 = select i1 %407, ptr %.v.i15.i24, ptr %.v.i12.i23, !unpredictable !8
   %409 = getelementptr inbounds nuw i8, ptr %.v.i18.i25, i64 44
   %410 = load i32, ptr %409, align 4, !noalias !11185, !noundef !8
   %411 = getelementptr inbounds nuw i8, ptr %.v.i3.i16, i64 44
   %412 = load i32, ptr %411, align 4, !noalias !11185, !noundef !8
   %413 = icmp ult i32 %410, %412
-  %414 = select i1 %413, ptr %.v.i3.i16, ptr %.v.i18.i25
-  %.v.i27.i28 = select i1 %413, ptr %.v.i18.i25, ptr %.v.i3.i16
+  %414 = select i1 %413, ptr %.v.i3.i16, ptr %.v.i18.i25, !unpredictable !8
+  %.v.i27.i28 = select i1 %413, ptr %.v.i18.i25, ptr %.v.i3.i16, !unpredictable !8
   %415 = getelementptr inbounds nuw i8, ptr %.v.i21.i26, i64 44
   %416 = load i32, ptr %415, align 4, !noalias !11185, !noundef !8
   %417 = getelementptr inbounds nuw i8, ptr %389, i64 44
   %418 = load i32, ptr %417, align 4, !noalias !11185, !noundef !8
   %419 = icmp ult i32 %416, %418
-  %420 = select i1 %419, ptr %389, ptr %.v.i21.i26
-  %.v.i30.i29 = select i1 %419, ptr %.v.i21.i26, ptr %389
+  %420 = select i1 %419, ptr %389, ptr %.v.i21.i26, !unpredictable !8
+  %.v.i30.i29 = select i1 %419, ptr %.v.i21.i26, ptr %389, !unpredictable !8
   %421 = getelementptr inbounds nuw i8, ptr %395, i64 44
   %422 = load i32, ptr %421, align 4, !noalias !11185, !noundef !8
   %423 = getelementptr inbounds nuw i8, ptr %383, i64 44
   %424 = load i32, ptr %423, align 4, !noalias !11185, !noundef !8
   %425 = icmp ult i32 %422, %424
-  %426 = select i1 %425, ptr %383, ptr %395
-  %.v.i33.i30 = select i1 %425, ptr %395, ptr %383
+  %426 = select i1 %425, ptr %383, ptr %395, !unpredictable !8
+  %.v.i33.i30 = select i1 %425, ptr %395, ptr %383, !unpredictable !8
   %427 = getelementptr inbounds nuw i8, ptr %.v.i30.i29, i64 44
   %428 = load i32, ptr %427, align 4, !noalias !11185, !noundef !8
   %429 = getelementptr inbounds nuw i8, ptr %.v.i27.i28, i64 44
   %430 = load i32, ptr %429, align 4, !noalias !11185, !noundef !8
   %431 = icmp ult i32 %428, %430
-  %432 = select i1 %431, ptr %.v.i27.i28, ptr %.v.i30.i29
-  %.v.i36.i31 = select i1 %431, ptr %.v.i30.i29, ptr %.v.i27.i28
+  %432 = select i1 %431, ptr %.v.i27.i28, ptr %.v.i30.i29, !unpredictable !8
+  %.v.i36.i31 = select i1 %431, ptr %.v.i30.i29, ptr %.v.i27.i28, !unpredictable !8
   %433 = getelementptr inbounds nuw i8, ptr %402, i64 44
   %434 = load i32, ptr %433, align 4, !noalias !11185, !noundef !8
   %435 = getelementptr inbounds nuw i8, ptr %414, i64 44
   %436 = load i32, ptr %435, align 4, !noalias !11185, !noundef !8
   %437 = icmp ult i32 %434, %436
-  %438 = select i1 %437, ptr %414, ptr %402
-  %.v.i39.i32 = select i1 %437, ptr %402, ptr %414
+  %438 = select i1 %437, ptr %414, ptr %402, !unpredictable !8
+  %.v.i39.i32 = select i1 %437, ptr %402, ptr %414, !unpredictable !8
   %439 = getelementptr inbounds nuw i8, ptr %.v.i33.i30, i64 44
   %440 = load i32, ptr %439, align 4, !noalias !11185, !noundef !8
   %441 = getelementptr inbounds nuw i8, ptr %420, i64 44
   %442 = load i32, ptr %441, align 4, !noalias !11185, !noundef !8
   %443 = icmp ult i32 %440, %442
-  %444 = select i1 %443, ptr %420, ptr %.v.i33.i30
-  %.v.i42.i33 = select i1 %443, ptr %.v.i33.i30, ptr %420
+  %444 = select i1 %443, ptr %420, ptr %.v.i33.i30, !unpredictable !8
+  %.v.i42.i33 = select i1 %443, ptr %.v.i33.i30, ptr %420, !unpredictable !8
   %445 = getelementptr inbounds nuw i8, ptr %.v.i36.i31, i64 44
   %446 = load i32, ptr %445, align 4, !noalias !11185, !noundef !8
   %447 = getelementptr inbounds nuw i8, ptr %.v.i24.i27, i64 44
   %448 = load i32, ptr %447, align 4, !noalias !11185, !noundef !8
   %449 = icmp ult i32 %446, %448
-  %450 = select i1 %449, ptr %.v.i24.i27, ptr %.v.i36.i31
-  %.v.i45.i34 = select i1 %449, ptr %.v.i36.i31, ptr %.v.i24.i27
+  %450 = select i1 %449, ptr %.v.i24.i27, ptr %.v.i36.i31, !unpredictable !8
+  %.v.i45.i34 = select i1 %449, ptr %.v.i36.i31, ptr %.v.i24.i27, !unpredictable !8
   %451 = ptrtoint ptr %.v.i45.i34 to i64
   store i64 %451, ptr %.sroa.01.0, align 8, !alias.scope !11185
   %452 = getelementptr inbounds nuw i8, ptr %432, i64 44
@@ -94480,52 +94480,52 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17hf
   %454 = getelementptr inbounds nuw i8, ptr %408, i64 44
   %455 = load i32, ptr %454, align 4, !noalias !11185, !noundef !8
   %456 = icmp ult i32 %453, %455
-  %457 = select i1 %456, ptr %408, ptr %432
-  %.v.i48.i35 = select i1 %456, ptr %432, ptr %408
+  %457 = select i1 %456, ptr %408, ptr %432, !unpredictable !8
+  %.v.i48.i35 = select i1 %456, ptr %432, ptr %408, !unpredictable !8
   %458 = getelementptr inbounds nuw i8, ptr %.v.i42.i33, i64 44
   %459 = load i32, ptr %458, align 4, !noalias !11185, !noundef !8
   %460 = getelementptr inbounds nuw i8, ptr %.v.i39.i32, i64 44
   %461 = load i32, ptr %460, align 4, !noalias !11185, !noundef !8
   %462 = icmp ult i32 %459, %461
-  %463 = select i1 %462, ptr %.v.i39.i32, ptr %.v.i42.i33
-  %.v.i51.i36 = select i1 %462, ptr %.v.i42.i33, ptr %.v.i39.i32
+  %463 = select i1 %462, ptr %.v.i39.i32, ptr %.v.i42.i33, !unpredictable !8
+  %.v.i51.i36 = select i1 %462, ptr %.v.i42.i33, ptr %.v.i39.i32, !unpredictable !8
   %464 = getelementptr inbounds nuw i8, ptr %426, i64 44
   %465 = load i32, ptr %464, align 4, !noalias !11185, !noundef !8
   %466 = getelementptr inbounds nuw i8, ptr %438, i64 44
   %467 = load i32, ptr %466, align 4, !noalias !11185, !noundef !8
   %468 = icmp ult i32 %465, %467
-  %469 = select i1 %468, ptr %438, ptr %426
-  %.v.i54.i37 = select i1 %468, ptr %426, ptr %438
+  %469 = select i1 %468, ptr %438, ptr %426, !unpredictable !8
+  %.v.i54.i37 = select i1 %468, ptr %426, ptr %438, !unpredictable !8
   store ptr %469, ptr %371, align 8, !alias.scope !11185
   %470 = getelementptr inbounds nuw i8, ptr %.v.i51.i36, i64 44
   %471 = load i32, ptr %470, align 4, !noalias !11185, !noundef !8
   %472 = getelementptr inbounds nuw i8, ptr %.v.i48.i35, i64 44
   %473 = load i32, ptr %472, align 4, !noalias !11185, !noundef !8
   %474 = icmp ult i32 %471, %473
-  %475 = select i1 %474, ptr %.v.i48.i35, ptr %.v.i51.i36
-  %.v.i57.i38 = select i1 %474, ptr %.v.i51.i36, ptr %.v.i48.i35
+  %475 = select i1 %474, ptr %.v.i48.i35, ptr %.v.i51.i36, !unpredictable !8
+  %.v.i57.i38 = select i1 %474, ptr %.v.i51.i36, ptr %.v.i48.i35, !unpredictable !8
   %476 = getelementptr inbounds nuw i8, ptr %463, i64 44
   %477 = load i32, ptr %476, align 4, !noalias !11185, !noundef !8
   %478 = getelementptr inbounds nuw i8, ptr %457, i64 44
   %479 = load i32, ptr %478, align 4, !noalias !11185, !noundef !8
   %480 = icmp ult i32 %477, %479
-  %481 = select i1 %480, ptr %457, ptr %463
-  %.v.i60.i39 = select i1 %480, ptr %463, ptr %457
+  %481 = select i1 %480, ptr %457, ptr %463, !unpredictable !8
+  %.v.i60.i39 = select i1 %480, ptr %463, ptr %457, !unpredictable !8
   %482 = getelementptr inbounds nuw i8, ptr %444, i64 44
   %483 = load i32, ptr %482, align 4, !noalias !11185, !noundef !8
   %484 = getelementptr inbounds nuw i8, ptr %.v.i54.i37, i64 44
   %485 = load i32, ptr %484, align 4, !noalias !11185, !noundef !8
   %486 = icmp ult i32 %483, %485
-  %487 = select i1 %486, ptr %.v.i54.i37, ptr %444
-  %.v.i63.i40 = select i1 %486, ptr %444, ptr %.v.i54.i37
+  %487 = select i1 %486, ptr %.v.i54.i37, ptr %444, !unpredictable !8
+  %.v.i63.i40 = select i1 %486, ptr %444, ptr %.v.i54.i37, !unpredictable !8
   store ptr %487, ptr %355, align 8, !alias.scope !11185
   %488 = getelementptr inbounds nuw i8, ptr %.v.i57.i38, i64 44
   %489 = load i32, ptr %488, align 4, !noalias !11185, !noundef !8
   %490 = getelementptr inbounds nuw i8, ptr %450, i64 44
   %491 = load i32, ptr %490, align 4, !noalias !11185, !noundef !8
   %492 = icmp ult i32 %489, %491
-  %493 = select i1 %492, ptr %450, ptr %.v.i57.i38
-  %.v.i66.i41 = select i1 %492, ptr %.v.i57.i38, ptr %450
+  %493 = select i1 %492, ptr %450, ptr %.v.i57.i38, !unpredictable !8
+  %.v.i66.i41 = select i1 %492, ptr %.v.i57.i38, ptr %450, !unpredictable !8
   %494 = ptrtoint ptr %.v.i66.i41 to i64
   store i64 %494, ptr %354, align 8, !alias.scope !11185
   store ptr %493, ptr %362, align 8, !alias.scope !11185
@@ -94534,8 +94534,8 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17hf
   %497 = getelementptr inbounds nuw i8, ptr %475, i64 44
   %498 = load i32, ptr %497, align 4, !noalias !11185, !noundef !8
   %499 = icmp ult i32 %496, %498
-  %500 = select i1 %499, ptr %475, ptr %.v.i60.i39
-  %.v.i69.i42 = select i1 %499, ptr %.v.i60.i39, ptr %475
+  %500 = select i1 %499, ptr %475, ptr %.v.i60.i39, !unpredictable !8
+  %.v.i69.i42 = select i1 %499, ptr %.v.i60.i39, ptr %475, !unpredictable !8
   %501 = ptrtoint ptr %.v.i69.i42 to i64
   store i64 %501, ptr %347, align 8, !alias.scope !11185
   store ptr %500, ptr %370, align 8, !alias.scope !11185
@@ -94544,8 +94544,8 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17hf
   %504 = getelementptr inbounds nuw i8, ptr %481, i64 44
   %505 = load i32, ptr %504, align 4, !noalias !11185, !noundef !8
   %506 = icmp ult i32 %503, %505
-  %507 = select i1 %506, ptr %481, ptr %.v.i63.i40
-  %.v.i72.i43 = select i1 %506, ptr %.v.i63.i40, ptr %481
+  %507 = select i1 %506, ptr %481, ptr %.v.i63.i40, !unpredictable !8
+  %.v.i72.i43 = select i1 %506, ptr %.v.i63.i40, ptr %481, !unpredictable !8
   %508 = ptrtoint ptr %.v.i72.i43 to i64
   store i64 %508, ptr %363, align 8, !alias.scope !11185
   store ptr %507, ptr %396, align 8, !alias.scope !11185
