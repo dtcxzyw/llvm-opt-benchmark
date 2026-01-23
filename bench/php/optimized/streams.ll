@@ -5687,12 +5687,12 @@ define dso_local i32 @_php_stream_scandir(ptr noundef %0, ptr noundef writeonly 
   %6 = alloca %struct._php_stream_dirent, align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %44, label %7
+  br i1 %.not, label %38, label %7
 
 7:                                                ; preds = %5
   %8 = tail call ptr @_php_stream_opendir(ptr noundef %0, i32 noundef 8, ptr noundef %3)
   %.not47 = icmp eq ptr %8, null
-  br i1 %.not47, label %44, label %.split41
+  br i1 %.not47, label %38, label %.split41
 
 .split41:                                         ; preds = %7
   %9 = call i64 @_php_stream_read(ptr noundef nonnull %8, ptr noundef nonnull %6, i64 noundef 4097)
@@ -5701,66 +5701,56 @@ define dso_local i32 @_php_stream_scandir(ptr noundef %0, ptr noundef writeonly 
 
 .lr.ph:                                           ; preds = %.split41, %.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.split ], [ 0, %.split41 ]
-  %.03656 = phi i32 [ %.1, %.split ], [ 0, %.split41 ]
+  %10 = phi i1 [ false, %.split ], [ true, %.split41 ]
+  %.03656 = phi i32 [ 10, %.split ], [ 0, %.split41 ]
   %.03755 = phi ptr [ %.138, %.split ], [ null, %.split41 ]
-  %10 = zext i32 %.03656 to i64
-  %11 = icmp eq i64 %indvars.iv, %10
-  br i1 %11, label %12, label %zend_string_init.exit
+  %11 = zext nneg i32 %.03656 to i64
+  %12 = icmp eq i64 %indvars.iv, %11
+  br i1 %12, label %13, label %zend_string_init.exit
 
-12:                                               ; preds = %.lr.ph
-  %13 = icmp eq i32 %.03656, 0
-  br i1 %13, label %18, label %14
+13:                                               ; preds = %.lr.ph
+  br i1 %10, label %14, label %34
 
-14:                                               ; preds = %12
-  %15 = icmp slt i32 %.03656, 0
-  br i1 %15, label %40, label %16
-
-16:                                               ; preds = %14
-  %17 = shl nuw i32 %.03656, 1
-  br label %18
-
-18:                                               ; preds = %12, %16
-  %.2 = phi i32 [ %17, %16 ], [ 10, %12 ]
-  %19 = zext i32 %.2 to i64
-  %20 = call ptr @_safe_erealloc(ptr noundef %.03755, i64 noundef %19, i64 noundef 8, i64 noundef 0) #27
+14:                                               ; preds = %13
+  %15 = call ptr @_safe_erealloc(ptr noundef %.03755, i64 noundef 10, i64 noundef 8, i64 noundef 0) #27
   br label %zend_string_init.exit
 
-zend_string_init.exit:                            ; preds = %18, %.lr.ph
-  %.138 = phi ptr [ %20, %18 ], [ %.03755, %.lr.ph ]
-  %.1 = phi i32 [ %.2, %18 ], [ %.03656, %.lr.ph ]
-  %21 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #28
-  %22 = and i64 %21, -8
-  %23 = add i64 %22, 32
-  %24 = call noalias ptr @_emalloc(i64 noundef %23) #29
-  store i32 1, ptr %24, align 4, !tbaa !41
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 4
-  store i32 22, ptr %25, align 4, !tbaa !21
-  %26 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  store i64 0, ptr %26, align 8, !tbaa !123
-  %27 = getelementptr inbounds nuw i8, ptr %24, i64 16
-  store i64 %21, ptr %27, align 8, !tbaa !125
-  %28 = getelementptr inbounds nuw i8, ptr %24, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %28, ptr nonnull align 1 %6, i64 %21, i1 false)
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 %21
-  store i8 0, ptr %29, align 1, !tbaa !21
-  %30 = getelementptr inbounds nuw ptr, ptr %.138, i64 %indvars.iv
-  store ptr %24, ptr %30, align 8, !tbaa !133
-  %31 = icmp ult i32 %.1, 10
-  br i1 %31, label %40, label %32
+zend_string_init.exit:                            ; preds = %14, %.lr.ph
+  %.138 = phi ptr [ %15, %14 ], [ %.03755, %.lr.ph ]
+  %.1 = phi i32 [ 10, %14 ], [ %.03656, %.lr.ph ]
+  %16 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #28
+  %17 = and i64 %16, -8
+  %18 = add i64 %17, 32
+  %19 = call noalias ptr @_emalloc(i64 noundef %18) #29
+  store i32 1, ptr %19, align 4, !tbaa !41
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
+  store i32 22, ptr %20, align 4, !tbaa !21
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  store i64 0, ptr %21, align 8, !tbaa !123
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  store i64 %16, ptr %22, align 8, !tbaa !125
+  %23 = getelementptr inbounds nuw i8, ptr %19, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %23, ptr nonnull align 1 %6, i64 %16, i1 false)
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 %16
+  store i8 0, ptr %24, align 1, !tbaa !21
+  %25 = getelementptr inbounds nuw ptr, ptr %.138, i64 %indvars.iv
+  store ptr %19, ptr %25, align 8, !tbaa !133
+  %.not63 = icmp eq i32 %.1, 10
+  br i1 %.not63, label %26, label %34
 
-32:                                               ; preds = %zend_string_init.exit
+26:                                               ; preds = %zend_string_init.exit
   %exitcond = icmp eq i64 %indvars.iv, 4294967295
   br i1 %exitcond, label %.thread, label %.split
 
-.thread:                                          ; preds = %32
-  %33 = call i32 @_php_stream_free(ptr noundef nonnull %8, i32 noundef 3)
+.thread:                                          ; preds = %26
+  %27 = call i32 @_php_stream_free(ptr noundef nonnull %8, i32 noundef 3)
   br label %.lr.ph61.preheader
 
-.split:                                           ; preds = %32
+.split:                                           ; preds = %26
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %34 = call i64 @_php_stream_read(ptr noundef nonnull %8, ptr noundef nonnull %6, i64 noundef 4097)
-  %.not63 = icmp eq i64 %34, 4097
-  br i1 %.not63, label %.lr.ph, label %select.unfold50._crit_edge.loopexit
+  %28 = call i64 @_php_stream_read(ptr noundef nonnull %8, ptr noundef nonnull %6, i64 noundef 4097)
+  %.not64 = icmp eq i64 %28, 4097
+  br i1 %.not64, label %.lr.ph, label %select.unfold50._crit_edge.loopexit
 
 select.unfold50._crit_edge.loopexit:              ; preds = %.split
   %indvars.le = trunc i64 %indvars.iv.next to i32
@@ -5769,46 +5759,46 @@ select.unfold50._crit_edge.loopexit:              ; preds = %.split
 select.unfold50._crit_edge:                       ; preds = %select.unfold50._crit_edge.loopexit, %.split41
   %.037.lcssa = phi ptr [ null, %.split41 ], [ %.138, %select.unfold50._crit_edge.loopexit ]
   %.035.lcssa = phi i32 [ 0, %.split41 ], [ %indvars.le, %select.unfold50._crit_edge.loopexit ]
-  %35 = call i32 @_php_stream_free(ptr noundef nonnull %8, i32 noundef 3)
+  %29 = call i32 @_php_stream_free(ptr noundef nonnull %8, i32 noundef 3)
   store ptr %.037.lcssa, ptr %1, align 8, !tbaa !142
-  %36 = icmp ne i32 %.035.lcssa, 0
-  %37 = icmp ne ptr %4, null
-  %or.cond = and i1 %37, %36
-  br i1 %or.cond, label %38, label %44
+  %30 = icmp ne i32 %.035.lcssa, 0
+  %31 = icmp ne ptr %4, null
+  %or.cond = and i1 %31, %30
+  br i1 %or.cond, label %32, label %38
 
-38:                                               ; preds = %select.unfold50._crit_edge
-  %39 = zext i32 %.035.lcssa to i64
-  call void @qsort(ptr noundef %.037.lcssa, i64 noundef %39, i64 noundef 8, ptr noundef nonnull %4) #27
-  br label %44
+32:                                               ; preds = %select.unfold50._crit_edge
+  %33 = zext i32 %.035.lcssa to i64
+  call void @qsort(ptr noundef %.037.lcssa, i64 noundef %33, i64 noundef 8, ptr noundef nonnull %4) #27
+  br label %38
 
-40:                                               ; preds = %zend_string_init.exit, %14
-  %.239 = phi ptr [ %.138, %zend_string_init.exit ], [ %.03755, %14 ]
-  %41 = call i32 @_php_stream_free(ptr noundef nonnull %8, i32 noundef 3)
-  %.not64 = icmp eq i64 %indvars.iv, 0
-  br i1 %.not64, label %._crit_edge, label %.lr.ph61.preheader
+34:                                               ; preds = %13, %zend_string_init.exit
+  %.239 = phi ptr [ %.03755, %13 ], [ %.138, %zend_string_init.exit ]
+  %35 = call i32 @_php_stream_free(ptr noundef nonnull %8, i32 noundef 3)
+  %.not65 = icmp eq i64 %indvars.iv, 0
+  br i1 %.not65, label %._crit_edge, label %.lr.ph61.preheader
 
-.lr.ph61.preheader:                               ; preds = %.thread, %40
-  %.23979 = phi ptr [ %.138, %.thread ], [ %.239, %40 ]
-  %.03557.lcssa78 = phi i64 [ 4294967295, %.thread ], [ %indvars.iv, %40 ]
-  %wide.trip.count = and i64 %.03557.lcssa78, 4294967295
+.lr.ph61.preheader:                               ; preds = %.thread, %34
+  %.23980 = phi ptr [ %.138, %.thread ], [ %.239, %34 ]
+  %.03557.lcssa79 = phi i64 [ 4294967295, %.thread ], [ %indvars.iv, %34 ]
+  %wide.trip.count = and i64 %.03557.lcssa79, 4294967295
   br label %.lr.ph61
 
-._crit_edge:                                      ; preds = %.lr.ph61, %40
-  %.23980 = phi ptr [ %.239, %40 ], [ %.23979, %.lr.ph61 ]
-  call void @_efree(ptr noundef %.23980) #27
-  br label %44
+._crit_edge:                                      ; preds = %.lr.ph61, %34
+  %.23981 = phi ptr [ %.239, %34 ], [ %.23980, %.lr.ph61 ]
+  call void @_efree(ptr noundef %.23981) #27
+  br label %38
 
 .lr.ph61:                                         ; preds = %.lr.ph61.preheader, %.lr.ph61
-  %indvars.iv67 = phi i64 [ 0, %.lr.ph61.preheader ], [ %indvars.iv.next68, %.lr.ph61 ]
-  %42 = getelementptr inbounds nuw ptr, ptr %.23979, i64 %indvars.iv67
-  %43 = load ptr, ptr %42, align 8, !tbaa !133
-  call void @_efree(ptr noundef %43) #27
-  %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
-  %exitcond71.not = icmp eq i64 %indvars.iv.next68, %wide.trip.count
-  br i1 %exitcond71.not, label %._crit_edge, label %.lr.ph61
+  %indvars.iv68 = phi i64 [ 0, %.lr.ph61.preheader ], [ %indvars.iv.next69, %.lr.ph61 ]
+  %36 = getelementptr inbounds nuw ptr, ptr %.23980, i64 %indvars.iv68
+  %37 = load ptr, ptr %36, align 8, !tbaa !133
+  call void @_efree(ptr noundef %37) #27
+  %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
+  %exitcond72.not = icmp eq i64 %indvars.iv.next69, %wide.trip.count
+  br i1 %exitcond72.not, label %._crit_edge, label %.lr.ph61
 
-44:                                               ; preds = %select.unfold50._crit_edge, %38, %7, %5, %._crit_edge
-  %.040 = phi i32 [ -1, %._crit_edge ], [ -1, %7 ], [ -1, %5 ], [ %.035.lcssa, %38 ], [ %.035.lcssa, %select.unfold50._crit_edge ]
+38:                                               ; preds = %select.unfold50._crit_edge, %32, %7, %5, %._crit_edge
+  %.040 = phi i32 [ -1, %._crit_edge ], [ -1, %7 ], [ -1, %5 ], [ %.035.lcssa, %32 ], [ %.035.lcssa, %select.unfold50._crit_edge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.040
 }

@@ -437,59 +437,44 @@ define void @_ZN3net9QuicUtils11TagToStringB5cxx11Ej(ptr dead_on_unwind noalias 
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br label %4
 
-4:                                                ; preds = %2, %17
-  %.021 = phi i32 [ %1, %2 ], [ %18, %17 ]
-  %.01719 = phi i64 [ 0, %2 ], [ %19, %17 ]
-  %5 = trunc i32 %.021 to i8
+4:                                                ; preds = %2, %10
+  %.020 = phi i32 [ %1, %2 ], [ %11, %10 ]
+  %.01719 = phi i64 [ 0, %2 ], [ %12, %10 ]
+  %5 = trunc i32 %.020 to i8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 %.01719
-  store i8 %5, ptr %6, align 1, !tbaa !3
-  %sext = shl i32 %.021, 24
-  %7 = icmp eq i32 %sext, 0
-  br i1 %7, label %11, label %8
-
-8:                                                ; preds = %4
-  %9 = icmp eq i32 %sext, -16777216
-  %10 = icmp eq i64 %.01719, 3
-  %or.cond = and i1 %10, %9
-  br i1 %or.cond, label %12, label %13
-
-11:                                               ; preds = %4
+  %sext.mask = and i32 %.020, 255
+  %7 = icmp eq i32 %sext.mask, 0
   %.old1 = icmp eq i64 %.01719, 3
-  br i1 %.old1, label %12, label %13
+  %or.cond = and i1 %7, %.old1
+  %spec.store.select = select i1 %or.cond, i8 32, i8 %5
+  store i8 %spec.store.select, ptr %6, align 1
+  %8 = zext i8 %spec.store.select to i32
+  %9 = tail call i32 @isprint(i32 noundef %8) #20
+  %.not = icmp eq i32 %9, 0
+  br i1 %.not, label %18, label %10
 
-12:                                               ; preds = %8, %11
-  store i8 32, ptr %6, align 1, !tbaa !3
-  br label %13
+10:                                               ; preds = %4
+  %11 = lshr i32 %.020, 8
+  %12 = add nuw nsw i64 %.01719, 1
+  %exitcond = icmp eq i64 %12, 4
+  br i1 %exitcond, label %13, label %4, !llvm.loop !39
 
-13:                                               ; preds = %12, %11, %8
-  %14 = phi i32 [ 32, %12 ], [ %.021, %11 ], [ %.021, %8 ]
-  %15 = and i32 %14, 255
-  %16 = tail call i32 @isprint(i32 noundef %15) #20
-  %.not = icmp eq i32 %16, 0
-  br i1 %.not, label %25, label %17
+13:                                               ; preds = %10
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %14, ptr %0, align 8, !tbaa !40
+  %15 = load i32, ptr %3, align 4
+  store i32 %15, ptr %14, align 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 4, ptr %16, align 8, !tbaa !43
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i8 0, ptr %17, align 4, !tbaa !3
+  br label %19
 
-17:                                               ; preds = %13
-  %18 = lshr i32 %.021, 8
-  %19 = add nuw nsw i64 %.01719, 1
-  %exitcond = icmp eq i64 %19, 4
-  br i1 %exitcond, label %20, label %4, !llvm.loop !39
-
-20:                                               ; preds = %17
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %21, ptr %0, align 8, !tbaa !40
-  %22 = load i32, ptr %3, align 4
-  store i32 %22, ptr %21, align 8
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 4, ptr %23, align 8, !tbaa !43
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i8 0, ptr %24, align 4, !tbaa !3
-  br label %26
-
-25:                                               ; preds = %13
+18:                                               ; preds = %4
   tail call void @_ZN4base12UintToStringB5cxx11Ej(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, i32 noundef %1)
-  br label %26
+  br label %19
 
-26:                                               ; preds = %25, %20
+19:                                               ; preds = %18, %13
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
