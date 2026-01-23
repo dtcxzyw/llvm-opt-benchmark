@@ -2244,7 +2244,7 @@ define internal fastcc void @_ZN7uu_join5State9read_line17hc5ba86e4f0cb8bfaE(ptr
 
 11:                                               ; preds = %4
   store i64 -9223372036854775808, ptr %0, align 8
-  br label %103
+  br label %104
 
 12:                                               ; preds = %4
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -2461,27 +2461,29 @@ _ZN7uu_join4Line3new17h42f846b8c47e3c02E.exit:    ; preds = %.loopexit70.i, %.no
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !252
   %97 = load i64, ptr %18, align 8, !noundef !4
   %98 = icmp ugt i64 %96, %97
-  br i1 %98, label %101, label %102
+  br i1 %98, label %102, label %103
 
 99:                                               ; preds = %12
-  %100 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.3.0.copyload, ptr %100, align 8
+  %100 = icmp ne ptr %.sroa.3.0.copyload, null
+  tail call void @llvm.assume(i1 %100)
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.sroa.3.0.copyload, ptr %101, align 8
   store i64 -9223372036854775807, ptr %0, align 8
+  br label %104
+
+102:                                              ; preds = %_ZN7uu_join4Line3new17h42f846b8c47e3c02E.exit
+  store i64 %96, ptr %18, align 8
   br label %103
 
-101:                                              ; preds = %_ZN7uu_join4Line3new17h42f846b8c47e3c02E.exit
-  store i64 %96, ptr %18, align 8
-  br label %102
-
-102:                                              ; preds = %_ZN7uu_join4Line3new17h42f846b8c47e3c02E.exit, %101
+103:                                              ; preds = %_ZN7uu_join4Line3new17h42f846b8c47e3c02E.exit, %102
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0, i64 16, i1 false)
   %.sroa.426.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %96, ptr %.sroa.426.0..sroa_idx, align 8
   %.sroa.527.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.527.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
-  br label %103
+  br label %104
 
-103:                                              ; preds = %11, %102, %99
+104:                                              ; preds = %11, %103, %99
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 }

@@ -1961,19 +1961,19 @@ define hidden { i32, i32 } @"_ZN17cranelift_bforest4path13Path$LT$F$GT$13balance
   %.not = icmp eq i8 %1, 3
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 80
   %.pre = load i64, ptr %.phi.trans.insert, align 8
-  %.pre81 = add i64 %.pre, -1
-  br i1 %.not, label %._crit_edge80, label %4
+  %.pre80 = add i64 %.pre, -1
+  br i1 %.not, label %._crit_edge79, label %4
 
 4:                                                ; preds = %3
-  %5 = icmp ult i64 %.pre81, 16
+  %5 = icmp ult i64 %.pre80, 16
   br i1 %5, label %15, label %20, !prof !20
 
-._crit_edge80:                                    ; preds = %3, %15, %21
+._crit_edge79:                                    ; preds = %3, %15, %21
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %7 = tail call fastcc noundef zeroext i1 @"_ZN17cranelift_bforest4path13Path$LT$F$GT$10heal_level17h0a60288c58a131afE"(ptr noalias noundef align 8 dereferenceable(88) %0, i8 noundef %1, i64 noundef %.pre81, ptr noalias noundef align 8 dereferenceable(32) %2)
-  br i1 %7, label %22, label %.preheader35
+  %7 = tail call fastcc noundef zeroext i1 @"_ZN17cranelift_bforest4path13Path$LT$F$GT$10heal_level17h0a60288c58a131afE"(ptr noalias noundef align 8 dereferenceable(88) %0, i8 noundef %1, i64 noundef %.pre80, ptr noalias noundef align 8 dereferenceable(32) %2)
+  br i1 %7, label %22, label %.preheader34
 
-.preheader35:                                     ; preds = %._crit_edge80
+.preheader34:                                     ; preds = %._crit_edge79
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %9 = load i64, ptr %8, align 8, !alias.scope !259, !noalias !262, !noundef !4
   %10 = load i32, ptr %0, align 8, !noundef !4
@@ -1981,39 +1981,39 @@ define hidden { i32, i32 } @"_ZN17cranelift_bforest4path13Path$LT$F$GT$13balance
   %12 = icmp ugt i64 %9, %11
   br i1 %12, label %"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h6b7f42cb91f95902E.exit.lr.ph", label %._crit_edge, !prof !264
 
-"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h6b7f42cb91f95902E.exit.lr.ph": ; preds = %.preheader35
+"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h6b7f42cb91f95902E.exit.lr.ph": ; preds = %.preheader34
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8, !alias.scope !259, !noalias !262, !nonnull !4, !noundef !4
   br label %"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h6b7f42cb91f95902E.exit"
 
 15:                                               ; preds = %4
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %17 = getelementptr inbounds nuw i8, ptr %16, i64 %.pre81
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 %.pre80
   %18 = load i8, ptr %17, align 1, !noundef !4
   %19 = icmp eq i8 %18, 0
-  br i1 %19, label %21, label %._crit_edge80
+  br i1 %19, label %21, label %._crit_edge79
 
 20:                                               ; preds = %4
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %.pre81, i64 noundef 16, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9d97581ae8ad496ddf7d0fbc6cf9f5f2.108.llvm.1710812290736639100) #64
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %.pre80, i64 noundef 16, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9d97581ae8ad496ddf7d0fbc6cf9f5f2.108.llvm.1710812290736639100) #64
   unreachable
 
 21:                                               ; preds = %15
   tail call void @"_ZN17cranelift_bforest4path13Path$LT$F$GT$15update_crit_key17h8558fb884191ca66E.llvm.1710812290736639100"(ptr noalias noundef nonnull align 8 dereferenceable(88) %0, ptr noalias noundef nonnull align 8 dereferenceable(32) %2)
-  br label %._crit_edge80
+  br label %._crit_edge79
 
-22:                                               ; preds = %._crit_edge80
+22:                                               ; preds = %._crit_edge79
   store i64 0, ptr %6, align 8
   br label %65
 
-._crit_edge:                                      ; preds = %35, %.preheader35
-  %.lcssa45 = phi i64 [ %11, %.preheader35 ], [ %40, %35 ]
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %.lcssa45, i64 noundef %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.9d97581ae8ad496ddf7d0fbc6cf9f5f2.110) #64, !noalias !259
+._crit_edge:                                      ; preds = %35, %.preheader34
+  %.lcssa44 = phi i64 [ %11, %.preheader34 ], [ %40, %35 ]
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %.lcssa44, i64 noundef %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.9d97581ae8ad496ddf7d0fbc6cf9f5f2.110) #64, !noalias !259
   unreachable
 
 "_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h6b7f42cb91f95902E.exit": ; preds = %"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h6b7f42cb91f95902E.exit.lr.ph", %35
   %indvars.iv = phi i64 [ 16, %"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h6b7f42cb91f95902E.exit.lr.ph" ], [ %indvars.iv.next, %35 ]
   %23 = phi i64 [ %11, %"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h6b7f42cb91f95902E.exit.lr.ph" ], [ %40, %35 ]
-  %.053 = phi i64 [ 0, %"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h6b7f42cb91f95902E.exit.lr.ph" ], [ %36, %35 ]
+  %.052 = phi i64 [ 0, %"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h6b7f42cb91f95902E.exit.lr.ph" ], [ %36, %35 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !259)
   %24 = getelementptr inbounds nuw { i8, [63 x i8] }, ptr %14, i64 %23
   %25 = load i8, ptr %24, align 4, !range !5, !noundef !4
@@ -2027,22 +2027,22 @@ define hidden { i32, i32 } @"_ZN17cranelift_bforest4path13Path$LT$F$GT$13balance
   br i1 %30, label %34, label %31
 
 31:                                               ; preds = %27, %"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h6b7f42cb91f95902E.exit"
-  %.not28 = icmp eq i64 %.053, 0
+  %.not28 = icmp eq i64 %.052, 0
   br i1 %.not28, label %43, label %.preheader
 
 .preheader:                                       ; preds = %31
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 28
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %.promoted = load i32, ptr %32, align 4
-  %.promoted56 = load i32, ptr %33, align 8
+  %.promoted55 = load i32, ptr %33, align 8
   br label %68
 
 34:                                               ; preds = %27
-  %exitcond.not = icmp eq i64 %.053, 15
+  %exitcond.not = icmp eq i64 %.052, 15
   br i1 %exitcond.not, label %42, label %35, !prof !12
 
 35:                                               ; preds = %34
-  %36 = add nuw nsw i64 %.053, 1
+  %36 = add nuw nsw i64 %.052, 1
   %37 = getelementptr inbounds nuw i8, ptr %24, i64 32
   %38 = load i32, ptr %37, align 4, !noundef !4
   %39 = getelementptr inbounds nuw i32, ptr %0, i64 %36
@@ -2062,15 +2062,14 @@ define hidden { i32, i32 } @"_ZN17cranelift_bforest4path13Path$LT$F$GT$13balance
 
 45:                                               ; preds = %"_ZN106_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17h2941bcc6d4282ae3E.exit"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !266)
-  %46 = sub nuw nsw i64 16, %.053
-  %.not.i = icmp eq i64 %.053, 16
-  br i1 %.not.i, label %_ZN17cranelift_bforest11slice_shift17hc1e58459f0802ea8E.exit, label %.lr.ph.i
+  %46 = sub nuw nsw i64 16, %.052
+  br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %45, %49
   %.sroa.01.010.i = phi i64 [ %50, %49 ], [ 0, %45 ]
-  %47 = add nuw nsw i64 %.sroa.01.010.i, %.053
-  %exitcond75.not = icmp eq i64 %.sroa.01.010.i, %indvars.iv
-  br i1 %exitcond75.not, label %48, label %49, !prof !12
+  %47 = add nuw nsw i64 %.sroa.01.010.i, %.052
+  %exitcond74.not = icmp eq i64 %.sroa.01.010.i, %indvars.iv
+  br i1 %exitcond74.not, label %48, label %49, !prof !12
 
 48:                                               ; preds = %.lr.ph.i
   tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %47, i64 noundef 16, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b60c328eaccfbeead380438524d21b92.6.llvm.2651468057167481930) #64, !noalias !266
@@ -2088,34 +2087,34 @@ define hidden { i32, i32 } @"_ZN17cranelift_bforest4path13Path$LT$F$GT$13balance
 _ZN17cranelift_bforest11slice_shift17h077487e3d4f0b49cE.exit: ; preds = %49
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !269)
-  br label %.lr.ph.i31
+  br label %.lr.ph.i30
 
-.lr.ph.i31:                                       ; preds = %_ZN17cranelift_bforest11slice_shift17h077487e3d4f0b49cE.exit, %57
-  %.sroa.01.010.i32 = phi i64 [ %58, %57 ], [ 0, %_ZN17cranelift_bforest11slice_shift17h077487e3d4f0b49cE.exit ]
-  %55 = add nuw nsw i64 %.sroa.01.010.i32, %.053
-  %exitcond79.not = icmp eq i64 %.sroa.01.010.i32, %indvars.iv
-  br i1 %exitcond79.not, label %56, label %57, !prof !12
+.lr.ph.i30:                                       ; preds = %_ZN17cranelift_bforest11slice_shift17h077487e3d4f0b49cE.exit, %57
+  %.sroa.01.010.i31 = phi i64 [ %58, %57 ], [ 0, %_ZN17cranelift_bforest11slice_shift17h077487e3d4f0b49cE.exit ]
+  %55 = add nuw nsw i64 %.sroa.01.010.i31, %.052
+  %exitcond78.not = icmp eq i64 %.sroa.01.010.i31, %indvars.iv
+  br i1 %exitcond78.not, label %56, label %57, !prof !12
 
-56:                                               ; preds = %.lr.ph.i31
+56:                                               ; preds = %.lr.ph.i30
   tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %55, i64 noundef 16, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b60c328eaccfbeead380438524d21b92.6.llvm.2651468057167481930) #64, !noalias !269
   unreachable
 
-57:                                               ; preds = %.lr.ph.i31
-  %58 = add nuw nsw i64 %.sroa.01.010.i32, 1
+57:                                               ; preds = %.lr.ph.i30
+  %58 = add nuw nsw i64 %.sroa.01.010.i31, 1
   %59 = getelementptr inbounds nuw i8, ptr %54, i64 %55
   %60 = load i8, ptr %59, align 1, !alias.scope !269, !noundef !4
-  %61 = getelementptr inbounds nuw i8, ptr %54, i64 %.sroa.01.010.i32
+  %61 = getelementptr inbounds nuw i8, ptr %54, i64 %.sroa.01.010.i31
   store i8 %60, ptr %61, align 1, !alias.scope !269
-  %exitcond.not.i33 = icmp eq i64 %58, %46
-  br i1 %exitcond.not.i33, label %_ZN17cranelift_bforest11slice_shift17hc1e58459f0802ea8E.exit, label %.lr.ph.i31
+  %exitcond.not.i32 = icmp eq i64 %58, %46
+  br i1 %exitcond.not.i32, label %_ZN17cranelift_bforest11slice_shift17hc1e58459f0802ea8E.exit, label %.lr.ph.i30
 
-_ZN17cranelift_bforest11slice_shift17hc1e58459f0802ea8E.exit: ; preds = %57, %45
+_ZN17cranelift_bforest11slice_shift17hc1e58459f0802ea8E.exit: ; preds = %57
   %62 = load i64, ptr %6, align 8, !noundef !4
   %.not29 = icmp eq i64 %62, 0
   br i1 %.not29, label %43, label %63
 
 63:                                               ; preds = %_ZN17cranelift_bforest11slice_shift17hc1e58459f0802ea8E.exit
-  %64 = sub i64 %62, %.053
+  %64 = sub i64 %62, %.052
   store i64 %64, ptr %6, align 8
   br label %43
 
@@ -2127,10 +2126,10 @@ _ZN17cranelift_bforest11slice_shift17hc1e58459f0802ea8E.exit: ; preds = %57, %45
   ret { i32, i32 } %67
 
 68:                                               ; preds = %"_ZN106_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17h2941bcc6d4282ae3E.exit", %.preheader
-  %69 = phi i32 [ %.promoted56, %.preheader ], [ 1, %"_ZN106_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17h2941bcc6d4282ae3E.exit" ]
+  %69 = phi i32 [ %.promoted55, %.preheader ], [ 1, %"_ZN106_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17h2941bcc6d4282ae3E.exit" ]
   %70 = phi i32 [ %.promoted, %.preheader ], [ %72, %"_ZN106_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17h2941bcc6d4282ae3E.exit" ]
-  %.sroa.03.055 = phi i64 [ 0, %.preheader ], [ %76, %"_ZN106_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17h2941bcc6d4282ae3E.exit" ]
-  %71 = getelementptr inbounds nuw i32, ptr %0, i64 %.sroa.03.055
+  %.sroa.03.054 = phi i64 [ 0, %.preheader ], [ %76, %"_ZN106_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17h2941bcc6d4282ae3E.exit" ]
+  %71 = getelementptr inbounds nuw i32, ptr %0, i64 %.sroa.03.054
   %72 = load i32, ptr %71, align 4, !noundef !4
   %73 = zext i32 %72 to i64
   %74 = icmp ugt i64 %9, %73
@@ -2141,7 +2140,7 @@ _ZN17cranelift_bforest11slice_shift17hc1e58459f0802ea8E.exit: ; preds = %57, %45
   unreachable
 
 "_ZN106_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17h2941bcc6d4282ae3E.exit": ; preds = %68
-  %76 = add nuw nsw i64 %.sroa.03.055, 1
+  %76 = add nuw nsw i64 %.sroa.03.054, 1
   %77 = getelementptr inbounds nuw { i8, [63 x i8] }, ptr %14, i64 %73
   store i8 2, ptr %77, align 4
   %.sroa.420.0..sroa_idx = getelementptr inbounds nuw i8, ptr %77, i64 4
@@ -2150,8 +2149,8 @@ _ZN17cranelift_bforest11slice_shift17hc1e58459f0802ea8E.exit: ; preds = %57, %45
   store i32 %70, ptr %.sroa.5.0..sroa_idx, align 4
   store i32 1, ptr %33, align 8
   store i32 %72, ptr %32, align 4
-  %exitcond72.not = icmp eq i64 %76, %.053
-  br i1 %exitcond72.not, label %45, label %68
+  %exitcond71.not = icmp eq i64 %76, %.052
+  br i1 %exitcond71.not, label %45, label %68
 }
 
 ; Function Attrs: nonlazybind uwtable

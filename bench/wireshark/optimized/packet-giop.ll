@@ -5613,7 +5613,7 @@ get_CDR_ulong.exit32:                             ; preds = %19, %21
     i32 2, label %33
     i32 3, label %33
     i32 4, label %34
-    i32 5, label %35
+    i32 5, label %.lr.ph.preheader.i35
   ]
 
 33:                                               ; preds = %32, %32
@@ -5624,22 +5624,24 @@ get_CDR_ulong.exit32:                             ; preds = %19, %21
   call fastcc void @decode_SystemExceptionReplyBody(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %6, i1 noundef zeroext %4)
   br label %43
 
-35:                                               ; preds = %32
+.lr.ph.preheader.i35:                             ; preds = %32
+  %35 = and i32 %.promoted.i33, 1
+  %spec.select = add nuw i32 %.promoted.i33, %35
   br i1 %4, label %36, label %38
 
-36:                                               ; preds = %35
-  %37 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.promoted.i33)
+36:                                               ; preds = %.lr.ph.preheader.i35
+  %37 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %spec.select)
   br label %get_CDR_ushort.exit
 
-38:                                               ; preds = %35
-  %39 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %.promoted.i33)
+38:                                               ; preds = %.lr.ph.preheader.i35
+  %39 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %spec.select)
   br label %get_CDR_ushort.exit
 
 get_CDR_ushort.exit:                              ; preds = %36, %38
   %.in.i = phi i16 [ %37, %36 ], [ %39, %38 ]
   %40 = load i32, ptr @hf_giop_addressing_disposition, align 4
   %41 = zext i16 %.in.i to i32
-  %42 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %40, ptr noundef %0, i32 noundef %.promoted.i33, i32 noundef 2, i32 noundef %41)
+  %42 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %40, ptr noundef %0, i32 noundef %spec.select, i32 noundef 2, i32 noundef %41)
   br label %43
 
 43:                                               ; preds = %32, %get_CDR_ushort.exit, %34, %33

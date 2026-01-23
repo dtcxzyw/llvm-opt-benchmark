@@ -1805,12 +1805,12 @@ define internal ptr @ip6fl_seq_start(ptr noundef readonly captures(none) %0, ptr
   store ptr %13, ptr %14, align 8
   tail call void @__rcu_read_lock() #13
   %15 = load i64, ptr %1, align 8
-  %.fr34 = freeze i64 %15
-  %16 = icmp eq i64 %.fr34, 0
-  br i1 %16, label %.thread11, label %17
+  %.fr = freeze i64 %15
+  %16 = icmp eq i64 %.fr, 0
+  br i1 %16, label %.thread13, label %17
 
 17:                                               ; preds = %2
-  %18 = add i64 %.fr34, -1
+  %18 = add i64 %.fr, -1
   %19 = load ptr, ptr %3, align 8
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 16
@@ -1839,11 +1839,11 @@ define internal ptr @ip6fl_seq_start(ptr noundef readonly captures(none) %0, ptr
   %35 = trunc i64 %34 to i32
   store i32 %35, ptr %21, align 8
   %36 = icmp eq i64 %34, 256
-  br i1 %36, label %.thread11, label %22, !llvm.loop !35
+  br i1 %36, label %.thread, label %22, !llvm.loop !35
 
 37:                                               ; preds = %29
   %.not = icmp eq i64 %18, 0
-  br i1 %.not, label %.thread11, label %.preheader
+  br i1 %.not, label %.thread, label %.preheader
 
 .preheader:                                       ; preds = %37, %.loopexit
   %38 = phi i64 [ %74, %.loopexit ], [ %18, %37 ]
@@ -1864,7 +1864,7 @@ define internal ptr @ip6fl_seq_start(ptr noundef readonly captures(none) %0, ptr
   %49 = add i32 %48, 1
   store i32 %49, ptr %47, align 8
   %50 = icmp slt i32 %49, 256
-  br i1 %50, label %51, label %.thread11
+  br i1 %50, label %51, label %.thread13
 
 51:                                               ; preds = %46
   %52 = sext i32 %49 to i64
@@ -1882,7 +1882,7 @@ define internal ptr @ip6fl_seq_start(ptr noundef readonly captures(none) %0, ptr
   store i32 %59, ptr %47, align 8
   %60 = and i64 %58, 4294967295
   %61 = icmp eq i64 %60, 256
-  br i1 %61, label %.thread11, label %62
+  br i1 %61, label %.thread13, label %62
 
 62:                                               ; preds = %57, %51
   %63 = phi i64 [ %52, %51 ], [ %58, %57 ]
@@ -1905,11 +1905,16 @@ define internal ptr @ip6fl_seq_start(ptr noundef readonly captures(none) %0, ptr
   %73 = phi ptr [ %67, %69 ], [ %44, %53 ]
   %74 = add i64 %38, -1
   %75 = icmp eq i64 %74, 0
-  br i1 %75, label %.thread11, label %.preheader
+  br i1 %75, label %.thread13, label %.preheader
 
-.thread11:                                        ; preds = %33, %.loopexit, %46, %57, %37, %2
-  %76 = phi ptr [ inttoptr (i64 1 to ptr), %2 ], [ null, %57 ], [ %27, %37 ], [ %73, %.loopexit ], [ null, %46 ], [ null, %33 ]
-  ret ptr %76
+.thread:                                          ; preds = %33, %37
+  %76 = icmp eq i64 %18, 0
+  %spec.select = select i1 %76, ptr %27, ptr null
+  br label %.thread13
+
+.thread13:                                        ; preds = %.loopexit, %46, %57, %.thread, %2
+  %77 = phi ptr [ inttoptr (i64 1 to ptr), %2 ], [ null, %57 ], [ %spec.select, %.thread ], [ null, %46 ], [ %73, %.loopexit ]
+  ret ptr %77
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

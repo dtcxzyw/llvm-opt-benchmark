@@ -28532,7 +28532,7 @@ stbi__jpeg_huff_decode.exit147.i.us.i.i.i.i:      ; preds = %630, %615
   ]
 
 646:                                              ; preds = %stbi__jpeg_huff_decode.exit147.i.us.i.i.i.i
-  %647 = icmp eq i32 %643, 0
+  %647 = icmp slt i32 %643, 1
   br i1 %647, label %648, label %stbi__jpeg_get_bit.exit150.i.us.i.i.i.i
 
 648:                                              ; preds = %646
@@ -28566,7 +28566,7 @@ stbi__jpeg_get_bit.exit150.i.us.i.i.i.i:          ; preds = %648, %646
   br i1 %.not128.i.us.i.i.i.i, label %673, label %658
 
 658:                                              ; preds = %656
-  %659 = icmp samesign ult i32 %643, %645
+  %659 = icmp slt i32 %643, %645
   br i1 %659, label %660, label %stbi__jpeg_get_bits.exit.i.us.i.i.i.i
 
 660:                                              ; preds = %658
@@ -28837,7 +28837,7 @@ stbi__jpeg_huff_decode.exit.i.us.i.i.i.i:         ; preds = %776, %761
   %796 = sext i32 %794 to i64
   %797 = getelementptr inbounds i8, ptr @stbi__jpeg_dezigzag, i64 %796
   %798 = load i8, ptr %797, align 1
-  %799 = icmp samesign ult i32 %789, %790
+  %799 = icmp slt i32 %789, %790
   br i1 %799, label %800, label %stbi__extend_receive.exit.i.us.i.i.i.i
 
 800:                                              ; preds = %793
@@ -44316,7 +44316,7 @@ stbi__jpeg_huff_decode.exit66:                    ; preds = %155, %140
   %178 = sext i32 %176 to i64
   %179 = getelementptr inbounds i8, ptr @stbi__jpeg_dezigzag, i64 %178
   %180 = load i8, ptr %179, align 1
-  %181 = icmp samesign ult i32 %168, %169
+  %181 = icmp slt i32 %168, %169
   br i1 %181, label %182, label %stbi__extend_receive.exit69
 
 182:                                              ; preds = %174
@@ -53811,12 +53811,13 @@ stbi__refill_buffer.exit.i30:                     ; preds = %101, %100
   br label %stbi__get8.exit33.backedge
 
 .critedge.loopexit46:                             ; preds = %stbi__at_eof.exit, %47
-  %105 = and i64 %indvars.iv, 4294967295
+  %sext = shl i64 %indvars.iv, 32
+  %105 = ashr exact i64 %sext, 32
   br label %.critedge
 
 .critedge:                                        ; preds = %63, %stbi__get8.exit27, %stbi__at_eof.exit21, %.critedge.loopexit46
   %.1 = phi i64 [ %105, %.critedge.loopexit46 ], [ 1023, %stbi__at_eof.exit21 ], [ 1023, %stbi__get8.exit27 ], [ 1023, %63 ]
-  %106 = getelementptr inbounds nuw i8, ptr %1, i64 %.1
+  %106 = getelementptr inbounds i8, ptr %1, i64 %.1
   store i8 0, ptr %106, align 1
   ret ptr %1
 }

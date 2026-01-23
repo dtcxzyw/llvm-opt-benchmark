@@ -221,7 +221,6 @@ gv_calloc.exit309:                                ; preds = %.thread.i308, %gv_c
 
 .lr.ph383.preheader:                              ; preds = %93
   %110 = zext nneg i32 %108 to i64
-  %wide.trip.count458 = zext nneg i32 %108 to i64
   br label %.lr.ph383
 
 .lr.ph383:                                        ; preds = %.lr.ph383.preheader, %116
@@ -244,12 +243,12 @@ gv_calloc.exit309:                                ; preds = %.thread.i308, %gv_c
   %121 = load double, ptr %120, align 8, !tbaa !16
   %122 = fneg double %121
   %indvars.iv.next454 = add nuw nsw i64 %indvars.iv453, 1
-  %123 = trunc nsw i64 %indvars.iv.next454 to i32
+  %123 = trunc nuw i64 %indvars.iv.next454 to i32
   store i32 %123, ptr %5, align 4, !tbaa !4
   %124 = getelementptr inbounds nuw double, ptr %107, i64 %indvars.iv453
   store double %122, ptr %124, align 8, !tbaa !16
   %indvars.iv.next452 = add nuw nsw i64 %indvars.iv451, 1
-  %exitcond459.not = icmp eq i64 %indvars.iv.next452, %wide.trip.count458
+  %exitcond459.not = icmp eq i64 %indvars.iv.next452, %110
   br i1 %exitcond459.not, label %.loopexit, label %.lr.ph383, !llvm.loop !19
 
 125:                                              ; preds = %.split
@@ -365,7 +364,6 @@ gv_calloc.exit309:                                ; preds = %.thread.i308, %gv_c
 
 .lr.ph370.preheader:                              ; preds = %176
   %193 = zext nneg i32 %191 to i64
-  %wide.trip.count441 = zext nneg i32 %191 to i64
   br label %.lr.ph370
 
 .lr.ph370:                                        ; preds = %.lr.ph370.preheader, %199
@@ -388,12 +386,12 @@ gv_calloc.exit309:                                ; preds = %.thread.i308, %gv_c
   %204 = load i32, ptr %203, align 4, !tbaa !4
   %205 = sub nsw i32 0, %204
   %indvars.iv.next437 = add nuw nsw i64 %indvars.iv436, 1
-  %206 = trunc nsw i64 %indvars.iv.next437 to i32
+  %206 = trunc nuw i64 %indvars.iv.next437 to i32
   store i32 %206, ptr %5, align 4, !tbaa !4
   %207 = getelementptr inbounds nuw i32, ptr %190, i64 %indvars.iv436
   store i32 %205, ptr %207, align 4, !tbaa !4
   %indvars.iv.next435 = add nuw nsw i64 %indvars.iv434, 1
-  %exitcond442.not = icmp eq i64 %indvars.iv.next435, %wide.trip.count441
+  %exitcond442.not = icmp eq i64 %indvars.iv.next435, %193
   br i1 %exitcond442.not, label %.loopexit, label %.lr.ph370, !llvm.loop !22
 
 .lr.ph355:                                        ; preds = %.preheader, %211
@@ -600,7 +598,6 @@ gv_calloc.exit309:                                ; preds = %.thread.i308, %gv_c
 
 .lr.ph349.preheader:                              ; preds = %309
   %327 = zext nneg i32 %325 to i64
-  %wide.trip.count416 = zext nneg i32 %325 to i64
   br label %.lr.ph349
 
 .lr.ph349:                                        ; preds = %.lr.ph349.preheader, %333
@@ -623,7 +620,7 @@ gv_calloc.exit309:                                ; preds = %.thread.i308, %gv_c
   %337 = getelementptr inbounds nuw i8, ptr %324, i64 %.idx496
   %338 = load double, ptr %337, align 8, !tbaa !16
   %339 = fneg double %338
-  %.idx497 = shl nsw i64 %indvars.iv411, 4
+  %.idx497 = shl nuw nsw i64 %indvars.iv411, 4
   %340 = getelementptr inbounds nuw i8, ptr %324, i64 %.idx497
   store double %339, ptr %340, align 8, !tbaa !16
   %341 = getelementptr inbounds nuw i8, ptr %337, i64 8
@@ -632,10 +629,10 @@ gv_calloc.exit309:                                ; preds = %.thread.i308, %gv_c
   %344 = getelementptr i8, ptr %340, i64 8
   store double %343, ptr %344, align 8, !tbaa !16
   %indvars.iv.next412 = add nuw nsw i64 %indvars.iv411, 1
-  %345 = trunc nsw i64 %indvars.iv.next412 to i32
+  %345 = trunc nuw i64 %indvars.iv.next412 to i32
   store i32 %345, ptr %5, align 4, !tbaa !4
   %indvars.iv.next410 = add nuw nsw i64 %indvars.iv409, 1
-  %exitcond417.not = icmp eq i64 %indvars.iv.next410, %wide.trip.count416
+  %exitcond417.not = icmp eq i64 %indvars.iv.next410, %327
   br i1 %exitcond417.not, label %.loopexit, label %.lr.ph349, !llvm.loop !27
 
 346:                                              ; preds = %._crit_edge

@@ -1796,7 +1796,7 @@ redblack_color.exit:                              ; preds = %38, %redblack_left.
   %72 = inttoptr i64 %71 to ptr
   %73 = and i64 %69, 1
   %74 = icmp eq i64 %73, 0
-  br i1 %74, label %75, label %316
+  br i1 %74, label %75, label %318
 
 75:                                               ; preds = %redblack_color.exit
   %.not.i.i.i = icmp eq ptr %.021, null
@@ -2071,7 +2071,7 @@ redblack_id_for.exit.i.i:                         ; preds = %224, %217
   br i1 %.not.i.i153.i, label %redblack_new.exit.sink.split, label %redblack_new.exit.sink.split.sink.split.i
 
 redblack_right.exit132.i:                         ; preds = %208, %redblack_right.exit186.i, %177, %redblack_left.exit166.i, %140, %redblack_right.exit146.i, %109, %redblack_left.exit126.i
-  %.074.in.in.pre-phi.i = phi ptr [ %145, %208 ], [ %145, %redblack_right.exit186.i ], [ %158, %177 ], [ %158, %redblack_left.exit166.i ], [ %123, %140 ], [ %123, %redblack_right.exit146.i ], [ %77, %109 ], [ %77, %redblack_left.exit126.i ]
+  %.074.in.in.pre-phi.i = phi i64 [ %146, %208 ], [ %146, %redblack_right.exit186.i ], [ %159, %177 ], [ %159, %redblack_left.exit166.i ], [ %124, %140 ], [ %124, %redblack_right.exit146.i ], [ %78, %109 ], [ %78, %redblack_left.exit126.i ]
   %235 = phi ptr [ %186, %208 ], [ %186, %redblack_right.exit186.i ], [ %153, %177 ], [ %153, %redblack_left.exit166.i ], [ %118, %140 ], [ %118, %redblack_right.exit146.i ], [ %85, %109 ], [ %85, %redblack_left.exit126.i ]
   %236 = phi ptr [ %184, %208 ], [ %184, %redblack_right.exit186.i ], [ %151, %177 ], [ %151, %redblack_left.exit166.i ], [ %116, %140 ], [ %116, %redblack_right.exit146.i ], [ %83, %109 ], [ %83, %redblack_left.exit126.i ]
   %.077.i = phi i64 [ %194, %208 ], [ %194, %redblack_right.exit186.i ], [ %169, %177 ], [ %169, %redblack_left.exit166.i ], [ %132, %140 ], [ %132, %redblack_right.exit146.i ], [ %93, %109 ], [ %93, %redblack_left.exit126.i ]
@@ -2201,84 +2201,86 @@ redblack_new.exit205.i:                           ; preds = %288, %redblack_id_f
   %303 = zext i32 %.pre238.i to i64
   %304 = getelementptr %struct.redblack_node, ptr %301, i64 %303
   store i64 %.077.i, ptr %304, align 8, !tbaa !56
-  %305 = getelementptr inbounds nuw i8, ptr %304, i64 8
-  store ptr %.074.in.in.pre-phi.i, ptr %305, align 8, !tbaa !61
-  %306 = load ptr, ptr @rb_shape_tree_ptr, align 8, !tbaa !7
-  %307 = getelementptr inbounds nuw i8, ptr %306, i64 24
-  %308 = load ptr, ptr %307, align 8, !tbaa !59
-  %309 = ptrtoint ptr %244 to i64
-  %310 = ptrtoint ptr %308 to i64
-  %311 = sub i64 %309, %310
-  %312 = sdiv exact i64 %311, 24
-  %313 = trunc i64 %312 to i32
-  %314 = add i32 %313, 1
-  %315 = getelementptr inbounds nuw i8, ptr %304, i64 16
-  store i32 %314, ptr %315, align 8, !tbaa !58
+  %305 = or i64 %.074.in.in.pre-phi.i, 1
+  %306 = inttoptr i64 %305 to ptr
+  %307 = getelementptr inbounds nuw i8, ptr %304, i64 8
+  store ptr %306, ptr %307, align 8, !tbaa !61
+  %308 = load ptr, ptr @rb_shape_tree_ptr, align 8, !tbaa !7
+  %309 = getelementptr inbounds nuw i8, ptr %308, i64 24
+  %310 = load ptr, ptr %309, align 8, !tbaa !59
+  %311 = ptrtoint ptr %244 to i64
+  %312 = ptrtoint ptr %310 to i64
+  %313 = sub i64 %311, %312
+  %314 = sdiv exact i64 %313, 24
+  %315 = trunc i64 %314 to i32
+  %316 = add i32 %315, 1
+  %317 = getelementptr inbounds nuw i8, ptr %304, i64 16
+  store i32 %316, ptr %317, align 8, !tbaa !58
   br label %redblack_new.exit.sink.split.sink.split.i
 
-316:                                              ; preds = %redblack_color.exit
-  %317 = load ptr, ptr @rb_shape_tree_ptr, align 8, !tbaa !7
-  %318 = getelementptr inbounds nuw i8, ptr %317, i64 32
-  %319 = load i32, ptr %318, align 8, !tbaa !65
-  %320 = add i32 %319, -16777215
-  %321 = icmp ult i32 %320, -16777216
-  br i1 %321, label %redblack_new.exit, label %322
+318:                                              ; preds = %redblack_color.exit
+  %319 = load ptr, ptr @rb_shape_tree_ptr, align 8, !tbaa !7
+  %320 = getelementptr inbounds nuw i8, ptr %319, i64 32
+  %321 = load i32, ptr %320, align 8, !tbaa !65
+  %322 = add i32 %321, -16777215
+  %323 = icmp ult i32 %322, -16777216
+  br i1 %323, label %redblack_new.exit, label %324
 
-322:                                              ; preds = %316
-  %323 = getelementptr inbounds nuw i8, ptr %317, i64 24
-  %324 = load ptr, ptr %323, align 8, !tbaa !59
-  %325 = add nsw i32 %319, 1
-  store i32 %325, ptr %318, align 8, !tbaa !65
-  %326 = zext i32 %319 to i64
-  %327 = getelementptr %struct.redblack_node, ptr %324, i64 %326
-  store i64 %70, ptr %327, align 8, !tbaa !56
-  %328 = getelementptr inbounds nuw i8, ptr %327, i64 8
-  store ptr %68, ptr %328, align 8, !tbaa !61
-  %329 = icmp eq ptr %.021, null
-  br i1 %329, label %redblack_id_for.exit.i212.i, label %330
+324:                                              ; preds = %318
+  %325 = getelementptr inbounds nuw i8, ptr %319, i64 24
+  %326 = load ptr, ptr %325, align 8, !tbaa !59
+  %327 = add nsw i32 %321, 1
+  store i32 %327, ptr %320, align 8, !tbaa !65
+  %328 = zext i32 %321 to i64
+  %329 = getelementptr %struct.redblack_node, ptr %326, i64 %328
+  store i64 %70, ptr %329, align 8, !tbaa !56
+  %330 = getelementptr inbounds nuw i8, ptr %329, i64 8
+  store ptr %68, ptr %330, align 8, !tbaa !61
+  %331 = icmp eq ptr %.021, null
+  br i1 %331, label %redblack_id_for.exit.i212.i, label %332
 
-330:                                              ; preds = %322
-  %331 = load ptr, ptr @rb_shape_tree_ptr, align 8, !tbaa !7
-  %332 = getelementptr inbounds nuw i8, ptr %331, i64 24
-  %333 = load ptr, ptr %332, align 8, !tbaa !59
-  %334 = ptrtoint ptr %.021 to i64
-  %335 = ptrtoint ptr %333 to i64
-  %336 = sub i64 %334, %335
-  %337 = sdiv exact i64 %336, 24
-  %338 = trunc i64 %337 to i32
-  %339 = add i32 %338, 1
+332:                                              ; preds = %324
+  %333 = load ptr, ptr @rb_shape_tree_ptr, align 8, !tbaa !7
+  %334 = getelementptr inbounds nuw i8, ptr %333, i64 24
+  %335 = load ptr, ptr %334, align 8, !tbaa !59
+  %336 = ptrtoint ptr %.021 to i64
+  %337 = ptrtoint ptr %335 to i64
+  %338 = sub i64 %336, %337
+  %339 = sdiv exact i64 %338, 24
+  %340 = trunc i64 %339 to i32
+  %341 = add i32 %340, 1
   br label %redblack_id_for.exit.i212.i
 
-redblack_id_for.exit.i212.i:                      ; preds = %330, %322
-  %.0.i.i213.i = phi i32 [ %339, %330 ], [ 0, %322 ]
-  %340 = getelementptr inbounds nuw i8, ptr %327, i64 16
-  store i32 %.0.i.i213.i, ptr %340, align 8, !tbaa !58
-  %341 = icmp eq ptr %.0, null
-  br i1 %341, label %redblack_new.exit.sink.split, label %redblack_new.exit.sink.split.sink.split.i
+redblack_id_for.exit.i212.i:                      ; preds = %332, %324
+  %.0.i.i213.i = phi i32 [ %341, %332 ], [ 0, %324 ]
+  %342 = getelementptr inbounds nuw i8, ptr %329, i64 16
+  store i32 %.0.i.i213.i, ptr %342, align 8, !tbaa !58
+  %343 = icmp eq ptr %.0, null
+  br i1 %343, label %redblack_new.exit.sink.split, label %redblack_new.exit.sink.split.sink.split.i
 
 redblack_new.exit.sink.split.sink.split.i:        ; preds = %redblack_id_for.exit.i212.i, %299, %redblack_id_for.exit.i.i
   %.sink265.i = phi ptr [ %274, %299 ], [ %.0, %redblack_id_for.exit.i.i ], [ %.0, %redblack_id_for.exit.i212.i ]
-  %.sink261.ph.i = phi ptr [ %304, %299 ], [ %222, %redblack_id_for.exit.i.i ], [ %327, %redblack_id_for.exit.i212.i ]
-  %342 = load ptr, ptr @rb_shape_tree_ptr, align 8, !tbaa !7
-  %343 = getelementptr inbounds nuw i8, ptr %342, i64 24
-  %344 = load ptr, ptr %343, align 8, !tbaa !59
-  %345 = ptrtoint ptr %.sink265.i to i64
-  %346 = ptrtoint ptr %344 to i64
-  %347 = sub i64 %345, %346
-  %348 = sdiv exact i64 %347, 24
-  %349 = trunc i64 %348 to i32
-  %350 = add i32 %349, 1
+  %.sink261.ph.i = phi ptr [ %304, %299 ], [ %222, %redblack_id_for.exit.i.i ], [ %329, %redblack_id_for.exit.i212.i ]
+  %344 = load ptr, ptr @rb_shape_tree_ptr, align 8, !tbaa !7
+  %345 = getelementptr inbounds nuw i8, ptr %344, i64 24
+  %346 = load ptr, ptr %345, align 8, !tbaa !59
+  %347 = ptrtoint ptr %.sink265.i to i64
+  %348 = ptrtoint ptr %346 to i64
+  %349 = sub i64 %347, %348
+  %350 = sdiv exact i64 %349, 24
+  %351 = trunc i64 %350 to i32
+  %352 = add i32 %351, 1
   br label %redblack_new.exit.sink.split
 
 redblack_new.exit.sink.split:                     ; preds = %redblack_id_for.exit.i.i, %redblack_id_for.exit.i212.i, %redblack_new.exit.sink.split.sink.split.i, %11
-  %.sink261.i.sink = phi ptr [ %16, %11 ], [ %.sink261.ph.i, %redblack_new.exit.sink.split.sink.split.i ], [ %222, %redblack_id_for.exit.i.i ], [ %327, %redblack_id_for.exit.i212.i ]
-  %.0.i11.i215.sink.i.sink = phi i32 [ 0, %11 ], [ %350, %redblack_new.exit.sink.split.sink.split.i ], [ 0, %redblack_id_for.exit.i.i ], [ 0, %redblack_id_for.exit.i212.i ]
-  %351 = getelementptr inbounds nuw i8, ptr %.sink261.i.sink, i64 20
-  store i32 %.0.i11.i215.sink.i.sink, ptr %351, align 4, !tbaa !60
+  %.sink261.i.sink = phi ptr [ %16, %11 ], [ %.sink261.ph.i, %redblack_new.exit.sink.split.sink.split.i ], [ %222, %redblack_id_for.exit.i.i ], [ %329, %redblack_id_for.exit.i212.i ]
+  %.0.i11.i215.sink.i.sink = phi i32 [ 0, %11 ], [ %352, %redblack_new.exit.sink.split.sink.split.i ], [ 0, %redblack_id_for.exit.i.i ], [ 0, %redblack_id_for.exit.i212.i ]
+  %353 = getelementptr inbounds nuw i8, ptr %.sink261.i.sink, i64 20
+  store i32 %.0.i11.i215.sink.i.sink, ptr %353, align 4, !tbaa !60
   br label %redblack_new.exit
 
-redblack_new.exit:                                ; preds = %redblack_new.exit.sink.split, %316, %redblack_new.exit205.i, %redblack_new.exit199.i, %redblack_right.exit132.i, %redblack_red_p.exit174.thread.i, %5, %45
-  %.022 = phi ptr [ %0, %45 ], [ null, %5 ], [ null, %redblack_right.exit132.i ], [ null, %redblack_new.exit205.i ], [ null, %redblack_red_p.exit174.thread.i ], [ null, %316 ], [ null, %redblack_new.exit199.i ], [ %.sink261.i.sink, %redblack_new.exit.sink.split ]
+redblack_new.exit:                                ; preds = %redblack_new.exit.sink.split, %318, %redblack_new.exit205.i, %redblack_new.exit199.i, %redblack_right.exit132.i, %redblack_red_p.exit174.thread.i, %5, %45
+  %.022 = phi ptr [ %0, %45 ], [ null, %5 ], [ null, %redblack_right.exit132.i ], [ null, %redblack_new.exit205.i ], [ null, %redblack_red_p.exit174.thread.i ], [ null, %318 ], [ null, %redblack_new.exit199.i ], [ %.sink261.i.sink, %redblack_new.exit.sink.split ]
   ret ptr %.022
 }
 

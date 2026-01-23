@@ -12868,7 +12868,7 @@ d_complex_new_internal.exit:                      ; preds = %canon.exit.i, %242
   %250 = shl nuw nsw i32 %.098, 12
   %251 = shl nuw nsw i32 %205, 6
   %252 = or i32 %251, %250
-  %253 = or disjoint i32 %252, %204
+  %253 = or i32 %252, %204
   %254 = getelementptr inbounds nuw i8, ptr %224, i64 24
   store i32 %253, ptr %254, align 8, !tbaa !68
   store i32 137, ptr %224, align 8, !tbaa !69
@@ -17979,7 +17979,7 @@ m_min.exit.thread78:                              ; preds = %126
   %135 = and i32 %134, 126
   %136 = or disjoint i32 %135, 1
   %137 = zext nneg i32 %136 to i64
-  br label %m_sec.exit.thread90
+  br label %163
 
 m_min.exit:                                       ; preds = %126
   %138 = getelementptr inbounds nuw i8, ptr %.0, i64 28
@@ -18015,83 +18015,129 @@ m_min.exit:                                       ; preds = %126
   %160 = and i32 %159, 126
   %161 = or disjoint i32 %160, 1
   %162 = zext nneg i32 %161 to i64
-  br i1 %158, label %m_sf.exit.thread.i, label %m_sec.exit.thread90
+  br i1 %158, label %m_sf.exit.thread.i, label %163
 
-m_sec.exit.thread90:                              ; preds = %m_min.exit, %m_min.exit.thread78
-  %163 = phi i64 [ %137, %m_min.exit.thread78 ], [ %162, %m_min.exit ]
-  %164 = phi i32 [ %128, %m_min.exit.thread78 ], [ %156, %m_min.exit ]
-  %165 = shl i32 %164, 1
-  %166 = and i32 %165, 126
-  %167 = or disjoint i32 %166, 1
-  %168 = zext nneg i32 %167 to i64
-  %169 = getelementptr inbounds nuw i8, ptr %.0, i64 40
-  %170 = load i64, ptr %169, align 8, !tbaa !47
-  %171 = and i64 %170, 1
-  %.not.i1.i = icmp eq i64 %171, 0
-  br i1 %.not.i1.i, label %173, label %m_sf.exit.thread.i
+163:                                              ; preds = %m_min.exit.thread78, %m_min.exit
+  %164 = phi i64 [ %137, %m_min.exit.thread78 ], [ %162, %m_min.exit ]
+  %165 = phi i32 [ %128, %m_min.exit.thread78 ], [ %156, %m_min.exit ]
+  %166 = phi i32 [ %127, %m_min.exit.thread78 ], [ %157, %m_min.exit ]
+  %167 = and i32 %166, 8
+  %.not.i.i41 = icmp eq i32 %167, 0
+  br i1 %.not.i.i41, label %m_sec.exit, label %m_sec.exit.thread90
 
-m_sf.exit.thread.i:                               ; preds = %m_mday.exit, %m_min.exit, %m_sec.exit.thread90
-  %.0.i4389 = phi i64 [ %168, %m_sec.exit.thread90 ], [ 1, %m_mday.exit ], [ 1, %m_min.exit ]
-  %.0.i29727687 = phi i64 [ %132, %m_sec.exit.thread90 ], [ 1, %m_mday.exit ], [ %132, %m_min.exit ]
-  %.0.i347785 = phi i64 [ %163, %m_sec.exit.thread90 ], [ 1, %m_mday.exit ], [ %162, %m_min.exit ]
-  %.0.i5.i = phi i64 [ %170, %m_sec.exit.thread90 ], [ 1, %m_mday.exit ], [ 1, %m_min.exit ]
-  %172 = tail call i64 @rb_rational_new(i64 noundef %.0.i5.i, i64 noundef 2000000001) #22
+m_sec.exit.thread90:                              ; preds = %163
+  %168 = shl i32 %165, 1
+  %169 = and i32 %168, 126
+  %170 = or disjoint i32 %169, 1
+  %171 = zext nneg i32 %170 to i64
+  br label %m_sf.exit.i
+
+m_sec.exit:                                       ; preds = %163
+  %172 = getelementptr inbounds nuw i8, ptr %.0, i64 28
+  %173 = load i32, ptr %172, align 4, !tbaa !47
+  %174 = getelementptr inbounds nuw i8, ptr %.0, i64 32
+  %175 = load i32, ptr %174, align 8, !tbaa !47
+  %176 = add nsw i32 %175, %173
+  %177 = icmp slt i32 %176, 0
+  %178 = add nsw i32 %176, 86400
+  %179 = icmp samesign ugt i32 %176, 86399
+  %180 = add nsw i32 %176, -86400
+  %spec.select.i.i.i44 = select i1 %179, i32 %180, i32 %176
+  %.0.i.i.i45 = select i1 %177, i32 %178, i32 %spec.select.i.i.i44
+  %181 = sdiv i32 %.0.i.i.i45, 3600
+  %182 = srem i32 %.0.i.i.i45, 3600
+  %.lhs.trunc.i.i.i46 = trunc nsw i32 %182 to i16
+  %183 = sdiv i16 %.lhs.trunc.i.i.i46, 60
+  %.sext.i.i.i47 = sext i16 %183 to i32
+  %184 = srem i16 %.lhs.trunc.i.i.i46, 60
+  %.sext7.i.i.i48 = sext i16 %184 to i32
+  %185 = and i32 %165, 66977792
+  %186 = shl i32 %181, 12
+  %187 = or i32 %186, %185
+  %188 = shl nsw i32 %.sext.i.i.i47, 6
+  %189 = or i32 %187, %188
+  %190 = or i32 %189, %.sext7.i.i.i48
+  store i32 %190, ptr %.0.in.in.in.i, align 8, !tbaa !47
+  %191 = or disjoint i32 %166, 8
+  store i32 %191, ptr %.0, align 8, !tbaa !47
+  %.pre61 = and i32 %166, 128
+  %192 = icmp eq i32 %.pre61, 0
+  %193 = shl nsw i32 %.sext7.i.i.i48, 1
+  %194 = and i32 %193, 126
+  %195 = or disjoint i32 %194, 1
+  %196 = zext nneg i32 %195 to i64
+  br i1 %192, label %m_sf.exit.thread.i, label %m_sf.exit.i
+
+m_sf.exit.i:                                      ; preds = %m_sec.exit.thread90, %m_sec.exit
+  %197 = phi i64 [ %171, %m_sec.exit.thread90 ], [ %196, %m_sec.exit ]
+  %198 = getelementptr inbounds nuw i8, ptr %.0, i64 40
+  %199 = load i64, ptr %198, align 8, !tbaa !47
+  %200 = and i64 %199, 1
+  %.not.i1.i = icmp eq i64 %200, 0
+  br i1 %.not.i1.i, label %202, label %m_sf.exit.thread.i
+
+m_sf.exit.thread.i:                               ; preds = %m_mday.exit, %m_min.exit, %m_sf.exit.i, %m_sec.exit
+  %.0.i4389 = phi i64 [ %197, %m_sf.exit.i ], [ %196, %m_sec.exit ], [ 1, %m_min.exit ], [ 1, %m_mday.exit ]
+  %.0.i29727687 = phi i64 [ %132, %m_sf.exit.i ], [ %132, %m_sec.exit ], [ %132, %m_min.exit ], [ 1, %m_mday.exit ]
+  %.0.i347785 = phi i64 [ %164, %m_sf.exit.i ], [ %164, %m_sec.exit ], [ %162, %m_min.exit ], [ 1, %m_mday.exit ]
+  %.0.i5.i = phi i64 [ %199, %m_sf.exit.i ], [ 1, %m_sec.exit ], [ 1, %m_min.exit ], [ 1, %m_mday.exit ]
+  %201 = tail call i64 @rb_rational_new(i64 noundef %.0.i5.i, i64 noundef 2000000001) #22
   br label %m_sf_in_sec.exit
 
-173:                                              ; preds = %m_sec.exit.thread90
+202:                                              ; preds = %m_sf.exit.i
   %.pr.i.i.i = load i64, ptr @ns_to_sec.rbimpl_id, align 8, !tbaa !6
   %.not4.i.i.i = icmp eq i64 %.pr.i.i.i, 0
   br i1 %.not4.i.i.i, label %.lr.ph.i.i.i, label %rbimpl_intern_const.exit.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %173, %.lr.ph.i.i.i
-  %174 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.329, i64 noundef 3) #22
-  store i64 %174, ptr @ns_to_sec.rbimpl_id, align 8, !tbaa !6
-  %.not.i.i.i = icmp eq i64 %174, 0
+.lr.ph.i.i.i:                                     ; preds = %202, %.lr.ph.i.i.i
+  %203 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.329, i64 noundef 3) #22
+  store i64 %203, ptr @ns_to_sec.rbimpl_id, align 8, !tbaa !6
+  %.not.i.i.i = icmp eq i64 %203, 0
   br i1 %.not.i.i.i, label %.lr.ph.i.i.i, label %rbimpl_intern_const.exit.i.i, !llvm.loop !51
 
-rbimpl_intern_const.exit.i.i:                     ; preds = %.lr.ph.i.i.i, %173
-  %.lcssa.i.i.i = phi i64 [ %.pr.i.i.i, %173 ], [ %174, %.lr.ph.i.i.i ]
-  %175 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %170, i64 noundef %.lcssa.i.i.i, i32 noundef 1, i64 noundef 2000000001) #22
+rbimpl_intern_const.exit.i.i:                     ; preds = %.lr.ph.i.i.i, %202
+  %.lcssa.i.i.i = phi i64 [ %.pr.i.i.i, %202 ], [ %203, %.lr.ph.i.i.i ]
+  %204 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %199, i64 noundef %.lcssa.i.i.i, i32 noundef 1, i64 noundef 2000000001) #22
   br label %m_sf_in_sec.exit
 
 m_sf_in_sec.exit:                                 ; preds = %m_sf.exit.thread.i, %rbimpl_intern_const.exit.i.i
-  %.0.i4388 = phi i64 [ %.0.i4389, %m_sf.exit.thread.i ], [ %168, %rbimpl_intern_const.exit.i.i ]
+  %.0.i4388 = phi i64 [ %.0.i4389, %m_sf.exit.thread.i ], [ %197, %rbimpl_intern_const.exit.i.i ]
   %.0.i29727686 = phi i64 [ %.0.i29727687, %m_sf.exit.thread.i ], [ %132, %rbimpl_intern_const.exit.i.i ]
-  %.0.i347784 = phi i64 [ %.0.i347785, %m_sf.exit.thread.i ], [ %163, %rbimpl_intern_const.exit.i.i ]
-  %.0.i2.i = phi i64 [ %172, %m_sf.exit.thread.i ], [ %175, %rbimpl_intern_const.exit.i.i ]
-  %176 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %.0.i4388, i64 noundef 43, i32 noundef 1, i64 noundef %.0.i2.i) #22
-  %177 = load i32, ptr %.0, align 8, !tbaa !47
-  %178 = and i32 %177, 128
-  %.not.i50 = icmp eq i32 %178, 0
-  br i1 %.not.i50, label %m_of.exit, label %179
+  %.0.i347784 = phi i64 [ %.0.i347785, %m_sf.exit.thread.i ], [ %164, %rbimpl_intern_const.exit.i.i ]
+  %.0.i2.i = phi i64 [ %201, %m_sf.exit.thread.i ], [ %204, %rbimpl_intern_const.exit.i.i ]
+  %205 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %.0.i4388, i64 noundef 43, i32 noundef 1, i64 noundef %.0.i2.i) #22
+  %206 = load i32, ptr %.0, align 8, !tbaa !47
+  %207 = and i32 %206, 128
+  %.not.i50 = icmp eq i32 %207, 0
+  br i1 %.not.i50, label %m_of.exit, label %208
 
-179:                                              ; preds = %m_sf_in_sec.exit
+208:                                              ; preds = %m_sf_in_sec.exit
   tail call fastcc void @get_c_jd(ptr noundef nonnull %.0)
-  %180 = getelementptr inbounds nuw i8, ptr %.0, i64 32
-  %181 = load i32, ptr %180, align 8, !tbaa !47
-  %182 = sext i32 %181 to i64
-  %183 = shl nsw i64 %182, 1
-  %184 = or disjoint i64 %183, 1
+  %209 = getelementptr inbounds nuw i8, ptr %.0, i64 32
+  %210 = load i32, ptr %209, align 8, !tbaa !47
+  %211 = sext i32 %210 to i64
+  %212 = shl nsw i64 %211, 1
+  %213 = or disjoint i64 %212, 1
   br label %m_of.exit
 
-m_of.exit:                                        ; preds = %m_sf_in_sec.exit, %179
-  %.0.i51 = phi i64 [ %184, %179 ], [ 1, %m_sf_in_sec.exit ]
-  %185 = lshr i32 %.0.in.in.i17, 16
-  %186 = and i32 %185, 62
-  %187 = or disjoint i32 %186, 1
-  %188 = zext nneg i32 %187 to i64
-  %189 = lshr i32 %.0.in.in.i, 21
-  %190 = and i32 %189, 30
-  %191 = or disjoint i32 %190, 1
-  %192 = zext nneg i32 %191 to i64
-  %193 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %11, i64 noundef %.lcssa.i, i32 noundef 7, i64 noundef %13, i64 noundef %192, i64 noundef %188, i64 noundef %.0.i29727686, i64 noundef %.0.i347784, i64 noundef %176, i64 noundef %.0.i51) #22
+m_of.exit:                                        ; preds = %m_sf_in_sec.exit, %208
+  %.0.i51 = phi i64 [ %213, %208 ], [ 1, %m_sf_in_sec.exit ]
+  %214 = lshr i32 %.0.in.in.i17, 16
+  %215 = and i32 %214, 62
+  %216 = or disjoint i32 %215, 1
+  %217 = zext nneg i32 %216 to i64
+  %218 = lshr i32 %.0.in.in.i, 21
+  %219 = and i32 %218, 30
+  %220 = or disjoint i32 %219, 1
+  %221 = zext nneg i32 %220 to i64
+  %222 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %11, i64 noundef %.lcssa.i, i32 noundef 7, i64 noundef %13, i64 noundef %221, i64 noundef %217, i64 noundef %.0.i29727686, i64 noundef %.0.i347784, i64 noundef %205, i64 noundef %.0.i51) #22
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %2, ptr %3, align 8, !tbaa !31
   call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %3) #22, !srcloc !78
-  %194 = load ptr, ptr %3, align 8, !tbaa !31
+  %223 = load ptr, ptr %3, align 8, !tbaa !31
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %195 = load volatile i64, ptr %194, align 8, !tbaa !6
-  ret i64 %193
+  %224 = load volatile i64, ptr %223, align 8, !tbaa !6
+  ret i64 %222
 }
 
 ; Function Attrs: nounwind sspstrong uwtable

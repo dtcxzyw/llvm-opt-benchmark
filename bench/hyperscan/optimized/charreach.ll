@@ -830,68 +830,64 @@ _ZNK3ue29CharReach10find_firstEv.exit:            ; preds = %4
 
 .lr.ph.preheader:                                 ; preds = %_ZNK3ue29CharReach10find_firstEv.exit
   %12 = trunc i64 %11 to i8
-  %.not.i.i1456 = icmp samesign ult i64 %.0712.i.i, 4
-  br i1 %.not.i.i1456, label %.lr.ph58, label %._crit_edge
+  %.not.i.i1449 = icmp samesign ult i64 %.0712.i.i, 4
+  br i1 %.not.i.i1449, label %.lr.ph51, label %._crit_edge
 
-._crit_edge:                                      ; preds = %7, %_ZNK3ue29CharReach9find_nextEm.exit, %26, %.lr.ph.preheader, %_ZNK3ue29CharReach10find_firstEv.exit
-  %.013.lcssa = phi i8 [ -1, %_ZNK3ue29CharReach10find_firstEv.exit ], [ %15, %26 ], [ %37, %_ZNK3ue29CharReach9find_nextEm.exit ], [ %12, %.lr.ph.preheader ], [ -1, %7 ]
-  %.012.lcssa = phi i8 [ 0, %_ZNK3ue29CharReach10find_firstEv.exit ], [ %16, %26 ], [ %36, %_ZNK3ue29CharReach9find_nextEm.exit ], [ %12, %.lr.ph.preheader ], [ 0, %7 ]
-  %13 = xor i8 %.013.lcssa, %.012.lcssa
-  %14 = xor i8 %13, -1
-  store i8 %14, ptr %1, align 1
+._crit_edge:                                      ; preds = %7, %_ZNK3ue29CharReach9find_nextEm.exit, %24, %.lr.ph.preheader, %_ZNK3ue29CharReach10find_firstEv.exit
+  %.013.lcssa = phi i8 [ -1, %_ZNK3ue29CharReach10find_firstEv.exit ], [ %14, %24 ], [ %34, %_ZNK3ue29CharReach9find_nextEm.exit ], [ %12, %.lr.ph.preheader ], [ -1, %7 ]
+  %13 = xor i8 %.013.lcssa, -1
+  store i8 %13, ptr %1, align 1
   store i8 %.013.lcssa, ptr %2, align 1
   ret void
 
-.lr.ph58:                                         ; preds = %.lr.ph.preheader, %_ZNK3ue29CharReach9find_nextEm.exit
-  %15 = phi i8 [ %37, %_ZNK3ue29CharReach9find_nextEm.exit ], [ %12, %.lr.ph.preheader ]
-  %16 = phi i8 [ %36, %_ZNK3ue29CharReach9find_nextEm.exit ], [ %12, %.lr.ph.preheader ]
-  %.02157 = phi i64 [ %34, %_ZNK3ue29CharReach9find_nextEm.exit ], [ %11, %.lr.ph.preheader ]
-  %17 = lshr i64 %.02157, 6
-  %18 = and i64 %.02157, 63
-  %.not20.i.i = icmp eq i64 %18, 63
-  br i1 %.not20.i.i, label %.preheader, label %19
+.lr.ph51:                                         ; preds = %.lr.ph.preheader, %_ZNK3ue29CharReach9find_nextEm.exit
+  %14 = phi i8 [ %34, %_ZNK3ue29CharReach9find_nextEm.exit ], [ %12, %.lr.ph.preheader ]
+  %.02050 = phi i64 [ %32, %_ZNK3ue29CharReach9find_nextEm.exit ], [ %11, %.lr.ph.preheader ]
+  %15 = lshr i64 %.02050, 6
+  %16 = and i64 %.02050, 63
+  %.not20.i.i = icmp eq i64 %16, 63
+  br i1 %.not20.i.i, label %.preheader, label %17
 
-.preheader:                                       ; preds = %19, %.lr.ph58
-  br label %26
+.preheader:                                       ; preds = %17, %.lr.ph51
+  br label %24
 
-19:                                               ; preds = %.lr.ph58
-  %20 = getelementptr inbounds nuw i64, ptr %0, i64 %17
-  %21 = load i64, ptr %20, align 8
-  %22 = shl nsw i64 -2, %18
-  %23 = and i64 %21, %22
-  %.not21.i.i = icmp eq i64 %23, 0
-  br i1 %.not21.i.i, label %.preheader, label %24
+17:                                               ; preds = %.lr.ph51
+  %18 = getelementptr inbounds nuw i64, ptr %0, i64 %15
+  %19 = load i64, ptr %18, align 8
+  %20 = shl nsw i64 -2, %16
+  %21 = and i64 %19, %20
+  %.not21.i.i = icmp eq i64 %21, 0
+  br i1 %.not21.i.i, label %.preheader, label %22
 
-24:                                               ; preds = %19
-  %25 = and i64 %.02157, 192
+22:                                               ; preds = %17
+  %23 = and i64 %.02050, 192
   br label %_ZNK3ue29CharReach9find_nextEm.exit
 
-26:                                               ; preds = %.preheader, %28
-  %.0.in.i.i = phi i64 [ %.0.i.i, %28 ], [ %17, %.preheader ]
-  %27 = icmp samesign ult i64 %.0.in.i.i, 3
-  br i1 %27, label %28, label %._crit_edge
+24:                                               ; preds = %.preheader, %26
+  %.0.in.i.i = phi i64 [ %.0.i.i, %26 ], [ %15, %.preheader ]
+  %25 = icmp samesign ult i64 %.0.in.i.i, 3
+  br i1 %25, label %26, label %._crit_edge
 
-28:                                               ; preds = %26
+26:                                               ; preds = %24
   %.0.i.i = add nuw nsw i64 %.0.in.i.i, 1
-  %29 = getelementptr inbounds nuw i64, ptr %0, i64 %.0.i.i
-  %30 = load i64, ptr %29, align 8
-  %.not22.i.i = icmp eq i64 %30, 0
-  br i1 %.not22.i.i, label %26, label %31, !llvm.loop !7
+  %27 = getelementptr inbounds nuw i64, ptr %0, i64 %.0.i.i
+  %28 = load i64, ptr %27, align 8
+  %.not22.i.i = icmp eq i64 %28, 0
+  br i1 %.not22.i.i, label %24, label %29, !llvm.loop !7
 
-31:                                               ; preds = %28
-  %32 = shl nuw nsw i64 %.0.i.i, 6
+29:                                               ; preds = %26
+  %30 = shl nuw nsw i64 %.0.i.i, 6
   br label %_ZNK3ue29CharReach9find_nextEm.exit
 
-_ZNK3ue29CharReach9find_nextEm.exit:              ; preds = %24, %31
-  %.sink46 = phi i64 [ %23, %24 ], [ %30, %31 ]
-  %.sink45 = phi i64 [ %25, %24 ], [ %32, %31 ]
-  %33 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.sink46, i1 true)
-  %34 = or disjoint i64 %33, %.sink45
-  %35 = trunc i64 %34 to i8
-  %36 = or i8 %16, %35
-  %37 = and i8 %15, %35
-  %.not.i.i14 = icmp samesign ult i64 %.sink45, 256
-  br i1 %.not.i.i14, label %.lr.ph58, label %._crit_edge, !llvm.loop !27
+_ZNK3ue29CharReach9find_nextEm.exit:              ; preds = %22, %29
+  %.sink41 = phi i64 [ %21, %22 ], [ %28, %29 ]
+  %.sink40 = phi i64 [ %23, %22 ], [ %30, %29 ]
+  %31 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.sink41, i1 true)
+  %32 = or disjoint i64 %31, %.sink40
+  %33 = trunc i64 %32 to i8
+  %34 = and i8 %14, %33
+  %.not.i.i14 = icmp samesign ult i64 %.sink40, 256
+  br i1 %.not.i.i14, label %.lr.ph51, label %._crit_edge, !llvm.loop !27
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)

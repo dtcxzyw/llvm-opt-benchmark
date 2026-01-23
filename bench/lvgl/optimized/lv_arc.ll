@@ -1242,9 +1242,9 @@ define void @lv_arc_set_rotation(ptr noundef %0, i32 noundef %1) local_unnamed_a
   %6 = add nuw nsw i32 %.lobit, %5
   %7 = mul i32 %6, 360
   %8 = add i32 %1, %7
-  %9 = tail call i32 @llvm.umax.i32(i32 %8, i32 359)
+  %9 = tail call i32 @llvm.smax.i32(i32 %8, i32 359)
   %10 = urem i32 %9, 360
-  %.neg = sub i32 %10, %9
+  %.neg = sub nsw i32 %10, %9
   %11 = add i32 %.neg, %8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 %11, ptr %12, align 8, !tbaa !3
@@ -2218,9 +2218,6 @@ declare float @llvm.fabs.f32(float) #6
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #6
-
-; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #6
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

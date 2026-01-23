@@ -56185,7 +56185,7 @@ define hidden void @"_ZN11ruff_linter8settings5types16PerFile$LT$T$GT$3new17h476
   %15 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hba79b7f9900aea78E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1) #38
-          to label %32 unwind label %30
+          to label %33 unwind label %31
 
 16:                                               ; preds = %5
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -56215,28 +56215,30 @@ define hidden void @"_ZN11ruff_linter8settings5types16PerFile$LT$T$GT$3new17h476
   %spec.select = select i1 %.not, ptr %23, ptr %2
   %spec.select5 = select i1 %.not, i64 %24, i64 %3
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  %25 = icmp ne ptr %spec.select, null
+  call void @llvm.assume(i1 %25)
   invoke fastcc void @_ZN11ruff_linter8settings5types8GlobPath9normalize17h1cc8556a073404b7E(ptr noalias noundef align 8 captures(none) dereferenceable(24) %7, ptr noalias noundef readonly align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %spec.select, i64 noundef %spec.select5)
-          to label %25 unwind label %14
+          to label %26 unwind label %14
 
-25:                                               ; preds = %22
+26:                                               ; preds = %22
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %26, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %28 = zext i1 %13 to i8
-  store i8 %28, ptr %27, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %29, ptr noundef nonnull align 8 dereferenceable(120) %4, i64 120, i1 false)
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %27, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  %29 = zext i1 %13 to i8
+  store i8 %29, ptr %28, align 8
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %30, ptr noundef nonnull align 8 dereferenceable(120) %4, i64 120, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 
-30:                                               ; preds = %14
-  %31 = landingpad { ptr, i32 }
+31:                                               ; preds = %14
+  %32 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #39
   unreachable
 
-32:                                               ; preds = %14
+33:                                               ; preds = %14
   resume { ptr, i32 } %15
 }
 
@@ -56258,7 +56260,7 @@ define hidden void @"_ZN11ruff_linter8settings5types16PerFile$LT$T$GT$3new17h5ad
   %16 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hba79b7f9900aea78E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1) #38
-          to label %34 unwind label %32
+          to label %35 unwind label %33
 
 17:                                               ; preds = %6
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -56288,30 +56290,32 @@ define hidden void @"_ZN11ruff_linter8settings5types16PerFile$LT$T$GT$3new17h5ad
   %spec.select = select i1 %.not, ptr %24, ptr %2
   %spec.select5 = select i1 %.not, i64 %25, i64 %3
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  %26 = icmp ne ptr %spec.select, null
+  call void @llvm.assume(i1 %26)
   invoke fastcc void @_ZN11ruff_linter8settings5types8GlobPath9normalize17h1cc8556a073404b7E(ptr noalias noundef align 8 captures(none) dereferenceable(24) %8, ptr noalias noundef readonly align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %spec.select, i64 noundef %spec.select5)
-          to label %26 unwind label %15
+          to label %27 unwind label %15
 
-26:                                               ; preds = %23
+27:                                               ; preds = %23
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %27, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 50
-  %29 = zext i1 %14 to i8
-  store i8 %29, ptr %28, align 2
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i8 %4, ptr %30, align 8
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 49
-  store i8 %5, ptr %31, align 1
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %28, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 50
+  %30 = zext i1 %14 to i8
+  store i8 %30, ptr %29, align 2
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store i8 %4, ptr %31, align 8
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 49
+  store i8 %5, ptr %32, align 1
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
 
-32:                                               ; preds = %15
-  %33 = landingpad { ptr, i32 }
+33:                                               ; preds = %15
+  %34 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #39
   unreachable
 
-34:                                               ; preds = %15
+35:                                               ; preds = %15
   resume { ptr, i32 } %16
 }
 

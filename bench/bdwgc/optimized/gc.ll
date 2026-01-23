@@ -33931,13 +33931,13 @@ GC_custom_push_proc.exit.i.i212:                  ; preds = %GC_signal_mark_stac
   br label %262
 
 259:                                              ; preds = %._crit_edge
-  %260 = call fastcc ptr @GC_header_cache_miss(ptr noundef nonnull %.lcssa334.sink, ptr noundef %253)
+  %260 = call fastcc ptr @GC_header_cache_miss(ptr noundef %.lcssa334.sink, ptr noundef %253)
   %261 = icmp eq ptr %260, null
   br i1 %261, label %.backedge, label %262
 
 262:                                              ; preds = %259, %256
   %.1140 = phi ptr [ %258, %256 ], [ %260, %259 ]
-  %263 = tail call fastcc ptr @GC_push_contents_hdr(ptr noundef nonnull %.lcssa334.sink, ptr noundef %.10.lcssa, ptr noundef %2, ptr noundef %.1140, i8 noundef signext 1)
+  %263 = tail call fastcc ptr @GC_push_contents_hdr(ptr noundef %.lcssa334.sink, ptr noundef %.10.lcssa, ptr noundef %2, ptr noundef %.1140, i8 noundef signext 1)
   br label %.backedge
 
 .backedge:                                        ; preds = %160, %167, %34, %..loopexit_crit_edge, %142, %121, %.thread, %259, %262, %._crit_edge366

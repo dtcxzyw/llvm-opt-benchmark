@@ -236,13 +236,14 @@ define hidden i32 @cdef_find_dir_c(ptr noundef readonly captures(none) %0, i32 n
   br i1 %exitcond146.not, label %142, label %.preheader, !llvm.loop !12
 
 142:                                              ; preds = %.preheader
-  %143 = xor i32 %spec.select89, 4
-  %144 = zext nneg i32 %143 to i64
-  %145 = getelementptr inbounds nuw i32, ptr %5, i64 %144
-  %146 = load i32, ptr %145, align 4
-  %147 = sub nsw i32 %spec.select, %146
-  %148 = ashr i32 %147, 10
-  store i32 %148, ptr %2, align 4
+  %143 = and i32 %spec.select89, 7
+  %144 = xor i32 %143, 4
+  %145 = zext nneg i32 %144 to i64
+  %146 = getelementptr inbounds nuw i32, ptr %5, i64 %145
+  %147 = load i32, ptr %146, align 4
+  %148 = sub nsw i32 %spec.select, %147
+  %149 = ashr i32 %148, 10
+  store i32 %149, ptr %2, align 4
   ret i32 %spec.select89
 }
 

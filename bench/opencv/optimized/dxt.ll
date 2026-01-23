@@ -6113,17 +6113,17 @@ define internal fastcc void @_ZN2cvL7DFTInitEiiPKiPiiPvi(i32 noundef %0, i32 nou
   br i1 %20, label %.lr.ph306.preheader, label %.thread264
 
 .lr.ph306.preheader:                              ; preds = %.preheader
-  %wide.trip.count354 = zext nneg i32 %17 to i64
+  %wide.trip.count351 = zext nneg i32 %17 to i64
   br label %.lr.ph306
 
 .lr.ph306:                                        ; preds = %.lr.ph306.preheader, %.lr.ph306
-  %indvars.iv351 = phi i64 [ 1, %.lr.ph306.preheader ], [ %indvars.iv.next352, %.lr.ph306 ]
-  %21 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv351
-  %22 = trunc nuw nsw i64 %indvars.iv351 to i32
+  %indvars.iv348 = phi i64 [ 1, %.lr.ph306.preheader ], [ %indvars.iv.next349, %.lr.ph306 ]
+  %21 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv348
+  %22 = trunc nuw nsw i64 %indvars.iv348 to i32
   store i32 %22, ptr %21, align 4, !tbaa !46
-  %indvars.iv.next352 = add nuw nsw i64 %indvars.iv351, 1
-  %exitcond355.not = icmp eq i64 %indvars.iv.next352, %wide.trip.count354
-  br i1 %exitcond355.not, label %._crit_edge307, label %.lr.ph306, !llvm.loop !192
+  %indvars.iv.next349 = add nuw nsw i64 %indvars.iv348, 1
+  %exitcond352.not = icmp eq i64 %indvars.iv.next349, %wide.trip.count351
+  br i1 %exitcond352.not, label %._crit_edge307, label %.lr.ph306, !llvm.loop !192
 
 .thread265:                                       ; preds = %16
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -6373,34 +6373,33 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %37, %
 .preheader269.lr.ph:                              ; preds = %140
   %144 = icmp sgt i32 %14, 0
   %145 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %146 = sext i32 %14 to i64
-  %147 = zext nneg i32 %0 to i64
   %wide.trip.count340 = zext nneg i32 %14 to i64
   br label %.preheader269
 
 .preheader269:                                    ; preds = %.preheader269.backedge, %.preheader269.lr.ph
-  %indvars.iv345 = phi i64 [ %146, %.preheader269.lr.ph ], [ %indvars.iv.next346, %.preheader269.backedge ]
+  %.4300 = phi i32 [ %14, %.preheader269.lr.ph ], [ %150, %.preheader269.backedge ]
   %.0214299 = phi i32 [ %142, %.preheader269.lr.ph ], [ %.0214299.be, %.preheader269.backedge ]
   br i1 %144, label %.lr.ph291.preheader, label %._crit_edge292
 
 .lr.ph291.preheader:                              ; preds = %.preheader269
-  %invariant.gep = getelementptr i32, ptr %.0, i64 %indvars.iv345
+  %146 = zext nneg i32 %.4300 to i64
+  %invariant.gep = getelementptr inbounds nuw i32, ptr %.0, i64 %146
   br label %.lr.ph291
 
 .lr.ph291:                                        ; preds = %.lr.ph291.preheader, %.lr.ph291
   %indvars.iv337 = phi i64 [ 0, %.lr.ph291.preheader ], [ %indvars.iv.next338, %.lr.ph291 ]
-  %148 = getelementptr inbounds nuw i32, ptr %.0, i64 %indvars.iv337
-  %149 = load i32, ptr %148, align 4, !tbaa !46
-  %150 = add nsw i32 %149, %.0214299
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv337
-  store i32 %150, ptr %gep, align 4, !tbaa !46
+  %147 = getelementptr inbounds nuw i32, ptr %.0, i64 %indvars.iv337
+  %148 = load i32, ptr %147, align 4, !tbaa !46
+  %149 = add nsw i32 %148, %.0214299
+  %gep = getelementptr inbounds nuw i32, ptr %invariant.gep, i64 %indvars.iv337
+  store i32 %149, ptr %gep, align 4, !tbaa !46
   %indvars.iv.next338 = add nuw nsw i64 %indvars.iv337, 1
   %exitcond341.not = icmp eq i64 %indvars.iv.next338, %wide.trip.count340
   br i1 %exitcond341.not, label %._crit_edge292, label %.lr.ph291, !llvm.loop !197
 
 ._crit_edge292:                                   ; preds = %.lr.ph291, %.preheader269
-  %indvars.iv.next346 = add nsw i64 %indvars.iv345, %146
-  %.not240 = icmp slt i64 %indvars.iv.next346, %147
+  %150 = add nsw i32 %.4300, %14
+  %.not240 = icmp slt i32 %150, %0
   br i1 %.not240, label %151, label %.loopexit270
 
 151:                                              ; preds = %._crit_edge292
@@ -6490,22 +6489,22 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %37, %
   br label %.lr.ph304
 
 .lr.ph304:                                        ; preds = %.lr.ph304.preheader, %.lr.ph304
-  %indvars.iv348 = phi i64 [ %187, %.lr.ph304.preheader ], [ %indvars.iv.next349, %.lr.ph304 ]
-  %189 = getelementptr inbounds nuw i32, ptr %.0, i64 %indvars.iv348
+  %indvars.iv345 = phi i64 [ %187, %.lr.ph304.preheader ], [ %indvars.iv.next346, %.lr.ph304 ]
+  %189 = getelementptr inbounds nuw i32, ptr %.0, i64 %indvars.iv345
   %190 = load i32, ptr %189, align 4, !tbaa !46
-  %191 = add nuw nsw i64 %indvars.iv348, 1
+  %191 = add nuw nsw i64 %indvars.iv345, 1
   %192 = getelementptr inbounds nuw i32, ptr %.0, i64 %191
   %193 = load i32, ptr %192, align 4, !tbaa !46
   %194 = sext i32 %190 to i64
   %195 = getelementptr inbounds i32, ptr %3, i64 %194
-  %196 = trunc nuw nsw i64 %indvars.iv348 to i32
+  %196 = trunc nuw nsw i64 %indvars.iv345 to i32
   store i32 %196, ptr %195, align 4, !tbaa !46
   %197 = sext i32 %193 to i64
   %198 = getelementptr inbounds i32, ptr %3, i64 %197
   %199 = trunc nuw nsw i64 %191 to i32
   store i32 %199, ptr %198, align 4, !tbaa !46
-  %indvars.iv.next349 = add nuw nsw i64 %indvars.iv348, 2
-  %200 = icmp samesign ult i64 %indvars.iv.next349, %188
+  %indvars.iv.next346 = add nuw nsw i64 %indvars.iv345, 2
+  %200 = icmp samesign ult i64 %indvars.iv.next346, %188
   br i1 %200, label %.lr.ph304, label %.loopexit, !llvm.loop !201
 
 .loopexit:                                        ; preds = %.lr.ph304, %.thread265, %.loopexit270
@@ -6565,19 +6564,19 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %37, %
 .lr.ph317:                                        ; preds = %228
   %230 = fneg double %.sroa.8.0
   %231 = zext nneg i32 %0 to i64
-  %smax365 = tail call i32 @llvm.smax.i32(i32 %219, i32 2)
-  %wide.trip.count366 = zext nneg i32 %smax365 to i64
+  %smax362 = tail call i32 @llvm.smax.i32(i32 %219, i32 2)
+  %wide.trip.count363 = zext nneg i32 %smax362 to i64
   br label %232
 
 232:                                              ; preds = %.lr.ph317, %232
-  %indvars.iv362 = phi i64 [ 1, %.lr.ph317 ], [ %indvars.iv.next363, %232 ]
+  %indvars.iv359 = phi i64 [ 1, %.lr.ph317 ], [ %indvars.iv.next360, %232 ]
   %.sroa.0256.1314 = phi double [ %.sroa.0253.0, %.lr.ph317 ], [ %239, %232 ]
   %.sroa.14.1313 = phi double [ %.sroa.8.0, %.lr.ph317 ], [ %241, %232 ]
-  %233 = getelementptr inbounds nuw %"class.cv::Complex", ptr %5, i64 %indvars.iv362
+  %233 = getelementptr inbounds nuw %"class.cv::Complex", ptr %5, i64 %indvars.iv359
   store double %.sroa.0256.1314, ptr %233, align 8, !tbaa !143
   %.sroa.14.0..sroa_idx = getelementptr inbounds nuw i8, ptr %233, i64 8
   store double %.sroa.14.1313, ptr %.sroa.14.0..sroa_idx, align 8, !tbaa !143
-  %234 = sub nsw i64 %231, %indvars.iv362
+  %234 = sub nsw i64 %231, %indvars.iv359
   %235 = getelementptr inbounds %"class.cv::Complex", ptr %5, i64 %234
   store double %.sroa.0256.1314, ptr %235, align 8, !tbaa !202
   %236 = fneg double %.sroa.14.1313
@@ -6587,9 +6586,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %37, %
   %239 = tail call double @llvm.fmuladd.f64(double %.sroa.0256.1314, double %.sroa.0253.0, double %238)
   %240 = fmul double %.sroa.0253.0, %.sroa.14.1313
   %241 = tail call double @llvm.fmuladd.f64(double %.sroa.0256.1314, double %.sroa.8.0, double %240)
-  %indvars.iv.next363 = add nuw nsw i64 %indvars.iv362, 1
-  %exitcond367.not = icmp eq i64 %indvars.iv.next363, %wide.trip.count366
-  br i1 %exitcond367.not, label %.thread264, label %232, !llvm.loop !205
+  %indvars.iv.next360 = add nuw nsw i64 %indvars.iv359, 1
+  %exitcond364.not = icmp eq i64 %indvars.iv.next360, %wide.trip.count363
+  br i1 %exitcond364.not, label %.thread264, label %232, !llvm.loop !205
 
 242:                                              ; preds = %217
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
@@ -6650,21 +6649,21 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit249: ; preds = %24
 .lr.ph312:                                        ; preds = %260
   %262 = fneg double %.sroa.8.0
   %263 = zext nneg i32 %0 to i64
-  %smax359 = tail call i32 @llvm.smax.i32(i32 %219, i32 2)
-  %wide.trip.count360 = zext nneg i32 %smax359 to i64
+  %smax356 = tail call i32 @llvm.smax.i32(i32 %219, i32 2)
+  %wide.trip.count357 = zext nneg i32 %smax356 to i64
   br label %264
 
 264:                                              ; preds = %.lr.ph312, %264
-  %indvars.iv356 = phi i64 [ 1, %.lr.ph312 ], [ %indvars.iv.next357, %264 ]
+  %indvars.iv353 = phi i64 [ 1, %.lr.ph312 ], [ %indvars.iv.next354, %264 ]
   %.sroa.0256.2309 = phi double [ %.sroa.0253.0, %.lr.ph312 ], [ %274, %264 ]
   %.sroa.14.2308 = phi double [ %.sroa.8.0, %.lr.ph312 ], [ %276, %264 ]
   %265 = fptrunc double %.sroa.0256.2309 to float
-  %266 = getelementptr inbounds nuw %"class.cv::Complex.13", ptr %5, i64 %indvars.iv356
+  %266 = getelementptr inbounds nuw %"class.cv::Complex.13", ptr %5, i64 %indvars.iv353
   store float %265, ptr %266, align 4, !tbaa !206
   %267 = fptrunc double %.sroa.14.2308 to float
   %268 = getelementptr inbounds nuw i8, ptr %266, i64 4
   store float %267, ptr %268, align 4, !tbaa !208
-  %269 = sub nsw i64 %263, %indvars.iv356
+  %269 = sub nsw i64 %263, %indvars.iv353
   %270 = getelementptr inbounds %"class.cv::Complex.13", ptr %5, i64 %269
   store float %265, ptr %270, align 4, !tbaa !206
   %271 = fneg float %267
@@ -6674,9 +6673,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit249: ; preds = %24
   %274 = tail call double @llvm.fmuladd.f64(double %.sroa.0256.2309, double %.sroa.0253.0, double %273)
   %275 = fmul double %.sroa.0253.0, %.sroa.14.2308
   %276 = tail call double @llvm.fmuladd.f64(double %.sroa.0256.2309, double %.sroa.8.0, double %275)
-  %indvars.iv.next357 = add nuw nsw i64 %indvars.iv356, 1
-  %exitcond361.not = icmp eq i64 %indvars.iv.next357, %wide.trip.count360
-  br i1 %exitcond361.not, label %.thread264, label %264, !llvm.loop !209
+  %indvars.iv.next354 = add nuw nsw i64 %indvars.iv353, 1
+  %exitcond358.not = icmp eq i64 %indvars.iv.next354, %wide.trip.count357
+  br i1 %exitcond358.not, label %.thread264, label %264, !llvm.loop !209
 
 .thread264:                                       ; preds = %264, %232, %.preheader, %260, %228, %._crit_edge307, %29, %28
   call void @llvm.lifetime.end.p0(ptr nonnull %9)

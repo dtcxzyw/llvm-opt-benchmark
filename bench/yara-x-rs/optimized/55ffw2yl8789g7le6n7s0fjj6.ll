@@ -578,7 +578,8 @@ define internal fastcc void @_ZN8protobuf18coded_input_stream16CodedInputStream2
 34:                                               ; preds = %32
   %35 = zext nneg i8 %21 to i64
   %36 = shl nuw nsw i64 %35, 28
-  %.sroa.10.8.insert.ext34 = or i64 %36, %.sroa.09.0.i.i
+  %.sroa.09.0.i.i.masked = and i64 %.sroa.09.0.i.i, 4026531840
+  %.sroa.10.8.insert.ext34 = or i64 %36, %.sroa.09.0.i.i.masked
   br label %.loopexit
 
 37:                                               ; preds = %13
@@ -1263,7 +1264,8 @@ define noundef align 8 ptr @"_ZN82_$LT$yara_x_proto_json..test..SubMessage$u20$a
 81:                                               ; preds = %79
   %82 = zext nneg i8 %68 to i64
   %83 = shl nuw nsw i64 %82, 28
-  %.sroa.10.8.insert.ext12.i = or i64 %83, %.sroa.09.0.i.i.i
+  %.sroa.09.0.i.i.masked.i = and i64 %.sroa.09.0.i.i.i, 4026531840
+  %.sroa.10.8.insert.ext12.i = or i64 %83, %.sroa.09.0.i.i.masked.i
   br label %.loopexit.i
 
 84:                                               ; preds = %60

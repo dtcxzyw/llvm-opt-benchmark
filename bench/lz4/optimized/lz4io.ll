@@ -7402,93 +7402,86 @@ LZ4IO_isStdin.exit:                               ; preds = %71
   br i1 %.not55, label %116, label %109, !llvm.loop !161
 
 116:                                              ; preds = %109
-  %spec.store.select = tail call i64 @llvm.umin.i64(i64 %115, i64 65536)
-  store i64 %spec.store.select, ptr %0, align 8, !tbaa !29
-  %117 = sub nsw i64 %.0, %spec.store.select
-  %118 = and i64 %117, 65535
-  %119 = icmp eq i64 %118, 0
-  br i1 %119, label %163, label %120
+  store i64 %115, ptr %0, align 8, !tbaa !29
+  %117 = icmp eq i64 %.0, 0
+  br i1 %117, label %158, label %118
 
-120:                                              ; preds = %116
-  %.not56 = icmp eq i64 %115, 0
-  %121 = select i1 %.not56, i64 1, i64 %spec.store.select
-  %122 = tail call noalias ptr @malloc(i64 noundef %121) #25
-  %.not57 = icmp eq ptr %122, null
-  br i1 %.not57, label %123, label %156
+118:                                              ; preds = %116
+  %119 = tail call noalias dereferenceable_or_null(1) ptr @malloc(i64 noundef 1) #25
+  %.not57 = icmp eq ptr %119, null
+  br i1 %.not57, label %120, label %153
+
+120:                                              ; preds = %118
+  %121 = load i32, ptr @g_displayLevel, align 4, !tbaa !4
+  %122 = icmp sgt i32 %121, 0
+  br i1 %122, label %123, label %.thread74
 
 123:                                              ; preds = %120
-  %124 = load i32, ptr @g_displayLevel, align 4, !tbaa !4
-  %125 = icmp sgt i32 %124, 0
-  br i1 %125, label %126, label %.thread74
+  %124 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %125 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %124, ptr noundef nonnull @.str, i32 noundef 28) #26
+  %126 = load i32, ptr @g_displayLevel, align 4, !tbaa !4
+  %127 = icmp sgt i32 %126, 3
+  br i1 %127, label %128, label %131
 
-126:                                              ; preds = %123
-  %127 = load ptr, ptr @stderr, align 8, !tbaa !8
-  %128 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %127, ptr noundef nonnull @.str, i32 noundef 28) #26
-  %129 = load i32, ptr @g_displayLevel, align 4, !tbaa !4
-  %130 = icmp sgt i32 %129, 3
-  br i1 %130, label %131, label %134
-
-131:                                              ; preds = %126
-  %132 = load ptr, ptr @stderr, align 8, !tbaa !8
-  %133 = tail call i32 @fflush(ptr noundef %132)
+128:                                              ; preds = %123
+  %129 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %130 = tail call i32 @fflush(ptr noundef %129)
   %.pr70 = load i32, ptr @g_displayLevel, align 4, !tbaa !4
-  br label %134
+  br label %131
 
-134:                                              ; preds = %126, %131
-  %135 = phi i32 [ %129, %126 ], [ %.pr70, %131 ]
-  %136 = icmp sgt i32 %135, 0
-  br i1 %136, label %137, label %.thread74
+131:                                              ; preds = %123, %128
+  %132 = phi i32 [ %126, %123 ], [ %.pr70, %128 ]
+  %133 = icmp sgt i32 %132, 0
+  br i1 %133, label %134, label %.thread74
 
-137:                                              ; preds = %134
-  %138 = load ptr, ptr @stderr, align 8, !tbaa !8
-  %139 = tail call i64 @fwrite(ptr nonnull @.str.81, i64 36, i64 1, ptr %138) #27
-  %140 = load i32, ptr @g_displayLevel, align 4, !tbaa !4
-  %141 = icmp sgt i32 %140, 3
-  br i1 %141, label %142, label %thread-pre-split72
+134:                                              ; preds = %131
+  %135 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %136 = tail call i64 @fwrite(ptr nonnull @.str.81, i64 36, i64 1, ptr %135) #27
+  %137 = load i32, ptr @g_displayLevel, align 4, !tbaa !4
+  %138 = icmp sgt i32 %137, 3
+  br i1 %138, label %139, label %thread-pre-split72
 
-142:                                              ; preds = %137
-  %143 = load ptr, ptr @stderr, align 8, !tbaa !8
-  %144 = tail call i32 @fflush(ptr noundef %143)
+139:                                              ; preds = %134
+  %140 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %141 = tail call i32 @fflush(ptr noundef %140)
   %.pr73.pre = load i32, ptr @g_displayLevel, align 4, !tbaa !4
   br label %thread-pre-split72
 
-thread-pre-split72:                               ; preds = %142, %137
-  %145 = phi i32 [ %140, %137 ], [ %.pr73.pre, %142 ]
-  %146 = icmp sgt i32 %145, 0
-  br i1 %146, label %147, label %.thread74
+thread-pre-split72:                               ; preds = %139, %134
+  %142 = phi i32 [ %137, %134 ], [ %.pr73.pre, %139 ]
+  %143 = icmp sgt i32 %142, 0
+  br i1 %143, label %144, label %.thread74
 
-147:                                              ; preds = %thread-pre-split72
-  %148 = load ptr, ptr @stderr, align 8, !tbaa !8
-  %149 = tail call i64 @fwrite(ptr nonnull @.str.2, i64 2, i64 1, ptr %148) #27
-  %150 = load i32, ptr @g_displayLevel, align 4, !tbaa !4
-  %151 = icmp sgt i32 %150, 3
-  br i1 %151, label %152, label %.thread74
+144:                                              ; preds = %thread-pre-split72
+  %145 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %146 = tail call i64 @fwrite(ptr nonnull @.str.2, i64 2, i64 1, ptr %145) #27
+  %147 = load i32, ptr @g_displayLevel, align 4, !tbaa !4
+  %148 = icmp sgt i32 %147, 3
+  br i1 %148, label %149, label %.thread74
 
-152:                                              ; preds = %147
-  %153 = load ptr, ptr @stderr, align 8, !tbaa !8
-  %154 = tail call i32 @fflush(ptr noundef %153)
+149:                                              ; preds = %144
+  %150 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %151 = tail call i32 @fflush(ptr noundef %150)
   br label %.thread74
 
-.thread74:                                        ; preds = %134, %123, %147, %152, %thread-pre-split72
-  %155 = tail call i32 @fflush(ptr noundef null)
+.thread74:                                        ; preds = %131, %120, %144, %149, %thread-pre-split72
+  %152 = tail call i32 @fflush(ptr noundef null)
   tail call void @exit(i32 noundef 28) #28
   unreachable
 
-156:                                              ; preds = %120
-  %157 = getelementptr inbounds nuw i8, ptr %3, i64 %118
-  %158 = sub nuw nsw i64 65536, %118
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %122, ptr noundef nonnull align 1 dereferenceable(1) %157, i64 %158, i1 false)
-  %159 = getelementptr inbounds nuw i8, ptr %122, i64 65536
-  %160 = sub nsw i64 0, %118
-  %161 = getelementptr inbounds i8, ptr %159, i64 %160
-  %162 = sub nsw i64 %spec.store.select, %158
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %161, ptr nonnull align 1 %3, i64 %162, i1 false)
-  br label %163
+153:                                              ; preds = %118
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %119, ptr noundef nonnull align 1 dereferenceable(1) %110, i64 %111, i1 false)
+  %154 = getelementptr inbounds nuw i8, ptr %119, i64 65536
+  %155 = sub nsw i64 0, %.0
+  %156 = getelementptr inbounds i8, ptr %154, i64 %155
+  %157 = sub nsw i64 %115, %111
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %156, ptr nonnull align 1 %3, i64 %157, i1 false)
+  br label %158
 
-163:                                              ; preds = %116, %156
-  %.045 = phi ptr [ %3, %156 ], [ null, %116 ]
-  %.044 = phi ptr [ %122, %156 ], [ %3, %116 ]
-  %164 = tail call i32 @fclose(ptr noundef nonnull %72)
+158:                                              ; preds = %116, %153
+  %.045 = phi ptr [ %3, %153 ], [ null, %116 ]
+  %.044 = phi ptr [ %119, %153 ], [ %3, %116 ]
+  %159 = tail call i32 @fclose(ptr noundef nonnull %72)
   tail call void @free(ptr noundef %.045) #24
   ret ptr %.044
 }

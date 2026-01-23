@@ -6580,11 +6580,13 @@ define internal void @"_ZN83_$LT$rayon_core..job..StackJob$LT$L$C$F$C$R$GT$$u20$
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i), !noalias !774
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !774
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.9, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.10.i.i, i64 32, i1 false), !noalias !793
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.10.i.i)
   br label %26
 
 17:                                               ; preds = %10
   %18 = extractvalue { ptr, ptr } %13, 0
   %19 = extractvalue { ptr, ptr } %13, 1
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.10.i.i)
   %20 = icmp ne ptr %18, null
   tail call void @llvm.assume(i1 %20)
   %21 = icmp ne ptr %19, null
@@ -6608,7 +6610,6 @@ define internal void @"_ZN83_$LT$rayon_core..job..StackJob$LT$L$C$F$C$R$GT$$u20$
   %.sroa.5.0 = phi ptr [ %18, %17 ], [ %.sroa.03.0.copyload6.i.i, %16 ]
   %.sroa.7.0 = phi ptr [ %19, %17 ], [ %.sroa.8.0.copyload9.i.i, %16 ]
   %storemerge.i = phi i64 [ 2, %17 ], [ 1, %16 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.10.i.i)
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 144
   invoke fastcc void @"_ZN4core3ptr342drop_in_place$LT$rayon_core..job..JobResult$LT$$LP$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$$LP$usize$C$usize$C$rayon..slice..mergesort..MergesortResult$RP$$GT$$GT$$C$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$$LP$usize$C$usize$C$rayon..slice..mergesort..MergesortResult$RP$$GT$$GT$$RP$$GT$$GT$17h82d94a4f7a49e991E"(ptr noalias noundef align 8 dereferenceable(56) %27)
           to label %30 unwind label %28
@@ -6877,11 +6878,13 @@ define internal void @"_ZN83_$LT$rayon_core..job..StackJob$LT$L$C$F$C$R$GT$$u20$
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i), !noalias !812
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !812
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.9, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.10.i.i, i64 32, i1 false), !noalias !831
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.10.i.i)
   br label %26
 
 17:                                               ; preds = %10
   %18 = extractvalue { ptr, ptr } %13, 0
   %19 = extractvalue { ptr, ptr } %13, 1
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.10.i.i)
   %20 = icmp ne ptr %18, null
   tail call void @llvm.assume(i1 %20)
   %21 = icmp ne ptr %19, null
@@ -6905,7 +6908,6 @@ define internal void @"_ZN83_$LT$rayon_core..job..StackJob$LT$L$C$F$C$R$GT$$u20$
   %.sroa.5.0 = phi ptr [ %18, %17 ], [ %.sroa.03.0.copyload6.i.i, %16 ]
   %.sroa.7.0 = phi ptr [ %19, %17 ], [ %.sroa.8.0.copyload9.i.i, %16 ]
   %storemerge.i = phi i64 [ 2, %17 ], [ 1, %16 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.10.i.i)
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 176
   tail call void @llvm.experimental.noalias.scope.decl(metadata !832)
   %28 = load i64, ptr %27, align 8, !range !19, !alias.scope !832, !noundef !4
@@ -7517,11 +7519,13 @@ define internal void @"_ZN83_$LT$rayon_core..job..StackJob$LT$L$C$F$C$R$GT$$u20$
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i), !noalias !895
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !895
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.9, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.10.i.i, i64 32, i1 false), !noalias !914
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.10.i.i)
   br label %25
 
 17:                                               ; preds = %10
   %18 = extractvalue { ptr, ptr } %13, 0
   %19 = extractvalue { ptr, ptr } %13, 1
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.10.i.i)
   %20 = icmp ne ptr %18, null
   tail call void @llvm.assume(i1 %20)
   %21 = icmp ne ptr %19, null
@@ -7545,7 +7549,6 @@ define internal void @"_ZN83_$LT$rayon_core..job..StackJob$LT$L$C$F$C$R$GT$$u20$
   %.sroa.5.0 = phi ptr [ %18, %17 ], [ %.sroa.03.0.copyload6.i.i, %16 ]
   %.sroa.7.0 = phi ptr [ %19, %17 ], [ %.sroa.8.0.copyload9.i.i, %16 ]
   %storemerge.i = phi i64 [ 2, %17 ], [ 1, %16 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.10.i.i)
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 136
   invoke fastcc void @"_ZN4core3ptr342drop_in_place$LT$rayon_core..job..JobResult$LT$$LP$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$$LP$usize$C$usize$C$rayon..slice..mergesort..MergesortResult$RP$$GT$$GT$$C$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$$LP$usize$C$usize$C$rayon..slice..mergesort..MergesortResult$RP$$GT$$GT$$RP$$GT$$GT$17h82d94a4f7a49e991E"(ptr noalias noundef align 8 dereferenceable(56) %26)
           to label %29 unwind label %27
@@ -8805,11 +8808,13 @@ define internal void @"_ZN83_$LT$rayon_core..job..StackJob$LT$L$C$F$C$R$GT$$u20$
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i), !noalias !1079
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !1079
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.9, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.10.i.i, i64 32, i1 false), !noalias !1098
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.10.i.i)
   br label %25
 
 17:                                               ; preds = %10
   %18 = extractvalue { ptr, ptr } %13, 0
   %19 = extractvalue { ptr, ptr } %13, 1
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.10.i.i)
   %20 = icmp ne ptr %18, null
   tail call void @llvm.assume(i1 %20)
   %21 = icmp ne ptr %19, null
@@ -8833,7 +8838,6 @@ define internal void @"_ZN83_$LT$rayon_core..job..StackJob$LT$L$C$F$C$R$GT$$u20$
   %.sroa.5.0 = phi ptr [ %18, %17 ], [ %.sroa.03.0.copyload6.i.i, %16 ]
   %.sroa.7.0 = phi ptr [ %19, %17 ], [ %.sroa.8.0.copyload9.i.i, %16 ]
   %storemerge.i = phi i64 [ 2, %17 ], [ 1, %16 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.10.i.i)
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 168
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1099)
   %27 = load i64, ptr %26, align 8, !range !19, !alias.scope !1099, !noundef !4

@@ -2064,7 +2064,7 @@ define noalias noundef ptr @pdf_parse_array(ptr noundef %0, ptr noundef %1, i64 
 
 56:                                               ; preds = %.lr.ph209, %152
   %.promoted = phi ptr [ %53, %.lr.ph209 ], [ %153, %152 ]
-  %.0124208 = phi i1 [ true, %.lr.ph209 ], [ false, %152 ]
+  %.0124208 = phi ptr [ null, %.lr.ph209 ], [ %124, %152 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %57 = icmp ult ptr %.promoted, %.0122197.ptr.lcssa
   br i1 %57, label %.lr.ph203, label %.critedge
@@ -2212,8 +2212,9 @@ define noalias noundef ptr @pdf_parse_array(ptr noundef %0, ptr noundef %1, i64 
   %.0176 = phi ptr [ null, %.thread168 ], [ %.0, %116 ]
   %.0116175 = phi ptr [ null, %.thread168 ], [ %.0116, %116 ]
   %.0117174 = phi ptr [ %109, %.thread168 ], [ %.0117, %116 ]
+  %.not157 = icmp eq ptr %.0124208, null
   %124 = call noalias dereferenceable_or_null(40) ptr @calloc(i64 noundef 1, i64 noundef 40) #18
-  br i1 %.0124208, label %125, label %131
+  br i1 %.not157, label %125, label %131
 
 125:                                              ; preds = %120
   store ptr %124, ptr %55, align 8, !tbaa !59

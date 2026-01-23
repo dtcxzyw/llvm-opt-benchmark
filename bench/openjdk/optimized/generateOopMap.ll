@@ -3382,63 +3382,71 @@ define hidden void @_ZN14GenerateOopMap24rewrite_refval_conflictsEv(ptr noundef 
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.pre14 = load i32, ptr %.phi.trans.insert, align 8
   %16 = icmp slt i32 %.pre14, 1
-  %or.cond = select i1 %15, i1 true, i1 %16
-  br i1 %or.cond, label %.critedge, label %.lr.ph
+  %or.cond17 = select i1 %15, i1 true, i1 %16
+  br i1 %or.cond17, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %11
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 160
   br label %18
 
-18:                                               ; preds = %.lr.ph, %._crit_edge
-  %19 = phi i32 [ %.pre14, %.lr.ph ], [ %29, %._crit_edge ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %._crit_edge ]
-  %20 = load ptr, ptr %17, align 8
-  %21 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv
-  %22 = load i32, ptr %21, align 4
-  %23 = zext i32 %22 to i64
-  %.not = icmp eq i64 %indvars.iv, %23
-  br i1 %.not, label %._crit_edge, label %24
+18:                                               ; preds = %.lr.ph, %30
+  %19 = phi i8 [ %14, %.lr.ph ], [ %31, %30 ]
+  %20 = phi i32 [ %.pre14, %.lr.ph ], [ %32, %30 ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %30 ]
+  %21 = load ptr, ptr %17, align 8
+  %22 = getelementptr inbounds nuw i32, ptr %21, i64 %indvars.iv
+  %23 = load i32, ptr %22, align 4
+  %24 = zext i32 %23 to i64
+  %.not = icmp eq i64 %indvars.iv, %24
+  br i1 %.not, label %._crit_edge, label %25
 
-24:                                               ; preds = %18
-  %25 = trunc nuw nsw i64 %indvars.iv to i32
-  tail call void @_ZN14GenerateOopMap23rewrite_refval_conflictEii(ptr noundef nonnull align 8 dereferenceable(176) %0, i32 noundef %25, i32 noundef %22)
-  %26 = load i8, ptr %13, align 8
-  %27 = trunc i8 %26 to i1
-  br i1 %27, label %.loopexit, label %28
+._crit_edge:                                      ; preds = %18
+  %.pre15 = trunc i8 %19 to i1
+  br label %30
 
-28:                                               ; preds = %24
+25:                                               ; preds = %18
+  %26 = trunc nuw nsw i64 %indvars.iv to i32
+  tail call void @_ZN14GenerateOopMap23rewrite_refval_conflictEii(ptr noundef nonnull align 8 dereferenceable(176) %0, i32 noundef %26, i32 noundef %23)
+  %27 = load i8, ptr %13, align 8
+  %28 = trunc i8 %27 to i1
+  br i1 %28, label %.loopexit, label %29
+
+29:                                               ; preds = %25
   %.pre = load i32, ptr %.phi.trans.insert, align 8
-  br label %._crit_edge
+  br label %30
 
-._crit_edge:                                      ; preds = %18, %28
-  %29 = phi i32 [ %.pre, %28 ], [ %19, %18 ]
+30:                                               ; preds = %._crit_edge, %29
+  %.pre-phi = phi i1 [ %.pre15, %._crit_edge ], [ false, %29 ]
+  %31 = phi i8 [ %19, %._crit_edge ], [ %27, %29 ]
+  %32 = phi i32 [ %20, %._crit_edge ], [ %.pre, %29 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %30 = sext i32 %29 to i64
-  %.not17 = icmp slt i64 %indvars.iv.next, %30
-  br i1 %.not17, label %18, label %.critedge, !llvm.loop !32
+  %33 = sext i32 %32 to i64
+  %34 = icmp sge i64 %indvars.iv.next, %33
+  %or.cond = select i1 %34, i1 true, i1 %.pre-phi
+  br i1 %or.cond, label %.critedge, label %18, !llvm.loop !32
 
-.critedge:                                        ; preds = %._crit_edge, %11
-  %31 = phi i32 [ %.pre14, %11 ], [ %29, %._crit_edge ]
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %35 = load i32, ptr %2, align 4
-  %36 = add nsw i32 %35, %31
-  %37 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  %38 = load ptr, ptr %37, align 8
-  %39 = trunc i32 %36 to i16
-  %40 = getelementptr inbounds nuw i8, ptr %38, i64 44
-  store i16 %39, ptr %40, align 4
-  %41 = load i32, ptr %2, align 4
-  %42 = load i32, ptr %34, align 8
-  %43 = add nsw i32 %42, %41
-  store i32 %43, ptr %34, align 8
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  store ptr null, ptr %44, align 8
+.critedge:                                        ; preds = %30, %11
+  %35 = phi i32 [ %.pre14, %11 ], [ %32, %30 ]
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %37 = load ptr, ptr %36, align 8
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %39 = load i32, ptr %2, align 4
+  %40 = add nsw i32 %39, %35
+  %41 = getelementptr inbounds nuw i8, ptr %37, i64 8
+  %42 = load ptr, ptr %41, align 8
+  %43 = trunc i32 %40 to i16
+  %44 = getelementptr inbounds nuw i8, ptr %42, i64 44
+  store i16 %43, ptr %44, align 4
+  %45 = load i32, ptr %2, align 4
+  %46 = load i32, ptr %38, align 8
+  %47 = add nsw i32 %46, %45
+  store i32 %47, ptr %38, align 8
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  store ptr null, ptr %48, align 8
   store i32 0, ptr %2, align 4
   br label %.loopexit
 
-.loopexit:                                        ; preds = %24, %1, %.critedge
+.loopexit:                                        ; preds = %25, %1, %.critedge
   ret void
 }
 

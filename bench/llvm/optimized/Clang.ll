@@ -49245,7 +49245,8 @@ _ZN4llvmplERKNS_5TwineES2_.exit5536:              ; preds = %11498, %_ZN4llvmplE
   store i32 %11507, ptr %730, align 8, !tbaa !133
   call void @llvm.lifetime.end.p0(ptr nonnull %617)
   call void @llvm.lifetime.start.p0(ptr nonnull %618)
-  %11508 = inttoptr i64 %.01350313833 to ptr
+  %.sroa.026137.0.insert.ext = and i64 %.01350313833, 4294967295
+  %11508 = inttoptr i64 %.sroa.026137.0.insert.ext to ptr
   store ptr @.str.339, ptr %618, align 8, !alias.scope !1505
   %11509 = getelementptr inbounds nuw i8, ptr %618, i64 16
   store ptr %11508, ptr %11509, align 8, !alias.scope !1505

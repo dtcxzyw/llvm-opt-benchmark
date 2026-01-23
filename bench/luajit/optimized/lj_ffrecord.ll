@@ -2549,7 +2549,7 @@ define internal void @recff_string_char(ptr noundef %0, ptr readnone captures(no
 
 ._crit_edge:                                      ; preds = %11
   %24 = icmp ugt i32 %20, 1
-  br i1 %24, label %25, label %47
+  br i1 %24, label %25, label %50
 
 25:                                               ; preds = %._crit_edge
   %26 = getelementptr inbounds i8, ptr %0, i64 -536
@@ -2595,22 +2595,18 @@ define internal void @recff_string_char(ptr noundef %0, ptr readnone captures(no
   %46 = tail call i32 @lj_opt_fold(ptr noundef nonnull %0) #9
   br label %.sink.split
 
-47:                                               ; preds = %._crit_edge
-  %48 = icmp eq i32 %20, 0
-  br i1 %48, label %.thread, label %52
-
-.thread:                                          ; preds = %2, %47
-  %49 = getelementptr inbounds i8, ptr %0, i64 -616
-  %50 = tail call i32 @lj_ir_kgc(ptr noundef nonnull %0, ptr noundef nonnull %49, i32 noundef 4) #9
+.thread:                                          ; preds = %2
+  %47 = getelementptr inbounds i8, ptr %0, i64 -616
+  %48 = tail call i32 @lj_ir_kgc(ptr noundef nonnull %0, ptr noundef nonnull %47, i32 noundef 4) #9
   br label %.sink.split
 
 .sink.split:                                      ; preds = %._crit_edge47, %.thread
-  %.sink = phi i32 [ %50, %.thread ], [ %46, %._crit_edge47 ]
-  %51 = load ptr, ptr %4, align 8, !tbaa !37
-  store i32 %.sink, ptr %51, align 4, !tbaa !39
-  br label %52
+  %.sink = phi i32 [ %48, %.thread ], [ %46, %._crit_edge47 ]
+  %49 = load ptr, ptr %4, align 8, !tbaa !37
+  store i32 %.sink, ptr %49, align 4, !tbaa !39
+  br label %50
 
-52:                                               ; preds = %.sink.split, %47
+50:                                               ; preds = %._crit_edge, %.sink.split
   ret void
 }
 

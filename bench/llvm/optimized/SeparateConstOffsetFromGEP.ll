@@ -3896,7 +3896,8 @@ _ZN4llvm16dyn_cast_or_nullINS_17GetElementPtrInstENS_5ValueEEEDaPT0_.exit.i.i: ;
   %1481 = icmp eq i8 %1480, 63
   %spec.select.i.i.i.i113.i = select i1 %1481, ptr %.049.lcssa.i.i, ptr null
   %1482 = load i8, ptr %.1.i99.i.i, align 8, !tbaa !160
-  %1483 = icmp ne i8 %1482, 63
+  %1483 = icmp eq i8 %1482, 63
+  %spec.select.i.i87.i.i = select i1 %1483, ptr %.1.i99.i.i, ptr null
   %.not.i88.i.i = icmp eq ptr %spec.select.i.i.i.i113.i, null
   %or.cond170.i.i = select i1 %.not169.i.i, i1 true, i1 %.not.i88.i.i
   br i1 %or.cond170.i.i, label %_ZN12_GLOBAL__N_126SeparateConstOffsetFromGEP20isLegalToSwapOperandEPN4llvm17GetElementPtrInstES3_PNS1_4LoopE.exit.thread.i.i, label %1484
@@ -3911,7 +3912,8 @@ _ZNK4llvm5Value9hasOneUseEv.exit.i.i.i:           ; preds = %1484
   %1487 = getelementptr inbounds nuw i8, ptr %1486, i64 8
   %1488 = load ptr, ptr %1487, align 8, !tbaa !195
   %1489 = icmp ne ptr %1488, null
-  %or.cond60.i.i.i = or i1 %1483, %1489
+  %.not49.i.i.i = icmp eq ptr %spec.select.i.i87.i.i, null
+  %or.cond60.i.i.i = or i1 %.not49.i.i.i, %1489
   br i1 %or.cond60.i.i.i, label %_ZN12_GLOBAL__N_126SeparateConstOffsetFromGEP20isLegalToSwapOperandEPN4llvm17GetElementPtrInstES3_PNS1_4LoopE.exit.thread.i.i, label %1490
 
 1490:                                             ; preds = %_ZNK4llvm5Value9hasOneUseEv.exit.i.i.i
@@ -3920,7 +3922,7 @@ _ZNK4llvm5Value9hasOneUseEv.exit.i.i.i:           ; preds = %1484
   %1493 = getelementptr inbounds nuw i8, ptr %.1.i99.i.i, i64 40
   %1494 = load ptr, ptr %1493, align 8, !tbaa !247
   %.not50.i.i.i = icmp ne ptr %1492, %1494
-  %1495 = icmp eq ptr %spec.select.i.i.i.i113.i, %.1.i99.i.i
+  %1495 = icmp eq ptr %spec.select.i.i.i.i113.i, %spec.select.i.i87.i.i
   %or.cond61.i.i.i = or i1 %1495, %.not50.i.i.i
   br i1 %or.cond61.i.i.i, label %_ZN12_GLOBAL__N_126SeparateConstOffsetFromGEP20isLegalToSwapOperandEPN4llvm17GetElementPtrInstES3_PNS1_4LoopE.exit.thread.i.i, label %1496
 

@@ -212,7 +212,7 @@ keymatch.exit37:                                  ; preds = %57, %keymatch.exit
 
 73:                                               ; preds = %._crit_edge
   %74 = load ptr, ptr @stderr, align 8, !tbaa !20
-  %75 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %74, ptr noundef nonnull @.str.3, ptr noundef nonnull %10) #11
+  %75 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %74, ptr noundef nonnull @.str.3, ptr noundef %10) #11
   tail call fastcc void @usage()
   unreachable
 
@@ -768,88 +768,83 @@ define internal fastcc void @process_COM(i32 noundef range(i32 0, 2) %0) unnamed
 
 8:                                                ; preds = %1
   %9 = add i32 %3, -2
-  %.not22 = icmp eq i32 %9, 0
-  br i1 %.not22, label %._crit_edge, label %.lr.ph
+  %.not21 = icmp eq i32 %9, 0
+  br i1 %.not21, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %8
   %.not17 = icmp eq i32 %0, 0
   br i1 %.not17, label %.lr.ph.split.us, label %.lr.ph.split
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph, %29
-  %.024.us = phi i32 [ %11, %29 ], [ 0, %.lr.ph ]
-  %.01423.us = phi i32 [ %30, %29 ], [ %9, %.lr.ph ]
+.lr.ph.split.us:                                  ; preds = %.lr.ph, %28
+  %.01422.us = phi i32 [ %29, %28 ], [ %9, %.lr.ph ]
   %10 = load ptr, ptr @infile, align 8, !tbaa !20
   %11 = tail call i32 @getc(ptr noundef %10)
-  switch i32 %11, label %17 [
+  switch i32 %11, label %16 [
     i32 -1, label %.split.us
-    i32 13, label %16
+    i32 13, label %15
     i32 10, label %14
     i32 92, label %12
   ]
 
 12:                                               ; preds = %.lr.ph.split.us
   %13 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.37)
-  br label %29
+  br label %28
 
 14:                                               ; preds = %.lr.ph.split.us
-  %.not19.us = icmp eq i32 %.024.us, 13
-  br i1 %.not19.us, label %29, label %15
+  %putchar19.us = tail call i32 @putchar(i32 10)
+  br label %28
 
-15:                                               ; preds = %14
+15:                                               ; preds = %.lr.ph.split.us
   %putchar20.us = tail call i32 @putchar(i32 10)
-  br label %29
+  br label %28
 
 16:                                               ; preds = %.lr.ph.split.us
-  %putchar21.us = tail call i32 @putchar(i32 10)
-  br label %29
+  %17 = tail call ptr @__ctype_b_loc() #9
+  %18 = load ptr, ptr %17, align 8, !tbaa !10
+  %19 = sext i32 %11 to i64
+  %20 = getelementptr inbounds i16, ptr %18, i64 %19
+  %21 = load i16, ptr %20, align 2, !tbaa !12
+  %22 = and i16 %21, 16384
+  %.not18.us = icmp eq i16 %22, 0
+  br i1 %.not18.us, label %26, label %23
 
-17:                                               ; preds = %.lr.ph.split.us
-  %18 = tail call ptr @__ctype_b_loc() #9
-  %19 = load ptr, ptr %18, align 8, !tbaa !10
-  %20 = sext i32 %11 to i64
-  %21 = getelementptr inbounds i16, ptr %19, i64 %20
-  %22 = load i16, ptr %21, align 2, !tbaa !12
-  %23 = and i16 %22, 16384
-  %.not18.us = icmp eq i16 %23, 0
-  br i1 %.not18.us, label %27, label %24
+23:                                               ; preds = %16
+  %24 = load ptr, ptr @stdout, align 8, !tbaa !20
+  %25 = tail call i32 @putc(i32 noundef %11, ptr noundef %24)
+  br label %28
 
-24:                                               ; preds = %17
-  %25 = load ptr, ptr @stdout, align 8, !tbaa !20
-  %26 = tail call i32 @putc(i32 noundef %11, ptr noundef %25)
-  br label %29
+26:                                               ; preds = %16
+  %27 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.38, i32 noundef %11)
+  br label %28
 
-27:                                               ; preds = %17
-  %28 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.38, i32 noundef %11)
-  br label %29
-
-29:                                               ; preds = %27, %24, %16, %15, %14, %12
-  %30 = add i32 %.01423.us, -1
-  %.not.us = icmp eq i32 %30, 0
+28:                                               ; preds = %26, %23, %15, %14, %12
+  %29 = add i32 %.01422.us, -1
+  %.not.us = icmp eq i32 %29, 0
   br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !26
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %read_1_byte.exit
-  %.01423 = phi i32 [ %38, %read_1_byte.exit ], [ %9, %.lr.ph ]
-  %31 = load ptr, ptr @infile, align 8, !tbaa !20
-  %32 = tail call i32 @getc(ptr noundef %31)
-  %33 = icmp eq i32 %32, -1
-  br i1 %33, label %.split.us, label %read_1_byte.exit
+  %.01422 = phi i32 [ %37, %read_1_byte.exit ], [ %9, %.lr.ph ]
+  %30 = load ptr, ptr @infile, align 8, !tbaa !20
+  %31 = tail call i32 @getc(ptr noundef %30)
+  %32 = icmp eq i32 %31, -1
+  br i1 %32, label %.split.us, label %read_1_byte.exit
 
 .split.us:                                        ; preds = %.lr.ph.split, %.lr.ph.split.us
-  %34 = load ptr, ptr @stderr, align 8, !tbaa !20
-  %35 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %34, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.16) #11
+  %33 = load ptr, ptr @stderr, align 8, !tbaa !20
+  %34 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %33, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.16) #11
   tail call void @exit(i32 noundef 1) #12
   unreachable
 
 read_1_byte.exit:                                 ; preds = %.lr.ph.split
-  %36 = load ptr, ptr @stdout, align 8, !tbaa !20
-  %37 = tail call i32 @putc(i32 noundef %32, ptr noundef %36)
-  %38 = add i32 %.01423, -1
-  %.not = icmp eq i32 %38, 0
+  %35 = load ptr, ptr @stdout, align 8, !tbaa !20
+  %36 = tail call i32 @putc(i32 noundef %31, ptr noundef %35)
+  %37 = add i32 %.01422, -1
+  %.not = icmp eq i32 %37, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !26
 
-._crit_edge:                                      ; preds = %read_1_byte.exit, %29, %8
+._crit_edge:                                      ; preds = %read_1_byte.exit, %28, %8
   %putchar = tail call i32 @putchar(i32 10)
-  %39 = tail call ptr @setlocale(i32 noundef 0, ptr noundef nonnull @.str.39) #14
+  %38 = tail call ptr @setlocale(i32 noundef 0, ptr noundef nonnull @.str.39) #14
   ret void
 }
 

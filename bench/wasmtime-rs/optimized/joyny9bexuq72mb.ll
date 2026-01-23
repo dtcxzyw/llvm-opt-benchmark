@@ -33084,18 +33084,22 @@ _ZN8wasmtime7runtime5store11StoreOpaque16allocate_gc_heap17allocate_gc_store17hf
   %.0.i = phi i32 [ %.sroa.0.0.extract.trunc.i, %40 ], [ %16, %15 ]
   %.sroa.07.0.i = phi ptr [ %38, %40 ], [ %18, %15 ]
   %.sroa.3.0.i = phi ptr [ %.sroa.5.0.copyload.i, %40 ], [ %19, %15 ]
+  %43 = icmp ne ptr %.sroa.07.0.i, null
+  tail call void @llvm.assume(i1 %43)
+  %44 = icmp ne ptr %.sroa.3.0.i, null
+  tail call void @llvm.assume(i1 %44)
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !13939
-  call void @_ZN16wasmtime_runtime2gc7GcStore3new17h52567e7d50fa5acfE(ptr noalias noundef nonnull sret({ { { { { i64, ptr, {} }, i64 }, i32, i32 } }, { { { { ptr, ptr } }, {} }, {} }, i32, [1 x i32] }) align 8 captures(none) dereferenceable(56) %3, i32 noundef %.0.i, ptr noundef nonnull align 1 %.sroa.07.0.i, ptr noalias noundef readonly align 8 dereferenceable(24) %.sroa.3.0.i), !noalias !13939
+  call void @_ZN16wasmtime_runtime2gc7GcStore3new17h52567e7d50fa5acfE(ptr noalias noundef nonnull sret({ { { { { i64, ptr, {} }, i64 }, i32, i32 } }, { { { { ptr, ptr } }, {} }, {} }, i32, [1 x i32] }) align 8 captures(none) dereferenceable(56) %3, i32 noundef %.0.i, ptr noundef nonnull align 1 %.sroa.07.0.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.sroa.3.0.i), !noalias !13939
   %.sroa.0.0.copyload = load i64, ptr %3, align 8
   %.sroa.511.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.511.0.copyload = load ptr, ptr %.sroa.511.0..sroa_idx, align 8
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.8, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.8.0..sroa_idx, i64 40, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !13939
-  %43 = icmp eq i64 %.sroa.0.0.copyload, -9223372036854775808
-  br i1 %43, label %_ZN8wasmtime7runtime5store11StoreOpaque16allocate_gc_heap17allocate_gc_store17hfb571f637fdbd415E.exit.thread, label %44
+  %45 = icmp eq i64 %.sroa.0.0.copyload, -9223372036854775808
+  br i1 %45, label %_ZN8wasmtime7runtime5store11StoreOpaque16allocate_gc_heap17allocate_gc_store17hfb571f637fdbd415E.exit.thread, label %46
 
-44:                                               ; preds = %_ZN8wasmtime7runtime5store11StoreOpaque16allocate_gc_heap17allocate_gc_store17hfb571f637fdbd415E.exit
+46:                                               ; preds = %_ZN8wasmtime7runtime5store11StoreOpaque16allocate_gc_heap17allocate_gc_store17hfb571f637fdbd415E.exit
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
   call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !13945
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.3.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.8, i64 40, i1 false)
@@ -33105,58 +33109,58 @@ _ZN8wasmtime7runtime5store11StoreOpaque16allocate_gc_heap17allocate_gc_store17hf
   store i64 %.sroa.0.0.copyload, ptr %2, align 8, !noalias !13953
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %.sroa.511.0.copyload, ptr %.sroa.2.0..sroa_idx, align 8, !noalias !13953
-  %45 = invoke noundef align 8 dereferenceable(56) ptr @"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17h838892088c069248E.llvm.14851531119274094909"(ptr noundef nonnull align 8 %6, ptr noalias noundef nonnull align 8 dereferenceable(56) %2)
-          to label %51 unwind label %46, !noalias !13945
+  %47 = invoke noundef align 8 dereferenceable(56) ptr @"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17h838892088c069248E.llvm.14851531119274094909"(ptr noundef nonnull align 8 %6, ptr noalias noundef nonnull align 8 dereferenceable(56) %2)
+          to label %53 unwind label %48, !noalias !13945
 
-46:                                               ; preds = %44
-  %47 = landingpad { ptr, i32 }
+48:                                               ; preds = %46
+  %49 = landingpad { ptr, i32 }
           cleanup
-  %48 = load i64, ptr %2, align 8, !range !17, !alias.scope !13954, !noalias !13945, !noundef !16
-  %49 = icmp eq i64 %48, -9223372036854775808
-  br i1 %49, label %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$wasmtime_runtime..gc..GcStore$GT$$GT$17hd7a65020b104ef47E.llvm.14851531119274094909.exit.i.i", label %50
+  %50 = load i64, ptr %2, align 8, !range !17, !alias.scope !13954, !noalias !13945, !noundef !16
+  %51 = icmp eq i64 %50, -9223372036854775808
+  br i1 %51, label %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$wasmtime_runtime..gc..GcStore$GT$$GT$17hd7a65020b104ef47E.llvm.14851531119274094909.exit.i.i", label %52
 
-50:                                               ; preds = %46
+52:                                               ; preds = %48
   invoke void @"_ZN4core3ptr50drop_in_place$LT$wasmtime_runtime..gc..GcStore$GT$17h1d50854fa844a664E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %2)
-          to label %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$wasmtime_runtime..gc..GcStore$GT$$GT$17hd7a65020b104ef47E.llvm.14851531119274094909.exit.i.i" unwind label %54, !noalias !13945
+          to label %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$wasmtime_runtime..gc..GcStore$GT$$GT$17hd7a65020b104ef47E.llvm.14851531119274094909.exit.i.i" unwind label %56, !noalias !13945
 
-51:                                               ; preds = %44
-  %52 = load i64, ptr %2, align 8, !range !17, !noalias !13945, !noundef !16
-  %53 = icmp eq i64 %52, -9223372036854775808
-  br i1 %53, label %"_ZN9once_cell4sync17OnceCell$LT$T$GT$3set17he0cd20414f00f908E.exit.thread", label %56
+53:                                               ; preds = %46
+  %54 = load i64, ptr %2, align 8, !range !17, !noalias !13945, !noundef !16
+  %55 = icmp eq i64 %54, -9223372036854775808
+  br i1 %55, label %"_ZN9once_cell4sync17OnceCell$LT$T$GT$3set17he0cd20414f00f908E.exit.thread", label %58
 
-54:                                               ; preds = %50
-  %55 = landingpad { ptr, i32 }
+56:                                               ; preds = %52
+  %57 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #43, !noalias !13945
   unreachable
 
-"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$wasmtime_runtime..gc..GcStore$GT$$GT$17hd7a65020b104ef47E.llvm.14851531119274094909.exit.i.i": ; preds = %50, %46
-  resume { ptr, i32 } %47
+"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$wasmtime_runtime..gc..GcStore$GT$$GT$17hd7a65020b104ef47E.llvm.14851531119274094909.exit.i.i": ; preds = %52, %48
+  resume { ptr, i32 } %49
 
-"_ZN9once_cell4sync17OnceCell$LT$T$GT$3set17he0cd20414f00f908E.exit.thread": ; preds = %51
+"_ZN9once_cell4sync17OnceCell$LT$T$GT$3set17he0cd20414f00f908E.exit.thread": ; preds = %53
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !13945
   br label %"_ZN4core3ptr89drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$wasmtime_runtime..gc..GcStore$GT$$GT$17h19ecfa7553055cbbE.exit"
 
-56:                                               ; preds = %51
+58:                                               ; preds = %53
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.2.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.2.0..sroa_idx, i64 48, i1 false), !noalias !13957
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !13945
-  store i64 %52, ptr %5, align 8, !alias.scope !13952, !noalias !13957
+  store i64 %54, ptr %5, align 8, !alias.scope !13952, !noalias !13957
   call void @"_ZN4core3ptr50drop_in_place$LT$wasmtime_runtime..gc..GcStore$GT$17h1d50854fa844a664E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %5)
   br label %"_ZN4core3ptr89drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$wasmtime_runtime..gc..GcStore$GT$$GT$17h19ecfa7553055cbbE.exit"
 
-"_ZN4core3ptr89drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$wasmtime_runtime..gc..GcStore$GT$$GT$17h19ecfa7553055cbbE.exit": ; preds = %"_ZN9once_cell4sync17OnceCell$LT$T$GT$3set17he0cd20414f00f908E.exit.thread", %56
+"_ZN4core3ptr89drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$wasmtime_runtime..gc..GcStore$GT$$GT$17h19ecfa7553055cbbE.exit": ; preds = %"_ZN9once_cell4sync17OnceCell$LT$T$GT$3set17he0cd20414f00f908E.exit.thread", %58
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %58
+  br label %60
 
 _ZN8wasmtime7runtime5store11StoreOpaque16allocate_gc_heap17allocate_gc_store17hfb571f637fdbd415E.exit.thread: ; preds = %20, %_ZN8wasmtime7runtime5store11StoreOpaque16allocate_gc_heap17allocate_gc_store17hfb571f637fdbd415E.exit
   %.sroa.511.016 = phi ptr [ %.sroa.511.0.copyload, %_ZN8wasmtime7runtime5store11StoreOpaque16allocate_gc_heap17allocate_gc_store17hfb571f637fdbd415E.exit ], [ %.sroa.0.0.i, %20 ]
-  %57 = icmp ne ptr %.sroa.511.016, null
-  tail call void @llvm.assume(i1 %57)
+  %59 = icmp ne ptr %.sroa.511.016, null
+  tail call void @llvm.assume(i1 %59)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8)
-  br label %58
+  br label %60
 
-58:                                               ; preds = %_ZN8wasmtime7runtime5store11StoreOpaque16allocate_gc_heap17allocate_gc_store17hfb571f637fdbd415E.exit.thread, %"_ZN4core3ptr89drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$wasmtime_runtime..gc..GcStore$GT$$GT$17h19ecfa7553055cbbE.exit"
+60:                                               ; preds = %_ZN8wasmtime7runtime5store11StoreOpaque16allocate_gc_heap17allocate_gc_store17hfb571f637fdbd415E.exit.thread, %"_ZN4core3ptr89drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$wasmtime_runtime..gc..GcStore$GT$$GT$17h19ecfa7553055cbbE.exit"
   %.0 = phi ptr [ %.sroa.511.016, %_ZN8wasmtime7runtime5store11StoreOpaque16allocate_gc_heap17allocate_gc_store17hfb571f637fdbd415E.exit.thread ], [ null, %"_ZN4core3ptr89drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$wasmtime_runtime..gc..GcStore$GT$$GT$17h19ecfa7553055cbbE.exit" ]
   ret ptr %.0
 }

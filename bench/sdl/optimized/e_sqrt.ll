@@ -15,7 +15,7 @@ define hidden double @SDL_uclibc_sqrt(double noundef %0) local_unnamed_addr #0 {
 
 5:                                                ; preds = %1
   %6 = tail call double @llvm.fmuladd.f64(double %0, double %0, double %0)
-  br label %87
+  br label %85
 
 7:                                                ; preds = %1
   %8 = icmp slt i32 %.sroa.01.4.extract.trunc, 1
@@ -25,7 +25,7 @@ define hidden double @SDL_uclibc_sqrt(double noundef %0) local_unnamed_addr #0 {
   %10 = and i32 %.sroa.01.4.extract.trunc, 2147483647
   %11 = or i32 %10, %.sroa.01.0.extract.trunc
   %12 = icmp eq i32 %11, 0
-  br i1 %12, label %87, label %13
+  br i1 %12, label %85, label %13
 
 13:                                               ; preds = %9
   %14 = icmp slt i64 %2, 0
@@ -34,7 +34,7 @@ define hidden double @SDL_uclibc_sqrt(double noundef %0) local_unnamed_addr #0 {
 15:                                               ; preds = %13
   %16 = fsub double %0, %0
   %17 = fdiv double %16, %16
-  br label %87
+  br label %85
 
 18:                                               ; preds = %13, %7
   %19 = ashr i32 %.sroa.01.4.extract.trunc, 20
@@ -174,39 +174,35 @@ define hidden double @SDL_uclibc_sqrt(double noundef %0) local_unnamed_addr #0 {
 71:                                               ; preds = %67
   %72 = or i32 %69, %68
   %.not155 = icmp eq i32 %72, 0
-  br i1 %.not155, label %80, label %73
+  br i1 %.not155, label %78, label %73
 
 73:                                               ; preds = %71
   %74 = icmp eq i32 %.1, -1
-  br i1 %74, label %75, label %77
+  br i1 %74, label %78, label %75
 
 75:                                               ; preds = %73
-  %76 = add nsw i32 %.1135, 1
-  br label %80
+  %76 = and i32 %.1, 1
+  %77 = add nuw i32 %76, %.1
+  br label %78
 
-77:                                               ; preds = %73
-  %78 = and i32 %.1, 1
-  %79 = add nuw i32 %78, %.1
-  br label %80
-
-80:                                               ; preds = %77, %75, %71
-  %.2136 = phi i32 [ %76, %75 ], [ %.1135, %71 ], [ %.1135, %77 ]
-  %.2 = phi i32 [ 0, %75 ], [ %.1, %71 ], [ %79, %77 ]
-  %81 = ashr i32 %.2136, 1
+78:                                               ; preds = %73, %75, %71
+  %.2136 = phi i32 [ %.1135, %75 ], [ %.1135, %71 ], [ 1, %73 ]
+  %.2 = phi i32 [ %77, %75 ], [ %.1, %71 ], [ 0, %73 ]
+  %79 = ashr i32 %.2136, 1
   %spec.select = tail call i32 @llvm.fshl.i32(i32 %.2136, i32 %.2, i32 31)
-  %82 = shl i32 %38, 19
-  %83 = and i32 %82, -1048576
-  %84 = add i32 %83, 1071644672
-  %85 = add i32 %84, %81
-  %.sroa.0.4.insert.ext = zext i32 %85 to i64
+  %80 = shl i32 %38, 19
+  %81 = and i32 %80, -1048576
+  %82 = add i32 %81, 1071644672
+  %83 = add i32 %82, %79
+  %.sroa.0.4.insert.ext = zext i32 %83 to i64
   %.sroa.0.4.insert.shift = shl nuw i64 %.sroa.0.4.insert.ext, 32
   %.sroa.0.0.insert.ext = zext i32 %spec.select to i64
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.0.4.insert.shift, %.sroa.0.0.insert.ext
-  %86 = bitcast i64 %.sroa.0.0.insert.insert to double
-  br label %87
+  %84 = bitcast i64 %.sroa.0.0.insert.insert to double
+  br label %85
 
-87:                                               ; preds = %9, %80, %15, %5
-  %.0 = phi double [ %6, %5 ], [ %86, %80 ], [ %17, %15 ], [ %0, %9 ]
+85:                                               ; preds = %9, %78, %15, %5
+  %.0 = phi double [ %6, %5 ], [ %84, %78 ], [ %17, %15 ], [ %0, %9 ]
   ret double %.0
 }
 

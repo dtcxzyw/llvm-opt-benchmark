@@ -2809,25 +2809,22 @@ Cec4_ObjSimEqual.exit76:                          ; preds = %.lr.ph.i63, %.lr.ph
   %75 = getelementptr inbounds nuw i32, ptr %.val47, i64 %.pre-phi
   %.043 = load i32, ptr %75, align 4, !tbaa !20
   %76 = icmp sgt i32 %.043, 0
-  br i1 %76, label %40, label %._crit_edge.loopexit, !llvm.loop !141
+  br i1 %76, label %40, label %._crit_edge, !llvm.loop !141
 
-._crit_edge.loopexit:                             ; preds = %74
-  %.pre150 = zext nneg i32 %.1 to i64
-  br label %._crit_edge
-
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %Cec4_ObjSimEqual.exit
-  %.pre-phi151 = phi i64 [ %.pre150, %._crit_edge.loopexit ], [ %33, %Cec4_ObjSimEqual.exit ]
-  %.val57 = phi ptr [ %.val47, %._crit_edge.loopexit ], [ %.val46, %Cec4_ObjSimEqual.exit ]
-  %.142.lcssa = phi i32 [ %.2, %._crit_edge.loopexit ], [ %.04198.us, %Cec4_ObjSimEqual.exit ]
+._crit_edge:                                      ; preds = %74, %Cec4_ObjSimEqual.exit
+  %.val57 = phi ptr [ %.val46, %Cec4_ObjSimEqual.exit ], [ %.val47, %74 ]
+  %.142.lcssa = phi i32 [ %.04198.us, %Cec4_ObjSimEqual.exit ], [ %.2, %74 ]
+  %.040.lcssa = phi i32 [ %.099.us, %Cec4_ObjSimEqual.exit ], [ %.1, %74 ]
   %77 = sext i32 %.142.lcssa to i64
   %78 = getelementptr inbounds i32, ptr %.val57, i64 %77
   store i32 -1, ptr %78, align 4, !tbaa !20
-  %79 = getelementptr inbounds nuw i32, ptr %.val57, i64 %.pre-phi151
-  store i32 -1, ptr %79, align 4, !tbaa !20
-  %80 = getelementptr inbounds nuw i32, ptr %.val57, i64 %33
-  %81 = load i32, ptr %80, align 4, !tbaa !20
-  %82 = icmp sgt i32 %81, 0
-  br i1 %82, label %tailrecurse, label %Cec4_ObjSimEqual.exit.thread79
+  %79 = zext nneg i32 %.040.lcssa to i64
+  %80 = getelementptr inbounds nuw i32, ptr %.val57, i64 %79
+  store i32 -1, ptr %80, align 4, !tbaa !20
+  %81 = getelementptr inbounds nuw i32, ptr %.val57, i64 %33
+  %82 = load i32, ptr %81, align 4, !tbaa !20
+  %83 = icmp sgt i32 %82, 0
+  br i1 %83, label %tailrecurse, label %Cec4_ObjSimEqual.exit.thread79
 
 Cec4_ObjSimEqual.exit.thread79:                   ; preds = %._crit_edge, %tailrecurse, %.lr.ph, %.loopexit85.us
   ret void
@@ -9923,7 +9920,7 @@ Abc_TtIsConst0.exit.loopexit:                     ; preds = %.lr.ph.i84
 Abc_TtIsConst0.exit:                              ; preds = %.lr.ph.i, %Abc_TtIsConst0.exit.loopexit, %Vec_WrdStart.exit.i
   %61 = phi ptr [ %.pre, %Abc_TtIsConst0.exit.loopexit ], [ %17, %Vec_WrdStart.exit.i ], [ %17, %.lr.ph.i ]
   %.059 = phi ptr [ %47, %Abc_TtIsConst0.exit.loopexit ], [ %47, %Vec_WrdStart.exit.i ], [ %20, %.lr.ph.i ]
-  %62 = tail call ptr @Gia_ManSimPatSimOut(ptr noundef %61, ptr noundef nonnull %.059, i32 noundef 1) #33
+  %62 = tail call ptr @Gia_ManSimPatSimOut(ptr noundef %61, ptr noundef %.059, i32 noundef 1) #33
   %63 = load ptr, ptr %2, align 8, !tbaa !69
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 72
   %65 = load ptr, ptr %64, align 8, !tbaa !41
@@ -20866,7 +20863,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   br i1 %.not209, label %._crit_edge, label %.lr.ph262, !llvm.loop !380
 
 ._crit_edge:                                      ; preds = %.lr.ph262
-  %87 = sub nsw i32 %5, %spec.select
+  %87 = sub nuw nsw i32 %5, %spec.select
   %88 = icmp sgt i32 %87, 1
   %.not210 = icmp ne i32 %.0188264, %49
   %or.cond.not = select i1 %88, i1 %.not210, i1 false

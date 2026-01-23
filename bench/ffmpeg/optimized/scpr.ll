@@ -4353,9 +4353,8 @@ define internal fastcc range(i32 -2147483648, 1) i32 @decode_unit(ptr noundef %0
 
 39:                                               ; preds = %34
   %40 = add i32 %28, 400
-  %sext = shl i64 %indvars.iv112, 32
-  %41 = ashr exact i64 %sext, 30
-  %42 = getelementptr inbounds i8, ptr %1, i64 %41
+  %41 = and i64 %indvars.iv112, 4294967295
+  %42 = getelementptr inbounds nuw i32, ptr %1, i64 %41
   store i32 %40, ptr %42, align 4, !tbaa !61
   %43 = add i32 %17, 400
   %44 = getelementptr inbounds nuw i32, ptr %13, i64 %24

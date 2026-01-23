@@ -96,26 +96,25 @@ define internal void @local_queue_fetch_file(ptr noundef readonly captures(none)
 
 21:                                               ; preds = %.lr.ph
   %.not = icmp eq i64 %.01726, %2
-  br i1 %.not, label %25, label %22
+  br i1 %.not, label %24, label %22
 
 22:                                               ; preds = %21
   %23 = trunc i64 %2 to i32
-  %24 = trunc i64 %.01726 to i32
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.3, ptr noundef nonnull %5, i32 noundef %23, i32 noundef %24) #8
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.3, ptr noundef nonnull %5, i32 noundef %23, i32 noundef 0) #8
   call void @exit(i32 noundef 1) #9
   unreachable
 
-25:                                               ; preds = %21
-  %26 = call i32 @close(i32 noundef %9) #8
-  %.not21 = icmp eq i32 %26, 0
-  br i1 %.not21, label %28, label %27
+24:                                               ; preds = %21
+  %25 = call i32 @close(i32 noundef %9) #8
+  %.not21 = icmp eq i32 %25, 0
+  br i1 %.not21, label %27, label %26
 
-27:                                               ; preds = %25
+26:                                               ; preds = %24
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.4, ptr noundef nonnull %5) #8
   call void @exit(i32 noundef 1) #9
   unreachable
 
-28:                                               ; preds = %25
+27:                                               ; preds = %24
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void

@@ -2933,25 +2933,22 @@ Cec5_ObjSimEqual.exit76:                          ; preds = %.lr.ph.i63, %.lr.ph
   %75 = getelementptr inbounds nuw i32, ptr %.val47, i64 %.pre-phi
   %.043 = load i32, ptr %75, align 4, !tbaa !20
   %76 = icmp sgt i32 %.043, 0
-  br i1 %76, label %40, label %._crit_edge.loopexit, !llvm.loop !143
+  br i1 %76, label %40, label %._crit_edge, !llvm.loop !143
 
-._crit_edge.loopexit:                             ; preds = %74
-  %.pre150 = zext nneg i32 %.1 to i64
-  br label %._crit_edge
-
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %Cec5_ObjSimEqual.exit
-  %.pre-phi151 = phi i64 [ %.pre150, %._crit_edge.loopexit ], [ %33, %Cec5_ObjSimEqual.exit ]
-  %.val57 = phi ptr [ %.val47, %._crit_edge.loopexit ], [ %.val46, %Cec5_ObjSimEqual.exit ]
-  %.142.lcssa = phi i32 [ %.2, %._crit_edge.loopexit ], [ %.04198.us, %Cec5_ObjSimEqual.exit ]
+._crit_edge:                                      ; preds = %74, %Cec5_ObjSimEqual.exit
+  %.val57 = phi ptr [ %.val46, %Cec5_ObjSimEqual.exit ], [ %.val47, %74 ]
+  %.142.lcssa = phi i32 [ %.04198.us, %Cec5_ObjSimEqual.exit ], [ %.2, %74 ]
+  %.040.lcssa = phi i32 [ %.099.us, %Cec5_ObjSimEqual.exit ], [ %.1, %74 ]
   %77 = sext i32 %.142.lcssa to i64
   %78 = getelementptr inbounds i32, ptr %.val57, i64 %77
   store i32 -1, ptr %78, align 4, !tbaa !20
-  %79 = getelementptr inbounds nuw i32, ptr %.val57, i64 %.pre-phi151
-  store i32 -1, ptr %79, align 4, !tbaa !20
-  %80 = getelementptr inbounds nuw i32, ptr %.val57, i64 %33
-  %81 = load i32, ptr %80, align 4, !tbaa !20
-  %82 = icmp sgt i32 %81, 0
-  br i1 %82, label %tailrecurse, label %Cec5_ObjSimEqual.exit.thread79
+  %79 = zext nneg i32 %.040.lcssa to i64
+  %80 = getelementptr inbounds nuw i32, ptr %.val57, i64 %79
+  store i32 -1, ptr %80, align 4, !tbaa !20
+  %81 = getelementptr inbounds nuw i32, ptr %.val57, i64 %33
+  %82 = load i32, ptr %81, align 4, !tbaa !20
+  %83 = icmp sgt i32 %82, 0
+  br i1 %83, label %tailrecurse, label %Cec5_ObjSimEqual.exit.thread79
 
 Cec5_ObjSimEqual.exit.thread79:                   ; preds = %._crit_edge, %tailrecurse, %.lr.ph, %.loopexit85.us
   ret void

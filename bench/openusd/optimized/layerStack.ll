@@ -12859,15 +12859,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS0_8SdfLayerEEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i: ; preds = %._crit_edge
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %35, i8 0, i64 24, i1 false)
-  %.not.i.i.i.i127 = icmp eq i64 %238, 0
-  br i1 %.not.i.i.i.i127, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__13PcpLayerStack19_SublayerSourceInfoESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.thread, label %.lr.ph.preheader.i.i.i.i.i
-
-.lr.ph.preheader.i.i.i.i.i:                       ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS0_8SdfLayerEEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i
   %241 = shl nuw nsw i64 %238, 3
   %242 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %241) #31
           to label %243 unwind label %312
 
-243:                                              ; preds = %.lr.ph.preheader.i.i.i.i.i
+243:                                              ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS0_8SdfLayerEEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i
   store ptr %242, ptr %35, align 8
   %244 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::TfRefPtr.195", ptr %242, i64 %238
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %242, i8 0, i64 %241, i1 false)
@@ -12886,7 +12882,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS0_8SdfLayerEEESaIS3_
 .noexc133:                                        ; preds = %248
   unreachable
 
-_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__13PcpLayerStack19_SublayerSourceInfoESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.thread: ; preds = %178, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS0_8SdfLayerEEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i
+_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__13PcpLayerStack19_SublayerSourceInfoESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.thread: ; preds = %178
   %249 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %250 = getelementptr inbounds nuw i8, ptr %35, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %35, i8 0, i64 24, i1 false)
@@ -13043,7 +13039,7 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__13PcpLayerStack19_Sublaye
   %311 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %310) #22
   br i1 %311, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__27PcpErrorInvalidSublayerPathEED2Ev.exit, label %320
 
-312:                                              ; preds = %.lr.ph.preheader.i.i.i.i.i, %240
+312:                                              ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS0_8SdfLayerEEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i, %240
   %313 = landingpad { ptr, i32 }
           cleanup
   br label %1630

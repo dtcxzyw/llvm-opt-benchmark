@@ -3932,7 +3932,7 @@ _ZNSt6vectorISt6threadSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i: ; preds = %10
 
 .lr.ph:                                           ; preds = %_ZNSt6vectorISt6threadSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i.thread, %_ZNSt6vectorISt6threadSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i
   %.06872 = phi i32 [ %.sroa.speculated, %_ZNSt6vectorISt6threadSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i.thread ], [ %2, %_ZNSt6vectorISt6threadSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i ]
-  %12 = zext nneg i32 %.06872 to i64
+  %12 = zext i32 %.06872 to i64
   %13 = shl nuw nsw i64 %12, 3
   %14 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %13) #35
   store ptr %14, ptr %6, align 8, !tbaa !128
@@ -10591,7 +10591,7 @@ _ZNSt6vectorISt6threadSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i: ; preds = %10
 
 .lr.ph:                                           ; preds = %_ZNSt6vectorISt6threadSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i.thread, %_ZNSt6vectorISt6threadSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i
   %.06872 = phi i32 [ %.sroa.speculated, %_ZNSt6vectorISt6threadSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i.thread ], [ %2, %_ZNSt6vectorISt6threadSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i ]
-  %12 = zext nneg i32 %.06872 to i64
+  %12 = zext i32 %.06872 to i64
   %13 = shl nuw nsw i64 %12, 3
   %14 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %13) #35
   store ptr %14, ptr %6, align 8, !tbaa !128
@@ -14773,7 +14773,7 @@ _ZNSt6vectorISt6threadSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i: ; preds = %10
 
 .lr.ph:                                           ; preds = %_ZNSt6vectorISt6threadSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i.thread, %_ZNSt6vectorISt6threadSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i
   %.06872 = phi i32 [ %.sroa.speculated, %_ZNSt6vectorISt6threadSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i.thread ], [ %2, %_ZNSt6vectorISt6threadSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i ]
-  %12 = zext nneg i32 %.06872 to i64
+  %12 = zext i32 %.06872 to i64
   %13 = shl nuw nsw i64 %12, 3
   %14 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %13) #35
   store ptr %14, ptr %6, align 8, !tbaa !128
@@ -19613,7 +19613,7 @@ _ZNSt6vectorISt6threadSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i: ; preds = %10
 
 .lr.ph:                                           ; preds = %_ZNSt6vectorISt6threadSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i.thread, %_ZNSt6vectorISt6threadSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i
   %.06872 = phi i32 [ %.sroa.speculated, %_ZNSt6vectorISt6threadSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i.thread ], [ %2, %_ZNSt6vectorISt6threadSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i ]
-  %12 = zext nneg i32 %.06872 to i64
+  %12 = zext i32 %.06872 to i64
   %13 = shl nuw nsw i64 %12, 3
   %14 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %13) #35
   store ptr %14, ptr %6, align 8, !tbaa !128
@@ -24265,7 +24265,7 @@ _ZNSt6vectorISt6threadSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i: ; preds = %10
 
 .lr.ph:                                           ; preds = %_ZNSt6vectorISt6threadSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i.thread, %_ZNSt6vectorISt6threadSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i
   %.06872 = phi i32 [ %.sroa.speculated, %_ZNSt6vectorISt6threadSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i.thread ], [ %2, %_ZNSt6vectorISt6threadSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i ]
-  %12 = zext nneg i32 %.06872 to i64
+  %12 = zext i32 %.06872 to i64
   %13 = shl nuw nsw i64 %12, 3
   %14 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %13) #35
   store ptr %14, ptr %6, align 8, !tbaa !128

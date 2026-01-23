@@ -8035,8 +8035,8 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @hostrange_numstr(
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %15 = load i32, ptr %14, align 8
   %16 = icmp eq i32 %15, %5
-  %or.cond107 = select i1 %13, i1 %16, i1 false
-  br i1 %or.cond107, label %.lr.ph.preheader.i, label %._crit_edge
+  %or.cond109 = select i1 %13, i1 %16, i1 false
+  br i1 %or.cond109, label %.lr.ph.preheader.i, label %._crit_edge
 
 .lr.ph.preheader.i:                               ; preds = %12
   %17 = tail call ptr @llvm.stacksave.p0()
@@ -8098,12 +8098,16 @@ hostlist_parse_int_to_array.exit:                 ; preds = %hostlist_parse_int_
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %44 = load i64, ptr %43, align 8
   %45 = icmp ult i64 %42, %44
-  br i1 %45, label %46, label %85
+  br i1 %45, label %46, label %._crit_edge98
+
+._crit_edge98:                                    ; preds = %40
+  %.pre99 = zext nneg i32 %.160 to i64
+  br label %.critedge
 
 46:                                               ; preds = %40
   %47 = add nuw nsw i32 %5, 2
-  %48 = add nuw nsw i32 %47, %.160
-  %49 = zext nneg i32 %48 to i64
+  %48 = add nuw i32 %47, %.160
+  %49 = sext i32 %48 to i64
   %50 = icmp ult i64 %1, %49
   br i1 %50, label %.critedge, label %51
 
@@ -8111,79 +8115,77 @@ hostlist_parse_int_to_array.exit:                 ; preds = %hostlist_parse_int_
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %53 = load i32, ptr %52, align 8
   %54 = icmp eq i32 %53, %5
-  %or.cond108 = select i1 %13, i1 %54, i1 false
-  br i1 %or.cond108, label %.lr.ph.preheader.i74, label %._crit_edge97
+  %or.cond110 = select i1 %13, i1 %54, i1 false
+  br i1 %or.cond110, label %.lr.ph.preheader.i72, label %._crit_edge95
 
-.lr.ph.preheader.i74:                             ; preds = %51
+.lr.ph.preheader.i72:                             ; preds = %51
   %55 = tail call ptr @llvm.stacksave.p0()
   %56 = alloca i32, i64 %11, align 16
   %57 = load i64, ptr %43, align 8
   %58 = trunc i64 %57 to i32
-  br label %.lr.ph.i75
+  br label %.lr.ph.i73
 
-.lr.ph.i75:                                       ; preds = %.lr.ph.i75, %.lr.ph.preheader.i74
-  %indvars.iv.i76 = phi i64 [ %11, %.lr.ph.preheader.i74 ], [ %indvars.iv.next.i78, %.lr.ph.i75 ]
-  %.012.i77 = phi i32 [ %58, %.lr.ph.preheader.i74 ], [ %61, %.lr.ph.i75 ]
-  %indvars.iv.next.i78 = add nsw i64 %indvars.iv.i76, -1
-  %59 = srem i32 %.012.i77, 36
-  %60 = getelementptr inbounds nuw i32, ptr %56, i64 %indvars.iv.next.i78
+.lr.ph.i73:                                       ; preds = %.lr.ph.i73, %.lr.ph.preheader.i72
+  %indvars.iv.i74 = phi i64 [ %11, %.lr.ph.preheader.i72 ], [ %indvars.iv.next.i76, %.lr.ph.i73 ]
+  %.012.i75 = phi i32 [ %58, %.lr.ph.preheader.i72 ], [ %61, %.lr.ph.i73 ]
+  %indvars.iv.next.i76 = add nsw i64 %indvars.iv.i74, -1
+  %59 = srem i32 %.012.i75, 36
+  %60 = getelementptr inbounds nuw i32, ptr %56, i64 %indvars.iv.next.i76
   store i32 %59, ptr %60, align 4
-  %61 = sdiv i32 %.012.i77, 36
-  %62 = icmp samesign ugt i64 %indvars.iv.i76, 1
-  br i1 %62, label %.lr.ph.i75, label %hostlist_parse_int_to_array.exit79, !llvm.loop !52
+  %61 = sdiv i32 %.012.i75, 36
+  %62 = icmp samesign ugt i64 %indvars.iv.i74, 1
+  br i1 %62, label %.lr.ph.i73, label %hostlist_parse_int_to_array.exit77, !llvm.loop !52
 
-hostlist_parse_int_to_array.exit79:               ; preds = %.lr.ph.i75
+hostlist_parse_int_to_array.exit77:               ; preds = %.lr.ph.i73
   %63 = zext nneg i32 %.160 to i64
   %64 = getelementptr inbounds nuw i8, ptr %2, i64 %63
   store i8 45, ptr %64, align 1
-  %.382 = add nuw i32 %.160, 1
-  %65 = zext i32 %.382 to i64
-  %wide.trip.count95 = zext i16 %4 to i64
+  %.380 = add nuw i32 %.160, 1
+  %65 = sext i32 %.380 to i64
+  %wide.trip.count93 = zext i16 %4 to i64
   br label %66
 
-66:                                               ; preds = %hostlist_parse_int_to_array.exit79, %66
-  %indvars.iv90 = phi i64 [ 0, %hostlist_parse_int_to_array.exit79 ], [ %indvars.iv.next91, %66 ]
-  %indvars.iv88 = phi i64 [ %65, %hostlist_parse_int_to_array.exit79 ], [ %indvars.iv.next89, %66 ]
+66:                                               ; preds = %hostlist_parse_int_to_array.exit77, %66
+  %indvars.iv88 = phi i64 [ 0, %hostlist_parse_int_to_array.exit77 ], [ %indvars.iv.next89, %66 ]
+  %indvars.iv86 = phi i64 [ %65, %hostlist_parse_int_to_array.exit77 ], [ %indvars.iv.next87, %66 ]
   %67 = load ptr, ptr @alpha_num, align 8
-  %indvars.iv.next91 = add nuw nsw i64 %indvars.iv90, 1
-  %68 = getelementptr inbounds nuw i32, ptr %56, i64 %indvars.iv90
+  %indvars.iv.next89 = add nuw nsw i64 %indvars.iv88, 1
+  %68 = getelementptr inbounds nuw i32, ptr %56, i64 %indvars.iv88
   %69 = load i32, ptr %68, align 4
   %70 = sext i32 %69 to i64
   %71 = getelementptr inbounds i8, ptr %67, i64 %70
   %72 = load i8, ptr %71, align 1
-  %73 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv88
+  %73 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv86
   store i8 %72, ptr %73, align 1
-  %indvars.iv.next89 = add nuw nsw i64 %indvars.iv88, 1
-  %exitcond96.not = icmp eq i64 %indvars.iv.next91, %wide.trip.count95
-  br i1 %exitcond96.not, label %74, label %66, !llvm.loop !84
+  %indvars.iv.next87 = add nsw i64 %indvars.iv86, 1
+  %exitcond94.not = icmp eq i64 %indvars.iv.next89, %wide.trip.count93
+  br i1 %exitcond94.not, label %74, label %66, !llvm.loop !84
 
 74:                                               ; preds = %66
-  %75 = trunc nuw i64 %indvars.iv.next89 to i32
-  %76 = and i64 %indvars.iv.next89, 4294967295
-  %77 = getelementptr inbounds nuw i8, ptr %2, i64 %76
-  store i8 0, ptr %77, align 1
+  %sext = shl i64 %indvars.iv.next87, 32
+  %75 = ashr exact i64 %sext, 32
+  %76 = getelementptr inbounds i8, ptr %2, i64 %75
+  store i8 0, ptr %76, align 1
   call void @llvm.stackrestore.p0(ptr %55)
-  br label %85
-
-._crit_edge97:                                    ; preds = %51
-  %78 = zext nneg i32 %.160 to i64
-  %79 = getelementptr inbounds nuw i8, ptr %2, i64 %78
-  %80 = sub i64 %1, %78
-  %81 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %79, i64 noundef %80, ptr noundef nonnull @.str.21, i32 noundef %53, i64 noundef %44) #22
-  %82 = icmp sgt i32 %81, -1
-  %83 = add nuw nsw i32 %81, %.160
-  %84 = zext nneg i32 %83 to i64
-  %.not70 = icmp ugt i64 %1, %84
-  %or.cond73 = select i1 %82, i1 %.not70, i1 false
-  br i1 %or.cond73, label %85, label %.critedge
-
-85:                                               ; preds = %._crit_edge97, %74, %40
-  %.2 = phi i32 [ %75, %74 ], [ %.160, %40 ], [ %83, %._crit_edge97 ]
-  %86 = sext i32 %.2 to i64
   br label %.critedge
 
-.critedge:                                        ; preds = %._crit_edge97, %46, %._crit_edge, %10, %3, %85
-  %.0 = phi i64 [ -1, %10 ], [ 0, %3 ], [ -1, %._crit_edge ], [ %86, %85 ], [ -1, %46 ], [ -1, %._crit_edge97 ]
+._crit_edge95:                                    ; preds = %51
+  %77 = zext nneg i32 %.160 to i64
+  %78 = getelementptr inbounds nuw i8, ptr %2, i64 %77
+  %79 = sub i64 %1, %77
+  %80 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %78, i64 noundef %79, ptr noundef nonnull @.str.21, i32 noundef %53, i64 noundef %44) #22
+  %81 = icmp slt i32 %80, 0
+  br i1 %81, label %.critedge, label %82
+
+82:                                               ; preds = %._crit_edge95
+  %83 = add nuw nsw i32 %80, %.160
+  %84 = zext nneg i32 %83 to i64
+  %.not70 = icmp ugt i64 %1, %84
+  %spec.select = select i1 %.not70, i64 %84, i64 -1
+  br label %.critedge
+
+.critedge:                                        ; preds = %82, %74, %._crit_edge98, %._crit_edge95, %46, %._crit_edge, %10, %3
+  %.0 = phi i64 [ -1, %10 ], [ 0, %3 ], [ -1, %._crit_edge ], [ %spec.select, %82 ], [ -1, %46 ], [ -1, %._crit_edge95 ], [ %.pre99, %._crit_edge98 ], [ %75, %74 ]
   ret i64 %.0
 }
 

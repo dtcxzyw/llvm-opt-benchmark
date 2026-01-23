@@ -572,11 +572,11 @@ _ZNSt8_Rb_treeISt10type_indexSt4pairIKS0_N3gmx12_GLOBAL__N_115ValueSerializer10S
 
 .lr.ph.i.i:                                       ; preds = %_ZNSt8_Rb_treeISt10type_indexSt4pairIKS0_N3gmx12_GLOBAL__N_115ValueSerializer10SerializerEESt10_Select1stIS7_ESt4lessIS0_ESaIS7_EE17_M_insert_unique_IRKS7_NSD_20_Reuse_or_alloc_nodeEEESt17_Rb_tree_iteratorIS7_ESt23_Rb_tree_const_iteratorIS7_EOT_RT0_.exit.i.i, %_ZNSt8_Rb_treeISt10type_indexSt4pairIKS0_N3gmx12_GLOBAL__N_115ValueSerializer10SerializerEESt10_Select1stIS7_ESt4lessIS0_ESaIS7_EE20_Reuse_or_alloc_nodeC2ERSD_.exit.i.i
   %32 = phi i64 [ %120, %_ZNSt8_Rb_treeISt10type_indexSt4pairIKS0_N3gmx12_GLOBAL__N_115ValueSerializer10SerializerEESt10_Select1stIS7_ESt4lessIS0_ESaIS7_EE17_M_insert_unique_IRKS7_NSD_20_Reuse_or_alloc_nodeEEESt17_Rb_tree_iteratorIS7_ESt23_Rb_tree_const_iteratorIS7_EOT_RT0_.exit.i.i ], [ 0, %_ZNSt8_Rb_treeISt10type_indexSt4pairIKS0_N3gmx12_GLOBAL__N_115ValueSerializer10SerializerEESt10_Select1stIS7_ESt4lessIS0_ESaIS7_EE20_Reuse_or_alloc_nodeC2ERSD_.exit.i.i ]
-  %.020.i.idx.i = phi i64 [ %.020.i.add.i, %_ZNSt8_Rb_treeISt10type_indexSt4pairIKS0_N3gmx12_GLOBAL__N_115ValueSerializer10SerializerEESt10_Select1stIS7_ESt4lessIS0_ESaIS7_EE17_M_insert_unique_IRKS7_NSD_20_Reuse_or_alloc_nodeEEESt17_Rb_tree_iteratorIS7_ESt23_Rb_tree_const_iteratorIS7_EOT_RT0_.exit.i.i ], [ 0, %_ZNSt8_Rb_treeISt10type_indexSt4pairIKS0_N3gmx12_GLOBAL__N_115ValueSerializer10SerializerEESt10_Select1stIS7_ESt4lessIS0_ESaIS7_EE20_Reuse_or_alloc_nodeC2ERSD_.exit.i.i ]
-  %.sroa.7.118.i.i = phi ptr [ %.sroa.7.3.i.i, %_ZNSt8_Rb_treeISt10type_indexSt4pairIKS0_N3gmx12_GLOBAL__N_115ValueSerializer10SerializerEESt10_Select1stIS7_ESt4lessIS0_ESaIS7_EE17_M_insert_unique_IRKS7_NSD_20_Reuse_or_alloc_nodeEEESt17_Rb_tree_iteratorIS7_ESt23_Rb_tree_const_iteratorIS7_EOT_RT0_.exit.i.i ], [ %.sroa.7.0.i.i, %_ZNSt8_Rb_treeISt10type_indexSt4pairIKS0_N3gmx12_GLOBAL__N_115ValueSerializer10SerializerEESt10_Select1stIS7_ESt4lessIS0_ESaIS7_EE20_Reuse_or_alloc_nodeC2ERSD_.exit.i.i ]
-  %.sroa.02.017.i.i = phi ptr [ %.sroa.02.2.i.i, %_ZNSt8_Rb_treeISt10type_indexSt4pairIKS0_N3gmx12_GLOBAL__N_115ValueSerializer10SerializerEESt10_Select1stIS7_ESt4lessIS0_ESaIS7_EE17_M_insert_unique_IRKS7_NSD_20_Reuse_or_alloc_nodeEEESt17_Rb_tree_iteratorIS7_ESt23_Rb_tree_const_iteratorIS7_EOT_RT0_.exit.i.i ], [ %26, %_ZNSt8_Rb_treeISt10type_indexSt4pairIKS0_N3gmx12_GLOBAL__N_115ValueSerializer10SerializerEESt10_Select1stIS7_ESt4lessIS0_ESaIS7_EE20_Reuse_or_alloc_nodeC2ERSD_.exit.i.i ]
-  %.020.i.ptr.i = getelementptr inbounds nuw i8, ptr %1, i64 %.020.i.idx.i
-  %.val.i.i.i = load ptr, ptr %.020.i.ptr.i, align 8
+  %.013.i.idx.i = phi i64 [ %.013.i.add.i, %_ZNSt8_Rb_treeISt10type_indexSt4pairIKS0_N3gmx12_GLOBAL__N_115ValueSerializer10SerializerEESt10_Select1stIS7_ESt4lessIS0_ESaIS7_EE17_M_insert_unique_IRKS7_NSD_20_Reuse_or_alloc_nodeEEESt17_Rb_tree_iteratorIS7_ESt23_Rb_tree_const_iteratorIS7_EOT_RT0_.exit.i.i ], [ 0, %_ZNSt8_Rb_treeISt10type_indexSt4pairIKS0_N3gmx12_GLOBAL__N_115ValueSerializer10SerializerEESt10_Select1stIS7_ESt4lessIS0_ESaIS7_EE20_Reuse_or_alloc_nodeC2ERSD_.exit.i.i ]
+  %.sroa.7.112.i.i = phi ptr [ %.sroa.7.3.i.i, %_ZNSt8_Rb_treeISt10type_indexSt4pairIKS0_N3gmx12_GLOBAL__N_115ValueSerializer10SerializerEESt10_Select1stIS7_ESt4lessIS0_ESaIS7_EE17_M_insert_unique_IRKS7_NSD_20_Reuse_or_alloc_nodeEEESt17_Rb_tree_iteratorIS7_ESt23_Rb_tree_const_iteratorIS7_EOT_RT0_.exit.i.i ], [ %.sroa.7.0.i.i, %_ZNSt8_Rb_treeISt10type_indexSt4pairIKS0_N3gmx12_GLOBAL__N_115ValueSerializer10SerializerEESt10_Select1stIS7_ESt4lessIS0_ESaIS7_EE20_Reuse_or_alloc_nodeC2ERSD_.exit.i.i ]
+  %.sroa.02.011.i.i = phi ptr [ %.sroa.02.2.i.i, %_ZNSt8_Rb_treeISt10type_indexSt4pairIKS0_N3gmx12_GLOBAL__N_115ValueSerializer10SerializerEESt10_Select1stIS7_ESt4lessIS0_ESaIS7_EE17_M_insert_unique_IRKS7_NSD_20_Reuse_or_alloc_nodeEEESt17_Rb_tree_iteratorIS7_ESt23_Rb_tree_const_iteratorIS7_EOT_RT0_.exit.i.i ], [ %26, %_ZNSt8_Rb_treeISt10type_indexSt4pairIKS0_N3gmx12_GLOBAL__N_115ValueSerializer10SerializerEESt10_Select1stIS7_ESt4lessIS0_ESaIS7_EE20_Reuse_or_alloc_nodeC2ERSD_.exit.i.i ]
+  %.013.i.ptr.i = getelementptr inbounds nuw i8, ptr %1, i64 %.013.i.idx.i
+  %.val.i.i.i = load ptr, ptr %.013.i.ptr.i, align 8
   %.not.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i, label %_ZNSt8_Rb_treeISt10type_indexSt4pairIKS0_N3gmx12_GLOBAL__N_115ValueSerializer10SerializerEESt10_Select1stIS7_ESt4lessIS0_ESaIS7_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS7_ERS2_.exit.sink.split.i.i.i, label %33
 
@@ -671,10 +671,10 @@ _ZNKSt4lessISt10type_indexEclERKS0_S3_.exit.us.i.i.i: ; preds = %.lr.ph.split.us
   %.010.lcssa25.i.i.i = phi ptr [ %.010.lcssa.i.i.i, %._crit_edge.i.i.i ], [ getelementptr inbounds nuw (i8, ptr @_ZN3gmx12_GLOBAL__N_115ValueSerializer13s_serializersE, i64 8), %_ZNSt8_Rb_treeISt10type_indexSt4pairIKS0_N3gmx12_GLOBAL__N_115ValueSerializer10SerializerEESt10_Select1stIS7_ESt4lessIS0_ESaIS7_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS7_ERS2_.exit.sink.split.i.i.i ]
   %67 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN3gmx12_GLOBAL__N_115ValueSerializer13s_serializersE, i64 24), align 8, !tbaa !36
   %68 = icmp eq ptr %.010.lcssa25.i.i.i, %67
-  br i1 %68, label %_ZNSt8_Rb_treeISt10type_indexSt4pairIKS0_N3gmx12_GLOBAL__N_115ValueSerializer10SerializerEESt10_Select1stIS7_ESt4lessIS0_ESaIS7_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS7_ERS2_.exit.thread.i.i.i, label %69
+  br i1 %68, label %_ZNSt8_Rb_treeISt10type_indexSt4pairIKS0_N3gmx12_GLOBAL__N_115ValueSerializer10SerializerEESt10_Select1stIS7_ESt4lessIS0_ESaIS7_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS7_ERS2_.exit.i.i.i, label %69
 
 69:                                               ; preds = %._crit_edge.thread.i.i.i
-  %70 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.010.lcssa25.i.i.i) #25
+  %70 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %.010.lcssa25.i.i.i) #25
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %.val.i.i.i, i64 8
   %.pre.i.i = load ptr, ptr %.phi.trans.insert.i.i, align 8, !tbaa !40
   br label %71
@@ -699,14 +699,19 @@ _ZNKSt4lessISt10type_indexEclERKS0_S3_.exit.us.i.i.i: ; preds = %.lr.ph.split.us
 ._crit_edge.i.i.i13.i.i.i:                        ; preds = %78, %71
   %80 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %76, ptr noundef nonnull dereferenceable(1) %72) #21
   %81 = icmp slt i32 %80, 0
-  br i1 %81, label %_ZNSt8_Rb_treeISt10type_indexSt4pairIKS0_N3gmx12_GLOBAL__N_115ValueSerializer10SerializerEESt10_Select1stIS7_ESt4lessIS0_ESaIS7_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS7_ERS2_.exit.thread.i.i.i, label %_ZNSt8_Rb_treeISt10type_indexSt4pairIKS0_N3gmx12_GLOBAL__N_115ValueSerializer10SerializerEESt10_Select1stIS7_ESt4lessIS0_ESaIS7_EE17_M_insert_unique_IRKS7_NSD_20_Reuse_or_alloc_nodeEEESt17_Rb_tree_iteratorIS7_ESt23_Rb_tree_const_iteratorIS7_EOT_RT0_.exit.i.i
+  br i1 %81, label %_ZNSt8_Rb_treeISt10type_indexSt4pairIKS0_N3gmx12_GLOBAL__N_115ValueSerializer10SerializerEESt10_Select1stIS7_ESt4lessIS0_ESaIS7_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS7_ERS2_.exit.i.i.i, label %_ZNSt8_Rb_treeISt10type_indexSt4pairIKS0_N3gmx12_GLOBAL__N_115ValueSerializer10SerializerEESt10_Select1stIS7_ESt4lessIS0_ESaIS7_EE17_M_insert_unique_IRKS7_NSD_20_Reuse_or_alloc_nodeEEESt17_Rb_tree_iteratorIS7_ESt23_Rb_tree_const_iteratorIS7_EOT_RT0_.exit.i.i
 
 _ZNKSt4lessISt10type_indexEclERKS0_S3_.exit16.i.i.i: ; preds = %78
   %82 = icmp ult ptr %76, %72
-  br i1 %82, label %_ZNSt8_Rb_treeISt10type_indexSt4pairIKS0_N3gmx12_GLOBAL__N_115ValueSerializer10SerializerEESt10_Select1stIS7_ESt4lessIS0_ESaIS7_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS7_ERS2_.exit.thread.i.i.i, label %_ZNSt8_Rb_treeISt10type_indexSt4pairIKS0_N3gmx12_GLOBAL__N_115ValueSerializer10SerializerEESt10_Select1stIS7_ESt4lessIS0_ESaIS7_EE17_M_insert_unique_IRKS7_NSD_20_Reuse_or_alloc_nodeEEESt17_Rb_tree_iteratorIS7_ESt23_Rb_tree_const_iteratorIS7_EOT_RT0_.exit.i.i
+  br i1 %82, label %_ZNSt8_Rb_treeISt10type_indexSt4pairIKS0_N3gmx12_GLOBAL__N_115ValueSerializer10SerializerEESt10_Select1stIS7_ESt4lessIS0_ESaIS7_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS7_ERS2_.exit.i.i.i, label %_ZNSt8_Rb_treeISt10type_indexSt4pairIKS0_N3gmx12_GLOBAL__N_115ValueSerializer10SerializerEESt10_Select1stIS7_ESt4lessIS0_ESaIS7_EE17_M_insert_unique_IRKS7_NSD_20_Reuse_or_alloc_nodeEEESt17_Rb_tree_iteratorIS7_ESt23_Rb_tree_const_iteratorIS7_EOT_RT0_.exit.i.i
 
-_ZNSt8_Rb_treeISt10type_indexSt4pairIKS0_N3gmx12_GLOBAL__N_115ValueSerializer10SerializerEESt10_Select1stIS7_ESt4lessIS0_ESaIS7_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS7_ERS2_.exit.thread.i.i.i: ; preds = %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit16.i.i.i, %._crit_edge.i.i.i13.i.i.i, %._crit_edge.thread.i.i.i, %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i
-  %.sroa.12.2.i9.i.i.i = phi ptr [ %.010.lcssa24.i.i.i, %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit16.i.i.i ], [ %34, %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit.i.i.i.i ], [ %34, %._crit_edge.i.i.i.i.i.i.i ], [ %.010.lcssa24.i.i.i, %._crit_edge.i.i.i13.i.i.i ], [ %.010.lcssa25.i.i.i, %._crit_edge.thread.i.i.i ]
+_ZNSt8_Rb_treeISt10type_indexSt4pairIKS0_N3gmx12_GLOBAL__N_115ValueSerializer10SerializerEESt10_Select1stIS7_ESt4lessIS0_ESaIS7_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS7_ERS2_.exit.i.i.i: ; preds = %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit16.i.i.i, %._crit_edge.i.i.i13.i.i.i, %._crit_edge.thread.i.i.i
+  %.sroa.4.0.i.i.i = phi ptr [ %.010.lcssa24.i.i.i, %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit16.i.i.i ], [ %.010.lcssa25.i.i.i, %._crit_edge.thread.i.i.i ], [ %.010.lcssa24.i.i.i, %._crit_edge.i.i.i13.i.i.i ]
+  %.not.i10.i.i = icmp eq ptr %.sroa.4.0.i.i.i, null
+  br i1 %.not.i10.i.i, label %_ZNSt8_Rb_treeISt10type_indexSt4pairIKS0_N3gmx12_GLOBAL__N_115ValueSerializer10SerializerEESt10_Select1stIS7_ESt4lessIS0_ESaIS7_EE17_M_insert_unique_IRKS7_NSD_20_Reuse_or_alloc_nodeEEESt17_Rb_tree_iteratorIS7_ESt23_Rb_tree_const_iteratorIS7_EOT_RT0_.exit.i.i, label %_ZNSt8_Rb_treeISt10type_indexSt4pairIKS0_N3gmx12_GLOBAL__N_115ValueSerializer10SerializerEESt10_Select1stIS7_ESt4lessIS0_ESaIS7_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS7_ERS2_.exit.thread.i.i.i
+
+_ZNSt8_Rb_treeISt10type_indexSt4pairIKS0_N3gmx12_GLOBAL__N_115ValueSerializer10SerializerEESt10_Select1stIS7_ESt4lessIS0_ESaIS7_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS7_ERS2_.exit.thread.i.i.i: ; preds = %_ZNSt8_Rb_treeISt10type_indexSt4pairIKS0_N3gmx12_GLOBAL__N_115ValueSerializer10SerializerEESt10_Select1stIS7_ESt4lessIS0_ESaIS7_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS7_ERS2_.exit.i.i.i, %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i
+  %.sroa.12.2.i9.i.i.i = phi ptr [ %.sroa.4.0.i.i.i, %_ZNSt8_Rb_treeISt10type_indexSt4pairIKS0_N3gmx12_GLOBAL__N_115ValueSerializer10SerializerEESt10_Select1stIS7_ESt4lessIS0_ESaIS7_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS7_ERS2_.exit.i.i.i ], [ %34, %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit.i.i.i.i ], [ %34, %._crit_edge.i.i.i.i.i.i.i ]
   %83 = icmp eq ptr %.sroa.12.2.i9.i.i.i, getelementptr inbounds nuw (i8, ptr @_ZN3gmx12_GLOBAL__N_115ValueSerializer13s_serializersE, i64 8)
   br i1 %83, label %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit.i11.i.i.i, label %84
 
@@ -737,11 +742,11 @@ _ZNSt8_Rb_treeISt10type_indexSt4pairIKS0_N3gmx12_GLOBAL__N_115ValueSerializer10S
 
 _ZNKSt4lessISt10type_indexEclERKS0_S3_.exit.i11.i.i.i: ; preds = %96, %._crit_edge.i.i.i.i10.i.i.i, %_ZNSt8_Rb_treeISt10type_indexSt4pairIKS0_N3gmx12_GLOBAL__N_115ValueSerializer10SerializerEESt10_Select1stIS7_ESt4lessIS0_ESaIS7_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS7_ERS2_.exit.thread.i.i.i
   %98 = phi i1 [ %97, %96 ], [ true, %_ZNSt8_Rb_treeISt10type_indexSt4pairIKS0_N3gmx12_GLOBAL__N_115ValueSerializer10SerializerEESt10_Select1stIS7_ESt4lessIS0_ESaIS7_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS7_ERS2_.exit.thread.i.i.i ], [ %95, %._crit_edge.i.i.i.i10.i.i.i ]
-  %.not.i.i.i.i.i.i = icmp eq ptr %.sroa.7.118.i.i, null
+  %.not.i.i.i.i.i.i = icmp eq ptr %.sroa.7.112.i.i, null
   br i1 %.not.i.i.i.i.i.i, label %_ZNSt8_Rb_treeISt10type_indexSt4pairIKS0_N3gmx12_GLOBAL__N_115ValueSerializer10SerializerEESt10_Select1stIS7_ESt4lessIS0_ESaIS7_EE20_Reuse_or_alloc_node10_M_extractEv.exit.i.i.i.i.i, label %99
 
 99:                                               ; preds = %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit.i11.i.i.i
-  %100 = getelementptr inbounds nuw i8, ptr %.sroa.7.118.i.i, i64 8
+  %100 = getelementptr inbounds nuw i8, ptr %.sroa.7.112.i.i, i64 8
   %101 = load ptr, ptr %100, align 8, !tbaa !35
   %.not9.i.i.i.i.i.i = icmp eq ptr %101, null
   br i1 %.not9.i.i.i.i.i.i, label %_ZNSt8_Rb_treeISt10type_indexSt4pairIKS0_N3gmx12_GLOBAL__N_115ValueSerializer10SerializerEESt10_Select1stIS7_ESt4lessIS0_ESaIS7_EE10_M_insert_IRKS7_NSD_20_Reuse_or_alloc_nodeEEESt17_Rb_tree_iteratorIS7_EPSt18_Rb_tree_node_baseSL_OT_RT0_.exit.i.i.i, label %102
@@ -749,7 +754,7 @@ _ZNKSt4lessISt10type_indexEclERKS0_S3_.exit.i11.i.i.i: ; preds = %96, %._crit_ed
 102:                                              ; preds = %99
   %103 = getelementptr inbounds nuw i8, ptr %101, i64 24
   %104 = load ptr, ptr %103, align 8, !tbaa !13
-  %105 = icmp eq ptr %104, %.sroa.7.118.i.i
+  %105 = icmp eq ptr %104, %.sroa.7.112.i.i
   br i1 %105, label %106, label %114
 
 106:                                              ; preds = %102
@@ -783,29 +788,29 @@ _ZNSt8_Rb_treeISt10type_indexSt4pairIKS0_N3gmx12_GLOBAL__N_115ValueSerializer10S
           to label %_ZNSt8_Rb_treeISt10type_indexSt4pairIKS0_N3gmx12_GLOBAL__N_115ValueSerializer10SerializerEESt10_Select1stIS7_ESt4lessIS0_ESaIS7_EE10_M_insert_IRKS7_NSD_20_Reuse_or_alloc_nodeEEESt17_Rb_tree_iteratorIS7_EPSt18_Rb_tree_node_baseSL_OT_RT0_.exit.i.i.i unwind label %.body
 
 _ZNSt8_Rb_treeISt10type_indexSt4pairIKS0_N3gmx12_GLOBAL__N_115ValueSerializer10SerializerEESt10_Select1stIS7_ESt4lessIS0_ESaIS7_EE10_M_insert_IRKS7_NSD_20_Reuse_or_alloc_nodeEEESt17_Rb_tree_iteratorIS7_EPSt18_Rb_tree_node_baseSL_OT_RT0_.exit.i.i.i: ; preds = %_ZNSt8_Rb_treeISt10type_indexSt4pairIKS0_N3gmx12_GLOBAL__N_115ValueSerializer10SerializerEESt10_Select1stIS7_ESt4lessIS0_ESaIS7_EE20_Reuse_or_alloc_node10_M_extractEv.exit.i.i.i.i.i, %114, %111, %106, %99
-  %.sroa.02.1.i.i = phi ptr [ null, %99 ], [ %.sroa.02.017.i.i, %114 ], [ %.sroa.02.017.i.i, %106 ], [ %.sroa.02.017.i.i, %111 ], [ %.sroa.02.017.i.i, %_ZNSt8_Rb_treeISt10type_indexSt4pairIKS0_N3gmx12_GLOBAL__N_115ValueSerializer10SerializerEESt10_Select1stIS7_ESt4lessIS0_ESaIS7_EE20_Reuse_or_alloc_node10_M_extractEv.exit.i.i.i.i.i ]
+  %.sroa.02.1.i.i = phi ptr [ null, %99 ], [ %.sroa.02.011.i.i, %114 ], [ %.sroa.02.011.i.i, %106 ], [ %.sroa.02.011.i.i, %111 ], [ %.sroa.02.011.i.i, %_ZNSt8_Rb_treeISt10type_indexSt4pairIKS0_N3gmx12_GLOBAL__N_115ValueSerializer10SerializerEESt10_Select1stIS7_ESt4lessIS0_ESaIS7_EE20_Reuse_or_alloc_node10_M_extractEv.exit.i.i.i.i.i ]
   %.sroa.7.2.i.i = phi ptr [ null, %99 ], [ %101, %114 ], [ %101, %106 ], [ %spec.store.select.i.i.i.i.i.i, %111 ], [ null, %_ZNSt8_Rb_treeISt10type_indexSt4pairIKS0_N3gmx12_GLOBAL__N_115ValueSerializer10SerializerEESt10_Select1stIS7_ESt4lessIS0_ESaIS7_EE20_Reuse_or_alloc_node10_M_extractEv.exit.i.i.i.i.i ]
-  %.sink12.i.i.i.i.i = phi ptr [ %.sroa.7.118.i.i, %99 ], [ %.sroa.7.118.i.i, %114 ], [ %.sroa.7.118.i.i, %106 ], [ %.sroa.7.118.i.i, %111 ], [ %116, %_ZNSt8_Rb_treeISt10type_indexSt4pairIKS0_N3gmx12_GLOBAL__N_115ValueSerializer10SerializerEESt10_Select1stIS7_ESt4lessIS0_ESaIS7_EE20_Reuse_or_alloc_node10_M_extractEv.exit.i.i.i.i.i ]
+  %.sink12.i.i.i.i.i = phi ptr [ %.sroa.7.112.i.i, %99 ], [ %.sroa.7.112.i.i, %114 ], [ %.sroa.7.112.i.i, %106 ], [ %.sroa.7.112.i.i, %111 ], [ %116, %_ZNSt8_Rb_treeISt10type_indexSt4pairIKS0_N3gmx12_GLOBAL__N_115ValueSerializer10SerializerEESt10_Select1stIS7_ESt4lessIS0_ESaIS7_EE20_Reuse_or_alloc_node10_M_extractEv.exit.i.i.i.i.i ]
   %117 = getelementptr inbounds nuw i8, ptr %.sink12.i.i.i.i.i, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %117, ptr noundef nonnull readonly align 8 dereferenceable(32) %.020.i.ptr.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %117, ptr noundef nonnull readonly align 8 dereferenceable(32) %.013.i.ptr.i, i64 32, i1 false)
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %98, ptr noundef nonnull %.sink12.i.i.i.i.i, ptr noundef nonnull %.sroa.12.2.i9.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZN3gmx12_GLOBAL__N_115ValueSerializer13s_serializersE, i64 8)) #21
   %118 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN3gmx12_GLOBAL__N_115ValueSerializer13s_serializersE, i64 40), align 8, !tbaa !29
   %119 = add i64 %118, 1
   store i64 %119, ptr getelementptr inbounds nuw (i8, ptr @_ZN3gmx12_GLOBAL__N_115ValueSerializer13s_serializersE, i64 40), align 8, !tbaa !29
   br label %_ZNSt8_Rb_treeISt10type_indexSt4pairIKS0_N3gmx12_GLOBAL__N_115ValueSerializer10SerializerEESt10_Select1stIS7_ESt4lessIS0_ESaIS7_EE17_M_insert_unique_IRKS7_NSD_20_Reuse_or_alloc_nodeEEESt17_Rb_tree_iteratorIS7_ESt23_Rb_tree_const_iteratorIS7_EOT_RT0_.exit.i.i
 
-_ZNSt8_Rb_treeISt10type_indexSt4pairIKS0_N3gmx12_GLOBAL__N_115ValueSerializer10SerializerEESt10_Select1stIS7_ESt4lessIS0_ESaIS7_EE17_M_insert_unique_IRKS7_NSD_20_Reuse_or_alloc_nodeEEESt17_Rb_tree_iteratorIS7_ESt23_Rb_tree_const_iteratorIS7_EOT_RT0_.exit.i.i: ; preds = %_ZNSt8_Rb_treeISt10type_indexSt4pairIKS0_N3gmx12_GLOBAL__N_115ValueSerializer10SerializerEESt10_Select1stIS7_ESt4lessIS0_ESaIS7_EE10_M_insert_IRKS7_NSD_20_Reuse_or_alloc_nodeEEESt17_Rb_tree_iteratorIS7_EPSt18_Rb_tree_node_baseSL_OT_RT0_.exit.i.i.i, %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit16.i.i.i, %._crit_edge.i.i.i13.i.i.i
-  %120 = phi i64 [ %32, %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit16.i.i.i ], [ %119, %_ZNSt8_Rb_treeISt10type_indexSt4pairIKS0_N3gmx12_GLOBAL__N_115ValueSerializer10SerializerEESt10_Select1stIS7_ESt4lessIS0_ESaIS7_EE10_M_insert_IRKS7_NSD_20_Reuse_or_alloc_nodeEEESt17_Rb_tree_iteratorIS7_EPSt18_Rb_tree_node_baseSL_OT_RT0_.exit.i.i.i ], [ %32, %._crit_edge.i.i.i13.i.i.i ]
-  %.sroa.02.2.i.i = phi ptr [ %.sroa.02.017.i.i, %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit16.i.i.i ], [ %.sroa.02.1.i.i, %_ZNSt8_Rb_treeISt10type_indexSt4pairIKS0_N3gmx12_GLOBAL__N_115ValueSerializer10SerializerEESt10_Select1stIS7_ESt4lessIS0_ESaIS7_EE10_M_insert_IRKS7_NSD_20_Reuse_or_alloc_nodeEEESt17_Rb_tree_iteratorIS7_EPSt18_Rb_tree_node_baseSL_OT_RT0_.exit.i.i.i ], [ %.sroa.02.017.i.i, %._crit_edge.i.i.i13.i.i.i ]
-  %.sroa.7.3.i.i = phi ptr [ %.sroa.7.118.i.i, %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit16.i.i.i ], [ %.sroa.7.2.i.i, %_ZNSt8_Rb_treeISt10type_indexSt4pairIKS0_N3gmx12_GLOBAL__N_115ValueSerializer10SerializerEESt10_Select1stIS7_ESt4lessIS0_ESaIS7_EE10_M_insert_IRKS7_NSD_20_Reuse_or_alloc_nodeEEESt17_Rb_tree_iteratorIS7_EPSt18_Rb_tree_node_baseSL_OT_RT0_.exit.i.i.i ], [ %.sroa.7.118.i.i, %._crit_edge.i.i.i13.i.i.i ]
-  %.020.i.add.i = add nuw nsw i64 %.020.i.idx.i, 32
-  %.not.i.i17 = icmp eq i64 %.020.i.add.i, 320
+_ZNSt8_Rb_treeISt10type_indexSt4pairIKS0_N3gmx12_GLOBAL__N_115ValueSerializer10SerializerEESt10_Select1stIS7_ESt4lessIS0_ESaIS7_EE17_M_insert_unique_IRKS7_NSD_20_Reuse_or_alloc_nodeEEESt17_Rb_tree_iteratorIS7_ESt23_Rb_tree_const_iteratorIS7_EOT_RT0_.exit.i.i: ; preds = %_ZNSt8_Rb_treeISt10type_indexSt4pairIKS0_N3gmx12_GLOBAL__N_115ValueSerializer10SerializerEESt10_Select1stIS7_ESt4lessIS0_ESaIS7_EE10_M_insert_IRKS7_NSD_20_Reuse_or_alloc_nodeEEESt17_Rb_tree_iteratorIS7_EPSt18_Rb_tree_node_baseSL_OT_RT0_.exit.i.i.i, %_ZNSt8_Rb_treeISt10type_indexSt4pairIKS0_N3gmx12_GLOBAL__N_115ValueSerializer10SerializerEESt10_Select1stIS7_ESt4lessIS0_ESaIS7_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS7_ERS2_.exit.i.i.i, %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit16.i.i.i, %._crit_edge.i.i.i13.i.i.i
+  %120 = phi i64 [ %32, %_ZNSt8_Rb_treeISt10type_indexSt4pairIKS0_N3gmx12_GLOBAL__N_115ValueSerializer10SerializerEESt10_Select1stIS7_ESt4lessIS0_ESaIS7_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS7_ERS2_.exit.i.i.i ], [ %119, %_ZNSt8_Rb_treeISt10type_indexSt4pairIKS0_N3gmx12_GLOBAL__N_115ValueSerializer10SerializerEESt10_Select1stIS7_ESt4lessIS0_ESaIS7_EE10_M_insert_IRKS7_NSD_20_Reuse_or_alloc_nodeEEESt17_Rb_tree_iteratorIS7_EPSt18_Rb_tree_node_baseSL_OT_RT0_.exit.i.i.i ], [ %32, %._crit_edge.i.i.i13.i.i.i ], [ %32, %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit16.i.i.i ]
+  %.sroa.02.2.i.i = phi ptr [ %.sroa.02.011.i.i, %_ZNSt8_Rb_treeISt10type_indexSt4pairIKS0_N3gmx12_GLOBAL__N_115ValueSerializer10SerializerEESt10_Select1stIS7_ESt4lessIS0_ESaIS7_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS7_ERS2_.exit.i.i.i ], [ %.sroa.02.1.i.i, %_ZNSt8_Rb_treeISt10type_indexSt4pairIKS0_N3gmx12_GLOBAL__N_115ValueSerializer10SerializerEESt10_Select1stIS7_ESt4lessIS0_ESaIS7_EE10_M_insert_IRKS7_NSD_20_Reuse_or_alloc_nodeEEESt17_Rb_tree_iteratorIS7_EPSt18_Rb_tree_node_baseSL_OT_RT0_.exit.i.i.i ], [ %.sroa.02.011.i.i, %._crit_edge.i.i.i13.i.i.i ], [ %.sroa.02.011.i.i, %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit16.i.i.i ]
+  %.sroa.7.3.i.i = phi ptr [ %.sroa.7.112.i.i, %_ZNSt8_Rb_treeISt10type_indexSt4pairIKS0_N3gmx12_GLOBAL__N_115ValueSerializer10SerializerEESt10_Select1stIS7_ESt4lessIS0_ESaIS7_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS7_ERS2_.exit.i.i.i ], [ %.sroa.7.2.i.i, %_ZNSt8_Rb_treeISt10type_indexSt4pairIKS0_N3gmx12_GLOBAL__N_115ValueSerializer10SerializerEESt10_Select1stIS7_ESt4lessIS0_ESaIS7_EE10_M_insert_IRKS7_NSD_20_Reuse_or_alloc_nodeEEESt17_Rb_tree_iteratorIS7_EPSt18_Rb_tree_node_baseSL_OT_RT0_.exit.i.i.i ], [ %.sroa.7.112.i.i, %._crit_edge.i.i.i13.i.i.i ], [ %.sroa.7.112.i.i, %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit16.i.i.i ]
+  %.013.i.add.i = add nuw nsw i64 %.013.i.idx.i, 32
+  %.not.i.i17 = icmp eq i64 %.013.i.add.i, 320
   br i1 %.not.i.i17, label %122, label %.lr.ph.i.i, !llvm.loop !45
 
 .body:                                            ; preds = %_ZNSt8_Rb_treeISt10type_indexSt4pairIKS0_N3gmx12_GLOBAL__N_115ValueSerializer10SerializerEESt10_Select1stIS7_ESt4lessIS0_ESaIS7_EE20_Reuse_or_alloc_node10_M_extractEv.exit.i.i.i.i.i
   %121 = landingpad { ptr, i32 }
           cleanup
-  tail call fastcc void @_ZNSt8_Rb_treeISt10type_indexSt4pairIKS0_N3gmx12_GLOBAL__N_115ValueSerializer10SerializerEESt10_Select1stIS7_ESt4lessIS0_ESaIS7_EE8_M_eraseEPSt13_Rb_tree_nodeIS7_E(ptr noundef %.sroa.02.017.i.i)
+  tail call fastcc void @_ZNSt8_Rb_treeISt10type_indexSt4pairIKS0_N3gmx12_GLOBAL__N_115ValueSerializer10SerializerEESt10_Select1stIS7_ESt4lessIS0_ESaIS7_EE8_M_eraseEPSt13_Rb_tree_nodeIS7_E(ptr noundef %.sroa.02.011.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br label %133
 

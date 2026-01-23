@@ -340,7 +340,7 @@ _ZNKSt4lessISt10type_indexEclERKS0_S3_.exit.us.i.i.i: ; preds = %.lr.ph.split.us
   br i1 %132, label %select.unfold.i.i.i, label %133
 
 133:                                              ; preds = %._crit_edge.thread.i.i.i
-  %134 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.010.lcssa25.i.i.i) #15
+  %134 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %.010.lcssa25.i.i.i) #15
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %8, i64 8
   %.pre.i.i = load ptr, ptr %.phi.trans.insert.i.i, align 8, !tbaa !22
   br label %135
@@ -365,21 +365,21 @@ _ZNKSt4lessISt10type_indexEclERKS0_S3_.exit.us.i.i.i: ; preds = %.lr.ph.split.us
 ._crit_edge.i.i.i13.i.i.i:                        ; preds = %142, %135
   %144 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %140, ptr noundef nonnull dereferenceable(1) %136) #13
   %145 = icmp slt i32 %144, 0
-  br i1 %145, label %.thread.i.i.i, label %.thread11.i.i.i
+  br i1 %145, label %select.unfold.i.i.i, label %.thread11.i.i.i
 
 _ZNKSt4lessISt10type_indexEclERKS0_S3_.exit16.i.i.i: ; preds = %142
   %146 = icmp ult ptr %140, %136
-  br i1 %146, label %.thread.i.i.i, label %.thread11.i.i.i
+  br i1 %146, label %select.unfold.i.i.i, label %.thread11.i.i.i
 
-select.unfold.i.i.i:                              ; preds = %._crit_edge.thread.i.i.i, %94, %74
-  %.sroa.021.2.i.i.i.i = phi ptr [ %75, %74 ], [ null, %94 ], [ null, %._crit_edge.thread.i.i.i ]
-  %.sroa.12.2.i.i.i.i = phi ptr [ %75, %74 ], [ %95, %94 ], [ %.010.lcssa25.i.i.i, %._crit_edge.thread.i.i.i ]
+select.unfold.i.i.i:                              ; preds = %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit16.i.i.i, %._crit_edge.i.i.i13.i.i.i, %._crit_edge.thread.i.i.i, %94, %74
+  %.sroa.021.2.i.i.i.i = phi ptr [ %75, %74 ], [ null, %94 ], [ null, %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit16.i.i.i ], [ null, %._crit_edge.thread.i.i.i ], [ null, %._crit_edge.i.i.i13.i.i.i ]
+  %.sroa.12.2.i.i.i.i = phi ptr [ %75, %74 ], [ %95, %94 ], [ %.010.lcssa24.i.i.i, %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit16.i.i.i ], [ %.010.lcssa25.i.i.i, %._crit_edge.thread.i.i.i ], [ %.010.lcssa24.i.i.i, %._crit_edge.i.i.i13.i.i.i ]
   %.not.i.i.i = icmp eq ptr %.sroa.12.2.i.i.i.i, null
   br i1 %.not.i.i.i, label %.thread11.i.i.i, label %.thread.i.i.i
 
-.thread.i.i.i:                                    ; preds = %select.unfold.i.i.i, %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit16.i.i.i, %._crit_edge.i.i.i13.i.i.i, %108, %87, %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i
-  %.sroa.12.2.i9.i.i.i = phi ptr [ %.sroa.12.2.i.i.i.i, %select.unfold.i.i.i ], [ %48, %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit.i.i.i.i ], [ %48, %._crit_edge.i.i.i.i.i.i.i ], [ %78, %87 ], [ %.08.lcssa.i.i.i7.i.i, %108 ], [ %.010.lcssa24.i.i.i, %._crit_edge.i.i.i13.i.i.i ], [ %.010.lcssa24.i.i.i, %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit16.i.i.i ]
-  %.sroa.021.2.i8.i.i.i = phi ptr [ %.sroa.021.2.i.i.i.i, %select.unfold.i.i.i ], [ null, %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit.i.i.i.i ], [ null, %._crit_edge.i.i.i.i.i.i.i ], [ null, %87 ], [ null, %108 ], [ null, %._crit_edge.i.i.i13.i.i.i ], [ null, %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit16.i.i.i ]
+.thread.i.i.i:                                    ; preds = %select.unfold.i.i.i, %108, %87, %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i
+  %.sroa.12.2.i9.i.i.i = phi ptr [ %.sroa.12.2.i.i.i.i, %select.unfold.i.i.i ], [ %48, %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit.i.i.i.i ], [ %48, %._crit_edge.i.i.i.i.i.i.i ], [ %78, %87 ], [ %.08.lcssa.i.i.i7.i.i, %108 ]
+  %.sroa.021.2.i8.i.i.i = phi ptr [ %.sroa.021.2.i.i.i.i, %select.unfold.i.i.i ], [ null, %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit.i.i.i.i ], [ null, %._crit_edge.i.i.i.i.i.i.i ], [ null, %87 ], [ null, %108 ]
   %.not.i.i.i10.i.i = icmp ne ptr %.sroa.021.2.i8.i.i.i, null
   %147 = icmp eq ptr %.sroa.12.2.i9.i.i.i, getelementptr inbounds nuw (i8, ptr @_ZZN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl8instanceEvE8instance, i64 16)
   %or.cond.i.i.i.i.i = select i1 %.not.i.i.i10.i.i, i1 true, i1 %147

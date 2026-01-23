@@ -1566,7 +1566,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit153: ; preds = %10
           to label %116 unwind label %.loopexit355
 
 116:                                              ; preds = %112
-  br i1 %115, label %117, label %.thread
+  %..i = select i1 %115, ptr %.sroa.0322.0436, ptr null
+  %.not91 = icmp eq ptr %..i, null
+  br i1 %.not91, label %.thread, label %117
 
 .loopexit355:                                     ; preds = %120, %_ZNSt6vectorIP16OrderLogicVertexSaIS1_EE9push_backERKS1_.exit, %112, %124, %_ZNKSt6vectorIP16OrderLogicVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i, %419
   %lpad.loopexit357 = landingpad { ptr, i32 }
@@ -2399,7 +2401,7 @@ _ZN6V3ListI11V3GraphEdgeXadL_ZNS0_6iLinksEvEES0_E19SimpleItertatorImplIS0_Lb0EEp
 
 389:                                              ; preds = %._crit_edge
   %390 = load ptr, ptr %48, align 8, !tbaa !13
-  br i1 %115, label %391, label %_ZNSt6vectorIP16OrderLogicVertexSaIS1_EE9push_backERKS1_.exit
+  br i1 %.not91, label %_ZNSt6vectorIP16OrderLogicVertexSaIS1_EE9push_backERKS1_.exit, label %391
 
 391:                                              ; preds = %389
   %392 = load ptr, ptr %59, align 8, !tbaa !149
@@ -2408,7 +2410,7 @@ _ZN6V3ListI11V3GraphEdgeXadL_ZNS0_6iLinksEvEES0_E19SimpleItertatorImplIS0_Lb0EEp
   br i1 %.not.i259, label %396, label %394
 
 394:                                              ; preds = %391
-  store ptr %.sroa.0322.0436, ptr %392, align 8, !tbaa !51
+  store ptr %..i, ptr %392, align 8, !tbaa !51
   %395 = getelementptr inbounds nuw i8, ptr %392, i64 8
   store ptr %395, ptr %59, align 8, !tbaa !149
   br label %_ZNSt6vectorIP16OrderLogicVertexSaIS1_EE9push_backERKS1_.exit
@@ -2443,7 +2445,7 @@ _ZNKSt6vectorIP16OrderLogicVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i: ; preds =
 
 .noexc262:                                        ; preds = %_ZNKSt6vectorIP16OrderLogicVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i
   %410 = getelementptr inbounds i8, ptr %409, i64 %400
-  store ptr %.sroa.0322.0436, ptr %410, align 8, !tbaa !51
+  store ptr %..i, ptr %410, align 8, !tbaa !51
   %411 = icmp sgt i64 %400, 0
   br i1 %411, label %412, label %_ZNSt6vectorIP16OrderLogicVertexSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
 

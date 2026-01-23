@@ -5586,7 +5586,7 @@ _ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit.i: ; preds = %_Z
   %2115 = getelementptr inbounds nuw %"class.llvm::Use", ptr %2107, i64 %2114
   %2116 = load ptr, ptr %2115, align 8, !tbaa !109
   %.not.i.i.i.i.i109.i = icmp eq ptr %2116, null
-  br i1 %.not.i.i.i.i.i109.i, label %2124, label %2117
+  br i1 %.not.i.i.i.i.i109.i, label %_ZN4llvm3Use14removeFromListEv.exit.i.i.i.i.i111.i, label %2117
 
 2117:                                             ; preds = %2106
   %2118 = getelementptr inbounds nuw i8, ptr %2115, i64 8
@@ -5595,31 +5595,38 @@ _ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit.i: ; preds = %_Z
   %2121 = load ptr, ptr %2120, align 8, !tbaa !317
   store ptr %2119, ptr %2121, align 8, !tbaa !154
   %.not.i.i.i.i.i.i110.i = icmp eq ptr %2119, null
-  br i1 %.not.i.i.i.i.i.i110.i, label %2124, label %2122
+  br i1 %.not.i.i.i.i.i.i110.i, label %_ZN4llvm3Use14removeFromListEv.exit.i.i.i.i.i111.i, label %2122
 
 2122:                                             ; preds = %2117
   %2123 = getelementptr inbounds nuw i8, ptr %2119, i64 16
   store ptr %2121, ptr %2123, align 8, !tbaa !317
-  br label %2124
+  br label %_ZN4llvm3Use14removeFromListEv.exit.i.i.i.i.i111.i
 
-2124:                                             ; preds = %2122, %2117, %2106
+_ZN4llvm3Use14removeFromListEv.exit.i.i.i.i.i111.i: ; preds = %2122, %2117, %2106
   store ptr %.1.i.i188, ptr %2115, align 8, !tbaa !109
+  %.not4.i.i.i.i.i112.i = icmp eq ptr %.1.i.i188, null
+  br i1 %.not4.i.i.i.i.i112.i, label %_ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit116.i, label %2124
+
+2124:                                             ; preds = %_ZN4llvm3Use14removeFromListEv.exit.i.i.i.i.i111.i
   %2125 = getelementptr inbounds nuw i8, ptr %.1.i.i188, i64 16
   %2126 = load ptr, ptr %2125, align 8, !tbaa !154
   %2127 = getelementptr inbounds nuw i8, ptr %2115, i64 8
   store ptr %2126, ptr %2127, align 8, !tbaa !115
   %.not.i.i.i.i.i.i.i113.i = icmp eq ptr %2126, null
-  br i1 %.not.i.i.i.i.i.i.i113.i, label %_ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit116.i, label %2128
+  br i1 %.not.i.i.i.i.i.i.i113.i, label %_ZN4llvm5Value6addUseERNS_3UseE.exit.i.i.i.i.i114.i, label %2128
 
 2128:                                             ; preds = %2124
   %2129 = getelementptr inbounds nuw i8, ptr %2126, i64 16
   store ptr %2127, ptr %2129, align 8, !tbaa !317
-  br label %_ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit116.i
+  br label %_ZN4llvm5Value6addUseERNS_3UseE.exit.i.i.i.i.i114.i
 
-_ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit116.i: ; preds = %2128, %2124
+_ZN4llvm5Value6addUseERNS_3UseE.exit.i.i.i.i.i114.i: ; preds = %2128, %2124
   %2130 = getelementptr inbounds nuw i8, ptr %2115, i64 16
   store ptr %2125, ptr %2130, align 8, !tbaa !317
   store ptr %2115, ptr %2125, align 8, !tbaa !154
+  br label %_ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit116.i
+
+_ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit116.i: ; preds = %_ZN4llvm5Value6addUseERNS_3UseE.exit.i.i.i.i.i114.i, %_ZN4llvm3Use14removeFromListEv.exit.i.i.i.i.i111.i
   %2131 = load i32, ptr %2061, align 4
   %2132 = and i32 %2131, 134217727
   %2133 = add nsw i32 %2132, -1

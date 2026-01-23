@@ -238,7 +238,7 @@ define void @_ZNK14arrow_vendored17double_conversion23DoubleToStringConverter31C
   %78 = getelementptr inbounds i8, ptr %6, i64 %indvars.iv.next
   store i8 %77, ptr %78, align 1, !tbaa !23
   %79 = udiv i32 %.12634, 10
-  %.not40 = icmp ult i32 %.12634, 10
+  %.not40 = icmp samesign ult i32 %.12634, 10
   br i1 %.not40, label %.loopexit.loopexit, label %.lr.ph, !llvm.loop !24
 
 .loopexit.loopexit:                               ; preds = %.lr.ph

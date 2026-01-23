@@ -14509,49 +14509,51 @@ H5T__path_table_search.exit124.thread:            ; preds = %.preheader, %408, %
   %.086 = phi ptr [ %.187200, %468 ], [ %.187200, %453 ], [ %.187200, %472 ], [ %140, %157 ], [ %140, %165 ], [ %140, %H5T__path_find_init_new_path.exit.thread ], [ %.187200, %449 ], [ %.187200, %402 ]
   %.185 = phi ptr [ null, %468 ], [ %.187200, %453 ], [ %.187200, %472 ], [ null, %157 ], [ null, %165 ], [ null, %H5T__path_find_init_new_path.exit.thread ], [ null, %449 ], [ null, %402 ]
   %485 = icmp eq ptr %.185, null
-  %or.cond11 = and i1 %.088.shrunk, %485
-  br i1 %or.cond11, label %486, label %.thread288
+  %486 = icmp ne ptr %.086, null
+  %or.cond9 = and i1 %486, %485
+  %or.cond11 = and i1 %.088.shrunk, %or.cond9
+  br i1 %or.cond11, label %487, label %.thread288
 
-486:                                              ; preds = %484
-  %487 = getelementptr inbounds nuw i8, ptr %.086, i64 32
-  %488 = load ptr, ptr %487, align 8, !tbaa !72
-  %.not100 = icmp eq ptr %488, null
-  br i1 %.not100, label %496, label %489
+487:                                              ; preds = %484
+  %488 = getelementptr inbounds nuw i8, ptr %.086, i64 32
+  %489 = load ptr, ptr %488, align 8, !tbaa !72
+  %.not100 = icmp eq ptr %489, null
+  br i1 %.not100, label %497, label %490
 
-489:                                              ; preds = %486
-  %490 = call i32 @H5T_close_real(ptr noundef nonnull %488)
-  %491 = icmp slt i32 %490, 0
-  br i1 %491, label %492, label %496
+490:                                              ; preds = %487
+  %491 = call i32 @H5T_close_real(ptr noundef nonnull %489)
+  %492 = icmp slt i32 %491, 0
+  br i1 %492, label %493, label %497
 
-492:                                              ; preds = %489
-  %493 = load i64, ptr @H5E_DATATYPE_g, align 8, !tbaa !10
-  %494 = load i64, ptr @H5E_CANTCLOSEOBJ_g, align 8, !tbaa !10
-  %495 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5T__path_find_real, i32 noundef 5756, i64 noundef %493, i64 noundef %494, ptr noundef nonnull @.str.433) #17
-  br label %496
+493:                                              ; preds = %490
+  %494 = load i64, ptr @H5E_DATATYPE_g, align 8, !tbaa !10
+  %495 = load i64, ptr @H5E_CANTCLOSEOBJ_g, align 8, !tbaa !10
+  %496 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5T__path_find_real, i32 noundef 5756, i64 noundef %494, i64 noundef %495, ptr noundef nonnull @.str.433) #17
+  br label %497
 
-496:                                              ; preds = %492, %489, %486
-  %497 = getelementptr inbounds nuw i8, ptr %.086, i64 40
-  %498 = load ptr, ptr %497, align 8, !tbaa !73
-  %.not101 = icmp eq ptr %498, null
-  br i1 %.not101, label %506, label %499
+497:                                              ; preds = %493, %490, %487
+  %498 = getelementptr inbounds nuw i8, ptr %.086, i64 40
+  %499 = load ptr, ptr %498, align 8, !tbaa !73
+  %.not101 = icmp eq ptr %499, null
+  br i1 %.not101, label %507, label %500
 
-499:                                              ; preds = %496
-  %500 = call i32 @H5T_close_real(ptr noundef nonnull %498)
-  %501 = icmp slt i32 %500, 0
-  br i1 %501, label %502, label %506
+500:                                              ; preds = %497
+  %501 = call i32 @H5T_close_real(ptr noundef nonnull %499)
+  %502 = icmp slt i32 %501, 0
+  br i1 %502, label %503, label %507
 
-502:                                              ; preds = %499
-  %503 = load i64, ptr @H5E_DATATYPE_g, align 8, !tbaa !10
-  %504 = load i64, ptr @H5E_CANTCLOSEOBJ_g, align 8, !tbaa !10
-  %505 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5T__path_find_real, i32 noundef 5758, i64 noundef %503, i64 noundef %504, ptr noundef nonnull @.str.433) #17
-  br label %506
+503:                                              ; preds = %500
+  %504 = load i64, ptr @H5E_DATATYPE_g, align 8, !tbaa !10
+  %505 = load i64, ptr @H5E_CANTCLOSEOBJ_g, align 8, !tbaa !10
+  %506 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5T__path_find_real, i32 noundef 5758, i64 noundef %504, i64 noundef %505, ptr noundef nonnull @.str.433) #17
+  br label %507
 
-506:                                              ; preds = %502, %499, %496
-  %507 = call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5T_path_t_reg_free_list, ptr noundef nonnull %.086) #17
+507:                                              ; preds = %503, %500, %497
+  %508 = call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5T_path_t_reg_free_list, ptr noundef nonnull %.086) #17
   br label %.thread288
 
-.thread288:                                       ; preds = %457, %142, %69, %19, %4, %506, %484
-  %.084 = phi ptr [ null, %506 ], [ %.185, %484 ], [ null, %4 ], [ %.187200, %457 ], [ null, %142 ], [ null, %69 ], [ null, %19 ]
+.thread288:                                       ; preds = %457, %142, %69, %19, %4, %507, %484
+  %.084 = phi ptr [ null, %507 ], [ %.185, %484 ], [ null, %4 ], [ %.187200, %457 ], [ null, %142 ], [ null, %69 ], [ null, %19 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret ptr %.084
 }

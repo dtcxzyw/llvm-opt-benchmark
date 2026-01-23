@@ -3446,17 +3446,16 @@ leaps_thru_end_of.exit:                           ; preds = %67, %75
 .preheader53:                                     ; preds = %.lr.ph.preheader, %107
   %.082.lcssa = phi i64 [ %111, %107 ], [ %125, %.lr.ph.preheader ]
   %.080.lcssa = phi i32 [ %108, %107 ], [ %128, %.lr.ph.preheader ]
-  %129 = icmp samesign ugt i64 %.082.lcssa, 86399
+  %129 = icmp sgt i64 %.082.lcssa, 86399
   br i1 %129, label %.lr.ph72.preheader, label %.preheader51
 
 .lr.ph72.preheader:                               ; preds = %.preheader53
-  %130 = add i64 %.082.lcssa, -86400
-  %131 = add i64 %.082.lcssa, 86399
-  %smin = tail call i64 @llvm.smin.i64(i64 %.082.lcssa, i64 172799)
-  %132 = sub i64 %131, %smin
+  %130 = add nsw i64 %.082.lcssa, -86400
+  %131 = tail call i64 @llvm.usub.sat.i64(i64 %.082.lcssa, i64 172799)
+  %132 = add nuw i64 %131, 86399
   %133 = udiv i64 %132, 86400
-  %.neg119 = mul i64 %133, -86400
-  %134 = add i64 %.neg119, %130
+  %.neg119 = mul nsw i64 %133, -86400
+  %134 = add nsw i64 %.neg119, %130
   %135 = trunc i64 %133 to i32
   %136 = add i32 %.080.lcssa, %135
   %137 = add i32 %136, 1
@@ -3595,7 +3594,7 @@ leaps_thru_end_of.exit110:                        ; preds = %183, %191
   %spec.select102 = select i1 %203, i32 %204, i32 %202
   store i32 %spec.select102, ptr getelementptr inbounds nuw (i8, ptr @tm, i64 24), align 8
   %205 = udiv i64 %.183.lcssa, 3600
-  %206 = trunc nuw i64 %205 to i32
+  %206 = trunc i64 %205 to i32
   store i32 %206, ptr getelementptr inbounds nuw (i8, ptr @tm, i64 8), align 8
   %207 = urem i64 %.183.lcssa, 3600
   %.lhs.trunc = trunc nuw nsw i64 %207 to i16
@@ -3671,10 +3670,10 @@ declare i32 @llvm.smin.i32(i32, i32) #17
 declare i32 @llvm.smax.i32(i32, i32) #17
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smin.i64(i64, i64) #17
+declare i64 @llvm.umax.i64(i64, i64) #17
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #17
+declare i64 @llvm.usub.sat.i64(i64, i64) #17
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

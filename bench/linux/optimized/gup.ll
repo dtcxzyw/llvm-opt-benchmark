@@ -2455,7 +2455,7 @@ define internal fastcc i64 @__get_user_pages(ptr noundef %0, i64 noundef %1, i64
 
 .critedge.us:                                     ; preds = %201, %.split.us
   %205 = call i32 @__SCT__cond_resched() #9
-  %206 = call fastcc ptr @follow_page_mask(ptr noundef nonnull %194, i64 noundef %46, i32 noundef %3, ptr noundef nonnull %8)
+  %206 = call fastcc ptr @follow_page_mask(ptr noundef %194, i64 noundef %46, i32 noundef %3, ptr noundef nonnull %8)
   %207 = icmp eq ptr %206, null
   br i1 %207, label %210, label %208
 
@@ -2469,7 +2469,7 @@ define internal fastcc i64 @__get_user_pages(ptr noundef %0, i64 noundef %1, i64
 210:                                              ; preds = %208, %.critedge.us
   %211 = icmp eq ptr %206, inttoptr (i64 -31 to ptr)
   %212 = select i1 %211, i32 %38, i32 %37
-  %213 = call i32 @handle_mm_fault(ptr noundef nonnull %194, i64 noundef %46, i32 noundef %212, ptr noundef null) #9
+  %213 = call i32 @handle_mm_fault(ptr noundef %194, i64 noundef %46, i32 noundef %212, ptr noundef null) #9
   %214 = and i32 %213, 16384
   %215 = icmp eq i32 %214, 0
   br i1 %215, label %220, label %216
@@ -4006,13 +4006,13 @@ define dso_local i64 @get_user_pages(i64 noundef %0, i64 noundef %1, i32 noundef
   %97 = icmp eq i64 %92, 1
   br i1 %97, label %65, label %.split56.us
 
-.split43:                                         ; preds = %33, %174
-  %98 = phi i64 [ %179, %174 ], [ %30, %33 ]
-  %99 = phi i64 [ %178, %174 ], [ %0, %33 ]
-  %100 = phi i8 [ 1, %174 ], [ 0, %33 ]
-  %101 = phi i64 [ %172, %174 ], [ 0, %33 ]
-  %102 = phi i64 [ %171, %174 ], [ %1, %33 ]
-  %103 = phi ptr [ %177, %174 ], [ %3, %33 ]
+.split43:                                         ; preds = %33, %175
+  %98 = phi i64 [ %180, %175 ], [ %30, %33 ]
+  %99 = phi i64 [ %179, %175 ], [ %0, %33 ]
+  %100 = phi i8 [ 1, %175 ], [ 0, %33 ]
+  %101 = phi i64 [ %173, %175 ], [ 0, %33 ]
+  %102 = phi i64 [ %172, %175 ], [ %1, %33 ]
+  %103 = phi ptr [ %178, %175 ], [ %3, %33 ]
   %104 = load i32, ptr %6, align 4
   %105 = icmp eq i32 %104, 0
   br i1 %105, label %106, label %110
@@ -4153,77 +4153,78 @@ define dso_local i64 @get_user_pages(i64 noundef %0, i64 noundef %1, i32 noundef
 
 .split39:                                         ; preds = %158
   %164 = icmp eq i64 %159, 1
-  br i1 %164, label %170, label %.split56.us
+  br i1 %164, label %171, label %.split56.us
 
 .split56.us:                                      ; preds = %.split39, %.split39.us.us
+  %165 = phi i32 [ %93, %.split39.us.us ], [ %160, %.split39 ]
   %.us-phi57 = phi i64 [ %59, %.split39.us.us ], [ %118, %.split39 ]
   %.us-phi58 = phi i64 [ %92, %.split39.us.us ], [ %159, %.split39 ]
-  %165 = icmp sgt i64 %.us-phi58, 1
-  br i1 %165, label %166, label %167, !prof !5
+  %166 = icmp sgt i64 %.us-phi58, 1
+  br i1 %166, label %167, label %168, !prof !5
 
-166:                                              ; preds = %.split56.us
+167:                                              ; preds = %.split56.us
   tail call void asm sideeffect "499: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 499b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 499) #9, !srcloc !93
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 1581, i32 0, i64 12) #9, !srcloc !94
   unreachable
 
-167:                                              ; preds = %.split56.us
-  %168 = icmp eq i64 %.us-phi57, 0
-  %169 = select i1 %168, i64 %.us-phi58, i64 %.us-phi57
+168:                                              ; preds = %.split56.us
+  %169 = icmp eq i64 %.us-phi57, 0
+  %170 = select i1 %169, i64 %.us-phi58, i64 %.us-phi57
   br label %.loopexit
 
-170:                                              ; preds = %.split39
-  %171 = add i64 %117, -1
-  %172 = add i64 %118, 1
-  %173 = icmp eq i64 %171, 0
-  br i1 %173, label %.loopexit, label %174
+171:                                              ; preds = %.split39
+  %172 = add i64 %117, -1
+  %173 = add i64 %118, 1
+  %174 = icmp eq i64 %172, 0
+  br i1 %174, label %.loopexit, label %175
 
-174:                                              ; preds = %170
-  %175 = icmp eq ptr %123, null
-  %176 = getelementptr i8, ptr %123, i64 8
-  %177 = select i1 %175, ptr null, ptr %176, !prof !5
-  %178 = add i64 %125, 4096
-  %179 = call fastcc i64 @__get_user_pages(ptr noundef %12, i64 noundef %178, i64 noundef %171, i32 noundef %29, ptr noundef %177, ptr noundef nonnull %6)
+175:                                              ; preds = %171
+  %176 = icmp eq ptr %123, null
+  %177 = getelementptr i8, ptr %123, i64 8
+  %178 = select i1 %176, ptr null, ptr %177, !prof !5
+  %179 = add i64 %125, 4096
+  %180 = call fastcc i64 @__get_user_pages(ptr noundef %12, i64 noundef %179, i64 noundef %172, i32 noundef %29, ptr noundef %178, ptr noundef nonnull %6)
   br label %.split43
 
-.loopexit:                                        ; preds = %112, %170, %65, %53, %167, %.split51.us
-  %180 = phi i32 [ 1, %167 ], [ 1, %.split51.us ], [ %45, %53 ], [ 1, %65 ], [ 1, %170 ], [ %104, %112 ]
-  %181 = phi i64 [ %169, %167 ], [ %120, %.split51.us ], [ %55, %53 ], [ %67, %65 ], [ %172, %170 ], [ %114, %112 ]
-  %182 = phi i8 [ 1, %167 ], [ %.us-phi54, %.split51.us ], [ %41, %53 ], [ 1, %65 ], [ 1, %170 ], [ %100, %112 ]
-  %183 = icmp eq i8 %182, 0
-  %184 = icmp eq i32 %180, 0
-  %185 = or i1 %183, %184
-  br i1 %185, label %.thread, label %186
+.loopexit:                                        ; preds = %112, %171, %65, %53, %168, %.split51.us
+  %181 = phi i32 [ %165, %168 ], [ 1, %.split51.us ], [ %45, %53 ], [ 1, %65 ], [ 1, %171 ], [ %104, %112 ]
+  %182 = phi i64 [ %170, %168 ], [ %120, %.split51.us ], [ %55, %53 ], [ %67, %65 ], [ %173, %171 ], [ %114, %112 ]
+  %183 = phi i8 [ 1, %168 ], [ %.us-phi54, %.split51.us ], [ %41, %53 ], [ 1, %65 ], [ 1, %171 ], [ %100, %112 ]
+  %184 = icmp eq i8 %183, 0
+  %185 = icmp eq i32 %181, 0
+  %186 = or i1 %184, %185
+  br i1 %186, label %.thread, label %187
 
-186:                                              ; preds = %.loopexit
+187:                                              ; preds = %.loopexit
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_mmap_lock_released, i64 8), i32 2) #9
-          to label %188 [label %187], !srcloc !10
+          to label %189 [label %188], !srcloc !10
 
-187:                                              ; preds = %186
+188:                                              ; preds = %187
   tail call void @__mmap_lock_do_trace_released(ptr noundef %12, i1 noundef zeroext false) #9
-  br label %188
+  br label %189
 
-188:                                              ; preds = %187, %186
+189:                                              ; preds = %188, %187
   tail call void @up_read(ptr noundef nonnull %37) #9
   br label %.thread
 
-.thread:                                          ; preds = %25, %188, %.loopexit
-  %189 = phi i64 [ %181, %.loopexit ], [ %181, %188 ], [ %30, %25 ]
-  %190 = icmp eq i64 %189, 0
-  %191 = and i32 %29, 16
-  %192 = icmp eq i32 %191, 0
-  %193 = and i1 %192, %190
-  br i1 %193, label %194, label %.thread.thread, !prof !113
+.thread:                                          ; preds = %25, %189, %.loopexit
+  %190 = phi i64 [ %182, %.loopexit ], [ %182, %189 ], [ %30, %25 ]
+  %191 = icmp eq i64 %190, 0
+  %192 = and i32 %29, 16
+  %193 = icmp eq i32 %192, 0
+  %194 = and i1 %193, %191
+  br i1 %194, label %195, label %.thread.thread, !prof !113
 
-194:                                              ; preds = %.thread
+195:                                              ; preds = %.thread
   tail call void asm sideeffect "500: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 500b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 500) #9, !srcloc !81
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 1608, i32 2307, i64 12) #9, !srcloc !82
   tail call void asm sideeffect "501: nop\0A\09.pushsection .discard.instr_end\0A\09.long 501b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 501) #9, !srcloc !83
   br label %.thread.thread
 
-.thread.thread:                                   ; preds = %.split33.us, %154, %194, %.thread, %8, %4
-  %195 = phi i64 [ -22, %4 ], [ 0, %8 ], [ -14, %194 ], [ %189, %.thread ], [ %157, %154 ], [ %143, %.split33.us ]
+.thread.thread:                                   ; preds = %.split33.us, %154, %195, %.thread, %8, %4
+  %196 = phi i64 [ -22, %4 ], [ 0, %8 ], [ -14, %195 ], [ %190, %.thread ], [ %157, %154 ], [ %143, %.split33.us ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  ret i64 %195
+  ret i64 %196
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

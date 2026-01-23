@@ -27491,23 +27491,15 @@ for.cond:                                         ; preds = %for.cond, %_ZN4node
 
 for.end:                                          ; preds = %for.cond
   %mul.ov.i.i.i.i = icmp ugt i64 %inc, 2305843009213693951
-  br i1 %mul.ov.i.i.i.i, label %do.body5.i.i.i.i, label %_ZN4node25MultiplyWithOverflowCheckImEET_S1_S1_.exit.i.i.i
+  br i1 %mul.ov.i.i.i.i, label %do.body5.i.i.i.i, label %if.end.i.i.i47
 
 do.body5.i.i.i.i:                                 ; preds = %for.end
   tail call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node25MultiplyWithOverflowCheckImEET_S1_S1_E4args) #21
   tail call void @abort() #24
   unreachable
 
-_ZN4node25MultiplyWithOverflowCheckImEET_S1_S1_.exit.i.i.i: ; preds = %for.end
+if.end.i.i.i47:                                   ; preds = %for.end
   %mul.val.i.i.i.i = shl nuw i64 %inc, 3
-  %cmp.i.i.i46 = icmp eq i64 %inc, 0
-  br i1 %cmp.i.i.i46, label %_ZN4node6MallocIPcEEPT_m.exit.thread, label %if.end.i.i.i47
-
-_ZN4node6MallocIPcEEPT_m.exit.thread:             ; preds = %_ZN4node25MultiplyWithOverflowCheckImEET_S1_S1_.exit.i.i.i
-  store ptr null, ptr %h_aliases, align 8
-  br label %for.body12.preheader
-
-if.end.i.i.i47:                                   ; preds = %_ZN4node25MultiplyWithOverflowCheckImEET_S1_S1_.exit.i.i.i
   %malloc.i.i48 = tail call ptr @malloc(i64 %mul.val.i.i.i.i)
   %cmp2.i.i.i49 = icmp eq ptr %malloc.i.i48, null
   br i1 %cmp2.i.i.i49, label %_ZN4node15UncheckedMallocIPcEEPT_m.exit.i, label %_ZN4node6MallocIPcEEPT_m.exit
@@ -27527,13 +27519,10 @@ _ZN4node6MallocIPcEEPT_m.exit:                    ; preds = %if.end.i.i.i47, %_Z
   %retval.0.i.i7.i50 = phi ptr [ %malloc1.i.i51, %_ZN4node15UncheckedMallocIPcEEPT_m.exit.i ], [ %malloc.i.i48, %if.end.i.i.i47 ]
   store ptr %retval.0.i.i7.i50, ptr %h_aliases, align 8
   %cmp1178.not = icmp eq i64 %alias_count.0, 0
-  br i1 %cmp1178.not, label %for.end26, label %for.body12.preheader
+  br i1 %cmp1178.not, label %for.end26, label %for.body12
 
-for.body12.preheader:                             ; preds = %_ZN4node6MallocIPcEEPT_m.exit.thread, %_ZN4node6MallocIPcEEPT_m.exit
-  br label %for.body12
-
-for.body12:                                       ; preds = %for.body12.preheader, %_ZN4node6MallocEm.exit
-  %i.079 = phi i64 [ %inc25, %_ZN4node6MallocEm.exit ], [ 0, %for.body12.preheader ]
+for.body12:                                       ; preds = %_ZN4node6MallocIPcEEPT_m.exit, %_ZN4node6MallocEm.exit
+  %i.079 = phi i64 [ %inc25, %_ZN4node6MallocEm.exit ], [ 0, %_ZN4node6MallocIPcEEPT_m.exit ]
   %4 = load ptr, ptr %h_aliases6, align 8
   %arrayidx14 = getelementptr inbounds ptr, ptr %4, i64 %i.079
   %5 = load ptr, ptr %arrayidx14, align 8
@@ -27580,7 +27569,7 @@ for.end26.loopexit:                               ; preds = %_ZN4node6MallocEm.e
 
 for.end26:                                        ; preds = %for.end26.loopexit, %_ZN4node6MallocIPcEEPT_m.exit
   %11 = phi ptr [ %.pre, %for.end26.loopexit ], [ %retval.0.i.i7.i50, %_ZN4node6MallocIPcEEPT_m.exit ]
-  %arrayidx28 = getelementptr inbounds ptr, ptr %11, i64 %alias_count.0
+  %arrayidx28 = getelementptr inbounds nuw ptr, ptr %11, i64 %alias_count.0
   store ptr null, ptr %arrayidx28, align 8
   %h_addr_list30 = getelementptr inbounds nuw i8, ptr %src, i64 24
   %12 = load ptr, ptr %h_addr_list30, align 8
@@ -27596,23 +27585,15 @@ for.cond29:                                       ; preds = %for.cond29, %for.en
 
 for.end36:                                        ; preds = %for.cond29
   %mul.ov.i.i.i.i54 = icmp ugt i64 %inc35, 2305843009213693951
-  br i1 %mul.ov.i.i.i.i54, label %do.body5.i.i.i.i66, label %_ZN4node25MultiplyWithOverflowCheckImEET_S1_S1_.exit.i.i.i55
+  br i1 %mul.ov.i.i.i.i54, label %do.body5.i.i.i.i66, label %if.end.i.i.i58
 
 do.body5.i.i.i.i66:                               ; preds = %for.end36
   tail call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node25MultiplyWithOverflowCheckImEET_S1_S1_E4args) #21
   tail call void @abort() #24
   unreachable
 
-_ZN4node25MultiplyWithOverflowCheckImEET_S1_S1_.exit.i.i.i55: ; preds = %for.end36
+if.end.i.i.i58:                                   ; preds = %for.end36
   %mul.val.i.i.i.i56 = shl nuw i64 %inc35, 3
-  %cmp.i.i.i57 = icmp eq i64 %inc35, 0
-  br i1 %cmp.i.i.i57, label %_ZN4node6MallocIPcEEPT_m.exit67.thread, label %if.end.i.i.i58
-
-_ZN4node6MallocIPcEEPT_m.exit67.thread:           ; preds = %_ZN4node25MultiplyWithOverflowCheckImEET_S1_S1_.exit.i.i.i55
-  store ptr null, ptr %h_addr_list, align 8
-  br label %for.body43.lr.ph
-
-if.end.i.i.i58:                                   ; preds = %_ZN4node25MultiplyWithOverflowCheckImEET_S1_S1_.exit.i.i.i55
   %malloc.i.i59 = tail call ptr @malloc(i64 %mul.val.i.i.i.i56)
   %cmp2.i.i.i60 = icmp eq ptr %malloc.i.i59, null
   br i1 %cmp2.i.i.i60, label %_ZN4node15UncheckedMallocIPcEEPT_m.exit.i62, label %_ZN4node6MallocIPcEEPT_m.exit67
@@ -27634,7 +27615,7 @@ _ZN4node6MallocIPcEEPT_m.exit67:                  ; preds = %if.end.i.i.i58, %_Z
   %cmp4280.not = icmp eq i64 %list_count.0, 0
   br i1 %cmp4280.not, label %for.end56, label %for.body43.lr.ph
 
-for.body43.lr.ph:                                 ; preds = %_ZN4node6MallocIPcEEPT_m.exit67.thread, %_ZN4node6MallocIPcEEPT_m.exit67
+for.body43.lr.ph:                                 ; preds = %_ZN4node6MallocIPcEEPT_m.exit67
   %h_length44 = getelementptr inbounds nuw i8, ptr %src, i64 20
   br label %for.body43
 
@@ -27687,7 +27668,7 @@ for.end56:                                        ; preds = %for.end56.loopexit,
   %21 = phi ptr [ %.pre85, %for.end56.loopexit ], [ %retval.0.i.i7.i61, %_ZN4node6MallocIPcEEPT_m.exit67 ]
   %h_length = getelementptr inbounds nuw i8, ptr %dest, i64 20
   %h_addrtype = getelementptr inbounds nuw i8, ptr %dest, i64 16
-  %arrayidx58 = getelementptr inbounds ptr, ptr %21, i64 %list_count.0
+  %arrayidx58 = getelementptr inbounds nuw ptr, ptr %21, i64 %list_count.0
   store ptr null, ptr %arrayidx58, align 8
   %h_length59 = getelementptr inbounds nuw i8, ptr %src, i64 20
   %22 = load i32, ptr %h_length59, align 4

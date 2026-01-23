@@ -4484,7 +4484,7 @@ _ZL22stbi__jpeg_huff_decodeP10stbi__jpegP13stbi__huffman.exit147.i.us.i.i.i.i: ;
   ]
 
 646:                                              ; preds = %_ZL22stbi__jpeg_huff_decodeP10stbi__jpegP13stbi__huffman.exit147.i.us.i.i.i.i
-  %647 = icmp eq i32 %643, 0
+  %647 = icmp slt i32 %643, 1
   br i1 %647, label %648, label %_ZL18stbi__jpeg_get_bitP10stbi__jpeg.exit150.i.us.i.i.i.i
 
 648:                                              ; preds = %646
@@ -4518,7 +4518,7 @@ _ZL18stbi__jpeg_get_bitP10stbi__jpeg.exit150.i.us.i.i.i.i: ; preds = %648, %646
   br i1 %.not128.i.us.i.i.i.i, label %673, label %658
 
 658:                                              ; preds = %656
-  %659 = icmp samesign ult i32 %643, %645
+  %659 = icmp slt i32 %643, %645
   br i1 %659, label %660, label %_ZL19stbi__jpeg_get_bitsP10stbi__jpegi.exit.i.us.i.i.i.i
 
 660:                                              ; preds = %658
@@ -4789,7 +4789,7 @@ _ZL22stbi__jpeg_huff_decodeP10stbi__jpegP13stbi__huffman.exit.i.us.i.i.i.i: ; pr
   %796 = sext i32 %794 to i64
   %797 = getelementptr inbounds i8, ptr @_ZL19stbi__jpeg_dezigzag, i64 %796
   %798 = load i8, ptr %797, align 1
-  %799 = icmp samesign ult i32 %789, %790
+  %799 = icmp slt i32 %789, %790
   br i1 %799, label %800, label %_ZL20stbi__extend_receiveP10stbi__jpegi.exit.i.us.i.i.i.i
 
 800:                                              ; preds = %793
@@ -20420,7 +20420,7 @@ _ZL22stbi__jpeg_huff_decodeP10stbi__jpegP13stbi__huffman.exit66: ; preds = %155,
   %178 = sext i32 %176 to i64
   %179 = getelementptr inbounds i8, ptr @_ZL19stbi__jpeg_dezigzag, i64 %178
   %180 = load i8, ptr %179, align 1
-  %181 = icmp samesign ult i32 %168, %169
+  %181 = icmp slt i32 %168, %169
   br i1 %181, label %182, label %_ZL20stbi__extend_receiveP10stbi__jpegi.exit69
 
 182:                                              ; preds = %174
@@ -29944,12 +29944,13 @@ _ZL19stbi__refill_bufferP13stbi__context.exit.i30: ; preds = %101, %100
   br label %_ZL10stbi__get8P13stbi__context.exit33.backedge
 
 .critedge.loopexit46:                             ; preds = %_ZL12stbi__at_eofP13stbi__context.exit, %47
-  %105 = and i64 %indvars.iv, 4294967295
+  %sext = shl i64 %indvars.iv, 32
+  %105 = ashr exact i64 %sext, 32
   br label %.critedge
 
 .critedge:                                        ; preds = %63, %_ZL10stbi__get8P13stbi__context.exit27, %_ZL12stbi__at_eofP13stbi__context.exit21, %.critedge.loopexit46
   %.1 = phi i64 [ %105, %.critedge.loopexit46 ], [ 1023, %_ZL12stbi__at_eofP13stbi__context.exit21 ], [ 1023, %_ZL10stbi__get8P13stbi__context.exit27 ], [ 1023, %63 ]
-  %106 = getelementptr inbounds nuw i8, ptr %1, i64 %.1
+  %106 = getelementptr inbounds i8, ptr %1, i64 %.1
   store i8 0, ptr %106, align 1
   ret ptr %1
 }
@@ -38777,14 +38778,14 @@ _ZL18stbiw__zlib_flushfPhPjPi.exit407:            ; preds = %_ZL14stbiw__sbgrowf
 .lr.ph686.preheader:                              ; preds = %.preheader
   %532 = zext nneg i32 %.4170690 to i64
   %wide.trip.count761 = zext nneg i32 %.0693 to i64
-  %invariant.gep = getelementptr i8, ptr %0, i64 %532
+  %invariant.gep = getelementptr inbounds nuw i8, ptr %0, i64 %532
   br label %.lr.ph686
 
 .lr.ph686:                                        ; preds = %.lr.ph686.preheader, %.lr.ph686
   %indvars.iv758 = phi i64 [ 0, %.lr.ph686.preheader ], [ %indvars.iv.next759, %.lr.ph686 ]
   %.1685 = phi i32 [ %.0155692, %.lr.ph686.preheader ], [ %536, %.lr.ph686 ]
   %.1157684 = phi i32 [ %.0156691, %.lr.ph686.preheader ], [ %535, %.lr.ph686 ]
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv758
+  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %indvars.iv758
   %533 = load i8, ptr %gep, align 1
   %534 = zext i8 %533 to i32
   %535 = add i32 %.1157684, %534

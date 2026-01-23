@@ -458,7 +458,7 @@ define noundef range(i32 0, 94) i32 @_ZN3net25QuicStreamSequencerBuffer12OnStrea
   %43 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %44 = load i64, ptr %43, align 8, !tbaa !62
   %45 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %6, i64 noundef 0, i64 noundef %44, ptr noundef nonnull @.str, i64 noundef 40)
-  br label %1020
+  br label %1013
 
 46:                                               ; preds = %7
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -485,7 +485,7 @@ define noundef range(i32 0, 94) i32 @_ZN3net25QuicStreamSequencerBuffer12OnStrea
 
 56:                                               ; preds = %.critedge
   %.not98 = icmp ugt i64 %55, %53
-  br i1 %.not98, label %.noexc.i, label %1020
+  br i1 %.not98, label %.noexc.i, label %1013
 
 .noexc.i:                                         ; preds = %56
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
@@ -790,8 +790,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i13
 ._crit_edge.i.i142:                               ; preds = %.noexc145, %159
   %164 = phi i64 [ %161, %.noexc145 ], [ %3, %159 ]
   %165 = phi ptr [ %162, %.noexc145 ], [ %155, %159 ]
-  %cond679 = icmp eq i64 %164, 1
-  br i1 %cond679, label %166, label %168
+  %cond677 = icmp eq i64 %164, 1
+  br i1 %cond677, label %166, label %168
 
 166:                                              ; preds = %._crit_edge.i.i142
   %167 = load i8, ptr %2, align 1, !tbaa !69
@@ -1515,7 +1515,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit239: ; preds = %_Z
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  br label %1020
+  br label %1013
 
 434:                                              ; preds = %.noexc.i
   %435 = landingpad { ptr, i32 }
@@ -1719,7 +1719,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit275: ; preds = %_Z
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  br label %1019
+  br label %1012
 
 490:                                              ; preds = %.critedge
   %491 = getelementptr inbounds nuw i8, ptr %.sroa.0470.0, i64 24
@@ -2755,7 +2755,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit417: ; preds = %_Z
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
-  br label %1020
+  br label %1013
 
 871:                                              ; preds = %.noexc.i277
   %872 = landingpad { ptr, i32 }
@@ -2959,7 +2959,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit453: ; preds = %_Z
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
-  br label %1019
+  br label %1012
 
 927:                                              ; preds = %490
   %928 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2973,7 +2973,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit453: ; preds = %_Z
   %934 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %935 = load i64, ptr %934, align 8, !tbaa !62
   %936 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %6, i64 noundef 0, i64 noundef %935, ptr noundef nonnull @.str.7, i64 noundef 37)
-  br label %1020
+  br label %1013
 
 937:                                              ; preds = %927
   %.not99 = icmp ne i64 %53, %1
@@ -2993,7 +2993,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit453: ; preds = %_Z
 
 944:                                              ; preds = %937
   %945 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @.str.8)
-  br label %1020
+  br label %1013
 
 946:                                              ; preds = %.preheader, %975
   %.060507 = phi i64 [ %1, %.preheader ], [ %980, %975 ]
@@ -3068,90 +3068,79 @@ _ZNSt10unique_ptrIA_PN3net25QuicStreamSequencerBuffer11BufferBlockESt14default_d
   store i64 %981, ptr %5, align 8, !tbaa !12
   %983 = load i64, ptr %52, align 8, !tbaa !3
   %984 = icmp eq i64 %983, %1
-  br i1 %984, label %985, label %990
+  br i1 %984, label %985, label %989
 
 985:                                              ; preds = %982
   %986 = load i64, ptr %491, align 8, !tbaa !8
-  %987 = add i64 %981, %1
-  %988 = icmp ugt i64 %986, %987
-  br i1 %988, label %989, label %990
+  %987 = icmp ugt i64 %986, %1
+  br i1 %987, label %988, label %989
 
-989:                                              ; preds = %985
-  store i64 %987, ptr %52, align 8, !tbaa !3
+988:                                              ; preds = %985
+  store i64 %1, ptr %52, align 8, !tbaa !3
   br label %_ZN3net25QuicStreamSequencerBuffer13UpdateGapListESt14_List_iteratorINS0_3GapEEmm.exit
 
-990:                                              ; preds = %985, %982
-  %991 = icmp ult i64 %983, %1
-  br i1 %991, label %992, label %1005
+989:                                              ; preds = %985, %982
+  %990 = icmp ult i64 %983, %1
+  br i1 %990, label %991, label %1002
 
-992:                                              ; preds = %990
-  %993 = load i64, ptr %491, align 8, !tbaa !8
-  %994 = add i64 %981, %1
-  %995 = icmp eq i64 %993, %994
-  br i1 %995, label %996, label %997
+991:                                              ; preds = %989
+  %992 = load i64, ptr %491, align 8, !tbaa !8
+  %993 = icmp eq i64 %992, %1
+  br i1 %993, label %_ZN3net25QuicStreamSequencerBuffer13UpdateGapListESt14_List_iteratorINS0_3GapEEmm.exit, label %994
 
-996:                                              ; preds = %992
-  store i64 %1, ptr %491, align 8, !tbaa !8
-  br label %_ZN3net25QuicStreamSequencerBuffer13UpdateGapListESt14_List_iteratorINS0_3GapEEmm.exit
+994:                                              ; preds = %991
+  %995 = icmp ugt i64 %992, %1
+  br i1 %995, label %996, label %1002
 
-997:                                              ; preds = %992
-  %998 = icmp ugt i64 %993, %994
-  br i1 %998, label %999, label %1005
-
-999:                                              ; preds = %997
-  %1000 = load ptr, ptr %.sroa.0470.0, align 8, !tbaa !42
+996:                                              ; preds = %994
+  %997 = load ptr, ptr %.sroa.0470.0, align 8, !tbaa !42
   store i64 %1, ptr %491, align 8, !tbaa !8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  call void @_ZN3net25QuicStreamSequencerBuffer3GapC1Emm(ptr noundef nonnull align 8 dereferenceable(16) %8, i64 noundef %994, i64 noundef %993)
-  %1001 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #22
-  %1002 = getelementptr inbounds nuw i8, ptr %1001, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1002, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false), !tbaa.struct !60
-  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %1001, ptr noundef %1000) #23
-  %1003 = load i64, ptr %938, align 8, !tbaa !61
-  %1004 = add i64 %1003, 1
-  store i64 %1004, ptr %938, align 8, !tbaa !61
+  call void @_ZN3net25QuicStreamSequencerBuffer3GapC1Emm(ptr noundef nonnull align 8 dereferenceable(16) %8, i64 noundef %1, i64 noundef %992)
+  %998 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #22
+  %999 = getelementptr inbounds nuw i8, ptr %998, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %999, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false), !tbaa.struct !60
+  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %998, ptr noundef %997) #23
+  %1000 = load i64, ptr %938, align 8, !tbaa !61
+  %1001 = add i64 %1000, 1
+  store i64 %1001, ptr %938, align 8, !tbaa !61
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZN3net25QuicStreamSequencerBuffer13UpdateGapListESt14_List_iteratorINS0_3GapEEmm.exit
 
-1005:                                             ; preds = %997, %990
-  br i1 %984, label %1006, label %_ZN3net25QuicStreamSequencerBuffer13UpdateGapListESt14_List_iteratorINS0_3GapEEmm.exit
+1002:                                             ; preds = %994, %989
+  br i1 %984, label %1003, label %_ZN3net25QuicStreamSequencerBuffer13UpdateGapListESt14_List_iteratorINS0_3GapEEmm.exit
 
-1006:                                             ; preds = %1005
-  %1007 = load i64, ptr %491, align 8, !tbaa !8
-  %1008 = add i64 %981, %1
-  %1009 = icmp eq i64 %1007, %1008
-  br i1 %1009, label %1010, label %_ZN3net25QuicStreamSequencerBuffer13UpdateGapListESt14_List_iteratorINS0_3GapEEmm.exit
+1003:                                             ; preds = %1002
+  %1004 = load i64, ptr %491, align 8, !tbaa !8
+  %1005 = icmp eq i64 %1004, %1
+  br i1 %1005, label %1006, label %_ZN3net25QuicStreamSequencerBuffer13UpdateGapListESt14_List_iteratorINS0_3GapEEmm.exit
 
-1010:                                             ; preds = %1006
-  %1011 = load i64, ptr %938, align 8, !tbaa !61
-  %1012 = add i64 %1011, -1
-  store i64 %1012, ptr %938, align 8, !tbaa !61
+1006:                                             ; preds = %1003
+  %1007 = load i64, ptr %938, align 8, !tbaa !61
+  %1008 = add i64 %1007, -1
+  store i64 %1008, ptr %938, align 8, !tbaa !61
   tail call void @_ZNSt8__detail15_List_node_base9_M_unhookEv(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0470.0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %.sroa.0470.0) #24
   br label %_ZN3net25QuicStreamSequencerBuffer13UpdateGapListESt14_List_iteratorINS0_3GapEEmm.exit
 
-_ZN3net25QuicStreamSequencerBuffer13UpdateGapListESt14_List_iteratorINS0_3GapEEmm.exit: ; preds = %989, %996, %999, %1005, %1006, %1010
-  %1013 = getelementptr inbounds nuw i8, ptr %0, i64 72
+_ZN3net25QuicStreamSequencerBuffer13UpdateGapListESt14_List_iteratorINS0_3GapEEmm.exit: ; preds = %991, %988, %996, %1002, %1003, %1006
+  %1009 = getelementptr inbounds nuw i8, ptr %0, i64 72
   call void @llvm.lifetime.start.p0(ptr nonnull %39)
   call void @llvm.lifetime.start.p0(ptr nonnull %40)
   call void @_ZN3net25QuicStreamSequencerBuffer9FrameInfoC1EmNS_8QuicTimeE(ptr noundef nonnull align 8 dereferenceable(16) %40, i64 noundef %3, i64 %4)
   store i64 %1, ptr %39, align 8, !tbaa !120, !alias.scope !122
-  %1014 = getelementptr inbounds nuw i8, ptr %39, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1014, ptr noundef nonnull align 8 dereferenceable(16) %40, i64 16, i1 false), !tbaa.struct !60
-  %1015 = call { ptr, i8 } @_ZNSt8_Rb_treeImSt4pairIKmN3net25QuicStreamSequencerBuffer9FrameInfoEESt10_Select1stIS5_ESt4lessImESaIS5_EE17_M_emplace_uniqueIJS0_ImS4_EEEES0_ISt17_Rb_tree_iteratorIS5_EbEDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %1013, ptr noundef nonnull align 8 dereferenceable(24) %39)
+  %1010 = getelementptr inbounds nuw i8, ptr %39, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1010, ptr noundef nonnull align 8 dereferenceable(16) %40, i64 16, i1 false), !tbaa.struct !60
+  %1011 = call { ptr, i8 } @_ZNSt8_Rb_treeImSt4pairIKmN3net25QuicStreamSequencerBuffer9FrameInfoEESt10_Select1stIS5_ESt4lessImESaIS5_EE17_M_emplace_uniqueIJS0_ImS4_EEEES0_ISt17_Rb_tree_iteratorIS5_EbEDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %1009, ptr noundef nonnull align 8 dereferenceable(24) %39)
   call void @llvm.lifetime.end.p0(ptr nonnull %40)
   call void @llvm.lifetime.end.p0(ptr nonnull %39)
-  %1016 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %1017 = load i64, ptr %1016, align 8, !tbaa !59
-  %1018 = add i64 %1017, %981
-  store i64 %1018, ptr %1016, align 8, !tbaa !59
-  br label %1020
+  br label %1013
 
-1019:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit453, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit275
+1012:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit453, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit275
   %.pn114.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn114.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit275 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit453 ]
   resume { ptr, i32 } %.pn114.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn
 
-1020:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit239, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit417, %933, %944, %_ZN3net25QuicStreamSequencerBuffer13UpdateGapListESt14_List_iteratorINS0_3GapEEmm.exit, %56, %42
+1013:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit239, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit417, %933, %944, %_ZN3net25QuicStreamSequencerBuffer13UpdateGapListESt14_List_iteratorINS0_3GapEEmm.exit, %56, %42
   %.0 = phi i32 [ 50, %42 ], [ 0, %_ZN3net25QuicStreamSequencerBuffer13UpdateGapListESt14_List_iteratorINS0_3GapEEmm.exit ], [ 87, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit239 ], [ 87, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit417 ], [ 1, %933 ], [ 93, %944 ], [ 0, %56 ]
   ret i32 %.0
 }

@@ -830,7 +830,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18asgetenvEPKc.exit: ; preds =
   %36 = icmp ne ptr %spec.select, null
   %37 = icmp ne ptr %34, null
   %or.cond = select i1 %36, i1 %37, i1 false
-  br i1 %or.cond, label %38, label %128
+  br i1 %or.cond, label %38, label %129
 
 38:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18asgetenvEPKc.exit
   %39 = tail call i32 @getpid() #32
@@ -886,7 +886,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111asNumDigitsEl.exit.i: ; pre
   %57 = getelementptr inbounds i8, ptr %.117.i, i64 -1
   store i8 %56, ptr %57, align 1
   %58 = udiv i64 %.11316.i, 10
-  %.not.i = icmp samesign ult i64 %.11316.i, 10
+  %.not.i = icmp ult i64 %.11316.i, 10
   br i1 %.not.i, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16asitoaEPcl.exit, label %.preheader.i13, !llvm.loop !17
 
 _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16asitoaEPcl.exit: ; preds = %.preheader.i13, %53
@@ -959,7 +959,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111asNumDigitsEl.exit.i17: ; p
   %83 = getelementptr inbounds i8, ptr %.117.i20, i64 -1
   store i8 %82, ptr %83, align 1
   %84 = udiv i64 %.11316.i21, 10
-  %.not.i22 = icmp samesign ult i64 %.11316.i21, 10
+  %.not.i22 = icmp ult i64 %.11316.i21, 10
   br i1 %.not.i22, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16asitoaEPcl.exit27, label %.preheader.i19, !llvm.loop !17
 
 _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16asitoaEPcl.exit27: ; preds = %.preheader.i19, %79
@@ -993,14 +993,10 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16asitoaEPcl.exit27: ; preds =
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
   %96 = icmp ult i64 %93, 32
-  br i1 %96, label %.preheader.i29, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_19_MakeArgvEPPKcmS2_PKS2_PA2_S4_m.exit
+  br i1 %96, label %.lr.ph71.preheader.i, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_19_MakeArgvEPPKcmS2_PKS2_PA2_S4_m.exit
 
-.preheader.i29:                                   ; preds = %._crit_edge.i
-  %.not4268.i = icmp eq i64 %93, 0
-  br i1 %.not4268.i, label %.loopexit, label %.lr.ph71.preheader.i
-
-.lr.ph71.preheader.i:                             ; preds = %.preheader.i29, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16asitoaEPcl.exit27
-  %.038.lcssa8891.i = phi i64 [ %93, %.preheader.i29 ], [ 1, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16asitoaEPcl.exit27 ]
+.lr.ph71.preheader.i:                             ; preds = %._crit_edge.i, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16asitoaEPcl.exit27
+  %.038.lcssa8891.i = phi i64 [ 1, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16asitoaEPcl.exit27 ], [ %93, %._crit_edge.i ]
   br label %.lr.ph71.i
 
 .lr.ph71.i:                                       ; preds = %.loopexit.i, %.lr.ph71.preheader.i
@@ -1094,24 +1090,23 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_17asstreqEPKcS2_.exit54.thread
 .loopexit.i:                                      ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_17asstreqEPKcS2_.exit54.thread59.i, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_17asstreqEPKcS2_.exit54.thread59.us.i, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_17asstreqEPKcS2_.exit54.thread.i, %103
   %121 = add nuw nsw i64 %.03570.i, 1
   %.not42.i = icmp eq i64 %121, %.038.lcssa8891.i
-  br i1 %.not42.i, label %.loopexit, label %.lr.ph71.i, !llvm.loop !21
+  br i1 %.not42.i, label %125, label %.lr.ph71.i, !llvm.loop !21
 
 _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_19_MakeArgvEPPKcmS2_PKS2_PA2_S4_m.exit: ; preds = %._crit_edge.i
   %122 = tail call ptr @__errno_location() #36
   %123 = load i32, ptr %122, align 4
   %124 = call i64 @write(i32 noundef 2, ptr noundef nonnull @_ZZN32pxrInternal_v0_24__pxrReserved__L20_InvokeSessionLoggerEPKcS1_E3msg, i64 noundef 42)
   store i32 %123, ptr %122, align 4
-  br label %128
+  br label %129
 
-.loopexit:                                        ; preds = %.loopexit.i, %.preheader.i29
-  %.036.lcssa.i = phi i64 [ 0, %.preheader.i29 ], [ %.038.lcssa8891.i, %.loopexit.i ]
-  %125 = getelementptr inbounds nuw ptr, ptr %7, i64 %.036.lcssa.i
-  store ptr null, ptr %125, align 8
-  %126 = load ptr, ptr %7, align 16
-  %127 = call noundef i32 @_ZN32pxrInternal_v0_24__pxrReserved__23ArchCrashHandlerSystemvEPKcPKPciPFvPvES5_(ptr noundef %126, ptr noundef nonnull %7, i32 noundef 60, ptr noundef null, ptr noundef null)
-  br label %128
+125:                                              ; preds = %.loopexit.i
+  %126 = getelementptr inbounds nuw ptr, ptr %7, i64 %.038.lcssa8891.i
+  store ptr null, ptr %126, align 8
+  %127 = load ptr, ptr %7, align 16
+  %128 = call noundef i32 @_ZN32pxrInternal_v0_24__pxrReserved__23ArchCrashHandlerSystemvEPKcPKPciPFvPvES5_(ptr noundef %127, ptr noundef nonnull %7, i32 noundef 60, ptr noundef null, ptr noundef null)
+  br label %129
 
-128:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18asgetenvEPKc.exit, %.loopexit, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_19_MakeArgvEPPKcmS2_PKS2_PA2_S4_m.exit
+129:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18asgetenvEPKc.exit, %125, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_19_MakeArgvEPPKcmS2_PKS2_PA2_S4_m.exit
   ret void
 }
 
@@ -1340,7 +1335,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111asNumDigitsEl.exit.i.i: ; p
   %64 = getelementptr inbounds i8, ptr %.117.i.i, i64 -1
   store i8 %63, ptr %64, align 1
   %65 = udiv i64 %.11316.i.i, 10
-  %.not.i66.i = icmp samesign ult i64 %.11316.i.i, 10
+  %.not.i66.i = icmp ult i64 %.11316.i.i, 10
   br i1 %.not.i66.i, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16asitoaEPcl.exit.i, label %.preheader.i65.i, !llvm.loop !17
 
 _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16asitoaEPcl.exit.i: ; preds = %.preheader.i65.i, %60
@@ -3531,7 +3526,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111asNumDigitsEl.exit.i: ; pre
   %39 = getelementptr inbounds i8, ptr %.117.i, i64 -1
   store i8 %38, ptr %39, align 1
   %40 = udiv i64 %.11316.i, 10
-  %.not.i36 = icmp samesign ult i64 %.11316.i, 10
+  %.not.i36 = icmp ult i64 %.11316.i, 10
   br i1 %.not.i36, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16asitoaEPcl.exit.loopexit, label %.preheader.i, !llvm.loop !17
 
 _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16asitoaEPcl.exit.loopexit: ; preds = %.preheader.i
@@ -3670,7 +3665,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111asNumDigitsEl.exit.i43: ; p
   %87 = getelementptr inbounds i8, ptr %.117.i46, i64 -1
   store i8 %86, ptr %87, align 1
   %88 = udiv i64 %.11316.i47, 10
-  %.not.i48 = icmp samesign ult i64 %.11316.i47, 10
+  %.not.i48 = icmp ult i64 %.11316.i47, 10
   br i1 %.not.i48, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16asitoaEPcl.exit53.loopexit, label %.preheader.i45, !llvm.loop !17
 
 _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16asitoaEPcl.exit53.loopexit: ; preds = %.preheader.i45
@@ -3847,7 +3842,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111asNumDigitsEl.exit.i96: ; p
   %148 = getelementptr inbounds i8, ptr %.117.i99, i64 -1
   store i8 %147, ptr %148, align 1
   %149 = udiv i64 %.11316.i100, 10
-  %.not.i101 = icmp samesign ult i64 %.11316.i100, 10
+  %.not.i101 = icmp ult i64 %.11316.i100, 10
   br i1 %.not.i101, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16asitoaEPcl.exit106.loopexit, label %.preheader.i98, !llvm.loop !17
 
 _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16asitoaEPcl.exit106.loopexit: ; preds = %.preheader.i98
@@ -3965,7 +3960,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111asNumDigitsEl.exit: ; preds
   %19 = getelementptr inbounds i8, ptr %.117, i64 -1
   store i8 %18, ptr %19, align 1
   %20 = udiv i64 %.11316, 10
-  %.not = icmp samesign ult i64 %.11316, 10
+  %.not = icmp ult i64 %.11316, 10
   br i1 %.not, label %.loopexit, label %.preheader, !llvm.loop !17
 
 .loopexit:                                        ; preds = %.preheader, %15
@@ -5696,7 +5691,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18asgetenvEPKc.exit: ; preds =
   %37 = icmp ne ptr %spec.select, null
   %38 = icmp ne ptr %35, null
   %or.cond = select i1 %37, i1 %38, i1 false
-  br i1 %or.cond, label %39, label %129
+  br i1 %or.cond, label %39, label %130
 
 39:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18asgetenvEPKc.exit
   %40 = tail call i32 @getpid() #32
@@ -5752,7 +5747,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111asNumDigitsEl.exit.i: ; pre
   %58 = getelementptr inbounds i8, ptr %.117.i, i64 -1
   store i8 %57, ptr %58, align 1
   %59 = udiv i64 %.11316.i, 10
-  %.not.i = icmp samesign ult i64 %.11316.i, 10
+  %.not.i = icmp ult i64 %.11316.i, 10
   br i1 %.not.i, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16asitoaEPcl.exit, label %.preheader.i13, !llvm.loop !17
 
 _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16asitoaEPcl.exit: ; preds = %.preheader.i13, %54
@@ -5825,7 +5820,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111asNumDigitsEl.exit.i17: ; p
   %84 = getelementptr inbounds i8, ptr %.117.i20, i64 -1
   store i8 %83, ptr %84, align 1
   %85 = udiv i64 %.11316.i21, 10
-  %.not.i22 = icmp samesign ult i64 %.11316.i21, 10
+  %.not.i22 = icmp ult i64 %.11316.i21, 10
   br i1 %.not.i22, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16asitoaEPcl.exit27, label %.preheader.i19, !llvm.loop !17
 
 _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16asitoaEPcl.exit27: ; preds = %.preheader.i19, %80
@@ -5859,14 +5854,10 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16asitoaEPcl.exit27: ; preds =
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
   %97 = icmp ult i64 %94, 32
-  br i1 %97, label %.preheader.i29, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_19_MakeArgvEPPKcmS2_PKS2_PA2_S4_m.exit
+  br i1 %97, label %.lr.ph71.preheader.i, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_19_MakeArgvEPPKcmS2_PKS2_PA2_S4_m.exit
 
-.preheader.i29:                                   ; preds = %._crit_edge.i
-  %.not4268.i = icmp eq i64 %94, 0
-  br i1 %.not4268.i, label %.loopexit, label %.lr.ph71.preheader.i
-
-.lr.ph71.preheader.i:                             ; preds = %.preheader.i29, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16asitoaEPcl.exit27
-  %.038.lcssa8891.i = phi i64 [ %94, %.preheader.i29 ], [ 1, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16asitoaEPcl.exit27 ]
+.lr.ph71.preheader.i:                             ; preds = %._crit_edge.i, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16asitoaEPcl.exit27
+  %.038.lcssa8891.i = phi i64 [ 1, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16asitoaEPcl.exit27 ], [ %94, %._crit_edge.i ]
   br label %.lr.ph71.i
 
 .lr.ph71.i:                                       ; preds = %.loopexit.i, %.lr.ph71.preheader.i
@@ -5960,25 +5951,24 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_17asstreqEPKcS2_.exit54.thread
 .loopexit.i:                                      ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_17asstreqEPKcS2_.exit54.thread59.i, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_17asstreqEPKcS2_.exit54.thread59.us.i, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_17asstreqEPKcS2_.exit54.thread.i, %104
   %122 = add nuw nsw i64 %.03570.i, 1
   %.not42.i = icmp eq i64 %122, %.038.lcssa8891.i
-  br i1 %.not42.i, label %.loopexit, label %.lr.ph71.i, !llvm.loop !21
+  br i1 %.not42.i, label %126, label %.lr.ph71.i, !llvm.loop !21
 
 _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_19_MakeArgvEPPKcmS2_PKS2_PA2_S4_m.exit: ; preds = %._crit_edge.i
   %123 = tail call ptr @__errno_location() #36
   %124 = load i32, ptr %123, align 4
   %125 = call i64 @write(i32 noundef 2, ptr noundef nonnull @_ZZN32pxrInternal_v0_24__pxrReserved__L20_LogStackTraceForPidEbPKcS1_E3msg, i64 noundef 41)
   store i32 %124, ptr %123, align 4
-  br label %129
+  br label %130
 
-.loopexit:                                        ; preds = %.loopexit.i, %.preheader.i29
-  %.036.lcssa.i = phi i64 [ 0, %.preheader.i29 ], [ %.038.lcssa8891.i, %.loopexit.i ]
-  %126 = getelementptr inbounds nuw ptr, ptr %8, i64 %.036.lcssa.i
-  store ptr null, ptr %126, align 8
-  %127 = load ptr, ptr %8, align 16
-  %128 = call noundef i32 @_ZN32pxrInternal_v0_24__pxrReserved__23ArchCrashHandlerSystemvEPKcPKPciPFvPvES5_(ptr noundef %127, ptr noundef nonnull %8, i32 noundef 300, ptr noundef null, ptr noundef null)
-  br label %129
+126:                                              ; preds = %.loopexit.i
+  %127 = getelementptr inbounds nuw ptr, ptr %8, i64 %.038.lcssa8891.i
+  store ptr null, ptr %127, align 8
+  %128 = load ptr, ptr %8, align 16
+  %129 = call noundef i32 @_ZN32pxrInternal_v0_24__pxrReserved__23ArchCrashHandlerSystemvEPKcPKPciPFvPvES5_(ptr noundef %128, ptr noundef nonnull %8, i32 noundef 300, ptr noundef null, ptr noundef null)
+  br label %130
 
-129:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18asgetenvEPKc.exit, %.loopexit, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_19_MakeArgvEPPKcmS2_PKS2_PA2_S4_m.exit
-  %.0 = phi i32 [ 1, %.loopexit ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_19_MakeArgvEPPKcmS2_PKS2_PA2_S4_m.exit ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18asgetenvEPKc.exit ]
+130:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18asgetenvEPKc.exit, %126, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_19_MakeArgvEPPKcmS2_PKS2_PA2_S4_m.exit
+  %.0 = phi i32 [ 1, %126 ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_19_MakeArgvEPPKcmS2_PKS2_PA2_S4_m.exit ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18asgetenvEPKc.exit ]
   ret i32 %.0
 }
 

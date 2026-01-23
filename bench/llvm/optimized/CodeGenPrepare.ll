@@ -38316,7 +38316,7 @@ _ZN12_GLOBAL__N_114CodeGenPrepare18optimizeSwitchTypeEPN4llvm10SwitchInstE.exit:
 
 190:                                              ; preds = %.thread167.i, %.lr.ph211.i
   %.068210.i = phi i1 [ false, %.lr.ph211.i ], [ %.270.i, %.thread167.i ]
-  %.sroa.5.0209.i = phi i64 [ 0, %.lr.ph211.i ], [ %431, %.thread167.i ]
+  %.sroa.5.0209.i = phi i64 [ 0, %.lr.ph211.i ], [ %432, %.thread167.i ]
   %191 = shl nuw i64 %.sroa.5.0209.i, 1
   %192 = add nuw nsw i64 %191, 2
   %193 = load ptr, ptr %12, align 8, !tbaa !359
@@ -38852,28 +38852,32 @@ _ZN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEED2Ev.exit.
 
 _ZN4llvm3Use14removeFromListEv.exit.i.i.i.i.i:    ; preds = %418, %413, %409
   store ptr %.275.i, ptr %411, align 8, !tbaa !310
-  %420 = getelementptr inbounds nuw i8, ptr %.275.i, i64 16
-  %421 = load ptr, ptr %420, align 8, !tbaa !359
-  %422 = getelementptr inbounds nuw i8, ptr %411, i64 8
-  store ptr %421, ptr %422, align 8, !tbaa !352
-  %.not.i.i.i.i.i.i101.i = icmp eq ptr %421, null
-  br i1 %.not.i.i.i.i.i.i101.i, label %_ZN4llvm5Value6addUseERNS_3UseE.exit.i.i.i.i.i, label %423
+  %.not4.i.i.i.i.i = icmp eq ptr %.275.i, null
+  br i1 %.not4.i.i.i.i.i, label %.thread124.i, label %420
 
-423:                                              ; preds = %_ZN4llvm3Use14removeFromListEv.exit.i.i.i.i.i
-  %424 = getelementptr inbounds nuw i8, ptr %421, i64 16
-  store ptr %422, ptr %424, align 8, !tbaa !375
+420:                                              ; preds = %_ZN4llvm3Use14removeFromListEv.exit.i.i.i.i.i
+  %421 = getelementptr inbounds nuw i8, ptr %.275.i, i64 16
+  %422 = load ptr, ptr %421, align 8, !tbaa !359
+  %423 = getelementptr inbounds nuw i8, ptr %411, i64 8
+  store ptr %422, ptr %423, align 8, !tbaa !352
+  %.not.i.i.i.i.i.i101.i = icmp eq ptr %422, null
+  br i1 %.not.i.i.i.i.i.i101.i, label %_ZN4llvm5Value6addUseERNS_3UseE.exit.i.i.i.i.i, label %424
+
+424:                                              ; preds = %420
+  %425 = getelementptr inbounds nuw i8, ptr %422, i64 16
+  store ptr %423, ptr %425, align 8, !tbaa !375
   br label %_ZN4llvm5Value6addUseERNS_3UseE.exit.i.i.i.i.i
 
-_ZN4llvm5Value6addUseERNS_3UseE.exit.i.i.i.i.i:   ; preds = %423, %_ZN4llvm3Use14removeFromListEv.exit.i.i.i.i.i
-  %425 = getelementptr inbounds nuw i8, ptr %411, i64 16
-  store ptr %420, ptr %425, align 8, !tbaa !375
-  store ptr %411, ptr %420, align 8, !tbaa !359
+_ZN4llvm5Value6addUseERNS_3UseE.exit.i.i.i.i.i:   ; preds = %424, %420
+  %426 = getelementptr inbounds nuw i8, ptr %411, i64 16
+  store ptr %421, ptr %426, align 8, !tbaa !375
+  store ptr %411, ptr %421, align 8, !tbaa !359
   br label %.thread124.i
 
-.thread124.i:                                     ; preds = %_ZN4llvm5Value6addUseERNS_3UseE.exit.i.i.i.i.i, %261, %.critedge.i, %239, %238
-  %.483.ph.i = phi i1 [ true, %_ZN4llvm5Value6addUseERNS_3UseE.exit.i.i.i.i.i ], [ %.281197.i, %.critedge.i ], [ %.281197.i, %238 ], [ %.281197.i, %261 ], [ %.281197.i, %239 ]
-  %.174.ph.i = phi ptr [ %.275.i, %_ZN4llvm5Value6addUseERNS_3UseE.exit.i.i.i.i.i ], [ %.073198.i, %.critedge.i ], [ %.073198.i, %238 ], [ %.073198.i, %261 ], [ %.073198.i, %239 ]
-  %.6.ph.i = phi i1 [ true, %_ZN4llvm5Value6addUseERNS_3UseE.exit.i.i.i.i.i ], [ %.4200.i, %.critedge.i ], [ %.4200.i, %238 ], [ %.4200.i, %261 ], [ %.4200.i, %239 ]
+.thread124.i:                                     ; preds = %_ZN4llvm5Value6addUseERNS_3UseE.exit.i.i.i.i.i, %_ZN4llvm3Use14removeFromListEv.exit.i.i.i.i.i, %261, %.critedge.i, %239, %238
+  %.483.ph.i = phi i1 [ true, %_ZN4llvm5Value6addUseERNS_3UseE.exit.i.i.i.i.i ], [ true, %_ZN4llvm3Use14removeFromListEv.exit.i.i.i.i.i ], [ %.281197.i, %238 ], [ %.281197.i, %261 ], [ %.281197.i, %239 ], [ %.281197.i, %.critedge.i ]
+  %.174.ph.i = phi ptr [ %.275.i, %_ZN4llvm5Value6addUseERNS_3UseE.exit.i.i.i.i.i ], [ null, %_ZN4llvm3Use14removeFromListEv.exit.i.i.i.i.i ], [ %.073198.i, %238 ], [ %.073198.i, %261 ], [ %.073198.i, %239 ], [ %.073198.i, %.critedge.i ]
+  %.6.ph.i = phi i1 [ true, %_ZN4llvm5Value6addUseERNS_3UseE.exit.i.i.i.i.i ], [ true, %_ZN4llvm3Use14removeFromListEv.exit.i.i.i.i.i ], [ %.4200.i, %238 ], [ %.4200.i, %261 ], [ %.4200.i, %239 ], [ %.4200.i, %.critedge.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %.not.i6 = icmp eq i64 %indvars.iv.next.i, %233
   br i1 %.not.i6, label %.thread143.i, label %234, !llvm.loop !1268
@@ -38881,25 +38885,25 @@ _ZN4llvm5Value6addUseERNS_3UseE.exit.i.i.i.i.i:   ; preds = %423, %_ZN4llvm3Use1
 .thread143.i:                                     ; preds = %.thread124.i, %227, %224
   %.7153.i = phi i1 [ %.169205.i, %224 ], [ %.169205.i, %227 ], [ %.6.ph.i, %.thread124.i ]
   %.685152.i = phi i1 [ %.079204.i, %224 ], [ %.079204.i, %227 ], [ %.483.ph.i, %.thread124.i ]
-  %426 = getelementptr inbounds nuw i8, ptr %.sroa.0111.0203.i, i64 32
-  %427 = load ptr, ptr %426, align 8, !tbaa !305
-  %428 = getelementptr inbounds i8, ptr %427, i64 -24
-  %429 = load i8, ptr %428, align 8, !tbaa !309
-  %430 = icmp eq i8 %429, 84
-  %spec.select.i.i.i1.i.i = select i1 %430, ptr %428, ptr null
+  %427 = getelementptr inbounds nuw i8, ptr %.sroa.0111.0203.i, i64 32
+  %428 = load ptr, ptr %427, align 8, !tbaa !305
+  %429 = getelementptr inbounds i8, ptr %428, i64 -24
+  %430 = load i8, ptr %429, align 8, !tbaa !309
+  %431 = icmp eq i8 %430, 84
+  %spec.select.i.i.i1.i.i = select i1 %431, ptr %429, ptr null
   %.not176.i = icmp eq ptr %spec.select.i.i.i1.i.i, %204
   br i1 %.not176.i, label %.thread167.i, label %206
 
 .thread167.i:                                     ; preds = %.thread143.i, %_ZN4llvm10SwitchInst12findCaseDestEPNS_10BasicBlockE.exit.i, %274, %269, %286, %190
   %.270.i = phi i1 [ %.4200.i, %_ZN4llvm10SwitchInst12findCaseDestEPNS_10BasicBlockE.exit.i ], [ %.4200.i, %286 ], [ %.068210.i, %190 ], [ %.4200.i, %269 ], [ %.4200.i, %274 ], [ %.7153.i, %.thread143.i ]
-  %431 = add nuw nsw i64 %.sroa.5.0209.i, 1
-  %.not175.i = icmp eq i64 %431, %169
+  %432 = add nuw nsw i64 %.sroa.5.0209.i, 1
+  %.not175.i = icmp eq i64 %432, %169
   br i1 %.not175.i, label %_ZN12_GLOBAL__N_114CodeGenPrepare26optimizeSwitchPhiConstantsEPN4llvm10SwitchInstE.exit, label %190
 
 _ZN12_GLOBAL__N_114CodeGenPrepare26optimizeSwitchPhiConstantsEPN4llvm10SwitchInstE.exit: ; preds = %.thread167.i, %_ZN12_GLOBAL__N_114CodeGenPrepare18optimizeSwitchTypeEPN4llvm10SwitchInstE.exit, %158
   %.066.i = phi i1 [ false, %_ZN12_GLOBAL__N_114CodeGenPrepare18optimizeSwitchTypeEPN4llvm10SwitchInstE.exit ], [ false, %158 ], [ %.270.i, %.thread167.i ]
-  %432 = or i1 %.not.i, %.066.i
-  ret i1 %432
+  %433 = or i1 %.not.i, %.066.i
+  ret i1 %433
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

@@ -1200,6 +1200,7 @@ declare dso_local i32 @__ipv6_addr_type(ptr noundef) local_unnamed_addr #1
 define internal ptr @ac6_seq_start(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   tail call void @__rcu_read_lock() #6
   %3 = load i64, ptr %1, align 8
+  %.fr = freeze i64 %3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
@@ -1211,9 +1212,9 @@ define internal ptr @ac6_seq_start(ptr noundef readonly captures(none) %0, ptr n
   %11 = getelementptr i8, ptr %10, i64 -360
   store ptr %11, ptr %9, align 8
   %12 = icmp eq ptr %10, %8
-  br i1 %12, label %.thread14, label %.preheader21
+  br i1 %12, label %.thread14, label %.preheader23
 
-.preheader21:                                     ; preds = %2, %24
+.preheader23:                                     ; preds = %2, %24
   %13 = phi ptr [ %28, %24 ], [ %11, %2 ]
   %14 = phi ptr [ %27, %24 ], [ %10, %2 ]
   %15 = getelementptr i8, ptr %14, i64 -176
@@ -1221,36 +1222,36 @@ define internal ptr @ac6_seq_start(ptr noundef readonly captures(none) %0, ptr n
   %17 = icmp eq ptr %16, null
   br i1 %17, label %24, label %18
 
-18:                                               ; preds = %.preheader21
+18:                                               ; preds = %.preheader23
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 616
   tail call void @_raw_read_lock_bh(ptr noundef nonnull %19) #6
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 608
   %21 = load ptr, ptr %20, align 8
   %22 = icmp eq ptr %21, null
-  br i1 %22, label %23, label %.loopexit22
+  br i1 %22, label %23, label %.loopexit24
 
 23:                                               ; preds = %18
   tail call void @_raw_read_unlock_bh(ptr noundef nonnull %19) #6
   %.pre = load ptr, ptr %9, align 8
   br label %24
 
-24:                                               ; preds = %23, %.preheader21
-  %25 = phi ptr [ %.pre, %23 ], [ %13, %.preheader21 ]
+24:                                               ; preds = %23, %.preheader23
+  %25 = phi ptr [ %.pre, %23 ], [ %13, %.preheader23 ]
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 360
   %27 = load volatile ptr, ptr %26, align 8
   %28 = getelementptr i8, ptr %27, i64 -360
   store ptr %28, ptr %9, align 8
   %29 = icmp eq ptr %27, %8
-  br i1 %29, label %.thread14, label %.preheader21, !llvm.loop !52
+  br i1 %29, label %.thread14, label %.preheader23, !llvm.loop !52
 
-.loopexit22:                                      ; preds = %18
+.loopexit24:                                      ; preds = %18
   store ptr %16, ptr %7, align 8
-  %.not = icmp eq i64 %3, 0
-  br i1 %.not, label %.thread14, label %.preheader20
+  %.not = icmp eq i64 %.fr, 0
+  br i1 %.not, label %.thread14, label %.preheader22
 
-.preheader20:                                     ; preds = %.loopexit22, %.loopexit
-  %30 = phi i64 [ %64, %.loopexit ], [ %3, %.loopexit22 ]
-  %31 = phi ptr [ %.ph16, %.loopexit ], [ %21, %.loopexit22 ]
+.preheader22:                                     ; preds = %.loopexit24, %.loopexit
+  %30 = phi i64 [ %63, %.loopexit ], [ %.fr, %.loopexit24 ]
+  %31 = phi ptr [ %.ph16, %.loopexit ], [ %21, %.loopexit24 ]
   %32 = load ptr, ptr %4, align 8
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 24
   %34 = load ptr, ptr %33, align 8
@@ -1259,7 +1260,7 @@ define internal ptr @ac6_seq_start(ptr noundef readonly captures(none) %0, ptr n
   %37 = icmp eq ptr %34, null
   br i1 %37, label %.preheader.preheader, label %.loopexit
 
-.preheader.preheader:                             ; preds = %.preheader20
+.preheader.preheader:                             ; preds = %.preheader22
   %.pr.pre = load ptr, ptr %35, align 8
   br label %.preheader
 
@@ -1285,7 +1286,7 @@ define internal ptr @ac6_seq_start(ptr noundef readonly captures(none) %0, ptr n
   %51 = select i1 %49, ptr null, ptr %50
   store ptr %51, ptr %36, align 8
   %52 = icmp eq ptr %51, null
-  br i1 %52, label %63, label %53
+  br i1 %52, label %.thread20, label %53
 
 53:                                               ; preds = %42
   %54 = getelementptr inbounds nuw i8, ptr %51, i64 184
@@ -1307,27 +1308,25 @@ define internal ptr @ac6_seq_start(ptr noundef readonly captures(none) %0, ptr n
   %62 = icmp eq ptr %61, null
   br i1 %62, label %.preheader.backedge, label %.loopexit
 
-63:                                               ; preds = %42
+.thread20:                                        ; preds = %42
   store ptr null, ptr %35, align 8
-  br label %.thread14
-
-.loopexit:                                        ; preds = %57, %.preheader20
-  %.ph16 = phi ptr [ %34, %.preheader20 ], [ %61, %57 ]
-  %64 = add i64 %30, -1
-  %65 = icmp eq i64 %64, 0
-  br i1 %65, label %.thread18, label %.preheader20
-
-.thread14:                                        ; preds = %24, %2, %63, %.loopexit22
-  %66 = phi i64 [ %3, %.loopexit22 ], [ %30, %63 ], [ %3, %2 ], [ %3, %24 ]
-  %67 = phi ptr [ %21, %.loopexit22 ], [ null, %63 ], [ null, %2 ], [ null, %24 ]
-  %.fr = freeze i64 %66
-  %68 = icmp eq i64 %.fr, 0
-  %spec.select = select i1 %68, ptr %67, ptr null
   br label %.thread18
 
-.thread18:                                        ; preds = %.loopexit, %.thread14
-  %69 = phi ptr [ %spec.select, %.thread14 ], [ %.ph16, %.loopexit ]
-  ret ptr %69
+.loopexit:                                        ; preds = %57, %.preheader22
+  %.ph16 = phi ptr [ %34, %.preheader22 ], [ %61, %57 ]
+  %63 = add i64 %30, -1
+  %64 = icmp eq i64 %63, 0
+  br i1 %64, label %.thread18, label %.preheader22
+
+.thread14:                                        ; preds = %24, %2, %.loopexit24
+  %65 = phi ptr [ %21, %.loopexit24 ], [ null, %2 ], [ null, %24 ]
+  %66 = icmp eq i64 %.fr, 0
+  %spec.select = select i1 %66, ptr %65, ptr null
+  br label %.thread18
+
+.thread18:                                        ; preds = %.loopexit, %.thread14, %.thread20
+  %67 = phi ptr [ null, %.thread20 ], [ %spec.select, %.thread14 ], [ %.ph16, %.loopexit ]
+  ret ptr %67
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

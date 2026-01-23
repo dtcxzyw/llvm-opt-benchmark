@@ -1480,6 +1480,7 @@ get_len_position.exit:                            ; preds = %53, %52, %51, %46, 
 
 .lr.ph.preheader:                                 ; preds = %.preheader
   %60 = zext nneg i32 %.082 to i64
+  %wide.trip.count = zext nneg i32 %11 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %76
@@ -1494,15 +1495,15 @@ get_len_position.exit:                            ; preds = %53, %52, %51, %46, 
   %64 = fcmp ole double %62, %3
   %or.cond100.not = and i1 %4, %64
   %or.cond115 = or i1 %63, %or.cond100.not
-  %65 = trunc nuw i64 %indvars.iv to i32
-  br i1 %or.cond115, label %66, label %79
+  %65 = trunc nsw i64 %indvars.iv to i32
+  br i1 %or.cond115, label %66, label %77
 
 66:                                               ; preds = %.lr.ph
-  %67 = uitofp nneg i32 %65 to double
+  %67 = sitofp i32 %65 to double
   %68 = fdiv double %67, %56
   %69 = fcmp ogt double %.086126, 0.000000e+00
   %70 = fcmp ogt double %68, 0.000000e+00
-  %or.cond3 = select i1 %69, i1 true, i1 %70
+  %or.cond3 = or i1 %69, %70
   br i1 %or.cond3, label %71, label %76
 
 71:                                               ; preds = %66
@@ -1514,56 +1515,56 @@ get_len_position.exit:                            ; preds = %53, %52, %51, %46, 
 
 76:                                               ; preds = %71, %66
   %.2 = phi double [ %.081128, %66 ], [ %75, %71 ]
-  %77 = trunc nuw i64 %indvars.iv.next to i32
-  %78 = icmp sgt i32 %11, %77
-  br i1 %78, label %.lr.ph, label %.loopexit, !llvm.loop !12
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !12
 
-79:                                               ; preds = %.lr.ph
-  %80 = and i64 %indvars.iv, 4294967295
-  %81 = getelementptr inbounds nuw i64, ptr %0, i64 %80
+77:                                               ; preds = %.lr.ph
+  %sext = shl i64 %indvars.iv, 32
+  %78 = ashr exact i64 %sext, 29
+  %79 = getelementptr inbounds i8, ptr %0, i64 %78
+  %80 = load double, ptr %79, align 8
+  %81 = getelementptr i8, ptr %79, i64 8
   %82 = load double, ptr %81, align 8
-  %83 = getelementptr inbounds nuw i8, ptr %81, i64 8
-  %84 = load double, ptr %83, align 8
-  %85 = fcmp oeq double %82, %84
-  br i1 %85, label %.loopexit, label %86
+  %83 = fcmp oeq double %80, %82
+  br i1 %83, label %.loopexit, label %84
 
-86:                                               ; preds = %79
-  %87 = tail call fastcc double @get_len_position(double noundef %3, double noundef %82, double noundef %84)
+84:                                               ; preds = %77
+  %85 = tail call fastcc double @get_len_position(double noundef %3, double noundef %80, double noundef %82)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %76, %.preheader, %79, %86
-  %.089124 = phi double [ %.089125, %86 ], [ %.089125, %79 ], [ %2, %.preheader ], [ %62, %76 ]
-  %.086122 = phi double [ %.086126, %86 ], [ %.086126, %79 ], [ %57, %.preheader ], [ %68, %76 ]
-  %.183120 = phi i32 [ %65, %86 ], [ %65, %79 ], [ %.082, %.preheader ], [ %77, %76 ]
-  %.081118 = phi double [ %.081128, %86 ], [ %.081128, %79 ], [ 0.000000e+00, %.preheader ], [ %.2, %76 ]
-  %.185 = phi double [ %87, %86 ], [ 0.000000e+00, %79 ], [ 0.000000e+00, %.preheader ], [ 0.000000e+00, %76 ]
-  %88 = uitofp nneg i32 %.183120 to double
-  %89 = fadd double %.185, %88
-  %90 = fdiv double %89, %56
-  %91 = fcmp ogt double %.086122, 0.000000e+00
-  %92 = fcmp ogt double %90, 0.000000e+00
-  %or.cond5 = select i1 %91, i1 true, i1 %92
-  br i1 %or.cond5, label %93, label %98
+.loopexit:                                        ; preds = %76, %.preheader, %77, %84
+  %.089124 = phi double [ %.089125, %84 ], [ %.089125, %77 ], [ %2, %.preheader ], [ %62, %76 ]
+  %.086122 = phi double [ %.086126, %84 ], [ %.086126, %77 ], [ %57, %.preheader ], [ %68, %76 ]
+  %.183120 = phi i32 [ %65, %84 ], [ %65, %77 ], [ %.082, %.preheader ], [ %11, %76 ]
+  %.081118 = phi double [ %.081128, %84 ], [ %.081128, %77 ], [ 0.000000e+00, %.preheader ], [ %.2, %76 ]
+  %.185 = phi double [ %85, %84 ], [ 0.000000e+00, %77 ], [ 0.000000e+00, %.preheader ], [ 0.000000e+00, %76 ]
+  %86 = sitofp i32 %.183120 to double
+  %87 = fadd double %.185, %86
+  %88 = fdiv double %87, %56
+  %89 = fcmp ogt double %.086122, 0.000000e+00
+  %90 = fcmp ogt double %88, 0.000000e+00
+  %or.cond5 = or i1 %89, %90
+  br i1 %or.cond5, label %91, label %96
 
-93:                                               ; preds = %.loopexit
-  %94 = fadd double %.086122, %90
-  %95 = fmul double %94, 5.000000e-01
-  %96 = fsub double %3, %.089124
-  %97 = tail call double @llvm.fmuladd.f64(double %95, double %96, double %.081118)
-  br label %98
+91:                                               ; preds = %.loopexit
+  %92 = fadd double %.086122, %88
+  %93 = fmul double %92, 5.000000e-01
+  %94 = fsub double %3, %.089124
+  %95 = tail call double @llvm.fmuladd.f64(double %93, double %94, double %.081118)
+  br label %96
 
-98:                                               ; preds = %.loopexit, %93
-  %.4 = phi double [ %97, %93 ], [ %.081118, %.loopexit ]
-  %99 = tail call double @llvm.fabs.f64(double %.4)
-  %100 = fcmp oeq double %99, 0x7FF0000000000000
-  %brmerge.not = and i1 %9, %100
-  %101 = fsub double %3, %2
-  %102 = fdiv double %.4, %101
-  %.092 = select i1 %brmerge.not, double 5.000000e-01, double %102
+96:                                               ; preds = %.loopexit, %91
+  %.4 = phi double [ %95, %91 ], [ %.081118, %.loopexit ]
+  %97 = tail call double @llvm.fabs.f64(double %.4)
+  %98 = fcmp oeq double %97, 0x7FF0000000000000
+  %brmerge.not = and i1 %9, %98
+  %99 = fsub double %3, %2
+  %100 = fdiv double %.4, %99
+  %.092 = select i1 %brmerge.not, double 5.000000e-01, double %100
   br label %length_hist_bsearch.exit.thread
 
-length_hist_bsearch.exit.thread:                  ; preds = %10, %get_len_position.exit, %length_hist_bsearch.exit, %7, %5, %98
-  %.0 = phi double [ %.092, %98 ], [ 0.000000e+00, %5 ], [ 1.000000e+00, %7 ], [ 1.000000e+00, %length_hist_bsearch.exit ], [ %57, %get_len_position.exit ], [ 1.000000e+00, %10 ]
+length_hist_bsearch.exit.thread:                  ; preds = %10, %get_len_position.exit, %length_hist_bsearch.exit, %7, %5, %96
+  %.0 = phi double [ %.092, %96 ], [ 0.000000e+00, %5 ], [ 1.000000e+00, %7 ], [ 1.000000e+00, %length_hist_bsearch.exit ], [ %57, %get_len_position.exit ], [ 1.000000e+00, %10 ]
   ret double %.0
 }
 

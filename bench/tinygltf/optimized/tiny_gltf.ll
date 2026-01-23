@@ -2693,7 +2693,7 @@ _ZL28stbi__load_gif_main_outofmemP9stbi__gifPhPPi.exit109.i: ; preds = %92, %84
   %97 = sext i32 %96 to i64
   %98 = getelementptr inbounds i8, ptr %.279.i, i64 %97
   %99 = sext i32 %34 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %98, ptr nonnull align 1 %30, i64 %99, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %98, ptr nonnull align 1 %30, i64 %99, i1 false)
   %.not116.i = icmp eq i64 %indvars.iv.i, 0
   %100 = shl nsw i32 %33, 3
   %101 = sext i32 %100 to i64
@@ -8681,14 +8681,14 @@ _ZL14stbiw__sbgrowfPPvii.exit475:                 ; preds = %629, %624, %612
 .lr.ph791.preheader:                              ; preds = %.preheader
   %652 = zext nneg i32 %.5198795 to i64
   %wide.trip.count866 = zext nneg i32 %.0798 to i64
-  %invariant.gep = getelementptr i8, ptr %0, i64 %652
+  %invariant.gep = getelementptr inbounds nuw i8, ptr %0, i64 %652
   br label %.lr.ph791
 
 .lr.ph791:                                        ; preds = %.lr.ph791.preheader, %.lr.ph791
   %indvars.iv863 = phi i64 [ 0, %.lr.ph791.preheader ], [ %indvars.iv.next864, %.lr.ph791 ]
   %.1790 = phi i32 [ %.0177797, %.lr.ph791.preheader ], [ %656, %.lr.ph791 ]
   %.1179789 = phi i32 [ %.0178796, %.lr.ph791.preheader ], [ %655, %.lr.ph791 ]
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv863
+  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %indvars.iv863
   %653 = load i8, ptr %gep, align 1, !tbaa !21
   %654 = zext i8 %653 to i32
   %655 = add i32 %.1179789, %654
@@ -110445,12 +110445,13 @@ _ZL19stbi__refill_bufferP13stbi__context.exit.i30: ; preds = %129, %128
   br label %_ZL10stbi__get8P13stbi__context.exit33.backedge
 
 .critedge.loopexit46:                             ; preds = %_ZL12stbi__at_eofP13stbi__context.exit, %59
-  %133 = and i64 %indvars.iv, 4294967295
+  %sext = shl i64 %indvars.iv, 32
+  %133 = ashr exact i64 %sext, 32
   br label %.critedge
 
 .critedge:                                        ; preds = %75, %_ZL10stbi__get8P13stbi__context.exit27, %_ZL12stbi__at_eofP13stbi__context.exit21, %.critedge.loopexit46
   %.1 = phi i64 [ %133, %.critedge.loopexit46 ], [ 1023, %_ZL12stbi__at_eofP13stbi__context.exit21 ], [ 1023, %_ZL10stbi__get8P13stbi__context.exit27 ], [ 1023, %75 ]
-  %134 = getelementptr inbounds nuw i8, ptr %1, i64 %.1
+  %134 = getelementptr inbounds i8, ptr %1, i64 %.1
   store i8 0, ptr %134, align 1, !tbaa !21
   ret ptr %1
 }

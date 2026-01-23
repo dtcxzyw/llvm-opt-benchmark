@@ -10619,104 +10619,108 @@ define internal range(i32 -2147483648, 1) i32 @virtio_device_start_ioeventfd_imp
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 224
   br label %6
 
-6:                                                ; preds = %1, %16
-  %indvars.iv65 = phi i32 [ -1, %1 ], [ %indvars.iv.next66, %16 ]
-  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %16 ]
+6:                                                ; preds = %1, %17
+  %indvars.iv61 = phi i32 [ -1, %1 ], [ %indvars.iv.next62, %17 ]
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %17 ]
   %7 = load ptr, ptr %5, align 8
   %8 = getelementptr inbounds nuw %struct.VirtQueue, ptr %7, i64 %indvars.iv
   %9 = load i32, ptr %8, align 8
   %.not43 = icmp eq i32 %9, 0
-  br i1 %.not43, label %16, label %10
+  br i1 %.not43, label %17, label %10
 
 10:                                               ; preds = %6
   %11 = trunc nuw nsw i64 %indvars.iv to i32
   %12 = tail call i32 @virtio_bus_set_host_notifier(ptr noundef %4, i32 noundef %11, i1 noundef zeroext true) #24
   %13 = icmp slt i32 %12, 0
-  br i1 %13, label %.preheader, label %14
+  br i1 %13, label %.preheader, label %15
 
 .preheader:                                       ; preds = %10
   %.not57 = icmp eq i64 %indvars.iv, 0
-  br i1 %.not57, label %.loopexit.sink.split, label %.lr.ph
+  br i1 %.not57, label %.loopexit.sink.split, label %.lr.ph.preheader
 
-14:                                               ; preds = %10
-  %15 = getelementptr inbounds nuw i8, ptr %8, i64 116
-  tail call void @event_notifier_set_handler(ptr noundef nonnull %15, ptr noundef nonnull @virtio_queue_host_notifier_read) #24
-  br label %16
+.lr.ph.preheader:                                 ; preds = %.preheader
+  %14 = zext i32 %indvars.iv61 to i64
+  br label %.lr.ph
 
-16:                                               ; preds = %6, %14
+15:                                               ; preds = %10
+  %16 = getelementptr inbounds nuw i8, ptr %8, i64 116
+  tail call void @event_notifier_set_handler(ptr noundef nonnull %16, ptr noundef nonnull @virtio_queue_host_notifier_read) #24
+  br label %17
+
+17:                                               ; preds = %6, %15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 1024
-  %indvars.iv.next66 = add nsw i32 %indvars.iv65, 1
+  %indvars.iv.next62 = add nsw i32 %indvars.iv61, 1
   br i1 %exitcond.not, label %.preheader50, label %6, !llvm.loop !64
 
-.preheader50:                                     ; preds = %16, %23
-  %indvars.iv71 = phi i64 [ %indvars.iv.next72, %23 ], [ 0, %16 ]
-  %17 = load ptr, ptr %5, align 8
-  %18 = getelementptr inbounds nuw %struct.VirtQueue, ptr %17, i64 %indvars.iv71
-  %19 = load i32, ptr %18, align 8
-  %.not = icmp eq i32 %19, 0
-  br i1 %.not, label %23, label %20
+.preheader50:                                     ; preds = %17, %24
+  %indvars.iv72 = phi i64 [ %indvars.iv.next73, %24 ], [ 0, %17 ]
+  %18 = load ptr, ptr %5, align 8
+  %19 = getelementptr inbounds nuw %struct.VirtQueue, ptr %18, i64 %indvars.iv72
+  %20 = load i32, ptr %19, align 8
+  %.not = icmp eq i32 %20, 0
+  br i1 %.not, label %24, label %21
 
-20:                                               ; preds = %.preheader50
-  %21 = getelementptr inbounds nuw i8, ptr %18, i64 116
-  %22 = tail call i32 @event_notifier_set(ptr noundef nonnull %21) #24
-  br label %23
+21:                                               ; preds = %.preheader50
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 116
+  %23 = tail call i32 @event_notifier_set(ptr noundef nonnull %22) #24
+  br label %24
 
-23:                                               ; preds = %.preheader50, %20
-  %indvars.iv.next72 = add nuw nsw i64 %indvars.iv71, 1
-  %exitcond74.not = icmp eq i64 %indvars.iv.next72, 1024
-  br i1 %exitcond74.not, label %.loopexit.sink.split, label %.preheader50, !llvm.loop !65
+24:                                               ; preds = %.preheader50, %21
+  %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
+  %exitcond75.not = icmp eq i64 %indvars.iv.next73, 1024
+  br i1 %exitcond75.not, label %.loopexit.sink.split, label %.preheader50, !llvm.loop !65
 
-.lr.ph:                                           ; preds = %.preheader, %33
-  %indvars.iv62 = phi i64 [ %indvars.iv.next63, %33 ], [ %indvars.iv, %.preheader ]
-  %indvars.iv.next63 = add nsw i64 %indvars.iv62, -1
-  %24 = load ptr, ptr %5, align 8
-  %25 = getelementptr inbounds nuw %struct.VirtQueue, ptr %24, i64 %indvars.iv.next63
-  %26 = load i32, ptr %25, align 8
-  %.not45 = icmp eq i32 %26, 0
-  br i1 %.not45, label %33, label %27, !llvm.loop !66
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %34
+  %indvars.iv64 = phi i64 [ %14, %.lr.ph.preheader ], [ %indvars.iv.next65, %34 ]
+  %25 = load ptr, ptr %5, align 8
+  %26 = getelementptr inbounds nuw %struct.VirtQueue, ptr %25, i64 %indvars.iv64
+  %27 = load i32, ptr %26, align 8
+  %.not45 = icmp eq i32 %27, 0
+  br i1 %.not45, label %34, label %28, !llvm.loop !66
 
-27:                                               ; preds = %.lr.ph
-  %28 = getelementptr inbounds nuw i8, ptr %25, i64 116
-  tail call void @event_notifier_set_handler(ptr noundef nonnull %28, ptr noundef null) #24
-  %29 = trunc nuw nsw i64 %indvars.iv.next63 to i32
-  %30 = tail call i32 @virtio_bus_set_host_notifier(ptr noundef %4, i32 noundef %29, i1 noundef zeroext false) #24
-  %31 = icmp sgt i32 %30, -1
-  br i1 %31, label %33, label %32
+28:                                               ; preds = %.lr.ph
+  %29 = getelementptr inbounds nuw i8, ptr %26, i64 116
+  tail call void @event_notifier_set_handler(ptr noundef nonnull %29, ptr noundef null) #24
+  %30 = trunc nuw nsw i64 %indvars.iv64 to i32
+  %31 = tail call i32 @virtio_bus_set_host_notifier(ptr noundef %4, i32 noundef %30, i1 noundef zeroext false) #24
+  %32 = icmp sgt i32 %31, -1
+  br i1 %32, label %34, label %33
 
-32:                                               ; preds = %27
+33:                                               ; preds = %28
   tail call void @__assert_fail(ptr noundef nonnull @.str.191, ptr noundef nonnull @.str.44, i32 noundef 4068, ptr noundef nonnull @__PRETTY_FUNCTION__.virtio_device_start_ioeventfd_impl) #25
   unreachable
 
-33:                                               ; preds = %27, %.lr.ph
-  %34 = icmp sgt i64 %indvars.iv62, 1
-  br i1 %34, label %.lr.ph, label %._crit_edge
+34:                                               ; preds = %28, %.lr.ph
+  %indvars.iv.next65 = add nsw i64 %indvars.iv64, -1
+  %35 = icmp sgt i64 %indvars.iv64, 0
+  br i1 %35, label %.lr.ph, label %._crit_edge
 
-._crit_edge:                                      ; preds = %33
+._crit_edge:                                      ; preds = %34
   tail call void @memory_region_transaction_commit() #24
-  %35 = zext i32 %indvars.iv65 to i64
+  %36 = zext i32 %indvars.iv61 to i64
   br label %.lr.ph56
 
 .lr.ph56:                                         ; preds = %._crit_edge, %.backedge
-  %indvars.iv68 = phi i64 [ %35, %._crit_edge ], [ %indvars.iv.next69, %.backedge ]
-  %36 = load ptr, ptr %5, align 8
-  %37 = getelementptr inbounds nuw %struct.VirtQueue, ptr %36, i64 %indvars.iv68
-  %38 = load i32, ptr %37, align 8
-  %.not44 = icmp eq i32 %38, 0
-  br i1 %.not44, label %.backedge, label %39
+  %indvars.iv69 = phi i64 [ %36, %._crit_edge ], [ %indvars.iv.next70, %.backedge ]
+  %37 = load ptr, ptr %5, align 8
+  %38 = getelementptr inbounds nuw %struct.VirtQueue, ptr %37, i64 %indvars.iv69
+  %39 = load i32, ptr %38, align 8
+  %.not44 = icmp eq i32 %39, 0
+  br i1 %.not44, label %.backedge, label %40
 
-39:                                               ; preds = %.lr.ph56
-  %40 = trunc nuw nsw i64 %indvars.iv68 to i32
-  tail call void @virtio_bus_cleanup_host_notifier(ptr noundef %4, i32 noundef %40) #24
+40:                                               ; preds = %.lr.ph56
+  %41 = trunc nuw nsw i64 %indvars.iv69 to i32
+  tail call void @virtio_bus_cleanup_host_notifier(ptr noundef %4, i32 noundef %41) #24
   br label %.backedge
 
-.backedge:                                        ; preds = %39, %.lr.ph56
-  %indvars.iv.next69 = add nsw i64 %indvars.iv68, -1
-  %41 = icmp sgt i64 %indvars.iv68, 0
-  br i1 %41, label %.lr.ph56, label %.loopexit, !llvm.loop !67
+.backedge:                                        ; preds = %40, %.lr.ph56
+  %indvars.iv.next70 = add nsw i64 %indvars.iv69, -1
+  %42 = icmp sgt i64 %indvars.iv69, 0
+  br i1 %42, label %.lr.ph56, label %.loopexit, !llvm.loop !67
 
-.loopexit.sink.split:                             ; preds = %23, %.preheader
-  %.0.ph = phi i32 [ %12, %.preheader ], [ 0, %23 ]
+.loopexit.sink.split:                             ; preds = %24, %.preheader
+  %.0.ph = phi i32 [ %12, %.preheader ], [ 0, %24 ]
   tail call void @memory_region_transaction_commit() #24
   br label %.loopexit
 

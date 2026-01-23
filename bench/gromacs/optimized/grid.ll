@@ -3072,7 +3072,7 @@ define void @_ZN3gmx4Grid22sortColumnsGpuGeometryEPNS_11GridSetDataEiNS_8ArrayRe
   %wide.trip.count = zext nneg i32 %smax to i64
   br label %96
 
-.preheader:                                       ; preds = %142, %59
+.preheader:                                       ; preds = %143, %59
   %87 = icmp slt i32 %63, %79
   br i1 %87, label %.lr.ph176.preheader, label %.loopexit
 
@@ -3089,8 +3089,8 @@ define void @_ZN3gmx4Grid22sortColumnsGpuGeometryEPNS_11GridSetDataEiNS_8ArrayRe
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %scevgep, i8 -1, i64 %95, i1 false), !tbaa !11
   br label %.loopexit
 
-96:                                               ; preds = %.lr.ph, %142
-  %indvars.iv181 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next182, %142 ]
+96:                                               ; preds = %.lr.ph, %143
+  %indvars.iv181 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next182, %143 ]
   %97 = mul nsw i64 %indvars.iv181, %56
   %98 = add nsw i64 %97, %74
   %99 = trunc i64 %97 to i32
@@ -3099,7 +3099,7 @@ define void @_ZN3gmx4Grid22sortColumnsGpuGeometryEPNS_11GridSetDataEiNS_8ArrayRe
   %101 = trunc nuw nsw i64 %indvars.iv181 to i32
   %102 = and i32 %101, 1
   %103 = icmp eq i32 %102, 0
-  br i1 %103, label %104, label %135
+  br i1 %103, label %104, label %136
 
 104:                                              ; preds = %96
   %105 = lshr exact i32 %101, 1
@@ -3137,55 +3137,60 @@ define void @_ZN3gmx4Grid22sortColumnsGpuGeometryEPNS_11GridSetDataEiNS_8ArrayRe
   %133 = load float, ptr %132, align 4, !tbaa !96
   %134 = getelementptr inbounds nuw i8, ptr %124, i64 4
   store float %133, ptr %134, align 4, !tbaa !197
-  br label %135
+  %135 = and i64 %indvars.iv181, 4294967295
+  br label %136
 
-135:                                              ; preds = %104, %96
-  %136 = icmp ne i32 %102, 0
-  %137 = getelementptr inbounds i32, ptr %26, i64 %98
-  %138 = load float, ptr %43, align 8, !tbaa !96
-  %139 = load float, ptr %44, align 4, !tbaa !96
-  %140 = tail call float @llvm.fmuladd.f32(float %85, float %139, float %138)
-  %141 = load float, ptr %45, align 4, !tbaa !96
-  tail call fastcc void @_ZN3gmxL10sort_atomsEibibPiiNS_8ArrayRefIKNS_11BasicVectorIfEEEEffiNS1_IiEE(i32 noundef 1, i1 noundef zeroext %136, ptr noundef %137, i32 noundef %.sroa.speculated130, i64 %35, float noundef %140, float noundef %141, i32 noundef %24, i64 %40)
+136:                                              ; preds = %104, %96
+  %.095 = phi i64 [ %135, %104 ], [ 4294967294, %96 ]
+  %137 = icmp ne i32 %102, 0
+  %138 = getelementptr inbounds i32, ptr %26, i64 %98
+  %139 = load float, ptr %43, align 8, !tbaa !96
+  %140 = load float, ptr %44, align 4, !tbaa !96
+  %141 = tail call float @llvm.fmuladd.f32(float %85, float %140, float %139)
+  %142 = load float, ptr %45, align 4, !tbaa !96
+  tail call fastcc void @_ZN3gmxL10sort_atomsEibibPiiNS_8ArrayRefIKNS_11BasicVectorIfEEEEffiNS1_IiEE(i32 noundef 1, i1 noundef zeroext %137, ptr noundef %138, i32 noundef %.sroa.speculated130, i64 %35, float noundef %141, float noundef %142, i32 noundef %24, i64 %40)
   br label %.critedge
 
-142:                                              ; preds = %.critedge
+143:                                              ; preds = %.critedge
   %indvars.iv.next182 = add nuw nsw i64 %indvars.iv181, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next182, %wide.trip.count
   br i1 %exitcond.not, label %.preheader, label %96, !llvm.loop !204
 
-.critedge:                                        ; preds = %135, %.critedge
-  %143 = phi i1 [ false, %135 ], [ true, %.critedge ]
-  %144 = phi i1 [ true, %135 ], [ false, %.critedge ]
-  %indvars.iv = phi i64 [ 0, %135 ], [ %55, %.critedge ]
-  %145 = add nsw i64 %indvars.iv, %98
-  %146 = trunc nsw i64 %145 to i32
-  %147 = sub i32 %.neg, %146
-  %.sroa.speculated112 = tail call i32 @llvm.smin.i32(i32 %147, i32 %23)
-  %148 = getelementptr inbounds i32, ptr %26, i64 %145
-  %149 = load float, ptr %18, align 4, !tbaa !96
-  %150 = load float, ptr %46, align 8, !tbaa !96
-  %151 = tail call float @llvm.fmuladd.f32(float %86, float %150, float %149)
-  %152 = load float, ptr %47, align 8, !tbaa !96
-  tail call fastcc void @_ZN3gmxL10sort_atomsEibibPiiNS_8ArrayRefIKNS_11BasicVectorIfEEEEffiNS1_IiEE(i32 noundef 0, i1 noundef zeroext %143, ptr noundef %148, i32 noundef %.sroa.speculated112, i64 %35, float noundef %151, float noundef %152, i32 noundef %23, i64 %40)
-  %153 = sub i32 %.neg, %146
-  %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %153, i32 %22)
-  %154 = add nsw i32 %.sroa.speculated, %146
+.critedge:                                        ; preds = %136, %.critedge
+  %144 = phi i1 [ true, %136 ], [ false, %.critedge ]
+  %indvars.iv = phi i64 [ 0, %136 ], [ 1, %.critedge ]
+  %145 = mul nuw nsw i64 %indvars.iv, %55
+  %146 = add nsw i64 %145, %98
+  %147 = trunc nsw i64 %146 to i32
+  %148 = sub i32 %.neg, %147
+  %.sroa.speculated112 = tail call i32 @llvm.smin.i32(i32 %148, i32 %23)
+  %149 = add nuw nsw i64 %indvars.iv, %.095
+  %150 = and i64 %149, 1
+  %151 = icmp ne i64 %150, 0
+  %152 = getelementptr inbounds i32, ptr %26, i64 %146
+  %153 = load float, ptr %18, align 4, !tbaa !96
+  %154 = load float, ptr %46, align 8, !tbaa !96
+  %155 = tail call float @llvm.fmuladd.f32(float %86, float %154, float %153)
+  %156 = load float, ptr %47, align 8, !tbaa !96
+  tail call fastcc void @_ZN3gmxL10sort_atomsEibibPiiNS_8ArrayRefIKNS_11BasicVectorIfEEEEffiNS1_IiEE(i32 noundef 0, i1 noundef zeroext %151, ptr noundef %152, i32 noundef %.sroa.speculated112, i64 %35, float noundef %155, float noundef %156, i32 noundef %23, i64 %40)
+  %157 = sub i32 %.neg, %147
+  %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %157, i32 %22)
+  %158 = add nsw i32 %.sroa.speculated, %147
   store ptr %3, ptr %10, align 8, !tbaa !123
   store ptr %52, ptr %48, align 8, !tbaa !123
   store ptr %31, ptr %11, align 8, !tbaa !130
   store ptr %54, ptr %53, align 8, !tbaa !130
-  tail call void @_ZN3gmx4Grid8fillCellEPNS_11GridSetDataEPNS_16nbnxn_atomdata_tEiiNS_8ArrayRefIKiEENS5_IKNS_11BasicVectorIfEEEE(ptr noundef nonnull align 8 dereferenceable(380) %0, ptr noundef %1, ptr noundef %6, i32 noundef %146, i32 noundef %154, ptr noundef nonnull byval(%"class.gmx::ArrayRef.23") align 8 %10, ptr noundef nonnull byval(%"class.gmx::ArrayRef.26") align 8 %11)
-  %155 = add nsw i32 %22, %146
-  %156 = sub i32 %.neg, %155
-  %.sroa.speculated.c = tail call i32 @llvm.smin.i32(i32 %156, i32 %22)
-  %157 = add nsw i32 %.sroa.speculated.c, %155
+  tail call void @_ZN3gmx4Grid8fillCellEPNS_11GridSetDataEPNS_16nbnxn_atomdata_tEiiNS_8ArrayRefIKiEENS5_IKNS_11BasicVectorIfEEEE(ptr noundef nonnull align 8 dereferenceable(380) %0, ptr noundef %1, ptr noundef %6, i32 noundef %147, i32 noundef %158, ptr noundef nonnull byval(%"class.gmx::ArrayRef.23") align 8 %10, ptr noundef nonnull byval(%"class.gmx::ArrayRef.26") align 8 %11)
+  %159 = add nsw i32 %22, %147
+  %160 = sub i32 %.neg, %159
+  %.sroa.speculated.c = tail call i32 @llvm.smin.i32(i32 %160, i32 %22)
+  %161 = add nsw i32 %.sroa.speculated.c, %159
   store ptr %3, ptr %10, align 8, !tbaa !123
   store ptr %52, ptr %48, align 8, !tbaa !123
   store ptr %31, ptr %11, align 8, !tbaa !130
   store ptr %54, ptr %53, align 8, !tbaa !130
-  tail call void @_ZN3gmx4Grid8fillCellEPNS_11GridSetDataEPNS_16nbnxn_atomdata_tEiiNS_8ArrayRefIKiEENS5_IKNS_11BasicVectorIfEEEE(ptr noundef nonnull align 8 dereferenceable(380) %0, ptr noundef %1, ptr noundef %6, i32 noundef %155, i32 noundef %157, ptr noundef nonnull byval(%"class.gmx::ArrayRef.23") align 8 %10, ptr noundef nonnull byval(%"class.gmx::ArrayRef.26") align 8 %11)
-  br i1 %144, label %.critedge, label %142, !llvm.loop !205
+  tail call void @_ZN3gmx4Grid8fillCellEPNS_11GridSetDataEPNS_16nbnxn_atomdata_tEiiNS_8ArrayRefIKiEENS5_IKNS_11BasicVectorIfEEEE(ptr noundef nonnull align 8 dereferenceable(380) %0, ptr noundef %1, ptr noundef %6, i32 noundef %159, i32 noundef %161, ptr noundef nonnull byval(%"class.gmx::ArrayRef.23") align 8 %10, ptr noundef nonnull byval(%"class.gmx::ArrayRef.26") align 8 %11)
+  br i1 %144, label %.critedge, label %143, !llvm.loop !205
 }
 
 ; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)

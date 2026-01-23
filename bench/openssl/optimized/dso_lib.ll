@@ -201,19 +201,19 @@ define range(i32 0, 2) i32 @DSO_up_ref(ptr noundef captures(address_is_null) %0)
 
 ; Function Attrs: nounwind uwtable
 define ptr @DSO_load(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, i32 noundef %3) local_unnamed_addr #0 {
-  %.not37 = icmp eq ptr %0, null
-  br i1 %.not37, label %5, label %9
+  %.not34 = icmp eq ptr %0, null
+  br i1 %.not34, label %5, label %9
 
 5:                                                ; preds = %4
   %6 = tail call fastcc ptr @DSO_new_method()
   %7 = icmp eq ptr %6, null
-  br i1 %7, label %.thread33, label %DSO_ctrl.exit
+  br i1 %7, label %.thread30, label %DSO_ctrl.exit
 
-.thread33:                                        ; preds = %5
+.thread30:                                        ; preds = %5
   tail call void @ERR_new() #3
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 112, ptr noundef nonnull @__func__.DSO_load) #3
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 37, i32 noundef 524325, ptr noundef null) #3
-  br label %31
+  br label %26
 
 DSO_ctrl.exit:                                    ; preds = %5
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 20
@@ -225,58 +225,48 @@ DSO_ctrl.exit:                                    ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %.119, i64 56
   %11 = load ptr, ptr %10, align 8, !tbaa !22
   %.not = icmp eq ptr %11, null
-  br i1 %.not, label %12, label %28
+  br i1 %.not, label %12, label %.thread
 
 12:                                               ; preds = %9
   %.not26 = icmp eq ptr %1, null
-  br i1 %.not26, label %28, label %13
+  br i1 %.not26, label %.thread, label %13
 
 13:                                               ; preds = %12
-  %14 = getelementptr inbounds nuw i8, ptr %.119, i64 64
-  %15 = load ptr, ptr %14, align 8, !tbaa !23
-  %.not.i = icmp eq ptr %15, null
-  br i1 %.not.i, label %17, label %16
+  %14 = tail call i32 @DSO_set_filename(ptr noundef nonnull %.119, ptr noundef nonnull %1)
+  %.not27 = icmp eq i32 %14, 0
+  br i1 %.not27, label %.thread, label %15
 
-16:                                               ; preds = %13
+15:                                               ; preds = %13
+  %.pr = load ptr, ptr %10, align 8, !tbaa !22
+  %16 = icmp eq ptr %.pr, null
+  br i1 %16, label %.thread, label %17
+
+17:                                               ; preds = %15
+  %18 = load ptr, ptr %.119, align 8, !tbaa !15
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %20 = load ptr, ptr %19, align 8, !tbaa !24
+  %21 = icmp eq ptr %20, null
+  br i1 %21, label %.thread, label %22
+
+22:                                               ; preds = %17
+  %23 = tail call i32 %20(ptr noundef nonnull %.119) #3
+  %.not28 = icmp eq i32 %23, 0
+  br i1 %.not28, label %.thread, label %26
+
+.thread:                                          ; preds = %22, %17, %15, %12, %13, %9
+  %.sink38 = phi i32 [ 143, %17 ], [ 139, %15 ], [ 134, %13 ], [ 125, %9 ], [ 139, %12 ], [ 147, %22 ]
+  %.sink = phi i32 [ 108, %17 ], [ 111, %15 ], [ 112, %13 ], [ 110, %9 ], [ 111, %12 ], [ 103, %22 ]
   tail call void @ERR_new() #3
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 234, ptr noundef nonnull @__func__.DSO_set_filename) #3
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 37, i32 noundef 110, ptr noundef null) #3
-  br label %28
-
-17:                                               ; preds = %13
-  %18 = tail call noalias ptr @CRYPTO_strdup(ptr noundef nonnull %1, ptr noundef nonnull @.str, i32 noundef 238) #3
-  %19 = icmp eq ptr %18, null
-  br i1 %19, label %28, label %20
-
-20:                                               ; preds = %17
-  %21 = load ptr, ptr %10, align 8, !tbaa !22
-  tail call void @CRYPTO_free(ptr noundef %21, ptr noundef nonnull @.str, i32 noundef 241) #3
-  store ptr %18, ptr %10, align 8, !tbaa !22
-  %22 = load ptr, ptr %.119, align 8, !tbaa !15
-  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %24 = load ptr, ptr %23, align 8, !tbaa !24
-  %25 = icmp eq ptr %24, null
-  br i1 %25, label %28, label %26
-
-26:                                               ; preds = %20
-  %27 = tail call i32 %24(ptr noundef nonnull %.119) #3
-  %.not28 = icmp eq i32 %27, 0
-  br i1 %.not28, label %28, label %31
-
-28:                                               ; preds = %26, %20, %12, %16, %17, %9
-  %.sink42 = phi i32 [ 143, %20 ], [ 139, %12 ], [ 134, %16 ], [ 125, %9 ], [ 134, %17 ], [ 147, %26 ]
-  %.sink = phi i32 [ 108, %20 ], [ 111, %12 ], [ 112, %16 ], [ 110, %9 ], [ 112, %17 ], [ 103, %26 ]
-  tail call void @ERR_new() #3
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink42, ptr noundef nonnull @__func__.DSO_load) #3
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink38, ptr noundef nonnull @__func__.DSO_load) #3
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 37, i32 noundef %.sink, ptr noundef null) #3
-  br i1 %.not37, label %29, label %31
+  br i1 %.not34, label %24, label %26
 
-29:                                               ; preds = %28
-  %30 = tail call i32 @DSO_free(ptr noundef nonnull %.119)
-  br label %31
+24:                                               ; preds = %.thread
+  %25 = tail call i32 @DSO_free(ptr noundef nonnull %.119)
+  br label %26
 
-31:                                               ; preds = %.thread33, %28, %29, %26
-  %.020 = phi ptr [ %.119, %26 ], [ null, %29 ], [ null, %28 ], [ null, %.thread33 ]
+26:                                               ; preds = %.thread30, %.thread, %24, %22
+  %.020 = phi ptr [ %.119, %22 ], [ null, %24 ], [ null, %.thread ], [ null, %.thread30 ]
   ret ptr %.020
 }
 

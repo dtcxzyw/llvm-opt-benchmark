@@ -235,60 +235,58 @@ define void @Pobspath(ptr noundef %0, double %1, double %2, i32 noundef %3, doub
   unreachable
 
 21:                                               ; preds = %17
-  %22 = icmp ne i64 %16, 0
-  %23 = tail call noalias ptr @calloc(i64 noundef %16, i64 noundef 16) #12
-  %24 = icmp eq ptr %23, null
-  %or.cond3.i = and i1 %22, %24
-  br i1 %or.cond3.i, label %25, label %gv_calloc.exit
+  %22 = tail call noalias ptr @calloc(i64 noundef %16, i64 noundef 16) #12
+  %23 = icmp eq ptr %22, null
+  br i1 %23, label %24, label %gv_calloc.exit
 
-25:                                               ; preds = %21
-  %26 = load ptr, ptr @stderr, align 8, !tbaa !35
-  %27 = shl nuw i64 %16, 4
-  %28 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %26, ptr noundef nonnull @.str.1, i64 noundef %27) #13
+24:                                               ; preds = %21
+  %25 = load ptr, ptr @stderr, align 8, !tbaa !35
+  %26 = shl nuw i64 %16, 4
+  %27 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %25, ptr noundef nonnull @.str.1, i64 noundef %26) #13
   tail call fastcc void @graphviz_exit() #14
   unreachable
 
 gv_calloc.exit:                                   ; preds = %21
-  %29 = getelementptr inbounds nuw %struct.Pxy_t, ptr %23, i64 %.046
-  store double %4, ptr %29, align 8, !tbaa !27
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %29, i64 8
+  %28 = getelementptr inbounds nuw %struct.Pxy_t, ptr %22, i64 %.046
+  store double %4, ptr %28, align 8, !tbaa !27
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %28, i64 8
   store double %5, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !27
-  %30 = sext i32 %13 to i64
+  %29 = sext i32 %13 to i64
   %.049 = add nsw i64 %.046, -1
-  %.1.in50 = getelementptr inbounds i32, ptr %11, i64 %30
+  %.1.in50 = getelementptr inbounds i32, ptr %11, i64 %29
   %.151 = load i32, ptr %.1.in50, align 4, !tbaa !24
   %.not4852 = icmp eq i32 %.151, %14
   br i1 %.not4852, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %gv_calloc.exit
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %32 = load ptr, ptr %31, align 8, !tbaa !14
-  br label %33
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %31 = load ptr, ptr %30, align 8, !tbaa !14
+  br label %32
 
-33:                                               ; preds = %.lr.ph, %33
-  %.154 = phi i32 [ %.151, %.lr.ph ], [ %.1, %33 ]
-  %.053 = phi i64 [ %.049, %.lr.ph ], [ %.0, %33 ]
-  %34 = getelementptr inbounds nuw %struct.Pxy_t, ptr %23, i64 %.053
-  %35 = sext i32 %.154 to i64
-  %36 = getelementptr inbounds %struct.Pxy_t, ptr %32, i64 %35
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %34, ptr noundef nonnull align 8 dereferenceable(16) %36, i64 16, i1 false), !tbaa.struct !26
+32:                                               ; preds = %.lr.ph, %32
+  %.154 = phi i32 [ %.151, %.lr.ph ], [ %.1, %32 ]
+  %.053 = phi i64 [ %.049, %.lr.ph ], [ %.0, %32 ]
+  %33 = getelementptr inbounds nuw %struct.Pxy_t, ptr %22, i64 %.053
+  %34 = sext i32 %.154 to i64
+  %35 = getelementptr inbounds %struct.Pxy_t, ptr %31, i64 %34
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %33, ptr noundef nonnull align 8 dereferenceable(16) %35, i64 16, i1 false), !tbaa.struct !26
   %.0 = add i64 %.053, -1
-  %.1.in = getelementptr inbounds i32, ptr %11, i64 %35
+  %.1.in = getelementptr inbounds i32, ptr %11, i64 %34
   %.1 = load i32, ptr %.1.in, align 4, !tbaa !24
   %.not48 = icmp eq i32 %.1, %14
-  br i1 %.not48, label %._crit_edge, label %33, !llvm.loop !37
+  br i1 %.not48, label %._crit_edge, label %32, !llvm.loop !37
 
-._crit_edge:                                      ; preds = %33, %gv_calloc.exit
-  %.0.lcssa = phi i64 [ %.049, %gv_calloc.exit ], [ %.0, %33 ]
-  %37 = getelementptr inbounds nuw %struct.Pxy_t, ptr %23, i64 %.0.lcssa
-  store double %1, ptr %37, align 8, !tbaa !27
-  %.sroa.443.0..sroa_idx = getelementptr inbounds nuw i8, ptr %37, i64 8
+._crit_edge:                                      ; preds = %32, %gv_calloc.exit
+  %.0.lcssa = phi i64 [ %.049, %gv_calloc.exit ], [ %.0, %32 ]
+  %36 = getelementptr inbounds nuw %struct.Pxy_t, ptr %22, i64 %.0.lcssa
+  store double %1, ptr %36, align 8, !tbaa !27
+  %.sroa.443.0..sroa_idx = getelementptr inbounds nuw i8, ptr %36, i64 8
   store double %2, ptr %.sroa.443.0..sroa_idx, align 8, !tbaa !27
   tail call void @free(ptr noundef %9) #11
   tail call void @free(ptr noundef %10) #11
-  %38 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i64 %16, ptr %38, align 8, !tbaa !8
-  store ptr %23, ptr %7, align 8, !tbaa !25
+  %37 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store i64 %16, ptr %37, align 8, !tbaa !8
+  store ptr %22, ptr %7, align 8, !tbaa !25
   tail call void @free(ptr noundef nonnull %11) #11
   ret void
 }

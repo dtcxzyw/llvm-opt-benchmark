@@ -2468,21 +2468,18 @@ Cec2_ObjSimEqual.exit71:                          ; preds = %.lr.ph.i58, %.lr.ph
   %75 = getelementptr inbounds nuw i32, ptr %.val47, i64 %.pre-phi
   %.039 = load i32, ptr %75, align 4, !tbaa !38
   %76 = icmp sgt i32 %.039, 0
-  br i1 %76, label %40, label %._crit_edge.loopexit, !llvm.loop !106
+  br i1 %76, label %40, label %._crit_edge, !llvm.loop !106
 
-._crit_edge.loopexit:                             ; preds = %74
-  %.pre117 = zext nneg i32 %.1 to i64
-  br label %._crit_edge
-
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %Cec2_ObjSimEqual.exit
-  %.pre-phi118 = phi i64 [ %.pre117, %._crit_edge.loopexit ], [ %33, %Cec2_ObjSimEqual.exit ]
-  %.val52 = phi ptr [ %.val47, %._crit_edge.loopexit ], [ %.val46, %Cec2_ObjSimEqual.exit ]
-  %.138.lcssa = phi i32 [ %.2, %._crit_edge.loopexit ], [ %.03791.us, %Cec2_ObjSimEqual.exit ]
+._crit_edge:                                      ; preds = %74, %Cec2_ObjSimEqual.exit
+  %.val52 = phi ptr [ %.val46, %Cec2_ObjSimEqual.exit ], [ %.val47, %74 ]
+  %.138.lcssa = phi i32 [ %.03791.us, %Cec2_ObjSimEqual.exit ], [ %.2, %74 ]
+  %.036.lcssa = phi i32 [ %.092.us, %Cec2_ObjSimEqual.exit ], [ %.1, %74 ]
   %77 = sext i32 %.138.lcssa to i64
   %78 = getelementptr inbounds i32, ptr %.val52, i64 %77
   store i32 -1, ptr %78, align 4, !tbaa !38
-  %79 = getelementptr inbounds nuw i32, ptr %.val52, i64 %.pre-phi118
-  store i32 -1, ptr %79, align 4, !tbaa !38
+  %79 = zext nneg i32 %.036.lcssa to i64
+  %80 = getelementptr inbounds nuw i32, ptr %.val52, i64 %79
+  store i32 -1, ptr %80, align 4, !tbaa !38
   br label %Cec2_ObjSimEqual.exit.thread74
 
 Cec2_ObjSimEqual.exit.thread74:                   ; preds = %.loopexit79.us, %.lr.ph, %2, %._crit_edge

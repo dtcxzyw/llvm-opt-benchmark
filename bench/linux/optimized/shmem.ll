@@ -1847,33 +1847,37 @@ define internal fastcc range(i32 -16, -17) i32 @shmem_get_folio_gfp(ptr noundef 
   br label %.loopexit13
 
 193:                                              ; preds = %189
-  br i1 %40, label %194, label %195
+  br i1 %40, label %194, label %thread-pre-split
 
 194:                                              ; preds = %193
   tail call void @filemap_remove_folio(ptr noundef %159) #18
-  br label %195
+  br label %thread-pre-split
 
-195:                                              ; preds = %194, %193
+thread-pre-split:                                 ; preds = %193, %194
   tail call fastcc void @shmem_recalc_inode(ptr noundef %0, i64 noundef 0, i64 noundef 0)
-  tail call void @folio_unlock(ptr noundef nonnull %159) #18
-  %196 = getelementptr inbounds nuw i8, ptr %159, i64 52
-  %197 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %196, ptr nonnull elementtype(i32) %196) #18, !srcloc !20
-  %198 = icmp ult i8 %197, 2
-  tail call void @llvm.assume(i1 %198)
-  %199 = icmp eq i8 %197, 0
-  br i1 %199, label %.loopexit13, label %200
+  %195 = icmp eq ptr %159, null
+  br i1 %195, label %.loopexit13, label %196
 
-200:                                              ; preds = %195
+196:                                              ; preds = %thread-pre-split
+  tail call void @folio_unlock(ptr noundef nonnull %159) #18
+  %197 = getelementptr inbounds nuw i8, ptr %159, i64 52
+  %198 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %197, ptr nonnull elementtype(i32) %197) #18, !srcloc !20
+  %199 = icmp ult i8 %198, 2
+  tail call void @llvm.assume(i1 %199)
+  %200 = icmp eq i8 %198, 0
+  br i1 %200, label %.loopexit13, label %201
+
+201:                                              ; preds = %196
   tail call void @__folio_put(ptr noundef nonnull %159) #18
   br label %.loopexit13
 
 .loopexit13.loopexit:                             ; preds = %72
   br label %.loopexit13
 
-.loopexit13:                                      ; preds = %25, %72, %.loopexit13.loopexit, %.thread8, %.thread, %200, %195, %.thread6, %37, %6
-  %201 = phi i32 [ %35, %37 ], [ 0, %.thread6 ], [ -27, %6 ], [ -2, %72 ], [ -22, %195 ], [ -22, %200 ], [ 0, %.thread ], [ %153, %.thread8 ], [ -22, %25 ], [ %3, %.loopexit13.loopexit ]
+.loopexit13:                                      ; preds = %25, %72, %.loopexit13.loopexit, %.thread8, %.thread, %201, %196, %thread-pre-split, %.thread6, %37, %6
+  %202 = phi i32 [ %35, %37 ], [ 0, %.thread6 ], [ -27, %6 ], [ -22, %thread-pre-split ], [ -22, %196 ], [ -22, %201 ], [ 0, %.thread ], [ %153, %.thread8 ], [ -2, %72 ], [ -22, %25 ], [ %3, %.loopexit13.loopexit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  ret i32 %201
+  ret i32 %202
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
