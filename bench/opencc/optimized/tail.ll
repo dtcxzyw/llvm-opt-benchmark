@@ -3774,30 +3774,32 @@ define linkonce_odr void @_ZN6marisa8grimoire6vector6VectorImE4map_ERNS0_2io6Map
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = tail call noundef ptr @_ZN6marisa8grimoire2io6Mapper8map_dataEm(ptr noundef nonnull align 8 dereferenceable(36) %1, i64 noundef %4)
   store ptr %15, ptr %14, align 8, !tbaa !36
-  tail call void @_ZN6marisa8grimoire2io6Mapper4seekEm(ptr noundef nonnull align 8 dereferenceable(36) %1, i64 noundef 0)
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %13, ptr %16, align 8, !tbaa !59
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %18 = load i8, ptr %17, align 8, !tbaa !87, !range !34, !noundef !35
-  %19 = trunc nuw i8 %18 to i1
-  br i1 %19, label %20, label %_ZN6marisa8grimoire6vector6VectorImE3fixEv.exit
+  %16 = sub i64 0, %4
+  %17 = and i64 %16, 7
+  tail call void @_ZN6marisa8grimoire2io6Mapper4seekEm(ptr noundef nonnull align 8 dereferenceable(36) %1, i64 noundef %17)
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i64 %13, ptr %18, align 8, !tbaa !59
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %20 = load i8, ptr %19, align 8, !tbaa !87, !range !34, !noundef !35
+  %21 = trunc nuw i8 %20 to i1
+  br i1 %21, label %22, label %_ZN6marisa8grimoire6vector6VectorImE3fixEv.exit
 
-20:                                               ; preds = %12
-  %21 = tail call ptr @__cxa_allocate_exception(i64 32) #16
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %21, align 8, !tbaa !3
-  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  store ptr @.str.8, ptr %22, align 8, !tbaa !6
-  %23 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  store i32 107, ptr %23, align 8, !tbaa !14
-  %24 = getelementptr inbounds nuw i8, ptr %21, i64 20
-  store i32 1, ptr %24, align 4, !tbaa !15
-  %25 = getelementptr inbounds nuw i8, ptr %21, i64 24
-  store ptr @.str.15, ptr %25, align 8, !tbaa !16
-  tail call void @__cxa_throw(ptr nonnull %21, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZNSt9exceptionD2Ev) #17
+22:                                               ; preds = %12
+  %23 = tail call ptr @__cxa_allocate_exception(i64 32) #16
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %23, align 8, !tbaa !3
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  store ptr @.str.8, ptr %24, align 8, !tbaa !6
+  %25 = getelementptr inbounds nuw i8, ptr %23, i64 16
+  store i32 107, ptr %25, align 8, !tbaa !14
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 20
+  store i32 1, ptr %26, align 4, !tbaa !15
+  %27 = getelementptr inbounds nuw i8, ptr %23, i64 24
+  store ptr @.str.15, ptr %27, align 8, !tbaa !16
+  tail call void @__cxa_throw(ptr nonnull %23, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZNSt9exceptionD2Ev) #17
   unreachable
 
 _ZN6marisa8grimoire6vector6VectorImE3fixEv.exit:  ; preds = %12
-  store i8 1, ptr %17, align 8, !tbaa !87
+  store i8 1, ptr %19, align 8, !tbaa !87
   ret void
 }
 
@@ -3890,7 +3892,7 @@ define linkonce_odr void @_ZN6marisa8grimoire6vector6VectorIjE4map_ERNS0_2io6Map
   %15 = tail call noundef ptr @_ZN6marisa8grimoire2io6Mapper8map_dataEm(ptr noundef nonnull align 8 dereferenceable(36) %1, i64 noundef %4)
   store ptr %15, ptr %14, align 8, !tbaa !40
   %16 = sub i64 0, %4
-  %17 = and i64 %16, 4
+  %17 = and i64 %16, 7
   tail call void @_ZN6marisa8grimoire2io6Mapper4seekEm(ptr noundef nonnull align 8 dereferenceable(36) %1, i64 noundef %17)
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %13, ptr %18, align 8, !tbaa !90

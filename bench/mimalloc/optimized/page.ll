@@ -18,7 +18,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.2 = private unnamed_addr constant [45 x i8] c"allocation request is too large (%zu bytes)\0A\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden range(i64 -3, 125) i64 @_mi_bin(i64 noundef %0) local_unnamed_addr #0 {
+define hidden range(i64 -3, 2305843009213693953) i64 @_mi_bin(i64 noundef %0) local_unnamed_addr #0 {
   %2 = add i64 %0, 7
   %3 = lshr i64 %2, 3
   %4 = icmp ult i64 %2, 72
@@ -26,7 +26,7 @@ define hidden range(i64 -3, 125) i64 @_mi_bin(i64 noundef %0) local_unnamed_addr
 
 5:                                                ; preds = %1
   %6 = add nuw nsw i64 %3, 1
-  %7 = and i64 %6, 30
+  %7 = and i64 %6, 4611686018427387902
   %.inv.i = icmp samesign ugt i64 %2, 15
   %8 = select i1 %.inv.i, i64 %7, i64 1
   br label %mi_bin.exit
@@ -73,7 +73,7 @@ define hidden i64 @mi_good_size(i64 noundef %0) local_unnamed_addr #1 {
 
 7:                                                ; preds = %3
   %8 = add nuw nsw i64 %5, 1
-  %9 = and i64 %8, 30
+  %9 = and i64 %8, 4611686018427387902
   %.inv.i = icmp samesign ugt i64 %0, 8
   %10 = select i1 %.inv.i, i64 %9, i64 1
   br label %mi_bin.exit
@@ -226,7 +226,7 @@ _mi_page_use_delayed_free.exit:                   ; preds = %.critedge.i.i, %.cr
 
 46:                                               ; preds = %44
   %47 = add nuw nsw i64 %37, 1
-  %48 = and i64 %47, 30
+  %48 = and i64 %47, 4611686018427387902
   br label %mi_bin.exit.i
 
 49:                                               ; preds = %44
@@ -258,7 +258,7 @@ mi_bin.exit.i:                                    ; preds = %49, %46
 
 66:                                               ; preds = %60
   %67 = add nuw nsw i64 %64, 1
-  %68 = and i64 %67, 30
+  %68 = and i64 %67, 4611686018427387902
   %.inv.i34.i = icmp samesign ugt i64 %63, 15
   %69 = select i1 %.inv.i34.i, i64 %68, i64 1
   br label %mi_bin.exit35.i
@@ -540,7 +540,7 @@ define hidden void @_mi_page_reclaim(ptr noundef captures(address) %0, ptr nound
 
 7:                                                ; preds = %2
   %8 = add nuw nsw i64 %5, 1
-  %9 = and i64 %8, 30
+  %9 = and i64 %8, 4611686018427387902
   %.inv.i.i.i = icmp samesign ugt i64 %4, 15
   %10 = select i1 %.inv.i.i.i, i64 %9, i64 1
   br label %mi_page_queue.exit
@@ -623,7 +623,7 @@ define internal fastcc void @mi_page_queue_push(ptr noundef captures(address) %0
 
 32:                                               ; preds = %30
   %33 = add nuw nsw i64 %23, 1
-  %34 = and i64 %33, 30
+  %34 = and i64 %33, 4611686018427387902
   br label %mi_bin.exit.i
 
 35:                                               ; preds = %30
@@ -655,7 +655,7 @@ mi_bin.exit.i:                                    ; preds = %35, %32
 
 52:                                               ; preds = %46
   %53 = add nuw nsw i64 %50, 1
-  %54 = and i64 %53, 30
+  %54 = and i64 %53, 4611686018427387902
   %.inv.i34.i = icmp samesign ugt i64 %49, 15
   %55 = select i1 %.inv.i34.i, i64 %54, i64 1
   br label %mi_bin.exit35.i
@@ -849,7 +849,7 @@ define hidden void @_mi_page_unfull(ptr noundef %0) local_unnamed_addr #4 {
   %.val = load i8, ptr %2, align 2
   %3 = and i8 %.val, 1
   %.not = icmp eq i8 %3, 0
-  br i1 %.not, label %35, label %4
+  br i1 %.not, label %36, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -872,7 +872,7 @@ define hidden void @_mi_page_unfull(ptr noundef %0) local_unnamed_addr #4 {
 
 16:                                               ; preds = %11
   %17 = add nuw nsw i64 %14, 1
-  %18 = and i64 %17, 30
+  %18 = and i64 %17, 4611686018427387902
   %.inv.i.i = icmp samesign ugt i64 %13, 15
   %19 = select i1 %.inv.i.i, i64 %18, i64 1
   br label %mi_heap_page_queue_of.exit
@@ -897,11 +897,12 @@ mi_heap_page_queue_of.exit:                       ; preds = %4, %16, %20, %22
   %32 = phi i64 [ 73, %20 ], [ 73, %4 ], [ %19, %16 ], [ %31, %22 ]
   %33 = getelementptr inbounds nuw i8, ptr %7, i64 1264
   %34 = getelementptr inbounds nuw %struct.mi_page_queue_s, ptr %33, i64 %32
-  store i8 %.val, ptr %2, align 2
+  %35 = or i8 %.val, 1
+  store i8 %35, ptr %2, align 2
   tail call fastcc void @mi_page_queue_enqueue_from_ex(ptr noundef nonnull %34, ptr noundef nonnull %8, ptr noundef nonnull %0) #14
-  br label %35
+  br label %36
 
-35:                                               ; preds = %1, %mi_heap_page_queue_of.exit
+36:                                               ; preds = %1, %mi_heap_page_queue_of.exit
   ret void
 }
 
@@ -987,7 +988,7 @@ define internal fastcc void @mi_page_queue_remove(ptr noundef captures(address) 
 
 36:                                               ; preds = %34
   %37 = add nuw nsw i64 %27, 1
-  %38 = and i64 %37, 30
+  %38 = and i64 %37, 4611686018427387902
   br label %mi_bin.exit.i
 
 39:                                               ; preds = %34
@@ -1019,7 +1020,7 @@ mi_bin.exit.i:                                    ; preds = %39, %36
 
 56:                                               ; preds = %50
   %57 = add nuw nsw i64 %54, 1
-  %58 = and i64 %57, 30
+  %58 = and i64 %57, 4611686018427387902
   %.inv.i34.i = icmp samesign ugt i64 %53, 15
   %59 = select i1 %.inv.i34.i, i64 %58, i64 1
   br label %mi_bin.exit35.i
@@ -1224,7 +1225,7 @@ _mi_heap_delayed_free_all.exit:                   ; preds = %.critedge.i.i11, %_
 
 50:                                               ; preds = %45
   %51 = add nuw nsw i64 %48, 1
-  %52 = and i64 %51, 30
+  %52 = and i64 %51, 4611686018427387902
   %.inv.i.i = icmp samesign ugt i64 %47, 15
   %53 = select i1 %.inv.i.i, i64 %52, i64 1
   br label %mi_heap_page_queue_of.exit
@@ -1328,7 +1329,7 @@ define hidden void @_mi_page_retire(ptr noundef %0) local_unnamed_addr #1 {
 
 16:                                               ; preds = %11
   %17 = add nuw nsw i64 %14, 1
-  %18 = and i64 %17, 30
+  %18 = and i64 %17, 4611686018427387902
   %.inv.i.i.i = icmp samesign ugt i64 %13, 15
   %19 = select i1 %.inv.i.i.i, i64 %18, i64 1
   br label %mi_page_queue_of.exit
@@ -1759,7 +1760,7 @@ _mi_heap_delayed_free_partial.exit:               ; preds = %.loopexit.i, %_mi_d
 
 78:                                               ; preds = %73
   %79 = add nuw nsw i64 %76, 1
-  %80 = and i64 %79, 30
+  %80 = and i64 %79, 4611686018427387902
   %.inv.i.i.i = icmp samesign ugt i64 %75, 15
   %81 = select i1 %.inv.i.i.i, i64 %80, i64 1
   br label %mi_page_queue_of.exit
@@ -1825,7 +1826,7 @@ define internal fastcc ptr @mi_find_page(ptr noundef %0, i64 noundef %1, i64 nou
 
 19:                                               ; preds = %15
   %20 = add nuw nsw i64 %17, 1
-  %21 = and i64 %20, 30
+  %21 = and i64 %20, 1048574
   %.inv.i.i.i.i = icmp samesign ugt i64 %1, 8
   %22 = select i1 %.inv.i.i.i.i, i64 %21, i64 1
   br label %mi_page_queue.exit.i
@@ -2460,7 +2461,7 @@ define internal fastcc void @mi_page_queue_enqueue_from_ex(ptr noundef captures(
 
 38:                                               ; preds = %36
   %39 = add nuw nsw i64 %29, 1
-  %40 = and i64 %39, 30
+  %40 = and i64 %39, 4611686018427387902
   br label %mi_bin.exit.i
 
 41:                                               ; preds = %36
@@ -2492,7 +2493,7 @@ mi_bin.exit.i:                                    ; preds = %41, %38
 
 58:                                               ; preds = %52
   %59 = add nuw nsw i64 %56, 1
-  %60 = and i64 %59, 30
+  %60 = and i64 %59, 4611686018427387902
   %.inv.i34.i = icmp samesign ugt i64 %55, 15
   %61 = select i1 %.inv.i34.i, i64 %60, i64 1
   br label %mi_bin.exit35.i
@@ -2582,7 +2583,7 @@ mi_heap_queue_first_update.exit:                  ; preds = %.lr.ph.i, %77, %27,
 
 100:                                              ; preds = %98
   %101 = add nuw nsw i64 %91, 1
-  %102 = and i64 %101, 30
+  %102 = and i64 %101, 4611686018427387902
   br label %mi_bin.exit.i63
 
 103:                                              ; preds = %98
@@ -2614,7 +2615,7 @@ mi_bin.exit.i63:                                  ; preds = %103, %100
 
 120:                                              ; preds = %114
   %121 = add nuw nsw i64 %118, 1
-  %122 = and i64 %121, 30
+  %122 = and i64 %121, 4611686018427387902
   %.inv.i34.i77 = icmp samesign ugt i64 %117, 15
   %123 = select i1 %.inv.i34.i77, i64 %122, i64 1
   br label %mi_bin.exit35.i67

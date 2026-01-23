@@ -973,53 +973,54 @@ b2TaskContextArray_Resize.exit:                   ; preds = %b2TaskContextArray_
   %232 = load i16, ptr %20, align 8, !tbaa !82
   %233 = zext i16 %232 to i32
   %234 = shl nuw i32 %233, 16
-  %235 = add nuw nsw i32 %234, %231
+  %235 = and i32 %231, 65535
+  %236 = or disjoint i32 %234, %235
   br label %.thread
 
 .lr.ph:                                           ; preds = %b2TaskContextArray_Resize.exit, %.lr.ph
   %indvars.iv225 = phi i64 [ %indvars.iv.next226, %.lr.ph ], [ 0, %b2TaskContextArray_Resize.exit ]
-  %236 = load ptr, ptr %202, align 8, !tbaa !155
-  %237 = getelementptr inbounds nuw %struct.b2TaskContext, ptr %236, i64 %indvars.iv225
-  %238 = call { ptr, i64 } @b2CreateBitSet(i32 noundef 1024) #22
-  %239 = extractvalue { ptr, i64 } %238, 0
-  %240 = extractvalue { ptr, i64 } %238, 1
-  store ptr %239, ptr %237, align 8, !tbaa !154
-  %.sroa.412.0..sroa_idx = getelementptr inbounds nuw i8, ptr %237, i64 8
-  store i64 %240, ptr %.sroa.412.0..sroa_idx, align 8
-  %241 = load ptr, ptr %202, align 8, !tbaa !155
-  %242 = getelementptr inbounds nuw %struct.b2TaskContext, ptr %241, i64 %indvars.iv225
-  %243 = getelementptr inbounds nuw i8, ptr %242, i64 16
-  %244 = call { ptr, i64 } @b2CreateBitSet(i32 noundef 256) #22
-  %245 = extractvalue { ptr, i64 } %244, 0
-  %246 = extractvalue { ptr, i64 } %244, 1
-  store ptr %245, ptr %243, align 8, !tbaa !154
-  %.sroa.410.0..sroa_idx = getelementptr inbounds nuw i8, ptr %242, i64 24
-  store i64 %246, ptr %.sroa.410.0..sroa_idx, align 8
-  %247 = load ptr, ptr %202, align 8, !tbaa !155
-  %248 = getelementptr inbounds nuw %struct.b2TaskContext, ptr %247, i64 %indvars.iv225
-  %249 = getelementptr inbounds nuw i8, ptr %248, i64 32
-  %250 = call { ptr, i64 } @b2CreateBitSet(i32 noundef 256) #22
-  %251 = extractvalue { ptr, i64 } %250, 0
-  %252 = extractvalue { ptr, i64 } %250, 1
-  store ptr %251, ptr %249, align 8, !tbaa !154
-  %.sroa.48.0..sroa_idx = getelementptr inbounds nuw i8, ptr %248, i64 40
-  store i64 %252, ptr %.sroa.48.0..sroa_idx, align 8
-  %253 = load ptr, ptr %212, align 8, !tbaa !156
-  %254 = getelementptr inbounds nuw %struct.b2SensorTaskContext, ptr %253, i64 %indvars.iv225
-  %255 = call { ptr, i64 } @b2CreateBitSet(i32 noundef 128) #22
-  %256 = extractvalue { ptr, i64 } %255, 0
-  %257 = extractvalue { ptr, i64 } %255, 1
-  store ptr %256, ptr %254, align 8, !tbaa !154
-  %.sroa.46.0..sroa_idx = getelementptr inbounds nuw i8, ptr %254, i64 8
-  store i64 %257, ptr %.sroa.46.0..sroa_idx, align 8
+  %237 = load ptr, ptr %202, align 8, !tbaa !155
+  %238 = getelementptr inbounds nuw %struct.b2TaskContext, ptr %237, i64 %indvars.iv225
+  %239 = call { ptr, i64 } @b2CreateBitSet(i32 noundef 1024) #22
+  %240 = extractvalue { ptr, i64 } %239, 0
+  %241 = extractvalue { ptr, i64 } %239, 1
+  store ptr %240, ptr %238, align 8, !tbaa !154
+  %.sroa.412.0..sroa_idx = getelementptr inbounds nuw i8, ptr %238, i64 8
+  store i64 %241, ptr %.sroa.412.0..sroa_idx, align 8
+  %242 = load ptr, ptr %202, align 8, !tbaa !155
+  %243 = getelementptr inbounds nuw %struct.b2TaskContext, ptr %242, i64 %indvars.iv225
+  %244 = getelementptr inbounds nuw i8, ptr %243, i64 16
+  %245 = call { ptr, i64 } @b2CreateBitSet(i32 noundef 256) #22
+  %246 = extractvalue { ptr, i64 } %245, 0
+  %247 = extractvalue { ptr, i64 } %245, 1
+  store ptr %246, ptr %244, align 8, !tbaa !154
+  %.sroa.410.0..sroa_idx = getelementptr inbounds nuw i8, ptr %243, i64 24
+  store i64 %247, ptr %.sroa.410.0..sroa_idx, align 8
+  %248 = load ptr, ptr %202, align 8, !tbaa !155
+  %249 = getelementptr inbounds nuw %struct.b2TaskContext, ptr %248, i64 %indvars.iv225
+  %250 = getelementptr inbounds nuw i8, ptr %249, i64 32
+  %251 = call { ptr, i64 } @b2CreateBitSet(i32 noundef 256) #22
+  %252 = extractvalue { ptr, i64 } %251, 0
+  %253 = extractvalue { ptr, i64 } %251, 1
+  store ptr %252, ptr %250, align 8, !tbaa !154
+  %.sroa.48.0..sroa_idx = getelementptr inbounds nuw i8, ptr %249, i64 40
+  store i64 %253, ptr %.sroa.48.0..sroa_idx, align 8
+  %254 = load ptr, ptr %212, align 8, !tbaa !156
+  %255 = getelementptr inbounds nuw %struct.b2SensorTaskContext, ptr %254, i64 %indvars.iv225
+  %256 = call { ptr, i64 } @b2CreateBitSet(i32 noundef 128) #22
+  %257 = extractvalue { ptr, i64 } %256, 0
+  %258 = extractvalue { ptr, i64 } %256, 1
+  store ptr %257, ptr %255, align 8, !tbaa !154
+  %.sroa.46.0..sroa_idx = getelementptr inbounds nuw i8, ptr %255, i64 8
+  store i64 %258, ptr %.sroa.46.0..sroa_idx, align 8
   %indvars.iv.next226 = add nuw nsw i64 %indvars.iv225, 1
-  %258 = load i32, ptr %203, align 8, !tbaa !145
-  %259 = sext i32 %258 to i64
-  %260 = icmp slt i64 %indvars.iv.next226, %259
-  br i1 %260, label %.lr.ph, label %._crit_edge, !llvm.loop !157
+  %259 = load i32, ptr %203, align 8, !tbaa !145
+  %260 = sext i32 %259 to i64
+  %261 = icmp slt i64 %indvars.iv.next226, %260
+  br i1 %261, label %.lr.ph, label %._crit_edge, !llvm.loop !157
 
 .thread:                                          ; preds = %15, %._crit_edge
-  %.sroa.0172.0.insert.insert = phi i32 [ %235, %._crit_edge ], [ 0, %15 ]
+  %.sroa.0172.0.insert.insert = phi i32 [ %236, %._crit_edge ], [ 0, %15 ]
   ret i32 %.sroa.0172.0.insert.insert
 }
 
@@ -1902,7 +1903,7 @@ b2ContactSimArray_RemoveSwap.exit.i.i:            ; preds = %274
   br i1 %.not168.i, label %b2RemoveNonTouchingContact.exit.i, label %298
 
 298:                                              ; preds = %296
-  %299 = and i32 %247, -917505
+  %299 = and i32 %247, -524289
   store i32 %299, ptr %246, align 4, !tbaa !241
   %300 = and i32 %245, -2
   store i32 %300, ptr %244, align 4, !tbaa !240
@@ -3724,7 +3725,7 @@ define zeroext i1 @b2Body_IsValid(i64 %0) local_unnamed_addr #10 {
 
 3:                                                ; preds = %1
   %.sroa.4.0.extract.shift = lshr i64 %0, 32
-  %4 = and i64 %.sroa.4.0.extract.shift, 127
+  %4 = and i64 %.sroa.4.0.extract.shift, 65535
   %5 = getelementptr inbounds nuw %struct.b2World, ptr @b2_worlds, i64 %4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 1780
   %7 = load i16, ptr %6, align 4, !tbaa !83
@@ -3773,7 +3774,7 @@ define zeroext i1 @b2Shape_IsValid(i64 %0) local_unnamed_addr #10 {
 
 3:                                                ; preds = %1
   %.sroa.2.0.extract.shift = lshr i64 %0, 32
-  %4 = and i64 %.sroa.2.0.extract.shift, 127
+  %4 = and i64 %.sroa.2.0.extract.shift, 65535
   %5 = getelementptr inbounds nuw %struct.b2World, ptr @b2_worlds, i64 %4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 1780
   %7 = load i16, ptr %6, align 4, !tbaa !83
@@ -3823,7 +3824,7 @@ define zeroext i1 @b2Chain_IsValid(i64 %0) local_unnamed_addr #10 {
 
 3:                                                ; preds = %1
   %.sroa.2.0.extract.shift = lshr i64 %0, 32
-  %4 = and i64 %.sroa.2.0.extract.shift, 127
+  %4 = and i64 %.sroa.2.0.extract.shift, 65535
   %5 = getelementptr inbounds nuw %struct.b2World, ptr @b2_worlds, i64 %4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 1780
   %7 = load i16, ptr %6, align 4, !tbaa !83
@@ -3873,7 +3874,7 @@ define zeroext i1 @b2Joint_IsValid(i64 %0) local_unnamed_addr #10 {
 
 3:                                                ; preds = %1
   %.sroa.2.0.extract.shift = lshr i64 %0, 32
-  %4 = and i64 %.sroa.2.0.extract.shift, 127
+  %4 = and i64 %.sroa.2.0.extract.shift, 65535
   %5 = getelementptr inbounds nuw %struct.b2World, ptr @b2_worlds, i64 %4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 1780
   %7 = load i16, ptr %6, align 4, !tbaa !83

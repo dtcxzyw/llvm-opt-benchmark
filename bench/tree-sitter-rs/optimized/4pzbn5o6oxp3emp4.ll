@@ -2887,20 +2887,21 @@ define hidden { ptr, i64 } @"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$
   br i1 %.not.not, label %.thread, label %6
 
 6:                                                ; preds = %1
-  store i64 1, ptr %2, align 8
-  %7 = icmp eq i64 %5, 0
-  tail call void @llvm.assume(i1 %7)
-  %8 = load ptr, ptr %0, align 8, !nonnull !4, !align !64, !noundef !4
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %10 = load i64, ptr %9, align 8, !noundef !4
+  %7 = or disjoint i64 %5, 1
+  store i64 %7, ptr %2, align 8
+  %8 = icmp eq i64 %5, 0
+  tail call void @llvm.assume(i1 %8)
+  %9 = load ptr, ptr %0, align 8, !nonnull !4, !align !64, !noundef !4
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %11 = load i64, ptr %10, align 8, !noundef !4
   br label %.thread
 
 .thread:                                          ; preds = %1, %6
-  %.sroa.3.0 = phi i64 [ %10, %6 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %8, %6 ], [ null, %1 ]
-  %11 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
-  %12 = insertvalue { ptr, i64 } %11, i64 %.sroa.3.0, 1
-  ret { ptr, i64 } %12
+  %.sroa.3.0 = phi i64 [ %11, %6 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %9, %6 ], [ null, %1 ]
+  %12 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
+  %13 = insertvalue { ptr, i64 } %12, i64 %.sroa.3.0, 1
+  ret { ptr, i64 } %13
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: write) uwtable

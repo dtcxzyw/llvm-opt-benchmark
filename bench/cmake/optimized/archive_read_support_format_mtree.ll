@@ -2186,38 +2186,42 @@ define internal fastcc i32 @bid_keyword_list(ptr noundef readonly captures(none)
   %.065142 = phi i64 [ %1, %.lr.ph145 ], [ %.267, %select.unfold ]
   %9 = load i8, ptr %.060143, align 1, !tbaa !38
   %.not = icmp eq i8 %9, 0
-  br i1 %.not, label %.critedge, label %.lr.ph
+  br i1 %.not, label %.critedge, label %.lr.ph.preheader
+
+.lr.ph.preheader:                                 ; preds = %8
+  %scevgep = getelementptr i8, ptr %.060143, i64 %.065142
+  br label %.lr.ph
 
 .lr.phthread-pre-split:                           ; preds = %.critedge4
   %10 = add nsw i64 %.166120, -1
-  %.pr202 = load i8, ptr %13, align 1, !tbaa !38
+  %11 = getelementptr inbounds nuw i8, ptr %.161121, i64 1
+  %.pr = load i8, ptr %11, align 1, !tbaa !38
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %8, %.lr.phthread-pre-split
-  %11 = phi i8 [ %.pr202, %.lr.phthread-pre-split ], [ %9, %8 ]
-  %12 = phi i1 [ true, %.lr.phthread-pre-split ], [ false, %8 ]
-  %.161121 = phi ptr [ %13, %.lr.phthread-pre-split ], [ %.060143, %8 ]
-  %.166120 = phi i64 [ %10, %.lr.phthread-pre-split ], [ %.065142, %8 ]
-  switch i8 %11, label %.critedge2 [
+.lr.ph:                                           ; preds = %.lr.phthread-pre-split, %.lr.ph.preheader
+  %12 = phi i8 [ %.pr, %.lr.phthread-pre-split ], [ %9, %.lr.ph.preheader ]
+  %13 = phi i1 [ true, %.lr.phthread-pre-split ], [ false, %.lr.ph.preheader ]
+  %.161121 = phi ptr [ %11, %.lr.phthread-pre-split ], [ %.060143, %.lr.ph.preheader ]
+  %.166120 = phi i64 [ %10, %.lr.phthread-pre-split ], [ %.065142, %.lr.ph.preheader ]
+  switch i8 %12, label %.critedge2 [
     i8 32, label %.critedge4
     i8 9, label %.critedge4
   ]
 
 .critedge4:                                       ; preds = %.lr.ph, %.lr.ph
-  %13 = getelementptr inbounds nuw i8, ptr %.161121, i64 1
   %14 = icmp sgt i64 %.166120, 1
   br i1 %14, label %.lr.phthread-pre-split, label %.critedge2thread-pre-split, !llvm.loop !102
 
 .critedge2thread-pre-split:                       ; preds = %.critedge4
-  %.pr = load i8, ptr %13, align 1, !tbaa !38
+  %.pr.pre = load i8, ptr %scevgep, align 1, !tbaa !38
   br label %.critedge2
 
 .critedge2:                                       ; preds = %.lr.ph, %.critedge2thread-pre-split
   %.166104 = phi i64 [ 0, %.critedge2thread-pre-split ], [ %.166120, %.lr.ph ]
-  %.161102 = phi ptr [ %13, %.critedge2thread-pre-split ], [ %.161121, %.lr.ph ]
-  %15 = phi i1 [ true, %.critedge2thread-pre-split ], [ %12, %.lr.ph ]
+  %.161102 = phi ptr [ %scevgep, %.critedge2thread-pre-split ], [ %.161121, %.lr.ph ]
+  %15 = phi i1 [ true, %.critedge2thread-pre-split ], [ %13, %.lr.ph ]
   %16 = phi i1 [ false, %.critedge2thread-pre-split ], [ true, %.lr.ph ]
-  %17 = phi i8 [ %.pr, %.critedge2thread-pre-split ], [ %11, %.lr.ph ]
+  %17 = phi i8 [ %.pr.pre, %.critedge2thread-pre-split ], [ %12, %.lr.ph ]
   switch i8 %17, label %21 [
     i8 10, label %.critedge
     i8 13, label %.critedge
@@ -2251,7 +2255,7 @@ define internal fastcc i32 @bid_keyword_list(ptr noundef readonly captures(none)
   %scevgep.i = getelementptr i8, ptr %.161102, i64 %.166104
   %scevgep56.i = getelementptr i8, ptr @.str.7, i64 %.166104
   %26 = trunc i64 %.166104 to i32
-  %scevgep = getelementptr i8, ptr %.161102, i64 3
+  %scevgep196 = getelementptr i8, ptr %.161102, i64 3
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %32, %.lr.ph.preheader.i
@@ -2300,7 +2304,7 @@ define internal fastcc i32 @bid_keyword_list(ptr noundef readonly captures(none)
   br label %.critedge.thread.i
 
 .critedge.thread.i:                               ; preds = %28, %.critedge.threadthread-pre-split.i
-  %.02138.i = phi ptr [ %.021.lcssa.i, %.critedge.threadthread-pre-split.i ], [ %scevgep, %28 ]
+  %.02138.i = phi ptr [ %.021.lcssa.i, %.critedge.threadthread-pre-split.i ], [ %scevgep196, %28 ]
   %.033.i = phi i1 [ %.0.lcssa.i, %.critedge.threadthread-pre-split.i ], [ true, %28 ]
   %39 = phi i8 [ %.pr30.i, %.critedge.threadthread-pre-split.i ], [ %27, %28 ]
   switch i8 %39, label %bid_keycmp.exit.thread [
@@ -2632,10 +2636,10 @@ sub_0:                                            ; preds = %2
 47:                                               ; preds = %43
   %48 = shl i8 %16, 6
   %49 = shl i8 %41, 3
-  %50 = and i8 %49, 56
-  %51 = or disjoint i8 %50, %48
+  %50 = xor i8 %49, -128
+  %51 = or i8 %50, %48
   %narrow.us = add nsw i8 %45, -48
-  %52 = or disjoint i8 %narrow.us, %51
+  %52 = or i8 %51, %narrow.us
   %53 = getelementptr inbounds nuw i8, ptr %.03748.us, i64 4
   br label %54
 
@@ -2704,10 +2708,10 @@ sub_0:                                            ; preds = %2
 73:                                               ; preds = %69
   %74 = shl i8 %60, 6
   %75 = shl i8 %67, 3
-  %76 = and i8 %75, 56
-  %77 = or disjoint i8 %76, %74
+  %76 = xor i8 %75, -128
+  %77 = or i8 %76, %74
   %narrow = add nsw i8 %71, -48
-  %78 = or disjoint i8 %narrow, %77
+  %78 = or i8 %77, %narrow
   %79 = getelementptr inbounds nuw i8, ptr %.03748, i64 4
   br label %98
 

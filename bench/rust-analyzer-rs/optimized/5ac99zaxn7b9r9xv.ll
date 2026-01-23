@@ -252,11 +252,11 @@ define internal fastcc range(i64 0, -4294901760) i64 @_ZN17ra_ap_rustc_lexer8une
 
 "_ZN4core4char7methods22_$LT$impl$u20$char$GT$8to_digit17hfa6209bfb9c39dbcE.exit95.thread": ; preds = %106, %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$8to_digit17hfa6209bfb9c39dbcE.exit95"
   %.sroa.748.0116 = phi i32 [ %111, %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$8to_digit17hfa6209bfb9c39dbcE.exit95" ], [ %107, %106 ]
-  %113 = or disjoint i32 %.sroa.748.0116, %spec.select82112
-  %114 = tail call noundef zeroext i1 @_ZN17ra_ap_rustc_lexer8unescape4Mode16allow_high_bytes17hfb8ead34fdd1d994E(i8 noundef %1)
-  %115 = icmp samesign ult i32 %spec.select82112.in, 8
-  %or.cond = or i1 %115, %114
-  %spec.select = select i1 %or.cond, i32 %113, i32 undef
+  %113 = tail call noundef zeroext i1 @_ZN17ra_ap_rustc_lexer8unescape4Mode16allow_high_bytes17hfb8ead34fdd1d994E(i8 noundef %1)
+  %114 = icmp samesign ult i32 %spec.select82112.in, 8
+  %or.cond = or i1 %114, %113
+  %115 = or disjoint i32 %.sroa.748.0116, %spec.select82112
+  %spec.select = select i1 %or.cond, i32 %115, i32 undef
   %not.or.cond = xor i1 %or.cond, true
   %spec.select117 = zext i1 %not.or.cond to i64
   br label %.thread
@@ -448,12 +448,12 @@ define internal fastcc range(i64 0, -4294901760) i64 @_ZN17ra_ap_rustc_lexer8une
   br label %.thread
 
 .thread:                                          ; preds = %45, %46, %47, %48, %49, %50, %51, %2, %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$8to_digit17hfa6209bfb9c39dbcE.exit.thread", %79, %33, %90, %.thread119, %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$8to_digit17hfa6209bfb9c39dbcE.exit", %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$8to_digit17hfa6209bfb9c39dbcE.exit115", %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$8to_digit17hfa6209bfb9c39dbcE.exit115.thread", %115, %93
-  %.sroa.18.sroa.0.1 = phi i64 [ 0, %51 ], [ 0, %33 ], [ 0, %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$8to_digit17hfa6209bfb9c39dbcE.exit115" ], [ 0, %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$8to_digit17hfa6209bfb9c39dbcE.exit.thread" ], [ 0, %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$8to_digit17hfa6209bfb9c39dbcE.exit" ], [ 0, %79 ], [ 0, %.thread119 ], [ %.sroa.591.0.extract.shift, %90 ], [ %.sroa.587.0.extract.shift, %115 ], [ 0, %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$8to_digit17hfa6209bfb9c39dbcE.exit115.thread" ], [ 0, %2 ], [ 0, %50 ], [ 42949672960, %45 ], [ 55834574848, %46 ], [ 38654705664, %47 ], [ 395136991232, %48 ], [ 167503724544, %49 ], [ 146028888064, %93 ]
+  %.sroa.18.sroa.0.1 = phi i64 [ 0, %51 ], [ 0, %33 ], [ 0, %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$8to_digit17hfa6209bfb9c39dbcE.exit115" ], [ 0, %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$8to_digit17hfa6209bfb9c39dbcE.exit.thread" ], [ 0, %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$8to_digit17hfa6209bfb9c39dbcE.exit" ], [ 0, %79 ], [ 0, %.thread119 ], [ %.sroa.591.0.extract.shift, %90 ], [ %.sroa.43.0.i, %115 ], [ 0, %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$8to_digit17hfa6209bfb9c39dbcE.exit115.thread" ], [ 0, %2 ], [ 0, %50 ], [ 42949672960, %45 ], [ 55834574848, %46 ], [ 38654705664, %47 ], [ 395136991232, %48 ], [ 167503724544, %49 ], [ 146028888064, %93 ]
   %.sroa.11.1 = phi i64 [ 1792, %51 ], [ 512, %33 ], [ 2048, %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$8to_digit17hfa6209bfb9c39dbcE.exit115" ], [ 1792, %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$8to_digit17hfa6209bfb9c39dbcE.exit.thread" ], [ 2048, %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$8to_digit17hfa6209bfb9c39dbcE.exit" ], [ 1792, %79 ], [ 768, %.thread119 ], [ %.sroa.34.0.insert.insert.i, %90 ], [ %.sroa.3.0.insert.insert.i, %115 ], [ 2304, %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$8to_digit17hfa6209bfb9c39dbcE.exit115.thread" ], [ 512, %2 ], [ 0, %50 ], [ 42949672960, %45 ], [ 55834574848, %46 ], [ 38654705664, %47 ], [ 395136991232, %48 ], [ 167503724544, %49 ], [ 146028888064, %93 ]
   %.sroa.0.1 = phi i64 [ 2, %51 ], [ 2, %33 ], [ 2, %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$8to_digit17hfa6209bfb9c39dbcE.exit115" ], [ 2, %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$8to_digit17hfa6209bfb9c39dbcE.exit.thread" ], [ 2, %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$8to_digit17hfa6209bfb9c39dbcE.exit" ], [ 2, %79 ], [ 2, %.thread119 ], [ %.sroa.03.0.i, %90 ], [ %.sroa.0.0.i116, %115 ], [ 2, %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$8to_digit17hfa6209bfb9c39dbcE.exit115.thread" ], [ 2, %2 ], [ 0, %50 ], [ 0, %45 ], [ 0, %46 ], [ 0, %47 ], [ 0, %48 ], [ 0, %49 ], [ 0, %93 ]
   %.sroa.11.0.insert.ext = and i64 %.sroa.11.1, 65280
-  %.sroa.11.0.insert.insert = or disjoint i64 %.sroa.11.0.insert.ext, %.sroa.18.sroa.0.1
-  %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.11.0.insert.insert, %.sroa.0.1
+  %.sroa.11.0.insert.insert = or i64 %.sroa.11.0.insert.ext, %.sroa.18.sroa.0.1
+  %.sroa.0.0.insert.insert = or i64 %.sroa.11.0.insert.insert, %.sroa.0.1
   ret i64 %.sroa.0.0.insert.insert
 
 .thread126:                                       ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha20c69c52a784c76E.exit13.i104", %67, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha20c69c52a784c76E.exit15.i107", %79
@@ -510,7 +510,6 @@ define internal fastcc range(i64 0, -4294901760) i64 @_ZN17ra_ap_rustc_lexer8une
   %.sroa.43.0.i = select i1 %116, i64 0, i64 %118
   %.sroa.3.0.insert.shift.i = shl nuw nsw i64 %117, 8
   %.sroa.3.0.insert.insert.i = or disjoint i64 %.sroa.43.0.i, %.sroa.3.0.insert.shift.i
-  %.sroa.587.0.extract.shift = and i64 %.sroa.3.0.insert.insert.i, 9223372036854710272
   br label %.thread
 }
 
@@ -7638,7 +7637,7 @@ define internal fastcc void @"_ZN6syntax3ast9token_ext57_$LT$impl$u20$syntax..as
   br i1 %8, label %18, label %29
 
 9:                                                ; preds = %3
-  %10 = trunc nuw i64 %.sroa.6.0.extract.shift to i8
+  %10 = trunc i64 %.sroa.6.0.extract.shift to i8
   store i8 %10, ptr %.sroa.0, align 4, !alias.scope !754
   br label %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit
 

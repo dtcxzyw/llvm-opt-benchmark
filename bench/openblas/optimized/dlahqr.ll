@@ -596,7 +596,7 @@ define void @dlahqr_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %indvars924 = trunc i64 %indvars.iv887 to i32
   %420 = trunc i64 %indvars.iv887 to i32
   %421 = sub i32 %.0751865, %420
-  %422 = call i32 @llvm.umin.i32(i32 %421, i32 2)
+  %422 = call i32 @llvm.smin.i32(i32 %421, i32 2)
   %423 = add nuw nsw i32 %422, 1
   store i32 %423, ptr %20, align 4, !tbaa !3
   %424 = icmp sgt i64 %indvars.iv887, %409
@@ -731,7 +731,7 @@ define void @dlahqr_(ptr noundef readonly captures(none) %0, ptr noundef readonl
 487:                                              ; preds = %.ph987, %487
   %store_forwarded991 = phi double [ %load_initial990, %.ph987 ], [ %498, %487 ]
   %indvars.iv907 = phi i64 [ %indvars.iv887, %.ph987 ], [ %indvars.iv.next908, %487 ]
-  %488 = mul nuw nsw i64 %indvars.iv907, %90
+  %488 = mul nsw i64 %indvars.iv907, %90
   %gep966 = getelementptr double, ptr %invariant.gep965, i64 %488
   %489 = load double, ptr %gep966, align 8, !tbaa !7
   %490 = getelementptr double, ptr %472, i64 %488
@@ -855,7 +855,7 @@ define void @dlahqr_(ptr noundef readonly captures(none) %0, ptr noundef readonl
 546:                                              ; preds = %.ph, %546
   %store_forwarded = phi double [ %load_initial, %.ph ], [ %553, %546 ]
   %indvars.iv889 = phi i64 [ %indvars.iv887, %.ph ], [ %indvars.iv.next890, %546 ]
-  %547 = mul nuw nsw i64 %indvars.iv889, %90
+  %547 = mul nsw i64 %indvars.iv889, %90
   %gep = getelementptr double, ptr %invariant.gep, i64 %547
   %548 = getelementptr double, ptr %459, i64 %547
   %549 = load double, ptr %548, align 8, !tbaa !7
@@ -1070,9 +1070,6 @@ declare i32 @llvm.smax.i32(i32, i32) #5
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fabs.f64(double) #5
-
-; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #5
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #5

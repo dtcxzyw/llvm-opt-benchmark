@@ -2058,40 +2058,37 @@ define linkonce_odr hidden void @_ZN5boost4asio20basic_waitable_timerINSt6chrono
   store i8 0, ptr %19, align 8, !tbaa !85
   %20 = call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #38
   %21 = icmp sgt i64 %20, -1
-  br i1 %21, label %22, label %26
+  %22 = load i64, ptr %2, align 8, !tbaa !10
+  br i1 %21, label %23, label %26
 
-22:                                               ; preds = %4
-  %23 = sub nuw nsw i64 9223372036854775807, %20
-  %24 = load i64, ptr %2, align 8, !tbaa !10
-  %25 = icmp slt i64 %23, %24
-  br i1 %25, label %_ZN5boost4asio6detail18chrono_time_traitsINSt6chrono3_V212steady_clockENS0_11wait_traitsIS5_EEE3addERKNS3_10time_pointIS5_NS3_8durationIlSt5ratioILl1ELl1000000000EEEEEERKSD_.exit.i, label %31
+23:                                               ; preds = %4
+  %24 = sub nuw nsw i64 9223372036854775807, %20
+  %25 = icmp slt i64 %24, %22
+  br i1 %25, label %_ZN5boost4asio6detail18chrono_time_traitsINSt6chrono3_V212steady_clockENS0_11wait_traitsIS5_EEE3addERKNS3_10time_pointIS5_NS3_8durationIlSt5ratioILl1ELl1000000000EEEEEERKSD_.exit.i, label %28
 
 26:                                               ; preds = %4
-  %27 = and i64 %20, 9223372036854775807
-  %28 = sub nsw i64 0, %27
-  %29 = load i64, ptr %2, align 8, !tbaa !10
-  %30 = icmp slt i64 %29, %28
-  br i1 %30, label %_ZN5boost4asio6detail18chrono_time_traitsINSt6chrono3_V212steady_clockENS0_11wait_traitsIS5_EEE3addERKNS3_10time_pointIS5_NS3_8durationIlSt5ratioILl1ELl1000000000EEEEEERKSD_.exit.i, label %31
+  %27 = xor i64 %20, 9223372036854775807
+  %.not.i.i = icmp sgt i64 %22, %27
+  br i1 %.not.i.i, label %28, label %_ZN5boost4asio6detail18chrono_time_traitsINSt6chrono3_V212steady_clockENS0_11wait_traitsIS5_EEE3addERKNS3_10time_pointIS5_NS3_8durationIlSt5ratioILl1ELl1000000000EEEEEERKSD_.exit.i
 
-31:                                               ; preds = %26, %22
-  %32 = phi i64 [ %29, %26 ], [ %24, %22 ]
-  %33 = add nsw i64 %32, %20
+28:                                               ; preds = %26, %23
+  %29 = add nsw i64 %22, %20
   br label %_ZN5boost4asio6detail18chrono_time_traitsINSt6chrono3_V212steady_clockENS0_11wait_traitsIS5_EEE3addERKNS3_10time_pointIS5_NS3_8durationIlSt5ratioILl1ELl1000000000EEEEEERKSD_.exit.i
 
-_ZN5boost4asio6detail18chrono_time_traitsINSt6chrono3_V212steady_clockENS0_11wait_traitsIS5_EEE3addERKNS3_10time_pointIS5_NS3_8durationIlSt5ratioILl1ELl1000000000EEEEEERKSD_.exit.i: ; preds = %31, %26, %22
-  %.sroa.0.0.i.i = phi i64 [ 9223372036854775807, %22 ], [ %33, %31 ], [ -9223372036854775808, %26 ]
-  %34 = load i8, ptr %19, align 8, !tbaa !85, !range !86, !noundef !87
-  %35 = trunc nuw i8 %34 to i1
-  br i1 %35, label %36, label %_ZN5boost4asio6detail11throw_errorERKNS_6system10error_codeEPKcRKNS_15source_locationE.exit
+_ZN5boost4asio6detail18chrono_time_traitsINSt6chrono3_V212steady_clockENS0_11wait_traitsIS5_EEE3addERKNS3_10time_pointIS5_NS3_8durationIlSt5ratioILl1ELl1000000000EEEEEERKSD_.exit.i: ; preds = %28, %26, %23
+  %.sroa.0.0.i.i = phi i64 [ 9223372036854775807, %23 ], [ %29, %28 ], [ -9223372036854775808, %26 ]
+  %30 = load i8, ptr %19, align 8, !tbaa !85, !range !86, !noundef !87
+  %31 = trunc nuw i8 %30 to i1
+  br i1 %31, label %32, label %_ZN5boost4asio6detail11throw_errorERKNS_6system10error_codeEPKcRKNS_15source_locationE.exit
 
-36:                                               ; preds = %_ZN5boost4asio6detail18chrono_time_traitsINSt6chrono3_V212steady_clockENS0_11wait_traitsIS5_EEE3addERKNS3_10time_pointIS5_NS3_8durationIlSt5ratioILl1ELl1000000000EEEEEERKSD_.exit.i
-  %37 = getelementptr inbounds nuw i8, ptr %8, i64 88
-  %38 = load ptr, ptr %37, align 8, !tbaa !88
-  %39 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  %40 = invoke noundef i64 @_ZN5boost4asio6detail13epoll_reactor12cancel_timerINS1_18chrono_time_traitsINSt6chrono3_V212steady_clockENS0_11wait_traitsIS7_EEEEEEmRNS1_11timer_queueIT_EERNSD_14per_timer_dataEm(ptr noundef nonnull align 8 dereferenceable(216) %38, ptr noundef nonnull align 8 dereferenceable(48) %39, ptr noundef nonnull align 8 dereferenceable(40) %10, i64 noundef -1)
-          to label %.noexc unwind label %41
+32:                                               ; preds = %_ZN5boost4asio6detail18chrono_time_traitsINSt6chrono3_V212steady_clockENS0_11wait_traitsIS5_EEE3addERKNS3_10time_pointIS5_NS3_8durationIlSt5ratioILl1ELl1000000000EEEEEERKSD_.exit.i
+  %33 = getelementptr inbounds nuw i8, ptr %8, i64 88
+  %34 = load ptr, ptr %33, align 8, !tbaa !88
+  %35 = getelementptr inbounds nuw i8, ptr %8, i64 40
+  %36 = invoke noundef i64 @_ZN5boost4asio6detail13epoll_reactor12cancel_timerINS1_18chrono_time_traitsINSt6chrono3_V212steady_clockENS0_11wait_traitsIS7_EEEEEEmRNS1_11timer_queueIT_EERNSD_14per_timer_dataEm(ptr noundef nonnull align 8 dereferenceable(216) %34, ptr noundef nonnull align 8 dereferenceable(48) %35, ptr noundef nonnull align 8 dereferenceable(40) %10, i64 noundef -1)
+          to label %.noexc unwind label %37
 
-.noexc:                                           ; preds = %36
+.noexc:                                           ; preds = %32
   store i8 0, ptr %19, align 8, !tbaa !85
   br label %_ZN5boost4asio6detail11throw_errorERKNS_6system10error_codeEPKcRKNS_15source_locationE.exit
 
@@ -2099,11 +2096,11 @@ _ZN5boost4asio6detail11throw_errorERKNS_6system10error_codeEPKcRKNS_15source_loc
   store i64 %.sroa.0.0.i.i, ptr %9, align 8, !tbaa !10
   ret void
 
-41:                                               ; preds = %36
-  %42 = landingpad { ptr, i32 }
+37:                                               ; preds = %32
+  %38 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5boost4asio6detail14io_object_implINS1_22deadline_timer_serviceINS1_18chrono_time_traitsINSt6chrono3_V212steady_clockENS0_11wait_traitsIS7_EEEEEENS0_15any_io_executorEED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) #38
-  resume { ptr, i32 } %42
+  resume { ptr, i32 } %38
 }
 
 ; Function Attrs: nofree nounwind

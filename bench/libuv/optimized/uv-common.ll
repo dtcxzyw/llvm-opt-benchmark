@@ -2746,14 +2746,14 @@ switch.lookup:                                    ; preds = %.lr.ph.split.us
   %.not.us = icmp eq ptr %.015.us, %11
   br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %62
-  %.01529 = phi ptr [ %.015, %62 ], [ %.01527, %.lr.ph ]
+.lr.ph.split:                                     ; preds = %.lr.ph, %68
+  %.01529 = phi ptr [ %.015, %68 ], [ %.01527, %.lr.ph ]
   %39 = getelementptr inbounds i8, ptr %.01529, i64 -32
   %40 = getelementptr inbounds nuw i8, ptr %.01529, i64 56
   %41 = load i32, ptr %40, align 8
   %42 = and i32 %41, 4
   %.not21 = icmp eq i32 %42, 0
-  br i1 %.not21, label %62, label %43
+  br i1 %.not21, label %68, label %43
 
 43:                                               ; preds = %.lr.ph.split
   %44 = getelementptr inbounds i8, ptr %.01529, i64 -16
@@ -2777,22 +2777,29 @@ switch.lookup37:                                  ; preds = %43
   %52 = getelementptr inbounds nuw i8, ptr @.str.189, i64 %51
   %53 = load i8, ptr %52, align 1
   %54 = sext i8 %53 to i32
-  %55 = lshr i32 %41, 4
-  %.lobit26 = and i32 %55, 1
-  %56 = xor i32 %.lobit26, 1
+  %55 = lshr i32 %41, 2
+  %.lobit24 = and i32 %55, 1
+  %56 = xor i32 %.lobit24, 1
   %57 = zext nneg i32 %56 to i64
-  %58 = getelementptr inbounds nuw i8, ptr @.str.191, i64 %57
+  %58 = getelementptr inbounds nuw i8, ptr @.str.190, i64 %57
   %59 = load i8, ptr %58, align 1
   %60 = sext i8 %59 to i32
-  %61 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %spec.select, ptr noundef nonnull @.str.188, i32 noundef %54, i32 noundef 65, i32 noundef %60, ptr noundef nonnull %.016, ptr noundef nonnull %39) #26
-  br label %62
+  %61 = lshr i32 %41, 4
+  %.lobit26 = and i32 %61, 1
+  %62 = xor i32 %.lobit26, 1
+  %63 = zext nneg i32 %62 to i64
+  %64 = getelementptr inbounds nuw i8, ptr @.str.191, i64 %63
+  %65 = load i8, ptr %64, align 1
+  %66 = sext i8 %65 to i32
+  %67 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %spec.select, ptr noundef nonnull @.str.188, i32 noundef %54, i32 noundef %60, i32 noundef %66, ptr noundef nonnull %.016, ptr noundef nonnull %39) #26
+  br label %68
 
-62:                                               ; preds = %.lr.ph.split, %48
+68:                                               ; preds = %.lr.ph.split, %48
   %.015 = load ptr, ptr %.01529, align 8
   %.not = icmp eq ptr %.015, %11
   br i1 %.not, label %._crit_edge, label %.lr.ph.split
 
-._crit_edge:                                      ; preds = %62, %17, %uv_default_loop.exit
+._crit_edge:                                      ; preds = %68, %17, %uv_default_loop.exit
   ret void
 }
 
@@ -2811,7 +2818,7 @@ define dso_local void @uv_ref(ptr noundef captures(none) %0) local_unnamed_addr 
   br i1 %.not, label %5, label %14
 
 5:                                                ; preds = %1
-  %6 = or disjoint i32 %3, 8
+  %6 = or i32 %3, 8
   store i32 %6, ptr %2, align 8
   %7 = and i32 %3, 5
   %or.cond.not = icmp eq i32 %7, 4

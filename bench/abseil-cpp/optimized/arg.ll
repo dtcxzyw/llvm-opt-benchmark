@@ -304,7 +304,7 @@ define internal fastcc noundef zeroext i1 @_ZN4absl19str_format_internal12_GLOBA
 11:                                               ; preds = %9
   %12 = lshr i32 %0, 6
   %13 = trunc nuw nsw i32 %12 to i8
-  %14 = or disjoint i8 %13, -64
+  %14 = or i8 %13, -64
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 1
   store i8 %14, ptr %5, align 1, !tbaa !4
   %16 = trunc i32 %0 to i8
@@ -323,7 +323,7 @@ define internal fastcc noundef zeroext i1 @_ZN4absl19str_format_internal12_GLOBA
 23:                                               ; preds = %19
   %24 = lshr i32 %0, 12
   %25 = trunc nuw nsw i32 %24 to i8
-  %26 = or disjoint i8 %25, -32
+  %26 = or i8 %25, -32
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 1
   store i8 %26, ptr %5, align 1, !tbaa !4
   %28 = lshr i32 %0, 6
@@ -346,7 +346,7 @@ define internal fastcc noundef zeroext i1 @_ZN4absl19str_format_internal12_GLOBA
 39:                                               ; preds = %36
   %40 = lshr i32 %0, 18
   %41 = trunc nuw nsw i32 %40 to i8
-  %42 = or disjoint i8 %41, -16
+  %42 = or i8 %41, -16
   %43 = getelementptr inbounds nuw i8, ptr %5, i64 1
   store i8 %42, ptr %5, align 1, !tbaa !4
   %44 = lshr i32 %0, 12
@@ -3069,6 +3069,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN4absl19str_format_internal13For
   br i1 %7, label %8, label %_ZN4absl19str_format_internal17FormatConvertImplENS0_7VoidPtrENS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE.exit, !prof !35
 
 8:                                                ; preds = %4
+  %.sroa.0.0.insert.insert = and i64 %1, -239
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %9, label %31
 
@@ -3137,7 +3138,7 @@ _ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits15PrintAsHexLowerImEEvT_.ex
   %46 = sub i64 %44, %45
   %47 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %46, ptr %47, align 8, !tbaa !15
-  call fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_123ConvertIntImplInnerSlowERKNS1_9IntDigitsENS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(ptr nonnull %spec.select.i.i, i64 %46, i64 %1, i32 %2, ptr noundef %3)
+  call fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_123ConvertIntImplInnerSlowERKNS1_9IntDigitsENS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(ptr nonnull %spec.select.i.i, i64 %46, i64 %.sroa.0.0.insert.insert, i32 %2, ptr noundef %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN4absl19str_format_internal17FormatConvertImplENS0_7VoidPtrENS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE.exit
 
@@ -5014,7 +5015,7 @@ _ZNSt16allocator_traitsISaIcEE8allocateERS0_m.exit.i.i.i: ; preds = %10
 24:                                               ; preds = %22
   %25 = lshr i32 %16, 6
   %26 = trunc nuw nsw i32 %25 to i8
-  %27 = or disjoint i8 %26, -64
+  %27 = or i8 %26, -64
   %28 = getelementptr inbounds nuw i8, ptr %18, i64 1
   store i8 %27, ptr %18, align 1, !tbaa !4
   %29 = trunc i32 %16 to i8
@@ -5033,7 +5034,7 @@ _ZNSt16allocator_traitsISaIcEE8allocateERS0_m.exit.i.i.i: ; preds = %10
 36:                                               ; preds = %32
   %37 = lshr i32 %16, 12
   %38 = trunc nuw nsw i32 %37 to i8
-  %39 = or disjoint i8 %38, -32
+  %39 = or i8 %38, -32
   %40 = getelementptr inbounds nuw i8, ptr %18, i64 1
   store i8 %39, ptr %18, align 1, !tbaa !4
   %41 = lshr i32 %16, 6
@@ -5056,7 +5057,7 @@ _ZNSt16allocator_traitsISaIcEE8allocateERS0_m.exit.i.i.i: ; preds = %10
 52:                                               ; preds = %49
   %53 = lshr i32 %16, 18
   %54 = trunc nuw nsw i32 %53 to i8
-  %55 = or disjoint i8 %54, -16
+  %55 = or i8 %54, -16
   %56 = getelementptr inbounds nuw i8, ptr %18, i64 1
   store i8 %55, ptr %18, align 1, !tbaa !4
   %57 = lshr i32 %16, 12

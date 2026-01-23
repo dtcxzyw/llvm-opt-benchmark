@@ -7754,7 +7754,7 @@ _ZN5tokio7runtime4task5state8Snapshot7ref_dec17h4fb2d2c304c6236aE.exit.i.i: ; pr
   br label %"_ZN5tokio7runtime4task5state5State21transition_to_running28_$u7b$$u7b$closure$u7d$$u7d$17had18d6c555b9817fE.llvm.3285439092171202888.exit.i"
 
 10:                                               ; preds = %.lr.ph.i
-  %11 = and i64 %.0712.i, -8
+  %11 = and i64 %.0712.i, -6
   %12 = or disjoint i64 %11, 1
   %13 = trunc i64 %.0712.i to i8
   %14 = lshr i8 %13, 5
@@ -7866,8 +7866,8 @@ define hidden noundef zeroext i1 @_ZN5tokio7runtime4task5state5State29transition
   %2 = load atomic i64, ptr %0 acquire, align 8
   br label %3
 
-3:                                                ; preds = %16, %1
-  %.07.i = phi i64 [ %2, %1 ], [ %.fca.1.extract.i, %16 ]
+3:                                                ; preds = %17, %1
+  %.07.i = phi i64 [ %2, %1 ], [ %.fca.1.extract.i, %17 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.612.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.10.i)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !707)
@@ -7878,7 +7878,7 @@ define hidden noundef zeroext i1 @_ZN5tokio7runtime4task5state5State29transition
 5:                                                ; preds = %3
   %6 = and i64 %.07.i, 1
   %.not.i.i = icmp eq i64 %6, 0
-  br i1 %.not.i.i, label %7, label %11
+  br i1 %.not.i.i, label %7, label %12
 
 7:                                                ; preds = %5
   %8 = icmp sgt i64 %.07.i, -1
@@ -7889,15 +7889,16 @@ define hidden noundef zeroext i1 @_ZN5tokio7runtime4task5state5State29transition
   unreachable
 
 _ZN5tokio7runtime4task5state8Snapshot7ref_inc17h8a8c01ddee1e4fa4E.exit.i.i: ; preds = %7
-  %10 = add nuw i64 %.07.i, 68
+  %10 = or i64 %.07.i, 4
+  %11 = add nuw i64 %10, 64
   br label %"_ZN5tokio7runtime4task5state5State29transition_to_notified_by_ref28_$u7b$$u7b$closure$u7d$$u7d$17hb7054e6dbefbffb1E.llvm.3285439092171202888.exit.sink.split.i"
 
-11:                                               ; preds = %5
-  %12 = or disjoint i64 %.07.i, 4
+12:                                               ; preds = %5
+  %13 = or i64 %.07.i, 4
   br label %"_ZN5tokio7runtime4task5state5State29transition_to_notified_by_ref28_$u7b$$u7b$closure$u7d$$u7d$17hb7054e6dbefbffb1E.llvm.3285439092171202888.exit.sink.split.i"
 
-"_ZN5tokio7runtime4task5state5State29transition_to_notified_by_ref28_$u7b$$u7b$closure$u7d$$u7d$17hb7054e6dbefbffb1E.llvm.3285439092171202888.exit.sink.split.i": ; preds = %11, %_ZN5tokio7runtime4task5state8Snapshot7ref_inc17h8a8c01ddee1e4fa4E.exit.i.i
-  %.sink.i.ph.i = phi i64 [ %12, %11 ], [ %10, %_ZN5tokio7runtime4task5state8Snapshot7ref_inc17h8a8c01ddee1e4fa4E.exit.i.i ]
+"_ZN5tokio7runtime4task5state5State29transition_to_notified_by_ref28_$u7b$$u7b$closure$u7d$$u7d$17hb7054e6dbefbffb1E.llvm.3285439092171202888.exit.sink.split.i": ; preds = %12, %_ZN5tokio7runtime4task5state8Snapshot7ref_inc17h8a8c01ddee1e4fa4E.exit.i.i
+  %.sink.i.ph.i = phi i64 [ %13, %12 ], [ %11, %_ZN5tokio7runtime4task5state8Snapshot7ref_inc17h8a8c01ddee1e4fa4E.exit.i.i ]
   store i64 1, ptr %.sroa.612.i, align 8, !alias.scope !707
   br label %"_ZN5tokio7runtime4task5state5State29transition_to_notified_by_ref28_$u7b$$u7b$closure$u7d$$u7d$17hb7054e6dbefbffb1E.llvm.3285439092171202888.exit.i"
 
@@ -7911,19 +7912,19 @@ _ZN5tokio7runtime4task5state8Snapshot7ref_inc17h8a8c01ddee1e4fa4E.exit.i.i: ; pr
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.612.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.10.i)
   %trunc.i = trunc nuw i64 %.sroa.612.i.0..sroa.612.i.0..sroa.612.i.0..sroa.612.0..sroa.612.0..sroa.612.8..i to i1
-  br i1 %trunc.i, label %13, label %_ZN5tokio7runtime4task5state5State19fetch_update_action17h1f514e65b07b5195E.exit
+  br i1 %trunc.i, label %14, label %_ZN5tokio7runtime4task5state5State19fetch_update_action17h1f514e65b07b5195E.exit
 
-13:                                               ; preds = %"_ZN5tokio7runtime4task5state5State29transition_to_notified_by_ref28_$u7b$$u7b$closure$u7d$$u7d$17hb7054e6dbefbffb1E.llvm.3285439092171202888.exit.i"
-  %14 = tail call { i64, i64 } @_ZN4core4sync6atomic23atomic_compare_exchange17h39b110560f0542ffE.llvm.3285439092171202888(ptr noundef nonnull align 8 %0, i64 noundef %.07.i, i64 noundef %.sroa.10.i.0..sroa.10.i.0..sroa.10.i.0..sroa.10.0..sroa.10.0..sroa.10.16..i, i8 noundef 3, i8 noundef 2)
-  %.fca.0.extract.i = extractvalue { i64, i64 } %14, 0
-  %15 = icmp eq i64 %.fca.0.extract.i, 0
-  br i1 %15, label %_ZN5tokio7runtime4task5state5State19fetch_update_action17h1f514e65b07b5195E.exit, label %16
+14:                                               ; preds = %"_ZN5tokio7runtime4task5state5State29transition_to_notified_by_ref28_$u7b$$u7b$closure$u7d$$u7d$17hb7054e6dbefbffb1E.llvm.3285439092171202888.exit.i"
+  %15 = tail call { i64, i64 } @_ZN4core4sync6atomic23atomic_compare_exchange17h39b110560f0542ffE.llvm.3285439092171202888(ptr noundef nonnull align 8 %0, i64 noundef %.07.i, i64 noundef %.sroa.10.i.0..sroa.10.i.0..sroa.10.i.0..sroa.10.0..sroa.10.0..sroa.10.16..i, i8 noundef 3, i8 noundef 2)
+  %.fca.0.extract.i = extractvalue { i64, i64 } %15, 0
+  %16 = icmp eq i64 %.fca.0.extract.i, 0
+  br i1 %16, label %_ZN5tokio7runtime4task5state5State19fetch_update_action17h1f514e65b07b5195E.exit, label %17
 
-16:                                               ; preds = %13
-  %.fca.1.extract.i = extractvalue { i64, i64 } %14, 1
+17:                                               ; preds = %14
+  %.fca.1.extract.i = extractvalue { i64, i64 } %15, 1
   br label %3
 
-_ZN5tokio7runtime4task5state5State19fetch_update_action17h1f514e65b07b5195E.exit: ; preds = %"_ZN5tokio7runtime4task5state5State29transition_to_notified_by_ref28_$u7b$$u7b$closure$u7d$$u7d$17hb7054e6dbefbffb1E.llvm.3285439092171202888.exit.i", %13
+_ZN5tokio7runtime4task5state5State19fetch_update_action17h1f514e65b07b5195E.exit: ; preds = %"_ZN5tokio7runtime4task5state5State29transition_to_notified_by_ref28_$u7b$$u7b$closure$u7d$$u7d$17hb7054e6dbefbffb1E.llvm.3285439092171202888.exit.i", %14
   ret i1 %.sroa.0.0.i
 }
 
@@ -8041,7 +8042,7 @@ define { i64, i64 } @_ZN5tokio7runtime4task5state5State21unset_join_interested17
   br i1 %.not.i, label %5, label %_ZN5tokio7runtime4task5state5State12fetch_update17he617589a5ad97facE.exit
 
 5:                                                ; preds = %"_ZN5tokio7runtime4task5state5State21unset_join_interested28_$u7b$$u7b$closure$u7d$$u7d$17h200b3bb73a387e5fE.llvm.3285439092171202888.exit.i"
-  %6 = and i64 %.012.i, -11
+  %6 = and i64 %.012.i, -9
   %7 = tail call { i64, i64 } @_ZN4core4sync6atomic23atomic_compare_exchange17h39b110560f0542ffE.llvm.3285439092171202888(ptr noundef nonnull align 8 %0, i64 noundef %.012.i, i64 noundef %6, i8 noundef 3, i8 noundef 2)
   %.fca.0.extract2.i = extractvalue { i64, i64 } %7, 0
   %8 = icmp eq i64 %.fca.0.extract2.i, 0
@@ -8088,7 +8089,7 @@ define hidden { i64, i64 } @_ZN5tokio7runtime4task5state5State14set_join_waker17
   br i1 %.not.i, label %7, label %_ZN5tokio7runtime4task5state5State12fetch_update17h29199ec6ba111906E.exit
 
 7:                                                ; preds = %"_ZN5tokio7runtime4task5state5State14set_join_waker28_$u7b$$u7b$closure$u7d$$u7d$17hc380857fa903bf26E.llvm.3285439092171202888.exit.i"
-  %8 = or disjoint i64 %.012.i, 16
+  %8 = or i64 %.012.i, 16
   %9 = tail call { i64, i64 } @_ZN4core4sync6atomic23atomic_compare_exchange17h39b110560f0542ffE.llvm.3285439092171202888(ptr noundef nonnull align 8 %0, i64 noundef %.012.i, i64 noundef %8, i8 noundef 3, i8 noundef 2)
   %.fca.0.extract2.i = extractvalue { i64, i64 } %9, 0
   %10 = icmp eq i64 %.fca.0.extract2.i, 0
@@ -8135,7 +8136,7 @@ define hidden { i64, i64 } @_ZN5tokio7runtime4task5state5State11unset_waker17hdd
   br i1 %.not.i, label %7, label %_ZN5tokio7runtime4task5state5State12fetch_update17hefe73e99cf0fb575E.exit
 
 7:                                                ; preds = %"_ZN5tokio7runtime4task5state5State11unset_waker28_$u7b$$u7b$closure$u7d$$u7d$17h9bb3873dcb39d804E.llvm.3285439092171202888.exit.i"
-  %8 = and i64 %.012.i, -19
+  %8 = and i64 %.012.i, -17
   %9 = tail call { i64, i64 } @_ZN4core4sync6atomic23atomic_compare_exchange17h39b110560f0542ffE.llvm.3285439092171202888(ptr noundef nonnull align 8 %0, i64 noundef %.012.i, i64 noundef %8, i8 noundef 3, i8 noundef 2)
   %.fca.0.extract2.i = extractvalue { i64, i64 } %9, 0
   %10 = icmp eq i64 %.fca.0.extract2.i, 0

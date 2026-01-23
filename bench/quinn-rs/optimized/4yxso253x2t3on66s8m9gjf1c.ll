@@ -3404,52 +3404,47 @@ define hidden noundef zeroext i1 @_ZN11quinn_proto10connection6spaces5Dedup6inse
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 16, !noundef !3
   %5 = icmp ult i64 %1, %4
-  br i1 %5, label %9, label %6
+  br i1 %5, label %15, label %6
 
 6:                                                ; preds = %2
   %7 = sub nuw i64 %1, %4
-  %8 = icmp ult i64 %7, 128
-  br i1 %8, label %14, label %20
-
-9:                                                ; preds = %2
-  %10 = add i64 %4, -1
-  %11 = sub i64 %10, %1
-  %12 = icmp ugt i64 %11, 128
-  %13 = icmp eq i64 %10, %1
-  %or.cond = or i1 %13, %12
-  br i1 %or.cond, label %22, label %23
-
-14:                                               ; preds = %6
-  %15 = load i128, ptr %0, align 16, !noundef !3
-  %16 = shl i128 %15, 1
-  %17 = or disjoint i128 %16, 1
-  %18 = zext nneg i64 %7 to i128
-  %19 = shl i128 %17, %18
+  %8 = load i128, ptr %0, align 16, !noundef !3
+  %.sroa.0.0.sroa.speculated.i = tail call noundef i64 @llvm.umin.i64(i64 %7, i64 4294967295)
+  %9 = icmp ult i64 %7, 128
+  %10 = shl i128 %8, 1
+  %11 = or disjoint i128 %10, 1
+  %12 = zext nneg i64 %.sroa.0.0.sroa.speculated.i to i128
+  %13 = shl i128 %11, %12
+  %.sroa.06.0 = select i1 %9, i128 %13, i128 0
+  store i128 %.sroa.06.0, ptr %0, align 16
+  %14 = add i64 %1, 1
+  store i64 %14, ptr %3, align 16
   br label %20
 
-20:                                               ; preds = %6, %14
-  %.sroa.06.0 = phi i128 [ %19, %14 ], [ 0, %6 ]
-  store i128 %.sroa.06.0, ptr %0, align 16
-  %21 = add i64 %1, 1
-  store i64 %21, ptr %3, align 16
-  br label %22
+15:                                               ; preds = %2
+  %16 = add i64 %4, -1
+  %17 = sub i64 %16, %1
+  %18 = icmp ugt i64 %17, 128
+  %19 = icmp eq i64 %16, %1
+  %or.cond = or i1 %19, %18
+  br i1 %or.cond, label %20, label %21
 
-22:                                               ; preds = %23, %9, %20
-  %.sroa.0.0 = phi i1 [ true, %9 ], [ false, %20 ], [ %31, %23 ]
+20:                                               ; preds = %21, %15, %6
+  %.sroa.0.0 = phi i1 [ true, %15 ], [ false, %6 ], [ %29, %21 ]
   ret i1 %.sroa.0.0
 
-23:                                               ; preds = %9
-  %24 = xor i64 %1, -1
-  %25 = add i64 %10, %24
-  %26 = and i64 %25, 127
-  %27 = zext nneg i64 %26 to i128
-  %28 = shl nuw i128 1, %27
-  %29 = load i128, ptr %0, align 16, !noundef !3
-  %30 = lshr i128 %29, %27
-  %31 = trunc i128 %30 to i1
-  %32 = or i128 %29, %28
-  store i128 %32, ptr %0, align 16
-  br label %22
+21:                                               ; preds = %15
+  %22 = xor i64 %1, -1
+  %23 = add i64 %16, %22
+  %24 = and i64 %23, 127
+  %25 = zext nneg i64 %24 to i128
+  %26 = shl nuw i128 1, %25
+  %27 = load i128, ptr %0, align 16, !noundef !3
+  %28 = lshr i128 %27, %25
+  %29 = trunc i128 %28 to i1
+  %30 = or i128 %27, %26
+  store i128 %30, ptr %0, align 16
+  br label %20
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable

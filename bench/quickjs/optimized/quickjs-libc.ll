@@ -1609,68 +1609,73 @@ define dso_local void @js_std_eval_binary(ptr noundef %0, ptr noundef %1, i64 no
   br label %JS_FreeValue.exit41
 
 14:                                               ; preds = %9
-  br i1 %10, label %15, label %30
+  br i1 %10, label %15, label %33
 
 15:                                               ; preds = %14
   %16 = tail call i32 @JS_ResolveModule(ptr noundef %0, i64 %6, i64 %7) #30
   %17 = icmp slt i32 %16, 0
-  br i1 %17, label %18, label %24
+  br i1 %17, label %18, label %27
 
 18:                                               ; preds = %15
-  %19 = inttoptr i64 %6 to ptr
-  %20 = load i32, ptr %19, align 4, !tbaa !14
-  %21 = add i32 %20, -1
-  store i32 %21, ptr %19, align 4, !tbaa !14
-  %22 = icmp slt i32 %21, 1
-  br i1 %22, label %23, label %JS_FreeValue.exit
+  %19 = trunc i64 %7 to i32
+  %20 = icmp ugt i32 %19, -12
+  br i1 %20, label %21, label %JS_FreeValue.exit
 
-23:                                               ; preds = %18
+21:                                               ; preds = %18
+  %22 = inttoptr i64 %6 to ptr
+  %23 = load i32, ptr %22, align 4, !tbaa !14
+  %24 = add i32 %23, -1
+  store i32 %24, ptr %22, align 4, !tbaa !14
+  %25 = icmp slt i32 %24, 1
+  br i1 %25, label %26, label %JS_FreeValue.exit
+
+26:                                               ; preds = %21
   tail call void @__JS_FreeValue(ptr noundef %0, i64 %6, i64 %7) #30
   br label %JS_FreeValue.exit
 
-24:                                               ; preds = %15
-  %25 = tail call i32 @js_module_set_import_meta(ptr noundef %0, i64 %6, i64 poison, i32 noundef 0, i32 noundef 1)
-  %26 = tail call { i64, i64 } @JS_EvalFunction(ptr noundef %0, i64 %6, i64 %7) #30
-  %27 = extractvalue { i64, i64 } %26, 0
-  %28 = extractvalue { i64, i64 } %26, 1
-  %29 = tail call { i64, i64 } @js_std_await(ptr noundef %0, i64 %27, i64 %28)
-  br label %32
+27:                                               ; preds = %15
+  %28 = tail call i32 @js_module_set_import_meta(ptr noundef %0, i64 %6, i64 poison, i32 noundef 0, i32 noundef 1)
+  %29 = tail call { i64, i64 } @JS_EvalFunction(ptr noundef %0, i64 %6, i64 %7) #30
+  %30 = extractvalue { i64, i64 } %29, 0
+  %31 = extractvalue { i64, i64 } %29, 1
+  %32 = tail call { i64, i64 } @js_std_await(ptr noundef %0, i64 %30, i64 %31)
+  br label %35
 
-30:                                               ; preds = %14
-  %31 = tail call { i64, i64 } @JS_EvalFunction(ptr noundef %0, i64 %6, i64 %7) #30
-  br label %32
+33:                                               ; preds = %14
+  %34 = tail call { i64, i64 } @JS_EvalFunction(ptr noundef %0, i64 %6, i64 %7) #30
+  br label %35
 
-32:                                               ; preds = %30, %24
-  %.pn = phi { i64, i64 } [ %29, %24 ], [ %31, %30 ]
+35:                                               ; preds = %33, %27
+  %.pn = phi { i64, i64 } [ %32, %27 ], [ %34, %33 ]
   %.sroa.8.0 = extractvalue { i64, i64 } %.pn, 1
   %.sroa.07.0 = extractvalue { i64, i64 } %.pn, 0
-  %33 = and i64 %.sroa.8.0, 4294967295
-  %.not42 = icmp eq i64 %33, 6
-  br i1 %.not42, label %JS_FreeValue.exit, label %34
+  %36 = and i64 %.sroa.8.0, 4294967295
+  %.not42 = icmp eq i64 %36, 6
+  br i1 %.not42, label %JS_FreeValue.exit, label %37
 
-JS_FreeValue.exit:                                ; preds = %23, %18, %32, %4
+JS_FreeValue.exit:                                ; preds = %26, %21, %18, %35, %4
   tail call void @js_std_dump_error(ptr noundef %0)
   tail call void @exit(i32 noundef 1) #34
   unreachable
 
-34:                                               ; preds = %32
-  %35 = trunc i64 %.sroa.8.0 to i32
-  %36 = icmp ugt i32 %35, -12
-  br i1 %36, label %37, label %JS_FreeValue.exit41
+37:                                               ; preds = %35
+  %38 = trunc i64 %.sroa.8.0 to i32
+  %39 = icmp ugt i32 %38, -12
+  br i1 %39, label %40, label %JS_FreeValue.exit41
 
-37:                                               ; preds = %34
-  %38 = inttoptr i64 %.sroa.07.0 to ptr
-  %39 = load i32, ptr %38, align 4, !tbaa !14
-  %40 = add i32 %39, -1
-  store i32 %40, ptr %38, align 4, !tbaa !14
-  %41 = icmp slt i32 %40, 1
-  br i1 %41, label %42, label %JS_FreeValue.exit41
+40:                                               ; preds = %37
+  %41 = inttoptr i64 %.sroa.07.0 to ptr
+  %42 = load i32, ptr %41, align 4, !tbaa !14
+  %43 = add i32 %42, -1
+  store i32 %43, ptr %41, align 4, !tbaa !14
+  %44 = icmp slt i32 %43, 1
+  br i1 %44, label %45, label %JS_FreeValue.exit41
 
-42:                                               ; preds = %37
+45:                                               ; preds = %40
   tail call void @__JS_FreeValue(ptr noundef %0, i64 %.sroa.07.0, i64 %.sroa.8.0) #30
   br label %JS_FreeValue.exit41
 
-JS_FreeValue.exit41:                              ; preds = %42, %37, %34, %11, %12
+JS_FreeValue.exit41:                              ; preds = %45, %40, %37, %11, %12
   ret void
 }
 
@@ -8251,9 +8256,9 @@ JS_FreeValue.exit:                                ; preds = %19, %23, %28
   br label %225
 
 36:                                               ; preds = %29
-  %37 = shl nuw nsw i32 %30, 3
-  %38 = add nuw nsw i32 %37, 8
-  %39 = zext nneg i32 %38 to i64
+  %37 = add nuw nsw i32 %30, 1
+  %38 = zext nneg i32 %37 to i64
+  %39 = shl nuw nsw i64 %38, 3
   %40 = call ptr @js_mallocz(ptr noundef %0, i64 noundef %39) #30
   %.not236 = icmp eq ptr %40, null
   br i1 %.not236, label %225, label %.preheader292

@@ -804,12 +804,12 @@ define internal void @libdef_lua(ptr noundef readonly captures(none) %0, ptr nou
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8, !tbaa !4
   %6 = icmp eq i32 %5, 7
-  br i1 %6, label %.preheader, label %65
+  br i1 %6, label %.preheader, label %66
 
 7:                                                ; preds = %.preheader
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %.not, label %62, label %.preheader, !llvm.loop !44
+  br i1 %.not, label %63, label %.preheader, !llvm.loop !44
 
 .preheader:                                       ; preds = %3, %7
   %indvars.iv = phi i64 [ %indvars.iv.next, %7 ], [ 0, %3 ]
@@ -898,8 +898,8 @@ libdef_uleb128.exit38.i:                          ; preds = %44, %libdef_uleb128
   br i1 %.not.i, label %libdef_fixupbc.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %libdef_uleb128.exit38.i, %.lr.ph.i
-  %.044.i = phi ptr [ %59, %.lr.ph.i ], [ %.010.i33.i, %libdef_uleb128.exit38.i ]
-  %.02443.i = phi i32 [ %58, %.lr.ph.i ], [ 0, %libdef_uleb128.exit38.i ]
+  %.044.i = phi ptr [ %60, %.lr.ph.i ], [ %.010.i33.i, %libdef_uleb128.exit38.i ]
+  %.02443.i = phi i32 [ %59, %.lr.ph.i ], [ 0, %libdef_uleb128.exit38.i ]
   %53 = load i8, ptr %.044.i, align 1, !tbaa !21
   %54 = getelementptr inbounds nuw i8, ptr %.044.i, i64 2
   %55 = load i8, ptr %54, align 1, !tbaa !21
@@ -907,12 +907,13 @@ libdef_uleb128.exit38.i:                          ; preds = %44, %libdef_uleb128
   %57 = icmp eq i8 %55, 14
   %or.cond.i = select i1 %56, i1 %57, i1 false
   %spec.select.i = select i1 %or.cond.i, i8 17, i8 %53
-  %spec.select26.i = select i1 %or.cond.i, i8 15, i8 %55
+  %58 = zext i1 %or.cond.i to i8
+  %spec.select26.i = or disjoint i8 %55, %58
   store i8 %spec.select.i, ptr %.044.i, align 1, !tbaa !21
   store i8 %spec.select26.i, ptr %54, align 1, !tbaa !21
-  %58 = add nuw i32 %.02443.i, 1
-  %59 = getelementptr inbounds nuw i8, ptr %.044.i, i64 4
-  %exitcond.not.i = icmp eq i32 %58, %.09.i34.i
+  %59 = add nuw i32 %.02443.i, 1
+  %60 = getelementptr inbounds nuw i8, ptr %.044.i, i64 4
+  %exitcond.not.i = icmp eq i32 %59, %.09.i34.i
   br i1 %exitcond.not.i, label %libdef_fixupbc.exit.loopexit, label %.lr.ph.i, !llvm.loop !49
 
 libdef_fixupbc.exit.loopexit:                     ; preds = %.lr.ph.i
@@ -920,18 +921,18 @@ libdef_fixupbc.exit.loopexit:                     ; preds = %.lr.ph.i
   br label %libdef_fixupbc.exit
 
 libdef_fixupbc.exit:                              ; preds = %libdef_fixupbc.exit.loopexit, %libdef_uleb128.exit38.i
-  %60 = phi ptr [ %.pre, %libdef_fixupbc.exit.loopexit ], [ %21, %libdef_uleb128.exit38.i ]
-  %61 = getelementptr inbounds i8, ptr %60, i64 %24
-  store ptr %61, ptr @optr, align 8, !tbaa !20
-  br label %65
+  %61 = phi ptr [ %.pre, %libdef_fixupbc.exit.loopexit ], [ %21, %libdef_uleb128.exit38.i ]
+  %62 = getelementptr inbounds i8, ptr %61, i64 %24
+  store ptr %62, ptr @optr, align 8, !tbaa !20
+  br label %66
 
-62:                                               ; preds = %7
-  %63 = load ptr, ptr @stderr, align 8, !tbaa !22
-  %64 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %63, ptr noundef nonnull @.str.53, ptr noundef nonnull %1) #16
+63:                                               ; preds = %7
+  %64 = load ptr, ptr @stderr, align 8, !tbaa !22
+  %65 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %64, ptr noundef nonnull @.str.53, ptr noundef nonnull %1) #16
   tail call void @exit(i32 noundef 1) #17
   unreachable
 
-65:                                               ; preds = %libdef_fixupbc.exit, %3
+66:                                               ; preds = %libdef_fixupbc.exit, %3
   ret void
 }
 
@@ -1097,7 +1098,7 @@ define internal void @libdef_push(ptr noundef readonly captures(none) %0, ptr no
 
 libdef_name.exit:                                 ; preds = %28
   %37 = trunc nuw nsw i64 %23 to i8
-  %38 = or disjoint i8 %37, -64
+  %38 = or i8 %37, -64
   store i8 %38, ptr %29, align 1, !tbaa !21
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %30, ptr nonnull align 1 %22, i64 %23, i1 false)
   store ptr %31, ptr @optr, align 8, !tbaa !20
@@ -1255,7 +1256,7 @@ define internal void @libdef_set(ptr noundef readonly captures(none) %0, ptr nou
 
 libdef_name.exit:                                 ; preds = %21
   %30 = trunc nuw nsw i64 %16 to i8
-  %31 = or disjoint i8 %30, -64
+  %31 = or i8 %30, -64
   store i8 %31, ptr %22, align 1, !tbaa !21
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %23, ptr nonnull align 1 %1, i64 %16, i1 false)
   %32 = getelementptr inbounds nuw i8, ptr %24, i64 1

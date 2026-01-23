@@ -1558,7 +1558,7 @@ define dso_local range(i32 0, 5) i32 @lru_crawler_crawl(ptr noundef %0, i32 noun
   br i1 %.not2326, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %14, %20
-  %.01727 = phi ptr [ %26, %20 ], [ %15, %14 ]
+  %.01727 = phi ptr [ %32, %20 ], [ %15, %14 ]
   %16 = call zeroext i1 @safe_strtoul(ptr noundef nonnull %.01727, ptr noundef nonnull %7) #18
   %17 = load i32, ptr %7, align 4
   %18 = add i32 %17, -1
@@ -1567,29 +1567,35 @@ define dso_local range(i32 0, 5) i32 @lru_crawler_crawl(ptr noundef %0, i32 noun
   br i1 %or.cond3.not, label %20, label %.loopexit
 
 20:                                               ; preds = %.lr.ph
-  %21 = zext nneg i32 %17 to i64
-  %22 = getelementptr inbounds nuw i8, ptr %8, i64 %21
-  %23 = getelementptr inbounds nuw i8, ptr %22, i64 192
+  %21 = or i32 %17, 192
+  %22 = zext nneg i32 %21 to i64
+  %23 = getelementptr inbounds nuw i8, ptr %8, i64 %22
   store i8 1, ptr %23, align 1, !tbaa !36
-  store i8 1, ptr %22, align 1, !tbaa !36
-  %24 = getelementptr inbounds nuw i8, ptr %22, i64 64
-  store i8 1, ptr %24, align 1, !tbaa !36
-  %25 = getelementptr inbounds nuw i8, ptr %22, i64 128
+  %24 = zext nneg i32 %17 to i64
+  %25 = getelementptr inbounds nuw i8, ptr %8, i64 %24
   store i8 1, ptr %25, align 1, !tbaa !36
-  %26 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.5, ptr noundef nonnull %6) #18
-  %.not23 = icmp eq ptr %26, null
+  %26 = or i32 %17, 64
+  %27 = zext nneg i32 %26 to i64
+  %28 = getelementptr inbounds nuw i8, ptr %8, i64 %27
+  store i8 1, ptr %28, align 1, !tbaa !36
+  %29 = or i32 %17, 128
+  %30 = zext nneg i32 %29 to i64
+  %31 = getelementptr inbounds nuw i8, ptr %8, i64 %30
+  store i8 1, ptr %31, align 1, !tbaa !36
+  %32 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.5, ptr noundef nonnull %6) #18
+  %.not23 = icmp eq ptr %32, null
   br i1 %.not23, label %.critedge, label %.lr.ph, !llvm.loop !88
 
 .critedge:                                        ; preds = %20, %14, %.preheader.preheader, %11
   %.018 = phi ptr [ null, %11 ], [ %8, %.preheader.preheader ], [ %8, %14 ], [ %8, %20 ]
-  %27 = call i32 @lru_crawler_start(ptr noundef %.018, i32 noundef %4, i32 noundef %1, ptr noundef null, ptr noundef %2, i32 noundef %3)
-  %switch.tableidx = add i32 %27, 2
-  %28 = icmp ult i32 %switch.tableidx, 3
-  br i1 %28, label %switch.lookup, label %.loopexit
+  %33 = call i32 @lru_crawler_start(ptr noundef %.018, i32 noundef %4, i32 noundef %1, ptr noundef null, ptr noundef %2, i32 noundef %3)
+  %switch.tableidx = add i32 %33, 2
+  %34 = icmp ult i32 %switch.tableidx, 3
+  br i1 %34, label %switch.lookup, label %.loopexit
 
 switch.lookup:                                    ; preds = %.critedge
-  %29 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.lru_crawler_crawl, i64 %29
+  %35 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.lru_crawler_crawl, i64 %35
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %.loopexit
 

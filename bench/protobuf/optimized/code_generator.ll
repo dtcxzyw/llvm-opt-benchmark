@@ -465,20 +465,16 @@ entry:
   %2 = load i64, ptr %_internal_metadata_.i, align 8
   %and.i.i = and i64 %2, 1
   %tobool.i.not.i = icmp eq i64 %and.i.i, 0
-  br i1 %tobool.i.not.i, label %if.else.i.i, label %if.then.i.i
+  %and.i2.i = and i64 %2, -2
+  %3 = inttoptr i64 %and.i2.i to ptr
+  br i1 %tobool.i.not.i, label %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %and.i1.i = and i64 %2, -2
-  %3 = inttoptr i64 %and.i1.i to ptr
   %4 = load ptr, ptr %3, align 8
   br label %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit
 
-if.else.i.i:                                      ; preds = %entry
-  %5 = inttoptr i64 %2 to ptr
-  br label %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit
-
-_ZNK6google8protobuf11MessageLite8GetArenaEv.exit: ; preds = %if.then.i.i, %if.else.i.i
-  %retval.i.0.i = phi ptr [ %4, %if.then.i.i ], [ %5, %if.else.i.i ]
+_ZNK6google8protobuf11MessageLite8GetArenaEv.exit: ; preds = %entry, %if.then.i.i
+  %retval.i.0.i = phi ptr [ %4, %if.then.i.i ], [ %3, %entry ]
   %suffix_.i = getelementptr inbounds nuw i8, ptr %version, i64 24
   tail call void @_ZN6google8protobuf8internal14ArenaStringPtr3SetESt17basic_string_viewIcSt11char_traitsIcEEPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(8) %suffix_.i, i64 0, ptr nonnull @.str.5, ptr noundef %retval.i.0.i)
   ret void

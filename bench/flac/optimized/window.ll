@@ -11,12 +11,12 @@ define hidden void @FLAC__window_bartlett(ptr noundef writeonly captures(none) %
   br i1 %.not, label %.preheader35, label %.preheader38
 
 .preheader38:                                     ; preds = %2
-  %5 = ashr exact i32 %3, 1
-  %.not3339 = icmp slt i32 %5, 0
+  %.not3339 = icmp slt i32 %1, 0
   br i1 %.not3339, label %.preheader36, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader38
-  %6 = uitofp nneg i32 %3 to float
+  %5 = sdiv i32 %3, 2
+  %6 = sitofp i32 %3 to float
   %7 = add nuw nsw i32 %5, 1
   %wide.trip.count = zext nneg i32 %7 to i64
   %8 = fdiv reassoc nsz arcp float 1.000000e+00, %6
@@ -567,15 +567,16 @@ define hidden void @FLAC__window_triangle(ptr noundef writeonly captures(none) %
   br i1 %.not, label %.preheader36, label %.preheader39
 
 .preheader39:                                     ; preds = %2
-  %4 = add nsw i32 %1, 1
-  %5 = ashr exact i32 %4, 1
-  %.not3440 = icmp slt i32 %5, 1
+  %4 = add i32 %1, 1
+  %.not3440 = icmp slt i32 %1, 1
   br i1 %.not3440, label %.preheader37, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader39
-  %6 = sitofp i32 %1 to float
+  %5 = sdiv i32 %4, 2
+  %6 = uitofp nneg i32 %1 to float
   %7 = fadd reassoc nsz arcp float %6, 1.000000e+00
-  %8 = add nuw nsw i32 %5, 1
+  %smax = tail call i32 @llvm.smax.i32(i32 %5, i32 1)
+  %8 = add nuw nsw i32 %smax, 1
   %wide.trip.count = zext nneg i32 %8 to i64
   %9 = fdiv reassoc nsz arcp float 1.000000e+00, %7
   br label %19
@@ -602,7 +603,7 @@ define hidden void @FLAC__window_triangle(ptr noundef writeonly captures(none) %
   %15 = uitofp nneg i32 %1 to float
   %16 = fadd reassoc nsz arcp float %15, 1.000000e+00
   %17 = zext nneg i32 %.0.lcssa to i64
-  %wide.trip.count58 = zext nneg i32 %4 to i64
+  %wide.trip.count58 = zext i32 %4 to i64
   %18 = fdiv reassoc nsz arcp float 1.000000e+00, %16
   br label %26
 
@@ -1547,6 +1548,9 @@ define hidden void @FLAC__window_welch(ptr noundef writeonly captures(none) %0, 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   ret void
 }
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #4
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #4

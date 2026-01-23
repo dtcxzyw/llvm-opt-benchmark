@@ -239,6 +239,10 @@ $_ZZN4node18MemoryRetainerNodeC1EPNS_13MemoryTrackerEPKNS_14MemoryRetainerEE4arg
 @.str.51 = private unnamed_addr constant [33 x i8] c"../../src/dataqueue/queue.cc:267\00", align 1
 @.str.52 = private unnamed_addr constant [15 x i8] c"!pull_pending_\00", align 1
 @.str.53 = private unnamed_addr constant [118 x i8] c"virtual int node::(anonymous namespace)::IdempotentDataQueueReader::Pull(Next, int, DataQueue::Vec *, size_t, size_t)\00", align 1
+@.str.56 = private unnamed_addr constant [94 x i8] c"DataQueue::Reader *node::(anonymous namespace)::IdempotentDataQueueReader::getCurrentReader()\00", align 1
+@_ZZN4node12_GLOBAL__N_125IdempotentDataQueueReader16getCurrentReaderEvE4args_0 = internal constant %"struct.node::AssertionInfo" { ptr @.str.57, ptr @.str.58, ptr @.str.56 }, align 8
+@.str.57 = private unnamed_addr constant [33 x i8] c"../../src/dataqueue/queue.cc:333\00", align 1
+@.str.58 = private unnamed_addr constant [27 x i8] c"current_index_.has_value()\00", align 1
 @_ZZZN4node12_GLOBAL__N_125IdempotentDataQueueReader4PullESt8functionIFviPKNS_9DataQueue3VecEmS2_IFvmEEEEiPS4_mmENKUliS6_mS8_E_clEiS6_mS8_E4args = internal constant %"struct.node::AssertionInfo" { ptr @.str.59, ptr @.str.60, ptr @.str.61 }, align 8
 @.str.59 = private unnamed_addr constant [33 x i8] c"../../src/dataqueue/queue.cc:278\00", align 1
 @.str.60 = private unnamed_addr constant [149 x i8] c"!(status == bob::Status::STATUS_BLOCK || status == bob::Status::STATUS_WAIT || status == bob::Status::STATUS_EOS) || (vecs == nullptr && count == 0)\00", align 1
@@ -7481,7 +7485,7 @@ if.end:                                           ; preds = %_ZNSt10shared_ptrIN
   %_M_engaged.i.i = getelementptr inbounds nuw i8, ptr %this, i64 52
   %9 = load i8, ptr %_M_engaged.i.i, align 4
   %tobool.i.i = trunc i8 %9 to i1
-  br i1 %tobool.i.i, label %do.end15.i, label %if.then3
+  br i1 %tobool.i.i, label %do.body7.i, label %if.then3
 
 if.then3:                                         ; preds = %if.end
   %data_queue_ = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -7533,10 +7537,20 @@ if.then.i.i21:                                    ; preds = %_ZNKSt8functionIFvi
 do.body7.i.thread:                                ; preds = %if.then3
   store i8 1, ptr %_M_engaged.i.i, align 4
   store i32 0, ptr %current_index_, align 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   br label %do.end15.i
 
-do.end15.i:                                       ; preds = %if.end, %do.body7.i.thread
+do.body7.i:                                       ; preds = %if.end
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
+  %tobool.i.i.i = trunc i8 %9 to i1
+  br i1 %tobool.i.i.i, label %do.end15.i, label %do.body12.i
+
+do.body12.i:                                      ; preds = %do.body7.i
+  tail call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node12_GLOBAL__N_125IdempotentDataQueueReader16getCurrentReaderEvE4args_0) #21
+  tail call void @abort() #24
+  unreachable
+
+do.end15.i:                                       ; preds = %do.body7.i.thread, %do.body7.i
   %current_reader_.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %15 = load ptr, ptr %current_reader_.i, align 8
   %cmp.i.not.i.i = icmp eq ptr %15, null

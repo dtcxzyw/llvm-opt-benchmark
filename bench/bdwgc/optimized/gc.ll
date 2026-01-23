@@ -1132,7 +1132,7 @@ define void @GC_init() local_unnamed_addr #1 {
   br i1 %75, label %76, label %78
 
 76:                                               ; preds = %72
-  %77 = and i64 %73, 2147483647
+  %77 = and i64 %73, 4294967295
   store i64 %77, ptr @GC_free_space_divisor, align 8, !tbaa !10
   br label %78
 
@@ -1543,7 +1543,7 @@ GC_write.exit.thread:                             ; preds = %20
   br label %34
 
 26:                                               ; preds = %.lr.ph.i
-  %27 = and i64 %18, 2147483647
+  %27 = and i64 %18, 4294967295
   %28 = add i64 %27, %.01320.i
   br label %29
 
@@ -2123,7 +2123,7 @@ define void @GC_err_printf(ptr noundef readonly captures(none) %0, ...) local_un
   br i1 %21, label %25, label %GC_err_puts.exit, !llvm.loop !45
 
 22:                                               ; preds = %.lr.ph.i.i
-  %23 = and i64 %16, 2147483647
+  %23 = and i64 %16, 4294967295
   %24 = add i64 %23, %.01320.i.i
   br label %25
 
@@ -3366,7 +3366,7 @@ GC_write.exit.thread:                             ; preds = %22
   br label %36
 
 28:                                               ; preds = %.lr.ph.i
-  %29 = and i64 %20, 2147483647
+  %29 = and i64 %20, 4294967295
   %30 = add i64 %29, %.01320.i
   br label %31
 
@@ -13344,8 +13344,8 @@ GC_is_heap_ptr.exit:                              ; preds = %22
   %30 = and i64 %29, 1023
   %31 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !57
-  %.not209 = icmp eq ptr %32, null
-  br i1 %.not209, label %GC_clear_stack.exit195, label %33
+  %.not208 = icmp eq ptr %32, null
+  br i1 %.not208, label %GC_clear_stack.exit195, label %33
 
 33:                                               ; preds = %GC_is_heap_ptr.exit
   %34 = lshr i64 %17, 18
@@ -13448,8 +13448,8 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
 .preheader:                                       ; preds = %69
   %74 = getelementptr inbounds nuw ptr, ptr %73, i64 %41
   %75 = load ptr, ptr %74, align 8, !tbaa !69
-  %.not101215 = icmp eq ptr %75, null
-  br i1 %.not101215, label %GC_clear_stack.exit.thread199, label %.lr.ph
+  %.not101214 = icmp eq ptr %75, null
+  br i1 %.not101214, label %GC_clear_stack.exit.thread199, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %76 = getelementptr inbounds nuw i8, ptr %71, i64 25
@@ -13458,7 +13458,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
 77:                                               ; preds = %.lr.ph, %207
   %78 = phi ptr [ %75, %.lr.ph ], [ %209, %207 ]
   %79 = phi ptr [ %74, %.lr.ph ], [ %208, %207 ]
-  %.074216 = phi ptr [ %73, %.lr.ph ], [ %.175, %207 ]
+  %.074215 = phi ptr [ %73, %.lr.ph ], [ %.175, %207 ]
   %80 = ptrtoint ptr %78 to i64
   %81 = lshr i64 %80, 22
   %82 = and i64 %81, 2047
@@ -13765,7 +13765,7 @@ GC_lock.exit137:                                  ; preds = %.preheader.i.i135, 
   br i1 %206, label %GC_clear_stack.exit.thread199, label %207
 
 207:                                              ; preds = %GC_lock.exit137, %166
-  %.175 = phi ptr [ %205, %GC_lock.exit137 ], [ %.074216, %166 ]
+  %.175 = phi ptr [ %205, %GC_lock.exit137 ], [ %.074215, %166 ]
   %208 = getelementptr inbounds nuw ptr, ptr %.175, i64 %41
   %209 = load ptr, ptr %208, align 8, !tbaa !69
   %.not101 = icmp eq ptr %209, null
@@ -13793,16 +13793,16 @@ GC_clear_stack.exit.thread199:                    ; preds = %207, %GC_lock.exit1
   br label %219
 
 219:                                              ; preds = %218, %225
-  %.073219 = phi ptr [ %217, %218 ], [ %223, %225 ]
+  %.073218 = phi ptr [ %217, %218 ], [ %223, %225 ]
   %220 = phi i64 [ 0, %218 ], [ %221, %225 ]
   %221 = add nuw nsw i64 %220, %0
   %222 = icmp ugt i64 %221, 4095
-  %223 = load ptr, ptr %.073219, align 8, !tbaa !12
+  %223 = load ptr, ptr %.073218, align 8, !tbaa !12
   br i1 %222, label %224, label %225
 
 224:                                              ; preds = %219
   store ptr %223, ptr %216, align 8, !tbaa !12
-  store ptr null, ptr %.073219, align 8, !tbaa !12
+  store ptr null, ptr %.073218, align 8, !tbaa !12
   br label %.loopexit
 
 225:                                              ; preds = %219
@@ -13885,8 +13885,8 @@ GC_set_hdr_marks.exit:                            ; preds = %261
 266:                                              ; preds = %GC_set_hdr_marks.exit, %230
   %267 = urem i64 4096, %0
   %268 = load i64, ptr getelementptr inbounds nuw (i8, ptr @GC_arrays, i64 72), align 8, !tbaa !46
-  %reass.sub220 = sub i64 %268, %267
-  %269 = add i64 %reass.sub220, 4096
+  %reass.sub219 = sub i64 %268, %267
+  %269 = add i64 %reass.sub219, 4096
   store i64 %269, ptr getelementptr inbounds nuw (i8, ptr @GC_arrays, i64 72), align 8, !tbaa !46
   %270 = load i32, ptr @GC_parallel, align 4, !tbaa !3
   %.not110 = icmp eq i32 %270, 0
@@ -13956,10 +13956,9 @@ GC_release_mark_lock.exit146:                     ; preds = %286
   tail call void @llvm.prefetch.p0(ptr nonnull %295, i32 1, i32 3, i32 1)
   %296 = getelementptr inbounds nuw i8, ptr %229, i64 378
   tail call void @llvm.prefetch.p0(ptr nonnull %296, i32 1, i32 3, i32 1)
-  %trunc = trunc nuw i64 %41 to i8
-  switch i8 %trunc, label %333 [
-    i8 1, label %297
-    i8 2, label %316
+  switch i64 %41, label %333 [
+    i64 1, label %297
+    i64 2, label %316
   ]
 
 297:                                              ; preds = %GC_release_mark_lock.exit146
@@ -14079,7 +14078,7 @@ GC_build_fl4.exit.i:                              ; preds = %327
   br label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %333, %334
-  %336 = and i64 %0, 4080
+  %336 = and i64 %0, -16
   %337 = sub nuw nsw i64 4096, %336
   %338 = getelementptr inbounds nuw i8, ptr %229, i64 %337
   %.03547.i = getelementptr inbounds nuw i8, ptr %229, i64 %336
@@ -14181,10 +14180,9 @@ GC_release_mark_lock.exit152:                     ; preds = %353
   tail call void @llvm.prefetch.p0(ptr nonnull %372, i32 1, i32 3, i32 1)
   %373 = getelementptr inbounds nuw i8, ptr %229, i64 378
   tail call void @llvm.prefetch.p0(ptr nonnull %373, i32 1, i32 3, i32 1)
-  %trunc208 = trunc nuw i64 %41 to i8
-  switch i8 %trunc208, label %410 [
-    i8 1, label %374
-    i8 2, label %393
+  switch i64 %41, label %410 [
+    i64 1, label %374
+    i64 2, label %393
   ]
 
 374:                                              ; preds = %366
@@ -14304,7 +14302,7 @@ GC_build_fl4.exit.i168:                           ; preds = %404
   br label %.lr.ph.preheader.i182
 
 .lr.ph.preheader.i182:                            ; preds = %410, %411
-  %413 = and i64 %0, 4080
+  %413 = and i64 %0, -16
   %414 = sub nuw nsw i64 4096, %413
   %415 = getelementptr inbounds nuw i8, ptr %229, i64 %414
   %.03547.i183 = getelementptr inbounds nuw i8, ptr %229, i64 %413
@@ -20391,7 +20389,7 @@ GC_setup_atfork.exit:                             ; preds = %0, %10, %11
   br label %.thread29.sink.split
 
 34:                                               ; preds = %24
-  %35 = and i64 %25, 2147483647
+  %35 = and i64 %25, 4294967295
   %36 = getelementptr inbounds nuw i8, ptr %5, i64 %35
   store i8 0, ptr %36, align 1, !tbaa !41
   %37 = tail call i32 @close(i32 noundef %20) #47
@@ -22346,7 +22344,7 @@ define hidden void @GC_err_puts(ptr noundef readonly captures(none) %0) local_un
   br i1 %13, label %17, label %GC_write.exit, !llvm.loop !45
 
 14:                                               ; preds = %.lr.ph.i
-  %15 = and i64 %8, 2147483647
+  %15 = and i64 %8, 4294967295
   %16 = add i64 %15, %.01320.i
   br label %17
 
@@ -22559,7 +22557,7 @@ GC_write.exit.thread12:                           ; preds = %14
   br label %43
 
 20:                                               ; preds = %.lr.ph.i
-  %21 = and i64 %12, 2147483647
+  %21 = and i64 %12, 4294967295
   %22 = add i64 %21, %.01320.i
   br label %23
 
@@ -22595,7 +22593,7 @@ GC_write.exit:                                    ; preds = %23
   br i1 %37, label %.lr.ph.i4.backedge, label %GC_write.exit10
 
 38:                                               ; preds = %.lr.ph.i4
-  %39 = and i64 %32, 2147483647
+  %39 = and i64 %32, 4294967295
   %40 = icmp eq i64 %39, 0
   br i1 %40, label %.lr.ph.i4.backedge, label %GC_write.exit10
 
@@ -25196,7 +25194,7 @@ GC_unix_get_mem.exit.i.i:                         ; preds = %105
   %118 = load i64, ptr @GC_page_size, align 8, !tbaa !10
   %119 = sub nsw i64 0, %118
   %120 = icmp ult i64 %41, %119
-  %121 = add nsw i64 %41, -1
+  %121 = add i64 %41, -1
   %122 = add i64 %121, %118
   %123 = select i1 %120, i64 %122, i64 -1, !prof !13
   %124 = and i64 %123, %119
@@ -25402,7 +25400,7 @@ GC_get_maps.exit:                                 ; preds = %181
   br i1 %198, label %202, label %GC_err_puts.exit, !llvm.loop !45
 
 199:                                              ; preds = %.lr.ph.i.i1
-  %200 = and i64 %193, 2147483647
+  %200 = and i64 %193, 4294967295
   %201 = add i64 %200, %.01320.i.i
   br label %202
 
@@ -25762,7 +25760,7 @@ GC_lookup_thread.exit:                            ; preds = %27
   br i1 %.not26, label %49, label %45
 
 45:                                               ; preds = %41
-  %46 = or disjoint i64 %36, 1
+  %46 = or i64 %36, 1
   store volatile i64 %46, ptr %35, align 8, !tbaa !343
   %.b19 = load i1, ptr @GC_need_to_lock, align 1
   br i1 %.b19, label %47, label %87
@@ -25777,7 +25775,7 @@ GC_lookup_thread.exit:                            ; preds = %27
   br i1 %51, label %52, label %56
 
 52:                                               ; preds = %49
-  %53 = or disjoint i64 %36, 1
+  %53 = or i64 %36, 1
   store volatile i64 %53, ptr %35, align 8, !tbaa !343
   tail call fastcc void @GC_with_callee_saves_pushed(ptr noundef nonnull @GC_suspend_self_blocked, ptr noundef nonnull %.0.i)
   %.b18 = load i1, ptr @GC_need_to_lock, align 1
@@ -25801,7 +25799,7 @@ GC_lookup_thread.exit:                            ; preds = %27
   %61 = load volatile i64, ptr @GC_stop_count, align 8, !tbaa !10
   %62 = add i64 %61, 1
   store atomic volatile i64 %62, ptr @GC_stop_count monotonic, align 8
-  %63 = or disjoint i64 %36, 1
+  %63 = or i64 %36, 1
   store atomic volatile i64 %63, ptr %35 release, align 8
   %64 = load i32, ptr @GC_sig_suspend, align 4, !tbaa !3
   %65 = load i64, ptr %34, align 8, !tbaa !180
@@ -27950,7 +27948,7 @@ GC_lookup_thread.exit:                            ; preds = %26
   br i1 %33, label %34, label %GC_lookup_thread.exit.thread
 
 34:                                               ; preds = %GC_lookup_thread.exit
-  %35 = or disjoint i8 %31, 16
+  %35 = or i8 %31, 16
   store i8 %35, ptr %30, align 8, !tbaa !323
   %36 = load i32, ptr @GC_dont_gc, align 4, !tbaa !3
   %37 = add nsw i32 %36, 1
@@ -28051,7 +28049,7 @@ GC_lookup_thread.exit:                            ; preds = %27
   br i1 %34, label %35, label %GC_lookup_thread.exit.thread
 
 35:                                               ; preds = %GC_lookup_thread.exit
-  %36 = or disjoint i8 %32, 16
+  %36 = or i8 %32, 16
   store i8 %36, ptr %31, align 8, !tbaa !323
   %37 = load i32, ptr @GC_dont_gc, align 4, !tbaa !3
   %38 = add nsw i32 %37, 1
@@ -35846,7 +35844,7 @@ define internal fastcc ptr @GC_scratch_alloc(i64 noundef %0) unnamed_addr #1 {
   %29 = load i64, ptr @GC_page_size, align 8, !tbaa !10
   %30 = sub nsw i64 0, %29
   %31 = icmp ult i64 %4, %30
-  %32 = add nsw i64 %4, -1
+  %32 = add i64 %4, -1
   %33 = add i64 %32, %29
   %34 = select i1 %31, i64 %33, i64 -1, !prof !13
   %35 = and i64 %34, %30
@@ -36432,7 +36430,7 @@ GC_remove_counts.exit:                            ; preds = %59, %26, %GC_find_h
   unreachable
 
 73:                                               ; preds = %GC_remove_counts.exit
-  %74 = or disjoint i8 %69, 4
+  %74 = or i8 %69, 4
   store i8 %74, ptr %68, align 1, !tbaa !63
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 %22
   %76 = ptrtoint ptr %75 to i64
@@ -44250,7 +44248,7 @@ GC_lookup_thread.exit.i:                          ; preds = %24, %23
   br i1 %.not23.i, label %.sink.split.i, label %63
 
 63:                                               ; preds = %60
-  %64 = or disjoint i64 %12, 1
+  %64 = or i64 %12, 1
   store atomic volatile i64 %64, ptr %28 release, align 8
   br label %.sink.split.i
 

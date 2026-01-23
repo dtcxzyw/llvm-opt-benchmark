@@ -249,8 +249,9 @@ _ZNSt6vectorIN5Eigen7TripletIdiEESaIS2_EEC2EmRKS3_.exit: ; preds = %.noexc45, %_
 
 .preheader.lr.ph.split.us:                        ; preds = %.preheader.lr.ph
   %49 = load ptr, ptr %3, align 8, !tbaa !4
-  %50 = and i64 %11, 2147483647
-  %wide.trip.count = and i64 %14, 2147483647
+  %50 = and i64 %11, 4294967295
+  %wide.trip.count66 = and i64 %11, 4294967295
+  %wide.trip.count = and i64 %14, 4294967295
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph.split.us
@@ -278,7 +279,7 @@ _ZNSt6vectorIN5Eigen7TripletIdiEESaIS2_EEC2EmRKS3_.exit: ; preds = %.noexc45, %_
 
 ._crit_edge.us:                                   ; preds = %52
   %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
-  %exitcond67.not = icmp eq i64 %indvars.iv.next64, %50
+  %exitcond67.not = icmp eq i64 %indvars.iv.next64, %wide.trip.count66
   br i1 %exitcond67.not, label %._crit_edge60, label %.preheader.us, !llvm.loop !28
 
 ._crit_edge60:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %_ZNSt6vectorIN5Eigen7TripletIdiEESaIS2_EEC2EmRKS3_.exit
@@ -522,8 +523,9 @@ _ZNSt6vectorIN5Eigen7TripletIfiEESaIS2_EEC2EmRKS3_.exit: ; preds = %.noexc45, %_
 
 .preheader.lr.ph.split.us:                        ; preds = %.preheader.lr.ph
   %49 = load ptr, ptr %3, align 8, !tbaa !4
-  %50 = and i64 %11, 2147483647
-  %wide.trip.count = and i64 %14, 2147483647
+  %50 = and i64 %11, 4294967295
+  %wide.trip.count66 = and i64 %11, 4294967295
+  %wide.trip.count = and i64 %14, 4294967295
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph.split.us
@@ -552,7 +554,7 @@ _ZNSt6vectorIN5Eigen7TripletIfiEESaIS2_EEC2EmRKS3_.exit: ; preds = %.noexc45, %_
 
 ._crit_edge.us:                                   ; preds = %55
   %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
-  %exitcond67.not = icmp eq i64 %indvars.iv.next64, %50
+  %exitcond67.not = icmp eq i64 %indvars.iv.next64, %wide.trip.count66
   br i1 %exitcond67.not, label %._crit_edge60, label %.preheader.us, !llvm.loop !47
 
 ._crit_edge60:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %_ZNSt6vectorIN5Eigen7TripletIfiEESaIS2_EEC2EmRKS3_.exit
@@ -793,8 +795,9 @@ _ZNSt6vectorIN5Eigen7TripletIdiEESaIS2_EEC2EmRKS3_.exit: ; preds = %.noexc45, %_
 
 .preheader.lr.ph.split.us:                        ; preds = %.preheader.lr.ph
   %49 = load ptr, ptr %3, align 8, !tbaa !11
-  %50 = and i64 %11, 2147483647
-  %wide.trip.count = and i64 %14, 2147483647
+  %50 = and i64 %11, 4294967295
+  %wide.trip.count66 = and i64 %11, 4294967295
+  %wide.trip.count = and i64 %14, 4294967295
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph.split.us
@@ -822,7 +825,7 @@ _ZNSt6vectorIN5Eigen7TripletIdiEESaIS2_EEC2EmRKS3_.exit: ; preds = %.noexc45, %_
 
 ._crit_edge.us:                                   ; preds = %52
   %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
-  %exitcond67.not = icmp eq i64 %indvars.iv.next64, %50
+  %exitcond67.not = icmp eq i64 %indvars.iv.next64, %wide.trip.count66
   br i1 %exitcond67.not, label %._crit_edge60, label %.preheader.us, !llvm.loop !59
 
 ._crit_edge60:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %_ZNSt6vectorIN5Eigen7TripletIdiEESaIS2_EEC2EmRKS3_.exit

@@ -18263,13 +18263,18 @@ cond.end:                                         ; preds = %if.end.i.i, %if.the
   %41 = phi i8 [ %.pre50, %cond.false ], [ %frombool.i, %if.then.i ], [ %frombool.i.i, %if.then.i.i ], [ %frombool.i.i.i, %if.end.i.i ]
   %cond = phi i1 [ %call39, %cond.false ], [ %cmp.i.i.i34, %if.then.i ], [ %cmp.i.i.i.i, %if.then.i.i ], [ %cmp.i.i11.i.i, %if.end.i.i ]
   %42 = trunc i8 %41 to i1
-  br i1 %42, label %for.body49, label %if.end58
+  br i1 %42, label %for.cond47.preheader, label %if.end58
 
-for.body49:                                       ; preds = %cond.end, %for.body49
-  %indvars.iv46 = phi i64 [ %indvars.iv.next47, %for.body49 ], [ 0, %cond.end ]
+for.cond47.preheader:                             ; preds = %cond.end
+  %43 = and i8 %41, 1
+  %conv51 = zext nneg i8 %43 to i64
+  br label %for.body49
+
+for.body49:                                       ; preds = %for.cond47.preheader, %for.body49
+  %indvars.iv46 = phi i64 [ 0, %for.cond47.preheader ], [ %indvars.iv.next47, %for.body49 ]
   %arrayidx53 = getelementptr inbounds nuw i64, ptr %leaf, i64 %indvars.iv46
-  %43 = load i64, ptr %arrayidx53, align 8
-  %add54 = add i64 %43, 1
+  %44 = load i64, ptr %arrayidx53, align 8
+  %add54 = add i64 %44, %conv51
   store i64 %add54, ptr %arrayidx53, align 8
   %indvars.iv.next47 = add nuw nsw i64 %indvars.iv46, 1
   %exitcond49.not = icmp eq i64 %indvars.iv.next47, 512
@@ -21747,13 +21752,18 @@ cond.end:                                         ; preds = %cond.false, %_ZNK7o
   %45 = phi i8 [ %44, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIbLj3EEELj4EEELj5EE10probeValueERKNS0_4math5CoordERb.exit ], [ %.pre52, %cond.false ]
   %cond = phi i1 [ %retval.0.i36, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIbLj3EEELj4EEELj5EE10probeValueERKNS0_4math5CoordERb.exit ], [ %call39, %cond.false ]
   %46 = trunc i8 %45 to i1
-  br i1 %46, label %for.body49, label %if.end58
+  br i1 %46, label %for.cond47.preheader, label %if.end58
 
-for.body49:                                       ; preds = %cond.end, %for.body49
-  %indvars.iv48 = phi i64 [ %indvars.iv.next49, %for.body49 ], [ 0, %cond.end ]
+for.cond47.preheader:                             ; preds = %cond.end
+  %47 = and i8 %45, 1
+  %conv51 = zext nneg i8 %47 to i64
+  br label %for.body49
+
+for.body49:                                       ; preds = %for.cond47.preheader, %for.body49
+  %indvars.iv48 = phi i64 [ 0, %for.cond47.preheader ], [ %indvars.iv.next49, %for.body49 ]
   %arrayidx53 = getelementptr inbounds nuw i64, ptr %mBuffer.i25, i64 %indvars.iv48
-  %47 = load i64, ptr %arrayidx53, align 8
-  %add54 = add i64 %47, 1
+  %48 = load i64, ptr %arrayidx53, align 8
+  %add54 = add i64 %48, %conv51
   store i64 %add54, ptr %arrayidx53, align 8
   %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
   %exitcond51.not = icmp eq i64 %indvars.iv.next49, 512
@@ -107519,7 +107529,7 @@ invoke.cont:                                      ; preds = %for.body
   %3 = trunc nuw nsw i64 %indvars.iv to i32
   %call18 = call noalias noundef nonnull dereferenceable(33808) ptr @_Znwm(i64 noundef 33808) #26
   %4 = lshr i32 %3, 3
-  %shl.i.i24 = and i32 %4, 3968
+  %shl.i.i24 = and i32 %4, 268435328
   %indvars.iv.tr = trunc i64 %indvars.iv to i32
   %5 = shl i32 %indvars.iv.tr, 2
   %shl5.i.i = and i32 %5, 3968
@@ -108013,7 +108023,7 @@ for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %
 
 invoke.cont22:                                    ; preds = %for.body.i.i.i.i
   %9 = lshr i32 %4, 5
-  %shl.i.i25 = and i32 %9, 120
+  %shl.i.i25 = and i32 %9, 67108856
   %10 = lshr i32 %4, 1
   %shl5.i.i = and i32 %10, 120
   %indvars.iv.tr = trunc i64 %indvars.iv to i32
@@ -112403,7 +112413,7 @@ for.body:                                         ; preds = %if.end4, %for.inc
   %indvars.iv = phi i64 [ 0, %if.end4 ], [ %indvars.iv.next, %for.inc ]
   %12 = trunc nuw nsw i64 %indvars.iv to i32
   %13 = lshr i32 %12, 3
-  %shl.i.i = and i32 %13, 3968
+  %shl.i.i = and i32 %13, 268435328
   %indvars.iv.tr = trunc i64 %indvars.iv to i32
   %14 = shl i32 %indvars.iv.tr, 2
   %shl5.i.i = and i32 %14, 3968
@@ -112647,7 +112657,7 @@ for.body:                                         ; preds = %if.end4, %for.inc
   %indvars.iv = phi i64 [ 0, %if.end4 ], [ %indvars.iv.next, %for.inc ]
   %12 = trunc nuw nsw i64 %indvars.iv to i32
   %13 = lshr i32 %12, 5
-  %shl.i.i = and i32 %13, 120
+  %shl.i.i = and i32 %13, 67108856
   %14 = lshr i32 %12, 1
   %shl5.i.i = and i32 %14, 120
   %indvars.iv.tr = trunc i64 %indvars.iv to i32

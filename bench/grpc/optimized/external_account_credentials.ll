@@ -5661,8 +5661,8 @@ _ZNK9grpc_core12experimental4Json6objectB5cxx11Ev.exit158: ; preds = %_ZNSt11cha
   br i1 %242, label %248, label %243
 
 243:                                              ; preds = %_ZNK9grpc_core12experimental4Json6objectB5cxx11Ev.exit158
-  %.19.i.i.i.lcssa.sroa.gep = getelementptr inbounds nuw i8, ptr %.19.i.i.i, i64 112
-  %244 = load i8, ptr %.19.i.i.i.lcssa.sroa.gep, align 8, !tbaa !182
+  %.19.i.i.i.lcssa.sroa.gep417 = getelementptr inbounds nuw i8, ptr %.19.i.i.i, i64 112
+  %244 = load i8, ptr %.19.i.i.i.lcssa.sroa.gep417, align 8, !tbaa !182
   switch i8 %244, label %248 [
     i8 -1, label %245
     i8 3, label %._crit_edge.i.i209
@@ -5900,9 +5900,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit197: ; preds = %31
   br label %515
 
 ._crit_edge.i.i209:                               ; preds = %243
-  %.19.i.i.i.lcssa.sroa.gep417 = getelementptr inbounds nuw i8, ptr %.19.i.i.i, i64 64
+  %.19.i.i.i.lcssa.sroa.gep = getelementptr inbounds nuw i8, ptr %.19.i.i.i, i64 64
   call void @llvm.lifetime.start.p0(ptr nonnull %29)
-  %323 = load ptr, ptr %.19.i.i.i.lcssa.sroa.gep417, align 8, !tbaa !25
+  %323 = load ptr, ptr %.19.i.i.i.lcssa.sroa.gep, align 8, !tbaa !25
   %.19.i.i.i.lcssa.sroa.gep420 = getelementptr inbounds nuw i8, ptr %.19.i.i.i, i64 72
   %324 = load i64, ptr %.19.i.i.i.lcssa.sroa.gep420, align 8, !tbaa !27
   store i64 %324, ptr %29, align 8
@@ -7159,7 +7159,6 @@ _ZNK9grpc_core12experimental4Json6objectB5cxx11Ev.exit210.thread: ; preds = %_ZN
 _ZNK9grpc_core12experimental4Json6objectB5cxx11Ev.exit210: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i
   %.0.i.i.i.i.i = phi i32 [ %191, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i ], [ %.0.i6.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i ]
   %193 = icmp slt i32 %.0.i.i.i.i.i, 0
-  %spec.select.i.i = select i1 %193, ptr %175, ptr %.19.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br i1 %193, label %194, label %229
 
@@ -7278,7 +7277,7 @@ _ZNSt6vectorIN4absl12lts_202407226StatusESaIS2_EED2Ev.exit226: ; preds = %_ZSt8_
   br label %968
 
 229:                                              ; preds = %_ZNK9grpc_core12experimental4Json6objectB5cxx11Ev.exit210
-  %230 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 112
+  %230 = getelementptr inbounds nuw i8, ptr %.19.i.i.i, i64 112
   %231 = load i8, ptr %230, align 8, !tbaa !182
   switch i8 %231, label %232 [
     i8 -1, label %.invoke
@@ -7395,7 +7394,7 @@ _ZNSt6vectorIN4absl12lts_202407226StatusESaIS2_EED2Ev.exit249: ; preds = %_ZSt8_
   br label %968
 
 _ZNK9grpc_core12experimental4Json6stringB5cxx11Ev.exit: ; preds = %229
-  %265 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 64
+  %265 = getelementptr inbounds nuw i8, ptr %.19.i.i.i, i64 64
   %266 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %265, ptr noundef nonnull @.str.27) #36
   %.not551 = icmp eq i32 %266, 0
   br i1 %.not551, label %300, label %267

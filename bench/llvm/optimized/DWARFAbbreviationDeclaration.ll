@@ -398,7 +398,9 @@ _ZN4llvm5ErrorD2Ev.exit36:                        ; preds = %108, %105
 
 118:                                              ; preds = %115
   %119 = call noundef i64 @_ZNK4llvm13DataExtractor10getSLEB128EPmPNS_5ErrorE(ptr noundef nonnull align 8 dereferenceable(18) %2, ptr noundef nonnull %3, ptr noundef null) #14
-  %.sroa.051.0.insert.insert = or disjoint i64 %103, 2162688
+  %.sroa.252.0.insert.ext = shl i64 %87, 16
+  %.sroa.252.0.insert.shift = and i64 %.sroa.252.0.insert.ext, 4294901760
+  %.sroa.051.0.insert.insert = or disjoint i64 %.sroa.252.0.insert.shift, %103
   %120 = load i32, ptr %9, align 8, !tbaa !3
   %121 = load i32, ptr %77, align 4, !tbaa !15
   %.not.i.i.not.i = icmp ult i32 %120, %121

@@ -6778,7 +6778,11 @@ entry:
   %shr.i.i.i = lshr i64 %0, 8
   %cmp.not = icmp eq i64 %shr.i.i.i, 0
   %.pre = load ptr, ptr %this, align 8
-  br i1 %cmp.not, label %if.end7, label %if.then
+  br i1 %cmp.not, label %entry.if.end7_crit_edge, label %if.then
+
+entry.if.end7_crit_edge:                          ; preds = %entry
+  %.pre84 = and i64 %0, 255
+  br label %if.end7
 
 if.then:                                          ; preds = %entry
   %mul.i = shl i64 %hp.coerce1, 1
@@ -6834,8 +6838,8 @@ if.end20.i:                                       ; preds = %while.end.i
   %cmp.i = icmp eq i64 %shr.i, 0
   br i1 %cmp.i, label %for.body.i, label %if.end7, !llvm.loop !8
 
-if.end7:                                          ; preds = %if.end20.i, %while.end.i, %entry
-  %sh_prom.i.i.i.i.pre-phi = phi i64 [ %0, %entry ], [ %sh_prom.i, %while.end.i ], [ %sh_prom.i, %if.end20.i ]
+if.end7:                                          ; preds = %if.end20.i, %while.end.i, %entry.if.end7_crit_edge
+  %sh_prom.i.i.i.i.pre-phi = phi i64 [ %.pre84, %entry.if.end7_crit_edge ], [ %sh_prom.i, %while.end.i ], [ %sh_prom.i, %if.end20.i ]
   %shl.i.i.i.i = shl nuw i64 1, %sh_prom.i.i.i.i.pre-phi
   %control_.i.i = getelementptr inbounds nuw i8, ptr %.pre, i64 14
   %8 = load i8, ptr %control_.i.i, align 2
@@ -7057,7 +7061,8 @@ if.then.i.i.i.i.i:                                ; preds = %entry
   unreachable
 
 _ZN5folly3f146detail10BasePolicyImPN8proxygen18HTTP2PriorityQueue4NodeEvvvSt4pairIKmS6_EE12beforeRehashEmmmmRPh.exit: ; preds = %entry
-  %call5.i.i2.i.i1.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %retval.0.i32) #34
+  %div1.i.i.i = and i64 %retval.0.i32, 9223372036854775792
+  %call5.i.i2.i.i1.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %div1.i.i.i) #34
   store ptr %call5.i.i2.i.i1.i, ptr %rawAllocation, align 8
   store i8 0, ptr %undoState, align 1
   %cmp5.not.i = icmp ne i64 %newChunkCount, 0
@@ -8236,7 +8241,7 @@ if.end.i.i.i:                                     ; preds = %while.body, %while.
   %div.i7.i.i.i = lshr i64 %sub.i.i.i.i, 1
   %1 = and i64 %sub.ptr.sub.i35.lcssa, 16
   %cmp17.i.i.i.i = icmp eq i64 %1, 0
-  %sub25.i.i.i.i = or disjoint i64 %sub.i.i.i, 1
+  %sub25.i.i.i.i = or i64 %sub.i.i.i, 1
   %add.ptr.i20.i.i.i.i = getelementptr inbounds nuw %"struct.std::pair.21", ptr %__first.coerce, i64 %sub25.i.i.i.i
   %add.ptr.i21.i.i.i.i = getelementptr inbounds nuw %"struct.std::pair.21", ptr %__first.coerce, i64 %div56.i.i.i
   %second.i22.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i20.i.i.i.i, i64 8
@@ -8377,7 +8382,7 @@ while.end.i.i:                                    ; preds = %while.body.i.i15, %
 
 land.lhs.true.i.i:                                ; preds = %while.end.i.i
   %sub18.i.i = add nsw i64 %sub.ptr.div.i.i12, -2
-  %div19.i.i = ashr exact i64 %sub18.i.i, 1
+  %div19.i.i = sdiv i64 %sub18.i.i, 2
   %cmp20.i.i = icmp eq i64 %__holeIndex.addr.0.lcssa.i.i, %div19.i.i
   br i1 %cmp20.i.i, label %if.end35.i.thread.i, label %if.end35.i.i
 

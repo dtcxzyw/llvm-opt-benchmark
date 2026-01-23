@@ -25526,14 +25526,13 @@ define hidden { ptr, i64 } @_ZN4ecow7dynamic10DynamicVec8as_slice17h242300dddb8d
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(inaccessiblemem: write) uwtable
-define hidden noundef range(i64 0, 6755399441055744) i64 @_ZN4time4time4Time6as_u6417hdde0b0dc57460be1E.llvm.11057974413330164255(i64 %0) unnamed_addr #36 {
+define hidden noundef range(i64 0, 6755399441055744) i64 @_ZN4time4time4Time6as_u6417hdde0b0dc57460be1E.llvm.11057974413330164255(i64 returned %0) unnamed_addr #36 {
   %.sroa.01.0.extract.trunc = trunc i64 %0 to i32
   %2 = icmp ult i32 %.sroa.01.0.extract.trunc, 1000000000
   tail call void @llvm.assume(i1 %2)
   %3 = icmp samesign ult i64 %0, 6755399441055744
   tail call void @llvm.assume(i1 %3)
-  %.sroa.010.0.insert.insert = and i64 %0, 8795265167261695
-  ret i64 %.sroa.010.0.insert.insert
+  ret i64 %0
 }
 
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -25555,7 +25554,6 @@ define hidden void @"_ZN53_$LT$time..time..Time$u20$as$u20$core..hash..Hash$GT$4
   tail call void @llvm.assume(i1 %3)
   %4 = icmp samesign ult i64 %.sroa.0.0.copyload, 6755399441055744
   tail call void @llvm.assume(i1 %4)
-  %.sroa.010.0.insert.insert.i = and i64 %.sroa.0.0.copyload, 8795265167261695
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %6 = load i64, ptr %5, align 8, !alias.scope !6420, !noundef !12
   %7 = add i64 %6, 8
@@ -25564,7 +25562,7 @@ define hidden void @"_ZN53_$LT$time..time..Time$u20$as$u20$core..hash..Hash$GT$4
   %9 = load i64, ptr %8, align 8, !alias.scope !6420, !noundef !12
   %10 = shl i64 %9, 3
   %11 = and i64 %10, 56
-  %12 = shl i64 %.sroa.010.0.insert.insert.i, %11
+  %12 = shl i64 %.sroa.0.0.copyload, %11
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %14 = load i64, ptr %13, align 8, !alias.scope !6420, !noundef !12
   %15 = or i64 %12, %14
@@ -25602,7 +25600,7 @@ define hidden void @"_ZN53_$LT$time..time..Time$u20$as$u20$core..hash..Hash$GT$4
   store i64 %40, ptr %1, align 8, !alias.scope !6420
   %.not.i.i = icmp eq i64 %9, 0
   %41 = sub nsw i64 64, %10
-  %42 = lshr i64 %.sroa.010.0.insert.insert.i, %41
+  %42 = lshr i64 %.sroa.0.0.copyload, %41
   %.0.i.i = select i1 %.not.i.i, i64 0, i64 %42
   store i64 %.0.i.i, ptr %13, align 8, !alias.scope !6420
   br label %"_ZN69_$LT$siphasher..sip128..SipHasher13$u20$as$u20$core..hash..Hasher$GT$9write_u6417he1267e4f766102a4E.llvm.11057974413330164255.exit"
@@ -25624,14 +25622,13 @@ define hidden void @"_ZN53_$LT$time..time..Time$u20$as$u20$core..hash..Hash$GT$4
   tail call void @llvm.assume(i1 %3)
   %4 = icmp samesign ult i64 %.sroa.0.0.copyload, 6755399441055744
   tail call void @llvm.assume(i1 %4)
-  %.sroa.010.0.insert.insert.i = and i64 %.sroa.0.0.copyload, 8795265167261695
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6428)
   %5 = load ptr, ptr %1, align 8, !alias.scope !6428, !nonnull !12, !align !223, !noundef !12
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8, !alias.scope !6428, !nonnull !12, !align !35, !noundef !12
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %9 = load ptr, ptr %8, align 8, !invariant.load !12, !noalias !6428, !nonnull !12
-  tail call void %9(ptr noundef nonnull align 1 %5, i64 noundef %.sroa.010.0.insert.insert.i), !noalias !6428
+  tail call void %9(ptr noundef nonnull align 1 %5, i64 noundef %.sroa.0.0.copyload), !noalias !6428
   ret void
 }
 
@@ -105342,8 +105339,8 @@ default.unreachable179:                           ; preds = %.thread153, %126, %
   br label %.thread153.thread
 
 .thread153.thread:                                ; preds = %.thread123, %80, %79, %78, %77, %76, %75, %70, %69, %158, %157, %156, %155, %.thread133, %.thread133.thread, %.thread133.thread168, %151, %150, %149, %148, %.thread.thread163.thread, %146, %145, %142, %141, %140, %138, %137, %136, %.thread153, %128, %127, %154, %147, %129
-  %.036.neg131 = phi i32 [ -65, %.thread133.thread168 ], [ -65, %.thread133 ], [ -65, %155 ], [ -65, %156 ], [ -913, %142 ], [ -48, %128 ], [ -65, %157 ], [ -65, %158 ], [ -913, %140 ], [ -913, %141 ], [ -97, %147 ], [ -48, %127 ], [ -65, %.thread133.thread ], [ -65, %154 ], [ -97, %145 ], [ -97, %.thread.thread163.thread ], [ -97, %148 ], [ -97, %149 ], [ -945, %138 ], [ -48, %.thread153 ], [ -97, %150 ], [ -97, %151 ], [ -945, %136 ], [ -945, %137 ], [ -48, %129 ], [ -65, %80 ], [ -97, %146 ], [ -65, %69 ], [ -65, %70 ], [ -65, %75 ], [ -65, %76 ], [ -65, %77 ], [ -65, %78 ], [ -65, %79 ], [ -1488, %.thread123 ]
-  %.037 = phi i32 [ %.55, %.thread133.thread168 ], [ 120432, %.thread133 ], [ %.57, %155 ], [ %.58, %156 ], [ %.48, %142 ], [ %.42, %128 ], [ %.59, %157 ], [ %.60, %158 ], [ %.46, %140 ], [ %.47, %141 ], [ 120146, %147 ], [ %., %127 ], [ %.56, %.thread133.thread ], [ 120120, %154 ], [ %.49, %145 ], [ 120458, %.thread.thread163.thread ], [ %.51, %148 ], [ %.52, %149 ], [ %.45, %138 ], [ 120822, %.thread153 ], [ %.53, %150 ], [ %.54, %151 ], [ %.43, %136 ], [ %.44, %137 ], [ 120792, %129 ], [ 120432, %80 ], [ %.50, %146 ], [ 120432, %69 ], [ 120432, %70 ], [ 120432, %75 ], [ 120432, %76 ], [ 120432, %77 ], [ 120432, %78 ], [ 120432, %79 ], [ 8501, %.thread123 ]
+  %.036.neg131 = phi i32 [ -65, %.thread133.thread168 ], [ -65, %.thread133 ], [ -65, %155 ], [ -65, %156 ], [ -913, %142 ], [ -48, %128 ], [ -65, %157 ], [ -65, %158 ], [ -913, %140 ], [ -913, %141 ], [ -97, %147 ], [ -48, %127 ], [ -65, %.thread133.thread ], [ -65, %154 ], [ -97, %145 ], [ -97, %.thread.thread163.thread ], [ -97, %148 ], [ -97, %149 ], [ -945, %138 ], [ -48, %.thread153 ], [ -97, %150 ], [ -97, %151 ], [ -945, %136 ], [ -945, %137 ], [ -48, %129 ], [ -1488, %.thread123 ], [ -97, %146 ], [ -65, %69 ], [ -65, %70 ], [ -65, %75 ], [ -65, %76 ], [ -65, %77 ], [ -65, %78 ], [ -65, %79 ], [ -65, %80 ]
+  %.037 = phi i32 [ %.55, %.thread133.thread168 ], [ 120432, %.thread133 ], [ %.57, %155 ], [ %.58, %156 ], [ %.48, %142 ], [ %.42, %128 ], [ %.59, %157 ], [ %.60, %158 ], [ %.46, %140 ], [ %.47, %141 ], [ 120146, %147 ], [ %., %127 ], [ %.56, %.thread133.thread ], [ 120120, %154 ], [ %.49, %145 ], [ 120458, %.thread.thread163.thread ], [ %.51, %148 ], [ %.52, %149 ], [ %.45, %138 ], [ 120822, %.thread153 ], [ %.53, %150 ], [ %.54, %151 ], [ %.43, %136 ], [ %.44, %137 ], [ 120792, %129 ], [ 8501, %.thread123 ], [ %.50, %146 ], [ 120432, %69 ], [ 120432, %70 ], [ 120432, %75 ], [ 120432, %76 ], [ 120432, %77 ], [ 120432, %78 ], [ 120432, %79 ], [ 120432, %80 ]
   %130 = add nsw i32 %.036.neg131, %1
   %131 = add nsw i32 %130, %.037
   %132 = xor i32 %131, 55296

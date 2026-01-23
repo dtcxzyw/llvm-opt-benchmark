@@ -4742,7 +4742,7 @@ define internal void @_ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink3putEPKcRN
   br i1 %54, label %55, label %61
 
 55:                                               ; preds = %51
-  %56 = and i64 %52, 2147483647
+  %56 = and i64 %52, 4294967295
   %57 = getelementptr inbounds nuw i8, ptr %50, i64 %56
   %58 = getelementptr inbounds i8, ptr %57, i64 -7
   %59 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %58, ptr noundef nonnull dereferenceable(8) @.str.1) #23
@@ -4751,10 +4751,14 @@ define internal void @_ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink3putEPKcRN
 
 61:                                               ; preds = %51
   %62 = icmp eq i32 %53, 6
-  br i1 %62, label %.thread.i.i, label %67
+  br i1 %62, label %..thread_crit_edge.i.i, label %67
 
-.thread.i.i:                                      ; preds = %61, %55
-  %.pre-phi.i.i = phi i64 [ %56, %55 ], [ 6, %61 ]
+..thread_crit_edge.i.i:                           ; preds = %61
+  %.pre.i.i = and i64 %52, 4294967295
+  br label %.thread.i.i
+
+.thread.i.i:                                      ; preds = %..thread_crit_edge.i.i, %55
+  %.pre-phi.i.i = phi i64 [ %.pre.i.i, %..thread_crit_edge.i.i ], [ %56, %55 ]
   %63 = getelementptr inbounds nuw i8, ptr %50, i64 %.pre-phi.i.i
   %64 = getelementptr inbounds i8, ptr %63, i64 -6
   %65 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %64, ptr noundef nonnull dereferenceable(7) @.str.2) #23
@@ -4907,7 +4911,7 @@ _ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink12consumeAliasEPKcRKNS_13Resourc
   br i1 %118, label %119, label %125
 
 119:                                              ; preds = %115
-  %120 = and i64 %116, 2147483647
+  %120 = and i64 %116, 4294967295
   %121 = getelementptr inbounds nuw i8, ptr %50, i64 %120
   %122 = getelementptr inbounds i8, ptr %121, i64 -7
   %123 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %122, ptr noundef nonnull dereferenceable(8) @.str.1) #23
@@ -4916,10 +4920,14 @@ _ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink12consumeAliasEPKcRKNS_13Resourc
 
 125:                                              ; preds = %115
   %126 = icmp eq i32 %117, 6
-  br i1 %126, label %.thread.i, label %131
+  br i1 %126, label %..thread_crit_edge.i, label %131
 
-.thread.i:                                        ; preds = %125, %119
-  %.pre-phi.i = phi i64 [ %120, %119 ], [ 6, %125 ]
+..thread_crit_edge.i:                             ; preds = %125
+  %.pre.i = and i64 %116, 4294967295
+  br label %.thread.i
+
+.thread.i:                                        ; preds = %..thread_crit_edge.i, %119
+  %.pre-phi.i = phi i64 [ %.pre.i, %..thread_crit_edge.i ], [ %120, %119 ]
   %127 = getelementptr inbounds nuw i8, ptr %50, i64 %.pre-phi.i
   %128 = getelementptr inbounds i8, ptr %127, i64 -6
   %129 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %128, ptr noundef nonnull dereferenceable(7) @.str.2) #23

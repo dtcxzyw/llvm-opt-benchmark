@@ -166,7 +166,7 @@ define range(i32 0, 3) i32 @CRYPTO_secure_malloc_init(i64 noundef %0, i64 nounde
   %55 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 24), align 8, !tbaa !7
   %56 = add i64 %reass.add.i, -1
   %57 = add i64 %56, %55
-  %58 = sub nsw i64 0, %..i
+  %58 = sub i64 0, %..i
   %59 = and i64 %57, %58
   %60 = load ptr, ptr @sh, align 8, !tbaa !21
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 %59
@@ -937,9 +937,7 @@ sh_testbit.exit:                                  ; preds = %42
   unreachable
 
 57:                                               ; preds = %sh_testbit.exit
-  %58 = and i64 %.07.lcssa.i, 2147483647
-  %59 = lshr i64 %3, %58
-  ret i64 %59
+  ret i64 %37
 }
 
 declare i32 @CRYPTO_THREAD_unlock(ptr noundef) local_unnamed_addr #1

@@ -1719,19 +1719,20 @@ define hidden { i32, float } @"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT
   br i1 %.not.not, label %.thread, label %5
 
 5:                                                ; preds = %1
-  store i64 1, ptr %0, align 8
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %7 = icmp eq i64 %4, 0
-  tail call void @llvm.assume(i1 %7)
-  %8 = load float, ptr %6, align 8, !noundef !4
+  %6 = or disjoint i64 %4, 1
+  store i64 %6, ptr %0, align 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %8 = icmp eq i64 %4, 0
+  tail call void @llvm.assume(i1 %8)
+  %9 = load float, ptr %7, align 8, !noundef !4
   br label %.thread
 
 .thread:                                          ; preds = %1, %5
-  %.sroa.3.0 = phi float [ %8, %5 ], [ undef, %1 ]
+  %.sroa.3.0 = phi float [ %9, %5 ], [ undef, %1 ]
   %.sroa.0.0 = phi i32 [ 1, %5 ], [ 0, %1 ]
-  %9 = insertvalue { i32, float } poison, i32 %.sroa.0.0, 0
-  %10 = insertvalue { i32, float } %9, float %.sroa.3.0, 1
-  ret { i32, float } %10
+  %10 = insertvalue { i32, float } poison, i32 %.sroa.0.0, 0
+  %11 = insertvalue { i32, float } %10, float %.sroa.3.0, 1
+  ret { i32, float } %11
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: write) uwtable
@@ -1788,20 +1789,21 @@ define hidden { ptr, i64 } @"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$
   br i1 %.not.not, label %.thread, label %6
 
 6:                                                ; preds = %1
-  store i64 1, ptr %2, align 8
-  %7 = icmp eq i64 %5, 0
-  tail call void @llvm.assume(i1 %7)
-  %8 = load ptr, ptr %0, align 8, !nonnull !4, !align !99, !noundef !4
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %10 = load i64, ptr %9, align 8, !noundef !4
+  %7 = or disjoint i64 %5, 1
+  store i64 %7, ptr %2, align 8
+  %8 = icmp eq i64 %5, 0
+  tail call void @llvm.assume(i1 %8)
+  %9 = load ptr, ptr %0, align 8, !nonnull !4, !align !99, !noundef !4
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %11 = load i64, ptr %10, align 8, !noundef !4
   br label %.thread
 
 .thread:                                          ; preds = %1, %6
-  %.sroa.3.0 = phi i64 [ %10, %6 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %8, %6 ], [ null, %1 ]
-  %11 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
-  %12 = insertvalue { ptr, i64 } %11, i64 %.sroa.3.0, 1
-  ret { ptr, i64 } %12
+  %.sroa.3.0 = phi i64 [ %11, %6 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %9, %6 ], [ null, %1 ]
+  %12 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
+  %13 = insertvalue { ptr, i64 } %12, i64 %.sroa.3.0, 1
+  ret { ptr, i64 } %13
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: write) uwtable
@@ -1816,16 +1818,17 @@ define hidden void @"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr null, ptr %8, align 8
-  br label %11
+  br label %12
 
 9:                                                ; preds = %2
-  store i64 1, ptr %3, align 8
-  %10 = icmp eq i64 %6, 0
-  tail call void @llvm.assume(i1 %10)
+  %10 = or disjoint i64 %6, 1
+  store i64 %10, ptr %3, align 8
+  %11 = icmp eq i64 %6, 0
+  tail call void @llvm.assume(i1 %11)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
-  br label %11
+  br label %12
 
-11:                                               ; preds = %9, %7
+12:                                               ; preds = %9, %7
   ret void
 }
 

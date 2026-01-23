@@ -470,7 +470,7 @@ define void @process(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr
   %51 = sext i32 %49 to i64
   %52 = sext i32 %18 to i64
   %wide.trip.count348 = zext nneg i32 %39 to i64
-  %invariant.gep397 = getelementptr i16, ptr %2, i64 %52
+  %invariant.gep398 = getelementptr i16, ptr %2, i64 %52
   %wide.trip.count343 = zext nneg i32 %42 to i64
   br label %.preheader289.us
 
@@ -478,12 +478,12 @@ define void @process(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr
   %indvars.iv345 = phi i64 [ %indvars.iv.next346, %._crit_edge.us302 ], [ 0, %.preheader289.lr.ph.split.us ]
   %53 = add nsw i64 %indvars.iv345, %50
   %54 = mul nsw i64 %53, %51
-  %55 = mul nuw nsw i64 %indvars.iv345, %44
+  %55 = mul nsw i64 %indvars.iv345, %44
   %56 = trunc nuw nsw i64 %indvars.iv345 to i32
   %.reass304 = add i32 %invariant.op303, %56
   %57 = shl i32 %.reass304, 1
   %58 = and i32 %57, 2
-  %gep398 = getelementptr i16, ptr %invariant.gep397, i64 %54
+  %gep399 = getelementptr i16, ptr %invariant.gep398, i64 %54
   %59 = getelementptr float, ptr %3, i64 %55
   br label %60
 
@@ -493,7 +493,7 @@ define void @process(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr
   %.reass299.us = add i32 %invariant.op298.us, %61
   %62 = and i32 %.reass299.us, 1
   %63 = or disjoint i32 %58, %62
-  %64 = getelementptr i16, ptr %gep398, i64 %indvars.iv340
+  %64 = getelementptr i16, ptr %gep399, i64 %indvars.iv340
   %65 = load i16, ptr %64, align 2, !tbaa !107
   %66 = uitofp i16 %65 to float
   %67 = zext nneg i32 %63 to i64
@@ -597,7 +597,7 @@ define void @process(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr
   %indvars.iv335 = phi i64 [ %indvars.iv.next336, %._crit_edge.us ], [ 0, %.preheader292.lr.ph.split.us ]
   %114 = add nsw i64 %indvars.iv335, %111
   %115 = mul nsw i64 %114, %112
-  %116 = mul nuw nsw i64 %indvars.iv335, %105
+  %116 = mul nsw i64 %indvars.iv335, %105
   %117 = trunc nuw nsw i64 %indvars.iv335 to i32
   %.reass = add i32 %invariant.op, %117
   %118 = shl i32 %.reass, 1
@@ -718,7 +718,7 @@ define void @process(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr
   %176 = sext i32 %.reass310.us.us to i64
   %177 = mul nsw i64 %176, %164
   %178 = add nuw nsw i64 %171, %indvars.iv355
-  %179 = mul nuw nsw i64 %178, %164
+  %179 = mul nsw i64 %178, %164
   %180 = getelementptr float, ptr %2, i64 %177
   %181 = getelementptr float, ptr %3, i64 %179
   br label %182
@@ -813,8 +813,9 @@ _adjust_xtrans_filters.exit:                      ; preds = %148, %88, %._crit_e
   %240 = uitofp i32 %206 to float
   %241 = add i32 %206, -1
   %242 = uitofp i32 %241 to float
-  %243 = zext i32 %238 to i64
+  %243 = sext i32 %238 to i64
   %wide.trip.count377 = zext nneg i32 %222 to i64
+  %wide.trip.count372 = zext nneg i32 %238 to i64
   %244 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %226
   %245 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %229
   br label %246
@@ -868,7 +869,7 @@ _adjust_xtrans_filters.exit:                      ; preds = %148, %88, %._crit_e
   %invariant.op318 = add i32 %.val270, %.val272
   %invariant.op320 = add i32 %.val270, %18
   %273 = mul nuw nsw i64 %indvars.iv374, %243
-  %274 = getelementptr inbounds nuw float, ptr %3, i64 %273
+  %274 = getelementptr float, ptr %3, i64 %273
   br label %283
 
 275:                                              ; preds = %256, %275
@@ -948,12 +949,12 @@ _adjust_xtrans_filters.exit:                      ; preds = %148, %88, %._crit_e
   %326 = fsub reassoc nsz arcp contract afn float %325, %316
   %327 = fmul reassoc nsz arcp contract afn float %326, %268
   %328 = fadd reassoc nsz arcp contract afn float %327, %316
-  %329 = getelementptr inbounds nuw float, ptr %274, i64 %indvars.iv369
+  %329 = getelementptr float, ptr %274, i64 %indvars.iv369
   %330 = load float, ptr %329, align 4, !tbaa !78
   %331 = fmul reassoc nsz arcp contract afn float %328, %330
   store float %331, ptr %329, align 4, !tbaa !78
   %indvars.iv.next370 = add nuw nsw i64 %indvars.iv369, 1
-  %exitcond373.not = icmp eq i64 %indvars.iv.next370, %243
+  %exitcond373.not = icmp eq i64 %indvars.iv.next370, %wide.trip.count372
   br i1 %exitcond373.not, label %._crit_edge, label %283
 
 .loopexit:                                        ; preds = %._crit_edge, %202, %199, %195, %_adjust_xtrans_filters.exit

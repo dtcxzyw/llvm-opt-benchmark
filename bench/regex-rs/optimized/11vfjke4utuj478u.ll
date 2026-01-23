@@ -3056,7 +3056,7 @@ _ZN14regex_automata6hybrid3dfa7LazyRef7dead_id17h0476d5bbeef2d962E.exit.i.i.i: ;
 
 _ZN14regex_automata6hybrid3dfa7LazyRef11is_sentinel17h29b2f1eb1c9c18d8E.exit.i.i: ; preds = %198
   %204 = trunc nuw nsw i64 %199 to i32
-  %205 = or disjoint i32 %204, 536870912
+  %205 = or i32 %204, 536870912
   %206 = icmp eq i32 %spec.select.i.i, %205
   br i1 %206, label %_ZN14regex_automata6hybrid3dfa7LazyRef11is_sentinel17h29b2f1eb1c9c18d8E.exit.thread.i.i, label %.preheader.i
 
@@ -3083,7 +3083,8 @@ _ZN14regex_automata6hybrid3dfa7LazyRef11is_sentinel17h29b2f1eb1c9c18d8E.exit.i.i
 
 218:                                              ; preds = %209
   %219 = trunc nuw nsw i64 %207 to i32
-  %.sroa.4.0.insert.shift.i.i.i = shl nuw nsw i32 %219, 8
+  %.sroa.4.0.insert.ext.i.i.i = shl nuw nsw i32 %219, 8
+  %.sroa.4.0.insert.shift.i.i.i = and i32 %.sroa.4.0.insert.ext.i.i.i, 65280
   invoke fastcc void @_ZN14regex_automata6hybrid3dfa4Lazy14set_transition17hb44bc0a909428fcdE(ptr nonnull %18, ptr nonnull %.val23, i32 noundef %spec.select.i.i, i32 %.sroa.4.0.insert.shift.i.i.i, i32 noundef %205)
           to label %.preheader.i.backedge unwind label %.body.thread85.loopexit.i.i, !noalias !463
 
@@ -3865,7 +3866,7 @@ _ZN14regex_automata6hybrid3dfa7LazyRef7dead_id17h0476d5bbeef2d962E.exit.i.i.i.i:
 
 _ZN14regex_automata6hybrid3dfa7LazyRef11is_sentinel17h29b2f1eb1c9c18d8E.exit.i.i.i: ; preds = %217
   %223 = trunc nuw nsw i64 %218 to i32
-  %224 = or disjoint i32 %223, 536870912
+  %224 = or i32 %223, 536870912
   %225 = icmp eq i32 %spec.select.i.i.i, %224
   br i1 %225, label %_ZN14regex_automata6hybrid3dfa7LazyRef11is_sentinel17h29b2f1eb1c9c18d8E.exit.thread.i.i.i, label %.preheader.i.i
 
@@ -3892,7 +3893,8 @@ _ZN14regex_automata6hybrid3dfa7LazyRef11is_sentinel17h29b2f1eb1c9c18d8E.exit.i.i
 
 237:                                              ; preds = %228
   %238 = trunc nuw nsw i64 %226 to i32
-  %.sroa.4.0.insert.shift.i.i.i.i = shl nuw nsw i32 %238, 8
+  %.sroa.4.0.insert.ext.i.i.i.i = shl nuw nsw i32 %238, 8
+  %.sroa.4.0.insert.shift.i.i.i.i = and i32 %.sroa.4.0.insert.ext.i.i.i.i, 65280
   invoke fastcc void @_ZN14regex_automata6hybrid3dfa4Lazy14set_transition17hb44bc0a909428fcdE(ptr nonnull %23, ptr nonnull %.val.i, i32 noundef %spec.select.i.i.i, i32 %.sroa.4.0.insert.shift.i.i.i.i, i32 noundef %224)
           to label %.preheader.i.i.backedge unwind label %.body.thread87.loopexit.i.i.i, !noalias !698
 
@@ -4600,7 +4602,7 @@ _ZN14regex_automata6hybrid3dfa7LazyRef7dead_id17h0476d5bbeef2d962E.exit.i: ; pre
 
 _ZN14regex_automata6hybrid3dfa7LazyRef11is_sentinel17h29b2f1eb1c9c18d8E.exit: ; preds = %71
   %77 = trunc nuw nsw i64 %72 to i32
-  %78 = or disjoint i32 %77, 536870912
+  %78 = or i32 %77, 536870912
   %79 = icmp eq i32 %.sroa.4.0.copyload.i, %78
   br i1 %79, label %_ZN14regex_automata6hybrid3dfa7LazyRef11is_sentinel17h29b2f1eb1c9c18d8E.exit.thread, label %80
 
@@ -4816,7 +4818,7 @@ _ZN14regex_automata6hybrid3dfa7LazyRef7dead_id17h0476d5bbeef2d962E.exit.i42: ; p
 
 _ZN14regex_automata6hybrid3dfa7LazyRef11is_sentinel17h29b2f1eb1c9c18d8E.exit47: ; preds = %188
   %192 = trunc nuw nsw i64 %189 to i32
-  %193 = or disjoint i32 %192, 536870912
+  %193 = or i32 %192, 536870912
   %194 = icmp eq i32 %spec.select.i, %193
   br i1 %194, label %_ZN14regex_automata6hybrid3dfa7LazyRef11is_sentinel17h29b2f1eb1c9c18d8E.exit47.thread, label %.preheader.preheader
 
@@ -4848,7 +4850,8 @@ _ZN14regex_automata6hybrid3dfa7LazyRef11is_sentinel17h29b2f1eb1c9c18d8E.exit47: 
 
 206:                                              ; preds = %197
   %207 = trunc nuw nsw i64 %195 to i32
-  %.sroa.4.0.insert.shift.i = shl nuw nsw i32 %207, 8
+  %.sroa.4.0.insert.ext.i = shl nuw nsw i32 %207, 8
+  %.sroa.4.0.insert.shift.i = and i32 %.sroa.4.0.insert.ext.i, 65280
   invoke fastcc void @_ZN14regex_automata6hybrid3dfa4Lazy14set_transition17hb44bc0a909428fcdE(ptr nonnull %.val65.i, ptr nonnull %.val66.i, i32 noundef %spec.select.i, i32 %.sroa.4.0.insert.shift.i, i32 noundef %193)
           to label %.preheader.backedge unwind label %.body39.thread88.loopexit
 
@@ -5350,7 +5353,7 @@ _ZN14regex_automata6hybrid3dfa7LazyRef7dead_id17h0476d5bbeef2d962E.exit.i: ; pre
 _ZN14regex_automata6hybrid3dfa7LazyRef11is_sentinel17h29b2f1eb1c9c18d8E.exit: ; preds = %155
   %158 = shl nuw nsw i64 2, %146
   %159 = trunc nuw nsw i64 %158 to i32
-  %160 = or disjoint i32 %159, 536870912
+  %160 = or i32 %159, 536870912
   %.val64.i = load ptr, ptr %0, align 8, !nonnull !5, !align !6
   %.val65.i = load ptr, ptr %35, align 8, !nonnull !5, !align !6
   br label %161
@@ -5378,7 +5381,8 @@ _ZN14regex_automata6hybrid3dfa7LazyRef11is_sentinel17h29b2f1eb1c9c18d8E.exit: ; 
 
 173:                                              ; preds = %164
   %174 = trunc nuw nsw i64 %162 to i32
-  %.sroa.4.0.insert.shift.i = shl nuw nsw i32 %174, 8
+  %.sroa.4.0.insert.ext.i = shl nuw nsw i32 %174, 8
+  %.sroa.4.0.insert.shift.i = and i32 %.sroa.4.0.insert.ext.i, 65280
   invoke fastcc void @_ZN14regex_automata6hybrid3dfa4Lazy14set_transition17hb44bc0a909428fcdE(ptr nonnull %.val64.i, ptr nonnull %.val65.i, i32 noundef %spec.select.i, i32 %.sroa.4.0.insert.shift.i, i32 noundef %160)
           to label %.backedge466 unwind label %.body176.thread342.loopexit
 
@@ -5722,7 +5726,7 @@ _ZN14regex_automata6hybrid3dfa7LazyRef7dead_id17h0476d5bbeef2d962E.exit.i210: ; 
 _ZN14regex_automata6hybrid3dfa7LazyRef11is_sentinel17h29b2f1eb1c9c18d8E.exit215: ; preds = %330
   %333 = shl nuw nsw i64 2, %321
   %334 = trunc nuw nsw i64 %333 to i32
-  %335 = or disjoint i32 %334, 536870912
+  %335 = or i32 %334, 536870912
   %.val64.i90 = load ptr, ptr %0, align 8, !nonnull !5, !align !6
   %.val65.i91 = load ptr, ptr %35, align 8, !nonnull !5, !align !6
   br label %336
@@ -5750,7 +5754,8 @@ _ZN14regex_automata6hybrid3dfa7LazyRef11is_sentinel17h29b2f1eb1c9c18d8E.exit215:
 
 348:                                              ; preds = %339
   %349 = trunc nuw nsw i64 %337 to i32
-  %.sroa.4.0.insert.shift.i202 = shl nuw nsw i32 %349, 8
+  %.sroa.4.0.insert.ext.i201 = shl nuw nsw i32 %349, 8
+  %.sroa.4.0.insert.shift.i202 = and i32 %.sroa.4.0.insert.ext.i201, 65280
   invoke fastcc void @_ZN14regex_automata6hybrid3dfa4Lazy14set_transition17hb44bc0a909428fcdE(ptr nonnull %.val64.i90, ptr nonnull %.val65.i91, i32 noundef %spec.select.i67, i32 %.sroa.4.0.insert.shift.i202, i32 noundef %335)
           to label %.backedge unwind label %.body197.thread359.loopexit
 
@@ -6094,7 +6099,7 @@ _ZN14regex_automata6hybrid3dfa7LazyRef7dead_id17h0476d5bbeef2d962E.exit.i262: ; 
 
 _ZN14regex_automata6hybrid3dfa7LazyRef11is_sentinel17h29b2f1eb1c9c18d8E.exit267: ; preds = %505
   %509 = trunc nuw nsw i64 %506 to i32
-  %510 = or disjoint i32 %509, 536870912
+  %510 = or i32 %509, 536870912
   %511 = icmp eq i32 %spec.select.i116, %510
   br i1 %511, label %_ZN14regex_automata6hybrid3dfa7LazyRef11is_sentinel17h29b2f1eb1c9c18d8E.exit267.thread, label %.preheader.preheader
 
@@ -6126,7 +6131,8 @@ _ZN14regex_automata6hybrid3dfa7LazyRef11is_sentinel17h29b2f1eb1c9c18d8E.exit267:
 
 523:                                              ; preds = %514
   %524 = trunc nuw nsw i64 %512 to i32
-  %.sroa.4.0.insert.shift.i254 = shl nuw nsw i32 %524, 8
+  %.sroa.4.0.insert.ext.i253 = shl nuw nsw i32 %524, 8
+  %.sroa.4.0.insert.shift.i254 = and i32 %.sroa.4.0.insert.ext.i253, 65280
   invoke fastcc void @_ZN14regex_automata6hybrid3dfa4Lazy14set_transition17hb44bc0a909428fcdE(ptr nonnull %.val64.i139, ptr nonnull %.val65.i140, i32 noundef %spec.select.i116, i32 %.sroa.4.0.insert.shift.i254, i32 noundef %510)
           to label %.preheader.backedge unwind label %.body249.thread378.loopexit
 
@@ -6318,7 +6324,7 @@ _ZN14regex_automata6hybrid3dfa4Lazy15try_clear_cache17he46a9b47820b739dE.exit290
 
 596:                                              ; preds = %592
   %597 = trunc nuw nsw i64 %593 to i32
-  %598 = or disjoint i32 %597, 536870912
+  %598 = or i32 %597, 536870912
   store i32 %598, ptr %21, align 4
   %599 = icmp eq i32 %spec.select.i116, %598
   br i1 %599, label %601, label %600

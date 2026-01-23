@@ -2010,7 +2010,7 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZN8QuantNet10save_tableEPKc(ptr 
 .lr.ph40:                                         ; preds = %7
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %wide.trip.count = and i64 %15, 2147483647
+  %wide.trip.count = and i64 %15, 4294967295
   br label %32
 
 .preheader:                                       ; preds = %._crit_edge, %7
@@ -2020,7 +2020,7 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZN8QuantNet10save_tableEPKc(ptr 
 .lr.ph46:                                         ; preds = %.preheader
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %wide.trip.count58 = and i64 %24, 2147483647
+  %wide.trip.count58 = and i64 %24, 4294967295
   br label %60
 
 32:                                               ; preds = %.lr.ph40, %._crit_edge
@@ -2615,6 +2615,7 @@ _ZN4ncnn3MatD2Ev.exit103.preheader:               ; preds = %.lr.ph185
   %96 = zext nneg i32 %84 to i64
   %wide.trip.count219 = zext nneg i32 %81 to i64
   %factor.op.mul248 = mul i64 %95, %96
+  %wide.trip.count214 = zext nneg i32 %84 to i64
   br label %.lr.ph182.us
 
 .lr.ph182.us:                                     ; preds = %.lr.ph182.us.preheader, %._ZN4ncnn3MatD2Ev.exit103_crit_edge.us
@@ -2632,7 +2633,7 @@ _ZN4ncnn3MatD2Ev.exit103.preheader:               ; preds = %.lr.ph185
   %102 = fcmp olt float %.0170179.us, %101
   %.sroa.speculated126.us = select i1 %102, float %101, float %.0170179.us
   %indvars.iv.next212 = add nuw nsw i64 %indvars.iv211, 1
-  %exitcond215.not = icmp eq i64 %indvars.iv.next212, %96
+  %exitcond215.not = icmp eq i64 %indvars.iv.next212, %wide.trip.count214
   br i1 %exitcond215.not, label %._ZN4ncnn3MatD2Ev.exit103_crit_edge.us, label %98, !llvm.loop !173
 
 ._ZN4ncnn3MatD2Ev.exit103_crit_edge.us:           ; preds = %98
@@ -2690,6 +2691,7 @@ _ZN4ncnn3MatD2Ev.exit.preheader:                  ; preds = %.lr.ph192
   %125 = zext nneg i32 %113 to i64
   %wide.trip.count234 = zext nneg i32 %110 to i64
   %factor.op.mul250 = mul i64 %124, %125
+  %wide.trip.count229 = zext nneg i32 %113 to i64
   br label %.lr.ph189.us
 
 .lr.ph189.us:                                     ; preds = %.lr.ph189.us.preheader, %._ZN4ncnn3MatD2Ev.exit_crit_edge.us
@@ -2707,7 +2709,7 @@ _ZN4ncnn3MatD2Ev.exit.preheader:                  ; preds = %.lr.ph192
   %131 = fcmp olt float %.0169186.us, %130
   %.sroa.speculated.us = select i1 %131, float %130, float %.0169186.us
   %indvars.iv.next227 = add nuw nsw i64 %indvars.iv226, 1
-  %exitcond230.not = icmp eq i64 %indvars.iv.next227, %125
+  %exitcond230.not = icmp eq i64 %indvars.iv.next227, %wide.trip.count229
   br i1 %exitcond230.not, label %._ZN4ncnn3MatD2Ev.exit_crit_edge.us, label %127, !llvm.loop !181
 
 ._ZN4ncnn3MatD2Ev.exit_crit_edge.us:              ; preds = %127

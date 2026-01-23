@@ -2765,14 +2765,21 @@ sw.epilog:                                        ; preds = %if.end8, %switch.lo
   %arrayidx = getelementptr inbounds nuw i8, ptr @.str.187, i64 %idxprom
   %13 = load i8, ptr %arrayidx, align 1
   %conv = sext i8 %13 to i32
+  %and29 = lshr i32 %9, 2
+  %and29.lobit = and i32 %and29, 1
+  %lnot.ext32 = xor i32 %and29.lobit, 1
+  %idxprom33 = zext nneg i32 %lnot.ext32 to i64
+  %arrayidx34 = getelementptr inbounds nuw i8, ptr @.str.188, i64 %idxprom33
+  %14 = load i8, ptr %arrayidx34, align 1
+  %conv35 = sext i8 %14 to i32
   %and37 = lshr i32 %9, 4
   %and37.lobit = and i32 %and37, 1
   %lnot.ext40 = xor i32 %and37.lobit, 1
   %idxprom41 = zext nneg i32 %lnot.ext40 to i64
   %arrayidx42 = getelementptr inbounds nuw i8, ptr @.str.189, i64 %idxprom41
-  %14 = load i8, ptr %arrayidx42, align 1
-  %conv43 = sext i8 %14 to i32
-  %call44 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %spec.select, ptr noundef nonnull @.str.186, i32 noundef %conv, i32 noundef 65, i32 noundef %conv43, ptr noundef nonnull %type.0, ptr noundef nonnull %add.ptr)
+  %15 = load i8, ptr %arrayidx42, align 1
+  %conv43 = sext i8 %15 to i32
+  %call44 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %spec.select, ptr noundef nonnull @.str.186, i32 noundef %conv, i32 noundef %conv35, i32 noundef %conv43, ptr noundef nonnull %type.0, ptr noundef nonnull %add.ptr)
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %sw.epilog
@@ -2801,7 +2808,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %do.end13
 
 if.end:                                           ; preds = %entry
-  %or = or disjoint i32 %0, 8
+  %or = or i32 %0, 8
   store i32 %or, ptr %flags, align 8
   %1 = and i32 %0, 5
   %or.cond.not = icmp eq i32 %1, 4

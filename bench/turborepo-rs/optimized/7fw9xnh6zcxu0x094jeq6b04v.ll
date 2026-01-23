@@ -645,35 +645,45 @@ define hidden void @_RNvMs_NtCs8mTrBI1stz4_15turborepo_vt1004cellNtB4_4Cell3set(
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_RNvMs_NtCs8mTrBI1stz4_15turborepo_vt1004cellNtB4_4Cell6append(ptr noalias noundef align 4 captures(none) dereferenceable(36) %0, i32 noundef %1) unnamed_addr #6 {
+; Function Attrs: nonlazybind uwtable
+define hidden void @_RNvMs_NtCs8mTrBI1stz4_15turborepo_vt1004cellNtB4_4Cell6append(ptr noalias noundef align 4 captures(none) dereferenceable(36) %0, i32 noundef %1) unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 34
   %4 = load i8, ptr %3, align 2, !noundef !4
   %5 = and i8 %4, 15
   %6 = icmp samesign ugt i8 %5, 5
-  br i1 %6, label %16, label %7
+  br i1 %6, label %20, label %7
 
 7:                                                ; preds = %2
   %8 = icmp eq i8 %5, 0
-  br i1 %8, label %9, label %11
+  br i1 %8, label %10, label %.thread
 
-9:                                                ; preds = %7
+.thread:                                          ; preds = %7
+  %9 = zext nneg i8 %5 to i64
+  br label %14
+
+10:                                               ; preds = %7
   store i32 32, ptr %0, align 4
-  %10 = or disjoint i8 %4, 1
-  store i8 %10, ptr %3, align 2
-  br label %11
+  %11 = or disjoint i8 %4, 1
+  store i8 %11, ptr %3, align 2
+  %.pre = and i8 %11, 15
+  %12 = zext nneg i8 %.pre to i64
+  %13 = icmp samesign ult i8 %.pre, 6
+  br i1 %13, label %14, label %19
 
-11:                                               ; preds = %7, %9
-  %.pre-phi = phi i8 [ 1, %9 ], [ %5, %7 ]
-  %12 = zext nneg i8 %.pre-phi to i64
-  %13 = getelementptr inbounds nuw i32, ptr %0, i64 %12
-  store i32 %1, ptr %13, align 4
-  %14 = load i8, ptr %3, align 2, !noundef !4
-  %15 = add i8 %14, 1
-  store i8 %15, ptr %3, align 2
-  br label %16
+14:                                               ; preds = %.thread, %10
+  %15 = phi i64 [ %9, %.thread ], [ %12, %10 ]
+  %16 = getelementptr inbounds nuw i32, ptr %0, i64 %15
+  store i32 %1, ptr %16, align 4
+  %17 = load i8, ptr %3, align 2, !noundef !4
+  %18 = add i8 %17, 1
+  store i8 %18, ptr %3, align 2
+  br label %20
 
-16:                                               ; preds = %2, %11
+19:                                               ; preds = %10
+  tail call void @_ZN4core9panicking18panic_bounds_check17hffbf36a137714b2dE(i64 noundef %12, i64 noundef 6, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.7d74d77b1b749013308229cf81e3bc3e.19.llvm.6172016698289805888) #19
+  unreachable
+
+20:                                               ; preds = %2, %14
   ret void
 }
 

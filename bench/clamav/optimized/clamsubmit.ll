@@ -167,7 +167,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @header_cb(ptr noundef %
   br i1 %.not, label %12, label %10
 
 10:                                               ; preds = %8
-  %11 = and i64 %5, 2147483647
+  %11 = and i64 %5, 4294967295
   br label %36
 
 12:                                               ; preds = %8
@@ -248,6 +248,11 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @write_cb(ptr noundef re
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %._crit_edge, label %7
 
+._crit_edge:                                      ; preds = %4
+  %.pre = shl i64 %5, 32
+  %.pre23 = ashr exact i64 %.pre, 32
+  br label %26
+
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !12
@@ -261,7 +266,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @write_cb(ptr noundef re
 
 16:                                               ; preds = %7
   %17 = tail call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.19) #13
-  br label %._crit_edge
+  br label %26
 
 18:                                               ; preds = %7
   %19 = load i32, ptr %3, align 8, !tbaa !14
@@ -276,10 +281,10 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @write_cb(ptr noundef re
   store i8 0, ptr %25, align 1, !tbaa !4
   store ptr %14, ptr %8, align 8, !tbaa !12
   store i32 %23, ptr %3, align 8, !tbaa !14
-  br label %._crit_edge
+  br label %26
 
-._crit_edge:                                      ; preds = %18, %4, %16
-  %.0 = phi i64 [ 0, %16 ], [ %22, %18 ], [ 0, %4 ]
+26:                                               ; preds = %18, %._crit_edge, %16
+  %.0 = phi i64 [ 0, %16 ], [ %.pre23, %._crit_edge ], [ %22, %18 ]
   ret i64 %.0
 }
 

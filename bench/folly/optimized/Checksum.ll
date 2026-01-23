@@ -266,9 +266,10 @@ define linkonce_odr void @_ZN5boost6detail31make_partial_xor_products_tableILi8E
   %.01620.i.us.us = phi i32 [ %31, %.lr.ph.i.us.us ], [ 8, %.lr.ph.i.i.i.us.us ]
   %23 = phi i32 [ %30, %.lr.ph.i.us.us ], [ 0, %.lr.ph.i.i.i.us.us ]
   %24 = and i16 %.021.i.us.us, 1
-  %25 = zext nneg i16 %24 to i32
-  %26 = xor i32 %23, %25
-  %27 = and i32 %26, 1
+  %.not17.i.us.us = icmp eq i16 %24, 0
+  %25 = select i1 %.not17.i.us.us, i32 0, i32 %8
+  %26 = xor i32 %25, %23
+  %27 = and i32 %26, %8
   %.not18.i.us.us = icmp eq i32 %27, 0
   %28 = shl i32 %26, 1
   %29 = select i1 %.not18.i.us.us, i32 0, i32 %2

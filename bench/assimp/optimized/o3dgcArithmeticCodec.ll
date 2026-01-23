@@ -2325,46 +2325,47 @@ define hidden void @_ZN5o3dgc19Adaptive_Data_Model12set_alphabetEj(ptr noundef n
   store i32 0, ptr %38, align 8
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i32 0, ptr %39, align 4
-  %40 = shl nuw nsw i32 %.pr, 3
+  %40 = shl nuw nsw i32 %.pr, 1
   %41 = zext nneg i32 %40 to i64
-  %42 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %41) #17
-  store ptr %42, ptr %0, align 8
-  %43 = zext nneg i32 %.pr to i64
-  %44 = getelementptr inbounds nuw i32, ptr %42, i64 %43
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %44, ptr %45, align 8
-  %46 = icmp eq i32 %.pr, 0
-  br i1 %46, label %_ZN5o3dgc19Adaptive_Data_Model5resetEv.exit, label %.lr.ph.i
+  %42 = shl nuw nsw i64 %41, 2
+  %43 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %42) #17
+  store ptr %43, ptr %0, align 8
+  %44 = zext nneg i32 %.pr to i64
+  %45 = getelementptr inbounds nuw i32, ptr %43, i64 %44
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %45, ptr %46, align 8
+  %47 = icmp eq i32 %.pr, 0
+  br i1 %47, label %_ZN5o3dgc19Adaptive_Data_Model5resetEv.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.thread, %5, %36
-  %47 = phi i32 [ %.pr, %36 ], [ %1, %5 ], [ %.pr, %.thread ]
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 0, ptr %48, align 8
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i32 %47, ptr %49, align 4
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br label %55
+  %48 = phi i32 [ %.pr, %36 ], [ %1, %5 ], [ %.pr, %.thread ]
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i32 0, ptr %49, align 8
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  store i32 %48, ptr %50, align 4
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  br label %56
 
-._crit_edge.i:                                    ; preds = %55
+._crit_edge.i:                                    ; preds = %56
   tail call void @_ZN5o3dgc19Adaptive_Data_Model6updateEb(ptr noundef nonnull align 8 dereferenceable(52) %0, i1 noundef zeroext false)
-  %51 = load i32, ptr %6, align 4
-  %52 = add i32 %51, 6
-  %53 = lshr i32 %52, 1
-  store i32 %53, ptr %49, align 4
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i32 %53, ptr %54, align 8
+  %52 = load i32, ptr %6, align 4
+  %53 = add i32 %52, 6
+  %54 = lshr i32 %53, 1
+  store i32 %54, ptr %50, align 4
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i32 %54, ptr %55, align 8
   br label %_ZN5o3dgc19Adaptive_Data_Model5resetEv.exit
 
-55:                                               ; preds = %55, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %55 ]
-  %56 = load ptr, ptr %50, align 8
-  %57 = getelementptr inbounds nuw i32, ptr %56, i64 %indvars.iv.i
-  store i32 1, ptr %57, align 4
+56:                                               ; preds = %56, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %56 ]
+  %57 = load ptr, ptr %51, align 8
+  %58 = getelementptr inbounds nuw i32, ptr %57, i64 %indvars.iv.i
+  store i32 1, ptr %58, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %58 = load i32, ptr %6, align 4
-  %59 = zext i32 %58 to i64
-  %60 = icmp samesign ult i64 %indvars.iv.next.i, %59
-  br i1 %60, label %55, label %._crit_edge.i, !llvm.loop !23
+  %59 = load i32, ptr %6, align 4
+  %60 = zext i32 %59 to i64
+  %61 = icmp samesign ult i64 %indvars.iv.next.i, %60
+  br i1 %61, label %56, label %._crit_edge.i, !llvm.loop !23
 
 _ZN5o3dgc19Adaptive_Data_Model5resetEv.exit:      ; preds = %36, %._crit_edge.i
   ret void

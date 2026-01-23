@@ -2560,11 +2560,11 @@ prompt_help_cmd.exit:                             ; preds = %158, %_.exit.sink.s
   call void @strbuf_remove(ptr noundef nonnull %186, i64 noundef 0, i64 noundef 1) #16
   %.pre.i = load ptr, ptr %.06624.i, align 8, !tbaa !101
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %.pre.i, i64 16
-  %.pre42.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !89
+  %.pre43.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !89
   br label %195
 
 195:                                              ; preds = %194, %189
-  %196 = phi ptr [ %.pre42.i, %194 ], [ %191, %189 ]
+  %196 = phi ptr [ %.pre43.i, %194 ], [ %191, %189 ]
   %.060.i = phi i32 [ 0, %194 ], [ 1, %189 ]
   br label %197
 
@@ -2784,44 +2784,45 @@ find_unique.exit.i:                               ; preds = %268, %254, %241, %.
 
 .lr.ph.preheader.i:                               ; preds = %.preheader.i
   %277 = zext nneg i32 %.059.i to i64
+  %278 = add nuw i32 %.058.i, 1
   br label %.lr.ph.i82
 
 find_unique.exit.thread.i:                        ; preds = %265, %251, %272, %find_unique.exit.i, %256, %232
-  %278 = load i32, ptr @clean_use_color, align 4, !tbaa !11
-  %279 = call i32 @want_color_fd(i32 noundef 1, i32 noundef %278) #16
-  %.not.i.i.i77 = icmp eq i32 %279, 0
+  %279 = load i32, ptr @clean_use_color, align 4, !tbaa !11
+  %280 = call i32 @want_color_fd(i32 noundef 1, i32 noundef %279) #16
+  %.not.i.i.i77 = icmp eq i32 %280, 0
   %.0.i.i.i78 = select i1 %.not.i.i.i77, ptr @.str.19, ptr getelementptr inbounds nuw (i8, ptr @clean_colors, i64 375)
-  %280 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.54, ptr noundef nonnull %.0.i.i.i78)
-  %281 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !11
-  %.not4.i.i = icmp eq i32 %281, 0
-  br i1 %.not4.i.i, label %_.exit.i, label %282
+  %281 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.54, ptr noundef nonnull %.0.i.i.i78)
+  %282 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !11
+  %.not4.i.i = icmp eq i32 %282, 0
+  br i1 %.not4.i.i, label %_.exit.i, label %283
 
-282:                                              ; preds = %find_unique.exit.thread.i
-  %283 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.69, i32 noundef 5) #16
+283:                                              ; preds = %find_unique.exit.thread.i
+  %284 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.69, i32 noundef 5) #16
   br label %_.exit.i
 
-_.exit.i:                                         ; preds = %282, %find_unique.exit.thread.i
-  %.0.i.i79 = phi ptr [ %283, %282 ], [ @.str.69, %find_unique.exit.thread.i ]
-  %284 = load ptr, ptr %.06624.i, align 8, !tbaa !101
-  %285 = getelementptr inbounds nuw i8, ptr %284, i64 16
-  %286 = load ptr, ptr %285, align 8, !tbaa !89
-  %287 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %.0.i.i79, ptr noundef %286)
-  %288 = load i32, ptr @clean_use_color, align 4, !tbaa !11
-  %289 = call i32 @want_color_fd(i32 noundef 1, i32 noundef %288) #16
-  %.not.i.i88.i = icmp eq i32 %289, 0
+_.exit.i:                                         ; preds = %283, %find_unique.exit.thread.i
+  %.0.i.i79 = phi ptr [ %284, %283 ], [ @.str.69, %find_unique.exit.thread.i ]
+  %285 = load ptr, ptr %.06624.i, align 8, !tbaa !101
+  %286 = getelementptr inbounds nuw i8, ptr %285, i64 16
+  %287 = load ptr, ptr %286, align 8, !tbaa !89
+  %288 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %.0.i.i79, ptr noundef %287)
+  %289 = load i32, ptr @clean_use_color, align 4, !tbaa !11
+  %290 = call i32 @want_color_fd(i32 noundef 1, i32 noundef %289) #16
+  %.not.i.i88.i = icmp eq i32 %290, 0
   %.0.i.i89.i = select i1 %.not.i.i88.i, ptr @.str.19, ptr @clean_colors
-  %290 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.54, ptr noundef nonnull %.0.i.i89.i)
+  %291 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.54, ptr noundef nonnull %.0.i.i89.i)
   br label %.loopexit.i
 
 .lr.ph.i82:                                       ; preds = %.lr.ph.i82, %.lr.ph.preheader.i
   %indvars.iv.i83 = phi i64 [ %277, %.lr.ph.preheader.i ], [ %indvars.iv.next.i84, %.lr.ph.i82 ]
-  %291 = getelementptr i32, ptr %13, i64 %indvars.iv.i83
-  %292 = getelementptr i8, ptr %291, i64 -4
-  store i32 %.060.i, ptr %292, align 4, !tbaa !11
+  %292 = getelementptr i32, ptr %13, i64 %indvars.iv.i83
+  %293 = getelementptr i8, ptr %292, i64 -4
+  store i32 %.060.i, ptr %293, align 4, !tbaa !11
   %indvars.iv.next.i84 = add nuw nsw i64 %indvars.iv.i83, 1
-  %293 = trunc nuw i64 %indvars.iv.i83 to i32
-  %.not81.not.i = icmp sgt i32 %.058.i, %293
-  br i1 %.not81.not.i, label %.lr.ph.i82, label %.loopexit.i, !llvm.loop !119
+  %lftr.wideiv.i = trunc i64 %indvars.iv.next.i84 to i32
+  %exitcond.not.i = icmp eq i32 %278, %lftr.wideiv.i
+  br i1 %exitcond.not.i, label %.loopexit.i, label %.lr.ph.i82, !llvm.loop !119
 
 .loopexit.i:                                      ; preds = %.lr.ph.i82, %_.exit.i, %.preheader.i, %.lr.ph25.i
   %294 = getelementptr inbounds nuw i8, ptr %.06624.i, i64 8
@@ -2846,8 +2847,8 @@ _.exit.i:                                         ; preds = %282, %find_unique.e
   %299 = load i32, ptr %298, align 4, !tbaa !11
   %300 = add nsw i32 %299, %.06526.i
   %indvars.iv.next40.i = add nuw nsw i64 %indvars.iv39.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next40.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %parse_choice.exit, label %.lr.ph29.i, !llvm.loop !121
+  %exitcond42.not.i = icmp eq i64 %indvars.iv.next40.i, %wide.trip.count.i
+  br i1 %exitcond42.not.i, label %parse_choice.exit, label %.lr.ph29.i, !llvm.loop !121
 
 parse_choice.exit:                                ; preds = %.lr.ph29.i
   %301 = load i32, ptr %22, align 8, !tbaa !80

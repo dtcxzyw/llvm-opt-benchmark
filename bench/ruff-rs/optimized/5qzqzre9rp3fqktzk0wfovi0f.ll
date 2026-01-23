@@ -135,7 +135,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
 21:                                               ; preds = %7
   %22 = lshr i32 %1, 12
   %23 = trunc nuw nsw i32 %22 to i8
-  %24 = or disjoint i8 %23, -32
+  %24 = or i8 %23, -32
   store i8 %24, ptr %3, align 4, !alias.scope !14, !noalias !11
   %25 = lshr i32 %1, 6
   %26 = trunc i32 %25 to i8
@@ -147,7 +147,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
 29:                                               ; preds = %5
   %30 = lshr i32 %1, 6
   %31 = trunc nuw nsw i32 %30 to i8
-  %32 = or disjoint i8 %31, -64
+  %32 = or i8 %31, -64
   store i8 %32, ptr %3, align 4, !alias.scope !14, !noalias !11
   br label %_ZN4core4char7methods15encode_utf8_raw17h110904658798e68fE.exit.i
 
@@ -1575,9 +1575,7 @@ define hidden range(i64 0, -65280) i64 @_ZN14ruff_formatter7printer10call_stack9
 
 11:                                               ; preds = %6
   %12 = tail call noundef align 8 dereferenceable(40) ptr @"_ZN117_$LT$ruff_formatter..printer..call_stack..FitsCallStack$u20$as$u20$ruff_formatter..printer..call_stack..CallStack$GT$9stack_mut17hec88f5b7aa7b3555E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0)
-  %.sroa.440.0.insert.insert = and i64 %4, -71776119061217281
-  %.sroa.039.0.insert.insert = or disjoint i64 %.sroa.440.0.insert.insert, 4222124650659840
-  tail call void @"_ZN120_$LT$ruff_formatter..printer..stack..StackedStack$LT$T$GT$$u20$as$u20$ruff_formatter..printer..stack..Stack$LT$T$GT$$GT$4push17h56a19d19d7839337E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %12, i64 %.sroa.039.0.insert.insert)
+  tail call void @"_ZN120_$LT$ruff_formatter..printer..stack..StackedStack$LT$T$GT$$u20$as$u20$ruff_formatter..printer..stack..Stack$LT$T$GT$$GT$4push17h56a19d19d7839337E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %12, i64 %4)
   %.sroa.5.0.insert.ext.i48 = zext nneg i8 %1 to i64
   %.sroa.3.0.insert.insert.i52 = mul nuw nsw i64 %.sroa.5.0.insert.ext.i48, 65792
   %.sroa.02.0.insert.insert.i53 = or disjoint i64 %.sroa.3.0.insert.insert.i52, 1
@@ -1629,9 +1627,7 @@ define hidden range(i64 0, -65280) i64 @_ZN14ruff_formatter7printer10call_stack9
 
 11:                                               ; preds = %6
   %12 = tail call noundef align 8 dereferenceable(24) ptr @"_ZN118_$LT$ruff_formatter..printer..call_stack..PrintCallStack$u20$as$u20$ruff_formatter..printer..call_stack..CallStack$GT$9stack_mut17hfb247a3da203377bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  %.sroa.440.0.insert.insert = and i64 %4, -71776119061217281
-  %.sroa.039.0.insert.insert = or disjoint i64 %.sroa.440.0.insert.insert, 4222124650659840
-  tail call void @"_ZN91_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$ruff_formatter..printer..stack..Stack$LT$T$GT$$GT$4push17hceed31a285d97821E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %12, i64 %.sroa.039.0.insert.insert)
+  tail call void @"_ZN91_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$ruff_formatter..printer..stack..Stack$LT$T$GT$$GT$4push17hceed31a285d97821E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %12, i64 %4)
   %.sroa.5.0.insert.ext.i48 = zext nneg i8 %1 to i64
   %.sroa.3.0.insert.insert.i52 = mul nuw nsw i64 %.sroa.5.0.insert.ext.i48, 65792
   %.sroa.02.0.insert.insert.i53 = or disjoint i64 %.sroa.3.0.insert.insert.i52, 1

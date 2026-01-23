@@ -185,11 +185,20 @@ define hidden noundef align 8 dereferenceable_or_null(16) ptr @"_ZN91_$LT$core..
 define noundef range(i32 97, 1114113) i32 @_ZN9html5ever4util3str18lower_ascii_letter17hf53d365212ee0c41E(i32 noundef %0) unnamed_addr #7 {
   %2 = add i32 %0, -97
   %or.cond = icmp ult i32 %2, 26
-  %3 = add i32 %0, -65
-  %or.cond1 = icmp ult i32 %3, 26
-  %4 = or disjoint i32 %0, 32
-  %spec.select = select i1 %or.cond1, i32 %4, i32 1114112
-  %.0 = select i1 %or.cond, i32 %0, i32 %spec.select
+  br i1 %or.cond, label %8, label %3
+
+3:                                                ; preds = %1
+  %4 = add i32 %0, -65
+  %or.cond1 = icmp ult i32 %4, 26
+  br i1 %or.cond1, label %5, label %8
+
+5:                                                ; preds = %3
+  %6 = and i32 %0, 223
+  %7 = or disjoint i32 %6, 32
+  br label %8
+
+8:                                                ; preds = %3, %1, %5
+  %.0 = phi i32 [ %0, %1 ], [ %7, %5 ], [ 1114112, %3 ]
   ret i32 %.0
 }
 

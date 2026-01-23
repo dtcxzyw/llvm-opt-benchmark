@@ -1119,7 +1119,7 @@ checksum.exit.thread245.i:                        ; preds = %checksum.exit.i, %.
   br i1 %.not186.i, label %136, label %tar_read_header.exit
 
 136:                                              ; preds = %134
-  %137 = or disjoint i32 %.0161.i, 1
+  %137 = or i32 %.0161.i, 1
   store i32 196610, ptr %61, align 8, !tbaa !65
   store ptr @.str.15, ptr %54, align 8, !tbaa !64
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -1208,7 +1208,7 @@ read_bytes_to_string.exit82.thread:               ; preds = %151, %155
   %177 = shl i64 %.05775.i.i, 3
   %narrow.i.i = add nsw i8 %173, -48
   %178 = zext nneg i8 %narrow.i.i to i64
-  %179 = or disjoint i64 %177, %178
+  %179 = add nuw nsw i64 %177, %178
   %180 = icmp sgt i64 %179, 16777215
   br i1 %180, label %181, label %182
 
@@ -1318,7 +1318,7 @@ header_Solaris_ACL.exit.i:                        ; preds = %read_bytes_to_strin
   br i1 %.not185.i, label %228, label %tar_read_header.exit
 
 228:                                              ; preds = %226
-  %229 = or disjoint i32 %.0161.i, 2
+  %229 = or i32 %.0161.i, 2
   store i32 196610, ptr %61, align 8, !tbaa !65
   store ptr @.str.16, ptr %54, align 8, !tbaa !64
   %230 = getelementptr inbounds nuw i8, ptr %77, i64 124
@@ -1339,7 +1339,7 @@ header_Solaris_ACL.exit.i:                        ; preds = %read_bytes_to_strin
   br i1 %.not184.i, label %239, label %tar_read_header.exit
 
 239:                                              ; preds = %237
-  %240 = or disjoint i32 %.0161.i, 4
+  %240 = or i32 %.0161.i, 4
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %241 = getelementptr inbounds nuw i8, ptr %77, i64 124
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
@@ -1416,7 +1416,7 @@ header_gnu_longlink.exit.i:                       ; preds = %read_bytes_to_strin
   br i1 %.not183.i, label %271, label %tar_read_header.exit
 
 271:                                              ; preds = %269
-  %272 = or disjoint i32 %.0161.i, 8
+  %272 = or i32 %.0161.i, 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %273 = getelementptr inbounds nuw i8, ptr %77, i64 124
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
@@ -1513,7 +1513,7 @@ header_gnu_longname.exit.i:                       ; preds = %read_bytes_to_strin
   br i1 %.not182.i, label %315, label %tar_read_header.exit
 
 315:                                              ; preds = %313
-  %316 = or disjoint i32 %.0161.i, 16
+  %316 = or i32 %.0161.i, 16
   %317 = getelementptr inbounds nuw i8, ptr %77, i64 124
   %318 = call fastcc i64 @tar_atol(ptr noundef readonly %317, i64 noundef 12)
   %319 = icmp sgt i64 %318, 1048576
@@ -1532,7 +1532,7 @@ header_gnu_longname.exit.i:                       ; preds = %read_bytes_to_strin
   br i1 %.not181.i, label %326, label %tar_read_header.exit
 
 326:                                              ; preds = %324
-  %327 = or disjoint i32 %.0161.i, 32
+  %327 = or i32 %.0161.i, 32
   store i32 196610, ptr %61, align 8, !tbaa !65
   store ptr @.str.17, ptr %54, align 8, !tbaa !64
   %328 = call fastcc i32 @header_pax_extension(ptr noundef %0, ptr noundef %24, ptr noundef %1, ptr noundef %77, ptr noundef nonnull %9)
@@ -1544,7 +1544,7 @@ header_gnu_longname.exit.i:                       ; preds = %read_bytes_to_strin
   br i1 %.not180.i, label %331, label %tar_read_header.exit
 
 331:                                              ; preds = %329
-  %332 = or disjoint i32 %.0161.i, 32
+  %332 = or i32 %.0161.i, 32
   store i32 196610, ptr %61, align 8, !tbaa !65
   store ptr @.str.16, ptr %54, align 8, !tbaa !64
   %333 = call fastcc i32 @header_pax_extension(ptr noundef %0, ptr noundef %24, ptr noundef %1, ptr noundef %77, ptr noundef nonnull %9)
@@ -2187,7 +2187,7 @@ tar_flush_unconsumed.exit.i.i:                    ; preds = %611, %610
   %617 = call ptr @archive_entry_clear(ptr noundef %1) #13
   call void @archive_entry_copy_mac_metadata(ptr noundef %1, ptr noundef nonnull %613, i64 noundef %605) #13
   %618 = add nuw nsw i64 %605, 511
-  %619 = and i64 %618, 67108352
+  %619 = and i64 %618, -512
   store i64 %619, ptr %9, align 8, !tbaa !45
   %620 = call i32 @llvm.smin.i32(i32 %561, i32 0)
   br label %header_pax_global.exit.i
@@ -2733,9 +2733,10 @@ define internal fastcc i64 @tar_atol(ptr noundef nonnull readonly captures(none)
 4:                                                ; preds = %2
   %5 = and i8 %3, 64
   %.not.i = icmp ne i8 %5, 0
-  %6 = and i8 %3, 63
+  %6 = and i8 %3, 127
   %.024.i = sext i1 %.not.i to i64
-  %.021.i = select i1 %.not.i, i8 %3, i8 %6
+  %masksel.i = shl nuw i8 %5, 1
+  %.021.i = or disjoint i8 %masksel.i, %6
   %.0.i = select i1 %.not.i, i32 255, i32 0
   %.not45.i = icmp eq i64 %1, 8
   br i1 %.not45.i, label %._crit_edge.i, label %.lr.ph.preheader.i
@@ -3175,7 +3176,7 @@ tar_flush_unconsumed.exit238:                     ; preds = %80, %91
   %95 = xor i64 %88, -1
   %96 = add i64 %.0191288, %95
   %97 = call fastcc i32 @pax_attribute(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %93, i64 noundef %94, i64 noundef %96, ptr noundef %4)
-  %.neg = add nuw i64 %.0190299, 1
+  %.neg = add i64 %.0190299, 1
   %98 = sub i64 %.neg, %.0191288
   call void @archive_string_free(ptr noundef nonnull %7) #13
   %99 = icmp slt i32 %97, -20

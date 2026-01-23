@@ -2544,7 +2544,8 @@ define internal fastcc noundef align 8 dereferenceable_or_null(24) ptr @"_ZN9has
   %28 = getelementptr inbounds i8, ptr %27, i64 -32
   %.val4.i.us.us.i.i = load i8, ptr %28, align 1, !range !75, !alias.scope !76, !noalias !81, !noundef !4
   %29 = add nsw i8 %.val4.i.us.us.i.i, -16
-  %30 = icmp eq i8 %29, %narrow.i.i.i.i.i.i
+  %narrow3.i.i.i.i.us.us.i.i = tail call i8 @llvm.umin.i8(i8 %29, i8 4)
+  %30 = icmp eq i8 %narrow.i.i.i.i.i.i, %narrow3.i.i.i.i.us.us.i.i
   br i1 %30, label %.split.us.i.i, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hc0a1e1d2e0cec8eaE.exit.backedge.us.us.i.i"
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hc0a1e1d2e0cec8eaE.exit.backedge.us.us.i.i": ; preds = %.lr.ph.us.i.i
@@ -3893,7 +3894,8 @@ _ZN13deltalake_gcp6config13GcpCredential4keys17ha05719f7f5dfb74eE.exit.i73: ; pr
 366:                                              ; preds = %.noexc124
   %367 = load i8, ptr %370, align 1, !range !75, !alias.scope !301, !noalias !304, !noundef !4
   %368 = add nsw i8 %367, -16
-  %369 = icmp eq i8 %368, %narrow3.i.i.i.i
+  %narrow.i.i.us.i.i = call i8 @llvm.umin.i8(i8 %368, i8 4)
+  %369 = icmp eq i8 %narrow.i.i.us.i.i, %narrow3.i.i.i.i
   br i1 %369, label %.thread256, label %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains28_$u7b$$u7b$closure$u7d$$u7d$17hf0219b63a9d8d06bE.llvm.11953678010571242332.exit.backedge.us.i.i"
 
 "_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains28_$u7b$$u7b$closure$u7d$$u7d$17hf0219b63a9d8d06bE.llvm.11953678010571242332.exit.backedge.us.i.i": ; preds = %.lr.ph.split.us.i.i, %366

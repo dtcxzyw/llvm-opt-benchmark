@@ -8045,7 +8045,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
 28:                                               ; preds = %21
   %29 = lshr i32 %1, 6
   %30 = trunc nuw nsw i32 %29 to i8
-  %31 = or disjoint i8 %30, -64
+  %31 = or i8 %30, -64
   store i8 %31, ptr %20, align 1
   %32 = trunc i32 %1 to i8
   %33 = and i8 %32, 63
@@ -8080,7 +8080,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
 53:                                               ; preds = %25
   %54 = lshr i32 %1, 12
   %55 = trunc nuw nsw i32 %54 to i8
-  %56 = or disjoint i8 %55, -32
+  %56 = or i8 %55, -32
   store i8 %56, ptr %20, align 1
   %57 = lshr i32 %1, 6
   %58 = trunc i32 %57 to i8
@@ -80797,20 +80797,28 @@ define hidden void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..s
   br i1 %.not6.i.i.i.i.i.i, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17hc1ab6f5cbe88d6e8E.exit.i.i", label %.lr.ph.i.preheader.i.i.i.i.i
 
 .lr.ph.i.preheader.i.i.i.i.i:                     ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h59d796559da33afeE.exit.i.i.i"
-  %.not.i.i.i.i.i.i = icmp eq i64 %31, 1
-  %33 = getelementptr inbounds nuw { i8, i8 }, ptr %26, i64 %27
-  %34 = getelementptr inbounds nuw i8, ptr %33, i64 1
-  %35 = add i64 %27, 1
-  call void @llvm.assume(i1 %.not.i.i.i.i.i.i)
-  %36 = icmp eq i64 %29, 0
-  call void @llvm.assume(i1 %36)
-  %37 = load i8, ptr %28, align 8, !alias.scope !10130, !noalias !10131, !noundef !14
-  %38 = getelementptr inbounds nuw i8, ptr %4, i64 17
-  %39 = load i8, ptr %38, align 1, !alias.scope !10130, !noalias !10131, !noundef !14
-  store i8 %37, ptr %33, align 1, !noalias !10134
-  store i8 %39, ptr %34, align 1, !noalias !10134
-  store i64 1, ptr %4, align 8, !alias.scope !10125, !noalias !10126
+  %.pre.i.i.i.i.i = load i8, ptr %28, align 8, !alias.scope !10130, !noalias !10131
+  %.phi.trans.insert.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 17
+  %.pre3.i.i.i.i.i = load i8, ptr %.phi.trans.insert.i.i.i.i.i, align 1, !alias.scope !10130, !noalias !10131
+  br label %.lr.ph.i.i.i.i.i.i
+
+._crit_edge.i.i.i.i.i.i:                          ; preds = %.lr.ph.i.i.i.i.i.i
+  store i64 %31, ptr %4, align 8, !alias.scope !10125, !noalias !10126
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17hc1ab6f5cbe88d6e8E.exit.i.i"
+
+.lr.ph.i.i.i.i.i.i:                               ; preds = %.lr.ph.i.i.i.i.i.i, %.lr.ph.i.preheader.i.i.i.i.i
+  %33 = phi i64 [ %39, %.lr.ph.i.i.i.i.i.i ], [ %27, %.lr.ph.i.preheader.i.i.i.i.i ]
+  %34 = phi i64 [ 1, %.lr.ph.i.i.i.i.i.i ], [ %29, %.lr.ph.i.preheader.i.i.i.i.i ]
+  %35 = or disjoint i64 %34, 1
+  %36 = icmp eq i64 %34, 0
+  call void @llvm.assume(i1 %36)
+  %37 = getelementptr inbounds nuw { i8, i8 }, ptr %26, i64 %33
+  store i8 %.pre.i.i.i.i.i, ptr %37, align 1, !noalias !10134
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 1
+  store i8 %.pre3.i.i.i.i.i, ptr %38, align 1, !noalias !10134
+  %39 = add i64 %33, 1
+  %.not.i.i.i.i.i.i = icmp eq i64 %35, %31
+  br i1 %.not.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
 40:                                               ; preds = %25
   %lpad.thr_comm.i.i.i = landingpad { ptr, i32 }
@@ -80825,9 +80833,9 @@ define hidden void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..s
   call void @_ZN4core9panicking16panic_in_cleanup17hb7138e7aeec2c1a7E() #24, !noalias !10093
   unreachable
 
-"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17hc1ab6f5cbe88d6e8E.exit.i.i": ; preds = %.lr.ph.i.preheader.i.i.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h59d796559da33afeE.exit.i.i.i"
-  %44 = phi i64 [ 1, %.lr.ph.i.preheader.i.i.i.i.i ], [ %29, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h59d796559da33afeE.exit.i.i.i" ]
-  %.val3.i.i.i.i.i.i = phi i64 [ %35, %.lr.ph.i.preheader.i.i.i.i.i ], [ %27, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h59d796559da33afeE.exit.i.i.i" ]
+"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17hc1ab6f5cbe88d6e8E.exit.i.i": ; preds = %._crit_edge.i.i.i.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h59d796559da33afeE.exit.i.i.i"
+  %44 = phi i64 [ 1, %._crit_edge.i.i.i.i.i.i ], [ %29, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h59d796559da33afeE.exit.i.i.i" ]
+  %.val3.i.i.i.i.i.i = phi i64 [ %39, %._crit_edge.i.i.i.i.i.i ], [ %27, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h59d796559da33afeE.exit.i.i.i" ]
   store i64 %.val3.i.i.i.i.i.i, ptr %21, align 8, !alias.scope !10114, !noalias !10141
   invoke void @"_ZN129_$LT$$u5b$core..mem..maybe_uninit..MaybeUninit$LT$T$GT$$u3b$$u20$N$u5d$$u20$as$u20$core..array..iter..iter_inner..PartialDrop$GT$12partial_drop17ha7dbb9c4640590cfE"(ptr noalias noundef nonnull align 1 dereferenceable(2) %28, i64 noundef %44, i64 noundef %31)
           to label %"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17haa0a0e0b2c959658E.exit" unwind label %45, !noalias !10093
@@ -85890,20 +85898,28 @@ define hidden void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..s
   br i1 %.not6.i.i.i.i.i.i, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h0eff9c2fcdaa6da9E.exit.i.i", label %.lr.ph.i.preheader.i.i.i.i.i
 
 .lr.ph.i.preheader.i.i.i.i.i:                     ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h7cda97f636e73ee6E.exit.i.i.i"
-  %.not.i.i.i.i.i.i = icmp eq i64 %31, 1
-  %33 = getelementptr inbounds nuw { i32, i32 }, ptr %26, i64 %27
-  %34 = getelementptr inbounds nuw i8, ptr %33, i64 4
-  %35 = add i64 %27, 1
-  call void @llvm.assume(i1 %.not.i.i.i.i.i.i)
-  %36 = icmp eq i64 %29, 0
-  call void @llvm.assume(i1 %36)
-  %37 = load i32, ptr %28, align 8, !range !9591, !alias.scope !11270, !noalias !11271, !noundef !14
-  %38 = getelementptr inbounds nuw i8, ptr %4, i64 20
-  %39 = load i32, ptr %38, align 4, !range !9591, !alias.scope !11270, !noalias !11271, !noundef !14
-  store i32 %37, ptr %33, align 4, !noalias !11274
-  store i32 %39, ptr %34, align 4, !noalias !11274
-  store i64 1, ptr %4, align 8, !alias.scope !11265, !noalias !11266
+  %.pre.i.i.i.i.i = load i32, ptr %28, align 8, !range !9591, !alias.scope !11270, !noalias !11271
+  %.phi.trans.insert.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 20
+  %.pre3.i.i.i.i.i = load i32, ptr %.phi.trans.insert.i.i.i.i.i, align 4, !range !9591, !alias.scope !11270, !noalias !11271
+  br label %.lr.ph.i.i.i.i.i.i
+
+._crit_edge.i.i.i.i.i.i:                          ; preds = %.lr.ph.i.i.i.i.i.i
+  store i64 %31, ptr %4, align 8, !alias.scope !11265, !noalias !11266
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h0eff9c2fcdaa6da9E.exit.i.i"
+
+.lr.ph.i.i.i.i.i.i:                               ; preds = %.lr.ph.i.i.i.i.i.i, %.lr.ph.i.preheader.i.i.i.i.i
+  %33 = phi i64 [ %39, %.lr.ph.i.i.i.i.i.i ], [ %27, %.lr.ph.i.preheader.i.i.i.i.i ]
+  %34 = phi i64 [ 1, %.lr.ph.i.i.i.i.i.i ], [ %29, %.lr.ph.i.preheader.i.i.i.i.i ]
+  %35 = or disjoint i64 %34, 1
+  %36 = icmp eq i64 %34, 0
+  call void @llvm.assume(i1 %36)
+  %37 = getelementptr inbounds nuw { i32, i32 }, ptr %26, i64 %33
+  store i32 %.pre.i.i.i.i.i, ptr %37, align 4, !noalias !11274
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 4
+  store i32 %.pre3.i.i.i.i.i, ptr %38, align 4, !noalias !11274
+  %39 = add i64 %33, 1
+  %.not.i.i.i.i.i.i = icmp eq i64 %35, %31
+  br i1 %.not.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
 40:                                               ; preds = %25
   %lpad.thr_comm.i.i.i = landingpad { ptr, i32 }
@@ -85918,9 +85934,9 @@ define hidden void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..s
   call void @_ZN4core9panicking16panic_in_cleanup17hb7138e7aeec2c1a7E() #24, !noalias !11233
   unreachable
 
-"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h0eff9c2fcdaa6da9E.exit.i.i": ; preds = %.lr.ph.i.preheader.i.i.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h7cda97f636e73ee6E.exit.i.i.i"
-  %44 = phi i64 [ 1, %.lr.ph.i.preheader.i.i.i.i.i ], [ %29, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h7cda97f636e73ee6E.exit.i.i.i" ]
-  %.val3.i.i.i.i.i.i = phi i64 [ %35, %.lr.ph.i.preheader.i.i.i.i.i ], [ %27, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h7cda97f636e73ee6E.exit.i.i.i" ]
+"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h0eff9c2fcdaa6da9E.exit.i.i": ; preds = %._crit_edge.i.i.i.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h7cda97f636e73ee6E.exit.i.i.i"
+  %44 = phi i64 [ 1, %._crit_edge.i.i.i.i.i.i ], [ %29, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h7cda97f636e73ee6E.exit.i.i.i" ]
+  %.val3.i.i.i.i.i.i = phi i64 [ %39, %._crit_edge.i.i.i.i.i.i ], [ %27, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h7cda97f636e73ee6E.exit.i.i.i" ]
   store i64 %.val3.i.i.i.i.i.i, ptr %21, align 8, !alias.scope !11254, !noalias !11281
   invoke void @"_ZN129_$LT$$u5b$core..mem..maybe_uninit..MaybeUninit$LT$T$GT$$u3b$$u20$N$u5d$$u20$as$u20$core..array..iter..iter_inner..PartialDrop$GT$12partial_drop17h158231c4b43d6932E"(ptr noalias noundef nonnull align 4 dereferenceable(8) %28, i64 noundef %44, i64 noundef %31)
           to label %"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h3813a745880e9a6cE.exit" unwind label %45, !noalias !11233

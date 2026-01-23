@@ -42,7 +42,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 define hidden i32 @mbedtls_gcm_setkey(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #2 {
   %5 = alloca [2 x i64], align 16
   %6 = alloca i64, align 8
-  switch i32 %3, label %79 [
+  switch i32 %3, label %80 [
     i32 256, label %7
     i32 192, label %7
     i32 128, label %7
@@ -51,25 +51,25 @@ define hidden i32 @mbedtls_gcm_setkey(ptr noundef %0, i32 noundef %1, ptr nounde
 7:                                                ; preds = %4, %4, %4
   %8 = tail call ptr @mbedtls_cipher_info_from_values(i32 noundef %1, i32 noundef %3, i32 noundef 1) #11
   %9 = icmp eq ptr %8, null
-  br i1 %9, label %79, label %10
+  br i1 %9, label %80, label %10
 
 10:                                               ; preds = %7
   %11 = getelementptr i8, ptr %8, i64 8
   %.val = load i32, ptr %11, align 8
   %12 = and i32 %.val, 31
   %.not = icmp eq i32 %12, 16
-  br i1 %.not, label %13, label %79
+  br i1 %.not, label %13, label %80
 
 13:                                               ; preds = %10
   tail call void @mbedtls_cipher_free(ptr noundef %0) #11
   %14 = tail call i32 @mbedtls_cipher_setup(ptr noundef %0, ptr noundef nonnull %8) #11
   %.not24 = icmp eq i32 %14, 0
-  br i1 %.not24, label %15, label %79
+  br i1 %.not24, label %15, label %80
 
 15:                                               ; preds = %13
   %16 = tail call i32 @mbedtls_cipher_setkey(ptr noundef %0, ptr noundef %2, i32 noundef %3, i32 noundef 1) #11
   %.not25 = icmp eq i32 %16, 0
-  br i1 %.not25, label %17, label %79
+  br i1 %.not25, label %17, label %80
 
 17:                                               ; preds = %15
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -168,42 +168,44 @@ gcm_set_acceleration.exit.i:                      ; preds = %19
   br i1 %.not43.i, label %.lr.ph54.i, label %.preheader48.i, !llvm.loop !17
 
 .lr.ph54.i:                                       ; preds = %.preheader48.i, %._crit_edge.i
-  %.255.i = phi i32 [ %77, %._crit_edge.i ], [ 2, %.preheader48.i ]
+  %.255.i = phi i32 [ %78, %._crit_edge.i ], [ 2, %.preheader48.i ]
   %69 = zext i32 %.255.i to i64
   %70 = getelementptr inbounds nuw [2 x i64], ptr %29, i64 %69
-  %71 = getelementptr inbounds nuw i8, ptr %70, i64 8
+  %71 = sext i32 %.255.i to i64
+  %invariant.gep.i = getelementptr [2 x i64], ptr %29, i64 %71
+  %72 = getelementptr inbounds nuw i8, ptr %70, i64 8
   br label %mbedtls_xor_no_simd.exit.i.critedge
 
 mbedtls_xor_no_simd.exit.i.critedge:              ; preds = %mbedtls_xor_no_simd.exit.i.critedge, %.lr.ph54.i
   %indvars.iv.i = phi i64 [ 1, %.lr.ph54.i ], [ %indvars.iv.next.i, %mbedtls_xor_no_simd.exit.i.critedge ]
-  %gep.i = getelementptr inbounds nuw [2 x i64], ptr %70, i64 %indvars.iv.i
-  %72 = getelementptr inbounds nuw [2 x i64], ptr %29, i64 %indvars.iv.i
+  %gep.i = getelementptr [2 x i64], ptr %invariant.gep.i, i64 %indvars.iv.i
+  %73 = getelementptr inbounds nuw [2 x i64], ptr %29, i64 %indvars.iv.i
   %.0.copyload.i44.i = load i64, ptr %70, align 1
-  %.0.copyload.i.i = load i64, ptr %72, align 1
-  %73 = xor i64 %.0.copyload.i.i, %.0.copyload.i44.i
-  store i64 %73, ptr %gep.i, align 1
-  %.0.copyload.i44.i.c = load i64, ptr %71, align 1
-  %74 = getelementptr inbounds nuw i8, ptr %72, i64 8
-  %.0.copyload.i.i.c = load i64, ptr %74, align 1
-  %75 = xor i64 %.0.copyload.i.i.c, %.0.copyload.i44.i.c
-  %76 = getelementptr inbounds nuw i8, ptr %gep.i, i64 8
-  store i64 %75, ptr %76, align 1
+  %.0.copyload.i.i = load i64, ptr %73, align 1
+  %74 = xor i64 %.0.copyload.i.i, %.0.copyload.i44.i
+  store i64 %74, ptr %gep.i, align 1
+  %.0.copyload.i44.i.c = load i64, ptr %72, align 1
+  %75 = getelementptr inbounds nuw i8, ptr %73, i64 8
+  %.0.copyload.i.i.c = load i64, ptr %75, align 1
+  %76 = xor i64 %.0.copyload.i.i.c, %.0.copyload.i44.i.c
+  %77 = getelementptr inbounds nuw i8, ptr %gep.i, i64 8
+  store i64 %76, ptr %77, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %69
   br i1 %exitcond.not.i, label %._crit_edge.i, label %mbedtls_xor_no_simd.exit.i.critedge, !llvm.loop !18
 
 ._crit_edge.i:                                    ; preds = %mbedtls_xor_no_simd.exit.i.critedge
-  %77 = shl i32 %.255.i, 1
-  %78 = icmp slt i32 %77, 16
-  br i1 %78, label %.lr.ph54.i, label %gcm_gen_table.exit, !llvm.loop !19
+  %78 = shl i32 %.255.i, 1
+  %79 = icmp slt i32 %78, 16
+  br i1 %79, label %.lr.ph54.i, label %gcm_gen_table.exit, !llvm.loop !19
 
 gcm_gen_table.exit:                               ; preds = %._crit_edge.i, %17, %gcm_set_acceleration.exit.thread.i, %gcm_set_acceleration.exit.i
   %.0.i = phi i32 [ 0, %gcm_set_acceleration.exit.i ], [ %18, %17 ], [ 0, %gcm_set_acceleration.exit.thread.i ], [ 0, %._crit_edge.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %79
+  br label %80
 
-79:                                               ; preds = %7, %10, %13, %15, %gcm_gen_table.exit, %4
+80:                                               ; preds = %7, %10, %13, %15, %gcm_gen_table.exit, %4
   %.0 = phi i32 [ -20, %4 ], [ %16, %15 ], [ -20, %7 ], [ -20, %10 ], [ %14, %13 ], [ %.0.i, %gcm_gen_table.exit ]
   ret i32 %.0
 }

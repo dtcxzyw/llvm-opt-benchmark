@@ -6051,7 +6051,7 @@ _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i.i:        ; preds = %2177, %2175, %2173,
   %2191 = sub i64 %2189, %2190
   %2192 = lshr exact i64 %2191, 2
   %2193 = trunc i64 %2192 to i32
-  %wide.trip.count16.i.i = and i64 %2183, 2147483647
+  %wide.trip.count16.i.i = and i64 %2183, 4294967295
   br i1 %2188, label %_ZNK5Yosys7hashlib4poolIPNS_5RTLIL4WireENS0_8hash_opsIS4_EEE7do_hashERKS4_.exit.us.preheader.i.i, label %.lr.ph.split.i.i
 
 _ZNK5Yosys7hashlib4poolIPNS_5RTLIL4WireENS0_8hash_opsIS4_EEE7do_hashERKS4_.exit.us.preheader.i.i: ; preds = %.lr.ph.i.i
@@ -7916,8 +7916,9 @@ _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i3842:      ; preds = %2997, %3003, %3001,
   br i1 %3014, label %.lr.ph.i3844.preheader.split.us, label %.lr.ph.i3844
 
 .lr.ph.i3844.preheader.split.us:                  ; preds = %.lr.ph.i3844.preheader
-  %sext.i3847.us = and i64 %3009, 2147483647
-  %3015 = call i64 @llvm.umax.i64(i64 %sext.i3847.us, i64 1)
+  %sext.i3847.us = shl i64 %3009, 32
+  %3015 = ashr exact i64 %sext.i3847.us, 32
+  %smax = call i64 @llvm.smax.i64(i64 %3015, i64 1)
   %.pre12592 = load i32, ptr %3012, align 4, !tbaa !85
   br label %.lr.ph.i3844.us
 
@@ -7930,7 +7931,7 @@ _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i3842:      ; preds = %2997, %3003, %3001,
   %3019 = trunc nuw nsw i64 %indvars.iv.i3845.us to i32
   store i32 %3019, ptr %3012, align 4, !tbaa !85
   %indvars.iv.next.i3846.us = add nuw nsw i64 %indvars.iv.i3845.us, 1
-  %exitcond12483.not = icmp eq i64 %indvars.iv.next.i3846.us, %3015
+  %exitcond12483.not = icmp eq i64 %indvars.iv.next.i3846.us, %smax
   br i1 %exitcond12483.not, label %.noexc3285, label %.lr.ph.i3844.us, !llvm.loop !259
 
 .lr.ph.i3844:                                     ; preds = %.lr.ph.i3844.preheader, %.noexc3851
@@ -10618,7 +10619,7 @@ _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i:          ; preds = %_ZSt22__uninitializ
   br i1 %4243, label %.lr.ph.split.us.i, label %.lr.ph.split.i
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i3346
-  %wide.trip.count.i = and i64 %4239, 2147483647
+  %wide.trip.count.i = and i64 %4239, 4294967295
   %.pre17.i = load i32, ptr %4242, align 4, !tbaa !85
   br label %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringENS2_7SigSpecENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.us.i
 
@@ -11188,7 +11189,7 @@ _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i3883:      ; preds = %_ZSt22__uninitializ
   br i1 %4523, label %.lr.ph.split.us.i3896, label %.lr.ph.split.i3886
 
 .lr.ph.split.us.i3896:                            ; preds = %.lr.ph.i3885
-  %wide.trip.count.i3897 = and i64 %4519, 2147483647
+  %wide.trip.count.i3897 = and i64 %4519, 4294967295
   %.pre17.i3898 = load i32, ptr %4522, align 4, !tbaa !85
   br label %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringENS2_7SigSpecENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.us.i3899
 
@@ -11975,7 +11976,7 @@ _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i3933:      ; preds = %_ZSt22__uninitializ
   br i1 %4851, label %.lr.ph.split.us.i3946, label %.lr.ph.split.i3936
 
 .lr.ph.split.us.i3946:                            ; preds = %.lr.ph.i3935
-  %wide.trip.count.i3947 = and i64 %4847, 2147483647
+  %wide.trip.count.i3947 = and i64 %4847, 4294967295
   %.pre17.i3948 = load i32, ptr %4850, align 4, !tbaa !85
   br label %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringEPNS2_4WireENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.us.i3949
 
@@ -12564,7 +12565,7 @@ _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i3909:      ; preds = %_ZSt22__uninitializ
   br i1 %5107, label %.lr.ph.split.us.i3922, label %.lr.ph.split.i3912
 
 .lr.ph.split.us.i3922:                            ; preds = %.lr.ph.i3911
-  %wide.trip.count.i3923 = and i64 %5103, 2147483647
+  %wide.trip.count.i3923 = and i64 %5103, 4294967295
   %.pre17.i3924 = load i32, ptr %5106, align 4, !tbaa !85
   br label %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringEPNS2_4WireENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.us.i
 
@@ -13071,7 +13072,7 @@ _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i3959:      ; preds = %_ZSt22__uninitializ
   br i1 %5339, label %.lr.ph.split.us.i3972, label %.lr.ph.split.i3962
 
 .lr.ph.split.us.i3972:                            ; preds = %.lr.ph.i3961
-  %wide.trip.count.i3973 = and i64 %5335, 2147483647
+  %wide.trip.count.i3973 = and i64 %5335, 4294967295
   %.pre17.i3974 = load i32, ptr %5338, align 4, !tbaa !85
   br label %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringENS1_IS3_NS2_5ConstENS0_8hash_opsIS3_EEEES6_E7do_hashERKS3_.exit.us.i
 
@@ -13461,7 +13462,7 @@ _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i3983:      ; preds = %_ZSt22__uninitializ
   br i1 %5535, label %.lr.ph.split.us.i3996, label %.lr.ph.split.i3986
 
 .lr.ph.split.us.i3996:                            ; preds = %.lr.ph.i3985
-  %wide.trip.count.i3997 = and i64 %5531, 2147483647
+  %wide.trip.count.i3997 = and i64 %5531, 4294967295
   %.pre17.i3998 = load i32, ptr %5534, align 4, !tbaa !85
   br label %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringENS1_IS3_NS2_5ConstENS0_8hash_opsIS3_EEEES6_E7do_hashERKS3_.exit.us.i3999
 
@@ -13886,7 +13887,7 @@ _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i4009:      ; preds = %_ZSt22__uninitializ
   br i1 %5745, label %.lr.ph.split.us.i4022, label %.lr.ph.split.i4012
 
 .lr.ph.split.us.i4022:                            ; preds = %.lr.ph.i4011
-  %wide.trip.count.i4023 = and i64 %5741, 2147483647
+  %wide.trip.count.i4023 = and i64 %5741, 4294967295
   %.pre17.i4024 = load i32, ptr %5744, align 4, !tbaa !85
   br label %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringENS2_5ConstENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.us.i
 
@@ -14762,7 +14763,7 @@ _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i4033:      ; preds = %6116, %6122, %6120,
   br i1 %6133, label %.lr.ph.split.us.i4046, label %.lr.ph.split.i4036
 
 .lr.ph.split.us.i4046:                            ; preds = %.lr.ph.i4035
-  %wide.trip.count.i4047 = and i64 %6128, 2147483647
+  %wide.trip.count.i4047 = and i64 %6128, 4294967295
   %.pre17.i4048 = load i32, ptr %6131, align 4, !tbaa !85
   br label %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringENS1_IS3_NS2_5ConstENS0_8hash_opsIS3_EEEES6_E7do_hashERKS3_.exit.us.i4049
 
@@ -16609,7 +16610,7 @@ _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i3511:      ; preds = %_ZSt22__uninitializ
   %7066 = sub i64 %7064, %7065
   %7067 = lshr exact i64 %7066, 2
   %7068 = trunc i64 %7067 to i32
-  %wide.trip.count16.i = and i64 %7059, 2147483647
+  %wide.trip.count16.i = and i64 %7059, 4294967295
   br i1 %7063, label %_ZNK5Yosys7hashlib4poolIPNS_5RTLIL4WireENS0_8hash_opsIS4_EEE7do_hashERKS4_.exit.us.preheader.i, label %.lr.ph.split.i3514
 
 _ZNK5Yosys7hashlib4poolIPNS_5RTLIL4WireENS0_8hash_opsIS4_EEE7do_hashERKS4_.exit.us.preheader.i: ; preds = %.lr.ph.i3513
@@ -17041,7 +17042,7 @@ _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i3528:      ; preds = %_ZSt22__uninitializ
   %7270 = sub i64 %7268, %7269
   %7271 = lshr exact i64 %7270, 2
   %7272 = trunc i64 %7271 to i32
-  %wide.trip.count16.i3531 = and i64 %7263, 2147483647
+  %wide.trip.count16.i3531 = and i64 %7263, 4294967295
   br i1 %7267, label %_ZNK5Yosys7hashlib4dictIPNS_5RTLIL4WireENS2_7SigSpecENS0_8hash_opsIS4_EEE7do_hashERKS4_.exit.us.preheader.i, label %.lr.ph.split.i3532
 
 _ZNK5Yosys7hashlib4dictIPNS_5RTLIL4WireENS2_7SigSpecENS0_8hash_opsIS4_EEE7do_hashERKS4_.exit.us.preheader.i: ; preds = %.lr.ph.i3530
@@ -17371,7 +17372,7 @@ _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i3548:      ; preds = %_ZSt22__uninitializ
   %7446 = sub i64 %7444, %7445
   %7447 = lshr exact i64 %7446, 2
   %7448 = trunc i64 %7447 to i32
-  %wide.trip.count16.i3551 = and i64 %7439, 2147483647
+  %wide.trip.count16.i3551 = and i64 %7439, 4294967295
   br i1 %7443, label %_ZNK5Yosys7hashlib4dictIPNS_5RTLIL4WireENS2_7SigSpecENS0_8hash_opsIS4_EEE7do_hashERKS4_.exit.us.preheader.i3559, label %.lr.ph.split.i3552
 
 _ZNK5Yosys7hashlib4dictIPNS_5RTLIL4WireENS2_7SigSpecENS0_8hash_opsIS4_EEE7do_hashERKS4_.exit.us.preheader.i3559: ; preds = %.lr.ph.i3550
@@ -17801,7 +17802,7 @@ _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i3571:      ; preds = %_ZSt22__uninitializ
   %7651 = sub i64 %7649, %7650
   %7652 = lshr exact i64 %7651, 2
   %7653 = trunc i64 %7652 to i32
-  %wide.trip.count16.i3574 = and i64 %7644, 2147483647
+  %wide.trip.count16.i3574 = and i64 %7644, 4294967295
   br i1 %7648, label %_ZNK5Yosys7hashlib4dictIPNS_5RTLIL4WireENS2_7SigSpecENS0_8hash_opsIS4_EEE7do_hashERKS4_.exit.us.preheader.i3582, label %.lr.ph.split.i3575
 
 _ZNK5Yosys7hashlib4dictIPNS_5RTLIL4WireENS2_7SigSpecENS0_8hash_opsIS4_EEE7do_hashERKS4_.exit.us.preheader.i3582: ; preds = %.lr.ph.i3573
@@ -18696,7 +18697,7 @@ _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i3594:      ; preds = %_ZSt22__uninitializ
   %8043 = sub i64 %8041, %8042
   %8044 = lshr exact i64 %8043, 2
   %8045 = trunc i64 %8044 to i32
-  %wide.trip.count16.i3597 = and i64 %8036, 2147483647
+  %wide.trip.count16.i3597 = and i64 %8036, 4294967295
   br i1 %8040, label %_ZNK5Yosys7hashlib4poolIPNS_5RTLIL4WireENS0_8hash_opsIS4_EEE7do_hashERKS4_.exit.us.preheader.i3605, label %.lr.ph.split.i3598
 
 _ZNK5Yosys7hashlib4poolIPNS_5RTLIL4WireENS0_8hash_opsIS4_EEE7do_hashERKS4_.exit.us.preheader.i3605: ; preds = %.lr.ph.i3596
@@ -19283,7 +19284,7 @@ _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i3617:      ; preds = %_ZSt22__uninitializ
   %8302 = sub i64 %8300, %8301
   %8303 = lshr exact i64 %8302, 2
   %8304 = trunc i64 %8303 to i32
-  %wide.trip.count16.i3620 = and i64 %8295, 2147483647
+  %wide.trip.count16.i3620 = and i64 %8295, 4294967295
   br i1 %8299, label %_ZNK5Yosys7hashlib4dictIPNS_5RTLIL4WireENS2_7SigSpecENS0_8hash_opsIS4_EEE7do_hashERKS4_.exit.us.preheader.i3628, label %.lr.ph.split.i3621
 
 _ZNK5Yosys7hashlib4dictIPNS_5RTLIL4WireENS2_7SigSpecENS0_8hash_opsIS4_EEE7do_hashERKS4_.exit.us.preheader.i3628: ; preds = %.lr.ph.i3619
@@ -19687,7 +19688,7 @@ _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i3640:      ; preds = %_ZSt22__uninitializ
   %8506 = sub i64 %8504, %8505
   %8507 = lshr exact i64 %8506, 2
   %8508 = trunc i64 %8507 to i32
-  %wide.trip.count16.i3643 = and i64 %8499, 2147483647
+  %wide.trip.count16.i3643 = and i64 %8499, 4294967295
   br i1 %8503, label %_ZNK5Yosys7hashlib4dictIPNS_5RTLIL4WireENS2_7SigSpecENS0_8hash_opsIS4_EEE7do_hashERKS4_.exit.us.preheader.i3651, label %.lr.ph.split.i3644
 
 _ZNK5Yosys7hashlib4dictIPNS_5RTLIL4WireENS2_7SigSpecENS0_8hash_opsIS4_EEE7do_hashERKS4_.exit.us.preheader.i3651: ; preds = %.lr.ph.i3642
@@ -20346,7 +20347,7 @@ _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i3663:      ; preds = %_ZSt22__uninitializ
   %8800 = sub i64 %8798, %8799
   %8801 = lshr exact i64 %8800, 2
   %8802 = trunc i64 %8801 to i32
-  %wide.trip.count16.i3666 = and i64 %8793, 2147483647
+  %wide.trip.count16.i3666 = and i64 %8793, 4294967295
   br i1 %8797, label %_ZNK5Yosys7hashlib4dictIPNS_5RTLIL4WireENS2_7SigSpecENS0_8hash_opsIS4_EEE7do_hashERKS4_.exit.us.preheader.i3674, label %.lr.ph.split.i3667
 
 _ZNK5Yosys7hashlib4dictIPNS_5RTLIL4WireENS2_7SigSpecENS0_8hash_opsIS4_EEE7do_hashERKS4_.exit.us.preheader.i3674: ; preds = %.lr.ph.i3665
@@ -23992,7 +23993,7 @@ _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i4517:      ; preds = %_ZSt22__uninitializ
   br i1 %10266, label %.lr.ph.split.us.i4530, label %.lr.ph.split.i4520
 
 .lr.ph.split.us.i4530:                            ; preds = %.lr.ph.i4519
-  %wide.trip.count.i4531 = and i64 %10262, 2147483647
+  %wide.trip.count.i4531 = and i64 %10262, 4294967295
   %.pre17.i4532 = load i32, ptr %10265, align 4, !tbaa !85
   br label %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringEPNS2_4WireENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.us.i4533
 
@@ -36754,7 +36755,7 @@ _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i613:       ; preds = %_ZSt22__uninitializ
   br i1 %1126, label %.lr.ph.split.us.i626, label %.lr.ph.split.i616
 
 .lr.ph.split.us.i626:                             ; preds = %.lr.ph.i615
-  %wide.trip.count.i627 = and i64 %1122, 2147483647
+  %wide.trip.count.i627 = and i64 %1122, 4294967295
   %.pre17.i628 = load i32, ptr %1125, align 4, !tbaa !85
   br label %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringEPNS2_4WireENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.us.i629
 
@@ -38450,7 +38451,7 @@ _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i587:       ; preds = %1811, %1817, %1815,
   br i1 %1828, label %.lr.ph.split.us.i600, label %.lr.ph.split.i590
 
 .lr.ph.split.us.i600:                             ; preds = %.lr.ph.i589
-  %wide.trip.count.i601 = and i64 %1823, 2147483647
+  %wide.trip.count.i601 = and i64 %1823, 4294967295
   %.pre17.i602 = load i32, ptr %1826, align 4, !tbaa !85
   br label %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringEPNS2_4WireENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.us.i603
 
@@ -39051,7 +39052,7 @@ _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i:          ; preds = %2053, %2059, %2057,
   br i1 %2070, label %.lr.ph.split.us.i, label %.lr.ph.split.i
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i572
-  %wide.trip.count.i = and i64 %2065, 2147483647
+  %wide.trip.count.i = and i64 %2065, 4294967295
   %.pre17.i = load i32, ptr %2068, align 4, !tbaa !85
   br label %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringEPNS2_4WireENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.us.i
 
@@ -41938,7 +41939,7 @@ _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i639:       ; preds = %3389, %3395, %3393,
   br i1 %3406, label %.lr.ph.split.us.i652, label %.lr.ph.split.i642
 
 .lr.ph.split.us.i652:                             ; preds = %.lr.ph.i641
-  %wide.trip.count.i653 = and i64 %3401, 2147483647
+  %wide.trip.count.i653 = and i64 %3401, 4294967295
   %.pre17.i654 = load i32, ptr %3404, align 4, !tbaa !85
   br label %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringEPNS2_4WireENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.us.i655
 
@@ -42317,7 +42318,7 @@ _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i665:       ; preds = %3579, %3585, %3583,
   br i1 %3596, label %.lr.ph.split.us.i678, label %.lr.ph.split.i668
 
 .lr.ph.split.us.i678:                             ; preds = %.lr.ph.i667
-  %wide.trip.count.i679 = and i64 %3591, 2147483647
+  %wide.trip.count.i679 = and i64 %3591, 4294967295
   %.pre17.i680 = load i32, ptr %3594, align 4, !tbaa !85
   br label %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringEPNS2_4WireENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.us.i681
 
@@ -46863,7 +46864,7 @@ _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit:            ; preds = %26, %28, %30, %32
   %47 = sub i64 %45, %46
   %48 = lshr exact i64 %47, 2
   %49 = trunc i64 %48 to i32
-  %wide.trip.count16 = and i64 %39, 2147483647
+  %wide.trip.count16 = and i64 %39, 4294967295
   br i1 %44, label %_ZNK5Yosys7hashlib4dictIPciNS0_8hash_opsIS2_EEE7do_hashERKS2_.exit.us.preheader, label %.lr.ph.split
 
 _ZNK5Yosys7hashlib4dictIPciNS0_8hash_opsIS2_EEE7do_hashERKS2_.exit.us.preheader: ; preds = %.lr.ph
@@ -47954,7 +47955,7 @@ _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit:            ; preds = %26, %28, %30, %32
   br i1 %44, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
-  %wide.trip.count = and i64 %39, 2147483647
+  %wide.trip.count = and i64 %39, 4294967295
   %.pre17 = load i32, ptr %42, align 4, !tbaa !85
   br label %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringENS2_5ConstENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.us
 
@@ -50547,7 +50548,7 @@ _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit:            ; preds = %26, %28, %30, %32
   %47 = sub i64 %45, %46
   %48 = lshr exact i64 %47, 2
   %49 = trunc i64 %48 to i32
-  %wide.trip.count16 = and i64 %39, 2147483647
+  %wide.trip.count16 = and i64 %39, 4294967295
   br i1 %44, label %_ZNK5Yosys7hashlib4dictIPNS_5RTLIL6ModuleEiNS0_8hash_opsIS4_EEE7do_hashERKS4_.exit.us.preheader, label %.lr.ph.split
 
 _ZNK5Yosys7hashlib4dictIPNS_5RTLIL6ModuleEiNS0_8hash_opsIS4_EEE7do_hashERKS4_.exit.us.preheader: ; preds = %.lr.ph
@@ -53424,7 +53425,7 @@ _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit:            ; preds = %26, %28, %30, %32
   br i1 %44, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
-  %wide.trip.count = and i64 %39, 2147483647
+  %wide.trip.count = and i64 %39, 4294967295
   %.pre17 = load i32, ptr %42, align 4, !tbaa !85
   br label %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringEPNS2_6ModuleENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.us
 
@@ -53934,7 +53935,7 @@ _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit:            ; preds = %26, %28, %30, %32
   br i1 %44, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
-  %wide.trip.count = and i64 %39, 2147483647
+  %wide.trip.count = and i64 %39, 4294967295
   %.pre17 = load i32, ptr %42, align 4, !tbaa !85
   br label %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringES3_NS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.us
 
@@ -54578,7 +54579,7 @@ _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit:            ; preds = %26, %28, %30, %32
   br i1 %44, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
-  %wide.trip.count = and i64 %39, 2147483647
+  %wide.trip.count = and i64 %39, 4294967295
   %.pre17 = load i32, ptr %42, align 4, !tbaa !85
   br label %_ZNK5Yosys7hashlib4poolINS_5RTLIL8IdStringENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.us
 
@@ -55036,7 +55037,7 @@ _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit:            ; preds = %26, %28, %30, %32
   br i1 %44, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
-  %wide.trip.count = and i64 %39, 2147483647
+  %wide.trip.count = and i64 %39, 4294967295
   %.pre17 = load i32, ptr %42, align 4, !tbaa !85
   br label %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringENS2_7SigSpecENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.us
 
@@ -60637,7 +60638,7 @@ _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit:            ; preds = %26, %28, %30, %32
   br i1 %44, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
-  %wide.trip.count = and i64 %39, 2147483647
+  %wide.trip.count = and i64 %39, 4294967295
   %.pre17 = load i32, ptr %42, align 4, !tbaa !85
   br label %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringENS1_IS3_NS2_5ConstENS0_8hash_opsIS3_EEEES6_E7do_hashERKS3_.exit.us
 
@@ -62002,7 +62003,7 @@ _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit:            ; preds = %26, %28, %30, %32
   %47 = sub i64 %45, %46
   %48 = lshr exact i64 %47, 2
   %49 = trunc i64 %48 to i32
-  %wide.trip.count16 = and i64 %39, 2147483647
+  %wide.trip.count16 = and i64 %39, 4294967295
   br i1 %44, label %_ZNK5Yosys7hashlib4dictIPNS_5RTLIL4WireENS2_7SigSpecENS0_8hash_opsIS4_EEE7do_hashERKS4_.exit.us.preheader, label %.lr.ph.split
 
 _ZNK5Yosys7hashlib4dictIPNS_5RTLIL4WireENS2_7SigSpecENS0_8hash_opsIS4_EEE7do_hashERKS4_.exit.us.preheader: ; preds = %.lr.ph
@@ -62754,7 +62755,7 @@ _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit:            ; preds = %26, %28, %30, %32
   %47 = sub i64 %45, %46
   %48 = lshr exact i64 %47, 2
   %49 = trunc i64 %48 to i32
-  %wide.trip.count16 = and i64 %39, 2147483647
+  %wide.trip.count16 = and i64 %39, 4294967295
   br i1 %44, label %_ZNK5Yosys7hashlib4poolIPNS_5RTLIL4WireENS0_8hash_opsIS4_EEE7do_hashERKS4_.exit.us.preheader, label %.lr.ph.split
 
 _ZNK5Yosys7hashlib4poolIPNS_5RTLIL4WireENS0_8hash_opsIS4_EEE7do_hashERKS4_.exit.us.preheader: ; preds = %.lr.ph
@@ -63265,7 +63266,7 @@ _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit:            ; preds = %26, %28, %30, %32
   br i1 %44, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
-  %wide.trip.count = and i64 %39, 2147483647
+  %wide.trip.count = and i64 %39, 4294967295
   %.pre17 = load i32, ptr %42, align 4, !tbaa !85
   br label %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringEPNS2_4WireENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.us
 

@@ -3994,17 +3994,18 @@ define hidden void @"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u
   %5 = load i64, ptr %4, align 8, !noundef !7
   %6 = load i64, ptr %3, align 8, !noundef !7
   %.not.not = icmp eq i64 %5, %6
-  br i1 %.not.not, label %10, label %7
+  br i1 %.not.not, label %11, label %7
 
 7:                                                ; preds = %2
-  store i64 1, ptr %3, align 8
-  %8 = icmp eq i64 %6, 0
-  tail call void @llvm.assume(i1 %8)
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
-  br label %10
+  %8 = or disjoint i64 %6, 1
+  store i64 %8, ptr %3, align 8
+  %9 = icmp eq i64 %6, 0
+  tail call void @llvm.assume(i1 %9)
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+  br label %11
 
-10:                                               ; preds = %2, %7
+11:                                               ; preds = %2, %7
   %.sink = phi i64 [ 1, %7 ], [ 0, %2 ]
   store i64 %.sink, ptr %0, align 8
   ret void
@@ -4020,16 +4021,17 @@ define hidden void @"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u
   br i1 %.not.not, label %.thread, label %7
 
 7:                                                ; preds = %2
-  store i64 1, ptr %3, align 8
-  %8 = icmp eq i64 %6, 0
-  tail call void @llvm.assume(i1 %8)
-  %9 = load ptr, ptr %1, align 8, !align !264, !noundef !7
-  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %11 = load i64, ptr %10, align 8
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %9, ptr %12, align 8
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %11, ptr %13, align 8
+  %8 = or disjoint i64 %6, 1
+  store i64 %8, ptr %3, align 8
+  %9 = icmp eq i64 %6, 0
+  tail call void @llvm.assume(i1 %9)
+  %10 = load ptr, ptr %1, align 8, !align !264, !noundef !7
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %12 = load i64, ptr %11, align 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %10, ptr %13, align 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %12, ptr %14, align 8
   br label %.thread
 
 .thread:                                          ; preds = %2, %7

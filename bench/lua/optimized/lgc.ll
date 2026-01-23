@@ -222,13 +222,12 @@ getgclist.exit:                                   ; preds = %7, %12, %13, %14, %
   br label %19
 
 19:                                               ; preds = %2, %getgclist.exit
-  %.sink10 = phi i8 [ -57, %getgclist.exit ], [ -58, %2 ]
-  %20 = and i8 %4, %.sink10
-  %21 = and i8 %4, 6
-  %.not = icmp eq i8 %21, 0
-  %22 = and i8 %4, -64
-  %23 = or disjoint i8 %22, 5
-  %storemerge9 = select i1 %.not, i8 %20, i8 %23
+  %storemerge = and i8 %4, -57
+  %20 = and i8 %4, 6
+  %.not = icmp eq i8 %20, 0
+  %21 = and i8 %4, -64
+  %22 = or disjoint i8 %21, 5
+  %storemerge9 = select i1 %.not, i8 %storemerge, i8 %22
   store i8 %storemerge9, ptr %3, align 1, !tbaa !27
   ret void
 }
@@ -1459,7 +1458,7 @@ markold.exit69.i:                                 ; preds = %87, %markold.exit63
   br label %122
 
 109:                                              ; preds = %104
-  %110 = and i8 %99, -32
+  %110 = and i8 %99, -8
   %111 = zext nneg i32 %105 to i64
   %112 = getelementptr inbounds nuw i8, ptr @sweepgen.nextage, i64 %111
   %113 = load i8, ptr %112, align 1, !tbaa !33
@@ -1530,7 +1529,7 @@ sweepgen.exit.i:                                  ; preds = %122, %markold.exit6
   br label %154
 
 141:                                              ; preds = %136
-  %142 = and i8 %131, -32
+  %142 = and i8 %131, -8
   %143 = zext nneg i32 %137 to i64
   %144 = getelementptr inbounds nuw i8, ptr @sweepgen.nextage, i64 %143
   %145 = load i8, ptr %144, align 1, !tbaa !33
@@ -1611,7 +1610,7 @@ sweepgen.exit84.i:                                ; preds = %sweepgen.exit84.loo
   br label %187
 
 177:                                              ; preds = %172
-  %178 = and i8 %167, -32
+  %178 = and i8 %167, -8
   %179 = zext nneg i32 %173 to i64
   %180 = getelementptr inbounds nuw i8, ptr @sweepgen.nextage, i64 %179
   %181 = load i8, ptr %180, align 1, !tbaa !33
@@ -1676,7 +1675,7 @@ sweepgen.exit97.i:                                ; preds = %187, %sweepgen.exit
   br label %216
 
 206:                                              ; preds = %201
-  %207 = and i8 %196, -32
+  %207 = and i8 %196, -8
   %208 = zext nneg i32 %202 to i64
   %209 = getelementptr inbounds nuw i8, ptr @sweepgen.nextage, i64 %208
   %210 = load i8, ptr %209, align 1, !tbaa !33
@@ -1748,7 +1747,7 @@ sweepgen.exit110.i:                               ; preds = %sweepgen.exit110.lo
   br label %246
 
 236:                                              ; preds = %231
-  %237 = and i8 %226, -32
+  %237 = and i8 %226, -8
   %238 = zext nneg i32 %232 to i64
   %239 = getelementptr inbounds nuw i8, ptr @sweepgen.nextage, i64 %238
   %240 = load i8, ptr %239, align 1, !tbaa !33
@@ -2929,7 +2928,7 @@ define internal fastcc void @atomic2gen(ptr noundef %0, ptr noundef captures(non
   br label %34
 
 17:                                               ; preds = %10
-  %18 = and i8 %13, -32
+  %18 = and i8 %13, -8
   %19 = or disjoint i8 %18, 4
   %20 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %21 = load i8, ptr %20, align 8, !tbaa !32
@@ -3011,7 +3010,7 @@ sweep2old.exit:                                   ; preds = %sweep2old.exit.loop
   br label %70
 
 53:                                               ; preds = %46
-  %54 = and i8 %49, -32
+  %54 = and i8 %49, -8
   %55 = or disjoint i8 %54, 4
   %56 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %57 = load i8, ptr %56, align 8, !tbaa !32
@@ -3091,7 +3090,7 @@ sweep2old.exit30:                                 ; preds = %sweep2old.exit30.lo
   br label %105
 
 88:                                               ; preds = %81
-  %89 = and i8 %84, -32
+  %89 = and i8 %84, -8
   %90 = or disjoint i8 %89, 4
   %91 = getelementptr inbounds nuw i8, ptr %82, i64 8
   %92 = load i8, ptr %91, align 8, !tbaa !32
@@ -4672,7 +4671,7 @@ getgclist.exit:                                   ; preds = %.lr.ph, %6, %8, %10
 
 30:                                               ; preds = %28
   %31 = icmp eq i32 %23, 6
-  %32 = and i8 %19, -60
+  %32 = and i8 %19, -36
   %spec.select = select i1 %31, i8 %32, i8 %19
   %33 = or i8 %spec.select, 32
   store i8 %33, ptr %18, align 1, !tbaa !27

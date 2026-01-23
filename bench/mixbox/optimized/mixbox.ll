@@ -4442,10 +4442,8 @@ _ZL8zreceiveP4zbufi.exit.i34.i:                   ; preds = %423, %419
 
 .preheader.split.preheader.i:                     ; preds = %.preheader.i
   %459 = mul nuw nsw i64 %indvars.iv80.i, 3
-  %460 = add nuw nsw i64 %459, 4294967293
-  %461 = and i64 %460, 4294967295
-  %462 = getelementptr inbounds nuw i8, ptr @_ZZL10mixbox_lutvE12decompressed, i64 %461
-  %invariant.gep.i = getelementptr inbounds nuw i8, ptr @_ZZL10mixbox_lutvE12decompressed, i64 %459
+  %460 = getelementptr i8, ptr @_ZZL10mixbox_lutvE12decompressed, i64 %459
+  %461 = getelementptr i8, ptr %460, i64 -3
   br label %.preheader.split.i
 
 .split.us.i:                                      ; preds = %.preheader.split.i, %.preheader.i
@@ -4455,13 +4453,13 @@ _ZL8zreceiveP4zbufi.exit.i34.i:                   ; preds = %423, %419
 
 .preheader.split.i:                               ; preds = %.preheader.split.i, %.preheader.split.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.split.preheader.i ], [ %indvars.iv.next.i, %.preheader.split.i ]
-  %463 = getelementptr inbounds nuw i8, ptr %462, i64 %indvars.iv.i
-  %464 = load i8, ptr %463, align 1, !tbaa !5
-  %gep.i = getelementptr inbounds nuw i8, ptr %invariant.gep.i, i64 %indvars.iv.i
-  %465 = load i8, ptr %gep.i, align 1, !tbaa !5
-  %466 = add i8 %464, -127
-  %467 = add i8 %466, %465
-  store i8 %467, ptr %gep.i, align 1, !tbaa !5
+  %462 = getelementptr i8, ptr %461, i64 %indvars.iv.i
+  %463 = load i8, ptr %462, align 1, !tbaa !5
+  %gep.i = getelementptr inbounds nuw i8, ptr %460, i64 %indvars.iv.i
+  %464 = load i8, ptr %gep.i, align 1, !tbaa !5
+  %465 = add i8 %463, -127
+  %466 = add i8 %465, %464
+  store i8 %466, ptr %gep.i, align 1, !tbaa !5
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
   br i1 %exitcond.not.i, label %.split.us.i, label %.preheader.split.i, !llvm.loop !41

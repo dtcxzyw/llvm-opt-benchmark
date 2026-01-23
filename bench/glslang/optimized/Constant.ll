@@ -3275,7 +3275,7 @@ _ZNK7glslang17TSmallArrayVector4sizeEv.exit.lr.ph.i: ; preds = %41
   br i1 %54, label %.lr.ph.i, label %_ZNK7glslang11TArraySizes17getCumulativeSizeEv.exit
 
 .lr.ph.i:                                         ; preds = %_ZNK7glslang17TSmallArrayVector4sizeEv.exit.lr.ph.i
-  %wide.trip.count.i = and i64 %52, 2147483647
+  %wide.trip.count.i = and i64 %52, 4294967295
   br label %_ZNK7glslang17TSmallArrayVector4sizeEv.exit.i
 
 _ZNK7glslang17TSmallArrayVector4sizeEv.exit.i:    ; preds = %_ZNK7glslang17TSmallArrayVector4sizeEv.exit.i, %.lr.ph.i
@@ -10474,6 +10474,7 @@ _ZNK7glslang11TConstUnionneERKS0_.exit:           ; preds = %1065, %1082, %1086,
 
 .preheader747.us.preheader:                       ; preds = %.preheader747.lr.ph
   %1459 = zext nneg i32 %1239 to i64
+  %wide.trip.count800 = zext nneg i32 %1239 to i64
   %wide.trip.count = zext nneg i32 %1453 to i64
   br label %.preheader747.us
 
@@ -10582,7 +10583,7 @@ _ZNK7glslang11TConstUnionmlERKS0_.exit.us:        ; preds = %1504, %1500, %1495,
 
 ._crit_edge766.us:                                ; preds = %_ZNK7glslang11TConstUnionmlERKS0_.exit.us
   %indvars.iv.next798 = add nuw nsw i64 %indvars.iv797, 1
-  %exitcond801.not = icmp eq i64 %indvars.iv.next798, %1459
+  %exitcond801.not = icmp eq i64 %indvars.iv.next798, %wide.trip.count800
   br i1 %exitcond801.not, label %.loopexit, label %.preheader747.us, !llvm.loop !44
 
 .loopexit:                                        ; preds = %._crit_edge766.us, %1422, %1418, %1384, %.lr.ph777.split, %.lr.ph777.split.us, %1228, %.preheader747.lr.ph, %1441, %.preheader745, %.preheader743, %1376, %1353, %.preheader, %._crit_edge781, %1261, %1267
@@ -11310,7 +11311,7 @@ _ZN7glslang17TSmallArrayVector5allocEv.exit.i.i:  ; preds = %112, %_ZNK7glslang1
   br i1 %265, label %266, label %_ZN7glslang11TArraySizes16copyDereferencedERKS0_.exit
 
 266:                                              ; preds = %258
-  %267 = and i32 %263, -2096641
+  %267 = and i32 %263, -2093057
   %268 = or disjoint i32 %267, 1048576
   store i32 %268, ptr %196, align 8
   br label %_ZN7glslang11TArraySizes16copyDereferencedERKS0_.exit
@@ -11730,7 +11731,7 @@ _ZNK7glslang17TSmallArrayVector4sizeEv.exit.lr.ph.i: ; preds = %1
   br i1 %16, label %.lr.ph.i, label %_ZNK7glslang11TArraySizes17getCumulativeSizeEv.exit
 
 .lr.ph.i:                                         ; preds = %_ZNK7glslang17TSmallArrayVector4sizeEv.exit.lr.ph.i
-  %wide.trip.count.i = and i64 %14, 2147483647
+  %wide.trip.count.i = and i64 %14, 4294967295
   br label %_ZNK7glslang17TSmallArrayVector4sizeEv.exit.i
 
 _ZNK7glslang17TSmallArrayVector4sizeEv.exit.i:    ; preds = %_ZNK7glslang17TSmallArrayVector4sizeEv.exit.i, %.lr.ph.i
@@ -12458,7 +12459,7 @@ _ZZNK7glslang5TType17containsNonOpaqueEvENKUlPKS0_E_clES2_.exit.i: ; preds = %sw
   br label %_ZNK7glslang5TType8containsIZNKS0_17containsNonOpaqueEvEUlPKS0_E_EEbT_.exit
 
 switch.hole_check:                                ; preds = %1
-  %switch.maskindex = and i32 %3, 31
+  %switch.maskindex = and i32 %3, 255
   %switch.shifted = lshr i32 270335, %switch.maskindex
   %switch.lobit = trunc i32 %switch.shifted to i1
   br i1 %switch.lobit, label %_ZNK7glslang5TType8containsIZNKS0_17containsNonOpaqueEvEUlPKS0_E_EEbT_.exit, label %_ZZNK7glslang5TType17containsNonOpaqueEvENKUlPKS0_E_clES2_.exit.i

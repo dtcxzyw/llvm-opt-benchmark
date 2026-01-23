@@ -29557,7 +29557,7 @@ switch.lookup1261:                                ; preds = %.split.us.i.i.i.i
   %.sroa.4.0.extract.trunc.i.i.i.i.i.us.i.i.i.i = trunc i56 %.sroa.5.sroa.0.0.copyload.i.us.i.i.i.i to i8
   %163 = icmp ult i8 %.sroa.4.0.extract.trunc.i.i.i.i.i.us.i.i.i.i, 5
   tail call void @llvm.assume(i1 %163)
-  %.sroa.4.0.extract.trunc.i.i.i.i.i.us.i.i.i.i.mask = and i56 %.sroa.5.sroa.0.0.copyload.i.us.i.i.i.i, 7
+  %.sroa.4.0.extract.trunc.i.i.i.i.i.us.i.i.i.i.mask = and i56 %.sroa.5.sroa.0.0.copyload.i.us.i.i.i.i, 255
   %164 = zext nneg i56 %.sroa.4.0.extract.trunc.i.i.i.i.i.us.i.i.i.i.mask to i64
   %switch.gep1262 = getelementptr inbounds nuw i64, ptr @switch.table._ZN15ra_ap_rustc_abi6layout16LayoutCalculator24layout_of_struct_or_enum17h92c4e073a74132d2E.1099, i64 %164
   %switch.load1263 = load i64, ptr %switch.gep1262, align 8
@@ -29626,7 +29626,7 @@ switch.lookup1264:                                ; preds = %.split.split.us.i.i
   %.sroa.4.0.extract.trunc.i.i.i.i.i.us42.i.i.i.i = trunc i56 %.sroa.5.sroa.0.0.copyload.i.us40.i.i.i.i to i8
   %178 = icmp ult i8 %.sroa.4.0.extract.trunc.i.i.i.i.i.us42.i.i.i.i, 5
   tail call void @llvm.assume(i1 %178)
-  %.sroa.4.0.extract.trunc.i.i.i.i.i.us42.i.i.i.i.mask = and i56 %.sroa.5.sroa.0.0.copyload.i.us40.i.i.i.i, 7
+  %.sroa.4.0.extract.trunc.i.i.i.i.i.us42.i.i.i.i.mask = and i56 %.sroa.5.sroa.0.0.copyload.i.us40.i.i.i.i, 255
   %179 = zext nneg i56 %.sroa.4.0.extract.trunc.i.i.i.i.i.us42.i.i.i.i.mask to i64
   %switch.gep1265 = getelementptr inbounds nuw i64, ptr @switch.table._ZN15ra_ap_rustc_abi6layout16LayoutCalculator24layout_of_struct_or_enum17h92c4e073a74132d2E.1099, i64 %179
   %switch.load1266 = load i64, ptr %switch.gep1265, align 8
@@ -29678,7 +29678,7 @@ switch.lookup1267:                                ; preds = %.split.split.i.i.i.
   %.sroa.4.0.extract.trunc.i.i.i.i.i.i.i.i.i = trunc i56 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i to i8
   %188 = icmp ult i8 %.sroa.4.0.extract.trunc.i.i.i.i.i.i.i.i.i, 5
   tail call void @llvm.assume(i1 %188)
-  %.sroa.4.0.extract.trunc.i.i.i.i.i.i.i.i.i.mask = and i56 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i, 7
+  %.sroa.4.0.extract.trunc.i.i.i.i.i.i.i.i.i.mask = and i56 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i, 255
   %189 = zext nneg i56 %.sroa.4.0.extract.trunc.i.i.i.i.i.i.i.i.i.mask to i64
   %switch.gep1268 = getelementptr inbounds nuw i64, ptr @switch.table._ZN15ra_ap_rustc_abi6layout16LayoutCalculator24layout_of_struct_or_enum17h92c4e073a74132d2E.1099, i64 %189
   %switch.load1269 = load i64, ptr %switch.gep1268, align 8
@@ -34468,7 +34468,7 @@ switch.lookup649:                                 ; preds = %548
   %.sroa.4.0.extract.trunc.i.i.i.i.i.i.i.i.i.i.i.us.i.i.i.i = trunc i56 %.sroa.7.sroa.0.0.copyload.i.i.i.i.i.i.us.i.i.i.i to i8
   %552 = icmp ult i8 %.sroa.4.0.extract.trunc.i.i.i.i.i.i.i.i.i.i.i.us.i.i.i.i, 5
   call void @llvm.assume(i1 %552)
-  %.sroa.4.0.extract.trunc.i.i.i.i.i.i.i.i.i.i.i.us.i.i.i.i.mask = and i56 %.sroa.7.sroa.0.0.copyload.i.i.i.i.i.i.us.i.i.i.i, 7
+  %.sroa.4.0.extract.trunc.i.i.i.i.i.i.i.i.i.i.i.us.i.i.i.i.mask = and i56 %.sroa.7.sroa.0.0.copyload.i.i.i.i.i.i.us.i.i.i.i, 255
   %553 = zext nneg i56 %.sroa.4.0.extract.trunc.i.i.i.i.i.i.i.i.i.i.i.us.i.i.i.i.mask to i64
   %switch.gep650 = getelementptr inbounds nuw i64, ptr @switch.table._ZN15ra_ap_rustc_abi6layout16LayoutCalculator24layout_of_struct_or_enum17h92c4e073a74132d2E.1099, i64 %553
   %switch.load651 = load i64, ptr %switch.gep650, align 8
@@ -34564,7 +34564,7 @@ switch.lookup652:                                 ; preds = %567
   %.sroa.4.0.extract.trunc.i.i.i.i.i.i.i.i.i.i.i.us169.i.i.i.i = trunc i56 %.sroa.7.sroa.0.0.copyload.i.i.i.i.i.i.us167.i.i.i.i to i8
   %571 = icmp ult i8 %.sroa.4.0.extract.trunc.i.i.i.i.i.i.i.i.i.i.i.us169.i.i.i.i, 5
   call void @llvm.assume(i1 %571)
-  %.sroa.4.0.extract.trunc.i.i.i.i.i.i.i.i.i.i.i.us169.i.i.i.i.mask = and i56 %.sroa.7.sroa.0.0.copyload.i.i.i.i.i.i.us167.i.i.i.i, 7
+  %.sroa.4.0.extract.trunc.i.i.i.i.i.i.i.i.i.i.i.us169.i.i.i.i.mask = and i56 %.sroa.7.sroa.0.0.copyload.i.i.i.i.i.i.us167.i.i.i.i, 255
   %572 = zext nneg i56 %.sroa.4.0.extract.trunc.i.i.i.i.i.i.i.i.i.i.i.us169.i.i.i.i.mask to i64
   %switch.gep653 = getelementptr inbounds nuw i64, ptr @switch.table._ZN15ra_ap_rustc_abi6layout16LayoutCalculator24layout_of_struct_or_enum17h92c4e073a74132d2E.1099, i64 %572
   %switch.load654 = load i64, ptr %switch.gep653, align 8
@@ -34643,7 +34643,7 @@ switch.lookup655:                                 ; preds = %584
   %.sroa.4.0.extract.trunc.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = trunc i56 %.sroa.7.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i to i8
   %585 = icmp ult i8 %.sroa.4.0.extract.trunc.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 5
   call void @llvm.assume(i1 %585)
-  %.sroa.4.0.extract.trunc.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.mask = and i56 %.sroa.7.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i, 7
+  %.sroa.4.0.extract.trunc.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.mask = and i56 %.sroa.7.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i, 255
   %586 = zext nneg i56 %.sroa.4.0.extract.trunc.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.mask to i64
   %switch.gep656 = getelementptr inbounds nuw i64, ptr @switch.table._ZN15ra_ap_rustc_abi6layout16LayoutCalculator24layout_of_struct_or_enum17h92c4e073a74132d2E.1099, i64 %586
   %switch.load657 = load i64, ptr %switch.gep656, align 8
@@ -37909,44 +37909,42 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
 
 14:                                               ; preds = %.lr.ph.split.i.i.i
   %15 = extractvalue { i64, i64 } %9, 1
-  %or.cond.i23.i.not.i.i = icmp ult i64 %15, 17
-  %16 = and i64 %15, 30
-  %17 = icmp eq i64 %16, 6
-  %or.cond.i = and i1 %or.cond.i23.i.not.i.i, %17
-  br i1 %or.cond.i, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i", label %12
+  %16 = and i64 %15, -2
+  %or.cond.i = icmp eq i64 %16, 6
+  br i1 %or.cond.i, label %17, label %12
 
-"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i": ; preds = %14
-  %spec.select.i = sub nuw nsw i64 16, %15
-  %18 = getelementptr inbounds nuw i8, ptr @anon.587d3abf880d71f6962e708781e6ae09.234, i64 %15
-  %19 = getelementptr inbounds nuw i8, ptr %18, i64 1
-  store ptr %19, ptr %5, align 8, !noalias !14203
-  store i64 %spec.select.i, ptr %7, align 8, !noalias !14203
+17:                                               ; preds = %14
+  %18 = sub nuw nsw i64 16, %15
+  %19 = getelementptr i8, ptr @anon.587d3abf880d71f6962e708781e6ae09.234, i64 %15
+  %20 = getelementptr i8, ptr %19, i64 1
+  store ptr %20, ptr %5, align 8, !noalias !14203
+  store i64 %18, ptr %7, align 8, !noalias !14203
   br label %"_ZN59_$LT$la_arena..Idx$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h6a1f5bb5a08bca1bE.exit"
 
-"_ZN59_$LT$la_arena..Idx$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h6a1f5bb5a08bca1bE.exit": ; preds = %.lr.ph.split.i.i.i, %12, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i"
+"_ZN59_$LT$la_arena..Idx$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h6a1f5bb5a08bca1bE.exit": ; preds = %.lr.ph.split.i.i.i, %12, %17
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !14203
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !14203
   store ptr %5, ptr %3, align 8, !noalias !14203
-  %20 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17hdbe74db3adbef14aE", ptr %20, align 8, !noalias !14203
-  %21 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr %6, ptr %21, align 8, !noalias !14203
-  %22 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store ptr @"_ZN55_$LT$la_arena..RawIdx$u20$as$u20$core..fmt..Display$GT$3fmt17hdc4680374134bf5bE", ptr %22, align 8, !noalias !14203
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17hdbe74db3adbef14aE", ptr %21, align 8, !noalias !14203
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store ptr %6, ptr %22, align 8, !noalias !14203
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  store ptr @"_ZN55_$LT$la_arena..RawIdx$u20$as$u20$core..fmt..Display$GT$3fmt17hdc4680374134bf5bE", ptr %23, align 8, !noalias !14203
   store ptr @anon.587d3abf880d71f6962e708781e6ae09.231, ptr %4, align 8, !alias.scope !14211, !noalias !14214
-  %23 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 3, ptr %23, align 8, !alias.scope !14211, !noalias !14214
-  %24 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store ptr null, ptr %24, align 8, !alias.scope !14211, !noalias !14214
-  %25 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %3, ptr %25, align 8, !alias.scope !14211, !noalias !14214
-  %26 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store i64 2, ptr %26, align 8, !alias.scope !14211, !noalias !14214
-  %27 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4)
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i64 3, ptr %24, align 8, !alias.scope !14211, !noalias !14214
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  store ptr null, ptr %25, align 8, !alias.scope !14211, !noalias !14214
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store ptr %3, ptr %26, align 8, !alias.scope !14211, !noalias !14214
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  store i64 2, ptr %27, align 8, !alias.scope !14211, !noalias !14214
+  %28 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !14203
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !14203
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !14203
-  ret i1 %27
+  ret i1 %28
 }
 
 ; Function Attrs: nonlazybind uwtable

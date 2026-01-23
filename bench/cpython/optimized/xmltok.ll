@@ -137,7 +137,7 @@ define hidden range(i32 0, 5) i32 @PyExpat_XmlUtf8Encode(i32 noundef %0, ptr nou
 10:                                               ; preds = %8
   %11 = lshr i32 %0, 6
   %12 = trunc nuw nsw i32 %11 to i8
-  %13 = or disjoint i8 %12, -64
+  %13 = or i8 %12, -64
   store i8 %13, ptr %1, align 1, !tbaa !8
   %14 = trunc i32 %0 to i8
   %15 = and i8 %14, 63
@@ -153,7 +153,7 @@ define hidden range(i32 0, 5) i32 @PyExpat_XmlUtf8Encode(i32 noundef %0, ptr nou
 20:                                               ; preds = %18
   %21 = lshr i32 %0, 12
   %22 = trunc nuw nsw i32 %21 to i8
-  %23 = or disjoint i8 %22, -32
+  %23 = or i8 %22, -32
   store i8 %23, ptr %1, align 1, !tbaa !8
   %24 = lshr i32 %0, 6
   %25 = trunc i32 %24 to i8
@@ -175,7 +175,7 @@ define hidden range(i32 0, 5) i32 @PyExpat_XmlUtf8Encode(i32 noundef %0, ptr nou
 35:                                               ; preds = %33
   %36 = lshr i32 %0, 18
   %37 = trunc nuw nsw i32 %36 to i8
-  %38 = or disjoint i8 %37, -16
+  %38 = or i8 %37, -16
   store i8 %38, ptr %1, align 1, !tbaa !8
   %39 = lshr i32 %0, 12
   %40 = trunc i32 %39 to i8
@@ -368,7 +368,7 @@ define hidden noundef ptr @PyExpat_XmlInitUnknownEncoding(ptr noundef writeonly 
   br i1 %57, label %60, label %checkCharRefNumber.exit
 
 58:                                               ; preds = %51
-  %59 = and i32 %18, 2147483646
+  %59 = and i32 %18, -2
   %or.cond.i = icmp eq i32 %59, 65534
   br i1 %or.cond.i, label %60, label %checkCharRefNumber.exit
 
@@ -441,13 +441,13 @@ checkCharRefNumber.exit:                          ; preds = %58, %53, %51
 100:                                              ; preds = %96
   %101 = lshr i32 %18, 6
   %102 = trunc nuw nsw i32 %101 to i8
-  %103 = or disjoint i8 %102, -64
+  %103 = or i8 %102, -64
   br label %PyExpat_XmlUtf8Encode.exit
 
 104:                                              ; preds = %96
   %105 = lshr i32 %18, 12
   %106 = trunc nuw nsw i32 %105 to i8
-  %107 = or disjoint i8 %106, -32
+  %107 = or i8 %106, -32
   %108 = lshr i32 %18, 6
   %109 = trunc i32 %18 to i8
   %110 = and i8 %109, 63
@@ -598,18 +598,17 @@ define internal range(i32 0, 2) i32 @unknown_isInvalid(ptr noundef readonly capt
 
 8:                                                ; preds = %2
   %9 = lshr i32 %7, 8
-  %trunc = trunc nuw i32 %9 to i8
-  switch i8 %trunc, label %17 [
-    i8 -40, label %checkCharRefNumber.exit
-    i8 -39, label %checkCharRefNumber.exit
-    i8 -38, label %checkCharRefNumber.exit
-    i8 -37, label %checkCharRefNumber.exit
-    i8 -36, label %checkCharRefNumber.exit
-    i8 -35, label %checkCharRefNumber.exit
-    i8 -34, label %checkCharRefNumber.exit
-    i8 -33, label %checkCharRefNumber.exit
-    i8 0, label %10
-    i8 -1, label %15
+  switch i32 %9, label %17 [
+    i32 216, label %checkCharRefNumber.exit
+    i32 217, label %checkCharRefNumber.exit
+    i32 218, label %checkCharRefNumber.exit
+    i32 219, label %checkCharRefNumber.exit
+    i32 220, label %checkCharRefNumber.exit
+    i32 221, label %checkCharRefNumber.exit
+    i32 222, label %checkCharRefNumber.exit
+    i32 223, label %checkCharRefNumber.exit
+    i32 0, label %10
+    i32 255, label %15
   ]
 
 10:                                               ; preds = %8
@@ -620,9 +619,8 @@ define internal range(i32 0, 2) i32 @unknown_isInvalid(ptr noundef readonly capt
   br i1 %14, label %checkCharRefNumber.exit, label %17
 
 15:                                               ; preds = %8
-  %16 = and i32 %7, 65534
-  %or.cond.i = icmp eq i32 %16, 65534
-  br i1 %or.cond.i, label %checkCharRefNumber.exit, label %17
+  %16 = icmp samesign ugt i32 %7, 65533
+  br i1 %16, label %checkCharRefNumber.exit, label %17
 
 17:                                               ; preds = %15, %10, %8
   br label %checkCharRefNumber.exit
@@ -685,7 +683,7 @@ define internal range(i32 0, 3) i32 @unknown_toUtf8(ptr noundef readonly capture
 37:                                               ; preds = %35
   %38 = lshr i32 %29, 6
   %39 = trunc nuw nsw i32 %38 to i8
-  %40 = or disjoint i8 %39, -64
+  %40 = or i8 %39, -64
   store i8 %40, ptr %6, align 1, !tbaa !8
   %41 = trunc i32 %29 to i8
   %42 = and i8 %41, 63
@@ -700,7 +698,7 @@ define internal range(i32 0, 3) i32 @unknown_toUtf8(ptr noundef readonly capture
 46:                                               ; preds = %44
   %47 = lshr i32 %29, 12
   %48 = trunc nuw nsw i32 %47 to i8
-  %49 = or disjoint i8 %48, -32
+  %49 = or i8 %48, -32
   store i8 %49, ptr %6, align 1, !tbaa !8
   %50 = lshr i32 %29, 6
   %51 = trunc i32 %50 to i8
@@ -720,7 +718,7 @@ define internal range(i32 0, 3) i32 @unknown_toUtf8(ptr noundef readonly capture
 59:                                               ; preds = %57
   %60 = lshr i32 %29, 18
   %61 = trunc nuw nsw i32 %60 to i8
-  %62 = or disjoint i8 %61, -16
+  %62 = or i8 %61, -16
   store i8 %62, ptr %6, align 1, !tbaa !8
   %63 = lshr i32 %29, 12
   %64 = trunc i32 %63 to i8

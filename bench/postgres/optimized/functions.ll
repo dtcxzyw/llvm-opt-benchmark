@@ -72,12 +72,11 @@ define dso_local ptr @prepare_sql_fn_parse_info(ptr noundef %0, ptr noundef %1, 
   br i1 %18, label %19, label %.critedge
 
 19:                                               ; preds = %3
-  %20 = shl nuw nsw i32 %16, 2
-  %21 = zext nneg i32 %20 to i64
+  %20 = zext nneg i32 %16 to i64
+  %21 = shl nuw nsw i64 %20, 2
   %22 = tail call ptr @palloc(i64 noundef %21) #10
   %23 = getelementptr inbounds nuw i8, ptr %9, i64 136
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %22, ptr nonnull align 4 %23, i64 %21, i1 false)
-  %wide.trip.count = zext nneg i32 %16 to i64
   br label %24
 
 24:                                               ; preds = %19, %38
@@ -119,7 +118,7 @@ define dso_local ptr @prepare_sql_fn_parse_info(ptr noundef %0, ptr noundef %1, 
 
 38:                                               ; preds = %24, %37
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %20
   br i1 %exitcond.not, label %39, label %24, !llvm.loop !4
 
 39:                                               ; preds = %38

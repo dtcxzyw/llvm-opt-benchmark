@@ -2156,7 +2156,7 @@ _ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit584
   br i1 %382, label %383, label %.sink.split1354
 
 383:                                              ; preds = %379
-  %384 = zext nneg i16 %rev.i.i591 to i32
+  %384 = zext i16 %rev.i.i591 to i32
   %385 = call noundef zeroext i1 @_ZN17json_like_visitor9visit_strEPKcj(ptr noundef nonnull align 8 dereferenceable(9) %23, ptr noundef nonnull %135, i32 noundef %384)
   %386 = load ptr, ptr %19, align 8, !tbaa !95
   %387 = getelementptr inbounds nuw i8, ptr %386, i64 1
@@ -5639,21 +5639,19 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.ex
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i
   %12 = icmp ult i64 %5, 16
   tail call void @llvm.assume(i1 %12)
-  switch i64 %5, label %15 [
-    i64 15, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.thread
-    i64 0, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmmc.exit
-  ]
+  %.not.i.i = icmp ugt i64 %8, 15
+  br i1 %.not.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.thread, label %14
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.thread: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i
   %13 = load i64, ptr %10, align 8
   %.not.i.i1 = icmp ugt i64 %8, %13
   br i1 %.not.i.i1, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i, label %14
 
-14:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.thread
+14:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.thread, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i
   %.not28.i.i = icmp eq i64 %5, 0
   br i1 %.not28.i.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmmc.exit, label %15
 
-15:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i, %14
+15:                                               ; preds = %14
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 1
   %cond31.i.i = icmp eq i64 %5, 1
   br i1 %cond31.i.i, label %17, label %19
@@ -5731,7 +5729,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_mutateEmmPKcm.exit: ; p
   store i64 %.0.i, ptr %10, align 8, !tbaa !58
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmmc.exit
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmmc.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i, %14, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_mutateEmmPKcm.exit, %17, %19
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmmc.exit: ; preds = %14, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_mutateEmmPKcm.exit, %17, %19
   %39 = load ptr, ptr %2, align 8, !tbaa !30
   store i8 %1, ptr %39, align 1, !tbaa !58
   store i64 %8, ptr %4, align 8, !tbaa !33
@@ -5814,7 +5812,7 @@ _ZN7msgpack2v126checked_get_container_sizeImEEjT_.exit: ; preds = %3
 23:                                               ; preds = %_ZN7msgpack2v126checked_get_container_sizeImEEjT_.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %24 = trunc nuw nsw i64 %14 to i8
-  %25 = or disjoint i8 %24, -112
+  %25 = or i8 %24, -112
   store i8 %25, ptr %5, align 1, !tbaa !58
   %26 = load ptr, ptr %1, align 8, !tbaa !163
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
@@ -5934,7 +5932,7 @@ _ZN7msgpack2v126checked_get_container_sizeImEEjT_.exit: ; preds = %3
 22:                                               ; preds = %_ZN7msgpack2v126checked_get_container_sizeImEEjT_.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %23 = trunc nuw nsw i64 %13 to i8
-  %24 = or disjoint i8 %23, -112
+  %24 = or i8 %23, -112
   store i8 %24, ptr %4, align 1, !tbaa !58
   %25 = load ptr, ptr %1, align 8, !tbaa !163
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 16

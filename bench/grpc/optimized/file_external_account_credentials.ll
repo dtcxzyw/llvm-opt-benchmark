@@ -2417,7 +2417,6 @@ _ZNK9grpc_core12experimental4Json6objectB5cxx11Ev.exit54.thread: ; preds = %_ZNK
 _ZNK9grpc_core12experimental4Json6objectB5cxx11Ev.exit54: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i
   %.0.i.i.i.i.i = phi i32 [ %115, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i ], [ %.0.i6.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i ]
   %117 = icmp slt i32 %.0.i.i.i.i.i, 0
-  %spec.select.i.i = select i1 %117, ptr %99, ptr %.19.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br i1 %117, label %118, label %160
 
@@ -2551,7 +2550,7 @@ _ZNSt6vectorIN4absl12lts_202407226StatusESaIS2_EED2Ev.exit: ; preds = %_ZSt8_Des
   br label %403
 
 160:                                              ; preds = %_ZNK9grpc_core12experimental4Json6objectB5cxx11Ev.exit54
-  %161 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 112
+  %161 = getelementptr inbounds nuw i8, ptr %.19.i.i.i, i64 112
   %162 = load i8, ptr %161, align 8, !tbaa !49
   switch i8 %162, label %165 [
     i8 -1, label %.invoke
@@ -2687,7 +2686,7 @@ _ZNSt6vectorIN4absl12lts_202407226StatusESaIS2_EED2Ev.exit83: ; preds = %_ZSt8_D
   br label %403
 
 _ZNK9grpc_core12experimental4Json6stringB5cxx11Ev.exit: ; preds = %160
-  %203 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 64
+  %203 = getelementptr inbounds nuw i8, ptr %.19.i.i.i, i64 64
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %83, ptr noundef nonnull align 8 dereferenceable(32) %203)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit unwind label %156
 

@@ -2990,7 +2990,7 @@ define hidden void @_ZNK11ArgInfoData13print_data_onEP12outputStreamPKc(ptr noun
   br i1 %9, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %3
-  %wide.trip.count = and i64 %7, 2147483647
+  %wide.trip.count = and i64 %7, 4294967295
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -7173,7 +7173,11 @@ define linkonce_odr hidden void @_ZN19VirtualCallTypeData22clean_weak_klass_link
   %3 = load i64, ptr @TypeProfileWidth, align 8
   %4 = and i64 %3, 4294967295
   %.not9.i = icmp eq i64 %4, 0
-  br i1 %.not9.i, label %_ZN16ReceiverTypeData22clean_weak_klass_linksEb.exit, label %.lr.ph.i
+  br i1 %.not9.i, label %._ZN16ReceiverTypeData22clean_weak_klass_linksEb.exit_crit_edge, label %.lr.ph.i
+
+._ZN16ReceiverTypeData22clean_weak_klass_linksEb.exit_crit_edge: ; preds = %2
+  %.pre = trunc i64 %3 to i32
+  br label %_ZN16ReceiverTypeData22clean_weak_klass_linksEb.exit
 
 .lr.ph.i:                                         ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -7255,8 +7259,8 @@ define linkonce_odr hidden void @_ZN19VirtualCallTypeData22clean_weak_klass_link
   %54 = icmp ult i32 %51, %53
   br i1 %54, label %.lr.ph.split.i, label %_ZN16ReceiverTypeData22clean_weak_klass_linksEb.exit, !llvm.loop !12
 
-_ZN16ReceiverTypeData22clean_weak_klass_linksEb.exit: ; preds = %50, %23, %2
-  %.pre-phi = phi i32 [ 0, %2 ], [ %26, %23 ], [ %53, %50 ]
+_ZN16ReceiverTypeData22clean_weak_klass_linksEb.exit: ; preds = %50, %23, %._ZN16ReceiverTypeData22clean_weak_klass_linksEb.exit_crit_edge
+  %.pre-phi = phi i32 [ %.pre, %._ZN16ReceiverTypeData22clean_weak_klass_linksEb.exit_crit_edge ], [ %26, %23 ], [ %53, %50 ]
   %55 = shl i32 %.pre-phi, 1
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %57 = load ptr, ptr %56, align 8

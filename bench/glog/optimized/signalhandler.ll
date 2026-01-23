@@ -948,11 +948,16 @@ _ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc.exit33.i: ; preds =
   store i8 %146, ptr %139, align 1, !tbaa !39
   %indvars.iv.next94 = add nuw nsw i64 %indvars.iv93, 1
   %147 = icmp ult i64 %.014.i35.i, 16
-  br i1 %147, label %split.i36.i, label %135
+  br i1 %147, label %._crit_edge.i47.i, label %135
 
-split.i36.i:                                      ; preds = %135, %138
-  %.pre-phi.i37.i = phi i64 [ %indvars.iv.next94, %138 ], [ %indvars.iv93, %135 ]
-  %148 = and i64 %.pre-phi.i37.i, 4294967294
+._crit_edge.i47.i:                                ; preds = %138
+  %.pre19.i49.i = and i64 %indvars.iv.next94, 4294967295
+  br label %split.i36.i
+
+split.i36.i:                                      ; preds = %135, %._crit_edge.i47.i
+  %.pre-phi.i37.i = phi i64 [ %.pre19.i49.i, %._crit_edge.i47.i ], [ %indvars.iv93, %135 ]
+  %.1.i38.i.in = phi i64 [ %indvars.iv.next94, %._crit_edge.i47.i ], [ %indvars.iv93, %135 ]
+  %148 = and i64 %.1.i38.i.in, 4294967294
   %.not = icmp eq i64 %148, 0
   br i1 %.not, label %_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendUint64Emj.exit50.i, label %.lr.ph.i.i.preheader.i39.i
 
@@ -1648,11 +1653,16 @@ _ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc.exit.i: ; preds = %
   store i8 %42, ptr %.ptr48, align 1, !tbaa !39
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %43 = icmp ult i64 %.014.i.i, 16
-  br i1 %43, label %split.i.i, label %33
+  br i1 %43, label %._crit_edge.i.i, label %33
 
-split.i.i:                                        ; preds = %33, %35
-  %.pre-phi.i.i = phi i64 [ %indvars.iv.next, %35 ], [ %indvars.iv, %33 ]
-  %44 = and i64 %.pre-phi.i.i, 4294967294
+._crit_edge.i.i:                                  ; preds = %35
+  %.pre19.i.i = and i64 %indvars.iv.next, 4294967295
+  br label %split.i.i
+
+split.i.i:                                        ; preds = %33, %._crit_edge.i.i
+  %.pre-phi.i.i = phi i64 [ %.pre19.i.i, %._crit_edge.i.i ], [ %indvars.iv, %33 ]
+  %.1.i.i.in = phi i64 [ %indvars.iv.next, %._crit_edge.i.i ], [ %indvars.iv, %33 ]
+  %44 = and i64 %.1.i.i.in, 4294967294
   %.not = icmp eq i64 %44, 0
   br i1 %.not, label %_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendUint64Emj.exit.i, label %.lr.ph.i.i.preheader.i.i
 

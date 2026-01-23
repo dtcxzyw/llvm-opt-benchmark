@@ -114,7 +114,8 @@ if.then12:                                        ; preds = %if.end9
   br i1 %cmp13, label %if.then14, label %if.else
 
 if.then14:                                        ; preds = %if.then12
-  %cmp16 = icmp eq i8 %6, 0
+  %and15 = and i32 %conv.le, 15
+  %cmp16 = icmp eq i32 %and15, 0
   br i1 %cmp16, label %while.cond18.preheader, label %if.end26
 
 while.cond18.preheader:                           ; preds = %if.then14
@@ -155,7 +156,7 @@ while.end:                                        ; preds = %while.body24, %whil
   br label %if.end26
 
 if.end26:                                         ; preds = %while.end, %if.then14
-  %literalLength.0 = phi i32 [ %add25, %while.end ], [ %conv.le, %if.then14 ]
+  %literalLength.0 = phi i32 [ %add25, %while.end ], [ %and15, %if.then14 ]
   %input.2 = phi ptr [ %input.4, %while.end ], [ %incdec.ptr, %if.then14 ]
   %add27 = add i32 %literalLength.0, 3
   br label %if.end275
@@ -187,7 +188,8 @@ lpad36:                                           ; preds = %if.then31
   br label %eh.resume
 
 if.end38:                                         ; preds = %if.then29
-  %shr = lshr i32 %conv.le, 2
+  %and39 = lshr i32 %conv.le, 2
+  %shr = and i32 %and39, 3
   %incdec.ptr40 = getelementptr inbounds nuw i8, ptr %input.1303, i64 2
   %12 = load i8, ptr %incdec.ptr, align 1
   %conv41 = zext i8 %12 to i32
@@ -219,7 +221,8 @@ lpad52:                                           ; preds = %if.then47
   br label %eh.resume
 
 if.end54:                                         ; preds = %if.else45
-  %shr56 = lshr i32 %conv.le, 2
+  %and55 = lshr i32 %conv.le, 2
+  %shr56 = and i32 %and55, 3
   %incdec.ptr57 = getelementptr inbounds nuw i8, ptr %input.1303, i64 2
   %14 = load i8, ptr %incdec.ptr, align 1
   %conv58 = zext i8 %14 to i32

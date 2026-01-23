@@ -2847,14 +2847,14 @@ define ptr @evdns_base_new(ptr noundef %0, i32 noundef %1) local_unnamed_addr #2
 
 5:                                                ; preds = %2
   tail call void (i32, ptr, ...) @evdns_log_(i32 noundef 2, ptr noundef nonnull @.str.12)
-  br label %63
+  br label %62
 
 6:                                                ; preds = %2
   tail call void @evutil_set_evdns_getaddrinfo_fn_(ptr noundef nonnull @evdns_getaddrinfo) #21
   tail call void @evutil_set_evdns_getaddrinfo_cancel_fn_(ptr noundef nonnull @evdns_getaddrinfo_cancel) #21
   %7 = tail call ptr @event_mm_malloc_(i64 noundef 368) #21
   %8 = icmp eq ptr %7, null
-  br i1 %8, label %63, label %9
+  br i1 %8, label %62, label %9
 
 9:                                                ; preds = %6
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(368) %7, i8 0, i64 368, i1 false)
@@ -2930,11 +2930,11 @@ define ptr @evdns_base_new(ptr noundef %0, i32 noundef %1) local_unnamed_addr #2
   store ptr null, ptr %42, align 8
   %43 = and i32 %1, -98322
   %.not59 = icmp eq i32 %43, 0
-  br i1 %.not59, label %44, label %.thread79
+  br i1 %.not59, label %44, label %.thread71
 
-.thread79:                                        ; preds = %18
+.thread71:                                        ; preds = %18
   tail call void (i32, ptr, ...) @evdns_log_(i32 noundef 2, ptr noundef nonnull @.str.13)
-  br label %51
+  br label %50
 
 44:                                               ; preds = %18
   %45 = and i32 %1, 32768
@@ -2949,43 +2949,40 @@ define ptr @evdns_base_new(ptr noundef %0, i32 noundef %1) local_unnamed_addr #2
 48:                                               ; preds = %46, %44
   %49 = and i32 %1, 1
   %.not61 = icmp eq i32 %49, 0
-  br i1 %.not61, label %56, label %50
+  br i1 %.not61, label %55, label %50
 
-50:                                               ; preds = %48
-  %.not62 = icmp samesign ult i32 %1, 65536
+50:                                               ; preds = %.thread71, %48
+  %.0537074 = phi i32 [ 1, %.thread71 ], [ %1, %48 ]
+  %51 = and i32 %.0537074, 65536
+  %.not62 = icmp eq i32 %51, 0
   %spec.select = select i1 %.not62, i32 15, i32 31
-  br label %51
-
-51:                                               ; preds = %50, %.thread79
-  %.053707482 = phi i32 [ %1, %50 ], [ 1, %.thread79 ]
-  %52 = phi i32 [ %spec.select, %50 ], [ 15, %.thread79 ]
-  %53 = tail call ptr @evutil_resolvconf_filename_() #21
-  %54 = tail call i32 @evdns_base_resolv_conf_parse(ptr noundef nonnull %7, i32 noundef %52, ptr noundef %53)
-  switch i32 %54, label %55 [
-    i32 6, label %56
-    i32 0, label %56
+  %52 = tail call ptr @evutil_resolvconf_filename_() #21
+  %53 = tail call i32 @evdns_base_resolv_conf_parse(ptr noundef nonnull %7, i32 noundef %spec.select, ptr noundef %52)
+  switch i32 %53, label %54 [
+    i32 6, label %55
+    i32 0, label %55
   ]
 
-55:                                               ; preds = %51
+54:                                               ; preds = %50
   tail call fastcc void @evdns_base_free_and_unlock(ptr noundef nonnull %7, i32 noundef 0)
-  br label %63
+  br label %62
 
-56:                                               ; preds = %51, %51, %48
-  %.0537075 = phi i32 [ %.053707482, %51 ], [ %.053707482, %51 ], [ %1, %48 ]
-  %57 = and i32 %.0537075, 16
-  %58 = getelementptr inbounds nuw i8, ptr %7, i64 356
-  store i32 %57, ptr %58, align 4
-  %59 = load ptr, ptr %19, align 8
-  %.not65 = icmp eq ptr %59, null
-  br i1 %.not65, label %63, label %60
+55:                                               ; preds = %50, %50, %48
+  %.0537075 = phi i32 [ %.0537074, %50 ], [ %.0537074, %50 ], [ %1, %48 ]
+  %56 = and i32 %.0537075, 16
+  %57 = getelementptr inbounds nuw i8, ptr %7, i64 356
+  store i32 %56, ptr %57, align 4
+  %58 = load ptr, ptr %19, align 8
+  %.not65 = icmp eq ptr %58, null
+  br i1 %.not65, label %62, label %59
 
-60:                                               ; preds = %56
-  %61 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @evthread_lock_fns_, i64 32), align 8
-  %62 = tail call i32 %61(i32 noundef 0, ptr noundef nonnull %59) #21
-  br label %63
+59:                                               ; preds = %55
+  %60 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @evthread_lock_fns_, i64 32), align 8
+  %61 = tail call i32 %60(i32 noundef 0, ptr noundef nonnull %58) #21
+  br label %62
 
-63:                                               ; preds = %55, %56, %60, %6, %5
-  %.051 = phi ptr [ null, %5 ], [ null, %55 ], [ null, %6 ], [ %7, %60 ], [ %7, %56 ]
+62:                                               ; preds = %54, %55, %59, %6, %5
+  %.051 = phi ptr [ null, %5 ], [ null, %54 ], [ null, %6 ], [ %7, %59 ], [ %7, %55 ]
   ret ptr %.051
 }
 
@@ -3677,7 +3674,7 @@ transaction_id_pick.exit:                         ; preds = %25, %34
 
 44:                                               ; preds = %41
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %40, i8 0, i64 200, i1 false)
-  %45 = trunc nuw i64 %39 to i16
+  %45 = trunc i64 %39 to i16
   %46 = getelementptr inbounds nuw i8, ptr %40, i64 8
   store i16 %45, ptr %46, align 8
   %47 = getelementptr inbounds nuw i8, ptr %40, i64 184

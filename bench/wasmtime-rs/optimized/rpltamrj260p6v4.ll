@@ -1948,7 +1948,7 @@ default.unreachable19:                            ; preds = %2
   br i1 %10, label %12, label %22
 
 12:                                               ; preds = %7
-  %13 = trunc nuw i32 %11 to i8
+  %13 = trunc i32 %11 to i8
   %14 = lshr i8 %13, 6
   %15 = icmp eq i8 %14, 3
   br i1 %15, label %16, label %_ZN9regalloc27Operand3new17h7dd6b28f3c335589E.llvm.17911367524062806024.exit.i
@@ -1990,7 +1990,7 @@ _ZN9regalloc27Operand3new17h7dd6b28f3c335589E.llvm.17911367524062806024.exit3.i:
   br i1 %31, label %33, label %43
 
 33:                                               ; preds = %"_ZN17cranelift_codegen8machinst3reg25OperandCollector$LT$F$GT$7reg_use17hca16f2caa045eda8E.exit"
-  %34 = trunc nuw i32 %32 to i8
+  %34 = trunc i32 %32 to i8
   %35 = lshr i8 %34, 6
   %36 = icmp eq i8 %35, 3
   br i1 %36, label %37, label %_ZN9regalloc27Operand3new17h7dd6b28f3c335589E.llvm.17911367524062806024.exit.i5
@@ -2036,7 +2036,7 @@ _ZN9regalloc27Operand3new17h7dd6b28f3c335589E.llvm.17911367524062806024.exit3.i3
   br i1 %52, label %54, label %64
 
 54:                                               ; preds = %51
-  %55 = trunc nuw i32 %53 to i8
+  %55 = trunc i32 %53 to i8
   %56 = lshr i8 %55, 6
   %57 = icmp eq i8 %56, 3
   br i1 %57, label %58, label %_ZN9regalloc27Operand3new17h7dd6b28f3c335589E.llvm.17911367524062806024.exit.i9
@@ -2089,7 +2089,7 @@ default.unreachable17:                            ; preds = %2
   br i1 %7, label %9, label %19
 
 9:                                                ; preds = %4
-  %10 = trunc nuw i32 %8 to i8
+  %10 = trunc i32 %8 to i8
   %11 = lshr i8 %10, 6
   %12 = icmp eq i8 %11, 3
   br i1 %12, label %13, label %_ZN9regalloc27Operand3new17h7dd6b28f3c335589E.llvm.17911367524062806024.exit.i
@@ -2129,7 +2129,7 @@ _ZN9regalloc27Operand3new17h7dd6b28f3c335589E.llvm.17911367524062806024.exit3.i:
   br i1 %29, label %31, label %41
 
 31:                                               ; preds = %26
-  %32 = trunc nuw i32 %30 to i8
+  %32 = trunc i32 %30 to i8
   %33 = lshr i8 %32, 6
   %34 = icmp eq i8 %33, 3
   br i1 %34, label %35, label %_ZN9regalloc27Operand3new17h7dd6b28f3c335589E.llvm.17911367524062806024.exit.i3
@@ -2171,7 +2171,7 @@ _ZN9regalloc27Operand3new17h7dd6b28f3c335589E.llvm.17911367524062806024.exit3.i1
   br i1 %50, label %52, label %62
 
 52:                                               ; preds = %"_ZN17cranelift_codegen8machinst3reg25OperandCollector$LT$F$GT$12reg_late_use17h6dc5b9e169afbc50E.exit4"
-  %53 = trunc nuw i32 %51 to i8
+  %53 = trunc i32 %51 to i8
   %54 = lshr i8 %53, 6
   %55 = icmp eq i8 %54, 3
   br i1 %55, label %56, label %_ZN9regalloc27Operand3new17h7dd6b28f3c335589E.llvm.17911367524062806024.exit.i7
@@ -3479,7 +3479,7 @@ _ZN17cranelift_codegen3isa3x644inst4args7ExtMode3new17h50d4518686870385E.exit.th
 switch.lookup:                                    ; preds = %.split1.i
   %16 = shl nuw nsw i16 %switch.tableidx, 3
   %switch.shiftamt = zext nneg i16 %16 to i32
-  %switch.downshift = lshr exact i32 16777216, %switch.shiftamt
+  %switch.downshift = lshr i32 16777216, %switch.shiftamt
   %switch.masked = trunc i32 %switch.downshift to i8
   br label %_ZN17cranelift_codegen3isa3x644inst4args7ExtMode3new17h50d4518686870385E.exit.thread4
 
@@ -14047,7 +14047,7 @@ _ZN17cranelift_codegen3isa3x644inst4args7ExtMode3new17h50d4518686870385E.exit.th
 switch.lookup22:                                  ; preds = %114
   %123 = shl nuw nsw i16 %switch.tableidx21, 3
   %switch.shiftamt = zext nneg i16 %123 to i32
-  %switch.downshift = lshr exact i32 16777216, %switch.shiftamt
+  %switch.downshift = lshr i32 16777216, %switch.shiftamt
   %switch.masked = trunc i32 %switch.downshift to i8
   br label %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$8ext_mode17h2b53f6ebaedf61c1E.exit"
 
@@ -14109,27 +14109,23 @@ define internal fastcc noundef range(i16 137, 183) i16 @_ZN17cranelift_codegen3i
   unreachable
 
 12:                                               ; preds = %5
-  %13 = add nuw nsw i16 %0, 144
-  %.mask14 = and i16 %13, 240
-  %14 = icmp eq i16 %.mask14, 64
+  %13 = and i16 %0, -16
+  %14 = icmp eq i16 %13, 176
   br i1 %14, label %24, label %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E.exit.thread"
 
 15:                                               ; preds = %5
-  %16 = add nuw nsw i16 %0, 144
-  %.mask13 = and i16 %16, 240
-  %17 = icmp eq i16 %.mask13, 48
+  %16 = and i16 %0, -16
+  %17 = icmp eq i16 %16, 160
   br i1 %17, label %24, label %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E.exit.thread"
 
 18:                                               ; preds = %5, %5, %5
-  %19 = add nuw nsw i16 %0, 144
-  %.mask12 = and i16 %19, 240
-  %20 = icmp eq i16 %.mask12, 32
+  %19 = and i16 %0, -16
+  %20 = icmp eq i16 %19, 144
   br i1 %20, label %24, label %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E.exit.thread"
 
 21:                                               ; preds = %5, %5, %5
-  %22 = add nuw nsw i16 %0, 144
-  %.mask = and i16 %22, 240
-  %23 = icmp eq i16 %.mask, 16
+  %22 = and i16 %0, -16
+  %23 = icmp eq i16 %22, 128
   br i1 %23, label %24, label %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E.exit.thread"
 
 24:                                               ; preds = %21, %18, %15, %12

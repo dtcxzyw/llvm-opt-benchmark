@@ -174,7 +174,8 @@ do.body24:                                        ; preds = %if.end15
   br label %return
 
 do.body31:                                        ; preds = %if.then4
-  %bf.set35 = or disjoint i8 %bf.load, 14
+  %bf.clear34 = and i8 %bf.load, -128
+  %bf.set35 = or disjoint i8 %bf.clear34, 14
   store i8 %bf.set35, ptr %http_errno, align 1
   br label %return
 
@@ -2400,8 +2401,8 @@ do.body2230:                                      ; preds = %sw.bb2223
   br label %error
 
 if.end2236:                                       ; preds = %sw.bb2223
-  %conv2239 = zext nneg i8 %113 to i64
-  store i64 %conv2239, ptr %content_length3323, align 8
+  %sub2238 = zext nneg i8 %113 to i64
+  store i64 %sub2238, ptr %content_length3323, align 8
   br label %for.inc
 
 sw.default2241:                                   ; preds = %if.end2200
@@ -2859,8 +2860,8 @@ do.body2881:                                      ; preds = %if.end2877
 
 if.end2887:                                       ; preds = %if.end2877
   %mul2889 = mul nsw i64 %135, 10
-  %conv2892 = zext nneg i8 %134 to i64
-  %add2894 = add nsw i64 %mul2889, %conv2892
+  %sub2891 = zext nneg i8 %134 to i64
+  %add2894 = add nsw i64 %mul2889, %sub2891
   store i64 %add2894, ptr %content_length3323, align 8
   br label %for.inc
 
@@ -3789,7 +3790,8 @@ error:                                            ; preds = %error.loopexit, %do
   br i1 %cmp3834, label %do.body3836, label %do.body3843
 
 do.body3836:                                      ; preds = %error
-  %bf.set3840 = or disjoint i8 %bf.load3831, 38
+  %bf.clear3839 = and i8 %bf.load3831, -128
+  %bf.set3840 = or disjoint i8 %bf.clear3839, 38
   store i8 %bf.set3840, ptr %http_errno, align 1
   br label %do.body3843
 
@@ -4386,7 +4388,7 @@ for.body59:                                       ; preds = %if.then40, %for.con
   %45 = load i8, ptr %portp.083, align 1
   %conv60 = sext i8 %45 to i64
   %sub = add i64 %mul, -48
-  %add = add nsw i64 %sub, %conv60
+  %add = add i64 %sub, %conv60
   %cmp62 = icmp ugt i64 %add, 65535
   br i1 %cmp62, label %return, label %for.cond57
 

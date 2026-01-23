@@ -934,17 +934,18 @@ define noundef range(i32 28, 31) i32 @_ZNK6icu_7720IslamicCivilCalendar20handleG
   %6 = srem i32 %5, 2
   %7 = add nsw i32 %6, 29
   %8 = icmp eq i32 %2, 11
-  br i1 %8, label %9, label %14
+  br i1 %8, label %9, label %15
 
 9:                                                ; preds = %4
   %10 = mul nsw i32 %1, 11
   %11 = add nsw i32 %10, 14
   %12 = srem i32 %11, 30
   %13 = icmp slt i32 %12, 11
-  %spec.select = select i1 %13, i32 30, i32 %7
-  br label %14
+  %14 = add nuw nsw i32 %6, 30
+  %spec.select = select i1 %13, i32 %14, i32 %7
+  br label %15
 
-14:                                               ; preds = %9, %4
+15:                                               ; preds = %9, %4
   %.0 = phi i32 [ %7, %4 ], [ %spec.select, %9 ]
   ret i32 %.0
 }
@@ -1249,7 +1250,7 @@ define noundef i64 @_ZNK6icu_7723IslamicUmalquraCalendar10monthStartEiiR10UError
 define noundef range(i32 28, 31) i32 @_ZNK6icu_7723IslamicUmalquraCalendar20handleGetMonthLengthEiiR10UErrorCode(ptr nonnull readnone align 8 captures(none) %0, i32 noundef %1, i32 noundef %2, ptr nonnull readnone align 4 captures(none) %3) unnamed_addr #0 align 2 {
   %5 = add i32 %1, -1601
   %or.cond = icmp ult i32 %5, -301
-  br i1 %or.cond, label %6, label %16
+  br i1 %or.cond, label %6, label %17
 
 6:                                                ; preds = %4
   %7 = add nsw i32 %2, 1
@@ -1263,23 +1264,24 @@ define noundef range(i32 28, 31) i32 @_ZNK6icu_7723IslamicUmalquraCalendar20hand
   %13 = add nsw i32 %12, 14
   %14 = srem i32 %13, 30
   %15 = icmp slt i32 %14, 11
-  %spec.select.i = select i1 %15, i32 30, i32 %9
+  %16 = add nuw nsw i32 %8, 30
+  %spec.select.i = select i1 %15, i32 %16, i32 %9
   br label %_ZNK6icu_7720IslamicCivilCalendar20handleGetMonthLengthEiiR10UErrorCode.exit
 
-16:                                               ; preds = %4
-  %17 = sub nsw i32 11, %2
-  %18 = shl nuw i32 1, %17
-  %19 = zext nneg i32 %1 to i64
-  %20 = getelementptr i32, ptr @_ZN6icu_77L20UMALQURA_MONTHLENGTHE, i64 %19
-  %21 = getelementptr i8, ptr %20, i64 -5200
-  %22 = load i32, ptr %21, align 4, !tbaa !6
-  %23 = and i32 %22, %18
-  %.not = icmp eq i32 %23, 0
+17:                                               ; preds = %4
+  %18 = sub nsw i32 11, %2
+  %19 = shl nuw i32 1, %18
+  %20 = zext nneg i32 %1 to i64
+  %21 = getelementptr i32, ptr @_ZN6icu_77L20UMALQURA_MONTHLENGTHE, i64 %20
+  %22 = getelementptr i8, ptr %21, i64 -5200
+  %23 = load i32, ptr %22, align 4, !tbaa !6
+  %24 = and i32 %23, %19
+  %.not = icmp eq i32 %24, 0
   %spec.select = select i1 %.not, i32 29, i32 30
   br label %_ZNK6icu_7720IslamicCivilCalendar20handleGetMonthLengthEiiR10UErrorCode.exit
 
-_ZNK6icu_7720IslamicCivilCalendar20handleGetMonthLengthEiiR10UErrorCode.exit: ; preds = %11, %6, %16
-  %.0 = phi i32 [ %spec.select, %16 ], [ %9, %6 ], [ %spec.select.i, %11 ]
+_ZNK6icu_7720IslamicCivilCalendar20handleGetMonthLengthEiiR10UErrorCode.exit: ; preds = %11, %6, %17
+  %.0 = phi i32 [ %spec.select, %17 ], [ %9, %6 ], [ %spec.select.i, %11 ]
   ret i32 %.0
 }
 

@@ -60342,7 +60342,7 @@ invoke.cont:                                      ; preds = %for.body
   %3 = trunc nuw nsw i64 %indvars.iv to i32
   %call18 = call noalias noundef nonnull dereferenceable(33808) ptr @_Znwm(i64 noundef 33808) #28
   %4 = lshr i32 %3, 3
-  %shl.i.i24 = and i32 %4, 3968
+  %shl.i.i24 = and i32 %4, 268435328
   %indvars.iv.tr = trunc i64 %indvars.iv to i32
   %5 = shl i32 %indvars.iv.tr, 2
   %shl5.i.i = and i32 %5, 3968
@@ -60836,7 +60836,7 @@ for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %
 
 invoke.cont22:                                    ; preds = %for.body.i.i.i.i
   %9 = lshr i32 %4, 5
-  %shl.i.i25 = and i32 %9, 120
+  %shl.i.i25 = and i32 %9, 67108856
   %10 = lshr i32 %4, 1
   %shl5.i.i = and i32 %10, 120
   %indvars.iv.tr = trunc i64 %indvars.iv to i32
@@ -65226,7 +65226,7 @@ for.body:                                         ; preds = %if.end4, %for.inc
   %indvars.iv = phi i64 [ 0, %if.end4 ], [ %indvars.iv.next, %for.inc ]
   %12 = trunc nuw nsw i64 %indvars.iv to i32
   %13 = lshr i32 %12, 3
-  %shl.i.i = and i32 %13, 3968
+  %shl.i.i = and i32 %13, 268435328
   %indvars.iv.tr = trunc i64 %indvars.iv to i32
   %14 = shl i32 %indvars.iv.tr, 2
   %shl5.i.i = and i32 %14, 3968
@@ -65470,7 +65470,7 @@ for.body:                                         ; preds = %if.end4, %for.inc
   %indvars.iv = phi i64 [ 0, %if.end4 ], [ %indvars.iv.next, %for.inc ]
   %12 = trunc nuw nsw i64 %indvars.iv to i32
   %13 = lshr i32 %12, 5
-  %shl.i.i = and i32 %13, 120
+  %shl.i.i = and i32 %13, 67108856
   %14 = lshr i32 %12, 1
   %shl5.i.i = and i32 %14, 120
   %indvars.iv.tr = trunc i64 %indvars.iv to i32
@@ -134352,7 +134352,7 @@ invoke.cont:                                      ; preds = %for.body
   %2 = trunc nuw nsw i64 %indvars.iv to i32
   %call16 = call noalias noundef nonnull dereferenceable(33808) ptr @_Znwm(i64 noundef 33808) #28
   %3 = lshr i32 %2, 3
-  %shl.i.i24 = and i32 %3, 3968
+  %shl.i.i24 = and i32 %3, 268435328
   %indvars.iv.tr = trunc i64 %indvars.iv to i32
   %4 = shl i32 %indvars.iv.tr, 2
   %shl5.i.i = and i32 %4, 3968
@@ -134832,7 +134832,7 @@ invoke.cont:                                      ; preds = %for.body
   %mValueMask.i = getelementptr inbounds nuw i8, ptr %call16, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %mValueMask.i, i8 0, i64 64, i1 false)
   %5 = lshr i32 %1, 5
-  %shl.i.i24 = and i32 %5, 120
+  %shl.i.i24 = and i32 %5, 67108856
   %6 = lshr i32 %1, 1
   %shl5.i.i = and i32 %6, 120
   %indvars.iv.tr = trunc i64 %indvars.iv to i32
@@ -140151,7 +140151,7 @@ for.body:                                         ; preds = %if.end4, %for.inc
   %indvars.iv = phi i64 [ 0, %if.end4 ], [ %indvars.iv.next, %for.inc ]
   %12 = trunc nuw nsw i64 %indvars.iv to i32
   %13 = lshr i32 %12, 3
-  %shl.i.i = and i32 %13, 3968
+  %shl.i.i = and i32 %13, 268435328
   %indvars.iv.tr = trunc i64 %indvars.iv to i32
   %14 = shl i32 %indvars.iv.tr, 2
   %shl5.i.i = and i32 %14, 3968
@@ -140421,7 +140421,7 @@ for.body:                                         ; preds = %if.end4, %for.inc
   %indvars.iv = phi i64 [ 0, %if.end4 ], [ %indvars.iv.next, %for.inc ]
   %12 = trunc nuw nsw i64 %indvars.iv to i32
   %13 = lshr i32 %12, 5
-  %shl.i.i = and i32 %13, 120
+  %shl.i.i = and i32 %13, 67108856
   %14 = lshr i32 %12, 1
   %shl5.i.i = and i32 %14, 120
   %indvars.iv.tr = trunc i64 %indvars.iv to i32
@@ -164893,17 +164893,17 @@ if.then7:                                         ; preds = %if.then
           to label %if.end unwind label %lpad.loopexit.split-lp
 
 lpad.loopexit:                                    ; preds = %if.end.i
-  %lpad.loopexit130 = landingpad { ptr, i32 }
+  %lpad.loopexit131 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp:                           ; preds = %if.then7
-  %lpad.loopexit.split-lp131 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp132 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit130, %lpad.loopexit ], [ %lpad.loopexit.split-lp131, %lpad.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit131, %lpad.loopexit ], [ %lpad.loopexit.split-lp132, %lpad.loopexit.split-lp ]
   %14 = load ptr, ptr %b, align 8
   %tobool.not.i.i24 = icmp eq ptr %14, null
   br i1 %tobool.not.i.i24, label %common.resume, label %if.then.i.i25
@@ -164925,14 +164925,14 @@ if.else.i.i.i27:                                  ; preds = %if.then.i.i25
 if.end:                                           ; preds = %if.then7, %if.then
   %tmp_n.addr.1 = phi ptr [ %tmp_n.addr.0, %if.then ], [ %call2.i23, %if.then7 ]
   %18 = load i8, ptr %m_is_writer.i.i, align 8
-  %tobool.i152 = trunc i8 %18 to i1
-  br i1 %tobool.i152, label %while.end, label %if.end.i
+  %tobool.i153 = trunc i8 %18 to i1
+  br i1 %tobool.i153, label %while.end, label %if.end.i
 
 while.cond:                                       ; preds = %invoke.cont15
   br i1 %tobool.i47, label %while.end, label %if.end.i, !llvm.loop !2087
 
 if.end.i:                                         ; preds = %if.end, %while.cond
-  %n.0153 = phi ptr [ %n.0.lcssa.i38, %while.cond ], [ null, %if.end ]
+  %n.0154 = phi ptr [ %n.0.lcssa.i38, %while.cond ], [ null, %if.end ]
   store i8 1, ptr %m_is_writer.i.i, align 8
   %19 = load ptr, ptr %b, align 8
   %call.i3233 = invoke noundef zeroext i1 @_ZN3tbb6detail2d113spin_rw_mutex7upgradeEv(ptr noundef nonnull align 8 dereferenceable(8) %19)
@@ -164982,7 +164982,7 @@ if.then.i:                                        ; preds = %if.then18
   br label %exists
 
 while.end:                                        ; preds = %invoke.cont11, %while.cond, %if.end
-  %n.0.lcssa = phi ptr [ null, %if.end ], [ %n.0.lcssa.i38, %while.cond ], [ %n.0153, %invoke.cont11 ]
+  %n.0.lcssa = phi ptr [ null, %if.end ], [ %n.0.lcssa.i38, %while.cond ], [ %n.0154, %invoke.cont11 ]
   %29 = load atomic i64, ptr %my_mask acquire, align 8
   %cmp.not.i = icmp eq i64 %m.0, %29
   br i1 %cmp.not.i, label %if.end34, label %if.then.i62
@@ -165217,10 +165217,10 @@ check_growth:                                     ; preds = %_ZN3tbb6detail2d219
 
 if.then63:                                        ; preds = %check_growth
   %cmp.i109 = icmp ugt i64 %grow_segment.2, 7
-  br i1 %cmp.i109, label %if.then.i113, label %if.else.i110
+  br i1 %cmp.i109, label %if.then.i114, label %if.else.i110
 
-if.then.i113:                                     ; preds = %if.then63
-  %shl.i.i114 = shl nuw i64 1, %grow_segment.2
+if.then.i114:                                     ; preds = %if.then63
+  %shl.i.i115 = shl nuw i64 1, %grow_segment.2
   %mul.i.i.i.i.i = shl i64 16, %grow_segment.2
   %call.i.i.i1.i.i = invoke noundef ptr @_ZN3tbb6detail2r115allocate_memoryEm(i64 noundef %mul.i.i.i.i.i)
           to label %for.body.i.i.i unwind label %_ZN3tbb6detail2d010raii_guardIZNS0_2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKPN7openvdb5v11_04tree17ValueAccessorBaseIKNSA_4TreeINSA_8RootNodeINSA_12InternalNodeINSE_INSA_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEEbEEENS5_13spin_rw_mutexEE14enable_segmentEmbEUlvE0_ED2Ev.exit8.i.i
@@ -165231,25 +165231,25 @@ common.resume.i:                                  ; preds = %_ZN3tbb6detail2d010
   store atomic i64 0, ptr %arrayidx.i.i7.i13.i monotonic, align 8
   br label %common.resume
 
-_ZN3tbb6detail2d010raii_guardIZNS0_2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKPN7openvdb5v11_04tree17ValueAccessorBaseIKNSA_4TreeINSA_8RootNodeINSA_12InternalNodeINSE_INSA_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEEbEEENS5_13spin_rw_mutexEE14enable_segmentEmbEUlvE0_ED2Ev.exit8.i.i: ; preds = %if.then.i113
+_ZN3tbb6detail2d010raii_guardIZNS0_2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKPN7openvdb5v11_04tree17ValueAccessorBaseIKNSA_4TreeINSA_8RootNodeINSA_12InternalNodeINSE_INSA_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEEbEEENS5_13spin_rw_mutexEE14enable_segmentEmbEUlvE0_ED2Ev.exit8.i.i: ; preds = %if.then.i114
   %63 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume.i
 
-for.body.i.i.i:                                   ; preds = %if.then.i113, %for.body.i.i.i
-  %i.04.i.i.i = phi i64 [ %inc.i.i.i, %for.body.i.i.i ], [ 0, %if.then.i113 ]
+for.body.i.i.i:                                   ; preds = %if.then.i114, %for.body.i.i.i
+  %i.04.i.i.i = phi i64 [ %inc.i.i.i, %for.body.i.i.i ], [ 0, %if.then.i114 ]
   %add.ptr.i.i.i = getelementptr inbounds %"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<openvdb::v11_0::tree::ValueAccessorBase<const openvdb::v11_0::tree::Tree<openvdb::v11_0::tree::RootNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<float, 3>, 4>, 5>>>, true> *const, bool>>, tbb::detail::d1::spin_rw_mutex>::bucket", ptr %call.i.i.i1.i.i, i64 %i.04.i.i.i
   store i64 0, ptr %add.ptr.i.i.i, align 8
   %node_list.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i, i64 8
   store ptr inttoptr (i64 3 to ptr), ptr %node_list.i.i.i.i.i.i, align 8
   %inc.i.i.i = add nuw i64 %i.04.i.i.i, 1
-  %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, %shl.i.i114
+  %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, %shl.i.i115
   br i1 %exitcond.not.i.i.i, label %_ZN3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKPN7openvdb5v11_04tree17ValueAccessorBaseIKNS8_4TreeINS8_8RootNodeINS8_12InternalNodeINSC_INS8_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEEbEEENS3_13spin_rw_mutexEE12init_bucketsEPNSQ_6bucketEmb.exit.i, label %for.body.i.i.i, !llvm.loop !2090
 
 _ZN3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKPN7openvdb5v11_04tree17ValueAccessorBaseIKNS8_4TreeINS8_8RootNodeINS8_12InternalNodeINSC_INS8_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEEbEEENS3_13spin_rw_mutexEE12init_bucketsEPNSQ_6bucketEmb.exit.i: ; preds = %for.body.i.i.i
-  %arrayidx.i116 = getelementptr inbounds nuw %"struct.std::atomic.66", ptr %my_table.i.i.i, i64 %grow_segment.2
+  %arrayidx.i117 = getelementptr inbounds nuw %"struct.std::atomic.66", ptr %my_table.i.i.i, i64 %grow_segment.2
   %64 = ptrtoint ptr %call.i.i.i1.i.i to i64
-  store atomic i64 %64, ptr %arrayidx.i116 release, align 8
+  store atomic i64 %64, ptr %arrayidx.i117 release, align 8
   %shl.i = shl i64 2, %grow_segment.2
   %65 = add i64 %shl.i, -1
   br label %_ZN3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKPN7openvdb5v11_04tree17ValueAccessorBaseIKNS8_4TreeINS8_8RootNodeINS8_12InternalNodeINSC_INS8_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEEbEEENS3_13spin_rw_mutexEE14enable_segmentEmb.exit
@@ -165281,7 +165281,8 @@ for.body.i:                                       ; preds = %for.body.i, %_ZN3tb
   %i.038.i = phi i64 [ 1, %_ZN3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKPN7openvdb5v11_04tree17ValueAccessorBaseIKNS8_4TreeINS8_8RootNodeINS8_12InternalNodeINSC_INS8_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEEbEEENS3_13spin_rw_mutexEE12init_bucketsEPNSQ_6bucketEmb.exit24.i ], [ %inc.i, %for.body.i ]
   %arrayidx12.i = getelementptr inbounds nuw %"struct.std::atomic.66", ptr %my_table.i.i.i, i64 %i.038.i
   %shl.i25.i = shl nuw nsw i64 1, %i.038.i
-  %add.ptr14.i = getelementptr inbounds nuw %"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<openvdb::v11_0::tree::ValueAccessorBase<const openvdb::v11_0::tree::Tree<openvdb::v11_0::tree::RootNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<float, 3>, 4>, 5>>>, true> *const, bool>>, tbb::detail::d1::spin_rw_mutex>::bucket", ptr %add.ptr.i, i64 %shl.i25.i
+  %and.i.i111 = and i64 %shl.i25.i, 9223372036854775806
+  %add.ptr14.i = getelementptr inbounds nuw %"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<openvdb::v11_0::tree::ValueAccessorBase<const openvdb::v11_0::tree::Tree<openvdb::v11_0::tree::RootNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<float, 3>, 4>, 5>>>, true> *const, bool>>, tbb::detail::d1::spin_rw_mutex>::bucket", ptr %add.ptr.i, i64 %and.i.i111
   %67 = ptrtoint ptr %add.ptr14.i to i64
   store atomic i64 %67, ptr %arrayidx12.i release, align 8
   %inc.i = add nuw nsw i64 %i.038.i, 1

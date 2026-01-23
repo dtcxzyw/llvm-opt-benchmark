@@ -4372,8 +4372,10 @@ _ZN5ZXing6QRCode7Version11IsValidSizeENS_6PointTIiEENS0_4TypeE.exit: ; preds = %
   br i1 %19, label %20, label %_ZN5ZXing6QRCode7Version11IsValidSizeENS_6PointTIiEENS0_4TypeE.exit3.thread
 
 20:                                               ; preds = %_ZN5ZXing6QRCode7Version11IsValidSizeENS_6PointTIiEENS0_4TypeE.exit
-  %21 = add nsw i32 %3, -17
-  %22 = lshr exact i32 %21, 2
+  %21 = trunc i64 %0 to i32
+  %.lhs.trunc = add i32 %21, 239
+  %22 = lshr i32 %.lhs.trunc, 2
+  %.zext = and i32 %22, 63
   br label %_ZN5ZXing6QRCode7Version11IsValidSizeENS_6PointTIiEENS0_4TypeE.exit3.thread
 
 23:                                               ; preds = %15
@@ -4385,12 +4387,14 @@ _ZN5ZXing6QRCode7Version11IsValidSizeENS_6PointTIiEENS0_4TypeE.exit: ; preds = %
   br i1 %28, label %29, label %_ZN5ZXing6QRCode7Version11IsValidSizeENS_6PointTIiEENS0_4TypeE.exit3.thread
 
 29:                                               ; preds = %23
-  %30 = add nsw i32 %3, -9
-  %31 = lshr exact i32 %30, 1
+  %30 = trunc i64 %0 to i32
+  %.lhs.trunc10 = add i32 %30, 247
+  %31 = lshr i32 %.lhs.trunc10, 1
+  %.zext11 = and i32 %31, 127
   br label %_ZN5ZXing6QRCode7Version11IsValidSizeENS_6PointTIiEENS0_4TypeE.exit3.thread
 
 _ZN5ZXing6QRCode7Version11IsValidSizeENS_6PointTIiEENS0_4TypeE.exit3.thread: ; preds = %_ZN5ZXing6QRCode7Version11IsValidSizeENS_6PointTIiEENS0_4TypeE.exit, %23, %29, %20, %6
-  %.0 = phi i32 [ %14, %6 ], [ %22, %20 ], [ %31, %29 ], [ 0, %_ZN5ZXing6QRCode7Version11IsValidSizeENS_6PointTIiEENS0_4TypeE.exit ], [ 0, %23 ]
+  %.0 = phi i32 [ %14, %6 ], [ %.zext, %20 ], [ %.zext11, %29 ], [ 0, %_ZN5ZXing6QRCode7Version11IsValidSizeENS_6PointTIiEENS0_4TypeE.exit ], [ 0, %23 ]
   ret i32 %.0
 }
 

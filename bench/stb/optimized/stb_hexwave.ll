@@ -964,10 +964,10 @@ define void @hexwave_init(i32 noundef %0, i32 noundef %1, ptr noundef %2) local_
   br i1 %exitcond178.not, label %.split.us, label %.preheader142.split.us, !llvm.loop !46
 
 .lr.ph:                                           ; preds = %.split.us
-  %60 = zext nneg i32 %8 to i64
-  %61 = getelementptr inbounds nuw float, ptr %26, i64 %60
+  %60 = sext i32 %8 to i64
+  %61 = getelementptr inbounds float, ptr %26, i64 %60
   %62 = sitofp i32 %4 to float
-  %63 = getelementptr inbounds nuw float, ptr %25, i64 %60
+  %63 = getelementptr inbounds float, ptr %25, i64 %60
   %smax184 = tail call i32 @llvm.smax.i32(i32 %8, i32 0)
   %64 = or disjoint i32 %smax184, 1
   %wide.trip.count185 = zext nneg i32 %64 to i64
@@ -1022,6 +1022,7 @@ define void @hexwave_init(i32 noundef %0, i32 noundef %1, ptr noundef %2) local_
   %87 = zext nneg i32 %1 to i64
   %88 = zext nneg i32 %spec.store.select135 to i64
   %wide.trip.count195 = zext i32 %6 to i64
+  %wide.trip.count190 = zext nneg i32 %spec.store.select135 to i64
   br label %.preheader139.us
 
 .preheader139.us:                                 ; preds = %.preheader139.us.preheader, %._crit_edge.us
@@ -1043,7 +1044,7 @@ define void @hexwave_init(i32 noundef %0, i32 noundef %1, ptr noundef %2) local_
   %99 = getelementptr inbounds nuw float, ptr %.0117, i64 %95
   store float %98, ptr %99, align 4, !tbaa !16
   %indvars.iv.next188 = add nuw nsw i64 %indvars.iv187, 1
-  %exitcond191.not = icmp eq i64 %indvars.iv.next188, %88
+  %exitcond191.not = icmp eq i64 %indvars.iv.next188, %wide.trip.count190
   br i1 %exitcond191.not, label %._crit_edge.us, label %90, !llvm.loop !48
 
 ._crit_edge.us:                                   ; preds = %90

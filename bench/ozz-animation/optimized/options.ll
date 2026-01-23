@@ -5613,7 +5613,7 @@ define linkonce_odr dso_local void @_ZSt15__inplace_mergeIPPN3ozz7options6Option
   %5 = icmp eq ptr %0, %1
   %6 = icmp eq ptr %1, %2
   %or.cond = or i1 %5, %6
-  br i1 %or.cond, label %26, label %7
+  br i1 %or.cond, label %29, label %7
 
 7:                                                ; preds = %4
   %8 = ptrtoint ptr %1 to i64
@@ -5625,47 +5625,55 @@ define linkonce_odr dso_local void @_ZSt15__inplace_mergeIPPN3ozz7options6Option
   %14 = ashr exact i64 %13, 3
   %.sroa.speculated = tail call i64 @llvm.smin.i64(i64 %14, i64 %11)
   %15 = icmp sgt i64 %.sroa.speculated, 0
-  br i1 %15, label %.lr.ph.i.i, label %.loopexit
+  br i1 %15, label %.lr.ph.i.i.preheader, label %.loopexit
 
-.lr.ph.i.i:                                       ; preds = %7, %select.unfold.i.i
-  %.010.i.i = phi i64 [ %20, %select.unfold.i.i ], [ %.sroa.speculated, %7 ]
-  %16 = shl nuw nsw i64 %.010.i.i, 3
+.lr.ph.i.i.preheader:                             ; preds = %7
+  %16 = shl nuw nsw i64 %.sroa.speculated, 3
   %17 = tail call noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef %16, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #34
-  %.not.i.i = icmp eq ptr %17, null
-  br i1 %.not.i.i, label %select.unfold.i.i, label %_ZNSt17_Temporary_bufferIPPN3ozz7options6OptionES3_EC2ES4_l.exit
+  %.not.i.i46 = icmp eq ptr %17, null
+  br i1 %.not.i.i46, label %.lr.ph, label %_ZNSt17_Temporary_bufferIPPN3ozz7options6OptionES3_EC2ES4_l.exit
 
-select.unfold.i.i:                                ; preds = %.lr.ph.i.i
-  %18 = icmp eq i64 %.010.i.i, 1
-  %19 = add nuw nsw i64 %.010.i.i, 1
+.lr.ph:                                           ; preds = %.lr.ph.i.i.preheader, %select.unfold.i.i
+  %.010.i.i47 = phi i64 [ %20, %select.unfold.i.i ], [ %.sroa.speculated, %.lr.ph.i.i.preheader ]
+  %18 = icmp eq i64 %.010.i.i47, 1
+  br i1 %18, label %.loopexit, label %select.unfold.i.i
+
+select.unfold.i.i:                                ; preds = %.lr.ph
+  %19 = add nuw nsw i64 %.010.i.i47, 1
   %20 = lshr i64 %19, 1
-  br i1 %18, label %.loopexit, label %.lr.ph.i.i, !llvm.loop !155
+  %21 = shl nuw nsw i64 %20, 3
+  %22 = tail call noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef %21, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #34
+  %.not.i.i = icmp eq ptr %22, null
+  br i1 %.not.i.i, label %.lr.ph, label %_ZNSt17_Temporary_bufferIPPN3ozz7options6OptionES3_EC2ES4_l.exit
 
-.loopexit:                                        ; preds = %select.unfold.i.i, %7
+.loopexit:                                        ; preds = %.lr.ph, %7
   invoke void @_ZSt22__merge_without_bufferIPPN3ozz7options6OptionElN9__gnu_cxx5__ops15_Iter_comp_iterIPFbS3_S3_EEEEvT_SB_SB_T0_SC_T1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %11, i64 noundef %14, ptr %3)
-          to label %.loopexit._crit_edge unwind label %21
+          to label %27 unwind label %23
 
-21:                                               ; preds = %_ZNSt17_Temporary_bufferIPPN3ozz7options6OptionES3_EC2ES4_l.exit, %.loopexit
-  %.sroa.4.043 = phi i64 [ %.010.i.i, %_ZNSt17_Temporary_bufferIPPN3ozz7options6OptionES3_EC2ES4_l.exit ], [ 0, %.loopexit ]
-  %.sroa.9.040 = phi ptr [ %17, %_ZNSt17_Temporary_bufferIPPN3ozz7options6OptionES3_EC2ES4_l.exit ], [ null, %.loopexit ]
-  %22 = landingpad { ptr, i32 }
+23:                                               ; preds = %_ZNSt17_Temporary_bufferIPPN3ozz7options6OptionES3_EC2ES4_l.exit, %.loopexit
+  %.sroa.4.043 = phi i64 [ %.010.i.i.lcssa, %_ZNSt17_Temporary_bufferIPPN3ozz7options6OptionES3_EC2ES4_l.exit ], [ 0, %.loopexit ]
+  %.sroa.9.040 = phi ptr [ %.lcssa, %_ZNSt17_Temporary_bufferIPPN3ozz7options6OptionES3_EC2ES4_l.exit ], [ null, %.loopexit ]
+  %24 = landingpad { ptr, i32 }
           cleanup
-  %23 = shl nuw nsw i64 %.sroa.4.043, 3
-  tail call void @_ZdlPvm(ptr noundef %.sroa.9.040, i64 noundef %23) #29
-  resume { ptr, i32 } %22
+  %25 = shl nuw nsw i64 %.sroa.4.043, 3
+  tail call void @_ZdlPvm(ptr noundef %.sroa.9.040, i64 noundef %25) #29
+  resume { ptr, i32 } %24
 
-_ZNSt17_Temporary_bufferIPPN3ozz7options6OptionES3_EC2ES4_l.exit: ; preds = %.lr.ph.i.i
-  %24 = ptrtoint ptr %3 to i64
-  invoke void @_ZSt16__merge_adaptiveIPPN3ozz7options6OptionElS4_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbS3_S3_EEEEvT_SB_SB_T0_SC_T1_SC_T2_(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %11, i64 noundef %14, ptr noundef nonnull %17, i64 noundef %.010.i.i, i64 %24)
-          to label %.loopexit._crit_edge unwind label %21
+_ZNSt17_Temporary_bufferIPPN3ozz7options6OptionES3_EC2ES4_l.exit: ; preds = %select.unfold.i.i, %.lr.ph.i.i.preheader
+  %.010.i.i.lcssa = phi i64 [ %.sroa.speculated, %.lr.ph.i.i.preheader ], [ %20, %select.unfold.i.i ]
+  %.lcssa = phi ptr [ %17, %.lr.ph.i.i.preheader ], [ %22, %select.unfold.i.i ]
+  %26 = ptrtoint ptr %3 to i64
+  invoke void @_ZSt16__merge_adaptiveIPPN3ozz7options6OptionElS4_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbS3_S3_EEEEvT_SB_SB_T0_SC_T1_SC_T2_(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %11, i64 noundef %14, ptr noundef nonnull %.lcssa, i64 noundef %.010.i.i.lcssa, i64 %26)
+          to label %27 unwind label %23
 
-.loopexit._crit_edge:                             ; preds = %.loopexit, %_ZNSt17_Temporary_bufferIPPN3ozz7options6OptionES3_EC2ES4_l.exit
-  %.sroa.4.041 = phi i64 [ %.010.i.i, %_ZNSt17_Temporary_bufferIPPN3ozz7options6OptionES3_EC2ES4_l.exit ], [ 0, %.loopexit ]
-  %.sroa.9.038 = phi ptr [ %17, %_ZNSt17_Temporary_bufferIPPN3ozz7options6OptionES3_EC2ES4_l.exit ], [ null, %.loopexit ]
-  %25 = shl nuw nsw i64 %.sroa.4.041, 3
-  tail call void @_ZdlPvm(ptr noundef %.sroa.9.038, i64 noundef %25) #29
-  br label %26
+27:                                               ; preds = %_ZNSt17_Temporary_bufferIPPN3ozz7options6OptionES3_EC2ES4_l.exit, %.loopexit
+  %.sroa.4.041 = phi i64 [ %.010.i.i.lcssa, %_ZNSt17_Temporary_bufferIPPN3ozz7options6OptionES3_EC2ES4_l.exit ], [ 0, %.loopexit ]
+  %.sroa.9.038 = phi ptr [ %.lcssa, %_ZNSt17_Temporary_bufferIPPN3ozz7options6OptionES3_EC2ES4_l.exit ], [ null, %.loopexit ]
+  %28 = shl nuw nsw i64 %.sroa.4.041, 3
+  tail call void @_ZdlPvm(ptr noundef %.sroa.9.038, i64 noundef %28) #29
+  br label %29
 
-26:                                               ; preds = %4, %.loopexit._crit_edge
+29:                                               ; preds = %4, %27
   ret void
 }
 
@@ -5729,7 +5737,7 @@ _ZSt7advanceIPPN3ozz7options6OptionElEvRT_T0_.exit.i: ; preds = %_ZSt7advanceIPP
   %.112.i = select i1 %32, i64 %35, i64 %28
   %.1.i = select i1 %32, ptr %33, ptr %.017.i
   %36 = icmp sgt i64 %.112.i, 0
-  br i1 %36, label %_ZSt7advanceIPPN3ozz7options6OptionElEvRT_T0_.exit.i, label %_ZSt13__lower_boundIPPN3ozz7options6OptionES3_N9__gnu_cxx5__ops14_Iter_comp_valIPFbS3_S3_EEEET_SB_SB_RKT0_T1_.exit.loopexit, !llvm.loop !156
+  br i1 %36, label %_ZSt7advanceIPPN3ozz7options6OptionElEvRT_T0_.exit.i, label %_ZSt13__lower_boundIPPN3ozz7options6OptionES3_N9__gnu_cxx5__ops14_Iter_comp_valIPFbS3_S3_EEEET_SB_SB_RKT0_T1_.exit.loopexit, !llvm.loop !155
 
 _ZSt13__lower_boundIPPN3ozz7options6OptionES3_N9__gnu_cxx5__ops14_Iter_comp_valIPFbS3_S3_EEEET_SB_SB_RKT0_T1_.exit.loopexit: ; preds = %_ZSt7advanceIPPN3ozz7options6OptionElEvRT_T0_.exit.i
   %.pre = ptrtoint ptr %.1.i to i64
@@ -5765,7 +5773,7 @@ _ZSt7advanceIPPN3ozz7options6OptionElEvRT_T0_.exit.i46: ; preds = %_ZSt7advanceI
   %.112.i51 = select i1 %49, i64 %45, i64 %52
   %.1.i52 = select i1 %49, ptr %.017.i47, ptr %50
   %53 = icmp sgt i64 %.112.i51, 0
-  br i1 %53, label %_ZSt7advanceIPPN3ozz7options6OptionElEvRT_T0_.exit.i46, label %_ZSt13__upper_boundIPPN3ozz7options6OptionES3_N9__gnu_cxx5__ops14_Val_comp_iterIPFbS3_S3_EEEET_SB_SB_RKT0_T1_.exit.loopexit, !llvm.loop !157
+  br i1 %53, label %_ZSt7advanceIPPN3ozz7options6OptionElEvRT_T0_.exit.i46, label %_ZSt13__upper_boundIPPN3ozz7options6OptionES3_N9__gnu_cxx5__ops14_Val_comp_iterIPFbS3_S3_EEEET_SB_SB_RKT0_T1_.exit.loopexit, !llvm.loop !156
 
 _ZSt13__upper_boundIPPN3ozz7options6OptionES3_N9__gnu_cxx5__ops14_Val_comp_iterIPFbS3_S3_EEEET_SB_SB_RKT0_T1_.exit.loopexit: ; preds = %_ZSt7advanceIPPN3ozz7options6OptionElEvRT_T0_.exit.i46
   %.pre82 = ptrtoint ptr %.1.i52 to i64
@@ -5846,7 +5854,7 @@ _ZSt4moveIPPN3ozz7options6OptionES4_ET0_T_S6_S5_.exit: ; preds = %tailrecurse._c
   %23 = icmp ne ptr %.1.i, %15
   %24 = icmp ne ptr %.120.i, %2
   %25 = select i1 %23, i1 %24, i1 false
-  br i1 %25, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !158
+  br i1 %25, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !157
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %_ZSt4moveIPPN3ozz7options6OptionES4_ET0_T_S6_S5_.exit
   %.018.lcssa.i = phi ptr [ %5, %_ZSt4moveIPPN3ozz7options6OptionES4_ET0_T_S6_S5_.exit ], [ %.1.i, %.lr.ph.i ]
@@ -5906,7 +5914,7 @@ _ZSt4moveIPPN3ozz7options6OptionES4_ET0_T_S6_S5_.exit70.thread: ; preds = %30
   %43 = load ptr, ptr %.026.i.ph, align 8, !tbaa !55
   store ptr %43, ptr %41, align 8, !tbaa !55
   %44 = icmp eq ptr %.tr121, %.026.i.ph
-  br i1 %44, label %45, label %.outer, !llvm.loop !159
+  br i1 %44, label %45, label %.outer, !llvm.loop !158
 
 45:                                               ; preds = %42
   %46 = getelementptr inbounds nuw i8, ptr %.024.i71, i64 8
@@ -5921,7 +5929,7 @@ _ZSt4moveIPPN3ozz7options6OptionES4_ET0_T_S6_S5_.exit70.thread: ; preds = %30
 
 50:                                               ; preds = %47
   %51 = getelementptr inbounds i8, ptr %.024.i71, i64 -8
-  br label %37, !llvm.loop !159
+  br label %37, !llvm.loop !158
 
 _ZSt13move_backwardIPPN3ozz7options6OptionES4_ET0_T_S6_S5_.exit.sink.split.i: ; preds = %_ZSt4moveIPPN3ozz7options6OptionES4_ET0_T_S6_S5_.exit70.thread, %45
   %.sink49.i = phi ptr [ %46, %45 ], [ %33, %_ZSt4moveIPPN3ozz7options6OptionES4_ET0_T_S6_S5_.exit70.thread ]
@@ -5961,7 +5969,7 @@ _ZSt7advanceIPPN3ozz7options6OptionElEvRT_T0_.exit.i: ; preds = %_ZSt7advanceIPP
   %.112.i = select i1 %69, i64 %72, i64 %65
   %.1.i74 = select i1 %69, ptr %70, ptr %.017.i
   %73 = icmp sgt i64 %.112.i, 0
-  br i1 %73, label %_ZSt7advanceIPPN3ozz7options6OptionElEvRT_T0_.exit.i, label %_ZSt13__lower_boundIPPN3ozz7options6OptionES3_N9__gnu_cxx5__ops14_Iter_comp_valIPFbS3_S3_EEEET_SB_SB_RKT0_T1_.exit.loopexit, !llvm.loop !156
+  br i1 %73, label %_ZSt7advanceIPPN3ozz7options6OptionElEvRT_T0_.exit.i, label %_ZSt13__lower_boundIPPN3ozz7options6OptionES3_N9__gnu_cxx5__ops14_Iter_comp_valIPFbS3_S3_EEEET_SB_SB_RKT0_T1_.exit.loopexit, !llvm.loop !155
 
 _ZSt13__lower_boundIPPN3ozz7options6OptionES3_N9__gnu_cxx5__ops14_Iter_comp_valIPFbS3_S3_EEEET_SB_SB_RKT0_T1_.exit.loopexit: ; preds = %_ZSt7advanceIPPN3ozz7options6OptionElEvRT_T0_.exit.i
   %.pre = ptrtoint ptr %.1.i74 to i64
@@ -5997,7 +6005,7 @@ _ZSt7advanceIPPN3ozz7options6OptionElEvRT_T0_.exit.i81: ; preds = %_ZSt7advanceI
   %.112.i86 = select i1 %86, i64 %82, i64 %89
   %.1.i87 = select i1 %86, ptr %.017.i82, ptr %87
   %90 = icmp sgt i64 %.112.i86, 0
-  br i1 %90, label %_ZSt7advanceIPPN3ozz7options6OptionElEvRT_T0_.exit.i81, label %_ZSt13__upper_boundIPPN3ozz7options6OptionES3_N9__gnu_cxx5__ops14_Val_comp_iterIPFbS3_S3_EEEET_SB_SB_RKT0_T1_.exit.loopexit, !llvm.loop !157
+  br i1 %90, label %_ZSt7advanceIPPN3ozz7options6OptionElEvRT_T0_.exit.i81, label %_ZSt13__upper_boundIPPN3ozz7options6OptionES3_N9__gnu_cxx5__ops14_Val_comp_iterIPFbS3_S3_EEEET_SB_SB_RKT0_T1_.exit.loopexit, !llvm.loop !156
 
 _ZSt13__upper_boundIPPN3ozz7options6OptionES3_N9__gnu_cxx5__ops14_Val_comp_iterIPFbS3_S3_EEEET_SB_SB_RKT0_T1_.exit.loopexit: ; preds = %_ZSt7advanceIPPN3ozz7options6OptionElEvRT_T0_.exit.i81
   %.pre136 = ptrtoint ptr %.1.i87 to i64
@@ -6155,7 +6163,7 @@ define linkonce_odr dso_local noundef ptr @_ZNSt3_V28__rotateIPPN3ozz7options6Op
   %19 = getelementptr inbounds nuw i8, ptr %.079.i, i64 8
   %20 = getelementptr inbounds nuw i8, ptr %.010.i, i64 8
   %.not.i = icmp eq ptr %19, %1
-  br i1 %.not.i, label %_ZSt11swap_rangesIPPN3ozz7options6OptionES4_ET0_T_S6_S5_.exit, label %.lr.ph.i, !llvm.loop !160
+  br i1 %.not.i, label %_ZSt11swap_rangesIPPN3ozz7options6OptionES4_ET0_T_S6_S5_.exit, label %.lr.ph.i, !llvm.loop !159
 
 21:                                               ; preds = %7
   %22 = sub i64 %8, %12
@@ -6218,7 +6226,7 @@ _ZSt4moveIPPN3ozz7options6OptionES4_ET0_T_S6_S5_.exit: ; preds = %29, %32
   %42 = getelementptr inbounds nuw i8, ptr %.055107, i64 8
   %43 = add nuw nsw i64 %.054108, 1
   %exitcond119.not = icmp eq i64 %43, %25
-  br i1 %exitcond119.not, label %._crit_edge111, label %.lr.ph110, !llvm.loop !161
+  br i1 %exitcond119.not, label %._crit_edge111, label %.lr.ph110, !llvm.loop !160
 
 44:                                               ; preds = %._crit_edge111
   %45 = sub nsw i64 %.083, %38
@@ -6265,7 +6273,7 @@ _ZSt13move_backwardIPPN3ozz7options6OptionES4_ET0_T_S6_S5_.exit: ; preds = %48, 
   %.086.be = phi i64 [ %.083, %44 ], [ %25, %._crit_edge ]
   %.083.be = phi i64 [ %45, %44 ], [ %62, %._crit_edge ]
   %.058.be = phi ptr [ %.159.lcssa, %44 ], [ %.361.lcssa, %._crit_edge ]
-  br label %24, !llvm.loop !162
+  br label %24, !llvm.loop !161
 
 .lr.ph:                                           ; preds = %57, %.lr.ph
   %.0105 = phi i64 [ %67, %.lr.ph ], [ 0, %57 ]
@@ -6279,7 +6287,7 @@ _ZSt13move_backwardIPPN3ozz7options6OptionES4_ET0_T_S6_S5_.exit: ; preds = %48, 
   store ptr %65, ptr %64, align 8, !tbaa !55
   %67 = add nuw nsw i64 %.0105, 1
   %exitcond.not = icmp eq i64 %67, %.083
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !163
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !162
 
 _ZSt11swap_rangesIPPN3ozz7options6OptionES4_ET0_T_S6_S5_.exit: ; preds = %._crit_edge, %._crit_edge111, %.lr.ph.i, %_ZSt13move_backwardIPPN3ozz7options6OptionES4_ET0_T_S6_S5_.exit, %_ZSt4moveIPPN3ozz7options6OptionES4_ET0_T_S6_S5_.exit, %5, %3
   %.053 = phi ptr [ %0, %5 ], [ %2, %3 ], [ %23, %_ZSt13move_backwardIPPN3ozz7options6OptionES4_ET0_T_S6_S5_.exit ], [ %23, %_ZSt4moveIPPN3ozz7options6OptionES4_ET0_T_S6_S5_.exit ], [ %1, %.lr.ph.i ], [ %23, %._crit_edge111 ], [ %23, %._crit_edge ]
@@ -6516,4 +6524,3 @@ attributes #34 = { nounwind allocsize(0) }
 !160 = distinct !{!160, !58}
 !161 = distinct !{!161, !58}
 !162 = distinct !{!162, !58}
-!163 = distinct !{!163, !58}

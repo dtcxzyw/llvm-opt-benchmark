@@ -1799,7 +1799,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h331a88eed7dfc6b6E.exit: ; pred
   call void @llvm.experimental.noalias.scope.decl(metadata !280)
   %44 = load i128, ptr %1, align 16, !range !282, !alias.scope !283, !noalias !284, !noundef !12
   %45 = trunc nuw i128 %44 to i1
-  br i1 %45, label %46, label %55
+  br i1 %45, label %46, label %56
 
 46:                                               ; preds = %43
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -1818,18 +1818,19 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h331a88eed7dfc6b6E.exit: ; pred
   br label %"_ZN4core6option15Option$LT$T$GT$7or_else17h8dd29415c793ccf6E.exit"
 
 52:                                               ; preds = %46
-  store i64 1, ptr %47, align 16, !alias.scope !295, !noalias !296
-  %53 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %54 = icmp eq i64 %50, 0
-  call void @llvm.assume(i1 %54)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(112) %0, ptr noundef nonnull align 16 dereferenceable(112) %53, i64 112, i1 false), !alias.scope !299, !noalias !272
+  %53 = or disjoint i64 %50, 1
+  store i64 %53, ptr %47, align 16, !alias.scope !295, !noalias !296
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %55 = icmp eq i64 %50, 0
+  call void @llvm.assume(i1 %55)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(112) %0, ptr noundef nonnull align 16 dereferenceable(112) %54, i64 112, i1 false), !alias.scope !299, !noalias !272
   br label %"_ZN4core6option15Option$LT$T$GT$7or_else17h8dd29415c793ccf6E.exit"
 
-55:                                               ; preds = %43
+56:                                               ; preds = %43
   store i64 5, ptr %0, align 16, !alias.scope !300, !noalias !301
   br label %"_ZN4core6option15Option$LT$T$GT$7or_else17h8dd29415c793ccf6E.exit"
 
-"_ZN4core6option15Option$LT$T$GT$7or_else17h8dd29415c793ccf6E.exit": ; preds = %42, %51, %52, %55
+"_ZN4core6option15Option$LT$T$GT$7or_else17h8dd29415c793ccf6E.exit": ; preds = %42, %51, %52, %56
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6)
   ret void
 }
@@ -2527,7 +2528,7 @@ _ZN11compact_str4repr4Repr3new17h9ba9cd93d8af9c19E.exit.thread.i: ; preds = %_ZN
 35:                                               ; preds = %25
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(23) %8, i8 0, i64 23, i1 false), !noalias !493
   %36 = trunc nuw nsw i64 %23 to i8
-  %37 = or disjoint i8 %36, -64
+  %37 = or i8 %36, -64
   %.23..23..23..23..23..23..23..23..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 23
   store i8 %37, ptr %.23..23..23..23..23..23..23..23..sroa_idx, align 1, !noalias !493
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %8, ptr nonnull readonly align 1 %21, i64 %23, i1 false), !noalias !500

@@ -16061,14 +16061,13 @@ define internal void @nbap_init() #0 {
   %4 = getelementptr i32, ptr @lch_contents, i64 %indvars.iv
   %5 = load i32, ptr %4, align 4
   %6 = trunc i32 %5 to i8
-  %7 = getelementptr i8, ptr @lchId_type_table, i64 %indvars.iv
-  %8 = getelementptr i8, ptr %7, i64 1
-  store i8 %6, ptr %8, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %7 = getelementptr i8, ptr @lchId_type_table, i64 %indvars.iv.next
+  store i8 %6, ptr %7, align 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 15
-  br i1 %exitcond.not, label %9, label %3, !llvm.loop !8
+  br i1 %exitcond.not, label %8, label %3, !llvm.loop !8
 
-9:                                                ; preds = %3
+8:                                                ; preds = %3
   ret void
 }
 

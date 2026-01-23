@@ -23582,8 +23582,8 @@ _ZN4absl9MutexLockC2EPNS_5MutexE.exit.i:          ; preds = %1
   call void @__clang_call_terminate(ptr %13) #25
   unreachable
 
-common.resume:                                    ; preds = %52, %14
-  %common.resume.op = phi { ptr, i32 } [ %15, %14 ], [ %.pn.pn.pn, %52 ]
+common.resume:                                    ; preds = %53, %14
+  %common.resume.op = phi { ptr, i32 } [ %15, %14 ], [ %.pn.pn.pn, %53 ]
   resume { ptr, i32 } %common.resume.op
 
 14:                                               ; preds = %1
@@ -23607,43 +23607,44 @@ common.resume:                                    ; preds = %52, %14
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 24
   br label %24
 
-21:                                               ; preds = %37
+21:                                               ; preds = %38
   invoke void @AbslInternalSleepFor(i64 3, i32 0)
-          to label %_ZN4absl8SleepForENS_8DurationE.exit unwind label %49
+          to label %_ZN4absl8SleepForENS_8DurationE.exit unwind label %50
 
 22:                                               ; preds = %16
   %23 = landingpad { ptr, i32 }
           cleanup
-  br label %52
+  br label %53
 
-24:                                               ; preds = %.preheader, %37
-  %.01924 = phi i32 [ 0, %.preheader ], [ %39, %37 ]
+24:                                               ; preds = %.preheader, %38
+  %.01924 = phi i32 [ 0, %.preheader ], [ %40, %38 ]
   %25 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #30
-          to label %26 unwind label %40
+          to label %26 unwind label %41
 
 26:                                               ; preds = %24
   %.cmp = icmp samesign ult i32 %.01924, 5
   %27 = select i1 %.cmp, i32 13, i32 8
   %28 = add nuw nsw i32 %27, %.01924
   %29 = zext nneg i32 %28 to i64
-  %30 = or i32 %.01924, 12
-  %31 = zext nneg i32 %30 to i64
-  %32 = and i32 %.01924, 1
-  %33 = or disjoint i32 %32, 10
-  %34 = zext nneg i32 %33 to i64
+  %30 = and i32 %.01924, 3
+  %31 = or disjoint i32 %30, 12
+  %32 = zext nneg i32 %31 to i64
+  %33 = and i32 %.01924, 1
+  %34 = or disjoint i32 %33, 10
+  %35 = zext nneg i32 %34 to i64
   %.lhs.trunc = trunc nuw nsw i32 %.01924 to i8
-  %35 = urem i8 %.lhs.trunc, 3
-  %narrow = add nuw nsw i8 %35, 11
-  %36 = zext nneg i8 %narrow to i64
+  %36 = urem i8 %.lhs.trunc, 3
+  %narrow = add nuw nsw i8 %36, 11
+  %37 = zext nneg i8 %narrow to i64
   store ptr %2, ptr %25, align 8, !tbaa !585
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 8
   store ptr %3, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !587
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 16
-  store i64 %36, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !20
+  store i64 %37, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !20
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 24
-  store i64 %34, ptr %.sroa.7.0..sroa_idx, align 8, !tbaa !20
+  store i64 %35, ptr %.sroa.7.0..sroa_idx, align 8, !tbaa !20
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 32
-  store i64 %31, ptr %.sroa.8.0..sroa_idx, align 8, !tbaa !20
+  store i64 %32, ptr %.sroa.8.0..sroa_idx, align 8, !tbaa !20
   %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 40
   store i64 %29, ptr %.sroa.9.0..sroa_idx, align 8, !tbaa !20
   store ptr %25, ptr %5, align 16, !tbaa !41
@@ -23651,70 +23652,70 @@ common.resume:                                    ; preds = %52, %14
   store ptr @_ZN4absl22internal_any_invocable20RemoteManagerTrivialENS0_14FunctionToCallEPNS0_15TypeErasedStateES3_, ptr %19, align 16, !tbaa !589
   store ptr @"_ZN4absl22internal_any_invocable13RemoteInvokerILb0EvRZNS_18container_internal12_GLOBAL__N_140HashtablezSamplerTest_MultiThreaded_Test8TestBodyEvE3$_0JEEET0_PNS0_15TypeErasedStateEDpNS0_18ForwardedParameterIT2_E4typeE", ptr %20, align 8, !tbaa !591
   invoke void @_ZN4absl24synchronization_internal10ThreadPool8ScheduleENS_12AnyInvocableIFvvEEE(ptr noundef nonnull align 8 dereferenceable(112) %4, ptr noundef nonnull %5)
-          to label %37 unwind label %42
+          to label %38 unwind label %43
 
-37:                                               ; preds = %26
-  %38 = load ptr, ptr %19, align 16, !tbaa !589
-  call void %38(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %5, ptr noundef nonnull align 16 dereferenceable(32) %5) #24
-  %39 = add nuw nsw i32 %.01924, 1
-  %exitcond.not = icmp eq i32 %39, 10
+38:                                               ; preds = %26
+  %39 = load ptr, ptr %19, align 16, !tbaa !589
+  call void %39(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %5, ptr noundef nonnull align 16 dereferenceable(32) %5) #24
+  %40 = add nuw nsw i32 %.01924, 1
+  %exitcond.not = icmp eq i32 %40, 10
   br i1 %exitcond.not, label %21, label %24, !llvm.loop !592
 
-40:                                               ; preds = %24
-  %41 = landingpad { ptr, i32 }
+41:                                               ; preds = %24
+  %42 = landingpad { ptr, i32 }
           cleanup
-  br label %51
+  br label %52
 
-42:                                               ; preds = %26
-  %43 = landingpad { ptr, i32 }
+43:                                               ; preds = %26
+  %44 = landingpad { ptr, i32 }
           cleanup
-  %44 = load ptr, ptr %19, align 16, !tbaa !589
-  call void %44(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %5, ptr noundef nonnull align 16 dereferenceable(32) %5) #24
-  br label %51
+  %45 = load ptr, ptr %19, align 16, !tbaa !589
+  call void %45(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %5, ptr noundef nonnull align 16 dereferenceable(32) %5) #24
+  br label %52
 
 _ZN4absl8SleepForENS_8DurationE.exit:             ; preds = %21
   invoke void @_ZN4absl12Notification6NotifyEv(ptr noundef nonnull align 8 dereferenceable(9) %3)
-          to label %45 unwind label %49
+          to label %46 unwind label %50
 
-45:                                               ; preds = %_ZN4absl8SleepForENS_8DurationE.exit
+46:                                               ; preds = %_ZN4absl8SleepForENS_8DurationE.exit
   call void @_ZN4absl24synchronization_internal10ThreadPoolD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %4) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @_ZN4absl12NotificationD1Ev(ptr noundef nonnull align 8 dereferenceable(9) %3) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %46 = load atomic i64, ptr %7 acquire, align 8
-  %.not5.i = icmp eq i64 %46, 0
+  %47 = load atomic i64, ptr %7 acquire, align 8
+  %.not5.i = icmp eq i64 %47, 0
   br i1 %.not5.i, label %_ZN4absl18profiling_internal14SampleRecorderINS_18container_internal14HashtablezInfoEED2Ev.exit, label %.lr.ph.preheader.i
 
-.lr.ph.preheader.i:                               ; preds = %45
-  %.0.i.i.i = inttoptr i64 %46 to ptr
+.lr.ph.preheader.i:                               ; preds = %46
+  %.0.i.i.i = inttoptr i64 %47 to ptr
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
-  %.06.i = phi ptr [ %48, %.lr.ph.i ], [ %.0.i.i.i, %.lr.ph.preheader.i ]
-  %47 = getelementptr inbounds nuw i8, ptr %.06.i, i64 8
-  %48 = load ptr, ptr %47, align 8, !tbaa !225
+  %.06.i = phi ptr [ %49, %.lr.ph.i ], [ %.0.i.i.i, %.lr.ph.preheader.i ]
+  %48 = getelementptr inbounds nuw i8, ptr %.06.i, i64 8
+  %49 = load ptr, ptr %48, align 8, !tbaa !225
   call void @_ZN4absl18container_internal14HashtablezInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(672) %.06.i) #24
   call void @_ZdlPvm(ptr noundef nonnull %.06.i, i64 noundef 672) #26
-  %.not.i = icmp eq ptr %48, null
+  %.not.i = icmp eq ptr %49, null
   br i1 %.not.i, label %_ZN4absl18profiling_internal14SampleRecorderINS_18container_internal14HashtablezInfoEED2Ev.exit, label %.lr.ph.i, !llvm.loop !226
 
-_ZN4absl18profiling_internal14SampleRecorderINS_18container_internal14HashtablezInfoEED2Ev.exit: ; preds = %.lr.ph.i, %45
+_ZN4absl18profiling_internal14SampleRecorderINS_18container_internal14HashtablezInfoEED2Ev.exit: ; preds = %.lr.ph.i, %46
   call void @_ZN4absl18container_internal14HashtablezInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(672) %8) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
-49:                                               ; preds = %21, %_ZN4absl8SleepForENS_8DurationE.exit
-  %50 = landingpad { ptr, i32 }
+50:                                               ; preds = %21, %_ZN4absl8SleepForENS_8DurationE.exit
+  %51 = landingpad { ptr, i32 }
           cleanup
-  br label %51
-
-51:                                               ; preds = %40, %42, %49
-  %.pn.pn = phi { ptr, i32 } [ %50, %49 ], [ %43, %42 ], [ %41, %40 ]
-  call void @_ZN4absl24synchronization_internal10ThreadPoolD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %4) #24
   br label %52
 
-52:                                               ; preds = %51, %22
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %51 ], [ %23, %22 ]
+52:                                               ; preds = %41, %43, %50
+  %.pn.pn = phi { ptr, i32 } [ %51, %50 ], [ %44, %43 ], [ %42, %41 ]
+  call void @_ZN4absl24synchronization_internal10ThreadPoolD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %4) #24
+  br label %53
+
+53:                                               ; preds = %52, %22
+  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %52 ], [ %23, %22 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @_ZN4absl12NotificationD1Ev(ptr noundef nonnull align 8 dereferenceable(9) %3) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

@@ -17632,13 +17632,11 @@ define internal fastcc void @"_ZN5hyper5proto2h26client19ClientTask$LT$B$GT$9pol
   %30 = getelementptr inbounds nuw i8, ptr %6, i64 160
   store i8 0, ptr %30, align 8
   invoke void @_ZN5hyper6common4exec4Exec7execute17h9d1321cd881e0062E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %28, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(168) %6)
-          to label %123 unwind label %.critedge.thread.thread
+          to label %119 unwind label %.critedge.thread.thread
 
 .critedge.thread.thread:                          ; preds = %25
-  %lpad.thr_comm125 = landingpad { ptr, i32 }
+  %lpad.thr_comm116 = landingpad { ptr, i32 }
           cleanup
-  %.sroa.859.099126 = extractvalue { ptr, i32 } %lpad.thr_comm125, 1
-  %.sroa.058.0100127 = extractvalue { ptr, i32 } %lpad.thr_comm125, 0
   br label %.critedge.thread
 
 31:                                               ; preds = %21
@@ -17672,7 +17670,7 @@ define internal fastcc void @"_ZN5hyper5proto2h26client19ClientTask$LT$B$GT$9pol
   %45 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr161drop_in_place$LT$hyper..proto..h2..PipeToSendStream$LT$http_body..combinators..box_body..UnsyncBoxBody$LT$bytes..bytes..Bytes$C$tonic..status..Status$GT$$GT$$GT$17ha92f320084398942E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %8) #24
-          to label %.thread86 unwind label %46
+          to label %.thread83 unwind label %46
 
 46:                                               ; preds = %44
   %47 = landingpad { ptr, i32 }
@@ -17700,24 +17698,24 @@ define internal fastcc void @"_ZN5hyper5proto2h26client19ClientTask$LT$B$GT$9pol
 54:                                               ; preds = %63
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %.thread86
+  br label %.thread83
 
 55:                                               ; preds = %31
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %41, ptr noundef nonnull align 8 dereferenceable(48) %8, i64 48, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   store ptr %41, ptr %9, align 8
   %56 = invoke noundef zeroext i1 @"_ZN102_$LT$futures_util..future..future..map..Map$LT$Fut$C$F$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hb6f925830e5d5fb8E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %9, ptr noalias noundef nonnull align 8 dereferenceable(32) %2)
-          to label %57 unwind label %.body66.thread107
+          to label %57 unwind label %.body67.thread100
 
-.body66.thread107:                                ; preds = %77, %55
-  %lpad.thr_comm105 = landingpad { ptr, i32 }
+.body67.thread100:                                ; preds = %77, %55
+  %lpad.thr_comm98 = landingpad { ptr, i32 }
           cleanup
-  br label %.body66.thread
+  br label %.body67.thread
 
-.body66:                                          ; preds = %104
-  %lpad.thr_comm.split-lp106 = landingpad { ptr, i32 }
+.body67:                                          ; preds = %104
+  %lpad.thr_comm.split-lp99 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread86
+  br label %.thread83
 
 57:                                               ; preds = %55
   br i1 %56, label %58, label %63
@@ -17762,9 +17760,9 @@ define internal fastcc void @"_ZN5hyper5proto2h26client19ClientTask$LT$B$GT$9pol
 
 77:                                               ; preds = %70
   invoke void @_ZN4core9panicking5panic17h13ee8adf815f0d87E(ptr noalias noundef nonnull readonly align 1 @anon.a050844006ed878c94dea3ed76d4dc70.248, i64 noundef 53, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a050844006ed878c94dea3ed76d4dc70.249) #23
-          to label %.noexc65 unwind label %.body66.thread107
+          to label %.noexc66 unwind label %.body67.thread100
 
-.noexc65:                                         ; preds = %77
+.noexc66:                                         ; preds = %77
   unreachable
 
 78:                                               ; preds = %74
@@ -17818,12 +17816,12 @@ define internal fastcc void @"_ZN5hyper5proto2h26client19ClientTask$LT$B$GT$9pol
 .body.i:                                          ; preds = %88
   %93 = atomicrmw sub ptr %66, i64 1 release, align 8, !noalias !1122
   %94 = icmp eq i64 %93, 1
-  br i1 %94, label %95, label %.body66.thread
+  br i1 %94, label %95, label %.body67.thread
 
 95:                                               ; preds = %.body.i
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h40aee7747859268eE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %5)
-          to label %.body66.thread unwind label %96, !noalias !1118
+          to label %.body67.thread unwind label %96, !noalias !1118
 
 96:                                               ; preds = %95
   %97 = landingpad { ptr, i32 }
@@ -17865,7 +17863,7 @@ define internal fastcc void @"_ZN5hyper5proto2h26client19ClientTask$LT$B$GT$9pol
   store i8 %.sroa.428.0, ptr %.sroa.6.0..sroa_idx, align 8
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 184
   invoke void @_ZN5hyper6common4exec4Exec7execute17h8eb5908bdb31f612E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %107, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %7)
-          to label %61 unwind label %.body66
+          to label %61 unwind label %.body67
 
 108:                                              ; preds = %101
   %109 = load ptr, ptr %10, align 8, !nonnull !3, !noundef !3
@@ -17875,12 +17873,12 @@ define internal fastcc void @"_ZN5hyper5proto2h26client19ClientTask$LT$B$GT$9pol
   call void @llvm.trap()
   unreachable
 
-.body66.thread:                                   ; preds = %95, %.body.i, %.body66.thread107
-  %eh.lpad-body67104 = phi { ptr, i32 } [ %lpad.thr_comm105, %.body66.thread107 ], [ %89, %.body.i ], [ %89, %95 ]
+.body67.thread:                                   ; preds = %95, %.body.i, %.body67.thread100
+  %eh.lpad-body6897 = phi { ptr, i32 } [ %lpad.thr_comm98, %.body67.thread100 ], [ %89, %.body.i ], [ %89, %95 ]
   invoke void @"_ZN4core3ptr434drop_in_place$LT$futures_util..future..future..Map$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$hyper..proto..h2..PipeToSendStream$LT$http_body..combinators..box_body..UnsyncBoxBody$LT$bytes..bytes..Bytes$C$tonic..status..Status$GT$$GT$$GT$$GT$$C$hyper..proto..h2..client..ClientTask$LT$http_body..combinators..box_body..UnsyncBoxBody$LT$bytes..bytes..Bytes$C$tonic..status..Status$GT$$GT$..poll_pipe..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hb80fd146f8327282E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %9) #24
-          to label %.thread86 unwind label %111
+          to label %.thread83 unwind label %111
 
-111:                                              ; preds = %132, %.critedge.thread, %129, %127, %.thread86, %116, %.body66.thread
+111:                                              ; preds = %128, %.critedge.thread, %125, %123, %.thread83, %116, %.body67.thread
   %112 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #25
@@ -17889,76 +17887,66 @@ define internal fastcc void @"_ZN5hyper5proto2h26client19ClientTask$LT$B$GT$9pol
 113:                                              ; preds = %48
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br i1 %24, label %114, label %124
+  br i1 %24, label %114, label %120
 
 114:                                              ; preds = %113
   %115 = getelementptr inbounds nuw i8, ptr %1, i64 48
   invoke void @"_ZN4core3ptr102drop_in_place$LT$h2..share..SendStream$LT$hyper..proto..h2..SendBuf$LT$bytes..bytes..Bytes$GT$$GT$$GT$17hed2caa3b10205e8aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %115)
-          to label %125 unwind label %116
+          to label %121 unwind label %116
+
+.thread129:                                       ; preds = %.critedge, %.critedge.thread, %128, %116
+  %.pn.pn = phi { ptr, i32 } [ %.pn82, %128 ], [ %117, %116 ], [ %lpad.thr_comm, %.critedge ], [ %.pn81110123, %.critedge.thread ]
+  resume { ptr, i32 } %.pn.pn
 
 116:                                              ; preds = %114
   %117 = landingpad { ptr, i32 }
           cleanup
-  %118 = extractvalue { ptr, i32 } %117, 1
-  %119 = extractvalue { ptr, i32 } %117, 0
-  %120 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  invoke void @"_ZN4core3ptr119drop_in_place$LT$http_body..combinators..box_body..UnsyncBoxBody$LT$bytes..bytes..Bytes$C$tonic..status..Status$GT$$GT$17h556da9bae3b44bacE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %120) #24
-          to label %.thread144 unwind label %111
+  %118 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  invoke void @"_ZN4core3ptr119drop_in_place$LT$http_body..combinators..box_body..UnsyncBoxBody$LT$bytes..bytes..Bytes$C$tonic..status..Status$GT$$GT$17h556da9bae3b44bacE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %118) #24
+          to label %.thread129 unwind label %111
 
-.thread144:                                       ; preds = %.critedge, %.critedge.thread, %132, %116
-  %.sroa.058.1 = phi ptr [ %.sroa.058.085, %132 ], [ %119, %116 ], [ %.sroa.058.0100, %.critedge ], [ %.sroa.058.084118137, %.critedge.thread ]
-  %.sroa.859.1 = phi i32 [ %.sroa.859.083, %132 ], [ %118, %116 ], [ %.sroa.859.099, %.critedge ], [ %.sroa.859.082119135, %.critedge.thread ]
-  %121 = insertvalue { ptr, i32 } poison, ptr %.sroa.058.1, 0
-  %122 = insertvalue { ptr, i32 } %121, i32 %.sroa.859.1, 1
-  resume { ptr, i32 } %122
-
-123:                                              ; preds = %25
+119:                                              ; preds = %25
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %125
+  br label %121
 
-124:                                              ; preds = %113, %125
+120:                                              ; preds = %113, %121
   ret void
 
-125:                                              ; preds = %123, %114
-  %126 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  call void @"_ZN4core3ptr119drop_in_place$LT$http_body..combinators..box_body..UnsyncBoxBody$LT$bytes..bytes..Bytes$C$tonic..status..Status$GT$$GT$17h556da9bae3b44bacE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %126)
-  br label %124
+121:                                              ; preds = %119, %114
+  %122 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  call void @"_ZN4core3ptr119drop_in_place$LT$http_body..combinators..box_body..UnsyncBoxBody$LT$bytes..bytes..Bytes$C$tonic..status..Status$GT$$GT$17h556da9bae3b44bacE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %122)
+  br label %120
 
-.thread86:                                        ; preds = %.body66, %.body66.thread, %44, %54
-  %eh.lpad-body67103.pn = phi { ptr, i32 } [ %45, %44 ], [ %lpad.thr_comm.split-lp, %54 ], [ %lpad.thr_comm.split-lp106, %.body66 ], [ %eh.lpad-body67104, %.body66.thread ]
-  %.sroa.859.083 = extractvalue { ptr, i32 } %eh.lpad-body67103.pn, 1
-  %.sroa.058.085 = extractvalue { ptr, i32 } %eh.lpad-body67103.pn, 0
+.thread83:                                        ; preds = %.body67, %.body67.thread, %44, %54
+  %.pn82 = phi { ptr, i32 } [ %45, %44 ], [ %lpad.thr_comm.split-lp, %54 ], [ %lpad.thr_comm.split-lp99, %.body67 ], [ %eh.lpad-body6897, %.body67.thread ]
   invoke void @"_ZN4core3ptr53drop_in_place$LT$hyper..proto..h2..ping..Recorder$GT$17ha63e788c8bbb7571E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %10) #24
-          to label %127 unwind label %111
+          to label %123 unwind label %111
 
 .critedge:                                        ; preds = %48
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
-  %.sroa.859.099 = extractvalue { ptr, i32 } %lpad.thr_comm, 1
-  %.sroa.058.0100 = extractvalue { ptr, i32 } %lpad.thr_comm, 0
-  br i1 %24, label %129, label %.thread144
+  br i1 %24, label %125, label %.thread129
 
-127:                                              ; preds = %.thread86
-  %128 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  invoke void @"_ZN4core3ptr47drop_in_place$LT$h2..client..ResponseFuture$GT$17hea2749da442f28b6E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %128) #24
-          to label %132 unwind label %111
+123:                                              ; preds = %.thread83
+  %124 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  invoke void @"_ZN4core3ptr47drop_in_place$LT$h2..client..ResponseFuture$GT$17hea2749da442f28b6E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %124) #24
+          to label %128 unwind label %111
 
-129:                                              ; preds = %.critedge
-  %130 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  invoke void @"_ZN4core3ptr102drop_in_place$LT$h2..share..SendStream$LT$hyper..proto..h2..SendBuf$LT$bytes..bytes..Bytes$GT$$GT$$GT$17hed2caa3b10205e8aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %130) #24
+125:                                              ; preds = %.critedge
+  %126 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  invoke void @"_ZN4core3ptr102drop_in_place$LT$h2..share..SendStream$LT$hyper..proto..h2..SendBuf$LT$bytes..bytes..Bytes$GT$$GT$$GT$17hed2caa3b10205e8aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %126) #24
           to label %.critedge.thread unwind label %111
 
-.critedge.thread:                                 ; preds = %129, %.critedge.thread.thread
-  %.sroa.058.084118137 = phi ptr [ %.sroa.058.0100127, %.critedge.thread.thread ], [ %.sroa.058.0100, %129 ]
-  %.sroa.859.082119135 = phi i32 [ %.sroa.859.099126, %.critedge.thread.thread ], [ %.sroa.859.099, %129 ]
-  %131 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  invoke void @"_ZN4core3ptr119drop_in_place$LT$http_body..combinators..box_body..UnsyncBoxBody$LT$bytes..bytes..Bytes$C$tonic..status..Status$GT$$GT$17h556da9bae3b44bacE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %131) #24
-          to label %.thread144 unwind label %111
+.critedge.thread:                                 ; preds = %125, %.critedge.thread.thread
+  %.pn81110123 = phi { ptr, i32 } [ %lpad.thr_comm116, %.critedge.thread.thread ], [ %lpad.thr_comm, %125 ]
+  %127 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  invoke void @"_ZN4core3ptr119drop_in_place$LT$http_body..combinators..box_body..UnsyncBoxBody$LT$bytes..bytes..Bytes$C$tonic..status..Status$GT$$GT$17h556da9bae3b44bacE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %127) #24
+          to label %.thread129 unwind label %111
 
-132:                                              ; preds = %127
+128:                                              ; preds = %123
   invoke void @"_ZN4core3ptr248drop_in_place$LT$hyper..client..dispatch..Callback$LT$http..request..Request$LT$http_body..combinators..box_body..UnsyncBoxBody$LT$bytes..bytes..Bytes$C$tonic..status..Status$GT$$GT$$C$http..response..Response$LT$hyper..body..body..Body$GT$$GT$$GT$17h4c2337866d519ef2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1) #24
-          to label %.thread144 unwind label %111
+          to label %.thread129 unwind label %111
 }
 
 ; Function Attrs: nonlazybind uwtable

@@ -363,7 +363,10 @@ if.end4:                                          ; preds = %if.then, %do.body
 
 if.then8:                                         ; preds = %if.end4
   %1 = trunc i64 %call5 to i32
-  %retval.0.i7 = and i32 %1, 8388607
+  %and.i = and i64 %call5, 2147483648
+  %cmp.not.i = icmp eq i64 %and.i, 0
+  %retval.0.v.i = select i1 %cmp.not.i, i32 8388607, i32 2147483647
+  %retval.0.i7 = and i32 %retval.0.v.i, %1
   switch i32 %retval.0.i7, label %do.cond [
     i32 144, label %return
     i32 143, label %return

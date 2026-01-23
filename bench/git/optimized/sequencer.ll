@@ -2821,7 +2821,7 @@ append_new_todo.exit:                             ; preds = %._crit_edge.i, %st_
   br i1 %83, label %77, label %skip_prefix.exit.i.i, !llvm.loop !65
 
 skip_prefix.exit.i.i:                             ; preds = %79
-  %84 = shl nuw nsw i64 1, %indvars.iv.i
+  %84 = shl nuw i64 1, %indvars.iv.i
   %85 = and i64 %84, 20482
   %.not.not.i.i = icmp eq i64 %85, 0
   br i1 %.not.not.i.i, label %86, label %90
@@ -5408,7 +5408,7 @@ rebase_path_stopped_sha.exit.i:                   ; preds = %321, %319
   br i1 %339, label %peek_command.exit.i, label %335
 
 peek_command.exit.i:                              ; preds = %336
-  %340 = and i32 %338, 14
+  %340 = and i32 %338, -2
   %.not257.i = icmp eq i32 %340, 4
   br i1 %.not257.i, label %.sink.split.i64, label %peek_command.exit.thread.i
 
@@ -5567,7 +5567,7 @@ rebase_path_current_fixups.exit154.i:             ; preds = %384, %_.exit152.i
   br i1 %405, label %peek_command.exit159.i, label %401
 
 peek_command.exit159.i:                           ; preds = %402
-  %406 = and i32 %404, 14
+  %406 = and i32 %404, -2
   %.not255.i = icmp eq i32 %406, 4
   br i1 %.not255.i, label %._crit_edge.i, label %peek_command.exit159.thread.i
 
@@ -5606,7 +5606,7 @@ peek_command.exit159.thread.i:                    ; preds = %401, %peek_command.
   br i1 %420, label %peek_command.exit164.i, label %416
 
 peek_command.exit164.i:                           ; preds = %417
-  %421 = and i32 %419, 14
+  %421 = and i32 %419, -2
   %.not256.i = icmp eq i32 %421, 4
   br i1 %.not256.i, label %422, label %.sink.split.i64
 
@@ -13186,7 +13186,7 @@ append_new_todo.exit:                             ; preds = %._crit_edge.i, %st_
   unreachable
 
 st_mult.exit.i66:                                 ; preds = %56
-  %68 = mul nuw nsw i64 %65, 40
+  %68 = mul nsw i64 %65, 40
   %69 = call ptr @xmalloc(i64 noundef %68) #20
   store ptr %69, ptr %18, align 8, !tbaa !285
   call void @load_branch_decorations() #20
@@ -14085,7 +14085,7 @@ move_array.exit.i:                                ; preds = %st_mult.exit.i.i109
   br i1 %440, label %peek_command.exit.i, label %436
 
 peek_command.exit.i:                              ; preds = %437
-  %441 = and i32 %439, 14
+  %441 = and i32 %439, -2
   %.not68.i = icmp eq i32 %441, 4
   br i1 %.not68.i, label %.lr.ph.i56.i, label %skip_unnecessary_picks.exit.thread
 
@@ -17083,9 +17083,8 @@ _.exit:                                           ; preds = %64, %66
   br i1 %.not.i.not, label %76, label %85
 
 76:                                               ; preds = %74
-  %77 = and i32 %53, 6
-  %.not483 = icmp eq i32 %77, 4
-  br i1 %.not483, label %78, label %83
+  %77 = icmp samesign ugt i32 %53, 3
+  br i1 %77, label %78, label %83
 
 78:                                               ; preds = %76
   %79 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !21

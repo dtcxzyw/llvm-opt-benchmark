@@ -3896,17 +3896,18 @@ define hidden void @"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 7, ptr %7, align 8
-  br label %11
+  br label %12
 
 8:                                                ; preds = %2
-  store i64 1, ptr %1, align 8
-  %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %10 = icmp eq i64 %5, 0
-  tail call void @llvm.assume(i1 %10)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %9, i64 40, i1 false)
-  br label %11
+  %9 = or disjoint i64 %5, 1
+  store i64 %9, ptr %1, align 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %11 = icmp eq i64 %5, 0
+  tail call void @llvm.assume(i1 %11)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %10, i64 40, i1 false)
+  br label %12
 
-11:                                               ; preds = %8, %6
+12:                                               ; preds = %8, %6
   ret void
 }
 
@@ -3946,15 +3947,16 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN99_$LT$core..
   br i1 %.not.not, label %.thread, label %5
 
 5:                                                ; preds = %1
-  store i64 1, ptr %0, align 8
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %7 = icmp eq i64 %4, 0
-  tail call void @llvm.assume(i1 %7)
-  %8 = load ptr, ptr %6, align 8, !nonnull !4, !align !254, !noundef !4
+  %6 = or disjoint i64 %4, 1
+  store i64 %6, ptr %0, align 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %8 = icmp eq i64 %4, 0
+  tail call void @llvm.assume(i1 %8)
+  %9 = load ptr, ptr %7, align 8, !nonnull !4, !align !254, !noundef !4
   br label %.thread
 
 .thread:                                          ; preds = %1, %5
-  %.0 = phi ptr [ %8, %5 ], [ null, %1 ]
+  %.0 = phi ptr [ %9, %5 ], [ null, %1 ]
   ret ptr %.0
 }
 

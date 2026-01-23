@@ -1637,12 +1637,11 @@ _ZN14BytecodeStream4nextEv.exit:                  ; preds = %99, %102
   %.014.i = phi i32 [ %66, %99 ], [ %105, %102 ]
   store i32 %.014.i, ptr %18, align 4
   store i32 %.015.i, ptr %19, align 4
-  %trunc = trunc nuw i32 %.015.i to i8
-  switch i8 %trunc, label %115 [
-    i8 -76, label %.sink.split.i
-    i8 -75, label %106
-    i8 42, label %107
-    i8 21, label %108
+  switch i32 %.015.i, label %115 [
+    i32 180, label %.sink.split.i
+    i32 181, label %106
+    i32 42, label %107
+    i32 21, label %108
   ]
 
 106:                                              ; preds = %_ZN14BytecodeStream4nextEv.exit

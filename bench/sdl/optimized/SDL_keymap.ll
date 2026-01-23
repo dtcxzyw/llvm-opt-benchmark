@@ -576,7 +576,7 @@ define hidden i32 @SDL_GetKeymapScancode(ptr noundef readonly captures(address_i
   br i1 %.not52.i, label %37, label %35
 
 35:                                               ; preds = %33
-  %36 = and i32 %1, -1610612737
+  %36 = and i32 %1, -1073741825
   br label %SDL_GetDefaultScancodeFromKey.exit
 
 37:                                               ; preds = %33
@@ -782,7 +782,7 @@ define hidden ptr @SDL_GetKeyName_REAL(i32 noundef %0) local_unnamed_addr #0 {
   br i1 %.not32, label %26, label %16
 
 16:                                               ; preds = %14
-  %17 = and i32 %0, -1610612737
+  %17 = and i32 %0, -536870913
   %18 = add i32 %17, -1
   %or.cond36 = icmp ult i32 %18, 7
   br i1 %or.cond36, label %19, label %24
@@ -901,7 +901,7 @@ declare ptr @SDL_GetPersistentString(ptr noundef) local_unnamed_addr #2
 define hidden i32 @SDL_GetKeyFromName_REAL(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %122, label %3
+  br i1 %.not, label %123, label %3
 
 3:                                                ; preds = %1
   %4 = load i8, ptr %0, align 1
@@ -1016,7 +1016,7 @@ SDL_GetKeymapScancode.exit:                       ; preds = %61
   %72 = trunc i64 %71 to i16
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %.not57 = icmp eq i32 %70, 0
-  br i1 %.not57, label %122, label %96
+  br i1 %.not57, label %123, label %96
 
 73:                                               ; preds = %59, %61
   %74 = add nsw i32 %.048, -97
@@ -1082,18 +1082,18 @@ SDL_GetKeymapScancode.exit.thread:                ; preds = %.thread57.i.i, %90,
 
 SDL_GetKeymapScancode.exit.thread68:              ; preds = %94
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %122
+  br label %123
 
 96:                                               ; preds = %SDL_GetKeymapScancode.exit.thread, %SDL_GetKeymapScancode.exit
   %.0.i66 = phi i32 [ %.0.i.ph, %SDL_GetKeymapScancode.exit.thread ], [ %70, %SDL_GetKeymapScancode.exit ]
   %.06065 = phi i16 [ %.060.ph, %SDL_GetKeymapScancode.exit.thread ], [ %72, %SDL_GetKeymapScancode.exit ]
   %97 = and i16 %.06065, 8195
   %.not58 = icmp eq i16 %97, 0
-  br i1 %.not58, label %122, label %98
+  br i1 %.not58, label %123, label %98
 
 98:                                               ; preds = %96
   %99 = call i32 @SDL_GetKeymapKeycode(ptr noundef %60, i32 noundef %.0.i66, i16 noundef zeroext 0)
-  br label %122
+  br label %123
 
 .preheader:                                       ; preds = %.preheader.preheader, %104
   %indvars.iv = phi i64 [ %indvars.iv.next, %104 ], [ 0, %.preheader.preheader ]
@@ -1106,54 +1106,55 @@ SDL_GetKeymapScancode.exit.thread68:              ; preds = %94
 104:                                              ; preds = %.preheader
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond = icmp eq i64 %indvars.iv.next, 7
-  br i1 %exitcond, label %108, label %.preheader, !llvm.loop !8
+  br i1 %exitcond, label %109, label %.preheader, !llvm.loop !8
 
 105:                                              ; preds = %.preheader
   %106 = trunc nuw nsw i64 %indvars.iv to i32
-  %107 = add nuw nsw i32 %106, 536870913
-  br label %122
+  %107 = add nuw nsw i32 %106, 1
+  %108 = or i32 %107, 536870912
+  br label %123
 
-108:                                              ; preds = %104
-  %109 = load i8, ptr %0, align 1
-  %.not12.i = icmp eq i8 %109, 0
-  br i1 %.not12.i, label %110, label %.preheader.i
+109:                                              ; preds = %104
+  %110 = load i8, ptr %0, align 1
+  %.not12.i = icmp eq i8 %110, 0
+  br i1 %.not12.i, label %111, label %.preheader.i
 
-110:                                              ; preds = %108
-  %111 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.3) #5
+111:                                              ; preds = %109
+  %112 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.3) #5
   br label %SDL_GetScancodeFromName_REAL.exit
 
-.preheader.i:                                     ; preds = %108, %117
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %117 ], [ 0, %108 ]
-  %112 = getelementptr inbounds nuw ptr, ptr @SDL_scancode_names, i64 %indvars.iv.i
-  %113 = load ptr, ptr %112, align 8
-  %.not13.i = icmp eq ptr %113, null
-  br i1 %.not13.i, label %117, label %114
+.preheader.i:                                     ; preds = %109, %118
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %118 ], [ 0, %109 ]
+  %113 = getelementptr inbounds nuw ptr, ptr @SDL_scancode_names, i64 %indvars.iv.i
+  %114 = load ptr, ptr %113, align 8
+  %.not13.i = icmp eq ptr %114, null
+  br i1 %.not13.i, label %118, label %115
 
-114:                                              ; preds = %.preheader.i
-  %115 = tail call i32 @SDL_strcasecmp_REAL(ptr noundef nonnull %0, ptr noundef nonnull %113) #5
-  %116 = icmp eq i32 %115, 0
-  br i1 %116, label %.loopexit.loopexit.i, label %117
+115:                                              ; preds = %.preheader.i
+  %116 = tail call i32 @SDL_strcasecmp_REAL(ptr noundef nonnull %0, ptr noundef nonnull %114) #5
+  %117 = icmp eq i32 %116, 0
+  br i1 %117, label %.loopexit.loopexit.i, label %118
 
-117:                                              ; preds = %114, %.preheader.i
+118:                                              ; preds = %115, %.preheader.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 512
-  br i1 %exitcond.not.i, label %118, label %.preheader.i, !llvm.loop !7
+  br i1 %exitcond.not.i, label %119, label %.preheader.i, !llvm.loop !7
 
-118:                                              ; preds = %117
-  %119 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.3) #5
+119:                                              ; preds = %118
+  %120 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.3) #5
   br label %SDL_GetScancodeFromName_REAL.exit
 
-.loopexit.loopexit.i:                             ; preds = %114
-  %120 = trunc nuw nsw i64 %indvars.iv.i to i32
+.loopexit.loopexit.i:                             ; preds = %115
+  %121 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %SDL_GetScancodeFromName_REAL.exit
 
-SDL_GetScancodeFromName_REAL.exit:                ; preds = %110, %118, %.loopexit.loopexit.i
-  %.08.i = phi i32 [ 0, %110 ], [ 0, %118 ], [ %120, %.loopexit.loopexit.i ]
-  %121 = tail call i32 @SDL_GetKeyFromScancode_REAL(i32 noundef %.08.i, i16 noundef zeroext 0, i1 noundef zeroext false) #5
-  br label %122
+SDL_GetScancodeFromName_REAL.exit:                ; preds = %111, %119, %.loopexit.loopexit.i
+  %.08.i = phi i32 [ 0, %111 ], [ 0, %119 ], [ %121, %.loopexit.loopexit.i ]
+  %122 = tail call i32 @SDL_GetKeyFromScancode_REAL(i32 noundef %.08.i, i16 noundef zeroext 0, i1 noundef zeroext false) #5
+  br label %123
 
-122:                                              ; preds = %105, %SDL_GetKeymapScancode.exit, %96, %98, %SDL_GetKeymapScancode.exit.thread68, %1, %SDL_GetScancodeFromName_REAL.exit
-  %.047 = phi i32 [ 0, %1 ], [ %121, %SDL_GetScancodeFromName_REAL.exit ], [ %107, %105 ], [ %99, %98 ], [ %.048, %96 ], [ %.048, %SDL_GetKeymapScancode.exit ], [ %.048, %SDL_GetKeymapScancode.exit.thread68 ]
+123:                                              ; preds = %105, %SDL_GetKeymapScancode.exit, %96, %98, %SDL_GetKeymapScancode.exit.thread68, %1, %SDL_GetScancodeFromName_REAL.exit
+  %.047 = phi i32 [ 0, %1 ], [ %122, %SDL_GetScancodeFromName_REAL.exit ], [ %108, %105 ], [ %99, %98 ], [ %.048, %96 ], [ %.048, %SDL_GetKeymapScancode.exit ], [ %.048, %SDL_GetKeymapScancode.exit.thread68 ]
   ret i32 %.047
 }
 

@@ -2364,64 +2364,74 @@ define noundef zeroext i1 @_ZNK10open_spiel7clobber12ClobberState14MovesRemainin
 .preheader26.us.preheader:                        ; preds = %.preheader26.lr.ph
   %12 = zext nneg i32 %8 to i64
   %wide.trip.count90 = zext nneg i32 %5 to i64
+  %wide.trip.count = zext nneg i32 %8 to i64
   br label %.preheader26.us
 
 .preheader26.us:                                  ; preds = %.preheader26.us.preheader, %._crit_edge.us
   %indvars.iv87 = phi i64 [ 0, %.preheader26.us.preheader ], [ %indvars.iv.next88, %._crit_edge.us ]
+  %indvars89 = trunc i64 %indvars.iv87 to i32
   %13 = mul nuw nsw i64 %indvars.iv87, %12
   %14 = getelementptr inbounds nuw i32, ptr %11, i64 %13
-  %15 = trunc nuw nsw i64 %indvars.iv87 to i32
-  %16 = trunc nuw nsw i64 %indvars.iv87 to i32
-  %17 = trunc nuw nsw i64 %indvars.iv87 to i32
-  br label %18
+  br label %15
 
-18:                                               ; preds = %.preheader26.us, %.loopexit.us
+15:                                               ; preds = %.preheader26.us, %.loopexit.us
   %indvars.iv83 = phi i64 [ 0, %.preheader26.us ], [ %indvars.iv.next84, %.loopexit.us ]
-  %indvars85 = trunc i64 %indvars.iv83 to i32
-  %19 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv83
-  %20 = load i32, ptr %19, align 4
-  %.fr.us = freeze i32 %20
-  switch i32 %.fr.us, label %.preheader.split.us60 [
+  %16 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv83
+  %17 = load i32, ptr %16, align 4
+  %.fr.us = freeze i32 %17
+  switch i32 %.fr.us, label %.preheader.split.us60.preheader [
     i32 0, label %.loopexit.us
-    i32 1, label %.preheader.split.us.us
-    i32 2, label %.preheader.split.us31.us
+    i32 1, label %.preheader.split.us.us.preheader
+    i32 2, label %.preheader.split.us31.us.preheader
   ]
 
-.preheader.split.us60:                            ; preds = %18, %_ZNK10open_spiel7clobber12ClobberState8InBoundsEii.exit.thread.us58
-  %indvars.iv79 = phi i64 [ %indvars.iv.next80, %_ZNK10open_spiel7clobber12ClobberState8InBoundsEii.exit.thread.us58 ], [ 0, %18 ]
-  %21 = getelementptr inbounds nuw i32, ptr @_ZN10open_spiel7clobber12_GLOBAL__N_114kDirRowOffsetsE, i64 %indvars.iv79
-  %22 = load i32, ptr %21, align 4
-  %23 = add nsw i32 %22, %17
-  %24 = icmp sgt i32 %23, -1
-  br i1 %24, label %25, label %_ZNK10open_spiel7clobber12ClobberState8InBoundsEii.exit.thread.us58
+.preheader.split.us60:                            ; preds = %.preheader.split.us60.preheader, %_ZNK10open_spiel7clobber12ClobberState8InBoundsEii.exit.thread.us58
+  %indvars.iv79 = phi i64 [ 0, %.preheader.split.us60.preheader ], [ %indvars.iv.next80, %_ZNK10open_spiel7clobber12ClobberState8InBoundsEii.exit.thread.us58 ]
+  %18 = getelementptr inbounds nuw i32, ptr @_ZN10open_spiel7clobber12_GLOBAL__N_114kDirRowOffsetsE, i64 %indvars.iv79
+  %19 = load i32, ptr %18, align 4
+  %20 = add nsw i32 %19, %indvars89
+  %21 = icmp sgt i32 %20, -1
+  br i1 %21, label %22, label %_ZNK10open_spiel7clobber12ClobberState8InBoundsEii.exit.thread.us58
 
-25:                                               ; preds = %.preheader.split.us60
-  %26 = getelementptr inbounds nuw i32, ptr @_ZN10open_spiel7clobber12_GLOBAL__N_117kDirColumnOffsetsE, i64 %indvars.iv79
-  %27 = load i32, ptr %26, align 4
-  %28 = add nsw i32 %27, %indvars85
-  %29 = icmp slt i32 %23, %5
-  %30 = icmp ult i32 %28, %8
-  %or.cond.us57 = and i1 %29, %30
+22:                                               ; preds = %.preheader.split.us60
+  %23 = getelementptr inbounds nuw i32, ptr @_ZN10open_spiel7clobber12_GLOBAL__N_117kDirColumnOffsetsE, i64 %indvars.iv79
+  %24 = load i32, ptr %23, align 4
+  %25 = add nsw i32 %24, %30
+  %26 = icmp slt i32 %20, %5
+  %27 = icmp ult i32 %25, %8
+  %or.cond.us57 = and i1 %26, %27
   br i1 %or.cond.us57, label %.split.us, label %_ZNK10open_spiel7clobber12ClobberState8InBoundsEii.exit.thread.us58
 
-_ZNK10open_spiel7clobber12ClobberState8InBoundsEii.exit.thread.us58: ; preds = %25, %.preheader.split.us60
+_ZNK10open_spiel7clobber12ClobberState8InBoundsEii.exit.thread.us58: ; preds = %22, %.preheader.split.us60
   %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 1
   %exitcond82.not = icmp eq i64 %indvars.iv.next80, 4
   br i1 %exitcond82.not, label %.loopexit.us, label %.preheader.split.us60, !llvm.loop !10
 
-.loopexit.us:                                     ; preds = %_ZNK10open_spiel7clobber12ClobberState8InBoundsEii.exit.thread.us37.us, %_ZNK10open_spiel7clobber12ClobberState8InBoundsEii.exit.thread.us.us, %_ZNK10open_spiel7clobber12ClobberState8InBoundsEii.exit.thread.us58, %18
+.loopexit.us:                                     ; preds = %_ZNK10open_spiel7clobber12ClobberState8InBoundsEii.exit.thread.us37.us, %_ZNK10open_spiel7clobber12ClobberState8InBoundsEii.exit.thread.us.us, %_ZNK10open_spiel7clobber12ClobberState8InBoundsEii.exit.thread.us58, %15
   %indvars.iv.next84 = add nuw nsw i64 %indvars.iv83, 1
-  %exitcond86.not = icmp eq i64 %indvars.iv.next84, %12
-  br i1 %exitcond86.not, label %._crit_edge.us, label %18, !llvm.loop !11
+  %exitcond86.not = icmp eq i64 %indvars.iv.next84, %wide.trip.count
+  br i1 %exitcond86.not, label %._crit_edge.us, label %15, !llvm.loop !11
 
-.preheader.split.us.us:                           ; preds = %18, %_ZNK10open_spiel7clobber12ClobberState8InBoundsEii.exit.thread.us.us
-  %indvars.iv75 = phi i64 [ %indvars.iv.next76, %_ZNK10open_spiel7clobber12ClobberState8InBoundsEii.exit.thread.us.us ], [ 0, %18 ]
+.preheader.split.us31.us.preheader:               ; preds = %15
+  %28 = trunc nuw nsw i64 %indvars.iv83 to i32
+  br label %.preheader.split.us31.us
+
+.preheader.split.us.us.preheader:                 ; preds = %15
+  %29 = trunc nuw nsw i64 %indvars.iv83 to i32
+  br label %.preheader.split.us.us
+
+.preheader.split.us60.preheader:                  ; preds = %15
+  %30 = trunc nuw nsw i64 %indvars.iv83 to i32
+  br label %.preheader.split.us60
+
+.preheader.split.us.us:                           ; preds = %.preheader.split.us.us.preheader, %_ZNK10open_spiel7clobber12ClobberState8InBoundsEii.exit.thread.us.us
+  %indvars.iv75 = phi i64 [ 0, %.preheader.split.us.us.preheader ], [ %indvars.iv.next76, %_ZNK10open_spiel7clobber12ClobberState8InBoundsEii.exit.thread.us.us ]
   %31 = getelementptr inbounds nuw i32, ptr @_ZN10open_spiel7clobber12_GLOBAL__N_114kDirRowOffsetsE, i64 %indvars.iv75
   %32 = load i32, ptr %31, align 4
-  %33 = add nsw i32 %32, %16
+  %33 = add nsw i32 %32, %indvars89
   %34 = getelementptr inbounds nuw i32, ptr @_ZN10open_spiel7clobber12_GLOBAL__N_117kDirColumnOffsetsE, i64 %indvars.iv75
   %35 = load i32, ptr %34, align 4
-  %36 = add nsw i32 %35, %indvars85
+  %36 = add nsw i32 %35, %29
   %37 = icmp sgt i32 %33, -1
   br i1 %37, label %38, label %_ZNK10open_spiel7clobber12ClobberState8InBoundsEii.exit.thread.us.us
 
@@ -2445,14 +2455,14 @@ _ZNK10open_spiel7clobber12ClobberState8InBoundsEii.exit.thread.us.us: ; preds = 
   %exitcond78.not = icmp eq i64 %indvars.iv.next76, 4
   br i1 %exitcond78.not, label %.loopexit.us, label %.preheader.split.us.us, !llvm.loop !10
 
-.preheader.split.us31.us:                         ; preds = %18, %_ZNK10open_spiel7clobber12ClobberState8InBoundsEii.exit.thread.us37.us
-  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZNK10open_spiel7clobber12ClobberState8InBoundsEii.exit.thread.us37.us ], [ 0, %18 ]
+.preheader.split.us31.us:                         ; preds = %.preheader.split.us31.us.preheader, %_ZNK10open_spiel7clobber12ClobberState8InBoundsEii.exit.thread.us37.us
+  %indvars.iv = phi i64 [ 0, %.preheader.split.us31.us.preheader ], [ %indvars.iv.next, %_ZNK10open_spiel7clobber12ClobberState8InBoundsEii.exit.thread.us37.us ]
   %47 = getelementptr inbounds nuw i32, ptr @_ZN10open_spiel7clobber12_GLOBAL__N_114kDirRowOffsetsE, i64 %indvars.iv
   %48 = load i32, ptr %47, align 4
-  %49 = add nsw i32 %48, %15
+  %49 = add nsw i32 %48, %indvars89
   %50 = getelementptr inbounds nuw i32, ptr @_ZN10open_spiel7clobber12_GLOBAL__N_117kDirColumnOffsetsE, i64 %indvars.iv
   %51 = load i32, ptr %50, align 4
-  %52 = add nsw i32 %51, %indvars85
+  %52 = add nsw i32 %51, %28
   %53 = icmp sgt i32 %49, -1
   br i1 %53, label %54, label %_ZNK10open_spiel7clobber12ClobberState8InBoundsEii.exit.thread.us37.us
 
@@ -2481,7 +2491,7 @@ _ZNK10open_spiel7clobber12ClobberState8InBoundsEii.exit.thread.us37.us: ; preds 
   %exitcond91.not = icmp eq i64 %indvars.iv.next88, %wide.trip.count90
   br i1 %exitcond91.not, label %.loopexit25, label %.preheader26.us, !llvm.loop !12
 
-.split.us:                                        ; preds = %25
+.split.us:                                        ; preds = %22
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #25
@@ -8168,7 +8178,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
 
 55:                                               ; preds = %._crit_edge.i
   %56 = trunc nuw nsw i32 %.0.lcssa.i to i8
-  %57 = or disjoint i8 %56, 48
+  %57 = or i8 %56, 48
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
 _ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit: ; preds = %47, %55

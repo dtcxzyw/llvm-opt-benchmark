@@ -417,7 +417,7 @@ define hidden noundef range(i32 48, 1114113) i32 @_ZN4core4char7convert10from_di
   br i1 %13, label %17, label %15
 
 14:                                               ; preds = %5, %15, %17
-  %.0 = phi i32 [ %18, %17 ], [ %16, %15 ], [ 1114112, %5 ]
+  %.0 = phi i32 [ %19, %17 ], [ %16, %15 ], [ 1114112, %5 ]
   ret i32 %.0
 
 15:                                               ; preds = %12
@@ -425,7 +425,8 @@ define hidden noundef range(i32 48, 1114113) i32 @_ZN4core4char7convert10from_di
   br label %14
 
 17:                                               ; preds = %12
-  %18 = or disjoint i32 %0, 48
+  %18 = and i32 %0, 207
+  %19 = or disjoint i32 %18, 48
   br label %14
 }
 

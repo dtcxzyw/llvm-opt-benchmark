@@ -284,7 +284,7 @@ define internal i32 @dissect_classicstun(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %.not264, label %53, label %71
 
 53:                                               ; preds = %47
-  %54 = and i32 %13, 272
+  %54 = and i32 %13, 49424
   %55 = icmp eq i32 %54, 0
   br i1 %55, label %56, label %65
 
@@ -350,12 +350,11 @@ define internal i32 @dissect_classicstun(ptr noundef %0, ptr noundef %1, ptr nou
   %87 = load i32, ptr @ett_classicstun, align 4
   %88 = call ptr @proto_item_add_subtree(ptr noundef %86, i32 noundef %87)
   %89 = lshr i32 %13, 4
-  %90 = and i32 %89, 17
-  switch i32 %90, label %.unreachabledefault [
+  %90 = and i32 %89, 3089
+  switch i32 %90, label %proto_item_set_generated.exit [
     i32 0, label %91
     i32 16, label %104
     i32 17, label %104
-    i32 1, label %proto_item_set_generated.exit
   ]
 
 91:                                               ; preds = %81
@@ -433,9 +432,6 @@ proto_item_set_generated.exit273:                 ; preds = %106, %109, %112
 proto_item_set_generated.exit276:                 ; preds = %proto_item_set_generated.exit273, %120, %123
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %proto_item_set_generated.exit
-
-.unreachabledefault:                              ; preds = %81
-  unreachable
 
 proto_item_set_generated.exit:                    ; preds = %100, %97, %94, %81, %proto_item_set_generated.exit276, %104, %91
   %127 = load i32, ptr @hf_classicstun_type, align 4

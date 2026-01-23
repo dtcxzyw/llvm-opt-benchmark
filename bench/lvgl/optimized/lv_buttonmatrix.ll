@@ -63,7 +63,7 @@ define internal void @lv_buttonmatrix_event(ptr readnone captures(none) %0, ptr 
   %6 = alloca i32, align 4
   %7 = tail call i32 @lv_obj_event_base(ptr noundef nonnull @lv_buttonmatrix_class, ptr noundef %1) #7
   %.not = icmp eq i32 %7, 1
-  br i1 %.not, label %8, label %340
+  br i1 %.not, label %8, label %339
 
 8:                                                ; preds = %2
   %9 = tail call i32 @lv_event_get_code(ptr noundef %1) #7
@@ -259,7 +259,7 @@ has_popovers_in_top_row.exit:                     ; preds = %32
   br i1 %.not328, label %100, label %102
 
 100:                                              ; preds = %96
-  %101 = and i32 %92, -321
+  %101 = and i32 %92, -257
   br label %104
 
 102:                                              ; preds = %96, %94
@@ -449,8 +449,8 @@ has_popovers_in_top_row.exit.thread:              ; preds = %29, %20, %.lr.ph.i,
 179:                                              ; preds = %has_popovers_in_top_row.exit.thread
   switch i32 %9, label %.critedge337 [
     i32 17, label %180
-    i32 29, label %334
-    i32 41, label %335
+    i32 29, label %333
+    i32 41, label %334
   ]
 
 180:                                              ; preds = %179
@@ -707,7 +707,7 @@ has_popovers_in_top_row.exit.thread:              ; preds = %29, %20, %.lr.ph.i,
   %308 = getelementptr inbounds nuw i8, ptr %307, i64 4
   %309 = load i32, ptr %308, align 4, !tbaa !34
   %310 = getelementptr inbounds nuw i8, ptr %10, i64 80
-  %.mask = and i32 %302, 32767
+  %.mask = and i32 %302, 65535
   %311 = zext nneg i32 %.mask to i64
   br label %312
 
@@ -745,36 +745,35 @@ has_popovers_in_top_row.exit.thread:              ; preds = %29, %20, %.lr.ph.i,
   br i1 %329, label %312, label %.critedge340, !llvm.loop !38
 
 330:                                              ; preds = %323
-  %331 = trunc i64 %indvars.iv428 to i32
-  %332 = and i32 %331, 65535
-  store i32 %332, ptr %181, align 8, !tbaa !18
+  %331 = trunc nsw i64 %indvars.iv428 to i32
+  store i32 %331, ptr %181, align 8, !tbaa !18
   br label %.critedge340
 
 .critedge340:                                     ; preds = %328, %284, %272, %228, %208, %191, %..critedge340_crit_edge, %293, %237, %292, %330, %236, %273, %218, %199
-  %333 = phi i32 [ %.pre439, %..critedge340_crit_edge ], [ %246, %272 ], [ %229, %228 ], [ %209, %208 ], [ %192, %191 ], [ %285, %284 ], [ 65535, %199 ], [ %302, %293 ], [ %246, %237 ], [ 65535, %292 ], [ %332, %330 ], [ 65535, %236 ], [ %274, %273 ], [ 65535, %218 ], [ %302, %328 ]
-  tail call fastcc void @invalidate_button_area(ptr noundef nonnull %10, i32 noundef %333)
+  %332 = phi i32 [ %.pre439, %..critedge340_crit_edge ], [ %246, %272 ], [ %229, %228 ], [ %209, %208 ], [ %192, %191 ], [ %285, %284 ], [ 65535, %199 ], [ %302, %293 ], [ %246, %237 ], [ 65535, %292 ], [ %331, %330 ], [ 65535, %236 ], [ %274, %273 ], [ 65535, %218 ], [ %302, %328 ]
+  tail call fastcc void @invalidate_button_area(ptr noundef nonnull %10, i32 noundef %332)
   br label %.critedge337
 
-334:                                              ; preds = %179
+333:                                              ; preds = %179
   tail call fastcc void @draw_main(ptr noundef %1)
   br label %.critedge337
 
-335:                                              ; preds = %179
-  %336 = getelementptr inbounds nuw i8, ptr %10, i64 100
-  %337 = load i8, ptr %336, align 4
-  %338 = and i8 %337, 2
-  %.not312 = icmp eq i8 %338, 0
-  br i1 %.not312, label %.critedge337, label %339
+334:                                              ; preds = %179
+  %335 = getelementptr inbounds nuw i8, ptr %10, i64 100
+  %336 = load i8, ptr %335, align 4
+  %337 = and i8 %336, 2
+  %.not312 = icmp eq i8 %337, 0
+  br i1 %.not312, label %.critedge337, label %338
 
-339:                                              ; preds = %335
+338:                                              ; preds = %334
   tail call fastcc void @free_map(ptr noundef nonnull %10)
   br label %.critedge337
 
-.critedge337:                                     ; preds = %53, %11, %15, %71, %132, %63, %64, %44, %120, %134, %has_popovers_in_top_row.exit.thread, %334, %335, %339, %.critedge340, %122, %125, %73, %45, %80, %83, %76, %.critedge, %177, %148, %179, %137, %118
+.critedge337:                                     ; preds = %53, %11, %15, %71, %132, %63, %64, %44, %120, %134, %has_popovers_in_top_row.exit.thread, %333, %334, %338, %.critedge340, %122, %125, %73, %45, %80, %83, %76, %.critedge, %177, %148, %179, %137, %118
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %340
+  br label %339
 
-340:                                              ; preds = %2, %.critedge337
+339:                                              ; preds = %2, %.critedge337
   ret void
 }
 

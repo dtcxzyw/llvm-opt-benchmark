@@ -92,7 +92,8 @@ _ZN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEC2IiiEERKT_RKT0_.exit: ; preds = %.si
 
 _ZN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEC2IiiEERKT_RKT0_.exit.split.us: ; preds = %_ZN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEC2IiiEERKT_RKT0_.exit
   %23 = load ptr, ptr %0, align 8, !tbaa !13
-  %24 = and i64 %10, 2147483647
+  %24 = and i64 %10, 4294967295
+  %wide.trip.count = and i64 %10, 4294967295
   br label %.preheader64.us
 
 .preheader64.us:                                  ; preds = %._crit_edge.us, %_ZN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEC2IiiEERKT_RKT0_.exit.split.us
@@ -123,7 +124,7 @@ _ZN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEC2IiiEERKT_RKT0_.exit.split.us: ; pre
   %41 = getelementptr i32, ptr %gep, i64 %12
   store i32 %40, ptr %41, align 4, !tbaa !15
   %indvars.iv.next75 = add nuw nsw i64 %indvars.iv74, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next75, %24
+  %exitcond.not = icmp eq i64 %indvars.iv.next75, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.us, label %.preheader.us, !llvm.loop !17
 
 ._crit_edge.us:                                   ; preds = %.preheader.us
@@ -452,7 +453,8 @@ common.resume:                                    ; preds = %149, %33
   %56 = load i64, ptr %16, align 8, !tbaa !4
   %57 = load i64, ptr %19, align 8, !tbaa !4
   %58 = getelementptr i32, ptr %54, i64 %57
-  %59 = and i64 %17, 2147483647
+  %59 = and i64 %17, 4294967295
+  %wide.trip.count = and i64 %17, 4294967295
   br label %.preheader70.us
 
 .preheader70.us:                                  ; preds = %._crit_edge.us, %.split.us
@@ -483,7 +485,7 @@ common.resume:                                    ; preds = %149, %33
   %78 = getelementptr i32, ptr %73, i64 %53
   store i32 %77, ptr %78, align 4, !tbaa !15
   %indvars.iv.next83 = add nuw nsw i64 %indvars.iv82, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next83, %59
+  %exitcond.not = icmp eq i64 %indvars.iv.next83, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.us, label %.preheader.us, !llvm.loop !57
 
 ._crit_edge.us:                                   ; preds = %.preheader.us
@@ -841,7 +843,8 @@ common.resume:                                    ; preds = %149, %33
   %57 = load i64, ptr %55, align 8, !tbaa !67
   %58 = load i64, ptr %19, align 8, !tbaa !4
   %59 = getelementptr i32, ptr %54, i64 %58
-  %60 = and i64 %17, 2147483647
+  %60 = and i64 %17, 4294967295
+  %wide.trip.count = and i64 %17, 4294967295
   br label %.preheader70.us
 
 .preheader70.us:                                  ; preds = %._crit_edge.us, %.split.us
@@ -871,7 +874,7 @@ common.resume:                                    ; preds = %149, %33
   %78 = getelementptr i32, ptr %73, i64 %53
   store i32 %77, ptr %78, align 4, !tbaa !15
   %indvars.iv.next83 = add nuw nsw i64 %indvars.iv82, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next83, %60
+  %exitcond.not = icmp eq i64 %indvars.iv.next83, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.us, label %.preheader.us, !llvm.loop !68
 
 ._crit_edge.us:                                   ; preds = %.preheader.us
@@ -1151,7 +1154,8 @@ _ZN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEC2IiiEERKT_RKT0_.exit: ; preds = %.si
 
 _ZN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEC2IiiEERKT_RKT0_.exit.split.us: ; preds = %_ZN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEC2IiiEERKT_RKT0_.exit
   %23 = load ptr, ptr %0, align 8, !tbaa !13
-  %24 = and i64 %10, 2147483647
+  %24 = and i64 %10, 4294967295
+  %wide.trip.count = and i64 %10, 4294967295
   br label %.preheader64.us
 
 .preheader64.us:                                  ; preds = %._crit_edge.us, %_ZN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEC2IiiEERKT_RKT0_.exit.split.us
@@ -1182,7 +1186,7 @@ _ZN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEC2IiiEERKT_RKT0_.exit.split.us: ; pre
   %41 = getelementptr i32, ptr %gep, i64 %12
   store i32 %40, ptr %41, align 4, !tbaa !15
   %indvars.iv.next75 = add nuw nsw i64 %indvars.iv74, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next75, %24
+  %exitcond.not = icmp eq i64 %indvars.iv.next75, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.us, label %.preheader.us, !llvm.loop !72
 
 ._crit_edge.us:                                   ; preds = %.preheader.us
@@ -1430,7 +1434,8 @@ _ZN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEC2IiiEERKT_RKT0_.exit.split.us: ; pre
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %24 = load ptr, ptr %0, align 8, !tbaa !66
   %25 = load i64, ptr %23, align 8, !tbaa !67
-  %26 = and i64 %10, 2147483647
+  %26 = and i64 %10, 4294967295
+  %wide.trip.count = and i64 %10, 4294967295
   br label %.preheader64.us
 
 .preheader64.us:                                  ; preds = %._crit_edge.us, %_ZN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEC2IiiEERKT_RKT0_.exit.split.us
@@ -1460,7 +1465,7 @@ _ZN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEC2IiiEERKT_RKT0_.exit.split.us: ; pre
   %42 = getelementptr i32, ptr %gep, i64 %12
   store i32 %41, ptr %42, align 4, !tbaa !15
   %indvars.iv.next75 = add nuw nsw i64 %indvars.iv74, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next75, %26
+  %exitcond.not = icmp eq i64 %indvars.iv.next75, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.us, label %.preheader.us, !llvm.loop !76
 
 ._crit_edge.us:                                   ; preds = %.preheader.us

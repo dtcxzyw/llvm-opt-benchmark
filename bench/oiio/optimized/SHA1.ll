@@ -263,7 +263,7 @@ define void @_ZN11OpenImageIO6v3_1_04SHA17gethashERNS1_4HashE(ptr noundef nonnul
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN11OpenImageIO6v3_1_05CSHA15FinalEv(ptr noundef nonnull align 8 captures(none) dereferenceable(200) %0) local_unnamed_addr #9 align 2 {
-  %2 = alloca [8 x i8], align 8
+  %2 = alloca [8 x i8], align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   br label %4
@@ -320,7 +320,7 @@ _ZN11OpenImageIO6v3_1_05CSHA16UpdateEPKhj.exit:   ; preds = %.loopexit.i, %.loop
   %31 = phi i32 [ %.pre, %.loopexit.i ], [ %19, %.loopexit.i.thread ]
   %32 = and i32 %31, 504
   %.not40 = icmp eq i32 %32, 448
-  br i1 %.not40, label %.loopexit.i17, label %.lr.ph
+  br i1 %.not40, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN11OpenImageIO6v3_1_05CSHA16UpdateEPKhj.exit
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -357,44 +357,72 @@ _ZN11OpenImageIO6v3_1_05CSHA16UpdateEPKhj.exit16: ; preds = %.loopexit.i10, %.lo
   %47 = phi i32 [ %.pre48, %.loopexit.i10 ], [ %39, %.loopexit.i10.thread ]
   %48 = and i32 %47, 504
   %.not = icmp eq i32 %48, 448
-  br i1 %.not, label %.loopexit.i17, label %35, !llvm.loop !24
+  br i1 %.not, label %._crit_edge, label %35, !llvm.loop !24
 
-.loopexit.i17:                                    ; preds = %_ZN11OpenImageIO6v3_1_05CSHA16UpdateEPKhj.exit16, %_ZN11OpenImageIO6v3_1_05CSHA16UpdateEPKhj.exit
+._crit_edge:                                      ; preds = %_ZN11OpenImageIO6v3_1_05CSHA16UpdateEPKhj.exit16, %_ZN11OpenImageIO6v3_1_05CSHA16UpdateEPKhj.exit
   %.lcssa = phi i32 [ %31, %_ZN11OpenImageIO6v3_1_05CSHA16UpdateEPKhj.exit ], [ %47, %_ZN11OpenImageIO6v3_1_05CSHA16UpdateEPKhj.exit16 ]
-  %49 = add i32 %.lcssa, 64
-  store i32 %49, ptr %3, align 4, !tbaa !8
-  %50 = icmp ugt i32 %.lcssa, -65
-  %51 = load i32, ptr %21, align 8, !tbaa !8
-  %52 = zext i1 %50 to i32
-  %53 = add i32 %51, %52
-  store i32 %53, ptr %21, align 8, !tbaa !8
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %56 = load i64, ptr %2, align 8
-  store i64 %56, ptr %55, align 8
-  tail call void @_ZN11OpenImageIO6v3_1_05CSHA19TransformEPjPKh(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull %54)
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  br label %58
+  %49 = lshr i32 %.lcssa, 3
+  %50 = and i32 %49, 63
+  %51 = add i32 %.lcssa, 64
+  store i32 %51, ptr %3, align 4, !tbaa !8
+  %52 = icmp ugt i32 %.lcssa, -65
+  %53 = load i32, ptr %21, align 8, !tbaa !8
+  %54 = zext i1 %52 to i32
+  %55 = add i32 %53, %54
+  store i32 %55, ptr %21, align 8, !tbaa !8
+  %56 = icmp samesign ugt i32 %50, 55
+  br i1 %56, label %.loopexit.i17, label %.loopexit.i17.thread
 
-58:                                               ; preds = %.loopexit.i17, %58
-  %indvars.iv44 = phi i64 [ 0, %.loopexit.i17 ], [ %indvars.iv.next45, %58 ]
-  %59 = lshr i64 %indvars.iv44, 2
-  %60 = and i64 %59, 1073741823
-  %61 = getelementptr inbounds nuw i32, ptr %0, i64 %60
-  %62 = load i32, ptr %61, align 4, !tbaa !8
+.loopexit.i17:                                    ; preds = %._crit_edge
+  %57 = sub nuw nsw i32 64, %50
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %59 = zext nneg i32 %50 to i64
+  %60 = getelementptr inbounds nuw i8, ptr %58, i64 %59
+  %61 = zext nneg i32 %57 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %60, ptr noundef nonnull readonly align 1 dereferenceable(1) %2, i64 %61, i1 false)
+  tail call void @_ZN11OpenImageIO6v3_1_05CSHA19TransformEPjPKh(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull %58)
+  %.not.i20 = icmp eq i32 %50, 56
+  br i1 %.not.i20, label %_ZN11OpenImageIO6v3_1_05CSHA16UpdateEPKhj.exit23, label %63
+
+.loopexit.i17.thread:                             ; preds = %._crit_edge
+  %62 = zext nneg i32 %50 to i64
+  br label %63
+
+63:                                               ; preds = %.loopexit.i17.thread, %.loopexit.i17
+  %.1.i1938 = phi i32 [ 0, %.loopexit.i17.thread ], [ %57, %.loopexit.i17 ]
+  %.021.i1837 = phi i64 [ %62, %.loopexit.i17.thread ], [ 0, %.loopexit.i17 ]
+  %64 = sub nuw nsw i32 8, %.1.i1938
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 %.021.i1837
+  %67 = zext nneg i32 %.1.i1938 to i64
+  %68 = getelementptr inbounds nuw i8, ptr %2, i64 %67
+  %69 = zext nneg i32 %64 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %66, ptr nonnull readonly align 1 %68, i64 %69, i1 false)
+  br label %_ZN11OpenImageIO6v3_1_05CSHA16UpdateEPKhj.exit23
+
+_ZN11OpenImageIO6v3_1_05CSHA16UpdateEPKhj.exit23: ; preds = %.loopexit.i17, %63
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  br label %71
+
+71:                                               ; preds = %_ZN11OpenImageIO6v3_1_05CSHA16UpdateEPKhj.exit23, %71
+  %indvars.iv44 = phi i64 [ 0, %_ZN11OpenImageIO6v3_1_05CSHA16UpdateEPKhj.exit23 ], [ %indvars.iv.next45, %71 ]
+  %72 = lshr i64 %indvars.iv44, 2
+  %73 = and i64 %72, 1073741823
+  %74 = getelementptr inbounds nuw i32, ptr %0, i64 %73
+  %75 = load i32, ptr %74, align 4, !tbaa !8
   %indvars.iv44.tr = trunc i64 %indvars.iv44 to i32
-  %63 = shl i32 %indvars.iv44.tr, 3
-  %64 = and i32 %63, 24
-  %65 = xor i32 %64, 24
-  %66 = lshr i32 %62, %65
-  %67 = trunc i32 %66 to i8
-  %68 = getelementptr inbounds nuw i8, ptr %57, i64 %indvars.iv44
-  store i8 %67, ptr %68, align 1, !tbaa !22
+  %76 = shl i32 %indvars.iv44.tr, 3
+  %77 = and i32 %76, 24
+  %78 = xor i32 %77, 24
+  %79 = lshr i32 %75, %78
+  %80 = trunc i32 %79 to i8
+  %81 = getelementptr inbounds nuw i8, ptr %70, i64 %indvars.iv44
+  store i8 %80, ptr %81, align 1, !tbaa !22
   %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
   %exitcond47.not = icmp eq i64 %indvars.iv.next45, 20
-  br i1 %exitcond47.not, label %69, label %58, !llvm.loop !25
+  br i1 %exitcond47.not, label %82, label %71, !llvm.loop !25
 
-69:                                               ; preds = %58
+82:                                               ; preds = %71
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }

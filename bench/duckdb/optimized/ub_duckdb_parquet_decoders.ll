@@ -3885,7 +3885,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i:    ; preds = %132, %130, %126, %1
 
 166:                                              ; preds = %._crit_edge.i.i
   %167 = trunc nuw nsw i64 %.0.lcssa.i.i to i8
-  %168 = or disjoint i8 %167, 48
+  %168 = or i8 %167, 48
   br label %169
 
 169:                                              ; preds = %166, %159
@@ -4783,8 +4783,8 @@ define void @_ZN6duckdb17DictionaryDecoder14InitializePageEv(ptr noundef nonnull
   tail call void @__cxa_throw(ptr nonnull %8, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #25
   unreachable
 
-common.resume:                                    ; preds = %52, %.body.i, %10
-  %common.resume.op = phi { ptr, i32 } [ %11, %10 ], [ %eh.lpad-body.i, %.body.i ], [ %53, %52 ]
+common.resume:                                    ; preds = %53, %.body.i, %10
+  %common.resume.op = phi { ptr, i32 } [ %11, %10 ], [ %eh.lpad-body.i, %.body.i ], [ %54, %53 ]
   resume { ptr, i32 } %common.resume.op
 
 10:                                               ; preds = %7
@@ -4849,56 +4849,57 @@ _ZN6duckdb10ByteBuffer4readIhEET_v.exit:          ; preds = %1
   br label %common.resume
 
 _ZN6duckdb9make_uniqINS_12RleBpDecoderEJRPhRmRhEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_.exit: ; preds = %_ZN6duckdb10ByteBuffer4readIhEET_v.exit
-  %35 = add nuw nsw i8 %.0.copyload.i.i.i.i, 7
-  %36 = lshr i8 %35, 3
-  %37 = getelementptr inbounds nuw i8, ptr %18, i64 40
-  store i8 %36, ptr %37, align 8, !tbaa !350, !noalias !344
-  %38 = zext nneg i8 %.0.copyload.i.i.i.i to i64
-  %notmask.i.i = shl nsw i64 -1, %38
-  %39 = xor i64 %notmask.i.i, -1
-  %40 = getelementptr inbounds nuw i8, ptr %18, i64 48
-  store i64 %39, ptr %40, align 8, !tbaa !351, !noalias !344
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %42 = load ptr, ptr %41, align 8, !tbaa !302
-  store ptr %18, ptr %41, align 8, !tbaa !302
-  %.not.i.i.i.i.i = icmp eq ptr %42, null
+  %35 = add nuw nsw i32 %21, 7
+  %36 = lshr i32 %35, 3
+  %37 = trunc nuw nsw i32 %36 to i8
+  %38 = getelementptr inbounds nuw i8, ptr %18, i64 40
+  store i8 %37, ptr %38, align 8, !tbaa !350, !noalias !344
+  %39 = zext nneg i8 %.0.copyload.i.i.i.i to i64
+  %notmask.i.i = shl nsw i64 -1, %39
+  %40 = xor i64 %notmask.i.i, -1
+  %41 = getelementptr inbounds nuw i8, ptr %18, i64 48
+  store i64 %40, ptr %41, align 8, !tbaa !351, !noalias !344
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %43 = load ptr, ptr %42, align 8, !tbaa !302
+  store ptr %18, ptr %42, align 8, !tbaa !302
+  %.not.i.i.i.i.i = icmp eq ptr %43, null
   br i1 %.not.i.i.i.i.i, label %_ZNSt10unique_ptrIN6duckdb12RleBpDecoderESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN6duckdb12RleBpDecoderEEclEPS1_.exit.i.i.i.i.i
 
 _ZNKSt14default_deleteIN6duckdb12RleBpDecoderEEclEPS1_.exit.i.i.i.i.i: ; preds = %_ZN6duckdb9make_uniqINS_12RleBpDecoderEJRPhRmRhEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %42) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %43) #23
   br label %_ZNSt10unique_ptrIN6duckdb12RleBpDecoderESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN6duckdb12RleBpDecoderESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIN6duckdb12RleBpDecoderEEclEPS1_.exit.i.i.i.i.i, %_ZN6duckdb9make_uniqINS_12RleBpDecoderEJRPhRmRhEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_.exit
-  %43 = tail call noundef ptr @_ZNK6duckdb10shared_ptrINS_16ResizeableBufferELb1EEptEv(ptr noundef nonnull align 8 dereferenceable(16) %3)
   %44 = tail call noundef ptr @_ZNK6duckdb10shared_ptrINS_16ResizeableBufferELb1EEptEv(ptr noundef nonnull align 8 dereferenceable(16) %3)
-  %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
-  %46 = load i64, ptr %45, align 8, !tbaa !21
-  %47 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  %48 = load i64, ptr %47, align 8, !tbaa !21
-  %.not.i.i6 = icmp ugt i64 %46, %48
-  br i1 %.not.i.i6, label %49, label %_ZN6duckdb10ByteBuffer3incEm.exit
+  %45 = tail call noundef ptr @_ZNK6duckdb10shared_ptrINS_16ResizeableBufferELb1EEptEv(ptr noundef nonnull align 8 dereferenceable(16) %3)
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
+  %47 = load i64, ptr %46, align 8, !tbaa !21
+  %48 = getelementptr inbounds nuw i8, ptr %44, i64 8
+  %49 = load i64, ptr %48, align 8, !tbaa !21
+  %.not.i.i6 = icmp ugt i64 %47, %49
+  br i1 %.not.i.i6, label %50, label %_ZN6duckdb10ByteBuffer3incEm.exit
 
-49:                                               ; preds = %_ZNSt10unique_ptrIN6duckdb12RleBpDecoderESt14default_deleteIS1_EED2Ev.exit
-  %50 = tail call ptr @__cxa_allocate_exception(i64 16) #24
-  invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %50, ptr noundef nonnull @.str.18)
-          to label %51 unwind label %52
+50:                                               ; preds = %_ZNSt10unique_ptrIN6duckdb12RleBpDecoderESt14default_deleteIS1_EED2Ev.exit
+  %51 = tail call ptr @__cxa_allocate_exception(i64 16) #24
+  invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %51, ptr noundef nonnull @.str.18)
+          to label %52 unwind label %53
 
-51:                                               ; preds = %49
-  tail call void @__cxa_throw(ptr nonnull %50, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #25
+52:                                               ; preds = %50
+  tail call void @__cxa_throw(ptr nonnull %51, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #25
   unreachable
 
-52:                                               ; preds = %49
-  %53 = landingpad { ptr, i32 }
+53:                                               ; preds = %50
+  %54 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr nonnull %50) #24
+  tail call void @__cxa_free_exception(ptr nonnull %51) #24
   br label %common.resume
 
 _ZN6duckdb10ByteBuffer3incEm.exit:                ; preds = %_ZNSt10unique_ptrIN6duckdb12RleBpDecoderESt14default_deleteIS1_EED2Ev.exit
-  %54 = sub nuw i64 %48, %46
-  store i64 %54, ptr %47, align 8, !tbaa !21
-  %55 = load ptr, ptr %43, align 8, !tbaa !29
-  %56 = getelementptr inbounds nuw i8, ptr %55, i64 %46
-  store ptr %56, ptr %43, align 8, !tbaa !29
+  %55 = sub nuw i64 %49, %47
+  store i64 %55, ptr %48, align 8, !tbaa !21
+  %56 = load ptr, ptr %44, align 8, !tbaa !29
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 %47
+  store ptr %57, ptr %44, align 8, !tbaa !29
   ret void
 }
 

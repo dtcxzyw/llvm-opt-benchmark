@@ -3167,23 +3167,24 @@ define hidden { i64, ptr } @"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$
   %4 = load i64, ptr %3, align 8, !noundef !3
   %5 = load i64, ptr %2, align 8, !noundef !3
   %.not = icmp eq i64 %4, %5
-  br i1 %.not, label %11, label %6
+  br i1 %.not, label %12, label %6
 
 6:                                                ; preds = %1
-  store i64 1, ptr %2, align 8
-  %7 = icmp eq i64 %5, 0
-  tail call void @llvm.assume(i1 %7)
-  %8 = load i64, ptr %0, align 8, !range !254, !noundef !3
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %10 = load ptr, ptr %9, align 8, !noundef !3
-  br label %11
+  %7 = or disjoint i64 %5, 1
+  store i64 %7, ptr %2, align 8
+  %8 = icmp eq i64 %5, 0
+  tail call void @llvm.assume(i1 %8)
+  %9 = load i64, ptr %0, align 8, !range !254, !noundef !3
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %11 = load ptr, ptr %10, align 8, !noundef !3
+  br label %12
 
-11:                                               ; preds = %1, %6
-  %.sroa.3.0 = phi ptr [ %10, %6 ], [ undef, %1 ]
-  %.sroa.0.0 = phi i64 [ %8, %6 ], [ 92, %1 ]
-  %12 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %13 = insertvalue { i64, ptr } %12, ptr %.sroa.3.0, 1
-  ret { i64, ptr } %13
+12:                                               ; preds = %1, %6
+  %.sroa.3.0 = phi ptr [ %11, %6 ], [ undef, %1 ]
+  %.sroa.0.0 = phi i64 [ %9, %6 ], [ 92, %1 ]
+  %13 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
+  %14 = insertvalue { i64, ptr } %13, ptr %.sroa.3.0, 1
+  ret { i64, ptr } %14
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: write) uwtable
@@ -11053,7 +11054,7 @@ _ZN4core7unicode12unicode_data11white_space6lookup17hd79fa6c9b2e0f1c7E.exit.thre
   br label %83
 
 129:                                              ; preds = %select.unfold
-  %130 = add nsw i32 %.sroa.019.0, -9
+  %130 = add i32 %.sroa.019.0, -9
   %or.cond = icmp ult i32 %130, 5
   br i1 %or.cond, label %156, label %131
 

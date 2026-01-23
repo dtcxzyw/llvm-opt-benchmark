@@ -12601,58 +12601,59 @@ define internal void @_GLOBAL__sub_I_hearts_test.cc() #3 section ".text.startup"
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 1
   br label %6
 
-6:                                                ; preds = %17, %0
-  %.073.i.i = phi i32 [ 0, %0 ], [ %18, %17 ]
+6:                                                ; preds = %18, %0
+  %.073.i.i = phi i32 [ 0, %0 ], [ %19, %18 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %.zext.i.i = lshr i32 %.073.i.i, 2
-  %7 = zext nneg i32 %.zext.i.i to i64
-  %8 = getelementptr inbounds nuw i8, ptr @_ZN10open_spiel6heartsL9kRankCharE, i64 %7
-  %9 = load i8, ptr %8, align 1, !noalias !67
-  store i8 %9, ptr %1, align 1, !noalias !67
+  %7 = lshr i32 %.073.i.i, 2
+  %.zext.i.i = and i32 %7, 63
+  %8 = zext nneg i32 %.zext.i.i to i64
+  %9 = getelementptr inbounds nuw i8, ptr @_ZN10open_spiel6heartsL9kRankCharE, i64 %8
+  %10 = load i8, ptr %9, align 1, !noalias !67
+  store i8 %10, ptr %1, align 1, !noalias !67
   %.zext2.i.i = and i32 %.073.i.i, 3
-  %10 = zext nneg i32 %.zext2.i.i to i64
-  %11 = getelementptr inbounds nuw i8, ptr @_ZN10open_spiel6heartsL9kSuitCharE, i64 %10
-  %12 = load i8, ptr %11, align 1, !noalias !67
-  store i8 %12, ptr %5, align 1, !noalias !67
+  %11 = zext nneg i32 %.zext2.i.i to i64
+  %12 = getelementptr inbounds nuw i8, ptr @_ZN10open_spiel6heartsL9kSuitCharE, i64 %11
+  %13 = load i8, ptr %12, align 1, !noalias !67
+  store i8 %13, ptr %5, align 1, !noalias !67
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #21, !noalias !67
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ESt16initializer_listIcERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr nonnull %1, i64 2, ptr noundef nonnull align 1 dereferenceable(1) %2)
-          to label %15 unwind label %13
+          to label %16 unwind label %14
 
-13:                                               ; preds = %6
-  %14 = landingpad { ptr, i32 }
+14:                                               ; preds = %6
+  %15 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #21
   br label %.body.i.i
 
-15:                                               ; preds = %6
+16:                                               ; preds = %6
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %16 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaISt4pairIKS5_iEEEixEOS5_(ptr noundef nonnull align 8 dereferenceable(48) @_ZN10open_spiel6hearts12_GLOBAL__N_18card_intB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) %3)
-          to label %17 unwind label %19
+  %17 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaISt4pairIKS5_iEEEixEOS5_(ptr noundef nonnull align 8 dereferenceable(48) @_ZN10open_spiel6hearts12_GLOBAL__N_18card_intB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) %3)
+          to label %18 unwind label %20
 
-17:                                               ; preds = %15
-  store i32 %.073.i.i, ptr %16, align 4
+18:                                               ; preds = %16
+  store i32 %.073.i.i, ptr %17, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
-  %18 = add nuw nsw i32 %.073.i.i, 1
-  %exitcond.not.i.i = icmp eq i32 %18, 52
+  %19 = add nuw nsw i32 %.073.i.i, 1
+  %exitcond.not.i.i = icmp eq i32 %19, 52
   br i1 %exitcond.not.i.i, label %__cxx_global_var_init.5.exit, label %6, !llvm.loop !70
 
-19:                                               ; preds = %15
-  %20 = landingpad { ptr, i32 }
+20:                                               ; preds = %16
+  %21 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   br label %.body.i.i
 
-.body.i.i:                                        ; preds = %19, %13
-  %.pn.i.i = phi { ptr, i32 } [ %20, %19 ], [ %14, %13 ]
+.body.i.i:                                        ; preds = %20, %14
+  %.pn.i.i = phi { ptr, i32 } [ %21, %20 ], [ %15, %14 ]
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaISt4pairIKS5_iEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) @_ZN10open_spiel6hearts12_GLOBAL__N_18card_intB5cxx11E) #21
   resume { ptr, i32 } %.pn.i.i
 
-__cxx_global_var_init.5.exit:                     ; preds = %17
+__cxx_global_var_init.5.exit:                     ; preds = %18
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %21 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaISt4pairIKS5_iEEED2Ev, ptr nonnull @_ZN10open_spiel6hearts12_GLOBAL__N_18card_intB5cxx11E, ptr nonnull @__dso_handle) #21
+  %22 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaISt4pairIKS5_iEEED2Ev, ptr nonnull @_ZN10open_spiel6hearts12_GLOBAL__N_18card_intB5cxx11E, ptr nonnull @__dso_handle) #21
   ret void
 }
 

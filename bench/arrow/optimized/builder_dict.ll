@@ -21264,7 +21264,8 @@ define linkonce_odr void @_ZN5arrow8internal15BinaryMemoTableINS_13BinaryBuilder
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 %29
   %31 = load i8, ptr %30, align 1, !tbaa !39
   %32 = zext i8 %31 to i64
-  %.masked36.i = or disjoint i64 %22, %19
+  %.masked37.i = and i64 %19, 4278190080
+  %.masked36.i = or disjoint i64 %22, %.masked37.i
   %.masked.i = or disjoint i64 %.masked36.i, %27
   %33 = or disjoint i64 %.masked.i, %32
   %34 = mul i64 %33, -7046029288634856825
@@ -22323,7 +22324,7 @@ define linkonce_odr void @_ZN5arrow8internal15BinaryMemoTableINS_18LargeBinaryBu
   %21 = zext i8 %20 to i64
   %22 = shl nuw nsw i64 %21, 16
   %23 = lshr i64 %3, 1
-  %24 = and i64 %23, 1
+  %24 = and i64 %23, 2147483647
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 %24
   %26 = load i8, ptr %25, align 1, !tbaa !39
   %27 = zext i8 %26 to i64
@@ -22333,7 +22334,7 @@ define linkonce_odr void @_ZN5arrow8internal15BinaryMemoTableINS_18LargeBinaryBu
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 %30
   %32 = load i8, ptr %31, align 1, !tbaa !39
   %33 = zext i8 %32 to i64
-  %.masked37.i = and i64 %19, 50331648
+  %.masked37.i = and i64 %19, 4278190080
   %.masked36.i = or disjoint i64 %22, %.masked37.i
   %.masked.i = or disjoint i64 %.masked36.i, %28
   %34 = or disjoint i64 %.masked.i, %33
@@ -22342,7 +22343,7 @@ define linkonce_odr void @_ZN5arrow8internal15BinaryMemoTableINS_18LargeBinaryBu
   br label %_ZN5arrow8internal17ComputeStringHashILm0EEEmPKvl.exit
 
 37:                                               ; preds = %14
-  %38 = and i64 %3, 15
+  %38 = and i64 %3, 4294967295
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 %38
   %40 = getelementptr inbounds i8, ptr %39, i64 -4
   %.0.copyload.i.i = load i32, ptr %40, align 1
@@ -42150,7 +42151,7 @@ _ZNK5arrow17BaseBinaryBuilderINS_10BinaryTypeEE7GetViewEl.exit: ; preds = %21, %
   %.sroa.2.4.copyload.i.i.i.i.i.i = load i32, ptr %29, align 1
   %.sroa.2.0.insert.ext.i.i.i.i.i.i = zext i32 %.sroa.2.4.copyload.i.i.i.i.i.i to i64
   %.sroa.2.0.insert.shift.i.i.i.i.i.i = shl nuw i64 %.sroa.2.0.insert.ext.i.i.i.i.i.i, 32
-  %.sroa.03.0.insert.insert.i.i.i.i.i.i = or disjoint i64 %.sroa.2.0.insert.shift.i.i.i.i.i.i, %30
+  %.sroa.03.0.insert.insert.i.i.i.i.i.i = add nuw nsw i64 %.sroa.2.0.insert.shift.i.i.i.i.i.i, %30
   %.sroa.65.8.insert.ext.i.i.i.i.i.i = zext i32 %61 to i64
   %.sroa.65.8.insert.shift.i.i.i.i.i.i = shl nuw i64 %.sroa.65.8.insert.ext.i.i.i.i.i.i, 32
   %.sroa.44.8.insert.ext.i.i.i.i.i.i = and i64 %59, 4294967295
@@ -43569,7 +43570,7 @@ _ZNK5arrow17BaseBinaryBuilderINS_10BinaryTypeEE7GetViewEl.exit: ; preds = %21, %
   %.sroa.2.4.copyload.i.i.i.i.i.i = load i32, ptr %29, align 1
   %.sroa.2.0.insert.ext.i.i.i.i.i.i = zext i32 %.sroa.2.4.copyload.i.i.i.i.i.i to i64
   %.sroa.2.0.insert.shift.i.i.i.i.i.i = shl nuw i64 %.sroa.2.0.insert.ext.i.i.i.i.i.i, 32
-  %.sroa.03.0.insert.insert.i.i.i.i.i.i = or disjoint i64 %.sroa.2.0.insert.shift.i.i.i.i.i.i, %30
+  %.sroa.03.0.insert.insert.i.i.i.i.i.i = add nuw nsw i64 %.sroa.2.0.insert.shift.i.i.i.i.i.i, %30
   %.sroa.65.8.insert.ext.i.i.i.i.i.i = zext i32 %61 to i64
   %.sroa.65.8.insert.shift.i.i.i.i.i.i = shl nuw i64 %.sroa.65.8.insert.ext.i.i.i.i.i.i, 32
   %.sroa.44.8.insert.ext.i.i.i.i.i.i = and i64 %59, 4294967295

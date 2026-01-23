@@ -517,13 +517,14 @@ define hidden noundef i64 @"_ZN115_$LT$string_cache..atom..Atom$LT$Static$GT$$u2
   %.pn3.i = load ptr, ptr %.pn3.in.i, align 8, !alias.scope !97, !nonnull !17, !noundef !17
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4.sroa.0)
   %13 = shl nuw nsw i64 %.pn1.i, 4
-  %.sroa.0.0.extract.trunc = or disjoint i64 %13, 1
   store i56 0, ptr %.sroa.4.sroa.0, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %.sroa.4.sroa.0, ptr nonnull readonly align 1 %.pn3.i, i64 %.pn1.i, i1 false), !alias.scope !100, !noalias !104
   %.sroa.4.sroa.0.0..sroa.4.sroa.0.0..sroa.4.sroa.0.0..sroa.4.0. = load i56, ptr %.sroa.4.sroa.0, align 8
   %.sroa.4.0.insert.ext = zext i56 %.sroa.4.sroa.0.0..sroa.4.sroa.0.0..sroa.4.sroa.0.0..sroa.4.0. to i64
   %.sroa.4.0.insert.shift = shl nuw i64 %.sroa.4.0.insert.ext, 8
-  %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.4.0.insert.shift, %.sroa.0.0.extract.trunc
+  %.sroa.0.0.extract.trunc = and i64 %13, 240
+  %.sroa.0.0.insert.ext = or disjoint i64 %.sroa.0.0.extract.trunc, 1
+  %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.4.0.insert.shift, %.sroa.0.0.insert.ext
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4.sroa.0)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !106)
   %14 = load i64, ptr %0, align 8, !range !36, !alias.scope !106, !noundef !17
@@ -605,13 +606,14 @@ define hidden noundef i64 @"_ZN115_$LT$string_cache..atom..Atom$LT$Static$GT$$u2
   %.pn3.i = load ptr, ptr %.pn3.in.i, align 8, !alias.scope !118, !nonnull !17, !noundef !17
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4.sroa.0)
   %13 = shl nuw nsw i64 %.pn1.i, 4
-  %.sroa.0.0.extract.trunc = or disjoint i64 %13, 1
   store i56 0, ptr %.sroa.4.sroa.0, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %.sroa.4.sroa.0, ptr nonnull readonly align 1 %.pn3.i, i64 %.pn1.i, i1 false), !alias.scope !121, !noalias !125
   %.sroa.4.sroa.0.0..sroa.4.sroa.0.0..sroa.4.sroa.0.0..sroa.4.0. = load i56, ptr %.sroa.4.sroa.0, align 8
   %.sroa.4.0.insert.ext = zext i56 %.sroa.4.sroa.0.0..sroa.4.sroa.0.0..sroa.4.sroa.0.0..sroa.4.0. to i64
   %.sroa.4.0.insert.shift = shl nuw i64 %.sroa.4.0.insert.ext, 8
-  %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.4.0.insert.shift, %.sroa.0.0.extract.trunc
+  %.sroa.0.0.extract.trunc = and i64 %13, 240
+  %.sroa.0.0.insert.ext = or disjoint i64 %.sroa.0.0.extract.trunc, 1
+  %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.4.0.insert.shift, %.sroa.0.0.insert.ext
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4.sroa.0)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !127)
   %14 = load i64, ptr %0, align 8, !range !36, !alias.scope !127, !noundef !17
@@ -693,13 +695,14 @@ define hidden noundef i64 @"_ZN115_$LT$string_cache..atom..Atom$LT$Static$GT$$u2
   %.pn3.i = load ptr, ptr %.pn3.in.i, align 8, !alias.scope !139, !nonnull !17, !noundef !17
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4.sroa.0)
   %13 = shl nuw nsw i64 %.pn1.i, 4
-  %.sroa.0.0.extract.trunc = or disjoint i64 %13, 1
   store i56 0, ptr %.sroa.4.sroa.0, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %.sroa.4.sroa.0, ptr nonnull readonly align 1 %.pn3.i, i64 %.pn1.i, i1 false), !alias.scope !142, !noalias !146
   %.sroa.4.sroa.0.0..sroa.4.sroa.0.0..sroa.4.sroa.0.0..sroa.4.0. = load i56, ptr %.sroa.4.sroa.0, align 8
   %.sroa.4.0.insert.ext = zext i56 %.sroa.4.sroa.0.0..sroa.4.sroa.0.0..sroa.4.sroa.0.0..sroa.4.0. to i64
   %.sroa.4.0.insert.shift = shl nuw i64 %.sroa.4.0.insert.ext, 8
-  %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.4.0.insert.shift, %.sroa.0.0.extract.trunc
+  %.sroa.0.0.extract.trunc = and i64 %13, 240
+  %.sroa.0.0.insert.ext = or disjoint i64 %.sroa.0.0.extract.trunc, 1
+  %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.4.0.insert.shift, %.sroa.0.0.insert.ext
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4.sroa.0)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !148)
   %14 = load i64, ptr %0, align 8, !range !36, !alias.scope !148, !noundef !17

@@ -809,7 +809,11 @@ entry:
   %shr.i.i.i = lshr i64 %0, 8
   %cmp.not = icmp eq i64 %shr.i.i.i, 0
   %.pre = load ptr, ptr %this, align 8
-  br i1 %cmp.not, label %if.end9, label %if.then
+  br i1 %cmp.not, label %entry.if.end9_crit_edge, label %if.then
+
+entry.if.end9_crit_edge:                          ; preds = %entry
+  %.pre84 = and i64 %0, 255
+  br label %if.end9
 
 if.then:                                          ; preds = %entry
   %mul.i = shl i64 %hp.coerce1, 1
@@ -865,8 +869,8 @@ if.end20.i:                                       ; preds = %while.end.i
   %cmp.i = icmp eq i64 %shr.i, 0
   br i1 %cmp.i, label %for.body.i, label %if.end9, !llvm.loop !8
 
-if.end9:                                          ; preds = %if.end20.i, %while.end.i, %entry
-  %sh_prom.i.i.i.i.pre-phi = phi i64 [ %0, %entry ], [ %sh_prom.i, %while.end.i ], [ %sh_prom.i, %if.end20.i ]
+if.end9:                                          ; preds = %if.end20.i, %while.end.i, %entry.if.end9_crit_edge
+  %sh_prom.i.i.i.i.pre-phi = phi i64 [ %.pre84, %entry.if.end9_crit_edge ], [ %sh_prom.i, %while.end.i ], [ %sh_prom.i, %if.end20.i ]
   %shl.i.i.i.i = shl nuw i64 1, %sh_prom.i.i.i.i.pre-phi
   %control_.i.i = getelementptr inbounds nuw i8, ptr %.pre, i64 14
   %8 = load i8, ptr %control_.i.i, align 2
@@ -1083,7 +1087,8 @@ if.then.i.i.i.i.i:                                ; preds = %entry
   unreachable
 
 _ZN5folly3f146detail10BasePolicyIPN8proxygen7ServiceEPNS3_13ServiceWorkerEvvvSt4pairIKS5_S7_EE12beforeRehashEmmmmRPh.exit: ; preds = %entry
-  %call5.i.i2.i.i1.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %retval.0.i32) #26
+  %div1.i.i.i = and i64 %retval.0.i32, 9223372036854775792
+  %call5.i.i2.i.i1.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %div1.i.i.i) #26
   store ptr %call5.i.i2.i.i1.i, ptr %rawAllocation, align 8
   store i8 0, ptr %undoState, align 1
   %cmp5.not.i = icmp ne i64 %newChunkCount, 0

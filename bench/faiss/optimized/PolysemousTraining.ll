@@ -255,6 +255,7 @@ define noundef double @_ZNK5faiss27ReproduceDistancesObjective12compute_costEPKi
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = zext nneg i32 %4 to i64
+  %wide.trip.count30 = zext nneg i32 %4 to i64
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph
@@ -284,12 +285,12 @@ define noundef double @_ZNK5faiss27ReproduceDistancesObjective12compute_costEPKi
   %30 = fmul double %29, %29
   %31 = tail call double @llvm.fmuladd.f64(double %22, double %30, double %.121.us)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %12
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count30
   br i1 %exitcond.not, label %._crit_edge.us, label %17, !llvm.loop !14
 
 ._crit_edge.us:                                   ; preds = %17
   %indvars.iv.next28 = add nuw nsw i64 %indvars.iv27, 1
-  %exitcond31.not = icmp eq i64 %indvars.iv.next28, %12
+  %exitcond31.not = icmp eq i64 %indvars.iv.next28, %wide.trip.count30
   br i1 %exitcond31.not, label %._crit_edge24, label %.preheader.us, !llvm.loop !16
 
 ._crit_edge24:                                    ; preds = %._crit_edge.us, %2
@@ -2517,6 +2518,7 @@ define internal noundef double @_ZNK5faiss12_GLOBAL__N_129ReproduceWithHammingOb
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %9 = load ptr, ptr %8, align 8
   %10 = zext nneg i32 %4 to i64
+  %wide.trip.count30 = zext nneg i32 %4 to i64
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph
@@ -2546,12 +2548,12 @@ define internal noundef double @_ZNK5faiss12_GLOBAL__N_129ReproduceWithHammingOb
   %28 = fmul double %27, %27
   %29 = tail call double @llvm.fmuladd.f64(double %19, double %28, double %.121.us)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %10
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count30
   br i1 %exitcond.not, label %._crit_edge.us, label %14, !llvm.loop !106
 
 ._crit_edge.us:                                   ; preds = %14
   %indvars.iv.next28 = add nuw nsw i64 %indvars.iv27, 1
-  %exitcond31.not = icmp eq i64 %indvars.iv.next28, %10
+  %exitcond31.not = icmp eq i64 %indvars.iv.next28, %wide.trip.count30
   br i1 %exitcond31.not, label %._crit_edge24, label %.preheader.us, !llvm.loop !107
 
 ._crit_edge24:                                    ; preds = %._crit_edge.us, %2
@@ -3896,6 +3898,7 @@ _ZSt4sortIPiN5faiss12IndirectSortEEvT_S3_T0_.exit: ; preds = %.noexc46
 
 .lr.ph127.us.preheader:                           ; preds = %.preheader
   %59 = zext nneg i32 %57 to i64
+  %wide.trip.count186 = zext nneg i32 %57 to i64
   br label %.lr.ph127.us
 
 .lr.ph127.us:                                     ; preds = %.lr.ph127.us.preheader, %._crit_edge128.us
@@ -3984,12 +3987,12 @@ _ZN5faiss13RankingScore220accum_gt_weight_diffERKSt6vectorIiSaIiEES5_.exit.loope
   %100 = fptrunc double %99 to float
   store float %100, ptr %gep, align 4, !tbaa !100
   %indvars.iv.next174 = add nuw nsw i64 %indvars.iv173, 1
-  %exitcond177.not = icmp eq i64 %indvars.iv.next174, %59
+  %exitcond177.not = icmp eq i64 %indvars.iv.next174, %wide.trip.count186
   br i1 %exitcond177.not, label %._crit_edge128.us, label %.lr.ph40.preheader.i.us, !llvm.loop !143
 
 ._crit_edge128.us:                                ; preds = %_ZN5faiss13RankingScore220accum_gt_weight_diffERKSt6vectorIiSaIiEES5_.exit.loopexit.us, %_ZN5faiss13RankingScore220accum_gt_weight_diffERKSt6vectorIiSaIiEES5_.exit.us.us
   %indvars.iv.next184 = add nuw nsw i64 %indvars.iv183, 1
-  %exitcond187.not = icmp eq i64 %indvars.iv.next184, %59
+  %exitcond187.not = icmp eq i64 %indvars.iv.next184, %wide.trip.count186
   br i1 %exitcond187.not, label %._crit_edge131.split.us, label %.lr.ph127.us, !llvm.loop !144
 
 _ZN5faiss13RankingScore220accum_gt_weight_diffERKSt6vectorIiSaIiEES5_.exit.us.us: ; preds = %.lr.ph127.us, %_ZN5faiss13RankingScore220accum_gt_weight_diffERKSt6vectorIiSaIiEES5_.exit.us.us
@@ -3999,7 +4002,7 @@ _ZN5faiss13RankingScore220accum_gt_weight_diffERKSt6vectorIiSaIiEES5_.exit.us.us
   %102 = fadd float %101, 0.000000e+00
   store float %102, ptr %gep239, align 4, !tbaa !100
   %indvars.iv.next179 = add nuw nsw i64 %indvars.iv178, 1
-  %exitcond182.not = icmp eq i64 %indvars.iv.next179, %59
+  %exitcond182.not = icmp eq i64 %indvars.iv.next179, %wide.trip.count186
   br i1 %exitcond182.not, label %._crit_edge128.us, label %_ZN5faiss13RankingScore220accum_gt_weight_diffERKSt6vectorIiSaIiEES5_.exit.us.us, !llvm.loop !143
 
 103:                                              ; preds = %.noexc46, %49
@@ -4426,7 +4429,7 @@ define linkonce_odr void @_ZSt16__introsort_loopIPilN9__gnu_cxx5__ops15_Iter_com
 
 45:                                               ; preds = %._crit_edge.i.i.i.i
   %46 = add nsw i64 %20, -2
-  %47 = ashr exact i64 %46, 1
+  %47 = sdiv i64 %46, 2
   %48 = icmp eq i64 %.0.lcssa.i.i.i.i, %47
   br i1 %48, label %.thread.i.i.i, label %54
 
@@ -4775,11 +4778,11 @@ define linkonce_odr void @_ZSt11__make_heapIPiN9__gnu_cxx5__ops15_Iter_comp_iter
   %13 = lshr i64 %12, 1
   %14 = and i64 %6, 4
   %15 = icmp eq i64 %14, 0
-  %16 = lshr exact i64 %10, 1
+  %16 = lshr i64 %10, 1
   br i1 %15, label %.split.preheader, label %.split.us
 
 .split.preheader:                                 ; preds = %9
-  %17 = or disjoint i64 %10, 1
+  %17 = or i64 %10, 1
   %18 = getelementptr inbounds nuw i32, ptr %0, i64 %17
   %19 = getelementptr inbounds nuw i32, ptr %0, i64 %16
   br label %.split

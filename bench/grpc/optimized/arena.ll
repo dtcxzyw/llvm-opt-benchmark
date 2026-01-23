@@ -314,7 +314,7 @@ define hidden void @upb_Arena_Free(ptr noundef captures(address) %0) local_unnam
   br label %5
 
 5:                                                ; preds = %25, %1
-  %.013 = phi i64 [ %4, %1 ], [ %30, %25 ]
+  %.013 = phi i64 [ %4, %1 ], [ %31, %25 ]
   %.0 = phi ptr [ %2, %1 ], [ %.1.lcssa, %25 ]
   %6 = and i64 %.013, 1
   %7 = icmp eq i64 %6, 0
@@ -367,11 +367,12 @@ define hidden void @upb_Arena_Free(ptr noundef captures(address) %0) local_unnam
 
 25:                                               ; preds = %._crit_edge
   %26 = getelementptr inbounds nuw i8, ptr %.1.lcssa, i64 8
-  %27 = add i64 %.114.lcssa, -2
-  %28 = cmpxchg weak ptr %26, i64 %.114.lcssa, i64 %27 release acquire, align 8
-  %29 = extractvalue { i64, i1 } %28, 1
-  %30 = extractvalue { i64, i1 } %28, 0
-  br i1 %29, label %_upb_Arena_DoFree.exit, label %5
+  %27 = or i64 %.114.lcssa, 1
+  %28 = add i64 %27, -2
+  %29 = cmpxchg weak ptr %26, i64 %.114.lcssa, i64 %28 release acquire, align 8
+  %30 = extractvalue { i64, i1 } %29, 1
+  %31 = extractvalue { i64, i1 } %29, 0
+  br i1 %30, label %_upb_Arena_DoFree.exit, label %5
 
 _upb_Arena_DoFree.exit:                           ; preds = %25, %.loopexit.i, %14
   ret void
@@ -624,7 +625,7 @@ define hidden void @upb_Arena_DecRefFor(ptr noundef captures(address) %0, ptr no
   br label %6
 
 6:                                                ; preds = %26, %2
-  %.013.i = phi i64 [ %5, %2 ], [ %31, %26 ]
+  %.013.i = phi i64 [ %5, %2 ], [ %32, %26 ]
   %.0.i = phi ptr [ %3, %2 ], [ %.1.lcssa.i, %26 ]
   %7 = and i64 %.013.i, 1
   %8 = icmp eq i64 %7, 0
@@ -677,11 +678,12 @@ define hidden void @upb_Arena_DecRefFor(ptr noundef captures(address) %0, ptr no
 
 26:                                               ; preds = %._crit_edge.i
   %27 = getelementptr inbounds nuw i8, ptr %.1.lcssa.i, i64 8
-  %28 = add i64 %.114.lcssa.i, -2
-  %29 = cmpxchg weak ptr %27, i64 %.114.lcssa.i, i64 %28 release acquire, align 8
-  %30 = extractvalue { i64, i1 } %29, 1
-  %31 = extractvalue { i64, i1 } %29, 0
-  br i1 %30, label %upb_Arena_Free.exit, label %6
+  %28 = or i64 %.114.lcssa.i, 1
+  %29 = add i64 %28, -2
+  %30 = cmpxchg weak ptr %27, i64 %.114.lcssa.i, i64 %29 release acquire, align 8
+  %31 = extractvalue { i64, i1 } %30, 1
+  %32 = extractvalue { i64, i1 } %30, 0
+  br i1 %31, label %upb_Arena_Free.exit, label %6
 
 upb_Arena_Free.exit:                              ; preds = %26, %.loopexit.i.i, %15
   ret void

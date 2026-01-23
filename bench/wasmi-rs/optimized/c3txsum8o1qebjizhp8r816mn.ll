@@ -823,18 +823,19 @@ define hidden noundef i32 @"_ZN67_$LT$wasmi_core..simd..I32x4$u20$as$u20$wasmi_c
   br label %4
 
 3:                                                ; preds = %4
-  ret i32 %10
+  ret i32 %11
 
 4:                                                ; preds = %2, %4
-  %.sroa.0.013 = phi i32 [ %1, %2 ], [ %10, %4 ]
+  %.sroa.0.013 = phi i32 [ %1, %2 ], [ %11, %4 ]
   %.sroa.07.012 = phi i64 [ 0, %2 ], [ %5, %4 ]
   %5 = add nuw nsw i64 %.sroa.07.012, 1
   %6 = trunc nuw nsw i64 %.sroa.07.012 to i32
   %7 = getelementptr inbounds nuw i32, ptr %0, i64 %.sroa.07.012
   %8 = load i32, ptr %7, align 4, !noundef !3
   %.lobit.i = lshr i32 %8, 31
-  %9 = shl nuw nsw i32 %.lobit.i, %6
-  %10 = or i32 %9, %.sroa.0.013
+  %9 = and i32 %6, 255
+  %10 = shl nuw nsw i32 %.lobit.i, %9
+  %11 = or i32 %10, %.sroa.0.013
   %exitcond.not = icmp eq i64 %5, 4
   br i1 %exitcond.not, label %3, label %4
 }
@@ -1479,10 +1480,10 @@ define hidden noundef i32 @"_ZN67_$LT$wasmi_core..simd..I16x8$u20$as$u20$wasmi_c
   br label %4
 
 3:                                                ; preds = %4
-  ret i32 %11
+  ret i32 %12
 
 4:                                                ; preds = %2, %4
-  %.sroa.0.013 = phi i32 [ %1, %2 ], [ %11, %4 ]
+  %.sroa.0.013 = phi i32 [ %1, %2 ], [ %12, %4 ]
   %.sroa.07.012 = phi i64 [ 0, %2 ], [ %5, %4 ]
   %5 = add nuw nsw i64 %.sroa.07.012, 1
   %6 = trunc nuw nsw i64 %.sroa.07.012 to i32
@@ -1490,8 +1491,9 @@ define hidden noundef i32 @"_ZN67_$LT$wasmi_core..simd..I16x8$u20$as$u20$wasmi_c
   %8 = load i16, ptr %7, align 2, !noundef !3
   %.lobit.i = lshr i16 %8, 15
   %9 = zext nneg i16 %.lobit.i to i32
-  %10 = shl nuw nsw i32 %9, %6
-  %11 = or i32 %10, %.sroa.0.013
+  %10 = and i32 %6, 255
+  %11 = shl nuw nsw i32 %9, %10
+  %12 = or i32 %11, %.sroa.0.013
   %exitcond.not = icmp eq i64 %5, 8
   br i1 %exitcond.not, label %3, label %4
 }
@@ -2185,10 +2187,10 @@ define hidden noundef i32 @"_ZN67_$LT$wasmi_core..simd..I8x16$u20$as$u20$wasmi_c
   br label %4
 
 3:                                                ; preds = %4
-  ret i32 %11
+  ret i32 %12
 
 4:                                                ; preds = %2, %4
-  %.sroa.0.013 = phi i32 [ %1, %2 ], [ %11, %4 ]
+  %.sroa.0.013 = phi i32 [ %1, %2 ], [ %12, %4 ]
   %.sroa.07.012 = phi i64 [ 0, %2 ], [ %5, %4 ]
   %5 = add nuw nsw i64 %.sroa.07.012, 1
   %6 = trunc nuw nsw i64 %.sroa.07.012 to i32
@@ -2196,8 +2198,9 @@ define hidden noundef i32 @"_ZN67_$LT$wasmi_core..simd..I8x16$u20$as$u20$wasmi_c
   %8 = load i8, ptr %7, align 1, !noundef !3
   %.lobit.i = lshr i8 %8, 7
   %9 = zext nneg i8 %.lobit.i to i32
-  %10 = shl nuw nsw i32 %9, %6
-  %11 = or i32 %10, %.sroa.0.013
+  %10 = and i32 %6, 255
+  %11 = shl nuw nsw i32 %9, %10
+  %12 = or i32 %11, %.sroa.0.013
   %exitcond.not = icmp eq i64 %5, 16
   br i1 %exitcond.not, label %3, label %4
 }

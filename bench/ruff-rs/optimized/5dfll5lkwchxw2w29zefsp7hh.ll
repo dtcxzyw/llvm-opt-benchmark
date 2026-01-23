@@ -22011,17 +22011,18 @@ define hidden void @"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u
 
 6:                                                ; preds = %2
   store i64 2, ptr %0, align 8
-  br label %10
+  br label %11
 
 7:                                                ; preds = %2
-  store i64 1, ptr %1, align 8
-  %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %9 = icmp eq i64 %5, 0
-  tail call void @llvm.assume(i1 %9)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
-  br label %10
+  %8 = or disjoint i64 %5, 1
+  store i64 %8, ptr %1, align 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %10 = icmp eq i64 %5, 0
+  tail call void @llvm.assume(i1 %10)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
+  br label %11
 
-10:                                               ; preds = %7, %6
+11:                                               ; preds = %7, %6
   ret void
 }
 

@@ -970,7 +970,7 @@ define hidden void @_ZN5XMark12follow_arrayEmmb(ptr noundef nonnull align 64 der
 
 6:                                                ; preds = %4
   %7 = inttoptr i64 %1 to ptr
-  %.idx.i.i = and i64 %2, 8184
+  %.idx.i.i = and i64 %2, -8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx.i.i
   %.not.i = icmp samesign ult i64 %2, 8
   br i1 %.not.i, label %_ZN5XMark18follow_small_arrayEmmb.exit, label %.lr.ph.i.i
@@ -1005,8 +1005,7 @@ define hidden void @_ZN5XMark20follow_partial_arrayE15XMarkStackEntryb(ptr nound
 
 13:                                               ; preds = %3
   %14 = inttoptr i64 %9 to ptr
-  %.idx.i.i.i = and i64 %10, 8184
-  %15 = getelementptr inbounds nuw i8, ptr %14, i64 %.idx.i.i.i
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 %11
   %.not.i.i = icmp eq i64 %11, 0
   br i1 %.not.i.i, label %_ZN5XMark12follow_arrayEmmb.exit, label %.lr.ph.i.i.i
 
@@ -1315,8 +1314,7 @@ define hidden void @_ZN5XMark15mark_and_followEP12XMarkContext15XMarkStackEntry(
 
 18:                                               ; preds = %8
   %19 = inttoptr i64 %14 to ptr
-  %.idx.i.i.i.i = and i64 %15, 8184
-  %20 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx.i.i.i.i
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 %16
   %.not.i.i.i = icmp eq i64 %16, 0
   br i1 %.not.i.i.i, label %_ZN5XMark20follow_partial_arrayE15XMarkStackEntryb.exit, label %.lr.ph.i.i.i.i
 
