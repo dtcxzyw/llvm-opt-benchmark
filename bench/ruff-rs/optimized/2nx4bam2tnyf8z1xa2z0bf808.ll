@@ -42617,7 +42617,7 @@ _ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i: ; p
           cleanup
   br label %.thread
 
-.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %797, %803, %.noexc.i.i110, %.noexc121, %.noexc12.i.i, %.noexc15.i.i, %_ZN6memchr6memmem13FinderBuilder25build_forward_with_ranker17hfb71290aa297b46eE.exit.i, %636, %.noexc138, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8find_map17ha76bbe515baecc01E.exit", %.noexc151
+.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %797, %803, %.noexc.i.i110, %.noexc121, %.noexc12.i.i, %.noexc15.i.i, %"_ZN4core3ptr43drop_in_place$LT$memchr..memmem..Finder$GT$17h53c56a0ea604eb52E.exit13.i", %636, %.noexc138, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8find_map17ha76bbe515baecc01E.exit", %.noexc151
   %lpad.loopexit257 = landingpad { ptr, i32 }
           cleanup
   br label %.thread
@@ -43021,7 +43021,7 @@ _ZN18ruff_python_parser6parser6Parser28add_unsupported_syntax_error17h26bec67021
   br label %667
 
 _ZN6memchr4arch3all9rabinkarp6Finder3new17h51facdc46257d881E.exit.i.i.i: ; preds = %670, %668
-  br i1 %525, label %_ZN6memchr6memmem13FinderBuilder25build_forward_with_ranker17hfb71290aa297b46eE.exit.i, label %.noexc.i.i110
+  br i1 %525, label %"_ZN4core3ptr43drop_in_place$LT$memchr..memmem..Finder$GT$17h53c56a0ea604eb52E.exit13.i", label %.noexc.i.i110
 
 .noexc.i.i110:                                    ; preds = %_ZN6memchr4arch3all9rabinkarp6Finder3new17h51facdc46257d881E.exit.i.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !6655
@@ -43236,7 +43236,7 @@ _ZN6memchr4arch6x86_644sse210packedpair6Finder14with_pair_impl17h71359082640a2e9
   %744 = load i8, ptr %743, align 1, !alias.scope !6666, !noalias !6671, !noundef !3
   %.sroa.01.0.vec.insert.i.i2.i.i.i.i = insertelement <16 x i8> poison, i8 %744, i64 0
   %.sroa.01.15.vec.insert.i.i3.i.i.i.i = shufflevector <16 x i8> %.sroa.01.0.vec.insert.i.i2.i.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
-  br label %_ZN6memchr6memmem13FinderBuilder25build_forward_with_ranker17hfb71290aa297b46eE.exit.i
+  br label %"_ZN4core3ptr43drop_in_place$LT$memchr..memmem..Finder$GT$17h53c56a0ea604eb52E.exit13.i"
 
 .noexc15.i.i:                                     ; preds = %_ZN10std_detect6detect5cache4test17h76b3b8f4d3c492e6E.exit.i.i.i, %.noexc130
   call void @llvm.lifetime.start.p0(ptr nonnull %17), !noalias !6665
@@ -43253,9 +43253,9 @@ _ZN6memchr4arch6x86_644sse210packedpair6Finder14with_pair_impl17h71359082640a2e9
   %.sroa.3.sroa.4.31.copyload.i.i.i = load i8, ptr %.sroa.3.sroa.4.31..sroa_idx.i.i.i, align 8, !noalias !6665
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(87) %.sroa.11.i.i, ptr noundef nonnull align 1 dereferenceable(87) %.sroa.3.sroa.5.31..sroa_idx.i.i.i, i64 87, i1 false), !noalias !6674
   call void @llvm.lifetime.end.p0(ptr nonnull %17), !noalias !6665
-  br label %_ZN6memchr6memmem13FinderBuilder25build_forward_with_ranker17hfb71290aa297b46eE.exit.i
+  br label %"_ZN4core3ptr43drop_in_place$LT$memchr..memmem..Finder$GT$17h53c56a0ea604eb52E.exit13.i"
 
-_ZN6memchr6memmem13FinderBuilder25build_forward_with_ranker17hfb71290aa297b46eE.exit.i: ; preds = %_ZN6memchr4arch3all9rabinkarp6Finder3new17h51facdc46257d881E.exit.i.i.i, %.noexc133, %_ZN6memchr4arch6x86_644sse210packedpair6Finder14with_pair_impl17h71359082640a2e9cE.exit.i.i.i
+"_ZN4core3ptr43drop_in_place$LT$memchr..memmem..Finder$GT$17h53c56a0ea604eb52E.exit13.i": ; preds = %_ZN6memchr4arch3all9rabinkarp6Finder3new17h51facdc46257d881E.exit.i.i.i, %.noexc133, %_ZN6memchr4arch6x86_644sse210packedpair6Finder14with_pair_impl17h71359082640a2e9cE.exit.i.i.i
   %.sroa.109.1.i.i = phi i8 [ %.sroa.3.sroa.4.31.copyload.i.i.i, %.noexc133 ], [ undef, %_ZN6memchr4arch6x86_644sse210packedpair6Finder14with_pair_impl17h71359082640a2e9cE.exit.i.i.i ], [ undef, %_ZN6memchr4arch3all9rabinkarp6Finder3new17h51facdc46257d881E.exit.i.i.i ]
   %.sroa.9.1.i.i = phi i8 [ %.sroa.3.sroa.0.i.sroa.7.31.copyload.i.i, %.noexc133 ], [ %686, %_ZN6memchr4arch6x86_644sse210packedpair6Finder14with_pair_impl17h71359082640a2e9cE.exit.i.i.i ], [ undef, %_ZN6memchr4arch3all9rabinkarp6Finder3new17h51facdc46257d881E.exit.i.i.i ]
   %.sroa.8.1.i.i = phi i8 [ %.sroa.3.sroa.0.i.sroa.6.31.copyload.i.i, %.noexc133 ], [ %687, %_ZN6memchr4arch6x86_644sse210packedpair6Finder14with_pair_impl17h71359082640a2e9cE.exit.i.i.i ], [ undef, %_ZN6memchr4arch3all9rabinkarp6Finder3new17h51facdc46257d881E.exit.i.i.i ]
@@ -43282,7 +43282,7 @@ _ZN6memchr6memmem13FinderBuilder25build_forward_with_ranker17hfb71290aa297b46eE.
   call void @llvm.lifetime.start.p0(ptr nonnull %18), !noalias !6641
   store i32 1, ptr %18, align 4, !noalias !6641
   store i32 0, ptr %119, align 4, !noalias !6641
-  %745 = invoke { i64, i64 } %.sroa.16.1.i.i(ptr noalias noundef nonnull readonly align 32 dereferenceable(256) %19, ptr noalias noundef nonnull align 4 dereferenceable(8) %18, ptr noalias noundef nonnull readonly align 1 %664, i64 noundef %663, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i158, i64 noundef range(i64 1, 4) %.sroa.5.0.i)
+  %785 = invoke { i64, i64 } %.sroa.16.1.i.i(ptr noalias noundef nonnull readonly align 32 dereferenceable(256) %19, ptr noalias noundef nonnull align 4 dereferenceable(8) %18, ptr noalias noundef nonnull readonly align 1 %664, i64 noundef %663, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i158, i64 noundef range(i64 1, 4) %.sroa.5.0.i)
           to label %791 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .preheader:                                       ; preds = %662, %752
@@ -43386,7 +43386,7 @@ _ZN6memchr4arch3all9rabinkarp6Finder3new17h51facdc46257d881E.exit.i: ; preds = %
 .cont1590:                                        ; preds = %.invoke1589
   unreachable
 
-791:                                              ; preds = %_ZN6memchr6memmem13FinderBuilder25build_forward_with_ranker17hfb71290aa297b46eE.exit.i
+791:                                              ; preds = %"_ZN4core3ptr43drop_in_place$LT$memchr..memmem..Finder$GT$17h53c56a0ea604eb52E.exit13.i"
   call void @llvm.lifetime.end.p0(ptr nonnull %18), !noalias !6641
   %792 = extractvalue { i64, i64 } %745, 1
   %793 = extractvalue { i64, i64 } %745, 0

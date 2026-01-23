@@ -2975,8 +2975,8 @@ define internal ptr @complex_pow(ptr noundef %0, ptr noundef %1, ptr noundef rea
 
 PyObject_TypeCheck.exit:                          ; preds = %3
   %9 = tail call i32 @PyType_IsSubtype(ptr noundef %.val12, ptr noundef nonnull @PyComplex_Type) #17
-  %.not30 = icmp eq i32 %9, 0
-  br i1 %.not30, label %11, label %PyObject_TypeCheck.exit.thread
+  %.not27 = icmp eq i32 %9, 0
+  br i1 %.not27, label %11, label %PyObject_TypeCheck.exit.thread
 
 PyObject_TypeCheck.exit.thread:                   ; preds = %3, %PyObject_TypeCheck.exit
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -3017,8 +3017,8 @@ real_to_complex.exit:                             ; preds = %15, %PyObject_TypeC
   br i1 %.not.i13, label %PyObject_TypeCheck.exit14.thread, label %PyObject_TypeCheck.exit14
 
 PyObject_TypeCheck.exit14:                        ; preds = %real_to_complex.exit
-  %21 = call i32 @PyType_IsSubtype(ptr noundef %.val, ptr noundef nonnull @PyComplex_Type) #17
-  %.not = icmp eq i32 %21, 0
+  %22 = call i32 @PyType_IsSubtype(ptr noundef %.val, ptr noundef nonnull @PyComplex_Type) #17
+  %.not = icmp eq i32 %22, 0
   br i1 %.not, label %23, label %PyObject_TypeCheck.exit14.thread
 
 PyObject_TypeCheck.exit14.thread:                 ; preds = %real_to_complex.exit, %PyObject_TypeCheck.exit14
@@ -3026,74 +3026,74 @@ PyObject_TypeCheck.exit14.thread:                 ; preds = %real_to_complex.exi
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %22, i64 16, i1 false), !tbaa.struct !34
   br label %real_to_complex.exit22
 
-23:                                               ; preds = %PyObject_TypeCheck.exit14
-  %24 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store double 0.000000e+00, ptr %24, align 8, !tbaa !35
+25:                                               ; preds = %PyObject_TypeCheck.exit14
+  %26 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store double 0.000000e+00, ptr %26, align 8, !tbaa !35
   %.val.i.i15 = load ptr, ptr %20, align 8, !tbaa !8
   %.not.i.i.i16 = icmp eq ptr %.val.i.i15, @PyFloat_Type
   br i1 %.not.i.i.i16, label %PyObject_TypeCheck.exit.thread.i.i19, label %PyObject_TypeCheck.exit.i.i17
 
-PyObject_TypeCheck.exit.i.i17:                    ; preds = %23
-  %25 = call i32 @PyType_IsSubtype(ptr noundef %.val.i.i15, ptr noundef nonnull @PyFloat_Type) #17
-  %.not8.i.i18 = icmp eq i32 %25, 0
-  br i1 %.not8.i.i18, label %27, label %PyObject_TypeCheck.exit.thread.i.i19
+PyObject_TypeCheck.exit.i.i17:                    ; preds = %25
+  %28 = call i32 @PyType_IsSubtype(ptr noundef %.val.i.i15, ptr noundef nonnull @PyFloat_Type) #17
+  %.not8.i.i18 = icmp eq i32 %28, 0
+  br i1 %.not8.i.i18, label %30, label %PyObject_TypeCheck.exit.thread.i.i19
 
-PyObject_TypeCheck.exit.thread.i.i19:             ; preds = %PyObject_TypeCheck.exit.i.i17, %23
-  %26 = getelementptr i8, ptr %1, i64 16
-  %.val6.i.i20 = load double, ptr %26, align 8, !tbaa !36
+PyObject_TypeCheck.exit.thread.i.i19:             ; preds = %PyObject_TypeCheck.exit.i.i17, %25
+  %29 = getelementptr i8, ptr %1, i64 16
+  %.val6.i.i20 = load double, ptr %29, align 8, !tbaa !36
   store double %.val6.i.i20, ptr %7, align 8, !tbaa !13
   br label %real_to_complex.exit22
 
-27:                                               ; preds = %PyObject_TypeCheck.exit.i.i17
-  %28 = call i32 @_Py_convert_int_to_double(ptr noundef nonnull %5, ptr noundef nonnull %7) #17
-  %29 = icmp slt i32 %28, 0
-  br i1 %29, label %30, label %real_to_complex.exit22
+30:                                               ; preds = %PyObject_TypeCheck.exit.i.i17
+  %31 = call i32 @_Py_convert_int_to_double(ptr noundef nonnull %5, ptr noundef nonnull %7) #17
+  %32 = icmp slt i32 %31, 0
+  br i1 %32, label %33, label %real_to_complex.exit22
 
-30:                                               ; preds = %27
-  %31 = load ptr, ptr %5, align 8, !tbaa !32
+33:                                               ; preds = %30
+  %34 = load ptr, ptr %5, align 8, !tbaa !32
   br label %PyComplex_FromCComplex.exit
 
-real_to_complex.exit22:                           ; preds = %27, %PyObject_TypeCheck.exit.thread.i.i19, %PyObject_TypeCheck.exit14.thread
+real_to_complex.exit22:                           ; preds = %30, %PyObject_TypeCheck.exit.thread.i.i19, %PyObject_TypeCheck.exit14.thread
   %.not10 = icmp eq ptr %2, @_Py_NoneStruct
-  br i1 %.not10, label %34, label %32
+  br i1 %.not10, label %37, label %35
 
-32:                                               ; preds = %real_to_complex.exit22
-  %33 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !32
-  call void @PyErr_SetString(ptr noundef %33, ptr noundef nonnull @.str.9) #17
+35:                                               ; preds = %real_to_complex.exit22
+  %36 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !32
+  call void @PyErr_SetString(ptr noundef %36, ptr noundef nonnull @.str.9) #17
   br label %PyComplex_FromCComplex.exit
 
-34:                                               ; preds = %real_to_complex.exit22
-  %35 = tail call ptr @__errno_location() #16
-  store i32 0, ptr %35, align 4, !tbaa !4
-  %36 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %37 = load double, ptr %36, align 8, !tbaa !35
-  %38 = fcmp oeq double %37, 0.000000e+00
-  %.pre31 = load double, ptr %7, align 8
-  br i1 %38, label %39, label %95
+37:                                               ; preds = %real_to_complex.exit22
+  %38 = tail call ptr @__errno_location() #16
+  store i32 0, ptr %38, align 4, !tbaa !4
+  %39 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %40 = load double, ptr %39, align 8, !tbaa !35
+  %41 = fcmp oeq double %40, 0.000000e+00
+  %.pre30 = load double, ptr %7, align 8
+  br i1 %41, label %42, label %93
 
-39:                                               ; preds = %34
-  %40 = call double @llvm.floor.f64(double %.pre31)
-  %41 = fcmp une double %.pre31, %40
-  %42 = call double @llvm.fabs.f64(double %.pre31)
-  %43 = fcmp ugt double %42, 1.000000e+02
-  %or.cond = or i1 %41, %43
-  br i1 %or.cond, label %95, label %44
+42:                                               ; preds = %37
+  %43 = call double @llvm.floor.f64(double %.pre30)
+  %44 = fcmp une double %.pre30, %43
+  %45 = call double @llvm.fabs.f64(double %.pre30)
+  %46 = fcmp ugt double %45, 1.000000e+02
+  %or.cond = or i1 %44, %46
+  br i1 %or.cond, label %93, label %47
 
-44:                                               ; preds = %39
-  %45 = fptosi double %.pre31 to i64
-  %46 = load double, ptr %6, align 8
-  %47 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %48 = load double, ptr %47, align 8
-  %49 = icmp sgt i64 %45, 0
-  br i1 %49, label %.lr.ph.i.i, label %76
+47:                                               ; preds = %42
+  %48 = fptosi double %.pre30 to i64
+  %49 = load double, ptr %6, align 8
+  %50 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %51 = load double, ptr %50, align 8
+  %52 = icmp sgt i64 %48, 0
+  br i1 %52, label %.lr.ph.i.i, label %66
 
-.lr.ph.i.i:                                       ; preds = %44
+.lr.ph.i.i:                                       ; preds = %47
   %50 = and i64 %45, 1
   %.not.i.i = icmp eq i64 %50, 0
   br i1 %.not.i.i, label %c_powu.exit.i, label %51
 
-51:                                               ; preds = %.lr.ph.i.i
-  %52 = fmul double %48, 0.000000e+00
+51:; preds = %.lr.ph.i.i
+  %52 = fmul double %51, 0.000000e+00
   %53 = fmul double %46, 0.000000e+00
   %54 = fsub double %46, %52
   %55 = fadd double %53, %48
@@ -3108,11 +3108,11 @@ real_to_complex.exit22:                           ; preds = %27, %PyObject_TypeC
   %.pre87.i = call double @llvm.fabs.f64(double %48) #15
   br i1 %60, label %63, label %61
 
-61:                                               ; preds = %58
+61:; preds = %58
   %62 = fcmp oeq double %.pre87.i, 0x7FF0000000000000
   br i1 %62, label %63, label %c_powu.exit.i
 
-63:                                               ; preds = %58, %61
+63:; preds = %58, %61
   %64 = phi double [ 0.000000e+00, %61 ], [ 1.000000e+00, %58 ]
   %65 = call double @llvm.copysign.f64(double %64, double %46)
   %66 = fcmp oeq double %.pre87.i, 0x7FF0000000000000
@@ -3134,16 +3134,16 @@ c_powu.exit.i:                                    ; preds = %63, %51, %61, %.lr.
   %.fca.1.insert.i.i = insertvalue { double, double } %.fca.0.insert.i.i, double %.sroa.415.1.i.i, 1
   br label %c_powi.exit
 
-76:                                               ; preds = %44
-  %77 = sub i64 0, %45
-  %78 = icmp slt i64 %77, 1
+66:                                               ; preds = %47
+  %67 = sub i64 0, %48
+  %68 = icmp slt i64 %67, 1
   %79 = and i64 %77, 1
   %.not.i19.i = icmp eq i64 %79, 0
-  %or.cond.i = or i1 %78, %.not.i19.i
+  %or.cond.i = or i1 %68, %.not.i19.i
   br i1 %or.cond.i, label %c_powu.exit22.i, label %80
 
-80:                                               ; preds = %76
-  %81 = call { double, double } @_Py_c_prod(double 1.000000e+00, double 0.000000e+00, double %46, double %48)
+80: ; preds = %66
+  %81 = call { double, double } @_Py_c_prod(double 1.000000e+00, double 0.000000e+00, double %49, double %48)
   %82 = extractvalue { double, double } %81, 0
   %83 = extractvalue { double, double } %81, 1
   br label %c_powu.exit22.i
@@ -3156,23 +3156,23 @@ c_powu.exit22.i:                                  ; preds = %80, %76
   br label %c_powi.exit
 
 c_powi.exit:                                      ; preds = %c_powu.exit.i, %c_powu.exit22.i
-  %85 = phi i32 [ 0, %c_powu.exit.i ], [ %.pre, %c_powu.exit22.i ]
+  %83 = phi i32 [ 0, %c_powu.exit.i ], [ %.pre, %c_powu.exit22.i ]
   %.pn.i = phi { double, double } [ %.fca.1.insert.i.i, %c_powu.exit.i ], [ %84, %c_powu.exit22.i ]
-  %86 = extractvalue { double, double } %.pn.i, 0
-  %87 = extractvalue { double, double } %.pn.i, 1
-  %88 = call double @llvm.fabs.f64(double %86)
-  %or.cond.i23 = fcmp oeq double %88, 0x7FF0000000000000
-  %89 = call double @llvm.fabs.f64(double %87)
-  %90 = fcmp oeq double %89, 0x7FF0000000000000
-  %or.cond5.i = or i1 %or.cond.i23, %90
+  %84 = extractvalue { double, double } %.pn.i, 0
+  %85 = extractvalue { double, double } %.pn.i, 1
+  %86 = call double @llvm.fabs.f64(double %84)
+  %or.cond.i = fcmp oeq double %86, 0x7FF0000000000000
+  %87 = call double @llvm.fabs.f64(double %85)
+  %88 = fcmp oeq double %87, 0x7FF0000000000000
+  %or.cond5.i = or i1 %or.cond.i, %88
   br i1 %or.cond5.i, label %91, label %93
 
 91:                                               ; preds = %c_powi.exit
-  %92 = icmp eq i32 %85, 0
+  %92 = icmp eq i32 %83, 0
   br i1 %92, label %.sink.split.i, label %_Py_ADJUST_ERANGE2.exit
 
-93:                                               ; preds = %c_powi.exit
-  %94 = icmp eq i32 %85, 34
+.sink.split.i:                                    ; preds = %c_powi.exit
+  %94 = icmp eq i32 %85, 37
   br i1 %94, label %.sink.split.i, label %_Py_ADJUST_ERANGE2.exit
 
 .sink.split.i:                                    ; preds = %93, %91
@@ -3180,21 +3180,21 @@ c_powi.exit:                                      ; preds = %c_powu.exit.i, %c_p
   store i32 %.sink.i, ptr %35, align 4, !tbaa !4
   br label %_Py_ADJUST_ERANGE2.exit
 
-95:                                               ; preds = %39, %34
-  %96 = load double, ptr %6, align 8
-  %97 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %98 = load double, ptr %97, align 8
-  %99 = call { double, double } @_Py_c_pow(double %96, double %98, double %.pre31, double %37)
-  %100 = extractvalue { double, double } %99, 0
-  %101 = extractvalue { double, double } %99, 1
-  %.pr = load i32, ptr %35, align 4, !tbaa !4
+93:                                               ; preds = %42, %37
+  %94 = load double, ptr %6, align 8
+  %95 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %96 = load double, ptr %95, align 8
+  %97 = call { double, double } @_Py_c_pow(double %94, double %96, double %.pre30, double %40)
+  %98 = extractvalue { double, double } %97, 0
+  %99 = extractvalue { double, double } %97, 1
+  %.pr = load i32, ptr %38, align 4, !tbaa !4
   br label %_Py_ADJUST_ERANGE2.exit
 
-_Py_ADJUST_ERANGE2.exit:                          ; preds = %.sink.split.i, %93, %91, %95
-  %102 = phi i32 [ %.sink.i, %.sink.split.i ], [ %85, %93 ], [ %85, %91 ], [ %.pr, %95 ]
-  %.sroa.03.0 = phi double [ %86, %.sink.split.i ], [ %86, %93 ], [ %86, %91 ], [ %100, %95 ]
-  %.sroa.6.0 = phi double [ %87, %.sink.split.i ], [ %87, %93 ], [ %87, %91 ], [ %101, %95 ]
-  switch i32 %102, label %107 [
+_Py_ADJUST_ERANGE2.exit:                          ; preds = %.sink.split.i, %93, %91, %93
+  %100 = phi i32 [ %.sink.i, %.sink.split.i ], [ %83, %93 ], [ %83, %91 ], [ %.pr, %95 ]
+  %.sroa.03.0 = phi double [ %84, %.sink.split.i ], [ %84, %93 ], [ %84, %91 ], [ %98, %95 ]
+  %.sroa.6.0 = phi double [ %85, %.sink.split.i ], [ %85, %93 ], [ %85, %91 ], [ %99, %95 ]
+  switch i32 %100, label %107 [
     i32 33, label %103
     i32 34, label %105
   ]
@@ -3214,32 +3214,32 @@ _Py_ADJUST_ERANGE2.exit:                          ; preds = %.sink.split.i, %93,
   %109 = icmp eq ptr %108, null
   br i1 %109, label %110, label %112
 
-110:                                              ; preds = %107
-  %111 = call ptr @PyErr_NoMemory() #17
+108:                                              ; preds = %107
+  %109 = call ptr @PyErr_NoMemory() #17
   br label %PyComplex_FromCComplex.exit
 
-112:                                              ; preds = %107
-  %113 = getelementptr inbounds nuw i8, ptr %108, i64 8
-  store ptr @PyComplex_Type, ptr %113, align 8, !tbaa !8
-  %114 = load i32, ptr @PyComplex_Type, align 8, !tbaa !12
-  %115 = icmp slt i32 %114, 0
-  br i1 %115, label %_PyObject_Init.exit.i, label %116
+110:                                              ; preds = %107
+  %111 = getelementptr inbounds nuw i8, ptr %108, i64 8
+  store ptr @PyComplex_Type, ptr %111, align 8, !tbaa !8
+  %112 = load i32, ptr @PyComplex_Type, align 8, !tbaa !12
+  %113 = icmp slt i32 %112, 0
+  br i1 %113, label %_PyObject_Init.exit.i, label %114
 
-116:                                              ; preds = %112
-  %117 = add nuw i32 %114, 1
-  store i32 %117, ptr @PyComplex_Type, align 8, !tbaa !12
+114:                                              ; preds = %110
+  %115 = add nuw i32 %112, 1
+  store i32 %115, ptr @PyComplex_Type, align 8, !tbaa !12
   br label %_PyObject_Init.exit.i
 
-_PyObject_Init.exit.i:                            ; preds = %116, %112
+_PyObject_Init.exit.i:                            ; preds = %114, %110
   call void @_Py_NewReference(ptr noundef nonnull %108) #17
-  %118 = getelementptr inbounds nuw i8, ptr %108, i64 16
-  store double %.sroa.03.0, ptr %118, align 8, !tbaa !13
+  %116 = getelementptr inbounds nuw i8, ptr %108, i64 16
+  store double %.sroa.03.0, ptr %116, align 8, !tbaa !13
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %108, i64 24
   store double %.sroa.6.0, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !13
   br label %PyComplex_FromCComplex.exit
 
-PyComplex_FromCComplex.exit:                      ; preds = %_PyObject_Init.exit.i, %110, %105, %103, %32, %30, %18
-  %.0 = phi ptr [ null, %32 ], [ null, %103 ], [ null, %105 ], [ %19, %18 ], [ %31, %30 ], [ %111, %110 ], [ %108, %_PyObject_Init.exit.i ]
+PyComplex_FromCComplex.exit:                      ; preds = %_PyObject_Init.exit.i, %108, %105, %103, %35, %33, %18
+  %.0 = phi ptr [ null, %32 ], [ null, %103 ], [ null, %105 ], [ %19, %18 ], [ %34, %30 ], [ %109, %110 ], [ %108, %_PyObject_Init.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.0
@@ -4608,7 +4608,7 @@ attributes #17 = { nounwind }
 !47 = !{!48, !11, i64 144}
 !48 = !{!"", !11, i64 0, !11, i64 8, !11, i64 16, !11, i64 24, !11, i64 32, !11, i64 40, !11, i64 48, !11, i64 56, !11, i64 64, !11, i64 72, !11, i64 80, !11, i64 88, !11, i64 96, !11, i64 104, !11, i64 112, !11, i64 120, !11, i64 128, !11, i64 136, !11, i64 144, !11, i64 152, !11, i64 160, !11, i64 168, !11, i64 176, !11, i64 184, !11, i64 192, !11, i64 200, !11, i64 208, !11, i64 216, !11, i64 224, !11, i64 232, !11, i64 240, !11, i64 248, !11, i64 256, !11, i64 264, !11, i64 272, !11, i64 280}
 !49 = !{!48, !11, i64 264}
-!50 = !{!51, !23, i64 16}
+!50 = !{!51, !25, i64 16}
 !51 = !{!"", !9, i64 0, !23, i64 16, !23, i64 24, !52, i64 32}
 !52 = !{!"", !29, i64 0, !29, i64 2, !29, i64 2, !29, i64 2, !29, i64 2}
 !53 = distinct !{!53, !54}

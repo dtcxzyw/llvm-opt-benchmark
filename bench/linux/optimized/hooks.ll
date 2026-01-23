@@ -11608,19 +11608,19 @@ define internal i32 @selinux_sctp_bind_connect(ptr noundef %0, i32 noundef %1, p
     i32 6, label %.lr.ph.split.us.preheader
     i32 5, label %.lr.ph.split.us.preheader
     i32 100, label %.lr.ph.split.us.preheader
-    i32 110, label %.lr.ph.split.us17.preheader
-    i32 1216, label %.lr.ph.split.us17.preheader
-    i32 448, label %.lr.ph.split.us17.preheader
-    i32 126, label %.lr.ph.split.us17.preheader
+    i32 110, label %.preheader.split.us4.preheader
+    i32 1216, label %.preheader.split.us4.preheader
+    i32 448, label %.preheader.split.us4.preheader
+    i32 126, label %.preheader.split.us4.preheader
   ]
 
-.lr.ph.split.us17.preheader:                      ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
+.preheader.split.us4.preheader:                   ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
   br label %.lr.ph.split.us17
 
-.lr.ph.split.us.preheader:                        ; preds = %.lr.ph, %.lr.ph, %.lr.ph
+.preheader.split.us:                              ; preds = %.lr.ph, %.lr.ph, %.lr.ph
   br label %.lr.ph.split.us
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %24
+16:                                               ; preds = %.preheader.split.us, %24
   %13 = phi i32 [ %19, %24 ], [ 0, %.lr.ph.split.us.preheader ]
   %14 = phi ptr [ %26, %24 ], [ %2, %.lr.ph.split.us.preheader ]
   %15 = load i16, ptr %14, align 2
@@ -11630,28 +11630,28 @@ define internal i32 @selinux_sctp_bind_connect(ptr noundef %0, i32 noundef %1, p
     i16 10, label %16
   ]
 
-16:                                               ; preds = %.lr.ph.split.us
-  br label %17
+18:                                               ; preds = %16
+  br label %19
 
-17:                                               ; preds = %16, %.lr.ph.split.us, %.lr.ph.split.us
-  %18 = phi i32 [ 28, %16 ], [ 16, %.lr.ph.split.us ], [ 16, %.lr.ph.split.us ]
-  %19 = add i32 %18, %13
-  %20 = icmp sgt i32 %19, %3
-  br i1 %20, label %.thread, label %21
+19:                                               ; preds = %18, %16, %16
+  %20 = phi i32 [ 28, %16 ], [ 16, %.lr.ph.split.us ], [ 16, %.lr.ph.split.us ]
+  %21 = add i32 %20, %13
+  %22 = icmp sgt i32 %21, %3
+  br i1 %22, label %.thread, label %23
 
-21:                                               ; preds = %17
-  %22 = tail call i32 @selinux_socket_bind(ptr noundef %9, ptr noundef %14, i32 noundef %18)
-  %23 = icmp eq i32 %22, 0
-  br i1 %23, label %24, label %.thread
+23:                                               ; preds = %19
+  %24 = tail call i32 @selinux_socket_bind(ptr noundef %9, ptr noundef %14, i32 noundef %20)
+  %25 = icmp eq i32 %24, 0
+  br i1 %25, label %26, label %.thread
 
-24:                                               ; preds = %21
-  %25 = zext nneg i32 %18 to i64
-  %26 = getelementptr i8, ptr %14, i64 %25
-  %27 = or disjoint i32 %19, 2
+26:                                               ; preds = %23
+  %27 = zext nneg i32 %20 to i64
+  %28 = getelementptr i8, ptr %14, i64 %27
+  %27 = or disjoint i32 %21, 2
   %28 = icmp ugt i32 %27, %3
   br i1 %28, label %.thread, label %.lr.ph.split.us
 
-.lr.ph.split.us17:                                ; preds = %.lr.ph.split.us17.preheader, %43
+36:                                               ; preds = %.lr.ph.split.us17.preheader, %43
   %29 = phi i32 [ %35, %43 ], [ 0, %.lr.ph.split.us17.preheader ]
   %30 = phi ptr [ %45, %43 ], [ %2, %.lr.ph.split.us17.preheader ]
   %31 = load i16, ptr %30, align 2
@@ -11661,27 +11661,27 @@ define internal i32 @selinux_sctp_bind_connect(ptr noundef %0, i32 noundef %1, p
     i16 10, label %32
   ]
 
-32:                                               ; preds = %.lr.ph.split.us17
+37:                                               ; preds = %36
   br label %33
 
-33:                                               ; preds = %32, %.lr.ph.split.us17, %.lr.ph.split.us17
-  %34 = phi i32 [ 28, %32 ], [ 16, %.lr.ph.split.us17 ], [ 16, %.lr.ph.split.us17 ]
+41:                                               ; preds = %37, %36, %36
+  %34 = phi i32 [ 28, %32 ], [ 16, %.lr.ph.split.us17 ], [ 18, %.lr.ph.split.us17 ]
   %35 = add i32 %34, %29
-  %36 = icmp sgt i32 %35, %3
-  br i1 %36, label %.thread, label %37
+  %43 = icmp sgt i32 %35, %3
+  br i1 %43, label %.thread, label %37
 
-37:                                               ; preds = %33
+44:                                               ; preds = %41
   %.val.us = load ptr, ptr %12, align 8
   %38 = tail call fastcc i32 @selinux_socket_connect_helper(ptr %.val.us, ptr noundef %30, i32 noundef %34)
   %39 = icmp eq i32 %38, 0
   br i1 %39, label %40, label %.thread
 
-40:                                               ; preds = %37
+47:                                               ; preds = %44
   %41 = tail call i32 @selinux_netlbl_socket_connect_locked(ptr noundef %0, ptr noundef %30) #25
   %42 = icmp eq i32 %41, 0
   br i1 %42, label %43, label %.thread
 
-43:                                               ; preds = %40
+.thread:                                          ; preds = %47
   %44 = zext nneg i32 %34 to i64
   %45 = getelementptr i8, ptr %30, i64 %44
   %46 = or disjoint i32 %35, 2
@@ -16225,7 +16225,7 @@ attributes #32 = { nounwind allocsize(1) }
 !29 = !{i64 2149823005, i64 2149823034, i64 2149823080, i64 2149823138, i64 2149823192, i64 2149823246, i64 2149823301, i64 2149823332, i64 2149823640, i64 2149823646, i64 2149823693, i64 2149823716, i64 2149823742}
 !30 = !{i64 2149824197, i64 2149824013, i64 2149824063, i64 2149824109, i64 2149824137}
 !31 = !{i64 2148498753, i64 2148498792, i64 2148498813, i64 2148498850, i64 2148498873, i64 2148498743}
-!32 = !{i64 2148499116, i64 2148499155, i64 2148499176, i64 2148499213, i64 2148499236, i64 2148499106}
+!32 = !{i64 2148499118, i64 2148499155, i64 2148499176, i64 2148499213, i64 2148499236, i64 2148499106}
 !33 = !{i64 2164148368, i64 2164148172, i64 2164148224, i64 2164148270, i64 2164148298}
 !34 = !{i64 2164148445, i64 2164148474, i64 2164148520, i64 2164148578, i64 2164148632, i64 2164148686, i64 2164148741, i64 2164148772, i64 2164149080, i64 2164149086, i64 2164149133, i64 2164149156, i64 2164149182}
 !35 = !{i64 2164149645, i64 2164149451, i64 2164149501, i64 2164149547, i64 2164149575}

@@ -10956,14 +10956,14 @@ define void @ff_fix_long_p_mvs(ptr noundef readonly captures(none) %0, i32 nound
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 4148
   %24 = load i32, ptr %23, align 4, !tbaa !183
   %25 = icmp eq i32 %24, 0
-  br i1 %25, label %.thread, label %26
+  br i1 %25, label %27, label %26
 
 26:                                               ; preds = %22
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.4, i32 noundef 1670) #15
   tail call void @abort() #16
   unreachable
 
-.thread:                                          ; preds = %22, %18
+27:                                               ; preds = %22, %18
   %27 = load ptr, ptr %3, align 8, !tbaa !79
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 280
   %29 = load i32, ptr %28, align 8, !tbaa !134
@@ -10997,26 +10997,26 @@ define void @ff_fix_long_p_mvs(ptr noundef readonly captures(none) %0, i32 nound
   %49 = icmp sgt i32 %48, 0
   br i1 %49, label %.lr.ph83.split, label %.loopexit76
 
-.lr.ph83.split:                                   ; preds = %.lr.ph83, %._crit_edge
+29:                                               ; preds = %.lr.ph83, %._crit_edge
   %50 = phi i32 [ %95, %._crit_edge ], [ %38, %.lr.ph83 ]
-  %51 = phi i32 [ %96, %._crit_edge ], [ %48, %.lr.ph83 ]
-  %52 = phi i32 [ %97, %._crit_edge ], [ %48, %.lr.ph83 ]
+  %51 = phi i32 [ %108, %._crit_edge ], [ %48, %.lr.ph83 ]
+  %52 = phi i32 [ %109, %._crit_edge ], [ %48, %.lr.ph83 ]
   %.081 = phi i32 [ %98, %._crit_edge ], [ 0, %.lr.ph83 ]
   %53 = icmp sgt i32 %52, 0
   br i1 %53, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %.lr.ph83.split
-  %54 = load i32, ptr %41, align 4, !tbaa !70
+33:                                               ; preds = %29
+  %34 = load i32, ptr %41, align 4, !tbaa !70
   %55 = mul i32 %40, %.081
-  %56 = load ptr, ptr %43, align 8, !tbaa !157
-  %57 = mul i32 %54, %.081
+  %36 = load ptr, ptr %43, align 8, !tbaa !157
+  %57 = mul i32 %34, %.081
   %58 = sext i32 %57 to i64
   br label %59
 
-59:                                               ; preds = %.lr.ph, %.loopexit
+.thread:                                          ; preds = %33, %.loopexit
   %60 = phi i32 [ %51, %.lr.ph ], [ %91, %.loopexit ]
   %indvars.iv = phi i64 [ %58, %.lr.ph ], [ %indvars.iv.next, %.loopexit ]
-  %.05880 = phi i32 [ %55, %.lr.ph ], [ %92, %.loopexit ]
+  %.05880 = phi i32 [ %55, %.lr.ph ], [ %104, %.loopexit ]
   %.06079 = phi i32 [ 0, %.lr.ph ], [ %93, %.loopexit ]
   %61 = getelementptr inbounds i16, ptr %56, i64 %indvars.iv
   %62 = load i16, ptr %61, align 2, !tbaa !78
@@ -11024,11 +11024,11 @@ define void @ff_fix_long_p_mvs(ptr noundef readonly captures(none) %0, i32 nound
   %.not69 = icmp eq i16 %63, 0
   br i1 %.not69, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %59
+.lr.ph83.split:                                   ; preds = %.thread
   %64 = load ptr, ptr %44, align 8, !tbaa !146
-  br label %65
+  br label %.lr.ph
 
-65:                                               ; preds = %.preheader, %88
+.lr.ph:                                           ; preds = %.lr.ph83.split, %88
   %66 = phi i16 [ %62, %.preheader ], [ %89, %88 ]
   %.05977 = phi i32 [ 0, %.preheader ], [ %90, %88 ]
   %67 = and i32 %.05977, 1
@@ -11040,8 +11040,8 @@ define void @ff_fix_long_p_mvs(ptr noundef readonly captures(none) %0, i32 nound
   %73 = getelementptr inbounds [2 x i16], ptr %64, i64 %72
   %74 = load i16, ptr %73, align 2, !tbaa !78
   %75 = sext i16 %74 to i32
-  %.not70 = icmp sgt i32 %.057, %75
-  br i1 %.not70, label %76, label %83
+  %.not69 = icmp sgt i32 %.057, %75
+  br i1 %.not69, label %76, label %83
 
 76:                                               ; preds = %65
   %77 = getelementptr inbounds nuw i8, ptr %73, i64 2
@@ -11063,35 +11063,35 @@ define void @ff_fix_long_p_mvs(ptr noundef readonly captures(none) %0, i32 nound
   store i32 %1, ptr %87, align 4, !tbaa !58
   br label %88
 
-88:                                               ; preds = %76, %83
+.preheader:                                       ; preds = %76, %83
   %89 = phi i16 [ %66, %76 ], [ %85, %83 ]
   %90 = add nuw nsw i32 %.05977, 1
   %exitcond.not = icmp eq i32 %90, 4
   br i1 %exitcond.not, label %.loopexit.loopexit, label %65, !llvm.loop !191
 
-.loopexit.loopexit:                               ; preds = %88
+77:                                               ; preds = %.preheader
   %.pre = load i32, ptr %42, align 4, !tbaa !96
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %59
-  %91 = phi i32 [ %.pre, %.loopexit.loopexit ], [ %60, %59 ]
-  %92 = add nsw i32 %.05880, 2
+  %103 = phi i32 [ %.pre, %.loopexit.loopexit ], [ %60, %59 ]
+  %104 = add nsw i32 %.05880, 2
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %93 = add nuw nsw i32 %.06079, 1
-  %94 = icmp slt i32 %93, %91
-  br i1 %94, label %59, label %._crit_edge.loopexit, !llvm.loop !192
+  %105 = add nuw nsw i32 %.06079, 1
+  %106 = icmp slt i32 %105, %103
+  br i1 %106, label %59, label %._crit_edge.loopexit, !llvm.loop !192
 
 ._crit_edge.loopexit:                             ; preds = %.loopexit
   %.pre86 = load i32, ptr %37, align 8, !tbaa !97
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph83.split
-  %95 = phi i32 [ %.pre86, %._crit_edge.loopexit ], [ %50, %.lr.ph83.split ]
-  %96 = phi i32 [ %91, %._crit_edge.loopexit ], [ %51, %.lr.ph83.split ]
-  %97 = phi i32 [ %91, %._crit_edge.loopexit ], [ %52, %.lr.ph83.split ]
-  %98 = add nuw nsw i32 %.081, 1
-  %99 = icmp slt i32 %98, %95
-  br i1 %99, label %.lr.ph83.split, label %.loopexit76, !llvm.loop !193
+  %107 = phi i32 [ %.pre86, %._crit_edge.loopexit ], [ %50, %.lr.ph83.split ]
+  %108 = phi i32 [ %103, %._crit_edge.loopexit ], [ %51, %.lr.ph83.split ]
+  %109 = phi i32 [ %103, %._crit_edge.loopexit ], [ %52, %.lr.ph83.split ]
+  %110 = add nuw nsw i32 %.081, 1
+  %111 = icmp slt i32 %110, %107
+  br i1 %111, label %.lr.ph83.split, label %.loopexit76, !llvm.loop !193
 
 .loopexit76:                                      ; preds = %._crit_edge, %.lr.ph83, %34, %.thread
   ret void

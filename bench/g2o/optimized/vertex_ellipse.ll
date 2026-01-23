@@ -6285,28 +6285,28 @@ define linkonce_odr void @_ZN5Eigen8internal13gemm_pack_lhsIflNS0_22const_blas_d
   %19 = icmp slt i64 %.0123192.us, %18
   br i1 %19, label %.lr.ph.us, label %._crit_edge.split.us.us
 
-._crit_edge.split.us.us:                          ; preds = %._crit_edge151.us.us, %.split.us
-  %.1124.lcssa.us = phi i64 [ %.0123192.us, %.split.us ], [ %23, %._crit_edge151.us.us ]
-  %.1.lcssa.us = phi i64 [ %.0122193.us, %.split.us ], [ %.4.lcssa.us.us, %._crit_edge151.us.us ]
+.preheader.us:                                    ; preds = %._crit_edge151.us.us, %.split.us
+  %.8198.us = phi i64 [ %.0123192.us, %.split.us ], [ %23, %._crit_edge151.us.us ]
+  %.2125197.us = phi i64 [ %.0122193.us, %.split.us ], [ %.4.lcssa.us.us, %._crit_edge151.us.us ]
   %indvars.iv.next244 = add nsw i64 %indvars.iv243, -4
   %20 = icmp samesign ugt i64 %indvars.iv243, 4
   br i1 %20, label %.split.us, label %.preheader137
 
-.lr.ph.us:                                        ; preds = %.split.us
+21:                                               ; preds = %.split.us
   %21 = shl nsw i64 %indvars.iv243, 2
   %22 = add nsw i64 %indvars.iv243, -3
   br label %.preheader139.lr.ph.us.us
 
-.preheader139.lr.ph.us.us:                        ; preds = %._crit_edge151.us.us, %.lr.ph.us
+.preheader139.lr.ph.us.us:; preds = %._crit_edge151.us.us, %21
   %.1155.us.us = phi i64 [ %.0122193.us, %.lr.ph.us ], [ %.4.lcssa.us.us, %._crit_edge151.us.us ]
   %.1124153.us.us = phi i64 [ %.0123192.us, %.lr.ph.us ], [ %23, %._crit_edge151.us.us ]
   br label %.preheader139.us.us
 
-._crit_edge151.us.us:                             ; preds = %._crit_edge.us.us.us, %..loopexit_crit_edge.us.us
+._crit_edge151.us.us:; preds = %._crit_edge.us.us.us, %..loopexit_crit_edge.us.us
   %.4.lcssa.us.us = phi i64 [ %26, %..loopexit_crit_edge.us.us ], [ %87, %._crit_edge.us.us.us ]
   %23 = add i64 %.1124153.us.us, %indvars.iv243
   %24 = icmp slt i64 %23, %18
-  br i1 %24, label %.preheader139.lr.ph.us.us, label %._crit_edge.split.us.us, !llvm.loop !425
+  br i1 %24, label %.preheader139.lr.ph.us.us, label %62, !llvm.loop !425
 
 25:                                               ; preds = %48
   %26 = add nsw i64 %.3144.us.us, %21
@@ -6314,13 +6314,13 @@ define linkonce_odr void @_ZN5Eigen8internal13gemm_pack_lhsIflNS0_22const_blas_d
   %28 = icmp slt i64 %27, %10
   br i1 %28, label %.preheader139.us.us, label %..loopexit_crit_edge.us.us, !llvm.loop !426
 
-29:                                               ; preds = %.preheader139.us.us, %48
+29:; preds = %.preheader139.us.us, %48
   %.0130142.us.us = phi i64 [ 0, %.preheader139.us.us ], [ %49, %48 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %30 = add i64 %.0130142.us.us, %.1124153.us.us
-  %31 = load ptr, ptr %2, align 8, !tbaa !394
-  %32 = load i64, ptr %12, align 8, !tbaa !396
-  %33 = getelementptr float, ptr %31, i64 %.1128143.us.us
+  %41 = add i64 %.0130142.us.us, %.1124153.us.us
+  %42 = load ptr, ptr %2, align 8, !tbaa !394
+  %43 = load i64, ptr %12, align 8, !tbaa !396
+  %44 = getelementptr float, ptr %42, i64 %.1128143.us.us
   br label %56
 
 34:                                               ; preds = %56
@@ -6393,7 +6393,7 @@ define linkonce_odr void @_ZN5Eigen8internal13gemm_pack_lhsIflNS0_22const_blas_d
   %66 = getelementptr float, ptr %64, i64 %.2129149.us.us.us
   br label %67
 
-67:                                               ; preds = %67, %.preheader138.us.us.us
+45:                                               ; preds = %67, %.preheader138.us.us.us
   %.5147.us.us.us = phi i64 [ %.4150.us.us.us, %.preheader138.us.us.us ], [ %87, %67 ]
   %.0131146.us.us.us = phi i64 [ 0, %.preheader138.us.us.us ], [ %89, %67 ]
   %68 = add nsw i64 %.0131146.us.us.us, %.1124153.us.us
@@ -6410,7 +6410,7 @@ define linkonce_odr void @_ZN5Eigen8internal13gemm_pack_lhsIflNS0_22const_blas_d
   %79 = load float, ptr %78, align 4, !tbaa !6
   %80 = add nsw i64 %68, 3
   %81 = mul nsw i64 %65, %80
-  %82 = getelementptr float, ptr %66, i64 %81
+  %58 = getelementptr float, ptr %66, i64 %81
   %83 = load float, ptr %82, align 4, !tbaa !6
   %84 = getelementptr inbounds float, ptr %1, i64 %.5147.us.us.us
   store float %71, ptr %84, align 4, !tbaa !6
@@ -6516,20 +6516,20 @@ define linkonce_odr void @_ZN5Eigen8internal13gemm_pack_lhsIflNS0_22const_blas_d
   %130 = icmp slt i64 %.us-phi194, %4
   br i1 %130, label %.preheader.lr.ph, label %._crit_edge217
 
-.preheader.lr.ph:                                 ; preds = %.preheader137
+59:                                               ; preds = %.preheader137
   %131 = icmp sgt i64 %3, 0
   %132 = load ptr, ptr %2, align 8
   %133 = load i64, ptr %12, align 8
-  br i1 %131, label %.preheader.us, label %._crit_edge217
+  br i1 %131, label %62, label %._crit_edge217
 
-.preheader.us:                                    ; preds = %.preheader.lr.ph, %._crit_edge.us
-  %.8216.us = phi i64 [ %137, %._crit_edge.us ], [ %.us-phi195, %.preheader.lr.ph ]
+62:                                               ; preds = %59, %._crit_edge.us
+  %indvars.iv216 = phi i64 [ %137, %._crit_edge.us ], [ %.us-phi195, %.preheader.lr.ph ]
   %.2125215.us = phi i64 [ %140, %._crit_edge.us ], [ %.us-phi194, %.preheader.lr.ph ]
   %134 = mul nsw i64 %133, %.2125215.us
-  %invariant.gep.us = getelementptr float, ptr %132, i64 %134
+  %65 = getelementptr float, ptr %132, i64 %134
   br label %135
 
-135:                                              ; preds = %.preheader.us, %135
+135:; preds = %.preheader.us, %135
   %.0213.us = phi i64 [ 0, %.preheader.us ], [ %139, %135 ]
   %.9212.us = phi i64 [ %.8216.us, %.preheader.us ], [ %137, %135 ]
   %gep.us = getelementptr float, ptr %invariant.gep.us, i64 %.0213.us
@@ -6541,13 +6541,13 @@ define linkonce_odr void @_ZN5Eigen8internal13gemm_pack_lhsIflNS0_22const_blas_d
   %exitcond247.not = icmp eq i64 %139, %3
   br i1 %exitcond247.not, label %._crit_edge.us, label %135, !llvm.loop !432
 
-._crit_edge.us:                                   ; preds = %135
+._crit_edge.us:; preds = %135
   %140 = add nsw i64 %.2125215.us, 1
   %exitcond248.not = icmp eq i64 %140, %4
   br i1 %exitcond248.not, label %._crit_edge217, label %.preheader.us, !llvm.loop !433
 
-.split.split:                                     ; preds = %.split, %._crit_edge.split.split
-  %indvars.iv = phi i64 [ %indvars.iv.next, %._crit_edge.split.split ], [ 8, %.split ]
+.split.split:; preds = %.split, %._crit_edge.split.split
+  %.1128143.us = phi i64 [ %indvars.iv.next, %._crit_edge.split.split ], [ 8, %.split ]
   %.0123192 = phi i64 [ %.1124.lcssa, %._crit_edge.split.split ], [ 0, %.split ]
   %141 = sub i64 %4, %.0123192
   %142 = srem i64 %141, %indvars.iv
@@ -6555,16 +6555,16 @@ define linkonce_odr void @_ZN5Eigen8internal13gemm_pack_lhsIflNS0_22const_blas_d
   %144 = icmp slt i64 %.0123192, %143
   br i1 %144, label %.loopexit, label %._crit_edge.split.split
 
-.loopexit:                                        ; preds = %.split.split, %.loopexit
+.loopexit:; preds = %.split.split, %.loopexit
   %.1124153 = phi i64 [ %145, %.loopexit ], [ %.0123192, %.split.split ]
-  %145 = add i64 %.1124153, %indvars.iv
+  %145 = add i64 %.1124153, %.1128143.us
   %146 = icmp slt i64 %145, %143
   br i1 %146, label %.loopexit, label %._crit_edge.split.split, !llvm.loop !425
 
 ._crit_edge.split.split:                          ; preds = %.loopexit, %.split.split
   %.1124.lcssa = phi i64 [ %.0123192, %.split.split ], [ %145, %.loopexit ]
-  %indvars.iv.next = add nsw i64 %indvars.iv, -4
-  %147 = icmp samesign ugt i64 %indvars.iv, 4
+  %indvars.iv.next = add nsw i64 %.1128143.us, -4
+  %147 = icmp samesign ugt i64 %.1128143.us, 4
   br i1 %147, label %.split.split, label %.preheader137
 
 ._crit_edge217:                                   ; preds = %._crit_edge.us, %.preheader.lr.ph, %.preheader137

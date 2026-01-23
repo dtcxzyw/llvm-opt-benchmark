@@ -2457,7 +2457,7 @@ _ZN3tbb6detail2d014try_call_proxyIZNS0_2d211micro_queueISt10shared_ptrIN32pxrInt
   br label %23
 
 23:                                               ; preds = %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i, %.lr.ph.i
-  %24 = phi i64 [ %20, %.lr.ph.i ], [ %33, %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i ]
+  %24 = phi i64 [ %20, %.lr.ph.i ], [ %37, %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i ]
   %.sroa.0.06.i = phi i32 [ 2, %.lr.ph.i ], [ %.sroa.0.1.i, %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i ]
   %25 = and i64 %24, 1
   %.not.i = icmp eq i64 %25, 0
@@ -2470,97 +2470,97 @@ _ZN3tbb6detail2d014try_call_proxyIZNS0_2d211micro_queueISt10shared_ptrIN32pxrInt
 
 28:                                               ; preds = %26, %23
   %29 = icmp slt i32 %.sroa.0.06.i, 17
-  br i1 %29, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i, label %31
+  br i1 %29, label %30, label %35
 
-_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i:     ; preds = %28
+30:                                               ; preds = %28
   %30 = shl nsw i32 %.sroa.0.06.i, 1
   br label %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i
 
-31:                                               ; preds = %28
-  %32 = call noundef i32 @sched_yield() #12
+35:                                               ; preds = %28
+  %36 = call noundef i32 @sched_yield() #12
   br label %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i
 
-_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i: ; preds = %31, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i
+_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i: ; preds = %35, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i
   %.sroa.0.1.i = phi i32 [ %30, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i ], [ %.sroa.0.06.i, %31 ]
-  %33 = load atomic i64, ptr %17 seq_cst, align 8
-  %34 = icmp eq i64 %33, %16
-  br i1 %34, label %_ZNK3tbb6detail2d211micro_queueISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__15TraceCollectionEENS0_2d123cache_aligned_allocatorIS6_EEE23spin_wait_until_my_turnERSt6atomicImEmRNS1_20concurrent_queue_repIS6_S9_EE.exit, label %23, !llvm.loop !42
+  %37 = load atomic i64, ptr %17 seq_cst, align 8
+  %38 = icmp eq i64 %37, %16
+  br i1 %38, label %_ZNK3tbb6detail2d211micro_queueISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__15TraceCollectionEENS0_2d123cache_aligned_allocatorIS6_EEE23spin_wait_until_my_turnERSt6atomicImEmRNS1_20concurrent_queue_repIS6_S9_EE.exit, label %23, !llvm.loop !42
 
 _ZNK3tbb6detail2d211micro_queueISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__15TraceCollectionEENS0_2d123cache_aligned_allocatorIS6_EEE23spin_wait_until_my_turnERSt6atomicImEmRNS1_20concurrent_queue_repIS6_S9_EE.exit: ; preds = %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i, %19, %15
-  %35 = load ptr, ptr %3, align 8
-  %.not19 = icmp eq ptr %35, null
-  br i1 %.not19, label %60, label %36
+  %39 = load ptr, ptr %3, align 8
+  %.not19 = icmp eq ptr %39, null
+  br i1 %.not19, label %64, label %40
 
-36:                                               ; preds = %_ZNK3tbb6detail2d211micro_queueISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__15TraceCollectionEENS0_2d123cache_aligned_allocatorIS6_EEE23spin_wait_until_my_turnERSt6atomicImEmRNS1_20concurrent_queue_repIS6_S9_EE.exit
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %38 = atomicrmw xchg ptr %37, i8 1 seq_cst, align 1
-  %39 = trunc i8 %38 to i1
-  br i1 %39, label %.lr.ph.i.i.i, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit
+40:                                               ; preds = %_ZNK3tbb6detail2d211micro_queueISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__15TraceCollectionEENS0_2d123cache_aligned_allocatorIS6_EEE23spin_wait_until_my_turnERSt6atomicImEmRNS1_20concurrent_queue_repIS6_S9_EE.exit
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %42 = atomicrmw xchg ptr %41, i8 1 seq_cst, align 1
+  %43 = trunc i8 %42 to i1
+  br i1 %43, label %.lr.ph.i.i.i20, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit
 
-.lr.ph.i.i.i:                                     ; preds = %36, %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i
+.lr.ph.i.i.i20:                                   ; preds = %40, %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i
   %.sroa.0.02.i.i.i = phi i32 [ %.sroa.0.1.i.i.i, %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i ], [ 1, %36 ]
-  %40 = icmp slt i32 %.sroa.0.02.i.i.i, 17
-  br i1 %40, label %41, label %46
+  %44 = icmp slt i32 %.sroa.0.02.i.i.i, 17
+  br i1 %44, label %45, label %50
 
-41:                                               ; preds = %.lr.ph.i.i.i
-  %42 = icmp sgt i32 %.sroa.0.02.i.i.i, 0
-  br i1 %42, label %.lr.ph.i.i.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i
+45:                                               ; preds = %.lr.ph.i.i.i20
+  %46 = icmp sgt i32 %.sroa.0.02.i.i.i, 0
+  br i1 %46, label %.lr.ph.i.i.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %41, %.lr.ph.i.i.i.i.i
-  %.01.i.i.i.i.i = phi i32 [ %43, %.lr.ph.i.i.i.i.i ], [ %.sroa.0.02.i.i.i, %41 ]
-  %43 = add nsw i32 %.01.i.i.i.i.i, -1
+.lr.ph.i.i.i.i.i:                                 ; preds = %45, %.lr.ph.i.i.i.i.i
+  %.01.i.i.i.i.i = phi i32 [ %47, %.lr.ph.i.i.i.i.i ], [ %.sroa.0.02.i.i.i, %41 ]
+  %47 = add nsw i32 %.01.i.i.i.i.i, -1
   call void @llvm.x86.sse2.pause()
-  %44 = icmp samesign ugt i32 %.01.i.i.i.i.i, 1
-  br i1 %44, label %.lr.ph.i.i.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i, !llvm.loop !24
+  %48 = icmp samesign ugt i32 %.01.i.i.i.i.i, 1
+  br i1 %48, label %.lr.ph.i.i.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i, !llvm.loop !24
 
-_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i, %41
-  %45 = shl nsw i32 %.sroa.0.02.i.i.i, 1
+_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i, %45
+  %49 = shl nsw i32 %.sroa.0.02.i.i.i, 1
   br label %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i
 
-46:                                               ; preds = %.lr.ph.i.i.i
-  %47 = call noundef i32 @sched_yield() #12
+50:                                               ; preds = %.lr.ph.i.i.i20
+  %51 = call noundef i32 @sched_yield() #12
   br label %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i
 
-_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i: ; preds = %46, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i
-  %.sroa.0.1.i.i.i = phi i32 [ %45, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i ], [ %.sroa.0.02.i.i.i, %46 ]
-  %48 = atomicrmw xchg ptr %37, i8 1 seq_cst, align 1
-  %49 = trunc i8 %48 to i1
-  br i1 %49, label %.lr.ph.i.i.i, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit, !llvm.loop !27
+_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i: ; preds = %50, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i
+  %.sroa.0.1.i.i.i = phi i32 [ %49, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i ], [ %.sroa.0.02.i.i.i, %46 ]
+  %52 = atomicrmw xchg ptr %41, i8 1 seq_cst, align 1
+  %53 = trunc i8 %52 to i1
+  br i1 %53, label %.lr.ph.i.i.i20, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit, !llvm.loop !27
 
-_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit: ; preds = %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i, %36
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %51 = load atomic i64, ptr %50 monotonic, align 8
-  %52 = icmp ugt i64 %51, 1
-  br i1 %52, label %53, label %55
+_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit: ; preds = %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i, %40
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %55 = load atomic i64, ptr %54 monotonic, align 8
+  %56 = icmp ugt i64 %55, 1
+  br i1 %56, label %57, label %59
 
-53:                                               ; preds = %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit
-  %.0.i = inttoptr i64 %51 to ptr
-  %54 = load ptr, ptr %3, align 8
-  store ptr %54, ptr %.0.i, align 8
+57:                                               ; preds = %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit
+  %.0.i = inttoptr i64 %55 to ptr
+  %58 = load ptr, ptr %3, align 8
+  store ptr %58, ptr %.0.i, align 8
   br label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit
 
-55:                                               ; preds = %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit
-  %56 = load ptr, ptr %3, align 8
-  %57 = ptrtoint ptr %56 to i64
-  store atomic i64 %57, ptr %0 monotonic, align 8
-  %.pre26 = load ptr, ptr %3, align 8
+59:                                               ; preds = %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit
+  %60 = load ptr, ptr %3, align 8
+  %61 = ptrtoint ptr %60 to i64
+  store atomic i64 %61, ptr %0 monotonic, align 8
+  %.pre27 = load ptr, ptr %3, align 8
   br label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit
 
-_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit: ; preds = %55, %53
-  %58 = phi ptr [ %.pre26, %55 ], [ %54, %53 ]
-  %59 = ptrtoint ptr %58 to i64
-  store atomic i64 %59, ptr %50 release, align 8
-  store atomic i8 0, ptr %37 release, align 8
-  br label %63
+_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit: ; preds = %59, %57
+  %62 = phi ptr [ %.pre27, %55 ], [ %58, %53 ]
+  %63 = ptrtoint ptr %62 to i64
+  store atomic i64 %63, ptr %54 release, align 8
+  store atomic i8 0, ptr %41 release, align 8
+  br label %67
 
-60:                                               ; preds = %_ZNK3tbb6detail2d211micro_queueISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__15TraceCollectionEENS0_2d123cache_aligned_allocatorIS6_EEE23spin_wait_until_my_turnERSt6atomicImEmRNS1_20concurrent_queue_repIS6_S9_EE.exit
-  %61 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %62 = load atomic i64, ptr %61 acquire, align 8
-  %.0.i21 = inttoptr i64 %62 to ptr
-  store ptr %.0.i21, ptr %3, align 8
-  br label %63
+64:                                               ; preds = %_ZNK3tbb6detail2d211micro_queueISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__15TraceCollectionEENS0_2d123cache_aligned_allocatorIS6_EEE23spin_wait_until_my_turnERSt6atomicImEmRNS1_20concurrent_queue_repIS6_S9_EE.exit
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %66 = load atomic i64, ptr %65 acquire, align 8
+  %.0.i22 = inttoptr i64 %66 to ptr
+  store ptr %.0.i22, ptr %3, align 8
+  br label %67
 
-63:                                               ; preds = %60, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit
+67:                                               ; preds = %64, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit
   ret i64 %9
 }
 
