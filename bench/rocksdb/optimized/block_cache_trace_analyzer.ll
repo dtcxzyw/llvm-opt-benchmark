@@ -2200,7 +2200,7 @@ _ZNSolsEPFRSoS_E.exit:                            ; preds = %.noexc176
   %456 = getelementptr inbounds nuw i8, ptr %451, i64 16
   %457 = load i64, ptr %456, align 8, !tbaa !140
   %458 = uitofp i64 %457 to double
-  %459 = fmul double %458, 1.000000e+02
+  %459 = fmul nnan double %458, 1.000000e+02
   %460 = uitofp i64 %453 to double
   %461 = fdiv double %459, %460
   br label %_ZNK7rocksdb14MissRatioStats10miss_ratioEv.exit
@@ -3177,7 +3177,7 @@ _ZNKSt3mapImmSt4lessImESaISt4pairIKmmEEE4findERS3_.exit: ; preds = %107, %_ZNKSt
   %111 = load i64, ptr %110, align 8, !tbaa !164
   %112 = icmp eq i64 %111, 0
   %113 = uitofp i64 %101 to double
-  %114 = fmul double %113, 1.000000e+02
+  %114 = fmul nnan double %113, 1.000000e+02
   %115 = uitofp i64 %111 to double
   %116 = fdiv double %114, %115
   %.0.i = select i1 %112, double -1.000000e+00, double %116
@@ -4536,7 +4536,7 @@ _ZNKSt3mapImmSt4lessImESaISt4pairIKmmEEE4findERS3_.exit236: ; preds = %614, %_ZN
   %618 = load i64, ptr %617, align 8, !tbaa !164
   %619 = icmp eq i64 %618, 0
   %620 = uitofp i64 %608 to double
-  %621 = fmul double %620, 1.000000e+02
+  %621 = fmul nnan double %620, 1.000000e+02
   %622 = uitofp i64 %618 to double
   %623 = fdiv double %621, %622
   %.0.i237 = select i1 %619, double -1.000000e+00, double %623
@@ -12559,7 +12559,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit91: ; preds = %_
   %273 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i, i64 40
   %274 = load i64, ptr %273, align 8, !tbaa !164
   %275 = uitofp i64 %274 to double
-  %276 = fmul double %275, 1.000000e+02
+  %276 = fmul nnan double %275, 1.000000e+02
   %277 = fdiv double %276, %185
   %.0.i = select i1 %184, double -1.000000e+00, double %277
   invoke void (ptr, ptr, i64, ptr, ...) @_ZN9__gnu_cxx12__to_xstringINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEcEET_PFiPT0_mPKS8_P13__va_list_tagEmSB_z(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %15, ptr noundef nonnull @vsnprintf, i64 noundef 328, ptr noundef nonnull @.str.265, double noundef %.0.i)
@@ -20483,7 +20483,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit82: ; preds = %_
   %268 = load i64, ptr %7, align 8, !tbaa !77
   %269 = icmp eq i64 %268, 0
   %270 = uitofp i64 %267 to double
-  %271 = fmul double %270, 1.000000e+02
+  %271 = fmul nnan double %270, 1.000000e+02
   %272 = uitofp i64 %268 to double
   %273 = fdiv double %271, %272
   %.0.i = select i1 %269, double -1.000000e+00, double %273
@@ -22941,7 +22941,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i230: ; pr
   %646 = load i64, ptr %645, align 8, !tbaa !77
   %647 = icmp eq i64 %646, 0
   %648 = uitofp i64 %643 to double
-  %649 = fmul double %648, 1.000000e+02
+  %649 = fmul nnan double %648, 1.000000e+02
   %650 = uitofp i64 %646 to double
   %651 = fdiv double %649, %650
   %.0.i = select i1 %647, double -1.000000e+00, double %651
@@ -23376,7 +23376,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit: ; preds = %_ZN
   %46 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i, i64 64
   %47 = load i64, ptr %46, align 8, !tbaa !345
   %48 = uitofp i64 %47 to double
-  %49 = fmul double %48, 1.000000e+02
+  %49 = fmul nnan double %48, 1.000000e+02
   %50 = fdiv double %49, %14
   %.0.i = select i1 %13, double -1.000000e+00, double %50
   invoke void (ptr, ptr, i64, ptr, ...) @_ZN9__gnu_cxx12__to_xstringINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEcEET_PFiPT0_mPKS8_P13__va_list_tagEmSB_z(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef nonnull @vsnprintf, i64 noundef 328, ptr noundef nonnull @.str.265, double noundef %.0.i)
@@ -29617,7 +29617,7 @@ _ZNSt3mapIN7rocksdb17TableReaderCallerENS0_14MissRatioStatsESt4lessIS1_ESaISt4pa
 289:                                              ; preds = %280
   %290 = load i64, ptr %192, align 8, !tbaa !140
   %291 = uitofp i64 %290 to double
-  %292 = fmul double %291, 1.000000e+02
+  %292 = fmul nnan double %291, 1.000000e+02
   %293 = uitofp i64 %287 to double
   %294 = fdiv double %292, %293
   br label %_ZNK7rocksdb14MissRatioStats10miss_ratioEv.exit
@@ -29660,7 +29660,7 @@ _ZNK7rocksdb14MissRatioStats10miss_ratioEv.exit:  ; preds = %280, %289
   %311 = getelementptr inbounds nuw i8, ptr %.sroa.0123.0138, i64 48
   %312 = load i64, ptr %311, align 8, !tbaa !140
   %313 = uitofp i64 %312 to double
-  %314 = fmul double %313, 1.000000e+02
+  %314 = fmul nnan double %313, 1.000000e+02
   %315 = uitofp i64 %308 to double
   %316 = fdiv double %314, %315
   br label %_ZNK7rocksdb14MissRatioStats10miss_ratioEv.exit98
@@ -29766,7 +29766,7 @@ _ZN7rocksdb21BlockCacheTraceRecordD2Ev.exit:      ; preds = %_ZNSt7__cxx1112basi
 359:                                              ; preds = %355
   %360 = load i64, ptr %192, align 8, !tbaa !140
   %361 = uitofp i64 %360 to double
-  %362 = fmul double %361, 1.000000e+02
+  %362 = fmul nnan double %361, 1.000000e+02
   %363 = uitofp i64 %357 to double
   %364 = fdiv double %362, %363
   br label %_ZNK7rocksdb14MissRatioStats10miss_ratioEv.exit100
@@ -29812,7 +29812,7 @@ _ZNK7rocksdb14MissRatioStats10miss_ratioEv.exit100: ; preds = %355, %359
   %382 = getelementptr inbounds nuw i8, ptr %.sroa.0119.0140, i64 48
   %383 = load i64, ptr %382, align 8, !tbaa !140
   %384 = uitofp i64 %383 to double
-  %385 = fmul double %384, 1.000000e+02
+  %385 = fmul nnan double %384, 1.000000e+02
   %386 = uitofp i64 %379 to double
   %387 = fdiv double %385, %386
   br label %_ZNK7rocksdb14MissRatioStats10miss_ratioEv.exit105
@@ -31162,7 +31162,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit: ; preds = %_ZN
   %241 = getelementptr inbounds nuw i8, ptr %.sroa.0550.01003, i64 40
   %242 = load i64, ptr %241, align 8, !tbaa !752
   %243 = uitofp i64 %242 to double
-  %244 = fmul double %243, 1.000000e+02
+  %244 = fmul nnan double %243, 1.000000e+02
   %245 = fdiv double %244, %122
   %.0.i = select i1 %121, double -1.000000e+00, double %245
   invoke void (ptr, ptr, i64, ptr, ...) @_ZN9__gnu_cxx12__to_xstringINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEcEET_PFiPT0_mPKS8_P13__va_list_tagEmSB_z(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %21, ptr noundef nonnull @vsnprintf, i64 noundef 328, ptr noundef nonnull @.str.265, double noundef %.0.i)
@@ -31725,7 +31725,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit276: ; preds = %
   %404 = getelementptr inbounds nuw i8, ptr %.sroa.0532.01018, i64 40
   %405 = load i64, ptr %404, align 8, !tbaa !752
   %406 = uitofp i64 %405 to double
-  %407 = fmul double %406, 1.000000e+02
+  %407 = fmul nnan double %406, 1.000000e+02
   %408 = fdiv double %407, %355
   %.0.i277 = select i1 %354, double -1.000000e+00, double %408
   invoke void (ptr, ptr, i64, ptr, ...) @_ZN9__gnu_cxx12__to_xstringINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEcEET_PFiPT0_mPKS8_P13__va_list_tagEmSB_z(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %24, ptr noundef nonnull @vsnprintf, i64 noundef 328, ptr noundef nonnull @.str.265, double noundef %.0.i277)
@@ -31846,7 +31846,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit292: ; preds = %42
 
 ._crit_edge1033.loopexit:                         ; preds = %._crit_edge1026
   %436 = uitofp i64 %.1117.lcssa to double
-  %437 = fmul double %436, 1.000000e+02
+  %437 = fmul nnan double %436, 1.000000e+02
   br label %._crit_edge1033
 
 ._crit_edge1033:                                  ; preds = %._crit_edge1033.loopexit, %._crit_edge1020
@@ -31913,7 +31913,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit292: ; preds = %42
 
 ._crit_edge1048.loopexit:                         ; preds = %._crit_edge1040
   %460 = uitofp i64 %.1120.lcssa to double
-  %461 = fmul double %460, 1.000000e+02
+  %461 = fmul nnan double %460, 1.000000e+02
   br label %._crit_edge1048
 
 ._crit_edge1048:                                  ; preds = %._crit_edge1048.loopexit, %._crit_edge1033
@@ -36054,7 +36054,7 @@ _ZNSt8_Rb_treeIN7rocksdb9TraceTypeESt4pairIKS1_mESt10_Select1stIS4_ESt4lessIS1_E
 _ZN7rocksdb12_GLOBAL__N_120block_type_to_stringB5cxx11ENS_9TraceTypeE.exit: ; preds = %._crit_edge.i.i20.i, %.noexc381, %._crit_edge.i.i12.i, %._crit_edge.i.i8.i, %._crit_edge.i.i4.i, %._crit_edge.i.i.i
   %706 = phi ptr [ %86, %._crit_edge.i.i20.i ], [ %.pre, %.noexc381 ], [ %86, %._crit_edge.i.i12.i ], [ %86, %._crit_edge.i.i8.i ], [ %86, %._crit_edge.i.i4.i ], [ %86, %._crit_edge.i.i.i ]
   %707 = uitofp i64 %.sroa.545.0.copyload to double
-  %708 = fmul double %707, 1.000000e+02
+  %708 = fmul nnan double %707, 1.000000e+02
   %709 = fdiv double %708, %142
   %.0.i = select i1 %141, double -1.000000e+00, double %709
   %710 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %701, ptr noundef nonnull @.str.245, ptr noundef %706, i64 noundef %.sroa.545.0.copyload, double noundef %.0.i) #32
@@ -36167,7 +36167,7 @@ _ZN7rocksdb12_GLOBAL__N_117print_break_linesEj.exit385: ; preds = %.lr.ph1393, %
 745:                                              ; preds = %_ZN7rocksdb12_GLOBAL__N_117print_break_linesEj.exit385
   %746 = load ptr, ptr %27, align 8, !tbaa !9
   %747 = uitofp i64 %740 to double
-  %748 = fmul double %747, 1.000000e+02
+  %748 = fmul nnan double %747, 1.000000e+02
   %749 = fdiv double %748, %698
   %.0.i386 = select i1 %697, double -1.000000e+00, double %749
   %750 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %743, ptr noundef nonnull @.str.246, ptr noundef %746, i64 noundef %740, double noundef %.0.i386) #32
@@ -36293,7 +36293,7 @@ _ZNSt3mapIN7rocksdb17TableReaderCallerES_ImmSt4lessImESaISt4pairIKmmEEES2_IS1_ES
   %.sroa.432.0.copyload = load i64, ptr %.sroa.432.0..sroa_idx, align 8
   %790 = load ptr, ptr @stdout, align 8, !tbaa !356
   %791 = uitofp i64 %.sroa.432.0.copyload to double
-  %792 = fmul double %791, 1.000000e+02
+  %792 = fmul nnan double %791, 1.000000e+02
   %793 = fdiv double %792, %747
   %.0.i408 = select i1 %779, double -1.000000e+00, double %793
   %794 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %790, ptr noundef nonnull @.str.248, i64 noundef %.sroa.031.0.copyload, i64 noundef %.sroa.432.0.copyload, double noundef %.0.i408) #32
@@ -36399,7 +36399,7 @@ _ZNSt3mapIN7rocksdb17TableReaderCallerES_ImmSt4lessImESaISt4pairIKmmEEES2_IS1_ES
   %.sroa.427.0.copyload = load i64, ptr %.sroa.427.0..sroa_idx, align 8
   %827 = load ptr, ptr @stdout, align 8, !tbaa !356
   %828 = uitofp i64 %.sroa.427.0.copyload to double
-  %829 = fmul double %828, 1.000000e+02
+  %829 = fmul nnan double %828, 1.000000e+02
   %830 = fdiv double %829, %747
   %.0.i427 = select i1 %818, double -1.000000e+00, double %830
   %831 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %827, ptr noundef nonnull @.str.250, i64 noundef %.sroa.026.0.copyload, i64 noundef %.sroa.427.0.copyload, double noundef %.0.i427) #32
@@ -36566,7 +36566,7 @@ _ZNSt3mapIN7rocksdb17TableReaderCallerES_INS0_9TraceTypeEmSt4lessIS2_ESaISt4pair
 _ZN7rocksdb12_GLOBAL__N_120block_type_to_stringB5cxx11ENS_9TraceTypeE.exit453: ; preds = %._crit_edge.i.i20.i451, %.noexc452, %._crit_edge.i.i12.i447, %._crit_edge.i.i8.i448, %._crit_edge.i.i4.i449, %._crit_edge.i.i.i450
   %868 = phi ptr [ %98, %._crit_edge.i.i20.i451 ], [ %.pre1642, %.noexc452 ], [ %98, %._crit_edge.i.i12.i447 ], [ %98, %._crit_edge.i.i8.i448 ], [ %98, %._crit_edge.i.i4.i449 ], [ %98, %._crit_edge.i.i.i450 ]
   %869 = uitofp i64 %.sroa.522.0.copyload to double
-  %870 = fmul double %869, 1.000000e+02
+  %870 = fmul nnan double %869, 1.000000e+02
   %871 = fdiv double %870, %747
   %.0.i454 = select i1 %855, double -1.000000e+00, double %871
   %872 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %863, ptr noundef nonnull @.str.252, ptr noundef %868, i64 noundef %.sroa.522.0.copyload, double noundef %.0.i454) #32
@@ -36757,7 +36757,7 @@ _ZNSt3mapIN7rocksdb9TraceTypeEmSt4lessIS1_ESaISt4pairIKS1_mEEED2Ev.exit462: ; pr
 _ZN7rocksdb12_GLOBAL__N_120block_type_to_stringB5cxx11ENS_9TraceTypeE.exit470: ; preds = %._crit_edge.i.i20.i468, %.noexc469, %._crit_edge.i.i12.i464, %._crit_edge.i.i8.i465, %._crit_edge.i.i4.i466, %._crit_edge.i.i.i467
   %922 = phi ptr [ %114, %._crit_edge.i.i20.i468 ], [ %.pre1643, %.noexc469 ], [ %114, %._crit_edge.i.i12.i464 ], [ %114, %._crit_edge.i.i8.i465 ], [ %114, %._crit_edge.i.i4.i466 ], [ %114, %._crit_edge.i.i.i467 ]
   %923 = uitofp i64 %.sroa.516.0.copyload to double
-  %924 = fmul double %923, 1.000000e+02
+  %924 = fmul nnan double %923, 1.000000e+02
   %925 = fdiv double %924, %122
   %.0.i471 = select i1 %121, double -1.000000e+00, double %925
   %926 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %917, ptr noundef nonnull @.str.245, ptr noundef %922, i64 noundef %.sroa.516.0.copyload, double noundef %.0.i471) #32
@@ -36855,7 +36855,7 @@ _ZN7rocksdb12_GLOBAL__N_117print_break_linesEj.exit480: ; preds = %.lr.ph1422, %
 956:                                              ; preds = %_ZN7rocksdb12_GLOBAL__N_117print_break_linesEj.exit480
   %957 = load ptr, ptr %34, align 8, !tbaa !9
   %958 = uitofp i64 %953 to double
-  %959 = fmul double %958, 1.000000e+02
+  %959 = fmul nnan double %958, 1.000000e+02
   %960 = fdiv double %959, %904
   %.0.i481 = select i1 %903, double -1.000000e+00, double %960
   %961 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %954, ptr noundef nonnull @.str.246, ptr noundef %957, i64 noundef %953, double noundef %.0.i481) #32
@@ -36981,7 +36981,7 @@ _ZNSt3mapIN7rocksdb17TableReaderCallerES_IjmSt4lessIjESaISt4pairIKjmEEES2_IS1_ES
   %.sroa.45.0.copyload = load i64, ptr %.sroa.45.0..sroa_idx, align 8
   %1001 = load ptr, ptr @stdout, align 8, !tbaa !356
   %1002 = uitofp i64 %.sroa.45.0.copyload to double
-  %1003 = fmul double %1002, 1.000000e+02
+  %1003 = fmul nnan double %1002, 1.000000e+02
   %1004 = fdiv double %1003, %958
   %.0.i503 = select i1 %990, double -1.000000e+00, double %1004
   %1005 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1001, ptr noundef nonnull @.str.255, i32 noundef %.sroa.04.0.copyload, i64 noundef %.sroa.45.0.copyload, double noundef %.0.i503) #32
@@ -37148,7 +37148,7 @@ _ZNSt3mapIN7rocksdb17TableReaderCallerES_INS0_9TraceTypeEmSt4lessIS2_ESaISt4pair
 _ZN7rocksdb12_GLOBAL__N_120block_type_to_stringB5cxx11ENS_9TraceTypeE.exit529: ; preds = %._crit_edge.i.i20.i527, %.noexc528, %._crit_edge.i.i12.i523, %._crit_edge.i.i8.i524, %._crit_edge.i.i4.i525, %._crit_edge.i.i.i526
   %1042 = phi ptr [ %908, %._crit_edge.i.i20.i527 ], [ %.pre1644, %.noexc528 ], [ %908, %._crit_edge.i.i12.i523 ], [ %908, %._crit_edge.i.i8.i524 ], [ %908, %._crit_edge.i.i4.i525 ], [ %908, %._crit_edge.i.i.i526 ]
   %1043 = uitofp i64 %.sroa.51.0.copyload to double
-  %1044 = fmul double %1043, 1.000000e+02
+  %1044 = fmul nnan double %1043, 1.000000e+02
   %1045 = fdiv double %1044, %958
   %.0.i530 = select i1 %1029, double -1.000000e+00, double %1045
   %1046 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1037, ptr noundef nonnull @.str.252, ptr noundef %1042, i64 noundef %.sroa.51.0.copyload, double noundef %.0.i530) #32
@@ -52048,7 +52048,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRKNSt7__cxx1112basic_stringIcS
   %21 = load i64, ptr %10, align 8, !tbaa !681
   %22 = icmp eq i64 %21, 0
   %23 = uitofp i64 %20 to double
-  %24 = fmul double %23, 1.000000e+02
+  %24 = fmul nnan double %23, 1.000000e+02
   %25 = uitofp i64 %21 to double
   %26 = fdiv double %24, %25
   %27 = fptoui double %26 to i64
@@ -52057,7 +52057,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRKNSt7__cxx1112basic_stringIcS
   %30 = load i64, ptr %29, align 8, !tbaa !686
   %31 = icmp eq i64 %.0.lcssa.i.i.i, 0
   %32 = uitofp i64 %30 to double
-  %33 = fmul double %32, 1.000000e+02
+  %33 = fmul nnan double %32, 1.000000e+02
   %34 = uitofp i64 %.0.lcssa.i.i.i to double
   %35 = fdiv double %33, %34
   %36 = fptoui double %35 to i64
@@ -52068,7 +52068,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRKNSt7__cxx1112basic_stringIcS
   %40 = load i64, ptr %39, align 8, !tbaa !656
   %41 = icmp eq i64 %40, 0
   %42 = uitofp i64 %38 to double
-  %43 = fmul double %42, 1.000000e+02
+  %43 = fmul nnan double %42, 1.000000e+02
   %44 = uitofp i64 %40 to double
   %45 = fdiv double %43, %44
   %46 = fptoui double %45 to i64

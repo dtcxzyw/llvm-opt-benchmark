@@ -6512,12 +6512,12 @@ _ZN6icu_778Calendar8completeER10UErrorCode.exit.thread261: ; preds = %_ZN6icu_77
 
 275:                                              ; preds = %37
   %276 = sitofp i32 %2 to double
-  %277 = fmul double %276, 8.640000e+07
+  %277 = fmul nnan double %276, 8.640000e+07
   %278 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %279 = load i32, ptr %278, align 8, !tbaa !12
   %280 = add nsw i32 %279, -1
   %281 = sitofp i32 %280 to double
-  %282 = fmul double %281, 8.640000e+07
+  %282 = fmul nnan double %281, 8.640000e+07
   %283 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %284 = load double, ptr %283, align 8, !tbaa !53
   %285 = fsub double %284, %282
@@ -6526,7 +6526,7 @@ _ZN6icu_778Calendar8completeER10UErrorCode.exit.thread261: ; preds = %_ZN6icu_77
   %288 = load ptr, ptr %287, align 8
   %289 = tail call noundef i32 %288(ptr noundef nonnull align 8 dereferenceable(192) %0, i32 noundef 6, ptr noundef nonnull align 4 dereferenceable(4) %3)
   %290 = sitofp i32 %289 to double
-  %291 = fmul double %290, 8.640000e+07
+  %291 = fmul nnan double %290, 8.640000e+07
   %292 = load double, ptr %283, align 8, !tbaa !53
   %293 = fadd double %277, %292
   %294 = fsub double %293, %285
@@ -6540,7 +6540,7 @@ _ZN6icu_778Calendar8completeER10UErrorCode.exit.thread261: ; preds = %_ZN6icu_77
 
 299:                                              ; preds = %37, %37
   %300 = sitofp i32 %2 to double
-  %301 = fmul double %300, 8.640000e+07
+  %301 = fmul nnan double %300, 8.640000e+07
   %302 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %303 = zext nneg i32 %1 to i64
   %304 = getelementptr inbounds nuw i32, ptr %302, i64 %303
@@ -6573,7 +6573,7 @@ _ZN6icu_778Calendar8completeER10UErrorCode.exit.thread261: ; preds = %_ZN6icu_77
 
 327:                                              ; preds = %37
   %328 = sitofp i32 %2 to double
-  %329 = fmul double %328, 6.048000e+08
+  %329 = fmul nnan double %328, 6.048000e+08
   %330 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %331 = load i32, ptr %330, align 4, !tbaa !12
   %332 = add nsw i32 %331, -1
@@ -6593,7 +6593,7 @@ _ZN6icu_778Calendar8completeER10UErrorCode.exit.thread261: ; preds = %_ZN6icu_77
   %346 = add nsw i32 %333, 1
   %347 = add nsw i32 %346, %340
   %348 = sitofp i32 %347 to double
-  %349 = fmul double %348, 6.048000e+08
+  %349 = fmul nnan double %348, 6.048000e+08
   %350 = fadd double %329, %342
   %351 = fsub double %350, %345
   %352 = tail call double @uprv_fmod_77(double noundef %351, double noundef %349)
@@ -6843,15 +6843,15 @@ _ZNK6icu_778Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit.thread: ; preds
   br label %98
 
 91:                                               ; preds = %15, %15
-  %92 = fmul double %16, 3.600000e+06
+  %92 = fmul nnan double %16, 3.600000e+06
   br label %.critedge
 
 93:                                               ; preds = %15
-  %94 = fmul double %16, 6.000000e+04
+  %94 = fmul nnan double %16, 6.000000e+04
   br label %.critedge
 
 95:                                               ; preds = %15
-  %96 = fmul double %16, 1.000000e+03
+  %96 = fmul nnan double %16, 1.000000e+03
   br label %.critedge
 
 97:                                               ; preds = %15
@@ -6860,7 +6860,7 @@ _ZNK6icu_778Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit.thread: ; preds
 
 98:                                               ; preds = %15, %15, %15, %90, %89
   %.sink = phi double [ 8.640000e+07, %90 ], [ 4.320000e+07, %89 ], [ 6.048000e+08, %15 ], [ 6.048000e+08, %15 ], [ 6.048000e+08, %15 ]
-  %99 = fmul double %.sink, %16
+  %99 = fmul nnan double %.sink, %16
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %101 = load i8, ptr %100, align 8
   %102 = trunc i8 %101 to i1
@@ -9636,8 +9636,8 @@ _ZN6icu_778Calendar16computeJulianDayER10UErrorCode.exit: ; preds = %28, %_ZNK6i
 58:                                               ; preds = %_ZN6icu_778Calendar16computeJulianDayER10UErrorCode.exit.thread, %_ZN6icu_778Calendar16computeJulianDayER10UErrorCode.exit
   %.1.i60 = phi i32 [ %46, %_ZN6icu_778Calendar16computeJulianDayER10UErrorCode.exit.thread ], [ %56, %_ZN6icu_778Calendar16computeJulianDayER10UErrorCode.exit ]
   %59 = sitofp i32 %.1.i60 to double
-  %60 = fadd double %59, 0xC1429EC600000000
-  %61 = fmul double %60, 8.640000e+07
+  %60 = fadd nnan double %59, 0xC1429EC600000000
+  %61 = fmul nnan double %60, 8.640000e+07
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 125
   %63 = load i8, ptr %62, align 1, !tbaa !47
   %64 = icmp sgt i8 %63, 1
@@ -9706,17 +9706,17 @@ _ZNK6icu_778Calendar11newestStampE19UCalendarDateFieldsS1_i.exit: ; preds = %67
 
 _ZN6icu_778Calendar18computeMillisInDayEv.exit:   ; preds = %76, %85, %89
   %.0.i = phi double [ %88, %85 ], [ %99, %89 ], [ 0.000000e+00, %76 ]
-  %100 = fmul double %.0.i, 6.000000e+01
+  %100 = fmul nnan double %.0.i, 6.000000e+01
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %102 = load i32, ptr %101, align 8, !tbaa !12
   %103 = sitofp i32 %102 to double
-  %104 = fadd double %100, %103
-  %105 = fmul double %104, 6.000000e+01
+  %104 = fadd nnan double %100, %103
+  %105 = fmul nnan double %104, 6.000000e+01
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %107 = load i32, ptr %106, align 4, !tbaa !12
   %108 = sitofp i32 %107 to double
-  %109 = fadd double %105, %108
-  %110 = fmul double %109, 1.000000e+03
+  %109 = fadd nnan double %105, %108
+  %110 = fmul nnan double %109, 1.000000e+03
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %112 = load i32, ptr %111, align 8, !tbaa !12
   %113 = sitofp i32 %112 to double
@@ -9940,17 +9940,17 @@ define noundef double @_ZN6icu_778Calendar18computeMillisInDayEv(ptr noundef non
 
 25:                                               ; preds = %10, %14, %1
   %.0 = phi double [ %13, %10 ], [ %24, %14 ], [ 0.000000e+00, %1 ]
-  %26 = fmul double %.0, 6.000000e+01
+  %26 = fmul nnan double %.0, 6.000000e+01
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %28 = load i32, ptr %27, align 8, !tbaa !12
   %29 = sitofp i32 %28 to double
-  %30 = fadd double %26, %29
-  %31 = fmul double %30, 6.000000e+01
+  %30 = fadd nnan double %26, %29
+  %31 = fmul nnan double %30, 6.000000e+01
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %33 = load i32, ptr %32, align 4, !tbaa !12
   %34 = sitofp i32 %33 to double
-  %35 = fadd double %31, %34
-  %36 = fmul double %35, 1.000000e+03
+  %35 = fadd nnan double %31, %34
+  %36 = fmul nnan double %35, 1.000000e+03
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %38 = load i32, ptr %37, align 8, !tbaa !12
   %39 = sitofp i32 %38 to double

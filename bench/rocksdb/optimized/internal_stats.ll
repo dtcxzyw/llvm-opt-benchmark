@@ -1478,7 +1478,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit: ; preds =
   %33 = trunc nuw nsw i64 %indvars.iv to i32
   %34 = call noundef i64 @_ZNK7rocksdb18VersionStorageInfo13NumLevelBytesEi(ptr noundef nonnull align 16 dereferenceable(4120) %10, i32 noundef %33)
   %35 = uitofp i64 %34 to double
-  %36 = fmul double %35, 0x3EB0000000000000
+  %36 = fmul nnan double %35, 0x3EB0000000000000
   %37 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 1000, ptr noundef nonnull @.str.303, i32 noundef %33, i32 noundef %32, double noundef %36) #37
   %38 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #37
   %39 = load i64, ptr %12, align 8, !tbaa !39
@@ -6392,7 +6392,7 @@ _ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit57: ; preds = %_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE.exit56
   %130 = load i64, ptr %123, align 8, !tbaa !40
   %131 = uitofp i64 %130 to double
-  %132 = fmul double %131, 1.000000e+02
+  %132 = fmul nnan double %131, 1.000000e+02
   %133 = load i64, ptr %1, align 8, !tbaa !829
   %134 = uitofp i64 %133 to double
   %135 = fdiv double %132, %134
@@ -7586,7 +7586,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit135: ; preds = %_Z
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %458 = load i64, ptr %372, align 8, !tbaa !40
   %459 = uitofp i64 %458 to double
-  %460 = fmul double %459, 1.000000e+02
+  %460 = fmul nnan double %459, 1.000000e+02
   %461 = load i64, ptr %0, align 8, !tbaa !829
   %462 = uitofp i64 %461 to double
   %463 = fdiv double %460, %462
@@ -10626,9 +10626,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit260: ; pred
   %444 = ptrtoint ptr %436 to i64
   %445 = sub i64 %443, %444
   %446 = ashr exact i64 %445, 4
-  %447 = fmul double %439, 0x3E10000000000000
+  %447 = fmul nnan double %439, 0x3E10000000000000
   %448 = uitofp i64 %.015.lcssa.i to double
-  %449 = fmul double %448, 0x3E10000000000000
+  %449 = fmul nnan double %448, 0x3E10000000000000
   %450 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %10, i64 noundef 2000, ptr noundef nonnull @.str.326, i64 noundef %446, double noundef %447, double noundef %449, double noundef %.0.i) #37
   %451 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #37
   %452 = load i64, ptr %41, align 8, !tbaa !39
@@ -10678,9 +10678,9 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.ex
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit271: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i268
   %478 = uitofp i64 %219 to double
-  %479 = fmul double %478, 0x3E10000000000000
+  %479 = fmul nnan double %478, 0x3E10000000000000
   %480 = uitofp i64 %292 to double
-  %481 = fmul double %480, 0x3E10000000000000
+  %481 = fmul nnan double %480, 0x3E10000000000000
   %482 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %10, i64 noundef 2000, ptr noundef nonnull @.str.328, double noundef %479, double noundef %481) #37
   %483 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #37
   %484 = load i64, ptr %41, align 8, !tbaa !39
@@ -10694,9 +10694,9 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.ex
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit275: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i272
   %488 = uitofp i64 %221 to double
-  %489 = fmul double %488, 0x3E10000000000000
+  %489 = fmul nnan double %488, 0x3E10000000000000
   %490 = uitofp i64 %293 to double
-  %491 = fmul double %490, 0x3E10000000000000
+  %491 = fmul nnan double %490, 0x3E10000000000000
   %492 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %10, i64 noundef 2000, ptr noundef nonnull @.str.329, double noundef %489, double noundef %491) #37
   %493 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #37
   %494 = load i64, ptr %41, align 8, !tbaa !39
@@ -10797,14 +10797,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit291._crit_e
   %.0110.lcssa = phi i64 [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit291.preheader ], [ %577, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit291 ]
   %.0108.lcssa = phi i64 [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit291.preheader ], [ %569, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit291 ]
   %532 = uitofp i64 %.0111.lcssa to double
-  %533 = fmul double %532, 0x3E10000000000000
-  %534 = fmul double %532, 0x3EB0000000000000
+  %533 = fmul nnan double %532, 0x3E10000000000000
+  %534 = fmul nnan double %532, 0x3EB0000000000000
   %535 = fcmp olt double %468, 1.000000e-03
   %.sroa.speculated345 = select i1 %535, double 1.000000e-03, double %468
   %536 = fdiv double %534, %.sroa.speculated345
   %537 = uitofp i64 %.0108.lcssa to double
-  %538 = fmul double %537, 0x3E10000000000000
-  %539 = fmul double %537, 0x3EB0000000000000
+  %538 = fmul nnan double %537, 0x3E10000000000000
+  %539 = fmul nnan double %537, 0x3EB0000000000000
   %540 = fdiv double %539, %.sroa.speculated345
   %541 = uitofp i64 %.0110.lcssa to double
   %542 = fdiv double %541, 1.000000e+06
@@ -10899,14 +10899,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit296: ; pred
   %585 = load i64, ptr %584, align 8, !tbaa !956
   %586 = sub i64 %.0110.lcssa, %585
   %587 = uitofp i64 %580 to double
-  %588 = fmul double %587, 0x3E10000000000000
-  %589 = fmul double %587, 0x3EB0000000000000
+  %588 = fmul nnan double %587, 0x3E10000000000000
+  %589 = fmul nnan double %587, 0x3EB0000000000000
   %590 = fcmp olt double %471, 1.000000e-03
   %.sroa.speculated337 = select i1 %590, double 1.000000e-03, double %471
   %591 = fdiv double %589, %.sroa.speculated337
   %592 = uitofp i64 %583 to double
-  %593 = fmul double %592, 0x3E10000000000000
-  %594 = fmul double %592, 0x3EB0000000000000
+  %593 = fmul nnan double %592, 0x3E10000000000000
+  %594 = fmul nnan double %592, 0x3EB0000000000000
   %595 = fdiv double %594, %.sroa.speculated337
   %596 = uitofp i64 %586 to double
   %597 = fdiv double %596, 1.000000e+06
@@ -13915,8 +13915,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit: ; preds =
   %.sroa.speculated182 = select i1 %62, double %61, double 1.000000e+00
   %63 = fdiv double %60, %.sroa.speculated182
   %64 = uitofp i64 %40 to double
-  %65 = fmul double %64, 0x3E10000000000000
-  %66 = fmul double %64, 0x3EB0000000000000
+  %65 = fmul nnan double %64, 0x3E10000000000000
+  %66 = fmul nnan double %64, 0x3EB0000000000000
   %67 = fcmp olt double %26, 1.000000e-03
   %.sroa.speculated178 = select i1 %67, double 1.000000e-03, double %26
   %68 = fdiv double %66, %.sroa.speculated178
@@ -13987,8 +13987,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit79: ; preds
   %.sroa.speculated173 = select i1 %96, double %95, double 1.000000e+00
   %97 = fdiv double %94, %.sroa.speculated173
   %98 = uitofp i64 %47 to double
-  %99 = fmul double %98, 0x3E10000000000000
-  %100 = fmul double %98, 0x3EB0000000000000
+  %99 = fmul nnan double %98, 0x3E10000000000000
+  %100 = fmul nnan double %98, 0x3EB0000000000000
   %101 = fdiv double %100, %.sroa.speculated178
   %102 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 1000, ptr noundef nonnull @.str.309, ptr noundef %91, ptr noundef %93, double noundef %97, double noundef %99, double noundef %101) #37
   %103 = load ptr, ptr %9, align 8, !tbaa !11
@@ -14079,7 +14079,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit90: ; preds
   %149 = load i64, ptr %27, align 8, !tbaa !1000
   %150 = sub i64 %40, %149
   %151 = uitofp i64 %150 to double
-  %152 = fmul double %151, 0x3EB0000000000000
+  %152 = fmul nnan double %151, 0x3EB0000000000000
   %153 = fcmp olt double %30, 1.000000e-03
   %.sroa.speculated156 = select i1 %153, double 1.000000e-03, double %30
   %154 = fdiv double %152, %.sroa.speculated156
@@ -14165,8 +14165,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit103: ; preds = %_Z
   %.sroa.speculated151 = select i1 %191, double %190, double 1.000000e+00
   %192 = fdiv double %189, %.sroa.speculated151
   %193 = uitofp i64 %187 to double
-  %194 = fmul double %193, 0x3E10000000000000
-  %195 = fmul double %193, 0x3EB0000000000000
+  %194 = fmul nnan double %193, 0x3E10000000000000
+  %195 = fmul nnan double %193, 0x3EB0000000000000
   %196 = fdiv double %195, %.sroa.speculated156
   %197 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 1000, ptr noundef nonnull @.str.312, ptr noundef %185, ptr noundef %188, double noundef %192, double noundef %194, double noundef %196) #37
   %198 = load ptr, ptr %14, align 8, !tbaa !11
@@ -16359,7 +16359,7 @@ define internal fastcc void @_ZN7rocksdb12_GLOBAL__N_117PrepareLevelStatsEPSt3ma
   store double %4, ptr %52, align 8, !tbaa !1022
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %53 = uitofp i64 %36 to double
-  %54 = fmul double %53, 0x3E10000000000000
+  %54 = fmul nnan double %53, 0x3E10000000000000
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i32 5, ptr %12, align 4, !tbaa !29
   %55 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapIN7rocksdb13LevelStatTypeEdSt4lessIS1_ESaISt4pairIKS1_dEEEixEOS1_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(4) %12)
@@ -16367,7 +16367,7 @@ define internal fastcc void @_ZN7rocksdb12_GLOBAL__N_117PrepareLevelStatsEPSt3ma
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %56 = load i64, ptr %29, align 8, !tbaa !924
   %57 = uitofp i64 %56 to double
-  %58 = fmul double %57, 0x3E10000000000000
+  %58 = fmul nnan double %57, 0x3E10000000000000
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i32 6, ptr %13, align 4, !tbaa !29
   %59 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapIN7rocksdb13LevelStatTypeEdSt4lessIS1_ESaISt4pairIKS1_dEEEixEOS1_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(4) %13)
@@ -16375,7 +16375,7 @@ define internal fastcc void @_ZN7rocksdb12_GLOBAL__N_117PrepareLevelStatsEPSt3ma
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %60 = load i64, ptr %31, align 8, !tbaa !925
   %61 = uitofp i64 %60 to double
-  %62 = fmul double %61, 0x3E10000000000000
+  %62 = fmul nnan double %61, 0x3E10000000000000
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i32 7, ptr %14, align 4, !tbaa !29
   %63 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapIN7rocksdb13LevelStatTypeEdSt4lessIS1_ESaISt4pairIKS1_dEEEixEOS1_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(4) %14)
@@ -16383,14 +16383,14 @@ define internal fastcc void @_ZN7rocksdb12_GLOBAL__N_117PrepareLevelStatsEPSt3ma
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %64 = load i64, ptr %37, align 8, !tbaa !929
   %65 = uitofp i64 %64 to double
-  %66 = fmul double %65, 0x3E10000000000000
+  %66 = fmul nnan double %65, 0x3E10000000000000
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i32 8, ptr %15, align 4, !tbaa !29
   %67 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapIN7rocksdb13LevelStatTypeEdSt4lessIS1_ESaISt4pairIKS1_dEEEixEOS1_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(4) %15)
   store double %66, ptr %67, align 8, !tbaa !1022
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %68 = sitofp i64 %42 to double
-  %69 = fmul double %68, 0x3E10000000000000
+  %69 = fmul nnan double %68, 0x3E10000000000000
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store i32 9, ptr %16, align 4, !tbaa !29
   %70 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapIN7rocksdb13LevelStatTypeEdSt4lessIS1_ESaISt4pairIKS1_dEEEixEOS1_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(4) %16)
@@ -16399,7 +16399,7 @@ define internal fastcc void @_ZN7rocksdb12_GLOBAL__N_117PrepareLevelStatsEPSt3ma
   %71 = getelementptr inbounds nuw i8, ptr %6, i64 72
   %72 = load i64, ptr %71, align 8, !tbaa !931
   %73 = uitofp i64 %72 to double
-  %74 = fmul double %73, 0x3E10000000000000
+  %74 = fmul nnan double %73, 0x3E10000000000000
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store i32 10, ptr %17, align 4, !tbaa !29
   %75 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapIN7rocksdb13LevelStatTypeEdSt4lessIS1_ESaISt4pairIKS1_dEEEixEOS1_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(4) %17)
@@ -16410,7 +16410,7 @@ define internal fastcc void @_ZN7rocksdb12_GLOBAL__N_117PrepareLevelStatsEPSt3ma
   %76 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapIN7rocksdb13LevelStatTypeEdSt4lessIS1_ESaISt4pairIKS1_dEEEixEOS1_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(4) %18)
   store double %5, ptr %76, align 8, !tbaa !1022
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
-  %77 = fmul double %53, 0x3EB0000000000000
+  %77 = fmul nnan double %53, 0x3EB0000000000000
   %78 = fdiv double %77, %46
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store i32 12, ptr %19, align 4, !tbaa !29
@@ -16418,7 +16418,7 @@ define internal fastcc void @_ZN7rocksdb12_GLOBAL__N_117PrepareLevelStatsEPSt3ma
   store double %78, ptr %79, align 8, !tbaa !1022
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   %80 = uitofp i64 %41 to double
-  %81 = fmul double %80, 0x3EB0000000000000
+  %81 = fmul nnan double %80, 0x3EB0000000000000
   %82 = fdiv double %81, %46
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store i32 13, ptr %20, align 4, !tbaa !29
@@ -16487,7 +16487,7 @@ define internal fastcc void @_ZN7rocksdb12_GLOBAL__N_117PrepareLevelStatsEPSt3ma
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
   %116 = load i64, ptr %34, align 8, !tbaa !928
   %117 = uitofp i64 %116 to double
-  %118 = fmul double %117, 0x3E10000000000000
+  %118 = fmul nnan double %117, 0x3E10000000000000
   call void @llvm.lifetime.start.p0(ptr nonnull %27)
   store i32 20, ptr %27, align 4, !tbaa !29
   %119 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapIN7rocksdb13LevelStatTypeEdSt4lessIS1_ESaISt4pairIKS1_dEEEixEOS1_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(4) %27)
@@ -16495,7 +16495,7 @@ define internal fastcc void @_ZN7rocksdb12_GLOBAL__N_117PrepareLevelStatsEPSt3ma
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   %120 = load i64, ptr %39, align 8, !tbaa !930
   %121 = uitofp i64 %120 to double
-  %122 = fmul double %121, 0x3E10000000000000
+  %122 = fmul nnan double %121, 0x3E10000000000000
   call void @llvm.lifetime.start.p0(ptr nonnull %28)
   store i32 21, ptr %28, align 4, !tbaa !29
   %123 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapIN7rocksdb13LevelStatTypeEdSt4lessIS1_ESaISt4pairIKS1_dEEEixEOS1_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(4) %28)

@@ -279,8 +279,8 @@ define float @stbir__filter_cubic(float noundef %0, float %1, ptr readnone captu
 
 7:                                                ; preds = %3
   %8 = fmul float %.011, %.011
-  %9 = fmul float %.011, 3.000000e+00
-  %10 = fadd float %9, -6.000000e+00
+  %9 = fmul nnan float %.011, 3.000000e+00
+  %10 = fadd nnan float %9, -6.000000e+00
   %11 = fmul float %8, %10
   %12 = fadd float %11, 4.000000e+00
   %13 = fdiv float %12, 6.000000e+00
@@ -292,9 +292,9 @@ define float @stbir__filter_cubic(float noundef %0, float %1, ptr readnone captu
 
 16:                                               ; preds = %14
   %17 = fsub float 6.000000e+00, %.011
-  %18 = fmul float %.011, %17
-  %19 = fadd float %18, -1.200000e+01
-  %20 = fmul float %.011, %19
+  %18 = fmul nnan float %.011, %17
+  %19 = fadd nnan float %18, -1.200000e+01
+  %20 = fmul nnan float %.011, %19
   %21 = fadd float %20, 8.000000e+00
   %22 = fdiv float %21, 6.000000e+00
   br label %23
@@ -314,7 +314,7 @@ define float @stbir__filter_catmullrom(float noundef %0, float %1, ptr readnone 
 
 7:                                                ; preds = %3
   %8 = fmul float %.011, %.011
-  %9 = fmul float %.011, 1.500000e+00
+  %9 = fmul nnan float %.011, 1.500000e+00
   %10 = fsub float 2.500000e+00, %9
   %11 = fmul float %8, %10
   %12 = fsub float 1.000000e+00, %11
@@ -325,11 +325,11 @@ define float @stbir__filter_catmullrom(float noundef %0, float %1, ptr readnone 
   br i1 %14, label %15, label %22
 
 15:                                               ; preds = %13
-  %16 = fmul float %.011, 5.000000e-01
-  %17 = fadd float %16, -2.500000e+00
-  %18 = fmul float %.011, %17
-  %19 = fadd float %18, 4.000000e+00
-  %20 = fmul float %.011, %19
+  %16 = fmul nnan float %.011, 5.000000e-01
+  %17 = fadd nnan float %16, -2.500000e+00
+  %18 = fmul nnan float %.011, %17
+  %19 = fadd nnan float %18, 4.000000e+00
+  %20 = fmul nnan float %.011, %19
   %21 = fsub float 2.000000e+00, %20
   br label %22
 
@@ -348,8 +348,8 @@ define float @stbir__filter_mitchell(float noundef %0, float %1, ptr readnone ca
 
 7:                                                ; preds = %3
   %8 = fmul float %.011, %.011
-  %9 = fmul float %.011, 2.100000e+01
-  %10 = fadd float %9, -3.600000e+01
+  %9 = fmul nnan float %.011, 2.100000e+01
+  %10 = fadd nnan float %9, -3.600000e+01
   %11 = fmul float %8, %10
   %12 = fadd float %11, 1.600000e+01
   %13 = fdiv float %12, 1.800000e+01
@@ -360,11 +360,11 @@ define float @stbir__filter_mitchell(float noundef %0, float %1, ptr readnone ca
   br i1 %15, label %16, label %24
 
 16:                                               ; preds = %14
-  %17 = fmul float %.011, 7.000000e+00
+  %17 = fmul nnan float %.011, 7.000000e+00
   %18 = fsub float 3.600000e+01, %17
-  %19 = fmul float %.011, %18
-  %20 = fadd float %19, -6.000000e+01
-  %21 = fmul float %.011, %20
+  %19 = fmul nnan float %.011, %18
+  %20 = fadd nnan float %19, -6.000000e+01
+  %21 = fmul nnan float %.011, %20
   %22 = fadd float %21, 3.200000e+01
   %23 = fdiv float %22, 1.800000e+01
   br label %24
@@ -3007,10 +3007,10 @@ define void @stbir__decode_uint8_linear_scaled(ptr noundef %0, i32 noundef %1, p
   %26 = uitofp nneg <4 x i32> %25 to <4 x float>
   %27 = bitcast <8 x i16> %20 to <4 x i32>
   %28 = uitofp nneg <4 x i32> %27 to <4 x float>
-  %29 = fmul <4 x float> %22, splat (float 0x3F70101020000000)
-  %30 = fmul <4 x float> %24, splat (float 0x3F70101020000000)
-  %31 = fmul <4 x float> %26, splat (float 0x3F70101020000000)
-  %32 = fmul <4 x float> %28, splat (float 0x3F70101020000000)
+  %29 = fmul nnan <4 x float> %22, splat (float 0x3F70101020000000)
+  %30 = fmul nnan <4 x float> %24, splat (float 0x3F70101020000000)
+  %31 = fmul nnan <4 x float> %26, splat (float 0x3F70101020000000)
+  %32 = fmul nnan <4 x float> %28, splat (float 0x3F70101020000000)
   store <4 x float> %29, ptr %.068, align 1, !tbaa !4
   %33 = getelementptr inbounds nuw i8, ptr %.068, i64 16
   store <4 x float> %30, ptr %33, align 1, !tbaa !4
@@ -3041,24 +3041,24 @@ define void @stbir__decode_uint8_linear_scaled(ptr noundef %0, i32 noundef %1, p
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.286) #24, !srcloc !136
   %40 = load i8, ptr %.27184, align 1, !tbaa !4
   %41 = uitofp i8 %40 to float
-  %42 = fmul float %41, 0x3F70101020000000
+  %42 = fmul nnan float %41, 0x3F70101020000000
   store float %42, ptr %.pn85, align 4, !tbaa !50
   %43 = getelementptr inbounds nuw i8, ptr %.27184, i64 1
   %44 = load i8, ptr %43, align 1, !tbaa !4
   %45 = uitofp i8 %44 to float
-  %46 = fmul float %45, 0x3F70101020000000
+  %46 = fmul nnan float %45, 0x3F70101020000000
   %47 = getelementptr inbounds nuw i8, ptr %.pn85, i64 4
   store float %46, ptr %47, align 4, !tbaa !50
   %48 = getelementptr inbounds nuw i8, ptr %.27184, i64 2
   %49 = load i8, ptr %48, align 1, !tbaa !4
   %50 = uitofp i8 %49 to float
-  %51 = fmul float %50, 0x3F70101020000000
+  %51 = fmul nnan float %50, 0x3F70101020000000
   %52 = getelementptr inbounds nuw i8, ptr %.pn85, i64 8
   store float %51, ptr %52, align 4, !tbaa !50
   %53 = getelementptr inbounds nuw i8, ptr %.27184, i64 3
   %54 = load i8, ptr %53, align 1, !tbaa !4
   %55 = uitofp i8 %54 to float
-  %56 = fmul float %55, 0x3F70101020000000
+  %56 = fmul nnan float %55, 0x3F70101020000000
   %57 = getelementptr inbounds nuw i8, ptr %.pn85, i64 12
   store float %56, ptr %57, align 4, !tbaa !50
   %58 = getelementptr inbounds nuw i8, ptr %.27184, i64 4
@@ -3072,7 +3072,7 @@ define void @stbir__decode_uint8_linear_scaled(ptr noundef %0, i32 noundef %1, p
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.389) #24, !srcloc !138
   %59 = load i8, ptr %.37288, align 1, !tbaa !4
   %60 = uitofp i8 %59 to float
-  %61 = fmul float %60, 0x3F70101020000000
+  %61 = fmul nnan float %60, 0x3F70101020000000
   store float %61, ptr %.389, align 4, !tbaa !50
   %62 = getelementptr inbounds nuw i8, ptr %.389, i64 4
   %63 = getelementptr inbounds nuw i8, ptr %.37288, i64 1
@@ -3856,7 +3856,7 @@ define void @stbir__decode_uint8_srgb4_linearalpha(ptr noundef writeonly capture
   %23 = getelementptr inbounds nuw i8, ptr %.0, i64 3
   %24 = load i8, ptr %23, align 1, !tbaa !4
   %25 = uitofp i8 %24 to float
-  %26 = fmul float %25, 0x3F70101020000000
+  %26 = fmul nnan float %25, 0x3F70101020000000
   %27 = getelementptr inbounds nuw i8, ptr %.015, i64 12
   store float %26, ptr %27, align 4, !tbaa !50
   %28 = getelementptr inbounds nuw i8, ptr %.0, i64 4
@@ -4153,7 +4153,7 @@ define void @stbir__decode_uint8_srgb2_linearalpha(ptr noundef writeonly capture
   %10 = getelementptr inbounds nuw i8, ptr %.028, i64 1
   %11 = load i8, ptr %10, align 1, !tbaa !4
   %12 = uitofp i8 %11 to float
-  %13 = fmul float %12, 0x3F70101020000000
+  %13 = fmul nnan float %12, 0x3F70101020000000
   %14 = getelementptr inbounds nuw i8, ptr %.pn27, i64 4
   store float %13, ptr %14, align 4, !tbaa !50
   %15 = getelementptr inbounds nuw i8, ptr %.028, i64 2
@@ -4166,7 +4166,7 @@ define void @stbir__decode_uint8_srgb2_linearalpha(ptr noundef writeonly capture
   %21 = getelementptr inbounds nuw i8, ptr %.028, i64 3
   %22 = load i8, ptr %21, align 1, !tbaa !4
   %23 = uitofp i8 %22 to float
-  %24 = fmul float %23, 0x3F70101020000000
+  %24 = fmul nnan float %23, 0x3F70101020000000
   %25 = getelementptr inbounds nuw i8, ptr %.pn27, i64 12
   store float %24, ptr %25, align 4, !tbaa !50
   %26 = getelementptr inbounds nuw i8, ptr %.028, i64 4
@@ -4186,7 +4186,7 @@ define void @stbir__decode_uint8_srgb2_linearalpha(ptr noundef writeonly capture
   %30 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 1
   %31 = load i8, ptr %30, align 1, !tbaa !4
   %32 = uitofp i8 %31 to float
-  %33 = fmul float %32, 0x3F70101020000000
+  %33 = fmul nnan float %32, 0x3F70101020000000
   %34 = getelementptr inbounds nuw i8, ptr %.pn.lcssa, i64 4
   store float %33, ptr %34, align 4, !tbaa !50
   br label %35
@@ -4401,8 +4401,8 @@ define void @stbir__decode_uint16_linear_scaled(ptr noundef %0, i32 noundef %1, 
   %16 = uitofp nneg <4 x i32> %15 to <4 x float>
   %17 = bitcast <8 x i16> %14 to <4 x i32>
   %18 = uitofp nneg <4 x i32> %17 to <4 x float>
-  %19 = fmul <4 x float> %16, splat (float 0x3EF0001000000000)
-  %20 = fmul <4 x float> %18, splat (float 0x3EF0001000000000)
+  %19 = fmul nnan <4 x float> %16, splat (float 0x3EF0001000000000)
+  %20 = fmul nnan <4 x float> %18, splat (float 0x3EF0001000000000)
   store <4 x float> %19, ptr %.052, align 1, !tbaa !4
   %21 = getelementptr inbounds nuw i8, ptr %.052, i64 16
   store <4 x float> %20, ptr %21, align 1, !tbaa !4
@@ -4429,24 +4429,24 @@ define void @stbir__decode_uint16_linear_scaled(ptr noundef %0, i32 noundef %1, 
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.270) #24, !srcloc !172
   %26 = load i16, ptr %.25568, align 2, !tbaa !173
   %27 = uitofp i16 %26 to float
-  %28 = fmul float %27, 0x3EF0001000000000
+  %28 = fmul nnan float %27, 0x3EF0001000000000
   store float %28, ptr %.pn69, align 4, !tbaa !50
   %29 = getelementptr inbounds nuw i8, ptr %.25568, i64 2
   %30 = load i16, ptr %29, align 2, !tbaa !173
   %31 = uitofp i16 %30 to float
-  %32 = fmul float %31, 0x3EF0001000000000
+  %32 = fmul nnan float %31, 0x3EF0001000000000
   %33 = getelementptr inbounds nuw i8, ptr %.pn69, i64 4
   store float %32, ptr %33, align 4, !tbaa !50
   %34 = getelementptr inbounds nuw i8, ptr %.25568, i64 4
   %35 = load i16, ptr %34, align 2, !tbaa !173
   %36 = uitofp i16 %35 to float
-  %37 = fmul float %36, 0x3EF0001000000000
+  %37 = fmul nnan float %36, 0x3EF0001000000000
   %38 = getelementptr inbounds nuw i8, ptr %.pn69, i64 8
   store float %37, ptr %38, align 4, !tbaa !50
   %39 = getelementptr inbounds nuw i8, ptr %.25568, i64 6
   %40 = load i16, ptr %39, align 2, !tbaa !173
   %41 = uitofp i16 %40 to float
-  %42 = fmul float %41, 0x3EF0001000000000
+  %42 = fmul nnan float %41, 0x3EF0001000000000
   %43 = getelementptr inbounds nuw i8, ptr %.pn69, i64 12
   store float %42, ptr %43, align 4, !tbaa !50
   %44 = getelementptr inbounds nuw i8, ptr %.25568, i64 8
@@ -4460,7 +4460,7 @@ define void @stbir__decode_uint16_linear_scaled(ptr noundef %0, i32 noundef %1, 
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.373) #24, !srcloc !176
   %45 = load i16, ptr %.35672, align 2, !tbaa !173
   %46 = uitofp i16 %45 to float
-  %47 = fmul float %46, 0x3EF0001000000000
+  %47 = fmul nnan float %46, 0x3EF0001000000000
   store float %47, ptr %.373, align 4, !tbaa !50
   %48 = getelementptr inbounds nuw i8, ptr %.373, i64 4
   %49 = getelementptr inbounds nuw i8, ptr %.35672, i64 2
@@ -4876,7 +4876,7 @@ define void @stbir__decode_half_float_linear(ptr noundef %0, i32 noundef %1, ptr
   %56 = shl nuw nsw i32 %55, 13
   %57 = and i32 %56, 268427264
   %58 = bitcast i32 %57 to float
-  %59 = fmul float %58, 0x46F0000000000000
+  %59 = fmul nnan float %58, 0x46F0000000000000
   %60 = bitcast float %59 to i32
   %61 = fcmp ult float %59, 6.553600e+04
   %62 = or i32 %60, 2139095040
@@ -4891,7 +4891,7 @@ define void @stbir__decode_half_float_linear(ptr noundef %0, i32 noundef %1, ptr
   %68 = shl nuw nsw i32 %67, 13
   %69 = and i32 %68, 268427264
   %70 = bitcast i32 %69 to float
-  %71 = fmul float %70, 0x46F0000000000000
+  %71 = fmul nnan float %70, 0x46F0000000000000
   %72 = bitcast float %71 to i32
   %73 = fcmp ult float %71, 6.553600e+04
   %74 = or i32 %72, 2139095040
@@ -4907,7 +4907,7 @@ define void @stbir__decode_half_float_linear(ptr noundef %0, i32 noundef %1, ptr
   %81 = shl nuw nsw i32 %80, 13
   %82 = and i32 %81, 268427264
   %83 = bitcast i32 %82 to float
-  %84 = fmul float %83, 0x46F0000000000000
+  %84 = fmul nnan float %83, 0x46F0000000000000
   %85 = bitcast float %84 to i32
   %86 = fcmp ult float %84, 6.553600e+04
   %87 = or i32 %85, 2139095040
@@ -4923,7 +4923,7 @@ define void @stbir__decode_half_float_linear(ptr noundef %0, i32 noundef %1, ptr
   %94 = shl nuw nsw i32 %93, 13
   %95 = and i32 %94, 268427264
   %96 = bitcast i32 %95 to float
-  %97 = fmul float %96, 0x46F0000000000000
+  %97 = fmul nnan float %96, 0x46F0000000000000
   %98 = bitcast float %97 to i32
   %99 = fcmp ult float %97, 6.553600e+04
   %100 = or i32 %98, 2139095040
@@ -4947,7 +4947,7 @@ define void @stbir__decode_half_float_linear(ptr noundef %0, i32 noundef %1, ptr
   %107 = shl nuw nsw i32 %106, 13
   %108 = and i32 %107, 268427264
   %109 = bitcast i32 %108 to float
-  %110 = fmul float %109, 0x46F0000000000000
+  %110 = fmul nnan float %109, 0x46F0000000000000
   %111 = bitcast float %110 to i32
   %112 = fcmp ult float %110, 6.553600e+04
   %113 = or i32 %111, 2139095040
@@ -5544,10 +5544,10 @@ define void @stbir__decode_uint8_linear_scaled_BGRA(ptr noundef %0, i32 noundef 
   %26 = uitofp nneg <4 x i32> %25 to <4 x float>
   %27 = bitcast <8 x i16> %20 to <4 x i32>
   %28 = uitofp nneg <4 x i32> %27 to <4 x float>
-  %29 = fmul <4 x float> %22, splat (float 0x3F70101020000000)
-  %30 = fmul <4 x float> %24, splat (float 0x3F70101020000000)
-  %31 = fmul <4 x float> %26, splat (float 0x3F70101020000000)
-  %32 = fmul <4 x float> %28, splat (float 0x3F70101020000000)
+  %29 = fmul nnan <4 x float> %22, splat (float 0x3F70101020000000)
+  %30 = fmul nnan <4 x float> %24, splat (float 0x3F70101020000000)
+  %31 = fmul nnan <4 x float> %26, splat (float 0x3F70101020000000)
+  %32 = fmul nnan <4 x float> %28, splat (float 0x3F70101020000000)
   %33 = shufflevector <4 x float> %29, <4 x float> poison, <4 x i32> <i32 2, i32 1, i32 0, i32 3>
   %34 = shufflevector <4 x float> %30, <4 x float> poison, <4 x i32> <i32 2, i32 1, i32 0, i32 3>
   %35 = shufflevector <4 x float> %31, <4 x float> poison, <4 x i32> <i32 2, i32 1, i32 0, i32 3>
@@ -5577,23 +5577,23 @@ define void @stbir__decode_uint8_linear_scaled_BGRA(ptr noundef %0, i32 noundef 
   %43 = getelementptr inbounds nuw i8, ptr %.26878, i64 2
   %44 = load i8, ptr %43, align 1, !tbaa !4
   %45 = uitofp i8 %44 to float
-  %46 = fmul float %45, 0x3F70101020000000
+  %46 = fmul nnan float %45, 0x3F70101020000000
   store float %46, ptr %.pn79, align 4, !tbaa !50
   %47 = getelementptr inbounds nuw i8, ptr %.26878, i64 1
   %48 = load i8, ptr %47, align 1, !tbaa !4
   %49 = uitofp i8 %48 to float
-  %50 = fmul float %49, 0x3F70101020000000
+  %50 = fmul nnan float %49, 0x3F70101020000000
   %51 = getelementptr inbounds nuw i8, ptr %.pn79, i64 4
   store float %50, ptr %51, align 4, !tbaa !50
   %52 = load i8, ptr %.26878, align 1, !tbaa !4
   %53 = uitofp i8 %52 to float
-  %54 = fmul float %53, 0x3F70101020000000
+  %54 = fmul nnan float %53, 0x3F70101020000000
   %55 = getelementptr inbounds nuw i8, ptr %.pn79, i64 8
   store float %54, ptr %55, align 4, !tbaa !50
   %56 = getelementptr inbounds nuw i8, ptr %.26878, i64 3
   %57 = load i8, ptr %56, align 1, !tbaa !4
   %58 = uitofp i8 %57 to float
-  %59 = fmul float %58, 0x3F70101020000000
+  %59 = fmul nnan float %58, 0x3F70101020000000
   %60 = getelementptr inbounds nuw i8, ptr %.pn79, i64 12
   store float %59, ptr %60, align 4, !tbaa !50
   %61 = getelementptr inbounds nuw i8, ptr %.26878, i64 4
@@ -6258,7 +6258,7 @@ define void @stbir__decode_uint8_srgb4_linearalpha_BGRA(ptr noundef writeonly ca
   %23 = getelementptr inbounds nuw i8, ptr %.0, i64 3
   %24 = load i8, ptr %23, align 1, !tbaa !4
   %25 = uitofp i8 %24 to float
-  %26 = fmul float %25, 0x3F70101020000000
+  %26 = fmul nnan float %25, 0x3F70101020000000
   %27 = getelementptr inbounds nuw i8, ptr %.015, i64 12
   store float %26, ptr %27, align 4, !tbaa !50
   %28 = getelementptr inbounds nuw i8, ptr %.0, i64 4
@@ -6564,8 +6564,8 @@ define void @stbir__decode_uint16_linear_scaled_BGRA(ptr noundef %0, i32 noundef
   %16 = uitofp nneg <4 x i32> %15 to <4 x float>
   %17 = bitcast <8 x i16> %14 to <4 x i32>
   %18 = uitofp nneg <4 x i32> %17 to <4 x float>
-  %19 = fmul <4 x float> %16, splat (float 0x3EF0001000000000)
-  %20 = fmul <4 x float> %18, splat (float 0x3EF0001000000000)
+  %19 = fmul nnan <4 x float> %16, splat (float 0x3EF0001000000000)
+  %20 = fmul nnan <4 x float> %18, splat (float 0x3EF0001000000000)
   %21 = shufflevector <4 x float> %19, <4 x float> poison, <4 x i32> <i32 2, i32 1, i32 0, i32 3>
   %22 = shufflevector <4 x float> %20, <4 x float> poison, <4 x i32> <i32 2, i32 1, i32 0, i32 3>
   store <4 x float> %21, ptr %.047, align 1, !tbaa !4
@@ -6589,23 +6589,23 @@ define void @stbir__decode_uint16_linear_scaled_BGRA(ptr noundef %0, i32 noundef
   %27 = getelementptr inbounds nuw i8, ptr %.25060, i64 4
   %28 = load i16, ptr %27, align 2, !tbaa !173
   %29 = uitofp i16 %28 to float
-  %30 = fmul float %29, 0x3EF0001000000000
+  %30 = fmul nnan float %29, 0x3EF0001000000000
   store float %30, ptr %.pn61, align 4, !tbaa !50
   %31 = getelementptr inbounds nuw i8, ptr %.25060, i64 2
   %32 = load i16, ptr %31, align 2, !tbaa !173
   %33 = uitofp i16 %32 to float
-  %34 = fmul float %33, 0x3EF0001000000000
+  %34 = fmul nnan float %33, 0x3EF0001000000000
   %35 = getelementptr inbounds nuw i8, ptr %.pn61, i64 4
   store float %34, ptr %35, align 4, !tbaa !50
   %36 = load i16, ptr %.25060, align 2, !tbaa !173
   %37 = uitofp i16 %36 to float
-  %38 = fmul float %37, 0x3EF0001000000000
+  %38 = fmul nnan float %37, 0x3EF0001000000000
   %39 = getelementptr inbounds nuw i8, ptr %.pn61, i64 8
   store float %38, ptr %39, align 4, !tbaa !50
   %40 = getelementptr inbounds nuw i8, ptr %.25060, i64 6
   %41 = load i16, ptr %40, align 2, !tbaa !173
   %42 = uitofp i16 %41 to float
-  %43 = fmul float %42, 0x3EF0001000000000
+  %43 = fmul nnan float %42, 0x3EF0001000000000
   %44 = getelementptr inbounds nuw i8, ptr %.pn61, i64 12
   store float %43, ptr %44, align 4, !tbaa !50
   %45 = getelementptr inbounds nuw i8, ptr %.25060, i64 8
@@ -6963,7 +6963,7 @@ define void @stbir__decode_half_float_linear_BGRA(ptr noundef %0, i32 noundef %1
   %60 = shl nuw nsw i32 %59, 13
   %61 = and i32 %60, 268427264
   %62 = bitcast i32 %61 to float
-  %63 = fmul float %62, 0x46F0000000000000
+  %63 = fmul nnan float %62, 0x46F0000000000000
   %64 = bitcast float %63 to i32
   %65 = fcmp ult float %63, 6.553600e+04
   %66 = or i32 %64, 2139095040
@@ -6978,7 +6978,7 @@ define void @stbir__decode_half_float_linear_BGRA(ptr noundef %0, i32 noundef %1
   %72 = shl nuw nsw i32 %71, 13
   %73 = and i32 %72, 268427264
   %74 = bitcast i32 %73 to float
-  %75 = fmul float %74, 0x46F0000000000000
+  %75 = fmul nnan float %74, 0x46F0000000000000
   %76 = bitcast float %75 to i32
   %77 = fcmp ult float %75, 6.553600e+04
   %78 = or i32 %76, 2139095040
@@ -6993,7 +6993,7 @@ define void @stbir__decode_half_float_linear_BGRA(ptr noundef %0, i32 noundef %1
   %84 = shl nuw nsw i32 %83, 13
   %85 = and i32 %84, 268427264
   %86 = bitcast i32 %85 to float
-  %87 = fmul float %86, 0x46F0000000000000
+  %87 = fmul nnan float %86, 0x46F0000000000000
   %88 = bitcast float %87 to i32
   %89 = fcmp ult float %87, 6.553600e+04
   %90 = or i32 %88, 2139095040
@@ -7009,7 +7009,7 @@ define void @stbir__decode_half_float_linear_BGRA(ptr noundef %0, i32 noundef %1
   %97 = shl nuw nsw i32 %96, 13
   %98 = and i32 %97, 268427264
   %99 = bitcast i32 %98 to float
-  %100 = fmul float %99, 0x46F0000000000000
+  %100 = fmul nnan float %99, 0x46F0000000000000
   %101 = bitcast float %100 to i32
   %102 = fcmp ult float %100, 6.553600e+04
   %103 = or i32 %101, 2139095040
@@ -7472,10 +7472,10 @@ define void @stbir__decode_uint8_linear_scaled_ARGB(ptr noundef %0, i32 noundef 
   %26 = uitofp nneg <4 x i32> %25 to <4 x float>
   %27 = bitcast <8 x i16> %20 to <4 x i32>
   %28 = uitofp nneg <4 x i32> %27 to <4 x float>
-  %29 = fmul <4 x float> %22, splat (float 0x3F70101020000000)
-  %30 = fmul <4 x float> %24, splat (float 0x3F70101020000000)
-  %31 = fmul <4 x float> %26, splat (float 0x3F70101020000000)
-  %32 = fmul <4 x float> %28, splat (float 0x3F70101020000000)
+  %29 = fmul nnan <4 x float> %22, splat (float 0x3F70101020000000)
+  %30 = fmul nnan <4 x float> %24, splat (float 0x3F70101020000000)
+  %31 = fmul nnan <4 x float> %26, splat (float 0x3F70101020000000)
+  %32 = fmul nnan <4 x float> %28, splat (float 0x3F70101020000000)
   %33 = shufflevector <4 x float> %29, <4 x float> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 0>
   %34 = shufflevector <4 x float> %30, <4 x float> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 0>
   %35 = shufflevector <4 x float> %31, <4 x float> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 0>
@@ -7505,23 +7505,23 @@ define void @stbir__decode_uint8_linear_scaled_ARGB(ptr noundef %0, i32 noundef 
   %43 = getelementptr inbounds nuw i8, ptr %.26878, i64 1
   %44 = load i8, ptr %43, align 1, !tbaa !4
   %45 = uitofp i8 %44 to float
-  %46 = fmul float %45, 0x3F70101020000000
+  %46 = fmul nnan float %45, 0x3F70101020000000
   store float %46, ptr %.pn79, align 4, !tbaa !50
   %47 = getelementptr inbounds nuw i8, ptr %.26878, i64 2
   %48 = load i8, ptr %47, align 1, !tbaa !4
   %49 = uitofp i8 %48 to float
-  %50 = fmul float %49, 0x3F70101020000000
+  %50 = fmul nnan float %49, 0x3F70101020000000
   %51 = getelementptr inbounds nuw i8, ptr %.pn79, i64 4
   store float %50, ptr %51, align 4, !tbaa !50
   %52 = getelementptr inbounds nuw i8, ptr %.26878, i64 3
   %53 = load i8, ptr %52, align 1, !tbaa !4
   %54 = uitofp i8 %53 to float
-  %55 = fmul float %54, 0x3F70101020000000
+  %55 = fmul nnan float %54, 0x3F70101020000000
   %56 = getelementptr inbounds nuw i8, ptr %.pn79, i64 8
   store float %55, ptr %56, align 4, !tbaa !50
   %57 = load i8, ptr %.26878, align 1, !tbaa !4
   %58 = uitofp i8 %57 to float
-  %59 = fmul float %58, 0x3F70101020000000
+  %59 = fmul nnan float %58, 0x3F70101020000000
   %60 = getelementptr inbounds nuw i8, ptr %.pn79, i64 12
   store float %59, ptr %60, align 4, !tbaa !50
   %61 = getelementptr inbounds nuw i8, ptr %.26878, i64 4
@@ -8186,7 +8186,7 @@ define void @stbir__decode_uint8_srgb4_linearalpha_ARGB(ptr noundef writeonly ca
   store float %22, ptr %23, align 4, !tbaa !50
   %24 = load i8, ptr %.0, align 1, !tbaa !4
   %25 = uitofp i8 %24 to float
-  %26 = fmul float %25, 0x3F70101020000000
+  %26 = fmul nnan float %25, 0x3F70101020000000
   %27 = getelementptr inbounds nuw i8, ptr %.015, i64 12
   store float %26, ptr %27, align 4, !tbaa !50
   %28 = getelementptr inbounds nuw i8, ptr %.0, i64 4
@@ -8492,8 +8492,8 @@ define void @stbir__decode_uint16_linear_scaled_ARGB(ptr noundef %0, i32 noundef
   %16 = uitofp nneg <4 x i32> %15 to <4 x float>
   %17 = bitcast <8 x i16> %14 to <4 x i32>
   %18 = uitofp nneg <4 x i32> %17 to <4 x float>
-  %19 = fmul <4 x float> %16, splat (float 0x3EF0001000000000)
-  %20 = fmul <4 x float> %18, splat (float 0x3EF0001000000000)
+  %19 = fmul nnan <4 x float> %16, splat (float 0x3EF0001000000000)
+  %20 = fmul nnan <4 x float> %18, splat (float 0x3EF0001000000000)
   %21 = shufflevector <4 x float> %19, <4 x float> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 0>
   %22 = shufflevector <4 x float> %20, <4 x float> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 0>
   store <4 x float> %21, ptr %.047, align 1, !tbaa !4
@@ -8517,23 +8517,23 @@ define void @stbir__decode_uint16_linear_scaled_ARGB(ptr noundef %0, i32 noundef
   %27 = getelementptr inbounds nuw i8, ptr %.25060, i64 2
   %28 = load i16, ptr %27, align 2, !tbaa !173
   %29 = uitofp i16 %28 to float
-  %30 = fmul float %29, 0x3EF0001000000000
+  %30 = fmul nnan float %29, 0x3EF0001000000000
   store float %30, ptr %.pn61, align 4, !tbaa !50
   %31 = getelementptr inbounds nuw i8, ptr %.25060, i64 4
   %32 = load i16, ptr %31, align 2, !tbaa !173
   %33 = uitofp i16 %32 to float
-  %34 = fmul float %33, 0x3EF0001000000000
+  %34 = fmul nnan float %33, 0x3EF0001000000000
   %35 = getelementptr inbounds nuw i8, ptr %.pn61, i64 4
   store float %34, ptr %35, align 4, !tbaa !50
   %36 = getelementptr inbounds nuw i8, ptr %.25060, i64 6
   %37 = load i16, ptr %36, align 2, !tbaa !173
   %38 = uitofp i16 %37 to float
-  %39 = fmul float %38, 0x3EF0001000000000
+  %39 = fmul nnan float %38, 0x3EF0001000000000
   %40 = getelementptr inbounds nuw i8, ptr %.pn61, i64 8
   store float %39, ptr %40, align 4, !tbaa !50
   %41 = load i16, ptr %.25060, align 2, !tbaa !173
   %42 = uitofp i16 %41 to float
-  %43 = fmul float %42, 0x3EF0001000000000
+  %43 = fmul nnan float %42, 0x3EF0001000000000
   %44 = getelementptr inbounds nuw i8, ptr %.pn61, i64 12
   store float %43, ptr %44, align 4, !tbaa !50
   %45 = getelementptr inbounds nuw i8, ptr %.25060, i64 8
@@ -8891,7 +8891,7 @@ define void @stbir__decode_half_float_linear_ARGB(ptr noundef %0, i32 noundef %1
   %60 = shl nuw nsw i32 %59, 13
   %61 = and i32 %60, 268427264
   %62 = bitcast i32 %61 to float
-  %63 = fmul float %62, 0x46F0000000000000
+  %63 = fmul nnan float %62, 0x46F0000000000000
   %64 = bitcast float %63 to i32
   %65 = fcmp ult float %63, 6.553600e+04
   %66 = or i32 %64, 2139095040
@@ -8906,7 +8906,7 @@ define void @stbir__decode_half_float_linear_ARGB(ptr noundef %0, i32 noundef %1
   %72 = shl nuw nsw i32 %71, 13
   %73 = and i32 %72, 268427264
   %74 = bitcast i32 %73 to float
-  %75 = fmul float %74, 0x46F0000000000000
+  %75 = fmul nnan float %74, 0x46F0000000000000
   %76 = bitcast float %75 to i32
   %77 = fcmp ult float %75, 6.553600e+04
   %78 = or i32 %76, 2139095040
@@ -8922,7 +8922,7 @@ define void @stbir__decode_half_float_linear_ARGB(ptr noundef %0, i32 noundef %1
   %85 = shl nuw nsw i32 %84, 13
   %86 = and i32 %85, 268427264
   %87 = bitcast i32 %86 to float
-  %88 = fmul float %87, 0x46F0000000000000
+  %88 = fmul nnan float %87, 0x46F0000000000000
   %89 = bitcast float %88 to i32
   %90 = fcmp ult float %88, 6.553600e+04
   %91 = or i32 %89, 2139095040
@@ -8937,7 +8937,7 @@ define void @stbir__decode_half_float_linear_ARGB(ptr noundef %0, i32 noundef %1
   %97 = shl nuw nsw i32 %96, 13
   %98 = and i32 %97, 268427264
   %99 = bitcast i32 %98 to float
-  %100 = fmul float %99, 0x46F0000000000000
+  %100 = fmul nnan float %99, 0x46F0000000000000
   %101 = bitcast float %100 to i32
   %102 = fcmp ult float %100, 6.553600e+04
   %103 = or i32 %101, 2139095040
@@ -9400,10 +9400,10 @@ define void @stbir__decode_uint8_linear_scaled_ABGR(ptr noundef %0, i32 noundef 
   %26 = uitofp nneg <4 x i32> %25 to <4 x float>
   %27 = bitcast <8 x i16> %20 to <4 x i32>
   %28 = uitofp nneg <4 x i32> %27 to <4 x float>
-  %29 = fmul <4 x float> %22, splat (float 0x3F70101020000000)
-  %30 = fmul <4 x float> %24, splat (float 0x3F70101020000000)
-  %31 = fmul <4 x float> %26, splat (float 0x3F70101020000000)
-  %32 = fmul <4 x float> %28, splat (float 0x3F70101020000000)
+  %29 = fmul nnan <4 x float> %22, splat (float 0x3F70101020000000)
+  %30 = fmul nnan <4 x float> %24, splat (float 0x3F70101020000000)
+  %31 = fmul nnan <4 x float> %26, splat (float 0x3F70101020000000)
+  %32 = fmul nnan <4 x float> %28, splat (float 0x3F70101020000000)
   %33 = shufflevector <4 x float> %29, <4 x float> poison, <4 x i32> <i32 3, i32 2, i32 1, i32 0>
   %34 = shufflevector <4 x float> %30, <4 x float> poison, <4 x i32> <i32 3, i32 2, i32 1, i32 0>
   %35 = shufflevector <4 x float> %31, <4 x float> poison, <4 x i32> <i32 3, i32 2, i32 1, i32 0>
@@ -9433,23 +9433,23 @@ define void @stbir__decode_uint8_linear_scaled_ABGR(ptr noundef %0, i32 noundef 
   %43 = getelementptr inbounds nuw i8, ptr %.26878, i64 3
   %44 = load i8, ptr %43, align 1, !tbaa !4
   %45 = uitofp i8 %44 to float
-  %46 = fmul float %45, 0x3F70101020000000
+  %46 = fmul nnan float %45, 0x3F70101020000000
   store float %46, ptr %.pn79, align 4, !tbaa !50
   %47 = getelementptr inbounds nuw i8, ptr %.26878, i64 2
   %48 = load i8, ptr %47, align 1, !tbaa !4
   %49 = uitofp i8 %48 to float
-  %50 = fmul float %49, 0x3F70101020000000
+  %50 = fmul nnan float %49, 0x3F70101020000000
   %51 = getelementptr inbounds nuw i8, ptr %.pn79, i64 4
   store float %50, ptr %51, align 4, !tbaa !50
   %52 = getelementptr inbounds nuw i8, ptr %.26878, i64 1
   %53 = load i8, ptr %52, align 1, !tbaa !4
   %54 = uitofp i8 %53 to float
-  %55 = fmul float %54, 0x3F70101020000000
+  %55 = fmul nnan float %54, 0x3F70101020000000
   %56 = getelementptr inbounds nuw i8, ptr %.pn79, i64 8
   store float %55, ptr %56, align 4, !tbaa !50
   %57 = load i8, ptr %.26878, align 1, !tbaa !4
   %58 = uitofp i8 %57 to float
-  %59 = fmul float %58, 0x3F70101020000000
+  %59 = fmul nnan float %58, 0x3F70101020000000
   %60 = getelementptr inbounds nuw i8, ptr %.pn79, i64 12
   store float %59, ptr %60, align 4, !tbaa !50
   %61 = getelementptr inbounds nuw i8, ptr %.26878, i64 4
@@ -10114,7 +10114,7 @@ define void @stbir__decode_uint8_srgb4_linearalpha_ABGR(ptr noundef writeonly ca
   store float %22, ptr %23, align 4, !tbaa !50
   %24 = load i8, ptr %.0, align 1, !tbaa !4
   %25 = uitofp i8 %24 to float
-  %26 = fmul float %25, 0x3F70101020000000
+  %26 = fmul nnan float %25, 0x3F70101020000000
   %27 = getelementptr inbounds nuw i8, ptr %.015, i64 12
   store float %26, ptr %27, align 4, !tbaa !50
   %28 = getelementptr inbounds nuw i8, ptr %.0, i64 4
@@ -10420,8 +10420,8 @@ define void @stbir__decode_uint16_linear_scaled_ABGR(ptr noundef %0, i32 noundef
   %16 = uitofp nneg <4 x i32> %15 to <4 x float>
   %17 = bitcast <8 x i16> %14 to <4 x i32>
   %18 = uitofp nneg <4 x i32> %17 to <4 x float>
-  %19 = fmul <4 x float> %16, splat (float 0x3EF0001000000000)
-  %20 = fmul <4 x float> %18, splat (float 0x3EF0001000000000)
+  %19 = fmul nnan <4 x float> %16, splat (float 0x3EF0001000000000)
+  %20 = fmul nnan <4 x float> %18, splat (float 0x3EF0001000000000)
   %21 = shufflevector <4 x float> %19, <4 x float> poison, <4 x i32> <i32 3, i32 2, i32 1, i32 0>
   %22 = shufflevector <4 x float> %20, <4 x float> poison, <4 x i32> <i32 3, i32 2, i32 1, i32 0>
   store <4 x float> %21, ptr %.047, align 1, !tbaa !4
@@ -10445,23 +10445,23 @@ define void @stbir__decode_uint16_linear_scaled_ABGR(ptr noundef %0, i32 noundef
   %27 = getelementptr inbounds nuw i8, ptr %.25060, i64 6
   %28 = load i16, ptr %27, align 2, !tbaa !173
   %29 = uitofp i16 %28 to float
-  %30 = fmul float %29, 0x3EF0001000000000
+  %30 = fmul nnan float %29, 0x3EF0001000000000
   store float %30, ptr %.pn61, align 4, !tbaa !50
   %31 = getelementptr inbounds nuw i8, ptr %.25060, i64 4
   %32 = load i16, ptr %31, align 2, !tbaa !173
   %33 = uitofp i16 %32 to float
-  %34 = fmul float %33, 0x3EF0001000000000
+  %34 = fmul nnan float %33, 0x3EF0001000000000
   %35 = getelementptr inbounds nuw i8, ptr %.pn61, i64 4
   store float %34, ptr %35, align 4, !tbaa !50
   %36 = getelementptr inbounds nuw i8, ptr %.25060, i64 2
   %37 = load i16, ptr %36, align 2, !tbaa !173
   %38 = uitofp i16 %37 to float
-  %39 = fmul float %38, 0x3EF0001000000000
+  %39 = fmul nnan float %38, 0x3EF0001000000000
   %40 = getelementptr inbounds nuw i8, ptr %.pn61, i64 8
   store float %39, ptr %40, align 4, !tbaa !50
   %41 = load i16, ptr %.25060, align 2, !tbaa !173
   %42 = uitofp i16 %41 to float
-  %43 = fmul float %42, 0x3EF0001000000000
+  %43 = fmul nnan float %42, 0x3EF0001000000000
   %44 = getelementptr inbounds nuw i8, ptr %.pn61, i64 12
   store float %43, ptr %44, align 4, !tbaa !50
   %45 = getelementptr inbounds nuw i8, ptr %.25060, i64 8
@@ -10819,7 +10819,7 @@ define void @stbir__decode_half_float_linear_ABGR(ptr noundef %0, i32 noundef %1
   %60 = shl nuw nsw i32 %59, 13
   %61 = and i32 %60, 268427264
   %62 = bitcast i32 %61 to float
-  %63 = fmul float %62, 0x46F0000000000000
+  %63 = fmul nnan float %62, 0x46F0000000000000
   %64 = bitcast float %63 to i32
   %65 = fcmp ult float %63, 6.553600e+04
   %66 = or i32 %64, 2139095040
@@ -10834,7 +10834,7 @@ define void @stbir__decode_half_float_linear_ABGR(ptr noundef %0, i32 noundef %1
   %72 = shl nuw nsw i32 %71, 13
   %73 = and i32 %72, 268427264
   %74 = bitcast i32 %73 to float
-  %75 = fmul float %74, 0x46F0000000000000
+  %75 = fmul nnan float %74, 0x46F0000000000000
   %76 = bitcast float %75 to i32
   %77 = fcmp ult float %75, 6.553600e+04
   %78 = or i32 %76, 2139095040
@@ -10850,7 +10850,7 @@ define void @stbir__decode_half_float_linear_ABGR(ptr noundef %0, i32 noundef %1
   %85 = shl nuw nsw i32 %84, 13
   %86 = and i32 %85, 268427264
   %87 = bitcast i32 %86 to float
-  %88 = fmul float %87, 0x46F0000000000000
+  %88 = fmul nnan float %87, 0x46F0000000000000
   %89 = bitcast float %88 to i32
   %90 = fcmp ult float %88, 6.553600e+04
   %91 = or i32 %89, 2139095040
@@ -10865,7 +10865,7 @@ define void @stbir__decode_half_float_linear_ABGR(ptr noundef %0, i32 noundef %1
   %97 = shl nuw nsw i32 %96, 13
   %98 = and i32 %97, 268427264
   %99 = bitcast i32 %98 to float
-  %100 = fmul float %99, 0x46F0000000000000
+  %100 = fmul nnan float %99, 0x46F0000000000000
   %101 = bitcast float %100 to i32
   %102 = fcmp ult float %100, 6.553600e+04
   %103 = or i32 %101, 2139095040
@@ -11328,10 +11328,10 @@ define void @stbir__decode_uint8_linear_scaled_AR(ptr noundef %0, i32 noundef %1
   %26 = uitofp nneg <4 x i32> %25 to <4 x float>
   %27 = bitcast <8 x i16> %20 to <4 x i32>
   %28 = uitofp nneg <4 x i32> %27 to <4 x float>
-  %29 = fmul <4 x float> %22, splat (float 0x3F70101020000000)
-  %30 = fmul <4 x float> %24, splat (float 0x3F70101020000000)
-  %31 = fmul <4 x float> %26, splat (float 0x3F70101020000000)
-  %32 = fmul <4 x float> %28, splat (float 0x3F70101020000000)
+  %29 = fmul nnan <4 x float> %22, splat (float 0x3F70101020000000)
+  %30 = fmul nnan <4 x float> %24, splat (float 0x3F70101020000000)
+  %31 = fmul nnan <4 x float> %26, splat (float 0x3F70101020000000)
+  %32 = fmul nnan <4 x float> %28, splat (float 0x3F70101020000000)
   %33 = shufflevector <4 x float> %29, <4 x float> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
   %34 = shufflevector <4 x float> %30, <4 x float> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
   %35 = shufflevector <4 x float> %31, <4 x float> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
@@ -11367,23 +11367,23 @@ define void @stbir__decode_uint8_linear_scaled_AR(ptr noundef %0, i32 noundef %1
   %44 = getelementptr inbounds nuw i8, ptr %.27790, i64 1
   %45 = load i8, ptr %44, align 1, !tbaa !4
   %46 = uitofp i8 %45 to float
-  %47 = fmul float %46, 0x3F70101020000000
+  %47 = fmul nnan float %46, 0x3F70101020000000
   store float %47, ptr %.pn91, align 4, !tbaa !50
   %48 = load i8, ptr %.27790, align 1, !tbaa !4
   %49 = uitofp i8 %48 to float
-  %50 = fmul float %49, 0x3F70101020000000
+  %50 = fmul nnan float %49, 0x3F70101020000000
   %51 = getelementptr inbounds nuw i8, ptr %.pn91, i64 4
   store float %50, ptr %51, align 4, !tbaa !50
   %52 = getelementptr inbounds nuw i8, ptr %.27790, i64 3
   %53 = load i8, ptr %52, align 1, !tbaa !4
   %54 = uitofp i8 %53 to float
-  %55 = fmul float %54, 0x3F70101020000000
+  %55 = fmul nnan float %54, 0x3F70101020000000
   %56 = getelementptr inbounds nuw i8, ptr %.pn91, i64 8
   store float %55, ptr %56, align 4, !tbaa !50
   %57 = getelementptr inbounds nuw i8, ptr %.27790, i64 2
   %58 = load i8, ptr %57, align 1, !tbaa !4
   %59 = uitofp i8 %58 to float
-  %60 = fmul float %59, 0x3F70101020000000
+  %60 = fmul nnan float %59, 0x3F70101020000000
   %61 = getelementptr inbounds nuw i8, ptr %.pn91, i64 12
   store float %60, ptr %61, align 4, !tbaa !50
   %62 = getelementptr inbounds nuw i8, ptr %.27790, i64 4
@@ -11398,11 +11398,11 @@ define void @stbir__decode_uint8_linear_scaled_AR(ptr noundef %0, i32 noundef %1
   %63 = getelementptr inbounds nuw i8, ptr %.37894, i64 1
   %64 = load i8, ptr %63, align 1, !tbaa !4
   %65 = uitofp i8 %64 to float
-  %66 = fmul float %65, 0x3F70101020000000
+  %66 = fmul nnan float %65, 0x3F70101020000000
   store float %66, ptr %.395, align 4, !tbaa !50
   %67 = load i8, ptr %.37894, align 1, !tbaa !4
   %68 = uitofp i8 %67 to float
-  %69 = fmul float %68, 0x3F70101020000000
+  %69 = fmul nnan float %68, 0x3F70101020000000
   %70 = getelementptr inbounds nuw i8, ptr %.395, i64 4
   store float %69, ptr %70, align 4, !tbaa !50
   %71 = getelementptr inbounds nuw i8, ptr %.395, i64 8
@@ -12255,7 +12255,7 @@ define void @stbir__decode_uint8_srgb2_linearalpha_AR(ptr noundef writeonly capt
   store float %10, ptr %.pn27, align 4, !tbaa !50
   %11 = load i8, ptr %.028, align 1, !tbaa !4
   %12 = uitofp i8 %11 to float
-  %13 = fmul float %12, 0x3F70101020000000
+  %13 = fmul nnan float %12, 0x3F70101020000000
   %14 = getelementptr inbounds nuw i8, ptr %.pn27, i64 4
   store float %13, ptr %14, align 4, !tbaa !50
   %15 = getelementptr inbounds nuw i8, ptr %.028, i64 3
@@ -12268,7 +12268,7 @@ define void @stbir__decode_uint8_srgb2_linearalpha_AR(ptr noundef writeonly capt
   %21 = getelementptr inbounds nuw i8, ptr %.028, i64 2
   %22 = load i8, ptr %21, align 1, !tbaa !4
   %23 = uitofp i8 %22 to float
-  %24 = fmul float %23, 0x3F70101020000000
+  %24 = fmul nnan float %23, 0x3F70101020000000
   %25 = getelementptr inbounds nuw i8, ptr %.pn27, i64 12
   store float %24, ptr %25, align 4, !tbaa !50
   %26 = getelementptr inbounds nuw i8, ptr %.028, i64 4
@@ -12287,7 +12287,7 @@ define void @stbir__decode_uint8_srgb2_linearalpha_AR(ptr noundef writeonly capt
   store float %29, ptr %.pn.lcssa, align 4, !tbaa !50
   %30 = load i8, ptr %.0.lcssa, align 1, !tbaa !4
   %31 = uitofp i8 %30 to float
-  %32 = fmul float %31, 0x3F70101020000000
+  %32 = fmul nnan float %31, 0x3F70101020000000
   %33 = getelementptr inbounds nuw i8, ptr %.pn.lcssa, i64 4
   store float %32, ptr %33, align 4, !tbaa !50
   br label %34
@@ -12502,8 +12502,8 @@ define void @stbir__decode_uint16_linear_scaled_AR(ptr noundef %0, i32 noundef %
   %16 = uitofp nneg <4 x i32> %15 to <4 x float>
   %17 = bitcast <8 x i16> %14 to <4 x i32>
   %18 = uitofp nneg <4 x i32> %17 to <4 x float>
-  %19 = fmul <4 x float> %16, splat (float 0x3EF0001000000000)
-  %20 = fmul <4 x float> %18, splat (float 0x3EF0001000000000)
+  %19 = fmul nnan <4 x float> %16, splat (float 0x3EF0001000000000)
+  %20 = fmul nnan <4 x float> %18, splat (float 0x3EF0001000000000)
   %21 = shufflevector <4 x float> %19, <4 x float> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
   %22 = shufflevector <4 x float> %20, <4 x float> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
   store <4 x float> %21, ptr %.056, align 1, !tbaa !4
@@ -12533,23 +12533,23 @@ define void @stbir__decode_uint16_linear_scaled_AR(ptr noundef %0, i32 noundef %
   %28 = getelementptr inbounds nuw i8, ptr %.25972, i64 2
   %29 = load i16, ptr %28, align 2, !tbaa !173
   %30 = uitofp i16 %29 to float
-  %31 = fmul float %30, 0x3EF0001000000000
+  %31 = fmul nnan float %30, 0x3EF0001000000000
   store float %31, ptr %.pn73, align 4, !tbaa !50
   %32 = load i16, ptr %.25972, align 2, !tbaa !173
   %33 = uitofp i16 %32 to float
-  %34 = fmul float %33, 0x3EF0001000000000
+  %34 = fmul nnan float %33, 0x3EF0001000000000
   %35 = getelementptr inbounds nuw i8, ptr %.pn73, i64 4
   store float %34, ptr %35, align 4, !tbaa !50
   %36 = getelementptr inbounds nuw i8, ptr %.25972, i64 6
   %37 = load i16, ptr %36, align 2, !tbaa !173
   %38 = uitofp i16 %37 to float
-  %39 = fmul float %38, 0x3EF0001000000000
+  %39 = fmul nnan float %38, 0x3EF0001000000000
   %40 = getelementptr inbounds nuw i8, ptr %.pn73, i64 8
   store float %39, ptr %40, align 4, !tbaa !50
   %41 = getelementptr inbounds nuw i8, ptr %.25972, i64 4
   %42 = load i16, ptr %41, align 2, !tbaa !173
   %43 = uitofp i16 %42 to float
-  %44 = fmul float %43, 0x3EF0001000000000
+  %44 = fmul nnan float %43, 0x3EF0001000000000
   %45 = getelementptr inbounds nuw i8, ptr %.pn73, i64 12
   store float %44, ptr %45, align 4, !tbaa !50
   %46 = getelementptr inbounds nuw i8, ptr %.25972, i64 8
@@ -12564,11 +12564,11 @@ define void @stbir__decode_uint16_linear_scaled_AR(ptr noundef %0, i32 noundef %
   %47 = getelementptr inbounds nuw i8, ptr %.36076, i64 2
   %48 = load i16, ptr %47, align 2, !tbaa !173
   %49 = uitofp i16 %48 to float
-  %50 = fmul float %49, 0x3EF0001000000000
+  %50 = fmul nnan float %49, 0x3EF0001000000000
   store float %50, ptr %.377, align 4, !tbaa !50
   %51 = load i16, ptr %.36076, align 2, !tbaa !173
   %52 = uitofp i16 %51 to float
-  %53 = fmul float %52, 0x3EF0001000000000
+  %53 = fmul nnan float %52, 0x3EF0001000000000
   %54 = getelementptr inbounds nuw i8, ptr %.377, i64 4
   store float %53, ptr %54, align 4, !tbaa !50
   %55 = getelementptr inbounds nuw i8, ptr %.377, i64 8
@@ -13025,7 +13025,7 @@ define void @stbir__decode_half_float_linear_AR(ptr noundef %0, i32 noundef %1, 
   %61 = shl nuw nsw i32 %60, 13
   %62 = and i32 %61, 268427264
   %63 = bitcast i32 %62 to float
-  %64 = fmul float %63, 0x46F0000000000000
+  %64 = fmul nnan float %63, 0x46F0000000000000
   %65 = bitcast float %64 to i32
   %66 = fcmp ult float %64, 6.553600e+04
   %67 = or i32 %65, 2139095040
@@ -13039,7 +13039,7 @@ define void @stbir__decode_half_float_linear_AR(ptr noundef %0, i32 noundef %1, 
   %72 = shl nuw nsw i32 %71, 13
   %73 = and i32 %72, 268427264
   %74 = bitcast i32 %73 to float
-  %75 = fmul float %74, 0x46F0000000000000
+  %75 = fmul nnan float %74, 0x46F0000000000000
   %76 = bitcast float %75 to i32
   %77 = fcmp ult float %75, 6.553600e+04
   %78 = or i32 %76, 2139095040
@@ -13055,7 +13055,7 @@ define void @stbir__decode_half_float_linear_AR(ptr noundef %0, i32 noundef %1, 
   %85 = shl nuw nsw i32 %84, 13
   %86 = and i32 %85, 268427264
   %87 = bitcast i32 %86 to float
-  %88 = fmul float %87, 0x46F0000000000000
+  %88 = fmul nnan float %87, 0x46F0000000000000
   %89 = bitcast float %88 to i32
   %90 = fcmp ult float %88, 6.553600e+04
   %91 = or i32 %89, 2139095040
@@ -13071,7 +13071,7 @@ define void @stbir__decode_half_float_linear_AR(ptr noundef %0, i32 noundef %1, 
   %98 = shl nuw nsw i32 %97, 13
   %99 = and i32 %98, 268427264
   %100 = bitcast i32 %99 to float
-  %101 = fmul float %100, 0x46F0000000000000
+  %101 = fmul nnan float %100, 0x46F0000000000000
   %102 = bitcast float %101 to i32
   %103 = fcmp ult float %101, 6.553600e+04
   %104 = or i32 %102, 2139095040
@@ -13096,7 +13096,7 @@ define void @stbir__decode_half_float_linear_AR(ptr noundef %0, i32 noundef %1, 
   %112 = shl nuw nsw i32 %111, 13
   %113 = and i32 %112, 268427264
   %114 = bitcast i32 %113 to float
-  %115 = fmul float %114, 0x46F0000000000000
+  %115 = fmul nnan float %114, 0x46F0000000000000
   %116 = bitcast float %115 to i32
   %117 = fcmp ult float %115, 6.553600e+04
   %118 = or i32 %116, 2139095040
@@ -13110,7 +13110,7 @@ define void @stbir__decode_half_float_linear_AR(ptr noundef %0, i32 noundef %1, 
   %123 = shl nuw nsw i32 %122, 13
   %124 = and i32 %123, 268427264
   %125 = bitcast i32 %124 to float
-  %126 = fmul float %125, 0x46F0000000000000
+  %126 = fmul nnan float %125, 0x46F0000000000000
   %127 = bitcast float %126 to i32
   %128 = fcmp ult float %126, 6.553600e+04
   %129 = or i32 %127, 2139095040

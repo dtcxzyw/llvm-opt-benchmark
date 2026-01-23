@@ -505,7 +505,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define hidden noundef double @_Z14conv_to_doubleRK5clazz(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %0) local_unnamed_addr #3 {
   %2 = load i32, ptr %0, align 4, !tbaa !4
   %3 = sitofp i32 %2 to double
-  %4 = fmul double %3, 2.000000e+00
+  %4 = fmul nnan double %3, 2.000000e+00
   ret double %4
 }
 
@@ -1973,7 +1973,7 @@ _ZN4entt7type_idIdEERKNS_9type_infoEv.exit.i.i:   ; preds = %480, %478, %475
   %500 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN4entt8meta_any8try_castI5clazzEEPT_v(ptr noundef nonnull align 8 dereferenceable(192) %3)
   %501 = load i32, ptr %500, align 4, !tbaa !4
   %502 = sitofp i32 %501 to double
-  %503 = fmul double %502, 2.000000e+00
+  %503 = fmul nnan double %502, 2.000000e+00
   store double %503, ptr %36, align 8, !tbaa !111
   %504 = fcmp oeq double %499, %503
   br i1 %504, label %505, label %506
@@ -8639,7 +8639,7 @@ define linkonce_odr hidden void @_ZZN4entt12meta_factoryI5clazzE4convITnDaXadL_Z
 
 _ZZN4entt12meta_factoryI5clazzE4convITnDaXadL_Z14conv_to_doubleRKS1_EEEEDavENKUlRKNS_8meta_ctxEPKvE_clES8_SA_.exit: ; preds = %3, %8, %10
   %12 = sitofp i32 %4 to double
-  %13 = fmul double %12, 2.000000e+00
+  %13 = fmul nnan double %12, 2.000000e+00
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr @_ZZN4entt7type_idIdEERKNS_9type_infoEvE8instance, ptr %5, align 8, !tbaa !257, !alias.scope !280

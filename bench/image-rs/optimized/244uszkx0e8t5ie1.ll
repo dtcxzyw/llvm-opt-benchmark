@@ -6419,7 +6419,7 @@ define noundef float @_ZN5image8imageops6sample15lanczos3_kernel17hcc9e0f7f0c263
   br i1 %5, label %_ZN5image8imageops6sample4sinc17h0af2f3844d11f191E.llvm.15109044229312055141.exit.i, label %6
 
 6:                                                ; preds = %4
-  %7 = fmul float %0, 0x400921FB60000000
+  %7 = fmul nnan float %0, 0x400921FB60000000
   %8 = tail call float @llvm.sin.f32(float %7)
   %9 = fdiv float %8, %7
   br label %_ZN5image8imageops6sample4sinc17h0af2f3844d11f191E.llvm.15109044229312055141.exit.i
@@ -6431,7 +6431,7 @@ _ZN5image8imageops6sample4sinc17h0af2f3844d11f191E.llvm.15109044229312055141.exi
   br i1 %11, label %_ZN5image8imageops6sample4sinc17h0af2f3844d11f191E.llvm.15109044229312055141.exit4.i, label %12
 
 12:                                               ; preds = %_ZN5image8imageops6sample4sinc17h0af2f3844d11f191E.llvm.15109044229312055141.exit.i
-  %13 = fmul float %10, 0x400921FB60000000
+  %13 = fmul nnan float %10, 0x400921FB60000000
   %14 = tail call float @llvm.sin.f32(float %13)
   %15 = fdiv float %14, %13
   br label %_ZN5image8imageops6sample4sinc17h0af2f3844d11f191E.llvm.15109044229312055141.exit4.i
@@ -6470,7 +6470,7 @@ define noundef float @_ZN5image8imageops6sample17catmullrom_kernel17h5617209e655
   %7 = tail call float @llvm.powi.f32.i32(float %2, i32 3)
   %8 = fmul float %7, 9.000000e+00
   %9 = fmul float %0, %0
-  %10 = fmul float %9, 1.500000e+01
+  %10 = fmul nnan float %9, 1.500000e+01
   %11 = fsub float %8, %10
   %12 = fadd float %11, 6.000000e+00
   br label %_ZN5image8imageops6sample15bc_cubic_spline17h340f9b599a15b6bcE.llvm.15109044229312055141.exit
@@ -6479,9 +6479,9 @@ define noundef float @_ZN5image8imageops6sample17catmullrom_kernel17h5617209e655
   %14 = tail call float @llvm.powi.f32.i32(float %2, i32 3)
   %15 = fmul float %14, 3.000000e+00
   %16 = fmul float %0, %0
-  %17 = fmul float %16, 1.500000e+01
+  %17 = fmul nnan float %16, 1.500000e+01
   %18 = fsub float %17, %15
-  %19 = fmul float %2, 2.400000e+01
+  %19 = fmul nnan float %2, 2.400000e+01
   %20 = fsub float %18, %19
   %21 = fadd float %20, 1.200000e+01
   br label %_ZN5image8imageops6sample15bc_cubic_spline17h340f9b599a15b6bcE.llvm.15109044229312055141.exit
@@ -10334,28 +10334,28 @@ _ZN5image6codecs4jpeg7encoder16pixel_at_or_near17h61c253a405e39a38E.exit.i: ; pr
   %.sroa.0.0.i.i = load i24, ptr %.sroa.0.0.in.i.i, align 1, !noalias !1340
   %.0.extract.trunc.i.i = trunc i24 %.sroa.0.0.i.i to i8
   %63 = uitofp i8 %.0.extract.trunc.i.i to float
-  %64 = fmul float %63, 5.000000e-01
+  %64 = fmul nnan float %63, 5.000000e-01
   %.sroa.2.0.extract.shift.i.i = lshr i24 %.sroa.0.0.i.i, 8
   %.1.extract.trunc.i.i = trunc i24 %.sroa.2.0.extract.shift.i.i to i8
   %65 = uitofp i8 %.1.extract.trunc.i.i to float
-  %66 = fmul float %65, 0x3FDACBFB20000000
+  %66 = fmul nnan float %65, 0x3FDACBFB20000000
   %67 = fsub float %64, %66
   %.2.extract.shift.i.i = lshr i24 %.sroa.0.0.i.i, 16
   %.2.extract.trunc.i.i = trunc nuw i24 %.2.extract.shift.i.i to i8
   %68 = uitofp i8 %.2.extract.trunc.i.i to float
-  %69 = fmul float %68, 0x3FB4D013C0000000
+  %69 = fmul nnan float %68, 0x3FB4D013C0000000
   %70 = fsub float %67, %69
   %71 = fadd float %70, 1.280000e+02
   %72 = call i8 @llvm.fptoui.sat.i8.f32(float %71)
-  %73 = fmul float %68, 0x3FBD2F1AA0000000
-  %74 = fmul float %63, 0x3FD322D100000000
-  %75 = fmul float %65, 0x3FE2C8B440000000
+  %73 = fmul nnan float %68, 0x3FBD2F1AA0000000
+  %74 = fmul nnan float %63, 0x3FD322D100000000
+  %75 = fmul nnan float %65, 0x3FE2C8B440000000
   %76 = fadd float %74, %75
   %77 = fadd float %73, %76
   %78 = call i8 @llvm.fptoui.sat.i8.f32(float %77)
-  %79 = fmul float %68, 5.000000e-01
-  %80 = fmul float %63, 0xBFC597F640000000
-  %81 = fmul float %65, 0x3FD53404E0000000
+  %79 = fmul nnan float %68, 5.000000e-01
+  %80 = fmul nnan float %63, 0xBFC597F640000000
+  %81 = fmul nnan float %65, 0x3FD53404E0000000
   %82 = fsub float %80, %81
   %83 = fadd float %79, %82
   %84 = fadd float %83, 1.280000e+02
@@ -10628,28 +10628,28 @@ _ZN5image6codecs4jpeg7encoder16pixel_at_or_near17h3a1d99bdf69d416fE.exit.i: ; pr
   %.sroa.0.0.i.i = load i32, ptr %.sroa.0.0.in.i.i, align 1, !noalias !1381
   %.0.extract.trunc.i.i = trunc i32 %.sroa.0.0.i.i to i8
   %63 = uitofp i8 %.0.extract.trunc.i.i to float
-  %64 = fmul float %63, 5.000000e-01
+  %64 = fmul nnan float %63, 5.000000e-01
   %65 = lshr i32 %.sroa.0.0.i.i, 8
   %.1.extract.trunc.i.i = trunc i32 %65 to i8
   %66 = uitofp i8 %.1.extract.trunc.i.i to float
-  %67 = fmul float %66, 0x3FDACBFB20000000
+  %67 = fmul nnan float %66, 0x3FDACBFB20000000
   %68 = fsub float %64, %67
   %.2.extract.shift22.i.i = lshr i32 %.sroa.0.0.i.i, 16
   %.2.extract.trunc.i.i = trunc i32 %.2.extract.shift22.i.i to i8
   %69 = uitofp i8 %.2.extract.trunc.i.i to float
-  %70 = fmul float %69, 0x3FB4D013C0000000
+  %70 = fmul nnan float %69, 0x3FB4D013C0000000
   %71 = fsub float %68, %70
   %72 = fadd float %71, 1.280000e+02
   %73 = call i8 @llvm.fptoui.sat.i8.f32(float %72)
-  %74 = fmul float %69, 0x3FBD2F1AA0000000
-  %75 = fmul float %63, 0x3FD322D100000000
-  %76 = fmul float %66, 0x3FE2C8B440000000
+  %74 = fmul nnan float %69, 0x3FBD2F1AA0000000
+  %75 = fmul nnan float %63, 0x3FD322D100000000
+  %76 = fmul nnan float %66, 0x3FE2C8B440000000
   %77 = fadd float %75, %76
   %78 = fadd float %74, %77
   %79 = call i8 @llvm.fptoui.sat.i8.f32(float %78)
-  %80 = fmul float %69, 5.000000e-01
-  %81 = fmul float %63, 0xBFC597F640000000
-  %82 = fmul float %66, 0x3FD53404E0000000
+  %80 = fmul nnan float %69, 5.000000e-01
+  %81 = fmul nnan float %63, 0xBFC597F640000000
+  %82 = fmul nnan float %66, 0x3FD53404E0000000
   %83 = fsub float %81, %82
   %84 = fadd float %80, %83
   %85 = fadd float %84, 1.280000e+02

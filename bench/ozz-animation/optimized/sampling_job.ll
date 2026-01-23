@@ -319,7 +319,7 @@ _ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEERKNS2_IKjEE.
   %175 = and <4 x i32> %174, splat (i32 32767)
   %176 = shl nuw nsw <4 x i32> %175, splat (i32 13)
   %177 = bitcast <4 x i32> %176 to <4 x float>
-  %178 = fmul <4 x float> %177, splat (float 0x46F0000000000000)
+  %178 = fmul nnan <4 x float> %177, splat (float 0x46F0000000000000)
   %179 = icmp samesign ugt <4 x i32> %175, splat (i32 31743)
   %180 = and <4 x i32> %174, <i32 -32768, i32 32768, i32 -32768, i32 32768>
   %181 = shl nuw <4 x i32> %180, splat (i32 16)
@@ -347,7 +347,7 @@ _ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEERKNS2_IKjEE.
   %202 = and <4 x i32> %201, splat (i32 32767)
   %203 = shl nuw nsw <4 x i32> %202, splat (i32 13)
   %204 = bitcast <4 x i32> %203 to <4 x float>
-  %205 = fmul <4 x float> %204, splat (float 0x46F0000000000000)
+  %205 = fmul nnan <4 x float> %204, splat (float 0x46F0000000000000)
   %206 = icmp samesign ugt <4 x i32> %202, splat (i32 31743)
   %207 = and <4 x i32> %201, <i32 -32768, i32 32768, i32 -32768, i32 32768>
   %208 = shl nuw <4 x i32> %207, splat (i32 16)
@@ -376,7 +376,7 @@ _ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEERKNS2_IKjEE.
   %230 = and <4 x i32> %229, splat (i32 32767)
   %231 = shl nuw nsw <4 x i32> %230, splat (i32 13)
   %232 = bitcast <4 x i32> %231 to <4 x float>
-  %233 = fmul <4 x float> %232, splat (float 0x46F0000000000000)
+  %233 = fmul nnan <4 x float> %232, splat (float 0x46F0000000000000)
   %234 = icmp samesign ugt <4 x i32> %230, splat (i32 31743)
   %235 = and <4 x i32> %229, <i32 -32768, i32 32768, i32 -32768, i32 32768>
   %236 = shl nuw <4 x i32> %235, splat (i32 16)
@@ -469,7 +469,7 @@ _ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEERKNS2_IKjEE.
   %304 = and <4 x i32> %303, splat (i32 32767)
   %305 = shl nuw nsw <4 x i32> %304, splat (i32 13)
   %306 = bitcast <4 x i32> %305 to <4 x float>
-  %307 = fmul <4 x float> %306, splat (float 0x46F0000000000000)
+  %307 = fmul nnan <4 x float> %306, splat (float 0x46F0000000000000)
   %308 = icmp samesign ugt <4 x i32> %304, splat (i32 31743)
   %309 = and <4 x i32> %303, <i32 -32768, i32 32768, i32 -32768, i32 32768>
   %310 = shl nuw <4 x i32> %309, splat (i32 16)
@@ -497,7 +497,7 @@ _ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEERKNS2_IKjEE.
   %331 = and <4 x i32> %330, splat (i32 32767)
   %332 = shl nuw nsw <4 x i32> %331, splat (i32 13)
   %333 = bitcast <4 x i32> %332 to <4 x float>
-  %334 = fmul <4 x float> %333, splat (float 0x46F0000000000000)
+  %334 = fmul nnan <4 x float> %333, splat (float 0x46F0000000000000)
   %335 = icmp samesign ugt <4 x i32> %331, splat (i32 31743)
   %336 = and <4 x i32> %330, <i32 -32768, i32 32768, i32 -32768, i32 32768>
   %337 = shl nuw <4 x i32> %336, splat (i32 16)
@@ -526,7 +526,7 @@ _ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEERKNS2_IKjEE.
   %359 = and <4 x i32> %358, splat (i32 32767)
   %360 = shl nuw nsw <4 x i32> %359, splat (i32 13)
   %361 = bitcast <4 x i32> %360 to <4 x float>
-  %362 = fmul <4 x float> %361, splat (float 0x46F0000000000000)
+  %362 = fmul nnan <4 x float> %361, splat (float 0x46F0000000000000)
   %363 = icmp samesign ugt <4 x i32> %359, splat (i32 31743)
   %364 = and <4 x i32> %358, <i32 -32768, i32 32768, i32 -32768, i32 32768>
   %365 = shl nuw <4 x i32> %364, splat (i32 16)
@@ -1015,7 +1015,7 @@ _ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEERKNS2_IKjEE.
   %689 = and <4 x i32> %688, splat (i32 32767)
   %690 = shl nuw nsw <4 x i32> %689, splat (i32 13)
   %691 = bitcast <4 x i32> %690 to <4 x float>
-  %692 = fmul <4 x float> %691, splat (float 0x46F0000000000000)
+  %692 = fmul nnan <4 x float> %691, splat (float 0x46F0000000000000)
   %693 = icmp samesign ugt <4 x i32> %689, splat (i32 31743)
   %694 = and <4 x i32> %688, <i32 -32768, i32 32768, i32 -32768, i32 32768>
   %695 = shl nuw <4 x i32> %694, splat (i32 16)
@@ -1043,7 +1043,7 @@ _ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEERKNS2_IKjEE.
   %716 = and <4 x i32> %715, splat (i32 32767)
   %717 = shl nuw nsw <4 x i32> %716, splat (i32 13)
   %718 = bitcast <4 x i32> %717 to <4 x float>
-  %719 = fmul <4 x float> %718, splat (float 0x46F0000000000000)
+  %719 = fmul nnan <4 x float> %718, splat (float 0x46F0000000000000)
   %720 = icmp samesign ugt <4 x i32> %716, splat (i32 31743)
   %721 = and <4 x i32> %715, <i32 -32768, i32 32768, i32 -32768, i32 32768>
   %722 = shl nuw <4 x i32> %721, splat (i32 16)
@@ -1072,7 +1072,7 @@ _ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEERKNS2_IKjEE.
   %744 = and <4 x i32> %743, splat (i32 32767)
   %745 = shl nuw nsw <4 x i32> %744, splat (i32 13)
   %746 = bitcast <4 x i32> %745 to <4 x float>
-  %747 = fmul <4 x float> %746, splat (float 0x46F0000000000000)
+  %747 = fmul nnan <4 x float> %746, splat (float 0x46F0000000000000)
   %748 = icmp samesign ugt <4 x i32> %744, splat (i32 31743)
   %749 = and <4 x i32> %743, <i32 -32768, i32 32768, i32 -32768, i32 32768>
   %750 = shl nuw <4 x i32> %749, splat (i32 16)
@@ -1165,7 +1165,7 @@ _ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEERKNS2_IKjEE.
   %818 = and <4 x i32> %817, splat (i32 32767)
   %819 = shl nuw nsw <4 x i32> %818, splat (i32 13)
   %820 = bitcast <4 x i32> %819 to <4 x float>
-  %821 = fmul <4 x float> %820, splat (float 0x46F0000000000000)
+  %821 = fmul nnan <4 x float> %820, splat (float 0x46F0000000000000)
   %822 = icmp samesign ugt <4 x i32> %818, splat (i32 31743)
   %823 = and <4 x i32> %817, <i32 -32768, i32 32768, i32 -32768, i32 32768>
   %824 = shl nuw <4 x i32> %823, splat (i32 16)
@@ -1193,7 +1193,7 @@ _ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEERKNS2_IKjEE.
   %845 = and <4 x i32> %844, splat (i32 32767)
   %846 = shl nuw nsw <4 x i32> %845, splat (i32 13)
   %847 = bitcast <4 x i32> %846 to <4 x float>
-  %848 = fmul <4 x float> %847, splat (float 0x46F0000000000000)
+  %848 = fmul nnan <4 x float> %847, splat (float 0x46F0000000000000)
   %849 = icmp samesign ugt <4 x i32> %845, splat (i32 31743)
   %850 = and <4 x i32> %844, <i32 -32768, i32 32768, i32 -32768, i32 32768>
   %851 = shl nuw <4 x i32> %850, splat (i32 16)
@@ -1222,7 +1222,7 @@ _ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEERKNS2_IKjEE.
   %873 = and <4 x i32> %872, splat (i32 32767)
   %874 = shl nuw nsw <4 x i32> %873, splat (i32 13)
   %875 = bitcast <4 x i32> %874 to <4 x float>
-  %876 = fmul <4 x float> %875, splat (float 0x46F0000000000000)
+  %876 = fmul nnan <4 x float> %875, splat (float 0x46F0000000000000)
   %877 = icmp samesign ugt <4 x i32> %873, splat (i32 31743)
   %878 = and <4 x i32> %872, <i32 -32768, i32 32768, i32 -32768, i32 32768>
   %879 = shl nuw <4 x i32> %878, splat (i32 16)

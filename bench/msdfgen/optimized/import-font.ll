@@ -214,9 +214,9 @@ if.end:                                           ; preds = %if.then, %land.lhs.
   %4 = getelementptr i8, ptr %to, i64 8
   %to.val5 = load i64, ptr %4, align 8
   %conv.i = sitofp i64 %to.val to double
-  %mul.i = fmul double %conv.i, 1.562500e-02
+  %mul.i = fmul nnan double %conv.i, 1.562500e-02
   %conv1.i = sitofp i64 %to.val5 to double
-  %mul2.i = fmul double %conv1.i, 1.562500e-02
+  %mul2.i = fmul nnan double %conv1.i, 1.562500e-02
   store double %mul.i, ptr %user, align 8
   %ref.tmp.sroa.2.0.position.sroa_idx = getelementptr inbounds nuw i8, ptr %user, i64 8
   store double %mul2.i, ptr %ref.tmp.sroa.2.0.position.sroa_idx, align 8
@@ -231,9 +231,9 @@ entry:
   %0 = getelementptr i8, ptr %to, i64 8
   %to.val4 = load i64, ptr %0, align 8
   %conv.i = sitofp i64 %to.val to double
-  %mul.i = fmul double %conv.i, 1.562500e-02
+  %mul.i = fmul nnan double %conv.i, 1.562500e-02
   %conv1.i = sitofp i64 %to.val4 to double
-  %mul2.i = fmul double %conv1.i, 1.562500e-02
+  %mul2.i = fmul nnan double %conv1.i, 1.562500e-02
   %agg.tmp1.sroa.0.0.copyload = load double, ptr %user, align 8
   %agg.tmp1.sroa.2.0.position.sroa_idx = getelementptr inbounds nuw i8, ptr %user, i64 8
   %agg.tmp1.sroa.2.0.copyload = load double, ptr %agg.tmp1.sroa.2.0.position.sroa_idx, align 8
@@ -274,9 +274,9 @@ entry:
   %0 = getelementptr i8, ptr %to, i64 8
   %to.val4 = load i64, ptr %0, align 8
   %conv.i = sitofp i64 %to.val to double
-  %mul.i = fmul double %conv.i, 1.562500e-02
+  %mul.i = fmul nnan double %conv.i, 1.562500e-02
   %conv1.i = sitofp i64 %to.val4 to double
-  %mul2.i = fmul double %conv1.i, 1.562500e-02
+  %mul2.i = fmul nnan double %conv1.i, 1.562500e-02
   %agg.tmp1.sroa.0.0.copyload = load double, ptr %user, align 8
   %agg.tmp1.sroa.2.0.position.sroa_idx = getelementptr inbounds nuw i8, ptr %user, i64 8
   %agg.tmp1.sroa.2.0.copyload = load double, ptr %agg.tmp1.sroa.2.0.position.sroa_idx, align 8
@@ -292,9 +292,9 @@ if.then:                                          ; preds = %entry
   %3 = getelementptr i8, ptr %control, i64 8
   %control.val5 = load i64, ptr %3, align 8
   %conv.i6 = sitofp i64 %control.val to double
-  %mul.i7 = fmul double %conv.i6, 1.562500e-02
+  %mul.i7 = fmul nnan double %conv.i6, 1.562500e-02
   %conv1.i8 = sitofp i64 %control.val5 to double
-  %mul2.i9 = fmul double %conv1.i8, 1.562500e-02
+  %mul2.i9 = fmul nnan double %conv1.i8, 1.562500e-02
   %call.i = tail call noundef ptr @_ZN7msdfgen11EdgeSegment6createENS_7Vector2ES1_S1_NS_9EdgeColorE(double %agg.tmp1.sroa.0.0.copyload, double %agg.tmp1.sroa.2.0.copyload, double %mul.i7, double %mul2.i9, double %mul.i, double %mul2.i, i32 noundef 7)
   store ptr %call.i, ptr %ref.tmp, align 8
   invoke void @_ZN7msdfgen7Contour7addEdgeEONS_10EdgeHolderE(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
@@ -324,9 +324,9 @@ entry:
   %0 = getelementptr i8, ptr %to, i64 8
   %to.val6 = load i64, ptr %0, align 8
   %conv.i = sitofp i64 %to.val to double
-  %mul.i = fmul double %conv.i, 1.562500e-02
+  %mul.i = fmul nnan double %conv.i, 1.562500e-02
   %conv1.i = sitofp i64 %to.val6 to double
-  %mul2.i = fmul double %conv1.i, 1.562500e-02
+  %mul2.i = fmul nnan double %conv1.i, 1.562500e-02
   %agg.tmp1.sroa.0.0.copyload = load double, ptr %user, align 8
   %agg.tmp1.sroa.2.0.position.sroa_idx = getelementptr inbounds nuw i8, ptr %user, i64 8
   %agg.tmp1.sroa.2.0.copyload = load double, ptr %agg.tmp1.sroa.2.0.position.sroa_idx, align 8
@@ -343,29 +343,29 @@ entry.if.then_crit_edge:                          ; preds = %entry
   %.phi.trans.insert45 = getelementptr i8, ptr %control2, i64 8
   %control2.val12.pre = load i64, ptr %.phi.trans.insert45, align 8
   %.pre = sitofp i64 %control1.val9.pre to double
-  %.pre47 = fmul double %.pre, 1.562500e-02
+  %.pre47 = fmul nnan double %.pre, 1.562500e-02
   %.pre48 = sitofp i64 %control1.val10.pre to double
-  %.pre49 = fmul double %.pre48, 1.562500e-02
+  %.pre49 = fmul nnan double %.pre48, 1.562500e-02
   %.pre50 = sitofp i64 %control2.val11.pre to double
-  %.pre51 = fmul double %.pre50, 1.562500e-02
+  %.pre51 = fmul nnan double %.pre50, 1.562500e-02
   %.pre52 = sitofp i64 %control2.val12.pre to double
-  %.pre53 = fmul double %.pre52, 1.562500e-02
+  %.pre53 = fmul nnan double %.pre52, 1.562500e-02
   br label %if.then
 
 lor.lhs.false:                                    ; preds = %entry
   %conv.i13 = sitofp i64 %control1.val9.pre to double
-  %mul.i14 = fmul double %conv.i13, 1.562500e-02
+  %mul.i14 = fmul nnan double %conv.i13, 1.562500e-02
   %conv1.i15 = sitofp i64 %control1.val10.pre to double
-  %mul2.i16 = fmul double %conv1.i15, 1.562500e-02
+  %mul2.i16 = fmul nnan double %conv1.i15, 1.562500e-02
   %sub.i = fsub double %mul.i14, %mul.i
   %sub3.i = fsub double %mul2.i16, %mul2.i
   %control2.val = load i64, ptr %control2, align 8
   %2 = getelementptr i8, ptr %control2, i64 8
   %control2.val8 = load i64, ptr %2, align 8
   %conv.i21 = sitofp i64 %control2.val to double
-  %mul.i22 = fmul double %conv.i21, 1.562500e-02
+  %mul.i22 = fmul nnan double %conv.i21, 1.562500e-02
   %conv1.i23 = sitofp i64 %control2.val8 to double
-  %mul2.i24 = fmul double %conv1.i23, 1.562500e-02
+  %mul2.i24 = fmul nnan double %conv1.i23, 1.562500e-02
   %sub.i27 = fsub double %mul.i22, %mul.i
   %sub3.i28 = fsub double %mul2.i24, %mul2.i
   %3 = fneg double %sub.i27
@@ -490,41 +490,41 @@ entry:
   %units_per_EM = getelementptr inbounds nuw i8, ptr %0, i64 136
   %1 = load i16, ptr %units_per_EM, align 8
   %conv = uitofp i16 %1 to double
-  %mul = fmul double %conv, 1.562500e-02
+  %mul = fmul nnan double %conv, 1.562500e-02
   store double %mul, ptr %metrics, align 8
   %2 = load ptr, ptr %font, align 8
   %ascender = getelementptr inbounds nuw i8, ptr %2, i64 138
   %3 = load i16, ptr %ascender, align 2
   %conv2 = sitofp i16 %3 to double
-  %mul3 = fmul double %conv2, 1.562500e-02
+  %mul3 = fmul nnan double %conv2, 1.562500e-02
   %ascenderY = getelementptr inbounds nuw i8, ptr %metrics, i64 8
   store double %mul3, ptr %ascenderY, align 8
   %4 = load ptr, ptr %font, align 8
   %descender = getelementptr inbounds nuw i8, ptr %4, i64 140
   %5 = load i16, ptr %descender, align 4
   %conv5 = sitofp i16 %5 to double
-  %mul6 = fmul double %conv5, 1.562500e-02
+  %mul6 = fmul nnan double %conv5, 1.562500e-02
   %descenderY = getelementptr inbounds nuw i8, ptr %metrics, i64 16
   store double %mul6, ptr %descenderY, align 8
   %6 = load ptr, ptr %font, align 8
   %height = getelementptr inbounds nuw i8, ptr %6, i64 142
   %7 = load i16, ptr %height, align 2
   %conv8 = sitofp i16 %7 to double
-  %mul9 = fmul double %conv8, 1.562500e-02
+  %mul9 = fmul nnan double %conv8, 1.562500e-02
   %lineHeight = getelementptr inbounds nuw i8, ptr %metrics, i64 24
   store double %mul9, ptr %lineHeight, align 8
   %8 = load ptr, ptr %font, align 8
   %underline_position = getelementptr inbounds nuw i8, ptr %8, i64 148
   %9 = load i16, ptr %underline_position, align 4
   %conv11 = sitofp i16 %9 to double
-  %mul12 = fmul double %conv11, 1.562500e-02
+  %mul12 = fmul nnan double %conv11, 1.562500e-02
   %underlineY = getelementptr inbounds nuw i8, ptr %metrics, i64 32
   store double %mul12, ptr %underlineY, align 8
   %10 = load ptr, ptr %font, align 8
   %underline_thickness = getelementptr inbounds nuw i8, ptr %10, i64 150
   %11 = load i16, ptr %underline_thickness, align 2
   %conv14 = sitofp i16 %11 to double
-  %mul15 = fmul double %conv14, 1.562500e-02
+  %mul15 = fmul nnan double %conv14, 1.562500e-02
   %underlineThickness = getelementptr inbounds nuw i8, ptr %metrics, i64 40
   store double %mul15, ptr %underlineThickness, align 8
   ret i1 true
@@ -545,7 +545,7 @@ if.end:                                           ; preds = %entry
   %advance = getelementptr inbounds nuw i8, ptr %2, i64 128
   %3 = load i64, ptr %advance, align 8
   %conv = sitofp i64 %3 to double
-  %mul = fmul double %conv, 1.562500e-02
+  %mul = fmul nnan double %conv, 1.562500e-02
   store double %mul, ptr %spaceAdvance, align 8
   %4 = load ptr, ptr %font, align 8
   %call3 = tail call i32 @FT_Load_Char(ptr noundef %4, i64 noundef 9, i32 noundef 1)
@@ -559,7 +559,7 @@ if.end6:                                          ; preds = %if.end
   %advance9 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %7 = load i64, ptr %advance9, align 8
   %conv11 = sitofp i64 %7 to double
-  %mul12 = fmul double %conv11, 1.562500e-02
+  %mul12 = fmul nnan double %conv11, 1.562500e-02
   store double %mul12, ptr %tabAdvance, align 8
   br label %return
 
@@ -609,7 +609,7 @@ if.then6:                                         ; preds = %if.end4
   %advance8 = getelementptr inbounds nuw i8, ptr %2, i64 128
   %3 = load i64, ptr %advance8, align 8
   %conv = sitofp i64 %3 to double
-  %mul = fmul double %conv, 1.562500e-02
+  %mul = fmul nnan double %conv, 1.562500e-02
   store double %mul, ptr %advance, align 8
   br label %if.end9
 
@@ -651,7 +651,7 @@ if.then6.i:                                       ; preds = %if.end4.i
   %advance8.i = getelementptr inbounds nuw i8, ptr %3, i64 128
   %4 = load i64, ptr %advance8.i, align 8
   %conv.i = sitofp i64 %4 to double
-  %mul.i = fmul double %conv.i, 1.562500e-02
+  %mul.i = fmul nnan double %conv.i, 1.562500e-02
   store double %mul.i, ptr %advance, align 8
   br label %if.end9.i
 
@@ -678,7 +678,7 @@ entry:
   %tobool.not = icmp eq i32 %call3, 0
   %1 = load i64, ptr %kerning, align 8
   %conv = sitofp i64 %1 to double
-  %mul = fmul double %conv, 1.562500e-02
+  %mul = fmul nnan double %conv, 1.562500e-02
   %storemerge = select i1 %tobool.not, double %mul, double 0.000000e+00
   store double %storemerge, ptr %output, align 8
   ret i1 %tobool.not
@@ -702,7 +702,7 @@ entry:
   %tobool.not.i = icmp eq i32 %call3.i, 0
   %3 = load i64, ptr %kerning.i, align 8
   %conv.i = sitofp i64 %3 to double
-  %mul.i = fmul double %conv.i, 1.562500e-02
+  %mul.i = fmul nnan double %conv.i, 1.562500e-02
   %storemerge.i = select i1 %tobool.not.i, double %mul.i, double 0.000000e+00
   store double %storemerge.i, ptr %output, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %kerning.i)
@@ -914,7 +914,7 @@ for.body:                                         ; preds = %_ZNSt6vectorIN7msdf
   %minimum = getelementptr inbounds nuw i8, ptr %arrayidx11, i64 8
   %13 = load i64, ptr %minimum, align 8
   %conv12 = sitofp i64 %13 to double
-  %mul = fmul double %conv12, 0x3EF0000000000000
+  %mul = fmul nnan double %conv12, 0x3EF0000000000000
   %minValue = getelementptr inbounds nuw i8, ptr %add.ptr.i12, i64 8
   store double %mul, ptr %minValue, align 8
   %14 = load ptr, ptr %master, align 8
@@ -924,7 +924,7 @@ for.body:                                         ; preds = %_ZNSt6vectorIN7msdf
   %maximum = getelementptr inbounds nuw i8, ptr %arrayidx15, i64 24
   %16 = load i64, ptr %maximum, align 8
   %conv16 = sitofp i64 %16 to double
-  %mul17 = fmul double %conv16, 0x3EF0000000000000
+  %mul17 = fmul nnan double %conv16, 0x3EF0000000000000
   %maxValue = getelementptr inbounds nuw i8, ptr %add.ptr.i12, i64 16
   store double %mul17, ptr %maxValue, align 8
   %17 = load ptr, ptr %master, align 8
@@ -934,7 +934,7 @@ for.body:                                         ; preds = %_ZNSt6vectorIN7msdf
   %def = getelementptr inbounds nuw i8, ptr %arrayidx20, i64 16
   %19 = load i64, ptr %def, align 8
   %conv21 = sitofp i64 %19 to double
-  %mul22 = fmul double %conv21, 0x3EF0000000000000
+  %mul22 = fmul nnan double %conv21, 0x3EF0000000000000
   %defaultValue = getelementptr inbounds nuw i8, ptr %add.ptr.i12, i64 24
   store double %mul22, ptr %defaultValue, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

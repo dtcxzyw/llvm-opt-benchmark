@@ -1189,7 +1189,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %mul = fmul double %2, 0x4130000000000000
+  %mul = fmul nnan double %2, 0x4130000000000000
   %conv = fptoui double %mul to i64
   %max_young_generation_size_.i = getelementptr inbounds nuw i8, ptr %constraints, i64 16
   store i64 %conv, ptr %max_young_generation_size_.i, align 8
@@ -1199,7 +1199,7 @@ if.else:                                          ; preds = %entry
   %max_young_generation_size_.i9 = getelementptr inbounds nuw i8, ptr %constraints, i64 16
   %3 = load i64, ptr %max_young_generation_size_.i9, align 8
   %conv4 = uitofp i64 %3 to double
-  %div = fmul double %conv4, 0x3EB0000000000000
+  %div = fmul nnan double %conv4, 0x3EB0000000000000
   store double %div, ptr %resource_limits_, align 8
   br label %if.end
 
@@ -1210,7 +1210,7 @@ if.end:                                           ; preds = %if.else, %if.then
   br i1 %cmp9, label %if.then10, label %if.else15
 
 if.then10:                                        ; preds = %if.end
-  %mul13 = fmul double %4, 0x4130000000000000
+  %mul13 = fmul nnan double %4, 0x4130000000000000
   %conv14 = fptoui double %mul13 to i64
   %max_old_generation_size_.i = getelementptr inbounds nuw i8, ptr %constraints, i64 8
   store i64 %conv14, ptr %max_old_generation_size_.i, align 8
@@ -1220,7 +1220,7 @@ if.else15:                                        ; preds = %if.end
   %max_old_generation_size_.i10 = getelementptr inbounds nuw i8, ptr %constraints, i64 8
   %5 = load i64, ptr %max_old_generation_size_.i10, align 8
   %conv17 = uitofp i64 %5 to double
-  %div18 = fmul double %conv17, 0x3EB0000000000000
+  %div18 = fmul nnan double %conv17, 0x3EB0000000000000
   store double %div18, ptr %arrayidx8, align 8
   br label %if.end21
 
@@ -1231,7 +1231,7 @@ if.end21:                                         ; preds = %if.else15, %if.then
   br i1 %cmp24, label %if.then25, label %if.else30
 
 if.then25:                                        ; preds = %if.end21
-  %mul28 = fmul double %6, 0x4130000000000000
+  %mul28 = fmul nnan double %6, 0x4130000000000000
   %conv29 = fptoui double %mul28 to i64
   store i64 %conv29, ptr %constraints, align 8
   br label %if.end36
@@ -1239,7 +1239,7 @@ if.then25:                                        ; preds = %if.end21
 if.else30:                                        ; preds = %if.end21
   %7 = load i64, ptr %constraints, align 8
   %conv32 = uitofp i64 %7 to double
-  %div33 = fmul double %conv32, 0x3EB0000000000000
+  %div33 = fmul nnan double %conv32, 0x3EB0000000000000
   store double %div33, ptr %arrayidx23, align 8
   br label %if.end36
 
@@ -2410,7 +2410,7 @@ _ZNSt10unique_ptrIN4node20ArrayBufferAllocatorESt14default_deleteIS1_EED2Ev.exit
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %_ZNSt10unique_ptrIN4node20ArrayBufferAllocatorESt14default_deleteIS1_EED2Ev.exit
-  %mul.i = fmul double %4, 0x4130000000000000
+  %mul.i = fmul nnan double %4, 0x4130000000000000
   %conv.i = fptoui double %mul.i to i64
   %max_young_generation_size_.i.i = getelementptr inbounds nuw i8, ptr %params, i64 24
   store i64 %conv.i, ptr %max_young_generation_size_.i.i, align 8
@@ -2420,7 +2420,7 @@ if.else.i:                                        ; preds = %_ZNSt10unique_ptrIN
   %max_young_generation_size_.i9.i = getelementptr inbounds nuw i8, ptr %params, i64 24
   %5 = load i64, ptr %max_young_generation_size_.i9.i, align 8
   %conv4.i = uitofp i64 %5 to double
-  %div.i = fmul double %conv4.i, 0x3EB0000000000000
+  %div.i = fmul nnan double %conv4.i, 0x3EB0000000000000
   store double %div.i, ptr %resource_limits_.i, align 8
   br label %if.end.i
 
@@ -2431,7 +2431,7 @@ if.end.i:                                         ; preds = %if.else.i, %if.then
   br i1 %cmp9.i, label %if.then10.i, label %if.else15.i
 
 if.then10.i:                                      ; preds = %if.end.i
-  %mul13.i = fmul double %6, 0x4130000000000000
+  %mul13.i = fmul nnan double %6, 0x4130000000000000
   %conv14.i = fptoui double %mul13.i to i64
   %max_old_generation_size_.i.i = getelementptr inbounds nuw i8, ptr %params, i64 16
   store i64 %conv14.i, ptr %max_old_generation_size_.i.i, align 8
@@ -2441,7 +2441,7 @@ if.else15.i:                                      ; preds = %if.end.i
   %max_old_generation_size_.i10.i = getelementptr inbounds nuw i8, ptr %params, i64 16
   %7 = load i64, ptr %max_old_generation_size_.i10.i, align 8
   %conv17.i = uitofp i64 %7 to double
-  %div18.i = fmul double %conv17.i, 0x3EB0000000000000
+  %div18.i = fmul nnan double %conv17.i, 0x3EB0000000000000
   store double %div18.i, ptr %arrayidx8.i, align 8
   br label %if.end21.i
 
@@ -2452,7 +2452,7 @@ if.end21.i:                                       ; preds = %if.else15.i, %if.th
   br i1 %cmp24.i, label %if.then25.i, label %if.else30.i
 
 if.then25.i:                                      ; preds = %if.end21.i
-  %mul28.i = fmul double %8, 0x4130000000000000
+  %mul28.i = fmul nnan double %8, 0x4130000000000000
   %conv29.i = fptoui double %mul28.i to i64
   store i64 %conv29.i, ptr %constraints, align 8
   br label %_ZN4node6worker6Worker25UpdateResourceConstraintsEPN2v819ResourceConstraintsE.exit
@@ -2460,7 +2460,7 @@ if.then25.i:                                      ; preds = %if.end21.i
 if.else30.i:                                      ; preds = %if.end21.i
   %9 = load i64, ptr %constraints, align 8
   %conv32.i = uitofp i64 %9 to double
-  %div33.i = fmul double %conv32.i, 0x3EB0000000000000
+  %div33.i = fmul nnan double %conv32.i, 0x3EB0000000000000
   store double %div33.i, ptr %arrayidx23.i, align 8
   br label %_ZN4node6worker6Worker25UpdateResourceConstraintsEPN2v819ResourceConstraintsE.exit
 
@@ -6608,7 +6608,7 @@ do.end:                                           ; preds = %_ZN4node10BaseObjec
   br i1 %cmp11, label %if.then12, label %if.else24
 
 if.then12:                                        ; preds = %do.end
-  %mul = fmul double %11, 0x4130000000000000
+  %mul = fmul nnan double %11, 0x4130000000000000
   %cmp15 = fcmp olt double %mul, 1.966080e+05
   %stack_size_ = getelementptr inbounds nuw i8, ptr %retval.i13.0.i, i64 328
   br i1 %cmp15, label %if.then16, label %if.else
@@ -6627,7 +6627,7 @@ if.else24:                                        ; preds = %do.end
   %stack_size_25 = getelementptr inbounds nuw i8, ptr %retval.i13.0.i, i64 328
   %12 = load i64, ptr %stack_size_25, align 8
   %conv26 = uitofp i64 %12 to double
-  %div = fmul double %conv26, 0x3EB0000000000000
+  %div = fmul nnan double %conv26, 0x3EB0000000000000
   store double %div, ptr %arrayidx, align 8
   br label %if.end29
 

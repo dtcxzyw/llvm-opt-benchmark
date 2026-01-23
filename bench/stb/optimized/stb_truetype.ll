@@ -5207,7 +5207,7 @@ stbtt__close_shape.exit:                          ; preds = %222, %239, %243
   %431 = zext i8 %430 to i16
   %432 = or disjoint i16 %428, %431
   %433 = sitofp i16 %432 to float
-  %434 = fmul float %433, 0x3F10000000000000
+  %434 = fmul nnan float %433, 0x3F10000000000000
   %435 = getelementptr inbounds nuw i8, ptr %.1297, i64 2
   br label %501
 
@@ -5225,7 +5225,7 @@ stbtt__close_shape.exit:                          ; preds = %222, %239, %243
   %444 = zext i8 %443 to i16
   %445 = or disjoint i16 %441, %444
   %446 = sitofp i16 %445 to float
-  %447 = fmul float %446, 0x3F10000000000000
+  %447 = fmul nnan float %446, 0x3F10000000000000
   %448 = getelementptr inbounds nuw i8, ptr %.1297, i64 2
   %449 = load i8, ptr %448, align 1, !tbaa !12
   %450 = zext i8 %449 to i16
@@ -5235,7 +5235,7 @@ stbtt__close_shape.exit:                          ; preds = %222, %239, %243
   %454 = zext i8 %453 to i16
   %455 = or disjoint i16 %451, %454
   %456 = sitofp i16 %455 to float
-  %457 = fmul float %456, 0x3F10000000000000
+  %457 = fmul nnan float %456, 0x3F10000000000000
   %458 = getelementptr inbounds nuw i8, ptr %.1297, i64 4
   br label %501
 
@@ -5252,7 +5252,7 @@ stbtt__close_shape.exit:                          ; preds = %222, %239, %243
   %466 = zext i8 %465 to i16
   %467 = or disjoint i16 %463, %466
   %468 = sitofp i16 %467 to float
-  %469 = fmul float %468, 0x3F10000000000000
+  %469 = fmul nnan float %468, 0x3F10000000000000
   %470 = getelementptr inbounds nuw i8, ptr %.1297, i64 2
   %471 = load i8, ptr %470, align 1, !tbaa !12
   %472 = zext i8 %471 to i16
@@ -5262,7 +5262,7 @@ stbtt__close_shape.exit:                          ; preds = %222, %239, %243
   %476 = zext i8 %475 to i16
   %477 = or disjoint i16 %473, %476
   %478 = sitofp i16 %477 to float
-  %479 = fmul float %478, 0x3F10000000000000
+  %479 = fmul nnan float %478, 0x3F10000000000000
   %480 = getelementptr inbounds nuw i8, ptr %.1297, i64 4
   %481 = load i8, ptr %480, align 1, !tbaa !12
   %482 = zext i8 %481 to i16
@@ -5272,7 +5272,7 @@ stbtt__close_shape.exit:                          ; preds = %222, %239, %243
   %486 = zext i8 %485 to i16
   %487 = or disjoint i16 %483, %486
   %488 = sitofp i16 %487 to float
-  %489 = fmul float %488, 0x3F10000000000000
+  %489 = fmul nnan float %488, 0x3F10000000000000
   %490 = getelementptr inbounds nuw i8, ptr %.1297, i64 6
   %491 = load i8, ptr %490, align 1, !tbaa !12
   %492 = zext i8 %491 to i16
@@ -5282,7 +5282,7 @@ stbtt__close_shape.exit:                          ; preds = %222, %239, %243
   %496 = zext i8 %495 to i16
   %497 = or disjoint i16 %493, %496
   %498 = sitofp i16 %497 to float
-  %499 = fmul float %498, 0x3F10000000000000
+  %499 = fmul nnan float %498, 0x3F10000000000000
   %500 = getelementptr inbounds nuw i8, ptr %.1297, i64 8
   br label %501
 
@@ -8442,7 +8442,7 @@ stbtt__buf_get8.exit.i327:                        ; preds = %887, %884
 
 stbtt__buf_get.exit:                              ; preds = %stbtt__buf_get8.exit.i327
   %896 = sitofp i32 %.0.i.i to float
-  %897 = fmul float %896, 0x3EF0000000000000
+  %897 = fmul nnan float %896, 0x3EF0000000000000
   br label %955
 
 898:                                              ; preds = %881
@@ -14528,7 +14528,7 @@ define void @stbtt_MakeCodepointBitmapSubpixelPrefilter(ptr noundef readonly cap
   %25 = sub nsw i32 1, %9
   %26 = sitofp i32 %25 to float
   %27 = sitofp i32 %9 to float
-  %28 = fmul float %27, 2.000000e+00
+  %28 = fmul nnan float %27, 2.000000e+00
   %29 = fdiv float %26, %28
   br label %stbtt__oversample_shift.exit.i
 
@@ -14542,7 +14542,7 @@ stbtt__oversample_shift.exit.i:                   ; preds = %24, %23
   %31 = sub nsw i32 1, %10
   %32 = sitofp i32 %31 to float
   %33 = sitofp i32 %10 to float
-  %34 = fmul float %33, 2.000000e+00
+  %34 = fmul nnan float %33, 2.000000e+00
   %35 = fdiv float %32, %34
   br label %stbtt_MakeGlyphBitmapSubpixelPrefilter.exit
 
@@ -14582,7 +14582,7 @@ define void @stbtt_MakeGlyphBitmapSubpixelPrefilter(ptr noundef readonly capture
   %24 = sub nsw i32 1, %9
   %25 = sitofp i32 %24 to float
   %26 = sitofp i32 %9 to float
-  %27 = fmul float %26, 2.000000e+00
+  %27 = fmul nnan float %26, 2.000000e+00
   %28 = fdiv float %25, %27
   br label %stbtt__oversample_shift.exit
 
@@ -14596,7 +14596,7 @@ stbtt__oversample_shift.exit:                     ; preds = %22, %23
   %30 = sub nsw i32 1, %10
   %31 = sitofp i32 %30 to float
   %32 = sitofp i32 %10 to float
-  %33 = fmul float %32, 2.000000e+00
+  %33 = fmul nnan float %32, 2.000000e+00
   %34 = fdiv float %31, %33
   br label %stbtt__oversample_shift.exit30
 
@@ -15543,7 +15543,7 @@ define float @stbtt__oversample_shift(i32 noundef %0) local_unnamed_addr #4 {
   %3 = sub nsw i32 1, %0
   %4 = sitofp i32 %3 to float
   %5 = sitofp i32 %0 to float
-  %6 = fmul float %5, 2.000000e+00
+  %6 = fmul nnan float %5, 2.000000e+00
   %7 = fdiv float %4, %6
   br label %8
 
@@ -16058,13 +16058,13 @@ stbtt__oversample_shift.exit:                     ; preds = %59, %33
   %.not.i = icmp eq i8 %77, 0
   %86 = sub nsw i32 1, %78
   %87 = sitofp i32 %86 to float
-  %88 = fmul float %82, 2.000000e+00
+  %88 = fmul nnan float %82, 2.000000e+00
   %89 = fdiv float %87, %88
   %.0.i = select i1 %.not.i, float 0.000000e+00, float %89
   %.not.i155 = icmp eq i8 %80, 0
   %90 = sub nsw i32 1, %81
   %91 = sitofp i32 %90 to float
-  %92 = fmul float %84, 2.000000e+00
+  %92 = fmul nnan float %84, 2.000000e+00
   %93 = fdiv float %91, %92
   %.0.i156 = select i1 %.not.i155, float 0.000000e+00, float %93
   %94 = getelementptr inbounds nuw i8, ptr %30, i64 16
@@ -18407,11 +18407,11 @@ stbtt__solve_cubic.exit.us.us.us:                 ; preds = %285, %282, %275, %2
 300:                                              ; preds = %296
   %301 = fsub float 1.000000e+00, %.sroa.0.4.us.us.us
   %302 = fmul float %301, %301
-  %303 = fmul float %.sroa.0.4.us.us.us, 2.000000e+00
+  %303 = fmul nnan float %.sroa.0.4.us.us.us, 2.000000e+00
   %304 = fmul float %303, %301
   %305 = fmul float %135, %304
   %306 = call float @llvm.fmuladd.f32(float %302, float %116, float %305)
-  %307 = fmul float %.sroa.0.4.us.us.us, %.sroa.0.4.us.us.us
+  %307 = fmul nnan float %.sroa.0.4.us.us.us, %.sroa.0.4.us.us.us
   %308 = call float @llvm.fmuladd.f32(float %307, float %127, float %306)
   %309 = fmul float %139, %304
   %310 = call float @llvm.fmuladd.f32(float %302, float %120, float %309)
@@ -18439,11 +18439,11 @@ stbtt__solve_cubic.exit.us.us.us:                 ; preds = %285, %282, %275, %2
 323:                                              ; preds = %319
   %324 = fsub float 1.000000e+00, %.sroa.8.4.us.us.us
   %325 = fmul float %324, %324
-  %326 = fmul float %.sroa.8.4.us.us.us, 2.000000e+00
+  %326 = fmul nnan float %.sroa.8.4.us.us.us, 2.000000e+00
   %327 = fmul float %326, %324
   %328 = fmul float %135, %327
   %329 = call float @llvm.fmuladd.f32(float %325, float %116, float %328)
-  %330 = fmul float %.sroa.8.4.us.us.us, %.sroa.8.4.us.us.us
+  %330 = fmul nnan float %.sroa.8.4.us.us.us, %.sroa.8.4.us.us.us
   %331 = call float @llvm.fmuladd.f32(float %330, float %127, float %329)
   %332 = fmul float %139, %327
   %333 = call float @llvm.fmuladd.f32(float %325, float %120, float %332)
@@ -18471,11 +18471,11 @@ stbtt__solve_cubic.exit.us.us.us:                 ; preds = %285, %282, %275, %2
 346:                                              ; preds = %342
   %347 = fsub float 1.000000e+00, %.sroa.11.4.us.us.us
   %348 = fmul float %347, %347
-  %349 = fmul float %.sroa.11.4.us.us.us, 2.000000e+00
+  %349 = fmul nnan float %.sroa.11.4.us.us.us, 2.000000e+00
   %350 = fmul float %349, %347
   %351 = fmul float %135, %350
   %352 = call float @llvm.fmuladd.f32(float %348, float %116, float %351)
-  %353 = fmul float %.sroa.11.4.us.us.us, %.sroa.11.4.us.us.us
+  %353 = fmul nnan float %.sroa.11.4.us.us.us, %.sroa.11.4.us.us.us
   %354 = call float @llvm.fmuladd.f32(float %353, float %127, float %352)
   %355 = fmul float %139, %350
   %356 = call float @llvm.fmuladd.f32(float %348, float %120, float %355)

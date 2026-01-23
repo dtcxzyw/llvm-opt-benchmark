@@ -240,11 +240,11 @@ define void @CreateLargePyramid(i32 %0) local_unnamed_addr #0 {
 15:                                               ; preds = %1, %22
   %.030 = phi i32 [ 0, %1 ], [ %23, %22 ]
   %16 = uitofp nneg i32 %.030 to float
-  %17 = fmul float %16, 2.000000e+00
-  %18 = fadd float %17, 1.000000e+00
-  %19 = fmul float %18, 5.000000e-01
-  %20 = fadd float %16, 1.000000e+00
-  %21 = fmul float %20, 5.000000e-01
+  %17 = fmul nnan float %16, 2.000000e+00
+  %18 = fadd nnan float %17, 1.000000e+00
+  %19 = fmul nnan float %18, 5.000000e-01
+  %20 = fadd nnan float %16, 1.000000e+00
+  %21 = fmul nnan float %20, 5.000000e-01
   br label %24
 
 22:                                               ; preds = %24
@@ -256,8 +256,8 @@ define void @CreateLargePyramid(i32 %0) local_unnamed_addr #0 {
   %.02829 = phi i32 [ %.030, %15 ], [ %33, %24 ]
   %25 = sub nuw nsw i32 %.02829, %.030
   %26 = uitofp nneg i32 %25 to float
-  %27 = fmul float %26, 2.000000e+00
-  %28 = fmul float %27, 5.000000e-01
+  %27 = fmul nnan float %26, 2.000000e+00
+  %28 = fmul nnan float %27, 5.000000e-01
   %29 = fadd float %21, %28
   %30 = fadd float %29, -5.000000e+01
   store float %30, ptr %13, align 4, !tbaa !20
@@ -333,7 +333,7 @@ define void @CreateManyPyramids(i32 %0) local_unnamed_addr #0 {
 21:                                               ; preds = %.preheader, %CreateSmallPyramid.exit
   %.03643 = phi i32 [ 0, %.preheader ], [ %47, %CreateSmallPyramid.exit ]
   %22 = uitofp nneg i32 %.03643 to float
-  %23 = fmul float %22, 1.100000e+01
+  %23 = fmul nnan float %22, 1.100000e+01
   %24 = fadd float %23, -1.100000e+02
   %25 = fadd float %24, 5.000000e-01
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -348,12 +348,12 @@ define void @CreateManyPyramids(i32 %0) local_unnamed_addr #0 {
 26:                                               ; preds = %34, %21
   %.024.i = phi i32 [ 0, %21 ], [ %35, %34 ]
   %27 = uitofp nneg i32 %.024.i to float
-  %28 = fmul float %27, 2.000000e+00
-  %29 = fadd float %28, 1.000000e+00
-  %30 = fmul float %29, 5.000000e-01
+  %28 = fmul nnan float %27, 2.000000e+00
+  %29 = fadd nnan float %28, 1.000000e+00
+  %30 = fmul nnan float %29, 5.000000e-01
   %31 = fadd float %.03844, %30
-  %32 = fadd float %27, 1.000000e+00
-  %33 = fmul float %32, 5.000000e-01
+  %32 = fadd nnan float %27, 1.000000e+00
+  %33 = fmul nnan float %32, 5.000000e-01
   br label %36
 
 34:                                               ; preds = %36
@@ -365,8 +365,8 @@ define void @CreateManyPyramids(i32 %0) local_unnamed_addr #0 {
   %.02123.i = phi i32 [ %.024.i, %26 ], [ %46, %36 ]
   %37 = sub nuw nsw i32 %.02123.i, %.024.i
   %38 = uitofp nneg i32 %37 to float
-  %39 = fmul float %38, 2.000000e+00
-  %40 = fmul float %39, 5.000000e-01
+  %39 = fmul nnan float %38, 2.000000e+00
+  %40 = fmul nnan float %39, 5.000000e-01
   %41 = fadd float %33, %40
   %42 = fadd float %25, %41
   %43 = fadd float %42, -5.000000e-01
@@ -425,7 +425,7 @@ define void @CreateRain(i32 %0) local_unnamed_addr #5 {
 
 .lr.ph.preheader:                                 ; preds = %.split
   %12 = uitofp nneg i32 %11 to float
-  %13 = fmul float %12, -5.000000e-01
+  %13 = fmul nnan float %12, -5.000000e-01
   %14 = fmul float %10, %13
   br label %.lr.ph
 
@@ -470,12 +470,12 @@ define void @CreateGroup(i32 %0, i32 noundef %1, i32 noundef %2) local_unnamed_a
   %10 = fdiv float %9, 4.000000e+01
   %11 = fmul float %9, 5.000000e-01
   %12 = sitofp i32 %2 to float
-  %13 = fadd float %12, 5.000000e-01
+  %13 = fadd nnan float %12, 5.000000e-01
   %14 = fmul float %13, %10
   %15 = fsub float %14, %11
   %.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %15, i64 0
   %16 = sitofp i32 %1 to float
-  %17 = fmul float %16, 4.500000e+01
+  %17 = fmul nnan float %16, 4.500000e+01
   %18 = fadd float %17, 4.000000e+01
   %.sroa.0.4.vec.insert = insertelement <2 x float> %.sroa.0.0.vec.insert, float %18, i64 1
   %19 = sext i32 %5 to i64
@@ -552,12 +552,12 @@ define noundef float @StepRain(i32 %0, i32 noundef %1) local_unnamed_addr #5 {
   %18 = fdiv float %17, 4.000000e+01
   %19 = fmul float %17, 5.000000e-01
   %20 = sitofp i32 %11 to float
-  %21 = fadd float %20, 5.000000e-01
+  %21 = fadd nnan float %20, 5.000000e-01
   %22 = fmul float %21, %18
   %23 = fsub float %22, %19
   %.sroa.0.0.vec.insert.i = insertelement <2 x float> poison, float %23, i64 0
   %24 = uitofp nneg i32 %.01025 to float
-  %25 = fmul float %24, 4.500000e+01
+  %25 = fmul nnan float %24, 4.500000e+01
   %26 = fadd float %25, 4.000000e+01
   %.sroa.0.4.vec.insert.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i, float %26, i64 1
   %27 = sext i32 %13 to i64
@@ -616,12 +616,12 @@ DestroyGroup.exit:                                ; preds = %43
   %51 = fdiv float %50, 4.000000e+01
   %52 = fmul float %50, 5.000000e-01
   %53 = sitofp i32 %45 to float
-  %54 = fadd float %53, 5.000000e-01
+  %54 = fadd nnan float %53, 5.000000e-01
   %55 = fmul float %54, %51
   %56 = fsub float %55, %52
   %.sroa.0.0.vec.insert.i14 = insertelement <2 x float> poison, float %56, i64 0
   %57 = uitofp nneg i32 %.024 to float
-  %58 = fmul float %57, 4.500000e+01
+  %58 = fmul nnan float %57, 4.500000e+01
   %59 = fadd float %58, 4.000000e+01
   %.sroa.0.4.vec.insert.i15 = insertelement <2 x float> %.sroa.0.0.vec.insert.i14, float %59, i64 1
   %60 = sext i32 %46 to i64
@@ -890,7 +890,7 @@ define void @CreateSmash(i32 %0) local_unnamed_addr #5 {
 .preheader:                                       ; preds = %1, %20
   %.022 = phi i32 [ 0, %1 ], [ %21, %20 ]
   %16 = uitofp nneg i32 %.022 to float
-  %17 = fmul float %16, 0x3FD99999A0000000
+  %17 = fmul nnan float %16, 0x3FD99999A0000000
   %18 = fadd float %17, 3.000000e+01
   br label %22
 
@@ -910,7 +910,7 @@ define void @CreateSmash(i32 %0) local_unnamed_addr #5 {
   store float %18, ptr %14, align 4, !tbaa !68
   %23 = add nsw i32 %.02021, -40
   %24 = sitofp i32 %23 to float
-  %25 = fmul float %24, 0x3FD99999A0000000
+  %25 = fmul nnan float %24, 0x3FD99999A0000000
   store float %25, ptr %15, align 8, !tbaa !69
   %26 = call i64 @b2CreateBody(i32 %0, ptr noundef nonnull %6) #8
   %27 = call i64 @b2CreatePolygonShape(i64 %26, ptr noundef nonnull %7, ptr noundef nonnull %5) #8
