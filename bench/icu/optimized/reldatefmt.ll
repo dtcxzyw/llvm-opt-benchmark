@@ -4751,9 +4751,9 @@ define internal void @_ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink3putEPKcRN
 
 61:                                               ; preds = %51
   %62 = icmp eq i32 %53, 6
-  br i1 %62, label %..thread_crit_edge.i.i, label %67
+  br i1 %62, label %.thread.i.i, label %67
 
-..thread_crit_edge.i.i:                           ; preds = %61
+.thread.i.i:                                      ; preds = %61
   %.pre.i.i = and i64 %52, 4294967295
   br label %.thread.i.i
 

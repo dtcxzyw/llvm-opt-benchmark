@@ -5625,15 +5625,15 @@ define linkonce_odr dso_local void @_ZSt15__inplace_mergeIPPN3ozz7options6Option
   %14 = ashr exact i64 %13, 3
   %.sroa.speculated = tail call i64 @llvm.smin.i64(i64 %14, i64 %11)
   %15 = icmp sgt i64 %.sroa.speculated, 0
-  br i1 %15, label %.lr.ph.i.i.preheader, label %.loopexit
+  br i1 %15, label %.lr.ph.i.i, label %.loopexit
 
-.lr.ph.i.i.preheader:                             ; preds = %7
+.lr.ph.i.i:                                       ; preds = %7
   %16 = shl nuw nsw i64 %.sroa.speculated, 3
   %17 = tail call noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef %16, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #34
-  %.not.i.i46 = icmp eq ptr %17, null
-  br i1 %.not.i.i46, label %.lr.ph, label %_ZNSt17_Temporary_bufferIPPN3ozz7options6OptionES3_EC2ES4_l.exit
+  %.not.i.i = icmp eq ptr %17, null
+  br i1 %.not.i.i, label %select.unfold.i.i, label %_ZNSt17_Temporary_bufferIPPN3ozz7options6OptionES3_EC2ES4_l.exit
 
-.lr.ph:                                           ; preds = %.lr.ph.i.i.preheader, %select.unfold.i.i
+select.unfold.i.i:                                ; preds = %.lr.ph.i.i, %select.unfold.i.i
   %.010.i.i47 = phi i64 [ %20, %select.unfold.i.i ], [ %.sroa.speculated, %.lr.ph.i.i.preheader ]
   %18 = icmp eq i64 %.010.i.i47, 1
   br i1 %18, label %.loopexit, label %select.unfold.i.i
@@ -5646,27 +5646,27 @@ select.unfold.i.i:                                ; preds = %.lr.ph
   %.not.i.i = icmp eq ptr %22, null
   br i1 %.not.i.i, label %.lr.ph, label %_ZNSt17_Temporary_bufferIPPN3ozz7options6OptionES3_EC2ES4_l.exit
 
-.loopexit:                                        ; preds = %.lr.ph, %7
+.loopexit:                                        ; preds = %select.unfold.i.i, %7
   invoke void @_ZSt22__merge_without_bufferIPPN3ozz7options6OptionElN9__gnu_cxx5__ops15_Iter_comp_iterIPFbS3_S3_EEEEvT_SB_SB_T0_SC_T1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %11, i64 noundef %14, ptr %3)
-          to label %27 unwind label %23
+          to label %27 unwind label %21
 
-23:                                               ; preds = %_ZNSt17_Temporary_bufferIPPN3ozz7options6OptionES3_EC2ES4_l.exit, %.loopexit
+21:                                               ; preds = %_ZNSt17_Temporary_bufferIPPN3ozz7options6OptionES3_EC2ES4_l.exit, %.loopexit
   %.sroa.4.043 = phi i64 [ %.010.i.i.lcssa, %_ZNSt17_Temporary_bufferIPPN3ozz7options6OptionES3_EC2ES4_l.exit ], [ 0, %.loopexit ]
   %.sroa.9.040 = phi ptr [ %.lcssa, %_ZNSt17_Temporary_bufferIPPN3ozz7options6OptionES3_EC2ES4_l.exit ], [ null, %.loopexit ]
-  %24 = landingpad { ptr, i32 }
+  %22 = landingpad { ptr, i32 }
           cleanup
-  %25 = shl nuw nsw i64 %.sroa.4.043, 3
-  tail call void @_ZdlPvm(ptr noundef %.sroa.9.040, i64 noundef %25) #29
-  resume { ptr, i32 } %24
+  %23 = shl nuw nsw i64 %.sroa.4.043, 3
+  tail call void @_ZdlPvm(ptr noundef %.sroa.9.040, i64 noundef %23) #29
+  resume { ptr, i32 } %22
 
-_ZNSt17_Temporary_bufferIPPN3ozz7options6OptionES3_EC2ES4_l.exit: ; preds = %select.unfold.i.i, %.lr.ph.i.i.preheader
+_ZNSt17_Temporary_bufferIPPN3ozz7options6OptionES3_EC2ES4_l.exit: ; preds = %select.unfold.i.i, %.lr.ph.i.i
   %.010.i.i.lcssa = phi i64 [ %.sroa.speculated, %.lr.ph.i.i.preheader ], [ %20, %select.unfold.i.i ]
   %.lcssa = phi ptr [ %17, %.lr.ph.i.i.preheader ], [ %22, %select.unfold.i.i ]
   %26 = ptrtoint ptr %3 to i64
   invoke void @_ZSt16__merge_adaptiveIPPN3ozz7options6OptionElS4_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbS3_S3_EEEEvT_SB_SB_T0_SC_T1_SC_T2_(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %11, i64 noundef %14, ptr noundef nonnull %.lcssa, i64 noundef %.010.i.i.lcssa, i64 %26)
           to label %27 unwind label %23
 
-27:                                               ; preds = %_ZNSt17_Temporary_bufferIPPN3ozz7options6OptionES3_EC2ES4_l.exit, %.loopexit
+27: ; preds = %_ZNSt17_Temporary_bufferIPPN3ozz7options6OptionES3_EC2ES4_l.exit, %.loopexit
   %.sroa.4.041 = phi i64 [ %.010.i.i.lcssa, %_ZNSt17_Temporary_bufferIPPN3ozz7options6OptionES3_EC2ES4_l.exit ], [ 0, %.loopexit ]
   %.sroa.9.038 = phi ptr [ %.lcssa, %_ZNSt17_Temporary_bufferIPPN3ozz7options6OptionES3_EC2ES4_l.exit ], [ null, %.loopexit ]
   %28 = shl nuw nsw i64 %.sroa.4.041, 3

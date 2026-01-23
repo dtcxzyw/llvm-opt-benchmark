@@ -3896,7 +3896,7 @@ define hidden void @"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 7, ptr %7, align 8
-  br label %12
+  br label %11
 
 8:                                                ; preds = %2
   %9 = or disjoint i64 %5, 1
@@ -3907,7 +3907,7 @@ define hidden void @"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %10, i64 40, i1 false)
   br label %12
 
-12:                                               ; preds = %8, %6
+11:                                               ; preds = %8, %6
   ret void
 }
 

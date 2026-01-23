@@ -18265,10 +18265,10 @@ _ZL18lodepng_chunk_initPPhP8ucvectormPKc.exit:    ; preds = %14, %.thread.i.i.i
   %27 = lshr i64 %7, 24
   %28 = trunc nuw nsw i64 %27 to i8
   store i8 %28, ptr %26, align 1, !tbaa !18
-  %29 = lshr i64 %7, 16
-  %30 = trunc nuw nsw i64 %29 to i8
-  %31 = getelementptr inbounds i8, ptr %25, i64 -11
-  store i8 %30, ptr %31, align 1, !tbaa !18
+  %28 = lshr i64 %7, 16
+  %29 = trunc nuw nsw i64 %28 to i8
+  %30 = getelementptr inbounds i8, ptr %25, i64 -11
+  store i8 %29, ptr %30, align 1, !tbaa !18
   %32 = lshr i64 %7, 8
   %33 = trunc nuw nsw i64 %32 to i8
   %34 = getelementptr inbounds i8, ptr %25, i64 -10
@@ -18283,37 +18283,37 @@ _ZL18lodepng_chunk_initPPhP8ucvectormPKc.exit:    ; preds = %14, %.thread.i.i.i
   br i1 %.not2332, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZL18lodepng_chunk_initPPhP8ucvectormPKc.exit
-  %39 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  br label %40
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  br label %36
 
-40:                                               ; preds = %.lr.ph, %40
-  %.02034 = phi i64 [ 8, %.lr.ph ], [ %55, %40 ]
-  %.02133 = phi i64 [ 0, %.lr.ph ], [ %57, %40 ]
-  %41 = load ptr, ptr %39, align 8, !tbaa !186
-  %42 = shl i64 %.02133, 2
-  %43 = getelementptr inbounds nuw i8, ptr %41, i64 %42
-  %44 = load i8, ptr %43, align 1, !tbaa !18
-  %45 = getelementptr inbounds nuw i8, ptr %26, i64 %.02034
-  store i8 %44, ptr %45, align 1, !tbaa !18
-  %46 = load ptr, ptr %39, align 8, !tbaa !186
-  %47 = getelementptr inbounds nuw i8, ptr %46, i64 %42
-  %48 = getelementptr inbounds nuw i8, ptr %47, i64 1
-  %49 = load i8, ptr %48, align 1, !tbaa !18
-  %50 = getelementptr i8, ptr %45, i64 1
-  store i8 %49, ptr %50, align 1, !tbaa !18
-  %51 = load ptr, ptr %39, align 8, !tbaa !186
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 %42
-  %53 = getelementptr inbounds nuw i8, ptr %52, i64 2
-  %54 = load i8, ptr %53, align 1, !tbaa !18
-  %55 = add i64 %.02034, 3
-  %56 = getelementptr i8, ptr %45, i64 2
-  store i8 %54, ptr %56, align 1, !tbaa !18
-  %57 = add i64 %.02133, 1
-  %58 = load i64, ptr %3, align 8, !tbaa !191
-  %.not23 = icmp eq i64 %57, %58
-  br i1 %.not23, label %._crit_edge, label %40, !llvm.loop !663
+36:                                               ; preds = %.lr.ph, %36
+  %.02034 = phi i64 [ 8, %.lr.ph ], [ %51, %40 ]
+  %.02133 = phi i64 [ 0, %.lr.ph ], [ %53, %40 ]
+  %37 = load ptr, ptr %35, align 8, !tbaa !186
+  %38 = shl i64 %.02133, 2
+  %39 = getelementptr inbounds nuw i8, ptr %37, i64 %38
+  %40 = load i8, ptr %39, align 1, !tbaa !18
+  %41 = getelementptr inbounds nuw i8, ptr %26, i64 %.02034
+  store i8 %40, ptr %41, align 1, !tbaa !18
+  %42 = load ptr, ptr %35, align 8, !tbaa !186
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 %38
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 1
+  %45 = load i8, ptr %44, align 1, !tbaa !18
+  %46 = getelementptr i8, ptr %41, i64 1
+  store i8 %45, ptr %46, align 1, !tbaa !18
+  %47 = load ptr, ptr %35, align 8, !tbaa !186
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 %38
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 2
+  %50 = load i8, ptr %49, align 1, !tbaa !18
+  %51 = add i64 %.02034, 3
+  %52 = getelementptr i8, ptr %41, i64 2
+  store i8 %50, ptr %52, align 1, !tbaa !18
+  %53 = add i64 %.02133, 1
+  %54 = load i64, ptr %3, align 8, !tbaa !191
+  %.not23 = icmp eq i64 %53, %54
+  br i1 %.not23, label %._crit_edge, label %36, !llvm.loop !663
 
-._crit_edge:                                      ; preds = %40, %_ZL18lodepng_chunk_initPPhP8ucvectormPKc.exit
+._crit_edge:                                      ; preds = %36, %_ZL18lodepng_chunk_initPPhP8ucvectormPKc.exit
   tail call void @_Z26lodepng_chunk_generate_crcPh(ptr noundef nonnull %26)
   br label %_ZL18lodepng_chunk_initPPhP8ucvectormPKc.exit.thread
 

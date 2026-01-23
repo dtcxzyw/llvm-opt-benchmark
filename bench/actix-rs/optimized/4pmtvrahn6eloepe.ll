@@ -6316,9 +6316,9 @@ define internal fastcc noundef i64 @_ZN6brotli3enc19backward_references2hq17Find
 
 87:                                               ; preds = %._crit_edge, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$12split_at_mut17hbfbf7605b1beaa37E.exit"
   %.2 = phi i64 [ %86, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$12split_at_mut17hbfbf7605b1beaa37E.exit" ], [ %.0.lcssa, %._crit_edge ]
-  br label %132
+  br label %133
 
-88:                                               ; preds = %132
+88:                                               ; preds = %133
   %89 = load i64, ptr %14, align 8, !noundef !13
   %90 = add i64 %89, 1
   %.0.sroa.speculated.i = tail call noundef i64 @llvm.umax.i64(i64 %90, i64 4)
@@ -6390,7 +6390,7 @@ define internal fastcc noundef i64 @_ZN6brotli3enc19backward_references2hq17Find
 
 118:                                              ; preds = %114
   %119 = icmp ult i64 %.4212, %10
-  br i1 %119, label %120, label %131, !prof !216
+  br i1 %119, label %120, label %132, !prof !216
 
 120:                                              ; preds = %118
   %121 = getelementptr inbounds i64, ptr %9, i64 %.4212
@@ -6408,17 +6408,17 @@ define internal fastcc noundef i64 @_ZN6brotli3enc19backward_references2hq17Find
   %130 = add nuw i64 %.4212, 1
   br label %112
 
-131:                                              ; preds = %118
+132:                                              ; preds = %118
   call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %.4212, i64 noundef %10, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.854811f44bca550c56cb6f681a6a9a44.180) #32
   unreachable
 
-132:                                              ; preds = %87, %132
-  %.176209 = phi i64 [ 0, %87 ], [ %134, %132 ]
-  %133 = getelementptr inbounds nuw i32, ptr %13, i64 %.176209
-  store i32 268435455, ptr %133, align 4
-  %134 = add nuw nsw i64 %.176209, 1
-  %exitcond233.not = icmp eq i64 %134, 38
-  br i1 %exitcond233.not, label %88, label %132
+133:                                              ; preds = %87, %133
+  %.176209 = phi i64 [ 0, %87 ], [ %135, %132 ]
+  %134 = getelementptr inbounds nuw i32, ptr %13, i64 %.176209
+  store i32 268435455, ptr %134, align 4
+  %135 = add nuw nsw i64 %.176209, 1
+  %exitcond233.not = icmp eq i64 %135, 38
+  br i1 %exitcond233.not, label %88, label %133
 }
 
 ; Function Attrs: nonlazybind uwtable

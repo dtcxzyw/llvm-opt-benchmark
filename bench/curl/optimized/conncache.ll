@@ -1748,7 +1748,7 @@ define internal fastcc void @cpool_discard_conn(ptr noundef %0, ptr noundef %1, 
   %10 = tail call i64 @Curl_llist_count(ptr noundef nonnull %9) #8
   %11 = icmp eq i64 %10, 0
   %or.cond = or i1 %3, %11
-  br i1 %or.cond, label %12, label %66
+  br i1 %or.cond, label %12, label %63
 
 12:                                               ; preds = %4
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 1413
@@ -1773,7 +1773,7 @@ define internal fastcc void @cpool_discard_conn(ptr noundef %0, ptr noundef %1, 
 
 .thread44:                                        ; preds = %12, %20
   tail call fastcc void @cpool_close_and_destroy(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %1, i1 noundef zeroext false)
-  br label %66
+  br label %63
 
 22:                                               ; preds = %20
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 208
@@ -1822,69 +1822,69 @@ define internal fastcc void @cpool_discard_conn(ptr noundef %0, ptr noundef %1, 
   %48 = and i8 %47, 1
   store i8 %48, ptr %39, align 8, !tbaa !84
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %49 = call i32 @sigaction(i32 noundef 13, ptr noundef null, ptr noundef nonnull %7) #8
+  %46 = call i32 @sigaction(i32 noundef 13, ptr noundef null, ptr noundef nonnull %7) #8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %6, ptr noundef nonnull align 8 dereferenceable(152) %7, i64 152, i1 false), !tbaa.struct !112
   store ptr inttoptr (i64 1 to ptr), ptr %6, align 8, !tbaa !113
-  %50 = call i32 @sigaction(i32 noundef 13, ptr noundef nonnull %6, ptr noundef null) #8
+  %47 = call i32 @sigaction(i32 noundef 13, ptr noundef nonnull %6, ptr noundef null) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %sigpipe_apply.exit.i
 
 sigpipe_apply.exit.i:                             ; preds = %45, %37
   call fastcc void @cpool_close_and_destroy(ptr noundef nonnull %0, ptr noundef %38, ptr noundef null, i1 noundef zeroext false)
-  %51 = load i8, ptr %39, align 8, !tbaa !84, !range !110, !noundef !111
-  %52 = trunc nuw i8 %51 to i1
-  br i1 %52, label %sigpipe_restore.exit.i, label %53
+  %48 = load i8, ptr %39, align 8, !tbaa !84, !range !110, !noundef !111
+  %49 = trunc nuw i8 %48 to i1
+  br i1 %49, label %sigpipe_restore.exit.i, label %50
 
-53:                                               ; preds = %sigpipe_apply.exit.i
-  %54 = call i32 @sigaction(i32 noundef 13, ptr noundef nonnull %7, ptr noundef null) #8
+50:                                               ; preds = %sigpipe_apply.exit.i
+  %51 = call i32 @sigaction(i32 noundef 13, ptr noundef nonnull %7, ptr noundef null) #8
   br label %sigpipe_restore.exit.i
 
-sigpipe_restore.exit.i:                           ; preds = %53, %sigpipe_apply.exit.i
+sigpipe_restore.exit.i:                           ; preds = %50, %sigpipe_apply.exit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %cpool_shutdown_destroy_oldest.exit
 
 cpool_shutdown_destroy_oldest.exit:               ; preds = %sigpipe_restore.exit.i, %35, %29, %25
   %.pr = load ptr, ptr %23, align 8, !tbaa !20
   %.not37 = icmp eq ptr %.pr, null
-  br i1 %.not37, label %cpool_shutdown_destroy_oldest.exit.thread, label %55
+  br i1 %.not37, label %cpool_shutdown_destroy_oldest.exit.thread, label %52
 
-55:                                               ; preds = %cpool_shutdown_destroy_oldest.exit
-  %56 = getelementptr inbounds nuw i8, ptr %.pr, i64 152
-  %57 = load ptr, ptr %56, align 8, !tbaa !146
-  %.not38 = icmp eq ptr %57, null
-  br i1 %.not38, label %cpool_shutdown_destroy_oldest.exit.thread, label %58
+52:                                               ; preds = %cpool_shutdown_destroy_oldest.exit
+  %53 = getelementptr inbounds nuw i8, ptr %.pr, i64 152
+  %54 = load ptr, ptr %53, align 8, !tbaa !146
+  %.not38 = icmp eq ptr %54, null
+  br i1 %.not38, label %cpool_shutdown_destroy_oldest.exit.thread, label %55
 
-58:                                               ; preds = %55
-  %59 = getelementptr inbounds nuw i8, ptr %2, i64 664
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %59, i8 0, i64 32, i1 false)
-  %60 = load ptr, ptr %23, align 8, !tbaa !20
-  %61 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %62 = load ptr, ptr %61, align 8, !tbaa !3
+55:                                               ; preds = %52
+  %56 = getelementptr inbounds nuw i8, ptr %2, i64 664
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %56, i8 0, i64 32, i1 false)
+  %57 = load ptr, ptr %23, align 8, !tbaa !20
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %59 = load ptr, ptr %58, align 8, !tbaa !3
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %5, i8 0, i64 32, i1 false)
-  call void @Curl_attach_connection(ptr noundef %62, ptr noundef nonnull %2) #8
-  call void @Curl_conn_adjust_pollset(ptr noundef %62, ptr noundef nonnull %5) #8
-  call void @Curl_detach_connection(ptr noundef %62) #8
-  %63 = call i32 @Curl_multi_pollset_ev(ptr noundef %60, ptr noundef %62, ptr noundef nonnull %5, ptr noundef nonnull %59) #8
-  %.not.i40 = icmp eq i32 %63, 0
-  br i1 %.not.i40, label %cpool_update_shutdown_ev.exit.thread, label %64
+  call void @Curl_attach_connection(ptr noundef %59, ptr noundef nonnull %2) #8
+  call void @Curl_conn_adjust_pollset(ptr noundef %59, ptr noundef nonnull %5) #8
+  call void @Curl_detach_connection(ptr noundef %59) #8
+  %60 = call i32 @Curl_multi_pollset_ev(ptr noundef %57, ptr noundef %59, ptr noundef nonnull %5, ptr noundef nonnull %56) #8
+  %.not.i40 = icmp eq i32 %60, 0
+  br i1 %.not.i40, label %cpool_update_shutdown_ev.exit.thread, label %61
 
-cpool_update_shutdown_ev.exit.thread:             ; preds = %58
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %59, ptr noundef nonnull align 4 dereferenceable(32) %5, i64 32, i1 false)
+cpool_update_shutdown_ev.exit.thread:             ; preds = %55
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %56, ptr noundef nonnull align 4 dereferenceable(32) %5, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %cpool_shutdown_destroy_oldest.exit.thread
 
-64:                                               ; preds = %58
+61:                                               ; preds = %55
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call fastcc void @cpool_close_and_destroy(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef nonnull %1, i1 noundef zeroext false)
-  br label %66
+  br label %63
 
-cpool_shutdown_destroy_oldest.exit.thread:        ; preds = %22, %cpool_update_shutdown_ev.exit.thread, %55, %cpool_shutdown_destroy_oldest.exit
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  call void @Curl_llist_append(ptr noundef nonnull %65, ptr noundef nonnull %2, ptr noundef nonnull %2) #8
-  br label %66
+cpool_shutdown_destroy_oldest.exit.thread:        ; preds = %22, %cpool_update_shutdown_ev.exit.thread, %52, %cpool_shutdown_destroy_oldest.exit
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  call void @Curl_llist_append(ptr noundef nonnull %62, ptr noundef nonnull %2, ptr noundef nonnull %2) #8
+  br label %63
 
-66:                                               ; preds = %4, %cpool_shutdown_destroy_oldest.exit.thread, %64, %.thread44
+63:                                               ; preds = %4, %cpool_shutdown_destroy_oldest.exit.thread, %61, %.thread44
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
 }

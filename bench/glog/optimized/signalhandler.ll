@@ -948,9 +948,9 @@ _ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc.exit33.i: ; preds =
   store i8 %146, ptr %139, align 1, !tbaa !39
   %indvars.iv.next94 = add nuw nsw i64 %indvars.iv93, 1
   %147 = icmp ult i64 %.014.i35.i, 16
-  br i1 %147, label %._crit_edge.i47.i, label %135
+  br i1 %147, label %split.i36.i, label %135
 
-._crit_edge.i47.i:                                ; preds = %138
+split.i36.i:                                      ; preds = %138
   %.pre19.i49.i = and i64 %indvars.iv.next94, 4294967295
   br label %split.i36.i
 

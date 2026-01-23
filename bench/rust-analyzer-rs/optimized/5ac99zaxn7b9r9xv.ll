@@ -255,7 +255,7 @@ define internal fastcc range(i64 0, -4294901760) i64 @_ZN17ra_ap_rustc_lexer8une
   %113 = tail call noundef zeroext i1 @_ZN17ra_ap_rustc_lexer8unescape4Mode16allow_high_bytes17hfb8ead34fdd1d994E(i8 noundef %1)
   %114 = icmp samesign ult i32 %spec.select82112.in, 8
   %or.cond = or i1 %114, %113
-  %115 = or disjoint i32 %.sroa.748.0116, %spec.select82112
+  %or.cond = or disjoint i32 %.sroa.748.0116, %spec.select82112
   %spec.select = select i1 %or.cond, i32 %115, i32 undef
   %not.or.cond = xor i1 %or.cond, true
   %spec.select117 = zext i1 %not.or.cond to i64

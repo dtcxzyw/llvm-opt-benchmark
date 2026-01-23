@@ -849,7 +849,7 @@ define hidden void @_mi_page_unfull(ptr noundef %0) local_unnamed_addr #4 {
   %.val = load i8, ptr %2, align 2
   %3 = and i8 %.val, 1
   %.not = icmp eq i8 %3, 0
-  br i1 %.not, label %36, label %4
+  br i1 %.not, label %35, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -900,9 +900,9 @@ mi_heap_page_queue_of.exit:                       ; preds = %4, %16, %20, %22
   %35 = or i8 %.val, 1
   store i8 %35, ptr %2, align 2
   tail call fastcc void @mi_page_queue_enqueue_from_ex(ptr noundef nonnull %34, ptr noundef nonnull %8, ptr noundef nonnull %0) #14
-  br label %36
+  br label %35
 
-36:                                               ; preds = %1, %mi_heap_page_queue_of.exit
+35:                                               ; preds = %1, %mi_heap_page_queue_of.exit
   ret void
 }
 

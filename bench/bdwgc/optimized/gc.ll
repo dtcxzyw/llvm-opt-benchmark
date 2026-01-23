@@ -13344,8 +13344,8 @@ GC_is_heap_ptr.exit:                              ; preds = %22
   %30 = and i64 %29, 1023
   %31 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !57
-  %.not208 = icmp eq ptr %32, null
-  br i1 %.not208, label %GC_clear_stack.exit195, label %33
+  %.not209 = icmp eq ptr %32, null
+  br i1 %.not209, label %GC_clear_stack.exit195, label %33
 
 33:                                               ; preds = %GC_is_heap_ptr.exit
   %34 = lshr i64 %17, 18
@@ -13448,8 +13448,8 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
 .preheader:                                       ; preds = %69
   %74 = getelementptr inbounds nuw ptr, ptr %73, i64 %41
   %75 = load ptr, ptr %74, align 8, !tbaa !69
-  %.not101214 = icmp eq ptr %75, null
-  br i1 %.not101214, label %GC_clear_stack.exit.thread199, label %.lr.ph
+  %.not101215 = icmp eq ptr %75, null
+  br i1 %.not101215, label %GC_clear_stack.exit.thread199, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %76 = getelementptr inbounds nuw i8, ptr %71, i64 25
@@ -13458,7 +13458,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
 77:                                               ; preds = %.lr.ph, %207
   %78 = phi ptr [ %75, %.lr.ph ], [ %209, %207 ]
   %79 = phi ptr [ %74, %.lr.ph ], [ %208, %207 ]
-  %.074215 = phi ptr [ %73, %.lr.ph ], [ %.175, %207 ]
+  %.074216 = phi ptr [ %73, %.lr.ph ], [ %.175, %207 ]
   %80 = ptrtoint ptr %78 to i64
   %81 = lshr i64 %80, 22
   %82 = and i64 %81, 2047
@@ -13765,7 +13765,7 @@ GC_lock.exit137:                                  ; preds = %.preheader.i.i135, 
   br i1 %206, label %GC_clear_stack.exit.thread199, label %207
 
 207:                                              ; preds = %GC_lock.exit137, %166
-  %.175 = phi ptr [ %205, %GC_lock.exit137 ], [ %.074215, %166 ]
+  %.175 = phi ptr [ %205, %GC_lock.exit137 ], [ %.074216, %166 ]
   %208 = getelementptr inbounds nuw ptr, ptr %.175, i64 %41
   %209 = load ptr, ptr %208, align 8, !tbaa !69
   %.not101 = icmp eq ptr %209, null
@@ -13793,16 +13793,16 @@ GC_clear_stack.exit.thread199:                    ; preds = %207, %GC_lock.exit1
   br label %219
 
 219:                                              ; preds = %218, %225
-  %.073218 = phi ptr [ %217, %218 ], [ %223, %225 ]
+  %.073219 = phi ptr [ %217, %218 ], [ %223, %225 ]
   %220 = phi i64 [ 0, %218 ], [ %221, %225 ]
   %221 = add nuw nsw i64 %220, %0
   %222 = icmp ugt i64 %221, 4095
-  %223 = load ptr, ptr %.073218, align 8, !tbaa !12
+  %223 = load ptr, ptr %.073219, align 8, !tbaa !12
   br i1 %222, label %224, label %225
 
 224:                                              ; preds = %219
   store ptr %223, ptr %216, align 8, !tbaa !12
-  store ptr null, ptr %.073218, align 8, !tbaa !12
+  store ptr null, ptr %.073219, align 8, !tbaa !12
   br label %.loopexit
 
 225:                                              ; preds = %219
@@ -13885,8 +13885,8 @@ GC_set_hdr_marks.exit:                            ; preds = %261
 266:                                              ; preds = %GC_set_hdr_marks.exit, %230
   %267 = urem i64 4096, %0
   %268 = load i64, ptr getelementptr inbounds nuw (i8, ptr @GC_arrays, i64 72), align 8, !tbaa !46
-  %reass.sub219 = sub i64 %268, %267
-  %269 = add i64 %reass.sub219, 4096
+  %reass.sub220 = sub i64 %268, %267
+  %269 = add i64 %reass.sub220, 4096
   store i64 %269, ptr getelementptr inbounds nuw (i8, ptr @GC_arrays, i64 72), align 8, !tbaa !46
   %270 = load i32, ptr @GC_parallel, align 4, !tbaa !3
   %.not110 = icmp eq i32 %270, 0

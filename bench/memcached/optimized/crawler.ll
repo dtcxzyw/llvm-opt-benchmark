@@ -1572,7 +1572,7 @@ define dso_local range(i32 0, 5) i32 @lru_crawler_crawl(ptr noundef %0, i32 noun
   %23 = getelementptr inbounds nuw i8, ptr %8, i64 %22
   store i8 1, ptr %23, align 1, !tbaa !36
   %24 = zext nneg i32 %17 to i64
-  %25 = getelementptr inbounds nuw i8, ptr %8, i64 %24
+  %24 = getelementptr inbounds nuw i8, ptr %8, i64 %24
   store i8 1, ptr %25, align 1, !tbaa !36
   %26 = or i32 %17, 64
   %27 = zext nneg i32 %26 to i64
@@ -1588,14 +1588,14 @@ define dso_local range(i32 0, 5) i32 @lru_crawler_crawl(ptr noundef %0, i32 noun
 
 .critedge:                                        ; preds = %20, %14, %.preheader.preheader, %11
   %.018 = phi ptr [ null, %11 ], [ %8, %.preheader.preheader ], [ %8, %14 ], [ %8, %20 ]
-  %33 = call i32 @lru_crawler_start(ptr noundef %.018, i32 noundef %4, i32 noundef %1, ptr noundef null, ptr noundef %2, i32 noundef %3)
-  %switch.tableidx = add i32 %33, 2
-  %34 = icmp ult i32 %switch.tableidx, 3
-  br i1 %34, label %switch.lookup, label %.loopexit
+  %27 = call i32 @lru_crawler_start(ptr noundef %.018, i32 noundef %4, i32 noundef %1, ptr noundef null, ptr noundef %2, i32 noundef %3)
+  %switch.tableidx = add i32 %27, 2
+  %28 = icmp ult i32 %switch.tableidx, 3
+  br i1 %28, label %switch.lookup, label %.loopexit
 
 switch.lookup:                                    ; preds = %.critedge
-  %35 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.lru_crawler_crawl, i64 %35
+  %29 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.lru_crawler_crawl, i64 %29
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %.loopexit
 

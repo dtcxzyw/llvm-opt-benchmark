@@ -16065,9 +16065,9 @@ define internal void @nbap_init() #0 {
   %7 = getelementptr i8, ptr @lchId_type_table, i64 %indvars.iv.next
   store i8 %6, ptr %7, align 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 15
-  br i1 %exitcond.not, label %8, label %3, !llvm.loop !8
+  br i1 %exitcond.not, label %9, label %3, !llvm.loop !8
 
-8:                                                ; preds = %3
+9:                                                ; preds = %3
   ret void
 }
 

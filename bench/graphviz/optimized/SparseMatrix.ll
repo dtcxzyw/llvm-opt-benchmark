@@ -3247,52 +3247,52 @@ define void @SparseMatrix_multiply_dense(ptr noundef readonly captures(none) %0,
   br label %.preheader37.us.us
 
 .preheader37.us.us:                               ; preds = %.preheader37.us.us.preheader, %.loopexit.us.us
-  %18 = phi i32 [ %.pre, %.preheader37.us.us.preheader ], [ %21, %.loopexit.us.us ]
+  %17 = phi i32 [ %.pre, %.preheader37.us.us.preheader ], [ %20, %.loopexit.us.us ]
   %indvar = phi i64 [ 0, %.preheader37.us.us.preheader ], [ %indvar.next, %.loopexit.us.us ]
-  %19 = mul i64 %15, %indvar
-  %scevgep = getelementptr i8, ptr %2, i64 %19
+  %18 = mul i64 %15, %indvar
+  %scevgep = getelementptr i8, ptr %2, i64 %18
   tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep, i8 0, i64 %17, i1 false), !tbaa !25
   %indvar.next = add nuw nsw i64 %indvar, 1
-  %20 = getelementptr inbounds nuw i32, ptr %8, i64 %indvar.next
-  %21 = load i32, ptr %20, align 4, !tbaa !19
-  %22 = icmp slt i32 %18, %21
-  br i1 %22, label %.preheader.lr.ph.us.us, label %.loopexit.us.us
+  %19 = getelementptr inbounds nuw i32, ptr %8, i64 %indvar.next
+  %20 = load i32, ptr %19, align 4, !tbaa !19
+  %21 = icmp slt i32 %17, %20
+  br i1 %21, label %.preheader.lr.ph.us.us, label %.loopexit.us.us
 
 .loopexit.us.us:                                  ; preds = %._crit_edge41.us.us.us, %.preheader37.us.us
   %exitcond63.not = icmp eq i64 %indvar.next, %wide.trip.count62
   br i1 %exitcond63.not, label %._crit_edge44, label %.preheader37.us.us, !llvm.loop !108
 
 .preheader.lr.ph.us.us:                           ; preds = %.preheader37.us.us
-  %23 = mul nuw nsw i64 %indvar, %14
-  %24 = sext i32 %18 to i64
-  %wide.trip.count59 = sext i32 %21 to i64
-  %invariant.gep67 = getelementptr inbounds nuw double, ptr %2, i64 %23
+  %22 = mul nuw nsw i64 %indvar, %14
+  %23 = sext i32 %17 to i64
+  %wide.trip.count59 = sext i32 %20 to i64
+  %invariant.gep67 = getelementptr inbounds nuw double, ptr %2, i64 %22
   br label %.preheader.us.us.us
 
 .preheader.us.us.us:                              ; preds = %._crit_edge41.us.us.us, %.preheader.lr.ph.us.us
-  %indvars.iv56 = phi i64 [ %indvars.iv.next57, %._crit_edge41.us.us.us ], [ %24, %.preheader.lr.ph.us.us ]
-  %25 = getelementptr inbounds double, ptr %6, i64 %indvars.iv56
-  %26 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv56
-  %27 = load i32, ptr %26, align 4, !tbaa !19
-  %28 = mul nsw i32 %27, %3
-  %29 = sext i32 %28 to i64
-  %invariant.gep = getelementptr double, ptr %1, i64 %29
-  br label %30
+  %indvars.iv56 = phi i64 [ %indvars.iv.next57, %._crit_edge41.us.us.us ], [ %23, %.preheader.lr.ph.us.us ]
+  %24 = getelementptr inbounds double, ptr %6, i64 %indvars.iv56
+  %25 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv56
+  %26 = load i32, ptr %25, align 4, !tbaa !19
+  %27 = mul nsw i32 %26, %3
+  %28 = sext i32 %27 to i64
+  %invariant.gep = getelementptr double, ptr %1, i64 %28
+  br label %29
 
-30:                                               ; preds = %30, %.preheader.us.us.us
+29:                                               ; preds = %29, %.preheader.us.us.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %30 ], [ 0, %.preheader.us.us.us ]
-  %31 = load double, ptr %25, align 8, !tbaa !25
+  %30 = load double, ptr %24, align 8, !tbaa !25
   %gep = getelementptr double, ptr %invariant.gep, i64 %indvars.iv
-  %32 = load double, ptr %gep, align 8, !tbaa !25
+  %31 = load double, ptr %gep, align 8, !tbaa !25
   %gep68 = getelementptr inbounds nuw double, ptr %invariant.gep67, i64 %indvars.iv
-  %33 = load double, ptr %gep68, align 8, !tbaa !25
-  %34 = tail call double @llvm.fmuladd.f64(double %31, double %32, double %33)
-  store double %34, ptr %gep68, align 8, !tbaa !25
+  %32 = load double, ptr %gep68, align 8, !tbaa !25
+  %33 = tail call double @llvm.fmuladd.f64(double %30, double %31, double %32)
+  store double %33, ptr %gep68, align 8, !tbaa !25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %16
-  br i1 %exitcond.not, label %._crit_edge41.us.us.us, label %30, !llvm.loop !109
+  br i1 %exitcond.not, label %._crit_edge41.us.us.us, label %29, !llvm.loop !109
 
-._crit_edge41.us.us.us:                           ; preds = %30
+._crit_edge41.us.us.us:                           ; preds = %29
   %indvars.iv.next57 = add nsw i64 %indvars.iv56, 1
   %exitcond60.not = icmp eq i64 %indvars.iv.next57, %wide.trip.count59
   br i1 %exitcond60.not, label %.loopexit.us.us, label %.preheader.us.us.us, !llvm.loop !110
@@ -7938,35 +7938,35 @@ SparseMatrix_new.exit:                            ; preds = %3, %7
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge47.us
   %indvars.iv59 = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next60, %._crit_edge47.us ]
-  %.03749.us = phi ptr [ %19, %.preheader.us.preheader ], [ %27, %._crit_edge47.us ]
-  %.03848.us = phi ptr [ %17, %.preheader.us.preheader ], [ %26, %._crit_edge47.us ]
-  %20 = mul nuw nsw i64 %indvars.iv59, %15
-  %invariant.gep = getelementptr double, ptr %2, i64 %20
-  br label %21
+  %.03749.us = phi ptr [ %19, %.preheader.us.preheader ], [ %28, %._crit_edge47.us ]
+  %.03848.us = phi ptr [ %17, %.preheader.us.preheader ], [ %27, %._crit_edge47.us ]
+  %21 = mul nuw nsw i64 %indvars.iv59, %15
+  %invariant.gep = getelementptr double, ptr %2, i64 %21
+  br label %22
 
-21:                                               ; preds = %.preheader.us, %21
+22:                                               ; preds = %.preheader.us, %22
   %indvars.iv54 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next55, %21 ]
-  %22 = getelementptr inbounds nuw i32, ptr %.03848.us, i64 %indvars.iv54
-  %23 = trunc nuw nsw i64 %indvars.iv54 to i32
-  store i32 %23, ptr %22, align 4, !tbaa !19
+  %23 = getelementptr inbounds nuw i32, ptr %.03848.us, i64 %indvars.iv54
+  %24 = trunc nuw nsw i64 %indvars.iv54 to i32
+  store i32 %24, ptr %23, align 4, !tbaa !19
   %gep = getelementptr double, ptr %invariant.gep, i64 %indvars.iv54
-  %24 = load double, ptr %gep, align 8, !tbaa !25
-  %25 = getelementptr inbounds nuw double, ptr %.03749.us, i64 %indvars.iv54
-  store double %24, ptr %25, align 8, !tbaa !25
+  %25 = load double, ptr %gep, align 8, !tbaa !25
+  %26 = getelementptr inbounds nuw double, ptr %.03749.us, i64 %indvars.iv54
+  store double %25, ptr %26, align 8, !tbaa !25
   %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
   %exitcond58.not = icmp eq i64 %indvars.iv.next55, %wide.trip.count57
-  br i1 %exitcond58.not, label %._crit_edge47.us, label %21, !llvm.loop !202
+  br i1 %exitcond58.not, label %._crit_edge47.us, label %22, !llvm.loop !202
 
-._crit_edge47.us:                                 ; preds = %21
-  %26 = getelementptr inbounds i32, ptr %.03848.us, i64 %15
-  %27 = getelementptr inbounds nuw double, ptr %.03749.us, i64 %wide.trip.count57
+._crit_edge47.us:                                 ; preds = %22
+  %27 = getelementptr inbounds i32, ptr %.03848.us, i64 %15
+  %28 = getelementptr inbounds nuw double, ptr %.03749.us, i64 %wide.trip.count57
   %indvars.iv.next60 = add nuw nsw i64 %indvars.iv59, 1
   %exitcond63.not = icmp eq i64 %indvars.iv.next60, %wide.trip.count62
   br i1 %exitcond63.not, label %._crit_edge51, label %.preheader.us, !llvm.loop !203
 
 ._crit_edge51:                                    ; preds = %._crit_edge47.us, %.preheader.lr.ph, %SparseMatrix_new.exit
-  %28 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i32 %4, ptr %28, align 8, !tbaa !14
+  %29 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i32 %4, ptr %29, align 8, !tbaa !14
   ret ptr %5
 }
 

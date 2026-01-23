@@ -38904,7 +38904,7 @@ define internal fastcc void @_ZN11quinn_proto10connection10Connection16remove_in
   store ptr %., ptr %.sroa.4.0..sroa_idx10, align 8
   br label %7
 
-7:                                                ; preds = %27, %3
+7:                                                ; preds = %26, %3
   %8 = load i64, ptr %4, align 8, !range !79, !alias.scope !1225, !noundef !3
   %9 = trunc nuw i64 %8 to i1
   br i1 %9, label %10, label %21
@@ -38929,7 +38929,7 @@ define internal fastcc void @_ZN11quinn_proto10connection10Connection16remove_in
   store i64 0, ptr %4, align 8, !alias.scope !1225
   br label %21
 
-16:                                               ; preds = %25
+16:                                               ; preds = %24
   %17 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -38937,7 +38937,7 @@ define internal fastcc void @_ZN11quinn_proto10connection10Connection16remove_in
 .body:                                            ; preds = %14, %16
   %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ]
   invoke void @"_ZN4core3ptr245drop_in_place$LT$core..iter..adapters..chain..Chain$LT$core..array..iter..IntoIter$LT$$RF$mut$u20$quinn_proto..connection..paths..PathData$C$1_usize$GT$$C$core..option..IntoIter$LT$$RF$mut$u20$quinn_proto..connection..paths..PathData$GT$$GT$$GT$17h384fe771828cfc7aE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %4) #25
-          to label %30 unwind label %28
+          to label %30 unwind label %27
 
 "_ZN4core6option15Option$LT$T$GT$7or_else17h7d4c9ebef2271f1cE.exit.thread17": ; preds = %10
   %18 = or disjoint i64 %12, 1
@@ -38947,37 +38947,37 @@ define internal fastcc void @_ZN11quinn_proto10connection10Connection16remove_in
   %20 = load ptr, ptr %.sroa.2.sroa.3.0..sroa.2.0..sroa_idx.sroa_idx, align 8, !alias.scope !1228, !nonnull !3, !align !9, !noundef !3
   br label %25
 
-21:                                               ; preds = %7, %"_ZN4core3ptr146drop_in_place$LT$core..option..Option$LT$core..array..iter..IntoIter$LT$$RF$mut$u20$quinn_proto..connection..paths..PathData$C$1_usize$GT$$GT$$GT$17h89b1848795b81109E.exit.i"
+21:; preds = %7, %"_ZN4core3ptr146drop_in_place$LT$core..option..Option$LT$core..array..iter..IntoIter$LT$$RF$mut$u20$quinn_proto..connection..paths..PathData$C$1_usize$GT$$GT$$GT$17h89b1848795b81109E.exit.i"
   %22 = load i64, ptr %.sroa.3.0..sroa_idx, align 8, !range !79, !alias.scope !1235, !noalias !1240, !noundef !3
   %23 = trunc nuw i64 %22 to i1
   br i1 %23, label %"_ZN4core6option15Option$LT$T$GT$7or_else17h7d4c9ebef2271f1cE.exit", label %"_ZN4core6option15Option$LT$T$GT$7or_else17h7d4c9ebef2271f1cE.exit.thread"
 
-"_ZN4core6option15Option$LT$T$GT$7or_else17h7d4c9ebef2271f1cE.exit": ; preds = %21
+"_ZN4core6option15Option$LT$T$GT$7or_else17h7d4c9ebef2271f1cE.exit":; preds = %21
   %24 = load ptr, ptr %.sroa.4.0..sroa_idx10, align 8, !alias.scope !1242, !noalias !1240, !align !9, !noundef !3
   store ptr null, ptr %.sroa.4.0..sroa_idx10, align 8, !alias.scope !1242, !noalias !1240
   %.not8 = icmp eq ptr %24, null
-  br i1 %.not8, label %"_ZN4core6option15Option$LT$T$GT$7or_else17h7d4c9ebef2271f1cE.exit.thread", label %25
+  br i1 %.not8, label %"_ZN4core6option15Option$LT$T$GT$7or_else17h7d4c9ebef2271f1cE.exit.thread", label %24
 
-25:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$7or_else17h7d4c9ebef2271f1cE.exit.thread17", %"_ZN4core6option15Option$LT$T$GT$7or_else17h7d4c9ebef2271f1cE.exit"
+24:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$7or_else17h7d4c9ebef2271f1cE.exit.thread17", %"_ZN4core6option15Option$LT$T$GT$7or_else17h7d4c9ebef2271f1cE.exit"
   %.sroa.0.0.i920 = phi ptr [ %20, %"_ZN4core6option15Option$LT$T$GT$7or_else17h7d4c9ebef2271f1cE.exit.thread17" ], [ %24, %"_ZN4core6option15Option$LT$T$GT$7or_else17h7d4c9ebef2271f1cE.exit" ]
-  %26 = invoke noundef zeroext i1 @_ZN11quinn_proto10connection5paths8PathData16remove_in_flight17he29a8cf9c69ae280E(ptr noalias noundef nonnull align 8 dereferenceable(400) %.sroa.0.0.i920, i64 noundef %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %2)
+  %25 = invoke noundef zeroext i1 @_ZN11quinn_proto10connection5paths8PathData16remove_in_flight17he29a8cf9c69ae280E(ptr noalias noundef nonnull align 8 dereferenceable(400) %.sroa.0.0.i920, i64 noundef %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %2)
           to label %27 unwind label %16
 
-"_ZN4core6option15Option$LT$T$GT$7or_else17h7d4c9ebef2271f1cE.exit.thread": ; preds = %"_ZN4core6option15Option$LT$T$GT$7or_else17h7d4c9ebef2271f1cE.exit", %21, %27
+"_ZN4core6option15Option$LT$T$GT$7or_else17h7d4c9ebef2271f1cE.exit.thread": ; preds = %"_ZN4core6option15Option$LT$T$GT$7or_else17h7d4c9ebef2271f1cE.exit", %21, %26
   call void @"_ZN4core3ptr245drop_in_place$LT$core..iter..adapters..chain..Chain$LT$core..array..iter..IntoIter$LT$$RF$mut$u20$quinn_proto..connection..paths..PathData$C$1_usize$GT$$C$core..option..IntoIter$LT$$RF$mut$u20$quinn_proto..connection..paths..PathData$GT$$GT$$GT$17h384fe771828cfc7aE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
-27:                                               ; preds = %25
-  br i1 %26, label %"_ZN4core6option15Option$LT$T$GT$7or_else17h7d4c9ebef2271f1cE.exit.thread", label %7
+26:                                               ; preds = %24
+  br i1 %25, label %"_ZN4core6option15Option$LT$T$GT$7or_else17h7d4c9ebef2271f1cE.exit.thread", label %7
 
-28:                                               ; preds = %.body
-  %29 = landingpad { ptr, i32 }
+27:                                               ; preds = %.body
+  %28 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #24
   unreachable
 
-30:                                               ; preds = %.body
+29:                                               ; preds = %.body
   resume { ptr, i32 } %eh.lpad-body
 }
 

@@ -655,22 +655,22 @@ define hidden void @_RNvMs_NtCs8mTrBI1stz4_15turborepo_vt1004cellNtB4_4Cell6appe
 
 7:                                                ; preds = %2
   %8 = icmp eq i8 %5, 0
-  br i1 %8, label %10, label %.thread
+  br i1 %8, label %9, label %.thread
 
 .thread:                                          ; preds = %7
   %9 = zext nneg i8 %5 to i64
   br label %14
 
-10:                                               ; preds = %7
+9:                                                ; preds = %7
   store i32 32, ptr %0, align 4
-  %11 = or disjoint i8 %4, 1
-  store i8 %11, ptr %3, align 2
+  %10 = or disjoint i8 %4, 1
+  store i8 %10, ptr %3, align 2
   %.pre = and i8 %11, 15
   %12 = zext nneg i8 %.pre to i64
   %13 = icmp samesign ult i8 %.pre, 6
   br i1 %13, label %14, label %19
 
-14:                                               ; preds = %.thread, %10
+14: ; preds = %.thread, %10
   %15 = phi i64 [ %9, %.thread ], [ %12, %10 ]
   %16 = getelementptr inbounds nuw i32, ptr %0, i64 %15
   store i32 %1, ptr %16, align 4

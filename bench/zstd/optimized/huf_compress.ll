@@ -225,7 +225,7 @@ define i64 @HUF_readCTable(ptr noundef captures(none) %0, ptr noundef captures(n
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = call i64 @HUF_readStats(ptr noundef nonnull %6, i64 noundef 256, ptr noundef nonnull %7, ptr noundef nonnull %9, ptr noundef nonnull %8, ptr noundef %2, i64 noundef %3) #14
   %14 = icmp ult i64 %13, -119
-  br i1 %14, label %15, label %71
+  br i1 %14, label %15, label %70
 
 15:                                               ; preds = %5
   %16 = load i32, ptr %7, align 16, !tbaa !11
@@ -234,14 +234,14 @@ define i64 @HUF_readCTable(ptr noundef captures(none) %0, ptr noundef captures(n
   store i32 %18, ptr %4, align 4, !tbaa !11
   %19 = load i32, ptr %8, align 4, !tbaa !11
   %20 = icmp ugt i32 %19, 12
-  br i1 %20, label %71, label %21
+  br i1 %20, label %70, label %21
 
 21:                                               ; preds = %15
   %22 = load i32, ptr %9, align 4, !tbaa !11
   %23 = load i32, ptr %1, align 4, !tbaa !11
   %24 = add i32 %23, 1
   %25 = icmp ugt i32 %22, %24
-  br i1 %25, label %71, label %26
+  br i1 %25, label %70, label %26
 
 26:                                               ; preds = %21
   %27 = add i32 %22, -1
@@ -346,40 +346,40 @@ define i64 @HUF_readCTable(ptr noundef captures(none) %0, ptr noundef captures(n
 
 .lr.ph68:                                         ; preds = %.lr.ph68.preheader, %.lr.ph68
   %indvars.iv85 = phi i64 [ %53, %.lr.ph68.preheader ], [ %indvars.iv.next86, %.lr.ph68 ]
-  %.04366 = phi i32 [ %19, %.lr.ph68.preheader ], [ %59, %.lr.ph68 ]
-  %.04465 = phi i16 [ 0, %.lr.ph68.preheader ], [ %58, %.lr.ph68 ]
-  %54 = getelementptr inbounds nuw i16, ptr %11, i64 %indvars.iv85
-  store i16 %.04465, ptr %54, align 2, !tbaa !16
-  %55 = getelementptr inbounds nuw i16, ptr %10, i64 %indvars.iv85
-  %56 = load i16, ptr %55, align 2, !tbaa !16
-  %57 = add i16 %56, %.04465
-  %58 = lshr i16 %57, 1
-  %59 = add i32 %.04366, -1
-  %.not52 = icmp eq i32 %59, 0
+  %.04366 = phi i32 [ %19, %.lr.ph68.preheader ], [ %58, %.lr.ph68 ]
+  %.04465 = phi i16 [ 0, %.lr.ph68.preheader ], [ %57, %.lr.ph68 ]
+  %53 = getelementptr inbounds nuw i16, ptr %11, i64 %indvars.iv85
+  store i16 %.04465, ptr %53, align 2, !tbaa !16
+  %54 = getelementptr inbounds nuw i16, ptr %10, i64 %indvars.iv85
+  %55 = load i16, ptr %54, align 2, !tbaa !16
+  %56 = add i16 %55, %.04465
+  %57 = lshr i16 %56, 1
+  %58 = add i32 %.04366, -1
+  %.not52 = icmp eq i32 %58, 0
   %indvars.iv.next86 = add nsw i64 %indvars.iv85, -1
   br i1 %.not52, label %.preheader, label %.lr.ph68, !llvm.loop !19
 
 .lr.ph70:                                         ; preds = %.lr.ph70.preheader, %HUF_setValue.exit
   %indvars.iv87 = phi i64 [ 0, %.lr.ph70.preheader ], [ %indvars.iv.next88, %HUF_setValue.exit ]
-  %60 = getelementptr inbounds nuw i64, ptr %12, i64 %indvars.iv87
-  %61 = load i64, ptr %60, align 8, !tbaa !8
-  %62 = and i64 %61, 255
-  %63 = getelementptr inbounds nuw i16, ptr %11, i64 %62
-  %64 = load i16, ptr %63, align 2, !tbaa !16
-  %65 = add i16 %64, 1
-  store i16 %65, ptr %63, align 2, !tbaa !16
-  %.not.i = icmp eq i64 %62, 0
-  br i1 %.not.i, label %HUF_setValue.exit, label %66
+  %59 = getelementptr inbounds nuw i64, ptr %12, i64 %indvars.iv87
+  %60 = load i64, ptr %59, align 8, !tbaa !8
+  %61 = and i64 %60, 255
+  %62 = getelementptr inbounds nuw i16, ptr %11, i64 %61
+  %63 = load i16, ptr %62, align 2, !tbaa !16
+  %64 = add i16 %63, 1
+  store i16 %64, ptr %62, align 2, !tbaa !16
+  %.not.i = icmp eq i64 %61, 0
+  br i1 %.not.i, label %HUF_setValue.exit, label %65
 
-66:                                               ; preds = %.lr.ph70
-  %67 = zext i16 %64 to i64
-  %68 = sub nsw i64 64, %62
-  %69 = shl i64 %67, %68
-  %70 = or i64 %69, %61
-  store i64 %70, ptr %60, align 8, !tbaa !8
+65:                                               ; preds = %.lr.ph70
+  %66 = zext i16 %63 to i64
+  %67 = sub nsw i64 64, %61
+  %68 = shl i64 %66, %67
+  %69 = or i64 %68, %60
+  store i64 %69, ptr %59, align 8, !tbaa !8
   br label %HUF_setValue.exit
 
-HUF_setValue.exit:                                ; preds = %.lr.ph70, %66
+HUF_setValue.exit:                                ; preds = %.lr.ph70, %65
   %indvars.iv.next88 = add nuw nsw i64 %indvars.iv87, 1
   %exitcond91.not = icmp eq i64 %indvars.iv.next88, %wide.trip.count90
   br i1 %exitcond91.not, label %._crit_edge71, label %.lr.ph70, !llvm.loop !20
@@ -387,9 +387,9 @@ HUF_setValue.exit:                                ; preds = %.lr.ph70, %66
 ._crit_edge71:                                    ; preds = %HUF_setValue.exit, %.preheader
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %71
+  br label %70
 
-71:                                               ; preds = %21, %15, %5, %._crit_edge71
+70:                                               ; preds = %21, %15, %5, %._crit_edge71
   %.046 = phi i64 [ %13, %._crit_edge71 ], [ %13, %5 ], [ -44, %15 ], [ -48, %21 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)

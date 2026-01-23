@@ -473,7 +473,7 @@ if.then.i.i:                                      ; preds = %entry
   %4 = load ptr, ptr %3, align 8
   br label %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit
 
-_ZNK6google8protobuf11MessageLite8GetArenaEv.exit: ; preds = %entry, %if.then.i.i
+if.else.i.i:                                      ; preds = %entry, %if.then.i.i
   %retval.i.0.i = phi ptr [ %4, %if.then.i.i ], [ %3, %entry ]
   %suffix_.i = getelementptr inbounds nuw i8, ptr %version, i64 24
   tail call void @_ZN6google8protobuf8internal14ArenaStringPtr3SetESt17basic_string_viewIcSt11char_traitsIcEEPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(8) %suffix_.i, i64 0, ptr nonnull @.str.5, ptr noundef %retval.i.0.i)

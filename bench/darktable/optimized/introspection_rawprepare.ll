@@ -470,7 +470,7 @@ define void @process(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr
   %51 = sext i32 %49 to i64
   %52 = sext i32 %18 to i64
   %wide.trip.count348 = zext nneg i32 %39 to i64
-  %invariant.gep398 = getelementptr i16, ptr %2, i64 %52
+  %invariant.gep397 = getelementptr i16, ptr %2, i64 %52
   %wide.trip.count343 = zext nneg i32 %42 to i64
   br label %.preheader289.us
 
@@ -483,7 +483,7 @@ define void @process(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr
   %.reass304 = add i32 %invariant.op303, %56
   %57 = shl i32 %.reass304, 1
   %58 = and i32 %57, 2
-  %gep399 = getelementptr i16, ptr %invariant.gep398, i64 %54
+  %gep398 = getelementptr i16, ptr %invariant.gep397, i64 %54
   %59 = getelementptr float, ptr %3, i64 %55
   br label %60
 
@@ -493,7 +493,7 @@ define void @process(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr
   %.reass299.us = add i32 %invariant.op298.us, %61
   %62 = and i32 %.reass299.us, 1
   %63 = or disjoint i32 %58, %62
-  %64 = getelementptr i16, ptr %gep399, i64 %indvars.iv340
+  %64 = getelementptr i16, ptr %gep398, i64 %indvars.iv340
   %65 = load i16, ptr %64, align 2, !tbaa !107
   %66 = uitofp i16 %65 to float
   %67 = zext nneg i32 %63 to i64

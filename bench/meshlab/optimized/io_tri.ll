@@ -3297,45 +3297,45 @@ _ZN3vcg3tri9AllocatorI6CMeshOE11AddVerticesERS2_m.exit: ; preds = %53, %55
   %102 = load ptr, ptr %101, align 8
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %104 = load ptr, ptr %103, align 8
-  %.not1115.i = icmp eq ptr %102, %104
-  br i1 %.not1115.i, label %_ZN3vcg3tri5CleanI6CMeshOE8FlipMeshERS2_b.exit, label %.lr.ph.i
+  %.not1114.i = icmp eq ptr %102, %104
+  br i1 %.not1114.i, label %_ZN3vcg3tri5CleanI6CMeshOE8FlipMeshERS2_b.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %._crit_edge73
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 575
-  br label %.lr.ph.split.us.i
+  br label %106
 
-.lr.ph.split.us.i:                                ; preds = %130, %.lr.ph.i
-  %.sroa.03.016.us.i = phi ptr [ %131, %130 ], [ %102, %.lr.ph.i ]
-  %106 = getelementptr inbounds nuw i8, ptr %.sroa.03.016.us.i, i64 32
-  %107 = load i32, ptr %106, align 8
-  %108 = and i32 %107, 1
-  %.not12.us.i = icmp eq i32 %108, 0
-  br i1 %.not12.us.i, label %109, label %130
+106:                                              ; preds = %134, %.lr.ph.i
+  %.sroa.03.015.i = phi ptr [ %131, %130 ], [ %102, %.lr.ph.i ]
+  %107 = getelementptr inbounds nuw i8, ptr %.sroa.03.015.i, i64 32
+  %108 = load i32, ptr %107, align 8
+  %109 = and i32 %108, 1
+  %.not12.i = icmp eq i32 %109, 0
+  br i1 %.not12.i, label %110, label %134
 
-109:                                              ; preds = %.lr.ph.split.us.i
-  %110 = getelementptr inbounds nuw i8, ptr %.sroa.03.016.us.i, i64 8
-  %111 = getelementptr inbounds nuw i8, ptr %.sroa.03.016.us.i, i64 16
+110:                                              ; preds = %106
+  %111 = getelementptr inbounds nuw i8, ptr %.sroa.03.015.i, i64 8
+  %112 = getelementptr inbounds nuw i8, ptr %.sroa.03.015.i, i64 16
   %112 = load ptr, ptr %110, align 8
   %113 = load ptr, ptr %111, align 8
   store ptr %113, ptr %110, align 8
   store ptr %112, ptr %111, align 8
   %114 = and i32 %107, -1572865
-  %115 = shl i32 %107, 1
+  %115 = shl i32 %108, 1
   %masksel.us.i = and i32 %115, 1048576
   %storemerge.i.us.i = or disjoint i32 %masksel.us.i, %114
   %116 = lshr exact i32 %107, 1
-  %masksel14.us.i = and i32 %116, 524288
-  %storemerge18.i.us.i = or disjoint i32 %storemerge.i.us.i, %masksel14.us.i
-  store i32 %storemerge18.i.us.i, ptr %106, align 8
+  %117 = and i32 %116, 524288
+  %118 = or disjoint i32 %storemerge.i.us.i, %117
+  store i32 %storemerge18.i.us.i, ptr %107, align 8
   %117 = load i8, ptr %105, align 1
   %118 = trunc i8 %117 to i1
   br i1 %118, label %119, label %130
 
-119:                                              ; preds = %109
-  %120 = load ptr, ptr %.sroa.03.016.us.i, align 8
+119:   ; preds = %109
+  %120 = load ptr, ptr %.sroa.03.015.i, align 8
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 192
   %122 = load ptr, ptr %120, align 8
-  %123 = ptrtoint ptr %.sroa.03.016.us.i to i64
+  %123 = ptrtoint ptr %.sroa.03.015.i to i64
   %124 = ptrtoint ptr %122 to i64
   %125 = sub i64 %123, %124
   %126 = sdiv exact i64 %125, 48
@@ -3347,15 +3347,15 @@ _ZN3vcg3tri9AllocatorI6CMeshOE11AddVerticesERS2_m.exit: ; preds = %53, %55
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(10) %128, ptr noundef nonnull align 4 dereferenceable(10) %129, i64 10, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(10) %129, ptr noundef nonnull align 4 dereferenceable(10) %6, i64 10, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %130
+  br label %134
 
-130:                                              ; preds = %119, %109, %.lr.ph.split.us.i
-  %131 = getelementptr inbounds nuw i8, ptr %.sroa.03.016.us.i, i64 48
-  %132 = load ptr, ptr %103, align 8
-  %.not11.us.i = icmp eq ptr %131, %132
-  br i1 %.not11.us.i, label %_ZN3vcg3tri5CleanI6CMeshOE8FlipMeshERS2_b.exit, label %.lr.ph.split.us.i, !llvm.loop !24
+134:                                              ; preds = %119, %110, %106
+  %135 = getelementptr inbounds nuw i8, ptr %.sroa.03.015.i, i64 48
+  %136 = load ptr, ptr %103, align 8
+  %.not11.i = icmp eq ptr %135, %136
+  br i1 %.not11.i, label %_ZN3vcg3tri5CleanI6CMeshOE8FlipMeshERS2_b.exit, label %106, !llvm.loop !24
 
-_ZN3vcg3tri5CleanI6CMeshOE8FlipMeshERS2_b.exit:   ; preds = %130, %._crit_edge73, %._crit_edge, %15
+_ZN3vcg3tri5CleanI6CMeshOE8FlipMeshERS2_b.exit:   ; preds = %134, %._crit_edge73, %._crit_edge, %15
   %.049 = phi i32 [ 1, %15 ], [ %.mux, %._crit_edge ], [ 0, %._crit_edge73 ], [ 0, %130 ]
   ret i32 %.049
 }

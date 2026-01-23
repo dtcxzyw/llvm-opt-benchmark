@@ -59,8 +59,8 @@ define dso_local void @PHP_WHIRLPOOLUpdate(ptr noundef captures(none) %0, ptr no
   %25 = lshr i32 %23, 8
   %26 = lshr i64 %.090, 8
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %.not110 = icmp eq i64 %indvars.iv, 0
-  br i1 %.not110, label %.critedge, label %12
+  %.not109 = icmp eq i64 %indvars.iv, 0
+  br i1 %.not109, label %.critedge, label %12
 
 .critedge:                                        ; preds = %16, %12
   %27 = icmp ugt i64 %4, 8
@@ -71,20 +71,20 @@ define dso_local void @PHP_WHIRLPOOLUpdate(ptr noundef captures(none) %0, ptr no
   %29 = add i64 %4, -9
   %30 = lshr i64 %29, 3
   %.phi.trans.insert = sext i32 %11 to i64
-  %.phi.trans.insert105 = getelementptr inbounds i8, ptr %9, i64 %.phi.trans.insert
-  %.pre = load i8, ptr %.phi.trans.insert105, align 1, !tbaa !11
+  %.phi.trans.insert104 = getelementptr inbounds i8, ptr %9, i64 %.phi.trans.insert
+  %.pre = load i8, ptr %.phi.trans.insert104, align 1, !tbaa !11
   br label %31
 
 31:                                               ; preds = %.lr.ph, %45
   %32 = phi i8 [ %.pre, %.lr.ph ], [ %47, %45 ]
-  %indvars.iv102 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next103, %45 ]
+  %indvars.iv101 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next102, %45 ]
   %.07694 = phi i32 [ %11, %.lr.ph ], [ %.1, %45 ]
   %.07793 = phi i32 [ %7, %.lr.ph ], [ %50, %45 ]
   %.08192 = phi i64 [ %4, %.lr.ph ], [ %51, %45 ]
-  %33 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv102
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv101
   %34 = load i8, ptr %33, align 1, !tbaa !11
   %35 = zext i8 %34 to i32
-  %indvars.iv.next103 = add nuw nsw i64 %indvars.iv102, 1
+  %indvars.iv.next102 = add nuw nsw i64 %indvars.iv101, 1
   %36 = lshr i32 %35, %8
   %37 = add nsw i32 %.07694, 1
   %38 = sext i32 %.07694 to i64
@@ -110,7 +110,7 @@ define dso_local void @PHP_WHIRLPOOLUpdate(ptr noundef captures(none) %0, ptr no
   store i8 %47, ptr %49, align 1, !tbaa !11
   %50 = add nsw i32 %.178, %8
   %51 = add i64 %.08192, -8
-  %exitcond.not = icmp eq i64 %indvars.iv102, %30
+  %exitcond.not = icmp eq i64 %indvars.iv101, %30
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %31
 
 ._crit_edge.loopexit:                             ; preds = %45
@@ -143,7 +143,7 @@ define dso_local void @PHP_WHIRLPOOLUpdate(ptr noundef captures(none) %0, ptr no
 .thread:                                          ; preds = %._crit_edge, %54
   %64 = trunc nuw nsw i64 %.081.lcssa to i32
   %65 = add nsw i32 %.077.lcssa, %64
-  br label %79
+  br label %78
 
 66:                                               ; preds = %54
   %67 = add nsw i32 %.076.lcssa, 1
@@ -168,7 +168,7 @@ define dso_local void @PHP_WHIRLPOOLUpdate(ptr noundef captures(none) %0, ptr no
   %78 = add nsw i32 %77, %.380
   br label %79
 
-79:                                               ; preds = %72, %.thread
+78:                                               ; preds = %72, %.thread
   %.279 = phi i32 [ %65, %.thread ], [ %78, %72 ]
   %.2 = phi i32 [ %.076.lcssa, %.thread ], [ %.3, %72 ]
   store i32 %.279, ptr %6, align 4, !tbaa !4

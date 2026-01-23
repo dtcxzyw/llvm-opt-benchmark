@@ -7485,7 +7485,7 @@ if.end:                                           ; preds = %_ZNSt10shared_ptrIN
   %_M_engaged.i.i = getelementptr inbounds nuw i8, ptr %this, i64 52
   %9 = load i8, ptr %_M_engaged.i.i, align 4
   %tobool.i.i = trunc i8 %9 to i1
-  br i1 %tobool.i.i, label %do.body7.i, label %if.then3
+  br i1 %tobool.i.i, label %do.end15.i, label %if.then3
 
 if.then3:                                         ; preds = %if.end
   %data_queue_ = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -7540,7 +7540,7 @@ do.body7.i.thread:                                ; preds = %if.then3
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   br label %do.end15.i
 
-do.body7.i:                                       ; preds = %if.end
+do.end15.i:                                       ; preds = %if.end
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %tobool.i.i.i = trunc i8 %9 to i1
   br i1 %tobool.i.i.i, label %do.end15.i, label %do.body12.i

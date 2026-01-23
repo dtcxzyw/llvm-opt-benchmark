@@ -275,9 +275,9 @@ define internal void @lv_arc_event(ptr readnone captures(none) %0, ptr noundef %
   br label %.sink.split
 
 .sink.split:                                      ; preds = %121, %126
-  %.sink371 = phi i8 [ %127, %126 ], [ %122, %121 ]
+  %.sink370 = phi i8 [ %127, %126 ], [ %122, %121 ]
   %.3254.ph = phi float [ %98, %126 ], [ 0.000000e+00, %121 ]
-  store i8 %.sink371, ptr %33, align 8
+  store i8 %.sink370, ptr %33, align 8
   br label %128
 
 128:                                              ; preds = %.sink.split, %120, %123
@@ -413,21 +413,21 @@ lv_arc_get_value.exit:                            ; preds = %143, %168
   %203 = load i32, ptr %202, align 4, !tbaa !21
   %204 = and i32 %201, -3
   %or.cond9 = icmp eq i32 %204, 17
-  br i1 %or.cond9, label %.sink.split372, label %205
+  br i1 %or.cond9, label %.sink.split371, label %205
 
 205:                                              ; preds = %200
   switch i32 %201, label %207 [
-    i32 20, label %.sink.split372
-    i32 18, label %.sink.split372
+    i32 20, label %.sink.split371
+    i32 18, label %.sink.split371
   ]
 
-.sink.split372:                                   ; preds = %205, %205, %200
-  %.sink374 = phi i32 [ 1, %200 ], [ -1, %205 ], [ -1, %205 ]
-  %206 = add nsw i32 %203, %.sink374
+.sink.split371:                                   ; preds = %205, %205, %200
+  %.sink373 = phi i32 [ 1, %200 ], [ -1, %205 ], [ -1, %205 ]
+  %206 = add nsw i32 %203, %.sink373
   tail call void @lv_arc_set_value(ptr noundef nonnull %17, i32 noundef %206)
   br label %207
 
-207:                                              ; preds = %.sink.split372, %205
+207:                                              ; preds = %.sink.split371, %205
   %208 = load i32, ptr %202, align 4, !tbaa !21
   %.not282 = icmp eq i32 %203, %208
   br i1 %.not282, label %.critedge, label %209

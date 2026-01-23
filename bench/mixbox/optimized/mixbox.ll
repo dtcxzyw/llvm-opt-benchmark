@@ -4453,13 +4453,13 @@ _ZL8zreceiveP4zbufi.exit.i34.i:                   ; preds = %423, %419
 
 .preheader.split.i:                               ; preds = %.preheader.split.i, %.preheader.split.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.split.preheader.i ], [ %indvars.iv.next.i, %.preheader.split.i ]
-  %462 = getelementptr i8, ptr %461, i64 %indvars.iv.i
-  %463 = load i8, ptr %462, align 1, !tbaa !5
+  %463 = getelementptr i8, ptr %461, i64 %indvars.iv.i
+  %464 = load i8, ptr %463, align 1, !tbaa !5
   %gep.i = getelementptr inbounds nuw i8, ptr %460, i64 %indvars.iv.i
-  %464 = load i8, ptr %gep.i, align 1, !tbaa !5
-  %465 = add i8 %463, -127
-  %466 = add i8 %465, %464
-  store i8 %466, ptr %gep.i, align 1, !tbaa !5
+  %465 = load i8, ptr %gep.i, align 1, !tbaa !5
+  %466 = add i8 %464, -127
+  %467 = add i8 %466, %465
+  store i8 %467, ptr %gep.i, align 1, !tbaa !5
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
   br i1 %exitcond.not.i, label %.split.us.i, label %.preheader.split.i, !llvm.loop !41

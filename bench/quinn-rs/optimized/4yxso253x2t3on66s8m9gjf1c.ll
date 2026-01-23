@@ -3421,7 +3421,7 @@ define hidden noundef zeroext i1 @_ZN11quinn_proto10connection6spaces5Dedup6inse
   store i64 %14, ptr %3, align 16
   br label %20
 
-15:                                               ; preds = %2
+20:                                               ; preds = %2
   %16 = add i64 %4, -1
   %17 = sub i64 %16, %1
   %18 = icmp ugt i64 %17, 128
@@ -3429,22 +3429,22 @@ define hidden noundef zeroext i1 @_ZN11quinn_proto10connection6spaces5Dedup6inse
   %or.cond = or i1 %19, %18
   br i1 %or.cond, label %20, label %21
 
-20:                                               ; preds = %21, %15, %6
-  %.sroa.0.0 = phi i1 [ true, %15 ], [ false, %6 ], [ %29, %21 ]
+22:                                               ; preds = %23, %15, %6
+  %.sroa.0.0 = phi i1 [ true, %15 ], [ false, %6 ], [ %31, %21 ]
   ret i1 %.sroa.0.0
 
-21:                                               ; preds = %15
-  %22 = xor i64 %1, -1
-  %23 = add i64 %16, %22
-  %24 = and i64 %23, 127
-  %25 = zext nneg i64 %24 to i128
-  %26 = shl nuw i128 1, %25
-  %27 = load i128, ptr %0, align 16, !noundef !3
-  %28 = lshr i128 %27, %25
-  %29 = trunc i128 %28 to i1
-  %30 = or i128 %27, %26
-  store i128 %30, ptr %0, align 16
-  br label %20
+23:                                               ; preds = %15
+  %24 = xor i64 %1, -1
+  %25 = add i64 %16, %24
+  %26 = and i64 %25, 127
+  %27 = zext nneg i64 %26 to i128
+  %28 = shl nuw i128 1, %27
+  %29 = load i128, ptr %0, align 16, !noundef !3
+  %30 = lshr i128 %29, %27
+  %31 = trunc i128 %30 to i1
+  %32 = or i128 %29, %28
+  store i128 %32, ptr %0, align 16
+  br label %22
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable

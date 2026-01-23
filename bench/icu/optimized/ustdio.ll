@@ -1005,7 +1005,7 @@ define i32 @u_fungetc_77(i32 noundef %0, ptr noundef captures(none) %1) local_un
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %6 = load ptr, ptr %5, align 8, !tbaa !43
   %7 = icmp eq ptr %4, %6
-  br i1 %7, label %27, label %8
+  br i1 %7, label %23, label %8
 
 8:                                                ; preds = %2
   %9 = and i32 %0, -1024
@@ -1013,13 +1013,13 @@ define i32 @u_fungetc_77(i32 noundef %0, ptr noundef captures(none) %1) local_un
   %11 = getelementptr inbounds i8, ptr %4, i64 -2
   %12 = icmp eq ptr %11, %6
   %or.cond = select i1 %10, i1 %12, i1 false
-  br i1 %or.cond, label %27, label %13
+  br i1 %or.cond, label %23, label %13
 
 13:                                               ; preds = %8
   store ptr %11, ptr %3, align 8, !tbaa !41
   %14 = load i16, ptr %11, align 2, !tbaa !38
   %15 = zext i16 %14 to i32
-  br i1 %10, label %16, label %26
+  br i1 %10, label %16, label %22
 
 16:                                               ; preds = %13
   %17 = and i32 %0, 1023
@@ -1027,7 +1027,7 @@ define i32 @u_fungetc_77(i32 noundef %0, ptr noundef captures(none) %1) local_un
   %.not15 = icmp eq i32 %18, %15
   br i1 %.not15, label %19, label %25
 
-19:                                               ; preds = %16
+19: ; preds = %16
   %20 = getelementptr inbounds i8, ptr %4, i64 -4
   store ptr %20, ptr %3, align 8, !tbaa !41
   %21 = load i16, ptr %20, align 2, !tbaa !38
@@ -1040,12 +1040,12 @@ define i32 @u_fungetc_77(i32 noundef %0, ptr noundef captures(none) %1) local_un
 25:                                               ; preds = %19, %16
   br label %27
 
-26:                                               ; preds = %13
+22:                                               ; preds = %13
   %.not = icmp eq i32 %0, %15
   %spec.store.select = select i1 %.not, i32 %0, i32 65535
-  br label %27
+  br label %23
 
-27:                                               ; preds = %2, %8, %26, %25, %19
+23:                                               ; preds = %2, %8, %22, %25, %19
   %.0 = phi i32 [ %spec.store.select, %26 ], [ 65535, %25 ], [ %0, %19 ], [ 65535, %8 ], [ 65535, %2 ]
   ret i32 %.0
 }

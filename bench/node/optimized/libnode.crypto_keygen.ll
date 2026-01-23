@@ -2027,13 +2027,13 @@ _ZN4node16NonCopyableMaybeINS_6crypto24PrivateKeyEncodingConfigEE7ReleaseEv.exit
   %private_key_encoding9 = getelementptr inbounds nuw i8, ptr %params, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %private_key_encoding9, ptr noundef nonnull align 8 dereferenceable(56) %value_.i, i64 16, i1 false)
   %cipher_.i = getelementptr inbounds nuw i8, ptr %private_key_encoding, i64 24
-  %19 = load ptr, ptr %cipher_.i, align 8
+  %18 = load ptr, ptr %cipher_.i, align 8
   %cipher_2.i = getelementptr inbounds nuw i8, ptr %params, i64 40
-  store ptr %19, ptr %cipher_2.i, align 8
+  store ptr %18, ptr %cipher_2.i, align 8
   %passphrase_.i = getelementptr inbounds nuw i8, ptr %params, i64 48
   %passphrase_3.i = getelementptr inbounds nuw i8, ptr %private_key_encoding, i64 32
-  %20 = load i8, ptr %passphrase_3.i, align 8
-  %frombool.i.i8 = and i8 %20, 1
+  %19 = load i8, ptr %passphrase_3.i, align 8
+  %frombool.i.i8 = and i8 %19, 1
   store i8 %frombool.i.i8, ptr %passphrase_.i, align 8
   %value_.i.i = getelementptr inbounds nuw i8, ptr %params, i64 56
   %value_3.i.i = getelementptr inbounds nuw i8, ptr %private_key_encoding, i64 40

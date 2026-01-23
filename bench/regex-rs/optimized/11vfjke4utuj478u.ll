@@ -3083,7 +3083,7 @@ _ZN14regex_automata6hybrid3dfa7LazyRef11is_sentinel17h29b2f1eb1c9c18d8E.exit.i.i
 
 218:                                              ; preds = %209
   %219 = trunc nuw nsw i64 %207 to i32
-  %.sroa.4.0.insert.ext.i.i.i = shl nuw nsw i32 %219, 8
+  %.sroa.4.0.insert.shift.i.i.i = shl nuw nsw i32 %219, 8
   %.sroa.4.0.insert.shift.i.i.i = and i32 %.sroa.4.0.insert.ext.i.i.i, 65280
   invoke fastcc void @_ZN14regex_automata6hybrid3dfa4Lazy14set_transition17hb44bc0a909428fcdE(ptr nonnull %18, ptr nonnull %.val23, i32 noundef %spec.select.i.i, i32 %.sroa.4.0.insert.shift.i.i.i, i32 noundef %205)
           to label %.preheader.i.backedge unwind label %.body.thread85.loopexit.i.i, !noalias !463
@@ -3893,7 +3893,7 @@ _ZN14regex_automata6hybrid3dfa7LazyRef11is_sentinel17h29b2f1eb1c9c18d8E.exit.i.i
 
 237:                                              ; preds = %228
   %238 = trunc nuw nsw i64 %226 to i32
-  %.sroa.4.0.insert.ext.i.i.i.i = shl nuw nsw i32 %238, 8
+  %.sroa.4.0.insert.shift.i.i.i.i = shl nuw nsw i32 %238, 8
   %.sroa.4.0.insert.shift.i.i.i.i = and i32 %.sroa.4.0.insert.ext.i.i.i.i, 65280
   invoke fastcc void @_ZN14regex_automata6hybrid3dfa4Lazy14set_transition17hb44bc0a909428fcdE(ptr nonnull %23, ptr nonnull %.val.i, i32 noundef %spec.select.i.i.i, i32 %.sroa.4.0.insert.shift.i.i.i.i, i32 noundef %224)
           to label %.preheader.i.i.backedge unwind label %.body.thread87.loopexit.i.i.i, !noalias !698
@@ -4850,7 +4850,7 @@ _ZN14regex_automata6hybrid3dfa7LazyRef11is_sentinel17h29b2f1eb1c9c18d8E.exit47: 
 
 206:                                              ; preds = %197
   %207 = trunc nuw nsw i64 %195 to i32
-  %.sroa.4.0.insert.ext.i = shl nuw nsw i32 %207, 8
+  %.sroa.4.0.insert.shift.i = shl nuw nsw i32 %207, 8
   %.sroa.4.0.insert.shift.i = and i32 %.sroa.4.0.insert.ext.i, 65280
   invoke fastcc void @_ZN14regex_automata6hybrid3dfa4Lazy14set_transition17hb44bc0a909428fcdE(ptr nonnull %.val65.i, ptr nonnull %.val66.i, i32 noundef %spec.select.i, i32 %.sroa.4.0.insert.shift.i, i32 noundef %193)
           to label %.preheader.backedge unwind label %.body39.thread88.loopexit
@@ -5381,7 +5381,7 @@ _ZN14regex_automata6hybrid3dfa7LazyRef11is_sentinel17h29b2f1eb1c9c18d8E.exit: ; 
 
 173:                                              ; preds = %164
   %174 = trunc nuw nsw i64 %162 to i32
-  %.sroa.4.0.insert.ext.i = shl nuw nsw i32 %174, 8
+  %.sroa.4.0.insert.shift.i = shl nuw nsw i32 %174, 8
   %.sroa.4.0.insert.shift.i = and i32 %.sroa.4.0.insert.ext.i, 65280
   invoke fastcc void @_ZN14regex_automata6hybrid3dfa4Lazy14set_transition17hb44bc0a909428fcdE(ptr nonnull %.val64.i, ptr nonnull %.val65.i, i32 noundef %spec.select.i, i32 %.sroa.4.0.insert.shift.i, i32 noundef %160)
           to label %.backedge466 unwind label %.body176.thread342.loopexit
@@ -5754,7 +5754,7 @@ _ZN14regex_automata6hybrid3dfa7LazyRef11is_sentinel17h29b2f1eb1c9c18d8E.exit215:
 
 348:                                              ; preds = %339
   %349 = trunc nuw nsw i64 %337 to i32
-  %.sroa.4.0.insert.ext.i201 = shl nuw nsw i32 %349, 8
+  %.sroa.4.0.insert.shift.i202 = shl nuw nsw i32 %349, 8
   %.sroa.4.0.insert.shift.i202 = and i32 %.sroa.4.0.insert.ext.i201, 65280
   invoke fastcc void @_ZN14regex_automata6hybrid3dfa4Lazy14set_transition17hb44bc0a909428fcdE(ptr nonnull %.val64.i90, ptr nonnull %.val65.i91, i32 noundef %spec.select.i67, i32 %.sroa.4.0.insert.shift.i202, i32 noundef %335)
           to label %.backedge unwind label %.body197.thread359.loopexit
@@ -6131,7 +6131,7 @@ _ZN14regex_automata6hybrid3dfa7LazyRef11is_sentinel17h29b2f1eb1c9c18d8E.exit267:
 
 523:                                              ; preds = %514
   %524 = trunc nuw nsw i64 %512 to i32
-  %.sroa.4.0.insert.ext.i253 = shl nuw nsw i32 %524, 8
+  %.sroa.4.0.insert.shift.i254 = shl nuw nsw i32 %524, 8
   %.sroa.4.0.insert.shift.i254 = and i32 %.sroa.4.0.insert.ext.i253, 65280
   invoke fastcc void @_ZN14regex_automata6hybrid3dfa4Lazy14set_transition17hb44bc0a909428fcdE(ptr nonnull %.val64.i139, ptr nonnull %.val65.i140, i32 noundef %spec.select.i116, i32 %.sroa.4.0.insert.shift.i254, i32 noundef %510)
           to label %.preheader.backedge unwind label %.body249.thread378.loopexit

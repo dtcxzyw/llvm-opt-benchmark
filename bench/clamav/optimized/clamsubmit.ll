@@ -266,7 +266,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @write_cb(ptr noundef re
 
 16:                                               ; preds = %7
   %17 = tail call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.19) #13
-  br label %26
+  br label %._crit_edge
 
 18:                                               ; preds = %7
   %19 = load i32, ptr %3, align 8, !tbaa !14
@@ -281,9 +281,9 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @write_cb(ptr noundef re
   store i8 0, ptr %25, align 1, !tbaa !4
   store ptr %14, ptr %8, align 8, !tbaa !12
   store i32 %23, ptr %3, align 8, !tbaa !14
-  br label %26
+  br label %._crit_edge
 
-26:                                               ; preds = %18, %._crit_edge, %16
+._crit_edge:                                      ; preds = %18, %._crit_edge, %16
   %.0 = phi i64 [ 0, %16 ], [ %.pre23, %._crit_edge ], [ %22, %18 ]
   ret i64 %.0
 }

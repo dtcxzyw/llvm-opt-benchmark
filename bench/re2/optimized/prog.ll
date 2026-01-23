@@ -7371,8 +7371,8 @@ if.end.split:                                     ; preds = %entry
   %__value.sroa.0.0.copyload10 = load i64, ptr %add.ptr9, align 4
   %agg.tmp5.sroa.0.0.copyload11 = load ptr, ptr %__comp, align 8
   %sub.i = add nsw i64 %sub.ptr.div, -1
-  %div.i6366 = lshr i64 %sub.i, 1
-  %cmp24.i = icmp samesign ult i64 %div15, %div.i6366
+  %div.i6365 = lshr i64 %sub.i, 1
+  %cmp24.i = icmp samesign ult i64 %div15, %div.i6365
   br i1 %cmp24.i, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %if.end.split, %while.body.i
@@ -7389,7 +7389,7 @@ while.body.i:                                     ; preds = %if.end.split, %whil
   %add.ptr4.i = getelementptr inbounds %"class.re2::SparseArray<int>::IndexValue", ptr %__first, i64 %__holeIndex.addr.025.i
   %1 = load i64, ptr %add.ptr3.i, align 4
   store i64 %1, ptr %add.ptr4.i, align 4
-  %cmp.i = icmp slt i64 %spec.select.i, %div.i6366
+  %cmp.i = icmp slt i64 %spec.select.i, %div.i6365
   br i1 %cmp.i, label %while.body.i, label %while.end.i, !llvm.loop !129
 
 while.end.i:                                      ; preds = %while.body.i, %if.end.split
@@ -7415,10 +7415,10 @@ if.end16.i:                                       ; preds = %if.then9.i, %while.
   br i1 %cmp12.i.i, label %land.rhs.i.i, label %_ZSt13__adjust_heapIPN3re211SparseArrayIiE10IndexValueElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS3_S9_EEEEvT_T0_SE_T1_T2_.exit
 
 land.rhs.i.i:                                     ; preds = %if.end16.i, %while.body.i.i
-  %__holeIndex.addr.013.i.i = phi i64 [ %__parent.014.i.i71, %while.body.i.i ], [ %__holeIndex.addr.1.i, %if.end16.i ]
+  %__holeIndex.addr.013.i.i = phi i64 [ %__parent.014.i.i69, %while.body.i.i ], [ %__holeIndex.addr.1.i, %if.end16.i ]
   %__parent.014.in.i.i = add nsw i64 %__holeIndex.addr.013.i.i, -1
-  %__parent.014.i.i71 = lshr i64 %__parent.014.in.i.i, 1
-  %add.ptr.i.i = getelementptr inbounds nuw %"class.re2::SparseArray<int>::IndexValue", ptr %__first, i64 %__parent.014.i.i71
+  %__parent.014.i.i69 = lshr i64 %__parent.014.in.i.i, 1
+  %add.ptr.i.i = getelementptr inbounds nuw %"class.re2::SparseArray<int>::IndexValue", ptr %__first, i64 %__parent.014.i.i69
   %call.i.i.i = call noundef zeroext i1 %agg.tmp5.sroa.0.0.copyload11(ptr noundef nonnull align 4 dereferenceable(8) %add.ptr.i.i, ptr noundef nonnull align 4 dereferenceable(8) %__value.i.i)
   br i1 %call.i.i.i, label %while.body.i.i, label %while.end.loopexit.i.i
 
@@ -7426,11 +7426,11 @@ while.body.i.i:                                   ; preds = %land.rhs.i.i
   %add.ptr2.i.i = getelementptr inbounds nuw %"class.re2::SparseArray<int>::IndexValue", ptr %__first, i64 %__holeIndex.addr.013.i.i
   %4 = load i64, ptr %add.ptr.i.i, align 4
   store i64 %4, ptr %add.ptr2.i.i, align 4
-  %cmp.i.i = icmp samesign ugt i64 %__parent.014.i.i71, %div15
+  %cmp.i.i = icmp samesign ugt i64 %__parent.014.i.i69, %div15
   br i1 %cmp.i.i, label %land.rhs.i.i, label %while.end.loopexit.i.i, !llvm.loop !130
 
 while.end.loopexit.i.i:                           ; preds = %while.body.i.i, %land.rhs.i.i
-  %__holeIndex.addr.0.lcssa.ph.i.i = phi i64 [ %__holeIndex.addr.013.i.i, %land.rhs.i.i ], [ %__parent.014.i.i71, %while.body.i.i ]
+  %__holeIndex.addr.0.lcssa.ph.i.i = phi i64 [ %__holeIndex.addr.013.i.i, %land.rhs.i.i ], [ %__parent.014.i.i69, %while.body.i.i ]
   %.pre.i.i = load i64, ptr %__value.i.i, align 8
   br label %_ZSt13__adjust_heapIPN3re211SparseArrayIiE10IndexValueElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS3_S9_EEEEvT_T0_SE_T1_T2_.exit
 
@@ -7440,26 +7440,26 @@ _ZSt13__adjust_heapIPN3re211SparseArrayIiE10IndexValueElS3_N9__gnu_cxx5__ops15_I
   %add.ptr5.i.i = getelementptr inbounds nuw %"class.re2::SparseArray<int>::IndexValue", ptr %__first, i64 %__holeIndex.addr.0.lcssa.i.i
   store i64 %5, ptr %add.ptr5.i.i, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %__value.i.i)
-  %cmp668 = icmp eq i64 %div15, 0
-  br i1 %cmp668, label %return, label %if.end8.split.lr.ph
+  %cmp666 = icmp eq i64 %div15, 0
+  br i1 %cmp666, label %return, label %if.end8.split.lr.ph
 
 if.end8.split.lr.ph:                              ; preds = %_ZSt13__adjust_heapIPN3re211SparseArrayIiE10IndexValueElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS3_S9_EEEEvT_T0_SE_T1_T2_.exit
-  %div7.i4372 = lshr i64 %sub, 1
+  %div7.i43 = lshr i64 %sub, 1
   br i1 %cmp5.i, label %if.end8.split.preheader, label %if.end8.split.us
 
 if.end8.split.preheader:                          ; preds = %if.end8.split.lr.ph
   %sub12.i47 = or i64 %sub, 1
   %add.ptr13.i48 = getelementptr inbounds nuw %"class.re2::SparseArray<int>::IndexValue", ptr %__first, i64 %sub12.i47
-  %add.ptr14.i49 = getelementptr inbounds nuw %"class.re2::SparseArray<int>::IndexValue", ptr %__first, i64 %div7.i4372
+  %add.ptr14.i49 = getelementptr inbounds nuw %"class.re2::SparseArray<int>::IndexValue", ptr %__first, i64 %div7.i43
   br label %if.end8.split
 
 if.end8.split.us:                                 ; preds = %if.end8.split.lr.ph, %_ZSt13__adjust_heapIPN3re211SparseArrayIiE10IndexValueElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS3_S9_EEEEvT_T0_SE_T1_T2_.exit62.us
-  %__parent.069.us = phi i64 [ %dec.us, %_ZSt13__adjust_heapIPN3re211SparseArrayIiE10IndexValueElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS3_S9_EEEEvT_T0_SE_T1_T2_.exit62.us ], [ %div15, %if.end8.split.lr.ph ]
-  %dec.us = add nsw i64 %__parent.069.us, -1
+  %__parent.067.us = phi i64 [ %dec.us, %_ZSt13__adjust_heapIPN3re211SparseArrayIiE10IndexValueElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS3_S9_EEEEvT_T0_SE_T1_T2_.exit62.us ], [ %div15, %if.end8.split.lr.ph ]
+  %dec.us = add nsw i64 %__parent.067.us, -1
   %add.ptr12.us = getelementptr inbounds nuw %"class.re2::SparseArray<int>::IndexValue", ptr %__first, i64 %dec.us
   %__value.sroa.0.0.copyload13.us = load i64, ptr %add.ptr12.us, align 4
   %agg.tmp5.sroa.0.0.copyload14.us = load ptr, ptr %__comp, align 8
-  %cmp24.i19.not.us = icmp sgt i64 %__parent.069.us, %div.i6366
+  %cmp24.i19.not.us = icmp sgt i64 %__parent.067.us, %div.i6365
   br i1 %cmp24.i19.not.us, label %while.end.i20.us.thread, label %while.body.i50.us
 
 while.end.i20.us.thread:                          ; preds = %if.end8.split.us
@@ -7480,20 +7480,20 @@ while.body.i50.us:                                ; preds = %if.end8.split.us, %
   %add.ptr4.i60.us = getelementptr inbounds %"class.re2::SparseArray<int>::IndexValue", ptr %__first, i64 %__holeIndex.addr.025.i51.us
   %7 = load i64, ptr %add.ptr3.i59.us, align 4
   store i64 %7, ptr %add.ptr4.i60.us, align 4
-  %cmp.i61.us = icmp slt i64 %spec.select.i58.us, %div.i6366
+  %cmp.i61.us = icmp slt i64 %spec.select.i58.us, %div.i6365
   br i1 %cmp.i61.us, label %while.body.i50.us, label %while.end.i20.us, !llvm.loop !129
 
 while.end.i20.us:                                 ; preds = %while.body.i50.us
   call void @llvm.lifetime.start.p0(ptr nonnull %__value.i.i16)
   store i64 %__value.sroa.0.0.copyload13.us, ptr %__value.i.i16, align 8
-  %cmp12.i.i26.not.us = icmp slt i64 %spec.select.i58.us, %__parent.069.us
+  %cmp12.i.i26.not.us = icmp slt i64 %spec.select.i58.us, %__parent.067.us
   br i1 %cmp12.i.i26.not.us, label %_ZSt13__adjust_heapIPN3re211SparseArrayIiE10IndexValueElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS3_S9_EEEEvT_T0_SE_T1_T2_.exit62.us, label %land.rhs.i.i29.us
 
 land.rhs.i.i29.us:                                ; preds = %while.end.i20.us, %while.body.i.i38.us
-  %__holeIndex.addr.013.i.i30.us = phi i64 [ %__parent.014.i.i32.us73, %while.body.i.i38.us ], [ %spec.select.i58.us, %while.end.i20.us ]
+  %__holeIndex.addr.013.i.i30.us = phi i64 [ %__parent.014.i.i32.us70, %while.body.i.i38.us ], [ %spec.select.i58.us, %while.end.i20.us ]
   %__parent.014.in.i.i31.us = add nsw i64 %__holeIndex.addr.013.i.i30.us, -1
-  %__parent.014.i.i32.us73 = lshr i64 %__parent.014.in.i.i31.us, 1
-  %add.ptr.i.i33.us = getelementptr inbounds nuw %"class.re2::SparseArray<int>::IndexValue", ptr %__first, i64 %__parent.014.i.i32.us73
+  %__parent.014.i.i32.us70 = lshr i64 %__parent.014.in.i.i31.us, 1
+  %add.ptr.i.i33.us = getelementptr inbounds nuw %"class.re2::SparseArray<int>::IndexValue", ptr %__first, i64 %__parent.014.i.i32.us70
   %call.i.i.i34.us = call noundef zeroext i1 %agg.tmp5.sroa.0.0.copyload14.us(ptr noundef nonnull align 4 dereferenceable(8) %add.ptr.i.i33.us, ptr noundef nonnull align 4 dereferenceable(8) %__value.i.i16)
   br i1 %call.i.i.i34.us, label %while.body.i.i38.us, label %while.end.loopexit.i.i35.us
 
@@ -7501,11 +7501,11 @@ while.body.i.i38.us:                              ; preds = %land.rhs.i.i29.us
   %add.ptr2.i.i39.us = getelementptr inbounds nuw %"class.re2::SparseArray<int>::IndexValue", ptr %__first, i64 %__holeIndex.addr.013.i.i30.us
   %8 = load i64, ptr %add.ptr.i.i33.us, align 4
   store i64 %8, ptr %add.ptr2.i.i39.us, align 4
-  %cmp.i.i40.not.us = icmp slt i64 %__parent.014.i.i32.us73, %__parent.069.us
+  %cmp.i.i40.not.us = icmp slt i64 %__parent.014.i.i32.us70, %__parent.067.us
   br i1 %cmp.i.i40.not.us, label %while.end.loopexit.i.i35.us, label %land.rhs.i.i29.us, !llvm.loop !130
 
 while.end.loopexit.i.i35.us:                      ; preds = %while.body.i.i38.us, %land.rhs.i.i29.us
-  %__holeIndex.addr.0.lcssa.ph.i.i36.us = phi i64 [ %__holeIndex.addr.013.i.i30.us, %land.rhs.i.i29.us ], [ %__parent.014.i.i32.us73, %while.body.i.i38.us ]
+  %__holeIndex.addr.0.lcssa.ph.i.i36.us = phi i64 [ %__holeIndex.addr.013.i.i30.us, %land.rhs.i.i29.us ], [ %__parent.014.i.i32.us70, %while.body.i.i38.us ]
   %.pre.i.i37.us = load i64, ptr %__value.i.i16, align 8
   br label %_ZSt13__adjust_heapIPN3re211SparseArrayIiE10IndexValueElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS3_S9_EEEEvT_T0_SE_T1_T2_.exit62.us
 
@@ -7519,12 +7519,12 @@ _ZSt13__adjust_heapIPN3re211SparseArrayIiE10IndexValueElS3_N9__gnu_cxx5__ops15_I
   br i1 %cmp6.us, label %return, label %if.end8.split.us, !llvm.loop !136
 
 if.end8.split:                                    ; preds = %if.end8.split.preheader, %_ZSt13__adjust_heapIPN3re211SparseArrayIiE10IndexValueElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS3_S9_EEEEvT_T0_SE_T1_T2_.exit62
-  %__parent.069 = phi i64 [ %dec, %_ZSt13__adjust_heapIPN3re211SparseArrayIiE10IndexValueElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS3_S9_EEEEvT_T0_SE_T1_T2_.exit62 ], [ %div15, %if.end8.split.preheader ]
-  %dec = add nsw i64 %__parent.069, -1
+  %__parent.067 = phi i64 [ %dec, %_ZSt13__adjust_heapIPN3re211SparseArrayIiE10IndexValueElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS3_S9_EEEEvT_T0_SE_T1_T2_.exit62 ], [ %div15, %if.end8.split.preheader ]
+  %dec = add nsw i64 %__parent.067, -1
   %add.ptr12 = getelementptr inbounds nuw %"class.re2::SparseArray<int>::IndexValue", ptr %__first, i64 %dec
   %__value.sroa.0.0.copyload13 = load i64, ptr %add.ptr12, align 4
   %agg.tmp5.sroa.0.0.copyload14 = load ptr, ptr %__comp, align 8
-  %cmp24.i19.not = icmp sgt i64 %__parent.069, %div.i6366
+  %cmp24.i19.not = icmp sgt i64 %__parent.067, %div.i6365
   br i1 %cmp24.i19.not, label %while.end.i20, label %while.body.i50
 
 while.body.i50:                                   ; preds = %if.end8.split, %while.body.i50
@@ -7541,12 +7541,12 @@ while.body.i50:                                   ; preds = %if.end8.split, %whi
   %add.ptr4.i60 = getelementptr inbounds %"class.re2::SparseArray<int>::IndexValue", ptr %__first, i64 %__holeIndex.addr.025.i51
   %11 = load i64, ptr %add.ptr3.i59, align 4
   store i64 %11, ptr %add.ptr4.i60, align 4
-  %cmp.i61 = icmp slt i64 %spec.select.i58, %div.i6366
+  %cmp.i61 = icmp slt i64 %spec.select.i58, %div.i6365
   br i1 %cmp.i61, label %while.body.i50, label %while.end.i20, !llvm.loop !129
 
 while.end.i20:                                    ; preds = %while.body.i50, %if.end8.split
   %__holeIndex.addr.0.lcssa.i21 = phi i64 [ %dec, %if.end8.split ], [ %spec.select.i58, %while.body.i50 ]
-  %cmp8.i44 = icmp eq i64 %__holeIndex.addr.0.lcssa.i21, %div7.i4372
+  %cmp8.i44 = icmp eq i64 %__holeIndex.addr.0.lcssa.i21, %div7.i43
   br i1 %cmp8.i44, label %if.then9.i45, label %if.end16.i24
 
 if.then9.i45:                                     ; preds = %while.end.i20
@@ -7558,14 +7558,14 @@ if.end16.i24:                                     ; preds = %if.then9.i45, %whil
   %__holeIndex.addr.1.i25 = phi i64 [ %sub12.i47, %if.then9.i45 ], [ %__holeIndex.addr.0.lcssa.i21, %while.end.i20 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %__value.i.i16)
   store i64 %__value.sroa.0.0.copyload13, ptr %__value.i.i16, align 8
-  %cmp12.i.i26.not = icmp slt i64 %__holeIndex.addr.1.i25, %__parent.069
+  %cmp12.i.i26.not = icmp slt i64 %__holeIndex.addr.1.i25, %__parent.067
   br i1 %cmp12.i.i26.not, label %_ZSt13__adjust_heapIPN3re211SparseArrayIiE10IndexValueElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS3_S9_EEEEvT_T0_SE_T1_T2_.exit62, label %land.rhs.i.i29
 
 land.rhs.i.i29:                                   ; preds = %if.end16.i24, %while.body.i.i38
-  %__holeIndex.addr.013.i.i30 = phi i64 [ %__parent.014.i.i3274, %while.body.i.i38 ], [ %__holeIndex.addr.1.i25, %if.end16.i24 ]
+  %__holeIndex.addr.013.i.i30 = phi i64 [ %__parent.014.i.i3271, %while.body.i.i38 ], [ %__holeIndex.addr.1.i25, %if.end16.i24 ]
   %__parent.014.in.i.i31 = add nsw i64 %__holeIndex.addr.013.i.i30, -1
-  %__parent.014.i.i3274 = lshr i64 %__parent.014.in.i.i31, 1
-  %add.ptr.i.i33 = getelementptr inbounds nuw %"class.re2::SparseArray<int>::IndexValue", ptr %__first, i64 %__parent.014.i.i3274
+  %__parent.014.i.i3271 = lshr i64 %__parent.014.in.i.i31, 1
+  %add.ptr.i.i33 = getelementptr inbounds nuw %"class.re2::SparseArray<int>::IndexValue", ptr %__first, i64 %__parent.014.i.i3271
   %call.i.i.i34 = call noundef zeroext i1 %agg.tmp5.sroa.0.0.copyload14(ptr noundef nonnull align 4 dereferenceable(8) %add.ptr.i.i33, ptr noundef nonnull align 4 dereferenceable(8) %__value.i.i16)
   br i1 %call.i.i.i34, label %while.body.i.i38, label %while.end.loopexit.i.i35
 
@@ -7573,11 +7573,11 @@ while.body.i.i38:                                 ; preds = %land.rhs.i.i29
   %add.ptr2.i.i39 = getelementptr inbounds nuw %"class.re2::SparseArray<int>::IndexValue", ptr %__first, i64 %__holeIndex.addr.013.i.i30
   %13 = load i64, ptr %add.ptr.i.i33, align 4
   store i64 %13, ptr %add.ptr2.i.i39, align 4
-  %cmp.i.i40.not = icmp slt i64 %__parent.014.i.i3274, %__parent.069
+  %cmp.i.i40.not = icmp slt i64 %__parent.014.i.i3271, %__parent.067
   br i1 %cmp.i.i40.not, label %while.end.loopexit.i.i35, label %land.rhs.i.i29, !llvm.loop !130
 
 while.end.loopexit.i.i35:                         ; preds = %while.body.i.i38, %land.rhs.i.i29
-  %__holeIndex.addr.0.lcssa.ph.i.i36 = phi i64 [ %__holeIndex.addr.013.i.i30, %land.rhs.i.i29 ], [ %__parent.014.i.i3274, %while.body.i.i38 ]
+  %__holeIndex.addr.0.lcssa.ph.i.i36 = phi i64 [ %__holeIndex.addr.013.i.i30, %land.rhs.i.i29 ], [ %__parent.014.i.i3271, %while.body.i.i38 ]
   %.pre.i.i37 = load i64, ptr %__value.i.i16, align 8
   br label %_ZSt13__adjust_heapIPN3re211SparseArrayIiE10IndexValueElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS3_S9_EEEEvT_T0_SE_T1_T2_.exit62
 

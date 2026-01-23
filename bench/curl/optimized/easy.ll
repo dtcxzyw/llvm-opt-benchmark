@@ -470,10 +470,10 @@ define i32 @curl_easy_perform(ptr noundef %0) local_unnamed_addr #5 {
   %52 = and i8 %51, 1
   store i8 %52, ptr %45, align 8, !tbaa !85
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %53 = call i32 @sigaction(i32 noundef 13, ptr noundef null, ptr noundef nonnull %5) #10
+  %50 = call i32 @sigaction(i32 noundef 13, ptr noundef null, ptr noundef nonnull %5) #10
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %4, ptr noundef nonnull align 8 dereferenceable(152) %5, i64 152, i1 false), !tbaa.struct !90
   store ptr inttoptr (i64 1 to ptr), ptr %4, align 8, !tbaa !79
-  %54 = call i32 @sigaction(i32 noundef 13, ptr noundef nonnull %4, ptr noundef null) #10
+  %51 = call i32 @sigaction(i32 noundef 13, ptr noundef nonnull %4, ptr noundef null) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %sigpipe_apply.exit.i.preheader
 
@@ -484,67 +484,67 @@ sigpipe_apply.exit.i:                             ; preds = %sigpipe_apply.exit.
   %.01225.i.i = phi i32 [ %.113.i.i, %.thread.i.i ], [ 0, %sigpipe_apply.exit.i.preheader ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 0, ptr %2, align 4, !tbaa !5
-  %55 = call i32 @curl_multi_poll(ptr noundef nonnull %.032.i, ptr noundef null, i32 noundef 0, i32 noundef 1000, ptr noundef null) #10
-  %.not20.i.i = icmp eq i32 %55, 0
-  br i1 %.not20.i.i, label %58, label %.thread35.i.i
+  %52 = call i32 @curl_multi_poll(ptr noundef nonnull %.032.i, ptr noundef null, i32 noundef 0, i32 noundef 1000, ptr noundef null) #10
+  %.not20.i.i = icmp eq i32 %52, 0
+  br i1 %.not20.i.i, label %55, label %.thread35.i.i
 
 .thread35.i.i:                                    ; preds = %sigpipe_apply.exit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %56 = icmp eq i32 %55, 3
-  %57 = select i1 %56, i32 27, i32 43
+  %53 = icmp eq i32 %52, 3
+  %54 = select i1 %53, i32 27, i32 43
   br label %easy_transfer.exit.i
 
-58:                                               ; preds = %sigpipe_apply.exit.i
-  %59 = call i32 @curl_multi_perform(ptr noundef nonnull %.032.i, ptr noundef nonnull %2) #10
-  %.fr.i.i = freeze i32 %59
-  %60 = icmp ne i32 %.fr.i.i, 0
-  %61 = load i32, ptr %2, align 4
-  %62 = icmp ne i32 %61, 0
-  %or.cond.i.i = select i1 %60, i1 true, i1 %62
-  br i1 %or.cond.i.i, label %.thread.i.i, label %63
+55:                                               ; preds = %sigpipe_apply.exit.i
+  %56 = call i32 @curl_multi_perform(ptr noundef nonnull %.032.i, ptr noundef nonnull %2) #10
+  %.fr.i.i = freeze i32 %56
+  %57 = icmp ne i32 %.fr.i.i, 0
+  %58 = load i32, ptr %2, align 4
+  %59 = icmp ne i32 %58, 0
+  %or.cond.i.i = select i1 %57, i1 true, i1 %59
+  br i1 %or.cond.i.i, label %.thread.i.i, label %60
 
-63:                                               ; preds = %58
+60:                                               ; preds = %55
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %64 = call ptr @curl_multi_info_read(ptr noundef nonnull %.032.i, ptr noundef nonnull %3) #10
-  %.not21.i.i = icmp ne ptr %64, null
-  br i1 %.not21.i.i, label %65, label %68
+  %61 = call ptr @curl_multi_info_read(ptr noundef nonnull %.032.i, ptr noundef nonnull %3) #10
+  %.not21.i.i = icmp ne ptr %61, null
+  br i1 %.not21.i.i, label %62, label %65
 
-65:                                               ; preds = %63
-  %66 = getelementptr inbounds nuw i8, ptr %64, i64 16
-  %67 = load i32, ptr %66, align 8, !tbaa !79
-  br label %68
+62:                                               ; preds = %60
+  %63 = getelementptr inbounds nuw i8, ptr %61, i64 16
+  %64 = load i32, ptr %63, align 8, !tbaa !79
+  br label %65
 
-68:                                               ; preds = %65, %63
-  %.214.i.i = phi i32 [ %67, %65 ], [ %.01225.i.i, %63 ]
+65:                                               ; preds = %62, %60
+  %.214.i.i = phi i32 [ %64, %65 ], [ %.01225.i.i, %63 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.thread.i.i
 
-.thread.i.i:                                      ; preds = %68, %58
+.thread.i.i:                                      ; preds = %65, %55
   %.113.i.i = phi i32 [ %.01225.i.i, %58 ], [ %.214.i.i, %68 ]
   %.1.i.i = phi i1 [ false, %58 ], [ %.not21.i.i, %68 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %.not19.i.i = or i1 %60, %.1.i.i
-  br i1 %.not19.i.i, label %69, label %sigpipe_apply.exit.i, !llvm.loop !91
+  %.not19.i.i = or i1 %57, %.1.i.i
+  br i1 %.not19.i.i, label %66, label %sigpipe_apply.exit.i, !llvm.loop !91
 
-69:                                               ; preds = %.thread.i.i
-  %70 = icmp eq i32 %.fr.i.i, 3
-  %71 = select i1 %70, i32 27, i32 43
-  %spec.select.i.i = select i1 %60, i32 %71, i32 %.113.i.i
+66:                                               ; preds = %.thread.i.i
+  %67 = icmp eq i32 %.fr.i.i, 3
+  %68 = select i1 %67, i32 27, i32 43
+  %spec.select.i.i = select i1 %57, i32 %68, i32 %.113.i.i
   br label %easy_transfer.exit.i
 
-easy_transfer.exit.i:                             ; preds = %69, %.thread35.i.i
-  %72 = phi i32 [ %spec.select.i.i, %69 ], [ %57, %.thread35.i.i ]
-  %73 = call i32 @curl_multi_remove_handle(ptr noundef nonnull %.032.i, ptr noundef nonnull %0) #10
-  %74 = load i8, ptr %45, align 8, !tbaa !85, !range !92, !noundef !93
-  %75 = trunc nuw i8 %74 to i1
-  br i1 %75, label %easy_perform.exit, label %76
+easy_transfer.exit.i:                             ; preds = %66, %.thread35.i.i
+  %69 = phi i32 [ %spec.select.i.i, %69 ], [ %54, %.thread35.i.i ]
+  %70 = call i32 @curl_multi_remove_handle(ptr noundef nonnull %.032.i, ptr noundef nonnull %0) #10
+  %71 = load i8, ptr %45, align 8, !tbaa !85, !range !92, !noundef !93
+  %72 = trunc nuw i8 %71 to i1
+  br i1 %72, label %easy_perform.exit, label %73
 
-76:                                               ; preds = %easy_transfer.exit.i
-  %77 = call i32 @sigaction(i32 noundef 13, ptr noundef nonnull %5, ptr noundef null) #10
+73:                                               ; preds = %easy_transfer.exit.i
+  %74 = call i32 @sigaction(i32 noundef 13, ptr noundef nonnull %5, ptr noundef null) #10
   br label %easy_perform.exit
 
-easy_perform.exit:                                ; preds = %1, %15, %29, %31, %41, %easy_transfer.exit.i, %76
-  %.0.i = phi i32 [ 2, %15 ], [ 27, %29 ], [ %..i, %41 ], [ 93, %31 ], [ 43, %1 ], [ %72, %easy_transfer.exit.i ], [ %72, %76 ]
+easy_perform.exit:                                ; preds = %1, %15, %29, %31, %41, %easy_transfer.exit.i, %73
+  %.0.i = phi i32 [ 2, %15 ], [ 27, %29 ], [ %..i, %41 ], [ 93, %31 ], [ 43, %1 ], [ %69, %easy_transfer.exit.i ], [ %69, %76 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0.i
 }

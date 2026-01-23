@@ -2061,8 +2061,8 @@ define linkonce_odr hidden void @_ZN5boost4asio20basic_waitable_timerINSt6chrono
   %22 = load i64, ptr %2, align 8, !tbaa !10
   br i1 %21, label %23, label %26
 
-23:                                               ; preds = %4
-  %24 = sub nuw nsw i64 9223372036854775807, %20
+22:                                               ; preds = %4
+  %23 = sub nuw nsw i64 9223372036854775807, %20
   %25 = icmp slt i64 %24, %22
   br i1 %25, label %_ZN5boost4asio6detail18chrono_time_traitsINSt6chrono3_V212steady_clockENS0_11wait_traitsIS5_EEE3addERKNS3_10time_pointIS5_NS3_8durationIlSt5ratioILl1ELl1000000000EEEEEERKSD_.exit.i, label %28
 
@@ -2071,24 +2071,24 @@ define linkonce_odr hidden void @_ZN5boost4asio20basic_waitable_timerINSt6chrono
   %.not.i.i = icmp sgt i64 %22, %27
   br i1 %.not.i.i, label %28, label %_ZN5boost4asio6detail18chrono_time_traitsINSt6chrono3_V212steady_clockENS0_11wait_traitsIS5_EEE3addERKNS3_10time_pointIS5_NS3_8durationIlSt5ratioILl1ELl1000000000EEEEEERKSD_.exit.i
 
-28:                                               ; preds = %26, %23
+28:; preds = %26, %23
   %29 = add nsw i64 %22, %20
   br label %_ZN5boost4asio6detail18chrono_time_traitsINSt6chrono3_V212steady_clockENS0_11wait_traitsIS5_EEE3addERKNS3_10time_pointIS5_NS3_8durationIlSt5ratioILl1ELl1000000000EEEEEERKSD_.exit.i
 
-_ZN5boost4asio6detail18chrono_time_traitsINSt6chrono3_V212steady_clockENS0_11wait_traitsIS5_EEE3addERKNS3_10time_pointIS5_NS3_8durationIlSt5ratioILl1ELl1000000000EEEEEERKSD_.exit.i: ; preds = %28, %26, %23
+_ZN5boost4asio6detail18chrono_time_traitsINSt6chrono3_V212steady_clockENS0_11wait_traitsIS5_EEE3addERKNS3_10time_pointIS5_NS3_8durationIlSt5ratioILl1ELl1000000000EEEEEERKSD_.exit.i: ; preds = %28, %26, %22
   %.sroa.0.0.i.i = phi i64 [ 9223372036854775807, %23 ], [ %29, %28 ], [ -9223372036854775808, %26 ]
-  %30 = load i8, ptr %19, align 8, !tbaa !85, !range !86, !noundef !87
-  %31 = trunc nuw i8 %30 to i1
-  br i1 %31, label %32, label %_ZN5boost4asio6detail11throw_errorERKNS_6system10error_codeEPKcRKNS_15source_locationE.exit
+  %34 = load i8, ptr %19, align 8, !tbaa !85, !range !86, !noundef !87
+  %35 = trunc nuw i8 %34 to i1
+  br i1 %35, label %36, label %_ZN5boost4asio6detail11throw_errorERKNS_6system10error_codeEPKcRKNS_15source_locationE.exit
 
-32:                                               ; preds = %_ZN5boost4asio6detail18chrono_time_traitsINSt6chrono3_V212steady_clockENS0_11wait_traitsIS5_EEE3addERKNS3_10time_pointIS5_NS3_8durationIlSt5ratioILl1ELl1000000000EEEEEERKSD_.exit.i
-  %33 = getelementptr inbounds nuw i8, ptr %8, i64 88
-  %34 = load ptr, ptr %33, align 8, !tbaa !88
-  %35 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  %36 = invoke noundef i64 @_ZN5boost4asio6detail13epoll_reactor12cancel_timerINS1_18chrono_time_traitsINSt6chrono3_V212steady_clockENS0_11wait_traitsIS7_EEEEEEmRNS1_11timer_queueIT_EERNSD_14per_timer_dataEm(ptr noundef nonnull align 8 dereferenceable(216) %34, ptr noundef nonnull align 8 dereferenceable(48) %35, ptr noundef nonnull align 8 dereferenceable(40) %10, i64 noundef -1)
-          to label %.noexc unwind label %37
+36:                                               ; preds = %_ZN5boost4asio6detail18chrono_time_traitsINSt6chrono3_V212steady_clockENS0_11wait_traitsIS5_EEE3addERKNS3_10time_pointIS5_NS3_8durationIlSt5ratioILl1ELl1000000000EEEEEERKSD_.exit.i
+  %37 = getelementptr inbounds nuw i8, ptr %8, i64 88
+  %38 = load ptr, ptr %37, align 8, !tbaa !88
+  %39 = getelementptr inbounds nuw i8, ptr %8, i64 40
+  %40 = invoke noundef i64 @_ZN5boost4asio6detail13epoll_reactor12cancel_timerINS1_18chrono_time_traitsINSt6chrono3_V212steady_clockENS0_11wait_traitsIS7_EEEEEEmRNS1_11timer_queueIT_EERNSD_14per_timer_dataEm(ptr noundef nonnull align 8 dereferenceable(216) %38, ptr noundef nonnull align 8 dereferenceable(48) %39, ptr noundef nonnull align 8 dereferenceable(40) %10, i64 noundef -1)
+          to label %.noexc unwind label %41
 
-.noexc:                                           ; preds = %32
+.noexc:                                           ; preds = %36
   store i8 0, ptr %19, align 8, !tbaa !85
   br label %_ZN5boost4asio6detail11throw_errorERKNS_6system10error_codeEPKcRKNS_15source_locationE.exit
 
@@ -2096,11 +2096,11 @@ _ZN5boost4asio6detail11throw_errorERKNS_6system10error_codeEPKcRKNS_15source_loc
   store i64 %.sroa.0.0.i.i, ptr %9, align 8, !tbaa !10
   ret void
 
-37:                                               ; preds = %32
-  %38 = landingpad { ptr, i32 }
+41:                                               ; preds = %36
+  %42 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5boost4asio6detail14io_object_implINS1_22deadline_timer_serviceINS1_18chrono_time_traitsINSt6chrono3_V212steady_clockENS0_11wait_traitsIS7_EEEEEENS0_15any_io_executorEED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) #38
-  resume { ptr, i32 } %38
+  resume { ptr, i32 } %42
 }
 
 ; Function Attrs: nofree nounwind

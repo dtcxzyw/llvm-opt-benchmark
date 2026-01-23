@@ -4188,7 +4188,7 @@ if.then.i.i4:                                     ; preds = %for.end
   %17 = load ptr, ptr %16, align 8
   br label %call2.i.noexc
 
-call2.i.noexc:                                    ; preds = %if.then.i.i4, %for.end
+if.else.i.i:                                      ; preds = %if.then.i.i4, %for.end
   %retval.i.0.i = phi ptr [ %17, %if.then.i.i4 ], [ %16, %for.end ]
   %source_file_.i = getelementptr inbounds nuw i8, ptr %annotation, i64 48
   invoke void @_ZN6google8protobuf8internal14ArenaStringPtr3SetIJEEEvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(8) %source_file_.i, ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef %retval.i.0.i)
@@ -4197,20 +4197,20 @@ call2.i.noexc:                                    ; preds = %if.then.i.i4, %for.
 invoke.cont14:                                    ; preds = %call2.i.noexc
   %semantic_.i.i = getelementptr inbounds nuw i8, ptr %annotation, i64 64
   store i32 %semantic, ptr %semantic_.i.i, align 8
-  %18 = load i32, ptr %13, align 8
-  %or.i5 = or i32 %18, 8
+  %19 = load i32, ptr %13, align 8
+  %or.i5 = or i32 %19, 8
   store i32 %or.i5, ptr %13, align 8
   invoke void @_ZNK6google8protobuf11MessageLite17SerializeAsStringB5cxx11Ev(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %annotation)
           to label %invoke.cont15 unwind label %lpad6.loopexit.split-lp
 
 invoke.cont15:                                    ; preds = %invoke.cont14
   call void @_ZN6google8protobuf28GeneratedCodeInfo_AnnotationD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %annotation) #27
-  %19 = load ptr, ptr %path, align 8
-  %tobool.not.i.i.i = icmp eq ptr %19, null
+  %20 = load ptr, ptr %path, align 8
+  %tobool.not.i.i.i = icmp eq ptr %20, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont15
-  call void @_ZdlPv(ptr noundef nonnull %19) #26
+  call void @_ZdlPv(ptr noundef nonnull %20) #26
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %invoke.cont15, %if.then.i.i.i
@@ -4218,12 +4218,12 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %invoke.cont15, %if.
 
 ehcleanup:                                        ; preds = %lpad6, %lpad
   %.pn = phi { ptr, i32 } [ %lpad.phi, %lpad6 ], [ %10, %lpad ]
-  %20 = load ptr, ptr %path, align 8
-  %tobool.not.i.i.i6 = icmp eq ptr %20, null
+  %21 = load ptr, ptr %path, align 8
+  %tobool.not.i.i.i6 = icmp eq ptr %21, null
   br i1 %tobool.not.i.i.i6, label %_ZNSt6vectorIiSaIiEED2Ev.exit8, label %if.then.i.i.i7
 
 if.then.i.i.i7:                                   ; preds = %ehcleanup
-  call void @_ZdlPv(ptr noundef nonnull %20) #26
+  call void @_ZdlPv(ptr noundef nonnull %21) #26
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit8
 
 _ZNSt6vectorIiSaIiEED2Ev.exit8:                   ; preds = %ehcleanup, %if.then.i.i.i7

@@ -2900,11 +2900,11 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev11Lut1DOpDataELN9__gnu_cxx12_Lock_poli
           to label %928 unwind label %932
 
 928:                                              ; preds = %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev11Lut1DOpDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
-  %.pre1133 = load ptr, ptr %12, align 8, !tbaa !71
+  %.pre1134 = load ptr, ptr %12, align 8, !tbaa !71
   br i1 %927, label %929, label %.lr.ph1088
 
 929:                                              ; preds = %928
-  invoke void @_ZN19OpenColorIO_v2_5dev11Lut1DOpData16setInterpolationENS_13InterpolationE(ptr noundef nonnull align 8 dereferenceable(364) %.pre1133, i32 noundef %4)
+  invoke void @_ZN19OpenColorIO_v2_5dev11Lut1DOpData16setInterpolationENS_13InterpolationE(ptr noundef nonnull align 8 dereferenceable(364) %.pre1134, i32 noundef %4)
           to label %.lr.ph1088 unwind label %932
 
 930:                                              ; preds = %898
@@ -2918,15 +2918,15 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev11Lut1DOpDataELN9__gnu_cxx12_Lock_poli
   br label %.body675
 
 .lr.ph1088:                                       ; preds = %928, %929
-  %934 = getelementptr inbounds nuw i8, ptr %.pre1133, i64 360
+  %934 = getelementptr inbounds nuw i8, ptr %.pre1134, i64 360
   store i32 8, ptr %934, align 8, !tbaa !73
   %935 = getelementptr inbounds nuw i8, ptr %52, i64 8
-  %936 = getelementptr inbounds nuw i8, ptr %.pre1133, i64 200
+  %936 = getelementptr inbounds nuw i8, ptr %.pre1134, i64 200
   %937 = getelementptr inbounds nuw i8, ptr %52, i64 16
   %938 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %939 = getelementptr inbounds nuw i8, ptr %51, i64 16
-  %smax = call i32 @llvm.smax.i32(i32 %851, i32 1)
-  %wide.trip.count = zext nneg i32 %smax to i64
+  %smax1123 = call i32 @llvm.smax.i32(i32 %851, i32 1)
+  %wide.trip.count = zext nneg i32 %smax1123 to i64
   br label %940
 
 940:                                              ; preds = %.lr.ph1088, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit708
@@ -3134,8 +3134,8 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit708: ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i705, %1011
   call void @llvm.lifetime.end.p0(ptr nonnull %51)
   %indvars.iv.next1121 = add nuw nsw i64 %indvars.iv1120, 1
-  %exitcond1123.not = icmp eq i64 %indvars.iv.next1121, %wide.trip.count
-  br i1 %exitcond1123.not, label %.loopexit, label %940, !llvm.loop !101
+  %exitcond1124.not = icmp eq i64 %indvars.iv.next1121, %wide.trip.count
+  br i1 %exitcond1124.not, label %.loopexit, label %940, !llvm.loop !101
 
 1016:                                             ; preds = %989, %973
   %.pn305.pn.pn.pn = phi { ptr, i32 } [ %.pn305.pn.pn, %989 ], [ %974, %973 ]
@@ -4124,8 +4124,8 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev11Lu
   br label %.body817
 
 1391:                                             ; preds = %1378, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_126rsr_Interpolator1D_destroyEPNS0_19rsr_Interpolator1D_E.exit
-  %indvars.iv1129 = phi i64 [ 0, %1378 ], [ %indvars.iv.next1130, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_126rsr_Interpolator1D_destroyEPNS0_19rsr_Interpolator1D_E.exit ]
-  %1392 = getelementptr inbounds nuw %"class.std::vector.10", ptr %30, i64 %indvars.iv1129
+  %indvars.iv1130 = phi i64 [ 0, %1378 ], [ %indvars.iv.next1131, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_126rsr_Interpolator1D_destroyEPNS0_19rsr_Interpolator1D_E.exit ]
+  %1392 = getelementptr inbounds nuw %"class.std::vector.10", ptr %30, i64 %indvars.iv1130
   %1393 = getelementptr inbounds nuw i8, ptr %1392, i64 8
   %1394 = load ptr, ptr %1393, align 8, !tbaa !51
   %1395 = load ptr, ptr %1392, align 8, !tbaa !48
@@ -4183,7 +4183,7 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_129rsr_Interpolator1D_Raw_createEj.exit: ; 
 
 .lr.ph1090:                                       ; preds = %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_129rsr_Interpolator1D_Raw_createEj.exit
   %1419 = load ptr, ptr %.0.i, align 8, !tbaa !127
-  %1420 = getelementptr inbounds nuw %"class.std::vector.10", ptr %31, i64 %indvars.iv1129
+  %1420 = getelementptr inbounds nuw %"class.std::vector.10", ptr %31, i64 %indvars.iv1130
   %1421 = load ptr, ptr %1420, align 8, !tbaa !48
   %1422 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %1423 = load ptr, ptr %1422, align 8, !tbaa !129
@@ -4411,10 +4411,10 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_129rsr_Interpolator1D_Raw_createEj.exit: ; 
 _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_132rsr_Interpolator1D_createFromRawEPNS0_23rsr_Interpolator1D_Raw_E.exit: ; preds = %1575, %._crit_edge1091, %1434, %1443, %.preheader.i, %1461
   %.0.i820 = phi ptr [ null, %._crit_edge1091 ], [ null, %1434 ], [ null, %1443 ], [ %1424, %1461 ], [ %1424, %.preheader.i ], [ %1424, %1575 ]
   %1578 = fpext float %1400 to double
-  %1579 = getelementptr inbounds nuw double, ptr %1343, i64 %indvars.iv1129
+  %1579 = getelementptr inbounds nuw double, ptr %1343, i64 %indvars.iv1130
   store double %1578, ptr %1579, align 8, !tbaa !138
   %1580 = fpext float %1403 to double
-  %1581 = getelementptr inbounds nuw double, ptr %1344, i64 %indvars.iv1129
+  %1581 = getelementptr inbounds nuw double, ptr %1344, i64 %indvars.iv1130
   store double %1580, ptr %1581, align 8, !tbaa !138
   %1582 = fsub float %1403, %1400
   %1583 = load ptr, ptr %1381, align 8, !tbaa !48
@@ -4422,7 +4422,7 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_132rsr_Interpolator1D_createFromRawEPNS0_23
   %1585 = getelementptr inbounds nuw i8, ptr %.0.i820, i64 16
   %1586 = getelementptr inbounds nuw i8, ptr %.0.i820, i64 28
   %1587 = getelementptr inbounds nuw i8, ptr %.0.i820, i64 24
-  %invariant.gep = getelementptr inbounds nuw float, ptr %1583, i64 %indvars.iv1129
+  %invariant.gep = getelementptr inbounds nuw float, ptr %1583, i64 %indvars.iv1130
   br label %1606
 
 1588:                                             ; preds = %.lr.ph1090, %1588
@@ -4436,8 +4436,8 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_132rsr_Interpolator1D_createFromRawEPNS0_23
   %1594 = getelementptr inbounds nuw float, ptr %1423, i64 %.02111089
   store float %1593, ptr %1594, align 4, !tbaa !55
   %1595 = add nuw i64 %.02111089, 1
-  %exitcond1124.not = icmp eq i64 %1595, %1399
-  br i1 %exitcond1124.not, label %._crit_edge1091, label %1588, !llvm.loop !140
+  %exitcond1125.not = icmp eq i64 %1595, %1399
+  br i1 %exitcond1125.not, label %._crit_edge1091, label %1588, !llvm.loop !140
 
 1596:                                             ; preds = %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_130rsr_Interpolator1D_interpolateEfPNS0_19rsr_Interpolator1D_E.exit
   %1597 = icmp eq ptr %.0.i, null
@@ -4465,13 +4465,13 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_130rsr_Interpolator1D_Raw_destroyEPNS0_23rs
   br label %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_126rsr_Interpolator1D_destroyEPNS0_19rsr_Interpolator1D_E.exit
 
 _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_126rsr_Interpolator1D_destroyEPNS0_19rsr_Interpolator1D_E.exit: ; preds = %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_130rsr_Interpolator1D_Raw_destroyEPNS0_23rsr_Interpolator1D_Raw_E.exit, %1603
-  %indvars.iv.next1130 = add nuw nsw i64 %indvars.iv1129, 1
-  %exitcond1132.not = icmp eq i64 %indvars.iv.next1130, 3
-  br i1 %exitcond1132.not, label %1382, label %1391, !llvm.loop !141
+  %indvars.iv.next1131 = add nuw nsw i64 %indvars.iv1130, 1
+  %exitcond1133.not = icmp eq i64 %indvars.iv.next1131, 3
+  br i1 %exitcond1133.not, label %1382, label %1391, !llvm.loop !141
 
 1606:                                             ; preds = %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_132rsr_Interpolator1D_createFromRawEPNS0_23rsr_Interpolator1D_Raw_E.exit, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_130rsr_Interpolator1D_interpolateEfPNS0_19rsr_Interpolator1D_E.exit
-  %indvars.iv1125 = phi i64 [ 0, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_132rsr_Interpolator1D_createFromRawEPNS0_23rsr_Interpolator1D_Raw_E.exit ], [ %indvars.iv.next1126, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_130rsr_Interpolator1D_interpolateEfPNS0_19rsr_Interpolator1D_E.exit ]
-  %1607 = trunc nuw nsw i64 %indvars.iv1125 to i32
+  %indvars.iv1126 = phi i64 [ 0, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_132rsr_Interpolator1D_createFromRawEPNS0_23rsr_Interpolator1D_Raw_E.exit ], [ %indvars.iv.next1127, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_130rsr_Interpolator1D_interpolateEfPNS0_19rsr_Interpolator1D_E.exit ]
+  %1607 = trunc nuw nsw i64 %indvars.iv1126 to i32
   %1608 = uitofp nneg i32 %1607 to float
   %1609 = fdiv float %1608, 6.553500e+04
   %1610 = call noundef float @llvm.fmuladd.f32(float %1582, float %1609, float %1400)
@@ -4552,12 +4552,12 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_138rsr_internal_I1D_findSegmentContainingEf
 
 _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_130rsr_Interpolator1D_interpolateEfPNS0_19rsr_Interpolator1D_E.exit: ; preds = %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_138rsr_internal_I1D_findSegmentContainingEfPfi.exit.i, %1625, %1616, %1606
   %.0.i822 = phi float [ %1656, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_138rsr_internal_I1D_findSegmentContainingEfPfi.exit.i ], [ %1617, %1616 ], [ %1626, %1625 ], [ %1610, %1606 ]
-  %.idx1347 = mul nuw nsw i64 %indvars.iv1125, 12
+  %.idx1347 = mul nuw nsw i64 %indvars.iv1126, 12
   %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %.idx1347
   store float %.0.i822, ptr %gep, align 4, !tbaa !55
-  %indvars.iv.next1126 = add nuw nsw i64 %indvars.iv1125, 1
-  %exitcond1128.not = icmp eq i64 %indvars.iv.next1126, 65536
-  br i1 %exitcond1128.not, label %1596, label %1606, !llvm.loop !142
+  %indvars.iv.next1127 = add nuw nsw i64 %indvars.iv1126, 1
+  %exitcond1129.not = icmp eq i64 %indvars.iv.next1127, 65536
+  br i1 %exitcond1129.not, label %1596, label %1606, !llvm.loop !142
 
 1657:                                             ; preds = %1382
   store ptr %1376, ptr %1345, align 8, !tbaa !71

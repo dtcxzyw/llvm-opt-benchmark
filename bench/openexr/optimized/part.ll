@@ -335,7 +335,7 @@ switch.lookup:                                    ; preds = %.loopexit
   %or.cond = icmp eq i32 %101, 2
   br i1 %or.cond, label %102, label %.thread140
 
-102:                                              ; preds = %.thread131
+102:; preds = %.thread131
   %103 = load ptr, ptr %5, align 8, !tbaa !27
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 8
   %105 = getelementptr inbounds nuw i8, ptr %103, i64 120
@@ -343,7 +343,7 @@ switch.lookup:                                    ; preds = %.loopexit
   %107 = icmp eq i32 %106, 0
   br i1 %107, label %.thread143, label %113
 
-.thread143:                                       ; preds = %102
+.thread143:; preds = %102
   %108 = load ptr, ptr %5, align 8, !tbaa !27
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 120
   %110 = load ptr, ptr %109, align 8, !tbaa !35
@@ -353,54 +353,54 @@ switch.lookup:                                    ; preds = %.loopexit
   store i8 1, ptr %112, align 4, !tbaa !36
   br label %.thread140
 
-113:                                              ; preds = %102
-  %114 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i8 1, ptr %114, align 4, !tbaa !36
+112:                                              ; preds = %102
+  %113 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i8 1, ptr %113, align 4, !tbaa !36
   br label %.thread136
 
 .thread140:                                       ; preds = %.thread131, %.thread143
-  %115 = load i32, ptr %29, align 4, !tbaa !23
-  %116 = icmp sgt i32 %115, 1
-  br i1 %116, label %117, label %119
+  %114 = load i32, ptr %29, align 4, !tbaa !23
+  %115 = icmp sgt i32 %114, 1
+  br i1 %115, label %116, label %118
 
-117:                                              ; preds = %.thread140
-  %118 = getelementptr inbounds nuw i8, ptr %0, i64 5
-  store i8 1, ptr %118, align 1, !tbaa !37
-  br label %119
+116:                                              ; preds = %.thread140
+  %117 = getelementptr inbounds nuw i8, ptr %0, i64 5
+  store i8 1, ptr %117, align 1, !tbaa !37
+  br label %118
 
-119:                                              ; preds = %117, %.thread140
-  %120 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %121 = load i8, ptr %120, align 4, !tbaa !36
-  %.not125 = icmp eq i8 %121, 0
-  br i1 %.not125, label %122, label %127
+118:                                              ; preds = %116, %.thread140
+  %119 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %120 = load i8, ptr %119, align 4, !tbaa !36
+  %.not125 = icmp eq i8 %120, 0
+  br i1 %.not125, label %121, label %126
 
-122:                                              ; preds = %119
-  %123 = icmp eq i32 %115, 1
-  %124 = icmp eq i32 %2, 1
-  %or.cond4 = and i1 %124, %123
-  br i1 %or.cond4, label %125, label %127
+121:                                              ; preds = %118
+  %122 = icmp eq i32 %114, 1
+  %123 = icmp eq i32 %2, 1
+  %or.cond4 = and i1 %123, %122
+  br i1 %or.cond4, label %124, label %126
 
-125:                                              ; preds = %122
-  %126 = getelementptr inbounds nuw i8, ptr %0, i64 3
-  store i8 1, ptr %126, align 1, !tbaa !38
-  br label %129
+124:                                              ; preds = %121
+  %125 = getelementptr inbounds nuw i8, ptr %0, i64 3
+  store i8 1, ptr %125, align 1, !tbaa !38
+  br label %128
 
-127:                                              ; preds = %122, %119
-  %128 = getelementptr inbounds nuw i8, ptr %0, i64 3
-  store i8 0, ptr %128, align 1, !tbaa !38
-  br label %129
+126:                                              ; preds = %121, %118
+  %127 = getelementptr inbounds nuw i8, ptr %0, i64 3
+  store i8 0, ptr %127, align 1, !tbaa !38
+  br label %128
 
-.thread136:                                       ; preds = %86, %92, %113
+.thread136:                                       ; preds = %86, %92, %112
   %.1103139 = phi i32 [ %106, %113 ], [ %99, %92 ], [ %90, %86 ]
   call void @internal_exr_revert_add_part(ptr noundef nonnull %0, ptr noundef nonnull %5, ptr noundef %3) #6
-  br label %129
+  br label %128
 
-129:                                              ; preds = %125, %127, %.thread136
+128:                                              ; preds = %124, %126, %.thread136
   %.1103138 = phi i32 [ 0, %125 ], [ 0, %127 ], [ %.1103139, %.thread136 ]
-  %130 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %7) #6
+  %129 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %7) #6
   br label %.thread129
 
-.thread129:                                       ; preds = %41, %53, %4, %129, %83, %74, %64, %26, %19, %10
+.thread129:                                       ; preds = %41, %53, %4, %128, %83, %74, %64, %26, %19, %10
   %.0 = phi i32 [ %14, %10 ], [ %23, %19 ], [ %25, %26 ], [ %68, %64 ], [ %73, %74 ], [ %82, %83 ], [ %.1103138, %129 ], [ 2, %4 ], [ %59, %53 ], [ %46, %41 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0

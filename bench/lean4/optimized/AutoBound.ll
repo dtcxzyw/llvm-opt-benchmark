@@ -835,7 +835,7 @@ lean_dec.exit27:                                  ; preds = %20, %22, %23
   %.not40 = icmp eq i64 %25, 0
   br i1 %.not40, label %28, label %lean_nat_add.exit, !prof !15
 
-lean_nat_add.exit:                                ; preds = %lean_dec.exit27
+26:                                               ; preds = %lean_dec.exit27
   %26 = or i64 %24, 1
   %27 = inttoptr i64 %26 to ptr
   br label %lean_dec.exit25
@@ -846,41 +846,41 @@ lean_nat_add.exit:                                ; preds = %lean_dec.exit27
   %31 = icmp sgt i32 %30, 1
   br i1 %31, label %32, label %34, !prof !14
 
-32:                                               ; preds = %28
-  %33 = add nsw i32 %30, -1
-  store i32 %33, ptr %17, align 4, !tbaa !10
+30:                                               ; preds = %28
+  %31 = add nsw i32 %30, -1
+  store i32 %31, ptr %17, align 4, !tbaa !10
   br label %lean_dec.exit25
 
-34:                                               ; preds = %28
+32:                                               ; preds = %28
   %.not.i28 = icmp eq i32 %30, 0
-  br i1 %.not.i28, label %lean_dec.exit25, label %35
+  br i1 %.not.i28, label %lean_dec.exit25, label %33
 
-35:                                               ; preds = %34
+33:                                               ; preds = %32
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %17) #3
   br label %lean_dec.exit25
 
-lean_dec.exit25:                                  ; preds = %lean_nat_add.exit, %32, %34, %35
+lean_dec.exit25:                                  ; preds = %lean_nat_add.exit, %30, %32, %33
   %.0.i48 = phi ptr [ %27, %lean_nat_add.exit ], [ %29, %32 ], [ %29, %34 ], [ %29, %35 ]
-  %36 = tail call zeroext i8 @l_String_anyAux___at___private_Lean_Elab_AutoBound_0__Lean_Elab_isValidAutoBoundSuffix___spec__1(ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef %.0.i48)
-  %37 = load i32, ptr %0, align 4, !tbaa !10
-  %38 = icmp sgt i32 %37, 1
-  br i1 %38, label %39, label %41, !prof !14
+  %34 = tail call zeroext i8 @l_String_anyAux___at___private_Lean_Elab_AutoBound_0__Lean_Elab_isValidAutoBoundSuffix___spec__1(ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef %.0.i48)
+  %35 = load i32, ptr %0, align 4, !tbaa !10
+  %36 = icmp sgt i32 %35, 1
+  br i1 %36, label %37, label %39, !prof !14
 
-39:                                               ; preds = %lean_dec.exit25
-  %40 = add nsw i32 %37, -1
-  store i32 %40, ptr %0, align 4, !tbaa !10
+37:                                               ; preds = %lean_dec.exit25
+  %38 = add nsw i32 %35, -1
+  store i32 %38, ptr %0, align 4, !tbaa !10
   br label %lean_dec.exit
 
-41:                                               ; preds = %lean_dec.exit25
-  %.not.i32 = icmp eq i32 %37, 0
-  br i1 %.not.i32, label %lean_dec.exit, label %42
+39:                                               ; preds = %lean_dec.exit25
+  %.not.i32 = icmp eq i32 %35, 0
+  br i1 %.not.i32, label %lean_dec.exit, label %40
 
-42:                                               ; preds = %41
+40:                                               ; preds = %39
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %0) #3
   br label %lean_dec.exit
 
-lean_dec.exit:                                    ; preds = %42, %41, %39
-  %. = xor i8 %36, 1
+lean_dec.exit:                                    ; preds = %40, %39, %37
+  %. = xor i8 %34, 1
   ret i8 %.
 }
 

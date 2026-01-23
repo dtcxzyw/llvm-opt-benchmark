@@ -187,7 +187,7 @@ define noundef range(i32 97, 1114113) i32 @_ZN9html5ever4util3str18lower_ascii_l
   %or.cond = icmp ult i32 %2, 26
   br i1 %or.cond, label %8, label %3
 
-3:                                                ; preds = %1
+3:; preds = %1
   %4 = add i32 %0, -65
   %or.cond1 = icmp ult i32 %4, 26
   br i1 %or.cond1, label %5, label %8

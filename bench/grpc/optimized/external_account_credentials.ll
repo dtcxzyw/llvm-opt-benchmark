@@ -5661,8 +5661,8 @@ _ZNK9grpc_core12experimental4Json6objectB5cxx11Ev.exit158: ; preds = %_ZNSt11cha
   br i1 %242, label %248, label %243
 
 243:                                              ; preds = %_ZNK9grpc_core12experimental4Json6objectB5cxx11Ev.exit158
-  %.19.i.i.i.lcssa.sroa.gep417 = getelementptr inbounds nuw i8, ptr %.19.i.i.i, i64 112
-  %244 = load i8, ptr %.19.i.i.i.lcssa.sroa.gep417, align 8, !tbaa !182
+  %.19.i.i.i.lcssa.sroa.gep = getelementptr inbounds nuw i8, ptr %.19.i.i.i, i64 112
+  %244 = load i8, ptr %.19.i.i.i.lcssa.sroa.gep, align 8, !tbaa !182
   switch i8 %244, label %248 [
     i8 -1, label %245
     i8 3, label %._crit_edge.i.i209
@@ -5900,9 +5900,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit197: ; preds = %31
   br label %515
 
 ._crit_edge.i.i209:                               ; preds = %243
-  %.19.i.i.i.lcssa.sroa.gep = getelementptr inbounds nuw i8, ptr %.19.i.i.i, i64 64
+  %.19.i.i.i.lcssa.sroa.gep417 = getelementptr inbounds nuw i8, ptr %.19.i.i.i, i64 64
   call void @llvm.lifetime.start.p0(ptr nonnull %29)
-  %323 = load ptr, ptr %.19.i.i.i.lcssa.sroa.gep, align 8, !tbaa !25
+  %323 = load ptr, ptr %.19.i.i.i.lcssa.sroa.gep417, align 8, !tbaa !25
   %.19.i.i.i.lcssa.sroa.gep420 = getelementptr inbounds nuw i8, ptr %.19.i.i.i, i64 72
   %324 = load i64, ptr %.19.i.i.i.lcssa.sroa.gep420, align 8, !tbaa !27
   store i64 %324, ptr %29, align 8

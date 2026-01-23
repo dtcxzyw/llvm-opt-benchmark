@@ -3167,7 +3167,7 @@ define hidden { i64, ptr } @"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$
   %4 = load i64, ptr %3, align 8, !noundef !3
   %5 = load i64, ptr %2, align 8, !noundef !3
   %.not = icmp eq i64 %4, %5
-  br i1 %.not, label %12, label %6
+  br i1 %.not, label %11, label %6
 
 6:                                                ; preds = %1
   %7 = or disjoint i64 %5, 1
@@ -3179,12 +3179,12 @@ define hidden { i64, ptr } @"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$
   %11 = load ptr, ptr %10, align 8, !noundef !3
   br label %12
 
-12:                                               ; preds = %1, %6
+11:                                               ; preds = %1, %6
   %.sroa.3.0 = phi ptr [ %11, %6 ], [ undef, %1 ]
   %.sroa.0.0 = phi i64 [ %9, %6 ], [ 92, %1 ]
-  %13 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %14 = insertvalue { i64, ptr } %13, ptr %.sroa.3.0, 1
-  ret { i64, ptr } %14
+  %12 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
+  %13 = insertvalue { i64, ptr } %12, ptr %.sroa.3.0, 1
+  ret { i64, ptr } %13
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: write) uwtable

@@ -34333,30 +34333,30 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17h7acd9e356af37515E.exit: ; preds 
   %.sroa.01.1.extract.trunc.i.i.i.i = trunc i32 %.sroa.01.1.extract.shift1.i.i.i.i to i8
   %25 = and i32 %24, 255
   %.mask = and i24 %0, 255
-  %26 = zext nneg i24 %.mask to i32
-  %27 = icmp ugt i8 %18, %.sroa.01.0.extract.trunc.i.i.i.i
-  %28 = sub nsw i32 %26, %25
-  %29 = sub nsw i32 %25, %26
-  %.sroa.0.0.i.i.i.i.i = select i1 %27, i32 %28, i32 %29
-  %30 = mul nsw i32 %.sroa.0.0.i.i.i.i.i, %.sroa.0.0.i.i.i.i.i
-  %31 = and i32 %.sroa.01.1.extract.shift1.i.i.i.i, 255
+  %25 = zext nneg i24 %.mask to i32
+  %26 = icmp ugt i8 %18, %.sroa.01.0.extract.trunc.i.i.i.i
+  %27 = sub nsw i32 %25, %25
+  %28 = sub nsw i32 %25, %25
+  %.sroa.0.0.i.i.i.i.i = select i1 %26, i32 %27, i32 %28
+  %29 = mul nsw i32 %.sroa.0.0.i.i.i.i.i, %.sroa.0.0.i.i.i.i.i
+  %30 = and i32 %.sroa.01.1.extract.shift1.i.i.i.i, 255
   %.mask12 = and i24 %16, 255
-  %32 = zext nneg i24 %.mask12 to i32
-  %33 = icmp ugt i8 %17, %.sroa.01.1.extract.trunc.i.i.i.i
-  %34 = sub nsw i32 %32, %31
-  %35 = sub nsw i32 %31, %32
-  %.sroa.0.0.i2.i.i.i.i = select i1 %33, i32 %34, i32 %35
-  %36 = mul nsw i32 %.sroa.0.0.i2.i.i.i.i, %.sroa.0.0.i2.i.i.i.i
-  %37 = add nuw nsw i32 %36, %30
-  %38 = and i32 %10, 255
-  %39 = zext nneg i24 %14 to i32
-  %40 = icmp ugt i8 %15, %23
-  %41 = sub nsw i32 %39, %38
-  %42 = sub nsw i32 %38, %39
-  %.sroa.0.0.i3.i.i.i.i = select i1 %40, i32 %41, i32 %42
-  %43 = mul nsw i32 %.sroa.0.0.i3.i.i.i.i, %.sroa.0.0.i3.i.i.i.i
-  %44 = add nuw nsw i32 %37, %43
-  store i32 %44, ptr %7, align 8, !noalias !3290
+  %31 = zext nneg i24 %.mask12 to i32
+  %32 = icmp ugt i8 %17, %.sroa.01.1.extract.trunc.i.i.i.i
+  %33 = sub nsw i32 %31, %30
+  %34 = sub nsw i32 %30, %31
+  %.sroa.0.0.i2.i.i.i.i = select i1 %32, i32 %33, i32 %34
+  %35 = mul nsw i32 %.sroa.0.0.i2.i.i.i.i, %.sroa.0.0.i2.i.i.i.i
+  %36 = add nuw nsw i32 %35, %29
+  %37 = and i32 %10, 255
+  %38 = zext nneg i24 %14 to i32
+  %39 = icmp ugt i8 %15, %23
+  %40 = sub nsw i32 %38, %37
+  %41 = sub nsw i32 %37, %38
+  %.sroa.0.0.i3.i.i.i.i = select i1 %39, i32 %40, i32 %41
+  %42 = mul nsw i32 %.sroa.0.0.i3.i.i.i.i, %.sroa.0.0.i3.i.i.i.i
+  %43 = add nuw nsw i32 %36, %42
+  store i32 %43, ptr %7, align 8, !noalias !3290
   %.sroa.69.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 0, ptr %.sroa.69.0..sroa_idx.i, align 8, !noalias !3290
   %.sroa.710.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -34376,18 +34376,18 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17h7acd9e356af37515E.exit: ; preds 
   call void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17haa2803c4b64af4d4E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %8, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %7), !noalias !3292
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !3290
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %45 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %46 = load ptr, ptr %45, align 8, !noundef !4
-  %.not = icmp eq ptr %46, null
-  br i1 %.not, label %48, label %47, !prof !126
+  %44 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %45 = load ptr, ptr %44, align 8, !noundef !4
+  %.not = icmp eq ptr %45, null
+  br i1 %.not, label %47, label %46, !prof !126
 
-47:                                               ; preds = %_ZN4core4iter6traits8iterator8Iterator6reduce17h7acd9e356af37515E.exit
+46:                                               ; preds = %_ZN4core4iter6traits8iterator8Iterator6reduce17h7acd9e356af37515E.exit
   %.sroa.1.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
   %.sroa.1.0.copyload = load i64, ptr %.sroa.1.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i64 %.sroa.1.0.copyload
 
-48:                                               ; preds = %_ZN4core4iter6traits8iterator8Iterator6reduce17h7acd9e356af37515E.exit
+47:                                               ; preds = %_ZN4core4iter6traits8iterator8Iterator6reduce17h7acd9e356af37515E.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @_ZN4core6option13expect_failed17h89918c64c89b4471E(ptr noalias noundef nonnull readonly align 1 @anon.c3855246c02a9407b3365b2c3e5c0e37.795, i64 noundef 44, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c3855246c02a9407b3365b2c3e5c0e37.796) #26
   unreachable

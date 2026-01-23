@@ -1730,9 +1730,9 @@ define hidden { i32, float } @"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT
 .thread:                                          ; preds = %1, %5
   %.sroa.3.0 = phi float [ %9, %5 ], [ undef, %1 ]
   %.sroa.0.0 = phi i32 [ 1, %5 ], [ 0, %1 ]
-  %10 = insertvalue { i32, float } poison, i32 %.sroa.0.0, 0
-  %11 = insertvalue { i32, float } %10, float %.sroa.3.0, 1
-  ret { i32, float } %11
+  %9 = insertvalue { i32, float } poison, i32 %.sroa.0.0, 0
+  %10 = insertvalue { i32, float } %9, float %.sroa.3.0, 1
+  ret { i32, float } %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: write) uwtable
@@ -1799,11 +1799,11 @@ define hidden { ptr, i64 } @"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$
   br label %.thread
 
 .thread:                                          ; preds = %1, %6
-  %.sroa.3.0 = phi i64 [ %11, %6 ], [ undef, %1 ]
+  %.sroa.3.0 = phi i64 [ %10, %6 ], [ undef, %1 ]
   %.sroa.0.0 = phi ptr [ %9, %6 ], [ null, %1 ]
-  %12 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
-  %13 = insertvalue { ptr, i64 } %12, i64 %.sroa.3.0, 1
-  ret { ptr, i64 } %13
+  %11 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
+  %12 = insertvalue { ptr, i64 } %11, i64 %.sroa.3.0, 1
+  ret { ptr, i64 } %12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: write) uwtable
@@ -1818,17 +1818,17 @@ define hidden void @"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr null, ptr %8, align 8
-  br label %12
+  br label %11
 
 9:                                                ; preds = %2
-  %10 = or disjoint i64 %6, 1
-  store i64 %10, ptr %3, align 8
+  %9 = or disjoint i64 %6, 1
+  store i64 %9, ptr %3, align 8
   %11 = icmp eq i64 %6, 0
   tail call void @llvm.assume(i1 %11)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
-  br label %12
+  br label %11
 
-12:                                               ; preds = %9, %7
+11:                                               ; preds = %9, %7
   ret void
 }
 

@@ -320,7 +320,7 @@ _ZN11OpenImageIO6v3_1_05CSHA16UpdateEPKhj.exit:   ; preds = %.loopexit.i, %.loop
   %31 = phi i32 [ %.pre, %.loopexit.i ], [ %19, %.loopexit.i.thread ]
   %32 = and i32 %31, 504
   %.not40 = icmp eq i32 %32, 448
-  br i1 %.not40, label %._crit_edge, label %.lr.ph
+  br i1 %.not40, label %.loopexit.i17, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN11OpenImageIO6v3_1_05CSHA16UpdateEPKhj.exit
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -357,9 +357,9 @@ _ZN11OpenImageIO6v3_1_05CSHA16UpdateEPKhj.exit16: ; preds = %.loopexit.i10, %.lo
   %47 = phi i32 [ %.pre48, %.loopexit.i10 ], [ %39, %.loopexit.i10.thread ]
   %48 = and i32 %47, 504
   %.not = icmp eq i32 %48, 448
-  br i1 %.not, label %._crit_edge, label %35, !llvm.loop !24
+  br i1 %.not, label %.loopexit.i17, label %35, !llvm.loop !24
 
-._crit_edge:                                      ; preds = %_ZN11OpenImageIO6v3_1_05CSHA16UpdateEPKhj.exit16, %_ZN11OpenImageIO6v3_1_05CSHA16UpdateEPKhj.exit
+.loopexit.i17:                                    ; preds = %_ZN11OpenImageIO6v3_1_05CSHA16UpdateEPKhj.exit16, %_ZN11OpenImageIO6v3_1_05CSHA16UpdateEPKhj.exit
   %.lcssa = phi i32 [ %31, %_ZN11OpenImageIO6v3_1_05CSHA16UpdateEPKhj.exit ], [ %47, %_ZN11OpenImageIO6v3_1_05CSHA16UpdateEPKhj.exit16 ]
   %49 = lshr i32 %.lcssa, 3
   %50 = and i32 %49, 63
@@ -373,7 +373,7 @@ _ZN11OpenImageIO6v3_1_05CSHA16UpdateEPKhj.exit16: ; preds = %.loopexit.i10, %.lo
   %56 = icmp samesign ugt i32 %50, 55
   br i1 %56, label %.loopexit.i17, label %.loopexit.i17.thread
 
-.loopexit.i17:                                    ; preds = %._crit_edge
+.loopexit.i17:; preds = %._crit_edge
   %57 = sub nuw nsw i32 64, %50
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %59 = zext nneg i32 %50 to i64
@@ -411,18 +411,18 @@ _ZN11OpenImageIO6v3_1_05CSHA16UpdateEPKhj.exit23: ; preds = %.loopexit.i17, %63
   %74 = getelementptr inbounds nuw i32, ptr %0, i64 %73
   %75 = load i32, ptr %74, align 4, !tbaa !8
   %indvars.iv44.tr = trunc i64 %indvars.iv44 to i32
-  %76 = shl i32 %indvars.iv44.tr, 3
-  %77 = and i32 %76, 24
-  %78 = xor i32 %77, 24
-  %79 = lshr i32 %75, %78
-  %80 = trunc i32 %79 to i8
-  %81 = getelementptr inbounds nuw i8, ptr %70, i64 %indvars.iv44
-  store i8 %80, ptr %81, align 1, !tbaa !22
+  %63 = shl i32 %indvars.iv44.tr, 3
+  %64 = and i32 %63, 24
+  %65 = xor i32 %64, 24
+  %66 = lshr i32 %75, %65
+  %67 = trunc i32 %66 to i8
+  %68 = getelementptr inbounds nuw i8, ptr %70, i64 %indvars.iv44
+  store i8 %67, ptr %68, align 1, !tbaa !22
   %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
   %exitcond47.not = icmp eq i64 %indvars.iv.next45, 20
-  br i1 %exitcond47.not, label %82, label %71, !llvm.loop !25
+  br i1 %exitcond47.not, label %69, label %71, !llvm.loop !25
 
-82:                                               ; preds = %71
+69:                                               ; preds = %71
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }

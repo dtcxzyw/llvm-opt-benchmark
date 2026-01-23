@@ -1799,7 +1799,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h331a88eed7dfc6b6E.exit: ; pred
   call void @llvm.experimental.noalias.scope.decl(metadata !280)
   %44 = load i128, ptr %1, align 16, !range !282, !alias.scope !283, !noalias !284, !noundef !12
   %45 = trunc nuw i128 %44 to i1
-  br i1 %45, label %46, label %56
+  br i1 %45, label %46, label %55
 
 46:                                               ; preds = %43
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -1826,11 +1826,11 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h331a88eed7dfc6b6E.exit: ; pred
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(112) %0, ptr noundef nonnull align 16 dereferenceable(112) %54, i64 112, i1 false), !alias.scope !299, !noalias !272
   br label %"_ZN4core6option15Option$LT$T$GT$7or_else17h8dd29415c793ccf6E.exit"
 
-56:                                               ; preds = %43
+55:                                               ; preds = %43
   store i64 5, ptr %0, align 16, !alias.scope !300, !noalias !301
   br label %"_ZN4core6option15Option$LT$T$GT$7or_else17h8dd29415c793ccf6E.exit"
 
-"_ZN4core6option15Option$LT$T$GT$7or_else17h8dd29415c793ccf6E.exit": ; preds = %42, %51, %52, %56
+"_ZN4core6option15Option$LT$T$GT$7or_else17h8dd29415c793ccf6E.exit": ; preds = %42, %51, %52, %55
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6)
   ret void
 }

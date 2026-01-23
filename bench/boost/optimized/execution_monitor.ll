@@ -2911,47 +2911,47 @@ define void @_ZN5boost17execution_monitor8vexecuteERKNS_8functionIFvvEEE(ptr nou
   %6 = inttoptr i64 %5 to ptr
   store ptr %6, ptr %3, align 8, !tbaa !62
   %7 = invoke noundef i32 @_ZN5boost17execution_monitor7executeERKNS_8functionIFivEEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(32) %3)
-          to label %8 unwind label %21
+          to label %8 unwind label %18
 
 8:                                                ; preds = %2
   %9 = load ptr, ptr %3, align 8, !tbaa !62
   %.not.i.i = icmp eq ptr %9, null
-  br i1 %.not.i.i, label %_ZN5boost10function_nIiJEED2Ev.exit, label %10
+  br i1 %.not.i.i, label %_ZN5boost10function_nIiJEED2Ev.exit, label %8
 
-10:                                               ; preds = %8
-  %11 = ptrtoint ptr %9 to i64
-  %12 = and i64 %11, 1
+10:; preds = %8
+  %9 = ptrtoint ptr %9 to i64
+  %12 = and i64 %9, 1
   %.not1.i.i = icmp eq i64 %12, 0
   br i1 %.not1.i.i, label %13, label %_ZN5boost10function_nIiJEED2Ev.exit
 
-13:                                               ; preds = %10
-  %14 = and i64 %11, -2
+13:; preds = %10
+  %14 = and i64 %9, -2
   %15 = inttoptr i64 %14 to ptr
   %16 = load ptr, ptr %15, align 8, !tbaa !122
   %.not.i.i.i = icmp eq ptr %16, null
-  br i1 %.not.i.i.i, label %_ZN5boost10function_nIiJEED2Ev.exit, label %17
+  br i1 %.not.i.i.i, label %_ZN5boost10function_nIiJEED2Ev.exit, label %15
 
-17:                                               ; preds = %13
+15:                                               ; preds = %13
   invoke void %16(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %4, i32 noundef 2)
           to label %_ZN5boost10function_nIiJEED2Ev.exit unwind label %18
 
 18:                                               ; preds = %17
   %19 = landingpad { ptr, i32 }
           catch ptr null
-  %20 = extractvalue { ptr, i32 } %19, 0
-  call void @__clang_call_terminate(ptr %20) #43
+  %17 = extractvalue { ptr, i32 } %19, 0
+  call void @__clang_call_terminate(ptr %17) #43
   unreachable
 
 _ZN5boost10function_nIiJEED2Ev.exit:              ; preds = %10, %13, %17, %8
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
-21:                                               ; preds = %2
-  %22 = landingpad { ptr, i32 }
+18:                                               ; preds = %2
+  %19 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5boost10function_nIiJEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #40
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  resume { ptr, i32 } %22
+  resume { ptr, i32 } %19
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -2973,23 +2973,23 @@ define linkonce_odr hidden void @_ZN5boost10function_nIiJEED2Ev(ptr noundef nonn
   %.not.i.i = icmp eq ptr %9, null
   br i1 %.not.i.i, label %_ZNK5boost6detail8function12basic_vtableIiJEE5clearERNS1_15function_bufferE.exit.i, label %10
 
-10:                                               ; preds = %6
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  invoke void %9(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %11, i32 noundef 2)
-          to label %_ZNK5boost6detail8function12basic_vtableIiJEE5clearERNS1_15function_bufferE.exit.i unwind label %12
+8:                                                ; preds = %6
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  invoke void %9(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %9, i32 noundef 2)
+          to label %_ZNK5boost6detail8function12basic_vtableIiJEE5clearERNS1_15function_bufferE.exit.i unwind label %10
 
-_ZNK5boost6detail8function12basic_vtableIiJEE5clearERNS1_15function_bufferE.exit.i: ; preds = %10, %6, %3
+_ZNK5boost6detail8function12basic_vtableIiJEE5clearERNS1_15function_bufferE.exit.i: ; preds = %8, %6, %3
   store ptr null, ptr %0, align 8, !tbaa !62
   br label %_ZN5boost10function_nIiJEE5clearEv.exit
 
 _ZN5boost10function_nIiJEE5clearEv.exit:          ; preds = %_ZNK5boost6detail8function12basic_vtableIiJEE5clearERNS1_15function_bufferE.exit.i, %1
   ret void
 
-12:                                               ; preds = %10
-  %13 = landingpad { ptr, i32 }
+10:                                               ; preds = %8
+  %11 = landingpad { ptr, i32 }
           catch ptr null
-  %14 = extractvalue { ptr, i32 } %13, 0
-  tail call void @__clang_call_terminate(ptr %14) #43
+  %12 = extractvalue { ptr, i32 } %11, 0
+  tail call void @__clang_call_terminate(ptr %12) #43
   unreachable
 }
 

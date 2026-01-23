@@ -18263,9 +18263,9 @@ cond.end:                                         ; preds = %if.end.i.i, %if.the
   %41 = phi i8 [ %.pre50, %cond.false ], [ %frombool.i, %if.then.i ], [ %frombool.i.i, %if.then.i.i ], [ %frombool.i.i.i, %if.end.i.i ]
   %cond = phi i1 [ %call39, %cond.false ], [ %cmp.i.i.i34, %if.then.i ], [ %cmp.i.i.i.i, %if.then.i.i ], [ %cmp.i.i11.i.i, %if.end.i.i ]
   %42 = trunc i8 %41 to i1
-  br i1 %42, label %for.cond47.preheader, label %if.end58
+  br i1 %42, label %for.body49, label %if.end58
 
-for.cond47.preheader:                             ; preds = %cond.end
+for.body49:                                       ; preds = %cond.end
   %43 = and i8 %41, 1
   %conv51 = zext nneg i8 %43 to i64
   br label %for.body49
@@ -18273,8 +18273,8 @@ for.cond47.preheader:                             ; preds = %cond.end
 for.body49:                                       ; preds = %for.cond47.preheader, %for.body49
   %indvars.iv46 = phi i64 [ 0, %for.cond47.preheader ], [ %indvars.iv.next47, %for.body49 ]
   %arrayidx53 = getelementptr inbounds nuw i64, ptr %leaf, i64 %indvars.iv46
-  %44 = load i64, ptr %arrayidx53, align 8
-  %add54 = add i64 %44, %conv51
+  %43 = load i64, ptr %arrayidx53, align 8
+  %add54 = add i64 %43, %conv51
   store i64 %add54, ptr %arrayidx53, align 8
   %indvars.iv.next47 = add nuw nsw i64 %indvars.iv46, 1
   %exitcond49.not = icmp eq i64 %indvars.iv.next47, 512
@@ -21752,18 +21752,18 @@ cond.end:                                         ; preds = %cond.false, %_ZNK7o
   %45 = phi i8 [ %44, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIbLj3EEELj4EEELj5EE10probeValueERKNS0_4math5CoordERb.exit ], [ %.pre52, %cond.false ]
   %cond = phi i1 [ %retval.0.i36, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIbLj3EEELj4EEELj5EE10probeValueERKNS0_4math5CoordERb.exit ], [ %call39, %cond.false ]
   %46 = trunc i8 %45 to i1
-  br i1 %46, label %for.cond47.preheader, label %if.end58
+  br i1 %46, label %for.body49, label %if.end58
 
 for.cond47.preheader:                             ; preds = %cond.end
   %47 = and i8 %45, 1
   %conv51 = zext nneg i8 %47 to i64
   br label %for.body49
 
-for.body49:                                       ; preds = %for.cond47.preheader, %for.body49
+for.body49:                                       ; preds = %for.body49, %for.body49
   %indvars.iv48 = phi i64 [ 0, %for.cond47.preheader ], [ %indvars.iv.next49, %for.body49 ]
   %arrayidx53 = getelementptr inbounds nuw i64, ptr %mBuffer.i25, i64 %indvars.iv48
-  %48 = load i64, ptr %arrayidx53, align 8
-  %add54 = add i64 %48, %conv51
+  %47 = load i64, ptr %arrayidx53, align 8
+  %add54 = add i64 %47, %conv51
   store i64 %add54, ptr %arrayidx53, align 8
   %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
   %exitcond51.not = icmp eq i64 %indvars.iv.next49, 512

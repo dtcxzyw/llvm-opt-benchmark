@@ -2372,9 +2372,9 @@ define noundef zeroext i1 @_ZNK10open_spiel7clobber12ClobberState14MovesRemainin
   %indvars89 = trunc i64 %indvars.iv87 to i32
   %13 = mul nuw nsw i64 %indvars.iv87, %12
   %14 = getelementptr inbounds nuw i32, ptr %11, i64 %13
-  br label %15
+  br label %18
 
-15:                                               ; preds = %.preheader26.us, %.loopexit.us
+18:                                               ; preds = %.preheader26.us, %.loopexit.us
   %indvars.iv83 = phi i64 [ 0, %.preheader26.us ], [ %indvars.iv.next84, %.loopexit.us ]
   %16 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv83
   %17 = load i32, ptr %16, align 4
@@ -2387,30 +2387,30 @@ define noundef zeroext i1 @_ZNK10open_spiel7clobber12ClobberState14MovesRemainin
 
 .preheader.split.us60:                            ; preds = %.preheader.split.us60.preheader, %_ZNK10open_spiel7clobber12ClobberState8InBoundsEii.exit.thread.us58
   %indvars.iv79 = phi i64 [ 0, %.preheader.split.us60.preheader ], [ %indvars.iv.next80, %_ZNK10open_spiel7clobber12ClobberState8InBoundsEii.exit.thread.us58 ]
-  %18 = getelementptr inbounds nuw i32, ptr @_ZN10open_spiel7clobber12_GLOBAL__N_114kDirRowOffsetsE, i64 %indvars.iv79
-  %19 = load i32, ptr %18, align 4
-  %20 = add nsw i32 %19, %indvars89
-  %21 = icmp sgt i32 %20, -1
-  br i1 %21, label %22, label %_ZNK10open_spiel7clobber12ClobberState8InBoundsEii.exit.thread.us58
+  %21 = getelementptr inbounds nuw i32, ptr @_ZN10open_spiel7clobber12_GLOBAL__N_114kDirRowOffsetsE, i64 %indvars.iv79
+  %22 = load i32, ptr %21, align 4
+  %23 = add nsw i32 %22, %indvars89
+  %24 = icmp sgt i32 %23, -1
+  br i1 %24, label %25, label %_ZNK10open_spiel7clobber12ClobberState8InBoundsEii.exit.thread.us58
 
-22:                                               ; preds = %.preheader.split.us60
-  %23 = getelementptr inbounds nuw i32, ptr @_ZN10open_spiel7clobber12_GLOBAL__N_117kDirColumnOffsetsE, i64 %indvars.iv79
-  %24 = load i32, ptr %23, align 4
-  %25 = add nsw i32 %24, %30
-  %26 = icmp slt i32 %20, %5
-  %27 = icmp ult i32 %25, %8
-  %or.cond.us57 = and i1 %26, %27
+25:                                               ; preds = %.preheader.split.us60
+  %26 = getelementptr inbounds nuw i32, ptr @_ZN10open_spiel7clobber12_GLOBAL__N_117kDirColumnOffsetsE, i64 %indvars.iv79
+  %27 = load i32, ptr %26, align 4
+  %28 = add nsw i32 %27, %30
+  %29 = icmp slt i32 %23, %5
+  %30 = icmp ult i32 %28, %8
+  %or.cond.us57 = and i1 %29, %30
   br i1 %or.cond.us57, label %.split.us, label %_ZNK10open_spiel7clobber12ClobberState8InBoundsEii.exit.thread.us58
 
-_ZNK10open_spiel7clobber12ClobberState8InBoundsEii.exit.thread.us58: ; preds = %22, %.preheader.split.us60
+_ZNK10open_spiel7clobber12ClobberState8InBoundsEii.exit.thread.us58: ; preds = %25, %.preheader.split.us60
   %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 1
   %exitcond82.not = icmp eq i64 %indvars.iv.next80, 4
   br i1 %exitcond82.not, label %.loopexit.us, label %.preheader.split.us60, !llvm.loop !10
 
-.loopexit.us:                                     ; preds = %_ZNK10open_spiel7clobber12ClobberState8InBoundsEii.exit.thread.us37.us, %_ZNK10open_spiel7clobber12ClobberState8InBoundsEii.exit.thread.us.us, %_ZNK10open_spiel7clobber12ClobberState8InBoundsEii.exit.thread.us58, %15
+.loopexit.us:                                     ; preds = %_ZNK10open_spiel7clobber12ClobberState8InBoundsEii.exit.thread.us37.us, %_ZNK10open_spiel7clobber12ClobberState8InBoundsEii.exit.thread.us.us, %_ZNK10open_spiel7clobber12ClobberState8InBoundsEii.exit.thread.us58, %18
   %indvars.iv.next84 = add nuw nsw i64 %indvars.iv83, 1
   %exitcond86.not = icmp eq i64 %indvars.iv.next84, %wide.trip.count
-  br i1 %exitcond86.not, label %._crit_edge.us, label %15, !llvm.loop !11
+  br i1 %exitcond86.not, label %._crit_edge.us, label %18, !llvm.loop !11
 
 .preheader.split.us31.us.preheader:               ; preds = %15
   %28 = trunc nuw nsw i64 %indvars.iv83 to i32
@@ -2491,7 +2491,7 @@ _ZNK10open_spiel7clobber12ClobberState8InBoundsEii.exit.thread.us37.us: ; preds 
   %exitcond91.not = icmp eq i64 %indvars.iv.next88, %wide.trip.count90
   br i1 %exitcond91.not, label %.loopexit25, label %.preheader26.us, !llvm.loop !12
 
-.split.us:                                        ; preds = %22
+.split.us:                                        ; preds = %25
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #25

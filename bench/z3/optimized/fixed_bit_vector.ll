@@ -93,29 +93,29 @@ define hidden void @_ZN16fixed_bit_vector3setERKS_jj(ptr noundef nonnull align 4
   br i1 %37, label %.lr.ph38, label %.loopexit, !llvm.loop !9
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.033 = phi i32 [ %56, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %38 = add i32 %.033, %3
-  %39 = lshr i32 %.033, 5
-  %40 = zext nneg i32 %39 to i64
-  %41 = getelementptr inbounds nuw i32, ptr %1, i64 %40
-  %42 = load i32, ptr %41, align 4, !tbaa !3
-  %43 = and i32 %.033, 31
-  %44 = shl nuw i32 1, %43
-  %45 = and i32 %42, %44
-  %46 = icmp ne i32 %45, 0
-  %.neg.i31 = sext i1 %46 to i32
-  %47 = lshr i32 %38, 5
-  %48 = zext nneg i32 %47 to i64
-  %49 = getelementptr inbounds nuw i32, ptr %0, i64 %48
-  %50 = load i32, ptr %49, align 4, !tbaa !3
-  %51 = xor i32 %50, %.neg.i31
-  %52 = and i32 %38, 31
-  %53 = shl nuw i32 1, %52
-  %54 = and i32 %51, %53
-  %55 = xor i32 %54, %50
-  store i32 %55, ptr %49, align 4, !tbaa !3
-  %56 = add nuw i32 %.033, 1
-  %exitcond.not = icmp eq i32 %56, %8
+  %.033 = phi i32 [ %54, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %36 = add i32 %.033, %3
+  %37 = lshr i32 %.033, 5
+  %38 = zext nneg i32 %37 to i64
+  %39 = getelementptr inbounds nuw i32, ptr %1, i64 %38
+  %40 = load i32, ptr %39, align 4, !tbaa !3
+  %41 = and i32 %.033, 31
+  %42 = shl nuw i32 1, %41
+  %43 = and i32 %40, %42
+  %44 = icmp ne i32 %43, 0
+  %.neg.i31 = sext i1 %44 to i32
+  %45 = lshr i32 %36, 5
+  %46 = zext nneg i32 %45 to i64
+  %47 = getelementptr inbounds nuw i32, ptr %0, i64 %46
+  %48 = load i32, ptr %47, align 4, !tbaa !3
+  %49 = xor i32 %48, %.neg.i31
+  %50 = and i32 %36, 31
+  %51 = shl nuw i32 1, %50
+  %52 = and i32 %49, %51
+  %53 = xor i32 %52, %48
+  store i32 %53, ptr %47, align 4, !tbaa !3
+  %54 = add nuw i32 %.033, 1
+  %exitcond.not = icmp eq i32 %54, %8
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !10
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph38, %.preheader, %._crit_edge

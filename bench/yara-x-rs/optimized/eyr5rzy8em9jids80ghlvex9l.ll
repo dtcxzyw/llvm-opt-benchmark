@@ -80798,11 +80798,11 @@ define hidden void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..s
 
 .lr.ph.i.preheader.i.i.i.i.i:                     ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h59d796559da33afeE.exit.i.i.i"
   %.pre.i.i.i.i.i = load i8, ptr %28, align 8, !alias.scope !10130, !noalias !10131
-  %.phi.trans.insert.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 17
-  %.pre3.i.i.i.i.i = load i8, ptr %.phi.trans.insert.i.i.i.i.i, align 1, !alias.scope !10130, !noalias !10131
+  %33 = getelementptr inbounds nuw i8, ptr %4, i64 17
+  %.pre3.i.i.i.i.i = load i8, ptr %33, align 1, !alias.scope !10130, !noalias !10131
   br label %.lr.ph.i.i.i.i.i.i
 
-._crit_edge.i.i.i.i.i.i:                          ; preds = %.lr.ph.i.i.i.i.i.i
+._crit_edge.i.i.i.i.i.i:; preds = %.lr.ph.i.i.i.i.i.i
   store i64 %31, ptr %4, align 8, !alias.scope !10125, !noalias !10126
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17hc1ab6f5cbe88d6e8E.exit.i.i"
 
@@ -85899,11 +85899,11 @@ define hidden void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..s
 
 .lr.ph.i.preheader.i.i.i.i.i:                     ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h7cda97f636e73ee6E.exit.i.i.i"
   %.pre.i.i.i.i.i = load i32, ptr %28, align 8, !range !9591, !alias.scope !11270, !noalias !11271
-  %.phi.trans.insert.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 20
-  %.pre3.i.i.i.i.i = load i32, ptr %.phi.trans.insert.i.i.i.i.i, align 4, !range !9591, !alias.scope !11270, !noalias !11271
+  %33 = getelementptr inbounds nuw i8, ptr %4, i64 20
+  %.pre3.i.i.i.i.i = load i32, ptr %33, align 4, !range !9591, !alias.scope !11270, !noalias !11271
   br label %.lr.ph.i.i.i.i.i.i
 
-._crit_edge.i.i.i.i.i.i:                          ; preds = %.lr.ph.i.i.i.i.i.i
+._crit_edge.i.i.i.i.i.i:; preds = %.lr.ph.i.i.i.i.i.i
   store i64 %31, ptr %4, align 8, !alias.scope !11265, !noalias !11266
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h0eff9c2fcdaa6da9E.exit.i.i"
 

@@ -188,7 +188,7 @@ lpad36:                                           ; preds = %if.then31
   br label %eh.resume
 
 if.end38:                                         ; preds = %if.then29
-  %and39 = lshr i32 %conv.le, 2
+  %shr = lshr i32 %conv.le, 2
   %shr = and i32 %and39, 3
   %incdec.ptr40 = getelementptr inbounds nuw i8, ptr %input.1303, i64 2
   %12 = load i8, ptr %incdec.ptr, align 1
@@ -221,7 +221,7 @@ lpad52:                                           ; preds = %if.then47
   br label %eh.resume
 
 if.end54:                                         ; preds = %if.else45
-  %and55 = lshr i32 %conv.le, 2
+  %shr56 = lshr i32 %conv.le, 2
   %shr56 = and i32 %and55, 3
   %incdec.ptr57 = getelementptr inbounds nuw i8, ptr %input.1303, i64 2
   %14 = load i8, ptr %incdec.ptr, align 1

@@ -4783,8 +4783,8 @@ define void @_ZN6duckdb17DictionaryDecoder14InitializePageEv(ptr noundef nonnull
   tail call void @__cxa_throw(ptr nonnull %8, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #25
   unreachable
 
-common.resume:                                    ; preds = %53, %.body.i, %10
-  %common.resume.op = phi { ptr, i32 } [ %11, %10 ], [ %eh.lpad-body.i, %.body.i ], [ %54, %53 ]
+common.resume:                                    ; preds = %52, %.body.i, %10
+  %common.resume.op = phi { ptr, i32 } [ %11, %10 ], [ %eh.lpad-body.i, %.body.i ], [ %53, %53 ]
   resume { ptr, i32 } %common.resume.op
 
 10:                                               ; preds = %7
@@ -4879,27 +4879,27 @@ _ZNSt10unique_ptrIN6duckdb12RleBpDecoderESt14default_deleteIS1_EED2Ev.exit: ; pr
   %.not.i.i6 = icmp ugt i64 %47, %49
   br i1 %.not.i.i6, label %50, label %_ZN6duckdb10ByteBuffer3incEm.exit
 
-50:                                               ; preds = %_ZNSt10unique_ptrIN6duckdb12RleBpDecoderESt14default_deleteIS1_EED2Ev.exit
+50:; preds = %_ZNSt10unique_ptrIN6duckdb12RleBpDecoderESt14default_deleteIS1_EED2Ev.exit
   %51 = tail call ptr @__cxa_allocate_exception(i64 16) #24
   invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %51, ptr noundef nonnull @.str.18)
           to label %52 unwind label %53
 
-52:                                               ; preds = %50
+51:                                               ; preds = %50
   tail call void @__cxa_throw(ptr nonnull %51, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #25
   unreachable
 
-53:                                               ; preds = %50
-  %54 = landingpad { ptr, i32 }
+52:                                               ; preds = %50
+  %53 = landingpad { ptr, i32 }
           cleanup
   tail call void @__cxa_free_exception(ptr nonnull %51) #24
   br label %common.resume
 
 _ZN6duckdb10ByteBuffer3incEm.exit:                ; preds = %_ZNSt10unique_ptrIN6duckdb12RleBpDecoderESt14default_deleteIS1_EED2Ev.exit
-  %55 = sub nuw i64 %49, %47
-  store i64 %55, ptr %48, align 8, !tbaa !21
-  %56 = load ptr, ptr %44, align 8, !tbaa !29
-  %57 = getelementptr inbounds nuw i8, ptr %56, i64 %47
-  store ptr %57, ptr %44, align 8, !tbaa !29
+  %54 = sub nuw i64 %49, %47
+  store i64 %54, ptr %48, align 8, !tbaa !21
+  %55 = load ptr, ptr %44, align 8, !tbaa !29
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 %47
+  store ptr %56, ptr %44, align 8, !tbaa !29
   ret void
 }
 

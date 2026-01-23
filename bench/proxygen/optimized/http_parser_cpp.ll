@@ -2401,8 +2401,8 @@ do.body2230:                                      ; preds = %sw.bb2223
   br label %error
 
 if.end2236:                                       ; preds = %sw.bb2223
-  %sub2238 = zext nneg i8 %113 to i64
-  store i64 %sub2238, ptr %content_length3323, align 8
+  %conv2239 = zext nneg i8 %113 to i64
+  store i64 %conv2239, ptr %content_length3323, align 8
   br label %for.inc
 
 sw.default2241:                                   ; preds = %if.end2200
@@ -2860,8 +2860,8 @@ do.body2881:                                      ; preds = %if.end2877
 
 if.end2887:                                       ; preds = %if.end2877
   %mul2889 = mul nsw i64 %135, 10
-  %sub2891 = zext nneg i8 %134 to i64
-  %add2894 = add nsw i64 %mul2889, %sub2891
+  %conv2892 = zext nneg i8 %134 to i64
+  %add2894 = add nsw i64 %mul2889, %conv2892
   store i64 %add2894, ptr %content_length3323, align 8
   br label %for.inc
 

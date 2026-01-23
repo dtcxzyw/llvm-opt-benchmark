@@ -2338,34 +2338,34 @@ define hidden void @_ZN5o3dgc19Adaptive_Data_Model12set_alphabetEj(ptr noundef n
   br i1 %47, label %_ZN5o3dgc19Adaptive_Data_Model5resetEv.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.thread, %5, %36
-  %48 = phi i32 [ %.pr, %36 ], [ %1, %5 ], [ %.pr, %.thread ]
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 0, ptr %49, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i32 %48, ptr %50, align 4
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br label %56
+  %47 = phi i32 [ %.pr, %36 ], [ %1, %5 ], [ %.pr, %.thread ]
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i32 0, ptr %48, align 8
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  store i32 %47, ptr %49, align 4
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  br label %55
 
-._crit_edge.i:                                    ; preds = %56
+._crit_edge.i:                                    ; preds = %55
   tail call void @_ZN5o3dgc19Adaptive_Data_Model6updateEb(ptr noundef nonnull align 8 dereferenceable(52) %0, i1 noundef zeroext false)
-  %52 = load i32, ptr %6, align 4
-  %53 = add i32 %52, 6
-  %54 = lshr i32 %53, 1
-  store i32 %54, ptr %50, align 4
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i32 %54, ptr %55, align 8
+  %51 = load i32, ptr %6, align 4
+  %52 = add i32 %51, 6
+  %53 = lshr i32 %52, 1
+  store i32 %53, ptr %49, align 4
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i32 %53, ptr %54, align 8
   br label %_ZN5o3dgc19Adaptive_Data_Model5resetEv.exit
 
-56:                                               ; preds = %56, %.lr.ph.i
+55:                                               ; preds = %55, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %56 ]
-  %57 = load ptr, ptr %51, align 8
-  %58 = getelementptr inbounds nuw i32, ptr %57, i64 %indvars.iv.i
-  store i32 1, ptr %58, align 4
+  %56 = load ptr, ptr %50, align 8
+  %57 = getelementptr inbounds nuw i32, ptr %56, i64 %indvars.iv.i
+  store i32 1, ptr %57, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %59 = load i32, ptr %6, align 4
-  %60 = zext i32 %59 to i64
-  %61 = icmp samesign ult i64 %indvars.iv.next.i, %60
-  br i1 %61, label %56, label %._crit_edge.i, !llvm.loop !23
+  %58 = load i32, ptr %6, align 4
+  %59 = zext i32 %58 to i64
+  %60 = icmp samesign ult i64 %indvars.iv.next.i, %59
+  br i1 %60, label %55, label %._crit_edge.i, !llvm.loop !23
 
 _ZN5o3dgc19Adaptive_Data_Model5resetEv.exit:      ; preds = %36, %._crit_edge.i
   ret void

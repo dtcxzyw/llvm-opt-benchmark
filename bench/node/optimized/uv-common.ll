@@ -2777,8 +2777,8 @@ sw.epilog:                                        ; preds = %if.end8, %switch.lo
   %lnot.ext40 = xor i32 %and37.lobit, 1
   %idxprom41 = zext nneg i32 %lnot.ext40 to i64
   %arrayidx42 = getelementptr inbounds nuw i8, ptr @.str.189, i64 %idxprom41
-  %15 = load i8, ptr %arrayidx42, align 1
-  %conv43 = sext i8 %15 to i32
+  %14 = load i8, ptr %arrayidx42, align 1
+  %conv43 = sext i8 %14 to i32
   %call44 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %spec.select, ptr noundef nonnull @.str.186, i32 noundef %conv, i32 noundef %conv35, i32 noundef %conv43, ptr noundef nonnull %type.0, ptr noundef nonnull %add.ptr)
   br label %for.inc
 

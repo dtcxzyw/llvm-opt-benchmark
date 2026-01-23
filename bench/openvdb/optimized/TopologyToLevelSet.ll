@@ -164893,17 +164893,17 @@ if.then7:                                         ; preds = %if.then
           to label %if.end unwind label %lpad.loopexit.split-lp
 
 lpad.loopexit:                                    ; preds = %if.end.i
-  %lpad.loopexit131 = landingpad { ptr, i32 }
+  %lpad.loopexit130 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp:                           ; preds = %if.then7
-  %lpad.loopexit.split-lp132 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp131 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit131, %lpad.loopexit ], [ %lpad.loopexit.split-lp132, %lpad.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit130, %lpad.loopexit ], [ %lpad.loopexit.split-lp131, %lpad.loopexit.split-lp ]
   %14 = load ptr, ptr %b, align 8
   %tobool.not.i.i24 = icmp eq ptr %14, null
   br i1 %tobool.not.i.i24, label %common.resume, label %if.then.i.i25
@@ -164925,14 +164925,14 @@ if.else.i.i.i27:                                  ; preds = %if.then.i.i25
 if.end:                                           ; preds = %if.then7, %if.then
   %tmp_n.addr.1 = phi ptr [ %tmp_n.addr.0, %if.then ], [ %call2.i23, %if.then7 ]
   %18 = load i8, ptr %m_is_writer.i.i, align 8
-  %tobool.i153 = trunc i8 %18 to i1
-  br i1 %tobool.i153, label %while.end, label %if.end.i
+  %tobool.i152 = trunc i8 %18 to i1
+  br i1 %tobool.i152, label %while.end, label %if.end.i
 
 while.cond:                                       ; preds = %invoke.cont15
   br i1 %tobool.i47, label %while.end, label %if.end.i, !llvm.loop !2087
 
 if.end.i:                                         ; preds = %if.end, %while.cond
-  %n.0154 = phi ptr [ %n.0.lcssa.i38, %while.cond ], [ null, %if.end ]
+  %n.0153 = phi ptr [ %n.0.lcssa.i38, %while.cond ], [ null, %if.end ]
   store i8 1, ptr %m_is_writer.i.i, align 8
   %19 = load ptr, ptr %b, align 8
   %call.i3233 = invoke noundef zeroext i1 @_ZN3tbb6detail2d113spin_rw_mutex7upgradeEv(ptr noundef nonnull align 8 dereferenceable(8) %19)
@@ -164982,7 +164982,7 @@ if.then.i:                                        ; preds = %if.then18
   br label %exists
 
 while.end:                                        ; preds = %invoke.cont11, %while.cond, %if.end
-  %n.0.lcssa = phi ptr [ null, %if.end ], [ %n.0.lcssa.i38, %while.cond ], [ %n.0154, %invoke.cont11 ]
+  %n.0.lcssa = phi ptr [ null, %if.end ], [ %n.0.lcssa.i38, %while.cond ], [ %n.0153, %invoke.cont11 ]
   %29 = load atomic i64, ptr %my_mask acquire, align 8
   %cmp.not.i = icmp eq i64 %m.0, %29
   br i1 %cmp.not.i, label %if.end34, label %if.then.i62
@@ -165217,10 +165217,10 @@ check_growth:                                     ; preds = %_ZN3tbb6detail2d219
 
 if.then63:                                        ; preds = %check_growth
   %cmp.i109 = icmp ugt i64 %grow_segment.2, 7
-  br i1 %cmp.i109, label %if.then.i114, label %if.else.i110
+  br i1 %cmp.i109, label %if.then.i113, label %if.else.i110
 
-if.then.i114:                                     ; preds = %if.then63
-  %shl.i.i115 = shl nuw i64 1, %grow_segment.2
+if.then.i113:                                     ; preds = %if.then63
+  %shl.i.i114 = shl nuw i64 1, %grow_segment.2
   %mul.i.i.i.i.i = shl i64 16, %grow_segment.2
   %call.i.i.i1.i.i = invoke noundef ptr @_ZN3tbb6detail2r115allocate_memoryEm(i64 noundef %mul.i.i.i.i.i)
           to label %for.body.i.i.i unwind label %_ZN3tbb6detail2d010raii_guardIZNS0_2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKPN7openvdb5v11_04tree17ValueAccessorBaseIKNSA_4TreeINSA_8RootNodeINSA_12InternalNodeINSE_INSA_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEEbEEENS5_13spin_rw_mutexEE14enable_segmentEmbEUlvE0_ED2Ev.exit8.i.i
@@ -165231,25 +165231,25 @@ common.resume.i:                                  ; preds = %_ZN3tbb6detail2d010
   store atomic i64 0, ptr %arrayidx.i.i7.i13.i monotonic, align 8
   br label %common.resume
 
-_ZN3tbb6detail2d010raii_guardIZNS0_2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKPN7openvdb5v11_04tree17ValueAccessorBaseIKNSA_4TreeINSA_8RootNodeINSA_12InternalNodeINSE_INSA_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEEbEEENS5_13spin_rw_mutexEE14enable_segmentEmbEUlvE0_ED2Ev.exit8.i.i: ; preds = %if.then.i114
+_ZN3tbb6detail2d010raii_guardIZNS0_2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKPN7openvdb5v11_04tree17ValueAccessorBaseIKNSA_4TreeINSA_8RootNodeINSA_12InternalNodeINSE_INSA_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEEbEEENS5_13spin_rw_mutexEE14enable_segmentEmbEUlvE0_ED2Ev.exit8.i.i: ; preds = %if.then.i113
   %63 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume.i
 
-for.body.i.i.i:                                   ; preds = %if.then.i114, %for.body.i.i.i
+for.body.i.i.i:                                   ; preds = %if.then.i113, %for.body.i.i.i
   %i.04.i.i.i = phi i64 [ %inc.i.i.i, %for.body.i.i.i ], [ 0, %if.then.i114 ]
   %add.ptr.i.i.i = getelementptr inbounds %"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<openvdb::v11_0::tree::ValueAccessorBase<const openvdb::v11_0::tree::Tree<openvdb::v11_0::tree::RootNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<float, 3>, 4>, 5>>>, true> *const, bool>>, tbb::detail::d1::spin_rw_mutex>::bucket", ptr %call.i.i.i1.i.i, i64 %i.04.i.i.i
   store i64 0, ptr %add.ptr.i.i.i, align 8
   %node_list.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i, i64 8
   store ptr inttoptr (i64 3 to ptr), ptr %node_list.i.i.i.i.i.i, align 8
   %inc.i.i.i = add nuw i64 %i.04.i.i.i, 1
-  %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, %shl.i.i115
+  %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, %shl.i.i114
   br i1 %exitcond.not.i.i.i, label %_ZN3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKPN7openvdb5v11_04tree17ValueAccessorBaseIKNS8_4TreeINS8_8RootNodeINS8_12InternalNodeINSC_INS8_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEEbEEENS3_13spin_rw_mutexEE12init_bucketsEPNSQ_6bucketEmb.exit.i, label %for.body.i.i.i, !llvm.loop !2090
 
 _ZN3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKPN7openvdb5v11_04tree17ValueAccessorBaseIKNS8_4TreeINS8_8RootNodeINS8_12InternalNodeINSC_INS8_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEEbEEENS3_13spin_rw_mutexEE12init_bucketsEPNSQ_6bucketEmb.exit.i: ; preds = %for.body.i.i.i
-  %arrayidx.i117 = getelementptr inbounds nuw %"struct.std::atomic.66", ptr %my_table.i.i.i, i64 %grow_segment.2
+  %arrayidx.i116 = getelementptr inbounds nuw %"struct.std::atomic.66", ptr %my_table.i.i.i, i64 %grow_segment.2
   %64 = ptrtoint ptr %call.i.i.i1.i.i to i64
-  store atomic i64 %64, ptr %arrayidx.i117 release, align 8
+  store atomic i64 %64, ptr %arrayidx.i116 release, align 8
   %shl.i = shl i64 2, %grow_segment.2
   %65 = add i64 %shl.i, -1
   br label %_ZN3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKPN7openvdb5v11_04tree17ValueAccessorBaseIKNS8_4TreeINS8_8RootNodeINS8_12InternalNodeINSC_INS8_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEEbEEENS3_13spin_rw_mutexEE14enable_segmentEmb.exit
