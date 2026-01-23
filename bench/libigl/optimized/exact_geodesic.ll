@@ -1637,9 +1637,9 @@ _ZNSt6vectorIPN3igl8geodesic4EdgeESaIS3_EE5clearEv.exit: ; preds = %52, %_ZSt8_D
   %63 = getelementptr inbounds nuw i8, ptr %57, i64 16
   br label %.lr.ph.split
 
-._crit_edge:                                      ; preds = %221, %.preheader
-  %64 = phi ptr [ %60, %.preheader ], [ %224, %221 ]
-  %65 = phi ptr [ %61, %.preheader ], [ %225, %221 ]
+._crit_edge:                                      ; preds = %216, %.preheader
+  %64 = phi ptr [ %60, %.preheader ], [ %219, %216 ]
+  %65 = phi ptr [ %61, %.preheader ], [ %220, %216 ]
   %66 = add i32 %.023, 1
   %67 = zext i32 %66 to i64
   %68 = load ptr, ptr %34, align 8, !tbaa !132
@@ -1654,12 +1654,12 @@ _ZNSt6vectorIPN3igl8geodesic4EdgeESaIS3_EE5clearEv.exit: ; preds = %52, %_ZSt8_D
 75:                                               ; preds = %_ZNSt6vectorIPN3igl8geodesic4EdgeESaIS3_EE5clearEv.exit
   %76 = landingpad { ptr, i32 }
           cleanup
-  br label %232
+  br label %227
 
-.lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %221
-  %77 = phi ptr [ %225, %221 ], [ %61, %.lr.ph.split.preheader ]
-  %78 = phi i64 [ %223, %221 ], [ 0, %.lr.ph.split.preheader ]
-  %.01422 = phi i32 [ %222, %221 ], [ 0, %.lr.ph.split.preheader ]
+.lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %216
+  %77 = phi ptr [ %220, %216 ], [ %61, %.lr.ph.split.preheader ]
+  %78 = phi i64 [ %218, %216 ], [ 0, %.lr.ph.split.preheader ]
+  %.01422 = phi i32 [ %217, %216 ], [ 0, %.lr.ph.split.preheader ]
   %79 = getelementptr inbounds nuw ptr, ptr %77, i64 %78
   %80 = load ptr, ptr %79, align 8, !tbaa !76
   store ptr null, ptr %38, align 8, !tbaa !99
@@ -1758,75 +1758,72 @@ _ZNSt6vectorIPN3igl8geodesic4EdgeESaIS3_EE5clearEv.exit: ; preds = %52, %_ZSt8_D
   %152 = fneg double %151
   store double %152, ptr %43, align 8, !tbaa !147
   %153 = fcmp olt double %146, 0.000000e+00
-  br i1 %153, label %156, label %167
+  br i1 %153, label %154, label %161
 
 .thread20.i:                                      ; preds = %120
   store double %138, ptr %42, align 8, !tbaa !77
   store double -0.000000e+00, ptr %43, align 8, !tbaa !147
-  %154 = fcmp olt double %138, 0.000000e+00
-  br i1 %154, label %.thread23.i, label %.thread
+  br label %.thread23.i
 
-.thread23.i:                                      ; preds = %.thread20.i
-  %155 = fsub double 0.000000e+00, %138
-  br label %.thread74
+154:                                              ; preds = %139
+  %155 = fcmp oeq double %151, 0.000000e+00
+  br i1 %155, label %.thread23.i, label %156
 
-156:                                              ; preds = %139
+156:                                              ; preds = %154
   %157 = fsub double 0.000000e+00, %146
-  %158 = fcmp oeq double %151, 0.000000e+00
-  br i1 %158, label %.thread74, label %163
+  %158 = fmul double %151, %151
+  %159 = call double @llvm.fmuladd.f64(double %157, double %157, double %158)
+  %160 = call double @sqrt(double noundef %159) #24, !tbaa !24
+  br label %.thread23.i
 
-.thread74:                                        ; preds = %.thread23.i, %156
-  %159 = phi double [ -0.000000e+00, %.thread23.i ], [ %152, %156 ]
-  %160 = phi double [ %138, %.thread23.i ], [ %146, %156 ]
-  %161 = phi double [ %155, %.thread23.i ], [ %157, %156 ]
-  %162 = call noundef double @llvm.fabs.f64(double %161)
-  store double %162, ptr %44, align 8, !tbaa !148
-  store double %138, ptr %45, align 8, !tbaa !77
-  br label %185
-
-163:                                              ; preds = %156
-  %164 = fmul double %151, %151
-  %165 = call double @llvm.fmuladd.f64(double %157, double %157, double %164)
-  %166 = call double @sqrt(double noundef %165) #24, !tbaa !24
-  br label %.thread
-
-167:                                              ; preds = %139
-  %168 = fcmp olt double %138, %146
-  br i1 %168, label %170, label %.thread
+161:                                              ; preds = %139
+  %162 = fcmp olt double %138, %146
+  br i1 %162, label %164, label %.thread23.i
 
 .thread59:                                        ; preds = %100
   store double 0.000000e+00, ptr %42, align 8, !tbaa !77
   store double -0.000000e+00, ptr %43, align 8, !tbaa !147
   %.in.i.phi.trans.insert = getelementptr inbounds nuw i8, ptr %80, i64 56
   %.pre = load double, ptr %.in.i.phi.trans.insert, align 8, !tbaa !77
-  %169 = fcmp olt double %.pre, 0.000000e+00
-  br i1 %169, label %.thread72, label %.thread
+  %163 = fcmp olt double %.pre, 0.000000e+00
+  br i1 %163, label %.thread62, label %.thread23.i
 
-170:                                              ; preds = %167
-  %171 = fcmp oeq double %151, 0.000000e+00
-  br i1 %171, label %.thread72, label %172
+164:                                              ; preds = %161
+  %165 = fsub double %138, %146
+  %166 = fcmp oeq double %151, 0.000000e+00
+  br i1 %166, label %.thread62, label %172
 
-172:                                              ; preds = %170
-  %173 = fsub double %138, %146
-  %174 = fmul double %151, %151
-  %175 = call double @llvm.fmuladd.f64(double %173, double %173, double %174)
-  %176 = call double @sqrt(double noundef %175) #24, !tbaa !24
+.thread62:                                        ; preds = %.thread59, %164
+  %167 = phi double [ %165, %164 ], [ %.pre, %.thread59 ]
+  %168 = phi double [ %152, %164 ], [ -0.000000e+00, %.thread59 ]
+  %169 = phi double [ %138, %164 ], [ %.pre, %.thread59 ]
+  %170 = phi double [ %146, %164 ], [ 0.000000e+00, %.thread59 ]
+  %171 = call noundef double @llvm.fabs.f64(double %167)
   br label %.thread72
 
-.thread72:                                        ; preds = %170, %.thread59, %172
-  %.ph = phi double [ %152, %172 ], [ %152, %170 ], [ -0.000000e+00, %.thread59 ]
-  %.ph70 = phi double [ %146, %172 ], [ %146, %170 ], [ 0.000000e+00, %.thread59 ]
-  %.ph71 = phi double [ %138, %172 ], [ %138, %170 ], [ %.pre, %.thread59 ]
-  store double %.ph71, ptr %45, align 8, !tbaa !77
-  br label %198
+172:                                              ; preds = %164
+  %173 = fmul double %151, %151
+  %174 = call double @llvm.fmuladd.f64(double %165, double %165, double %173)
+  %175 = call double @sqrt(double noundef %174) #24, !tbaa !24
+  %176 = fadd double %175, 0.000000e+00
+  br label %.thread72
 
-.thread:                                          ; preds = %167, %.thread59, %.thread20.i, %163
-  %177 = phi double [ %152, %163 ], [ -0.000000e+00, %.thread59 ], [ %152, %167 ], [ -0.000000e+00, %.thread20.i ]
-  %178 = phi double [ %146, %163 ], [ 0.000000e+00, %.thread59 ], [ %146, %167 ], [ %138, %.thread20.i ]
-  %179 = phi double [ %138, %163 ], [ %.pre, %.thread59 ], [ %138, %167 ], [ %138, %.thread20.i ]
+.thread72:                                        ; preds = %.thread62, %172
+  %.ph = phi double [ %152, %172 ], [ %168, %.thread62 ]
+  %.ph70 = phi double [ %146, %172 ], [ %170, %.thread62 ]
+  %.ph71 = phi double [ %138, %172 ], [ %169, %.thread62 ]
+  %.1.i.sink.i.i.ph = phi double [ %176, %172 ], [ %171, %.thread62 ]
+  store double %.1.i.sink.i.i.ph, ptr %44, align 8, !tbaa !148
+  store double %.ph71, ptr %45, align 8, !tbaa !77
+  br label %193
+
+.thread23.i:                                      ; preds = %.thread20.i, %161, %.thread59, %154, %156
+  %177 = phi double [ %152, %154 ], [ -0.000000e+00, %.thread20.i ], [ %152, %156 ], [ -0.000000e+00, %.thread59 ], [ %152, %161 ]
+  %178 = phi double [ %146, %154 ], [ %138, %.thread20.i ], [ %146, %156 ], [ 0.000000e+00, %.thread59 ], [ %146, %161 ]
+  %179 = phi double [ %138, %154 ], [ %138, %.thread20.i ], [ %138, %156 ], [ %.pre, %.thread59 ], [ %138, %161 ]
   store double %179, ptr %45, align 8, !tbaa !77
   %180 = fcmp olt double %178, 0.000000e+00
-  br i1 %180, label %185, label %198
+  br i1 %180, label %185, label %193
 
 .thread65:                                        ; preds = %94
   %181 = getelementptr inbounds nuw i8, ptr %80, i64 56
@@ -1839,109 +1836,102 @@ _ZNSt6vectorIPN3igl8geodesic4EdgeESaIS3_EE5clearEv.exit: ; preds = %52, %_ZSt8_D
 
 .thread66:                                        ; preds = %.thread65
   %184 = fsub double 0.000000e+00, %182
-  br label %190
-
-185:                                              ; preds = %.thread74, %.thread
-  %186 = phi double [ %178, %.thread ], [ %160, %.thread74 ]
-  %187 = phi double [ %177, %.thread ], [ %159, %.thread74 ]
-  %188 = fsub double 0.000000e+00, %186
-  %189 = fcmp oeq double %187, 0.000000e+00
-  br i1 %189, label %190, label %193
-
-190:                                              ; preds = %.thread66, %185
-  %191 = phi double [ %184, %.thread66 ], [ %188, %185 ]
-  %192 = call noundef double @llvm.fabs.f64(double %191)
   br label %_ZN3igl8geodesic8Interval6signalEd.exit.i
 
-193:                                              ; preds = %185
-  %194 = fmul double %187, %187
-  %195 = call double @llvm.fmuladd.f64(double %188, double %188, double %194)
-  %196 = call double @sqrt(double noundef %195) #24, !tbaa !24
-  %197 = fadd double %196, 0.000000e+00
+185:                                              ; preds = %.thread23.i
+  %186 = fsub double 0.000000e+00, %178
+  %187 = fcmp oeq double %177, 0.000000e+00
+  br i1 %187, label %_ZN3igl8geodesic8Interval6signalEd.exit.i, label %188
+
+188:                                              ; preds = %185
+  %189 = fmul double %177, %177
+  %190 = call double @llvm.fmuladd.f64(double %186, double %186, double %189)
+  %191 = call double @sqrt(double noundef %190) #24, !tbaa !24
+  %192 = fadd double %191, 0.000000e+00
   br label %_ZN3igl8geodesic8Interval6signalEd.exit.i
 
-198:                                              ; preds = %.thread72, %.thread
-  %199 = phi double [ %.ph71, %.thread72 ], [ %179, %.thread ]
-  %200 = phi double [ %.ph70, %.thread72 ], [ %178, %.thread ]
-  %201 = phi double [ %.ph, %.thread72 ], [ %177, %.thread ]
-  %202 = fcmp olt double %199, %200
-  br i1 %202, label %204, label %.thread67
+193:                                              ; preds = %.thread72, %.thread23.i
+  %194 = phi double [ %.ph71, %.thread72 ], [ %179, %.thread23.i ]
+  %195 = phi double [ %.ph70, %.thread72 ], [ %178, %.thread23.i ]
+  %196 = phi double [ %.ph, %.thread72 ], [ %177, %.thread23.i ]
+  %197 = fcmp olt double %194, %195
+  br i1 %197, label %199, label %.thread67
 
 .thread68:                                        ; preds = %85
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %42, i8 0, i64 16, i1 false)
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %80, i64 56
   %.pre29 = load double, ptr %.phi.trans.insert, align 8, !tbaa !77
   store double %.pre29, ptr %45, align 8, !tbaa !77
-  %203 = fcmp olt double %.pre29, 0.000000e+00
-  br i1 %203, label %.thread69, label %.thread67
+  %198 = fcmp olt double %.pre29, 0.000000e+00
+  br i1 %198, label %.thread69, label %.thread67
 
-204:                                              ; preds = %198
-  %205 = fsub double %199, %200
-  %206 = fcmp oeq double %201, 0.000000e+00
-  br i1 %206, label %.thread69, label %209
+199:                                              ; preds = %193
+  %200 = fsub double %194, %195
+  %201 = fcmp oeq double %196, 0.000000e+00
+  br i1 %201, label %.thread69, label %204
 
-.thread69:                                        ; preds = %.thread68, %204
-  %207 = phi double [ %205, %204 ], [ %.pre29, %.thread68 ]
-  %208 = call noundef double @llvm.fabs.f64(double %207)
+.thread69:                                        ; preds = %.thread68, %199
+  %202 = phi double [ %200, %199 ], [ %.pre29, %.thread68 ]
+  %203 = call noundef double @llvm.fabs.f64(double %202)
   br label %_ZN3igl8geodesic8Interval6signalEd.exit.i
 
-209:                                              ; preds = %204
-  %210 = fmul double %201, %201
-  %211 = call double @llvm.fmuladd.f64(double %205, double %205, double %210)
-  %212 = call double @sqrt(double noundef %211) #24, !tbaa !24
-  %213 = fadd double %212, 0.000000e+00
+204:                                              ; preds = %199
+  %205 = fmul double %196, %196
+  %206 = call double @llvm.fmuladd.f64(double %200, double %200, double %205)
+  %207 = call double @sqrt(double noundef %206) #24, !tbaa !24
+  %208 = fadd double %207, 0.000000e+00
   br label %_ZN3igl8geodesic8Interval6signalEd.exit.i
 
-.thread67:                                        ; preds = %.thread65, %.thread68, %198
-  %214 = phi double [ 0.000000e+00, %.thread68 ], [ %201, %198 ], [ 0.000000e+00, %.thread65 ]
-  %215 = fsub double 0.000000e+00, %214
+.thread67:                                        ; preds = %.thread65, %.thread68, %193
+  %209 = phi double [ 0.000000e+00, %.thread68 ], [ %196, %193 ], [ 0.000000e+00, %.thread65 ]
+  %210 = fsub double 0.000000e+00, %209
   br label %_ZN3igl8geodesic8Interval6signalEd.exit.i
 
-_ZN3igl8geodesic8Interval6signalEd.exit.i:        ; preds = %.thread69, %209, %190, %193, %.thread67
-  %.1.i.sink.i = phi double [ %197, %193 ], [ %215, %.thread67 ], [ %192, %190 ], [ %208, %.thread69 ], [ %213, %209 ]
+_ZN3igl8geodesic8Interval6signalEd.exit.i:        ; preds = %.thread69, %204, %188, %185, %.thread66, %.thread67
+  %.1.i.sink.i = phi double [ %184, %.thread66 ], [ %210, %.thread67 ], [ %192, %188 ], [ %186, %185 ], [ %203, %.thread69 ], [ %208, %204 ]
   store double %.1.i.sink.i, ptr %44, align 8, !tbaa !148
   store i32 2, ptr %39, align 4, !tbaa !90
-  %216 = getelementptr inbounds nuw i8, ptr %80, i64 48
-  %217 = load i32, ptr %216, align 4, !tbaa !24
-  %218 = zext i32 %217 to i64
-  %219 = load ptr, ptr %19, align 8, !tbaa !103
-  %220 = getelementptr inbounds nuw %"class.igl::geodesic::IntervalList", ptr %219, i64 %218
-  invoke void @_ZN3igl8geodesic22GeodesicAlgorithmExact21update_list_and_queueEPNS0_12IntervalListEPNS0_16IntervalWithStopEj(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef %220, ptr noundef nonnull %2, i32 noundef 1)
-          to label %221 unwind label %.split
+  %211 = getelementptr inbounds nuw i8, ptr %80, i64 48
+  %212 = load i32, ptr %211, align 4, !tbaa !24
+  %213 = zext i32 %212 to i64
+  %214 = load ptr, ptr %19, align 8, !tbaa !103
+  %215 = getelementptr inbounds nuw %"class.igl::geodesic::IntervalList", ptr %214, i64 %213
+  invoke void @_ZN3igl8geodesic22GeodesicAlgorithmExact21update_list_and_queueEPNS0_12IntervalListEPNS0_16IntervalWithStopEj(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef %215, ptr noundef nonnull %2, i32 noundef 1)
+          to label %216 unwind label %.split
 
-221:                                              ; preds = %_ZN3igl8geodesic8Interval6signalEd.exit.i
-  %222 = add i32 %.01422, 1
-  %223 = zext i32 %222 to i64
-  %224 = load ptr, ptr %37, align 8, !tbaa !136
-  %225 = load ptr, ptr %3, align 8, !tbaa !138
-  %226 = ptrtoint ptr %224 to i64
-  %227 = ptrtoint ptr %225 to i64
-  %228 = sub i64 %226, %227
-  %229 = ashr exact i64 %228, 3
-  %230 = icmp ugt i64 %229, %223
-  br i1 %230, label %.lr.ph.split, label %._crit_edge, !llvm.loop !150
+216:                                              ; preds = %_ZN3igl8geodesic8Interval6signalEd.exit.i
+  %217 = add i32 %.01422, 1
+  %218 = zext i32 %217 to i64
+  %219 = load ptr, ptr %37, align 8, !tbaa !136
+  %220 = load ptr, ptr %3, align 8, !tbaa !138
+  %221 = ptrtoint ptr %219 to i64
+  %222 = ptrtoint ptr %220 to i64
+  %223 = sub i64 %221, %222
+  %224 = ashr exact i64 %223, 3
+  %225 = icmp ugt i64 %224, %218
+  br i1 %225, label %.lr.ph.split, label %._crit_edge, !llvm.loop !150
 
 .split:                                           ; preds = %_ZN3igl8geodesic8Interval6signalEd.exit.i
-  %231 = landingpad { ptr, i32 }
+  %226 = landingpad { ptr, i32 }
           cleanup
-  br label %232
+  br label %227
 
-232:                                              ; preds = %.split, %75
-  %.pn = phi { ptr, i32 } [ %76, %75 ], [ %231, %.split ]
-  %233 = load ptr, ptr %3, align 8, !tbaa !138
-  %.not.i.i.i20 = icmp eq ptr %233, null
-  br i1 %.not.i.i.i20, label %_ZNSt6vectorIPN3igl8geodesic4EdgeESaIS3_EED2Ev.exit21, label %234
+227:                                              ; preds = %.split, %75
+  %.pn = phi { ptr, i32 } [ %76, %75 ], [ %226, %.split ]
+  %228 = load ptr, ptr %3, align 8, !tbaa !138
+  %.not.i.i.i20 = icmp eq ptr %228, null
+  br i1 %.not.i.i.i20, label %_ZNSt6vectorIPN3igl8geodesic4EdgeESaIS3_EED2Ev.exit21, label %229
 
-234:                                              ; preds = %232
-  %235 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %236 = load ptr, ptr %235, align 8, !tbaa !134
-  %237 = ptrtoint ptr %236 to i64
-  %238 = ptrtoint ptr %233 to i64
-  %239 = sub i64 %237, %238
-  call void @_ZdlPvm(ptr noundef nonnull %233, i64 noundef %239) #25
+229:                                              ; preds = %227
+  %230 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %231 = load ptr, ptr %230, align 8, !tbaa !134
+  %232 = ptrtoint ptr %231 to i64
+  %233 = ptrtoint ptr %228 to i64
+  %234 = sub i64 %232, %233
+  call void @_ZdlPvm(ptr noundef nonnull %228, i64 noundef %234) #25
   br label %_ZNSt6vectorIPN3igl8geodesic4EdgeESaIS3_EED2Ev.exit21
 
-_ZNSt6vectorIPN3igl8geodesic4EdgeESaIS3_EED2Ev.exit21: ; preds = %232, %234
+_ZNSt6vectorIPN3igl8geodesic4EdgeESaIS3_EED2Ev.exit21: ; preds = %227, %229
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %.pn

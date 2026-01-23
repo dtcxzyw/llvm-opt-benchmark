@@ -199399,7 +199399,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost8geometry6detail7overlay
   %6 = alloca %"class.std::tuple.372", align 1
   %7 = alloca %"class.std::tuple.1250", align 8
   %8 = alloca %"class.std::tuple.372", align 1
-  br i1 %3, label %9, label %103
+  br i1 %3, label %9, label %102
 
 9:                                                ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -199407,7 +199407,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost8geometry6detail7overlay
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %13 = load double, ptr %12, align 8, !tbaa !4251
   %14 = fcmp olt double %11, %13
-  br i1 %14, label %15, label %103
+  br i1 %14, label %15, label %102
 
 15:                                               ; preds = %9
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -199445,331 +199445,329 @@ _ZN5boost8geometry4math6largerIdiEEbRKT_RKT0_.exit50.thread: ; preds = %23, %_ZN
 
 _ZN5boost8geometry4math7smallerIdiEEbRKT_RKT0_.exit47: ; preds = %31
   %34 = fsub double 0.000000e+00, %29
-  %35 = tail call noundef double @llvm.fabs.f64(double %34)
-  %36 = fcmp olt double %32, 1.000000e+00
-  %.sroa.speculated.i.i.i.i46 = select i1 %36, double 1.000000e+00, double %32
-  %37 = fmul double %.sroa.speculated.i.i.i.i46, 0x3CB0000000000000
-  %38 = fcmp ugt double %35, %37
-  br i1 %38, label %.critedge.i, label %_ZN5boost8geometry6detail7overlay14assign_visitorINS0_5model7polygonINS4_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEELb1ELb1ESt6vectorSC_SaSaEESD_St5dequeINS4_4ringISB_Lb1ELb1ESC_SaEESaISG_EESt3mapINS0_15ring_identifierENS2_15ring_propertiesISB_dEESt4lessISK_ESaISt4pairIKSK_SM_EEENS0_10strategies6relate9sphericalIvEEE5applyINS2_16ring_info_helperISB_dEEEEbRKT_S14_b.exit
+  %35 = fcmp olt double %32, 1.000000e+00
+  %.sroa.speculated.i.i.i.i46 = select i1 %35, double 1.000000e+00, double %32
+  %36 = fmul double %.sroa.speculated.i.i.i.i46, 0x3CB0000000000000
+  %37 = fcmp ugt double %34, %36
+  br i1 %37, label %.critedge.i, label %_ZN5boost8geometry6detail7overlay14assign_visitorINS0_5model7polygonINS4_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEELb1ELb1ESt6vectorSC_SaSaEESD_St5dequeINS4_4ringISB_Lb1ELb1ESC_SaEESaISG_EESt3mapINS0_15ring_identifierENS2_15ring_propertiesISB_dEESt4lessISK_ESaISt4pairIKSK_SM_EEENS0_10strategies6relate9sphericalIvEEE5applyINS2_16ring_info_helperISB_dEEEEbRKT_S14_b.exit
 
 .critedge.i:                                      ; preds = %31, %15, %_ZN5boost8geometry4math7smallerIdiEEbRKT_RKT0_.exit47
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %40 = load ptr, ptr %39, align 8, !tbaa !4252
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
-  %42 = load ptr, ptr %41, align 8, !tbaa !148
-  %43 = getelementptr inbounds nuw i8, ptr %40, i64 8
-  %.not10.i.i.i.i26 = icmp eq ptr %42, null
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %39 = load ptr, ptr %38, align 8, !tbaa !4252
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 16
+  %41 = load ptr, ptr %40, align 8, !tbaa !148
+  %42 = getelementptr inbounds nuw i8, ptr %39, i64 8
+  %.not10.i.i.i.i26 = icmp eq ptr %41, null
   br i1 %.not10.i.i.i.i26, label %.critedge.i38, label %.lr.ph.i.i.i.i27
 
 .lr.ph.i.i.i.i27:                                 ; preds = %.critedge.i
-  %44 = load i64, ptr %1, align 8, !tbaa !2542
-  %45 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %46 = load i64, ptr %45, align 8
-  %47 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %48 = load i64, ptr %47, align 8
-  br label %49
+  %43 = load i64, ptr %1, align 8, !tbaa !2542
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %45 = load i64, ptr %44, align 8
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %47 = load i64, ptr %46, align 8
+  br label %48
 
-49:                                               ; preds = %63, %.lr.ph.i.i.i.i27
-  %.012.i.i.i.i28 = phi ptr [ %42, %.lr.ph.i.i.i.i27 ], [ %.1.i.i.i.i33, %63 ]
-  %.0811.i.i.i.i29 = phi ptr [ %43, %.lr.ph.i.i.i.i27 ], [ %.19.i.i.i.i32, %63 ]
-  %50 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i28, i64 32
-  %51 = load i64, ptr %50, align 8, !tbaa !2542
-  %.not.i.i.i.i.i.i30 = icmp eq i64 %51, %44
-  br i1 %.not.i.i.i.i.i.i30, label %54, label %52
+48:                                               ; preds = %62, %.lr.ph.i.i.i.i27
+  %.012.i.i.i.i28 = phi ptr [ %41, %.lr.ph.i.i.i.i27 ], [ %.1.i.i.i.i33, %62 ]
+  %.0811.i.i.i.i29 = phi ptr [ %42, %.lr.ph.i.i.i.i27 ], [ %.19.i.i.i.i32, %62 ]
+  %49 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i28, i64 32
+  %50 = load i64, ptr %49, align 8, !tbaa !2542
+  %.not.i.i.i.i.i.i30 = icmp eq i64 %50, %43
+  br i1 %.not.i.i.i.i.i.i30, label %53, label %51
 
-52:                                               ; preds = %49
-  %53 = icmp slt i64 %51, %44
-  br i1 %53, label %62, label %63
+51:                                               ; preds = %48
+  %52 = icmp slt i64 %50, %43
+  br i1 %52, label %61, label %62
 
-54:                                               ; preds = %49
-  %55 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i28, i64 40
-  %56 = load i64, ptr %55, align 8, !tbaa !2544
-  %.not9.i.i.i.i.i.i42 = icmp eq i64 %56, %46
-  br i1 %.not9.i.i.i.i.i.i42, label %57, label %_ZNKSt4lessIN5boost8geometry15ring_identifierEEclERKS2_S5_.exit.i.i.i.i43
+53:                                               ; preds = %48
+  %54 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i28, i64 40
+  %55 = load i64, ptr %54, align 8, !tbaa !2544
+  %.not9.i.i.i.i.i.i42 = icmp eq i64 %55, %45
+  br i1 %.not9.i.i.i.i.i.i42, label %56, label %_ZNKSt4lessIN5boost8geometry15ring_identifierEEclERKS2_S5_.exit.i.i.i.i43
 
-57:                                               ; preds = %54
-  %58 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i28, i64 48
-  %59 = load i64, ptr %58, align 8, !tbaa !2545
-  %60 = icmp slt i64 %59, %48
-  br i1 %60, label %62, label %63
+56:                                               ; preds = %53
+  %57 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i28, i64 48
+  %58 = load i64, ptr %57, align 8, !tbaa !2545
+  %59 = icmp slt i64 %58, %47
+  br i1 %59, label %61, label %62
 
-_ZNKSt4lessIN5boost8geometry15ring_identifierEEclERKS2_S5_.exit.i.i.i.i43: ; preds = %54
-  %61 = icmp slt i64 %56, %46
-  br i1 %61, label %62, label %63
+_ZNKSt4lessIN5boost8geometry15ring_identifierEEclERKS2_S5_.exit.i.i.i.i43: ; preds = %53
+  %60 = icmp slt i64 %55, %45
+  br i1 %60, label %61, label %62
 
-62:                                               ; preds = %_ZNKSt4lessIN5boost8geometry15ring_identifierEEclERKS2_S5_.exit.i.i.i.i43, %57, %52
-  br label %63
+61:                                               ; preds = %_ZNKSt4lessIN5boost8geometry15ring_identifierEEclERKS2_S5_.exit.i.i.i.i43, %56, %51
+  br label %62
 
-63:                                               ; preds = %62, %_ZNKSt4lessIN5boost8geometry15ring_identifierEEclERKS2_S5_.exit.i.i.i.i43, %57, %52
-  %.sink.i.i.i.i31 = phi i64 [ 24, %62 ], [ 16, %57 ], [ 16, %52 ], [ 16, %_ZNKSt4lessIN5boost8geometry15ring_identifierEEclERKS2_S5_.exit.i.i.i.i43 ]
-  %.19.i.i.i.i32 = phi ptr [ %.0811.i.i.i.i29, %62 ], [ %.012.i.i.i.i28, %57 ], [ %.012.i.i.i.i28, %52 ], [ %.012.i.i.i.i28, %_ZNKSt4lessIN5boost8geometry15ring_identifierEEclERKS2_S5_.exit.i.i.i.i43 ]
-  %64 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i28, i64 %.sink.i.i.i.i31
-  %.1.i.i.i.i33 = load ptr, ptr %64, align 8, !tbaa !174
+62:                                               ; preds = %61, %_ZNKSt4lessIN5boost8geometry15ring_identifierEEclERKS2_S5_.exit.i.i.i.i43, %56, %51
+  %.sink.i.i.i.i31 = phi i64 [ 24, %61 ], [ 16, %56 ], [ 16, %51 ], [ 16, %_ZNKSt4lessIN5boost8geometry15ring_identifierEEclERKS2_S5_.exit.i.i.i.i43 ]
+  %.19.i.i.i.i32 = phi ptr [ %.0811.i.i.i.i29, %61 ], [ %.012.i.i.i.i28, %56 ], [ %.012.i.i.i.i28, %51 ], [ %.012.i.i.i.i28, %_ZNKSt4lessIN5boost8geometry15ring_identifierEEclERKS2_S5_.exit.i.i.i.i43 ]
+  %63 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i28, i64 %.sink.i.i.i.i31
+  %.1.i.i.i.i33 = load ptr, ptr %63, align 8, !tbaa !174
   %.not.i.i.i.i34 = icmp eq ptr %.1.i.i.i.i33, null
-  br i1 %.not.i.i.i.i34, label %_ZNSt3mapIN5boost8geometry15ring_identifierENS1_6detail7overlay15ring_propertiesINS1_5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEEdEESt4lessIS2_ESaISt4pairIKS2_SD_EEE11lower_boundERSH_.exit.i35, label %49, !llvm.loop !2556
+  br i1 %.not.i.i.i.i34, label %_ZNSt3mapIN5boost8geometry15ring_identifierENS1_6detail7overlay15ring_propertiesINS1_5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEEdEESt4lessIS2_ESaISt4pairIKS2_SD_EEE11lower_boundERSH_.exit.i35, label %48, !llvm.loop !2556
 
-_ZNSt3mapIN5boost8geometry15ring_identifierENS1_6detail7overlay15ring_propertiesINS1_5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEEdEESt4lessIS2_ESaISt4pairIKS2_SD_EEE11lower_boundERSH_.exit.i35: ; preds = %63
-  %65 = icmp eq ptr %.19.i.i.i.i32, %43
-  br i1 %65, label %.critedge.i38, label %66
+_ZNSt3mapIN5boost8geometry15ring_identifierENS1_6detail7overlay15ring_propertiesINS1_5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEEdEESt4lessIS2_ESaISt4pairIKS2_SD_EEE11lower_boundERSH_.exit.i35: ; preds = %62
+  %64 = icmp eq ptr %.19.i.i.i.i32, %42
+  br i1 %64, label %.critedge.i38, label %65
 
-66:                                               ; preds = %_ZNSt3mapIN5boost8geometry15ring_identifierENS1_6detail7overlay15ring_propertiesINS1_5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEEdEESt4lessIS2_ESaISt4pairIKS2_SD_EEE11lower_boundERSH_.exit.i35
-  %67 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i32, i64 32
-  %68 = load i64, ptr %67, align 8, !tbaa !2542
-  %.not.i.i.i36 = icmp eq i64 %44, %68
-  br i1 %.not.i.i.i36, label %71, label %69
+65:                                               ; preds = %_ZNSt3mapIN5boost8geometry15ring_identifierENS1_6detail7overlay15ring_propertiesINS1_5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEEdEESt4lessIS2_ESaISt4pairIKS2_SD_EEE11lower_boundERSH_.exit.i35
+  %66 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i32, i64 32
+  %67 = load i64, ptr %66, align 8, !tbaa !2542
+  %.not.i.i.i36 = icmp eq i64 %43, %67
+  br i1 %.not.i.i.i36, label %70, label %68
 
-69:                                               ; preds = %66
-  %70 = icmp slt i64 %44, %68
-  br i1 %70, label %.critedge.i38, label %_ZNSt3mapIN5boost8geometry15ring_identifierENS1_6detail7overlay15ring_propertiesINS1_5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEEdEESt4lessIS2_ESaISt4pairIKS2_SD_EEEixERSH_.exit44
+68:                                               ; preds = %65
+  %69 = icmp slt i64 %43, %67
+  br i1 %69, label %.critedge.i38, label %_ZNSt3mapIN5boost8geometry15ring_identifierENS1_6detail7overlay15ring_propertiesINS1_5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEEdEESt4lessIS2_ESaISt4pairIKS2_SD_EEEixERSH_.exit44
 
-71:                                               ; preds = %66
-  %72 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i32, i64 40
-  %73 = load i64, ptr %72, align 8, !tbaa !2544
-  %.not9.i.i.i40 = icmp eq i64 %46, %73
-  br i1 %.not9.i.i.i40, label %74, label %_ZNKSt4lessIN5boost8geometry15ring_identifierEEclERKS2_S5_.exit.i41
+70:                                               ; preds = %65
+  %71 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i32, i64 40
+  %72 = load i64, ptr %71, align 8, !tbaa !2544
+  %.not9.i.i.i40 = icmp eq i64 %45, %72
+  br i1 %.not9.i.i.i40, label %73, label %_ZNKSt4lessIN5boost8geometry15ring_identifierEEclERKS2_S5_.exit.i41
 
-74:                                               ; preds = %71
-  %75 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i32, i64 48
-  %76 = load i64, ptr %75, align 8, !tbaa !2545
-  %77 = icmp slt i64 %48, %76
+73:                                               ; preds = %70
+  %74 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i32, i64 48
+  %75 = load i64, ptr %74, align 8, !tbaa !2545
+  %76 = icmp slt i64 %47, %75
+  br i1 %76, label %.critedge.i38, label %_ZNSt3mapIN5boost8geometry15ring_identifierENS1_6detail7overlay15ring_propertiesINS1_5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEEdEESt4lessIS2_ESaISt4pairIKS2_SD_EEEixERSH_.exit44
+
+_ZNKSt4lessIN5boost8geometry15ring_identifierEEclERKS2_S5_.exit.i41: ; preds = %70
+  %77 = icmp slt i64 %45, %72
   br i1 %77, label %.critedge.i38, label %_ZNSt3mapIN5boost8geometry15ring_identifierENS1_6detail7overlay15ring_propertiesINS1_5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEEdEESt4lessIS2_ESaISt4pairIKS2_SD_EEEixERSH_.exit44
 
-_ZNKSt4lessIN5boost8geometry15ring_identifierEEclERKS2_S5_.exit.i41: ; preds = %71
-  %78 = icmp slt i64 %46, %73
-  br i1 %78, label %.critedge.i38, label %_ZNSt3mapIN5boost8geometry15ring_identifierENS1_6detail7overlay15ring_propertiesINS1_5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEEdEESt4lessIS2_ESaISt4pairIKS2_SD_EEEixERSH_.exit44
-
-.critedge.i38:                                    ; preds = %_ZNKSt4lessIN5boost8geometry15ring_identifierEEclERKS2_S5_.exit.i41, %74, %69, %_ZNSt3mapIN5boost8geometry15ring_identifierENS1_6detail7overlay15ring_propertiesINS1_5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEEdEESt4lessIS2_ESaISt4pairIKS2_SD_EEE11lower_boundERSH_.exit.i35, %.critedge.i
-  %.08.lcssa.i.i.i11.i39 = phi ptr [ %.19.i.i.i.i32, %74 ], [ %.19.i.i.i.i32, %_ZNKSt4lessIN5boost8geometry15ring_identifierEEclERKS2_S5_.exit.i41 ], [ %.19.i.i.i.i32, %69 ], [ %.19.i.i.i.i32, %_ZNSt3mapIN5boost8geometry15ring_identifierENS1_6detail7overlay15ring_propertiesINS1_5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEEdEESt4lessIS2_ESaISt4pairIKS2_SD_EEE11lower_boundERSH_.exit.i35 ], [ %43, %.critedge.i ]
+.critedge.i38:                                    ; preds = %_ZNKSt4lessIN5boost8geometry15ring_identifierEEclERKS2_S5_.exit.i41, %73, %68, %_ZNSt3mapIN5boost8geometry15ring_identifierENS1_6detail7overlay15ring_propertiesINS1_5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEEdEESt4lessIS2_ESaISt4pairIKS2_SD_EEE11lower_boundERSH_.exit.i35, %.critedge.i
+  %.08.lcssa.i.i.i11.i39 = phi ptr [ %.19.i.i.i.i32, %73 ], [ %.19.i.i.i.i32, %_ZNKSt4lessIN5boost8geometry15ring_identifierEEclERKS2_S5_.exit.i41 ], [ %.19.i.i.i.i32, %68 ], [ %.19.i.i.i.i32, %_ZNSt3mapIN5boost8geometry15ring_identifierENS1_6detail7overlay15ring_propertiesINS1_5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEEdEESt4lessIS2_ESaISt4pairIKS2_SD_EEE11lower_boundERSH_.exit.i35 ], [ %42, %.critedge.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %1, ptr %5, align 8, !tbaa !174
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %79 = call ptr @_ZNSt8_Rb_treeIN5boost8geometry15ring_identifierESt4pairIKS2_NS1_6detail7overlay15ring_propertiesINS1_5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEEdEEESt10_Select1stISG_ESt4lessIS2_ESaISG_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS4_EESR_IJEEEEESt17_Rb_tree_iteratorISG_ESt23_Rb_tree_const_iteratorISG_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %40, ptr %.08.lcssa.i.i.i11.i39, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 1 dereferenceable(1) %6)
+  %78 = call ptr @_ZNSt8_Rb_treeIN5boost8geometry15ring_identifierESt4pairIKS2_NS1_6detail7overlay15ring_propertiesINS1_5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEEdEEESt10_Select1stISG_ESt4lessIS2_ESaISG_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS4_EESR_IJEEEEESt17_Rb_tree_iteratorISG_ESt23_Rb_tree_const_iteratorISG_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %39, ptr %.08.lcssa.i.i.i11.i39, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 1 dereferenceable(1) %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZNSt3mapIN5boost8geometry15ring_identifierENS1_6detail7overlay15ring_propertiesINS1_5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEEdEESt4lessIS2_ESaISt4pairIKS2_SD_EEEixERSH_.exit44
 
-_ZNSt3mapIN5boost8geometry15ring_identifierENS1_6detail7overlay15ring_propertiesINS1_5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEEdEESt4lessIS2_ESaISt4pairIKS2_SD_EEEixERSH_.exit44: ; preds = %69, %74, %_ZNKSt4lessIN5boost8geometry15ring_identifierEEclERKS2_S5_.exit.i41, %.critedge.i38
-  %.sroa.06.0.i37 = phi ptr [ %79, %.critedge.i38 ], [ %.19.i.i.i.i32, %_ZNKSt4lessIN5boost8geometry15ring_identifierEEclERKS2_S5_.exit.i41 ], [ %.19.i.i.i.i32, %69 ], [ %.19.i.i.i.i32, %74 ]
-  %80 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i37, i64 64
-  %81 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %82 = call noundef zeroext i1 @_ZN5boost8geometry8strategy6within6detail21relate_point_box_loopINS3_16covered_by_rangeENS0_13spherical_tagELm0ELm2EE5applyINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEENS9_3boxISF_EEEEbRKT_RKT0_(ptr noundef nonnull align 8 dereferenceable(16) %80, ptr noundef nonnull align 8 dereferenceable(32) %81)
-  br i1 %82, label %83, label %_ZN5boost8geometry6detail7overlay14assign_visitorINS0_5model7polygonINS4_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEELb1ELb1ESt6vectorSC_SaSaEESD_St5dequeINS4_4ringISB_Lb1ELb1ESC_SaEESaISG_EESt3mapINS0_15ring_identifierENS2_15ring_propertiesISB_dEESt4lessISK_ESaISt4pairIKSK_SM_EEENS0_10strategies6relate9sphericalIvEEE5applyINS2_16ring_info_helperISB_dEEEEbRKT_S14_b.exit
+_ZNSt3mapIN5boost8geometry15ring_identifierENS1_6detail7overlay15ring_propertiesINS1_5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEEdEESt4lessIS2_ESaISt4pairIKS2_SD_EEEixERSH_.exit44: ; preds = %68, %73, %_ZNKSt4lessIN5boost8geometry15ring_identifierEEclERKS2_S5_.exit.i41, %.critedge.i38
+  %.sroa.06.0.i37 = phi ptr [ %78, %.critedge.i38 ], [ %.19.i.i.i.i32, %_ZNKSt4lessIN5boost8geometry15ring_identifierEEclERKS2_S5_.exit.i41 ], [ %.19.i.i.i.i32, %68 ], [ %.19.i.i.i.i32, %73 ]
+  %79 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i37, i64 64
+  %80 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %81 = call noundef zeroext i1 @_ZN5boost8geometry8strategy6within6detail21relate_point_box_loopINS3_16covered_by_rangeENS0_13spherical_tagELm0ELm2EE5applyINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEENS9_3boxISF_EEEEbRKT_RKT0_(ptr noundef nonnull align 8 dereferenceable(16) %79, ptr noundef nonnull align 8 dereferenceable(32) %80)
+  br i1 %81, label %82, label %_ZN5boost8geometry6detail7overlay14assign_visitorINS0_5model7polygonINS4_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEELb1ELb1ESt6vectorSC_SaSaEESD_St5dequeINS4_4ringISB_Lb1ELb1ESC_SaEESaISG_EESt3mapINS0_15ring_identifierENS2_15ring_propertiesISB_dEESt4lessISK_ESaISt4pairIKSK_SM_EEENS0_10strategies6relate9sphericalIvEEE5applyINS2_16ring_info_helperISB_dEEEEbRKT_S14_b.exit
 
-83:                                               ; preds = %_ZNSt3mapIN5boost8geometry15ring_identifierENS1_6detail7overlay15ring_propertiesINS1_5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEEdEESt4lessIS2_ESaISt4pairIKS2_SD_EEEixERSH_.exit44
-  %84 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i37, i64 56
-  %85 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %86 = load ptr, ptr %0, align 8, !tbaa !4253
-  %87 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %88 = load ptr, ptr %87, align 8, !tbaa !4254
-  %89 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %90 = load ptr, ptr %89, align 8, !tbaa !4255
-  %91 = load ptr, ptr %85, align 8, !tbaa !4256
-  %92 = call fastcc noundef zeroext i1 @_ZN5boost8geometry6detail7overlayL21within_selected_inputINS2_15ring_propertiesINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEdEENS5_7polygonISB_Lb1ELb1ESt6vectorSE_SaSaEESF_St5dequeINS5_4ringISB_Lb1ELb1ESE_SaEESaISI_EENS0_10strategies6relate9sphericalIvEEEEbRKT_RKNS0_15ring_identifierESU_RKT0_RKT1_RKT2_RKT3_(ptr noundef nonnull align 8 dereferenceable(96) %84, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef nonnull align 8 dereferenceable(48) %86, ptr noundef nonnull align 8 dereferenceable(48) %88, ptr noundef nonnull align 8 dereferenceable(80) %90, ptr noundef nonnull align 1 dereferenceable(1) %91)
-  br i1 %92, label %93, label %_ZN5boost8geometry6detail7overlay14assign_visitorINS0_5model7polygonINS4_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEELb1ELb1ESt6vectorSC_SaSaEESD_St5dequeINS4_4ringISB_Lb1ELb1ESC_SaEESaISG_EESt3mapINS0_15ring_identifierENS2_15ring_propertiesISB_dEESt4lessISK_ESaISt4pairIKSK_SM_EEENS0_10strategies6relate9sphericalIvEEE5applyINS2_16ring_info_helperISB_dEEEEbRKT_S14_b.exit
+82:                                               ; preds = %_ZNSt3mapIN5boost8geometry15ring_identifierENS1_6detail7overlay15ring_propertiesINS1_5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEEdEESt4lessIS2_ESaISt4pairIKS2_SD_EEEixERSH_.exit44
+  %83 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i37, i64 56
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %85 = load ptr, ptr %0, align 8, !tbaa !4253
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %87 = load ptr, ptr %86, align 8, !tbaa !4254
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %89 = load ptr, ptr %88, align 8, !tbaa !4255
+  %90 = load ptr, ptr %84, align 8, !tbaa !4256
+  %91 = call fastcc noundef zeroext i1 @_ZN5boost8geometry6detail7overlayL21within_selected_inputINS2_15ring_propertiesINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEdEENS5_7polygonISB_Lb1ELb1ESt6vectorSE_SaSaEESF_St5dequeINS5_4ringISB_Lb1ELb1ESE_SaEESaISI_EENS0_10strategies6relate9sphericalIvEEEEbRKT_RKNS0_15ring_identifierESU_RKT0_RKT1_RKT2_RKT3_(ptr noundef nonnull align 8 dereferenceable(96) %83, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef nonnull align 8 dereferenceable(48) %85, ptr noundef nonnull align 8 dereferenceable(48) %87, ptr noundef nonnull align 8 dereferenceable(80) %89, ptr noundef nonnull align 1 dereferenceable(1) %90)
+  br i1 %91, label %92, label %_ZN5boost8geometry6detail7overlay14assign_visitorINS0_5model7polygonINS4_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEELb1ELb1ESt6vectorSC_SaSaEESD_St5dequeINS4_4ringISB_Lb1ELb1ESC_SaEESaISG_EESt3mapINS0_15ring_identifierENS2_15ring_propertiesISB_dEESt4lessISK_ESaISt4pairIKSK_SM_EEENS0_10strategies6relate9sphericalIvEEE5applyINS2_16ring_info_helperISB_dEEEEbRKT_S14_b.exit
 
-93:                                               ; preds = %83
-  %94 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i37, i64 96
-  %95 = load i64, ptr %94, align 8, !tbaa !4257
-  %96 = icmp eq i64 %95, -1
-  br i1 %96, label %102, label %97
+92:                                               ; preds = %82
+  %93 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i37, i64 96
+  %94 = load i64, ptr %93, align 8, !tbaa !4257
+  %95 = icmp eq i64 %94, -1
+  br i1 %95, label %101, label %96
 
-97:                                               ; preds = %93
-  %98 = load double, ptr %12, align 8, !tbaa !4251
-  %99 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i37, i64 120
-  %100 = load double, ptr %99, align 8, !tbaa !2670
-  %101 = fcmp olt double %98, %100
-  br i1 %101, label %102, label %_ZN5boost8geometry6detail7overlay14assign_visitorINS0_5model7polygonINS4_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEELb1ELb1ESt6vectorSC_SaSaEESD_St5dequeINS4_4ringISB_Lb1ELb1ESC_SaEESaISG_EESt3mapINS0_15ring_identifierENS2_15ring_propertiesISB_dEESt4lessISK_ESaISt4pairIKSK_SM_EEENS0_10strategies6relate9sphericalIvEEE5applyINS2_16ring_info_helperISB_dEEEEbRKT_S14_b.exit
+96:                                               ; preds = %92
+  %97 = load double, ptr %12, align 8, !tbaa !4251
+  %98 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i37, i64 120
+  %99 = load double, ptr %98, align 8, !tbaa !2670
+  %100 = fcmp olt double %97, %99
+  br i1 %100, label %101, label %_ZN5boost8geometry6detail7overlay14assign_visitorINS0_5model7polygonINS4_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEELb1ELb1ESt6vectorSC_SaSaEESD_St5dequeINS4_4ringISB_Lb1ELb1ESC_SaEESaISG_EESt3mapINS0_15ring_identifierENS2_15ring_propertiesISB_dEESt4lessISK_ESaISt4pairIKSK_SM_EEENS0_10strategies6relate9sphericalIvEEE5applyINS2_16ring_info_helperISB_dEEEEbRKT_S14_b.exit
 
-102:                                              ; preds = %97, %93
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %94, ptr noundef nonnull align 8 dereferenceable(72) %2, i64 24, i1 false), !tbaa.struct !2658
+101:                                              ; preds = %96, %92
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %93, ptr noundef nonnull align 8 dereferenceable(72) %2, i64 24, i1 false), !tbaa.struct !2658
   br label %_ZN5boost8geometry6detail7overlay14assign_visitorINS0_5model7polygonINS4_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEELb1ELb1ESt6vectorSC_SaSaEESD_St5dequeINS4_4ringISB_Lb1ELb1ESC_SaEESaISG_EESt3mapINS0_15ring_identifierENS2_15ring_propertiesISB_dEESt4lessISK_ESaISt4pairIKSK_SM_EEENS0_10strategies6relate9sphericalIvEEE5applyINS2_16ring_info_helperISB_dEEEEbRKT_S14_b.exit.sink.split
 
-103:                                              ; preds = %9, %4
-  %104 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %105 = load i8, ptr %104, align 8, !tbaa !2681, !range !17, !noundef !18
-  %106 = trunc nuw i8 %105 to i1
-  br i1 %106, label %.critedge, label %107
+102:                                              ; preds = %9, %4
+  %103 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %104 = load i8, ptr %103, align 8, !tbaa !2681, !range !17, !noundef !18
+  %105 = trunc nuw i8 %104 to i1
+  br i1 %105, label %.critedge, label %106
 
-107:                                              ; preds = %103
-  %108 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %109 = load double, ptr %108, align 8, !tbaa !1473
-  %110 = fcmp ogt double %109, 0.000000e+00
-  br i1 %110, label %111, label %_ZN5boost8geometry6detail7overlay14assign_visitorINS0_5model7polygonINS4_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEELb1ELb1ESt6vectorSC_SaSaEESD_St5dequeINS4_4ringISB_Lb1ELb1ESC_SaEESaISG_EESt3mapINS0_15ring_identifierENS2_15ring_propertiesISB_dEESt4lessISK_ESaISt4pairIKSK_SM_EEENS0_10strategies6relate9sphericalIvEEE5applyINS2_16ring_info_helperISB_dEEEEbRKT_S14_b.exit
+106:                                              ; preds = %102
+  %107 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %108 = load double, ptr %107, align 8, !tbaa !1473
+  %109 = fcmp ogt double %108, 0.000000e+00
+  br i1 %109, label %110, label %_ZN5boost8geometry6detail7overlay14assign_visitorINS0_5model7polygonINS4_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEELb1ELb1ESt6vectorSC_SaSaEESD_St5dequeINS4_4ringISB_Lb1ELb1ESC_SaEESaISG_EESt3mapINS0_15ring_identifierENS2_15ring_propertiesISB_dEESt4lessISK_ESaISt4pairIKSK_SM_EEENS0_10strategies6relate9sphericalIvEEE5applyINS2_16ring_info_helperISB_dEEEEbRKT_S14_b.exit
 
-111:                                              ; preds = %107
-  %112 = fcmp ueq double %109, 0x7FF0000000000000
-  br i1 %112, label %_ZN5boost8geometry4math6largerIdiEEbRKT_RKT0_.exit.thread, label %_ZN5boost8geometry4math6largerIdiEEbRKT_RKT0_.exit
+110:                                              ; preds = %106
+  %111 = fcmp ueq double %108, 0x7FF0000000000000
+  br i1 %111, label %_ZN5boost8geometry4math6largerIdiEEbRKT_RKT0_.exit.thread, label %_ZN5boost8geometry4math6largerIdiEEbRKT_RKT0_.exit
 
-_ZN5boost8geometry4math6largerIdiEEbRKT_RKT0_.exit: ; preds = %111
-  %113 = fcmp olt double %109, 1.000000e+00
-  %.sroa.speculated.i.i.i.i = select i1 %113, double 1.000000e+00, double %109
-  %114 = fmul double %.sroa.speculated.i.i.i.i, 0x3CB0000000000000
-  %115 = fcmp ugt double %109, %114
-  br i1 %115, label %_ZN5boost8geometry4math6largerIdiEEbRKT_RKT0_.exit.thread, label %_ZN5boost8geometry6detail7overlay14assign_visitorINS0_5model7polygonINS4_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEELb1ELb1ESt6vectorSC_SaSaEESD_St5dequeINS4_4ringISB_Lb1ELb1ESC_SaEESaISG_EESt3mapINS0_15ring_identifierENS2_15ring_propertiesISB_dEESt4lessISK_ESaISt4pairIKSK_SM_EEENS0_10strategies6relate9sphericalIvEEE5applyINS2_16ring_info_helperISB_dEEEEbRKT_S14_b.exit
+_ZN5boost8geometry4math6largerIdiEEbRKT_RKT0_.exit: ; preds = %110
+  %112 = fcmp olt double %108, 1.000000e+00
+  %.sroa.speculated.i.i.i.i = select i1 %112, double 1.000000e+00, double %108
+  %113 = fmul double %.sroa.speculated.i.i.i.i, 0x3CB0000000000000
+  %114 = fcmp ugt double %108, %113
+  br i1 %114, label %_ZN5boost8geometry4math6largerIdiEEbRKT_RKT0_.exit.thread, label %_ZN5boost8geometry6detail7overlay14assign_visitorINS0_5model7polygonINS4_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEELb1ELb1ESt6vectorSC_SaSaEESD_St5dequeINS4_4ringISB_Lb1ELb1ESC_SaEESaISG_EESt3mapINS0_15ring_identifierENS2_15ring_propertiesISB_dEESt4lessISK_ESaISt4pairIKSK_SM_EEENS0_10strategies6relate9sphericalIvEEE5applyINS2_16ring_info_helperISB_dEEEEbRKT_S14_b.exit
 
-_ZN5boost8geometry4math6largerIdiEEbRKT_RKT0_.exit.thread: ; preds = %111, %_ZN5boost8geometry4math6largerIdiEEbRKT_RKT0_.exit
-  %116 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %117 = load double, ptr %116, align 8, !tbaa !1473
-  %118 = fcmp olt double %117, 0.000000e+00
-  br i1 %118, label %119, label %_ZN5boost8geometry6detail7overlay14assign_visitorINS0_5model7polygonINS4_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEELb1ELb1ESt6vectorSC_SaSaEESD_St5dequeINS4_4ringISB_Lb1ELb1ESC_SaEESaISG_EESt3mapINS0_15ring_identifierENS2_15ring_propertiesISB_dEESt4lessISK_ESaISt4pairIKSK_SM_EEENS0_10strategies6relate9sphericalIvEEE5applyINS2_16ring_info_helperISB_dEEEEbRKT_S14_b.exit
+_ZN5boost8geometry4math6largerIdiEEbRKT_RKT0_.exit.thread: ; preds = %110, %_ZN5boost8geometry4math6largerIdiEEbRKT_RKT0_.exit
+  %115 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %116 = load double, ptr %115, align 8, !tbaa !1473
+  %117 = fcmp olt double %116, 0.000000e+00
+  br i1 %117, label %118, label %_ZN5boost8geometry6detail7overlay14assign_visitorINS0_5model7polygonINS4_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEELb1ELb1ESt6vectorSC_SaSaEESD_St5dequeINS4_4ringISB_Lb1ELb1ESC_SaEESaISG_EESt3mapINS0_15ring_identifierENS2_15ring_propertiesISB_dEESt4lessISK_ESaISt4pairIKSK_SM_EEENS0_10strategies6relate9sphericalIvEEE5applyINS2_16ring_info_helperISB_dEEEEbRKT_S14_b.exit
 
-119:                                              ; preds = %_ZN5boost8geometry4math6largerIdiEEbRKT_RKT0_.exit.thread
-  %120 = tail call double @llvm.fabs.f64(double %117)
-  %121 = fcmp ueq double %120, 0x7FF0000000000000
-  br i1 %121, label %.critedge, label %_ZN5boost8geometry4math7smallerIdiEEbRKT_RKT0_.exit
+118:                                              ; preds = %_ZN5boost8geometry4math6largerIdiEEbRKT_RKT0_.exit.thread
+  %119 = tail call double @llvm.fabs.f64(double %116)
+  %120 = fcmp ueq double %119, 0x7FF0000000000000
+  br i1 %120, label %.critedge, label %_ZN5boost8geometry4math7smallerIdiEEbRKT_RKT0_.exit
 
-_ZN5boost8geometry4math7smallerIdiEEbRKT_RKT0_.exit: ; preds = %119
-  %122 = fsub double 0.000000e+00, %117
-  %123 = tail call noundef double @llvm.fabs.f64(double %122)
-  %124 = fcmp olt double %120, 1.000000e+00
-  %.sroa.speculated.i.i.i.i24 = select i1 %124, double 1.000000e+00, double %120
-  %125 = fmul double %.sroa.speculated.i.i.i.i24, 0x3CB0000000000000
-  %126 = fcmp ugt double %123, %125
-  br i1 %126, label %.critedge, label %_ZN5boost8geometry6detail7overlay14assign_visitorINS0_5model7polygonINS4_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEELb1ELb1ESt6vectorSC_SaSaEESD_St5dequeINS4_4ringISB_Lb1ELb1ESC_SaEESaISG_EESt3mapINS0_15ring_identifierENS2_15ring_propertiesISB_dEESt4lessISK_ESaISt4pairIKSK_SM_EEENS0_10strategies6relate9sphericalIvEEE5applyINS2_16ring_info_helperISB_dEEEEbRKT_S14_b.exit
+_ZN5boost8geometry4math7smallerIdiEEbRKT_RKT0_.exit: ; preds = %118
+  %121 = fsub double 0.000000e+00, %116
+  %122 = fcmp olt double %119, 1.000000e+00
+  %.sroa.speculated.i.i.i.i24 = select i1 %122, double 1.000000e+00, double %119
+  %123 = fmul double %.sroa.speculated.i.i.i.i24, 0x3CB0000000000000
+  %124 = fcmp ugt double %121, %123
+  br i1 %124, label %.critedge, label %_ZN5boost8geometry6detail7overlay14assign_visitorINS0_5model7polygonINS4_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEELb1ELb1ESt6vectorSC_SaSaEESD_St5dequeINS4_4ringISB_Lb1ELb1ESC_SaEESaISG_EESt3mapINS0_15ring_identifierENS2_15ring_propertiesISB_dEESt4lessISK_ESaISt4pairIKSK_SM_EEENS0_10strategies6relate9sphericalIvEEE5applyINS2_16ring_info_helperISB_dEEEEbRKT_S14_b.exit
 
-.critedge:                                        ; preds = %119, %103, %_ZN5boost8geometry4math7smallerIdiEEbRKT_RKT0_.exit
-  %127 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %128 = load ptr, ptr %127, align 8, !tbaa !4252
-  %129 = getelementptr inbounds nuw i8, ptr %128, i64 16
-  %130 = load ptr, ptr %129, align 8, !tbaa !148
-  %131 = getelementptr inbounds nuw i8, ptr %128, i64 8
-  %.not10.i.i.i.i = icmp eq ptr %130, null
+.critedge:                                        ; preds = %118, %102, %_ZN5boost8geometry4math7smallerIdiEEbRKT_RKT0_.exit
+  %125 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %126 = load ptr, ptr %125, align 8, !tbaa !4252
+  %127 = getelementptr inbounds nuw i8, ptr %126, i64 16
+  %128 = load ptr, ptr %127, align 8, !tbaa !148
+  %129 = getelementptr inbounds nuw i8, ptr %126, i64 8
+  %.not10.i.i.i.i = icmp eq ptr %128, null
   br i1 %.not10.i.i.i.i, label %.critedge.i25, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.critedge
-  %132 = load i64, ptr %2, align 8, !tbaa !2542
-  %133 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %130 = load i64, ptr %2, align 8, !tbaa !2542
+  %131 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %132 = load i64, ptr %131, align 8
+  %133 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %134 = load i64, ptr %133, align 8
-  %135 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %136 = load i64, ptr %135, align 8
-  br label %137
+  br label %135
 
-137:                                              ; preds = %151, %.lr.ph.i.i.i.i
-  %.012.i.i.i.i = phi ptr [ %130, %.lr.ph.i.i.i.i ], [ %.1.i.i.i.i, %151 ]
-  %.0811.i.i.i.i = phi ptr [ %131, %.lr.ph.i.i.i.i ], [ %.19.i.i.i.i, %151 ]
-  %138 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 32
-  %139 = load i64, ptr %138, align 8, !tbaa !2542
-  %.not.i.i.i.i.i.i = icmp eq i64 %139, %132
-  br i1 %.not.i.i.i.i.i.i, label %142, label %140
+135:                                              ; preds = %149, %.lr.ph.i.i.i.i
+  %.012.i.i.i.i = phi ptr [ %128, %.lr.ph.i.i.i.i ], [ %.1.i.i.i.i, %149 ]
+  %.0811.i.i.i.i = phi ptr [ %129, %.lr.ph.i.i.i.i ], [ %.19.i.i.i.i, %149 ]
+  %136 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 32
+  %137 = load i64, ptr %136, align 8, !tbaa !2542
+  %.not.i.i.i.i.i.i = icmp eq i64 %137, %130
+  br i1 %.not.i.i.i.i.i.i, label %140, label %138
 
-140:                                              ; preds = %137
-  %141 = icmp slt i64 %139, %132
-  br i1 %141, label %150, label %151
+138:                                              ; preds = %135
+  %139 = icmp slt i64 %137, %130
+  br i1 %139, label %148, label %149
 
-142:                                              ; preds = %137
-  %143 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 40
-  %144 = load i64, ptr %143, align 8, !tbaa !2544
-  %.not9.i.i.i.i.i.i = icmp eq i64 %144, %134
-  br i1 %.not9.i.i.i.i.i.i, label %145, label %_ZNKSt4lessIN5boost8geometry15ring_identifierEEclERKS2_S5_.exit.i.i.i.i
+140:                                              ; preds = %135
+  %141 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 40
+  %142 = load i64, ptr %141, align 8, !tbaa !2544
+  %.not9.i.i.i.i.i.i = icmp eq i64 %142, %132
+  br i1 %.not9.i.i.i.i.i.i, label %143, label %_ZNKSt4lessIN5boost8geometry15ring_identifierEEclERKS2_S5_.exit.i.i.i.i
 
-145:                                              ; preds = %142
-  %146 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 48
-  %147 = load i64, ptr %146, align 8, !tbaa !2545
-  %148 = icmp slt i64 %147, %136
-  br i1 %148, label %150, label %151
+143:                                              ; preds = %140
+  %144 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 48
+  %145 = load i64, ptr %144, align 8, !tbaa !2545
+  %146 = icmp slt i64 %145, %134
+  br i1 %146, label %148, label %149
 
-_ZNKSt4lessIN5boost8geometry15ring_identifierEEclERKS2_S5_.exit.i.i.i.i: ; preds = %142
-  %149 = icmp slt i64 %144, %134
-  br i1 %149, label %150, label %151
+_ZNKSt4lessIN5boost8geometry15ring_identifierEEclERKS2_S5_.exit.i.i.i.i: ; preds = %140
+  %147 = icmp slt i64 %142, %132
+  br i1 %147, label %148, label %149
 
-150:                                              ; preds = %_ZNKSt4lessIN5boost8geometry15ring_identifierEEclERKS2_S5_.exit.i.i.i.i, %145, %140
-  br label %151
+148:                                              ; preds = %_ZNKSt4lessIN5boost8geometry15ring_identifierEEclERKS2_S5_.exit.i.i.i.i, %143, %138
+  br label %149
 
-151:                                              ; preds = %150, %_ZNKSt4lessIN5boost8geometry15ring_identifierEEclERKS2_S5_.exit.i.i.i.i, %145, %140
-  %.sink.i.i.i.i = phi i64 [ 24, %150 ], [ 16, %145 ], [ 16, %140 ], [ 16, %_ZNKSt4lessIN5boost8geometry15ring_identifierEEclERKS2_S5_.exit.i.i.i.i ]
-  %.19.i.i.i.i = phi ptr [ %.0811.i.i.i.i, %150 ], [ %.012.i.i.i.i, %145 ], [ %.012.i.i.i.i, %140 ], [ %.012.i.i.i.i, %_ZNKSt4lessIN5boost8geometry15ring_identifierEEclERKS2_S5_.exit.i.i.i.i ]
-  %152 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 %.sink.i.i.i.i
-  %.1.i.i.i.i = load ptr, ptr %152, align 8, !tbaa !174
+149:                                              ; preds = %148, %_ZNKSt4lessIN5boost8geometry15ring_identifierEEclERKS2_S5_.exit.i.i.i.i, %143, %138
+  %.sink.i.i.i.i = phi i64 [ 24, %148 ], [ 16, %143 ], [ 16, %138 ], [ 16, %_ZNKSt4lessIN5boost8geometry15ring_identifierEEclERKS2_S5_.exit.i.i.i.i ]
+  %.19.i.i.i.i = phi ptr [ %.0811.i.i.i.i, %148 ], [ %.012.i.i.i.i, %143 ], [ %.012.i.i.i.i, %138 ], [ %.012.i.i.i.i, %_ZNKSt4lessIN5boost8geometry15ring_identifierEEclERKS2_S5_.exit.i.i.i.i ]
+  %150 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 %.sink.i.i.i.i
+  %.1.i.i.i.i = load ptr, ptr %150, align 8, !tbaa !174
   %.not.i.i.i.i = icmp eq ptr %.1.i.i.i.i, null
-  br i1 %.not.i.i.i.i, label %_ZNSt3mapIN5boost8geometry15ring_identifierENS1_6detail7overlay15ring_propertiesINS1_5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEEdEESt4lessIS2_ESaISt4pairIKS2_SD_EEE11lower_boundERSH_.exit.i, label %137, !llvm.loop !2556
+  br i1 %.not.i.i.i.i, label %_ZNSt3mapIN5boost8geometry15ring_identifierENS1_6detail7overlay15ring_propertiesINS1_5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEEdEESt4lessIS2_ESaISt4pairIKS2_SD_EEE11lower_boundERSH_.exit.i, label %135, !llvm.loop !2556
 
-_ZNSt3mapIN5boost8geometry15ring_identifierENS1_6detail7overlay15ring_propertiesINS1_5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEEdEESt4lessIS2_ESaISt4pairIKS2_SD_EEE11lower_boundERSH_.exit.i: ; preds = %151
-  %153 = icmp eq ptr %.19.i.i.i.i, %131
-  br i1 %153, label %.critedge.i25, label %154
+_ZNSt3mapIN5boost8geometry15ring_identifierENS1_6detail7overlay15ring_propertiesINS1_5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEEdEESt4lessIS2_ESaISt4pairIKS2_SD_EEE11lower_boundERSH_.exit.i: ; preds = %149
+  %151 = icmp eq ptr %.19.i.i.i.i, %129
+  br i1 %151, label %.critedge.i25, label %152
 
-154:                                              ; preds = %_ZNSt3mapIN5boost8geometry15ring_identifierENS1_6detail7overlay15ring_propertiesINS1_5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEEdEESt4lessIS2_ESaISt4pairIKS2_SD_EEE11lower_boundERSH_.exit.i
-  %155 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 32
-  %156 = load i64, ptr %155, align 8, !tbaa !2542
-  %.not.i.i.i = icmp eq i64 %132, %156
-  br i1 %.not.i.i.i, label %159, label %157
+152:                                              ; preds = %_ZNSt3mapIN5boost8geometry15ring_identifierENS1_6detail7overlay15ring_propertiesINS1_5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEEdEESt4lessIS2_ESaISt4pairIKS2_SD_EEE11lower_boundERSH_.exit.i
+  %153 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 32
+  %154 = load i64, ptr %153, align 8, !tbaa !2542
+  %.not.i.i.i = icmp eq i64 %130, %154
+  br i1 %.not.i.i.i, label %157, label %155
 
-157:                                              ; preds = %154
-  %158 = icmp slt i64 %132, %156
-  br i1 %158, label %.critedge.i25, label %_ZNSt3mapIN5boost8geometry15ring_identifierENS1_6detail7overlay15ring_propertiesINS1_5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEEdEESt4lessIS2_ESaISt4pairIKS2_SD_EEEixERSH_.exit
+155:                                              ; preds = %152
+  %156 = icmp slt i64 %130, %154
+  br i1 %156, label %.critedge.i25, label %_ZNSt3mapIN5boost8geometry15ring_identifierENS1_6detail7overlay15ring_propertiesINS1_5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEEdEESt4lessIS2_ESaISt4pairIKS2_SD_EEEixERSH_.exit
 
-159:                                              ; preds = %154
-  %160 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 40
-  %161 = load i64, ptr %160, align 8, !tbaa !2544
-  %.not9.i.i.i = icmp eq i64 %134, %161
-  br i1 %.not9.i.i.i, label %162, label %_ZNKSt4lessIN5boost8geometry15ring_identifierEEclERKS2_S5_.exit.i
+157:                                              ; preds = %152
+  %158 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 40
+  %159 = load i64, ptr %158, align 8, !tbaa !2544
+  %.not9.i.i.i = icmp eq i64 %132, %159
+  br i1 %.not9.i.i.i, label %160, label %_ZNKSt4lessIN5boost8geometry15ring_identifierEEclERKS2_S5_.exit.i
 
-162:                                              ; preds = %159
-  %163 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 48
-  %164 = load i64, ptr %163, align 8, !tbaa !2545
-  %165 = icmp slt i64 %136, %164
-  br i1 %165, label %.critedge.i25, label %_ZNSt3mapIN5boost8geometry15ring_identifierENS1_6detail7overlay15ring_propertiesINS1_5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEEdEESt4lessIS2_ESaISt4pairIKS2_SD_EEEixERSH_.exit
+160:                                              ; preds = %157
+  %161 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 48
+  %162 = load i64, ptr %161, align 8, !tbaa !2545
+  %163 = icmp slt i64 %134, %162
+  br i1 %163, label %.critedge.i25, label %_ZNSt3mapIN5boost8geometry15ring_identifierENS1_6detail7overlay15ring_propertiesINS1_5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEEdEESt4lessIS2_ESaISt4pairIKS2_SD_EEEixERSH_.exit
 
-_ZNKSt4lessIN5boost8geometry15ring_identifierEEclERKS2_S5_.exit.i: ; preds = %159
-  %166 = icmp slt i64 %134, %161
-  br i1 %166, label %.critedge.i25, label %_ZNSt3mapIN5boost8geometry15ring_identifierENS1_6detail7overlay15ring_propertiesINS1_5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEEdEESt4lessIS2_ESaISt4pairIKS2_SD_EEEixERSH_.exit
+_ZNKSt4lessIN5boost8geometry15ring_identifierEEclERKS2_S5_.exit.i: ; preds = %157
+  %164 = icmp slt i64 %132, %159
+  br i1 %164, label %.critedge.i25, label %_ZNSt3mapIN5boost8geometry15ring_identifierENS1_6detail7overlay15ring_propertiesINS1_5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEEdEESt4lessIS2_ESaISt4pairIKS2_SD_EEEixERSH_.exit
 
-.critedge.i25:                                    ; preds = %_ZNKSt4lessIN5boost8geometry15ring_identifierEEclERKS2_S5_.exit.i, %162, %157, %_ZNSt3mapIN5boost8geometry15ring_identifierENS1_6detail7overlay15ring_propertiesINS1_5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEEdEESt4lessIS2_ESaISt4pairIKS2_SD_EEE11lower_boundERSH_.exit.i, %.critedge
-  %.08.lcssa.i.i.i11.i = phi ptr [ %.19.i.i.i.i, %162 ], [ %.19.i.i.i.i, %_ZNKSt4lessIN5boost8geometry15ring_identifierEEclERKS2_S5_.exit.i ], [ %.19.i.i.i.i, %157 ], [ %.19.i.i.i.i, %_ZNSt3mapIN5boost8geometry15ring_identifierENS1_6detail7overlay15ring_propertiesINS1_5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEEdEESt4lessIS2_ESaISt4pairIKS2_SD_EEE11lower_boundERSH_.exit.i ], [ %131, %.critedge ]
+.critedge.i25:                                    ; preds = %_ZNKSt4lessIN5boost8geometry15ring_identifierEEclERKS2_S5_.exit.i, %160, %155, %_ZNSt3mapIN5boost8geometry15ring_identifierENS1_6detail7overlay15ring_propertiesINS1_5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEEdEESt4lessIS2_ESaISt4pairIKS2_SD_EEE11lower_boundERSH_.exit.i, %.critedge
+  %.08.lcssa.i.i.i11.i = phi ptr [ %.19.i.i.i.i, %160 ], [ %.19.i.i.i.i, %_ZNKSt4lessIN5boost8geometry15ring_identifierEEclERKS2_S5_.exit.i ], [ %.19.i.i.i.i, %155 ], [ %.19.i.i.i.i, %_ZNSt3mapIN5boost8geometry15ring_identifierENS1_6detail7overlay15ring_propertiesINS1_5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEEdEESt4lessIS2_ESaISt4pairIKS2_SD_EEE11lower_boundERSH_.exit.i ], [ %129, %.critedge ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %2, ptr %7, align 8, !tbaa !174
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %167 = call ptr @_ZNSt8_Rb_treeIN5boost8geometry15ring_identifierESt4pairIKS2_NS1_6detail7overlay15ring_propertiesINS1_5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEEdEEESt10_Select1stISG_ESt4lessIS2_ESaISG_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS4_EESR_IJEEEEESt17_Rb_tree_iteratorISG_ESt23_Rb_tree_const_iteratorISG_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %128, ptr %.08.lcssa.i.i.i11.i, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 1 dereferenceable(1) %8)
+  %165 = call ptr @_ZNSt8_Rb_treeIN5boost8geometry15ring_identifierESt4pairIKS2_NS1_6detail7overlay15ring_propertiesINS1_5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEEdEEESt10_Select1stISG_ESt4lessIS2_ESaISG_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS4_EESR_IJEEEEESt17_Rb_tree_iteratorISG_ESt23_Rb_tree_const_iteratorISG_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %126, ptr %.08.lcssa.i.i.i11.i, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 1 dereferenceable(1) %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZNSt3mapIN5boost8geometry15ring_identifierENS1_6detail7overlay15ring_propertiesINS1_5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEEdEESt4lessIS2_ESaISt4pairIKS2_SD_EEEixERSH_.exit
 
-_ZNSt3mapIN5boost8geometry15ring_identifierENS1_6detail7overlay15ring_propertiesINS1_5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEEdEESt4lessIS2_ESaISt4pairIKS2_SD_EEEixERSH_.exit: ; preds = %157, %162, %_ZNKSt4lessIN5boost8geometry15ring_identifierEEclERKS2_S5_.exit.i, %.critedge.i25
-  %.sroa.06.0.i = phi ptr [ %167, %.critedge.i25 ], [ %.19.i.i.i.i, %_ZNKSt4lessIN5boost8geometry15ring_identifierEEclERKS2_S5_.exit.i ], [ %.19.i.i.i.i, %157 ], [ %.19.i.i.i.i, %162 ]
-  %168 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i, i64 64
-  %169 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %170 = call noundef zeroext i1 @_ZN5boost8geometry8strategy6within6detail21relate_point_box_loopINS3_16covered_by_rangeENS0_13spherical_tagELm0ELm2EE5applyINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEENS9_3boxISF_EEEEbRKT_RKT0_(ptr noundef nonnull align 8 dereferenceable(16) %168, ptr noundef nonnull align 8 dereferenceable(32) %169)
-  br i1 %170, label %171, label %_ZN5boost8geometry6detail7overlay14assign_visitorINS0_5model7polygonINS4_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEELb1ELb1ESt6vectorSC_SaSaEESD_St5dequeINS4_4ringISB_Lb1ELb1ESC_SaEESaISG_EESt3mapINS0_15ring_identifierENS2_15ring_propertiesISB_dEESt4lessISK_ESaISt4pairIKSK_SM_EEENS0_10strategies6relate9sphericalIvEEE5applyINS2_16ring_info_helperISB_dEEEEbRKT_S14_b.exit
+_ZNSt3mapIN5boost8geometry15ring_identifierENS1_6detail7overlay15ring_propertiesINS1_5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEEdEESt4lessIS2_ESaISt4pairIKS2_SD_EEEixERSH_.exit: ; preds = %155, %160, %_ZNKSt4lessIN5boost8geometry15ring_identifierEEclERKS2_S5_.exit.i, %.critedge.i25
+  %.sroa.06.0.i = phi ptr [ %165, %.critedge.i25 ], [ %.19.i.i.i.i, %_ZNKSt4lessIN5boost8geometry15ring_identifierEEclERKS2_S5_.exit.i ], [ %.19.i.i.i.i, %155 ], [ %.19.i.i.i.i, %160 ]
+  %166 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i, i64 64
+  %167 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %168 = call noundef zeroext i1 @_ZN5boost8geometry8strategy6within6detail21relate_point_box_loopINS3_16covered_by_rangeENS0_13spherical_tagELm0ELm2EE5applyINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEENS9_3boxISF_EEEEbRKT_RKT0_(ptr noundef nonnull align 8 dereferenceable(16) %166, ptr noundef nonnull align 8 dereferenceable(32) %167)
+  br i1 %168, label %169, label %_ZN5boost8geometry6detail7overlay14assign_visitorINS0_5model7polygonINS4_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEELb1ELb1ESt6vectorSC_SaSaEESD_St5dequeINS4_4ringISB_Lb1ELb1ESC_SaEESaISG_EESt3mapINS0_15ring_identifierENS2_15ring_propertiesISB_dEESt4lessISK_ESaISt4pairIKSK_SM_EEENS0_10strategies6relate9sphericalIvEEE5applyINS2_16ring_info_helperISB_dEEEEbRKT_S14_b.exit
 
-171:                                              ; preds = %_ZNSt3mapIN5boost8geometry15ring_identifierENS1_6detail7overlay15ring_propertiesINS1_5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEEdEESt4lessIS2_ESaISt4pairIKS2_SD_EEEixERSH_.exit
-  %172 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i, i64 56
-  %173 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %174 = load ptr, ptr %0, align 8, !tbaa !4253
-  %175 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %176 = load ptr, ptr %175, align 8, !tbaa !4254
-  %177 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %178 = load ptr, ptr %177, align 8, !tbaa !4255
-  %179 = load ptr, ptr %173, align 8, !tbaa !4256
-  %180 = call fastcc noundef zeroext i1 @_ZN5boost8geometry6detail7overlayL21within_selected_inputINS2_15ring_propertiesINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEdEENS5_7polygonISB_Lb1ELb1ESt6vectorSE_SaSaEESF_St5dequeINS5_4ringISB_Lb1ELb1ESE_SaEESaISI_EENS0_10strategies6relate9sphericalIvEEEEbRKT_RKNS0_15ring_identifierESU_RKT0_RKT1_RKT2_RKT3_(ptr noundef nonnull align 8 dereferenceable(96) %172, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(48) %174, ptr noundef nonnull align 8 dereferenceable(48) %176, ptr noundef nonnull align 8 dereferenceable(80) %178, ptr noundef nonnull align 1 dereferenceable(1) %179)
-  br i1 %180, label %181, label %_ZN5boost8geometry6detail7overlay14assign_visitorINS0_5model7polygonINS4_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEELb1ELb1ESt6vectorSC_SaSaEESD_St5dequeINS4_4ringISB_Lb1ELb1ESC_SaEESaISG_EESt3mapINS0_15ring_identifierENS2_15ring_propertiesISB_dEESt4lessISK_ESaISt4pairIKSK_SM_EEENS0_10strategies6relate9sphericalIvEEE5applyINS2_16ring_info_helperISB_dEEEEbRKT_S14_b.exit
+169:                                              ; preds = %_ZNSt3mapIN5boost8geometry15ring_identifierENS1_6detail7overlay15ring_propertiesINS1_5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEEdEESt4lessIS2_ESaISt4pairIKS2_SD_EEEixERSH_.exit
+  %170 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i, i64 56
+  %171 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %172 = load ptr, ptr %0, align 8, !tbaa !4253
+  %173 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %174 = load ptr, ptr %173, align 8, !tbaa !4254
+  %175 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %176 = load ptr, ptr %175, align 8, !tbaa !4255
+  %177 = load ptr, ptr %171, align 8, !tbaa !4256
+  %178 = call fastcc noundef zeroext i1 @_ZN5boost8geometry6detail7overlayL21within_selected_inputINS2_15ring_propertiesINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEdEENS5_7polygonISB_Lb1ELb1ESt6vectorSE_SaSaEESF_St5dequeINS5_4ringISB_Lb1ELb1ESE_SaEESaISI_EENS0_10strategies6relate9sphericalIvEEEEbRKT_RKNS0_15ring_identifierESU_RKT0_RKT1_RKT2_RKT3_(ptr noundef nonnull align 8 dereferenceable(96) %170, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(48) %172, ptr noundef nonnull align 8 dereferenceable(48) %174, ptr noundef nonnull align 8 dereferenceable(80) %176, ptr noundef nonnull align 1 dereferenceable(1) %177)
+  br i1 %178, label %179, label %_ZN5boost8geometry6detail7overlay14assign_visitorINS0_5model7polygonINS4_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEELb1ELb1ESt6vectorSC_SaSaEESD_St5dequeINS4_4ringISB_Lb1ELb1ESC_SaEESaISG_EESt3mapINS0_15ring_identifierENS2_15ring_propertiesISB_dEESt4lessISK_ESaISt4pairIKSK_SM_EEENS0_10strategies6relate9sphericalIvEEE5applyINS2_16ring_info_helperISB_dEEEEbRKT_S14_b.exit
 
-181:                                              ; preds = %171
-  %182 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i, i64 96
-  %183 = load i64, ptr %182, align 8, !tbaa !4257
-  %184 = icmp eq i64 %183, -1
-  br i1 %184, label %191, label %185
+179:                                              ; preds = %169
+  %180 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i, i64 96
+  %181 = load i64, ptr %180, align 8, !tbaa !4257
+  %182 = icmp eq i64 %181, -1
+  br i1 %182, label %189, label %183
 
-185:                                              ; preds = %181
-  %186 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %187 = load double, ptr %186, align 8, !tbaa !4251
-  %188 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i, i64 120
-  %189 = load double, ptr %188, align 8, !tbaa !2670
-  %190 = fcmp olt double %187, %189
-  br i1 %190, label %191, label %_ZN5boost8geometry6detail7overlay14assign_visitorINS0_5model7polygonINS4_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEELb1ELb1ESt6vectorSC_SaSaEESD_St5dequeINS4_4ringISB_Lb1ELb1ESC_SaEESaISG_EESt3mapINS0_15ring_identifierENS2_15ring_propertiesISB_dEESt4lessISK_ESaISt4pairIKSK_SM_EEENS0_10strategies6relate9sphericalIvEEE5applyINS2_16ring_info_helperISB_dEEEEbRKT_S14_b.exit
+183:                                              ; preds = %179
+  %184 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %185 = load double, ptr %184, align 8, !tbaa !4251
+  %186 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i, i64 120
+  %187 = load double, ptr %186, align 8, !tbaa !2670
+  %188 = fcmp olt double %185, %187
+  br i1 %188, label %189, label %_ZN5boost8geometry6detail7overlay14assign_visitorINS0_5model7polygonINS4_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEELb1ELb1ESt6vectorSC_SaSaEESD_St5dequeINS4_4ringISB_Lb1ELb1ESC_SaEESaISG_EESt3mapINS0_15ring_identifierENS2_15ring_propertiesISB_dEESt4lessISK_ESaISt4pairIKSK_SM_EEENS0_10strategies6relate9sphericalIvEEE5applyINS2_16ring_info_helperISB_dEEEEbRKT_S14_b.exit
 
-191:                                              ; preds = %185, %181
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %182, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false), !tbaa.struct !2658
-  %192 = getelementptr inbounds nuw i8, ptr %1, i64 32
+189:                                              ; preds = %183, %179
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %180, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false), !tbaa.struct !2658
+  %190 = getelementptr inbounds nuw i8, ptr %1, i64 32
   br label %_ZN5boost8geometry6detail7overlay14assign_visitorINS0_5model7polygonINS4_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEELb1ELb1ESt6vectorSC_SaSaEESD_St5dequeINS4_4ringISB_Lb1ELb1ESC_SaEESaISG_EESt3mapINS0_15ring_identifierENS2_15ring_propertiesISB_dEESt4lessISK_ESaISt4pairIKSK_SM_EEENS0_10strategies6relate9sphericalIvEEE5applyINS2_16ring_info_helperISB_dEEEEbRKT_S14_b.exit.sink.split
 
-_ZN5boost8geometry6detail7overlay14assign_visitorINS0_5model7polygonINS4_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEELb1ELb1ESt6vectorSC_SaSaEESD_St5dequeINS4_4ringISB_Lb1ELb1ESC_SaEESaISG_EESt3mapINS0_15ring_identifierENS2_15ring_propertiesISB_dEESt4lessISK_ESaISt4pairIKSK_SM_EEENS0_10strategies6relate9sphericalIvEEE5applyINS2_16ring_info_helperISB_dEEEEbRKT_S14_b.exit.sink.split: ; preds = %191, %102
-  %.sroa.06.0.i37.sink = phi ptr [ %.sroa.06.0.i37, %102 ], [ %.sroa.06.0.i, %191 ]
-  %.sink.in = phi ptr [ %12, %102 ], [ %192, %191 ]
+_ZN5boost8geometry6detail7overlay14assign_visitorINS0_5model7polygonINS4_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEELb1ELb1ESt6vectorSC_SaSaEESD_St5dequeINS4_4ringISB_Lb1ELb1ESC_SaEESaISG_EESt3mapINS0_15ring_identifierENS2_15ring_propertiesISB_dEESt4lessISK_ESaISt4pairIKSK_SM_EEENS0_10strategies6relate9sphericalIvEEE5applyINS2_16ring_info_helperISB_dEEEEbRKT_S14_b.exit.sink.split: ; preds = %189, %101
+  %.sroa.06.0.i37.sink = phi ptr [ %.sroa.06.0.i37, %101 ], [ %.sroa.06.0.i, %189 ]
+  %.sink.in = phi ptr [ %12, %101 ], [ %190, %189 ]
   %.sink = load double, ptr %.sink.in, align 8, !tbaa !4251
-  %193 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i37.sink, i64 120
-  store double %.sink, ptr %193, align 8, !tbaa !2670
+  %191 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i37.sink, i64 120
+  store double %.sink, ptr %191, align 8, !tbaa !2670
   br label %_ZN5boost8geometry6detail7overlay14assign_visitorINS0_5model7polygonINS4_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEELb1ELb1ESt6vectorSC_SaSaEESD_St5dequeINS4_4ringISB_Lb1ELb1ESC_SaEESaISG_EESt3mapINS0_15ring_identifierENS2_15ring_propertiesISB_dEESt4lessISK_ESaISt4pairIKSK_SM_EEENS0_10strategies6relate9sphericalIvEEE5applyINS2_16ring_info_helperISB_dEEEEbRKT_S14_b.exit
 
-_ZN5boost8geometry6detail7overlay14assign_visitorINS0_5model7polygonINS4_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEELb1ELb1ESt6vectorSC_SaSaEESD_St5dequeINS4_4ringISB_Lb1ELb1ESC_SaEESaISG_EESt3mapINS0_15ring_identifierENS2_15ring_propertiesISB_dEESt4lessISK_ESaISt4pairIKSK_SM_EEENS0_10strategies6relate9sphericalIvEEE5applyINS2_16ring_info_helperISB_dEEEEbRKT_S14_b.exit: ; preds = %_ZN5boost8geometry6detail7overlay14assign_visitorINS0_5model7polygonINS4_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEELb1ELb1ESt6vectorSC_SaSaEESD_St5dequeINS4_4ringISB_Lb1ELb1ESC_SaEESaISG_EESt3mapINS0_15ring_identifierENS2_15ring_propertiesISB_dEESt4lessISK_ESaISt4pairIKSK_SM_EEENS0_10strategies6relate9sphericalIvEEE5applyINS2_16ring_info_helperISB_dEEEEbRKT_S14_b.exit.sink.split, %_ZN5boost8geometry4math6largerIdiEEbRKT_RKT0_.exit.thread, %107, %_ZN5boost8geometry4math6largerIdiEEbRKT_RKT0_.exit50.thread, %19, %_ZN5boost8geometry4math6largerIdiEEbRKT_RKT0_.exit, %97, %83, %_ZNSt3mapIN5boost8geometry15ring_identifierENS1_6detail7overlay15ring_propertiesINS1_5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEEdEESt4lessIS2_ESaISt4pairIKS2_SD_EEEixERSH_.exit44, %_ZN5boost8geometry4math7smallerIdiEEbRKT_RKT0_.exit47, %_ZN5boost8geometry4math6largerIdiEEbRKT_RKT0_.exit50, %_ZN5boost8geometry4math7smallerIdiEEbRKT_RKT0_.exit, %185, %171, %_ZNSt3mapIN5boost8geometry15ring_identifierENS1_6detail7overlay15ring_propertiesINS1_5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEEdEESt4lessIS2_ESaISt4pairIKS2_SD_EEEixERSH_.exit
+_ZN5boost8geometry6detail7overlay14assign_visitorINS0_5model7polygonINS4_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEELb1ELb1ESt6vectorSC_SaSaEESD_St5dequeINS4_4ringISB_Lb1ELb1ESC_SaEESaISG_EESt3mapINS0_15ring_identifierENS2_15ring_propertiesISB_dEESt4lessISK_ESaISt4pairIKSK_SM_EEENS0_10strategies6relate9sphericalIvEEE5applyINS2_16ring_info_helperISB_dEEEEbRKT_S14_b.exit: ; preds = %_ZN5boost8geometry6detail7overlay14assign_visitorINS0_5model7polygonINS4_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEELb1ELb1ESt6vectorSC_SaSaEESD_St5dequeINS4_4ringISB_Lb1ELb1ESC_SaEESaISG_EESt3mapINS0_15ring_identifierENS2_15ring_propertiesISB_dEESt4lessISK_ESaISt4pairIKSK_SM_EEENS0_10strategies6relate9sphericalIvEEE5applyINS2_16ring_info_helperISB_dEEEEbRKT_S14_b.exit.sink.split, %_ZN5boost8geometry4math6largerIdiEEbRKT_RKT0_.exit.thread, %106, %_ZN5boost8geometry4math6largerIdiEEbRKT_RKT0_.exit50.thread, %19, %_ZN5boost8geometry4math6largerIdiEEbRKT_RKT0_.exit, %96, %82, %_ZNSt3mapIN5boost8geometry15ring_identifierENS1_6detail7overlay15ring_propertiesINS1_5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEEdEESt4lessIS2_ESaISt4pairIKS2_SD_EEEixERSH_.exit44, %_ZN5boost8geometry4math7smallerIdiEEbRKT_RKT0_.exit47, %_ZN5boost8geometry4math6largerIdiEEbRKT_RKT0_.exit50, %_ZN5boost8geometry4math7smallerIdiEEbRKT_RKT0_.exit, %183, %169, %_ZNSt3mapIN5boost8geometry15ring_identifierENS1_6detail7overlay15ring_propertiesINS1_5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEEdEESt4lessIS2_ESaISt4pairIKS2_SD_EEEixERSH_.exit
   ret i1 true
 }
 

@@ -1586,17 +1586,17 @@ define linkonce_odr hidden noundef i64 @_ZN9QuickSort9partitionI12LogSelection20
   %13 = load i64, ptr %12, align 8
   br label %14
 
-14:                                               ; preds = %132, %4
-  %.016 = phi i64 [ 0, %4 ], [ %133, %132 ]
-  %.0.in = phi i64 [ %2, %4 ], [ %.1, %132 ]
+14:                                               ; preds = %130, %4
+  %.016 = phi i64 [ 0, %4 ], [ %131, %130 ]
+  %.0.in = phi i64 [ %2, %4 ], [ %.1, %130 ]
   %15 = load i64, ptr %3, align 8
   %.not.i.i = icmp eq i64 %15, 0
   %16 = add i64 %.pre.i.i, %15
   %17 = uitofp i64 %16 to double
   br i1 %.not.i.i, label %_ZNK12LogSelection10similarityERKS_.exit.i.us, label %.preheader.lr.ph.i.i
 
-_ZNK12LogSelection10similarityERKS_.exit.i.us:    ; preds = %14, %_ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit.thread.us
-  %.117.us = phi i64 [ %35, %_ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit.thread.us ], [ %.016, %14 ]
+_ZNK12LogSelection10similarityERKS_.exit.i.us:    ; preds = %14, %_ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit.us
+  %.117.us = phi i64 [ %33, %_ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit.us ], [ %.016, %14 ]
   %18 = getelementptr inbounds %class.LogSelection, ptr %0, i64 %.117.us
   %.pre.i13.i.us = load i64, ptr %18, align 8
   %19 = uitofp i64 %.pre.i13.i.us to double
@@ -1604,7 +1604,7 @@ _ZNK12LogSelection10similarityERKS_.exit.i.us:    ; preds = %14, %_ZNK20Similari
   %21 = fsub double %11, %20
   %22 = tail call double @llvm.fabs.f64(double %21)
   %23 = fcmp ogt double %22, 0x3EB0C6F7A0B5ED8D
-  br i1 %23, label %32, label %24
+  br i1 %23, label %.preheader, label %24
 
 24:                                               ; preds = %_ZNK12LogSelection10similarityERKS_.exit.i.us
   %25 = sub i64 %.pre.i13.i.us, %.pre.i.i
@@ -1619,278 +1619,271 @@ _ZNK12LogSelection10similarityERKS_.exit.i.us:    ; preds = %14, %_ZNK20Similari
   %31 = trunc i64 %30 to i32
   br label %_ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit.us
 
-32:                                               ; preds = %_ZNK12LogSelection10similarityERKS_.exit.i.us
-  %33 = fcmp olt double %21, 0.000000e+00
-  br i1 %33, label %_ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit.thread.us, label %.preheader
-
 _ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit.us: ; preds = %27, %24
   %.0.i.us = phi i32 [ %26, %24 ], [ %31, %27 ]
-  %34 = icmp slt i32 %.0.i.us, 0
-  br i1 %34, label %_ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit.thread.us, label %.preheader
-
-_ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit.thread.us: ; preds = %_ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit.us, %32
-  %35 = add i64 %.117.us, 1
-  br label %_ZNK12LogSelection10similarityERKS_.exit.i.us, !llvm.loop !26
+  %32 = icmp slt i32 %.0.i.us, 0
+  %33 = add i64 %.117.us, 1
+  br i1 %32, label %_ZNK12LogSelection10similarityERKS_.exit.i.us, label %.preheader, !llvm.loop !26
 
 .preheader.lr.ph.i.i:                             ; preds = %14, %_ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit.thread
-  %.117 = phi i64 [ %82, %_ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit.thread ], [ %.016, %14 ]
-  %36 = getelementptr inbounds %class.LogSelection, ptr %0, i64 %.117
+  %.117 = phi i64 [ %80, %_ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit.thread ], [ %.016, %14 ]
+  %34 = getelementptr inbounds %class.LogSelection, ptr %0, i64 %.117
   br i1 %.not20.i.i, label %.preheader.lr.ph.i14.i, label %.preheader.us.i.i
 
 .preheader.us.i.i:                                ; preds = %.preheader.lr.ph.i.i, %..loopexit_crit_edge.us.i.i
-  %.01116.us.i.i = phi i64 [ %47, %..loopexit_crit_edge.us.i.i ], [ 0, %.preheader.lr.ph.i.i ]
+  %.01116.us.i.i = phi i64 [ %45, %..loopexit_crit_edge.us.i.i ], [ 0, %.preheader.lr.ph.i.i ]
   %.01215.us.i.i = phi i64 [ %.1.us.i.i, %..loopexit_crit_edge.us.i.i ], [ 0, %.preheader.lr.ph.i.i ]
-  %37 = getelementptr inbounds i32, ptr %8, i64 %.01116.us.i.i
-  %38 = load i32, ptr %37, align 4
-  br label %41
+  %35 = getelementptr inbounds i32, ptr %8, i64 %.01116.us.i.i
+  %36 = load i32, ptr %35, align 4
+  br label %39
 
-39:                                               ; preds = %41
-  %40 = add nuw i64 %.014.us.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %40, %.pre.i.i
-  br i1 %exitcond.not.i.i, label %..loopexit_crit_edge.us.i.i, label %41, !llvm.loop !21
+37:                                               ; preds = %39
+  %38 = add nuw i64 %.014.us.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %38, %.pre.i.i
+  br i1 %exitcond.not.i.i, label %..loopexit_crit_edge.us.i.i, label %39, !llvm.loop !21
 
-41:                                               ; preds = %39, %.preheader.us.i.i
-  %.014.us.i.i = phi i64 [ 0, %.preheader.us.i.i ], [ %40, %39 ]
-  %42 = getelementptr inbounds i32, ptr %9, i64 %.014.us.i.i
-  %43 = load i32, ptr %42, align 4
-  %44 = icmp eq i32 %38, %43
-  br i1 %44, label %45, label %39
+39:                                               ; preds = %37, %.preheader.us.i.i
+  %.014.us.i.i = phi i64 [ 0, %.preheader.us.i.i ], [ %38, %37 ]
+  %40 = getelementptr inbounds i32, ptr %9, i64 %.014.us.i.i
+  %41 = load i32, ptr %40, align 4
+  %42 = icmp eq i32 %36, %41
+  br i1 %42, label %43, label %37
 
-45:                                               ; preds = %41
-  %46 = add i64 %.01215.us.i.i, 1
+43:                                               ; preds = %39
+  %44 = add i64 %.01215.us.i.i, 1
   br label %..loopexit_crit_edge.us.i.i
 
-..loopexit_crit_edge.us.i.i:                      ; preds = %39, %45
-  %.1.us.i.i = phi i64 [ %46, %45 ], [ %.01215.us.i.i, %39 ]
-  %47 = add nuw i64 %.01116.us.i.i, 1
-  %exitcond22.not.i.i = icmp eq i64 %47, %15
+..loopexit_crit_edge.us.i.i:                      ; preds = %37, %43
+  %.1.us.i.i = phi i64 [ %44, %43 ], [ %.01215.us.i.i, %37 ]
+  %45 = add nuw i64 %.01116.us.i.i, 1
+  %exitcond22.not.i.i = icmp eq i64 %45, %15
   br i1 %exitcond22.not.i.i, label %._crit_edge.loopexit21.i.i, label %.preheader.us.i.i, !llvm.loop !22
 
 ._crit_edge.loopexit21.i.i:                       ; preds = %..loopexit_crit_edge.us.i.i
-  %48 = uitofp i64 %.1.us.i.i to double
-  %49 = fmul double %48, 2.000000e+00
+  %46 = uitofp i64 %.1.us.i.i to double
+  %47 = fmul double %46, 2.000000e+00
   br label %.preheader.lr.ph.i14.i
 
 .preheader.lr.ph.i14.i:                           ; preds = %._crit_edge.loopexit21.i.i, %.preheader.lr.ph.i.i
-  %.012.lcssa.i.ph.i = phi double [ 0.000000e+00, %.preheader.lr.ph.i.i ], [ %49, %._crit_edge.loopexit21.i.i ]
-  %50 = fdiv double %.012.lcssa.i.ph.i, %17
-  %.pre.i1328.i = load i64, ptr %36, align 8
+  %.012.lcssa.i.ph.i = phi double [ 0.000000e+00, %.preheader.lr.ph.i.i ], [ %47, %._crit_edge.loopexit21.i.i ]
+  %48 = fdiv double %.012.lcssa.i.ph.i, %17
+  %.pre.i1328.i = load i64, ptr %34, align 8
   %.not20.i15.i = icmp eq i64 %.pre.i1328.i, 0
-  %51 = getelementptr inbounds nuw i8, ptr %36, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %34, i64 8
   br i1 %.not20.i15.i, label %_ZNK12LogSelection10similarityERKS_.exit26.i, label %.preheader.us.i16.i
 
 .preheader.us.i16.i:                              ; preds = %.preheader.lr.ph.i14.i, %..loopexit_crit_edge.us.i21.i
-  %.01116.us.i17.i = phi i64 [ %62, %..loopexit_crit_edge.us.i21.i ], [ 0, %.preheader.lr.ph.i14.i ]
+  %.01116.us.i17.i = phi i64 [ %60, %..loopexit_crit_edge.us.i21.i ], [ 0, %.preheader.lr.ph.i14.i ]
   %.01215.us.i18.i = phi i64 [ %.1.us.i22.i, %..loopexit_crit_edge.us.i21.i ], [ 0, %.preheader.lr.ph.i14.i ]
-  %52 = getelementptr inbounds i32, ptr %8, i64 %.01116.us.i17.i
-  %53 = load i32, ptr %52, align 4
-  br label %56
+  %50 = getelementptr inbounds i32, ptr %8, i64 %.01116.us.i17.i
+  %51 = load i32, ptr %50, align 4
+  br label %54
 
-54:                                               ; preds = %56
-  %55 = add nuw i64 %.014.us.i19.i, 1
-  %exitcond.not.i20.i = icmp eq i64 %55, %.pre.i1328.i
-  br i1 %exitcond.not.i20.i, label %..loopexit_crit_edge.us.i21.i, label %56, !llvm.loop !21
+52:                                               ; preds = %54
+  %53 = add nuw i64 %.014.us.i19.i, 1
+  %exitcond.not.i20.i = icmp eq i64 %53, %.pre.i1328.i
+  br i1 %exitcond.not.i20.i, label %..loopexit_crit_edge.us.i21.i, label %54, !llvm.loop !21
 
-56:                                               ; preds = %54, %.preheader.us.i16.i
-  %.014.us.i19.i = phi i64 [ 0, %.preheader.us.i16.i ], [ %55, %54 ]
-  %57 = getelementptr inbounds i32, ptr %51, i64 %.014.us.i19.i
-  %58 = load i32, ptr %57, align 4
-  %59 = icmp eq i32 %53, %58
-  br i1 %59, label %60, label %54
+54:                                               ; preds = %52, %.preheader.us.i16.i
+  %.014.us.i19.i = phi i64 [ 0, %.preheader.us.i16.i ], [ %53, %52 ]
+  %55 = getelementptr inbounds i32, ptr %49, i64 %.014.us.i19.i
+  %56 = load i32, ptr %55, align 4
+  %57 = icmp eq i32 %51, %56
+  br i1 %57, label %58, label %52
 
-60:                                               ; preds = %56
-  %61 = add i64 %.01215.us.i18.i, 1
+58:                                               ; preds = %54
+  %59 = add i64 %.01215.us.i18.i, 1
   br label %..loopexit_crit_edge.us.i21.i
 
-..loopexit_crit_edge.us.i21.i:                    ; preds = %54, %60
-  %.1.us.i22.i = phi i64 [ %61, %60 ], [ %.01215.us.i18.i, %54 ]
-  %62 = add nuw i64 %.01116.us.i17.i, 1
-  %exitcond22.not.i23.i = icmp eq i64 %62, %15
+..loopexit_crit_edge.us.i21.i:                    ; preds = %52, %58
+  %.1.us.i22.i = phi i64 [ %59, %58 ], [ %.01215.us.i18.i, %52 ]
+  %60 = add nuw i64 %.01116.us.i17.i, 1
+  %exitcond22.not.i23.i = icmp eq i64 %60, %15
   br i1 %exitcond22.not.i23.i, label %._crit_edge.loopexit21.i24.i, label %.preheader.us.i16.i, !llvm.loop !22
 
 ._crit_edge.loopexit21.i24.i:                     ; preds = %..loopexit_crit_edge.us.i21.i
-  %63 = uitofp i64 %.1.us.i22.i to double
-  %64 = fmul double %63, 2.000000e+00
+  %61 = uitofp i64 %.1.us.i22.i to double
+  %62 = fmul double %61, 2.000000e+00
   br label %_ZNK12LogSelection10similarityERKS_.exit26.i
 
 _ZNK12LogSelection10similarityERKS_.exit26.i:     ; preds = %._crit_edge.loopexit21.i24.i, %.preheader.lr.ph.i14.i
-  %.012.lcssa.i25.i = phi double [ 0.000000e+00, %.preheader.lr.ph.i14.i ], [ %64, %._crit_edge.loopexit21.i24.i ]
-  %65 = add i64 %.pre.i1328.i, %15
-  %66 = uitofp i64 %65 to double
-  %67 = fdiv double %.012.lcssa.i25.i, %66
-  %68 = fsub double %50, %67
-  %69 = tail call double @llvm.fabs.f64(double %68)
-  %70 = fcmp ogt double %69, 0x3EB0C6F7A0B5ED8D
-  br i1 %70, label %71, label %73
+  %.012.lcssa.i25.i = phi double [ 0.000000e+00, %.preheader.lr.ph.i14.i ], [ %62, %._crit_edge.loopexit21.i24.i ]
+  %63 = add i64 %.pre.i1328.i, %15
+  %64 = uitofp i64 %63 to double
+  %65 = fdiv double %.012.lcssa.i25.i, %64
+  %66 = fsub double %48, %65
+  %67 = tail call double @llvm.fabs.f64(double %66)
+  %68 = fcmp ogt double %67, 0x3EB0C6F7A0B5ED8D
+  br i1 %68, label %69, label %71
+
+69:                                               ; preds = %_ZNK12LogSelection10similarityERKS_.exit26.i
+  %70 = fcmp olt double %66, 0.000000e+00
+  br i1 %70, label %_ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit.thread, label %.preheader
 
 71:                                               ; preds = %_ZNK12LogSelection10similarityERKS_.exit26.i
-  %72 = fcmp olt double %68, 0.000000e+00
-  br i1 %72, label %_ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit.thread, label %.preheader
+  %72 = sub i64 %.pre.i1328.i, %.pre.i.i
+  %73 = trunc i64 %72 to i32
+  %.not.i = icmp eq i32 %73, 0
+  br i1 %.not.i, label %74, label %_ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit
 
-73:                                               ; preds = %_ZNK12LogSelection10similarityERKS_.exit26.i
-  %74 = sub i64 %.pre.i1328.i, %.pre.i.i
-  %75 = trunc i64 %74 to i32
-  %.not.i = icmp eq i32 %75, 0
-  br i1 %.not.i, label %76, label %_ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit
-
-76:                                               ; preds = %73
-  %77 = getelementptr inbounds nuw i8, ptr %36, i64 40
-  %78 = load i64, ptr %77, align 8
-  %79 = sub i64 %13, %78
-  %80 = trunc i64 %79 to i32
+74:                                               ; preds = %71
+  %75 = getelementptr inbounds nuw i8, ptr %34, i64 40
+  %76 = load i64, ptr %75, align 8
+  %77 = sub i64 %13, %76
+  %78 = trunc i64 %77 to i32
   br label %_ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit
 
-_ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit: ; preds = %73, %76
-  %.0.i = phi i32 [ %75, %73 ], [ %80, %76 ]
-  %81 = icmp slt i32 %.0.i, 0
-  br i1 %81, label %_ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit.thread, label %.preheader
+_ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit: ; preds = %71, %74
+  %.0.i = phi i32 [ %73, %71 ], [ %78, %74 ]
+  %79 = icmp slt i32 %.0.i, 0
+  br i1 %79, label %_ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit.thread, label %.preheader
 
-.preheader:                                       ; preds = %71, %_ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit, %32, %_ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit.us
-  %.us-phi = phi i64 [ %.117.us, %32 ], [ %.117.us, %_ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit.us ], [ %.117, %_ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit ], [ %.117, %71 ]
-  %.us-phi58 = phi ptr [ %18, %32 ], [ %18, %_ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit.us ], [ %36, %_ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit ], [ %36, %71 ]
-  br label %83
+.preheader:                                       ; preds = %69, %_ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit, %_ZNK12LogSelection10similarityERKS_.exit.i.us, %_ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit.us
+  %.us-phi = phi i64 [ %.117.us, %_ZNK12LogSelection10similarityERKS_.exit.i.us ], [ %.117.us, %_ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit.us ], [ %.117, %_ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit ], [ %.117, %69 ]
+  %.us-phi58 = phi ptr [ %18, %_ZNK12LogSelection10similarityERKS_.exit.i.us ], [ %18, %_ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit.us ], [ %34, %_ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit ], [ %34, %69 ]
+  br label %81
 
-_ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit.thread: ; preds = %71, %_ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit
-  %82 = add i64 %.117, 1
+_ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit.thread: ; preds = %69, %_ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit
+  %80 = add i64 %.117, 1
   br label %.preheader.lr.ph.i.i, !llvm.loop !26
 
-83:                                               ; preds = %.preheader, %_ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit51
+81:                                               ; preds = %.preheader, %_ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit51
   %.1.in = phi i64 [ %.1, %_ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit51 ], [ %.0.in, %.preheader ]
   %.1 = add i64 %.1.in, -1
-  %84 = getelementptr inbounds %class.LogSelection, ptr %0, i64 %.1
+  %82 = getelementptr inbounds %class.LogSelection, ptr %0, i64 %.1
   br i1 %.not.i.i, label %_ZNK12LogSelection10similarityERKS_.exit.i49, label %.preheader.lr.ph.i.i20
 
-.preheader.lr.ph.i.i20:                           ; preds = %83
+.preheader.lr.ph.i.i20:                           ; preds = %81
   br i1 %.not20.i.i, label %.preheader.lr.ph.i14.i31, label %.preheader.us.i.i22
 
 .preheader.us.i.i22:                              ; preds = %.preheader.lr.ph.i.i20, %..loopexit_crit_edge.us.i.i27
-  %.01116.us.i.i23 = phi i64 [ %95, %..loopexit_crit_edge.us.i.i27 ], [ 0, %.preheader.lr.ph.i.i20 ]
+  %.01116.us.i.i23 = phi i64 [ %93, %..loopexit_crit_edge.us.i.i27 ], [ 0, %.preheader.lr.ph.i.i20 ]
   %.01215.us.i.i24 = phi i64 [ %.1.us.i.i28, %..loopexit_crit_edge.us.i.i27 ], [ 0, %.preheader.lr.ph.i.i20 ]
-  %85 = getelementptr inbounds i32, ptr %8, i64 %.01116.us.i.i23
-  %86 = load i32, ptr %85, align 4
-  br label %89
+  %83 = getelementptr inbounds i32, ptr %8, i64 %.01116.us.i.i23
+  %84 = load i32, ptr %83, align 4
+  br label %87
 
-87:                                               ; preds = %89
-  %88 = add nuw i64 %.014.us.i.i25, 1
-  %exitcond.not.i.i26 = icmp eq i64 %88, %.pre.i.i
-  br i1 %exitcond.not.i.i26, label %..loopexit_crit_edge.us.i.i27, label %89, !llvm.loop !21
+85:                                               ; preds = %87
+  %86 = add nuw i64 %.014.us.i.i25, 1
+  %exitcond.not.i.i26 = icmp eq i64 %86, %.pre.i.i
+  br i1 %exitcond.not.i.i26, label %..loopexit_crit_edge.us.i.i27, label %87, !llvm.loop !21
 
-89:                                               ; preds = %87, %.preheader.us.i.i22
-  %.014.us.i.i25 = phi i64 [ 0, %.preheader.us.i.i22 ], [ %88, %87 ]
-  %90 = getelementptr inbounds i32, ptr %9, i64 %.014.us.i.i25
-  %91 = load i32, ptr %90, align 4
-  %92 = icmp eq i32 %86, %91
-  br i1 %92, label %93, label %87
+87:                                               ; preds = %85, %.preheader.us.i.i22
+  %.014.us.i.i25 = phi i64 [ 0, %.preheader.us.i.i22 ], [ %86, %85 ]
+  %88 = getelementptr inbounds i32, ptr %9, i64 %.014.us.i.i25
+  %89 = load i32, ptr %88, align 4
+  %90 = icmp eq i32 %84, %89
+  br i1 %90, label %91, label %85
 
-93:                                               ; preds = %89
-  %94 = add i64 %.01215.us.i.i24, 1
+91:                                               ; preds = %87
+  %92 = add i64 %.01215.us.i.i24, 1
   br label %..loopexit_crit_edge.us.i.i27
 
-..loopexit_crit_edge.us.i.i27:                    ; preds = %87, %93
-  %.1.us.i.i28 = phi i64 [ %94, %93 ], [ %.01215.us.i.i24, %87 ]
-  %95 = add nuw i64 %.01116.us.i.i23, 1
-  %exitcond22.not.i.i29 = icmp eq i64 %95, %15
+..loopexit_crit_edge.us.i.i27:                    ; preds = %85, %91
+  %.1.us.i.i28 = phi i64 [ %92, %91 ], [ %.01215.us.i.i24, %85 ]
+  %93 = add nuw i64 %.01116.us.i.i23, 1
+  %exitcond22.not.i.i29 = icmp eq i64 %93, %15
   br i1 %exitcond22.not.i.i29, label %._crit_edge.loopexit21.i.i30, label %.preheader.us.i.i22, !llvm.loop !22
 
 ._crit_edge.loopexit21.i.i30:                     ; preds = %..loopexit_crit_edge.us.i.i27
-  %96 = uitofp i64 %.1.us.i.i28 to double
-  %97 = fmul double %96, 2.000000e+00
+  %94 = uitofp i64 %.1.us.i.i28 to double
+  %95 = fmul double %94, 2.000000e+00
   br label %.preheader.lr.ph.i14.i31
 
-_ZNK12LogSelection10similarityERKS_.exit.i49:     ; preds = %83
-  %.pre.i13.i50 = load i64, ptr %84, align 8
+_ZNK12LogSelection10similarityERKS_.exit.i49:     ; preds = %81
+  %.pre.i13.i50 = load i64, ptr %82, align 8
   br label %_ZNK12LogSelection10similarityERKS_.exit26.i44
 
 .preheader.lr.ph.i14.i31:                         ; preds = %._crit_edge.loopexit21.i.i30, %.preheader.lr.ph.i.i20
-  %.012.lcssa.i.ph.i32 = phi double [ 0.000000e+00, %.preheader.lr.ph.i.i20 ], [ %97, %._crit_edge.loopexit21.i.i30 ]
-  %98 = fdiv double %.012.lcssa.i.ph.i32, %17
-  %.pre.i1328.i33 = load i64, ptr %84, align 8
+  %.012.lcssa.i.ph.i32 = phi double [ 0.000000e+00, %.preheader.lr.ph.i.i20 ], [ %95, %._crit_edge.loopexit21.i.i30 ]
+  %96 = fdiv double %.012.lcssa.i.ph.i32, %17
+  %.pre.i1328.i33 = load i64, ptr %82, align 8
   %.not20.i15.i34 = icmp eq i64 %.pre.i1328.i33, 0
-  %99 = getelementptr inbounds nuw i8, ptr %84, i64 8
+  %97 = getelementptr inbounds nuw i8, ptr %82, i64 8
   br i1 %.not20.i15.i34, label %_ZNK12LogSelection10similarityERKS_.exit26.i44, label %.preheader.us.i16.i35
 
 .preheader.us.i16.i35:                            ; preds = %.preheader.lr.ph.i14.i31, %..loopexit_crit_edge.us.i21.i40
-  %.01116.us.i17.i36 = phi i64 [ %110, %..loopexit_crit_edge.us.i21.i40 ], [ 0, %.preheader.lr.ph.i14.i31 ]
+  %.01116.us.i17.i36 = phi i64 [ %108, %..loopexit_crit_edge.us.i21.i40 ], [ 0, %.preheader.lr.ph.i14.i31 ]
   %.01215.us.i18.i37 = phi i64 [ %.1.us.i22.i41, %..loopexit_crit_edge.us.i21.i40 ], [ 0, %.preheader.lr.ph.i14.i31 ]
-  %100 = getelementptr inbounds i32, ptr %8, i64 %.01116.us.i17.i36
-  %101 = load i32, ptr %100, align 4
-  br label %104
+  %98 = getelementptr inbounds i32, ptr %8, i64 %.01116.us.i17.i36
+  %99 = load i32, ptr %98, align 4
+  br label %102
 
-102:                                              ; preds = %104
-  %103 = add nuw i64 %.014.us.i19.i38, 1
-  %exitcond.not.i20.i39 = icmp eq i64 %103, %.pre.i1328.i33
-  br i1 %exitcond.not.i20.i39, label %..loopexit_crit_edge.us.i21.i40, label %104, !llvm.loop !21
+100:                                              ; preds = %102
+  %101 = add nuw i64 %.014.us.i19.i38, 1
+  %exitcond.not.i20.i39 = icmp eq i64 %101, %.pre.i1328.i33
+  br i1 %exitcond.not.i20.i39, label %..loopexit_crit_edge.us.i21.i40, label %102, !llvm.loop !21
 
-104:                                              ; preds = %102, %.preheader.us.i16.i35
-  %.014.us.i19.i38 = phi i64 [ 0, %.preheader.us.i16.i35 ], [ %103, %102 ]
-  %105 = getelementptr inbounds i32, ptr %99, i64 %.014.us.i19.i38
-  %106 = load i32, ptr %105, align 4
-  %107 = icmp eq i32 %101, %106
-  br i1 %107, label %108, label %102
+102:                                              ; preds = %100, %.preheader.us.i16.i35
+  %.014.us.i19.i38 = phi i64 [ 0, %.preheader.us.i16.i35 ], [ %101, %100 ]
+  %103 = getelementptr inbounds i32, ptr %97, i64 %.014.us.i19.i38
+  %104 = load i32, ptr %103, align 4
+  %105 = icmp eq i32 %99, %104
+  br i1 %105, label %106, label %100
 
-108:                                              ; preds = %104
-  %109 = add i64 %.01215.us.i18.i37, 1
+106:                                              ; preds = %102
+  %107 = add i64 %.01215.us.i18.i37, 1
   br label %..loopexit_crit_edge.us.i21.i40
 
-..loopexit_crit_edge.us.i21.i40:                  ; preds = %102, %108
-  %.1.us.i22.i41 = phi i64 [ %109, %108 ], [ %.01215.us.i18.i37, %102 ]
-  %110 = add nuw i64 %.01116.us.i17.i36, 1
-  %exitcond22.not.i23.i42 = icmp eq i64 %110, %15
+..loopexit_crit_edge.us.i21.i40:                  ; preds = %100, %106
+  %.1.us.i22.i41 = phi i64 [ %107, %106 ], [ %.01215.us.i18.i37, %100 ]
+  %108 = add nuw i64 %.01116.us.i17.i36, 1
+  %exitcond22.not.i23.i42 = icmp eq i64 %108, %15
   br i1 %exitcond22.not.i23.i42, label %._crit_edge.loopexit21.i24.i43, label %.preheader.us.i16.i35, !llvm.loop !22
 
 ._crit_edge.loopexit21.i24.i43:                   ; preds = %..loopexit_crit_edge.us.i21.i40
-  %111 = uitofp i64 %.1.us.i22.i41 to double
-  %112 = fmul double %111, 2.000000e+00
+  %109 = uitofp i64 %.1.us.i22.i41 to double
+  %110 = fmul double %109, 2.000000e+00
   br label %_ZNK12LogSelection10similarityERKS_.exit26.i44
 
 _ZNK12LogSelection10similarityERKS_.exit26.i44:   ; preds = %._crit_edge.loopexit21.i24.i43, %.preheader.lr.ph.i14.i31, %_ZNK12LogSelection10similarityERKS_.exit.i49
   %.pre.i1330.i45 = phi i64 [ %.pre.i13.i50, %_ZNK12LogSelection10similarityERKS_.exit.i49 ], [ %.pre.i1328.i33, %._crit_edge.loopexit21.i24.i43 ], [ 0, %.preheader.lr.ph.i14.i31 ]
-  %113 = phi double [ %11, %_ZNK12LogSelection10similarityERKS_.exit.i49 ], [ %98, %._crit_edge.loopexit21.i24.i43 ], [ %98, %.preheader.lr.ph.i14.i31 ]
-  %.012.lcssa.i25.i46 = phi double [ 0.000000e+00, %_ZNK12LogSelection10similarityERKS_.exit.i49 ], [ %112, %._crit_edge.loopexit21.i24.i43 ], [ 0.000000e+00, %.preheader.lr.ph.i14.i31 ]
-  %114 = add i64 %.pre.i1330.i45, %15
-  %115 = uitofp i64 %114 to double
-  %116 = fdiv double %.012.lcssa.i25.i46, %115
-  %117 = fsub double %113, %116
-  %118 = tail call double @llvm.fabs.f64(double %117)
-  %119 = fcmp ogt double %118, 0x3EB0C6F7A0B5ED8D
-  br i1 %119, label %120, label %122
+  %111 = phi double [ %11, %_ZNK12LogSelection10similarityERKS_.exit.i49 ], [ %96, %._crit_edge.loopexit21.i24.i43 ], [ %96, %.preheader.lr.ph.i14.i31 ]
+  %.012.lcssa.i25.i46 = phi double [ 0.000000e+00, %_ZNK12LogSelection10similarityERKS_.exit.i49 ], [ %110, %._crit_edge.loopexit21.i24.i43 ], [ 0.000000e+00, %.preheader.lr.ph.i14.i31 ]
+  %112 = add i64 %.pre.i1330.i45, %15
+  %113 = uitofp i64 %112 to double
+  %114 = fdiv double %.012.lcssa.i25.i46, %113
+  %115 = fsub double %111, %114
+  %116 = tail call double @llvm.fabs.f64(double %115)
+  %117 = fcmp ogt double %116, 0x3EB0C6F7A0B5ED8D
+  br i1 %117, label %118, label %120
+
+118:                                              ; preds = %_ZNK12LogSelection10similarityERKS_.exit26.i44
+  %119 = fcmp olt double %115, 0.000000e+00
+  br i1 %119, label %_ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit51.thread, label %_ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit51
 
 120:                                              ; preds = %_ZNK12LogSelection10similarityERKS_.exit26.i44
-  %121 = fcmp olt double %117, 0.000000e+00
-  br i1 %121, label %_ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit51.thread, label %_ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit51
+  %121 = sub i64 %.pre.i1330.i45, %.pre.i.i
+  %122 = trunc i64 %121 to i32
+  %.not.i47 = icmp eq i32 %122, 0
+  br i1 %.not.i47, label %123, label %_ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit51
 
-122:                                              ; preds = %_ZNK12LogSelection10similarityERKS_.exit26.i44
-  %123 = sub i64 %.pre.i1330.i45, %.pre.i.i
-  %124 = trunc i64 %123 to i32
-  %.not.i47 = icmp eq i32 %124, 0
-  br i1 %.not.i47, label %125, label %_ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit51
-
-125:                                              ; preds = %122
-  %126 = getelementptr inbounds nuw i8, ptr %84, i64 40
-  %127 = load i64, ptr %126, align 8
-  %128 = sub i64 %13, %127
-  %129 = trunc i64 %128 to i32
+123:                                              ; preds = %120
+  %124 = getelementptr inbounds nuw i8, ptr %82, i64 40
+  %125 = load i64, ptr %124, align 8
+  %126 = sub i64 %13, %125
+  %127 = trunc i64 %126 to i32
   br label %_ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit51
 
-_ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit51: ; preds = %120, %122, %125
-  %.0.i48 = phi i32 [ 1, %120 ], [ %129, %125 ], [ %124, %122 ]
-  %130 = icmp sgt i32 %.0.i48, 0
-  br i1 %130, label %83, label %_ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit51.thread, !llvm.loop !27
+_ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit51: ; preds = %118, %120, %123
+  %.0.i48 = phi i32 [ 1, %118 ], [ %127, %123 ], [ %122, %120 ]
+  %128 = icmp sgt i32 %.0.i48, 0
+  br i1 %128, label %81, label %_ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit51.thread, !llvm.loop !27
 
-_ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit51.thread: ; preds = %120, %_ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit51
-  %131 = icmp ult i64 %.us-phi, %.1
-  br i1 %131, label %132, label %134
+_ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit51.thread: ; preds = %118, %_ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit51
+  %129 = icmp ult i64 %.us-phi, %.1
+  br i1 %129, label %130, label %132
 
-132:                                              ; preds = %_ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit51.thread
+130:                                              ; preds = %_ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit51.thread
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull align 8 dereferenceable(48) %.us-phi58, i64 48, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.us-phi58, ptr noundef nonnull align 8 dereferenceable(48) %84, i64 48, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %84, ptr noundef nonnull align 8 dereferenceable(48) %5, i64 48, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.us-phi58, ptr noundef nonnull align 8 dereferenceable(48) %82, i64 48, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %82, ptr noundef nonnull align 8 dereferenceable(48) %5, i64 48, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %133 = add nuw i64 %.us-phi, 1
+  %131 = add nuw i64 %.us-phi, 1
   br label %14, !llvm.loop !28
 
-134:                                              ; preds = %_ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit51.thread
+132:                                              ; preds = %_ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit51.thread
   ret i64 %.1
 }
 
