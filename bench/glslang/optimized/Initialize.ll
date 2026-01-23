@@ -26991,9 +26991,8 @@ define void @_ZN7glslang9TBuiltIns20addSamplingFunctionsENS_8TSamplerERKNSt7__cx
   %spec.store.select = select i1 %.not167.not, i32 %101, i32 %102
   %103 = add nsw i32 %65, %spec.store.select
   %104 = icmp sgt i32 %103, 4
-  %spec.select192 = select i1 %.not167.not, i32 %103, i32 4
-  %.0143 = select i1 %104, i32 %spec.select192, i32 %103
   %narrow = select i1 %104, i1 %not..not167.not, i1 false
+  %.0143 = select i1 %narrow, i32 4, i32 %103
   %.0144 = zext i1 %narrow to i8
   br label %105
 

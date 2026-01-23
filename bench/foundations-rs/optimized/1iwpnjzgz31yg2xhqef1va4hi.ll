@@ -1348,20 +1348,21 @@ define hidden { ptr, i64 } @_ZN3ryu6buffer6Buffer6format17h9a7a8633e266bdcfE(ptr
 
 5:                                                ; preds = %2
   %6 = tail call noundef i64 @_ZN3ryu6pretty8format3217h1601701232d8925fE(float noundef %1, ptr noundef nonnull %0)
-  br label %12
+  br label %14
 
 7:                                                ; preds = %2
   %8 = bitcast float %1 to i32
   %9 = and i32 %8, 8388607
   %10 = icmp eq i32 %9, 0
-  %11 = icmp sgt i32 %8, -1
-  %..i = select i1 %11, i64 3, i64 4
-  %anon.ad4612a719371f11c5addc366f012f45.8.anon.ad4612a719371f11c5addc366f012f45.9.i = select i1 %11, ptr @anon.ad4612a719371f11c5addc366f012f45.8, ptr @anon.ad4612a719371f11c5addc366f012f45.9
-  %.sroa.4.0.i = select i1 %10, i64 %..i, i64 3
+  %11 = icmp slt i32 %8, 0
+  %anon.ad4612a719371f11c5addc366f012f45.8.anon.ad4612a719371f11c5addc366f012f45.9.i = select i1 %11, ptr @anon.ad4612a719371f11c5addc366f012f45.9, ptr @anon.ad4612a719371f11c5addc366f012f45.8
+  %12 = and i32 %8, -2139095041
+  %13 = icmp eq i32 %12, -2147483648
+  %.sroa.4.0.i = select i1 %13, i64 4, i64 3
   %.sroa.0.0.i = select i1 %10, ptr %anon.ad4612a719371f11c5addc366f012f45.8.anon.ad4612a719371f11c5addc366f012f45.9.i, ptr @anon.ad4612a719371f11c5addc366f012f45.10
-  br label %12
+  br label %14
 
-12:                                               ; preds = %7, %5
+14:                                               ; preds = %7, %5
   %.sroa.0.0.i.pn = phi ptr [ %.sroa.0.0.i, %7 ], [ %0, %5 ]
   %.sroa.4.0.i.pn = phi i64 [ %.sroa.4.0.i, %7 ], [ %6, %5 ]
   %.pn = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0.i.pn, 0
@@ -1377,20 +1378,21 @@ define hidden { ptr, i64 } @_ZN3ryu6buffer6Buffer6format17hf709c8a92683a01eE(ptr
 
 5:                                                ; preds = %2
   %6 = tail call noundef i64 @_ZN3ryu6pretty8format6417he1d4f94cfa438950E(double noundef %1, ptr noundef nonnull %0)
-  br label %12
+  br label %14
 
 7:                                                ; preds = %2
   %8 = bitcast double %1 to i64
   %9 = and i64 %8, 4503599627370495
   %10 = icmp eq i64 %9, 0
-  %11 = icmp sgt i64 %8, -1
-  %..i = select i1 %11, i64 3, i64 4
-  %anon.ad4612a719371f11c5addc366f012f45.8.anon.ad4612a719371f11c5addc366f012f45.9.i = select i1 %11, ptr @anon.ad4612a719371f11c5addc366f012f45.8, ptr @anon.ad4612a719371f11c5addc366f012f45.9
-  %.sroa.4.0.i = select i1 %10, i64 %..i, i64 3
+  %11 = icmp slt i64 %8, 0
+  %anon.ad4612a719371f11c5addc366f012f45.8.anon.ad4612a719371f11c5addc366f012f45.9.i = select i1 %11, ptr @anon.ad4612a719371f11c5addc366f012f45.9, ptr @anon.ad4612a719371f11c5addc366f012f45.8
+  %12 = and i64 %8, -9218868437227405313
+  %13 = icmp eq i64 %12, -9223372036854775808
+  %.sroa.4.0.i = select i1 %13, i64 4, i64 3
   %.sroa.0.0.i = select i1 %10, ptr %anon.ad4612a719371f11c5addc366f012f45.8.anon.ad4612a719371f11c5addc366f012f45.9.i, ptr @anon.ad4612a719371f11c5addc366f012f45.10
-  br label %12
+  br label %14
 
-12:                                               ; preds = %7, %5
+14:                                               ; preds = %7, %5
   %.sroa.0.0.i.pn = phi ptr [ %.sroa.0.0.i, %7 ], [ %0, %5 ]
   %.sroa.4.0.i.pn = phi i64 [ %.sroa.4.0.i, %7 ], [ %6, %5 ]
   %.pn = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0.i.pn, 0

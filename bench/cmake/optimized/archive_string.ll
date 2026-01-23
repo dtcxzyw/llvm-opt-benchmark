@@ -6117,14 +6117,14 @@ define internal range(i32 -1, 1) i32 @best_effort_strncat_from_utf16be(ptr nound
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 %13
   br label %.split.i
 
-.split.i:                                         ; preds = %utf16_to_unicode.exit.thread.thread.i, %11
-  %.028.i = phi i64 [ %42, %utf16_to_unicode.exit.thread.thread.i ], [ %2, %11 ]
-  %.026.i = phi ptr [ %43, %utf16_to_unicode.exit.thread.thread.i ], [ %1, %11 ]
-  %.024.i = phi ptr [ %.125.i, %utf16_to_unicode.exit.thread.thread.i ], [ %14, %11 ]
-  %.0.i = phi i32 [ %.2.i, %utf16_to_unicode.exit.thread.thread.i ], [ 0, %11 ]
+.split.i:                                         ; preds = %utf16_to_unicode.exit.thread.i, %11
+  %.028.i = phi i64 [ %41, %utf16_to_unicode.exit.thread.i ], [ %2, %11 ]
+  %.026.i = phi ptr [ %42, %utf16_to_unicode.exit.thread.i ], [ %1, %11 ]
+  %.024.i = phi ptr [ %.125.i, %utf16_to_unicode.exit.thread.i ], [ %14, %11 ]
+  %.0.i = phi i32 [ %.2.i, %utf16_to_unicode.exit.thread.i ], [ 0, %11 ]
   switch i64 %.028.i, label %15 [
     i64 0, label %utf16_to_unicode.exit.thread7.i
-    i64 1, label %utf16_to_unicode.exit.thread.thread.i
+    i64 1, label %utf16_to_unicode.exit.thread.i
   ]
 
 15:                                               ; preds = %.split.i
@@ -6143,14 +6143,14 @@ define internal range(i32 -1, 1) i32 @best_effort_strncat_from_utf16be(ptr nound
 
 23:                                               ; preds = %15
   %24 = icmp ugt i64 %.028.i, 3
-  br i1 %24, label %25, label %utf16_to_unicode.exit.thread.thread.i
+  br i1 %24, label %25, label %utf16_to_unicode.exit.thread.i
 
 25:                                               ; preds = %23
   %.val47.i.i = load i8, ptr %21, align 1, !tbaa !12
   %26 = zext i8 %.val47.i.i to i16
   %27 = and i16 %26, 252
   %or.cond3.i.i = icmp eq i16 %27, 220
-  br i1 %or.cond3.i.i, label %.thread57.i.i, label %utf16_to_unicode.exit.thread.thread.i
+  br i1 %or.cond3.i.i, label %.thread57.i.i, label %utf16_to_unicode.exit.thread.i
 
 .thread57.i.i:                                    ; preds = %25
   %28 = shl nuw i16 %26, 8
@@ -6168,37 +6168,31 @@ define internal range(i32 -1, 1) i32 @best_effort_strncat_from_utf16be(ptr nound
 utf16_to_unicode.exit.i:                          ; preds = %.thread57.i.i, %15
   %.040.i.i = phi ptr [ %35, %.thread57.i.i ], [ %21, %15 ]
   %.1.i.i = phi i32 [ %34, %.thread57.i.i ], [ %.039.i.i, %15 ]
-  %.1.i.fr.i = freeze i32 %.1.i.i
-  %36 = and i32 %.1.i.fr.i, -2048
+  %36 = and i32 %.1.i.i, -2048
   %or.cond5.i.i = icmp eq i32 %36, 55296
-  %.040.i.fr.i = freeze ptr %.040.i.i
-  %37 = ptrtoint ptr %.040.i.fr.i to i64
+  %37 = ptrtoint ptr %.040.i.i to i64
   %38 = ptrtoint ptr %.026.i to i64
   %.neg.i.i = sub i64 %38, %37
   %39 = sub i64 %37, %38
+  %.1.i = select i1 %or.cond5.i.i, i32 65533, i32 %.1.i.i
   %.042.i.v.i = select i1 %or.cond5.i.i, i64 %.neg.i.i, i64 %39
   %.042.i.i = trunc i64 %.042.i.v.i to i32
   %.not.i = icmp eq i32 %.042.i.i, 0
   br i1 %.not.i, label %utf16_to_unicode.exit.thread7.i, label %utf16_to_unicode.exit.thread.i
 
-utf16_to_unicode.exit.thread.i:                   ; preds = %utf16_to_unicode.exit.i
-  %.1.i = select i1 %or.cond5.i.i, i32 65533, i32 %.1.i.fr.i
-  %spec.select.i = tail call i32 @llvm.abs.i32(i32 %.042.i.i, i1 false)
-  %.inv.i = icmp sgt i32 %.042.i.i, -1
-  %spec.select32.i = select i1 %.inv.i, i32 %.0.i, i32 -1
-  %40 = zext i32 %spec.select.i to i64
-  br label %utf16_to_unicode.exit.thread.thread.i
-
-utf16_to_unicode.exit.thread.thread.i:            ; preds = %.split.i, %23, %25, %utf16_to_unicode.exit.thread.i
-  %spec.select27.i = phi i64 [ %40, %utf16_to_unicode.exit.thread.i ], [ %.028.i, %.split.i ], [ 2, %25 ], [ 2, %23 ]
-  %.1526.i = phi i32 [ %.1.i, %utf16_to_unicode.exit.thread.i ], [ 65533, %.split.i ], [ 65533, %25 ], [ 65533, %23 ]
-  %41 = phi i32 [ %spec.select32.i, %utf16_to_unicode.exit.thread.i ], [ -1, %.split.i ], [ -1, %25 ], [ -1, %23 ]
-  %42 = sub i64 %.028.i, %spec.select27.i
-  %43 = getelementptr i8, ptr %.026.i, i64 %spec.select27.i
-  %44 = icmp samesign ugt i32 %.1526.i, 127
-  %45 = trunc nuw nsw i32 %.1526.i to i8
-  %storemerge.i = select i1 %44, i8 63, i8 %45
-  %.2.i = select i1 %44, i32 -1, i32 %41
+utf16_to_unicode.exit.thread.i:                   ; preds = %utf16_to_unicode.exit.i, %25, %23, %.split.i
+  %.042.i6.i = phi i32 [ %.042.i.i, %utf16_to_unicode.exit.i ], [ -2, %23 ], [ -2, %25 ], [ -1, %.split.i ]
+  %.15.i = phi i32 [ %.1.i, %utf16_to_unicode.exit.i ], [ 65533, %23 ], [ 65533, %25 ], [ 65533, %.split.i ]
+  %spec.select.i = tail call i32 @llvm.abs.i32(i32 %.042.i6.i, i1 true)
+  %.inv.i = icmp slt i32 %.042.i6.i, 0
+  %40 = zext nneg i32 %spec.select.i to i64
+  %41 = sub i64 %.028.i, %40
+  %42 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %40
+  %43 = icmp samesign ugt i32 %.15.i, 127
+  %44 = trunc nuw nsw i32 %.15.i to i8
+  %storemerge.i = select i1 %43, i8 63, i8 %44
+  %45 = or i1 %.inv.i, %43
+  %.2.i = select i1 %45, i32 -1, i32 %.0.i
   %.125.i = getelementptr inbounds nuw i8, ptr %.024.i, i64 1
   store i8 %storemerge.i, ptr %.024.i, align 1, !tbaa !12
   br label %.split.i, !llvm.loop !116
@@ -6234,14 +6228,14 @@ define internal range(i32 -1, 1) i32 @best_effort_strncat_from_utf16le(ptr nound
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 %13
   br label %.split.us.i
 
-.split.us.i:                                      ; preds = %utf16_to_unicode.exit.thread.us.thread.i, %11
-  %.028.us.i = phi i64 [ %32, %utf16_to_unicode.exit.thread.us.thread.i ], [ %2, %11 ]
-  %.026.us.i = phi ptr [ %33, %utf16_to_unicode.exit.thread.us.thread.i ], [ %1, %11 ]
-  %.024.us.i = phi ptr [ %.125.us.i, %utf16_to_unicode.exit.thread.us.thread.i ], [ %14, %11 ]
-  %.0.us.i = phi i32 [ %.2.us.i, %utf16_to_unicode.exit.thread.us.thread.i ], [ 0, %11 ]
+.split.us.i:                                      ; preds = %utf16_to_unicode.exit.thread.us.i, %11
+  %.028.us.i = phi i64 [ %31, %utf16_to_unicode.exit.thread.us.i ], [ %2, %11 ]
+  %.026.us.i = phi ptr [ %32, %utf16_to_unicode.exit.thread.us.i ], [ %1, %11 ]
+  %.024.us.i = phi ptr [ %.125.us.i, %utf16_to_unicode.exit.thread.us.i ], [ %14, %11 ]
+  %.0.us.i = phi i32 [ %.2.us.i, %utf16_to_unicode.exit.thread.us.i ], [ 0, %11 ]
   switch i64 %.028.us.i, label %15 [
     i64 0, label %utf16_to_unicode.exit.thread7.i
-    i64 1, label %utf16_to_unicode.exit.thread.us.thread.i
+    i64 1, label %utf16_to_unicode.exit.thread.us.i
   ]
 
 15:                                               ; preds = %.split.us.i
@@ -6254,13 +6248,13 @@ define internal range(i32 -1, 1) i32 @best_effort_strncat_from_utf16le(ptr nound
 
 18:                                               ; preds = %15
   %19 = icmp ugt i64 %.028.us.i, 3
-  br i1 %19, label %20, label %utf16_to_unicode.exit.thread.us.thread.i
+  br i1 %19, label %20, label %utf16_to_unicode.exit.thread.us.i
 
 20:                                               ; preds = %18
   %.val51.i.us.i = load i16, ptr %16, align 1
   %21 = and i16 %.val51.i.us.i, -1024
   %or.cond3.i.us.i = icmp eq i16 %21, -9216
-  br i1 %or.cond3.i.us.i, label %.thread57.i.us.i, label %utf16_to_unicode.exit.thread.us.thread.i
+  br i1 %or.cond3.i.us.i, label %.thread57.i.us.i, label %utf16_to_unicode.exit.thread.us.i
 
 .thread57.i.us.i:                                 ; preds = %20
   %.0.i.us.i = zext i16 %.val51.i.us.i to i32
@@ -6273,37 +6267,31 @@ define internal range(i32 -1, 1) i32 @best_effort_strncat_from_utf16le(ptr nound
 utf16_to_unicode.exit.us.i:                       ; preds = %.thread57.i.us.i, %15
   %.040.i.us.i = phi ptr [ %25, %.thread57.i.us.i ], [ %16, %15 ]
   %.1.i.us.i = phi i32 [ %24, %.thread57.i.us.i ], [ %.039.i.us.i, %15 ]
-  %.1.i.us.fr.i = freeze i32 %.1.i.us.i
-  %26 = and i32 %.1.i.us.fr.i, -2048
+  %26 = and i32 %.1.i.us.i, -2048
   %or.cond5.i.us.i = icmp eq i32 %26, 55296
-  %.040.i.us.fr.i = freeze ptr %.040.i.us.i
-  %27 = ptrtoint ptr %.040.i.us.fr.i to i64
+  %27 = ptrtoint ptr %.040.i.us.i to i64
   %28 = ptrtoint ptr %.026.us.i to i64
   %.neg.i.us.i = sub i64 %28, %27
   %29 = sub i64 %27, %28
+  %.1.us.i = select i1 %or.cond5.i.us.i, i32 65533, i32 %.1.i.us.i
   %.042.i.v.us.i = select i1 %or.cond5.i.us.i, i64 %.neg.i.us.i, i64 %29
   %.042.i.us.i = trunc i64 %.042.i.v.us.i to i32
   %.not.us.i = icmp eq i32 %.042.i.us.i, 0
   br i1 %.not.us.i, label %utf16_to_unicode.exit.thread7.i, label %utf16_to_unicode.exit.thread.us.i
 
-utf16_to_unicode.exit.thread.us.i:                ; preds = %utf16_to_unicode.exit.us.i
-  %.1.us.i = select i1 %or.cond5.i.us.i, i32 65533, i32 %.1.i.us.fr.i
-  %spec.select.us.i = tail call i32 @llvm.abs.i32(i32 %.042.i.us.i, i1 false)
-  %.inv.us.i = icmp sgt i32 %.042.i.us.i, -1
-  %spec.select31.i = select i1 %.inv.us.i, i32 %.0.us.i, i32 -1
-  %30 = zext i32 %spec.select.us.i to i64
-  br label %utf16_to_unicode.exit.thread.us.thread.i
-
-utf16_to_unicode.exit.thread.us.thread.i:         ; preds = %.split.us.i, %18, %20, %utf16_to_unicode.exit.thread.us.i
-  %spec.select.us19.i = phi i64 [ %30, %utf16_to_unicode.exit.thread.us.i ], [ %.028.us.i, %.split.us.i ], [ 2, %20 ], [ 2, %18 ]
-  %.15.us18.i = phi i32 [ %.1.us.i, %utf16_to_unicode.exit.thread.us.i ], [ 65533, %.split.us.i ], [ 65533, %20 ], [ 65533, %18 ]
-  %31 = phi i32 [ %spec.select31.i, %utf16_to_unicode.exit.thread.us.i ], [ -1, %.split.us.i ], [ -1, %20 ], [ -1, %18 ]
-  %32 = sub i64 %.028.us.i, %spec.select.us19.i
-  %33 = getelementptr i8, ptr %.026.us.i, i64 %spec.select.us19.i
-  %34 = icmp samesign ugt i32 %.15.us18.i, 127
-  %35 = trunc nuw nsw i32 %.15.us18.i to i8
-  %storemerge.us.i = select i1 %34, i8 63, i8 %35
-  %.2.us.i = select i1 %34, i32 -1, i32 %31
+utf16_to_unicode.exit.thread.us.i:                ; preds = %utf16_to_unicode.exit.us.i, %20, %18, %.split.us.i
+  %.042.i6.us.i = phi i32 [ %.042.i.us.i, %utf16_to_unicode.exit.us.i ], [ -2, %18 ], [ -2, %20 ], [ -1, %.split.us.i ]
+  %.15.us.i = phi i32 [ %.1.us.i, %utf16_to_unicode.exit.us.i ], [ 65533, %18 ], [ 65533, %20 ], [ 65533, %.split.us.i ]
+  %spec.select.us.i = tail call i32 @llvm.abs.i32(i32 %.042.i6.us.i, i1 true)
+  %.inv.us.i = icmp slt i32 %.042.i6.us.i, 0
+  %30 = zext nneg i32 %spec.select.us.i to i64
+  %31 = sub i64 %.028.us.i, %30
+  %32 = getelementptr inbounds nuw i8, ptr %.026.us.i, i64 %30
+  %33 = icmp samesign ugt i32 %.15.us.i, 127
+  %34 = trunc nuw nsw i32 %.15.us.i to i8
+  %storemerge.us.i = select i1 %33, i8 63, i8 %34
+  %35 = or i1 %.inv.us.i, %33
+  %.2.us.i = select i1 %35, i32 -1, i32 %.0.us.i
   %.125.us.i = getelementptr inbounds nuw i8, ptr %.024.us.i, i64 1
   store i8 %storemerge.us.i, ptr %.024.us.i, align 1, !tbaa !12
   br label %.split.us.i, !llvm.loop !116

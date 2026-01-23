@@ -1237,13 +1237,13 @@ define hidden noundef zeroext i1 @SDL_GetPowerInfo_Linux_org_freedesktop_upower(
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 0, ptr %8, align 4
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %65, label %10
+  br i1 %.not, label %64, label %10
 
 10:                                               ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = call zeroext i1 (ptr, ptr, ptr, ptr, ptr, ...) @SDL_DBus_CallMethodOnConnection(ptr noundef %12, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.20, i32 noundef 0, i32 noundef 97, i32 noundef 111, ptr noundef nonnull %7, ptr noundef nonnull %8, i32 noundef 0) #6
-  br i1 %13, label %14, label %65
+  br i1 %13, label %14, label %64
 
 14:                                               ; preds = %10
   store i32 2, ptr %0, align 4
@@ -1330,52 +1330,51 @@ switch.lookup:                                    ; preds = %33
   %46 = call zeroext i1 @SDL_DBus_QueryPropertyOnConnection(ptr noundef %17, ptr noundef nonnull @.str.18, ptr noundef %20, ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.42, i32 noundef 120, ptr noundef nonnull %5) #6
   %47 = load i64, ptr %5, align 8
   %48 = trunc i64 %47 to i32
-  %49 = icmp slt i32 %48, 1
-  %50 = select i1 %49, i32 -1, i32 %48
-  %.037.i = select i1 %46, i32 %50, i32 -1
-  %51 = icmp slt i32 %.037.i, 0
-  %.pre.i = load i32, ptr %1, align 4
-  %52 = icmp slt i32 %.pre.i, 0
-  %or.cond47.i = select i1 %51, i1 %52, i1 false
-  br i1 %or.cond47.i, label %53, label %57
+  %49 = icmp sgt i32 %48, 0
+  %50 = select i1 %46, i1 %49, i1 false
+  %.037.i = select i1 %50, i32 %48, i32 -1
+  %.pre46.i = load i32, ptr %1, align 4
+  %51 = icmp sgt i32 %.pre46.i, -1
+  %or.cond48.not.i = select i1 %50, i1 true, i1 %51
+  br i1 %or.cond48.not.i, label %56, label %52
 
-53:                                               ; preds = %45
-  %54 = icmp slt i32 %.0.i, 0
-  %.pre46.i = load i32, ptr %2, align 4
-  %55 = icmp slt i32 %.pre46.i, 0
-  %or.cond48.i = select i1 %54, i1 %55, i1 false
-  %56 = icmp sgt i32 %.0.i, %.pre46.i
-  %or.cond49.i = select i1 %or.cond48.i, i1 true, i1 %56
-  br i1 %or.cond49.i, label %.critedge.i, label %check_upower_device.exit
+52:                                               ; preds = %45
+  %53 = icmp slt i32 %.0.i, 0
+  %.pre.i = load i32, ptr %2, align 4
+  %54 = icmp slt i32 %.pre.i, 0
+  %or.cond49.i = select i1 %53, i1 %54, i1 false
+  %55 = icmp sgt i32 %.0.i, %.pre.i
+  %or.cond50.i = select i1 %or.cond49.i, i1 true, i1 %55
+  br i1 %or.cond50.i, label %.critedge.i, label %check_upower_device.exit
 
-57:                                               ; preds = %45
-  %58 = icmp sgt i32 %.037.i, %.pre.i
-  br i1 %58, label %.critedge.i, label %check_upower_device.exit
+56:                                               ; preds = %45
+  %57 = icmp sgt i32 %.037.i, %.pre46.i
+  br i1 %57, label %.critedge.i, label %check_upower_device.exit
 
-.critedge.i:                                      ; preds = %57, %53
+.critedge.i:                                      ; preds = %56, %52
   store i32 %.037.i, ptr %1, align 4
   store i32 %.0.i, ptr %2, align 4
   store i32 %.038.i, ptr %0, align 4
   br label %check_upower_device.exit
 
-check_upower_device.exit:                         ; preds = %.lr.ph, %23, %26, %53, %57, %.critedge.i
+check_upower_device.exit:                         ; preds = %.lr.ph, %23, %26, %52, %56, %.critedge.i
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %59 = load i32, ptr %8, align 4
-  %60 = sext i32 %59 to i64
-  %61 = icmp slt i64 %indvars.iv.next, %60
-  br i1 %61, label %.lr.ph, label %._crit_edge, !llvm.loop !14
+  %58 = load i32, ptr %8, align 4
+  %59 = sext i32 %58 to i64
+  %60 = icmp slt i64 %indvars.iv.next, %59
+  br i1 %60, label %.lr.ph, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %check_upower_device.exit, %14
-  %62 = getelementptr inbounds nuw i8, ptr %9, i64 384
-  %63 = load ptr, ptr %62, align 8
-  %64 = load ptr, ptr %7, align 8
-  call void %63(ptr noundef %64) #6
-  br label %65
+  %61 = getelementptr inbounds nuw i8, ptr %9, i64 384
+  %62 = load ptr, ptr %61, align 8
+  %63 = load ptr, ptr %7, align 8
+  call void %62(ptr noundef %63) #6
+  br label %64
 
-65:                                               ; preds = %3, %10, %._crit_edge
+64:                                               ; preds = %3, %10, %._crit_edge
   %.014 = phi i1 [ true, %._crit_edge ], [ false, %10 ], [ false, %3 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)

@@ -343,12 +343,12 @@ define hidden noundef i32 @_ZNK7nanogui6Widget9font_sizeEv(ptr noundef nonnull r
   %4 = icmp slt i32 %3, 0
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
-  %.not = icmp eq ptr %6, null
+  %.not = icmp ne ptr %6, null
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %spec.select = select i1 %.not, ptr %2, ptr %7
-  %.in = select i1 %4, ptr %spec.select, ptr %2
-  %8 = load i32, ptr %.in, align 8
-  ret i32 %8
+  %8 = select i1 %4, i1 %.not, i1 false
+  %.in = select i1 %8, ptr %7, ptr %2
+  %9 = load i32, ptr %.in, align 8
+  ret i32 %9
 }
 
 ; Function Attrs: mustprogress uwtable

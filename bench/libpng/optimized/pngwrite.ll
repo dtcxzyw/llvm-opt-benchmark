@@ -2387,13 +2387,13 @@ define i32 @png_image_write_to_memory(ptr noundef %0, ptr noundef %1, ptr noalia
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load i32, ptr %10, align 8, !tbaa !195
   %12 = icmp eq i32 %11, 1
-  br i1 %12, label %13, label %38
+  br i1 %12, label %13, label %39
 
 13:                                               ; preds = %9
   %14 = icmp ne ptr %2, null
   %15 = icmp ne ptr %4, null
   %or.cond = and i1 %14, %15
-  br i1 %or.cond, label %16, label %36
+  br i1 %or.cond, label %16, label %37
 
 16:                                               ; preds = %13
   %17 = icmp eq ptr %1, null
@@ -2431,31 +2431,31 @@ define i32 @png_image_write_to_memory(ptr noundef %0, ptr noundef %1, ptr noalia
   %31 = call i32 @png_safe_execute(ptr noundef nonnull %0, ptr noundef nonnull @png_image_write_memory, ptr noundef nonnull %8) #16
   call void @png_image_free(ptr noundef nonnull %0) #16
   %.not33 = icmp eq i32 %31, 0
-  br i1 %.not33, label %35, label %32
+  br i1 %.not33, label %36, label %32
 
 32:                                               ; preds = %21
   %33 = load i64, ptr %30, align 8
-  %34 = icmp ugt i64 %33, %28
-  %spec.select = select i1 %34, i32 0, i32 %31
-  %.1 = select i1 %17, i32 %31, i32 %spec.select
+  %34 = icmp ule i64 %33, %28
+  %35 = select i1 %17, i1 true, i1 %34
+  %.1 = select i1 %35, i32 %31, i32 0
   store i64 %33, ptr %2, align 8, !tbaa !137
-  br label %35
+  br label %36
 
-35:                                               ; preds = %32, %21
+36:                                               ; preds = %32, %21
   %.0 = phi i32 [ %.1, %32 ], [ 0, %21 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.critedge
 
-36:                                               ; preds = %13
-  %37 = tail call i32 @png_image_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.14) #16
+37:                                               ; preds = %13
+  %38 = tail call i32 @png_image_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.14) #16
   br label %.critedge
 
-38:                                               ; preds = %9
-  %39 = tail call i32 @png_image_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.15) #16
+39:                                               ; preds = %9
+  %40 = tail call i32 @png_image_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.15) #16
   br label %.critedge
 
-.critedge:                                        ; preds = %7, %19, %38, %36, %35
-  %.025 = phi i32 [ %.0, %35 ], [ 0, %19 ], [ %37, %36 ], [ %39, %38 ], [ 0, %7 ]
+.critedge:                                        ; preds = %7, %19, %39, %37, %36
+  %.025 = phi i32 [ %.0, %36 ], [ 0, %19 ], [ %38, %37 ], [ %40, %39 ], [ 0, %7 ]
   ret i32 %.025
 }
 

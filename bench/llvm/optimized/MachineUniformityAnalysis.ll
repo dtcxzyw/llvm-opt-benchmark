@@ -7506,9 +7506,7 @@ _ZZN4llvm20DivergencePropagatorINS_17GenericSSAContextINS_15MachineFunctionEEEE1
 
 _ZN4llvm11SmallVectorIPNS_17MachineBasicBlockELj4EED2Ev.exit: ; preds = %._crit_edge, %205
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %.not75415 = icmp eq ptr %.0301, %176
-  %spec.select416 = select i1 %.not75415, i32 %.1238299, i32 %.0240.lcssa
-  br i1 %.063.lcssa, label %442, label %443
+  br label %.loopexit
 
 .lr.ph288:                                        ; preds = %_ZZN4llvm20DivergencePropagatorINS_17GenericSSAContextINS_15MachineFunctionEEEE17computeJoinPointsEvENKUlPKNS_17MachineBasicBlockEE_clES7_.exit, %_ZNK4llvm17ModifiedPostOrderINS_17GenericSSAContextINS_15MachineFunctionEEEE8getIndexEPKNS_17MachineBasicBlockE.exit107
   %.063287 = phi i1 [ %348, %_ZNK4llvm17ModifiedPostOrderINS_17GenericSSAContextINS_15MachineFunctionEEEE8getIndexEPKNS_17MachineBasicBlockE.exit107 ], [ false, %_ZZN4llvm20DivergencePropagatorINS_17GenericSSAContextINS_15MachineFunctionEEEE17computeJoinPointsEvENKUlPKNS_17MachineBasicBlockEE_clES7_.exit ]
@@ -7857,11 +7855,7 @@ _ZNK4llvm17ModifiedPostOrderINS_17GenericSSAContextINS_15MachineFunctionEEEE8get
   %.idx313 = shl nuw nsw i64 %386, 3
   %387 = getelementptr inbounds nuw i8, ptr %383, i64 %.idx313
   %.not73291 = icmp eq i32 %385, 0
-  br i1 %.not73291, label %.loopexit.thread, label %.lr.ph296
-
-.loopexit.thread:                                 ; preds = %.loopexit256
-  %.not75410 = icmp eq ptr %.0301, %176
-  br label %443
+  br i1 %.not73291, label %.loopexit, label %.lr.ph296
 
 .lr.ph296:                                        ; preds = %.loopexit256, %_ZNK4llvm17ModifiedPostOrderINS_17GenericSSAContextINS_15MachineFunctionEEEE8getIndexEPKNS_17MachineBasicBlockE.exit127
   %.265294 = phi i1 [ %409, %_ZNK4llvm17ModifiedPostOrderINS_17GenericSSAContextINS_15MachineFunctionEEEE8getIndexEPKNS_17MachineBasicBlockE.exit127 ], [ false, %.loopexit256 ]
@@ -7970,25 +7964,21 @@ _ZNK4llvm17ModifiedPostOrderINS_17GenericSSAContextINS_15MachineFunctionEEEE8get
   %.not73 = icmp eq ptr %441, %387
   br i1 %.not73, label %.loopexit, label %.lr.ph296
 
-.loopexit:                                        ; preds = %_ZNK4llvm17ModifiedPostOrderINS_17GenericSSAContextINS_15MachineFunctionEEEE8getIndexEPKNS_17MachineBasicBlockE.exit127
-  %.not75 = icmp eq ptr %.0301, %176
-  %spec.select = select i1 %.not75, i32 %.1238299, i32 %.sroa.speculated
-  br i1 %409, label %442, label %443
-
-442:                                              ; preds = %_ZN4llvm11SmallVectorIPNS_17MachineBasicBlockELj4EED2Ev.exit, %.loopexit
-  %.1241418 = phi i32 [ %.0240.lcssa, %_ZN4llvm11SmallVectorIPNS_17MachineBasicBlockELj4EED2Ev.exit ], [ %.sroa.speculated, %.loopexit ]
-  br label %443
-
-443:                                              ; preds = %_ZN4llvm11SmallVectorIPNS_17MachineBasicBlockELj4EED2Ev.exit, %.loopexit.thread, %.loopexit, %442
-  %.164413 = phi i1 [ true, %442 ], [ %.not75, %.loopexit ], [ %.not75410, %.loopexit.thread ], [ %.not75415, %_ZN4llvm11SmallVectorIPNS_17MachineBasicBlockELj4EED2Ev.exit ]
-  %444 = phi i32 [ %.1241418, %442 ], [ %spec.select, %.loopexit ], [ %.1238299, %.loopexit.thread ], [ %spec.select416, %_ZN4llvm11SmallVectorIPNS_17MachineBasicBlockELj4EED2Ev.exit ]
-  %.2 = select i1 %.164413, ptr %.0301, ptr %176
+.loopexit:                                        ; preds = %_ZNK4llvm17ModifiedPostOrderINS_17GenericSSAContextINS_15MachineFunctionEEEE8getIndexEPKNS_17MachineBasicBlockE.exit127, %.loopexit256, %_ZN4llvm11SmallVectorIPNS_17MachineBasicBlockELj4EED2Ev.exit
+  %.1241 = phi i32 [ %.0240.lcssa, %_ZN4llvm11SmallVectorIPNS_17MachineBasicBlockELj4EED2Ev.exit ], [ %.1238299, %.loopexit256 ], [ %.sroa.speculated, %_ZNK4llvm17ModifiedPostOrderINS_17GenericSSAContextINS_15MachineFunctionEEEE8getIndexEPKNS_17MachineBasicBlockE.exit127 ]
+  %.164 = phi i1 [ %.063.lcssa, %_ZN4llvm11SmallVectorIPNS_17MachineBasicBlockELj4EED2Ev.exit ], [ false, %.loopexit256 ], [ %409, %_ZNK4llvm17ModifiedPostOrderINS_17GenericSSAContextINS_15MachineFunctionEEEE8getIndexEPKNS_17MachineBasicBlockE.exit127 ]
+  %.not75 = icmp ne ptr %.0301, %176
+  %442 = select i1 %.164, i1 true, i1 %.not75
+  %.3 = select i1 %442, i32 %.1241, i32 %.1238299
+  %443 = xor i1 %.not75, true
+  %444 = select i1 %.164, i1 true, i1 %443
+  %.2 = select i1 %444, ptr %.0301, ptr %176
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %445
 
-445:                                              ; preds = %166, %443
-  %.2239 = phi i32 [ %444, %443 ], [ %.1238299, %166 ]
-  %.1 = phi ptr [ %.2, %443 ], [ %.0301, %166 ]
+445:                                              ; preds = %166, %.loopexit
+  %.2239 = phi i32 [ %.3, %.loopexit ], [ %.1238299, %166 ]
+  %.1 = phi ptr [ %.2, %.loopexit ], [ %.0301, %166 ]
   %446 = load ptr, ptr %59, align 8, !tbaa !523
   %447 = icmp eq ptr %446, %59
   br i1 %447, label %_ZNK4llvm15SparseBitVectorILj128EE9find_lastEv.exit.thread, label %144

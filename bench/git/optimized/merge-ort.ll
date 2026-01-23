@@ -6343,83 +6343,82 @@ define internal fastcc void @get_provisional_directory_renames(ptr noundef reado
   %10 = getelementptr inbounds nuw %struct.strmap, ptr %8, i64 %9
   call void @hashmap_iter_init(ptr noundef nonnull %10, ptr noundef nonnull %4) #19
   %11 = call ptr @hashmap_iter_next(ptr noundef nonnull %4) #19
-  %.not45 = icmp eq ptr %11, null
-  br i1 %.not45, label %._crit_edge49, label %.lr.ph48
+  %.not46 = icmp eq ptr %11, null
+  br i1 %.not46, label %._crit_edge50, label %.lr.ph49
 
-.lr.ph48:                                         ; preds = %3
+.lr.ph49:                                         ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 672
   %13 = getelementptr inbounds nuw %struct.strmap, ptr %12, i64 %9
   br label %14
 
-14:                                               ; preds = %.lr.ph48, %._crit_edge.thread
-  %.046 = phi ptr [ %11, %.lr.ph48 ], [ %38, %._crit_edge.thread ]
-  %15 = getelementptr inbounds nuw i8, ptr %.046, i64 16
+14:                                               ; preds = %.lr.ph49, %._crit_edge.thread
+  %.047 = phi ptr [ %11, %.lr.ph49 ], [ %37, %._crit_edge.thread ]
+  %15 = getelementptr inbounds nuw i8, ptr %.047, i64 16
   %16 = load ptr, ptr %15, align 8, !tbaa !32
-  %17 = getelementptr inbounds nuw i8, ptr %.046, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %.047, i64 24
   %18 = load ptr, ptr %17, align 8, !tbaa !28
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @hashmap_iter_init(ptr noundef %18, ptr noundef nonnull %5) #19
   %19 = call ptr @hashmap_iter_next(ptr noundef nonnull %5) #19
-  %.not3538 = icmp eq ptr %19, null
-  br i1 %.not3538, label %._crit_edge.thread, label %.lr.ph
+  %.not3539 = icmp eq ptr %19, null
+  br i1 %.not3539, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %14, %.lr.ph
-  %.02742 = phi ptr [ %28, %.lr.ph ], [ %19, %14 ]
-  %.02841 = phi ptr [ %.1, %.lr.ph ], [ null, %14 ]
-  %.02940 = phi i32 [ %.130, %.lr.ph ], [ 0, %14 ]
-  %.03139 = phi i32 [ %.132, %.lr.ph ], [ 0, %14 ]
-  %20 = getelementptr inbounds nuw i8, ptr %.02742, i64 16
+  %.02743 = phi ptr [ %27, %.lr.ph ], [ %19, %14 ]
+  %.02842 = phi ptr [ %.1, %.lr.ph ], [ null, %14 ]
+  %.02941 = phi i32 [ %.130, %.lr.ph ], [ 0, %14 ]
+  %.03140 = phi i32 [ %.132, %.lr.ph ], [ 0, %14 ]
+  %20 = getelementptr inbounds nuw i8, ptr %.02743, i64 16
   %21 = load ptr, ptr %20, align 8, !tbaa !32
-  %22 = getelementptr inbounds nuw i8, ptr %.02742, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %.02743, i64 24
   %23 = load ptr, ptr %22, align 8, !tbaa !28
   %24 = ptrtoint ptr %23 to i64
-  %25 = sext i32 %.03139 to i64
+  %25 = sext i32 %.03140 to i64
   %26 = icmp eq i64 %24, %25
-  %27 = icmp sgt i64 %24, %25
+  %.not38 = icmp sgt i64 %24, %25
   %spec.select37 = call i64 @llvm.smax.i64(i64 %24, i64 %25)
   %spec.select = trunc i64 %spec.select37 to i32
-  %spec.select36 = select i1 %27, ptr %21, ptr %.02841
-  %.132 = select i1 %26, i32 %.03139, i32 %spec.select
-  %.130 = select i1 %26, i32 %.03139, i32 %.02940
-  %.1 = select i1 %26, ptr %.02841, ptr %spec.select36
-  %28 = call ptr @hashmap_iter_next(ptr noundef nonnull %5) #19
-  %.not35 = icmp eq ptr %28, null
+  %.132 = select i1 %26, i32 %.03140, i32 %spec.select
+  %.130 = select i1 %26, i32 %.03140, i32 %.02941
+  %.1 = select i1 %.not38, ptr %21, ptr %.02842
+  %27 = call ptr @hashmap_iter_next(ptr noundef nonnull %5) #19
+  %.not35 = icmp eq ptr %27, null
   br i1 %.not35, label %._crit_edge, label %.lr.ph, !llvm.loop !293
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %29 = icmp eq i32 %.132, 0
-  br i1 %29, label %._crit_edge.thread, label %30
+  %28 = icmp eq i32 %.132, 0
+  br i1 %28, label %._crit_edge.thread, label %29
 
-30:                                               ; preds = %._crit_edge
-  %31 = icmp eq i32 %.130, %.132
-  br i1 %31, label %32, label %36
+29:                                               ; preds = %._crit_edge
+  %30 = icmp eq i32 %.130, %.132
+  br i1 %30, label %31, label %35
 
-32:                                               ; preds = %30
-  %33 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !52
-  %.not4.i = icmp eq i32 %33, 0
-  br i1 %.not4.i, label %_.exit, label %34
+31:                                               ; preds = %29
+  %32 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !52
+  %.not4.i = icmp eq i32 %32, 0
+  br i1 %.not4.i, label %_.exit, label %33
 
-34:                                               ; preds = %32
-  %35 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.66, i32 noundef 5) #19
+33:                                               ; preds = %31
+  %34 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.66, i32 noundef 5) #19
   br label %_.exit
 
-_.exit:                                           ; preds = %32, %34
-  %.0.i = phi ptr [ %35, %34 ], [ @.str.66, %32 ]
+_.exit:                                           ; preds = %31, %33
+  %.0.i = phi ptr [ %34, %33 ], [ @.str.66, %31 ]
   call void (ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, ...) @path_msg(ptr noundef %0, i32 noundef 14, i32 noundef 0, ptr noundef %16, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %.0.i, ptr noundef %16)
   store i32 0, ptr %2, align 4, !tbaa !52
   br label %._crit_edge.thread
 
-36:                                               ; preds = %30
-  %37 = call ptr @strmap_put(ptr noundef nonnull %13, ptr noundef %16, ptr noundef %.1) #19
+35:                                               ; preds = %29
+  %36 = call ptr @strmap_put(ptr noundef nonnull %13, ptr noundef %16, ptr noundef %.1) #19
   br label %._crit_edge.thread
 
-._crit_edge.thread:                               ; preds = %14, %_.exit, %36, %._crit_edge
+._crit_edge.thread:                               ; preds = %14, %_.exit, %35, %._crit_edge
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %38 = call ptr @hashmap_iter_next(ptr noundef nonnull %4) #19
-  %.not = icmp eq ptr %38, null
-  br i1 %.not, label %._crit_edge49, label %14, !llvm.loop !294
+  %37 = call ptr @hashmap_iter_next(ptr noundef nonnull %4) #19
+  %.not = icmp eq ptr %37, null
+  br i1 %.not, label %._crit_edge50, label %14, !llvm.loop !294
 
-._crit_edge49:                                    ; preds = %._crit_edge.thread, %3
+._crit_edge50:                                    ; preds = %._crit_edge.thread, %3
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }

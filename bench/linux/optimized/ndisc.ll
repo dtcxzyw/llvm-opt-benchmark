@@ -162,7 +162,7 @@ define internal noundef range(i32 -22, 1) i32 @ndisc_constructor(ptr noundef cap
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 184
   %9 = load volatile ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
-  br i1 %10, label %162, label %11
+  br i1 %10, label %157, label %11
 
 11:                                               ; preds = %1
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 624
@@ -228,7 +228,7 @@ define internal noundef range(i32 -22, 1) i32 @ndisc_constructor(ptr noundef cap
   store i8 64, ptr %47, align 4
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 304
   store ptr @ndisc_direct_ops, ptr %48, align 8
-  br label %153
+  br label %148
 
 49:                                               ; preds = %40
   br i1 %7, label %50, label %111
@@ -256,11 +256,11 @@ define internal noundef range(i32 -22, 1) i32 @ndisc_constructor(ptr noundef cap
   %58 = getelementptr i8, ptr %0, i64 380
   %59 = load i32, ptr %58, align 4
   store i32 %59, ptr %57, align 2
-  br label %ndisc_mc_map.exit.thread
+  br label %ndisc_mc_map.exit
 
 60:                                               ; preds = %50
   store i8 0, ptr %52, align 1
-  br label %ndisc_mc_map.exit.thread
+  br label %ndisc_mc_map.exit
 
 61:                                               ; preds = %50
   %62 = getelementptr i8, ptr %4, i64 1005
@@ -287,7 +287,7 @@ define internal noundef range(i32 -22, 1) i32 @ndisc_constructor(ptr noundef cap
   %76 = getelementptr i8, ptr %0, i64 162
   %77 = getelementptr i8, ptr %0, i64 374
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(10) %76, ptr noundef readonly align 1 dereferenceable(10) %77, i64 10, i1 false)
-  br label %ndisc_mc_map.exit.thread
+  br label %ndisc_mc_map.exit
 
 78:                                               ; preds = %50
   %79 = getelementptr inbounds nuw i8, ptr %4, i64 1000
@@ -314,7 +314,7 @@ define internal noundef range(i32 -22, 1) i32 @ndisc_constructor(ptr noundef cap
   %98 = xor i32 %97, -65536
   %99 = or i32 %95, %98
   %100 = icmp eq i32 %99, 0
-  br i1 %100, label %101, label %ndisc_mc_map.exit.thread
+  br i1 %100, label %101, label %ndisc_mc_map.exit
 
 101:                                              ; preds = %91
   %102 = getelementptr i8, ptr %0, i64 380
@@ -324,7 +324,7 @@ define internal noundef range(i32 -22, 1) i32 @ndisc_constructor(ptr noundef cap
   %104 = phi ptr [ %102, %101 ], [ %79, %78 ]
   %105 = load i32, ptr %104, align 1
   store i32 %105, ptr %52, align 1
-  br label %ndisc_mc_map.exit.thread
+  br label %ndisc_mc_map.exit
 
 106:                                              ; preds = %50
   %107 = getelementptr inbounds nuw i8, ptr %4, i64 1000
@@ -332,7 +332,7 @@ define internal noundef range(i32 -22, 1) i32 @ndisc_constructor(ptr noundef cap
   %109 = load i8, ptr %108, align 1
   %110 = zext i8 %109 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %52, ptr nonnull readonly align 8 %107, i64 %110, i1 false)
-  br label %ndisc_mc_map.exit.thread
+  br label %ndisc_mc_map.exit
 
 111:                                              ; preds = %49
   %112 = getelementptr inbounds nuw i8, ptr %4, i64 168
@@ -354,83 +354,75 @@ define internal noundef range(i32 -22, 1) i32 @ndisc_constructor(ptr noundef cap
   %124 = load i32, ptr %112, align 8
   %125 = and i32 %124, 8
   %126 = icmp eq i32 %125, 0
-  br i1 %126, label %ndisc_mc_map.exit.thread, label %127
+  br i1 %126, label %ndisc_mc_map.exit, label %127
 
 127:                                              ; preds = %116
   store i8 2, ptr %42, align 1
-  br label %ndisc_mc_map.exit.thread
+  br label %ndisc_mc_map.exit
 
 128:                                              ; preds = %111
   %129 = and i32 %113, 16
   %130 = icmp eq i32 %129, 0
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 132
-  br i1 %130, label %ndisc_mc_map.exit, label %131
+  br i1 %130, label %.ndisc_mc_map.exit_crit_edge, label %133
 
-131:                                              ; preds = %128
-  store i8 64, ptr %.phi.trans.insert, align 4
-  %132 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %133 = getelementptr inbounds nuw i8, ptr %4, i64 1000
-  %134 = getelementptr inbounds nuw i8, ptr %4, i64 813
-  %135 = load i8, ptr %134, align 1
-  %136 = zext i8 %135 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %132, ptr nonnull align 8 %133, i64 %136, i1 false)
-  br label %ndisc_mc_map.exit.thread
-
-ndisc_mc_map.exit.thread:                         ; preds = %106, %103, %91, %61, %60, %55, %131, %127, %116
-  %137 = load ptr, ptr %43, align 8
-  %138 = getelementptr inbounds nuw i8, ptr %137, i64 16
-  %139 = load ptr, ptr %138, align 8
-  %140 = icmp eq ptr %139, null
-  %141 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  %142 = select i1 %140, ptr @ndisc_generic_ops, ptr @ndisc_hh_ops
-  store ptr %142, ptr %141, align 8
-  %143 = select i1 %140, ptr @neigh_connected_output, ptr @neigh_resolve_output
-  br label %153
-
-ndisc_mc_map.exit:                                ; preds = %128
+.ndisc_mc_map.exit_crit_edge:                     ; preds = %128
   %.pre = load i8, ptr %.phi.trans.insert, align 4
-  %.pre.fr = freeze i8 %.pre
-  %144 = and i8 %.pre.fr, -34
-  %145 = icmp eq i8 %144, 0
-  %146 = load ptr, ptr %43, align 8
-  %147 = getelementptr inbounds nuw i8, ptr %146, i64 16
-  %148 = load ptr, ptr %147, align 8
-  %149 = icmp eq ptr %148, null
-  %150 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  %151 = select i1 %149, ptr @ndisc_generic_ops, ptr @ndisc_hh_ops
-  store ptr %151, ptr %150, align 8
-  %152 = select i1 %149, ptr @neigh_connected_output, ptr @neigh_resolve_output
-  %spec.select = select i1 %145, ptr @neigh_resolve_output, ptr %152
-  br label %153
+  %131 = and i8 %.pre, -34
+  %132 = icmp eq i8 %131, 0
+  br label %ndisc_mc_map.exit
 
-153:                                              ; preds = %ndisc_mc_map.exit, %ndisc_mc_map.exit.thread, %46
-  %154 = phi ptr [ @neigh_direct_output, %46 ], [ %143, %ndisc_mc_map.exit.thread ], [ %spec.select, %ndisc_mc_map.exit ]
-  %155 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  store ptr %154, ptr %155, align 8
-  %156 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %12, i32 -1, ptr nonnull elementtype(i32) %12) #14, !srcloc !8
-  %157 = icmp eq i32 %156, 1
-  br i1 %157, label %161, label %158
+133:                                              ; preds = %128
+  store i8 64, ptr %.phi.trans.insert, align 4
+  %134 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %135 = getelementptr inbounds nuw i8, ptr %4, i64 1000
+  %136 = getelementptr inbounds nuw i8, ptr %4, i64 813
+  %137 = load i8, ptr %136, align 1
+  %138 = zext i8 %137 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %134, ptr nonnull align 8 %135, i64 %138, i1 false)
+  br label %ndisc_mc_map.exit
 
-158:                                              ; preds = %153
-  %159 = icmp sgt i32 %156, 0
-  br i1 %159, label %.thread, label %160, !prof !7
+ndisc_mc_map.exit:                                ; preds = %.ndisc_mc_map.exit_crit_edge, %106, %103, %91, %61, %60, %55, %133, %127, %116
+  %139 = phi i1 [ %132, %.ndisc_mc_map.exit_crit_edge ], [ false, %106 ], [ false, %103 ], [ false, %91 ], [ false, %61 ], [ false, %60 ], [ false, %55 ], [ false, %133 ], [ false, %127 ], [ false, %116 ]
+  %140 = load ptr, ptr %43, align 8
+  %141 = getelementptr inbounds nuw i8, ptr %140, i64 16
+  %142 = load ptr, ptr %141, align 8
+  %143 = icmp ne ptr %142, null
+  %144 = getelementptr inbounds nuw i8, ptr %0, i64 304
+  %145 = select i1 %143, ptr @ndisc_hh_ops, ptr @ndisc_generic_ops
+  store ptr %145, ptr %144, align 8
+  %146 = select i1 %139, i1 true, i1 %143
+  %147 = select i1 %146, ptr @neigh_resolve_output, ptr @neigh_connected_output
+  br label %148
 
-160:                                              ; preds = %158
+148:                                              ; preds = %ndisc_mc_map.exit, %46
+  %149 = phi ptr [ @neigh_direct_output, %46 ], [ %147, %ndisc_mc_map.exit ]
+  %150 = getelementptr inbounds nuw i8, ptr %0, i64 296
+  store ptr %149, ptr %150, align 8
+  %151 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %12, i32 -1, ptr nonnull elementtype(i32) %12) #14, !srcloc !8
+  %152 = icmp eq i32 %151, 1
+  br i1 %152, label %156, label %153
+
+153:                                              ; preds = %148
+  %154 = icmp sgt i32 %151, 0
+  br i1 %154, label %.thread, label %155, !prof !7
+
+155:                                              ; preds = %153
   tail call void @refcount_warn_saturate(ptr noundef nonnull %12, i32 noundef 3) #14
   br label %.thread
 
-161:                                              ; preds = %153
+156:                                              ; preds = %148
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !9
   tail call void @in6_dev_finish_destroy(ptr noundef nonnull %9) #14
   br label %.thread
 
-162:                                              ; preds = %1
+157:                                              ; preds = %1
   tail call void @__rcu_read_unlock() #14
   br label %.thread
 
-.thread:                                          ; preds = %158, %160, %162, %161
-  %163 = phi i32 [ 0, %161 ], [ -22, %162 ], [ 0, %160 ], [ 0, %158 ]
-  ret i32 %163
+.thread:                                          ; preds = %153, %155, %157, %156
+  %158 = phi i32 [ 0, %156 ], [ -22, %157 ], [ 0, %155 ], [ 0, %153 ]
+  ret i32 %158
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

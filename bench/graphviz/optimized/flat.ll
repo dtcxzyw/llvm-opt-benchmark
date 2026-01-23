@@ -1163,7 +1163,7 @@ define internal fastcc void @setbounds(ptr readonly captures(none) %.16.val, ptr
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
   %56 = phi ptr [ %69, %.lr.ph ], [ %15, %.preheader ]
-  %.011 = phi i1 [ %67, %.lr.ph ], [ false, %.preheader ]
+  %.011 = phi i1 [ %.1, %.lr.ph ], [ false, %.preheader ]
   %.05110 = phi i1 [ %.152, %.lr.ph ], [ false, %.preheader ]
   %57 = load i32, ptr %56, align 8
   %58 = and i32 %57, 3
@@ -1175,11 +1175,12 @@ define internal fastcc void @setbounds(ptr readonly captures(none) %.16.val, ptr
   %64 = load ptr, ptr %63, align 8, !tbaa !3
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 364
   %66 = load i32, ptr %65, align 4, !tbaa !34
-  %.not63 = icmp sle i32 %66, %1
+  %.not63 = icmp sgt i32 %66, %1
   %.not64 = icmp sge i32 %66, %2
-  %spec.select = select i1 %.not64, i1 true, i1 %.011
-  %.152 = select i1 %.not63, i1 true, i1 %.05110
-  %67 = select i1 %.not63, i1 %.011, i1 %spec.select
+  %not..not63 = xor i1 %.not63, true
+  %.152 = select i1 %not..not63, i1 true, i1 %.05110
+  %67 = and i1 %.not63, %.not64
+  %.1 = select i1 %67, i1 true, i1 %.011
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %68 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv.next
   %69 = load ptr, ptr %68, align 8, !tbaa !29
@@ -1187,9 +1188,8 @@ define internal fastcc void @setbounds(ptr readonly captures(none) %.16.val, ptr
   br i1 %.not62, label %._crit_edge, label %.lr.ph, !llvm.loop !114
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %not..05110 = xor i1 %.05110, true
-  %.1 = select i1 %not..05110, i1 true, i1 %spec.select
-  %or.cond = select i1 %.not63, i1 %.011, i1 %.1
+  %.not = xor i1 %.152, true
+  %or.cond = select i1 %.not, i1 true, i1 %.1
   br i1 %or.cond, label %71, label %.thread
 
 .thread:                                          ; preds = %._crit_edge
@@ -1198,7 +1198,7 @@ define internal fastcc void @setbounds(ptr readonly captures(none) %.16.val, ptr
   br label %.thread21
 
 71:                                               ; preds = %._crit_edge
-  %.not2 = xor i1 %67, true
+  %.not2 = xor i1 %.1, true
   %or.cond4 = or i1 %.152, %.not2
   br i1 %or.cond4, label %.thread21, label %72
 

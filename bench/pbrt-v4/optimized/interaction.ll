@@ -20056,21 +20056,23 @@ _ZN4pbrt27TrowbridgeReitzDistributionC2Eff.exit:  ; preds = %_ZNK4pbrt15SampledS
   %106 = fcmp olt float %.0, %.015
   %107 = select i1 %106, float %.015, float %.0
   %108 = fcmp olt float %107, 0x3F50624DE0000000
-  %109 = fcmp olt float %.0, 0x3F1A36E2E0000000
-  %.sroa.speculated5.i = select i1 %109, float 0x3F1A36E2E0000000, float %.0
-  %110 = fcmp olt float %.015, 0x3F1A36E2E0000000
-  %.sroa.speculated.i61 = select i1 %110, float 0x3F1A36E2E0000000, float %.015
-  %.sroa.5.0 = select i1 %108, float %.015, float %.sroa.speculated.i61
-  %.sroa.0.0 = select i1 %108, float %.0, float %.sroa.speculated5.i
-  store float %.sroa.0.0, ptr %0, align 4
+  %109 = fcmp uge float %.0, 0x3F1A36E2E0000000
+  %110 = fcmp uge float %.015, 0x3F1A36E2E0000000
+  %111 = or i1 %110, %108
+  %112 = or i1 %109, %108
+  %113 = bitcast float %.0 to i32
+  %114 = select i1 %112, i32 %113, i32 953267991
+  %115 = bitcast float %.015 to i32
+  %116 = select i1 %111, i32 %115, i32 953267991
+  store i32 %114, ptr %0, align 4
   %.sroa_idx63 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store float %.sroa.5.0, ptr %.sroa_idx63, align 4
-  %111 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store <2 x float> %.sroa.069.0, ptr %111, align 4
+  store i32 %116, ptr %.sroa_idx63, align 4
+  %117 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store <2 x float> %.sroa.069.0, ptr %117, align 4
   %.sroa.23.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   store <2 x float> %.sroa.670.0, ptr %.sroa.23.0..sroa_idx.i, align 4, !tbaa !35
-  %112 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store <2 x float> %.sroa.068.0, ptr %112, align 4
+  %118 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store <2 x float> %.sroa.068.0, ptr %118, align 4
   %.sroa.2.0..sroa_idx.i62 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store <2 x float> %.sroa.6.0, ptr %.sroa.2.0..sroa_idx.i62, align 4, !tbaa !35
   ret void

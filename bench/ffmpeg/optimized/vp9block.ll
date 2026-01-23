@@ -2869,9 +2869,8 @@ vpx_rac_renorm.exit1458.i:                        ; preds = %1739, %1733, %1714
   br i1 %or.cond1406.i, label %1846, label %1894
 
 1846:                                             ; preds = %1842
-  %.not1351.i = icmp eq i8 %1813, %1844
-  %1847 = select i1 %.not1351.i, i64 4, i64 2
-  %1848 = select i1 %.not1350.i, i64 %1847, i64 4
+  %1847 = and i1 %.not1350.i, %1845
+  %1848 = select i1 %1847, i64 2, i64 4
   br label %1894
 
 1849:                                             ; preds = %1819
@@ -2886,9 +2885,8 @@ vpx_rac_renorm.exit1458.i:                        ; preds = %1739, %1733, %1714
   br i1 %or.cond1407.i, label %1854, label %1894
 
 1854:                                             ; preds = %1850
-  %.not1354.i = icmp eq i8 %1809, %1852
-  %1855 = select i1 %.not1354.i, i64 4, i64 2
-  %1856 = select i1 %.not1353.i, i64 %1855, i64 4
+  %1855 = and i1 %.not1353.i, %1853
+  %1856 = select i1 %1855, i64 2, i64 4
   br label %1894
 
 1857:                                             ; preds = %1849

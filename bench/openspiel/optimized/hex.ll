@@ -891,7 +891,7 @@ define noundef range(i32 -4, 5) i32 @_ZNK10open_spiel3hex8HexState22PlayerAndAct
   %8 = alloca %"class.absl::debian2::AlphaNum", align 8
   switch i32 %1, label %_ZN4absl7debian28AlphaNumC2EPKc.exit [
     i32 0, label %9
-    i32 1, label %46
+    i32 1, label %45
   ]
 
 9:                                                ; preds = %3
@@ -921,21 +921,21 @@ define noundef range(i32 -4, 5) i32 @_ZNK10open_spiel3hex8HexState22PlayerAndAct
   %26 = load ptr, ptr %4, align 8
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %28 = load ptr, ptr %27, align 8
-  %.not6066 = icmp eq ptr %26, %28
-  br i1 %.not6066, label %._crit_edge72, label %.lr.ph71
+  %.not6168 = icmp eq ptr %26, %28
+  br i1 %.not6168, label %._crit_edge74, label %.lr.ph73
 
-.lr.ph71:                                         ; preds = %24
+.lr.ph73:                                         ; preds = %24
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %30 = load ptr, ptr %29, align 8
   br label %37
 
-._crit_edge72:                                    ; preds = %37, %24
+._crit_edge74:                                    ; preds = %37, %24
   %.133.lcssa = phi i1 [ %.032, %24 ], [ %.234, %37 ]
   %.1.lcssa = phi i1 [ %13, %24 ], [ %.2, %37 ]
   %.not.i.i.i = icmp eq ptr %26, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %31
 
-31:                                               ; preds = %._crit_edge72
+31:                                               ; preds = %._crit_edge74
   %32 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %33 = load ptr, ptr %32, align 8
   %34 = ptrtoint ptr %33 to i64
@@ -944,132 +944,130 @@ define noundef range(i32 -4, 5) i32 @_ZNK10open_spiel3hex8HexState22PlayerAndAct
   tail call void @_ZdlPvm(ptr noundef nonnull %26, i64 noundef %36) #27
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
-_ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %._crit_edge72, %31
+_ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %._crit_edge74, %31
   %or.cond = select i1 %.1.lcssa, i1 %.133.lcssa, i1 false
-  br i1 %or.cond, label %88, label %45
+  br i1 %or.cond, label %86, label %44
 
-37:                                               ; preds = %.lr.ph71, %37
-  %.169 = phi i1 [ %13, %.lr.ph71 ], [ %.2, %37 ]
-  %.13368 = phi i1 [ %.032, %.lr.ph71 ], [ %.234, %37 ]
-  %.sroa.056.067 = phi ptr [ %26, %.lr.ph71 ], [ %44, %37 ]
-  %38 = load i32, ptr %.sroa.056.067, align 4
+37:                                               ; preds = %.lr.ph73, %37
+  %.171 = phi i1 [ %13, %.lr.ph73 ], [ %.2, %37 ]
+  %.13370 = phi i1 [ %.032, %.lr.ph73 ], [ %.234, %37 ]
+  %.sroa.056.069 = phi ptr [ %26, %.lr.ph73 ], [ %43, %37 ]
+  %38 = load i32, ptr %.sroa.056.069, align 4
   %39 = sext i32 %38 to i64
   %40 = getelementptr inbounds i32, ptr %30, i64 %39
   %41 = load i32, ptr %40, align 4
   %42 = icmp eq i32 %41, 3
-  %43 = icmp eq i32 %41, 2
-  %spec.select44 = select i1 %43, i1 true, i1 %.13368
-  %.234 = select i1 %42, i1 %.13368, i1 %spec.select44
-  %.2 = select i1 %42, i1 true, i1 %.169
-  %44 = getelementptr inbounds nuw i8, ptr %.sroa.056.067, i64 4
-  %.not60 = icmp eq ptr %44, %28
-  br i1 %.not60, label %._crit_edge72, label %37
+  %.not62 = icmp eq i32 %41, 2
+  %.234 = select i1 %.not62, i1 true, i1 %.13370
+  %.2 = select i1 %42, i1 true, i1 %.171
+  %43 = getelementptr inbounds nuw i8, ptr %.sroa.056.069, i64 4
+  %.not61 = icmp eq ptr %43, %28
+  br i1 %.not61, label %._crit_edge74, label %37
 
-45:                                               ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit
+44:                                               ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit
   %. = select i1 %.133.lcssa, i32 2, i32 1
   %spec.select48 = select i1 %.1.lcssa, i32 3, i32 %.
-  br label %88
+  br label %86
 
-46:                                               ; preds = %3
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %48 = load i32, ptr %47, align 8
-  %49 = sext i32 %48 to i64
-  %50 = srem i64 %2, %49
-  %51 = icmp ne i64 %50, 0
-  %52 = add nsw i32 %48, -1
-  %53 = sext i32 %52 to i64
-  %54 = icmp eq i64 %50, %53
-  %narrow = select i1 %51, i1 %54, i1 false
-  %not. = xor i1 %51, true
-  %55 = trunc i64 %2 to i32
-  call void @_ZNK10open_spiel3hex8HexState13AdjacentCellsEi(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.14") align 8 %5, ptr noundef nonnull align 8 dereferenceable(112) %0, i32 noundef %55)
-  %56 = load ptr, ptr %5, align 8
-  %57 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %58 = load ptr, ptr %57, align 8
-  %.not5961 = icmp eq ptr %56, %58
-  br i1 %.not5961, label %._crit_edge, label %.lr.ph
+45:                                               ; preds = %3
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %47 = load i32, ptr %46, align 8
+  %48 = sext i32 %47 to i64
+  %49 = srem i64 %2, %48
+  %50 = icmp ne i64 %49, 0
+  %51 = add nsw i32 %47, -1
+  %52 = sext i32 %51 to i64
+  %53 = icmp eq i64 %49, %52
+  %narrow = select i1 %50, i1 %53, i1 false
+  %not. = xor i1 %50, true
+  %54 = trunc i64 %2 to i32
+  call void @_ZNK10open_spiel3hex8HexState13AdjacentCellsEi(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.14") align 8 %5, ptr noundef nonnull align 8 dereferenceable(112) %0, i32 noundef %54)
+  %55 = load ptr, ptr %5, align 8
+  %56 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %57 = load ptr, ptr %56, align 8
+  %.not5963 = icmp eq ptr %55, %57
+  br i1 %.not5963, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %46
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %60 = load ptr, ptr %59, align 8
-  br label %67
+.lr.ph:                                           ; preds = %45
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %59 = load ptr, ptr %58, align 8
+  br label %66
 
-._crit_edge:                                      ; preds = %67, %46
-  %.139.lcssa = phi i1 [ %narrow, %46 ], [ %.240, %67 ]
-  %.136.lcssa = phi i1 [ %not., %46 ], [ %.237, %67 ]
-  %.not.i.i.i50 = icmp eq ptr %56, null
-  br i1 %.not.i.i.i50, label %_ZNSt6vectorIiSaIiEED2Ev.exit51, label %61
+._crit_edge:                                      ; preds = %66, %45
+  %.139.lcssa = phi i1 [ %narrow, %45 ], [ %.240, %66 ]
+  %.136.lcssa = phi i1 [ %not., %45 ], [ %.237, %66 ]
+  %.not.i.i.i50 = icmp eq ptr %55, null
+  br i1 %.not.i.i.i50, label %_ZNSt6vectorIiSaIiEED2Ev.exit51, label %60
 
-61:                                               ; preds = %._crit_edge
-  %62 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %63 = load ptr, ptr %62, align 8
-  %64 = ptrtoint ptr %63 to i64
-  %65 = ptrtoint ptr %56 to i64
-  %66 = sub i64 %64, %65
-  tail call void @_ZdlPvm(ptr noundef nonnull %56, i64 noundef %66) #27
+60:                                               ; preds = %._crit_edge
+  %61 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %62 = load ptr, ptr %61, align 8
+  %63 = ptrtoint ptr %62 to i64
+  %64 = ptrtoint ptr %55 to i64
+  %65 = sub i64 %63, %64
+  tail call void @_ZdlPvm(ptr noundef nonnull %55, i64 noundef %65) #27
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit51
 
-_ZNSt6vectorIiSaIiEED2Ev.exit51:                  ; preds = %._crit_edge, %61
+_ZNSt6vectorIiSaIiEED2Ev.exit51:                  ; preds = %._crit_edge, %60
   %or.cond3 = select i1 %.136.lcssa, i1 %.139.lcssa, i1 false
-  br i1 %or.cond3, label %88, label %75
+  br i1 %or.cond3, label %86, label %73
 
-67:                                               ; preds = %.lr.ph, %67
-  %.13664 = phi i1 [ %not., %.lr.ph ], [ %.237, %67 ]
-  %.13963 = phi i1 [ %narrow, %.lr.ph ], [ %.240, %67 ]
-  %.sroa.052.062 = phi ptr [ %56, %.lr.ph ], [ %74, %67 ]
-  %68 = load i32, ptr %.sroa.052.062, align 4
-  %69 = sext i32 %68 to i64
-  %70 = getelementptr inbounds i32, ptr %60, i64 %69
-  %71 = load i32, ptr %70, align 4
-  %72 = icmp eq i32 %71, -3
-  %73 = icmp eq i32 %71, -2
-  %spec.select46 = select i1 %73, i1 true, i1 %.13963
-  %.240 = select i1 %72, i1 %.13963, i1 %spec.select46
-  %.237 = select i1 %72, i1 true, i1 %.13664
-  %74 = getelementptr inbounds nuw i8, ptr %.sroa.052.062, i64 4
-  %.not59 = icmp eq ptr %74, %58
-  br i1 %.not59, label %._crit_edge, label %67
+66:                                               ; preds = %.lr.ph, %66
+  %.13666 = phi i1 [ %not., %.lr.ph ], [ %.237, %66 ]
+  %.13965 = phi i1 [ %narrow, %.lr.ph ], [ %.240, %66 ]
+  %.sroa.052.064 = phi ptr [ %55, %.lr.ph ], [ %72, %66 ]
+  %67 = load i32, ptr %.sroa.052.064, align 4
+  %68 = sext i32 %67 to i64
+  %69 = getelementptr inbounds i32, ptr %59, i64 %68
+  %70 = load i32, ptr %69, align 4
+  %71 = icmp eq i32 %70, -3
+  %.not60 = icmp eq i32 %70, -2
+  %.240 = select i1 %.not60, i1 true, i1 %.13965
+  %.237 = select i1 %71, i1 true, i1 %.13666
+  %72 = getelementptr inbounds nuw i8, ptr %.sroa.052.064, i64 4
+  %.not59 = icmp eq ptr %72, %57
+  br i1 %.not59, label %._crit_edge, label %66
 
-75:                                               ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit51
+73:                                               ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit51
   %.47 = select i1 %.139.lcssa, i32 -2, i32 -1
   %spec.select49 = select i1 %.136.lcssa, i32 -3, i32 %.47
-  br label %88
+  br label %86
 
 _ZN4absl7debian28AlphaNumC2EPKc.exit:             ; preds = %3
   store ptr @.str.8, ptr %7, align 8
-  %76 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i64 18, ptr %76, align 8
-  %77 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %78 = call noundef ptr @_ZN4absl7debian216numbers_internal15FastIntToBufferEiPc(i32 noundef %1, ptr noundef nonnull %77)
-  %79 = ptrtoint ptr %78 to i64
-  %80 = ptrtoint ptr %77 to i64
-  %81 = sub i64 %79, %80
-  store ptr %77, ptr %8, align 8
-  %82 = icmp sgt i64 %81, -1
-  br i1 %82, label %_ZN4absl7debian28AlphaNumC2Ei.exit, label %83
+  %74 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store i64 18, ptr %74, align 8
+  %75 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %76 = call noundef ptr @_ZN4absl7debian216numbers_internal15FastIntToBufferEiPc(i32 noundef %1, ptr noundef nonnull %75)
+  %77 = ptrtoint ptr %76 to i64
+  %78 = ptrtoint ptr %75 to i64
+  %79 = sub i64 %77, %78
+  store ptr %75, ptr %8, align 8
+  %80 = icmp sgt i64 %79, -1
+  br i1 %80, label %_ZN4absl7debian28AlphaNumC2Ei.exit, label %81
 
-83:                                               ; preds = %_ZN4absl7debian28AlphaNumC2EPKc.exit
+81:                                               ; preds = %_ZN4absl7debian28AlphaNumC2EPKc.exit
   call void @llvm.trap()
   unreachable
 
 _ZN4absl7debian28AlphaNumC2Ei.exit:               ; preds = %_ZN4absl7debian28AlphaNumC2EPKc.exit
-  %84 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i64 %81, ptr %84, align 8
+  %82 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store i64 %79, ptr %82, align 8
   call void @_ZN4absl7debian26StrCatB5cxx11ERKNS0_8AlphaNumES3_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(48) %8)
   invoke void @_ZN10open_spiel15SpielFatalErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %6) #23
-          to label %85 unwind label %86
+          to label %83 unwind label %84
 
-85:                                               ; preds = %_ZN4absl7debian28AlphaNumC2Ei.exit
+83:                                               ; preds = %_ZN4absl7debian28AlphaNumC2Ei.exit
   unreachable
 
-86:                                               ; preds = %_ZN4absl7debian28AlphaNumC2Ei.exit
-  %87 = landingpad { ptr, i32 }
+84:                                               ; preds = %_ZN4absl7debian28AlphaNumC2Ei.exit
+  %85 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #24
-  resume { ptr, i32 } %87
+  resume { ptr, i32 } %85
 
-88:                                               ; preds = %75, %45, %_ZNSt6vectorIiSaIiEED2Ev.exit51, %_ZNSt6vectorIiSaIiEED2Ev.exit
-  %.0 = phi i32 [ %spec.select48, %45 ], [ 4, %_ZNSt6vectorIiSaIiEED2Ev.exit ], [ -4, %_ZNSt6vectorIiSaIiEED2Ev.exit51 ], [ %spec.select49, %75 ]
+86:                                               ; preds = %73, %44, %_ZNSt6vectorIiSaIiEED2Ev.exit51, %_ZNSt6vectorIiSaIiEED2Ev.exit
+  %.0 = phi i32 [ %spec.select48, %44 ], [ 4, %_ZNSt6vectorIiSaIiEED2Ev.exit ], [ -4, %_ZNSt6vectorIiSaIiEED2Ev.exit51 ], [ %spec.select49, %73 ]
   ret i32 %.0
 }
 

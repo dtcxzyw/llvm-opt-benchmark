@@ -2333,11 +2333,12 @@ define hidden noundef zeroext i1 @_ZN3ue22NG10addLiteralERKNS_11ue2_literalEjjbN
   %31 = and i8 %24, -33
   %32 = add i8 %31, -91
   %33 = icmp ult i8 %32, -26
-  %..0.i.i = select i1 %30, i1 true, i1 %.021.i.i
   %34 = select i1 %33, i1 true, i1 %30
   %not..i.i = xor i1 %34, true
   %.13.i.i = select i1 %not..i.i, i1 true, i1 %.0220.i.i
-  %.1.i.i = select i1 %33, i1 %.021.i.i, i1 %..0.i.i
+  %not.27.i.i = xor i1 %33, true
+  %not.25.i.i = select i1 %not.27.i.i, i1 %30, i1 false
+  %.1.i.i = select i1 %not.25.i.i, i1 true, i1 %.021.i.i
   %35 = add nuw i64 %.sroa.6.019.i.i, 1
   %.not.i.i = icmp eq i64 %35, %19
   br i1 %.not.i.i, label %_ZN3ue217mixed_sensitivityERKNS_11ue2_literalE.exit, label %.lr.ph.split.i.i, !llvm.loop !47

@@ -5449,8 +5449,8 @@ define internal ptr @task_wrapper(ptr noundef readonly captures(none) %0) #0 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load ptr, ptr %7, align 8, !tbaa !93
   %9 = tail call i32 %6(ptr noundef %8) #9
-  %10 = icmp slt i32 %9, 0
-  br i1 %10, label %11, label %err_merge.exit
+  %10 = icmp sgt i32 %9, -1
+  br i1 %10, label %err_merge.exit, label %11
 
 11:                                               ; preds = %1
   %12 = load ptr, ptr %7, align 8, !tbaa !93
@@ -5463,13 +5463,11 @@ err_merge.exit:                                   ; preds = %11, %1
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.0.0.copyload = load i64, ptr %14, align 8
   %15 = call fastcc i32 @task_cleanup(ptr noundef %4, i64 %.sroa.0.0.copyload)
-  %16 = icmp sgt i32 %9, -1
-  %17 = icmp eq i32 %9, -541478725
-  %or.cond.i = or i1 %16, %17
-  %18 = icmp slt i32 %15, 0
-  %or.cond3.i = and i1 %or.cond.i, %18
-  %19 = select i1 %10, i32 %9, i32 %15
-  %spec.select = select i1 %or.cond3.i, i32 %15, i32 %19
+  %16 = icmp eq i32 %9, -541478725
+  %17 = icmp slt i32 %15, 0
+  %18 = and i1 %16, %17
+  %19 = or i1 %10, %18
+  %spec.select = select i1 %19, i32 %15, i32 %9
   %20 = icmp eq i32 %spec.select, -541478725
   %spec.store.select = select i1 %20, i32 0, i32 %spec.select
   %21 = icmp slt i32 %spec.store.select, 0

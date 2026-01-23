@@ -5816,14 +5816,14 @@ define internal fastcc i32 @prctl_set_mm(i32 noundef %0, i64 noundef %1, i64 nou
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 100
   store i32 -1, ptr %12, align 4
   %13 = icmp eq i64 %3, 0
-  br i1 %13, label %14, label %198
+  br i1 %13, label %14, label %191
 
 14:                                               ; preds = %4
   %15 = icmp eq i64 %2, 0
   br i1 %15, label %17, label %16
 
 16:                                               ; preds = %14
-  switch i32 %0, label %198 [
+  switch i32 %0, label %191 [
     i32 15, label %17
     i32 14, label %17
     i32 12, label %17
@@ -5831,7 +5831,7 @@ define internal fastcc i32 @prctl_set_mm(i32 noundef %0, i64 noundef %1, i64 nou
 
 17:                                               ; preds = %16, %16, %16, %14
   %18 = tail call zeroext i1 @capable(i32 noundef 24) #13
-  br i1 %18, label %19, label %198
+  br i1 %18, label %19, label %191
 
 19:                                               ; preds = %17
   switch i32 %0, label %60 [
@@ -5845,7 +5845,7 @@ define internal fastcc i32 @prctl_set_mm(i32 noundef %0, i64 noundef %1, i64 nou
   %23 = and i64 %22, -4
   %24 = inttoptr i64 %23 to ptr
   %25 = icmp eq i64 %23, 0
-  br i1 %25, label %198, label %26
+  br i1 %25, label %191, label %26
 
 26:                                               ; preds = %20
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 168
@@ -5877,11 +5877,11 @@ define internal fastcc i32 @prctl_set_mm(i32 noundef %0, i64 noundef %1, i64 nou
   %44 = phi i32 [ -13, %31 ], [ %39, %34 ], [ %42, %41 ], [ -13, %26 ]
   %45 = and i64 %22, 1
   %46 = icmp eq i64 %45, 0
-  br i1 %46, label %198, label %47
+  br i1 %46, label %191, label %47
 
 47:                                               ; preds = %43
   tail call void @fput(ptr noundef nonnull %24) #13
-  br label %198
+  br label %191
 
 48:                                               ; preds = %19
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -5908,7 +5908,7 @@ define internal fastcc i32 @prctl_set_mm(i32 noundef %0, i64 noundef %1, i64 nou
 58:                                               ; preds = %54, %50, %48
   %59 = phi i32 [ 0, %54 ], [ -22, %48 ], [ -14, %50 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %198
+  br label %191
 
 60:                                               ; preds = %19
   %61 = load volatile i64, ptr %8, align 8
@@ -5934,7 +5934,7 @@ define internal fastcc i32 @prctl_set_mm(i32 noundef %0, i64 noundef %1, i64 nou
   %75 = load i64, ptr @mmap_min_addr, align 8
   %76 = icmp ugt i64 %75, %1
   %77 = select i1 %74, i1 true, i1 %76
-  br i1 %77, label %198, label %78
+  br i1 %77, label %191, label %78
 
 78:                                               ; preds = %72
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_mmap_lock_start_locking, i64 8), i32 2) #13
@@ -6112,47 +6112,45 @@ define internal fastcc i32 @prctl_set_mm(i32 noundef %0, i64 noundef %1, i64 nou
 
 168:                                              ; preds = %155
   %169 = icmp ult i64 %140, %139
-  %170 = icmp ugt i64 %138, %137
-  %171 = select i1 %170, i32 -22, i32 0
-  %172 = select i1 %169, i32 %171, i32 -22
-  %173 = icmp ugt i64 %136, %135
-  %174 = icmp ugt i64 %134, %133
-  %175 = icmp ugt i64 %132, %131
-  %176 = select i1 %175, i1 true, i1 %174
-  %177 = select i1 %176, i1 true, i1 %173
-  %178 = select i1 %177, i32 -22, i32 %172
-  %179 = icmp eq i32 %178, 0
-  br i1 %179, label %180, label %.thread
+  %170 = icmp ule i64 %138, %137
+  %171 = icmp ule i64 %136, %135
+  %172 = icmp ule i64 %134, %133
+  %173 = icmp ule i64 %132, %131
+  %.not18 = select i1 %173, i1 %172, i1 false
+  %.not15 = select i1 %.not18, i1 %171, i1 false
+  %.not13 = select i1 %.not15, i1 %169, i1 false
+  %.not10 = select i1 %.not13, i1 %170, i1 false
+  br i1 %.not10, label %174, label %.thread
 
-180:                                              ; preds = %168
-  %181 = getelementptr inbounds nuw i8, ptr %8, i64 1880
-  %182 = load ptr, ptr %181, align 8
-  %183 = getelementptr i8, ptr %182, i64 704
-  %184 = load volatile i64, ptr %183, align 8
-  %185 = icmp eq i64 %184, -1
-  br i1 %185, label %191, label %186
+174:                                              ; preds = %168
+  %175 = getelementptr inbounds nuw i8, ptr %8, i64 1880
+  %176 = load ptr, ptr %175, align 8
+  %177 = getelementptr i8, ptr %176, i64 704
+  %178 = load volatile i64, ptr %177, align 8
+  %179 = icmp eq i64 %178, -1
+  br i1 %179, label %.thread19, label %180
 
-186:                                              ; preds = %180
-  %187 = add i64 %138, %136
-  %188 = sub i64 %137, %187
-  %189 = add i64 %188, %135
-  %190 = icmp ugt i64 %189, %184
-  br i1 %190, label %.thread, label %191
+180:                                              ; preds = %174
+  %181 = add i64 %138, %136
+  %182 = sub i64 %137, %181
+  %183 = add i64 %182, %135
+  %184 = icmp ugt i64 %183, %178
+  br i1 %184, label %.thread, label %.thread19
 
-191:                                              ; preds = %186, %180
-  switch i32 %0, label %194 [
-    i32 5, label %192
-    i32 8, label %192
-    i32 9, label %192
-    i32 10, label %192
-    i32 11, label %192
+.thread19:                                        ; preds = %180, %174
+  switch i32 %0, label %187 [
+    i32 5, label %185
+    i32 8, label %185
+    i32 9, label %185
+    i32 10, label %185
+    i32 11, label %185
   ]
 
-192:                                              ; preds = %191, %191, %191, %191, %191
-  %193 = icmp eq ptr %84, null
-  br i1 %193, label %.thread, label %194
+185:                                              ; preds = %.thread19, %.thread19, %.thread19, %.thread19, %.thread19
+  %186 = icmp eq ptr %84, null
+  br i1 %186, label %.thread, label %187
 
-194:                                              ; preds = %192, %191
+187:                                              ; preds = %185, %.thread19
   store i64 %140, ptr %86, align 64
   store i64 %139, ptr %88, align 8
   store i64 %138, ptr %91, align 16
@@ -6166,24 +6164,24 @@ define internal fastcc i32 @prctl_set_mm(i32 noundef %0, i64 noundef %1, i64 nou
   store i64 %131, ptr %115, align 16
   br label %.thread
 
-.thread:                                          ; preds = %158, %186, %168, %194, %192, %83
-  %195 = phi i32 [ -22, %83 ], [ -14, %192 ], [ 0, %194 ], [ %178, %168 ], [ -22, %186 ], [ -22, %158 ]
+.thread:                                          ; preds = %158, %168, %180, %187, %185, %83
+  %188 = phi i32 [ -22, %83 ], [ -22, %168 ], [ 0, %187 ], [ -14, %185 ], [ -22, %180 ], [ -22, %158 ]
   tail call void @_raw_spin_unlock(ptr noundef nonnull %85) #13
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_mmap_lock_released, i64 8), i32 2) #13
-          to label %197 [label %196], !srcloc !57
+          to label %190 [label %189], !srcloc !57
 
-196:                                              ; preds = %.thread
+189:                                              ; preds = %.thread
   tail call void @__mmap_lock_do_trace_released(ptr noundef %10, i1 noundef zeroext false) #13
-  br label %197
+  br label %190
 
-197:                                              ; preds = %196, %.thread
+190:                                              ; preds = %189, %.thread
   tail call void @up_read(ptr noundef nonnull %81) #13
-  br label %198
+  br label %191
 
-198:                                              ; preds = %197, %72, %58, %47, %43, %20, %17, %16, %4
-  %199 = phi i32 [ %59, %58 ], [ %195, %197 ], [ -22, %16 ], [ -22, %4 ], [ -1, %17 ], [ -22, %72 ], [ -9, %20 ], [ %44, %43 ], [ %44, %47 ]
+191:                                              ; preds = %190, %72, %58, %47, %43, %20, %17, %16, %4
+  %192 = phi i32 [ %59, %58 ], [ %188, %190 ], [ -22, %16 ], [ -22, %4 ], [ -1, %17 ], [ -22, %72 ], [ -9, %20 ], [ %44, %43 ], [ %44, %47 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  ret i32 %199
+  ret i32 %192
 }
 
 ; Function Attrs: null_pointer_is_valid

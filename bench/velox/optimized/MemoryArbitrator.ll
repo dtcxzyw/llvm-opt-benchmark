@@ -2867,10 +2867,9 @@ entry:
   %3 = load i64, ptr %numSucceeded12, align 8
   %cmp13 = icmp ult i64 %2, %3
   %inc15 = select i1 %cmp.not, i32 2, i32 1
-  %cmp19 = icmp ugt i64 %2, %3
+  %cmp19.not = icmp ugt i64 %2, %3
   %inc21 = select i1 %cmp5, i32 2, i32 1
-  %spec.select = select i1 %cmp19, i32 %inc21, i32 %gtCount.0
-  %gtCount.1 = select i1 %cmp13, i32 %gtCount.0, i32 %spec.select
+  %gtCount.1 = select i1 %cmp19.not, i32 %inc21, i32 %gtCount.0
   %ltCount.1 = select i1 %cmp13, i32 %inc15, i32 %ltCount.0
   %numAborted = getelementptr inbounds nuw i8, ptr %this, i64 16
   %4 = load i64, ptr %numAborted, align 8
@@ -2959,22 +2958,21 @@ entry:
   %cmp157.not = icmp ult i64 %20, %21
   %cmp163 = icmp ugt i64 %20, %21
   %spec.select91 = zext i1 %cmp163 to i32
-  %gtCount.10 = add nuw nsw i32 %gtCount.9, %spec.select91
   %inc159 = zext i1 %cmp157.not to i32
   %numReleases = getelementptr inbounds nuw i8, ptr %this, i64 104
   %22 = load i64, ptr %numReleases, align 8
   %numReleases172 = getelementptr inbounds nuw i8, ptr %other, i64 104
   %23 = load i64, ptr %numReleases172, align 8
   %cmp173 = icmp ult i64 %22, %23
-  %cmp179 = icmp ugt i64 %22, %23
-  %.gtCount.10 = select i1 %cmp179, i32 1, i32 %gtCount.10
-  %gtCount.11 = select i1 %cmp173, i32 %gtCount.10, i32 %.gtCount.10
-  %cmp187 = icmp ne i32 %gtCount.11, 0
-  %24 = or i32 %ltCount.9, %inc159
-  %cmp18892 = icmp ne i32 %24, 0
-  %cmp188 = select i1 %cmp173, i1 true, i1 %cmp18892
-  %25 = select i1 %cmp187, i1 %cmp188, i1 false
-  br i1 %25, label %if.then190, label %if.end191
+  %cmp179.not = icmp ugt i64 %22, %23
+  %24 = or i32 %gtCount.9, %spec.select91
+  %cmp18792 = icmp ne i32 %24, 0
+  %cmp187 = select i1 %cmp179.not, i1 true, i1 %cmp18792
+  %25 = or i32 %ltCount.9, %inc159
+  %cmp18893 = icmp ne i32 %25, 0
+  %cmp188 = select i1 %cmp173, i1 true, i1 %cmp18893
+  %26 = select i1 %cmp187, i1 %cmp188, i1 false
+  br i1 %26, label %if.then190, label %if.end191
 
 if.then190:                                       ; preds = %entry
   tail call void @llvm.trap()

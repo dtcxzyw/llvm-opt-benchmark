@@ -14895,17 +14895,15 @@ select.unfold:                                    ; preds = %26, %31
   %57 = load ptr, ptr %56, align 8, !tbaa !115
   %58 = getelementptr inbounds nuw i8, ptr %.0243.i17, i64 8
   %59 = load i8, ptr %58, align 8, !tbaa !8
-  %60 = icmp ne i8 %59, 0
-  %.not255.i = icmp eq ptr %57, null
-  %not..not255.i = xor i1 %.not255.i, true
-  %..0230.i = select i1 %not..not255.i, i1 %.0230.i18, i1 false
-  %.2232.i = select i1 %60, i1 %..0230.i, i1 %.0230.i18, !prof !10
-  %61 = select i1 %60, i1 %.not255.i, i1 false
+  %60 = icmp eq i8 %59, 0
+  %.not255.i = icmp ne ptr %57, null
+  %61 = select i1 %60, i1 true, i1 %.not255.i
+  %.2232.i = select i1 %61, i1 %.0230.i18, i1 false, !prof !14
   %62 = getelementptr inbounds nuw i8, ptr %.0243.i17, i64 32
   %63 = add i32 %.0245.i16, -1
-  %.not253.i = icmp eq i32 %63, 0
-  %or.cond = select i1 %61, i1 true, i1 %.not253.i
-  br i1 %or.cond, label %._crit_edge, label %.lr.ph
+  %.not253.i = icmp ne i32 %63, 0
+  %or.cond.not = select i1 %61, i1 %.not253.i, i1 false
+  br i1 %or.cond.not, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph
   br i1 %.2232.i, label %.critedge, label %.critedge268.i
@@ -15362,17 +15360,15 @@ select.unfold:                                    ; preds = %26, %31
   %57 = load ptr, ptr %56, align 8, !tbaa !115
   %58 = getelementptr inbounds nuw i8, ptr %.0243.i17, i64 8
   %59 = load i8, ptr %58, align 8, !tbaa !8
-  %60 = icmp ne i8 %59, 0
-  %.not255.i = icmp eq ptr %57, null
-  %not..not255.i = xor i1 %.not255.i, true
-  %..0230.i = select i1 %not..not255.i, i1 %.0230.i18, i1 false
-  %.2232.i = select i1 %60, i1 %..0230.i, i1 %.0230.i18, !prof !10
-  %61 = select i1 %60, i1 %.not255.i, i1 false
+  %60 = icmp eq i8 %59, 0
+  %.not255.i = icmp ne ptr %57, null
+  %61 = select i1 %60, i1 true, i1 %.not255.i
+  %.2232.i = select i1 %61, i1 %.0230.i18, i1 false, !prof !14
   %62 = getelementptr inbounds nuw i8, ptr %.0243.i17, i64 32
   %63 = add i32 %.0245.i16, -1
-  %.not253.i = icmp eq i32 %63, 0
-  %or.cond = select i1 %61, i1 true, i1 %.not253.i
-  br i1 %or.cond, label %._crit_edge, label %.lr.ph
+  %.not253.i = icmp ne i32 %63, 0
+  %or.cond.not = select i1 %61, i1 %.not253.i, i1 false
+  br i1 %or.cond.not, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph
   br i1 %.2232.i, label %.critedge, label %.critedge268.i

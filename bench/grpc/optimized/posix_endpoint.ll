@@ -3620,111 +3620,107 @@ define linkonce_odr noundef ptr @_ZN17grpc_event_engine12experimental18TcpZeroco
   %6 = icmp ne i64 %5, 0
   tail call void @llvm.assume(i1 %6)
   %7 = icmp ult i64 %5, 2
-  br i1 %7, label %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIjPN17grpc_event_engine12experimental21TcpZerocopySendRecordEEENS0_13hash_internal4HashIjEESt8equal_toIjESaISt4pairIKjS7_EEE4findIjEENSI_8iteratorERSF_.exit.thread.i, label %14
+  br i1 %7, label %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIjPN17grpc_event_engine12experimental21TcpZerocopySendRecordEEENS0_13hash_internal4HashIjEESt8equal_toIjESaISt4pairIKjS7_EEE4findIjEENSI_8iteratorERSF_.exit.thread.i, label %11
 
 _ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIjPN17grpc_event_engine12experimental21TcpZerocopySendRecordEEENS0_13hash_internal4HashIjEESt8equal_toIjESaISt4pairIKjS7_EEE4findIjEENSI_8iteratorERSF_.exit.thread.i: ; preds = %2
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %9 = load i64, ptr %8, align 8, !tbaa !275
-  %.not.i.i.i.i = icmp ult i64 %9, 2
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %11 = select i1 %.not.i.i.i.i, ptr undef, ptr %10
-  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %13 = load ptr, ptr %12, align 8, !tbaa !276
-  store i64 0, ptr %8, align 8, !tbaa !275
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %9 = load ptr, ptr %8, align 8, !tbaa !275
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store i64 0, ptr %10, align 8, !tbaa !277
   br label %_ZN17grpc_event_engine12experimental18TcpZerocopySendCtx23ReleaseSendRecordLockedEj.exit
 
-14:                                               ; preds = %2
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %16 = load ptr, ptr %15, align 8, !tbaa !129
-  tail call void @llvm.prefetch.p0(ptr %16, i32 0, i32 1, i32 1)
-  %17 = zext i32 %1 to i64
-  %18 = add i64 %17, ptrtoint (ptr @_ZN4absl12lts_2024072213hash_internal15MixingHashState5kSeedE to i64)
-  %19 = zext i64 %18 to i128
-  %20 = mul nuw i128 %19, 11376068507788127593
-  %21 = lshr i128 %20, 64
-  %22 = xor i128 %21, %20
-  %23 = trunc i128 %22 to i64
-  %24 = lshr i64 %23, 7
-  %25 = ptrtoint ptr %16 to i64
-  %26 = lshr i64 %25, 12
-  %27 = xor i64 %26, %24
-  %28 = trunc i128 %22 to i8
-  %29 = and i8 %28, 127
-  %30 = insertelement <16 x i8> poison, i8 %29, i64 0
-  %31 = shufflevector <16 x i8> %30, <16 x i8> poison, <16 x i32> zeroinitializer
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %.sroa.0.0.copyload.i.i.i.i.i.i = load ptr, ptr %32, align 8
-  br label %33
+11:                                               ; preds = %2
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %13 = load ptr, ptr %12, align 8, !tbaa !129
+  tail call void @llvm.prefetch.p0(ptr %13, i32 0, i32 1, i32 1)
+  %14 = zext i32 %1 to i64
+  %15 = add i64 %14, ptrtoint (ptr @_ZN4absl12lts_2024072213hash_internal15MixingHashState5kSeedE to i64)
+  %16 = zext i64 %15 to i128
+  %17 = mul nuw i128 %16, 11376068507788127593
+  %18 = lshr i128 %17, 64
+  %19 = xor i128 %18, %17
+  %20 = trunc i128 %19 to i64
+  %21 = lshr i64 %20, 7
+  %22 = ptrtoint ptr %13 to i64
+  %23 = lshr i64 %22, 12
+  %24 = xor i64 %23, %21
+  %25 = trunc i128 %19 to i8
+  %26 = and i8 %25, 127
+  %27 = insertelement <16 x i8> poison, i8 %26, i64 0
+  %28 = shufflevector <16 x i8> %27, <16 x i8> poison, <16 x i32> zeroinitializer
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %.sroa.0.0.copyload.i.i.i.i.i.i = load ptr, ptr %29, align 8
+  br label %30
 
-33:                                               ; preds = %._crit_edge.i.i.i, %14
-  %.pn.i6.i.i = phi i64 [ %27, %14 ], [ %51, %._crit_edge.i.i.i ]
-  %.sroa.12.0.i.i.i = phi i64 [ 0, %14 ], [ %50, %._crit_edge.i.i.i ]
+30:                                               ; preds = %._crit_edge.i.i.i, %11
+  %.pn.i6.i.i = phi i64 [ %24, %11 ], [ %48, %._crit_edge.i.i.i ]
+  %.sroa.12.0.i.i.i = phi i64 [ 0, %11 ], [ %47, %._crit_edge.i.i.i ]
   %.sroa.6.0.i.i.i = and i64 %.pn.i6.i.i, %5
-  %34 = getelementptr inbounds nuw i8, ptr %16, i64 %.sroa.6.0.i.i.i
-  %35 = load <16 x i8>, ptr %34, align 1, !tbaa !129
-  %36 = icmp eq <16 x i8> %31, %35
-  %37 = bitcast <16 x i1> %36 to i16
-  %.not42.i.i.i = icmp eq i16 %37, 0
+  %31 = getelementptr inbounds nuw i8, ptr %13, i64 %.sroa.6.0.i.i.i
+  %32 = load <16 x i8>, ptr %31, align 1, !tbaa !129
+  %33 = icmp eq <16 x i8> %28, %32
+  %34 = bitcast <16 x i1> %33 to i16
+  %.not42.i.i.i = icmp eq i16 %34, 0
   br i1 %.not42.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %33, %47
-  %.sroa.015.043.i.i.i = phi i16 [ %49, %47 ], [ %37, %33 ]
-  %38 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.sroa.015.043.i.i.i, i1 true)
-  %39 = zext nneg i16 %38 to i64
-  %40 = add i64 %.sroa.6.0.i.i.i, %39
-  %41 = and i64 %40, %5
-  %42 = getelementptr inbounds nuw %"union.absl::lts_20240722::container_internal::map_slot_type", ptr %.sroa.0.0.copyload.i.i.i.i.i.i, i64 %41
-  %43 = load i32, ptr %42, align 4, !tbaa !122
-  %44 = icmp eq i32 %43, %1
-  br i1 %44, label %.thread29.i.i.i, label %47, !prof !245
+.lr.ph.i.i.i:                                     ; preds = %30, %44
+  %.sroa.015.043.i.i.i = phi i16 [ %46, %44 ], [ %34, %30 ]
+  %35 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.sroa.015.043.i.i.i, i1 true)
+  %36 = zext nneg i16 %35 to i64
+  %37 = add i64 %.sroa.6.0.i.i.i, %36
+  %38 = and i64 %37, %5
+  %39 = getelementptr inbounds nuw %"union.absl::lts_20240722::container_internal::map_slot_type", ptr %.sroa.0.0.copyload.i.i.i.i.i.i, i64 %38
+  %40 = load i32, ptr %39, align 4, !tbaa !122
+  %41 = icmp eq i32 %40, %1
+  br i1 %41, label %.thread29.i.i.i, label %44, !prof !245
 
 .thread29.i.i.i:                                  ; preds = %.lr.ph.i.i.i
-  %45 = getelementptr inbounds nuw i8, ptr %42, i64 8
-  %46 = load ptr, ptr %45, align 8, !tbaa !276
-  invoke void @_ZN4absl12lts_2024072218container_internal13EraseMetaOnlyERNS1_12CommonFieldsEmm(ptr noundef nonnull align 8 dereferenceable(32) %4, i64 noundef %41, i64 noundef 16)
-          to label %_ZN17grpc_event_engine12experimental18TcpZerocopySendCtx23ReleaseSendRecordLockedEj.exit unwind label %56
+  %42 = getelementptr inbounds nuw i8, ptr %39, i64 8
+  %43 = load ptr, ptr %42, align 8, !tbaa !275
+  invoke void @_ZN4absl12lts_2024072218container_internal13EraseMetaOnlyERNS1_12CommonFieldsEmm(ptr noundef nonnull align 8 dereferenceable(32) %4, i64 noundef %38, i64 noundef 16)
+          to label %_ZN17grpc_event_engine12experimental18TcpZerocopySendCtx23ReleaseSendRecordLockedEj.exit unwind label %53
 
-47:                                               ; preds = %.lr.ph.i.i.i
-  %48 = add i16 %.sroa.015.043.i.i.i, -1
-  %49 = and i16 %48, %.sroa.015.043.i.i.i
-  %.not.i.i.i = icmp eq i16 %49, 0
+44:                                               ; preds = %.lr.ph.i.i.i
+  %45 = add i16 %.sroa.015.043.i.i.i, -1
+  %46 = and i16 %45, %.sroa.015.043.i.i.i
+  %.not.i.i.i = icmp eq i16 %46, 0
   br i1 %.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
 
-._crit_edge.i.i.i:                                ; preds = %47, %33
-  %50 = add i64 %.sroa.12.0.i.i.i, 16
-  %51 = add i64 %50, %.sroa.6.0.i.i.i
-  br label %33, !llvm.loop !278
+._crit_edge.i.i.i:                                ; preds = %44, %30
+  %47 = add i64 %.sroa.12.0.i.i.i, 16
+  %48 = add i64 %47, %.sroa.6.0.i.i.i
+  br label %30, !llvm.loop !278
 
 _ZN17grpc_event_engine12experimental18TcpZerocopySendCtx23ReleaseSendRecordLockedEj.exit: ; preds = %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIjPN17grpc_event_engine12experimental21TcpZerocopySendRecordEEENS0_13hash_internal4HashIjEESt8equal_toIjESaISt4pairIKjS7_EEE4findIjEENSI_8iteratorERSF_.exit.thread.i, %.thread29.i.i.i
-  %52 = phi ptr [ %13, %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIjPN17grpc_event_engine12experimental21TcpZerocopySendRecordEEENS0_13hash_internal4HashIjEESt8equal_toIjESaISt4pairIKjS7_EEE4findIjEENSI_8iteratorERSF_.exit.thread.i ], [ %46, %.thread29.i.i.i ]
+  %49 = phi ptr [ %9, %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIjPN17grpc_event_engine12experimental21TcpZerocopySendRecordEEENS0_13hash_internal4HashIjEESt8equal_toIjESaISt4pairIKjS7_EEE4findIjEENSI_8iteratorERSF_.exit.thread.i ], [ %43, %.thread29.i.i.i ]
   invoke void @_ZN4absl12lts_202407225Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
-          to label %_ZN4absl12lts_202407229MutexLockD2Ev.exit unwind label %53
+          to label %_ZN4absl12lts_202407229MutexLockD2Ev.exit unwind label %50
 
-53:                                               ; preds = %_ZN17grpc_event_engine12experimental18TcpZerocopySendCtx23ReleaseSendRecordLockedEj.exit
-  %54 = landingpad { ptr, i32 }
+50:                                               ; preds = %_ZN17grpc_event_engine12experimental18TcpZerocopySendCtx23ReleaseSendRecordLockedEj.exit
+  %51 = landingpad { ptr, i32 }
           catch ptr null
-  %55 = extractvalue { ptr, i32 } %54, 0
-  tail call void @__clang_call_terminate(ptr %55) #44
+  %52 = extractvalue { ptr, i32 } %51, 0
+  tail call void @__clang_call_terminate(ptr %52) #44
   unreachable
 
 _ZN4absl12lts_202407229MutexLockD2Ev.exit:        ; preds = %_ZN17grpc_event_engine12experimental18TcpZerocopySendCtx23ReleaseSendRecordLockedEj.exit
-  ret ptr %52
+  ret ptr %49
 
-56:                                               ; preds = %.thread29.i.i.i
-  %57 = landingpad { ptr, i32 }
+53:                                               ; preds = %.thread29.i.i.i
+  %54 = landingpad { ptr, i32 }
           cleanup
   invoke void @_ZN4absl12lts_202407225Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
-          to label %_ZN4absl12lts_202407229MutexLockD2Ev.exit3 unwind label %58
+          to label %_ZN4absl12lts_202407229MutexLockD2Ev.exit3 unwind label %55
 
-58:                                               ; preds = %56
-  %59 = landingpad { ptr, i32 }
+55:                                               ; preds = %53
+  %56 = landingpad { ptr, i32 }
           catch ptr null
-  %60 = extractvalue { ptr, i32 } %59, 0
-  tail call void @__clang_call_terminate(ptr %60) #44
+  %57 = extractvalue { ptr, i32 } %56, 0
+  tail call void @__clang_call_terminate(ptr %57) #44
   unreachable
 
-_ZN4absl12lts_202407229MutexLockD2Ev.exit3:       ; preds = %56
-  resume { ptr, i32 } %57
+_ZN4absl12lts_202407229MutexLockD2Ev.exit3:       ; preds = %53
+  resume { ptr, i32 } %54
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -4361,7 +4357,7 @@ _ZN17grpc_event_engine12experimental12_GLOBAL__N_17TcpSendEiPK6msghdrPii.exit: ;
 
 155:                                              ; preds = %149
   %156 = getelementptr inbounds nuw i8, ptr %151, i64 56
-  %157 = load i64, ptr %156, align 8, !tbaa !275
+  %157 = load i64, ptr %156, align 8, !tbaa !277
   %.mask.i = and i64 %157, -2
   %158 = icmp eq i64 %.mask.i, 2
   %159 = getelementptr inbounds nuw i8, ptr %151, i64 82
@@ -9318,12 +9314,12 @@ define linkonce_odr void @_ZN17grpc_event_engine12experimental18TcpZerocopySendC
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %10 = load i64, ptr %9, align 8, !tbaa !275, !noalias !402
+  %10 = load i64, ptr %9, align 8, !tbaa !277, !noalias !402
   %.not.i.i.i.i.i.i.i.i.i = icmp ult i64 %10, 2
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %11, label %13
 
 11:                                               ; preds = %8
-  store i64 2, ptr %9, align 8, !tbaa !275, !noalias !402
+  store i64 2, ptr %9, align 8, !tbaa !277, !noalias !402
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 64
   br label %72
 
@@ -9696,7 +9692,7 @@ _ZN4absl12lts_2024072218container_internal8AllocateILm8ESaIcEEEPvPT0_m.exit: ; p
   store ptr %17, ptr %18, align 8, !tbaa !129
   %19 = lshr i64 %7, 3
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %21 = load i64, ptr %20, align 8, !tbaa !275
+  %21 = load i64, ptr %20, align 8, !tbaa !277
   %22 = lshr i64 %21, 1
   %23 = add nuw i64 %19, %22
   %24 = sub i64 %7, %23
@@ -9751,9 +9747,9 @@ _ZN4absl12lts_2024072218container_internal8AllocateILm8ESaIcEEEPvPT0_m.exit: ; p
   br label %54
 
 54:                                               ; preds = %37, %33, %52, %39
-  %55 = load i64, ptr %20, align 8, !tbaa !275
+  %55 = load i64, ptr %20, align 8, !tbaa !277
   %56 = and i64 %55, -2
-  store i64 %56, ptr %20, align 8, !tbaa !275
+  store i64 %56, ptr %20, align 8, !tbaa !277
   ret i1 %29
 }
 
@@ -9799,7 +9795,7 @@ define linkonce_odr void @_ZN4absl12lts_2024072218container_internal18Deallocate
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !129
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = load i64, ptr %7, align 8, !tbaa !275
+  %8 = load i64, ptr %7, align 8, !tbaa !277
   %9 = and i64 %8, 1
   %.neg.i = sub nuw nsw i64 -8, %9
   %10 = getelementptr inbounds i8, ptr %6, i64 %.neg.i
@@ -10823,7 +10819,7 @@ _ZN17grpc_event_engine12experimental21TcpZerocopySendRecordD2Ev.exit: ; preds = 
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %25 = load ptr, ptr %24, align 8, !tbaa !129
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %27 = load i64, ptr %26, align 8, !tbaa !275
+  %27 = load i64, ptr %26, align 8, !tbaa !277
   %28 = and i64 %27, 1
   %.neg.i.i.i.i = sub nuw nsw i64 -8, %28
   %29 = getelementptr inbounds i8, ptr %25, i64 %.neg.i.i.i.i
@@ -10860,7 +10856,7 @@ define linkonce_odr void @_ZN4absl12lts_2024072218container_internal12raw_hash_s
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8, !tbaa !129
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %9 = load i64, ptr %8, align 8, !tbaa !275
+  %9 = load i64, ptr %8, align 8, !tbaa !277
   %10 = and i64 %9, 1
   %.neg.i.i.i = sub nuw nsw i64 -8, %10
   %11 = getelementptr inbounds i8, ptr %7, i64 %.neg.i.i.i
@@ -13371,9 +13367,9 @@ attributes #50 = { nounwind willreturn memory(read) }
 !272 = !{!184, !36, i64 16}
 !273 = distinct !{!273, !27}
 !274 = !{!193, !11, i64 0}
-!275 = !{!193, !11, i64 8}
-!276 = !{!277, !70, i64 8}
-!277 = !{!"_ZTSSt4pairIKjPN17grpc_event_engine12experimental21TcpZerocopySendRecordEE", !36, i64 0, !70, i64 8}
+!275 = !{!276, !70, i64 8}
+!276 = !{!"_ZTSSt4pairIKjPN17grpc_event_engine12experimental21TcpZerocopySendRecordEE", !36, i64 0, !70, i64 8}
+!277 = !{!193, !11, i64 8}
 !278 = distinct !{!278, !27}
 !279 = !{!184, !37, i64 81}
 !280 = !{!184, !194, i64 82}

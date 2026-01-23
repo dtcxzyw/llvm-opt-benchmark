@@ -1621,10 +1621,11 @@ switch.early.test:                                ; preds = %6
 
 14:                                               ; preds = %switch.early.test, %switch.early.test, %6
   %15 = icmp ne i8 %5, 45
-  %16 = getelementptr inbounds nuw i8, ptr %.04583, i64 1
-  %17 = icmp eq i8 %5, 43
-  %spec.select = select i1 %17, ptr %16, ptr %.04583
-  %.1 = select i1 %15, ptr %spec.select, ptr %16
+  %16 = icmp ne i8 %5, 43
+  %17 = and i1 %15, %16
+  %not. = xor i1 %17, true
+  %.1.idx = zext i1 %not. to i64
+  %.1 = getelementptr inbounds nuw i8, ptr %.04583, i64 %.1.idx
   %18 = load i8, ptr %.1, align 1, !tbaa !20
   %19 = sext i8 %18 to i64
   %20 = getelementptr inbounds i16, ptr %8, i64 %19

@@ -30182,153 +30182,149 @@ define internal fastcc noundef range(i32 1, 0) i32 @_ZN4pugi4impl12_GLOBAL__N_11
   br i1 %or.cond56.i, label %_ZN4pugi4impl12_GLOBAL__N_121guess_buffer_encodingEPKhm.exit, label %41
 
 41:                                               ; preds = %38
-  %42 = icmp eq i8 %15, 63
-  %or.cond62.i = select i1 %or.cond41.i, i1 %42, i1 false
-  %or.cond65.i = select i1 %or.cond62.i, i1 %26, i1 false
   %brmerge129.i = or i1 %or.cond41.i, %or.cond50.i
-  %.mux128.i = select i1 %or.cond50.i, i32 3, i32 2
-  %.mux128.mux.i = select i1 %or.cond65.i, i32 2, i32 %.mux128.i
-  br i1 %brmerge129.i, label %_ZN4pugi4impl12_GLOBAL__N_121guess_buffer_encodingEPKhm.exit, label %43
+  %.mux128.mux.i = select i1 %or.cond50.i, i32 3, i32 2
+  br i1 %brmerge129.i, label %_ZN4pugi4impl12_GLOBAL__N_121guess_buffer_encodingEPKhm.exit, label %42
 
-43:                                               ; preds = %41
+42:                                               ; preds = %41
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !tbaa !39
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 0, ptr %5, align 8, !tbaa !34
-  %44 = icmp eq i8 %13, 63
-  %or.cond74.i = select i1 %37, i1 %44, i1 false
-  %45 = icmp eq i8 %15, 120
-  %or.cond77.i = select i1 %or.cond74.i, i1 %45, i1 false
-  %46 = icmp eq i8 %17, 109
-  %or.cond80.i = select i1 %or.cond77.i, i1 %46, i1 false
-  br i1 %or.cond80.i, label %47, label %.thread.i
+  %43 = icmp eq i8 %13, 63
+  %or.cond74.i = select i1 %37, i1 %43, i1 false
+  %44 = icmp eq i8 %15, 120
+  %or.cond77.i = select i1 %or.cond74.i, i1 %44, i1 false
+  %45 = icmp eq i8 %17, 109
+  %or.cond80.i = select i1 %or.cond77.i, i1 %45, i1 false
+  br i1 %or.cond80.i, label %46, label %.thread.i
 
-47:                                               ; preds = %43
-  %48 = call fastcc noundef zeroext i1 @_ZN4pugi4impl12_GLOBAL__N_126parse_declaration_encodingEPKhmRS3_Rm(ptr noundef nonnull %1, i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5)
-  br i1 %48, label %49, label %.thread.i
+46:                                               ; preds = %42
+  %47 = call fastcc noundef zeroext i1 @_ZN4pugi4impl12_GLOBAL__N_126parse_declaration_encodingEPKhmRS3_Rm(ptr noundef nonnull %1, i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5)
+  br i1 %47, label %48, label %.thread.i
 
-49:                                               ; preds = %47
-  %50 = load i64, ptr %5, align 8, !tbaa !34
-  switch i64 %50, label %.thread.i [
-    i64 10, label %51
-    i64 6, label %94
+48:                                               ; preds = %46
+  %49 = load i64, ptr %5, align 8, !tbaa !34
+  switch i64 %49, label %.thread.i [
+    i64 10, label %50
+    i64 6, label %93
   ]
 
-51:                                               ; preds = %49
-  %52 = load ptr, ptr %4, align 8, !tbaa !39
-  %53 = load i8, ptr %52, align 1, !tbaa !28
-  %54 = and i8 %53, -33
-  %55 = icmp eq i8 %54, 73
-  br i1 %55, label %56, label %.thread.i
+50:                                               ; preds = %48
+  %51 = load ptr, ptr %4, align 8, !tbaa !39
+  %52 = load i8, ptr %51, align 1, !tbaa !28
+  %53 = and i8 %52, -33
+  %54 = icmp eq i8 %53, 73
+  br i1 %54, label %55, label %.thread.i
 
-56:                                               ; preds = %51
-  %57 = getelementptr inbounds nuw i8, ptr %52, i64 1
-  %58 = load i8, ptr %57, align 1, !tbaa !28
-  %59 = and i8 %58, -33
-  %60 = icmp eq i8 %59, 83
-  br i1 %60, label %61, label %.thread.i
+55:                                               ; preds = %50
+  %56 = getelementptr inbounds nuw i8, ptr %51, i64 1
+  %57 = load i8, ptr %56, align 1, !tbaa !28
+  %58 = and i8 %57, -33
+  %59 = icmp eq i8 %58, 83
+  br i1 %59, label %60, label %.thread.i
 
-61:                                               ; preds = %56
-  %62 = getelementptr inbounds nuw i8, ptr %52, i64 2
-  %63 = load i8, ptr %62, align 1, !tbaa !28
-  %64 = and i8 %63, -33
-  %65 = icmp eq i8 %64, 79
-  br i1 %65, label %66, label %.thread.i
+60:                                               ; preds = %55
+  %61 = getelementptr inbounds nuw i8, ptr %51, i64 2
+  %62 = load i8, ptr %61, align 1, !tbaa !28
+  %63 = and i8 %62, -33
+  %64 = icmp eq i8 %63, 79
+  br i1 %64, label %65, label %.thread.i
 
-66:                                               ; preds = %61
-  %67 = getelementptr inbounds nuw i8, ptr %52, i64 3
-  %68 = load i8, ptr %67, align 1, !tbaa !28
-  %69 = icmp eq i8 %68, 45
-  br i1 %69, label %70, label %.thread.i
+65:                                               ; preds = %60
+  %66 = getelementptr inbounds nuw i8, ptr %51, i64 3
+  %67 = load i8, ptr %66, align 1, !tbaa !28
+  %68 = icmp eq i8 %67, 45
+  br i1 %68, label %69, label %.thread.i
 
-70:                                               ; preds = %66
-  %71 = getelementptr inbounds nuw i8, ptr %52, i64 4
-  %72 = load i8, ptr %71, align 1, !tbaa !28
-  %73 = icmp eq i8 %72, 56
-  br i1 %73, label %74, label %.thread.i
+69:                                               ; preds = %65
+  %70 = getelementptr inbounds nuw i8, ptr %51, i64 4
+  %71 = load i8, ptr %70, align 1, !tbaa !28
+  %72 = icmp eq i8 %71, 56
+  br i1 %72, label %73, label %.thread.i
 
-74:                                               ; preds = %70
-  %75 = getelementptr inbounds nuw i8, ptr %52, i64 5
-  %76 = load i8, ptr %75, align 1, !tbaa !28
-  %77 = icmp eq i8 %76, 56
-  br i1 %77, label %78, label %.thread.i
+73:                                               ; preds = %69
+  %74 = getelementptr inbounds nuw i8, ptr %51, i64 5
+  %75 = load i8, ptr %74, align 1, !tbaa !28
+  %76 = icmp eq i8 %75, 56
+  br i1 %76, label %77, label %.thread.i
 
-78:                                               ; preds = %74
-  %79 = getelementptr inbounds nuw i8, ptr %52, i64 6
-  %80 = load i8, ptr %79, align 1, !tbaa !28
-  %81 = icmp eq i8 %80, 53
-  br i1 %81, label %82, label %.thread.i
+77:                                               ; preds = %73
+  %78 = getelementptr inbounds nuw i8, ptr %51, i64 6
+  %79 = load i8, ptr %78, align 1, !tbaa !28
+  %80 = icmp eq i8 %79, 53
+  br i1 %80, label %81, label %.thread.i
 
-82:                                               ; preds = %78
-  %83 = getelementptr inbounds nuw i8, ptr %52, i64 7
-  %84 = load i8, ptr %83, align 1, !tbaa !28
-  %85 = icmp eq i8 %84, 57
-  br i1 %85, label %86, label %.thread.i
+81:                                               ; preds = %77
+  %82 = getelementptr inbounds nuw i8, ptr %51, i64 7
+  %83 = load i8, ptr %82, align 1, !tbaa !28
+  %84 = icmp eq i8 %83, 57
+  br i1 %84, label %85, label %.thread.i
 
-86:                                               ; preds = %82
-  %87 = getelementptr inbounds nuw i8, ptr %52, i64 8
-  %88 = load i8, ptr %87, align 1, !tbaa !28
-  %89 = icmp eq i8 %88, 45
-  br i1 %89, label %90, label %.thread.i
+85:                                               ; preds = %81
+  %86 = getelementptr inbounds nuw i8, ptr %51, i64 8
+  %87 = load i8, ptr %86, align 1, !tbaa !28
+  %88 = icmp eq i8 %87, 45
+  br i1 %88, label %89, label %.thread.i
 
-90:                                               ; preds = %86
-  %91 = getelementptr inbounds nuw i8, ptr %52, i64 9
-  %92 = load i8, ptr %91, align 1, !tbaa !28
-  %93 = icmp eq i8 %92, 49
-  br i1 %93, label %123, label %.thread.i
+89:                                               ; preds = %85
+  %90 = getelementptr inbounds nuw i8, ptr %51, i64 9
+  %91 = load i8, ptr %90, align 1, !tbaa !28
+  %92 = icmp eq i8 %91, 49
+  br i1 %92, label %122, label %.thread.i
 
-94:                                               ; preds = %49
-  %95 = load ptr, ptr %4, align 8, !tbaa !39
-  %96 = load i8, ptr %95, align 1, !tbaa !28
-  %97 = and i8 %96, -33
-  %98 = icmp eq i8 %97, 76
-  br i1 %98, label %99, label %.thread.i
+93:                                               ; preds = %48
+  %94 = load ptr, ptr %4, align 8, !tbaa !39
+  %95 = load i8, ptr %94, align 1, !tbaa !28
+  %96 = and i8 %95, -33
+  %97 = icmp eq i8 %96, 76
+  br i1 %97, label %98, label %.thread.i
 
-99:                                               ; preds = %94
-  %100 = getelementptr inbounds nuw i8, ptr %95, i64 1
-  %101 = load i8, ptr %100, align 1, !tbaa !28
-  %102 = and i8 %101, -33
-  %103 = icmp eq i8 %102, 65
-  br i1 %103, label %104, label %.thread.i
+98:                                               ; preds = %93
+  %99 = getelementptr inbounds nuw i8, ptr %94, i64 1
+  %100 = load i8, ptr %99, align 1, !tbaa !28
+  %101 = and i8 %100, -33
+  %102 = icmp eq i8 %101, 65
+  br i1 %102, label %103, label %.thread.i
 
-104:                                              ; preds = %99
-  %105 = getelementptr inbounds nuw i8, ptr %95, i64 2
-  %106 = load i8, ptr %105, align 1, !tbaa !28
-  %107 = and i8 %106, -33
-  %108 = icmp eq i8 %107, 84
-  br i1 %108, label %109, label %.thread.i
+103:                                              ; preds = %98
+  %104 = getelementptr inbounds nuw i8, ptr %94, i64 2
+  %105 = load i8, ptr %104, align 1, !tbaa !28
+  %106 = and i8 %105, -33
+  %107 = icmp eq i8 %106, 84
+  br i1 %107, label %108, label %.thread.i
 
-109:                                              ; preds = %104
-  %110 = getelementptr inbounds nuw i8, ptr %95, i64 3
-  %111 = load i8, ptr %110, align 1, !tbaa !28
-  %112 = and i8 %111, -33
-  %113 = icmp eq i8 %112, 73
-  br i1 %113, label %114, label %.thread.i
+108:                                              ; preds = %103
+  %109 = getelementptr inbounds nuw i8, ptr %94, i64 3
+  %110 = load i8, ptr %109, align 1, !tbaa !28
+  %111 = and i8 %110, -33
+  %112 = icmp eq i8 %111, 73
+  br i1 %112, label %113, label %.thread.i
 
-114:                                              ; preds = %109
-  %115 = getelementptr inbounds nuw i8, ptr %95, i64 4
-  %116 = load i8, ptr %115, align 1, !tbaa !28
-  %117 = and i8 %116, -33
-  %118 = icmp eq i8 %117, 78
-  br i1 %118, label %119, label %.thread.i
+113:                                              ; preds = %108
+  %114 = getelementptr inbounds nuw i8, ptr %94, i64 4
+  %115 = load i8, ptr %114, align 1, !tbaa !28
+  %116 = and i8 %115, -33
+  %117 = icmp eq i8 %116, 78
+  br i1 %117, label %118, label %.thread.i
 
-119:                                              ; preds = %114
-  %120 = getelementptr inbounds nuw i8, ptr %95, i64 5
-  %121 = load i8, ptr %120, align 1, !tbaa !28
-  %122 = icmp eq i8 %121, 49
-  br i1 %122, label %123, label %.thread.i
+118:                                              ; preds = %113
+  %119 = getelementptr inbounds nuw i8, ptr %94, i64 5
+  %120 = load i8, ptr %119, align 1, !tbaa !28
+  %121 = icmp eq i8 %120, 49
+  br i1 %121, label %122, label %.thread.i
 
-.thread.i:                                        ; preds = %119, %114, %109, %104, %99, %94, %90, %86, %82, %78, %74, %70, %66, %61, %56, %51, %49, %47, %43
-  br label %123
+.thread.i:                                        ; preds = %118, %113, %108, %103, %98, %93, %89, %85, %81, %77, %73, %69, %65, %60, %55, %50, %48, %46, %42
+  br label %122
 
-123:                                              ; preds = %.thread.i, %119, %90
-  %.2.i = phi i32 [ 1, %.thread.i ], [ 9, %90 ], [ 9, %119 ]
+122:                                              ; preds = %.thread.i, %118, %89
+  %.2.i = phi i32 [ 1, %.thread.i ], [ 9, %89 ], [ 9, %118 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN4pugi4impl12_GLOBAL__N_121guess_buffer_encodingEPKhm.exit
 
-_ZN4pugi4impl12_GLOBAL__N_121guess_buffer_encodingEPKhm.exit: ; preds = %123, %41, %38, %36, %34, %30, %27, %22, %10, %8, %3, %7, %6
-  %.0 = phi i32 [ 5, %6 ], [ 2, %7 ], [ 3, %38 ], [ %0, %3 ], [ 1, %8 ], [ %.2.i, %123 ], [ 6, %10 ], [ 5, %22 ], [ %.mux.i, %27 ], [ %.mux128.mux.i, %41 ], [ 1, %30 ], [ 6, %34 ], [ 5, %36 ]
+_ZN4pugi4impl12_GLOBAL__N_121guess_buffer_encodingEPKhm.exit: ; preds = %122, %41, %38, %36, %34, %30, %27, %22, %10, %8, %3, %7, %6
+  %.0 = phi i32 [ 5, %6 ], [ 2, %7 ], [ 3, %38 ], [ %0, %3 ], [ 1, %8 ], [ %.2.i, %122 ], [ 6, %10 ], [ 5, %22 ], [ %.mux.i, %27 ], [ %.mux128.mux.i, %41 ], [ 1, %30 ], [ 6, %34 ], [ 5, %36 ]
   ret i32 %.0
 }
 

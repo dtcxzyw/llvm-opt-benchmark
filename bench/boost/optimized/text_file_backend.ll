@@ -8991,10 +8991,10 @@ _ZNK5boost9date_time9base_timeINS_10posix_time5ptimeENS0_19counted_time_systemIN
   %104 = icmp eq i32 %97, %99
   %or.cond = and i1 %35, %104
   %or.cond30 = or i1 %103, %or.cond
-  %105 = add nsw i32 %.sroa.0.0.i8.i.i49, 2
-  %spec.select.i.i7.i.i56 = icmp ult i32 %105, 3
-  %106 = select i1 %spec.select.i.i7.i.i56, i32 0, i32 7
-  %.sroa.0.0.i8.i.i57 = select i1 %or.cond30, i32 %106, i32 0
+  %105 = add nsw i32 %.sroa.0.0.i8.i.i49, -1
+  %spec.select.i.i7.i.i56 = icmp ult i32 %105, -3
+  %106 = and i1 %or.cond30, %spec.select.i.i7.i.i56
+  %.sroa.0.0.i8.i.i57 = select i1 %106, i32 7, i32 0
   %.sroa.0119.0 = add nsw i32 %.sroa.0.0.i8.i.i49, %.sroa.0.0.i8.i.i57
   %.off.i.i.i.i63 = add nsw i32 %.sroa.0119.0, -1
   %switch.i.i.i.i64 = icmp ult i32 %.off.i.i.i.i63, -3

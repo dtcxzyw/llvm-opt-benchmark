@@ -749,7 +749,7 @@ define hidden noundef range(i8 -1, 5) i8 @"_ZN109_$LT$alloc..collections..vec_de
   %9 = phi ptr [ %17, %12 ], [ %1, %3 ]
   %10 = phi ptr [ %13, %12 ], [ %.promoted.i, %3 ]
   %11 = icmp eq ptr %10, %7
-  br i1 %11, label %22, label %12
+  br i1 %11, label %21, label %12
 
 12:                                               ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 32
@@ -763,41 +763,41 @@ define hidden noundef range(i8 -1, 5) i8 @"_ZN109_$LT$alloc..collections..vec_de
   %18 = load i64, ptr %17, align 8, !noalias !364, !noundef !4
   %19 = icmp ne i64 %18, 0
   %20 = icmp eq i8 %16, 3
-  %21 = and i1 %20, %19
-  br i1 %21, label %8, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17ha1f2813ebc0f1943E.llvm.16236192578106913121.exit6
+  %.not9.i = and i1 %20, %19
+  br i1 %.not9.i, label %8, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17ha1f2813ebc0f1943E.llvm.16236192578106913121.exit7
 
-22:                                               ; preds = %8
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
+21:                                               ; preds = %8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @llvm.experimental.noalias.scope.decl(metadata !367)
   call void @llvm.experimental.noalias.scope.decl(metadata !370)
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %25 = load ptr, ptr %24, align 8, !alias.scope !372, !noalias !370, !nonnull !4, !noundef !4
-  %.promoted.i4 = load ptr, ptr %23, align 8, !alias.scope !372, !noalias !370
-  br label %26
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %24 = load ptr, ptr %23, align 8, !alias.scope !372, !noalias !370, !nonnull !4, !noundef !4
+  %.promoted.i4 = load ptr, ptr %22, align 8, !alias.scope !372, !noalias !370
+  br label %25
 
-26:                                               ; preds = %30, %22
-  %27 = phi ptr [ %35, %30 ], [ %9, %22 ]
-  %28 = phi ptr [ %31, %30 ], [ %.promoted.i4, %22 ]
-  %29 = icmp eq ptr %28, %25
-  br i1 %29, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17ha1f2813ebc0f1943E.llvm.16236192578106913121.exit6, label %30
+25:                                               ; preds = %29, %21
+  %26 = phi ptr [ %34, %29 ], [ %9, %21 ]
+  %27 = phi ptr [ %30, %29 ], [ %.promoted.i4, %21 ]
+  %28 = icmp eq ptr %27, %24
+  br i1 %28, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17ha1f2813ebc0f1943E.llvm.16236192578106913121.exit7, label %29
 
-30:                                               ; preds = %26
-  %31 = getelementptr inbounds nuw i8, ptr %28, i64 32
-  store ptr %31, ptr %23, align 8, !alias.scope !372, !noalias !370
+29:                                               ; preds = %25
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 32
+  store ptr %30, ptr %22, align 8, !alias.scope !372, !noalias !370
   call void @llvm.experimental.noalias.scope.decl(metadata !375)
-  %32 = load i64, ptr %27, align 8, !noalias !378, !noundef !4
-  %33 = add i64 %32, -1
-  store i64 %33, ptr %27, align 8, !noalias !378
-  %34 = call noundef i8 @"_ZN4core4iter6traits8iterator12iter_compare7compare28_$u7b$$u7b$closure$u7d$$u7d$17h948d83b1c8e2fbaaE.llvm.17048215454070662348"(ptr noalias noundef nonnull align 8 dereferenceable(8) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %28), !range !363, !noalias !383
-  %35 = load ptr, ptr %4, align 8, !alias.scope !384, !noalias !385, !nonnull !4, !align !108, !noundef !4
-  %36 = load i64, ptr %35, align 8, !noalias !383, !noundef !4
-  %37 = icmp ne i64 %36, 0
-  %38 = icmp eq i8 %34, 3
-  %39 = and i1 %38, %37
-  br i1 %39, label %26, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17ha1f2813ebc0f1943E.llvm.16236192578106913121.exit6
+  %31 = load i64, ptr %26, align 8, !noalias !378, !noundef !4
+  %32 = add i64 %31, -1
+  store i64 %32, ptr %26, align 8, !noalias !378
+  %33 = call noundef i8 @"_ZN4core4iter6traits8iterator12iter_compare7compare28_$u7b$$u7b$closure$u7d$$u7d$17h948d83b1c8e2fbaaE.llvm.17048215454070662348"(ptr noalias noundef nonnull align 8 dereferenceable(8) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %27), !range !363, !noalias !383
+  %34 = load ptr, ptr %4, align 8, !alias.scope !384, !noalias !385, !nonnull !4, !align !108, !noundef !4
+  %35 = load i64, ptr %34, align 8, !noalias !383, !noundef !4
+  %36 = icmp ne i64 %35, 0
+  %37 = icmp eq i8 %33, 3
+  %.not9.i5 = and i1 %37, %36
+  br i1 %.not9.i5, label %25, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17ha1f2813ebc0f1943E.llvm.16236192578106913121.exit7
 
-_ZN4core4iter6traits8iterator8Iterator8try_fold17ha1f2813ebc0f1943E.llvm.16236192578106913121.exit6: ; preds = %12, %30, %26
-  %.0 = phi i8 [ 4, %26 ], [ %34, %30 ], [ %16, %12 ]
+_ZN4core4iter6traits8iterator8Iterator8try_fold17ha1f2813ebc0f1943E.llvm.16236192578106913121.exit7: ; preds = %12, %29, %25
+  %.0 = phi i8 [ 4, %25 ], [ %33, %29 ], [ %16, %12 ]
   ret i8 %.0
 }
 
@@ -2771,7 +2771,7 @@ define hidden noundef range(i8 -1, 5) i8 @_ZN4core4iter6traits8iterator8Iterator
 6:                                                ; preds = %9, %2
   %7 = phi ptr [ %10, %9 ], [ %.promoted, %2 ]
   %8 = icmp eq ptr %7, %4
-  br i1 %8, label %.split.loop.exit, label %9
+  br i1 %8, label %19, label %9
 
 9:                                                ; preds = %6
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 32
@@ -2786,10 +2786,10 @@ define hidden noundef range(i8 -1, 5) i8 @_ZN4core4iter6traits8iterator8Iterator
   %16 = load i64, ptr %15, align 8, !noalias !1012, !noundef !4
   %17 = icmp ne i64 %16, 0
   %18 = icmp eq i8 %14, 3
-  %19 = and i1 %18, %17
-  br i1 %19, label %6, label %.split.loop.exit
+  %.not9 = and i1 %18, %17
+  br i1 %.not9, label %6, label %19
 
-.split.loop.exit:                                 ; preds = %6, %9
+19:                                               ; preds = %6, %9
   %.0 = phi i8 [ %14, %9 ], [ 4, %6 ]
   ret i8 %.0
 }

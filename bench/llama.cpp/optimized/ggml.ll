@@ -18465,109 +18465,107 @@ ggml_hash_insert.exit:                            ; preds = %11
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 152
   br label %40
 
-36:                                               ; preds = %51
+36:                                               ; preds = %48
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %38 = load i32, ptr %37, align 8, !tbaa !55
   %39 = icmp eq i32 %38, 0
-  br i1 %39, label %53, label %75
+  br i1 %39, label %50, label %72
 
-40:                                               ; preds = %.preheader, %51
-  %.051 = phi i32 [ 0, %.preheader ], [ %52, %51 ]
+40:                                               ; preds = %.preheader, %48
+  %.052 = phi i32 [ 0, %.preheader ], [ %49, %48 ]
   %41 = load i32, ptr %34, align 8, !tbaa !112
-  %42 = icmp eq i32 %41, 0
-  %43 = icmp eq i32 %41, 1
-  %44 = sub nuw nsw i32 9, %.051
-  %45 = select i1 %43, i32 %44, i32 %.051
-  %46 = select i1 %42, i32 %.051, i32 %45
-  %47 = zext nneg i32 %46 to i64
-  %48 = getelementptr inbounds nuw ptr, ptr %35, i64 %47
-  %49 = load ptr, ptr %48, align 8, !tbaa !81
-  %.not38 = icmp eq ptr %49, null
-  br i1 %.not38, label %51, label %50
+  %.not40 = icmp eq i32 %41, 1
+  %42 = sub nuw nsw i32 9, %.052
+  %43 = select i1 %.not40, i32 %42, i32 %.052
+  %44 = zext nneg i32 %43 to i64
+  %45 = getelementptr inbounds nuw ptr, ptr %35, i64 %44
+  %46 = load ptr, ptr %45, align 8, !tbaa !81
+  %.not38 = icmp eq ptr %46, null
+  br i1 %.not38, label %48, label %47
 
-50:                                               ; preds = %40
-  tail call fastcc void @ggml_visit_parents(ptr noundef nonnull %0, ptr noundef nonnull %49)
-  br label %51
+47:                                               ; preds = %40
+  tail call fastcc void @ggml_visit_parents(ptr noundef nonnull %0, ptr noundef nonnull %46)
+  br label %48
 
-51:                                               ; preds = %50, %40
-  %52 = add nuw nsw i32 %.051, 1
-  %exitcond.not = icmp eq i32 %52, 10
+48:                                               ; preds = %47, %40
+  %49 = add nuw nsw i32 %.052, 1
+  %exitcond.not = icmp eq i32 %49, 10
   br i1 %exitcond.not, label %36, label %40, !llvm.loop !143
 
-53:                                               ; preds = %36
-  %54 = getelementptr inbounds nuw i8, ptr %1, i64 148
-  %55 = load i32, ptr %54, align 4, !tbaa !89
-  %56 = and i32 %55, 4
-  %.not = icmp eq i32 %56, 0
-  br i1 %.not, label %57, label %75
+50:                                               ; preds = %36
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 148
+  %52 = load i32, ptr %51, align 4, !tbaa !89
+  %53 = and i32 %52, 4
+  %.not = icmp eq i32 %53, 0
+  br i1 %.not, label %54, label %72
 
-57:                                               ; preds = %53
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %59 = load i32, ptr %58, align 8, !tbaa !114
-  %60 = load i32, ptr %0, align 8, !tbaa !113
-  %61 = icmp slt i32 %59, %60
-  br i1 %61, label %63, label %62
+54:                                               ; preds = %50
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %56 = load i32, ptr %55, align 8, !tbaa !114
+  %57 = load i32, ptr %0, align 8, !tbaa !113
+  %58 = icmp slt i32 %56, %57
+  br i1 %58, label %60, label %59
 
-62:                                               ; preds = %57
+59:                                               ; preds = %54
   tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str.12, i32 noundef 5755, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.489) #47
   unreachable
 
-63:                                               ; preds = %57
-  %64 = getelementptr inbounds nuw i8, ptr %1, i64 256
-  %char0 = load i8, ptr %64, align 1
-  %65 = icmp eq i8 %char0, 0
-  br i1 %65, label %66, label %68
+60:                                               ; preds = %54
+  %61 = getelementptr inbounds nuw i8, ptr %1, i64 256
+  %char0 = load i8, ptr %61, align 1
+  %62 = icmp eq i8 %char0, 0
+  br i1 %62, label %63, label %65
 
-66:                                               ; preds = %63
-  %67 = tail call ptr (ptr, ptr, ...) @ggml_format_name(ptr noundef nonnull %1, ptr noundef nonnull @.str.490, i32 noundef %59)
-  %.pre62 = load i32, ptr %58, align 8, !tbaa !114
-  br label %68
+63:                                               ; preds = %60
+  %64 = tail call ptr (ptr, ptr, ...) @ggml_format_name(ptr noundef nonnull %1, ptr noundef nonnull @.str.490, i32 noundef %56)
+  %.pre63 = load i32, ptr %55, align 8, !tbaa !114
+  br label %65
 
-68:                                               ; preds = %66, %63
-  %69 = phi i32 [ %.pre62, %66 ], [ %59, %63 ]
-  %70 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %71 = load ptr, ptr %70, align 8, !tbaa !115
-  %72 = sext i32 %69 to i64
-  %73 = getelementptr inbounds ptr, ptr %71, i64 %72
-  store ptr %1, ptr %73, align 8, !tbaa !81
-  %74 = add nsw i32 %69, 1
-  store i32 %74, ptr %58, align 8, !tbaa !114
+65:                                               ; preds = %63, %60
+  %66 = phi i32 [ %.pre63, %63 ], [ %56, %60 ]
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %68 = load ptr, ptr %67, align 8, !tbaa !115
+  %69 = sext i32 %66 to i64
+  %70 = getelementptr inbounds ptr, ptr %68, i64 %69
+  store ptr %1, ptr %70, align 8, !tbaa !81
+  %71 = add nsw i32 %66, 1
+  store i32 %71, ptr %55, align 8, !tbaa !114
   br label %ggml_hash_insert.exit.thread
 
-75:                                               ; preds = %53, %36
-  %76 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %77 = load i32, ptr %76, align 4, !tbaa !98
-  %78 = load i32, ptr %0, align 8, !tbaa !113
-  %79 = icmp slt i32 %77, %78
-  br i1 %79, label %81, label %80
+72:                                               ; preds = %50, %36
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %74 = load i32, ptr %73, align 4, !tbaa !98
+  %75 = load i32, ptr %0, align 8, !tbaa !113
+  %76 = icmp slt i32 %74, %75
+  br i1 %76, label %78, label %77
 
-80:                                               ; preds = %75
+77:                                               ; preds = %72
   tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str.12, i32 noundef 5764, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.491) #47
   unreachable
 
-81:                                               ; preds = %75
-  %82 = getelementptr inbounds nuw i8, ptr %1, i64 256
-  %char037 = load i8, ptr %82, align 1
-  %83 = icmp eq i8 %char037, 0
-  br i1 %83, label %84, label %86
+78:                                               ; preds = %72
+  %79 = getelementptr inbounds nuw i8, ptr %1, i64 256
+  %char037 = load i8, ptr %79, align 1
+  %80 = icmp eq i8 %char037, 0
+  br i1 %80, label %81, label %83
 
-84:                                               ; preds = %81
-  %85 = tail call ptr (ptr, ptr, ...) @ggml_format_name(ptr noundef nonnull %1, ptr noundef nonnull @.str.492, i32 noundef %77)
-  %.pre = load i32, ptr %76, align 4, !tbaa !98
-  br label %86
+81:                                               ; preds = %78
+  %82 = tail call ptr (ptr, ptr, ...) @ggml_format_name(ptr noundef nonnull %1, ptr noundef nonnull @.str.492, i32 noundef %74)
+  %.pre = load i32, ptr %73, align 4, !tbaa !98
+  br label %83
 
-86:                                               ; preds = %84, %81
-  %87 = phi i32 [ %.pre, %84 ], [ %77, %81 ]
-  %88 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %89 = load ptr, ptr %88, align 8, !tbaa !100
-  %90 = sext i32 %87 to i64
-  %91 = getelementptr inbounds ptr, ptr %89, i64 %90
-  store ptr %1, ptr %91, align 8, !tbaa !81
-  %92 = add nsw i32 %87, 1
-  store i32 %92, ptr %76, align 4, !tbaa !98
+83:                                               ; preds = %81, %78
+  %84 = phi i32 [ %.pre, %81 ], [ %74, %78 ]
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %86 = load ptr, ptr %85, align 8, !tbaa !100
+  %87 = sext i32 %84 to i64
+  %88 = getelementptr inbounds ptr, ptr %86, i64 %87
+  store ptr %1, ptr %88, align 8, !tbaa !81
+  %89 = add nsw i32 %84, 1
+  store i32 %89, ptr %73, align 4, !tbaa !98
   br label %ggml_hash_insert.exit.thread
 
-ggml_hash_insert.exit.thread:                     ; preds = %19, %ggml_hash_insert.exit, %86, %68
+ggml_hash_insert.exit.thread:                     ; preds = %19, %ggml_hash_insert.exit, %83, %65
   ret void
 }
 

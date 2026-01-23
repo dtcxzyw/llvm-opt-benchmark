@@ -46,7 +46,7 @@ define { i64, i32 } @_ZN6icu_776number4impl7Grouper13forPropertiesERKNS1_23Decim
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load i8, ptr %2, align 8, !tbaa !3, !range !34, !noundef !35
   %4 = trunc nuw i8 %3 to i1
-  br i1 %4, label %5, label %26
+  br i1 %4, label %5, label %27
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 76
@@ -58,22 +58,23 @@ define { i64, i32 } @_ZN6icu_776number4impl7Grouper13forPropertiesERKNS1_23Decim
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 108
   %13 = load i32, ptr %12, align 4, !tbaa !38
   %14 = icmp sgt i16 %8, 0
-  %15 = icmp sgt i16 %11, 0
-  %16 = select i1 %15, i16 %11, i16 %8
-  %17 = select i1 %14, i16 %8, i16 %16
-  %18 = and i32 %13, 65535
-  %19 = zext nneg i32 %18 to i64
-  %20 = shl nuw nsw i64 %19, 32
-  %21 = zext i16 %16 to i64
-  %22 = shl nuw nsw i64 %21, 16
-  %23 = or disjoint i64 %22, %20
-  %24 = zext i16 %17 to i64
-  %25 = or disjoint i64 %23, %24
-  br label %26
+  %15 = icmp slt i16 %11, 1
+  %16 = select i1 %14, i1 true, i1 %15
+  %17 = select i1 %16, i16 %8, i16 %11
+  %18 = select i1 %15, i16 %8, i16 %11
+  %19 = and i32 %13, 65535
+  %20 = zext nneg i32 %19 to i64
+  %21 = shl nuw nsw i64 %20, 32
+  %22 = zext i16 %18 to i64
+  %23 = shl nuw nsw i64 %22, 16
+  %24 = or disjoint i64 %23, %21
+  %25 = zext i16 %17 to i64
+  %26 = or disjoint i64 %24, %25
+  br label %27
 
-26:                                               ; preds = %1, %5
+27:                                               ; preds = %1, %5
   %.sroa.5.sroa.2.0 = phi i32 [ 5, %5 ], [ 0, %1 ]
-  %.sroa.0.0.insert.insert = phi i64 [ %25, %5 ], [ 281470681743359, %1 ]
+  %.sroa.0.0.insert.insert = phi i64 [ %26, %5 ], [ 281470681743359, %1 ]
   %.fca.0.insert = insertvalue { i64, i32 } poison, i64 %.sroa.0.0.insert.insert, 0
   %.fca.1.insert = insertvalue { i64, i32 } %.fca.0.insert, i32 %.sroa.5.sroa.2.0, 1
   ret { i64, i32 } %.fca.1.insert

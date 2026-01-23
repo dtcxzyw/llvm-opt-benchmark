@@ -757,7 +757,7 @@ open_file.exit.thread:                            ; preds = %28, %45, %.loopexit
   %.019.i.ph = phi i32 [ -46, %.loopexit.i ], [ -29, %45 ], [ -29, %28 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %128
+  br label %129
 
 62:                                               ; preds = %61, %.loopexit40.i
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -927,20 +927,20 @@ localgetline.exit:                                ; preds = %.lr.ph, %83
 
 .lr.ph66:                                         ; preds = %.loopexit, %.lr.ph66
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph66 ], [ 0, %.loopexit ]
-  %114 = phi ptr [ %119, %.lr.ph66 ], [ %110, %.loopexit ]
+  %114 = phi ptr [ %120, %.lr.ph66 ], [ %110, %.loopexit ]
   %.036.i64 = phi i32 [ %.1.i, %.lr.ph66 ], [ -1, %.loopexit ]
   %.037.i63 = phi i32 [ %.2.i, %.lr.ph66 ], [ -1, %.loopexit ]
   %115 = load i8, ptr %114, align 1, !tbaa !70
   %.not54.i = icmp eq i8 %115, 0
-  %116 = icmp eq i32 %.037.i63, -1
-  %117 = trunc nuw nsw i64 %indvars.iv to i32
-  %spec.select.i20 = select i1 %116, i32 %117, i32 %.037.i63
-  %.2.i = select i1 %.not54.i, i32 %.037.i63, i32 %spec.select.i20
-  %.1.i = select i1 %.not54.i, i32 %.036.i64, i32 %117
+  %116 = icmp ne i32 %.037.i63, -1
+  %117 = select i1 %.not54.i, i1 true, i1 %116
+  %118 = trunc nuw nsw i64 %indvars.iv to i32
+  %.2.i = select i1 %117, i32 %.037.i63, i32 %118
+  %.1.i = select i1 %.not54.i, i32 %.036.i64, i32 %118
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %118 = getelementptr inbounds nuw ptr, ptr %109, i64 %indvars.iv.next
-  %119 = load ptr, ptr %118, align 8, !tbaa !56
-  %.not52.i = icmp eq ptr %119, null
+  %119 = getelementptr inbounds nuw ptr, ptr %109, i64 %indvars.iv.next
+  %120 = load ptr, ptr %119, align 8, !tbaa !56
+  %.not52.i = icmp eq ptr %120, null
   br i1 %.not52.i, label %._crit_edge, label %.lr.ph66, !llvm.loop !75
 
 ._crit_edge.thread:                               ; preds = %.loopexit, %._crit_edge
@@ -949,10 +949,10 @@ localgetline.exit:                                ; preds = %.lr.ph, %83
 
 .lr.ph71:                                         ; preds = %.lr.ph71.preheader, %.lr.ph71
   %indvars.iv90 = phi i64 [ %112, %.lr.ph71.preheader ], [ %indvars.iv.next91, %.lr.ph71 ]
-  %120 = load ptr, ptr %5, align 8, !tbaa !62
-  %121 = getelementptr inbounds ptr, ptr %120, i64 %indvars.iv90
-  %122 = load ptr, ptr %121, align 8, !tbaa !56
-  %123 = call i32 @PMIx_Argv_append_nosize(ptr noundef nonnull %0, ptr noundef %122) #18
+  %121 = load ptr, ptr %5, align 8, !tbaa !62
+  %122 = getelementptr inbounds ptr, ptr %121, i64 %indvars.iv90
+  %123 = load ptr, ptr %122, align 8, !tbaa !56
+  %124 = call i32 @PMIx_Argv_append_nosize(ptr noundef nonnull %0, ptr noundef %123) #18
   %indvars.iv.next91 = add nsw i64 %indvars.iv90, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next91 to i32
   %exitcond.not = icmp eq i32 %113, %lftr.wideiv
@@ -968,20 +968,20 @@ localgetline.exit:                                ; preds = %.lr.ph, %83
   br label %._crit_edge72
 
 ._crit_edge72:                                    ; preds = %._crit_edge72.loopexit, %.preheader
-  %124 = phi ptr [ %.pre, %._crit_edge72.loopexit ], [ %109, %.preheader ]
-  call void @PMIx_Argv_free(ptr noundef %124) #18
+  %125 = phi ptr [ %.pre, %._crit_edge72.loopexit ], [ %109, %.preheader ]
+  call void @PMIx_Argv_free(ptr noundef %125) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %125 = call i32 @fclose(ptr noundef nonnull %.0.i)
-  br label %128
+  %126 = call i32 @fclose(ptr noundef nonnull %.0.i)
+  br label %129
 
 .thread:                                          ; preds = %localgetline.exit.i, %localgetline.exit.thread.i, %.thread41
   %.040 = phi i32 [ %.040.i.ph, %.thread41 ], [ -46, %localgetline.exit.thread.i ], [ -46, %localgetline.exit.i ]
-  %126 = call i32 @fclose(ptr noundef nonnull %.0.i)
-  %127 = load ptr, ptr %0, align 8, !tbaa !62
-  call void @PMIx_Argv_free(ptr noundef %127) #18
-  br label %128
+  %127 = call i32 @fclose(ptr noundef nonnull %.0.i)
+  %128 = load ptr, ptr %0, align 8, !tbaa !62
+  call void @PMIx_Argv_free(ptr noundef %128) #18
+  br label %129
 
-128:                                              ; preds = %._crit_edge72, %open_file.exit.thread, %.thread
+129:                                              ; preds = %._crit_edge72, %open_file.exit.thread, %.thread
   %.011 = phi i32 [ %.019.i.ph, %open_file.exit.thread ], [ %.040, %.thread ], [ 0, %._crit_edge72 ]
   ret i32 %.011
 }

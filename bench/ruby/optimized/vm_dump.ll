@@ -782,10 +782,9 @@ define hidden zeroext i1 @rb_vmdebug_debug_print_register(ptr noundef readonly c
   %24 = ashr exact i64 %23, 3
   %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre.pre = load i64, ptr %.phi.trans.insert.phi.trans.insert, align 8, !tbaa !22
-  %25 = icmp ugt i64 %24, %.pre.pre
-  %spec.select = select i1 %25, i64 -1, i64 %24
-  %.inv = icmp sgt i64 %24, -1
-  %.018 = select i1 %.inv, i64 %spec.select, i64 -1
+  %.not = icmp ugt i64 %24, %.pre.pre
+  %25 = tail call i64 @llvm.smax.i64(i64 %24, i64 -1)
+  %.018 = select i1 %.not, i64 -1, i64 %25
   %26 = getelementptr i64, ptr %7, i64 %.pre.pre
   %27 = ptrtoint ptr %26 to i64
   %28 = ptrtoint ptr %4 to i64
@@ -838,10 +837,9 @@ rb_vmdebug_debug_print_register.exit:             ; preds = %2, %12
   %27 = ashr exact i64 %26, 3
   %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.pre.pre.i = load i64, ptr %.phi.trans.insert.phi.trans.insert.i, align 8, !tbaa !22
-  %28 = icmp ugt i64 %27, %.pre.pre.i
-  %spec.select.i = select i1 %28, i64 -1, i64 %27
-  %.inv.i = icmp sgt i64 %27, -1
-  %.018.i = select i1 %.inv.i, i64 %spec.select.i, i64 -1
+  %.not.i = icmp ugt i64 %27, %.pre.pre.i
+  %28 = tail call i64 @llvm.smax.i64(i64 %27, i64 -1)
+  %.018.i = select i1 %.not.i, i64 -1, i64 %28
   %29 = getelementptr i64, ptr %10, i64 %.pre.pre.i
   %30 = ptrtoint ptr %29 to i64
   %31 = ptrtoint ptr %7 to i64
@@ -1986,6 +1984,9 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #12
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.smax.i64(i64, i64) #12
 
 attributes #0 = { nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

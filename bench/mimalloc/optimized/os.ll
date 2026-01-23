@@ -204,74 +204,74 @@ define hidden void @_mi_os_free_ex(ptr noundef %0, i64 %1, i1 noundef zeroext %2
 _mi_os_good_alloc_size.exit:                      ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %10 = load i64, ptr %9, align 8, !tbaa !21
-  %11 = icmp eq i64 %10, 0
+  %11 = icmp ne i64 %10, 0
   %12 = load ptr, ptr %3, align 8, !tbaa !21
   %.not = icmp eq ptr %12, %0
   %13 = ptrtoint ptr %0 to i64
   %14 = ptrtoint ptr %12 to i64
   %15 = sub i64 %13, %14
-  %spec.select = select i1 %11, i64 %15, i64 %10
   %.017 = select i1 %.not, ptr %0, ptr %12
-  %.0 = select i1 %.not, i64 %10, i64 %spec.select
-  %16 = icmp eq i32 %6, 4
-  br i1 %16, label %17, label %25
+  %16 = select i1 %.not, i1 true, i1 %11
+  %.0 = select i1 %16, i64 %10, i64 %15
+  %17 = icmp eq i32 %6, 4
+  br i1 %17, label %18, label %26
 
-17:                                               ; preds = %_mi_os_good_alloc_size.exit
-  %18 = icmp ne ptr %.017, null
-  %19 = icmp ugt i64 %.0, 1073741823
-  %or.cond12.i = and i1 %18, %19
+18:                                               ; preds = %_mi_os_good_alloc_size.exit
+  %19 = icmp ne ptr %.017, null
+  %20 = icmp ugt i64 %.0, 1073741823
+  %or.cond12.i = and i1 %19, %20
   br i1 %or.cond12.i, label %.lr.ph.i, label %mi_os_free_huge_os_pages.exit
 
-.lr.ph.i:                                         ; preds = %17, %mi_os_prim_free.exit.i
-  %.011.i = phi ptr [ %23, %mi_os_prim_free.exit.i ], [ %.017, %17 ]
-  %.0710.i = phi i64 [ %22, %mi_os_prim_free.exit.i ], [ %.0, %17 ]
-  %20 = tail call i32 @_mi_prim_free(ptr noundef nonnull %.011.i, i64 noundef 1073741824) #7
-  %.not.i.i = icmp eq i32 %20, 0
-  br i1 %.not.i.i, label %mi_os_prim_free.exit.i, label %21
+.lr.ph.i:                                         ; preds = %18, %mi_os_prim_free.exit.i
+  %.011.i = phi ptr [ %24, %mi_os_prim_free.exit.i ], [ %.017, %18 ]
+  %.0710.i = phi i64 [ %23, %mi_os_prim_free.exit.i ], [ %.0, %18 ]
+  %21 = tail call i32 @_mi_prim_free(ptr noundef nonnull %.011.i, i64 noundef 1073741824) #7
+  %.not.i.i = icmp eq i32 %21, 0
+  br i1 %.not.i.i, label %mi_os_prim_free.exit.i, label %22
 
-21:                                               ; preds = %.lr.ph.i
-  tail call void (ptr, ...) @_mi_warning_message(ptr noundef nonnull @.str.7, i32 noundef %20, i32 noundef %20, i64 noundef 1073741824, ptr noundef nonnull %.011.i) #7
+22:                                               ; preds = %.lr.ph.i
+  tail call void (ptr, ...) @_mi_warning_message(ptr noundef nonnull @.str.7, i32 noundef %21, i32 noundef %21, i64 noundef 1073741824, ptr noundef nonnull %.011.i) #7
   br label %mi_os_prim_free.exit.i
 
-mi_os_prim_free.exit.i:                           ; preds = %21, %.lr.ph.i
+mi_os_prim_free.exit.i:                           ; preds = %22, %.lr.ph.i
   tail call void @_mi_stat_decrease(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 96), i64 noundef 1073741824) #7
   tail call void @_mi_stat_decrease(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 64), i64 noundef 1073741824) #7
-  %22 = add i64 %.0710.i, -1073741824
-  %23 = getelementptr inbounds nuw i8, ptr %.011.i, i64 1073741824
-  %24 = icmp ugt i64 %22, 1073741823
-  br i1 %24, label %.lr.ph.i, label %mi_os_free_huge_os_pages.exit, !llvm.loop !22
+  %23 = add i64 %.0710.i, -1073741824
+  %24 = getelementptr inbounds nuw i8, ptr %.011.i, i64 1073741824
+  %25 = icmp ugt i64 %23, 1073741823
+  br i1 %25, label %.lr.ph.i, label %mi_os_free_huge_os_pages.exit, !llvm.loop !22
 
-25:                                               ; preds = %_mi_os_good_alloc_size.exit
-  %26 = select i1 %.not, i64 0, i64 %15
-  %.018 = sub i64 %10, %26
-  %27 = select i1 %2, i64 %.018, i64 0
-  %28 = icmp eq ptr %.017, null
-  %29 = icmp eq i64 %.0, 0
-  %or.cond.i = or i1 %28, %29
-  br i1 %or.cond.i, label %mi_os_free_huge_os_pages.exit, label %30
+26:                                               ; preds = %_mi_os_good_alloc_size.exit
+  %27 = select i1 %.not, i64 0, i64 %15
+  %.018 = sub i64 %10, %27
+  %28 = select i1 %2, i64 %.018, i64 0
+  %29 = icmp eq ptr %.017, null
+  %30 = icmp eq i64 %.0, 0
+  %or.cond.i = or i1 %29, %30
+  br i1 %or.cond.i, label %mi_os_free_huge_os_pages.exit, label %31
 
-30:                                               ; preds = %25
-  %31 = tail call i32 @_mi_prim_free(ptr noundef nonnull %.017, i64 noundef %.0) #7
-  %.not.i23 = icmp eq i32 %31, 0
-  br i1 %.not.i23, label %33, label %32
+31:                                               ; preds = %26
+  %32 = tail call i32 @_mi_prim_free(ptr noundef nonnull %.017, i64 noundef %.0) #7
+  %.not.i23 = icmp eq i32 %32, 0
+  br i1 %.not.i23, label %34, label %33
 
-32:                                               ; preds = %30
-  tail call void (ptr, ...) @_mi_warning_message(ptr noundef nonnull @.str.7, i32 noundef %31, i32 noundef %31, i64 noundef %.0, ptr noundef nonnull %.017) #7
-  br label %33
+33:                                               ; preds = %31
+  tail call void (ptr, ...) @_mi_warning_message(ptr noundef nonnull @.str.7, i32 noundef %32, i32 noundef %32, i64 noundef %.0, ptr noundef nonnull %.017) #7
+  br label %34
 
-33:                                               ; preds = %32, %30
-  %.not15.i = icmp eq i64 %27, 0
-  br i1 %.not15.i, label %35, label %34
+34:                                               ; preds = %33, %31
+  %.not15.i = icmp eq i64 %28, 0
+  br i1 %.not15.i, label %36, label %35
 
-34:                                               ; preds = %33
-  tail call void @_mi_stat_decrease(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 96), i64 noundef %27) #7
-  br label %35
+35:                                               ; preds = %34
+  tail call void @_mi_stat_decrease(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 96), i64 noundef %28) #7
+  br label %36
 
-35:                                               ; preds = %34, %33
+36:                                               ; preds = %35, %34
   tail call void @_mi_stat_decrease(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 64), i64 noundef %.0) #7
   br label %mi_os_free_huge_os_pages.exit
 
-mi_os_free_huge_os_pages.exit:                    ; preds = %mi_os_prim_free.exit.i, %35, %25, %17, %4
+mi_os_free_huge_os_pages.exit:                    ; preds = %mi_os_prim_free.exit.i, %36, %26, %18, %4
   ret void
 }
 

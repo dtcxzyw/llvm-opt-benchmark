@@ -822,11 +822,10 @@ r_Suffix_Verb_Step1.exit:                         ; preds = %232, %225, %218, %.
 .thread441:                                       ; preds = %.thread
   %241 = tail call fastcc i32 @r_Suffix_Verb_Step2a(ptr noundef nonnull %0)
   %242 = icmp eq i32 %241, 0
-  %243 = icmp slt i32 %241, 0
   %.lobit = lshr i32 %241, 31
-  %..5 = select i1 %243, i32 %241, i32 %.0.i
   %.7289 = select i1 %242, i32 7, i32 %.lobit
-  %.8 = select i1 %242, i32 %.0.i, i32 %..5
+  %243 = icmp slt i32 %241, 0
+  %.8 = select i1 %243, i32 %241, i32 %.0.i
   switch i32 %.7289, label %278 [
     i32 0, label %.thread561
     i32 7, label %244
@@ -1018,11 +1017,10 @@ r_Suffix_Noun_Step2c2.exit.thread:                ; preds = %309, %314, %316, %3
 326:                                              ; preds = %r_Suffix_Noun_Step2c2.exit.thread
   %327 = tail call fastcc i32 @r_Suffix_Noun_Step1a(ptr noundef nonnull %0)
   %328 = icmp eq i32 %327, 0
-  %329 = icmp slt i32 %327, 0
   %.lobit663 = lshr i32 %327, 31
-  %..15 = select i1 %329, i32 %327, i32 %.3
   %.16298 = select i1 %328, i32 17, i32 %.lobit663
-  %.18 = select i1 %328, i32 %.3, i32 %..15
+  %329 = icmp slt i32 %327, 0
+  %.18 = select i1 %329, i32 %327, i32 %.3
   switch i32 %.16298, label %409 [
     i32 0, label %330
     i32 17, label %.thread643
@@ -1034,11 +1032,10 @@ r_Suffix_Noun_Step2c2.exit.thread:                ; preds = %309, %314, %316, %3
   %333 = sub i32 %331, %332
   %334 = tail call fastcc i32 @r_Suffix_Noun_Step2a(ptr noundef nonnull %0)
   %335 = icmp eq i32 %334, 0
-  %336 = icmp slt i32 %334, 0
   %.lobit664 = lshr i32 %334, 31
-  %..18 = select i1 %336, i32 %334, i32 %.18
   %.17299 = select i1 %335, i32 18, i32 %.lobit664
-  %.19 = select i1 %335, i32 %.18, i32 %..18
+  %336 = icmp slt i32 %334, 0
+  %.19 = select i1 %336, i32 %334, i32 %.18
   switch i32 %.17299, label %356 [
     i32 0, label %.thread525
     i32 18, label %337
@@ -1050,11 +1047,10 @@ r_Suffix_Noun_Step2c2.exit.thread:                ; preds = %309, %314, %316, %3
   store i32 %339, ptr %8, align 8
   %340 = tail call fastcc i32 @r_Suffix_Noun_Step2b(ptr noundef nonnull %0)
   %341 = icmp eq i32 %340, 0
-  %342 = icmp slt i32 %340, 0
   %.lobit665 = lshr i32 %340, 31
-  %..19 = select i1 %342, i32 %340, i32 %.19
   %.19301 = select i1 %341, i32 20, i32 %.lobit665
-  %.21 = select i1 %341, i32 %.19, i32 %..19
+  %342 = icmp slt i32 %340, 0
+  %.21 = select i1 %342, i32 %340, i32 %.19
   switch i32 %.19301, label %356 [
     i32 0, label %.thread525
     i32 20, label %343
@@ -1066,11 +1062,10 @@ r_Suffix_Noun_Step2c2.exit.thread:                ; preds = %309, %314, %316, %3
   store i32 %345, ptr %8, align 8
   %346 = tail call fastcc i32 @r_Suffix_Noun_Step2c1(ptr noundef nonnull %0)
   %347 = icmp eq i32 %346, 0
-  %348 = icmp slt i32 %346, 0
   %.lobit666 = lshr i32 %346, 31
-  %..21 = select i1 %348, i32 %346, i32 %.21
   %.20302 = select i1 %347, i32 21, i32 %.lobit666
-  %.22 = select i1 %347, i32 %.21, i32 %..21
+  %348 = icmp slt i32 %346, 0
+  %.22 = select i1 %348, i32 %346, i32 %.21
   switch i32 %.20302, label %356 [
     i32 0, label %.thread525
     i32 21, label %349
@@ -1137,11 +1132,10 @@ r_Suffix_Noun_Step1b.exit:                        ; preds = %367
   %377 = sub i32 %375, %376
   %378 = tail call fastcc i32 @r_Suffix_Noun_Step2a(ptr noundef nonnull %0)
   %379 = icmp eq i32 %378, 0
-  %380 = icmp slt i32 %378, 0
   %.lobit669 = lshr i32 %378, 31
-  %..23 = select i1 %380, i32 %378, i32 %.17
   %.23305 = select i1 %379, i32 23, i32 %.lobit669
-  %.25 = select i1 %379, i32 %.17, i32 %..23
+  %380 = icmp slt i32 %378, 0
+  %.25 = select i1 %380, i32 %378, i32 %.17
   switch i32 %.23305, label %394 [
     i32 0, label %.thread525
     i32 23, label %381
@@ -1153,11 +1147,10 @@ r_Suffix_Noun_Step1b.exit:                        ; preds = %367
   store i32 %383, ptr %8, align 8
   %384 = tail call fastcc i32 @r_Suffix_Noun_Step2b(ptr noundef nonnull %0)
   %385 = icmp eq i32 %384, 0
-  %386 = icmp slt i32 %384, 0
   %.lobit670 = lshr i32 %384, 31
-  %..25 = select i1 %386, i32 %384, i32 %.25
   %.25307 = select i1 %385, i32 25, i32 %.lobit670
-  %.27 = select i1 %385, i32 %.25, i32 %..25
+  %386 = icmp slt i32 %384, 0
+  %.27 = select i1 %386, i32 %384, i32 %.25
   switch i32 %.25307, label %394 [
     i32 0, label %.thread525
     i32 25, label %387
@@ -1195,11 +1188,10 @@ r_Suffix_Noun_Step1b.exit.thread:                 ; preds = %387, %360, %365, %3
 398:                                              ; preds = %r_Suffix_Noun_Step1b.exit.thread
   %399 = tail call fastcc i32 @r_Suffix_Noun_Step2a(ptr noundef nonnull %0)
   %400 = icmp eq i32 %399, 0
-  %401 = icmp slt i32 %399, 0
   %.lobit674 = lshr i32 %399, 31
-  %..24 = select i1 %401, i32 %399, i32 %.24
   %.27309 = select i1 %400, i32 27, i32 %.lobit674
-  %.30 = select i1 %400, i32 %.24, i32 %..24
+  %401 = icmp slt i32 %399, 0
+  %.30 = select i1 %401, i32 %399, i32 %.24
   switch i32 %.27309, label %409 [
     i32 0, label %.thread525
     i32 27, label %._crit_edge
@@ -1451,11 +1443,10 @@ r_Prefix_Step2.exit.thread:                       ; preds = %503, %496, %491, %4
   %510 = phi i32 [ %.pre719, %._crit_edge718 ], [ %488, %r_Prefix_Step2.exit.thread ]
   %511 = tail call fastcc i32 @r_Prefix_Step3a_Noun(ptr noundef nonnull %0)
   %512 = icmp eq i32 %511, 0
-  %513 = icmp slt i32 %511, 0
   %.lobit680 = lshr i32 %511, 31
-  %..36 = select i1 %513, i32 %511, i32 %.13556
   %.38320 = select i1 %512, i32 32, i32 %.lobit680
-  %.37 = select i1 %512, i32 %.13556, i32 %..36
+  %513 = icmp slt i32 %511, 0
+  %.37 = select i1 %513, i32 %511, i32 %.13556
   switch i32 %.38320, label %535 [
     i32 0, label %.thread632
     i32 32, label %514
@@ -1472,11 +1463,10 @@ r_Prefix_Step2.exit.thread:                       ; preds = %503, %496, %491, %4
 518:                                              ; preds = %514
   %519 = tail call fastcc i32 @r_Prefix_Step3b_Noun(ptr noundef nonnull %0)
   %520 = icmp eq i32 %519, 0
-  %521 = icmp slt i32 %519, 0
   %.lobit681 = lshr i32 %519, 31
-  %..37 = select i1 %521, i32 %519, i32 %.37
   %.40322 = select i1 %520, i32 34, i32 %.lobit681
-  %.40 = select i1 %520, i32 %.37, i32 %..37
+  %521 = icmp slt i32 %519, 0
+  %.40 = select i1 %521, i32 %519, i32 %.37
   switch i32 %.40322, label %535 [
     i32 0, label %.thread632
     i32 34, label %._crit_edge720

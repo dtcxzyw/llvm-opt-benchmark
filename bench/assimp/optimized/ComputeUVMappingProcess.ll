@@ -171,9 +171,9 @@ define hidden void @_Z13RemoveUVSeamsP6aiMeshP10aiVector3tIfE(ptr noundef readon
   %.fr = freeze float %32
   %33 = fcmp olt float %.fr, 0x3FB99999A0000000
   %34 = fcmp ugt float %.fr, 0x3F847AE140000000
-  %not. = xor i1 %34, true
   %35 = trunc nuw i64 %indvars.iv to i32
   %.175 = select i1 %33, i32 %35, i32 %.07488
+  %not. = xor i1 %34, true
   %.171 = or i1 %.07090, %not.
   %36 = and i1 %33, %34
   %.1 = select i1 %36, i1 true, i1 %.06792

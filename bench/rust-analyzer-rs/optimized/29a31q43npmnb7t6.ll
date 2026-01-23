@@ -5248,8 +5248,9 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$
   %trunc.i.i23 = trunc nuw i64 %4 to i1
   %82 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %.val.i.i24 = load ptr, ptr %82, align 8, !alias.scope !2416, !noalias !2421
-  %.not.i.i25 = icmp ne ptr %.val.i.i24, null
-  %.sroa.056.0.not.i.i26 = select i1 %trunc.i.i23, i1 %.not.i.i25, i1 false
+  %.not.i.i25 = icmp eq ptr %.val.i.i24, null
+  %not.trunc.i.i23 = xor i1 %trunc.i.i23, true
+  %.sroa.056.0.not.i.i26 = select i1 %not.trunc.i.i23, i1 true, i1 %.not.i.i25
   %83 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %84 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %85 = load ptr, ptr %84, align 8, !alias.scope !2442, !noalias !2447, !noundef !11
@@ -5291,11 +5292,9 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$
   %106 = icmp eq i64 %.val.i.i35, 0
   %or.cond.i.i36 = select i1 %104, i1 true, i1 %106
   %107 = add nuw nsw i64 %102, %81
-  %not..sroa.056.0.not.i.i26 = xor i1 %.sroa.056.0.not.i.i26, true
-  %spec.select49 = select i1 %.sroa.056.0.not.i.i26, i64 undef, i64 %107
-  %narrow = select i1 %or.cond.i.i36, i1 %not..sroa.056.0.not.i.i26, i1 false
+  %narrow = select i1 %or.cond.i.i36, i1 %.sroa.056.0.not.i.i26, i1 false
   %.sroa.04.0 = zext i1 %narrow to i64
-  %.sroa.6.0 = select i1 %or.cond.i.i36, i64 %spec.select49, i64 undef
+  %.sroa.6.0 = select i1 %narrow, i64 %107, i64 undef
   store i64 %107, ptr %0, align 8
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.04.0, ptr %108, align 8
