@@ -22670,8 +22670,8 @@ define noundef i32 @_ZN6ide_db11famous_defs10FamousDefs12core_cmp_Ord17h9bcf092b
   %5 = icmp ne i8 %.sroa.49.0.copyload.i, 6
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !4953
   %6 = icmp ne i32 %4, 0
-  %7 = select i1 %6, i1 true, i1 %5
-  %.0.i = select i1 %7, i32 0, i32 %.sroa.6.0.copyload.i
+  %or.cond.i = select i1 %6, i1 true, i1 %5
+  %.sroa.7.sroa.6.0..i = select i1 %or.cond.i, i32 0, i32 %.sroa.6.0.copyload.i
   ret i32 %.0.i
 }
 
@@ -22691,8 +22691,8 @@ define noundef i32 @_ZN6ide_db11famous_defs10FamousDefs17core_convert_From17hbf9
   %5 = icmp ne i8 %.sroa.49.0.copyload.i, 6
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !4956
   %6 = icmp ne i32 %4, 0
-  %7 = select i1 %6, i1 true, i1 %5
-  %.0.i = select i1 %7, i32 0, i32 %.sroa.6.0.copyload.i
+  %or.cond.i = select i1 %6, i1 true, i1 %5
+  %.sroa.7.sroa.6.0..i = select i1 %or.cond.i, i32 0, i32 %.sroa.6.0.copyload.i
   ret i32 %.0.i
 }
 
@@ -22712,8 +22712,8 @@ define noundef i32 @_ZN6ide_db11famous_defs10FamousDefs17core_convert_Into17hbc2
   %5 = icmp ne i8 %.sroa.49.0.copyload.i, 6
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !4959
   %6 = icmp ne i32 %4, 0
-  %7 = select i1 %6, i1 true, i1 %5
-  %.0.i = select i1 %7, i32 0, i32 %.sroa.6.0.copyload.i
+  %or.cond.i = select i1 %6, i1 true, i1 %5
+  %.sroa.7.sroa.6.0..i = select i1 %or.cond.i, i32 0, i32 %.sroa.6.0.copyload.i
   ret i32 %.0.i
 }
 
@@ -22733,8 +22733,8 @@ define noundef i32 @_ZN6ide_db11famous_defs10FamousDefs18core_convert_Index17hbd
   %5 = icmp ne i8 %.sroa.49.0.copyload.i, 6
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !4962
   %6 = icmp ne i32 %4, 0
-  %7 = select i1 %6, i1 true, i1 %5
-  %.0.i = select i1 %7, i32 0, i32 %.sroa.6.0.copyload.i
+  %or.cond.i = select i1 %6, i1 true, i1 %5
+  %.sroa.7.sroa.6.0..i = select i1 %or.cond.i, i32 0, i32 %.sroa.6.0.copyload.i
   ret i32 %.0.i
 }
 
@@ -22828,8 +22828,8 @@ define noundef i32 @_ZN6ide_db11famous_defs10FamousDefs20core_default_Default17h
   %5 = icmp ne i8 %.sroa.49.0.copyload.i, 6
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !4971
   %6 = icmp ne i32 %4, 0
-  %7 = select i1 %6, i1 true, i1 %5
-  %.0.i = select i1 %7, i32 0, i32 %.sroa.6.0.copyload.i
+  %or.cond.i = select i1 %6, i1 true, i1 %5
+  %.sroa.7.sroa.6.0..i = select i1 %or.cond.i, i32 0, i32 %.sroa.6.0.copyload.i
   ret i32 %.0.i
 }
 
@@ -22849,8 +22849,8 @@ define noundef i32 @_ZN6ide_db11famous_defs10FamousDefs18core_iter_Iterator17hdf
   %5 = icmp ne i8 %.sroa.49.0.copyload.i, 6
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !4974
   %6 = icmp ne i32 %4, 0
-  %7 = select i1 %6, i1 true, i1 %5
-  %.0.i = select i1 %7, i32 0, i32 %.sroa.6.0.copyload.i
+  %or.cond.i = select i1 %6, i1 true, i1 %5
+  %.sroa.7.sroa.6.0..i = select i1 %or.cond.i, i32 0, i32 %.sroa.6.0.copyload.i
   ret i32 %.0.i
 }
 
@@ -22870,8 +22870,8 @@ define noundef i32 @_ZN6ide_db11famous_defs10FamousDefs22core_iter_IntoIterator1
   %5 = icmp ne i8 %.sroa.49.0.copyload.i, 6
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !4977
   %6 = icmp ne i32 %4, 0
-  %7 = select i1 %6, i1 true, i1 %5
-  %.0.i = select i1 %7, i32 0, i32 %.sroa.6.0.copyload.i
+  %or.cond.i = select i1 %6, i1 true, i1 %5
+  %.sroa.7.sroa.6.0..i = select i1 %or.cond.i, i32 0, i32 %.sroa.6.0.copyload.i
   ret i32 %.0.i
 }
 
@@ -22934,8 +22934,8 @@ define noundef i32 @_ZN6ide_db11famous_defs10FamousDefs14core_ops_Deref17h15d1fe
   %5 = icmp ne i8 %.sroa.49.0.copyload.i, 6
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !4983
   %6 = icmp ne i32 %4, 0
-  %7 = select i1 %6, i1 true, i1 %5
-  %.0.i = select i1 %7, i32 0, i32 %.sroa.6.0.copyload.i
+  %or.cond.i = select i1 %6, i1 true, i1 %5
+  %.sroa.7.sroa.6.0..i = select i1 %or.cond.i, i32 0, i32 %.sroa.6.0.copyload.i
   ret i32 %.0.i
 }
 
@@ -22955,8 +22955,8 @@ define noundef i32 @_ZN6ide_db11famous_defs10FamousDefs17core_ops_DerefMut17h31d
   %5 = icmp ne i8 %.sroa.49.0.copyload.i, 6
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !4986
   %6 = icmp ne i32 %4, 0
-  %7 = select i1 %6, i1 true, i1 %5
-  %.0.i = select i1 %7, i32 0, i32 %.sroa.6.0.copyload.i
+  %or.cond.i = select i1 %6, i1 true, i1 %5
+  %.sroa.7.sroa.6.0..i = select i1 %or.cond.i, i32 0, i32 %.sroa.6.0.copyload.i
   ret i32 %.0.i
 }
 
@@ -22976,8 +22976,8 @@ define noundef i32 @_ZN6ide_db11famous_defs10FamousDefs18core_convert_AsRef17h72
   %5 = icmp ne i8 %.sroa.49.0.copyload.i, 6
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !4989
   %6 = icmp ne i32 %4, 0
-  %7 = select i1 %6, i1 true, i1 %5
-  %.0.i = select i1 %7, i32 0, i32 %.sroa.6.0.copyload.i
+  %or.cond.i = select i1 %6, i1 true, i1 %5
+  %.sroa.7.sroa.6.0..i = select i1 %or.cond.i, i32 0, i32 %.sroa.6.0.copyload.i
   ret i32 %.0.i
 }
 
@@ -23034,8 +23034,8 @@ define noundef i32 @_ZN6ide_db11famous_defs10FamousDefs13core_ops_Drop17h7832f27
   %5 = icmp ne i8 %.sroa.49.0.copyload.i, 6
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !4995
   %6 = icmp ne i32 %4, 0
-  %7 = select i1 %6, i1 true, i1 %5
-  %.0.i = select i1 %7, i32 0, i32 %.sroa.6.0.copyload.i
+  %or.cond.i = select i1 %6, i1 true, i1 %5
+  %.sroa.7.sroa.6.0..i = select i1 %or.cond.i, i32 0, i32 %.sroa.6.0.copyload.i
   ret i32 %.0.i
 }
 
@@ -23055,8 +23055,8 @@ define noundef i32 @_ZN6ide_db11famous_defs10FamousDefs16core_marker_Copy17he5e5
   %5 = icmp ne i8 %.sroa.49.0.copyload.i, 6
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !4998
   %6 = icmp ne i32 %4, 0
-  %7 = select i1 %6, i1 true, i1 %5
-  %.0.i = select i1 %7, i32 0, i32 %.sroa.6.0.copyload.i
+  %or.cond.i = select i1 %6, i1 true, i1 %5
+  %.sroa.7.sroa.6.0..i = select i1 %or.cond.i, i32 0, i32 %.sroa.6.0.copyload.i
   ret i32 %.0.i
 }
 
@@ -23079,8 +23079,8 @@ define { i32, i32 } @_ZN6ide_db11famous_defs10FamousDefs26core_macros_builtin_de
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !5001
   %6 = icmp ne i32 %4, 0
   %7 = select i1 %6, i1 true, i1 %5
-  %.sroa.4.0.i = select i1 %7, i32 undef, i32 %.sroa.7.0.copyload.i
-  %.sroa.0.0.i = select i1 %7, i32 3, i32 %.sroa.613.0.copyload.i
+  %or.cond.i = select i1 %7, i32 undef, i32 %.sroa.7.0.copyload.i
+  %.sroa.7.sroa.7.0..i = select i1 %or.cond.i, i32 3, i32 %.sroa.613.0.copyload.i
   %8 = insertvalue { i32, i32 } poison, i32 %.sroa.0.0.i, 0
   %9 = insertvalue { i32, i32 } %8, i32 %.sroa.4.0.i, 1
   ret { i32, i32 } %9
@@ -23102,8 +23102,8 @@ define noundef i32 @_ZN6ide_db11famous_defs10FamousDefs13core_mem_drop17h277c60b
   %5 = icmp ne i8 %.sroa.49.0.copyload.i, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %6 = icmp ne i32 %4, 0
-  %7 = select i1 %6, i1 true, i1 %5
-  %.0.i = select i1 %7, i32 0, i32 %.sroa.6.0.copyload.i
+  %or.cond.i = select i1 %6, i1 true, i1 %5
+  %.sroa.7.sroa.6.0..i = select i1 %or.cond.i, i32 0, i32 %.sroa.6.0.copyload.i
   ret i32 %.0.i
 }
 
@@ -23126,8 +23126,8 @@ define { i32, i32 } @_ZN6ide_db11famous_defs10FamousDefs16core_macros_todo17hc67
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !5004
   %6 = icmp ne i32 %4, 0
   %7 = select i1 %6, i1 true, i1 %5
-  %.sroa.4.0.i = select i1 %7, i32 undef, i32 %.sroa.7.0.copyload.i
-  %.sroa.0.0.i = select i1 %7, i32 3, i32 %.sroa.613.0.copyload.i
+  %or.cond.i = select i1 %7, i32 undef, i32 %.sroa.7.0.copyload.i
+  %.sroa.7.sroa.7.0..i = select i1 %or.cond.i, i32 3, i32 %.sroa.613.0.copyload.i
   %8 = insertvalue { i32, i32 } poison, i32 %.sroa.0.0.i, 0
   %9 = insertvalue { i32, i32 } %8, i32 %.sroa.4.0.i, 1
   ret { i32, i32 } %9
@@ -23152,8 +23152,8 @@ define { i32, i32 } @_ZN6ide_db11famous_defs10FamousDefs25core_macros_unimplemen
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !5007
   %6 = icmp ne i32 %4, 0
   %7 = select i1 %6, i1 true, i1 %5
-  %.sroa.4.0.i = select i1 %7, i32 undef, i32 %.sroa.7.0.copyload.i
-  %.sroa.0.0.i = select i1 %7, i32 3, i32 %.sroa.613.0.copyload.i
+  %or.cond.i = select i1 %7, i32 undef, i32 %.sroa.7.0.copyload.i
+  %.sroa.7.sroa.7.0..i = select i1 %or.cond.i, i32 3, i32 %.sroa.613.0.copyload.i
   %8 = insertvalue { i32, i32 } poison, i32 %.sroa.0.0.i, 0
   %9 = insertvalue { i32, i32 } %8, i32 %.sroa.4.0.i, 1
   ret { i32, i32 } %9

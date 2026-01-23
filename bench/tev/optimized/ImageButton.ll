@@ -2397,12 +2397,12 @@ define dso_local void @_ZN3tev11ImageButton17setHighlightRangeEmm(ptr noundef no
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %7 = load i8, ptr %6, align 8
   %8 = and i8 %7, 1
-  %.not.i.not = icmp eq i8 %8, 0
+  %.not.i = icmp eq i8 %8, 0
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %10 = load i64, ptr %9, align 16
   %11 = lshr i8 %7, 1
   %12 = zext nneg i8 %11 to i64
-  %13 = select i1 %.not.i.not, i64 %12, i64 %10
+  %13 = select i1 %.not.i, i64 %12, i64 %10
   %14 = icmp ugt i64 %2, %13
   br i1 %14, label %15, label %31
 
@@ -2445,12 +2445,12 @@ define dso_local void @_ZN3tev11ImageButton17setHighlightRangeEmm(ptr noundef no
   %29 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #28
-  br label %58
+  br label %59
 
 30:                                               ; preds = %.thread59, %.thread
   %.pn58 = phi { ptr, i32 } [ %27, %.thread ], [ %25, %.thread59 ]
   call void @__cxa_free_exception(ptr %16) #28
-  br label %58
+  br label %59
 
 31:                                               ; preds = %3
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 360
@@ -2466,21 +2466,21 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEixB8ne190000Em.ex
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %36 = load ptr, ptr %35, align 8
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 137
-  %.pn.i = select i1 %.not.i.not, ptr %37, ptr %36
-  %.0.i = getelementptr inbounds i8, ptr %.pn.i, i64 %1
-  %38 = load i8, ptr %.0.i, align 1
-  %39 = sext i8 %38 to i32
-  %40 = tail call i32 @isalnum(i32 noundef %39) #33
-  %.not = icmp eq i32 %40, 0
+  %38 = select i1 %.not.i, ptr %37, ptr %36
+  %.0.i = getelementptr inbounds i8, ptr %38, i64 %1
+  %39 = load i8, ptr %.0.i, align 1
+  %40 = sext i8 %39 to i32
+  %41 = tail call i32 @isalnum(i32 noundef %40) #33
+  %.not = icmp eq i32 %41, 0
   %.not2462 = icmp eq i64 %1, 0
   %or.cond = or i1 %.not, %.not2462
-  br i1 %or.cond, label %.critedge, label %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEixB8ne190000Em.exit36.preheader
+  br i1 %or.cond, label %.critedge, label %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEixB8ne190000Em.exit36
 
-_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEixB8ne190000Em.exit36.preheader: ; preds = %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEixB8ne190000Em.exit
-  %.pn.i34 = select i1 %.not.i.not, ptr %37, ptr %36
+_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEixB8ne190000Em.exit36: ; preds = %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEixB8ne190000Em.exit
+  %.pn.i34 = select i1 %.not.i, ptr %37, ptr %36
   br label %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEixB8ne190000Em.exit36
 
-_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEixB8ne190000Em.exit36: ; preds = %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEixB8ne190000Em.exit36.preheader, %46
+_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEixB8ne190000Em.exit36:; preds = %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEixB8ne190000Em.exit36, %46
   %41 = phi i64 [ %42, %46 ], [ %1, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEixB8ne190000Em.exit36.preheader ]
   %42 = add i64 %41, -1
   %.0.i35 = getelementptr inbounds i8, ptr %.pn.i34, i64 %42
@@ -2496,22 +2496,22 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEixB8ne190000Em.ex
   br i1 %.not24, label %.critedge, label %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEixB8ne190000Em.exit36, !llvm.loop !19
 
 .critedge:                                        ; preds = %46, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEixB8ne190000Em.exit36, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEixB8ne190000Em.exit
-  %.pn.i39 = select i1 %.not.i.not, ptr %37, ptr %36
-  %47 = getelementptr i8, ptr %.pn.i39, i64 %.sroa.speculated
-  %.0.i40 = getelementptr i8, ptr %47, i64 -1
+  %.pn.i39 = select i1 %.not.i, ptr %37, ptr %36
+  %.0.i40 = getelementptr i8, ptr %.pn.i39, i64 %.sroa.speculated
+  %.0.i40 = getelementptr i8, ptr %.0.i40, i64 -1
   %48 = load i8, ptr %.0.i40, align 1
   %49 = sext i8 %48 to i32
   %50 = tail call i32 @isalnum(i32 noundef %49) #33
-  %.not26 = icmp ne i32 %50, 0
+  %52 = icmp ne i32 %50, 0
   %51 = icmp ult i64 %.sroa.speculated, %13
   %or.cond67 = and i1 %.not26, %51
   br i1 %or.cond67, label %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEixB8ne190000Em.exit47.preheader, label %.critedge2
 
-_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEixB8ne190000Em.exit47.preheader: ; preds = %.critedge
-  %.pn.i45 = select i1 %.not.i.not, ptr %37, ptr %36
+_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEixB8ne190000Em.exit47.preheader:; preds = %.critedge
+  %.pn.i45 = select i1 %.not.i, ptr %37, ptr %36
   br label %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEixB8ne190000Em.exit47
 
-_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEixB8ne190000Em.exit47: ; preds = %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEixB8ne190000Em.exit47.preheader, %56
+_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEixB8ne190000Em.exit47:; preds = %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEixB8ne190000Em.exit47.preheader, %56
   %52 = phi i64 [ %57, %56 ], [ %.sroa.speculated, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEixB8ne190000Em.exit47.preheader ]
   %.0.i46 = getelementptr inbounds i8, ptr %.pn.i45, i64 %52
   %53 = load i8, ptr %.0.i46, align 1
@@ -2529,11 +2529,11 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEixB8ne190000Em.ex
 .critedge2:                                       ; preds = %56, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEixB8ne190000Em.exit47, %31, %.critedge
   ret void
 
-58:                                               ; preds = %28, %30
+59:                                               ; preds = %28, %30
   %.pn57 = phi { ptr, i32 } [ %29, %28 ], [ %.pn58, %30 ]
   resume { ptr, i32 } %.pn57
 
-59:                                               ; preds = %26
+60:                                               ; preds = %26
   unreachable
 }
 

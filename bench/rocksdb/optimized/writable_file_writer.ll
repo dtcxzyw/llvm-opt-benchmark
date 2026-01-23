@@ -2573,7 +2573,7 @@ _ZNK7rocksdb17FSWritableFilePtr3getEv.exit.thread11: ; preds = %24
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 128
   %43 = load ptr, ptr %42, align 8
   %44 = invoke noundef i32 %43(ptr noundef nonnull align 8 dereferenceable(33) %.0.i7)
-          to label %45 unwind label %51
+          to label %45 unwind label %49
 
 45:                                               ; preds = %40
   %46 = icmp eq i32 %44, 4
@@ -2587,11 +2587,11 @@ _ZNK7rocksdb17FSWritableFilePtr3getEv.exit.thread11: ; preds = %24
   store i32 %.0.i8, ptr %50, align 4, !tbaa !210
   br label %_ZNK7rocksdb17FSWritableFilePtr3getEv.exit.thread
 
-51:                                               ; preds = %40
-  %52 = landingpad { ptr, i32 }
+49:                                               ; preds = %40
+  %50 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %7) #26
-  resume { ptr, i32 } %52
+  resume { ptr, i32 } %50
 
 _ZNK7rocksdb17FSWritableFilePtr3getEv.exit.thread: ; preds = %28, %_ZNK7rocksdb17FSWritableFilePtr3getEv.exit.thread11, %_ZNK7rocksdb17FSWritableFilePtr3getEv.exit, %45
   ret void

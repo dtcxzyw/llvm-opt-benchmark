@@ -22669,7 +22669,7 @@ callable_method_entry.exit:                       ; preds = %16
   %24 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i64 20, ptr %24, align 8, !tbaa !7
   %.not36 = icmp eq i32 %4, 0
-  br i1 %.not36, label %80, label %25
+  br i1 %.not36, label %77, label %25
 
 25:                                               ; preds = %22
   %26 = call i32 @rb_method_entry_arity(ptr noundef nonnull %12) #20
@@ -22683,7 +22683,7 @@ callable_method_entry.exit:                       ; preds = %16
 
 30:                                               ; preds = %25
   %.not37 = icmp eq i32 %26, 1
-  br i1 %.not37, label %31, label %80
+  br i1 %.not37, label %31, label %77
 
 31:                                               ; preds = %30
   %32 = load ptr, ptr @ruby_single_main_ractor, align 8, !tbaa !110
@@ -22704,7 +22704,7 @@ rb_ruby_verbose_ptr.exit:                         ; preds = %31, %33
   %39 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 496
   %40 = load i64, ptr %39, align 8, !tbaa !7
   %41 = icmp eq i64 %40, 4
-  br i1 %41, label %80, label %42
+  br i1 %41, label %77, label %42
 
 42:                                               ; preds = %rb_ruby_verbose_ptr.exit
   %43 = call i64 @rb_method_entry_location(ptr noundef nonnull %12) #20
@@ -22717,8 +22717,8 @@ rb_ruby_verbose_ptr.exit:                         ; preds = %31, %33
 rbimpl_RB_TYPE_P_fastpath.exit.i:                 ; preds = %42
   %48 = inttoptr i64 %1 to ptr
   %49 = load i64, ptr %48, align 8, !tbaa !97
-  %.fr53 = freeze i64 %49
-  %50 = and i64 %.fr53, 8223
+  %.fr = freeze i64 %49
+  %50 = and i64 %.fr, 8223
   %51 = icmp eq i64 %50, 8194
   %52 = select i1 %51, i64 %2, i64 %1
   %53 = and i64 %.fr53, 31
@@ -22732,26 +22732,26 @@ RCLASS_SINGLETON_P.exit39:                        ; preds = %rbimpl_RB_TYPE_P_fa
   br label %RCLASS_SINGLETON_P.exit39.thread
 
 RCLASS_SINGLETON_P.exit39.thread:                 ; preds = %RCLASS_SINGLETON_P.exit39, %42, %rbimpl_RB_TYPE_P_fastpath.exit.i
-  %56 = phi i64 [ %1, %42 ], [ %52, %RCLASS_SINGLETON_P.exit39 ], [ %52, %rbimpl_RB_TYPE_P_fastpath.exit.i ]
-  %57 = phi i32 [ 35, %42 ], [ %spec.select52, %RCLASS_SINGLETON_P.exit39 ], [ 35, %rbimpl_RB_TYPE_P_fastpath.exit.i ]
-  %58 = call i64 @rb_id_quote_unprintable(i64 noundef %3) #20
-  call void (i32, ptr, ...) @rb_category_warn(i32 noundef 1, ptr noundef nonnull @.str.217, i64 noundef %56, i32 noundef %57, i64 noundef %58) #62
-  %59 = icmp eq i64 %43, 4
-  br i1 %59, label %80, label %60
+  %53 = phi i64 [ %1, %42 ], [ %52, %RCLASS_SINGLETON_P.exit39 ], [ %52, %rbimpl_RB_TYPE_P_fastpath.exit.i ]
+  %54 = phi i32 [ 35, %42 ], [ %spec.select52, %RCLASS_SINGLETON_P.exit39 ], [ 35, %rbimpl_RB_TYPE_P_fastpath.exit.i ]
+  %55 = call i64 @rb_id_quote_unprintable(i64 noundef %3) #20
+  call void (i32, ptr, ...) @rb_category_warn(i32 noundef 1, ptr noundef nonnull @.str.217, i64 noundef %53, i32 noundef %54, i64 noundef %55) #62
+  %56 = icmp eq i64 %43, 4
+  br i1 %56, label %77, label %57
 
-60:                                               ; preds = %RCLASS_SINGLETON_P.exit39.thread
-  %61 = inttoptr i64 %43 to ptr
-  %62 = load i64, ptr %61, align 8, !tbaa !97
-  %63 = and i64 %62, 8192
-  %.not.i.i = icmp eq i64 %63, 0
+57:                                               ; preds = %RCLASS_SINGLETON_P.exit39.thread
+  %58 = inttoptr i64 %43 to ptr
+  %59 = load i64, ptr %58, align 8, !tbaa !97
+  %60 = and i64 %59, 8192
+  %.not.i.i = icmp eq i64 %60, 0
   br i1 %.not.i.i, label %RARRAY_AREF.exit, label %RARRAY_AREF.exit.thread
 
-RARRAY_AREF.exit:                                 ; preds = %60
-  %64 = getelementptr inbounds nuw i8, ptr %61, i64 32
-  %65 = load ptr, ptr %64, align 8, !tbaa !26
+RARRAY_AREF.exit:                                 ; preds = %57
+  %61 = getelementptr inbounds nuw i8, ptr %58, i64 32
+  %62 = load ptr, ptr %61, align 8, !tbaa !26
   %66 = load i64, ptr %65, align 8, !tbaa !7
   %67 = icmp eq i64 %66, 4
-  br i1 %67, label %80, label %RARRAY_AREF.exit42
+  br i1 %67, label %77, label %RARRAY_AREF.exit42
 
 RARRAY_AREF.exit.thread:                          ; preds = %60
   %68 = getelementptr inbounds nuw i8, ptr %61, i64 16
@@ -22760,83 +22760,83 @@ RARRAY_AREF.exit.thread:                          ; preds = %60
   br i1 %70, label %80, label %RARRAY_AREF.exit42
 
 RARRAY_AREF.exit42:                               ; preds = %RARRAY_AREF.exit, %RARRAY_AREF.exit.thread
-  %71 = phi i64 [ %69, %RARRAY_AREF.exit.thread ], [ %66, %RARRAY_AREF.exit ]
-  %.0.i.i41 = phi ptr [ %68, %RARRAY_AREF.exit.thread ], [ %65, %RARRAY_AREF.exit ]
-  %72 = getelementptr i8, ptr %.0.i.i41, i64 8
-  %73 = load i64, ptr %72, align 8, !tbaa !7
-  %74 = inttoptr i64 %71 to ptr
-  %75 = load i64, ptr %74, align 8, !tbaa !97, !noalias !382
-  %76 = and i64 %75, 8192
-  %.not.i.i43 = icmp eq i64 %76, 0
-  %77 = getelementptr inbounds nuw i8, ptr %74, i64 24
-  br i1 %.not.i.i43, label %RSTRING_PTR.exit, label %78
+  %68 = phi i64 [ %69, %RARRAY_AREF.exit.thread ], [ %66, %RARRAY_AREF.exit ]
+  %.0.i.i41 = phi ptr [ %68, %RARRAY_AREF.exit.thread ], [ %62, %RARRAY_AREF.exit ]
+  %69 = getelementptr i8, ptr %.0.i.i41, i64 8
+  %70 = load i64, ptr %69, align 8, !tbaa !7
+  %71 = inttoptr i64 %68 to ptr
+  %72 = load i64, ptr %71, align 8, !tbaa !97, !noalias !382
+  %73 = and i64 %72, 8192
+  %.not.i.i43 = icmp eq i64 %73, 0
+  %74 = getelementptr inbounds nuw i8, ptr %71, i64 24
+  br i1 %.not.i.i43, label %RSTRING_PTR.exit, label %75
 
-78:                                               ; preds = %RARRAY_AREF.exit42
-  %.sroa.2.0.copyload.i = load ptr, ptr %77, align 8
+75:                                               ; preds = %RARRAY_AREF.exit42
+  %.sroa.2.0.copyload.i = load ptr, ptr %74, align 8
   br label %RSTRING_PTR.exit
 
-RSTRING_PTR.exit:                                 ; preds = %RARRAY_AREF.exit42, %78
-  %.sroa.2.0.i = phi ptr [ %.sroa.2.0.copyload.i, %78 ], [ %77, %RARRAY_AREF.exit42 ]
-  %79 = call fastcc i32 @rb_num2int_inline(i64 noundef %73)
-  call void (i32, ptr, i32, ptr, ...) @rb_category_compile_warn(i32 noundef 1, ptr noundef %.sroa.2.0.i, i32 noundef %79, ptr noundef nonnull @.str.218) #20
-  br label %80
+RSTRING_PTR.exit:                                 ; preds = %RARRAY_AREF.exit42, %75
+  %.sroa.2.0.i = phi ptr [ %.sroa.2.0.copyload.i, %78 ], [ %74, %RARRAY_AREF.exit42 ]
+  %76 = call fastcc i32 @rb_num2int_inline(i64 noundef %70)
+  call void (i32, ptr, i32, ptr, ...) @rb_category_compile_warn(i32 noundef 1, ptr noundef %.sroa.2.0.i, i32 noundef %76, ptr noundef nonnull @.str.218) #20
+  br label %77
 
-80:                                               ; preds = %RARRAY_AREF.exit.thread, %RCLASS_SINGLETON_P.exit39.thread, %RSTRING_PTR.exit, %RARRAY_AREF.exit, %30, %rb_ruby_verbose_ptr.exit, %22
+77:                                               ; preds = %RARRAY_AREF.exit.thread, %RCLASS_SINGLETON_P.exit39.thread, %RSTRING_PTR.exit, %RARRAY_AREF.exit, %30, %rb_ruby_verbose_ptr.exit, %22
   %.032 = phi i32 [ 1, %22 ], [ 1, %rb_ruby_verbose_ptr.exit ], [ 2, %30 ], [ 1, %RARRAY_AREF.exit ], [ 1, %RSTRING_PTR.exit ], [ 1, %RCLASS_SINGLETON_P.exit39.thread ], [ 1, %RARRAY_AREF.exit.thread ]
-  %81 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %82 = load i64, ptr %81, align 8, !tbaa !385
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %79 = load i64, ptr %78, align 8, !tbaa !385
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i64 52250, ptr %9, align 8, !tbaa !386
-  %83 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i64 0, ptr %83, align 8, !tbaa !216
-  %84 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store ptr %12, ptr %84, align 8, !tbaa !218
-  %85 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  store ptr @vm_call_general, ptr %85, align 8, !tbaa !220
-  %86 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  store i64 0, ptr %86, align 8, !tbaa !387
+  %80 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store i64 0, ptr %80, align 8, !tbaa !216
+  %81 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  store ptr %12, ptr %81, align 8, !tbaa !218
+  %82 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  store ptr @vm_call_general, ptr %82, align 8, !tbaa !220
+  %83 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  store i64 0, ptr %83, align 8, !tbaa !387
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 110618, ptr %8, align 8, !tbaa !389
-  %87 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr null, ptr %87, align 8, !tbaa !223
-  %88 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store i64 156, ptr %88, align 8, !tbaa !154
-  %89 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store i64 0, ptr %89, align 8, !tbaa !169
-  %90 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %91 = zext nneg i32 %.032 to i64
-  store i64 %91, ptr %90, align 8, !tbaa !168
+  %84 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store ptr null, ptr %84, align 8, !tbaa !223
+  %85 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  store i64 156, ptr %85, align 8, !tbaa !154
+  %86 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  store i64 0, ptr %86, align 8, !tbaa !169
+  %87 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  %88 = zext nneg i32 %.032 to i64
+  store i64 %88, ptr %87, align 8, !tbaa !168
   store ptr %8, ptr %7, align 8, !tbaa !206
-  %92 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr null, ptr %92, align 8, !tbaa !215
+  %89 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store ptr null, ptr %89, align 8, !tbaa !215
   store ptr %7, ptr %6, align 8, !tbaa !209
-  %93 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr %9, ptr %93, align 8, !tbaa !219
-  %94 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i64 0, ptr %81, align 8, !tbaa !385
-  store i64 0, ptr %94, align 8, !tbaa !211
-  %95 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store i64 %2, ptr %95, align 8, !tbaa !212
-  %96 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  store i32 %.032, ptr %96, align 8, !tbaa !213
-  %97 = getelementptr inbounds nuw i8, ptr %6, i64 36
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %97, i8 0, i64 12, i1 false)
-  %98 = call fastcc i64 @vm_call0_body(ptr noundef %0, ptr noundef %6, ptr noundef nonnull %11)
+  %90 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store ptr %9, ptr %90, align 8, !tbaa !219
+  %91 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store i64 0, ptr %78, align 8, !tbaa !385
+  store i64 0, ptr %91, align 8, !tbaa !211
+  %92 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  store i64 %2, ptr %92, align 8, !tbaa !212
+  %93 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  store i32 %.032, ptr %93, align 8, !tbaa !213
+  %94 = getelementptr inbounds nuw i8, ptr %6, i64 36
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %94, i8 0, i64 12, i1 false)
+  %95 = call fastcc i64 @vm_call0_body(ptr noundef %0, ptr noundef %6, ptr noundef nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  store i64 %82, ptr %81, align 8, !tbaa !385
-  %99 = and i64 %98, -5
-  %100 = icmp ne i64 %99, 0
-  %101 = zext i1 %100 to i32
+  store i64 %79, ptr %78, align 8, !tbaa !385
+  %96 = and i64 %95, -5
+  %97 = icmp ne i64 %96, 0
+  %98 = zext i1 %97 to i32
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %callable_method_entry.exit.thread
 
-callable_method_entry.exit.thread:                ; preds = %16, %13, %5, %callable_method_entry.exit, %80
-  %.0 = phi i32 [ -1, %callable_method_entry.exit ], [ %101, %80 ], [ -1, %5 ], [ -1, %13 ], [ -1, %16 ]
+callable_method_entry.exit.thread:                ; preds = %16, %13, %5, %callable_method_entry.exit, %77
+  %.0 = phi i32 [ -1, %callable_method_entry.exit ], [ %98, %80 ], [ -1, %5 ], [ -1, %13 ], [ -1, %16 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %.0
 }

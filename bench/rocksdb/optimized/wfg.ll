@@ -390,9 +390,9 @@ define noundef zeroext i1 @_ZN4toku3wfg11node_existsEm(ptr noundef nonnull align
   %.fr.i.i.i = freeze i64 %22
   %23 = icmp ult i64 %.fr.i.i.i, %1
   %24 = add nuw i32 %18, 1
-  %.not37.i.i.i.not = icmp eq i64 %.fr.i.i.i, %1
+  %.not37.i.i.i = icmp eq i64 %.fr.i.i.i, %1
   %.130.i.i.i = select i1 %23, i32 %.02939.i.i.i, i32 %18
-  %.126.i.i.i = select i1 %.not37.i.i.i.not, i32 %18, i32 %.02541.i.i.i
+  %.126.i.i.i = select i1 %.not37.i.i.i, i32 %18, i32 %.02541.i.i.i
   %.1.i.i.i = select i1 %23, i32 %24, i32 %.02442.i.i.i
   %.not.i.i.i = icmp eq i32 %.1.i.i.i, %.130.i.i.i
   br i1 %.not.i.i.i, label %._crit_edge.i.i.i, label %16, !llvm.loop !29
@@ -591,9 +591,9 @@ _ZNKSt8functionIFvmEEclEm.exit:                   ; preds = %26
   %.fr.i.i.i = freeze i64 %43
   %44 = icmp ult i64 %.fr.i.i.i, %23
   %45 = add nuw i32 %39, 1
-  %.not37.i.i.i.not = icmp eq i64 %.fr.i.i.i, %23
+  %.not37.i.i.i = icmp eq i64 %.fr.i.i.i, %23
   %.130.i.i.i = select i1 %44, i32 %.02939.i.i.i, i32 %39
-  %.126.i.i.i = select i1 %.not37.i.i.i.not, i32 %39, i32 %.02541.i.i.i
+  %.126.i.i.i = select i1 %.not37.i.i.i, i32 %39, i32 %.02541.i.i.i
   %.1.i.i.i = select i1 %44, i32 %45, i32 %.02442.i.i.i
   %.not.i.i.i = icmp eq i32 %.1.i.i.i, %.130.i.i.i
   br i1 %.not.i.i.i, label %._crit_edge.i.i.i, label %37, !llvm.loop !29
@@ -781,9 +781,9 @@ define noundef zeroext i1 @_ZN4toku3wfg23cycle_exists_from_txnidEmSt8functionIFv
   %.fr.i.i.i = freeze i64 %24
   %25 = icmp ult i64 %.fr.i.i.i, %1
   %26 = add nuw i32 %20, 1
-  %.not37.i.i.i.not = icmp eq i64 %.fr.i.i.i, %1
+  %.not37.i.i.i = icmp eq i64 %.fr.i.i.i, %1
   %.130.i.i.i = select i1 %25, i32 %.02939.i.i.i, i32 %20
-  %.126.i.i.i = select i1 %.not37.i.i.i.not, i32 %20, i32 %.02541.i.i.i
+  %.126.i.i.i = select i1 %.not37.i.i.i, i32 %20, i32 %.02541.i.i.i
   %.1.i.i.i = select i1 %25, i32 %26, i32 %.02442.i.i.i
   %.not.i.i.i = icmp eq i32 %.1.i.i.i, %.130.i.i.i
   br i1 %.not.i.i.i, label %._crit_edge.i.i.i, label %18, !llvm.loop !29
@@ -1063,9 +1063,9 @@ define void @_ZN4toku3wfg11apply_edgesEmPFimmPvES1_(ptr noundef nonnull align 8 
   %.fr.i.i.i = freeze i64 %24
   %25 = icmp ult i64 %.fr.i.i.i, %1
   %26 = add nuw i32 %20, 1
-  %.not37.i.i.i.not = icmp eq i64 %.fr.i.i.i, %1
+  %.not37.i.i.i = icmp eq i64 %.fr.i.i.i, %1
   %.130.i.i.i = select i1 %25, i32 %.02939.i.i.i, i32 %20
-  %.126.i.i.i = select i1 %.not37.i.i.i.not, i32 %20, i32 %.02541.i.i.i
+  %.126.i.i.i = select i1 %.not37.i.i.i, i32 %20, i32 %.02541.i.i.i
   %.1.i.i.i = select i1 %25, i32 %26, i32 %.02442.i.i.i
   %.not.i.i.i = icmp eq i32 %.1.i.i.i, %.130.i.i.i
   br i1 %.not.i.i.i, label %._crit_edge.i.i.i, label %18, !llvm.loop !29

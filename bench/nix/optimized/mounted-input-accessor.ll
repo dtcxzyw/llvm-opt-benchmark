@@ -2464,17 +2464,17 @@ _ZNSt3mapIN3nix9CanonPathENS0_3refINS0_13InputAccessorEEESt4lessIS1_ESaISt4pairI
   %60 = load ptr, ptr %3, align 8
   %61 = load ptr, ptr %9, align 8
   %62 = icmp ne ptr %60, %61
-  %.sroa.0.09.i.i = getelementptr inbounds i8, ptr %61, i64 -32
-  %.not10.i.i = icmp ult ptr %60, %.sroa.0.09.i.i
-  %or.cond.i.i = select i1 %62, i1 %.not10.i.i, i1 false
+  %.sroa.0.010.i.i = getelementptr inbounds i8, ptr %61, i64 -32
+  %.not11.i.i = icmp ult ptr %60, %.sroa.0.010.i.i
+  %or.cond.i.i = select i1 %62, i1 %.not11.i.i, i1 false
   br i1 %or.cond.i.i, label %.lr.ph.i.i, label %_ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEEvT_SD_.exit
 
 .lr.ph.i.i:                                       ; preds = %_ZNSt3mapIN3nix9CanonPathENS0_3refINS0_13InputAccessorEEESt4lessIS1_ESaISt4pairIKS1_S4_EEE4findERS8_.exit, %.lr.ph.i.i
-  %.sroa.0.012.i.i = phi ptr [ %.sroa.0.0.i.i8, %.lr.ph.i.i ], [ %.sroa.0.09.i.i, %_ZNSt3mapIN3nix9CanonPathENS0_3refINS0_13InputAccessorEEESt4lessIS1_ESaISt4pairIKS1_S4_EEE4findERS8_.exit ]
-  %.sroa.06.011.i.i = phi ptr [ %63, %.lr.ph.i.i ], [ %60, %_ZNSt3mapIN3nix9CanonPathENS0_3refINS0_13InputAccessorEEESt4lessIS1_ESaISt4pairIKS1_S4_EEE4findERS8_.exit ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4swapERS4_(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.06.011.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.012.i.i) #21
-  %63 = getelementptr inbounds nuw i8, ptr %.sroa.06.011.i.i, i64 32
-  %.sroa.0.0.i.i8 = getelementptr inbounds i8, ptr %.sroa.0.012.i.i, i64 -32
+  %.sroa.0.013.i.i = phi ptr [ %.sroa.0.0.i.i8, %.lr.ph.i.i ], [ %.sroa.0.010.i.i, %_ZNSt3mapIN3nix9CanonPathENS0_3refINS0_13InputAccessorEEESt4lessIS1_ESaISt4pairIKS1_S4_EEE4findERS8_.exit ]
+  %.sroa.06.012.i.i = phi ptr [ %63, %.lr.ph.i.i ], [ %60, %_ZNSt3mapIN3nix9CanonPathENS0_3refINS0_13InputAccessorEEESt4lessIS1_ESaISt4pairIKS1_S4_EEE4findERS8_.exit ]
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4swapERS4_(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.06.012.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.013.i.i) #21
+  %63 = getelementptr inbounds nuw i8, ptr %.sroa.06.012.i.i, i64 32
+  %.sroa.0.0.i.i8 = getelementptr inbounds i8, ptr %.sroa.0.013.i.i, i64 -32
   %.not.i.i9 = icmp ult ptr %63, %.sroa.0.0.i.i8
   br i1 %.not.i.i9, label %.lr.ph.i.i, label %_ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEEvT_SD_.exit, !llvm.loop !13
 

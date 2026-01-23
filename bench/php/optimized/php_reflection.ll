@@ -19919,11 +19919,11 @@ define hidden void @zim_ReflectionClass_isUninitializedLazyObject(ptr noundef %0
   %12 = load ptr, ptr %11, align 8, !tbaa !43
   %13 = load ptr, ptr @reflection_exception_ptr, align 8, !tbaa !36
   %14 = icmp eq ptr %12, %13
-  br i1 %14, label %41, label %15
+  br i1 %14, label %43, label %15
 
 15:                                               ; preds = %10, %8
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.10) #13
-  br label %41
+  br label %43
 
 16:                                               ; preds = %2
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -19969,19 +19969,19 @@ instanceof_function.exit.i..critedge_crit_edge:   ; preds = %instanceof_function
   %.038 = phi i32 [ 0, %19 ], [ 1, %31 ]
   %.0 = phi i32 [ 1, %19 ], [ 3, %31 ]
   tail call void @zend_wrong_parameter_error(i32 noundef %.0, i32 noundef %.038, ptr noundef %.039, i32 noundef 0, ptr noundef %.041) #13
-  br label %41
+  br label %43
 
 .critedge:                                        ; preds = %instanceof_function.exit.i..critedge_crit_edge, %25
   %36 = phi ptr [ %.pre, %instanceof_function.exit.i..critedge_crit_edge ], [ %26, %25 ]
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 12
   %38 = load i32, ptr %37, align 4, !tbaa !228
-  %.not.i48 = icmp slt i32 %38, 0
+  %39 = icmp slt i32 %38, 0
   %39 = select i1 %.not.i48, i32 3, i32 2
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %39, ptr %40, align 8, !tbaa !26
   br label %41
 
-41:                                               ; preds = %35, %10, %.critedge, %15
+43:                                               ; preds = %35, %10, %.critedge, %15
   ret void
 }
 

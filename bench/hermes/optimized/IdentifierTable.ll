@@ -2365,10 +2365,10 @@ _ZNK4llvh9BitVector8set_bitsEv.exit:              ; preds = %for.body.i.i.i.i.i
   %24 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %Copy.1.i.i.i.i.i, i1 true)
   %25 = trunc nuw nsw i64 %24 to i32
   %conv20.i.i.i.i.i = or disjoint i32 %mul.i.i.i.i.i, %25
-  %cmp.i1736 = icmp ne i32 %conv20.i.i.i.i.i, -1
-  %cmp.not37 = icmp ult i32 %conv20.i.i.i.i.i, %17
-  %or.cond38 = select i1 %cmp.i1736, i1 %cmp.not37, i1 false
-  br i1 %or.cond38, label %if.end.lr.ph, label %for.end
+  %cmp.i1732 = icmp ne i32 %conv20.i.i.i.i.i, -1
+  %cmp.not33 = icmp ult i32 %conv20.i.i.i.i.i, %17
+  %or.cond34 = select i1 %cmp.i1732, i1 %cmp.not33, i1 false
+  br i1 %or.cond34, label %if.end.lr.ph, label %for.end
 
 if.end.lr.ph:                                     ; preds = %_ZNK4llvh9BitVector8set_bitsEv.exit
   %hashTable_.i = getelementptr inbounds nuw i8, ptr %this, i64 48
@@ -2377,8 +2377,8 @@ if.end.lr.ph:                                     ; preds = %_ZNK4llvh9BitVector
 
 if.end:                                           ; preds = %if.end.lr.ph, %_ZN4llvh28const_set_bits_iterator_implINS_9BitVectorEEppEv.exit
   %26 = phi i32 [ %18, %if.end.lr.ph ], [ %36, %_ZN4llvh28const_set_bits_iterator_implINS_9BitVectorEEppEv.exit ]
-  %__begin2.sroa.2.039 = phi i32 [ %conv20.i.i.i.i.i, %if.end.lr.ph ], [ %conv20.i.i.i.i, %_ZN4llvh28const_set_bits_iterator_implINS_9BitVectorEEppEv.exit ]
-  %conv = zext i32 %__begin2.sroa.2.039 to i64
+  %__begin2.sroa.2.035 = phi i32 [ %conv20.i.i.i.i.i, %if.end.lr.ph ], [ %conv20.i.i.i.i, %_ZN4llvh28const_set_bits_iterator_implINS_9BitVectorEEppEv.exit ]
+  %conv = zext i32 %__begin2.sroa.2.035 to i64
   %27 = load ptr, ptr %this, align 8
   %add.ptr.i = getelementptr inbounds nuw %"class.hermes::vm::IdentifierTable::LookupEntry", ptr %27, i64 %conv
   %28 = load ptr, ptr %add.ptr.i, align 8
@@ -2394,7 +2394,7 @@ if.then13:                                        ; preds = %if.end
   br i1 %call4, label %if.then14, label %if.end15
 
 if.then14:                                        ; preds = %if.then13
-  tail call void @_ZN6hermes2vm6GCBase9IDTracker13untrackSymbolEj(ptr noundef nonnull align 8 dereferenceable(192) %tracker, i32 noundef %__begin2.sroa.2.039) #16
+  tail call void @_ZN6hermes2vm6GCBase9IDTracker13untrackSymbolEj(ptr noundef nonnull align 8 dereferenceable(192) %tracker, i32 noundef %__begin2.sroa.2.035) #16
   %.pre = load ptr, ptr %this, align 8
   %add.ptr.i.i.phi.trans.insert = getelementptr inbounds nuw %"class.hermes::vm::IdentifierTable::LookupEntry", ptr %.pre, i64 %conv
   %isNotUniqued_.i.i.phi.trans.insert = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.phi.trans.insert, i64 8
@@ -2433,13 +2433,13 @@ _ZN6hermes2vm15IdentifierTable10freeSymbolEj.exit: ; preds = %if.end15, %if.then
   %bf.clear.i.i.i = and i32 %bf.load.i.i.i, 3
   %bf.set.i.i.i = or disjoint i32 %bf.value.i.i.i, %bf.clear.i.i.i
   store i32 %bf.set.i.i.i, ptr %num_.i.i.i, align 8
-  store i32 %__begin2.sroa.2.039, ptr %firstFreeID_.i.i, align 8
-  %.pre49 = load i32, ptr %Size.i.i, align 8
+  store i32 %__begin2.sroa.2.035, ptr %firstFreeID_.i.i, align 8
+  %.pre41 = load i32, ptr %Size.i.i, align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end, %_ZN6hermes2vm15IdentifierTable10freeSymbolEj.exit
-  %36 = phi i32 [ %26, %if.end ], [ %.pre49, %_ZN6hermes2vm15IdentifierTable10freeSymbolEj.exit ]
-  %add.i.i.i = add nuw i32 %__begin2.sroa.2.039, 1
+  %36 = phi i32 [ %26, %if.end ], [ %.pre41, %_ZN6hermes2vm15IdentifierTable10freeSymbolEj.exit ]
+  %add.i.i.i = add nuw i32 %__begin2.sroa.2.035, 1
   %cmp.i.i.i.i = icmp eq i32 %add.i.i.i, %36
   br i1 %cmp.i.i.i.i, label %for.end, label %if.end.i.i.i.i
 
@@ -2454,7 +2454,7 @@ for.body.lr.ph.i.i.i.i:                           ; preds = %if.end.i.i.i.i
   %37 = load ptr, ptr %markedSymbols_, align 8
   %rem.i.i.i.i = and i32 %add.i.i.i, 63
   %sub.i.i.i.i.i24 = sub nuw nsw i32 64, %rem.i.i.i.i
-  %cmp.i.i.i.i.not.i.i.i = icmp eq i32 %rem.i.i.i.i, 0
+  %cmp.i.i.i.i.i.i.i = icmp eq i32 %rem.i.i.i.i, 0
   %sh_prom.i.i.i.i.i.i.i = zext nneg i32 %sub.i.i.i.i.i24 to i64
   %shr.i.i.i.i.i.i.i = lshr i64 -1, %sh_prom.i.i.i.i.i.i.i
   %38 = xor i64 %shr.i.i.i.i.i.i.i, -1
@@ -2466,10 +2466,10 @@ for.body.lr.ph.i.i.i.i:                           ; preds = %if.end.i.i.i.i
   %40 = zext nneg i32 %div216.i.i.i.i to i64
   %41 = add nuw nsw i32 %div216.i.i.i.i, 1
   %wide.trip.count.i.i.i.i = zext nneg i32 %41 to i64
-  br i1 %cmp.i.i.i.i.not.i.i.i, label %for.body.i.us.i.i.i, label %for.body.i.i.i.i
+  br i1 %cmp.i.i.i.i.i.i.i, label %for.body.i.i.i.i, label %for.body.i.i.i.i
 
-for.body.i.us.i.i.i:                              ; preds = %for.body.lr.ph.i.i.i.i, %for.inc.i.us.i.i.i
-  %indvars.iv.i.us.i.i.i = phi i64 [ %indvars.iv.next.i.us.i.i.i, %for.inc.i.us.i.i.i ], [ %39, %for.body.lr.ph.i.i.i.i ]
+for.body.i.i.i.i:                                 ; preds = %for.body.lr.ph.i.i.i.i, %for.inc.i.us.i.i.i
+  %indvars.iv.i.i.i.i = phi i64 [ %indvars.iv.next.i.us.i.i.i, %for.inc.i.us.i.i.i ], [ %39, %for.body.lr.ph.i.i.i.i ]
   %arrayidx.i.i.us.i.i.i = getelementptr inbounds nuw i64, ptr %37, i64 %indvars.iv.i.us.i.i.i
   %42 = load i64, ptr %arrayidx.i.i.us.i.i.i, align 8
   %cmp8.i.us.i.i.i = icmp eq i64 %indvars.iv.i.us.i.i.i, %40
@@ -2486,12 +2486,12 @@ for.inc.i.us.i.i.i:                               ; preds = %for.body.i.us.i.i.i
 for.body.i.i.i.i:                                 ; preds = %for.body.lr.ph.i.i.i.i, %for.inc.i.i.i.i
   %indvars.iv.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i, %for.inc.i.i.i.i ], [ %39, %for.body.lr.ph.i.i.i.i ]
   %arrayidx.i.i.i.i.i = getelementptr inbounds nuw i64, ptr %37, i64 %indvars.iv.i.i.i.i
-  %43 = load i64, ptr %arrayidx.i.i.i.i.i, align 8
+  %42 = load i64, ptr %arrayidx.i.i.i.i.i, align 8
   %cmp4.i.i.i.i = icmp eq i64 %indvars.iv.i.i.i.i, %39
-  %spec.select.i.i.i = select i1 %cmp4.i.i.i.i, i64 %38, i64 -1
+  %and.i.i.i.i = select i1 %cmp4.i.i.i.i, i64 %38, i64 -1
   %cmp8.i.i.i.i = icmp eq i64 %indvars.iv.i.i.i.i, %40
   %and13.i.i.i.i = select i1 %cmp8.i.i.i.i, i64 %shr.i.i.i.i.i, i64 -1
-  %spec.select.i.i.i.i = and i64 %and13.i.i.i.i, %43
+  %Copy.1.i.i.i.i = and i64 %and13.i.i.i.i, %43
   %Copy.1.i.i.i.i = and i64 %spec.select.i.i.i.i, %spec.select.i.i.i
   %cmp15.not.i.i.i.i = icmp eq i64 %Copy.1.i.i.i.i, 0
   br i1 %cmp15.not.i.i.i.i, label %for.inc.i.i.i.i, label %_ZN4llvh28const_set_bits_iterator_implINS_9BitVectorEEppEv.exit
@@ -2501,8 +2501,8 @@ for.inc.i.i.i.i:                                  ; preds = %for.body.i.i.i.i
   %exitcond.not.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i, %wide.trip.count.i.i.i.i
   br i1 %exitcond.not.i.i.i.i, label %for.end, label %for.body.i.i.i.i, !llvm.loop !16
 
-_ZN4llvh28const_set_bits_iterator_implINS_9BitVectorEEppEv.exit: ; preds = %for.body.i.i.i.i, %for.body.i.us.i.i.i
-  %.us-phi.i.i.i = phi i64 [ %indvars.iv.i.us.i.i.i, %for.body.i.us.i.i.i ], [ %indvars.iv.i.i.i.i, %for.body.i.i.i.i ]
+_ZN4llvh28const_set_bits_iterator_implINS_9BitVectorEEppEv.exit: ; preds = %for.body.i.i.i.i, %for.body.i.i.i.i
+  %.us-phi.i.i.i = phi i64 [ %indvars.iv.i.i.i.i, %for.body.i.us.i.i.i ], [ %indvars.iv.i.i.i.i, %for.body.i.i.i.i ]
   %.us-phi3.i.i.i = phi i64 [ %spec.select.i.us.i.i.i, %for.body.i.us.i.i.i ], [ %Copy.1.i.i.i.i, %for.body.i.i.i.i ]
   %44 = trunc nuw nsw i64 %.us-phi.i.i.i to i32
   %mul.i.i.i.i25 = shl nuw i32 %44, 6

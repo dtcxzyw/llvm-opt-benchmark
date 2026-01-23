@@ -1405,7 +1405,7 @@ define hidden { ptr, i64 } @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..op
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %..val2.i.i.i = load i64, ptr %8, align 8, !alias.scope !367
   %..sroa.5.0.i.i = select i1 %trunc.i.i, ptr %6, ptr null
-  %9 = select i1 %trunc.i.i, i1 %7, i1 false
+  %..sroa.7.0.i.i = select i1 %trunc.i.i, i1 %7, i1 false
   %..sroa.7.0.i.i = select i1 %9, i64 %..val2.i.i.i, i64 undef
   %10 = insertvalue { ptr, i64 } poison, ptr %..sroa.5.0.i.i, 0
   %11 = insertvalue { ptr, i64 } %10, i64 %..sroa.7.0.i.i, 1
@@ -3447,7 +3447,7 @@ define hidden { ptr, i64 } @_ZN12clap_builder7builder3arg3Arg16get_help_heading1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %..val2.i = load i64, ptr %7, align 8
   %..sroa.5.0 = select i1 %trunc, ptr %5, ptr null
-  %8 = select i1 %trunc, i1 %6, i1 false
+  %..sroa.7.0 = select i1 %trunc, i1 %6, i1 false
   %..sroa.7.0 = select i1 %8, i64 %..val2.i, i64 undef
   %9 = insertvalue { ptr, i64 } poison, ptr %..sroa.5.0, 0
   %10 = insertvalue { ptr, i64 } %9, i64 %..sroa.7.0, 1
@@ -11170,7 +11170,7 @@ define hidden { ptr, i64 } @"_ZN12clap_builder6output13help_template12HelpTempla
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %..val2.i.i = load i64, ptr %8, align 8, !alias.scope !2582
   %..sroa.5.0.i = select i1 %trunc.i, ptr %6, ptr null
-  %9 = select i1 %trunc.i, i1 %7, i1 false
+  %..sroa.7.0.i = select i1 %trunc.i, i1 %7, i1 false
   %..sroa.7.0.i = select i1 %9, i64 %..val2.i.i, i64 undef
   %10 = insertvalue { ptr, i64 } poison, ptr %..sroa.5.0.i, 0
   %11 = insertvalue { ptr, i64 } %10, i64 %..sroa.7.0.i, 1

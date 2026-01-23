@@ -7139,42 +7139,42 @@ rb_enum_values_pack.exit:                         ; preds = %RARRAY_PTR.exit, %1
   %26 = icmp slt i32 %25, 1
   %.022 = select i1 %26, i64 %20, i64 %.0.i
   %27 = icmp slt i32 %25, 0
-  %.021 = select i1 %27, i64 %.0.i, i64 %20
+  %spec.select23 = select i1 %27, i64 %.0.i, i64 %20
   %28 = load i64, ptr %.0.i.i, align 8, !tbaa !73
   %29 = icmp eq i64 %28, 36
   br i1 %29, label %30, label %32
 
-30:                                               ; preds = %23
+31:                                               ; preds = %23
   store i64 %.022, ptr %.0.i.i, align 8, !tbaa !73
-  %31 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 8
-  store i64 %.021, ptr %31, align 8, !tbaa !76
+  %32 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 8
+  store i64 %.021, ptr %32, align 8, !tbaa !76
   br label %minmax_ii_update.exit
 
-32:                                               ; preds = %23
-  %33 = tail call i64 (i32, ...) @rb_yield_values(i32 noundef 2, i64 noundef %.022, i64 noundef %28) #15
-  %34 = load i64, ptr %.0.i.i, align 8, !tbaa !73
-  %35 = tail call i32 @rb_cmpint(i64 noundef %33, i64 noundef %.022, i64 noundef %34) #15
-  %36 = icmp slt i32 %35, 0
-  br i1 %36, label %37, label %38
+33:                                               ; preds = %23
+  %34 = tail call i64 (i32, ...) @rb_yield_values(i32 noundef 2, i64 noundef %.022, i64 noundef %28) #15
+  %35 = load i64, ptr %.0.i.i, align 8, !tbaa !73
+  %36 = tail call i32 @rb_cmpint(i64 noundef %34, i64 noundef %.022, i64 noundef %35) #15
+  %37 = icmp slt i32 %36, 0
+  br i1 %37, label %38, label %39
 
-37:                                               ; preds = %32
+38:                                               ; preds = %33
   store i64 %.022, ptr %.0.i.i, align 8, !tbaa !73
-  br label %38
+  br label %39
 
-38:                                               ; preds = %37, %32
-  %39 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 8
-  %40 = load i64, ptr %39, align 8, !tbaa !76
-  %41 = tail call i64 (i32, ...) @rb_yield_values(i32 noundef 2, i64 noundef %.021, i64 noundef %40) #15
-  %42 = load i64, ptr %39, align 8, !tbaa !76
-  %43 = tail call i32 @rb_cmpint(i64 noundef %41, i64 noundef %.021, i64 noundef %42) #15
-  %44 = icmp sgt i32 %43, 0
-  br i1 %44, label %45, label %minmax_ii_update.exit
+39:                                               ; preds = %38, %33
+  %40 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 8
+  %41 = load i64, ptr %40, align 8, !tbaa !76
+  %42 = tail call i64 (i32, ...) @rb_yield_values(i32 noundef 2, i64 noundef %.021, i64 noundef %41) #15
+  %43 = load i64, ptr %40, align 8, !tbaa !76
+  %44 = tail call i32 @rb_cmpint(i64 noundef %42, i64 noundef %.021, i64 noundef %43) #15
+  %45 = icmp sgt i32 %44, 0
+  br i1 %45, label %46, label %minmax_ii_update.exit
 
-45:                                               ; preds = %38
-  store i64 %.021, ptr %39, align 8, !tbaa !76
+46:                                               ; preds = %39
+  store i64 %.021, ptr %40, align 8, !tbaa !76
   br label %minmax_ii_update.exit
 
-minmax_ii_update.exit:                            ; preds = %45, %38, %30, %22
+minmax_ii_update.exit:                            ; preds = %46, %39, %31, %22
   ret i64 4
 }
 

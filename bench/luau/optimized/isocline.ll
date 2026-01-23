@@ -17968,12 +17968,12 @@ tty_code_pop.exit.thread:                         ; preds = %3
   %14 = getelementptr inbounds nuw i32, ptr %13, i64 %12
   %15 = load i32, ptr %14, align 4, !tbaa !112
   store i32 %15, ptr %2, align 4, !tbaa !112
-  br label %148
+  br label %147
 
 tty_code_pop.exit:                                ; preds = %3
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %16 = call fastcc zeroext i1 @tty_readc_noblock(ptr noundef nonnull %0, ptr noundef %8, i64 noundef %1)
-  br i1 %16, label %17, label %147
+  br i1 %16, label %17, label %146
 
 17:                                               ; preds = %tty_code_pop.exit
   %18 = load i8, ptr %8, align 1, !tbaa !4
@@ -18261,15 +18261,15 @@ tty_read_utf8.exit:                               ; preds = %115, %74
   br label %modify_code.exit
 
 modify_code.exit:                                 ; preds = %131, %133, %138, %138, %138, %.thread54.i, %139
-  %146 = phi i32 [ 16777224, %138 ], [ %spec.select60.i, %139 ], [ %.0.ph53.i, %.thread54.i ], [ 1073741919, %133 ], [ %132, %131 ], [ 16777224, %138 ], [ 16777224, %138 ]
-  store i32 %146, ptr %2, align 4, !tbaa !112
+  %145 = phi i32 [ 16777224, %138 ], [ %spec.select60.i, %139 ], [ %.0.ph53.i, %.thread54.i ], [ 1073741919, %133 ], [ %132, %131 ], [ 16777224, %138 ], [ 16777224, %138 ]
+  store i32 %145, ptr %2, align 4, !tbaa !112
+  br label %146
+
+146:                                              ; preds = %tty_code_pop.exit, %modify_code.exit
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %147
 
-147:                                              ; preds = %tty_code_pop.exit, %modify_code.exit
-  call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %148
-
-148:                                              ; preds = %tty_code_pop.exit.thread, %147
+147:                                              ; preds = %tty_code_pop.exit.thread, %146
   %.0 = phi i1 [ %16, %147 ], [ true, %tty_code_pop.exit.thread ]
   ret i1 %.0
 }

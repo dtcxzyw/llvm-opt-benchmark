@@ -36792,14 +36792,14 @@ define hidden void @_ZN8smallvec12layout_array17h7a9a94b0e91a8ac2E.llvm.82256477
 
 6:                                                ; preds = %2
   %7 = icmp ugt i64 %4, 9223372036854775800
-  %.sroa.0.0.i = select i1 %7, i64 0, i64 8
+  %..i = select i1 %7, i64 0, i64 8
   br i1 %7, label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h18348c5034db3603E.exit", label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h18348c5034db3603E.exit.sink.split"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h18348c5034db3603E.exit.sink.split": ; preds = %2, %6
   %.sink13 = phi i64 [ 16, %6 ], [ 8, %2 ]
   %.sink11 = phi i64 [ %4, %6 ], [ 0, %2 ]
   %.sink10.ph = phi i64 [ 8, %6 ], [ 16, %2 ]
-  %.sink.ph = phi i64 [ %.sroa.0.0.i, %6 ], [ %4, %2 ]
+  %.sink.ph = phi i64 [ %..i, %6 ], [ %4, %2 ]
   %storemerge.ph = phi i64 [ 0, %6 ], [ 1, %2 ]
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink13
   store i64 %.sink11, ptr %8, align 8
@@ -36807,7 +36807,7 @@ define hidden void @_ZN8smallvec12layout_array17h7a9a94b0e91a8ac2E.llvm.82256477
 
 "_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h18348c5034db3603E.exit": ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h18348c5034db3603E.exit.sink.split", %6
   %.sink10 = phi i64 [ 8, %6 ], [ %.sink10.ph, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h18348c5034db3603E.exit.sink.split" ]
-  %.sink = phi i64 [ %.sroa.0.0.i, %6 ], [ %.sink.ph, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h18348c5034db3603E.exit.sink.split" ]
+  %.sink = phi i64 [ %..i, %6 ], [ %.sink.ph, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h18348c5034db3603E.exit.sink.split" ]
   %storemerge = phi i64 [ 1, %6 ], [ %storemerge.ph, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h18348c5034db3603E.exit.sink.split" ]
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink10
   store i64 %.sink, ptr %9, align 8
@@ -42823,8 +42823,8 @@ _ZN7hir_def8resolver8Resolver10item_scope17hc73f409158956354E.llvm.8225647753450
   %.sroa.0.i.sroa.7.0.copyload.fr = freeze i8 %.sroa.0.i.sroa.7.0.copyload
   %cond = icmp ne i8 %.sroa.0.i.sroa.7.0.copyload.fr, 6
   %31 = or i1 %or.cond, %cond
-  %32 = select i1 %31, i32 0, i32 %.sroa.0.i.sroa.9.0.copyload
-  ret i32 %32
+  %31 = select i1 %31, i32 0, i32 %.sroa.0.i.sroa.9.0.copyload
+  ret i32 %31
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -42883,12 +42883,12 @@ _ZN7hir_def8resolver8Resolver10item_scope17hc73f409158956354E.llvm.8225647753450
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !6510
   %.not.i = icmp ne i64 %29, 0
   %30 = icmp eq i32 %.sroa.0.i.sroa.12.0.copyload, 2
-  %or.cond = select i1 %.not.i, i1 true, i1 %30
+  %or.cond23 = select i1 %.not.i, i1 true, i1 %30
   %31 = icmp ne i32 %.sroa.0.i.sroa.9.0.copyload, 0
   %32 = icmp ne i8 %.sroa.0.i.sroa.7.0.copyload, 2
-  %33 = select i1 %or.cond, i1 true, i1 %32
-  %34 = select i1 %33, i1 true, i1 %31
-  %.sroa.0.021 = select i1 %34, i32 0, i32 %.sroa.0.i.sroa.10.0.copyload
+  %.sroa.512.0 = select i1 %or.cond23, i1 true, i1 %31
+  %.sroa.0.021 = select i1 %33, i1 true, i1 %31
+  %.sroa.0.021 = select i1 %.sroa.0.021, i32 0, i32 %.sroa.0.i.sroa.10.0.copyload
   ret i32 %.sroa.0.021
 }
 
@@ -42948,12 +42948,12 @@ _ZN7hir_def8resolver8Resolver10item_scope17hc73f409158956354E.llvm.8225647753450
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !6540
   %.not.i = icmp ne i64 %29, 0
   %30 = icmp eq i32 %.sroa.0.i.sroa.12.0.copyload, 2
-  %or.cond = select i1 %.not.i, i1 true, i1 %30
+  %or.cond23 = select i1 %.not.i, i1 true, i1 %30
   %31 = icmp ne i32 %.sroa.0.i.sroa.9.0.copyload, 2
   %32 = icmp ne i8 %.sroa.0.i.sroa.7.0.copyload, 2
-  %33 = select i1 %or.cond, i1 true, i1 %32
-  %34 = select i1 %33, i1 true, i1 %31
-  %.sroa.0.021 = select i1 %34, i32 0, i32 %.sroa.0.i.sroa.10.0.copyload
+  %.sroa.512.0 = select i1 %or.cond23, i1 true, i1 %31
+  %.sroa.0.021 = select i1 %33, i1 true, i1 %31
+  %.sroa.0.021 = select i1 %.sroa.0.021, i32 0, i32 %.sroa.0.i.sroa.10.0.copyload
   ret i32 %.sroa.0.021
 }
 

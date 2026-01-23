@@ -106,8 +106,8 @@ define hidden noundef range(i8 0, -87) i8 @"_ZN4core6option15Option$LT$T$GT$6fil
   %3 = icmp ne i8 %0, -88
   %4 = load i8, ptr %1, align 1, !range !22
   %5 = trunc nuw i8 %4 to i1
-  %.not8 = select i1 %3, i1 %5, i1 false
-  %.sroa.05.0 = select i1 %.not8, i8 %0, i8 -88
+  %spec.select = select i1 %3, i1 %5, i1 false
+  %.sroa.05.0 = select i1 %spec.select, i8 %0, i8 -88
   ret i8 %.sroa.05.0
 }
 
@@ -3738,23 +3738,23 @@ switch.lookup:                                    ; preds = %20
 "_ZN2ui10components6button11button_like130_$LT$impl$u20$core..convert..From$LT$ui..components..button..button_like..ButtonStyle$GT$$u20$for$u20$ui..styles..color..Color$GT$4from17h6eb5e43acf21098cE.exit": ; preds = %29, %26, %switch.lookup, %20, %3, %25
   %.sroa.0.0 = phi i32 [ %.sroa.0.0.copyload, %25 ], [ 4, %3 ], [ 0, %20 ], [ %switch.load, %switch.lookup ], [ 15, %26 ], [ %.sroa.05.0.copyload, %29 ]
   %31 = icmp ne i8 %6, -88
-  %.not8.i = select i1 %31, i1 %9, i1 false
-  %spec.select = select i1 %.not8.i, i8 %6, i8 %11
+  %spec.select.i = select i1 %31, i1 %9, i1 false
+  %.sroa.05.0.i = select i1 %spec.select.i, i8 %6, i8 %11
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.11)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 %spec.select, ptr %4, align 1, !noalias !387
-  %32 = call { ptr, i64 } @_ZN2ui10components4icon8IconName4path17hbf39b26447d409b5E(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %4), !noalias !387
-  %33 = call noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 1.000000e+00), !noalias !387
+  %33 = call { ptr, i64 } @_ZN2ui10components4icon8IconName4path17hbf39b26447d409b5E(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %4), !noalias !387
+  %34 = call noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 1.000000e+00), !noalias !387
   call void @"_ZN78_$LT$gpui..elements..svg..Transformation$u20$as$u20$core..default..Default$GT$7default17h80aa629d9609e625E"(ptr noalias noundef nonnull sret([20 x i8]) align 4 captures(none) dereferenceable(20) %.sroa.11)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %34 = getelementptr inbounds nuw i8, ptr %1, i64 42
-  %35 = load i8, ptr %34, align 2, !range !390, !noundef !4
-  %36 = zext nneg i8 %35 to i64
-  %switch.gep26 = getelementptr inbounds nuw float, ptr @"switch.table._ZN93_$LT$ui..components..button..button_icon..ButtonIcon$u20$as$u20$gpui..element..RenderOnce$GT$6render17he6dc0bb9f0bb9e98E.22", i64 %36
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 42
+  %36 = load i8, ptr %35, align 2, !range !390, !noundef !4
+  %37 = zext nneg i8 %36 to i64
+  %switch.gep26 = getelementptr inbounds nuw float, ptr @"switch.table._ZN93_$LT$ui..components..button..button_icon..ButtonIcon$u20$as$u20$gpui..element..RenderOnce$GT$6render17he6dc0bb9f0bb9e98E.22", i64 %37
   %switch.load27 = load float, ptr %switch.gep26, align 4
-  %37 = extractvalue { ptr, i64 } %32, 1
-  %38 = extractvalue { ptr, i64 } %32, 0
-  %39 = call noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef %switch.load27), !noalias !391
+  %38 = extractvalue { ptr, i64 } %33, 1
+  %39 = extractvalue { ptr, i64 } %33, 0
+  %40 = call noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef %switch.load27), !noalias !391
   %.sroa.617.sroa.4.0..sroa.617.0..sroa_idx18.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %.sroa.617.sroa.4.0..sroa.617.0..sroa_idx18.sroa_idx, ptr noundef nonnull align 8 dereferenceable(20) %.sroa.11, i64 20, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.11)
@@ -3763,13 +3763,13 @@ switch.lookup:                                    ; preds = %20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.515.0..sroa_idx16, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6, i64 16, i1 false), !alias.scope !398, !noalias !4
   store i64 0, ptr %0, align 8, !alias.scope !401, !noalias !395
   %.sroa.012.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %38, ptr %.sroa.012.sroa.4.0..sroa_idx, align 8, !alias.scope !401, !noalias !395
+  store ptr %39, ptr %.sroa.012.sroa.4.0..sroa_idx, align 8, !alias.scope !401, !noalias !395
   %.sroa.012.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %37, ptr %.sroa.012.sroa.5.0..sroa_idx, align 8, !alias.scope !401, !noalias !395
+  store i64 %38, ptr %.sroa.012.sroa.5.0..sroa_idx, align 8, !alias.scope !401, !noalias !395
   %.sroa.4.0..sroa_idx13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %.sroa.0.0, ptr %.sroa.4.0..sroa_idx13, align 8, !alias.scope !401, !noalias !395
   %.sroa.617.0..sroa_idx18 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  store float %39, ptr %.sroa.617.0..sroa_idx18, align 4, !alias.scope !401, !noalias !395
+  store float %40, ptr %.sroa.617.0..sroa_idx18, align 4, !alias.scope !401, !noalias !395
   ret void
 }
 

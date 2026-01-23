@@ -2600,7 +2600,7 @@ define hidden noundef ptr @"_ZN94_$LT$inquire..ui..backend..Backend$LT$T$GT$$u20
   %.sroa.4.sroa.5.0..sroa.4.0..sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 16
   br label %45
 
-45:                                               ; preds = %103, %2
+45:                                               ; preds = %102, %2
   %.sroa.8.0 = phi i64 [ 0, %2 ], [ %49, %103 ]
   %.sroa.0.063 = phi ptr [ %19, %2 ], [ %48, %103 ]
   %46 = icmp eq ptr %.sroa.0.063, %22
@@ -2649,8 +2649,8 @@ define hidden noundef ptr @"_ZN94_$LT$inquire..ui..backend..Backend$LT$T$GT$$u20
   %.not42 = icmp eq ptr %59, null
   br i1 %.not42, label %61, label %60
 
-60:                                               ; preds = %96, %98, %"_ZN7inquire2ui7backend16Backend$LT$T$GT$19print_option_prefix17he19c7ec3b789bb48E.exit", %61, %.thread, %103, %45
-  %.sroa.0.0 = phi ptr [ null, %45 ], [ %102, %.thread ], [ %59, %"_ZN7inquire2ui7backend16Backend$LT$T$GT$19print_option_prefix17he19c7ec3b789bb48E.exit" ], [ %104, %103 ], [ %62, %61 ], [ %76, %96 ], [ %99, %98 ]
+60:                                               ; preds = %96, %98, %"_ZN7inquire2ui7backend16Backend$LT$T$GT$19print_option_prefix17he19c7ec3b789bb48E.exit", %61, %.thread, %102, %45
+  %.sroa.0.0 = phi ptr [ null, %45 ], [ %101, %.thread ], [ %59, %"_ZN7inquire2ui7backend16Backend$LT$T$GT$19print_option_prefix17he19c7ec3b789bb48E.exit" ], [ %102, %103 ], [ %62, %61 ], [ %76, %96 ], [ %99, %98 ]
   ret ptr %.sroa.0.0
 
 61:                                               ; preds = %"_ZN7inquire2ui7backend16Backend$LT$T$GT$19print_option_prefix17he19c7ec3b789bb48E.exit"
@@ -2827,24 +2827,24 @@ default.unreachable:                              ; preds = %63
   %.not.i = icmp ne i8 %100, 19
   %101 = and i1 %.not.i, %or.cond8.i
   %.not = and i1 %.not.i, %or.cond8.i
-  %.sroa.4.0.in.i.v = select i1 %.not, i64 476, i64 467
+  %.sroa.07.0.in.i = select i1 %.not, i64 476, i64 467
   %.sroa.4.0.in.i = getelementptr inbounds nuw i8, ptr %0, i64 %.sroa.4.0.in.i.v
   %.sroa.4.0.i = load i8, ptr %.sroa.4.0.in.i, align 1, !alias.scope !117, !noalias !121
-  %.val = load i64, ptr %44, align 4
+  %.sroa.07.0.i = load i64, ptr %44, align 4
   %.val83 = load i64, ptr %43, align 1
   %.sroa.07.0.i = select i1 %101, i64 %.val, i64 %.val83
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !123
   store ptr %.sroa.0.063, ptr %3, align 8, !noalias !123
   store i64 %.sroa.07.0.i, ptr %.sroa.4.0..sroa_idx.i60, align 8, !noalias !123
   store i8 %.sroa.4.0.i, ptr %.sroa.4.sroa.5.0..sroa.4.0..sroa_idx.sroa_idx.i, align 8, !noalias !123
-  %102 = call noundef ptr @"_ZN95_$LT$inquire..terminal..crossterm..CrosstermTerminal$u20$as$u20$inquire..terminal..Terminal$GT$12write_styled17h8cef0339c469d407E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %36, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3)
+  %101 = call noundef ptr @"_ZN95_$LT$inquire..terminal..crossterm..CrosstermTerminal$u20$as$u20$inquire..terminal..Terminal$GT$12write_styled17h8cef0339c469d407E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %36, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !123
-  %.not48 = icmp eq ptr %102, null
-  br i1 %.not48, label %103, label %60
+  %.not48 = icmp eq ptr %101, null
+  br i1 %.not48, label %102, label %60
 
-103:                                              ; preds = %.thread
-  %104 = call noundef ptr @"_ZN95_$LT$inquire..terminal..crossterm..CrosstermTerminal$u20$as$u20$inquire..terminal..Terminal$GT$5write17h1a52de2c11463c78E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %36, ptr noalias noundef nonnull readonly align 1 @anon.13fb2ec977633304bd3b10860dd8af1a.22, i64 noundef 2)
-  %.not51 = icmp eq ptr %104, null
+102:                                              ; preds = %.thread
+  %103 = call noundef ptr @"_ZN95_$LT$inquire..terminal..crossterm..CrosstermTerminal$u20$as$u20$inquire..terminal..Terminal$GT$5write17h1a52de2c11463c78E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %36, ptr noalias noundef nonnull readonly align 1 @anon.13fb2ec977633304bd3b10860dd8af1a.22, i64 noundef 2)
+  %.not51 = icmp eq ptr %103, null
   br i1 %.not51, label %45, label %60
 }
 

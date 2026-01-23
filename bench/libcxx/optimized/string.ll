@@ -2704,12 +2704,12 @@ _ZNSt3__122__str_find_last_not_ofB8ne210000IcmNS_11char_traitsIcEETnT0_Lm1844674
 define weak_odr dso_local noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE2atEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) local_unnamed_addr #0 comdat align 2 {
   %3 = load i8, ptr %0, align 8
   %4 = and i8 %3, 1
-  %.not.i.not = icmp eq i8 %4, 0
+  %.not.i = icmp eq i8 %4, 0
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = lshr i8 %3, 1
   %8 = zext nneg i8 %7 to i64
-  %9 = select i1 %.not.i.not, i64 %8, i64 %6
+  %9 = select i1 %.not.i, i64 %8, i64 %6
   %.not = icmp ult i64 %1, %9
   br i1 %.not, label %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEixB8ne210000Em.exit, label %10
 
@@ -2721,8 +2721,8 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEixB8ne210000Em.ex
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %.pn.i = select i1 %.not.i.not, ptr %13, ptr %12
-  %.0.i = getelementptr inbounds nuw i8, ptr %.pn.i, i64 %1
+  %14 = select i1 %.not.i, ptr %13, ptr %12
+  %.0.i = getelementptr inbounds nuw i8, ptr %14, i64 %1
   ret ptr %.0.i
 }
 
@@ -2730,12 +2730,12 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEixB8ne210000Em.ex
 define weak_odr dso_local noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE2atEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) local_unnamed_addr #0 comdat align 2 {
   %3 = load i8, ptr %0, align 8
   %4 = and i8 %3, 1
-  %.not.i.not = icmp eq i8 %4, 0
+  %.not.i = icmp eq i8 %4, 0
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = lshr i8 %3, 1
   %8 = zext nneg i8 %7 to i64
-  %9 = select i1 %.not.i.not, i64 %8, i64 %6
+  %9 = select i1 %.not.i, i64 %8, i64 %6
   %.not = icmp ult i64 %1, %9
   br i1 %.not, label %_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEixB8ne210000Em.exit, label %10
 
@@ -2747,8 +2747,8 @@ _ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEixB8ne210000Em.e
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %.pn.i = select i1 %.not.i.not, ptr %13, ptr %12
-  %.0.i = getelementptr inbounds nuw i8, ptr %.pn.i, i64 %1
+  %14 = select i1 %.not.i, ptr %13, ptr %12
+  %.0.i = getelementptr inbounds nuw i8, ptr %14, i64 %1
   ret ptr %.0.i
 }
 
@@ -5597,12 +5597,12 @@ _ZNSt3__122__str_find_last_not_ofB8ne210000IwmNS_11char_traitsIwEETnT0_Lm1844674
 define weak_odr dso_local noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt3__112basic_stringIwNS_11char_traitsIwEENS_9allocatorIwEEE2atEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) local_unnamed_addr #0 comdat align 2 {
   %3 = load i8, ptr %0, align 8
   %4 = and i8 %3, 1
-  %.not.i.not = icmp eq i8 %4, 0
+  %.not.i = icmp eq i8 %4, 0
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = lshr i8 %3, 1
   %8 = zext nneg i8 %7 to i64
-  %9 = select i1 %.not.i.not, i64 %8, i64 %6
+  %9 = select i1 %.not.i, i64 %8, i64 %6
   %.not = icmp ult i64 %1, %9
   br i1 %.not, label %_ZNSt3__112basic_stringIwNS_11char_traitsIwEENS_9allocatorIwEEEixB8ne210000Em.exit, label %10
 
@@ -5614,8 +5614,8 @@ _ZNSt3__112basic_stringIwNS_11char_traitsIwEENS_9allocatorIwEEEixB8ne210000Em.ex
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %.pn.i = select i1 %.not.i.not, ptr %13, ptr %12
-  %.0.i = getelementptr inbounds nuw i32, ptr %.pn.i, i64 %1
+  %14 = select i1 %.not.i, ptr %13, ptr %12
+  %.0.i = getelementptr inbounds nuw i32, ptr %14, i64 %1
   ret ptr %.0.i
 }
 
@@ -5623,12 +5623,12 @@ _ZNSt3__112basic_stringIwNS_11char_traitsIwEENS_9allocatorIwEEEixB8ne210000Em.ex
 define weak_odr dso_local noundef nonnull align 4 dereferenceable(4) ptr @_ZNKSt3__112basic_stringIwNS_11char_traitsIwEENS_9allocatorIwEEE2atEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) local_unnamed_addr #0 comdat align 2 {
   %3 = load i8, ptr %0, align 8
   %4 = and i8 %3, 1
-  %.not.i.not = icmp eq i8 %4, 0
+  %.not.i = icmp eq i8 %4, 0
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = lshr i8 %3, 1
   %8 = zext nneg i8 %7 to i64
-  %9 = select i1 %.not.i.not, i64 %8, i64 %6
+  %9 = select i1 %.not.i, i64 %8, i64 %6
   %.not = icmp ult i64 %1, %9
   br i1 %.not, label %_ZNKSt3__112basic_stringIwNS_11char_traitsIwEENS_9allocatorIwEEEixB8ne210000Em.exit, label %10
 
@@ -5640,8 +5640,8 @@ _ZNKSt3__112basic_stringIwNS_11char_traitsIwEENS_9allocatorIwEEEixB8ne210000Em.e
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %.pn.i = select i1 %.not.i.not, ptr %13, ptr %12
-  %.0.i = getelementptr inbounds nuw i32, ptr %.pn.i, i64 %1
+  %14 = select i1 %.not.i, ptr %13, ptr %12
+  %.0.i = getelementptr inbounds nuw i32, ptr %14, i64 %1
   ret ptr %.0.i
 }
 

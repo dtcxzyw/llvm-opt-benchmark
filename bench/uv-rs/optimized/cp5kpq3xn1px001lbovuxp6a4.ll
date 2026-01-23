@@ -2493,10 +2493,10 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$
   %141 = extractvalue { i64, i1 } %140, 1
   %142 = add nuw i64 %.sroa.8.1.i.i18, %.sroa.7.1.i.i13
   %not..i.i30 = xor i1 %141, true
-  %143 = select i1 %or.cond45.i.i28, i1 %not..i.i30, i1 false
-  %.sroa.654.0 = select i1 %143, i64 %142, i64 undef
+  %.sroa.531.0.i.i32 = select i1 %or.cond45.i.i28, i1 %not..i.i30, i1 false
+  %.sroa.654.0 = select i1 %.sroa.531.0.i.i32, i64 %142, i64 undef
   %144 = add nuw nsw i64 %.sroa.0.0.i.i15, %15
-  %145 = add nuw nsw i64 %144, %.sroa.064.0.i.i20
+  %143 = add nuw nsw i64 %144, %.sroa.064.0.i.i20
   %146 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %15, i64 %.sroa.654.0)
   %147 = extractvalue { i64, i1 } %146, 1
   %148 = add nuw i64 %.sroa.654.0, %15
@@ -2505,8 +2505,8 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$
   %.sroa.03.0 = zext i1 %narrow to i64
   %.sroa.6.0 = select i1 %narrow, i64 %148, i64 undef
   store i64 %145, ptr %0, align 8
-  %149 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sroa.03.0, ptr %149, align 8
+  %148 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %.sroa.03.0, ptr %148, align 8
   br label %80
 }
 
@@ -2811,10 +2811,10 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$
   %141 = extractvalue { i64, i1 } %140, 1
   %142 = add nuw i64 %.sroa.8.1.i.i18, %.sroa.7.1.i.i13
   %not..i.i30 = xor i1 %141, true
-  %143 = select i1 %or.cond45.i.i28, i1 %not..i.i30, i1 false
-  %.sroa.654.0 = select i1 %143, i64 %142, i64 undef
+  %.sroa.531.0.i.i32 = select i1 %or.cond45.i.i28, i1 %not..i.i30, i1 false
+  %.sroa.654.0 = select i1 %.sroa.531.0.i.i32, i64 %142, i64 undef
   %144 = add nuw nsw i64 %.sroa.0.0.i.i15, %15
-  %145 = add nuw nsw i64 %144, %.sroa.064.0.i.i20
+  %143 = add nuw nsw i64 %144, %.sroa.064.0.i.i20
   %146 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %15, i64 %.sroa.654.0)
   %147 = extractvalue { i64, i1 } %146, 1
   %148 = add nuw i64 %.sroa.654.0, %15
@@ -2823,8 +2823,8 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$
   %.sroa.03.0 = zext i1 %narrow to i64
   %.sroa.6.0 = select i1 %narrow, i64 %148, i64 undef
   store i64 %145, ptr %0, align 8
-  %149 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sroa.03.0, ptr %149, align 8
+  %148 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %.sroa.03.0, ptr %148, align 8
   br label %80
 }
 

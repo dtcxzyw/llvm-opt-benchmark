@@ -3746,52 +3746,52 @@ _ZNK17arith_recognizers6is_subEPK4expr.exit:      ; preds = %_ZNK17arith_recogni
 
 51:                                               ; preds = %46
   %52 = xor i1 %.not.i, true
-  %53 = select i1 %49, i1 true, i1 %52
+  %.226.i = select i1 %49, i1 true, i1 %52
   %.226.i = select i1 %53, ptr %.02450.i, ptr %48
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %46, !llvm.loop !232
 
 ._crit_edge.i:                                    ; preds = %51
-  %54 = icmp eq ptr %.226.i, null
-  br i1 %54, label %_ZN11check_logic3imp9is_offsetEP3app.exit, label %55
+  %52 = icmp eq ptr %.226.i, null
+  br i1 %52, label %_ZN11check_logic3imp9is_offsetEP3app.exit, label %53
 
-55:                                               ; preds = %._crit_edge.i
-  %56 = getelementptr inbounds nuw i8, ptr %.226.i, i64 4
-  %57 = load i32, ptr %56, align 4
-  %58 = and i32 %57, 65535
-  %59 = icmp eq i32 %58, 0
-  br i1 %59, label %60, label %_ZN11check_logic3imp9is_offsetEP3app.exit
+53:                                               ; preds = %._crit_edge.i
+  %54 = getelementptr inbounds nuw i8, ptr %.226.i, i64 4
+  %55 = load i32, ptr %54, align 4
+  %56 = and i32 %55, 65535
+  %57 = icmp eq i32 %56, 0
+  br i1 %57, label %58, label %_ZN11check_logic3imp9is_offsetEP3app.exit
 
-60:                                               ; preds = %55
-  %61 = getelementptr inbounds nuw i8, ptr %.226.i, i64 16
-  %62 = load ptr, ptr %61, align 8, !tbaa !156
-  %63 = getelementptr inbounds nuw i8, ptr %62, i64 24
-  %64 = load ptr, ptr %63, align 8, !tbaa !112
-  %65 = icmp eq ptr %64, null
-  br i1 %65, label %_ZN11check_logic3imp9is_offsetEP3app.exit, label %_ZNK4decl13get_family_idEv.exit.i.i
+58:                                               ; preds = %53
+  %59 = getelementptr inbounds nuw i8, ptr %.226.i, i64 16
+  %60 = load ptr, ptr %59, align 8, !tbaa !156
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 24
+  %62 = load ptr, ptr %61, align 8, !tbaa !112
+  %63 = icmp eq ptr %62, null
+  br i1 %63, label %_ZN11check_logic3imp9is_offsetEP3app.exit, label %_ZNK4decl13get_family_idEv.exit.i.i
 
-_ZNK4decl13get_family_idEv.exit.i.i:              ; preds = %60
-  %66 = load i32, ptr %64, align 8, !tbaa !113
-  %67 = icmp eq i32 %66, -1
-  br i1 %67, label %_ZN11check_logic3imp9is_offsetEP3app.exit, label %_ZNK11check_logic3imp11is_diff_varEP4expr.exit.i
+_ZNK4decl13get_family_idEv.exit.i.i:              ; preds = %58
+  %64 = load i32, ptr %62, align 8, !tbaa !113
+  %65 = icmp eq i32 %64, -1
+  br i1 %65, label %_ZN11check_logic3imp9is_offsetEP3app.exit, label %_ZNK11check_logic3imp11is_diff_varEP4expr.exit.i
 
 _ZNK11check_logic3imp11is_diff_varEP4expr.exit.i: ; preds = %_ZNK4decl13get_family_idEv.exit.i.i
-  %68 = icmp eq i32 %66, 0
-  %69 = getelementptr inbounds nuw i8, ptr %64, i64 4
-  %70 = load i32, ptr %69, align 4
-  %71 = icmp eq i32 %70, 4
-  %72 = select i1 %68, i1 %71, i1 false
-  br i1 %72, label %_ZN11check_logic3imp9is_offsetEP3app.exit, label %_ZNK17arith_recognizers6is_addEPK4expr.exit.i
+  %66 = icmp eq i32 %64, 0
+  %67 = getelementptr inbounds nuw i8, ptr %62, i64 4
+  %68 = load i32, ptr %67, align 4
+  %69 = icmp eq i32 %68, 4
+  %70 = select i1 %66, i1 %69, i1 false
+  br i1 %70, label %_ZN11check_logic3imp9is_offsetEP3app.exit, label %_ZNK17arith_recognizers6is_addEPK4expr.exit.i
 
 _ZNK17arith_recognizers6is_addEPK4expr.exit.i:    ; preds = %_ZNK11check_logic3imp11is_diff_varEP4expr.exit.i
-  %73 = icmp eq i32 %66, 5
-  %74 = and i32 %70, -2
-  %75 = icmp eq i32 %74, 6
-  %or.cond = select i1 %73, i1 %75, i1 false
+  %71 = icmp eq i32 %64, 5
+  %72 = and i32 %68, -2
+  %73 = icmp eq i32 %72, 6
+  %or.cond = select i1 %71, i1 %73, i1 false
   br i1 %or.cond, label %42, label %_ZN11check_logic3imp9is_offsetEP3app.exit
 
-_ZN11check_logic3imp9is_offsetEP3app.exit:        ; preds = %_ZNK17arith_recognizers6is_addEPK4expr.exit.i, %_ZNK11check_logic3imp11is_diff_varEP4expr.exit.i, %_ZNK4decl13get_family_idEv.exit.i.i, %60, %55, %._crit_edge.i, %42, %46, %25, %21, %7, %_ZNK4decl13get_family_idEv.exit.i, %_ZNK17arith_recognizers6is_subEPK4expr.exit, %_ZNK11check_logic3imp11is_diff_varEP4expr.exit.thread9, %_ZNK11check_logic3imp11is_diff_varEP4expr.exit
+_ZN11check_logic3imp9is_offsetEP3app.exit:        ; preds = %_ZNK17arith_recognizers6is_addEPK4expr.exit.i, %_ZNK11check_logic3imp11is_diff_varEP4expr.exit.i, %_ZNK4decl13get_family_idEv.exit.i.i, %58, %53, %._crit_edge.i, %42, %46, %25, %21, %7, %_ZNK4decl13get_family_idEv.exit.i, %_ZNK17arith_recognizers6is_subEPK4expr.exit, %_ZNK11check_logic3imp11is_diff_varEP4expr.exit.thread9, %_ZNK11check_logic3imp11is_diff_varEP4expr.exit
   %.0 = phi i1 [ true, %_ZNK11check_logic3imp11is_diff_varEP4expr.exit.thread9 ], [ true, %_ZNK11check_logic3imp11is_diff_varEP4expr.exit ], [ true, %7 ], [ false, %_ZNK17arith_recognizers6is_subEPK4expr.exit ], [ false, %25 ], [ false, %21 ], [ true, %_ZNK4decl13get_family_idEv.exit.i ], [ false, %46 ], [ false, %_ZNK17arith_recognizers6is_addEPK4expr.exit.i ], [ true, %_ZNK4decl13get_family_idEv.exit.i.i ], [ true, %._crit_edge.i ], [ true, %60 ], [ true, %_ZNK11check_logic3imp11is_diff_varEP4expr.exit.i ], [ false, %55 ], [ true, %42 ]
   ret i1 %.0
 }

@@ -2473,24 +2473,24 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit.i.i: ; pr
 
 181:                                              ; preds = %_ZN4intxeqERKNS_4uintILj256EEES3_.exit12.i.i
   %182 = load i64, ptr %116, align 8, !tbaa !110, !alias.scope !209
-  %.not13.i.i.i.i = icmp sgt i64 %182, 1
+  %.not14.i.i.i.i = icmp sgt i64 %182, 1
   %.pre19.i = load ptr, ptr %18, align 8, !tbaa !107
-  br i1 %.not13.i.i.i.i, label %.lr.ph.i.preheader.i.i.i, label %_ZN4intx9to_stringILj256EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_4uintIXT_EEEi.exit.i
+  br i1 %.not14.i.i.i.i, label %.lr.ph.i.preheader.i.i.i, label %_ZN4intx9to_stringILj256EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_4uintIXT_EEEi.exit.i
 
 .lr.ph.i.preheader.i.i.i:                         ; preds = %181
   %183 = getelementptr inbounds nuw i8, ptr %.pre19.i, i64 %182
-  %.sroa.0.012.i.i.i.i = getelementptr inbounds i8, ptr %183, i64 -1
+  %.sroa.0.013.i.i.i.i = getelementptr inbounds i8, ptr %183, i64 -1
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i, %.lr.ph.i.preheader.i.i.i
-  %.sroa.0.015.i.i.i.i = phi ptr [ %.sroa.0.0.i.i.i.i, %.lr.ph.i.i.i.i ], [ %.sroa.0.012.i.i.i.i, %.lr.ph.i.preheader.i.i.i ]
-  %.sroa.08.014.i.i.i.i = phi ptr [ %186, %.lr.ph.i.i.i.i ], [ %.pre19.i, %.lr.ph.i.preheader.i.i.i ]
-  %184 = load i8, ptr %.sroa.08.014.i.i.i.i, align 1, !tbaa !88
-  %185 = load i8, ptr %.sroa.0.015.i.i.i.i, align 1, !tbaa !88
-  store i8 %185, ptr %.sroa.08.014.i.i.i.i, align 1, !tbaa !88
-  store i8 %184, ptr %.sroa.0.015.i.i.i.i, align 1, !tbaa !88
-  %186 = getelementptr inbounds nuw i8, ptr %.sroa.08.014.i.i.i.i, i64 1
-  %.sroa.0.0.i.i.i.i = getelementptr inbounds i8, ptr %.sroa.0.015.i.i.i.i, i64 -1
+  %.sroa.0.016.i.i.i.i = phi ptr [ %.sroa.0.0.i.i.i.i, %.lr.ph.i.i.i.i ], [ %.sroa.0.013.i.i.i.i, %.lr.ph.i.preheader.i.i.i ]
+  %.sroa.08.015.i.i.i.i = phi ptr [ %186, %.lr.ph.i.i.i.i ], [ %.pre19.i, %.lr.ph.i.preheader.i.i.i ]
+  %184 = load i8, ptr %.sroa.08.015.i.i.i.i, align 1, !tbaa !88
+  %185 = load i8, ptr %.sroa.0.016.i.i.i.i, align 1, !tbaa !88
+  store i8 %185, ptr %.sroa.08.015.i.i.i.i, align 1, !tbaa !88
+  store i8 %184, ptr %.sroa.0.016.i.i.i.i, align 1, !tbaa !88
+  %186 = getelementptr inbounds nuw i8, ptr %.sroa.08.015.i.i.i.i, i64 1
+  %.sroa.0.0.i.i.i.i = getelementptr inbounds i8, ptr %.sroa.0.016.i.i.i.i, i64 -1
   %.not.i.i.i.i = icmp ult ptr %186, %.sroa.0.0.i.i.i.i
   br i1 %.not.i.i.i.i, label %.lr.ph.i.i.i.i, label %_ZN4intx9to_stringILj256EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_4uintIXT_EEEi.exit.loopexit.i, !llvm.loop !215
 

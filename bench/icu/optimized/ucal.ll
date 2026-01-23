@@ -798,9 +798,9 @@ define i32 @ucal_getDSTSavings_77(ptr noundef %0, ptr noundef %1) local_unnamed_
   %17 = tail call noundef double @_ZN6icu_778Calendar6getNowEv()
   br label %18
 
-18:                                               ; preds = %.thread, %27
-  %.01533 = phi i32 [ 0, %.thread ], [ %28, %27 ]
-  %.01632 = phi double [ %17, %.thread ], [ %29, %27 ]
+18:                                               ; preds = %.thread, %25
+  %.01533 = phi i32 [ 0, %.thread ], [ %26, %27 ]
+  %.01632 = phi double [ %17, %.thread ], [ %27, %27 ]
   %.231 = phi i32 [ 0, %.thread ], [ %.4, %27 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -813,31 +813,31 @@ define i32 @ucal_getDSTSavings_77(ptr noundef %0, ptr noundef %1) local_unnamed_
   %24 = load i32, ptr %4, align 4
   %.not24 = icmp eq i32 %24, 0
   %25 = xor i1 %.not24, true
-  %26 = select i1 %23, i1 %25, i1 false
+  %.4 = select i1 %23, i1 %25, i1 false
   %.4 = select i1 %26, i32 %24, i32 %.231
   %cond = select i1 %23, i1 %.not24, i1 false
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br i1 %cond, label %27, label %.thread26
+  br i1 %cond, label %25, label %.thread26
 
-27:                                               ; preds = %18
-  %28 = add nuw nsw i32 %.01533, 1
-  %29 = fadd double %.01632, 6.048000e+08
-  %exitcond.not = icmp eq i32 %28, 53
+25:                                               ; preds = %18
+  %26 = add nuw nsw i32 %.01533, 1
+  %27 = fadd double %.01632, 6.048000e+08
+  %exitcond.not = icmp eq i32 %26, 53
   br i1 %exitcond.not, label %.thread26, label %18, !llvm.loop !25
 
 .loopexit:                                        ; preds = %2
-  br i1 %8, label %33, label %.thread26
+  br i1 %8, label %31, label %.thread26
 
-.thread26:                                        ; preds = %27, %18, %12, %.loopexit
+.thread26:                                        ; preds = %25, %18, %12, %.loopexit
   %.01728 = phi i32 [ 0, %.loopexit ], [ %16, %12 ], [ %.4, %18 ], [ %.4, %27 ]
-  %30 = load ptr, ptr %5, align 8, !tbaa !15
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  %32 = load ptr, ptr %31, align 8
+  %28 = load ptr, ptr %5, align 8, !tbaa !15
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  %30 = load ptr, ptr %29, align 8
   call void %32(ptr noundef nonnull align 8 dereferenceable(72) %5) #14
-  br label %33
+  br label %31
 
-33:                                               ; preds = %.thread26, %.loopexit
+31:                                               ; preds = %.thread26, %.loopexit
   %.01729 = phi i32 [ %.01728, %.thread26 ], [ 0, %.loopexit ]
   ret i32 %.01729
 }

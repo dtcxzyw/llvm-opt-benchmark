@@ -1237,13 +1237,13 @@ define hidden noundef zeroext i1 @SDL_GetPowerInfo_Linux_org_freedesktop_upower(
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 0, ptr %8, align 4
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %64, label %10
+  br i1 %.not, label %65, label %10
 
 10:                                               ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = call zeroext i1 (ptr, ptr, ptr, ptr, ptr, ...) @SDL_DBus_CallMethodOnConnection(ptr noundef %12, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.20, i32 noundef 0, i32 noundef 97, i32 noundef 111, ptr noundef nonnull %7, ptr noundef nonnull %8, i32 noundef 0) #6
-  br i1 %13, label %14, label %64
+  br i1 %13, label %14, label %65
 
 14:                                               ; preds = %10
   store i32 2, ptr %0, align 4
@@ -1362,19 +1362,19 @@ check_upower_device.exit:                         ; preds = %.lr.ph, %23, %26, %
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %58 = load i32, ptr %8, align 4
-  %59 = sext i32 %58 to i64
-  %60 = icmp slt i64 %indvars.iv.next, %59
-  br i1 %60, label %.lr.ph, label %._crit_edge, !llvm.loop !14
+  %59 = load i32, ptr %8, align 4
+  %60 = sext i32 %59 to i64
+  %61 = icmp slt i64 %indvars.iv.next, %60
+  br i1 %61, label %.lr.ph, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %check_upower_device.exit, %14
-  %61 = getelementptr inbounds nuw i8, ptr %9, i64 384
-  %62 = load ptr, ptr %61, align 8
-  %63 = load ptr, ptr %7, align 8
-  call void %62(ptr noundef %63) #6
-  br label %64
+  %62 = getelementptr inbounds nuw i8, ptr %9, i64 384
+  %63 = load ptr, ptr %62, align 8
+  %64 = load ptr, ptr %7, align 8
+  call void %62(ptr noundef %64) #6
+  br label %65
 
-64:                                               ; preds = %3, %10, %._crit_edge
+65:                                               ; preds = %3, %10, %._crit_edge
   %.014 = phi i1 [ true, %._crit_edge ], [ false, %10 ], [ false, %3 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)

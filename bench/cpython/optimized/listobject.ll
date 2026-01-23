@@ -6241,9 +6241,9 @@ define internal fastcc range(i64 -9223372036854775808, 1) i64 @merge_at(ptr noun
   %47 = getelementptr ptr, ptr %.sroa.0.0.copyload110, i64 %45
   %48 = load ptr, ptr %47, align 8, !tbaa !112
   %49 = tail call i32 %46(ptr noundef %20, ptr noundef %48, ptr noundef nonnull %0) #12
-  %.not85.not.i = icmp eq i32 %49, 0
+  %50 = icmp eq i32 %49, 0
   %50 = add i64 %45, 1
-  %.675.i = select i1 %.not85.not.i, i64 %50, i64 %.574.i
+  %.675.i = select i1 %50, i64 %50, i64 %.574.i
   %51 = icmp slt i32 %49, 1
   %.8.i = select i1 %51, i64 %.7.i, i64 %45
   %52 = icmp sgt i32 %49, -1
@@ -6568,9 +6568,9 @@ sortslice_copy_incr.exit120.i:                    ; preds = %134, %130
   %171 = getelementptr ptr, ptr %.sroa.0194.6.i, i64 %169
   %172 = load ptr, ptr %171, align 8, !tbaa !112
   %173 = tail call i32 %170(ptr noundef %145, ptr noundef %172, ptr noundef nonnull %0) #12
-  %.not85.not.i.i = icmp eq i32 %173, 0
+  %174 = icmp eq i32 %173, 0
   %174 = add i64 %169, 1
-  %.675.i.i = select i1 %.not85.not.i.i, i64 %174, i64 %.574.i.i
+  %.675.i.i = select i1 %174, i64 %174, i64 %.574.i.i
   %175 = icmp slt i32 %173, 1
   %.8.i.i = select i1 %175, i64 %.7.i.i, i64 %169
   %176 = icmp sgt i32 %173, -1
@@ -6702,11 +6702,11 @@ sortslice_copy_incr.exit129.i:                    ; preds = %191, %187
   %224 = getelementptr ptr, ptr %188, i64 %222
   %225 = load ptr, ptr %224, align 8, !tbaa !112
   %226 = tail call i32 %223(ptr noundef %225, ptr noundef %198, ptr noundef nonnull %0) #12
-  %.not85.not.i136.i = icmp eq i32 %226, 0
+  %227 = icmp eq i32 %226, 0
   %227 = add i64 %222, 1
   %228 = icmp slt i32 %226, 1
   %.675.i137.i = select i1 %228, i64 %.574.i133.i, i64 %227
-  %.8.i138.i = select i1 %.not85.not.i136.i, i64 %222, i64 %.7.i134.i
+  %.675.i137.i = select i1 %.not85.not.i136.i, i64 %222, i64 %.7.i134.i
   %229 = icmp sgt i32 %226, -1
   br i1 %229, label %217, label %.thread220.i
 
@@ -7135,9 +7135,9 @@ sortslice_copy_decr.exit138.i:                    ; preds = %337, %333
   %378 = getelementptr ptr, ptr %54, i64 %376
   %379 = load ptr, ptr %378, align 8, !tbaa !112
   %380 = tail call i32 %377(ptr noundef %348, ptr noundef %379, ptr noundef nonnull %0) #12
-  %.not85.not.i94 = icmp eq i32 %380, 0
+  %381 = icmp eq i32 %380, 0
   %381 = add i64 %376, 1
-  %.675.i95 = select i1 %.not85.not.i94, i64 %381, i64 %.574.i91
+  %.675.i95 = select i1 %381, i64 %381, i64 %.574.i91
   %382 = icmp slt i32 %380, 1
   %.8.i96 = select i1 %382, i64 %.7.i92, i64 %376
   %383 = icmp sgt i32 %380, -1
@@ -7452,11 +7452,11 @@ define internal fastcc i64 @gallop_left(ptr noundef nonnull %0, ptr noundef %1, 
   %53 = getelementptr ptr, ptr %2, i64 %51
   %54 = load ptr, ptr %53, align 8, !tbaa !112
   %55 = tail call i32 %52(ptr noundef %54, ptr noundef %1, ptr noundef nonnull %0) #12
-  %.not85.not = icmp eq i32 %55, 0
+  %56 = icmp eq i32 %55, 0
   %56 = add i64 %51, 1
   %57 = icmp slt i32 %55, 1
   %.675 = select i1 %57, i64 %.574, i64 %56
-  %.8 = select i1 %.not85.not, i64 %51, i64 %.7
+  %.675 = select i1 %56, i64 %51, i64 %.7
   %58 = icmp sgt i32 %55, -1
   br i1 %58, label %46, label %.loopexit
 

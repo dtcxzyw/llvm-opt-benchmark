@@ -2870,7 +2870,7 @@ vpx_rac_renorm.exit1458.i:                        ; preds = %1739, %1733, %1714
 
 1846:                                             ; preds = %1842
   %1847 = and i1 %.not1350.i, %1845
-  %1848 = select i1 %1847, i64 2, i64 4
+  %1847 = select i1 %1847, i64 2, i64 4
   br label %1894
 
 1849:                                             ; preds = %1819
@@ -2886,7 +2886,7 @@ vpx_rac_renorm.exit1458.i:                        ; preds = %1739, %1733, %1714
 
 1854:                                             ; preds = %1850
   %1855 = and i1 %.not1353.i, %1853
-  %1856 = select i1 %1855, i64 2, i64 4
+  %1855 = select i1 %1855, i64 2, i64 4
   br label %1894
 
 1857:                                             ; preds = %1849

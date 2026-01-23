@@ -1293,7 +1293,7 @@ agprvnode.exit:                                   ; preds = %23, %25, %30
   %34 = getelementptr inbounds nuw i8, ptr %3, i64 64
   br label %35
 
-35:                                               ; preds = %55, %agprvnode.exit
+35:                                               ; preds = %54, %agprvnode.exit
   %.039 = phi ptr [ %33, %agprvnode.exit ], [ %.140, %55 ]
   %36 = tail call ptr @agsubrep(ptr noundef nonnull %3, ptr noundef %.039) #19
   %.not.i49 = icmp eq ptr %36, null
@@ -1332,34 +1332,34 @@ agprvnode.exit51:                                 ; preds = %35, %37, %41
   %54 = and i1 %53, %.not44
   %.140 = select i1 %54, ptr %44, ptr %.039
   switch i32 %.041, label %.loopexit [
-    i32 0, label %55
-    i32 2, label %56
+    i32 0, label %54
+    i32 2, label %55
   ]
 
-55:                                               ; preds = %46
+54:                                               ; preds = %46
   %.not45 = icmp eq ptr %.140, null
-  br i1 %.not45, label %56, label %35, !llvm.loop !57
+  br i1 %.not45, label %55, label %35, !llvm.loop !57
 
-56:                                               ; preds = %55, %46
+55:                                               ; preds = %54, %46
   %.140.lcssa = phi ptr [ null, %55 ], [ %.140, %46 ]
-  %57 = tail call i32 @agapply(ptr noundef nonnull %3, ptr noundef nonnull %1, ptr noundef nonnull @agnodesetfinger, ptr noundef %.140.lcssa, i32 noundef 0) #19
-  %.not46 = icmp eq i32 %57, 0
-  br i1 %.not46, label %58, label %.loopexit
+  %56 = tail call i32 @agapply(ptr noundef nonnull %3, ptr noundef nonnull %1, ptr noundef nonnull @agnodesetfinger, ptr noundef %.140.lcssa, i32 noundef 0) #19
+  %.not46 = icmp eq i32 %56, 0
+  br i1 %.not46, label %57, label %.loopexit
 
-58:                                               ; preds = %56
-  %59 = load i32, ptr %0, align 8
-  %60 = load i32, ptr %1, align 8
-  %61 = and i32 %59, -16
-  %62 = add i32 %61, -16
-  %63 = and i32 %60, 15
-  %64 = or disjoint i32 %63, %62
-  store i32 %64, ptr %1, align 8
-  %65 = tail call i32 @agapply(ptr noundef nonnull %3, ptr noundef nonnull %1, ptr noundef nonnull @agnoderenew, ptr noundef nonnull %1, i32 noundef 0) #19
-  %.not47 = icmp ne i32 %65, 0
+57:                                               ; preds = %55
+  %58 = load i32, ptr %0, align 8
+  %59 = load i32, ptr %1, align 8
+  %60 = and i32 %58, -16
+  %61 = add i32 %60, -16
+  %62 = and i32 %59, 15
+  %63 = or disjoint i32 %62, %61
+  store i32 %63, ptr %1, align 8
+  %64 = tail call i32 @agapply(ptr noundef nonnull %3, ptr noundef nonnull %1, ptr noundef nonnull @agnoderenew, ptr noundef nonnull %1, i32 noundef 0) #19
+  %.not47 = icmp ne i32 %64, 0
   %.48 = sext i1 %.not47 to i32
   br label %.loopexit
 
-.loopexit:                                        ; preds = %agprvnode.exit51, %46, %58, %56, %11, %9, %2
+.loopexit:                                        ; preds = %agprvnode.exit51, %46, %57, %55, %11, %9, %2
   %.0 = phi i32 [ -1, %56 ], [ 0, %2 ], [ -1, %9 ], [ -1, %11 ], [ %.48, %58 ], [ -1, %46 ], [ -1, %agprvnode.exit51 ]
   ret i32 %.0
 }

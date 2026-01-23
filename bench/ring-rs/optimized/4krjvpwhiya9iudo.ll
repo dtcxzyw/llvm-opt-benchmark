@@ -240,12 +240,12 @@ define hidden { ptr, ptr } @_ZN9untrusted5input5Input8read_all17h3b5501a55f45cda
   %4 = icmp ult i64 %3, 64
   %5 = load ptr, ptr %0, align 8, !nonnull !4, !align !12
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %.not = icmp eq i64 %3, 64
+  %7 = icmp eq i64 %3, 64
   %spec.select14 = select i1 %4, ptr undef, ptr %6
-  %.sroa.0.0 = select i1 %.not, ptr %5, ptr null
-  %7 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
-  %8 = insertvalue { ptr, ptr } %7, ptr %spec.select14, 1
-  ret { ptr, ptr } %8
+  %.sroa.0.0 = select i1 %7, ptr %5, ptr null
+  %8 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
+  %9 = insertvalue { ptr, ptr } %8, ptr %spec.select14, 1
+  ret { ptr, ptr } %9
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -572,10 +572,10 @@ define hidden { ptr, i64 } @_ZN9untrusted5input5Input8read_all17h7e0efe2a6d6e25c
   %.sroa.6.0.copyload.i.i = load i64, ptr %.sroa.6.0..sroa_idx.i.i, align 8, !noalias !83
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !83
   %.not.i.i = icmp ne i8 %.sroa.04.0.copyload.i.i, 4
-  %12 = select i1 %11, i1 true, i1 %.not.i.i
-  br i1 %12, label %17, label %13
+  %.sroa.52.0..i.i = select i1 %11, i1 true, i1 %.not.i.i
+  br i1 %.sroa.52.0..i.i, label %17, label %13
 
-13:                                               ; preds = %1
+13:; preds = %1
   %14 = load i64, ptr %8, align 8, !noundef !4
   %15 = load i64, ptr %7, align 8, !noundef !4
   %16 = icmp eq i64 %14, %15
@@ -583,13 +583,13 @@ define hidden { ptr, i64 } @_ZN9untrusted5input5Input8read_all17h7e0efe2a6d6e25c
   %.sroa.01.0. = select i1 %16, ptr %10, ptr null
   br label %17
 
-17:                                               ; preds = %1, %13
+17:; preds = %1, %13
   %.sroa.4.0 = phi i64 [ %.sroa.7.0., %13 ], [ undef, %1 ]
   %.sroa.0.0 = phi ptr [ %.sroa.01.0., %13 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %18 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
-  %19 = insertvalue { ptr, i64 } %18, i64 %.sroa.4.0, 1
-  ret { ptr, i64 } %19
+  %20 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
+  %21 = insertvalue { ptr, i64 } %20, i64 %.sroa.4.0, 1
+  ret { ptr, i64 } %21
 }
 
 ; Function Attrs: nonlazybind uwtable

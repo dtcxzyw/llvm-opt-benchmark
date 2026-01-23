@@ -345,10 +345,10 @@ define hidden noundef i32 @_ZNK7nanogui6Widget9font_sizeEv(ptr noundef nonnull r
   %6 = load ptr, ptr %5, align 8
   %.not = icmp ne ptr %6, null
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %8 = select i1 %4, i1 %.not, i1 false
-  %.in = select i1 %8, ptr %7, ptr %2
-  %9 = load i32, ptr %.in, align 8
-  ret i32 %9
+  %spec.select = select i1 %4, i1 %.not, i1 false
+  %.in = select i1 %spec.select, ptr %7, ptr %2
+  %8 = load i32, ptr %.in, align 8
+  ret i32 %8
 }
 
 ; Function Attrs: mustprogress uwtable

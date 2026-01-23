@@ -5732,7 +5732,7 @@ define dso_local void @_ZN8Function6OutputERSo(ptr noundef nonnull align 8 deref
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 267
   %6 = load i8, ptr %5, align 1, !tbaa !117, !range !114, !noundef !115
   %7 = trunc nuw i8 %6 to i1
-  br i1 %7, label %75, label %.noexc.i
+  br i1 %7, label %74, label %.noexc.i
 
 .noexc.i:                                         ; preds = %2
   tail call void @_ZN9OutputMgr13set_curr_funcERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -5848,37 +5848,37 @@ _Z21get_fact_mgr_for_funcPK8Function.exit:        ; preds = %41, %31, %43
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %57 = load ptr, ptr %56, align 8
   %.not = icmp ne ptr %55, %57
-  %58 = select i1 %or.cond, i1 true, i1 %.not
+  %spec.select = select i1 %or.cond, i1 true, i1 %.not
   %.0 = select i1 %58, ptr %47, ptr null
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %60 = load ptr, ptr %59, align 8, !tbaa !80
-  %61 = load ptr, ptr %60, align 8, !tbaa !78
-  %62 = getelementptr inbounds nuw i8, ptr %61, i64 72
-  %63 = load ptr, ptr %62, align 8
-  call void %63(ptr noundef nonnull align 8 dereferenceable(192) %60, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %.0, i32 noundef 0)
-  %64 = call noundef zeroext i1 @_ZN9CGOptions13depth_protectEv()
-  br i1 %64, label %65, label %74
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  %59 = load ptr, ptr %58, align 8, !tbaa !80
+  %60 = load ptr, ptr %59, align 8, !tbaa !78
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 72
+  %62 = load ptr, ptr %61, align 8
+  call void %63(ptr noundef nonnull align 8 dereferenceable(192) %59, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %.0, i32 noundef 0)
+  %63 = call noundef zeroext i1 @_ZN9CGOptions13depth_protectEv()
+  br i1 %63, label %64, label %73
 
-65:                                               ; preds = %_Z21get_fact_mgr_for_funcPK8Function.exit
-  %66 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.61, i64 noundef 4)
+64:                                               ; preds = %_Z21get_fact_mgr_for_funcPK8Function.exit
+  %65 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.61, i64 noundef 4)
   call void @_Z8outputlnRSo(ptr noundef nonnull align 8 dereferenceable(8) %1)
-  %67 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.62, i64 noundef 7)
-  %68 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  %69 = load ptr, ptr %68, align 8, !tbaa !211
-  %70 = load ptr, ptr %69, align 8, !tbaa !78
-  %71 = getelementptr inbounds nuw i8, ptr %70, i64 144
-  %72 = load ptr, ptr %71, align 8
-  call void %72(ptr noundef nonnull align 8 dereferenceable(64) %69, ptr noundef nonnull align 8 dereferenceable(8) %1)
-  %73 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.58, i64 noundef 1)
+  %66 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.62, i64 noundef 7)
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 200
+  %68 = load ptr, ptr %67, align 8, !tbaa !211
+  %69 = load ptr, ptr %68, align 8, !tbaa !78
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 144
+  %71 = load ptr, ptr %70, align 8
+  call void %72(ptr noundef nonnull align 8 dereferenceable(64) %68, ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %72 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.58, i64 noundef 1)
+  call void @_Z8outputlnRSo(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  br label %73
+
+73:                                               ; preds = %64, %_Z21get_fact_mgr_for_funcPK8Function.exit
+  call void @_Z8outputlnRSo(ptr noundef nonnull align 8 dereferenceable(8) %1)
   call void @_Z8outputlnRSo(ptr noundef nonnull align 8 dereferenceable(8) %1)
   br label %74
 
-74:                                               ; preds = %65, %_Z21get_fact_mgr_for_funcPK8Function.exit
-  call void @_Z8outputlnRSo(ptr noundef nonnull align 8 dereferenceable(8) %1)
-  call void @_Z8outputlnRSo(ptr noundef nonnull align 8 dereferenceable(8) %1)
-  br label %75
-
-75:                                               ; preds = %2, %74
+74:                                               ; preds = %2, %73
   ret void
 }
 

@@ -844,7 +844,7 @@ define void @Gia_ObjSetPhase(ptr noundef readonly captures(none) %0, ptr noundef
   %4 = and i64 %.val, 536870911
   %5 = icmp ne i64 %4, 536870911
   %narrow.i = and i1 %.not.i, %5
-  br i1 %narrow.i, label %6, label %59
+  br i1 %narrow.i, label %6, label %60
 
 6:                                                ; preds = %2
   %7 = sub nsw i64 0, %4
@@ -894,59 +894,59 @@ Gia_ObjFaninC2.exit:                              ; preds = %Gia_ObjIsMux.exit
   %37 = lshr i64 %.val35, 63
   %38 = trunc nuw nsw i64 %37 to i32
   %39 = and i32 %33, 1
-  %.not53 = icmp eq i32 %39, %38
-  %40 = icmp ne i32 %23, %20
+  %40 = icmp eq i32 %39, %38
+  %41 = icmp ne i32 %23, %20
   %41 = icmp ne i32 %13, %10
   %42 = select i1 %.not53, i1 %41, i1 %40
-  %43 = select i1 %42, i64 -9223372036854775808, i64 0
+  %.not32 = select i1 %42, i64 -9223372036854775808, i64 0
   %44 = and i64 %.val, 9223372034707292159
   %45 = or disjoint i64 %43, %44
   br label %70
 
 Gia_ObjIsXor.exit:                                ; preds = %Gia_ObjIsMux.exit, %6
-  %46 = and i32 %11, 536870911
-  %47 = trunc nuw i64 %15 to i32
-  %48 = and i32 %47, 536870911
-  %.not54 = icmp samesign ult i32 %46, %48
-  %49 = and i64 %.val, 9223372034707292159
-  br i1 %.not54, label %50, label %Gia_ObjIsXor.exit.thread
+  %47 = and i32 %11, 536870911
+  %48 = trunc nuw i64 %15 to i32
+  %49 = and i32 %48, 536870911
+  %.not53 = icmp samesign ult i32 %47, %49
+  %50 = and i64 %.val, 9223372034707292159
+  br i1 %.not53, label %51, label %Gia_ObjIsXor.exit.thread
 
-50:                                               ; preds = %Gia_ObjIsXor.exit
-  %51 = xor i32 %24, %14
-  %52 = zext nneg i32 %51 to i64
-  %53 = shl nuw i64 %52, 63
-  %54 = or disjoint i64 %53, %49
-  br label %70
+51:                                               ; preds = %Gia_ObjIsXor.exit
+  %52 = xor i32 %24, %14
+  %53 = zext nneg i32 %52 to i64
+  %54 = shl nuw i64 %53, 63
+  %55 = or disjoint i64 %54, %50
+  br label %71
 
 Gia_ObjIsXor.exit.thread:                         ; preds = %Gia_ObjIsXor.exit
-  %55 = and i32 %24, %14
-  %56 = zext nneg i32 %55 to i64
-  %57 = shl nuw i64 %56, 63
-  %58 = or disjoint i64 %57, %49
-  br label %70
+  %56 = and i32 %24, %14
+  %57 = zext nneg i32 %56 to i64
+  %58 = shl nuw i64 %57, 63
+  %59 = or disjoint i64 %58, %50
+  br label %71
 
-59:                                               ; preds = %2
+60:                                               ; preds = %2
   %.not.i49 = icmp ne i64 %3, 0
   %narrow.i50 = and i1 %.not.i49, %5
-  br i1 %narrow.i50, label %60, label %68
+  br i1 %narrow.i50, label %61, label %69
 
-60:                                               ; preds = %59
-  %61 = sub nsw i64 0, %4
-  %62 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %1, i64 %61
-  %.val36 = load i64, ptr %62, align 4
-  %63 = shl i64 %.val, 34
-  %64 = xor i64 %.val36, %63
-  %65 = and i64 %64, -9223372036854775808
-  %66 = and i64 %.val, 9223372036854775807
-  %67 = or disjoint i64 %65, %66
-  br label %70
+61:                                               ; preds = %60
+  %62 = sub nsw i64 0, %4
+  %63 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %1, i64 %62
+  %.val36 = load i64, ptr %63, align 4
+  %64 = shl i64 %.val, 34
+  %65 = xor i64 %.val36, %64
+  %66 = and i64 %65, -9223372036854775808
+  %67 = and i64 %.val, 9223372036854775807
+  %68 = or disjoint i64 %66, %67
+  br label %71
 
-68:                                               ; preds = %59
-  %69 = and i64 %.val, 9223372036854775807
-  br label %70
+69:                                               ; preds = %60
+  %70 = and i64 %.val, 9223372036854775807
+  br label %71
 
-70:                                               ; preds = %Gia_ObjFaninC2.exit, %Gia_ObjIsXor.exit.thread, %50, %60, %68
-  %.sink = phi i64 [ %45, %Gia_ObjFaninC2.exit ], [ %58, %Gia_ObjIsXor.exit.thread ], [ %54, %50 ], [ %67, %60 ], [ %69, %68 ]
+71:                                               ; preds = %Gia_ObjFaninC2.exit, %Gia_ObjIsXor.exit.thread, %51, %61, %69
+  %.sink = phi i64 [ %45, %Gia_ObjFaninC2.exit ], [ %59, %Gia_ObjIsXor.exit.thread ], [ %55, %50 ], [ %68, %60 ], [ %70, %68 ]
   store i64 %.sink, ptr %1, align 4
   ret void
 }

@@ -2271,10 +2271,10 @@ define linkonce_odr ptr @_ZSt21__unguarded_partitionIN9__gnu_cxx17__normal_itera
   %6 = load i32, ptr %5, align 8
   %7 = freeze i32 %6
   %8 = load ptr, ptr %0, align 8
-  %.sroa.07.0.copyload.i.i4448 = load i32, ptr %8, align 8
-  %9 = add i32 %.sroa.07.0.copyload.i.i4448, -1
-  %or.cond.not.i.i.i4549 = icmp ult i32 %9, %7
-  br i1 %or.cond.not.i.i.i4549, label %_ZNK3nix11SymbolTableixENS_6SymbolE.exit.i.i.lr.ph.lr.ph, label %._crit_edge
+  %.sroa.07.0.copyload.i.i4549 = load i32, ptr %8, align 8
+  %9 = add i32 %.sroa.07.0.copyload.i.i4549, -1
+  %or.cond.not.i.i.i4650 = icmp ult i32 %9, %7
+  br i1 %or.cond.not.i.i.i4650, label %_ZNK3nix11SymbolTableixENS_6SymbolE.exit.i.i.lr.ph.lr.ph, label %._crit_edge
 
 _ZNK3nix11SymbolTableixENS_6SymbolE.exit.i.i.lr.ph.lr.ph: ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 64
@@ -2284,8 +2284,8 @@ _ZNK3nix11SymbolTableixENS_6SymbolE.exit.i.i.lr.ph: ; preds = %_ZNK3nix11SymbolT
   %11 = phi i32 [ %9, %_ZNK3nix11SymbolTableixENS_6SymbolE.exit.i.i.lr.ph.lr.ph ], [ %72, %67 ]
   %12 = phi ptr [ %8, %_ZNK3nix11SymbolTableixENS_6SymbolE.exit.i.i.lr.ph.lr.ph ], [ %71, %67 ]
   %13 = phi i32 [ %7, %_ZNK3nix11SymbolTableixENS_6SymbolE.exit.i.i.lr.ph.lr.ph ], [ %70, %67 ]
-  %.sroa.027.051 = phi ptr [ %0, %_ZNK3nix11SymbolTableixENS_6SymbolE.exit.i.i.lr.ph.lr.ph ], [ %68, %67 ]
-  %.sroa.024.050 = phi ptr [ %1, %_ZNK3nix11SymbolTableixENS_6SymbolE.exit.i.i.lr.ph.lr.ph ], [ %.sroa.024.1, %67 ]
+  %.sroa.027.052 = phi ptr [ %0, %_ZNK3nix11SymbolTableixENS_6SymbolE.exit.i.i.lr.ph.lr.ph ], [ %68, %67 ]
+  %.sroa.024.051 = phi ptr [ %1, %_ZNK3nix11SymbolTableixENS_6SymbolE.exit.i.i.lr.ph.lr.ph ], [ %.sroa.024.1, %67 ]
   %14 = load ptr, ptr %2, align 8
   %15 = load ptr, ptr %10, align 8
   %.sroa.04.0.copyload.i.i = load i32, ptr %14, align 8
@@ -2311,7 +2311,7 @@ _ZNK3nix11SymbolTableixENS_6SymbolE.exit.i.i.lr.ph.split: ; preds = %_ZNK3nix11S
 _ZNK3nix11SymbolTableixENS_6SymbolE.exit.i.i:     ; preds = %_ZNK3nix11SymbolTableixENS_6SymbolE.exit.i.i.lr.ph.split, %44
   %25 = phi i32 [ %11, %_ZNK3nix11SymbolTableixENS_6SymbolE.exit.i.i.lr.ph.split ], [ %47, %44 ]
   %26 = phi ptr [ %12, %_ZNK3nix11SymbolTableixENS_6SymbolE.exit.i.i.lr.ph.split ], [ %46, %44 ]
-  %.sroa.027.146 = phi ptr [ %.sroa.027.051, %_ZNK3nix11SymbolTableixENS_6SymbolE.exit.i.i.lr.ph.split ], [ %45, %44 ]
+  %.sroa.027.147 = phi ptr [ %.sroa.027.052, %_ZNK3nix11SymbolTableixENS_6SymbolE.exit.i.i.lr.ph.split ], [ %45, %44 ]
   %27 = zext i32 %25 to i64
   %28 = lshr i64 %27, 13
   %29 = getelementptr inbounds nuw %"class.std::vector.22", ptr %15, i64 %28
@@ -2352,7 +2352,7 @@ _ZNK3nix11SymbolTableixENS_6SymbolE.exit.i.i11.preheader: ; preds = %_ZN9__gnu_c
   br label %_ZNK3nix11SymbolTableixENS_6SymbolE.exit.i.i11
 
 44:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK3nix8Bindings18lexicographicOrderERKNS2_11SymbolTableEEUlPKNS2_4AttrES9_E_EclINS_17__normal_iteratorIPS9_St6vectorIS9_SaIS9_EEEESI_EEbT_T0_.exit
-  %45 = getelementptr inbounds nuw i8, ptr %.sroa.027.146, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %.sroa.027.147, i64 8
   %46 = load ptr, ptr %45, align 8
   %.sroa.07.0.copyload.i.i = load i32, ptr %46, align 8
   %47 = add i32 %.sroa.07.0.copyload.i.i, -1
@@ -2360,7 +2360,7 @@ _ZNK3nix11SymbolTableixENS_6SymbolE.exit.i.i11.preheader: ; preds = %_ZN9__gnu_c
   br i1 %or.cond.not.i.i.i, label %_ZNK3nix11SymbolTableixENS_6SymbolE.exit.i.i, label %._crit_edge, !llvm.loop !17
 
 _ZNK3nix11SymbolTableixENS_6SymbolE.exit.i.i11:   ; preds = %_ZNK3nix11SymbolTableixENS_6SymbolE.exit.i.i11.preheader, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK3nix8Bindings18lexicographicOrderERKNS2_11SymbolTableEEUlPKNS2_4AttrES9_E_EclINS_17__normal_iteratorIPS9_St6vectorIS9_SaIS9_EEEESI_EEbT_T0_.exit22
-  %.sroa.024.0.pn = phi ptr [ %.sroa.024.1, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK3nix8Bindings18lexicographicOrderERKNS2_11SymbolTableEEUlPKNS2_4AttrES9_E_EclINS_17__normal_iteratorIPS9_St6vectorIS9_SaIS9_EEEESI_EEbT_T0_.exit22 ], [ %.sroa.024.050, %_ZNK3nix11SymbolTableixENS_6SymbolE.exit.i.i11.preheader ]
+  %.sroa.024.0.pn = phi ptr [ %.sroa.024.1, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK3nix8Bindings18lexicographicOrderERKNS2_11SymbolTableEEUlPKNS2_4AttrES9_E_EclINS_17__normal_iteratorIPS9_St6vectorIS9_SaIS9_EEEESI_EEbT_T0_.exit22 ], [ %.sroa.024.051, %_ZNK3nix11SymbolTableixENS_6SymbolE.exit.i.i11.preheader ]
   %.sroa.024.1 = getelementptr inbounds i8, ptr %.sroa.024.0.pn, i64 -8
   %48 = load ptr, ptr %.sroa.024.1, align 8
   %.sroa.04.0.copyload.i.i12 = load i32, ptr %48, align 8
@@ -2404,23 +2404,23 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK3nix8Bindings18lexicographicOrderERKNS2_
   br i1 %64, label %_ZNK3nix11SymbolTableixENS_6SymbolE.exit.i.i11, label %65, !llvm.loop !18
 
 65:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK3nix8Bindings18lexicographicOrderERKNS2_11SymbolTableEEUlPKNS2_4AttrES9_E_EclINS_17__normal_iteratorIPS9_St6vectorIS9_SaIS9_EEEESI_EEbT_T0_.exit22
-  %.not = icmp ult ptr %.sroa.027.146, %.sroa.024.1
+  %.not = icmp ult ptr %.sroa.027.147, %.sroa.024.1
   br i1 %.not, label %67, label %66
 
 66:                                               ; preds = %65
-  ret ptr %.sroa.027.146
+  ret ptr %.sroa.027.147
 
 67:                                               ; preds = %65
-  store ptr %48, ptr %.sroa.027.146, align 8
+  store ptr %48, ptr %.sroa.027.147, align 8
   store ptr %26, ptr %.sroa.024.1, align 8
-  %68 = getelementptr inbounds nuw i8, ptr %.sroa.027.146, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %.sroa.027.147, i64 8
   %69 = load i32, ptr %5, align 8
   %70 = freeze i32 %69
   %71 = load ptr, ptr %68, align 8
-  %.sroa.07.0.copyload.i.i44 = load i32, ptr %71, align 8
-  %72 = add i32 %.sroa.07.0.copyload.i.i44, -1
-  %or.cond.not.i.i.i45 = icmp ult i32 %72, %70
-  br i1 %or.cond.not.i.i.i45, label %_ZNK3nix11SymbolTableixENS_6SymbolE.exit.i.i.lr.ph, label %._crit_edge, !llvm.loop !19
+  %.sroa.07.0.copyload.i.i45 = load i32, ptr %71, align 8
+  %72 = add i32 %.sroa.07.0.copyload.i.i45, -1
+  %or.cond.not.i.i.i46 = icmp ult i32 %72, %70
+  br i1 %or.cond.not.i.i.i46, label %_ZNK3nix11SymbolTableixENS_6SymbolE.exit.i.i.lr.ph, label %._crit_edge, !llvm.loop !19
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)

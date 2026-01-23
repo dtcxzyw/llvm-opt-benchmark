@@ -585,15 +585,15 @@ define hidden void @_ZN17ShenandoahAsserts13print_failureENS_9SafeLevelEP7oopDes
   %.not.i = icmp eq i64 %29, 0
   %.not44 = or i1 %28, %.not.i
   call void (ptr, ptr, ...) @_ZN12FormatBufferILm8192EE6appendEPKcz(ptr noundef nonnull align 8 dereferenceable(8200) %9, ptr noundef nonnull @.str.24)
-  %.not3242 = icmp eq ptr %1, %30
-  %.not32 = or i1 %.not44, %.not3242
+  %.not3244 = icmp eq ptr %1, %30
+  %.not32 = or i1 %.not44, %.not3244
   br i1 %.not32, label %32, label %31
 
 31:                                               ; preds = %25
   %.not33 = icmp eq i32 %0, 1
-  br i1 %.not33, label %.sink.split, label %.thread40
+  br i1 %.not33, label %.sink.split, label %.thread42
 
-.thread40:                                        ; preds = %31
+.thread42:                                        ; preds = %31
   call void @_ZN17ShenandoahAsserts9print_objER12FormatBufferILm8192EEP7oopDesc(ptr noundef nonnull align 8 dereferenceable(8200) %9, ptr noundef %30)
   call void (ptr, ptr, ...) @_ZN12FormatBufferILm8192EE6appendEPKcz(ptr noundef nonnull align 8 dereferenceable(8200) %9, ptr noundef nonnull @.str)
   br label %33
@@ -602,9 +602,9 @@ define hidden void @_ZN17ShenandoahAsserts13print_failureENS_9SafeLevelEP7oopDes
   call void (ptr, ptr, ...) @_ZN12FormatBufferILm8192EE6appendEPKcz(ptr noundef nonnull align 8 dereferenceable(8200) %9, ptr noundef nonnull @.str.25)
   call void (ptr, ptr, ...) @_ZN12FormatBufferILm8192EE6appendEPKcz(ptr noundef nonnull align 8 dereferenceable(8200) %9, ptr noundef nonnull @.str)
   %.not45 = icmp eq i32 %0, 1
-  br i1 %.not45, label %46, label %33
+  br i1 %.not45, label %45, label %33
 
-33:                                               ; preds = %.thread40, %32
+33:                                               ; preds = %.thread42, %32
   %34 = load volatile i64, ptr %1, align 8
   %35 = and i64 %34, 3
   %36 = icmp eq i64 %35, 3
@@ -612,31 +612,31 @@ define hidden void @_ZN17ShenandoahAsserts13print_failureENS_9SafeLevelEP7oopDes
   %38 = inttoptr i64 %37 to ptr
   %.not.i35 = icmp ne i64 %37, 0
   %39 = and i1 %36, %.not.i35
-  %.0.i36 = select i1 %39, ptr %38, ptr %1
-  %40 = load volatile i64, ptr %.0.i36, align 8
-  %41 = and i64 %40, 3
-  %42 = icmp ne i64 %41, 3
-  %43 = and i64 %40, -4
-  %44 = inttoptr i64 %43 to ptr
-  %.not.i37 = icmp eq i64 %43, 0
+  %.0.i37 = select i1 %39, ptr %38, ptr %1
+  %39 = load volatile i64, ptr %.0.i37, align 8
+  %40 = and i64 %39, 3
+  %41 = icmp ne i64 %40, 3
+  %42 = and i64 %39, -4
+  %43 = inttoptr i64 %42 to ptr
+  %.not.i38 = icmp eq i64 %42, 0
   %.not48 = or i1 %42, %.not.i37
-  %.not3446 = icmp eq ptr %.0.i36, %44
+  %.not3446 = icmp eq ptr %.0.i37, %44
   %.not34 = or i1 %.not48, %.not3446
-  br i1 %.not34, label %46, label %45
+  br i1 %.not34, label %45, label %44
 
-45:                                               ; preds = %33
+44:                                               ; preds = %33
   call void (ptr, ptr, ...) @_ZN12FormatBufferILm8192EE6appendEPKcz(ptr noundef nonnull align 8 dereferenceable(8200) %9, ptr noundef nonnull @.str.26)
   br label %.sink.split
 
-.sink.split:                                      ; preds = %31, %23, %45
-  %.sink = phi ptr [ %1, %23 ], [ %44, %45 ], [ %30, %31 ]
-  call void @_ZN17ShenandoahAsserts14print_obj_safeER12FormatBufferILm8192EEPv(ptr noundef nonnull align 8 dereferenceable(8200) %9, ptr noundef %.sink)
+.sink.split:                                      ; preds = %31, %23, %44
+  %spec.select.i.sink = phi ptr [ %1, %23 ], [ %43, %45 ], [ %30, %31 ]
+  call void @_ZN17ShenandoahAsserts14print_obj_safeER12FormatBufferILm8192EEPv(ptr noundef nonnull align 8 dereferenceable(8200) %9, ptr noundef %spec.select.i.sink)
   call void (ptr, ptr, ...) @_ZN12FormatBufferILm8192EE6appendEPKcz(ptr noundef nonnull align 8 dereferenceable(8200) %9, ptr noundef nonnull @.str)
-  br label %46
+  br label %45
 
-46:                                               ; preds = %.sink.split, %33, %32
-  %47 = load ptr, ptr %9, align 8
-  call void @_Z15report_vm_errorPKciS0_(ptr noundef %6, i32 noundef %7, ptr noundef %47) #12
+45:                                               ; preds = %.sink.split, %33, %32
+  %46 = load ptr, ptr %9, align 8
+  call void @_Z15report_vm_errorPKciS0_(ptr noundef %6, i32 noundef %7, ptr noundef %46) #12
   unreachable
 }
 
@@ -754,9 +754,9 @@ _ZNK7oopDesc13klass_or_nullEv.exit.thread:        ; preds = %15, %_ZNK7oopDesc13
   %37 = inttoptr i64 %36 to ptr
   %.not.i = icmp eq i64 %36, 0
   %.not63 = or i1 %35, %.not.i
-  %.not61 = icmp eq ptr %1, %37
-  %.not = or i1 %.not63, %.not61
-  br i1 %.not, label %82, label %38
+  %.not62 = icmp eq ptr %1, %37
+  %.not = or i1 %.not63, %.not62
+  br i1 %.not, label %84, label %38
 
 38:                                               ; preds = %32
   %39 = getelementptr inbounds nuw i8, ptr %5, i64 1285
@@ -826,22 +826,22 @@ _ZNK7oopDesc5klassEv.exit:                        ; preds = %53, %61
   tail call void @_ZN17ShenandoahAsserts13print_failureENS_9SafeLevelEP7oopDescPvS2_PKcS5_S5_i(i32 noundef 3, ptr noundef nonnull %1, ptr noundef %0, ptr noundef null, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.36, ptr noundef %2, i32 noundef %3)
   unreachable
 
-76:                                               ; preds = %64
-  %77 = load volatile i64, ptr %37, align 8
-  %78 = and i64 %77, 3
-  %79 = icmp ne i64 %78, 3
-  %80 = and i64 %77, -4
-  %.not.i56 = icmp eq i64 %80, 0
+77:                                               ; preds = %64
+  %78 = load volatile i64, ptr %37, align 8
+  %79 = and i64 %78, 3
+  %80 = icmp ne i64 %79, 3
+  %81 = and i64 %78, -4
+  %.not.i56 = icmp eq i64 %81, 0
   %.not66 = or i1 %79, %.not.i56
-  %.not5364 = icmp eq i64 %80, %36
-  %.not53 = or i1 %.not5364, %.not66
-  br i1 %.not53, label %82, label %81
+  %.not536364 = icmp eq i64 %80, %36
+  %.not5363 = or i1 %.not5364, %.not66
+  br i1 %.not5363, label %82, label %81
 
 81:                                               ; preds = %76
   tail call void @_ZN17ShenandoahAsserts13print_failureENS_9SafeLevelEP7oopDescPvS2_PKcS5_S5_i(i32 noundef 3, ptr noundef nonnull %1, ptr noundef %0, ptr noundef null, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.37, ptr noundef %2, i32 noundef %3)
   unreachable
 
-82:                                               ; preds = %76, %32
+84:                                               ; preds = %77, %32
   ret void
 }
 
@@ -1039,11 +1039,11 @@ define hidden void @_ZN17ShenandoahAsserts16assert_forwardedEPvP7oopDescPKci(ptr
   %11 = or i1 %.not10, %10
   br i1 %11, label %12, label %13
 
-12:                                               ; preds = %4
+13:                                               ; preds = %4
   tail call void @_ZN17ShenandoahAsserts13print_failureENS_9SafeLevelEP7oopDescPvS2_PKcS5_S5_i(i32 noundef 3, ptr noundef nonnull %1, ptr noundef %0, ptr noundef null, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.43, ptr noundef %2, i32 noundef %3)
   unreachable
 
-13:                                               ; preds = %4
+14:                                               ; preds = %4
   ret void
 }
 

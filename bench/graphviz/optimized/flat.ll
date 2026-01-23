@@ -1188,8 +1188,8 @@ define internal fastcc void @setbounds(ptr readonly captures(none) %.16.val, ptr
   br i1 %.not62, label %._crit_edge, label %.lr.ph, !llvm.loop !114
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %.not = xor i1 %.152, true
-  %or.cond = select i1 %.not, i1 true, i1 %.1
+  %not..05110 = xor i1 %.152, true
+  %.1 = select i1 %not..05110, i1 true, i1 %.1
   br i1 %or.cond, label %71, label %.thread
 
 .thread:                                          ; preds = %._crit_edge

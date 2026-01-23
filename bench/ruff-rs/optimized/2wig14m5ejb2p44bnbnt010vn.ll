@@ -15862,7 +15862,7 @@ define hidden void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..s
   %83 = extractvalue { i64, i1 } %82, 1
   %84 = add nuw i64 %spec.select51.i, %spec.select49.i
   %not..i = xor i1 %83, true
-  %narrow.i = select i1 %.not55.not.i, i1 %not..i, i1 false
+  %.sroa.6.0.i = select i1 %.not55.not.i, i1 %not..i, i1 false
   %.sroa.6.0.i = select i1 %narrow.i, i64 %84, i64 undef
   br label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hc9c58a25ebd6fa80E.exit"
 
@@ -16133,7 +16133,7 @@ define hidden void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..s
   %195 = extractvalue { i64, i1 } %194, 1
   %196 = add nuw i64 %spec.select51.i.i, %spec.select49.i.i
   %not..i.i = xor i1 %195, true
-  %narrow.i.i = select i1 %.not55.not.i.i, i1 %not..i.i, i1 false
+  %.sroa.6.0.i.i = select i1 %.not55.not.i.i, i1 %not..i.i, i1 false
   %.sroa.6.0.i.i = select i1 %narrow.i.i, i64 %196, i64 undef
   br label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hc9c58a25ebd6fa80E.exit.i"
 
@@ -18605,7 +18605,7 @@ define hidden void @_ZN9toml_edit6parser5state10ParseState13into_document17h44bb
   %7 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr57drop_in_place$LT$toml_edit..parser..state..ParseState$GT$17h98bd35c8e7c6ef53E"(ptr noalias noundef nonnull align 8 dereferenceable(400) %1) #22
-          to label %26 unwind label %24
+          to label %26 unwind label %23
 
 8:                                                ; preds = %4
   %9 = load i64, ptr %5, align 8, !range !2857, !noundef !3
@@ -18618,7 +18618,7 @@ define hidden void @_ZN9toml_edit6parser5state10ParseState13into_document17h44bb
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   store i64 12, ptr %0, align 8
   tail call void @"_ZN4core3ptr57drop_in_place$LT$toml_edit..parser..state..ParseState$GT$17h98bd35c8e7c6ef53E"(ptr noalias noundef nonnull align 8 dereferenceable(400) %1)
-  br label %23
+  br label %22
 
 12:                                               ; preds = %8
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -18630,7 +18630,7 @@ define hidden void @_ZN9toml_edit6parser5state10ParseState13into_document17h44bb
   %.sroa.6.0.copyload = load i64, ptr %.sroa.6.0..sroa_idx, align 8
   %14 = trunc nuw i64 %.sroa.0.0.copyload to i1
   %15 = icmp ne i64 %.sroa.5.0.copyload, %.sroa.6.0.copyload
-  %16 = select i1 %14, i1 %15, i1 false
+  %. = select i1 %14, i1 %15, i1 false
   %.sroa.018.0 = select i1 %16, i64 -9223372036854775806, i64 -9223372036854775808
   %.sroa.3.0 = select i1 %14, i64 %.sroa.5.0.copyload, i64 undef
   %.sroa.421.0 = select i1 %14, i64 %.sroa.6.0.copyload, i64 undef
@@ -18647,33 +18647,33 @@ define hidden void @_ZN9toml_edit6parser5state10ParseState13into_document17h44bb
   store ptr %2, ptr %.sroa.52.0..sroa_idx, align 8
   %.sroa.63.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 208
   store i64 %3, ptr %.sroa.63.0..sroa_idx, align 8
-  %17 = getelementptr inbounds nuw i8, ptr %1, i64 192
-  invoke void @"_ZN4core3ptr44drop_in_place$LT$toml_edit..table..Table$GT$17ha4cff4d2cb5cb514E"(ptr noalias noundef nonnull align 8 dereferenceable(168) %17)
-          to label %21 unwind label %18
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 192
+  invoke void @"_ZN4core3ptr44drop_in_place$LT$toml_edit..table..Table$GT$17ha4cff4d2cb5cb514E"(ptr noalias noundef nonnull align 8 dereferenceable(168) %16)
+          to label %21 unwind label %17
 
-18:                                               ; preds = %12
-  %19 = landingpad { ptr, i32 }
+17:                                               ; preds = %12
+  %18 = landingpad { ptr, i32 }
           cleanup
-  %20 = getelementptr inbounds nuw i8, ptr %1, i64 360
-  invoke void @"_ZN4core3ptr63drop_in_place$LT$alloc..vec..Vec$LT$toml_edit..key..Key$GT$$GT$17he287243c0276414fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %20) #22
-          to label %26 unwind label %24
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 360
+  invoke void @"_ZN4core3ptr63drop_in_place$LT$alloc..vec..Vec$LT$toml_edit..key..Key$GT$$GT$17he287243c0276414fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %19) #22
+          to label %26 unwind label %23
 
-21:                                               ; preds = %12
-  %22 = getelementptr inbounds nuw i8, ptr %1, i64 360
-  tail call void @"_ZN4core3ptr63drop_in_place$LT$alloc..vec..Vec$LT$toml_edit..key..Key$GT$$GT$17he287243c0276414fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %22)
-  br label %23
+20:                                               ; preds = %12
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 360
+  tail call void @"_ZN4core3ptr63drop_in_place$LT$alloc..vec..Vec$LT$toml_edit..key..Key$GT$$GT$17he287243c0276414fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %21)
+  br label %22
 
-23:                                               ; preds = %10, %21
+22:                                               ; preds = %10, %20
   ret void
 
-24:                                               ; preds = %6, %18
-  %25 = landingpad { ptr, i32 }
+23:                                               ; preds = %6, %17
+  %24 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #23
   unreachable
 
-26:                                               ; preds = %6, %18
-  %.pn = phi { ptr, i32 } [ %19, %18 ], [ %7, %6 ]
+25:                                               ; preds = %6, %17
+  %.pn = phi { ptr, i32 } [ %18, %18 ], [ %7, %6 ]
   resume { ptr, i32 } %.pn
 }
 

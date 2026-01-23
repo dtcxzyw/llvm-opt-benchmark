@@ -7713,7 +7713,7 @@ define noalias noundef nonnull align 8 ptr @_ZN12regex_syntax3hir10Properties10r
   %17 = load i32, ptr %0, align 8, !range !1273, !noundef !9
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %trunc12 = trunc nuw i32 %17 to i1
-  br i1 %trunc12, label %19, label %31
+  br i1 %trunc12, label %19, label %30
 
 19:                                               ; preds = %16
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -7734,47 +7734,47 @@ define noalias noundef nonnull align 8 ptr @_ZN12regex_syntax3hir10Properties10r
   %28 = extractvalue { i64, i1 } %.sroa.6.0.i, 1
   %29 = extractvalue { i64, i1 } %.sroa.6.0.i, 0
   %not..i = xor i1 %28, true
-  %30 = select i1 %trunc.i, i1 %not..i, i1 false
-  %.sroa.4.0.i = select i1 %30, i64 %29, i64 undef
-  %.sroa.0.0.i = zext i1 %30 to i64
-  br label %31
+  %.sroa.4.0.i = select i1 %trunc.i, i1 %not..i, i1 false
+  %narrow.i = select i1 %narrow.i, i64 %29, i64 undef
+  %.sroa.0.0.i = zext i1 %narrow.i to i64
+  br label %30
 
-31:                                               ; preds = %16, %"_ZN12regex_syntax3hir10Properties10repetition28_$u7b$$u7b$closure$u7d$$u7d$17h5876377fb8317222E.exit"
+30:                                               ; preds = %16, %"_ZN12regex_syntax3hir10Properties10repetition28_$u7b$$u7b$closure$u7d$$u7d$17h5876377fb8317222E.exit"
   %.sroa.05.0 = phi i64 [ %.sroa.0.0.i, %"_ZN12regex_syntax3hir10Properties10repetition28_$u7b$$u7b$closure$u7d$$u7d$17h5876377fb8317222E.exit" ], [ 0, %16 ]
   %.sroa.36.0 = phi i64 [ %.sroa.4.0.i, %"_ZN12regex_syntax3hir10Properties10repetition28_$u7b$$u7b$closure$u7d$$u7d$17h5876377fb8317222E.exit" ], [ undef, %16 ]
-  %32 = getelementptr inbounds nuw i8, ptr %5, i64 56
-  %33 = load i32, ptr %32, align 8, !noundef !9
-  %34 = getelementptr inbounds nuw i8, ptr %5, i64 68
-  %35 = load i32, ptr %34, align 4, !noundef !9
-  %36 = getelementptr inbounds nuw i8, ptr %5, i64 72
-  %37 = load i32, ptr %36, align 8, !noundef !9
-  %38 = getelementptr inbounds nuw i8, ptr %5, i64 76
-  %39 = load i8, ptr %38, align 4, !range !285, !noundef !9
-  %40 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  %41 = load i64, ptr %40, align 8, !noundef !9
-  %42 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %43 = load i64, ptr %42, align 8, !range !16, !noundef !9
-  %44 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  %45 = load i64, ptr %44, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %47 = load i32, ptr %46, align 8, !noundef !9
-  %.not = icmp eq i32 %47, 0
-  br i1 %.not, label %53, label %48
+  %31 = getelementptr inbounds nuw i8, ptr %5, i64 56
+  %32 = load i32, ptr %31, align 8, !noundef !9
+  %33 = getelementptr inbounds nuw i8, ptr %5, i64 68
+  %34 = load i32, ptr %33, align 4, !noundef !9
+  %35 = getelementptr inbounds nuw i8, ptr %5, i64 72
+  %36 = load i32, ptr %35, align 8, !noundef !9
+  %37 = getelementptr inbounds nuw i8, ptr %5, i64 76
+  %38 = load i8, ptr %37, align 4, !range !285, !noundef !9
+  %39 = getelementptr inbounds nuw i8, ptr %5, i64 48
+  %40 = load i64, ptr %39, align 8, !noundef !9
+  %41 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %42 = load i64, ptr %41, align 8, !range !16, !noundef !9
+  %43 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  %44 = load i64, ptr %43, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %46 = load i32, ptr %45, align 8, !noundef !9
+  %.not = icmp eq i32 %46, 0
+  br i1 %.not, label %52, label %47
 
-48:                                               ; preds = %31
-  %49 = getelementptr inbounds nuw i8, ptr %5, i64 60
-  %50 = load i32, ptr %49, align 4, !noundef !9
-  %51 = getelementptr inbounds nuw i8, ptr %5, i64 64
-  %52 = load i32, ptr %51, align 8, !noundef !9
+47:                                               ; preds = %30
+  %48 = getelementptr inbounds nuw i8, ptr %5, i64 60
+  %49 = load i32, ptr %48, align 4, !noundef !9
+  %50 = getelementptr inbounds nuw i8, ptr %5, i64 64
+  %51 = load i32, ptr %50, align 8, !noundef !9
   br label %58
 
-53:                                               ; preds = %31
-  %trunc.i16 = trunc nuw i64 %43 to i1
-  %54 = icmp ne i64 %45, 0
-  %spec.select.i17 = select i1 %trunc.i16, i1 %54, i1 false
-  br i1 %spec.select.i17, label %55, label %58
+52:                                               ; preds = %30
+  %trunc.i17 = trunc nuw i64 %42 to i1
+  %53 = icmp ne i64 %44, 0
+  %spec.select.i18 = select i1 %trunc.i17, i1 %53, i1 false
+  br i1 %spec.select.i18, label %55, label %58
 
-55:                                               ; preds = %53
+61:                                               ; preds = %53
   %56 = load i32, ptr %18, align 4
   %57 = icmp eq i32 %56, 0
   %.0 = select i1 %trunc12, i1 %57, i1 false
@@ -7809,19 +7809,19 @@ _ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.llvm.5188572562200175411.ex
   %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %60, i64 40
   store i64 %.sroa.9.0, ptr %.sroa.9.0..sroa_idx, align 8
   %.sroa.12.0..sroa_idx = getelementptr inbounds nuw i8, ptr %60, i64 48
-  store i64 %41, ptr %.sroa.12.0..sroa_idx, align 8
+  store i64 %40, ptr %.sroa.12.0..sroa_idx, align 8
   %.sroa.13.0..sroa_idx = getelementptr inbounds nuw i8, ptr %60, i64 56
-  store i32 %33, ptr %.sroa.13.0..sroa_idx, align 8
+  store i32 %32, ptr %.sroa.13.0..sroa_idx, align 8
   %.sroa.14.0..sroa_idx = getelementptr inbounds nuw i8, ptr %60, i64 60
   store i32 %.sroa.14.020, ptr %.sroa.14.0..sroa_idx, align 4
   %.sroa.16.0..sroa_idx = getelementptr inbounds nuw i8, ptr %60, i64 64
   store i32 %.sroa.16.022, ptr %.sroa.16.0..sroa_idx, align 8
   %.sroa.18.0..sroa_idx = getelementptr inbounds nuw i8, ptr %60, i64 68
-  store i32 %35, ptr %.sroa.18.0..sroa_idx, align 4
+  store i32 %34, ptr %.sroa.18.0..sroa_idx, align 4
   %.sroa.19.0..sroa_idx = getelementptr inbounds nuw i8, ptr %60, i64 72
-  store i32 %37, ptr %.sroa.19.0..sroa_idx, align 8
+  store i32 %36, ptr %.sroa.19.0..sroa_idx, align 8
   %.sroa.20.0..sroa_idx = getelementptr inbounds nuw i8, ptr %60, i64 76
-  store i8 %39, ptr %.sroa.20.0..sroa_idx, align 4
+  store i8 %38, ptr %.sroa.20.0..sroa_idx, align 4
   %.sroa.21.0..sroa_idx = getelementptr inbounds nuw i8, ptr %60, i64 77
   store i8 0, ptr %.sroa.21.0..sroa_idx, align 1
   %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %60, i64 78

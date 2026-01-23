@@ -7421,10 +7421,10 @@ define internal i32 @little2_prologTok(ptr noundef readonly captures(none) %0, p
   %9 = and i64 %8, 1
   %.not221 = icmp ne i64 %9, 0
   %10 = and i64 %8, -2
-  %11 = icmp ne i64 %10, 0
-  %12 = getelementptr i8, ptr %1, i64 %10
-  %.not248 = and i1 %.not221, %11
-  %.1211 = select i1 %.not248, ptr %12, ptr %2
+  %.not248 = icmp ne i64 %10, 0
+  %11 = getelementptr i8, ptr %1, i64 %10
+  %.not248 = and i1 %.not221, %.not248
+  %.1211 = select i1 %.not248, ptr %11, ptr %2
   %cond.not = icmp eq i64 %8, 1
   br i1 %cond.not, label %.loopexit, label %13
 
@@ -13399,10 +13399,10 @@ define internal i32 @big2_prologTok(ptr noundef readonly captures(none) %0, ptr 
   %9 = and i64 %8, 1
   %.not221 = icmp ne i64 %9, 0
   %10 = and i64 %8, -2
-  %11 = icmp ne i64 %10, 0
-  %12 = getelementptr i8, ptr %1, i64 %10
-  %.not248 = and i1 %.not221, %11
-  %.1211 = select i1 %.not248, ptr %12, ptr %2
+  %.not248 = icmp ne i64 %10, 0
+  %11 = getelementptr i8, ptr %1, i64 %10
+  %.not248 = and i1 %.not221, %.not248
+  %.1211 = select i1 %.not248, ptr %11, ptr %2
   %cond.not = icmp eq i64 %8, 1
   br i1 %cond.not, label %.loopexit, label %13
 

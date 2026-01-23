@@ -162,7 +162,7 @@ define internal noundef range(i32 -22, 1) i32 @ndisc_constructor(ptr noundef cap
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 184
   %9 = load volatile ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
-  br i1 %10, label %157, label %11
+  br i1 %10, label %162, label %11
 
 11:                                               ; preds = %1
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 624
@@ -364,15 +364,15 @@ define internal noundef range(i32 -22, 1) i32 @ndisc_constructor(ptr noundef cap
   %129 = and i32 %113, 16
   %130 = icmp eq i32 %129, 0
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 132
-  br i1 %130, label %.ndisc_mc_map.exit_crit_edge, label %133
+  br i1 %130, label %ndisc_mc_map.exit, label %133
 
-.ndisc_mc_map.exit_crit_edge:                     ; preds = %128
+ndisc_mc_map.exit:                                ; preds = %128
   %.pre = load i8, ptr %.phi.trans.insert, align 4
   %131 = and i8 %.pre, -34
   %132 = icmp eq i8 %131, 0
   br label %ndisc_mc_map.exit
 
-133:                                              ; preds = %128
+160:                                              ; preds = %128
   store i8 64, ptr %.phi.trans.insert, align 4
   %134 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %135 = getelementptr inbounds nuw i8, ptr %4, i64 1000
@@ -411,18 +411,18 @@ ndisc_mc_map.exit:                                ; preds = %.ndisc_mc_map.exit_
   tail call void @refcount_warn_saturate(ptr noundef nonnull %12, i32 noundef 3) #14
   br label %.thread
 
-156:                                              ; preds = %148
+161:                                              ; preds = %148
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !9
   tail call void @in6_dev_finish_destroy(ptr noundef nonnull %9) #14
   br label %.thread
 
-157:                                              ; preds = %1
+162:                                              ; preds = %1
   tail call void @__rcu_read_unlock() #14
   br label %.thread
 
-.thread:                                          ; preds = %153, %155, %157, %156
-  %158 = phi i32 [ 0, %156 ], [ -22, %157 ], [ 0, %155 ], [ 0, %153 ]
-  ret i32 %158
+.thread:                                          ; preds = %153, %155, %162, %161
+  %163 = phi i32 [ 0, %156 ], [ -22, %157 ], [ 0, %155 ], [ 0, %153 ]
+  ret i32 %163
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

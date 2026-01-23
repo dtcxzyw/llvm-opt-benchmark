@@ -31207,9 +31207,9 @@ _ZN15BSplineElementsILi2EED2Ev.exit85:            ; preds = %_ZN15BSplineElement
   %70 = icmp ne i32 %69, 0
   %71 = icmp eq i32 %.1146168, -1
   %or.cond = select i1 %70, i1 %71, i1 false
-  %.not74.not = icmp eq i32 %69, 0
-  %.2147153 = select i1 %or.cond, i32 %65, i32 %.1146168
-  %.2144 = select i1 %.not74.not, i32 %.1143169, i32 %66
+  %.not74 = icmp eq i32 %69, 0
+  %spec.select = select i1 %or.cond, i32 %65, i32 %.1146168
+  %.2147153 = select i1 %.not74, i32 %.1143169, i32 %66
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond194.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond194.not, label %.preheader162, label %.thread, !llvm.loop !416
@@ -31239,9 +31239,9 @@ _ZN15BSplineElementsILi2EED2Ev.exit88:            ; preds = %72, %75
   %79 = icmp ne i32 %78, 0
   %80 = icmp eq i32 %.1140171, -1
   %or.cond3 = select i1 %79, i1 %80, i1 false
-  %.not73.not = icmp eq i32 %78, 0
-  %.2141158 = select i1 %or.cond3, i32 %65, i32 %.1140171
-  %.2 = select i1 %.not73.not, i32 %.1138172, i32 %66
+  %.not73 = icmp eq i32 %78, 0
+  %spec.select191 = select i1 %or.cond3, i32 %65, i32 %.1140171
+  %.2141158 = select i1 %.not73, i32 %.1138172, i32 %66
   %indvars.iv.next196 = add nuw nsw i64 %indvars.iv195, 1
   %exitcond198.not = icmp eq i64 %indvars.iv.next196, 3
   br i1 %exitcond198.not, label %81, label %.thread154, !llvm.loop !417
@@ -32821,9 +32821,9 @@ _ZNK15BSplineElementsILi2EE13differentiateILj1EEEvRS_IXmiLi2ET_EE.exit.preheader
   %68 = icmp ne i32 %67, 0
   %69 = icmp eq i32 %.1144165, -1
   %or.cond = select i1 %68, i1 %69, i1 false
-  %.not74.not = icmp eq i32 %67, 0
-  %.2145151 = select i1 %or.cond, i32 %63, i32 %.1144165
-  %.2142 = select i1 %.not74.not, i32 %.1141166, i32 %64
+  %.not74 = icmp eq i32 %67, 0
+  %spec.select = select i1 %or.cond, i32 %63, i32 %.1144165
+  %.2145151 = select i1 %.not74, i32 %.1141166, i32 %64
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond191.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond191.not, label %.preheader159, label %.thread, !llvm.loop !468
@@ -32862,9 +32862,9 @@ _ZN15BSplineElementsILi1EED2Ev.exit:              ; preds = %70, %72
   %76 = icmp ne i32 %75, 0
   %77 = icmp eq i32 %.1138168, -1
   %or.cond3 = select i1 %76, i1 %77, i1 false
-  %.not73.not = icmp eq i32 %75, 0
-  %.2139156 = select i1 %or.cond3, i32 %63, i32 %.1138168
-  %.2 = select i1 %.not73.not, i32 %.1136169, i32 %64
+  %.not73 = icmp eq i32 %75, 0
+  %spec.select187 = select i1 %or.cond3, i32 %63, i32 %.1138168
+  %.2139156 = select i1 %.not73, i32 %.1136169, i32 %64
   %indvars.iv.next193 = add nuw nsw i64 %indvars.iv192, 1
   %exitcond195.not = icmp eq i64 %indvars.iv.next193, 3
   br i1 %exitcond195.not, label %_ZNK15BSplineElementsILi2EE13differentiateILj1EEEvRS_IXmiLi2ET_EE.exit, label %.thread152, !llvm.loop !469
@@ -33681,9 +33681,9 @@ _ZNK15BSplineElementsILi2EE13differentiateILj2EEEvRS_IXmiLi2ET_EE.exit.preheader
   %68 = icmp ne i32 %67, 0
   %69 = icmp eq i32 %.1143164, -1
   %or.cond = select i1 %68, i1 %69, i1 false
-  %.not74.not = icmp eq i32 %67, 0
-  %.2144150 = select i1 %or.cond, i32 %63, i32 %.1143164
-  %.2141 = select i1 %.not74.not, i32 %.1140165, i32 %64
+  %.not74 = icmp eq i32 %67, 0
+  %spec.select = select i1 %or.cond, i32 %63, i32 %.1143164
+  %.2144150 = select i1 %.not74, i32 %.1140165, i32 %64
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond189.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond189.not, label %.preheader158, label %.thread, !llvm.loop !488
@@ -33722,9 +33722,9 @@ _ZN15BSplineElementsILi0EED2Ev.exit:              ; preds = %70, %72
   %76 = icmp ne i32 %75, 0
   %77 = icmp eq i32 %.1137167, -1
   %or.cond3 = select i1 %76, i1 %77, i1 false
-  %.not73.not = icmp eq i32 %75, 0
-  %.2138155 = select i1 %or.cond3, i32 %63, i32 %.1137167
-  %.2 = select i1 %.not73.not, i32 %.1135168, i32 %64
+  %.not73 = icmp eq i32 %75, 0
+  %spec.select185 = select i1 %or.cond3, i32 %63, i32 %.1137167
+  %.2138155 = select i1 %.not73, i32 %.1135168, i32 %64
   %indvars.iv.next191 = add nuw nsw i64 %indvars.iv190, 1
   %exitcond193.not = icmp eq i64 %indvars.iv.next191, 3
   br i1 %exitcond193.not, label %_ZNK15BSplineElementsILi2EE13differentiateILj2EEEvRS_IXmiLi2ET_EE.exit, label %.thread151, !llvm.loop !489
@@ -34642,9 +34642,9 @@ _ZNK15BSplineElementsILi2EE13differentiateILj1EEEvRS_IXmiLi2ET_EE.exit: ; preds 
   %66 = icmp ne i32 %65, 0
   %67 = icmp eq i32 %.1144166, -1
   %or.cond = select i1 %66, i1 %67, i1 false
-  %.not74.not = icmp eq i32 %65, 0
-  %.2145151 = select i1 %or.cond, i32 %61, i32 %.1144166
-  %.2142 = select i1 %.not74.not, i32 %.1141167, i32 %62
+  %.not74 = icmp eq i32 %65, 0
+  %spec.select = select i1 %or.cond, i32 %61, i32 %.1144166
+  %.2145151 = select i1 %.not74, i32 %.1141167, i32 %62
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond192.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond192.not, label %.preheader160, label %.thread, !llvm.loop !507
@@ -34674,9 +34674,9 @@ _ZN15BSplineElementsILi2EED2Ev.exit87:            ; preds = %68, %71
   %75 = icmp ne i32 %74, 0
   %76 = icmp eq i32 %.1138169, -1
   %or.cond3 = select i1 %75, i1 %76, i1 false
-  %.not73.not = icmp eq i32 %74, 0
-  %.2139156 = select i1 %or.cond3, i32 %61, i32 %.1138169
-  %.2 = select i1 %.not73.not, i32 %.1136170, i32 %62
+  %.not73 = icmp eq i32 %74, 0
+  %spec.select189 = select i1 %or.cond3, i32 %61, i32 %.1138169
+  %.2139156 = select i1 %.not73, i32 %.1136170, i32 %62
   %indvars.iv.next194 = add nuw nsw i64 %indvars.iv193, 1
   %exitcond196.not = icmp eq i64 %indvars.iv.next194, 3
   br i1 %exitcond196.not, label %77, label %.thread152, !llvm.loop !508
@@ -35162,9 +35162,9 @@ _ZNK15BSplineElementsILi2EE13differentiateILj1EEEvRS_IXmiLi2ET_EE.exit86.prehead
   %63 = icmp ne i32 %62, 0
   %64 = icmp eq i32 %.1146167, -1
   %or.cond = select i1 %63, i1 %64, i1 false
-  %.not74.not = icmp eq i32 %62, 0
-  %.2147153 = select i1 %or.cond, i32 %58, i32 %.1146167
-  %.2144 = select i1 %.not74.not, i32 %.1143168, i32 %59
+  %.not74 = icmp eq i32 %62, 0
+  %spec.select = select i1 %or.cond, i32 %58, i32 %.1146167
+  %.2147153 = select i1 %.not74, i32 %.1143168, i32 %59
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond193.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond193.not, label %.preheader161, label %.thread, !llvm.loop !533
@@ -35194,9 +35194,9 @@ _ZN15BSplineElementsILi1EED2Ev.exit:              ; preds = %65, %68
   %72 = icmp ne i32 %71, 0
   %73 = icmp eq i32 %.1140170, -1
   %or.cond3 = select i1 %72, i1 %73, i1 false
-  %.not73.not = icmp eq i32 %71, 0
-  %.2141158 = select i1 %or.cond3, i32 %58, i32 %.1140170
-  %.2 = select i1 %.not73.not, i32 %.1138171, i32 %59
+  %.not73 = icmp eq i32 %71, 0
+  %spec.select189 = select i1 %or.cond3, i32 %58, i32 %.1140170
+  %.2141158 = select i1 %.not73, i32 %.1138171, i32 %59
   %indvars.iv.next195 = add nuw nsw i64 %indvars.iv194, 1
   %exitcond197.not = icmp eq i64 %indvars.iv.next195, 3
   br i1 %exitcond197.not, label %_ZNK15BSplineElementsILi2EE13differentiateILj1EEEvRS_IXmiLi2ET_EE.exit86, label %.thread154, !llvm.loop !534
@@ -35591,9 +35591,9 @@ _ZNK15BSplineElementsILi2EE13differentiateILj2EEEvRS_IXmiLi2ET_EE.exit.preheader
   %60 = icmp ne i32 %59, 0
   %61 = icmp eq i32 %.1143165, -1
   %or.cond = select i1 %60, i1 %61, i1 false
-  %.not74.not = icmp eq i32 %59, 0
-  %.2144150 = select i1 %or.cond, i32 %55, i32 %.1143165
-  %.2141 = select i1 %.not74.not, i32 %.1140166, i32 %56
+  %.not74 = icmp eq i32 %59, 0
+  %spec.select = select i1 %or.cond, i32 %55, i32 %.1143165
+  %.2144150 = select i1 %.not74, i32 %.1140166, i32 %56
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond189.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond189.not, label %.preheader159, label %.thread, !llvm.loop !547
@@ -35623,9 +35623,9 @@ _ZN15BSplineElementsILi0EED2Ev.exit:              ; preds = %62, %65
   %69 = icmp ne i32 %68, 0
   %70 = icmp eq i32 %.1137168, -1
   %or.cond3 = select i1 %69, i1 %70, i1 false
-  %.not73.not = icmp eq i32 %68, 0
-  %.2138155 = select i1 %or.cond3, i32 %55, i32 %.1137168
-  %.2 = select i1 %.not73.not, i32 %.1135169, i32 %56
+  %.not73 = icmp eq i32 %68, 0
+  %spec.select185 = select i1 %or.cond3, i32 %55, i32 %.1137168
+  %.2138155 = select i1 %.not73, i32 %.1135169, i32 %56
   %indvars.iv.next191 = add nuw nsw i64 %indvars.iv190, 1
   %exitcond193.not = icmp eq i64 %indvars.iv.next191, 3
   br i1 %exitcond193.not, label %_ZNK15BSplineElementsILi2EE13differentiateILj2EEEvRS_IXmiLi2ET_EE.exit, label %.thread151, !llvm.loop !548
@@ -35968,9 +35968,9 @@ _ZNK15BSplineElementsILi2EE13differentiateILj2EEEvRS_IXmiLi2ET_EE.exit: ; preds 
   %66 = icmp ne i32 %65, 0
   %67 = icmp eq i32 %.1144167, -1
   %or.cond = select i1 %66, i1 %67, i1 false
-  %.not74.not = icmp eq i32 %65, 0
-  %.2145151 = select i1 %or.cond, i32 %61, i32 %.1144167
-  %.2142 = select i1 %.not74.not, i32 %.1141168, i32 %62
+  %.not74 = icmp eq i32 %65, 0
+  %spec.select = select i1 %or.cond, i32 %61, i32 %.1144167
+  %.2145151 = select i1 %.not74, i32 %.1141168, i32 %62
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond191.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond191.not, label %.preheader161, label %.thread, !llvm.loop !556
@@ -36000,9 +36000,9 @@ _ZN15BSplineElementsILi2EED2Ev.exit87:            ; preds = %68, %71
   %75 = icmp ne i32 %74, 0
   %76 = icmp eq i32 %.1138170, -1
   %or.cond3 = select i1 %75, i1 %76, i1 false
-  %.not73.not = icmp eq i32 %74, 0
-  %.2139156 = select i1 %or.cond3, i32 %61, i32 %.1138170
-  %.2 = select i1 %.not73.not, i32 %.1136171, i32 %62
+  %.not73 = icmp eq i32 %74, 0
+  %spec.select188 = select i1 %or.cond3, i32 %61, i32 %.1138170
+  %.2139156 = select i1 %.not73, i32 %.1136171, i32 %62
   %indvars.iv.next193 = add nuw nsw i64 %indvars.iv192, 1
   %exitcond195.not = icmp eq i64 %indvars.iv.next193, 3
   br i1 %exitcond195.not, label %77, label %.thread152, !llvm.loop !557
@@ -36445,9 +36445,9 @@ _ZNK15BSplineElementsILi2EE13differentiateILj1EEEvRS_IXmiLi2ET_EE.exit.preheader
   %60 = icmp ne i32 %59, 0
   %61 = icmp eq i32 %.1144166, -1
   %or.cond = select i1 %60, i1 %61, i1 false
-  %.not74.not = icmp eq i32 %59, 0
-  %.2145151 = select i1 %or.cond, i32 %55, i32 %.1144166
-  %.2142 = select i1 %.not74.not, i32 %.1141167, i32 %56
+  %.not74 = icmp eq i32 %59, 0
+  %spec.select = select i1 %or.cond, i32 %55, i32 %.1144166
+  %.2145151 = select i1 %.not74, i32 %.1141167, i32 %56
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond189.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond189.not, label %.preheader160, label %.thread, !llvm.loop !578
@@ -36477,9 +36477,9 @@ _ZN15BSplineElementsILi1EED2Ev.exit:              ; preds = %62, %65
   %69 = icmp ne i32 %68, 0
   %70 = icmp eq i32 %.1138169, -1
   %or.cond3 = select i1 %69, i1 %70, i1 false
-  %.not73.not = icmp eq i32 %68, 0
-  %.2139156 = select i1 %or.cond3, i32 %55, i32 %.1138169
-  %.2 = select i1 %.not73.not, i32 %.1136170, i32 %56
+  %.not73 = icmp eq i32 %68, 0
+  %spec.select185 = select i1 %or.cond3, i32 %55, i32 %.1138169
+  %.2139156 = select i1 %.not73, i32 %.1136170, i32 %56
   %indvars.iv.next191 = add nuw nsw i64 %indvars.iv190, 1
   %exitcond193.not = icmp eq i64 %indvars.iv.next191, 3
   br i1 %exitcond193.not, label %_ZNK15BSplineElementsILi2EE13differentiateILj1EEEvRS_IXmiLi2ET_EE.exit, label %.thread152, !llvm.loop !579
@@ -36817,9 +36817,9 @@ _ZNK15BSplineElementsILi2EE13differentiateILj2EEEvRS_IXmiLi2ET_EE.exit86.prehead
   %60 = icmp ne i32 %59, 0
   %61 = icmp eq i32 %.1148170, -1
   %or.cond = select i1 %60, i1 %61, i1 false
-  %.not74.not = icmp eq i32 %59, 0
-  %.2149154 = select i1 %or.cond, i32 %55, i32 %.1148170
-  %.2146 = select i1 %.not74.not, i32 %.1145171, i32 %56
+  %.not74 = icmp eq i32 %59, 0
+  %spec.select = select i1 %or.cond, i32 %55, i32 %.1148170
+  %.2149154 = select i1 %.not74, i32 %.1145171, i32 %56
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond194.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond194.not, label %.preheader164, label %.thread, !llvm.loop !586
@@ -36849,9 +36849,9 @@ _ZN15BSplineElementsILi0EED2Ev.exit:              ; preds = %62, %65
   %69 = icmp ne i32 %68, 0
   %70 = icmp eq i32 %.1142173, -1
   %or.cond3 = select i1 %69, i1 %70, i1 false
-  %.not73.not = icmp eq i32 %68, 0
-  %.2143159 = select i1 %or.cond3, i32 %55, i32 %.1142173
-  %.2 = select i1 %.not73.not, i32 %.1140174, i32 %56
+  %.not73 = icmp eq i32 %68, 0
+  %spec.select191 = select i1 %or.cond3, i32 %55, i32 %.1142173
+  %.2143159 = select i1 %.not73, i32 %.1140174, i32 %56
   %indvars.iv.next196 = add nuw nsw i64 %indvars.iv195, 1
   %exitcond198.not = icmp eq i64 %indvars.iv.next196, 3
   br i1 %exitcond198.not, label %_ZNK15BSplineElementsILi2EE13differentiateILj2EEEvRS_IXmiLi2ET_EE.exit86, label %.thread155, !llvm.loop !587

@@ -44202,40 +44202,40 @@ _ZN11btMatrix2x2clEii.exit37.i.i.us:              ; preds = %52, %_ZN11btMatrix2
   br i1 %36, label %.split.split.us.split.split, label %.split.split.us.split.split.us
 
 .split.split.us.split.split.us:                   ; preds = %.split.split.us.split, %.split.split.us.split.split.us
-  %.sroa.0.0. = phi float [ %59, %.split.split.us.split.split.us ], [ %.sroa.0.0.copyload, %.split.split.us.split ]
+  %.sroa.0.0. = phi float [ %66, %.split.split.us.split.split.us ], [ %.sroa.0.0.copyload, %.split.split.us.split ]
   %spec.select113 = phi ptr [ %.sroa.11, %.split.split.us.split.split.us ], [ %.sroa.0, %.split.split.us.split ]
-  %53 = phi i1 [ false, %.split.split.us.split.split.us ], [ true, %.split.split.us.split ]
-  %.0.i.i.i.us92.us = select i1 %53, ptr %.sroa.0, ptr %spec.select113
-  %54 = load float, ptr %.0.i.i.i.us92.us, align 4, !tbaa !234
-  %55 = fneg float %.sroa.0.0.
-  %56 = fmul float %28, %55
-  %57 = tail call float @llvm.fmuladd.f32(float %29, float %54, float %56)
-  store float %57, ptr %.0.i.i.i.us92.us, align 4, !tbaa !234
-  %58 = fmul float %.sroa.0.0., %29
-  %59 = tail call float @llvm.fmuladd.f32(float %28, float %54, float %58)
-  store float %59, ptr %.sroa.0, align 4, !tbaa !234
-  br i1 %53, label %.split.split.us.split.split.us, label %_Z18polarDecompositionRK11btMatrix2x2R14GivensRotationS1_.exitthread-pre-split, !llvm.loop !1255
+  %60 = phi i1 [ false, %.split.split.us.split.split.us ], [ true, %.split.split.us.split ]
+  %.0.i.i.i.us92.us = select i1 %60, ptr %.sroa.0, ptr %spec.select113
+  %61 = load float, ptr %.0.i.i.i.us92.us, align 4, !tbaa !234
+  %62 = fneg float %.sroa.0.0.
+  %63 = fmul float %28, %62
+  %64 = tail call float @llvm.fmuladd.f32(float %29, float %61, float %63)
+  store float %64, ptr %.0.i.i.i.us92.us, align 4, !tbaa !234
+  %65 = fmul float %.sroa.0.0., %29
+  %66 = tail call float @llvm.fmuladd.f32(float %28, float %61, float %65)
+  store float %66, ptr %.sroa.0, align 4, !tbaa !234
+  br i1 %60, label %.split.split.us.split.split.us, label %_Z18polarDecompositionRK11btMatrix2x2R14GivensRotationS1_.exitthread-pre-split, !llvm.loop !1255
 
 .split.split.us.split.split:                      ; preds = %.split.split.us.split, %.split.split.us.split.split
-  %60 = phi i1 [ true, %.split.split.us.split.split ], [ false, %.split.split.us.split ]
+  %67 = phi i1 [ true, %.split.split.us.split.split ], [ false, %.split.split.us.split ]
   %.sroa.0.0..sroa.0.0..sroa.0.val123 = load float, ptr %.sroa.0, align 4
   %.sroa.11.0..sroa.11.0..sroa.11.val = load float, ptr %.sroa.11, align 4
-  %61 = select i1 %60, float %.sroa.11.0..sroa.11.0..sroa.11.val, float %.sroa.0.0..sroa.0.0..sroa.0.val123
+  %spec.select115.val = select i1 %67, float %.sroa.11.0..sroa.11.0..sroa.11.val, float %.sroa.0.0..sroa.0.0..sroa.0.val123
   %.sroa.16.0..sroa.16.0..sroa.16.val124 = load float, ptr %.sroa.16, align 4
-  %.sroa.18.0..sroa.18.0..sroa.18.val125 = load float, ptr %.sroa.18, align 4
+  %.sroa.16.0..sroa.16.0..sroa.16.val125 = load float, ptr %.sroa.18, align 4
   %62 = select i1 %60, float %.sroa.18.0..sroa.18.0..sroa.18.val125, float %.sroa.16.0..sroa.16.0..sroa.16.val124
   %63 = fneg float %62
   %64 = fmul float %28, %63
   %65 = tail call float @llvm.fmuladd.f32(float %29, float %61, float %64)
-  %.0.i28.i.i.us102 = select i1 %60, ptr %.sroa.11, ptr %.sroa.0
+  %.0.i28.i.i.us102 = select i1 %67, ptr %.sroa.11, ptr %.sroa.0
   store float %65, ptr %.0.i28.i.i.us102, align 4, !tbaa !234
   %66 = fmul float %62, %29
-  %67 = tail call float @llvm.fmuladd.f32(float %28, float %61, float %66)
-  %spec.select118 = select i1 %60, ptr %.sroa.18, ptr %.sroa.16
+  %67 = tail call float @llvm.fmuladd.f32(float %28, float %spec.select115.val, float %66)
+  %spec.select118 = select i1 %67, ptr %.sroa.18, ptr %.sroa.16
   store float %67, ptr %spec.select118, align 4, !tbaa !234
   br i1 %60, label %_Z18polarDecompositionRK11btMatrix2x2R14GivensRotationS1_.exitthread-pre-split, label %.split.split.us.split.split, !llvm.loop !1255
 
-.split.split:                                     ; preds = %.split, %_ZN11btMatrix2x2clEii.exit37.i.i
+.split.split:; preds = %.split, %_ZN11btMatrix2x2clEii.exit37.i.i
   %.sroa.0.0..sroa.0.val130 = phi float [ %75, %_ZN11btMatrix2x2clEii.exit37.i.i ], [ %.sroa.0.0.copyload, %.split ]
   %68 = phi i1 [ true, %_ZN11btMatrix2x2clEii.exit37.i.i ], [ false, %.split ]
   %.sroa.11.0..sroa.11.0..sroa.11.val129 = load float, ptr %.sroa.11, align 4
@@ -44262,81 +44262,81 @@ _Z18polarDecompositionRK11btMatrix2x2R14GivensRotationS1_.exit: ; preds = %51, %
   %.sroa.11.0..sroa.11.4. = phi float [ %.sroa.11.0..sroa.11.0..sroa.11.0..sroa.11.4..pr, %_Z18polarDecompositionRK11btMatrix2x2R14GivensRotationS1_.exitthread-pre-split ], [ %75, %.split.split ], [ %50, %51 ]
   %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0. = load float, ptr %.sroa.0, align 4, !tbaa !234
   %.sroa.18.0..sroa.18.0..sroa.18.0..sroa.18.12. = load float, ptr %.sroa.18, align 4, !tbaa !234
-  %76 = fcmp oeq float %.sroa.11.0..sroa.11.4., 0.000000e+00
-  br i1 %76, label %77, label %78
+  %75 = fcmp oeq float %.sroa.11.0..sroa.11.4., 0.000000e+00
+  br i1 %75, label %76, label %77
+
+76:                                               ; preds = %_Z18polarDecompositionRK11btMatrix2x2R14GivensRotationS1_.exit
+  store float %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0., ptr %2, align 4, !tbaa !234
+  br label %103
 
 77:                                               ; preds = %_Z18polarDecompositionRK11btMatrix2x2R14GivensRotationS1_.exit
-  store float %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0., ptr %2, align 4, !tbaa !234
-  br label %104
+  %78 = fsub float %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0., %.sroa.18.0..sroa.18.0..sroa.18.0..sroa.18.12.
+  %79 = fmul float %78, 5.000000e-01
+  %80 = fmul float %.sroa.11.0..sroa.11.4., %.sroa.11.0..sroa.11.4.
+  %81 = tail call float @llvm.fmuladd.f32(float %79, float %79, float %80)
+  %82 = fcmp ogt float %81, 0x3E80000000000000
+  br i1 %82, label %83, label %102
 
-78:                                               ; preds = %_Z18polarDecompositionRK11btMatrix2x2R14GivensRotationS1_.exit
-  %79 = fsub float %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0., %.sroa.18.0..sroa.18.0..sroa.18.0..sroa.18.12.
-  %80 = fmul float %79, 5.000000e-01
-  %81 = fmul float %.sroa.11.0..sroa.11.4., %.sroa.11.0..sroa.11.4.
-  %82 = tail call float @llvm.fmuladd.f32(float %80, float %80, float %81)
-  %83 = fcmp ogt float %82, 0x3E80000000000000
-  br i1 %83, label %84, label %103
-
-84:                                               ; preds = %78
-  %85 = tail call noundef float @sqrtf(float noundef %82) #46, !tbaa !356
-  %86 = fcmp ogt float %80, 0.000000e+00
-  %87 = fneg float %85
-  %.pn.p = select i1 %86, float %85, float %87
-  %.pn = fadd float %80, %.pn.p
+83:                                               ; preds = %77
+  %84 = tail call noundef float @sqrtf(float noundef %81) #46, !tbaa !356
+  %85 = fcmp ogt float %79, 0.000000e+00
+  %86 = fneg float %84
+  %.pn.p = select i1 %85, float %84, float %86
+  %.pn = fadd float %79, %.pn.p
   %.067 = fdiv float %.sroa.11.0..sroa.11.4., %.pn
-  %88 = tail call float @llvm.fmuladd.f32(float %.067, float %.067, float 1.000000e+00)
-  %89 = tail call noundef float @sqrtf(float noundef %88) #46, !tbaa !356
-  %90 = fdiv float 1.000000e+00, %89
-  %91 = fneg float %.067
-  %92 = fmul float %90, %91
-  %93 = fmul float %90, %90
-  %94 = fmul float %90, 2.000000e+00
-  %95 = fmul float %94, %92
-  %96 = fmul float %.sroa.11.0..sroa.11.4., %95
-  %97 = fmul float %92, %92
-  %98 = fneg float %96
-  %99 = tail call float @llvm.fmuladd.f32(float %93, float %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0., float %98)
-  %100 = tail call float @llvm.fmuladd.f32(float %97, float %.sroa.18.0..sroa.18.0..sroa.18.0..sroa.18.12., float %99)
-  store float %100, ptr %2, align 4, !tbaa !234
-  %101 = tail call float @llvm.fmuladd.f32(float %97, float %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0., float %96)
-  %102 = tail call float @llvm.fmuladd.f32(float %93, float %.sroa.18.0..sroa.18.0..sroa.18.0..sroa.18.12., float %101)
-  br label %104
+  %87 = tail call float @llvm.fmuladd.f32(float %.067, float %.067, float 1.000000e+00)
+  %88 = tail call noundef float @sqrtf(float noundef %87) #46, !tbaa !356
+  %89 = fdiv float 1.000000e+00, %88
+  %90 = fneg float %.067
+  %91 = fmul float %89, %90
+  %92 = fmul float %89, %89
+  %93 = fmul float %89, 2.000000e+00
+  %94 = fmul float %93, %91
+  %95 = fmul float %.sroa.11.0..sroa.11.4., %94
+  %96 = fmul float %91, %91
+  %97 = fneg float %95
+  %98 = tail call float @llvm.fmuladd.f32(float %92, float %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0., float %97)
+  %99 = tail call float @llvm.fmuladd.f32(float %96, float %.sroa.18.0..sroa.18.0..sroa.18.0..sroa.18.12., float %98)
+  store float %99, ptr %2, align 4, !tbaa !234
+  %100 = tail call float @llvm.fmuladd.f32(float %96, float %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0., float %95)
+  %101 = tail call float @llvm.fmuladd.f32(float %92, float %.sroa.18.0..sroa.18.0..sroa.18.0..sroa.18.12., float %100)
+  br label %103
 
-103:                                              ; preds = %78
+102:                                              ; preds = %77
   store float %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0., ptr %2, align 4, !tbaa !234
-  br label %104
+  br label %103
 
-104:                                              ; preds = %84, %103, %77
-  %.sink = phi float [ %102, %84 ], [ %.sroa.18.0..sroa.18.0..sroa.18.0..sroa.18.12., %103 ], [ %.sroa.18.0..sroa.18.0..sroa.18.0..sroa.18.12., %77 ]
-  %105 = phi float [ %100, %84 ], [ %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0., %103 ], [ %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0., %77 ]
-  %.065 = phi float [ %92, %84 ], [ 0.000000e+00, %103 ], [ 0.000000e+00, %77 ]
-  %.0 = phi float [ %90, %84 ], [ 1.000000e+00, %103 ], [ 1.000000e+00, %77 ]
+103:                                              ; preds = %83, %102, %76
+  %.sink = phi float [ %101, %84 ], [ %.sroa.18.0..sroa.18.0..sroa.18.0..sroa.18.12., %103 ], [ %.sroa.18.0..sroa.18.0..sroa.18.0..sroa.18.12., %77 ]
+  %104 = phi float [ %99, %84 ], [ %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0., %103 ], [ %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0., %77 ]
+  %.065 = phi float [ %91, %84 ], [ 0.000000e+00, %103 ], [ 0.000000e+00, %77 ]
+  %.0 = phi float [ %89, %84 ], [ 1.000000e+00, %103 ], [ 1.000000e+00, %77 ]
   store float %.sink, ptr %6, align 4, !tbaa !234
-  %106 = fcmp olt float %105, %.sink
-  br i1 %106, label %107, label %109
+  %105 = fcmp olt float %104, %.sink
+  br i1 %105, label %106, label %108
 
-107:                                              ; preds = %104
+106:                                              ; preds = %103
   store float %.sink, ptr %2, align 4, !tbaa !234
-  store float %105, ptr %6, align 4, !tbaa !234
-  %108 = fneg float %.065
-  br label %109
+  store float %104, ptr %6, align 4, !tbaa !234
+  %107 = fneg float %.065
+  br label %108
 
-109:                                              ; preds = %104, %107
-  %.0.sink = phi float [ %108, %107 ], [ %.0, %104 ]
+108:                                              ; preds = %103, %106
+  %.0.sink = phi float [ %107, %107 ], [ %.0, %104 ]
   %.065.sink = phi float [ %.0, %107 ], [ %.065, %104 ]
-  %110 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store float %.0.sink, ptr %110, align 4, !tbaa !1247
-  %111 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  store float %.065.sink, ptr %111, align 4, !tbaa !1248
-  %112 = load float, ptr %20, align 4, !tbaa !1247
-  %113 = load float, ptr %21, align 4, !tbaa !1248
-  %114 = fneg float %.065.sink
-  %115 = fmul float %113, %114
-  %116 = tail call float @llvm.fmuladd.f32(float %112, float %.0.sink, float %115)
-  %117 = fmul float %112, %.065.sink
-  %118 = tail call float @llvm.fmuladd.f32(float %113, float %.0.sink, float %117)
-  store float %116, ptr %20, align 4, !tbaa !1247
-  store float %118, ptr %21, align 4, !tbaa !1248
+  %109 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store float %.0.sink, ptr %109, align 4, !tbaa !1247
+  %110 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  store float %.065.sink, ptr %110, align 4, !tbaa !1248
+  %111 = load float, ptr %20, align 4, !tbaa !1247
+  %112 = load float, ptr %21, align 4, !tbaa !1248
+  %113 = fneg float %.065.sink
+  %114 = fmul float %112, %113
+  %115 = tail call float @llvm.fmuladd.f32(float %111, float %.0.sink, float %114)
+  %116 = fmul float %111, %.065.sink
+  %117 = tail call float @llvm.fmuladd.f32(float %112, float %.0.sink, float %116)
+  store float %115, ptr %20, align 4, !tbaa !1247
+  store float %117, ptr %21, align 4, !tbaa !1248
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.11)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.16)

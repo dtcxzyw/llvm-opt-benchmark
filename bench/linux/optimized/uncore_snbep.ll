@@ -4237,7 +4237,7 @@ define internal fastcc i32 @skx_pmu_get_topology(ptr noundef %0, ptr noundef rea
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %.preheader, label %.loopexit
 
-6:                                                ; preds = %43
+6:                                                ; preds = %48
   %7 = add nuw nsw i32 %10, 1
   %8 = load i32, ptr @__uncore_max_dies, align 4
   %9 = icmp slt i32 %7, %8
@@ -4246,65 +4246,65 @@ define internal fastcc i32 @skx_pmu_get_topology(ptr noundef %0, ptr noundef rea
 .preheader:                                       ; preds = %2, %6
   %10 = phi i32 [ %7, %6 ], [ 0, %2 ]
   call void @cpus_read_lock() #20
-  %11 = load i64, ptr @__cpu_online_mask, align 8
-  br label %12
+  %12 = load i64, ptr @__cpu_online_mask, align 8
+  br label %13
 
-12:                                               ; preds = %24, %.preheader
-  %13 = phi i64 [ 0, %.preheader ], [ %33, %24 ]
-  %14 = and i64 %13, 4294967295
-  %15 = icmp samesign ugt i64 %14, 63
-  br i1 %15, label %.thread, label %16, !prof !10
+13:                                               ; preds = %25, %.preheader
+  %14 = phi i64 [ 0, %.preheader ], [ %34, %24 ]
+  %15 = and i64 %14, 4294967295
+  %16 = icmp samesign ugt i64 %15, 63
+  br i1 %16, label %.thread, label %17, !prof !10
 
-16:                                               ; preds = %12
-  %17 = shl nsw i64 -1, %14
-  %18 = and i64 %17, %11
-  %19 = icmp eq i64 %18, 0
-  br i1 %19, label %.thread, label %20
+17:                                               ; preds = %13
+  %18 = shl nsw i64 -1, %15
+  %19 = and i64 %18, %12
+  %20 = icmp eq i64 %19, 0
+  br i1 %20, label %.thread, label %21
 
-20:                                               ; preds = %16
-  %21 = call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %18) #23, !srcloc !40
-  %22 = trunc i64 %21 to i32
-  %23 = icmp ult i32 %22, 64
-  br i1 %23, label %24, label %.thread
+21:                                               ; preds = %17
+  %22 = call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %19) #23, !srcloc !40
+  %23 = trunc i64 %22 to i32
+  %24 = icmp ult i32 %23, 64
+  br i1 %24, label %25, label %.thread
 
-24:                                               ; preds = %20
-  %25 = and i64 %21, 63
-  %26 = getelementptr i64, ptr @__per_cpu_offset, i64 %25
-  %27 = load i64, ptr %26, align 8
-  %28 = add i64 %27, ptrtoint (ptr @cpu_info to i64)
-  %29 = inttoptr i64 %28 to ptr
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 244
-  %31 = load i32, ptr %30, align 4
-  %32 = icmp eq i32 %31, %10
-  %33 = add nuw nsw i64 %21, 1
-  br i1 %32, label %.thread, label %12, !llvm.loop !46
+25:                                               ; preds = %21
+  %26 = and i64 %22, 63
+  %27 = getelementptr i64, ptr @__per_cpu_offset, i64 %26
+  %28 = load i64, ptr %27, align 8
+  %29 = add i64 %28, ptrtoint (ptr @cpu_info to i64)
+  %30 = inttoptr i64 %29 to ptr
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 244
+  %32 = load i32, ptr %31, align 4
+  %33 = icmp eq i32 %32, %10
+  %34 = add nuw nsw i64 %22, 1
+  br i1 %33, label %.thread, label %13, !llvm.loop !46
 
-.thread:                                          ; preds = %16, %12, %24, %20
-  %34 = phi i32 [ 0, %20 ], [ %22, %24 ], [ 0, %12 ], [ 0, %16 ]
+.thread:                                          ; preds = %17, %13, %25, %21
+  %35 = phi i32 [ 0, %20 ], [ %23, %24 ], [ 0, %12 ], [ 0, %16 ]
   call void @cpus_read_unlock() #20
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 0, ptr %3, align 8, !annotation !6
-  %35 = call i32 @rdmsrl_on_cpu(i32 noundef %34, i32 noundef 768, ptr noundef nonnull %3) #20
-  %36 = icmp eq i32 %35, 0
-  %37 = load i64, ptr %3, align 8
-  %38 = icmp slt i64 %37, 0
-  %39 = select i1 %36, i1 %38, i1 false
+  %36 = call i32 @rdmsrl_on_cpu(i32 noundef %35, i32 noundef 768, ptr noundef nonnull %3) #20
+  %37 = icmp eq i32 %36, 0
+  %38 = load i64, ptr %3, align 8
+  %39 = icmp slt i64 %38, 0
+  %40 = select i1 %36, i1 %38, i1 false
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %39, label %40, label %.loopexit
 
-40:                                               ; preds = %.thread
-  %41 = call i32 @uncore_die_to_segment(i32 noundef %10) #20
-  %42 = icmp slt i32 %41, 0
-  br i1 %42, label %.loopexit, label %43
+45:                                               ; preds = %.thread
+  %46 = call i32 @uncore_die_to_segment(i32 noundef %10) #20
+  %47 = icmp slt i32 %46, 0
+  br i1 %47, label %.loopexit, label %48
 
-43:                                               ; preds = %40
-  %44 = call i32 %1(ptr noundef %0, i32 noundef %41, i32 noundef %10, i64 noundef %37) #20, !callees !47
-  %45 = icmp eq i32 %44, 0
-  br i1 %45, label %6, label %.loopexit
+48:                                               ; preds = %45
+  %49 = call i32 %1(ptr noundef %0, i32 noundef %46, i32 noundef %10, i64 noundef %37) #20, !callees !47
+  %50 = icmp eq i32 %49, 0
+  br i1 %50, label %6, label %.loopexit
 
-.loopexit:                                        ; preds = %43, %40, %.thread, %6, %2
-  %46 = phi i32 [ -1, %2 ], [ %44, %43 ], [ %41, %40 ], [ -6, %.thread ], [ 0, %6 ]
-  ret i32 %46
+.loopexit:                                        ; preds = %48, %45, %.thread, %6, %2
+  %51 = phi i32 [ -1, %2 ], [ %49, %43 ], [ %46, %40 ], [ -6, %.thread ], [ 0, %6 ]
+  ret i32 %51
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none)

@@ -94164,7 +94164,7 @@ define void @"_ZN6yara_x7modules6dotnet6parser144_$LT$impl$u20$core..convert..Fr
 25:                                               ; preds = %28, %26
   %.pn = phi { ptr, i32 } [ %29, %28 ], [ %27, %26 ]
   invoke void @"_ZN4core3ptr62drop_in_place$LT$yara_x..modules..protos..dotnet..Resource$GT$17h8305795fe4e9b23aE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %4) #29
-          to label %43 unwind label %41
+          to label %43 unwind label %42
 
 26:                                               ; preds = %18, %10
   %27 = landingpad { ptr, i32 }
@@ -94182,14 +94182,14 @@ define void @"_ZN6yara_x7modules6dotnet6parser144_$LT$impl$u20$core..convert..Fr
   br label %25
 
 "_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h3849f175fa58b270E.exit": ; preds = %2, %20, %24
-  %.sroa.0.028 = phi i64 [ %16, %24 ], [ %16, %20 ], [ -9223372036854775808, %2 ]
-  %.sroa.6.sroa.5.027 = phi i64 [ %12, %24 ], [ %12, %20 ], [ undef, %2 ]
-  %.sroa.6.sroa.0.026 = phi ptr [ %21, %24 ], [ %21, %20 ], [ undef, %2 ]
-  store i64 %.sroa.0.028, ptr %4, align 8
+  %.sroa.0.027 = phi i64 [ %16, %24 ], [ %16, %20 ], [ -9223372036854775808, %2 ]
+  %.sroa.6.sroa.5.026 = phi i64 [ %12, %24 ], [ %12, %20 ], [ undef, %2 ]
+  %.sroa.6.sroa.0.025 = phi ptr [ %21, %24 ], [ %21, %20 ], [ undef, %2 ]
+  store i64 %.sroa.0.027, ptr %4, align 8
   %.sroa.6.0..sroa_idx4 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %.sroa.6.sroa.0.026, ptr %.sroa.6.0..sroa_idx4, align 8
+  store ptr %.sroa.6.sroa.0.025, ptr %.sroa.6.0..sroa_idx4, align 8
   %.sroa.6.sroa.5.0..sroa.6.0..sroa_idx4.sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i64 %.sroa.6.sroa.5.027, ptr %.sroa.6.sroa.5.0..sroa.6.0..sroa_idx4.sroa_idx, align 8
+  store i64 %.sroa.6.sroa.5.026, ptr %.sroa.6.sroa.5.0..sroa.6.0..sroa_idx4.sroa_idx, align 8
   %30 = load i32, ptr %1, align 8, !range !808, !noundef !3
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %32 = load i32, ptr %31, align 4
@@ -94203,23 +94203,23 @@ define void @"_ZN6yara_x7modules6dotnet6parser144_$LT$impl$u20$core..convert..Fr
   %.not16 = icmp ne ptr %35, null
   %38 = icmp ult i64 %37, 4294967296
   %39 = trunc nuw i64 %37 to i32
-  %.not22 = select i1 %.not16, i1 %38, i1 false
-  %.sroa.68.0 = select i1 %.not22, i32 %39, i32 undef
-  %.sroa.07.0 = zext i1 %.not22 to i32
+  %40 = select i1 %.not16, i1 %38, i1 false
+  %.sroa.68.0 = select i1 %40, i32 %39, i32 undef
+  %.sroa.07.0 = zext i1 %40 to i32
   store i32 %.sroa.07.0, ptr %6, align 8
-  %40 = getelementptr inbounds nuw i8, ptr %4, i64 36
-  store i32 %.sroa.68.0, ptr %40, align 4
+  %41 = getelementptr inbounds nuw i8, ptr %4, i64 36
+  store i32 %.sroa.68.0, ptr %41, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %4, i64 56, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
-41:                                               ; preds = %25
-  %42 = landingpad { ptr, i32 }
+42:                                               ; preds = %25
+  %43 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hb7138e7aeec2c1a7E() #30
   unreachable
 
-43:                                               ; preds = %25
+44:                                               ; preds = %25
   resume { ptr, i32 } %.pn
 }
 
