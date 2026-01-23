@@ -370,27 +370,27 @@ define noundef i32 @_ZN9NR_Jacobi6eigsrtEPdPA4_d(ptr noundef captures(none) %0, 
   %15 = getelementptr inbounds double, ptr %0, i64 %14
   store double %5, ptr %15, align 8, !tbaa !4
   store double %.0.lcssa, ptr %4, align 8, !tbaa !4
-  br label %16
+  br label %15
 
-16:                                               ; preds = %13, %16
+15:                                               ; preds = %13, %15
   %indvars.iv50 = phi i64 [ 0, %13 ], [ %indvars.iv.next51, %16 ]
-  %17 = getelementptr inbounds nuw [4 x double], ptr %1, i64 %indvars.iv50
-  %18 = getelementptr inbounds nuw double, ptr %17, i64 %indvars.iv54
-  %19 = load double, ptr %18, align 8, !tbaa !4
-  %20 = getelementptr inbounds double, ptr %17, i64 %14
-  %21 = load double, ptr %20, align 8, !tbaa !4
-  store double %21, ptr %18, align 8, !tbaa !4
-  store double %19, ptr %20, align 8, !tbaa !4
+  %16 = getelementptr inbounds nuw [4 x double], ptr %1, i64 %indvars.iv50
+  %17 = getelementptr inbounds nuw double, ptr %16, i64 %indvars.iv54
+  %18 = load double, ptr %17, align 8, !tbaa !4
+  %19 = getelementptr inbounds double, ptr %16, i64 %14
+  %20 = load double, ptr %19, align 8, !tbaa !4
+  store double %20, ptr %17, align 8, !tbaa !4
+  store double %18, ptr %19, align 8, !tbaa !4
   %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 1
   %exitcond53.not = icmp eq i64 %indvars.iv.next51, 4
-  br i1 %exitcond53.not, label %.loopexit, label %16, !llvm.loop !24
+  br i1 %exitcond53.not, label %.loopexit, label %15, !llvm.loop !24
 
-.loopexit:                                        ; preds = %16, %._crit_edge
+.loopexit:                                        ; preds = %15, %._crit_edge
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond57.not = icmp eq i64 %indvars.iv.next55, 4
-  br i1 %exitcond57.not, label %22, label %3, !llvm.loop !25
+  br i1 %exitcond57.not, label %21, label %3, !llvm.loop !25
 
-22:                                               ; preds = %.loopexit
+21:                                               ; preds = %.loopexit
   ret i32 0
 }
 

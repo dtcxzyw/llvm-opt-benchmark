@@ -15365,7 +15365,7 @@ _Z22ImParseFormatPrecisionPKci.exit289.thread:    ; preds = %173, %198, %202, %1
 
 .critedge:                                        ; preds = %198, %202, %196, %196, %157
   %or.cond5 = icmp samesign ult i32 %17, 101
-  %207 = icmp ne i32 %4, %5
+  %or.cond7 = icmp ne i32 %4, %5
   %or.cond7 = and i1 %207, %or.cond5
   %or.cond9 = or i1 %or.cond7, %162
   br i1 %or.cond9, label %208, label %212
@@ -16873,7 +16873,7 @@ _Z22ImParseFormatPrecisionPKci.exit289.thread:    ; preds = %173, %198, %202, %1
 
 .critedge:                                        ; preds = %198, %202, %196, %196, %157
   %or.cond5 = icmp samesign ult i64 %17, 101
-  %207 = icmp ne i64 %4, %5
+  %or.cond7 = icmp ne i64 %4, %5
   %or.cond7 = and i1 %207, %or.cond5
   %or.cond9 = or i1 %or.cond7, %162
   br i1 %or.cond9, label %208, label %212
@@ -45785,65 +45785,65 @@ _ZN5ImStbL22STB_TEXTEDIT_LAYOUTROWEPNS_14StbTexteditRowEP19ImGuiInputTextStatei.
   %.04683 = phi i32 [ 0, %.lr.ph84 ], [ %135, %_ZN5ImStbL36IMSTB_TEXTEDIT_GETNEXTCHARINDEX_IMPLEP19ImGuiInputTextStatei.exit60 ]
   %.04882 = phi float [ 0.000000e+00, %.lr.ph84 ], [ %104, %_ZN5ImStbL36IMSTB_TEXTEDIT_GETNEXTCHARINDEX_IMPLEP19ImGuiInputTextStatei.exit60 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %78 = load ptr, ptr %10, align 8, !tbaa !413
-  %79 = getelementptr inbounds nuw i8, ptr %78, i64 %76
-  %80 = sext i32 %.04683 to i64
-  %81 = getelementptr inbounds i8, ptr %79, i64 %80
-  %82 = load i32, ptr %8, align 8, !tbaa !383
-  %83 = sext i32 %82 to i64
-  %84 = getelementptr inbounds i8, ptr %78, i64 %83
-  %85 = call noundef i32 @_Z18ImTextCharFromUtf8PjPKcS1_(ptr noundef nonnull %6, ptr noundef %81, ptr noundef %84)
-  %86 = load i32, ptr %6, align 4, !tbaa !177
-  %87 = and i32 %86, 65535
-  %88 = icmp eq i32 %87, 10
-  br i1 %88, label %_ZN5ImStbL21STB_TEXTEDIT_GETWIDTHEP19ImGuiInputTextStateii.exit, label %89
+  %76 = load ptr, ptr %10, align 8, !tbaa !413
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 %76
+  %78 = sext i32 %.04683 to i64
+  %79 = getelementptr inbounds i8, ptr %77, i64 %78
+  %80 = load i32, ptr %8, align 8, !tbaa !383
+  %81 = sext i32 %80 to i64
+  %82 = getelementptr inbounds i8, ptr %76, i64 %81
+  %83 = call noundef i32 @_Z18ImTextCharFromUtf8PjPKcS1_(ptr noundef nonnull %6, ptr noundef %79, ptr noundef %82)
+  %84 = load i32, ptr %6, align 4, !tbaa !177
+  %85 = and i32 %84, 65535
+  %86 = icmp eq i32 %85, 10
+  br i1 %86, label %_ZN5ImStbL21STB_TEXTEDIT_GETWIDTHEP19ImGuiInputTextStateii.exit, label %87
 
-89:                                               ; preds = %77
-  %90 = load ptr, ptr %0, align 8, !tbaa !495
-  %91 = getelementptr inbounds nuw i8, ptr %90, i64 4264
-  %92 = load ptr, ptr %91, align 8, !tbaa !277
-  %93 = load i32, ptr %92, align 8, !tbaa !469
-  %94 = icmp sgt i32 %93, %87
-  %95 = getelementptr inbounds nuw i8, ptr %92, i64 8
-  %96 = load ptr, ptr %95, align 8
-  %97 = zext nneg i32 %87 to i64
-  %98 = getelementptr inbounds nuw float, ptr %96, i64 %97
-  %99 = getelementptr inbounds nuw i8, ptr %92, i64 16
-  %.in.i.i = select i1 %94, ptr %98, ptr %99
-  %100 = load float, ptr %.in.i.i, align 4, !tbaa !191
-  %101 = getelementptr inbounds nuw i8, ptr %90, i64 4280
-  %102 = load float, ptr %101, align 8, !tbaa !279
-  %103 = fmul float %100, %102
+87:                                               ; preds = %77
+  %88 = load ptr, ptr %0, align 8, !tbaa !495
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 4264
+  %90 = load ptr, ptr %89, align 8, !tbaa !277
+  %91 = load i32, ptr %90, align 8, !tbaa !469
+  %92 = icmp sgt i32 %91, %85
+  %93 = getelementptr inbounds nuw i8, ptr %90, i64 8
+  %94 = load ptr, ptr %93, align 8
+  %95 = zext nneg i32 %85 to i64
+  %96 = getelementptr inbounds nuw float, ptr %94, i64 %95
+  %97 = getelementptr inbounds nuw i8, ptr %90, i64 16
+  %.in.i.i = select i1 %92, ptr %96, ptr %97
+  %98 = load float, ptr %.in.i.i, align 4, !tbaa !191
+  %99 = getelementptr inbounds nuw i8, ptr %88, i64 4280
+  %100 = load float, ptr %99, align 8, !tbaa !279
+  %101 = fmul float %98, %100
   br label %_ZN5ImStbL21STB_TEXTEDIT_GETWIDTHEP19ImGuiInputTextStateii.exit
 
-_ZN5ImStbL21STB_TEXTEDIT_GETWIDTHEP19ImGuiInputTextStateii.exit: ; preds = %77, %89
-  %.0.i = phi float [ %103, %89 ], [ -1.000000e+00, %77 ]
+_ZN5ImStbL21STB_TEXTEDIT_GETWIDTHEP19ImGuiInputTextStateii.exit: ; preds = %77, %87
+  %.0.i = phi float [ %101, %89 ], [ -1.000000e+00, %77 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %104 = fadd float %.04882, %.0.i
-  %105 = fcmp uge float %1, %104
-  br i1 %105, label %_ZN5ImStbL36IMSTB_TEXTEDIT_GETNEXTCHARINDEX_IMPLEP19ImGuiInputTextStatei.exit, label %106
+  %102 = fadd float %.04882, %.0.i
+  %103 = fcmp uge float %1, %102
+  br i1 %103, label %_ZN5ImStbL36IMSTB_TEXTEDIT_GETNEXTCHARINDEX_IMPLEP19ImGuiInputTextStatei.exit, label %104
 
-106:                                              ; preds = %_ZN5ImStbL21STB_TEXTEDIT_GETWIDTHEP19ImGuiInputTextStateii.exit
-  %107 = fmul float %.0.i, 5.000000e-01
-  %108 = fadd float %.04882, %107
-  %109 = fcmp olt float %1, %108
-  %110 = add nsw i32 %.04683, %.04778
-  br i1 %109, label %.thread, label %111
+104:                                              ; preds = %_ZN5ImStbL21STB_TEXTEDIT_GETWIDTHEP19ImGuiInputTextStateii.exit
+  %105 = fmul float %.0.i, 5.000000e-01
+  %106 = fadd float %.04882, %105
+  %107 = fcmp olt float %1, %106
+  %108 = add nsw i32 %.04683, %.04778
+  br i1 %107, label %.thread, label %109
 
-111:                                              ; preds = %106
-  %112 = load i32, ptr %8, align 8, !tbaa !383
-  %.not.i = icmp slt i32 %110, %112
-  br i1 %.not.i, label %115, label %113
+109:                                              ; preds = %104
+  %110 = load i32, ptr %8, align 8, !tbaa !383
+  %.not.i = icmp slt i32 %108, %110
+  br i1 %.not.i, label %113, label %111
 
-113:                                              ; preds = %111
-  %114 = add nsw i32 %112, 1
+111:                                              ; preds = %109
+  %112 = add nsw i32 %110, 1
   br label %.thread
 
-115:                                              ; preds = %111
+113:                                              ; preds = %109
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %116 = load ptr, ptr %10, align 8, !tbaa !413
+  %114 = load ptr, ptr %10, align 8, !tbaa !413
   %117 = sext i32 %110 to i64
-  %118 = getelementptr inbounds i8, ptr %116, i64 %117
+  %118 = getelementptr inbounds i8, ptr %114, i64 %117
   %119 = sext i32 %112 to i64
   %120 = getelementptr inbounds i8, ptr %116, i64 %119
   %121 = call noundef i32 @_Z18ImTextCharFromUtf8PjPKcS1_(ptr noundef nonnull %5, ptr noundef %118, ptr noundef %120)
@@ -45852,46 +45852,46 @@ _ZN5ImStbL21STB_TEXTEDIT_GETWIDTHEP19ImGuiInputTextStateii.exit: ; preds = %77, 
   br label %.thread
 
 _ZN5ImStbL36IMSTB_TEXTEDIT_GETNEXTCHARINDEX_IMPLEP19ImGuiInputTextStatei.exit: ; preds = %_ZN5ImStbL21STB_TEXTEDIT_GETWIDTHEP19ImGuiInputTextStateii.exit
-  %123 = add nsw i32 %.04683, %.04778
-  %124 = load i32, ptr %8, align 8, !tbaa !383
-  %.not.i58 = icmp slt i32 %123, %124
-  br i1 %.not.i58, label %127, label %125
+  %121 = add nsw i32 %.04683, %.04778
+  %122 = load i32, ptr %8, align 8, !tbaa !383
+  %.not.i58 = icmp slt i32 %121, %122
+  br i1 %.not.i58, label %125, label %123
 
-125:                                              ; preds = %_ZN5ImStbL36IMSTB_TEXTEDIT_GETNEXTCHARINDEX_IMPLEP19ImGuiInputTextStatei.exit
-  %126 = add nsw i32 %124, 1
+123:                                              ; preds = %_ZN5ImStbL36IMSTB_TEXTEDIT_GETNEXTCHARINDEX_IMPLEP19ImGuiInputTextStatei.exit
+  %124 = add nsw i32 %122, 1
   br label %_ZN5ImStbL36IMSTB_TEXTEDIT_GETNEXTCHARINDEX_IMPLEP19ImGuiInputTextStatei.exit60
 
-127:                                              ; preds = %_ZN5ImStbL36IMSTB_TEXTEDIT_GETNEXTCHARINDEX_IMPLEP19ImGuiInputTextStatei.exit
+125:                                              ; preds = %_ZN5ImStbL36IMSTB_TEXTEDIT_GETNEXTCHARINDEX_IMPLEP19ImGuiInputTextStatei.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %128 = load ptr, ptr %10, align 8, !tbaa !413
-  %129 = sext i32 %123 to i64
-  %130 = getelementptr inbounds i8, ptr %128, i64 %129
-  %131 = sext i32 %124 to i64
-  %132 = getelementptr inbounds i8, ptr %128, i64 %131
-  %133 = call noundef i32 @_Z18ImTextCharFromUtf8PjPKcS1_(ptr noundef nonnull %4, ptr noundef %130, ptr noundef %132)
-  %134 = add nsw i32 %133, %123
+  %126 = load ptr, ptr %10, align 8, !tbaa !413
+  %127 = sext i32 %121 to i64
+  %128 = getelementptr inbounds i8, ptr %126, i64 %127
+  %129 = sext i32 %122 to i64
+  %130 = getelementptr inbounds i8, ptr %126, i64 %129
+  %131 = call noundef i32 @_Z18ImTextCharFromUtf8PjPKcS1_(ptr noundef nonnull %4, ptr noundef %128, ptr noundef %130)
+  %132 = add nsw i32 %131, %121
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN5ImStbL36IMSTB_TEXTEDIT_GETNEXTCHARINDEX_IMPLEP19ImGuiInputTextStatei.exit60
 
-_ZN5ImStbL36IMSTB_TEXTEDIT_GETNEXTCHARINDEX_IMPLEP19ImGuiInputTextStatei.exit60: ; preds = %125, %127
-  %.0.i59 = phi i32 [ %126, %125 ], [ %134, %127 ]
-  %135 = sub nsw i32 %.0.i59, %.04778
-  %136 = icmp slt i32 %135, %61
-  br i1 %136, label %77, label %.loopexit, !llvm.loop !845
+_ZN5ImStbL36IMSTB_TEXTEDIT_GETNEXTCHARINDEX_IMPLEP19ImGuiInputTextStatei.exit60: ; preds = %123, %125
+  %.0.i59 = phi i32 [ %124, %125 ], [ %132, %127 ]
+  %133 = sub nsw i32 %.0.i59, %.04778
+  %134 = icmp slt i32 %133, %61
+  br i1 %134, label %77, label %.loopexit, !llvm.loop !845
 
 .loopexit:                                        ; preds = %_ZN5ImStbL36IMSTB_TEXTEDIT_GETNEXTCHARINDEX_IMPLEP19ImGuiInputTextStatei.exit60, %74
-  %137 = add nuw nsw i32 %.04778, %61
-  %138 = add nsw i32 %137, -1
+  %135 = add nuw nsw i32 %.04778, %61
+  %136 = add nsw i32 %135, -1
   %.val56 = load ptr, ptr %10, align 8, !tbaa !413
-  %139 = zext nneg i32 %138 to i64
-  %140 = getelementptr inbounds nuw i8, ptr %.val56, i64 %139
-  %141 = load i8, ptr %140, align 1, !tbaa !340
-  %142 = icmp eq i8 %141, 10
-  %spec.select = select i1 %142, i32 %138, i32 %137
+  %137 = zext nneg i32 %136 to i64
+  %138 = getelementptr inbounds nuw i8, ptr %.val56, i64 %137
+  %139 = load i8, ptr %138, align 1, !tbaa !340
+  %140 = icmp eq i8 %139, 10
+  %spec.select = select i1 %140, i32 %136, i32 %135
   br label %.thread
 
-.thread:                                          ; preds = %_ZN5ImStbL22STB_TEXTEDIT_LAYOUTROWEPNS_14StbTexteditRowEP19ImGuiInputTextStatei.exit, %69, %63, %106, %3, %.loopexit, %113, %115, %72
-  %.0 = phi i32 [ %110, %106 ], [ %spec.select, %.loopexit ], [ %.04778, %72 ], [ %114, %113 ], [ %122, %115 ], [ %.val, %3 ], [ %.val, %_ZN5ImStbL22STB_TEXTEDIT_LAYOUTROWEPNS_14StbTexteditRowEP19ImGuiInputTextStatei.exit ], [ %.val, %69 ], [ 0, %63 ]
+.thread:                                          ; preds = %_ZN5ImStbL22STB_TEXTEDIT_LAYOUTROWEPNS_14StbTexteditRowEP19ImGuiInputTextStatei.exit, %69, %63, %104, %3, %.loopexit, %111, %113, %72
+  %.0 = phi i32 [ %108, %106 ], [ %spec.select, %.loopexit ], [ %.04778, %72 ], [ %112, %113 ], [ %122, %115 ], [ %.val, %3 ], [ %.val, %_ZN5ImStbL22STB_TEXTEDIT_LAYOUTROWEPNS_14StbTexteditRowEP19ImGuiInputTextStatei.exit ], [ %.val, %69 ], [ 0, %63 ]
   ret i32 %.0
 }
 

@@ -2303,13 +2303,13 @@ define internal fastcc void @"_ZN96_$LT$alloc..collections..btree..map..BTreeMap
   %71 = getelementptr inbounds nuw i8, ptr %12, i64 16
   br label %72
 
-._crit_edge:                                      ; preds = %97, %65
+._crit_edge:                                      ; preds = %96, %65
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %12, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %39
 
-72:                                               ; preds = %.lr.ph, %97
+72:                                               ; preds = %.lr.ph, %96
   %.sroa.7.0103 = phi i64 [ 0, %.lr.ph ], [ %76, %97 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %1, ptr %5, align 8
@@ -2376,17 +2376,17 @@ define internal fastcc void @"_ZN96_$LT$alloc..collections..btree..map..BTreeMap
   invoke void @"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$4push17hae171919b5f0643eE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %11, i64 noundef %77, i64 noundef %79, ptr noundef nonnull %.sroa.073.0, i64 noundef %.sroa.574.0)
           to label %97 unwind label %88
 
-97:                                               ; preds = %95
-  %98 = add i64 %.sroa.569.0.copyload, 1
-  %99 = load i64, ptr %71, align 8, !noundef !3
-  %100 = add i64 %98, %99
-  store i64 %100, ptr %71, align 8
-  %101 = load i16, ptr %69, align 2, !noundef !3
-  %102 = zext i16 %101 to i64
-  %103 = icmp samesign ult i64 %76, %102
-  br i1 %103, label %72, label %._crit_edge
+96:                                               ; preds = %95
+  %97 = add i64 %.sroa.569.0.copyload, 1
+  %98 = load i64, ptr %71, align 8, !noundef !3
+  %99 = add i64 %97, %98
+  store i64 %99, ptr %71, align 8
+  %100 = load i16, ptr %69, align 2, !noundef !3
+  %101 = zext i16 %100 to i64
+  %102 = icmp samesign ult i64 %76, %101
+  br i1 %102, label %72, label %._crit_edge
 
-104:                                              ; preds = %29, %.body
+103:                                              ; preds = %29, %.body
   %.pn94.pn = phi { ptr, i32 } [ %.pn94, %29 ], [ %.pn, %.body ]
   resume { ptr, i32 } %.pn94.pn
 }

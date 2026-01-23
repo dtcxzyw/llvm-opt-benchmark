@@ -1038,7 +1038,7 @@ define hidden noundef ptr @"_ZN3gif7encoder16Encoder$LT$W$GT$13write_trailer17hf
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8, !alias.scope !149, !noundef !13
   %6 = icmp eq ptr %5, null
-  br i1 %6, label %25, label %7
+  br i1 %6, label %.thread, label %7
 
 7:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !152
@@ -1080,9 +1080,9 @@ define hidden noundef ptr @"_ZN3gif7encoder16Encoder$LT$W$GT$13write_trailer17hf
 "_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h9b5b746d84772b2cE.llvm.7602948157661992270.exit": ; preds = %18, %20
   %.0.i.i = phi ptr [ null, %20 ], [ %19, %18 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !163
-  br label %25
+  br label %.thread
 
-25:                                               ; preds = %1, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h9b5b746d84772b2cE.llvm.7602948157661992270.exit"
+.thread:                                          ; preds = %1, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h9b5b746d84772b2cE.llvm.7602948157661992270.exit"
   %.0 = phi ptr [ %.0.i.i, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h9b5b746d84772b2cE.llvm.7602948157661992270.exit" ], [ inttoptr (i64 154618822659 to ptr), %1 ]
   ret ptr %.0
 }

@@ -27491,14 +27491,14 @@ for.cond:                                         ; preds = %for.cond, %_ZN4node
 
 for.end:                                          ; preds = %for.cond
   %mul.ov.i.i.i.i = icmp ugt i64 %inc, 2305843009213693951
-  br i1 %mul.ov.i.i.i.i, label %do.body5.i.i.i.i, label %if.end.i.i.i47
+  br i1 %mul.ov.i.i.i.i, label %do.body5.i.i.i.i, label %_ZN4node25MultiplyWithOverflowCheckImEET_S1_S1_.exit.i.i.i
 
 do.body5.i.i.i.i:                                 ; preds = %for.end
   tail call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node25MultiplyWithOverflowCheckImEET_S1_S1_E4args) #21
   tail call void @abort() #24
   unreachable
 
-if.end.i.i.i47:                                   ; preds = %for.end
+_ZN4node25MultiplyWithOverflowCheckImEET_S1_S1_.exit.i.i.i: ; preds = %for.end
   %mul.val.i.i.i.i = shl nuw i64 %inc, 3
   %malloc.i.i48 = tail call ptr @malloc(i64 %mul.val.i.i.i.i)
   %cmp2.i.i.i49 = icmp eq ptr %malloc.i.i48, null
@@ -27585,14 +27585,14 @@ for.cond29:                                       ; preds = %for.cond29, %for.en
 
 for.end36:                                        ; preds = %for.cond29
   %mul.ov.i.i.i.i54 = icmp ugt i64 %inc35, 2305843009213693951
-  br i1 %mul.ov.i.i.i.i54, label %do.body5.i.i.i.i66, label %if.end.i.i.i58
+  br i1 %mul.ov.i.i.i.i54, label %do.body5.i.i.i.i66, label %_ZN4node25MultiplyWithOverflowCheckImEET_S1_S1_.exit.i.i.i55
 
 do.body5.i.i.i.i66:                               ; preds = %for.end36
   tail call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node25MultiplyWithOverflowCheckImEET_S1_S1_E4args) #21
   tail call void @abort() #24
   unreachable
 
-if.end.i.i.i58:                                   ; preds = %for.end36
+_ZN4node25MultiplyWithOverflowCheckImEET_S1_S1_.exit.i.i.i55: ; preds = %for.end36
   %mul.val.i.i.i.i56 = shl nuw i64 %inc35, 3
   %malloc.i.i59 = tail call ptr @malloc(i64 %mul.val.i.i.i.i56)
   %cmp2.i.i.i60 = icmp eq ptr %malloc.i.i59, null

@@ -3382,16 +3382,16 @@ define hidden void @_ZN14GenerateOopMap24rewrite_refval_conflictsEv(ptr noundef 
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.pre14 = load i32, ptr %.phi.trans.insert, align 8
   %16 = icmp slt i32 %.pre14, 1
-  %or.cond17 = select i1 %15, i1 true, i1 %16
-  br i1 %or.cond17, label %.critedge, label %.lr.ph
+  %or.cond = select i1 %15, i1 true, i1 %16
+  br i1 %or.cond, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %11
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 160
   br label %18
 
-18:                                               ; preds = %.lr.ph, %30
+18:                                               ; preds = %.lr.ph, %._crit_edge
   %19 = phi i8 [ %14, %.lr.ph ], [ %31, %30 ]
-  %20 = phi i32 [ %.pre14, %.lr.ph ], [ %32, %30 ]
+  %indvars.iv = phi i32 [ %.pre14, %.lr.ph ], [ %32, %30 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %30 ]
   %21 = load ptr, ptr %17, align 8
   %22 = getelementptr inbounds nuw i32, ptr %21, i64 %indvars.iv
@@ -3400,11 +3400,11 @@ define hidden void @_ZN14GenerateOopMap24rewrite_refval_conflictsEv(ptr noundef 
   %.not = icmp eq i64 %indvars.iv, %24
   br i1 %.not, label %._crit_edge, label %25
 
-._crit_edge:                                      ; preds = %18
-  %.pre15 = trunc i8 %19 to i1
-  br label %30
+24:                                               ; preds = %18
+  %25 = trunc i8 %19 to i1
+  br label %._crit_edge
 
-25:                                               ; preds = %18
+28:                                               ; preds = %18
   %26 = trunc nuw nsw i64 %indvars.iv to i32
   tail call void @_ZN14GenerateOopMap23rewrite_refval_conflictEii(ptr noundef nonnull align 8 dereferenceable(176) %0, i32 noundef %26, i32 noundef %23)
   %27 = load i8, ptr %13, align 8
@@ -3413,19 +3413,19 @@ define hidden void @_ZN14GenerateOopMap24rewrite_refval_conflictsEv(ptr noundef 
 
 29:                                               ; preds = %25
   %.pre = load i32, ptr %.phi.trans.insert, align 8
-  br label %30
+  br label %._crit_edge
 
-30:                                               ; preds = %._crit_edge, %29
-  %.pre-phi = phi i1 [ %.pre15, %._crit_edge ], [ false, %29 ]
+._crit_edge:                                      ; preds = %24, %29
+  %29 = phi i1 [ %.pre15, %._crit_edge ], [ false, %29 ]
   %31 = phi i8 [ %19, %._crit_edge ], [ %27, %29 ]
   %32 = phi i32 [ %20, %._crit_edge ], [ %.pre, %29 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %33 = sext i32 %32 to i64
-  %34 = icmp sge i64 %indvars.iv.next, %33
-  %or.cond = select i1 %34, i1 true, i1 %.pre-phi
+  %30 = sext i32 %32 to i64
+  %.not17 = icmp sge i64 %indvars.iv.next, %30
+  %or.cond = select i1 %.not17, i1 true, i1 %29
   br i1 %or.cond, label %.critedge, label %18, !llvm.loop !32
 
-.critedge:                                        ; preds = %30, %11
+.critedge:; preds = %._crit_edge, %11
   %35 = phi i32 [ %.pre14, %11 ], [ %32, %30 ]
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %37 = load ptr, ptr %36, align 8
@@ -3437,7 +3437,7 @@ define hidden void @_ZN14GenerateOopMap24rewrite_refval_conflictsEv(ptr noundef 
   %43 = trunc i32 %40 to i16
   %44 = getelementptr inbounds nuw i8, ptr %42, i64 44
   store i16 %43, ptr %44, align 4
-  %45 = load i32, ptr %2, align 4
+  %42 = load i32, ptr %2, align 4
   %46 = load i32, ptr %38, align 8
   %47 = add nsw i32 %46, %45
   store i32 %47, ptr %38, align 8

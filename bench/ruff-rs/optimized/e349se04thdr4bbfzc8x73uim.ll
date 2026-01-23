@@ -3565,16 +3565,16 @@ define void @"_ZN96_$LT$ty_test..parser..MarkdownTestIterator$u20$as$u20$core..i
   store ptr null, ptr %0, align 8
   br label %17
 
-17:                                               ; preds = %37, %16
+17:                                               ; preds = %36, %16
   ret void
 
 18:                                               ; preds = %13, %"_ZN84_$LT$ty_test..parser..EmbeddedFileId$u20$as$u20$core..convert..From$LT$usize$GT$$GT$4from17h57ae5ca82ca53ce8E.exit19"
-  %.sroa.08.022 = phi i64 [ %4, %13 ], [ %36, %"_ZN84_$LT$ty_test..parser..EmbeddedFileId$u20$as$u20$core..convert..From$LT$usize$GT$$GT$4from17h57ae5ca82ca53ce8E.exit19" ]
+  %.sroa.08.022 = phi i64 [ %4, %13 ], [ %35, %"_ZN84_$LT$ty_test..parser..EmbeddedFileId$u20$as$u20$core..convert..From$LT$usize$GT$$GT$4from17h57ae5ca82ca53ce8E.exit19" ]
   %19 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { i64, [2 x i64] }, { ptr, i64 }, { ptr, [1 x i64] }, i32, [1 x i32] }, ptr %7, i64 %.sroa.08.022
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 80
   %21 = load i32, ptr %20, align 8, !range !73, !noundef !3
   %22 = icmp eq i32 %21, %15
-  br i1 %22, label %34, label %_ZN7ty_test6parser14EmbeddedFileId10from_usize17h45ef56b882b97705E.exit18
+  br i1 %22, label %33, label %_ZN7ty_test6parser14EmbeddedFileId10from_usize17h45ef56b882b97705E.exit18
 
 _ZN7ty_test6parser14EmbeddedFileId10from_usize17h45ef56b882b97705E.exit18: ; preds = %"_ZN84_$LT$ty_test..parser..EmbeddedFileId$u20$as$u20$core..convert..From$LT$usize$GT$$GT$4from17h57ae5ca82ca53ce8E.exit19", %18
   %.sroa.08.0.lcssa = phi i64 [ %9, %"_ZN84_$LT$ty_test..parser..EmbeddedFileId$u20$as$u20$core..convert..From$LT$usize$GT$$GT$4from17h57ae5ca82ca53ce8E.exit19" ], [ %.sroa.08.022, %18 ]
@@ -3582,56 +3582,56 @@ _ZN7ty_test6parser14EmbeddedFileId10from_usize17h45ef56b882b97705E.exit18: ; pre
   %24 = icmp samesign ult i64 %23, %4
   br i1 %24, label %27, label %25, !prof !26
 
-25:                                               ; preds = %_ZN7ty_test6parser14EmbeddedFileId10from_usize17h45ef56b882b97705E.exit18
-  %26 = icmp ugt i64 %23, %9
-  br i1 %26, label %28, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h11ab18c6d90dc93bE.exit", !prof !26
+24:                                               ; preds = %_ZN7ty_test6parser14EmbeddedFileId10from_usize17h45ef56b882b97705E.exit18
+  %25 = icmp ugt i64 %23, %9
+  br i1 %25, label %27, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h11ab18c6d90dc93bE.exit", !prof !26
 
-27:                                               ; preds = %_ZN7ty_test6parser14EmbeddedFileId10from_usize17h45ef56b882b97705E.exit18
+26:                                               ; preds = %_ZN7ty_test6parser14EmbeddedFileId10from_usize17h45ef56b882b97705E.exit18
   tail call void @_ZN4core5slice5index22slice_index_order_fail17h753dc2b23292d7ecE(i64 noundef range(i64 0, 4294967295) %4, i64 noundef range(i64 0, 4294967295) %23, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3286fc83d290b8ed66e137ae903e3c63.48) #21, !noalias !330
   unreachable
 
-28:                                               ; preds = %25
+27:                                               ; preds = %24
   tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h5b7964a60aa84510E(i64 noundef range(i64 0, 4294967295) %23, i64 noundef %9, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3286fc83d290b8ed66e137ae903e3c63.48) #21, !noalias !330
   unreachable
 
-"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h11ab18c6d90dc93bE.exit": ; preds = %25
+"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h11ab18c6d90dc93bE.exit": ; preds = %24
   store i64 %.sroa.08.0.lcssa, ptr %3, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %30 = load i64, ptr %29, align 8, !noundef !3
-  %31 = add i32 %15, -1
-  %32 = zext i32 %31 to i64
-  %33 = icmp ugt i64 %30, %32
-  br i1 %33, label %37, label %42
+  %28 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %29 = load i64, ptr %28, align 8, !noundef !3
+  %30 = add i32 %15, -1
+  %31 = zext i32 %30 to i64
+  %32 = icmp ugt i64 %29, %31
+  br i1 %32, label %36, label %41
 
-34:                                               ; preds = %18
+33:                                               ; preds = %18
   %exitcond.not = icmp eq i64 %.sroa.08.022, 4294967294
-  br i1 %exitcond.not, label %35, label %"_ZN84_$LT$ty_test..parser..EmbeddedFileId$u20$as$u20$core..convert..From$LT$usize$GT$$GT$4from17h57ae5ca82ca53ce8E.exit19", !prof !26
+  br i1 %exitcond.not, label %34, label %"_ZN84_$LT$ty_test..parser..EmbeddedFileId$u20$as$u20$core..convert..From$LT$usize$GT$$GT$4from17h57ae5ca82ca53ce8E.exit19", !prof !26
 
-35:                                               ; preds = %34
+34:                                               ; preds = %33
   tail call void @_ZN4core9panicking5panic17h48a7e1f3665210c6E(ptr noalias noundef nonnull readonly align 1 @anon.3286fc83d290b8ed66e137ae903e3c63.146, i64 noundef 51, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3286fc83d290b8ed66e137ae903e3c63.151) #21
   unreachable
 
-"_ZN84_$LT$ty_test..parser..EmbeddedFileId$u20$as$u20$core..convert..From$LT$usize$GT$$GT$4from17h57ae5ca82ca53ce8E.exit19": ; preds = %34
-  %36 = add nuw nsw i64 %.sroa.08.022, 1
-  %exitcond24.not = icmp eq i64 %36, %9
+"_ZN84_$LT$ty_test..parser..EmbeddedFileId$u20$as$u20$core..convert..From$LT$usize$GT$$GT$4from17h57ae5ca82ca53ce8E.exit19": ; preds = %33
+  %35 = add nuw nsw i64 %.sroa.08.022, 1
+  %exitcond24.not = icmp eq i64 %35, %9
   br i1 %exitcond24.not, label %_ZN7ty_test6parser14EmbeddedFileId10from_usize17h45ef56b882b97705E.exit18, label %18
 
-37:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h11ab18c6d90dc93bE.exit"
-  %38 = sub nuw nsw i64 %23, %4
-  %39 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %40 = load ptr, ptr %39, align 8, !nonnull !3, !noundef !3
-  %41 = getelementptr inbounds nuw { { { i64, [12 x i64] }, { i64, [2 x i64] }, i8, [7 x i8] }, { ptr, i64 }, i32, i8, i8, [2 x i8] }, ptr %40, i64 %32
+36:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h11ab18c6d90dc93bE.exit"
+  %37 = sub nuw nsw i64 %23, %4
+  %38 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %39 = load ptr, ptr %38, align 8, !nonnull !3, !noundef !3
+  %40 = getelementptr inbounds nuw { { { i64, [12 x i64] }, { i64, [2 x i64] }, i8, [7 x i8] }, { ptr, i64 }, i32, i8, i8, [2 x i8] }, ptr %39, i64 %31
   store ptr %5, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %41, ptr %.sroa.4.0..sroa_idx, align 8
+  store ptr %40, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %12, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %38, ptr %.sroa.6.0..sroa_idx, align 8
+  store i64 %37, ptr %.sroa.6.0..sroa_idx, align 8
   br label %17
 
-42:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h11ab18c6d90dc93bE.exit"
-  tail call void @_ZN4core9panicking18panic_bounds_check17h1a9bf3d94de0fc80E(i64 noundef %32, i64 noundef %30, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3286fc83d290b8ed66e137ae903e3c63.49) #21
+41:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h11ab18c6d90dc93bE.exit"
+  tail call void @_ZN4core9panicking18panic_bounds_check17h1a9bf3d94de0fc80E(i64 noundef %31, i64 noundef %29, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3286fc83d290b8ed66e137ae903e3c63.49) #21
   unreachable
 }
 

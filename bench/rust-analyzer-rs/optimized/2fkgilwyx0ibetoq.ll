@@ -747,31 +747,31 @@ define noundef zeroext i1 @"_ZN51_$LT$cfg..CfgDiff$u20$as$u20$core..fmt..Display
 .thread83:                                        ; preds = %38, %16
   %40 = phi i64 [ %.pre, %16 ], [ %30, %38 ]
   %41 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.ed49a406a3700145873275f46ab0f926.13, i64 noundef 8)
-  br i1 %41, label %.loopexit, label %42
+  br i1 %41, label %.loopexit, label %.lr.ph93
 
-42:                                               ; preds = %.thread83
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %44 = load ptr, ptr %43, align 8, !nonnull !4, !noundef !4
+.lr.ph93:                                         ; preds = %.thread83
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %43 = load ptr, ptr %42, align 8, !nonnull !4, !noundef !4
   %.idx99 = mul nsw i64 %40, 48
-  %45 = getelementptr inbounds i8, ptr %44, i64 %.idx99
-  %46 = add i64 %12, -1
-  %47 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %48 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %49 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %50 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %51 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %52 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %53 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  %44 = getelementptr inbounds i8, ptr %43, i64 %.idx99
+  %45 = add i64 %12, -1
+  %46 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %49 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  %51 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %.not89 = icmp eq i64 %40, 0
   br i1 %.not89, label %.loopexit, label %.lr.ph93
 
-.lr.ph93:                                         ; preds = %42, %.backedge
-  %.sroa.869.091 = phi i64 [ %55, %.backedge ], [ 0, %42 ]
+.lr.ph93: ; preds = %.lr.ph93, %.backedge
+  %.sroa.067.090 = phi i64 [ %55, %.backedge ], [ 0, %42 ]
   %.sroa.067.090 = phi ptr [ %54, %.backedge ], [ %44, %42 ]
   %54 = getelementptr inbounds nuw i8, ptr %.sroa.067.090, i64 48
   %55 = add nuw nsw i64 %.sroa.869.091, 1
   %56 = icmp eq i64 %.sroa.869.091, 0
-  %57 = icmp eq i64 %.sroa.869.091, %46
+  %57 = icmp eq i64 %.sroa.869.091, %45
   %anon.ed49a406a3700145873275f46ab0f926.15.anon.ed49a406a3700145873275f46ab0f926.14 = select i1 %57, ptr @anon.ed49a406a3700145873275f46ab0f926.15, ptr @anon.ed49a406a3700145873275f46ab0f926.14
   %. = select i1 %57, i64 5, i64 2
   %.sroa.026.0 = select i1 %56, ptr @anon.ed49a406a3700145873275f46ab0f926.3, ptr %anon.ed49a406a3700145873275f46ab0f926.15.anon.ed49a406a3700145873275f46ab0f926.14
@@ -779,7 +779,7 @@ define noundef zeroext i1 @"_ZN51_$LT$cfg..CfgDiff$u20$as$u20$core..fmt..Display
   %58 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %.sroa.026.0, i64 noundef %.sroa.427.0)
   br i1 %58, label %.loopexit, label %59
 
-.loopexit:                                        ; preds = %70, %"_ZN61_$LT$cfg..cfg_expr..CfgAtom$u20$as$u20$core..fmt..Display$GT$3fmt17h5dac7cf497f5f6bbE.exit66", %32, %.backedge, %.lr.ph93, %"_ZN61_$LT$cfg..cfg_expr..CfgAtom$u20$as$u20$core..fmt..Display$GT$3fmt17h5dac7cf497f5f6bbE.exit", %63, %42, %._crit_edge, %.thread83, %38, %14, %16
+.loopexit:                                        ; preds = %70, %"_ZN61_$LT$cfg..cfg_expr..CfgAtom$u20$as$u20$core..fmt..Display$GT$3fmt17h5dac7cf497f5f6bbE.exit66", %32, %.backedge, %.lr.ph93, %"_ZN61_$LT$cfg..cfg_expr..CfgAtom$u20$as$u20$core..fmt..Display$GT$3fmt17h5dac7cf497f5f6bbE.exit", %63, %.lr.ph93, %._crit_edge, %.thread83, %38, %14, %16
   %.0 = phi i1 [ true, %38 ], [ false, %16 ], [ true, %.thread83 ], [ true, %14 ], [ false, %._crit_edge ], [ true, %63 ], [ false, %42 ], [ true, %.lr.ph93 ], [ true, %"_ZN61_$LT$cfg..cfg_expr..CfgAtom$u20$as$u20$core..fmt..Display$GT$3fmt17h5dac7cf497f5f6bbE.exit" ], [ false, %.backedge ], [ true, %32 ], [ true, %"_ZN61_$LT$cfg..cfg_expr..CfgAtom$u20$as$u20$core..fmt..Display$GT$3fmt17h5dac7cf497f5f6bbE.exit66" ], [ true, %70 ]
   ret i1 %.0
 
@@ -802,14 +802,14 @@ define noundef zeroext i1 @"_ZN51_$LT$cfg..CfgDiff$u20$as$u20$core..fmt..Display
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !171
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !171
   store ptr %10, ptr %7, align 8, !noalias !171
-  store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h7a70229363ee09ecE", ptr %47, align 8, !noalias !171
-  store ptr %9, ptr %48, align 8, !noalias !171
-  store ptr @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h2d458eca5fa6c3b6E", ptr %49, align 8, !noalias !171
+  store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h7a70229363ee09ecE", ptr %46, align 8, !noalias !171
+  store ptr %9, ptr %47, align 8, !noalias !171
+  store ptr @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h2d458eca5fa6c3b6E", ptr %48, align 8, !noalias !171
   store ptr @anon.d1bae06dae6daace77c3c3295b6207e2.8.llvm.15417087094682063169, ptr %8, align 8, !alias.scope !172, !noalias !175
-  store i64 2, ptr %50, align 8, !alias.scope !172, !noalias !175
-  store ptr null, ptr %51, align 8, !alias.scope !172, !noalias !175
-  store ptr %7, ptr %52, align 8, !alias.scope !172, !noalias !175
-  store i64 2, ptr %53, align 8, !alias.scope !172, !noalias !175
+  store i64 2, ptr %49, align 8, !alias.scope !172, !noalias !175
+  store ptr null, ptr %50, align 8, !alias.scope !172, !noalias !175
+  store ptr %7, ptr %51, align 8, !alias.scope !172, !noalias !175
+  store i64 2, ptr %52, align 8, !alias.scope !172, !noalias !175
   %65 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !171
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !171
@@ -818,7 +818,7 @@ define noundef zeroext i1 @"_ZN51_$LT$cfg..CfgDiff$u20$as$u20$core..fmt..Display
   br i1 %65, label %.loopexit, label %.backedge
 
 .backedge:                                        ; preds = %"_ZN61_$LT$cfg..cfg_expr..CfgAtom$u20$as$u20$core..fmt..Display$GT$3fmt17h5dac7cf497f5f6bbE.exit", %63
-  %.not = icmp eq ptr %54, %45
+  %.not = icmp eq ptr %54, %44
   br i1 %.not, label %.loopexit, label %.lr.ph93
 
 66:                                               ; preds = %32

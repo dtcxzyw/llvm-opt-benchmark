@@ -5613,7 +5613,7 @@ get_CDR_ulong.exit32:                             ; preds = %19, %21
     i32 2, label %33
     i32 3, label %33
     i32 4, label %34
-    i32 5, label %.lr.ph.preheader.i35
+    i32 5, label %35
   ]
 
 33:                                               ; preds = %32, %32
@@ -5624,16 +5624,16 @@ get_CDR_ulong.exit32:                             ; preds = %19, %21
   call fastcc void @decode_SystemExceptionReplyBody(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %6, i1 noundef zeroext %4)
   br label %43
 
-.lr.ph.preheader.i35:                             ; preds = %32
+35:                                               ; preds = %32
   %35 = and i32 %.promoted.i33, 1
   %spec.select = add nuw i32 %.promoted.i33, %35
   br i1 %4, label %36, label %38
 
-36:                                               ; preds = %.lr.ph.preheader.i35
+36:                                               ; preds = %35
   %37 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %spec.select)
   br label %get_CDR_ushort.exit
 
-38:                                               ; preds = %.lr.ph.preheader.i35
+38:                                               ; preds = %35
   %39 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %spec.select)
   br label %get_CDR_ushort.exit
 

@@ -2595,18 +2595,18 @@ define internal void @recff_string_char(ptr noundef %0, ptr readnone captures(no
   %46 = tail call i32 @lj_opt_fold(ptr noundef nonnull %0) #9
   br label %.sink.split
 
-.thread:                                          ; preds = %2
+47:                                               ; preds = %2
   %47 = getelementptr inbounds i8, ptr %0, i64 -616
   %48 = tail call i32 @lj_ir_kgc(ptr noundef nonnull %0, ptr noundef nonnull %47, i32 noundef 4) #9
   br label %.sink.split
 
 .sink.split:                                      ; preds = %._crit_edge47, %.thread
   %.sink = phi i32 [ %48, %.thread ], [ %46, %._crit_edge47 ]
-  %49 = load ptr, ptr %4, align 8, !tbaa !37
-  store i32 %.sink, ptr %49, align 4, !tbaa !39
-  br label %50
+  %51 = load ptr, ptr %4, align 8, !tbaa !37
+  store i32 %.sink, ptr %51, align 4, !tbaa !39
+  br label %52
 
-50:                                               ; preds = %._crit_edge, %.sink.split
+52:                                               ; preds = %._crit_edge, %.sink.split
   ret void
 }
 

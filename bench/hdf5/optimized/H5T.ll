@@ -14514,35 +14514,35 @@ H5T__path_table_search.exit124.thread:            ; preds = %.preheader, %408, %
   %or.cond11 = and i1 %.088.shrunk, %or.cond9
   br i1 %or.cond11, label %487, label %.thread288
 
-487:                                              ; preds = %484
+487:  ; preds = %484
   %488 = getelementptr inbounds nuw i8, ptr %.086, i64 32
   %489 = load ptr, ptr %488, align 8, !tbaa !72
   %.not100 = icmp eq ptr %489, null
   br i1 %.not100, label %497, label %490
 
-490:                                              ; preds = %487
+490:; preds = %487
   %491 = call i32 @H5T_close_real(ptr noundef nonnull %489)
   %492 = icmp slt i32 %491, 0
   br i1 %492, label %493, label %497
 
-493:                                              ; preds = %490
+493:; preds = %490
   %494 = load i64, ptr @H5E_DATATYPE_g, align 8, !tbaa !10
   %495 = load i64, ptr @H5E_CANTCLOSEOBJ_g, align 8, !tbaa !10
   %496 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5T__path_find_real, i32 noundef 5756, i64 noundef %494, i64 noundef %495, ptr noundef nonnull @.str.433) #17
   br label %497
 
-497:                                              ; preds = %493, %490, %487
+497:  ; preds = %493, %490, %487
   %498 = getelementptr inbounds nuw i8, ptr %.086, i64 40
   %499 = load ptr, ptr %498, align 8, !tbaa !73
   %.not101 = icmp eq ptr %499, null
   br i1 %.not101, label %507, label %500
 
-500:                                              ; preds = %497
+500:; preds = %497
   %501 = call i32 @H5T_close_real(ptr noundef nonnull %499)
   %502 = icmp slt i32 %501, 0
   br i1 %502, label %503, label %507
 
-503:                                              ; preds = %500
+503:; preds = %500
   %504 = load i64, ptr @H5E_DATATYPE_g, align 8, !tbaa !10
   %505 = load i64, ptr @H5E_CANTCLOSEOBJ_g, align 8, !tbaa !10
   %506 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5T__path_find_real, i32 noundef 5758, i64 noundef %504, i64 noundef %505, ptr noundef nonnull @.str.433) #17

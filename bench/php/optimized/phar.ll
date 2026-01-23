@@ -2611,34 +2611,34 @@ define internal fastcc i32 @phar_open_from_fp(ptr noundef nonnull %0, ptr nounde
 
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %.outer
   %.0156.ph355 = phi ptr [ %0, %.lr.ph.lr.ph ], [ %.0156348, %.outer ]
-  %.0159.ph354 = phi i8 [ 0, %.lr.ph.lr.ph ], [ %.1160, %.outer ]
+  %38 = phi i8 [ 0, %.lr.ph.lr.ph ], [ %.1160, %.outer ]
   %.0163.ph353 = phi i32 [ 3, %.lr.ph.lr.ph ], [ %.0163346, %.outer ]
   %.0170.ph352 = phi i32 [ 0, %.lr.ph.lr.ph ], [ %.0170345, %.outer ]
   %.0173.ph350 = phi i64 [ 0, %.lr.ph.lr.ph ], [ %992, %.outer ]
-  br label %38
+  br label %39
 
-38:                                               ; preds = %.lr.ph, %.backedge
+39:                                               ; preds = %.lr.ph, %.backedge
   %.0156348 = phi ptr [ %.0156.ph355, %.lr.ph ], [ %.0156.be, %.backedge ]
-  %.0159347 = phi i8 [ %.0159.ph354, %.lr.ph ], [ 0, %.backedge ]
+  %.0159347 = phi i8 [ %38, %.lr.ph ], [ 0, %.backedge ]
   %.0163346 = phi i32 [ %.0163.ph353, %.lr.ph ], [ %.0163.be, %.backedge ]
   %.0170345 = phi i32 [ %.0170.ph352, %.lr.ph ], [ %.0170.be, %.backedge ]
-  %39 = call i64 @_php_stream_read(ptr noundef %.0156348, ptr noundef nonnull %33, i64 noundef 1024) #24
-  %40 = icmp ult i64 %39, 18
-  br i1 %40, label %41, label %45
+  %40 = call i64 @_php_stream_read(ptr noundef %.0156348, ptr noundef nonnull %33, i64 noundef 1024) #24
+  %41 = icmp ult i64 %40, 18
+  br i1 %41, label %42, label %46
 
-41:                                               ; preds = %38
-  %42 = call i32 @_php_stream_free(ptr noundef %.0156348, i32 noundef 3) #24
-  br i1 %.not, label %.thread215, label %43
+42:                                               ; preds = %39
+  %43 = call i32 @_php_stream_free(ptr noundef %.0156348, i32 noundef 3) #24
+  br i1 %.not, label %.thread215, label %44
 
-43:                                               ; preds = %41
-  %44 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef nonnull %6, i64 noundef 0, ptr noundef nonnull @.str.141, ptr noundef %1) #24
+44:                                               ; preds = %42
+  %45 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef nonnull %6, i64 noundef 0, ptr noundef nonnull @.str.141, ptr noundef %1) #24
   br label %.thread215
 
-45:                                               ; preds = %38
+46:                                               ; preds = %39
   %46 = icmp eq i8 %.0159347, 0
   br i1 %46, label %47, label %.loopexit223
 
-47:                                               ; preds = %45
+47:                                               ; preds = %46
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %33, ptr noundef nonnull dereferenceable(3) @phar_open_from_fp.gz_magic, i64 3)
   %.not190 = icmp eq i32 %bcmp, 0
   br i1 %.not190, label %48, label %93
@@ -2742,7 +2742,7 @@ define internal fastcc i32 @phar_open_from_fp(ptr noundef nonnull %0, ptr nounde
   %.0163.be = phi i32 [ %87, %91 ], [ %132, %127 ]
   %.0156.be = phi ptr [ %55, %91 ], [ %102, %127 ]
   %92 = call zeroext i1 @_php_stream_eof(ptr noundef nonnull %.0156.be) #24
-  br i1 %92, label %.outer._crit_edge, label %38
+  br i1 %92, label %.outer._crit_edge, label %39
 
 93:                                               ; preds = %47
   %bcmp197 = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %33, ptr noundef nonnull dereferenceable(3) @phar_open_from_fp.bz_magic, i64 3)
@@ -2838,7 +2838,7 @@ define internal fastcc i32 @phar_open_from_fp(ptr noundef nonnull %0, ptr nounde
   br label %.thread215
 
 141:                                              ; preds = %137
-  %142 = icmp ugt i64 %39, 511
+  %142 = icmp ugt i64 %40, 511
   br i1 %142, label %143, label %.loopexit223
 
 143:                                              ; preds = %141
@@ -2850,7 +2850,7 @@ define internal fastcc i32 @phar_open_from_fp(ptr noundef nonnull %0, ptr nounde
   %147 = call i32 @phar_parse_tarfile(ptr noundef %.0156348, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, i32 noundef %.0170345, ptr noundef %6) #24
   br label %.thread215
 
-.loopexit223:                                     ; preds = %45, %143, %141
+.loopexit223:                                     ; preds = %46, %143, %141
   %.1160 = phi i8 [ 1, %143 ], [ 1, %141 ], [ %.0159347, %45 ]
   %148 = trunc i64 %39 to i32
   %149 = add i32 %148, 19
@@ -2858,7 +2858,7 @@ define internal fastcc i32 @phar_open_from_fp(ptr noundef nonnull %0, ptr nounde
   br i1 %150, label %.outer, label %151
 
 151:                                              ; preds = %.loopexit223
-  %152 = add i64 %39, 1
+  %152 = add i64 %40, 1
   %153 = and i64 %152, 4294967295
   br label %154
 
@@ -3150,8 +3150,8 @@ phar_strnstr.exit:                                ; preds = %161
   %.not851.i = icmp eq i64 %286, 8
   %287 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %lhsv = load i32, ptr %287, align 4
-  %.not113 = icmp eq i32 %lhsv, 1112359495
-  %or.cond = select i1 %.not851.i, i1 %.not113, i1 false
+  %.not100 = icmp eq i32 %lhsv, 1112359495
+  %or.cond = select i1 %.not851.i, i1 %.not100, i1 false
   br i1 %or.cond, label %292, label %288
 
 288:                                              ; preds = %285, %282, %279
@@ -4709,7 +4709,7 @@ phar_parse_pharfile.exit:                         ; preds = %169, %171, %175, %1
   br label %.thread215
 
 .outer:                                           ; preds = %158, %154, %.loopexit223
-  %992 = add i64 %39, %.0173.ph350
+  %992 = add i64 %40, %.0173.ph350
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(18) %20, ptr noundef nonnull align 16 dereferenceable(18) %37, i64 18, i1 false)
   %993 = call zeroext i1 @_php_stream_eof(ptr noundef %.0156348) #24
   br i1 %993, label %.outer._crit_edge, label %.lr.ph
@@ -4723,7 +4723,7 @@ phar_parse_pharfile.exit:                         ; preds = %169, %171, %175, %1
   %996 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef nonnull %6, i64 noundef 0, ptr noundef nonnull @.str.154, ptr noundef %1) #24
   br label %.thread215
 
-.thread215:                                       ; preds = %135, %125, %117, %105, %99, %97, %103, %122, %133, %114, %.thread, %.outer._crit_edge, %995, %41, %43, %26, %28, %phar_parse_pharfile.exit, %145, %138
+.thread215:                                       ; preds = %135, %125, %117, %105, %99, %97, %103, %122, %133, %114, %.thread, %.outer._crit_edge, %995, %42, %44, %26, %28, %phar_parse_pharfile.exit, %145, %138
   %.0 = phi i32 [ -1, %41 ], [ -1, %26 ], [ %147, %145 ], [ %.0.i207, %phar_parse_pharfile.exit ], [ %140, %138 ], [ -1, %.outer._crit_edge ], [ -1, %.thread ], [ -1, %28 ], [ -1, %43 ], [ -1, %995 ], [ -1, %114 ], [ -1, %133 ], [ -1, %122 ], [ -1, %103 ], [ -1, %97 ], [ -1, %99 ], [ -1, %105 ], [ -1, %117 ], [ -1, %125 ], [ -1, %135 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   ret i32 %.0

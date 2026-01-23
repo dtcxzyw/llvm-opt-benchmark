@@ -4539,7 +4539,7 @@ define hidden void @"_ZN174_$LT$$LT$$RF$mut$u20$bincode..de..Deserializer$LT$R$C
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8, !noundef !4
   %.not = icmp eq i64 %6, 0
-  br i1 %.not, label %36, label %7
+  br i1 %.not, label %35, label %7
 
 7:                                                ; preds = %2
   %8 = add i64 %6, -1
@@ -4656,7 +4656,7 @@ _ZN5serde2de9SeqAccess12next_element17h7c4a23d146a0ce65E.exit.thread.i.i.i: ; pr
   store i64 %.sroa.7.0..sroa.7.0..sroa.7.0..sroa.7.8., ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %.sroa.11.0, ptr %.sroa.5.0..sroa_idx, align 8
-  br label %36
+  br label %35
 
 34:                                               ; preds = %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h389a84412392a431E.llvm.7452288157325931747.exit"
   %35 = icmp ne ptr %.sroa.0.017, null
@@ -4664,9 +4664,9 @@ _ZN5serde2de9SeqAccess12next_element17h7c4a23d146a0ce65E.exit.thread.i.i.i: ; pr
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.13)
   store ptr %.sroa.0.017, ptr %0, align 8
-  br label %36
+  br label %35
 
-36:                                               ; preds = %2, %33, %34
+35:                                               ; preds = %2, %33, %34
   %.sink22 = phi i64 [ 8, %34 ], [ 24, %33 ], [ 8, %2 ]
   %.sink = phi i64 [ -9223372036854775807, %34 ], [ %.sroa.13.0..sroa.13.0..sroa.13.0..sroa.13.16.copyload, %33 ], [ -9223372036854775808, %2 ]
   %.sroa.38.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 %.sink22
@@ -5856,9 +5856,9 @@ define hidden void @"_ZN174_$LT$$LT$$RF$mut$u20$bincode..de..Deserializer$LT$R$C
   br label %28
 
 26:                                               ; preds = %13, %23
-  %.sroa.6.0.ph = phi ptr [ %14, %13 ], [ %22, %23 ]
+  %.sroa.6.018.ph = phi ptr [ %14, %13 ], [ %22, %23 ]
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.6.0.ph, ptr %27, align 8
+  store ptr %.sroa.6.018.ph, ptr %27, align 8
   store i64 1, ptr %0, align 8
   br label %28
 

@@ -166,15 +166,15 @@ define void @ossl_ml_dsa_poly_ntt_inverse(ptr noundef captures(none) %0) local_u
   %5 = zext i32 %.03949 to i64
   %6 = zext nneg i32 %reass.add to i64
   %wide.trip.count = zext nneg i32 %3 to i64
-  %7 = getelementptr i32, ptr @zetas_montgomery, i64 %6
+  %8 = getelementptr i32, ptr @zetas_montgomery, i64 %6
   %invariant.gep = getelementptr inbounds nuw i32, ptr %0, i64 %5
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %._crit_edge, %.lr.ph47
-  %indvars.iv53 = phi i64 [ 0, %.lr.ph47 ], [ %indvars.iv.next54, %._crit_edge ]
-  %.03744 = phi i32 [ 0, %.lr.ph47 ], [ %50, %._crit_edge ]
-  %8 = add nsw i32 %.03744, %.03949
-  %9 = zext i32 %.03744 to i64
+  %indvars.iv55 = phi i64 [ 0, %.lr.ph47 ], [ %indvars.iv.next56, %._crit_edge ]
+  %indvars.iv = phi i32 [ 0, %.lr.ph47 ], [ %indvars.iv.next, %._crit_edge ]
+  %9 = add nsw i32 %indvars.iv, %.03949
+  %9 = zext i32 %indvars.iv52 to i64
   %10 = xor i64 %indvars.iv53, -1
   %11 = getelementptr i32, ptr %7, i64 %10
   %12 = load i32, ptr %11, align 4, !tbaa !3
@@ -183,10 +183,10 @@ define void @ossl_ml_dsa_poly_ntt_inverse(ptr noundef captures(none) %0) local_u
   br label %15
 
 15:                                               ; preds = %.lr.ph, %15
-  %indvars.iv = phi i64 [ %9, %.lr.ph ], [ %indvars.iv.next, %15 ]
-  %16 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %indvars.iv52 = phi i64 [ %9, %.lr.ph ], [ %indvars.iv.next53, %15 ]
+  %16 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv52
   %17 = load i32, ptr %16, align 4, !tbaa !3
-  %gep = getelementptr inbounds nuw i32, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw i32, ptr %invariant.gep, i64 %indvars.iv52
   %18 = load i32, ptr %gep, align 4, !tbaa !3
   %19 = add i32 %18, %17
   %20 = add i32 %19, -8380417
@@ -221,50 +221,50 @@ define void @ossl_ml_dsa_poly_ntt_inverse(ptr noundef captures(none) %0) local_u
   %46 = and i32 %39, %45
   %47 = or i32 %46, %43
   store i32 %47, ptr %gep, align 4, !tbaa !3
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %48 = trunc nuw i64 %indvars.iv.next to i32
+  %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
+  %48 = trunc nuw i64 %indvars.iv.next53 to i32
   %49 = icmp sgt i32 %8, %48
   br i1 %49, label %15, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %15
-  %50 = add nsw i32 %.03744, %4
-  %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next54, %wide.trip.count
+  %indvars.iv.next = add nsw i32 %indvars.iv, %4
+  %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next56, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge48, label %.lr.ph, !llvm.loop !14
 
 ._crit_edge48:                                    ; preds = %._crit_edge, %.._crit_edge48_crit_edge
   %.pre-phi = phi i32 [ %.pre, %.._crit_edge48_crit_edge ], [ %4, %._crit_edge ]
-  %51 = icmp slt i32 %.pre-phi, 256
-  br i1 %51, label %2, label %.preheader, !llvm.loop !15
+  %49 = icmp slt i32 %.pre-phi, 256
+  br i1 %49, label %2, label %.preheader, !llvm.loop !15
 
 .preheader:                                       ; preds = %._crit_edge48, %.preheader
-  %indvars.iv56 = phi i64 [ %indvars.iv.next57, %.preheader ], [ 0, %._crit_edge48 ]
-  %52 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv56
-  %53 = load i32, ptr %52, align 4, !tbaa !3
-  %54 = zext i32 %53 to i64
-  %55 = mul nuw nsw i64 %54, 41978
-  %56 = mul nuw nsw i64 %54, 8395782
-  %57 = and i64 %56, 4294967294
-  %58 = mul nuw nsw i64 %57, 8380417
-  %59 = add nuw nsw i64 %58, %55
-  %60 = lshr i64 %59, 32
-  %61 = trunc nuw nsw i64 %60 to i32
-  %62 = add nsw i32 %61, -8380417
-  %63 = xor i32 %61, -1
-  %64 = and i32 %62, %63
-  %.neg.i.i.i.i42 = ashr i32 %64, 31
-  %65 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i42) #1, !srcloc !7
-  %66 = and i32 %65, %61
-  %67 = xor i32 %.neg.i.i.i.i42, -1
-  %68 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %67) #1, !srcloc !7
-  %69 = and i32 %62, %68
-  %70 = or i32 %69, %66
-  store i32 %70, ptr %52, align 4, !tbaa !3
-  %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
-  %exitcond59.not = icmp eq i64 %indvars.iv.next57, 256
-  br i1 %exitcond59.not, label %71, label %.preheader, !llvm.loop !16
+  %indvars.iv60 = phi i64 [ %indvars.iv.next61, %.preheader ], [ 0, %._crit_edge48 ]
+  %50 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv60
+  %51 = load i32, ptr %50, align 4, !tbaa !3
+  %52 = zext i32 %51 to i64
+  %53 = mul nuw nsw i64 %52, 41978
+  %54 = mul nuw nsw i64 %52, 8395782
+  %55 = and i64 %54, 4294967294
+  %56 = mul nuw nsw i64 %55, 8380417
+  %57 = add nuw nsw i64 %56, %53
+  %58 = lshr i64 %57, 32
+  %59 = trunc nuw nsw i64 %58 to i32
+  %60 = add nsw i32 %59, -8380417
+  %61 = xor i32 %59, -1
+  %62 = and i32 %60, %61
+  %.neg.i.i.i.i42 = ashr i32 %62, 31
+  %63 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i42) #1, !srcloc !7
+  %64 = and i32 %63, %59
+  %65 = xor i32 %.neg.i.i.i.i42, -1
+  %66 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %65) #1, !srcloc !7
+  %67 = and i32 %60, %66
+  %68 = or i32 %67, %64
+  store i32 %68, ptr %50, align 4, !tbaa !3
+  %indvars.iv.next61 = add nuw nsw i64 %indvars.iv60, 1
+  %exitcond63.not = icmp eq i64 %indvars.iv.next61, 256
+  br i1 %exitcond63.not, label %69, label %.preheader, !llvm.loop !16
 
-71:                                               ; preds = %.preheader
+69:                                               ; preds = %.preheader
   ret void
 }
 

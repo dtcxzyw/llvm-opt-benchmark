@@ -5354,7 +5354,7 @@ define internal fastcc noundef ptr @read_into_scalar_list(ptr noundef %0, ptr no
   store i32 %10, ptr %8, align 16
   %11 = tail call i32 @plpgsql_yylex(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef %5) #11
   %12 = icmp eq i32 %11, 44
-  br i1 %12, label %.lr.ph, label %._crit_edge
+  br i1 %12, label %.lr.ph, label %.lr.ph72.preheader
 
 .lr.ph:                                           ; preds = %6
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -5444,9 +5444,9 @@ NameOfDatum.exit:                                 ; preds = %36, %38
 
 ._crit_edge.loopexit:                             ; preds = %NameOfDatum.exit
   %53 = trunc nuw nsw i64 %indvars.iv.next to i32
-  br label %._crit_edge
+  br label %.lr.ph72.preheader
 
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %6
+.lr.ph72.preheader:                               ; preds = %._crit_edge.loopexit, %6
   %.0.lcssa = phi i32 [ 1, %6 ], [ %53, %._crit_edge.loopexit ]
   %.lcssa = phi i32 [ %11, %6 ], [ %46, %._crit_edge.loopexit ]
   tail call void @plpgsql_push_back_token(i32 noundef %.lcssa, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef %5) #11
@@ -5480,16 +5480,16 @@ NameOfDatum.exit:                                 ; preds = %36, %38
 
 .lr.ph72:                                         ; preds = %.lr.ph72.preheader, %.lr.ph72
   %indvars.iv77 = phi i64 [ %69, %.lr.ph72.preheader ], [ %indvars.iv.next78, %.lr.ph72 ]
-  %70 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv77
-  %71 = load ptr, ptr %70, align 8
-  %72 = load ptr, ptr %63, align 8
-  %73 = getelementptr inbounds nuw ptr, ptr %72, i64 %indvars.iv77
-  store ptr %71, ptr %73, align 8
-  %74 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv77
-  %75 = load i32, ptr %74, align 4
-  %76 = load ptr, ptr %66, align 8
-  %77 = getelementptr inbounds nuw i32, ptr %76, i64 %indvars.iv77
-  store i32 %75, ptr %77, align 4
+  %69 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv77
+  %70 = load ptr, ptr %69, align 8
+  %71 = load ptr, ptr %63, align 8
+  %72 = getelementptr inbounds nuw ptr, ptr %71, i64 %indvars.iv77
+  store ptr %70, ptr %72, align 8
+  %73 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv77
+  %74 = load i32, ptr %73, align 4
+  %75 = load ptr, ptr %66, align 8
+  %76 = getelementptr inbounds nuw i32, ptr %75, i64 %indvars.iv77
+  store i32 %74, ptr %76, align 4
   %indvars.iv.next78 = add nsw i64 %indvars.iv77, -1
   %.not = icmp eq i64 %indvars.iv77, 0
   br i1 %.not, label %._crit_edge73, label %.lr.ph72, !llvm.loop !17

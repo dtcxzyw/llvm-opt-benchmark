@@ -739,7 +739,7 @@ define internal fastcc range(i32 0, 2) i32 @kmac_setkey(ptr noundef %0, ptr noun
   tail call void @ERR_new() #6
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.2, i32 noundef 269, ptr noundef nonnull @__func__.kmac_setkey) #6
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef 105, ptr noundef null) #6
-  br label %57
+  br label %59
 
 10:                                               ; preds = %3
   %11 = icmp slt i32 %7, 1
@@ -749,7 +749,7 @@ define internal fastcc range(i32 0, 2) i32 @kmac_setkey(ptr noundef %0, ptr noun
   tail call void @ERR_new() #6
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.2, i32 noundef 292, ptr noundef nonnull @__func__.kmac_setkey) #6
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef 166, ptr noundef null) #6
-  br label %57
+  br label %59
 
 13:                                               ; preds = %10
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 68
@@ -806,7 +806,7 @@ encode_string.exit.i:                             ; preds = %get_encode_size.exi
   tail call void @ERR_new() #6
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.2, i32 noundef 575, ptr noundef nonnull @__func__.encode_string) #6
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef 202, ptr noundef null) #6
-  br label %56
+  br label %58
 
 39:                                               ; preds = %36, %13
   %.013.ph.i = phi i64 [ 0, %13 ], [ %27, %36 ]
@@ -823,36 +823,36 @@ encode_string.exit.i:                             ; preds = %get_encode_size.exi
   %or.cond15 = select i1 %45, i1 %46, i1 false, !prof !31
   br i1 %or.cond15, label %47, label %56, !prof !31
 
-47:                                               ; preds = %39
+47: ; preds = %39
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 69
   store i8 1, ptr %14, align 1, !tbaa !20
-  %49 = trunc nuw i32 %7 to i8
-  %50 = getelementptr i8, ptr %0, i64 70
-  store i8 %49, ptr %48, align 1, !tbaa !20
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %50, ptr nonnull readonly align 16 %4, i64 %.013.ph.i, i1 false)
+  %48 = trunc nuw i32 %7 to i8
+  %49 = getelementptr i8, ptr %0, i64 70
+  store i8 %48, ptr %48, align 1, !tbaa !20
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %49, ptr nonnull readonly align 16 %4, i64 %.013.ph.i, i1 false)
   %.lhs.trunc25.i = trunc i64 %42 to i16
   %.rhs.trunc26.i = trunc nuw nsw i32 %7 to i16
-  %51 = urem i16 %.lhs.trunc25.i, %.rhs.trunc26.i
-  %.zext27.i = zext nneg i16 %51 to i64
-  %52 = sub nuw nsw i64 %42, %.zext27.i
-  %.not.i10.i = icmp eq i64 %52, %40
-  br i1 %.not.i10.i, label %kmac_bytepad_encode_key.exit, label %53
+  %53 = urem i16 %.lhs.trunc25.i, %.rhs.trunc26.i
+  %.zext27.i = zext nneg i16 %53 to i64
+  %54 = sub nuw nsw i64 %42, %.zext27.i
+  %.not.i10.i = icmp eq i64 %54, %40
+  br i1 %.not.i10.i, label %kmac_bytepad_encode_key.exit, label %55
 
-53:                                               ; preds = %47
-  %54 = getelementptr i8, ptr %50, i64 %.013.ph.i
-  %55 = sub nsw i64 %52, %40
-  tail call void @llvm.memset.p0.i64(ptr align 1 %54, i8 0, i64 %55, i1 false)
+55:                                               ; preds = %47
+  %56 = getelementptr i8, ptr %49, i64 %.013.ph.i
+  %57 = sub nsw i64 %54, %40
+  tail call void @llvm.memset.p0.i64(ptr align 1 %56, i8 0, i64 %57, i1 false)
   br label %kmac_bytepad_encode_key.exit
 
-kmac_bytepad_encode_key.exit:                     ; preds = %47, %53
+kmac_bytepad_encode_key.exit:                     ; preds = %47, %55
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %57
+  br label %59
 
-56:                                               ; preds = %39, %encode_string.exit.i
+58:                                               ; preds = %39, %encode_string.exit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %57
+  br label %59
 
-57:                                               ; preds = %56, %kmac_bytepad_encode_key.exit, %12, %9
+59:                                               ; preds = %58, %kmac_bytepad_encode_key.exit, %12, %9
   %.0 = phi i32 [ 0, %9 ], [ 0, %12 ], [ 0, %56 ], [ 1, %kmac_bytepad_encode_key.exit ]
   ret i32 %.0
 }

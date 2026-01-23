@@ -66,11 +66,11 @@ define i32 @dgetrf_single(ptr noundef %0, ptr readnone captures(none) %1, ptr no
 .lr.ph217:                                        ; preds = %.loopexit201
   %44 = add i64 %.0186, 1
   %45 = add nsw i64 %30, %.0186
-  br label %101
+  br label %100
 
 46:                                               ; preds = %.lr.ph215, %.loopexit201
   %.0185213 = phi i32 [ 0, %.lr.ph215 ], [ %.1, %.loopexit201 ]
-  %.0187212 = phi i64 [ 0, %.lr.ph215 ], [ %99, %.loopexit201 ]
+  %.0187212 = phi i64 [ 0, %.lr.ph215 ], [ %98, %.loopexit201 ]
   %47 = sub nsw i64 %30, %.0187212
   %spec.select = call i64 @llvm.smin.i64(i64 %47, i64 %spec.store.select7)
   %48 = mul nsw i64 %.0187212, %14
@@ -100,90 +100,90 @@ define i32 @dgetrf_single(ptr noundef %0, ptr readnone captures(none) %1, ptr no
   %66 = icmp slt i64 %57, %.0181
   br label %67
 
-67:                                               ; preds = %59, %._crit_edge208
-  %.0190211 = phi i64 [ %57, %59 ], [ %97, %._crit_edge208 ]
-  %68 = sub nsw i64 %.0183, %.0190211
-  %spec.store.select = call i64 @llvm.smin.i64(i64 %68, i64 8256)
-  %69 = add nsw i64 %spec.store.select, %.0190211
-  %70 = icmp sgt i64 %68, 0
-  br i1 %70, label %.lr.ph205, label %.preheader200
+66:                                               ; preds = %59, %._crit_edge208
+  %.0190211 = phi i64 [ %57, %59 ], [ %96, %._crit_edge208 ]
+  %67 = sub nsw i64 %.0183, %.0190211
+  %spec.store.select = call i64 @llvm.smin.i64(i64 %67, i64 8256)
+  %68 = add nsw i64 %spec.store.select, %.0190211
+  %69 = icmp sgt i64 %67, 0
+  br i1 %69, label %.lr.ph.preheader, label %.preheader200
 
-.preheader200:                                    ; preds = %._crit_edge, %67
+.preheader200:                                    ; preds = %._crit_edge, %66
   br i1 %66, label %.lr.ph207, label %._crit_edge208
 
 .lr.ph207:                                        ; preds = %.preheader200
-  %71 = mul nsw i64 %.0190211, %14
-  %invariant.gep209 = getelementptr double, ptr %.0182, i64 %71
-  br label %90
+  %70 = mul nsw i64 %.0190211, %14
+  %invariant.gep209 = getelementptr double, ptr %.0182, i64 %70
+  br label %89
 
-.lr.ph205:                                        ; preds = %67, %._crit_edge
-  %.0189203 = phi i64 [ %88, %._crit_edge ], [ %.0190211, %67 ]
-  %72 = sub nsw i64 %69, %.0189203
-  %spec.store.select4 = call i64 @llvm.smin.i64(i64 %72, i64 2)
-  %73 = mul nsw i64 %.0189203, %14
-  %74 = sub nsw i64 %73, %.0186
-  %75 = getelementptr inbounds double, ptr %.0182, i64 %74
-  %76 = call i32 @dlaswp_plus(i64 noundef %spec.store.select4, i64 noundef %62, i64 noundef %63, double noundef 0.000000e+00, ptr noundef %75, i64 noundef %14, ptr noundef null, i64 noundef 0, ptr noundef %16, i64 noundef 1) #4
-  %77 = getelementptr double, ptr %64, i64 %73
-  %78 = sub nsw i64 %.0189203, %.0190211
-  %79 = mul nsw i64 %78, %spec.select
-  %80 = getelementptr inbounds double, ptr %42, i64 %79
-  %81 = call i32 @dgemm_oncopy(i64 noundef %spec.select, i64 noundef %spec.store.select4, ptr noundef %77, i64 noundef %14, ptr noundef %80) #4
+.lr.ph.preheader:                                 ; preds = %66, %._crit_edge
+  %.0189203 = phi i64 [ %87, %._crit_edge ], [ %.0190211, %67 ]
+  %71 = sub nsw i64 %68, %.0189203
+  %spec.store.select4 = call i64 @llvm.smin.i64(i64 %71, i64 2)
+  %72 = mul nsw i64 %.0189203, %14
+  %73 = sub nsw i64 %72, %.0186
+  %74 = getelementptr inbounds double, ptr %.0182, i64 %73
+  %75 = call i32 @dlaswp_plus(i64 noundef %spec.store.select4, i64 noundef %62, i64 noundef %63, double noundef 0.000000e+00, ptr noundef %74, i64 noundef %14, ptr noundef null, i64 noundef 0, ptr noundef %16, i64 noundef 1) #4
+  %76 = getelementptr double, ptr %64, i64 %72
+  %77 = sub nsw i64 %.0189203, %.0190211
+  %78 = mul nsw i64 %77, %spec.select
+  %79 = getelementptr inbounds double, ptr %42, i64 %78
+  %80 = call i32 @dgemm_oncopy(i64 noundef %spec.select, i64 noundef %spec.store.select4, ptr noundef %76, i64 noundef %14, ptr noundef %79) #4
   br i1 %65, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %.lr.ph205, %.lr.ph
-  %.0191202 = phi i64 [ %86, %.lr.ph ], [ 0, %.lr.ph205 ]
-  %82 = sub nsw i64 %spec.select, %.0191202
-  %spec.store.select5 = call i64 @llvm.smin.i64(i64 %82, i64 192)
-  %83 = mul nuw nsw i64 %.0191202, %spec.select
-  %84 = getelementptr inbounds nuw double, ptr %4, i64 %83
-  %gep = getelementptr double, ptr %77, i64 %.0191202
-  %85 = call i32 @dtrsm_kernel_LT(i64 noundef %spec.store.select5, i64 noundef %spec.store.select4, i64 noundef %spec.select, double noundef -1.000000e+00, ptr noundef %84, ptr noundef %80, ptr noundef %gep, i64 noundef %14, i64 noundef %.0191202) #4
-  %86 = add nuw nsw i64 %.0191202, 192
-  %87 = icmp slt i64 %86, %spec.select
-  br i1 %87, label %.lr.ph, label %._crit_edge, !llvm.loop !15
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
+  %.0191202 = phi i64 [ %85, %.lr.ph ], [ 0, %.lr.ph205 ]
+  %81 = sub nsw i64 %spec.select, %.0191202
+  %spec.store.select5 = call i64 @llvm.smin.i64(i64 %81, i64 192)
+  %82 = mul nuw nsw i64 %.0191202, %spec.select
+  %83 = getelementptr inbounds nuw double, ptr %4, i64 %82
+  %gep = getelementptr double, ptr %76, i64 %.0191202
+  %84 = call i32 @dtrsm_kernel_LT(i64 noundef %spec.store.select5, i64 noundef %spec.store.select4, i64 noundef %spec.select, double noundef -1.000000e+00, ptr noundef %83, ptr noundef %79, ptr noundef %gep, i64 noundef %14, i64 noundef %.0191202) #4
+  %85 = add nuw nsw i64 %.0191202, 192
+  %86 = icmp slt i64 %85, %spec.select
+  br i1 %86, label %.lr.ph, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph205
-  %88 = add nsw i64 %.0189203, 2
-  %89 = icmp slt i64 %88, %69
-  br i1 %89, label %.lr.ph205, label %.preheader200, !llvm.loop !17
+  %87 = add nsw i64 %.0189203, 2
+  %88 = icmp slt i64 %87, %68
+  br i1 %88, label %.lr.ph.preheader, label %.preheader200, !llvm.loop !17
 
-90:                                               ; preds = %.lr.ph207, %90
-  %.0192206 = phi i64 [ %57, %.lr.ph207 ], [ %95, %90 ]
-  %91 = sub nsw i64 %.0181, %.0192206
-  %spec.store.select6 = call i64 @llvm.smin.i64(i64 %91, i64 192)
-  %92 = getelementptr inbounds double, ptr %49, i64 %.0192206
-  %93 = call i32 @dgemm_itcopy(i64 noundef %spec.select, i64 noundef %spec.store.select6, ptr noundef %92, i64 noundef %14, ptr noundef %3) #4
+89:                                               ; preds = %.lr.ph207, %89
+  %.0192206 = phi i64 [ %57, %.lr.ph207 ], [ %94, %90 ]
+  %90 = sub nsw i64 %.0181, %.0192206
+  %spec.store.select6 = call i64 @llvm.smin.i64(i64 %90, i64 192)
+  %91 = getelementptr inbounds double, ptr %49, i64 %.0192206
+  %92 = call i32 @dgemm_itcopy(i64 noundef %spec.select, i64 noundef %spec.store.select6, ptr noundef %91, i64 noundef %14, ptr noundef %3) #4
   %gep210 = getelementptr double, ptr %invariant.gep209, i64 %.0192206
-  %94 = call i32 @dgemm_kernel(i64 noundef %spec.store.select6, i64 noundef %spec.store.select, i64 noundef %spec.select, double noundef -1.000000e+00, ptr noundef %3, ptr noundef %42, ptr noundef %gep210, i64 noundef %14) #4
-  %95 = add nsw i64 %.0192206, 192
-  %96 = icmp slt i64 %95, %.0181
-  br i1 %96, label %90, label %._crit_edge208, !llvm.loop !18
+  %93 = call i32 @dgemm_kernel(i64 noundef %spec.store.select6, i64 noundef %spec.store.select, i64 noundef %spec.select, double noundef -1.000000e+00, ptr noundef %3, ptr noundef %42, ptr noundef %gep210, i64 noundef %14) #4
+  %94 = add nsw i64 %.0192206, 192
+  %95 = icmp slt i64 %94, %.0181
+  br i1 %95, label %89, label %._crit_edge208, !llvm.loop !18
 
-._crit_edge208:                                   ; preds = %90, %.preheader200
-  %97 = add nsw i64 %.0190211, 8256
-  %98 = icmp slt i64 %97, %.0183
-  br i1 %98, label %67, label %.loopexit201, !llvm.loop !19
+._crit_edge208:                                   ; preds = %89, %.preheader200
+  %96 = add nsw i64 %.0190211, 8256
+  %97 = icmp slt i64 %96, %.0183
+  br i1 %97, label %66, label %.loopexit201, !llvm.loop !19
 
 .loopexit201:                                     ; preds = %._crit_edge208, %46
-  %99 = add nuw nsw i64 %.0187212, %spec.store.select7
-  %100 = icmp slt i64 %99, %30
-  br i1 %100, label %46, label %.lr.ph217, !llvm.loop !20
+  %98 = add nuw nsw i64 %.0187212, %spec.store.select7
+  %99 = icmp slt i64 %98, %30
+  br i1 %99, label %46, label %.lr.ph217, !llvm.loop !20
 
-101:                                              ; preds = %.lr.ph217, %101
-  %.1188216 = phi i64 [ 0, %.lr.ph217 ], [ %104, %101 ]
-  %102 = sub nsw i64 %30, %.1188216
-  %103 = call i64 @llvm.smin.i64(i64 %102, i64 %spec.store.select7)
-  %104 = add nuw nsw i64 %103, %.1188216
-  %105 = add i64 %44, %104
-  %106 = mul nsw i64 %.1188216, %14
-  %.neg = sub i64 %106, %.0186
-  %107 = getelementptr inbounds double, ptr %.0182, i64 %.neg
-  %108 = call i32 @dlaswp_plus(i64 noundef %103, i64 noundef %105, i64 noundef %45, double noundef 0.000000e+00, ptr noundef %107, i64 noundef %14, ptr noundef null, i64 noundef 0, ptr noundef %16, i64 noundef 1) #4
-  %109 = icmp slt i64 %104, %30
-  br i1 %109, label %101, label %.loopexit, !llvm.loop !21
+100:                                              ; preds = %.lr.ph217, %100
+  %.1188216 = phi i64 [ 0, %.lr.ph217 ], [ %103, %101 ]
+  %101 = sub nsw i64 %30, %.1188216
+  %102 = call i64 @llvm.smin.i64(i64 %101, i64 %spec.store.select7)
+  %103 = add nuw nsw i64 %102, %.1188216
+  %104 = add i64 %44, %103
+  %105 = mul nsw i64 %.1188216, %14
+  %.neg = sub i64 %105, %.0186
+  %106 = getelementptr inbounds double, ptr %.0182, i64 %.neg
+  %107 = call i32 @dlaswp_plus(i64 noundef %102, i64 noundef %104, i64 noundef %45, double noundef 0.000000e+00, ptr noundef %106, i64 noundef %14, ptr noundef null, i64 noundef 0, ptr noundef %16, i64 noundef 1) #4
+  %108 = icmp slt i64 %103, %30
+  br i1 %108, label %100, label %.loopexit, !llvm.loop !21
 
-.loopexit:                                        ; preds = %101, %26, %35
+.loopexit:                                        ; preds = %100, %26, %35
   %.0 = phi i32 [ 0, %26 ], [ %36, %35 ], [ %.1, %101 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0

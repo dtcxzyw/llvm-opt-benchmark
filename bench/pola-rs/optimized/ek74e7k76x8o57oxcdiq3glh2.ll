@@ -59126,32 +59126,32 @@ define hidden void @"_ZN4core3ops8function5impls71_$LT$impl$u20$core..ops..funct
   %11 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr62drop_in_place$LT$polars_utils..idx_vec..UnitVec$LT$u32$GT$$GT$17h0090bbd2a9e4c751E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %5) #27
-          to label %17 unwind label %15, !noalias !5217
+          to label %17 unwind label %17, !noalias !5217
 
 12:                                               ; preds = %3
   %13 = extractvalue { ptr, i64 } %9, 1
   %.not.i = icmp eq i64 %13, 0
-  br i1 %.not.i, label %"_ZN103_$LT$polars_expr..expressions..filter..FilterExpr$u20$as$u20$polars_expr..expressions..PhysicalExpr$GT$18evaluate_on_groups28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h8403ec0e852807a7E.exit", label %.else.i
+  br i1 %.not.i, label %"_ZN103_$LT$polars_expr..expressions..filter..FilterExpr$u20$as$u20$polars_expr..expressions..PhysicalExpr$GT$18evaluate_on_groups28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h8403ec0e852807a7E.exit", label %14
 
-.else.i:                                          ; preds = %12
-  %14 = extractvalue { ptr, i64 } %9, 0
-  %.else.val.i = load i32, ptr %14, align 4, !noalias !5217, !noundef !6
+14:                                               ; preds = %12
+  %15 = extractvalue { ptr, i64 } %9, 0
+  %.else.val.i = load i32, ptr %15, align 4, !noalias !5217, !noundef !6
   br label %"_ZN103_$LT$polars_expr..expressions..filter..FilterExpr$u20$as$u20$polars_expr..expressions..PhysicalExpr$GT$18evaluate_on_groups28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h8403ec0e852807a7E.exit"
 
-15:                                               ; preds = %10
-  %16 = landingpad { ptr, i32 }
+17:                                               ; preds = %10
+  %18 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #28, !noalias !5217
   unreachable
 
-17:                                               ; preds = %10
+19:                                               ; preds = %10
   resume { ptr, i32 } %11
 
-"_ZN103_$LT$polars_expr..expressions..filter..FilterExpr$u20$as$u20$polars_expr..expressions..PhysicalExpr$GT$18evaluate_on_groups28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h8403ec0e852807a7E.exit": ; preds = %12, %.else.i
-  %18 = phi i32 [ %.val1, %12 ], [ %.else.val.i, %.else.i ]
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
-  store i32 %18, ptr %0, align 8, !alias.scope !5217
+"_ZN103_$LT$polars_expr..expressions..filter..FilterExpr$u20$as$u20$polars_expr..expressions..PhysicalExpr$GT$18evaluate_on_groups28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h8403ec0e852807a7E.exit": ; preds = %12, %14
+  %.sroa.01.0.sroa.speculated.i = phi i32 [ %.val1, %12 ], [ %.else.val.i, %.else.i ]
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
+  store i32 %.sroa.01.0.sroa.speculated.i, ptr %0, align 8, !alias.scope !5217
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !5217
   ret void
 }
@@ -59185,32 +59185,32 @@ define hidden void @"_ZN4core3ops8function5impls71_$LT$impl$u20$core..ops..funct
   %15 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr62drop_in_place$LT$polars_utils..idx_vec..UnitVec$LT$u32$GT$$GT$17h0090bbd2a9e4c751E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %6) #27
-          to label %21 unwind label %19, !noalias !5226
+          to label %21 unwind label %21, !noalias !5226
 
 16:                                               ; preds = %4
   %17 = extractvalue { ptr, i64 } %13, 1
   %.not.i = icmp eq i64 %17, 0
-  br i1 %.not.i, label %"_ZN103_$LT$polars_expr..expressions..filter..FilterExpr$u20$as$u20$polars_expr..expressions..PhysicalExpr$GT$18evaluate_on_groups28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd636f339cb680d5bE.exit", label %.else.i
+  br i1 %.not.i, label %"_ZN103_$LT$polars_expr..expressions..filter..FilterExpr$u20$as$u20$polars_expr..expressions..PhysicalExpr$GT$18evaluate_on_groups28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd636f339cb680d5bE.exit", label %18
 
-.else.i:                                          ; preds = %16
-  %18 = extractvalue { ptr, i64 } %13, 0
-  %.else.val.i = load i32, ptr %18, align 4, !noalias !5226, !noundef !6
+18:                                               ; preds = %16
+  %19 = extractvalue { ptr, i64 } %13, 0
+  %.else.val.i = load i32, ptr %19, align 4, !noalias !5226, !noundef !6
   br label %"_ZN103_$LT$polars_expr..expressions..filter..FilterExpr$u20$as$u20$polars_expr..expressions..PhysicalExpr$GT$18evaluate_on_groups28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd636f339cb680d5bE.exit"
 
-19:                                               ; preds = %14
-  %20 = landingpad { ptr, i32 }
+21:                                               ; preds = %14
+  %22 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #28, !noalias !5226
   unreachable
 
-21:                                               ; preds = %14
+23:                                               ; preds = %14
   resume { ptr, i32 } %15
 
-"_ZN103_$LT$polars_expr..expressions..filter..FilterExpr$u20$as$u20$polars_expr..expressions..PhysicalExpr$GT$18evaluate_on_groups28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd636f339cb680d5bE.exit": ; preds = %16, %.else.i
-  %22 = phi i32 [ %2, %16 ], [ %.else.val.i, %.else.i ]
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false), !noalias !5237
-  store i32 %22, ptr %0, align 8, !alias.scope !5226, !noalias !5237
+"_ZN103_$LT$polars_expr..expressions..filter..FilterExpr$u20$as$u20$polars_expr..expressions..PhysicalExpr$GT$18evaluate_on_groups28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd636f339cb680d5bE.exit": ; preds = %16, %18
+  %.sroa.01.0.sroa.speculated.i = phi i32 [ %2, %.sroa.01.0.sroa.speculated.i ], [ %.else.val.i, %.else.i ]
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false), !noalias !5237
+  store i32 %.sroa.01.0.sroa.speculated.i, ptr %0, align 8, !alias.scope !5226, !noalias !5237
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !5229
   ret void
 }

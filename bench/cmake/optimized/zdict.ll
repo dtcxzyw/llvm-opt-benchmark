@@ -1634,8 +1634,8 @@ ZDICT_analyzePos.exit.i.i:                        ; preds = %._crit_edge351.i.i.
   %.sroa.2.0..sroa_idx.i143.i.i = getelementptr inbounds nuw i8, ptr %343, i64 8
   %.sroa.2.0.copyload.i144.i.i = load i32, ptr %.sroa.2.0..sroa_idx.i143.i.i, align 4
   %344 = tail call fastcc i32 @ZDICT_tryMerge(ptr noundef nonnull %31, i64 %.sroa.0.0.copyload.i142.i.i, i32 %.sroa.2.0.copyload.i144.i.i, i32 noundef %341, ptr noundef nonnull readonly %17)
-  %cond.i145.i.i = icmp eq i32 %344, 0
-  br i1 %cond.i145.i.i, label %ZDICT_insertDictItem.exit.i.i, label %.preheader.i.i.i.i
+  %.not43.i145.i.i = icmp eq i32 %344, 0
+  br i1 %.not43.i145.i.i, label %ZDICT_insertDictItem.exit.i.i, label %.preheader.i.i.i.i
 
 .preheader.i.i.i.i:                               ; preds = %.preheader.i112.preheader.i.i, %ZDICT_removeDictItem.exit.i.i.i
   %345 = phi i32 [ %354, %ZDICT_removeDictItem.exit.i.i.i ], [ %344, %.preheader.i112.preheader.i.i ]
@@ -1673,8 +1673,8 @@ ZDICT_removeDictItem.exit.i.i.i:                  ; preds = %._crit_edge.loopexi
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %353, i64 8
   %.sroa.2.0.copyload.i.i.i = load i32, ptr %.sroa.2.0..sroa_idx.i.i.i, align 4
   %354 = tail call fastcc i32 @ZDICT_tryMerge(ptr noundef nonnull %31, i64 %.sroa.0.0.copyload.i.i.i, i32 %.sroa.2.0.copyload.i.i.i, i32 noundef %345, ptr noundef nonnull readonly %17)
-  %cond.i.i.i = icmp eq i32 %354, 0
-  br i1 %cond.i.i.i, label %ZDICT_insertDictItem.exit.i.i, label %.preheader.i.i.i.i
+  %.not43.i.i.i = icmp eq i32 %354, 0
+  br i1 %.not43.i.i.i, label %ZDICT_insertDictItem.exit.i.i, label %.preheader.i.i.i.i
 
 355:                                              ; preds = %ZDICT_analyzePos.exit.i.i
   %356 = load i32, ptr %31, align 4, !tbaa !8

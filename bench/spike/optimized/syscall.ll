@@ -2229,28 +2229,28 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_ZN9syscall_t9sys_chdirEm
 
 18:                                               ; preds = %10
   %19 = icmp slt i64 %12, 0
-  br i1 %19, label %.noexc, label %.noexc15
+  br i1 %19, label %.noexc, label %_ZNSt6vectorIcSaIcEE17_S_check_init_lenEmRKS0_.exit.i
 
 .noexc:                                           ; preds = %18
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.8) #31
   unreachable
 
-.noexc15:                                         ; preds = %18
+_ZNSt6vectorIcSaIcEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %18
   %20 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %12) #28
   store i8 0, ptr %20, align 1, !tbaa !45
-  %21 = icmp eq i64 %.012, 0
-  br i1 %21, label %_ZNSt6vectorIcSaIcEEC2EmRKS0_.exit.preheader, label %22
+  %22 = icmp eq i64 %.012, 0
+  br i1 %22, label %_ZNSt6vectorIcSaIcEEC2EmRKS0_.exit.preheader, label %22
 
 22:                                               ; preds = %.noexc15
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 1
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %23, i8 0, i64 %.012, i1 false)
   br label %_ZNSt6vectorIcSaIcEEC2EmRKS0_.exit.preheader
 
-_ZNSt6vectorIcSaIcEEC2EmRKS0_.exit.preheader:     ; preds = %22, %.noexc15
+23:                                               ; preds = %22, %.noexc15
   br label %_ZNSt6vectorIcSaIcEEC2EmRKS0_.exit
 
 _ZNSt6vectorIcSaIcEEC2EmRKS0_.exit:               ; preds = %_ZNSt6vectorIcSaIcEEC2EmRKS0_.exit.preheader, %30
-  %.0 = phi i64 [ %32, %30 ], [ 0, %_ZNSt6vectorIcSaIcEEC2EmRKS0_.exit.preheader ]
+  %.sroa.12.0 = phi i64 [ %32, %30 ], [ 0, %_ZNSt6vectorIcSaIcEEC2EmRKS0_.exit.preheader ]
   %24 = load ptr, ptr %9, align 8, !tbaa !42
   %25 = add i64 %.0, %1
   %26 = load ptr, ptr %24, align 8, !tbaa !3
@@ -2259,25 +2259,25 @@ _ZNSt6vectorIcSaIcEEC2EmRKS0_.exit:               ; preds = %_ZNSt6vectorIcSaIcE
   %29 = invoke i8 %28(ptr noundef nonnull align 8 dereferenceable(16) %24, i64 noundef %25)
           to label %30 unwind label %_ZNSt6vectorIcSaIcEED2Ev.exit17
 
-30:                                               ; preds = %_ZNSt6vectorIcSaIcEEC2EmRKS0_.exit
+30: ; preds = %_ZNSt6vectorIcSaIcEEC2EmRKS0_.exit
   %31 = getelementptr inbounds nuw i8, ptr %20, i64 %.0
   store i8 %29, ptr %31, align 1, !tbaa !45
   %.not14 = icmp eq i8 %29, 0
   %32 = add i64 %.0, 1
   br i1 %.not14, label %33, label %_ZNSt6vectorIcSaIcEEC2EmRKS0_.exit, !llvm.loop !76
 
-33:                                               ; preds = %30
+_ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %30
   %34 = tail call i32 @chdir(ptr noundef nonnull %20) #30
   %35 = icmp eq i32 %34, -1
-  br i1 %35, label %36, label %_ZNSt6vectorIcSaIcEED2Ev.exit
+  br i1 %35, label %36, label %48
 
-36:                                               ; preds = %33
+46:                                               ; preds = %33
   %37 = tail call ptr @__errno_location() #33
   %38 = load i32, ptr %37, align 4, !tbaa !66
   %39 = sub nsw i32 0, %38
   br label %_ZNSt6vectorIcSaIcEED2Ev.exit
 
-_ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %33, %36
+48:                                               ; preds = %33, %46
   %.in = phi i32 [ %39, %36 ], [ %34, %33 ]
   %40 = sext i32 %.in to i64
   tail call void @_ZdlPvm(ptr noundef nonnull %20, i64 noundef %12) #32

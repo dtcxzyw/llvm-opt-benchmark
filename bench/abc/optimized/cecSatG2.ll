@@ -2809,9 +2809,9 @@ Cec4_ObjSimEqual.exit76:                          ; preds = %.lr.ph.i63, %.lr.ph
   %75 = getelementptr inbounds nuw i32, ptr %.val47, i64 %.pre-phi
   %.043 = load i32, ptr %75, align 4, !tbaa !20
   %76 = icmp sgt i32 %.043, 0
-  br i1 %76, label %40, label %._crit_edge, !llvm.loop !141
+  br i1 %76, label %40, label %._crit_edge.loopexit, !llvm.loop !141
 
-._crit_edge:                                      ; preds = %74, %Cec4_ObjSimEqual.exit
+._crit_edge.loopexit:                             ; preds = %74, %Cec4_ObjSimEqual.exit
   %.val57 = phi ptr [ %.val46, %Cec4_ObjSimEqual.exit ], [ %.val47, %74 ]
   %.142.lcssa = phi i32 [ %.04198.us, %Cec4_ObjSimEqual.exit ], [ %.2, %74 ]
   %.040.lcssa = phi i32 [ %.099.us, %Cec4_ObjSimEqual.exit ], [ %.1, %74 ]

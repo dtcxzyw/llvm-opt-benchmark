@@ -3334,8 +3334,8 @@ _ZNK11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE5bfindIS1_Lb1ETnPN12hb_enable
 
 84:                                               ; preds = %85, %77
   %indvars.iv.i17 = phi i64 [ %indvars.iv.next.i18, %85 ], [ 8, %77 ]
-  %.not45 = icmp eq i64 %indvars.iv.i17, 0
-  br i1 %.not45, label %_ZNK13hb_bit_page_t7get_maxEv.exit.thread, label %85
+  %.not14.i = icmp eq i64 %indvars.iv.i17, 0
+  br i1 %.not14.i, label %_ZNK13hb_bit_page_t7get_maxEv.exit.thread, label %85
 
 85:                                               ; preds = %84
   %indvars.iv.next.i18 = add nsw i64 %indvars.iv.i17, -1
@@ -3469,8 +3469,8 @@ _ZNK13hb_bit_page_t8is_emptyEv.exit.thread18:     ; preds = %10, %_ZNK16hb_vecto
 
 24:                                               ; preds = %25, %_ZNK13hb_bit_page_t8is_emptyEv.exit.thread18
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %25 ], [ 8, %_ZNK13hb_bit_page_t8is_emptyEv.exit.thread18 ]
-  %.not = icmp eq i64 %indvars.iv.i, 0
-  br i1 %.not, label %_ZNK13hb_bit_page_t7get_maxEv.exit, label %25
+  %.not14.i = icmp eq i64 %indvars.iv.i, 0
+  br i1 %.not14.i, label %_ZNK13hb_bit_page_t7get_maxEv.exit, label %25
 
 25:                                               ; preds = %24
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1

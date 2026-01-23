@@ -2468,9 +2468,9 @@ Cec2_ObjSimEqual.exit71:                          ; preds = %.lr.ph.i58, %.lr.ph
   %75 = getelementptr inbounds nuw i32, ptr %.val47, i64 %.pre-phi
   %.039 = load i32, ptr %75, align 4, !tbaa !38
   %76 = icmp sgt i32 %.039, 0
-  br i1 %76, label %40, label %._crit_edge, !llvm.loop !106
+  br i1 %76, label %40, label %._crit_edge.loopexit, !llvm.loop !106
 
-._crit_edge:                                      ; preds = %74, %Cec2_ObjSimEqual.exit
+._crit_edge.loopexit:                             ; preds = %74, %Cec2_ObjSimEqual.exit
   %.val52 = phi ptr [ %.val46, %Cec2_ObjSimEqual.exit ], [ %.val47, %74 ]
   %.138.lcssa = phi i32 [ %.03791.us, %Cec2_ObjSimEqual.exit ], [ %.2, %74 ]
   %.036.lcssa = phi i32 [ %.092.us, %Cec2_ObjSimEqual.exit ], [ %.1, %74 ]
