@@ -47,40 +47,40 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zend_shared_alloc_create_lock(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = tail call i32 @memfd_create(ptr noundef nonnull @.str, i32 noundef 1) #20
+  %2 = tail call i32 @memfd_create(ptr noundef nonnull @.str, i32 noundef 1) #19
   store i32 %2, ptr @lock_file, align 4, !tbaa !4
   %3 = icmp sgt i32 %2, -1
   br i1 %3, label %24, label %4
 
 4:                                                ; preds = %1
-  %5 = tail call i32 (ptr, i32, ...) @open(ptr noundef %0, i32 noundef 4784258, i32 noundef 438) #20
+  %5 = tail call i32 (ptr, i32, ...) @open(ptr noundef %0, i32 noundef 4784258, i32 noundef 438) #19
   store i32 %5, ptr @lock_file, align 4, !tbaa !4
   %6 = icmp sgt i32 %5, -1
   br i1 %6, label %24, label %7
 
 7:                                                ; preds = %4
-  %8 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) @lockfile_name, i64 noundef 4096, ptr noundef nonnull @.str.1, ptr noundef %0, ptr noundef nonnull @.str.2) #20
-  %9 = tail call i32 @mkstemp(ptr noundef nonnull @lockfile_name) #20
+  %8 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) @lockfile_name, i64 noundef 4096, ptr noundef nonnull @.str.1, ptr noundef %0, ptr noundef nonnull @.str.2) #19
+  %9 = tail call i32 @mkstemp(ptr noundef nonnull @lockfile_name) #19
   store i32 %9, ptr @lock_file, align 4, !tbaa !4
   %10 = icmp eq i32 %9, -1
   br i1 %10, label %11, label %16
 
 11:                                               ; preds = %7
-  %12 = tail call ptr @__errno_location() #21
+  %12 = tail call ptr @__errno_location() #20
   %13 = load i32, ptr %12, align 4, !tbaa !4
-  %14 = tail call ptr @strerror(i32 noundef %13) #20
+  %14 = tail call ptr @strerror(i32 noundef %13) #19
   %15 = load i32, ptr %12, align 4, !tbaa !4
-  tail call void (i32, ptr, ...) @zend_accel_error_noreturn(i32 noundef 0, ptr noundef nonnull @.str.3, ptr noundef %0, ptr noundef %14, i32 noundef %15) #22
+  tail call void (i32, ptr, ...) @zend_accel_error_noreturn(i32 noundef 0, ptr noundef nonnull @.str.3, ptr noundef %0, ptr noundef %14, i32 noundef %15) #21
   unreachable
 
 16:                                               ; preds = %7
-  %17 = tail call i32 @fchmod(i32 noundef %9, i32 noundef 438) #20
+  %17 = tail call i32 @fchmod(i32 noundef %9, i32 noundef 438) #19
   %18 = load i32, ptr @lock_file, align 4, !tbaa !4
-  %19 = tail call i32 (i32, i32, ...) @fcntl(i32 noundef %18, i32 noundef 1, i32 noundef 0) #20
+  %19 = tail call i32 (i32, i32, ...) @fcntl(i32 noundef %18, i32 noundef 1, i32 noundef 0) #19
   %20 = or i32 %19, 1
   %21 = load i32, ptr @lock_file, align 4, !tbaa !4
-  %22 = tail call i32 (i32, i32, ...) @fcntl(i32 noundef %21, i32 noundef 2, i32 noundef %20) #20
-  %23 = tail call i32 @unlink(ptr noundef nonnull @lockfile_name) #20
+  %22 = tail call i32 (i32, i32, ...) @fcntl(i32 noundef %21, i32 noundef 2, i32 noundef %20) #19
+  %23 = tail call i32 @unlink(ptr noundef nonnull @lockfile_name) #19
   br label %24
 
 24:                                               ; preds = %4, %1, %16
@@ -138,7 +138,7 @@ define hidden i32 @zend_shared_alloc_startup(i64 noundef %0, i64 noundef %1) loc
   br i1 %.not56, label %zend_shared_alloc_try.exit.thread92, label %11
 
 11:                                               ; preds = %9
-  %12 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(4) @.str.4, i64 noundef 4) #23
+  %12 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(4) @.str.4, i64 noundef 4) #22
   %13 = icmp eq i32 %12, 0
   %spec.store.select = select i1 %13, ptr @.str.5, ptr %8
   br label %14
@@ -146,7 +146,7 @@ define hidden i32 @zend_shared_alloc_startup(i64 noundef %0, i64 noundef %1) loc
 14:                                               ; preds = %11, %44
   %15 = phi ptr [ @.str.11, %11 ], [ %46, %44 ]
   %.043102 = phi ptr [ @handler_table, %11 ], [ %45, %44 ]
-  %16 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.store.select, ptr noundef nonnull dereferenceable(1) %15) #23
+  %16 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.store.select, ptr noundef nonnull dereferenceable(1) %15) #22
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %18, label %44
 
@@ -160,7 +160,7 @@ define hidden i32 @zend_shared_alloc_startup(i64 noundef %0, i64 noundef %1) loc
   store ptr null, ptr %19, align 8, !tbaa !34
   store i32 0, ptr %20, align 8, !tbaa !35
   %22 = load ptr, ptr %.043.val68, align 8, !tbaa !36
-  %23 = call i32 %22(i64 noundef %0, ptr noundef nonnull %19, ptr noundef nonnull %20, ptr noundef nonnull %4) #20
+  %23 = call i32 %22(i64 noundef %0, ptr noundef nonnull %19, ptr noundef nonnull %20, ptr noundef nonnull %4) #19
   switch i32 %23, label %zend_shared_alloc_try.exit.thread92 [
     i32 0, label %24
     i32 2, label %47
@@ -193,7 +193,7 @@ define hidden i32 @zend_shared_alloc_startup(i64 noundef %0, i64 noundef %1) loc
   %35 = load ptr, ptr @g_shared_alloc_handler, align 8, !tbaa !33
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %37 = load ptr, ptr %36, align 8, !tbaa !43
-  %38 = call i32 %37(ptr noundef nonnull %31) #20
+  %38 = call i32 %37(ptr noundef nonnull %31) #19
   %.pre.i = load i32, ptr %20, align 4, !tbaa !4
   br label %39
 
@@ -210,7 +210,7 @@ define hidden i32 @zend_shared_alloc_startup(i64 noundef %0, i64 noundef %1) loc
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %.preheader.i
   %43 = phi ptr [ %.pre3.i, %._crit_edge.loopexit.i ], [ %25, %.preheader.i ]
-  call void @free(ptr noundef %43) #20
+  call void @free(ptr noundef %43) #19
   store ptr null, ptr %19, align 8, !tbaa !38
   br label %zend_shared_alloc_try.exit.thread
 
@@ -246,7 +246,7 @@ zend_shared_alloc_try.exit.thread92:              ; preds = %18, %44, %9, %2
   store ptr null, ptr %50, align 8, !tbaa !34
   store i32 0, ptr %51, align 8, !tbaa !35
   %53 = load ptr, ptr %.144.val69, align 8, !tbaa !36
-  %54 = call i32 %53(i64 noundef %0, ptr noundef nonnull %50, ptr noundef nonnull %51, ptr noundef nonnull %4) #20
+  %54 = call i32 %53(i64 noundef %0, ptr noundef nonnull %50, ptr noundef nonnull %51, ptr noundef nonnull %4) #19
   %.not.i70 = icmp eq i32 %54, 0
   br i1 %.not.i70, label %55, label %zend_shared_alloc_try.exit84
 
@@ -277,7 +277,7 @@ zend_shared_alloc_try.exit.thread92:              ; preds = %18, %44, %9, %2
   %66 = load ptr, ptr @g_shared_alloc_handler, align 8, !tbaa !33
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %68 = load ptr, ptr %67, align 8, !tbaa !43
-  %69 = call i32 %68(ptr noundef nonnull %62) #20
+  %69 = call i32 %68(ptr noundef nonnull %62) #19
   %.pre.i83 = load i32, ptr %51, align 4, !tbaa !4
   br label %70
 
@@ -294,7 +294,7 @@ zend_shared_alloc_try.exit.thread92:              ; preds = %18, %44, %9, %2
 
 ._crit_edge.i74:                                  ; preds = %._crit_edge.loopexit.i81, %.preheader.i73
   %74 = phi ptr [ %.pre3.i82, %._crit_edge.loopexit.i81 ], [ %56, %.preheader.i73 ]
-  call void @free(ptr noundef %74) #20
+  call void @free(ptr noundef %74) #19
   store ptr null, ptr %50, align 8, !tbaa !38
   br label %75
 
@@ -314,11 +314,11 @@ zend_shared_alloc_try.exit84.thread:              ; preds = %75, %zend_shared_al
   %78 = load ptr, ptr %4, align 8, !tbaa !8
   %.not.i85 = icmp eq ptr %78, null
   %79 = select i1 %.not.i85, ptr @.str.14, ptr %78
-  %80 = tail call ptr @__errno_location() #21
+  %80 = tail call ptr @__errno_location() #20
   %81 = load i32, ptr %80, align 4, !tbaa !4
-  %82 = call ptr @strerror(i32 noundef %81) #20
+  %82 = call ptr @strerror(i32 noundef %81) #19
   %83 = load i32, ptr %80, align 4, !tbaa !4
-  call void (i32, ptr, ...) @zend_accel_error_noreturn(i32 noundef 0, ptr noundef nonnull @.str.13, i64 noundef %0, ptr noundef nonnull %79, ptr noundef %82, i32 noundef %83) #22
+  call void (i32, ptr, ...) @zend_accel_error_noreturn(i32 noundef 0, ptr noundef nonnull @.str.13, i64 noundef %0, ptr noundef nonnull %79, ptr noundef %82, i32 noundef %83) #21
   unreachable
 
 zend_shared_alloc_try.exit84.thread97:            ; preds = %zend_shared_alloc_try.exit.thread92, %zend_shared_alloc_try.exit84
@@ -353,14 +353,14 @@ zend_shared_alloc_try.exit84.thread97:            ; preds = %zend_shared_alloc_t
 ._crit_edge:                                      ; preds = %91, %.preheader
   %96 = getelementptr inbounds nuw i8, ptr %84, i64 16
   %97 = load ptr, ptr %96, align 8, !tbaa !47
-  %98 = call i64 %97() #20
+  %98 = call i64 %97() #19
   store i8 1, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 2), align 2, !tbaa !48
   %99 = call ptr @zend_shared_alloc(i64 noundef 80)
   %.not63 = icmp eq ptr %99, null
   br i1 %.not63, label %100, label %101
 
 100:                                              ; preds = %._crit_edge
-  call void (i32, ptr, ...) @zend_accel_error_noreturn(i32 noundef 0, ptr noundef nonnull @.str.6) #22
+  call void (i32, ptr, ...) @zend_accel_error_noreturn(i32 noundef 0, ptr noundef nonnull @.str.6) #21
   unreachable
 
 101:                                              ; preds = %._crit_edge
@@ -378,7 +378,7 @@ zend_shared_alloc_try.exit84.thread97:            ; preds = %zend_shared_alloc_t
   br i1 %.not64, label %111, label %112
 
 111:                                              ; preds = %101
-  call void (i32, ptr, ...) @zend_accel_error_noreturn(i32 noundef 0, ptr noundef nonnull @.str.6) #22
+  call void (i32, ptr, ...) @zend_accel_error_noreturn(i32 noundef 0, ptr noundef nonnull @.str.6) #21
   unreachable
 
 112:                                              ; preds = %101
@@ -390,7 +390,7 @@ zend_shared_alloc_try.exit84.thread97:            ; preds = %zend_shared_alloc_t
   %118 = load ptr, ptr @g_shared_alloc_handler, align 8, !tbaa !33
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 16
   %120 = load ptr, ptr %119, align 8, !tbaa !47
-  %121 = call i64 %120() #20
+  %121 = call i64 %120() #19
   %122 = icmp sgt i32 %117, 0
   br i1 %122, label %.lr.ph.i87, label %copy_shared_segments.exit
 
@@ -419,7 +419,7 @@ copy_shared_segments.exit:                        ; preds = %127, %112
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %99, ptr noundef nonnull align 8 dereferenceable(80) %3, i64 80, i1 false), !tbaa.struct !49
   store ptr %99, ptr @smm_shared_globals, align 8, !tbaa !11
   %131 = load ptr, ptr %99, align 8, !tbaa !34
-  call void @free(ptr noundef %131) #20
+  call void @free(ptr noundef %131) #19
   %132 = load ptr, ptr @smm_shared_globals, align 8, !tbaa !11
   store ptr %110, ptr %132, align 8, !tbaa !34
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 8
@@ -434,7 +434,7 @@ copy_shared_segments.exit:                        ; preds = %127, %112
   br i1 %.not65, label %140, label %141
 
 140:                                              ; preds = %copy_shared_segments.exit
-  call void (i32, ptr, ...) @zend_accel_error_noreturn(i32 noundef 0, ptr noundef nonnull @.str.6) #22
+  call void (i32, ptr, ...) @zend_accel_error_noreturn(i32 noundef 0, ptr noundef nonnull @.str.6) #21
   unreachable
 
 141:                                              ; preds = %copy_shared_segments.exit
@@ -470,7 +470,7 @@ copy_shared_segments.exit:                        ; preds = %127, %112
   br label %163
 
 162:                                              ; preds = %142
-  call void (i32, ptr, ...) @zend_accel_error_noreturn(i32 noundef 0, ptr noundef nonnull @.str.6) #22
+  call void (i32, ptr, ...) @zend_accel_error_noreturn(i32 noundef 0, ptr noundef nonnull @.str.6) #21
   unreachable
 
 163:                                              ; preds = %154, %141
@@ -512,7 +512,7 @@ define hidden ptr @zend_shared_alloc(i64 noundef %0) local_unnamed_addr #0 {
   br label %29
 
 12:                                               ; preds = %1
-  tail call void (i32, ptr, ...) @zend_accel_error(i32 noundef 2, ptr noundef nonnull @.str.8, i64 noundef %0, i64 noundef %6) #20
+  tail call void (i32, ptr, ...) @zend_accel_error(i32 noundef 2, ptr noundef nonnull @.str.8, i64 noundef %0, i64 noundef %6) #19
   %13 = load ptr, ptr @smm_shared_globals, align 8, !tbaa !11
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load i32, ptr %14, align 8, !tbaa !35
@@ -541,12 +541,12 @@ define hidden ptr @zend_shared_alloc(i64 noundef %0) local_unnamed_addr #0 {
 
 zend_shared_alloc_get_largest_free_block.exit:    ; preds = %18
   %26 = icmp ult i64 %spec.select.i, 65536
-  br i1 %26, label %zend_shared_alloc_get_largest_free_block.exit.thread, label %62
+  br i1 %26, label %zend_shared_alloc_get_largest_free_block.exit.thread, label %59
 
 zend_shared_alloc_get_largest_free_block.exit.thread: ; preds = %12, %zend_shared_alloc_get_largest_free_block.exit
   %27 = getelementptr inbounds nuw i8, ptr %13, i64 32
   store i8 1, ptr %27, align 8, !tbaa !57
-  br label %62
+  br label %59
 
 28:                                               ; preds = %29
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -574,50 +574,46 @@ zend_shared_alloc_get_largest_free_block.exit.thread: ; preds = %12, %zend_share
   store i64 %42, ptr %38, align 8, !tbaa !54
   %43 = sub i64 %6, %3
   store i64 %43, ptr %5, align 8, !tbaa !13
-  %44 = ptrtoint ptr %41 to i64
-  %45 = and i64 %44, 7
-  %46 = icmp eq i64 %45, 0
-  tail call void @llvm.assume(i1 %46)
-  br label %62
+  br label %59
 
 ._crit_edge:                                      ; preds = %28, %.preheader
-  tail call void (i32, ptr, ...) @zend_accel_error(i32 noundef 2, ptr noundef nonnull @.str.8, i64 noundef %0, i64 noundef %6) #20
-  %47 = load ptr, ptr @smm_shared_globals, align 8, !tbaa !11
-  %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
-  %49 = load i32, ptr %48, align 8, !tbaa !35
-  %50 = icmp sgt i32 %49, 0
-  br i1 %50, label %.lr.ph.i20, label %zend_shared_alloc_get_largest_free_block.exit27.thread
+  tail call void (i32, ptr, ...) @zend_accel_error(i32 noundef 2, ptr noundef nonnull @.str.8, i64 noundef %0, i64 noundef %6) #19
+  %44 = load ptr, ptr @smm_shared_globals, align 8, !tbaa !11
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
+  %46 = load i32, ptr %45, align 8, !tbaa !35
+  %47 = icmp sgt i32 %46, 0
+  br i1 %47, label %.lr.ph.i20, label %zend_shared_alloc_get_largest_free_block.exit27.thread
 
 .lr.ph.i20:                                       ; preds = %._crit_edge
-  %51 = load ptr, ptr %47, align 8, !tbaa !34
-  %wide.trip.count.i21 = zext nneg i32 %49 to i64
-  br label %52
+  %48 = load ptr, ptr %44, align 8, !tbaa !34
+  %wide.trip.count.i21 = zext nneg i32 %46 to i64
+  br label %49
 
-52:                                               ; preds = %52, %.lr.ph.i20
-  %indvars.iv.i22 = phi i64 [ 0, %.lr.ph.i20 ], [ %indvars.iv.next.i25, %52 ]
-  %.0810.i23 = phi i64 [ 0, %.lr.ph.i20 ], [ %spec.select.i24, %52 ]
-  %53 = getelementptr inbounds nuw ptr, ptr %51, i64 %indvars.iv.i22
-  %54 = load ptr, ptr %53, align 8, !tbaa !39
-  %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
-  %56 = load i64, ptr %55, align 8, !tbaa !46
-  %57 = getelementptr inbounds nuw i8, ptr %54, i64 16
-  %58 = load i64, ptr %57, align 8, !tbaa !54
-  %59 = sub i64 %56, %58
-  %spec.select.i24 = tail call i64 @llvm.umax.i64(i64 %59, i64 %.0810.i23)
+49:                                               ; preds = %49, %.lr.ph.i20
+  %indvars.iv.i22 = phi i64 [ 0, %.lr.ph.i20 ], [ %indvars.iv.next.i25, %49 ]
+  %.0810.i23 = phi i64 [ 0, %.lr.ph.i20 ], [ %spec.select.i24, %49 ]
+  %50 = getelementptr inbounds nuw ptr, ptr %48, i64 %indvars.iv.i22
+  %51 = load ptr, ptr %50, align 8, !tbaa !39
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
+  %53 = load i64, ptr %52, align 8, !tbaa !46
+  %54 = getelementptr inbounds nuw i8, ptr %51, i64 16
+  %55 = load i64, ptr %54, align 8, !tbaa !54
+  %56 = sub i64 %53, %55
+  %spec.select.i24 = tail call i64 @llvm.umax.i64(i64 %56, i64 %.0810.i23)
   %indvars.iv.next.i25 = add nuw nsw i64 %indvars.iv.i22, 1
   %exitcond.not.i26 = icmp eq i64 %indvars.iv.next.i25, %wide.trip.count.i21
-  br i1 %exitcond.not.i26, label %zend_shared_alloc_get_largest_free_block.exit27, label %52
+  br i1 %exitcond.not.i26, label %zend_shared_alloc_get_largest_free_block.exit27, label %49
 
-zend_shared_alloc_get_largest_free_block.exit27:  ; preds = %52
-  %60 = icmp ult i64 %spec.select.i24, 65536
-  br i1 %60, label %zend_shared_alloc_get_largest_free_block.exit27.thread, label %62
+zend_shared_alloc_get_largest_free_block.exit27:  ; preds = %49
+  %57 = icmp ult i64 %spec.select.i24, 65536
+  br i1 %57, label %zend_shared_alloc_get_largest_free_block.exit27.thread, label %59
 
 zend_shared_alloc_get_largest_free_block.exit27.thread: ; preds = %._crit_edge, %zend_shared_alloc_get_largest_free_block.exit27
-  %61 = getelementptr inbounds nuw i8, ptr %47, i64 32
-  store i8 1, ptr %61, align 8, !tbaa !57
-  br label %62
+  %58 = getelementptr inbounds nuw i8, ptr %44, i64 32
+  store i8 1, ptr %58, align 8, !tbaa !57
+  br label %59
 
-62:                                               ; preds = %zend_shared_alloc_get_largest_free_block.exit27, %zend_shared_alloc_get_largest_free_block.exit27.thread, %zend_shared_alloc_get_largest_free_block.exit, %zend_shared_alloc_get_largest_free_block.exit.thread, %37
+59:                                               ; preds = %zend_shared_alloc_get_largest_free_block.exit27, %zend_shared_alloc_get_largest_free_block.exit27.thread, %zend_shared_alloc_get_largest_free_block.exit, %zend_shared_alloc_get_largest_free_block.exit.thread, %37
   %.0 = phi ptr [ null, %zend_shared_alloc_get_largest_free_block.exit ], [ %41, %37 ], [ null, %zend_shared_alloc_get_largest_free_block.exit.thread ], [ null, %zend_shared_alloc_get_largest_free_block.exit27.thread ], [ null, %zend_shared_alloc_get_largest_free_block.exit27 ]
   ret ptr %.0
 }
@@ -646,14 +642,14 @@ define hidden void @zend_shared_alloc_shutdown() local_unnamed_addr #0 {
   %7 = load ptr, ptr @g_shared_alloc_handler, align 8, !tbaa !33
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load ptr, ptr %8, align 8, !tbaa !47
-  %10 = call i64 %9() #20
+  %10 = call i64 %9() #19
   %11 = add i64 %10, 8
   %12 = mul i64 %11, %6
   %13 = icmp ugt i64 %12, 16
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %0
-  %15 = call noalias ptr @malloc(i64 noundef %12) #24
+  %15 = call noalias ptr @malloc(i64 noundef %12) #23
   br label %16
 
 16:                                               ; preds = %0, %14
@@ -666,7 +662,7 @@ define hidden void @zend_shared_alloc_shutdown() local_unnamed_addr #0 {
   %22 = load ptr, ptr @g_shared_alloc_handler, align 8, !tbaa !33
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %24 = load ptr, ptr %23, align 8, !tbaa !47
-  %25 = call i64 %24() #20
+  %25 = call i64 %24() #19
   %26 = icmp sgt i32 %21, 0
   br i1 %26, label %.lr.ph.i, label %copy_shared_segments.exit
 
@@ -708,7 +704,7 @@ copy_shared_segments.exit:                        ; preds = %31, %16
   %43 = load ptr, ptr %39, align 8, !tbaa !34
   %44 = getelementptr inbounds nuw ptr, ptr %43, i64 %indvars.iv
   %45 = load ptr, ptr %44, align 8, !tbaa !39
-  %46 = call i32 %42(ptr noundef %45) #20
+  %46 = call i32 %42(ptr noundef %45) #19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %47 = load ptr, ptr @smm_shared_globals, align 8, !tbaa !11
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
@@ -723,7 +719,7 @@ copy_shared_segments.exit:                        ; preds = %31, %16
 
 52:                                               ; preds = %._crit_edge
   %53 = load ptr, ptr %.lcssa, align 8, !tbaa !34
-  call void @free(ptr noundef %53) #20
+  call void @free(ptr noundef %53) #19
   %.pre = load ptr, ptr @smm_shared_globals, align 8, !tbaa !11
   br label %54
 
@@ -732,7 +728,7 @@ copy_shared_segments.exit:                        ; preds = %31, %16
   store ptr null, ptr %55, align 8, !tbaa !34
   store ptr null, ptr @g_shared_alloc_handler, align 8, !tbaa !33
   %56 = load i32, ptr @lock_file, align 4, !tbaa !4
-  %57 = call i32 @close(i32 noundef %56) #20
+  %57 = call i32 @close(i32 noundef %56) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret void
@@ -743,9 +739,6 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #11
 
 declare i32 @close(i32 noundef) local_unnamed_addr #4
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #12
-
 declare void @zend_accel_error(i32 noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
@@ -753,7 +746,7 @@ define hidden range(i32 0, -7) i32 @zend_shared_memdup_size(ptr noundef %0, i64 
   %3 = alloca %struct._zval_struct, align 8
   %4 = ptrtoint ptr %0 to i64
   %5 = tail call i64 @llvm.fshl.i64(i64 %4, i64 %4, i64 61)
-  %6 = tail call ptr @zend_hash_index_find(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @accel_globals, i64 304), i64 noundef %5) #20
+  %6 = tail call ptr @zend_hash_index_find(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @accel_globals, i64 304), i64 noundef %5) #19
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %zend_hash_index_add_new_ptr.exit, label %zend_hash_index_find_ptr.exit
 
@@ -762,7 +755,7 @@ zend_hash_index_add_new_ptr.exit:                 ; preds = %2
   store ptr %0, ptr %3, align 8, !tbaa !30
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 13, ptr %7, align 8, !tbaa !30
-  %8 = call ptr @zend_hash_index_add_new(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @accel_globals, i64 304), i64 noundef %5, ptr noundef nonnull %3) #20
+  %8 = call ptr @zend_hash_index_add_new(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @accel_globals, i64 304), i64 noundef %5, ptr noundef nonnull %3) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %9 = trunc i64 %1 to i32
   %10 = add i32 %9, 7
@@ -779,7 +772,7 @@ define hidden ptr @zend_shared_memdup_get_put_free(ptr noundef %0, i64 noundef %
   %3 = alloca %struct._zval_struct, align 8
   %4 = ptrtoint ptr %0 to i64
   %5 = tail call i64 @llvm.fshl.i64(i64 %4, i64 %4, i64 61)
-  %6 = tail call ptr @zend_hash_index_find(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @accel_globals, i64 304), i64 noundef %5) #20
+  %6 = tail call ptr @zend_hash_index_find(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @accel_globals, i64 304), i64 noundef %5) #19
   %.not.i.i = icmp eq ptr %6, null
   br i1 %.not.i.i, label %zend_hash_index_add_new_ptr.exit.i, label %zend_hash_index_find_ptr.exit.i
 
@@ -798,9 +791,9 @@ zend_hash_index_add_new_ptr.exit.i:               ; preds = %2
   store ptr %8, ptr %3, align 8, !tbaa !30
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 13, ptr %12, align 8, !tbaa !30
-  %13 = call ptr @zend_hash_index_add_new(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @accel_globals, i64 304), i64 noundef %5, ptr noundef nonnull %3) #20
+  %13 = call ptr @zend_hash_index_add_new(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @accel_globals, i64 304), i64 noundef %5, ptr noundef nonnull %3) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  call void @_efree(ptr noundef %0) #20
+  call void @_efree(ptr noundef %0) #19
   br label %_zend_shared_memdup.exit
 
 _zend_shared_memdup.exit:                         ; preds = %zend_hash_index_find_ptr.exit.i, %zend_hash_index_add_new_ptr.exit.i
@@ -824,9 +817,9 @@ _zend_shared_memdup.exit:
   store ptr %3, ptr %2, align 8, !tbaa !30
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 13, ptr %9, align 8, !tbaa !30
-  %10 = call ptr @zend_hash_index_add_new(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @accel_globals, i64 304), i64 noundef %8, ptr noundef nonnull %2) #20
+  %10 = call ptr @zend_hash_index_add_new(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @accel_globals, i64 304), i64 noundef %8, ptr noundef nonnull %2) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  call void @_efree(ptr noundef %0) #20
+  call void @_efree(ptr noundef %0) #19
   ret ptr %3
 }
 
@@ -838,7 +831,7 @@ define hidden ptr @zend_shared_memdup_free(ptr noundef %0, i64 noundef %1) local
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 %5
   store ptr %6, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 368), align 8, !tbaa !59
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %3, ptr align 1 %0, i64 %1, i1 false)
-  tail call void @_efree(ptr noundef %0) #20
+  tail call void @_efree(ptr noundef %0) #19
   ret ptr %3
 }
 
@@ -847,7 +840,7 @@ define hidden ptr @zend_shared_memdup_get_put(ptr noundef %0, i64 noundef %1) lo
   %3 = alloca %struct._zval_struct, align 8
   %4 = ptrtoint ptr %0 to i64
   %5 = tail call i64 @llvm.fshl.i64(i64 %4, i64 %4, i64 61)
-  %6 = tail call ptr @zend_hash_index_find(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @accel_globals, i64 304), i64 noundef %5) #20
+  %6 = tail call ptr @zend_hash_index_find(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @accel_globals, i64 304), i64 noundef %5) #19
   %.not.i.i = icmp eq ptr %6, null
   br i1 %.not.i.i, label %zend_hash_index_add_new_ptr.exit.i, label %zend_hash_index_find_ptr.exit.i
 
@@ -866,7 +859,7 @@ zend_hash_index_add_new_ptr.exit.i:               ; preds = %2
   store ptr %8, ptr %3, align 8, !tbaa !30
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 13, ptr %12, align 8, !tbaa !30
-  %13 = call ptr @zend_hash_index_add_new(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @accel_globals, i64 304), i64 noundef %5, ptr noundef nonnull %3) #20
+  %13 = call ptr @zend_hash_index_add_new(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @accel_globals, i64 304), i64 noundef %5, ptr noundef nonnull %3) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_zend_shared_memdup.exit
 
@@ -891,13 +884,13 @@ _zend_shared_memdup.exit:
   store ptr %3, ptr %2, align 8, !tbaa !30
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 13, ptr %9, align 8, !tbaa !30
-  %10 = call ptr @zend_hash_index_add_new(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @accel_globals, i64 304), i64 noundef %8, ptr noundef nonnull %2) #20
+  %10 = call ptr @zend_hash_index_add_new(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @accel_globals, i64 304), i64 noundef %8, ptr noundef nonnull %2) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
-define hidden ptr @zend_shared_memdup(ptr noundef readonly captures(none) %0, i64 noundef %1) local_unnamed_addr #13 {
+define hidden ptr @zend_shared_memdup(ptr noundef readonly captures(none) %0, i64 noundef %1) local_unnamed_addr #12 {
   %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 368), align 8, !tbaa !59
   %4 = add i64 %1, 7
   %5 = and i64 %4, -8
@@ -925,16 +918,16 @@ define hidden void @zend_shared_alloc_safe_unlock() local_unnamed_addr #0 {
   store i64 1, ptr %7, align 8, !tbaa !66
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 2), align 2, !tbaa !48
   %8 = load i32, ptr @lock_file, align 4, !tbaa !4
-  %9 = call i32 (i32, i32, ...) @fcntl(i32 noundef %8, i32 noundef 6, ptr noundef nonnull %1) #20
+  %9 = call i32 (i32, i32, ...) @fcntl(i32 noundef %8, i32 noundef 6, ptr noundef nonnull %1) #19
   %10 = icmp eq i32 %9, -1
   br i1 %10, label %11, label %zend_shared_alloc_unlock.exit
 
 11:                                               ; preds = %4
-  %12 = tail call ptr @__errno_location() #21
+  %12 = tail call ptr @__errno_location() #20
   %13 = load i32, ptr %12, align 4, !tbaa !4
-  %14 = call ptr @strerror(i32 noundef %13) #20
+  %14 = call ptr @strerror(i32 noundef %13) #19
   %15 = load i32, ptr %12, align 4, !tbaa !4
-  call void (i32, ptr, ...) @zend_accel_error_noreturn(i32 noundef 1, ptr noundef nonnull @.str.10, ptr noundef %14, i32 noundef %15) #22
+  call void (i32, ptr, ...) @zend_accel_error_noreturn(i32 noundef 1, ptr noundef nonnull @.str.10, ptr noundef %14, i32 noundef %15) #21
   unreachable
 
 zend_shared_alloc_unlock.exit:                    ; preds = %4
@@ -958,16 +951,16 @@ define hidden void @zend_shared_alloc_unlock() local_unnamed_addr #0 {
   store i64 1, ptr %4, align 8, !tbaa !66
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 2), align 2, !tbaa !48
   %5 = load i32, ptr @lock_file, align 4, !tbaa !4
-  %6 = call i32 (i32, i32, ...) @fcntl(i32 noundef %5, i32 noundef 6, ptr noundef nonnull %1) #20
+  %6 = call i32 (i32, i32, ...) @fcntl(i32 noundef %5, i32 noundef 6, ptr noundef nonnull %1) #19
   %7 = icmp eq i32 %6, -1
   br i1 %7, label %8, label %13
 
 8:                                                ; preds = %0
-  %9 = tail call ptr @__errno_location() #21
+  %9 = tail call ptr @__errno_location() #20
   %10 = load i32, ptr %9, align 4, !tbaa !4
-  %11 = call ptr @strerror(i32 noundef %10) #20
+  %11 = call ptr @strerror(i32 noundef %10) #19
   %12 = load i32, ptr %9, align 4, !tbaa !4
-  call void (i32, ptr, ...) @zend_accel_error_noreturn(i32 noundef 1, ptr noundef nonnull @.str.10, ptr noundef %11, i32 noundef %12) #22
+  call void (i32, ptr, ...) @zend_accel_error_noreturn(i32 noundef 1, ptr noundef nonnull @.str.10, ptr noundef %11, i32 noundef %12) #21
   unreachable
 
 13:                                               ; preds = %0
@@ -990,20 +983,20 @@ define hidden void @zend_shared_alloc_lock() local_unnamed_addr #0 {
 
 5:                                                ; preds = %9, %0
   %6 = load i32, ptr @lock_file, align 4, !tbaa !4
-  %7 = call i32 (i32, i32, ...) @fcntl(i32 noundef %6, i32 noundef 7, ptr noundef nonnull %1) #20
+  %7 = call i32 (i32, i32, ...) @fcntl(i32 noundef %6, i32 noundef 7, ptr noundef nonnull %1) #19
   %8 = icmp eq i32 %7, -1
   br i1 %8, label %9, label %16
 
 9:                                                ; preds = %5
-  %10 = tail call ptr @__errno_location() #21
+  %10 = tail call ptr @__errno_location() #20
   %11 = load i32, ptr %10, align 4, !tbaa !4
   %12 = icmp eq i32 %11, 4
   br i1 %12, label %5, label %13
 
 13:                                               ; preds = %9
-  %14 = call ptr @strerror(i32 noundef %11) #20
+  %14 = call ptr @strerror(i32 noundef %11) #19
   %15 = load i32, ptr %10, align 4, !tbaa !4
-  call void (i32, ptr, ...) @zend_accel_error_noreturn(i32 noundef 1, ptr noundef nonnull @.str.9, ptr noundef %14, i32 noundef %15) #22
+  call void (i32, ptr, ...) @zend_accel_error_noreturn(i32 noundef 1, ptr noundef nonnull @.str.9, ptr noundef %14, i32 noundef %15) #21
   unreachable
 
 16:                                               ; preds = %5
@@ -1014,7 +1007,7 @@ define hidden void @zend_shared_alloc_lock() local_unnamed_addr #0 {
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zend_shared_alloc_init_xlat_table() local_unnamed_addr #0 {
-  tail call void @_zend_hash_init(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @accel_globals, i64 304), i32 noundef 128, ptr noundef null, i1 noundef zeroext false) #20
+  tail call void @_zend_hash_init(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @accel_globals, i64 304), i32 noundef 128, ptr noundef null, i1 noundef zeroext false) #19
   ret void
 }
 
@@ -1022,7 +1015,7 @@ declare void @_zend_hash_init(ptr noundef, i32 noundef, ptr noundef, i1 noundef 
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zend_shared_alloc_destroy_xlat_table() local_unnamed_addr #0 {
-  tail call void @zend_hash_destroy(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @accel_globals, i64 304)) #20
+  tail call void @zend_hash_destroy(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @accel_globals, i64 304)) #19
   ret void
 }
 
@@ -1030,21 +1023,21 @@ declare void @zend_hash_destroy(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zend_shared_alloc_clear_xlat_table() local_unnamed_addr #0 {
-  tail call void @zend_hash_clean(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @accel_globals, i64 304)) #20
+  tail call void @zend_hash_clean(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @accel_globals, i64 304)) #19
   ret void
 }
 
 declare void @zend_hash_clean(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
-define hidden i32 @zend_shared_alloc_checkpoint_xlat_table() local_unnamed_addr #14 {
+define hidden i32 @zend_shared_alloc_checkpoint_xlat_table() local_unnamed_addr #13 {
   %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 328), align 8, !tbaa !67
   ret i32 %1
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zend_shared_alloc_restore_xlat_table(i32 noundef %0) local_unnamed_addr #0 {
-  tail call void @zend_hash_discard(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @accel_globals, i64 304), i32 noundef %0) #20
+  tail call void @zend_hash_discard(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @accel_globals, i64 304), i32 noundef %0) #19
   ret void
 }
 
@@ -1060,7 +1053,7 @@ zend_hash_index_add_new_ptr.exit:
   store ptr %1, ptr %2, align 8, !tbaa !30
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 13, ptr %5, align 8, !tbaa !30
-  %6 = call ptr @zend_hash_index_add_new(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @accel_globals, i64 304), i64 noundef %4, ptr noundef nonnull %2) #20
+  %6 = call ptr @zend_hash_index_add_new(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @accel_globals, i64 304), i64 noundef %4, ptr noundef nonnull %2) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
@@ -1069,7 +1062,7 @@ zend_hash_index_add_new_ptr.exit:
 define hidden noundef ptr @zend_shared_alloc_get_xlat_entry(ptr noundef %0) local_unnamed_addr #0 {
   %2 = ptrtoint ptr %0 to i64
   %3 = tail call i64 @llvm.fshl.i64(i64 %2, i64 %2, i64 61)
-  %4 = tail call ptr @zend_hash_index_find(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @accel_globals, i64 304), i64 noundef %3) #20
+  %4 = tail call ptr @zend_hash_index_find(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @accel_globals, i64 304), i64 noundef %3) #19
   %.not.i = icmp eq ptr %4, null
   br i1 %.not.i, label %zend_hash_index_find_ptr.exit, label %5
 
@@ -1083,7 +1076,7 @@ zend_hash_index_find_ptr.exit:                    ; preds = %1, %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
-define hidden i64 @zend_shared_alloc_get_free_memory() local_unnamed_addr #15 {
+define hidden i64 @zend_shared_alloc_get_free_memory() local_unnamed_addr #14 {
   %1 = load ptr, ptr @smm_shared_globals, align 8, !tbaa !11
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %3 = load i64, ptr %2, align 8, !tbaa !13
@@ -1091,7 +1084,7 @@ define hidden i64 @zend_shared_alloc_get_free_memory() local_unnamed_addr #15 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
-define hidden void @zend_shared_alloc_save_state() local_unnamed_addr #16 {
+define hidden void @zend_shared_alloc_save_state() local_unnamed_addr #15 {
   %1 = load ptr, ptr @smm_shared_globals, align 8, !tbaa !11
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %3 = load i32, ptr %2, align 8, !tbaa !35
@@ -1126,7 +1119,7 @@ define hidden void @zend_shared_alloc_save_state() local_unnamed_addr #16 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
-define hidden void @zend_shared_alloc_restore_state() local_unnamed_addr #16 {
+define hidden void @zend_shared_alloc_restore_state() local_unnamed_addr #15 {
   %1 = load ptr, ptr @smm_shared_globals, align 8, !tbaa !11
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %3 = load i32, ptr %2, align 8, !tbaa !35
@@ -1165,7 +1158,7 @@ define hidden void @zend_shared_alloc_restore_state() local_unnamed_addr #16 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
-define hidden ptr @zend_accel_get_shared_model() local_unnamed_addr #14 {
+define hidden ptr @zend_accel_get_shared_model() local_unnamed_addr #13 {
   %1 = load ptr, ptr @g_shared_model, align 8, !tbaa !8
   ret ptr %1
 }
@@ -1193,7 +1186,7 @@ define hidden void @zend_accel_shared_protect(i1 noundef zeroext %0) local_unnam
   %13 = load ptr, ptr %12, align 8, !tbaa !41
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %15 = load i64, ptr %14, align 8, !tbaa !46
-  %16 = tail call i32 @mprotect(ptr noundef %13, i64 noundef %15, i32 noundef %4) #20
+  %16 = tail call i32 @mprotect(ptr noundef %13, i64 noundef %15, i32 noundef %4) #19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %17 = load ptr, ptr @smm_shared_globals, align 8, !tbaa !11
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
@@ -1210,7 +1203,7 @@ define hidden void @zend_accel_shared_protect(i1 noundef zeroext %0) local_unnam
 declare i32 @mprotect(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
-define hidden noundef zeroext i1 @zend_accel_in_shm(ptr noundef readnone captures(address) %0) local_unnamed_addr #17 {
+define hidden noundef zeroext i1 @zend_accel_in_shm(ptr noundef readnone captures(address) %0) local_unnamed_addr #16 {
   %2 = load ptr, ptr @smm_shared_globals, align 8, !tbaa !11
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %.loopexit, label %.preheader
@@ -1259,16 +1252,16 @@ declare ptr @zend_hash_index_add_new(ptr noundef, i64 noundef, ptr noundef) loca
 declare void @_efree(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #18
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #17
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #18
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #17
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.fshl.i64(i64, i64, i64) #19
+declare i64 @llvm.fshl.i64(i64, i64, i64) #18
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #19
+declare i64 @llvm.umax.i64(i64, i64) #18
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1282,19 +1275,18 @@ attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #19 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #20 = { nounwind }
-attributes #21 = { nounwind willreturn memory(none) }
-attributes #22 = { noreturn nounwind }
-attributes #23 = { nounwind willreturn memory(read) }
-attributes #24 = { nounwind allocsize(0) }
+attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #18 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #19 = { nounwind }
+attributes #20 = { nounwind willreturn memory(none) }
+attributes #21 = { noreturn nounwind }
+attributes #22 = { nounwind willreturn memory(read) }
+attributes #23 = { nounwind allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 
