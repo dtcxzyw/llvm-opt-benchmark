@@ -6501,7 +6501,7 @@ _ZL20XXH3_accumulate_sse2PmPKhS1_m.exit39.i:      ; preds = %_ZL24XXH3_accumulat
   tail call void @llvm.experimental.noalias.scope.decl(metadata !563)
   br label %32
 
-32:                                               ; preds = %_ZL20XXH3_accumulate_sse2PmPKhS1_m.exit39.i, %32
+32:; preds = %_ZL20XXH3_accumulate_sse2PmPKhS1_m.exit39.i, %32
   %.0.i40.i3 = phi i64 [ 0, %_ZL20XXH3_accumulate_sse2PmPKhS1_m.exit39.i ], [ %47, %32 ]
   %33 = getelementptr inbounds nuw <2 x i64>, ptr %3, i64 %.0.i40.i3
   %34 = load <2 x i64>, ptr %33, align 16, !tbaa !120, !alias.scope !566, !noalias !569
@@ -6528,27 +6528,27 @@ _ZL21XXH3_scrambleAcc_sse2PvPKv.exit.i:           ; preds = %32
   br i1 %exitcond14.not, label %._crit_edge, label %.lr.ph, !llvm.loop !573
 
 ._crit_edge:                                      ; preds = %_ZL21XXH3_scrambleAcc_sse2PvPKv.exit.i, %2
-  %49 = icmp ugt i64 %1, 64
-  tail call void @llvm.assume(i1 %49)
-  %50 = and i64 %4, -1024
-  %51 = lshr i64 %4, 6
-  %52 = and i64 %51, 15
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 %50
-  %.not11 = icmp eq i64 %52, 0
+  %48 = icmp ugt i64 %1, 64
+  tail call void @llvm.assume(i1 %48)
+  %49 = and i64 %4, -1024
+  %50 = lshr i64 %4, 6
+  %51 = and i64 %50, 15
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 %49
+  %.not11 = icmp eq i64 %51, 0
   br i1 %.not11, label %_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit, label %.lr.ph9
 
 .lr.ph9:                                          ; preds = %._crit_edge, %_ZL24XXH3_accumulate_512_sse2PvPKvS1_.exit3
   %.0.i.i7 = phi i64 [ %76, %_ZL24XXH3_accumulate_512_sse2PvPKvS1_.exit3 ], [ 0, %._crit_edge ]
-  %54 = shl i64 %.0.i.i7, 6
-  %55 = getelementptr inbounds nuw i8, ptr %53, i64 %54
-  %56 = getelementptr inbounds nuw i8, ptr %55, i64 320
-  tail call void @llvm.prefetch.p0(ptr nonnull %56, i32 0, i32 3, i32 1)
-  %57 = shl i64 %.0.i.i7, 3
-  %58 = getelementptr inbounds nuw i8, ptr @_ZL12XXH3_kSecret, i64 %57
+  %53 = shl i64 %.0.i.i7, 6
+  %54 = getelementptr inbounds nuw i8, ptr %52, i64 %53
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 320
+  tail call void @llvm.prefetch.p0(ptr nonnull %55, i32 0, i32 3, i32 1)
+  %56 = shl i64 %.0.i.i7, 3
+  %57 = getelementptr inbounds nuw i8, ptr @_ZL12XXH3_kSecret, i64 %56
   tail call void @llvm.experimental.noalias.scope.decl(metadata !574)
   br label %59
 
-59:                                               ; preds = %.lr.ph9, %59
+59: ; preds = %.lr.ph9, %59
   %.0.i26 = phi i64 [ 0, %.lr.ph9 ], [ %75, %59 ]
   %60 = getelementptr inbounds nuw <2 x i64>, ptr %55, i64 %.0.i26
   %61 = load <2 x i64>, ptr %60, align 1, !tbaa !120, !noalias !574
@@ -6571,18 +6571,18 @@ _ZL21XXH3_scrambleAcc_sse2PvPKv.exit.i:           ; preds = %32
   %exitcond15.not = icmp eq i64 %75, 4
   br i1 %exitcond15.not, label %_ZL24XXH3_accumulate_512_sse2PvPKvS1_.exit3, label %59, !llvm.loop !561
 
-_ZL24XXH3_accumulate_512_sse2PvPKvS1_.exit3:      ; preds = %59
+_ZL24XXH3_accumulate_512_sse2PvPKvS1_.exit3:; preds = %59
   %76 = add nuw nsw i64 %.0.i.i7, 1
   %exitcond16.not = icmp eq i64 %76, %52
   br i1 %exitcond16.not, label %_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit, label %.lr.ph9, !llvm.loop !562
 
 _ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit: ; preds = %_ZL24XXH3_accumulate_512_sse2PvPKvS1_.exit3, %._crit_edge
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 %1
-  %78 = getelementptr inbounds i8, ptr %77, i64 -64
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 %1
+  %77 = getelementptr inbounds i8, ptr %76, i64 -64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !580)
   br label %79
 
-79:                                               ; preds = %_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit, %79
+79: ; preds = %_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit, %79
   %.0.i410 = phi i64 [ 0, %_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit ], [ %95, %79 ]
   %80 = getelementptr inbounds nuw <2 x i64>, ptr %78, i64 %.0.i410
   %81 = load <2 x i64>, ptr %80, align 1, !tbaa !120, !noalias !580
@@ -6605,44 +6605,44 @@ _ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit: ; preds =
   %exitcond17.not = icmp eq i64 %95, 4
   br i1 %exitcond17.not, label %_ZL24XXH3_accumulate_512_sse2PvPKvS1_.exit5, label %79, !llvm.loop !561
 
-_ZL24XXH3_accumulate_512_sse2PvPKvS1_.exit5:      ; preds = %79
+_ZL24XXH3_accumulate_512_sse2PvPKvS1_.exit5:; preds = %79
   %96 = mul i64 %1, -7046029288634856825
   tail call void @llvm.experimental.noalias.scope.decl(metadata !586)
   br label %97
 
-97:                                               ; preds = %97, %_ZL24XXH3_accumulate_512_sse2PvPKvS1_.exit5
-  %.02.i = phi i64 [ 0, %_ZL24XXH3_accumulate_512_sse2PvPKvS1_.exit5 ], [ %113, %97 ]
+97:; preds = %97, %_ZL24XXH3_accumulate_512_sse2PvPKvS1_.exit5
+  %.081.i = phi i64 [ 0, %_ZL24XXH3_accumulate_512_sse2PvPKvS1_.exit5 ], [ %113, %97 ]
   %.081.i = phi i64 [ %96, %_ZL24XXH3_accumulate_512_sse2PvPKvS1_.exit5 ], [ %112, %97 ]
   %.idx.i = shl nuw nsw i64 %.02.i, 4
-  %98 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx.i
-  %99 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL12XXH3_kSecret, i64 11), i64 %.idx.i
-  %100 = load i64, ptr %98, align 16, !tbaa !80, !alias.scope !589, !noalias !592
-  %.val9.i = load i64, ptr %99, align 1, !tbaa !80, !noalias !586
-  %101 = xor i64 %.val9.i, %100
-  %102 = getelementptr inbounds nuw i8, ptr %98, i64 8
-  %103 = load i64, ptr %102, align 8, !tbaa !80, !alias.scope !589, !noalias !592
-  %104 = getelementptr inbounds nuw i8, ptr %99, i64 8
-  %.val.i = load i64, ptr %104, align 1, !tbaa !80, !noalias !586
-  %105 = xor i64 %.val.i, %103
-  %106 = zext i64 %101 to i128
-  %107 = zext i64 %105 to i128
-  %108 = mul nuw i128 %107, %106
-  %109 = lshr i128 %108, 64
-  %110 = xor i128 %109, %108
-  %111 = trunc i128 %110 to i64
-  %112 = add i64 %.081.i, %111
-  %113 = add nuw nsw i64 %.02.i, 1
-  %exitcond.not.i = icmp eq i64 %113, 4
+  %97 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx.i
+  %98 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL12XXH3_kSecret, i64 11), i64 %.idx.i
+  %99 = load i64, ptr %97, align 16, !tbaa !80, !alias.scope !589, !noalias !592
+  %.val9.i = load i64, ptr %98, align 1, !tbaa !80, !noalias !586
+  %100 = xor i64 %.val9.i, %99
+  %101 = getelementptr inbounds nuw i8, ptr %97, i64 8
+  %102 = load i64, ptr %101, align 8, !tbaa !80, !alias.scope !589, !noalias !592
+  %103 = getelementptr inbounds nuw i8, ptr %98, i64 8
+  %.val.i = load i64, ptr %103, align 1, !tbaa !80, !noalias !586
+  %104 = xor i64 %.val.i, %102
+  %105 = zext i64 %100 to i128
+  %106 = zext i64 %104 to i128
+  %107 = mul nuw i128 %106, %105
+  %108 = lshr i128 %107, 64
+  %109 = xor i128 %108, %107
+  %110 = trunc i128 %109 to i64
+  %111 = add i64 %.081.i, %110
+  %112 = add nuw nsw i64 %.02.i, 1
+  %exitcond.not.i = icmp eq i64 %112, 4
   br i1 %exitcond.not.i, label %_ZL14XXH3_mergeAccsPKmPKhm.exit, label %97, !llvm.loop !594
 
 _ZL14XXH3_mergeAccsPKmPKhm.exit:                  ; preds = %97
-  %114 = lshr i64 %112, 37
-  %115 = xor i64 %114, %112
-  %116 = mul i64 %115, 1609587791953885689
-  %117 = lshr i64 %116, 32
-  %118 = xor i64 %117, %116
+  %113 = lshr i64 %111, 37
+  %114 = xor i64 %113, %111
+  %115 = mul i64 %114, 1609587791953885689
+  %116 = lshr i64 %115, 32
+  %117 = xor i64 %116, %115
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !552
-  ret i64 %118
+  ret i64 %117
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
