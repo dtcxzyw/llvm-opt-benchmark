@@ -908,7 +908,7 @@ define internal void @_ZNK4ncnn11LRN_x86_avx15forward_inplaceERNS_3MatERKNS_6Opt
   %13 = alloca i32, align 4
   %14 = load i32, ptr %2, align 4, !tbaa !15
   %15 = icmp sgt i32 %14, 0
-  br i1 %15, label %16, label %189
+  br i1 %15, label %16, label %191
 
 16:                                               ; preds = %9
   %17 = add nsw i32 %14, -1
@@ -1102,7 +1102,7 @@ define internal void @_ZNK4ncnn11LRN_x86_avx15forward_inplaceERNS_3MatERKNS_6Opt
   %134 = fmul fast <8 x float> %133, %118
   %135 = fadd fast <8 x float> %134, splat (float 0x3FD5555540000000)
   %136 = fmul fast <8 x float> %135, %118
-  %reass.mul = fmul fast <8 x float> %117, splat (float 0x3FE62E4300000000)
+  %137 = fmul fast <8 x float> %117, splat (float 0x3FE62E4300000000)
   %reass.add232 = fadd fast <8 x float> %136, splat (float -5.000000e-01)
   %reass.mul233 = fmul fast <8 x float> %119, %reass.add232
   %137 = fadd fast <8 x float> %reass.mul, %118
@@ -1148,24 +1148,24 @@ define internal void @_ZNK4ncnn11LRN_x86_avx15forward_inplaceERNS_3MatERKNS_6Opt
   br i1 %175, label %.lr.ph252, label %.preheader234, !llvm.loop !87
 
 .lr.ph260:                                        ; preds = %.preheader234, %.lr.ph260
-  %.169259 = phi i32 [ %188, %.lr.ph260 ], [ %.068.lcssa, %.preheader234 ]
-  %.171258 = phi ptr [ %186, %.lr.ph260 ], [ %.070.lcssa, %.preheader234 ]
-  %.173257 = phi ptr [ %187, %.lr.ph260 ], [ %.072.lcssa, %.preheader234 ]
-  %176 = load float, ptr %.173257, align 4, !tbaa !43
-  %177 = load float, ptr %29, align 8, !tbaa !76
-  %178 = load float, ptr %8, align 4, !tbaa !43
-  %179 = load float, ptr %.171258, align 4, !tbaa !43
-  %180 = fmul fast float %179, %178
-  %181 = fadd fast float %180, %177
-  %182 = load float, ptr %30, align 4, !tbaa !77
-  %183 = fneg fast float %182
-  %184 = call fast float @llvm.pow.f32(float %181, float %183)
-  %185 = fmul fast float %184, %176
-  store float %185, ptr %.173257, align 4, !tbaa !43
-  %186 = getelementptr inbounds nuw i8, ptr %.171258, i64 4
-  %187 = getelementptr inbounds nuw i8, ptr %.173257, i64 4
-  %188 = add nuw nsw i32 %.169259, 1
-  %exitcond274.not = icmp eq i32 %188, %.lcssa235
+  %.169259 = phi i32 [ %190, %.lr.ph260 ], [ %.068.lcssa, %.preheader234 ]
+  %.171258 = phi ptr [ %188, %.lr.ph260 ], [ %.070.lcssa, %.preheader234 ]
+  %.173257 = phi ptr [ %189, %.lr.ph260 ], [ %.072.lcssa, %.preheader234 ]
+  %178 = load float, ptr %.173257, align 4, !tbaa !43
+  %179 = load float, ptr %29, align 8, !tbaa !76
+  %180 = load float, ptr %8, align 4, !tbaa !43
+  %181 = load float, ptr %.171258, align 4, !tbaa !43
+  %182 = fmul fast float %181, %180
+  %183 = fadd fast float %182, %179
+  %184 = load float, ptr %30, align 4, !tbaa !77
+  %185 = fneg fast float %184
+  %186 = call fast float @llvm.pow.f32(float %183, float %185)
+  %187 = fmul fast float %186, %178
+  store float %187, ptr %.173257, align 4, !tbaa !43
+  %188 = getelementptr inbounds nuw i8, ptr %.171258, i64 4
+  %189 = getelementptr inbounds nuw i8, ptr %.173257, i64 4
+  %190 = add nuw nsw i32 %.169259, 1
+  %exitcond274.not = icmp eq i32 %190, %.lcssa235
   br i1 %exitcond274.not, label %._crit_edge, label %.lr.ph260, !llvm.loop !88
 
 ._crit_edge:                                      ; preds = %.lr.ph260, %.preheader234
@@ -1180,9 +1180,9 @@ define internal void @_ZNK4ncnn11LRN_x86_avx15forward_inplaceERNS_3MatERKNS_6Opt
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %189
+  br label %191
 
-189:                                              ; preds = %._crit_edge265, %9
+191:                                              ; preds = %._crit_edge265, %9
   ret void
 }
 
