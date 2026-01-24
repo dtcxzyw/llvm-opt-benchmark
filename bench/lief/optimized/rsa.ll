@@ -2273,9 +2273,9 @@ define internal fastcc i32 @mgf_mask(ptr noundef captures(none) %0, i64 noundef 
   br i1 %.not39, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %23
-  br i1 %.not56, label %._crit_edge, label %.lr.ph.preheader
+  br i1 %.not56, label %._crit_edge, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %.preheader
+.lr.ph:                                           ; preds = %.preheader
   %umax = call i64 @llvm.umax.i64(i64 %spec.select, i64 1)
   br label %.lr.ph
 

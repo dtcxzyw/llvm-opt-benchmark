@@ -13,16 +13,16 @@ define dso_local noundef ptr @find_executable_path() local_unnamed_addr #0 {
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = call ptr @realpath(ptr noundef nonnull @.str.1, ptr noundef nonnull %2) #7
   %.not.i = icmp eq ptr %3, null
-  br i1 %.not.i, label %get_executable_path_raw.exit.thread, label %4
+  br i1 %.not.i, label %get_executable_path_raw.exit.thread, label %get_executable_path_raw.exit.thread33
 
 get_executable_path_raw.exit.thread:              ; preds = %0
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %32
+  br label %28
 
-4:                                                ; preds = %0
-  %5 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #8
-  %6 = trunc i64 %5 to i32
-  %.not19.i = icmp sgt i32 %6, 0
+get_executable_path_raw.exit.thread33:            ; preds = %0
+  %4 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #8
+  %5 = trunc i64 %4 to i32
+  %.not19.i = icmp sgt i32 %5, 0
   br i1 %.not19.i, label %get_executable_path_raw.exit.thread33, label %get_executable_path_raw.exit
 
 get_executable_path_raw.exit.thread33:            ; preds = %4
@@ -42,37 +42,37 @@ get_executable_path_raw.exit:                     ; preds = %4
   %11 = and i64 %10, 4294967295
   %12 = call noalias ptr @malloc(i64 noundef %11) #9
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
-  %13 = call ptr @realpath(ptr noundef nonnull @.str.1, ptr noundef nonnull %1) #7
-  %.not.i27 = icmp eq ptr %13, null
-  br i1 %.not.i27, label %get_executable_path_raw.exit31, label %14
+  %9 = call ptr @realpath(ptr noundef nonnull @.str.1, ptr noundef nonnull %1) #7
+  %.not.i27 = icmp eq ptr %9, null
+  br i1 %.not.i27, label %get_executable_path_raw.exit31, label %10
 
-14:                                               ; preds = %9
-  %15 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %13) #8
-  %16 = trunc i64 %15 to i32
-  %.not19.i28 = icmp slt i32 %6, %16
-  br i1 %.not19.i28, label %get_executable_path_raw.exit31, label %17
+10:                                               ; preds = %9
+  %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #8
+  %12 = trunc i64 %11 to i32
+  %.not19.i28 = icmp slt i32 %6, %12
+  br i1 %.not19.i28, label %get_executable_path_raw.exit31, label %13
 
-17:                                               ; preds = %14
-  %sext.i29 = shl i64 %15, 32
-  %18 = ashr exact i64 %sext.i29, 32
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %12, ptr nonnull align 1 %13, i64 %18, i1 false)
+13:                                               ; preds = %10
+  %sext.i29 = shl i64 %11, 32
+  %14 = ashr exact i64 %sext.i29, 32
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %12, ptr nonnull align 1 %9, i64 %14, i1 false)
   br label %get_executable_path_raw.exit31
 
-get_executable_path_raw.exit31:                   ; preds = %9, %14, %17
+get_executable_path_raw.exit31:                   ; preds = %9, %1get_executable_path_raw.exit.thread33, %13
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %19 = and i64 %5, 4294967295
-  %20 = getelementptr inbounds nuw i8, ptr %12, i64 %19
-  store i8 0, ptr %20, align 1
-  %.not = icmp eq i32 %6, 0
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 %19
+  store i8 0, ptr %16, align 1
+  %.not = icmp eq i32 %5, 0
   br i1 %.not, label %.preheader.preheader, label %.lr.ph
 
 .lr.ph:                                           ; preds = %get_executable_path_raw.exit31, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %get_executable_path_raw.exit31 ]
-  %21 = getelementptr inbounds nuw i8, ptr %12, i64 %indvars.iv
-  %22 = load i8, ptr %21, align 1
-  %23 = icmp eq i8 %22, 92
-  %spec.store.select = select i1 %23, i8 47, i8 %22
-  store i8 %spec.store.select, ptr %21, align 1
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 %indvars.iv
+  %18 = load i8, ptr %17, align 1
+  %19 = icmp eq i8 %18, 92
+  %spec.store.select = select i1 %19, i8 47, i8 %18
+  store i8 %spec.store.select, ptr %17, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %19
   br i1 %exitcond.not, label %.preheader.preheader, label %.lr.ph, !llvm.loop !7
@@ -80,31 +80,31 @@ get_executable_path_raw.exit31:                   ; preds = %9, %14, %17
 .preheader.preheader:                             ; preds = %.lr.ph, %get_executable_path_raw.exit31
   br label %.preheader
 
-.preheader:                                       ; preds = %.preheader.preheader, %25
+.preheader:                                       ; preds = %.preheader.preheader, %21
   %indvars.iv40 = phi i64 [ %indvars.iv.next41, %25 ], [ %19, %.preheader.preheader ]
-  %24 = icmp sgt i64 %indvars.iv40, 0
-  br i1 %24, label %25, label %31
+  %20 = icmp sgt i64 %indvars.iv40, 0
+  br i1 %20, label %21, label %27
 
-25:                                               ; preds = %.preheader
+21:                                               ; preds = %.preheader
   %indvars.iv.next41 = add nsw i64 %indvars.iv40, -1
-  %26 = getelementptr inbounds nuw i8, ptr %12, i64 %indvars.iv.next41
-  %27 = load i8, ptr %26, align 1
-  switch i8 %27, label %.preheader [
-    i8 47, label %28
-    i8 92, label %28
+  %22 = getelementptr inbounds nuw i8, ptr %12, i64 %indvars.iv.next41
+  %23 = load i8, ptr %22, align 1
+  switch i8 %23, label %.preheader [
+    i8 47, label %24
+    i8 92, label %24
   ], !llvm.loop !9
 
-28:                                               ; preds = %25, %25
-  %29 = and i64 %indvars.iv40, 4294967295
-  %30 = getelementptr inbounds nuw i8, ptr %12, i64 %29
-  store i8 0, ptr %30, align 1
-  br label %32
+24:                                               ; preds = %21, %21
+  %25 = and i64 %indvars.iv40, 4294967295
+  %26 = getelementptr inbounds nuw i8, ptr %12, i64 %25
+  store i8 0, ptr %26, align 1
+  br label %28
 
-31:                                               ; preds = %.preheader
-  store i8 0, ptr %20, align 1
-  br label %32
+27:                                               ; preds = %.preheader
+  store i8 0, ptr %16, align 1
+  br label %28
 
-32:                                               ; preds = %get_executable_path_raw.exit.thread, %get_executable_path_raw.exit, %31, %28
+28:                                               ; preds = %get_executable_path_raw.exit.thread, %get_executable_path_raw.exit, %27, %24
   %.025 = phi ptr [ %12, %31 ], [ %12, %28 ], [ @.str, %get_executable_path_raw.exit ], [ @.str, %get_executable_path_raw.exit.thread ]
   ret ptr %.025
 }

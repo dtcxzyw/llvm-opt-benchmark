@@ -491,7 +491,7 @@ _ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit.thread.i.i: ; preds = %_ZNSt6vec
   %26 = ptrtoint ptr %24 to i64
   %27 = ptrtoint ptr %23 to i64
   %28 = sub i64 %26, %27
-  %.sroa.212.8.insert.ext = and i64 %28, 4294967295
+  %29 = and i64 %28, 4294967295
   %.sroa.212.8.insert.insert = or disjoint i64 %.sroa.212.8.insert.ext, 244834610708480
   store ptr %23, ptr %7, align 8
   store i64 %.sroa.212.8.insert.insert, ptr %.sroa.423.0..sroa_idx, align 8

@@ -1572,7 +1572,7 @@ define dso_local void @qdisc_tree_reduce_backlog(ptr noundef readonly captures(n
   %6 = and i32 %.fr6, 512
   %7 = or i32 %2, %1
   %8 = icmp eq i32 %7, 0
-  br i1 %8, label %92, label %9
+  br i1 %8, label %89, label %9
 
 9:                                                ; preds = %3
   %10 = tail call i32 @llvm.smax.i32(i32 %1, i32 0)
@@ -1711,9 +1711,9 @@ define dso_local void @qdisc_tree_reduce_backlog(ptr noundef readonly captures(n
 
 .loopexit:                                        ; preds = %47, %20, %.split.us, %.split, %64, %79, %.split5.us, %9
   tail call void @__rcu_read_unlock() #19
-  br label %92
+  br label %89
 
-92:                                               ; preds = %.loopexit, %3
+89:                                               ; preds = %.loopexit, %3
   ret void
 }
 

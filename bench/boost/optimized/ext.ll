@@ -22935,9 +22935,9 @@ _ZN5boost4asio6detail11scoped_lockINS1_11posix_mutexEED2Ev.exit26: ; preds = %_Z
 
 .preheader:                                       ; preds = %_ZN5boost4asio6detail11scoped_lockINS1_11posix_mutexEED2Ev.exit26
   %.not70 = icmp eq ptr %.sroa.11.0.lcssa, %.sroa.034.0.lcssa
-  br i1 %.not70, label %.loopexit, label %.lr.ph69.preheader
+  br i1 %.not70, label %.loopexit, label %.lr.ph69
 
-.lr.ph69.preheader:                               ; preds = %.preheader
+.lr.ph69:                                         ; preds = %.preheader
   %umax = tail call i64 @llvm.umax.i64(i64 %31, i64 1)
   br label %.lr.ph69
 

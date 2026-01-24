@@ -106,7 +106,7 @@ define hidden range(i32 0, 2) i32 @mlib_ImageLookUp_Bit_U8_1(ptr noundef %0, i32
   %54 = sext i32 %spec.select to i64
   br i1 %36, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %51, %.lr.ph
+.lr.ph:; preds = %51, %.lr.ph
   %indvars.iv176 = phi i64 [ %indvars.iv.next177, %.lr.ph ], [ 0, %51 ]
   %.1145 = phi i32 [ %.2, %.lr.ph ], [ %7, %51 ]
   %.1111144 = phi ptr [ %.2112, %.lr.ph ], [ %.0116160, %51 ]
@@ -133,9 +133,9 @@ define hidden range(i32 0, 2) i32 @mlib_ImageLookUp_Bit_U8_1(ptr noundef %0, i32
   br i1 %67, label %.lr.ph, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph, %51
-  %.1115.lcssa = phi i32 [ %4, %51 ], [ %66, %.lr.ph ]
-  %.1111.lcssa = phi ptr [ %.0116160, %51 ], [ %.2112, %.lr.ph ]
-  %.1.lcssa = phi i32 [ %7, %51 ], [ %.2, %.lr.ph ]
+  %.pre-phi = phi i32 [ %4, %51 ], [ %66, %.lr.ph ]
+  %.1115.lcssa = phi ptr [ %.0116160, %51 ], [ %.2112, %.lr.ph ]
+  %.1111.lcssa = phi i32 [ %7, %51 ], [ %.2, %.lr.ph ]
   %68 = getelementptr inbounds i8, ptr %.0117159, i64 %54
   br label %69
 

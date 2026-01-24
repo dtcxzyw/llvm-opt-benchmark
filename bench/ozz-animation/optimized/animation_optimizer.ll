@@ -385,23 +385,23 @@ _ZNSt5_BindIFMN3ozz9animation7offline12_GLOBAL__N_116HierarchyBuilderEFviiEPS4_S
   br i1 %144, label %_ZN3ozz9animation7offline12_GLOBAL__N_116HierarchyBuilder21ComputeLengthBackwardEii.exit.i, label %145
 
 145:                                              ; preds = %_ZNSt5_BindIFMN3ozz9animation7offline12_GLOBAL__N_116HierarchyBuilderEFviiEPS4_St12_PlaceholderILi1EES8_ILi2EEEEclIJRiRKsEvEET0_DpOT_.exit.i39.i
-  %sext71.i = shl i64 %indvars.iv.next.i33.i, 32
-  %146 = ashr exact i64 %sext71.i, 32
+  %sext70.i = shl i64 %indvars.iv.next.i33.i, 32
+  %146 = ashr exact i64 %sext70.i, 32
   %147 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawAnimation::JointTrack", ptr %85, i64 %146
   %148 = getelementptr inbounds nuw i8, ptr %147, i64 8
   %149 = load ptr, ptr %148, align 8, !tbaa !56
   %150 = load ptr, ptr %147, align 8, !tbaa !59
   %.not.i66.i = icmp eq ptr %149, %150
-  br i1 %.not.i66.i, label %._crit_edge.i.i, label %.lr.ph.preheader.i67.i
+  br i1 %.not.i66.i, label %._crit_edge.i.i, label %.lr.ph.preheader.i.i
 
-.lr.ph.preheader.i67.i:                           ; preds = %145
+.lr.ph.preheader.i.i:                             ; preds = %145
   %151 = ptrtoint ptr %149 to i64
   %152 = ptrtoint ptr %150 to i64
   %153 = sub i64 %151, %152
   %154 = ashr exact i64 %153, 4
-  br label %.lr.ph.i68.i
+  br label %.lr.ph.i67.i
 
-._crit_edge.i.i:                                  ; preds = %.lr.ph.i68.i, %145
+._crit_edge.i.i:                                  ; preds = %.lr.ph.i67.i, %145
   %.0.lcssa.i.i = phi float [ 0.000000e+00, %145 ], [ %183, %.lr.ph.i68.i ]
   %155 = call noundef float @sqrtf(float noundef %.0.lcssa.i.i) #16, !tbaa !44
   %156 = getelementptr inbounds nuw %"struct.ozz::animation::offline::(anonymous namespace)::HierarchyBuilder::Spec", ptr %.sroa.0247.0, i64 %146
@@ -424,7 +424,7 @@ _ZNSt5_BindIFMN3ozz9animation7offline12_GLOBAL__N_116HierarchyBuilderEFviiEPS4_S
   store float %171, ptr %166, align 4, !tbaa !49
   br label %_ZN3ozz9animation7offline12_GLOBAL__N_116HierarchyBuilder21ComputeLengthBackwardEii.exit.i
 
-.lr.ph.i68.i:                                     ; preds = %.lr.ph.i68.i, %.lr.ph.preheader.i67.i
+.lr.ph.i67.i:                                     ; preds = %.lr.ph.i67.i, %.lr.ph.preheader.i.i
   %.023.i.i = phi float [ %183, %.lr.ph.i68.i ], [ 0.000000e+00, %.lr.ph.preheader.i67.i ]
   %.01922.i.i = phi i64 [ %184, %.lr.ph.i68.i ], [ 0, %.lr.ph.preheader.i67.i ]
   %172 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawAnimation::TranslationKey", ptr %150, i64 %.01922.i.i
@@ -440,8 +440,8 @@ _ZNSt5_BindIFMN3ozz9animation7offline12_GLOBAL__N_116HierarchyBuilderEFviiEPS4_S
   %182 = fcmp olt float %181, %.023.i.i
   %183 = select i1 %182, float %.023.i.i, float %181
   %184 = add nuw i64 %.01922.i.i, 1
-  %exitcond.not.i69.i = icmp eq i64 %184, %154
-  br i1 %exitcond.not.i69.i, label %._crit_edge.i.i, label %.lr.ph.i68.i, !llvm.loop !60
+  %exitcond.not.i68.i = icmp eq i64 %184, %154
+  br i1 %exitcond.not.i68.i, label %._crit_edge.i.i, label %.lr.ph.i67.i, !llvm.loop !60
 
 _ZN3ozz9animation7offline12_GLOBAL__N_116HierarchyBuilder21ComputeLengthBackwardEii.exit.i: ; preds = %._crit_edge.i.i, %_ZNSt5_BindIFMN3ozz9animation7offline12_GLOBAL__N_116HierarchyBuilderEFviiEPS4_St12_PlaceholderILi1EES8_ILi2EEEEclIJRiRKsEvEET0_DpOT_.exit.i39.i
   %185 = icmp samesign ugt i64 %indvars.iv.i32.i, 1
@@ -558,9 +558,9 @@ _ZNSt6vectorIN3ozz9animation7offline12RawAnimation10JointTrackENS0_12StdAllocato
   %.4..4..4..4..4..4..4..4..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 4
   %.12..12..12..12..12..12..12..12..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 12
   %.8..8..8..8..8..8..8..8..fca.1.gep.sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %.4..4..4..4..4..4..4..4..sroa_idx361 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %.12..12..12..12..12..12..12..12..sroa_idx363 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  %.8..8..8..8..8..8..8..8..fca.1.gep.sroa_idx362 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %.4..4..4..4..4..4..4..4..sroa_idx360 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %.12..12..12..12..12..12..12..12..sroa_idx362 = getelementptr inbounds nuw i8, ptr %5, i64 12
+  %.8..8..8..8..8..8..8..8..fca.1.gep.sroa_idx361 = getelementptr inbounds nuw i8, ptr %5, i64 8
   br label %265
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorIN3ozz9animation7offline12RawAnimation8ScaleKeyENS0_12StdAllocatorIS4_EEED2Ev.exit, %_ZNSt6vectorIN3ozz9animation7offline12RawAnimation10JointTrackENS0_12StdAllocatorIS4_EEE6resizeEm.exit
@@ -2347,10 +2347,10 @@ _ZNSt5stackISt4pairImmESt5dequeIS1_N3ozz12StdAllocatorIS1_EEEE3popEv.exit.i167: 
 1105:                                             ; preds = %1096
   %.fca.0.extract.i.i213 = extractvalue { <2 x float>, float } %1104, 0
   %.fca.1.extract.i.i214 = extractvalue { <2 x float>, float } %1104, 1
-  store <2 x float> %.fca.0.extract.i.i213, ptr %.4..4..4..4..4..4..4..4..sroa_idx361, align 4, !noalias !138
-  store float %.fca.1.extract.i.i214, ptr %.12..12..12..12..12..12..12..12..sroa_idx363, align 4, !noalias !138
+  store <2 x float> %.fca.0.extract.i.i213, ptr %.4..4..4..4..4..4..4..4..sroa_idx360, align 4, !noalias !138
+  store float %.fca.1.extract.i.i214, ptr %.12..12..12..12..12..12..12..12..sroa_idx362, align 4, !noalias !138
   %.0..0..0..0..0..0..0..0..fca.0.load.i.i215 = load <2 x float>, ptr %5, align 8, !noalias !138
-  %.8..8..8..8..8..8..8..8..fca.1.load.i.i216 = load <2 x float>, ptr %.8..8..8..8..8..8..8..8..fca.1.gep.sroa_idx362, align 8, !noalias !138
+  %.8..8..8..8..8..8..8..8..fca.1.load.i.i216 = load <2 x float>, ptr %.8..8..8..8..8..8..8..8..fca.1.gep.sroa_idx361, align 8, !noalias !138
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %1106 = getelementptr inbounds nuw i8, ptr %1098, i64 4
   %.sroa.04.4.vec.extract.i217 = extractelement <2 x float> %.0..0..0..0..0..0..0..0..fca.0.load.i.i215, i64 1

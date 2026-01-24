@@ -3822,21 +3822,21 @@ _ZN9Stockfish4Eval4NNUE18read_little_endianIjEET_RSi.exit: ; preds = %13, %9
   br i1 %.not, label %._crit_edge, label %.preheader
 
 .preheader:                                       ; preds = %_ZN9Stockfish4Eval4NNUE18read_little_endianIjEET_RSi.exit, %.loopexit
-  %.048 = phi i32 [ %28, %.loopexit ], [ 4096, %_ZN9Stockfish4Eval4NNUE18read_little_endianIjEET_RSi.exit ]
-  %.02247 = phi i64 [ %52, %.loopexit ], [ 0, %_ZN9Stockfish4Eval4NNUE18read_little_endianIjEET_RSi.exit ]
-  %.03346 = phi i32 [ %32, %.loopexit ], [ %21, %_ZN9Stockfish4Eval4NNUE18read_little_endianIjEET_RSi.exit ]
+  %.047 = phi i32 [ %28, %.loopexit ], [ 4096, %_ZN9Stockfish4Eval4NNUE18read_little_endianIjEET_RSi.exit ]
+  %.02246 = phi i64 [ %51, %.loopexit ], [ 0, %_ZN9Stockfish4Eval4NNUE18read_little_endianIjEET_RSi.exit ]
+  %.03245 = phi i32 [ %32, %.loopexit ], [ %21, %_ZN9Stockfish4Eval4NNUE18read_little_endianIjEET_RSi.exit ]
   br label %22
 
-22:                                               ; preds = %.preheader, %50
-  %.134 = phi i32 [ %32, %50 ], [ %.03346, %.preheader ]
-  %.021 = phi i32 [ %38, %50 ], [ 0, %.preheader ]
-  %.020 = phi i64 [ %39, %50 ], [ 0, %.preheader ]
-  %.1 = phi i32 [ %28, %50 ], [ %.048, %.preheader ]
+22:                                               ; preds = %.preheader, %49
+  %.133 = phi i32 [ %32, %49 ], [ %.03245, %.preheader ]
+  %.021 = phi i32 [ %38, %49 ], [ 0, %.preheader ]
+  %.020 = phi i64 [ %39, %49 ], [ 0, %.preheader ]
+  %.1 = phi i32 [ %28, %49 ], [ %.047, %.preheader ]
   %23 = icmp eq i32 %.1, 4096
   br i1 %23, label %24, label %27
 
 24:                                               ; preds = %22
-  %.sroa.speculated = call i32 @llvm.umin.i32(i32 %.134, i32 4096)
+  %.sroa.speculated = call i32 @llvm.umin.i32(i32 %.133, i32 4096)
   %25 = zext nneg i32 %.sroa.speculated to i64
   %26 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %7, i64 noundef %25) #16
   br label %27
@@ -3847,7 +3847,7 @@ _ZN9Stockfish4Eval4NNUE18read_little_endianIjEET_RSi.exit: ; preds = %13, %9
   %29 = zext nneg i32 %.2 to i64
   %30 = getelementptr inbounds nuw i8, ptr %7, i64 %29
   %31 = load i8, ptr %30, align 1
-  %32 = add i32 %.134, -1
+  %32 = add i32 %.133, -1
   %33 = zext i8 %31 to i32
   %34 = and i32 %33, 127
   %35 = trunc nuw nsw i64 %.020 to i32
@@ -3857,7 +3857,7 @@ _ZN9Stockfish4Eval4NNUE18read_little_endianIjEET_RSi.exit: ; preds = %13, %9
   %38 = or i32 %36, %37
   %39 = add nuw nsw i64 %.020, 7
   %40 = icmp sgt i8 %31, -1
-  br i1 %40, label %41, label %50
+  br i1 %40, label %41, label %49
 
 41:                                               ; preds = %27
   %42 = icmp samesign ugt i64 %.020, 8
@@ -3873,13 +3873,13 @@ _ZN9Stockfish4Eval4NNUE18read_little_endianIjEET_RSi.exit: ; preds = %13, %9
   store i16 %48, ptr %49, align 2
   br label %.loopexit
 
-50:                                               ; preds = %27
-  %51 = icmp samesign ult i64 %.020, 9
-  br i1 %51, label %22, label %.loopexit, !llvm.loop !47
+49:                                               ; preds = %27
+  %50 = icmp samesign ult i64 %.020, 9
+  br i1 %50, label %22, label %.loopexit, !llvm.loop !47
 
-.loopexit:                                        ; preds = %50, %41
-  %52 = add nuw i64 %.02247, 1
-  %exitcond.not = icmp eq i64 %52, %2
+.loopexit:                                        ; preds = %49, %41
+  %51 = add nuw i64 %.02246, 1
+  %exitcond.not = icmp eq i64 %51, %2
   br i1 %exitcond.not, label %._crit_edge, label %.preheader, !llvm.loop !48
 
 ._crit_edge:                                      ; preds = %.loopexit, %_ZN9Stockfish4Eval4NNUE18read_little_endianIjEET_RSi.exit
@@ -3928,21 +3928,21 @@ _ZN9Stockfish4Eval4NNUE18read_little_endianIjEET_RSi.exit: ; preds = %13, %9
   br i1 %.not, label %._crit_edge, label %.preheader
 
 .preheader:                                       ; preds = %_ZN9Stockfish4Eval4NNUE18read_little_endianIjEET_RSi.exit, %.loopexit
-  %.046 = phi i32 [ %28, %.loopexit ], [ 4096, %_ZN9Stockfish4Eval4NNUE18read_little_endianIjEET_RSi.exit ]
-  %.02245 = phi i64 [ %50, %.loopexit ], [ 0, %_ZN9Stockfish4Eval4NNUE18read_little_endianIjEET_RSi.exit ]
-  %.03144 = phi i32 [ %32, %.loopexit ], [ %21, %_ZN9Stockfish4Eval4NNUE18read_little_endianIjEET_RSi.exit ]
+  %.045 = phi i32 [ %28, %.loopexit ], [ 4096, %_ZN9Stockfish4Eval4NNUE18read_little_endianIjEET_RSi.exit ]
+  %.02244 = phi i64 [ %49, %.loopexit ], [ 0, %_ZN9Stockfish4Eval4NNUE18read_little_endianIjEET_RSi.exit ]
+  %.03043 = phi i32 [ %32, %.loopexit ], [ %21, %_ZN9Stockfish4Eval4NNUE18read_little_endianIjEET_RSi.exit ]
   br label %22
 
-22:                                               ; preds = %.preheader, %48
-  %.132 = phi i32 [ %32, %48 ], [ %.03144, %.preheader ]
+22:                                               ; preds = %.preheader, %47
+  %.131 = phi i32 [ %32, %48 ], [ %.03043, %.preheader ]
   %.021 = phi i32 [ %37, %48 ], [ 0, %.preheader ]
   %.020 = phi i64 [ %38, %48 ], [ 0, %.preheader ]
-  %.1 = phi i32 [ %28, %48 ], [ %.046, %.preheader ]
+  %.1 = phi i32 [ %28, %48 ], [ %.045, %.preheader ]
   %23 = icmp eq i32 %.1, 4096
   br i1 %23, label %24, label %27
 
 24:                                               ; preds = %22
-  %.sroa.speculated = call i32 @llvm.umin.i32(i32 %.132, i32 4096)
+  %.sroa.speculated = call i32 @llvm.umin.i32(i32 %.131, i32 4096)
   %25 = zext nneg i32 %.sroa.speculated to i64
   %26 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %7, i64 noundef %25) #16
   br label %27
@@ -3953,7 +3953,7 @@ _ZN9Stockfish4Eval4NNUE18read_little_endianIjEET_RSi.exit: ; preds = %13, %9
   %29 = zext nneg i32 %.2 to i64
   %30 = getelementptr inbounds nuw i8, ptr %7, i64 %29
   %31 = load i8, ptr %30, align 1
-  %32 = add i32 %.132, -1
+  %32 = add i32 %.131, -1
   %33 = zext i8 %31 to i32
   %34 = and i32 %33, 127
   %35 = trunc nuw nsw i64 %.020 to i32
@@ -3961,7 +3961,7 @@ _ZN9Stockfish4Eval4NNUE18read_little_endianIjEET_RSi.exit: ; preds = %13, %9
   %37 = or i32 %36, %.021
   %38 = add nuw nsw i64 %.020, 7
   %39 = icmp sgt i8 %31, -1
-  br i1 %39, label %40, label %48
+  br i1 %39, label %40, label %47
 
 40:                                               ; preds = %27
   %41 = icmp samesign ugt i64 %.020, 24
@@ -3976,13 +3976,13 @@ _ZN9Stockfish4Eval4NNUE18read_little_endianIjEET_RSi.exit: ; preds = %13, %9
   store i32 %46, ptr %47, align 4
   br label %.loopexit
 
-48:                                               ; preds = %27
-  %49 = icmp samesign ult i64 %.020, 25
-  br i1 %49, label %22, label %.loopexit, !llvm.loop !49
+47:                                               ; preds = %27
+  %48 = icmp samesign ult i64 %.020, 25
+  br i1 %48, label %22, label %.loopexit, !llvm.loop !49
 
-.loopexit:                                        ; preds = %48, %40
-  %50 = add nuw i64 %.02245, 1
-  %exitcond.not = icmp eq i64 %50, %2
+.loopexit:                                        ; preds = %47, %40
+  %49 = add nuw i64 %.02244, 1
+  %exitcond.not = icmp eq i64 %49, %2
   br i1 %exitcond.not, label %._crit_edge, label %.preheader, !llvm.loop !50
 
 ._crit_edge:                                      ; preds = %.loopexit, %_ZN9Stockfish4Eval4NNUE18read_little_endianIjEET_RSi.exit

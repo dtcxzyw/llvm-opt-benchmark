@@ -9,24 +9,24 @@ define i32 @libdeflate_gzip_decompress_ex(ptr noundef %0, ptr noundef %1, i64 no
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 %2
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %10 = icmp ult i64 %2, 18
-  br i1 %10, label %84, label %11
+  br i1 %10, label %83, label %11
 
 11:                                               ; preds = %7
   %12 = load i8, ptr %1, align 1, !tbaa !4
   %.not = icmp eq i8 %12, 31
-  br i1 %.not, label %13, label %84
+  br i1 %.not, label %13, label %83
 
 13:                                               ; preds = %11
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %15 = load i8, ptr %14, align 1, !tbaa !4
   %.not68 = icmp eq i8 %15, -117
-  br i1 %.not68, label %16, label %84
+  br i1 %.not68, label %16, label %83
 
 16:                                               ; preds = %13
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %18 = load i8, ptr %17, align 1, !tbaa !4
   %.not69 = icmp eq i8 %18, 8
-  br i1 %.not69, label %19, label %84
+  br i1 %.not69, label %19, label %83
 
 19:                                               ; preds = %16
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 3
@@ -34,7 +34,7 @@ define i32 @libdeflate_gzip_decompress_ex(ptr noundef %0, ptr noundef %1, i64 no
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 10
   %23 = zext i8 %21 to i32
   %.not70 = icmp ult i8 %21, 32
-  br i1 %.not70, label %24, label %84
+  br i1 %.not70, label %24, label %83
 
 24:                                               ; preds = %19
   %25 = and i32 %23, 4
@@ -49,7 +49,7 @@ define i32 @libdeflate_gzip_decompress_ex(ptr noundef %0, ptr noundef %1, i64 no
   %29 = add nuw nsw i64 %28, 8
   %.not72 = icmp slt i64 %gepdiff, %29
   %30 = getelementptr inbounds nuw i8, ptr %27, i64 %28
-  br i1 %.not72, label %84, label %31
+  br i1 %.not72, label %83, label %31
 
 31:                                               ; preds = %26, %24
   %.062 = phi ptr [ %30, %26 ], [ %22, %24 ]
@@ -71,7 +71,7 @@ define i32 @libdeflate_gzip_decompress_ex(ptr noundef %0, ptr noundef %1, i64 no
   %40 = ptrtoint ptr %33 to i64
   %41 = sub i64 %39, %40
   %42 = icmp slt i64 %41, 8
-  br i1 %42, label %84, label %43
+  br i1 %42, label %83, label %43
 
 43:                                               ; preds = %38, %31
   %.2 = phi ptr [ %33, %38 ], [ %.062, %31 ]
@@ -80,87 +80,87 @@ define i32 @libdeflate_gzip_decompress_ex(ptr noundef %0, ptr noundef %1, i64 no
   br i1 %.not74, label %55, label %.preheader
 
 .preheader:                                       ; preds = %43, %.preheader
-  %.5 = phi ptr [ %45, %.preheader ], [ %.2, %43 ]
-  %45 = getelementptr inbounds nuw i8, ptr %.5, i64 1
-  %46 = load i8, ptr %.5, align 1, !tbaa !4
-  %47 = icmp ne i8 %46, 0
-  %48 = icmp ne ptr %45, %9
-  %49 = select i1 %47, i1 %48, i1 false
-  br i1 %49, label %.preheader, label %50
+  %.5 = phi ptr [ %44, %.preheader ], [ %.2, %43 ]
+  %44 = getelementptr inbounds nuw i8, ptr %.5, i64 1
+  %45 = load i8, ptr %.5, align 1, !tbaa !4
+  %46 = icmp ne i8 %45, 0
+  %47 = icmp ne ptr %44, %9
+  %48 = select i1 %46, i1 %47, i1 false
+  br i1 %48, label %.preheader, label %49
 
-50:                                               ; preds = %.preheader
-  %51 = ptrtoint ptr %9 to i64
-  %52 = ptrtoint ptr %45 to i64
-  %53 = sub i64 %51, %52
-  %54 = icmp slt i64 %53, 8
-  br i1 %54, label %84, label %55
+49:                                               ; preds = %.preheader
+  %50 = ptrtoint ptr %9 to i64
+  %51 = ptrtoint ptr %44 to i64
+  %52 = sub i64 %50, %51
+  %53 = icmp slt i64 %52, 8
+  br i1 %53, label %83, label %54
 
-55:                                               ; preds = %50, %43
-  %.4 = phi ptr [ %45, %50 ], [ %.2, %43 ]
-  %56 = and i32 %23, 2
-  %.not75 = icmp eq i32 %56, 0
-  br i1 %.not75, label %._crit_edge, label %57
+54:                                               ; preds = %49, %43
+  %.4 = phi ptr [ %44, %50 ], [ %.2, %43 ]
+  %55 = and i32 %23, 2
+  %.not75 = icmp eq i32 %55, 0
+  br i1 %.not75, label %._crit_edge, label %56
 
-._crit_edge:                                      ; preds = %55
+._crit_edge:                                      ; preds = %54
   %.pre = ptrtoint ptr %.4 to i64
-  br label %63
+  br label %62
 
-57:                                               ; preds = %55
-  %58 = getelementptr inbounds nuw i8, ptr %.4, i64 2
-  %59 = ptrtoint ptr %9 to i64
-  %60 = ptrtoint ptr %58 to i64
-  %61 = sub i64 %59, %60
-  %62 = icmp slt i64 %61, 8
-  br i1 %62, label %84, label %63
+56:                                               ; preds = %54
+  %57 = getelementptr inbounds nuw i8, ptr %.4, i64 2
+  %58 = ptrtoint ptr %9 to i64
+  %59 = ptrtoint ptr %57 to i64
+  %60 = sub i64 %58, %59
+  %61 = icmp slt i64 %60, 8
+  br i1 %61, label %83, label %62
 
-63:                                               ; preds = %._crit_edge, %57
-  %.pre-phi = phi i64 [ %.pre, %._crit_edge ], [ %60, %57 ]
-  %.6 = phi ptr [ %.4, %._crit_edge ], [ %58, %57 ]
-  %64 = getelementptr inbounds i8, ptr %9, i64 -8
-  %65 = ptrtoint ptr %64 to i64
-  %66 = sub i64 %65, %.pre-phi
-  %67 = call i32 @libdeflate_deflate_decompress_ex(ptr noundef %0, ptr noundef nonnull %.6, i64 noundef %66, ptr noundef %3, i64 noundef %4, ptr noundef nonnull %8, ptr noundef %6) #3
-  %.not76 = icmp eq i32 %67, 0
-  br i1 %.not76, label %68, label %84
+62:                                               ; preds = %._crit_edge, %56
+  %.pre-phi = phi i64 [ %.pre, %._crit_edge ], [ %59, %57 ]
+  %.6 = phi ptr [ %.4, %._crit_edge ], [ %57, %57 ]
+  %63 = getelementptr inbounds i8, ptr %9, i64 -8
+  %64 = ptrtoint ptr %63 to i64
+  %65 = sub i64 %64, %.pre-phi
+  %66 = call i32 @libdeflate_deflate_decompress_ex(ptr noundef %0, ptr noundef nonnull %.6, i64 noundef %65, ptr noundef %3, i64 noundef %4, ptr noundef nonnull %8, ptr noundef %6) #3
+  %.not76 = icmp eq i32 %66, 0
+  br i1 %.not76, label %67, label %83
 
-68:                                               ; preds = %63
+67:                                               ; preds = %62
   %.not77 = icmp eq ptr %6, null
-  br i1 %.not77, label %71, label %69
+  br i1 %.not77, label %70, label %68
 
-69:                                               ; preds = %68
-  %70 = load i64, ptr %6, align 8, !tbaa !7
-  br label %71
+68:                                               ; preds = %67
+  %69 = load i64, ptr %6, align 8, !tbaa !7
+  br label %70
 
-71:                                               ; preds = %68, %69
-  %.064 = phi i64 [ %70, %69 ], [ %4, %68 ]
-  %72 = load i64, ptr %8, align 8, !tbaa !7
-  %73 = getelementptr inbounds nuw i8, ptr %.6, i64 %72
-  %74 = call i32 @libdeflate_crc32(i32 noundef 0, ptr noundef %3, i64 noundef %.064) #3
-  %.0.copyload.i82 = load i32, ptr %73, align 1
-  %.not78 = icmp eq i32 %74, %.0.copyload.i82
-  br i1 %.not78, label %75, label %84
+70:                                               ; preds = %67, %68
+  %.064 = phi i64 [ %69, %69 ], [ %4, %68 ]
+  %71 = load i64, ptr %8, align 8, !tbaa !7
+  %72 = getelementptr inbounds nuw i8, ptr %.6, i64 %71
+  %73 = call i32 @libdeflate_crc32(i32 noundef 0, ptr noundef %3, i64 noundef %.064) #3
+  %.0.copyload.i82 = load i32, ptr %72, align 1
+  %.not78 = icmp eq i32 %73, %.0.copyload.i82
+  br i1 %.not78, label %74, label %83
 
-75:                                               ; preds = %71
-  %76 = getelementptr inbounds nuw i8, ptr %73, i64 4
-  %77 = trunc i64 %.064 to i32
-  %.0.copyload.i81 = load i32, ptr %76, align 1
-  %.not79 = icmp eq i32 %.0.copyload.i81, %77
-  br i1 %.not79, label %78, label %84
+74:                                               ; preds = %70
+  %75 = getelementptr inbounds nuw i8, ptr %72, i64 4
+  %76 = trunc i64 %.064 to i32
+  %.0.copyload.i81 = load i32, ptr %75, align 1
+  %.not79 = icmp eq i32 %.0.copyload.i81, %76
+  br i1 %.not79, label %77, label %83
 
-78:                                               ; preds = %75
+77:                                               ; preds = %74
   %.not80 = icmp eq ptr %5, null
-  br i1 %.not80, label %84, label %79
+  br i1 %.not80, label %83, label %78
 
-79:                                               ; preds = %78
-  %80 = getelementptr inbounds nuw i8, ptr %73, i64 8
-  %81 = ptrtoint ptr %80 to i64
-  %82 = ptrtoint ptr %1 to i64
-  %83 = sub i64 %81, %82
-  store i64 %83, ptr %5, align 8, !tbaa !7
-  br label %84
+78:                                               ; preds = %77
+  %79 = getelementptr inbounds nuw i8, ptr %72, i64 8
+  %80 = ptrtoint ptr %79 to i64
+  %81 = ptrtoint ptr %1 to i64
+  %82 = sub i64 %80, %81
+  store i64 %82, ptr %5, align 8, !tbaa !7
+  br label %83
 
-84:                                               ; preds = %78, %79, %75, %71, %63, %57, %50, %38, %19, %16, %13, %11, %7, %26
-  %.0 = phi i32 [ 1, %26 ], [ 1, %7 ], [ 1, %11 ], [ 1, %13 ], [ 1, %16 ], [ 1, %19 ], [ 1, %38 ], [ 1, %50 ], [ 1, %57 ], [ %67, %63 ], [ 1, %71 ], [ 1, %75 ], [ 0, %79 ], [ 0, %78 ]
+83:                                               ; preds = %77, %78, %74, %70, %62, %56, %49, %38, %19, %16, %13, %11, %7, %26
+  %.0 = phi i32 [ 1, %26 ], [ 1, %7 ], [ 1, %11 ], [ 1, %13 ], [ 1, %16 ], [ 1, %19 ], [ 1, %38 ], [ 1, %50 ], [ 1, %57 ], [ %66, %63 ], [ 1, %71 ], [ 1, %75 ], [ 0, %79 ], [ 0, %78 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
 }

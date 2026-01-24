@@ -10872,9 +10872,9 @@ define noundef zeroext i1 @_ZN4toml2v35array5equalERKS1_S3_(ptr noundef nonnull 
 
 .preheader:                                       ; preds = %4
   %20 = icmp eq ptr %7, %8
-  br i1 %20, label %.critedge, label %.lr.ph.preheader
+  br i1 %20, label %.critedge, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %.preheader
+.lr.ph:                                           ; preds = %.preheader
   %umax = tail call i64 @llvm.umax.i64(i64 %12, i64 1)
   br label %.lr.ph
 

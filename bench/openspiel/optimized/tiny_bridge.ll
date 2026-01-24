@@ -6663,9 +6663,9 @@ _ZNK10open_spiel11tiny_bridge22TinyBridgeAuctionState11CardHoldersEv.exit: ; pre
 
 35:                                               ; preds = %.lr.ph
   %36 = mul nuw nsw i64 %indvars.iv.next92, %indvars.iv91
-  %37 = lshr i64 %36, 1
-  %.zext = and i64 %37, 127
-  %38 = add nuw nsw i64 %.zext, %indvars.iv
+  %.zext = lshr i64 %36, 1
+  %37 = and i64 %.zext, 127
+  %38 = add nuw nsw i64 %37, %indvars.iv
   %.not.i.i21 = icmp eq ptr %.sroa.7.272, %.sroa.13.371
   br i1 %.not.i.i21, label %41, label %39
 
@@ -8923,7 +8923,7 @@ _ZNSt6vectorISt4pairIN10open_spiel11tiny_bridge4SeatEiESaIS4_EE12emplace_backIJS
   %46 = ashr exact i64 %45, 3
   %47 = and i64 %45, 24
   %48 = icmp eq i64 %47, 0
-  br i1 %48, label %49, label %76
+  br i1 %48, label %49, label %75
 
 49:                                               ; preds = %_ZNSt6vectorISt4pairIN10open_spiel11tiny_bridge4SeatEiESaIS4_EE12emplace_backIJS3_RlEEERS4_DpOT_.exit
   %50 = getelementptr i8, ptr %41, i64 %45
@@ -8972,7 +8972,7 @@ _ZNSt6vectorISt4pairIN10open_spiel11tiny_bridge4SeatEiESaIS4_EE12emplace_backIJS
   store i32 %.0.lcssa, ptr %75, align 4
   br label %76
 
-76:                                               ; preds = %._crit_edge, %_ZNSt6vectorISt4pairIN10open_spiel11tiny_bridge4SeatEiESaIS4_EE12emplace_backIJS3_RlEEERS4_DpOT_.exit
+75:                                               ; preds = %._crit_edge, %_ZNSt6vectorISt4pairIN10open_spiel11tiny_bridge4SeatEiESaIS4_EE12emplace_backIJS3_RlEEERS4_DpOT_.exit
   ret void
 }
 

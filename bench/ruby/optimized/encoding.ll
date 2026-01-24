@@ -539,8 +539,8 @@ pm_utf_8_codepoint.exit.thread:                   ; preds = %31, %7, %pm_utf_8_c
   br i1 %46, label %.preheader, label %pm_unicode_codepoint_match.exit, !llvm.loop !15
 
 pm_unicode_codepoint_match.exit.sink.split:       ; preds = %5, %pm_utf_8_codepoint.exit.thread
-  %.sink20 = phi i64 [ %35, %pm_utf_8_codepoint.exit.thread ], [ %6, %5 ]
-  %47 = getelementptr i8, ptr @pm_encoding_unicode_table, i64 %.sink20
+  %.sink19 = phi i64 [ %35, %pm_utf_8_codepoint.exit.thread ], [ %6, %5 ]
+  %47 = getelementptr i8, ptr @pm_encoding_unicode_table, i64 %.sink19
   %48 = load i8, ptr %47, align 1, !tbaa !7
   %49 = and i8 %48, 4
   %50 = icmp ne i8 %49, 0

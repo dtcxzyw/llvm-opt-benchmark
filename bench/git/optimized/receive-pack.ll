@@ -3640,27 +3640,27 @@ st_add.exit:                                      ; preds = %19
   unreachable
 
 st_add.exit16:                                    ; preds = %st_add.exit
-  %30 = add nsw i64 %24, 113
-  %31 = call ptr @xcalloc(i64 noundef 1, i64 noundef %30) #21
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 112
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %32, ptr nonnull align 1 %16, i64 %24, i1 false)
-  %33 = getelementptr inbounds nuw i8, ptr %31, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %33, ptr noundef nonnull readonly align 4 dereferenceable(32) %4, i64 32, i1 false)
-  %34 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %35 = load i32, ptr %34, align 4, !tbaa !165
-  %36 = getelementptr inbounds nuw i8, ptr %31, i64 72
-  store i32 %35, ptr %36, align 4, !tbaa !165
-  %37 = getelementptr inbounds nuw i8, ptr %31, i64 76
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %37, ptr noundef nonnull readonly align 4 dereferenceable(32) %5, i64 32, i1 false)
-  %38 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %39 = load i32, ptr %38, align 4, !tbaa !165
-  %40 = getelementptr inbounds nuw i8, ptr %31, i64 108
-  store i32 %39, ptr %40, align 4, !tbaa !165
-  store ptr %31, ptr %0, align 8, !tbaa !26
+  %29 = add nsw i64 %24, 113
+  %30 = call ptr @xcalloc(i64 noundef 1, i64 noundef %29) #21
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 112
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %31, ptr nonnull align 1 %16, i64 %24, i1 false)
+  %32 = getelementptr inbounds nuw i8, ptr %30, i64 40
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %32, ptr noundef nonnull readonly align 4 dereferenceable(32) %4, i64 32, i1 false)
+  %33 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %34 = load i32, ptr %33, align 4, !tbaa !165
+  %35 = getelementptr inbounds nuw i8, ptr %30, i64 72
+  store i32 %34, ptr %35, align 4, !tbaa !165
+  %36 = getelementptr inbounds nuw i8, ptr %30, i64 76
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %36, ptr noundef nonnull readonly align 4 dereferenceable(32) %5, i64 32, i1 false)
+  %37 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %38 = load i32, ptr %37, align 4, !tbaa !165
+  %39 = getelementptr inbounds nuw i8, ptr %30, i64 108
+  store i32 %38, ptr %39, align 4, !tbaa !165
+  store ptr %30, ptr %0, align 8, !tbaa !26
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret ptr %31
+  ret ptr %30
 }
 
 declare i32 @parse_oid_hex(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2

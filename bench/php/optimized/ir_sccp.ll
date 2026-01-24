@@ -2278,46 +2278,46 @@ ir_sccp_make_bottom_ex.exit369:                   ; preds = %._crit_edge506.thre
   br i1 %1141, label %.lr.ph534.preheader, label %ir_sccp_add_uses.exit.backedge
 
 .lr.ph534.preheader:                              ; preds = %ir_sccp_make_bottom_ex.exit369
-  %1142 = load ptr, ptr %20, align 8, !tbaa !47
-  %1143 = load i32, ptr %1138, align 4, !tbaa !48
-  %1144 = sext i32 %1143 to i64
-  %1145 = getelementptr inbounds i32, ptr %1142, i64 %1144
+  %1141 = load ptr, ptr %20, align 8, !tbaa !47
+  %1142 = load i32, ptr %1138, align 4, !tbaa !48
+  %1143 = sext i32 %1142 to i64
+  %1144 = getelementptr inbounds i32, ptr %1141, i64 %1143
   br label %.lr.ph534
 
 .lr.ph534:                                        ; preds = %.lr.ph534.preheader, %ir_bitqueue_add.exit.i
-  %.0.i383533 = phi i32 [ %1164, %ir_bitqueue_add.exit.i ], [ %1140, %.lr.ph534.preheader ]
-  %.012.i532 = phi ptr [ %1163, %ir_bitqueue_add.exit.i ], [ %1145, %.lr.ph534.preheader ]
-  %1146 = load i32, ptr %.012.i532, align 4, !tbaa !40
-  %1147 = sext i32 %1146 to i64
-  %1148 = getelementptr inbounds %struct._ir_insn, ptr %1, i64 %1147
-  %1149 = load i8, ptr %1148, align 8, !tbaa !39
-  %.not.i384 = icmp eq i8 %1149, 108
-  br i1 %.not.i384, label %ir_bitqueue_add.exit.i, label %1150
+  %.0.i383533 = phi i32 [ %1163, %ir_bitqueue_add.exit.i ], [ %1140, %.lr.ph534.preheader ]
+  %.012.i532 = phi ptr [ %1162, %ir_bitqueue_add.exit.i ], [ %1144, %.lr.ph534.preheader ]
+  %1145 = load i32, ptr %.012.i532, align 4, !tbaa !40
+  %1146 = sext i32 %1145 to i64
+  %1147 = getelementptr inbounds %struct._ir_insn, ptr %1, i64 %1146
+  %1148 = load i8, ptr %1147, align 8, !tbaa !39
+  %.not.i384 = icmp eq i8 %1148, 108
+  br i1 %.not.i384, label %ir_bitqueue_add.exit.i, label %1149
 
-1150:                                             ; preds = %.lr.ph534
-  %1151 = lshr i32 %1146, 6
-  %1152 = and i32 %1146, 63
-  %1153 = zext nneg i32 %1152 to i64
-  %1154 = shl nuw i64 1, %1153
-  %1155 = load ptr, ptr %7, align 8, !tbaa !36
-  %1156 = zext nneg i32 %1151 to i64
-  %1157 = getelementptr inbounds nuw i64, ptr %1155, i64 %1156
-  %1158 = load i64, ptr %1157, align 8, !tbaa !37
-  %1159 = or i64 %1158, %1154
-  store i64 %1159, ptr %1157, align 8, !tbaa !37
-  %1160 = load i32, ptr %6, align 4, !tbaa !35
-  %1161 = icmp ult i32 %1151, %1160
-  br i1 %1161, label %1162, label %ir_bitqueue_add.exit.i
+1149:                                             ; preds = %.lr.ph534
+  %1150 = lshr i32 %1145, 6
+  %1151 = and i32 %1145, 63
+  %1152 = zext nneg i32 %1151 to i64
+  %1153 = shl nuw i64 1, %1152
+  %1154 = load ptr, ptr %7, align 8, !tbaa !36
+  %1155 = zext nneg i32 %1150 to i64
+  %1156 = getelementptr inbounds nuw i64, ptr %1154, i64 %1155
+  %1157 = load i64, ptr %1156, align 8, !tbaa !37
+  %1158 = or i64 %1157, %1153
+  store i64 %1158, ptr %1156, align 8, !tbaa !37
+  %1159 = load i32, ptr %6, align 4, !tbaa !35
+  %1160 = icmp ult i32 %1150, %1159
+  br i1 %1160, label %1161, label %ir_bitqueue_add.exit.i
 
-1162:                                             ; preds = %1150
-  store i32 %1151, ptr %6, align 4, !tbaa !35
+1161:                                             ; preds = %1149
+  store i32 %1150, ptr %6, align 4, !tbaa !35
   br label %ir_bitqueue_add.exit.i
 
-ir_bitqueue_add.exit.i:                           ; preds = %1150, %1162, %.lr.ph534
-  %1163 = getelementptr inbounds nuw i8, ptr %.012.i532, i64 4
-  %1164 = add nsw i32 %.0.i383533, -1
-  %1165 = icmp sgt i32 %.0.i383533, 1
-  br i1 %1165, label %.lr.ph534, label %ir_sccp_add_uses.exit.backedge
+ir_bitqueue_add.exit.i:                           ; preds = %1149, %1161, %.lr.ph534
+  %1162 = getelementptr inbounds nuw i8, ptr %.012.i532, i64 4
+  %1163 = add nsw i32 %.0.i383533, -1
+  %1164 = icmp sgt i32 %.0.i383533, 1
+  br i1 %1164, label %.lr.ph534, label %ir_sccp_add_uses.exit.backedge
 
 .loopexit459:                                     ; preds = %ir_bitqueue_pop.exit, %ir_bitqueue_pop.exit.thread
   ret void

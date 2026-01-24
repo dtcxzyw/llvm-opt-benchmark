@@ -43908,12 +43908,12 @@ define internal fastcc void @_ZN5ImStbL29stb_textedit_delete_selectionEP19ImGuiI
 
 _ZN5ImStbL18stb_textedit_clampEP19ImGuiInputTextStatePNS_17STB_TexteditStateE.exit: ; preds = %19, %24
   %.not = icmp eq i32 %21, %20
-  br i1 %.not, label %76, label %25
+  br i1 %.not, label %78, label %25
 
 25:                                               ; preds = %_ZN5ImStbL18stb_textedit_clampEP19ImGuiInputTextStatePNS_17STB_TexteditStateE.exit
   %26 = icmp slt i32 %21, %20
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  br i1 %26, label %28, label %51
+  br i1 %26, label %28, label %52
 
 28:                                               ; preds = %25
   %29 = sub nsw i32 %20, %21
@@ -43961,94 +43961,94 @@ _ZN5ImStbL24stb_text_makeundo_deleteEP19ImGuiInputTextStatePNS_17STB_TexteditSta
   br i1 %.not19.i.i, label %_ZN5ImStbL19stb_textedit_deleteEP19ImGuiInputTextStatePNS_17STB_TexteditStateEii.exit, label %.lr.ph.i7.i
 
 .lr.ph.i7.i:                                      ; preds = %_ZN5ImStbL24stb_text_makeundo_deleteEP19ImGuiInputTextStatePNS_17STB_TexteditStateEii.exit.i, %.lr.ph.i7.i
-  %46 = phi i8 [ %49, %.lr.ph.i7.i ], [ %45, %_ZN5ImStbL24stb_text_makeundo_deleteEP19ImGuiInputTextStatePNS_17STB_TexteditStateEii.exit.i ]
-  %.01321.i.i = phi ptr [ %48, %.lr.ph.i7.i ], [ %40, %_ZN5ImStbL24stb_text_makeundo_deleteEP19ImGuiInputTextStatePNS_17STB_TexteditStateEii.exit.i ]
-  %.01420.i.i = phi ptr [ %47, %.lr.ph.i7.i ], [ %44, %_ZN5ImStbL24stb_text_makeundo_deleteEP19ImGuiInputTextStatePNS_17STB_TexteditStateEii.exit.i ]
-  %47 = getelementptr inbounds nuw i8, ptr %.01420.i.i, i64 1
-  %48 = getelementptr inbounds nuw i8, ptr %.01321.i.i, i64 1
-  store i8 %46, ptr %.01321.i.i, align 1, !tbaa !337
-  %49 = load i8, ptr %47, align 1, !tbaa !337
-  %.not.i8.i = icmp eq i8 %49, 0
+  %47 = phi i8 [ %50, %.lr.ph.i7.i ], [ %45, %_ZN5ImStbL24stb_text_makeundo_deleteEP19ImGuiInputTextStatePNS_17STB_TexteditStateEii.exit.i ]
+  %.01321.i.i = phi ptr [ %49, %.lr.ph.i7.i ], [ %40, %_ZN5ImStbL24stb_text_makeundo_deleteEP19ImGuiInputTextStatePNS_17STB_TexteditStateEii.exit.i ]
+  %.01420.i.i = phi ptr [ %48, %.lr.ph.i7.i ], [ %44, %_ZN5ImStbL24stb_text_makeundo_deleteEP19ImGuiInputTextStatePNS_17STB_TexteditStateEii.exit.i ]
+  %48 = getelementptr inbounds nuw i8, ptr %.01420.i.i, i64 1
+  %49 = getelementptr inbounds nuw i8, ptr %.01321.i.i, i64 1
+  store i8 %47, ptr %.01321.i.i, align 1, !tbaa !337
+  %50 = load i8, ptr %48, align 1, !tbaa !337
+  %.not.i8.i = icmp eq i8 %50, 0
   br i1 %.not.i8.i, label %_ZN5ImStbL19stb_textedit_deleteEP19ImGuiInputTextStatePNS_17STB_TexteditStateEii.exit, label %.lr.ph.i7.i
 
 _ZN5ImStbL19stb_textedit_deleteEP19ImGuiInputTextStatePNS_17STB_TexteditStateEii.exit: ; preds = %.lr.ph.i7.i, %_ZN5ImStbL24stb_text_makeundo_deleteEP19ImGuiInputTextStatePNS_17STB_TexteditStateEii.exit.i
-  %.013.lcssa.i.i = phi ptr [ %40, %_ZN5ImStbL24stb_text_makeundo_deleteEP19ImGuiInputTextStatePNS_17STB_TexteditStateEii.exit.i ], [ %48, %.lr.ph.i7.i ]
+  %.013.lcssa.i.i = phi ptr [ %40, %_ZN5ImStbL24stb_text_makeundo_deleteEP19ImGuiInputTextStatePNS_17STB_TexteditStateEii.exit.i ], [ %49, %.lr.ph.i7.i ]
   store i8 0, ptr %.013.lcssa.i.i, align 1, !tbaa !337
-  %50 = load i32, ptr %4, align 4, !tbaa !386
-  store i32 %50, ptr %1, align 4, !tbaa !385
-  store i32 %50, ptr %6, align 4, !tbaa !387
-  br label %74
+  %51 = load i32, ptr %4, align 4, !tbaa !386
+  store i32 %51, ptr %1, align 4, !tbaa !385
+  store i32 %51, ptr %6, align 4, !tbaa !387
+  br label %76
 
-51:                                               ; preds = %25
-  %52 = sub nsw i32 %21, %20
-  %53 = tail call fastcc noundef ptr @_ZN5ImStbL19stb_text_createundoEPNS_12StbUndoStateEiii(ptr noundef nonnull %27, i32 noundef %20, i32 noundef %52, i32 noundef 0)
-  %.not.i.i24.not = icmp eq ptr %53, null
+52:                                               ; preds = %25
+  %53 = sub nsw i32 %21, %20
+  %54 = tail call fastcc noundef ptr @_ZN5ImStbL19stb_text_createundoEPNS_12StbUndoStateEiii(ptr noundef nonnull %27, i32 noundef %20, i32 noundef %53, i32 noundef 0)
+  %.not.i.i24.not = icmp eq ptr %54, null
   br i1 %.not.i.i24.not, label %._ZN5ImStbL24stb_text_makeundo_deleteEP19ImGuiInputTextStatePNS_17STB_TexteditStateEii.exit_crit_edge.i26, label %.lr.ph.i.i36
 
-._ZN5ImStbL24stb_text_makeundo_deleteEP19ImGuiInputTextStatePNS_17STB_TexteditStateEii.exit_crit_edge.i26: ; preds = %51
+._ZN5ImStbL24stb_text_makeundo_deleteEP19ImGuiInputTextStatePNS_17STB_TexteditStateEii.exit_crit_edge.i26: ; preds = %52
   %.pre.i27 = sext i32 %20 to i64
   %.pre45 = zext nneg i32 %52 to i64
   br label %_ZN5ImStbL24stb_text_makeundo_deleteEP19ImGuiInputTextStatePNS_17STB_TexteditStateEii.exit.i28
 
-.lr.ph.i.i36:                                     ; preds = %51
-  %54 = getelementptr i8, ptr %0, i64 32
-  %55 = sext i32 %20 to i64
-  %wide.trip.count.i.i37 = zext nneg i32 %52 to i64
-  br label %56
+.lr.ph.i.i36:                                     ; preds = %52
+  %55 = getelementptr i8, ptr %0, i64 32
+  %56 = sext i32 %20 to i64
+  %wide.trip.count.i.i37 = zext nneg i32 %53 to i64
+  br label %57
 
-56:                                               ; preds = %56, %.lr.ph.i.i36
+57:                                               ; preds = %57, %.lr.ph.i.i36
   %indvars.iv.i.i38 = phi i64 [ 0, %.lr.ph.i.i36 ], [ %indvars.iv.next.i.i40, %56 ]
-  %.val.i.i39 = load ptr, ptr %54, align 8, !tbaa !381
-  %57 = getelementptr i8, ptr %.val.i.i39, i64 %indvars.iv.i.i38
-  %58 = getelementptr i8, ptr %57, i64 %55
-  %59 = load i8, ptr %58, align 1, !tbaa !337
-  %60 = getelementptr inbounds nuw i8, ptr %53, i64 %indvars.iv.i.i38
-  store i8 %59, ptr %60, align 1, !tbaa !337
+  %.val.i.i39 = load ptr, ptr %55, align 8, !tbaa !381
+  %58 = getelementptr i8, ptr %.val.i.i39, i64 %indvars.iv.i.i38
+  %59 = getelementptr i8, ptr %58, i64 %56
+  %60 = load i8, ptr %59, align 1, !tbaa !337
+  %61 = getelementptr inbounds nuw i8, ptr %54, i64 %indvars.iv.i.i38
+  store i8 %60, ptr %61, align 1, !tbaa !337
   %indvars.iv.next.i.i40 = add nuw nsw i64 %indvars.iv.i.i38, 1
   %exitcond.not.i.i41 = icmp eq i64 %indvars.iv.next.i.i40, %wide.trip.count.i.i37
-  br i1 %exitcond.not.i.i41, label %_ZN5ImStbL24stb_text_makeundo_deleteEP19ImGuiInputTextStatePNS_17STB_TexteditStateEii.exit.i28, label %56, !llvm.loop !491
+  br i1 %exitcond.not.i.i41, label %_ZN5ImStbL24stb_text_makeundo_deleteEP19ImGuiInputTextStatePNS_17STB_TexteditStateEii.exit.i28, label %57, !llvm.loop !491
 
-_ZN5ImStbL24stb_text_makeundo_deleteEP19ImGuiInputTextStatePNS_17STB_TexteditStateEii.exit.i28: ; preds = %56, %._ZN5ImStbL24stb_text_makeundo_deleteEP19ImGuiInputTextStatePNS_17STB_TexteditStateEii.exit_crit_edge.i26
-  %.pre-phi46 = phi i64 [ %.pre45, %._ZN5ImStbL24stb_text_makeundo_deleteEP19ImGuiInputTextStatePNS_17STB_TexteditStateEii.exit_crit_edge.i26 ], [ %wide.trip.count.i.i37, %56 ]
+_ZN5ImStbL24stb_text_makeundo_deleteEP19ImGuiInputTextStatePNS_17STB_TexteditStateEii.exit.i28: ; preds = %57, %._ZN5ImStbL24stb_text_makeundo_deleteEP19ImGuiInputTextStatePNS_17STB_TexteditStateEii.exit_crit_edge.i26
+  %.pre-phi.i29 = phi i64 [ %.pre45, %._ZN5ImStbL24stb_text_makeundo_deleteEP19ImGuiInputTextStatePNS_17STB_TexteditStateEii.exit_crit_edge.i26 ], [ %wide.trip.count.i.i37, %56 ]
   %.pre-phi.i29 = phi i64 [ %.pre.i27, %._ZN5ImStbL24stb_text_makeundo_deleteEP19ImGuiInputTextStatePNS_17STB_TexteditStateEii.exit_crit_edge.i26 ], [ %55, %56 ]
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %62 = load ptr, ptr %61, align 8, !tbaa !384
-  %63 = getelementptr inbounds i8, ptr %62, i64 %.pre-phi.i29
+  %65 = getelementptr inbounds i8, ptr %62, i64 %.pre-phi.i29
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 90
   store i8 1, ptr %64, align 2, !tbaa !411
   %65 = load i32, ptr %3, align 4, !tbaa !383
-  %66 = sub nsw i32 %65, %52
+  %66 = sub nsw i32 %65, %53
   store i32 %66, ptr %3, align 4, !tbaa !383
-  %67 = getelementptr inbounds nuw i8, ptr %63, i64 %.pre-phi46
-  %68 = load i8, ptr %67, align 1, !tbaa !337
-  %.not19.i.i30 = icmp eq i8 %68, 0
+  %69 = getelementptr inbounds nuw i8, ptr %63, i64 %.pre-phi46
+  %70 = load i8, ptr %69, align 1, !tbaa !337
+  %.not19.i.i30 = icmp eq i8 %70, 0
   br i1 %.not19.i.i30, label %_ZN5ImStbL19stb_textedit_deleteEP19ImGuiInputTextStatePNS_17STB_TexteditStateEii.exit42, label %.lr.ph.i7.i31
 
 .lr.ph.i7.i31:                                    ; preds = %_ZN5ImStbL24stb_text_makeundo_deleteEP19ImGuiInputTextStatePNS_17STB_TexteditStateEii.exit.i28, %.lr.ph.i7.i31
-  %69 = phi i8 [ %72, %.lr.ph.i7.i31 ], [ %68, %_ZN5ImStbL24stb_text_makeundo_deleteEP19ImGuiInputTextStatePNS_17STB_TexteditStateEii.exit.i28 ]
-  %.01321.i.i32 = phi ptr [ %71, %.lr.ph.i7.i31 ], [ %63, %_ZN5ImStbL24stb_text_makeundo_deleteEP19ImGuiInputTextStatePNS_17STB_TexteditStateEii.exit.i28 ]
-  %.01420.i.i33 = phi ptr [ %70, %.lr.ph.i7.i31 ], [ %67, %_ZN5ImStbL24stb_text_makeundo_deleteEP19ImGuiInputTextStatePNS_17STB_TexteditStateEii.exit.i28 ]
-  %70 = getelementptr inbounds nuw i8, ptr %.01420.i.i33, i64 1
-  %71 = getelementptr inbounds nuw i8, ptr %.01321.i.i32, i64 1
-  store i8 %69, ptr %.01321.i.i32, align 1, !tbaa !337
-  %72 = load i8, ptr %70, align 1, !tbaa !337
-  %.not.i8.i34 = icmp eq i8 %72, 0
+  %71 = phi i8 [ %74, %.lr.ph.i7.i31 ], [ %70, %_ZN5ImStbL24stb_text_makeundo_deleteEP19ImGuiInputTextStatePNS_17STB_TexteditStateEii.exit.i28 ]
+  %.01321.i.i32 = phi ptr [ %73, %.lr.ph.i7.i31 ], [ %63, %_ZN5ImStbL24stb_text_makeundo_deleteEP19ImGuiInputTextStatePNS_17STB_TexteditStateEii.exit.i28 ]
+  %.01420.i.i33 = phi ptr [ %72, %.lr.ph.i7.i31 ], [ %69, %_ZN5ImStbL24stb_text_makeundo_deleteEP19ImGuiInputTextStatePNS_17STB_TexteditStateEii.exit.i28 ]
+  %72 = getelementptr inbounds nuw i8, ptr %.01420.i.i33, i64 1
+  %73 = getelementptr inbounds nuw i8, ptr %.01321.i.i32, i64 1
+  store i8 %71, ptr %.01321.i.i32, align 1, !tbaa !337
+  %74 = load i8, ptr %72, align 1, !tbaa !337
+  %.not.i8.i34 = icmp eq i8 %74, 0
   br i1 %.not.i8.i34, label %_ZN5ImStbL19stb_textedit_deleteEP19ImGuiInputTextStatePNS_17STB_TexteditStateEii.exit42, label %.lr.ph.i7.i31
 
 _ZN5ImStbL19stb_textedit_deleteEP19ImGuiInputTextStatePNS_17STB_TexteditStateEii.exit42: ; preds = %.lr.ph.i7.i31, %_ZN5ImStbL24stb_text_makeundo_deleteEP19ImGuiInputTextStatePNS_17STB_TexteditStateEii.exit.i28
-  %.013.lcssa.i.i35 = phi ptr [ %63, %_ZN5ImStbL24stb_text_makeundo_deleteEP19ImGuiInputTextStatePNS_17STB_TexteditStateEii.exit.i28 ], [ %71, %.lr.ph.i7.i31 ]
+  %.013.lcssa.i.i35 = phi ptr [ %63, %_ZN5ImStbL24stb_text_makeundo_deleteEP19ImGuiInputTextStatePNS_17STB_TexteditStateEii.exit.i28 ], [ %73, %.lr.ph.i7.i31 ]
   store i8 0, ptr %.013.lcssa.i.i35, align 1, !tbaa !337
-  %73 = load i32, ptr %6, align 4, !tbaa !387
-  store i32 %73, ptr %1, align 4, !tbaa !385
-  store i32 %73, ptr %4, align 4, !tbaa !386
-  br label %74
-
-74:                                               ; preds = %_ZN5ImStbL19stb_textedit_deleteEP19ImGuiInputTextStatePNS_17STB_TexteditStateEii.exit42, %_ZN5ImStbL19stb_textedit_deleteEP19ImGuiInputTextStatePNS_17STB_TexteditStateEii.exit
-  %75 = getelementptr inbounds nuw i8, ptr %1, i64 22
-  store i8 0, ptr %75, align 2, !tbaa !392
+  %75 = load i32, ptr %6, align 4, !tbaa !387
+  store i32 %75, ptr %1, align 4, !tbaa !385
+  store i32 %75, ptr %4, align 4, !tbaa !386
   br label %76
 
-76:                                               ; preds = %74, %_ZN5ImStbL18stb_textedit_clampEP19ImGuiInputTextStatePNS_17STB_TexteditStateE.exit
+76:                                               ; preds = %_ZN5ImStbL19stb_textedit_deleteEP19ImGuiInputTextStatePNS_17STB_TexteditStateEii.exit42, %_ZN5ImStbL19stb_textedit_deleteEP19ImGuiInputTextStatePNS_17STB_TexteditStateEii.exit
+  %77 = getelementptr inbounds nuw i8, ptr %1, i64 22
+  store i8 0, ptr %77, align 2, !tbaa !392
+  br label %78
+
+78:                                               ; preds = %76, %_ZN5ImStbL18stb_textedit_clampEP19ImGuiInputTextStatePNS_17STB_TexteditStateE.exit
   ret void
 }
 

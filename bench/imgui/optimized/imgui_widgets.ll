@@ -45046,12 +45046,12 @@ define internal fastcc void @_ZN5ImStbL29stb_textedit_delete_selectionEP19ImGuiI
 
 _ZN5ImStbL18stb_textedit_clampEP19ImGuiInputTextStatePNS_17STB_TexteditStateE.exit: ; preds = %19, %24
   %.not = icmp eq i32 %21, %20
-  br i1 %.not, label %72, label %25
+  br i1 %.not, label %74, label %25
 
 25:                                               ; preds = %_ZN5ImStbL18stb_textedit_clampEP19ImGuiInputTextStatePNS_17STB_TexteditStateE.exit
   %26 = icmp slt i32 %21, %20
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  br i1 %26, label %28, label %49
+  br i1 %26, label %28, label %50
 
 28:                                               ; preds = %25
   %29 = sub nsw i32 %20, %21
@@ -45104,63 +45104,63 @@ _ZN5ImStbL19stb_textedit_deleteEP19ImGuiInputTextStatePNS_17STB_TexteditStateEii
   store i32 %48, ptr %6, align 4, !tbaa !394
   br label %70
 
-49:                                               ; preds = %25
-  %50 = sub nsw i32 %21, %20
-  %51 = tail call fastcc noundef ptr @_ZN5ImStbL19stb_text_createundoEPNS_12StbUndoStateEiii(ptr noundef nonnull %27, i32 noundef %20, i32 noundef %50, i32 noundef 0)
-  %.not.i.i24.not = icmp eq ptr %51, null
+50:                                               ; preds = %25
+  %51 = sub nsw i32 %21, %20
+  %52 = tail call fastcc noundef ptr @_ZN5ImStbL19stb_text_createundoEPNS_12StbUndoStateEiii(ptr noundef nonnull %27, i32 noundef %20, i32 noundef %51, i32 noundef 0)
+  %.not.i.i24.not = icmp eq ptr %52, null
   br i1 %.not.i.i24.not, label %._ZN5ImStbL24stb_text_makeundo_deleteEP19ImGuiInputTextStatePNS_17STB_TexteditStateEii.exit_crit_edge.i26, label %.lr.ph.i.i30
 
-._ZN5ImStbL24stb_text_makeundo_deleteEP19ImGuiInputTextStatePNS_17STB_TexteditStateEii.exit_crit_edge.i26: ; preds = %49
+._ZN5ImStbL24stb_text_makeundo_deleteEP19ImGuiInputTextStatePNS_17STB_TexteditStateEii.exit_crit_edge.i26: ; preds = %50
   %.pre.i27 = sext i32 %20 to i64
   %.pre39 = zext nneg i32 %50 to i64
   br label %_ZN5ImStbL19stb_textedit_deleteEP19ImGuiInputTextStatePNS_17STB_TexteditStateEii.exit36
 
-.lr.ph.i.i30:                                     ; preds = %49
-  %52 = getelementptr i8, ptr %0, i64 32
-  %53 = sext i32 %20 to i64
-  %wide.trip.count.i.i31 = zext nneg i32 %50 to i64
-  br label %54
+.lr.ph.i.i30:                                     ; preds = %50
+  %53 = getelementptr i8, ptr %0, i64 32
+  %54 = sext i32 %20 to i64
+  %wide.trip.count.i.i31 = zext nneg i32 %51 to i64
+  br label %55
 
-54:                                               ; preds = %54, %.lr.ph.i.i30
+55:                                               ; preds = %55, %.lr.ph.i.i30
   %indvars.iv.i.i32 = phi i64 [ 0, %.lr.ph.i.i30 ], [ %indvars.iv.next.i.i34, %54 ]
-  %.val.i.i33 = load ptr, ptr %52, align 8, !tbaa !413
-  %55 = getelementptr i8, ptr %.val.i.i33, i64 %indvars.iv.i.i32
-  %56 = getelementptr i8, ptr %55, i64 %53
-  %57 = load i8, ptr %56, align 1, !tbaa !340
-  %58 = getelementptr inbounds nuw i8, ptr %51, i64 %indvars.iv.i.i32
-  store i8 %57, ptr %58, align 1, !tbaa !340
+  %.val.i.i33 = load ptr, ptr %53, align 8, !tbaa !413
+  %56 = getelementptr i8, ptr %.val.i.i33, i64 %indvars.iv.i.i32
+  %57 = getelementptr i8, ptr %56, i64 %54
+  %58 = load i8, ptr %57, align 1, !tbaa !340
+  %59 = getelementptr inbounds nuw i8, ptr %52, i64 %indvars.iv.i.i32
+  store i8 %58, ptr %59, align 1, !tbaa !340
   %indvars.iv.next.i.i34 = add nuw nsw i64 %indvars.iv.i.i32, 1
   %exitcond.not.i.i35 = icmp eq i64 %indvars.iv.next.i.i34, %wide.trip.count.i.i31
-  br i1 %exitcond.not.i.i35, label %_ZN5ImStbL19stb_textedit_deleteEP19ImGuiInputTextStatePNS_17STB_TexteditStateEii.exit36, label %54, !llvm.loop !502
+  br i1 %exitcond.not.i.i35, label %_ZN5ImStbL19stb_textedit_deleteEP19ImGuiInputTextStatePNS_17STB_TexteditStateEii.exit36, label %55, !llvm.loop !502
 
-_ZN5ImStbL19stb_textedit_deleteEP19ImGuiInputTextStatePNS_17STB_TexteditStateEii.exit36: ; preds = %54, %._ZN5ImStbL24stb_text_makeundo_deleteEP19ImGuiInputTextStatePNS_17STB_TexteditStateEii.exit_crit_edge.i26
-  %.pre-phi40 = phi i64 [ %.pre39, %._ZN5ImStbL24stb_text_makeundo_deleteEP19ImGuiInputTextStatePNS_17STB_TexteditStateEii.exit_crit_edge.i26 ], [ %wide.trip.count.i.i31, %54 ]
+_ZN5ImStbL19stb_textedit_deleteEP19ImGuiInputTextStatePNS_17STB_TexteditStateEii.exit36: ; preds = %55, %._ZN5ImStbL24stb_text_makeundo_deleteEP19ImGuiInputTextStatePNS_17STB_TexteditStateEii.exit_crit_edge.i26
+  %.pre-phi.i28 = phi i64 [ %.pre39, %._ZN5ImStbL24stb_text_makeundo_deleteEP19ImGuiInputTextStatePNS_17STB_TexteditStateEii.exit_crit_edge.i26 ], [ %wide.trip.count.i.i31, %54 ]
   %.pre-phi.i28 = phi i64 [ %.pre.i27, %._ZN5ImStbL24stb_text_makeundo_deleteEP19ImGuiInputTextStatePNS_17STB_TexteditStateEii.exit_crit_edge.i26 ], [ %53, %54 ]
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %60 = load ptr, ptr %59, align 8, !tbaa !382
   %61 = getelementptr inbounds i8, ptr %60, i64 %.pre-phi.i28
-  %62 = getelementptr inbounds nuw i8, ptr %61, i64 %.pre-phi40
-  %63 = load i32, ptr %3, align 8, !tbaa !383
-  %reass.sub = sub i32 %63, %21
-  %64 = add i32 %reass.sub, 1
-  %65 = sext i32 %64 to i64
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %61, ptr nonnull align 1 %62, i64 %65, i1 false)
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 106
-  store i8 1, ptr %66, align 2, !tbaa !422
-  %67 = load i32, ptr %3, align 8, !tbaa !383
-  %68 = sub nsw i32 %67, %50
-  store i32 %68, ptr %3, align 8, !tbaa !383
-  %69 = load i32, ptr %6, align 4, !tbaa !394
-  store i32 %69, ptr %1, align 4, !tbaa !392
-  store i32 %69, ptr %4, align 4, !tbaa !393
-  br label %70
-
-70:                                               ; preds = %_ZN5ImStbL19stb_textedit_deleteEP19ImGuiInputTextStatePNS_17STB_TexteditStateEii.exit36, %_ZN5ImStbL19stb_textedit_deleteEP19ImGuiInputTextStatePNS_17STB_TexteditStateEii.exit
-  %71 = getelementptr inbounds nuw i8, ptr %1, i64 22
-  store i8 0, ptr %71, align 2, !tbaa !403
+  %64 = getelementptr inbounds nuw i8, ptr %61, i64 %.pre-phi40
+  %65 = load i32, ptr %3, align 8, !tbaa !383
+  %reass.sub = sub i32 %65, %21
+  %66 = add i32 %reass.sub, 1
+  %67 = sext i32 %66 to i64
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %61, ptr nonnull align 1 %64, i64 %67, i1 false)
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 106
+  store i8 1, ptr %68, align 2, !tbaa !422
+  %69 = load i32, ptr %3, align 8, !tbaa !383
+  %70 = sub nsw i32 %69, %51
+  store i32 %70, ptr %3, align 8, !tbaa !383
+  %71 = load i32, ptr %6, align 4, !tbaa !394
+  store i32 %71, ptr %1, align 4, !tbaa !392
+  store i32 %71, ptr %4, align 4, !tbaa !393
   br label %72
 
-72:                                               ; preds = %70, %_ZN5ImStbL18stb_textedit_clampEP19ImGuiInputTextStatePNS_17STB_TexteditStateE.exit
+72:                                               ; preds = %_ZN5ImStbL19stb_textedit_deleteEP19ImGuiInputTextStatePNS_17STB_TexteditStateEii.exit36, %_ZN5ImStbL19stb_textedit_deleteEP19ImGuiInputTextStatePNS_17STB_TexteditStateEii.exit
+  %73 = getelementptr inbounds nuw i8, ptr %1, i64 22
+  store i8 0, ptr %73, align 2, !tbaa !403
+  br label %74
+
+74:                                               ; preds = %72, %_ZN5ImStbL18stb_textedit_clampEP19ImGuiInputTextStatePNS_17STB_TexteditStateE.exit
   ret void
 }
 

@@ -1516,15 +1516,15 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %_ZNSt6vector
   store float 0.000000e+00, ptr %208, align 4, !tbaa !31
   %209 = add nsw i64 %205, -1
   %210 = icmp eq i64 %209, 0
-  br i1 %210, label %.lr.ph.preheader.i, label %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i
+  br i1 %210, label %.lr.ph.i.preheader, label %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i
 
 _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i: ; preds = %.noexc53
   %211 = getelementptr i8, ptr %208, i64 4
   %.idx.i.i.i.i.i.i.i.i = shl nuw nsw i64 %209, 2
   call void @llvm.memset.p0.i64(ptr align 4 %211, i8 0, i64 %.idx.i.i.i.i.i.i.i.i, i1 false), !tbaa !31
-  br label %.lr.ph.preheader.i
+  br label %.lr.ph.i.preheader
 
-.lr.ph.preheader.i:                               ; preds = %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i, %.noexc53
+.lr.ph.i.preheader:                               ; preds = %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i, %.noexc53
   %umax.i = call i64 @llvm.umax.i64(i64 %205, i64 1)
   br label %.lr.ph.i
 

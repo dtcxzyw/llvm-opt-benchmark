@@ -1822,18 +1822,18 @@ switch.lookup:                                    ; preds = %150
   br label %_ZN11OpenImageIO6v3_1_03pvtL20get_intsample_maxvalERKNS0_9ImageSpecE.exit.i
 
 170:                                              ; preds = %.noexc60
-  %switch.tableidx299 = add i8 %.sroa.0.0.copyload.i.i, -2
-  %171 = icmp ult i8 %switch.tableidx299, 6
-  br i1 %171, label %switch.lookup300, label %_ZN11OpenImageIO6v3_1_03pvtL20get_intsample_maxvalERKNS0_9ImageSpecE.exit.i
+  %switch.tableidx300 = add i8 %.sroa.0.0.copyload.i.i, -2
+  %171 = icmp ult i8 %switch.tableidx300, 6
+  br i1 %171, label %switch.lookup301, label %_ZN11OpenImageIO6v3_1_03pvtL20get_intsample_maxvalERKNS0_9ImageSpecE.exit.i
 
-switch.lookup300:                                 ; preds = %170
-  %172 = zext nneg i8 %switch.tableidx299 to i64
-  %switch.gep301 = getelementptr inbounds nuw i64, ptr @switch.table._ZN11OpenImageIO6v3_1_03pvt11print_statsERSoNS0_17basic_string_viewIcSt11char_traitsIcEEERKNS0_8ImageBufERKNS0_9ImageSpecENS0_3ROIERNSt7__cxx1112basic_stringIcS5_SaIcEEE.1, i64 %172
-  %switch.load302 = load i64, ptr %switch.gep301, align 8
+switch.lookup301:                                 ; preds = %170
+  %172 = zext nneg i8 %switch.tableidx300 to i64
+  %switch.gep302 = getelementptr inbounds nuw i64, ptr @switch.table._ZN11OpenImageIO6v3_1_03pvt11print_statsERSoNS0_17basic_string_viewIcSt11char_traitsIcEEERKNS0_8ImageBufERKNS0_9ImageSpecENS0_3ROIERNSt7__cxx1112basic_stringIcS5_SaIcEEE.1, i64 %172
+  %switch.load303 = load i64, ptr %switch.gep302, align 8
   br label %_ZN11OpenImageIO6v3_1_03pvtL20get_intsample_maxvalERKNS0_9ImageSpecE.exit.i
 
-_ZN11OpenImageIO6v3_1_03pvtL20get_intsample_maxvalERKNS0_9ImageSpecE.exit.i: ; preds = %162, %170, %switch.lookup300, %166, %163
-  %.0.i.i = phi i64 [ %165, %163 ], [ %169, %166 ], [ %switch.load302, %switch.lookup300 ], [ 0, %170 ], [ 0, %162 ]
+_ZN11OpenImageIO6v3_1_03pvtL20get_intsample_maxvalERKNS0_9ImageSpecE.exit.i: ; preds = %162, %170, %switch.lookup301, %166, %163
+  %.0.i.i = phi i64 [ %165, %163 ], [ %169, %166 ], [ %switch.load303, %switch.lookup300 ], [ 0, %170 ], [ 0, %162 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %34)
   %173 = trunc i64 %.0.i.i to i32
   invoke void @_ZN3fmt2v85printIA14_cJRN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEEEEcEEvRSt13basic_ostreamIT1_S6_ISB_EERKT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 1 dereferenceable(14) @.str.13, ptr noundef nonnull align 8 dereferenceable(16) %51)

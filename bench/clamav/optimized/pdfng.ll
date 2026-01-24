@@ -770,7 +770,7 @@ define ptr @pdf_parse_string(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64
 .lr.ph:                                           ; preds = %.lr.ph451
   %45 = tail call i32 @strncmp(ptr noundef nonnull %46, ptr noundef nonnull %4, i64 noundef %39) #17
   %.not272 = icmp eq i32 %45, 0
-  br i1 %.not272, label %._crit_edge, label %.lr.ph451
+  br i1 %.not272, label %.lr.ph.._crit_edge_crit_edge, label %.lr.ph451
 
 .lr.ph451:                                        ; preds = %.lr.ph.preheader, %.lr.ph
   %.0230326450 = phi ptr [ %46, %.lr.ph ], [ %2, %.lr.ph.preheader ]
@@ -780,7 +780,7 @@ define ptr @pdf_parse_string(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64
   %49 = icmp ult i64 %48, %43
   br i1 %49, label %.lr.ph, label %._crit_edge.thread
 
-._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph.preheader
+.lr.ph.._crit_edge_crit_edge:                     ; preds = %.lr.ph, %.lr.ph.preheader
   %.lcssa447 = phi i64 [ 0, %.lr.ph.preheader ], [ %48, %.lr.ph ]
   %.0230326.lcssa = phi ptr [ %2, %.lr.ph.preheader ], [ %46, %.lr.ph ]
   %50 = icmp eq i64 %.lcssa447, %43
