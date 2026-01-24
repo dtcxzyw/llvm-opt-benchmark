@@ -11,6 +11,7 @@ define nonnull align 8 ptr @"_ZN5alloc11collections5btree3map5entry22Entry$LT$K$
   %3 = alloca { { ptr, i64, {} }, i64, {} }, align 8
   %4 = alloca { { { i64, ptr, {} }, i64 }, { { ptr, [1 x i64] }, i64, { {} }, {} } }, align 8
   %5 = alloca { { { { i64, ptr, {} }, i64 } }, ptr, { ptr, [2 x i64] }, {}, {} }, align 8
+  %.sroa.0 = alloca b256, align 16
   %6 = load i64, ptr %0, align 8, !range !3, !noundef !4
   %.not = icmp eq i64 %6, -9223372036854775808
   br i1 %.not, label %10, label %7
@@ -25,8 +26,10 @@ define nonnull align 8 ptr @"_ZN5alloc11collections5btree3map5entry22Entry$LT$K$
 
 10:                                               ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.sroa.0.0.copyload = load b256, ptr %11, align 8
+  store b256 %.sroa.0.0.copyload, ptr %.sroa.0, align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 16 dereferenceable(24) %.sroa.0, i64 24, i1 false)
   %12 = invoke align 8 ptr @"_ZN5alloc11collections5btree4node171Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12into_val_mut17h5ba136719bba6828E"(ptr nonnull align 8 %3)
           to label %14 unwind label %17
 

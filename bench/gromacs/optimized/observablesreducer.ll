@@ -60,8 +60,8 @@ $_ZNSt6vectorISt8functionIFvlEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN3gmx18ObservablesReducerC2ESt10unique_ptrINS0_4ImplESt14default_deleteIS2_EE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %0, ptr noundef captures(none) %1) unnamed_addr #0 align 2 {
-  %3 = load i64, ptr %1, align 8, !tbaa !4
-  store i64 %3, ptr %0, align 8, !tbaa !4
+  %3 = load b64, ptr %1, align 8, !tbaa !4
+  store b64 %3, ptr %0, align 8, !tbaa !4
   store ptr null, ptr %1, align 8, !tbaa !4
   ret void
 }
@@ -71,8 +71,8 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN3gmx18ObservablesReducerC2EOS0_(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %1) unnamed_addr #0 align 2 {
-  %3 = load i64, ptr %1, align 8, !tbaa !4
-  store i64 %3, ptr %0, align 8, !tbaa !4
+  %3 = load b64, ptr %1, align 8, !tbaa !4
+  store b64 %3, ptr %0, align 8, !tbaa !4
   store ptr null, ptr %1, align 8, !tbaa !4
   ret void
 }
@@ -423,8 +423,8 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN3gmx25ObservablesReducerBuilderC2EOS0_(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %1) unnamed_addr #0 align 2 {
-  %3 = load i64, ptr %1, align 8, !tbaa !57
-  store i64 %3, ptr %0, align 8, !tbaa !57
+  %3 = load b64, ptr %1, align 8, !tbaa !57
+  store b64 %3, ptr %0, align 8, !tbaa !57
   store ptr null, ptr %1, align 8, !tbaa !57
   ret void
 }
@@ -1211,8 +1211,7 @@ _ZNSt6vectorISt8functionIFvlEESaIS2_EE12emplace_backIJRKS2_EEERS2_DpOT_.exit: ; 
   %86 = getelementptr inbounds nuw i8, ptr %43, i64 76
   store i32 0, ptr %86, align 4, !tbaa !43, !noalias !91
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %85, i8 0, i64 25, i1 false), !noalias !91
-  %.cast = ptrtoint ptr %43 to i64
-  store i64 %.cast, ptr %6, align 8, !tbaa !4
+  store ptr %43, ptr %6, align 8, !tbaa !4
   store ptr null, ptr %5, align 8, !tbaa !4
   invoke void @_ZN3gmx18ObservablesReducerC1ESt10unique_ptrINS0_4ImplESt14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %6)
           to label %87 unwind label %120

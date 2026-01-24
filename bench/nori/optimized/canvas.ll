@@ -75,13 +75,13 @@ _ZN7nanogui5ArrayIfLm4EEC2Ef.exit.i.i:            ; preds = %13
 
 24:                                               ; preds = %16
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 156
-  %.fca.0.load.i.i.i = load <2 x float>, ptr %7, align 8
+  %.fca.0.load.i5.i.i = load b64, ptr %7, align 8
   %.fca.1.gep.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %.fca.1.load.i.i.i = load <2 x float>, ptr %.fca.1.gep.i.i.i, align 8
+  %.fca.1.load.i6.i.i = load b64, ptr %.fca.1.gep.i.i.i, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  store <2 x float> %.fca.0.load.i.i.i, ptr %25, align 4
+  store b64 %.fca.0.load.i5.i.i, ptr %25, align 4
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 164
-  store <2 x float> %.fca.1.load.i.i.i, ptr %.sroa.2.0..sroa_idx.i.i, align 4
+  store b64 %.fca.1.load.i6.i.i, ptr %.sroa.2.0..sroa_idx.i.i, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -403,8 +403,8 @@ define hidden void @_ZN7nanogui6Canvas4drawEP10NVGcontext(ptr noundef nonnull al
   %5 = alloca %"struct.nanogui::Array", align 4
   %6 = tail call noundef ptr @_ZN7nanogui6Widget6screenEv(ptr noundef nonnull align 8 dereferenceable(140) %0)
   %7 = icmp eq ptr %6, null
-  %.05.i17.sroa.gep67 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %.05.i.sroa.gep71 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %.05.i19.sroa.gep66 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %.05.i.sroa.gep70 = getelementptr inbounds nuw i8, ptr %3, i64 4
   br i1 %7, label %8, label %13
 
 8:                                                ; preds = %2
@@ -428,8 +428,8 @@ define hidden void @_ZN7nanogui6Canvas4drawEP10NVGcontext(ptr noundef nonnull al
   tail call void @_ZN7nanogui6Widget4drawEP10NVGcontext(ptr noundef nonnull align 8 dereferenceable(140) %0, ptr noundef %1)
   tail call void @_ZN7nanogui6Screen9nvg_flushEv(ptr noundef nonnull align 8 dereferenceable(384) %6)
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %17 = load i64, ptr %16, align 8
-  store i64 %17, ptr %3, align 8
+  %17 = load b64, ptr %16, align 8
+  store b64 %17, ptr %3, align 8
   %18 = tail call i64 @_ZNK7nanogui6Widget17absolute_positionEv(ptr noundef nonnull align 8 dereferenceable(140) %0)
   store i64 %18, ptr %4, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 152
@@ -437,18 +437,18 @@ define hidden void @_ZN7nanogui6Canvas4drawEP10NVGcontext(ptr noundef nonnull al
   %21 = trunc i8 %20 to i1
   %22 = lshr i64 %18, 32
   %23 = trunc nuw i64 %22 to i32
-  br i1 %21, label %.preheader84, label %_ZN7nanogui5ArrayIiLm2EEmIERKS1_.exit
+  br i1 %21, label %.preheader83, label %_ZN7nanogui5ArrayIiLm2EEmIERKS1_.exit
 
-.preheader84:                                     ; preds = %13
+.preheader83:                                     ; preds = %13
   %24 = load i32, ptr %3, align 8
   %25 = add nsw i32 %24, -2
   store i32 %25, ptr %3, align 8
-  %26 = load i32, ptr %.05.i.sroa.gep71, align 4
+  %26 = load i32, ptr %.05.i.sroa.gep70, align 4
   %27 = add nsw i32 %26, -2
-  store i32 %27, ptr %.05.i.sroa.gep71, align 4
+  store i32 %27, ptr %.05.i.sroa.gep70, align 4
   br label %_ZN7nanogui5ArrayIiLm2EEmIERKS1_.exit
 
-_ZN7nanogui5ArrayIiLm2EEmIERKS1_.exit:            ; preds = %.preheader84, %13
+_ZN7nanogui5ArrayIiLm2EEmIERKS1_.exit:            ; preds = %.preheader83, %13
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 172
   %29 = load i8, ptr %28, align 4
   %30 = trunc i8 %29 to i1
@@ -461,11 +461,11 @@ _ZN7nanogui5ArrayIiLm2EEmIERKS1_.exit:            ; preds = %.preheader84, %13
   %35 = load i32, ptr %34, align 4
   %36 = add i32 %35, %23
   %37 = sub i32 %33, %36
-  %.sroa.262.0.insert.ext = zext i32 %37 to i64
-  %.sroa.262.0.insert.shift = shl nuw i64 %.sroa.262.0.insert.ext, 32
   %.sroa.061.0.insert.ext = and i64 %18, 4294967295
-  %.sroa.061.0.insert.insert = or disjoint i64 %.sroa.262.0.insert.shift, %.sroa.061.0.insert.ext
-  store i64 %.sroa.061.0.insert.insert, ptr %4, align 8
+  %.sroa.061.4.insert.ext = zext i32 %37 to i64
+  %.sroa.061.4.insert.shift = shl nuw i64 %.sroa.061.4.insert.ext, 32
+  %.sroa.061.4.insert.insert = or disjoint i64 %.sroa.061.4.insert.shift, %.sroa.061.0.insert.ext
+  store i64 %.sroa.061.4.insert.insert, ptr %4, align 8
   br label %38
 
 38:                                               ; preds = %31, %_ZN7nanogui5ArrayIiLm2EEmIERKS1_.exit
@@ -475,32 +475,38 @@ _ZN7nanogui5ArrayIiLm2EEmIERKS1_.exit:            ; preds = %.preheader84, %13
   %39 = load i32, ptr %4, align 8
   %40 = add nsw i32 %39, 1
   store i32 %40, ptr %4, align 8
-  %41 = load i32, ptr %.05.i17.sroa.gep67, align 4
+  %41 = load i32, ptr %.05.i19.sroa.gep66, align 4
   %42 = add nsw i32 %41, 1
-  store i32 %42, ptr %.05.i17.sroa.gep67, align 4
+  store i32 %42, ptr %.05.i19.sroa.gep66, align 4
   br label %_ZN7nanogui5ArrayIiLm2EEpLERKS1_.exit
 
 _ZN7nanogui5ArrayIiLm2EEpLERKS1_.exit:            ; preds = %38, %.preheader
   %43 = load i32, ptr %3, align 8
   %44 = sitofp i32 %43 to float
-  %45 = load i32, ptr %.05.i.sroa.gep71, align 4
+  %45 = load i32, ptr %.05.i.sroa.gep70, align 4
   %46 = sitofp i32 %45 to float
   %47 = fmul float %15, %44
   %48 = fmul float %15, %46
   %49 = fptosi float %47 to i32
+  %.sroa.055.0.insert.ext = zext i32 %49 to i64
   %50 = fptosi float %48 to i32
-  store i32 %49, ptr %3, align 8
-  store i32 %50, ptr %.05.i.sroa.gep71, align 4
+  %.sroa.055.4.insert.ext = zext i32 %50 to i64
+  %.sroa.055.4.insert.shift = shl nuw i64 %.sroa.055.4.insert.ext, 32
+  %.sroa.055.4.insert.insert = or disjoint i64 %.sroa.055.4.insert.shift, %.sroa.055.0.insert.ext
+  store i64 %.sroa.055.4.insert.insert, ptr %3, align 8
   %51 = load i32, ptr %4, align 8
   %52 = sitofp i32 %51 to float
-  %53 = load i32, ptr %.05.i17.sroa.gep67, align 4
+  %53 = load i32, ptr %.05.i19.sroa.gep66, align 4
   %54 = sitofp i32 %53 to float
   %55 = fmul float %15, %52
   %56 = fmul float %15, %54
   %57 = fptosi float %55 to i32
+  %.sroa.041.0.insert.ext = zext i32 %57 to i64
   %58 = fptosi float %56 to i32
-  store i32 %57, ptr %4, align 8
-  store i32 %58, ptr %.05.i17.sroa.gep67, align 4
+  %.sroa.041.4.insert.ext = zext i32 %58 to i64
+  %.sroa.041.4.insert.shift = shl nuw i64 %.sroa.041.4.insert.ext, 32
+  %.sroa.041.4.insert.insert = or disjoint i64 %.sroa.041.4.insert.shift, %.sroa.041.0.insert.ext
+  store i64 %.sroa.041.4.insert.insert, ptr %4, align 8
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %60 = load ptr, ptr %59, align 8
   br i1 %30, label %61, label %62
@@ -534,10 +540,10 @@ _ZN7nanogui5ArrayIiLm2EEpLERKS1_.exit:            ; preds = %38, %.preheader
   call void @nvgBeginPath(ptr noundef %1)
   call void @nvgStrokeWidth(ptr noundef %1, float noundef 1.000000e+00)
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 156
-  %.sroa.0.0.copyload = load <2 x float>, ptr %75, align 4
+  %.sroa.0.0.copyload17 = load <2 x float>, ptr %75, align 4
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 164
-  %.sroa.2.0.copyload = load <2 x float>, ptr %.sroa.2.0..sroa_idx, align 4
-  call void @nvgStrokeColor(ptr noundef %1, <2 x float> %.sroa.0.0.copyload, <2 x float> %.sroa.2.0.copyload)
+  %.sroa.2.0.copyload18 = load <2 x float>, ptr %.sroa.2.0..sroa_idx, align 4
+  call void @nvgStrokeColor(ptr noundef %1, <2 x float> %.sroa.0.0.copyload17, <2 x float> %.sroa.2.0.copyload18)
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %77 = load i32, ptr %76, align 8
   %78 = sitofp i32 %77 to float
@@ -591,7 +597,7 @@ define linkonce_odr hidden i64 @_ZNK7nanogui6Widget17absolute_positionEv(ptr nou
   br i1 %.not, label %11, label %_ZN7nanoguiplERKNS_5ArrayIiLm2EEES3_.exit.critedge
 
 common.ret:                                       ; preds = %11, %_ZN7nanoguiplERKNS_5ArrayIiLm2EEES3_.exit.critedge
-  %common.ret.op = phi i64 [ %.sroa.04.0.insert.insert, %_ZN7nanoguiplERKNS_5ArrayIiLm2EEES3_.exit.critedge ], [ %.sroa.0.0.copyload, %11 ]
+  %common.ret.op = phi i64 [ %.sroa.05.0.insert.insert, %_ZN7nanoguiplERKNS_5ArrayIiLm2EEES3_.exit.critedge ], [ %.sroa.0.0.copyload1, %11 ]
   ret i64 %common.ret.op
 
 _ZN7nanoguiplERKNS_5ArrayIiLm2EEES3_.exit.critedge: ; preds = %1
@@ -607,13 +613,13 @@ _ZN7nanoguiplERKNS_5ArrayIiLm2EEES3_.exit.critedge: ; preds = %1
   %10 = add nsw i32 %9, %.06.i.sroa.phi.sroa.speculated.c
   %.sroa.4.0.insert.ext = zext i32 %10 to i64
   %.sroa.4.0.insert.shift = shl nuw i64 %.sroa.4.0.insert.ext, 32
-  %.sroa.04.0.insert.ext = zext i32 %7 to i64
-  %.sroa.04.0.insert.insert = or disjoint i64 %.sroa.4.0.insert.shift, %.sroa.04.0.insert.ext
+  %.sroa.05.0.insert.ext = zext i32 %7 to i64
+  %.sroa.05.0.insert.insert = or disjoint i64 %.sroa.4.0.insert.shift, %.sroa.05.0.insert.ext
   br label %common.ret
 
 11:                                               ; preds = %1
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %.sroa.0.0.copyload = load i64, ptr %12, align 8
+  %.sroa.0.0.copyload1 = load i64, ptr %12, align 8
   br label %common.ret
 }
 

@@ -28,7 +28,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.b93fc95d1091bad95f783ce9a212c3f6.31.llvm.16429374078602074278 = hidden unnamed_addr constant <{ [98 x i8] }> <{ [98 x i8] c"/home/dtcxzyw/.cargo/registry/src/index.crates.io-6f17d22bba15001f/generic-array-0.14.7/src/lib.rs" }>, align 1
 @anon.b93fc95d1091bad95f783ce9a212c3f6.32.llvm.16429374078602074278 = hidden unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.b93fc95d1091bad95f783ce9a212c3f6.31.llvm.16429374078602074278, [16 x i8] c"b\00\00\00\00\00\00\00\00\01\00\00B\00\00\00" }>, align 8
 @anon.b93fc95d1091bad95f783ce9a212c3f6.33.llvm.16429374078602074278 = hidden unnamed_addr constant <{ [16 x i8] }> <{ [16 x i8] c"\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF" }>, align 16
-@anon.b93fc95d1091bad95f783ce9a212c3f6.34.llvm.16429374078602074278 = hidden unnamed_addr constant <{ ptr, [24 x i8] }> <{ ptr @anon.b93fc95d1091bad95f783ce9a212c3f6.33.llvm.16429374078602074278, [24 x i8] zeroinitializer }>, align 8
+@anon.b93fc95d1091bad95f783ce9a212c3f6.34.llvm.16429374078602074278 = hidden unnamed_addr constant <{ ptr, [24 x i8] }> <{ ptr @anon.b93fc95d1091bad95f783ce9a212c3f6.33.llvm.16429374078602074278, [24 x i8] zeroinitializer }>, align 16
 @anon.42b4c4cbb478f632b42c63ea9799a840.94.llvm.12167863148926054676 = external hidden unnamed_addr constant <{ ptr, [16 x i8] }>, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
@@ -224,13 +224,13 @@ define hidden noundef nonnull align 8 ptr @"_ZN3std3sys12thread_local10fast_loca
   br i1 %3, label %6, label %4
 
 4:                                                ; preds = %2
-  %.sroa.03.0.copyload.i.i = load i64, ptr %1, align 8, !alias.scope !28
+  %.sroa.03.0.copyload6.i.i = load i64, ptr %1, align 8, !alias.scope !28
   %.sroa.5.0..sroa.0.0.1.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.5.0.copyload.i.i = load i64, ptr %.sroa.5.0..sroa.0.0.1.sroa_idx.i.i, align 8, !alias.scope !28
+  %.sroa.5.0.copyload7.i.i = load i64, ptr %.sroa.5.0..sroa.0.0.1.sroa_idx.i.i, align 8, !alias.scope !28
   %.sroa.6.0..sroa.0.0.1.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.sroa.6.0.copyload.i.i = load i64, ptr %.sroa.6.0..sroa.0.0.1.sroa_idx.i.i, align 8, !alias.scope !28
+  %.sroa.6.0.copyload8.i.i = load i64, ptr %.sroa.6.0..sroa.0.0.1.sroa_idx.i.i, align 8, !alias.scope !28
   store i64 0, ptr %1, align 8, !alias.scope !28
-  %5 = icmp eq i64 %.sroa.03.0.copyload.i.i, 1
+  %5 = icmp eq i64 %.sroa.03.0.copyload6.i.i, 1
   br i1 %5, label %8, label %6
 
 6:                                                ; preds = %4, %2
@@ -238,8 +238,8 @@ define hidden noundef nonnull align 8 ptr @"_ZN3std3sys12thread_local10fast_loca
   br label %"_ZN3std3sys12thread_local4lazy21LazyKeyInner$LT$T$GT$10initialize17hf6c829a085f1314aE.exit"
 
 8:                                                ; preds = %4
-  %9 = insertvalue { i64, i64 } poison, i64 %.sroa.5.0.copyload.i.i, 0
-  %10 = insertvalue { i64, i64 } %9, i64 %.sroa.6.0.copyload.i.i, 1
+  %9 = insertvalue { i64, i64 } poison, i64 %.sroa.5.0.copyload7.i.i, 0
+  %10 = insertvalue { i64, i64 } %9, i64 %.sroa.6.0.copyload8.i.i, 1
   br label %"_ZN3std3sys12thread_local4lazy21LazyKeyInner$LT$T$GT$10initialize17hf6c829a085f1314aE.exit"
 
 "_ZN3std3sys12thread_local4lazy21LazyKeyInner$LT$T$GT$10initialize17hf6c829a085f1314aE.exit": ; preds = %6, %8
@@ -268,13 +268,13 @@ define hidden noundef nonnull align 8 ptr @"_ZN3std3sys12thread_local10fast_loca
   br i1 %5, label %8, label %6
 
 6:                                                ; preds = %4
-  %.sroa.03.0.copyload.i.i.i = load i64, ptr %1, align 8, !alias.scope !39
+  %.sroa.03.0.copyload6.i.i.i = load i64, ptr %1, align 8, !alias.scope !39
   %.sroa.5.0..sroa.0.0.1.sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.5.0.copyload.i.i.i = load i64, ptr %.sroa.5.0..sroa.0.0.1.sroa_idx.i.i.i, align 8, !alias.scope !39
+  %.sroa.5.0.copyload7.i.i.i = load i64, ptr %.sroa.5.0..sroa.0.0.1.sroa_idx.i.i.i, align 8, !alias.scope !39
   %.sroa.6.0..sroa.0.0.1.sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.sroa.6.0.copyload.i.i.i = load i64, ptr %.sroa.6.0..sroa.0.0.1.sroa_idx.i.i.i, align 8, !alias.scope !39
+  %.sroa.6.0.copyload8.i.i.i = load i64, ptr %.sroa.6.0..sroa.0.0.1.sroa_idx.i.i.i, align 8, !alias.scope !39
   store i64 0, ptr %1, align 8, !alias.scope !39
-  %7 = icmp eq i64 %.sroa.03.0.copyload.i.i.i, 1
+  %7 = icmp eq i64 %.sroa.03.0.copyload6.i.i.i, 1
   br i1 %7, label %10, label %8
 
 8:                                                ; preds = %6, %4
@@ -282,8 +282,8 @@ define hidden noundef nonnull align 8 ptr @"_ZN3std3sys12thread_local10fast_loca
   br label %"_ZN3std3sys12thread_local10fast_local12Key$LT$T$GT$14try_initialize17hc18e14b3635f6853E.llvm.16429374078602074278.exit"
 
 10:                                               ; preds = %6
-  %11 = insertvalue { i64, i64 } poison, i64 %.sroa.5.0.copyload.i.i.i, 0
-  %12 = insertvalue { i64, i64 } %11, i64 %.sroa.6.0.copyload.i.i.i, 1
+  %11 = insertvalue { i64, i64 } poison, i64 %.sroa.5.0.copyload7.i.i.i, 0
+  %12 = insertvalue { i64, i64 } %11, i64 %.sroa.6.0.copyload8.i.i.i, 1
   br label %"_ZN3std3sys12thread_local10fast_local12Key$LT$T$GT$14try_initialize17hc18e14b3635f6853E.llvm.16429374078602074278.exit"
 
 "_ZN3std3sys12thread_local10fast_local12Key$LT$T$GT$14try_initialize17hc18e14b3635f6853E.llvm.16429374078602074278.exit": ; preds = %8, %10
@@ -5544,11 +5544,12 @@ define hidden void @"_ZN85_$LT$indexmap..map..core..IndexMapCore$LT$K$C$V$GT$$u2
 define hidden void @"_ZN85_$LT$indexmap..map..core..IndexMapCore$LT$K$C$V$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h5aa4e72b0607b76bE"(ptr dead_on_unwind noalias noundef writable writeonly sret([56 x i8]) align 8 captures(none) dereferenceable(56) %0, ptr noalias noundef readonly align 8 dereferenceable(56) %1) unnamed_addr #3 personality ptr @rust_eh_personality {
   %3 = alloca [56 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  %.sroa.0.0.copyload = load b256, ptr @anon.b93fc95d1091bad95f783ce9a212c3f6.34.llvm.16429374078602074278, align 16
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) @anon.b93fc95d1091bad95f783ce9a212c3f6.34.llvm.16429374078602074278, i64 32, i1 false)
+  store b256 %.sroa.0.0.copyload, ptr %4, align 8
   store i64 0, ptr %3, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr inttoptr (i64 8 to ptr), ptr %.sroa.4.0..sroa_idx, align 8
+  store b64 bitcast (ptr inttoptr (i64 8 to ptr) to b64), ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 0, ptr %.sroa.5.0..sroa_idx, align 8
   invoke void @"_ZN85_$LT$indexmap..map..core..IndexMapCore$LT$K$C$V$GT$$u20$as$u20$core..clone..Clone$GT$10clone_from17h3db9c20932885fd7E.llvm.16429374078602074278"(ptr noalias noundef nonnull align 8 dereferenceable(56) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %1)

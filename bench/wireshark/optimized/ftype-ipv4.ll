@@ -168,8 +168,8 @@ define internal noalias ptr @val_to_repr(ptr noundef %0, ptr noundef readonly ca
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: readwrite) uwtable
 define internal void @value_set_ipv4(ptr noundef writeonly captures(none) initializes((8, 16)) %0, ptr noundef readonly captures(none) %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load i64, ptr %1, align 4
-  store i64 %4, ptr %3, align 8
+  %4 = load b64, ptr %1, align 4
+  store b64 %4, ptr %3, align 8
   ret void
 }
 
@@ -251,16 +251,17 @@ define internal void @slice(ptr noundef readonly captures(none) %0, ptr noundef 
 define internal noundef i32 @bitwise_and(ptr noundef writeonly captures(none) initializes((8, 16)) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr readnone captures(none) %3) #1 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load i64, ptr %6, align 8
-  store i64 %7, ptr %5, align 8
+  %7 = load b64, ptr %6, align 8
+  store b64 %7, ptr %5, align 8
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %9 = load i32, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %11 = load i32, ptr %10, align 4
   %12 = and i32 %11, %9
-  %13 = trunc i64 %7 to i32
-  %14 = and i32 %12, %13
-  store i32 %14, ptr %5, align 8
+  %13 = trunc b64 %7 to b32
+  %14 = bytecast b32 %13 to i32
+  %15 = and i32 %12, %14
+  store i32 %15, ptr %5, align 8
   ret i32 0
 }
 

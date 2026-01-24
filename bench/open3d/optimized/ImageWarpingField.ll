@@ -1014,37 +1014,41 @@ _ZNK6open3d9pipelines9color_map17ImageWarpingField9QueryFlowEii.exit27: ; preds 
   %.sroa.1161.8..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.1161, i64 8
   store ptr %8, ptr %.sroa.1161.8..sroa_idx, align 8, !tbaa !53, !alias.scope !50
   %.sroa.257.0..sroa.257.0..sroa.257.0..sroa.257.40. = load <2 x double>, ptr %.sroa.257, align 16
-  %bc.i.i.i.i.i.i = bitcast <2 x double> %.sroa.257.0..sroa.257.0..sroa.257.0..sroa.257.40. to <2 x i64>
-  %103 = extractelement <2 x i64> %bc.i.i.i.i.i.i, i64 1
-  %104 = inttoptr i64 %103 to ptr
+  %103 = bitcast <2 x double> %.sroa.257.0..sroa.257.0..sroa.257.0..sroa.257.40. to b128
+  %104 = lshr b128 %103, 64
+  %105 = trunc b128 %104 to b64
+  %106 = bytecast b64 %105 to ptr
   %.sroa.558.0..sroa.558.0..sroa.558.0..sroa.558.80. = load <2 x double>, ptr %.sroa.558, align 16
-  %bc20.i.i.i.i.i.i = bitcast <2 x double> %.sroa.558.0..sroa.558.0..sroa.558.0..sroa.558.80. to <2 x i64>
-  %105 = extractelement <2 x i64> %bc20.i.i.i.i.i.i, i64 1
-  %106 = inttoptr i64 %105 to ptr
+  %107 = bitcast <2 x double> %.sroa.558.0..sroa.558.0..sroa.558.0..sroa.558.80. to b128
+  %108 = lshr b128 %107, 64
+  %109 = trunc b128 %108 to b64
+  %110 = bytecast b64 %109 to ptr
   %.sroa.860.0..sroa.860.0..sroa.860.0..sroa.860.128. = load <2 x double>, ptr %.sroa.860, align 16
-  %bc21.i.i.i.i.i.i = bitcast <2 x double> %.sroa.860.0..sroa.860.0..sroa.860.0..sroa.860.128. to <2 x i64>
-  %107 = extractelement <2 x i64> %bc21.i.i.i.i.i.i, i64 1
-  %108 = inttoptr i64 %107 to ptr
+  %111 = bitcast <2 x double> %.sroa.860.0..sroa.860.0..sroa.860.0..sroa.860.128. to b128
+  %112 = lshr b128 %111, 64
+  %113 = trunc b128 %112 to b64
+  %114 = bytecast b64 %113 to ptr
   %.sroa.1161.0..sroa.1161.0..sroa.1161.0..sroa.1161.176. = load <2 x double>, ptr %.sroa.1161, align 16
-  %bc22.i.i.i.i.i.i = bitcast <2 x double> %.sroa.1161.0..sroa.1161.0..sroa.1161.0..sroa.1161.176. to <2 x i64>
-  %109 = extractelement <2 x i64> %bc22.i.i.i.i.i.i, i64 1
-  %110 = inttoptr i64 %109 to ptr
-  %111 = shufflevector <2 x double> %.sroa.257.0..sroa.257.0..sroa.257.0..sroa.257.40., <2 x double> poison, <2 x i32> zeroinitializer
-  %112 = load <2 x double>, ptr %104, align 16, !tbaa !29
-  %113 = fmul <2 x double> %111, %112
-  %114 = shufflevector <2 x double> %.sroa.558.0..sroa.558.0..sroa.558.0..sroa.558.80., <2 x double> poison, <2 x i32> zeroinitializer
-  %115 = load <2 x double>, ptr %106, align 16, !tbaa !29
-  %116 = fmul <2 x double> %114, %115
-  %117 = fadd <2 x double> %113, %116
-  %118 = shufflevector <2 x double> %.sroa.860.0..sroa.860.0..sroa.860.0..sroa.860.128., <2 x double> poison, <2 x i32> zeroinitializer
-  %119 = load <2 x double>, ptr %108, align 16, !tbaa !29
-  %120 = fmul <2 x double> %118, %119
-  %121 = fadd <2 x double> %117, %120
-  %122 = shufflevector <2 x double> %.sroa.1161.0..sroa.1161.0..sroa.1161.0..sroa.1161.176., <2 x double> poison, <2 x i32> zeroinitializer
+  %115 = bitcast <2 x double> %.sroa.1161.0..sroa.1161.0..sroa.1161.0..sroa.1161.176. to b128
+  %116 = lshr b128 %115, 64
+  %117 = trunc b128 %116 to b64
+  %118 = bytecast b64 %117 to ptr
+  %119 = shufflevector <2 x double> %.sroa.257.0..sroa.257.0..sroa.257.0..sroa.257.40., <2 x double> poison, <2 x i32> zeroinitializer
+  %120 = load <2 x double>, ptr %106, align 16, !tbaa !29
+  %121 = fmul <2 x double> %119, %120
+  %122 = shufflevector <2 x double> %.sroa.558.0..sroa.558.0..sroa.558.0..sroa.558.80., <2 x double> poison, <2 x i32> zeroinitializer
   %123 = load <2 x double>, ptr %110, align 16, !tbaa !29
   %124 = fmul <2 x double> %122, %123
   %125 = fadd <2 x double> %121, %124
-  store <2 x double> %125, ptr %0, align 16, !tbaa !29
+  %126 = shufflevector <2 x double> %.sroa.860.0..sroa.860.0..sroa.860.0..sroa.860.128., <2 x double> poison, <2 x i32> zeroinitializer
+  %127 = load <2 x double>, ptr %114, align 16, !tbaa !29
+  %128 = fmul <2 x double> %126, %127
+  %129 = fadd <2 x double> %125, %128
+  %130 = shufflevector <2 x double> %.sroa.1161.0..sroa.1161.0..sroa.1161.0..sroa.1161.176., <2 x double> poison, <2 x i32> zeroinitializer
+  %131 = load <2 x double>, ptr %118, align 16, !tbaa !29
+  %132 = fmul <2 x double> %130, %131
+  %133 = fadd <2 x double> %129, %132
+  store <2 x double> %133, ptr %0, align 16, !tbaa !29
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

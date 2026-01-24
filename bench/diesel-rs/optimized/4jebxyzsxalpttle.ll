@@ -9,51 +9,56 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haf240893f20981acE"(ptr writeonly sret({ i64, [2 x i64] }) align 8 captures(none) initializes((0, 8)) %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { {} }, align 1
-  %4 = alloca { i64, [2 x i64] }, align 8
-  %5 = alloca { i64, [2 x i64] }, align 8
+  %4 = alloca { i64, [2 x i64] }, align 16
+  %5 = alloca { i64, [2 x i64] }, align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %1, align 8, !nonnull !3, !align !4, !noundef !3
   call void @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17heffd8942354567b9E"(ptr nonnull sret({ i64, [2 x i64] }) align 8 %4, ptr nonnull align 8 %6, ptr nonnull align 1 %3, ptr nonnull align 8 %7)
-  %8 = load i64, ptr %4, align 8, !range !5, !noundef !3
+  %8 = load i64, ptr %4, align 16, !range !5, !noundef !3
   %9 = icmp eq i64 %8, -9223372036854775807
   br i1 %9, label %10, label %11
 
 10:                                               ; preds = %2
   call void @"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$11from_output17h6beb01334b7b284dE"(ptr nonnull sret({ i64, [2 x i64] }) align 8 %5)
+  %.pre = load i64, ptr %5, align 16, !range !6
   br label %"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h135a3ea68131f67dE.exit"
 
 11:                                               ; preds = %2
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
+  %.sroa.01.0.copyload.i = load b192, ptr %4, align 16
+  store b192 %.sroa.01.0.copyload.i, ptr %5, align 16
+  %12 = trunc b192 %.sroa.01.0.copyload.i to b64
+  %13 = bytecast b64 %12 to i64
   br label %"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h135a3ea68131f67dE.exit"
 
 "_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h135a3ea68131f67dE.exit": ; preds = %10, %11
+  %14 = phi i64 [ %.pre, %10 ], [ %13, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %12 = load i64, ptr %5, align 8, !range !6, !noundef !3
-  %13 = icmp eq i64 %12, -9223372036854775808
-  br i1 %13, label %16, label %14
-
-14:                                               ; preds = %"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h135a3ea68131f67dE.exit"
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
-  br label %15
-
-15:                                               ; preds = %14, %16
-  ret void
+  %15 = icmp eq i64 %14, -9223372036854775808
+  br i1 %15, label %18, label %16
 
 16:                                               ; preds = %"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h135a3ea68131f67dE.exit"
+  %.sroa.0.0.copyload = load b192, ptr %5, align 16
+  store b192 %.sroa.0.0.copyload, ptr %0, align 8
+  br label %17
+
+17:                                               ; preds = %16, %18
+  ret void
+
+18:                                               ; preds = %"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h135a3ea68131f67dE.exit"
   store i64 -9223372036854775808, ptr %0, align 8
   call void @"_ZN4core3ptr91drop_in_place$LT$core..ops..control_flow..ControlFlow$LT$std..ffi..os_str..OsString$GT$$GT$17hd8ed568e5e45570dE"(ptr nonnull align 8 %5)
-  br label %15
+  br label %17
 }
 
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h135a3ea68131f67dE"(ptr sret({ i64, [2 x i64] }) align 8 %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { {} }, align 1
-  %4 = alloca { i64, [2 x i64] }, align 8
+  %4 = alloca { i64, [2 x i64] }, align 16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %1, align 8, !nonnull !3, !align !4, !noundef !3
   call void @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17heffd8942354567b9E"(ptr nonnull sret({ i64, [2 x i64] }) align 8 %4, ptr nonnull align 8 %5, ptr nonnull align 1 %3, ptr nonnull align 8 %6)
-  %7 = load i64, ptr %4, align 8, !range !5, !noundef !3
+  %7 = load i64, ptr %4, align 16, !range !5, !noundef !3
   %8 = icmp eq i64 %7, -9223372036854775807
   br i1 %8, label %9, label %10
 
@@ -62,7 +67,8 @@ define void @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$
   br label %11
 
 10:                                               ; preds = %2
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
+  %.sroa.01.0.copyload = load b192, ptr %4, align 16
+  store b192 %.sroa.01.0.copyload, ptr %0, align 8
   br label %11
 
 11:                                               ; preds = %9, %10
@@ -75,17 +81,18 @@ define void @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$
   %5 = alloca { { { { { i64, ptr }, i64 } } } }, align 8
   %6 = alloca { i64, [2 x i64] }, align 8
   %7 = alloca { i64, [2 x i64] }, align 8
-  %8 = alloca { {}, { { { { i64, ptr }, i64 } } } }, align 8
+  %8 = alloca { {}, { { { { i64, ptr }, i64 } } } }, align 16
   %9 = alloca { i64, [2 x i64] }, align 8
-  %10 = alloca { i64, [2 x i64] }, align 8
+  %10 = alloca { i64, [2 x i64] }, align 16
   call void @"_ZN79_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h01f86abac350ec14E"(ptr nonnull sret({ i64, [2 x i64] }) align 8 %10, ptr align 8 %2)
-  %11 = load i64, ptr %10, align 8, !range !6, !noundef !3
+  %11 = load i64, ptr %10, align 16, !range !6, !noundef !3
   %.not = icmp eq i64 %11, -9223372036854775808
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %3
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false)
+  %.sroa.0.0.copyload = load b192, ptr %10, align 16
   %13 = load ptr, ptr %1, align 8, !nonnull !3, !align !7, !noundef !3
+  store b192 %.sroa.0.0.copyload, ptr %8, align 16
   call void @"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h96d9e04708b44305E"(ptr nonnull sret({ i64, [2 x i64] }) align 8 %9, ptr nonnull align 1 %13, ptr nonnull align 8 %8)
   call void @"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17he42e5cc2d1fcd353E"(ptr nonnull sret({ i64, [2 x i64] }) align 8 %6, ptr nonnull align 8 %9)
   %14 = load i64, ptr %6, align 8, !range !6, !noundef !3

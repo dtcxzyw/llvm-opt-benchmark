@@ -758,17 +758,17 @@ cond.false:                                       ; preds = %entry
 
 cond.end:                                         ; preds = %cond.false, %cond.true
   %cond = phi ptr [ %call2, %cond.true ], [ %call3, %cond.false ]
-  %tmCopy.sroa.0.0.copyload = load i32, ptr %cond, align 8
+  %tmCopy.sroa.0.0.copyload2 = load i32, ptr %cond, align 8
   %tmCopy.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %cond, i64 4
-  %tmCopy.sroa.2.0.copyload = load i32, ptr %tmCopy.sroa.2.0..sroa_idx, align 4
+  %tmCopy.sroa.2.0.copyload3 = load i32, ptr %tmCopy.sroa.2.0..sroa_idx, align 4
   %tmCopy.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %cond, i64 8
-  %tmCopy.sroa.3.0.copyload = load i32, ptr %tmCopy.sroa.3.0..sroa_idx, align 8
+  %tmCopy.sroa.3.0.copyload4 = load i32, ptr %tmCopy.sroa.3.0..sroa_idx, align 8
   %tmCopy.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %cond, i64 12
-  %tmCopy.sroa.4.0.copyload = load i32, ptr %tmCopy.sroa.4.0..sroa_idx, align 4
+  %tmCopy.sroa.4.0.copyload5 = load i32, ptr %tmCopy.sroa.4.0..sroa_idx, align 4
   %tmCopy.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %cond, i64 16
-  %tmCopy.sroa.5.0.copyload = load i32, ptr %tmCopy.sroa.5.0..sroa_idx, align 8
+  %tmCopy.sroa.5.0.copyload6 = load i32, ptr %tmCopy.sroa.5.0..sroa_idx, align 8
   %tmCopy.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %cond, i64 20
-  %tmCopy.sroa.6.0.copyload = load i32, ptr %tmCopy.sroa.6.0..sroa_idx, align 4
+  %tmCopy.sroa.6.0.copyload7 = load i32, ptr %tmCopy.sroa.6.0..sroa_idx, align 4
   br i1 %bSetNanoseconds, label %if.then, label %if.end
 
 if.then:                                          ; preds = %cond.end
@@ -790,9 +790,9 @@ if.then:                                          ; preds = %cond.end
 
 if.end:                                           ; preds = %cond.end, %if.then
   %conv = phi i32 [ %2, %if.then ], [ 0, %cond.end ]
-  %add = add nsw i32 %tmCopy.sroa.6.0.copyload, 1900
-  %add6 = add nsw i32 %tmCopy.sroa.5.0.copyload, 1
-  call void @_ZN2EA4StdC8DateTime3SetEjjjjjjj(ptr noundef nonnull align 8 dereferenceable(12) %this, i32 noundef %add, i32 noundef %add6, i32 noundef %tmCopy.sroa.4.0.copyload, i32 noundef %tmCopy.sroa.3.0.copyload, i32 noundef %tmCopy.sroa.2.0.copyload, i32 noundef %tmCopy.sroa.0.0.copyload, i32 noundef %conv)
+  %add = add nsw i32 %tmCopy.sroa.6.0.copyload7, 1900
+  %add6 = add nsw i32 %tmCopy.sroa.5.0.copyload6, 1
+  call void @_ZN2EA4StdC8DateTime3SetEjjjjjjj(ptr noundef nonnull align 8 dereferenceable(12) %this, i32 noundef %add, i32 noundef %add6, i32 noundef %tmCopy.sroa.4.0.copyload5, i32 noundef %tmCopy.sroa.3.0.copyload4, i32 noundef %tmCopy.sroa.2.0.copyload3, i32 noundef %tmCopy.sroa.0.0.copyload2, i32 noundef %conv)
   ret void
 }
 
@@ -1553,68 +1553,73 @@ declare ptr @localtime_r(ptr noundef, ptr noundef) local_unnamed_addr #9
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local noundef range(i32 -1, 2) i32 @_ZN2EA4StdC17TimevalDifferenceEPK7timevalS3_PS1_(ptr noundef readonly captures(none) %pTVA, ptr noundef readonly captures(none) %pTVB, ptr noundef writeonly captures(none) initializes((0, 16)) %pTVResult) local_unnamed_addr #14 {
 entry:
-  %tva.sroa.0.0.copyload = load i64, ptr %pTVA, align 8
+  %tva.sroa.0.0.copyload28 = load i64, ptr %pTVA, align 8
   %tva.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %pTVA, i64 8
-  %tva.sroa.4.0.copyload = load i64, ptr %tva.sroa.4.0..sroa_idx, align 8
-  %tvb.sroa.0.0.copyload = load i64, ptr %pTVB, align 8
+  %tva.sroa.4.0.copyload29 = load i64, ptr %tva.sroa.4.0..sroa_idx, align 8
+  %tvb.sroa.0.0.copyload = load b64, ptr %pTVB, align 8
   %tvb.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %pTVB, i64 8
-  %tvb.sroa.8.0.copyload = load i64, ptr %tvb.sroa.8.0..sroa_idx, align 8
-  %cmp = icmp slt i64 %tva.sroa.4.0.copyload, %tvb.sroa.8.0.copyload
+  %tvb.sroa.8.0.copyload35 = load i64, ptr %tvb.sroa.8.0..sroa_idx, align 8
+  %cmp = icmp slt i64 %tva.sroa.4.0.copyload29, %tvb.sroa.8.0.copyload35
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %sub = sub nsw i64 %tvb.sroa.8.0.copyload, %tva.sroa.4.0.copyload
+  %sub = sub nsw i64 %tvb.sroa.8.0.copyload35, %tva.sroa.4.0.copyload29
   %div = udiv i64 %sub, 1000000
   %0 = trunc i64 %div to i32
   %conv = add i32 %0, 1
   %mul = mul nsw i32 %conv, 1000000
   %conv4 = sext i32 %mul to i64
-  %sub6 = sub nsw i64 %tvb.sroa.8.0.copyload, %conv4
+  %sub6 = sub nsw i64 %tvb.sroa.8.0.copyload35, %conv4
   %conv7 = sext i32 %conv to i64
-  %add8 = add nsw i64 %tvb.sroa.0.0.copyload, %conv7
+  %1 = bytecast b64 %tvb.sroa.0.0.copyload to i64
+  %add8 = add nsw i64 %conv7, %1
+  %2 = bitcast i64 %add8 to b64
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %tvb.sroa.0.0 = phi i64 [ %add8, %if.then ], [ %tvb.sroa.0.0.copyload, %entry ]
-  %tvb.sroa.8.0 = phi i64 [ %sub6, %if.then ], [ %tvb.sroa.8.0.copyload, %entry ]
-  %sub11 = sub nsw i64 %tva.sroa.4.0.copyload, %tvb.sroa.8.0
+  %.pre-phi = phi i64 [ %sub6, %if.then ], [ %tvb.sroa.8.0.copyload35, %entry ]
+  %tvb.sroa.0.0 = phi b64 [ %2, %if.then ], [ %tvb.sroa.0.0.copyload, %entry ]
+  %sub11 = sub nsw i64 %tva.sroa.4.0.copyload29, %.pre-phi
   %cmp12 = icmp sgt i64 %sub11, 1000000
   br i1 %cmp12, label %if.then13, label %if.end27
 
 if.then13:                                        ; preds = %if.end
-  %sub17 = sub nsw i64 %tvb.sroa.8.0, %tva.sroa.4.0.copyload
+  %sub17 = sub nsw i64 %.pre-phi, %tva.sroa.4.0.copyload29
   %div18 = sdiv i64 %sub17, 1000000
   %sext = mul i64 %div18, 4294967296000000
   %conv21 = ashr exact i64 %sext, 32
-  %add23 = add nsw i64 %conv21, %tvb.sroa.8.0
-  %sext24 = shl i64 %div18, 32
-  %conv24 = ashr exact i64 %sext24, 32
-  %sub26 = sub nsw i64 %tvb.sroa.0.0, %conv24
-  %.pre = sub nsw i64 %tva.sroa.4.0.copyload, %add23
+  %add23 = add nsw i64 %conv21, %.pre-phi
+  %sext30 = shl i64 %div18, 32
+  %conv24 = ashr exact i64 %sext30, 32
+  %3 = bytecast b64 %tvb.sroa.0.0 to i64
+  %sub26 = sub nsw i64 %3, %conv24
+  %4 = bitcast i64 %sub26 to b64
+  %.pre33 = sub nsw i64 %tva.sroa.4.0.copyload29, %add23
   br label %if.end27
 
 if.end27:                                         ; preds = %if.then13, %if.end
-  %sub34.pre-phi = phi i64 [ %.pre, %if.then13 ], [ %sub11, %if.end ]
-  %tvb.sroa.0.1 = phi i64 [ %sub26, %if.then13 ], [ %tvb.sroa.0.0, %if.end ]
-  %tvb.sroa.8.1 = phi i64 [ %add23, %if.then13 ], [ %tvb.sroa.8.0, %if.end ]
-  %sub30 = sub nsw i64 %tva.sroa.0.0.copyload, %tvb.sroa.0.1
+  %sub34.pre-phi = phi i64 [ %.pre33, %if.then13 ], [ %sub11, %if.end ]
+  %.pre-phi32 = phi i64 [ %add23, %if.then13 ], [ %.pre-phi, %if.end ]
+  %tvb.sroa.0.1 = phi b64 [ %4, %if.then13 ], [ %tvb.sroa.0.0, %if.end ]
+  %5 = bytecast b64 %tvb.sroa.0.1 to i64
+  %sub30 = sub nsw i64 %tva.sroa.0.0.copyload28, %5
   store i64 %sub30, ptr %pTVResult, align 8
   %tv_usec35 = getelementptr inbounds nuw i8, ptr %pTVResult, i64 8
   store i64 %sub34.pre-phi, ptr %tv_usec35, align 8
-  %cmp38 = icmp eq i64 %tva.sroa.0.0.copyload, %tvb.sroa.0.1
+  %cmp38 = icmp eq i64 %tva.sroa.0.0.copyload28, %5
   br i1 %cmp38, label %if.then39, label %if.end48
 
 if.then39:                                        ; preds = %if.end27
-  %cmp42 = icmp eq i64 %tva.sroa.4.0.copyload, %tvb.sroa.8.1
+  %cmp42 = icmp eq i64 %tva.sroa.4.0.copyload29, %.pre-phi32
   br i1 %cmp42, label %return, label %if.end44
 
 if.end44:                                         ; preds = %if.then39
-  %cmp47 = icmp sgt i64 %tva.sroa.4.0.copyload, %tvb.sroa.8.1
+  %cmp47 = icmp sgt i64 %tva.sroa.4.0.copyload29, %.pre-phi32
   %cond = select i1 %cmp47, i32 1, i32 -1
   br label %return
 
 if.end48:                                         ; preds = %if.end27
-  %cmp51 = icmp sgt i64 %tva.sroa.0.0.copyload, %tvb.sroa.0.1
+  %cmp51 = icmp sgt i64 %tva.sroa.0.0.copyload28, %5
   %cond52 = select i1 %cmp51, i32 1, i32 -1
   br label %return
 

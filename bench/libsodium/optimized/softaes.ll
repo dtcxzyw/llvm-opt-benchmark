@@ -13,21 +13,21 @@ define hidden { i64, i64 } @_sodium_softaes_block_encrypt(i64 %0, i64 %1, i64 %2
   %8 = alloca [4 x i8], align 64
   %9 = alloca [4 x i8], align 64
   %10 = alloca [4 x i8], align 64
-  %.sroa.220.0.extract.shift = lshr i64 %0, 32
-  %.sroa.522.8.extract.shift = lshr i64 %1, 32
+  %.sroa.221.0.extract.shift = lshr i64 %0, 32
+  %.sroa.523.8.extract.shift = lshr i64 %1, 32
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %11 = trunc i64 %0 to i8
   store i8 %11, ptr %7, align 64
-  %12 = trunc i64 %.sroa.220.0.extract.shift to i8
+  %12 = trunc i64 %.sroa.221.0.extract.shift to i8
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 1
   store i8 %12, ptr %13, align 1
   %14 = trunc i64 %1 to i8
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 2
   store i8 %14, ptr %15, align 2
-  %16 = trunc i64 %.sroa.522.8.extract.shift to i8
+  %16 = trunc i64 %.sroa.523.8.extract.shift to i8
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 3
   store i8 %16, ptr %17, align 1
   %18 = lshr i64 %0, 40
@@ -67,8 +67,8 @@ define hidden { i64, i64 } @_sodium_softaes_block_encrypt(i64 %0, i64 %1, i64 %2
   %42 = trunc i64 %41 to i8
   %43 = getelementptr inbounds nuw i8, ptr %10, i64 1
   store i8 %42, ptr %43, align 1
-  %sum.shift25 = lshr i64 %0, 56
-  %44 = trunc nuw i64 %sum.shift25 to i8
+  %sum.shift26 = lshr i64 %0, 56
+  %44 = trunc nuw i64 %sum.shift26 to i8
   %45 = getelementptr inbounds nuw i8, ptr %10, i64 2
   store i8 %44, ptr %45, align 2
   %46 = lshr i64 %1, 24
@@ -158,6 +158,12 @@ define hidden { i64, i64 } @_sodium_softaes_block_encrypt(i64 %0, i64 %1, i64 %2
   br i1 %exitcond64.not.i, label %_encrypt.exit, label %.preheader.i, !llvm.loop !7
 
 _encrypt.exit:                                    ; preds = %102
+  %.sroa.5.8.extract.shift = lshr i64 %3, 32
+  %.sroa.5.8.extract.trunc = trunc nuw i64 %.sroa.5.8.extract.shift to i32
+  %.sroa.3.8.extract.trunc = trunc i64 %3 to i32
+  %.sroa.2.0.extract.shift = lshr i64 %2, 32
+  %.sroa.2.0.extract.trunc = trunc nuw i64 %.sroa.2.0.extract.shift to i32
+  %.sroa.019.0.extract.trunc = trunc i64 %2 to i32
   call void asm sideeffect "", "r,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %5) #3, !srcloc !8
   %104 = lshr i64 %0, 4
   %105 = and i64 %104, 15
@@ -270,14 +276,40 @@ _encrypt.exit:                                    ; preds = %102
   %.sroa.5.8.insert.shift.i = shl nuw i64 %.sroa.5.8.insert.ext.i, 32
   %.sroa.3.8.insert.ext.i = zext i32 %178 to i64
   %.sroa.3.8.insert.insert.i = or disjoint i64 %.sroa.5.8.insert.shift.i, %.sroa.3.8.insert.ext.i
-  %205 = xor i64 %.sroa.057.0.insert.insert.i, %2
-  %.sroa.8.8.insert.insert = xor i64 %.sroa.3.8.insert.insert.i, %3
+  %205 = bitcast i64 %.sroa.057.0.insert.insert.i to b64
+  %206 = bitcast i64 %.sroa.3.8.insert.insert.i to b64
+  %.sroa.016.0.extract.trunc = trunc b64 %205 to b32
+  %207 = bytecast b32 %.sroa.016.0.extract.trunc to i32
+  %208 = xor i32 %207, %.sroa.019.0.extract.trunc
+  %.sroa.016.0.insert.ext = zext i32 %208 to i64
+  %.sroa.016.0.insert.insert = or disjoint i64 %.sroa.2.0.insert.shift.i, %.sroa.016.0.insert.ext
+  %209 = bitcast i64 %.sroa.016.0.insert.insert to b64
+  %.sroa.016.4.extract.shift = lshr b64 %209, 32
+  %.sroa.016.4.extract.trunc = trunc b64 %.sroa.016.4.extract.shift to b32
+  %210 = bytecast b32 %.sroa.016.4.extract.trunc to i32
+  %211 = xor i32 %210, %.sroa.2.0.extract.trunc
+  %.sroa.016.4.insert.ext = zext i32 %211 to i64
+  %.sroa.016.4.insert.shift = shl nuw i64 %.sroa.016.4.insert.ext, 32
+  %.sroa.016.4.insert.insert = or disjoint i64 %.sroa.016.4.insert.shift, %.sroa.016.0.insert.ext
+  %.sroa.8.0.extract.trunc = trunc b64 %206 to b32
+  %212 = bytecast b32 %.sroa.8.0.extract.trunc to i32
+  %213 = xor i32 %212, %.sroa.3.8.extract.trunc
+  %.sroa.8.0.insert.ext = zext i32 %213 to i64
+  %.sroa.8.0.insert.insert = or disjoint i64 %.sroa.5.8.insert.shift.i, %.sroa.8.0.insert.ext
+  %214 = bitcast i64 %.sroa.8.0.insert.insert to b64
+  %.sroa.8.4.extract.shift = lshr b64 %214, 32
+  %.sroa.8.4.extract.trunc = trunc b64 %.sroa.8.4.extract.shift to b32
+  %215 = bytecast b32 %.sroa.8.4.extract.trunc to i32
+  %216 = xor i32 %215, %.sroa.5.8.extract.trunc
+  %.sroa.8.4.insert.ext = zext i32 %216 to i64
+  %.sroa.8.4.insert.shift = shl nuw i64 %.sroa.8.4.insert.ext, 32
+  %.sroa.8.4.insert.insert = or disjoint i64 %.sroa.8.4.insert.shift, %.sroa.8.0.insert.ext
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %205, 0
-  %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.8.8.insert.insert, 1
+  %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.016.4.insert.insert, 0
+  %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.8.4.insert.insert, 1
   ret { i64, i64 } %.fca.1.insert
 }
 

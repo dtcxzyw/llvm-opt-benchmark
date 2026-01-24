@@ -2195,7 +2195,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.2078 = private unnamed_addr constant [78 x i8] c"test_wolfSSL_client_server_nofail_memio(&client_cbf, &server_cbf, ((void*)0))\00", align 1
 @.str.2079 = private unnamed_addr constant [32 x i8] c"sess = wolfSSL_get_session(ssl)\00", align 1
 @.str.2080 = private unnamed_addr constant [40 x i8] c"sess = wolfSSL_get_session(ssl) => NULL\00", align 1
-@__const.test_tls_alert_no_server_hello.alert_msg = private unnamed_addr constant [7 x i8] c"\15\03\01\00\02\02(", align 1
 @.str.2081 = private unnamed_addr constant [107 x i8] c"test_memio_setup(&test_ctx, &ctx_c, ((void*)0), &ssl_c, ((void*)0), wolfTLSv1_2_client_method, ((void*)0))\00", align 1
 @.str.2082 = private unnamed_addr constant [29 x i8] c"wolfSSL_get_error(ssl_c, -1)\00", align 1
 @.str.2083 = private unnamed_addr constant [49 x i8] c"ECDHE-ECDSA-AES256-SHA:ECDHE-ECDSA-AES256-SHA384\00", align 1
@@ -30161,19 +30160,19 @@ define internal range(i32 0, 2) i32 @test_tls_alert_no_server_hello() #0 {
   %15 = call i64 @fwrite(ptr nonnull @.str.8, i64 2, i64 1, ptr %14)
   %16 = load ptr, ptr @stdout, align 8, !tbaa !22
   %17 = call i32 @fflush(ptr noundef %16)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(7) %3, ptr noundef nonnull align 1 dereferenceable(7) @__const.test_tls_alert_no_server_hello.alert_msg, i64 7, i1 false)
+  store i56 11261206681682709, ptr %3, align 8
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 65536
   store i32 7, ptr %18, align 8, !tbaa !158
-  br label %.critedge106
+  br label %.critedge107
 
 .critedge:                                        ; preds = %0
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(7) %3, ptr noundef nonnull align 1 dereferenceable(7) @__const.test_tls_alert_no_server_hello.alert_msg, i64 7, i1 false)
+  store i56 11261206681682709, ptr %3, align 8
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 65536
   store i32 7, ptr %19, align 8, !tbaa !158
   %20 = load ptr, ptr %1, align 8, !tbaa !145
   %21 = call i32 @wolfSSL_connect(ptr noundef %20) #27
   %22 = icmp eq i32 %21, -1
-  br i1 %22, label %.critedge108, label %23
+  br i1 %22, label %.critedge109, label %23
 
 23:                                               ; preds = %.critedge
   %24 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, ptr noundef nonnull @.str.1, i32 noundef 95193)
@@ -30187,15 +30186,15 @@ define internal range(i32 0, 2) i32 @test_tls_alert_no_server_hello() #0 {
   %32 = call i64 @fwrite(ptr nonnull @.str.8, i64 2, i64 1, ptr %31)
   %33 = load ptr, ptr @stdout, align 8, !tbaa !22
   %34 = call i32 @fflush(ptr noundef %33)
-  br label %.critedge106
+  br label %.critedge107
 
-.critedge108:                                     ; preds = %.critedge
+.critedge109:                                     ; preds = %.critedge
   %35 = load ptr, ptr %1, align 8, !tbaa !145
   %36 = call i32 @wolfSSL_get_error(ptr noundef %35, i32 noundef -1) #27
   %37 = icmp eq i32 %36, -313
-  br i1 %37, label %.critedge106, label %38
+  br i1 %37, label %.critedge107, label %38
 
-38:                                               ; preds = %.critedge108
+38:                                               ; preds = %.critedge109
   %39 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, ptr noundef nonnull @.str.1, i32 noundef 95194)
   %40 = load ptr, ptr @stdout, align 8, !tbaa !22
   %41 = call i64 @fwrite(ptr nonnull @.str.2, i64 15, i64 1, ptr %40)
@@ -30207,10 +30206,10 @@ define internal range(i32 0, 2) i32 @test_tls_alert_no_server_hello() #0 {
   %47 = call i64 @fwrite(ptr nonnull @.str.8, i64 2, i64 1, ptr %46)
   %48 = load ptr, ptr @stdout, align 8, !tbaa !22
   %49 = call i32 @fflush(ptr noundef %48)
-  br label %.critedge106
+  br label %.critedge107
 
-.critedge106:                                     ; preds = %23, %6, %.critedge108, %38
-  %.5 = phi i32 [ 1, %.critedge108 ], [ 0, %23 ], [ 0, %38 ], [ 0, %6 ]
+.critedge107:                                     ; preds = %23, %6, %.critedge109, %38
+  %.5 = phi i32 [ 1, %.critedge109 ], [ 0, %23 ], [ 0, %38 ], [ 0, %6 ]
   %50 = load ptr, ptr %1, align 8, !tbaa !145
   call void @wolfSSL_free(ptr noundef %50) #27
   %51 = load ptr, ptr %2, align 8, !tbaa !144

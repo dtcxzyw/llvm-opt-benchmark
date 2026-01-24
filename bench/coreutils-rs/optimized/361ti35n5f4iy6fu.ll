@@ -47,12 +47,13 @@ define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN5alloc11colle
   %18 = load ptr, ptr %0, align 8, !nonnull !4, !align !5, !noundef !4
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %20 = load i64, ptr %19, align 8, !noundef !4
+  %.sroa.0.0.copyload = load b192, ptr %1, align 8
   store i16 1, ptr %17, align 2, !noalias !6
   store ptr %18, ptr %12, align 8, !noalias !6
   %21 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i64 %20, ptr %21, align 8, !noalias !12
   %22 = getelementptr inbounds nuw i8, ptr %12, i64 184
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
+  store b192 %.sroa.0.0.copyload, ptr %22, align 8, !noalias !12
   store ptr %12, ptr %11, align 8
   %23 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i64 0, ptr %23, align 8
@@ -136,12 +137,13 @@ define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN5alloc11colle
   %18 = load ptr, ptr %0, align 8, !nonnull !4, !align !5, !noundef !4
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %20 = load i64, ptr %19, align 8, !noundef !4
+  %.sroa.0.0.copyload = load b192, ptr %1, align 8
   store i16 1, ptr %17, align 2, !noalias !16
   store ptr %18, ptr %12, align 8, !noalias !16
   %21 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i64 %20, ptr %21, align 8, !noalias !22
   %22 = getelementptr inbounds nuw i8, ptr %12, i64 184
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
+  store b192 %.sroa.0.0.copyload, ptr %22, align 8, !noalias !22
   store ptr %12, ptr %11, align 8
   %23 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i64 0, ptr %23, align 8
@@ -257,8 +259,9 @@ define hidden void @"_ZN5alloc11collections5btree3map5entry30OccupiedEntry$LT$K$
   %6 = load i64, ptr %5, align 8, !alias.scope !35, !noundef !4
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 184
   %8 = getelementptr inbounds { [3 x i64] }, ptr %7, i64 %6
+  %.sroa.0.0.copyload = load b192, ptr %2, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
+  store b192 %.sroa.0.0.copyload, ptr %8, align 8
   ret void
 }
 
@@ -274,8 +277,9 @@ define hidden void @"_ZN5alloc11collections5btree3map5entry30OccupiedEntry$LT$K$
   %6 = load i64, ptr %5, align 8, !alias.scope !38, !noundef !4
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 184
   %8 = getelementptr inbounds { [3 x i64] }, ptr %7, i64 %6
+  %.sroa.0.0.copyload = load b192, ptr %2, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
+  store b192 %.sroa.0.0.copyload, ptr %8, align 8
   ret void
 }
 

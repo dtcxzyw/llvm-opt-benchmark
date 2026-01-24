@@ -180,31 +180,28 @@ define internal range(i32 -1, 2) i32 @orc_sort_cmp(ptr noundef %0, ptr noundef %
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none)
 define internal void @orc_sort_swap(ptr noundef %0, ptr noundef %1, i32 %2) #4 align 16 {
-  %4 = alloca %struct.orc_entry, align 1
-  %5 = ptrtoint ptr %1 to i64
-  %6 = ptrtoint ptr %0 to i64
-  %7 = sub i64 %5, %6
-  %8 = trunc i64 %7 to i32
-  %9 = load i32, ptr %0, align 4
-  %10 = load i32, ptr %1, align 4
-  %11 = add i32 %10, %8
-  store i32 %11, ptr %0, align 4
-  %12 = sub i32 %9, %8
-  store i32 %12, ptr %1, align 4
-  %13 = load ptr, ptr @cur_orc_table, align 8
-  %14 = load ptr, ptr @cur_orc_ip_table, align 8
-  %15 = ptrtoint ptr %14 to i64
-  %16 = sub i64 %6, %15
-  %17 = ashr exact i64 %16, 2
-  %18 = getelementptr %struct.orc_entry, ptr %13, i64 %17
-  %19 = sub i64 %5, %15
-  %20 = ashr exact i64 %19, 2
-  %21 = getelementptr %struct.orc_entry, ptr %13, i64 %20
-  call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %4, ptr noundef align 1 dereferenceable(6) %18, i64 6, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(6) %18, ptr noundef align 1 dereferenceable(6) %21, i64 6, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(6) %21, ptr noundef nonnull align 1 dereferenceable(6) %4, i64 6, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  %4 = ptrtoint ptr %1 to i64
+  %5 = ptrtoint ptr %0 to i64
+  %6 = sub i64 %4, %5
+  %7 = trunc i64 %6 to i32
+  %8 = load i32, ptr %0, align 4
+  %9 = load i32, ptr %1, align 4
+  %10 = add i32 %9, %7
+  store i32 %10, ptr %0, align 4
+  %11 = sub i32 %8, %7
+  store i32 %11, ptr %1, align 4
+  %12 = load ptr, ptr @cur_orc_table, align 8
+  %13 = load ptr, ptr @cur_orc_ip_table, align 8
+  %14 = ptrtoint ptr %13 to i64
+  %15 = sub i64 %5, %14
+  %16 = ashr exact i64 %15, 2
+  %17 = getelementptr %struct.orc_entry, ptr %12, i64 %16
+  %18 = sub i64 %4, %14
+  %19 = ashr exact i64 %18, 2
+  %20 = getelementptr %struct.orc_entry, ptr %12, i64 %19
+  %.sroa.0.0.copyload = load b48, ptr %17, align 1
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(6) %17, ptr noundef align 1 dereferenceable(6) %20, i64 6, i1 false)
+  store b48 %.sroa.0.0.copyload, ptr %20, align 1
   ret void
 }
 

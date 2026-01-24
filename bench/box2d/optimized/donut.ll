@@ -71,15 +71,15 @@ define dso_local void @_ZN5Donut5SpawnE9b2WorldId6b2Vec2fiPv(ptr noundef nonnull
   %29 = getelementptr inbounds nuw i8, ptr %10, i64 48
   store float 0.000000e+00, ptr %29, align 8, !tbaa !31
   %30 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store float 0.000000e+00, ptr %30, align 8, !tbaa !32
+  store i32 0, ptr %30, align 8, !tbaa !32
   %.sroa.417.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 20
   store float %17, ptr %.sroa.417.0..sroa_idx, align 4, !tbaa !32
   %31 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  store float 0.000000e+00, ptr %31, align 8, !tbaa !32
+  store i32 0, ptr %31, align 8, !tbaa !32
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 28
   store float %14, ptr %.sroa.4.0..sroa_idx, align 4, !tbaa !32
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %.sroa.012.0.copyload = load i64, ptr %32, align 4
+  %.sroa.012.0.copyload = load b64, ptr %32, align 4
   %33 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %34 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -87,22 +87,22 @@ define dso_local void @_ZN5Donut5SpawnE9b2WorldId6b2Vec2fiPv(ptr noundef nonnull
 
 36:                                               ; preds = %6, %36
   %indvars.iv = phi i64 [ 0, %6 ], [ %indvars.iv.next, %36 ]
-  %.05256 = phi float [ 0.000000e+00, %6 ], [ %47, %36 ]
-  %37 = call float @cosf(float noundef %.05256) #7, !tbaa !33
+  %.05156 = phi float [ 0.000000e+00, %6 ], [ %47, %36 ]
+  %37 = call float @cosf(float noundef %.05156) #7, !tbaa !33
   %38 = fmul float %3, %37
   %39 = fadd float %.sroa.049.0.vec.extract, %38
-  %40 = call float @sinf(float noundef %.05256) #7, !tbaa !33
+  %40 = call float @sinf(float noundef %.05156) #7, !tbaa !33
   %41 = fmul float %3, %40
   %42 = fadd float %.sroa.049.4.vec.extract, %41
   store float %39, ptr %25, align 4, !tbaa !32
   store float %42, ptr %.sroa.424.0..sroa_idx, align 8, !tbaa !32
-  %43 = call <2 x float> @b2ComputeCosSin(float noundef %.05256)
+  %43 = call <2 x float> @b2ComputeCosSin(float noundef %.05156)
   store <2 x float> %43, ptr %26, align 4
   %44 = call i64 @b2CreateBody(i32 %1, ptr noundef nonnull %8)
   %45 = getelementptr inbounds nuw %struct.b2BodyId, ptr %0, i64 %indvars.iv
   store i64 %44, ptr %45, align 4
   %46 = call i64 @b2CreateCapsuleShape(i64 %44, ptr noundef nonnull %9, ptr noundef nonnull %7)
-  %47 = fadd float %.05256, 0x3FECB91F40000000
+  %47 = fadd float %.05156, 0x3FECB91F40000000
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 7
   br i1 %exitcond.not, label %27, label %36, !llvm.loop !34
@@ -118,31 +118,32 @@ define dso_local void @_ZN5Donut5SpawnE9b2WorldId6b2Vec2fiPv(ptr noundef nonnull
 
 50:                                               ; preds = %27, %50
   %indvars.iv60 = phi i64 [ 0, %27 ], [ %indvars.iv.next61, %50 ]
-  %.sroa.012.058 = phi i64 [ %.sroa.012.0.copyload, %27 ], [ %.sroa.012.0.copyload14, %50 ]
-  store i64 %.sroa.012.058, ptr %10, align 8
+  %.sroa.012.058 = phi b64 [ %.sroa.012.0.copyload, %27 ], [ %.sroa.012.0.copyload14, %50 ]
+  store b64 %.sroa.012.058, ptr %10, align 8
   %51 = getelementptr inbounds nuw %struct.b2BodyId, ptr %0, i64 %indvars.iv60
-  %52 = load i64, ptr %51, align 4
-  store i64 %52, ptr %33, align 8
-  %53 = call <2 x float> @b2Body_GetRotation(i64 %.sroa.012.058)
-  %.sroa.04.0.copyload = load i64, ptr %51, align 4
-  %54 = call <2 x float> @b2Body_GetRotation(i64 %.sroa.04.0.copyload)
-  %.sroa.06.4.vec.extract.i = extractelement <2 x float> %54, i64 1
-  %.sroa.0.0.vec.extract.i = extractelement <2 x float> %53, i64 0
-  %55 = fmul float %.sroa.0.0.vec.extract.i, %.sroa.06.4.vec.extract.i
-  %.sroa.06.0.vec.extract.i = extractelement <2 x float> %54, i64 0
-  %.sroa.0.4.vec.extract.i = extractelement <2 x float> %53, i64 1
-  %56 = fmul float %.sroa.0.4.vec.extract.i, %.sroa.06.0.vec.extract.i
-  %57 = fsub float %55, %56
-  %foldExtExtBinop = fmul <2 x float> %53, %54
-  %58 = extractelement <2 x float> %foldExtExtBinop, i64 0
-  %59 = fmul float %.sroa.0.4.vec.extract.i, %.sroa.06.4.vec.extract.i
-  %60 = fadd float %58, %59
-  %61 = call noundef float @b2Atan2(float noundef %57, float noundef %60)
-  store float %61, ptr %34, align 8, !tbaa !38
-  %62 = call i64 @b2CreateWeldJoint(i32 %1, ptr noundef nonnull %10)
-  %63 = getelementptr inbounds nuw %struct.b2JointId, ptr %35, i64 %indvars.iv60
-  store i64 %62, ptr %63, align 4
-  %.sroa.012.0.copyload14 = load i64, ptr %33, align 8
+  %52 = load b64, ptr %51, align 4
+  store b64 %52, ptr %33, align 8
+  %53 = bytecast b64 %.sroa.012.058 to i64
+  %54 = call <2 x float> @b2Body_GetRotation(i64 %53)
+  %.sroa.04.0.copyload54 = load i64, ptr %51, align 4
+  %55 = call <2 x float> @b2Body_GetRotation(i64 %.sroa.04.0.copyload54)
+  %.sroa.06.4.vec.extract.i = extractelement <2 x float> %55, i64 1
+  %.sroa.0.0.vec.extract.i = extractelement <2 x float> %54, i64 0
+  %56 = fmul float %.sroa.0.0.vec.extract.i, %.sroa.06.4.vec.extract.i
+  %.sroa.06.0.vec.extract.i = extractelement <2 x float> %55, i64 0
+  %.sroa.0.4.vec.extract.i = extractelement <2 x float> %54, i64 1
+  %57 = fmul float %.sroa.0.4.vec.extract.i, %.sroa.06.0.vec.extract.i
+  %58 = fsub float %56, %57
+  %foldExtExtBinop = fmul <2 x float> %54, %55
+  %59 = extractelement <2 x float> %foldExtExtBinop, i64 0
+  %60 = fmul float %.sroa.0.4.vec.extract.i, %.sroa.06.4.vec.extract.i
+  %61 = fadd float %59, %60
+  %62 = call noundef float @b2Atan2(float noundef %58, float noundef %61)
+  store float %62, ptr %34, align 8, !tbaa !38
+  %63 = call i64 @b2CreateWeldJoint(i32 %1, ptr noundef nonnull %10)
+  %64 = getelementptr inbounds nuw %struct.b2JointId, ptr %35, i64 %indvars.iv60
+  store i64 %63, ptr %64, align 4
+  %.sroa.012.0.copyload14 = load b64, ptr %33, align 8
   %indvars.iv.next61 = add nuw nsw i64 %indvars.iv60, 1
   %exitcond63.not = icmp eq i64 %indvars.iv.next61, 7
   br i1 %exitcond63.not, label %48, label %50, !llvm.loop !39
@@ -181,8 +182,8 @@ define dso_local void @_ZN5Donut7DespawnEv(ptr noundef nonnull align 4 captures(
 5:                                                ; preds = %1, %5
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %5 ]
   %6 = getelementptr inbounds nuw %struct.b2BodyId, ptr %0, i64 %indvars.iv
-  %.sroa.0.0.copyload = load i64, ptr %6, align 4
-  tail call void @b2DestroyBody(i64 %.sroa.0.0.copyload)
+  %.sroa.0.0.copyload5 = load i64, ptr %6, align 4
+  tail call void @b2DestroyBody(i64 %.sroa.0.0.copyload5)
   store i64 0, ptr %6, align 4
   %7 = getelementptr inbounds nuw %struct.b2JointId, ptr %2, i64 %indvars.iv
   store i64 0, ptr %7, align 4

@@ -631,9 +631,8 @@ define dso_local void @sema_analysis_run() local_unnamed_addr #0 {
   store i64 0, ptr getelementptr inbounds nuw (i8, ptr @global_context, i64 320), align 8
   store ptr %7, ptr getelementptr inbounds nuw (i8, ptr @global_context, i64 328), align 8
   store i32 %9, ptr getelementptr inbounds nuw (i8, ptr @global_context, i64 336), align 8
-  store ptr getelementptr inbounds nuw (i8, ptr @global_context, i64 320), ptr getelementptr inbounds nuw (i8, ptr @global_context, i64 144), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @global_context, i64 152), i8 0, i64 120, i1 false)
-  store i16 384, ptr getelementptr inbounds nuw (i8, ptr @global_context, i64 168), align 8
+  store b64 bitcast (ptr getelementptr inbounds nuw (i8, ptr @global_context, i64 320) to b64), ptr getelementptr inbounds nuw (i8, ptr @global_context, i64 144), align 8
+  store i960 130668428897640369969935849253798993199104, ptr getelementptr inbounds nuw (i8, ptr @global_context, i64 152), align 8
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @global_context, i64 96), align 8
   tail call void @htable_init(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @global_context, i64 184), i32 noundef 4096) #10
   tail call void @type_func_prototype_init(i32 noundef 65536) #10
@@ -1340,9 +1339,6 @@ declare void @compiler_parse() local_unnamed_addr #4
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
-
 declare void @htable_init(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 declare void @type_func_prototype_init(i32 noundef) local_unnamed_addr #4
@@ -1428,21 +1424,21 @@ global_context_acquire_locals_list.exit:          ; preds = %.critedge.i, %11, %
 
 global_context_acquire_locals_list.exit9:         ; preds = %.critedge.i8, %26, %31
   %.014.i7 = phi ptr [ %25, %.critedge.i8 ], [ null, %26 ], [ %30, %31 ]
-  store ptr null, ptr %0, align 8
+  store i64 0, ptr %0, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %.sroa.2.0..sroa_idx, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %1, ptr %.sroa.3.0..sroa_idx, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %.sroa.4.0..sroa_idx, i8 0, i64 192, i1 false)
+  store i1536 0, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.41.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 216
   store ptr %.014.i, ptr %.sroa.41.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 224
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx, i8 0, i64 16, i1 false)
+  store i128 0, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.52.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 240
   store ptr %.014.i7, ptr %.sroa.52.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 248
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.6.0..sroa_idx, i8 0, i64 56, i1 false)
+  store i448 0, ptr %.sroa.6.0..sroa_idx, align 8
   ret void
 }
 
@@ -1485,7 +1481,7 @@ vec_resize.exit:                                  ; preds = %14, %9, %.critedge
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
-define dso_local void @sema_context_pop_ct_stack(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #7 {
+define dso_local void @sema_context_pop_ct_stack(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %4 = load ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %4, null
@@ -1779,21 +1775,21 @@ global_context_acquire_locals_list.exit.i:        ; preds = %21, %16, %.critedge
 
 sema_context_init.exit:                           ; preds = %.critedge.i8.i, %31, %36
   %.014.i7.i = phi ptr [ %30, %.critedge.i8.i ], [ null, %31 ], [ %35, %36 ]
-  store ptr null, ptr %1, align 8
+  store i64 0, ptr %1, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %2, ptr %.sroa.2.0..sroa_idx.i, align 8
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr %2, ptr %.sroa.3.0..sroa_idx.i, align 8
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %.sroa.4.0..sroa_idx.i, i8 0, i64 192, i1 false)
+  store i1536 0, ptr %.sroa.4.0..sroa_idx.i, align 8
   %.sroa.41.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 216
   store ptr %.014.i.i, ptr %.sroa.41.0..sroa_idx.i, align 8
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 224
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx.i, i8 0, i64 16, i1 false)
+  store i128 0, ptr %.sroa.5.0..sroa_idx.i, align 8
   %.sroa.52.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 240
   store ptr %.014.i7.i, ptr %.sroa.52.0..sroa_idx.i, align 8
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 248
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.6.0..sroa_idx.i, i8 0, i64 56, i1 false)
+  store i448 0, ptr %.sroa.6.0..sroa_idx.i, align 8
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %39 = load ptr, ptr %38, align 8
   store ptr %39, ptr %.sroa.3.0..sroa_idx.i, align 8
@@ -1828,6 +1824,9 @@ declare ptr @type_get_ptr(ptr noundef) local_unnamed_addr #4
 
 declare ptr @type_get_subarray(ptr noundef) local_unnamed_addr #4
 
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
 
@@ -1840,8 +1839,8 @@ attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #8 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { noreturn nounwind }
 attributes #10 = { nounwind }

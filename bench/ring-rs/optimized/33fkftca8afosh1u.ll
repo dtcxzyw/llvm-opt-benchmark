@@ -31,11 +31,12 @@ define hidden noundef range(i64 0, 2) i64 @_ZN4core4iter6traits10exact_size17Exa
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core5array40_$LT$impl$u20$$u5b$T$u3b$$u20$N$u5d$$GT$3map17hd0e8d1f5f18dc3e5E"(ptr noalias noundef writeonly sret([4 x [4 x i8]]) align 1 captures(none) dereferenceable(16) initializes((0, 16)) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
-  %3 = alloca { [4 x i32] }, align 4
+  %3 = alloca { [4 x i32] }, align 16
   %4 = alloca { [4 x [4 x i8]] }, align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  %.sroa.0.0.copyload = load b128, ptr %1, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !18
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(16) %1, i64 16, i1 false), !noalias !22
+  store b128 %.sroa.0.0.copyload, ptr %3, align 16, !noalias !22
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @_ZN4core5array25try_from_trusted_iterator17h55af298352255ed7E.llvm.5814777820638942741(ptr noalias noundef nonnull sret({ [4 x [4 x i8]] }) align 1 captures(none) dereferenceable(16) %4, ptr noundef nonnull %3, ptr noundef nonnull %5), !noalias !23
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !18
@@ -970,20 +971,20 @@ define noundef zeroext i1 @"_ZN4ring3rsa12verification93_$LT$impl$u20$ring..sign
 
 14:                                               ; preds = %7
   %.sroa.46.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %.sroa.46.0.copyload = load i64, ptr %.sroa.46.0..sroa_idx, align 8
+  %.sroa.46.0.copyload8 = load i64, ptr %.sroa.46.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %.sroa.5.0.copyload = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !nonnull !12, !noundef !12
+  %.sroa.5.0.copyload9 = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !nonnull !12, !noundef !12
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 24
-  %.sroa.6.0.copyload = load i64, ptr %.sroa.6.0..sroa_idx, align 8
+  %.sroa.6.0.copyload10 = load i64, ptr %.sroa.6.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %12, ptr %9, align 8
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i64 %.sroa.46.0.copyload, ptr %15, align 8
+  store i64 %.sroa.46.0.copyload8, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store ptr %.sroa.5.0.copyload, ptr %16, align 8
+  store ptr %.sroa.5.0.copyload9, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  store i64 %.sroa.6.0.copyload, ptr %17, align 8
+  store i64 %.sroa.6.0.copyload10, ptr %17, align 8
   %18 = call noundef i8 @_ZN4core4sync6atomic11atomic_load17h757d58c2fa035f26E.llvm.8403485840513791397(ptr noundef nonnull align 1 @_ZN4ring3cpu8features4INIT17hdec16924e286df23E, i8 noundef 2)
   %19 = icmp ult i8 %18, 4
   call void @llvm.assume(i1 %19)

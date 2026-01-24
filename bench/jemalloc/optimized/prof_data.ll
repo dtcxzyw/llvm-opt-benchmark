@@ -1195,11 +1195,18 @@ rtree_metadata_read.exit:                         ; preds = %483, %493, %505, %5
   %519 = inttoptr i64 %476 to ptr
   %520 = load atomic i64, ptr %.0.i.i15 monotonic, align 8, !noalias !60
   %521 = lshr i64 %520, 48
+  %522 = shl i64 %520, 30
+  %.sroa.3.8.insert.shift.i = and i64 %522, 30064771072
+  %.sroa.1.8.insert.insert.i = or disjoint i64 %.sroa.3.8.insert.shift.i, %521
+  %523 = bitcast i64 %.sroa.1.8.insert.insert.i to b64
+  %.sroa.01.0.extract.trunc.i = trunc b64 %523 to b32
+  %524 = bytecast b32 %.sroa.01.0.extract.trunc.i to i32
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %522 = getelementptr inbounds nuw i64, ptr @je_sz_index2size_tab, i64 %521
-  %523 = load i64, ptr %522, align 8, !tbaa !10
-  %524 = getelementptr inbounds nuw i8, ptr %519, i64 72
-  %525 = atomicrmw sub ptr %524, i64 %523 monotonic, align 8
+  %525 = zext i32 %524 to i64
+  %526 = getelementptr inbounds nuw i64, ptr @je_sz_index2size_tab, i64 %525
+  %527 = load i64, ptr %526, align 8, !tbaa !10
+  %528 = getelementptr inbounds nuw i8, ptr %519, i64 72
+  %529 = atomicrmw sub ptr %528, i64 %527 monotonic, align 8
   call fastcc void @arena_dalloc_no_tcache(ptr noundef %0, ptr noundef nonnull %1)
   ret void
 }
@@ -2246,21 +2253,28 @@ rtree_metadata_read.exit.i:                       ; preds = %605, %593, %581, %5
   %.0.i.i44.i = phi ptr [ %576, %571 ], [ %588, %581 ], [ %606, %605 ], [ %604, %593 ]
   %607 = load atomic i64, ptr %.0.i.i44.i monotonic, align 8, !noalias !97
   %608 = lshr i64 %607, 48
+  %609 = shl i64 %607, 30
+  %.sroa.3.8.insert.shift.i.i = and i64 %609, 30064771072
+  %.sroa.1.8.insert.insert.i.i = or disjoint i64 %.sroa.3.8.insert.shift.i.i, %608
+  %610 = bitcast i64 %.sroa.1.8.insert.insert.i.i to b64
+  %.sroa.01.0.extract.trunc.i.i = trunc b64 %610 to b32
+  %611 = bytecast b32 %.sroa.01.0.extract.trunc.i.i to i32
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %609 = getelementptr inbounds nuw i64, ptr @je_sz_index2size_tab, i64 %608
-  %610 = load i64, ptr %609, align 8, !tbaa !10
-  %611 = getelementptr inbounds nuw i8, ptr %564, i64 72
-  %612 = atomicrmw sub ptr %611, i64 %610 monotonic, align 8
+  %612 = zext i32 %611 to i64
+  %613 = getelementptr inbounds nuw i64, ptr @je_sz_index2size_tab, i64 %612
+  %614 = load i64, ptr %613, align 8, !tbaa !10
+  %615 = getelementptr inbounds nuw i8, ptr %564, i64 72
+  %616 = atomicrmw sub ptr %615, i64 %614 monotonic, align 8
   call fastcc void @arena_dalloc_no_tcache(ptr noundef %0, ptr noundef nonnull %1)
   br label %prof_tctx_destroy.exit
 
 prof_tctx_should_destroy.exit.thread:             ; preds = %8, %2, %11, %prof_tctx_should_destroy.exit
-  %613 = load ptr, ptr %1, align 8, !tbaa !71
-  %614 = load ptr, ptr %613, align 8, !tbaa !26
-  %615 = getelementptr inbounds nuw i8, ptr %614, i64 64
-  store atomic i8 0, ptr %615 monotonic, align 1
-  %616 = getelementptr inbounds nuw i8, ptr %614, i64 72
-  %617 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %616) #11
+  %617 = load ptr, ptr %1, align 8, !tbaa !71
+  %618 = load ptr, ptr %617, align 8, !tbaa !26
+  %619 = getelementptr inbounds nuw i8, ptr %618, i64 64
+  store atomic i8 0, ptr %619 monotonic, align 1
+  %620 = getelementptr inbounds nuw i8, ptr %618, i64 72
+  %621 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %620) #11
   br label %prof_tctx_destroy.exit
 
 prof_tctx_destroy.exit:                           ; preds = %rtree_metadata_read.exit.i, %505, %prof_tctx_should_destroy.exit.thread
@@ -2374,19 +2388,31 @@ emap_alloc_ctx_lookup.exit:                       ; preds = %5, %6
 rtree_metadata_read.exit:                         ; preds = %15, %25, %37, %49
   %.0.i.i6 = phi ptr [ %20, %15 ], [ %32, %25 ], [ %50, %49 ], [ %48, %37 ]
   %51 = load atomic i64, ptr %.0.i.i6 monotonic, align 8, !noalias !100
-  %52 = trunc i64 %51 to i1
+  %52 = trunc i64 %51 to i8
+  %53 = and i8 %52, 1
+  %54 = lshr i8 %52, 1
+  %55 = and i8 %54, 1
+  %.sroa.6.16.insert.ext.i = zext nneg i8 %53 to i32
+  %.sroa.6.16.insert.shift.i = shl nuw nsw i32 %.sroa.6.16.insert.ext.i, 8
+  %.sroa.4.16.insert.ext.i = zext nneg i8 %55 to i32
+  %.sroa.4.16.insert.insert.i = or disjoint i32 %.sroa.6.16.insert.shift.i, %.sroa.4.16.insert.ext.i
+  %56 = bitcast i32 %.sroa.4.16.insert.insert.i to b32
+  %.sroa.4.1.extract.shift.i = lshr b32 %56, 8
+  %.sroa.4.1.extract.trunc.i = trunc b32 %.sroa.4.1.extract.shift.i to b8
+  %57 = bytecast b8 %.sroa.4.1.extract.trunc.i to i8
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br i1 %52, label %53, label %54, !prof !17
+  %58 = trunc i8 %57 to i1
+  br i1 %58, label %59, label %60, !prof !17
 
-53:                                               ; preds = %rtree_metadata_read.exit
+59:                                               ; preds = %rtree_metadata_read.exit
   call void @je_arena_dalloc_small(ptr noundef %0, ptr noundef %1) #11
-  br label %55
+  br label %61
 
-54:                                               ; preds = %rtree_metadata_read.exit
+60:                                               ; preds = %rtree_metadata_read.exit
   call fastcc void @arena_dalloc_large_no_tcache(ptr noundef %0, ptr noundef %1)
-  br label %55
+  br label %61
 
-55:                                               ; preds = %54, %53
+61:                                               ; preds = %60, %59
   ret void
 }
 

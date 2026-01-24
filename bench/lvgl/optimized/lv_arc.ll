@@ -632,8 +632,8 @@ lv_arc_set_value.exit:                            ; preds = %216
   store ptr %317, ptr %321, align 8, !tbaa !48
   call void @lv_obj_init_draw_arc_dsc(ptr noundef %316, i32 noundef 0, ptr noundef nonnull %5) #7
   %322 = getelementptr inbounds nuw i8, ptr %5, i64 64
-  %323 = load i64, ptr %3, align 8
-  store i64 %323, ptr %322, align 8
+  %323 = load b64, ptr %3, align 8
+  store b64 %323, ptr %322, align 8
   %324 = getelementptr inbounds nuw i8, ptr %316, i64 76
   %325 = load float, ptr %324, align 4, !tbaa !17
   %326 = getelementptr inbounds nuw i8, ptr %316, i64 64
@@ -685,8 +685,8 @@ lv_arc_set_value.exit:                            ; preds = %216
   store ptr %317, ptr %351, align 8, !tbaa !48
   call void @lv_obj_init_draw_arc_dsc(ptr noundef %316, i32 noundef 131072, ptr noundef nonnull %5) #7
   %352 = getelementptr inbounds nuw i8, ptr %5, i64 64
-  %353 = load i64, ptr %3, align 8
-  store i64 %353, ptr %352, align 8
+  %353 = load b64, ptr %3, align 8
+  store b64 %353, ptr %352, align 8
   %354 = getelementptr inbounds nuw i8, ptr %316, i64 68
   %355 = load float, ptr %354, align 4, !tbaa !19
   %356 = getelementptr inbounds nuw i8, ptr %316, i64 64
@@ -704,20 +704,22 @@ lv_arc_set_value.exit:                            ; preds = %216
   %366 = getelementptr inbounds nuw i8, ptr %5, i64 72
   store i16 %365, ptr %366, align 8, !tbaa !56
   call void @lv_draw_arc(ptr noundef %317, ptr noundef nonnull %5) #7
-  %367 = trunc i64 %353 to i32
-  %368 = lshr i64 %353, 32
-  %369 = trunc nuw i64 %368 to i32
+  %367 = trunc b64 %353 to b32
+  %368 = bytecast b32 %367 to i32
+  %369 = lshr b64 %353, 32
+  %370 = trunc b64 %369 to b32
+  %371 = bytecast b32 %370 to i32
   br label %lv_arc_draw.exit
 
 lv_arc_draw.exit:                                 ; preds = %._crit_edge.i, %350
-  %.val45.i = phi i32 [ %.val45.pre.i, %._crit_edge.i ], [ %369, %350 ]
-  %.val.i = phi i32 [ %.val.pre.i, %._crit_edge.i ], [ %367, %350 ]
+  %.val45.i = phi i32 [ %.val45.pre.i, %._crit_edge.i ], [ %371, %350 ]
+  %.val.i = phi i32 [ %.val.pre.i, %._crit_edge.i ], [ %368, %350 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call fastcc void @get_knob_area(ptr noundef %316, i32 %.val.i, i32 %.val45.i, i32 noundef %318, ptr noundef %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @lv_draw_rect_dsc_init(ptr noundef nonnull %7) #7
-  %370 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store ptr %317, ptr %370, align 8, !tbaa !57
+  %372 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  store ptr %317, ptr %372, align 8, !tbaa !57
   call void @lv_obj_init_draw_rect_dsc(ptr noundef %316, i32 noundef 196608, ptr noundef nonnull %7) #7
   call void @lv_draw_rect(ptr noundef %317, ptr noundef nonnull %7, ptr noundef nonnull %6) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %7)

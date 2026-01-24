@@ -3,12 +3,12 @@ source_filename = "bench/cjson/original/cJSON.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
+%struct.error = type { ptr, i64 }
 %struct.internal_hooks = type { ptr, ptr, ptr }
 %struct.parse_buffer = type { ptr, i64, i64, i64, %struct.internal_hooks }
 %struct.printbuffer = type { ptr, i64, i64, i64, i32, i32, %struct.internal_hooks }
 
-@global_error.0 = internal unnamed_addr global ptr null, align 8
-@global_error.1 = internal unnamed_addr global i64 0, align 8
+@global_error = internal unnamed_addr global %struct.error zeroinitializer, align 8
 @cJSON_Version.version = internal global [15 x i8] zeroinitializer, align 1
 @.str = private unnamed_addr constant [9 x i8] c"%i.%i.%i\00", align 1
 @global_hooks = internal unnamed_addr global %struct.internal_hooks { ptr @malloc, ptr @free, ptr @realloc }, align 8
@@ -24,8 +24,8 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define ptr @cJSON_GetErrorPtr() local_unnamed_addr #0 {
-  %1 = load ptr, ptr @global_error.0, align 8, !tbaa !3
-  %2 = load i64, ptr @global_error.1, align 8, !tbaa !10
+  %1 = load ptr, ptr @global_error, align 8, !tbaa !3
+  %2 = load i64, ptr getelementptr inbounds nuw (i8, ptr @global_error, i64 8), align 8, !tbaa !10
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 %2
   ret ptr %3
 }
@@ -353,13 +353,12 @@ define ptr @cJSON_ParseWithLengthOpts(ptr noundef %0, i64 noundef %1, ptr nounde
   %5 = alloca %struct.parse_buffer, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
-  store ptr null, ptr @global_error.0, align 8, !tbaa !3
-  store i64 0, ptr @global_error.1, align 8, !tbaa !10
   %6 = icmp eq ptr %0, null
   %7 = icmp eq i64 %1, 0
   %or.cond = or i1 %6, %7
   %.0.i.sroa.gep = getelementptr inbounds nuw i8, ptr %5, i64 16
   %.0.i.sroa.gep48 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) @global_error, i8 0, i64 16, i1 false)
   br i1 %or.cond, label %.thread, label %8
 
 8:                                                ; preds = %4
@@ -445,8 +444,8 @@ buffer_skip_whitespace.exit:                      ; preds = %buffer_skip_whitesp
   %.pre = load i64, ptr %.0.i.sroa.gep, align 8, !tbaa !33
   %.pre74 = load i64, ptr %.0.i.sroa.gep48, align 8, !tbaa !30
   %35 = icmp ult i64 %.pre, %.pre74
-  %or.cond87 = select i1 %34, i1 %35, i1 false
-  br i1 %or.cond87, label %.lr.ph.i38.preheader, label %buffer_skip_whitespace.exit42
+  %or.cond89 = select i1 %34, i1 %35, i1 false
+  br i1 %or.cond89, label %.lr.ph.i38.preheader, label %buffer_skip_whitespace.exit42
 
 .lr.ph.i38.preheader:                             ; preds = %32
   %36 = getelementptr inbounds nuw i8, ptr %33, i64 %.pre
@@ -488,21 +487,21 @@ buffer_skip_whitespace.exit42:                    ; preds = %buffer_skip_whitesp
 
 49:                                               ; preds = %46, %31
   %.not30 = icmp eq ptr %2, null
-  br i1 %.not30, label %60, label %50
+  br i1 %.not30, label %68, label %50
 
 50:                                               ; preds = %49
   %51 = load ptr, ptr %5, align 8, !tbaa !28
   %52 = load i64, ptr %.0.i.sroa.gep, align 8, !tbaa !33
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 %52
   store ptr %53, ptr %2, align 8, !tbaa !35
-  br label %60
+  br label %68
 
 .thread55:                                        ; preds = %46, %buffer_skip_whitespace.exit42, %buffer_skip_whitespace.exit
   call void @cJSON_Delete(ptr noundef nonnull %10)
   br label %.thread
 
 .thread:                                          ; preds = %4, %.thread55
-  br i1 %6, label %60, label %.thread..thread.thread_crit_edge
+  br i1 %6, label %68, label %.thread..thread.thread_crit_edge
 
 .thread..thread.thread_crit_edge:                 ; preds = %.thread
   %.pre75 = load i64, ptr %.0.i.sroa.gep, align 8, !tbaa !33
@@ -513,23 +512,39 @@ buffer_skip_whitespace.exit42:                    ; preds = %buffer_skip_whitesp
   %54 = phi i64 [ %.pre76, %.thread..thread.thread_crit_edge ], [ %1, %8 ]
   %55 = phi i64 [ %.pre75, %.thread..thread.thread_crit_edge ], [ 0, %8 ]
   %56 = icmp ult i64 %55, %54
-  %spec.select = call i64 @llvm.usub.sat.i64(i64 %54, i64 1)
-  %.sroa.5.0 = select i1 %56, i64 %55, i64 %spec.select
-  %.not34 = icmp eq ptr %2, null
-  br i1 %.not34, label %59, label %57
+  br i1 %56, label %57, label %59
 
 57:                                               ; preds = %.thread.thread
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 %.sroa.5.0
-  store ptr %58, ptr %2, align 8, !tbaa !35
-  br label %59
+  %58 = bitcast i64 %55 to b64
+  br label %63
 
-59:                                               ; preds = %57, %.thread.thread
-  store ptr %0, ptr @global_error.0, align 8, !tbaa !35
-  store i64 %.sroa.5.0, ptr @global_error.1, align 8, !tbaa !36
-  br label %60
+59:                                               ; preds = %.thread.thread
+  %.not33 = icmp eq i64 %54, 0
+  br i1 %.not33, label %63, label %60
 
-60:                                               ; preds = %.thread, %59, %49, %50
-  %.0 = phi ptr [ %10, %49 ], [ %10, %50 ], [ null, %59 ], [ null, %.thread ]
+60:                                               ; preds = %59
+  %61 = add i64 %54, -1
+  %62 = bitcast i64 %61 to b64
+  br label %63
+
+63:                                               ; preds = %59, %60, %57
+  %.sroa.5.0 = phi b64 [ %58, %57 ], [ %62, %60 ], [ 0, %59 ]
+  %.not34 = icmp eq ptr %2, null
+  br i1 %.not34, label %67, label %64
+
+64:                                               ; preds = %63
+  %65 = bytecast b64 %.sroa.5.0 to i64
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 %65
+  store ptr %66, ptr %2, align 8, !tbaa !35
+  br label %67
+
+67:                                               ; preds = %64, %63
+  store ptr %0, ptr @global_error, align 8, !tbaa !35
+  store b64 %.sroa.5.0, ptr getelementptr inbounds nuw (i8, ptr @global_error, i64 8), align 8, !tbaa !36
+  br label %68
+
+68:                                               ; preds = %.thread, %67, %49, %50
+  %.0 = phi ptr [ %10, %49 ], [ %10, %50 ], [ null, %67 ], [ null, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 }
@@ -6916,9 +6931,6 @@ declare i32 @llvm.cttz.i32(i32, i1 immarg) #32
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #31
-
-; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.usub.sat.i64(i64, i64) #31
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

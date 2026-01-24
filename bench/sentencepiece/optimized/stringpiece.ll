@@ -452,16 +452,16 @@ define noundef i64 @_ZNK6google8protobuf11StringPiece13find_first_ofES1_m(ptr no
   br i1 %exitcond.not.i, label %_ZN6google8protobufL16BuildLookupTableENS0_11StringPieceEPb.exit.preheader, label %25, !llvm.loop !21
 
 _ZN6google8protobufL16BuildLookupTableENS0_11StringPieceEPb.exit.preheader: ; preds = %25
-  %.not16 = icmp slt i64 %3, %7
-  br i1 %.not16, label %.lr.ph, label %._crit_edge
+  %.not15 = icmp slt i64 %3, %7
+  br i1 %.not15, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %_ZN6google8protobufL16BuildLookupTableENS0_11StringPieceEPb.exit.preheader
   %31 = load ptr, ptr %0, align 8, !tbaa !3
   br label %32
 
 32:                                               ; preds = %.lr.ph, %_ZN6google8protobufL16BuildLookupTableENS0_11StringPieceEPb.exit
-  %.01317 = phi i64 [ %3, %.lr.ph ], [ %39, %_ZN6google8protobufL16BuildLookupTableENS0_11StringPieceEPb.exit ]
-  %33 = getelementptr inbounds i8, ptr %31, i64 %.01317
+  %.01216 = phi i64 [ %3, %.lr.ph ], [ %39, %_ZN6google8protobufL16BuildLookupTableENS0_11StringPieceEPb.exit ]
+  %33 = getelementptr inbounds i8, ptr %31, i64 %.01216
   %34 = load i8, ptr %33, align 1, !tbaa !16
   %35 = zext i8 %34 to i64
   %36 = getelementptr inbounds nuw i8, ptr %5, i64 %35
@@ -470,18 +470,18 @@ _ZN6google8protobufL16BuildLookupTableENS0_11StringPieceEPb.exit.preheader: ; pr
   br i1 %38, label %._crit_edge, label %_ZN6google8protobufL16BuildLookupTableENS0_11StringPieceEPb.exit
 
 _ZN6google8protobufL16BuildLookupTableENS0_11StringPieceEPb.exit: ; preds = %32
-  %39 = add i64 %.01317, 1
+  %39 = add i64 %.01216, 1
   %exitcond.not = icmp eq i64 %39, %7
   br i1 %exitcond.not, label %._crit_edge, label %32, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %_ZN6google8protobufL16BuildLookupTableENS0_11StringPieceEPb.exit, %32, %_ZN6google8protobufL16BuildLookupTableENS0_11StringPieceEPb.exit.preheader
-  %spec.select = phi i64 [ -1, %_ZN6google8protobufL16BuildLookupTableENS0_11StringPieceEPb.exit.preheader ], [ %.01317, %32 ], [ -1, %_ZN6google8protobufL16BuildLookupTableENS0_11StringPieceEPb.exit ]
+  %spec.select = phi i64 [ -1, %_ZN6google8protobufL16BuildLookupTableENS0_11StringPieceEPb.exit.preheader ], [ %.01216, %32 ], [ -1, %_ZN6google8protobufL16BuildLookupTableENS0_11StringPieceEPb.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZNK6google8protobuf11StringPiece13find_first_ofEcm.exit
 
 _ZNK6google8protobuf11StringPiece13find_first_ofEcm.exit: ; preds = %13, %12, %4, %._crit_edge
-  %.014 = phi i64 [ %spec.select, %._crit_edge ], [ -1, %4 ], [ %23, %13 ], [ -1, %12 ]
-  ret i64 %.014
+  %.013 = phi i64 [ %spec.select, %._crit_edge ], [ -1, %4 ], [ %23, %13 ], [ -1, %12 ]
+  ret i64 %.013
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
@@ -537,20 +537,20 @@ define noundef i64 @_ZNK6google8protobuf11StringPiece17find_first_not_ofES1_m(pt
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 %26
   store i8 1, ptr %27, align 1, !tbaa !19
   %28 = add nuw nsw i64 %.05.i, 1
-  %exitcond.not.i14 = icmp eq i64 %28, %2
-  br i1 %exitcond.not.i14, label %_ZN6google8protobufL16BuildLookupTableENS0_11StringPieceEPb.exit.preheader, label %23, !llvm.loop !21
+  %exitcond.not.i13 = icmp eq i64 %28, %2
+  br i1 %exitcond.not.i13, label %_ZN6google8protobufL16BuildLookupTableENS0_11StringPieceEPb.exit.preheader, label %23, !llvm.loop !21
 
 _ZN6google8protobufL16BuildLookupTableENS0_11StringPieceEPb.exit.preheader: ; preds = %23
-  %.not15 = icmp slt i64 %3, %7
-  br i1 %.not15, label %.lr.ph, label %._crit_edge
+  %.not14 = icmp slt i64 %3, %7
+  br i1 %.not14, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %_ZN6google8protobufL16BuildLookupTableENS0_11StringPieceEPb.exit.preheader
   %29 = load ptr, ptr %0, align 8, !tbaa !3
   br label %30
 
 30:                                               ; preds = %.lr.ph, %_ZN6google8protobufL16BuildLookupTableENS0_11StringPieceEPb.exit
-  %.01116 = phi i64 [ %3, %.lr.ph ], [ %37, %_ZN6google8protobufL16BuildLookupTableENS0_11StringPieceEPb.exit ]
-  %31 = getelementptr inbounds i8, ptr %29, i64 %.01116
+  %.01015 = phi i64 [ %3, %.lr.ph ], [ %37, %_ZN6google8protobufL16BuildLookupTableENS0_11StringPieceEPb.exit ]
+  %31 = getelementptr inbounds i8, ptr %29, i64 %.01015
   %32 = load i8, ptr %31, align 1, !tbaa !16
   %33 = zext i8 %32 to i64
   %34 = getelementptr inbounds nuw i8, ptr %5, i64 %33
@@ -559,18 +559,18 @@ _ZN6google8protobufL16BuildLookupTableENS0_11StringPieceEPb.exit.preheader: ; pr
   br i1 %36, label %_ZN6google8protobufL16BuildLookupTableENS0_11StringPieceEPb.exit, label %._crit_edge
 
 _ZN6google8protobufL16BuildLookupTableENS0_11StringPieceEPb.exit: ; preds = %30
-  %37 = add i64 %.01116, 1
+  %37 = add i64 %.01015, 1
   %exitcond.not = icmp eq i64 %37, %7
   br i1 %exitcond.not, label %._crit_edge, label %30, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %_ZN6google8protobufL16BuildLookupTableENS0_11StringPieceEPb.exit, %30, %_ZN6google8protobufL16BuildLookupTableENS0_11StringPieceEPb.exit.preheader
-  %spec.select = phi i64 [ -1, %_ZN6google8protobufL16BuildLookupTableENS0_11StringPieceEPb.exit.preheader ], [ %.01116, %30 ], [ -1, %_ZN6google8protobufL16BuildLookupTableENS0_11StringPieceEPb.exit ]
+  %spec.select = phi i64 [ -1, %_ZN6google8protobufL16BuildLookupTableENS0_11StringPieceEPb.exit.preheader ], [ %.01015, %30 ], [ -1, %_ZN6google8protobufL16BuildLookupTableENS0_11StringPieceEPb.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZNK6google8protobuf11StringPiece17find_first_not_ofEcm.exit
 
 _ZNK6google8protobuf11StringPiece17find_first_not_ofEcm.exit: ; preds = %20, %17, %13, %9, %4, %._crit_edge
-  %.012 = phi i64 [ %spec.select, %._crit_edge ], [ -1, %4 ], [ 0, %9 ], [ -1, %13 ], [ -1, %20 ], [ %.07.i, %17 ]
-  ret i64 %.012
+  %.011 = phi i64 [ %spec.select, %._crit_edge ], [ -1, %4 ], [ 0, %9 ], [ -1, %13 ], [ -1, %20 ], [ %.07.i, %17 ]
+  ret i64 %.011
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
@@ -654,13 +654,13 @@ select.unfold.i.i:                                ; preds = %15
 
 .lr.ph:                                           ; preds = %22
   %28 = add nsw i64 %7, -1
-  %spec.select17 = tail call i64 @llvm.umin.i64(i64 %28, i64 %3)
+  %spec.select16 = tail call i64 @llvm.umin.i64(i64 %28, i64 %3)
   %29 = load ptr, ptr %0, align 8, !tbaa !3
   br label %30
 
 30:                                               ; preds = %.lr.ph, %select.unfold
-  %.01118 = phi i64 [ %spec.select17, %.lr.ph ], [ %37, %select.unfold ]
-  %31 = getelementptr inbounds nuw i8, ptr %29, i64 %.01118
+  %.01017 = phi i64 [ %spec.select16, %.lr.ph ], [ %37, %select.unfold ]
+  %31 = getelementptr inbounds nuw i8, ptr %29, i64 %.01017
   %32 = load i8, ptr %31, align 1, !tbaa !16
   %33 = zext i8 %32 to i64
   %34 = getelementptr inbounds nuw i8, ptr %5, i64 %33
@@ -669,18 +669,18 @@ select.unfold.i.i:                                ; preds = %15
   br i1 %36, label %._crit_edge, label %select.unfold
 
 select.unfold:                                    ; preds = %30
-  %37 = add nsw i64 %.01118, -1
-  %38 = icmp slt i64 %.01118, 1
+  %37 = add nsw i64 %.01017, -1
+  %38 = icmp slt i64 %.01017, 1
   br i1 %38, label %._crit_edge, label %30, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %select.unfold, %30
-  %spec.select.ph = phi i64 [ -1, %select.unfold ], [ %.01118, %30 ]
+  %spec.select.ph = phi i64 [ -1, %select.unfold ], [ %.01017, %30 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZNK6google8protobuf11StringPiece12find_last_ofEcm.exit
 
 _ZNK6google8protobuf11StringPiece12find_last_ofEcm.exit: ; preds = %select.unfold.i.i, %15, %4, %._crit_edge
-  %.012 = phi i64 [ %spec.select.ph, %._crit_edge ], [ -1, %4 ], [ %.0713.i.i, %15 ], [ -1, %select.unfold.i.i ]
-  ret i64 %.012
+  %.011 = phi i64 [ %spec.select.ph, %._crit_edge ], [ -1, %4 ], [ %.0713.i.i, %15 ], [ -1, %select.unfold.i.i ]
+  ret i64 %.011
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
@@ -739,8 +739,8 @@ select.unfold.i:                                  ; preds = %16
   br label %29
 
 29:                                               ; preds = %.lr.ph, %_ZN6google8protobufL16BuildLookupTableENS0_11StringPieceEPb.exit
-  %.0915 = phi i64 [ %.sroa.speculated, %.lr.ph ], [ %36, %_ZN6google8protobufL16BuildLookupTableENS0_11StringPieceEPb.exit ]
-  %30 = getelementptr inbounds nuw i8, ptr %28, i64 %.0915
+  %.0814 = phi i64 [ %.sroa.speculated, %.lr.ph ], [ %36, %_ZN6google8protobufL16BuildLookupTableENS0_11StringPieceEPb.exit ]
+  %30 = getelementptr inbounds nuw i8, ptr %28, i64 %.0814
   %31 = load i8, ptr %30, align 1, !tbaa !16
   %32 = zext i8 %31 to i64
   %33 = getelementptr inbounds nuw i8, ptr %5, i64 %32
@@ -749,12 +749,12 @@ select.unfold.i:                                  ; preds = %16
   br i1 %35, label %_ZN6google8protobufL16BuildLookupTableENS0_11StringPieceEPb.exit, label %_ZN6google8protobufL16BuildLookupTableENS0_11StringPieceEPb.exit._crit_edge
 
 _ZN6google8protobufL16BuildLookupTableENS0_11StringPieceEPb.exit: ; preds = %29
-  %36 = add nsw i64 %.0915, -1
-  %37 = icmp sgt i64 %.0915, 0
+  %36 = add nsw i64 %.0814, -1
+  %37 = icmp sgt i64 %.0814, 0
   br i1 %37, label %29, label %_ZN6google8protobufL16BuildLookupTableENS0_11StringPieceEPb.exit._crit_edge, !llvm.loop !29
 
 _ZN6google8protobufL16BuildLookupTableENS0_11StringPieceEPb.exit._crit_edge: ; preds = %29, %_ZN6google8protobufL16BuildLookupTableENS0_11StringPieceEPb.exit
-  %.2.ph = phi i64 [ %.0915, %29 ], [ -1, %_ZN6google8protobufL16BuildLookupTableENS0_11StringPieceEPb.exit ]
+  %.2.ph = phi i64 [ %.0814, %29 ], [ -1, %_ZN6google8protobufL16BuildLookupTableENS0_11StringPieceEPb.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZNK6google8protobuf11StringPiece16find_last_not_ofEcm.exit
 
@@ -1120,13 +1120,13 @@ define linkonce_odr void @_ZSt8__searchISt16reverse_iteratorIPKcES3_N9__gnu_cxx5
   %29 = getelementptr inbounds i8, ptr %24, i64 -2
   %30 = load i8, ptr %29, align 1, !tbaa !16, !noalias !33
   %31 = icmp eq i8 %30, %22
-  br i1 %31, label %_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit.loopexit.split.loop.exit112, label %32
+  br i1 %31, label %_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit.loopexit.split.loop.exit114, label %32
 
 32:                                               ; preds = %28
   %33 = getelementptr inbounds i8, ptr %24, i64 -3
   %34 = load i8, ptr %33, align 1, !tbaa !16, !noalias !33
   %35 = icmp eq i8 %34, %22
-  br i1 %35, label %_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit.loopexit.split.loop.exit110, label %36
+  br i1 %35, label %_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit.loopexit.split.loop.exit112, label %36
 
 36:                                               ; preds = %32
   %37 = getelementptr inbounds i8, ptr %24, i64 -4
@@ -1189,11 +1189,11 @@ _ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_
   %62 = getelementptr inbounds i8, ptr %24, i64 -3
   br label %.critedge
 
-_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit.loopexit.split.loop.exit110: ; preds = %32
+_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit.loopexit.split.loop.exit112: ; preds = %32
   %63 = getelementptr inbounds i8, ptr %24, i64 -2
   br label %.critedge
 
-_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit.loopexit.split.loop.exit112: ; preds = %28
+_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit.loopexit.split.loop.exit114: ; preds = %28
   %64 = getelementptr inbounds i8, ptr %24, i64 -1
   br label %.critedge
 
@@ -1227,13 +1227,13 @@ _ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_
   %81 = getelementptr inbounds i8, ptr %76, i64 -2
   %82 = load i8, ptr %81, align 1, !tbaa !16, !noalias !39
   %83 = icmp eq i8 %82, %74
-  br i1 %83, label %_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit20.loopexit.split.loop.exit103, label %84
+  br i1 %83, label %_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit20.loopexit.split.loop.exit105, label %84
 
 84:                                               ; preds = %80
   %85 = getelementptr inbounds i8, ptr %76, i64 -3
   %86 = load i8, ptr %85, align 1, !tbaa !16, !noalias !39
   %87 = icmp eq i8 %86, %74
-  br i1 %87, label %_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit20.loopexit.split.loop.exit101, label %88
+  br i1 %87, label %_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit20.loopexit.split.loop.exit103, label %88
 
 88:                                               ; preds = %84
   %89 = getelementptr inbounds i8, ptr %76, i64 -4
@@ -1299,24 +1299,23 @@ _ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_
   %115 = getelementptr inbounds i8, ptr %76, i64 -3
   br label %_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit20
 
-_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit20.loopexit.split.loop.exit101: ; preds = %84
+_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit20.loopexit.split.loop.exit103: ; preds = %84
   %116 = getelementptr inbounds i8, ptr %76, i64 -2
   br label %_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit20
 
-_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit20.loopexit.split.loop.exit103: ; preds = %80
+_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit20.loopexit.split.loop.exit105: ; preds = %80
   %117 = getelementptr inbounds i8, ptr %76, i64 -1
   br label %_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit20
 
-_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit20: ; preds = %.lr.ph.i.i13, %_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit20.loopexit.split.loop.exit, %_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit20.loopexit.split.loop.exit101, %_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit20.loopexit.split.loop.exit103, %._crit_edge.i.i1, %97, %103, %109
-  %.sink.i.i7 = phi ptr [ %spec.select.i6, %109 ], [ %105, %103 ], [ %95, %97 ], [ %66, %._crit_edge.i.i1 ], [ %117, %_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit20.loopexit.split.loop.exit103 ], [ %115, %_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit20.loopexit.split.loop.exit ], [ %116, %_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit20.loopexit.split.loop.exit101 ], [ %76, %.lr.ph.i.i13 ]
-  %118 = ptrtoint ptr %.sink.i.i7 to i64
-  store i64 %118, ptr %1, align 8
+_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit20: ; preds = %.lr.ph.i.i13, %_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit20.loopexit.split.loop.exit, %_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit20.loopexit.split.loop.exit103, %_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit20.loopexit.split.loop.exit105, %._crit_edge.i.i1, %97, %103, %109
+  %118 = phi ptr [ %spec.select.i6, %109 ], [ %105, %103 ], [ %95, %97 ], [ %66, %._crit_edge.i.i1 ], [ %117, %_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit20.loopexit.split.loop.exit105 ], [ %115, %_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit20.loopexit.split.loop.exit ], [ %116, %_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit20.loopexit.split.loop.exit103 ], [ %76, %.lr.ph.i.i13 ]
+  store ptr %118, ptr %1, align 8
   %119 = load ptr, ptr %2, align 8, !tbaa !14
-  %120 = icmp eq ptr %.sink.i.i7, %119
+  %120 = icmp eq ptr %118, %119
   br i1 %120, label %.critedge, label %121
 
 121:                                              ; preds = %_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit20
-  %122 = getelementptr inbounds i8, ptr %.sink.i.i7, i64 -1
+  %122 = getelementptr inbounds i8, ptr %118, i64 -1
   %123 = icmp eq ptr %122, %119
   br i1 %123, label %.critedge, label %.preheader
 
@@ -1345,8 +1344,8 @@ _ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_
   %.pre77 = load ptr, ptr %3, align 8, !tbaa !14
   br label %.preheader42, !llvm.loop !45
 
-.critedge:                                        ; preds = %121, %_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit20, %132, %129, %.lr.ph.i.i, %56, %50, %45, %._crit_edge.i.i, %_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit.loopexit.split.loop.exit112, %_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit.loopexit.split.loop.exit110, %_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit.loopexit.split.loop.exit, %5, %9
-  %.sink.i.i.sink = phi ptr [ %6, %5 ], [ %62, %_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit.loopexit.split.loop.exit ], [ %.sink.i.i7, %129 ], [ %63, %_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit.loopexit.split.loop.exit110 ], [ %24, %.lr.ph.i.i ], [ %6, %9 ], [ %spec.select.i, %56 ], [ %52, %50 ], [ %43, %45 ], [ %7, %._crit_edge.i.i ], [ %64, %_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit.loopexit.split.loop.exit112 ], [ %119, %132 ], [ %119, %_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit20 ], [ %119, %121 ]
+.critedge:                                        ; preds = %121, %_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit20, %132, %129, %.lr.ph.i.i, %56, %50, %45, %._crit_edge.i.i, %_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit.loopexit.split.loop.exit114, %_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit.loopexit.split.loop.exit112, %_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit.loopexit.split.loop.exit, %5, %9
+  %.sink.i.i.sink = phi ptr [ %6, %5 ], [ %62, %_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit.loopexit.split.loop.exit ], [ %118, %129 ], [ %63, %_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit.loopexit.split.loop.exit112 ], [ %24, %.lr.ph.i.i ], [ %6, %9 ], [ %spec.select.i, %56 ], [ %52, %50 ], [ %43, %45 ], [ %7, %._crit_edge.i.i ], [ %64, %_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit.loopexit.split.loop.exit114 ], [ %119, %132 ], [ %119, %_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit20 ], [ %119, %121 ]
   store ptr %.sink.i.i.sink, ptr %0, align 8, !tbaa !14
   ret void
 }

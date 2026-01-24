@@ -12621,7 +12621,7 @@ cleanup:                                          ; preds = %invoke.cont7, %invo
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZN3con10Connection10deletePeerEtb(ptr noundef nonnull align 8 dereferenceable(509) %this, i16 noundef zeroext %peer_id, i1 noundef zeroext %timeout) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %agg.tmp3554 = alloca %class.Address, align 8
+  %agg.tmp3554.sroa.0 = alloca b192, align 16
   %peer_id.addr = alloca i16, align 2
   %agg.tmp34 = alloca %"class.std::shared_ptr.82", align 8
   store i16 %peer_id, ptr %peer_id.addr, align 2, !tbaa !46
@@ -12817,8 +12817,9 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %_ZSt4moveIN9__gnu_c
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 24
   %20 = load ptr, ptr %vfn, align 8
   %call36 = call noundef nonnull align 4 dereferenceable(22) ptr %20(ptr noundef nonnull align 8 dereferenceable(152) %3)
-  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp3554)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp3554, ptr noundef nonnull align 4 dereferenceable(24) %call36, i64 24, i1 false)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp3554.sroa.0)
+  %agg.tmp3554.sroa.0.0.copyload = load b192, ptr %call36, align 4
+  store b192 %agg.tmp3554.sroa.0.0.copyload, ptr %agg.tmp3554.sroa.0, align 16
   call void @llvm.experimental.noalias.scope.decl(metadata !419)
   call void @llvm.experimental.noalias.scope.decl(metadata !422)
   %call.i.i = call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #34, !noalias !425
@@ -12865,8 +12866,8 @@ _ZN3con15ConnectionEvent11peerRemovedEtb7Address.exit: ; preds = %_ZNSt11unique_
   %timeout.i = getelementptr inbounds nuw i8, ptr %23, i64 24
   store i8 %frombool.i, ptr %timeout.i, align 8, !tbaa !362
   %address5.i = getelementptr inbounds nuw i8, ptr %23, i64 28
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(22) %address5.i, ptr noundef nonnull align 8 dereferenceable(22) %agg.tmp3554, i64 22, i1 false), !tbaa.struct !45
-  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp3554)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(22) %address5.i, ptr noundef nonnull align 16 dereferenceable(22) %agg.tmp3554.sroa.0, i64 22, i1 false), !tbaa.struct !45
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp3554.sroa.0)
   %m_event_queue.i = getelementptr inbounds nuw i8, ptr %this, i64 168
   invoke void @_ZN12MutexedQueueISt10shared_ptrIN3con15ConnectionEventEEE9push_backERKS3_(ptr noundef nonnull align 8 dereferenceable(152) %m_event_queue.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp34)
           to label %invoke.cont38 unwind label %lpad37
@@ -14959,7 +14960,7 @@ ehcleanup33:                                      ; preds = %lpad8, %lpad
 ; Function Attrs: uwtable
 define dso_local noundef zeroext i16 @_ZN3con10Connection10createPeerERK7Addressi(ptr noundef nonnull align 8 dereferenceable(509) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(22) %sender, i32 noundef %fd) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %agg.tmp80200 = alloca %class.Address, align 8
+  %agg.tmp80200.sroa.0 = alloca b192, align 16
   %ref.tmp23 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp47 = alloca %"class.std::__cxx11::basic_string", align 8
   %reply = alloca %class.Buffer, align 8
@@ -15473,8 +15474,9 @@ if.then7.i.i.i:                                   ; preds = %invoke.cont.i.i.i
 delete.notnull.i.i:                               ; preds = %invoke.cont75, %if.then.i.i.i199, %invoke.cont.i.i.i, %if.then7.i.i.i
   call void @_ZdaPv(ptr noundef nonnull %call.i191) #33
   call void @llvm.lifetime.end.p0(ptr nonnull %reply)
-  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp80200)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp80200, ptr noundef nonnull align 4 dereferenceable(24) %sender, i64 24, i1 false)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp80200.sroa.0)
+  %agg.tmp80200.sroa.0.0.copyload = load b192, ptr %sender, align 4
+  store b192 %agg.tmp80200.sroa.0.0.copyload, ptr %agg.tmp80200.sroa.0, align 16
   call void @llvm.experimental.noalias.scope.decl(metadata !455)
   call void @llvm.experimental.noalias.scope.decl(metadata !458)
   %call.i.i202 = invoke noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #34
@@ -15520,8 +15522,8 @@ invoke.cont81:                                    ; preds = %_ZN3con15Connection
   %peer_id1.i = getelementptr inbounds nuw i8, ptr %53, i64 4
   store i16 %conv, ptr %peer_id1.i, align 4, !tbaa !361
   %address3.i = getelementptr inbounds nuw i8, ptr %53, i64 28
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(22) %address3.i, ptr noundef nonnull align 8 dereferenceable(22) %agg.tmp80200, i64 22, i1 false), !tbaa.struct !45
-  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp80200)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(22) %address3.i, ptr noundef nonnull align 16 dereferenceable(22) %agg.tmp80200.sroa.0, i64 22, i1 false), !tbaa.struct !45
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp80200.sroa.0)
   %m_event_queue.i = getelementptr inbounds nuw i8, ptr %this, i64 168
   invoke void @_ZN12MutexedQueueISt10shared_ptrIN3con15ConnectionEventEEE9push_backERKS3_(ptr noundef nonnull align 8 dereferenceable(152) %m_event_queue.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp79)
           to label %invoke.cont83 unwind label %lpad82

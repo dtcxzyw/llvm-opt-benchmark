@@ -2790,8 +2790,8 @@ hwloc__memattr_get_target.exit:                   ; preds = %67, %63, %54, %45
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %hwloc__update_best_initiator.exit ]
   %.not.i = phi i1 [ true, %.lr.ph ], [ false, %hwloc__update_best_initiator.exit ]
   %.04459 = phi i64 [ undef, %.lr.ph ], [ %.145, %hwloc__update_best_initiator.exit ]
-  %.sroa.0.058 = phi i32 [ undef, %.lr.ph ], [ %.sroa.0.1, %hwloc__update_best_initiator.exit ]
-  %.sroa.441.057 = phi ptr [ undef, %.lr.ph ], [ %.sroa.441.1, %hwloc__update_best_initiator.exit ]
+  %.sroa.0.058 = phi b32 [ undef, %.lr.ph ], [ %.sroa.0.1, %hwloc__update_best_initiator.exit ]
+  %.sroa.441.057 = phi b64 [ undef, %.lr.ph ], [ %.sroa.441.1, %hwloc__update_best_initiator.exit ]
   %78 = getelementptr inbounds nuw %struct.hwloc_internal_memattr_initiator_s, ptr %76, i64 %indvars.iv
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 32
   %80 = load i64, ptr %79, align 8, !tbaa !95
@@ -2812,58 +2812,60 @@ hwloc__memattr_get_target.exit:                   ; preds = %67, %63, %54, %45
   br i1 %.not11.i, label %86, label %hwloc__update_best_initiator.exit
 
 86:                                               ; preds = %85, %84, %77
-  %.sroa.0.0.copyload = load i32, ptr %78, align 8, !tbaa !60
+  %.sroa.0.0.copyload = load b32, ptr %78, align 8, !tbaa !60
   %.sroa.441.0..sroa_idx = getelementptr inbounds nuw i8, ptr %78, i64 8
-  %.sroa.441.0.copyload = load ptr, ptr %.sroa.441.0..sroa_idx, align 8
+  %.sroa.441.0.copyload = load b64, ptr %.sroa.441.0..sroa_idx, align 8
   br label %hwloc__update_best_initiator.exit
 
 hwloc__update_best_initiator.exit:                ; preds = %84, %85, %86
-  %.sroa.441.1 = phi ptr [ %.sroa.441.0.copyload, %86 ], [ %.sroa.441.057, %85 ], [ %.sroa.441.057, %84 ]
-  %.sroa.0.1 = phi i32 [ %.sroa.0.0.copyload, %86 ], [ %.sroa.0.058, %85 ], [ %.sroa.0.058, %84 ]
+  %.sroa.441.1 = phi b64 [ %.sroa.441.0.copyload, %86 ], [ %.sroa.441.057, %85 ], [ %.sroa.441.057, %84 ]
+  %.sroa.0.1 = phi b32 [ %.sroa.0.0.copyload, %86 ], [ %.sroa.0.058, %85 ], [ %.sroa.0.058, %84 ]
   %.145 = phi i64 [ %80, %86 ], [ %.04459, %85 ], [ %.04459, %84 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %77, !llvm.loop !98
 
 ._crit_edge:                                      ; preds = %hwloc__update_best_initiator.exit
+  %87 = bytecast b32 %.sroa.0.1 to i32
+  %88 = bytecast b64 %.sroa.441.1 to ptr
   %.not36 = icmp eq ptr %5, null
-  br i1 %.not36, label %88, label %87
+  br i1 %.not36, label %90, label %89
 
-87:                                               ; preds = %._crit_edge
+89:                                               ; preds = %._crit_edge
   store i64 %.145, ptr %5, align 8, !tbaa !63
-  br label %88
+  br label %90
 
-88:                                               ; preds = %87, %._crit_edge
-  store i32 %.sroa.0.1, ptr %4, align 8, !tbaa !89
-  switch i32 %.sroa.0.1, label %93 [
-    i32 1, label %89
-    i32 0, label %91
+90:                                               ; preds = %89, %._crit_edge
+  store i32 %87, ptr %4, align 8, !tbaa !89
+  switch i32 %87, label %95 [
+    i32 1, label %91
+    i32 0, label %93
   ]
 
-89:                                               ; preds = %88
-  %90 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %.sroa.441.1, ptr %90, align 8, !tbaa !48
+91:                                               ; preds = %90
+  %92 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store ptr %88, ptr %92, align 8, !tbaa !48
   br label %from_internal_location.exit
 
-91:                                               ; preds = %88
-  %92 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %.sroa.441.1, ptr %92, align 8, !tbaa !48
-  %.not.i37 = icmp eq ptr %.sroa.441.1, null
+93:                                               ; preds = %90
+  %94 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store ptr %88, ptr %94, align 8, !tbaa !48
+  %.not.i37 = icmp eq ptr %88, null
   %..i = sext i1 %.not.i37 to i32
   br label %from_internal_location.exit
 
-93:                                               ; preds = %88
-  %94 = tail call ptr @__errno_location() #33
-  store i32 22, ptr %94, align 4, !tbaa !60
+95:                                               ; preds = %90
+  %96 = tail call ptr @__errno_location() #33
+  store i32 22, ptr %96, align 4, !tbaa !60
   br label %from_internal_location.exit
 
 ._crit_edge.thread:                               ; preds = %hwloc__memattr_get_target.exit
-  %95 = tail call ptr @__errno_location() #33
-  store i32 2, ptr %95, align 4, !tbaa !60
+  %97 = tail call ptr @__errno_location() #33
+  store i32 2, ptr %97, align 4, !tbaa !60
   br label %from_internal_location.exit
 
-from_internal_location.exit:                      ; preds = %93, %91, %89, %._crit_edge.thread, %.loopexit, %24, %14, %9
-  %.0 = phi i32 [ -1, %14 ], [ -1, %9 ], [ -1, %._crit_edge.thread ], [ -1, %.loopexit ], [ -1, %24 ], [ -1, %93 ], [ 0, %89 ], [ %..i, %91 ]
+from_internal_location.exit:                      ; preds = %95, %93, %91, %._crit_edge.thread, %.loopexit, %24, %14, %9
+  %.0 = phi i32 [ -1, %14 ], [ -1, %9 ], [ -1, %._crit_edge.thread ], [ -1, %.loopexit ], [ -1, %24 ], [ -1, %95 ], [ 0, %91 ], [ %..i, %93 ]
   ret i32 %.0
 }
 

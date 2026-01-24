@@ -322,8 +322,8 @@ for.body.i.preheader:                             ; preds = %entry
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i.preheader, %for.inc.i
-  %headerToCheckExists.0 = phi i1 [ %headerToCheckExists.1, %for.inc.i ], [ false, %for.body.i.preheader ]
-  %i.011.i = phi i64 [ %inc.i, %for.inc.i ], [ 0, %for.body.i.preheader ]
+  %headerToCheckExists.0 = phi i8 [ 0, %for.body.i.preheader ], [ %headerToCheckExists.1, %for.inc.i ]
+  %i.011.i = phi i64 [ 0, %for.body.i.preheader ], [ %inc.i, %for.inc.i ]
   %arrayidx.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %i.011.i
   %3 = load i8, ptr %arrayidx.i, align 1
   %cmp4.not.i = icmp eq i8 %3, 0
@@ -460,18 +460,22 @@ _ZNSt6vectorIN8proxygen8compress6HeaderESaIS2_EE17_M_realloc_insertIJRNS0_14HTTP
 
 if.end72.i.i:                                     ; preds = %_ZNSt6vectorIN8proxygen8compress6HeaderESaIS2_EE17_M_realloc_insertIJRNS0_14HTTPHeaderCodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESF_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i, %if.then.i.i.i, %land.lhs.true.i.i, %while.end61.i.i
   %cmp75.i.i = icmp eq i8 %3, %headerToCheck
-  %spec.select = select i1 %cmp75.i.i, i1 true, i1 %headerToCheckExists.0
+  %spec.select = select i1 %cmp75.i.i, i8 1, i8 %headerToCheckExists.0
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.end72.i.i, %lor.lhs.false3.i.i, %lor.lhs.false.i.i, %init.end.i.i, %for.body.i
-  %headerToCheckExists.1 = phi i1 [ %headerToCheckExists.0, %for.body.i ], [ %headerToCheckExists.0, %lor.lhs.false.i.i ], [ %headerToCheckExists.0, %lor.lhs.false3.i.i ], [ %headerToCheckExists.0, %init.end.i.i ], [ %spec.select, %if.end72.i.i ]
+  %headerToCheckExists.1 = phi i8 [ %headerToCheckExists.0, %for.body.i ], [ %headerToCheckExists.0, %lor.lhs.false.i.i ], [ %headerToCheckExists.0, %lor.lhs.false3.i.i ], [ %headerToCheckExists.0, %init.end.i.i ], [ %spec.select, %if.end72.i.i ]
   %inc.i = add nuw i64 %i.011.i, 1
   %15 = load i64, ptr %length_.i, align 8
   %cmp.i = icmp ult i64 %inc.i, %15
-  br i1 %cmp.i, label %for.body.i, label %"_ZNK8proxygen11HTTPHeaders15forEachWithCodeIZNS_9CodecUtil13appendHeadersERKS0_RSt6vectorINS_8compress6HeaderESaIS7_EENS_14HTTPHeaderCodeEE3$_0EEvT_.exit", !llvm.loop !17
+  br i1 %cmp.i, label %for.body.i, label %"_ZNK8proxygen11HTTPHeaders15forEachWithCodeIZNS_9CodecUtil13appendHeadersERKS0_RSt6vectorINS_8compress6HeaderESaIS7_EENS_14HTTPHeaderCodeEE3$_0EEvT_.exit.loopexit", !llvm.loop !17
 
-"_ZNK8proxygen11HTTPHeaders15forEachWithCodeIZNS_9CodecUtil13appendHeadersERKS0_RSt6vectorINS_8compress6HeaderESaIS7_EENS_14HTTPHeaderCodeEE3$_0EEvT_.exit": ; preds = %for.inc.i, %entry
-  %headerToCheckExists.2 = phi i1 [ false, %entry ], [ %headerToCheckExists.1, %for.inc.i ]
+"_ZNK8proxygen11HTTPHeaders15forEachWithCodeIZNS_9CodecUtil13appendHeadersERKS0_RSt6vectorINS_8compress6HeaderESaIS7_EENS_14HTTPHeaderCodeEE3$_0EEvT_.exit.loopexit": ; preds = %for.inc.i
+  %16 = trunc nuw i8 %headerToCheckExists.1 to i1
+  br label %"_ZNK8proxygen11HTTPHeaders15forEachWithCodeIZNS_9CodecUtil13appendHeadersERKS0_RSt6vectorINS_8compress6HeaderESaIS7_EENS_14HTTPHeaderCodeEE3$_0EEvT_.exit"
+
+"_ZNK8proxygen11HTTPHeaders15forEachWithCodeIZNS_9CodecUtil13appendHeadersERKS0_RSt6vectorINS_8compress6HeaderESaIS7_EENS_14HTTPHeaderCodeEE3$_0EEvT_.exit": ; preds = %"_ZNK8proxygen11HTTPHeaders15forEachWithCodeIZNS_9CodecUtil13appendHeadersERKS0_RSt6vectorINS_8compress6HeaderESaIS7_EENS_14HTTPHeaderCodeEE3$_0EEvT_.exit.loopexit", %entry
+  %headerToCheckExists.2 = phi i1 [ false, %entry ], [ %16, %"_ZNK8proxygen11HTTPHeaders15forEachWithCodeIZNS_9CodecUtil13appendHeadersERKS0_RSt6vectorINS_8compress6HeaderESaIS7_EENS_14HTTPHeaderCodeEE3$_0EEvT_.exit.loopexit" ]
   ret i1 %headerToCheckExists.2
 }
 

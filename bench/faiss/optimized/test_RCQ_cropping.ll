@@ -194,7 +194,6 @@ $_ZTSN5faiss19SearchParametersIVFE = comdat any
 @_ZTIN7testing8internal15TestFactoryBaseE = linkonce_odr dso_local constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSN7testing8internal15TestFactoryBaseE }, comdat, align 8
 @_ZTVN10__cxxabiv117__class_type_infoE = external global [0 x ptr]
 @_ZTSN7testing8internal15TestFactoryBaseE = linkonce_odr dso_local constant [37 x i8] c"N7testing8internal15TestFactoryBaseE\00", comdat, align 1
-@constinit = private unnamed_addr constant [3 x i64] [i64 5, i64 4, i64 4], align 8
 @.str.10 = private unnamed_addr constant [19 x i8] c"rcq_cropped.ntotal\00", align 1
 @.str.11 = private unnamed_addr constant [25 x i8] c"rcq.ntotal >> last_nbits\00", align 1
 @.str.12 = private unnamed_addr constant [5 x i8] c"fine\00", align 1
@@ -221,7 +220,6 @@ $_ZTSN5faiss19SearchParametersIVFE = comdat any
 @_ZTVN7testing8internal15TestFactoryImplI30RCQCropping_search_params_TestEE = linkonce_odr dso_local unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTIN7testing8internal15TestFactoryImplI30RCQCropping_search_params_TestEE, ptr @_ZN7testing8internal15TestFactoryBaseD2Ev, ptr @_ZN7testing8internal15TestFactoryImplI30RCQCropping_search_params_TestED0Ev, ptr @_ZN7testing8internal15TestFactoryImplI30RCQCropping_search_params_TestE10CreateTestEv] }, comdat, align 8
 @_ZTIN7testing8internal15TestFactoryImplI30RCQCropping_search_params_TestEE = linkonce_odr dso_local constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN7testing8internal15TestFactoryImplI30RCQCropping_search_params_TestEE, ptr @_ZTIN7testing8internal15TestFactoryBaseE }, comdat, align 8
 @_ZTSN7testing8internal15TestFactoryImplI30RCQCropping_search_params_TestEE = linkonce_odr dso_local constant [71 x i8] c"N7testing8internal15TestFactoryImplI30RCQCropping_search_params_TestEE\00", comdat, align 1
-@constinit.31 = private unnamed_addr constant [3 x i64] [i64 3, i64 6, i64 3], align 8
 @.str.32 = private unnamed_addr constant [3 x i8] c"I1\00", align 1
 @.str.33 = private unnamed_addr constant [3 x i8] c"I2\00", align 1
 @.str.34 = private unnamed_addr constant [3 x i8] c"D1\00", align 1
@@ -287,7 +285,7 @@ define dso_local void @_ZN30RCQCropping_test_cropping_Test8TestBodyEv(ptr nonnul
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %23, ptr %24, align 8, !tbaa !11
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %21, ptr noundef nonnull align 8 dereferenceable(24) @constinit, i64 24, i1 false)
+  store i192 1361129467683753853927285406021911052293, ptr %21, align 8
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %23, ptr %25, align 8, !tbaa !12
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -534,9 +532,9 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %94, %_ZNKSt14defaul
   br label %.preheader
 
 .preheader:                                       ; preds = %107, %146
-  %indvars.iv212 = phi i64 [ 0, %107 ], [ %indvars.iv.next213, %146 ]
-  %114 = mul nuw nsw i64 %indvars.iv212, 15
-  %invariant.gep238 = getelementptr inbounds nuw i64, ptr %29, i64 %114
+  %indvars.iv214 = phi i64 [ 0, %107 ], [ %indvars.iv.next215, %146 ]
+  %114 = mul nuw nsw i64 %indvars.iv214, 15
+  %invariant.gep240 = getelementptr inbounds nuw i64, ptr %29, i64 %114
   %invariant.gep = getelementptr inbounds nuw i64, ptr %103, i64 %114
   br label %147
 
@@ -625,15 +623,15 @@ _ZNSt6vectorIfSaIfEED2Ev.exit124:                 ; preds = %_ZN5faiss23Residual
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit155
 
 146:                                              ; preds = %_ZN7testing15AssertionResultD2Ev.exit153
-  %indvars.iv.next213 = add nuw nsw i64 %indvars.iv212, 1
-  %exitcond215.not = icmp eq i64 %indvars.iv.next213, 10
-  br i1 %exitcond215.not, label %_ZNSt6vectorIlSaIlEED2Ev.exit, label %.preheader, !llvm.loop !74
+  %indvars.iv.next215 = add nuw nsw i64 %indvars.iv214, 1
+  %exitcond217.not = icmp eq i64 %indvars.iv.next215, 10
+  br i1 %exitcond217.not, label %_ZNSt6vectorIlSaIlEED2Ev.exit, label %.preheader, !llvm.loop !74
 
 147:                                              ; preds = %.preheader, %_ZN7testing15AssertionResultD2Ev.exit153
-  %indvars.iv208 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next209, %_ZN7testing15AssertionResultD2Ev.exit153 ]
+  %indvars.iv210 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next211, %_ZN7testing15AssertionResultD2Ev.exit153 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %gep239 = getelementptr inbounds nuw i64, ptr %invariant.gep238, i64 %indvars.iv208
-  %148 = load i64, ptr %gep239, align 8, !tbaa !14
+  %gep241 = getelementptr inbounds nuw i64, ptr %invariant.gep240, i64 %indvars.iv210
+  %148 = load i64, ptr %gep241, align 8, !tbaa !14
   store i64 %148, ptr %9, align 8, !tbaa !14
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
@@ -781,9 +779,9 @@ _ZN7testing15AssertionResultD2Ev.exit139:         ; preds = %178, %_ZNKSt14defau
   %gep = getelementptr inbounds nuw i64, ptr %invariant.gep, i64 %indvars.iv
   %190 = load i64, ptr %gep, align 8, !tbaa !14
   %.not = icmp eq i64 %187, %190
-  br i1 %.not, label %.thread202, label %188
+  br i1 %.not, label %.thread204, label %188
 
-.thread202:                                       ; preds = %.critedge
+.thread204:                                       ; preds = %.critedge
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   br label %_ZN7testing15AssertionResultD2Ev.exit153
 
@@ -913,12 +911,12 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   call void @_ZdlPvm(ptr noundef nonnull %.pr, i64 noundef 32) #17
   br label %_ZN7testing15AssertionResultD2Ev.exit153
 
-_ZN7testing15AssertionResultD2Ev.exit153:         ; preds = %.thread202, %222, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i151
+_ZN7testing15AssertionResultD2Ev.exit153:         ; preds = %.thread204, %222, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i151
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  %indvars.iv.next209 = add nuw nsw i64 %indvars.iv208, 1
-  %exitcond211.not = icmp eq i64 %indvars.iv.next209, 15
-  br i1 %exitcond211.not, label %146, label %147, !llvm.loop !79
+  %indvars.iv.next211 = add nuw nsw i64 %indvars.iv210, 1
+  %exitcond213.not = icmp eq i64 %indvars.iv.next211, 15
+  br i1 %exitcond213.not, label %146, label %147, !llvm.loop !79
 
 229:                                              ; preds = %_ZN7testing7MessageD2Ev.exit148, %189
   %.pn86.pn.pn.pn = phi { ptr, i32 } [ %.pn86.pn.pn, %_ZN7testing7MessageD2Ev.exit148 ], [ %.pn82.pn.pn, %189 ]
@@ -1043,7 +1041,7 @@ define dso_local void @_ZN30RCQCropping_search_params_Test8TestBodyEv(ptr nonnul
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 24
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %31, ptr %32, align 8, !tbaa !11
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %29, ptr noundef nonnull align 8 dereferenceable(24) @constinit.31, i64 24, i1 false)
+  store i192 1020847100762815390500804286737561944067, ptr %29, align 8
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %31, ptr %33, align 8, !tbaa !12
   call void @llvm.lifetime.start.p0(ptr nonnull %3)

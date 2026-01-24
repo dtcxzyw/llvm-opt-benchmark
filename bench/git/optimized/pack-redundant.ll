@@ -2535,14 +2535,14 @@ define internal fastcc void @add_pack(ptr noundef nonnull %0) unnamed_addr #0 {
   %or.cond = select i1 %5, i1 true, i1 %.b19
   %.b = load i1, ptr @verbose, align 4
   %or.cond3 = select i1 %or.cond, i1 true, i1 %.b
-  br i1 %or.cond3, label %6, label %82
+  br i1 %or.cond3, label %6, label %83
 
 6:                                                ; preds = %1
   %7 = tail call ptr @xmalloc(i64 noundef 24) #14
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   %8 = tail call i32 @open_pack_index(ptr noundef nonnull %0) #14
   %.not = icmp eq i32 %8, 0
-  br i1 %.not, label %9, label %82
+  br i1 %.not, label %9, label %83
 
 9:                                                ; preds = %6
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -2568,7 +2568,7 @@ define internal fastcc void @add_pack(ptr noundef nonnull %0) unnamed_addr #0 {
 
 .._crit_edge_crit_edge:                           ; preds = %9
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %.pre35 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !60
+  %.pre35 = load b64, ptr %.phi.trans.insert, align 8, !tbaa !60
   br label %._crit_edge
 
 .lr.ph:                                           ; preds = %9
@@ -2689,29 +2689,33 @@ llist_insert_back.exit:                           ; preds = %58, %62, %69
   %74 = zext i32 %73 to i64
   %75 = mul i64 %23, %74
   %76 = icmp ult i64 %72, %75
-  br i1 %76, label %30, label %._crit_edge, !llvm.loop !98
+  br i1 %76, label %30, label %._crit_edge.loopexit, !llvm.loop !98
 
-._crit_edge:                                      ; preds = %llist_insert_back.exit, %.._crit_edge_crit_edge
-  %77 = phi i64 [ %.pre35, %.._crit_edge_crit_edge ], [ %71, %llist_insert_back.exit ]
-  %78 = load i8, ptr %2, align 8
-  %79 = and i8 %78, 1
-  %.not20 = icmp eq i8 %79, 0
-  %80 = tail call noundef ptr @xmalloc(i64 noundef 40) #14
-  %.sroa.4.0..sroa_idx22 = getelementptr inbounds nuw i8, ptr %80, i64 8
+._crit_edge.loopexit:                             ; preds = %llist_insert_back.exit
+  %77 = bitcast i64 %71 to b64
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %.._crit_edge_crit_edge, %._crit_edge.loopexit
+  %78 = phi b64 [ %.pre35, %.._crit_edge_crit_edge ], [ %77, %._crit_edge.loopexit ]
+  %79 = load i8, ptr %2, align 8
+  %80 = and i8 %79, 1
+  %.not20 = icmp eq i8 %80, 0
+  %81 = tail call noundef ptr @xmalloc(i64 noundef 40) #14
+  %.sroa.4.0..sroa_idx22 = getelementptr inbounds nuw i8, ptr %81, i64 8
   store ptr %0, ptr %.sroa.4.0..sroa_idx22, align 8
-  %.sroa.5.0..sroa_idx24 = getelementptr inbounds nuw i8, ptr %80, i64 16
-  store ptr null, ptr %.sroa.5.0..sroa_idx24, align 8
-  %.sroa.6.0..sroa_idx26 = getelementptr inbounds nuw i8, ptr %80, i64 24
+  %.sroa.5.0..sroa_idx24 = getelementptr inbounds nuw i8, ptr %81, i64 16
+  store i64 0, ptr %.sroa.5.0..sroa_idx24, align 8
+  %.sroa.6.0..sroa_idx26 = getelementptr inbounds nuw i8, ptr %81, i64 24
   store ptr %7, ptr %.sroa.6.0..sroa_idx26, align 8
-  %.sroa.9.0..sroa_idx29 = getelementptr inbounds nuw i8, ptr %80, i64 32
-  store i64 %77, ptr %.sroa.9.0..sroa_idx29, align 8
+  %.sroa.9.0..sroa_idx29 = getelementptr inbounds nuw i8, ptr %81, i64 32
+  store b64 %78, ptr %.sroa.9.0..sroa_idx29, align 8
   %altodb_packs.local_packs = select i1 %.not20, ptr @altodb_packs, ptr @local_packs
-  %81 = load ptr, ptr %altodb_packs.local_packs, align 8, !tbaa !20
-  store ptr %81, ptr %80, align 8, !tbaa !30
-  store ptr %80, ptr %altodb_packs.local_packs, align 8, !tbaa !20
-  br label %82
+  %82 = load ptr, ptr %altodb_packs.local_packs, align 8, !tbaa !20
+  store ptr %82, ptr %81, align 8, !tbaa !30
+  store ptr %81, ptr %altodb_packs.local_packs, align 8, !tbaa !20
+  br label %83
 
-82:                                               ; preds = %._crit_edge, %6, %1
+83:                                               ; preds = %._crit_edge, %6, %1
   ret void
 }
 

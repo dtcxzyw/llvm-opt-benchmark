@@ -122,16 +122,21 @@ define hidden noundef zeroext i1 @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef zeroext i1 @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17heaee2295cbba6c32E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #0 {
-  %3 = alloca [16 x i8], align 8
+  %.sroa.02.i.i = alloca b128, align 16
+  %3 = alloca [16 x i8], align 16
   %4 = alloca [48 x i8], align 8
   %5 = load ptr, ptr %0, align 8, !nonnull !3, !align !4, !noundef !3
   %.val = load ptr, ptr %5, align 8, !nonnull !3, !align !4, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !19
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !19
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.02.i.i)
   %6 = getelementptr inbounds nuw i8, ptr %.val, i64 24
-  store ptr %6, ptr %3, align 8, !noalias !19
-  %.sroa.42.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr @"_ZN64_$LT$uv_small_str..SmallString$u20$as$u20$core..fmt..Display$GT$3fmt17hb1aa9340c3cce843E.llvm.8249639753278390263", ptr %.sroa.42.0..sroa_idx.i.i, align 8, !noalias !19
+  store ptr %6, ptr %.sroa.02.i.i, align 16, !noalias !19
+  %.sroa.02.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.02.i.i, i64 8
+  store ptr @"_ZN64_$LT$uv_small_str..SmallString$u20$as$u20$core..fmt..Display$GT$3fmt17hb1aa9340c3cce843E.llvm.8249639753278390263", ptr %.sroa.02.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx, align 8, !noalias !19
+  %.sroa.02.i.i.0..sroa.02.i.i.0..sroa.02.i.i.0..sroa.02.i.0..sroa.02.i.0..sroa.02.0..sroa.02.0..sroa.02.0..sroa.02.0..sroa.0.0.copyload.i.i = load b128, ptr %.sroa.02.i.i, align 16, !noalias !19
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.02.i.i)
+  store b128 %.sroa.02.i.i.0..sroa.02.i.i.0..sroa.02.i.i.0..sroa.02.i.0..sroa.02.i.0..sroa.02.0..sroa.02.0..sroa.02.0..sroa.02.0..sroa.0.0.copyload.i.i, ptr %3, align 16, !noalias !19
   store ptr @anon.2e3b31927dd9900e16bc9c92312cd742.3.llvm.8249639753278390263, ptr %4, align 8, !noalias !19
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 1, ptr %7, align 8, !noalias !19
@@ -208,7 +213,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$core..fmt..Write$GT$10write_char17h7039632e9049583bE"(ptr noalias noundef align 8 dereferenceable(24) %0, i32 noundef range(i32 0, 1114112) %1) unnamed_addr #3 personality ptr @rust_eh_personality {
-  %.sroa.0.i = alloca i32, align 4
+  %.sroa.0.i = alloca b32, align 4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !31)
   %3 = icmp samesign ult i32 %1, 128
   %.sroa.0.i.1.i.1.i.1.gep.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1

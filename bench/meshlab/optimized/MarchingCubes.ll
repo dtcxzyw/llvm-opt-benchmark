@@ -865,7 +865,7 @@ define noundef zeroext i1 @_ZN15MarchingSquares8HasRootsEh(i8 noundef zeroext %0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef i32 @_ZN15MarchingSquares8AddEdgesEPKddP4Edge(ptr noundef readonly captures(none) %0, double noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #3 align 2 {
-  %.sroa.0 = alloca [2 x [2 x double]], align 8
+  %.sroa.0 = alloca b256, align 16
   %4 = load double, ptr %0, align 8
   %5 = fcmp olt double %4, %1
   %.0.i = zext i1 %5 to i8
@@ -1007,11 +1007,12 @@ _ZN15MarchingSquares9SetVertexEiPKdd.exit:        ; preds = %49, %47, %23
   %57 = load i32, ptr %56, align 4
   %58 = sext i32 %57 to i64
   %59 = getelementptr inbounds [2 x double], ptr @_ZN15MarchingSquares10vertexListE, i64 %58
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0, ptr noundef nonnull align 16 dereferenceable(16) %55, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.16..sroa_idx, ptr noundef nonnull align 16 dereferenceable(16) %59, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %.sroa.0, ptr noundef nonnull align 16 dereferenceable(16) %55, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %.sroa.0.16..sroa_idx, ptr noundef nonnull align 16 dereferenceable(16) %59, i64 16, i1 false)
   %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
   %60 = getelementptr inbounds nuw %class.Edge, ptr %2, i64 %indvars.iv48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %60, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0, i64 32, i1 false)
+  %.sroa.0.0..sroa.0.0..sroa.0.0.copyload = load b256, ptr %.sroa.0, align 16
+  store b256 %.sroa.0.0..sroa.0.0..sroa.0.0.copyload, ptr %60, align 8
   %indvars.iv.next47 = add nuw nsw i64 %indvars.iv46, 2
   %61 = getelementptr inbounds nuw i32, ptr %21, i64 %indvars.iv.next47
   %62 = load i32, ptr %61, align 4

@@ -7,7 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 @jpake_client_id = internal constant [6 x i8] c"client", align 1
 @jpake_server_id = internal constant [6 x i8] c"server", align 1
-@__const.mbedtls_psa_pake_input_internal.ecparameters = private unnamed_addr constant [3 x i8] c"\03\00\17", align 1
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @mbedtls_psa_pake_setup(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -433,7 +432,7 @@ define hidden range(i32 -153, 1) i32 @mbedtls_psa_pake_input(ptr noundef %0, i32
 18:                                               ; preds = %13
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 %15
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %20, ptr noundef nonnull align 1 dereferenceable(3) @__const.mbedtls_psa_pake_input_internal.ecparameters, i64 3, i1 false)
+  store i24 1507331, ptr %20, align 1
   %21 = load i64, ptr %14, align 8, !tbaa !21
   %22 = add i64 %21, 3
   store i64 %22, ptr %14, align 8, !tbaa !21
@@ -501,10 +500,10 @@ define hidden range(i32 -153, 1) i32 @mbedtls_psa_pake_input(ptr noundef %0, i32
   store i64 0, ptr %24, align 8, !tbaa !21
   switch i32 %47, label %51 [
     i32 0, label %mbedtls_psa_pake_input_internal.exit
-    i32 -4, label %.critedge.fold.split43.i
-    i32 -20352, label %.critedge.fold.split43.i
-    i32 -19584, label %.critedge.fold.split43.i
-    i32 -19968, label %.critedge.fold.split43.i
+    i32 -4, label %.critedge.fold.split44.i
+    i32 -20352, label %.critedge.fold.split44.i
+    i32 -19584, label %.critedge.fold.split44.i
+    i32 -19968, label %.critedge.fold.split44.i
     i32 -8, label %48
     i32 -20224, label %48
     i32 -20608, label %49
@@ -526,11 +525,11 @@ define hidden range(i32 -153, 1) i32 @mbedtls_psa_pake_input(ptr noundef %0, i32
 .critedge.fold.split.i:                           ; preds = %38, %38, %38, %38
   br label %mbedtls_psa_pake_input_internal.exit
 
-.critedge.fold.split43.i:                         ; preds = %45, %45, %45, %45
+.critedge.fold.split44.i:                         ; preds = %45, %45, %45, %45
   br label %mbedtls_psa_pake_input_internal.exit
 
-mbedtls_psa_pake_input_internal.exit:             ; preds = %4, %13, %23, %29, %38, %41, %42, %43, %44, %45, %48, %49, %50, %51, %.critedge.fold.split.i, %.critedge.fold.split43.i
-  %.1.i = phi i32 [ -134, %4 ], [ %47, %45 ], [ -138, %23 ], [ -151, %50 ], [ -138, %13 ], [ %40, %38 ], [ 0, %29 ], [ -132, %44 ], [ -151, %43 ], [ -138, %41 ], [ -134, %42 ], [ -138, %48 ], [ -134, %49 ], [ -153, %.critedge.fold.split.i ], [ -132, %51 ], [ -153, %.critedge.fold.split43.i ]
+mbedtls_psa_pake_input_internal.exit:             ; preds = %4, %13, %23, %29, %38, %41, %42, %43, %44, %45, %48, %49, %50, %51, %.critedge.fold.split.i, %.critedge.fold.split44.i
+  %.1.i = phi i32 [ -134, %4 ], [ %47, %45 ], [ -138, %23 ], [ -151, %50 ], [ -138, %13 ], [ %40, %38 ], [ 0, %29 ], [ -132, %44 ], [ -151, %43 ], [ -138, %41 ], [ -134, %42 ], [ -138, %48 ], [ -134, %49 ], [ -153, %.critedge.fold.split.i ], [ -132, %51 ], [ -153, %.critedge.fold.split44.i ]
   ret i32 %.1.i
 }
 

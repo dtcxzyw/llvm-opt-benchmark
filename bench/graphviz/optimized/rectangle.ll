@@ -74,12 +74,12 @@ define { i64, i64 } @CombineRect(ptr noundef readonly captures(none) %0, ptr nou
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 4, !tbaa !3
   %7 = icmp sgt i32 %4, %6
-  %.034.sroa.gep = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %.035.sroa.gep = getelementptr inbounds nuw i8, ptr %3, i64 4
   br i1 %7, label %8, label %9
 
 8:                                                ; preds = %2
   %.sroa.4.0..0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..0..sroa_idx, align 4, !tbaa !9
+  %.sroa.4.0.copyload = load b64, ptr %.sroa.4.0..0..sroa_idx, align 4, !tbaa !9
   br label %28
 
 9:                                                ; preds = %2
@@ -90,25 +90,25 @@ define { i64, i64 } @CombineRect(ptr noundef readonly captures(none) %0, ptr nou
   br i1 %13, label %14, label %.preheader
 
 14:                                               ; preds = %9
-  %.sroa.4.0.copyload28 = load i64, ptr %5, align 4, !tbaa !9
+  %.sroa.4.0.copyload28 = load b64, ptr %5, align 4, !tbaa !9
   br label %28
 
 15:                                               ; preds = %.preheader
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %.sroa.4.0.copyload29 = load i64, ptr %.sroa.4.0..sroa_idx, align 4, !tbaa !9
+  %.sroa.4.0.copyload29 = load b64, ptr %.sroa.4.0..sroa_idx, align 4, !tbaa !9
   br label %28
 
 .preheader:                                       ; preds = %9, %.preheader
   %16 = phi i1 [ false, %.preheader ], [ true, %9 ]
-  %.034.sroa.phi = phi ptr [ %.034.sroa.gep, %.preheader ], [ %3, %9 ]
-  %.034 = phi i64 [ 1, %.preheader ], [ 0, %9 ]
-  %17 = getelementptr inbounds nuw i32, ptr %0, i64 %.034
+  %.035.sroa.phi = phi ptr [ %.035.sroa.gep, %.preheader ], [ %3, %9 ]
+  %.035 = phi i64 [ 1, %.preheader ], [ 0, %9 ]
+  %17 = getelementptr inbounds nuw i32, ptr %0, i64 %.035
   %18 = load i32, ptr %17, align 4, !tbaa !3
-  %19 = getelementptr inbounds nuw i32, ptr %1, i64 %.034
+  %19 = getelementptr inbounds nuw i32, ptr %1, i64 %.035
   %20 = load i32, ptr %19, align 4, !tbaa !3
   %. = tail call i32 @llvm.smin.i32(i32 %18, i32 %20)
-  store i32 %., ptr %.034.sroa.phi, align 4, !tbaa !3
-  %21 = or disjoint i64 %.034, 2
+  store i32 %., ptr %.035.sroa.phi, align 4, !tbaa !3
+  %21 = or disjoint i64 %.035, 2
   %22 = getelementptr inbounds nuw i32, ptr %0, i64 %21
   %23 = load i32, ptr %22, align 4, !tbaa !3
   %24 = getelementptr inbounds nuw i32, ptr %1, i64 %21
@@ -120,11 +120,12 @@ define { i64, i64 } @CombineRect(ptr noundef readonly captures(none) %0, ptr nou
 
 28:                                               ; preds = %15, %14, %8
   %.sroa.0.0.in = phi ptr [ %1, %8 ], [ %0, %14 ], [ %3, %15 ]
-  %.sroa.4.0 = phi i64 [ %.sroa.4.0.copyload, %8 ], [ %.sroa.4.0.copyload28, %14 ], [ %.sroa.4.0.copyload29, %15 ]
-  %.sroa.0.0 = load i64, ptr %.sroa.0.0.in, align 4
+  %.sroa.4.0 = phi b64 [ %.sroa.4.0.copyload, %8 ], [ %.sroa.4.0.copyload28, %14 ], [ %.sroa.4.0.copyload29, %15 ]
+  %.sroa.0.034 = load i64, ptr %.sroa.0.0.in, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.4.0, 1
+  %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.0.034, 0
+  %29 = bytecast b64 %.sroa.4.0 to i64
+  %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %29, 1
   ret { i64, i64 } %.fca.1.insert
 }
 

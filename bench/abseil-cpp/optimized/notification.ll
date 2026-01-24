@@ -200,12 +200,11 @@ declare void @_ZN4absl24synchronization_internal13KernelTimeoutC1ENS_4TimeE(ptr 
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef zeroext i1 @_ZN4absl9Condition19CastAndCallFunctionIKSt6atomicIbEEEbPKS0_(ptr noundef %0) #0 comdat align 2 {
-  %2 = load i64, ptr %0, align 8
-  %3 = inttoptr i64 %2 to ptr
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %5 = load ptr, ptr %4, align 8, !tbaa !9
-  %6 = tail call noundef zeroext i1 %3(ptr noundef %5)
-  ret i1 %6
+  %2 = load ptr, ptr %0, align 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %4 = load ptr, ptr %3, align 8, !tbaa !9
+  %5 = tail call noundef zeroext i1 %2(ptr noundef %4)
+  ret i1 %5
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

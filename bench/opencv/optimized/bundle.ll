@@ -1264,19 +1264,19 @@ _ZNK2cv4usac31RelativePoseJacobianAccumulator21essential_from_motionERKNS0_10Cam
   %156 = fneg double %137
   %157 = fneg double %142
   %158 = fneg double %147
-  store double 0.000000e+00, ptr %11, align 8, !tbaa !5
+  store i64 0, ptr %11, align 8, !tbaa !5
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 8
   store double %135, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !5
   %.sroa.5.0..sroa_idx295 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store double %137, ptr %.sroa.5.0..sroa_idx295, align 8, !tbaa !5
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 24
-  store double 0.000000e+00, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !5
+  store i64 0, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !5
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 32
   store double %140, ptr %.sroa.7.0..sroa_idx, align 8, !tbaa !5
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 40
   store double %142, ptr %.sroa.8.0..sroa_idx, align 8, !tbaa !5
   %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 48
-  store double 0.000000e+00, ptr %.sroa.9.0..sroa_idx, align 8, !tbaa !5
+  store i64 0, ptr %.sroa.9.0..sroa_idx, align 8, !tbaa !5
   %.sroa.10.0..sroa_idx296 = getelementptr inbounds nuw i8, ptr %11, i64 56
   store double %145, ptr %.sroa.10.0..sroa_idx296, align 8, !tbaa !5
   %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 64
@@ -1284,19 +1284,19 @@ _ZNK2cv4usac31RelativePoseJacobianAccumulator21essential_from_motionERKNS0_10Cam
   %.sroa.12.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 72
   store double %134, ptr %.sroa.12.0..sroa_idx, align 8, !tbaa !5
   %.sroa.13.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 80
-  store double 0.000000e+00, ptr %.sroa.13.0..sroa_idx, align 8, !tbaa !5
+  store i64 0, ptr %.sroa.13.0..sroa_idx, align 8, !tbaa !5
   %.sroa.14.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 88
   store double %149, ptr %.sroa.14.0..sroa_idx, align 8, !tbaa !5
   %.sroa.15.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 96
   store double %139, ptr %.sroa.15.0..sroa_idx, align 8, !tbaa !5
   %.sroa.16.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 104
-  store double 0.000000e+00, ptr %.sroa.16.0..sroa_idx, align 8, !tbaa !5
+  store i64 0, ptr %.sroa.16.0..sroa_idx, align 8, !tbaa !5
   %.sroa.17.0..sroa_idx297 = getelementptr inbounds nuw i8, ptr %11, i64 112
   store double %152, ptr %.sroa.17.0..sroa_idx297, align 8, !tbaa !5
   %.sroa.18.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 120
   store double %144, ptr %.sroa.18.0..sroa_idx, align 8, !tbaa !5
   %.sroa.19.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 128
-  store double 0.000000e+00, ptr %.sroa.19.0..sroa_idx, align 8, !tbaa !5
+  store i64 0, ptr %.sroa.19.0..sroa_idx, align 8, !tbaa !5
   %.sroa.20.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 136
   store double %155, ptr %.sroa.20.0..sroa_idx, align 8, !tbaa !5
   %.sroa.21.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 144
@@ -1304,23 +1304,26 @@ _ZNK2cv4usac31RelativePoseJacobianAccumulator21essential_from_motionERKNS0_10Cam
   %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 152
   store double %148, ptr %.sroa.22.0..sroa_idx, align 8, !tbaa !5
   %.sroa.23.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 160
-  store double 0.000000e+00, ptr %.sroa.23.0..sroa_idx, align 8, !tbaa !5
+  store i64 0, ptr %.sroa.23.0..sroa_idx, align 8, !tbaa !5
   %.sroa.24.0..sroa_idx298 = getelementptr inbounds nuw i8, ptr %11, i64 168
   store double %157, ptr %.sroa.24.0..sroa_idx298, align 8, !tbaa !5
   %.sroa.25.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 176
   store double %151, ptr %.sroa.25.0..sroa_idx, align 8, !tbaa !5
   %.sroa.26.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 184
-  store double 0.000000e+00, ptr %.sroa.26.0..sroa_idx, align 8, !tbaa !5
+  store i64 0, ptr %.sroa.26.0..sroa_idx, align 8, !tbaa !5
   %.sroa.27.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 192
   store double %158, ptr %.sroa.27.0..sroa_idx, align 8, !tbaa !5
   %.sroa.28.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 200
   store double %154, ptr %.sroa.28.0..sroa_idx, align 8, !tbaa !5
   %.sroa.29.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 208
-  store double 0.000000e+00, ptr %.sroa.29.0..sroa_idx, align 8, !tbaa !5
+  store i64 0, ptr %.sroa.29.0..sroa_idx, align 8, !tbaa !5
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %12, i8 0, i64 144, i1 false), !tbaa !5
+  %.val = load double, ptr %87, align 8
   %.val248 = load double, ptr %99, align 8
+  %.val249 = load double, ptr %84, align 8
   %.val250 = load double, ptr %100, align 8
+  %.val251 = load double, ptr %8, align 8
   %.val252 = load double, ptr %9, align 8
   %159 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %160 = getelementptr inbounds nuw i8, ptr %13, i64 16
@@ -1413,11 +1416,11 @@ _ZN2cvdVIdLi3EEERNS_3VecIT_XT0_EEES4_d.exit119:   ; preds = %107, %_ZN2cvdVIdLi3
   %217 = phi i1 [ true, %204 ], [ false, %227 ]
   %indvars.iv285.sroa.phi = phi ptr [ %12, %204 ], [ %indvars.iv285.sroa.gep340, %227 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  %218 = select i1 %217, double %88, double %.val248
-  %219 = select i1 %217, double %85, double %.val250
+  %218 = select i1 %217, double %.val, double %.val248
+  %219 = select i1 %217, double %.val249, double %.val250
   %220 = fmul double %219, %211
   %221 = tail call double @llvm.fmuladd.f64(double %218, double %210, double %220)
-  %222 = select i1 %217, double %92, double %.val252
+  %222 = select i1 %217, double %.val251, double %.val252
   %223 = fmul double %222, %212
   %224 = tail call double @llvm.fmuladd.f64(double %219, double %206, double %223)
   %225 = fmul double %218, %213

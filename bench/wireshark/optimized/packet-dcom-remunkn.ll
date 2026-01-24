@@ -147,7 +147,7 @@ define internal i32 @dissect_remunk_remqueryinterface_rqst(ptr noundef %0, i32 n
   %26 = zext i32 %25 to i64
   %27 = shl nuw nsw i64 %26, 4
   %28 = add nuw nsw i64 %27, 16
-  %29 = call noalias ptr @wmem_alloc0(ptr noundef %24, i64 noundef %28) #6
+  %29 = call noalias ptr @wmem_alloc0(ptr noundef %24, i64 noundef %28) #5
   %30 = load i32, ptr %10, align 4
   store i32 %30, ptr %29, align 8
   %31 = getelementptr i8, ptr %29, i64 16
@@ -213,7 +213,7 @@ define internal i32 @dissect_remunk_remqueryinterface_resp(ptr noundef %0, i32 n
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
-  %10 = alloca %struct._e_guid_t, align 4
+  %10 = alloca %struct._e_guid_t, align 16
   %11 = alloca i64, align 8
   %12 = alloca i64, align 8
   %13 = alloca %struct._e_guid_t, align 4
@@ -265,11 +265,11 @@ define internal i32 @dissect_remunk_remqueryinterface_resp(ptr noundef %0, i32 n
   %37 = add i32 %.06571, -1
   %38 = zext i32 %37 to i64
   %39 = getelementptr %struct._e_guid_t, ptr %36, i64 %38
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %10, ptr noundef align 4 dereferenceable(16) %39, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %10, ptr noundef align 4 dereferenceable(16) %39, i64 16, i1 false)
   br label %41
 
 40:                                               ; preds = %33, %26
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %10, i8 0, i64 16, i1 false)
+  store i128 0, ptr %10, align 16
   br label %41
 
 41:                                               ; preds = %40, %35
@@ -447,9 +447,6 @@ declare i32 @dissect_dcom_append_UUID(ptr noundef, i32 noundef, ptr noundef, ptr
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
-
 ; Function Attrs: null_pointer_is_valid
 declare i32 @dissect_dcom_that(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -490,18 +487,17 @@ declare void @col_append_str(ptr noundef, i32 noundef, ptr noundef) local_unname
 declare ptr @guids_resolve_guid_to_str(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { null_pointer_is_valid allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { allocsize(1) }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { allocsize(1) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

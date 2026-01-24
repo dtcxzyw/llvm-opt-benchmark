@@ -87,6 +87,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
 define noundef range(i32 0, 201) i32 @_ZN5boost21prg_exec_monitor_mainEPFiiPPcEiS1_(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+  %.sroa.076 = alloca b192, align 16
   %4 = alloca %"class.boost::execution_monitor", align 8
   %5 = alloca %"class.boost::function", align 8
   %6 = alloca %"class.boost::unit_test::basic_cstring", align 8
@@ -127,15 +128,19 @@ define noundef range(i32 0, 201) i32 @_ZN5boost21prg_exec_monitor_mainEPFiiPPcEi
   %18 = phi i8 [ 1, %12 ], [ 0, %15 ], [ 1, %.lr.ph.i.i.i.i ]
   store i8 %18, ptr %4, align 8, !tbaa !8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.076)
+  store ptr %0, ptr %.sroa.076, align 16
+  %.sroa.076.8..sroa_idx97 = getelementptr inbounds nuw i8, ptr %.sroa.076, i64 8
+  store i32 %1, ptr %.sroa.076.8..sroa_idx97, align 8
+  %.sroa.076.16..sroa_idx98 = getelementptr inbounds nuw i8, ptr %.sroa.076, i64 16
+  store ptr %2, ptr %.sroa.076.16..sroa_idx98, align 16
+  %.sroa.076.0..sroa.076.0..sroa.076.0..sroa.076.0..sroa.0.0.copyload.i = load b192, ptr %.sroa.076, align 16
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %0, ptr %19, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i32 %1, ptr %.sroa.4.0..sroa_idx, align 8
-  %.sroa.678.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store ptr %2, ptr %.sroa.678.0..sroa_idx, align 8
+  store b192 %.sroa.076.0..sroa.076.0..sroa.076.0..sroa.076.0..sroa.0.0.copyload.i, ptr %19, align 8
   %20 = or disjoint i64 ptrtoint (ptr @_ZZN5boost10function_nIiJEE9assign_toIN12_GLOBAL__N_115cpp_main_callerEEEvT_E13stored_vtable to i64), 1
   %21 = inttoptr i64 %20 to ptr
   store ptr %21, ptr %5, align 8, !tbaa !11
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.076)
   %22 = invoke noundef i32 @_ZN5boost17execution_monitor7executeERKNS_8functionIFivEEE(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(32) %5)
           to label %23 unwind label %38
 
@@ -356,7 +361,7 @@ _ZNSolsEPFRSoS_E.exit37:                          ; preds = %105
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %107
-  %.182 = phi i32 [ 1, %107 ], [ 200, %.thread.sink.split ]
+  %.183 = phi i32 [ 1, %107 ], [ 200, %.thread.sink.split ]
   %108 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.8, i64 noundef 66)
   %109 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !17
   %110 = getelementptr i8, ptr %109, i64 -24
@@ -527,13 +532,13 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit72: ; preds = %17
 
 _ZN5boost9unit_testneIKcEEbRKNS0_13basic_cstringIT_EEPS4_.exit55.sink.split: ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit66, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit72
   %.sink = phi ptr [ %182, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit72 ], [ %126, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit66 ]
-  %.181.ph = phi i32 [ %.0, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit72 ], [ %.182, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit66 ]
+  %.182.ph = phi i32 [ %.0, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit72 ], [ %.183, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit66 ]
   %183 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5flushEv(ptr noundef nonnull align 8 dereferenceable(8) %.sink)
   br label %_ZN5boost9unit_testneIKcEEbRKNS0_13basic_cstringIT_EEPS4_.exit55
 
 _ZN5boost9unit_testneIKcEEbRKNS0_13basic_cstringIT_EEPS4_.exit55: ; preds = %160, %_ZN5boost9unit_testneIKcEEbRKNS0_13basic_cstringIT_EEPS4_.exit55.sink.split
-  %.181 = phi i32 [ %.181.ph, %_ZN5boost9unit_testneIKcEEbRKNS0_13basic_cstringIT_EEPS4_.exit55.sink.split ], [ %.0, %160 ]
-  ret i32 %.181
+  %.182 = phi i32 [ %.182.ph, %_ZN5boost9unit_testneIKcEEbRKNS0_13basic_cstringIT_EEPS4_.exit55.sink.split ], [ %.0, %160 ]
+  ret i32 %.182
 
 184:                                              ; preds = %154, %148, %127
   %.merged = phi { ptr, i32 } [ %149, %148 ], [ %.pn27.pn, %127 ], [ %.pn31, %154 ]

@@ -630,7 +630,8 @@ define void @"_ZN97_$LT$regex..regexset..string..SetMatches$u20$as$u20$core..ite
           to label %"_ZN4core3ptr56drop_in_place$LT$regex..regexset..string..SetMatches$GT$17h1e88fc93e6acd843E.exit" unwind label %9
 
 6:                                                ; preds = %2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
+  %.sroa.01.0.copyload = load b192, ptr %1, align 8
+  store b192 %.sroa.01.0.copyload, ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 0, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32

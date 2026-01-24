@@ -563,8 +563,8 @@ define hidden void @_ZN5alloc3str17join_generic_copy17h83d6dc60824daa63E(ptr noa
 
 70:                                               ; preds = %.lr.ph326
   %71 = add i64 %.sroa.27.2325, -1
-  %72 = load i8, ptr %3, align 1, !alias.scope !98, !noalias !102
-  store i8 %72, ptr %.sroa.016.2324, align 1, !alias.scope !98, !noalias !102
+  %72 = load b8, ptr %3, align 1, !alias.scope !98, !noalias !102
+  store b8 %72, ptr %.sroa.016.2324, align 1, !alias.scope !98, !noalias !102
   %.not.i.i93 = icmp ugt i64 %.val3.i80, %71
   br i1 %.not.i.i93, label %73, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17ha24081e80bfa22b4E.exit101"
 
@@ -598,8 +598,8 @@ define hidden void @_ZN5alloc3str17join_generic_copy17h83d6dc60824daa63E(ptr noa
 
 82:                                               ; preds = %.lr.ph321
   %83 = add i64 %.sroa.27.3320, -2
-  %84 = load i16, ptr %3, align 1, !alias.scope !121, !noalias !125
-  store i16 %84, ptr %.sroa.016.3319, align 1, !alias.scope !121, !noalias !125
+  %84 = load b16, ptr %3, align 1, !alias.scope !121, !noalias !125
+  store b16 %84, ptr %.sroa.016.3319, align 1, !alias.scope !121, !noalias !125
   %.not.i.i116 = icmp ugt i64 %.val3.i103, %83
   br i1 %.not.i.i116, label %85, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17ha24081e80bfa22b4E.exit124"
 
@@ -667,8 +667,8 @@ define hidden void @_ZN5alloc3str17join_generic_copy17h83d6dc60824daa63E(ptr noa
 
 105:                                              ; preds = %.lr.ph
   %106 = add i64 %.sroa.27.5312, -4
-  %107 = load i32, ptr %3, align 1, !alias.scope !167, !noalias !171
-  store i32 %107, ptr %.sroa.016.5311, align 1, !alias.scope !167, !noalias !171
+  %107 = load b32, ptr %3, align 1, !alias.scope !167, !noalias !171
+  store b32 %107, ptr %.sroa.016.5311, align 1, !alias.scope !167, !noalias !171
   %.not.i.i162 = icmp ugt i64 %.val3.i149, %106
   br i1 %.not.i.i162, label %108, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17ha24081e80bfa22b4E.exit170"
 
@@ -777,7 +777,7 @@ define hidden { ptr, i64 } @"_ZN5alloc3vec9into_iter21IntoIter$LT$T$C$A$GT$16as_
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal fastcc void @_ZN5alloc6string6String4push17h5bf80ac19761e8d5E(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1) unnamed_addr #6 personality ptr @rust_eh_personality {
-  %.sroa.0 = alloca i32, align 4
+  %.sroa.0 = alloca b32, align 4
   %3 = icmp ult i32 %1, 128
   br i1 %3, label %.critedge, label %4
 
@@ -1035,7 +1035,7 @@ define hidden void @"_ZN95_$LT$alloc..string..String$u20$as$u20$core..iter..trai
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 0, ptr %3, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr inttoptr (i64 1 to ptr), ptr %.sroa.4.0..sroa_idx, align 8
+  store b64 bitcast (ptr inttoptr (i64 1 to ptr) to b64), ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 0, ptr %.sroa.5.0..sroa_idx, align 8
   invoke void @"_ZN89_$LT$alloc..string..String$u20$as$u20$core..iter..traits..collect..Extend$LT$char$GT$$GT$6extend17hf43448953c6a3f57E.llvm.7332432948095119766"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %1)
@@ -1064,13 +1064,14 @@ define hidden void @"_ZN95_$LT$alloc..string..String$u20$as$u20$core..iter..trai
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN9hashbrown11rustc_entry33RustcVacantEntry$LT$K$C$V$C$A$GT$6insert17h48dba937148182f7E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(40) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
-  %3 = alloca { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 } }, align 8
+  %3 = alloca { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 } }, align 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8, !nonnull !4, !align !8, !noundef !4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load i64, ptr %6, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
+  %.sroa.0.0.copyload = load b192, ptr %0, align 8
+  store b192 %.sroa.0.0.copyload, ptr %3, align 16
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   %9 = invoke noundef i64 @_ZN9hashbrown3raw13RawTableInner16find_insert_slot17h0d15703798b524f2E.llvm.2603368866442730075(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %5, i64 noundef %7)
@@ -1116,7 +1117,7 @@ define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN9hashbrown11r
   %34 = sub i64 %33, %31
   store i64 %34, ptr %32, align 8, !alias.scope !284, !noalias !277
   %35 = getelementptr inbounds i8, ptr %29, i64 -48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %35, ptr noundef nonnull align 8 dereferenceable(48) %3, i64 48, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %35, ptr noundef nonnull align 16 dereferenceable(48) %3, i64 48, i1 false)
   %36 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %37 = load i64, ptr %36, align 8, !alias.scope !284, !noalias !277, !noundef !4
   %38 = add i64 %37, 1
@@ -1128,13 +1129,14 @@ define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN9hashbrown11r
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN9hashbrown11rustc_entry33RustcVacantEntry$LT$K$C$V$C$A$GT$6insert17hbf1e472fe2e680f4E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(40) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
-  %3 = alloca { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 } }, align 8
+  %3 = alloca { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 } }, align 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8, !nonnull !4, !align !8, !noundef !4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load i64, ptr %6, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
+  %.sroa.0.0.copyload = load b192, ptr %0, align 8
+  store b192 %.sroa.0.0.copyload, ptr %3, align 16
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   %9 = invoke noundef i64 @_ZN9hashbrown3raw13RawTableInner16find_insert_slot17h0d15703798b524f2E.llvm.2603368866442730075(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %5, i64 noundef %7)
@@ -1180,7 +1182,7 @@ define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN9hashbrown11r
   %34 = sub i64 %33, %31
   store i64 %34, ptr %32, align 8, !alias.scope !292, !noalias !285
   %35 = getelementptr inbounds i8, ptr %29, i64 -48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %35, ptr noundef nonnull align 8 dereferenceable(48) %3, i64 48, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %35, ptr noundef nonnull align 16 dereferenceable(48) %3, i64 48, i1 false)
   %36 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %37 = load i64, ptr %36, align 8, !alias.scope !292, !noalias !285, !noundef !4
   %38 = add i64 %37, 1

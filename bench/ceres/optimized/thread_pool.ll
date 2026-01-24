@@ -235,8 +235,8 @@ define linkonce_odr hidden void @_ZNSt6vectorISt6threadSaIS0_EED2Ev(ptr noundef 
 
 _ZSt8_DestroyISt6threadEvPT_.exit.i.i.i:          ; preds = %1, %5
   %.05.i.i.i = phi ptr [ %6, %5 ], [ %2, %1 ]
-  %.sroa.0.0.copyload.i.i.i.i.i.i = load i64, ptr %.05.i.i.i, align 8, !tbaa !32
-  %.not.i.i.i.i.i = icmp eq i64 %.sroa.0.0.copyload.i.i.i.i.i.i, 0
+  %.sroa.0.0.copyload1.i.i.i.i.i.i = load i64, ptr %.05.i.i.i, align 8, !tbaa !32
+  %.not.i.i.i.i.i = icmp eq i64 %.sroa.0.0.copyload1.i.i.i.i.i.i, 0
   br i1 %.not.i.i.i.i.i, label %5, label %7
 
 7:                                                ; preds = %_ZSt8_DestroyISt6threadEvPT_.exit.i.i.i
@@ -307,8 +307,8 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %1
 
 _ZSt8_DestroyISt6threadEvPT_.exit.i.i.i.i:        ; preds = %._crit_edge, %17
   %.05.i.i.i.i = phi ptr [ %18, %17 ], [ %15, %._crit_edge ]
-  %.sroa.0.0.copyload.i.i.i.i.i.i.i = load i64, ptr %.05.i.i.i.i, align 8, !tbaa !32
-  %.not.i.i.i.i.i.i = icmp eq i64 %.sroa.0.0.copyload.i.i.i.i.i.i.i, 0
+  %.sroa.0.0.copyload1.i.i.i.i.i.i.i = load i64, ptr %.05.i.i.i.i, align 8, !tbaa !32
+  %.not.i.i.i.i.i.i = icmp eq i64 %.sroa.0.0.copyload1.i.i.i.i.i.i.i, 0
   br i1 %.not.i.i.i.i.i.i, label %17, label %19
 
 19:                                               ; preds = %_ZSt8_DestroyISt6threadEvPT_.exit.i.i.i.i
@@ -1257,8 +1257,8 @@ _ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i7.i.i.i: ; preds = %33
   %.0911.i.i.i = phi ptr [ %41, %.lr.ph.i.i.i ], [ %8, %39 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !79)
   call void @llvm.experimental.noalias.scope.decl(metadata !82)
-  %40 = load i64, ptr %.0911.i.i.i, align 8, !tbaa !32, !alias.scope !82, !noalias !79
-  store i64 %40, ptr %.012.i.i.i, align 8, !tbaa !32, !alias.scope !79, !noalias !82
+  %40 = load b64, ptr %.0911.i.i.i, align 8, !tbaa !32, !alias.scope !82, !noalias !79
+  store b64 %40, ptr %.012.i.i.i, align 8, !tbaa !32, !alias.scope !79, !noalias !82
   store i64 0, ptr %.0911.i.i.i, align 8, !tbaa !32, !alias.scope !82, !noalias !79
   %41 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 8
   %42 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 8
@@ -1276,8 +1276,8 @@ _ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit: ; preds = %.lr.
   %.0911.i.i.i30 = phi ptr [ %45, %.lr.ph.i.i.i28 ], [ %1, %_ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit ]
   call void @llvm.experimental.noalias.scope.decl(metadata !85)
   call void @llvm.experimental.noalias.scope.decl(metadata !88)
-  %44 = load i64, ptr %.0911.i.i.i30, align 8, !tbaa !32, !alias.scope !88, !noalias !85
-  store i64 %44, ptr %.012.i.i.i29, align 8, !tbaa !32, !alias.scope !85, !noalias !88
+  %44 = load b64, ptr %.0911.i.i.i30, align 8, !tbaa !32, !alias.scope !88, !noalias !85
+  store b64 %44, ptr %.012.i.i.i29, align 8, !tbaa !32, !alias.scope !85, !noalias !88
   store i64 0, ptr %.0911.i.i.i30, align 8, !tbaa !32, !alias.scope !88, !noalias !85
   %45 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i30, i64 8
   %46 = getelementptr inbounds nuw i8, ptr %.012.i.i.i29, i64 8
@@ -1655,8 +1655,7 @@ declare void @_ZN4absl12lts_2024011612log_internal15LogMessageFatalD1Ev(ptr noun
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN5ceres8internal15ConcurrentQueueISt8functionIFvvEEE11PopUnlockedEPS4_(ptr noundef nonnull align 8 dereferenceable(169) %0, ptr noundef %1) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %.sroa.0.i.i.i = alloca { i64, i64 }, align 8
-  %3 = alloca %"class.std::function", align 8
+  %3 = alloca %"class.std::function", align 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %6 = load ptr, ptr %4, align 8, !tbaa !58
@@ -1669,7 +1668,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5ceres8internal15ConcurrentQue
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %3, i8 0, i64 32, i1 false)
   %13 = load ptr, ptr %12, align 8, !tbaa !45
   %.not.i.i.not.i.i = icmp eq ptr %13, null
   br i1 %.not.i.i.not.i.i, label %_ZNSt8functionIFvvEEC2ERKS1_.exit.i, label %14
@@ -1682,12 +1681,13 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5ceres8internal15ConcurrentQue
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %18 = load ptr, ptr %17, align 8, !tbaa !47
   %19 = load ptr, ptr %12, align 8, !tbaa !45
+  %.sroa.0.0.copyload.i.i.pre.i = load b128, ptr %3, align 16, !tbaa !26
   br label %_ZNSt8functionIFvvEEC2ERKS1_.exit.i
 
 20:                                               ; preds = %14
   %21 = landingpad { ptr, i32 }
           cleanup
-  %22 = load ptr, ptr %10, align 8, !tbaa !45
+  %22 = load ptr, ptr %10, align 16, !tbaa !45
   %.not.i.i.i = icmp eq ptr %22, null
   br i1 %.not.i.i.i, label %_ZNSt14_Function_baseD2Ev.exit.i.i, label %23
 
@@ -1708,14 +1708,12 @@ _ZNSt14_Function_baseD2Ev.exit.i.i:               ; preds = %23, %20
 _ZNSt8functionIFvvEEC2ERKS1_.exit.i:              ; preds = %16, %9
   %28 = phi ptr [ null, %9 ], [ %18, %16 ]
   %29 = phi ptr [ null, %9 ], [ %19, %16 ]
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 16, i1 false), !tbaa.struct !90
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 16, i1 false), !tbaa.struct !90
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, i64 16, i1 false), !tbaa.struct !90
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i)
+  %.sroa.0.0.copyload.i.i.i = phi b128 [ 0, %9 ], [ %.sroa.0.0.copyload.i.i.pre.i, %16 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 16, i1 false), !tbaa.struct !90
+  store b128 %.sroa.0.0.copyload.i.i.i, ptr %1, align 8, !tbaa !26
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %31 = load ptr, ptr %30, align 8, !tbaa !91
-  store ptr %31, ptr %10, align 8, !tbaa !91
+  store ptr %31, ptr %10, align 16, !tbaa !91
   store ptr %29, ptr %30, align 8, !tbaa !91
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %33 = load ptr, ptr %32, align 8, !tbaa !91

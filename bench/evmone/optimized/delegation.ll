@@ -16,7 +16,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6evmone20get_delegate_addressERKN4evmc13HostInterfaceERKNS0_7addressE(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::optional") align 1 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 1 dereferenceable(20) %2) local_unnamed_addr #0 {
   %4 = alloca [23 x i8], align 16
-  %.sroa.0 = alloca [20 x i8], align 8
+  %.sroa.0.sroa.0 = alloca b256, align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %4) #4
   %5 = load ptr, ptr %1, align 8, !tbaa !3
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 64
@@ -46,22 +46,24 @@ define void @_ZN6evmone20get_delegate_addressERKN4evmc13HostInterfaceERKNS0_7add
   br label %19
 
 _ZN6evmone17is_code_delegatedESt17basic_string_viewIhN4evmc11byte_traitsIhEEE.exit: ; preds = %11
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %.sroa.0, i8 0, i64 20, i1 false)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.sroa.0)
+  store i160 0, ptr %.sroa.0.sroa.0, align 16, !tbaa !6
   %15 = add i64 %8, -3
   %16 = icmp sgt i64 %15, 0
   br i1 %16, label %.lr.ph.i.i.i.preheader, label %_ZNKSt6ranges9__copy_fnclITkNS_11input_rangeESt17basic_string_viewIhN4evmc11byte_traitsIhEEETkSt20weakly_incrementablePhQ19indirectly_copyableIDTclsr8__detailE14__ranges_beginclsr3stdE7declvalIRT_EEEET0_EEENS_13in_out_resultINSt11conditionalIX14borrowed_rangeIS8_EESA_NS_8danglingEE4typeESB_EEOS8_SB_.exit
 
 .lr.ph.i.i.i.preheader:                           ; preds = %_ZN6evmone17is_code_delegatedESt17basic_string_viewIhN4evmc11byte_traitsIhEEE.exit
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 3
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %.sroa.0, ptr nonnull align 1 %17, i64 %15, i1 false), !tbaa !6
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %.sroa.0.sroa.0, ptr nonnull align 1 %17, i64 %15, i1 false), !tbaa !6
+  %.sroa.0.sroa.0.0..sroa.0.sroa.0.0..sroa.0.sroa.0.0..sroa.0.0.copyload.pre = load b160, ptr %.sroa.0.sroa.0, align 16
   br label %_ZNKSt6ranges9__copy_fnclITkNS_11input_rangeESt17basic_string_viewIhN4evmc11byte_traitsIhEEETkSt20weakly_incrementablePhQ19indirectly_copyableIDTclsr8__detailE14__ranges_beginclsr3stdE7declvalIRT_EEEET0_EEENS_13in_out_resultINSt11conditionalIX14borrowed_rangeIS8_EESA_NS_8danglingEE4typeESB_EEOS8_SB_.exit
 
 _ZNKSt6ranges9__copy_fnclITkNS_11input_rangeESt17basic_string_viewIhN4evmc11byte_traitsIhEEETkSt20weakly_incrementablePhQ19indirectly_copyableIDTclsr8__detailE14__ranges_beginclsr3stdE7declvalIRT_EEEET0_EEENS_13in_out_resultINSt11conditionalIX14borrowed_rangeIS8_EESA_NS_8danglingEE4typeESB_EEOS8_SB_.exit: ; preds = %.lr.ph.i.i.i.preheader, %_ZN6evmone17is_code_delegatedESt17basic_string_viewIhN4evmc11byte_traitsIhEEE.exit
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %0, ptr noundef nonnull align 8 dereferenceable(20) %.sroa.0, i64 20, i1 false)
+  %.sroa.0.sroa.0.0..sroa.0.sroa.0.0..sroa.0.0.copyload = phi b160 [ %.sroa.0.sroa.0.0..sroa.0.sroa.0.0..sroa.0.sroa.0.0..sroa.0.0.copyload.pre, %.lr.ph.i.i.i.preheader ], [ 0, %_ZN6evmone17is_code_delegatedESt17basic_string_viewIhN4evmc11byte_traitsIhEEE.exit ]
+  store b160 %.sroa.0.sroa.0.0..sroa.0.sroa.0.0..sroa.0.0.copyload, ptr %0, align 1
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i8 1, ptr %18, align 1, !tbaa !10
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.sroa.0)
   br label %19
 
 19:                                               ; preds = %_ZNKSt6ranges9__copy_fnclITkNS_11input_rangeESt17basic_string_viewIhN4evmc11byte_traitsIhEEETkSt20weakly_incrementablePhQ19indirectly_copyableIDTclsr8__detailE14__ranges_beginclsr3stdE7declvalIRT_EEEET0_EEENS_13in_out_resultINSt11conditionalIX14borrowed_rangeIS8_EESA_NS_8danglingEE4typeESB_EEOS8_SB_.exit, %.loopexit

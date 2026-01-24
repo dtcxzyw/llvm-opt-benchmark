@@ -71,8 +71,8 @@ $__clang_call_terminate = comdat any
 define void @_ZN7rocksdb12ReplayerImplC2EPNS_2DBERKSt6vectorIPNS_18ColumnFamilyHandleESaIS5_EEOSt10unique_ptrINS_11TraceReaderESt14default_deleteISB_EE(ptr noundef nonnull align 8 captures(none) dereferenceable(92) initializes((0, 58), (64, 72)) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN7rocksdb12ReplayerImplE, i64 16), ptr %0, align 8, !tbaa !4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load i64, ptr %3, align 8, !tbaa !7
-  store i64 %6, ptr %5, align 8, !tbaa !7
+  %6 = load b64, ptr %3, align 8, !tbaa !7
+  store b64 %6, ptr %5, align 8, !tbaa !7
   store ptr null, ptr %3, align 8, !tbaa !7
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -1025,10 +1025,8 @@ define void @_ZN7rocksdb12ReplayerImpl7ExecuteERKSt10unique_ptrINS_11TraceRecord
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7rocksdb12ReplayerImpl6ReplayERKNS_13ReplayOptionsERKSt8functionIFvNS_6StatusEOSt10unique_ptrINS_17TraceRecordResultESt14default_deleteIS7_EEEE(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(92) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(32) %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::unique_ptr.10", align 8
-  %.sroa.0.i.i.i200 = alloca { i64, i64 }, align 8
-  %6 = alloca %"class.std::function", align 8
-  %.sroa.0.i.i.i = alloca { i64, i64 }, align 8
-  %7 = alloca %"class.std::function.54", align 8
+  %6 = alloca %"class.std::function", align 16
+  %7 = alloca %"class.std::function.54", align 16
   %8 = alloca %struct.timespec, align 8
   %9 = alloca %"class.std::unique_ptr.10", align 8
   %10 = alloca %"class.std::unique_ptr.10", align 8
@@ -2278,15 +2276,13 @@ _ZN7rocksdb5TraceaSEOS0_.exit:                    ; preds = %_ZNSt7__cxx1112basi
   store ptr %34, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !119
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %449, i64 16
   store ptr %35, ptr %.sroa.6.0..sroa_idx, align 16, !tbaa !121
-  store ptr %449, ptr %7, align 8, !tbaa !123
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 16, i1 false), !tbaa.struct !124
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %431, i64 16, i1 false), !tbaa.struct !124
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %431, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, i64 16, i1 false), !tbaa.struct !124
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i)
+  store ptr %449, ptr %7, align 16, !tbaa !123
+  %.sroa.0.0.copyload.i.i.i = load b128, ptr %7, align 16, !tbaa !46
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %431, i64 16, i1 false), !tbaa.struct !124
+  store b128 %.sroa.0.0.copyload.i.i.i, ptr %431, align 8, !tbaa !46
   %450 = getelementptr inbounds nuw i8, ptr %427, i64 88
   %451 = load ptr, ptr %450, align 8, !tbaa !123
-  store ptr %451, ptr %348, align 8, !tbaa !123
+  store ptr %451, ptr %348, align 16, !tbaa !123
   store ptr @"_ZNSt17_Function_handlerIFvN7rocksdb6StatusEmEZNS0_12ReplayerImpl6ReplayERKNS0_13ReplayOptionsERKSt8functionIFvS1_OSt10unique_ptrINS0_17TraceRecordResultESt14default_deleteIS9_EEEEE3$_0E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation", ptr %450, align 8, !tbaa !123
   %452 = getelementptr inbounds nuw i8, ptr %427, i64 96
   %453 = load ptr, ptr %452, align 8, !tbaa !123
@@ -2310,7 +2306,7 @@ _ZN7rocksdb5TraceaSEOS0_.exit:                    ; preds = %_ZNSt7__cxx1112basi
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %460 = getelementptr inbounds nuw i8, ptr %427, i64 104
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %6, i8 0, i64 32, i1 false)
   %461 = load ptr, ptr %351, align 8, !tbaa !98
   %.not.i.i.not.i.i = icmp eq ptr %461, null
   br i1 %.not.i.i.not.i.i, label %_ZNSt8functionIFvN7rocksdb6StatusEOSt10unique_ptrINS0_17TraceRecordResultESt14default_deleteIS3_EEEEC2ERKS9_.exit.i, label %462
@@ -2322,14 +2318,15 @@ _ZN7rocksdb5TraceaSEOS0_.exit:                    ; preds = %_ZNSt7__cxx1112basi
 464:                                              ; preds = %462
   %465 = load ptr, ptr %352, align 8, !tbaa !103
   %466 = load ptr, ptr %351, align 8, !tbaa !98
+  %.sroa.0.0.copyload.i.i.pre.i = load b128, ptr %6, align 16, !tbaa !46
   br label %_ZNSt8functionIFvN7rocksdb6StatusEOSt10unique_ptrINS0_17TraceRecordResultESt14default_deleteIS3_EEEEC2ERKS9_.exit.i
 
 467:                                              ; preds = %462
   %468 = landingpad { ptr, i32 }
           cleanup
-  %469 = load ptr, ptr %349, align 8, !tbaa !98
-  %.not.i.i.i201 = icmp eq ptr %469, null
-  br i1 %.not.i.i.i201, label %.body203, label %470
+  %469 = load ptr, ptr %349, align 16, !tbaa !98
+  %.not.i.i.i200 = icmp eq ptr %469, null
+  br i1 %.not.i.i.i200, label %.body203, label %470
 
 470:                                              ; preds = %467
   %471 = invoke noundef zeroext i1 %469(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 3)
@@ -2345,14 +2342,12 @@ _ZN7rocksdb5TraceaSEOS0_.exit:                    ; preds = %_ZNSt7__cxx1112basi
 _ZNSt8functionIFvN7rocksdb6StatusEOSt10unique_ptrINS0_17TraceRecordResultESt14default_deleteIS3_EEEEC2ERKS9_.exit.i: ; preds = %464, %459
   %475 = phi ptr [ null, %459 ], [ %465, %464 ]
   %476 = phi ptr [ null, %459 ], [ %466, %464 ]
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i200)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i200, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 16, i1 false), !tbaa.struct !124
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %460, i64 16, i1 false), !tbaa.struct !124
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %460, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i200, i64 16, i1 false), !tbaa.struct !124
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i200)
+  %.sroa.0.0.copyload.i.i.i201 = phi b128 [ 0, %459 ], [ %.sroa.0.0.copyload.i.i.pre.i, %464 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %460, i64 16, i1 false), !tbaa.struct !124
+  store b128 %.sroa.0.0.copyload.i.i.i201, ptr %460, align 8, !tbaa !46
   %477 = getelementptr inbounds nuw i8, ptr %427, i64 120
   %478 = load ptr, ptr %477, align 8, !tbaa !123
-  store ptr %478, ptr %349, align 8, !tbaa !123
+  store ptr %478, ptr %349, align 16, !tbaa !123
   store ptr %476, ptr %477, align 8, !tbaa !123
   %479 = getelementptr inbounds nuw i8, ptr %427, i64 128
   %480 = load ptr, ptr %479, align 8, !tbaa !123

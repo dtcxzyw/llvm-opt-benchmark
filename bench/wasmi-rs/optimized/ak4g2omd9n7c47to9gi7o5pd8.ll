@@ -22,7 +22,8 @@ define noundef i16 @_ZN8wasmi_ir4span7RegSpan3new17h2e0d12b5ffb4f6ceE(i16 nounde
 
 ; Function Attrs: nonlazybind uwtable
 define { i16, i16 } @_ZN8wasmi_ir4span7RegSpan10iter_sized17h726dc644deb3ee3dE(i16 noundef %0, i64 noundef %1) unnamed_addr #1 {
-  %3 = alloca [16 x i8], align 8
+  %.sroa.03.i = alloca b128, align 16
+  %3 = alloca [16 x i8], align 16
   %4 = alloca [48 x i8], align 8
   %5 = alloca [8 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -45,9 +46,13 @@ define { i16, i16 } @_ZN8wasmi_ir4span7RegSpan10iter_sized17h726dc644deb3ee3dE(i
 14:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  store ptr %5, ptr %3, align 8
-  %.sroa.43.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr @"_ZN4core3fmt3num3imp54_$LT$impl$u20$core..fmt..Display$u20$for$u20$usize$GT$3fmt17hd8f455fd1d89d1b2E", ptr %.sroa.43.0..sroa_idx.i, align 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.03.i)
+  store ptr %5, ptr %.sroa.03.i, align 16
+  %.sroa.03.i.8.i.8.i.8..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.03.i, i64 8
+  store ptr @"_ZN4core3fmt3num3imp54_$LT$impl$u20$core..fmt..Display$u20$for$u20$usize$GT$3fmt17hd8f455fd1d89d1b2E", ptr %.sroa.03.i.8.i.8.i.8..sroa_idx, align 8
+  %.sroa.03.i.0..sroa.03.i.0..sroa.03.i.0..sroa.03.0..sroa.03.0..sroa.03.0..sroa.03.0..sroa.01.0.copyload.i = load b128, ptr %.sroa.03.i, align 16
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.03.i)
+  store b128 %.sroa.03.i.0..sroa.03.i.0..sroa.03.i.0..sroa.03.0..sroa.03.0..sroa.03.0..sroa.03.0..sroa.01.0.copyload.i, ptr %3, align 16
   store ptr @anon.97404d2c5ebf29853ca4f85ccf74caae.1, ptr %4, align 8
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 1, ptr %15, align 8
@@ -144,11 +149,11 @@ _ZN8wasmi_ir4span7RegSpan4iter17h60b39cc4fde2d4eeE.exit1: ; preds = %_ZN8wasmi_i
 
 27:                                               ; preds = %_ZN8wasmi_ir4span7RegSpan4iter17h60b39cc4fde2d4eeE.exit1
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  store ptr @anon.97404d2c5ebf29853ca4f85ccf74caae.8, ptr %4, align 8
+  store b64 bitcast (ptr @anon.97404d2c5ebf29853ca4f85ccf74caae.8 to b64), ptr %4, align 8
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 1, ptr %.sroa.4.0..sroa_idx.i, align 8
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr inttoptr (i64 8 to ptr), ptr %.sroa.5.0..sroa_idx.i, align 8
+  store b64 bitcast (ptr inttoptr (i64 8 to ptr) to b64), ptr %.sroa.5.0..sroa_idx.i, align 8
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx.i, i8 0, i64 16, i1 false)
   call void @_ZN4core9panicking13assert_failed17h77d57c61d0ad0ecdE(i8 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %5, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.97404d2c5ebf29853ca4f85ccf74caae.9) #9
@@ -363,11 +368,11 @@ define noundef zeroext i1 @_ZN8wasmi_ir4span11RegSpanIter22has_overlapping_copie
 
 17:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  store ptr @anon.97404d2c5ebf29853ca4f85ccf74caae.8, ptr %5, align 8
+  store b64 bitcast (ptr @anon.97404d2c5ebf29853ca4f85ccf74caae.8 to b64), ptr %5, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 1, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr inttoptr (i64 8 to ptr), ptr %.sroa.5.0..sroa_idx, align 8
+  store b64 bitcast (ptr inttoptr (i64 8 to ptr) to b64), ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx, i8 0, i64 16, i1 false)
   call void @_ZN4core9panicking13assert_failed17h77d57c61d0ad0ecdE(i8 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.97404d2c5ebf29853ca4f85ccf74caae.9) #9

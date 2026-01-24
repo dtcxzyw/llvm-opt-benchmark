@@ -318,7 +318,7 @@ define void @"_ZN107_$LT$anki_io..error..FileIoError$u20$as$u20$core..convert..F
 
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN103_$LT$anki_io..error..FileIoError$u20$as$u20$core..convert..From$LT$tempfile..file..PersistError$GT$$GT$4from17hae21f7e76690a2e8E"(ptr writeonly sret({ { i64, [3 x i64] }, { { { { { ptr, i64 }, i64 } } } }, ptr }) align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = alloca { { { ptr, i64 }, i64 } }, align 8
+  %3 = alloca { { { ptr, i64 }, i64 } }, align 16
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8, !nonnull !4, !align !6, !noundef !4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -333,9 +333,10 @@ define void @"_ZN103_$LT$anki_io..error..FileIoError$u20$as$u20$core..convert..F
           to label %16 unwind label %14
 
 10:                                               ; preds = %2
+  %.sroa.03.0.copyload = load b192, ptr %3, align 16
   %11 = load ptr, ptr %1, align 8, !nonnull !4, !noundef !4
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
+  store b192 %.sroa.03.0.copyload, ptr %12, align 8
   store i64 6, ptr %0, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %11, ptr %13, align 8

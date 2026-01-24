@@ -117,8 +117,7 @@ define hidden void @lstopo_palette_init(ptr noundef writeonly captures(none) ini
   store i32 255, ptr @lstopo_main_palette, align 8, !tbaa !4
   store i32 255, ptr getelementptr inbounds nuw (i8, ptr @lstopo_main_palette, i64 4), align 4, !tbaa !4
   store i32 255, ptr getelementptr inbounds nuw (i8, ptr @lstopo_main_palette, i64 8), align 8, !tbaa !4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) getelementptr inbounds nuw (i8, ptr @lstopo_main_palette, i64 12), i8 0, i64 20, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @lstopo_main_palette, i64 32), i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) getelementptr inbounds nuw (i8, ptr @lstopo_main_palette, i64 12), i8 0, i64 52, i1 false)
   store i32 255, ptr getelementptr inbounds nuw (i8, ptr @lstopo_main_palette, i64 64), align 8, !tbaa !4
   store i32 255, ptr getelementptr inbounds nuw (i8, ptr @lstopo_main_palette, i64 68), align 4, !tbaa !4
   store i32 255, ptr getelementptr inbounds nuw (i8, ptr @lstopo_main_palette, i64 72), align 8, !tbaa !4
@@ -174,15 +173,14 @@ define hidden void @lstopo_palette_init(ptr noundef writeonly captures(none) ini
   store i32 255, ptr getelementptr inbounds nuw (i8, ptr @lstopo_main_palette, i64 480), align 8, !tbaa !4
   store i32 255, ptr getelementptr inbounds nuw (i8, ptr @lstopo_main_palette, i64 484), align 4, !tbaa !4
   store i32 255, ptr getelementptr inbounds nuw (i8, ptr @lstopo_main_palette, i64 488), align 8, !tbaa !4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) getelementptr inbounds nuw (i8, ptr @lstopo_main_palette, i64 492), i8 0, i64 20, i1 false)
-  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @lstopo_main_palette, i64 512), align 8, !tbaa !4
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @lstopo_main_palette, i64 492), i8 0, i64 24, i1 false)
   store i32 255, ptr getelementptr inbounds nuw (i8, ptr @lstopo_main_palette, i64 516), align 4, !tbaa !4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @lstopo_main_palette, i64 520), i8 0, i64 24, i1 false)
+  store i192 0, ptr getelementptr inbounds nuw (i8, ptr @lstopo_main_palette, i64 520), align 8
   store i32 255, ptr getelementptr inbounds nuw (i8, ptr @lstopo_main_palette, i64 544), align 8, !tbaa !4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) getelementptr inbounds nuw (i8, ptr @lstopo_main_palette, i64 548), i8 0, i64 28, i1 false)
+  store i224 0, ptr getelementptr inbounds nuw (i8, ptr @lstopo_main_palette, i64 548), align 4
   store i32 255, ptr getelementptr inbounds nuw (i8, ptr @lstopo_main_palette, i64 576), align 8, !tbaa !4
   store i32 255, ptr getelementptr inbounds nuw (i8, ptr @lstopo_main_palette, i64 580), align 4, !tbaa !4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @lstopo_main_palette, i64 584), i8 0, i64 24, i1 false)
+  store i192 0, ptr getelementptr inbounds nuw (i8, ptr @lstopo_main_palette, i64 584), align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(608) @lstopo_grey_palette, ptr noundef nonnull align 8 dereferenceable(608) @lstopo_main_palette, i64 512, i1 false)
   store i32 201, ptr getelementptr inbounds nuw (i8, ptr @lstopo_grey_palette, i64 128), align 8, !tbaa !4
   store i32 201, ptr getelementptr inbounds nuw (i8, ptr @lstopo_grey_palette, i64 132), align 4, !tbaa !4

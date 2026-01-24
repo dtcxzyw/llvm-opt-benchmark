@@ -126,7 +126,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local noundef i32 @_ZN12GIM_BOX_TREE30_sort_and_calc_splitting_indexER9gim_arrayI13GIM_AABB_DATAEjjj(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #2 align 2 {
-  %.sroa.0.i.i = alloca %class.GIM_AABB, align 8
+  %.sroa.0.i.i = alloca b256, align 16
   %6 = sub i32 %3, %2
   %7 = icmp ult i32 %2, %3
   br i1 %7, label %.lr.ph, label %._crit_edge52
@@ -180,15 +180,16 @@ define dso_local noundef i32 @_ZN12GIM_BOX_TREE30_sort_and_calc_splitting_indexE
 35:                                               ; preds = %24
   %36 = zext i32 %.04248 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i, ptr noundef nonnull align 4 dereferenceable(16) %26, i64 16, i1 false), !tbaa.struct !17
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.16..sroa_idx.i.i, ptr noundef nonnull align 4 dereferenceable(16) %27, i64 16, i1 false), !tbaa.struct !17
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %.sroa.0.i.i, ptr noundef nonnull align 4 dereferenceable(16) %26, i64 16, i1 false), !tbaa.struct !17
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %.sroa.0.16..sroa_idx.i.i, ptr noundef nonnull align 4 dereferenceable(16) %27, i64 16, i1 false), !tbaa.struct !17
   %37 = getelementptr inbounds nuw i8, ptr %26, i64 32
-  %38 = load i32, ptr %37, align 4, !tbaa !19
+  %38 = load b32, ptr %37, align 4, !tbaa !19
   %39 = getelementptr inbounds nuw %struct.GIM_AABB_DATA, ptr %25, i64 %36
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %26, ptr noundef nonnull align 4 dereferenceable(36) %39, i64 36, i1 false), !tbaa.struct !23
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %39, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i, i64 32, i1 false), !tbaa.struct !23
+  %.sroa.0.i.i.0..sroa.0.i.i.0..sroa.0.i.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..sroa.0.0.copyload.i.i = load b256, ptr %.sroa.0.i.i, align 16
+  store b256 %.sroa.0.i.i.0..sroa.0.i.i.0..sroa.0.i.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..sroa.0.0.copyload.i.i, ptr %39, align 4
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %39, i64 32
-  store i32 %38, ptr %.sroa.5.0..sroa_idx.i.i, align 4, !tbaa !24
+  store b32 %38, ptr %.sroa.5.0..sroa_idx.i.i, align 4, !tbaa !24
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i)
   %40 = add i32 %.04248, 1
   br label %41
@@ -219,7 +220,7 @@ declare float @llvm.fmuladd.f32(float, float, float) #3
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local void @_ZN12GIM_BOX_TREE15_build_sub_treeER9gim_arrayI13GIM_AABB_DATAEjj(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #4 align 2 {
-  %.sroa.0.i.i.i = alloca %class.GIM_AABB, align 8
+  %.sroa.0.i.i.i = alloca b256, align 16
   %5 = load i32, ptr %0, align 8, !tbaa !26
   %6 = add i32 %5, 1
   store i32 %6, ptr %0, align 8, !tbaa !26
@@ -366,15 +367,16 @@ define dso_local void @_ZN12GIM_BOX_TREE15_build_sub_treeER9gim_arrayI13GIM_AABB
 90:                                               ; preds = %79
   %91 = zext i32 %.04248.i to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, ptr noundef nonnull align 4 dereferenceable(16) %81, i64 16, i1 false), !tbaa.struct !17
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.16..sroa_idx.i.i.i, ptr noundef nonnull align 4 dereferenceable(16) %82, i64 16, i1 false), !tbaa.struct !17
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %.sroa.0.i.i.i, ptr noundef nonnull align 4 dereferenceable(16) %81, i64 16, i1 false), !tbaa.struct !17
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %.sroa.0.16..sroa_idx.i.i.i, ptr noundef nonnull align 4 dereferenceable(16) %82, i64 16, i1 false), !tbaa.struct !17
   %92 = getelementptr inbounds nuw i8, ptr %81, i64 32
-  %93 = load i32, ptr %92, align 4, !tbaa !19
+  %93 = load b32, ptr %92, align 4, !tbaa !19
   %94 = getelementptr inbounds nuw %struct.GIM_AABB_DATA, ptr %80, i64 %91
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %81, ptr noundef nonnull align 4 dereferenceable(36) %94, i64 36, i1 false), !tbaa.struct !23
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %94, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i, i64 32, i1 false), !tbaa.struct !23
+  %.sroa.0.i.i.i.0..sroa.0.i.i.i.0..sroa.0.i.i.i.0..sroa.0.i.i.0..sroa.0.i.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..sroa.0.0.copyload.i.i.i = load b256, ptr %.sroa.0.i.i.i, align 16
+  store b256 %.sroa.0.i.i.i.0..sroa.0.i.i.i.0..sroa.0.i.i.i.0..sroa.0.i.i.0..sroa.0.i.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..sroa.0.0.copyload.i.i.i, ptr %94, align 4
   %.sroa.5.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %94, i64 32
-  store i32 %93, ptr %.sroa.5.0..sroa_idx.i.i.i, align 4, !tbaa !24
+  store b32 %93, ptr %.sroa.5.0..sroa_idx.i.i.i, align 4, !tbaa !24
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i)
   %95 = add i32 %.04248.i, 1
   %.pre = load ptr, ptr %1, align 8, !tbaa !4

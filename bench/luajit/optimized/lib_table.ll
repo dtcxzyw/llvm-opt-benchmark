@@ -199,12 +199,12 @@ define internal noundef i32 @lj_cf_table_insert(ptr noundef %0) #0 {
   br i1 %.not52, label %44, label %42
 
 42:                                               ; preds = %40
-  %43 = load i64, ptr %41, align 8, !tbaa !14
+  %43 = load b64, ptr %41, align 8, !tbaa !14
   br label %44
 
 44:                                               ; preds = %40, %42
-  %storemerge = phi i64 [ %43, %42 ], [ -1, %40 ]
-  store i64 %storemerge, ptr %31, align 8, !tbaa !14
+  %storemerge = phi b64 [ %43, %42 ], [ -1, %40 ]
+  store b64 %storemerge, ptr %31, align 8, !tbaa !14
   %45 = icmp sgt i64 %indvars.iv.next, %18
   br i1 %45, label %19, label %.loopexit, !llvm.loop !24
 
@@ -231,45 +231,46 @@ define internal noundef i32 @lj_cf_table_insert(ptr noundef %0) #0 {
   %58 = phi ptr [ %54, %49 ], [ %56, %55 ]
   %59 = load ptr, ptr %5, align 8, !tbaa !4
   %60 = getelementptr inbounds i8, ptr %59, i64 -8
-  %61 = load i64, ptr %60, align 8, !tbaa !14
-  store i64 %61, ptr %58, align 8, !tbaa !14
-  %62 = ashr i64 %61, 47
-  %63 = trunc nsw i64 %62 to i32
-  %64 = add nsw i32 %63, 13
-  %65 = icmp ult i32 %64, 9
-  br i1 %65, label %66, label %85
+  %61 = load b64, ptr %60, align 8, !tbaa !14
+  store b64 %61, ptr %58, align 8, !tbaa !14
+  %62 = bytecast b64 %61 to i64
+  %63 = ashr i64 %62, 47
+  %64 = trunc nsw i64 %63 to i32
+  %65 = add nsw i32 %64, 13
+  %66 = icmp ult i32 %65, 9
+  br i1 %66, label %67, label %86
 
-66:                                               ; preds = %57
-  %67 = and i64 %61, 140737488355327
-  %68 = inttoptr i64 %67 to ptr
-  %69 = getelementptr inbounds nuw i8, ptr %68, i64 8
-  %70 = load i8, ptr %69, align 8, !tbaa !14
-  %71 = and i8 %70, 3
-  %.not50 = icmp eq i8 %71, 0
-  br i1 %.not50, label %85, label %72
+67:                                               ; preds = %57
+  %68 = and i64 %62, 140737488355327
+  %69 = inttoptr i64 %68 to ptr
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
+  %71 = load i8, ptr %70, align 8, !tbaa !14
+  %72 = and i8 %71, 3
+  %.not50 = icmp eq i8 %72, 0
+  br i1 %.not50, label %86, label %73
 
-72:                                               ; preds = %66
-  %73 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %74 = load i8, ptr %73, align 8, !tbaa !14
-  %75 = and i8 %74, 4
-  %.not51 = icmp eq i8 %75, 0
-  br i1 %.not51, label %85, label %76
+73:                                               ; preds = %67
+  %74 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %75 = load i8, ptr %74, align 8, !tbaa !14
+  %76 = and i8 %75, 4
+  %.not51 = icmp eq i8 %76, 0
+  br i1 %.not51, label %86, label %77
 
-76:                                               ; preds = %72
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %78 = load i64, ptr %77, align 8, !tbaa !25
-  %79 = inttoptr i64 %78 to ptr
-  %80 = and i8 %74, -5
-  store i8 %80, ptr %73, align 8, !tbaa !14
-  %81 = getelementptr inbounds nuw i8, ptr %79, i64 64
-  %82 = load i64, ptr %81, align 8, !tbaa !26
-  %83 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store i64 %82, ptr %83, align 8, !tbaa !37
-  %84 = ptrtoint ptr %2 to i64
-  store i64 %84, ptr %81, align 8, !tbaa !26
-  br label %85
+77:                                               ; preds = %73
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %79 = load i64, ptr %78, align 8, !tbaa !25
+  %80 = inttoptr i64 %79 to ptr
+  %81 = and i8 %75, -5
+  store i8 %81, ptr %74, align 8, !tbaa !14
+  %82 = getelementptr inbounds nuw i8, ptr %80, i64 64
+  %83 = load i64, ptr %82, align 8, !tbaa !26
+  %84 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  store i64 %83, ptr %84, align 8, !tbaa !37
+  %85 = ptrtoint ptr %2 to i64
+  store i64 %85, ptr %82, align 8, !tbaa !26
+  br label %86
 
-85:                                               ; preds = %76, %72, %66, %57
+86:                                               ; preds = %77, %73, %67, %57
   ret i32 0
 }
 

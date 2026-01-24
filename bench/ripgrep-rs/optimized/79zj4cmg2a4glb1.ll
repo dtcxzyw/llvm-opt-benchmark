@@ -23,7 +23,7 @@ define hidden { i1, i8 } @"_ZN101_$LT$bstr..escape_bytes..UnescapeBytes$LT$I$GT$
   %4 = alloca { i8, [31 x i8] }, align 8
   %5 = alloca { i8, [31 x i8] }, align 8
   %6 = alloca { i8, [31 x i8] }, align 8
-  %7 = alloca [11 x i8], align 1
+  %7 = alloca [11 x i8], align 16
   %8 = alloca { i8, [31 x i8] }, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -123,7 +123,7 @@ default.unreachable:                              ; preds = %.backedge
 
 55:                                               ; preds = %.backedge
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %7, ptr noundef nonnull align 1 dereferenceable(11) %56, i64 11, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(11) %7, ptr noundef nonnull align 1 dereferenceable(11) %56, i64 11, i1 false)
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %58 = load i64, ptr %57, align 8, !noundef !4
   %59 = icmp ult i64 %58, 11
@@ -368,7 +368,9 @@ default.unreachable:                              ; preds = %.backedge
   unreachable
 
 190:                                              ; preds = %183
+  %.sroa.413.1.copyload = load b88, ptr %7, align 16
   store i8 1, ptr %0, align 8
+  store b88 %.sroa.413.1.copyload, ptr %56, align 1
   store i64 %188, ptr %57, align 8
   br label %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0282f441031caae2E.exit.thread"
 
@@ -614,7 +616,7 @@ define hidden { ptr, i64 } @"_ZN71_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$co
 define void @_ZN8grep_cli8hostname8hostname17hed5511f16edaf679E(ptr noalias noundef writeonly sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
-  %4 = alloca { { i64, ptr, {} }, i64 }, align 8
+  %4 = alloca { { i64, ptr, {} }, i64 }, align 16
   %5 = alloca [1 x { ptr, ptr }], align 8
   %6 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %7 = alloca i64, align 8
@@ -647,11 +649,11 @@ define void @_ZN8grep_cli8hostname8hostname17hed5511f16edaf679E(ptr noalias noun
   %20 = tail call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17he6c54b6d5f2929f2E"(i64 noundef %8, i1 noundef zeroext true), !noalias !89
   %21 = extractvalue { i64, ptr } %20, 0
   %22 = extractvalue { i64, ptr } %20, 1
-  store i64 %21, ptr %4, align 8, !alias.scope !86, !noalias !83
+  store i64 %21, ptr %4, align 16, !alias.scope !86, !noalias !83
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %22, ptr %23, align 8, !alias.scope !86, !noalias !83
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i64 %8, ptr %24, align 8, !alias.scope !86, !noalias !83
+  store i64 %8, ptr %24, align 16, !alias.scope !86, !noalias !83
   %25 = invoke noundef i32 @gethostname(ptr noundef nonnull %22, i64 noundef %8)
           to label %31 unwind label %29, !noalias !83
 
@@ -661,7 +663,7 @@ _ZN5alloc3fmt6format17hf6ddbaba453730d3E.exit.i:  ; preds = %17
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @"_ZN4core3fmt3num3imp52_$LT$impl$u20$core..fmt..Display$u20$for$u20$i64$GT$3fmt17hfb3495eecf30d7faE", ptr %26, align 8, !noalias !83
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !90
-  store ptr @anon.7b449adc155c7fe945b6e3cfdc3760b6.28, ptr %3, align 8, !noalias !101
+  store b64 bitcast (ptr @anon.7b449adc155c7fe945b6e3cfdc3760b6.28 to b64), ptr %3, align 8, !noalias !101
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 2, ptr %.sroa.5.0..sroa_idx.i, align 8, !noalias !101
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -669,7 +671,7 @@ _ZN5alloc3fmt6format17hf6ddbaba453730d3E.exit.i:  ; preds = %17
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 1, ptr %.sroa.8.0..sroa_idx.i, align 8, !noalias !101
   %.sroa.10.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store ptr null, ptr %.sroa.10.0..sroa_idx.i, align 8, !noalias !101
+  store i64 0, ptr %.sroa.10.0..sroa_idx.i, align 8, !noalias !101
   call void @_ZN5alloc3fmt6format12format_inner17h8acc7e10788d82b9E(ptr noalias noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 captures(none) dereferenceable(24) %6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3), !noalias !102
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !90
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !83
@@ -749,7 +751,7 @@ _ZN5alloc3fmt6format17hf6ddbaba453730d3E.exit.i:  ; preds = %17
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h382480773498739eE.exit.i": ; preds = %.lr.ph.i.i
   %59 = icmp ult i64 %.010.i.i, %8
   tail call void @llvm.assume(i1 %59)
-  store i64 %.010.i.i, ptr %24, align 8, !alias.scope !114, !noalias !83
+  store i64 %.010.i.i, ptr %24, align 16, !alias.scope !114, !noalias !83
   %60 = icmp ugt i64 %21, %.010.i.i
   br i1 %60, label %62, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$13shrink_to_fit17hfe01a7dd54a028caE.exit.i"
 
@@ -770,9 +772,9 @@ _ZN5alloc3fmt6format17hf6ddbaba453730d3E.exit.i:  ; preds = %17
 
 65:                                               ; preds = %.noexc.i
   invoke void @_ZN5alloc7raw_vec17capacity_overflow17h2434c0983b86c347E() #13
-          to label %.noexc18.i unwind label %29, !noalias !83
+          to label %.noexc21.i unwind label %29, !noalias !83
 
-.noexc18.i:                                       ; preds = %65
+.noexc21.i:                                       ; preds = %65
   unreachable
 
 66:                                               ; preds = %.noexc.i
@@ -780,13 +782,14 @@ _ZN5alloc3fmt6format17hf6ddbaba453730d3E.exit.i:  ; preds = %17
   %68 = icmp eq i64 %64, -9223372036854775807
   %.sroa.33.0.i.i.i.i = select i1 %68, i64 undef, i64 %67
   invoke void @_ZN5alloc5alloc18handle_alloc_error17h836e982fea7018bdE(i64 noundef %64, i64 noundef %.sroa.33.0.i.i.i.i) #13
-          to label %.noexc19.i unwind label %29, !noalias !83
+          to label %.noexc22.i unwind label %29, !noalias !83
 
-.noexc19.i:                                       ; preds = %66
+.noexc22.i:                                       ; preds = %66
   unreachable
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$13shrink_to_fit17hfe01a7dd54a028caE.exit.i": ; preds = %.noexc.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h382480773498739eE.exit.i"
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
+  %.sroa.06.0.copyload.i = load b192, ptr %4, align 16, !noalias !83
+  store b192 %.sroa.06.0.copyload.i, ptr %0, align 8, !alias.scope !83
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !83
   br label %_ZN8grep_cli8hostname11gethostname17h1d44d4bbce674e0aE.exit
 

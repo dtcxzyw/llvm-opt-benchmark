@@ -9279,21 +9279,19 @@ define hidden { i64, i64 } @SDL_GetJoystickGUID_REAL(ptr noundef %0) local_unnam
 
 20:                                               ; preds = %1
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %.sroa.0.sroa.0.0.copyload = load i64, ptr %21, align 8
-  %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %.sroa.0.sroa.4.0.copyload = load i64, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8
+  %.sroa.0.0.copyload = load b128, ptr %21, align 8
   %22 = load i32, ptr @SDL_joysticks_locked, align 4
   %23 = add nsw i32 %22, -1
   store i32 %23, ptr @SDL_joysticks_locked, align 4
-  %.b.i5 = load i1, ptr @SDL_joysticks_initialized, align 1
+  %.b.i4 = load i1, ptr @SDL_joysticks_initialized, align 1
   %24 = icmp ne i32 %23, 0
-  %or.cond.i6 = select i1 %.b.i5, i1 true, i1 %24
-  br i1 %or.cond.i6, label %.critedge.i7, label %25
+  %or.cond.i5 = select i1 %.b.i4, i1 true, i1 %24
+  br i1 %or.cond.i5, label %.critedge.i6, label %25
 
 25:                                               ; preds = %20
   %26 = tail call i32 @SDL_GetAtomicInt_REAL(ptr noundef nonnull @SDL_joystick_lock_pending) #13
   %27 = icmp eq i32 %26, 0
-  br i1 %27, label %28, label %.critedge.i7
+  br i1 %27, label %28, label %.critedge.i6
 
 28:                                               ; preds = %25
   %29 = load ptr, ptr @SDL_joystick_lock, align 8
@@ -9305,16 +9303,20 @@ define hidden { i64, i64 } @SDL_GetJoystickGUID_REAL(ptr noundef %0) local_unnam
   tail call void @SDL_DestroyMutex_REAL(ptr noundef %29) #13
   br label %SDL_UnlockJoysticks_REAL.exit
 
-.critedge.i7:                                     ; preds = %25, %20
+.critedge.i6:                                     ; preds = %25, %20
   %31 = load ptr, ptr @SDL_joystick_lock, align 8
   tail call void @SDL_UnlockMutex_REAL(ptr noundef %31) #13
   br label %SDL_UnlockJoysticks_REAL.exit
 
-SDL_UnlockJoysticks_REAL.exit:                    ; preds = %.critedge.i7, %28, %.critedge.i, %16
-  %.sroa.02.0 = phi i64 [ 0, %.critedge.i ], [ 0, %16 ], [ %.sroa.0.sroa.0.0.copyload, %28 ], [ %.sroa.0.sroa.0.0.copyload, %.critedge.i7 ]
-  %.sroa.3.0 = phi i64 [ 0, %.critedge.i ], [ 0, %16 ], [ %.sroa.0.sroa.4.0.copyload, %28 ], [ %.sroa.0.sroa.4.0.copyload, %.critedge.i7 ]
-  %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.02.0, 0
-  %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.3.0, 1
+SDL_UnlockJoysticks_REAL.exit:                    ; preds = %.critedge.i6, %28, %.critedge.i, %16
+  %.sroa.03.0 = phi b128 [ 0, %.critedge.i ], [ 0, %16 ], [ %.sroa.0.0.copyload, %28 ], [ %.sroa.0.0.copyload, %.critedge.i6 ]
+  %.sroa.03.0.extract.trunc = trunc b128 %.sroa.03.0 to b64
+  %32 = bytecast b64 %.sroa.03.0.extract.trunc to i64
+  %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %32, 0
+  %.sroa.03.8.extract.shift = lshr b128 %.sroa.03.0, 64
+  %.sroa.03.8.extract.trunc = trunc b128 %.sroa.03.8.extract.shift to b64
+  %33 = bytecast b64 %.sroa.03.8.extract.trunc to i64
+  %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %33, 1
   ret { i64, i64 } %.fca.1.insert
 }
 

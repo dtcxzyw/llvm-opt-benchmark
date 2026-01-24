@@ -413,16 +413,20 @@ invoke.cont:
   %ref.tmp = alloca %"struct.msdfgen::BitmapRef.1", align 8
   %ref.tmp4 = alloca %"struct.msdfgen::BitmapConstRef", align 8
   %width = getelementptr inbounds nuw i8, ptr %sdf, i64 8
-  %0 = load i64, ptr %width, align 8
+  %0 = load b64, ptr %width, align 8
+  %1 = trunc b64 %0 to b32
+  %2 = bytecast b64 %0 to i64
+  %3 = bytecast b32 %1 to i32
   %height = getelementptr inbounds nuw i8, ptr %sdf, i64 12
-  %1 = lshr i64 %0, 32
-  %mul4.i = mul i64 %1, %0
-  %sext = shl i64 %mul4.i, 32
-  %conv.i = ashr exact i64 %sext, 32
+  %4 = lshr b64 %0, 32
+  %5 = trunc b64 %4 to b32
+  %6 = bytecast b32 %5 to i32
+  %mul4.i = mul nsw i32 %6, %3
+  %conv.i = sext i32 %mul4.i to i64
   %call.i = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %conv.i) #10
   store ptr %call.i, ptr %ref.tmp, align 8
-  %2 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
-  store i64 %0, ptr %2, align 8
+  %7 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
+  store i64 %2, ptr %7, align 8
   invoke void @_ZN7msdfgen19MSDFErrorCorrectionC1ERKNS_9BitmapRefIhLi1EEERKNS_10ProjectionEd(ptr noundef nonnull align 8 dereferenceable(72) %ec, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %projection, double noundef %range)
           to label %invoke.cont1 unwind label %_ZN7msdfgen6BitmapIhLi1EED2Ev.exit
 
@@ -438,20 +442,20 @@ if.then:                                          ; preds = %invoke.cont2
           to label %if.end unwind label %_ZN7msdfgen6BitmapIhLi1EED2Ev.exit
 
 _ZN7msdfgen6BitmapIhLi1EED2Ev.exit:               ; preds = %invoke.cont6, %if.end, %if.then, %invoke.cont1, %invoke.cont
-  %3 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdaPv(ptr noundef nonnull %call.i) #11
-  resume { ptr, i32 } %3
+  resume { ptr, i32 } %8
 
 if.end:                                           ; preds = %if.then, %invoke.cont2
-  %4 = load ptr, ptr %sdf, align 8
-  store ptr %4, ptr %ref.tmp4, align 8
+  %9 = load ptr, ptr %sdf, align 8
+  store ptr %9, ptr %ref.tmp4, align 8
   %width.i = getelementptr inbounds nuw i8, ptr %ref.tmp4, i64 8
-  %5 = load i32, ptr %width, align 8
-  store i32 %5, ptr %width.i, align 8
+  %10 = load i32, ptr %width, align 8
+  store i32 %10, ptr %width.i, align 8
   %height.i = getelementptr inbounds nuw i8, ptr %ref.tmp4, i64 12
-  %6 = load i32, ptr %height, align 4
-  store i32 %6, ptr %height.i, align 4
+  %11 = load i32, ptr %height, align 4
+  store i32 %11, ptr %height.i, align 4
   invoke void @_ZN7msdfgen19MSDFErrorCorrection10findErrorsILi3EEEvRKNS_14BitmapConstRefIfXT_EEE(ptr noundef nonnull align 8 dereferenceable(72) %ec, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp4)
           to label %invoke.cont6 unwind label %_ZN7msdfgen6BitmapIhLi1EED2Ev.exit
 
@@ -478,16 +482,20 @@ invoke.cont:
   %ref.tmp = alloca %"struct.msdfgen::BitmapRef.1", align 8
   %ref.tmp4 = alloca %"struct.msdfgen::BitmapConstRef.2", align 8
   %width = getelementptr inbounds nuw i8, ptr %sdf, i64 8
-  %0 = load i64, ptr %width, align 8
+  %0 = load b64, ptr %width, align 8
+  %1 = trunc b64 %0 to b32
+  %2 = bytecast b64 %0 to i64
+  %3 = bytecast b32 %1 to i32
   %height = getelementptr inbounds nuw i8, ptr %sdf, i64 12
-  %1 = lshr i64 %0, 32
-  %mul4.i = mul i64 %1, %0
-  %sext = shl i64 %mul4.i, 32
-  %conv.i = ashr exact i64 %sext, 32
+  %4 = lshr b64 %0, 32
+  %5 = trunc b64 %4 to b32
+  %6 = bytecast b32 %5 to i32
+  %mul4.i = mul nsw i32 %6, %3
+  %conv.i = sext i32 %mul4.i to i64
   %call.i = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %conv.i) #10
   store ptr %call.i, ptr %ref.tmp, align 8
-  %2 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
-  store i64 %0, ptr %2, align 8
+  %7 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
+  store i64 %2, ptr %7, align 8
   invoke void @_ZN7msdfgen19MSDFErrorCorrectionC1ERKNS_9BitmapRefIhLi1EEERKNS_10ProjectionEd(ptr noundef nonnull align 8 dereferenceable(72) %ec, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %projection, double noundef %range)
           to label %invoke.cont1 unwind label %_ZN7msdfgen6BitmapIhLi1EED2Ev.exit
 
@@ -503,20 +511,20 @@ if.then:                                          ; preds = %invoke.cont2
           to label %if.end unwind label %_ZN7msdfgen6BitmapIhLi1EED2Ev.exit
 
 _ZN7msdfgen6BitmapIhLi1EED2Ev.exit:               ; preds = %invoke.cont6, %if.end, %if.then, %invoke.cont1, %invoke.cont
-  %3 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdaPv(ptr noundef nonnull %call.i) #11
-  resume { ptr, i32 } %3
+  resume { ptr, i32 } %8
 
 if.end:                                           ; preds = %if.then, %invoke.cont2
-  %4 = load ptr, ptr %sdf, align 8
-  store ptr %4, ptr %ref.tmp4, align 8
+  %9 = load ptr, ptr %sdf, align 8
+  store ptr %9, ptr %ref.tmp4, align 8
   %width.i = getelementptr inbounds nuw i8, ptr %ref.tmp4, i64 8
-  %5 = load i32, ptr %width, align 8
-  store i32 %5, ptr %width.i, align 8
+  %10 = load i32, ptr %width, align 8
+  store i32 %10, ptr %width.i, align 8
   %height.i = getelementptr inbounds nuw i8, ptr %ref.tmp4, i64 12
-  %6 = load i32, ptr %height, align 4
-  store i32 %6, ptr %height.i, align 4
+  %11 = load i32, ptr %height, align 4
+  store i32 %11, ptr %height.i, align 4
   invoke void @_ZN7msdfgen19MSDFErrorCorrection10findErrorsILi4EEEvRKNS_14BitmapConstRefIfXT_EEE(ptr noundef nonnull align 8 dereferenceable(72) %ec, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp4)
           to label %invoke.cont6 unwind label %_ZN7msdfgen6BitmapIhLi1EED2Ev.exit
 
@@ -952,8 +960,8 @@ for.body.i.i.i.i.i.i.us.i:                        ; preds = %call5.i.i.i.i.i.i.n
   %__first.addr.06.i.i.i.i.i.i.us.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.us.i, %for.body.i.i.i.i.i.i.us.i ], [ %clashes.sroa.0.1578.us.i, %call5.i.i.i.i.i.i.noexc.us.i ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8)
-  %72 = load i64, ptr %__first.addr.06.i.i.i.i.i.i.us.i, align 4, !alias.scope !8, !noalias !5
-  store i64 %72, ptr %__cur.07.i.i.i.i.i.i.us.i, align 4, !alias.scope !5, !noalias !8
+  %72 = load b64, ptr %__first.addr.06.i.i.i.i.i.i.us.i, align 4, !alias.scope !8, !noalias !5
+  store b64 %72, ptr %__cur.07.i.i.i.i.i.i.us.i, align 4, !alias.scope !5, !noalias !8
   %incdec.ptr.i.i.i.i.i.i.us.i = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i.i.i.i.us.i, i64 8
   %incdec.ptr1.i.i.i.i.i.i.us.i = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i.i.i.i.us.i, i64 8
   %cmp.not.i.i.i.i.i.i.us.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.us.i, %clashes.sroa.10.1577.us.i
@@ -1461,8 +1469,8 @@ for.body.i.i.i.i.i.i453.us.i:                     ; preds = %call5.i.i.i.i.i.i.n
   %__first.addr.06.i.i.i.i.i.i455.us.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i456.us.i, %for.body.i.i.i.i.i.i453.us.i ], [ %clashes.sroa.0.5601.us.i, %call5.i.i.i.i.i.i.noexc468.us.i ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !18)
-  %156 = load i64, ptr %__first.addr.06.i.i.i.i.i.i455.us.i, align 4, !alias.scope !18, !noalias !15
-  store i64 %156, ptr %__cur.07.i.i.i.i.i.i454.us.i, align 4, !alias.scope !15, !noalias !18
+  %156 = load b64, ptr %__first.addr.06.i.i.i.i.i.i455.us.i, align 4, !alias.scope !18, !noalias !15
+  store b64 %156, ptr %__cur.07.i.i.i.i.i.i454.us.i, align 4, !alias.scope !15, !noalias !18
   %incdec.ptr.i.i.i.i.i.i456.us.i = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i.i.i.i455.us.i, i64 8
   %incdec.ptr1.i.i.i.i.i.i457.us.i = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i.i.i.i454.us.i, i64 8
   %cmp.not.i.i.i.i.i.i458.us.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i456.us.i, %clashes.sroa.10.4600.us.i
@@ -1963,8 +1971,8 @@ for.body.i.i.i.i.i.i.us.i:                        ; preds = %call5.i.i.i.i.i.i.n
   %__first.addr.06.i.i.i.i.i.i.us.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.us.i, %for.body.i.i.i.i.i.i.us.i ], [ %clashes.sroa.0.1578.us.i, %call5.i.i.i.i.i.i.noexc.us.i ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !23)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !26)
-  %72 = load i64, ptr %__first.addr.06.i.i.i.i.i.i.us.i, align 4, !alias.scope !26, !noalias !23
-  store i64 %72, ptr %__cur.07.i.i.i.i.i.i.us.i, align 4, !alias.scope !23, !noalias !26
+  %72 = load b64, ptr %__first.addr.06.i.i.i.i.i.i.us.i, align 4, !alias.scope !26, !noalias !23
+  store b64 %72, ptr %__cur.07.i.i.i.i.i.i.us.i, align 4, !alias.scope !23, !noalias !26
   %incdec.ptr.i.i.i.i.i.i.us.i = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i.i.i.i.us.i, i64 8
   %incdec.ptr1.i.i.i.i.i.i.us.i = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i.i.i.i.us.i, i64 8
   %cmp.not.i.i.i.i.i.i.us.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.us.i, %clashes.sroa.10.1577.us.i
@@ -2472,8 +2480,8 @@ for.body.i.i.i.i.i.i453.us.i:                     ; preds = %call5.i.i.i.i.i.i.n
   %__first.addr.06.i.i.i.i.i.i455.us.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i456.us.i, %for.body.i.i.i.i.i.i453.us.i ], [ %clashes.sroa.0.5601.us.i, %call5.i.i.i.i.i.i.noexc468.us.i ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !31)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !34)
-  %156 = load i64, ptr %__first.addr.06.i.i.i.i.i.i455.us.i, align 4, !alias.scope !34, !noalias !31
-  store i64 %156, ptr %__cur.07.i.i.i.i.i.i454.us.i, align 4, !alias.scope !31, !noalias !34
+  %156 = load b64, ptr %__first.addr.06.i.i.i.i.i.i455.us.i, align 4, !alias.scope !34, !noalias !31
+  store b64 %156, ptr %__cur.07.i.i.i.i.i.i454.us.i, align 4, !alias.scope !31, !noalias !34
   %incdec.ptr.i.i.i.i.i.i456.us.i = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i.i.i.i455.us.i, i64 8
   %incdec.ptr1.i.i.i.i.i.i457.us.i = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i.i.i.i454.us.i, i64 8
   %cmp.not.i.i.i.i.i.i458.us.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i456.us.i, %clashes.sroa.10.4600.us.i

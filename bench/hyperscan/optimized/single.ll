@@ -4129,9 +4129,10 @@ define internal void @_ZN7testing8internal15TestMetaFactoryIN12_GLOBAL__N_131Hyp
 ; Function Attrs: mustprogress uwtable
 define internal noalias noundef nonnull ptr @_ZN7testing8internal15TestMetaFactoryIN12_GLOBAL__N_131HyperscanTestRuntime_Combo_TestEE17CreateTestFactoryESt5tupleIJPKcjjyEE(ptr nonnull readnone align 8 captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #29
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
+  %.sroa.0.0.copyload = load b192, ptr %1, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7testing8internal24ParameterizedTestFactoryIN12_GLOBAL__N_131HyperscanTestRuntime_Combo_TestEEE, i64 16), ptr %3, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store b192 %.sroa.0.0.copyload, ptr %4, align 8
   ret ptr %3
 }
 
@@ -17833,8 +17834,8 @@ define linkonce_odr hidden noundef ptr @_ZNK7testing8internal30ValuesInIteratorR
   store ptr %5, ptr %3, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %8 = load i64, ptr %7, align 8
-  store i64 %8, ptr %6, align 8
+  %8 = load b64, ptr %7, align 8
+  store b64 %8, ptr %6, align 8
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr null, ptr %9, align 8
   ret ptr %2
@@ -18234,8 +18235,8 @@ define linkonce_odr hidden noundef ptr @_ZNK7testing8internal30ValuesInIteratorR
   store ptr %5, ptr %3, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %8 = load i64, ptr %7, align 8
-  store i64 %8, ptr %6, align 8
+  %8 = load b64, ptr %7, align 8
+  store b64 %8, ptr %6, align 8
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr null, ptr %9, align 8
   ret ptr %2
@@ -18618,8 +18619,8 @@ define linkonce_odr hidden noundef ptr @_ZNK7testing8internal30ValuesInIteratorR
   store ptr %5, ptr %3, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %8 = load i64, ptr %7, align 8
-  store i64 %8, ptr %6, align 8
+  %8 = load b64, ptr %7, align 8
+  store b64 %8, ptr %6, align 8
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr null, ptr %9, align 8
   ret ptr %2
@@ -21242,9 +21243,10 @@ define internal void @_ZN7testing8internal15TestMetaFactoryIN12_GLOBAL__N_136Hyp
 ; Function Attrs: mustprogress uwtable
 define internal noalias noundef nonnull ptr @_ZN7testing8internal15TestMetaFactoryIN12_GLOBAL__N_136HyperscanTestCrossCompile_Build_TestEE17CreateTestFactoryESt5tupleIJPKcjjNS2_12TestPlatformEEE(ptr nonnull readnone align 8 captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #29
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
+  %.sroa.0.0.copyload = load b192, ptr %1, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7testing8internal24ParameterizedTestFactoryIN12_GLOBAL__N_136HyperscanTestCrossCompile_Build_TestEEE, i64 16), ptr %3, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store b192 %.sroa.0.0.copyload, ptr %4, align 8
   ret ptr %3
 }
 
@@ -21338,11 +21340,11 @@ _ZNK7testing18WithParamInterfaceISt5tupleIJPKcjjN12_GLOBAL__N_112TestPlatformEEE
   %19 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %20 = load i32, ptr %19, align 8
   store i32 %20, ptr %14, align 8
-  %.val4.i.i.i.i = load i64, ptr %13, align 8
+  %.val4.i.i.i.i1 = load i64, ptr %13, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 8
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 %.val4.i.i.i.i, ptr %21, align 8
+  store i64 %.val4.i.i.i.i1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %24 = call i32 @hs_compile(ptr noundef %16, i32 noundef %18, i32 noundef %20, ptr noundef nonnull %3, ptr noundef nonnull %22, ptr noundef nonnull %23)
@@ -22751,8 +22753,8 @@ define internal noalias noundef nonnull ptr @_ZNK7testing8internal30ValuesInIter
   store ptr %5, ptr %3, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %8 = load i64, ptr %7, align 8
-  store i64 %8, ptr %6, align 8
+  %8 = load b64, ptr %7, align 8
+  store b64 %8, ptr %6, align 8
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr null, ptr %9, align 8
   ret ptr %2
@@ -22769,8 +22771,8 @@ define internal noundef nonnull ptr @_ZNK7testing8internal30ValuesInIteratorRang
   %5 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #29
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.val2 = load ptr, ptr %6, align 8
-  %7 = load i64, ptr %.val2, align 8
-  store i64 %7, ptr %5, align 8
+  %7 = load b64, ptr %.val2, align 8
+  store b64 %7, ptr %5, align 8
   %8 = tail call noundef zeroext i1 @_ZN7testing8internal6IsTrueEb(i1 noundef zeroext true)
   br i1 %8, label %9, label %13
 
@@ -23875,7 +23877,7 @@ _ZNK7testing8internal26CartesianProductGenerator4IPKcjjN12_GLOBAL__N_112TestPlat
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 40
   %57 = load ptr, ptr %56, align 8
   %58 = tail call noundef nonnull align 8 dereferenceable(8) ptr %57(ptr noundef nonnull align 8 dereferenceable(8) %.val)
-  %.val1 = load i64, ptr %58, align 8
+  %.val1 = load b64, ptr %58, align 8
   %59 = load i32, ptr %54, align 4
   %60 = load i32, ptr %49, align 4
   %61 = load ptr, ptr %44, align 8
@@ -23886,7 +23888,7 @@ _ZNK7testing8internal26CartesianProductGenerator4IPKcjjN12_GLOBAL__N_112TestPlat
   store i32 %60, ptr %64, align 4
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store i32 %59, ptr %65, align 8
-  store i64 %.val1, ptr %62, align 8
+  store b64 %.val1, ptr %62, align 8
   br label %_ZNK7testing8internal26CartesianProductGenerator4IPKcjjN12_GLOBAL__N_112TestPlatformEE8Iterator5AtEndEv.exit.thread
 
 _ZNK7testing8internal26CartesianProductGenerator4IPKcjjN12_GLOBAL__N_112TestPlatformEE8Iterator5AtEndEv.exit.thread: ; preds = %21, %31, %1, %11, %_ZNK7testing8internal13ParamIteratorIPKcEeqERKS4_.exit.i, %_ZNK7testing8internal13ParamIteratorIjEeqERKS2_.exit.i, %_ZNK7testing8internal13ParamIteratorIjEeqERKS2_.exit2.i, %39, %_ZNK7testing8internal26CartesianProductGenerator4IPKcjjN12_GLOBAL__N_112TestPlatformEE8Iterator5AtEndEv.exit
@@ -25480,9 +25482,10 @@ define internal void @_ZN7testing8internal15TestMetaFactoryIN12_GLOBAL__N_144Hyp
 ; Function Attrs: mustprogress uwtable
 define internal noalias noundef nonnull ptr @_ZN7testing8internal15TestMetaFactoryIN12_GLOBAL__N_144HyperscanTestMatchTerminate_MoreThanOne_TestEE17CreateTestFactoryENS2_18TerminateMatchDataE(ptr nonnull readnone align 8 captures(none) %0, ptr noundef readonly byval(%"struct.(anonymous namespace)::TerminateMatchData") align 8 captures(none) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #29
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
+  %.sroa.0.0.copyload = load b192, ptr %1, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7testing8internal24ParameterizedTestFactoryIN12_GLOBAL__N_144HyperscanTestMatchTerminate_MoreThanOne_TestEEE, i64 16), ptr %3, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store b192 %.sroa.0.0.copyload, ptr %4, align 8
   ret ptr %3
 }
 
@@ -26411,9 +26414,10 @@ define internal void @_ZN7testing8internal15TestMetaFactoryIN12_GLOBAL__N_138Hyp
 ; Function Attrs: mustprogress uwtable
 define internal noalias noundef nonnull ptr @_ZN7testing8internal15TestMetaFactoryIN12_GLOBAL__N_138HyperscanTestMatchTerminate_Block_TestEE17CreateTestFactoryENS2_18TerminateMatchDataE(ptr nonnull readnone align 8 captures(none) %0, ptr noundef readonly byval(%"struct.(anonymous namespace)::TerminateMatchData") align 8 captures(none) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #29
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
+  %.sroa.0.0.copyload = load b192, ptr %1, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7testing8internal24ParameterizedTestFactoryIN12_GLOBAL__N_138HyperscanTestMatchTerminate_Block_TestEEE, i64 16), ptr %3, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store b192 %.sroa.0.0.copyload, ptr %4, align 8
   ret ptr %3
 }
 
@@ -27107,9 +27111,10 @@ define internal void @_ZN7testing8internal15TestMetaFactoryIN12_GLOBAL__N_144Hyp
 ; Function Attrs: mustprogress uwtable
 define internal noalias noundef nonnull ptr @_ZN7testing8internal15TestMetaFactoryIN12_GLOBAL__N_144HyperscanTestMatchTerminate_StreamWhole_TestEE17CreateTestFactoryENS2_18TerminateMatchDataE(ptr nonnull readnone align 8 captures(none) %0, ptr noundef readonly byval(%"struct.(anonymous namespace)::TerminateMatchData") align 8 captures(none) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #29
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
+  %.sroa.0.0.copyload = load b192, ptr %1, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7testing8internal24ParameterizedTestFactoryIN12_GLOBAL__N_144HyperscanTestMatchTerminate_StreamWhole_TestEEE, i64 16), ptr %3, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store b192 %.sroa.0.0.copyload, ptr %4, align 8
   ret ptr %3
 }
 
@@ -28151,9 +28156,10 @@ define internal void @_ZN7testing8internal15TestMetaFactoryIN12_GLOBAL__N_149Hyp
 ; Function Attrs: mustprogress uwtable
 define internal noalias noundef nonnull ptr @_ZN7testing8internal15TestMetaFactoryIN12_GLOBAL__N_149HyperscanTestMatchTerminate_StreamByteByByte_TestEE17CreateTestFactoryENS2_18TerminateMatchDataE(ptr nonnull readnone align 8 captures(none) %0, ptr noundef readonly byval(%"struct.(anonymous namespace)::TerminateMatchData") align 8 captures(none) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #29
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
+  %.sroa.0.0.copyload = load b192, ptr %1, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7testing8internal24ParameterizedTestFactoryIN12_GLOBAL__N_149HyperscanTestMatchTerminate_StreamByteByByte_TestEEE, i64 16), ptr %3, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store b192 %.sroa.0.0.copyload, ptr %4, align 8
   ret ptr %3
 }
 
@@ -29398,8 +29404,8 @@ define internal noalias noundef nonnull ptr @_ZNK7testing8internal30ValuesInIter
   store ptr %5, ptr %3, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %8 = load i64, ptr %7, align 8
-  store i64 %8, ptr %6, align 8
+  %8 = load b64, ptr %7, align 8
+  store b64 %8, ptr %6, align 8
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr null, ptr %9, align 8
   ret ptr %2

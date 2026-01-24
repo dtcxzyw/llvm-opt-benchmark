@@ -2361,15 +2361,14 @@ safe_realloc_mul_2op_.exit.i:                     ; preds = %23
 
 append_new_argument.exit:                         ; preds = %16, %36
   %44 = phi i32 [ %.pre25.i, %36 ], [ %19, %16 ]
+  %.sroa.0.0.insert.ext = zext nneg i32 %1 to i192
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %46 = load ptr, ptr %45, align 8, !tbaa !45
   %47 = add i32 %44, 1
   store i32 %47, ptr %18, align 8, !tbaa !44
   %48 = zext i32 %44 to i64
   %49 = getelementptr inbounds nuw %struct.Argument, ptr %46, i64 %48
-  store i32 %1, ptr %49, align 8, !tbaa !19
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %49, i64 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.4.0..sroa_idx, i8 0, i64 20, i1 false)
+  store i192 %.sroa.0.0.insert.ext, ptr %49, align 8
   %50 = load ptr, ptr %45, align 8, !tbaa !45
   %51 = load i32, ptr %18, align 8, !tbaa !44
   %52 = add i32 %51, -1
@@ -2594,8 +2593,8 @@ define internal fastcc range(i32 0, 2) i32 @parse_block_type(ptr noundef %0, ptr
 
 52:                                               ; preds = %50
   %53 = getelementptr inbounds nuw i8, ptr %47, i64 4
-  %54 = load i32, ptr %.07284, align 1
-  store i32 %54, ptr %53, align 1
+  %54 = load b32, ptr %.07284, align 1
+  store b32 %54, ptr %53, align 1
   br label %111
 
 55:                                               ; preds = %50

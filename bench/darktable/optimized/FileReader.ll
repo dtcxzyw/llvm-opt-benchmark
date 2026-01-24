@@ -148,8 +148,7 @@ define hidden void @_ZNK8rawspeed10FileReader8readFileEv(ptr dead_on_unwind noal
 "_ZNSt10unique_ptrI8_IO_FILEZNK8rawspeed10FileReader8readFileEvE3$_0ED2Ev.exit": ; preds = %28
   %45 = load ptr, ptr %24, align 8, !tbaa !15, !nonnull !21, !noundef !21
   %46 = trunc nuw nsw i64 %10 to i32
-  %.cast = ptrtoint ptr %22 to i64
-  store i64 %.cast, ptr %0, align 8, !tbaa !19
+  store ptr %22, ptr %0, align 8, !tbaa !19
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %45, ptr %47, align 8, !tbaa !22
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16

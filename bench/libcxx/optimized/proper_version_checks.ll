@@ -289,36 +289,34 @@ define void @_ZN6libcpp21proper_version_checks19registerPPCallbacksERKN5clang13S
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %0, ptr %7, align 8, !tbaa !20, !noalias !15
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 1176
-  %9 = load ptr, ptr %8, align 8
+  %9 = load ptr, ptr %8, align 8, !tbaa !22
   %.not.i = icmp eq ptr %9, null
-  %10 = ptrtoint ptr %9 to i64
-  br i1 %.not.i, label %_ZNSt10unique_ptrIN6libcpp12_GLOBAL__N_131proper_version_checks_callbacksESt14default_deleteIS2_EED2Ev.exit, label %11
+  br i1 %.not.i, label %_ZNSt10unique_ptrIN6libcpp12_GLOBAL__N_131proper_version_checks_callbacksESt14default_deleteIS2_EED2Ev.exit, label %10
 
-11:                                               ; preds = %4
-  %12 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #14
+10:                                               ; preds = %4
+  %11 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #14
           to label %_ZNSt10unique_ptrIN5clang18PPChainedCallbacksESt14default_deleteIS1_EED2Ev.exit.i unwind label %_ZNSt10unique_ptrIN6libcpp12_GLOBAL__N_131proper_version_checks_callbacksESt14default_deleteIS2_EED2Ev.exit11
 
-_ZNSt10unique_ptrIN5clang18PPChainedCallbacksESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %11
-  %13 = ptrtoint ptr %5 to i64
+_ZNSt10unique_ptrIN5clang18PPChainedCallbacksESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %10
   store ptr null, ptr %8, align 8, !tbaa !22, !noalias !24
-  store ptr getelementptr inbounds nuw inrange(-16, 384) (i8, ptr @_ZTVN5clang18PPChainedCallbacksE, i64 16), ptr %12, align 8, !tbaa !13, !noalias !24
-  %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store i64 %13, ptr %14, align 8, !tbaa !22, !noalias !24
-  %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store i64 %10, ptr %15, align 8, !tbaa !22, !noalias !24
+  store ptr getelementptr inbounds nuw inrange(-16, 384) (i8, ptr @_ZTVN5clang18PPChainedCallbacksE, i64 16), ptr %11, align 8, !tbaa !13, !noalias !24
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  store ptr %5, ptr %12, align 8, !tbaa !22, !noalias !24
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  store ptr %9, ptr %13, align 8, !tbaa !22, !noalias !24
   br label %_ZNSt10unique_ptrIN6libcpp12_GLOBAL__N_131proper_version_checks_callbacksESt14default_deleteIS2_EED2Ev.exit
 
 _ZNSt10unique_ptrIN6libcpp12_GLOBAL__N_131proper_version_checks_callbacksESt14default_deleteIS2_EED2Ev.exit: ; preds = %4, %_ZNSt10unique_ptrIN5clang18PPChainedCallbacksESt14default_deleteIS1_EED2Ev.exit.i
-  %storemerge = phi ptr [ %12, %_ZNSt10unique_ptrIN5clang18PPChainedCallbacksESt14default_deleteIS1_EED2Ev.exit.i ], [ %5, %4 ]
+  %storemerge = phi ptr [ %11, %_ZNSt10unique_ptrIN5clang18PPChainedCallbacksESt14default_deleteIS1_EED2Ev.exit.i ], [ %5, %4 ]
   store ptr %storemerge, ptr %8, align 8, !tbaa !22
   ret void
 
-_ZNSt10unique_ptrIN6libcpp12_GLOBAL__N_131proper_version_checks_callbacksESt14default_deleteIS2_EED2Ev.exit11: ; preds = %11
-  %16 = landingpad { ptr, i32 }
+_ZNSt10unique_ptrIN6libcpp12_GLOBAL__N_131proper_version_checks_callbacksESt14default_deleteIS2_EED2Ev.exit11: ; preds = %10
+  %14 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN5clang11PPCallbacksD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #15
   tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(8) %5, i64 noundef 24) #16
-  resume { ptr, i32 } %16
+  resume { ptr, i32 } %14
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable

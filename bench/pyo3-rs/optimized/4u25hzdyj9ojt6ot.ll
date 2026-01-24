@@ -279,12 +279,13 @@ define hidden void @"_ZN19pyo3_macros_backend6params7Holders14check_gil_refs28_$
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden void @"_ZN19pyo3_macros_backend6params15impl_arg_params28_$u7b$$u7b$closure$u7d$$u7d$17h38e37daa8ac1cc41E"(ptr writeonly sret([32 x i8]) align 8 captures(none) %0, ptr readonly align 8 captures(none) %1, i64 %2, ptr align 8 %3) unnamed_addr #3 personality ptr @rust_eh_personality {
   %5 = alloca [32 x i8], align 8
+  %.sroa.08 = alloca b128, align 16
   %6 = alloca [32 x i8], align 8
   %7 = alloca [32 x i8], align 8
   %8 = alloca [32 x i8], align 8
   %9 = alloca [32 x i8], align 8
-  %10 = alloca [32 x i8], align 8
-  %11 = alloca [16 x i8], align 8
+  %10 = alloca [32 x i8], align 16
+  %11 = alloca [16 x i8], align 16
   %12 = alloca [48 x i8], align 8
   %13 = alloca [24 x i8], align 8
   %14 = alloca [24 x i8], align 8
@@ -302,9 +303,11 @@ define hidden void @"_ZN19pyo3_macros_backend6params15impl_arg_params28_$u7b$$u7
 
 21:                                               ; preds = %4
   store ptr %17, ptr %15, align 8
-  store ptr %15, ptr %11, align 8
-  %.sroa.26.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store ptr @"_ZN86_$LT$quote..__private..IdentFragmentAdapter$LT$T$GT$$u20$as$u20$core..fmt..Display$GT$3fmt17h9d63ece71c44c931E", ptr %.sroa.26.0..sroa_idx, align 8
+  store ptr %15, ptr %.sroa.08, align 16
+  %.sroa.08.8..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.08, i64 8
+  store ptr @"_ZN86_$LT$quote..__private..IdentFragmentAdapter$LT$T$GT$$u20$as$u20$core..fmt..Display$GT$3fmt17h9d63ece71c44c931E", ptr %.sroa.08.8..sroa_idx, align 8
+  %.sroa.08.0..sroa.08.0..sroa.08.0..sroa.08.0..sroa.08.0..sroa.04.0.copyload = load b128, ptr %.sroa.08, align 16
+  store b128 %.sroa.08.0..sroa.08.0..sroa.08.0..sroa.08.0..sroa.08.0..sroa.04.0.copyload, ptr %11, align 16
   store ptr @anon.3e7959b224c09f7393f0ebd8e51eb812.6, ptr %12, align 8
   %22 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i64 1, ptr %22, align 8
@@ -529,7 +532,8 @@ define hidden void @"_ZN19pyo3_macros_backend6params15impl_arg_params28_$u7b$$u7
           to label %87 unwind label %39
 
 87:                                               ; preds = %86
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %10, i64 32, i1 false)
+  %.sroa.06.0.copyload = load b256, ptr %10, align 16
+  store b256 %.sroa.06.0.copyload, ptr %0, align 8
   call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %16)
   br label %30
 

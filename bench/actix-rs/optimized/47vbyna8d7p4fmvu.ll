@@ -15,8 +15,9 @@ define zeroext i1 @_ZN4core3cmp9PartialEq2ne17h5c488b8f3cf4ecb7E(ptr align 8 %0,
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h1f9f5318fae634a0E"(ptr writeonly sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) %0, ptr align 8 %1, i64 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %4 = alloca { { { i64, ptr, {} }, i64 } }, align 8
-  %5 = alloca { { { ptr, ptr, {} }, i64 }, i64 }, align 8
+  %4 = alloca { { { i64, ptr, {} }, i64 } }, align 16
+  %5 = alloca { { { ptr, ptr, {} }, i64 }, i64 }, align 16
+  %.sroa.02 = alloca b192, align 16
   %6 = alloca { ptr, i64 }, align 8
   %7 = alloca { { i64, ptr, {} }, i64 }, align 8
   %8 = tail call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h957d317c1e5de7d0E"(i64 %2, i1 zeroext false)
@@ -54,11 +55,13 @@ define void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17
   %19 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %1, i64 %2
   %20 = icmp ne ptr %1, null
   call void @llvm.assume(i1 %20)
-  store ptr %1, ptr %5, align 8
-  %.sroa.0.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %19, ptr %.sroa.0.sroa.2.0..sroa_idx, align 8
-  %.sroa.0.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i64 0, ptr %.sroa.0.sroa.3.0..sroa_idx, align 8
+  store ptr %1, ptr %.sroa.02, align 16
+  %.sroa.02.8..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.02, i64 8
+  store ptr %19, ptr %.sroa.02.8..sroa_idx, align 8
+  %.sroa.02.16..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.02, i64 16
+  store i64 0, ptr %.sroa.02.16..sroa_idx, align 16
+  %.sroa.02.0..sroa.02.0..sroa.02.0..sroa.02.0..sroa.02.0..sroa.0.0.copyload1 = load b192, ptr %.sroa.02, align 16
+  store b192 %.sroa.02.0..sroa.02.0..sroa.02.0..sroa.02.0..sroa.02.0..sroa.0.0.copyload1, ptr %5, align 16
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 24
   %21 = icmp eq i64 %18, 0
   br i1 %21, label %.thread, label %.lr.ph
@@ -99,7 +102,8 @@ define void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17
 
 34:                                               ; preds = %31
   %35 = getelementptr inbounds { [3 x i64] }, ptr %17, i64 %26
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %35, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
+  %.sroa.012.0.copyload = load b192, ptr %4, align 16
+  store b192 %.sroa.012.0.copyload, ptr %35, align 8
   %.pr = load i64, ptr %.sroa.2.0..sroa_idx, align 8
   %36 = icmp eq i64 %.pr, 0
   br i1 %36, label %.thread, label %.lr.ph

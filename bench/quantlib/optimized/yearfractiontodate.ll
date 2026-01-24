@@ -187,7 +187,7 @@ _ZN8QuantLib12close_enoughEdd.exit:               ; preds = %if.end.i
   br i1 %cmp4.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_ZN5boost12numeric_castIidEET_T0_.exit43, %if.end5.i, %_ZN8QuantLib12close_enoughEdd.exit
-  %retval.sroa.0.0.copyload = load i64, ptr %guessDate, align 8, !tbaa !12
+  %retval.sroa.0.0.copyload = load b64, ptr %guessDate, align 8, !tbaa !12
   br label %cleanup55
 
 if.end:                                           ; preds = %if.end5.i, %_ZN8QuantLib12close_enoughEdd.exit
@@ -311,8 +311,8 @@ while.cond:                                       ; preds = %while.body, %for.bo
   br i1 %cmp33, label %while.body, label %while.end
 
 while.body:                                       ; preds = %while.cond
-  %15 = load i64, ptr %nextDate, align 8, !tbaa !12
-  store i64 %15, ptr %guessDate, align 8, !tbaa !12
+  %15 = load b64, ptr %nextDate, align 8, !tbaa !12
+  store b64 %15, ptr %guessDate, align 8, !tbaa !12
   br label %while.cond, !llvm.loop !15
 
 while.end:                                        ; preds = %while.cond
@@ -341,22 +341,24 @@ if.then50.critedge:                               ; preds = %if.end5.i65, %_ZN8Q
   br label %if.then50
 
 if.then50:                                        ; preds = %if.then50.critedge, %lor.rhs
-  %retval.sroa.0.0.copyload29 = load i64, ptr %guessDate, align 8, !tbaa !12
+  %retval.sroa.0.0.copyload29 = load b64, ptr %guessDate, align 8, !tbaa !12
   br label %cleanup
 
 if.else:                                          ; preds = %lor.rhs
   %call3.i82 = call i64 @_ZN8QuantLib4Date7advanceERKS0_iNS_8TimeUnitE(ptr noundef nonnull align 8 dereferenceable(8) %guessDate, i32 noundef %conv.i.i.i56, i32 noundef 0)
+  %17 = bitcast i64 %call3.i82 to b64
   br label %cleanup
 
 cleanup:                                          ; preds = %if.else, %if.then50
-  %retval.sroa.0.1 = phi i64 [ %retval.sroa.0.0.copyload29, %if.then50 ], [ %call3.i82, %if.else ]
+  %retval.sroa.0.1 = phi b64 [ %retval.sroa.0.0.copyload29, %if.then50 ], [ %17, %if.else ]
   call void @llvm.lifetime.end.p0(ptr nonnull %nextDate)
   br label %cleanup55
 
 cleanup55:                                        ; preds = %cleanup, %if.then
-  %retval.sroa.0.0 = phi i64 [ %retval.sroa.0.0.copyload, %if.then ], [ %retval.sroa.0.1, %cleanup ]
+  %retval.sroa.0.0 = phi b64 [ %retval.sroa.0.0.copyload, %if.then ], [ %retval.sroa.0.1, %cleanup ]
   call void @llvm.lifetime.end.p0(ptr nonnull %guessDate)
-  ret i64 %retval.sroa.0.0
+  %18 = bytecast b64 %retval.sroa.0.0 to i64
+  ret i64 %18
 }
 
 ; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)

@@ -540,19 +540,21 @@ declare noundef zeroext i1 @_ZN10JfrTraceId20is_jdk_jfr_event_subEP7_jclass(ptr 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN11JdkJfrEvent15tag_as_subklassEPK5Klass(ptr noundef captures(none) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %3 = load i64, ptr %2, align 8
-  %4 = and i64 %3, 16
-  %.not.i = icmp eq i64 %4, 0
-  br i1 %.not.i, label %5, label %_ZN10JfrTraceId24tag_as_jdk_jfr_event_subEPK5Klass.exit
+  %3 = load b64, ptr %2, align 8
+  %4 = bytecast b64 %3 to i64
+  %5 = and i64 %4, 16
+  %.not.i = icmp eq i64 %5, 0
+  br i1 %.not.i, label %6, label %_ZN10JfrTraceId24tag_as_jdk_jfr_event_subEPK5Klass.exit
 
-5:                                                ; preds = %1
-  %6 = trunc i64 %3 to i8
-  %7 = or disjoint i8 %6, 16
-  store i8 %7, ptr %2, align 1
+6:                                                ; preds = %1
+  %7 = trunc b64 %3 to b8
+  %8 = bytecast b8 %7 to i8
+  %9 = or i8 %8, 16
+  store i8 %9, ptr %2, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !11
   br label %_ZN10JfrTraceId24tag_as_jdk_jfr_event_subEPK5Klass.exit
 
-_ZN10JfrTraceId24tag_as_jdk_jfr_event_subEPK5Klass.exit: ; preds = %1, %5
+_ZN10JfrTraceId24tag_as_jdk_jfr_event_subEPK5Klass.exit: ; preds = %1, %6
   ret void
 }
 

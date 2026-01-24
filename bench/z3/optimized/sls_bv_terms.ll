@@ -138,10 +138,9 @@ define hidden void @_ZN3sls8bv_termsC2ERNS_7contextE(ptr noundef nonnull align 8
   tail call void @_ZN7bv_utilC1ER11ast_manager(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(976) %4)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load ptr, ptr %3, align 8, !tbaa !46
-  %8 = ptrtoint ptr %7 to i64
-  store i64 %8, ptr %6, align 8, !tbaa !45
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
+  store ptr %7, ptr %6, align 8, !tbaa !45
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   ret void
 }
 

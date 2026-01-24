@@ -402,6 +402,7 @@ define weak_odr void @_ZN7mitsuba11ConstVolumeIfN5drjit6MatrixINS_8SpectrumIfLm4
 define weak_odr <4 x float> @_ZNK7mitsuba11ConstVolumeIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE4evalERKNS_11InteractionIfS5_EEb(ptr noundef nonnull align 16 dereferenceable(192) %0, ptr noundef nonnull align 16 dereferenceable(64) %1, i1 noundef zeroext %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 .critedge:
   %3 = alloca %"struct.mitsuba::SurfaceInteraction", align 16
+  %.sroa.0 = alloca b64, align 8
   store float 0x7FF0000000000000, ptr %3, align 16
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 232
   store ptr null, ptr %4, align 8
@@ -419,11 +420,13 @@ define weak_odr <4 x float> @_ZNK7mitsuba11ConstVolumeIfN5drjit6MatrixINS_8Spect
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 208
   store ptr null, ptr %4, align 8
   store float 0.000000e+00, ptr %3, align 16
-  store i32 0, ptr %8, align 8
-  %.sroa_idx153 = getelementptr inbounds nuw i8, ptr %3, i64 76
-  store i32 0, ptr %.sroa_idx153, align 4
-  %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %12, i8 0, i64 20, i1 false)
+  store float 0.000000e+00, ptr %.sroa.0, align 8
+  %.sroa.0.4..sroa_idx169 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 4
+  store float 0.000000e+00, ptr %.sroa.0.4..sroa_idx169, align 4
+  %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0. = load b64, ptr %.sroa.0, align 8
+  store b64 %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0., ptr %8, align 8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %9, ptr noundef nonnull align 16 dereferenceable(16) %13, i64 16, i1 false)
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %15 = load float, ptr %14, align 4

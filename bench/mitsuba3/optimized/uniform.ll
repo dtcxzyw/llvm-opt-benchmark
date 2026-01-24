@@ -171,6 +171,7 @@ $_ZTIZN7mitsuba6detail21get_construct_functorINS_15UniformSpectrumIfN5drjit6Matr
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN7mitsuba15UniformSpectrumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEC2ERKNS_10PropertiesE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #0 comdat($_ZN7mitsuba15UniformSpectrumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEC5ERKNS_10PropertiesE) align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__1::basic_string", align 8
+  %.sroa.0 = alloca b64, align 8
   %4 = alloca %"class.std::__1::basic_string", align 8
   %5 = alloca float, align 4
   %6 = alloca %"class.std::__1::basic_string", align 8
@@ -206,10 +207,12 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0E
           to label %14 unwind label %22
 
 14:                                               ; preds = %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc.exit14
+  store float %11, ptr %.sroa.0, align 8
+  %.sroa.0.4..sroa_idx17 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 4
+  store float %13, ptr %.sroa.0.4..sroa_idx17, align 4
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  store float %11, ptr %15, align 4
-  %.sroa_idx16 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store float %13, ptr %.sroa_idx16, align 8
+  %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0. = load b64, ptr %.sroa.0, align 8
+  store b64 %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0., ptr %15, align 4
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #17
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #17
   ret void
@@ -470,8 +473,8 @@ define weak_odr noundef float @_ZNK7mitsuba15UniformSpectrumIfN5drjit6MatrixINS_
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr <2 x float> @_ZNK7mitsuba15UniformSpectrumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE16wavelength_rangeEv(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #7 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %.sroa.0.0.copyload = load <2 x float>, ptr %2, align 4
-  ret <2 x float> %.sroa.0.0.copyload
+  %.sroa.0.0.copyload1 = load <2 x float>, ptr %2, align 4
+  ret <2 x float> %.sroa.0.0.copyload1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

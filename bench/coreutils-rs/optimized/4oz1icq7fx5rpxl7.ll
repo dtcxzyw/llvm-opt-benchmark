@@ -208,7 +208,6 @@ common.resume:                                    ; preds = %15
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN54_$LT$$u5b$T$u5d$$u20$as$u20$rand..seq..SliceRandom$GT$15partial_shuffle17h3949e9d58df43b69E"(ptr noalias noundef writeonly sret({ { ptr, i64 }, { ptr, i64 } }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull align 8 %1, i64 noundef %2, ptr noalias noundef align 8 dereferenceable(16) %3, i64 noundef %4) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %.sroa.0.i = alloca [2 x i64], align 8
   %.0 = tail call i64 @llvm.usub.sat.i64(i64 %2, i64 %4)
   %6 = icmp ult i64 %.0, %2
   br i1 %6, label %.lr.ph, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$12split_at_mut17hc3380e19bf1c138aE.exit"
@@ -263,11 +262,9 @@ _ZN4rand3rng3Rng9gen_range17hf3ed10bc4adf180aE.exit: ; preds = %.lr.ph
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h9ae89d5b73953682E.exit": ; preds = %21
   %25 = getelementptr inbounds { ptr, i64 }, ptr %1, i64 %12
   %26 = getelementptr inbounds { ptr, i64 }, ptr %1, i64 %.09
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i, ptr noundef nonnull align 8 dereferenceable(16) %25, i64 16, i1 false)
+  %.sroa.0.0.copyload.i = load b128, ptr %25, align 8, !alias.scope !49
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef nonnull align 8 dereferenceable(16) %26, i64 16, i1 false), !alias.scope !49
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %26, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i)
+  store b128 %.sroa.0.0.copyload.i, ptr %26, align 8, !alias.scope !49
   %27 = icmp ult i64 %.0, %12
   br i1 %27, label %.lr.ph, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$12split_at_mut17hc3380e19bf1c138aE.exit"
 }
@@ -328,10 +325,10 @@ _ZN4rand3rng3Rng9gen_range17h838312ed0416d6e2E.exit: ; preds = %.lr.ph
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17hfae7b84152b4f29bE.exit": ; preds = %21
   %25 = getelementptr inbounds i64, ptr %1, i64 %12
   %26 = getelementptr inbounds i64, ptr %1, i64 %.09
-  %.0.copyload.i = load i64, ptr %25, align 8, !alias.scope !53
-  %27 = load i64, ptr %26, align 8, !alias.scope !53
-  store i64 %27, ptr %25, align 8, !alias.scope !53
-  store i64 %.0.copyload.i, ptr %26, align 8, !alias.scope !53
+  %.sroa.0.0.copyload.i = load b64, ptr %25, align 8, !alias.scope !53
+  %27 = load b64, ptr %26, align 8, !alias.scope !53
+  store b64 %27, ptr %25, align 8, !alias.scope !53
+  store b64 %.sroa.0.0.copyload.i, ptr %26, align 8, !alias.scope !53
   %28 = icmp ult i64 %.0, %12
   br i1 %28, label %.lr.ph, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$12split_at_mut17hddabf08f12502a53E.exit"
 }

@@ -113,40 +113,46 @@ define noundef zeroext i1 @_ZN12actix_router7pattern8Patterns8is_empty17hf72d774
 
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN59_$LT$str$u20$as$u20$actix_router..pattern..IntoPatterns$GT$8patterns17h64c2e384746ba2bdE"(ptr noalias noundef writeonly sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) initializes((0, 32)) %0, ptr noalias noundef nonnull readonly align 1 captures(none) %1, i64 noundef %2) unnamed_addr #5 {
+  %.sroa.03 = alloca b192, align 16
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.03)
   %4 = tail call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h7aa9cb48765920a8E"(i64 noundef %2, i1 noundef zeroext false)
   %5 = extractvalue { i64, ptr } %4, 0
   %6 = extractvalue { i64, ptr } %4, 1
-  %7 = icmp ne ptr %6, null
-  tail call void @llvm.assume(i1 %7)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %6, ptr nonnull align 1 %1, i64 %2, i1 false)
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %5, ptr %8, align 8
-  %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %6, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8
-  %.sroa.0.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %2, ptr %.sroa.0.sroa.5.0..sroa_idx, align 8
+  store i64 %5, ptr %.sroa.03, align 16
+  %.sroa.03.8..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.03, i64 8
+  store ptr %6, ptr %.sroa.03.8..sroa_idx, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %6, ptr nonnull align 1 %1, i64 %2, i1 false)
+  %.sroa.03.16..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.03, i64 16
+  store i64 %2, ptr %.sroa.03.16..sroa_idx, align 16
+  %.sroa.03.0..sroa.03.0..sroa.03.0..sroa.03.0..sroa.03.0..sroa.02.0.copyload = load b192, ptr %.sroa.03, align 16
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.03)
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store b192 %.sroa.03.0..sroa.03.0..sroa.03.0..sroa.03.0..sroa.03.0..sroa.02.0.copyload, ptr %7, align 8
   store i64 0, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN63_$LT$$RF$str$u20$as$u20$actix_router..pattern..IntoPatterns$GT$8patterns17h5d1c8c2461b2ba27E"(ptr noalias noundef writeonly sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) initializes((0, 32)) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %1) unnamed_addr #5 {
+  %.sroa.03.i = alloca b192, align 16
   %3 = load ptr, ptr %1, align 8, !nonnull !13, !align !14, !noundef !13
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8, !noundef !13
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.03.i)
   %6 = tail call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h7aa9cb48765920a8E"(i64 noundef %5, i1 noundef zeroext false), !noalias !18
   %7 = extractvalue { i64, ptr } %6, 0
   %8 = extractvalue { i64, ptr } %6, 1
-  %9 = icmp ne ptr %8, null
-  tail call void @llvm.assume(i1 %9)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %8, ptr nonnull readonly align 1 %3, i64 %5, i1 false), !noalias !15
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %7, ptr %10, align 8, !alias.scope !15, !noalias !20
-  %.sroa.0.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %8, ptr %.sroa.0.sroa.4.0..sroa_idx.i, align 8, !alias.scope !15, !noalias !20
-  %.sroa.0.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %5, ptr %.sroa.0.sroa.5.0..sroa_idx.i, align 8, !alias.scope !15, !noalias !20
+  store i64 %7, ptr %.sroa.03.i, align 16, !noalias !18
+  %.sroa.03.i.8.i.8.i.8..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.03.i, i64 8
+  store ptr %8, ptr %.sroa.03.i.8.i.8.i.8..sroa_idx, align 8, !noalias !18
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %8, ptr nonnull readonly align 1 %3, i64 %5, i1 false), !noalias !15
+  %.sroa.03.i.16.i.16.i.16..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.03.i, i64 16
+  store i64 %5, ptr %.sroa.03.i.16.i.16.i.16..sroa_idx, align 16, !noalias !18
+  %.sroa.03.i.0..sroa.03.i.0..sroa.03.i.0..sroa.03.0..sroa.03.0..sroa.03.0..sroa.03.0..sroa.02.0.copyload.i = load b192, ptr %.sroa.03.i, align 16, !noalias !18
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.03.i)
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store b192 %.sroa.03.i.0..sroa.03.i.0..sroa.03.i.0..sroa.03.0..sroa.03.0..sroa.03.0..sroa.03.0..sroa.02.0.copyload.i, ptr %9, align 8, !alias.scope !15, !noalias !20
   store i64 0, ptr %0, align 8, !alias.scope !15, !noalias !20
   ret void
 }
@@ -255,21 +261,24 @@ _ZN4http3uri4path12PathAndQuery4path17h196169f74ad29859E.exit.thread5: ; preds =
 
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN84_$LT$$u5b$$RF$str$u3b$$u20$1$u5d$$u20$as$u20$actix_router..pattern..IntoPatterns$GT$8patterns17hc187d6825c32ba7bE"(ptr noalias noundef writeonly sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) initializes((0, 32)) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %1) unnamed_addr #5 {
+  %.sroa.03 = alloca b192, align 16
   %3 = load ptr, ptr %1, align 8, !nonnull !13, !align !14, !noundef !13
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8, !noundef !13
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.03)
   %6 = tail call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h7aa9cb48765920a8E"(i64 noundef %5, i1 noundef zeroext false)
   %7 = extractvalue { i64, ptr } %6, 0
   %8 = extractvalue { i64, ptr } %6, 1
-  %9 = icmp ne ptr %8, null
-  tail call void @llvm.assume(i1 %9)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %8, ptr nonnull align 1 %3, i64 %5, i1 false)
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %7, ptr %10, align 8
-  %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %8, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8
-  %.sroa.0.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %5, ptr %.sroa.0.sroa.5.0..sroa_idx, align 8
+  store i64 %7, ptr %.sroa.03, align 16
+  %.sroa.03.8..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.03, i64 8
+  store ptr %8, ptr %.sroa.03.8..sroa_idx, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %8, ptr nonnull align 1 %3, i64 %5, i1 false)
+  %.sroa.03.16..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.03, i64 16
+  store i64 %5, ptr %.sroa.03.16..sroa_idx, align 16
+  %.sroa.03.0..sroa.03.0..sroa.03.0..sroa.03.0..sroa.03.0..sroa.02.0.copyload = load b192, ptr %.sroa.03, align 16
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.03)
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store b192 %.sroa.03.0..sroa.03.0..sroa.03.0..sroa.03.0..sroa.03.0..sroa.02.0.copyload, ptr %9, align 8
   store i64 0, ptr %0, align 8
   ret void
 }

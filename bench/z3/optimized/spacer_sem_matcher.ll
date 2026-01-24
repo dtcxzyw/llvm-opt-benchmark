@@ -62,12 +62,11 @@ define hidden void @_ZN6spacer11sem_matcherC2ER11ast_manager(ptr noundef nonnull
   tail call void @_ZN10arith_utilC1ER11ast_manager(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(976) %1)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %0, align 8, !tbaa !8
-  %6 = ptrtoint ptr %5 to i64
-  store i64 %6, ptr %4, align 8, !tbaa !3
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr null, ptr %7, align 8, !tbaa !23
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr null, ptr %8, align 8, !tbaa !24
+  store ptr %5, ptr %4, align 8, !tbaa !3
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store ptr null, ptr %6, align 8, !tbaa !23
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store ptr null, ptr %7, align 8, !tbaa !24
   ret void
 }
 
@@ -91,9 +90,9 @@ define hidden noundef zeroext i1 @_ZN6spacer11sem_matcher9match_varEP3varP4expr(
   br i1 %16, label %17, label %_ZNK12substitution4findEP3varjR11expr_offset.exit
 
 17:                                               ; preds = %3
-  %.sroa.06.0.copyload = load ptr, ptr %11, align 8, !tbaa !42
+  %.sroa.06.0.copyload11 = load ptr, ptr %11, align 8, !tbaa !42
   %18 = load ptr, ptr %0, align 8, !tbaa !8
-  %19 = tail call noundef zeroext i1 @_ZNK11ast_manager9are_equalEP4exprS1_(ptr noundef nonnull align 8 dereferenceable(976) %18, ptr noundef %.sroa.06.0.copyload, ptr noundef %2)
+  %19 = tail call noundef zeroext i1 @_ZNK11ast_manager9are_equalEP4exprS1_(ptr noundef nonnull align 8 dereferenceable(976) %18, ptr noundef %.sroa.06.0.copyload11, ptr noundef %2)
   br i1 %19, label %63, label %64
 
 _ZNK12substitution4findEP3varjR11expr_offset.exit: ; preds = %3
@@ -1605,8 +1604,8 @@ _ZNK6vectorISt4pairIjjELb0EjE4sizeEv.exit:        ; preds = %47
 .lr.ph.i.i.i.i.i.i:                               ; preds = %_ZNK6vectorISt4pairIjjELb0EjE4sizeEv.exit, %.lr.ph.i.i.i.i.i.i
   %.08.i.i.i.i.i.i = phi ptr [ %61, %.lr.ph.i.i.i.i.i.i ], [ %55, %_ZNK6vectorISt4pairIjjELb0EjE4sizeEv.exit ]
   %.sroa.04.07.i.i.i.i.i.i = phi ptr [ %60, %.lr.ph.i.i.i.i.i.i ], [ %50, %_ZNK6vectorISt4pairIjjELb0EjE4sizeEv.exit ]
-  %59 = load i64, ptr %.sroa.04.07.i.i.i.i.i.i, align 4
-  store i64 %59, ptr %.08.i.i.i.i.i.i, align 4
+  %59 = load b64, ptr %.sroa.04.07.i.i.i.i.i.i, align 4
+  store b64 %59, ptr %.08.i.i.i.i.i.i, align 4
   %60 = getelementptr inbounds nuw i8, ptr %.sroa.04.07.i.i.i.i.i.i, i64 8
   %61 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i.i, i64 8
   %62 = icmp eq ptr %60, %57

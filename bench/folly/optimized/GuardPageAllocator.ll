@@ -221,26 +221,25 @@ define void @_ZN5folly6fibers15StackCacheEntryD2Ev(ptr noundef nonnull align 8 c
 
 11:                                               ; preds = %8, %4, %1
   %12 = load ptr, ptr @_ZZN5folly6fibers12CacheManager8instanceEvE4inst, align 8, !tbaa !13
-  %13 = load i64, ptr %0, align 8, !tbaa !16
+  %13 = load ptr, ptr %0, align 8, !tbaa !16
   store ptr null, ptr %0, align 8, !tbaa !16
   %14 = atomicrmw sub ptr %12, i64 1 release, align 8
-  %.not.i1 = icmp eq i64 %13, 0
+  %.not.i1 = icmp eq ptr %13, null
   br i1 %.not.i1, label %_ZNSt10unique_ptrIN5folly6fibers10StackCacheESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIN5folly6fibers10StackCacheEEclEPS2_.exit.i
 
 _ZNKSt14default_deleteIN5folly6fibers10StackCacheEEclEPS2_.exit.i: ; preds = %11
-  %15 = inttoptr i64 %13 to ptr
-  tail call void @_ZN5folly6fibers10StackCacheD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %15) #13
-  tail call void @_ZdlPvm(ptr noundef nonnull %15, i64 noundef 56) #26
+  tail call void @_ZN5folly6fibers10StackCacheD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %13) #13
+  tail call void @_ZdlPvm(ptr noundef nonnull %13, i64 noundef 56) #26
   br label %_ZNSt10unique_ptrIN5folly6fibers10StackCacheESt14default_deleteIS2_EED2Ev.exit
 
 _ZNSt10unique_ptrIN5folly6fibers10StackCacheESt14default_deleteIS2_EED2Ev.exit: ; preds = %11, %_ZNKSt14default_deleteIN5folly6fibers10StackCacheEEclEPS2_.exit.i
-  %16 = load ptr, ptr %0, align 8, !tbaa !16
-  %.not.i2 = icmp eq ptr %16, null
+  %15 = load ptr, ptr %0, align 8, !tbaa !16
+  %.not.i2 = icmp eq ptr %15, null
   br i1 %.not.i2, label %_ZNSt10unique_ptrIN5folly6fibers10StackCacheESt14default_deleteIS2_EED2Ev.exit4, label %_ZNKSt14default_deleteIN5folly6fibers10StackCacheEEclEPS2_.exit.i3
 
 _ZNKSt14default_deleteIN5folly6fibers10StackCacheEEclEPS2_.exit.i3: ; preds = %_ZNSt10unique_ptrIN5folly6fibers10StackCacheESt14default_deleteIS2_EED2Ev.exit
-  tail call void @_ZN5folly6fibers10StackCacheD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %16) #13
-  tail call void @_ZdlPvm(ptr noundef nonnull %16, i64 noundef 56) #26
+  tail call void @_ZN5folly6fibers10StackCacheD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %15) #13
+  tail call void @_ZdlPvm(ptr noundef nonnull %15, i64 noundef 56) #26
   br label %_ZNSt10unique_ptrIN5folly6fibers10StackCacheESt14default_deleteIS2_EED2Ev.exit4
 
 _ZNSt10unique_ptrIN5folly6fibers10StackCacheESt14default_deleteIS2_EED2Ev.exit4: ; preds = %_ZNSt10unique_ptrIN5folly6fibers10StackCacheESt14default_deleteIS2_EED2Ev.exit, %_ZNKSt14default_deleteIN5folly6fibers10StackCacheEEclEPS2_.exit.i3
@@ -2718,7 +2717,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableISt4pairIllES1_SaIS1_ENSt8__de
 
 ..thread_crit_edge:                               ; preds = %4
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.pre42 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !60
+  %.pre43 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !60
   br label %.thread
 
 7:                                                ; preds = %4
@@ -2744,7 +2743,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableISt4pairIllES1_SaIS1_ENSt8__de
   br i1 %19, label %_ZNKSt10_HashtableISt4pairIllES1_SaIS1_ENSt8__detail9_IdentityESt8equal_toIS1_ESt4hashIS1_ENS3_18_Mod_range_hashingENS3_20_Default_ranged_hashENS3_20_Prime_rehash_policyENS3_17_Hashtable_traitsILb1ELb1ELb1EEEE15_M_find_node_trIS1_EEPNS3_10_Hash_nodeIS1_Lb1EEEmRKT_m.exit, label %11, !llvm.loop !175
 
 .thread:                                          ; preds = %11, %..thread_crit_edge
-  %20 = phi i64 [ %.pre42, %..thread_crit_edge ], [ %10, %11 ]
+  %20 = phi i64 [ %.pre43, %..thread_crit_edge ], [ %10, %11 ]
   %21 = xor i64 %20, %.pre
   %22 = mul i64 %21, -7070675565921424023
   %23 = lshr i64 %22, 47
@@ -2815,10 +2814,10 @@ _ZNSt10_HashtableISt4pairIllES1_SaIS1_ENSt8__detail9_IdentityESt8equal_toIS1_ESt
   resume { ptr, i32 } %58
 
 _ZNKSt10_HashtableISt4pairIllES1_SaIS1_ENSt8__detail9_IdentityESt8equal_toIS1_ESt4hashIS1_ENS3_18_Mod_range_hashingENS3_20_Default_ranged_hashENS3_20_Prime_rehash_policyENS3_17_Hashtable_traitsILb1ELb1ELb1EEEE15_M_find_node_trIS1_EEPNS3_10_Hash_nodeIS1_Lb1EEEmRKT_m.exit: ; preds = %12, %_ZNKSt8__detail15_Hashtable_baseISt4pairIllES2_NS_9_IdentityESt8equal_toIS2_ESt4hashIS2_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE12_M_equals_trIS2_EEbRKT_mRKNS_16_Hash_node_valueIS2_Lb1EEE.exit.i.i, %.critedge
-  %.sroa.031.1 = phi ptr [ %57, %.critedge ], [ %41, %_ZNKSt8__detail15_Hashtable_baseISt4pairIllES2_NS_9_IdentityESt8equal_toIS2_ESt4hashIS2_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE12_M_equals_trIS2_EEbRKT_mRKNS_16_Hash_node_valueIS2_Lb1EEE.exit.i.i ], [ %.sroa.028.0, %12 ]
-  %.sroa.432.1 = phi i8 [ 1, %.critedge ], [ 0, %_ZNKSt8__detail15_Hashtable_baseISt4pairIllES2_NS_9_IdentityESt8equal_toIS2_ESt4hashIS2_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE12_M_equals_trIS2_EEbRKT_mRKNS_16_Hash_node_valueIS2_Lb1EEE.exit.i.i ], [ 0, %12 ]
-  %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.031.1, 0
-  %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.432.1, 1
+  %.sroa.032.1 = phi ptr [ %57, %.critedge ], [ %41, %_ZNKSt8__detail15_Hashtable_baseISt4pairIllES2_NS_9_IdentityESt8equal_toIS2_ESt4hashIS2_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE12_M_equals_trIS2_EEbRKT_mRKNS_16_Hash_node_valueIS2_Lb1EEE.exit.i.i ], [ %.sroa.028.0, %12 ]
+  %.sroa.433.1 = phi i8 [ 1, %.critedge ], [ 0, %_ZNKSt8__detail15_Hashtable_baseISt4pairIllES2_NS_9_IdentityESt8equal_toIS2_ESt4hashIS2_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE12_M_equals_trIS2_EEbRKT_mRKNS_16_Hash_node_valueIS2_Lb1EEE.exit.i.i ], [ 0, %12 ]
+  %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.032.1, 0
+  %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.433.1, 1
   ret { ptr, i8 } %.fca.1.insert
 }
 

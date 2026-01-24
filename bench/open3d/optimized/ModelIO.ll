@@ -31,9 +31,8 @@ $_ZN3fmt3v1012format_facetISt6localeE2idE = comdat any
 
 ; Function Attrs: mustprogress ssp uwtable
 define noundef zeroext i1 @_ZN6open3d2io17ReadTriangleModelERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS_13visualization9rendering17TriangleMeshModelENS0_24ReadTriangleModelOptionsE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 1 %1, ptr noundef %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
-  %.sroa.0.i.i.i = alloca { i64, i64 }, align 8
   %4 = alloca i64, align 8
-  %5 = alloca %"class.std::function", align 8
+  %5 = alloca %"class.std::function", align 16
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -192,7 +191,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %38, %
   %69 = getelementptr inbounds nuw i8, ptr %2, i64 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %70 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %5, i8 0, i64 32, i1 false)
   %71 = invoke noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #15
           to label %.noexc17 unwind label %131
 
@@ -240,7 +239,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %38, %
   %84 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPvm(ptr noundef nonnull %71, i64 noundef 80) #14
-  %.pr.i.i = load ptr, ptr %70, align 8, !tbaa !28
+  %.pr.i.i = load ptr, ptr %70, align 16, !tbaa !28
   %.not.i.i.i = icmp eq ptr %.pr.i.i, null
   br i1 %.not.i.i.i, label %.body, label %85
 
@@ -266,15 +265,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %38, %
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %95 = getelementptr inbounds nuw i8, ptr %71, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %95, ptr noundef nonnull readonly align 8 dereferenceable(9) %67, i64 9, i1 false)
-  store ptr %71, ptr %5, align 8, !tbaa !29
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 16, i1 false), !tbaa.struct !30
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %69, i64 16, i1 false), !tbaa.struct !30
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %69, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, i64 16, i1 false), !tbaa.struct !30
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i)
+  store ptr %71, ptr %5, align 16, !tbaa !29
+  %.sroa.0.0.copyload.i.i.i = load b128, ptr %5, align 16, !tbaa !21
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %69, i64 16, i1 false), !tbaa.struct !30
+  store b128 %.sroa.0.0.copyload.i.i.i, ptr %69, align 8, !tbaa !21
   %96 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %97 = load ptr, ptr %96, align 8, !tbaa !29
-  store ptr %97, ptr %70, align 8, !tbaa !29
+  store ptr %97, ptr %70, align 16, !tbaa !29
   store ptr @"_ZNSt17_Function_handlerIFbdEZN6open3d2io17ReadTriangleModelERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS1_13visualization9rendering17TriangleMeshModelENS2_24ReadTriangleModelOptionsEE3$_0E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation", ptr %96, align 8, !tbaa !29
   %98 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %99 = load ptr, ptr %98, align 8, !tbaa !29

@@ -331,7 +331,7 @@ cfbr_encrypt_block.exit:                          ; preds = %51
 
 ; Function Attrs: nounwind uwtable
 define hidden void @CRYPTO_cfb128_8_encrypt(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef readnone captures(none) %5, i32 noundef %6, ptr noundef readonly captures(none) %7) local_unnamed_addr #0 {
-  %.sroa.0 = alloca [16 x i8], align 16
+  %.sroa.0 = alloca b128, align 16
   %.not = icmp eq i64 %2, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -346,7 +346,8 @@ define hidden void @CRYPTO_cfb128_8_encrypt(ptr noundef readonly captures(none) 
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 %.010.us
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 %.010.us
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %.sroa.0, ptr noundef nonnull align 1 dereferenceable(16) %4, i64 16, i1 false)
+  %.sroa.0.0.copyload.us = load b128, ptr %4, align 1
+  store b128 %.sroa.0.0.copyload.us, ptr %.sroa.0, align 16
   tail call void %7(ptr noundef nonnull %4, ptr noundef nonnull %4, ptr noundef %3) #4
   %11 = load i8, ptr %9, align 1, !tbaa !10
   %12 = load i8, ptr %4, align 1, !tbaa !10
@@ -364,7 +365,8 @@ define hidden void @CRYPTO_cfb128_8_encrypt(ptr noundef readonly captures(none) 
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 %.010
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 %.010
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %.sroa.0, ptr noundef nonnull align 1 dereferenceable(16) %4, i64 16, i1 false)
+  %.sroa.0.0.copyload = load b128, ptr %4, align 1
+  store b128 %.sroa.0.0.copyload, ptr %.sroa.0, align 16
   tail call void %7(ptr noundef nonnull %4, ptr noundef nonnull %4, ptr noundef %3) #4
   %17 = load i8, ptr %15, align 1, !tbaa !10
   %18 = load i8, ptr %4, align 1, !tbaa !10

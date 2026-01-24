@@ -141,7 +141,7 @@ define void @_ZN3g2o11OdomConvert15convertToMotionERKNS_19VelocityMeasurementEd(
   %8 = fsub double %6, %7
   %9 = tail call double @llvm.fabs.f64(double %8)
   %10 = fcmp ogt double %9, 0x3E7AD7F29ABCAF48
-  br i1 %10, label %11, label %37
+  br i1 %10, label %11, label %39
 
 11:                                               ; preds = %3
   %12 = fmul double %2, 5.000000e-01
@@ -161,47 +161,48 @@ define void @_ZN3g2o11OdomConvert15convertToMotionERKNS_19VelocityMeasurementEd(
   %.sroa.2.8..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.2, i64 8
   store ptr %4, ptr %.sroa.2.8..sroa_idx, align 8, !tbaa !28, !alias.scope !25
   %.sroa.2.0..sroa.2.0..sroa.2.0..sroa.2.16. = load <2 x double>, ptr %.sroa.2, align 16
-  %bc.i.i.i.i.i.i = bitcast <2 x double> %.sroa.2.0..sroa.2.0..sroa.2.0..sroa.2.16. to <2 x i64>
-  %21 = extractelement <2 x i64> %bc.i.i.i.i.i.i, i64 1
-  %22 = inttoptr i64 %21 to ptr
-  %23 = load <2 x double>, ptr %22, align 16, !tbaa !20
-  %24 = call double @sin(double noundef %19) #9, !tbaa !21, !noalias !31
-  %25 = call double @cos(double noundef %19) #9, !tbaa !21, !noalias !31
-  %26 = fneg double %24
-  %.sroa.0.0.vec.insert.i = insertelement <2 x double> poison, double %25, i64 0
-  %.sroa.0.8.vec.insert.i = insertelement <2 x double> %.sroa.0.0.vec.insert.i, double %24, i64 1
-  %.sroa.5.16.vec.insert.i = insertelement <2 x double> poison, double %26, i64 0
-  %.sroa.5.24.vec.insert.i = insertelement <2 x double> %.sroa.5.16.vec.insert.i, double %25, i64 1
-  %27 = fmul <2 x double> %.sroa.2.0..sroa.2.0..sroa.2.0..sroa.2.16., %23
-  %28 = shufflevector <2 x double> %27, <2 x double> poison, <2 x i32> zeroinitializer
-  %29 = fmul <2 x double> %28, %.sroa.0.8.vec.insert.i
-  %30 = shufflevector <2 x double> %.sroa.2.0..sroa.2.0..sroa.2.0..sroa.2.16., <2 x double> poison, <2 x i32> zeroinitializer
-  %31 = shufflevector <2 x double> %23, <2 x double> poison, <2 x i32> <i32 1, i32 1>
-  %32 = fmul <2 x double> %30, %31
-  %33 = fmul <2 x double> %32, %.sroa.5.24.vec.insert.i
-  %34 = fadd <2 x double> %33, %29
-  %35 = load <2 x double>, ptr %4, align 16, !tbaa !20
-  %36 = fadd <2 x double> %35, %34
+  %21 = bitcast <2 x double> %.sroa.2.0..sroa.2.0..sroa.2.0..sroa.2.16. to b128
+  %22 = lshr b128 %21, 64
+  %23 = trunc b128 %22 to b64
+  %24 = bytecast b64 %23 to ptr
+  %25 = load <2 x double>, ptr %24, align 16, !tbaa !20
+  %26 = call double @sin(double noundef %19) #9, !tbaa !21, !noalias !31
+  %27 = call double @cos(double noundef %19) #9, !tbaa !21, !noalias !31
+  %28 = fneg double %26
+  %.sroa.0.0.vec.insert.i = insertelement <2 x double> poison, double %27, i64 0
+  %.sroa.0.8.vec.insert.i = insertelement <2 x double> %.sroa.0.0.vec.insert.i, double %26, i64 1
+  %.sroa.5.16.vec.insert.i = insertelement <2 x double> poison, double %28, i64 0
+  %.sroa.5.24.vec.insert.i = insertelement <2 x double> %.sroa.5.16.vec.insert.i, double %27, i64 1
+  %29 = fmul <2 x double> %.sroa.2.0..sroa.2.0..sroa.2.0..sroa.2.16., %25
+  %30 = shufflevector <2 x double> %29, <2 x double> poison, <2 x i32> zeroinitializer
+  %31 = fmul <2 x double> %30, %.sroa.0.8.vec.insert.i
+  %32 = shufflevector <2 x double> %.sroa.2.0..sroa.2.0..sroa.2.0..sroa.2.16., <2 x double> poison, <2 x i32> zeroinitializer
+  %33 = shufflevector <2 x double> %25, <2 x double> poison, <2 x i32> <i32 1, i32 1>
+  %34 = fmul <2 x double> %32, %33
+  %35 = fmul <2 x double> %34, %.sroa.5.24.vec.insert.i
+  %36 = fadd <2 x double> %35, %31
+  %37 = load <2 x double>, ptr %4, align 16, !tbaa !20
+  %38 = fadd <2 x double> %37, %36
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.2)
-  %.sroa.022.0.vec.extract = extractelement <2 x double> %36, i64 0
-  %.sroa.022.8.vec.extract = extractelement <2 x double> %36, i64 1
+  %.sroa.022.0.vec.extract = extractelement <2 x double> %38, i64 0
+  %.sroa.022.8.vec.extract = extractelement <2 x double> %38, i64 1
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %43
+  br label %45
 
-37:                                               ; preds = %3
-  %38 = fadd double %6, %7
-  %39 = fmul double %38, 5.000000e-01
-  %40 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %41 = load double, ptr %40, align 16, !tbaa !7
-  %42 = fmul double %39, %41
-  br label %43
+39:                                               ; preds = %3
+  %40 = fadd double %6, %7
+  %41 = fmul double %40, 5.000000e-01
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %43 = load double, ptr %42, align 16, !tbaa !7
+  %44 = fmul double %41, %43
+  br label %45
 
-43:                                               ; preds = %37, %11
-  %44 = phi double [ %18, %11 ], [ %41, %37 ]
-  %.027 = phi double [ %19, %11 ], [ 0.000000e+00, %37 ]
-  %.019 = phi double [ %.sroa.022.8.vec.extract, %11 ], [ 0.000000e+00, %37 ]
-  %.0 = phi double [ %.sroa.022.0.vec.extract, %11 ], [ %42, %37 ]
-  call void @_ZN3g2o17MotionMeasurementC1Edddd(ptr noundef nonnull align 8 dereferenceable(32) %0, double noundef %.0, double noundef %.019, double noundef %.027, double noundef %44)
+45:                                               ; preds = %39, %11
+  %46 = phi double [ %18, %11 ], [ %43, %39 ]
+  %.027 = phi double [ %19, %11 ], [ 0.000000e+00, %39 ]
+  %.019 = phi double [ %.sroa.022.8.vec.extract, %11 ], [ 0.000000e+00, %39 ]
+  %.0 = phi double [ %.sroa.022.0.vec.extract, %11 ], [ %44, %39 ]
+  call void @_ZN3g2o17MotionMeasurementC1Edddd(ptr noundef nonnull align 8 dereferenceable(32) %0, double noundef %.0, double noundef %.019, double noundef %.027, double noundef %46)
   ret void
 }
 

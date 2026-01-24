@@ -1229,8 +1229,8 @@ if.else:                                          ; preds = %if.end
   %10 = load i32, ptr %overflow_bytes_.i, align 4
   %add.i = add i32 %10, %9
   %add2.i = add i32 %add.i, %conv.i.i
-  %cmp.i7 = icmp sgt i32 %add2.i, 0
-  br i1 %cmp.i7, label %if.then.i, label %if.end22
+  %cmp.i9 = icmp sgt i32 %add2.i, 0
+  br i1 %cmp.i9, label %if.then.i, label %if.end22
 
 if.then.i:                                        ; preds = %if.else
   %11 = load ptr, ptr %input_, align 8
@@ -1347,8 +1347,8 @@ if.end5:                                          ; preds = %_ZN6google8protobuf
   %storemerge = phi ptr [ %add.ptr.i10.i, %_ZN6google8protobuf2io16CodedInputStream7ReadRawEPvi.exit.thread ], [ %add.ptr.i, %if.then ]
   %ptr.0 = phi ptr [ %bytes, %_ZN6google8protobuf2io16CodedInputStream7ReadRawEPvi.exit.thread ], [ %1, %if.then ]
   store ptr %storemerge, ptr %this, align 8
-  %4 = load i32, ptr %ptr.0, align 1
-  store i32 %4, ptr %value, align 4
+  %4 = load b32, ptr %ptr.0, align 1
+  store b32 %4, ptr %value, align 4
   br label %return
 
 return:                                           ; preds = %while.body.i, %if.end5
@@ -1407,8 +1407,8 @@ if.end5:                                          ; preds = %_ZN6google8protobuf
   %storemerge = phi ptr [ %add.ptr.i10.i, %_ZN6google8protobuf2io16CodedInputStream7ReadRawEPvi.exit.thread ], [ %add.ptr.i, %if.then ]
   %ptr.0 = phi ptr [ %bytes, %_ZN6google8protobuf2io16CodedInputStream7ReadRawEPvi.exit.thread ], [ %1, %if.then ]
   store ptr %storemerge, ptr %this, align 8
-  %4 = load i64, ptr %ptr.0, align 1
-  store i64 %4, ptr %value, align 8
+  %4 = load b64, ptr %ptr.0, align 1
+  store b64 %4, ptr %value, align 8
   br label %return
 
 return:                                           ; preds = %while.body.i, %if.end5
@@ -3998,10 +3998,10 @@ for.body.lr.ph.i:                                 ; preds = %if.then5
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
   %target.addr.07.i = phi ptr [ %ptr, %for.body.lr.ph.i ], [ %add.ptr.i12, %for.body.i ]
-  %retval.sroa.0.0.copyload.i.i = load i64, ptr %__begin3.i, align 8
-  %retval.sroa.2.0.copyload.i.i = load ptr, ptr %retval.sroa.2.0.current_chunk_.sroa_idx.i.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %target.addr.07.i, ptr align 1 %retval.sroa.2.0.copyload.i.i, i64 %retval.sroa.0.0.copyload.i.i, i1 false)
-  %add.ptr.i12 = getelementptr inbounds i8, ptr %target.addr.07.i, i64 %retval.sroa.0.0.copyload.i.i
+  %retval.sroa.0.0.copyload1.i.i = load i64, ptr %__begin3.i, align 8
+  %retval.sroa.2.0.copyload2.i.i = load ptr, ptr %retval.sroa.2.0.current_chunk_.sroa_idx.i.i, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %target.addr.07.i, ptr align 1 %retval.sroa.2.0.copyload2.i.i, i64 %retval.sroa.0.0.copyload1.i.i, i1 false)
+  %add.ptr.i12 = getelementptr inbounds i8, ptr %target.addr.07.i, i64 %retval.sroa.0.0.copyload1.i.i
   %call6.i = call noundef nonnull align 8 dereferenceable(152) ptr @_ZN4absl12lts_202308024Cord13ChunkIteratorppEv(ptr noundef nonnull align 8 dereferenceable(152) %__begin3.i)
   %7 = load i64, ptr %bytes_remaining_.i.i.i, align 8
   %cmp.i.i.not.i = icmp eq i64 %7, 0
@@ -4059,10 +4059,10 @@ for.body.lr.ph.i33:                               ; preds = %if.then14
 
 for.body.i35:                                     ; preds = %for.body.i35, %for.body.lr.ph.i33
   %target.addr.07.i36 = phi ptr [ %ptr, %for.body.lr.ph.i33 ], [ %add.ptr.i39, %for.body.i35 ]
-  %retval.sroa.0.0.copyload.i.i37 = load i64, ptr %__begin3.i30, align 8
-  %retval.sroa.2.0.copyload.i.i38 = load ptr, ptr %retval.sroa.2.0.current_chunk_.sroa_idx.i.i34, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %target.addr.07.i36, ptr align 1 %retval.sroa.2.0.copyload.i.i38, i64 %retval.sroa.0.0.copyload.i.i37, i1 false)
-  %add.ptr.i39 = getelementptr inbounds i8, ptr %target.addr.07.i36, i64 %retval.sroa.0.0.copyload.i.i37
+  %retval.sroa.0.0.copyload1.i.i37 = load i64, ptr %__begin3.i30, align 8
+  %retval.sroa.2.0.copyload2.i.i38 = load ptr, ptr %retval.sroa.2.0.current_chunk_.sroa_idx.i.i34, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %target.addr.07.i36, ptr align 1 %retval.sroa.2.0.copyload2.i.i38, i64 %retval.sroa.0.0.copyload1.i.i37, i1 false)
+  %add.ptr.i39 = getelementptr inbounds i8, ptr %target.addr.07.i36, i64 %retval.sroa.0.0.copyload1.i.i37
   %call6.i40 = call noundef nonnull align 8 dereferenceable(152) ptr @_ZN4absl12lts_202308024Cord13ChunkIteratorppEv(ptr noundef nonnull align 8 dereferenceable(152) %__begin3.i30)
   %11 = load i64, ptr %bytes_remaining_.i.i.i31, align 8
   %cmp.i.i.not.i41 = icmp eq i64 %11, 0
@@ -4705,10 +4705,10 @@ for.body.lr.ph.i:                                 ; preds = %entry
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
   %target.addr.07.i = phi ptr [ %target, %for.body.lr.ph.i ], [ %add.ptr.i, %for.body.i ]
-  %retval.sroa.0.0.copyload.i.i = load i64, ptr %__begin3.i, align 8
-  %retval.sroa.2.0.copyload.i.i = load ptr, ptr %retval.sroa.2.0.current_chunk_.sroa_idx.i.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %target.addr.07.i, ptr align 1 %retval.sroa.2.0.copyload.i.i, i64 %retval.sroa.0.0.copyload.i.i, i1 false)
-  %add.ptr.i = getelementptr inbounds i8, ptr %target.addr.07.i, i64 %retval.sroa.0.0.copyload.i.i
+  %retval.sroa.0.0.copyload1.i.i = load i64, ptr %__begin3.i, align 8
+  %retval.sroa.2.0.copyload2.i.i = load ptr, ptr %retval.sroa.2.0.current_chunk_.sroa_idx.i.i, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %target.addr.07.i, ptr align 1 %retval.sroa.2.0.copyload2.i.i, i64 %retval.sroa.0.0.copyload1.i.i, i1 false)
+  %add.ptr.i = getelementptr inbounds i8, ptr %target.addr.07.i, i64 %retval.sroa.0.0.copyload1.i.i
   %call6.i = call noundef nonnull align 8 dereferenceable(152) ptr @_ZN4absl12lts_202308024Cord13ChunkIteratorppEv(ptr noundef nonnull align 8 dereferenceable(152) %__begin3.i)
   %1 = load i64, ptr %bytes_remaining_.i.i.i, align 8
   %cmp.i.i.not.i = icmp eq i64 %1, 0
@@ -4927,7 +4927,7 @@ _ZN4absl12lts_202308024Cord13ChunkIterator12AdvanceBtreeEv.exit: ; preds = %if.t
   br label %return
 
 if.end:                                           ; preds = %if.then, %_ZNK4absl12lts_2023080213cord_internal18CordRepBtreeReadercvbEv.exit
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
+  store i128 0, ptr %this, align 8
   br label %return
 
 return:                                           ; preds = %entry, %if.end, %_ZN4absl12lts_202308024Cord13ChunkIterator12AdvanceBtreeEv.exit
@@ -5106,7 +5106,7 @@ _ZN4absl12lts_202308024Cord13ChunkIterator8InitTreeEPNS0_13cord_internal7CordRep
   br label %if.end15
 
 if.else:                                          ; preds = %if.then
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
+  store i128 0, ptr %this, align 8
   br label %if.end15
 
 if.else6:                                         ; preds = %entry
@@ -5117,10 +5117,11 @@ if.else6:                                         ; preds = %entry
   %28 = and i8 %27, 1
   %cmp.i.i.not.i5 = icmp eq i8 %28, 0
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %cord, i64 1
-  %spec.select.i = select i1 %cmp.i.i.not.i5, ptr %add.ptr.i.i.i, ptr null
+  %29 = bitcast ptr %add.ptr.i.i.i to b64
+  %30 = select i1 %cmp.i.i.not.i5, b64 %29, b64 0
   store i64 %shr.i.i.i, ptr %this, align 8
   %ref.tmp10.sroa.2.0.this.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store ptr %spec.select.i, ptr %ref.tmp10.sroa.2.0.this.sroa_idx, align 8
+  store b64 %30, ptr %ref.tmp10.sroa.2.0.this.sroa_idx, align 8
   br label %if.end15
 
 if.end15:                                         ; preds = %_ZN4absl12lts_202308024Cord13ChunkIterator8InitTreeEPNS0_13cord_internal7CordRepE.exit, %if.else, %if.else6

@@ -767,8 +767,6 @@ BitmapTableScanSetup.exit:                        ; preds = %90, %.thread48.i
   %110 = extractvalue { i8, ptr } %74, 0
   %111 = getelementptr inbounds nuw i8, ptr %108, i64 32
   store i8 %110, ptr %111, align 8
-  %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %108, i64 33
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.5.0..sroa_idx.i, i8 0, i64 7, i1 false)
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %108, i64 40
   store ptr %109, ptr %.sroa.6.0..sroa_idx.i, align 8
   store i8 1, ptr %11, align 4

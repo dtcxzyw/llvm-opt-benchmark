@@ -833,12 +833,10 @@ _ZN24btInverseDynamicsBullet313MultiBodyTree19calculateMassMatrixERKNS_4vecxEbbb
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef range(i32 -1, 1) i32 @_ZN24btInverseDynamicsBullet313MultiBodyTree19calculateKinematicsERKNS_4vecxES3_S3_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3) local_unnamed_addr #0 align 2 {
-  %.sroa.0 = alloca [4 x float], align 4
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !15
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false)
+  %.sroa.0.0.copyload = load b128, ptr %7, align 8
   tail call void @_ZN24btInverseDynamicsBullet37setZeroERNS_4vec3E(ptr noundef nonnull align 4 dereferenceable(16) %7)
   %8 = load i8, ptr %0, align 8, !tbaa !4, !range !20, !noundef !62
   %9 = icmp eq i8 %8, 0
@@ -863,12 +861,11 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZN24btInverseDynamicsBullet313Mu
 16:                                               ; preds = %11
   %17 = load ptr, ptr %5, align 8, !tbaa !15
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.0, i64 16, i1 false)
+  store b128 %.sroa.0.0.copyload, ptr %18, align 8
   br label %19
 
 19:                                               ; preds = %16, %15, %10
   %.0 = phi i32 [ -1, %10 ], [ -1, %15 ], [ 0, %16 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
   ret i32 %.0
 }
 

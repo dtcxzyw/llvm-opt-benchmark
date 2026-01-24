@@ -117,10 +117,10 @@ define void @_ZNK5boost4urls15pct_string_view11decode_implERNS0_12string_token3a
 
 10:                                               ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 %9
-  %.sroa.01.0.copyload = load ptr, ptr %0, align 8, !tbaa !13
+  %.sroa.02.0.copyload7 = load ptr, ptr %0, align 8, !tbaa !13
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !14
-  %12 = tail call noundef i64 @_ZN5boost4urls6detail13decode_unsafeEPcPKcNS_4core17basic_string_viewIcEENS0_13encoding_optsE(ptr noundef %8, ptr noundef nonnull %11, ptr %.sroa.01.0.copyload, i64 %.sroa.2.0.copyload, i24 %2) #16
+  %.sroa.2.0.copyload8 = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !14
+  %12 = tail call noundef i64 @_ZN5boost4urls6detail13decode_unsafeEPcPKcNS_4core17basic_string_viewIcEENS0_13encoding_optsE(ptr noundef %8, ptr noundef nonnull %11, ptr %.sroa.02.0.copyload7, i64 %.sroa.2.0.copyload8, i24 %2) #16
   br label %13
 
 13:                                               ; preds = %10, %3
@@ -135,7 +135,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5boost4urls15pct_string_viewC2ENS_4core17basic_string_viewIcEE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(24) %0, ptr %1, i64 %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  %4 = alloca %"class.boost::system::result", align 8
+  %4 = alloca %"class.boost::system::result", align 16
   %5 = alloca %"struct.boost::source_location", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15)
@@ -278,15 +278,15 @@ _ZN5boost6system10error_codeC2INS_4urls5errorEEET_PNSt9enable_ifIXoosr18is_error
   br label %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit.i
 
 _ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit.i: ; preds = %_ZN5boost6system10error_codeC2INS_4urls5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit27.i, %_ZN5boost6system10error_codeC2INS_4urls5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit27.thread.i, %_ZN5boost6system10error_codeC2INS_4urls5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.i, %_ZN5boost6system10error_codeC2INS_4urls5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.thread.i
-  %.sink8 = phi i64 [ ptrtoint (ptr @_ZZN5boost4urls20make_pct_string_viewENS_4core17basic_string_viewIcEEE11loc__LINE__ to i64), %_ZN5boost6system10error_codeC2INS_4urls5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.i ], [ ptrtoint (ptr @_ZZN5boost4urls20make_pct_string_viewENS_4core17basic_string_viewIcEEE11loc__LINE__ to i64), %_ZN5boost6system10error_codeC2INS_4urls5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.thread.i ], [ ptrtoint (ptr @_ZZN5boost4urls20make_pct_string_viewENS_4core17basic_string_viewIcEEE11loc__LINE___0 to i64), %_ZN5boost6system10error_codeC2INS_4urls5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit27.thread.i ], [ ptrtoint (ptr @_ZZN5boost4urls20make_pct_string_viewENS_4core17basic_string_viewIcEEE11loc__LINE___0 to i64), %_ZN5boost6system10error_codeC2INS_4urls5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit27.i ]
-  %.sink7 = phi i64 [ 0, %_ZN5boost6system10error_codeC2INS_4urls5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.i ], [ 1, %_ZN5boost6system10error_codeC2INS_4urls5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.thread.i ], [ 1, %_ZN5boost6system10error_codeC2INS_4urls5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit27.thread.i ], [ 0, %_ZN5boost6system10error_codeC2INS_4urls5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit27.i ]
+  %.sink9 = phi i64 [ ptrtoint (ptr @_ZZN5boost4urls20make_pct_string_viewENS_4core17basic_string_viewIcEEE11loc__LINE__ to i64), %_ZN5boost6system10error_codeC2INS_4urls5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.i ], [ ptrtoint (ptr @_ZZN5boost4urls20make_pct_string_viewENS_4core17basic_string_viewIcEEE11loc__LINE__ to i64), %_ZN5boost6system10error_codeC2INS_4urls5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.thread.i ], [ ptrtoint (ptr @_ZZN5boost4urls20make_pct_string_viewENS_4core17basic_string_viewIcEEE11loc__LINE___0 to i64), %_ZN5boost6system10error_codeC2INS_4urls5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit27.thread.i ], [ ptrtoint (ptr @_ZZN5boost4urls20make_pct_string_viewENS_4core17basic_string_viewIcEEE11loc__LINE___0 to i64), %_ZN5boost6system10error_codeC2INS_4urls5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit27.i ]
+  %.sink8 = phi i64 [ 0, %_ZN5boost6system10error_codeC2INS_4urls5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.i ], [ 1, %_ZN5boost6system10error_codeC2INS_4urls5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.thread.i ], [ 1, %_ZN5boost6system10error_codeC2INS_4urls5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit27.thread.i ], [ 0, %_ZN5boost6system10error_codeC2INS_4urls5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit27.i ]
   %.sink = phi i64 [ 4, %_ZN5boost6system10error_codeC2INS_4urls5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.i ], [ 4, %_ZN5boost6system10error_codeC2INS_4urls5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.thread.i ], [ 5, %_ZN5boost6system10error_codeC2INS_4urls5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit27.thread.i ], [ 5, %_ZN5boost6system10error_codeC2INS_4urls5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit27.i ]
-  %46 = or disjoint i64 %.sink7, %.sink8
-  store i64 %.sink, ptr %4, align 8, !alias.scope !15
+  %46 = or disjoint i64 %.sink8, %.sink9
+  store i64 %.sink, ptr %4, align 16, !alias.scope !15
   %.sroa.539.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr @_ZN5boost4urls6detail9error_catE, ptr %.sroa.539.0..sroa_idx.i, align 8, !tbaa !18, !alias.scope !15
-  %.sroa.640.0..sroa_idx.i6 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i64 %46, ptr %.sroa.640.0..sroa_idx.i6, align 8, !alias.scope !15
+  store b64 bitcast (ptr @_ZN5boost4urls6detail9error_catE to b64), ptr %.sroa.539.0..sroa_idx.i, align 8, !tbaa !18, !alias.scope !15
+  %.sroa.640.0..sroa_idx.i7 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store i64 %46, ptr %.sroa.640.0..sroa_idx.i7, align 16, !alias.scope !15
   %47 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i32 2, ptr %47, align 8, !tbaa !33, !alias.scope !15
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -302,13 +302,14 @@ _ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit.i: ; preds = %_
 
 _ZNO5boost6system6resultINS_4urls15pct_string_viewENS0_10error_codeEE5valueIS3_EENSt9enable_ifIXsr3std21is_move_constructibleIT_EE5valueES3_E4typeERKNS_15source_locationE.exit: ; preds = %35, %34, %.critedge.i
   %51 = add i64 %29, %.019.i
-  store ptr %1, ptr %4, align 8, !alias.scope !15
+  store ptr %1, ptr %4, align 16, !alias.scope !15
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %2, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !15
   %.sroa.640.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i64 %51, ptr %.sroa.640.0..sroa_idx.i, align 8, !alias.scope !15
+  store i64 %51, ptr %.sroa.640.0..sroa_idx.i, align 16, !alias.scope !15
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
+  %.sroa.0.0.copyload3 = load b192, ptr %4, align 16
+  store b192 %.sroa.0.0.copyload3, ptr %0, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
@@ -413,7 +414,7 @@ _ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit: ; preds = %_ZN
   %24 = or disjoint i64 %23, ptrtoint (ptr @_ZZN5boost4urls20make_pct_string_viewENS_4core17basic_string_viewIcEEE11loc__LINE__ to i64)
   store i64 4, ptr %0, align 8
   %.sroa.539.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr @_ZN5boost4urls6detail9error_catE, ptr %.sroa.539.0..sroa_idx, align 8, !tbaa !18
+  store b64 bitcast (ptr @_ZN5boost4urls6detail9error_catE to b64), ptr %.sroa.539.0..sroa_idx, align 8, !tbaa !18
   br label %49
 
 25:                                               ; preds = %.lr.ph, %15
@@ -467,7 +468,7 @@ _ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit29: ; preds = %_
   %47 = or disjoint i64 %46, ptrtoint (ptr @_ZZN5boost4urls20make_pct_string_viewENS_4core17basic_string_viewIcEEE11loc__LINE___0 to i64)
   store i64 5, ptr %0, align 8
   %.sroa.533.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr @_ZN5boost4urls6detail9error_catE, ptr %.sroa.533.0..sroa_idx, align 8, !tbaa !18
+  store b64 bitcast (ptr @_ZN5boost4urls6detail9error_catE to b64), ptr %.sroa.533.0..sroa_idx, align 8, !tbaa !18
   br label %49
 
 .thread:                                          ; preds = %.critedge, %35, %34

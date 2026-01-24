@@ -77,7 +77,7 @@ define dso_local noundef range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef 
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = alloca %"struct.LIEF::ELF::ParserConfig", align 8
   %10 = alloca %"class.LIEF::ELF::Segment", align 8
-  %11 = alloca %"class.LIEF::ELF::Builder", align 8
+  %11 = alloca %"class.LIEF::ELF::Builder", align 16
   %12 = alloca %"class.std::__cxx11::basic_string", align 8
   %13 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @.str, i64 noundef 11)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -248,11 +248,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %69, %
           to label %77 unwind label %121
 
 77:                                               ; preds = %75
-  store i64 72340172838076673, ptr %11, align 8
-  %.sroa.451.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store i8 0, ptr %.sroa.451.0..sroa_idx, align 8, !tbaa !48
-  %.sroa.552.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 9
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %.sroa.552.0..sroa_idx, i8 1, i64 11, i1 false)
+  store i160 5731378969925109483151705207891620709254889729, ptr %11, align 16
   invoke void @_ZN4LIEF3ELF7Builder5buildEv(ptr noundef nonnull align 8 dereferenceable(120) %11)
           to label %78 unwind label %123
 
@@ -331,7 +327,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit35: ; preds = %98,
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN4LIEF3ELF7SegmentE, i64 16), ptr %10, align 8, !tbaa !7
   %101 = getelementptr inbounds nuw i8, ptr %10, i64 112
-  %102 = load ptr, ptr %101, align 8, !tbaa !50
+  %102 = load ptr, ptr %101, align 8, !tbaa !48
   %.not.i.i.i.i = icmp eq ptr %102, null
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit.i, label %103
 
@@ -341,7 +337,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit35: ; preds = %98,
 
 _ZNSt6vectorIhSaIhEED2Ev.exit.i:                  ; preds = %103, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit35
   %104 = getelementptr inbounds nuw i8, ptr %10, i64 80
-  %105 = load ptr, ptr %104, align 8, !tbaa !51
+  %105 = load ptr, ptr %104, align 8, !tbaa !49
   %.not.i.i.i1.i = icmp eq ptr %105, null
   br i1 %.not.i.i.i1.i, label %_ZN4LIEF3ELF7SegmentD2Ev.exit, label %106
 
@@ -491,7 +487,7 @@ declare void @_ZN4LIEF3ELF7BuilderD1Ev(ptr noundef nonnull align 8 dereferenceab
 define linkonce_odr dso_local void @_ZN4LIEF3ELF7SegmentD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN4LIEF3ELF7SegmentE, i64 16), ptr %0, align 8, !tbaa !7
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %3 = load ptr, ptr %2, align 8, !tbaa !50
+  %3 = load ptr, ptr %2, align 8, !tbaa !48
   %.not.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit, label %4
 
@@ -501,7 +497,7 @@ define linkonce_odr dso_local void @_ZN4LIEF3ELF7SegmentD2Ev(ptr noundef nonnull
 
 _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %1, %4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %6 = load ptr, ptr %5, align 8, !tbaa !51
+  %6 = load ptr, ptr %5, align 8, !tbaa !49
   %.not.i.i.i1 = icmp eq ptr %6, null
   br i1 %.not.i.i.i1, label %_ZNSt6vectorIPN4LIEF3ELF7SectionESaIS3_EED2Ev.exit, label %7
 
@@ -618,7 +614,5 @@ attributes #14 = { builtin nounwind }
 !45 = !{!"_ZTSNSt12_Vector_baseIhSaIhEE17_Vector_impl_dataE", !22, i64 0, !22, i64 8, !22, i64 16}
 !46 = !{!47, !47, i64 0}
 !47 = !{!"p1 _ZTSN4LIEF3ELF6BinaryE", !15, i64 0}
-!48 = !{!49, !49, i64 0}
-!49 = !{!"bool", !5, i64 0}
-!50 = !{!45, !22, i64 0}
-!51 = !{!38, !39, i64 0}
+!48 = !{!45, !22, i64 0}
+!49 = !{!38, !39, i64 0}

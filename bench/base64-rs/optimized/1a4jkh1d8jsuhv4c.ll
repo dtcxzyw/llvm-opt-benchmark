@@ -65,11 +65,12 @@ define hidden void @_ZN6base646engine15general_purpose6decode18complete_quads_le
   br i1 %26, label %27, label %10
 
 27:                                               ; preds = %22
-  store i8 0, ptr %0, align 8
-  %.sroa.47.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 %20, ptr %.sroa.47.0..sroa_idx, align 1
-  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %9, ptr %.sroa.6.0..sroa_idx, align 8
+  %.sroa.06.8.insert.ext = zext i64 %9 to i128
+  %.sroa.06.8.insert.shift = shl nuw i128 %.sroa.06.8.insert.ext, 64
+  %.sroa.06.1.insert.ext = zext i8 %20 to i128
+  %.sroa.06.1.insert.shift = shl nuw nsw i128 %.sroa.06.1.insert.ext, 8
+  %.sroa.06.1.insert.insert = or disjoint i128 %.sroa.06.1.insert.shift, %.sroa.06.8.insert.shift
+  store i128 %.sroa.06.1.insert.insert, ptr %0, align 8
   br label %28
 
 28:                                               ; preds = %31, %29, %27

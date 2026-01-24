@@ -11,6 +11,7 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17he7181f7ef7cb87baE"(ptr sret({ { { i64, ptr, {} }, i64 } }) align 8 %0, ptr readnone align 1 captures(none) %1, ptr align 1 %2, i64 %3) unnamed_addr #0 {
+  %.sroa.03.i = alloca b192, align 16
   %5 = alloca [1 x { ptr, ptr }], align 8
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %7 = alloca { ptr, i64 }, align 8
@@ -18,6 +19,7 @@ define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..Fn
   %9 = icmp ne ptr %2, null
   tail call void @llvm.assume(i1 %9)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.03.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -46,17 +48,18 @@ define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..Fn
   %19 = call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17hcfad22611c8b7ee8E"(i64 3, i1 zeroext false), !noalias !3
   %20 = extractvalue { i64, ptr } %19, 0
   %21 = extractvalue { i64, ptr } %19, 1
-  %22 = icmp ne ptr %21, null
-  call void @llvm.assume(i1 %22)
+  store i64 %20, ptr %.sroa.03.i, align 16, !noalias !3
+  %.sroa.03.i.8.i.8.i.8..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.03.i, i64 8
+  store ptr %21, ptr %.sroa.03.i.8.i.8.i.8..sroa_idx, align 8, !noalias !3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %21, ptr noundef nonnull align 1 dereferenceable(3) @anon.f4f36e2827d9a98c41ad7a4676c02c03.4, i64 3, i1 false), !noalias !3
-  store i64 %20, ptr %0, align 8, !alias.scope !3
-  %.sroa.24.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %21, ptr %.sroa.24.0..sroa_idx.i, align 8, !alias.scope !3
-  %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 3, ptr %.sroa.3.0..sroa_idx.i, align 8, !alias.scope !3
+  %.sroa.03.i.16.i.16.i.16..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.03.i, i64 16
+  store i64 3, ptr %.sroa.03.i.16.i.16.i.16..sroa_idx, align 16, !noalias !3
+  %.sroa.03.i.0..sroa.03.i.0..sroa.03.i.0..sroa.03.0..sroa.03.0..sroa.03.0..sroa.03.0..sroa.01.0.copyload.i = load b192, ptr %.sroa.03.i, align 16, !noalias !3
+  store b192 %.sroa.03.i.0..sroa.03.i.0..sroa.03.i.0..sroa.03.0..sroa.03.0..sroa.03.0..sroa.03.0..sroa.01.0.copyload.i, ptr %0, align 8, !alias.scope !3
   br label %"_ZN13uuhelp_parser11parse_usage28_$u7b$$u7b$closure$u7d$$u7d$17h011079741f716642E.exit"
 
 "_ZN13uuhelp_parser11parse_usage28_$u7b$$u7b$closure$u7d$$u7d$17h011079741f716642E.exit": ; preds = %11, %18
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.03.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)

@@ -1487,23 +1487,21 @@ emit_restart.exit.thread:                         ; preds = %197, %flush_bits.ex
 ; Function Attrs: nounwind uwtable
 define internal void @finish_pass_huff(ptr noundef %0) #0 {
   %2 = alloca [512 x i8], align 16
-  %.sroa.26 = alloca [20 x i8], align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 496
   %4 = load ptr, ptr %3, align 8, !tbaa !57
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.26)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8, !tbaa !87
   %7 = load ptr, ptr %6, align 8, !tbaa !88
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %9 = load i64, ptr %8, align 8, !tbaa !94
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %.sroa.20.16.copyload19 = load i64, ptr %10, align 8, !tbaa !28
+  %.sroa.20.16.copyload1931 = load i64, ptr %10, align 8, !tbaa !28
   %.sroa.24.16..sroa_idx20 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  %.sroa.24.16.copyload21 = load i32, ptr %.sroa.24.16..sroa_idx20, align 8, !tbaa !36
+  %.sroa.24.16.copyload2132 = load i32, ptr %.sroa.24.16..sroa_idx20, align 8, !tbaa !36
   %.sroa.26.16..sroa_idx22 = getelementptr inbounds nuw i8, ptr %4, i64 44
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.26, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.26.16..sroa_idx22, i64 20, i1 false), !tbaa.struct !108
+  %.sroa.26.16.copyload23 = load b160, ptr %.sroa.26.16..sroa_idx22, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %.059.i = sub i32 64, %.sroa.24.16.copyload21
+  %.059.i = sub i32 64, %.sroa.24.16.copyload2132
   %11 = icmp ugt i64 %9, 511
   %spec.select = select i1 %11, ptr %7, ptr %2
   %12 = icmp sgt i32 %.059.i, 7
@@ -1517,7 +1515,7 @@ define internal void @finish_pass_huff(ptr noundef %0) #0 {
   %indvars.iv.i = phi i64 [ %13, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.16379.i = phi ptr [ %spec.select, %.lr.ph.preheader.i ], [ %.neg73.sroa.sel.i, %.lr.ph.i ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -8
-  %14 = lshr i64 %.sroa.20.16.copyload19, %indvars.iv.next.i
+  %14 = lshr i64 %.sroa.20.16.copyload1931, %indvars.iv.next.i
   %15 = trunc i64 %14 to i8
   store i8 %15, ptr %.16379.i, align 1, !tbaa !28
   %16 = getelementptr inbounds nuw i8, ptr %.16379.i, i64 1
@@ -1542,7 +1540,7 @@ define internal void @finish_pass_huff(ptr noundef %0) #0 {
 20:                                               ; preds = %._crit_edge.i
   %21 = sub nsw i32 8, %.160.lcssa.i
   %22 = zext nneg i32 %21 to i64
-  %23 = shl i64 %.sroa.20.16.copyload19, %22
+  %23 = shl i64 %.sroa.20.16.copyload1931, %22
   %24 = lshr i32 255, %.160.lcssa.i
   %25 = zext nneg i32 %24 to i64
   %26 = or i64 %23, %25
@@ -1623,16 +1621,15 @@ flush_bits.exit.thread:                           ; preds = %46, %48, %32
   br label %55
 
 55:                                               ; preds = %flush_bits.exit.thread, %51
-  %.sroa.0.229 = phi ptr [ %.sroa.0.2.ph, %flush_bits.exit.thread ], [ %35, %51 ]
-  %.sroa.11.228 = phi i64 [ %.sroa.11.2.ph, %flush_bits.exit.thread ], [ 0, %51 ]
+  %.sroa.0.230 = phi ptr [ %.sroa.0.2.ph, %flush_bits.exit.thread ], [ %35, %51 ]
+  %.sroa.11.229 = phi i64 [ %.sroa.11.2.ph, %flush_bits.exit.thread ], [ 0, %51 ]
   %56 = load ptr, ptr %5, align 8, !tbaa !87
-  store ptr %.sroa.0.229, ptr %56, align 8, !tbaa !88
+  store ptr %.sroa.0.230, ptr %56, align 8, !tbaa !88
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
-  store i64 %.sroa.11.228, ptr %57, align 8, !tbaa !94
+  store i64 %.sroa.11.229, ptr %57, align 8, !tbaa !94
   store i64 0, ptr %10, align 8, !tbaa !28
   store i32 64, ptr %.sroa.24.16..sroa_idx20, align 8, !tbaa !36
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.26.16..sroa_idx22, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.26, i64 20, i1 false), !tbaa.struct !108
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.26)
+  store b160 %.sroa.26.16.copyload23, ptr %.sroa.26.16..sroa_idx22, align 4
   ret void
 }
 
@@ -10662,7 +10659,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %.13111174 = phi i64 [ %5034, %5031 ], [ %5039, %5035 ]
   %.198 = phi ptr [ %.197, %5031 ], [ %.19614914, %5035 ]
   %5041 = icmp samesign ugt i32 %.6514915, 511
-  br i1 %5041, label %4961, label %._crit_edge14918, !llvm.loop !109
+  br i1 %5041, label %4961, label %._crit_edge14918, !llvm.loop !108
 
 ._crit_edge14918:                                 ; preds = %5040, %4957
   %.13011427.lcssa = phi i32 [ %.12511422, %4957 ], [ %.13111428, %5040 ]
@@ -11020,7 +11017,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %.13511178 = phi i64 [ %5228, %5225 ], [ %5233, %5229 ]
   %.204 = phi ptr [ %.203, %5225 ], [ %.20214925, %5229 ]
   %5235 = icmp samesign ugt i32 %.6714926, 511
-  br i1 %5235, label %5155, label %._crit_edge14929, !llvm.loop !110
+  br i1 %5235, label %5155, label %._crit_edge14929, !llvm.loop !109
 
 ._crit_edge14929:                                 ; preds = %5234, %5151
   %.13411431.lcssa = phi i32 [ %.12911426, %5151 ], [ %.13511432, %5234 ]
@@ -11378,7 +11375,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %.13911182 = phi i64 [ %5422, %5419 ], [ %5427, %5423 ]
   %.210 = phi ptr [ %.209, %5419 ], [ %.20814936, %5423 ]
   %5429 = icmp samesign ugt i32 %.6914937, 511
-  br i1 %5429, label %5349, label %._crit_edge14940, !llvm.loop !111
+  br i1 %5429, label %5349, label %._crit_edge14940, !llvm.loop !110
 
 ._crit_edge14940:                                 ; preds = %5428, %5345
   %.13811435.lcssa = phi i32 [ %.13311430, %5345 ], [ %.13911436, %5428 ]
@@ -11736,7 +11733,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %.14311186 = phi i64 [ %5616, %5613 ], [ %5621, %5617 ]
   %.216 = phi ptr [ %.215, %5613 ], [ %.21414947, %5617 ]
   %5623 = icmp samesign ugt i32 %.7114948, 511
-  br i1 %5623, label %5543, label %._crit_edge14951, !llvm.loop !112
+  br i1 %5623, label %5543, label %._crit_edge14951, !llvm.loop !111
 
 ._crit_edge14951:                                 ; preds = %5622, %5539
   %.14211439.lcssa = phi i32 [ %.13711434, %5539 ], [ %.14311440, %5622 ]
@@ -12094,7 +12091,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %.14711190 = phi i64 [ %5810, %5807 ], [ %5815, %5811 ]
   %.222 = phi ptr [ %.221, %5807 ], [ %.22014958, %5811 ]
   %5817 = icmp samesign ugt i32 %.7314959, 511
-  br i1 %5817, label %5737, label %._crit_edge14962, !llvm.loop !113
+  br i1 %5817, label %5737, label %._crit_edge14962, !llvm.loop !112
 
 ._crit_edge14962:                                 ; preds = %5816, %5733
   %.14611443.lcssa = phi i32 [ %.14111438, %5733 ], [ %.14711444, %5816 ]
@@ -12452,7 +12449,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %.15111194 = phi i64 [ %6004, %6001 ], [ %6009, %6005 ]
   %.228 = phi ptr [ %.227, %6001 ], [ %.22614969, %6005 ]
   %6011 = icmp samesign ugt i32 %.7514970, 511
-  br i1 %6011, label %5931, label %._crit_edge14973, !llvm.loop !114
+  br i1 %6011, label %5931, label %._crit_edge14973, !llvm.loop !113
 
 ._crit_edge14973:                                 ; preds = %6010, %5927
   %.15011447.lcssa = phi i32 [ %.14511442, %5927 ], [ %.15111448, %6010 ]
@@ -12810,7 +12807,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %.15511198 = phi i64 [ %6198, %6195 ], [ %6203, %6199 ]
   %.234 = phi ptr [ %.233, %6195 ], [ %.23214980, %6199 ]
   %6205 = icmp samesign ugt i32 %.7714981, 511
-  br i1 %6205, label %6125, label %._crit_edge14984, !llvm.loop !115
+  br i1 %6205, label %6125, label %._crit_edge14984, !llvm.loop !114
 
 ._crit_edge14984:                                 ; preds = %6204, %6121
   %.15411451.lcssa = phi i32 [ %.14911446, %6121 ], [ %.15511452, %6204 ]
@@ -13168,7 +13165,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %.15911202 = phi i64 [ %6392, %6389 ], [ %6397, %6393 ]
   %.240 = phi ptr [ %.239, %6389 ], [ %.23814991, %6393 ]
   %6399 = icmp samesign ugt i32 %.7914992, 511
-  br i1 %6399, label %6319, label %._crit_edge14995, !llvm.loop !116
+  br i1 %6399, label %6319, label %._crit_edge14995, !llvm.loop !115
 
 ._crit_edge14995:                                 ; preds = %6398, %6315
   %.15811455.lcssa = phi i32 [ %.15311450, %6315 ], [ %.15911456, %6398 ]
@@ -13526,7 +13523,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %.16311206 = phi i64 [ %6586, %6583 ], [ %6591, %6587 ]
   %.246 = phi ptr [ %.245, %6583 ], [ %.24415002, %6587 ]
   %6593 = icmp samesign ugt i32 %.8115003, 511
-  br i1 %6593, label %6513, label %._crit_edge15006, !llvm.loop !117
+  br i1 %6593, label %6513, label %._crit_edge15006, !llvm.loop !116
 
 ._crit_edge15006:                                 ; preds = %6592, %6509
   %.16211459.lcssa = phi i32 [ %.15711454, %6509 ], [ %.16311460, %6592 ]
@@ -13884,7 +13881,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %.16711210 = phi i64 [ %6780, %6777 ], [ %6785, %6781 ]
   %.252 = phi ptr [ %.251, %6777 ], [ %.25015013, %6781 ]
   %6787 = icmp samesign ugt i32 %.8315014, 511
-  br i1 %6787, label %6707, label %._crit_edge15017, !llvm.loop !118
+  br i1 %6787, label %6707, label %._crit_edge15017, !llvm.loop !117
 
 ._crit_edge15017:                                 ; preds = %6786, %6703
   %.16611463.lcssa = phi i32 [ %.16111458, %6703 ], [ %.16711464, %6786 ]
@@ -14242,7 +14239,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %.17111214 = phi i64 [ %6974, %6971 ], [ %6979, %6975 ]
   %.258 = phi ptr [ %.257, %6971 ], [ %.25615024, %6975 ]
   %6981 = icmp samesign ugt i32 %.8515025, 511
-  br i1 %6981, label %6901, label %._crit_edge15028, !llvm.loop !119
+  br i1 %6981, label %6901, label %._crit_edge15028, !llvm.loop !118
 
 ._crit_edge15028:                                 ; preds = %6980, %6897
   %.17011467.lcssa = phi i32 [ %.16511462, %6897 ], [ %.17111468, %6980 ]
@@ -14600,7 +14597,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %.17511218 = phi i64 [ %7168, %7165 ], [ %7173, %7169 ]
   %.264 = phi ptr [ %.263, %7165 ], [ %.26215035, %7169 ]
   %7175 = icmp samesign ugt i32 %.8715036, 511
-  br i1 %7175, label %7095, label %._crit_edge15039, !llvm.loop !120
+  br i1 %7175, label %7095, label %._crit_edge15039, !llvm.loop !119
 
 ._crit_edge15039:                                 ; preds = %7174, %7091
   %.17411471.lcssa = phi i32 [ %.16911466, %7091 ], [ %.17511472, %7174 ]
@@ -14958,7 +14955,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %.17911222 = phi i64 [ %7362, %7359 ], [ %7367, %7363 ]
   %.270 = phi ptr [ %.269, %7359 ], [ %.26815046, %7363 ]
   %7369 = icmp samesign ugt i32 %.8915047, 511
-  br i1 %7369, label %7289, label %._crit_edge15050, !llvm.loop !121
+  br i1 %7369, label %7289, label %._crit_edge15050, !llvm.loop !120
 
 ._crit_edge15050:                                 ; preds = %7368, %7285
   %.17811475.lcssa = phi i32 [ %.17311470, %7285 ], [ %.17911476, %7368 ]
@@ -15316,7 +15313,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %.18311226 = phi i64 [ %7556, %7553 ], [ %7561, %7557 ]
   %.276 = phi ptr [ %.275, %7553 ], [ %.27415057, %7557 ]
   %7563 = icmp samesign ugt i32 %.9115058, 511
-  br i1 %7563, label %7483, label %._crit_edge15061, !llvm.loop !122
+  br i1 %7563, label %7483, label %._crit_edge15061, !llvm.loop !121
 
 ._crit_edge15061:                                 ; preds = %7562, %7479
   %.18211479.lcssa = phi i32 [ %.17711474, %7479 ], [ %.18311480, %7562 ]
@@ -15674,7 +15671,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %.18711230 = phi i64 [ %7750, %7747 ], [ %7755, %7751 ]
   %.282 = phi ptr [ %.281, %7747 ], [ %.28015068, %7751 ]
   %7757 = icmp samesign ugt i32 %.9315069, 511
-  br i1 %7757, label %7677, label %._crit_edge15072, !llvm.loop !123
+  br i1 %7757, label %7677, label %._crit_edge15072, !llvm.loop !122
 
 ._crit_edge15072:                                 ; preds = %7756, %7673
   %.18611483.lcssa = phi i32 [ %.18111478, %7673 ], [ %.18711484, %7756 ]
@@ -16032,7 +16029,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %.19111234 = phi i64 [ %7944, %7941 ], [ %7949, %7945 ]
   %.288 = phi ptr [ %.287, %7941 ], [ %.28615079, %7945 ]
   %7951 = icmp samesign ugt i32 %.9515080, 511
-  br i1 %7951, label %7871, label %._crit_edge15083, !llvm.loop !124
+  br i1 %7951, label %7871, label %._crit_edge15083, !llvm.loop !123
 
 ._crit_edge15083:                                 ; preds = %7950, %7867
   %.19011487.lcssa = phi i32 [ %.18511482, %7867 ], [ %.19111488, %7950 ]
@@ -16390,7 +16387,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %.19511238 = phi i64 [ %8138, %8135 ], [ %8143, %8139 ]
   %.294 = phi ptr [ %.293, %8135 ], [ %.29215090, %8139 ]
   %8145 = icmp samesign ugt i32 %.9715091, 511
-  br i1 %8145, label %8065, label %._crit_edge15094, !llvm.loop !125
+  br i1 %8145, label %8065, label %._crit_edge15094, !llvm.loop !124
 
 ._crit_edge15094:                                 ; preds = %8144, %8061
   %.19411491.lcssa = phi i32 [ %.18911486, %8061 ], [ %.19511492, %8144 ]
@@ -16748,7 +16745,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %.19911242 = phi i64 [ %8332, %8329 ], [ %8337, %8333 ]
   %.300 = phi ptr [ %.299, %8329 ], [ %.29815101, %8333 ]
   %8339 = icmp samesign ugt i32 %.9915102, 511
-  br i1 %8339, label %8259, label %._crit_edge15105, !llvm.loop !126
+  br i1 %8339, label %8259, label %._crit_edge15105, !llvm.loop !125
 
 ._crit_edge15105:                                 ; preds = %8338, %8255
   %.19811495.lcssa = phi i32 [ %.19311490, %8255 ], [ %.19911496, %8338 ]
@@ -17106,7 +17103,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %.20311246 = phi i64 [ %8526, %8523 ], [ %8531, %8527 ]
   %.306 = phi ptr [ %.305, %8523 ], [ %.30415112, %8527 ]
   %8533 = icmp samesign ugt i32 %.10115113, 511
-  br i1 %8533, label %8453, label %._crit_edge15116, !llvm.loop !127
+  br i1 %8533, label %8453, label %._crit_edge15116, !llvm.loop !126
 
 ._crit_edge15116:                                 ; preds = %8532, %8449
   %.20211499.lcssa = phi i32 [ %.19711494, %8449 ], [ %.20311500, %8532 ]
@@ -17464,7 +17461,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %.20711250 = phi i64 [ %8720, %8717 ], [ %8725, %8721 ]
   %.312 = phi ptr [ %.311, %8717 ], [ %.31015123, %8721 ]
   %8727 = icmp samesign ugt i32 %.10315124, 511
-  br i1 %8727, label %8647, label %._crit_edge15127, !llvm.loop !128
+  br i1 %8727, label %8647, label %._crit_edge15127, !llvm.loop !127
 
 ._crit_edge15127:                                 ; preds = %8726, %8643
   %.20611503.lcssa = phi i32 [ %.20111498, %8643 ], [ %.20711504, %8726 ]
@@ -17822,7 +17819,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %.21111254 = phi i64 [ %8914, %8911 ], [ %8919, %8915 ]
   %.318 = phi ptr [ %.317, %8911 ], [ %.31615134, %8915 ]
   %8921 = icmp samesign ugt i32 %.10515135, 511
-  br i1 %8921, label %8841, label %._crit_edge15138, !llvm.loop !129
+  br i1 %8921, label %8841, label %._crit_edge15138, !llvm.loop !128
 
 ._crit_edge15138:                                 ; preds = %8920, %8837
   %.21011507.lcssa = phi i32 [ %.20511502, %8837 ], [ %.21111508, %8920 ]
@@ -18180,7 +18177,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %.21511258 = phi i64 [ %9108, %9105 ], [ %9113, %9109 ]
   %.324 = phi ptr [ %.323, %9105 ], [ %.32215145, %9109 ]
   %9115 = icmp samesign ugt i32 %.10715146, 511
-  br i1 %9115, label %9035, label %._crit_edge15149, !llvm.loop !130
+  br i1 %9115, label %9035, label %._crit_edge15149, !llvm.loop !129
 
 ._crit_edge15149:                                 ; preds = %9114, %9031
   %.21411511.lcssa = phi i32 [ %.20911506, %9031 ], [ %.21511512, %9114 ]
@@ -18538,7 +18535,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %.21911262 = phi i64 [ %9302, %9299 ], [ %9307, %9303 ]
   %.330 = phi ptr [ %.329, %9299 ], [ %.32815156, %9303 ]
   %9309 = icmp samesign ugt i32 %.10915157, 511
-  br i1 %9309, label %9229, label %._crit_edge15160, !llvm.loop !131
+  br i1 %9309, label %9229, label %._crit_edge15160, !llvm.loop !130
 
 ._crit_edge15160:                                 ; preds = %9308, %9225
   %.21811515.lcssa = phi i32 [ %.21311510, %9225 ], [ %.21911516, %9308 ]
@@ -18896,7 +18893,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %.22311266 = phi i64 [ %9496, %9493 ], [ %9501, %9497 ]
   %.336 = phi ptr [ %.335, %9493 ], [ %.33415167, %9497 ]
   %9503 = icmp samesign ugt i32 %.11115168, 511
-  br i1 %9503, label %9423, label %._crit_edge15171, !llvm.loop !132
+  br i1 %9503, label %9423, label %._crit_edge15171, !llvm.loop !131
 
 ._crit_edge15171:                                 ; preds = %9502, %9419
   %.22211519.lcssa = phi i32 [ %.21711514, %9419 ], [ %.22311520, %9502 ]
@@ -19254,7 +19251,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %.22711270 = phi i64 [ %9690, %9687 ], [ %9695, %9691 ]
   %.342 = phi ptr [ %.341, %9687 ], [ %.34015178, %9691 ]
   %9697 = icmp samesign ugt i32 %.11315179, 511
-  br i1 %9697, label %9617, label %._crit_edge15182, !llvm.loop !133
+  br i1 %9697, label %9617, label %._crit_edge15182, !llvm.loop !132
 
 ._crit_edge15182:                                 ; preds = %9696, %9613
   %.22611523.lcssa = phi i32 [ %.22111518, %9613 ], [ %.22711524, %9696 ]
@@ -19612,7 +19609,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %.23111274 = phi i64 [ %9884, %9881 ], [ %9889, %9885 ]
   %.348 = phi ptr [ %.347, %9881 ], [ %.34615189, %9885 ]
   %9891 = icmp samesign ugt i32 %.11515190, 511
-  br i1 %9891, label %9811, label %._crit_edge15193, !llvm.loop !134
+  br i1 %9891, label %9811, label %._crit_edge15193, !llvm.loop !133
 
 ._crit_edge15193:                                 ; preds = %9890, %9807
   %.23011527.lcssa = phi i32 [ %.22511522, %9807 ], [ %.23111528, %9890 ]
@@ -19970,7 +19967,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %.23511278 = phi i64 [ %10078, %10075 ], [ %10083, %10079 ]
   %.354 = phi ptr [ %.353, %10075 ], [ %.35215200, %10079 ]
   %10085 = icmp samesign ugt i32 %.11715201, 511
-  br i1 %10085, label %10005, label %._crit_edge15204, !llvm.loop !135
+  br i1 %10085, label %10005, label %._crit_edge15204, !llvm.loop !134
 
 ._crit_edge15204:                                 ; preds = %10084, %10001
   %.23411531.lcssa = phi i32 [ %.22911526, %10001 ], [ %.23511532, %10084 ]
@@ -20328,7 +20325,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %.23911282 = phi i64 [ %10272, %10269 ], [ %10277, %10273 ]
   %.360 = phi ptr [ %.359, %10269 ], [ %.35815211, %10273 ]
   %10279 = icmp samesign ugt i32 %.11915212, 511
-  br i1 %10279, label %10199, label %._crit_edge15215, !llvm.loop !136
+  br i1 %10279, label %10199, label %._crit_edge15215, !llvm.loop !135
 
 ._crit_edge15215:                                 ; preds = %10278, %10195
   %.23811535.lcssa = phi i32 [ %.23311530, %10195 ], [ %.23911536, %10278 ]
@@ -20686,7 +20683,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %.24311286 = phi i64 [ %10466, %10463 ], [ %10471, %10467 ]
   %.366 = phi ptr [ %.365, %10463 ], [ %.36415222, %10467 ]
   %10473 = icmp samesign ugt i32 %.12115223, 511
-  br i1 %10473, label %10393, label %._crit_edge15226, !llvm.loop !137
+  br i1 %10473, label %10393, label %._crit_edge15226, !llvm.loop !136
 
 ._crit_edge15226:                                 ; preds = %10472, %10389
   %.24211539.lcssa = phi i32 [ %.23711534, %10389 ], [ %.24311540, %10472 ]
@@ -21044,7 +21041,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %.24711290 = phi i64 [ %10660, %10657 ], [ %10665, %10661 ]
   %.372 = phi ptr [ %.371, %10657 ], [ %.37015233, %10661 ]
   %10667 = icmp samesign ugt i32 %.12315234, 511
-  br i1 %10667, label %10587, label %._crit_edge15237, !llvm.loop !138
+  br i1 %10667, label %10587, label %._crit_edge15237, !llvm.loop !137
 
 ._crit_edge15237:                                 ; preds = %10666, %10583
   %.24611543.lcssa = phi i32 [ %.24111538, %10583 ], [ %.24711544, %10666 ]
@@ -21398,7 +21395,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %.25111294 = phi i64 [ %10852, %10849 ], [ %10857, %10853 ]
   %.378 = phi ptr [ %.377, %10849 ], [ %.37615244, %10853 ]
   %10859 = icmp samesign ugt i32 %.12515245, 511
-  br i1 %10859, label %10779, label %._crit_edge15248, !llvm.loop !139
+  br i1 %10859, label %10779, label %._crit_edge15248, !llvm.loop !138
 
 ._crit_edge15248:                                 ; preds = %10858, %10775
   %.25011547.lcssa = phi i32 [ %.24511542, %10775 ], [ %.25111548, %10858 ]
@@ -21763,7 +21760,7 @@ dump_buffer.exit:                                 ; preds = %11039
   %11051 = phi i64 [ %11048, %dump_buffer.exit ], [ %11037, %.lr.ph15257 ]
   %11052 = sub i64 %.01091315255, %.010913.
   %.not13838 = icmp eq i64 %11052, 0
-  br i1 %.not13838, label %.critedge, label %.lr.ph15257, !llvm.loop !140
+  br i1 %.not13838, label %.critedge, label %.lr.ph15257, !llvm.loop !139
 
 11053:                                            ; preds = %.thread
   %11054 = load ptr, ptr %0, align 8, !tbaa !91
@@ -21930,7 +21927,7 @@ attributes #7 = { nounwind }
 !105 = distinct !{!105, !35}
 !106 = distinct !{!106, !35}
 !107 = distinct !{!107, !35}
-!108 = !{i64 0, i64 16, !28}
+!108 = distinct !{!108, !35}
 !109 = distinct !{!109, !35}
 !110 = distinct !{!110, !35}
 !111 = distinct !{!111, !35}
@@ -21962,4 +21959,3 @@ attributes #7 = { nounwind }
 !137 = distinct !{!137, !35}
 !138 = distinct !{!138, !35}
 !139 = distinct !{!139, !35}
-!140 = distinct !{!140, !35}

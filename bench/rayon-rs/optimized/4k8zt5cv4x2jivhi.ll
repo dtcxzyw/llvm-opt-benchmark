@@ -1190,26 +1190,27 @@ define hidden void @_ZN10rayon_core5latch10CountLatch3new17hd2fc7d765e79c2b4E(pt
 
 "_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hc6f63d21865d5022E.exit.i": ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 256
-  %10 = load i64, ptr %9, align 128, !noalias !69, !noundef !4
+  %10 = load b64, ptr %9, align 128, !noalias !69, !noundef !4
+  %11 = bitcast ptr %.val.i to b64
   br label %_ZN10rayon_core5latch10CountLatch10with_count17h7b8f7be430f1b6bbE.exit
 
 _ZN10rayon_core5latch10CountLatch10with_count17h7b8f7be430f1b6bbE.exit: ; preds = %2, %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hc6f63d21865d5022E.exit.i"
-  %.sroa.02.0.i = phi ptr [ %.val.i, %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hc6f63d21865d5022E.exit.i" ], [ null, %2 ]
-  %.sroa.7.0.i = phi i64 [ %10, %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hc6f63d21865d5022E.exit.i" ], [ 0, %2 ]
+  %.sroa.7.0.i = phi b64 [ %10, %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hc6f63d21865d5022E.exit.i" ], [ 0, %2 ]
+  %.sroa.02.0.i = phi b64 [ %11, %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hc6f63d21865d5022E.exit.i" ], [ 0, %2 ]
   store i64 1, ptr %0, align 8, !alias.scope !69
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.02.0.i, ptr %11, align 8, !alias.scope !69
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store b64 %.sroa.02.0.i, ptr %12, align 8, !alias.scope !69
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !69
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %.sroa.7.0.i, ptr %.sroa.7.0..sroa_idx.i, align 8, !alias.scope !69
+  store b64 %.sroa.7.0.i, ptr %.sroa.7.0..sroa_idx.i, align 8, !alias.scope !69
   ret void
 }
 
 ; Function Attrs: nounwind nonlazybind memory(readwrite, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define void @_ZN10rayon_core5latch10CountLatch10with_count17h7b8f7be430f1b6bbE(ptr noalias noundef writeonly sret({ { i64 }, { ptr, [2 x i64] } }) align 8 captures(none) dereferenceable(32) %0, i64 noundef %1, ptr noundef readonly align 128 captures(address_is_null) %2) unnamed_addr #8 {
   %4 = icmp eq ptr %2, null
-  br i1 %4, label %12, label %5
+  br i1 %4, label %13, label %5
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 272
@@ -1224,19 +1225,20 @@ define void @_ZN10rayon_core5latch10CountLatch10with_count17h7b8f7be430f1b6bbE(p
 
 "_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hc6f63d21865d5022E.exit": ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 256
-  %11 = load i64, ptr %10, align 128, !noundef !4
-  br label %12
+  %11 = load b64, ptr %10, align 128, !noundef !4
+  %12 = bitcast ptr %.val to b64
+  br label %13
 
-12:                                               ; preds = %3, %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hc6f63d21865d5022E.exit"
-  %.sroa.02.0 = phi ptr [ %.val, %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hc6f63d21865d5022E.exit" ], [ null, %3 ]
-  %.sroa.7.0 = phi i64 [ %11, %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hc6f63d21865d5022E.exit" ], [ 0, %3 ]
+13:                                               ; preds = %3, %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hc6f63d21865d5022E.exit"
+  %.sroa.7.0 = phi b64 [ %11, %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hc6f63d21865d5022E.exit" ], [ 0, %3 ]
+  %.sroa.02.0 = phi b64 [ %12, %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hc6f63d21865d5022E.exit" ], [ 0, %3 ]
   store i64 %1, ptr %0, align 8
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.02.0, ptr %13, align 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store b64 %.sroa.02.0, ptr %14, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %.sroa.7.0, ptr %.sroa.7.0..sroa_idx, align 8
+  store b64 %.sroa.7.0, ptr %.sroa.7.0..sroa_idx, align 8
   ret void
 }
 

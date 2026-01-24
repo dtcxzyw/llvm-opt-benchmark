@@ -27,7 +27,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6evmone8baseline7analyzeESt17basic_string_viewIhN4evmc11byte_traitsIhEEEb(ptr dead_on_unwind noalias writable writeonly sret(%"class.evmone::baseline::CodeAnalysis") align 8 captures(none) %0, i64 %1, ptr %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
-  %5 = alloca %"struct.evmone::EOF1Header", align 8
+  %5 = alloca %"struct.evmone::EOF1Header", align 16
   br i1 %3, label %6, label %65
 
 6:                                                ; preds = %4
@@ -52,7 +52,7 @@ define void @_ZN6evmone8baseline7analyzeESt17basic_string_viewIhN4evmc11byte_tra
 _ZN6evmone8baseline12_GLOBAL__N_112analyze_eof1ESt17basic_string_viewIhN4evmc11byte_traitsIhEEE.exit: ; preds = %8
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  %17 = load ptr, ptr %16, align 8, !tbaa !14, !noalias !3
+  %17 = load ptr, ptr %16, align 16, !tbaa !14, !noalias !3
   %18 = getelementptr inbounds i8, ptr %17, i64 -2
   %19 = load i16, ptr %18, align 2, !tbaa !12, !noalias !3
   %20 = zext i16 %19 to i64
@@ -66,25 +66,26 @@ _ZN6evmone8baseline12_GLOBAL__N_112analyze_eof1ESt17basic_string_viewIhN4evmc11b
   %28 = sub nuw i64 %1, %12
   %.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 %28, i64 %27)
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 %12
-  %30 = load ptr, ptr %15, align 8, !tbaa !6, !noalias !3
+  %.sroa.0.0.copyload.i = load b128, ptr %5, align 16, !noalias !3
+  %30 = load ptr, ptr %15, align 16, !tbaa !6, !noalias !3
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %32 = load ptr, ptr %31, align 8, !tbaa !15, !noalias !3
+  %32 = load ptr, ptr %31, align 16, !tbaa !15, !noalias !3
   %33 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %34 = load ptr, ptr %33, align 8, !tbaa !15, !noalias !3
   %35 = getelementptr inbounds nuw i8, ptr %5, i64 64
-  %36 = load i64, ptr %35, align 8, !noalias !3
+  %36 = load b64, ptr %35, align 16, !noalias !3
   %37 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %38 = load ptr, ptr %37, align 8, !tbaa !16, !noalias !3
   %39 = getelementptr inbounds nuw i8, ptr %5, i64 80
-  %40 = load ptr, ptr %39, align 8, !tbaa !19, !noalias !3
+  %40 = load ptr, ptr %39, align 16, !tbaa !19, !noalias !3
   %41 = getelementptr inbounds nuw i8, ptr %5, i64 88
   %42 = load ptr, ptr %41, align 8, !tbaa !20, !noalias !3
   %43 = getelementptr inbounds nuw i8, ptr %5, i64 96
-  %44 = load ptr, ptr %43, align 8, !tbaa !16, !noalias !3
+  %44 = load ptr, ptr %43, align 16, !tbaa !16, !noalias !3
   %45 = getelementptr inbounds nuw i8, ptr %5, i64 104
   %46 = load ptr, ptr %45, align 8, !tbaa !19, !noalias !3
   %47 = getelementptr inbounds nuw i8, ptr %5, i64 112
-  %48 = load ptr, ptr %47, align 8, !tbaa !20, !noalias !3
+  %48 = load ptr, ptr %47, align 16, !tbaa !20, !noalias !3
   store i64 %1, ptr %0, align 8, !tbaa !21, !alias.scope !3
   %.sroa.22.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %2, ptr %.sroa.22.0..sroa_idx.i.i, align 8, !tbaa !23, !alias.scope !3
@@ -93,7 +94,7 @@ _ZN6evmone8baseline12_GLOBAL__N_112analyze_eof1ESt17basic_string_viewIhN4evmc11b
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %29, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !23, !alias.scope !3
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %50, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
+  store b128 %.sroa.0.0.copyload.i, ptr %50, align 8, !alias.scope !3
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %30, ptr %51, align 8, !tbaa !6, !alias.scope !3
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -107,7 +108,7 @@ _ZN6evmone8baseline12_GLOBAL__N_112analyze_eof1ESt17basic_string_viewIhN4evmc11b
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr %34, ptr %56, align 8, !tbaa !15, !alias.scope !3
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store i64 %36, ptr %57, align 8, !alias.scope !3
+  store b64 %36, ptr %57, align 8, !alias.scope !3
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr %38, ptr %58, align 8, !tbaa !16, !alias.scope !3
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 112

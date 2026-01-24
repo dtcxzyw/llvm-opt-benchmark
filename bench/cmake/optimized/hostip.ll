@@ -809,7 +809,7 @@ define dso_local range(i32 -1, 2) i32 @Curl_resolv(ptr noundef %0, ptr noundef %
   br i1 %93, label %get_localhost.exit, label %94
 
 94:                                               ; preds = %89
-  %.sroa.6.4.copyload.i = load i32, ptr %7, align 4
+  %.sroa.6.4.copyload.i = load b32, ptr %7, align 4
   %95 = load ptr, ptr @Curl_ccalloc, align 8, !tbaa !111
   %96 = add i64 %90, 65
   %97 = call ptr %95(i64 noundef 1, i64 noundef %96) #11
@@ -833,7 +833,7 @@ define dso_local range(i32 -1, 2) i32 @Curl_resolv(ptr noundef %0, ptr noundef %
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %97, i64 50
   store i16 %rev.i.i, ptr %.sroa.5.0..sroa_idx.i, align 2
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %97, i64 52
-  store i32 %.sroa.6.4.copyload.i, ptr %.sroa.6.0..sroa_idx.i, align 4
+  store b32 %.sroa.6.4.copyload.i, ptr %.sroa.6.0..sroa_idx.i, align 4
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %97, i64 56
   store i64 0, ptr %.sroa.7.0..sroa_idx.i, align 8
   %105 = getelementptr inbounds nuw i8, ptr %97, i64 64
@@ -854,6 +854,7 @@ get_localhost6.exit.thread.i:                     ; preds = %98
 
 112:                                              ; preds = %98
   %113 = call i32 @inet_pton(i32 noundef 10, ptr noundef nonnull @.str.26, ptr noundef nonnull %6) #11
+  %.sroa.6.8.copyload.i.i = load b128, ptr %6, align 16
   store i32 0, ptr %111, align 8, !tbaa !127
   %114 = getelementptr inbounds nuw i8, ptr %111, i64 4
   store i32 10, ptr %114, align 4, !tbaa !7
@@ -874,7 +875,7 @@ get_localhost6.exit.thread.i:                     ; preds = %98
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %111, i64 52
   store i32 0, ptr %.sroa.5.0..sroa_idx.i.i, align 4
   %.sroa.6.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %111, i64 56
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(16) %.sroa.6.0..sroa_idx.i.i, ptr noundef nonnull align 16 dereferenceable(16) %6, i64 16, i1 false)
+  store b128 %.sroa.6.8.copyload.i.i, ptr %.sroa.6.0..sroa_idx.i.i, align 8
   %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %111, i64 72
   store i32 0, ptr %.sroa.7.0..sroa_idx.i.i, align 8
   %121 = getelementptr inbounds nuw i8, ptr %111, i64 76

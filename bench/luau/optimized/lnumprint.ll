@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZL11kDigitTable = internal unnamed_addr constant [201 x i8] c"00010203040506070809101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899\00", align 16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden noundef ptr @_Z12luai_num2strPcd(ptr noundef captures(ret: address, provenance) %0, double noundef %1) local_unnamed_addr #0 {
+define hidden noundef ptr @_Z12luai_num2strPcd(ptr noundef captures(ret: address, provenance) initializes((0, 1)) %0, double noundef %1) local_unnamed_addr #0 {
   %3 = alloca [40 x i8], align 16
   %4 = bitcast double %1 to i64
   %5 = lshr i64 %4, 63
@@ -27,20 +27,16 @@ define hidden noundef ptr @_Z12luai_num2strPcd(ptr noundef captures(ret: address
 13:                                               ; preds = %11
   %14 = xor i64 %5, 1
   %15 = getelementptr inbounds nuw i8, ptr @.str, i64 %14
-  %16 = load i32, ptr %15, align 1
+  %16 = load b32, ptr %15, align 1
+  store b32 %16, ptr %0, align 1
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 %5
   br label %_ZL12printspecialPcim.exit
 
 19:                                               ; preds = %11
+  store i32 7233902, ptr %0, align 1
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 3
   br label %_ZL12printspecialPcim.exit
-
-_ZL12printspecialPcim.exit:                       ; preds = %13, %19
-  %.sink.i = phi i32 [ %16, %13 ], [ 7233902, %19 ]
-  %.0.i = phi ptr [ %18, %13 ], [ %20, %19 ]
-  store i32 %.sink.i, ptr %0, align 1
-  br label %279
 
 21:                                               ; preds = %2
   store i8 45, ptr %0, align 1, !tbaa !5
@@ -53,7 +49,7 @@ _ZL12printspecialPcim.exit:                       ; preds = %13, %19
 25:                                               ; preds = %21
   store i8 48, ptr %22, align 1, !tbaa !5
   %26 = getelementptr inbounds nuw i8, ptr %22, i64 1
-  br label %279
+  br label %_ZL12printspecialPcim.exit
 
 27:                                               ; preds = %21
   %28 = or disjoint i64 %9, 4503599627370496
@@ -242,15 +238,15 @@ _ZL9schubfachim.exit:                             ; preds = %37, %149, %160
   %178 = shl nuw nsw i16 %177, 1
   %179 = zext nneg i16 %178 to i64
   %180 = getelementptr inbounds nuw i8, ptr @_ZL11kDigitTable, i64 %179
-  %181 = load i16, ptr %180, align 2
-  store i16 %181, ptr %176, align 1
+  %181 = load b16, ptr %180, align 2
+  store b16 %181, ptr %176, align 1
   %182 = getelementptr inbounds i8, ptr %.01823.i, i64 -2
   %183 = urem i16 %.lhs.trunc.i, 100
   %184 = shl nuw nsw i16 %183, 1
   %185 = zext nneg i16 %184 to i64
   %186 = getelementptr inbounds nuw i8, ptr @_ZL11kDigitTable, i64 %185
-  %187 = load i16, ptr %186, align 2
-  store i16 %187, ptr %182, align 1
+  %187 = load b16, ptr %186, align 2
+  store b16 %187, ptr %182, align 1
   %188 = udiv i64 %.01922.i, 10000
   %189 = icmp samesign ugt i64 %.01922.i, 99999999
   br i1 %189, label %.lr.ph.i, label %._crit_edge.i78, !llvm.loop !10
@@ -270,8 +266,8 @@ _ZL9schubfachim.exit:                             ; preds = %37, %149, %160
   %194 = shl nuw nsw i32 %193, 1
   %195 = zext nneg i32 %194 to i64
   %196 = getelementptr inbounds nuw i8, ptr @_ZL11kDigitTable, i64 %195
-  %197 = load i16, ptr %196, align 2
-  store i16 %197, ptr %192, align 1
+  %197 = load b16, ptr %196, align 2
+  store b16 %197, ptr %192, align 1
   %198 = udiv i32 %.026.i, 100
   %199 = icmp ugt i32 %.026.i, 999
   br i1 %199, label %.lr.ph28.i, label %._crit_edge29.i, !llvm.loop !12
@@ -420,18 +416,18 @@ _ZL8printexpPci.exit:                             ; preds = %_Z8trimzeroPc.exit8
   %274 = shl nuw nsw i32 %.0.i85, 1
   %275 = zext nneg i32 %274 to i64
   %276 = getelementptr inbounds nuw i8, ptr @_ZL11kDigitTable, i64 %275
-  %277 = load i16, ptr %276, align 2
-  store i16 %277, ptr %.012.i, align 1
+  %277 = load b16, ptr %276, align 2
+  store b16 %277, ptr %.012.i, align 1
   %278 = getelementptr inbounds nuw i8, ptr %.012.i, i64 2
   br label %_Z8trimzeroPc.exit
 
 _Z8trimzeroPc.exit:                               ; preds = %239, %220, %_ZL8printexpPci.exit, %243, %226
   %.1 = phi ptr [ %278, %_ZL8printexpPci.exit ], [ %228, %226 ], [ %.0.i80, %220 ], [ %247, %243 ], [ %.0.i81, %239 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %279
+  br label %_ZL12printspecialPcim.exit
 
-279:                                              ; preds = %_Z8trimzeroPc.exit, %25, %_ZL12printspecialPcim.exit
-  %.071 = phi ptr [ %.0.i, %_ZL12printspecialPcim.exit ], [ %26, %25 ], [ %.1, %_Z8trimzeroPc.exit ]
+_ZL12printspecialPcim.exit:                       ; preds = %19, %13, %_Z8trimzeroPc.exit, %25
+  %.071 = phi ptr [ %.1, %_Z8trimzeroPc.exit ], [ %26, %25 ], [ %18, %13 ], [ %20, %19 ]
   ret ptr %.071
 }
 

@@ -507,8 +507,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %33, %
   %41 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %42 = getelementptr inbounds nuw i8, ptr %2, i64 8
   call void %40(ptr noundef nonnull %41, ptr noundef nonnull %42) #26
-  %43 = load i64, ptr %2, align 8
-  store i64 %43, ptr %6, align 8
+  %43 = load b64, ptr %2, align 8
+  store b64 %43, ptr %6, align 8
   store ptr null, ptr %2, align 8
   br label %_ZN3pro5proxyIN12_GLOBAL__N_14spec8DrawableEEC2EOS4_QL_ZNS_5proxy18HasMoveConstructorEE.exit
 
@@ -743,8 +743,8 @@ _ZSt10destroy_atIN3pro5proxyIN12_GLOBAL__N_14spec8DrawableEEEEvPT_.exit.i: ; pre
   %118 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %119 = getelementptr inbounds nuw i8, ptr %10, i64 8
   call void %117(ptr noundef nonnull %118, ptr noundef nonnull %119) #26
-  %120 = load i64, ptr %10, align 8
-  store i64 %120, ptr %2, align 8
+  %120 = load b64, ptr %10, align 8
+  store b64 %120, ptr %2, align 8
   store ptr null, ptr %10, align 8
   br label %_ZN3pro5proxyIN12_GLOBAL__N_14spec8DrawableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit78
 
@@ -773,8 +773,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit81: ; preds = %_ZN
   %128 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %129 = getelementptr inbounds nuw i8, ptr %2, i64 8
   call void %127(ptr noundef nonnull %128, ptr noundef nonnull %129) #26
-  %130 = load i64, ptr %2, align 8
-  store i64 %130, ptr %14, align 8
+  %130 = load b64, ptr %2, align 8
+  store b64 %130, ptr %14, align 8
   store ptr null, ptr %2, align 8
   br label %_ZN3pro5proxyIN12_GLOBAL__N_14spec8DrawableEEC2EOS4_QL_ZNS_5proxy18HasMoveConstructorEE.exit84
 
@@ -1097,8 +1097,8 @@ _ZSt10destroy_atIN3pro5proxyIN12_GLOBAL__N_14spec8DrawableEEEEvPT_.exit.i126: ; 
   %235 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %236 = getelementptr inbounds nuw i8, ptr %18, i64 8
   call void %234(ptr noundef nonnull %235, ptr noundef nonnull %236) #26
-  %237 = load i64, ptr %18, align 8
-  store i64 %237, ptr %2, align 8
+  %237 = load b64, ptr %18, align 8
+  store b64 %237, ptr %2, align 8
   store ptr null, ptr %18, align 8
   br label %_ZN3pro5proxyIN12_GLOBAL__N_14spec8DrawableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit132
 
@@ -1127,8 +1127,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit135: ; preds = %_Z
   %245 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %246 = getelementptr inbounds nuw i8, ptr %2, i64 8
   call void %244(ptr noundef nonnull %245, ptr noundef nonnull %246) #26
-  %247 = load i64, ptr %2, align 8
-  store i64 %247, ptr %22, align 8
+  %247 = load b64, ptr %2, align 8
+  store b64 %247, ptr %22, align 8
   store ptr null, ptr %2, align 8
   br label %_ZN3pro5proxyIN12_GLOBAL__N_14spec8DrawableEEC2EOS4_QL_ZNS_5proxy18HasMoveConstructorEE.exit138
 
@@ -1450,8 +1450,8 @@ _ZSt10destroy_atIN3pro5proxyIN12_GLOBAL__N_14spec8DrawableEEEEvPT_.exit.i187: ; 
   %351 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %352 = getelementptr inbounds nuw i8, ptr %26, i64 8
   call void %350(ptr noundef nonnull %351, ptr noundef nonnull %352) #26
-  %353 = load i64, ptr %26, align 8
-  store i64 %353, ptr %2, align 8
+  %353 = load b64, ptr %26, align 8
+  store b64 %353, ptr %2, align 8
   store ptr null, ptr %26, align 8
   br label %_ZN3pro5proxyIN12_GLOBAL__N_14spec8DrawableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit193
 
@@ -2047,9 +2047,10 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i:   ; preds = %109
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.experimental.noalias.scope.decl(metadata !27)
   call void @llvm.experimental.noalias.scope.decl(metadata !30)
+  store ptr null, ptr %0, align 8, !alias.scope !33
   %167 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 ptrtoint (ptr @_ZZN12_GLOBAL__N_123MakeDrawableFromCommandERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE21rectangle_memory_pool to i64), ptr %167, align 8, !alias.scope !33
-  %168 = load ptr, ptr @_ZZN12_GLOBAL__N_123MakeDrawableFromCommandERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE21rectangle_memory_pool, align 8, !noalias !33
+  store b64 bitcast (ptr @_ZZN12_GLOBAL__N_123MakeDrawableFromCommandERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE21rectangle_memory_pool to b64), ptr %167, align 8, !alias.scope !33
+  %168 = load ptr, ptr @_ZZN12_GLOBAL__N_123MakeDrawableFromCommandERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE21rectangle_memory_pool, align 8
   %169 = getelementptr inbounds nuw i8, ptr %168, i64 16
   %170 = load ptr, ptr %169, align 8, !noalias !33
   %171 = invoke noundef nonnull align 8 dereferenceable(16) ptr %170(ptr noundef nonnull align 8 dereferenceable(8) @_ZZN12_GLOBAL__N_123MakeDrawableFromCommandERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE21rectangle_memory_pool, i64 noundef 16, i64 noundef 8)
@@ -2177,8 +2178,8 @@ _ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exi
   br label %common.resume
 
 216:                                              ; preds = %203, %_ZN3pro14allocate_proxyITkNS_6facadeEN12_GLOBAL__N_14spec8DrawableENS1_9RectangleENSt3pmr21polymorphic_allocatorISt4byteEEJddEEENS_5proxyIT_EERKT1_DpOT2_.exit, %210
-  %.sink = phi i64 [ ptrtoint (ptr @_ZN3pro7details8meta_ptrINS0_14composite_metaIJNS0_15dispatcher_metaINS0_28relocatability_meta_providerILb1EEEEENS3_INS0_29destructibility_meta_providerILb1EEEEENS2_IJNS3_INS0_20overload_traits_implILb0EvJRSoEE13meta_providerIN12_GLOBAL__N_14spec4DrawEEEEEEEENS2_IJNS3_INSA_ILb1EdJEE13meta_providerINSF_4AreaEEEEEEEEEEEE7storageINS0_11inplace_ptrINSE_6CircleEEEEE to i64), %203 ], [ ptrtoint (ptr @_ZN3pro7details8meta_ptrINS0_14composite_metaIJNS0_15dispatcher_metaINS0_28relocatability_meta_providerILb1EEEEENS3_INS0_29destructibility_meta_providerILb1EEEEENS2_IJNS3_INS0_20overload_traits_implILb0EvJRSoEE13meta_providerIN12_GLOBAL__N_14spec4DrawEEEEEEEENS2_IJNS3_INSA_ILb1EdJEE13meta_providerINSF_4AreaEEEEEEEEEEEE7storageINS0_13allocated_ptrINSE_9RectangleENSt3pmr21polymorphic_allocatorISt4byteEEEEEE to i64), %_ZN3pro14allocate_proxyITkNS_6facadeEN12_GLOBAL__N_14spec8DrawableENS1_9RectangleENSt3pmr21polymorphic_allocatorISt4byteEEJddEEENS_5proxyIT_EERKT1_DpOT2_.exit ], [ ptrtoint (ptr @_ZN3pro7details8meta_ptrINS0_14composite_metaIJNS0_15dispatcher_metaINS0_28relocatability_meta_providerILb1EEEEENS3_INS0_29destructibility_meta_providerILb1EEEEENS2_IJNS3_INS0_20overload_traits_implILb0EvJRSoEE13meta_providerIN12_GLOBAL__N_14spec4DrawEEEEEEEENS2_IJNS3_INSA_ILb1EdJEE13meta_providerINSF_4AreaEEEEEEEEEEEE7storageIPNSE_5PointEEE to i64), %210 ]
-  store i64 %.sink, ptr %0, align 8
+  %.sink = phi b64 [ bitcast (ptr @_ZN3pro7details8meta_ptrINS0_14composite_metaIJNS0_15dispatcher_metaINS0_28relocatability_meta_providerILb1EEEEENS3_INS0_29destructibility_meta_providerILb1EEEEENS2_IJNS3_INS0_20overload_traits_implILb0EvJRSoEE13meta_providerIN12_GLOBAL__N_14spec4DrawEEEEEEEENS2_IJNS3_INSA_ILb1EdJEE13meta_providerINSF_4AreaEEEEEEEEEEEE7storageINS0_11inplace_ptrINSE_6CircleEEEEE to b64), %203 ], [ bitcast (ptr @_ZN3pro7details8meta_ptrINS0_14composite_metaIJNS0_15dispatcher_metaINS0_28relocatability_meta_providerILb1EEEEENS3_INS0_29destructibility_meta_providerILb1EEEEENS2_IJNS3_INS0_20overload_traits_implILb0EvJRSoEE13meta_providerIN12_GLOBAL__N_14spec4DrawEEEEEEEENS2_IJNS3_INSA_ILb1EdJEE13meta_providerINSF_4AreaEEEEEEEEEEEE7storageINS0_13allocated_ptrINSE_9RectangleENSt3pmr21polymorphic_allocatorISt4byteEEEEEE to b64), %_ZN3pro14allocate_proxyITkNS_6facadeEN12_GLOBAL__N_14spec8DrawableENS1_9RectangleENSt3pmr21polymorphic_allocatorISt4byteEEJddEEENS_5proxyIT_EERKT1_DpOT2_.exit ], [ bitcast (ptr @_ZN3pro7details8meta_ptrINS0_14composite_metaIJNS0_15dispatcher_metaINS0_28relocatability_meta_providerILb1EEEEENS3_INS0_29destructibility_meta_providerILb1EEEEENS2_IJNS3_INS0_20overload_traits_implILb0EvJRSoEE13meta_providerIN12_GLOBAL__N_14spec4DrawEEEEEEEENS2_IJNS3_INSA_ILb1EdJEE13meta_providerINSF_4AreaEEEEEEEEEEEE7storageIPNSE_5PointEEE to b64), %210 ]
+  store b64 %.sink, ptr %0, align 8
   %217 = load ptr, ptr %8, align 8
   %218 = load ptr, ptr %10, align 8
   %.not4.i.i.i.i = icmp eq ptr %217, %218
@@ -2346,7 +2347,7 @@ define dso_local void @_ZN37ProxyIntegrationTests_TestLogger_Test8TestBodyEv(ptr
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %2)
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %2, ptr %8, align 8, !alias.scope !40
-  store i64 ptrtoint (ptr @_ZN3pro7details8meta_ptrINS0_14composite_metaIJNS0_15dispatcher_metaINS0_28relocatability_meta_providerILb1EEEEENS3_INS0_29destructibility_meta_providerILb1EEEEENS2_IJNS3_INS0_20overload_traits_implILb0EvJPKcEE13meta_providerIN12_GLOBAL__N_14spec3LogEEEEENS3_INSA_ILb0EvJSC_RKSt9exceptionEE13meta_providerISH_EEEEEEEEEEE7storageINS0_11inplace_ptrINSF_12StreamLoggerEEEEE to i64), ptr %3, align 8, !alias.scope !40
+  store b64 bitcast (ptr @_ZN3pro7details8meta_ptrINS0_14composite_metaIJNS0_15dispatcher_metaINS0_28relocatability_meta_providerILb1EEEEENS3_INS0_29destructibility_meta_providerILb1EEEEENS2_IJNS3_INS0_20overload_traits_implILb0EvJPKcEE13meta_providerIN12_GLOBAL__N_14spec3LogEEEEENS3_INSA_ILb0EvJSC_RKSt9exceptionEE13meta_providerISH_EEEEEEEEEEE7storageINS0_11inplace_ptrINSF_12StreamLoggerEEEEE to b64), ptr %3, align 8, !alias.scope !40
   %9 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull @.str.51)
           to label %.noexc unwind label %14
 
@@ -3171,8 +3172,8 @@ declare void @_ZNSt3pmr28unsynchronized_pool_resourceC2ERKNS_12pool_optionsEPNS_
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN3pro7details21relocation_dispatcherINS0_13allocated_ptrIN12_GLOBAL__N_19RectangleENSt3pmr21polymorphic_allocatorISt4byteEEEEEEvPS7_PKS7_(ptr noundef writeonly captures(none) initializes((0, 16)) %0, ptr noundef captures(none) %1) #6 personality ptr @__gxx_personality_v0 {
-  %3 = load i64, ptr %1, align 8
-  store i64 %3, ptr %0, align 8
+  %3 = load b64, ptr %1, align 8
+  store b64 %3, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -3273,8 +3274,8 @@ declare void @_ZSt20__throw_out_of_rangePKc(ptr noundef) local_unnamed_addr #11
 define linkonce_odr dso_local void @_ZN3pro7details26copying_default_dispatcherILm8ELm8EEEvPSt4bytePKS2_(ptr noundef %0, ptr noundef %1) #6 comdat personality ptr @__gxx_personality_v0 {
   call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 8) ]
   call void @llvm.assume(i1 true) [ "align"(ptr %0, i64 8) ]
-  %3 = load i64, ptr %1, align 8
-  store i64 %3, ptr %0, align 8
+  %3 = load b64, ptr %1, align 8
+  store b64 %3, ptr %0, align 8
   ret void
 }
 

@@ -789,7 +789,6 @@ define dso_local void @_ZN37btSequentialImpulseConstraintSolverMt28setupBatchedJ
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN37btSequentialImpulseConstraintSolverMt31internalSetupContactConstraintsEiRK19btContactSolverInfo(ptr noundef nonnull align 8 dereferenceable(920) %0, i32 noundef %1, ptr noundef nonnull align 4 dereferenceable(128) %2) local_unnamed_addr #5 align 2 {
-  %.sroa.0.i = alloca [4 x float], align 4
   %4 = alloca %class.btVector3, align 8
   %5 = alloca %class.btVector3, align 8
   %6 = alloca float, align 4
@@ -1093,11 +1092,9 @@ _Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit:   ; preds = %175, %189
   br i1 %234, label %235, label %236
 
 235:                                              ; preds = %_Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.0.i, ptr noundef nonnull align 16 dereferenceable(16) %7, i64 16, i1 false), !tbaa.struct !82
+  %.sroa.0.0.copyload.i = load b128, ptr %7, align 16, !tbaa !78
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %7, ptr noundef nonnull align 16 dereferenceable(16) %170, i64 16, i1 false), !tbaa.struct !82
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %170, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.0.i, i64 16, i1 false), !tbaa.struct !82
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i)
+  store b128 %.sroa.0.0.copyload.i, ptr %170, align 16, !tbaa !78
   br label %236
 
 236:                                              ; preds = %235, %_Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit
@@ -3311,8 +3308,8 @@ _ZN20btAlignedObjectArrayIN17btTypedConstraint17btConstraintInfo1EE8allocateEi.e
   %30 = getelementptr inbounds nuw %"struct.btTypedConstraint::btConstraintInfo1", ptr %.0.i.i.i, i64 %indvars.iv.i.i.i
   %31 = load ptr, ptr %28, align 8, !tbaa !165
   %32 = getelementptr inbounds nuw %"struct.btTypedConstraint::btConstraintInfo1", ptr %31, i64 %indvars.iv.i.i.i
-  %33 = load i64, ptr %32, align 4
-  store i64 %33, ptr %30, align 4
+  %33 = load b64, ptr %32, align 4
+  store b64 %33, ptr %30, align 4
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
   br i1 %exitcond.not.i.i.i, label %_ZNK20btAlignedObjectArrayIN17btTypedConstraint17btConstraintInfo1EE4copyEiiPS1_.exit.i.i, label %29, !llvm.loop !186

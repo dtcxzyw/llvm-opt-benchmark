@@ -3,7 +3,6 @@ source_filename = "bench/icu/original/ucnvsel.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.UDataInfo = type { i16, i16, i8, i8, i8, i8, [4 x i8], [4 x i8], [4 x i8] }
 %struct.UEnumeration = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %"class.icu_77::internal::LocalOpenPointer" = type { %"class.icu_77::LocalPointerBase" }
 %"class.icu_77::LocalPointerBase" = type { ptr }
@@ -12,7 +11,6 @@ $_ZN6icu_778internal16LocalOpenPointerI18UConverterSelectorXadL_Z16ucnvsel_close
 
 $__clang_call_terminate = comdat any
 
-@_ZL8dataInfo = internal unnamed_addr constant %struct.UDataInfo { i16 20, i16 0, i8 0, i8 0, i8 2, i8 0, [4 x i8] c"CSel", [4 x i8] c"\01\00\00\00", [4 x i8] zeroinitializer }, align 2
 @.str = private unnamed_addr constant [17 x i8] c" 000000000000\1000\00", align 1
 @.str.1 = private unnamed_addr constant [94 x i8] c"ucnvsel_swap(): data format %02x.%02x.%02x.%02x is not recognized as UConverterSelector data\0A\00", align 1
 @.str.2 = private unnamed_addr constant [54 x i8] c"ucnvsel_swap(): format version %02x is not supported\0A\00", align 1
@@ -618,15 +616,15 @@ define i32 @ucnvsel_serialize_77(ptr noundef readonly captures(none) %0, ptr nou
   br i1 %8, label %14, label %9
 
 9:                                                ; preds = %7
-  %.not59 = icmp eq i32 %2, 0
-  br i1 %.not59, label %15, label %10
+  %.not56 = icmp eq i32 %2, 0
+  br i1 %.not56, label %15, label %10
 
 10:                                               ; preds = %9
   %11 = icmp ne ptr %1, null
   %12 = ptrtoint ptr %1 to i64
   %13 = and i64 %12, 3
-  %.not60 = icmp eq i64 %13, 0
-  %or.cond = and i1 %11, %.not60
+  %.not57 = icmp eq i64 %13, 0
+  %or.cond = and i1 %11, %.not57
   br i1 %or.cond, label %15, label %14
 
 14:                                               ; preds = %10, %7
@@ -637,10 +635,10 @@ define i32 @ucnvsel_serialize_77(ptr noundef readonly captures(none) %0, ptr nou
   %16 = load ptr, ptr %0, align 8, !tbaa !33
   %17 = tail call i32 @utrie2_serialize_77(ptr noundef %16, ptr noundef null, i32 noundef 0, ptr noundef nonnull %3)
   %18 = load i32, ptr %3, align 4, !tbaa !3
-  %.not61 = icmp eq i32 %18, 15
+  %.not58 = icmp eq i32 %18, 15
   %19 = icmp slt i32 %18, 1
-  %or.cond66 = or i1 %.not61, %19
-  br i1 %or.cond66, label %20, label %53
+  %or.cond63 = or i1 %.not58, %19
+  br i1 %or.cond63, label %20, label %53
 
 20:                                               ; preds = %15
   store i32 0, ptr %3, align 4, !tbaa !3
@@ -662,14 +660,14 @@ define i32 @ucnvsel_serialize_77(ptr noundef readonly captures(none) %0, ptr nou
 31:                                               ; preds = %20
   %32 = add nsw i32 %28, -32
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %34 = load i32, ptr %33, align 8, !tbaa !26
+  %34 = load b32, ptr %33, align 8, !tbaa !26
   store i16 32, ptr %1, align 1
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 2
   store i8 -38, ptr %.sroa.8.0..sroa_idx, align 1
   %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 3
   store i8 39, ptr %.sroa.9.0..sroa_idx, align 1
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %.sroa.10.0..sroa_idx, ptr noundef nonnull align 2 dereferenceable(20) @_ZL8dataInfo, i64 20, i1 false)
+  store i160 112775038275101176631511744532, ptr %.sroa.10.0..sroa_idx, align 1
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i64 0, ptr %35, align 1
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -677,13 +675,13 @@ define i32 @ucnvsel_serialize_77(ptr noundef readonly captures(none) %0, ptr nou
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 36
   store i32 %22, ptr %.sroa.5.0..sroa_idx, align 1
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 40
-  store i32 %34, ptr %.sroa.6.0..sroa_idx, align 1
+  store b32 %34, ptr %.sroa.6.0..sroa_idx, align 1
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 44
   store i32 %24, ptr %.sroa.7.0..sroa_idx, align 1
-  %.sroa.8.0..sroa_idx64 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(44) %.sroa.8.0..sroa_idx64, i8 0, i64 44, i1 false)
-  %.sroa.865.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 92
-  store i32 %32, ptr %.sroa.865.0..sroa_idx, align 1
+  %.sroa.8.0..sroa_idx61 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  store i352 0, ptr %.sroa.8.0..sroa_idx61, align 1
+  %.sroa.862.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 92
+  store i32 %32, ptr %.sroa.862.0..sroa_idx, align 1
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %38 = load ptr, ptr %0, align 8, !tbaa !33
   %39 = tail call i32 @utrie2_serialize_77(ptr noundef %38, ptr noundef nonnull %37, i32 noundef %17, ptr noundef nonnull %3)
@@ -704,7 +702,7 @@ define i32 @ucnvsel_serialize_77(ptr noundef readonly captures(none) %0, ptr nou
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %47, ptr align 1 %50, i64 %52, i1 false)
   br label %53
 
-53:                                               ; preds = %30, %31, %15, %14, %4
+53:                                               ; preds = %15, %30, %31, %14, %4
   %.0 = phi i32 [ 0, %4 ], [ 0, %14 ], [ 0, %15 ], [ %28, %31 ], [ %28, %30 ]
   ret i32 %.0
 }

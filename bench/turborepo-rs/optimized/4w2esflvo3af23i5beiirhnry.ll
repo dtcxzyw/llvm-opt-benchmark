@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 @anon.0a56d8c49731ba7eef45b5271f3f7301.0.llvm.14364062110443223363 = hidden unnamed_addr constant <{ [16 x i8] }> <{ [16 x i8] c"\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF" }>, align 16
-@anon.0a56d8c49731ba7eef45b5271f3f7301.1.llvm.14364062110443223363 = hidden unnamed_addr constant <{ ptr, [24 x i8] }> <{ ptr @anon.0a56d8c49731ba7eef45b5271f3f7301.0.llvm.14364062110443223363, [24 x i8] zeroinitializer }>, align 8
+@anon.0a56d8c49731ba7eef45b5271f3f7301.1.llvm.14364062110443223363 = hidden unnamed_addr constant <{ ptr, [24 x i8] }> <{ ptr @anon.0a56d8c49731ba7eef45b5271f3f7301.0.llvm.14364062110443223363, [24 x i8] zeroinitializer }>, align 16
 @"_ZN3std4hash6random11RandomState3new4KEYS29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17ha77478e4591fa34eE" = external thread_local global { { { i64, [2 x i64] } } }
 @anon.0a56d8c49731ba7eef45b5271f3f7301.10.llvm.14364062110443223363 = hidden unnamed_addr constant <{ ptr }> <{ ptr @_RNvYNCNkNvNvMNtNtCsapf13pIxsjn_3std4hash6randomNtBb_11RandomState3new4KEYS0s_0INtNtNtCs1LoaDTb72WA_4core3ops8function6FnOnceTINtNtB1l_6option6OptionQIB20_INtNtB1l_4cell4CellTyyEEEEEE9call_onceCsff1zCjKRl2o_13turborepo_env.llvm.14364062110443223363 }>, align 8
 @anon.130a6bd16b817b43bceddd261eb9767e.0.llvm.10116246802473599757 = external hidden unnamed_addr constant <{ [70 x i8] }>, align 1
@@ -22,7 +22,7 @@ define void @_RINvCseBw3mChBYfU_3hex6encodeINtCshTjWJoR5NBV_13generic_array12Gen
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !4
   store i64 0, ptr %6, align 8, !noalias !4
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr inttoptr (i64 1 to ptr), ptr %.sroa.4.0..sroa_idx.i.i, align 8, !noalias !4
+  store b64 bitcast (ptr inttoptr (i64 1 to ptr) to b64), ptr %.sroa.4.0..sroa_idx.i.i, align 8, !noalias !4
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 0, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !noalias !4
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !11
@@ -30,7 +30,7 @@ define void @_RINvCseBw3mChBYfU_3hex6encodeINtCshTjWJoR5NBV_13generic_array12Gen
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %7, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !15, !noalias !19
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr @anon.130a6bd16b817b43bceddd261eb9767e.3.llvm.10116246802473599757, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !15, !noalias !19
+  store b64 bitcast (ptr @anon.130a6bd16b817b43bceddd261eb9767e.3.llvm.10116246802473599757 to b64), ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !15, !noalias !19
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i32 1114112, ptr %.sroa.6.0..sroa_idx.i, align 8, !alias.scope !15, !noalias !19
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !11
@@ -291,7 +291,7 @@ _RINvMNtNtNtNtCs1LoaDTb72WA_4core5slice4sort6stable5mergeINtB3_10MergeStateNtNtC
 define void @_RINvXs1f_NtNtNtCsapf13pIxsjn_3std11collections4hash3mapINtB7_7HashMapNtNtCs68wO5nsWeTG_5alloc6string6StringB15_EINtNtNtNtCs1LoaDTb72WA_4core4iter6traits7collect12FromIteratorTB15_B15_EE9from_iterNtNtBd_3env4VarsECsff1zCjKRl2o_13turborepo_env(ptr dead_on_unwind noalias noundef writable writeonly sret([48 x i8]) align 8 captures(none) dereferenceable(48) %0, ptr noalias noundef align 8 captures(none) dereferenceable(32) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [0 x i8], align 1
   %4 = alloca [32 x i8], align 8
-  %5 = alloca [48 x i8], align 8
+  %5 = alloca [48 x i8], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = load i64, ptr @"_ZN3std4hash6random11RandomState3new4KEYS29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17ha77478e4591fa34eE", align 8, !range !40, !noalias !41, !noundef !21
   %trunc.i.i.i.i = trunc nuw i64 %6 to i1
@@ -307,9 +307,9 @@ _RNvYNCNkNvNvMNtNtCsapf13pIxsjn_3std4hash6randomNtBb_11RandomState3new4KEYS0s_0I
 
 9:                                                ; preds = %.noexc
   invoke void @_ZN4core6result13unwrap_failed17hc6a65fe4227be0f0E(ptr noalias noundef nonnull readonly align 1 @anon.130a6bd16b817b43bceddd261eb9767e.0.llvm.10116246802473599757, i64 noundef 70, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.130a6bd16b817b43bceddd261eb9767e.7.llvm.10116246802473599757, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.130a6bd16b817b43bceddd261eb9767e.2.llvm.10116246802473599757) #11
-          to label %.noexc4 unwind label %20
+          to label %.noexc6 unwind label %20
 
-.noexc4:                                          ; preds = %9
+.noexc6:                                          ; preds = %9
   unreachable
 
 10:                                               ; preds = %.noexc, %2
@@ -319,9 +319,10 @@ _RNvYNCNkNvNvMNtNtCsapf13pIxsjn_3std4hash6randomNtBb_11RandomState3new4KEYS0s_0I
   %13 = load i64, ptr %12, align 8, !noalias !53, !noundef !21
   %14 = add i64 %11, 1
   store i64 %14, ptr %.sroa.0.0.i.i.i2.i, align 8, !noalias !53
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) @anon.0a56d8c49731ba7eef45b5271f3f7301.1.llvm.14364062110443223363, i64 32, i1 false)
+  %.sroa.03.0.copyload = load b256, ptr @anon.0a56d8c49731ba7eef45b5271f3f7301.1.llvm.14364062110443223363, align 16
+  store b256 %.sroa.03.0.copyload, ptr %5, align 16
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store i64 %11, ptr %.sroa.4.0..sroa_idx, align 8
+  store i64 %11, ptr %.sroa.4.0..sroa_idx, align 16
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 40
   store i64 %13, ptr %.sroa.5.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -337,7 +338,7 @@ _RNvYNCNkNvNvMNtNtCsapf13pIxsjn_3std4hash6randomNtBb_11RandomState3new4KEYS0s_0I
 
 17:                                               ; preds = %10
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %5, i64 48, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 16 dereferenceable(48) %5, i64 48, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 
@@ -348,8 +349,8 @@ _RNvYNCNkNvNvMNtNtCsapf13pIxsjn_3std4hash6randomNtBb_11RandomState3new4KEYS0s_0I
   unreachable
 
 _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCsapf13pIxsjn_3std3env4VarsECsff1zCjKRl2o_13turborepo_env.exit: ; preds = %20, %15
-  %.pn9 = phi { ptr, i32 } [ %16, %15 ], [ %21, %20 ]
-  resume { ptr, i32 } %.pn9
+  %.pn11 = phi { ptr, i32 } [ %16, %15 ], [ %21, %20 ]
+  resume { ptr, i32 } %.pn11
 
 20:                                               ; preds = %9, %_RNvYNCNkNvNvMNtNtCsapf13pIxsjn_3std4hash6randomNtBb_11RandomState3new4KEYS0s_0INtNtNtCs1LoaDTb72WA_4core3ops8function6FnOnceTINtNtB1l_6option6OptionQIB20_INtNtB1l_4cell4CellTyyEEEEEE9call_onceCsff1zCjKRl2o_13turborepo_env.llvm.14364062110443223363.exit.i
   %21 = landingpad { ptr, i32 }

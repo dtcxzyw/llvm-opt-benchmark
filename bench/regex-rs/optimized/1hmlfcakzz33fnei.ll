@@ -31,7 +31,7 @@ define hidden void @"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_strin
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 0, ptr %5, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr inttoptr (i64 1 to ptr), ptr %.sroa.4.0..sroa_idx, align 8
+  store b64 bitcast (ptr inttoptr (i64 1 to ptr) to b64), ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 0, ptr %.sroa.5.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -92,7 +92,7 @@ define hidden void @"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_strin
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 0, ptr %5, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr inttoptr (i64 1 to ptr), ptr %.sroa.4.0..sroa_idx, align 8
+  store b64 bitcast (ptr inttoptr (i64 1 to ptr) to b64), ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 0, ptr %.sroa.5.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -192,7 +192,7 @@ define internal noundef zeroext i1 @"_ZN53_$LT$core..fmt..Error$u20$as$u20$core.
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$core..fmt..Write$GT$10write_char17hc837ed62ef544522E"(ptr noalias noundef align 8 dereferenceable(24) %0, i32 noundef %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %.sroa.0.i = alloca i32, align 4
+  %.sroa.0.i = alloca b32, align 4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11)
   %3 = icmp ult i32 %1, 128
   br i1 %3, label %.critedge.i, label %4
@@ -356,11 +356,9 @@ define internal noundef zeroext i1 @"_ZN60_$LT$alloc..string..String$u20$as$u20$
 define hidden void @_ZN5regex5error5Error21from_meta_build_error17h10d0766a295b3ab5E(ptr noalias noundef writeonly sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef align 8 captures(none) dereferenceable(136) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca {}, align 1
   %4 = alloca { { i64, i64 }, { i64, i64 }, { ptr, ptr }, i32, i32, i8, [7 x i8] }, align 8
-  %5 = alloca { { { i64, ptr }, i64 } }, align 8
+  %5 = alloca { { { i64, ptr }, i64 } }, align 16
   %6 = alloca { { i64, i64 }, { i64, i64 }, { ptr, ptr }, i32, i32, i8, [7 x i8] }, align 8
-  %7 = alloca { { { i64, ptr }, i64 } }, align 8
-  %.sroa.08 = alloca { { i64, ptr }, i64 }, align 8
-  %.sroa.0 = alloca { { i64, ptr }, i64 }, align 8
+  %7 = alloca { { { i64, ptr }, i64 } }, align 16
   %8 = invoke { i64, i64 } @_ZN14regex_automata4meta5error10BuildError10size_limit17hc16b1da42b0a70f9E(ptr noalias noundef nonnull readonly align 8 dereferenceable(136) %1)
           to label %11 unwind label %9
 
@@ -399,13 +397,12 @@ define hidden void @_ZN5regex5error5Error21from_meta_build_error17h10d0766a295b3
   br i1 %.not, label %32, label %19
 
 19:                                               ; preds = %18
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !40
-  store i64 0, ptr %7, align 8, !noalias !40
+  store i64 0, ptr %7, align 16, !noalias !40
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr inttoptr (i64 1 to ptr), ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !40
+  store b64 bitcast (ptr inttoptr (i64 1 to ptr) to b64), ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !40
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store i64 0, ptr %.sroa.5.0..sroa_idx.i, align 8, !noalias !40
+  store i64 0, ptr %.sroa.5.0..sroa_idx.i, align 16, !noalias !40
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !40
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 52
   store i32 0, ptr %20, align 4, !noalias !40
@@ -446,13 +443,12 @@ define hidden void @_ZN5regex5error5Error21from_meta_build_error17h10d0766a295b3
   unreachable
 
 32:                                               ; preds = %18
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.08)
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !44
-  store i64 0, ptr %5, align 8, !noalias !44
+  store i64 0, ptr %5, align 16, !noalias !44
   %.sroa.4.0..sroa_idx.i3 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr inttoptr (i64 1 to ptr), ptr %.sroa.4.0..sroa_idx.i3, align 8, !noalias !44
+  store b64 bitcast (ptr inttoptr (i64 1 to ptr) to b64), ptr %.sroa.4.0..sroa_idx.i3, align 8, !noalias !44
   %.sroa.5.0..sroa_idx.i4 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i64 0, ptr %.sroa.5.0..sroa_idx.i4, align 8, !noalias !44
+  store i64 0, ptr %.sroa.5.0..sroa_idx.i4, align 16, !noalias !44
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !44
   %33 = getelementptr inbounds nuw i8, ptr %4, i64 52
   store i32 0, ptr %33, align 4, !noalias !44
@@ -493,19 +489,17 @@ define hidden void @_ZN5regex5error5Error21from_meta_build_error17h10d0766a295b3
   unreachable
 
 46:                                               ; preds = %"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h876d93c9afe150e4E.exit.i"
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false), !noalias !49
+  %.sroa.0.0.copyload8 = load b192, ptr %7, align 16, !noalias !49
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !40
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
+  store b192 %.sroa.0.0.copyload8, ptr %0, align 8
   br label %17
 
 47:                                               ; preds = %42
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.08, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false), !noalias !50
+  %.sroa.09.0.copyload10 = load b192, ptr %5, align 16, !noalias !50
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !44
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !44
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.08, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.08)
+  store b192 %.sroa.09.0.copyload10, ptr %0, align 8
   br label %17
 
 48:                                               ; preds = %.body
@@ -609,7 +603,7 @@ define noundef zeroext i1 @"_ZN56_$LT$regex..error..Error$u20$as$u20$core..fmt..
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !58
   store i64 0, ptr %6, align 8, !noalias !58
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr inttoptr (i64 1 to ptr), ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !58
+  store b64 bitcast (ptr inttoptr (i64 1 to ptr) to b64), ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !58
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 0, ptr %.sroa.5.0..sroa_idx.i, align 8, !noalias !58
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !61

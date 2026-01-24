@@ -10,34 +10,38 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write, inaccessiblemem: write) uwtable
 define void @"_ZN49_$LT$F$u20$as$u20$core..str..pattern..Pattern$GT$13into_searcher17h8227398b0e531cf6E"(ptr writeonly sret({ { { ptr, i64 }, { { ptr, ptr }, i64 }, {} } }) align 8 captures(none) initializes((0, 40)) %0, ptr align 1 %1, i64 %2) unnamed_addr #0 {
+  %.sroa.01 = alloca b192, align 16
   %4 = getelementptr inbounds i8, ptr %1, i64 %2
   %5 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %5)
+  %.sroa.01.16..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.01, i64 16
+  store i64 0, ptr %.sroa.01.16..sroa_idx, align 16
+  store ptr %1, ptr %.sroa.01, align 16
+  %.sroa.01.8..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.01, i64 8
+  store ptr %4, ptr %.sroa.01.8..sroa_idx, align 8
+  %.sroa.01.0..sroa.01.0..sroa.01.0..sroa.01.0..sroa.01.0..sroa.3.16.copyload = load b192, ptr %.sroa.01, align 16
   store ptr %1, ptr %0, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %2, ptr %.sroa.2.0..sroa_idx, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %1, ptr %.sroa.3.0..sroa_idx, align 8
-  %.sroa.3.sroa.2.0..sroa.3.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %4, ptr %.sroa.3.sroa.2.0..sroa.3.0..sroa_idx.sroa_idx, align 8
-  %.sroa.3.sroa.3.0..sroa.3.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 0, ptr %.sroa.3.sroa.3.0..sroa.3.0..sroa_idx.sroa_idx, align 8
+  store b192 %.sroa.01.0..sroa.01.0..sroa.01.0..sroa.01.0..sroa.01.0..sroa.3.16.copyload, ptr %.sroa.3.0..sroa_idx, align 8
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h9a4114637911d36eE"(ptr writeonly sret({ i64, [2 x i64] }) align 8 captures(none) initializes((0, 8)) %0, ptr readonly align 8 captures(none) %1, ptr %2) unnamed_addr #1 {
-  %4 = alloca { i64, [2 x i64] }, align 8
+  %4 = alloca { i64, [2 x i64] }, align 16
   %5 = icmp ne ptr %2, null
   tail call void @llvm.assume(i1 %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @"_ZN5alloc2rc15Rc$LT$T$C$A$GT$10try_unwrap17hea465d03da1e4ef1E"(ptr nonnull sret({ i64, [2 x i64] }) align 8 %4, ptr nonnull %2)
-  %6 = load i64, ptr %4, align 8, !range !3, !noundef !4
+  %6 = load i64, ptr %4, align 16, !range !3, !noundef !4
   %.not.i = icmp eq i64 %6, -9223372036854775808
   br i1 %.not.i, label %8, label %7
 
 7:                                                ; preds = %3
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
+  %.sroa.0.0.copyload.i = load b192, ptr %4, align 16
+  store b192 %.sroa.0.0.copyload.i, ptr %0, align 8
   br label %"_ZN13dsl_auto_type9auto_type25expression_type_inference21infer_expression_type28_$u7b$$u7b$closure$u7d$$u7d$17h0238a3c7d707c4aaE.exit"
 
 8:                                                ; preds = %3
@@ -182,14 +186,15 @@ define zeroext i1 @"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7m
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden void @"_ZN13dsl_auto_type9auto_type25expression_type_inference21infer_expression_type28_$u7b$$u7b$closure$u7d$$u7d$17h0238a3c7d707c4aaE"(ptr writeonly sret({ i64, [2 x i64] }) align 8 captures(none) initializes((0, 8)) %0, ptr readnone align 1 captures(none) %1, ptr %2) unnamed_addr #4 {
-  %4 = alloca { i64, [2 x i64] }, align 8
+  %4 = alloca { i64, [2 x i64] }, align 16
   call void @"_ZN5alloc2rc15Rc$LT$T$C$A$GT$10try_unwrap17hea465d03da1e4ef1E"(ptr nonnull sret({ i64, [2 x i64] }) align 8 %4, ptr %2)
-  %5 = load i64, ptr %4, align 8, !range !3, !noundef !4
+  %5 = load i64, ptr %4, align 16, !range !3, !noundef !4
   %.not = icmp eq i64 %5, -9223372036854775808
   br i1 %.not, label %8, label %6
 
 6:                                                ; preds = %3
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
+  %.sroa.0.0.copyload = load b192, ptr %4, align 16
+  store b192 %.sroa.0.0.copyload, ptr %0, align 8
   br label %7
 
 7:                                                ; preds = %6, %8
