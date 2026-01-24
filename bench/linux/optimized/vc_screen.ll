@@ -583,7 +583,7 @@ define internal range(i64 -2147483648, 4294967296) i64 @vcs_read(ptr noundef rea
   %236 = getelementptr i8, ptr %40, i64 %223
   %237 = add nuw nsw i64 %223, %37
   %238 = add i32 %224, %38
-  %239 = sub i64 %93, %223
+  %239 = sub nsw i64 %93, %223
   %240 = icmp eq i64 %239, 0
   br i1 %240, label %.thread33, label %.lr.ph
 
@@ -1045,11 +1045,10 @@ define internal range(i64 -2147483648, 4294967296) i64 @vcs_write(ptr noundef re
   br label %.thread36
 
 .thread36:                                        ; preds = %177, %280, %.loopexit
-  %.pn = and i64 %148, 4294967295
-  %286 = add nuw nsw i64 %.pn, %73
+  %286 = add nuw nsw i64 %148, %73
   %287 = add i32 %74, %149
-  %288 = sub i64 %76, %.pn
-  %289 = getelementptr i8, ptr %77, i64 %.pn
+  %288 = sub i64 %76, %148
+  %289 = getelementptr i8, ptr %77, i64 %148
   %290 = icmp eq i64 %288, 0
   br i1 %290, label %.thread39, label %.lr.ph
 

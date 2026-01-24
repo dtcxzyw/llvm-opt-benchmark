@@ -136,7 +136,7 @@ define range(i32 -2147483648, 2) i32 @dtls_get_more_records(ptr noundef initiali
   %.not109 = icmp eq i64 %78, 13
   br i1 %.not109, label %81, label %.backedge.sink.split
 
-.backedge.sink.split.sink.split:                  ; preds = %435, %240, %242, %265, %262, %231, %satsub64be.exit.thread15.i, %148, %143, %126, %123, %119, %117
+.backedge.sink.split.sink.split:                  ; preds = %436, %240, %242, %265, %262, %231, %satsub64be.exit.thread15.i, %148, %143, %126, %123, %119, %117
   store i64 0, ptr %24, align 8, !tbaa !35
   br label %.backedge.sink.split
 
@@ -741,76 +741,77 @@ satsub64be.exit.i.i:                              ; preds = %416
   br i1 %419, label %420, label %.thread.i.i
 
 420:                                              ; preds = %418
-  %421 = load i64, ptr %.0.i124.ph, align 8, !tbaa !51
-  %422 = shl i64 %421, %spec.select45.i.i.i
-  %423 = or disjoint i64 %422, 1
+  %421 = and i64 %spec.select45.i.i.i, 4294967295
+  %422 = load i64, ptr %.0.i124.ph, align 8, !tbaa !51
+  %423 = shl i64 %422, %421
+  %424 = add nuw nsw i64 %423, 1
   br label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %420, %418, %416, %349
-  %storemerge.i.i = phi i64 [ %423, %420 ], [ 1, %418 ], [ 1, %416 ], [ 1, %349 ]
+  %storemerge.i.i = phi i64 [ %424, %420 ], [ 1, %418 ], [ 1, %416 ], [ 1, %349 ]
   store i64 %storemerge.i.i, ptr %.0.i124.ph, align 8, !tbaa !51
-  %424 = load i64, ptr %34, align 1
-  store i64 %424, ptr %154, align 8
+  %425 = load i64, ptr %34, align 1
+  store i64 %425, ptr %154, align 8
   br label %dtls_record_bitmap_update.exit.i
 
 satsub64be.exit.thread19.i.i:                     ; preds = %satsub64be.exit.i.i, %413
   %.0.i21.i.i = phi i32 [ %spec.select.i.i.i, %satsub64be.exit.i.i ], [ -128, %413 ]
-  %425 = sub nsw i32 0, %.0.i21.i.i
-  %426 = icmp samesign ult i32 %425, 64
-  br i1 %426, label %427, label %dtls_record_bitmap_update.exit.i
+  %426 = sub nsw i32 0, %.0.i21.i.i
+  %427 = icmp samesign ult i32 %426, 64
+  br i1 %427, label %428, label %dtls_record_bitmap_update.exit.i
 
-427:                                              ; preds = %satsub64be.exit.thread19.i.i
-  %428 = zext nneg i32 %425 to i64
-  %429 = shl nuw i64 1, %428
-  %430 = load i64, ptr %.0.i124.ph, align 8, !tbaa !51
-  %431 = or i64 %430, %429
-  store i64 %431, ptr %.0.i124.ph, align 8, !tbaa !51
+428:                                              ; preds = %satsub64be.exit.thread19.i.i
+  %429 = zext nneg i32 %426 to i64
+  %430 = shl nuw i64 1, %429
+  %431 = load i64, ptr %.0.i124.ph, align 8, !tbaa !51
+  %432 = or i64 %431, %430
+  store i64 %432, ptr %.0.i124.ph, align 8, !tbaa !51
   br label %dtls_record_bitmap_update.exit.i
 
-dtls_record_bitmap_update.exit.i:                 ; preds = %427, %satsub64be.exit.thread19.i.i, %.thread.i.i, %348, %342, %339, %.thread102.i, %313, %310
-  %.not118 = phi i1 [ true, %310 ], [ true, %313 ], [ true, %.thread102.i ], [ true, %339 ], [ true, %348 ], [ true, %342 ], [ false, %.thread.i.i ], [ false, %satsub64be.exit.thread19.i.i ], [ false, %427 ]
-  %432 = load i32, ptr %52, align 8, !tbaa !66
-  %.not98.i = icmp eq i32 %432, 0
-  br i1 %.not98.i, label %dtls_process_record.exit, label %433
+dtls_record_bitmap_update.exit.i:                 ; preds = %428, %satsub64be.exit.thread19.i.i, %.thread.i.i, %348, %342, %339, %.thread102.i, %313, %310
+  %.not118 = phi i1 [ true, %310 ], [ true, %313 ], [ true, %.thread102.i ], [ true, %339 ], [ true, %348 ], [ true, %342 ], [ false, %.thread.i.i ], [ false, %satsub64be.exit.thread19.i.i ], [ false, %428 ]
+  %433 = load i32, ptr %52, align 8, !tbaa !66
+  %.not98.i = icmp eq i32 %433, 0
+  br i1 %.not98.i, label %dtls_process_record.exit, label %434
 
-433:                                              ; preds = %dtls_record_bitmap_update.exit.i
-  %434 = load ptr, ptr %3, align 8, !tbaa !68
-  call void @CRYPTO_free(ptr noundef %434, ptr noundef nonnull @.str, i32 noundef 277) #7
+434:                                              ; preds = %dtls_record_bitmap_update.exit.i
+  %435 = load ptr, ptr %3, align 8, !tbaa !68
+  call void @CRYPTO_free(ptr noundef %435, ptr noundef nonnull @.str, i32 noundef 277) #7
   br label %dtls_process_record.exit
 
 dtls_process_record.exit.thread:                  ; preds = %271, %.critedge.i, %302, %289
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %435
+  br label %436
 
-dtls_process_record.exit:                         ; preds = %dtls_record_bitmap_update.exit.i, %433
+dtls_process_record.exit:                         ; preds = %dtls_record_bitmap_update.exit.i, %434
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br i1 %.not118, label %435, label %437
+  br i1 %.not118, label %436, label %438
 
-435:                                              ; preds = %dtls_process_record.exit.thread, %dtls_process_record.exit
-  %436 = load i32, ptr %30, align 8, !tbaa !49
-  %.not119 = icmp eq i32 %436, -1
+436:                                              ; preds = %dtls_process_record.exit.thread, %dtls_process_record.exit
+  %437 = load i32, ptr %30, align 8, !tbaa !49
+  %.not119 = icmp eq i32 %437, -1
   br i1 %.not119, label %.backedge.sink.split.sink.split, label %dtls_rlayer_buffer_record.exit
 
-437:                                              ; preds = %dtls_process_record.exit
-  %438 = load ptr, ptr %18, align 8, !tbaa !36
-  %439 = getelementptr inbounds nuw i8, ptr %438, i64 56
-  %440 = load ptr, ptr %439, align 8, !tbaa !69
-  %.not120 = icmp eq ptr %440, null
-  br i1 %.not120, label %443, label %441
+438:                                              ; preds = %dtls_process_record.exit
+  %439 = load ptr, ptr %18, align 8, !tbaa !36
+  %440 = getelementptr inbounds nuw i8, ptr %439, i64 56
+  %441 = load ptr, ptr %440, align 8, !tbaa !69
+  %.not120 = icmp eq ptr %441, null
+  br i1 %.not120, label %444, label %442
 
-441:                                              ; preds = %437
-  %442 = call i32 %440(ptr noundef nonnull %0, ptr noundef nonnull %6) #7
-  %.not121 = icmp eq i32 %442, 0
-  br i1 %.not121, label %dtls_rlayer_buffer_record.exit, label %443
+442:                                              ; preds = %438
+  %443 = call i32 %441(ptr noundef nonnull %0, ptr noundef nonnull %6) #7
+  %.not121 = icmp eq i32 %443, 0
+  br i1 %.not121, label %dtls_rlayer_buffer_record.exit, label %444
 
-443:                                              ; preds = %441, %437
+444:                                              ; preds = %442, %438
   store i64 1, ptr %5, align 8, !tbaa !33
   br label %dtls_rlayer_buffer_record.exit
 
-dtls_rlayer_buffer_record.exit:                   ; preds = %435, %143, %70, %260, %251, %441, %10, %443, %._crit_edge
-  %.0 = phi i32 [ 1, %._crit_edge ], [ -2, %10 ], [ -2, %441 ], [ -2, %251 ], [ 1, %443 ], [ -2, %260 ], [ -2, %435 ], [ -2, %143 ], [ %75, %70 ]
+dtls_rlayer_buffer_record.exit:                   ; preds = %436, %143, %70, %260, %251, %442, %10, %444, %._crit_edge
+  %.0 = phi i32 [ 1, %._crit_edge ], [ -2, %10 ], [ -2, %442 ], [ -2, %251 ], [ 1, %444 ], [ -2, %260 ], [ -2, %436 ], [ -2, %143 ], [ %75, %70 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }

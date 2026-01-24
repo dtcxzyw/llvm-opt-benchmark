@@ -593,19 +593,22 @@ define hidden noalias noundef ptr @jDateObjectToCKDatePtr(ptr noundef %0, ptr no
   br i1 %.not, label %.preheader130, label %123
 
 .preheader130:                                    ; preds = %54
-  %invariant.umin = tail call i64 @llvm.umin.i64(i64 %51, i64 4)
   %.not142 = icmp eq i32 %50, 0
-  br i1 %.not142, label %._crit_edge, label %.lr.ph
+  br i1 %.not142, label %._crit_edge, label %.lr.ph.preheader
 
-.lr.ph:                                           ; preds = %.preheader130, %.lr.ph
-  %.0131 = phi i64 [ %66, %.lr.ph ], [ 0, %.preheader130 ]
+.lr.ph.preheader:                                 ; preds = %.preheader130
+  %umax = tail call i64 @llvm.umin.i64(i64 %51, i64 4)
+  br label %.lr.ph
+
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
+  %.0131 = phi i64 [ %66, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %62 = getelementptr inbounds nuw i16, ptr %52, i64 %.0131
   %63 = load i16, ptr %62, align 2
   %64 = trunc i16 %63 to i8
   %65 = getelementptr inbounds nuw i8, ptr %41, i64 %.0131
   store i8 %64, ptr %65, align 1
   %66 = add nuw nsw i64 %.0131, 1
-  %exitcond.not = icmp eq i64 %66, %invariant.umin
+  %exitcond.not = icmp eq i64 %66, %umax
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader130
@@ -646,12 +649,12 @@ define hidden noalias noundef ptr @jDateObjectToCKDatePtr(ptr noundef %0, ptr no
   br i1 %.not127, label %.preheader129, label %123
 
 .preheader129:                                    ; preds = %80
-  %invariant.umin133 = tail call i64 @llvm.umin.i64(i64 %77, i64 2)
   %.not143 = icmp eq i32 %76, 0
   br i1 %.not143, label %._crit_edge136, label %.lr.ph135
 
 .lr.ph135:                                        ; preds = %.preheader129
   %88 = getelementptr inbounds nuw i8, ptr %41, i64 4
+  %umax145 = tail call i64 @llvm.umin.i64(i64 %77, i64 2)
   br label %89
 
 89:                                               ; preds = %.lr.ph135, %89
@@ -662,7 +665,7 @@ define hidden noalias noundef ptr @jDateObjectToCKDatePtr(ptr noundef %0, ptr no
   %93 = getelementptr inbounds nuw i8, ptr %88, i64 %.1134
   store i8 %92, ptr %93, align 1
   %94 = add nuw nsw i64 %.1134, 1
-  %exitcond146.not = icmp eq i64 %94, %invariant.umin133
+  %exitcond146.not = icmp eq i64 %94, %umax145
   br i1 %exitcond146.not, label %._crit_edge136, label %89, !llvm.loop !8
 
 ._crit_edge136:                                   ; preds = %89, %.preheader129
@@ -703,12 +706,12 @@ define hidden noalias noundef ptr @jDateObjectToCKDatePtr(ptr noundef %0, ptr no
   br i1 %.not128, label %.preheader, label %123
 
 .preheader:                                       ; preds = %108
-  %invariant.umin138 = tail call i64 @llvm.umin.i64(i64 %105, i64 2)
   %.not144 = icmp eq i32 %104, 0
   br i1 %.not144, label %._crit_edge141, label %.lr.ph140
 
 .lr.ph140:                                        ; preds = %.preheader
   %116 = getelementptr inbounds nuw i8, ptr %41, i64 6
+  %umax147 = tail call i64 @llvm.umin.i64(i64 %105, i64 2)
   br label %117
 
 117:                                              ; preds = %.lr.ph140, %117
@@ -719,7 +722,7 @@ define hidden noalias noundef ptr @jDateObjectToCKDatePtr(ptr noundef %0, ptr no
   %121 = getelementptr inbounds nuw i8, ptr %116, i64 %.2139
   store i8 %120, ptr %121, align 1
   %122 = add nuw nsw i64 %.2139, 1
-  %exitcond148.not = icmp eq i64 %122, %invariant.umin138
+  %exitcond148.not = icmp eq i64 %122, %umax147
   br i1 %exitcond148.not, label %._crit_edge141, label %117, !llvm.loop !9
 
 ._crit_edge141:                                   ; preds = %117, %.preheader

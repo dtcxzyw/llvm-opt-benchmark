@@ -770,7 +770,7 @@ define ptr @pdf_parse_string(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64
 .lr.ph:                                           ; preds = %.lr.ph451
   %45 = tail call i32 @strncmp(ptr noundef nonnull %46, ptr noundef nonnull %4, i64 noundef %39) #17
   %.not272 = icmp eq i32 %45, 0
-  br i1 %.not272, label %.lr.ph.._crit_edge_crit_edge, label %.lr.ph451
+  br i1 %.not272, label %._crit_edge, label %.lr.ph451
 
 .lr.ph451:                                        ; preds = %.lr.ph.preheader, %.lr.ph
   %.0230326450 = phi ptr [ %46, %.lr.ph ], [ %2, %.lr.ph.preheader ]
@@ -780,14 +780,11 @@ define ptr @pdf_parse_string(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64
   %49 = icmp ult i64 %48, %43
   br i1 %49, label %.lr.ph, label %._crit_edge.thread
 
-.lr.ph.._crit_edge_crit_edge:                     ; preds = %.lr.ph
-  %50 = icmp eq i64 %48, %43
-  br label %._crit_edge
-
-._crit_edge:                                      ; preds = %.lr.ph.._crit_edge_crit_edge, %.lr.ph.preheader
-  %.lcssa447 = phi i1 [ %50, %.lr.ph.._crit_edge_crit_edge ], [ false, %.lr.ph.preheader ]
-  %.0230326.lcssa = phi ptr [ %46, %.lr.ph.._crit_edge_crit_edge ], [ %2, %.lr.ph.preheader ]
-  br i1 %.lcssa447, label %._crit_edge.thread, label %51
+._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph.preheader
+  %.lcssa447 = phi i64 [ 0, %.lr.ph.preheader ], [ %48, %.lr.ph ]
+  %.0230326.lcssa = phi ptr [ %2, %.lr.ph.preheader ], [ %46, %.lr.ph ]
+  %50 = icmp eq i64 %.lcssa447, %43
+  br i1 %50, label %._crit_edge.thread, label %51
 
 51:                                               ; preds = %._crit_edge
   %52 = getelementptr inbounds nuw i8, ptr %.0230326.lcssa, i64 %39

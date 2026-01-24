@@ -229,14 +229,17 @@ define internal range(i32 44, 0) i32 @cdtoons_decode_frame(ptr noundef %0, ptr n
 
 112:                                              ; preds = %108
   %113 = load i16, ptr %99, align 1, !tbaa !36
+  %.not233356.not = icmp eq i16 %113, 0
+  br i1 %.not233356.not, label %.loopexit, label %.lr.ph360.preheader
+
+.lr.ph360.preheader:                              ; preds = %112
   %114 = tail call i16 @llvm.bswap.i16(i16 %113)
   %115 = zext i16 %114 to i32
-  %.not233356.not = icmp eq i16 %113, 0
-  br i1 %.not233356.not, label %.loopexit, label %.lr.ph360
+  br label %.lr.ph360
 
-.lr.ph360:                                        ; preds = %112, %152
-  %.0197358 = phi i32 [ %154, %152 ], [ 0, %112 ]
-  %.5290357 = phi ptr [ %153, %152 ], [ %109, %112 ]
+.lr.ph360:                                        ; preds = %.lr.ph360.preheader, %152
+  %.0197358 = phi i32 [ %154, %152 ], [ 0, %.lr.ph360.preheader ]
+  %.5290357 = phi ptr [ %153, %152 ], [ %109, %.lr.ph360.preheader ]
   %116 = getelementptr inbounds nuw i8, ptr %.5290357, i64 16
   %117 = icmp ugt ptr %116, %12
   br i1 %117, label %118, label %119

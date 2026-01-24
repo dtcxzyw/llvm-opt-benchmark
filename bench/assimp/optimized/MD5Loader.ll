@@ -1226,6 +1226,8 @@ _ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i: ; preds = %259
   %263 = icmp ult i64 %262, %179
   %264 = call i64 @llvm.umin.i64(i64 %262, i64 2305843009213693951)
   %265 = select i1 %263, i64 2305843009213693951, i64 %264
+  %.not.i.i.i = icmp ne i64 %265, 0
+  call void @llvm.assume(i1 %.not.i.i.i)
   %266 = shl nuw nsw i64 %265, 2
   %267 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %266) #29
           to label %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit.i.i unwind label %314

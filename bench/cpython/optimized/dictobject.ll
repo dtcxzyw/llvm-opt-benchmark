@@ -1237,10 +1237,14 @@ define hidden noundef i32 @_PyDict_CheckConsistency(ptr noundef %0, i32 noundef 
   %61 = icmp ult i8 %13, 8
   %62 = icmp ugt i8 %13, 31
   %63 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  br i1 %61, label %dictkeys_get_index.exit.us, label %.lr.ph.split
+  br i1 %61, label %dictkeys_get_index.exit.us.preheader, label %.lr.ph.split
 
-dictkeys_get_index.exit.us:                       ; preds = %.lr.ph, %68
-  %.0148.us = phi i64 [ %69, %68 ], [ 0, %.lr.ph ]
+dictkeys_get_index.exit.us.preheader:             ; preds = %.lr.ph
+  %smax180 = tail call i64 @llvm.smax.i64(i64 %60, i64 1)
+  br label %dictkeys_get_index.exit.us
+
+dictkeys_get_index.exit.us:                       ; preds = %dictkeys_get_index.exit.us.preheader, %68
+  %.0148.us = phi i64 [ %69, %68 ], [ 0, %dictkeys_get_index.exit.us.preheader ]
   %64 = getelementptr i8, ptr %63, i64 %.0148.us
   %65 = load i8, ptr %64, align 1, !tbaa !41
   %66 = sext i8 %65 to i64
@@ -1251,11 +1255,12 @@ dictkeys_get_index.exit.us:                       ; preds = %.lr.ph, %68
 
 68:                                               ; preds = %dictkeys_get_index.exit.us
   %69 = add nuw nsw i64 %.0148.us, 1
-  %exitcond181.not = icmp eq i64 %69, %60
+  %exitcond181.not = icmp eq i64 %69, %smax180
   br i1 %exitcond181.not, label %._crit_edge, label %dictkeys_get_index.exit.us, !llvm.loop !47
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   %70 = icmp ult i8 %13, 16
+  %smax178 = tail call i64 @llvm.smax.i64(i64 %60, i64 1)
   br i1 %70, label %dictkeys_get_index.exit.us150, label %.lr.ph.split.split
 
 dictkeys_get_index.exit.us150:                    ; preds = %.lr.ph.split, %75
@@ -1270,18 +1275,14 @@ dictkeys_get_index.exit.us150:                    ; preds = %.lr.ph.split, %75
 
 75:                                               ; preds = %dictkeys_get_index.exit.us150
   %76 = add nuw nsw i64 %.0148.us149, 1
-  %exitcond179.not = icmp eq i64 %76, %60
+  %exitcond179.not = icmp eq i64 %76, %smax178
   br i1 %exitcond179.not, label %._crit_edge, label %dictkeys_get_index.exit.us150, !llvm.loop !47
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split
-  br i1 %62, label %dictkeys_get_index.exit.us155.preheader, label %dictkeys_get_index.exit
+  br i1 %62, label %dictkeys_get_index.exit.us155, label %dictkeys_get_index.exit
 
-dictkeys_get_index.exit.us155.preheader:          ; preds = %.lr.ph.split.split
-  %smax176 = tail call i64 @llvm.smax.i64(i64 %60, i64 1)
-  br label %dictkeys_get_index.exit.us155
-
-dictkeys_get_index.exit.us155:                    ; preds = %dictkeys_get_index.exit.us155.preheader, %80
-  %.0148.us154 = phi i64 [ %81, %80 ], [ 0, %dictkeys_get_index.exit.us155.preheader ]
+dictkeys_get_index.exit.us155:                    ; preds = %.lr.ph.split.split, %80
+  %.0148.us154 = phi i64 [ %81, %80 ], [ 0, %.lr.ph.split.split ]
   %77 = getelementptr i64, ptr %63, i64 %.0148.us154
   %78 = load i64, ptr %77, align 8, !tbaa !42
   %79 = icmp slt i64 %78, -2
@@ -1291,12 +1292,12 @@ dictkeys_get_index.exit.us155:                    ; preds = %dictkeys_get_index.
 
 80:                                               ; preds = %dictkeys_get_index.exit.us155
   %81 = add nuw nsw i64 %.0148.us154, 1
-  %exitcond177.not = icmp eq i64 %81, %smax176
+  %exitcond177.not = icmp eq i64 %81, %smax178
   br i1 %exitcond177.not, label %._crit_edge, label %dictkeys_get_index.exit.us155, !llvm.loop !47
 
 82:                                               ; preds = %dictkeys_get_index.exit
   %83 = add nuw nsw i64 %.0148, 1
-  %exitcond.not = icmp eq i64 %83, %60
+  %exitcond.not = icmp eq i64 %83, %smax178
   br i1 %exitcond.not, label %._crit_edge, label %dictkeys_get_index.exit, !llvm.loop !47
 
 ._crit_edge:                                      ; preds = %82, %80, %75, %68, %.preheader147
@@ -12648,7 +12649,7 @@ _PyFreeList_PopMem.exit:                          ; preds = %21
   %30 = load i64, ptr %29, align 8, !tbaa !68
   %31 = add i64 %30, -1
   store i64 %31, ptr %29, align 8, !tbaa !68
-  %.pre = mul nuw nsw i64 %7, %3
+  %.pre = mul i64 %7, %3
   br label %41
 
 .thread:                                          ; preds = %15, %17, %11, %19, %21
@@ -12774,9 +12775,9 @@ dictkeys_get_index.exit16.us.i:                   ; preds = %dictkeys_get_index.
   %.018.us.i = phi i64 [ %42, %dictkeys_get_index.exit16.us.i ], [ %2, %dictkeys_get_index.exit.thread.i ]
   %.01417.us.i = phi i64 [ %46, %dictkeys_get_index.exit16.us.i ], [ %16, %dictkeys_get_index.exit.thread.i ]
   %42 = lshr i64 %.018.us.i, 5
-  %43 = mul nuw nsw i64 %.01417.us.i, 5
+  %43 = mul i64 %.01417.us.i, 5
   %44 = add nuw nsw i64 %42, 1
-  %45 = add nuw i64 %44, %43
+  %45 = add i64 %44, %43
   %46 = and i64 %45, %15
   %47 = getelementptr i8, ptr %36, i64 %46
   %48 = load i8, ptr %47, align 1, !tbaa !41
@@ -12787,9 +12788,9 @@ dictkeys_get_index.exit16.us21.i:                 ; preds = %.lr.ph.i.thread, %d
   %.018.us19.i = phi i64 [ %50, %dictkeys_get_index.exit16.us21.i ], [ %2, %.lr.ph.i.thread ]
   %.01417.us20.i = phi i64 [ %54, %dictkeys_get_index.exit16.us21.i ], [ %16, %.lr.ph.i.thread ]
   %50 = lshr i64 %.018.us19.i, 5
-  %51 = mul nuw nsw i64 %.01417.us20.i, 5
+  %51 = mul i64 %.01417.us20.i, 5
   %52 = add nuw nsw i64 %50, 1
-  %53 = add nuw i64 %52, %51
+  %53 = add i64 %52, %51
   %54 = and i64 %53, %15
   %55 = getelementptr i16, ptr %35, i64 %54
   %56 = load i16, ptr %55, align 2, !tbaa !49
@@ -12813,9 +12814,9 @@ dictkeys_get_index.exit16.i:                      ; preds = %.lr.ph.i, %dictkeys
   %.018.i = phi i64 [ %66, %dictkeys_get_index.exit16.i ], [ %2, %.lr.ph.i ]
   %.01417.i = phi i64 [ %70, %dictkeys_get_index.exit16.i ], [ %16, %.lr.ph.i ]
   %66 = lshr i64 %.018.i, 5
-  %67 = mul nuw nsw i64 %.01417.i, 5
+  %67 = mul i64 %.01417.i, 5
   %68 = add nuw nsw i64 %66, 1
-  %69 = add nuw i64 %68, %67
+  %69 = add i64 %68, %67
   %70 = and i64 %69, %15
   %71 = getelementptr i32, ptr %40, i64 %70
   %72 = load i32, ptr %71, align 4, !tbaa !50
@@ -15436,9 +15437,9 @@ dictkeys_get_index.exit16.us.i:                   ; preds = %dictkeys_get_index.
   %.018.us.i = phi i64 [ %76, %dictkeys_get_index.exit16.us.i ], [ %1, %dictkeys_get_index.exit.thread.i ]
   %.01417.us.i = phi i64 [ %80, %dictkeys_get_index.exit16.us.i ], [ %50, %dictkeys_get_index.exit.thread.i ]
   %76 = lshr i64 %.018.us.i, 5
-  %77 = mul nuw nsw i64 %.01417.us.i, 5
+  %77 = mul i64 %.01417.us.i, 5
   %78 = add nuw nsw i64 %76, 1
-  %79 = add nuw i64 %78, %77
+  %79 = add i64 %78, %77
   %80 = and i64 %79, %49
   %81 = getelementptr i8, ptr %70, i64 %80
   %82 = load i8, ptr %81, align 1, !tbaa !41
@@ -15449,9 +15450,9 @@ dictkeys_get_index.exit16.us21.i:                 ; preds = %.lr.ph.i.thread, %d
   %.018.us19.i = phi i64 [ %84, %dictkeys_get_index.exit16.us21.i ], [ %1, %.lr.ph.i.thread ]
   %.01417.us20.i = phi i64 [ %88, %dictkeys_get_index.exit16.us21.i ], [ %50, %.lr.ph.i.thread ]
   %84 = lshr i64 %.018.us19.i, 5
-  %85 = mul nuw nsw i64 %.01417.us20.i, 5
+  %85 = mul i64 %.01417.us20.i, 5
   %86 = add nuw nsw i64 %84, 1
-  %87 = add nuw i64 %86, %85
+  %87 = add i64 %86, %85
   %88 = and i64 %87, %49
   %89 = getelementptr i16, ptr %69, i64 %88
   %90 = load i16, ptr %89, align 2, !tbaa !49
@@ -15475,9 +15476,9 @@ dictkeys_get_index.exit16.i:                      ; preds = %.lr.ph.i, %dictkeys
   %.018.i = phi i64 [ %100, %dictkeys_get_index.exit16.i ], [ %1, %.lr.ph.i ]
   %.01417.i = phi i64 [ %104, %dictkeys_get_index.exit16.i ], [ %50, %.lr.ph.i ]
   %100 = lshr i64 %.018.i, 5
-  %101 = mul nuw nsw i64 %.01417.i, 5
+  %101 = mul i64 %.01417.i, 5
   %102 = add nuw nsw i64 %100, 1
-  %103 = add nuw i64 %102, %101
+  %103 = add i64 %102, %101
   %104 = and i64 %103, %49
   %105 = getelementptr i32, ptr %74, i64 %104
   %106 = load i32, ptr %105, align 4, !tbaa !50
@@ -16260,9 +16261,9 @@ define internal fastcc range(i64 -1, -9223372036854775808) i64 @lookdict_index(p
 
 dictkeys_get_index.exit.us:                       ; preds = %.lr.ph61
   %17 = lshr i64 %.018.us59, 5
-  %18 = mul nsw i64 %.016.us60, 5
+  %18 = mul i64 %.016.us60, 5
   %19 = add nuw nsw i64 %17, 1
-  %20 = add nuw i64 %19, %18
+  %20 = add i64 %19, %18
   %.016.us = and i64 %20, %7
   %21 = getelementptr i8, ptr %10, i64 %.016.us
   %22 = load i8, ptr %21, align 1, !tbaa !41
@@ -16291,9 +16292,9 @@ dictkeys_get_index.exit.us:                       ; preds = %.lr.ph61
 
 dictkeys_get_index.exit.us31:                     ; preds = %.lr.ph55
   %32 = lshr i64 %.018.us2853, 5
-  %33 = mul nsw i64 %.016.us3054, 5
+  %33 = mul i64 %.016.us3054, 5
   %34 = add nuw nsw i64 %32, 1
-  %35 = add nuw i64 %34, %33
+  %35 = add i64 %34, %33
   %.016.us30 = and i64 %35, %7
   %36 = getelementptr i16, ptr %10, i64 %.016.us30
   %37 = load i16, ptr %36, align 2, !tbaa !49
@@ -16344,9 +16345,9 @@ dictkeys_get_index.exit.us38:                     ; preds = %.lr.ph49
 
 dictkeys_get_index.exit:                          ; preds = %.lr.ph
   %58 = lshr i64 %.01843, 5
-  %59 = mul nsw i64 %.01644, 5
+  %59 = mul i64 %.01644, 5
   %60 = add nuw nsw i64 %58, 1
-  %61 = add nuw i64 %60, %59
+  %61 = add i64 %60, %59
   %.016 = and i64 %61, %7
   %62 = getelementptr i32, ptr %10, i64 %.016
   %63 = load i32, ptr %62, align 4, !tbaa !50

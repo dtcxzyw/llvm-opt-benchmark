@@ -1162,63 +1162,62 @@ define noundef ptr @ucnvsel_selectForString_77(ptr noundef %0, ptr noundef reado
   %25 = icmp sgt i32 %2, -1
   %26 = zext nneg i32 %2 to i64
   %27 = getelementptr inbounds nuw i16, ptr %1, i64 %26
-  %.054 = select i1 %25, ptr %27, ptr null
-  %28 = icmp eq ptr %.054, null
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %30 = icmp sgt i32 %15, 0
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %29 = icmp sgt i32 %15, 0
   %wide.trip.count.i = zext nneg i32 %17 to i64
-  br label %31
+  br label %30
 
-31:                                               ; preds = %_ZL14intersectMasksPjPKji.exit, %24
+30:                                               ; preds = %_ZL14intersectMasksPjPKji.exit, %24
   %.056 = phi ptr [ %1, %24 ], [ %.157, %_ZL14intersectMasksPjPKji.exit ]
-  br i1 %28, label %32, label %34
+  br i1 %25, label %33, label %31
 
-32:                                               ; preds = %31
-  %33 = load i16, ptr %.056, align 2, !tbaa !52
-  %.not69 = icmp eq i16 %33, 0
-  br i1 %.not69, label %_ZL14intersectMasksPjPKji.exit.thread, label %35
+31:                                               ; preds = %30
+  %32 = load i16, ptr %.056, align 2, !tbaa !52
+  %.not69 = icmp eq i16 %32, 0
+  br i1 %.not69, label %_ZL14intersectMasksPjPKji.exit.thread, label %34
 
-34:                                               ; preds = %31
-  %.not = icmp eq ptr %.056, %.054
+33:                                               ; preds = %30
+  %.not = icmp eq ptr %.056, %27
   br i1 %.not, label %_ZL14intersectMasksPjPKji.exit.thread, label %._crit_edge
 
-._crit_edge:                                      ; preds = %34
+._crit_edge:                                      ; preds = %33
   %.pre = load i16, ptr %.056, align 2, !tbaa !52
-  br label %35
+  br label %34
 
-35:                                               ; preds = %._crit_edge, %32
-  %36 = phi i16 [ %.pre, %._crit_edge ], [ %33, %32 ]
-  %37 = getelementptr inbounds nuw i8, ptr %.056, i64 2
-  %38 = zext i16 %36 to i32
-  %39 = and i32 %38, 64512
-  %40 = icmp eq i32 %39, 55296
-  br i1 %40, label %54, label %41
+34:                                               ; preds = %._crit_edge, %31
+  %35 = phi i16 [ %.pre, %._crit_edge ], [ %32, %31 ]
+  %36 = getelementptr inbounds nuw i8, ptr %.056, i64 2
+  %37 = zext i16 %35 to i32
+  %38 = and i32 %37, 64512
+  %39 = icmp eq i32 %38, 55296
+  br i1 %39, label %53, label %40
 
-41:                                               ; preds = %35
-  %42 = load ptr, ptr %0, align 8, !tbaa !33
-  %43 = load ptr, ptr %42, align 8, !tbaa !54
-  %44 = lshr i32 %38, 5
-  %45 = zext nneg i32 %44 to i64
-  %46 = getelementptr inbounds nuw i16, ptr %43, i64 %45
-  %47 = load i16, ptr %46, align 2, !tbaa !58
-  %48 = zext i16 %47 to i32
-  %49 = shl nuw nsw i32 %48, 2
-  %50 = and i32 %38, 31
-  %51 = add nuw nsw i32 %49, %50
-  %52 = zext nneg i32 %51 to i64
-  %53 = getelementptr inbounds nuw i16, ptr %43, i64 %52
+40:                                               ; preds = %34
+  %41 = load ptr, ptr %0, align 8, !tbaa !33
+  %42 = load ptr, ptr %41, align 8, !tbaa !54
+  %43 = lshr i32 %37, 5
+  %44 = zext nneg i32 %43 to i64
+  %45 = getelementptr inbounds nuw i16, ptr %42, i64 %44
+  %46 = load i16, ptr %45, align 2, !tbaa !58
+  %47 = zext i16 %46 to i32
+  %48 = shl nuw nsw i32 %47, 2
+  %49 = and i32 %37, 31
+  %50 = add nuw nsw i32 %48, %49
+  %51 = zext nneg i32 %50 to i64
+  %52 = getelementptr inbounds nuw i16, ptr %42, i64 %51
   br label %107
 
-54:                                               ; preds = %35
-  %55 = icmp eq ptr %37, %.054
+53:                                               ; preds = %34
+  %54 = icmp eq ptr %27, %36
+  %55 = select i1 %25, i1 %54, i1 false
   br i1 %55, label %._crit_edge71, label %56
 
-._crit_edge71:                                    ; preds = %54
+._crit_edge71:                                    ; preds = %53
   %.pre72 = load ptr, ptr %0, align 8, !tbaa !33
   br label %61
 
-56:                                               ; preds = %54
-  %57 = load i16, ptr %37, align 2, !tbaa !52
+56:                                               ; preds = %53
+  %57 = load i16, ptr %36, align 2, !tbaa !52
   %58 = zext i16 %57 to i32
   %59 = and i32 %58, 64512
   %60 = icmp eq i32 %59, 56320
@@ -1228,14 +1227,14 @@ define noundef ptr @ucnvsel_selectForString_77(ptr noundef %0, ptr noundef reado
 61:                                               ; preds = %._crit_edge71, %56
   %62 = phi ptr [ %.pre72, %._crit_edge71 ], [ %.pre73, %56 ]
   %63 = load ptr, ptr %62, align 8, !tbaa !54
-  %64 = lshr i32 %38, 5
+  %64 = lshr i32 %37, 5
   %65 = zext nneg i32 %64 to i64
   %66 = getelementptr inbounds nuw i16, ptr %63, i64 %65
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 640
   %68 = load i16, ptr %67, align 2, !tbaa !58
   %69 = zext i16 %68 to i32
   %70 = shl nuw nsw i32 %69, 2
-  %71 = and i32 %38, 31
+  %71 = and i32 %37, 31
   %72 = add nuw nsw i32 %70, %71
   %73 = zext nneg i32 %72 to i64
   %74 = getelementptr inbounds nuw i16, ptr %63, i64 %73
@@ -1243,7 +1242,7 @@ define noundef ptr @ucnvsel_selectForString_77(ptr noundef %0, ptr noundef reado
 
 75:                                               ; preds = %56
   %76 = getelementptr inbounds nuw i8, ptr %.056, i64 4
-  %77 = shl nuw nsw i32 %38, 10
+  %77 = shl nuw nsw i32 %37, 10
   %78 = add nsw i32 %77, -56613888
   %79 = add nuw nsw i32 %78, %58
   %80 = load ptr, ptr %.pre73, align 8, !tbaa !54
@@ -1282,14 +1281,14 @@ define noundef ptr @ucnvsel_selectForString_77(ptr noundef %0, ptr noundef reado
   %106 = getelementptr inbounds i16, ptr %80, i64 %105
   br label %107
 
-107:                                              ; preds = %61, %103, %41
-  %.157 = phi ptr [ %37, %61 ], [ %76, %103 ], [ %37, %41 ]
-  %.053.in = phi ptr [ %74, %61 ], [ %106, %103 ], [ %53, %41 ]
+107:                                              ; preds = %61, %103, %40
+  %.157 = phi ptr [ %36, %61 ], [ %76, %103 ], [ %36, %40 ]
+  %.053.in = phi ptr [ %74, %61 ], [ %106, %103 ], [ %52, %40 ]
   %.053 = load i16, ptr %.053.in, align 2, !tbaa !58
-  %108 = load ptr, ptr %29, align 8, !tbaa !34
+  %108 = load ptr, ptr %28, align 8, !tbaa !34
   %109 = zext i16 %.053 to i64
   %110 = getelementptr inbounds nuw i32, ptr %108, i64 %109
-  br i1 %30, label %.lr.ph.i, label %_ZL14intersectMasksPjPKji.exit.thread
+  br i1 %29, label %.lr.ph.i, label %_ZL14intersectMasksPjPKji.exit.thread
 
 .lr.ph.i:                                         ; preds = %107, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %107 ]
@@ -1307,9 +1306,9 @@ define noundef ptr @ucnvsel_selectForString_77(ptr noundef %0, ptr noundef reado
 
 _ZL14intersectMasksPjPKji.exit:                   ; preds = %.lr.ph.i
   %.not70 = icmp eq i32 %116, 0
-  br i1 %.not70, label %_ZL14intersectMasksPjPKji.exit.thread, label %31
+  br i1 %.not70, label %_ZL14intersectMasksPjPKji.exit.thread, label %30
 
-_ZL14intersectMasksPjPKji.exit.thread:            ; preds = %107, %32, %_ZL14intersectMasksPjPKji.exit, %34, %23
+_ZL14intersectMasksPjPKji.exit.thread:            ; preds = %107, %31, %_ZL14intersectMasksPjPKji.exit, %33, %23
   %117 = tail call fastcc noundef ptr @_ZL13selectForMaskPK18UConverterSelectorPjP10UErrorCode(ptr noundef %0, ptr noundef %20, ptr noundef nonnull %3)
   br label %118
 

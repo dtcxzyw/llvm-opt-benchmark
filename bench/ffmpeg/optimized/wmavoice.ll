@@ -2259,7 +2259,7 @@ aw_parse_coords.exit.i:                           ; preds = %..loopexit_crit_edg
 776:                                              ; preds = %773
   %777 = shl nuw nsw i32 %716, 2
   %778 = shl nsw i32 %774, 1
-  %779 = add nsw i32 %778, %777
+  %779 = add nuw nsw i32 %778, %777
   br label %787
 
 780:                                              ; preds = %773
@@ -2966,14 +2966,16 @@ aw_pulse_set2.exit.thread.i.i.i:                  ; preds = %1045, %.loopexit106
   %1195 = sext i32 %1194 to i64
   %1196 = shl nsw i64 %1195, 2
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %1193, ptr nonnull align 4 %708, i64 %1196, i1 false)
+  %umax.i.i.i = call i32 @llvm.umax.i32(i32 %1191, i32 1)
+  %wide.trip.count148.i.i.i = zext nneg i32 %umax.i.i.i to i64
   br label %.lr.ph133.i.i.i
 
 .lr.ph133.i.i.i:                                  ; preds = %.lr.ph133.i.i.i, %.loopexit125.i.i.i
-  %indvars.iv145.i.i.i = phi i64 [ %indvars.iv.next146.i.i.i, %.lr.ph133.i.i.i ], [ 0, %.loopexit125.i.i.i ]
+  %indvars.iv145.i.i.i = phi i64 [ 0, %.loopexit125.i.i.i ], [ %indvars.iv.next146.i.i.i, %.lr.ph133.i.i.i ]
   %1197 = getelementptr inbounds nuw float, ptr %708, i64 %indvars.iv145.i.i.i
   store float %..i113.i.i.i, ptr %1197, align 4, !tbaa !37
   %indvars.iv.next146.i.i.i = add nuw nsw i64 %indvars.iv145.i.i.i, 1
-  %exitcond149.not.i.i.i = icmp eq i64 %indvars.iv.next146.i.i.i, %1192
+  %exitcond149.not.i.i.i = icmp eq i64 %indvars.iv.next146.i.i.i, %wide.trip.count148.i.i.i
   br i1 %exitcond149.not.i.i.i, label %._crit_edge134.i.i.i, label %.lr.ph133.i.i.i, !llvm.loop !136
 
 ._crit_edge134.i.i.i:                             ; preds = %.lr.ph133.i.i.i
@@ -4301,6 +4303,9 @@ declare i32 @llvm.smin.i32(i32, i32) #12
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #12
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #12
 
 attributes #0 = { cold nounwind optsize uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

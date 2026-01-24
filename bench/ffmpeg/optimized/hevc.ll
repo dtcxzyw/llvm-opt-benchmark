@@ -239,8 +239,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @write_configuration_record
   store i8 %37, ptr %38, align 2, !tbaa !21
   %39 = load i32, ptr %31, align 1, !tbaa !11
   %40 = tail call i32 @llvm.bswap.i32(i32 %39)
-  %spec.select.i = and i32 %27, 2
-  %41 = or disjoint i32 %spec.select.i, 1
+  %41 = or disjoint i32 %34, 1
   %42 = shl i32 %40, %41
   %43 = lshr i32 %42, 27
   %44 = add nuw nsw i32 %27, 6

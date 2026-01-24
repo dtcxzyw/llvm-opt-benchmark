@@ -4364,7 +4364,11 @@ define internal fastcc range(i64 -6, 256) i64 @intel_sdvo_read_infoframe(ptr nou
   %46 = trunc nuw i32 %45 to i8
   store i8 %46, ptr %6, align 1
   %47 = icmp eq i8 %43, 0
-  br i1 %47, label %.critedge, label %.preheader
+  br i1 %47, label %..loopexit_crit_edge, label %.preheader
+
+..loopexit_crit_edge:                             ; preds = %41
+  %.pre = zext nneg i32 %45 to i64
+  br label %.critedge
 
 48:                                               ; preds = %55
   %49 = add nuw nsw i64 %53, 8
@@ -4388,8 +4392,8 @@ define internal fastcc range(i64 -6, 256) i64 @intel_sdvo_read_infoframe(ptr nou
   %62 = call fastcc zeroext i1 @intel_sdvo_read_response(ptr noundef %0, ptr noundef %56, i32 noundef %61)
   br i1 %62, label %48, label %.critedge
 
-.critedge:                                        ; preds = %55, %.preheader, %48, %41, %31, %33, %26, %24, %22, %20, %18, %14, %12, %4
-  %63 = phi i64 [ 0, %41 ], [ -6, %12 ], [ 0, %14 ], [ -6, %20 ], [ -6, %24 ], [ 0, %26 ], [ 0, %31 ], [ -6, %4 ], [ -6, %18 ], [ -6, %22 ], [ 0, %33 ], [ -6, %55 ], [ -6, %.preheader ], [ %51, %48 ]
+.critedge:                                        ; preds = %55, %.preheader, %48, %..loopexit_crit_edge, %31, %33, %26, %24, %22, %20, %18, %14, %12, %4
+  %63 = phi i64 [ %.pre, %..loopexit_crit_edge ], [ -6, %12 ], [ 0, %14 ], [ -6, %20 ], [ -6, %24 ], [ 0, %26 ], [ 0, %31 ], [ -6, %4 ], [ -6, %18 ], [ -6, %22 ], [ 0, %33 ], [ -6, %55 ], [ -6, %.preheader ], [ %51, %48 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

@@ -2479,7 +2479,12 @@ _ZNSt6vectorIPN4pbrt8SDVertexESaIS2_EED2Ev.exit888: ; preds = %868, %869
   %879 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store ptr %877, ptr %879, align 8, !tbaa !93
   store ptr %scevgep.i.i.i.i.i, ptr %878, align 8, !tbaa !94
+  %umax = call i64 @llvm.umax.i64(i64 %344, i64 1)
   br label %.lr.ph2215
+
+.lr.ph2217.preheader:                             ; preds = %916
+  %umax2628 = call i64 @llvm.umax.i64(i64 %344, i64 1)
+  br label %.lr.ph2217
 
 880:                                              ; preds = %.lr.ph.preheader.i.i.i.i.i, %346
   %881 = landingpad { ptr, i32 }
@@ -2578,8 +2583,8 @@ _ZN4pbrt8SDVertex7valenceEv.exit919:              ; preds = %_ZN4pbrt6SDFace8nex
   %.sroa.5270.0..sroa_idx = getelementptr inbounds nuw i8, ptr %918, i64 8
   store float %.fca.1.extract266, ptr %.sroa.5270.0..sroa_idx, align 4
   %919 = add nuw i64 %.05822213, 1
-  %exitcond2627.not = icmp eq i64 %919, %344
-  br i1 %exitcond2627.not, label %.lr.ph2217, label %.lr.ph2215, !llvm.loop !95
+  %exitcond2627.not = icmp eq i64 %919, %umax
+  br i1 %exitcond2627.not, label %.lr.ph2217.preheader, label %.lr.ph2215, !llvm.loop !95
 
 _ZNSt12_Vector_baseIN4pbrt7Normal3IfEESaIS2_EE11_M_allocateEm.exit.i: ; preds = %.lr.ph2217
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
@@ -2597,15 +2602,15 @@ _ZNSt12_Vector_baseIN4pbrt7Normal3IfEESaIS2_EE13_M_deallocateEPS2_m.exit.i: ; pr
   store ptr %924, ptr %920, align 8, !tbaa !100
   br label %_ZNSt6vectorIN4pbrt7Normal3IfEESaIS2_EE7reserveEm.exit
 
-.lr.ph2217:                                       ; preds = %916, %.lr.ph2217
-  %.05832216 = phi i64 [ %929, %.lr.ph2217 ], [ 0, %916 ]
+.lr.ph2217:                                       ; preds = %.lr.ph2217.preheader, %.lr.ph2217
+  %.05832216 = phi i64 [ %929, %.lr.ph2217 ], [ 0, %.lr.ph2217.preheader ]
   %925 = load ptr, ptr %13, align 8, !tbaa !91
   %926 = getelementptr inbounds nuw %"class.pbrt::Point3", ptr %925, i64 %.05832216
   %927 = getelementptr inbounds nuw ptr, ptr %.sroa.01403.0.lcssa, i64 %.05832216
   %928 = load ptr, ptr %927, align 8, !tbaa !20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %928, ptr noundef nonnull align 4 dereferenceable(12) %926, i64 12, i1 false)
   %929 = add nuw i64 %.05832216, 1
-  %exitcond2629.not = icmp eq i64 %929, %344
+  %exitcond2629.not = icmp eq i64 %929, %umax2628
   br i1 %exitcond2629.not, label %_ZNSt12_Vector_baseIN4pbrt7Normal3IfEESaIS2_EE11_M_allocateEm.exit.i, label %.lr.ph2217, !llvm.loop !101
 
 _ZNSt6vectorIN4pbrt7Normal3IfEESaIS2_EE7reserveEm.exit: ; preds = %.preheader1574.thread, %_ZNSt12_Vector_baseIN4pbrt7Normal3IfEESaIS2_EE13_M_deallocateEPS2_m.exit.i
@@ -3257,18 +3262,26 @@ _ZNSt6vectorIN4pbrt7Normal3IfEESaIS2_EE9push_backEOS2_.exit: ; preds = %_ZNSt6ve
   store ptr %1188, ptr %1191, align 8, !tbaa !34
   %1192 = getelementptr inbounds nuw i8, ptr %16, i64 40
   store i64 0, ptr %1192, align 8, !tbaa !35
-  br i1 %.not.i.i.i.i704, label %.preheader1566, label %.lr.ph2247
+  br i1 %.not.i.i.i.i704, label %.preheader1566, label %.lr.ph2247.preheader
+
+.lr.ph2247.preheader:                             ; preds = %1185
+  %umax2639 = call i64 @llvm.umax.i64(i64 %344, i64 1)
+  br label %.lr.ph2247
 
 .preheader1566:                                   ; preds = %1197, %1185
-  br i1 %.not.i.i.i.i929, label %._crit_edge2252, label %.preheader
+  br i1 %.not.i.i.i.i929, label %._crit_edge2252, label %.preheader.preheader
+
+.preheader.preheader:                             ; preds = %.preheader1566
+  %umax2645 = call i64 @llvm.umax.i64(i64 %938, i64 1)
+  br label %.preheader
 
 1193:                                             ; preds = %942, %941
   %1194 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit1149
 
-.lr.ph2247:                                       ; preds = %1185, %1197
-  %.05362245 = phi i64 [ %1199, %1197 ], [ 0, %1185 ]
+.lr.ph2247:                                       ; preds = %.lr.ph2247.preheader, %1197
+  %.05362245 = phi i64 [ %1199, %1197 ], [ 0, %.lr.ph2247.preheader ]
   %1195 = getelementptr inbounds nuw ptr, ptr %.sroa.01403.0.lcssa, i64 %.05362245
   %1196 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt3mapIPN4pbrt8SDVertexEiSt4lessIS2_ESaISt4pairIKS2_iEEEixERS6_(ptr noundef nonnull align 8 dereferenceable(48) %16, ptr noundef nonnull align 8 dereferenceable(8) %1195)
           to label %1197 unwind label %1200
@@ -3277,7 +3290,7 @@ _ZNSt6vectorIN4pbrt7Normal3IfEESaIS2_EE9push_backEOS2_.exit: ; preds = %_ZNSt6ve
   %1198 = trunc i64 %.05362245 to i32
   store i32 %1198, ptr %1196, align 4, !tbaa !37
   %1199 = add nuw i64 %.05362245, 1
-  %exitcond2640.not = icmp eq i64 %1199, %344
+  %exitcond2640.not = icmp eq i64 %1199, %umax2639
   br i1 %exitcond2640.not, label %.preheader1566, label %.lr.ph2247, !llvm.loop !119
 
 1200:                                             ; preds = %.lr.ph2247
@@ -3285,9 +3298,9 @@ _ZNSt6vectorIN4pbrt7Normal3IfEESaIS2_EE9push_backEOS2_.exit: ; preds = %_ZNSt6ve
           cleanup
   br label %.body
 
-.preheader:                                       ; preds = %.preheader1566, %1208
-  %.05352251 = phi i64 [ %1209, %1208 ], [ 0, %.preheader1566 ]
-  %.05382250 = phi ptr [ %1243, %1208 ], [ %1186, %.preheader1566 ]
+.preheader:                                       ; preds = %.preheader.preheader, %1208
+  %.05352251 = phi i64 [ %1209, %1208 ], [ 0, %.preheader.preheader ]
+  %.05382250 = phi ptr [ %1243, %1208 ], [ %1186, %.preheader.preheader ]
   %1202 = getelementptr inbounds nuw ptr, ptr %.sroa.01434.0.lcssa, i64 %.05352251
   br label %1210
 
@@ -3311,7 +3324,7 @@ _ZNSt6vectorIN4pbrt7Normal3IfEESaIS2_EE9push_backEOS2_.exit: ; preds = %_ZNSt6ve
 
 1208:                                             ; preds = %1240
   %1209 = add nuw i64 %.05352251, 1
-  %exitcond2646.not = icmp eq i64 %1209, %938
+  %exitcond2646.not = icmp eq i64 %1209, %umax2645
   br i1 %exitcond2646.not, label %._crit_edge2252, label %.preheader, !llvm.loop !122
 
 1210:                                             ; preds = %.preheader, %1240
