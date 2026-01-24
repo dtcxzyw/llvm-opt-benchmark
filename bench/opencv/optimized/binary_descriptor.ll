@@ -13456,7 +13456,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %14, %
 52:                                               ; preds = %32
   %53 = fadd double %36, 5.000000e-01
   %54 = fadd double %36, 5.500000e+00
-  %55 = tail call double @log(double noundef %54) #26, !tbaa !47
+  %55 = tail call double @llvm.log.f64(double %54), !tbaa !47
   %56 = fneg double %54
   %57 = tail call double @llvm.fmuladd.f64(double %53, double %55, double %56)
   br label %58
@@ -13509,7 +13509,7 @@ _ZN2cv15line_descriptor16BinaryDescriptor14EDLineDetector17log_gamma_lanczosEd.e
 89:                                               ; preds = %70
   %90 = fadd double %73, 5.000000e-01
   %91 = fadd double %73, 5.500000e+00
-  %92 = tail call double @log(double noundef %91) #26, !tbaa !47
+  %92 = tail call double @llvm.log.f64(double %91), !tbaa !47
   %93 = fneg double %91
   %94 = tail call double @llvm.fmuladd.f64(double %90, double %92, double %93)
   br label %95

@@ -10066,8 +10066,8 @@ _ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_param
   %203 = fdiv double 1.000000e+00, %202
   %204 = uitofp i8 %193 to double
   %205 = fadd double %204, 5.000000e-01
-  %206 = call double @log(double noundef %205) #37, !tbaa !53
-  %207 = fmul double %203, %206
+  %206 = call double @llvm.log.f64(double %205), !tbaa !53
+  %207 = fmul double %206, %203
   %208 = call double @llvm.ceil.f64(double %207)
   %209 = fptosi double %208 to i32
   br label %_ZN7testing8internal8EqHelper7CompareIaaTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit
@@ -12786,8 +12786,8 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(16) ptr @_
   %42 = fdiv double 1.000000e+00, %41
   %43 = uitofp i8 %32 to double
   %44 = fadd double %43, 5.000000e-01
-  %45 = call double @log(double noundef %44) #37, !tbaa !53
-  %46 = fmul double %42, %45
+  %45 = call double @llvm.log.f64(double %44), !tbaa !53
+  %46 = fmul double %45, %42
   %47 = call double @llvm.ceil.f64(double %46)
   %48 = fptosi double %47 to i32
   %.pre15 = zext i8 %32 to i64
@@ -15913,8 +15913,8 @@ _ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_param
   %205 = fdiv double 1.000000e+00, %204
   %206 = uitofp i16 %195 to double
   %207 = fadd double %206, 5.000000e-01
-  %208 = call double @log(double noundef %207) #37, !tbaa !53
-  %209 = fmul double %205, %208
+  %208 = call double @llvm.log.f64(double %207), !tbaa !53
+  %209 = fmul double %208, %205
   %210 = call double @llvm.ceil.f64(double %209)
   %211 = fptosi double %210 to i32
   br label %_ZN7testing8internal8EqHelper7CompareIssTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit
@@ -18634,8 +18634,8 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(16) ptr @_
   %39 = fdiv double 1.000000e+00, %38
   %40 = uitofp i16 %29 to double
   %41 = fadd double %40, 5.000000e-01
-  %42 = call double @log(double noundef %41) #37, !tbaa !53
-  %43 = fmul double %39, %42
+  %42 = call double @llvm.log.f64(double %41), !tbaa !53
+  %43 = fmul double %42, %39
   %44 = call double @llvm.ceil.f64(double %43)
   %45 = fptosi double %44 to i32
   br label %_ZN4absl28log_uniform_int_distributionIsE10param_typeC2Esss.exit
@@ -25524,8 +25524,8 @@ _ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_param
   %211 = fdiv double 1.000000e+00, %210
   %212 = uitofp i32 %203 to double
   %213 = fadd double %212, 5.000000e-01
-  %214 = call double @log(double noundef %213) #37, !tbaa !53
-  %215 = fmul double %211, %214
+  %214 = call double @llvm.log.f64(double %213), !tbaa !53
+  %215 = fmul double %214, %211
   %216 = call double @llvm.ceil.f64(double %215)
   %217 = fptosi double %216 to i32
   br label %_ZN7testing8internal8EqHelper7CompareIiiTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit
@@ -28233,8 +28233,8 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(16) ptr @_
   %37 = fdiv double 1.000000e+00, %36
   %38 = uitofp i32 %29 to double
   %39 = fadd double %38, 5.000000e-01
-  %40 = call double @log(double noundef %39) #37, !tbaa !53
-  %41 = fmul double %37, %40
+  %40 = call double @llvm.log.f64(double %39), !tbaa !53
+  %41 = fmul double %40, %37
   %42 = call double @llvm.ceil.f64(double %41)
   %43 = fptosi double %42 to i32
   br label %_ZN4absl28log_uniform_int_distributionIiE10param_typeC2Eiii.exit
@@ -30387,8 +30387,8 @@ _ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_param
   %212 = fdiv double 1.000000e+00, %211
   %213 = uitofp i64 %203 to double
   %214 = fadd double %213, 5.000000e-01
-  %215 = call double @log(double noundef %214) #37, !tbaa !53
-  %216 = fmul double %212, %215
+  %215 = call double @llvm.log.f64(double %214), !tbaa !53
+  %216 = fmul double %215, %212
   %217 = call double @llvm.ceil.f64(double %216)
   %218 = fptosi double %217 to i32
   br label %_ZN7testing8internal8EqHelper7CompareIllTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit
@@ -33096,8 +33096,8 @@ _ZNSirsERl.exit8:                                 ; preds = %_ZNSirsERl.exit
   %36 = fdiv double 1.000000e+00, %35
   %37 = uitofp i64 %27 to double
   %38 = fadd double %37, 5.000000e-01
-  %39 = call double @log(double noundef %38) #37, !tbaa !53
-  %40 = fmul double %36, %39
+  %39 = call double @llvm.log.f64(double %38), !tbaa !53
+  %40 = fmul double %39, %36
   %41 = call double @llvm.ceil.f64(double %40)
   %42 = fptosi double %41 to i32
   br label %_ZN4absl28log_uniform_int_distributionIlE10param_typeC2Elll.exit
@@ -36001,8 +36001,8 @@ _ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_param
   %203 = fdiv double 1.000000e+00, %202
   %204 = uitofp i8 %193 to double
   %205 = fadd double %204, 5.000000e-01
-  %206 = call double @log(double noundef %205) #37, !tbaa !53
-  %207 = fmul double %203, %206
+  %206 = call double @llvm.log.f64(double %205), !tbaa !53
+  %207 = fmul double %206, %203
   %208 = call double @llvm.ceil.f64(double %207)
   %209 = fptosi double %208 to i32
   br label %_ZN7testing8internal8EqHelper7CompareIhhTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit
@@ -38721,8 +38721,8 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(16) ptr @_
   %42 = fdiv double 1.000000e+00, %41
   %43 = uitofp i8 %32 to double
   %44 = fadd double %43, 5.000000e-01
-  %45 = call double @log(double noundef %44) #37, !tbaa !53
-  %46 = fmul double %42, %45
+  %45 = call double @llvm.log.f64(double %44), !tbaa !53
+  %46 = fmul double %45, %42
   %47 = call double @llvm.ceil.f64(double %46)
   %48 = fptosi double %47 to i32
   %.pre15 = zext i8 %32 to i64
@@ -41639,8 +41639,8 @@ _ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_param
   %203 = fdiv double 1.000000e+00, %202
   %204 = uitofp i16 %193 to double
   %205 = fadd double %204, 5.000000e-01
-  %206 = call double @log(double noundef %205) #37, !tbaa !53
-  %207 = fmul double %203, %206
+  %206 = call double @llvm.log.f64(double %205), !tbaa !53
+  %207 = fmul double %206, %203
   %208 = call double @llvm.ceil.f64(double %207)
   %209 = fptosi double %208 to i32
   br label %_ZN7testing8internal8EqHelper7CompareIttTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit
@@ -44363,8 +44363,8 @@ _ZNSirsERt.exit8:                                 ; preds = %_ZNSirsERt.exit
   %37 = fdiv double 1.000000e+00, %36
   %38 = uitofp i16 %27 to double
   %39 = fadd double %38, 5.000000e-01
-  %40 = call double @log(double noundef %39) #37, !tbaa !53
-  %41 = fmul double %37, %40
+  %40 = call double @llvm.log.f64(double %39), !tbaa !53
+  %41 = fmul double %40, %37
   %42 = call double @llvm.ceil.f64(double %41)
   %43 = fptosi double %42 to i32
   br label %_ZN4absl28log_uniform_int_distributionItE10param_typeC2Ettt.exit
@@ -47277,8 +47277,8 @@ _ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_param
   %211 = fdiv double 1.000000e+00, %210
   %212 = uitofp i32 %203 to double
   %213 = fadd double %212, 5.000000e-01
-  %214 = call double @log(double noundef %213) #37, !tbaa !53
-  %215 = fmul double %211, %214
+  %214 = call double @llvm.log.f64(double %213), !tbaa !53
+  %215 = fmul double %214, %211
   %216 = call double @llvm.ceil.f64(double %215)
   %217 = fptosi double %216 to i32
   br label %_ZN7testing8internal8EqHelper7CompareIjjTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit
@@ -49989,8 +49989,8 @@ _ZNSirsERj.exit8:                                 ; preds = %_ZNSirsERj.exit
   %35 = fdiv double 1.000000e+00, %34
   %36 = uitofp i32 %27 to double
   %37 = fadd double %36, 5.000000e-01
-  %38 = call double @log(double noundef %37) #37, !tbaa !53
-  %39 = fmul double %35, %38
+  %38 = call double @llvm.log.f64(double %37), !tbaa !53
+  %39 = fmul double %38, %35
   %40 = call double @llvm.ceil.f64(double %39)
   %41 = fptosi double %40 to i32
   br label %_ZN4absl28log_uniform_int_distributionIjE10param_typeC2Ejjj.exit
@@ -52910,8 +52910,8 @@ _ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_param
   %211 = fdiv double 1.000000e+00, %210
   %212 = uitofp i64 %202 to double
   %213 = fadd double %212, 5.000000e-01
-  %214 = call double @log(double noundef %213) #37, !tbaa !53
-  %215 = fmul double %211, %214
+  %214 = call double @llvm.log.f64(double %213), !tbaa !53
+  %215 = fmul double %214, %211
   %216 = call double @llvm.ceil.f64(double %215)
   %217 = fptosi double %216 to i32
   br label %_ZN7testing8internal8EqHelper7CompareImmTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit
@@ -55619,8 +55619,8 @@ _ZNSirsERm.exit8:                                 ; preds = %_ZNSirsERm.exit
   %36 = fdiv double 1.000000e+00, %35
   %37 = uitofp i64 %27 to double
   %38 = fadd double %37, 5.000000e-01
-  %39 = call double @log(double noundef %38) #37, !tbaa !53
-  %40 = fmul double %36, %39
+  %39 = call double @llvm.log.f64(double %38), !tbaa !53
+  %40 = fmul double %39, %36
   %41 = call double @llvm.ceil.f64(double %40)
   %42 = fptosi double %41 to i32
   br label %_ZN4absl28log_uniform_int_distributionImE10param_typeC2Emmm.exit
@@ -65539,6 +65539,9 @@ declare void @llvm.assume(i1 noundef) #30
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.fshr.i64(i64, i64, i64) #31
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.log.f64(double) #31
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #32

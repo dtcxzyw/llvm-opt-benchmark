@@ -194,13 +194,13 @@ define internal fastcc void @_ZN2cvL13randn_0_1_32fEPfiPm(ptr noundef writeonly 
   %62 = lshr i64 %56, 32
   %63 = add nuw i64 %61, %62
   %64 = fadd float %52, 0x3810000000000000
-  %65 = tail call noundef float @logf(float noundef %64) #20, !tbaa !9
+  %65 = tail call float @llvm.log.f32(float %64), !tbaa !9
   %66 = fneg float %65
   %67 = fpext float %66 to double
   %68 = fmul double %67, 0x3FD2972A5390A0CD
   %69 = fptrunc double %68 to float
   %70 = fadd float %59, 0x3810000000000000
-  %71 = tail call noundef float @logf(float noundef %70) #20, !tbaa !9
+  %71 = tail call float @llvm.log.f32(float %70), !tbaa !9
   %72 = fneg float %71
   %73 = fsub float %72, %71
   %74 = fmul float %69, %69
@@ -4102,9 +4102,6 @@ declare double @log(double noundef) local_unnamed_addr #9
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.abs.i32(i32, i1 immarg) #10
 
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare float @logf(float noundef) local_unnamed_addr #9
-
 declare noundef i32 @_ZNK2cv11_InputArray4kindEv(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #2
 
 declare void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96), ptr noundef nonnull align 8 dereferenceable(96)) unnamed_addr #2
@@ -6502,6 +6499,9 @@ declare i64 @llvm.fshl.i64(i64, i64, i64) #18
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #18
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.log.f32(float) #18
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #18

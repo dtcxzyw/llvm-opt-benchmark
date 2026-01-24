@@ -1286,61 +1286,57 @@ GetInterval.exit:                                 ; preds = %88, %93, %73, %78
   %117 = fmul double %116, 6.553500e+04
   %118 = fdiv double %117, %114
   %119 = fcmp oeq double %104, %109
-  br i1 %119, label %120, label %132
+  br i1 %119, label %120, label %130
 
 120:                                              ; preds = %100
   %121 = select i1 %.not, double %115, double %118
   %122 = fadd double %121, 5.000000e-01
-  %123 = fcmp ugt double %122, 0.000000e+00
+  %123 = fcmp ult double %122, 6.553500e+04
   br i1 %123, label %124, label %_cmsQuickSaturateWord.exit
 
 124:                                              ; preds = %120
-  %125 = fcmp ult double %122, 6.553500e+04
-  br i1 %125, label %126, label %_cmsQuickSaturateWord.exit
-
-126:                                              ; preds = %124
-  %127 = fadd double %122, -3.276700e+04
-  %128 = tail call double @llvm.floor.f64(double %127)
-  %129 = fptosi double %128 to i32
-  %130 = trunc i32 %129 to i16
-  %131 = add i16 %130, 32767
+  %125 = fadd double %122, -3.276700e+04
+  %126 = tail call double @llvm.floor.f64(double %125)
+  %127 = fptosi double %126 to i32
+  %128 = trunc i32 %127 to i16
+  %129 = add i16 %128, 32767
   br label %_cmsQuickSaturateWord.exit
 
-132:                                              ; preds = %100
-  %133 = fsub double %118, %115
-  %134 = fsub double %109, %104
-  %135 = fdiv double %133, %134
-  %136 = fneg double %135
-  %137 = tail call double @llvm.fmuladd.f64(double %136, double %109, double %118)
+130:                                              ; preds = %100
+  %131 = fsub double %118, %115
+  %132 = fsub double %109, %104
+  %133 = fdiv double %131, %132
+  %134 = fneg double %133
+  %135 = tail call double @llvm.fmuladd.f64(double %134, double %109, double %118)
   br label %GetInterval.exit.thread
 
-GetInterval.exit.thread:                          ; preds = %98, %83, %.preheader1.i, %54, %.preheader.i62, %132, %GetInterval.exit
-  %.151 = phi double [ %137, %132 ], [ %.05075, %GetInterval.exit ], [ %.05075, %.preheader.i62 ], [ %.05075, %54 ], [ %.05075, %.preheader1.i ], [ %.05075, %83 ], [ %.05075, %98 ]
-  %.1 = phi double [ %135, %132 ], [ %.04878, %GetInterval.exit ], [ %.04878, %.preheader.i62 ], [ %.04878, %54 ], [ %.04878, %.preheader1.i ], [ %.04878, %83 ], [ %.04878, %98 ]
-  %138 = tail call double @llvm.fmuladd.f64(double %.1, double %58, double %.151)
-  %139 = fadd double %138, 5.000000e-01
-  %140 = fcmp ugt double %139, 0.000000e+00
+GetInterval.exit.thread:                          ; preds = %98, %83, %.preheader1.i, %54, %.preheader.i62, %130, %GetInterval.exit
+  %.151 = phi double [ %135, %130 ], [ %.05075, %GetInterval.exit ], [ %.05075, %.preheader.i62 ], [ %.05075, %54 ], [ %.05075, %.preheader1.i ], [ %.05075, %83 ], [ %.05075, %98 ]
+  %.1 = phi double [ %133, %130 ], [ %.04878, %GetInterval.exit ], [ %.04878, %.preheader.i62 ], [ %.04878, %54 ], [ %.04878, %.preheader1.i ], [ %.04878, %83 ], [ %.04878, %98 ]
+  %136 = tail call double @llvm.fmuladd.f64(double %.1, double %58, double %.151)
+  %137 = fadd double %136, 5.000000e-01
+  %138 = fcmp ugt double %137, 0.000000e+00
+  br i1 %138, label %139, label %_cmsQuickSaturateWord.exit
+
+139:                                              ; preds = %GetInterval.exit.thread
+  %140 = fcmp ult double %137, 6.553500e+04
   br i1 %140, label %141, label %_cmsQuickSaturateWord.exit
 
-141:                                              ; preds = %GetInterval.exit.thread
-  %142 = fcmp ult double %139, 6.553500e+04
-  br i1 %142, label %143, label %_cmsQuickSaturateWord.exit
-
-143:                                              ; preds = %141
-  %144 = fadd double %139, -3.276700e+04
-  %145 = tail call double @llvm.floor.f64(double %144)
-  %146 = fptosi double %145 to i32
-  %147 = trunc i32 %146 to i16
-  %148 = add i16 %147, 32767
+141:                                              ; preds = %139
+  %142 = fadd double %137, -3.276700e+04
+  %143 = tail call double @llvm.floor.f64(double %142)
+  %144 = fptosi double %143 to i32
+  %145 = trunc i32 %144 to i16
+  %146 = add i16 %145, 32767
   br label %_cmsQuickSaturateWord.exit
 
-_cmsQuickSaturateWord.exit:                       ; preds = %143, %141, %GetInterval.exit.thread, %126, %124, %120
-  %.0.i64.sink = phi i16 [ -1, %124 ], [ %131, %126 ], [ 0, %120 ], [ %148, %143 ], [ 0, %GetInterval.exit.thread ], [ -1, %141 ]
-  %.252 = phi double [ %.05075, %124 ], [ %.05075, %126 ], [ %.05075, %120 ], [ %.151, %143 ], [ %.151, %GetInterval.exit.thread ], [ %.151, %141 ]
-  %.2 = phi double [ %.04878, %124 ], [ %.04878, %126 ], [ %.04878, %120 ], [ %.1, %143 ], [ %.1, %GetInterval.exit.thread ], [ %.1, %141 ]
-  %149 = load ptr, ptr %53, align 8
-  %150 = getelementptr inbounds nuw i16, ptr %149, i64 %indvars.iv
-  store i16 %.0.i64.sink, ptr %150, align 2
+_cmsQuickSaturateWord.exit:                       ; preds = %141, %139, %GetInterval.exit.thread, %124, %120
+  %.0.i64.sink = phi i16 [ -1, %120 ], [ %129, %124 ], [ %146, %141 ], [ 0, %GetInterval.exit.thread ], [ -1, %139 ]
+  %.252 = phi double [ %.05075, %120 ], [ %.05075, %124 ], [ %.151, %141 ], [ %.151, %GetInterval.exit.thread ], [ %.151, %139 ]
+  %.2 = phi double [ %.04878, %120 ], [ %.04878, %124 ], [ %.1, %141 ], [ %.1, %GetInterval.exit.thread ], [ %.1, %139 ]
+  %147 = load ptr, ptr %53, align 8
+  %148 = getelementptr inbounds nuw i16, ptr %147, i64 %indvars.iv
+  store i16 %.0.i64.sink, ptr %148, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %54, !llvm.loop !19

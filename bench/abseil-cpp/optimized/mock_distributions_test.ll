@@ -57621,8 +57621,8 @@ _ZN4absl13MockingBitGen10InvokeMockEPKvPvS3_.exit: ; preds = %_ZN4absl18containe
   %79 = fdiv double 1.000000e+00, %78
   %80 = uitofp i32 %71 to double
   %81 = fadd double %80, 5.000000e-01
-  %82 = tail call double @log(double noundef %81) #35, !tbaa !31, !noalias !1332
-  %83 = fmul double %79, %82
+  %82 = tail call double @llvm.log.f64(double %81), !tbaa !31
+  %83 = fmul double %82, %79
   %84 = tail call double @llvm.ceil.f64(double %83)
   %85 = fptosi double %84 to i32
   br label %_ZN4absl15make_from_tupleINS_28log_uniform_int_distributionIiEERSt5tupleIJiiiEEEET_OT0_.exit

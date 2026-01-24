@@ -8464,7 +8464,7 @@ _ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj64EEEEEfRT_.exit: ; pr
   br label %332
 
 294:                                              ; preds = %_ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj64EEEEEfRT_.exit
-  %295 = tail call noundef float @logf(float noundef %284) #21, !tbaa !134
+  %295 = tail call float @llvm.log.f32(float %284), !tbaa !134
   %296 = fsub float 1.000000e+00, %270
   %297 = tail call noundef float @logf(float noundef %270) #21, !tbaa !134
   %298 = fadd float %296, %297
@@ -8804,6 +8804,9 @@ declare i32 @llvm.umin.i32(i32, i32) #25
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.fshl.i64(i64, i64, i64) #25
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.log.f32(float) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #26

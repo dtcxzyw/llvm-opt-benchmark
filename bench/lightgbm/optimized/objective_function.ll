@@ -21504,7 +21504,7 @@ _ZNK8LightGBM14LambdarankNDCG10GetSigmoidEd.exit: ; preds = %149, %109, %151
 
 .lr.ph176.preheader:                              ; preds = %.critedge
   %182 = fadd double %.1, 1.000000e+00
-  %183 = tail call double @log2(double noundef %182) #14, !tbaa !127
+  %183 = tail call double @llvm.log2.f64(double %182), !tbaa !127
   %184 = fdiv double %183, %.1
   %smax200 = tail call i32 @llvm.smax.i32(i32 %2, i32 1)
   %wide.trip.count201 = zext nneg i32 %smax200 to i64
@@ -22573,9 +22573,6 @@ declare i32 @__kmpc_dispatch_next_4(ptr, i32, ptr, ptr, ptr, ptr) local_unnamed_
 
 ; Function Attrs: nounwind
 declare void @__kmpc_dispatch_deinit(ptr, i32) local_unnamed_addr #14
-
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @log2(double noundef) local_unnamed_addr #26
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZNK8LightGBM14LambdarankNDCG23GetGradientsForOneQueryEiiPKfPKdPfSF_EUliiE_EEEvT_SI_T0_(ptr %0, ptr %1, ptr %2) local_unnamed_addr #3 comdat {
@@ -38772,6 +38769,9 @@ declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.log.f64(double) #33
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.log2.f64(double) #33
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #33
