@@ -25760,7 +25760,7 @@ rb_array_const_ptr.exit:                          ; preds = %25, %27
   %37 = load ptr, ptr %5, align 8, !tbaa !95
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %38 = load volatile i64, ptr %37, align 8, !tbaa !7
-  br label %51
+  br label %52
 
 39:                                               ; preds = %RARRAY_LENINT.exit
   %40 = icmp ugt i64 %.0.i.i, 2305843009213693951
@@ -25775,30 +25775,30 @@ rbimpl_size_mul_or_raise.exit:                    ; preds = %39
   %43 = alloca i8, i64 %42, align 16
   br i1 %.not.i.i, label %46, label %44
 
-44:                                               ; preds = %rbimpl_size_mul_or_raise.exit
-  %45 = getelementptr inbounds nuw i8, ptr %6, i64 16
+45:                                               ; preds = %rbimpl_size_mul_or_raise.exit
+  %46 = getelementptr inbounds nuw i8, ptr %6, i64 16
   br label %rbimpl_size_mul_or_raise.exit18
 
-46:                                               ; preds = %rbimpl_size_mul_or_raise.exit
-  %47 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %48 = load ptr, ptr %47, align 8, !tbaa !26
+47:                                               ; preds = %rbimpl_size_mul_or_raise.exit
+  %48 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %49 = load ptr, ptr %48, align 8, !tbaa !26
   br label %rbimpl_size_mul_or_raise.exit18
 
-rbimpl_size_mul_or_raise.exit18:                  ; preds = %46, %44
-  %.0.i16 = phi ptr [ %45, %44 ], [ %48, %46 ]
+rbimpl_size_mul_or_raise.exit18:                  ; preds = %47, %45
+  %.0.i16 = phi ptr [ %46, %44 ], [ %49, %46 ]
   %.not.i19 = icmp eq i64 %.0.i.i, 0
-  br i1 %.not.i19, label %ruby_nonempty_memcpy.exit, label %49
+  br i1 %.not.i19, label %ruby_nonempty_memcpy.exit, label %50
 
-49:                                               ; preds = %rbimpl_size_mul_or_raise.exit18
+50:                                               ; preds = %rbimpl_size_mul_or_raise.exit18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 %43, ptr noundef nonnull readonly align 1 %.0.i16, i64 noundef %42, i1 noundef false) #20
   br label %ruby_nonempty_memcpy.exit
 
-ruby_nonempty_memcpy.exit:                        ; preds = %rbimpl_size_mul_or_raise.exit18, %49
-  %50 = call fastcc i64 @rb_funcallv_scope(i64 noundef %0, i64 noundef %1, i32 noundef %17, ptr noundef nonnull %43, i32 noundef 1)
-  br label %51
+ruby_nonempty_memcpy.exit:                        ; preds = %rbimpl_size_mul_or_raise.exit18, %50
+  %51 = call fastcc i64 @rb_funcallv_scope(i64 noundef %0, i64 noundef %1, i32 noundef %17, ptr noundef nonnull %43, i32 noundef 1)
+  br label %52
 
-51:                                               ; preds = %ruby_nonempty_memcpy.exit, %rb_array_const_ptr.exit
-  %.0 = phi i64 [ %36, %rb_array_const_ptr.exit ], [ %50, %ruby_nonempty_memcpy.exit ]
+52:                                               ; preds = %ruby_nonempty_memcpy.exit, %rb_array_const_ptr.exit
+  %.0 = phi i64 [ %36, %rb_array_const_ptr.exit ], [ %51, %ruby_nonempty_memcpy.exit ]
   ret i64 %.0
 }
 

@@ -10136,12 +10136,12 @@ _ZNK10StringView10startsWithES_.exit.i:           ; preds = %entry
   %tobool1.not.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i, 0
   %spec.select.idx = select i1 %tobool1.not.i.i.i.i.i.i, i64 4, i64 0
   %spec.select = getelementptr inbounds nuw i8, ptr %1, i64 %spec.select.idx
-  %spec.select354 = select i1 %tobool1.not.i.i.i.i.i.i, i16 128, i16 0
+  %spec.select355 = select i1 %tobool1.not.i.i.i.i.i.i, i16 128, i16 0
   br label %_ZN10StringView12consumeFrontES_.exit.thread
 
 _ZN10StringView12consumeFrontES_.exit.thread:     ; preds = %_ZNK10StringView10startsWithES_.exit.i, %entry
   %2 = phi ptr [ %1, %entry ], [ %spec.select, %_ZNK10StringView10startsWithES_.exit.i ]
-  %3 = phi i16 [ 0, %entry ], [ %spec.select354, %_ZNK10StringView10startsWithES_.exit.i ]
+  %3 = phi i16 [ 0, %entry ], [ %spec.select355, %_ZNK10StringView10startsWithES_.exit.i ]
   %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %2, i64 1
   store ptr %incdec.ptr.i.i, ptr %MangledName, align 8
   %4 = load i8, ptr %2, align 1
@@ -10314,8 +10314,8 @@ if.then6:                                         ; preds = %_ZN10StringView12co
   %add.i = add i64 %11, 7
   %sub.i = add i64 %add.i, %12
   %and.i = and i64 %sub.i, -8
-  %reass.sub368 = sub i64 %and.i, %11
-  %add8.i = add i64 %reass.sub368, 72
+  %reass.sub369 = sub i64 %and.i, %11
+  %add8.i = add i64 %reass.sub369, 72
   store i64 %add8.i, ptr %Used.i, align 8
   %13 = load ptr, ptr %Arena, align 8
   %Used10.i = getelementptr inbounds nuw i8, ptr %13, i64 8
@@ -10915,10 +10915,10 @@ _ZN12_GLOBAL__N_19Demangler14demangleSignedER10StringView.exit252: ; preds = %if
   br label %if.end35
 
 if.end35:                                         ; preds = %if.else, %_ZN12_GLOBAL__N_19Demangler14demangleSignedER10StringView.exit252, %_ZN12_GLOBAL__N_19Demangler14demangleSignedER10StringView.exit
-  %conv5293 = phi i32 [ %conv5, %_ZN12_GLOBAL__N_19Demangler14demangleSignedER10StringView.exit ], [ %conv5289, %_ZN12_GLOBAL__N_19Demangler14demangleSignedER10StringView.exit252 ], [ %conv5289, %if.else ]
-  %or291 = phi i16 [ %or, %_ZN12_GLOBAL__N_19Demangler14demangleSignedER10StringView.exit ], [ %or288, %_ZN12_GLOBAL__N_19Demangler14demangleSignedER10StringView.exit252 ], [ %or288, %if.else ]
+  %conv5294 = phi i32 [ %conv5, %_ZN12_GLOBAL__N_19Demangler14demangleSignedER10StringView.exit ], [ %conv5289, %_ZN12_GLOBAL__N_19Demangler14demangleSignedER10StringView.exit252 ], [ %conv5289, %if.else ]
+  %or292 = phi i16 [ %or, %_ZN12_GLOBAL__N_19Demangler14demangleSignedER10StringView.exit ], [ %or288, %_ZN12_GLOBAL__N_19Demangler14demangleSignedER10StringView.exit252 ], [ %or288, %if.else ]
   %TTN.0 = phi ptr [ %call2.i.sink23.i, %_ZN12_GLOBAL__N_19Demangler14demangleSignedER10StringView.exit ], [ %call2.i.sink23.i48, %_ZN12_GLOBAL__N_19Demangler14demangleSignedER10StringView.exit252 ], [ null, %if.else ]
-  %and37 = and i32 %conv5293, 256
+  %and37 = and i32 %conv5294, 256
   %tobool38.not = icmp eq i32 %and37, 0
   br i1 %tobool38.not, label %if.else42, label %if.then39
 
@@ -10932,8 +10932,8 @@ if.then39:                                        ; preds = %if.end35
   %add.i254 = add i64 %67, 7
   %sub.i255 = add i64 %add.i254, %68
   %and.i256 = and i64 %sub.i255, -8
-  %reass.sub369 = sub i64 %and.i256, %67
-  %add8.i258 = add i64 %reass.sub369, 56
+  %reass.sub370 = sub i64 %and.i256, %67
+  %add8.i258 = add i64 %reass.sub370, 56
   store i64 %add8.i258, ptr %Used.i253, align 8
   %69 = load ptr, ptr %Arena40, align 8
   %Used10.i259 = getelementptr inbounds nuw i8, ptr %69, i64 8
@@ -10984,7 +10984,7 @@ _ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_21FunctionSignatureNodeEJEEEPT_D
   br label %if.end48
 
 if.else42:                                        ; preds = %if.end35
-  %and44 = and i32 %conv5293, 24
+  %and44 = and i32 %conv5294, 24
   %tobool45.not = icmp eq i32 %and44, 0
   %call47 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_19Demangler20demangleFunctionTypeER10StringViewb(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull align 8 dereferenceable(16) %MangledName, i1 noundef zeroext %tobool45.not)
   br label %if.end48
@@ -11011,7 +11011,7 @@ if.then50:                                        ; preds = %if.end48
 if.end52:                                         ; preds = %if.then50, %if.end48
   %FSN.1 = phi ptr [ %TTN.0, %if.then50 ], [ %FSN.0, %if.end48 ]
   %FunctionClass = getelementptr inbounds nuw i8, ptr %FSN.1, i64 22
-  store i16 %or291, ptr %FunctionClass, align 2
+  store i16 %or292, ptr %FunctionClass, align 2
   %Arena53 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %75 = load ptr, ptr %Arena53, align 8
   %76 = load ptr, ptr %75, align 8
@@ -11021,8 +11021,8 @@ if.end52:                                         ; preds = %if.then50, %if.end4
   %add.i270 = add i64 %77, 7
   %sub.i271 = add i64 %add.i270, %78
   %and.i272 = and i64 %sub.i271, -8
-  %reass.sub370 = sub i64 %and.i272, %77
-  %add8.i274 = add i64 %reass.sub370, 32
+  %reass.sub371 = sub i64 %and.i272, %77
+  %add8.i274 = add i64 %reass.sub371, 32
   store i64 %add8.i274, ptr %Used.i269, align 8
   %79 = load ptr, ptr %Arena53, align 8
   %Used10.i275 = getelementptr inbounds nuw i8, ptr %79, i64 8

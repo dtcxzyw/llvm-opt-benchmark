@@ -7543,7 +7543,7 @@ _ZN11hb_vector_tI9hb_pair_tIiiELb0EE5allocEjb.exit.i: ; preds = %.thread.i.i
 
 .lr.ph.us.preheader:                              ; preds = %.lr.ph64
   %71 = call i16 @llvm.umax.i16(i16 %69, i16 1)
-  %72 = zext i16 %69 to i64
+  %wide.trip.count73 = zext i16 %69 to i64
   %umax72 = call i32 @llvm.umax.i32(i32 %44, i32 1)
   %wide.trip.count73 = zext nneg i32 %umax72 to i64
   %wide.trip.count = zext i16 %71 to i64
@@ -7556,54 +7556,54 @@ _ZN11hb_vector_tI9hb_pair_tIiiELb0EE5allocEjb.exit.i: ; preds = %.thread.i.i
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
   %indvars.iv69 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next70, %._crit_edge.us ]
-  %73 = mul nuw nsw i64 %indvars.iv69, %72
-  %74 = getelementptr inbounds nuw %"struct.OT::HBFixed", ptr %40, i64 %73
-  br label %75
+  %72 = mul nuw nsw i64 %indvars.iv69, %72
+  %73 = getelementptr inbounds nuw %"struct.OT::HBFixed", ptr %40, i64 %72
+  br label %74
 
-75:                                               ; preds = %.lr.ph.us, %85
+74:                                               ; preds = %.lr.ph.us, %84
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %85 ]
   %.02356.us = phi i32 [ -1, %.lr.ph.us ], [ %.3.ph.us, %85 ]
   %.02455.us = phi i32 [ -1, %.lr.ph.us ], [ %.327.ph.us, %85 ]
-  %76 = getelementptr inbounds nuw %"struct.OT::HBFixed", ptr %74, i64 %indvars.iv
-  %77 = load i16, ptr %76, align 1, !tbaa !104
-  %.not29.us = icmp eq i16 %77, 0
-  br i1 %.not29.us, label %85, label %78
+  %75 = getelementptr inbounds nuw %"struct.OT::HBFixed", ptr %73, i64 %indvars.iv
+  %76 = load i16, ptr %75, align 1, !tbaa !104
+  %.not29.us = icmp eq i16 %76, 0
+  br i1 %.not29.us, label %84, label %77
 
-78:                                               ; preds = %75
-  %79 = icmp eq i32 %.02455.us, -1
-  %80 = trunc nuw nsw i64 %indvars.iv to i32
-  br i1 %79, label %85, label %81
+77:                                               ; preds = %74
+  %78 = icmp eq i32 %.02455.us, -1
+  %79 = trunc nuw nsw i64 %indvars.iv to i32
+  br i1 %78, label %84, label %80
 
-81:                                               ; preds = %78
-  %82 = icmp eq i32 %.02356.us, -1
-  br i1 %82, label %85, label %._crit_edge.us
+80:                                               ; preds = %77
+  %81 = icmp eq i32 %.02356.us, -1
+  br i1 %81, label %84, label %._crit_edge.us
 
-._crit_edge.us:                                   ; preds = %85, %81
+._crit_edge.us:                                   ; preds = %84, %80
   %.125.us = phi i32 [ -1, %81 ], [ %.327.ph.us, %85 ]
   %.1.us = phi i32 [ -1, %81 ], [ %.3.ph.us, %85 ]
-  %83 = load ptr, ptr %70, align 8, !tbaa !294
-  %84 = getelementptr inbounds nuw %struct.hb_pair_t, ptr %83, i64 %indvars.iv69
+  %82 = load ptr, ptr %70, align 8, !tbaa !294
+  %83 = getelementptr inbounds nuw %struct.hb_pair_t, ptr %82, i64 %indvars.iv69
   %.sroa.4.0.insert.ext.us = zext i32 %.1.us to i64
   %.sroa.4.0.insert.shift.us = shl nuw i64 %.sroa.4.0.insert.ext.us, 32
   %.sroa.0.0.insert.ext.us = zext i32 %.125.us to i64
   %.sroa.0.0.insert.insert.us = or disjoint i64 %.sroa.4.0.insert.shift.us, %.sroa.0.0.insert.ext.us
-  store i64 %.sroa.0.0.insert.insert.us, ptr %84, align 4
+  store i64 %.sroa.0.0.insert.insert.us, ptr %83, align 4
   %indvars.iv.next70 = add nuw nsw i64 %indvars.iv69, 1
   %exitcond74.not = icmp eq i64 %indvars.iv.next70, %wide.trip.count73
   br i1 %exitcond74.not, label %_ZN11hb_vector_tI9hb_pair_tIiiELb0EE6resizeEibb.exit.thread, label %.lr.ph.us, !llvm.loop !295
 
-85:                                               ; preds = %81, %78, %75
-  %.327.ph.us = phi i32 [ %.02455.us, %75 ], [ %80, %78 ], [ %.02455.us, %81 ]
-  %.3.ph.us = phi i32 [ %.02356.us, %75 ], [ %.02356.us, %78 ], [ %80, %81 ]
+84:                                               ; preds = %80, %77, %74
+  %.327.ph.us = phi i32 [ %.02455.us, %75 ], [ %79, %78 ], [ %.02455.us, %81 ]
+  %.3.ph.us = phi i32 [ %.02356.us, %75 ], [ %.02356.us, %78 ], [ %79, %81 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %75, !llvm.loop !296
+  br i1 %exitcond.not, label %._crit_edge.us, label %74, !llvm.loop !296
 
 .lr.ph64.split:                                   ; preds = %.lr.ph64.split.preheader, %.lr.ph64.split
   %indvars.iv75 = phi i64 [ 0, %.lr.ph64.split.preheader ], [ %indvars.iv.next76, %.lr.ph64.split ]
-  %86 = load ptr, ptr %70, align 8, !tbaa !294
-  %87 = getelementptr inbounds nuw %struct.hb_pair_t, ptr %86, i64 %indvars.iv75
-  store i64 -1, ptr %87, align 4
+  %85 = load ptr, ptr %70, align 8, !tbaa !294
+  %86 = getelementptr inbounds nuw %struct.hb_pair_t, ptr %85, i64 %indvars.iv75
+  store i64 -1, ptr %86, align 4
   %indvars.iv.next76 = add nuw nsw i64 %indvars.iv75, 1
   %exitcond80.not = icmp eq i64 %indvars.iv.next76, %wide.trip.count79
   br i1 %exitcond80.not, label %_ZN11hb_vector_tI9hb_pair_tIiiELb0EE6resizeEibb.exit.thread, label %.lr.ph64.split, !llvm.loop !295

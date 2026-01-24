@@ -78,11 +78,11 @@ define dso_local void @uv__platform_invalidate_fd(ptr noundef readonly captures(
   %13 = getelementptr inbounds nuw ptr, ptr %5, i64 %12
   %14 = load ptr, ptr %13, align 8, !tbaa !23
   %.not = icmp ne ptr %10, null
-  %15 = icmp ne ptr %14, null
-  %or.cond = select i1 %.not, i1 %15, i1 false
-  br i1 %or.cond, label %.lr.ph.preheader, label %.loopexit
+  %16 = icmp ne ptr %14, null
+  %or.cond = select i1 %.not, i1 %16, i1 false
+  br i1 %or.cond, label %.lr.ph, label %.loopexit
 
-.lr.ph.preheader:                                 ; preds = %2
+.lr.ph:                                           ; preds = %2
   %16 = ptrtoint ptr %14 to i64
   br label %.lr.ph
 

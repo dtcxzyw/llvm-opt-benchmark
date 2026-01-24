@@ -4606,21 +4606,21 @@ define hidden { ptr, i64 } @"_ZN121_$LT$triomphe..unique_arc..UniqueArc$LT$$u5b$
   br i1 %15, label %"_ZN138_$LT$triomphe..iterator_as_exact_size_iterator..IteratorAsExactSizeIterator$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc596ec9e01ca4aebE.exit.thread.sink.split.i", label %.lr.ph.i
 
 16:                                               ; preds = %"_ZN138_$LT$triomphe..iterator_as_exact_size_iterator..IteratorAsExactSizeIterator$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc596ec9e01ca4aebE.exit22.i"
-  %.pre42.pre.i = load ptr, ptr %.sroa.425.0..sroa_idx, align 8, !alias.scope !1370
-  %.pre43.pre.i = load ptr, ptr %4, align 8, !alias.scope !1370
-  %17 = icmp eq ptr %.pre43.pre.i, %.pre42.pre.i
+  %.pre41.pre.i = load ptr, ptr %.sroa.425.0..sroa_idx, align 8, !alias.scope !1370
+  %.pre42.pre.i = load ptr, ptr %4, align 8, !alias.scope !1370
+  %17 = icmp eq ptr %.pre42.pre.i, %.pre41.pre.i
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !1367
   call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !1367
   br i1 %17, label %45, label %"_ZN138_$LT$triomphe..iterator_as_exact_size_iterator..IteratorAsExactSizeIterator$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc596ec9e01ca4aebE.exit.i"
 
-"_ZN138_$LT$triomphe..iterator_as_exact_size_iterator..IteratorAsExactSizeIterator$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc596ec9e01ca4aebE.exit.thread.sink.split.i": ; preds = %.thread51.i, %"_ZN8triomphe3arc63Arc$LT$triomphe..header..HeaderSlice$LT$H$C$$u5b$T$u5d$$GT$$GT$29allocate_for_header_and_slice17h6a297a636b6ae1bbE.exit.i"
+"_ZN138_$LT$triomphe..iterator_as_exact_size_iterator..IteratorAsExactSizeIterator$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc596ec9e01ca4aebE.exit.thread.sink.split.i": ; preds = %.thread50.i, %"_ZN8triomphe3arc63Arc$LT$triomphe..header..HeaderSlice$LT$H$C$$u5b$T$u5d$$GT$$GT$29allocate_for_header_and_slice17h6a297a636b6ae1bbE.exit.i"
   call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !1367
   br label %45
 
 "_ZN138_$LT$triomphe..iterator_as_exact_size_iterator..IteratorAsExactSizeIterator$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc596ec9e01ca4aebE.exit.i": ; preds = %16
-  %18 = getelementptr inbounds nuw i8, ptr %.pre43.pre.i, i64 568
+  %18 = getelementptr inbounds nuw i8, ptr %.pre42.pre.i, i64 568
   store ptr %18, ptr %4, align 8, !alias.scope !1370
-  %19 = call { i64, ptr } @"_ZN13rust_analyzer6reload58_$LT$impl$u20$rust_analyzer..global_state..GlobalState$GT$17switch_workspaces28_$u7b$$u7b$closure$u7d$$u7d$17h8ce42daefb26dcf8E.llvm.4216031887591111895"(ptr noalias noundef nonnull align 8 dereferenceable(8) %.sroa.5.0..sroa_idx, ptr noalias noundef nonnull readonly align 8 dereferenceable(568) %.pre43.pre.i)
+  %19 = call { i64, ptr } @"_ZN13rust_analyzer6reload58_$LT$impl$u20$rust_analyzer..global_state..GlobalState$GT$17switch_workspaces28_$u7b$$u7b$closure$u7d$$u7d$17h8ce42daefb26dcf8E.llvm.4216031887591111895"(ptr noalias noundef nonnull align 8 dereferenceable(8) %.sroa.5.0..sroa_idx, ptr noalias noundef nonnull readonly align 8 dereferenceable(568) %.pre42.pre.i)
   %20 = extractvalue { i64, ptr } %19, 0
   %21 = extractvalue { i64, ptr } %19, 1
   store i64 %20, ptr %2, align 8, !noalias !1367
@@ -4635,20 +4635,20 @@ define hidden { ptr, i64 } @"_ZN121_$LT$triomphe..unique_arc..UniqueArc$LT$$u5b$
   br label %30
 
 ._crit_edge.i:                                    ; preds = %41
-  %.pre41.i = load ptr, ptr %4, align 8, !alias.scope !1377
+  %.pre40.i = load ptr, ptr %4, align 8, !alias.scope !1377
   %.pre.i = load ptr, ptr %.sroa.425.0..sroa_idx, align 8, !alias.scope !1377
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !1367
-  %24 = icmp eq ptr %.pre41.i, %.pre.i
-  br i1 %24, label %.thread51.i, label %"_ZN138_$LT$triomphe..iterator_as_exact_size_iterator..IteratorAsExactSizeIterator$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc596ec9e01ca4aebE.exit22.i"
+  %24 = icmp eq ptr %.pre40.i, %.pre.i
+  br i1 %24, label %.thread50.i, label %"_ZN138_$LT$triomphe..iterator_as_exact_size_iterator..IteratorAsExactSizeIterator$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc596ec9e01ca4aebE.exit22.i"
 
-.thread51.i:                                      ; preds = %._crit_edge.i
+.thread50.i:                                      ; preds = %._crit_edge.i
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !1367
   br label %"_ZN138_$LT$triomphe..iterator_as_exact_size_iterator..IteratorAsExactSizeIterator$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc596ec9e01ca4aebE.exit.thread.sink.split.i"
 
 "_ZN138_$LT$triomphe..iterator_as_exact_size_iterator..IteratorAsExactSizeIterator$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc596ec9e01ca4aebE.exit22.i": ; preds = %._crit_edge.i
-  %25 = getelementptr inbounds nuw i8, ptr %.pre41.i, i64 568
+  %25 = getelementptr inbounds nuw i8, ptr %.pre40.i, i64 568
   store ptr %25, ptr %4, align 8, !alias.scope !1377
-  %26 = call { i64, ptr } @"_ZN13rust_analyzer6reload58_$LT$impl$u20$rust_analyzer..global_state..GlobalState$GT$17switch_workspaces28_$u7b$$u7b$closure$u7d$$u7d$17h8ce42daefb26dcf8E.llvm.4216031887591111895"(ptr noalias noundef nonnull align 8 dereferenceable(8) %.sroa.5.0..sroa_idx, ptr noalias noundef nonnull readonly align 8 dereferenceable(568) %.pre41.i)
+  %26 = call { i64, ptr } @"_ZN13rust_analyzer6reload58_$LT$impl$u20$rust_analyzer..global_state..GlobalState$GT$17switch_workspaces28_$u7b$$u7b$closure$u7d$$u7d$17h8ce42daefb26dcf8E.llvm.4216031887591111895"(ptr noalias noundef nonnull align 8 dereferenceable(8) %.sroa.5.0..sroa_idx, ptr noalias noundef nonnull readonly align 8 dereferenceable(568) %.pre40.i)
   %27 = extractvalue { i64, ptr } %26, 0
   %28 = extractvalue { i64, ptr } %26, 1
   store i64 %27, ptr %3, align 8, !noalias !1367

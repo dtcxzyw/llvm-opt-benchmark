@@ -775,7 +775,7 @@ _ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %_ZN5mmu_t4loadIlEET
   %73 = icmp eq i64 %15, 15
   br i1 %73, label %74, label %79, !prof !7
 
-74:                                               ; preds = %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
+74:; preds = %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
   %75 = call ptr @__cxa_allocate_exception(i64 32) #18
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 8
   store i64 2, ptr %76, align 8, !tbaa !8
@@ -942,7 +942,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z15logged_rv32e_ldP11pro
   %16 = lshr i64 %1, 7
   %17 = and i64 %16, 31
   %.not = icmp eq i64 %17, 0
-  br i1 %.not, label %89, label %18
+  br i1 %.not, label %82, label %18
 
 18:                                               ; preds = %15
   %19 = and i64 %1, 128
@@ -1090,20 +1090,20 @@ _ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %_ZN5mmu_t4loadIlEET
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %86 = add nuw nsw i64 %75, 16
   store i64 %86, ptr %7, align 8, !tbaa !3
-  %87 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt3mapIm10float128_tSt4lessImESaISt4pairIKmS0_EEEixEOm(ptr noundef nonnull align 8 dereferenceable(48) %74, ptr noundef nonnull align 8 dereferenceable(8) %7)
-  store i64 %85, ptr %87, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %87, i64 8
+  %80 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt3mapIm10float128_tSt4lessImESaISt4pairIKmS0_EEEixEOm(ptr noundef nonnull align 8 dereferenceable(48) %74, ptr noundef nonnull align 8 dereferenceable(8) %7)
+  store i64 %85, ptr %80, align 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %80, i64 8
   store i64 0, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !174
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %88 = getelementptr inbounds nuw i8, ptr %77, i64 8
-  store i64 %85, ptr %88, align 8, !tbaa !3
-  br label %89
+  %81 = getelementptr inbounds nuw i8, ptr %77, i64 8
+  store i64 %85, ptr %81, align 8, !tbaa !3
+  br label %82
 
-89:                                               ; preds = %84, %15
-  %90 = shl i64 %2, 32
-  %91 = add i64 %90, 17179869184
-  %92 = ashr exact i64 %91, 32
-  ret i64 %92
+82:                                               ; preds = %84, %15
+  %83 = shl i64 %2, 32
+  %84 = add i64 %83, 17179869184
+  %85 = ashr exact i64 %84, 32
+  ret i64 %85
 }
 
 ; Function Attrs: mustprogress uwtable

@@ -2035,26 +2035,26 @@ define internal fastcc noundef range(i32 -2, -2147483648) i32 @_ZN9Stockfish12_G
 
 ._crit_edge.thread:                               ; preds = %2, %._crit_edge
   %.042.lcssa63 = phi i32 [ %.1, %._crit_edge ], [ -2, %2 ]
-  %33 = call fastcc noundef i32 @_ZN9Stockfish12_GLOBAL__N_111probe_tableILNS0_6TBTypeE0ENS_10Tablebases8WDLScoreEEET0_RKNS_8PositionEPNS3_10ProbeStateES4_(ptr noundef nonnull align 8 dereferenceable(865) %0, ptr noundef %1)
-  %34 = load i32, ptr %1, align 4
-  %35 = icmp eq i32 %34, 0
-  br i1 %35, label %.loopexit, label %36
+  %31 = call fastcc noundef i32 @_ZN9Stockfish12_GLOBAL__N_111probe_tableILNS0_6TBTypeE0ENS_10Tablebases8WDLScoreEEET0_RKNS_8PositionEPNS3_10ProbeStateES4_(ptr noundef nonnull align 8 dereferenceable(865) %0, ptr noundef %1)
+  %32 = load i32, ptr %1, align 4
+  %33 = icmp eq i32 %32, 0
+  br i1 %33, label %.loopexit, label %34
 
-36:                                               ; preds = %._crit_edge.thread
-  %.not47 = icmp slt i32 %.042.lcssa63, %33
+34:                                               ; preds = %._crit_edge.thread
+  %.not47 = icmp slt i32 %.042.lcssa63, %31
   br i1 %.not47, label %.loopexit.sink.split, label %.thread
 
-.thread:                                          ; preds = %._crit_edge, %36
+.thread:                                          ; preds = %._crit_edge, %34
   %.042.lcssa6468 = phi i32 [ %.042.lcssa63, %36 ], [ %.1, %._crit_edge ]
-  %37 = phi i1 [ false, %36 ], [ true, %._crit_edge ]
-  %38 = icmp sgt i32 %.042.lcssa6468, 0
-  %39 = or i1 %38, %37
-  %40 = select i1 %39, i32 2, i32 1
+  %35 = phi i1 [ false, %36 ], [ true, %._crit_edge ]
+  %36 = icmp sgt i32 %.042.lcssa6468, 0
+  %37 = or i1 %36, %35
+  %38 = select i1 %37, i32 2, i32 1
   br label %.loopexit.sink.split
 
-.loopexit.sink.split:                             ; preds = %26, %36, %.thread
-  %.sink = phi i32 [ 1, %36 ], [ %40, %.thread ], [ 2, %26 ]
-  %.0.ph = phi i32 [ %33, %36 ], [ %.042.lcssa6468, %.thread ], [ 2, %26 ]
+.loopexit.sink.split:                             ; preds = %26, %34, %.thread
+  %.sink = phi i32 [ 1, %36 ], [ %38, %.thread ], [ 2, %26 ]
+  %.0.ph = phi i32 [ %31, %36 ], [ %.042.lcssa6468, %.thread ], [ 2, %26 ]
   store i32 %.sink, ptr %1, align 4
   br label %.loopexit
 
@@ -3865,26 +3865,26 @@ define internal fastcc noundef range(i32 -2, 4094) i32 @_ZN9Stockfish12_GLOBAL__
 
 ._crit_edge.thread:                               ; preds = %2, %._crit_edge
   %.045.lcssa67 = phi i32 [ %.1, %._crit_edge ], [ -2, %2 ]
-  %40 = call fastcc noundef i32 @_ZN9Stockfish12_GLOBAL__N_111probe_tableILNS0_6TBTypeE0ENS_10Tablebases8WDLScoreEEET0_RKNS_8PositionEPNS3_10ProbeStateES4_(ptr noundef nonnull align 8 dereferenceable(865) %0, ptr noundef %1)
-  %41 = load i32, ptr %1, align 4
-  %42 = icmp eq i32 %41, 0
-  br i1 %42, label %.loopexit, label %43
+  %38 = call fastcc noundef i32 @_ZN9Stockfish12_GLOBAL__N_111probe_tableILNS0_6TBTypeE0ENS_10Tablebases8WDLScoreEEET0_RKNS_8PositionEPNS3_10ProbeStateES4_(ptr noundef nonnull align 8 dereferenceable(865) %0, ptr noundef %1)
+  %39 = load i32, ptr %1, align 4
+  %40 = icmp eq i32 %39, 0
+  br i1 %40, label %.loopexit, label %41
 
-43:                                               ; preds = %._crit_edge.thread
-  %.not50 = icmp slt i32 %.045.lcssa67, %40
+41:                                               ; preds = %._crit_edge.thread
+  %.not50 = icmp slt i32 %.045.lcssa67, %38
   br i1 %.not50, label %.loopexit.sink.split, label %.thread
 
-.thread:                                          ; preds = %._crit_edge, %43
+.thread:                                          ; preds = %._crit_edge, %41
   %.045.lcssa6872 = phi i32 [ %.045.lcssa67, %43 ], [ %.1, %._crit_edge ]
-  %44 = phi i1 [ false, %43 ], [ true, %._crit_edge ]
-  %45 = icmp sgt i32 %.045.lcssa6872, 0
-  %46 = or i1 %45, %44
-  %47 = select i1 %46, i32 2, i32 1
+  %42 = phi i1 [ false, %43 ], [ true, %._crit_edge ]
+  %43 = icmp sgt i32 %.045.lcssa6872, 0
+  %44 = or i1 %43, %42
+  %45 = select i1 %44, i32 2, i32 1
   br label %.loopexit.sink.split
 
-.loopexit.sink.split:                             ; preds = %33, %43, %.thread
-  %.sink = phi i32 [ 1, %43 ], [ %47, %.thread ], [ 2, %33 ]
-  %.0.ph = phi i32 [ %40, %43 ], [ %.045.lcssa6872, %.thread ], [ 2, %33 ]
+.loopexit.sink.split:                             ; preds = %33, %41, %.thread
+  %.sink = phi i32 [ 1, %43 ], [ %45, %.thread ], [ 2, %33 ]
+  %.0.ph = phi i32 [ %38, %43 ], [ %.045.lcssa6872, %.thread ], [ 2, %33 ]
   store i32 %.sink, ptr %1, align 4
   br label %.loopexit
 

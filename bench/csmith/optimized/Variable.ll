@@ -1736,9 +1736,9 @@ define dso_local noundef zeroext i1 @_Z19equal_variable_setsRKSt6vectorIPK8Varia
 
 .lr.ph:                                           ; preds = %.preheader
   %.not.i = icmp eq ptr %11, %12
-  br i1 %.not.i, label %_Z18is_variable_in_setRKSt6vectorIPK8VariableSaIS2_EES2_.exit.thread, label %.lr.ph.i.preheader.preheader
+  br i1 %.not.i, label %_Z18is_variable_in_setRKSt6vectorIPK8VariableSaIS2_EES2_.exit.thread, label %.lr.ph.i.preheader
 
-.lr.ph.i.preheader.preheader:                     ; preds = %.lr.ph
+.lr.ph.i.preheader:                               ; preds = %.lr.ph
   %umax = tail call i64 @llvm.umax.i64(i64 %9, i64 1)
   br label %.lr.ph.i.preheader
 
@@ -1795,13 +1795,13 @@ define dso_local noundef zeroext i1 @_Z17sub_variable_setsRKSt6vectorIPK8Variabl
 
 .lr.ph:                                           ; preds = %.preheader
   %.not.i = icmp eq ptr %11, %12
-  br i1 %.not.i, label %_Z18is_variable_in_setRKSt6vectorIPK8VariableSaIS2_EES2_.exit.thread, label %.lr.ph.i.preheader.preheader
+  br i1 %.not.i, label %_Z18is_variable_in_setRKSt6vectorIPK8VariableSaIS2_EES2_.exit.thread, label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader.preheader:                     ; preds = %.lr.ph
   %umax = tail call i64 @llvm.umax.i64(i64 %9, i64 1)
   br label %.lr.ph.i.preheader
 
-.lr.ph.i.preheader:                               ; preds = %.lr.ph.i.preheader.preheader, %_Z18is_variable_in_setRKSt6vectorIPK8VariableSaIS2_EES2_.exit
+.lr.ph.i.preheader:                               ; preds = %.lr.ph.i.preheader, %_Z18is_variable_in_setRKSt6vectorIPK8VariableSaIS2_EES2_.exit
   %.011 = phi i64 [ %24, %_Z18is_variable_in_setRKSt6vectorIPK8VariableSaIS2_EES2_.exit ], [ 0, %.lr.ph.i.preheader.preheader ]
   %17 = getelementptr inbounds nuw ptr, ptr %5, i64 %.011
   %18 = load ptr, ptr %17, align 8, !tbaa !37
@@ -3643,7 +3643,7 @@ define dso_local noundef zeroext i1 @_ZNK8Variable16is_visible_localEPK5Block(pt
   %.not = icmp eq ptr %22, %23
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
-  %24 = freeze ptr %.pre
+  %28 = freeze ptr %.pre
   br i1 %.not, label %.preheader, label %.lr.ph
 
 .lr.ph:                                           ; preds = %17
@@ -3667,7 +3667,7 @@ define dso_local noundef zeroext i1 @_ZNK8Variable16is_visible_localEPK5Block(pt
   br i1 %exitcond39.not, label %.preheader, label %.lr.ph.split.us, !llvm.loop !155
 
 .preheader:                                       ; preds = %65, %32, %17
-  %.not9.i.i = icmp eq ptr %24, null
+  %.not9.i.i = icmp eq ptr %28, null
   br i1 %.not9.i.i, label %.preheader.split.us, label %.preheader.split
 
 .preheader.split.us:                              ; preds = %.preheader, %_Z20find_variable_in_setRKSt6vectorIP8VariableSaIS1_EEPKS0_.exit.thread.us

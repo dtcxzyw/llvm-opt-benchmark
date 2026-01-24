@@ -26911,9 +26911,9 @@ stbi__get8.exit.i204:                             ; preds = %stbi__refill_buffer
 
 stbi__readval.exit215.preheader:                  ; preds = %303
   %.not364 = icmp eq i8 %.0.i188, 0
-  br i1 %.not364, label %stbi__readval.exit215._crit_edge, label %.lr.ph353.preheader
+  br i1 %.not364, label %stbi__readval.exit215._crit_edge, label %.lr.ph353
 
-.lr.ph353.preheader:                              ; preds = %stbi__readval.exit215.preheader
+.lr.ph353:                                        ; preds = %stbi__readval.exit215.preheader
   %umax = tail call i32 @llvm.umax.i32(i32 %spec.select328, i32 1)
   br label %.lr.ph353
 
