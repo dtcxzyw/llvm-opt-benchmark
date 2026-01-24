@@ -1691,7 +1691,7 @@ _ZN3std2io5error5Error14is_interrupted17he773ad4995b9f50dE.exit.i.i: ; preds = %
   %96 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr78drop_in_place$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$17hdc02953815487505E"(i64 %.sroa.0.0.i.i, ptr %.sroa.3.0.i.i) #48
-          to label %.loopexit.split-lp unwind label %105
+          to label %.loopexit.split-lp unwind label %107
 
 97:                                               ; preds = %92
   %.val13 = load ptr, ptr %11, align 8, !alias.scope !131, !nonnull !9, !noundef !9
@@ -1706,17 +1706,18 @@ _ZN3std2io5error5Error14is_interrupted17he773ad4995b9f50dE.exit.i.i: ; preds = %
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %102 = load i64, ptr %6, align 8
   %trunc8 = trunc nuw i64 %.sroa.0.0.i.i to i1
-  %.sroa.4.1 = select i1 %trunc8, ptr %.sroa.3.0.i.i, ptr @anon.82274a64a50163a9f6a7c2c109c19d14.71
   %.sroa.7.0 = select i1 %trunc, i64 %7, i64 %102
-  %.sroa.4.0 = select i1 %trunc, ptr %.sroa.4.1, ptr %.sroa.3.0.i.i
+  %103 = xor i1 %trunc8, true
+  %104 = select i1 %trunc, i1 %103, i1 false
+  %.sroa.4.0 = select i1 %104, ptr @anon.82274a64a50163a9f6a7c2c109c19d14.71, ptr %.sroa.3.0.i.i
   %.sroa.0.0 = select i1 %trunc, i64 1, i64 %.sroa.0.0.i.i
   store i64 %.sroa.7.0, ptr %6, align 8
-  %103 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %104 = insertvalue { i64, ptr } %103, ptr %.sroa.4.0, 1
-  ret { i64, ptr } %104
+  %105 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
+  %106 = insertvalue { i64, ptr } %105, ptr %.sroa.4.0, 1
+  ret { i64, ptr } %106
 
-105:                                              ; preds = %95
-  %106 = landingpad { ptr, i32 }
+107:                                              ; preds = %95
+  %108 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hc8e2b17e1b6d1381E() #47
   unreachable

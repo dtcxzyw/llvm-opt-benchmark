@@ -6296,8 +6296,8 @@ define internal fastcc void @_ZN7glslangL19OutputConstantUnionER9TInfoSinkPKNS_1
   %wide.trip.count = zext nneg i32 %19 to i64
   br label %23
 
-23:                                               ; preds = %.lr.ph, %112
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %112 ]
+23:                                               ; preds = %.lr.ph, %113
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %113 ]
   call fastcc void @_ZN7glslangL14OutputTreeTextER9TInfoSinkPK11TIntermNodei(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %1, i32 noundef %4)
   %24 = load ptr, ptr %21, align 8
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
@@ -6305,20 +6305,20 @@ define internal fastcc void @_ZN7glslangL19OutputConstantUnionER9TInfoSinkPKNS_1
   %27 = getelementptr inbounds nuw %"class.glslang::TConstUnion", ptr %26, i64 %indvars.iv
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load i32, ptr %28, align 8
-  switch i32 %29, label %108 [
+  switch i32 %29, label %109 [
     i32 12, label %30
     i32 1, label %33
     i32 2, label %33
     i32 3, label %33
-    i32 4, label %72
-    i32 5, label %76
-    i32 6, label %80
-    i32 7, label %84
-    i32 8, label %88
-    i32 9, label %91
-    i32 10, label %94
-    i32 11, label %97
-    i32 23, label %100
+    i32 4, label %73
+    i32 5, label %77
+    i32 6, label %81
+    i32 7, label %85
+    i32 8, label %89
+    i32 9, label %92
+    i32 10, label %95
+    i32 11, label %98
+    i32 23, label %101
   ]
 
 30:                                               ; preds = %23
@@ -6330,7 +6330,7 @@ define internal fastcc void @_ZN7glslangL19OutputConstantUnionER9TInfoSinkPKNS_1
   call void @_ZN7glslang13TInfoSinkBase6appendEPKc(ptr noundef nonnull align 8 dereferenceable(48) %22, ptr noundef nonnull @.str.1187) #15
   call void @_ZN7glslang13TInfoSinkBase6appendEPKc(ptr noundef nonnull align 8 dereferenceable(48) %22, ptr noundef nonnull @.str.53) #15
   call void @_ZN7glslang13TInfoSinkBase6appendEPKc(ptr noundef nonnull align 8 dereferenceable(48) %22, ptr noundef nonnull @.str.54) #15
-  br label %112
+  br label %113
 
 33:                                               ; preds = %23, %23, %23
   %34 = load double, ptr %27, align 8
@@ -6350,167 +6350,167 @@ define internal fastcc void @_ZN7glslangL19OutputConstantUnionER9TInfoSinkPKNS_1
 
 41:                                               ; preds = %39
   %42 = fcmp ueq double %34, 0.000000e+00
-  %43 = fcmp olt double %35, 1.000000e-05
-  %44 = fcmp ogt double %35, 1.000000e+12
-  %or.cond.i = or i1 %43, %44
-  %spec.select.i = select i1 %or.cond.i, ptr @.str.1207, ptr @.str.1206
-  %.031.i = select i1 %42, ptr @.str.1206, ptr %spec.select.i
-  %45 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 340, ptr noundef nonnull %.031.i, double noundef %34) #15
-  %46 = icmp sgt i32 %45, 5
-  br i1 %46, label %47, label %65
+  %43 = fcmp uge double %35, 1.000000e-05
+  %44 = fcmp ule double %35, 1.000000e+12
+  %or.cond.not.i = and i1 %43, %44
+  %45 = or i1 %42, %or.cond.not.i
+  %.031.i = select i1 %45, ptr @.str.1206, ptr @.str.1207
+  %46 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 340, ptr noundef nonnull %.031.i, double noundef %34) #15
+  %47 = icmp sgt i32 %46, 5
+  br i1 %47, label %48, label %66
 
-47:                                               ; preds = %41
-  %48 = zext nneg i32 %45 to i64
-  %49 = getelementptr i8, ptr %6, i64 %48
-  %50 = getelementptr i8, ptr %49, i64 -5
-  %51 = load i8, ptr %50, align 1
-  %52 = icmp eq i8 %51, 101
-  br i1 %52, label %53, label %65
+48:                                               ; preds = %41
+  %49 = zext nneg i32 %46 to i64
+  %50 = getelementptr i8, ptr %6, i64 %49
+  %51 = getelementptr i8, ptr %50, i64 -5
+  %52 = load i8, ptr %51, align 1
+  %53 = icmp eq i8 %52, 101
+  br i1 %53, label %54, label %66
 
-53:                                               ; preds = %47
-  %54 = getelementptr i8, ptr %49, i64 -4
-  %55 = load i8, ptr %54, align 1
-  switch i8 %55, label %65 [
-    i8 43, label %56
-    i8 45, label %56
+54:                                               ; preds = %48
+  %55 = getelementptr i8, ptr %50, i64 -4
+  %56 = load i8, ptr %55, align 1
+  switch i8 %56, label %66 [
+    i8 43, label %57
+    i8 45, label %57
   ]
 
-56:                                               ; preds = %53, %53
-  %57 = getelementptr i8, ptr %49, i64 -3
-  %58 = load i8, ptr %57, align 1
-  %59 = icmp eq i8 %58, 48
-  br i1 %59, label %60, label %65
+57:                                               ; preds = %54, %54
+  %58 = getelementptr i8, ptr %50, i64 -3
+  %59 = load i8, ptr %58, align 1
+  %60 = icmp eq i8 %59, 48
+  br i1 %60, label %61, label %66
 
-60:                                               ; preds = %56
-  %61 = getelementptr i8, ptr %49, i64 -2
-  %62 = load i8, ptr %61, align 1
-  store i8 %62, ptr %57, align 1
-  %63 = getelementptr i8, ptr %49, i64 -1
-  %64 = load i8, ptr %63, align 1
-  store i8 %64, ptr %61, align 1
-  store i8 0, ptr %63, align 1
-  br label %65
+61:                                               ; preds = %57
+  %62 = getelementptr i8, ptr %50, i64 -2
+  %63 = load i8, ptr %62, align 1
+  store i8 %63, ptr %58, align 1
+  %64 = getelementptr i8, ptr %50, i64 -1
+  %65 = load i8, ptr %64, align 1
+  store i8 %65, ptr %62, align 1
+  store i8 0, ptr %64, align 1
+  br label %66
 
-65:                                               ; preds = %60, %56, %53, %47, %41
+66:                                               ; preds = %61, %57, %54, %48, %41
   call void @_ZN7glslang13TInfoSinkBase6appendEPKc(ptr noundef nonnull align 8 dereferenceable(48) %22, ptr noundef nonnull %6) #15
-  br i1 %cond.i, label %66, label %_ZN7glslangL12OutputDoubleER9TInfoSinkdNS_16TOutputTraverser12EExtraOutputE.exit
+  br i1 %cond.i, label %67, label %_ZN7glslangL12OutputDoubleER9TInfoSinkdNS_16TOutputTraverser12EExtraOutputE.exit
 
-66:                                               ; preds = %65
-  %67 = bitcast double %34 to i64
+67:                                               ; preds = %66
+  %68 = bitcast double %34 to i64
   call void @_ZN7glslang13TInfoSinkBase6appendEPKc(ptr noundef nonnull align 8 dereferenceable(48) %22, ptr noundef nonnull @.str.1208) #15
-  br label %68
+  br label %69
 
-68:                                               ; preds = %68, %66
-  %.036.i = phi i64 [ 0, %66 ], [ %70, %68 ]
-  %.03035.i = phi i64 [ %67, %66 ], [ %71, %68 ]
-  %.not.i = icmp sgt i64 %.03035.i, -1
+69:                                               ; preds = %69, %67
+  %.038.i = phi i64 [ 0, %67 ], [ %71, %69 ]
+  %.03037.i = phi i64 [ %68, %67 ], [ %72, %69 ]
+  %.not.i = icmp sgt i64 %.03037.i, -1
   %.str.1209..str.1210.i = select i1 %.not.i, ptr @.str.1210, ptr @.str.1209
   call void @_ZN7glslang13TInfoSinkBase6appendEPKc(ptr noundef nonnull align 8 dereferenceable(48) %22, ptr noundef nonnull %.str.1209..str.1210.i) #15
-  %69 = shl i64 %.03035.i, 1
-  %70 = add nuw nsw i64 %.036.i, 1
-  %71 = or disjoint i64 %69, 1
-  %exitcond.not.i = icmp eq i64 %70, 64
-  br i1 %exitcond.not.i, label %_ZN7glslangL12OutputDoubleER9TInfoSinkdNS_16TOutputTraverser12EExtraOutputE.exit, label %68, !llvm.loop !9
+  %70 = shl i64 %.03037.i, 1
+  %71 = add nuw nsw i64 %.038.i, 1
+  %72 = or disjoint i64 %70, 1
+  %exitcond.not.i = icmp eq i64 %71, 64
+  br i1 %exitcond.not.i, label %_ZN7glslangL12OutputDoubleER9TInfoSinkdNS_16TOutputTraverser12EExtraOutputE.exit, label %69, !llvm.loop !9
 
 _ZN7glslangL12OutputDoubleER9TInfoSinkdNS_16TOutputTraverser12EExtraOutputE.exit.sink.split: ; preds = %39, %37
   %.str.1203.sink = phi ptr [ %.str.1203..str.1204, %37 ], [ @.str.1205, %39 ]
   call void @_ZN7glslang13TInfoSinkBase6appendEPKc(ptr noundef nonnull align 8 dereferenceable(48) %22, ptr noundef nonnull %.str.1203.sink) #15
   br label %_ZN7glslangL12OutputDoubleER9TInfoSinkdNS_16TOutputTraverser12EExtraOutputE.exit
 
-_ZN7glslangL12OutputDoubleER9TInfoSinkdNS_16TOutputTraverser12EExtraOutputE.exit: ; preds = %68, %_ZN7glslangL12OutputDoubleER9TInfoSinkdNS_16TOutputTraverser12EExtraOutputE.exit.sink.split, %65
+_ZN7glslangL12OutputDoubleER9TInfoSinkdNS_16TOutputTraverser12EExtraOutputE.exit: ; preds = %69, %_ZN7glslangL12OutputDoubleER9TInfoSinkdNS_16TOutputTraverser12EExtraOutputE.exit.sink.split, %66
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @_ZN7glslang13TInfoSinkBase6appendEPKc(ptr noundef nonnull align 8 dereferenceable(48) %22, ptr noundef nonnull @.str.54) #15
-  br label %112
+  br label %113
 
-72:                                               ; preds = %23
-  %73 = load i8, ptr %27, align 8
-  %74 = sext i8 %73 to i32
-  %75 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 300, ptr noundef nonnull @.str.1188, i32 noundef %74, ptr noundef nonnull @.str.1189) #15
+73:                                               ; preds = %23
+  %74 = load i8, ptr %27, align 8
+  %75 = sext i8 %74 to i32
+  %76 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 300, ptr noundef nonnull @.str.1188, i32 noundef %75, ptr noundef nonnull @.str.1189) #15
   call void @_ZN7glslang13TInfoSinkBase6appendEPKc(ptr noundef nonnull align 8 dereferenceable(48) %22, ptr noundef nonnull %7) #15
   call void @_ZN7glslang13TInfoSinkBase6appendEPKc(ptr noundef nonnull align 8 dereferenceable(48) %22, ptr noundef nonnull @.str.54) #15
-  br label %112
+  br label %113
 
-76:                                               ; preds = %23
-  %77 = load i8, ptr %27, align 8
-  %78 = zext i8 %77 to i32
-  %79 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 300, ptr noundef nonnull @.str.1190, i32 noundef %78, ptr noundef nonnull @.str.1191) #15
+77:                                               ; preds = %23
+  %78 = load i8, ptr %27, align 8
+  %79 = zext i8 %78 to i32
+  %80 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 300, ptr noundef nonnull @.str.1190, i32 noundef %79, ptr noundef nonnull @.str.1191) #15
   call void @_ZN7glslang13TInfoSinkBase6appendEPKc(ptr noundef nonnull align 8 dereferenceable(48) %22, ptr noundef nonnull %8) #15
   call void @_ZN7glslang13TInfoSinkBase6appendEPKc(ptr noundef nonnull align 8 dereferenceable(48) %22, ptr noundef nonnull @.str.54) #15
-  br label %112
+  br label %113
 
-80:                                               ; preds = %23
-  %81 = load i16, ptr %27, align 8
-  %82 = sext i16 %81 to i32
-  %83 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %9, i64 noundef 300, ptr noundef nonnull @.str.1188, i32 noundef %82, ptr noundef nonnull @.str.1192) #15
+81:                                               ; preds = %23
+  %82 = load i16, ptr %27, align 8
+  %83 = sext i16 %82 to i32
+  %84 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %9, i64 noundef 300, ptr noundef nonnull @.str.1188, i32 noundef %83, ptr noundef nonnull @.str.1192) #15
   call void @_ZN7glslang13TInfoSinkBase6appendEPKc(ptr noundef nonnull align 8 dereferenceable(48) %22, ptr noundef nonnull %9) #15
   call void @_ZN7glslang13TInfoSinkBase6appendEPKc(ptr noundef nonnull align 8 dereferenceable(48) %22, ptr noundef nonnull @.str.54) #15
-  br label %112
+  br label %113
 
-84:                                               ; preds = %23
-  %85 = load i16, ptr %27, align 8
-  %86 = zext i16 %85 to i32
-  %87 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %10, i64 noundef 300, ptr noundef nonnull @.str.1190, i32 noundef %86, ptr noundef nonnull @.str.1193) #15
+85:                                               ; preds = %23
+  %86 = load i16, ptr %27, align 8
+  %87 = zext i16 %86 to i32
+  %88 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %10, i64 noundef 300, ptr noundef nonnull @.str.1190, i32 noundef %87, ptr noundef nonnull @.str.1193) #15
   call void @_ZN7glslang13TInfoSinkBase6appendEPKc(ptr noundef nonnull align 8 dereferenceable(48) %22, ptr noundef nonnull %10) #15
   call void @_ZN7glslang13TInfoSinkBase6appendEPKc(ptr noundef nonnull align 8 dereferenceable(48) %22, ptr noundef nonnull @.str.54) #15
-  br label %112
+  br label %113
 
-88:                                               ; preds = %23
-  %89 = load i32, ptr %27, align 8
-  %90 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %11, i64 noundef 300, ptr noundef nonnull @.str.1188, i32 noundef %89, ptr noundef nonnull @.str.1194) #15
+89:                                               ; preds = %23
+  %90 = load i32, ptr %27, align 8
+  %91 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %11, i64 noundef 300, ptr noundef nonnull @.str.1188, i32 noundef %90, ptr noundef nonnull @.str.1194) #15
   call void @_ZN7glslang13TInfoSinkBase6appendEPKc(ptr noundef nonnull align 8 dereferenceable(48) %22, ptr noundef nonnull %11) #15
   call void @_ZN7glslang13TInfoSinkBase6appendEPKc(ptr noundef nonnull align 8 dereferenceable(48) %22, ptr noundef nonnull @.str.54) #15
-  br label %112
+  br label %113
 
-91:                                               ; preds = %23
-  %92 = load i32, ptr %27, align 8
-  %93 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %12, i64 noundef 300, ptr noundef nonnull @.str.1190, i32 noundef %92, ptr noundef nonnull @.str.1195) #15
+92:                                               ; preds = %23
+  %93 = load i32, ptr %27, align 8
+  %94 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %12, i64 noundef 300, ptr noundef nonnull @.str.1190, i32 noundef %93, ptr noundef nonnull @.str.1195) #15
   call void @_ZN7glslang13TInfoSinkBase6appendEPKc(ptr noundef nonnull align 8 dereferenceable(48) %22, ptr noundef nonnull %12) #15
   call void @_ZN7glslang13TInfoSinkBase6appendEPKc(ptr noundef nonnull align 8 dereferenceable(48) %22, ptr noundef nonnull @.str.54) #15
-  br label %112
+  br label %113
 
-94:                                               ; preds = %23
-  %95 = load i64, ptr %27, align 8
-  %96 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %13, i64 noundef 300, ptr noundef nonnull @.str.1196, i64 noundef %95, ptr noundef nonnull @.str.1197) #15
+95:                                               ; preds = %23
+  %96 = load i64, ptr %27, align 8
+  %97 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %13, i64 noundef 300, ptr noundef nonnull @.str.1196, i64 noundef %96, ptr noundef nonnull @.str.1197) #15
   call void @_ZN7glslang13TInfoSinkBase6appendEPKc(ptr noundef nonnull align 8 dereferenceable(48) %22, ptr noundef nonnull %13) #15
   call void @_ZN7glslang13TInfoSinkBase6appendEPKc(ptr noundef nonnull align 8 dereferenceable(48) %22, ptr noundef nonnull @.str.54) #15
-  br label %112
+  br label %113
 
-97:                                               ; preds = %23
-  %98 = load i64, ptr %27, align 8
-  %99 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %14, i64 noundef 300, ptr noundef nonnull @.str.1198, i64 noundef %98, ptr noundef nonnull @.str.1199) #15
+98:                                               ; preds = %23
+  %99 = load i64, ptr %27, align 8
+  %100 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %14, i64 noundef 300, ptr noundef nonnull @.str.1198, i64 noundef %99, ptr noundef nonnull @.str.1199) #15
   call void @_ZN7glslang13TInfoSinkBase6appendEPKc(ptr noundef nonnull align 8 dereferenceable(48) %22, ptr noundef nonnull %14) #15
   call void @_ZN7glslang13TInfoSinkBase6appendEPKc(ptr noundef nonnull align 8 dereferenceable(48) %22, ptr noundef nonnull @.str.54) #15
-  br label %112
+  br label %113
 
-100:                                              ; preds = %23
+101:                                              ; preds = %23
   call void @_ZN7glslang13TInfoSinkBase6appendEPKc(ptr noundef nonnull align 8 dereferenceable(48) %22, ptr noundef nonnull @.str.1200) #15
-  %101 = load ptr, ptr %21, align 8
-  %102 = getelementptr inbounds nuw i8, ptr %101, i64 8
-  %103 = load ptr, ptr %102, align 8
-  %104 = getelementptr inbounds nuw %"class.glslang::TConstUnion", ptr %103, i64 %indvars.iv
-  %105 = load ptr, ptr %104, align 8
-  %106 = getelementptr inbounds nuw i8, ptr %105, i64 8
-  %107 = load ptr, ptr %106, align 8
-  call void @_ZN7glslang13TInfoSinkBase6appendEPKc(ptr noundef nonnull align 8 dereferenceable(48) %22, ptr noundef %107) #15
+  %102 = load ptr, ptr %21, align 8
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 8
+  %104 = load ptr, ptr %103, align 8
+  %105 = getelementptr inbounds nuw %"class.glslang::TConstUnion", ptr %104, i64 %indvars.iv
+  %106 = load ptr, ptr %105, align 8
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 8
+  %108 = load ptr, ptr %107, align 8
+  call void @_ZN7glslang13TInfoSinkBase6appendEPKc(ptr noundef nonnull align 8 dereferenceable(48) %22, ptr noundef %108) #15
   call void @_ZN7glslang13TInfoSinkBase6appendEPKc(ptr noundef nonnull align 8 dereferenceable(48) %22, ptr noundef nonnull @.str.1201) #15
-  br label %112
+  br label %113
 
-108:                                              ; preds = %23
-  %109 = load ptr, ptr %1, align 8
-  %110 = load ptr, ptr %109, align 8
-  %111 = call noundef nonnull align 8 dereferenceable(24) ptr %110(ptr noundef nonnull align 8 dereferenceable(32) %1) #15
+109:                                              ; preds = %23
+  %110 = load ptr, ptr %1, align 8
+  %111 = load ptr, ptr %110, align 8
+  %112 = call noundef nonnull align 8 dereferenceable(24) ptr %111(ptr noundef nonnull align 8 dereferenceable(32) %1) #15
   call void @_ZN7glslang13TInfoSinkBase6appendEPKc(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull @.str.1181) #15
-  call void @_ZN7glslang13TInfoSinkBase8locationERKNS_10TSourceLocEb(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(24) %111, i1 noundef zeroext false)
+  call void @_ZN7glslang13TInfoSinkBase8locationERKNS_10TSourceLocEb(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(24) %112, i1 noundef zeroext false)
   call void @_ZN7glslang13TInfoSinkBase6appendEPKc(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull @.str.1202) #15
   call void @_ZN7glslang13TInfoSinkBase6appendEPKc(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull @.str.54) #15
-  br label %112
+  br label %113
 
-112:                                              ; preds = %30, %_ZN7glslangL12OutputDoubleER9TInfoSinkdNS_16TOutputTraverser12EExtraOutputE.exit, %72, %76, %80, %84, %88, %91, %94, %97, %100, %108
+113:                                              ; preds = %30, %_ZN7glslangL12OutputDoubleER9TInfoSinkdNS_16TOutputTraverser12EExtraOutputE.exit, %73, %77, %81, %85, %89, %92, %95, %98, %101, %109
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %23, !llvm.loop !10
 
-._crit_edge:                                      ; preds = %112, %5
+._crit_edge:                                      ; preds = %113, %5
   ret void
 }
 

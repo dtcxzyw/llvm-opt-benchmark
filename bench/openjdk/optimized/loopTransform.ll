@@ -6494,9 +6494,9 @@ define linkonce_odr hidden noundef i32 @_ZN7Matcher32vector_op_pre_select_sz_est
   %21 = and i64 %20, 2147483648
   %.not15 = icmp eq i64 %21, 0
   %22 = and i8 %1, -2
-  %23 = icmp eq i8 %22, 10
-  %24 = select i1 %23, i32 0, i32 40
-  %25 = select i1 %.not15, i32 40, i32 %24
+  %23 = icmp ne i8 %22, 10
+  %24 = or i1 %23, %.not15
+  %25 = select i1 %24, i32 40, i32 0
   br label %44
 
 26:                                               ; preds = %3

@@ -18047,7 +18047,7 @@ define linkonce_odr hidden noundef i32 @_ZN4pugi4impl21guess_buffer_encodingEPKh
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = icmp ult i64 %1, 4
-  br i1 %5, label %120, label %6
+  br i1 %5, label %119, label %6
 
 6:                                                ; preds = %2
   %7 = load i8, ptr %0, align 1
@@ -18064,7 +18064,7 @@ define linkonce_odr hidden noundef i32 @_ZN4pugi4impl21guess_buffer_encodingEPKh
   %or.cond5 = select i1 %or.cond, i1 %16, i1 false
   %17 = icmp eq i8 %13, -1
   %or.cond8 = select i1 %or.cond5, i1 %17, i1 false
-  br i1 %or.cond8, label %120, label %18
+  br i1 %or.cond8, label %119, label %18
 
 18:                                               ; preds = %6
   %19 = icmp eq i8 %7, -1
@@ -18074,7 +18074,7 @@ define linkonce_odr hidden noundef i32 @_ZN4pugi4impl21guess_buffer_encodingEPKh
   %or.cond14 = select i1 %or.cond11, i1 %21, i1 false
   %22 = icmp eq i8 %13, 0
   %or.cond17 = select i1 %or.cond14, i1 %22, i1 false
-  br i1 %or.cond17, label %120, label %23
+  br i1 %or.cond17, label %119, label %23
 
 23:                                               ; preds = %18
   %24 = icmp eq i8 %7, -2
@@ -18082,7 +18082,7 @@ define linkonce_odr hidden noundef i32 @_ZN4pugi4impl21guess_buffer_encodingEPKh
   %or.cond20 = select i1 %24, i1 %25, i1 false
   %brmerge = or i1 %or.cond20, %or.cond11
   %.mux = select i1 %or.cond20, i32 3, i32 2
-  br i1 %brmerge, label %120, label %26
+  br i1 %brmerge, label %119, label %26
 
 26:                                               ; preds = %23
   %27 = icmp eq i8 %7, -17
@@ -18090,20 +18090,20 @@ define linkonce_odr hidden noundef i32 @_ZN4pugi4impl21guess_buffer_encodingEPKh
   %or.cond26 = select i1 %27, i1 %28, i1 false
   %29 = icmp eq i8 %11, -65
   %or.cond29 = select i1 %or.cond26, i1 %29, i1 false
-  br i1 %or.cond29, label %120, label %30
+  br i1 %or.cond29, label %119, label %30
 
 30:                                               ; preds = %26
   %or.cond35 = select i1 %or.cond, i1 %21, i1 false
   %31 = icmp eq i8 %13, 60
   %or.cond38 = select i1 %or.cond35, i1 %31, i1 false
-  br i1 %or.cond38, label %120, label %32
+  br i1 %or.cond38, label %119, label %32
 
 32:                                               ; preds = %30
   %33 = icmp eq i8 %7, 60
   %or.cond41 = select i1 %33, i1 %15, i1 false
   %or.cond44 = select i1 %or.cond41, i1 %21, i1 false
   %or.cond47 = select i1 %or.cond44, i1 %22, i1 false
-  br i1 %or.cond47, label %120, label %34
+  br i1 %or.cond47, label %119, label %34
 
 34:                                               ; preds = %32
   %35 = icmp eq i8 %9, 60
@@ -18111,156 +18111,152 @@ define linkonce_odr hidden noundef i32 @_ZN4pugi4impl21guess_buffer_encodingEPKh
   %or.cond53 = select i1 %or.cond50, i1 %21, i1 false
   %36 = icmp eq i8 %13, 63
   %or.cond56 = select i1 %or.cond53, i1 %36, i1 false
-  br i1 %or.cond56, label %120, label %37
+  br i1 %or.cond56, label %119, label %37
 
 37:                                               ; preds = %34
-  %38 = icmp eq i8 %11, 63
-  %or.cond62 = select i1 %or.cond41, i1 %38, i1 false
-  %or.cond65 = select i1 %or.cond62, i1 %22, i1 false
   %brmerge129 = or i1 %or.cond41, %or.cond50
-  %.mux128 = select i1 %or.cond50, i32 3, i32 2
-  %.mux128.mux = select i1 %or.cond65, i32 2, i32 %.mux128
-  br i1 %brmerge129, label %120, label %39
+  %.mux128.mux = select i1 %or.cond50, i32 3, i32 2
+  br i1 %brmerge129, label %119, label %38
 
-39:                                               ; preds = %37
+38:                                               ; preds = %37
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 0, ptr %4, align 8
-  %40 = icmp eq i8 %9, 63
-  %or.cond74 = select i1 %33, i1 %40, i1 false
-  %41 = icmp eq i8 %11, 120
-  %or.cond77 = select i1 %or.cond74, i1 %41, i1 false
-  %42 = icmp eq i8 %13, 109
-  %or.cond80 = select i1 %or.cond77, i1 %42, i1 false
-  br i1 %or.cond80, label %43, label %.thread
+  %39 = icmp eq i8 %9, 63
+  %or.cond74 = select i1 %33, i1 %39, i1 false
+  %40 = icmp eq i8 %11, 120
+  %or.cond77 = select i1 %or.cond74, i1 %40, i1 false
+  %41 = icmp eq i8 %13, 109
+  %or.cond80 = select i1 %or.cond77, i1 %41, i1 false
+  br i1 %or.cond80, label %42, label %.thread
 
-43:                                               ; preds = %39
-  %44 = call noundef zeroext i1 @_ZN4pugi4impl26parse_declaration_encodingEPKhmRS2_Rm(ptr noundef nonnull %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  br i1 %44, label %45, label %.thread
+42:                                               ; preds = %38
+  %43 = call noundef zeroext i1 @_ZN4pugi4impl26parse_declaration_encodingEPKhmRS2_Rm(ptr noundef nonnull %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4)
+  br i1 %43, label %44, label %.thread
 
-45:                                               ; preds = %43
-  %46 = load i64, ptr %4, align 8
-  switch i64 %46, label %.thread [
-    i64 10, label %47
-    i64 6, label %90
+44:                                               ; preds = %42
+  %45 = load i64, ptr %4, align 8
+  switch i64 %45, label %.thread [
+    i64 10, label %46
+    i64 6, label %89
   ]
 
-47:                                               ; preds = %45
-  %48 = load ptr, ptr %3, align 8
-  %49 = load i8, ptr %48, align 1
-  %50 = and i8 %49, -33
-  %51 = icmp eq i8 %50, 73
-  br i1 %51, label %52, label %.thread
+46:                                               ; preds = %44
+  %47 = load ptr, ptr %3, align 8
+  %48 = load i8, ptr %47, align 1
+  %49 = and i8 %48, -33
+  %50 = icmp eq i8 %49, 73
+  br i1 %50, label %51, label %.thread
 
-52:                                               ; preds = %47
-  %53 = getelementptr inbounds nuw i8, ptr %48, i64 1
-  %54 = load i8, ptr %53, align 1
-  %55 = and i8 %54, -33
-  %56 = icmp eq i8 %55, 83
-  br i1 %56, label %57, label %.thread
+51:                                               ; preds = %46
+  %52 = getelementptr inbounds nuw i8, ptr %47, i64 1
+  %53 = load i8, ptr %52, align 1
+  %54 = and i8 %53, -33
+  %55 = icmp eq i8 %54, 83
+  br i1 %55, label %56, label %.thread
 
-57:                                               ; preds = %52
-  %58 = getelementptr inbounds nuw i8, ptr %48, i64 2
-  %59 = load i8, ptr %58, align 1
-  %60 = and i8 %59, -33
-  %61 = icmp eq i8 %60, 79
-  br i1 %61, label %62, label %.thread
+56:                                               ; preds = %51
+  %57 = getelementptr inbounds nuw i8, ptr %47, i64 2
+  %58 = load i8, ptr %57, align 1
+  %59 = and i8 %58, -33
+  %60 = icmp eq i8 %59, 79
+  br i1 %60, label %61, label %.thread
 
-62:                                               ; preds = %57
-  %63 = getelementptr inbounds nuw i8, ptr %48, i64 3
-  %64 = load i8, ptr %63, align 1
-  %65 = icmp eq i8 %64, 45
-  br i1 %65, label %66, label %.thread
+61:                                               ; preds = %56
+  %62 = getelementptr inbounds nuw i8, ptr %47, i64 3
+  %63 = load i8, ptr %62, align 1
+  %64 = icmp eq i8 %63, 45
+  br i1 %64, label %65, label %.thread
 
-66:                                               ; preds = %62
-  %67 = getelementptr inbounds nuw i8, ptr %48, i64 4
-  %68 = load i8, ptr %67, align 1
-  %69 = icmp eq i8 %68, 56
-  br i1 %69, label %70, label %.thread
+65:                                               ; preds = %61
+  %66 = getelementptr inbounds nuw i8, ptr %47, i64 4
+  %67 = load i8, ptr %66, align 1
+  %68 = icmp eq i8 %67, 56
+  br i1 %68, label %69, label %.thread
 
-70:                                               ; preds = %66
-  %71 = getelementptr inbounds nuw i8, ptr %48, i64 5
-  %72 = load i8, ptr %71, align 1
-  %73 = icmp eq i8 %72, 56
-  br i1 %73, label %74, label %.thread
+69:                                               ; preds = %65
+  %70 = getelementptr inbounds nuw i8, ptr %47, i64 5
+  %71 = load i8, ptr %70, align 1
+  %72 = icmp eq i8 %71, 56
+  br i1 %72, label %73, label %.thread
 
-74:                                               ; preds = %70
-  %75 = getelementptr inbounds nuw i8, ptr %48, i64 6
-  %76 = load i8, ptr %75, align 1
-  %77 = icmp eq i8 %76, 53
-  br i1 %77, label %78, label %.thread
+73:                                               ; preds = %69
+  %74 = getelementptr inbounds nuw i8, ptr %47, i64 6
+  %75 = load i8, ptr %74, align 1
+  %76 = icmp eq i8 %75, 53
+  br i1 %76, label %77, label %.thread
 
-78:                                               ; preds = %74
-  %79 = getelementptr inbounds nuw i8, ptr %48, i64 7
-  %80 = load i8, ptr %79, align 1
-  %81 = icmp eq i8 %80, 57
-  br i1 %81, label %82, label %.thread
+77:                                               ; preds = %73
+  %78 = getelementptr inbounds nuw i8, ptr %47, i64 7
+  %79 = load i8, ptr %78, align 1
+  %80 = icmp eq i8 %79, 57
+  br i1 %80, label %81, label %.thread
 
-82:                                               ; preds = %78
-  %83 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  %84 = load i8, ptr %83, align 1
-  %85 = icmp eq i8 %84, 45
-  br i1 %85, label %86, label %.thread
+81:                                               ; preds = %77
+  %82 = getelementptr inbounds nuw i8, ptr %47, i64 8
+  %83 = load i8, ptr %82, align 1
+  %84 = icmp eq i8 %83, 45
+  br i1 %84, label %85, label %.thread
 
-86:                                               ; preds = %82
-  %87 = getelementptr inbounds nuw i8, ptr %48, i64 9
-  %88 = load i8, ptr %87, align 1
-  %89 = icmp eq i8 %88, 49
-  br i1 %89, label %119, label %.thread
+85:                                               ; preds = %81
+  %86 = getelementptr inbounds nuw i8, ptr %47, i64 9
+  %87 = load i8, ptr %86, align 1
+  %88 = icmp eq i8 %87, 49
+  br i1 %88, label %118, label %.thread
 
-90:                                               ; preds = %45
-  %91 = load ptr, ptr %3, align 8
-  %92 = load i8, ptr %91, align 1
-  %93 = and i8 %92, -33
-  %94 = icmp eq i8 %93, 76
-  br i1 %94, label %95, label %.thread
+89:                                               ; preds = %44
+  %90 = load ptr, ptr %3, align 8
+  %91 = load i8, ptr %90, align 1
+  %92 = and i8 %91, -33
+  %93 = icmp eq i8 %92, 76
+  br i1 %93, label %94, label %.thread
 
-95:                                               ; preds = %90
-  %96 = getelementptr inbounds nuw i8, ptr %91, i64 1
-  %97 = load i8, ptr %96, align 1
-  %98 = and i8 %97, -33
-  %99 = icmp eq i8 %98, 65
-  br i1 %99, label %100, label %.thread
+94:                                               ; preds = %89
+  %95 = getelementptr inbounds nuw i8, ptr %90, i64 1
+  %96 = load i8, ptr %95, align 1
+  %97 = and i8 %96, -33
+  %98 = icmp eq i8 %97, 65
+  br i1 %98, label %99, label %.thread
 
-100:                                              ; preds = %95
-  %101 = getelementptr inbounds nuw i8, ptr %91, i64 2
-  %102 = load i8, ptr %101, align 1
-  %103 = and i8 %102, -33
-  %104 = icmp eq i8 %103, 84
-  br i1 %104, label %105, label %.thread
+99:                                               ; preds = %94
+  %100 = getelementptr inbounds nuw i8, ptr %90, i64 2
+  %101 = load i8, ptr %100, align 1
+  %102 = and i8 %101, -33
+  %103 = icmp eq i8 %102, 84
+  br i1 %103, label %104, label %.thread
 
-105:                                              ; preds = %100
-  %106 = getelementptr inbounds nuw i8, ptr %91, i64 3
-  %107 = load i8, ptr %106, align 1
-  %108 = and i8 %107, -33
-  %109 = icmp eq i8 %108, 73
-  br i1 %109, label %110, label %.thread
+104:                                              ; preds = %99
+  %105 = getelementptr inbounds nuw i8, ptr %90, i64 3
+  %106 = load i8, ptr %105, align 1
+  %107 = and i8 %106, -33
+  %108 = icmp eq i8 %107, 73
+  br i1 %108, label %109, label %.thread
 
-110:                                              ; preds = %105
-  %111 = getelementptr inbounds nuw i8, ptr %91, i64 4
-  %112 = load i8, ptr %111, align 1
-  %113 = and i8 %112, -33
-  %114 = icmp eq i8 %113, 78
-  br i1 %114, label %115, label %.thread
+109:                                              ; preds = %104
+  %110 = getelementptr inbounds nuw i8, ptr %90, i64 4
+  %111 = load i8, ptr %110, align 1
+  %112 = and i8 %111, -33
+  %113 = icmp eq i8 %112, 78
+  br i1 %113, label %114, label %.thread
 
-115:                                              ; preds = %110
-  %116 = getelementptr inbounds nuw i8, ptr %91, i64 5
-  %117 = load i8, ptr %116, align 1
-  %118 = icmp eq i8 %117, 49
-  br i1 %118, label %119, label %.thread
+114:                                              ; preds = %109
+  %115 = getelementptr inbounds nuw i8, ptr %90, i64 5
+  %116 = load i8, ptr %115, align 1
+  %117 = icmp eq i8 %116, 49
+  br i1 %117, label %118, label %.thread
 
-.thread:                                          ; preds = %45, %47, %52, %57, %62, %66, %70, %74, %78, %82, %86, %90, %95, %100, %105, %110, %115, %43, %39
-  br label %119
+.thread:                                          ; preds = %44, %46, %51, %56, %61, %65, %69, %73, %77, %81, %85, %89, %94, %99, %104, %109, %114, %42, %38
+  br label %118
 
-119:                                              ; preds = %115, %86, %.thread
-  %.2 = phi i32 [ 1, %.thread ], [ 9, %86 ], [ 9, %115 ]
+118:                                              ; preds = %114, %85, %.thread
+  %.2 = phi i32 [ 1, %.thread ], [ 9, %85 ], [ 9, %114 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %120
+  br label %119
 
-120:                                              ; preds = %37, %23, %119, %6, %18, %26, %30, %32, %34, %2
-  %.0 = phi i32 [ 1, %2 ], [ %.2, %119 ], [ 6, %6 ], [ 5, %18 ], [ %.mux, %23 ], [ %.mux128.mux, %37 ], [ 1, %26 ], [ 6, %30 ], [ 5, %32 ], [ 3, %34 ]
+119:                                              ; preds = %37, %23, %118, %6, %18, %26, %30, %32, %34, %2
+  %.0 = phi i32 [ 1, %2 ], [ %.2, %118 ], [ 6, %6 ], [ 5, %18 ], [ %.mux, %23 ], [ %.mux128.mux, %37 ], [ 1, %26 ], [ 6, %30 ], [ 5, %32 ], [ 3, %34 ]
   ret i32 %.0
 }
 

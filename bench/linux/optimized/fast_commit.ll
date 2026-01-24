@@ -4553,7 +4553,7 @@ define internal fastcc noundef range(i32 -28, 1) i32 @ext4_fc_write_tail(ptr nou
   %10 = load i32, ptr %9, align 8
   %11 = call fastcc ptr @ext4_fc_reserve_space(ptr noundef %0, i32 noundef 12, ptr noundef nonnull %4)
   %12 = icmp eq ptr %11, null
-  br i1 %12, label %82, label %13
+  br i1 %12, label %81, label %13
 
 13:                                               ; preds = %2
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 2008
@@ -4659,19 +4659,19 @@ define internal fastcc noundef range(i32 -28, 1) i32 @ext4_fc_write_tail(ptr nou
 
 ext4_fc_submit_bh.exit:                           ; preds = %71, %75
   %76 = and i32 %60, 131072
-  %77 = icmp eq i32 %76, 0
-  %78 = select i1 %77, i32 2049, i32 395265
-  %79 = getelementptr inbounds nuw i8, ptr %58, i64 56
-  store ptr @ext4_end_buffer_io_sync, ptr %79, align 8
-  call void @submit_bh(i32 noundef %78, ptr noundef %58) #14
-  %80 = load ptr, ptr %5, align 8
-  %81 = getelementptr inbounds nuw i8, ptr %80, i64 2016
-  store ptr null, ptr %81, align 32
-  br label %82
+  %.not = icmp eq i32 %76, 0
+  %77 = select i1 %.not, i32 2049, i32 395265
+  %78 = getelementptr inbounds nuw i8, ptr %58, i64 56
+  store ptr @ext4_end_buffer_io_sync, ptr %78, align 8
+  call void @submit_bh(i32 noundef %77, ptr noundef %58) #14
+  %79 = load ptr, ptr %5, align 8
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 2016
+  store ptr null, ptr %80, align 32
+  br label %81
 
-82:                                               ; preds = %ext4_fc_submit_bh.exit, %2
-  %83 = phi i32 [ 0, %ext4_fc_submit_bh.exit ], [ -28, %2 ]
-  ret i32 %83
+81:                                               ; preds = %ext4_fc_submit_bh.exit, %2
+  %82 = phi i32 [ 0, %ext4_fc_submit_bh.exit ], [ -28, %2 ]
+  ret i32 %82
 }
 
 ; Function Attrs: null_pointer_is_valid

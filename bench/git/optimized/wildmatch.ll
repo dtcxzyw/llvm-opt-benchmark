@@ -45,9 +45,9 @@ define internal fastcc range(i32 -2, 2) i32 @dowild(ptr noundef %0, ptr noundef 
   br label %11
 
 11:                                               ; preds = %.lr.ph, %select.unfold
-  %12 = phi i8 [ %4, %.lr.ph ], [ %287, %select.unfold ]
-  %.0242549 = phi ptr [ %0, %.lr.ph ], [ %286, %select.unfold ]
-  %.0251548 = phi ptr [ %1, %.lr.ph ], [ %285, %select.unfold ]
+  %12 = phi i8 [ %4, %.lr.ph ], [ %289, %select.unfold ]
+  %.0242549 = phi ptr [ %0, %.lr.ph ], [ %288, %select.unfold ]
+  %.0251548 = phi ptr [ %1, %.lr.ph ], [ %287, %select.unfold ]
   %13 = load i8, ptr %.0251548, align 1, !tbaa !4
   %14 = icmp eq i8 %13, 0
   %15 = icmp ne i8 %12, 42
@@ -371,372 +371,371 @@ sane_iscase.exit422.thread.us.us:                 ; preds = %.lr.ph553.us, %109
   %142 = getelementptr inbounds nuw i8, ptr @hexval_table, i64 %141
   %143 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %141
   %144 = and i8 %.0277.fr, 32
-  %.not325469.not = icmp eq i8 %144, 0
+  %.not325469.not = icmp ne i8 %144, 0
   %145 = add i8 %.0277.fr, -32
   %or.cond30 = icmp ult i8 %145, 95
+  %.not329 = icmp eq i8 %144, 0
   %146 = zext i8 %.0277.fr to i32
   %147 = icmp slt i8 %.0277.fr, 0
   %148 = and i32 %146, 32
   %.not338 = icmp eq i32 %148, 0
   %149 = and i32 %146, 95
+  %150 = and i1 %.not315, %.not325469.not
   %invariant.op = or i1 %147, %.not315
-  br label %150
+  br label %151
 
-150:                                              ; preds = %sane_iscase.exit429.thread, %138
+151:                                              ; preds = %sane_iscase.exit429.thread, %138
   %.0276 = phi i8 [ 0, %138 ], [ %.7264, %sane_iscase.exit429.thread ]
   %.0265 = phi i32 [ 0, %138 ], [ %.6271, %sane_iscase.exit429.thread ]
-  %.4261 = phi i8 [ %.3260, %138 ], [ %281, %sane_iscase.exit429.thread ]
-  %.6248 = phi ptr [ %.5247, %138 ], [ %280, %sane_iscase.exit429.thread ]
-  switch i8 %.4261, label %156 [
+  %.4261 = phi i8 [ %.3260, %138 ], [ %283, %sane_iscase.exit429.thread ]
+  %.6248 = phi ptr [ %.5247, %138 ], [ %282, %sane_iscase.exit429.thread ]
+  switch i8 %.4261, label %157 [
     i8 0, label %.thread490
-    i8 92, label %151
+    i8 92, label %152
   ]
 
-151:                                              ; preds = %150
-  %152 = getelementptr inbounds nuw i8, ptr %.6248, i64 1
-  %153 = load i8, ptr %152, align 1, !tbaa !4
-  %.not341 = icmp eq i8 %153, 0
-  br i1 %.not341, label %.thread490, label %154
+152:                                              ; preds = %151
+  %153 = getelementptr inbounds nuw i8, ptr %.6248, i64 1
+  %154 = load i8, ptr %153, align 1, !tbaa !4
+  %.not341 = icmp eq i8 %154, 0
+  br i1 %.not341, label %.thread490, label %155
 
-154:                                              ; preds = %151
-  %155 = icmp eq i8 %.0277.fr, %153
-  %spec.select = select i1 %155, i32 1, i32 %.0265
+155:                                              ; preds = %152
+  %156 = icmp eq i8 %.0277.fr, %154
+  %spec.select = select i1 %156, i32 1, i32 %.0265
   br label %sane_iscase.exit429.thread
 
-156:                                              ; preds = %150
-  %157 = icmp eq i8 %.4261, 45
-  %158 = zext i8 %.0276 to i32
-  %159 = icmp ne i8 %.0276, 0
-  %or.cond15 = and i1 %159, %157
-  br i1 %or.cond15, label %160, label %172
+157:                                              ; preds = %151
+  %158 = icmp eq i8 %.4261, 45
+  %159 = zext i8 %.0276 to i32
+  %160 = icmp ne i8 %.0276, 0
+  %or.cond15 = and i1 %160, %158
+  br i1 %or.cond15, label %161, label %173
 
-160:                                              ; preds = %156
-  %161 = getelementptr inbounds nuw i8, ptr %.6248, i64 1
-  %162 = load i8, ptr %161, align 1, !tbaa !4
-  switch i8 %162, label %166 [
+161:                                              ; preds = %157
+  %162 = getelementptr inbounds nuw i8, ptr %.6248, i64 1
+  %163 = load i8, ptr %162, align 1, !tbaa !4
+  switch i8 %163, label %167 [
     i8 0, label %.thread462
     i8 93, label %.thread462
-    i8 92, label %163
+    i8 92, label %164
   ]
 
-163:                                              ; preds = %160
-  %164 = getelementptr inbounds nuw i8, ptr %.6248, i64 2
-  %165 = load i8, ptr %164, align 1, !tbaa !4
-  %.not335 = icmp eq i8 %165, 0
-  br i1 %.not335, label %.thread490, label %166
+164:                                              ; preds = %161
+  %165 = getelementptr inbounds nuw i8, ptr %.6248, i64 2
+  %166 = load i8, ptr %165, align 1, !tbaa !4
+  %.not335 = icmp eq i8 %166, 0
+  br i1 %.not335, label %.thread490, label %167
 
-166:                                              ; preds = %160, %163
-  %.5262 = phi i8 [ %165, %163 ], [ %162, %160 ]
-  %.7249 = phi ptr [ %164, %163 ], [ %161, %160 ]
-  %167 = zext i8 %.5262 to i32
+167:                                              ; preds = %161, %164
+  %.5262 = phi i8 [ %166, %164 ], [ %163, %161 ]
+  %.7249 = phi ptr [ %165, %164 ], [ %162, %161 ]
+  %168 = zext i8 %.5262 to i32
   %.not336 = icmp ule i8 %.0277.fr, %.5262
   %.not337 = icmp uge i8 %.0277.fr, %.0276
   %or.cond368.not507 = and i1 %.not337, %.not336
   %brmerge610.reass = or i1 %or.cond368.not507, %invariant.op
   %.mux.mux = select i1 %or.cond368.not507, i32 1, i32 %.0265
-  br i1 %brmerge610.reass, label %sane_iscase.exit429.thread, label %168
+  br i1 %brmerge610.reass, label %sane_iscase.exit429.thread, label %169
 
-168:                                              ; preds = %166
-  %169 = load i8, ptr %143, align 1, !tbaa !4
-  %170 = and i8 %169, 4
-  %.not.i425 = icmp eq i8 %170, 0
+169:                                              ; preds = %167
+  %170 = load i8, ptr %143, align 1, !tbaa !4
+  %171 = and i8 %170, 4
+  %.not.i425 = icmp eq i8 %171, 0
   %or.cond515 = or i1 %.not338, %.not.i425
-  br i1 %or.cond515, label %sane_iscase.exit429.thread, label %171
+  br i1 %or.cond515, label %sane_iscase.exit429.thread, label %172
 
-171:                                              ; preds = %168
-  %.not339 = icmp samesign ugt i32 %149, %167
-  %.not340 = icmp samesign ult i32 %149, %158
+172:                                              ; preds = %169
+  %.not339 = icmp samesign ugt i32 %149, %168
+  %.not340 = icmp samesign ult i32 %149, %159
   %or.cond369 = select i1 %.not339, i1 true, i1 %.not340
   %.2267 = select i1 %or.cond369, i32 %.0265, i32 1
   br label %sane_iscase.exit429.thread
 
-172:                                              ; preds = %156
-  %173 = icmp eq i8 %.4261, 91
-  br i1 %173, label %174, label %.thread462
+173:                                              ; preds = %157
+  %174 = icmp eq i8 %.4261, 91
+  br i1 %174, label %175, label %.thread462
 
-174:                                              ; preds = %172
-  %175 = getelementptr inbounds nuw i8, ptr %.6248, i64 1
-  %176 = load i8, ptr %175, align 1, !tbaa !4
-  %177 = icmp eq i8 %176, 58
-  br i1 %177, label %178, label %.thread462
+175:                                              ; preds = %173
+  %176 = getelementptr inbounds nuw i8, ptr %.6248, i64 1
+  %177 = load i8, ptr %176, align 1, !tbaa !4
+  %178 = icmp eq i8 %177, 58
+  br i1 %178, label %179, label %.thread462
 
-178:                                              ; preds = %174
-  %179 = getelementptr inbounds nuw i8, ptr %.6248, i64 2
-  br label %180
+179:                                              ; preds = %175
+  %180 = getelementptr inbounds nuw i8, ptr %.6248, i64 2
+  br label %181
 
-180:                                              ; preds = %182, %178
-  %.8250 = phi ptr [ %179, %178 ], [ %183, %182 ]
-  %181 = load i8, ptr %.8250, align 1, !tbaa !4
-  switch i8 %181, label %182 [
+181:                                              ; preds = %183, %179
+  %.8250 = phi ptr [ %180, %179 ], [ %184, %183 ]
+  %182 = load i8, ptr %.8250, align 1, !tbaa !4
+  switch i8 %182, label %183 [
     i8 0, label %.thread490
-    i8 93, label %184
+    i8 93, label %185
   ]
 
-182:                                              ; preds = %180
-  %183 = getelementptr inbounds nuw i8, ptr %.8250, i64 1
-  br label %180, !llvm.loop !10
+183:                                              ; preds = %181
+  %184 = getelementptr inbounds nuw i8, ptr %.8250, i64 1
+  br label %181, !llvm.loop !10
 
-184:                                              ; preds = %180
-  %185 = ptrtoint ptr %.8250 to i64
-  %186 = ptrtoint ptr %179 to i64
-  %187 = xor i64 %186, -1
-  %188 = add i64 %185, %187
-  %189 = and i64 %188, 2147483648
-  %.not323 = icmp eq i64 %189, 0
-  br i1 %.not323, label %190, label %193
+185:                                              ; preds = %181
+  %186 = ptrtoint ptr %.8250 to i64
+  %187 = ptrtoint ptr %180 to i64
+  %188 = xor i64 %187, -1
+  %189 = add i64 %186, %188
+  %190 = and i64 %189, 2147483648
+  %.not323 = icmp eq i64 %190, 0
+  br i1 %.not323, label %191, label %194
 
-190:                                              ; preds = %184
-  %191 = getelementptr inbounds i8, ptr %.8250, i64 -1
-  %192 = load i8, ptr %191, align 1, !tbaa !4
-  %.not322 = icmp eq i8 %192, 58
-  br i1 %.not322, label %194, label %193
+191:                                              ; preds = %185
+  %192 = getelementptr inbounds i8, ptr %.8250, i64 -1
+  %193 = load i8, ptr %192, align 1, !tbaa !4
+  %.not322 = icmp eq i8 %193, 58
+  br i1 %.not322, label %195, label %194
 
-193:                                              ; preds = %190, %184
+194:                                              ; preds = %191, %185
   %spec.select370 = select i1 %139, i32 1, i32 %.0265
   br label %sane_iscase.exit429.thread
 
-194:                                              ; preds = %190
-  %195 = and i64 %188, 2147483647
-  switch i64 %195, label %.thread490 [
-    i64 5, label %196
-    i64 6, label %270
+195:                                              ; preds = %191
+  %196 = and i64 %189, 2147483647
+  switch i64 %196, label %.thread490 [
+    i64 5, label %197
+    i64 6, label %272
   ]
 
-196:                                              ; preds = %194
-  %197 = load i8, ptr %179, align 1, !tbaa !4
-  switch i8 %197, label %.thread490 [
-    i8 97, label %198
-    i8 98, label %212
-    i8 99, label %217
-    i8 100, label %224
-    i8 103, label %231
-    i8 108, label %238
-    i8 112, label %245
-    i8 115, label %256
-    i8 117, label %263
+197:                                              ; preds = %195
+  %198 = load i8, ptr %180, align 1, !tbaa !4
+  switch i8 %198, label %.thread490 [
+    i8 97, label %199
+    i8 98, label %213
+    i8 99, label %218
+    i8 100, label %225
+    i8 103, label %232
+    i8 108, label %239
+    i8 112, label %246
+    i8 115, label %257
+    i8 117, label %264
   ]
 
-198:                                              ; preds = %196
-  %199 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %179, ptr noundef nonnull dereferenceable(6) @.str, i64 noundef 5) #2
-  %200 = icmp eq i32 %199, 0
-  br i1 %200, label %201, label %205
+199:                                              ; preds = %197
+  %200 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %180, ptr noundef nonnull dereferenceable(6) @.str, i64 noundef 5) #2
+  %201 = icmp eq i32 %200, 0
+  br i1 %201, label %202, label %206
 
-201:                                              ; preds = %198
-  br i1 %140, label %202, label %sane_iscase.exit429.thread
+202:                                              ; preds = %199
+  br i1 %140, label %203, label %sane_iscase.exit429.thread
 
-202:                                              ; preds = %201
-  %203 = load i8, ptr %143, align 1, !tbaa !4
-  %204 = and i8 %203, 6
-  %.not334 = icmp eq i8 %204, 0
+203:                                              ; preds = %202
+  %204 = load i8, ptr %143, align 1, !tbaa !4
+  %205 = and i8 %204, 6
+  %.not334 = icmp eq i8 %205, 0
   %spec.select371 = select i1 %.not334, i32 %.0265, i32 1
   br label %sane_iscase.exit429.thread
 
-205:                                              ; preds = %198
-  %206 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %179, ptr noundef nonnull dereferenceable(6) @.str.1, i64 noundef 5) #2
-  %207 = icmp eq i32 %206, 0
-  br i1 %207, label %208, label %.thread490
+206:                                              ; preds = %199
+  %207 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %180, ptr noundef nonnull dereferenceable(6) @.str.1, i64 noundef 5) #2
+  %208 = icmp eq i32 %207, 0
+  br i1 %208, label %209, label %.thread490
 
-208:                                              ; preds = %205
-  br i1 %140, label %209, label %sane_iscase.exit429.thread
+209:                                              ; preds = %206
+  br i1 %140, label %210, label %sane_iscase.exit429.thread
 
-209:                                              ; preds = %208
-  %210 = load i8, ptr %143, align 1, !tbaa !4
-  %211 = and i8 %210, 4
-  %.not333 = icmp eq i8 %211, 0
+210:                                              ; preds = %209
+  %211 = load i8, ptr %143, align 1, !tbaa !4
+  %212 = and i8 %211, 4
+  %.not333 = icmp eq i8 %212, 0
   %spec.select374 = select i1 %.not333, i32 %.0265, i32 1
   br label %sane_iscase.exit429.thread
 
-212:                                              ; preds = %196
-  %213 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %179, ptr noundef nonnull dereferenceable(6) @.str.2, i64 noundef 5) #2
-  %214 = icmp eq i32 %213, 0
-  br i1 %214, label %215, label %.thread490
+213:                                              ; preds = %197
+  %214 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %180, ptr noundef nonnull dereferenceable(6) @.str.2, i64 noundef 5) #2
+  %215 = icmp eq i32 %214, 0
+  br i1 %215, label %216, label %.thread490
 
-215:                                              ; preds = %212
+216:                                              ; preds = %213
   switch i8 %.0277.fr, label %sane_iscase.exit429.thread [
-    i8 32, label %216
-    i8 9, label %216
+    i8 32, label %217
+    i8 9, label %217
   ]
 
-216:                                              ; preds = %215, %215
+217:                                              ; preds = %216, %216
   br label %sane_iscase.exit429.thread
 
-217:                                              ; preds = %196
-  %218 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %179, ptr noundef nonnull dereferenceable(6) @.str.3, i64 noundef 5) #2
-  %219 = icmp eq i32 %218, 0
-  br i1 %219, label %220, label %.thread490
+218:                                              ; preds = %197
+  %219 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %180, ptr noundef nonnull dereferenceable(6) @.str.3, i64 noundef 5) #2
+  %220 = icmp eq i32 %219, 0
+  br i1 %220, label %221, label %.thread490
 
-220:                                              ; preds = %217
-  br i1 %140, label %221, label %sane_iscase.exit429.thread
+221:                                              ; preds = %218
+  br i1 %140, label %222, label %sane_iscase.exit429.thread
 
-221:                                              ; preds = %220
-  %222 = load i8, ptr %143, align 1, !tbaa !4
-  %223 = and i8 %222, 64
-  %.not332 = icmp eq i8 %223, 0
+222:                                              ; preds = %221
+  %223 = load i8, ptr %143, align 1, !tbaa !4
+  %224 = and i8 %223, 64
+  %.not332 = icmp eq i8 %224, 0
   %spec.select377 = select i1 %.not332, i32 %.0265, i32 1
   br label %sane_iscase.exit429.thread
 
-224:                                              ; preds = %196
-  %225 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %179, ptr noundef nonnull dereferenceable(6) @.str.4, i64 noundef 5) #2
-  %226 = icmp eq i32 %225, 0
-  br i1 %226, label %227, label %.thread490
+225:                                              ; preds = %197
+  %226 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %180, ptr noundef nonnull dereferenceable(6) @.str.4, i64 noundef 5) #2
+  %227 = icmp eq i32 %226, 0
+  br i1 %227, label %228, label %.thread490
 
-227:                                              ; preds = %224
-  br i1 %140, label %228, label %sane_iscase.exit429.thread
+228:                                              ; preds = %225
+  br i1 %140, label %229, label %sane_iscase.exit429.thread
 
-228:                                              ; preds = %227
-  %229 = load i8, ptr %143, align 1, !tbaa !4
-  %230 = and i8 %229, 2
-  %.not331 = icmp eq i8 %230, 0
+229:                                              ; preds = %228
+  %230 = load i8, ptr %143, align 1, !tbaa !4
+  %231 = and i8 %230, 2
+  %.not331 = icmp eq i8 %231, 0
   %spec.select379 = select i1 %.not331, i32 %.0265, i32 1
   br label %sane_iscase.exit429.thread
 
-231:                                              ; preds = %196
-  %232 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %179, ptr noundef nonnull dereferenceable(6) @.str.5, i64 noundef 5) #2
-  %233 = icmp eq i32 %232, 0
-  br i1 %233, label %234, label %.thread490
+232:                                              ; preds = %197
+  %233 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %180, ptr noundef nonnull dereferenceable(6) @.str.5, i64 noundef 5) #2
+  %234 = icmp eq i32 %233, 0
+  br i1 %234, label %235, label %.thread490
 
-234:                                              ; preds = %231
-  br i1 %or.cond30, label %235, label %sane_iscase.exit429.thread
+235:                                              ; preds = %232
+  br i1 %or.cond30, label %236, label %sane_iscase.exit429.thread
 
-235:                                              ; preds = %234
-  %236 = load i8, ptr %143, align 1, !tbaa !4
-  %237 = and i8 %236, 1
-  %.not330 = icmp eq i8 %237, 0
+236:                                              ; preds = %235
+  %237 = load i8, ptr %143, align 1, !tbaa !4
+  %238 = and i8 %237, 1
+  %.not330 = icmp eq i8 %238, 0
   %spec.select381 = select i1 %.not330, i32 1, i32 %.0265
   br label %sane_iscase.exit429.thread
 
-238:                                              ; preds = %196
-  %239 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %179, ptr noundef nonnull dereferenceable(6) @.str.6, i64 noundef 5) #2
-  %240 = icmp eq i32 %239, 0
-  br i1 %240, label %241, label %.thread490
+239:                                              ; preds = %197
+  %240 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %180, ptr noundef nonnull dereferenceable(6) @.str.6, i64 noundef 5) #2
+  %241 = icmp eq i32 %240, 0
+  br i1 %241, label %242, label %.thread490
 
-241:                                              ; preds = %238
-  br i1 %140, label %242, label %sane_iscase.exit429.thread
+242:                                              ; preds = %239
+  br i1 %140, label %243, label %sane_iscase.exit429.thread
 
-242:                                              ; preds = %241
-  %243 = load i8, ptr %143, align 1, !tbaa !4
-  %244 = and i8 %243, 4
-  %.not.i432 = icmp eq i8 %244, 0
-  %or.cond516 = or i1 %.not325469.not, %.not.i432
+243:                                              ; preds = %242
+  %244 = load i8, ptr %143, align 1, !tbaa !4
+  %245 = and i8 %244, 4
+  %.not.i432 = icmp eq i8 %245, 0
+  %or.cond516 = or i1 %.not329, %.not.i432
   %spec.select522 = select i1 %or.cond516, i32 %.0265, i32 1
   br label %sane_iscase.exit429.thread
 
-245:                                              ; preds = %196
-  %246 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %179, ptr noundef nonnull dereferenceable(6) @.str.7, i64 noundef 5) #2
-  %247 = icmp eq i32 %246, 0
-  br i1 %247, label %248, label %249
+246:                                              ; preds = %197
+  %247 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %180, ptr noundef nonnull dereferenceable(6) @.str.7, i64 noundef 5) #2
+  %248 = icmp eq i32 %247, 0
+  br i1 %248, label %249, label %250
 
-248:                                              ; preds = %245
+249:                                              ; preds = %246
   %spec.select385 = select i1 %or.cond30, i32 1, i32 %.0265
   br label %sane_iscase.exit429.thread
 
-249:                                              ; preds = %245
-  %250 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %179, ptr noundef nonnull dereferenceable(6) @.str.8, i64 noundef 5) #2
-  %251 = icmp eq i32 %250, 0
-  br i1 %251, label %252, label %.thread490
+250:                                              ; preds = %246
+  %251 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %180, ptr noundef nonnull dereferenceable(6) @.str.8, i64 noundef 5) #2
+  %252 = icmp eq i32 %251, 0
+  br i1 %252, label %253, label %.thread490
 
-252:                                              ; preds = %249
-  br i1 %140, label %253, label %sane_iscase.exit429.thread
+253:                                              ; preds = %250
+  br i1 %140, label %254, label %sane_iscase.exit429.thread
 
-253:                                              ; preds = %252
-  %254 = load i8, ptr %143, align 1, !tbaa !4
-  %255 = and i8 %254, -72
-  %.not328 = icmp eq i8 %255, 0
+254:                                              ; preds = %253
+  %255 = load i8, ptr %143, align 1, !tbaa !4
+  %256 = and i8 %255, -72
+  %.not328 = icmp eq i8 %256, 0
   %spec.select387 = select i1 %.not328, i32 %.0265, i32 1
   br label %sane_iscase.exit429.thread
 
-256:                                              ; preds = %196
-  %257 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %179, ptr noundef nonnull dereferenceable(6) @.str.9, i64 noundef 5) #2
-  %258 = icmp eq i32 %257, 0
-  br i1 %258, label %259, label %.thread490
+257:                                              ; preds = %197
+  %258 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %180, ptr noundef nonnull dereferenceable(6) @.str.9, i64 noundef 5) #2
+  %259 = icmp eq i32 %258, 0
+  br i1 %259, label %260, label %.thread490
 
-259:                                              ; preds = %256
-  br i1 %140, label %260, label %sane_iscase.exit429.thread
+260:                                              ; preds = %257
+  br i1 %140, label %261, label %sane_iscase.exit429.thread
 
-260:                                              ; preds = %259
-  %261 = load i8, ptr %143, align 1, !tbaa !4
-  %262 = and i8 %261, 1
-  %.not327 = icmp eq i8 %262, 0
+261:                                              ; preds = %260
+  %262 = load i8, ptr %143, align 1, !tbaa !4
+  %263 = and i8 %262, 1
+  %.not327 = icmp eq i8 %263, 0
   %spec.select389 = select i1 %.not327, i32 %.0265, i32 1
   br label %sane_iscase.exit429.thread
 
-263:                                              ; preds = %196
-  %264 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %179, ptr noundef nonnull dereferenceable(6) @.str.10, i64 noundef 5) #2
-  %265 = icmp eq i32 %264, 0
-  br i1 %265, label %266, label %.thread490
+264:                                              ; preds = %197
+  %265 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %180, ptr noundef nonnull dereferenceable(6) @.str.10, i64 noundef 5) #2
+  %266 = icmp eq i32 %265, 0
+  br i1 %266, label %267, label %.thread490
 
-266:                                              ; preds = %263
-  br i1 %140, label %267, label %sane_iscase.exit429.thread
+267:                                              ; preds = %264
+  br i1 %140, label %268, label %sane_iscase.exit429.thread
 
-267:                                              ; preds = %266
-  %268 = load i8, ptr %143, align 1, !tbaa !4
-  %269 = and i8 %268, 4
-  %.not.i437 = icmp eq i8 %269, 0
-  br i1 %.not.i437, label %sane_iscase.exit429.thread, label %sane_iscase.exit441.thread
-
-sane_iscase.exit441.thread:                       ; preds = %267
-  %.mux392472 = select i1 %.not315, i32 %.0265, i32 1
-  %spec.select517 = select i1 %.not325469.not, i32 1, i32 %.mux392472
+268:                                              ; preds = %267
+  %269 = load i8, ptr %143, align 1, !tbaa !4
+  %270 = and i8 %269, 4
+  %.not.i437 = icmp eq i8 %270, 0
+  %271 = or i1 %.not.i437, %150
+  %spec.select758 = select i1 %271, i32 %.0265, i32 1
   br label %sane_iscase.exit429.thread
 
-270:                                              ; preds = %194
-  %271 = load i8, ptr %179, align 1, !tbaa !4
-  %272 = icmp eq i8 %271, 120
-  br i1 %272, label %273, label %.thread490
+272:                                              ; preds = %195
+  %273 = load i8, ptr %180, align 1, !tbaa !4
+  %274 = icmp eq i8 %273, 120
+  br i1 %274, label %275, label %.thread490
 
-273:                                              ; preds = %270
-  %274 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %179, ptr noundef nonnull dereferenceable(7) @.str.11, i64 noundef 6) #2
-  %275 = icmp eq i32 %274, 0
-  br i1 %275, label %276, label %.thread490
+275:                                              ; preds = %272
+  %276 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %180, ptr noundef nonnull dereferenceable(7) @.str.11, i64 noundef 6) #2
+  %277 = icmp eq i32 %276, 0
+  br i1 %277, label %278, label %.thread490
 
-276:                                              ; preds = %273
-  br i1 %140, label %277, label %sane_iscase.exit429.thread
+278:                                              ; preds = %275
+  br i1 %140, label %279, label %sane_iscase.exit429.thread
 
-277:                                              ; preds = %276
-  %278 = load i8, ptr %142, align 1, !tbaa !4
-  %.not324 = icmp eq i8 %278, -1
+279:                                              ; preds = %278
+  %280 = load i8, ptr %142, align 1, !tbaa !4
+  %.not324 = icmp eq i8 %280, -1
   %spec.select398 = select i1 %.not324, i32 %.0265, i32 1
   br label %sane_iscase.exit429.thread
 
-.thread462:                                       ; preds = %160, %160, %174, %172
-  %279 = icmp eq i8 %.0277.fr, %.4261
-  %spec.select399 = select i1 %279, i32 1, i32 %.0265
+.thread462:                                       ; preds = %161, %161, %175, %173
+  %281 = icmp eq i8 %.0277.fr, %.4261
+  %spec.select399 = select i1 %281, i32 1, i32 %.0265
   br label %sane_iscase.exit429.thread
 
-sane_iscase.exit429.thread:                       ; preds = %166, %242, %sane_iscase.exit441.thread, %267, %259, %260, %248, %234, %235, %220, %221, %208, %209, %202, %201, %215, %216, %228, %227, %277, %241, %253, %252, %266, %276, %193, %168, %.thread462, %154, %171
-  %.6271 = phi i32 [ %spec.select370, %193 ], [ %spec.select399, %.thread462 ], [ %spec.select, %154 ], [ %.0265, %168 ], [ %.2267, %171 ], [ %spec.select371, %202 ], [ %.mux.mux, %166 ], [ %.0265, %276 ], [ %.0265, %267 ], [ %.0265, %201 ], [ %spec.select522, %242 ], [ %spec.select385, %248 ], [ %spec.select389, %260 ], [ %.0265, %259 ], [ %.0265, %241 ], [ %spec.select398, %277 ], [ %spec.select381, %235 ], [ %.0265, %234 ], [ %spec.select379, %228 ], [ %spec.select517, %sane_iscase.exit441.thread ], [ %.0265, %227 ], [ %.0265, %252 ], [ %spec.select377, %221 ], [ %.0265, %220 ], [ %spec.select387, %253 ], [ %spec.select374, %209 ], [ %.0265, %215 ], [ 1, %216 ], [ %.0265, %208 ], [ %.0265, %266 ]
-  %.7264 = phi i8 [ 91, %193 ], [ %.4261, %.thread462 ], [ %153, %154 ], [ 0, %168 ], [ 0, %171 ], [ 0, %202 ], [ 0, %166 ], [ 0, %276 ], [ 0, %267 ], [ 0, %201 ], [ 0, %242 ], [ 0, %248 ], [ 0, %260 ], [ 0, %259 ], [ 0, %241 ], [ 0, %277 ], [ 0, %235 ], [ 0, %234 ], [ 0, %228 ], [ 0, %sane_iscase.exit441.thread ], [ 0, %227 ], [ 0, %252 ], [ 0, %221 ], [ 0, %220 ], [ 0, %253 ], [ 0, %209 ], [ 0, %215 ], [ 0, %216 ], [ 0, %208 ], [ 0, %266 ]
-  %.10 = phi ptr [ %.6248, %193 ], [ %.6248, %.thread462 ], [ %152, %154 ], [ %.7249, %168 ], [ %.7249, %171 ], [ %.8250, %202 ], [ %.7249, %166 ], [ %.8250, %276 ], [ %.8250, %267 ], [ %.8250, %201 ], [ %.8250, %242 ], [ %.8250, %248 ], [ %.8250, %260 ], [ %.8250, %259 ], [ %.8250, %241 ], [ %.8250, %277 ], [ %.8250, %235 ], [ %.8250, %234 ], [ %.8250, %228 ], [ %.8250, %sane_iscase.exit441.thread ], [ %.8250, %227 ], [ %.8250, %252 ], [ %.8250, %221 ], [ %.8250, %220 ], [ %.8250, %253 ], [ %.8250, %209 ], [ %.8250, %215 ], [ %.8250, %216 ], [ %.8250, %208 ], [ %.8250, %266 ]
-  %280 = getelementptr inbounds nuw i8, ptr %.10, i64 1
-  %281 = load i8, ptr %280, align 1, !tbaa !4
-  %.not342 = icmp eq i8 %281, 93
-  br i1 %.not342, label %282, label %150, !llvm.loop !11
+sane_iscase.exit429.thread:                       ; preds = %268, %167, %243, %260, %261, %249, %235, %236, %221, %222, %209, %210, %203, %202, %216, %217, %229, %228, %279, %242, %254, %253, %267, %278, %194, %169, %.thread462, %155, %172
+  %.6271 = phi i32 [ %spec.select370, %194 ], [ %spec.select399, %.thread462 ], [ %spec.select, %155 ], [ %.0265, %169 ], [ %.2267, %172 ], [ %spec.select371, %203 ], [ %.mux.mux, %167 ], [ %.0265, %278 ], [ %spec.select758, %268 ], [ %.0265, %202 ], [ %spec.select522, %243 ], [ %spec.select385, %249 ], [ %spec.select389, %261 ], [ %.0265, %260 ], [ %.0265, %242 ], [ %spec.select398, %279 ], [ %spec.select381, %236 ], [ %.0265, %235 ], [ %spec.select379, %229 ], [ %.0265, %267 ], [ %.0265, %228 ], [ %.0265, %253 ], [ %spec.select377, %222 ], [ %.0265, %221 ], [ %spec.select387, %254 ], [ %spec.select374, %210 ], [ %.0265, %216 ], [ 1, %217 ], [ %.0265, %209 ]
+  %.7264 = phi i8 [ 91, %194 ], [ %.4261, %.thread462 ], [ %154, %155 ], [ 0, %169 ], [ 0, %172 ], [ 0, %203 ], [ 0, %167 ], [ 0, %278 ], [ 0, %268 ], [ 0, %202 ], [ 0, %243 ], [ 0, %249 ], [ 0, %261 ], [ 0, %260 ], [ 0, %242 ], [ 0, %279 ], [ 0, %236 ], [ 0, %235 ], [ 0, %229 ], [ 0, %267 ], [ 0, %228 ], [ 0, %253 ], [ 0, %222 ], [ 0, %221 ], [ 0, %254 ], [ 0, %210 ], [ 0, %216 ], [ 0, %217 ], [ 0, %209 ]
+  %.10 = phi ptr [ %.6248, %194 ], [ %.6248, %.thread462 ], [ %153, %155 ], [ %.7249, %169 ], [ %.7249, %172 ], [ %.8250, %203 ], [ %.7249, %167 ], [ %.8250, %278 ], [ %.8250, %268 ], [ %.8250, %202 ], [ %.8250, %243 ], [ %.8250, %249 ], [ %.8250, %261 ], [ %.8250, %260 ], [ %.8250, %242 ], [ %.8250, %279 ], [ %.8250, %236 ], [ %.8250, %235 ], [ %.8250, %229 ], [ %.8250, %267 ], [ %.8250, %228 ], [ %.8250, %253 ], [ %.8250, %222 ], [ %.8250, %221 ], [ %.8250, %254 ], [ %.8250, %210 ], [ %.8250, %216 ], [ %.8250, %217 ], [ %.8250, %209 ]
+  %282 = getelementptr inbounds nuw i8, ptr %.10, i64 1
+  %283 = load i8, ptr %282, align 1, !tbaa !4
+  %.not342 = icmp eq i8 %283, 93
+  br i1 %.not342, label %284, label %151, !llvm.loop !11
 
-282:                                              ; preds = %sane_iscase.exit429.thread
-  %283 = icmp eq i32 %.6271, %134
-  %284 = icmp eq i8 %.0277.fr, 47
-  %or.cond33 = and i1 %7, %284
-  %or.cond611 = or i1 %283, %or.cond33
+284:                                              ; preds = %sane_iscase.exit429.thread
+  %285 = icmp eq i32 %.6271, %134
+  %286 = icmp eq i8 %.0277.fr, 47
+  %or.cond33 = and i1 %7, %286
+  %or.cond611 = or i1 %285, %or.cond33
   br i1 %or.cond611, label %.thread490, label %select.unfold
 
-select.unfold:                                    ; preds = %282, %34, %35, %126
-  %.1252 = phi ptr [ %.0251548, %282 ], [ %.0251548, %35 ], [ %127, %126 ], [ %.0251548, %34 ]
-  %.1243 = phi ptr [ %280, %282 ], [ %.0242549, %35 ], [ %.4246.ph, %126 ], [ %.2244, %34 ]
-  %285 = getelementptr inbounds nuw i8, ptr %.1252, i64 1
-  %286 = getelementptr inbounds nuw i8, ptr %.1243, i64 1
-  %287 = load i8, ptr %286, align 1, !tbaa !4
-  %.not = icmp eq i8 %287, 0
+select.unfold:                                    ; preds = %284, %34, %35, %126
+  %.1252 = phi ptr [ %.0251548, %284 ], [ %.0251548, %35 ], [ %127, %126 ], [ %.0251548, %34 ]
+  %.1243 = phi ptr [ %282, %284 ], [ %.0242549, %35 ], [ %.4246.ph, %126 ], [ %.2244, %34 ]
+  %287 = getelementptr inbounds nuw i8, ptr %.1252, i64 1
+  %288 = getelementptr inbounds nuw i8, ptr %.1243, i64 1
+  %289 = load i8, ptr %288, align 1, !tbaa !4
+  %.not = icmp eq i8 %289, 0
   br i1 %.not, label %._crit_edge, label %11, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %select.unfold, %3
-  %.0251.lcssa = phi ptr [ %1, %3 ], [ %285, %select.unfold ]
-  %288 = load i8, ptr %.0251.lcssa, align 1, !tbaa !4
-  %.not314 = icmp ne i8 %288, 0
-  %289 = zext i1 %.not314 to i32
+  %.0251.lcssa = phi ptr [ %1, %3 ], [ %287, %select.unfold ]
+  %290 = load i8, ptr %.0251.lcssa, align 1, !tbaa !4
+  %.not314 = icmp ne i8 %290, 0
+  %291 = zext i1 %.not314 to i32
   br label %.thread490
 
-.thread490:                                       ; preds = %126, %35, %282, %11, %34, %194, %196, %205, %212, %217, %224, %231, %238, %249, %256, %263, %273, %270, %163, %150, %151, %180, %122, %.lr.ph563.split.split.split.us, %117, %115, %.lr.ph563.split.split.us.split, %103, %102, %100, %58, %.preheader, %65, %.split.us, %.thread501, %._crit_edge
-  %.8 = phi i32 [ %289, %._crit_edge ], [ -1, %117 ], [ 0, %.thread501 ], [ %.367, %.split.us ], [ -1, %103 ], [ -2, %65 ], [ 0, %58 ], [ -1, %180 ], [ -1, %194 ], [ -1, %.preheader ], [ -1, %122 ], [ -2, %102 ], [ %99, %100 ], [ -2, %115 ], [ %114, %.lr.ph563.split.split.us.split ], [ %121, %.lr.ph563.split.split.split.us ], [ -1, %151 ], [ -1, %150 ], [ -1, %163 ], [ -1, %270 ], [ -1, %273 ], [ -1, %263 ], [ -1, %256 ], [ -1, %249 ], [ -1, %238 ], [ -1, %231 ], [ -1, %224 ], [ -1, %217 ], [ -1, %212 ], [ -1, %205 ], [ -1, %196 ], [ -1, %126 ], [ -1, %11 ], [ 1, %282 ], [ 1, %35 ], [ 1, %34 ]
+.thread490:                                       ; preds = %126, %35, %284, %11, %34, %195, %197, %206, %213, %218, %225, %232, %239, %250, %257, %264, %275, %272, %164, %151, %152, %181, %122, %.lr.ph563.split.split.split.us, %117, %115, %.lr.ph563.split.split.us.split, %103, %102, %100, %58, %.preheader, %65, %.split.us, %.thread501, %._crit_edge
+  %.8 = phi i32 [ %291, %._crit_edge ], [ -1, %117 ], [ 0, %.thread501 ], [ %.367, %.split.us ], [ -1, %103 ], [ -2, %65 ], [ 0, %58 ], [ -1, %181 ], [ -1, %195 ], [ -1, %.preheader ], [ -1, %122 ], [ -2, %102 ], [ %99, %100 ], [ -2, %115 ], [ %114, %.lr.ph563.split.split.us.split ], [ %121, %.lr.ph563.split.split.split.us ], [ -1, %152 ], [ -1, %151 ], [ -1, %164 ], [ -1, %272 ], [ -1, %275 ], [ -1, %264 ], [ -1, %257 ], [ -1, %250 ], [ -1, %239 ], [ -1, %232 ], [ -1, %225 ], [ -1, %218 ], [ -1, %213 ], [ -1, %206 ], [ -1, %197 ], [ -1, %126 ], [ -1, %11 ], [ 1, %284 ], [ 1, %35 ], [ 1, %34 ]
   ret i32 %.8
 }
 

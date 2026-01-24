@@ -1177,10 +1177,10 @@ define dso_local void @_ZN4llvm28FoldingSetBucketIteratorImplC2EPPv(ptr noundef 
   %.not = icmp eq ptr %3, null
   %4 = ptrtoint ptr %3 to i64
   %5 = and i64 %4, 1
-  %.not.i.not = icmp eq i64 %5, 0
-  %spec.select = select i1 %.not.i.not, ptr %3, ptr %1
-  %6 = select i1 %.not, ptr %1, ptr %spec.select
-  store ptr %6, ptr %0, align 8, !tbaa !52
+  %.not.i.not = icmp ne i64 %5, 0
+  %6 = select i1 %.not, i1 true, i1 %.not.i.not
+  %7 = select i1 %6, ptr %1, ptr %3
+  store ptr %7, ptr %0, align 8, !tbaa !52
   ret void
 }
 

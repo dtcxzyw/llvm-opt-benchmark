@@ -4782,71 +4782,71 @@ declare ptr @format_size_wmem(ptr noundef, i64 noundef, i32 noundef, i16 noundef
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @relative_time_string(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i1 noundef zeroext %3) unnamed_addr #0 {
   %5 = select i1 %3, ptr @.str.137, ptr @.str.3
-  %6 = select i1 %3, ptr @.str.138, ptr @.str.3
-  %7 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %8 = load i8, ptr %7, align 8, !range !18, !noundef !19
-  %9 = trunc nuw i8 %8 to i1
-  br i1 %9, label %10, label %43
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 48
+  %7 = load i8, ptr %6, align 8, !range !18, !noundef !19
+  %8 = trunc nuw i8 %7 to i1
+  br i1 %8, label %9, label %42
 
-10:                                               ; preds = %4
-  %11 = getelementptr inbounds nuw i8, ptr %2, i64 100
-  %12 = load i32, ptr %11, align 4
-  %.not = icmp eq i32 %12, 0
-  br i1 %.not, label %43, label %13
+9:                                                ; preds = %4
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 100
+  %11 = load i32, ptr %10, align 4
+  %.not = icmp eq i32 %11, 0
+  br i1 %.not, label %42, label %12
 
-13:                                               ; preds = %10
-  %14 = load i64, ptr %0, align 8
-  %15 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull @relative_time_string.time_string_buf, i64 noundef 39, i32 noundef 2, i64 noundef 39, ptr noundef nonnull @.str.139, i64 noundef %14)
-  %16 = icmp slt i32 %15, 0
-  br i1 %16, label %17, label %19
+12:                                               ; preds = %9
+  %13 = load i64, ptr %0, align 8
+  %14 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull @relative_time_string.time_string_buf, i64 noundef 39, i32 noundef 2, i64 noundef 39, ptr noundef nonnull @.str.139, i64 noundef %13)
+  %15 = icmp slt i32 %14, 0
+  br i1 %15, label %16, label %18
 
-17:                                               ; preds = %13
-  %18 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull @relative_time_string.time_string_buf, i64 noundef 39, i32 noundef 2, i64 noundef 39, ptr noundef nonnull @.str.140)
-  br label %45
+16:                                               ; preds = %12
+  %17 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull @relative_time_string.time_string_buf, i64 noundef 39, i32 noundef 2, i64 noundef 39, ptr noundef nonnull @.str.140)
+  br label %44
 
-19:                                               ; preds = %13
-  %20 = icmp samesign ugt i32 %15, 38
-  br i1 %20, label %45, label %21
+18:                                               ; preds = %12
+  %19 = icmp samesign ugt i32 %14, 38
+  br i1 %19, label %44, label %20
 
-21:                                               ; preds = %19
-  %22 = zext nneg i32 %15 to i64
-  %23 = getelementptr i8, ptr @relative_time_string.time_string_buf, i64 %22
-  %24 = sub nuw nsw i64 39, %22
+20:                                               ; preds = %18
+  %21 = zext nneg i32 %14 to i64
+  %22 = getelementptr i8, ptr @relative_time_string.time_string_buf, i64 %21
+  %23 = sub nuw nsw i64 39, %21
   %.not40 = icmp eq i32 %1, 0
-  br i1 %.not40, label %36, label %25
+  br i1 %.not40, label %35, label %24
 
-25:                                               ; preds = %21
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %27 = load i32, ptr %26, align 8
-  %28 = load ptr, ptr @decimal_point, align 8
-  %29 = tail call i32 @format_fractional_part_nsecs(ptr noundef %23, i64 noundef %24, i32 noundef %27, ptr noundef %28, i32 noundef %1)
-  %30 = zext i32 %29 to i64
-  %.not41 = icmp samesign ugt i64 %24, %30
-  br i1 %.not41, label %31, label %45
+24:                                               ; preds = %20
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %26 = load i32, ptr %25, align 8
+  %27 = load ptr, ptr @decimal_point, align 8
+  %28 = tail call i32 @format_fractional_part_nsecs(ptr noundef %22, i64 noundef %23, i32 noundef %26, ptr noundef %27, i32 noundef %1)
+  %29 = zext i32 %28 to i64
+  %.not41 = icmp samesign ugt i64 %23, %29
+  br i1 %.not41, label %30, label %44
 
-31:                                               ; preds = %25
-  %32 = sext i32 %29 to i64
-  %33 = add nsw i64 %32, %22
-  %34 = getelementptr i8, ptr %23, i64 %32
-  %35 = sub nsw i64 %24, %32
-  br label %36
+30:                                               ; preds = %24
+  %31 = sext i32 %28 to i64
+  %32 = add nsw i64 %31, %21
+  %33 = getelementptr i8, ptr %22, i64 %31
+  %34 = sub nsw i64 %23, %31
+  br label %35
 
-36:                                               ; preds = %31, %21
-  %37 = phi i64 [ %33, %31 ], [ %22, %21 ]
-  %.035 = phi ptr [ %34, %31 ], [ %23, %21 ]
-  %.0 = phi i64 [ %35, %31 ], [ %24, %21 ]
-  %38 = tail call i64 @llvm.usub.sat.i64(i64 39, i64 %37)
-  %39 = load i64, ptr %0, align 8
-  %40 = icmp eq i64 %39, 1
-  %41 = select i1 %40, ptr @.str.3, ptr %6
-  %42 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %.035, i64 noundef %.0, i32 noundef 2, i64 noundef %38, ptr noundef nonnull @.str.141, ptr noundef nonnull %5, ptr noundef nonnull %41)
-  br label %45
+35:                                               ; preds = %30, %20
+  %36 = phi i64 [ %32, %30 ], [ %21, %20 ]
+  %.035 = phi ptr [ %33, %30 ], [ %22, %20 ]
+  %.0 = phi i64 [ %34, %30 ], [ %23, %20 ]
+  %37 = tail call i64 @llvm.usub.sat.i64(i64 39, i64 %36)
+  %38 = load i64, ptr %0, align 8
+  %39 = icmp ne i64 %38, 1
+  %.not43 = and i1 %3, %39
+  %40 = select i1 %.not43, ptr @.str.138, ptr @.str.3
+  %41 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %.035, i64 noundef %.0, i32 noundef 2, i64 noundef %37, ptr noundef nonnull @.str.141, ptr noundef nonnull %5, ptr noundef nonnull %40)
+  br label %44
 
-43:                                               ; preds = %10, %4
-  %44 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull @relative_time_string.time_string_buf, i64 noundef 39, i32 noundef 2, i64 noundef 39, ptr noundef nonnull @.str.142)
-  br label %45
+42:                                               ; preds = %9, %4
+  %43 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull @relative_time_string.time_string_buf, i64 noundef 39, i32 noundef 2, i64 noundef 39, ptr noundef nonnull @.str.142)
+  br label %44
 
-45:                                               ; preds = %17, %36, %19, %25, %43
+44:                                               ; preds = %16, %35, %18, %24, %42
   ret void
 }
 

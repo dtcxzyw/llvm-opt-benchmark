@@ -672,9 +672,9 @@ switch.early.test:                                ; preds = %73
   %98 = icmp eq i32 %.0132.lcssa238, 2
   %or.cond35 = select i1 %98, i1 %.0138.lcssa236, i1 false
   %99 = trunc i64 %1 to i32
-  %.not = icmp slt i32 %.0128.lcssa242, %99
-  %100 = select i1 %.not, i8 2, i8 22
-  %101 = select i1 %or.cond35, i8 22, i8 %100
+  %.not = icmp sge i32 %.0128.lcssa242, %99
+  %100 = select i1 %or.cond35, i1 true, i1 %.not
+  %101 = select i1 %100, i8 22, i8 2
   br label %103
 
 102:                                              ; preds = %96, %.thread172

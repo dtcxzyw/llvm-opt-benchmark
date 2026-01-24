@@ -528,9 +528,9 @@ define hidden { i64, i64 } @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$
   store ptr null, ptr %5, align 8
   br label %22
 
-28:                                               ; preds = %.loopexit, %31, %58
-  %.sroa.5.0 = phi i64 [ undef, %31 ], [ %.sroa.0.0, %58 ], [ %56, %.loopexit ]
-  %.sroa.04.0 = phi i64 [ 0, %31 ], [ 1, %58 ], [ %.sroa.0.0.i2549, %.loopexit ]
+28:                                               ; preds = %.loopexit.thread, %31, %58
+  %.sroa.5.0 = phi i64 [ undef, %31 ], [ %.sroa.0.0, %58 ], [ %56, %.loopexit.thread ]
+  %.sroa.04.0 = phi i64 [ 0, %31 ], [ 1, %58 ], [ %not..sroa.0.0.i25, %.loopexit.thread ]
   %29 = insertvalue { i64, i64 } poison, i64 %.sroa.04.0, 0
   %30 = insertvalue { i64, i64 } %29, i64 %.sroa.5.0, 1
   ret { i64, i64 } %30
@@ -564,7 +564,7 @@ define hidden { i64, i64 } @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$
 
 .split.us.i:                                      ; preds = %33
   %.not.us.i = icmp eq ptr %.promoted.i23, null
-  br i1 %.not.us.i, label %.loopexit, label %.split24.us.invoke.i
+  br i1 %.not.us.i, label %.loopexit.thread, label %.split24.us.invoke.i
 
 .split24.us.invoke.i:                             ; preds = %.split.us25.i, %.split.us.i
   %37 = phi ptr [ @anon.29eb12dad0d19c746388edfcdc43c18e.107, %.split.us25.i ], [ @anon.29eb12dad0d19c746388edfcdc43c18e.106, %.split.us.i ]
@@ -579,14 +579,14 @@ define hidden { i64, i64 } @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$
 
 .split.us25.i:                                    ; preds = %33
   %.not.us27.i = icmp eq ptr %.promoted.i23, null
-  br i1 %.not.us27.i, label %.loopexit, label %.split24.us.invoke.i
+  br i1 %.not.us27.i, label %.loopexit.thread, label %.split24.us.invoke.i
 
 .split.i:                                         ; preds = %33, %40
   %38 = phi i64 [ %53, %40 ], [ %.sroa.5.0.copyload, %33 ]
   %39 = phi ptr [ null, %40 ], [ %.promoted.i23, %33 ]
   %.sroa.01.0.i26 = phi i64 [ %55, %40 ], [ %.sroa.0.0, %33 ]
-  %.not.i = icmp eq ptr %39, null
-  br i1 %.not.i, label %.loopexit, label %40
+  %.not.i.not = icmp eq ptr %39, null
+  br i1 %.not.i.not, label %.loopexit.thread, label %40
 
 40:                                               ; preds = %.split.i
   call void @llvm.experimental.noalias.scope.decl(metadata !99)
@@ -608,16 +608,16 @@ define hidden { i64, i64 } @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$
   %53 = add i64 %38, 1
   %54 = icmp eq i64 %.sroa.01.0.i26, 0
   %55 = add i64 %.sroa.01.0.i26, -1
-  br i1 %54, label %.loopexit, label %.split.i
+  br i1 %54, label %.loopexit.thread, label %.split.i
 
-.loopexit:                                        ; preds = %.split.i, %40, %.split.us.i, %.split.us25.i
-  %.lcssa54.sink = phi i64 [ %.sroa.5.0.copyload, %.split.us.i ], [ %.sroa.5.0.copyload, %.split.us25.i ], [ %53, %40 ], [ %38, %.split.i ]
-  %.sroa.0.0.i2549 = phi i64 [ 1, %.split.us.i ], [ 1, %.split.us25.i ], [ 0, %40 ], [ 1, %.split.i ]
-  %56 = phi i64 [ %.sroa.0.0, %.split.us.i ], [ %.sroa.0.0, %.split.us25.i ], [ undef, %40 ], [ %.sroa.01.0.i26, %.split.i ]
+.loopexit.thread:                                 ; preds = %40, %.split.i, %.split.us.i, %.split.us25.i
+  %.val13.sink.i.ph.sink = phi i64 [ %.sroa.5.0.copyload, %.split.us.i ], [ %.sroa.5.0.copyload, %.split.us25.i ], [ %38, %.split.i ], [ %53, %40 ]
+  %not..sroa.0.0.i25 = phi i64 [ 1, %.split.us.i ], [ 1, %.split.us25.i ], [ 1, %.split.i ], [ 0, %40 ]
+  %56 = phi i64 [ %.sroa.0.0, %.split.us.i ], [ %.sroa.0.0, %.split.us25.i ], [ %.sroa.01.0.i26, %.split.i ], [ undef, %40 ]
   store ptr null, ptr %34, align 8, !alias.scope !95, !noalias !98
   %57 = icmp ne ptr %.sroa.0.0.copyload, null
   call void @llvm.assume(i1 %57)
-  store i64 %.lcssa54.sink, ptr %.sroa.0.0.copyload, align 8, !noalias !90
+  store i64 %.val13.sink.i.ph.sink, ptr %.sroa.0.0.copyload, align 8, !noalias !90
   br label %28
 
 58:                                               ; preds = %22

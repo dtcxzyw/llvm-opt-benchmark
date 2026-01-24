@@ -315,31 +315,31 @@ define hidden void @_ZN7Address8make_rawEiiiiN9relocInfo9relocTypeE(ptr dead_on_
   %.not14 = icmp eq i32 %2, 4
   %or.cond.i17 = icmp ult i32 %1, 32
   %spec.select.i18 = select i1 %or.cond.i17, i32 %1, i32 -1
-  %or.cond.i15 = icmp ult i32 %2, 32
-  %spec.select.i16 = select i1 %or.cond.i15, i32 %2, i32 -1
-  %.sink28 = select i1 %.not14, i32 -1, i32 %spec.select.i16
+  %or.cond.i15 = icmp ugt i32 %2, 31
+  %17 = or i1 %.not14, %or.cond.i15
+  %.sink28 = select i1 %17, i32 -1, i32 %2
   %.sink = select i1 %.not14, i32 -1, i32 %3
   store i32 %spec.select.i18, ptr %0, align 8
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %.sink28, ptr %17, align 4
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 -1, ptr %18, align 8
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %.sink, ptr %19, align 4
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %4, ptr %20, align 8
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i8 0, ptr %21, align 4
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %22, align 8
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr null, ptr %23, align 8
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 0, ptr %24, align 8
-  %25 = load ptr, ptr %7, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
-  %27 = load ptr, ptr %26, align 8
-  call void %27(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(40) %22) #19
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 %.sink28, ptr %18, align 4
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 -1, ptr %19, align 8
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store i32 %.sink, ptr %20, align 4
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i32 %4, ptr %21, align 8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i8 0, ptr %22, align 4
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %23, align 8
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store ptr null, ptr %24, align 8
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store i32 0, ptr %25, align 8
+  %26 = load ptr, ptr %7, align 8
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
+  %28 = load ptr, ptr %27, align 8
+  call void %28(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(40) %23) #19
   ret void
 }
 

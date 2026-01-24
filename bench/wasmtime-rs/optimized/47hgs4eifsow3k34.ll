@@ -340,12 +340,12 @@ define hidden { i64, i64 } @_ZN4core5alloc6layout6Layout15from_size_align17h0921
   %3 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %1)
   %4 = icmp eq i64 %3, 1
   %5 = sub nuw i64 -9223372036854775808, %1
-  %6 = icmp ugt i64 %0, %5
-  %. = select i1 %6, i64 0, i64 %1
-  %.sroa.0.0 = select i1 %4, i64 %., i64 0
-  %7 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
-  %8 = insertvalue { i64, i64 } %7, i64 %0, 1
-  ret { i64, i64 } %8
+  %6 = icmp ule i64 %0, %5
+  %7 = select i1 %4, i1 %6, i1 false
+  %.sroa.0.0 = select i1 %7, i64 %1, i64 0
+  %8 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
+  %9 = insertvalue { i64, i64 } %8, i64 %0, 1
+  ret { i64, i64 } %9
 }
 
 ; Function Attrs: alwaysinline nonlazybind uwtable

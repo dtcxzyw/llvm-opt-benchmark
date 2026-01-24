@@ -711,50 +711,50 @@ define void @lv_vector_path_append_arc(ptr noundef %0, ptr noundef readonly capt
   %24 = fcmp olt float %19, 0.000000e+00
   %25 = tail call float @fmodf(float noundef %19, float noundef 0x3FF921FB60000000) #10, !tbaa !21
   %26 = tail call float @llvm.fabs.f32(float %25)
-  %27 = fcmp olt float %26, 0x3E80000000000000
+  %27 = fcmp uge float %26, 0x3E80000000000000
   %28 = select i1 %24, float 0xBFF921FB60000000, float 0x3FF921FB60000000
-  %29 = select i1 %27, float %28, float %25
-  %30 = tail call float @cosf(float noundef %18) #10, !tbaa !21
-  %31 = fmul float %2, %30
-  %32 = tail call float @sinf(float noundef %18) #10, !tbaa !21
-  %33 = fmul float %2, %32
-  br i1 %5, label %34, label %39
+  %29 = tail call float @cosf(float noundef %18) #10, !tbaa !21
+  %30 = fmul float %2, %29
+  %31 = tail call float @sinf(float noundef %18) #10, !tbaa !21
+  %32 = fmul float %2, %31
+  br i1 %5, label %33, label %38
 
-34:                                               ; preds = %17
+33:                                               ; preds = %17
   store float %12, ptr %7, align 4, !tbaa !3
-  %35 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  store float %14, ptr %35, align 4, !tbaa !8
+  %34 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  store float %14, ptr %34, align 4, !tbaa !8
   call void @lv_vector_path_move_to(ptr noundef %0, ptr noundef nonnull %7)
-  %36 = fadd float %12, %31
-  store float %36, ptr %8, align 4, !tbaa !3
-  %37 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  %38 = fadd float %14, %33
-  store float %38, ptr %37, align 4, !tbaa !8
+  %35 = fadd float %12, %30
+  store float %35, ptr %8, align 4, !tbaa !3
+  %36 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  %37 = fadd float %14, %32
+  store float %37, ptr %36, align 4, !tbaa !8
   call void @lv_vector_path_line_to(ptr noundef %0, ptr noundef nonnull %8)
-  br label %39
+  br label %38
 
-39:                                               ; preds = %34, %17
-  %40 = icmp sgt i32 %23, 0
-  br i1 %40, label %.lr.ph, label %._crit_edge
+38:                                               ; preds = %33, %17
+  %39 = icmp sgt i32 %23, 0
+  br i1 %39, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %39
-  %41 = add nsw i32 %23, -1
-  %42 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  %43 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  %44 = getelementptr inbounds nuw i8, ptr %11, i64 4
-  br label %45
+.lr.ph:                                           ; preds = %38
+  %40 = add nsw i32 %23, -1
+  %41 = getelementptr inbounds nuw i8, ptr %9, i64 4
+  %42 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %43 = getelementptr inbounds nuw i8, ptr %11, i64 4
+  br label %44
 
-._crit_edge:                                      ; preds = %45, %39
+._crit_edge:                                      ; preds = %44, %38
   br i1 %5, label %78, label %79
 
-45:                                               ; preds = %.lr.ph, %45
-  %.093 = phi float [ %18, %.lr.ph ], [ %47, %45 ]
-  %.sroa.6.092 = phi float [ %33, %.lr.ph ], [ %51, %45 ]
-  %.sroa.0.091 = phi float [ %31, %.lr.ph ], [ %49, %45 ]
-  %.08790 = phi i32 [ 0, %.lr.ph ], [ %77, %45 ]
-  %.not = icmp eq i32 %.08790, %41
-  %46 = select i1 %.not, float %29, float %28
-  %47 = fadd float %46, %.093
+44:                                               ; preds = %.lr.ph, %44
+  %.093 = phi float [ %18, %.lr.ph ], [ %47, %44 ]
+  %.sroa.6.092 = phi float [ %32, %.lr.ph ], [ %51, %44 ]
+  %.sroa.0.091 = phi float [ %30, %.lr.ph ], [ %49, %44 ]
+  %.08790 = phi i32 [ 0, %.lr.ph ], [ %77, %44 ]
+  %.not = icmp eq i32 %.08790, %40
+  %45 = select i1 %.not, i1 %27, i1 false
+  %46 = select i1 %45, float %25, float %28
+  %47 = fadd float %.093, %46
   %48 = call float @cosf(float noundef %47) #10, !tbaa !21
   %49 = fmul float %2, %48
   %50 = call float @sinf(float noundef %47) #10, !tbaa !21
@@ -782,24 +782,24 @@ define void @lv_vector_path_append_arc(ptr noundef %0, ptr noundef readonly capt
   store float %70, ptr %9, align 4, !tbaa !3
   %71 = call float @llvm.fmuladd.f32(float %65, float %.sroa.0.091, float %.sroa.6.092)
   %72 = fadd float %14, %71
-  store float %72, ptr %42, align 4, !tbaa !8
+  store float %72, ptr %41, align 4, !tbaa !8
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %73 = call float @llvm.fmuladd.f32(float %65, float %51, float %49)
   %74 = fadd float %12, %73
   store float %74, ptr %10, align 4, !tbaa !3
   %75 = call float @llvm.fmuladd.f32(float %68, float %49, float %51)
   %76 = fadd float %14, %75
-  store float %76, ptr %43, align 4, !tbaa !8
+  store float %76, ptr %42, align 4, !tbaa !8
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store float %66, ptr %11, align 4, !tbaa !3
-  store float %67, ptr %44, align 4, !tbaa !8
+  store float %67, ptr %43, align 4, !tbaa !8
   call void @lv_vector_path_cubic_to(ptr noundef %0, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %77 = add nuw nsw i32 %.08790, 1
   %exitcond.not = icmp eq i32 %77, %23
-  br i1 %exitcond.not, label %._crit_edge, label %45, !llvm.loop !28
+  br i1 %exitcond.not, label %._crit_edge, label %44, !llvm.loop !28
 
 78:                                               ; preds = %._crit_edge
   call void @lv_vector_path_close(ptr noundef %0)

@@ -2249,7 +2249,7 @@ gv_calloc.exit:                                   ; preds = %.thread.i, %8
   %30 = load i32, ptr @x_mode, align 4, !tbaa !4
   switch i32 %30, label %.loopexit [
     i32 1, label %31
-    i32 2, label %46
+    i32 2, label %47
   ]
 
 31:                                               ; preds = %29
@@ -2268,92 +2268,92 @@ gv_calloc.exit:                                   ; preds = %.thread.i, %8
   %.not58 = icmp slt i32 %38, %17
   %39 = add i64 %1, -1
   %40 = zext nneg i32 %38 to i64
-  %.not59 = icmp ugt i64 %1, %40
-  %spec.select = select i1 %.not59, i64 %40, i64 %39
-  %.048 = select i1 %.not58, i64 %39, i64 %spec.select
+  %.not59 = icmp ule i64 %1, %40
+  %41 = select i1 %.not58, i1 true, i1 %.not59
+  %.048 = select i1 %41, i64 %39, i64 %40
   %.not6073 = icmp ult i64 %.048, %32
   br i1 %.not6073, label %.loopexit, label %.lr.ph76
 
-.lr.ph76:                                         ; preds = %37, %44
-  %.274 = phi i64 [ %45, %44 ], [ %32, %37 ]
-  %41 = getelementptr inbounds nuw ptr, ptr %15, i64 %.274
-  %42 = load ptr, ptr %41, align 8, !tbaa !70
+.lr.ph76:                                         ; preds = %37, %45
+  %.274 = phi i64 [ %46, %45 ], [ %32, %37 ]
+  %42 = getelementptr inbounds nuw ptr, ptr %15, i64 %.274
+  %43 = load ptr, ptr %42, align 8, !tbaa !70
   %.b56 = load i1, ptr @doAll, align 1
-  br i1 %.b56, label %44, label %43
+  br i1 %.b56, label %45, label %44
 
-43:                                               ; preds = %.lr.ph76
-  tail call fastcc void @subgInduce(ptr noundef nonnull %0, ptr noundef %42, i32 noundef 0)
-  br label %44
+44:                                               ; preds = %.lr.ph76
+  tail call fastcc void @subgInduce(ptr noundef nonnull %0, ptr noundef %43, i32 noundef 0)
+  br label %45
 
-44:                                               ; preds = %43, %.lr.ph76
-  tail call fastcc void @gwrite(ptr noundef %42)
-  %45 = add i64 %.274, 1
+45:                                               ; preds = %44, %.lr.ph76
+  tail call fastcc void @gwrite(ptr noundef %43)
+  %46 = add i64 %.274, 1
   %exitcond82.not = icmp eq i64 %.274, %.048
   br i1 %exitcond82.not, label %.loopexit, label %.lr.ph76, !llvm.loop !72
 
-46:                                               ; preds = %29
-  %47 = load i32, ptr @sortFinal, align 4, !tbaa !4
-  %48 = icmp eq i32 %47, -1
-  br i1 %48, label %49, label %52
+47:                                               ; preds = %29
+  %48 = load i32, ptr @sortFinal, align 4, !tbaa !4
+  %49 = icmp eq i32 %48, -1
+  br i1 %49, label %50, label %53
 
-49:                                               ; preds = %46
-  %50 = load ptr, ptr %15, align 8, !tbaa !70
-  %51 = tail call i32 @agnnodes(ptr noundef %50) #23
-  store i32 %51, ptr @sortFinal, align 4, !tbaa !4
-  br label %52
+50:                                               ; preds = %47
+  %51 = load ptr, ptr %15, align 8, !tbaa !70
+  %52 = tail call i32 @agnnodes(ptr noundef %51) #23
+  store i32 %52, ptr @sortFinal, align 4, !tbaa !4
+  br label %53
 
-52:                                               ; preds = %49, %46
+53:                                               ; preds = %50, %47
   br i1 %.not.i, label %.loopexit, label %.lr.ph71
 
-.lr.ph71:                                         ; preds = %52, %64
-  %.369 = phi i64 [ %65, %64 ], [ 0, %52 ]
-  %53 = getelementptr inbounds nuw ptr, ptr %15, i64 %.369
-  %54 = load ptr, ptr %53, align 8, !tbaa !70
-  %55 = tail call i32 @agnnodes(ptr noundef %54) #23
-  %56 = load i32, ptr @sortFinal, align 4, !tbaa !4
-  %57 = icmp sgt i32 %55, %56
-  br i1 %57, label %64, label %58
+.lr.ph71:                                         ; preds = %53, %65
+  %.369 = phi i64 [ %66, %65 ], [ 0, %53 ]
+  %54 = getelementptr inbounds nuw ptr, ptr %15, i64 %.369
+  %55 = load ptr, ptr %54, align 8, !tbaa !70
+  %56 = tail call i32 @agnnodes(ptr noundef %55) #23
+  %57 = load i32, ptr @sortFinal, align 4, !tbaa !4
+  %58 = icmp sgt i32 %56, %57
+  br i1 %58, label %65, label %59
 
-58:                                               ; preds = %.lr.ph71
-  %59 = load i32, ptr @sortIndex, align 4, !tbaa !4
-  %60 = icmp slt i32 %55, %59
-  br i1 %60, label %.loopexit, label %61
+59:                                               ; preds = %.lr.ph71
+  %60 = load i32, ptr @sortIndex, align 4, !tbaa !4
+  %61 = icmp slt i32 %56, %60
+  br i1 %61, label %.loopexit, label %62
 
-61:                                               ; preds = %58
+62:                                               ; preds = %59
   %.b55 = load i1, ptr @doAll, align 1
-  br i1 %.b55, label %63, label %62
+  br i1 %.b55, label %64, label %63
 
-62:                                               ; preds = %61
-  tail call fastcc void @subgInduce(ptr noundef nonnull %0, ptr noundef %54, i32 noundef 0)
-  br label %63
-
-63:                                               ; preds = %62, %61
-  tail call fastcc void @gwrite(ptr noundef %54)
+63:                                               ; preds = %62
+  tail call fastcc void @subgInduce(ptr noundef nonnull %0, ptr noundef %55, i32 noundef 0)
   br label %64
 
-64:                                               ; preds = %63, %.lr.ph71
-  %65 = add nuw i64 %.369, 1
-  %exitcond81.not = icmp eq i64 %65, %1
+64:                                               ; preds = %63, %62
+  tail call fastcc void @gwrite(ptr noundef %55)
+  br label %65
+
+65:                                               ; preds = %64, %.lr.ph71
+  %66 = add nuw i64 %.369, 1
+  %exitcond81.not = icmp eq i64 %66, %1
   br i1 %exitcond81.not, label %.loopexit, label %.lr.ph71, !llvm.loop !73
 
-.lr.ph68:                                         ; preds = %.preheader, %69
-  %.467 = phi i64 [ %70, %69 ], [ 0, %.preheader ]
-  %66 = getelementptr inbounds nuw ptr, ptr %15, i64 %.467
-  %67 = load ptr, ptr %66, align 8, !tbaa !70
+.lr.ph68:                                         ; preds = %.preheader, %70
+  %.467 = phi i64 [ %71, %70 ], [ 0, %.preheader ]
+  %67 = getelementptr inbounds nuw ptr, ptr %15, i64 %.467
+  %68 = load ptr, ptr %67, align 8, !tbaa !70
   %.b = load i1, ptr @doAll, align 1
-  br i1 %.b, label %69, label %68
+  br i1 %.b, label %70, label %69
 
-68:                                               ; preds = %.lr.ph68
-  tail call fastcc void @subgInduce(ptr noundef nonnull %0, ptr noundef %67, i32 noundef 0)
-  br label %69
+69:                                               ; preds = %.lr.ph68
+  tail call fastcc void @subgInduce(ptr noundef nonnull %0, ptr noundef %68, i32 noundef 0)
+  br label %70
 
-69:                                               ; preds = %68, %.lr.ph68
-  tail call fastcc void @gwrite(ptr noundef %67)
-  %70 = add nuw i64 %.467, 1
-  %exitcond.not = icmp eq i64 %70, %1
+70:                                               ; preds = %69, %.lr.ph68
+  tail call fastcc void @gwrite(ptr noundef %68)
+  %71 = add nuw i64 %.467, 1
+  %exitcond.not = icmp eq i64 %71, %1
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph68, !llvm.loop !74
 
-.loopexit:                                        ; preds = %69, %58, %64, %44, %29, %37, %52, %.preheader, %33
+.loopexit:                                        ; preds = %70, %59, %65, %45, %29, %37, %53, %.preheader, %33
   tail call void @free(ptr noundef %15) #23
   ret void
 }

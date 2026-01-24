@@ -11566,17 +11566,17 @@ define internal fastcc i32 @sljit_emit_op2(ptr noundef %0, i32 noundef range(i32
     i8 66, label %23
     i8 67, label %48
     i8 68, label %50
-    i8 69, label %277
-    i8 70, label %279
-    i8 71, label %281
-    i8 72, label %295
-    i8 73, label %295
-    i8 74, label %298
-    i8 75, label %298
-    i8 76, label %301
-    i8 77, label %301
-    i8 78, label %304
-    i8 79, label %315
+    i8 69, label %278
+    i8 70, label %280
+    i8 71, label %282
+    i8 72, label %296
+    i8 73, label %296
+    i8 74, label %299
+    i8 75, label %299
+    i8 76, label %302
+    i8 77, label %302
+    i8 78, label %305
+    i8 79, label %316
   ]
 
 13:                                               ; preds = %10
@@ -11674,12 +11674,12 @@ emit_groupf.exit.thread.i:                        ; preds = %55
   store i8 15, ptr %56, align 1, !tbaa !75
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 1
   store i8 -81, ptr %57, align 1, !tbaa !75
-  br label %273
+  br label %274
 
 emit_groupf.exit.i:                               ; preds = %55
   %58 = load i32, ptr %0, align 8, !tbaa !110
   %.not172.i = icmp eq i32 %58, 0
-  br i1 %.not172.i, label %273, label %emit_mul.exit, !prof !122
+  br i1 %.not172.i, label %274, label %emit_mul.exit, !prof !122
 
 59:                                               ; preds = %50
   %60 = icmp eq i32 %52, %6
@@ -11696,12 +11696,12 @@ emit_groupf.exit177.thread.i:                     ; preds = %62
   store i8 15, ptr %63, align 1, !tbaa !75
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 1
   store i8 -81, ptr %64, align 1, !tbaa !75
-  br label %273
+  br label %274
 
 emit_groupf.exit177.i:                            ; preds = %62
   %65 = load i32, ptr %0, align 8, !tbaa !110
   %.not171.i = icmp eq i32 %65, 0
-  br i1 %.not171.i, label %273, label %emit_mul.exit, !prof !122
+  br i1 %.not171.i, label %274, label %emit_mul.exit, !prof !122
 
 66:                                               ; preds = %59
   %67 = icmp eq i32 %4, 127
@@ -11781,7 +11781,7 @@ emit_byte.exit.thread.i:                          ; preds = %96, %88
   %103 = add i64 %102, 1
   store i64 %103, ptr %101, align 8, !tbaa !121
   store i8 %81, ptr %100, align 1, !tbaa !75
-  br label %273
+  br label %274
 
 104:                                              ; preds = %91
   store i32 2, ptr %0, align 8, !tbaa !110
@@ -11850,7 +11850,7 @@ emit_byte.exit.thread.i:                          ; preds = %96, %88
   store i64 %135, ptr %133, align 8, !tbaa !121
   %136 = trunc nsw i64 %5 to i32
   store i32 %136, ptr %132, align 1
-  br label %273
+  br label %274
 
 137:                                              ; preds = %105
   %.not163.i = icmp eq i32 %52, %.0140.i
@@ -11975,7 +11975,7 @@ emit_groupf.exit188.thread.i:                     ; preds = %188, %180
   store i8 15, ptr %195, align 1, !tbaa !75
   %201 = getelementptr inbounds nuw i8, ptr %.0.i269.ph.i.i, i64 3
   store i8 -81, ptr %201, align 1, !tbaa !75
-  br label %273
+  br label %274
 
 emit_groupf.exit188.i:                            ; preds = %183
   store i32 2, ptr %0, align 8, !tbaa !110
@@ -12043,7 +12043,7 @@ emit_byte.exit194.thread.i:                       ; preds = %225, %217
   %232 = add i64 %231, 1
   store i64 %232, ptr %230, align 8, !tbaa !121
   store i8 %210, ptr %229, align 1, !tbaa !75
-  br label %273
+  br label %274
 
 233:                                              ; preds = %220
   store i32 2, ptr %0, align 8, !tbaa !110
@@ -12082,7 +12082,7 @@ emit_byte.exit194.thread.i:                       ; preds = %225, %217
   store i64 %248, ptr %246, align 8, !tbaa !121
   %249 = trunc nsw i64 %7 to i32
   store i32 %249, ptr %245, align 1
-  br label %273
+  br label %274
 
 250:                                              ; preds = %234
   br i1 %53, label %255, label %251
@@ -12114,160 +12114,160 @@ emit_groupf.exit197.thread.i:                     ; preds = %259
   store i8 15, ptr %260, align 1, !tbaa !75
   %261 = getelementptr inbounds nuw i8, ptr %260, i64 1
   store i8 -81, ptr %261, align 1, !tbaa !75
-  br label %273
+  br label %274
 
 emit_groupf.exit197.i:                            ; preds = %259
   %262 = load i32, ptr %0, align 8, !tbaa !110
   %.not157.i = icmp eq i32 %262, 0
-  br i1 %.not157.i, label %273, label %emit_mul.exit, !prof !122
+  br i1 %.not157.i, label %274, label %emit_mul.exit, !prof !122
 
 263:                                              ; preds = %202
   %.not.i = icmp samesign ult i32 %6, 128
   %264 = and i32 %6, 127
-  %265 = icmp eq i32 %264, %52
-  %..i = select i1 %265, i32 15, i32 %52
-  %.0.i = select i1 %.not.i, i32 %52, i32 %..i
-  %266 = tail call fastcc i32 @emit_mov(ptr noundef nonnull %0, i32 noundef %.0.i, i64 noundef 0, i32 noundef %4, i64 noundef %5)
-  %.not152.i = icmp eq i32 %266, 0
-  br i1 %.not152.i, label %269, label %267, !prof !111
+  %265 = icmp ne i32 %264, %52
+  %266 = or i1 %.not.i, %265
+  %.0.i = select i1 %266, i32 %52, i32 15
+  %267 = tail call fastcc i32 @emit_mov(ptr noundef nonnull %0, i32 noundef %.0.i, i64 noundef 0, i32 noundef %4, i64 noundef %5)
+  %.not152.i = icmp eq i32 %267, 0
+  br i1 %.not152.i, label %270, label %268, !prof !111
 
-267:                                              ; preds = %263
-  %268 = load i32, ptr %0, align 8, !tbaa !110
+268:                                              ; preds = %263
+  %269 = load i32, ptr %0, align 8, !tbaa !110
   br label %emit_mul.exit
 
-269:                                              ; preds = %263
-  %270 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %0, i64 noundef 2, i32 noundef %.0.i, i64 noundef 0, i32 noundef range(i32 1, 143) %6, i64 noundef %7)
-  %.not.i198.i = icmp eq ptr %270, null
+270:                                              ; preds = %263
+  %271 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %0, i64 noundef 2, i32 noundef %.0.i, i64 noundef 0, i32 noundef range(i32 1, 143) %6, i64 noundef %7)
+  %.not.i198.i = icmp eq ptr %271, null
   br i1 %.not.i198.i, label %emit_groupf.exit200.i, label %emit_groupf.exit200.thread.i, !prof !30
 
-emit_groupf.exit200.thread.i:                     ; preds = %269
-  store i8 15, ptr %270, align 1, !tbaa !75
-  %271 = getelementptr inbounds nuw i8, ptr %270, i64 1
-  store i8 -81, ptr %271, align 1, !tbaa !75
-  br label %273
+emit_groupf.exit200.thread.i:                     ; preds = %270
+  store i8 15, ptr %271, align 1, !tbaa !75
+  %272 = getelementptr inbounds nuw i8, ptr %271, i64 1
+  store i8 -81, ptr %272, align 1, !tbaa !75
+  br label %274
 
-emit_groupf.exit200.i:                            ; preds = %269
-  %272 = load i32, ptr %0, align 8, !tbaa !110
-  %.not153.i = icmp eq i32 %272, 0
-  br i1 %.not153.i, label %273, label %emit_mul.exit, !prof !122
+emit_groupf.exit200.i:                            ; preds = %270
+  %273 = load i32, ptr %0, align 8, !tbaa !110
+  %.not153.i = icmp eq i32 %273, 0
+  br i1 %.not153.i, label %274, label %emit_mul.exit, !prof !122
 
-273:                                              ; preds = %emit_groupf.exit200.i, %emit_groupf.exit200.thread.i, %emit_groupf.exit197.i, %emit_groupf.exit197.thread.i, %244, %emit_byte.exit194.thread.i, %emit_groupf.exit188.thread.i, %131, %emit_byte.exit.thread.i, %emit_groupf.exit177.i, %emit_groupf.exit177.thread.i, %emit_groupf.exit.i, %emit_groupf.exit.thread.i
+274:                                              ; preds = %emit_groupf.exit200.i, %emit_groupf.exit200.thread.i, %emit_groupf.exit197.i, %emit_groupf.exit197.thread.i, %244, %emit_byte.exit194.thread.i, %emit_groupf.exit188.thread.i, %131, %emit_byte.exit.thread.i, %emit_groupf.exit177.i, %emit_groupf.exit177.thread.i, %emit_groupf.exit.i, %emit_groupf.exit.thread.i
   %.not173.i = icmp samesign ult i32 %2, 128
-  br i1 %.not173.i, label %emit_mul.exit, label %274
+  br i1 %.not173.i, label %emit_mul.exit, label %275
 
-274:                                              ; preds = %273
-  %275 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %0, i64 noundef 1, i32 noundef 15, i64 noundef 0, i32 noundef range(i32 1, 143) %2, i64 noundef range(i64 -2147483648, 2147483648) %3)
-  %.not73.i.i = icmp eq ptr %275, null
+275:                                              ; preds = %274
+  %276 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %0, i64 noundef 1, i32 noundef 15, i64 noundef 0, i32 noundef range(i32 1, 143) %2, i64 noundef range(i64 -2147483648, 2147483648) %3)
+  %.not73.i.i = icmp eq ptr %276, null
   br i1 %.not73.i.i, label %emit_mov.exit.i, label %emit_mov.exit.thread.i, !prof !30
 
-emit_mov.exit.thread.i:                           ; preds = %274
-  store i8 -119, ptr %275, align 1, !tbaa !75
+emit_mov.exit.thread.i:                           ; preds = %275
+  store i8 -119, ptr %276, align 1, !tbaa !75
   br label %emit_mul.exit
 
-emit_mov.exit.i:                                  ; preds = %274
-  %276 = load i32, ptr %0, align 8, !tbaa !110
+emit_mov.exit.i:                                  ; preds = %275
+  %277 = load i32, ptr %0, align 8, !tbaa !110
   br label %emit_mul.exit
 
-277:                                              ; preds = %10
-  %278 = tail call fastcc i32 @emit_cum_binary(ptr noundef nonnull %0, i32 noundef 623059232, i32 noundef %2, i64 noundef %3, i32 noundef %4, i64 noundef %5, i32 noundef %6, i64 noundef %7)
+278:                                              ; preds = %10
+  %279 = tail call fastcc i32 @emit_cum_binary(ptr noundef nonnull %0, i32 noundef 623059232, i32 noundef %2, i64 noundef %3, i32 noundef %4, i64 noundef %5, i32 noundef %6, i64 noundef %7)
   br label %emit_mul.exit
 
-279:                                              ; preds = %10
-  %280 = tail call fastcc i32 @emit_cum_binary(ptr noundef nonnull %0, i32 noundef 218827016, i32 noundef %2, i64 noundef %3, i32 noundef %4, i64 noundef %5, i32 noundef %6, i64 noundef %7)
+280:                                              ; preds = %10
+  %281 = tail call fastcc i32 @emit_cum_binary(ptr noundef nonnull %0, i32 noundef 218827016, i32 noundef %2, i64 noundef %3, i32 noundef %4, i64 noundef %5, i32 noundef %6, i64 noundef %7)
   br label %emit_mul.exit
 
-281:                                              ; preds = %10
-  %282 = and i32 %1, 64000
-  %.not165 = icmp eq i32 %282, 0
-  br i1 %.not165, label %283, label %293
+282:                                              ; preds = %10
+  %283 = and i32 %1, 64000
+  %.not165 = icmp eq i32 %283, 0
+  br i1 %.not165, label %284, label %294
 
-283:                                              ; preds = %281
-  %284 = icmp eq i32 %6, 127
-  %285 = icmp eq i64 %7, -1
-  %or.cond3 = and i1 %284, %285
-  br i1 %or.cond3, label %286, label %288
+284:                                              ; preds = %282
+  %285 = icmp eq i32 %6, 127
+  %286 = icmp eq i64 %7, -1
+  %or.cond3 = and i1 %285, %286
+  br i1 %or.cond3, label %287, label %289
 
-286:                                              ; preds = %283
-  %287 = tail call fastcc i32 @emit_unary(ptr noundef nonnull %0, i8 noundef zeroext 16, i32 noundef %2, i64 noundef %3, i32 noundef %4, i64 noundef %5)
+287:                                              ; preds = %284
+  %288 = tail call fastcc i32 @emit_unary(ptr noundef nonnull %0, i8 noundef zeroext 16, i32 noundef %2, i64 noundef %3, i32 noundef %4, i64 noundef %5)
   br label %emit_mul.exit
 
-288:                                              ; preds = %283
-  %289 = icmp eq i32 %4, 127
-  %290 = icmp eq i64 %5, -1
-  %or.cond5 = and i1 %289, %290
-  br i1 %or.cond5, label %291, label %293
+289:                                              ; preds = %284
+  %290 = icmp eq i32 %4, 127
+  %291 = icmp eq i64 %5, -1
+  %or.cond5 = and i1 %290, %291
+  br i1 %or.cond5, label %292, label %294
 
-291:                                              ; preds = %288
-  %292 = tail call fastcc i32 @emit_unary(ptr noundef nonnull %0, i8 noundef zeroext 16, i32 noundef %2, i64 noundef %3, i32 noundef %6, i64 noundef %7)
+292:                                              ; preds = %289
+  %293 = tail call fastcc i32 @emit_unary(ptr noundef nonnull %0, i8 noundef zeroext 16, i32 noundef %2, i64 noundef %3, i32 noundef %6, i64 noundef %7)
   br label %emit_mul.exit
 
-293:                                              ; preds = %288, %281
-  %294 = tail call fastcc i32 @emit_cum_binary(ptr noundef nonnull %0, i32 noundef 892547376, i32 noundef %2, i64 noundef %3, i32 noundef %4, i64 noundef %5, i32 noundef %6, i64 noundef %7)
+294:                                              ; preds = %289, %282
+  %295 = tail call fastcc i32 @emit_cum_binary(ptr noundef nonnull %0, i32 noundef 892547376, i32 noundef %2, i64 noundef %3, i32 noundef %4, i64 noundef %5, i32 noundef %6, i64 noundef %7)
   br label %emit_mul.exit
 
-295:                                              ; preds = %10, %10
-  %296 = and i32 %1, 64000
-  %297 = tail call fastcc i32 @emit_shift_with_flags(ptr noundef nonnull %0, i8 noundef zeroext 32, i32 noundef %296, i32 noundef %2, i64 noundef %3, i32 noundef %4, i64 noundef %5, i32 noundef %6, i64 noundef %7)
+296:                                              ; preds = %10, %10
+  %297 = and i32 %1, 64000
+  %298 = tail call fastcc i32 @emit_shift_with_flags(ptr noundef nonnull %0, i8 noundef zeroext 32, i32 noundef %297, i32 noundef %2, i64 noundef %3, i32 noundef %4, i64 noundef %5, i32 noundef %6, i64 noundef %7)
   br label %emit_mul.exit
 
-298:                                              ; preds = %10, %10
-  %299 = and i32 %1, 64000
-  %300 = tail call fastcc i32 @emit_shift_with_flags(ptr noundef nonnull %0, i8 noundef zeroext 40, i32 noundef %299, i32 noundef %2, i64 noundef %3, i32 noundef %4, i64 noundef %5, i32 noundef %6, i64 noundef %7)
+299:                                              ; preds = %10, %10
+  %300 = and i32 %1, 64000
+  %301 = tail call fastcc i32 @emit_shift_with_flags(ptr noundef nonnull %0, i8 noundef zeroext 40, i32 noundef %300, i32 noundef %2, i64 noundef %3, i32 noundef %4, i64 noundef %5, i32 noundef %6, i64 noundef %7)
   br label %emit_mul.exit
 
-301:                                              ; preds = %10, %10
-  %302 = and i32 %1, 64000
-  %303 = tail call fastcc i32 @emit_shift_with_flags(ptr noundef nonnull %0, i8 noundef zeroext 56, i32 noundef %302, i32 noundef %2, i64 noundef %3, i32 noundef %4, i64 noundef %5, i32 noundef %6, i64 noundef %7)
+302:                                              ; preds = %10, %10
+  %303 = and i32 %1, 64000
+  %304 = tail call fastcc i32 @emit_shift_with_flags(ptr noundef nonnull %0, i8 noundef zeroext 56, i32 noundef %303, i32 noundef %2, i64 noundef %3, i32 noundef %4, i64 noundef %5, i32 noundef %6, i64 noundef %7)
   br label %emit_mul.exit
 
-304:                                              ; preds = %10
-  %305 = icmp eq i32 %6, 127
-  br i1 %305, label %306, label %313
+305:                                              ; preds = %10
+  %306 = icmp eq i32 %6, 127
+  br i1 %306, label %307, label %314
 
-306:                                              ; preds = %304
+307:                                              ; preds = %305
   %.not55.i = icmp eq i32 %11, 0
-  %307 = select i1 %.not55.i, i64 63, i64 31
-  %308 = and i64 %7, %307
-  %.not56.i = icmp eq i64 %308, 0
-  br i1 %.not56.i, label %311, label %309
+  %308 = select i1 %.not55.i, i64 63, i64 31
+  %309 = and i64 %7, %308
+  %.not56.i = icmp eq i64 %309, 0
+  br i1 %.not56.i, label %312, label %310
 
-309:                                              ; preds = %306
-  %310 = tail call fastcc i32 @emit_shift(ptr noundef nonnull %0, i8 noundef zeroext 0, i32 noundef range(i32 1, 143) %2, i64 noundef range(i64 -2147483648, 2147483648) %3, i32 noundef %4, i64 noundef %5, i32 noundef 127, i64 noundef %308)
+310:                                              ; preds = %307
+  %311 = tail call fastcc i32 @emit_shift(ptr noundef nonnull %0, i8 noundef zeroext 0, i32 noundef range(i32 1, 143) %2, i64 noundef range(i64 -2147483648, 2147483648) %3, i32 noundef %4, i64 noundef %5, i32 noundef 127, i64 noundef %309)
   br label %emit_mul.exit
 
-311:                                              ; preds = %306
-  %312 = tail call fastcc i32 @emit_mov(ptr noundef nonnull %0, i32 noundef range(i32 1, 143) %2, i64 noundef range(i64 -2147483648, 2147483648) %3, i32 noundef %4, i64 noundef %5)
+312:                                              ; preds = %307
+  %313 = tail call fastcc i32 @emit_mov(ptr noundef nonnull %0, i32 noundef range(i32 1, 143) %2, i64 noundef range(i64 -2147483648, 2147483648) %3, i32 noundef %4, i64 noundef %5)
   br label %emit_mul.exit
 
-313:                                              ; preds = %304
-  %314 = tail call fastcc i32 @emit_shift(ptr noundef nonnull %0, i8 noundef zeroext 0, i32 noundef range(i32 1, 143) %2, i64 noundef range(i64 -2147483648, 2147483648) %3, i32 noundef %4, i64 noundef %5, i32 noundef range(i32 1, 143) %6, i64 noundef %7)
+314:                                              ; preds = %305
+  %315 = tail call fastcc i32 @emit_shift(ptr noundef nonnull %0, i8 noundef zeroext 0, i32 noundef range(i32 1, 143) %2, i64 noundef range(i64 -2147483648, 2147483648) %3, i32 noundef %4, i64 noundef %5, i32 noundef range(i32 1, 143) %6, i64 noundef %7)
   br label %emit_mul.exit
 
-315:                                              ; preds = %10
-  %316 = icmp eq i32 %6, 127
-  br i1 %316, label %317, label %324
+316:                                              ; preds = %10
+  %317 = icmp eq i32 %6, 127
+  br i1 %317, label %318, label %325
 
-317:                                              ; preds = %315
+318:                                              ; preds = %316
   %.not55.i174 = icmp eq i32 %11, 0
-  %318 = select i1 %.not55.i174, i64 63, i64 31
-  %319 = and i64 %7, %318
-  %.not56.i175 = icmp eq i64 %319, 0
-  br i1 %.not56.i175, label %322, label %320
+  %319 = select i1 %.not55.i174, i64 63, i64 31
+  %320 = and i64 %7, %319
+  %.not56.i175 = icmp eq i64 %320, 0
+  br i1 %.not56.i175, label %323, label %321
 
-320:                                              ; preds = %317
-  %321 = tail call fastcc i32 @emit_shift(ptr noundef nonnull %0, i8 noundef zeroext 8, i32 noundef range(i32 1, 143) %2, i64 noundef range(i64 -2147483648, 2147483648) %3, i32 noundef %4, i64 noundef %5, i32 noundef 127, i64 noundef %319)
+321:                                              ; preds = %318
+  %322 = tail call fastcc i32 @emit_shift(ptr noundef nonnull %0, i8 noundef zeroext 8, i32 noundef range(i32 1, 143) %2, i64 noundef range(i64 -2147483648, 2147483648) %3, i32 noundef %4, i64 noundef %5, i32 noundef 127, i64 noundef %320)
   br label %emit_mul.exit
 
-322:                                              ; preds = %317
-  %323 = tail call fastcc i32 @emit_mov(ptr noundef nonnull %0, i32 noundef range(i32 1, 143) %2, i64 noundef range(i64 -2147483648, 2147483648) %3, i32 noundef %4, i64 noundef %5)
+323:                                              ; preds = %318
+  %324 = tail call fastcc i32 @emit_mov(ptr noundef nonnull %0, i32 noundef range(i32 1, 143) %2, i64 noundef range(i64 -2147483648, 2147483648) %3, i32 noundef %4, i64 noundef %5)
   br label %emit_mul.exit
 
-324:                                              ; preds = %315
-  %325 = tail call fastcc i32 @emit_shift(ptr noundef nonnull %0, i8 noundef zeroext 8, i32 noundef range(i32 1, 143) %2, i64 noundef range(i64 -2147483648, 2147483648) %3, i32 noundef %4, i64 noundef %5, i32 noundef range(i32 1, 143) %6, i64 noundef %7)
+325:                                              ; preds = %316
+  %326 = tail call fastcc i32 @emit_shift(ptr noundef nonnull %0, i8 noundef zeroext 8, i32 noundef range(i32 1, 143) %2, i64 noundef range(i64 -2147483648, 2147483648) %3, i32 noundef %4, i64 noundef %5, i32 noundef range(i32 1, 143) %6, i64 noundef %7)
   br label %emit_mul.exit
 
-emit_mul.exit:                                    ; preds = %324, %322, %320, %313, %311, %309, %emit_mov.exit.i, %emit_mov.exit.thread.i, %273, %emit_groupf.exit200.i, %267, %emit_groupf.exit197.i, %257, %253, %242, %238, %233, %207, %emit_groupf.exit188.i, %161, %140, %130, %109, %104, %78, %72, %emit_groupf.exit177.i, %emit_groupf.exit.i, %10, %8, %301, %298, %295, %293, %291, %286, %279, %277, %48, %46, %44, %42, %35, %26, %21, %19, %17
-  %.0162 = phi i32 [ %312, %311 ], [ %9, %8 ], [ %20, %19 ], [ %18, %17 ], [ %22, %21 ], [ %27, %26 ], [ %47, %46 ], [ %36, %35 ], [ %43, %42 ], [ %45, %44 ], [ %49, %48 ], [ 0, %10 ], [ %278, %277 ], [ %280, %279 ], [ %294, %293 ], [ %287, %286 ], [ %292, %291 ], [ %297, %295 ], [ %300, %298 ], [ %303, %301 ], [ 0, %273 ], [ 0, %emit_mov.exit.thread.i ], [ %272, %emit_groupf.exit200.i ], [ %262, %emit_groupf.exit197.i ], [ %58, %emit_groupf.exit.i ], [ %73, %72 ], [ %79, %78 ], [ 2, %104 ], [ %110, %109 ], [ 2, %130 ], [ %141, %140 ], [ 2, %161 ], [ 2, %emit_groupf.exit188.i ], [ %208, %207 ], [ 2, %233 ], [ %239, %238 ], [ %243, %242 ], [ %254, %253 ], [ %258, %257 ], [ %65, %emit_groupf.exit177.i ], [ %268, %267 ], [ %276, %emit_mov.exit.i ], [ %310, %309 ], [ %314, %313 ], [ %321, %320 ], [ %325, %324 ], [ %323, %322 ]
+emit_mul.exit:                                    ; preds = %325, %323, %321, %314, %312, %310, %emit_mov.exit.i, %emit_mov.exit.thread.i, %274, %emit_groupf.exit200.i, %268, %emit_groupf.exit197.i, %257, %253, %242, %238, %233, %207, %emit_groupf.exit188.i, %161, %140, %130, %109, %104, %78, %72, %emit_groupf.exit177.i, %emit_groupf.exit.i, %10, %8, %302, %299, %296, %294, %292, %287, %280, %278, %48, %46, %44, %42, %35, %26, %21, %19, %17
+  %.0162 = phi i32 [ %313, %312 ], [ %9, %8 ], [ %20, %19 ], [ %18, %17 ], [ %22, %21 ], [ %27, %26 ], [ %47, %46 ], [ %36, %35 ], [ %43, %42 ], [ %45, %44 ], [ %49, %48 ], [ 0, %10 ], [ %279, %278 ], [ %281, %280 ], [ %295, %294 ], [ %288, %287 ], [ %293, %292 ], [ %298, %296 ], [ %301, %299 ], [ %304, %302 ], [ 0, %274 ], [ 0, %emit_mov.exit.thread.i ], [ %273, %emit_groupf.exit200.i ], [ %262, %emit_groupf.exit197.i ], [ %58, %emit_groupf.exit.i ], [ %73, %72 ], [ %79, %78 ], [ 2, %104 ], [ %110, %109 ], [ 2, %130 ], [ %141, %140 ], [ 2, %161 ], [ 2, %emit_groupf.exit188.i ], [ %208, %207 ], [ 2, %233 ], [ %239, %238 ], [ %243, %242 ], [ %254, %253 ], [ %258, %257 ], [ %65, %emit_groupf.exit177.i ], [ %269, %268 ], [ %277, %emit_mov.exit.i ], [ %311, %310 ], [ %315, %314 ], [ %322, %321 ], [ %326, %325 ], [ %324, %323 ]
   ret i32 %.0162
 }
 
@@ -17689,8 +17689,8 @@ check_fast_forward_char_pair_simd.exit:           ; preds = %._crit_edge.i
   %.0153675 = phi i32 [ 3, %.lr.ph.preheader ], [ %.1154, %714 ]
   %.0155674 = phi i32 [ -1, %.lr.ph.preheader ], [ %.1156, %714 ]
   %.0157673 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1158, %714 ]
-  %.not175 = icmp eq i32 %.0676, 0
-  br i1 %.not175, label %707, label %698
+  %.not175 = icmp ne i32 %.0676, 0
+  br i1 %.not175, label %698, label %707
 
 698:                                              ; preds = %.lr.ph
   %699 = trunc nuw nsw i64 %indvars.iv723 to i32
@@ -17717,11 +17717,12 @@ check_fast_forward_char_pair_simd.exit:           ; preds = %._crit_edge.i
 709:                                              ; preds = %707
   %710 = getelementptr inbounds nuw %struct.fast_forward_char_data, ptr %6, i64 %indvars.iv723
   %711 = load i8, ptr %710, align 1, !tbaa !253
-  %.not177 = icmp ne i8 %711, -1
-  %712 = and i1 %.not177, %.not175
+  %.not177 = icmp eq i8 %711, -1
+  %712 = or i1 %.not175, %.not177
   %713 = trunc nuw nsw i64 %indvars.iv723 to i32
-  %spec.select183 = select i1 %712, i32 %713, i32 %.0157673
-  %spec.select184 = zext i1 %.not177 to i32
+  %spec.select183 = select i1 %712, i32 %.0157673, i32 %713
+  %not..not177 = xor i1 %.not177, true
+  %spec.select184 = zext i1 %not..not177 to i32
   br label %714
 
 714:                                              ; preds = %709, %707

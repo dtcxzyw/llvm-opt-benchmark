@@ -2034,48 +2034,48 @@ define hidden noundef i64 @_ZN2os5Posix22get_initial_stack_sizeENS_10ThreadTypeE
 
 6:                                                ; preds = %2, %4
   %.0 = phi i64 [ %5, %4 ], [ %1, %2 ]
-  switch i32 %0, label %13 [
+  switch i32 %0, label %14 [
     i32 2, label %7
-    i32 3, label %9
+    i32 3, label %10
   ]
 
 7:                                                ; preds = %6
   %8 = load i64, ptr @_ZN10JavaThread21_stack_size_at_createE, align 8
-  %.not = icmp eq i64 %8, 0
-  %spec.select22 = select i1 %.not, i64 %.0, i64 %8
-  %.1 = select i1 %3, i64 %spec.select22, i64 %.0
-  br label %17
+  %.not = icmp ne i64 %8, 0
+  %9 = select i1 %3, i1 %.not, i1 false
+  %.1 = select i1 %9, i64 %8, i64 %.0
+  br label %18
 
-9:                                                ; preds = %6
-  %10 = load i64, ptr @CompilerThreadStackSize, align 8
-  %11 = icmp sgt i64 %10, 0
-  %or.cond = select i1 %3, i1 %11, i1 false
-  %12 = shl i64 %10, 10
-  %spec.select = select i1 %or.cond, i64 %12, i64 %.0
-  br label %17
+10:                                               ; preds = %6
+  %11 = load i64, ptr @CompilerThreadStackSize, align 8
+  %12 = icmp sgt i64 %11, 0
+  %or.cond = select i1 %3, i1 %12, i1 false
+  %13 = shl i64 %11, 10
+  %spec.select = select i1 %or.cond, i64 %13, i64 %.0
+  br label %18
 
-13:                                               ; preds = %6
-  %14 = load i64, ptr @VMThreadStackSize, align 8
-  %15 = icmp sgt i64 %14, 0
-  %or.cond3 = select i1 %3, i1 %15, i1 false
-  %16 = shl i64 %14, 10
-  %spec.select21 = select i1 %or.cond3, i64 %16, i64 %.0
-  br label %17
+14:                                               ; preds = %6
+  %15 = load i64, ptr @VMThreadStackSize, align 8
+  %16 = icmp sgt i64 %15, 0
+  %or.cond3 = select i1 %3, i1 %16, i1 false
+  %17 = shl i64 %15, 10
+  %spec.select21 = select i1 %or.cond3, i64 %17, i64 %.0
+  br label %18
 
-17:                                               ; preds = %13, %9, %7
-  %_ZN2os37_vm_internal_thread_min_stack_allowedE.sink = phi ptr [ @_ZN2os37_vm_internal_thread_min_stack_allowedE, %13 ], [ @_ZN2os34_compiler_thread_min_stack_allowedE, %9 ], [ @_ZN2os30_java_thread_min_stack_allowedE, %7 ]
-  %spec.select21.sink = phi i64 [ %spec.select21, %13 ], [ %spec.select, %9 ], [ %.1, %7 ]
-  %18 = load i64, ptr %_ZN2os37_vm_internal_thread_min_stack_allowedE.sink, align 8
-  %19 = tail call noundef i64 @llvm.umax.i64(i64 %spec.select21.sink, i64 %18)
-  %20 = load i64, ptr @_ZN6OSInfo13_vm_page_sizeE, align 8
-  %21 = xor i64 %20, -1
-  %.not20 = icmp ugt i64 %19, %21
-  %22 = add i64 %19, -1
-  %23 = add i64 %22, %20
-  %.sink = select i1 %.not20, i64 %19, i64 %23
-  %24 = sub i64 0, %20
-  %25 = and i64 %.sink, %24
-  ret i64 %25
+18:                                               ; preds = %14, %10, %7
+  %_ZN2os37_vm_internal_thread_min_stack_allowedE.sink = phi ptr [ @_ZN2os37_vm_internal_thread_min_stack_allowedE, %14 ], [ @_ZN2os34_compiler_thread_min_stack_allowedE, %10 ], [ @_ZN2os30_java_thread_min_stack_allowedE, %7 ]
+  %spec.select21.sink = phi i64 [ %spec.select21, %14 ], [ %spec.select, %10 ], [ %.1, %7 ]
+  %19 = load i64, ptr %_ZN2os37_vm_internal_thread_min_stack_allowedE.sink, align 8
+  %20 = tail call noundef i64 @llvm.umax.i64(i64 %spec.select21.sink, i64 %19)
+  %21 = load i64, ptr @_ZN6OSInfo13_vm_page_sizeE, align 8
+  %22 = xor i64 %21, -1
+  %.not20 = icmp ugt i64 %20, %22
+  %23 = add i64 %20, -1
+  %24 = add i64 %23, %21
+  %.sink = select i1 %.not20, i64 %20, i64 %24
+  %25 = sub i64 0, %21
+  %26 = and i64 %.sink, %25
+  ret i64 %26
 }
 
 declare noundef i64 @_ZN2os5Posix18default_stack_sizeENS_10ThreadTypeE(i32 noundef) local_unnamed_addr #2

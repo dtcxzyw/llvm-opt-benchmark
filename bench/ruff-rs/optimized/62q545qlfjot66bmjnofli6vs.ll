@@ -19617,7 +19617,7 @@ define hidden void @_ZN9toml_edit6parser5state10ParseState13into_document17h63cc
   %7 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr57drop_in_place$LT$toml_edit..parser..state..ParseState$GT$17hd0bf465de7cbde82E"(ptr noalias noundef align 8 dereferenceable(400) %1) #23
-          to label %common.resume unwind label %32
+          to label %common.resume unwind label %33
 
 8:                                                ; preds = %4
   %9 = load i64, ptr %5, align 8, !range !1283, !noundef !3
@@ -19661,8 +19661,8 @@ define hidden void @_ZN9toml_edit6parser5state10ParseState13into_document17h63cc
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #22
   unreachable
 
-common.resume:                                    ; preds = %28, %6, %17
-  %common.resume.op = phi { ptr, i32 } [ %.pn.i, %17 ], [ %29, %28 ], [ %7, %6 ]
+common.resume:                                    ; preds = %29, %6, %17
+  %common.resume.op = phi { ptr, i32 } [ %.pn.i, %17 ], [ %30, %29 ], [ %7, %6 ]
   resume { ptr, i32 } %common.resume.op
 
 23:                                               ; preds = %8
@@ -19674,9 +19674,9 @@ common.resume:                                    ; preds = %28, %6, %17
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 184
   %.sroa.6.0.copyload = load i64, ptr %.sroa.6.0..sroa_idx, align 8
   %25 = trunc nuw i64 %.sroa.0.0.copyload to i1
-  %26 = icmp eq i64 %.sroa.5.0.copyload, %.sroa.6.0.copyload
-  %. = select i1 %26, i64 -9223372036854775808, i64 -9223372036854775806
-  %.sroa.018.0 = select i1 %25, i64 %., i64 -9223372036854775808
+  %26 = icmp ne i64 %.sroa.5.0.copyload, %.sroa.6.0.copyload
+  %27 = select i1 %25, i1 %26, i1 false
+  %.sroa.018.0 = select i1 %27, i64 -9223372036854775806, i64 -9223372036854775808
   %.sroa.3.0 = select i1 %25, i64 %.sroa.5.0.copyload, i64 undef
   %.sroa.421.0 = select i1 %25, i64 %.sroa.6.0.copyload, i64 undef
   %.sroa.01.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -19692,24 +19692,24 @@ common.resume:                                    ; preds = %28, %6, %17
   store ptr %2, ptr %.sroa.52.0..sroa_idx, align 8
   %.sroa.63.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 208
   store i64 %3, ptr %.sroa.63.0..sroa_idx, align 8
-  %27 = getelementptr inbounds nuw i8, ptr %1, i64 192
-  invoke void @"_ZN4core3ptr44drop_in_place$LT$toml_edit..table..Table$GT$17h2d470abbf301de4dE"(ptr noalias noundef nonnull align 8 dereferenceable(168) %27)
-          to label %"_ZN4core3ptr57drop_in_place$LT$toml_edit..parser..state..ParseState$GT$17hd0bf465de7cbde82E.exit" unwind label %28
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 192
+  invoke void @"_ZN4core3ptr44drop_in_place$LT$toml_edit..table..Table$GT$17h2d470abbf301de4dE"(ptr noalias noundef nonnull align 8 dereferenceable(168) %28)
+          to label %"_ZN4core3ptr57drop_in_place$LT$toml_edit..parser..state..ParseState$GT$17hd0bf465de7cbde82E.exit" unwind label %29
 
-28:                                               ; preds = %23
-  %29 = landingpad { ptr, i32 }
+29:                                               ; preds = %23
+  %30 = landingpad { ptr, i32 }
           cleanup
-  %30 = getelementptr inbounds nuw i8, ptr %1, i64 360
-  invoke void @"_ZN4core3ptr63drop_in_place$LT$alloc..vec..Vec$LT$toml_edit..key..Key$GT$$GT$17hf55d5f2be8d5f8acE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %30) #23
-          to label %common.resume unwind label %32
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 360
+  invoke void @"_ZN4core3ptr63drop_in_place$LT$alloc..vec..Vec$LT$toml_edit..key..Key$GT$$GT$17hf55d5f2be8d5f8acE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %31) #23
+          to label %common.resume unwind label %33
 
 "_ZN4core3ptr57drop_in_place$LT$toml_edit..parser..state..ParseState$GT$17hd0bf465de7cbde82E.exit": ; preds = %23, %15
-  %31 = getelementptr inbounds nuw i8, ptr %1, i64 360
-  tail call void @"_ZN4core3ptr63drop_in_place$LT$alloc..vec..Vec$LT$toml_edit..key..Key$GT$$GT$17hf55d5f2be8d5f8acE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %31)
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 360
+  tail call void @"_ZN4core3ptr63drop_in_place$LT$alloc..vec..Vec$LT$toml_edit..key..Key$GT$$GT$17hf55d5f2be8d5f8acE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %32)
   ret void
 
-32:                                               ; preds = %6, %28
-  %33 = landingpad { ptr, i32 }
+33:                                               ; preds = %6, %29
+  %34 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #22
   unreachable

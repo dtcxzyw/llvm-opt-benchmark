@@ -25019,37 +25019,37 @@ switch.lookup:
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br i1 %17, label %26, label %18
+  br i1 %17, label %27, label %18
 
 18:                                               ; preds = %switch.lookup
-  %.not = icmp slt i64 %8, 0
-  br i1 %.not, label %26, label %19
+  %19 = icmp slt i64 %8, 0
+  br i1 %19, label %27, label %20
 
-19:                                               ; preds = %18
+20:                                               ; preds = %18
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %0, ptr %4, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %4, ptr %2, align 8
-  %20 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h28bc96b24dd64aedE", ptr %20, align 8
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h28bc96b24dd64aedE", ptr %21, align 8
   store ptr @anon.1a7e3f89fdd1c4a5d945b914e4a08314.25, ptr %3, align 8, !alias.scope !3458, !noalias !3461
-  %21 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 2, ptr %21, align 8, !alias.scope !3458, !noalias !3461
-  %22 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store ptr null, ptr %22, align 8, !alias.scope !3458, !noalias !3461
-  %23 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr %2, ptr %23, align 8, !alias.scope !3458, !noalias !3461
-  %24 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store i64 1, ptr %24, align 8, !alias.scope !3458, !noalias !3461
-  %25 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3)
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i64 2, ptr %22, align 8, !alias.scope !3458, !noalias !3461
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  store ptr null, ptr %23, align 8, !alias.scope !3458, !noalias !3461
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store ptr %2, ptr %24, align 8, !alias.scope !3458, !noalias !3461
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  store i64 1, ptr %25, align 8, !alias.scope !3458, !noalias !3461
+  %26 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %26
+  br label %27
 
-26:                                               ; preds = %switch.lookup, %19, %18
-  %.0 = phi i1 [ %25, %19 ], [ false, %18 ], [ true, %switch.lookup ]
+27:                                               ; preds = %switch.lookup, %20, %18
+  %.0 = phi i1 [ %26, %20 ], [ false, %18 ], [ true, %switch.lookup ]
   ret i1 %.0
 }
 

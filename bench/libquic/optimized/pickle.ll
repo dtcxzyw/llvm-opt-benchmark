@@ -1599,10 +1599,10 @@ define noundef ptr @_ZN4base6Pickle8FindNextEmPKcS2_(i64 noundef %0, ptr noundef
 
 _ZN4base6Pickle8PeekNextEmPKcS2_Pm.exit:          ; preds = %3, %9
   %.07 = phi i64 [ %spec.select.i, %9 ], [ 0, %3 ]
-  %12 = icmp ugt i64 %.07, %6
+  %12 = icmp ule i64 %.07, %6
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 %.07
-  %spec.select = select i1 %12, ptr null, ptr %13
-  %.0 = select i1 %or.cond.i, ptr %spec.select, ptr null
+  %14 = select i1 %or.cond.i, i1 %12, i1 false
+  %.0 = select i1 %14, ptr %13, ptr null
   ret ptr %.0
 }
 

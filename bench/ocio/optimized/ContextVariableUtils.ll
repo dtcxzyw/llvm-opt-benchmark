@@ -431,10 +431,10 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit.i.i: ;
   %.0812.i.us.i.i = phi ptr [ %.19.i.us.i.i, %.lr.ph.i.split.us.i.i ], [ %22, %.lr.ph.i.i.i ]
   %75 = getelementptr inbounds nuw i8, ptr %.013.i.us.i.i, i64 40
   %76 = load i64, ptr %75, align 8, !tbaa !10
-  %.not.i.i.us.i.i = icmp eq i64 %76, 0
-  %spec.select.i.i = select i1 %.not.i.i.us.i.i, i64 16, i64 24
-  %.19.i.us.i.i = select i1 %.not.i.i.us.i.i, ptr %.013.i.us.i.i, ptr %.0812.i.us.i.i
-  %77 = getelementptr inbounds nuw i8, ptr %.013.i.us.i.i, i64 %spec.select.i.i
+  %.not.not.not.i.i = icmp eq i64 %76, 0
+  %.sink.i.us.i.i = select i1 %.not.not.not.i.i, i64 16, i64 24
+  %.19.i.us.i.i = select i1 %.not.not.not.i.i, ptr %.013.i.us.i.i, ptr %.0812.i.us.i.i
+  %77 = getelementptr inbounds nuw i8, ptr %.013.i.us.i.i, i64 %.sink.i.us.i.i
   %.1.i.us.i.i = load ptr, ptr %77, align 8, !tbaa !30
   %.not.i.us.i.i = icmp eq ptr %.1.i.us.i.i, null
   br i1 %.not.i.us.i.i, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_EN19OpenColorIO_v2_5dev9EnvMapKeyIS5_EESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS7_.exit.i.i, label %.lr.ph.i.split.us.i.i, !llvm.loop !31

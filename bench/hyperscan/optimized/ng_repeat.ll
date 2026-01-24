@@ -15449,8 +15449,8 @@ define hidden void @_ZN3ue211findRepeatsERKNS_8NGHolderEjPSt6vectorINS_15GraphRe
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 24
   br label %22
 
-.lr.ph.i.i.i.i:                                   ; preds = %73, %_ZSt8_DestroyIN3ue212_GLOBAL__N_113ReachSubgraphEEvPT_.exit.i.i.i.i
-  %.05.i.i.i.i = phi ptr [ %18, %_ZSt8_DestroyIN3ue212_GLOBAL__N_113ReachSubgraphEEvPT_.exit.i.i.i.i ], [ %.val, %73 ]
+.lr.ph.i.i.i.i:                                   ; preds = %74, %_ZSt8_DestroyIN3ue212_GLOBAL__N_113ReachSubgraphEEvPT_.exit.i.i.i.i
+  %.05.i.i.i.i = phi ptr [ %18, %_ZSt8_DestroyIN3ue212_GLOBAL__N_113ReachSubgraphEEvPT_.exit.i.i.i.i ], [ %.val, %74 ]
   %.0.val.i.i.i.i = load ptr, ptr %.05.i.i.i.i, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %.0.val.i.i.i.i, null
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN3ue212_GLOBAL__N_113ReachSubgraphEEvPT_.exit.i.i.i.i, label %17
@@ -15479,20 +15479,20 @@ _ZNSt6vectorIN3ue212_GLOBAL__N_113ReachSubgraphESaIS2_EED2Ev.exit: ; preds = %_Z
 20:                                               ; preds = %8, %3
   %21 = landingpad { ptr, i32 }
           cleanup
-  br label %79
+  br label %80
 
-22:                                               ; preds = %.lr.ph, %73
-  %.sroa.049.053 = phi ptr [ %.val, %.lr.ph ], [ %74, %73 ]
+22:                                               ; preds = %.lr.ph, %74
+  %.sroa.049.053 = phi ptr [ %.val, %.lr.ph ], [ %75, %74 ]
   %23 = invoke fastcc noundef zeroext i1 @_ZN3ue2L15processSubgraphERKNS_8NGHolderERNS_12_GLOBAL__N_113ReachSubgraphEj(ptr noundef nonnull align 8 dereferenceable(45) %.sroa.049.053, i32 noundef %1)
           to label %24 unwind label %25
 
 24:                                               ; preds = %22
-  br i1 %23, label %27, label %73
+  br i1 %23, label %27, label %74
 
 25:                                               ; preds = %22
   %26 = landingpad { ptr, i32 }
           cleanup
-  br label %79
+  br label %80
 
 27:                                               ; preds = %24
   %28 = getelementptr inbounds nuw i8, ptr %.sroa.049.053, i64 28
@@ -15549,103 +15549,103 @@ _ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolder
   br label %.body
 
 44:                                               ; preds = %37
-  %.not51 = icmp eq ptr %30, null
-  %spec.select = select i1 %.not51, i32 %.sroa.04.0.copyload, i32 2147483647
-  %spec.select50 = select i1 %41, i32 2147483647, i32 %spec.select
+  %.not51 = icmp ne ptr %30, null
+  %45 = select i1 %41, i1 true, i1 %.not51
+  %spec.select50 = select i1 %45, i32 2147483647, i32 %.sroa.04.0.copyload
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 -2147483648, ptr %7, align 8
   store i32 -2147483648, ptr %11, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false)
-  %45 = load ptr, ptr %13, align 8
-  %46 = load ptr, ptr %14, align 8
-  %.not.i.i = icmp eq ptr %45, %46
-  br i1 %.not.i.i, label %56, label %_ZNSt6vectorIN3ue215GraphRepeatInfoESaIS1_EE9push_backEOS1_.exit.thread
+  %46 = load ptr, ptr %13, align 8
+  %47 = load ptr, ptr %14, align 8
+  %.not.i.i = icmp eq ptr %46, %47
+  br i1 %.not.i.i, label %57, label %_ZNSt6vectorIN3ue215GraphRepeatInfoESaIS1_EE9push_backEOS1_.exit.thread
 
 _ZNSt6vectorIN3ue215GraphRepeatInfoESaIS1_EE9push_backEOS1_.exit.thread: ; preds = %44
-  %47 = load i64, ptr %7, align 8
-  store i64 %47, ptr %45, align 8
-  %48 = getelementptr inbounds nuw i8, ptr %45, i64 8
-  %49 = load ptr, ptr %12, align 8
-  store ptr %49, ptr %48, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %45, i64 16
-  %51 = load ptr, ptr %15, align 8
-  store ptr %51, ptr %50, align 8
-  %52 = getelementptr inbounds nuw i8, ptr %45, i64 24
-  %53 = load ptr, ptr %16, align 8
-  store ptr %53, ptr %52, align 8
-  %54 = load ptr, ptr %13, align 8
-  %55 = getelementptr inbounds nuw i8, ptr %54, i64 32
-  store ptr %55, ptr %13, align 8
+  %48 = load i64, ptr %7, align 8
+  store i64 %48, ptr %46, align 8
+  %49 = getelementptr inbounds nuw i8, ptr %46, i64 8
+  %50 = load ptr, ptr %12, align 8
+  store ptr %50, ptr %49, align 8
+  %51 = getelementptr inbounds nuw i8, ptr %46, i64 16
+  %52 = load ptr, ptr %15, align 8
+  store ptr %52, ptr %51, align 8
+  %53 = getelementptr inbounds nuw i8, ptr %46, i64 24
+  %54 = load ptr, ptr %16, align 8
+  store ptr %54, ptr %53, align 8
+  %55 = load ptr, ptr %13, align 8
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 32
+  store ptr %56, ptr %13, align 8
   br label %_ZNSt6vectorIN3ue217BoundedRepeatDataESaIS1_EED2Ev.exit
 
-56:                                               ; preds = %44
-  invoke void @_ZNSt6vectorIN3ue215GraphRepeatInfoESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr %45, ptr noundef nonnull align 8 dereferenceable(32) %7)
-          to label %_ZNSt6vectorIN3ue215GraphRepeatInfoESaIS1_EE9push_backEOS1_.exit unwind label %75
+57:                                               ; preds = %44
+  invoke void @_ZNSt6vectorIN3ue215GraphRepeatInfoESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr %46, ptr noundef nonnull align 8 dereferenceable(32) %7)
+          to label %_ZNSt6vectorIN3ue215GraphRepeatInfoESaIS1_EE9push_backEOS1_.exit unwind label %76
 
-_ZNSt6vectorIN3ue215GraphRepeatInfoESaIS1_EE9push_backEOS1_.exit: ; preds = %56
+_ZNSt6vectorIN3ue215GraphRepeatInfoESaIS1_EE9push_backEOS1_.exit: ; preds = %57
   %.pr = load ptr, ptr %12, align 8
   %.not.i.i.i.i40 = icmp eq ptr %.pr, null
-  br i1 %.not.i.i.i.i40, label %_ZNSt6vectorIN3ue217BoundedRepeatDataESaIS1_EED2Ev.exit, label %57
+  br i1 %.not.i.i.i.i40, label %_ZNSt6vectorIN3ue217BoundedRepeatDataESaIS1_EED2Ev.exit, label %58
 
-57:                                               ; preds = %_ZNSt6vectorIN3ue215GraphRepeatInfoESaIS1_EE9push_backEOS1_.exit
+58:                                               ; preds = %_ZNSt6vectorIN3ue215GraphRepeatInfoESaIS1_EE9push_backEOS1_.exit
   call void @_ZdlPv(ptr noundef nonnull %.pr) #31
   br label %_ZNSt6vectorIN3ue217BoundedRepeatDataESaIS1_EED2Ev.exit
 
-_ZNSt6vectorIN3ue217BoundedRepeatDataESaIS1_EED2Ev.exit: ; preds = %_ZNSt6vectorIN3ue215GraphRepeatInfoESaIS1_EE9push_backEOS1_.exit.thread, %_ZNSt6vectorIN3ue215GraphRepeatInfoESaIS1_EE9push_backEOS1_.exit, %57
+_ZNSt6vectorIN3ue217BoundedRepeatDataESaIS1_EED2Ev.exit: ; preds = %_ZNSt6vectorIN3ue215GraphRepeatInfoESaIS1_EE9push_backEOS1_.exit.thread, %_ZNSt6vectorIN3ue215GraphRepeatInfoESaIS1_EE9push_backEOS1_.exit, %58
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %58 = load ptr, ptr %13, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 -32
-  %60 = getelementptr inbounds i8, ptr %58, i64 -24
-  %61 = load ptr, ptr %60, align 8
-  %62 = getelementptr inbounds i8, ptr %58, i64 -16
-  %63 = load ptr, ptr %62, align 8
-  %64 = getelementptr inbounds i8, ptr %58, i64 -8
-  %65 = load ptr, ptr %64, align 8
-  %66 = load ptr, ptr %.sroa.049.053, align 8
-  store ptr %66, ptr %60, align 8
-  %67 = load ptr, ptr %38, align 8
-  store ptr %67, ptr %62, align 8
-  %68 = getelementptr inbounds nuw i8, ptr %.sroa.049.053, i64 16
-  %69 = load ptr, ptr %68, align 8
-  store ptr %69, ptr %64, align 8
-  store ptr %61, ptr %.sroa.049.053, align 8
-  store ptr %63, ptr %38, align 8
-  store ptr %65, ptr %68, align 8
-  %70 = getelementptr inbounds nuw i8, ptr %.sroa.049.053, i64 24
-  %71 = load i32, ptr %70, align 8
-  store i32 %71, ptr %59, align 8
-  %72 = getelementptr inbounds i8, ptr %58, i64 -28
-  store i32 %spec.select50, ptr %72, align 4
+  %59 = load ptr, ptr %13, align 8
+  %60 = getelementptr inbounds i8, ptr %59, i64 -32
+  %61 = getelementptr inbounds i8, ptr %59, i64 -24
+  %62 = load ptr, ptr %61, align 8
+  %63 = getelementptr inbounds i8, ptr %59, i64 -16
+  %64 = load ptr, ptr %63, align 8
+  %65 = getelementptr inbounds i8, ptr %59, i64 -8
+  %66 = load ptr, ptr %65, align 8
+  %67 = load ptr, ptr %.sroa.049.053, align 8
+  store ptr %67, ptr %61, align 8
+  %68 = load ptr, ptr %38, align 8
+  store ptr %68, ptr %63, align 8
+  %69 = getelementptr inbounds nuw i8, ptr %.sroa.049.053, i64 16
+  %70 = load ptr, ptr %69, align 8
+  store ptr %70, ptr %65, align 8
+  store ptr %62, ptr %.sroa.049.053, align 8
+  store ptr %64, ptr %38, align 8
+  store ptr %66, ptr %69, align 8
+  %71 = getelementptr inbounds nuw i8, ptr %.sroa.049.053, i64 24
+  %72 = load i32, ptr %71, align 8
+  store i32 %72, ptr %60, align 8
+  %73 = getelementptr inbounds i8, ptr %59, i64 -28
+  store i32 %spec.select50, ptr %73, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %73
+  br label %74
 
-73:                                               ; preds = %24, %_ZNSt6vectorIN3ue217BoundedRepeatDataESaIS1_EED2Ev.exit
-  %74 = getelementptr inbounds nuw i8, ptr %.sroa.049.053, i64 48
-  %.not = icmp eq ptr %74, %.val31
+74:                                               ; preds = %24, %_ZNSt6vectorIN3ue217BoundedRepeatDataESaIS1_EED2Ev.exit
+  %75 = getelementptr inbounds nuw i8, ptr %.sroa.049.053, i64 48
+  %.not = icmp eq ptr %75, %.val31
   br i1 %.not, label %.lr.ph.i.i.i.i, label %22
 
-75:                                               ; preds = %56
-  %76 = landingpad { ptr, i32 }
+76:                                               ; preds = %57
+  %77 = landingpad { ptr, i32 }
           cleanup
-  %77 = load ptr, ptr %12, align 8
-  %.not.i.i.i.i47 = icmp eq ptr %77, null
-  br i1 %.not.i.i.i.i47, label %_ZN3ue215GraphRepeatInfoD2Ev.exit48, label %78
+  %78 = load ptr, ptr %12, align 8
+  %.not.i.i.i.i47 = icmp eq ptr %78, null
+  br i1 %.not.i.i.i.i47, label %_ZN3ue215GraphRepeatInfoD2Ev.exit48, label %79
 
-78:                                               ; preds = %75
-  call void @_ZdlPv(ptr noundef nonnull %77) #31
+79:                                               ; preds = %76
+  call void @_ZdlPv(ptr noundef nonnull %78) #31
   br label %_ZN3ue215GraphRepeatInfoD2Ev.exit48
 
-_ZN3ue215GraphRepeatInfoD2Ev.exit48:              ; preds = %75, %78
+_ZN3ue215GraphRepeatInfoD2Ev.exit48:              ; preds = %76, %79
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.body
 
 .body:                                            ; preds = %42, %_ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EED2Ev.exit7.i, %_ZN3ue215GraphRepeatInfoD2Ev.exit48
-  %.pn = phi { ptr, i32 } [ %76, %_ZN3ue215GraphRepeatInfoD2Ev.exit48 ], [ %43, %42 ], [ %34, %_ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EED2Ev.exit7.i ]
+  %.pn = phi { ptr, i32 } [ %77, %_ZN3ue215GraphRepeatInfoD2Ev.exit48 ], [ %43, %42 ], [ %34, %_ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EED2Ev.exit7.i ]
   call void @_ZNSt6vectorIN3ue217BoundedRepeatDataESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #34
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %79
+  br label %80
 
-79:                                               ; preds = %25, %.body, %20
+80:                                               ; preds = %25, %.body, %20
   %.pn.pn.pn = phi { ptr, i32 } [ %21, %20 ], [ %.pn, %.body ], [ %26, %25 ]
   call fastcc void @_ZNSt6vectorIN3ue212_GLOBAL__N_113ReachSubgraphESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #34
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

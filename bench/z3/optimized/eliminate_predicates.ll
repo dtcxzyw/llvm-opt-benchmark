@@ -14726,163 +14726,163 @@ _ZNK6vectorIP4sortLb0EjE4sizeEv.exit:             ; preds = %8
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %23 = load ptr, ptr %4, align 8, !tbaa !25
   %24 = load ptr, ptr %22, align 8, !tbaa !25
-  %spec.select = select i1 %19, ptr %23, ptr %24
-  %spec.select65 = select i1 %19, ptr %24, ptr %23
-  %.040 = select i1 %16, ptr %24, ptr %spec.select
-  %.0 = select i1 %16, ptr %23, ptr %spec.select65
-  %25 = getelementptr inbounds nuw i8, ptr %.0, i64 4
-  %26 = load i32, ptr %25, align 4
-  %27 = and i32 %26, 65535
-  %28 = icmp eq i32 %27, 0
-  br i1 %28, label %29, label %"_ZZN20eliminate_predicates14init_injectiveERKNS_6clauseEENK3$_1clEP4exprRj.exit"
+  %25 = xor i1 %19, true
+  %26 = or i1 %16, %25
+  %.040 = select i1 %26, ptr %24, ptr %23
+  %.0 = select i1 %26, ptr %23, ptr %24
+  %27 = getelementptr inbounds nuw i8, ptr %.0, i64 4
+  %28 = load i32, ptr %27, align 4
+  %29 = and i32 %28, 65535
+  %30 = icmp eq i32 %29, 0
+  br i1 %30, label %31, label %"_ZZN20eliminate_predicates14init_injectiveERKNS_6clauseEENK3$_1clEP4exprRj.exit"
 
-29:                                               ; preds = %21
-  %30 = getelementptr inbounds nuw i8, ptr %.0, i64 16
-  %31 = load ptr, ptr %30, align 8, !tbaa !64
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 24
-  %33 = load ptr, ptr %32, align 8, !tbaa !70
-  %.not.i.i.i.i.i = icmp eq ptr %33, null
+31:                                               ; preds = %21
+  %32 = getelementptr inbounds nuw i8, ptr %.0, i64 16
+  %33 = load ptr, ptr %32, align 8, !tbaa !64
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 24
+  %35 = load ptr, ptr %34, align 8, !tbaa !70
+  %.not.i.i.i.i.i = icmp eq ptr %35, null
   br i1 %.not.i.i.i.i.i, label %"_ZZN20eliminate_predicates14init_injectiveERKNS_6clauseEENK3$_1clEP4exprRj.exit", label %_ZNK11ast_manager5is_eqEPK4expr.exit.i
 
-_ZNK11ast_manager5is_eqEPK4expr.exit.i:           ; preds = %29
-  %34 = load i32, ptr %33, align 8, !tbaa !75
-  %35 = icmp eq i32 %34, 0
-  %36 = getelementptr inbounds nuw i8, ptr %33, i64 4
-  %37 = load i32, ptr %36, align 4
-  %38 = icmp eq i32 %37, 2
-  %39 = select i1 %35, i1 %38, i1 false
-  br i1 %39, label %40, label %"_ZZN20eliminate_predicates14init_injectiveERKNS_6clauseEENK3$_1clEP4exprRj.exit"
+_ZNK11ast_manager5is_eqEPK4expr.exit.i:           ; preds = %31
+  %36 = load i32, ptr %35, align 8, !tbaa !75
+  %37 = icmp eq i32 %36, 0
+  %38 = getelementptr inbounds nuw i8, ptr %35, i64 4
+  %39 = load i32, ptr %38, align 4
+  %40 = icmp eq i32 %39, 2
+  %41 = select i1 %37, i1 %40, i1 false
+  br i1 %41, label %42, label %"_ZZN20eliminate_predicates14init_injectiveERKNS_6clauseEENK3$_1clEP4exprRj.exit"
 
-40:                                               ; preds = %_ZNK11ast_manager5is_eqEPK4expr.exit.i
-  %41 = getelementptr inbounds nuw i8, ptr %.0, i64 24
-  %42 = load i32, ptr %41, align 8, !tbaa !82
-  %43 = icmp eq i32 %42, 2
-  br i1 %43, label %44, label %"_ZZN20eliminate_predicates14init_injectiveERKNS_6clauseEENK3$_1clEP4exprRj.exit"
+42:                                               ; preds = %_ZNK11ast_manager5is_eqEPK4expr.exit.i
+  %43 = getelementptr inbounds nuw i8, ptr %.0, i64 24
+  %44 = load i32, ptr %43, align 8, !tbaa !82
+  %45 = icmp eq i32 %44, 2
+  br i1 %45, label %46, label %"_ZZN20eliminate_predicates14init_injectiveERKNS_6clauseEENK3$_1clEP4exprRj.exit"
 
-44:                                               ; preds = %40
-  %45 = getelementptr inbounds nuw i8, ptr %.0, i64 32
-  %46 = load ptr, ptr %45, align 8, !tbaa !90
-  %47 = getelementptr inbounds nuw i8, ptr %.0, i64 40
+46:                                               ; preds = %42
+  %47 = getelementptr inbounds nuw i8, ptr %.0, i64 32
   %48 = load ptr, ptr %47, align 8, !tbaa !90
-  %49 = getelementptr inbounds nuw i8, ptr %.040, i64 4
-  %50 = load i32, ptr %49, align 4
-  %51 = and i32 %50, 65535
-  %52 = icmp eq i32 %51, 0
-  br i1 %52, label %53, label %"_ZZN20eliminate_predicates14init_injectiveERKNS_6clauseEENK3$_1clEP4exprRj.exit"
+  %49 = getelementptr inbounds nuw i8, ptr %.0, i64 40
+  %50 = load ptr, ptr %49, align 8, !tbaa !90
+  %51 = getelementptr inbounds nuw i8, ptr %.040, i64 4
+  %52 = load i32, ptr %51, align 4
+  %53 = and i32 %52, 65535
+  %54 = icmp eq i32 %53, 0
+  br i1 %54, label %55, label %"_ZZN20eliminate_predicates14init_injectiveERKNS_6clauseEENK3$_1clEP4exprRj.exit"
 
-53:                                               ; preds = %44
-  %54 = getelementptr inbounds nuw i8, ptr %.040, i64 16
-  %55 = load ptr, ptr %54, align 8, !tbaa !64
-  %56 = getelementptr inbounds nuw i8, ptr %55, i64 24
-  %57 = load ptr, ptr %56, align 8, !tbaa !70
-  %.not.i.i.i.i.i13 = icmp eq ptr %57, null
+55:                                               ; preds = %46
+  %56 = getelementptr inbounds nuw i8, ptr %.040, i64 16
+  %57 = load ptr, ptr %56, align 8, !tbaa !64
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 24
+  %59 = load ptr, ptr %58, align 8, !tbaa !70
+  %.not.i.i.i.i.i13 = icmp eq ptr %59, null
   br i1 %.not.i.i.i.i.i13, label %"_ZZN20eliminate_predicates14init_injectiveERKNS_6clauseEENK3$_1clEP4exprRj.exit", label %_ZNK11ast_manager5is_eqEPK4expr.exit.i14
 
-_ZNK11ast_manager5is_eqEPK4expr.exit.i14:         ; preds = %53
-  %58 = load i32, ptr %57, align 8, !tbaa !75
-  %59 = icmp eq i32 %58, 0
-  %60 = getelementptr inbounds nuw i8, ptr %57, i64 4
-  %61 = load i32, ptr %60, align 4
-  %62 = icmp eq i32 %61, 2
-  %63 = select i1 %59, i1 %62, i1 false
-  br i1 %63, label %64, label %"_ZZN20eliminate_predicates14init_injectiveERKNS_6clauseEENK3$_1clEP4exprRj.exit"
+_ZNK11ast_manager5is_eqEPK4expr.exit.i14:         ; preds = %55
+  %60 = load i32, ptr %59, align 8, !tbaa !75
+  %61 = icmp eq i32 %60, 0
+  %62 = getelementptr inbounds nuw i8, ptr %59, i64 4
+  %63 = load i32, ptr %62, align 4
+  %64 = icmp eq i32 %63, 2
+  %65 = select i1 %61, i1 %64, i1 false
+  br i1 %65, label %66, label %"_ZZN20eliminate_predicates14init_injectiveERKNS_6clauseEENK3$_1clEP4exprRj.exit"
 
-64:                                               ; preds = %_ZNK11ast_manager5is_eqEPK4expr.exit.i14
-  %65 = getelementptr inbounds nuw i8, ptr %.040, i64 24
-  %66 = load i32, ptr %65, align 8, !tbaa !82
-  %67 = icmp eq i32 %66, 2
-  br i1 %67, label %68, label %"_ZZN20eliminate_predicates14init_injectiveERKNS_6clauseEENK3$_1clEP4exprRj.exit"
+66:                                               ; preds = %_ZNK11ast_manager5is_eqEPK4expr.exit.i14
+  %67 = getelementptr inbounds nuw i8, ptr %.040, i64 24
+  %68 = load i32, ptr %67, align 8, !tbaa !82
+  %69 = icmp eq i32 %68, 2
+  br i1 %69, label %70, label %"_ZZN20eliminate_predicates14init_injectiveERKNS_6clauseEENK3$_1clEP4exprRj.exit"
 
-68:                                               ; preds = %64
-  %69 = getelementptr inbounds nuw i8, ptr %.040, i64 32
-  %70 = load ptr, ptr %69, align 8, !tbaa !90
-  %71 = getelementptr inbounds nuw i8, ptr %.040, i64 40
+70:                                               ; preds = %66
+  %71 = getelementptr inbounds nuw i8, ptr %.040, i64 32
   %72 = load ptr, ptr %71, align 8, !tbaa !90
-  %73 = getelementptr inbounds nuw i8, ptr %46, i64 4
-  %74 = load i32, ptr %73, align 4
-  %75 = and i32 %74, 65535
-  %76 = icmp eq i32 %75, 0
-  br i1 %76, label %77, label %"_ZZN20eliminate_predicates14init_injectiveERKNS_6clauseEENK3$_1clEP4exprRj.exit"
+  %73 = getelementptr inbounds nuw i8, ptr %.040, i64 40
+  %74 = load ptr, ptr %73, align 8, !tbaa !90
+  %75 = getelementptr inbounds nuw i8, ptr %48, i64 4
+  %76 = load i32, ptr %75, align 4
+  %77 = and i32 %76, 65535
+  %78 = icmp eq i32 %77, 0
+  br i1 %78, label %79, label %"_ZZN20eliminate_predicates14init_injectiveERKNS_6clauseEENK3$_1clEP4exprRj.exit"
 
-77:                                               ; preds = %68
-  %78 = getelementptr inbounds nuw i8, ptr %46, i64 24
-  %79 = load i32, ptr %78, align 8, !tbaa !82
-  %.not.i = icmp eq i32 %79, 1
-  br i1 %.not.i, label %80, label %"_ZZN20eliminate_predicates14init_injectiveERKNS_6clauseEENK3$_1clEP4exprRj.exit"
+79:                                               ; preds = %70
+  %80 = getelementptr inbounds nuw i8, ptr %48, i64 24
+  %81 = load i32, ptr %80, align 8, !tbaa !82
+  %.not.i = icmp eq i32 %81, 1
+  br i1 %.not.i, label %82, label %"_ZZN20eliminate_predicates14init_injectiveERKNS_6clauseEENK3$_1clEP4exprRj.exit"
 
-80:                                               ; preds = %77
-  %81 = getelementptr inbounds nuw i8, ptr %46, i64 32
-  %82 = load ptr, ptr %81, align 8, !tbaa !90
-  %83 = getelementptr inbounds nuw i8, ptr %82, i64 4
-  %84 = load i32, ptr %83, align 4
-  %85 = and i32 %84, 65535
-  %86 = icmp eq i32 %85, 1
-  br i1 %86, label %87, label %"_ZZN20eliminate_predicates14init_injectiveERKNS_6clauseEENK3$_1clEP4exprRj.exit"
+82:                                               ; preds = %79
+  %83 = getelementptr inbounds nuw i8, ptr %48, i64 32
+  %84 = load ptr, ptr %83, align 8, !tbaa !90
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 4
+  %86 = load i32, ptr %85, align 4
+  %87 = and i32 %86, 65535
+  %88 = icmp eq i32 %87, 1
+  br i1 %88, label %89, label %"_ZZN20eliminate_predicates14init_injectiveERKNS_6clauseEENK3$_1clEP4exprRj.exit"
 
-87:                                               ; preds = %80
-  %88 = getelementptr inbounds nuw i8, ptr %46, i64 16
-  %89 = load ptr, ptr %88, align 8, !tbaa !64
-  %90 = getelementptr inbounds nuw i8, ptr %82, i64 16
-  %91 = load i32, ptr %90, align 8, !tbaa !96
-  %92 = getelementptr inbounds nuw i8, ptr %48, i64 4
-  %93 = load i32, ptr %92, align 4
-  %94 = and i32 %93, 65535
-  %95 = icmp eq i32 %94, 0
-  br i1 %95, label %96, label %"_ZZN20eliminate_predicates14init_injectiveERKNS_6clauseEENK3$_1clEP4exprRj.exit"
+89:                                               ; preds = %82
+  %90 = getelementptr inbounds nuw i8, ptr %48, i64 16
+  %91 = load ptr, ptr %90, align 8, !tbaa !64
+  %92 = getelementptr inbounds nuw i8, ptr %84, i64 16
+  %93 = load i32, ptr %92, align 8, !tbaa !96
+  %94 = getelementptr inbounds nuw i8, ptr %50, i64 4
+  %95 = load i32, ptr %94, align 4
+  %96 = and i32 %95, 65535
+  %97 = icmp eq i32 %96, 0
+  br i1 %97, label %98, label %"_ZZN20eliminate_predicates14init_injectiveERKNS_6clauseEENK3$_1clEP4exprRj.exit"
 
-96:                                               ; preds = %87
-  %97 = getelementptr inbounds nuw i8, ptr %48, i64 24
-  %98 = load i32, ptr %97, align 8, !tbaa !82
-  %.not.i18 = icmp eq i32 %98, 1
-  br i1 %.not.i18, label %99, label %"_ZZN20eliminate_predicates14init_injectiveERKNS_6clauseEENK3$_1clEP4exprRj.exit"
+98:                                               ; preds = %89
+  %99 = getelementptr inbounds nuw i8, ptr %50, i64 24
+  %100 = load i32, ptr %99, align 8, !tbaa !82
+  %.not.i18 = icmp eq i32 %100, 1
+  br i1 %.not.i18, label %101, label %"_ZZN20eliminate_predicates14init_injectiveERKNS_6clauseEENK3$_1clEP4exprRj.exit"
 
-99:                                               ; preds = %96
-  %100 = getelementptr inbounds nuw i8, ptr %48, i64 32
-  %101 = load ptr, ptr %100, align 8, !tbaa !90
-  %102 = getelementptr inbounds nuw i8, ptr %101, i64 4
-  %103 = load i32, ptr %102, align 4
-  %104 = and i32 %103, 65535
-  %105 = icmp eq i32 %104, 1
-  br i1 %105, label %106, label %"_ZZN20eliminate_predicates14init_injectiveERKNS_6clauseEENK3$_1clEP4exprRj.exit"
+101:                                              ; preds = %98
+  %102 = getelementptr inbounds nuw i8, ptr %50, i64 32
+  %103 = load ptr, ptr %102, align 8, !tbaa !90
+  %104 = getelementptr inbounds nuw i8, ptr %103, i64 4
+  %105 = load i32, ptr %104, align 4
+  %106 = and i32 %105, 65535
+  %107 = icmp eq i32 %106, 1
+  br i1 %107, label %108, label %"_ZZN20eliminate_predicates14init_injectiveERKNS_6clauseEENK3$_1clEP4exprRj.exit"
 
-106:                                              ; preds = %99
-  %107 = getelementptr inbounds nuw i8, ptr %48, i64 16
-  %108 = load ptr, ptr %107, align 8, !tbaa !64
-  %109 = getelementptr inbounds nuw i8, ptr %101, i64 16
-  %110 = load i32, ptr %109, align 8, !tbaa !96
-  %111 = icmp ne i32 %91, %110
-  %.not10 = icmp eq ptr %89, %108
-  %or.cond = select i1 %111, i1 %.not10, i1 false
-  br i1 %or.cond, label %112, label %"_ZZN20eliminate_predicates14init_injectiveERKNS_6clauseEENK3$_1clEP4exprRj.exit"
+108:                                              ; preds = %101
+  %109 = getelementptr inbounds nuw i8, ptr %50, i64 16
+  %110 = load ptr, ptr %109, align 8, !tbaa !64
+  %111 = getelementptr inbounds nuw i8, ptr %103, i64 16
+  %112 = load i32, ptr %111, align 8, !tbaa !96
+  %113 = icmp ne i32 %93, %112
+  %.not10 = icmp eq ptr %91, %110
+  %or.cond = select i1 %113, i1 %.not10, i1 false
+  br i1 %or.cond, label %114, label %"_ZZN20eliminate_predicates14init_injectiveERKNS_6clauseEENK3$_1clEP4exprRj.exit"
 
-112:                                              ; preds = %106
-  %113 = getelementptr inbounds nuw i8, ptr %70, i64 4
-  %114 = load i32, ptr %113, align 4
-  %115 = and i32 %114, 65535
-  %116 = icmp eq i32 %115, 1
-  br i1 %116, label %117, label %"_ZZN20eliminate_predicates14init_injectiveERKNS_6clauseEENK3$_1clEP4exprRj.exit"
+114:                                              ; preds = %108
+  %115 = getelementptr inbounds nuw i8, ptr %72, i64 4
+  %116 = load i32, ptr %115, align 4
+  %117 = and i32 %116, 65535
+  %118 = icmp eq i32 %117, 1
+  br i1 %118, label %119, label %"_ZZN20eliminate_predicates14init_injectiveERKNS_6clauseEENK3$_1clEP4exprRj.exit"
 
-117:                                              ; preds = %112
-  %118 = getelementptr inbounds nuw i8, ptr %72, i64 4
-  %119 = load i32, ptr %118, align 4
-  %120 = and i32 %119, 65535
-  %121 = icmp eq i32 %120, 1
-  br i1 %121, label %122, label %"_ZZN20eliminate_predicates14init_injectiveERKNS_6clauseEENK3$_1clEP4exprRj.exit"
+119:                                              ; preds = %114
+  %120 = getelementptr inbounds nuw i8, ptr %74, i64 4
+  %121 = load i32, ptr %120, align 4
+  %122 = and i32 %121, 65535
+  %123 = icmp eq i32 %122, 1
+  br i1 %123, label %124, label %"_ZZN20eliminate_predicates14init_injectiveERKNS_6clauseEENK3$_1clEP4exprRj.exit"
 
-122:                                              ; preds = %117
-  %123 = getelementptr inbounds nuw i8, ptr %70, i64 16
-  %124 = load i32, ptr %123, align 8, !tbaa !96
+124:                                              ; preds = %119
   %125 = getelementptr inbounds nuw i8, ptr %72, i64 16
   %126 = load i32, ptr %125, align 8, !tbaa !96
-  %127 = icmp eq i32 %124, %126
-  br i1 %127, label %"_ZZN20eliminate_predicates14init_injectiveERKNS_6clauseEENK3$_1clEP4exprRj.exit", label %128
+  %127 = getelementptr inbounds nuw i8, ptr %74, i64 16
+  %128 = load i32, ptr %127, align 8, !tbaa !96
+  %129 = icmp eq i32 %126, %128
+  br i1 %129, label %"_ZZN20eliminate_predicates14init_injectiveERKNS_6clauseEENK3$_1clEP4exprRj.exit", label %130
 
-128:                                              ; preds = %122
-  %129 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  tail call void @_ZN8ast_mark4markEP3astb(ptr noundef nonnull align 8 dereferenceable(56) %129, ptr noundef %89, i1 noundef zeroext true)
+130:                                              ; preds = %124
+  %131 = getelementptr inbounds nuw i8, ptr %0, i64 224
+  tail call void @_ZN8ast_mark4markEP3astb(ptr noundef nonnull align 8 dereferenceable(56) %131, ptr noundef %91, i1 noundef zeroext true)
   br label %"_ZZN20eliminate_predicates14init_injectiveERKNS_6clauseEENK3$_1clEP4exprRj.exit"
 
-"_ZZN20eliminate_predicates14init_injectiveERKNS_6clauseEENK3$_1clEP4exprRj.exit": ; preds = %99, %96, %87, %80, %77, %68, %53, %44, %_ZNK11ast_manager5is_eqEPK4expr.exit.i14, %64, %29, %21, %_ZNK11ast_manager5is_eqEPK4expr.exit.i, %40, %8, %2, %128, %122, %112, %117, %106, %13, %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit, %_ZNK20eliminate_predicates6clause4sizeEv.exit
+"_ZZN20eliminate_predicates14init_injectiveERKNS_6clauseEENK3$_1clEP4exprRj.exit": ; preds = %101, %98, %89, %82, %79, %70, %55, %46, %_ZNK11ast_manager5is_eqEPK4expr.exit.i14, %66, %31, %21, %_ZNK11ast_manager5is_eqEPK4expr.exit.i, %42, %8, %2, %130, %124, %114, %119, %108, %13, %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit, %_ZNK20eliminate_predicates6clause4sizeEv.exit
   ret void
 }
 

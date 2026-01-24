@@ -3282,7 +3282,7 @@ define noundef zeroext i1 @_ZN13ruff_notebook4cell11CellOffsets17has_cell_bounda
   ]
 
 ._crit_edge.i:                                    ; preds = %"_ZN13ruff_notebook4cell11CellOffsets17has_cell_boundary28_$u7b$$u7b$closure$u7d$$u7d$17hac6dcd1d6da8b12bE.exit29.thread.i", %3
-  %.sroa.05.0.lcssa.i = phi i64 [ 0, %3 ], [ %15, %"_ZN13ruff_notebook4cell11CellOffsets17has_cell_boundary28_$u7b$$u7b$closure$u7d$$u7d$17hac6dcd1d6da8b12bE.exit29.thread.i" ]
+  %.sroa.05.0.lcssa.i = phi i64 [ 0, %3 ], [ %16, %"_ZN13ruff_notebook4cell11CellOffsets17has_cell_boundary28_$u7b$$u7b$closure$u7d$$u7d$17hac6dcd1d6da8b12bE.exit29.thread.i" ]
   %8 = icmp ult i64 %.sroa.05.0.lcssa.i, %7
   tail call void @llvm.assume(i1 %8)
   %9 = getelementptr inbounds nuw i32, ptr %5, i64 %.sroa.05.0.lcssa.i
@@ -3293,8 +3293,8 @@ define noundef zeroext i1 @_ZN13ruff_notebook4cell11CellOffsets17has_cell_bounda
   br label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17h6069ac102940c7c1E.exit"
 
 "_ZN13ruff_notebook4cell11CellOffsets17has_cell_boundary28_$u7b$$u7b$closure$u7d$$u7d$17hac6dcd1d6da8b12bE.exit29.thread.i": ; preds = %3, %"_ZN13ruff_notebook4cell11CellOffsets17has_cell_boundary28_$u7b$$u7b$closure$u7d$$u7d$17hac6dcd1d6da8b12bE.exit29.thread.i"
-  %.sroa.01.035.i = phi i64 [ %16, %"_ZN13ruff_notebook4cell11CellOffsets17has_cell_boundary28_$u7b$$u7b$closure$u7d$$u7d$17hac6dcd1d6da8b12bE.exit29.thread.i" ], [ %7, %3 ]
-  %.sroa.05.034.i = phi i64 [ %15, %"_ZN13ruff_notebook4cell11CellOffsets17has_cell_boundary28_$u7b$$u7b$closure$u7d$$u7d$17hac6dcd1d6da8b12bE.exit29.thread.i" ], [ 0, %3 ]
+  %.sroa.01.035.i = phi i64 [ %17, %"_ZN13ruff_notebook4cell11CellOffsets17has_cell_boundary28_$u7b$$u7b$closure$u7d$$u7d$17hac6dcd1d6da8b12bE.exit29.thread.i" ], [ %7, %3 ]
+  %.sroa.05.034.i = phi i64 [ %16, %"_ZN13ruff_notebook4cell11CellOffsets17has_cell_boundary28_$u7b$$u7b$closure$u7d$$u7d$17hac6dcd1d6da8b12bE.exit29.thread.i" ], [ 0, %3 ]
   %10 = lshr i64 %.sroa.01.035.i, 1
   %11 = add i64 %10, %.sroa.05.034.i
   %12 = icmp ult i64 %11, %7
@@ -3302,16 +3302,16 @@ define noundef zeroext i1 @_ZN13ruff_notebook4cell11CellOffsets17has_cell_bounda
   %13 = getelementptr inbounds nuw i32, ptr %5, i64 %11
   %.val25.i = load i32, ptr %13, align 4, !alias.scope !709, !noalias !712, !noundef !6
   %.not.i26.i = icmp ugt i32 %1, %.val25.i
-  %14 = icmp ult i32 %2, %.val25.i
-  %spec.select.i = select i1 %14, i64 %.sroa.05.034.i, i64 %11
-  %15 = select i1 %.not.i26.i, i64 %11, i64 %spec.select.i
-  %16 = sub i64 %.sroa.01.035.i, %10
-  %17 = icmp ugt i64 %16, 1
-  br i1 %17, label %"_ZN13ruff_notebook4cell11CellOffsets17has_cell_boundary28_$u7b$$u7b$closure$u7d$$u7d$17hac6dcd1d6da8b12bE.exit29.thread.i", label %._crit_edge.i
+  %14 = icmp uge i32 %2, %.val25.i
+  %15 = or i1 %.not.i26.i, %14
+  %16 = select i1 %15, i64 %11, i64 %.sroa.05.034.i
+  %17 = sub i64 %.sroa.01.035.i, %10
+  %18 = icmp ugt i64 %17, 1
+  br i1 %18, label %"_ZN13ruff_notebook4cell11CellOffsets17has_cell_boundary28_$u7b$$u7b$closure$u7d$$u7d$17hac6dcd1d6da8b12bE.exit29.thread.i", label %._crit_edge.i
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17h6069ac102940c7c1E.exit": ; preds = %._crit_edge.i, %3
-  %18 = phi i1 [ false, %3 ], [ %or.cond.i.not, %._crit_edge.i ]
-  ret i1 %18
+  %19 = phi i1 [ false, %3 ], [ %or.cond.i.not, %._crit_edge.i ]
+  ret i1 %19
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable

@@ -2377,7 +2377,7 @@ define dso_local noundef zeroext i1 @_ZNK5clang3CFG8isLinearEv(ptr noundef nonnu
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i32, ptr %3, align 8, !tbaa !30
   %5 = icmp ult i32 %4, 4
-  br i1 %5, label %59, label %6
+  br i1 %5, label %58, label %6
 
 6:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -2395,13 +2395,13 @@ define dso_local noundef zeroext i1 @_ZNK5clang3CFG8isLinearEv(ptr noundef nonnu
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %14
 
-14:                                               ; preds = %54, %6
-  %15 = phi i32 [ 0, %6 ], [ %36, %54 ]
-  %16 = phi i32 [ 4, %6 ], [ %37, %54 ]
-  %17 = phi ptr [ %7, %6 ], [ %38, %54 ]
-  %18 = phi i8 [ 1, %6 ], [ %39, %54 ]
-  %.019 = phi ptr [ %12, %6 ], [ %.019..12865, %54 ]
-  %.1 = phi i1 [ undef, %6 ], [ %.6, %54 ]
+14:                                               ; preds = %._crit_edge, %6
+  %15 = phi i32 [ 0, %6 ], [ %36, %._crit_edge ]
+  %16 = phi i32 [ 4, %6 ], [ %37, %._crit_edge ]
+  %17 = phi ptr [ %7, %6 ], [ %38, %._crit_edge ]
+  %18 = phi i8 [ 1, %6 ], [ %39, %._crit_edge ]
+  %.019 = phi ptr [ %12, %6 ], [ %.229.ph, %._crit_edge ]
+  %.1 = phi i1 [ undef, %6 ], [ %.6, %._crit_edge ]
   %19 = load ptr, ptr %13, align 8, !tbaa !44
   %.not = icmp eq ptr %.019, %19
   br i1 %.not, label %.thread39, label %20
@@ -2464,54 +2464,53 @@ _ZN4llvm15SmallPtrSetImplIPKN5clang8CFGBlockEE6insertES4_.exit: ; preds = %.lr.p
   %42 = load ptr, ptr %41, align 8, !tbaa !64
   %43 = getelementptr inbounds nuw i8, ptr %.019, i64 88
   %44 = load ptr, ptr %43, align 8, !tbaa !65
-  %.not3044 = icmp eq ptr %42, %44
-  br i1 %.not3044, label %.thread39, label %.lr.ph
+  %.not3047.not.not = icmp eq ptr %42, %44
+  br i1 %.not3047.not.not, label %.thread39, label %.lr.ph
 
 .lr.ph:                                           ; preds = %40, %52
-  %.02246 = phi ptr [ %53, %52 ], [ %42, %40 ]
-  %.02745 = phi ptr [ %.229.ph, %52 ], [ null, %40 ]
-  %45 = getelementptr inbounds nuw i8, ptr %.02246, i64 8
+  %.02249 = phi ptr [ %53, %52 ], [ %42, %40 ]
+  %.02748 = phi ptr [ %.229.ph, %52 ], [ null, %40 ]
+  %45 = getelementptr inbounds nuw i8, ptr %.02249, i64 8
   %.0.copyload.i.i.i.i = load i64, ptr %45, align 8
   %46 = and i64 %.0.copyload.i.i.i.i, 2
   %47 = icmp eq i64 %46, 0
   br i1 %47, label %48, label %52
 
 48:                                               ; preds = %.lr.ph
-  %49 = icmp eq ptr %.02745, null
+  %49 = icmp eq ptr %.02748, null
   br i1 %49, label %50, label %.thread39
 
 50:                                               ; preds = %48
-  %51 = load ptr, ptr %.02246, align 8, !tbaa !266
+  %51 = load ptr, ptr %.02249, align 8, !tbaa !266
   br label %52
 
 52:                                               ; preds = %50, %.lr.ph
-  %.229.ph = phi ptr [ %.02745, %.lr.ph ], [ %51, %50 ]
-  %53 = getelementptr inbounds nuw i8, ptr %.02246, i64 16
-  %.not30 = icmp eq ptr %53, %44
-  br i1 %.not30, label %54, label %.lr.ph
+  %.229.ph = phi ptr [ %.02748, %.lr.ph ], [ %51, %50 ]
+  %53 = getelementptr inbounds nuw i8, ptr %.02249, i64 16
+  %.not30.not = icmp eq ptr %53, %44
+  br i1 %.not30.not, label %._crit_edge, label %.lr.ph
 
-54:                                               ; preds = %52
-  %.not3164 = icmp eq ptr %.229.ph, null
-  %.019..12865 = select i1 %.not3164, ptr %.019, ptr %.229.ph
-  %.6 = select i1 %.not3164, i1 true, i1 %.1
-  br i1 %.not3164, label %.thread39, label %14, !llvm.loop !270
+._crit_edge:                                      ; preds = %52
+  %.not31 = icmp eq ptr %.229.ph, null
+  %.6 = select i1 %.not31, i1 true, i1 %.1
+  br i1 %.not31, label %.thread39, label %14, !llvm.loop !270
 
-.thread39:                                        ; preds = %40, %_ZN4llvm15SmallPtrSetImplIPKN5clang8CFGBlockEE6insertES4_.exit, %14, %54, %48
-  %55 = phi ptr [ %38, %48 ], [ %38, %40 ], [ %38, %_ZN4llvm15SmallPtrSetImplIPKN5clang8CFGBlockEE6insertES4_.exit ], [ %17, %14 ], [ %38, %54 ]
-  %.7 = phi i1 [ false, %48 ], [ true, %40 ], [ false, %_ZN4llvm15SmallPtrSetImplIPKN5clang8CFGBlockEE6insertES4_.exit ], [ true, %14 ], [ %.6, %54 ]
-  %56 = load i8, ptr %11, align 4, !tbaa !260, !range !129, !noundef !130
-  %57 = trunc nuw i8 %56 to i1
-  br i1 %57, label %_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit, label %58
+.thread39:                                        ; preds = %_ZN4llvm15SmallPtrSetImplIPKN5clang8CFGBlockEE6insertES4_.exit, %14, %._crit_edge, %40, %48
+  %54 = phi ptr [ %38, %48 ], [ %17, %14 ], [ %38, %._crit_edge ], [ %38, %40 ], [ %38, %_ZN4llvm15SmallPtrSetImplIPKN5clang8CFGBlockEE6insertES4_.exit ]
+  %.7 = phi i1 [ false, %48 ], [ true, %14 ], [ %.6, %._crit_edge ], [ true, %40 ], [ false, %_ZN4llvm15SmallPtrSetImplIPKN5clang8CFGBlockEE6insertES4_.exit ]
+  %55 = load i8, ptr %11, align 4, !tbaa !260, !range !129, !noundef !130
+  %56 = trunc nuw i8 %55 to i1
+  br i1 %56, label %_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit, label %57
 
-58:                                               ; preds = %.thread39
-  call void @free(ptr noundef %55) #27
+57:                                               ; preds = %.thread39
+  call void @free(ptr noundef %54) #27
   br label %_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit
 
-_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit:           ; preds = %.thread39, %58
+_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit:           ; preds = %.thread39, %57
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %59
+  br label %58
 
-59:                                               ; preds = %1, %_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit
+58:                                               ; preds = %1, %_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit
   %.0 = phi i1 [ %.7, %_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit ], [ true, %1 ]
   ret i1 %.0
 }

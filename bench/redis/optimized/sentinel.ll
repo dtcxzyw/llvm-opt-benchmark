@@ -968,14 +968,14 @@ define dso_local range(i32 0, 2) i32 @sentinelAddrEqualsHostname(ptr noundef rea
   %6 = call i32 @anetResolve(ptr noundef null, ptr noundef %1, ptr noundef nonnull %3, i64 noundef 46, i32 noundef %5) #30
   %7 = icmp eq i32 %6, -1
   %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @sentinel, i64 144), align 8
-  %.not6 = icmp eq i32 %8, 0
-  %.in.idx = select i1 %.not6, i64 8, i64 0
-  %.sink = select i1 %7, i64 %.in.idx, i64 8
+  %.not6 = icmp ne i32 %8, 0
+  %9 = select i1 %7, i1 %.not6, i1 false
+  %.sink = select i1 %9, i64 0, i64 8
   %.sink8 = select i1 %7, ptr %1, ptr %3
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink
-  %10 = load ptr, ptr %9, align 8, !tbaa !87
-  %11 = call i32 @strcasecmp(ptr noundef %10, ptr noundef %.sink8) #34
-  %.0.in = icmp eq i32 %11, 0
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink
+  %11 = load ptr, ptr %10, align 8, !tbaa !87
+  %12 = call i32 @strcasecmp(ptr noundef %11, ptr noundef %.sink8) #34
+  %.0.in = icmp eq i32 %12, 0
   %.0 = zext i1 %.0.in to i32
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
@@ -5841,7 +5841,7 @@ define dso_local void @sentinelRefreshInstanceInfo(ptr noundef initializes((192,
 
 27:                                               ; preds = %.lr.ph, %.critedge
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.critedge ]
-  %.0182314 = phi i32 [ 0, %.lr.ph ], [ %.1, %.critedge ]
+  %.0182313 = phi i32 [ 0, %.lr.ph ], [ %.1, %.critedge ]
   %28 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv
   %29 = load ptr, ptr %28, align 8, !tbaa !87
   %30 = getelementptr inbounds i8, ptr %29, i64 -1
@@ -6239,15 +6239,15 @@ sdslen.exit257:                                   ; preds = %193, %196, %200, %2
 212:                                              ; preds = %sdslen.exit257
   %bcmp233 = call i32 @bcmp(ptr noundef nonnull dereferenceable(10) %29, ptr noundef nonnull dereferenceable(10) @.str.167, i64 10)
   %.not234 = icmp eq i32 %bcmp233, 0
-  %213 = icmp eq i32 %.0182314, 2
-  %or.cond309 = select i1 %.not234, i1 true, i1 %213
-  br i1 %or.cond309, label %.thread, label %.critedge
+  %213 = icmp eq i32 %.0182313, 2
+  %or.cond308 = select i1 %.not234, i1 true, i1 %213
+  br i1 %or.cond308, label %.thread, label %.critedge
 
 default.unreachable:                              ; preds = %sdslen.exit255.thread
   unreachable
 
 sdslen.exit257.thread:                            ; preds = %sdslen.exit253.thread, %sdslen.exit257
-  %.old = icmp eq i32 %.0182314, 2
+  %.old = icmp eq i32 %.0182313, 2
   br i1 %.old, label %.thread, label %.critedge
 
 .thread:                                          ; preds = %212, %sdslen.exit257.thread
@@ -6315,12 +6315,12 @@ sdslen.exit259:                                   ; preds = %214, %217, %221, %2
   store ptr %242, ptr %20, align 8, !tbaa !24
   %243 = call i64 @mstime() #30
   store i64 %243, ptr %21, align 8, !tbaa !167
-  %.pre317 = load i8, ptr %30, align 1, !tbaa !79
-  %.pre324 = zext i8 %.pre317 to i32
+  %.pre316 = load i8, ptr %30, align 1, !tbaa !79
+  %.pre323 = zext i8 %.pre316 to i32
   br label %sdslen.exit259.thread
 
 sdslen.exit259.thread:                            ; preds = %.thread, %237, %240, %233, %sdslen.exit259
-  %.pre-phi = phi i32 [ %171, %.thread ], [ %171, %237 ], [ %.pre324, %240 ], [ %171, %233 ], [ %171, %sdslen.exit259 ]
+  %.pre-phi = phi i32 [ %171, %.thread ], [ %171, %237 ], [ %.pre323, %240 ], [ %171, %233 ], [ %171, %sdslen.exit259 ]
   %244 = and i32 %.pre-phi, 7
   switch i32 %244, label %sdslen.exit261.thread [
     i32 0, label %245
@@ -6438,13 +6438,13 @@ sdslen.exit263:                                   ; preds = %275, %278, %282, %2
   %298 = icmp ne i32 %297, 0
   %299 = zext i1 %298 to i32
   store i32 %299, ptr %23, align 4, !tbaa !160
-  %.pre318 = load i8, ptr %30, align 1, !tbaa !79
-  %.pre325 = zext i8 %.pre318 to i32
+  %.pre317 = load i8, ptr %30, align 1, !tbaa !79
+  %.pre324 = zext i8 %.pre317 to i32
   br label %sdslen.exit263.thread
 
 sdslen.exit263.thread:                            ; preds = %sdslen.exit261.thread, %295, %294, %sdslen.exit263
-  %.pre-phi326 = phi i32 [ %273, %sdslen.exit261.thread ], [ %.pre325, %295 ], [ %273, %294 ], [ %273, %sdslen.exit263 ]
-  %300 = and i32 %.pre-phi326, 7
+  %.pre-phi325 = phi i32 [ %273, %sdslen.exit261.thread ], [ %.pre324, %295 ], [ %273, %294 ], [ %273, %sdslen.exit263 ]
+  %300 = and i32 %.pre-phi325, 7
   switch i32 %300, label %sdslen.exit265.thread [
     i32 0, label %301
     i32 1, label %304
@@ -6454,7 +6454,7 @@ sdslen.exit263.thread:                            ; preds = %sdslen.exit261.thre
   ]
 
 301:                                              ; preds = %sdslen.exit263.thread
-  %302 = lshr i32 %.pre-phi326, 3
+  %302 = lshr i32 %.pre-phi325, 3
   %303 = zext nneg i32 %302 to i64
   br label %sdslen.exit265
 
@@ -6496,13 +6496,13 @@ sdslen.exit265:                                   ; preds = %301, %304, %308, %3
   %323 = call i64 @strtol(ptr noundef nonnull captures(none) %322, ptr noundef null, i32 noundef 10) #30
   %324 = trunc i64 %323 to i32
   store i32 %324, ptr %24, align 8, !tbaa !156
-  %.pre319 = load i8, ptr %30, align 1, !tbaa !79
-  %.pre327 = zext i8 %.pre319 to i32
+  %.pre318 = load i8, ptr %30, align 1, !tbaa !79
+  %.pre326 = zext i8 %.pre318 to i32
   br label %sdslen.exit265.thread
 
 sdslen.exit265.thread:                            ; preds = %sdslen.exit263.thread, %321, %320, %sdslen.exit265
-  %.pre-phi328 = phi i32 [ %.pre-phi326, %sdslen.exit263.thread ], [ %.pre327, %321 ], [ %.pre-phi326, %320 ], [ %.pre-phi326, %sdslen.exit265 ]
-  %325 = and i32 %.pre-phi328, 7
+  %.pre-phi327 = phi i32 [ %.pre-phi325, %sdslen.exit263.thread ], [ %.pre326, %321 ], [ %.pre-phi325, %320 ], [ %.pre-phi325, %sdslen.exit265 ]
+  %325 = and i32 %.pre-phi327, 7
   switch i32 %325, label %sdslen.exit267.thread [
     i32 0, label %326
     i32 1, label %329
@@ -6512,7 +6512,7 @@ sdslen.exit265.thread:                            ; preds = %sdslen.exit263.thre
   ]
 
 326:                                              ; preds = %sdslen.exit265.thread
-  %327 = lshr i32 %.pre-phi328, 3
+  %327 = lshr i32 %.pre-phi327, 3
   %328 = zext nneg i32 %327 to i64
   br label %sdslen.exit267
 
@@ -6553,13 +6553,13 @@ sdslen.exit267:                                   ; preds = %326, %329, %333, %3
   %347 = getelementptr inbounds nuw i8, ptr %29, i64 18
   %348 = call i64 @strtoull(ptr noundef nonnull captures(none) %347, ptr noundef null, i32 noundef 10) #30
   store i64 %348, ptr %25, align 8, !tbaa !161
-  %.pre320 = load i8, ptr %30, align 1, !tbaa !79
-  %.pre329 = zext i8 %.pre320 to i32
+  %.pre319 = load i8, ptr %30, align 1, !tbaa !79
+  %.pre328 = zext i8 %.pre319 to i32
   br label %sdslen.exit267.thread
 
 sdslen.exit267.thread:                            ; preds = %sdslen.exit265.thread, %346, %345, %sdslen.exit267
-  %.pre-phi330 = phi i32 [ %.pre-phi328, %sdslen.exit265.thread ], [ %.pre329, %346 ], [ %.pre-phi328, %345 ], [ %.pre-phi328, %sdslen.exit267 ]
-  %349 = and i32 %.pre-phi330, 7
+  %.pre-phi329 = phi i32 [ %.pre-phi327, %sdslen.exit265.thread ], [ %.pre328, %346 ], [ %.pre-phi327, %345 ], [ %.pre-phi327, %sdslen.exit267 ]
+  %349 = and i32 %.pre-phi329, 7
   switch i32 %349, label %.critedge [
     i32 0, label %350
     i32 1, label %353
@@ -6569,7 +6569,7 @@ sdslen.exit267.thread:                            ; preds = %sdslen.exit265.thre
   ]
 
 350:                                              ; preds = %sdslen.exit267.thread
-  %351 = lshr i32 %.pre-phi330, 3
+  %351 = lshr i32 %.pre-phi329, 3
   %352 = zext nneg i32 %351 to i64
   br label %sdslen.exit269
 
@@ -6614,7 +6614,7 @@ sdslen.exit269:                                   ; preds = %350, %353, %357, %3
   br label %.critedge
 
 .critedge:                                        ; preds = %212, %sdslen.exit267.thread, %192, %113, %107, %105, %110, %sdslen.exit257.thread, %370, %369, %sdslen.exit269
-  %.1 = phi i32 [ %.0182314, %sdslen.exit257.thread ], [ 2, %sdslen.exit269 ], [ 2, %369 ], [ 2, %370 ], [ %.0182314, %110 ], [ %.0182314, %105 ], [ %.0182314, %107 ], [ %.0182314, %113 ], [ 1, %192 ], [ 2, %sdslen.exit267.thread ], [ %.0182314, %212 ]
+  %.1 = phi i32 [ %.0182313, %sdslen.exit257.thread ], [ 2, %sdslen.exit269 ], [ 2, %369 ], [ 2, %370 ], [ %.0182313, %110 ], [ %.0182313, %105 ], [ %.0182313, %107 ], [ %.0182313, %113 ], [ 1, %192 ], [ 2, %sdslen.exit267.thread ], [ %.0182313, %212 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %374 = load i32, ptr %7, align 4, !tbaa !78
   %375 = sext i32 %374 to i64
@@ -6660,7 +6660,7 @@ sdslen.exit269:                                   ; preds = %350, %353, %357, %3
 396:                                              ; preds = %389, %._crit_edge
   %397 = load i32, ptr getelementptr inbounds nuw (i8, ptr @sentinel, i64 64), align 8, !tbaa !66
   %.not198 = icmp eq i32 %397, 0
-  br i1 %.not198, label %398, label %613
+  br i1 %.not198, label %398, label %615
 
 398:                                              ; preds = %396
   %399 = load i32, ptr %0, align 8, !tbaa !34
@@ -6682,13 +6682,13 @@ sdslen.exit269:                                   ; preds = %350, %353, %357, %3
   %409 = load i32, ptr %408, align 8, !tbaa !34
   %410 = and i32 %409, 64
   %.not200 = icmp eq i32 %410, 0
-  br i1 %.not200, label %.thread305, label %411
+  br i1 %.not200, label %.thread304, label %411
 
 411:                                              ; preds = %406
   %412 = getelementptr inbounds nuw i8, ptr %408, i64 272
   %413 = load i32, ptr %412, align 8, !tbaa !169
   %414 = icmp eq i32 %413, 4
-  br i1 %414, label %415, label %.thread305
+  br i1 %414, label %415, label %.thread304
 
 415:                                              ; preds = %411
   %416 = getelementptr inbounds nuw i8, ptr %408, i64 264
@@ -6774,15 +6774,15 @@ sentinelFlushConfig.exit271:                      ; preds = %427, %429, %433, %4
   %.in.i10.i = getelementptr inbounds nuw i8, ptr %445, i64 %.in.idx.i.i
   %463 = load ptr, ptr %.in.i10.i, align 8, !tbaa !87
   call void (ptr, ...) @sentinelScheduleScriptExecution(ptr noundef %458, ptr noundef %460, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.180, ptr noundef %462, ptr noundef nonnull %5, ptr noundef %463, ptr noundef nonnull %6, ptr noundef null)
-  %.pre323 = load ptr, ptr %407, align 8, !tbaa !35
+  %.pre322 = load ptr, ptr %407, align 8, !tbaa !35
   br label %sentinelCallClientReconfScript.exit
 
 sentinelCallClientReconfScript.exit:              ; preds = %439, %449
-  %464 = phi ptr [ %441, %439 ], [ %.pre323, %449 ]
+  %464 = phi ptr [ %441, %439 ], [ %.pre322, %449 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %465 = call i32 @sentinelForceHelloUpdateForMaster(ptr noundef %464)
-  br label %.thread305
+  br label %.thread304
 
 466:                                              ; preds = %404
   %467 = load i64, ptr @sentinel_publish_period, align 8, !tbaa !107
@@ -6792,7 +6792,7 @@ sentinelCallClientReconfScript.exit:              ; preds = %439, %449
   %471 = load i32, ptr %470, align 8, !tbaa !34
   %472 = and i32 %471, 1
   %.not.i = icmp eq i32 %472, 0
-  br i1 %.not.i, label %.thread305, label %473
+  br i1 %.not.i, label %.thread304, label %473
 
 473:                                              ; preds = %466
   %474 = getelementptr inbounds nuw i8, ptr %470, i64 128
@@ -6801,7 +6801,7 @@ sentinelCallClientReconfScript.exit:              ; preds = %439, %449
   %477 = and i32 %471, 24
   %478 = icmp eq i32 %477, 0
   %or.cond.i = and i1 %478, %476
-  br i1 %or.cond.i, label %sentinelMasterLooksSane.exit, label %.thread305
+  br i1 %or.cond.i, label %sentinelMasterLooksSane.exit, label %.thread304
 
 sentinelMasterLooksSane.exit:                     ; preds = %473
   %479 = call i64 @mstime() #30
@@ -6810,8 +6810,8 @@ sentinelMasterLooksSane.exit:                     ; preds = %473
   %482 = sub nsw i64 %479, %481
   %483 = load i64, ptr @sentinel_info_period, align 8, !tbaa !107
   %484 = shl nuw nsw i64 %483, 1
-  %.not312 = icmp slt i64 %482, %484
-  br i1 %.not312, label %485, label %.thread305
+  %.not311 = icmp slt i64 %482, %484
+  br i1 %.not311, label %485, label %.thread304
 
 485:                                              ; preds = %sentinelMasterLooksSane.exit
   %486 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -6825,8 +6825,8 @@ sentinelMasterLooksSane.exit:                     ; preds = %473
 sentinelRedisInstanceNoDownFor.exit:              ; preds = %485
   %491 = call i64 @mstime() #30
   %492 = sub nsw i64 %491, %spec.select.i
-  %.not313 = icmp sgt i64 %492, %468
-  br i1 %.not313, label %sentinelRedisInstanceNoDownFor.exit.thread, label %.thread305
+  %.not312 = icmp sgt i64 %492, %468
+  br i1 %.not312, label %sentinelRedisInstanceNoDownFor.exit.thread, label %.thread304
 
 sentinelRedisInstanceNoDownFor.exit.thread:       ; preds = %485, %sentinelRedisInstanceNoDownFor.exit
   %493 = call i64 @mstime() #30
@@ -6834,7 +6834,7 @@ sentinelRedisInstanceNoDownFor.exit.thread:       ; preds = %485, %sentinelRedis
   %495 = load i64, ptr %494, align 8, !tbaa !166
   %496 = sub nsw i64 %493, %495
   %497 = icmp sgt i64 %496, %468
-  br i1 %497, label %498, label %.thread305
+  br i1 %497, label %498, label %.thread304
 
 498:                                              ; preds = %sentinelRedisInstanceNoDownFor.exit.thread
   %499 = load ptr, ptr %469, align 8, !tbaa !35
@@ -6842,15 +6842,15 @@ sentinelRedisInstanceNoDownFor.exit.thread:       ; preds = %485, %sentinelRedis
   %501 = load ptr, ptr %500, align 8, !tbaa !29
   %502 = call i32 @sentinelSendSlaveOf(ptr noundef nonnull %0, ptr noundef %501)
   %503 = icmp eq i32 %502, 0
-  br i1 %503, label %504, label %.thread305
+  br i1 %503, label %504, label %.thread304
 
 504:                                              ; preds = %498
   call void (i32, ptr, ptr, ptr, ...) @sentinelEvent(i32 noundef 2, ptr noundef nonnull @.str.181, ptr noundef nonnull %0, ptr noundef nonnull @.str.54)
-  br label %.thread305
+  br label %.thread304
 
 505:                                              ; preds = %398
   %or.cond5 = select i1 %402, i1 %400, i1 false
-  br i1 %or.cond5, label %506, label %.thread305
+  br i1 %or.cond5, label %506, label %.thread304
 
 506:                                              ; preds = %505
   %507 = getelementptr inbounds nuw i8, ptr %0, i64 232
@@ -6862,7 +6862,7 @@ sentinelRedisInstanceNoDownFor.exit.thread:       ; preds = %485, %sentinelRedis
   %513 = getelementptr inbounds nuw i8, ptr %512, i64 16
   %514 = load i32, ptr %513, align 8, !tbaa !86
   %.not205 = icmp eq i32 %508, %514
-  br i1 %.not205, label %515, label %526
+  br i1 %.not205, label %515, label %527
 
 515:                                              ; preds = %506
   %516 = getelementptr inbounds nuw i8, ptr %0, i64 224
@@ -6874,171 +6874,171 @@ sentinelRedisInstanceNoDownFor.exit.thread:       ; preds = %485, %sentinelRedis
   %520 = call i32 @anetResolve(ptr noundef null, ptr noundef %517, ptr noundef nonnull %4, i64 noundef 46, i32 noundef %519) #30
   %521 = icmp eq i32 %520, -1
   %522 = load i32, ptr getelementptr inbounds nuw (i8, ptr @sentinel, i64 144), align 8
-  %.not6.i = icmp eq i32 %522, 0
-  %.in.idx.i = select i1 %.not6.i, i64 8, i64 0
-  %.sink.i = select i1 %521, i64 %.in.idx.i, i64 8
+  %.not6.i = icmp ne i32 %522, 0
+  %523 = select i1 %521, i1 %.not6.i, i1 false
+  %.sink.i = select i1 %523, i64 0, i64 8
   %.sink8.i = select i1 %521, ptr %517, ptr %4
-  %523 = getelementptr inbounds nuw i8, ptr %512, i64 %.sink.i
-  %524 = load ptr, ptr %523, align 8, !tbaa !87
-  %525 = call i32 @strcasecmp(ptr noundef %524, ptr noundef %.sink8.i) #34
-  %.0.in.i.not = icmp eq i32 %525, 0
+  %524 = getelementptr inbounds nuw i8, ptr %512, i64 %.sink.i
+  %525 = load ptr, ptr %524, align 8, !tbaa !87
+  %526 = call i32 @strcasecmp(ptr noundef %525, ptr noundef %.sink8.i) #34
+  %.0.in.i.not = icmp eq i32 %526, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %.0.in.i.not, label %.thread305, label %._crit_edge321
+  br i1 %.0.in.i.not, label %.thread304, label %._crit_edge320
 
-._crit_edge321:                                   ; preds = %515
-  %.pre322 = load ptr, ptr %509, align 8, !tbaa !35
-  br label %526
+._crit_edge320:                                   ; preds = %515
+  %.pre321 = load ptr, ptr %509, align 8, !tbaa !35
+  br label %527
 
-526:                                              ; preds = %._crit_edge321, %506
-  %527 = phi ptr [ %.pre322, %._crit_edge321 ], [ %510, %506 ]
-  %528 = getelementptr inbounds nuw i8, ptr %527, i64 296
-  %529 = load i64, ptr %528, align 8, !tbaa !164
-  %530 = load i32, ptr %527, align 8, !tbaa !34
-  %531 = and i32 %530, 1
-  %.not.i274 = icmp eq i32 %531, 0
-  br i1 %.not.i274, label %.thread305, label %532
+527:                                              ; preds = %._crit_edge320, %506
+  %528 = phi ptr [ %.pre321, %._crit_edge320 ], [ %510, %506 ]
+  %529 = getelementptr inbounds nuw i8, ptr %528, i64 296
+  %530 = load i64, ptr %529, align 8, !tbaa !164
+  %531 = load i32, ptr %528, align 8, !tbaa !34
+  %532 = and i32 %531, 1
+  %.not.i274 = icmp eq i32 %532, 0
+  br i1 %.not.i274, label %.thread304, label %533
 
-532:                                              ; preds = %526
-  %533 = getelementptr inbounds nuw i8, ptr %527, i64 128
-  %534 = load i32, ptr %533, align 8, !tbaa !165
-  %535 = icmp eq i32 %534, 1
-  %536 = and i32 %530, 24
-  %537 = icmp eq i32 %536, 0
-  %or.cond.i275 = and i1 %537, %535
-  br i1 %or.cond.i275, label %sentinelMasterLooksSane.exit276, label %.thread305
+533:                                              ; preds = %527
+  %534 = getelementptr inbounds nuw i8, ptr %528, i64 128
+  %535 = load i32, ptr %534, align 8, !tbaa !165
+  %536 = icmp eq i32 %535, 1
+  %537 = and i32 %531, 24
+  %538 = icmp eq i32 %537, 0
+  %or.cond.i275 = and i1 %538, %536
+  br i1 %or.cond.i275, label %sentinelMasterLooksSane.exit276, label %.thread304
 
-sentinelMasterLooksSane.exit276:                  ; preds = %532
-  %538 = call i64 @mstime() #30
-  %539 = getelementptr inbounds nuw i8, ptr %527, i64 112
-  %540 = load i64, ptr %539, align 8, !tbaa !163
-  %541 = sub nsw i64 %538, %540
-  %542 = load i64, ptr @sentinel_info_period, align 8, !tbaa !107
-  %543 = shl nuw nsw i64 %542, 1
-  %.not310 = icmp slt i64 %541, %543
-  br i1 %.not310, label %544, label %.thread305
+sentinelMasterLooksSane.exit276:                  ; preds = %533
+  %539 = call i64 @mstime() #30
+  %540 = getelementptr inbounds nuw i8, ptr %528, i64 112
+  %541 = load i64, ptr %540, align 8, !tbaa !163
+  %542 = sub nsw i64 %539, %541
+  %543 = load i64, ptr @sentinel_info_period, align 8, !tbaa !107
+  %544 = shl nuw nsw i64 %543, 1
+  %.not309 = icmp slt i64 %542, %544
+  br i1 %.not309, label %545, label %.thread304
 
-544:                                              ; preds = %sentinelMasterLooksSane.exit276
-  %545 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %546 = load i64, ptr %545, align 8, !tbaa !175
-  %547 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %548 = load i64, ptr %547, align 8, !tbaa !176
-  %spec.select.i277 = call i64 @llvm.smax.i64(i64 %548, i64 %546)
-  %549 = icmp eq i64 %spec.select.i277, 0
-  br i1 %549, label %sentinelRedisInstanceNoDownFor.exit278.thread, label %sentinelRedisInstanceNoDownFor.exit278
+545:                                              ; preds = %sentinelMasterLooksSane.exit276
+  %546 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %547 = load i64, ptr %546, align 8, !tbaa !175
+  %548 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %549 = load i64, ptr %548, align 8, !tbaa !176
+  %spec.select.i277 = call i64 @llvm.smax.i64(i64 %549, i64 %547)
+  %550 = icmp eq i64 %spec.select.i277, 0
+  br i1 %550, label %sentinelRedisInstanceNoDownFor.exit278.thread, label %sentinelRedisInstanceNoDownFor.exit278
 
-sentinelRedisInstanceNoDownFor.exit278:           ; preds = %544
-  %550 = call i64 @mstime() #30
-  %551 = sub nsw i64 %550, %spec.select.i277
-  %.not311 = icmp sgt i64 %551, %529
-  br i1 %.not311, label %sentinelRedisInstanceNoDownFor.exit278.thread, label %.thread305
+sentinelRedisInstanceNoDownFor.exit278:           ; preds = %545
+  %551 = call i64 @mstime() #30
+  %552 = sub nsw i64 %551, %spec.select.i277
+  %.not310 = icmp sgt i64 %552, %530
+  br i1 %.not310, label %sentinelRedisInstanceNoDownFor.exit278.thread, label %.thread304
 
-sentinelRedisInstanceNoDownFor.exit278.thread:    ; preds = %544, %sentinelRedisInstanceNoDownFor.exit278
-  %552 = call i64 @mstime() #30
-  %553 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %554 = load i64, ptr %553, align 8, !tbaa !167
-  %555 = sub nsw i64 %552, %554
-  %556 = icmp sgt i64 %555, %529
-  br i1 %556, label %557, label %.thread305
+sentinelRedisInstanceNoDownFor.exit278.thread:    ; preds = %545, %sentinelRedisInstanceNoDownFor.exit278
+  %553 = call i64 @mstime() #30
+  %554 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %555 = load i64, ptr %554, align 8, !tbaa !167
+  %556 = sub nsw i64 %553, %555
+  %557 = icmp sgt i64 %556, %530
+  br i1 %557, label %558, label %.thread304
 
-557:                                              ; preds = %sentinelRedisInstanceNoDownFor.exit278.thread
-  %558 = load ptr, ptr %509, align 8, !tbaa !35
-  %559 = getelementptr inbounds nuw i8, ptr %558, i64 32
-  %560 = load ptr, ptr %559, align 8, !tbaa !29
-  %561 = call i32 @sentinelSendSlaveOf(ptr noundef nonnull %0, ptr noundef %560)
-  %562 = icmp eq i32 %561, 0
-  br i1 %562, label %563, label %.thread305
+558:                                              ; preds = %sentinelRedisInstanceNoDownFor.exit278.thread
+  %559 = load ptr, ptr %509, align 8, !tbaa !35
+  %560 = getelementptr inbounds nuw i8, ptr %559, i64 32
+  %561 = load ptr, ptr %560, align 8, !tbaa !29
+  %562 = call i32 @sentinelSendSlaveOf(ptr noundef nonnull %0, ptr noundef %561)
+  %563 = icmp eq i32 %562, 0
+  br i1 %563, label %564, label %.thread304
 
-563:                                              ; preds = %557
+564:                                              ; preds = %558
   call void (i32, ptr, ptr, ptr, ...) @sentinelEvent(i32 noundef 2, ptr noundef nonnull @.str.182, ptr noundef nonnull %0, ptr noundef nonnull @.str.54)
-  br label %.thread305
+  br label %.thread304
 
-.thread305:                                       ; preds = %526, %532, %466, %473, %406, %411, %sentinelCallClientReconfScript.exit, %498, %504, %sentinelRedisInstanceNoDownFor.exit.thread, %sentinelRedisInstanceNoDownFor.exit, %sentinelMasterLooksSane.exit, %sentinelMasterLooksSane.exit276, %sentinelRedisInstanceNoDownFor.exit278, %sentinelRedisInstanceNoDownFor.exit278.thread, %563, %557, %515, %505
-  %564 = load i32, ptr %0, align 8, !tbaa !34
-  %565 = and i32 %564, 2
-  %566 = icmp ne i32 %565, 0
-  %or.cond7 = select i1 %566, i1 %400, i1 false
-  %567 = and i32 %564, 768
-  %.not209 = icmp ne i32 %567, 0
+.thread304:                                       ; preds = %527, %533, %466, %473, %406, %411, %sentinelCallClientReconfScript.exit, %498, %504, %sentinelRedisInstanceNoDownFor.exit.thread, %sentinelRedisInstanceNoDownFor.exit, %sentinelMasterLooksSane.exit, %sentinelMasterLooksSane.exit276, %sentinelRedisInstanceNoDownFor.exit278, %sentinelRedisInstanceNoDownFor.exit278.thread, %564, %558, %515, %505
+  %565 = load i32, ptr %0, align 8, !tbaa !34
+  %566 = and i32 %565, 2
+  %567 = icmp ne i32 %566, 0
+  %or.cond7 = select i1 %567, i1 %400, i1 false
+  %568 = and i32 %565, 768
+  %.not209 = icmp ne i32 %568, 0
   %or.cond.not = and i1 %.not209, %or.cond7
-  br i1 %or.cond.not, label %568, label %613
+  br i1 %or.cond.not, label %569, label %615
 
-568:                                              ; preds = %.thread305
-  %569 = and i32 %564, 256
-  %.not210 = icmp eq i32 %569, 0
-  br i1 %.not210, label %603, label %570
+569:                                              ; preds = %.thread304
+  %570 = and i32 %565, 256
+  %.not210 = icmp eq i32 %570, 0
+  br i1 %.not210, label %605, label %571
 
-570:                                              ; preds = %568
-  %571 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  %572 = load ptr, ptr %571, align 8, !tbaa !24
-  %.not211 = icmp eq ptr %572, null
-  br i1 %.not211, label %603, label %573
+571:                                              ; preds = %569
+  %572 = getelementptr inbounds nuw i8, ptr %0, i64 224
+  %573 = load ptr, ptr %572, align 8, !tbaa !24
+  %.not211 = icmp eq ptr %573, null
+  br i1 %.not211, label %605, label %574
 
-573:                                              ; preds = %570
-  %574 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %575 = load ptr, ptr %574, align 8, !tbaa !35
-  %576 = getelementptr inbounds nuw i8, ptr %575, i64 312
-  %577 = load ptr, ptr %576, align 8, !tbaa !36
-  %578 = getelementptr inbounds nuw i8, ptr %577, i64 32
-  %579 = load ptr, ptr %578, align 8, !tbaa !29
+574:                                              ; preds = %571
+  %575 = getelementptr inbounds nuw i8, ptr %0, i64 216
+  %576 = load ptr, ptr %575, align 8, !tbaa !35
+  %577 = getelementptr inbounds nuw i8, ptr %576, i64 312
+  %578 = load ptr, ptr %577, align 8, !tbaa !36
+  %579 = getelementptr inbounds nuw i8, ptr %578, i64 32
+  %580 = load ptr, ptr %579, align 8, !tbaa !29
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %580 = load i32, ptr getelementptr inbounds nuw (i8, ptr @sentinel, i64 144), align 8, !tbaa !85
-  %.not.i279 = icmp eq i32 %580, 0
-  %581 = zext i1 %.not.i279 to i32
-  %582 = call i32 @anetResolve(ptr noundef null, ptr noundef nonnull %572, ptr noundef nonnull %3, i64 noundef 46, i32 noundef %581) #30
-  %583 = icmp eq i32 %582, -1
-  %584 = load i32, ptr getelementptr inbounds nuw (i8, ptr @sentinel, i64 144), align 8
-  %.not6.i280 = icmp eq i32 %584, 0
-  %.in.idx.i281 = select i1 %.not6.i280, i64 8, i64 0
-  %.sink.i282 = select i1 %583, i64 %.in.idx.i281, i64 8
-  %.sink8.i283 = select i1 %583, ptr %572, ptr %3
-  %585 = getelementptr inbounds nuw i8, ptr %579, i64 %.sink.i282
-  %586 = load ptr, ptr %585, align 8, !tbaa !87
-  %587 = call i32 @strcasecmp(ptr noundef %586, ptr noundef nonnull %.sink8.i283) #34
-  %.0.in.i284.not = icmp eq i32 %587, 0
+  %581 = load i32, ptr getelementptr inbounds nuw (i8, ptr @sentinel, i64 144), align 8, !tbaa !85
+  %.not.i279 = icmp eq i32 %581, 0
+  %582 = zext i1 %.not.i279 to i32
+  %583 = call i32 @anetResolve(ptr noundef null, ptr noundef nonnull %573, ptr noundef nonnull %3, i64 noundef 46, i32 noundef %582) #30
+  %584 = icmp eq i32 %583, -1
+  %585 = load i32, ptr getelementptr inbounds nuw (i8, ptr @sentinel, i64 144), align 8
+  %.not6.i280 = icmp ne i32 %585, 0
+  %586 = select i1 %584, i1 %.not6.i280, i1 false
+  %.sink.i281 = select i1 %586, i64 0, i64 8
+  %.sink8.i282 = select i1 %584, ptr %573, ptr %3
+  %587 = getelementptr inbounds nuw i8, ptr %580, i64 %.sink.i281
+  %588 = load ptr, ptr %587, align 8, !tbaa !87
+  %589 = call i32 @strcasecmp(ptr noundef %588, ptr noundef nonnull %.sink8.i282) #34
+  %.0.in.i283.not = icmp eq i32 %589, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br i1 %.0.in.i284.not, label %588, label %603
+  br i1 %.0.in.i283.not, label %590, label %605
 
-588:                                              ; preds = %573
-  %589 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %590 = load i32, ptr %589, align 8, !tbaa !159
-  %591 = load ptr, ptr %574, align 8, !tbaa !35
-  %592 = getelementptr inbounds nuw i8, ptr %591, i64 312
-  %593 = load ptr, ptr %592, align 8, !tbaa !36
-  %594 = getelementptr inbounds nuw i8, ptr %593, i64 32
-  %595 = load ptr, ptr %594, align 8, !tbaa !29
-  %596 = getelementptr inbounds nuw i8, ptr %595, i64 16
-  %597 = load i32, ptr %596, align 8, !tbaa !86
-  %598 = icmp eq i32 %590, %597
-  br i1 %598, label %599, label %603
+590:                                              ; preds = %574
+  %591 = getelementptr inbounds nuw i8, ptr %0, i64 232
+  %592 = load i32, ptr %591, align 8, !tbaa !159
+  %593 = load ptr, ptr %575, align 8, !tbaa !35
+  %594 = getelementptr inbounds nuw i8, ptr %593, i64 312
+  %595 = load ptr, ptr %594, align 8, !tbaa !36
+  %596 = getelementptr inbounds nuw i8, ptr %595, i64 32
+  %597 = load ptr, ptr %596, align 8, !tbaa !29
+  %598 = getelementptr inbounds nuw i8, ptr %597, i64 16
+  %599 = load i32, ptr %598, align 8, !tbaa !86
+  %600 = icmp eq i32 %592, %599
+  br i1 %600, label %601, label %605
 
-599:                                              ; preds = %588
-  %600 = load i32, ptr %0, align 8, !tbaa !34
-  %601 = and i32 %600, -769
-  %602 = or disjoint i32 %601, 512
-  store i32 %602, ptr %0, align 8, !tbaa !34
+601:                                              ; preds = %590
+  %602 = load i32, ptr %0, align 8, !tbaa !34
+  %603 = and i32 %602, -769
+  %604 = or disjoint i32 %603, 512
+  store i32 %604, ptr %0, align 8, !tbaa !34
   call void (i32, ptr, ptr, ptr, ...) @sentinelEvent(i32 noundef 2, ptr noundef nonnull @.str.183, ptr noundef nonnull %0, ptr noundef nonnull @.str.54)
-  br label %603
+  br label %605
 
-603:                                              ; preds = %599, %588, %573, %570, %568
-  %604 = load i32, ptr %0, align 8, !tbaa !34
-  %605 = and i32 %604, 512
-  %.not213 = icmp eq i32 %605, 0
-  br i1 %.not213, label %613, label %606
+605:                                              ; preds = %601, %590, %574, %571, %569
+  %606 = load i32, ptr %0, align 8, !tbaa !34
+  %607 = and i32 %606, 512
+  %.not213 = icmp eq i32 %607, 0
+  br i1 %.not213, label %615, label %608
 
-606:                                              ; preds = %603
-  %607 = getelementptr inbounds nuw i8, ptr %0, i64 236
-  %608 = load i32, ptr %607, align 4, !tbaa !160
-  %609 = icmp eq i32 %608, 0
-  br i1 %609, label %610, label %613
+608:                                              ; preds = %605
+  %609 = getelementptr inbounds nuw i8, ptr %0, i64 236
+  %610 = load i32, ptr %609, align 4, !tbaa !160
+  %611 = icmp eq i32 %610, 0
+  br i1 %611, label %612, label %615
 
-610:                                              ; preds = %606
-  %611 = and i32 %604, -1537
-  %612 = or disjoint i32 %611, 1024
-  store i32 %612, ptr %0, align 8, !tbaa !34
+612:                                              ; preds = %608
+  %613 = and i32 %606, -1537
+  %614 = or disjoint i32 %613, 1024
+  store i32 %614, ptr %0, align 8, !tbaa !34
   call void (i32, ptr, ptr, ptr, ...) @sentinelEvent(i32 noundef 2, ptr noundef nonnull @.str.184, ptr noundef nonnull %0, ptr noundef nonnull @.str.54)
-  br label %613
+  br label %615
 
-613:                                              ; preds = %.thread305, %610, %606, %603, %396
+615:                                              ; preds = %.thread304, %612, %608, %605, %396
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 }
@@ -7553,8 +7553,8 @@ define dso_local void @sentinelProcessHelloMessage(ptr noundef %0, i32 noundef %
   %52 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sentinel, i64 56), align 8, !tbaa !65
   %53 = call ptr @dictGetIterator(ptr noundef %52) #30
   %54 = call ptr @dictNext(ptr noundef %53) #30
-  %.not8496 = icmp eq ptr %54, null
-  br i1 %.not8496, label %._crit_edge, label %.lr.ph
+  %.not8495 = icmp eq ptr %54, null
+  br i1 %.not8495, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %48, %.lr.ph
   %55 = phi ptr [ %58, %.lr.ph ], [ %54, %48 ]
@@ -7677,7 +7677,7 @@ sentinelFlushConfig.exit92:                       ; preds = %99, %101, %105, %10
   %111 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %112 = load i64, ptr %111, align 8, !tbaa !196
   %113 = icmp ult i64 %112, %37
-  br i1 %113, label %114, label %169
+  br i1 %113, label %114, label %170
 
 114:                                              ; preds = %110
   store i64 %37, ptr %111, align 8, !tbaa !196
@@ -7686,7 +7686,7 @@ sentinelFlushConfig.exit92:                       ; preds = %99, %101, %105, %10
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 16
   %118 = load i32, ptr %117, align 8, !tbaa !86
   %.not87 = icmp eq i32 %118, %25
-  br i1 %.not87, label %119, label %130
+  br i1 %.not87, label %119, label %131
 
 119:                                              ; preds = %114
   %120 = getelementptr inbounds nuw i8, ptr %8, i64 40
@@ -7698,92 +7698,92 @@ sentinelFlushConfig.exit92:                       ; preds = %99, %101, %105, %10
   %124 = call i32 @anetResolve(ptr noundef null, ptr noundef %121, ptr noundef nonnull %5, i64 noundef 46, i32 noundef %123) #30
   %125 = icmp eq i32 %124, -1
   %126 = load i32, ptr getelementptr inbounds nuw (i8, ptr @sentinel, i64 144), align 8
-  %.not6.i = icmp eq i32 %126, 0
-  %.in.idx.i = select i1 %.not6.i, i64 8, i64 0
-  %.sink.i = select i1 %125, i64 %.in.idx.i, i64 8
+  %.not6.i = icmp ne i32 %126, 0
+  %127 = select i1 %125, i1 %.not6.i, i1 false
+  %.sink.i = select i1 %127, i64 0, i64 8
   %.sink8.i = select i1 %125, ptr %121, ptr %5
-  %127 = getelementptr inbounds nuw i8, ptr %116, i64 %.sink.i
-  %128 = load ptr, ptr %127, align 8, !tbaa !87
-  %129 = call i32 @strcasecmp(ptr noundef %128, ptr noundef %.sink8.i) #34
-  %.0.in.i.not = icmp eq i32 %129, 0
+  %128 = getelementptr inbounds nuw i8, ptr %116, i64 %.sink.i
+  %129 = load ptr, ptr %128, align 8, !tbaa !87
+  %130 = call i32 @strcasecmp(ptr noundef %129, ptr noundef %.sink8.i) #34
+  %.0.in.i.not = icmp eq i32 %130, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br i1 %.0.in.i.not, label %169, label %130
+  br i1 %.0.in.i.not, label %170, label %131
 
-130:                                              ; preds = %119, %114
+131:                                              ; preds = %119, %114
   call void (i32, ptr, ptr, ptr, ...) @sentinelEvent(i32 noundef 3, ptr noundef nonnull @.str.198, ptr noundef nonnull %.0, ptr noundef nonnull @.str.54)
-  %131 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %132 = load ptr, ptr %131, align 8, !tbaa !20
-  %133 = load ptr, ptr %115, align 8, !tbaa !29
-  %134 = load i32, ptr getelementptr inbounds nuw (i8, ptr @sentinel, i64 148), align 4, !tbaa !88
-  %.not.i94 = icmp eq i32 %134, 0
-  %.in.idx.i95 = select i1 %.not.i94, i64 8, i64 0
-  %.in.i = getelementptr inbounds nuw i8, ptr %133, i64 %.in.idx.i95
-  %135 = load ptr, ptr %.in.i, align 8, !tbaa !87
-  %136 = getelementptr inbounds nuw i8, ptr %133, i64 16
-  %137 = load i32, ptr %136, align 8, !tbaa !86
-  %138 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  %139 = load ptr, ptr %138, align 8, !tbaa !87
-  call void (i32, ptr, ptr, ptr, ...) @sentinelEvent(i32 noundef 3, ptr noundef nonnull @.str.199, ptr noundef nonnull %16, ptr noundef nonnull @.str.200, ptr noundef %132, ptr noundef %135, i32 noundef %137, ptr noundef %139, i32 noundef %25)
-  %140 = load ptr, ptr %115, align 8, !tbaa !29
-  %141 = call noalias dereferenceable_or_null(24) ptr @zmalloc(i64 noundef 24) #33
-  %142 = load ptr, ptr %140, align 8, !tbaa !30
-  %143 = call ptr @sdsnew(ptr noundef %142) #30
-  store ptr %143, ptr %141, align 8, !tbaa !30
-  %144 = getelementptr inbounds nuw i8, ptr %140, i64 8
-  %145 = load ptr, ptr %144, align 8, !tbaa !32
-  %146 = call ptr @sdsnew(ptr noundef %145) #30
-  %147 = getelementptr inbounds nuw i8, ptr %141, i64 8
-  store ptr %146, ptr %147, align 8, !tbaa !32
-  %148 = getelementptr inbounds nuw i8, ptr %140, i64 16
-  %149 = load i32, ptr %148, align 8, !tbaa !86
-  %150 = getelementptr inbounds nuw i8, ptr %141, i64 16
-  store i32 %149, ptr %150, align 8, !tbaa !86
-  %151 = load ptr, ptr %138, align 8, !tbaa !87
-  %152 = call i32 @sentinelResetMasterAndChangeAddress(ptr noundef nonnull %16, ptr noundef %151, i32 noundef %25)
-  %153 = load ptr, ptr %115, align 8, !tbaa !29
+  %132 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %133 = load ptr, ptr %132, align 8, !tbaa !20
+  %134 = load ptr, ptr %115, align 8, !tbaa !29
+  %135 = load i32, ptr getelementptr inbounds nuw (i8, ptr @sentinel, i64 148), align 4, !tbaa !88
+  %.not.i94 = icmp eq i32 %135, 0
+  %.in.idx.i = select i1 %.not.i94, i64 8, i64 0
+  %.in.i = getelementptr inbounds nuw i8, ptr %134, i64 %.in.idx.i
+  %136 = load ptr, ptr %.in.i, align 8, !tbaa !87
+  %137 = getelementptr inbounds nuw i8, ptr %134, i64 16
+  %138 = load i32, ptr %137, align 8, !tbaa !86
+  %139 = getelementptr inbounds nuw i8, ptr %8, i64 40
+  %140 = load ptr, ptr %139, align 8, !tbaa !87
+  call void (i32, ptr, ptr, ptr, ...) @sentinelEvent(i32 noundef 3, ptr noundef nonnull @.str.199, ptr noundef nonnull %16, ptr noundef nonnull @.str.200, ptr noundef %133, ptr noundef %136, i32 noundef %138, ptr noundef %140, i32 noundef %25)
+  %141 = load ptr, ptr %115, align 8, !tbaa !29
+  %142 = call noalias dereferenceable_or_null(24) ptr @zmalloc(i64 noundef 24) #33
+  %143 = load ptr, ptr %141, align 8, !tbaa !30
+  %144 = call ptr @sdsnew(ptr noundef %143) #30
+  store ptr %144, ptr %142, align 8, !tbaa !30
+  %145 = getelementptr inbounds nuw i8, ptr %141, i64 8
+  %146 = load ptr, ptr %145, align 8, !tbaa !32
+  %147 = call ptr @sdsnew(ptr noundef %146) #30
+  %148 = getelementptr inbounds nuw i8, ptr %142, i64 8
+  store ptr %147, ptr %148, align 8, !tbaa !32
+  %149 = getelementptr inbounds nuw i8, ptr %141, i64 16
+  %150 = load i32, ptr %149, align 8, !tbaa !86
+  %151 = getelementptr inbounds nuw i8, ptr %142, i64 16
+  store i32 %150, ptr %151, align 8, !tbaa !86
+  %152 = load ptr, ptr %139, align 8, !tbaa !87
+  %153 = call i32 @sentinelResetMasterAndChangeAddress(ptr noundef nonnull %16, ptr noundef %152, i32 noundef %25)
+  %154 = load ptr, ptr %115, align 8, !tbaa !29
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %154 = getelementptr inbounds nuw i8, ptr %16, i64 328
-  %155 = load ptr, ptr %154, align 8, !tbaa !23
-  %156 = icmp eq ptr %155, null
-  br i1 %156, label %sentinelCallClientReconfScript.exit, label %157
+  %155 = getelementptr inbounds nuw i8, ptr %16, i64 328
+  %156 = load ptr, ptr %155, align 8, !tbaa !23
+  %157 = icmp eq ptr %156, null
+  br i1 %157, label %sentinelCallClientReconfScript.exit, label %158
 
-157:                                              ; preds = %130
-  %158 = sext i32 %149 to i64
-  %159 = call i32 @ll2string(ptr noundef nonnull %3, i64 noundef 32, i64 noundef %158) #30
-  %160 = getelementptr inbounds nuw i8, ptr %153, i64 16
-  %161 = load i32, ptr %160, align 8, !tbaa !86
-  %162 = sext i32 %161 to i64
-  %163 = call i32 @ll2string(ptr noundef nonnull %4, i64 noundef 32, i64 noundef %162) #30
-  %164 = load ptr, ptr %154, align 8, !tbaa !23
-  %165 = load ptr, ptr %131, align 8, !tbaa !20
-  %166 = load i32, ptr getelementptr inbounds nuw (i8, ptr @sentinel, i64 148), align 4, !tbaa !88
-  %.not.i.i = icmp eq i32 %166, 0
+158:                                              ; preds = %131
+  %159 = sext i32 %150 to i64
+  %160 = call i32 @ll2string(ptr noundef nonnull %3, i64 noundef 32, i64 noundef %159) #30
+  %161 = getelementptr inbounds nuw i8, ptr %154, i64 16
+  %162 = load i32, ptr %161, align 8, !tbaa !86
+  %163 = sext i32 %162 to i64
+  %164 = call i32 @ll2string(ptr noundef nonnull %4, i64 noundef 32, i64 noundef %163) #30
+  %165 = load ptr, ptr %155, align 8, !tbaa !23
+  %166 = load ptr, ptr %132, align 8, !tbaa !20
+  %167 = load i32, ptr getelementptr inbounds nuw (i8, ptr @sentinel, i64 148), align 4, !tbaa !88
+  %.not.i.i = icmp eq i32 %167, 0
   %.in.idx.i.i = select i1 %.not.i.i, i64 8, i64 0
-  %.in.i.i = getelementptr inbounds nuw i8, ptr %141, i64 %.in.idx.i.i
-  %167 = load ptr, ptr %.in.i.i, align 8, !tbaa !87
-  %.in.i10.i = getelementptr inbounds nuw i8, ptr %153, i64 %.in.idx.i.i
-  %168 = load ptr, ptr %.in.i10.i, align 8, !tbaa !87
-  call void (ptr, ...) @sentinelScheduleScriptExecution(ptr noundef %164, ptr noundef %165, ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.180, ptr noundef %167, ptr noundef nonnull %3, ptr noundef %168, ptr noundef nonnull %4, ptr noundef null)
+  %.in.i.i = getelementptr inbounds nuw i8, ptr %142, i64 %.in.idx.i.i
+  %168 = load ptr, ptr %.in.i.i, align 8, !tbaa !87
+  %.in.i10.i = getelementptr inbounds nuw i8, ptr %154, i64 %.in.idx.i.i
+  %169 = load ptr, ptr %.in.i10.i, align 8, !tbaa !87
+  call void (ptr, ...) @sentinelScheduleScriptExecution(ptr noundef %165, ptr noundef %166, ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.180, ptr noundef %168, ptr noundef nonnull %3, ptr noundef %169, ptr noundef nonnull %4, ptr noundef null)
   br label %sentinelCallClientReconfScript.exit
 
-sentinelCallClientReconfScript.exit:              ; preds = %130, %157
+sentinelCallClientReconfScript.exit:              ; preds = %131, %158
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  call void @sdsfree(ptr noundef %143) #30
-  call void @sdsfree(ptr noundef %146) #30
-  call void @zfree(ptr noundef nonnull %141) #30
-  br label %169
+  call void @sdsfree(ptr noundef %144) #30
+  call void @sdsfree(ptr noundef %147) #30
+  call void @zfree(ptr noundef nonnull %142) #30
+  br label %170
 
-169:                                              ; preds = %110, %sentinelCallClientReconfScript.exit, %119
-  %170 = call i64 @mstime() #30
-  %171 = getelementptr inbounds nuw i8, ptr %.0, i64 56
-  store i64 %170, ptr %171, align 8, !tbaa !152
+170:                                              ; preds = %110, %sentinelCallClientReconfScript.exit, %119
+  %171 = call i64 @mstime() #30
+  %172 = getelementptr inbounds nuw i8, ptr %.0, i64 56
+  store i64 %171, ptr %172, align 8, !tbaa !152
   br label %.critedge90
 
-.critedge90:                                      ; preds = %109, %2, %169, %11
-  %172 = load i32, ptr %6, align 4, !tbaa !78
-  call void @sdsfreesplitres(ptr noundef %8, i32 noundef %172) #30
+.critedge90:                                      ; preds = %109, %2, %170, %11
+  %173 = load i32, ptr %6, align 4, !tbaa !78
+  call void @sdsfreesplitres(ptr noundef %8, i32 noundef %173) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }

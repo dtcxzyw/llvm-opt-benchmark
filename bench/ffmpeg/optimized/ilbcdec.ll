@@ -1714,9 +1714,9 @@ unpack_frame.exit:                                ; preds = %667, %871
   %1362 = load i16, ptr %1361, align 2, !tbaa !60
   %1363 = add i16 %1362, -6
   %or.cond = icmp ult i16 %1363, -5
-  %.not94143144 = icmp eq i32 %12, 0
   %1364 = select i1 %or.cond, i1 true, i1 %.not
-  %.not94 = select i1 %1364, i1 true, i1 %.not94143144
+  %.not94143 = icmp eq i32 %12, 0
+  %.not94 = select i1 %1364, i1 true, i1 %.not94143
   br i1 %.not94, label %1772, label %1365
 
 1365:                                             ; preds = %1356
@@ -2384,7 +2384,7 @@ reverse_memcpy.exit119.i:                         ; preds = %.lr.ph.i114.i, %rev
   br i1 %1690, label %1691, label %reverse_memcpy.exit119.i..loopexit.i_crit_edge
 
 reverse_memcpy.exit119.i..loopexit.i_crit_edge:   ; preds = %reverse_memcpy.exit119.i
-  %.pre170 = sext i16 %1687 to i32
+  %.pre169 = sext i16 %1687 to i32
   br label %.loopexit.i
 
 1691:                                             ; preds = %reverse_memcpy.exit119.i
@@ -2429,22 +2429,22 @@ reverse_memcpy.exit119.i..loopexit.i_crit_edge:   ; preds = %reverse_memcpy.exit
 
 .loopexit.loopexit.i:                             ; preds = %1699
   %1716 = trunc nuw i64 %indvars.iv.next.i127 to i16
-  %.pre163.pre = load i16, ptr %1685, align 2, !tbaa !39
+  %.pre162.pre = load i16, ptr %1685, align 2, !tbaa !39
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %reverse_memcpy.exit119.i..loopexit.i_crit_edge, %.loopexit.loopexit.i
-  %.pre-phi171 = phi i32 [ %.pre170, %reverse_memcpy.exit119.i..loopexit.i_crit_edge ], [ %1711, %.loopexit.loopexit.i ]
-  %.pre163 = phi i16 [ %1686, %reverse_memcpy.exit119.i..loopexit.i_crit_edge ], [ %.pre163.pre, %.loopexit.loopexit.i ]
+  %.pre-phi170 = phi i32 [ %.pre169, %reverse_memcpy.exit119.i..loopexit.i_crit_edge ], [ %1711, %.loopexit.loopexit.i ]
+  %.pre162 = phi i16 [ %1686, %reverse_memcpy.exit119.i..loopexit.i_crit_edge ], [ %.pre162.pre, %.loopexit.loopexit.i ]
   %1717 = phi i16 [ %1687, %reverse_memcpy.exit119.i..loopexit.i_crit_edge ], [ %1710, %.loopexit.loopexit.i ]
   %.0101.i = phi i16 [ 1, %reverse_memcpy.exit119.i..loopexit.i_crit_edge ], [ %1716, %.loopexit.loopexit.i ]
-  %1718 = add nsw i32 %.pre-phi171, -1
+  %1718 = add nsw i32 %.pre-phi170, -1
   %sext111.i = shl i32 %1718, 16
   %1719 = ashr exact i32 %sext111.i, 16
   %1720 = icmp sgt i32 %1719, 0
   br i1 %1720, label %1721, label %decode_residual.exit
 
 1721:                                             ; preds = %.loopexit.i
-  %reass.sub141.i = sub i16 %.pre163, %1717
+  %reass.sub141.i = sub i16 %.pre162, %1717
   %1722 = mul i16 %reass.sub141.i, 40
   %1723 = add i16 %1722, 40
   %spec.store.select.i = tail call i16 @llvm.smin.i16(i16 %1723, i16 147)
@@ -2525,7 +2525,7 @@ decode_residual.exit.loopexit:                    ; preds = %.lr.ph.i126.i
   br label %decode_residual.exit
 
 decode_residual.exit:                             ; preds = %decode_residual.exit.loopexit, %.loopexit.i
-  %1760 = phi i16 [ %.pre, %decode_residual.exit.loopexit ], [ %.pre163, %.loopexit.i ]
+  %1760 = phi i16 [ %.pre, %decode_residual.exit.loopexit ], [ %.pre162, %.loopexit.i ]
   %1761 = getelementptr inbounds nuw i8, ptr %10, i64 3534
   %1762 = sext i16 %1760 to i64
   %.idx = mul nsw i64 %1762, 22
@@ -2551,12 +2551,12 @@ decode_residual.exit:                             ; preds = %decode_residual.exi
   %1773 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %1774 = load i32, ptr %1773, align 8, !tbaa !86
   %.not95 = icmp eq i32 %1774, 0
-  br i1 %.not95, label %1775, label %._crit_edge164
+  br i1 %.not95, label %1775, label %._crit_edge163
 
-._crit_edge164:                                   ; preds = %1772
-  %.pre165 = load i32, ptr %1351, align 4, !tbaa !38
-  %.pre167 = shl nsw i32 %.pre165, 1
-  %.pre168 = sext i32 %.pre167 to i64
+._crit_edge163:                                   ; preds = %1772
+  %.pre164 = load i32, ptr %1351, align 4, !tbaa !38
+  %.pre166 = shl nsw i32 %.pre164, 1
+  %.pre167 = sext i32 %.pre166 to i64
   br label %1833
 
 1775:                                             ; preds = %1772
@@ -2602,11 +2602,11 @@ decode_residual.exit:                             ; preds = %decode_residual.exi
   br label %1801
 
 1801:                                             ; preds = %.lr.ph, %filter_arfq12.exit
-  %indvars.iv160 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next161, %filter_arfq12.exit ]
-  %.idx180 = mul nuw nsw i64 %indvars.iv160, 80
-  %1802 = getelementptr inbounds nuw i8, ptr %14, i64 %.idx180
-  %.idx181 = mul nuw nsw i64 %indvars.iv160, 22
-  %1803 = getelementptr inbounds nuw i8, ptr %1800, i64 %.idx181
+  %indvars.iv159 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next160, %filter_arfq12.exit ]
+  %.idx179 = mul nuw nsw i64 %indvars.iv159, 80
+  %1802 = getelementptr inbounds nuw i8, ptr %14, i64 %.idx179
+  %.idx180 = mul nuw nsw i64 %indvars.iv159, 22
+  %1803 = getelementptr inbounds nuw i8, ptr %1800, i64 %.idx180
   br label %.preheader.i129
 
 .preheader.i129:                                  ; preds = %1815, %1801
@@ -2648,10 +2648,10 @@ decode_residual.exit:                             ; preds = %decode_residual.exi
   br i1 %exitcond.not.i132, label %filter_arfq12.exit, label %.preheader.i129, !llvm.loop !79
 
 filter_arfq12.exit:                               ; preds = %1815
-  %indvars.iv.next161 = add nuw nsw i64 %indvars.iv160, 1
+  %indvars.iv.next160 = add nuw nsw i64 %indvars.iv159, 1
   %1827 = load i16, ptr %1797, align 2, !tbaa !39
   %1828 = sext i16 %1827 to i64
-  %1829 = icmp slt i64 %indvars.iv.next161, %1828
+  %1829 = icmp slt i64 %indvars.iv.next160, %1828
   br i1 %1829, label %1801, label %._crit_edge, !llvm.loop !88
 
 ._crit_edge:                                      ; preds = %filter_arfq12.exit, %1790
@@ -2661,10 +2661,10 @@ filter_arfq12.exit:                               ; preds = %1815
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %1796, ptr noundef nonnull align 2 dereferenceable(20) %1832, i64 20, i1 false)
   br label %1833
 
-1833:                                             ; preds = %._crit_edge164, %._crit_edge
-  %.pre-phi169 = phi i64 [ %.pre168, %._crit_edge164 ], [ %1795, %._crit_edge ]
+1833:                                             ; preds = %._crit_edge163, %._crit_edge
+  %.pre-phi168 = phi i64 [ %.pre167, %._crit_edge163 ], [ %1795, %._crit_edge ]
   %1834 = load ptr, ptr %1, align 8, !tbaa !89
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1834, ptr nonnull align 2 %14, i64 %.pre-phi169, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1834, ptr nonnull align 2 %14, i64 %.pre-phi168, i1 false)
   %1835 = load ptr, ptr %1, align 8, !tbaa !89
   %1836 = getelementptr inbounds nuw i8, ptr %10, i64 3560
   %1837 = getelementptr inbounds nuw i8, ptr %10, i64 3556

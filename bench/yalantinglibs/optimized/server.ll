@@ -42094,8 +42094,8 @@ entry:
   %__first.coerce.fr = freeze ptr %__first.coerce
   %__middle.coerce.fr = freeze ptr %__middle.coerce
   call void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_less_iterEEvT_S9_RT0_(ptr %__first.coerce.fr, ptr %__middle.coerce.fr, ptr noundef nonnull align 1 dereferenceable(1) %__comp)
-  %cmp.lt.i.i.not4 = icmp ult ptr %__middle.coerce.fr, %__last.coerce
-  br i1 %cmp.lt.i.i.not4, label %for.body.lr.ph, label %for.end
+  %cmp.lt.i.i.not3 = icmp ult ptr %__middle.coerce.fr, %__last.coerce
+  br i1 %cmp.lt.i.i.not3, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %__middle.coerce.fr to i64
@@ -42118,14 +42118,14 @@ for.body.us.preheader:                            ; preds = %for.body.lr.ph
   br label %for.body.us
 
 for.body.us:                                      ; preds = %for.body.us.preheader, %for.inc.us
-  %__i.sroa.0.05.us = phi ptr [ %incdec.ptr.i.us, %for.inc.us ], [ %__middle.coerce.fr, %for.body.us.preheader ]
-  %1 = load i32, ptr %__i.sroa.0.05.us, align 4
+  %__i.sroa.0.04.us = phi ptr [ %incdec.ptr.i.us, %for.inc.us ], [ %__middle.coerce.fr, %for.body.us.preheader ]
+  %1 = load i32, ptr %__i.sroa.0.04.us, align 4
   %2 = load i32, ptr %__first.coerce.fr, align 4
   %cmp.i1.us = icmp slt i32 %1, %2
   br i1 %cmp.i1.us, label %if.then.us, label %for.inc.us
 
 if.then.us:                                       ; preds = %for.body.us
-  store i32 %2, ptr %__i.sroa.0.05.us, align 4
+  store i32 %2, ptr %__i.sroa.0.04.us, align 4
   br label %while.body.i.i.us
 
 while.body.i.i.us:                                ; preds = %if.then.us, %while.body.i.i.us
@@ -42181,7 +42181,7 @@ _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops1
   br label %for.inc.us
 
 for.inc.us:                                       ; preds = %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_less_iterEEvT_S9_S9_RT0_.exit.us, %for.body.us
-  %incdec.ptr.i.us = getelementptr inbounds nuw i8, ptr %__i.sroa.0.05.us, i64 4
+  %incdec.ptr.i.us = getelementptr inbounds nuw i8, ptr %__i.sroa.0.04.us, i64 4
   %cmp.lt.i.i.not.us = icmp ult ptr %incdec.ptr.i.us, %__last.coerce
   br i1 %cmp.lt.i.i.not.us, label %for.body.us, label %for.end, !llvm.loop !699
 
@@ -42200,71 +42200,71 @@ for.body.preheader:                               ; preds = %for.body.lr.ph.spli
 
 for.body.lr.ph.split.split.us:                    ; preds = %for.body.lr.ph.split
   %cmp19.i.i = icmp eq i64 %sub17.i.i, 0
-  br i1 %cmp19.i.i, label %for.body.us6.us, label %for.body.us6.preheader
+  br i1 %cmp19.i.i, label %for.body.us5.us, label %for.body.us5.preheader
 
-for.body.us6.preheader:                           ; preds = %for.body.lr.ph.split.split.us
-  %.pre33 = load i32, ptr %__first.coerce.fr, align 4
-  br label %for.body.us6
+for.body.us5.preheader:                           ; preds = %for.body.lr.ph.split.split.us
+  %.pre32 = load i32, ptr %__first.coerce.fr, align 4
+  br label %for.body.us5
 
-for.body.us6.us:                                  ; preds = %for.body.lr.ph.split.split.us, %for.inc.us25.us
-  %__i.sroa.0.05.us7.us = phi ptr [ %incdec.ptr.i.us26.us, %for.inc.us25.us ], [ %__middle.coerce.fr, %for.body.lr.ph.split.split.us ]
-  %8 = load i32, ptr %__i.sroa.0.05.us7.us, align 4
+for.body.us5.us:                                  ; preds = %for.body.lr.ph.split.split.us, %for.inc.us24.us
+  %__i.sroa.0.04.us6.us = phi ptr [ %incdec.ptr.i.us25.us, %for.inc.us24.us ], [ %__middle.coerce.fr, %for.body.lr.ph.split.split.us ]
+  %8 = load i32, ptr %__i.sroa.0.04.us6.us, align 4
   %9 = load i32, ptr %__first.coerce.fr, align 4
-  %cmp.i1.us8.us = icmp slt i32 %8, %9
-  br i1 %cmp.i1.us8.us, label %if.then.us9.us, label %for.inc.us25.us
+  %cmp.i1.us7.us = icmp slt i32 %8, %9
+  br i1 %cmp.i1.us7.us, label %if.then.us8.us, label %for.inc.us24.us
 
-if.then.us9.us:                                   ; preds = %for.body.us6.us
-  store i32 %9, ptr %__i.sroa.0.05.us7.us, align 4
+if.then.us8.us:                                   ; preds = %for.body.us5.us
+  store i32 %9, ptr %__i.sroa.0.04.us6.us, align 4
   %10 = load i32, ptr %add.ptr.i20.i.i, align 4
   store i32 %10, ptr %__first.coerce.fr, align 4
-  %cmp.i.i.i.i.us18.us = icmp sge i32 %10, %8
-  %spec.select = zext i1 %cmp.i.i.i.i.us18.us to i64
-  %add.ptr.i9.i.i.i.us24.us = getelementptr inbounds nuw i32, ptr %__first.coerce.fr, i64 %spec.select
-  store i32 %8, ptr %add.ptr.i9.i.i.i.us24.us, align 4
-  br label %for.inc.us25.us
+  %cmp.i.i.i.i.us17.us = icmp sge i32 %10, %8
+  %spec.select = zext i1 %cmp.i.i.i.i.us17.us to i64
+  %add.ptr.i9.i.i.i.us23.us = getelementptr inbounds nuw i32, ptr %__first.coerce.fr, i64 %spec.select
+  store i32 %8, ptr %add.ptr.i9.i.i.i.us23.us, align 4
+  br label %for.inc.us24.us
 
-for.inc.us25.us:                                  ; preds = %if.then.us9.us, %for.body.us6.us
-  %incdec.ptr.i.us26.us = getelementptr inbounds nuw i8, ptr %__i.sroa.0.05.us7.us, i64 4
-  %cmp.lt.i.i.not.us27.us = icmp ult ptr %incdec.ptr.i.us26.us, %__last.coerce
-  br i1 %cmp.lt.i.i.not.us27.us, label %for.body.us6.us, label %for.end, !llvm.loop !699
+for.inc.us24.us:                                  ; preds = %if.then.us8.us, %for.body.us5.us
+  %incdec.ptr.i.us25.us = getelementptr inbounds nuw i8, ptr %__i.sroa.0.04.us6.us, i64 4
+  %cmp.lt.i.i.not.us26.us = icmp ult ptr %incdec.ptr.i.us25.us, %__last.coerce
+  br i1 %cmp.lt.i.i.not.us26.us, label %for.body.us5.us, label %for.end, !llvm.loop !699
 
-for.body.us6:                                     ; preds = %for.body.us6.preheader, %for.inc.us25
-  %11 = phi i32 [ %13, %for.inc.us25 ], [ %.pre33, %for.body.us6.preheader ]
-  %__i.sroa.0.05.us7 = phi ptr [ %incdec.ptr.i.us26, %for.inc.us25 ], [ %__middle.coerce.fr, %for.body.us6.preheader ]
-  %12 = load i32, ptr %__i.sroa.0.05.us7, align 4
-  %cmp.i1.us8 = icmp slt i32 %12, %11
-  br i1 %cmp.i1.us8, label %if.then.us9, label %for.inc.us25
+for.body.us5:                                     ; preds = %for.body.us5.preheader, %for.inc.us24
+  %11 = phi i32 [ %13, %for.inc.us24 ], [ %.pre32, %for.body.us5.preheader ]
+  %__i.sroa.0.04.us6 = phi ptr [ %incdec.ptr.i.us25, %for.inc.us24 ], [ %__middle.coerce.fr, %for.body.us5.preheader ]
+  %12 = load i32, ptr %__i.sroa.0.04.us6, align 4
+  %cmp.i1.us7 = icmp slt i32 %12, %11
+  br i1 %cmp.i1.us7, label %if.then.us8, label %for.inc.us24
 
-if.then.us9:                                      ; preds = %for.body.us6
-  store i32 %11, ptr %__i.sroa.0.05.us7, align 4
+if.then.us8:                                      ; preds = %for.body.us5
+  store i32 %11, ptr %__i.sroa.0.04.us6, align 4
   store i32 %12, ptr %__first.coerce.fr, align 4
-  br label %for.inc.us25
+  br label %for.inc.us24
 
-for.inc.us25:                                     ; preds = %if.then.us9, %for.body.us6
-  %13 = phi i32 [ %12, %if.then.us9 ], [ %11, %for.body.us6 ]
-  %incdec.ptr.i.us26 = getelementptr inbounds nuw i8, ptr %__i.sroa.0.05.us7, i64 4
-  %cmp.lt.i.i.not.us27 = icmp ult ptr %incdec.ptr.i.us26, %__last.coerce
-  br i1 %cmp.lt.i.i.not.us27, label %for.body.us6, label %for.end, !llvm.loop !699
+for.inc.us24:                                     ; preds = %if.then.us8, %for.body.us5
+  %13 = phi i32 [ %12, %if.then.us8 ], [ %11, %for.body.us5 ]
+  %incdec.ptr.i.us25 = getelementptr inbounds nuw i8, ptr %__i.sroa.0.04.us6, i64 4
+  %cmp.lt.i.i.not.us26 = icmp ult ptr %incdec.ptr.i.us25, %__last.coerce
+  br i1 %cmp.lt.i.i.not.us26, label %for.body.us5, label %for.end, !llvm.loop !699
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc
   %14 = phi i32 [ %16, %for.inc ], [ %.pre, %for.body.preheader ]
-  %__i.sroa.0.05 = phi ptr [ %incdec.ptr.i, %for.inc ], [ %__middle.coerce.fr, %for.body.preheader ]
-  %15 = load i32, ptr %__i.sroa.0.05, align 4
+  %__i.sroa.0.04 = phi ptr [ %incdec.ptr.i, %for.inc ], [ %__middle.coerce.fr, %for.body.preheader ]
+  %15 = load i32, ptr %__i.sroa.0.04, align 4
   %cmp.i1 = icmp slt i32 %15, %14
   br i1 %cmp.i1, label %if.then, label %for.inc
 
 if.then:                                          ; preds = %for.body
-  store i32 %14, ptr %__i.sroa.0.05, align 4
+  store i32 %14, ptr %__i.sroa.0.04, align 4
   store i32 %15, ptr %__first.coerce.fr, align 4
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then
   %16 = phi i32 [ %14, %for.body ], [ %15, %if.then ]
-  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__i.sroa.0.05, i64 4
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__i.sroa.0.04, i64 4
   %cmp.lt.i.i.not = icmp ult ptr %incdec.ptr.i, %__last.coerce
   br i1 %cmp.lt.i.i.not, label %for.body, label %for.end, !llvm.loop !699
 
-for.end:                                          ; preds = %for.inc, %for.inc.us25, %for.inc.us25.us, %for.inc.us, %entry
+for.end:                                          ; preds = %for.inc, %for.inc.us24, %for.inc.us24.us, %for.inc.us, %entry
   ret void
 }
 

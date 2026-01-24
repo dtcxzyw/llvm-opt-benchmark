@@ -911,13 +911,13 @@ define internal fastcc range(i32 -22, 121) i32 @query_perf_config_data(ptr nound
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
-  br i1 %14, label %135, label %15
+  br i1 %14, label %132, label %15
 
 15:                                               ; preds = %3
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = load i32, ptr %16, align 8
   %18 = icmp eq i32 %17, 0
-  br i1 %18, label %135, label %19
+  br i1 %18, label %132, label %19
 
 19:                                               ; preds = %15
   %20 = icmp ult i32 %17, 120
@@ -935,7 +935,7 @@ define internal fastcc range(i32 -22, 121) i32 @query_perf_config_data(ptr nound
 26:                                               ; preds = %23, %21
   %27 = phi ptr [ %25, %23 ], [ null, %21 ]
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %27, i32 noundef 1, ptr noundef nonnull @.str.2, i32 noundef %17, i32 noundef 120) #11
-  br label %135
+  br label %132
 
 28:                                               ; preds = %19
   %29 = tail call i64 @llvm.read_register.i64(metadata !0)
@@ -947,12 +947,12 @@ define internal fastcc range(i32 -22, 121) i32 @query_perf_config_data(ptr nound
   tail call void @llvm.write_register.i64(metadata !0, i64 %33)
   %35 = and i64 %34, 4294967295
   %36 = icmp eq i64 %35, 0
-  br i1 %36, label %37, label %135
+  br i1 %36, label %37, label %132
 
 37:                                               ; preds = %28
   %38 = extractvalue { ptr, i32, i64 } %31, 1
   %39 = icmp eq i32 %38, 0
-  br i1 %39, label %40, label %135
+  br i1 %39, label %40, label %132
 
 40:                                               ; preds = %37
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %4, i8 0, i64 72, i1 false), !annotation !6
@@ -1008,7 +1008,7 @@ define internal fastcc range(i32 -22, 121) i32 @query_perf_config_data(ptr nound
   tail call void @llvm.write_register.i64(metadata !0, i64 %64)
   %66 = and i64 %65, 4294967295
   %67 = icmp eq i64 %66, 0
-  br i1 %67, label %68, label %135
+  br i1 %67, label %68, label %132
 
 68:                                               ; preds = %60
   %69 = extractvalue { ptr, i64, i64 } %62, 1
@@ -1019,12 +1019,12 @@ define internal fastcc range(i32 -22, 121) i32 @query_perf_config_data(ptr nound
 72:                                               ; preds = %.loopexit, %68
   %73 = phi ptr [ %59, %.loopexit ], [ %71, %68 ]
   %74 = icmp eq ptr %73, null
-  br i1 %74, label %135, label %75
+  br i1 %74, label %132, label %75
 
 75:                                               ; preds = %72
   %76 = call i64 @_copy_from_user(ptr noundef nonnull %4, ptr noundef %11, i64 noundef 72) #11
   %77 = icmp eq i64 %76, 0
-  br i1 %77, label %78, label %133
+  br i1 %77, label %78, label %130
 
 78:                                               ; preds = %75
   %79 = getelementptr inbounds nuw i8, ptr %4, i64 40
@@ -1034,82 +1034,79 @@ define internal fastcc range(i32 -22, 121) i32 @query_perf_config_data(ptr nound
   %83 = load i32, ptr %82, align 8
   %84 = icmp eq i32 %80, 0
   %85 = icmp uge i32 %80, %83
-  %86 = select i1 %85, i32 0, i32 -22
-  %87 = select i1 %84, i1 true, i1 %85
-  br i1 %87, label %88, label %133
+  %86 = select i1 %84, i1 true, i1 %85
+  br i1 %86, label %87, label %130
 
-88:                                               ; preds = %78
-  %89 = getelementptr inbounds nuw i8, ptr %4, i64 44
-  %90 = load i32, ptr %89, align 4
-  %91 = getelementptr inbounds nuw i8, ptr %4, i64 64
-  %92 = getelementptr inbounds nuw i8, ptr %73, i64 96
-  %93 = load i32, ptr %92, align 8
-  %94 = icmp eq i32 %90, 0
-  %95 = icmp uge i32 %90, %93
-  %96 = select i1 %95, i32 0, i32 -22
-  %97 = select i1 %94, i1 true, i1 %95
-  br i1 %97, label %98, label %133
+87:                                               ; preds = %78
+  %88 = getelementptr inbounds nuw i8, ptr %4, i64 44
+  %89 = load i32, ptr %88, align 4
+  %90 = getelementptr inbounds nuw i8, ptr %4, i64 64
+  %91 = getelementptr inbounds nuw i8, ptr %73, i64 96
+  %92 = load i32, ptr %91, align 8
+  %93 = icmp eq i32 %89, 0
+  %94 = icmp uge i32 %89, %92
+  %95 = select i1 %93, i1 true, i1 %94
+  br i1 %95, label %96, label %130
 
-98:                                               ; preds = %88
-  %99 = getelementptr inbounds nuw i8, ptr %4, i64 36
-  %100 = load i32, ptr %99, align 4
-  %101 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  %102 = getelementptr inbounds nuw i8, ptr %73, i64 64
-  %103 = load i32, ptr %102, align 8
-  %104 = icmp eq i32 %100, 0
-  %105 = icmp uge i32 %100, %103
-  %106 = select i1 %105, i32 0, i32 -22
-  %107 = select i1 %104, i1 true, i1 %105
-  br i1 %107, label %108, label %133
+96:                                               ; preds = %87
+  %97 = getelementptr inbounds nuw i8, ptr %4, i64 36
+  %98 = load i32, ptr %97, align 4
+  %99 = getelementptr inbounds nuw i8, ptr %4, i64 48
+  %100 = getelementptr inbounds nuw i8, ptr %73, i64 64
+  %101 = load i32, ptr %100, align 8
+  %102 = icmp eq i32 %98, 0
+  %103 = icmp uge i32 %98, %101
+  %104 = select i1 %102, i1 true, i1 %103
+  br i1 %104, label %105, label %130
 
-108:                                              ; preds = %98
-  %109 = getelementptr inbounds nuw i8, ptr %73, i64 72
-  %110 = load ptr, ptr %109, align 8
-  %111 = load i64, ptr %81, align 8
-  %112 = call fastcc i32 @copy_perf_config_registers_or_number(ptr noundef %110, i32 noundef %83, i64 noundef %111, ptr noundef nonnull %79), !range !35
-  %113 = icmp eq i32 %112, 0
-  br i1 %113, label %114, label %133
+105:                                              ; preds = %96
+  %106 = getelementptr inbounds nuw i8, ptr %73, i64 72
+  %107 = load ptr, ptr %106, align 8
+  %108 = load i64, ptr %81, align 8
+  %109 = call fastcc i32 @copy_perf_config_registers_or_number(ptr noundef %107, i32 noundef %83, i64 noundef %108, ptr noundef nonnull %79), !range !35
+  %110 = icmp eq i32 %109, 0
+  br i1 %110, label %111, label %130
 
-114:                                              ; preds = %108
-  %115 = getelementptr inbounds nuw i8, ptr %73, i64 88
-  %116 = load ptr, ptr %115, align 8
-  %117 = load i32, ptr %92, align 8
-  %118 = load i64, ptr %91, align 8
-  %119 = call fastcc i32 @copy_perf_config_registers_or_number(ptr noundef %116, i32 noundef %117, i64 noundef %118, ptr noundef nonnull %89), !range !35
-  %120 = icmp eq i32 %119, 0
-  br i1 %120, label %121, label %133
+111:                                              ; preds = %105
+  %112 = getelementptr inbounds nuw i8, ptr %73, i64 88
+  %113 = load ptr, ptr %112, align 8
+  %114 = load i32, ptr %91, align 8
+  %115 = load i64, ptr %90, align 8
+  %116 = call fastcc i32 @copy_perf_config_registers_or_number(ptr noundef %113, i32 noundef %114, i64 noundef %115, ptr noundef nonnull %88), !range !35
+  %117 = icmp eq i32 %116, 0
+  br i1 %117, label %118, label %130
 
-121:                                              ; preds = %114
-  %122 = getelementptr inbounds nuw i8, ptr %73, i64 56
-  %123 = load ptr, ptr %122, align 8
-  %124 = load i32, ptr %102, align 8
-  %125 = load i64, ptr %101, align 8
-  %126 = call fastcc i32 @copy_perf_config_registers_or_number(ptr noundef %123, i32 noundef %124, i64 noundef %125, ptr noundef nonnull %99), !range !35
-  %127 = icmp eq i32 %126, 0
-  br i1 %127, label %128, label %133
+118:                                              ; preds = %111
+  %119 = getelementptr inbounds nuw i8, ptr %73, i64 56
+  %120 = load ptr, ptr %119, align 8
+  %121 = load i32, ptr %100, align 8
+  %122 = load i64, ptr %99, align 8
+  %123 = call fastcc i32 @copy_perf_config_registers_or_number(ptr noundef %120, i32 noundef %121, i64 noundef %122, ptr noundef nonnull %97), !range !35
+  %124 = icmp eq i32 %123, 0
+  br i1 %124, label %125, label %130
 
-128:                                              ; preds = %121
-  %129 = getelementptr inbounds nuw i8, ptr %73, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %4, ptr noundef nonnull align 8 dereferenceable(36) %129, i64 36, i1 false)
-  %130 = call i64 @_copy_to_user(ptr noundef %11, ptr noundef nonnull %4, i64 noundef 72) #11
-  %131 = icmp eq i64 %130, 0
-  %132 = select i1 %131, i32 120, i32 -14
-  br label %133
+125:                                              ; preds = %118
+  %126 = getelementptr inbounds nuw i8, ptr %73, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %4, ptr noundef nonnull align 8 dereferenceable(36) %126, i64 36, i1 false)
+  %127 = call i64 @_copy_to_user(ptr noundef %11, ptr noundef nonnull %4, i64 noundef 72) #11
+  %128 = icmp eq i64 %127, 0
+  %129 = select i1 %128, i32 120, i32 -14
+  br label %130
 
-133:                                              ; preds = %128, %121, %114, %108, %98, %88, %78, %75
-  %134 = phi i32 [ %86, %78 ], [ %96, %88 ], [ %106, %98 ], [ %112, %108 ], [ %119, %114 ], [ %126, %121 ], [ -14, %75 ], [ %132, %128 ]
+130:                                              ; preds = %125, %118, %111, %105, %96, %87, %78, %75
+  %131 = phi i32 [ -22, %78 ], [ -22, %87 ], [ -22, %96 ], [ %109, %105 ], [ %116, %111 ], [ %123, %118 ], [ -14, %75 ], [ %129, %125 ]
   call fastcc void @i915_oa_config_put(ptr noundef nonnull %73)
-  br label %135
+  br label %132
 
 .critedge:                                        ; preds = %41
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %135
+  br label %132
 
-135:                                              ; preds = %.critedge, %133, %72, %60, %37, %28, %26, %15, %3
-  %136 = phi i32 [ -22, %26 ], [ %134, %133 ], [ -14, %.critedge ], [ -19, %3 ], [ 120, %15 ], [ -14, %28 ], [ -22, %37 ], [ -14, %60 ], [ -2, %72 ]
+132:                                              ; preds = %.critedge, %130, %72, %60, %37, %28, %26, %15, %3
+  %133 = phi i32 [ -22, %26 ], [ %131, %130 ], [ -14, %.critedge ], [ -19, %3 ], [ 120, %15 ], [ -14, %28 ], [ -22, %37 ], [ -14, %60 ], [ -2, %72 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret i32 %136
+  ret i32 %133
 }
 
 ; Function Attrs: null_pointer_is_valid allocsize(1)

@@ -21238,10 +21238,10 @@ _ZN10serde_json3ser9Formatter12begin_string17h5e338d973de9fa1eE.llvm.19292657444
   %.sroa.3.0.copyload.i = load ptr, ptr %.sroa.3.0..sroa_idx.i, align 8, !noalias !4150
   %.sroa.6.0.copyload.i = load i64, ptr %.sroa.6.0..sroa_idx.i403, align 8, !noalias !4150
   call void @llvm.lifetime.end.p0(ptr nonnull %23), !noalias !4153
-  %619 = icmp ne ptr %.sroa.3.0.copyload.i, null
-  %.not606 = select i1 %trunc.i.i, i1 %619, i1 false
   call void @llvm.lifetime.end.p0(ptr nonnull %24), !noalias !4150
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
+  %619 = icmp ne ptr %.sroa.3.0.copyload.i, null
+  %.not606 = select i1 %trunc.i.i, i1 %619, i1 false
   br i1 %.not606, label %620, label %492
 
 620:                                              ; preds = %617

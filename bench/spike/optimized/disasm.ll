@@ -20131,20 +20131,20 @@ define void @_ZN14disassembler_tC2EPK12isa_parser_tb(ptr noundef nonnull align 8
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %15 = load ptr, ptr %14, align 8, !tbaa !3
   %16 = icmp ne ptr %13, %15
-  %.sroa.0.010.i.i = getelementptr inbounds i8, ptr %15, i64 -8
-  %.not11.i.i = icmp ult ptr %13, %.sroa.0.010.i.i
-  %or.cond.i.i = select i1 %16, i1 %.not11.i.i, i1 false
+  %.sroa.0.09.i.i = getelementptr inbounds i8, ptr %15, i64 -8
+  %.not10.i.i = icmp ult ptr %13, %.sroa.0.09.i.i
+  %or.cond.i.i = select i1 %16, i1 %.not10.i.i, i1 false
   br i1 %or.cond.i.i, label %.lr.ph.i.i, label %_ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPPK13disasm_insn_tSt6vectorIS4_SaIS4_EEEEEvT_SA_.exit
 
 .lr.ph.i.i:                                       ; preds = %11, %.lr.ph.i.i
-  %.sroa.0.013.i.i = phi ptr [ %.sroa.0.0.i.i, %.lr.ph.i.i ], [ %.sroa.0.010.i.i, %11 ]
-  %.sroa.06.012.i.i = phi ptr [ %19, %.lr.ph.i.i ], [ %13, %11 ]
-  %17 = load ptr, ptr %.sroa.06.012.i.i, align 8, !tbaa !14
-  %18 = load ptr, ptr %.sroa.0.013.i.i, align 8, !tbaa !14
-  store ptr %18, ptr %.sroa.06.012.i.i, align 8, !tbaa !14
-  store ptr %17, ptr %.sroa.0.013.i.i, align 8, !tbaa !14
-  %19 = getelementptr inbounds nuw i8, ptr %.sroa.06.012.i.i, i64 8
-  %.sroa.0.0.i.i = getelementptr inbounds i8, ptr %.sroa.0.013.i.i, i64 -8
+  %.sroa.0.012.i.i = phi ptr [ %.sroa.0.0.i.i, %.lr.ph.i.i ], [ %.sroa.0.09.i.i, %11 ]
+  %.sroa.06.011.i.i = phi ptr [ %19, %.lr.ph.i.i ], [ %13, %11 ]
+  %17 = load ptr, ptr %.sroa.06.011.i.i, align 8, !tbaa !14
+  %18 = load ptr, ptr %.sroa.0.012.i.i, align 8, !tbaa !14
+  store ptr %18, ptr %.sroa.06.011.i.i, align 8, !tbaa !14
+  store ptr %17, ptr %.sroa.0.012.i.i, align 8, !tbaa !14
+  %19 = getelementptr inbounds nuw i8, ptr %.sroa.06.011.i.i, i64 8
+  %.sroa.0.0.i.i = getelementptr inbounds i8, ptr %.sroa.0.012.i.i, i64 -8
   %.not.i.i = icmp ult ptr %19, %.sroa.0.0.i.i
   br i1 %.not.i.i, label %.lr.ph.i.i, label %_ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPPK13disasm_insn_tSt6vectorIS4_SaIS4_EEEEEvT_SA_.exit, !llvm.loop !117
 

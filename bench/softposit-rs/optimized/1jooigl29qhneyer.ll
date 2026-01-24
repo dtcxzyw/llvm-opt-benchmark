@@ -3408,10 +3408,10 @@ define noundef i32 @"_ZN68_$LT$softposit..p32e2..P32E2$u20$as$u20$num_traits..fl
 
 _ZN9softposit5p32e24math5sleef4cosh17h669554877e14c08fE.exit: ; preds = %7, %9, %15, %17
   %.0.i.i = phi i32 [ %8, %7 ], [ %18, %17 ], [ %16, %15 ], [ -2147483648, %9 ]
-  %or.cond.i = icmp slt i32 %.08.i, 1769996289
-  %.0.i = select i1 %or.cond.i, i32 %.0.i.i, i32 -2147483648
+  %or.cond.i = icmp sgt i32 %.08.i, 1769996288
   %19 = icmp eq i32 %0, -2147483648
-  %spec.store.select1.i = select i1 %19, i32 -2147483648, i32 %.0.i
+  %20 = or i1 %19, %or.cond.i
+  %spec.store.select1.i = select i1 %20, i32 -2147483648, i32 %.0.i.i
   ret i32 %spec.store.select1.i
 }
 

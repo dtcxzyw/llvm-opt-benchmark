@@ -3890,7 +3890,7 @@ define internal fastcc range(i32 -19, 1) i32 @serial_pci_guess_board(ptr noundef
 13:                                               ; preds = %13, %11
   %14 = phi i64 [ 0, %11 ], [ %34, %13 ]
   %15 = phi i32 [ -1, %11 ], [ %29, %13 ]
-  %16 = phi i32 [ 0, %11 ], [ %28, %13 ]
+  %16 = phi i32 [ 0, %11 ], [ %27, %13 ]
   %17 = phi i32 [ 0, %11 ], [ %33, %13 ]
   %.idx = shl i64 %14, 6
   %18 = getelementptr i8, ptr %12, i64 %.idx
@@ -3898,13 +3898,13 @@ define internal fastcc range(i32 -19, 1) i32 @serial_pci_guess_board(ptr noundef
   %20 = load i64, ptr %19, align 8
   %21 = and i64 %20, 256
   %22 = icmp eq i64 %21, 0
-  %23 = icmp eq i32 %15, -1
+  %23 = icmp ne i32 %15, -1
   %24 = trunc i64 %14 to i32
-  %25 = select i1 %23, i32 %24, i32 %15
-  %26 = lshr exact i64 %21, 8
-  %27 = trunc nuw nsw i64 %26 to i32
-  %28 = add i32 %16, %27
-  %29 = select i1 %22, i32 %15, i32 %25
+  %25 = lshr exact i64 %21, 8
+  %26 = trunc nuw nsw i64 %25 to i32
+  %27 = add i32 %16, %26
+  %28 = select i1 %22, i1 true, i1 %23
+  %29 = select i1 %28, i32 %15, i32 %24
   %30 = trunc i64 %20 to i32
   %31 = lshr i32 %30, 9
   %32 = and i32 %31, 1
@@ -3915,7 +3915,7 @@ define internal fastcc range(i32 -19, 1) i32 @serial_pci_guess_board(ptr noundef
 
 36:                                               ; preds = %13
   %37 = icmp slt i32 %33, 2
-  %38 = icmp eq i32 %28, 1
+  %38 = icmp eq i32 %27, 1
   %39 = select i1 %37, i1 %38, i1 false
   br i1 %39, label %40, label %.preheader
 

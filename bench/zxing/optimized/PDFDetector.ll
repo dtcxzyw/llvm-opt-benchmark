@@ -200,20 +200,20 @@ _ZNK5ZXing11PatternView7isValidEv.exit:           ; preds = %_ZN5ZXing13FindLeft
   %49 = load ptr, ptr %4, align 8, !tbaa !16
   %50 = load ptr, ptr %14, align 8, !tbaa !16
   %51 = icmp ne ptr %49, %50
-  %.sroa.0.010.i.i = getelementptr inbounds i8, ptr %50, i64 -2
-  %.not11.i.i = icmp ult ptr %49, %.sroa.0.010.i.i
-  %or.cond.i.i18 = select i1 %51, i1 %.not11.i.i, i1 false
+  %.sroa.0.09.i.i = getelementptr inbounds i8, ptr %50, i64 -2
+  %.not10.i.i = icmp ult ptr %49, %.sroa.0.09.i.i
+  %or.cond.i.i18 = select i1 %51, i1 %.not10.i.i, i1 false
   br i1 %or.cond.i.i18, label %.lr.ph.i.i, label %.loopexit
 
 .lr.ph.i.i:                                       ; preds = %48, %.lr.ph.i.i
-  %.sroa.0.013.i.i = phi ptr [ %.sroa.0.0.i.i, %.lr.ph.i.i ], [ %.sroa.0.010.i.i, %48 ]
-  %.sroa.06.012.i.i = phi ptr [ %54, %.lr.ph.i.i ], [ %49, %48 ]
-  %52 = load i16, ptr %.sroa.06.012.i.i, align 2, !tbaa !17
-  %53 = load i16, ptr %.sroa.0.013.i.i, align 2, !tbaa !17
-  store i16 %53, ptr %.sroa.06.012.i.i, align 2, !tbaa !17
-  store i16 %52, ptr %.sroa.0.013.i.i, align 2, !tbaa !17
-  %54 = getelementptr inbounds nuw i8, ptr %.sroa.06.012.i.i, i64 2
-  %.sroa.0.0.i.i = getelementptr inbounds i8, ptr %.sroa.0.013.i.i, i64 -2
+  %.sroa.0.012.i.i = phi ptr [ %.sroa.0.0.i.i, %.lr.ph.i.i ], [ %.sroa.0.09.i.i, %48 ]
+  %.sroa.06.011.i.i = phi ptr [ %54, %.lr.ph.i.i ], [ %49, %48 ]
+  %52 = load i16, ptr %.sroa.06.011.i.i, align 2, !tbaa !17
+  %53 = load i16, ptr %.sroa.0.012.i.i, align 2, !tbaa !17
+  store i16 %53, ptr %.sroa.06.011.i.i, align 2, !tbaa !17
+  store i16 %52, ptr %.sroa.0.012.i.i, align 2, !tbaa !17
+  %54 = getelementptr inbounds nuw i8, ptr %.sroa.06.011.i.i, i64 2
+  %.sroa.0.0.i.i = getelementptr inbounds i8, ptr %.sroa.0.012.i.i, i64 -2
   %.not.i.i19 = icmp ult ptr %54, %.sroa.0.0.i.i
   br i1 %.not.i.i19, label %.lr.ph.i.i, label %.loopexit, !llvm.loop !19
 

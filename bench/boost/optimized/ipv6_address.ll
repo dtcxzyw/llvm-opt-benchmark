@@ -390,290 +390,290 @@ define noundef i64 @_ZNK5boost4urls12ipv6_address10print_implEPc(ptr noundef non
 "_ZZNK5boost4urls12ipv6_address10print_implEPcENK3$_0clEPKhS5_.exit": ; preds = %.lr.ph.i, %43, %46
   %.0.lcssa.i = phi i64 [ %47, %46 ], [ %.03.i, %.lr.ph.i ], [ %.03.i, %43 ]
   %49 = icmp eq i64 %.0.lcssa.i, 0
-  %50 = icmp ugt i64 %.0.lcssa.i, %.05379
+  %50 = icmp ule i64 %.0.lcssa.i, %.05379
   %51 = ptrtoint ptr %.05977 to i64
   %52 = sub i64 %51, %41
   %53 = trunc i64 %52 to i32
-  %.258 = select i1 %50, i32 %53, i32 %.05678
   %.255 = tail call i64 @llvm.umax.i64(i64 %.0.lcssa.i, i64 %.05379)
   %.160.v = select i1 %49, i64 2, i64 %.0.lcssa.i
   %.160 = getelementptr inbounds nuw i8, ptr %.05977, i64 %.160.v
-  %.157 = select i1 %49, i32 %.05678, i32 %.258
+  %54 = select i1 %49, i1 true, i1 %50
+  %.157 = select i1 %54, i32 %.05678, i32 %53
   %.154 = select i1 %49, i64 %.05379, i64 %.255
   %.not = icmp eq ptr %.160, %40
-  br i1 %.not, label %54, label %.lr.ph.i.preheader
+  br i1 %.not, label %55, label %.lr.ph.i.preheader
 
-54:                                               ; preds = %"_ZZNK5boost4urls12ipv6_address10print_implEPcENK3$_0clEPKhS5_.exit"
+55:                                               ; preds = %"_ZZNK5boost4urls12ipv6_address10print_implEPcENK3$_0clEPKhS5_.exit"
   %.not68 = icmp eq i32 %.157, 0
-  br i1 %.not68, label %118, label %55
+  br i1 %.not68, label %119, label %56
 
-55:                                               ; preds = %54
-  %56 = zext i8 %5 to i16
-  %57 = shl nuw i16 %56, 8
-  %58 = zext i8 %8 to i16
-  %59 = or disjoint i16 %57, %58
-  %60 = zext i16 %59 to i32
-  %61 = icmp ugt i8 %5, 15
-  br i1 %61, label %62, label %83
+56:                                               ; preds = %55
+  %57 = zext i8 %5 to i16
+  %58 = shl nuw i16 %57, 8
+  %59 = zext i8 %8 to i16
+  %60 = or disjoint i16 %58, %59
+  %61 = zext i16 %60 to i32
+  %62 = icmp ugt i8 %5, 15
+  br i1 %62, label %63, label %84
 
-62:                                               ; preds = %55
-  %63 = lshr i32 %60, 12
-  %64 = zext nneg i32 %63 to i64
-  %65 = getelementptr inbounds nuw i8, ptr @.str.17, i64 %64
-  %66 = load i8, ptr %65, align 1, !tbaa !3
-  %67 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  store i8 %66, ptr %1, align 1, !tbaa !3
-  %68 = and i16 %56, 15
-  %69 = zext nneg i16 %68 to i64
-  %70 = getelementptr inbounds nuw i8, ptr @.str.17, i64 %69
-  %71 = load i8, ptr %70, align 1, !tbaa !3
-  %72 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  store i8 %71, ptr %67, align 1, !tbaa !3
-  %73 = lshr i16 %58, 4
-  %74 = zext nneg i16 %73 to i64
-  %75 = getelementptr inbounds nuw i8, ptr @.str.17, i64 %74
-  %76 = load i8, ptr %75, align 1, !tbaa !3
-  %77 = getelementptr inbounds nuw i8, ptr %1, i64 3
-  store i8 %76, ptr %72, align 1, !tbaa !3
-  %78 = and i16 %58, 15
-  %79 = zext nneg i16 %78 to i64
-  %80 = getelementptr inbounds nuw i8, ptr @.str.17, i64 %79
-  %81 = load i8, ptr %80, align 1, !tbaa !3
-  %82 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store i8 %81, ptr %77, align 1, !tbaa !3
+63:                                               ; preds = %56
+  %64 = lshr i32 %61, 12
+  %65 = zext nneg i32 %64 to i64
+  %66 = getelementptr inbounds nuw i8, ptr @.str.17, i64 %65
+  %67 = load i8, ptr %66, align 1, !tbaa !3
+  %68 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  store i8 %67, ptr %1, align 1, !tbaa !3
+  %69 = and i16 %57, 15
+  %70 = zext nneg i16 %69 to i64
+  %71 = getelementptr inbounds nuw i8, ptr @.str.17, i64 %70
+  %72 = load i8, ptr %71, align 1, !tbaa !3
+  %73 = getelementptr inbounds nuw i8, ptr %1, i64 2
+  store i8 %72, ptr %68, align 1, !tbaa !3
+  %74 = lshr i16 %59, 4
+  %75 = zext nneg i16 %74 to i64
+  %76 = getelementptr inbounds nuw i8, ptr @.str.17, i64 %75
+  %77 = load i8, ptr %76, align 1, !tbaa !3
+  %78 = getelementptr inbounds nuw i8, ptr %1, i64 3
+  store i8 %77, ptr %73, align 1, !tbaa !3
+  %79 = and i16 %59, 15
+  %80 = zext nneg i16 %79 to i64
+  %81 = getelementptr inbounds nuw i8, ptr @.str.17, i64 %80
+  %82 = load i8, ptr %81, align 1, !tbaa !3
+  %83 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  store i8 %82, ptr %78, align 1, !tbaa !3
   br label %"_ZZNK5boost4urls12ipv6_address10print_implEPcENK3$_1clES2_t.exit"
 
-83:                                               ; preds = %55
-  br i1 %6, label %100, label %84
+84:                                               ; preds = %56
+  br i1 %6, label %101, label %85
 
-84:                                               ; preds = %83
-  %85 = lshr i32 %60, 8
-  %86 = zext nneg i32 %85 to i64
-  %87 = getelementptr inbounds nuw i8, ptr @.str.17, i64 %86
-  %88 = load i8, ptr %87, align 1, !tbaa !3
-  %89 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  store i8 %88, ptr %1, align 1, !tbaa !3
-  %90 = lshr i16 %58, 4
-  %91 = zext nneg i16 %90 to i64
-  %92 = getelementptr inbounds nuw i8, ptr @.str.17, i64 %91
-  %93 = load i8, ptr %92, align 1, !tbaa !3
-  %94 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  store i8 %93, ptr %89, align 1, !tbaa !3
-  %95 = and i16 %58, 15
-  %96 = zext nneg i16 %95 to i64
-  %97 = getelementptr inbounds nuw i8, ptr @.str.17, i64 %96
-  %98 = load i8, ptr %97, align 1, !tbaa !3
-  %99 = getelementptr inbounds nuw i8, ptr %1, i64 3
-  store i8 %98, ptr %94, align 1, !tbaa !3
+85:                                               ; preds = %84
+  %86 = lshr i32 %61, 8
+  %87 = zext nneg i32 %86 to i64
+  %88 = getelementptr inbounds nuw i8, ptr @.str.17, i64 %87
+  %89 = load i8, ptr %88, align 1, !tbaa !3
+  %90 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  store i8 %89, ptr %1, align 1, !tbaa !3
+  %91 = lshr i16 %59, 4
+  %92 = zext nneg i16 %91 to i64
+  %93 = getelementptr inbounds nuw i8, ptr @.str.17, i64 %92
+  %94 = load i8, ptr %93, align 1, !tbaa !3
+  %95 = getelementptr inbounds nuw i8, ptr %1, i64 2
+  store i8 %94, ptr %90, align 1, !tbaa !3
+  %96 = and i16 %59, 15
+  %97 = zext nneg i16 %96 to i64
+  %98 = getelementptr inbounds nuw i8, ptr @.str.17, i64 %97
+  %99 = load i8, ptr %98, align 1, !tbaa !3
+  %100 = getelementptr inbounds nuw i8, ptr %1, i64 3
+  store i8 %99, ptr %95, align 1, !tbaa !3
   br label %"_ZZNK5boost4urls12ipv6_address10print_implEPcENK3$_1clES2_t.exit"
 
-100:                                              ; preds = %83
-  %101 = icmp samesign ugt i16 %59, 15
-  br i1 %101, label %102, label %113
+101:                                              ; preds = %84
+  %102 = icmp samesign ugt i16 %60, 15
+  br i1 %102, label %103, label %114
 
-102:                                              ; preds = %100
-  %103 = lshr i32 %60, 4
-  %104 = zext nneg i32 %103 to i64
-  %105 = getelementptr inbounds nuw i8, ptr @.str.17, i64 %104
-  %106 = load i8, ptr %105, align 1, !tbaa !3
-  %107 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  store i8 %106, ptr %1, align 1, !tbaa !3
-  %108 = and i16 %58, 15
-  %109 = zext nneg i16 %108 to i64
-  %110 = getelementptr inbounds nuw i8, ptr @.str.17, i64 %109
-  %111 = load i8, ptr %110, align 1, !tbaa !3
-  %112 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  store i8 %111, ptr %107, align 1, !tbaa !3
+103:                                              ; preds = %101
+  %104 = lshr i32 %61, 4
+  %105 = zext nneg i32 %104 to i64
+  %106 = getelementptr inbounds nuw i8, ptr @.str.17, i64 %105
+  %107 = load i8, ptr %106, align 1, !tbaa !3
+  %108 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  store i8 %107, ptr %1, align 1, !tbaa !3
+  %109 = and i16 %59, 15
+  %110 = zext nneg i16 %109 to i64
+  %111 = getelementptr inbounds nuw i8, ptr @.str.17, i64 %110
+  %112 = load i8, ptr %111, align 1, !tbaa !3
+  %113 = getelementptr inbounds nuw i8, ptr %1, i64 2
+  store i8 %112, ptr %108, align 1, !tbaa !3
   br label %"_ZZNK5boost4urls12ipv6_address10print_implEPcENK3$_1clES2_t.exit"
 
-113:                                              ; preds = %100
-  %114 = zext nneg i16 %59 to i64
-  %115 = getelementptr inbounds nuw i8, ptr @.str.17, i64 %114
-  %116 = load i8, ptr %115, align 1, !tbaa !3
-  %117 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  store i8 %116, ptr %1, align 1, !tbaa !3
+114:                                              ; preds = %101
+  %115 = zext nneg i16 %60 to i64
+  %116 = getelementptr inbounds nuw i8, ptr @.str.17, i64 %115
+  %117 = load i8, ptr %116, align 1, !tbaa !3
+  %118 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  store i8 %117, ptr %1, align 1, !tbaa !3
   br label %"_ZZNK5boost4urls12ipv6_address10print_implEPcENK3$_1clES2_t.exit"
 
-118:                                              ; preds = %54
-  %119 = getelementptr inbounds nuw i8, ptr %1, i64 1
+119:                                              ; preds = %55
+  %120 = getelementptr inbounds nuw i8, ptr %1, i64 1
   store i8 58, ptr %1, align 1, !tbaa !3
-  %120 = getelementptr inbounds nuw i8, ptr %0, i64 %.154
-  %121 = icmp samesign eq i64 %.154, %.v
-  br i1 %121, label %122, label %"_ZZNK5boost4urls12ipv6_address10print_implEPcENK3$_1clES2_t.exit"
+  %121 = getelementptr inbounds nuw i8, ptr %0, i64 %.154
+  %122 = icmp samesign eq i64 %.154, %.v
+  br i1 %122, label %123, label %"_ZZNK5boost4urls12ipv6_address10print_implEPcENK3$_1clES2_t.exit"
 
-122:                                              ; preds = %118
-  %123 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  store i8 58, ptr %119, align 1, !tbaa !3
+123:                                              ; preds = %119
+  %124 = getelementptr inbounds nuw i8, ptr %1, i64 2
+  store i8 58, ptr %120, align 1, !tbaa !3
   br label %"_ZZNK5boost4urls12ipv6_address10print_implEPcENK3$_1clES2_t.exit"
 
-"_ZZNK5boost4urls12ipv6_address10print_implEPcENK3$_1clES2_t.exit": ; preds = %113, %102, %84, %62, %118, %122
-  %.261 = phi ptr [ %120, %118 ], [ %120, %122 ], [ %10, %62 ], [ %10, %84 ], [ %10, %102 ], [ %10, %113 ]
-  %.0 = phi ptr [ %119, %118 ], [ %123, %122 ], [ %82, %62 ], [ %99, %84 ], [ %112, %102 ], [ %117, %113 ]
+"_ZZNK5boost4urls12ipv6_address10print_implEPcENK3$_1clES2_t.exit": ; preds = %114, %103, %85, %63, %119, %123
+  %.261 = phi ptr [ %121, %119 ], [ %121, %123 ], [ %10, %63 ], [ %10, %85 ], [ %10, %103 ], [ %10, %114 ]
+  %.0 = phi ptr [ %120, %119 ], [ %124, %123 ], [ %83, %63 ], [ %100, %85 ], [ %113, %103 ], [ %118, %114 ]
   %.not6980 = icmp eq ptr %.261, %40
   br i1 %.not6980, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %"_ZZNK5boost4urls12ipv6_address10print_implEPcENK3$_1clES2_t.exit"
-  %124 = sext i32 %.157 to i64
-  br label %125
+  %125 = sext i32 %.157 to i64
+  br label %126
 
-125:                                              ; preds = %.lr.ph, %.backedge
+126:                                              ; preds = %.lr.ph, %.backedge
   %.182 = phi ptr [ %.0, %.lr.ph ], [ %.1.be, %.backedge ]
   %.36281 = phi ptr [ %.261, %.lr.ph ], [ %.362.be, %.backedge ]
-  %126 = getelementptr inbounds nuw i8, ptr %.182, i64 1
+  %127 = getelementptr inbounds nuw i8, ptr %.182, i64 1
   store i8 58, ptr %.182, align 1, !tbaa !3
-  %127 = ptrtoint ptr %.36281 to i64
-  %128 = sub i64 %127, %41
-  %129 = icmp eq i64 %128, %124
-  br i1 %129, label %130, label %134
+  %128 = ptrtoint ptr %.36281 to i64
+  %129 = sub i64 %128, %41
+  %130 = icmp eq i64 %129, %125
+  br i1 %130, label %131, label %135
 
-130:                                              ; preds = %125
-  %131 = getelementptr inbounds nuw i8, ptr %.36281, i64 %.154
-  %132 = icmp eq ptr %131, %40
-  br i1 %132, label %.backedge.thread, label %.backedge
+131:                                              ; preds = %126
+  %132 = getelementptr inbounds nuw i8, ptr %.36281, i64 %.154
+  %133 = icmp eq ptr %132, %40
+  br i1 %133, label %.backedge.thread, label %.backedge
 
-.backedge.thread:                                 ; preds = %130
-  %133 = getelementptr inbounds nuw i8, ptr %.182, i64 2
-  store i8 58, ptr %126, align 1, !tbaa !3
+.backedge.thread:                                 ; preds = %131
+  %134 = getelementptr inbounds nuw i8, ptr %.182, i64 2
+  store i8 58, ptr %127, align 1, !tbaa !3
   br label %._crit_edge
 
-.backedge:                                        ; preds = %130, %"_ZZNK5boost4urls12ipv6_address10print_implEPcENK3$_1clES2_t.exit71"
-  %.362.be = phi ptr [ %200, %"_ZZNK5boost4urls12ipv6_address10print_implEPcENK3$_1clES2_t.exit71" ], [ %131, %130 ]
-  %.1.be = phi ptr [ %.0.i70, %"_ZZNK5boost4urls12ipv6_address10print_implEPcENK3$_1clES2_t.exit71" ], [ %126, %130 ]
+.backedge:                                        ; preds = %131, %"_ZZNK5boost4urls12ipv6_address10print_implEPcENK3$_1clES2_t.exit71"
+  %.362.be = phi ptr [ %201, %"_ZZNK5boost4urls12ipv6_address10print_implEPcENK3$_1clES2_t.exit71" ], [ %132, %131 ]
+  %.1.be = phi ptr [ %.0.i70, %"_ZZNK5boost4urls12ipv6_address10print_implEPcENK3$_1clES2_t.exit71" ], [ %127, %131 ]
   %.not69 = icmp eq ptr %.362.be, %40
-  br i1 %.not69, label %._crit_edge, label %125, !llvm.loop !43
+  br i1 %.not69, label %._crit_edge, label %126, !llvm.loop !43
 
-134:                                              ; preds = %125
-  %135 = load i8, ptr %.36281, align 1, !tbaa !3
-  %136 = zext i8 %135 to i16
-  %137 = shl nuw i16 %136, 8
-  %138 = getelementptr inbounds nuw i8, ptr %.36281, i64 1
-  %139 = load i8, ptr %138, align 1, !tbaa !3
-  %140 = zext i8 %139 to i16
-  %141 = or disjoint i16 %137, %140
-  %142 = zext i16 %141 to i32
-  %143 = icmp ugt i8 %135, 15
-  br i1 %143, label %144, label %165
+135:                                              ; preds = %126
+  %136 = load i8, ptr %.36281, align 1, !tbaa !3
+  %137 = zext i8 %136 to i16
+  %138 = shl nuw i16 %137, 8
+  %139 = getelementptr inbounds nuw i8, ptr %.36281, i64 1
+  %140 = load i8, ptr %139, align 1, !tbaa !3
+  %141 = zext i8 %140 to i16
+  %142 = or disjoint i16 %138, %141
+  %143 = zext i16 %142 to i32
+  %144 = icmp ugt i8 %136, 15
+  br i1 %144, label %145, label %166
 
-144:                                              ; preds = %134
-  %145 = lshr i32 %142, 12
-  %146 = zext nneg i32 %145 to i64
-  %147 = getelementptr inbounds nuw i8, ptr @.str.17, i64 %146
-  %148 = load i8, ptr %147, align 1, !tbaa !3
-  %149 = getelementptr inbounds nuw i8, ptr %.182, i64 2
-  store i8 %148, ptr %126, align 1, !tbaa !3
-  %150 = and i16 %136, 15
-  %151 = zext nneg i16 %150 to i64
-  %152 = getelementptr inbounds nuw i8, ptr @.str.17, i64 %151
-  %153 = load i8, ptr %152, align 1, !tbaa !3
-  %154 = getelementptr inbounds nuw i8, ptr %.182, i64 3
-  store i8 %153, ptr %149, align 1, !tbaa !3
-  %155 = lshr i16 %140, 4
-  %156 = zext nneg i16 %155 to i64
-  %157 = getelementptr inbounds nuw i8, ptr @.str.17, i64 %156
-  %158 = load i8, ptr %157, align 1, !tbaa !3
-  %159 = getelementptr inbounds nuw i8, ptr %.182, i64 4
-  store i8 %158, ptr %154, align 1, !tbaa !3
-  %160 = and i16 %140, 15
-  %161 = zext nneg i16 %160 to i64
-  %162 = getelementptr inbounds nuw i8, ptr @.str.17, i64 %161
-  %163 = load i8, ptr %162, align 1, !tbaa !3
-  %164 = getelementptr inbounds nuw i8, ptr %.182, i64 5
-  store i8 %163, ptr %159, align 1, !tbaa !3
+145:                                              ; preds = %135
+  %146 = lshr i32 %143, 12
+  %147 = zext nneg i32 %146 to i64
+  %148 = getelementptr inbounds nuw i8, ptr @.str.17, i64 %147
+  %149 = load i8, ptr %148, align 1, !tbaa !3
+  %150 = getelementptr inbounds nuw i8, ptr %.182, i64 2
+  store i8 %149, ptr %127, align 1, !tbaa !3
+  %151 = and i16 %137, 15
+  %152 = zext nneg i16 %151 to i64
+  %153 = getelementptr inbounds nuw i8, ptr @.str.17, i64 %152
+  %154 = load i8, ptr %153, align 1, !tbaa !3
+  %155 = getelementptr inbounds nuw i8, ptr %.182, i64 3
+  store i8 %154, ptr %150, align 1, !tbaa !3
+  %156 = lshr i16 %141, 4
+  %157 = zext nneg i16 %156 to i64
+  %158 = getelementptr inbounds nuw i8, ptr @.str.17, i64 %157
+  %159 = load i8, ptr %158, align 1, !tbaa !3
+  %160 = getelementptr inbounds nuw i8, ptr %.182, i64 4
+  store i8 %159, ptr %155, align 1, !tbaa !3
+  %161 = and i16 %141, 15
+  %162 = zext nneg i16 %161 to i64
+  %163 = getelementptr inbounds nuw i8, ptr @.str.17, i64 %162
+  %164 = load i8, ptr %163, align 1, !tbaa !3
+  %165 = getelementptr inbounds nuw i8, ptr %.182, i64 5
+  store i8 %164, ptr %160, align 1, !tbaa !3
   br label %"_ZZNK5boost4urls12ipv6_address10print_implEPcENK3$_1clES2_t.exit71"
 
-165:                                              ; preds = %134
-  %.not76 = icmp eq i8 %135, 0
-  br i1 %.not76, label %182, label %166
+166:                                              ; preds = %135
+  %.not76 = icmp eq i8 %136, 0
+  br i1 %.not76, label %183, label %167
 
-166:                                              ; preds = %165
-  %167 = lshr i32 %142, 8
-  %168 = zext nneg i32 %167 to i64
-  %169 = getelementptr inbounds nuw i8, ptr @.str.17, i64 %168
-  %170 = load i8, ptr %169, align 1, !tbaa !3
-  %171 = getelementptr inbounds nuw i8, ptr %.182, i64 2
-  store i8 %170, ptr %126, align 1, !tbaa !3
-  %172 = lshr i16 %140, 4
-  %173 = zext nneg i16 %172 to i64
-  %174 = getelementptr inbounds nuw i8, ptr @.str.17, i64 %173
-  %175 = load i8, ptr %174, align 1, !tbaa !3
-  %176 = getelementptr inbounds nuw i8, ptr %.182, i64 3
-  store i8 %175, ptr %171, align 1, !tbaa !3
-  %177 = and i16 %140, 15
-  %178 = zext nneg i16 %177 to i64
-  %179 = getelementptr inbounds nuw i8, ptr @.str.17, i64 %178
-  %180 = load i8, ptr %179, align 1, !tbaa !3
-  %181 = getelementptr inbounds nuw i8, ptr %.182, i64 4
-  store i8 %180, ptr %176, align 1, !tbaa !3
+167:                                              ; preds = %166
+  %168 = lshr i32 %143, 8
+  %169 = zext nneg i32 %168 to i64
+  %170 = getelementptr inbounds nuw i8, ptr @.str.17, i64 %169
+  %171 = load i8, ptr %170, align 1, !tbaa !3
+  %172 = getelementptr inbounds nuw i8, ptr %.182, i64 2
+  store i8 %171, ptr %127, align 1, !tbaa !3
+  %173 = lshr i16 %141, 4
+  %174 = zext nneg i16 %173 to i64
+  %175 = getelementptr inbounds nuw i8, ptr @.str.17, i64 %174
+  %176 = load i8, ptr %175, align 1, !tbaa !3
+  %177 = getelementptr inbounds nuw i8, ptr %.182, i64 3
+  store i8 %176, ptr %172, align 1, !tbaa !3
+  %178 = and i16 %141, 15
+  %179 = zext nneg i16 %178 to i64
+  %180 = getelementptr inbounds nuw i8, ptr @.str.17, i64 %179
+  %181 = load i8, ptr %180, align 1, !tbaa !3
+  %182 = getelementptr inbounds nuw i8, ptr %.182, i64 4
+  store i8 %181, ptr %177, align 1, !tbaa !3
   br label %"_ZZNK5boost4urls12ipv6_address10print_implEPcENK3$_1clES2_t.exit71"
 
-182:                                              ; preds = %165
-  %183 = icmp samesign ugt i16 %141, 15
-  br i1 %183, label %184, label %195
+183:                                              ; preds = %166
+  %184 = icmp samesign ugt i16 %142, 15
+  br i1 %184, label %185, label %196
 
-184:                                              ; preds = %182
-  %185 = lshr i32 %142, 4
-  %186 = zext nneg i32 %185 to i64
-  %187 = getelementptr inbounds nuw i8, ptr @.str.17, i64 %186
-  %188 = load i8, ptr %187, align 1, !tbaa !3
-  %189 = getelementptr inbounds nuw i8, ptr %.182, i64 2
-  store i8 %188, ptr %126, align 1, !tbaa !3
-  %190 = and i16 %140, 15
-  %191 = zext nneg i16 %190 to i64
-  %192 = getelementptr inbounds nuw i8, ptr @.str.17, i64 %191
-  %193 = load i8, ptr %192, align 1, !tbaa !3
-  %194 = getelementptr inbounds nuw i8, ptr %.182, i64 3
-  store i8 %193, ptr %189, align 1, !tbaa !3
+185:                                              ; preds = %183
+  %186 = lshr i32 %143, 4
+  %187 = zext nneg i32 %186 to i64
+  %188 = getelementptr inbounds nuw i8, ptr @.str.17, i64 %187
+  %189 = load i8, ptr %188, align 1, !tbaa !3
+  %190 = getelementptr inbounds nuw i8, ptr %.182, i64 2
+  store i8 %189, ptr %127, align 1, !tbaa !3
+  %191 = and i16 %141, 15
+  %192 = zext nneg i16 %191 to i64
+  %193 = getelementptr inbounds nuw i8, ptr @.str.17, i64 %192
+  %194 = load i8, ptr %193, align 1, !tbaa !3
+  %195 = getelementptr inbounds nuw i8, ptr %.182, i64 3
+  store i8 %194, ptr %190, align 1, !tbaa !3
   br label %"_ZZNK5boost4urls12ipv6_address10print_implEPcENK3$_1clES2_t.exit71"
 
-195:                                              ; preds = %182
-  %196 = zext nneg i16 %141 to i64
-  %197 = getelementptr inbounds nuw i8, ptr @.str.17, i64 %196
-  %198 = load i8, ptr %197, align 1, !tbaa !3
-  %199 = getelementptr inbounds nuw i8, ptr %.182, i64 2
-  store i8 %198, ptr %126, align 1, !tbaa !3
+196:                                              ; preds = %183
+  %197 = zext nneg i16 %142 to i64
+  %198 = getelementptr inbounds nuw i8, ptr @.str.17, i64 %197
+  %199 = load i8, ptr %198, align 1, !tbaa !3
+  %200 = getelementptr inbounds nuw i8, ptr %.182, i64 2
+  store i8 %199, ptr %127, align 1, !tbaa !3
   br label %"_ZZNK5boost4urls12ipv6_address10print_implEPcENK3$_1clES2_t.exit71"
 
-"_ZZNK5boost4urls12ipv6_address10print_implEPcENK3$_1clES2_t.exit71": ; preds = %144, %166, %184, %195
-  %.0.i70 = phi ptr [ %164, %144 ], [ %181, %166 ], [ %194, %184 ], [ %199, %195 ]
-  %200 = getelementptr inbounds nuw i8, ptr %.36281, i64 2
+"_ZZNK5boost4urls12ipv6_address10print_implEPcENK3$_1clES2_t.exit71": ; preds = %145, %167, %185, %196
+  %.0.i70 = phi ptr [ %165, %145 ], [ %182, %167 ], [ %195, %185 ], [ %200, %196 ]
+  %201 = getelementptr inbounds nuw i8, ptr %.36281, i64 2
   br label %.backedge
 
 ._crit_edge:                                      ; preds = %.backedge, %.backedge.thread, %"_ZZNK5boost4urls12ipv6_address10print_implEPcENK3$_1clES2_t.exit"
-  %.1.lcssa = phi ptr [ %.0, %"_ZZNK5boost4urls12ipv6_address10print_implEPcENK3$_1clES2_t.exit" ], [ %133, %.backedge.thread ], [ %.1.be, %.backedge ]
-  br i1 %or.cond, label %201, label %215
+  %.1.lcssa = phi ptr [ %.0, %"_ZZNK5boost4urls12ipv6_address10print_implEPcENK3$_1clES2_t.exit" ], [ %134, %.backedge.thread ], [ %.1.be, %.backedge ]
+  br i1 %or.cond, label %202, label %216
 
-201:                                              ; preds = %._crit_edge
+202:                                              ; preds = %._crit_edge
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %202 = load i8, ptr %40, align 1, !tbaa !3
-  store i8 %202, ptr %3, align 1, !tbaa !3
-  %203 = getelementptr inbounds nuw i8, ptr %40, i64 1
-  %204 = load i8, ptr %203, align 1, !tbaa !3
-  %205 = getelementptr inbounds nuw i8, ptr %3, i64 1
-  store i8 %204, ptr %205, align 1, !tbaa !3
-  %206 = getelementptr inbounds nuw i8, ptr %40, i64 2
-  %207 = load i8, ptr %206, align 1, !tbaa !3
-  %208 = getelementptr inbounds nuw i8, ptr %3, i64 2
-  store i8 %207, ptr %208, align 1, !tbaa !3
-  %209 = getelementptr inbounds nuw i8, ptr %40, i64 3
-  %210 = load i8, ptr %209, align 1, !tbaa !3
-  %211 = getelementptr inbounds nuw i8, ptr %3, i64 3
-  store i8 %210, ptr %211, align 1, !tbaa !3
+  %203 = load i8, ptr %40, align 1, !tbaa !3
+  store i8 %203, ptr %3, align 1, !tbaa !3
+  %204 = getelementptr inbounds nuw i8, ptr %40, i64 1
+  %205 = load i8, ptr %204, align 1, !tbaa !3
+  %206 = getelementptr inbounds nuw i8, ptr %3, i64 1
+  store i8 %205, ptr %206, align 1, !tbaa !3
+  %207 = getelementptr inbounds nuw i8, ptr %40, i64 2
+  %208 = load i8, ptr %207, align 1, !tbaa !3
+  %209 = getelementptr inbounds nuw i8, ptr %3, i64 2
+  store i8 %208, ptr %209, align 1, !tbaa !3
+  %210 = getelementptr inbounds nuw i8, ptr %40, i64 3
+  %211 = load i8, ptr %210, align 1, !tbaa !3
+  %212 = getelementptr inbounds nuw i8, ptr %3, i64 3
+  store i8 %211, ptr %212, align 1, !tbaa !3
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN5boost4urls12ipv4_addressC1ERKSt5arrayIhLm4EE(ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull align 1 dereferenceable(4) %3) #23
-  %212 = getelementptr inbounds nuw i8, ptr %.1.lcssa, i64 1
+  %213 = getelementptr inbounds nuw i8, ptr %.1.lcssa, i64 1
   store i8 58, ptr %.1.lcssa, align 1, !tbaa !3
-  %213 = call noundef i64 @_ZNK5boost4urls12ipv4_address10print_implEPc(ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull %212) #23
-  %214 = getelementptr inbounds nuw i8, ptr %212, i64 %213
+  %214 = call noundef i64 @_ZNK5boost4urls12ipv4_address10print_implEPc(ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull %213) #23
+  %215 = getelementptr inbounds nuw i8, ptr %213, i64 %214
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %215
+  br label %216
 
-215:                                              ; preds = %201, %._crit_edge
-  %.3 = phi ptr [ %214, %201 ], [ %.1.lcssa, %._crit_edge ]
-  %216 = ptrtoint ptr %.3 to i64
-  %217 = ptrtoint ptr %1 to i64
-  %218 = sub i64 %216, %217
-  ret i64 %218
+216:                                              ; preds = %202, %._crit_edge
+  %.3 = phi ptr [ %215, %202 ], [ %.1.lcssa, %._crit_edge ]
+  %217 = ptrtoint ptr %.3 to i64
+  %218 = ptrtoint ptr %1 to i64
+  %219 = sub i64 %217, %218
+  ret i64 %219
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: read) uwtable

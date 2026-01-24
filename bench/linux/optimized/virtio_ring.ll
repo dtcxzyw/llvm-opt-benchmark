@@ -4455,9 +4455,9 @@ define dso_local noundef range(i32 -12, 1) i32 @virtqueue_dma_mapping_error(ptr 
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 65
   %4 = load i8, ptr %3, align 1, !range !9, !noundef !10
   %5 = icmp eq i8 %4, 0
-  %6 = icmp eq i64 %1, -1
-  %7 = select i1 %6, i32 -12, i32 0
-  %8 = select i1 %5, i32 0, i32 %7
+  %6 = icmp ne i64 %1, -1
+  %7 = or i1 %6, %5
+  %8 = select i1 %7, i32 0, i32 -12
   ret i32 %8
 }
 

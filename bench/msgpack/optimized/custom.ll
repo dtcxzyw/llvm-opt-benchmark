@@ -7843,8 +7843,9 @@ _ZN7msgpack2v113object_parser4elem4nextINS0_24object_stringize_visitorEEENS1_8ne
   %238 = getelementptr inbounds i8, ptr %232, i64 -7
   %239 = load i8, ptr %238, align 1, !range !155
   %240 = trunc nuw i8 %239 to i1
-  %spec.select.idx.i = select i1 %240, i64 0, i64 24
-  %.0.idx.i = select i1 %236, i64 %spec.select.idx.i, i64 0
+  %241 = xor i1 %240, true
+  %242 = select i1 %236, i1 %241, i1 false
+  %.0.idx.i = select i1 %242, i64 24, i64 0
   %.0.i38 = getelementptr inbounds nuw i8, ptr %237, i64 %.0.idx.i
   store ptr %.0.i38, ptr %0, align 8, !tbaa !59
   br label %7

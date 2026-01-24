@@ -24913,28 +24913,29 @@ define { <2 x float>, float } @Vector3Perpendicular(<2 x float> %0, float %1) lo
   %3 = tail call float @llvm.fabs.f32(float %.sroa.020.0.vec.extract)
   %.sroa.020.4.vec.extract = extractelement <2 x float> %0, i64 1
   %4 = tail call float @llvm.fabs.f32(float %.sroa.020.4.vec.extract)
-  %5 = fcmp olt float %4, %3
-  %.0 = select i1 %5, float %4, float %3
-  %.sroa.7.0 = select i1 %5, float 1.000000e+00, float 0.000000e+00
+  %5 = fcmp uge float %4, %3
+  %.0 = select i1 %5, float %3, float %4
   %6 = tail call float @llvm.fabs.f32(float %1)
   %7 = fcmp olt float %6, %.0
   %.sroa.9.1 = select i1 %7, float 1.000000e+00, float 0.000000e+00
-  %.sroa.7.1 = select i1 %7, float 0.000000e+00, float %.sroa.7.0
   %8 = or i1 %5, %7
-  %.sroa.01.1 = select i1 %8, float 0.000000e+00, float 1.000000e+00
-  %9 = fneg float %.sroa.7.1
-  %10 = fmul float %1, %9
-  %11 = tail call float @llvm.fmuladd.f32(float %.sroa.020.4.vec.extract, float %.sroa.9.1, float %10)
-  %.sroa.033.0.vec.insert = insertelement <2 x float> poison, float %11, i64 0
-  %12 = fneg float %.sroa.9.1
-  %13 = fmul float %.sroa.020.0.vec.extract, %12
-  %14 = tail call float @llvm.fmuladd.f32(float %1, float %.sroa.01.1, float %13)
-  %.sroa.033.4.vec.insert = insertelement <2 x float> %.sroa.033.0.vec.insert, float %14, i64 1
-  %15 = fneg float %.sroa.01.1
-  %16 = fmul float %.sroa.020.4.vec.extract, %15
-  %17 = tail call float @llvm.fmuladd.f32(float %.sroa.020.0.vec.extract, float %.sroa.7.1, float %16)
+  %.sroa.7.1 = select i1 %8, float 0.000000e+00, float 1.000000e+00
+  %9 = xor i1 %5, true
+  %10 = or i1 %7, %9
+  %.sroa.01.1 = select i1 %10, float 0.000000e+00, float 1.000000e+00
+  %11 = fneg float %.sroa.7.1
+  %12 = fmul float %1, %11
+  %13 = tail call float @llvm.fmuladd.f32(float %.sroa.020.4.vec.extract, float %.sroa.9.1, float %12)
+  %.sroa.033.0.vec.insert = insertelement <2 x float> poison, float %13, i64 0
+  %14 = fneg float %.sroa.9.1
+  %15 = fmul float %.sroa.020.0.vec.extract, %14
+  %16 = tail call float @llvm.fmuladd.f32(float %1, float %.sroa.01.1, float %15)
+  %.sroa.033.4.vec.insert = insertelement <2 x float> %.sroa.033.0.vec.insert, float %16, i64 1
+  %17 = fneg float %.sroa.01.1
+  %18 = fmul float %.sroa.020.4.vec.extract, %17
+  %19 = tail call float @llvm.fmuladd.f32(float %.sroa.020.0.vec.extract, float %.sroa.7.1, float %18)
   %.fca.0.insert = insertvalue { <2 x float>, float } poison, <2 x float> %.sroa.033.4.vec.insert, 0
-  %.fca.1.insert = insertvalue { <2 x float>, float } %.fca.0.insert, float %17, 1
+  %.fca.1.insert = insertvalue { <2 x float>, float } %.fca.0.insert, float %19, 1
   ret { <2 x float>, float } %.fca.1.insert
 }
 

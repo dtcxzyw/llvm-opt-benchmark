@@ -1555,9 +1555,9 @@ define dso_local i32 @intel_power_domains_init(ptr noundef %0) local_unnamed_add
   %37 = load i32, ptr %36, align 4
   %38 = and i32 %37, 335544320
   %39 = icmp eq i32 %38, 0
-  %40 = icmp ugt i16 %13, 10
-  %41 = select i1 %40, i32 8, i32 0
-  %42 = select i1 %39, i32 %41, i32 8
+  %40 = icmp ult i16 %13, 11
+  %41 = and i1 %40, %39
+  %42 = select i1 %41, i32 0, i32 8
   %43 = select i1 %4, i32 %35, i32 0
   %44 = icmp slt i32 %7, 0
   %45 = icmp slt i32 %43, %7

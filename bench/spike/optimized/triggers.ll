@@ -395,12 +395,12 @@ define void @_ZN8triggers9trigger_t12tdata3_writeEP11processor_tm(ptr noundef no
   %45 = load ptr, ptr %31, align 8, !tbaa !145
   %46 = tail call noundef zeroext i1 @_ZNK10misa_csr_t23extension_enabled_constEh(ptr noundef nonnull align 8 dereferenceable(64) %45, i8 noundef zeroext 83) #22
   %47 = and i64 %2, 3
-  %.not = icmp eq i64 %47, 3
+  %.not = icmp ne i64 %47, 3
   %48 = trunc nuw nsw i64 %47 to i32
-  %spec.select = select i1 %.not, i32 0, i32 %48
-  %49 = select i1 %46, i32 %spec.select, i32 0
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 %49, ptr %50, align 8, !tbaa !143
+  %49 = and i1 %.not, %46
+  %50 = select i1 %49, i32 %48, i32 0
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i32 %50, ptr %51, align 8, !tbaa !143
   ret void
 }
 
@@ -2397,7 +2397,7 @@ define noundef zeroext i1 @_ZN8triggers8module_t12tdata1_writeEjm(ptr noundef no
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %11 = load ptr, ptr %10, align 8
   %12 = invoke noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(44) %8)
-          to label %13 unwind label %182
+          to label %13 unwind label %183
 
 13:                                               ; preds = %3
   %.pre = load ptr, ptr %0, align 8, !tbaa !211
@@ -2407,7 +2407,7 @@ define noundef zeroext i1 @_ZN8triggers8module_t12tdata1_writeEjm(ptr noundef no
   %15 = getelementptr inbounds nuw i8, ptr %.pre, i64 2416
   %16 = load i8, ptr %15, align 8, !tbaa !195, !range !14, !noundef !15
   %17 = trunc nuw i8 %16 to i1
-  br i1 %17, label %18, label %181
+  br i1 %17, label %18, label %182
 
 18:                                               ; preds = %14, %13
   %19 = getelementptr inbounds nuw i8, ptr %.pre, i64 3964
@@ -2431,7 +2431,7 @@ define noundef zeroext i1 @_ZN8triggers8module_t12tdata1_writeEjm(ptr noundef no
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 32
   %36 = load ptr, ptr %35, align 8
   %37 = invoke noundef zeroext i1 %36(ptr noundef nonnull align 8 dereferenceable(44) %33)
-          to label %38 unwind label %182
+          to label %38 unwind label %183
 
 38:                                               ; preds = %31
   br i1 %37, label %39, label %44
@@ -2469,7 +2469,7 @@ define noundef zeroext i1 @_ZN8triggers8module_t12tdata1_writeEjm(ptr noundef no
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 32
   %62 = load ptr, ptr %61, align 8
   %63 = invoke noundef zeroext i1 %62(ptr noundef nonnull align 8 dereferenceable(44) %59)
-          to label %64 unwind label %182
+          to label %64 unwind label %183
 
 64:                                               ; preds = %55
   %.pre50 = load ptr, ptr %4, align 8, !tbaa !204
@@ -2482,13 +2482,13 @@ define noundef zeroext i1 @_ZN8triggers8module_t12tdata1_writeEjm(ptr noundef no
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 40
   %70 = load ptr, ptr %69, align 8
   %71 = invoke noundef zeroext i1 %70(ptr noundef nonnull align 8 dereferenceable(44) %67)
-          to label %72 unwind label %182
+          to label %72 unwind label %183
 
 72:                                               ; preds = %65
   %73 = and i64 %.042, %52
   %.not47 = icmp ne i64 %73, 0
   %or.cond.not = select i1 %71, i1 %.not47, i1 false
-  br i1 %or.cond.not, label %181, label %._crit_edge
+  br i1 %or.cond.not, label %182, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %72
   %.pre49 = load ptr, ptr %4, align 8, !tbaa !204
@@ -2534,7 +2534,7 @@ define noundef zeroext i1 @_ZN8triggers8module_t12tdata1_writeEjm(ptr noundef no
 
 99:                                               ; preds = %98
   %100 = invoke noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #23
-          to label %101 unwind label %182
+          to label %101 unwind label %183
 
 101:                                              ; preds = %99
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %100, i8 0, i64 64, i1 false)
@@ -2545,7 +2545,7 @@ define noundef zeroext i1 @_ZN8triggers8module_t12tdata1_writeEjm(ptr noundef no
 
 103:                                              ; preds = %98
   %104 = invoke noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #23
-          to label %105 unwind label %182
+          to label %105 unwind label %183
 
 105:                                              ; preds = %103
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %104, i8 0, i64 64, i1 false)
@@ -2562,7 +2562,7 @@ define noundef zeroext i1 @_ZN8triggers8module_t12tdata1_writeEjm(ptr noundef no
 
 110:                                              ; preds = %98
   %111 = invoke noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #23
-          to label %112 unwind label %182
+          to label %112 unwind label %183
 
 112:                                              ; preds = %110
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %111, i8 0, i64 56, i1 false)
@@ -2571,7 +2571,7 @@ define noundef zeroext i1 @_ZN8triggers8module_t12tdata1_writeEjm(ptr noundef no
 
 113:                                              ; preds = %98
   %114 = invoke noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #23
-          to label %115 unwind label %182
+          to label %115 unwind label %183
 
 115:                                              ; preds = %113
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %114, i8 0, i64 56, i1 false)
@@ -2580,7 +2580,7 @@ define noundef zeroext i1 @_ZN8triggers8module_t12tdata1_writeEjm(ptr noundef no
 
 116:                                              ; preds = %98
   %117 = invoke noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #23
-          to label %118 unwind label %182
+          to label %118 unwind label %183
 
 118:                                              ; preds = %116
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(72) %117, i8 0, i64 72, i1 false)
@@ -2589,7 +2589,7 @@ define noundef zeroext i1 @_ZN8triggers8module_t12tdata1_writeEjm(ptr noundef no
 
 119:                                              ; preds = %98
   %120 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #23
-          to label %121 unwind label %182
+          to label %121 unwind label %183
 
 121:                                              ; preds = %119
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %120, i8 0, i64 48, i1 false)
@@ -2664,25 +2664,25 @@ _ZN8triggers9trigger_t12tdata3_writeEP11processor_tm.exit: ; preds = %122, %164
   %174 = load ptr, ptr %161, align 8, !tbaa !145
   %175 = tail call noundef zeroext i1 @_ZNK10misa_csr_t23extension_enabled_constEh(ptr noundef nonnull align 8 dereferenceable(64) %174, i8 noundef zeroext 83) #22
   %176 = and i64 %89, 3
-  %.not.i = icmp eq i64 %176, 3
+  %.not.i = icmp ne i64 %176, 3
   %177 = trunc nuw nsw i64 %176 to i32
-  %spec.select.i = select i1 %.not.i, i32 0, i32 %177
-  %178 = select i1 %175, i32 %spec.select.i, i32 0
-  %179 = getelementptr inbounds nuw i8, ptr %131, i64 24
-  store i32 %178, ptr %179, align 8, !tbaa !143
-  %180 = load ptr, ptr %0, align 8, !tbaa !211
-  invoke void @_ZN11processor_t15trigger_updatedERKSt6vectorIPN8triggers9trigger_tESaIS3_EE(ptr noundef nonnull align 8 dereferenceable(266872) %180, ptr noundef nonnull align 8 dereferenceable(24) %4)
-          to label %181 unwind label %182
+  %178 = and i1 %.not.i, %175
+  %179 = select i1 %178, i32 %177, i32 0
+  %180 = getelementptr inbounds nuw i8, ptr %131, i64 24
+  store i32 %179, ptr %180, align 8, !tbaa !143
+  %181 = load ptr, ptr %0, align 8, !tbaa !211
+  invoke void @_ZN11processor_t15trigger_updatedERKSt6vectorIPN8triggers9trigger_tESaIS3_EE(ptr noundef nonnull align 8 dereferenceable(266872) %181, ptr noundef nonnull align 8 dereferenceable(24) %4)
+          to label %182 unwind label %183
 
-181:                                              ; preds = %72, %_ZN8triggers9trigger_t12tdata3_writeEP11processor_tm.exit, %14
+182:                                              ; preds = %72, %_ZN8triggers9trigger_t12tdata3_writeEP11processor_tm.exit, %14
   %.0 = phi i1 [ false, %14 ], [ false, %72 ], [ true, %_ZN8triggers9trigger_t12tdata3_writeEP11processor_tm.exit ]
   ret i1 %.0
 
-182:                                              ; preds = %_ZN8triggers9trigger_t12tdata3_writeEP11processor_tm.exit, %119, %116, %113, %110, %103, %99, %65, %55, %31, %3
-  %183 = landingpad { ptr, i32 }
+183:                                              ; preds = %_ZN8triggers9trigger_t12tdata3_writeEP11processor_tm.exit, %119, %116, %113, %110, %103, %99, %65, %55, %31, %3
+  %184 = landingpad { ptr, i32 }
           catch ptr null
-  %184 = extractvalue { ptr, i32 } %183, 0
-  tail call void @__clang_call_terminate(ptr %184) #21
+  %185 = extractvalue { ptr, i32 } %184, 0
+  tail call void @__clang_call_terminate(ptr %185) #21
   unreachable
 }
 
@@ -2767,7 +2767,7 @@ define noundef zeroext i1 @_ZN8triggers8module_t12tdata3_writeEjm(ptr noundef no
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %11 = load ptr, ptr %10, align 8
   %12 = invoke noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(44) %8)
-          to label %13 unwind label %70
+          to label %13 unwind label %71
 
 13:                                               ; preds = %3
   %.pre = load ptr, ptr %0, align 8, !tbaa !211
@@ -2777,7 +2777,7 @@ define noundef zeroext i1 @_ZN8triggers8module_t12tdata3_writeEjm(ptr noundef no
   %15 = getelementptr inbounds nuw i8, ptr %.pre, i64 2416
   %16 = load i8, ptr %15, align 8, !tbaa !195, !range !14, !noundef !15
   %17 = trunc nuw i8 %16 to i1
-  br i1 %17, label %18, label %69
+  br i1 %17, label %18, label %70
 
 18:                                               ; preds = %14, %13
   %19 = load ptr, ptr %4, align 8, !tbaa !204
@@ -2835,25 +2835,25 @@ _ZN8triggers9trigger_t12tdata3_writeEP11processor_tm.exit: ; preds = %18, %52
   %62 = load ptr, ptr %49, align 8, !tbaa !145
   %63 = tail call noundef zeroext i1 @_ZNK10misa_csr_t23extension_enabled_constEh(ptr noundef nonnull align 8 dereferenceable(64) %62, i8 noundef zeroext 83) #22
   %64 = and i64 %2, 3
-  %.not.i = icmp eq i64 %64, 3
+  %.not.i = icmp ne i64 %64, 3
   %65 = trunc nuw nsw i64 %64 to i32
-  %spec.select.i = select i1 %.not.i, i32 0, i32 %65
-  %66 = select i1 %63, i32 %spec.select.i, i32 0
-  %67 = getelementptr inbounds nuw i8, ptr %21, i64 24
-  store i32 %66, ptr %67, align 8, !tbaa !143
-  %68 = load ptr, ptr %0, align 8, !tbaa !211
-  invoke void @_ZN11processor_t15trigger_updatedERKSt6vectorIPN8triggers9trigger_tESaIS3_EE(ptr noundef nonnull align 8 dereferenceable(266872) %68, ptr noundef nonnull align 8 dereferenceable(24) %4)
-          to label %69 unwind label %70
+  %66 = and i1 %.not.i, %63
+  %67 = select i1 %66, i32 %65, i32 0
+  %68 = getelementptr inbounds nuw i8, ptr %21, i64 24
+  store i32 %67, ptr %68, align 8, !tbaa !143
+  %69 = load ptr, ptr %0, align 8, !tbaa !211
+  invoke void @_ZN11processor_t15trigger_updatedERKSt6vectorIPN8triggers9trigger_tESaIS3_EE(ptr noundef nonnull align 8 dereferenceable(266872) %69, ptr noundef nonnull align 8 dereferenceable(24) %4)
+          to label %70 unwind label %71
 
-69:                                               ; preds = %_ZN8triggers9trigger_t12tdata3_writeEP11processor_tm.exit, %14
+70:                                               ; preds = %_ZN8triggers9trigger_t12tdata3_writeEP11processor_tm.exit, %14
   %.0 = phi i1 [ false, %14 ], [ true, %_ZN8triggers9trigger_t12tdata3_writeEP11processor_tm.exit ]
   ret i1 %.0
 
-70:                                               ; preds = %_ZN8triggers9trigger_t12tdata3_writeEP11processor_tm.exit, %3
-  %71 = landingpad { ptr, i32 }
+71:                                               ; preds = %_ZN8triggers9trigger_t12tdata3_writeEP11processor_tm.exit, %3
+  %72 = landingpad { ptr, i32 }
           catch ptr null
-  %72 = extractvalue { ptr, i32 } %71, 0
-  tail call void @__clang_call_terminate(ptr %72) #21
+  %73 = extractvalue { ptr, i32 } %72, 0
+  tail call void @__clang_call_terminate(ptr %73) #21
   unreachable
 }
 

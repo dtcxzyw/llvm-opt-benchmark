@@ -1495,14 +1495,14 @@ define internal noalias noundef ptr @worker_start(ptr noundef %0) #0 {
   br i1 %82, label %.loopexit115.i, label %83
 
 83:                                               ; preds = %.critedge.i
-  %84 = icmp eq i32 %80, 2
-  %85 = select i1 %84, i32 3, i32 0
-  %86 = load i64, ptr %2, align 8, !tbaa !41
-  %87 = sub i64 %.lcssa116.i, %86
-  %88 = icmp ugt i64 %87, 16384
-  %89 = add i64 %86, 16384
-  %spec.select.i = select i1 %88, i32 0, i32 %85
-  %spec.select110.i = select i1 %88, i64 %89, i64 %.lcssa116.i
+  %84 = icmp ne i32 %80, 2
+  %85 = load i64, ptr %2, align 8, !tbaa !41
+  %86 = sub i64 %.lcssa116.i, %85
+  %87 = icmp ugt i64 %86, 16384
+  %88 = add i64 %85, 16384
+  %89 = select i1 %87, i1 true, i1 %84
+  %spec.select.i = select i1 %89, i32 0, i32 3
+  %spec.select110.i = select i1 %87, i64 %88, i64 %.lcssa116.i
   %90 = load ptr, ptr %16, align 8, !tbaa !100
   %91 = load ptr, ptr %10, align 8, !tbaa !101
   %92 = load ptr, ptr %11, align 8, !tbaa !77

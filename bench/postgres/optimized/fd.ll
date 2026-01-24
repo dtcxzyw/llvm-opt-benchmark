@@ -2160,181 +2160,181 @@ define dso_local void @FileClose(i32 noundef %0) local_unnamed_addr #0 {
   %5 = getelementptr inbounds %struct.vfd, ptr %3, i64 %4
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, -1
-  br i1 %7, label %38, label %8
+  br i1 %7, label %37, label %8
 
 8:                                                ; preds = %1
   %9 = tail call i32 @close(i32 noundef %6) #24
   %.not = icmp eq i32 %9, 0
-  br i1 %.not, label %23, label %10
+  br i1 %.not, label %22, label %10
 
 10:                                               ; preds = %8
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %12 = load i16, ptr %11, align 4
   %13 = and i16 %12, 4
-  %.not24 = icmp eq i16 %13, 0
+  %.not24 = icmp ne i16 %13, 0
   %14 = load i8, ptr @data_sync_retry, align 1, !range !4
   %15 = trunc nuw i8 %14 to i1
-  %16 = select i1 %15, i32 15, i32 23
-  %17 = select i1 %.not24, i32 %16, i32 15
-  %18 = tail call zeroext i1 @errstart(i32 noundef %17, ptr noundef null) #24
-  br i1 %18, label %19, label %23
+  %.not31 = select i1 %.not24, i1 true, i1 %15
+  %16 = select i1 %.not31, i32 15, i32 23
+  %17 = tail call zeroext i1 @errstart(i32 noundef %16, ptr noundef null) #24
+  br i1 %17, label %18, label %22
 
-19:                                               ; preds = %10
-  %20 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  %21 = load ptr, ptr %20, align 8
-  %22 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5, ptr noundef %21) #24
+18:                                               ; preds = %10
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  %20 = load ptr, ptr %19, align 8
+  %21 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5, ptr noundef %20) #24
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1998, ptr noundef nonnull @__func__.FileClose) #24
-  br label %23
+  br label %22
 
-23:                                               ; preds = %10, %19, %8
-  %24 = load i32, ptr @nfile, align 4
-  %25 = add i32 %24, -1
-  store i32 %25, ptr @nfile, align 4
+22:                                               ; preds = %10, %18, %8
+  %23 = load i32, ptr @nfile, align 4
+  %24 = add i32 %23, -1
+  store i32 %24, ptr @nfile, align 4
   store i32 -1, ptr %5, align 8
-  %26 = load ptr, ptr @VfdCache, align 8
-  %27 = getelementptr inbounds %struct.vfd, ptr %26, i64 %4
-  %28 = getelementptr inbounds nuw i8, ptr %27, i64 20
-  %29 = load i32, ptr %28, align 4
-  %30 = getelementptr inbounds nuw i8, ptr %27, i64 24
-  %31 = load i32, ptr %30, align 8
-  %32 = sext i32 %31 to i64
-  %33 = getelementptr inbounds %struct.vfd, ptr %26, i64 %32
-  %34 = getelementptr inbounds nuw i8, ptr %33, i64 20
-  store i32 %29, ptr %34, align 4
-  %35 = sext i32 %29 to i64
-  %36 = getelementptr inbounds %struct.vfd, ptr %26, i64 %35
-  %37 = getelementptr inbounds nuw i8, ptr %36, i64 24
-  store i32 %31, ptr %37, align 8
-  br label %38
+  %25 = load ptr, ptr @VfdCache, align 8
+  %26 = getelementptr inbounds %struct.vfd, ptr %25, i64 %4
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 20
+  %28 = load i32, ptr %27, align 4
+  %29 = getelementptr inbounds nuw i8, ptr %26, i64 24
+  %30 = load i32, ptr %29, align 8
+  %31 = sext i32 %30 to i64
+  %32 = getelementptr inbounds %struct.vfd, ptr %25, i64 %31
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 20
+  store i32 %28, ptr %33, align 4
+  %34 = sext i32 %28 to i64
+  %35 = getelementptr inbounds %struct.vfd, ptr %25, i64 %34
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
+  store i32 %30, ptr %36, align 8
+  br label %37
 
-38:                                               ; preds = %23, %1
-  %39 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %40 = load i16, ptr %39, align 4
-  %41 = and i16 %40, 4
-  %.not25 = icmp eq i16 %41, 0
-  br i1 %.not25, label %47, label %42
+37:                                               ; preds = %22, %1
+  %38 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %39 = load i16, ptr %38, align 4
+  %40 = and i16 %39, 4
+  %.not25 = icmp eq i16 %40, 0
+  br i1 %.not25, label %46, label %41
 
-42:                                               ; preds = %38
-  %43 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %44 = load i64, ptr %43, align 8
-  %45 = load i64, ptr @temporary_files_size, align 8
-  %46 = sub i64 %45, %44
-  store i64 %46, ptr @temporary_files_size, align 8
-  store i64 0, ptr %43, align 8
-  br label %47
+41:                                               ; preds = %37
+  %42 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %43 = load i64, ptr %42, align 8
+  %44 = load i64, ptr @temporary_files_size, align 8
+  %45 = sub i64 %44, %43
+  store i64 %45, ptr @temporary_files_size, align 8
+  store i64 0, ptr %42, align 8
+  br label %46
 
-47:                                               ; preds = %42, %38
-  %48 = and i16 %40, 1
-  %.not26 = icmp eq i16 %48, 0
-  br i1 %.not26, label %87, label %49
+46:                                               ; preds = %41, %37
+  %47 = and i16 %39, 1
+  %.not26 = icmp eq i16 %47, 0
+  br i1 %.not26, label %86, label %48
 
-49:                                               ; preds = %47
+48:                                               ; preds = %46
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %50 = and i16 %40, -2
-  store i16 %50, ptr %39, align 4
-  %51 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  %52 = load ptr, ptr %51, align 8
-  %53 = call i32 @stat(ptr noundef %52, ptr noundef nonnull %2) #24
-  %.not27 = icmp eq i32 %53, 0
-  br i1 %.not27, label %57, label %54
+  %49 = and i16 %39, -2
+  store i16 %49, ptr %38, align 4
+  %50 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  %51 = load ptr, ptr %50, align 8
+  %52 = call i32 @stat(ptr noundef %51, ptr noundef nonnull %2) #24
+  %.not27 = icmp eq i32 %52, 0
+  br i1 %.not27, label %56, label %53
 
-54:                                               ; preds = %49
-  %55 = tail call ptr @__errno_location() #25
-  %56 = load i32, ptr %55, align 4
-  br label %57
+53:                                               ; preds = %48
+  %54 = tail call ptr @__errno_location() #25
+  %55 = load i32, ptr %54, align 4
+  br label %56
 
-57:                                               ; preds = %49, %54
-  %.0 = phi i32 [ %56, %54 ], [ 0, %49 ]
-  %58 = load ptr, ptr %51, align 8
-  %59 = tail call i32 @unlink(ptr noundef %58) #24
-  %.not28 = icmp eq i32 %59, 0
-  br i1 %.not28, label %66, label %60
+56:                                               ; preds = %48, %53
+  %.0 = phi i32 [ %55, %53 ], [ 0, %48 ]
+  %57 = load ptr, ptr %50, align 8
+  %58 = tail call i32 @unlink(ptr noundef %57) #24
+  %.not28 = icmp eq i32 %58, 0
+  br i1 %.not28, label %65, label %59
 
-60:                                               ; preds = %57
-  %61 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #24
-  br i1 %61, label %62, label %66
+59:                                               ; preds = %56
+  %60 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #24
+  br i1 %60, label %61, label %65
 
-62:                                               ; preds = %60
-  %63 = tail call i32 @errcode_for_file_access() #24
-  %64 = load ptr, ptr %51, align 8
-  %65 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.24, ptr noundef %64) #24
+61:                                               ; preds = %59
+  %62 = tail call i32 @errcode_for_file_access() #24
+  %63 = load ptr, ptr %50, align 8
+  %64 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.24, ptr noundef %63) #24
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2043, ptr noundef nonnull @__func__.FileClose) #24
-  br label %66
+  br label %65
 
-66:                                               ; preds = %60, %62, %57
-  %67 = icmp eq i32 %.0, 0
-  br i1 %67, label %68, label %80
+65:                                               ; preds = %59, %61, %56
+  %66 = icmp eq i32 %.0, 0
+  br i1 %66, label %67, label %79
 
-68:                                               ; preds = %66
-  %69 = load ptr, ptr %51, align 8
-  %70 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %71 = load i64, ptr %70, align 8
-  tail call void @pgstat_report_tempfile(i64 noundef %71) #24
-  %72 = load i32, ptr @log_temp_files, align 4
-  %73 = icmp slt i32 %72, 0
-  %74 = sdiv i64 %71, 1024
-  %75 = zext nneg i32 %72 to i64
-  %.not.i = icmp slt i64 %74, %75
-  %or.cond.i = select i1 %73, i1 true, i1 %.not.i
-  br i1 %or.cond.i, label %ReportTemporaryFileUsage.exit, label %76
+67:                                               ; preds = %65
+  %68 = load ptr, ptr %50, align 8
+  %69 = getelementptr inbounds nuw i8, ptr %2, i64 48
+  %70 = load i64, ptr %69, align 8
+  tail call void @pgstat_report_tempfile(i64 noundef %70) #24
+  %71 = load i32, ptr @log_temp_files, align 4
+  %72 = icmp slt i32 %71, 0
+  %73 = sdiv i64 %70, 1024
+  %74 = zext nneg i32 %71 to i64
+  %.not.i = icmp slt i64 %73, %74
+  %or.cond.i = select i1 %72, i1 true, i1 %.not.i
+  br i1 %or.cond.i, label %ReportTemporaryFileUsage.exit, label %75
 
-76:                                               ; preds = %68
-  %77 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #24
-  br i1 %77, label %78, label %ReportTemporaryFileUsage.exit
+75:                                               ; preds = %67
+  %76 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #24
+  br i1 %76, label %77, label %ReportTemporaryFileUsage.exit
 
-78:                                               ; preds = %76
-  %79 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.55, ptr noundef %69, i64 noundef %71) #24
+77:                                               ; preds = %75
+  %78 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.55, ptr noundef %68, i64 noundef %70) #24
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1536, ptr noundef nonnull @__func__.ReportTemporaryFileUsage) #24
   br label %ReportTemporaryFileUsage.exit
 
-80:                                               ; preds = %66
-  %81 = tail call ptr @__errno_location() #25
-  store i32 %.0, ptr %81, align 4
-  %82 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #24
-  br i1 %82, label %83, label %ReportTemporaryFileUsage.exit
+79:                                               ; preds = %65
+  %80 = tail call ptr @__errno_location() #25
+  store i32 %.0, ptr %80, align 4
+  %81 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #24
+  br i1 %81, label %82, label %ReportTemporaryFileUsage.exit
 
-83:                                               ; preds = %80
-  %84 = tail call i32 @errcode_for_file_access() #24
-  %85 = load ptr, ptr %51, align 8
-  %86 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.23, ptr noundef %85) #24
+82:                                               ; preds = %79
+  %83 = tail call i32 @errcode_for_file_access() #24
+  %84 = load ptr, ptr %50, align 8
+  %85 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.23, ptr noundef %84) #24
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2053, ptr noundef nonnull @__func__.FileClose) #24
   br label %ReportTemporaryFileUsage.exit
 
-ReportTemporaryFileUsage.exit:                    ; preds = %78, %76, %68, %80, %83
+ReportTemporaryFileUsage.exit:                    ; preds = %77, %75, %67, %79, %82
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %87
+  br label %86
 
-87:                                               ; preds = %ReportTemporaryFileUsage.exit, %47
-  %88 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %89 = load ptr, ptr %88, align 8
-  %.not29 = icmp eq ptr %89, null
-  br i1 %.not29, label %91, label %90
+86:                                               ; preds = %ReportTemporaryFileUsage.exit, %46
+  %87 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %88 = load ptr, ptr %87, align 8
+  %.not29 = icmp eq ptr %88, null
+  br i1 %.not29, label %90, label %89
 
-90:                                               ; preds = %87
-  tail call void @ResourceOwnerForget(ptr noundef nonnull %89, i64 noundef %4, ptr noundef nonnull @file_resowner_desc) #24
-  br label %91
+89:                                               ; preds = %86
+  tail call void @ResourceOwnerForget(ptr noundef nonnull %88, i64 noundef %4, ptr noundef nonnull @file_resowner_desc) #24
+  br label %90
 
-91:                                               ; preds = %90, %87
-  %92 = load ptr, ptr @VfdCache, align 8
-  %93 = getelementptr inbounds %struct.vfd, ptr %92, i64 %4
-  %94 = getelementptr inbounds nuw i8, ptr %93, i64 40
-  %95 = load ptr, ptr %94, align 8
-  %.not.i30 = icmp eq ptr %95, null
-  br i1 %.not.i30, label %FreeVfd.exit, label %96
+90:                                               ; preds = %89, %86
+  %91 = load ptr, ptr @VfdCache, align 8
+  %92 = getelementptr inbounds %struct.vfd, ptr %91, i64 %4
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 40
+  %94 = load ptr, ptr %93, align 8
+  %.not.i30 = icmp eq ptr %94, null
+  br i1 %.not.i30, label %FreeVfd.exit, label %95
 
-96:                                               ; preds = %91
-  tail call void @free(ptr noundef nonnull %95) #24
-  store ptr null, ptr %94, align 8
+95:                                               ; preds = %90
+  tail call void @free(ptr noundef nonnull %94) #24
+  store ptr null, ptr %93, align 8
   br label %FreeVfd.exit
 
-FreeVfd.exit:                                     ; preds = %91, %96
-  %97 = getelementptr inbounds nuw i8, ptr %93, i64 4
-  store i16 0, ptr %97, align 4
-  %98 = getelementptr inbounds nuw i8, ptr %92, i64 16
-  %99 = load i32, ptr %98, align 8
-  %100 = getelementptr inbounds nuw i8, ptr %93, i64 16
-  store i32 %99, ptr %100, align 8
-  store i32 %0, ptr %98, align 8
+FreeVfd.exit:                                     ; preds = %90, %95
+  %96 = getelementptr inbounds nuw i8, ptr %92, i64 4
+  store i16 0, ptr %96, align 4
+  %97 = getelementptr inbounds nuw i8, ptr %91, i64 16
+  %98 = load i32, ptr %97, align 8
+  %99 = getelementptr inbounds nuw i8, ptr %92, i64 16
+  store i32 %98, ptr %99, align 8
+  store i32 %0, ptr %97, align 8
   ret void
 }
 
@@ -3742,46 +3742,46 @@ define internal fastcc void @LruDelete(i32 noundef %0) unnamed_addr #0 {
   %5 = load i32, ptr %4, align 8
   %6 = tail call i32 @close(i32 noundef %5) #24
   %.not = icmp eq i32 %6, 0
-  br i1 %.not, label %20, label %7
+  br i1 %.not, label %19, label %7
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %9 = load i16, ptr %8, align 4
   %10 = and i16 %9, 4
-  %.not5 = icmp eq i16 %10, 0
+  %.not5 = icmp ne i16 %10, 0
   %11 = load i8, ptr @data_sync_retry, align 1, !range !4
   %12 = trunc nuw i8 %11 to i1
-  %13 = select i1 %12, i32 15, i32 23
-  %14 = select i1 %.not5, i32 %13, i32 15
-  %15 = tail call zeroext i1 @errstart(i32 noundef %14, ptr noundef null) #24
-  br i1 %15, label %16, label %20
+  %.not6 = select i1 %.not5, i1 true, i1 %12
+  %13 = select i1 %.not6, i32 15, i32 23
+  %14 = tail call zeroext i1 @errstart(i32 noundef %13, ptr noundef null) #24
+  br i1 %14, label %15, label %19
 
-16:                                               ; preds = %7
-  %17 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  %18 = load ptr, ptr %17, align 8
-  %19 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5, ptr noundef %18) #24
+15:                                               ; preds = %7
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  %17 = load ptr, ptr %16, align 8
+  %18 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5, ptr noundef %17) #24
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1303, ptr noundef nonnull @__func__.LruDelete) #24
-  br label %20
+  br label %19
 
-20:                                               ; preds = %7, %16, %1
+19:                                               ; preds = %7, %15, %1
   store i32 -1, ptr %4, align 8
-  %21 = load i32, ptr @nfile, align 4
-  %22 = add i32 %21, -1
-  store i32 %22, ptr @nfile, align 4
-  %23 = load ptr, ptr @VfdCache, align 8
-  %24 = getelementptr inbounds %struct.vfd, ptr %23, i64 %3
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 20
-  %26 = load i32, ptr %25, align 4
-  %27 = getelementptr inbounds nuw i8, ptr %24, i64 24
-  %28 = load i32, ptr %27, align 8
-  %29 = sext i32 %28 to i64
-  %30 = getelementptr inbounds %struct.vfd, ptr %23, i64 %29
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 20
-  store i32 %26, ptr %31, align 4
-  %32 = sext i32 %26 to i64
-  %33 = getelementptr inbounds %struct.vfd, ptr %23, i64 %32
-  %34 = getelementptr inbounds nuw i8, ptr %33, i64 24
-  store i32 %28, ptr %34, align 8
+  %20 = load i32, ptr @nfile, align 4
+  %21 = add i32 %20, -1
+  store i32 %21, ptr @nfile, align 4
+  %22 = load ptr, ptr @VfdCache, align 8
+  %23 = getelementptr inbounds %struct.vfd, ptr %22, i64 %3
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 20
+  %25 = load i32, ptr %24, align 4
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 24
+  %27 = load i32, ptr %26, align 8
+  %28 = sext i32 %27 to i64
+  %29 = getelementptr inbounds %struct.vfd, ptr %22, i64 %28
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 20
+  store i32 %25, ptr %30, align 4
+  %31 = sext i32 %25 to i64
+  %32 = getelementptr inbounds %struct.vfd, ptr %22, i64 %31
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 24
+  store i32 %27, ptr %33, align 8
   ret void
 }
 

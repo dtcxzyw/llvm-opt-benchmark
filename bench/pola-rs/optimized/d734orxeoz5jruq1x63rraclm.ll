@@ -22,12 +22,12 @@ define hidden { ptr, ptr } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   %8 = load ptr, ptr %7, align 8, !noalias !3, !align !9
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %10 = load ptr, ptr %9, align 8, !noalias !3
-  %.sroa.3.0.i = select i1 %6, ptr %10, ptr undef
   %.sroa.0.0.i = select i1 %6, ptr %8, ptr null
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !3
   %11 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
-  %.not = icmp eq ptr %.sroa.0.0.i, null
-  %. = select i1 %.not, ptr undef, ptr %.sroa.3.0.i
+  %.not = icmp ne ptr %.sroa.0.0.i, null
+  %.not4 = and i1 %.not, %6
+  %. = select i1 %.not4, ptr %10, ptr undef
   %12 = insertvalue { ptr, ptr } %11, ptr %., 1
   ret { ptr, ptr } %12
 }

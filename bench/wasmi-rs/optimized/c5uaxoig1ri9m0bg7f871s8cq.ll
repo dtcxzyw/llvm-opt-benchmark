@@ -655,69 +655,69 @@ define { i64, i64 } @_ZN10wasmi_core5table5Table4init17hfdedac7c19035517E(ptr no
 24:                                               ; preds = %20
   %25 = extractvalue { i64, i64 } %22, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %58
+  br label %59
 
 26:                                               ; preds = %20
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %27 = zext i32 %4 to i64
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %29 = load i64, ptr %28, align 8, !noundef !3
-  %.not65 = icmp ult i64 %29, %2
-  %30 = sub nuw i64 %29, %2
-  %31 = icmp ult i64 %30, %27
-  %32 = select i1 %.not65, i1 true, i1 %31
-  br i1 %32, label %58, label %33
+  %30 = icmp ult i64 %29, %2
+  %31 = sub nuw i64 %29, %2
+  %32 = icmp ult i64 %31, %27
+  %33 = select i1 %30, i1 true, i1 %32
+  br i1 %33, label %59, label %34
 
-33:                                               ; preds = %26
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %35 = load ptr, ptr %34, align 8, !nonnull !3, !noundef !3
-  %36 = getelementptr inbounds nuw { i64, i64 }, ptr %35, i64 %2
-  %37 = zext i32 %3 to i64
-  %38 = call { ptr, i64 } @_ZN10wasmi_core5table7element17ElementSegmentRef5items17h29e46ebb2f2a4cb7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %1)
-  %39 = extractvalue { ptr, i64 } %38, 0
-  %40 = extractvalue { ptr, i64 } %38, 1
-  %.not68 = icmp ult i64 %40, %37
-  %41 = sub nuw i64 %40, %37
-  %42 = getelementptr inbounds nuw { i64, i64 }, ptr %39, i64 %37
-  %43 = icmp ult i64 %41, %27
-  %.not5967 = icmp eq ptr %39, null
-  %.not59 = select i1 %.not68, i1 true, i1 %.not5967
-  %44 = select i1 %.not59, i1 true, i1 %43
-  br i1 %44, label %58, label %45
+34:                                               ; preds = %26
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %36 = load ptr, ptr %35, align 8, !nonnull !3, !noundef !3
+  %37 = getelementptr inbounds nuw { i64, i64 }, ptr %36, i64 %2
+  %38 = zext i32 %3 to i64
+  %39 = call { ptr, i64 } @_ZN10wasmi_core5table7element17ElementSegmentRef5items17h29e46ebb2f2a4cb7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %1)
+  %40 = extractvalue { ptr, i64 } %39, 0
+  %41 = extractvalue { ptr, i64 } %39, 1
+  %.not67 = icmp ult i64 %41, %38
+  %42 = sub nuw i64 %41, %38
+  %43 = getelementptr inbounds nuw { i64, i64 }, ptr %40, i64 %38
+  %44 = icmp ult i64 %42, %27
+  %.not5966 = icmp eq ptr %40, null
+  %.not59 = select i1 %.not67, i1 true, i1 %.not5966
+  %45 = select i1 %.not59, i1 true, i1 %44
+  br i1 %45, label %59, label %46
 
-45:                                               ; preds = %33
-  %46 = icmp eq i32 %4, 0
-  br i1 %46, label %58, label %47
+46:                                               ; preds = %34
+  %47 = icmp eq i32 %4, 0
+  br i1 %47, label %59, label %48
 
-47:                                               ; preds = %45
+48:                                               ; preds = %46
   %.not62 = icmp eq ptr %5, null
-  br i1 %.not62, label %51, label %48
+  br i1 %.not62, label %52, label %49
 
-48:                                               ; preds = %47
-  %49 = call { i64, i64 } @_ZN10wasmi_core4fuel4Fuel15consume_fuel_if17h2408c6f78846bca8E(ptr noalias noundef nonnull align 8 dereferenceable(32) %5, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %12)
-  %50 = extractvalue { i64, i64 } %49, 0
-  %.not63 = icmp eq i64 %50, 2
-  br i1 %.not63, label %51, label %53
+49:                                               ; preds = %48
+  %50 = call { i64, i64 } @_ZN10wasmi_core4fuel4Fuel15consume_fuel_if17h2408c6f78846bca8E(ptr noalias noundef nonnull align 8 dereferenceable(32) %5, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %12)
+  %51 = extractvalue { i64, i64 } %50, 0
+  %.not63 = icmp eq i64 %51, 2
+  br i1 %.not63, label %52, label %54
 
-51:                                               ; preds = %48, %47
-  %52 = shl nuw nsw i64 %27, 4
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %36, ptr nonnull readonly align 8 %42, i64 %52, i1 false), !alias.scope !59, !noalias !63
-  br label %58
+52:                                               ; preds = %49, %48
+  %53 = shl nuw nsw i64 %27, 4
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %37, ptr nonnull readonly align 8 %43, i64 %53, i1 false), !alias.scope !59, !noalias !63
+  br label %59
 
-53:                                               ; preds = %48
-  %54 = extractvalue { i64, i64 } %49, 1
-  %55 = call { i64, i64 } @"_ZN111_$LT$wasmi_core..table..error..TableError$u20$as$u20$core..convert..From$LT$wasmi_core..fuel..FuelError$GT$$GT$4from17h5f3b4c4d12c502d9E"(i64 noundef %50, i64 %54)
-  %56 = extractvalue { i64, i64 } %55, 0
-  %57 = extractvalue { i64, i64 } %55, 1
-  br label %58
+54:                                               ; preds = %49
+  %55 = extractvalue { i64, i64 } %50, 1
+  %56 = call { i64, i64 } @"_ZN111_$LT$wasmi_core..table..error..TableError$u20$as$u20$core..convert..From$LT$wasmi_core..fuel..FuelError$GT$$GT$4from17h5f3b4c4d12c502d9E"(i64 noundef %51, i64 %55)
+  %57 = extractvalue { i64, i64 } %56, 0
+  %58 = extractvalue { i64, i64 } %56, 1
+  br label %59
 
-58:                                               ; preds = %24, %53, %26, %33, %45, %51
-  %.sroa.7.1 = phi i64 [ undef, %51 ], [ %25, %24 ], [ %57, %53 ], [ %27, %26 ], [ %27, %33 ], [ undef, %45 ]
-  %.sroa.03.1 = phi i64 [ 11, %51 ], [ %23, %24 ], [ %56, %53 ], [ 5, %26 ], [ 5, %33 ], [ 11, %45 ]
+59:                                               ; preds = %24, %54, %26, %34, %46, %52
+  %.sroa.7.1 = phi i64 [ undef, %52 ], [ %25, %24 ], [ %58, %54 ], [ %27, %26 ], [ %27, %34 ], [ undef, %46 ]
+  %.sroa.03.1 = phi i64 [ 11, %52 ], [ %23, %24 ], [ %57, %54 ], [ 5, %26 ], [ 5, %34 ], [ 11, %46 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  %59 = insertvalue { i64, i64 } poison, i64 %.sroa.03.1, 0
-  %60 = insertvalue { i64, i64 } %59, i64 %.sroa.7.1, 1
-  ret { i64, i64 } %60
+  %60 = insertvalue { i64, i64 } poison, i64 %.sroa.03.1, 0
+  %61 = insertvalue { i64, i64 } %60, i64 %.sroa.7.1, 1
+  ret { i64, i64 } %61
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -740,62 +740,62 @@ define { i64, i64 } @_ZN10wasmi_core5table5Table4copy17h26e63aa95c484007E(ptr no
   %14 = extractvalue { i64, i64 } %11, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %44
+  br label %46
 
 15:                                               ; preds = %6
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %17 = load i64, ptr %16, align 8, !noundef !3
-  %.not65 = icmp ult i64 %17, %1
-  %18 = sub nuw i64 %17, %1
-  %19 = icmp ugt i64 %4, %18
-  %20 = select i1 %.not65, i1 true, i1 %19
-  br i1 %20, label %44, label %21
+  %18 = icmp ult i64 %17, %1
+  %19 = sub nuw i64 %17, %1
+  %20 = icmp ugt i64 %4, %19
+  %21 = select i1 %18, i1 true, i1 %20
+  br i1 %21, label %46, label %22
 
-21:                                               ; preds = %15
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %23 = load ptr, ptr %22, align 8, !nonnull !3, !noundef !3
-  %24 = getelementptr inbounds nuw { i64, i64 }, ptr %23, i64 %1
-  %25 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %26 = load i64, ptr %25, align 8, !noundef !3
-  %.not66 = icmp ult i64 %26, %3
-  %27 = sub nuw i64 %26, %3
-  %28 = icmp ugt i64 %4, %27
-  %29 = select i1 %.not66, i1 true, i1 %28
-  br i1 %29, label %44, label %30
+22:                                               ; preds = %15
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %24 = load ptr, ptr %23, align 8, !nonnull !3, !noundef !3
+  %25 = getelementptr inbounds nuw { i64, i64 }, ptr %24, i64 %1
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 48
+  %27 = load i64, ptr %26, align 8, !noundef !3
+  %28 = icmp ult i64 %27, %3
+  %29 = sub nuw i64 %27, %3
+  %30 = icmp ugt i64 %4, %29
+  %31 = select i1 %28, i1 true, i1 %30
+  br i1 %31, label %46, label %32
 
-30:                                               ; preds = %21
-  %31 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %32 = load ptr, ptr %31, align 8, !nonnull !3, !noundef !3
-  %33 = getelementptr inbounds nuw { i64, i64 }, ptr %32, i64 %3
+32:                                               ; preds = %22
+  %33 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %34 = load ptr, ptr %33, align 8, !nonnull !3, !noundef !3
+  %35 = getelementptr inbounds nuw { i64, i64 }, ptr %34, i64 %3
   %.not62 = icmp eq ptr %5, null
-  br i1 %.not62, label %37, label %34
+  br i1 %.not62, label %39, label %36
 
-34:                                               ; preds = %30
-  %35 = call { i64, i64 } @_ZN10wasmi_core4fuel4Fuel15consume_fuel_if17h5ba0bc70bb82700aE(ptr noalias noundef nonnull align 8 dereferenceable(32) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %9)
-  %36 = extractvalue { i64, i64 } %35, 0
-  %.not63 = icmp eq i64 %36, 2
-  br i1 %.not63, label %37, label %39
+36:                                               ; preds = %32
+  %37 = call { i64, i64 } @_ZN10wasmi_core4fuel4Fuel15consume_fuel_if17h5ba0bc70bb82700aE(ptr noalias noundef nonnull align 8 dereferenceable(32) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %9)
+  %38 = extractvalue { i64, i64 } %37, 0
+  %.not63 = icmp eq i64 %38, 2
+  br i1 %.not63, label %39, label %41
 
-37:                                               ; preds = %34, %30
-  %38 = shl i64 %4, 4
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %24, ptr nonnull readonly align 8 %33, i64 %38, i1 false), !alias.scope !73, !noalias !77
-  br label %44
+39:                                               ; preds = %36, %32
+  %40 = shl i64 %4, 4
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %25, ptr nonnull readonly align 8 %35, i64 %40, i1 false), !alias.scope !73, !noalias !77
+  br label %46
 
-39:                                               ; preds = %34
-  %40 = extractvalue { i64, i64 } %35, 1
-  %41 = call { i64, i64 } @"_ZN111_$LT$wasmi_core..table..error..TableError$u20$as$u20$core..convert..From$LT$wasmi_core..fuel..FuelError$GT$$GT$4from17h5f3b4c4d12c502d9E"(i64 noundef %36, i64 %40)
-  %42 = extractvalue { i64, i64 } %41, 0
-  %43 = extractvalue { i64, i64 } %41, 1
-  br label %44
+41:                                               ; preds = %36
+  %42 = extractvalue { i64, i64 } %37, 1
+  %43 = call { i64, i64 } @"_ZN111_$LT$wasmi_core..table..error..TableError$u20$as$u20$core..convert..From$LT$wasmi_core..fuel..FuelError$GT$$GT$4from17h5f3b4c4d12c502d9E"(i64 noundef %38, i64 %42)
+  %44 = extractvalue { i64, i64 } %43, 0
+  %45 = extractvalue { i64, i64 } %43, 1
+  br label %46
 
-44:                                               ; preds = %21, %15, %39, %37, %13
-  %.sroa.6.0 = phi i64 [ %14, %13 ], [ undef, %37 ], [ %4, %15 ], [ %43, %39 ], [ %4, %21 ]
-  %.sroa.03.0 = phi i64 [ %12, %13 ], [ 11, %37 ], [ 8, %15 ], [ %42, %39 ], [ 8, %21 ]
-  %45 = insertvalue { i64, i64 } poison, i64 %.sroa.03.0, 0
-  %46 = insertvalue { i64, i64 } %45, i64 %.sroa.6.0, 1
-  ret { i64, i64 } %46
+46:                                               ; preds = %22, %15, %41, %39, %13
+  %.sroa.6.0 = phi i64 [ %14, %13 ], [ undef, %39 ], [ %4, %15 ], [ %45, %41 ], [ %4, %22 ]
+  %.sroa.03.0 = phi i64 [ %12, %13 ], [ 11, %39 ], [ 8, %15 ], [ %44, %41 ], [ 8, %22 ]
+  %47 = insertvalue { i64, i64 } poison, i64 %.sroa.03.0, 0
+  %48 = insertvalue { i64, i64 } %47, i64 %.sroa.6.0, 1
+  ret { i64, i64 } %48
 }
 
 ; Function Attrs: nonlazybind uwtable

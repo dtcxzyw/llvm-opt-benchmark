@@ -1401,15 +1401,15 @@ define hidden { ptr, i64 } @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..op
   %trunc.i.i = trunc nuw i64 %4 to i1
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %6 = load ptr, ptr %5, align 8, !alias.scope !367
-  %7 = icmp eq ptr %6, null
+  %7 = icmp ne ptr %6, null
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %..val2.i.i.i = load i64, ptr %8, align 8, !alias.scope !367
-  %.sroa.3.0.i.i.i = select i1 %7, i64 undef, i64 %..val2.i.i.i
   %..sroa.5.0.i.i = select i1 %trunc.i.i, ptr %6, ptr null
-  %..sroa.7.0.i.i = select i1 %trunc.i.i, i64 %.sroa.3.0.i.i.i, i64 undef
-  %9 = insertvalue { ptr, i64 } poison, ptr %..sroa.5.0.i.i, 0
-  %10 = insertvalue { ptr, i64 } %9, i64 %..sroa.7.0.i.i, 1
-  ret { ptr, i64 } %10
+  %9 = select i1 %trunc.i.i, i1 %7, i1 false
+  %..sroa.7.0.i.i = select i1 %9, i64 %..val2.i.i.i, i64 undef
+  %10 = insertvalue { ptr, i64 } poison, ptr %..sroa.5.0.i.i, 0
+  %11 = insertvalue { ptr, i64 } %10, i64 %..sroa.7.0.i.i, 1
+  ret { ptr, i64 } %11
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind nonlazybind willreturn memory(read, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
@@ -3443,15 +3443,15 @@ define hidden { ptr, i64 } @_ZN12clap_builder7builder3arg3Arg16get_help_heading1
   %trunc = trunc nuw i64 %3 to i1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8
-  %6 = icmp eq ptr %5, null
+  %6 = icmp ne ptr %5, null
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %..val2.i = load i64, ptr %7, align 8
-  %.sroa.3.0.i = select i1 %6, i64 undef, i64 %..val2.i
   %..sroa.5.0 = select i1 %trunc, ptr %5, ptr null
-  %..sroa.7.0 = select i1 %trunc, i64 %.sroa.3.0.i, i64 undef
-  %8 = insertvalue { ptr, i64 } poison, ptr %..sroa.5.0, 0
-  %9 = insertvalue { ptr, i64 } %8, i64 %..sroa.7.0, 1
-  ret { ptr, i64 } %9
+  %8 = select i1 %trunc, i1 %6, i1 false
+  %..sroa.7.0 = select i1 %8, i64 %..val2.i, i64 undef
+  %9 = insertvalue { ptr, i64 } poison, ptr %..sroa.5.0, 0
+  %10 = insertvalue { ptr, i64 } %9, i64 %..sroa.7.0, 1
+  ret { ptr, i64 } %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: write) uwtable
@@ -11166,15 +11166,15 @@ define hidden { ptr, i64 } @"_ZN12clap_builder6output13help_template12HelpTempla
   %trunc.i = trunc nuw i64 %4 to i1
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %6 = load ptr, ptr %5, align 8, !alias.scope !2582
-  %7 = icmp eq ptr %6, null
+  %7 = icmp ne ptr %6, null
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %..val2.i.i = load i64, ptr %8, align 8, !alias.scope !2582
-  %.sroa.3.0.i.i = select i1 %7, i64 undef, i64 %..val2.i.i
   %..sroa.5.0.i = select i1 %trunc.i, ptr %6, ptr null
-  %..sroa.7.0.i = select i1 %trunc.i, i64 %.sroa.3.0.i.i, i64 undef
-  %9 = insertvalue { ptr, i64 } poison, ptr %..sroa.5.0.i, 0
-  %10 = insertvalue { ptr, i64 } %9, i64 %..sroa.7.0.i, 1
-  ret { ptr, i64 } %10
+  %9 = select i1 %trunc.i, i1 %7, i1 false
+  %..sroa.7.0.i = select i1 %9, i64 %..val2.i.i, i64 undef
+  %10 = insertvalue { ptr, i64 } poison, ptr %..sroa.5.0.i, 0
+  %11 = insertvalue { ptr, i64 } %10, i64 %..sroa.7.0.i, 1
+  ret { ptr, i64 } %11
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable

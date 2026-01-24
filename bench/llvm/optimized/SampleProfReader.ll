@@ -16102,7 +16102,7 @@ _ZNK4llvm9StringRef5splitEc.exit.thread:          ; preds = %4
   %.sroa.418.0..sroa_idx26 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %.sroa.2.0.copyload.pre, ptr %.sroa.418.0..sroa_idx26, align 8, !tbaa !55
   store i64 0, ptr %3, align 4
-  br label %44
+  br label %45
 
 _ZNK4llvm9StringRef5splitEc.exit:                 ; preds = %4
   %14 = load i64, ptr %11, align 8, !tbaa !230, !noalias !740
@@ -16127,7 +16127,7 @@ _ZNK4llvm9StringRef5splitEc.exit:                 ; preds = %4
   store i64 0, ptr %3, align 4
   %20 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %21 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  br i1 %.not, label %22, label %44
+  br i1 %.not, label %22, label %45
 
 22:                                               ; preds = %_ZNK4llvm9StringRef5splitEc.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -16160,37 +16160,37 @@ _ZNK4llvm9StringRef5splitEc.exit8:                ; preds = %25, %26
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %32 = call noundef zeroext i1 @_ZN4llvm18getAsSignedIntegerENS_9StringRefEjRx(ptr %.sroa.0.0, i64 %.sroa.5.0, i32 noundef 10, ptr noundef nonnull align 8 dereferenceable(8) %6) #26
   %33 = load i64, ptr %6, align 8
-  %34 = add i64 %33, 2147483648
-  %.not.i = icmp ult i64 %34, 4294967296
+  %34 = add i64 %33, -2147483648
+  %.not.i = icmp ult i64 %34, -4294967296
   %35 = trunc nsw i64 %33 to i32
-  %spec.select = select i1 %.not.i, i32 %35, i32 0
-  %.0 = select i1 %32, i32 0, i32 %spec.select
+  %36 = select i1 %32, i1 true, i1 %.not.i
+  %.0 = select i1 %36, i32 0, i32 %35
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store i32 %.0, ptr %3, align 4, !tbaa !118
-  %36 = icmp eq i64 %.sroa.10.0, 0
-  br i1 %36, label %44, label %37
+  %37 = icmp eq i64 %.sroa.10.0, 0
+  br i1 %37, label %45, label %38
 
-37:                                               ; preds = %_ZNK4llvm9StringRef5splitEc.exit8
-  %38 = getelementptr inbounds nuw i8, ptr %3, i64 4
+38:                                               ; preds = %_ZNK4llvm9StringRef5splitEc.exit8
+  %39 = getelementptr inbounds nuw i8, ptr %3, i64 4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %39 = call noundef zeroext i1 @_ZN4llvm20getAsUnsignedIntegerENS_9StringRefEjRy(ptr %.sroa.7.0, i64 %.sroa.10.0, i32 noundef 10, ptr noundef nonnull align 8 dereferenceable(8) %5) #26
-  br i1 %39, label %_ZNK4llvm9StringRef12getAsIntegerIjEEbjRT_.exit, label %40
+  %40 = call noundef zeroext i1 @_ZN4llvm20getAsUnsignedIntegerENS_9StringRefEjRy(ptr %.sroa.7.0, i64 %.sroa.10.0, i32 noundef 10, ptr noundef nonnull align 8 dereferenceable(8) %5) #26
+  br i1 %40, label %_ZNK4llvm9StringRef12getAsIntegerIjEEbjRT_.exit, label %41
 
-40:                                               ; preds = %37
-  %41 = load i64, ptr %5, align 8, !tbaa !196
-  %.not.i12 = icmp ult i64 %41, 4294967296
-  br i1 %.not.i12, label %42, label %_ZNK4llvm9StringRef12getAsIntegerIjEEbjRT_.exit
+41:                                               ; preds = %38
+  %42 = load i64, ptr %5, align 8, !tbaa !196
+  %.not.i12 = icmp ult i64 %42, 4294967296
+  br i1 %.not.i12, label %43, label %_ZNK4llvm9StringRef12getAsIntegerIjEEbjRT_.exit
 
-42:                                               ; preds = %40
-  %43 = trunc nuw i64 %41 to i32
-  store i32 %43, ptr %38, align 4, !tbaa !257
+43:                                               ; preds = %41
+  %44 = trunc nuw i64 %42 to i32
+  store i32 %44, ptr %39, align 4, !tbaa !257
   br label %_ZNK4llvm9StringRef12getAsIntegerIjEEbjRT_.exit
 
-_ZNK4llvm9StringRef12getAsIntegerIjEEbjRT_.exit:  ; preds = %37, %40, %42
+_ZNK4llvm9StringRef12getAsIntegerIjEEbjRT_.exit:  ; preds = %38, %41, %43
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %44
+  br label %45
 
-44:                                               ; preds = %_ZNK4llvm9StringRef5splitEc.exit.thread, %_ZNK4llvm9StringRef5splitEc.exit8, %_ZNK4llvm9StringRef12getAsIntegerIjEEbjRT_.exit, %_ZNK4llvm9StringRef5splitEc.exit
+45:                                               ; preds = %_ZNK4llvm9StringRef5splitEc.exit.thread, %_ZNK4llvm9StringRef5splitEc.exit8, %_ZNK4llvm9StringRef12getAsIntegerIjEEbjRT_.exit, %_ZNK4llvm9StringRef5splitEc.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret void
 }

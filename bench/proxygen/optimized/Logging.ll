@@ -2486,10 +2486,10 @@ if.end8:                                          ; preds = %if.end
   %sub.ptr.rhs.cast.i = ptrtoint ptr %val.coerce0 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %conv = zext nneg i32 %1 to i64
-  %cmp13 = icmp ugt i64 %sub.ptr.sub.i, %conv
+  %cmp13 = icmp ule i64 %sub.ptr.sub.i, %conv
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %val.coerce0, i64 %conv
-  %spec.select67 = select i1 %cmp13, ptr %add.ptr.i, ptr %val.coerce1
-  %val.sroa.7.0 = select i1 %cmp10.not, ptr %val.coerce1, ptr %spec.select67
+  %2 = select i1 %cmp10.not, i1 true, i1 %cmp13
+  %val.sroa.7.0 = select i1 %2, ptr %val.coerce1, ptr %add.ptr.i
   %cmp20.not = icmp ne i32 %0, -1
   %.pre = ptrtoint ptr %val.sroa.7.0 to i64
   %.pre68 = sub i64 %.pre, %sub.ptr.rhs.cast.i
@@ -2500,17 +2500,17 @@ if.end8:                                          ; preds = %if.end
 
 if.then26:                                        ; preds = %if.end8
   %fill27 = getelementptr inbounds nuw i8, ptr %arg, i64 16
-  %2 = load i8, ptr %fill27, align 8
-  %cmp29 = icmp eq i8 %2, 0
-  %spec.select = select i1 %cmp29, i8 32, i8 %2
-  %3 = trunc nuw nsw i64 %.pre68 to i32
-  %conv34 = sub nsw i32 %0, %3
+  %3 = load i8, ptr %fill27, align 8
+  %cmp29 = icmp eq i8 %3, 0
+  %spec.select = select i1 %cmp29, i8 32, i8 %3
+  %4 = trunc nuw nsw i64 %.pre68 to i32
+  %conv34 = sub nsw i32 %0, %4
   %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %conv34, i32 128)
   %conv37 = sext i32 %.sroa.speculated to i64
   call void @llvm.memset.p0.i64(ptr nonnull align 16 %padBuf, i8 %spec.select, i64 %conv37, i1 false)
   %align = getelementptr inbounds nuw i8, ptr %arg, i64 17
-  %4 = load i8, ptr %align, align 1
-  switch i8 %4, label %sw.default [
+  %5 = load i8, ptr %align, align 1
+  switch i8 %5, label %sw.default [
     i8 0, label %if.end43
     i8 1, label %if.end43
     i8 4, label %sw.bb38
@@ -2531,8 +2531,8 @@ while.body.i:                                     ; preds = %while.body.i.prehea
   %storemerge6.i = phi i32 [ %sub.i, %while.body.i ], [ %div, %while.body.i.preheader ]
   %.sroa.speculated.i = call i32 @llvm.smin.i32(i32 %storemerge6.i, i32 128)
   %conv.i = sext i32 %.sroa.speculated.i to i64
-  %5 = load ptr, ptr %cb, align 8
-  %call3.i.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull %padBuf, i64 noundef %conv.i)
+  %6 = load ptr, ptr %cb, align 8
+  %call3.i.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull %padBuf, i64 noundef %conv.i)
   %sub.i = sub nsw i32 %storemerge6.i, %.sroa.speculated.i
   %tobool.not.i = icmp eq i32 %sub.i, 0
   br i1 %tobool.not.i, label %_ZZN5folly12format_value12formatStringINS_6detail27BaseFormatterAppendToStringINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEvNS_5RangeIPKcEERNS_9FormatArgERT_ENKUliE_clEi.exit, label %while.body.i, !llvm.loop !41
@@ -2550,8 +2550,8 @@ while.body.i28:                                   ; preds = %sw.bb41, %while.bod
   %storemerge6.i29 = phi i32 [ %sub.i33, %while.body.i28 ], [ %conv34, %sw.bb41 ]
   %.sroa.speculated.i30 = call i32 @llvm.smin.i32(i32 %storemerge6.i29, i32 128)
   %conv.i31 = sext i32 %.sroa.speculated.i30 to i64
-  %6 = load ptr, ptr %cb, align 8
-  %call3.i.i32 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull %padBuf, i64 noundef %conv.i31)
+  %7 = load ptr, ptr %cb, align 8
+  %call3.i.i32 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull %padBuf, i64 noundef %conv.i31)
   %sub.i33 = sub nsw i32 %storemerge6.i29, %.sroa.speculated.i30
   %tobool.not.i34 = icmp eq i32 %sub.i33, 0
   br i1 %tobool.not.i34, label %if.end43.thread, label %while.body.i28, !llvm.loop !41
@@ -2561,14 +2561,14 @@ sw.default:                                       ; preds = %if.then26
   unreachable
 
 if.end43.thread:                                  ; preds = %while.body.i28, %if.end8, %sw.bb41
-  %7 = load ptr, ptr %cb, align 8
-  %call3.i72 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef %val.coerce0, i64 noundef %.pre68)
+  %8 = load ptr, ptr %cb, align 8
+  %call3.i72 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef %val.coerce0, i64 noundef %.pre68)
   br label %if.end45
 
 if.end43:                                         ; preds = %if.then26, %if.then26, %_ZZN5folly12format_value12formatStringINS_6detail27BaseFormatterAppendToStringINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEvNS_5RangeIPKcEERNS_9FormatArgERT_ENKUliE_clEi.exit
   %padRemaining.0 = phi i32 [ %conv34, %if.then26 ], [ %conv34, %if.then26 ], [ %sub40, %_ZZN5folly12format_value12formatStringINS_6detail27BaseFormatterAppendToStringINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEvNS_5RangeIPKcEERNS_9FormatArgERT_ENKUliE_clEi.exit ]
-  %8 = load ptr, ptr %cb, align 8
-  %call3.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef %val.coerce0, i64 noundef %.pre68)
+  %9 = load ptr, ptr %cb, align 8
+  %call3.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef %val.coerce0, i64 noundef %.pre68)
   %tobool.not = icmp eq i32 %padRemaining.0, 0
   br i1 %tobool.not, label %if.end45, label %while.body.i38
 
@@ -2576,8 +2576,8 @@ while.body.i38:                                   ; preds = %if.end43, %while.bo
   %storemerge6.i39 = phi i32 [ %sub.i43, %while.body.i38 ], [ %padRemaining.0, %if.end43 ]
   %.sroa.speculated.i40 = call i32 @llvm.smin.i32(i32 %storemerge6.i39, i32 128)
   %conv.i41 = sext i32 %.sroa.speculated.i40 to i64
-  %9 = load ptr, ptr %cb, align 8
-  %call3.i.i42 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull %padBuf, i64 noundef %conv.i41)
+  %10 = load ptr, ptr %cb, align 8
+  %call3.i.i42 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull %padBuf, i64 noundef %conv.i41)
   %sub.i43 = sub nsw i32 %storemerge6.i39, %.sroa.speculated.i40
   %tobool.not.i44 = icmp eq i32 %sub.i43, 0
   br i1 %tobool.not.i44, label %if.end45, label %while.body.i38, !llvm.loop !41

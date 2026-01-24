@@ -442,7 +442,7 @@ define hidden { double, double } @_ZNK2cv8tracking4impl3tld11TLDDetector7SrAndSc
   %44 = getelementptr inbounds nuw i8, ptr %42, i64 %43
   store ptr %44, ptr %13, align 8, !tbaa !48
   %45 = invoke noundef double @_ZN2cv17tracking_internal10computeNCCERKNS_3MatES3_(ptr noundef nonnull align 8 dereferenceable(96) %4, ptr noundef nonnull align 8 dereferenceable(96) %1)
-          to label %46 unwind label %59
+          to label %46 unwind label %60
 
 46:                                               ; preds = %39
   %47 = fadd double %45, 1.000000e+00
@@ -452,20 +452,20 @@ define hidden { double, double } @_ZNK2cv8tracking4impl3tld11TLDDetector7SrAndSc
   %51 = getelementptr inbounds nuw i32, ptr %50, i64 %indvars.iv
   %52 = load i32, ptr %51, align 4, !tbaa !45
   %.not = icmp sgt i32 %52, %7
-  %53 = fcmp olt double %.02934, %48
-  %.sroa.speculated24 = select i1 %53, double %48, double %.02934
-  %.1 = select i1 %.not, double %.02934, double %.sroa.speculated24
-  %54 = fcmp olt double %.03033, %48
-  %.sroa.speculated = select i1 %54, double %48, double %.03033
+  %53 = fcmp uge double %.02934, %48
+  %54 = select i1 %.not, i1 true, i1 %53
+  %.1 = select i1 %54, double %.02934, double %48
+  %55 = fcmp olt double %.03033, %48
+  %.sroa.speculated = select i1 %55, double %48, double %.03033
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %55 = load ptr, ptr %8, align 8, !tbaa !57
-  %56 = load i32, ptr %55, align 4, !tbaa !45
-  %57 = sext i32 %56 to i64
-  %58 = icmp slt i64 %indvars.iv.next, %57
-  br i1 %58, label %39, label %._crit_edge, !llvm.loop !62
+  %56 = load ptr, ptr %8, align 8, !tbaa !57
+  %57 = load i32, ptr %56, align 4, !tbaa !45
+  %58 = sext i32 %57 to i64
+  %59 = icmp slt i64 %indvars.iv.next, %58
+  br i1 %59, label %39, label %._crit_edge, !llvm.loop !62
 
-59:                                               ; preds = %39
-  %60 = landingpad { ptr, i32 }
+60:                                               ; preds = %39
+  %61 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
@@ -473,22 +473,22 @@ define hidden { double, double } @_ZNK2cv8tracking4impl3tld11TLDDetector7SrAndSc
   %.07.lcssa.i = phi double [ 0.000000e+00, %.noexc ], [ %.sroa.speculated.i, %27 ]
   call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %61 = fadd double %.030.lcssa, %.07.lcssa.i
-  %62 = fcmp oeq double %61, 0.000000e+00
-  %63 = fdiv double %.030.lcssa, %61
-  %64 = select i1 %62, double 0.000000e+00, double %63
-  %65 = fadd double %.029.lcssa, %.07.lcssa.i
-  %66 = fcmp oeq double %65, 0.000000e+00
-  %67 = fdiv double %.029.lcssa, %65
-  %68 = select i1 %66, double 0.000000e+00, double %67
+  %62 = fadd double %.030.lcssa, %.07.lcssa.i
+  %63 = fcmp oeq double %62, 0.000000e+00
+  %64 = fdiv double %.030.lcssa, %62
+  %65 = select i1 %63, double 0.000000e+00, double %64
+  %66 = fadd double %.029.lcssa, %.07.lcssa.i
+  %67 = fcmp oeq double %66, 0.000000e+00
+  %68 = fdiv double %.029.lcssa, %66
+  %69 = select i1 %67, double 0.000000e+00, double %68
   call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %.fca.0.insert = insertvalue { double, double } poison, double %64, 0
-  %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %68, 1
+  %.fca.0.insert = insertvalue { double, double } poison, double %65, 0
+  %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %69, 1
   ret { double, double } %.fca.1.insert
 
-.body:                                            ; preds = %37, %35, %59
-  %.pn = phi { ptr, i32 } [ %60, %59 ], [ %38, %37 ], [ %36, %35 ]
+.body:                                            ; preds = %37, %35, %60
+  %.pn = phi { ptr, i32 } [ %61, %60 ], [ %38, %37 ], [ %36, %35 ]
   call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn

@@ -13941,10 +13941,10 @@ define linkonce_odr hidden void @_ZN2cv10OcvDctImpl5applyEPKhmPhm(ptr noundef no
   %25 = load i32, ptr %24, align 4, !tbaa !175
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 2376
   %27 = load i32, ptr %26, align 8, !tbaa !174
-  %.not120 = icmp sgt i32 %25, %27
-  br i1 %.not120, label %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit, label %.lr.ph128
+  %.not122 = icmp sgt i32 %25, %27
+  br i1 %.not122, label %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit, label %.lr.ph130
 
-.lr.ph128:                                        ; preds = %5
+.lr.ph130:                                        ; preds = %5
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 2384
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 2380
   %30 = zext nneg i32 %22 to i64
@@ -13967,24 +13967,24 @@ define linkonce_odr hidden void @_ZN2cv10OcvDctImpl5applyEPKhmPhm(ptr noundef no
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 2360
   br label %56
 
-._crit_edge129:                                   ; preds = %._crit_edge
-  %.pre138 = load ptr, ptr %10, align 8, !tbaa !17
-  %.not.i.i = icmp eq ptr %.pre138, %17
-  %48 = icmp eq ptr %.pre138, null
-  %or.cond187 = or i1 %.not.i.i, %48
-  br i1 %or.cond187, label %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit, label %49
+._crit_edge131:                                   ; preds = %._crit_edge
+  %.pre140 = load ptr, ptr %10, align 8, !tbaa !17
+  %.not.i.i = icmp eq ptr %.pre140, %17
+  %48 = icmp eq ptr %.pre140, null
+  %or.cond189 = or i1 %.not.i.i, %48
+  br i1 %or.cond189, label %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit, label %49
 
-49:                                               ; preds = %._crit_edge129
-  call void @_ZdaPv(ptr noundef nonnull %.pre138) #22
+49:                                               ; preds = %._crit_edge131
+  call void @_ZdaPv(ptr noundef nonnull %.pre140) #22
   br label %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit
 
-_ZN2cv10AutoBufferIhLm1032EED2Ev.exit:            ; preds = %49, %5, %._crit_edge129
+_ZN2cv10AutoBufferIhLm1032EED2Ev.exit:            ; preds = %49, %5, %._crit_edge131
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %50 = load ptr, ptr %9, align 8, !tbaa !17
   %.not.i.i79 = icmp eq ptr %50, %15
   %51 = icmp eq ptr %50, null
-  %or.cond188 = or i1 %.not.i.i79, %51
-  br i1 %or.cond188, label %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit80, label %52
+  %or.cond190 = or i1 %.not.i.i79, %51
+  br i1 %or.cond190, label %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit80, label %52
 
 52:                                               ; preds = %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit
   call void @_ZdaPv(ptr noundef nonnull %50) #22
@@ -13995,8 +13995,8 @@ _ZN2cv10AutoBufferIhLm1032EED2Ev.exit80:          ; preds = %52, %_ZN2cv10AutoBu
   %53 = load ptr, ptr %8, align 8, !tbaa !17
   %.not.i.i81 = icmp eq ptr %53, %13
   %54 = icmp eq ptr %53, null
-  %or.cond189 = or i1 %.not.i.i81, %54
-  br i1 %or.cond189, label %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit82, label %55
+  %or.cond191 = or i1 %.not.i.i81, %54
+  br i1 %or.cond191, label %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit82, label %55
 
 55:                                               ; preds = %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit80
   call void @_ZdaPv(ptr noundef nonnull %53) #22
@@ -14006,26 +14006,26 @@ _ZN2cv10AutoBufferIhLm1032EED2Ev.exit82:          ; preds = %55, %_ZN2cv10AutoBu
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
 
-56:                                               ; preds = %.lr.ph128, %._crit_edge
-  %.052126 = phi ptr [ %1, %.lr.ph128 ], [ %3, %._crit_edge ]
-  %.060125 = phi i64 [ %2, %.lr.ph128 ], [ %4, %._crit_edge ]
-  %.063124 = phi i32 [ %25, %.lr.ph128 ], [ %288, %._crit_edge ]
-  %.066123 = phi ptr [ null, %.lr.ph128 ], [ %.167, %._crit_edge ]
-  %.068122 = phi i32 [ 0, %.lr.ph128 ], [ %.169, %._crit_edge ]
-  %.070121 = phi ptr [ null, %.lr.ph128 ], [ %.171, %._crit_edge ]
-  %57 = icmp eq i32 %.063124, 0
+56:                                               ; preds = %.lr.ph130, %._crit_edge
+  %.052128 = phi ptr [ %1, %.lr.ph130 ], [ %3, %._crit_edge ]
+  %.060127 = phi i64 [ %2, %.lr.ph130 ], [ %4, %._crit_edge ]
+  %.063126 = phi i32 [ %25, %.lr.ph130 ], [ %288, %._crit_edge ]
+  %.066125 = phi ptr [ null, %.lr.ph130 ], [ %.167, %._crit_edge ]
+  %.068124 = phi i32 [ 0, %.lr.ph130 ], [ %.169, %._crit_edge ]
+  %.070123 = phi ptr [ null, %.lr.ph130 ], [ %.171, %._crit_edge ]
+  %57 = icmp eq i32 %.063126, 0
   br i1 %57, label %58, label %64
 
 58:                                               ; preds = %56
   %59 = load i32, ptr %29, align 4, !tbaa !159
   %60 = load i32, ptr %28, align 8, !tbaa !162
-  %61 = icmp eq i32 %59, 1
+  %61 = icmp ne i32 %59, 1
   %62 = load i8, ptr %31, align 8, !range !52
   %63 = trunc nuw i8 %62 to i1
   %spec.select = select i1 %63, i32 1, i32 %60
-  %spec.select78 = select i1 %63, i32 %60, i32 1
-  %.054 = select i1 %61, i32 %spec.select, i32 %59
-  %.053 = select i1 %61, i32 %spec.select78, i32 %60
+  %.054 = select i1 %61, i32 %59, i32 %spec.select
+  %.not117 = select i1 %61, i1 true, i1 %63
+  %.053 = select i1 %.not117, i32 %60, i32 1
   br label %67
 
 64:                                               ; preds = %56
@@ -14034,15 +14034,15 @@ _ZN2cv10AutoBufferIhLm1032EED2Ev.exit82:          ; preds = %55, %_ZN2cv10AutoBu
   br label %67
 
 67:                                               ; preds = %64, %58
-  %.059 = phi i64 [ %.060125, %58 ], [ %30, %64 ]
-  %.058 = phi i64 [ %30, %58 ], [ %.060125, %64 ]
+  %.059 = phi i64 [ %.060127, %58 ], [ %30, %64 ]
+  %.058 = phi i64 [ %30, %58 ], [ %.060127, %64 ]
   %.057 = phi i64 [ %4, %58 ], [ %30, %64 ]
   %.056 = phi i64 [ %30, %58 ], [ %4, %64 ]
   %.155 = phi i32 [ %.054, %58 ], [ %65, %64 ]
   %.1 = phi i32 [ %.053, %58 ], [ %66, %64 ]
   store i32 %.155, ptr %33, align 4, !tbaa !312
   store i32 %.155, ptr %34, align 8, !tbaa !313
-  %.not74 = icmp eq i32 %.155, %.068122
+  %.not74 = icmp eq i32 %.155, %.068124
   br i1 %.not74, label %_ZN2cvL7DCTInitEiiPvi.exit, label %68
 
 68:                                               ; preds = %67
@@ -14251,7 +14251,7 @@ _ZN2cv10AutoBufferIjLm264EE8allocateEm.exit:      ; preds = %.noexc, %_ZN2cv10Au
 
 154:                                              ; preds = %_ZN2cv10AutoBufferIjLm264EE8allocateEm.exit
   store i64 %152, ptr %42, align 8, !tbaa !24
-  %.pre135 = load ptr, ptr %41, align 8, !tbaa !22
+  %.pre137 = load ptr, ptr %41, align 8, !tbaa !22
   br label %_ZN2cv10AutoBufferIiLm264EE8allocateEm.exit
 
 155:                                              ; preds = %_ZN2cv10AutoBufferIjLm264EE8allocateEm.exit
@@ -14289,7 +14289,7 @@ _ZN2cv10AutoBufferIiLm264EE10deallocateEv.exit.i: ; preds = %160, %155
   br label %_ZN2cv10AutoBufferIiLm264EE8allocateEm.exit
 
 _ZN2cv10AutoBufferIiLm264EE8allocateEm.exit:      ; preds = %.noexc87, %_ZN2cv10AutoBufferIiLm264EE10deallocateEv.exit.i, %154
-  %168 = phi ptr [ %167, %.noexc87 ], [ %161, %_ZN2cv10AutoBufferIiLm264EE10deallocateEv.exit.i ], [ %.pre135, %154 ]
+  %168 = phi ptr [ %167, %.noexc87 ], [ %161, %_ZN2cv10AutoBufferIiLm264EE10deallocateEv.exit.i ], [ %.pre137, %154 ]
   store ptr %168, ptr %44, align 8, !tbaa !315
   %169 = load i32, ptr %32, align 8, !tbaa !168
   %170 = load ptr, ptr %35, align 8, !tbaa !173
@@ -14351,7 +14351,7 @@ _ZN2cv10AutoBufferIhLm1032EE8allocateEm.exit:     ; preds = %.noexc90, %_ZN2cv10
 
 193:                                              ; preds = %_ZN2cv10AutoBufferIhLm1032EE8allocateEm.exit
   store i64 %191, ptr %16, align 8, !tbaa !21
-  %.pre136 = load ptr, ptr %9, align 8, !tbaa !17
+  %.pre138 = load ptr, ptr %9, align 8, !tbaa !17
   br label %_ZN2cv10AutoBufferIhLm1032EE8allocateEm.exit95
 
 194:                                              ; preds = %_ZN2cv10AutoBufferIhLm1032EE8allocateEm.exit
@@ -14386,7 +14386,7 @@ _ZN2cv10AutoBufferIhLm1032EE10deallocateEv.exit.i93: ; preds = %199, %194
   br label %_ZN2cv10AutoBufferIhLm1032EE8allocateEm.exit95
 
 _ZN2cv10AutoBufferIhLm1032EE8allocateEm.exit95:   ; preds = %.noexc94, %_ZN2cv10AutoBufferIhLm1032EE10deallocateEv.exit.i93, %193
-  %204 = phi ptr [ %203, %.noexc94 ], [ %200, %_ZN2cv10AutoBufferIhLm1032EE10deallocateEv.exit.i93 ], [ %.pre136, %193 ]
+  %204 = phi ptr [ %203, %.noexc94 ], [ %200, %_ZN2cv10AutoBufferIhLm1032EE10deallocateEv.exit.i93 ], [ %.pre138, %193 ]
   br i1 %133, label %_ZN2cv10AutoBufferIhLm1032EE8allocateEm.exit100, label %205
 
 205:                                              ; preds = %_ZN2cv10AutoBufferIhLm1032EE8allocateEm.exit95
@@ -14396,7 +14396,7 @@ _ZN2cv10AutoBufferIhLm1032EE8allocateEm.exit95:   ; preds = %.noexc94, %_ZN2cv10
 
 207:                                              ; preds = %205
   store i64 %191, ptr %18, align 8, !tbaa !21
-  %.pre137 = load ptr, ptr %10, align 8, !tbaa !17
+  %.pre139 = load ptr, ptr %10, align 8, !tbaa !17
   br label %_ZN2cv10AutoBufferIhLm1032EE8allocateEm.exit100
 
 208:                                              ; preds = %205
@@ -14436,7 +14436,7 @@ _ZN2cv10AutoBufferIhLm1032EE10deallocateEv.exit.i98: ; preds = %213, %208
   br label %.body
 
 _ZN2cv10AutoBufferIhLm1032EE8allocateEm.exit100:  ; preds = %207, %_ZN2cv10AutoBufferIhLm1032EE10deallocateEv.exit.i98, %.noexc99, %_ZN2cv10AutoBufferIhLm1032EE8allocateEm.exit95
-  %.2 = phi ptr [ %204, %_ZN2cv10AutoBufferIhLm1032EE8allocateEm.exit95 ], [ %217, %.noexc99 ], [ %214, %_ZN2cv10AutoBufferIhLm1032EE10deallocateEv.exit.i98 ], [ %.pre137, %207 ]
+  %.2 = phi ptr [ %204, %_ZN2cv10AutoBufferIhLm1032EE8allocateEm.exit95 ], [ %217, %.noexc99 ], [ %214, %_ZN2cv10AutoBufferIhLm1032EE10deallocateEv.exit.i98 ], [ %.pre139, %207 ]
   %220 = load ptr, ptr %8, align 8, !tbaa !17
   %221 = load i8, ptr %45, align 1, !tbaa !164, !range !52, !noundef !54
   %222 = icmp eq i32 %.155, 1
@@ -14586,27 +14586,27 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %229
   br i1 %exitcond.not.i106, label %_ZN2cvL7DCTInitEiiPvi.exit, label %279, !llvm.loop !318
 
 _ZN2cvL7DCTInitEiiPvi.exit:                       ; preds = %268, %279, %274, %.preheader.i, %_ZN2cv10AutoBufferIhLm1032EE8allocateEm.exit100, %67
-  %.171 = phi ptr [ %.070121, %67 ], [ %.2, %_ZN2cv10AutoBufferIhLm1032EE8allocateEm.exit100 ], [ %.2, %.preheader.i ], [ %.2, %279 ], [ %.2, %274 ], [ %.2, %268 ]
-  %.169 = phi i32 [ %.068122, %67 ], [ 1, %_ZN2cv10AutoBufferIhLm1032EE8allocateEm.exit100 ], [ %.155, %.preheader.i ], [ %.155, %279 ], [ %.155, %274 ], [ %.155, %268 ]
-  %.167 = phi ptr [ %.066123, %67 ], [ %204, %_ZN2cv10AutoBufferIhLm1032EE8allocateEm.exit100 ], [ %204, %.preheader.i ], [ %204, %279 ], [ %204, %274 ], [ %204, %268 ]
-  %.not130 = icmp eq i32 %.1, 0
-  br i1 %.not130, label %._crit_edge, label %.lr.ph.preheader
+  %.171 = phi ptr [ %.070123, %67 ], [ %.2, %_ZN2cv10AutoBufferIhLm1032EE8allocateEm.exit100 ], [ %.2, %.preheader.i ], [ %.2, %279 ], [ %.2, %274 ], [ %.2, %268 ]
+  %.169 = phi i32 [ %.068124, %67 ], [ 1, %_ZN2cv10AutoBufferIhLm1032EE8allocateEm.exit100 ], [ %.155, %.preheader.i ], [ %.155, %279 ], [ %.155, %274 ], [ %.155, %268 ]
+  %.167 = phi ptr [ %.066125, %67 ], [ %204, %_ZN2cv10AutoBufferIhLm1032EE8allocateEm.exit100 ], [ %204, %.preheader.i ], [ %204, %279 ], [ %204, %274 ], [ %204, %268 ]
+  %.not132 = icmp eq i32 %.1, 0
+  br i1 %.not132, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %_ZN2cvL7DCTInitEiiPvi.exit
   %wide.trip.count = zext i32 %.1 to i64
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %296, %_ZN2cvL7DCTInitEiiPvi.exit
-  %288 = add nsw i32 %.063124, 1
+  %288 = add nsw i32 %.063126, 1
   %289 = load i32, ptr %26, align 8, !tbaa !174
-  %.not.not = icmp slt i32 %.063124, %289
-  br i1 %.not.not, label %56, label %._crit_edge129, !llvm.loop !319
+  %.not.not = icmp slt i32 %.063126, %289
+  br i1 %.not.not, label %56, label %._crit_edge131, !llvm.loop !319
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %296
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %296 ]
   %290 = load ptr, ptr %47, align 8, !tbaa !167
   %291 = mul i64 %.059, %indvars.iv
-  %292 = getelementptr inbounds nuw i8, ptr %.052126, i64 %291
+  %292 = getelementptr inbounds nuw i8, ptr %.052128, i64 %291
   %293 = mul i64 %.057, %indvars.iv
   %294 = getelementptr inbounds nuw i8, ptr %3, i64 %293
   %295 = load ptr, ptr %8, align 8, !tbaa !17
@@ -14628,8 +14628,8 @@ _ZN2cvL7DCTInitEiiPvi.exit:                       ; preds = %268, %279, %274, %.
   %299 = load ptr, ptr %10, align 8, !tbaa !17
   %.not.i.i107 = icmp eq ptr %299, %17
   %300 = icmp eq ptr %299, null
-  %or.cond190 = or i1 %.not.i.i107, %300
-  br i1 %or.cond190, label %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit109, label %301
+  %or.cond192 = or i1 %.not.i.i107, %300
+  br i1 %or.cond192, label %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit109, label %301
 
 301:                                              ; preds = %.body
   call void @_ZdaPv(ptr noundef nonnull %299) #22
@@ -14640,8 +14640,8 @@ _ZN2cv10AutoBufferIhLm1032EED2Ev.exit109:         ; preds = %301, %.body
   %302 = load ptr, ptr %9, align 8, !tbaa !17
   %.not.i.i110 = icmp eq ptr %302, %15
   %303 = icmp eq ptr %302, null
-  %or.cond191 = or i1 %.not.i.i110, %303
-  br i1 %or.cond191, label %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit112, label %304
+  %or.cond193 = or i1 %.not.i.i110, %303
+  br i1 %or.cond193, label %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit112, label %304
 
 304:                                              ; preds = %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit109
   call void @_ZdaPv(ptr noundef nonnull %302) #22
@@ -14652,8 +14652,8 @@ _ZN2cv10AutoBufferIhLm1032EED2Ev.exit112:         ; preds = %304, %_ZN2cv10AutoB
   %305 = load ptr, ptr %8, align 8, !tbaa !17
   %.not.i.i113 = icmp eq ptr %305, %13
   %306 = icmp eq ptr %305, null
-  %or.cond192 = or i1 %.not.i.i113, %306
-  br i1 %or.cond192, label %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit115, label %307
+  %or.cond194 = or i1 %.not.i.i113, %306
+  br i1 %or.cond194, label %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit115, label %307
 
 307:                                              ; preds = %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit112
   call void @_ZdaPv(ptr noundef nonnull %305) #22

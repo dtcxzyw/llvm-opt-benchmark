@@ -1259,9 +1259,9 @@ define void @_ZN4LIEF5MachO15RelocationFixup6targetEm(ptr noundef nonnull readon
   %32 = icmp eq i32 %31, 6
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %34 = load i64, ptr %33, align 8
-  %.not = icmp ult i64 %1, %34
-  %35 = select i1 %.not, i64 0, i64 %34
-  %spec.select21 = select i1 %32, i64 %35, i64 0
+  %.not = icmp uge i64 %1, %34
+  %35 = select i1 %32, i1 %.not, i1 false
+  %spec.select21 = select i1 %35, i64 %34, i64 0
   %.0 = sub nuw i64 %1, %spec.select21
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %37 = load ptr, ptr %36, align 8, !tbaa !21

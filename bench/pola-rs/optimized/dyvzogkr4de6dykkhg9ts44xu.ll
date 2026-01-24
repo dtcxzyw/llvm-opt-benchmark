@@ -47309,13 +47309,14 @@ define { ptr, i64 } @"_ZN115_$LT$polars_stream..nodes..joins..semi_anti_join..Se
   %6 = load i8, ptr %5, align 2, !range !300, !noundef !6
   %7 = trunc nuw i8 %6 to i1
   %anon.2c539399ca9dbf45b2754f59c0fc31b0.511.anon.2c539399ca9dbf45b2754f59c0fc31b0.510 = select i1 %7, ptr @anon.2c539399ca9dbf45b2754f59c0fc31b0.511, ptr @anon.2c539399ca9dbf45b2754f59c0fc31b0.510
-  %. = select i1 %7, i64 9, i64 5
   %anon.2c539399ca9dbf45b2754f59c0fc31b0.513.anon.2c539399ca9dbf45b2754f59c0fc31b0.512 = select i1 %7, ptr @anon.2c539399ca9dbf45b2754f59c0fc31b0.513, ptr @anon.2c539399ca9dbf45b2754f59c0fc31b0.512
-  %.sroa.5.0 = select i1 %4, i64 %., i64 9
+  %8 = xor i1 %7, true
+  %9 = select i1 %4, i1 %8, i1 false
+  %.sroa.5.0 = select i1 %9, i64 5, i64 9
   %.sroa.0.0 = select i1 %4, ptr %anon.2c539399ca9dbf45b2754f59c0fc31b0.513.anon.2c539399ca9dbf45b2754f59c0fc31b0.512, ptr %anon.2c539399ca9dbf45b2754f59c0fc31b0.511.anon.2c539399ca9dbf45b2754f59c0fc31b0.510
-  %8 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
-  %9 = insertvalue { ptr, i64 } %8, i64 %.sroa.5.0, 1
-  ret { ptr, i64 } %9
+  %10 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
+  %11 = insertvalue { ptr, i64 } %10, i64 %.sroa.5.0, 1
+  ret { ptr, i64 } %11
 }
 
 ; Function Attrs: nonlazybind uwtable

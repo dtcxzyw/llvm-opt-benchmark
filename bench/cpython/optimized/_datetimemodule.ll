@@ -17402,9 +17402,9 @@ check_tzinfo_subclass.exit:                       ; preds = %PyObject_TypeCheck.
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %22 = load ptr, ptr %21, align 8, !tbaa !56
   %23 = icmp eq ptr %22, @_Py_NoneStruct
-  br i1 %23, label %Py_DECREF.exit78, label %78
+  br i1 %23, label %Py_DECREF.exit78, label %77
 
-Py_DECREF.exit78:                                 ; preds = %110, %107, %105, %17, %20
+Py_DECREF.exit78:                                 ; preds = %109, %106, %104, %17, %20
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 35
   %25 = load i8, ptr %24, align 1, !tbaa !57
   %26 = zext i8 %25 to i32
@@ -17459,327 +17459,325 @@ Py_DECREF.exit78:                                 ; preds = %110, %107, %105, %1
   br i1 %71, label %_Py_NewRef.exit96, label %local_timezone_from_local.exit
 
 local_timezone_from_local.exit:                   ; preds = %52
-  %.not30.i = icmp eq i64 %70, %50
   %72 = icmp sgt i64 %70, %50
   %73 = zext i1 %72 to i8
-  %74 = icmp eq i8 %25, %73
-  %spec.select.i = select i1 %74, i64 %70, i64 %50
-  %.027.i = select i1 %.not30.i, i64 %50, i64 %spec.select.i
-  %75 = add nsw i64 %.027.i, -62135683200
-  %76 = call fastcc ptr @local_timezone_from_timestamp(i64 noundef %75)
-  %77 = icmp eq ptr %76, null
-  br i1 %77, label %_Py_NewRef.exit96, label %_Py_NewRef.exit
+  %.not31.i = icmp eq i8 %25, %73
+  %.027.i = select i1 %.not31.i, i64 %70, i64 %50
+  %74 = add nsw i64 %.027.i, -62135683200
+  %75 = call fastcc ptr @local_timezone_from_timestamp(i64 noundef %74)
+  %76 = icmp eq ptr %75, null
+  br i1 %76, label %_Py_NewRef.exit96, label %_Py_NewRef.exit
 
-78:                                               ; preds = %20
-  %79 = load i32, ptr %22, align 8, !tbaa !15
-  %80 = icmp slt i32 %79, 0
-  br i1 %80, label %_Py_NewRef.exit, label %81
+77:                                               ; preds = %20
+  %78 = load i32, ptr %22, align 8, !tbaa !15
+  %79 = icmp slt i32 %78, 0
+  br i1 %79, label %_Py_NewRef.exit, label %80
 
-81:                                               ; preds = %78
-  %82 = add nuw i32 %79, 1
-  store i32 %82, ptr %22, align 8, !tbaa !15
+80:                                               ; preds = %77
+  %81 = add nuw i32 %78, 1
+  store i32 %81, ptr %22, align 8, !tbaa !15
   br label %_Py_NewRef.exit
 
-_Py_NewRef.exit:                                  ; preds = %81, %78, %local_timezone_from_local.exit
-  %.055 = phi ptr [ %76, %local_timezone_from_local.exit ], [ %22, %78 ], [ %22, %81 ]
-  %83 = load ptr, ptr %5, align 8, !tbaa !14
-  %84 = icmp eq ptr %.055, %83
-  br i1 %84, label %85, label %95
+_Py_NewRef.exit:                                  ; preds = %80, %77, %local_timezone_from_local.exit
+  %.055 = phi ptr [ %75, %local_timezone_from_local.exit ], [ %22, %77 ], [ %22, %80 ]
+  %82 = load ptr, ptr %5, align 8, !tbaa !14
+  %83 = icmp eq ptr %.055, %82
+  br i1 %83, label %84, label %94
 
-85:                                               ; preds = %_Py_NewRef.exit
-  %86 = load i32, ptr %.055, align 8, !tbaa !15
-  %.not.i81 = icmp sgt i32 %86, -1
-  br i1 %.not.i81, label %87, label %Py_DECREF.exit82
+84:                                               ; preds = %_Py_NewRef.exit
+  %85 = load i32, ptr %.055, align 8, !tbaa !15
+  %.not.i81 = icmp sgt i32 %85, -1
+  br i1 %.not.i81, label %86, label %Py_DECREF.exit82
 
-87:                                               ; preds = %85
-  %88 = add nsw i32 %86, -1
-  store i32 %88, ptr %.055, align 8, !tbaa !15
-  %89 = icmp eq i32 %88, 0
-  br i1 %89, label %90, label %Py_DECREF.exit82
+86:                                               ; preds = %84
+  %87 = add nsw i32 %85, -1
+  store i32 %87, ptr %.055, align 8, !tbaa !15
+  %88 = icmp eq i32 %87, 0
+  br i1 %88, label %89, label %Py_DECREF.exit82
 
-90:                                               ; preds = %87
+89:                                               ; preds = %86
   call void @_Py_Dealloc(ptr noundef nonnull %.055) #18
   br label %Py_DECREF.exit82
 
-Py_DECREF.exit82:                                 ; preds = %85, %87, %90
-  %91 = load i32, ptr %0, align 8, !tbaa !15
-  %92 = icmp slt i32 %91, 0
-  br i1 %92, label %_Py_NewRef.exit96, label %93
+Py_DECREF.exit82:                                 ; preds = %84, %86, %89
+  %90 = load i32, ptr %0, align 8, !tbaa !15
+  %91 = icmp slt i32 %90, 0
+  br i1 %91, label %_Py_NewRef.exit96, label %92
 
-93:                                               ; preds = %Py_DECREF.exit82
-  %94 = add nuw i32 %91, 1
-  store i32 %94, ptr %0, align 8, !tbaa !15
+92:                                               ; preds = %Py_DECREF.exit82
+  %93 = add nuw i32 %90, 1
+  store i32 %93, ptr %0, align 8, !tbaa !15
   br label %_Py_NewRef.exit96
 
-95:                                               ; preds = %_Py_NewRef.exit
-  %96 = call fastcc ptr @call_tzinfo_method(ptr noundef nonnull %.055, ptr noundef nonnull @.str.16, ptr noundef nonnull %0)
-  %97 = load i32, ptr %.055, align 8, !tbaa !15
-  %.not.i79 = icmp sgt i32 %97, -1
-  br i1 %.not.i79, label %98, label %Py_DECREF.exit80
+94:                                               ; preds = %_Py_NewRef.exit
+  %95 = call fastcc ptr @call_tzinfo_method(ptr noundef nonnull %.055, ptr noundef nonnull @.str.16, ptr noundef nonnull %0)
+  %96 = load i32, ptr %.055, align 8, !tbaa !15
+  %.not.i79 = icmp sgt i32 %96, -1
+  br i1 %.not.i79, label %97, label %Py_DECREF.exit80
 
-98:                                               ; preds = %95
-  %99 = add nsw i32 %97, -1
-  store i32 %99, ptr %.055, align 8, !tbaa !15
-  %100 = icmp eq i32 %99, 0
-  br i1 %100, label %101, label %Py_DECREF.exit80
+97:                                               ; preds = %94
+  %98 = add nsw i32 %96, -1
+  store i32 %98, ptr %.055, align 8, !tbaa !15
+  %99 = icmp eq i32 %98, 0
+  br i1 %99, label %100, label %Py_DECREF.exit80
 
-101:                                              ; preds = %98
+100:                                              ; preds = %97
   call void @_Py_Dealloc(ptr noundef nonnull %.055) #18
   br label %Py_DECREF.exit80
 
-Py_DECREF.exit80:                                 ; preds = %95, %98, %101
-  %102 = icmp eq ptr %96, null
-  br i1 %102, label %_Py_NewRef.exit96, label %103
+Py_DECREF.exit80:                                 ; preds = %94, %97, %100
+  %101 = icmp eq ptr %95, null
+  br i1 %101, label %_Py_NewRef.exit96, label %102
 
-103:                                              ; preds = %Py_DECREF.exit80
-  %104 = icmp eq ptr %96, @_Py_NoneStruct
-  br i1 %104, label %105, label %111
+102:                                              ; preds = %Py_DECREF.exit80
+  %103 = icmp eq ptr %95, @_Py_NoneStruct
+  br i1 %103, label %104, label %110
 
-105:                                              ; preds = %103
-  %106 = load i32, ptr @_Py_NoneStruct, align 8, !tbaa !15
-  %.not.i77 = icmp sgt i32 %106, -1
-  br i1 %.not.i77, label %107, label %Py_DECREF.exit78
+104:                                              ; preds = %102
+  %105 = load i32, ptr @_Py_NoneStruct, align 8, !tbaa !15
+  %.not.i77 = icmp sgt i32 %105, -1
+  br i1 %.not.i77, label %106, label %Py_DECREF.exit78
 
-107:                                              ; preds = %105
-  %108 = add nsw i32 %106, -1
-  store i32 %108, ptr @_Py_NoneStruct, align 8, !tbaa !15
-  %109 = icmp eq i32 %108, 0
-  br i1 %109, label %110, label %Py_DECREF.exit78
+106:                                              ; preds = %104
+  %107 = add nsw i32 %105, -1
+  store i32 %107, ptr @_Py_NoneStruct, align 8, !tbaa !15
+  %108 = icmp eq i32 %107, 0
+  br i1 %108, label %109, label %Py_DECREF.exit78
 
-110:                                              ; preds = %107
+109:                                              ; preds = %106
   call void @_Py_Dealloc(ptr noundef nonnull @_Py_NoneStruct) #18
   br label %Py_DECREF.exit78
 
-111:                                              ; preds = %103
-  %112 = getelementptr i8, ptr %96, i64 8
-  %.val93 = load ptr, ptr %112, align 8, !tbaa !51
+110:                                              ; preds = %102
+  %111 = getelementptr i8, ptr %95, i64 8
+  %.val93 = load ptr, ptr %111, align 8, !tbaa !51
   %.not.i97 = icmp eq ptr %.val93, @PyDateTime_DeltaType
   br i1 %.not.i97, label %PyObject_TypeCheck.exit.thread, label %PyObject_TypeCheck.exit
 
-PyObject_TypeCheck.exit:                          ; preds = %111
-  %113 = call i32 @PyType_IsSubtype(ptr noundef %.val93, ptr noundef nonnull @PyDateTime_DeltaType) #18
-  %.not102 = icmp eq i32 %113, 0
-  br i1 %.not102, label %114, label %PyObject_TypeCheck.exit.thread
+PyObject_TypeCheck.exit:                          ; preds = %110
+  %112 = call i32 @PyType_IsSubtype(ptr noundef %.val93, ptr noundef nonnull @PyDateTime_DeltaType) #18
+  %.not102 = icmp eq i32 %112, 0
+  br i1 %.not102, label %113, label %PyObject_TypeCheck.exit.thread
 
-114:                                              ; preds = %PyObject_TypeCheck.exit
-  %115 = load i32, ptr %96, align 8, !tbaa !15
-  %.not.i75 = icmp sgt i32 %115, -1
-  br i1 %.not.i75, label %116, label %Py_DECREF.exit76
+113:                                              ; preds = %PyObject_TypeCheck.exit
+  %114 = load i32, ptr %95, align 8, !tbaa !15
+  %.not.i75 = icmp sgt i32 %114, -1
+  br i1 %.not.i75, label %115, label %Py_DECREF.exit76
 
-116:                                              ; preds = %114
-  %117 = add nsw i32 %115, -1
-  store i32 %117, ptr %96, align 8, !tbaa !15
-  %118 = icmp eq i32 %117, 0
-  br i1 %118, label %119, label %Py_DECREF.exit76
+115:                                              ; preds = %113
+  %116 = add nsw i32 %114, -1
+  store i32 %116, ptr %95, align 8, !tbaa !15
+  %117 = icmp eq i32 %116, 0
+  br i1 %117, label %118, label %Py_DECREF.exit76
 
-119:                                              ; preds = %116
-  call void @_Py_Dealloc(ptr noundef nonnull %96) #18
+118:                                              ; preds = %115
+  call void @_Py_Dealloc(ptr noundef nonnull %95) #18
   br label %Py_DECREF.exit76
 
-Py_DECREF.exit76:                                 ; preds = %114, %116, %119
-  %120 = load ptr, ptr @PyExc_TypeError, align 8, !tbaa !14
-  %.val92 = load ptr, ptr %112, align 8, !tbaa !51
-  %121 = getelementptr inbounds nuw i8, ptr %.val92, i64 24
-  %122 = load ptr, ptr %121, align 8, !tbaa !52
-  %123 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %120, ptr noundef nonnull @.str.272, ptr noundef %122) #18
+Py_DECREF.exit76:                                 ; preds = %113, %115, %118
+  %119 = load ptr, ptr @PyExc_TypeError, align 8, !tbaa !14
+  %.val92 = load ptr, ptr %111, align 8, !tbaa !51
+  %120 = getelementptr inbounds nuw i8, ptr %.val92, i64 24
+  %121 = load ptr, ptr %120, align 8, !tbaa !52
+  %122 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %119, ptr noundef nonnull @.str.272, ptr noundef %121) #18
   br label %_Py_NewRef.exit96
 
-PyObject_TypeCheck.exit.thread:                   ; preds = %111, %PyObject_TypeCheck.exit
-  %124 = call fastcc ptr @add_datetime_timedelta(ptr noundef nonnull %0, ptr noundef nonnull %96, i32 noundef -1)
-  %125 = load i32, ptr %96, align 8, !tbaa !15
-  %.not.i73 = icmp sgt i32 %125, -1
-  br i1 %.not.i73, label %126, label %Py_DECREF.exit74
+PyObject_TypeCheck.exit.thread:                   ; preds = %110, %PyObject_TypeCheck.exit
+  %123 = call fastcc ptr @add_datetime_timedelta(ptr noundef nonnull %0, ptr noundef nonnull %95, i32 noundef -1)
+  %124 = load i32, ptr %95, align 8, !tbaa !15
+  %.not.i73 = icmp sgt i32 %124, -1
+  br i1 %.not.i73, label %125, label %Py_DECREF.exit74
 
-126:                                              ; preds = %PyObject_TypeCheck.exit.thread
-  %127 = add nsw i32 %125, -1
-  store i32 %127, ptr %96, align 8, !tbaa !15
-  %128 = icmp eq i32 %127, 0
-  br i1 %128, label %129, label %Py_DECREF.exit74
+125:                                              ; preds = %PyObject_TypeCheck.exit.thread
+  %126 = add nsw i32 %124, -1
+  store i32 %126, ptr %95, align 8, !tbaa !15
+  %127 = icmp eq i32 %126, 0
+  br i1 %127, label %128, label %Py_DECREF.exit74
 
-129:                                              ; preds = %126
-  call void @_Py_Dealloc(ptr noundef nonnull %96) #18
+128:                                              ; preds = %125
+  call void @_Py_Dealloc(ptr noundef nonnull %95) #18
   br label %Py_DECREF.exit74
 
-Py_DECREF.exit74:                                 ; preds = %PyObject_TypeCheck.exit.thread, %126, %129
-  %130 = icmp eq ptr %124, null
-  br i1 %130, label %_Py_NewRef.exit96, label %131
+Py_DECREF.exit74:                                 ; preds = %PyObject_TypeCheck.exit.thread, %125, %128
+  %129 = icmp eq ptr %123, null
+  br i1 %129, label %_Py_NewRef.exit96, label %130
 
-131:                                              ; preds = %Py_DECREF.exit74
-  %132 = getelementptr inbounds nuw i8, ptr %124, i64 24
-  %133 = load i8, ptr %132, align 8, !tbaa !61
-  %.not64 = icmp eq i8 %133, 0
-  br i1 %.not64, label %134, label %182
+130:                                              ; preds = %Py_DECREF.exit74
+  %131 = getelementptr inbounds nuw i8, ptr %123, i64 24
+  %132 = load i8, ptr %131, align 8, !tbaa !61
+  %.not64 = icmp eq i8 %132, 0
+  br i1 %.not64, label %133, label %181
 
-134:                                              ; preds = %131
-  %135 = getelementptr inbounds nuw i8, ptr %124, i64 25
-  %136 = load i8, ptr %135, align 1, !tbaa !15
-  %137 = zext i8 %136 to i32
-  %138 = shl nuw nsw i32 %137, 8
-  %139 = getelementptr i8, ptr %124, i64 26
-  %140 = load i8, ptr %139, align 1, !tbaa !15
-  %141 = zext i8 %140 to i32
-  %142 = or disjoint i32 %138, %141
-  %143 = getelementptr i8, ptr %124, i64 27
-  %144 = load i8, ptr %143, align 1, !tbaa !15
-  %145 = zext i8 %144 to i32
-  %146 = getelementptr i8, ptr %124, i64 28
-  %147 = load i8, ptr %146, align 1, !tbaa !15
-  %148 = zext i8 %147 to i32
-  %149 = getelementptr i8, ptr %124, i64 29
-  %150 = load i8, ptr %149, align 1, !tbaa !15
-  %151 = zext i8 %150 to i32
-  %152 = getelementptr i8, ptr %124, i64 30
-  %153 = load i8, ptr %152, align 1, !tbaa !15
-  %154 = zext i8 %153 to i32
-  %155 = getelementptr i8, ptr %124, i64 31
-  %156 = load i8, ptr %155, align 1, !tbaa !15
-  %157 = zext i8 %156 to i32
-  %158 = getelementptr i8, ptr %124, i64 32
-  %159 = load i8, ptr %158, align 1, !tbaa !15
-  %160 = zext i8 %159 to i32
-  %161 = shl nuw nsw i32 %160, 16
-  %162 = getelementptr i8, ptr %124, i64 33
-  %163 = load i8, ptr %162, align 1, !tbaa !15
-  %164 = zext i8 %163 to i32
-  %165 = shl nuw nsw i32 %164, 8
-  %166 = or disjoint i32 %165, %161
-  %167 = getelementptr i8, ptr %124, i64 34
-  %168 = load i8, ptr %167, align 1, !tbaa !15
-  %169 = zext i8 %168 to i32
-  %170 = or disjoint i32 %166, %169
-  %171 = getelementptr inbounds nuw i8, ptr %124, i64 35
-  %172 = load i8, ptr %171, align 1, !tbaa !57
-  %173 = zext i8 %172 to i32
-  %174 = getelementptr i8, ptr %124, i64 8
-  %.val = load ptr, ptr %174, align 8, !tbaa !51
-  %175 = call ptr @new_datetime_ex2(i32 noundef %142, i32 noundef %145, i32 noundef %148, i32 noundef %151, i32 noundef %154, i32 noundef %157, i32 noundef %170, ptr noundef nonnull @utc_timezone, i32 noundef %173, ptr noundef %.val)
-  %176 = load i32, ptr %124, align 8, !tbaa !15
-  %.not.i71 = icmp sgt i32 %176, -1
-  br i1 %.not.i71, label %177, label %Py_DECREF.exit72
+133:                                              ; preds = %130
+  %134 = getelementptr inbounds nuw i8, ptr %123, i64 25
+  %135 = load i8, ptr %134, align 1, !tbaa !15
+  %136 = zext i8 %135 to i32
+  %137 = shl nuw nsw i32 %136, 8
+  %138 = getelementptr i8, ptr %123, i64 26
+  %139 = load i8, ptr %138, align 1, !tbaa !15
+  %140 = zext i8 %139 to i32
+  %141 = or disjoint i32 %137, %140
+  %142 = getelementptr i8, ptr %123, i64 27
+  %143 = load i8, ptr %142, align 1, !tbaa !15
+  %144 = zext i8 %143 to i32
+  %145 = getelementptr i8, ptr %123, i64 28
+  %146 = load i8, ptr %145, align 1, !tbaa !15
+  %147 = zext i8 %146 to i32
+  %148 = getelementptr i8, ptr %123, i64 29
+  %149 = load i8, ptr %148, align 1, !tbaa !15
+  %150 = zext i8 %149 to i32
+  %151 = getelementptr i8, ptr %123, i64 30
+  %152 = load i8, ptr %151, align 1, !tbaa !15
+  %153 = zext i8 %152 to i32
+  %154 = getelementptr i8, ptr %123, i64 31
+  %155 = load i8, ptr %154, align 1, !tbaa !15
+  %156 = zext i8 %155 to i32
+  %157 = getelementptr i8, ptr %123, i64 32
+  %158 = load i8, ptr %157, align 1, !tbaa !15
+  %159 = zext i8 %158 to i32
+  %160 = shl nuw nsw i32 %159, 16
+  %161 = getelementptr i8, ptr %123, i64 33
+  %162 = load i8, ptr %161, align 1, !tbaa !15
+  %163 = zext i8 %162 to i32
+  %164 = shl nuw nsw i32 %163, 8
+  %165 = or disjoint i32 %164, %160
+  %166 = getelementptr i8, ptr %123, i64 34
+  %167 = load i8, ptr %166, align 1, !tbaa !15
+  %168 = zext i8 %167 to i32
+  %169 = or disjoint i32 %165, %168
+  %170 = getelementptr inbounds nuw i8, ptr %123, i64 35
+  %171 = load i8, ptr %170, align 1, !tbaa !57
+  %172 = zext i8 %171 to i32
+  %173 = getelementptr i8, ptr %123, i64 8
+  %.val = load ptr, ptr %173, align 8, !tbaa !51
+  %174 = call ptr @new_datetime_ex2(i32 noundef %141, i32 noundef %144, i32 noundef %147, i32 noundef %150, i32 noundef %153, i32 noundef %156, i32 noundef %169, ptr noundef nonnull @utc_timezone, i32 noundef %172, ptr noundef %.val)
+  %175 = load i32, ptr %123, align 8, !tbaa !15
+  %.not.i71 = icmp sgt i32 %175, -1
+  br i1 %.not.i71, label %176, label %Py_DECREF.exit72
 
-177:                                              ; preds = %134
-  %178 = add nsw i32 %176, -1
-  store i32 %178, ptr %124, align 8, !tbaa !15
-  %179 = icmp eq i32 %178, 0
-  br i1 %179, label %180, label %Py_DECREF.exit72
+176:                                              ; preds = %133
+  %177 = add nsw i32 %175, -1
+  store i32 %177, ptr %123, align 8, !tbaa !15
+  %178 = icmp eq i32 %177, 0
+  br i1 %178, label %179, label %Py_DECREF.exit72
 
-180:                                              ; preds = %177
-  call void @_Py_Dealloc(ptr noundef nonnull %124) #18
+179:                                              ; preds = %176
+  call void @_Py_Dealloc(ptr noundef nonnull %123) #18
   br label %Py_DECREF.exit72
 
-Py_DECREF.exit72:                                 ; preds = %134, %177, %180
-  %181 = icmp eq ptr %175, null
-  br i1 %181, label %_Py_NewRef.exit96, label %Py_DECREF.exit70
+Py_DECREF.exit72:                                 ; preds = %133, %176, %179
+  %180 = icmp eq ptr %174, null
+  br i1 %180, label %_Py_NewRef.exit96, label %Py_DECREF.exit70
 
-182:                                              ; preds = %131
-  %183 = getelementptr inbounds nuw i8, ptr %124, i64 40
-  %184 = load ptr, ptr %183, align 8, !tbaa !14
-  %185 = load i32, ptr @utc_timezone, align 8, !tbaa !15
-  %186 = icmp slt i32 %185, 0
-  br i1 %186, label %_Py_NewRef.exit98, label %187
+181:                                              ; preds = %130
+  %182 = getelementptr inbounds nuw i8, ptr %123, i64 40
+  %183 = load ptr, ptr %182, align 8, !tbaa !14
+  %184 = load i32, ptr @utc_timezone, align 8, !tbaa !15
+  %185 = icmp slt i32 %184, 0
+  br i1 %185, label %_Py_NewRef.exit98, label %186
 
-187:                                              ; preds = %182
-  %188 = add nuw i32 %185, 1
-  store i32 %188, ptr @utc_timezone, align 8, !tbaa !15
+186:                                              ; preds = %181
+  %187 = add nuw i32 %184, 1
+  store i32 %187, ptr @utc_timezone, align 8, !tbaa !15
   br label %_Py_NewRef.exit98
 
-_Py_NewRef.exit98:                                ; preds = %182, %187
-  store ptr @utc_timezone, ptr %183, align 8, !tbaa !14
-  %189 = load i32, ptr %184, align 8, !tbaa !15
-  %.not.i69 = icmp sgt i32 %189, -1
-  br i1 %.not.i69, label %190, label %Py_DECREF.exit70
+_Py_NewRef.exit98:                                ; preds = %181, %186
+  store ptr @utc_timezone, ptr %182, align 8, !tbaa !14
+  %188 = load i32, ptr %183, align 8, !tbaa !15
+  %.not.i69 = icmp sgt i32 %188, -1
+  br i1 %.not.i69, label %189, label %Py_DECREF.exit70
 
-190:                                              ; preds = %_Py_NewRef.exit98
-  %191 = add nsw i32 %189, -1
-  store i32 %191, ptr %184, align 8, !tbaa !15
-  %192 = icmp eq i32 %191, 0
-  br i1 %192, label %193, label %Py_DECREF.exit70
+189:                                              ; preds = %_Py_NewRef.exit98
+  %190 = add nsw i32 %188, -1
+  store i32 %190, ptr %183, align 8, !tbaa !15
+  %191 = icmp eq i32 %190, 0
+  br i1 %191, label %192, label %Py_DECREF.exit70
 
-193:                                              ; preds = %190
-  call void @_Py_Dealloc(ptr noundef nonnull %184) #18
+192:                                              ; preds = %189
+  call void @_Py_Dealloc(ptr noundef nonnull %183) #18
   br label %Py_DECREF.exit70
 
-Py_DECREF.exit70:                                 ; preds = %193, %190, %_Py_NewRef.exit98, %Py_DECREF.exit72
-  %.054 = phi ptr [ %175, %Py_DECREF.exit72 ], [ %124, %_Py_NewRef.exit98 ], [ %124, %190 ], [ %124, %193 ]
-  %194 = load ptr, ptr %5, align 8, !tbaa !14
-  %195 = icmp eq ptr %194, @_Py_NoneStruct
-  br i1 %195, label %196, label %205
+Py_DECREF.exit70:                                 ; preds = %192, %189, %_Py_NewRef.exit98, %Py_DECREF.exit72
+  %.054 = phi ptr [ %174, %Py_DECREF.exit72 ], [ %123, %_Py_NewRef.exit98 ], [ %123, %189 ], [ %123, %192 ]
+  %193 = load ptr, ptr %5, align 8, !tbaa !14
+  %194 = icmp eq ptr %193, @_Py_NoneStruct
+  br i1 %194, label %195, label %204
 
-196:                                              ; preds = %Py_DECREF.exit70
-  %197 = call fastcc ptr @local_timezone(ptr noundef %.054)
-  store ptr %197, ptr %5, align 8, !tbaa !14
-  %198 = icmp eq ptr %197, null
-  br i1 %198, label %199, label %Py_INCREF.exit
+195:                                              ; preds = %Py_DECREF.exit70
+  %196 = call fastcc ptr @local_timezone(ptr noundef %.054)
+  store ptr %196, ptr %5, align 8, !tbaa !14
+  %197 = icmp eq ptr %196, null
+  br i1 %197, label %198, label %Py_INCREF.exit
 
-199:                                              ; preds = %196
-  %200 = load i32, ptr %.054, align 8, !tbaa !15
-  %.not.i67 = icmp sgt i32 %200, -1
-  br i1 %.not.i67, label %201, label %_Py_NewRef.exit96
+198:                                              ; preds = %195
+  %199 = load i32, ptr %.054, align 8, !tbaa !15
+  %.not.i67 = icmp sgt i32 %199, -1
+  br i1 %.not.i67, label %200, label %_Py_NewRef.exit96
 
-201:                                              ; preds = %199
-  %202 = add nsw i32 %200, -1
-  store i32 %202, ptr %.054, align 8, !tbaa !15
-  %203 = icmp eq i32 %202, 0
-  br i1 %203, label %204, label %_Py_NewRef.exit96
+200:                                              ; preds = %198
+  %201 = add nsw i32 %199, -1
+  store i32 %201, ptr %.054, align 8, !tbaa !15
+  %202 = icmp eq i32 %201, 0
+  br i1 %202, label %203, label %_Py_NewRef.exit96
 
-204:                                              ; preds = %201
+203:                                              ; preds = %200
   call void @_Py_Dealloc(ptr noundef nonnull %.054) #18
   br label %_Py_NewRef.exit96
 
-205:                                              ; preds = %Py_DECREF.exit70
-  %206 = load i32, ptr %194, align 8, !tbaa !15
-  %207 = icmp slt i32 %206, 0
-  br i1 %207, label %Py_INCREF.exit, label %208
+204:                                              ; preds = %Py_DECREF.exit70
+  %205 = load i32, ptr %193, align 8, !tbaa !15
+  %206 = icmp slt i32 %205, 0
+  br i1 %206, label %Py_INCREF.exit, label %207
 
-208:                                              ; preds = %205
-  %209 = add nuw i32 %206, 1
-  store i32 %209, ptr %194, align 8, !tbaa !15
+207:                                              ; preds = %204
+  %208 = add nuw i32 %205, 1
+  store i32 %208, ptr %193, align 8, !tbaa !15
   %.pre = load ptr, ptr %5, align 8, !tbaa !14
   br label %Py_INCREF.exit
 
-Py_INCREF.exit:                                   ; preds = %208, %205, %196
-  %210 = phi ptr [ %.pre, %208 ], [ %194, %205 ], [ %197, %196 ]
-  %211 = getelementptr inbounds nuw i8, ptr %.054, i64 40
-  %212 = load ptr, ptr %211, align 8, !tbaa !14
-  store ptr %210, ptr %211, align 8, !tbaa !14
-  %213 = load i32, ptr %212, align 8, !tbaa !15
-  %.not.i65 = icmp sgt i32 %213, -1
-  br i1 %.not.i65, label %214, label %Py_DECREF.exit66
+Py_INCREF.exit:                                   ; preds = %207, %204, %195
+  %209 = phi ptr [ %.pre, %207 ], [ %193, %204 ], [ %196, %195 ]
+  %210 = getelementptr inbounds nuw i8, ptr %.054, i64 40
+  %211 = load ptr, ptr %210, align 8, !tbaa !14
+  store ptr %209, ptr %210, align 8, !tbaa !14
+  %212 = load i32, ptr %211, align 8, !tbaa !15
+  %.not.i65 = icmp sgt i32 %212, -1
+  br i1 %.not.i65, label %213, label %Py_DECREF.exit66
 
-214:                                              ; preds = %Py_INCREF.exit
-  %215 = add nsw i32 %213, -1
-  store i32 %215, ptr %212, align 8, !tbaa !15
-  %216 = icmp eq i32 %215, 0
-  br i1 %216, label %217, label %Py_DECREF.exit66
+213:                                              ; preds = %Py_INCREF.exit
+  %214 = add nsw i32 %212, -1
+  store i32 %214, ptr %211, align 8, !tbaa !15
+  %215 = icmp eq i32 %214, 0
+  br i1 %215, label %216, label %Py_DECREF.exit66
 
-217:                                              ; preds = %214
-  call void @_Py_Dealloc(ptr noundef nonnull %212) #18
+216:                                              ; preds = %213
+  call void @_Py_Dealloc(ptr noundef nonnull %211) #18
   br label %Py_DECREF.exit66
 
-Py_DECREF.exit66:                                 ; preds = %Py_INCREF.exit, %214, %217
-  %218 = load ptr, ptr %5, align 8, !tbaa !14
+Py_DECREF.exit66:                                 ; preds = %Py_INCREF.exit, %213, %216
+  %217 = load ptr, ptr %5, align 8, !tbaa !14
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  store ptr %218, ptr %4, align 16, !tbaa !14
-  %219 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %.054, ptr %219, align 8, !tbaa !14
-  %220 = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 57152), ptr noundef nonnull %4, i64 noundef -9223372036854775806, ptr noundef null) #18
+  store ptr %217, ptr %4, align 16, !tbaa !14
+  %218 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store ptr %.054, ptr %218, align 8, !tbaa !14
+  %219 = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 57152), ptr noundef nonnull %4, i64 noundef -9223372036854775806, ptr noundef null) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %221 = load i32, ptr %.054, align 8, !tbaa !15
-  %.not.i = icmp sgt i32 %221, -1
-  br i1 %.not.i, label %222, label %_Py_NewRef.exit96
+  %220 = load i32, ptr %.054, align 8, !tbaa !15
+  %.not.i = icmp sgt i32 %220, -1
+  br i1 %.not.i, label %221, label %_Py_NewRef.exit96
 
-222:                                              ; preds = %Py_DECREF.exit66
-  %223 = add nsw i32 %221, -1
-  store i32 %223, ptr %.054, align 8, !tbaa !15
-  %224 = icmp eq i32 %223, 0
-  br i1 %224, label %225, label %_Py_NewRef.exit96
+221:                                              ; preds = %Py_DECREF.exit66
+  %222 = add nsw i32 %220, -1
+  store i32 %222, ptr %.054, align 8, !tbaa !15
+  %223 = icmp eq i32 %222, 0
+  br i1 %223, label %224, label %_Py_NewRef.exit96
 
-225:                                              ; preds = %222
+224:                                              ; preds = %221
   call void @_Py_Dealloc(ptr noundef nonnull %.054) #18
   br label %_Py_NewRef.exit96
 
-_Py_NewRef.exit96:                                ; preds = %52, %Py_DECREF.exit78, %225, %222, %Py_DECREF.exit66, %204, %201, %199, %93, %Py_DECREF.exit82, %check_tzinfo_subclass.exit, %Py_DECREF.exit72, %Py_DECREF.exit74, %Py_DECREF.exit80, %local_timezone_from_local.exit, %3, %Py_DECREF.exit76
-  %.0 = phi ptr [ null, %3 ], [ null, %check_tzinfo_subclass.exit ], [ %220, %225 ], [ null, %local_timezone_from_local.exit ], [ null, %Py_DECREF.exit80 ], [ %0, %93 ], [ null, %204 ], [ null, %Py_DECREF.exit74 ], [ null, %Py_DECREF.exit76 ], [ null, %Py_DECREF.exit72 ], [ %0, %Py_DECREF.exit82 ], [ null, %199 ], [ null, %201 ], [ %220, %Py_DECREF.exit66 ], [ %220, %222 ], [ null, %Py_DECREF.exit78 ], [ null, %52 ]
+_Py_NewRef.exit96:                                ; preds = %52, %Py_DECREF.exit78, %224, %221, %Py_DECREF.exit66, %203, %200, %198, %92, %Py_DECREF.exit82, %check_tzinfo_subclass.exit, %Py_DECREF.exit72, %Py_DECREF.exit74, %Py_DECREF.exit80, %local_timezone_from_local.exit, %3, %Py_DECREF.exit76
+  %.0 = phi ptr [ null, %3 ], [ null, %check_tzinfo_subclass.exit ], [ %219, %224 ], [ null, %local_timezone_from_local.exit ], [ null, %Py_DECREF.exit80 ], [ %0, %92 ], [ null, %203 ], [ null, %Py_DECREF.exit74 ], [ null, %Py_DECREF.exit76 ], [ null, %Py_DECREF.exit72 ], [ %0, %Py_DECREF.exit82 ], [ null, %198 ], [ null, %200 ], [ %219, %Py_DECREF.exit66 ], [ %219, %221 ], [ null, %Py_DECREF.exit78 ], [ null, %52 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 }

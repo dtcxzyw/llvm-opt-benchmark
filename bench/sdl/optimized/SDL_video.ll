@@ -8891,7 +8891,7 @@ define hidden zeroext i1 @SDL_SetWindowPosition_REAL(ptr noundef %0, i32 noundef
   %33 = and i32 %.048, -65536
   %34 = icmp eq i32 %33, 805240832
   %or.cond = select i1 %32, i1 true, i1 %34
-  br i1 %or.cond, label %35, label %90
+  br i1 %or.cond, label %35, label %91
 
 35:                                               ; preds = %30
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -8902,184 +8902,184 @@ define hidden zeroext i1 @SDL_SetWindowPosition_REAL(ptr noundef %0, i32 noundef
 
 37:                                               ; preds = %35
   %38 = and i32 %.048, 65535
-  %.not58 = icmp eq i32 %38, 0
-  %spec.select = select i1 %.not58, i32 %18, i32 %38
-  %.043 = select i1 %34, i32 %spec.select, i32 %18
-  %39 = icmp eq i32 %.043, 0
-  br i1 %39, label %SDL_GetDisplayIndex.exit.thread, label %.thread
+  %.not58 = icmp ne i32 %38, 0
+  %39 = and i1 %34, %.not58
+  %.043 = select i1 %39, i32 %38, i32 %18
+  %40 = icmp eq i32 %.043, 0
+  br i1 %40, label %SDL_GetDisplayIndex.exit.thread, label %.thread
 
 .thread:                                          ; preds = %35, %37
   %.04372 = phi i32 [ %.043, %37 ], [ %36, %35 ]
-  %40 = load ptr, ptr @_this, align 8
-  %.not.i = icmp eq ptr %40, null
+  %41 = load ptr, ptr @_this, align 8
+  %.not.i = icmp eq ptr %41, null
   br i1 %.not.i, label %SDL_GetDisplayIndex.exit.thread.sink.split, label %.preheader.i
 
 .preheader.i:                                     ; preds = %.thread
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 800
-  %42 = load i32, ptr %41, align 8
-  %43 = icmp sgt i32 %42, 0
-  br i1 %43, label %.lr.ph.i, label %SDL_GetDisplayIndex.exit.thread.sink.split
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 800
+  %43 = load i32, ptr %42, align 8
+  %44 = icmp sgt i32 %43, 0
+  br i1 %44, label %.lr.ph.i, label %SDL_GetDisplayIndex.exit.thread.sink.split
 
 .lr.ph.i:                                         ; preds = %.preheader.i
-  %44 = getelementptr inbounds nuw i8, ptr %40, i64 808
-  %45 = load ptr, ptr %44, align 8
-  %wide.trip.count.i = zext nneg i32 %42 to i64
-  br label %46
+  %45 = getelementptr inbounds nuw i8, ptr %41, i64 808
+  %46 = load ptr, ptr %45, align 8
+  %wide.trip.count.i = zext nneg i32 %43 to i64
+  br label %47
 
-46:                                               ; preds = %51, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %51 ]
-  %47 = getelementptr inbounds nuw ptr, ptr %45, i64 %indvars.iv.i
-  %48 = load ptr, ptr %47, align 8
-  %49 = load i32, ptr %48, align 8
-  %50 = icmp eq i32 %.04372, %49
-  br i1 %50, label %SDL_GetPrimaryDisplay_REAL.exit, label %51
+47:                                               ; preds = %52, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %52 ]
+  %48 = getelementptr inbounds nuw ptr, ptr %46, i64 %indvars.iv.i
+  %49 = load ptr, ptr %48, align 8
+  %50 = load i32, ptr %49, align 8
+  %51 = icmp eq i32 %.04372, %50
+  br i1 %51, label %SDL_GetPrimaryDisplay_REAL.exit, label %52
 
-51:                                               ; preds = %46
+52:                                               ; preds = %47
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %SDL_GetDisplayIndex.exit.thread.sink.split, label %46, !llvm.loop !14
+  br i1 %exitcond.not.i, label %SDL_GetDisplayIndex.exit.thread.sink.split, label %47, !llvm.loop !14
 
-SDL_GetDisplayIndex.exit.thread.sink.split:       ; preds = %51, %.preheader.i, %.thread
-  %.str.11.sink = phi ptr [ @.str.1, %.thread ], [ @.str.11, %.preheader.i ], [ @.str.11, %51 ]
-  %52 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull %.str.11.sink) #19
+SDL_GetDisplayIndex.exit.thread.sink.split:       ; preds = %52, %.preheader.i, %.thread
+  %.str.11.sink = phi ptr [ @.str.1, %.thread ], [ @.str.11, %.preheader.i ], [ @.str.11, %52 ]
+  %53 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull %.str.11.sink) #19
   br label %SDL_GetDisplayIndex.exit.thread
 
 SDL_GetDisplayIndex.exit.thread:                  ; preds = %SDL_GetDisplayIndex.exit.thread.sink.split, %37
-  %53 = load ptr, ptr @_this, align 8
-  %.not.i70 = icmp eq ptr %53, null
-  br i1 %.not.i70, label %58, label %54
+  %54 = load ptr, ptr @_this, align 8
+  %.not.i70 = icmp eq ptr %54, null
+  br i1 %.not.i70, label %59, label %55
 
-54:                                               ; preds = %SDL_GetDisplayIndex.exit.thread
-  %55 = getelementptr inbounds nuw i8, ptr %53, i64 800
-  %56 = load i32, ptr %55, align 8
-  %57 = icmp eq i32 %56, 0
-  br i1 %57, label %58, label %60
+55:                                               ; preds = %SDL_GetDisplayIndex.exit.thread
+  %56 = getelementptr inbounds nuw i8, ptr %54, i64 800
+  %57 = load i32, ptr %56, align 8
+  %58 = icmp eq i32 %57, 0
+  br i1 %58, label %59, label %61
 
-58:                                               ; preds = %54, %SDL_GetDisplayIndex.exit.thread
-  %59 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.1) #19
+59:                                               ; preds = %55, %SDL_GetDisplayIndex.exit.thread
+  %60 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.1) #19
   br label %SDL_GetPrimaryDisplay_REAL.exit
 
-60:                                               ; preds = %54
-  %61 = getelementptr inbounds nuw i8, ptr %53, i64 808
-  %62 = load ptr, ptr %61, align 8
+61:                                               ; preds = %55
+  %62 = getelementptr inbounds nuw i8, ptr %54, i64 808
   %63 = load ptr, ptr %62, align 8
-  %64 = load i32, ptr %63, align 8
+  %64 = load ptr, ptr %63, align 8
+  %65 = load i32, ptr %64, align 8
   br label %SDL_GetPrimaryDisplay_REAL.exit
 
-SDL_GetPrimaryDisplay_REAL.exit:                  ; preds = %46, %60, %58
-  %.144 = phi i32 [ %64, %60 ], [ 0, %58 ], [ %.04372, %46 ]
+SDL_GetPrimaryDisplay_REAL.exit:                  ; preds = %47, %61, %59
+  %.144 = phi i32 [ %65, %61 ], [ 0, %59 ], [ %.04372, %47 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %4, i8 0, i64 16, i1 false)
-  %65 = call zeroext i1 @SDL_GetDisplayUsableBounds_REAL(i32 noundef %.144, ptr noundef nonnull %4)
-  %.not61 = xor i1 %65, true
-  %66 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %67 = load i32, ptr %66, align 4
-  %68 = icmp sgt i32 %16, %67
-  %or.cond64 = select i1 %.not61, i1 true, i1 %68
-  %69 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  %70 = load i32, ptr %69, align 4
-  %71 = icmp sgt i32 %17, %70
-  %or.cond67 = select i1 %or.cond64, i1 true, i1 %71
-  br i1 %or.cond67, label %72, label %74
+  %66 = call zeroext i1 @SDL_GetDisplayUsableBounds_REAL(i32 noundef %.144, ptr noundef nonnull %4)
+  %.not61 = xor i1 %66, true
+  %67 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %68 = load i32, ptr %67, align 4
+  %69 = icmp sgt i32 %16, %68
+  %or.cond64 = select i1 %.not61, i1 true, i1 %69
+  %70 = getelementptr inbounds nuw i8, ptr %4, i64 12
+  %71 = load i32, ptr %70, align 4
+  %72 = icmp sgt i32 %17, %71
+  %or.cond67 = select i1 %or.cond64, i1 true, i1 %72
+  br i1 %or.cond67, label %73, label %75
 
-72:                                               ; preds = %SDL_GetPrimaryDisplay_REAL.exit
-  %73 = call zeroext i1 @SDL_GetDisplayBounds_REAL(i32 noundef %.144, ptr noundef nonnull %4)
-  br i1 %73, label %74, label %.critedge
+73:                                               ; preds = %SDL_GetPrimaryDisplay_REAL.exit
+  %74 = call zeroext i1 @SDL_GetDisplayBounds_REAL(i32 noundef %.144, ptr noundef nonnull %4)
+  br i1 %74, label %75, label %.critedge
 
-74:                                               ; preds = %SDL_GetPrimaryDisplay_REAL.exit, %72
-  br i1 %32, label %75, label %81
+75:                                               ; preds = %SDL_GetPrimaryDisplay_REAL.exit, %73
+  br i1 %32, label %76, label %82
 
-75:                                               ; preds = %74
-  %76 = load i32, ptr %4, align 4
-  %77 = load i32, ptr %66, align 4
-  %78 = sub nsw i32 %77, %16
-  %79 = sdiv i32 %78, 2
-  %80 = add nsw i32 %79, %76
-  br label %81
+76:                                               ; preds = %75
+  %77 = load i32, ptr %4, align 4
+  %78 = load i32, ptr %67, align 4
+  %79 = sub nsw i32 %78, %16
+  %80 = sdiv i32 %79, 2
+  %81 = add nsw i32 %80, %77
+  br label %82
 
-81:                                               ; preds = %75, %74
-  %.3 = phi i32 [ %80, %75 ], [ %.045, %74 ]
-  br i1 %34, label %82, label %89
+82:                                               ; preds = %76, %75
+  %.3 = phi i32 [ %81, %76 ], [ %.045, %75 ]
+  br i1 %34, label %83, label %90
 
-82:                                               ; preds = %81
-  %83 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %84 = load i32, ptr %83, align 4
-  %85 = load i32, ptr %69, align 4
-  %86 = sub nsw i32 %85, %17
-  %87 = sdiv i32 %86, 2
-  %88 = add nsw i32 %87, %84
-  br label %89
-
-89:                                               ; preds = %81, %82
-  %.250 = phi i32 [ %.048, %81 ], [ %88, %82 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+83:                                               ; preds = %82
+  %84 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %85 = load i32, ptr %84, align 4
+  %86 = load i32, ptr %70, align 4
+  %87 = sub nsw i32 %86, %17
+  %88 = sdiv i32 %87, 2
+  %89 = add nsw i32 %88, %85
   br label %90
 
-90:                                               ; preds = %89, %30
-  %.149 = phi i32 [ %.250, %89 ], [ %.048, %30 ]
-  %.146 = phi i32 [ %.3, %89 ], [ %.045, %30 ]
-  %91 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  store i32 %.146, ptr %91, align 8
-  %92 = getelementptr inbounds nuw i8, ptr %0, i64 140
-  store i32 %.149, ptr %92, align 4
-  %93 = getelementptr inbounds nuw i8, ptr %0, i64 153
-  store i8 0, ptr %93, align 1
-  %94 = getelementptr inbounds nuw i8, ptr %0, i64 154
-  store i8 0, ptr %94, align 2
-  %95 = getelementptr inbounds nuw i8, ptr %0, i64 267
-  store i8 1, ptr %95, align 1
-  %96 = load ptr, ptr @_this, align 8
-  %97 = getelementptr inbounds nuw i8, ptr %96, i64 96
-  %98 = load ptr, ptr %97, align 8
-  %.not59 = icmp eq ptr %98, null
-  br i1 %.not59, label %118, label %99
+90:                                               ; preds = %82, %83
+  %.250 = phi i32 [ %.048, %82 ], [ %89, %83 ]
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  br label %91
 
-99:                                               ; preds = %90
-  %100 = call zeroext i1 %98(ptr noundef nonnull %96, ptr noundef nonnull %0) #19
-  br i1 %100, label %101, label %SDL_SyncIfRequired.exit
+91:                                               ; preds = %90, %30
+  %.149 = phi i32 [ %.250, %90 ], [ %.048, %30 ]
+  %.146 = phi i32 [ %.3, %90 ], [ %.045, %30 ]
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  store i32 %.146, ptr %92, align 8
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 140
+  store i32 %.149, ptr %93, align 4
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 153
+  store i8 0, ptr %94, align 1
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 154
+  store i8 0, ptr %95, align 2
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 267
+  store i8 1, ptr %96, align 1
+  %97 = load ptr, ptr @_this, align 8
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 96
+  %99 = load ptr, ptr %98, align 8
+  %.not59 = icmp eq ptr %99, null
+  br i1 %.not59, label %119, label %100
 
-101:                                              ; preds = %99
-  %102 = load i8, ptr @syncHint, align 1, !range !6, !noundef !7
-  %103 = trunc nuw i8 %102 to i1
-  br i1 %103, label %104, label %SDL_SyncIfRequired.exit
+100:                                              ; preds = %91
+  %101 = call zeroext i1 %99(ptr noundef nonnull %97, ptr noundef nonnull %0) #19
+  br i1 %101, label %102, label %SDL_SyncIfRequired.exit
 
-104:                                              ; preds = %101
-  %105 = load ptr, ptr @_this, align 8
-  %.not.i.i = icmp eq ptr %105, null
-  br i1 %.not.i.i, label %106, label %108
+102:                                              ; preds = %100
+  %103 = load i8, ptr @syncHint, align 1, !range !6, !noundef !7
+  %104 = trunc nuw i8 %103 to i1
+  br i1 %104, label %105, label %SDL_SyncIfRequired.exit
 
-106:                                              ; preds = %104
-  %107 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.1) #19
+105:                                              ; preds = %102
+  %106 = load ptr, ptr @_this, align 8
+  %.not.i.i = icmp eq ptr %106, null
+  br i1 %.not.i.i, label %107, label %109
+
+107:                                              ; preds = %105
+  %108 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.1) #19
   br label %SDL_SyncIfRequired.exit
 
-108:                                              ; preds = %104
-  %109 = call zeroext i1 @SDL_ObjectValid(ptr noundef nonnull %0, i32 noundef 1) #19
-  br i1 %109, label %112, label %110
+109:                                              ; preds = %105
+  %110 = call zeroext i1 @SDL_ObjectValid(ptr noundef nonnull %0, i32 noundef 1) #19
+  br i1 %110, label %113, label %111
 
-110:                                              ; preds = %108
-  %111 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.20) #19
+111:                                              ; preds = %109
+  %112 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.20) #19
   br label %SDL_SyncIfRequired.exit
 
-112:                                              ; preds = %108
-  %113 = load ptr, ptr @_this, align 8
-  %114 = getelementptr inbounds nuw i8, ptr %113, i64 392
-  %115 = load ptr, ptr %114, align 8
-  %.not4.i.i = icmp eq ptr %115, null
-  br i1 %.not4.i.i, label %SDL_SyncIfRequired.exit, label %116
+113:                                              ; preds = %109
+  %114 = load ptr, ptr @_this, align 8
+  %115 = getelementptr inbounds nuw i8, ptr %114, i64 392
+  %116 = load ptr, ptr %115, align 8
+  %.not4.i.i = icmp eq ptr %116, null
+  br i1 %.not4.i.i, label %SDL_SyncIfRequired.exit, label %117
 
-116:                                              ; preds = %112
-  %117 = call zeroext i1 %115(ptr noundef nonnull %113, ptr noundef nonnull %0) #19
+117:                                              ; preds = %113
+  %118 = call zeroext i1 %116(ptr noundef nonnull %114, ptr noundef nonnull %0) #19
   br label %SDL_SyncIfRequired.exit
 
-118:                                              ; preds = %90
-  %119 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.24) #19
+119:                                              ; preds = %91
+  %120 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.24) #19
   br label %SDL_SyncIfRequired.exit
 
-.critedge:                                        ; preds = %72
+.critedge:                                        ; preds = %73
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %SDL_SyncIfRequired.exit
 
-SDL_SyncIfRequired.exit:                          ; preds = %116, %112, %110, %106, %101, %118, %.critedge, %99, %10, %6
-  %.0 = phi i1 [ false, %6 ], [ false, %10 ], [ false, %.critedge ], [ %119, %118 ], [ false, %99 ], [ true, %101 ], [ true, %106 ], [ true, %110 ], [ true, %112 ], [ true, %116 ]
+SDL_SyncIfRequired.exit:                          ; preds = %117, %113, %111, %107, %102, %119, %.critedge, %100, %10, %6
+  %.0 = phi i1 [ false, %6 ], [ false, %10 ], [ false, %.critedge ], [ %120, %119 ], [ false, %100 ], [ true, %102 ], [ true, %107 ], [ true, %111 ], [ true, %113 ], [ true, %117 ]
   ret i1 %.0
 }
 

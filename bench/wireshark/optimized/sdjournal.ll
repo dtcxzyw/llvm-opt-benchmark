@@ -115,27 +115,27 @@ define hidden range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local_un
 
 16:                                               ; preds = %10
   tail call void @extcap_help_print(ptr noundef %6)
-  br label %73
+  br label %72
 
 .preheader:                                       ; preds = %.preheader.backedge, %.preheader.outer
   %17 = call i32 @ws_getopt_long(i32 noundef %0, ptr noundef %1, ptr noundef nonnull @.str.15, ptr noundef nonnull @longopts, ptr noundef nonnull %4)
-  switch i32 %17, label %41 [
-    i32 -1, label %51
+  switch i32 %17, label %40 [
+    i32 -1, label %50
     i32 10, label %18
     i32 11, label %20
     i32 12, label %22
-    i32 58, label %35
+    i32 58, label %34
   ]
 
 18:                                               ; preds = %.preheader
   %19 = load ptr, ptr %5, align 8
   call void @extcap_help_print(ptr noundef %19)
-  br label %73
+  br label %72
 
 20:                                               ; preds = %.preheader
   %21 = load ptr, ptr %5, align 8
   call void @extcap_version_print(ptr noundef %21)
-  br label %73
+  br label %72
 
 22:                                               ; preds = %.preheader
   %23 = load ptr, ptr @ws_optarg, align 8
@@ -148,16 +148,16 @@ define hidden range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local_un
 28:                                               ; preds = %22
   %29 = load ptr, ptr @ws_optarg, align 8
   call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str, i32 noundef 5, ptr noundef nonnull @.str.1, i64 noundef 417, ptr noundef nonnull @__func__.main, ptr noundef nonnull @.str.16, ptr noundef %29)
-  br label %73
+  br label %72
 
 30:                                               ; preds = %22
   %31 = trunc i64 %24 to i32
   %32 = load ptr, ptr @ws_optarg, align 8
   %char0 = load i8, ptr %32, align 1
-  %33 = icmp ne i8 %char0, 43
-  %.139 = select i1 %33, i1 %.038.ph, i1 false
-  %34 = icmp slt i32 %31, 0
-  %spec.select52 = select i1 %34, i1 true, i1 %.139
+  %.not54 = icmp ne i8 %char0, 43
+  %.139 = select i1 %.not54, i1 %.038.ph, i1 false
+  %33 = icmp slt i32 %31, 0
+  %spec.select52 = select i1 %33, i1 true, i1 %.139
   %spec.select53 = call i32 @llvm.abs.i32(i32 %31, i1 false)
   br label %.preheader.outer, !llvm.loop !7
 
@@ -166,92 +166,92 @@ define hidden range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local_un
   %.0.ph = phi i32 [ %spec.select53, %30 ], [ 10, %10 ]
   br label %.preheader
 
-35:                                               ; preds = %.preheader
-  %36 = load i32, ptr @ws_optind, align 4
-  %37 = add i32 %36, -1
-  %38 = sext i32 %37 to i64
-  %39 = getelementptr ptr, ptr %1, i64 %38
-  %40 = load ptr, ptr %39, align 8
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str, i32 noundef 5, ptr noundef nonnull @.str.1, i64 noundef 432, ptr noundef nonnull @__func__.main, ptr noundef nonnull @.str.17, ptr noundef %40)
+34:                                               ; preds = %.preheader
+  %35 = load i32, ptr @ws_optind, align 4
+  %36 = add i32 %35, -1
+  %37 = sext i32 %36 to i64
+  %38 = getelementptr ptr, ptr %1, i64 %37
+  %39 = load ptr, ptr %38, align 8
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str, i32 noundef 5, ptr noundef nonnull @.str.1, i64 noundef 432, ptr noundef nonnull @__func__.main, ptr noundef nonnull @.str.17, ptr noundef %39)
   br label %.preheader.backedge
 
-41:                                               ; preds = %.preheader
-  %42 = load ptr, ptr %5, align 8
-  %43 = load ptr, ptr @ws_optarg, align 8
-  %44 = call zeroext i8 @extcap_base_parse_options(ptr noundef %42, i32 noundef %17, ptr noundef %43)
-  %.not51 = icmp eq i8 %44, 0
-  br i1 %.not51, label %45, label %.preheader.backedge
+40:                                               ; preds = %.preheader
+  %41 = load ptr, ptr %5, align 8
+  %42 = load ptr, ptr @ws_optarg, align 8
+  %43 = call zeroext i8 @extcap_base_parse_options(ptr noundef %41, i32 noundef %17, ptr noundef %42)
+  %.not51 = icmp eq i8 %43, 0
+  br i1 %.not51, label %44, label %.preheader.backedge
 
-.preheader.backedge:                              ; preds = %41, %35
+.preheader.backedge:                              ; preds = %40, %34
   br label %.preheader, !llvm.loop !7
 
-45:                                               ; preds = %41
-  %46 = load i32, ptr @ws_optind, align 4
-  %47 = add i32 %46, -1
-  %48 = sext i32 %47 to i64
-  %49 = getelementptr ptr, ptr %1, i64 %48
-  %50 = load ptr, ptr %49, align 8
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str, i32 noundef 5, ptr noundef nonnull @.str.1, i64 noundef 437, ptr noundef nonnull @__func__.main, ptr noundef nonnull @.str.18, ptr noundef %50)
-  br label %73
+44:                                               ; preds = %40
+  %45 = load i32, ptr @ws_optind, align 4
+  %46 = add i32 %45, -1
+  %47 = sext i32 %46 to i64
+  %48 = getelementptr ptr, ptr %1, i64 %47
+  %49 = load ptr, ptr %48, align 8
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str, i32 noundef 5, ptr noundef nonnull @.str.1, i64 noundef 437, ptr noundef nonnull @__func__.main, ptr noundef nonnull @.str.18, ptr noundef %49)
+  br label %72
 
-51:                                               ; preds = %.preheader
+50:                                               ; preds = %.preheader
   call void @extcap_cmdline_debug(ptr noundef %1, i32 noundef %0)
-  %52 = load ptr, ptr %5, align 8
-  %53 = call zeroext i8 @extcap_base_handle_interface(ptr noundef %52)
-  %.not47 = icmp eq i8 %53, 0
-  br i1 %.not47, label %54, label %73
+  %51 = load ptr, ptr %5, align 8
+  %52 = call zeroext i8 @extcap_base_handle_interface(ptr noundef %51)
+  %.not47 = icmp eq i8 %52, 0
+  br i1 %.not47, label %53, label %72
 
-54:                                               ; preds = %51
-  %55 = getelementptr inbounds nuw i8, ptr %52, i64 65
-  %56 = load i8, ptr %55, align 1
-  %.not48 = icmp eq i8 %56, 0
-  br i1 %.not48, label %66, label %57
+53:                                               ; preds = %50
+  %54 = getelementptr inbounds nuw i8, ptr %51, i64 65
+  %55 = load i8, ptr %54, align 1
+  %.not48 = icmp eq i8 %55, 0
+  br i1 %.not48, label %65, label %56
 
-57:                                               ; preds = %54
-  %58 = getelementptr inbounds nuw i8, ptr %52, i64 16
-  %59 = load ptr, ptr %58, align 8
+56:                                               ; preds = %53
+  %57 = getelementptr inbounds nuw i8, ptr %51, i64 16
+  %58 = load ptr, ptr %57, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %.not.i = icmp eq ptr %59, null
-  br i1 %.not.i, label %60, label %61
+  %.not.i = icmp eq ptr %58, null
+  br i1 %.not.i, label %59, label %60
 
-60:                                               ; preds = %57
+59:                                               ; preds = %56
   call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str, i32 noundef 5, ptr noundef nonnull @.str.1, i64 noundef 317, ptr noundef nonnull @__func__.list_config, ptr noundef nonnull @.str.33)
   br label %list_config.exit
 
-61:                                               ; preds = %57
-  %62 = call i32 @g_strcmp0(ptr noundef nonnull %59, ptr noundef nonnull @.str)
-  %.not3.i = icmp eq i32 %62, 0
-  br i1 %.not3.i, label %64, label %63
+60:                                               ; preds = %56
+  %61 = call i32 @g_strcmp0(ptr noundef nonnull %58, ptr noundef nonnull @.str)
+  %.not3.i = icmp eq i32 %61, 0
+  br i1 %.not3.i, label %63, label %62
 
-63:                                               ; preds = %61
+62:                                               ; preds = %60
   call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str, i32 noundef 5, ptr noundef nonnull @.str.1, i64 noundef 322, ptr noundef nonnull @__func__.list_config, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str)
   br label %list_config.exit
 
-64:                                               ; preds = %61
+63:                                               ; preds = %60
   store i32 1, ptr %3, align 4
-  %65 = call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.35, i32 noundef 0)
+  %64 = call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.35, i32 noundef 0)
   call void @extcap_config_debug(ptr noundef nonnull %3)
   br label %list_config.exit
 
-list_config.exit:                                 ; preds = %60, %63, %64
-  %.0.i = phi i32 [ 1, %63 ], [ 0, %64 ], [ 1, %60 ]
+list_config.exit:                                 ; preds = %59, %62, %63
+  %.0.i = phi i32 [ 1, %62 ], [ 0, %63 ], [ 1, %59 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %73
+  br label %72
 
-66:                                               ; preds = %54
-  %67 = getelementptr inbounds nuw i8, ptr %52, i64 64
-  %68 = load i8, ptr %67, align 8
-  %.not49 = icmp eq i8 %68, 0
-  br i1 %.not49, label %73, label %69
+65:                                               ; preds = %53
+  %66 = getelementptr inbounds nuw i8, ptr %51, i64 64
+  %67 = load i8, ptr %66, align 8
+  %.not49 = icmp eq i8 %67, 0
+  br i1 %.not49, label %72, label %68
 
-69:                                               ; preds = %66
-  %70 = getelementptr inbounds nuw i8, ptr %52, i64 8
-  %71 = load ptr, ptr %70, align 8
-  %72 = call fastcc i32 @sdj_start_export(i32 noundef %.0.ph, i1 noundef zeroext %.038.ph, ptr noundef %71)
-  br label %73
+68:                                               ; preds = %65
+  %69 = getelementptr inbounds nuw i8, ptr %51, i64 8
+  %70 = load ptr, ptr %69, align 8
+  %71 = call fastcc i32 @sdj_start_export(i32 noundef %.0.ph, i1 noundef zeroext %.038.ph, ptr noundef %70)
+  br label %72
 
-73:                                               ; preds = %66, %51, %69, %list_config.exit, %45, %28, %20, %18, %16
-  %.041 = phi i32 [ 1, %16 ], [ 1, %45 ], [ 0, %18 ], [ 0, %20 ], [ 1, %28 ], [ 0, %51 ], [ %.0.i, %list_config.exit ], [ %72, %69 ], [ 1, %66 ]
+72:                                               ; preds = %65, %50, %68, %list_config.exit, %44, %28, %20, %18, %16
+  %.041 = phi i32 [ 1, %16 ], [ 1, %44 ], [ 0, %18 ], [ 0, %20 ], [ 1, %28 ], [ 0, %50 ], [ %.0.i, %list_config.exit ], [ %71, %68 ], [ 1, %65 ]
   call void @extcap_base_cleanup(ptr noundef nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

@@ -6836,7 +6836,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17h98fb7629c700714fE.exit: ; pred
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden noundef align 4 dereferenceable_or_null(24) ptr @_ZN6object4read4util5Bytes7read_at17h3b1a4a9d7c2f37fbE.llvm.6452179527160401088(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, i64 noundef %2) unnamed_addr #9 {
   %.not = icmp ugt i64 %2, %1
-  br i1 %.not, label %10, label %_ZN6object3pod10from_bytes17h91be3324ed407e94E.exit
+  br i1 %.not, label %11, label %_ZN6object3pod10from_bytes17h91be3324ed407e94E.exit
 
 _ZN6object3pod10from_bytes17h91be3324ed407e94E.exit: ; preds = %3
   %4 = getelementptr inbounds i8, ptr %0, i64 %2
@@ -6844,12 +6844,12 @@ _ZN6object3pod10from_bytes17h91be3324ed407e94E.exit: ; preds = %3
   %6 = icmp ult i64 %5, 24
   %7 = ptrtoint ptr %4 to i64
   %8 = and i64 %7, 3
-  %9 = icmp eq i64 %8, 0
-  %spec.select = select i1 %9, ptr %4, ptr null
-  %.sroa.0.09 = select i1 %6, ptr null, ptr %spec.select
-  br label %10
+  %9 = icmp ne i64 %8, 0
+  %10 = select i1 %6, i1 true, i1 %9
+  %.sroa.0.09 = select i1 %10, ptr null, ptr %4
+  br label %11
 
-10:                                               ; preds = %3, %_ZN6object3pod10from_bytes17h91be3324ed407e94E.exit
+11:                                               ; preds = %3, %_ZN6object3pod10from_bytes17h91be3324ed407e94E.exit
   %.0 = phi ptr [ %.sroa.0.09, %_ZN6object3pod10from_bytes17h91be3324ed407e94E.exit ], [ null, %3 ]
   ret ptr %.0
 }
@@ -6869,12 +6869,12 @@ _ZN6object3pod10from_bytes17h655e5aab7a4cbbc4E.exit: ; preds = %2
   %7 = load ptr, ptr %1, align 8, !nonnull !4, !align !17, !noundef !4
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load i64, ptr %8, align 8, !noundef !4
-  %10 = icmp ugt i64 %9, 55
+  %10 = icmp ult i64 %9, 56
   %11 = ptrtoint ptr %7 to i64
   %12 = and i64 %11, 3
-  %13 = icmp eq i64 %12, 0
-  %14 = and i1 %10, %13
-  br i1 %14, label %15, label %19
+  %13 = icmp ne i64 %12, 0
+  %14 = or i1 %10, %13
+  br i1 %14, label %19, label %15
 
 15:                                               ; preds = %_ZN6object3pod10from_bytes17h655e5aab7a4cbbc4E.exit
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 56
@@ -6915,12 +6915,12 @@ _ZN6object3pod10from_bytes17hdb52159cc116a8acE.exit: ; preds = %2
   %7 = load ptr, ptr %1, align 8, !nonnull !4, !align !17, !noundef !4
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load i64, ptr %8, align 8, !noundef !4
-  %10 = icmp ugt i64 %9, 71
+  %10 = icmp ult i64 %9, 72
   %11 = ptrtoint ptr %7 to i64
   %12 = and i64 %11, 7
-  %13 = icmp eq i64 %12, 0
-  %14 = and i1 %10, %13
-  br i1 %14, label %15, label %19
+  %13 = icmp ne i64 %12, 0
+  %14 = or i1 %10, %13
+  br i1 %14, label %19, label %15
 
 15:                                               ; preds = %_ZN6object3pod10from_bytes17hdb52159cc116a8acE.exit
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 72
@@ -6955,7 +6955,7 @@ define hidden void @"_ZN6object4read5macho12load_command24LoadCommandData$LT$E$G
 
 6:                                                ; preds = %2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
-  br label %16
+  br label %15
 
 7:                                                ; preds = %2
   %8 = load ptr, ptr %1, align 8, !nonnull !4, !align !17, !noundef !4
@@ -6965,23 +6965,23 @@ define hidden void @"_ZN6object4read5macho12load_command24LoadCommandData$LT$E$G
   %12 = ptrtoint ptr %8 to i64
   %13 = and i64 %12, 3
   %14 = icmp eq i64 %13, 0
-  %15 = and i1 %11, %14
-  br i1 %15, label %17, label %19
+  %.not4 = and i1 %11, %14
+  br i1 %.not4, label %16, label %18
 
-16:                                               ; preds = %17, %19, %6
+15:                                               ; preds = %16, %18, %6
   ret void
 
-17:                                               ; preds = %7
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %8, ptr %18, align 8
+16:                                               ; preds = %7
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %8, ptr %17, align 8
   store ptr null, ptr %0, align 8
-  br label %16
+  br label %15
 
-19:                                               ; preds = %7
+18:                                               ; preds = %7
   store ptr @anon.0ecd3ce1ce6f6f973ef910aad1a48719.76.llvm.6452179527160401088, ptr %0, align 8
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 27, ptr %20, align 8
-  br label %16
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 27, ptr %19, align 8
+  br label %15
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
@@ -6993,7 +6993,7 @@ define hidden void @"_ZN6object4read5macho12load_command28LoadCommandIterator$LT
 
 6:                                                ; preds = %2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
-  br label %16
+  br label %15
 
 7:                                                ; preds = %2
   %8 = load ptr, ptr %1, align 8, !nonnull !4, !align !17, !noundef !4
@@ -7003,71 +7003,71 @@ define hidden void @"_ZN6object4read5macho12load_command28LoadCommandIterator$LT
   %12 = ptrtoint ptr %8 to i64
   %13 = and i64 %12, 3
   %14 = icmp eq i64 %13, 0
-  %15 = and i1 %11, %14
-  br i1 %15, label %17, label %27
+  %.not44 = and i1 %11, %14
+  br i1 %.not44, label %16, label %26
 
-16:                                               ; preds = %40, %37, %34, %27, %6
+15:                                               ; preds = %39, %36, %33, %26, %6
   ret void
 
-17:                                               ; preds = %7
-  %18 = load i32, ptr %8, align 4, !noundef !4
-  %19 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %20 = load i8, ptr %19, align 4, !range !19, !noundef !4
-  %21 = trunc nuw i8 %20 to i1
-  %22 = tail call i32 @llvm.bswap.i32(i32 %18)
-  %.0.i = select i1 %21, i32 %22, i32 %18
-  %23 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  %24 = load i32, ptr %23, align 4, !noundef !4
-  %25 = tail call i32 @llvm.bswap.i32(i32 %24)
-  %.0.i28 = select i1 %21, i32 %25, i32 %24
-  %26 = icmp ult i32 %.0.i28, 8
-  br i1 %26, label %34, label %30
+16:                                               ; preds = %7
+  %17 = load i32, ptr %8, align 4, !noundef !4
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %19 = load i8, ptr %18, align 4, !range !19, !noundef !4
+  %20 = trunc nuw i8 %19 to i1
+  %21 = tail call i32 @llvm.bswap.i32(i32 %17)
+  %.0.i = select i1 %20, i32 %21, i32 %17
+  %22 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  %23 = load i32, ptr %22, align 4, !noundef !4
+  %24 = tail call i32 @llvm.bswap.i32(i32 %23)
+  %.0.i27 = select i1 %20, i32 %24, i32 %23
+  %25 = icmp ult i32 %.0.i27, 8
+  br i1 %25, label %33, label %29
 
-27:                                               ; preds = %7
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr @anon.0ecd3ce1ce6f6f973ef910aad1a48719.77, ptr %28, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 34, ptr %29, align 8
+26:                                               ; preds = %7
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr @anon.0ecd3ce1ce6f6f973ef910aad1a48719.77, ptr %27, align 8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 34, ptr %28, align 8
   store i64 1, ptr %0, align 8
-  br label %16
+  br label %15
 
-30:                                               ; preds = %17
-  %31 = zext i32 %.0.i28 to i64
-  %32 = icmp ult i64 %10, %31
-  %33 = getelementptr inbounds nuw i8, ptr %8, i64 %31
-  %storemerge13.i = select i1 %32, ptr @anon.0ecd3ce1ce6f6f973ef910aad1a48719.18.llvm.6452179527160401088, ptr %33
-  %storemerge.i = tail call i64 @llvm.usub.sat.i64(i64 %10, i64 range(i64 8, 0) %31)
+29:                                               ; preds = %16
+  %30 = zext i32 %.0.i27 to i64
+  %31 = icmp ult i64 %10, %30
+  %32 = getelementptr inbounds nuw i8, ptr %8, i64 %30
+  %storemerge13.i = select i1 %31, ptr @anon.0ecd3ce1ce6f6f973ef910aad1a48719.18.llvm.6452179527160401088, ptr %32
+  %storemerge.i = tail call i64 @llvm.usub.sat.i64(i64 %10, i64 range(i64 8, 0) %30)
   store ptr %storemerge13.i, ptr %1, align 8, !alias.scope !1511
   store i64 %storemerge.i, ptr %9, align 8, !alias.scope !1511
-  br i1 %32, label %40, label %37
+  br i1 %31, label %39, label %36
 
-34:                                               ; preds = %17
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr @anon.0ecd3ce1ce6f6f973ef910aad1a48719.78, ptr %35, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 32, ptr %36, align 8
+33:                                               ; preds = %16
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr @anon.0ecd3ce1ce6f6f973ef910aad1a48719.78, ptr %34, align 8
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 32, ptr %35, align 8
   store i64 1, ptr %0, align 8
-  br label %16
+  br label %15
 
-37:                                               ; preds = %30
-  %38 = add i32 %4, -1
-  store i32 %38, ptr %3, align 8
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %8, ptr %39, align 8
+36:                                               ; preds = %29
+  %37 = add i32 %4, -1
+  store i32 %37, ptr %3, align 8
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %8, ptr %38, align 8
   %.sroa.415.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %31, ptr %.sroa.415.0..sroa_idx, align 8
+  store i64 %30, ptr %.sroa.415.0..sroa_idx, align 8
   %.sroa.516.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %.0.i, ptr %.sroa.516.0..sroa_idx, align 8
   store i64 0, ptr %0, align 8
-  br label %16
+  br label %15
 
-40:                                               ; preds = %30
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr @anon.0ecd3ce1ce6f6f973ef910aad1a48719.78, ptr %41, align 8
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 32, ptr %42, align 8
+39:                                               ; preds = %29
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr @anon.0ecd3ce1ce6f6f973ef910aad1a48719.78, ptr %40, align 8
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 32, ptr %41, align 8
   store i64 1, ptr %0, align 8
-  br label %16
+  br label %15
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable

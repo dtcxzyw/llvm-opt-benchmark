@@ -1979,9 +1979,9 @@ _ZN5drjit15StaticArrayBaseIfLm2ELb0EN7mitsuba5PointIfLm2EEEE5zero_Em.exit1211.cr
   %.sroa.speculated1522 = select i1 %narrow, float %5, float %.sroa.speculate.load.false
   %.sroa.01546.4.vec.insert = insertelement <2 x float> %.sroa.01546.0.vec.insert, float %.sroa.speculated1522, i64 1
   store <2 x float> %.sroa.01546.4.vec.insert, ptr %15, align 16
-  %37 = select i1 %28, float 0.000000e+00, float 1.000000e+00
-  %38 = select i1 %30, float 1.000000e+00, float %37
-  %39 = select i1 %35, float 0.000000e+00, float %38
+  %37 = xor i1 %27, %26
+  %38 = or i1 %narrow, %37
+  %39 = select i1 %38, float 0.000000e+00, float 1.000000e+00
   %.sroa.01538.0.vec.insert = insertelement <2 x float> poison, float %39, i64 0
   %.sroa.speculated = select i1 %35, float 1.000000e+00, float 0.000000e+00
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 144

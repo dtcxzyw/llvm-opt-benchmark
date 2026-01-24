@@ -2078,115 +2078,114 @@ define internal noundef range(i32 -19, 1) i32 @cnp_setup_backlight(ptr noundef i
   %7 = zext i8 %5 to i32
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8112
   %9 = load i32, ptr %8, align 8
-  %10 = icmp sgt i32 %9, 1023
-  %11 = icmp sgt i32 %9, 5
-  %12 = select i1 %11, i32 2, i32 1
-  %13 = select i1 %10, i32 1, i32 %12
-  %14 = icmp samesign ugt i32 %13, %7
-  br i1 %14, label %15, label %27
+  %10 = add i32 %9, -1024
+  %11 = icmp ult i32 %10, -1018
+  %12 = select i1 %11, i32 1, i32 2
+  %13 = icmp samesign ugt i32 %12, %7
+  br i1 %13, label %14, label %26
 
-15:                                               ; preds = %2
-  %16 = icmp eq i8 %5, 1
-  %17 = add i32 %9, -6
-  %18 = icmp ult i32 %17, 3
-  %19 = and i1 %16, %18
-  br i1 %19, label %20, label %40
+14:                                               ; preds = %2
+  %15 = icmp eq i8 %5, 1
+  %16 = add i32 %9, -6
+  %17 = icmp ult i32 %16, 3
+  %18 = and i1 %15, %17
+  br i1 %18, label %19, label %39
 
-20:                                               ; preds = %15
-  %21 = getelementptr inbounds nuw i8, ptr %3, i64 7368
-  %22 = getelementptr inbounds nuw i8, ptr %3, i64 7512
-  %23 = load ptr, ptr %22, align 8
-  %24 = tail call i32 %23(ptr noundef nonnull %21, i32 794624, i1 noundef zeroext true) #9
-  %25 = and i32 %24, 4
-  %26 = icmp eq i32 %25, 0
-  br i1 %26, label %27, label %._crit_edge
+19:                                               ; preds = %14
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 7368
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 7512
+  %22 = load ptr, ptr %21, align 8
+  %23 = tail call i32 %22(ptr noundef nonnull %20, i32 794624, i1 noundef zeroext true) #9
+  %24 = and i32 %23, 4
+  %25 = icmp eq i32 %24, 0
+  br i1 %25, label %26, label %._crit_edge
 
-._crit_edge:                                      ; preds = %20
+._crit_edge:                                      ; preds = %19
   %.pre = load i8, ptr %6, align 2
-  br label %40
+  br label %39
 
-27:                                               ; preds = %20, %2
-  %28 = icmp eq ptr %3, null
-  br i1 %28, label %32, label %29
+26:                                               ; preds = %19, %2
+  %27 = icmp eq ptr %3, null
+  br i1 %27, label %31, label %28
 
-29:                                               ; preds = %27
-  %30 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %31 = load ptr, ptr %30, align 8
-  br label %32
+28:                                               ; preds = %26
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %30 = load ptr, ptr %29, align 8
+  br label %31
 
-32:                                               ; preds = %29, %27
-  %33 = phi ptr [ %31, %29 ], [ null, %27 ]
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %35 = load i32, ptr %34, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %37 = load ptr, ptr %36, align 8
-  %38 = load i8, ptr %6, align 2
-  %39 = zext i8 %38 to i32
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %33, i32 noundef 2, ptr noundef nonnull @.str.31, i32 noundef %35, ptr noundef %37, i32 noundef %39) #9
+31:                                               ; preds = %28, %26
+  %32 = phi ptr [ %30, %28 ], [ null, %26 ]
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %34 = load i32, ptr %33, align 8
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %36 = load ptr, ptr %35, align 8
+  %37 = load i8, ptr %6, align 2
+  %38 = zext i8 %37 to i32
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %32, i32 noundef 2, ptr noundef nonnull @.str.31, i32 noundef %34, ptr noundef %36, i32 noundef %38) #9
   store i8 0, ptr %6, align 2
-  br label %40
+  br label %39
 
-40:                                               ; preds = %._crit_edge, %32, %15
-  %41 = phi i8 [ %.pre, %._crit_edge ], [ 0, %32 ], [ %5, %15 ]
-  %42 = zext i8 %41 to i32
-  %43 = shl nuw nsw i32 %42, 8
-  %44 = add nuw nsw i32 %43, 819792
-  %45 = getelementptr inbounds nuw i8, ptr %3, i64 7368
-  %46 = getelementptr inbounds nuw i8, ptr %3, i64 7512
-  %47 = load ptr, ptr %46, align 8
-  %48 = tail call i32 %47(ptr noundef nonnull %45, i32 %44, i1 noundef zeroext true) #9
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 2042
-  %50 = lshr i32 %48, 29
-  %51 = trunc nuw nsw i32 %50 to i8
-  %52 = and i8 %51, 1
-  store i8 %52, ptr %49, align 2
-  %53 = load i8, ptr %6, align 2
-  %54 = zext i8 %53 to i32
-  %55 = shl nuw nsw i32 %54, 8
-  %56 = add nuw nsw i32 %55, 819796
-  %57 = load ptr, ptr %46, align 8
-  %58 = tail call i32 %57(ptr noundef nonnull %45, i32 %56, i1 noundef zeroext true) #9
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 2048
-  store i32 %58, ptr %59, align 8
-  %60 = icmp eq i32 %58, 0
-  br i1 %60, label %61, label %.thread
+39:                                               ; preds = %._crit_edge, %31, %14
+  %40 = phi i8 [ %.pre, %._crit_edge ], [ 0, %31 ], [ %5, %14 ]
+  %41 = zext i8 %40 to i32
+  %42 = shl nuw nsw i32 %41, 8
+  %43 = add nuw nsw i32 %42, 819792
+  %44 = getelementptr inbounds nuw i8, ptr %3, i64 7368
+  %45 = getelementptr inbounds nuw i8, ptr %3, i64 7512
+  %46 = load ptr, ptr %45, align 8
+  %47 = tail call i32 %46(ptr noundef nonnull %44, i32 %43, i1 noundef zeroext true) #9
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 2042
+  %49 = lshr i32 %47, 29
+  %50 = trunc nuw nsw i32 %49 to i8
+  %51 = and i8 %50, 1
+  store i8 %51, ptr %48, align 2
+  %52 = load i8, ptr %6, align 2
+  %53 = zext i8 %52 to i32
+  %54 = shl nuw nsw i32 %53, 8
+  %55 = add nuw nsw i32 %54, 819796
+  %56 = load ptr, ptr %45, align 8
+  %57 = tail call i32 %56(ptr noundef nonnull %44, i32 %55, i1 noundef zeroext true) #9
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 2048
+  store i32 %57, ptr %58, align 8
+  %59 = icmp eq i32 %57, 0
+  br i1 %59, label %60, label %.thread
 
-61:                                               ; preds = %40
-  %62 = tail call fastcc i32 @get_backlight_max_vbt(ptr noundef %0)
-  store i32 %62, ptr %59, align 8
-  %63 = icmp eq i32 %62, 0
-  br i1 %63, label %81, label %.thread
+60:                                               ; preds = %39
+  %61 = tail call fastcc i32 @get_backlight_max_vbt(ptr noundef %0)
+  store i32 %61, ptr %58, align 8
+  %62 = icmp eq i32 %61, 0
+  br i1 %62, label %80, label %.thread
 
-.thread:                                          ; preds = %40, %61
-  %64 = tail call fastcc i32 @get_backlight_min_vbt(ptr noundef %0)
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 2044
-  store i32 %64, ptr %65, align 4
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 2052
-  %67 = lshr i32 %48, 31
-  %68 = trunc nuw nsw i32 %67 to i8
-  store i8 %68, ptr %66, align 4
-  %69 = icmp eq ptr %3, null
-  br i1 %69, label %73, label %70
+.thread:                                          ; preds = %39, %60
+  %63 = tail call fastcc i32 @get_backlight_min_vbt(ptr noundef %0)
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 2044
+  store i32 %63, ptr %64, align 4
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 2052
+  %66 = lshr i32 %47, 31
+  %67 = trunc nuw nsw i32 %66 to i8
+  store i8 %67, ptr %65, align 4
+  %68 = icmp eq ptr %3, null
+  br i1 %68, label %72, label %69
 
-70:                                               ; preds = %.thread
-  %71 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %72 = load ptr, ptr %71, align 8
-  br label %73
+69:                                               ; preds = %.thread
+  %70 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %71 = load ptr, ptr %70, align 8
+  br label %72
 
-73:                                               ; preds = %70, %.thread
-  %74 = phi ptr [ %72, %70 ], [ null, %.thread ]
-  %75 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %76 = load i32, ptr %75, align 8
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %78 = load ptr, ptr %77, align 8
-  %79 = load i8, ptr %6, align 2
-  %80 = zext i8 %79 to i32
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %74, i32 noundef 2, ptr noundef nonnull @.str.32, i32 noundef %76, ptr noundef %78, i32 noundef %80) #9
-  br label %81
+72:                                               ; preds = %69, %.thread
+  %73 = phi ptr [ %71, %69 ], [ null, %.thread ]
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %75 = load i32, ptr %74, align 8
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %77 = load ptr, ptr %76, align 8
+  %78 = load i8, ptr %6, align 2
+  %79 = zext i8 %78 to i32
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %73, i32 noundef 2, ptr noundef nonnull @.str.32, i32 noundef %75, ptr noundef %77, i32 noundef %79) #9
+  br label %80
 
-81:                                               ; preds = %73, %61
-  %82 = phi i32 [ 0, %73 ], [ -19, %61 ]
-  ret i32 %82
+80:                                               ; preds = %72, %60
+  %81 = phi i32 [ 0, %72 ], [ -19, %60 ]
+  ret i32 %81
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

@@ -5159,10 +5159,9 @@ define hidden void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..s
   %37 = extractvalue { i64, i1 } %36, 1
   %38 = add nuw i64 %34, %30
   %not..i.i = xor i1 %37, true
-  %spec.select8.i.i = select i1 %37, i64 undef, i64 %38, !prof !16
   %narrow.i.i = select i1 %or.cond.not.i.i, i1 %not..i.i, i1 false
   %.sroa.04.0.i.i = zext i1 %narrow.i.i to i64
-  %.sroa.6.0.i.i = select i1 %or.cond.not.i.i, i64 %spec.select8.i.i, i64 undef
+  %.sroa.6.0.i.i = select i1 %narrow.i.i, i64 %38, i64 undef
   %39 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store i64 %.sroa.04.0.i.i, ptr %39, align 8, !alias.scope !569, !noalias !577
   %40 = getelementptr inbounds nuw i8, ptr %15, i64 16
@@ -5255,9 +5254,8 @@ define hidden void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..s
   %75 = extractvalue { i64, i1 } %74, 1
   %76 = add nuw i64 %72, %68
   %not..i.i.i.i = xor i1 %75, true
-  %spec.select8.i.i.i.i = select i1 %75, i64 undef, i64 %76, !prof !16
   %narrow.i.i.i.i = select i1 %or.cond.not.i.i.i.i, i1 %not..i.i.i.i, i1 false
-  %.sroa.6.0.i.i.i.i = select i1 %or.cond.not.i.i.i.i, i64 %spec.select8.i.i.i.i, i64 undef
+  %.sroa.6.0.i.i.i.i = select i1 %narrow.i.i.i.i, i64 %76, i64 undef
   br label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h740673aac6205f7eE.exit.i.i.i"
 
 .invoke.i:                                        ; preds = %63, %62

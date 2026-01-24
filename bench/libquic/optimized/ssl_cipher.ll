@@ -3429,15 +3429,15 @@ rule_equals.exit222:                              ; preds = %.preheader
   %91 = getelementptr inbounds nuw i8, ptr %76, i64 20
   %92 = load i32, ptr %91, align 4, !tbaa !55
   %93 = and i32 %92, %.0193
-  %.not210 = icmp eq i16 %.0189, 0
+  %.not210 = icmp ne i16 %.0189, 0
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %76, i64 24
   %.pre = load i16, ptr %.phi.trans.insert, align 8, !tbaa !56
-  %.not211 = icmp eq i16 %.0189, %.pre
-  %.3192 = select i1 %.not210, i16 %.pre, i16 %.0189
-  %94 = select i1 %.not210, i1 true, i1 %.not211
-  %.3176 = select i1 %94, i32 %.0173, i32 1
-  %95 = icmp eq i64 %.1160108, 37
-  %spec.select363 = select i1 %95, i32 1, i32 %.3176
+  %.not211 = icmp ne i16 %.0189, %.pre
+  %.3192 = select i1 %.not210, i16 %.0189, i16 %.pre
+  %.not364 = select i1 %.not210, i1 %.not211, i1 false
+  %94 = icmp eq i64 %.1160108, 37
+  %95 = select i1 %94, i1 true, i1 %.not364
+  %spec.select363 = select i1 %95, i32 1, i32 %.0173
   br label %.loopexit.thread
 
 rule_equals.exit222.thread:                       ; preds = %.preheader, %rule_equals.exit222
@@ -3556,16 +3556,16 @@ switch.lookup:                                    ; preds = %.split.i.i
   %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.ssl_cipher_process_rulestr, i64 %118
   %switch.load = load i32, ptr %switch.gep, align 4
   %119 = icmp samesign ugt i32 %switch.load, %.02850.i
-  br i1 %119, label %switch.lookup423, label %SSL_CIPHER_get_bits.exit39.i
+  br i1 %119, label %switch.lookup424, label %SSL_CIPHER_get_bits.exit39.i
 
-switch.lookup423:                                 ; preds = %switch.lookup
+switch.lookup424:                                 ; preds = %switch.lookup
   %120 = zext nneg i32 %116 to i64
-  %switch.gep424 = getelementptr inbounds nuw i32, ptr @switch.table.SSL_CIPHER_get_bits.6, i64 %120
-  %switch.load425 = load i32, ptr %switch.gep424, align 4
+  %switch.gep425 = getelementptr inbounds nuw i32, ptr @switch.table.SSL_CIPHER_get_bits.6, i64 %120
+  %switch.load426 = load i32, ptr %switch.gep425, align 4
   br label %SSL_CIPHER_get_bits.exit39.i
 
-SSL_CIPHER_get_bits.exit39.i:                     ; preds = %switch.lookup423, %.split.i.i, %switch.lookup, %111, %108, %.lr.ph.i
-  %.129.i = phi i32 [ %.02850.i, %111 ], [ %.02850.i, %switch.lookup ], [ %.02850.i, %.lr.ph.i ], [ %switch.load425, %switch.lookup423 ], [ %.02850.i, %.split.i.i ], [ %.02850.i, %108 ]
+SSL_CIPHER_get_bits.exit39.i:                     ; preds = %switch.lookup424, %.split.i.i, %switch.lookup, %111, %108, %.lr.ph.i
+  %.129.i = phi i32 [ %.02850.i, %111 ], [ %.02850.i, %switch.lookup ], [ %.02850.i, %.lr.ph.i ], [ %switch.load426, %switch.lookup424 ], [ %.02850.i, %.split.i.i ], [ %.02850.i, %108 ]
   %121 = getelementptr inbounds nuw i8, ptr %.051.i, i64 16
   %.0.i = load ptr, ptr %121, align 8, !tbaa !31
   %.not.i = icmp eq ptr %.0.i, null
@@ -3613,16 +3613,16 @@ SSL_CIPHER_get_bits.exit39.i:                     ; preds = %switch.lookup423, %
 .split.i43.i:                                     ; preds = %132
   %137 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %134, i1 true)
   %138 = icmp samesign ult i32 %137, 9
-  br i1 %138, label %switch.lookup426, label %SSL_CIPHER_get_bits.exit44.i
+  br i1 %138, label %switch.lookup427, label %SSL_CIPHER_get_bits.exit44.i
 
-switch.lookup426:                                 ; preds = %.split.i43.i
+switch.lookup427:                                 ; preds = %.split.i43.i
   %139 = zext nneg i32 %137 to i64
-  %switch.gep427 = getelementptr inbounds nuw i64, ptr @switch.table.ssl_cipher_process_rulestr.4, i64 %139
-  %switch.load428 = load i64, ptr %switch.gep427, align 8
+  %switch.gep428 = getelementptr inbounds nuw i64, ptr @switch.table.ssl_cipher_process_rulestr.4, i64 %139
+  %switch.load429 = load i64, ptr %switch.gep428, align 8
   br label %SSL_CIPHER_get_bits.exit44.i
 
-SSL_CIPHER_get_bits.exit44.i:                     ; preds = %132, %.split.i43.i, %switch.lookup426, %129
-  %.07.i42.i = phi i64 [ 0, %129 ], [ %switch.load428, %switch.lookup426 ], [ 0, %.split.i43.i ], [ 0, %132 ]
+SSL_CIPHER_get_bits.exit44.i:                     ; preds = %132, %.split.i43.i, %switch.lookup427, %129
+  %.07.i42.i = phi i64 [ 0, %129 ], [ %switch.load429, %switch.lookup427 ], [ 0, %.split.i43.i ], [ 0, %132 ]
   %140 = getelementptr inbounds nuw i32, ptr %calloc.i, i64 %.07.i42.i
   %141 = load i32, ptr %140, align 4, !tbaa !59
   %142 = add nsw i32 %141, 1

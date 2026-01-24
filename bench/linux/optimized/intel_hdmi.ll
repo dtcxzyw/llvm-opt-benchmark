@@ -5083,14 +5083,14 @@ define dso_local noundef range(i32 0, 17) i32 @intel_hdmi_dsc_get_num_slices(ptr
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(none)
 define dso_local i32 @intel_hdmi_dsc_get_bpp(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i1 noundef zeroext %4, i32 noundef %5) local_unnamed_addr #4 align 16 {
-  %7 = icmp eq i32 %3, 1
+  %7 = icmp ne i32 %3, 1
   %8 = and i32 %3, -3
   %9 = icmp eq i32 %8, 0
   %10 = select i1 %9, i32 128, i32 112
   %11 = select i1 %9, i32 384, i32 256
-  %12 = select i1 %7, i32 96, i32 %10
-  %13 = select i1 %7, i32 192, i32 %11
-  %14 = select i1 %4, i32 %13, i32 192
+  %12 = select i1 %7, i32 %10, i32 96
+  %13 = and i1 %4, %7
+  %14 = select i1 %13, i32 %11, i32 192
   %15 = tail call i32 @llvm.umax.i32(i32 %0, i32 1)
   %16 = add i32 %15, 15
   %17 = sdiv i32 %16, %15

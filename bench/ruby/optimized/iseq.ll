@@ -2577,11 +2577,11 @@ define internal fastcc void @prepare_iseq_build(ptr noundef %0, i64 noundef %1, 
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8, !tbaa !7
   %.not = icmp eq ptr %7, null
-  %switch.selectcmp.case1 = icmp eq i32 %9, 7
-  %switch.selectcmp.case2 = icmp eq i32 %9, 0
-  %switch.selectcmp = or i1 %switch.selectcmp.case1, %switch.selectcmp.case2
-  %15 = select i1 %switch.selectcmp, i64 0, i64 4
-  %.059 = select i1 %.not, i64 4, i64 %15
+  %switch.selectcmp.case1 = icmp ne i32 %9, 7
+  %switch.selectcmp.case2 = icmp ne i32 %9, 0
+  %switch.selectcmp.not = and i1 %switch.selectcmp.case1, %switch.selectcmp.case2
+  %15 = or i1 %.not, %switch.selectcmp.not
+  %.059 = select i1 %15, i64 4, i64 0
   store i32 %9, ptr %14, align 8, !tbaa !219
   switch i32 %9, label %16 [
     i32 3, label %22
@@ -2612,7 +2612,7 @@ define internal fastcc void @prepare_iseq_build(ptr noundef %0, i64 noundef %1, 
   br label %26
 
 26:                                               ; preds = %24, %16
-  br i1 %switch.selectcmp.case1, label %27, label %set_relation.exit
+  br i1 %switch.selectcmp.case1, label %set_relation.exit, label %27
 
 27:                                               ; preds = %26
   %28 = getelementptr inbounds nuw i8, ptr %14, i64 168

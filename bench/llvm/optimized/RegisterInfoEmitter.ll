@@ -39267,7 +39267,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm18LessRecordRegisterclEP
 
 10:                                               ; preds = %3
   %11 = icmp slt i64 %8, %9
-  br label %58
+  br label %60
 
 12:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -39379,53 +39379,53 @@ _ZNK4llvm9StringRef12getAsIntegerIjEEbjRT_.exit:  ; preds = %.lr.ph125
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %43 = call noundef zeroext i1 @_ZN4llvm20getAsUnsignedIntegerENS_9StringRefEjRy(ptr %.sroa.380.0.copyload, i64 %.sroa.481.0.copyload, i32 noundef 10, ptr noundef nonnull align 8 dereferenceable(8) %5) #23
   %44 = load i64, ptr %5, align 8
-  %.not.i = icmp ult i64 %44, 4294967296
+  %.not.i = icmp ugt i64 %44, 4294967295
   %45 = trunc nuw i64 %44 to i32
-  %spec.select108 = select i1 %.not.i, i32 %45, i32 %.093122
-  %.298 = select i1 %43, i32 %.093122, i32 %spec.select108
+  %46 = select i1 %43, i1 true, i1 %.not.i
+  %.298 = select i1 %46, i32 %.093122, i32 %45
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %46 = call noundef zeroext i1 @_ZN4llvm20getAsUnsignedIntegerENS_9StringRefEjRy(ptr %.sroa.3.0.copyload, i64 %.sroa.481.0.copyload, i32 noundef 10, ptr noundef nonnull align 8 dereferenceable(8) %4) #23
-  %47 = load i64, ptr %4, align 8
-  %.not.i71 = icmp ult i64 %47, 4294967296
-  %48 = trunc nuw i64 %47 to i32
-  %spec.select109 = select i1 %.not.i71, i32 %48, i32 %.093122
-  %.295 = select i1 %46, i32 %.093122, i32 %spec.select109
+  %47 = call noundef zeroext i1 @_ZN4llvm20getAsUnsignedIntegerENS_9StringRefEjRy(ptr %.sroa.3.0.copyload, i64 %.sroa.481.0.copyload, i32 noundef 10, ptr noundef nonnull align 8 dereferenceable(8) %4) #23
+  %48 = load i64, ptr %4, align 8
+  %.not.i71 = icmp ugt i64 %48, 4294967295
+  %49 = trunc nuw i64 %48 to i32
+  %50 = select i1 %47, i1 true, i1 %.not.i71
+  %.295 = select i1 %50, i32 %.093122, i32 %49
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not61 = icmp eq i32 %.298, %.295
   br i1 %.not61, label %36, label %.loopexit.split.loop.exit
 
 .loopexit.split.loop.exit:                        ; preds = %_ZNK4llvm9StringRef12getAsIntegerIjEEbjRT_.exit
-  %49 = icmp ult i32 %.298, %.295
+  %51 = icmp ult i32 %.298, %.295
   br label %.thread
 
 .thread:                                          ; preds = %36, %.preheader110, %.thread103, %.preheader, %.loopexit.split.loop.exit, %34, %.thread.loopexit, %24
-  %.1 = phi i1 [ %25, %24 ], [ %.inv.i.le, %.thread.loopexit ], [ %35, %34 ], [ %42, %.thread103 ], [ %49, %.loopexit.split.loop.exit ], [ false, %.preheader ], [ false, %.preheader110 ], [ false, %36 ]
-  %50 = load ptr, ptr %7, align 8, !tbaa !25
-  %51 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %52 = icmp eq ptr %50, %51
-  br i1 %52, label %_ZN4llvm18LessRecordRegister11RecordPartsD2Ev.exit, label %53
+  %.1 = phi i1 [ %25, %24 ], [ %.inv.i.le, %.thread.loopexit ], [ %35, %34 ], [ %42, %.thread103 ], [ %51, %.loopexit.split.loop.exit ], [ false, %.preheader ], [ false, %.preheader110 ], [ false, %36 ]
+  %52 = load ptr, ptr %7, align 8, !tbaa !25
+  %53 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %54 = icmp eq ptr %52, %53
+  br i1 %54, label %_ZN4llvm18LessRecordRegister11RecordPartsD2Ev.exit, label %55
 
-53:                                               ; preds = %.thread
-  call void @free(ptr noundef %50) #23
+55:                                               ; preds = %.thread
+  call void @free(ptr noundef %52) #23
   br label %_ZN4llvm18LessRecordRegister11RecordPartsD2Ev.exit
 
-_ZN4llvm18LessRecordRegister11RecordPartsD2Ev.exit: ; preds = %.thread, %53
+_ZN4llvm18LessRecordRegister11RecordPartsD2Ev.exit: ; preds = %.thread, %55
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %54 = load ptr, ptr %6, align 8, !tbaa !25
-  %55 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %56 = icmp eq ptr %54, %55
-  br i1 %56, label %_ZN4llvm18LessRecordRegister11RecordPartsD2Ev.exit74, label %57
+  %56 = load ptr, ptr %6, align 8, !tbaa !25
+  %57 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %58 = icmp eq ptr %56, %57
+  br i1 %58, label %_ZN4llvm18LessRecordRegister11RecordPartsD2Ev.exit74, label %59
 
-57:                                               ; preds = %_ZN4llvm18LessRecordRegister11RecordPartsD2Ev.exit
-  call void @free(ptr noundef %54) #23
+59:                                               ; preds = %_ZN4llvm18LessRecordRegister11RecordPartsD2Ev.exit
+  call void @free(ptr noundef %56) #23
   br label %_ZN4llvm18LessRecordRegister11RecordPartsD2Ev.exit74
 
-_ZN4llvm18LessRecordRegister11RecordPartsD2Ev.exit74: ; preds = %_ZN4llvm18LessRecordRegister11RecordPartsD2Ev.exit, %57
+_ZN4llvm18LessRecordRegister11RecordPartsD2Ev.exit74: ; preds = %_ZN4llvm18LessRecordRegister11RecordPartsD2Ev.exit, %59
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %58
+  br label %60
 
-58:                                               ; preds = %_ZN4llvm18LessRecordRegister11RecordPartsD2Ev.exit74, %10
+60:                                               ; preds = %_ZN4llvm18LessRecordRegister11RecordPartsD2Ev.exit74, %10
   %.0 = phi i1 [ %11, %10 ], [ %.1, %_ZN4llvm18LessRecordRegister11RecordPartsD2Ev.exit74 ]
   ret i1 %.0
 }

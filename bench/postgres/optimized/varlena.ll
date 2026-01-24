@@ -7651,13 +7651,13 @@ define dso_local i64 @bytea_smaller(ptr noundef readonly captures(none) %0) loca
   %57 = sext i32 %56 to i64
   %58 = tail call i32 @memcmp(ptr noundef nonnull %53, ptr noundef nonnull %55, i64 noundef %57) #17
   %59 = icmp slt i32 %58, 0
-  %60 = icmp sge i32 %30, %51
-  %61 = icmp ne i32 %58, 0
-  %brmerge = select i1 %61, i1 true, i1 %60
-  %spec.select = select i1 %brmerge, ptr %9, ptr %5
-  %62 = select i1 %59, ptr %5, ptr %spec.select
-  %63 = ptrtoint ptr %62 to i64
-  ret i64 %63
+  %60 = icmp slt i32 %30, %51
+  %61 = icmp eq i32 %58, 0
+  %brmerge.not = select i1 %61, i1 %60, i1 false
+  %62 = select i1 %59, i1 true, i1 %brmerge.not
+  %63 = select i1 %62, ptr %5, ptr %9
+  %64 = ptrtoint ptr %63 to i64
+  ret i64 %64
 }
 
 ; Function Attrs: nounwind uwtable

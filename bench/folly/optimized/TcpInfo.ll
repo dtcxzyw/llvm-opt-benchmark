@@ -1219,24 +1219,24 @@ _ZN5folly8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE31Storag
 define void @_ZNK5folly7TcpInfo6minrttEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.folly::Optional.9") align 8 captures(none) initializes((0, 1), (8, 9)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(352) %1) local_unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %4 = load i32, ptr %3, align 8, !tbaa !29
-  %.not = icmp slt i32 %4, 152
-  br i1 %.not, label %8, label %_ZN6google12CheckNotNullIRKPKjEET_PKciS7_OS5_.exit
+  %5 = icmp slt i32 %4, 152
+  br i1 %5, label %9, label %_ZN6google12CheckNotNullIRKPKjEET_PKciS7_OS5_.exit
 
 _ZN6google12CheckNotNullIRKPKjEET_PKciS7_OS5_.exit: ; preds = %2
-  %5 = getelementptr inbounds nuw i8, ptr %1, i64 148
-  %6 = load i32, ptr %5, align 4, !tbaa !17
-  %7 = zext i32 %6 to i64
-  store i64 %7, ptr %0, align 8, !tbaa !47
-  br label %9
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 148
+  %7 = load i32, ptr %6, align 4, !tbaa !17
+  %8 = zext i32 %7 to i64
+  store i64 %8, ptr %0, align 8, !tbaa !47
+  br label %10
 
-8:                                                ; preds = %2
+9:                                                ; preds = %2
   store i8 0, ptr %0, align 8, !tbaa !13
-  br label %9
+  br label %10
 
-9:                                                ; preds = %8, %_ZN6google12CheckNotNullIRKPKjEET_PKciS7_OS5_.exit
-  %.sink = phi i8 [ 0, %8 ], [ 1, %_ZN6google12CheckNotNullIRKPKjEET_PKciS7_OS5_.exit ]
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 %.sink, ptr %10, align 8, !tbaa !61
+10:                                               ; preds = %9, %_ZN6google12CheckNotNullIRKPKjEET_PKciS7_OS5_.exit
+  %.sink = phi i8 [ 0, %9 ], [ 1, %_ZN6google12CheckNotNullIRKPKjEET_PKciS7_OS5_.exit ]
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 %.sink, ptr %11, align 8, !tbaa !61
   ret void
 }
 
@@ -1251,24 +1251,24 @@ declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_cr
 define void @_ZNK5folly7TcpInfo4srttEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.folly::Optional.9") align 8 captures(none) initializes((0, 1), (8, 9)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(352) %1) local_unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %4 = load i32, ptr %3, align 8, !tbaa !29
-  %.not = icmp slt i32 %4, 72
-  br i1 %.not, label %8, label %_ZN6google12CheckNotNullIRKPKjEET_PKciS7_OS5_.exit
+  %5 = icmp slt i32 %4, 72
+  br i1 %5, label %9, label %_ZN6google12CheckNotNullIRKPKjEET_PKciS7_OS5_.exit
 
 _ZN6google12CheckNotNullIRKPKjEET_PKciS7_OS5_.exit: ; preds = %2
-  %5 = getelementptr inbounds nuw i8, ptr %1, i64 68
-  %6 = load i32, ptr %5, align 4, !tbaa !17
-  %7 = zext i32 %6 to i64
-  store i64 %7, ptr %0, align 8, !tbaa !47
-  br label %9
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 68
+  %7 = load i32, ptr %6, align 4, !tbaa !17
+  %8 = zext i32 %7 to i64
+  store i64 %8, ptr %0, align 8, !tbaa !47
+  br label %10
 
-8:                                                ; preds = %2
+9:                                                ; preds = %2
   store i8 0, ptr %0, align 8, !tbaa !13
-  br label %9
+  br label %10
 
-9:                                                ; preds = %8, %_ZN6google12CheckNotNullIRKPKjEET_PKciS7_OS5_.exit
-  %.sink = phi i8 [ 0, %8 ], [ 1, %_ZN6google12CheckNotNullIRKPKjEET_PKciS7_OS5_.exit ]
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 %.sink, ptr %10, align 8, !tbaa !61
+10:                                               ; preds = %9, %_ZN6google12CheckNotNullIRKPKjEET_PKciS7_OS5_.exit
+  %.sink = phi i8 [ 0, %9 ], [ 1, %_ZN6google12CheckNotNullIRKPKjEET_PKciS7_OS5_.exit ]
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 %.sink, ptr %11, align 8, !tbaa !61
   ret void
 }
 
@@ -1277,23 +1277,23 @@ define void @_ZNK5folly7TcpInfo9bytesSentEv(ptr dead_on_unwind noalias writable 
   tail call void @llvm.experimental.noalias.scope.decl(metadata !63)
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %4 = load i32, ptr %3, align 8, !tbaa !29, !noalias !63
-  %.not.not.i = icmp slt i32 %4, 208
-  br i1 %.not.not.i, label %8, label %5
+  %5 = icmp sgt i32 %4, 207
+  br i1 %5, label %6, label %9
 
-5:                                                ; preds = %2
-  %6 = getelementptr inbounds nuw i8, ptr %1, i64 200
-  %7 = load i64, ptr %6, align 8, !tbaa !66, !noalias !63
-  store i64 %7, ptr %0, align 8, !tbaa !47, !alias.scope !63
+6:                                                ; preds = %2
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 200
+  %8 = load i64, ptr %7, align 8, !tbaa !66, !noalias !63
+  store i64 %8, ptr %0, align 8, !tbaa !47, !alias.scope !63
   br label %_ZNK5folly7TcpInfo19getFieldAsOptUInt64IyEENS_8OptionalImEEMNS_6detail8tcp_infoET_.exit
 
-8:                                                ; preds = %2
+9:                                                ; preds = %2
   store i8 0, ptr %0, align 8, !tbaa !13, !alias.scope !63
   br label %_ZNK5folly7TcpInfo19getFieldAsOptUInt64IyEENS_8OptionalImEEMNS_6detail8tcp_infoET_.exit
 
-_ZNK5folly7TcpInfo19getFieldAsOptUInt64IyEENS_8OptionalImEEMNS_6detail8tcp_infoET_.exit: ; preds = %5, %8
-  %.sink.i = phi i8 [ 0, %8 ], [ 1, %5 ]
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 %.sink.i, ptr %9, align 8, !tbaa !60, !alias.scope !63
+_ZNK5folly7TcpInfo19getFieldAsOptUInt64IyEENS_8OptionalImEEMNS_6detail8tcp_infoET_.exit: ; preds = %6, %9
+  %.sink.i = phi i8 [ 1, %6 ], [ 0, %9 ]
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 %.sink.i, ptr %10, align 8, !tbaa !60, !alias.scope !63
   ret void
 }
 
@@ -1302,23 +1302,23 @@ define void @_ZNK5folly7TcpInfo13bytesReceivedEv(ptr dead_on_unwind noalias writ
   tail call void @llvm.experimental.noalias.scope.decl(metadata !67)
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %4 = load i32, ptr %3, align 8, !tbaa !29, !noalias !67
-  %.not.not.i = icmp slt i32 %4, 136
-  br i1 %.not.not.i, label %8, label %5
+  %5 = icmp sgt i32 %4, 135
+  br i1 %5, label %6, label %9
 
-5:                                                ; preds = %2
-  %6 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  %7 = load i64, ptr %6, align 8, !tbaa !66, !noalias !67
-  store i64 %7, ptr %0, align 8, !tbaa !47, !alias.scope !67
+6:                                                ; preds = %2
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 128
+  %8 = load i64, ptr %7, align 8, !tbaa !66, !noalias !67
+  store i64 %8, ptr %0, align 8, !tbaa !47, !alias.scope !67
   br label %_ZNK5folly7TcpInfo19getFieldAsOptUInt64IyEENS_8OptionalImEEMNS_6detail8tcp_infoET_.exit
 
-8:                                                ; preds = %2
+9:                                                ; preds = %2
   store i8 0, ptr %0, align 8, !tbaa !13, !alias.scope !67
   br label %_ZNK5folly7TcpInfo19getFieldAsOptUInt64IyEENS_8OptionalImEEMNS_6detail8tcp_infoET_.exit
 
-_ZNK5folly7TcpInfo19getFieldAsOptUInt64IyEENS_8OptionalImEEMNS_6detail8tcp_infoET_.exit: ; preds = %5, %8
-  %.sink.i = phi i8 [ 0, %8 ], [ 1, %5 ]
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 %.sink.i, ptr %9, align 8, !tbaa !60, !alias.scope !67
+_ZNK5folly7TcpInfo19getFieldAsOptUInt64IyEENS_8OptionalImEEMNS_6detail8tcp_infoET_.exit: ; preds = %6, %9
+  %.sink.i = phi i8 [ 1, %6 ], [ 0, %9 ]
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 %.sink.i, ptr %10, align 8, !tbaa !60, !alias.scope !67
   ret void
 }
 
@@ -1327,23 +1327,23 @@ define void @_ZNK5folly7TcpInfo18bytesRetransmittedEv(ptr dead_on_unwind noalias
   tail call void @llvm.experimental.noalias.scope.decl(metadata !70)
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %4 = load i32, ptr %3, align 8, !tbaa !29, !noalias !70
-  %.not.not.i = icmp slt i32 %4, 216
-  br i1 %.not.not.i, label %8, label %5
+  %5 = icmp sgt i32 %4, 215
+  br i1 %5, label %6, label %9
 
-5:                                                ; preds = %2
-  %6 = getelementptr inbounds nuw i8, ptr %1, i64 208
-  %7 = load i64, ptr %6, align 8, !tbaa !66, !noalias !70
-  store i64 %7, ptr %0, align 8, !tbaa !47, !alias.scope !70
+6:                                                ; preds = %2
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 208
+  %8 = load i64, ptr %7, align 8, !tbaa !66, !noalias !70
+  store i64 %8, ptr %0, align 8, !tbaa !47, !alias.scope !70
   br label %_ZNK5folly7TcpInfo19getFieldAsOptUInt64IyEENS_8OptionalImEEMNS_6detail8tcp_infoET_.exit
 
-8:                                                ; preds = %2
+9:                                                ; preds = %2
   store i8 0, ptr %0, align 8, !tbaa !13, !alias.scope !70
   br label %_ZNK5folly7TcpInfo19getFieldAsOptUInt64IyEENS_8OptionalImEEMNS_6detail8tcp_infoET_.exit
 
-_ZNK5folly7TcpInfo19getFieldAsOptUInt64IyEENS_8OptionalImEEMNS_6detail8tcp_infoET_.exit: ; preds = %5, %8
-  %.sink.i = phi i8 [ 0, %8 ], [ 1, %5 ]
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 %.sink.i, ptr %9, align 8, !tbaa !60, !alias.scope !70
+_ZNK5folly7TcpInfo19getFieldAsOptUInt64IyEENS_8OptionalImEEMNS_6detail8tcp_infoET_.exit: ; preds = %6, %9
+  %.sink.i = phi i8 [ 1, %6 ], [ 0, %9 ]
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 %.sink.i, ptr %10, align 8, !tbaa !60, !alias.scope !70
   ret void
 }
 
@@ -1352,24 +1352,24 @@ define void @_ZNK5folly7TcpInfo12bytesNotSentEv(ptr dead_on_unwind noalias writa
   tail call void @llvm.experimental.noalias.scope.decl(metadata !73)
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %4 = load i32, ptr %3, align 8, !tbaa !29, !noalias !73
-  %.not.not.i = icmp slt i32 %4, 148
-  br i1 %.not.not.i, label %9, label %5
+  %5 = icmp sgt i32 %4, 147
+  br i1 %5, label %6, label %10
 
-5:                                                ; preds = %2
-  %6 = getelementptr inbounds nuw i8, ptr %1, i64 144
-  %7 = load i32, ptr %6, align 8, !tbaa !17, !noalias !73
-  %8 = zext i32 %7 to i64
-  store i64 %8, ptr %0, align 8, !tbaa !47, !alias.scope !73
+6:                                                ; preds = %2
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 144
+  %8 = load i32, ptr %7, align 8, !tbaa !17, !noalias !73
+  %9 = zext i32 %8 to i64
+  store i64 %9, ptr %0, align 8, !tbaa !47, !alias.scope !73
   br label %_ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail8tcp_infoET_.exit
 
-9:                                                ; preds = %2
+10:                                               ; preds = %2
   store i8 0, ptr %0, align 8, !tbaa !13, !alias.scope !73
   br label %_ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail8tcp_infoET_.exit
 
-_ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail8tcp_infoET_.exit: ; preds = %5, %9
-  %.sink.i = phi i8 [ 0, %9 ], [ 1, %5 ]
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 %.sink.i, ptr %10, align 8, !tbaa !60, !alias.scope !73
+_ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail8tcp_infoET_.exit: ; preds = %6, %10
+  %.sink.i = phi i8 [ 1, %6 ], [ 0, %10 ]
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 %.sink.i, ptr %11, align 8, !tbaa !60, !alias.scope !73
   ret void
 }
 
@@ -1378,23 +1378,23 @@ define void @_ZNK5folly7TcpInfo10bytesAckedEv(ptr dead_on_unwind noalias writabl
   tail call void @llvm.experimental.noalias.scope.decl(metadata !76)
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %4 = load i32, ptr %3, align 8, !tbaa !29, !noalias !76
-  %.not.not.i = icmp slt i32 %4, 128
-  br i1 %.not.not.i, label %8, label %5
+  %5 = icmp sgt i32 %4, 127
+  br i1 %5, label %6, label %9
 
-5:                                                ; preds = %2
-  %6 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  %7 = load i64, ptr %6, align 8, !tbaa !66, !noalias !76
-  store i64 %7, ptr %0, align 8, !tbaa !47, !alias.scope !76
+6:                                                ; preds = %2
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 120
+  %8 = load i64, ptr %7, align 8, !tbaa !66, !noalias !76
+  store i64 %8, ptr %0, align 8, !tbaa !47, !alias.scope !76
   br label %_ZNK5folly7TcpInfo19getFieldAsOptUInt64IyEENS_8OptionalImEEMNS_6detail8tcp_infoET_.exit
 
-8:                                                ; preds = %2
+9:                                                ; preds = %2
   store i8 0, ptr %0, align 8, !tbaa !13, !alias.scope !76
   br label %_ZNK5folly7TcpInfo19getFieldAsOptUInt64IyEENS_8OptionalImEEMNS_6detail8tcp_infoET_.exit
 
-_ZNK5folly7TcpInfo19getFieldAsOptUInt64IyEENS_8OptionalImEEMNS_6detail8tcp_infoET_.exit: ; preds = %5, %8
-  %.sink.i = phi i8 [ 0, %8 ], [ 1, %5 ]
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 %.sink.i, ptr %9, align 8, !tbaa !60, !alias.scope !76
+_ZNK5folly7TcpInfo19getFieldAsOptUInt64IyEENS_8OptionalImEEMNS_6detail8tcp_infoET_.exit: ; preds = %6, %9
+  %.sink.i = phi i8 [ 1, %6 ], [ 0, %9 ]
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 %.sink.i, ptr %10, align 8, !tbaa !60, !alias.scope !76
   ret void
 }
 
@@ -1403,24 +1403,24 @@ define void @_ZNK5folly7TcpInfo11packetsSentEv(ptr dead_on_unwind noalias writab
   tail call void @llvm.experimental.noalias.scope.decl(metadata !79)
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %4 = load i32, ptr %3, align 8, !tbaa !29, !noalias !79
-  %.not.not.i = icmp slt i32 %4, 140
-  br i1 %.not.not.i, label %9, label %5
+  %5 = icmp sgt i32 %4, 139
+  br i1 %5, label %6, label %10
 
-5:                                                ; preds = %2
-  %6 = getelementptr inbounds nuw i8, ptr %1, i64 136
-  %7 = load i32, ptr %6, align 8, !tbaa !17, !noalias !79
-  %8 = zext i32 %7 to i64
-  store i64 %8, ptr %0, align 8, !tbaa !47, !alias.scope !79
+6:                                                ; preds = %2
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 136
+  %8 = load i32, ptr %7, align 8, !tbaa !17, !noalias !79
+  %9 = zext i32 %8 to i64
+  store i64 %9, ptr %0, align 8, !tbaa !47, !alias.scope !79
   br label %_ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail8tcp_infoET_.exit
 
-9:                                                ; preds = %2
+10:                                               ; preds = %2
   store i8 0, ptr %0, align 8, !tbaa !13, !alias.scope !79
   br label %_ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail8tcp_infoET_.exit
 
-_ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail8tcp_infoET_.exit: ; preds = %5, %9
-  %.sink.i = phi i8 [ 0, %9 ], [ 1, %5 ]
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 %.sink.i, ptr %10, align 8, !tbaa !60, !alias.scope !79
+_ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail8tcp_infoET_.exit: ; preds = %6, %10
+  %.sink.i = phi i8 [ 1, %6 ], [ 0, %10 ]
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 %.sink.i, ptr %11, align 8, !tbaa !60, !alias.scope !79
   ret void
 }
 
@@ -1429,24 +1429,24 @@ define void @_ZNK5folly7TcpInfo19packetsWithDataSentEv(ptr dead_on_unwind noalia
   tail call void @llvm.experimental.noalias.scope.decl(metadata !82)
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %4 = load i32, ptr %3, align 8, !tbaa !29, !noalias !82
-  %.not.not.i = icmp slt i32 %4, 160
-  br i1 %.not.not.i, label %9, label %5
+  %5 = icmp sgt i32 %4, 159
+  br i1 %5, label %6, label %10
 
-5:                                                ; preds = %2
-  %6 = getelementptr inbounds nuw i8, ptr %1, i64 156
-  %7 = load i32, ptr %6, align 4, !tbaa !17, !noalias !82
-  %8 = zext i32 %7 to i64
-  store i64 %8, ptr %0, align 8, !tbaa !47, !alias.scope !82
+6:                                                ; preds = %2
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 156
+  %8 = load i32, ptr %7, align 4, !tbaa !17, !noalias !82
+  %9 = zext i32 %8 to i64
+  store i64 %9, ptr %0, align 8, !tbaa !47, !alias.scope !82
   br label %_ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail8tcp_infoET_.exit
 
-9:                                                ; preds = %2
+10:                                               ; preds = %2
   store i8 0, ptr %0, align 8, !tbaa !13, !alias.scope !82
   br label %_ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail8tcp_infoET_.exit
 
-_ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail8tcp_infoET_.exit: ; preds = %5, %9
-  %.sink.i = phi i8 [ 0, %9 ], [ 1, %5 ]
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 %.sink.i, ptr %10, align 8, !tbaa !60, !alias.scope !82
+_ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail8tcp_infoET_.exit: ; preds = %6, %10
+  %.sink.i = phi i8 [ 1, %6 ], [ 0, %10 ]
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 %.sink.i, ptr %11, align 8, !tbaa !60, !alias.scope !82
   ret void
 }
 
@@ -1455,24 +1455,24 @@ define void @_ZNK5folly7TcpInfo15packetsReceivedEv(ptr dead_on_unwind noalias wr
   tail call void @llvm.experimental.noalias.scope.decl(metadata !85)
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %4 = load i32, ptr %3, align 8, !tbaa !29, !noalias !85
-  %.not.not.i = icmp slt i32 %4, 144
-  br i1 %.not.not.i, label %9, label %5
+  %5 = icmp sgt i32 %4, 143
+  br i1 %5, label %6, label %10
 
-5:                                                ; preds = %2
-  %6 = getelementptr inbounds nuw i8, ptr %1, i64 140
-  %7 = load i32, ptr %6, align 4, !tbaa !17, !noalias !85
-  %8 = zext i32 %7 to i64
-  store i64 %8, ptr %0, align 8, !tbaa !47, !alias.scope !85
+6:                                                ; preds = %2
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 140
+  %8 = load i32, ptr %7, align 4, !tbaa !17, !noalias !85
+  %9 = zext i32 %8 to i64
+  store i64 %9, ptr %0, align 8, !tbaa !47, !alias.scope !85
   br label %_ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail8tcp_infoET_.exit
 
-9:                                                ; preds = %2
+10:                                               ; preds = %2
   store i8 0, ptr %0, align 8, !tbaa !13, !alias.scope !85
   br label %_ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail8tcp_infoET_.exit
 
-_ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail8tcp_infoET_.exit: ; preds = %5, %9
-  %.sink.i = phi i8 [ 0, %9 ], [ 1, %5 ]
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 %.sink.i, ptr %10, align 8, !tbaa !60, !alias.scope !85
+_ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail8tcp_infoET_.exit: ; preds = %6, %10
+  %.sink.i = phi i8 [ 1, %6 ], [ 0, %10 ]
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 %.sink.i, ptr %11, align 8, !tbaa !60, !alias.scope !85
   ret void
 }
 
@@ -1481,24 +1481,24 @@ define void @_ZNK5folly7TcpInfo23packetsWithDataReceivedEv(ptr dead_on_unwind no
   tail call void @llvm.experimental.noalias.scope.decl(metadata !88)
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %4 = load i32, ptr %3, align 8, !tbaa !29, !noalias !88
-  %.not.not.i = icmp slt i32 %4, 156
-  br i1 %.not.not.i, label %9, label %5
+  %5 = icmp sgt i32 %4, 155
+  br i1 %5, label %6, label %10
 
-5:                                                ; preds = %2
-  %6 = getelementptr inbounds nuw i8, ptr %1, i64 152
-  %7 = load i32, ptr %6, align 8, !tbaa !17, !noalias !88
-  %8 = zext i32 %7 to i64
-  store i64 %8, ptr %0, align 8, !tbaa !47, !alias.scope !88
+6:                                                ; preds = %2
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 152
+  %8 = load i32, ptr %7, align 8, !tbaa !17, !noalias !88
+  %9 = zext i32 %8 to i64
+  store i64 %9, ptr %0, align 8, !tbaa !47, !alias.scope !88
   br label %_ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail8tcp_infoET_.exit
 
-9:                                                ; preds = %2
+10:                                               ; preds = %2
   store i8 0, ptr %0, align 8, !tbaa !13, !alias.scope !88
   br label %_ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail8tcp_infoET_.exit
 
-_ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail8tcp_infoET_.exit: ; preds = %5, %9
-  %.sink.i = phi i8 [ 0, %9 ], [ 1, %5 ]
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 %.sink.i, ptr %10, align 8, !tbaa !60, !alias.scope !88
+_ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail8tcp_infoET_.exit: ; preds = %6, %10
+  %.sink.i = phi i8 [ 1, %6 ], [ 0, %10 ]
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 %.sink.i, ptr %11, align 8, !tbaa !60, !alias.scope !88
   ret void
 }
 
@@ -1507,24 +1507,24 @@ define void @_ZNK5folly7TcpInfo20packetsRetransmittedEv(ptr dead_on_unwind noali
   tail call void @llvm.experimental.noalias.scope.decl(metadata !91)
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %4 = load i32, ptr %3, align 8, !tbaa !29, !noalias !91
-  %.not.not.i = icmp slt i32 %4, 104
-  br i1 %.not.not.i, label %9, label %5
+  %5 = icmp sgt i32 %4, 103
+  br i1 %5, label %6, label %10
 
-5:                                                ; preds = %2
-  %6 = getelementptr inbounds nuw i8, ptr %1, i64 100
-  %7 = load i32, ptr %6, align 4, !tbaa !17, !noalias !91
-  %8 = zext i32 %7 to i64
-  store i64 %8, ptr %0, align 8, !tbaa !47, !alias.scope !91
+6:                                                ; preds = %2
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 100
+  %8 = load i32, ptr %7, align 4, !tbaa !17, !noalias !91
+  %9 = zext i32 %8 to i64
+  store i64 %9, ptr %0, align 8, !tbaa !47, !alias.scope !91
   br label %_ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail8tcp_infoET_.exit
 
-9:                                                ; preds = %2
+10:                                               ; preds = %2
   store i8 0, ptr %0, align 8, !tbaa !13, !alias.scope !91
   br label %_ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail8tcp_infoET_.exit
 
-_ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail8tcp_infoET_.exit: ; preds = %5, %9
-  %.sink.i = phi i8 [ 0, %9 ], [ 1, %5 ]
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 %.sink.i, ptr %10, align 8, !tbaa !60, !alias.scope !91
+_ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail8tcp_infoET_.exit: ; preds = %6, %10
+  %.sink.i = phi i8 [ 1, %6 ], [ 0, %10 ]
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 %.sink.i, ptr %11, align 8, !tbaa !60, !alias.scope !91
   ret void
 }
 
@@ -1533,36 +1533,36 @@ define void @_ZNK5folly7TcpInfo15packetsInFlightEv(ptr dead_on_unwind noalias wr
 _ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail8tcp_infoET_.exit:
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %3 = load i32, ptr %2, align 8, !tbaa !29, !noalias !94
-  %.not.not.i2 = icmp sgt i32 %3, 39
-  br i1 %.not.not.i2, label %_ZNKR5folly8OptionalImEdeEv.exit15, label %15
+  %4 = icmp sgt i32 %3, 39
+  br i1 %4, label %_ZNKR5folly8OptionalImEdeEv.exit12, label %16
 
-_ZNKR5folly8OptionalImEdeEv.exit15:               ; preds = %_ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail8tcp_infoET_.exit
-  %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %5 = load i32, ptr %4, align 8
-  %.sroa.0.0 = zext i32 %5 to i64
-  %6 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %7 = load i32, ptr %6, align 4
-  %.sroa.017.0 = zext i32 %7 to i64
-  %8 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  %9 = load i32, ptr %8, align 4
-  %.sroa.021.0 = zext i32 %9 to i64
-  %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %11 = load i32, ptr %10, align 8
-  %.sroa.025.0 = zext i32 %11 to i64
-  %12 = add nuw nsw i64 %.sroa.017.0, %.sroa.0.0
-  %13 = sub nsw i64 %.sroa.021.0, %12
-  %14 = add nsw i64 %13, %.sroa.025.0
-  store i64 %14, ptr %0, align 8, !tbaa !47
-  br label %16
+_ZNKR5folly8OptionalImEdeEv.exit12:               ; preds = %_ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail8tcp_infoET_.exit
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %6 = load i32, ptr %5, align 8
+  %.sroa.0.0 = zext i32 %6 to i64
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 28
+  %8 = load i32, ptr %7, align 4
+  %.sroa.014.0 = zext i32 %8 to i64
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 36
+  %10 = load i32, ptr %9, align 4
+  %.sroa.018.0 = zext i32 %10 to i64
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %12 = load i32, ptr %11, align 8
+  %.sroa.022.0 = zext i32 %12 to i64
+  %13 = add nuw nsw i64 %.sroa.014.0, %.sroa.0.0
+  %14 = sub nsw i64 %.sroa.018.0, %13
+  %15 = add nsw i64 %14, %.sroa.022.0
+  store i64 %15, ptr %0, align 8, !tbaa !47
+  br label %17
 
-15:                                               ; preds = %_ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail8tcp_infoET_.exit
+16:                                               ; preds = %_ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail8tcp_infoET_.exit
   store i8 0, ptr %0, align 8, !tbaa !13
-  br label %16
+  br label %17
 
-16:                                               ; preds = %15, %_ZNKR5folly8OptionalImEdeEv.exit15
-  %.sink = phi i8 [ 1, %_ZNKR5folly8OptionalImEdeEv.exit15 ], [ 0, %15 ]
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 %.sink, ptr %17, align 8, !tbaa !60
+17:                                               ; preds = %16, %_ZNKR5folly8OptionalImEdeEv.exit12
+  %.sink = phi i8 [ 1, %_ZNKR5folly8OptionalImEdeEv.exit12 ], [ 0, %16 ]
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 %.sink, ptr %18, align 8, !tbaa !60
   ret void
 }
 
@@ -1571,24 +1571,24 @@ define void @_ZNK5folly7TcpInfo16packetsDeliveredEv(ptr dead_on_unwind noalias w
   tail call void @llvm.experimental.noalias.scope.decl(metadata !97)
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %4 = load i32, ptr %3, align 8, !tbaa !29, !noalias !97
-  %.not.not.i = icmp slt i32 %4, 196
-  br i1 %.not.not.i, label %9, label %5
+  %5 = icmp sgt i32 %4, 195
+  br i1 %5, label %6, label %10
 
-5:                                                ; preds = %2
-  %6 = getelementptr inbounds nuw i8, ptr %1, i64 192
-  %7 = load i32, ptr %6, align 8, !tbaa !17, !noalias !97
-  %8 = zext i32 %7 to i64
-  store i64 %8, ptr %0, align 8, !tbaa !47, !alias.scope !97
+6:                                                ; preds = %2
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 192
+  %8 = load i32, ptr %7, align 8, !tbaa !17, !noalias !97
+  %9 = zext i32 %8 to i64
+  store i64 %9, ptr %0, align 8, !tbaa !47, !alias.scope !97
   br label %_ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail8tcp_infoET_.exit
 
-9:                                                ; preds = %2
+10:                                               ; preds = %2
   store i8 0, ptr %0, align 8, !tbaa !13, !alias.scope !97
   br label %_ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail8tcp_infoET_.exit
 
-_ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail8tcp_infoET_.exit: ; preds = %5, %9
-  %.sink.i = phi i8 [ 0, %9 ], [ 1, %5 ]
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 %.sink.i, ptr %10, align 8, !tbaa !60, !alias.scope !97
+_ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail8tcp_infoET_.exit: ; preds = %6, %10
+  %.sink.i = phi i8 [ 1, %6 ], [ 0, %10 ]
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 %.sink.i, ptr %11, align 8, !tbaa !60, !alias.scope !97
   ret void
 }
 
@@ -1597,24 +1597,24 @@ define void @_ZNK5folly7TcpInfo27packetsDeliveredWithCEMarksEv(ptr dead_on_unwin
   tail call void @llvm.experimental.noalias.scope.decl(metadata !100)
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %4 = load i32, ptr %3, align 8, !tbaa !29, !noalias !100
-  %.not.not.i = icmp slt i32 %4, 200
-  br i1 %.not.not.i, label %9, label %5
+  %5 = icmp sgt i32 %4, 199
+  br i1 %5, label %6, label %10
 
-5:                                                ; preds = %2
-  %6 = getelementptr inbounds nuw i8, ptr %1, i64 196
-  %7 = load i32, ptr %6, align 4, !tbaa !17, !noalias !100
-  %8 = zext i32 %7 to i64
-  store i64 %8, ptr %0, align 8, !tbaa !47, !alias.scope !100
+6:                                                ; preds = %2
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 196
+  %8 = load i32, ptr %7, align 4, !tbaa !17, !noalias !100
+  %9 = zext i32 %8 to i64
+  store i64 %9, ptr %0, align 8, !tbaa !47, !alias.scope !100
   br label %_ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail8tcp_infoET_.exit
 
-9:                                                ; preds = %2
+10:                                               ; preds = %2
   store i8 0, ptr %0, align 8, !tbaa !13, !alias.scope !100
   br label %_ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail8tcp_infoET_.exit
 
-_ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail8tcp_infoET_.exit: ; preds = %5, %9
-  %.sink.i = phi i8 [ 0, %9 ], [ 1, %5 ]
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 %.sink.i, ptr %10, align 8, !tbaa !60, !alias.scope !100
+_ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail8tcp_infoET_.exit: ; preds = %6, %10
+  %.sink.i = phi i8 [ 1, %6 ], [ 0, %10 ]
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 %.sink.i, ptr %11, align 8, !tbaa !60, !alias.scope !100
   ret void
 }
 
@@ -1623,24 +1623,24 @@ define void @_ZNK5folly7TcpInfo13cwndInPacketsEv(ptr dead_on_unwind noalias writ
   tail call void @llvm.experimental.noalias.scope.decl(metadata !103)
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %4 = load i32, ptr %3, align 8, !tbaa !29, !noalias !103
-  %.not.not.i = icmp slt i32 %4, 84
-  br i1 %.not.not.i, label %9, label %5
+  %5 = icmp sgt i32 %4, 83
+  br i1 %5, label %6, label %10
 
-5:                                                ; preds = %2
-  %6 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %7 = load i32, ptr %6, align 8, !tbaa !17, !noalias !103
-  %8 = zext i32 %7 to i64
-  store i64 %8, ptr %0, align 8, !tbaa !47, !alias.scope !103
+6:                                                ; preds = %2
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  %8 = load i32, ptr %7, align 8, !tbaa !17, !noalias !103
+  %9 = zext i32 %8 to i64
+  store i64 %9, ptr %0, align 8, !tbaa !47, !alias.scope !103
   br label %_ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail8tcp_infoET_.exit
 
-9:                                                ; preds = %2
+10:                                               ; preds = %2
   store i8 0, ptr %0, align 8, !tbaa !13, !alias.scope !103
   br label %_ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail8tcp_infoET_.exit
 
-_ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail8tcp_infoET_.exit: ; preds = %5, %9
-  %.sink.i = phi i8 [ 0, %9 ], [ 1, %5 ]
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 %.sink.i, ptr %10, align 8, !tbaa !60, !alias.scope !103
+_ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail8tcp_infoET_.exit: ; preds = %6, %10
+  %.sink.i = phi i8 [ 1, %6 ], [ 0, %10 ]
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 %.sink.i, ptr %11, align 8, !tbaa !60, !alias.scope !103
   ret void
 }
 
@@ -1648,28 +1648,28 @@ _ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail8tcp_infoE
 define void @_ZNK5folly7TcpInfo11cwndInBytesEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.folly::Optional.6") align 8 captures(none) initializes((0, 1), (8, 9)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(352) %1) local_unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %4 = load i32, ptr %3, align 8, !tbaa !29, !noalias !106
-  %.not.not.i.i = icmp slt i32 %4, 84
-  br i1 %.not.not.i.i, label %12, label %_ZNKR5folly8OptionalImE5valueEv.exit1
+  %5 = icmp sgt i32 %4, 83
+  br i1 %5, label %_ZNKR5folly8OptionalImE5valueEv.exit1, label %13
 
 _ZNKR5folly8OptionalImE5valueEv.exit1:            ; preds = %2
-  %5 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %6 = load i32, ptr %5, align 8, !tbaa !17, !noalias !106
-  %7 = zext i32 %6 to i64
-  %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %9 = load i32, ptr %8, align 8, !tbaa !111, !noalias !112
-  %10 = zext i32 %9 to i64
-  %11 = mul nuw i64 %10, %7
-  store i64 %11, ptr %0, align 8, !tbaa !47
-  br label %13
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  %7 = load i32, ptr %6, align 8, !tbaa !17, !noalias !106
+  %8 = zext i32 %7 to i64
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %10 = load i32, ptr %9, align 8, !tbaa !111, !noalias !112
+  %11 = zext i32 %10 to i64
+  %12 = mul nuw i64 %11, %8
+  store i64 %12, ptr %0, align 8, !tbaa !47
+  br label %14
 
-12:                                               ; preds = %2
+13:                                               ; preds = %2
   store i8 0, ptr %0, align 8, !tbaa !13
-  br label %13
+  br label %14
 
-13:                                               ; preds = %12, %_ZNKR5folly8OptionalImE5valueEv.exit1
-  %.sink = phi i8 [ 0, %12 ], [ 1, %_ZNKR5folly8OptionalImE5valueEv.exit1 ]
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 %.sink, ptr %14, align 8, !tbaa !60
+14:                                               ; preds = %13, %_ZNKR5folly8OptionalImE5valueEv.exit1
+  %.sink = phi i8 [ 1, %_ZNKR5folly8OptionalImE5valueEv.exit1 ], [ 0, %13 ]
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 %.sink, ptr %15, align 8, !tbaa !60
   ret void
 }
 
@@ -1689,24 +1689,24 @@ define void @_ZNK5folly7TcpInfo8ssthreshEv(ptr dead_on_unwind noalias writable w
   tail call void @llvm.experimental.noalias.scope.decl(metadata !115)
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %4 = load i32, ptr %3, align 8, !tbaa !29, !noalias !115
-  %.not.not.i = icmp slt i32 %4, 80
-  br i1 %.not.not.i, label %9, label %5
+  %5 = icmp sgt i32 %4, 79
+  br i1 %5, label %6, label %10
 
-5:                                                ; preds = %2
-  %6 = getelementptr inbounds nuw i8, ptr %1, i64 76
-  %7 = load i32, ptr %6, align 4, !tbaa !17, !noalias !115
-  %8 = zext i32 %7 to i64
-  store i64 %8, ptr %0, align 8, !tbaa !47, !alias.scope !115
+6:                                                ; preds = %2
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 76
+  %8 = load i32, ptr %7, align 4, !tbaa !17, !noalias !115
+  %9 = zext i32 %8 to i64
+  store i64 %9, ptr %0, align 8, !tbaa !47, !alias.scope !115
   br label %_ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail8tcp_infoET_.exit
 
-9:                                                ; preds = %2
+10:                                               ; preds = %2
   store i8 0, ptr %0, align 8, !tbaa !13, !alias.scope !115
   br label %_ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail8tcp_infoET_.exit
 
-_ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail8tcp_infoET_.exit: ; preds = %5, %9
-  %.sink.i = phi i8 [ 0, %9 ], [ 1, %5 ]
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 %.sink.i, ptr %10, align 8, !tbaa !60, !alias.scope !115
+_ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail8tcp_infoET_.exit: ; preds = %6, %10
+  %.sink.i = phi i8 [ 1, %6 ], [ 0, %10 ]
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 %.sink.i, ptr %11, align 8, !tbaa !60, !alias.scope !115
   ret void
 }
 
@@ -1714,24 +1714,24 @@ _ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail8tcp_infoE
 define void @_ZNK5folly7TcpInfo25deliveryRateBitsPerSecondEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.folly::Optional.6") align 8 captures(none) initializes((0, 1), (8, 9)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(352) %1) local_unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %4 = load i32, ptr %3, align 8, !tbaa !29, !noalias !118
-  %.not.not.i.i = icmp slt i32 %4, 168
-  br i1 %.not.not.i.i, label %8, label %_ZNKR5folly8OptionalImE5valueEv.exit.i
+  %5 = icmp sgt i32 %4, 167
+  br i1 %5, label %_ZNKR5folly8OptionalImE5valueEv.exit.i, label %9
 
 _ZNKR5folly8OptionalImE5valueEv.exit.i:           ; preds = %2
-  %5 = getelementptr inbounds nuw i8, ptr %1, i64 160
-  %6 = load i64, ptr %5, align 8, !tbaa !66, !noalias !118
-  %7 = shl i64 %6, 3
-  store i64 %7, ptr %0, align 8, !tbaa !47, !alias.scope !123
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 160
+  %7 = load i64, ptr %6, align 8, !tbaa !66, !noalias !118
+  %8 = shl i64 %7, 3
+  store i64 %8, ptr %0, align 8, !tbaa !47, !alias.scope !123
   br label %_ZN5folly7TcpInfo29bytesPerSecondToBitsPerSecondERKNS_8OptionalImEE.exit
 
-8:                                                ; preds = %2
+9:                                                ; preds = %2
   store i8 0, ptr %0, align 8, !tbaa !13, !alias.scope !123
   br label %_ZN5folly7TcpInfo29bytesPerSecondToBitsPerSecondERKNS_8OptionalImEE.exit
 
-_ZN5folly7TcpInfo29bytesPerSecondToBitsPerSecondERKNS_8OptionalImEE.exit: ; preds = %_ZNKR5folly8OptionalImE5valueEv.exit.i, %8
-  %.sink.i = phi i8 [ 1, %_ZNKR5folly8OptionalImE5valueEv.exit.i ], [ 0, %8 ]
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 %.sink.i, ptr %9, align 8, !tbaa !60, !alias.scope !123
+_ZN5folly7TcpInfo29bytesPerSecondToBitsPerSecondERKNS_8OptionalImEE.exit: ; preds = %_ZNKR5folly8OptionalImE5valueEv.exit.i, %9
+  %.sink.i = phi i8 [ 1, %_ZNKR5folly8OptionalImE5valueEv.exit.i ], [ 0, %9 ]
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 %.sink.i, ptr %10, align 8, !tbaa !60, !alias.scope !123
   ret void
 }
 
@@ -1740,23 +1740,23 @@ define void @_ZNK5folly7TcpInfo26deliveryRateBytesPerSecondEv(ptr dead_on_unwind
   tail call void @llvm.experimental.noalias.scope.decl(metadata !126)
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %4 = load i32, ptr %3, align 8, !tbaa !29, !noalias !126
-  %.not.not.i = icmp slt i32 %4, 168
-  br i1 %.not.not.i, label %8, label %5
+  %5 = icmp sgt i32 %4, 167
+  br i1 %5, label %6, label %9
 
-5:                                                ; preds = %2
-  %6 = getelementptr inbounds nuw i8, ptr %1, i64 160
-  %7 = load i64, ptr %6, align 8, !tbaa !66, !noalias !126
-  store i64 %7, ptr %0, align 8, !tbaa !47, !alias.scope !126
+6:                                                ; preds = %2
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 160
+  %8 = load i64, ptr %7, align 8, !tbaa !66, !noalias !126
+  store i64 %8, ptr %0, align 8, !tbaa !47, !alias.scope !126
   br label %_ZNK5folly7TcpInfo19getFieldAsOptUInt64IyEENS_8OptionalImEEMNS_6detail8tcp_infoET_.exit
 
-8:                                                ; preds = %2
+9:                                                ; preds = %2
   store i8 0, ptr %0, align 8, !tbaa !13, !alias.scope !126
   br label %_ZNK5folly7TcpInfo19getFieldAsOptUInt64IyEENS_8OptionalImEEMNS_6detail8tcp_infoET_.exit
 
-_ZNK5folly7TcpInfo19getFieldAsOptUInt64IyEENS_8OptionalImEEMNS_6detail8tcp_infoET_.exit: ; preds = %5, %8
-  %.sink.i = phi i8 [ 0, %8 ], [ 1, %5 ]
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 %.sink.i, ptr %9, align 8, !tbaa !60, !alias.scope !126
+_ZNK5folly7TcpInfo19getFieldAsOptUInt64IyEENS_8OptionalImEEMNS_6detail8tcp_infoET_.exit: ; preds = %6, %9
+  %.sink.i = phi i8 [ 1, %6 ], [ 0, %9 ]
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 %.sink.i, ptr %10, align 8, !tbaa !60, !alias.scope !126
   ret void
 }
 
@@ -1764,27 +1764,27 @@ _ZNK5folly7TcpInfo19getFieldAsOptUInt64IyEENS_8OptionalImEEMNS_6detail8tcp_infoE
 define void @_ZNK5folly7TcpInfo22deliveryRateAppLimitedEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.folly::Optional.11") align 1 captures(none) initializes((0, 2)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(352) %1) local_unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %4 = load i32, ptr %3, align 8, !tbaa !29, !noalias !129
-  %.not.not.i.i = icmp slt i32 %4, 168
-  br i1 %.not.not.i.i, label %_ZNK5folly7TcpInfo26deliveryRateBytesPerSecondEv.exit, label %5
+  %5 = icmp sgt i32 %4, 167
+  br i1 %5, label %6, label %_ZNK5folly7TcpInfo26deliveryRateBytesPerSecondEv.exit
 
-5:                                                ; preds = %2
-  %6 = getelementptr inbounds nuw i8, ptr %1, i64 6
-  %7 = load i16, ptr %6, align 2
-  %8 = lshr i16 %7, 8
-  %9 = trunc nuw i16 %8 to i8
-  %10 = and i8 %9, 1
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 %10, ptr %0, align 1, !tbaa !134
-  store i8 1, ptr %11, align 1, !tbaa !135
-  br label %13
+6:                                                ; preds = %2
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 6
+  %8 = load i16, ptr %7, align 2
+  %9 = lshr i16 %8, 8
+  %10 = trunc nuw i16 %9 to i8
+  %11 = and i8 %10, 1
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  store i8 %11, ptr %0, align 1, !tbaa !134
+  store i8 1, ptr %12, align 1, !tbaa !135
+  br label %14
 
 _ZNK5folly7TcpInfo26deliveryRateBytesPerSecondEv.exit: ; preds = %2
   store i8 0, ptr %0, align 1, !tbaa !13
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 0, ptr %12, align 1, !tbaa !138
-  br label %13
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  store i8 0, ptr %13, align 1, !tbaa !138
+  br label %14
 
-13:                                               ; preds = %_ZNK5folly7TcpInfo26deliveryRateBytesPerSecondEv.exit, %5
+14:                                               ; preds = %_ZNK5folly7TcpInfo26deliveryRateBytesPerSecondEv.exit, %6
   ret void
 }
 

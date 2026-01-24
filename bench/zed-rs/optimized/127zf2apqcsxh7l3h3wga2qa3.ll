@@ -86055,11 +86055,11 @@ define hidden void @"_ZN93_$LT$toml_edit..de..spanned..SpannedDeserializer$LT$T$
   %or.cond = select i1 %trunc, i1 true, i1 %trunc2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %7 = load i64, ptr %6, align 8, !range !17865
-  %8 = icmp eq i64 %7, 12
-  %. = select i1 %8, i8 13, i8 12
-  %.sink = select i1 %or.cond, i8 12, i8 %.
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 %.sink, ptr %9, align 8
+  %8 = icmp ne i64 %7, 12
+  %9 = select i1 %or.cond, i1 true, i1 %8
+  %.sink = select i1 %9, i8 12, i8 13
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 %.sink, ptr %10, align 8
   store i64 2, ptr %0, align 8
   ret void
 }
@@ -86074,11 +86074,11 @@ define hidden void @"_ZN93_$LT$toml_edit..de..spanned..SpannedDeserializer$LT$T$
   %or.cond = select i1 %trunc, i1 true, i1 %trunc2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %7 = load i64, ptr %6, align 8, !range !17865
-  %8 = icmp eq i64 %7, 12
-  %. = select i1 %8, i8 9, i8 8
-  %.sink = select i1 %or.cond, i8 8, i8 %.
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 %.sink, ptr %9, align 8
+  %8 = icmp ne i64 %7, 12
+  %9 = select i1 %or.cond, i1 true, i1 %8
+  %.sink = select i1 %9, i8 8, i8 9
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 %.sink, ptr %10, align 8
   store i64 2, ptr %0, align 8
   ret void
 }
@@ -86189,11 +86189,11 @@ define hidden void @"_ZN93_$LT$toml_edit..de..spanned..SpannedDeserializer$LT$T$
   %or.cond = select i1 %trunc, i1 true, i1 %trunc2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %7 = load i64, ptr %6, align 8, !range !17865
-  %8 = icmp eq i64 %7, 12
-  %. = select i1 %8, i8 6, i8 5
-  %.sink = select i1 %or.cond, i8 5, i8 %.
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 %.sink, ptr %9, align 8
+  %8 = icmp ne i64 %7, 12
+  %9 = select i1 %or.cond, i1 true, i1 %8
+  %.sink = select i1 %9, i8 5, i8 6
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 %.sink, ptr %10, align 8
   store i64 2, ptr %0, align 8
   ret void
 }
@@ -86209,11 +86209,11 @@ define hidden void @"_ZN93_$LT$toml_edit..de..spanned..SpannedDeserializer$LT$T$
   %or.cond = select i1 %trunc, i1 true, i1 %trunc2
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %6 = load i64, ptr %5, align 8, !range !17865
-  %7 = icmp eq i64 %6, 12
-  %. = select i1 %7, i8 10, i8 9
-  %.sink = select i1 %or.cond, i8 9, i8 %.
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 %.sink, ptr %8, align 8
+  %7 = icmp ne i64 %6, 12
+  %8 = select i1 %or.cond, i1 true, i1 %7
+  %.sink = select i1 %8, i8 9, i8 10
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 %.sink, ptr %9, align 8
   store i64 2, ptr %0, align 8
   ret void
 }
@@ -86324,11 +86324,11 @@ define hidden void @"_ZN93_$LT$toml_edit..de..spanned..SpannedDeserializer$LT$T$
   %or.cond = select i1 %trunc, i1 true, i1 %trunc2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %7 = load i64, ptr %6, align 8, !range !17865
-  %8 = icmp eq i64 %7, 12
-  %. = select i1 %8, i8 15, i8 14
-  %.sink = select i1 %or.cond, i8 14, i8 %.
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 %.sink, ptr %9, align 8
+  %8 = icmp ne i64 %7, 12
+  %9 = select i1 %or.cond, i1 true, i1 %8
+  %.sink = select i1 %9, i8 14, i8 15
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 %.sink, ptr %10, align 8
   store i64 2, ptr %0, align 8
   ret void
 }
@@ -86343,11 +86343,11 @@ define hidden void @"_ZN93_$LT$toml_edit..de..spanned..SpannedDeserializer$LT$T$
   %or.cond = select i1 %trunc, i1 true, i1 %trunc2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %7 = load i64, ptr %6, align 8, !range !17865
-  %8 = icmp eq i64 %7, 12
-  %. = select i1 %8, i8 4, i8 3
-  %.sink = select i1 %or.cond, i8 3, i8 %.
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 %.sink, ptr %9, align 8
+  %8 = icmp ne i64 %7, 12
+  %9 = select i1 %or.cond, i1 true, i1 %8
+  %.sink = select i1 %9, i8 3, i8 4
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 %.sink, ptr %10, align 8
   store i64 2, ptr %0, align 8
   ret void
 }
@@ -86362,11 +86362,11 @@ define hidden void @"_ZN93_$LT$toml_edit..de..spanned..SpannedDeserializer$LT$T$
   %or.cond = select i1 %trunc, i1 true, i1 %trunc2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %7 = load i64, ptr %6, align 8, !range !17865
-  %8 = icmp eq i64 %7, 12
-  %. = select i1 %8, i8 2, i8 1
-  %.sink = select i1 %or.cond, i8 1, i8 %.
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 %.sink, ptr %9, align 8
+  %8 = icmp ne i64 %7, 12
+  %9 = select i1 %or.cond, i1 true, i1 %8
+  %.sink = select i1 %9, i8 1, i8 2
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 %.sink, ptr %10, align 8
   store i64 2, ptr %0, align 8
   ret void
 }
@@ -171046,8 +171046,8 @@ define void @"_ZN96_$LT$assistant..slash_command_picker..SlashCommandDelegate$u2
   %140 = getelementptr inbounds nuw i8, ptr %92, i64 48
   %141 = load i64, ptr %140, align 8, !range !668, !noundef !4
   %142 = icmp ne i64 %141, 2
-  %.not201 = and i1 %3, %142
-  br i1 %.not201, label %143, label %151
+  %.not1.i = and i1 %3, %142
+  br i1 %.not1.i, label %143, label %151
 
 143:                                              ; preds = %139
   %144 = getelementptr inbounds nuw i8, ptr %92, i64 56

@@ -883,9 +883,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit108: ; preds = %12
   %214 = load i32, ptr %58, align 4, !tbaa !60
   %215 = icmp eq i32 %214, 32
   %216 = load i32, ptr %74, align 4
-  %.not85 = icmp eq i32 %216, 0
-  %217 = select i1 %.not85, i32 16, i32 24
-  %218 = select i1 %215, i32 %217, i32 16
+  %.not85 = icmp ne i32 %216, 0
+  %217 = select i1 %215, i1 %.not85, i1 false
+  %218 = select i1 %217, i32 24, i32 16
   br label %.thread116
 
 .thread116:                                       ; preds = %._crit_edge142, %207, %113, %178, %186, %185, %102, %168, %208, %.thread122

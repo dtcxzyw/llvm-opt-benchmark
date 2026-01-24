@@ -2686,10 +2686,10 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %12
   %.0812.i.us.i.i = phi ptr [ %.19.i.us.i.i, %.lr.ph.i.split.us.i.i ], [ %35, %.lr.ph.i.i.i ]
   %38 = getelementptr inbounds nuw i8, ptr %.013.i.us.i.i, i64 40
   %39 = load i64, ptr %38, align 8, !tbaa !25
-  %.not.i.i.us.i.i = icmp eq i64 %39, 0
-  %spec.select.i.i = select i1 %.not.i.i.us.i.i, i64 16, i64 24
-  %.19.i.us.i.i = select i1 %.not.i.i.us.i.i, ptr %.013.i.us.i.i, ptr %.0812.i.us.i.i
-  %40 = getelementptr inbounds nuw i8, ptr %.013.i.us.i.i, i64 %spec.select.i.i
+  %.not.not.not.i.i = icmp eq i64 %39, 0
+  %.sink.i.us.i.i = select i1 %.not.not.not.i.i, i64 16, i64 24
+  %.19.i.us.i.i = select i1 %.not.not.not.i.i, ptr %.013.i.us.i.i, ptr %.0812.i.us.i.i
+  %40 = getelementptr inbounds nuw i8, ptr %.013.i.us.i.i, i64 %.sink.i.us.i.i
   %.1.i.us.i.i = load ptr, ptr %40, align 8, !tbaa !98
   %.not.i.us.i.i = icmp eq ptr %.1.i.us.i.i, null
   br i1 %.not.i.us.i.i, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_EN19OpenColorIO_v2_5dev9EnvMapKeyIS5_EESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS7_.exit.i.i, label %.lr.ph.i.split.us.i.i, !llvm.loop !99
@@ -2916,10 +2916,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit28: ; preds = %_ZN
   %.0812.i.us.i.i55 = phi ptr [ %.19.i.us.i.i58, %.lr.ph.i.split.us.i.i53 ], [ %119, %.lr.ph.i.i.i35 ]
   %122 = getelementptr inbounds nuw i8, ptr %.013.i.us.i.i54, i64 40
   %123 = load i64, ptr %122, align 8, !tbaa !25
-  %.not.i.i.us.i.i56 = icmp eq i64 %123, 0
-  %spec.select.i.i57 = select i1 %.not.i.i.us.i.i56, i64 16, i64 24
-  %.19.i.us.i.i58 = select i1 %.not.i.i.us.i.i56, ptr %.013.i.us.i.i54, ptr %.0812.i.us.i.i55
-  %124 = getelementptr inbounds nuw i8, ptr %.013.i.us.i.i54, i64 %spec.select.i.i57
+  %.not.not.not.i.i56 = icmp eq i64 %123, 0
+  %.sink.i.us.i.i57 = select i1 %.not.not.not.i.i56, i64 16, i64 24
+  %.19.i.us.i.i58 = select i1 %.not.not.not.i.i56, ptr %.013.i.us.i.i54, ptr %.0812.i.us.i.i55
+  %124 = getelementptr inbounds nuw i8, ptr %.013.i.us.i.i54, i64 %.sink.i.us.i.i57
   %.1.i.us.i.i59 = load ptr, ptr %124, align 8, !tbaa !98
   %.not.i.us.i.i60 = icmp eq ptr %.1.i.us.i.i59, null
   br i1 %.not.i.us.i.i60, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_EN19OpenColorIO_v2_5dev9EnvMapKeyIS5_EESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS7_.exit.i.i46, label %.lr.ph.i.split.us.i.i53, !llvm.loop !99
@@ -3129,10 +3129,10 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZNS
   %.0812.i.us.i.i = phi ptr [ %.19.i.us.i.i, %.lr.ph.i.split.us.i.i ], [ %7, %.lr.ph.i.i.i ]
   %12 = getelementptr inbounds nuw i8, ptr %.013.i.us.i.i, i64 40
   %13 = load i64, ptr %12, align 8, !tbaa !25
-  %.not.i.i.us.i.i = icmp eq i64 %13, 0
-  %spec.select.i.i = select i1 %.not.i.i.us.i.i, i64 16, i64 24
-  %.19.i.us.i.i = select i1 %.not.i.i.us.i.i, ptr %.013.i.us.i.i, ptr %.0812.i.us.i.i
-  %14 = getelementptr inbounds nuw i8, ptr %.013.i.us.i.i, i64 %spec.select.i.i
+  %.not.not.not.i.i = icmp eq i64 %13, 0
+  %.sink.i.us.i.i = select i1 %.not.not.not.i.i, i64 16, i64 24
+  %.19.i.us.i.i = select i1 %.not.not.not.i.i, ptr %.013.i.us.i.i, ptr %.0812.i.us.i.i
+  %14 = getelementptr inbounds nuw i8, ptr %.013.i.us.i.i, i64 %.sink.i.us.i.i
   %.1.i.us.i.i = load ptr, ptr %14, align 8, !tbaa !98
   %.not.i.us.i.i = icmp eq ptr %.1.i.us.i.i, null
   br i1 %.not.i.us.i.i, label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_N19OpenColorIO_v2_5dev9EnvMapKeyIS5_EESaISt4pairIKS5_S5_EEE11lower_boundERSA_.exit, label %.lr.ph.i.split.us.i.i, !llvm.loop !99
@@ -3287,10 +3287,10 @@ define noundef ptr @_ZNK19OpenColorIO_v2_5dev7Context12getStringVarEPKc(ptr noun
   %.0812.i.us.i.i = phi ptr [ %.19.i.us.i.i, %.lr.ph.i.split.us.i.i ], [ %25, %.lr.ph.i.i.i ]
   %28 = getelementptr inbounds nuw i8, ptr %.013.i.us.i.i, i64 40
   %29 = load i64, ptr %28, align 8, !tbaa !25
-  %.not.i.i.us.i.i = icmp eq i64 %29, 0
-  %spec.select.i.i = select i1 %.not.i.i.us.i.i, i64 16, i64 24
-  %.19.i.us.i.i = select i1 %.not.i.i.us.i.i, ptr %.013.i.us.i.i, ptr %.0812.i.us.i.i
-  %30 = getelementptr inbounds nuw i8, ptr %.013.i.us.i.i, i64 %spec.select.i.i
+  %.not.not.not.i.i = icmp eq i64 %29, 0
+  %.sink.i.us.i.i = select i1 %.not.not.not.i.i, i64 16, i64 24
+  %.19.i.us.i.i = select i1 %.not.not.not.i.i, ptr %.013.i.us.i.i, ptr %.0812.i.us.i.i
+  %30 = getelementptr inbounds nuw i8, ptr %.013.i.us.i.i, i64 %.sink.i.us.i.i
   %.1.i.us.i.i = load ptr, ptr %30, align 8, !tbaa !98
   %.not.i.us.i.i = icmp eq ptr %.1.i.us.i.i, null
   br i1 %.not.i.us.i.i, label %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_EN19OpenColorIO_v2_5dev9EnvMapKeyIS5_EESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i, label %.lr.ph.i.split.us.i.i, !llvm.loop !103

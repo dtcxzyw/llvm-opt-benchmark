@@ -6631,15 +6631,15 @@ define internal fastcc range(i32 -30, 1) i32 @zisofs_write_to_temp(ptr noundef %
   %32 = sub i64 %31, %.081.
   store i64 %32, ptr %19, align 8, !tbaa !247
   %33 = icmp slt i64 %32, 1
-  %.not152 = select i1 %33, i1 true, i1 %30
-  %.184 = select i1 %.not152, i32 4, i32 0
+  %.not150.not154 = select i1 %33, i1 true, i1 %30
+  %.184 = select i1 %.not150.not154, i32 4, i32 0
   store ptr %.086, ptr %9, align 8, !tbaa !260
   %34 = trunc i64 %.081. to i32
   store i32 %34, ptr %20, align 8, !tbaa !261
   %35 = load i8, ptr %8, align 8
   %36 = and i8 %35, 4
   %.not = icmp eq i8 %36, 0
-  br i1 %.not, label %.loopexit108, label %37
+  br i1 %.not, label %.loopexit107, label %37
 
 37:                                               ; preds = %27
   %38 = getelementptr inbounds nuw i8, ptr %.086, i64 %.081.
@@ -6648,7 +6648,7 @@ define internal fastcc range(i32 -30, 1) i32 @zisofs_write_to_temp(ptr noundef %
 39:                                               ; preds = %41, %37
   %.082 = phi ptr [ %.086, %37 ], [ %42, %41 ]
   %40 = icmp ult ptr %.082, %38
-  br i1 %40, label %41, label %.loopexit108
+  br i1 %40, label %41, label %.loopexit107
 
 41:                                               ; preds = %39
   %42 = getelementptr inbounds nuw i8, ptr %.082, i64 1
@@ -6659,21 +6659,21 @@ define internal fastcc range(i32 -30, 1) i32 @zisofs_write_to_temp(ptr noundef %
 44:                                               ; preds = %41
   %45 = and i8 %35, -5
   store i8 %45, ptr %8, align 8
-  br label %.loopexit108
+  br label %.loopexit107
 
-.loopexit108:                                     ; preds = %39, %44, %27
+.loopexit107:                                     ; preds = %39, %44, %27
   %46 = phi i8 [ %35, %27 ], [ %45, %44 ], [ %35, %39 ]
   %47 = getelementptr inbounds nuw i8, ptr %.086, i64 %.081.
   %48 = sub i64 %.081, %.081.
   %49 = and i8 %46, 4
   %.not92 = icmp ne i8 %49, 0
-  %or.cond.not149 = and i1 %.not152, %.not92
+  %or.cond.not151 = and i1 %.not150.not154, %.not92
   %50 = add i64 %28, %.081.
   %51 = icmp eq i64 %50, 32768
-  %or.cond147 = select i1 %or.cond.not149, i1 %51, i1 false
+  %or.cond147 = select i1 %or.cond.not151, i1 %51, i1 false
   br i1 %or.cond147, label %52, label %67
 
-52:                                               ; preds = %.loopexit108
+52:                                               ; preds = %.loopexit107
   %53 = load i64, ptr %21, align 8, !tbaa !248
   %54 = load ptr, ptr %22, align 8, !tbaa !84
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
@@ -6704,9 +6704,9 @@ define internal fastcc range(i32 -30, 1) i32 @zisofs_write_to_temp(ptr noundef %
   store i32 0, ptr %20, align 8, !tbaa !261
   br label %97
 
-67:                                               ; preds = %.loopexit108
-  %.not95116 = icmp eq i32 %34, 0
-  br i1 %.not95116, label %._crit_edge, label %.lr.ph
+67:                                               ; preds = %.loopexit107
+  %.not95115 = icmp eq i32 %34, 0
+  br i1 %.not95115, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %67, %wb_consume.exit.thread
   %68 = load i64, ptr %24, align 8, !tbaa !263
@@ -6774,7 +6774,7 @@ wb_consume.exit.thread:                           ; preds = %wb_consume.exit.wb_
   br label %.loopexit
 
 ._crit_edge:                                      ; preds = %wb_consume.exit.thread, %67
-  br i1 %.not152, label %97, label %112
+  br i1 %.not150.not154, label %97, label %112
 
 97:                                               ; preds = %._crit_edge.thread, %._crit_edge
   %98 = load i32, ptr %25, align 4, !tbaa !245

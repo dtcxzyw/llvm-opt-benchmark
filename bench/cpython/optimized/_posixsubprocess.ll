@@ -1471,51 +1471,51 @@ define internal fastcc void @child_exec(ptr noundef nonnull readonly captures(no
 
 133:                                              ; preds = %132, %131
   %134 = load ptr, ptr %0, align 8, !tbaa !40
-  %.not128136 = icmp eq ptr %134, null
-  br i1 %.not128136, label %make_inheritable.exit, label %.lr.ph
+  %.not128138 = icmp eq ptr %134, null
+  br i1 %.not128138, label %make_inheritable.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %133
   %.not130 = icmp eq ptr %2, null
   br i1 %.not130, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
-  %135 = phi ptr [ %144, %.lr.ph.split.us ], [ %134, %.lr.ph ]
-  %.091138.us = phi i32 [ %.1.us, %.lr.ph.split.us ], [ 0, %.lr.ph ]
-  %.092137.us = phi i32 [ %141, %.lr.ph.split.us ], [ 0, %.lr.ph ]
+  %135 = phi ptr [ %146, %.lr.ph.split.us ], [ %134, %.lr.ph ]
+  %.091140.us = phi i32 [ %.1.us, %.lr.ph.split.us ], [ 0, %.lr.ph ]
+  %.092139.us = phi i32 [ %143, %.lr.ph.split.us ], [ 0, %.lr.ph ]
   %136 = tail call i32 @execv(ptr noundef nonnull %135, ptr noundef %1) #12
   %137 = tail call ptr @__errno_location() #13
   %138 = load i32, ptr %137, align 4, !tbaa !38
   %.not131.us = icmp eq i32 %138, 2
-  %139 = icmp ne i32 %138, 20
-  %140 = icmp eq i32 %.091138.us, 0
-  %or.cond3.us = select i1 %139, i1 %140, i1 false
-  %spec.select.us = select i1 %or.cond3.us, i32 %138, i32 %.091138.us
-  %.1.us = select i1 %.not131.us, i32 %.091138.us, i32 %spec.select.us
-  %141 = add i32 %.092137.us, 1
-  %142 = sext i32 %141 to i64
-  %143 = getelementptr ptr, ptr %0, i64 %142
-  %144 = load ptr, ptr %143, align 8, !tbaa !40
-  %.not128.us = icmp eq ptr %144, null
+  %139 = icmp eq i32 %138, 20
+  %140 = icmp ne i32 %.091140.us, 0
+  %141 = or i1 %.not131.us, %139
+  %142 = select i1 %141, i1 true, i1 %140
+  %.1.us = select i1 %142, i32 %.091140.us, i32 %138
+  %143 = add i32 %.092139.us, 1
+  %144 = sext i32 %143 to i64
+  %145 = getelementptr ptr, ptr %0, i64 %144
+  %146 = load ptr, ptr %145, align 8, !tbaa !40
+  %.not128.us = icmp eq ptr %146, null
   br i1 %.not128.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !46
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
-  %145 = phi ptr [ %154, %.lr.ph.split ], [ %134, %.lr.ph ]
-  %.091138 = phi i32 [ %.1, %.lr.ph.split ], [ 0, %.lr.ph ]
-  %.092137 = phi i32 [ %151, %.lr.ph.split ], [ 0, %.lr.ph ]
-  %146 = tail call i32 @execve(ptr noundef nonnull %145, ptr noundef %1, ptr noundef nonnull %2) #12
-  %147 = tail call ptr @__errno_location() #13
-  %148 = load i32, ptr %147, align 4, !tbaa !38
-  %.not131 = icmp eq i32 %148, 2
-  %149 = icmp ne i32 %148, 20
-  %150 = icmp eq i32 %.091138, 0
-  %or.cond3 = select i1 %149, i1 %150, i1 false
-  %spec.select = select i1 %or.cond3, i32 %148, i32 %.091138
-  %.1 = select i1 %.not131, i32 %.091138, i32 %spec.select
-  %151 = add i32 %.092137, 1
-  %152 = sext i32 %151 to i64
-  %153 = getelementptr ptr, ptr %0, i64 %152
-  %154 = load ptr, ptr %153, align 8, !tbaa !40
-  %.not128 = icmp eq ptr %154, null
+  %147 = phi ptr [ %158, %.lr.ph.split ], [ %134, %.lr.ph ]
+  %.091140 = phi i32 [ %.1, %.lr.ph.split ], [ 0, %.lr.ph ]
+  %.092139 = phi i32 [ %155, %.lr.ph.split ], [ 0, %.lr.ph ]
+  %148 = tail call i32 @execve(ptr noundef nonnull %147, ptr noundef %1, ptr noundef nonnull %2) #12
+  %149 = tail call ptr @__errno_location() #13
+  %150 = load i32, ptr %149, align 4, !tbaa !38
+  %.not131 = icmp eq i32 %150, 2
+  %151 = icmp eq i32 %150, 20
+  %152 = icmp ne i32 %.091140, 0
+  %153 = or i1 %.not131, %151
+  %154 = select i1 %153, i1 true, i1 %152
+  %.1 = select i1 %154, i32 %.091140, i32 %150
+  %155 = add i32 %.092139, 1
+  %156 = sext i32 %155 to i64
+  %157 = getelementptr ptr, ptr %0, i64 %156
+  %158 = load ptr, ptr %157, align 8, !tbaa !40
+  %.not128 = icmp eq ptr %158, null
   br i1 %.not128, label %._crit_edge, label %.lr.ph.split, !llvm.loop !46
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us
@@ -1526,54 +1526,54 @@ define internal fastcc void @child_exec(ptr noundef nonnull readonly captures(no
 make_inheritable.exit.sink.split:                 ; preds = %._crit_edge, %128
   %.091.lcssa.sink = phi i32 [ 0, %128 ], [ %.091.lcssa, %._crit_edge ]
   %.089.ph = phi ptr [ @.str.21, %128 ], [ @.str.20, %._crit_edge ]
-  %155 = tail call ptr @__errno_location() #13
-  store i32 %.091.lcssa.sink, ptr %155, align 4, !tbaa !38
+  %159 = tail call ptr @__errno_location() #13
+  store i32 %.091.lcssa.sink, ptr %159, align 4, !tbaa !38
   br label %make_inheritable.exit
 
 make_inheritable.exit:                            ; preds = %32, %65, %62, %make_inheritable.exit.sink.split, %133, %90, %._crit_edge, %122, %118, %114, %109, %104, %100, %86, %83, %79, %76, %72, %69, %56, %53, %48, %45, %41, %37
   %.089 = phi ptr [ @.str.19, %90 ], [ @.str.18, %37 ], [ @.str.18, %41 ], [ @.str.18, %45 ], [ @.str.18, %48 ], [ @.str.18, %53 ], [ @.str.18, %56 ], [ @.str.18, %79 ], [ @.str.20, %133 ], [ @.str.18, %69 ], [ @.str.18, %76 ], [ @.str.18, %83 ], [ @.str.18, %72 ], [ @.str.18, %100 ], [ @.str.18, %104 ], [ @.str.18, %109 ], [ @.str.18, %114 ], [ @.str.18, %118 ], [ @.str.18, %122 ], [ %.089.ph, %make_inheritable.exit.sink.split ], [ @.str.18, %65 ], [ @.str.20, %._crit_edge ], [ @.str.18, %86 ], [ @.str.18, %62 ], [ @.str.18, %32 ]
-  %156 = tail call ptr @__errno_location() #13
-  %157 = load i32, ptr %156, align 4, !tbaa !38
-  %.not132 = icmp eq i32 %157, 0
-  br i1 %.not132, label %179, label %158
+  %160 = tail call ptr @__errno_location() #13
+  %161 = load i32, ptr %160, align 4, !tbaa !38
+  %.not132 = icmp eq i32 %161, 0
+  br i1 %.not132, label %183, label %162
 
-158:                                              ; preds = %make_inheritable.exit
-  %159 = tail call i64 @_Py_write_noraise(i32 noundef %11, ptr noundef nonnull @.str.22, i64 noundef 8) #12
-  %160 = getelementptr inbounds nuw i8, ptr %27, i64 9
-  %161 = load ptr, ptr @Py_hexdigits, align 8, !tbaa !40
-  br label %162
+162:                                              ; preds = %make_inheritable.exit
+  %163 = tail call i64 @_Py_write_noraise(i32 noundef %11, ptr noundef nonnull @.str.22, i64 noundef 8) #12
+  %164 = getelementptr inbounds nuw i8, ptr %27, i64 9
+  %165 = load ptr, ptr @Py_hexdigits, align 8, !tbaa !40
+  br label %166
 
-162:                                              ; preds = %158, %162
-  %.0140 = phi ptr [ %160, %158 ], [ %167, %162 ]
-  %.2139 = phi i32 [ %157, %158 ], [ %168, %162 ]
-  %163 = srem i32 %.2139, 16
-  %164 = sext i32 %163 to i64
-  %165 = getelementptr i8, ptr %161, i64 %164
-  %166 = load i8, ptr %165, align 1, !tbaa !37
-  %167 = getelementptr i8, ptr %.0140, i64 -1
-  store i8 %166, ptr %167, align 1, !tbaa !37
-  %168 = sdiv i32 %.2139, 16
-  %169 = add i32 %.2139, -16
-  %170 = icmp ult i32 %169, -31
-  %171 = icmp ne ptr %167, %27
-  %172 = and i1 %170, %171
-  br i1 %172, label %162, label %173, !llvm.loop !47
+166:                                              ; preds = %162, %166
+  %.0142 = phi ptr [ %164, %162 ], [ %171, %166 ]
+  %.2141 = phi i32 [ %161, %162 ], [ %172, %166 ]
+  %167 = srem i32 %.2141, 16
+  %168 = sext i32 %167 to i64
+  %169 = getelementptr i8, ptr %165, i64 %168
+  %170 = load i8, ptr %169, align 1, !tbaa !37
+  %171 = getelementptr i8, ptr %.0142, i64 -1
+  store i8 %170, ptr %171, align 1, !tbaa !37
+  %172 = sdiv i32 %.2141, 16
+  %173 = add i32 %.2141, -16
+  %174 = icmp ult i32 %173, -31
+  %175 = icmp ne ptr %171, %27
+  %176 = and i1 %174, %175
+  br i1 %176, label %166, label %177, !llvm.loop !47
 
-173:                                              ; preds = %162
-  %174 = ptrtoint ptr %160 to i64
-  %175 = ptrtoint ptr %167 to i64
-  %176 = sub i64 %174, %175
-  %177 = call i64 @_Py_write_noraise(i32 noundef %11, ptr noundef nonnull %167, i64 noundef %176) #12
-  %178 = call i64 @_Py_write_noraise(i32 noundef %11, ptr noundef nonnull @.str.23, i64 noundef 1) #12
-  br label %181
+177:                                              ; preds = %166
+  %178 = ptrtoint ptr %164 to i64
+  %179 = ptrtoint ptr %171 to i64
+  %180 = sub i64 %178, %179
+  %181 = call i64 @_Py_write_noraise(i32 noundef %11, ptr noundef nonnull %171, i64 noundef %180) #12
+  %182 = call i64 @_Py_write_noraise(i32 noundef %11, ptr noundef nonnull @.str.23, i64 noundef 1) #12
+  br label %185
 
-179:                                              ; preds = %make_inheritable.exit
-  %180 = tail call i64 @_Py_write_noraise(i32 noundef %11, ptr noundef nonnull @.str.24, i64 noundef 18) #12
-  br label %181
+183:                                              ; preds = %make_inheritable.exit
+  %184 = tail call i64 @_Py_write_noraise(i32 noundef %11, ptr noundef nonnull @.str.24, i64 noundef 18) #12
+  br label %185
 
-181:                                              ; preds = %179, %173
-  %182 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.089) #16
-  %183 = call i64 @_Py_write_noraise(i32 noundef %11, ptr noundef nonnull %.089, i64 noundef %182) #12
+185:                                              ; preds = %183, %177
+  %186 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.089) #16
+  %187 = call i64 @_Py_write_noraise(i32 noundef %11, ptr noundef nonnull %.089, i64 noundef %186) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   ret void
 }

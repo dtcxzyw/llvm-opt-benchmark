@@ -4533,10 +4533,10 @@ drm_vblank_count_and_time.exit:                   ; preds = %.loopexit.i, %69
   %89 = add i64 %85, %88
   %90 = icmp ult i32 %26, 2
   %91 = sub i64 %83, %89
-  %92 = icmp ult i64 %91, 8388609
+  %92 = icmp ugt i64 %91, 8388608
   %93 = add i64 %83, 1
-  %94 = select i1 %92, i64 %93, i64 %89
-  %95 = select i1 %90, i64 %89, i64 %94
+  %94 = select i1 %90, i1 true, i1 %92
+  %95 = select i1 %94, i64 %89, i64 %93
   %96 = getelementptr inbounds nuw i8, ptr %35, i64 72
   store i32 %30, ptr %96, align 8
   %97 = getelementptr inbounds nuw i8, ptr %35, i64 88

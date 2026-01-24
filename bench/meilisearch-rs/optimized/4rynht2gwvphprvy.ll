@@ -4522,9 +4522,9 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   %29 = load i64, ptr %4, align 8, !range !392, !alias.scope !1067, !noalias !1072, !noundef !12
   %30 = icmp eq i64 %29, 2
   %31 = load ptr, ptr %23, align 8, !alias.scope !1066, !noalias !1065
-  %.not.i.i = icmp eq ptr %31, null
-  %32 = select i1 %.not.i.i, i64 1, i64 2
-  %.sroa.0.0.i.i = select i1 %30, i64 %32, i64 1
+  %.not.i.i = icmp ne ptr %31, null
+  %32 = select i1 %30, i1 %.not.i.i, i1 false
+  %.sroa.0.0.i.i = select i1 %32, i64 2, i64 1
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17he1eadbb5d8d6edb1E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5, i64 noundef %26, i64 noundef %.sroa.0.0.i.i)
           to label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h3bee8bf44ed26aebE.exit.i.i" unwind label %.loopexit
 

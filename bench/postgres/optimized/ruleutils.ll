@@ -18576,11 +18576,11 @@ define internal fastcc void @get_json_constructor(ptr noundef nonnull readonly c
 
 6:                                                ; preds = %2
   tail call fastcc void @get_json_agg_constructor(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.273, i1 noundef zeroext true)
-  br label %43
+  br label %42
 
 7:                                                ; preds = %2
   tail call fastcc void @get_json_agg_constructor(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.274, i1 noundef zeroext false)
-  br label %43
+  br label %42
 
 8:                                                ; preds = %2
   br label %16
@@ -18612,68 +18612,68 @@ define internal fastcc void @get_json_constructor(ptr noundef nonnull readonly c
 
 .lr.ph:                                           ; preds = %16
   %20 = load i32, ptr %4, align 4
-  %.fr41 = freeze i32 %20
-  %21 = icmp eq i32 %.fr41, 1
+  %.fr43 = freeze i32 %20
+  %21 = icmp eq i32 %.fr43, 1
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %23 = load i32, ptr %19, align 4
   %24 = icmp sgt i32 %23, 0
-  br i1 %21, label %.lr.ph.split.us.split, label %.lr.ph.split.split
+  br i1 %21, label %.lr.ph.split.split, label %.lr.ph.split.us.split
 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph
-  br i1 %24, label %.lr.ph40, label %.critedge
+  br i1 %24, label %.lr.ph41, label %.critedge
 
-.lr.ph40:                                         ; preds = %.lr.ph.split.us.split, %30
-  %indvars.iv44 = phi i64 [ %indvars.iv.next45, %30 ], [ 0, %.lr.ph.split.us.split ]
+.lr.ph41:                                         ; preds = %.lr.ph.split.us.split, %28
+  %indvars.iv = phi i64 [ %indvars.iv.next, %28 ], [ 0, %.lr.ph.split.us.split ]
   %25 = load ptr, ptr %22, align 8
-  %26 = getelementptr inbounds nuw %union.ListCell, ptr %25, i64 %indvars.iv44
-  %.not32.us = icmp eq i64 %indvars.iv44, 0
-  br i1 %.not32.us, label %30, label %27
+  %26 = getelementptr inbounds nuw %union.ListCell, ptr %25, i64 %indvars.iv
+  %.not32.us = icmp eq i64 %indvars.iv, 0
+  br i1 %.not32.us, label %28, label %27
 
-27:                                               ; preds = %.lr.ph40
-  %28 = and i64 %indvars.iv44, 1
-  %.not31.us = icmp eq i64 %28, 0
-  %29 = select i1 %.not31.us, ptr @.str.23, ptr @.str.193
-  tail call void @appendStringInfoString(ptr noundef %3, ptr noundef nonnull %29) #11
-  br label %30
+27:                                               ; preds = %.lr.ph41
+  tail call void @appendStringInfoString(ptr noundef %3, ptr noundef nonnull @.str.23) #11
+  br label %28
 
-30:                                               ; preds = %27, %.lr.ph40
-  %31 = load ptr, ptr %26, align 8
-  tail call fastcc void @get_rule_expr(ptr noundef %31, ptr noundef nonnull %1, i1 noundef zeroext true)
-  %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
-  %32 = load i32, ptr %19, align 4
-  %33 = sext i32 %32 to i64
-  %34 = icmp slt i64 %indvars.iv.next45, %33
-  br i1 %34, label %.lr.ph40, label %.critedge
+28:                                               ; preds = %27, %.lr.ph41
+  %29 = load ptr, ptr %26, align 8
+  tail call fastcc void @get_rule_expr(ptr noundef %29, ptr noundef nonnull %1, i1 noundef zeroext true)
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %30 = load i32, ptr %19, align 4
+  %31 = sext i32 %30 to i64
+  %32 = icmp slt i64 %indvars.iv.next, %31
+  br i1 %32, label %.lr.ph41, label %.critedge
 
 .lr.ph.split.split:                               ; preds = %.lr.ph
-  br i1 %24, label %.lr.ph38, label %.critedge
+  br i1 %24, label %.lr.ph39, label %.critedge
 
-.lr.ph38:                                         ; preds = %.lr.ph.split.split, %38
-  %indvars.iv = phi i64 [ %indvars.iv.next, %38 ], [ 0, %.lr.ph.split.split ]
-  %35 = load ptr, ptr %22, align 8
-  %36 = getelementptr inbounds nuw %union.ListCell, ptr %35, i64 %indvars.iv
-  %.not32 = icmp eq i64 %indvars.iv, 0
-  br i1 %.not32, label %38, label %37
+.lr.ph39:                                         ; preds = %.lr.ph.split.split, %37
+  %indvars.iv46 = phi i64 [ %indvars.iv.next47, %37 ], [ 0, %.lr.ph.split.split ]
+  %33 = load ptr, ptr %22, align 8
+  %34 = getelementptr inbounds nuw %union.ListCell, ptr %33, i64 %indvars.iv46
+  %.not32 = icmp eq i64 %indvars.iv46, 0
+  br i1 %.not32, label %37, label %35
 
-.critedge:                                        ; preds = %38, %30, %.lr.ph.split.us.split, %.lr.ph.split.split, %16
+.critedge:                                        ; preds = %28, %37, %.lr.ph.split.us.split, %.lr.ph.split.split, %16
   tail call fastcc void @get_json_constructor_options(ptr noundef %0, ptr noundef %3)
   tail call void @appendStringInfoChar(ptr noundef %3, i8 noundef signext 41) #11
-  br label %43
+  br label %42
 
-37:                                               ; preds = %.lr.ph38
-  tail call void @appendStringInfoString(ptr noundef %3, ptr noundef nonnull @.str.23) #11
-  br label %38
+35:                                               ; preds = %.lr.ph39
+  %36 = and i64 %indvars.iv46, 1
+  %.not31.not = icmp eq i64 %36, 0
+  %spec.select42 = select i1 %.not31.not, ptr @.str.23, ptr @.str.193
+  tail call void @appendStringInfoString(ptr noundef %3, ptr noundef nonnull %spec.select42) #11
+  br label %37
 
-38:                                               ; preds = %37, %.lr.ph38
-  %39 = load ptr, ptr %36, align 8
-  tail call fastcc void @get_rule_expr(ptr noundef %39, ptr noundef nonnull %1, i1 noundef zeroext true)
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %40 = load i32, ptr %19, align 4
-  %41 = sext i32 %40 to i64
-  %42 = icmp slt i64 %indvars.iv.next, %41
-  br i1 %42, label %.lr.ph38, label %.critedge
+37:                                               ; preds = %35, %.lr.ph39
+  %38 = load ptr, ptr %34, align 8
+  tail call fastcc void @get_rule_expr(ptr noundef %38, ptr noundef nonnull %1, i1 noundef zeroext true)
+  %indvars.iv.next47 = add nuw nsw i64 %indvars.iv46, 1
+  %39 = load i32, ptr %19, align 4
+  %40 = sext i32 %39 to i64
+  %41 = icmp slt i64 %indvars.iv.next47, %40
+  br i1 %41, label %.lr.ph39, label %.critedge
 
-43:                                               ; preds = %.critedge, %7, %6
+42:                                               ; preds = %.critedge, %7, %6
   ret void
 }
 

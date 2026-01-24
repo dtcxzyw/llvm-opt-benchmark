@@ -16723,78 +16723,78 @@ define internal fastcc i32 @update_size(ptr noundef %0, i64 noundef %1) unnamed_
 
 24:                                               ; preds = %20
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  br i1 %3, label %.split.us, label %.split
+  br i1 %3, label %.split, label %.split.us
 
-.split.us:                                        ; preds = %24, %30
-  %26 = phi ptr [ %28, %30 ], [ %25, %24 ]
-  %27 = phi i64 [ %35, %30 ], [ 0, %24 ]
-  %28 = load ptr, ptr %26, align 8
-  %29 = icmp eq ptr %28, %25
-  br i1 %29, label %.split6.us, label %30
+.split.us:                                        ; preds = %24, %29
+  %26 = phi ptr [ %27, %29 ], [ %25, %24 ]
+  %27 = load ptr, ptr %26, align 8
+  %28 = icmp eq ptr %27, %25
+  br i1 %28, label %.split6.us, label %29
 
-30:                                               ; preds = %.split.us
-  %31 = getelementptr inbounds nuw i8, ptr %28, i64 16
-  %32 = load i64, ptr %31, align 8
-  %33 = add i64 %27, -1
-  %34 = icmp ult i64 %33, %32
-  %35 = select i1 %34, i64 %27, i64 %32
-  %36 = icmp ult i64 %32, %35
-  br i1 %36, label %.loopexit, label %.split.us, !llvm.loop !166
+29:                                               ; preds = %.split.us
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 16
+  %31 = load i64, ptr %30, align 8
+  %32 = icmp ult i64 %31, %1
+  br i1 %32, label %.loopexit, label %.split.us, !llvm.loop !166
 
-.split:                                           ; preds = %24, %40
-  %37 = phi ptr [ %38, %40 ], [ %25, %24 ]
-  %38 = load ptr, ptr %37, align 8
-  %39 = icmp eq ptr %38, %25
-  br i1 %39, label %.split6.us, label %40
+.split:                                           ; preds = %24, %37
+  %33 = phi ptr [ %35, %37 ], [ %25, %24 ]
+  %34 = phi i64 [ %spec.select, %37 ], [ 0, %24 ]
+  %35 = load ptr, ptr %33, align 8
+  %36 = icmp eq ptr %35, %25
+  br i1 %36, label %.split6.us, label %37
 
-40:                                               ; preds = %.split
-  %41 = getelementptr inbounds nuw i8, ptr %38, i64 16
-  %42 = load i64, ptr %41, align 8
-  %43 = icmp ult i64 %42, %1
-  br i1 %43, label %.loopexit, label %.split, !llvm.loop !166
+37:                                               ; preds = %.split
+  %38 = getelementptr inbounds nuw i8, ptr %35, i64 16
+  %39 = load i64, ptr %38, align 8
+  %40 = add i64 %34, -1
+  %.not = icmp ult i64 %40, %39
+  %spec.select = select i1 %.not, i64 %34, i64 %39
+  %41 = icmp ult i64 %39, %spec.select
+  br i1 %41, label %.loopexit, label %.split, !llvm.loop !166
 
-.split6.us:                                       ; preds = %.split, %.split.us
-  %.us-phi = phi i64 [ %27, %.split.us ], [ %1, %.split ]
-  %44 = tail call i32 %9(ptr noundef %0, i64 noundef %.us-phi) #32
-  %45 = icmp eq i32 %44, 0
-  br i1 %45, label %46, label %.loopexit
+.split6.us:                                       ; preds = %.split.us, %.split
+  %.us-phi = phi i64 [ %34, %.split ], [ %1, %.split.us ]
+  %42 = tail call i32 %9(ptr noundef %0, i64 noundef %.us-phi) #32
+  %43 = icmp eq i32 %42, 0
+  br i1 %43, label %44, label %.loopexit
 
-46:                                               ; preds = %.split6.us
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 1928
-  %48 = load ptr, ptr %47, align 8
-  %49 = icmp eq ptr %48, null
-  br i1 %49, label %58, label %50
+44:                                               ; preds = %.split6.us
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 1928
+  %46 = load ptr, ptr %45, align 8
+  %47 = icmp eq ptr %46, null
+  br i1 %47, label %56, label %48
 
-50:                                               ; preds = %46
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 972
-  %52 = load i32, ptr %51, align 4
-  %53 = icmp slt i32 %52, 2
-  br i1 %53, label %58, label %54
+48:                                               ; preds = %44
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 972
+  %50 = load i32, ptr %49, align 4
+  %51 = icmp slt i32 %50, 2
+  br i1 %51, label %56, label %52
 
-54:                                               ; preds = %50
-  %55 = load ptr, ptr @md_cluster_ops, align 8
-  %56 = getelementptr inbounds nuw i8, ptr %55, i64 160
-  %57 = load ptr, ptr %56, align 8
-  tail call void %57(ptr noundef %0, i64 noundef %5) #32
+52:                                               ; preds = %48
+  %53 = load ptr, ptr @md_cluster_ops, align 8
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 160
+  %55 = load ptr, ptr %54, align 8
+  tail call void %55(ptr noundef %0, i64 noundef %5) #32
   br label %.loopexit
 
-58:                                               ; preds = %50, %46
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 856
-  %60 = load ptr, ptr %59, align 8
-  %61 = icmp eq ptr %60, null
-  br i1 %61, label %.loopexit, label %62
+56:                                               ; preds = %48, %44
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 856
+  %58 = load ptr, ptr %57, align 8
+  %59 = icmp eq ptr %58, null
+  br i1 %59, label %.loopexit, label %60
 
-62:                                               ; preds = %58
-  %63 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %64 = load ptr, ptr %63, align 8
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %66 = load i64, ptr %65, align 8
-  %67 = tail call zeroext i1 @set_capacity_and_notify(ptr noundef %64, i64 noundef %66) #32
+60:                                               ; preds = %56
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %62 = load ptr, ptr %61, align 8
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 296
+  %64 = load i64, ptr %63, align 8
+  %65 = tail call zeroext i1 @set_capacity_and_notify(ptr noundef %62, i64 noundef %64) #32
   br label %.loopexit
 
-.loopexit:                                        ; preds = %40, %30, %62, %58, %54, %.split6.us, %20, %16, %11, %2
-  %68 = phi i32 [ -22, %2 ], [ -16, %16 ], [ -16, %11 ], [ -30, %20 ], [ 0, %54 ], [ 0, %62 ], [ 0, %58 ], [ %44, %.split6.us ], [ -28, %30 ], [ -28, %40 ]
-  ret i32 %68
+.loopexit:                                        ; preds = %29, %37, %60, %56, %52, %.split6.us, %20, %16, %11, %2
+  %66 = phi i32 [ -22, %2 ], [ -16, %16 ], [ -16, %11 ], [ -30, %20 ], [ 0, %52 ], [ 0, %60 ], [ 0, %56 ], [ %42, %.split6.us ], [ -28, %37 ], [ -28, %29 ]
+  ret i32 %66
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid

@@ -4481,9 +4481,9 @@ switch.early.test:                                ; preds = %233
   %515 = icmp eq i32 %514, 2
   %516 = getelementptr inbounds nuw i8, ptr %0, i64 5460
   %517 = load i32, ptr %516, align 4
-  %.not185 = icmp eq i32 %517, 0
-  %518 = select i1 %.not185, i32 15872, i32 12032
-  %519 = select i1 %515, i32 %518, i32 15872
+  %.not185 = icmp ne i32 %517, 0
+  %518 = select i1 %515, i1 %.not185, i1 false
+  %519 = select i1 %518, i32 12032, i32 15872
   br label %.sink.split617
 
 .sink.split617:                                   ; preds = %501, %512

@@ -1533,12 +1533,12 @@ _ZN4llvm9StringRef14consumeIntegerIiEEbjRT_.exit5: ; preds = %_ZNK4llvm9StringRe
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %17 = call noundef zeroext i1 @_ZN4llvm20consumeSignedIntegerERNS_9StringRefEjRx(ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 10, ptr noundef nonnull align 8 dereferenceable(8) %3) #21
   %18 = load i64, ptr %3, align 8
-  %19 = add i64 %18, 2147483648
-  %.not.i3 = icmp ult i64 %19, 4294967296
+  %19 = add i64 %18, -2147483648
+  %.not.i3 = icmp ult i64 %19, -4294967296
+  %20 = select i1 %17, i1 true, i1 %.not.i3
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %20 = shl i64 %18, 32
-  %21 = select i1 %.not.i3, i64 %20, i64 0
-  %22 = select i1 %17, i64 0, i64 %21
+  %21 = shl i64 %18, 32
+  %22 = select i1 %20, i64 0, i64 %21
   br label %_ZN4llvmeqENS_9StringRefES0_.exit.thread
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %12, %_ZNK4llvm9StringRef11starts_withES0_.exit.i, %_ZN4llvm9StringRef14consumeIntegerIiEEbjRT_.exit.thread, %_ZN4llvmeqENS_9StringRefES0_.exit, %_ZN4llvm9StringRef14consumeIntegerIiEEbjRT_.exit5

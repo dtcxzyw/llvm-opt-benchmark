@@ -413,20 +413,20 @@ define void @_ZN5ZXing9BitMatrix9rotate180Ev(ptr noundef nonnull readonly align 
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !25
   %6 = icmp ne ptr %3, %5
-  %.sroa.0.010.i.i = getelementptr inbounds i8, ptr %5, i64 -1
-  %.not11.i.i = icmp ult ptr %3, %.sroa.0.010.i.i
-  %or.cond.i.i = select i1 %6, i1 %.not11.i.i, i1 false
+  %.sroa.0.09.i.i = getelementptr inbounds i8, ptr %5, i64 -1
+  %.not10.i.i = icmp ult ptr %3, %.sroa.0.09.i.i
+  %or.cond.i.i = select i1 %6, i1 %.not10.i.i, i1 false
   br i1 %or.cond.i.i, label %.lr.ph.i.i, label %_ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPhSt6vectorIhSaIhEEEEEvT_S7_.exit
 
 .lr.ph.i.i:                                       ; preds = %1, %.lr.ph.i.i
-  %.sroa.0.013.i.i = phi ptr [ %.sroa.0.0.i.i, %.lr.ph.i.i ], [ %.sroa.0.010.i.i, %1 ]
-  %.sroa.06.012.i.i = phi ptr [ %9, %.lr.ph.i.i ], [ %3, %1 ]
-  %7 = load i8, ptr %.sroa.06.012.i.i, align 1, !tbaa !16
-  %8 = load i8, ptr %.sroa.0.013.i.i, align 1, !tbaa !16
-  store i8 %8, ptr %.sroa.06.012.i.i, align 1, !tbaa !16
-  store i8 %7, ptr %.sroa.0.013.i.i, align 1, !tbaa !16
-  %9 = getelementptr inbounds nuw i8, ptr %.sroa.06.012.i.i, i64 1
-  %.sroa.0.0.i.i = getelementptr inbounds i8, ptr %.sroa.0.013.i.i, i64 -1
+  %.sroa.0.012.i.i = phi ptr [ %.sroa.0.0.i.i, %.lr.ph.i.i ], [ %.sroa.0.09.i.i, %1 ]
+  %.sroa.06.011.i.i = phi ptr [ %9, %.lr.ph.i.i ], [ %3, %1 ]
+  %7 = load i8, ptr %.sroa.06.011.i.i, align 1, !tbaa !16
+  %8 = load i8, ptr %.sroa.0.012.i.i, align 1, !tbaa !16
+  store i8 %8, ptr %.sroa.06.011.i.i, align 1, !tbaa !16
+  store i8 %7, ptr %.sroa.0.012.i.i, align 1, !tbaa !16
+  %9 = getelementptr inbounds nuw i8, ptr %.sroa.06.011.i.i, i64 1
+  %.sroa.0.0.i.i = getelementptr inbounds i8, ptr %.sroa.0.012.i.i, i64 -1
   %.not.i.i = icmp ult ptr %9, %.sroa.0.0.i.i
   br i1 %.not.i.i, label %.lr.ph.i.i, label %_ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPhSt6vectorIhSaIhEEEEEvT_S7_.exit, !llvm.loop !26
 

@@ -90841,9 +90841,9 @@ split:                                            ; preds = %344, %.split2287.us
   %995 = and i32 %.us-phi2429, 16
   %.not1183 = icmp eq i32 %995, 0
   %996 = and i16 %.pre3666, 255
-  %997 = icmp eq i16 %996, 5
-  %998 = select i1 %997, i16 -32768, i16 0
-  %999 = select i1 %.not1183, i16 %998, i16 -32768
+  %997 = icmp ne i16 %996, 5
+  %998 = select i1 %.not1183, i1 %997, i1 false
+  %999 = select i1 %998, i16 0, i16 -32768
   %1000 = and i16 %.pre3666, 32767
   %1001 = or disjoint i16 %1000, %999
   store i16 %1001, ptr %10, align 2

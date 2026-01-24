@@ -3932,120 +3932,120 @@ define void @Extra_TruthExpandGeneratePermTable() local_unnamed_addr #16 {
   store i32 0, ptr %1, align 4, !tbaa !3
   br label %.preheader43
 
-.preheader43:                                     ; preds = %0, %21
-  %storemerge48 = phi i32 [ 0, %0 ], [ %25, %21 ]
+.preheader43:                                     ; preds = %0, %22
+  %storemerge48 = phi i32 [ 0, %0 ], [ %26, %22 ]
   br label %2
 
 2:                                                ; preds = %.preheader43, %2
   %.02647 = phi i32 [ -1, %.preheader43 ], [ %.127, %2 ]
   %.02846 = phi i32 [ -1, %.preheader43 ], [ %.129, %2 ]
   %.03045 = phi i32 [ 0, %.preheader43 ], [ %.131, %2 ]
-  %.03244 = phi i32 [ 0, %.preheader43 ], [ %7, %2 ]
+  %.03244 = phi i32 [ 0, %.preheader43 ], [ %8, %2 ]
   %3 = shl nuw nsw i32 1, %.03244
   %4 = and i32 %3, %storemerge48
   %.not41 = icmp ne i32 %4, 0
-  %5 = icmp eq i32 %.02647, -1
-  %spec.select = select i1 %5, i32 %.03244, i32 %.02647
+  %5 = icmp ne i32 %.02647, -1
   %6 = zext i1 %.not41 to i32
   %.131 = add nuw nsw i32 %.03045, %6
   %.129 = select i1 %.not41, i32 %.03244, i32 %.02846
-  %.127 = select i1 %.not41, i32 %.02647, i32 %spec.select
-  %7 = add nuw nsw i32 %.03244, 1
-  %exitcond.not = icmp eq i32 %7, 8
-  br i1 %exitcond.not, label %8, label %2, !llvm.loop !81
+  %7 = select i1 %.not41, i1 true, i1 %5
+  %.127 = select i1 %7, i32 %.02647, i32 %.03244
+  %8 = add nuw nsw i32 %.03244, 1
+  %exitcond.not = icmp eq i32 %8, 8
+  br i1 %exitcond.not, label %9, label %2, !llvm.loop !81
 
-8:                                                ; preds = %2
-  %9 = add nsw i32 %.129, 1
-  %10 = icmp eq i32 %9, %.127
-  %11 = icmp eq i32 %storemerge48, 255
-  %or.cond = or i1 %11, %10
-  br i1 %or.cond, label %12, label %15
+9:                                                ; preds = %2
+  %10 = add nsw i32 %.129, 1
+  %11 = icmp eq i32 %10, %.127
+  %12 = icmp eq i32 %storemerge48, 255
+  %or.cond = or i1 %12, %11
+  br i1 %or.cond, label %13, label %16
 
-12:                                               ; preds = %8
-  %13 = select i1 %11, ptr @.str.2, ptr @.str.3
-  %14 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef 0, ptr noundef nonnull %13)
-  br label %21
+13:                                               ; preds = %9
+  %14 = select i1 %12, ptr @.str.2, ptr @.str.3
+  %15 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef 0, ptr noundef nonnull %14)
+  br label %22
 
-15:                                               ; preds = %8
-  %16 = icmp eq i32 %.131, 1
-  br i1 %16, label %17, label %19
+16:                                               ; preds = %9
+  %17 = icmp eq i32 %.131, 1
+  br i1 %17, label %18, label %20
 
-17:                                               ; preds = %15
-  %18 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, i32 noundef %.129)
-  br label %21
+18:                                               ; preds = %16
+  %19 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, i32 noundef %.129)
+  br label %22
 
-19:                                               ; preds = %15
-  %20 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, i32 noundef 1)
-  br label %21
+20:                                               ; preds = %16
+  %21 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, i32 noundef 1)
+  br label %22
 
-21:                                               ; preds = %17, %19, %12
-  %22 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6)
-  %23 = load ptr, ptr @stdout, align 8, !tbaa !82
-  call void @Extra_PrintBinary(ptr noundef %23, ptr noundef nonnull %1, i32 noundef 8) #34
+22:                                               ; preds = %18, %20, %13
+  %23 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6)
+  %24 = load ptr, ptr @stdout, align 8, !tbaa !82
+  call void @Extra_PrintBinary(ptr noundef %24, ptr noundef nonnull %1, i32 noundef 8) #34
   %putchar40 = call i32 @putchar(i32 10)
-  %24 = load i32, ptr %1, align 4, !tbaa !3
-  %25 = add nsw i32 %24, 1
-  store i32 %25, ptr %1, align 4, !tbaa !3
-  %26 = icmp slt i32 %24, 255
-  br i1 %26, label %.preheader43, label %27, !llvm.loop !84
+  %25 = load i32, ptr %1, align 4, !tbaa !3
+  %26 = add nsw i32 %25, 1
+  store i32 %26, ptr %1, align 4, !tbaa !3
+  %27 = icmp slt i32 %25, 255
+  br i1 %27, label %.preheader43, label %28, !llvm.loop !84
 
-27:                                               ; preds = %21
+28:                                               ; preds = %22
   %puts35 = call i32 @puts(ptr nonnull dereferenceable(1) @str.3)
   %puts36 = call i32 @puts(ptr nonnull dereferenceable(1) @str.2)
   store i32 0, ptr %1, align 4, !tbaa !3
-  br label %28
+  br label %29
 
-28:                                               ; preds = %27, %44
-  %29 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10)
-  %30 = load i32, ptr %1, align 4, !tbaa !3
-  br label %31
+29:                                               ; preds = %28, %45
+  %30 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10)
+  %31 = load i32, ptr %1, align 4, !tbaa !3
+  br label %32
 
-31:                                               ; preds = %28, %31
-  %.250 = phi i32 [ 0, %28 ], [ %spec.select42, %31 ]
-  %.13349 = phi i32 [ 0, %28 ], [ %34, %31 ]
-  %32 = lshr i32 %30, %.13349
-  %33 = and i32 %32, 1
-  %spec.select42 = add nuw nsw i32 %33, %.250
-  %34 = add nuw nsw i32 %.13349, 1
-  %exitcond54.not = icmp eq i32 %34, 8
-  br i1 %exitcond54.not, label %.preheader, label %31, !llvm.loop !85
+32:                                               ; preds = %29, %32
+  %.250 = phi i32 [ 0, %29 ], [ %spec.select42, %32 ]
+  %.13349 = phi i32 [ 0, %29 ], [ %35, %32 ]
+  %33 = lshr i32 %31, %.13349
+  %34 = and i32 %33, 1
+  %spec.select42 = add nuw nsw i32 %34, %.250
+  %35 = add nuw nsw i32 %.13349, 1
+  %exitcond54.not = icmp eq i32 %35, 8
+  br i1 %exitcond54.not, label %.preheader, label %32, !llvm.loop !85
 
-.preheader:                                       ; preds = %31, %.preheader
-  %.053 = phi i32 [ %.1, %.preheader ], [ %spec.select42, %31 ]
-  %.02452 = phi i32 [ %.125, %.preheader ], [ 0, %31 ]
-  %.23451 = phi i32 [ %43, %.preheader ], [ 0, %31 ]
-  %35 = load i32, ptr %1, align 4, !tbaa !3
-  %36 = shl nuw nsw i32 1, %.23451
-  %37 = and i32 %35, %36
-  %.not = icmp ne i32 %37, 0
-  %38 = icmp eq i32 %.23451, 0
-  %39 = select i1 %38, ptr @.str.12, ptr @.str.3
+.preheader:                                       ; preds = %32, %.preheader
+  %.053 = phi i32 [ %.1, %.preheader ], [ %spec.select42, %32 ]
+  %.02452 = phi i32 [ %.125, %.preheader ], [ 0, %32 ]
+  %.23451 = phi i32 [ %44, %.preheader ], [ 0, %32 ]
+  %36 = load i32, ptr %1, align 4, !tbaa !3
+  %37 = shl nuw nsw i32 1, %.23451
+  %38 = and i32 %36, %37
+  %.not = icmp ne i32 %38, 0
+  %39 = icmp eq i32 %.23451, 0
+  %40 = select i1 %39, ptr @.str.12, ptr @.str.3
   %.02452.sink = select i1 %.not, i32 %.02452, i32 %.053
-  %40 = zext i1 %.not to i32
-  %.125 = add nuw nsw i32 %.02452, %40
+  %41 = zext i1 %.not to i32
+  %.125 = add nuw nsw i32 %.02452, %41
   %not..not = xor i1 %.not, true
-  %41 = zext i1 %not..not to i32
-  %.1 = add nuw nsw i32 %.053, %41
-  %42 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.11, ptr noundef nonnull %39, i32 noundef %.02452.sink)
-  %43 = add nuw nsw i32 %.23451, 1
-  %exitcond55.not = icmp eq i32 %43, 8
-  br i1 %exitcond55.not, label %44, label %.preheader, !llvm.loop !86
+  %42 = zext i1 %not..not to i32
+  %.1 = add nuw nsw i32 %.053, %42
+  %43 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.11, ptr noundef nonnull %40, i32 noundef %.02452.sink)
+  %44 = add nuw nsw i32 %.23451, 1
+  %exitcond55.not = icmp eq i32 %44, 8
+  br i1 %exitcond55.not, label %45, label %.preheader, !llvm.loop !86
 
-44:                                               ; preds = %.preheader
-  %45 = load i32, ptr %1, align 4, !tbaa !3
-  %46 = icmp eq i32 %45, 255
-  %47 = select i1 %46, ptr @.str.2, ptr @.str.3
-  %48 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13, ptr noundef nonnull %47)
-  %49 = load ptr, ptr @stdout, align 8, !tbaa !82
-  call void @Extra_PrintBinary(ptr noundef %49, ptr noundef nonnull %1, i32 noundef 8) #34
+45:                                               ; preds = %.preheader
+  %46 = load i32, ptr %1, align 4, !tbaa !3
+  %47 = icmp eq i32 %46, 255
+  %48 = select i1 %47, ptr @.str.2, ptr @.str.3
+  %49 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13, ptr noundef nonnull %48)
+  %50 = load ptr, ptr @stdout, align 8, !tbaa !82
+  call void @Extra_PrintBinary(ptr noundef %50, ptr noundef nonnull %1, i32 noundef 8) #34
   %putchar = call i32 @putchar(i32 10)
-  %50 = load i32, ptr %1, align 4, !tbaa !3
-  %51 = add nsw i32 %50, 1
-  store i32 %51, ptr %1, align 4, !tbaa !3
-  %52 = icmp slt i32 %50, 255
-  br i1 %52, label %28, label %53, !llvm.loop !87
+  %51 = load i32, ptr %1, align 4, !tbaa !3
+  %52 = add nsw i32 %51, 1
+  store i32 %52, ptr %1, align 4, !tbaa !3
+  %53 = icmp slt i32 %51, 255
+  br i1 %53, label %29, label %54, !llvm.loop !87
 
-53:                                               ; preds = %44
+54:                                               ; preds = %45
   %puts38 = call i32 @puts(ptr nonnull dereferenceable(1) @str.3)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret void

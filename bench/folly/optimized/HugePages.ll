@@ -67689,9 +67689,9 @@ _ZN5folly16getHugePageSizesEv.exit:               ; preds = %1, %4, %7
   %17 = icmp ne i64 %16, 0
   %18 = getelementptr inbounds nuw i8, ptr %.sroa.010.019, i64 40
   %19 = load i64, ptr %18, align 8
-  %.not17 = icmp eq i64 %0, %19
-  %20 = select i1 %17, i1 %.not17, i1 false
-  br i1 %20, label %._crit_edge, label %13
+  %20 = icmp eq i64 %0, %19
+  %.not17 = select i1 %17, i1 %20, i1 false
+  br i1 %.not17, label %._crit_edge, label %13
 
 ._crit_edge:                                      ; preds = %13, %.lr.ph, %_ZN5folly16getHugePageSizesEv.exit
   %21 = phi ptr [ null, %_ZN5folly16getHugePageSizesEv.exit ], [ %.sroa.010.019, %.lr.ph ], [ null, %13 ]

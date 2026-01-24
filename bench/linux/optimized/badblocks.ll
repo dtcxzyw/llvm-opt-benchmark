@@ -49,11 +49,11 @@ define dso_local range(i32 -1, 2) i32 @badblocks_check(ptr noundef %0, i64 nound
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %16
 
-16:                                               ; preds = %191, %12
-  %17 = phi i32 [ 0, %12 ], [ %.us-phi55, %191 ]
-  %18 = phi i32 [ -1, %12 ], [ %.us-phi1956, %191 ]
-  %19 = phi i32 [ %2, %12 ], [ %.us-phi2359, %191 ]
-  %20 = phi i64 [ %1, %12 ], [ %.us-phi2258, %191 ]
+16:                                               ; preds = %190, %12
+  %17 = phi i32 [ 0, %12 ], [ %.us-phi55, %190 ]
+  %18 = phi i32 [ -1, %12 ], [ %.us-phi1956, %190 ]
+  %19 = phi i32 [ %2, %12 ], [ %.us-phi2359, %190 ]
+  %20 = phi i64 [ %1, %12 ], [ %.us-phi2258, %190 ]
   %21 = load volatile i32, ptr %13, align 4
   %22 = and i32 %21, 1
   %23 = icmp eq i32 %22, 0
@@ -77,19 +77,19 @@ define dso_local range(i32 -1, 2) i32 @badblocks_check(ptr noundef %0, i64 nound
 .split18.thread:                                  ; preds = %.loopexit
   %31 = sext i32 %19 to i64
   %32 = add i64 %20, %31
-  br label %191
+  br label %190
 
-.split:                                           ; preds = %.loopexit, %175
-  %33 = phi i32 [ %177, %175 ], [ %17, %.loopexit ]
-  %34 = phi i32 [ %178, %175 ], [ %18, %.loopexit ]
-  %35 = phi i32 [ %179, %175 ], [ 0, %.loopexit ]
-  %36 = phi i32 [ %180, %175 ], [ 0, %.loopexit ]
-  %37 = phi i32 [ %183, %175 ], [ %19, %.loopexit ]
-  %38 = phi i64 [ %182, %175 ], [ %20, %.loopexit ]
+.split:                                           ; preds = %.loopexit, %174
+  %33 = phi i32 [ %176, %174 ], [ %17, %.loopexit ]
+  %34 = phi i32 [ %177, %174 ], [ %18, %.loopexit ]
+  %35 = phi i32 [ %178, %174 ], [ 0, %.loopexit ]
+  %36 = phi i32 [ %179, %174 ], [ 0, %.loopexit ]
+  %37 = phi i32 [ %182, %174 ], [ %19, %.loopexit ]
+  %38 = phi i64 [ %181, %174 ], [ %20, %.loopexit ]
   %39 = sext i32 %37 to i64
   %40 = load i32, ptr %15, align 8
   %41 = icmp eq i32 %40, 0
-  br i1 %41, label %175, label %42
+  br i1 %41, label %174, label %42
 
 42:                                               ; preds = %.split
   %43 = icmp sgt i32 %34, -1
@@ -162,11 +162,11 @@ define dso_local range(i32 -1, 2) i32 @badblocks_check(ptr noundef %0, i64 nound
   br i1 %86, label %.preheader.i, label %prev_badblocks.exit
 
 .preheader.i:                                     ; preds = %79, %91
-  %87 = phi i32 [ %101, %91 ], [ 0, %79 ]
-  %88 = phi i32 [ %103, %91 ], [ %40, %79 ]
+  %87 = phi i32 [ %100, %91 ], [ 0, %79 ]
+  %88 = phi i32 [ %102, %91 ], [ %40, %79 ]
   %89 = sub i32 %88, %87
   %90 = icmp sgt i32 %89, 1
-  br i1 %90, label %91, label %104
+  br i1 %90, label %91, label %103
 
 91:                                               ; preds = %.preheader.i
   %92 = add i32 %88, %87
@@ -177,156 +177,156 @@ define dso_local range(i32 -1, 2) i32 @badblocks_check(ptr noundef %0, i64 nound
   %97 = lshr i64 %96, 9
   %98 = and i64 %97, 18014398509481983
   %99 = icmp eq i64 %98, %38
-  %100 = icmp ult i64 %98, %38
-  %101 = select i1 %100, i32 %93, i32 %87
-  %102 = icmp ugt i64 %98, %38
-  %103 = select i1 %102, i32 %93, i32 %88
+  %.not.i = icmp ult i64 %98, %38
+  %100 = select i1 %.not.i, i32 %93, i32 %87
+  %101 = icmp ugt i64 %98, %38
+  %102 = select i1 %101, i32 %93, i32 %88
   br i1 %99, label %prev_badblocks.exit, label %.preheader.i
 
-104:                                              ; preds = %.preheader.i
-  %105 = sext i32 %87 to i64
-  %106 = getelementptr i64, ptr %74, i64 %105
-  %107 = load i64, ptr %106, align 8
-  %108 = lshr i64 %107, 9
-  %109 = and i64 %108, 18014398509481983
-  %110 = icmp ugt i64 %109, %38
-  br i1 %110, label %prev_badblocks.exit.thread, label %prev_badblocks.exit
+103:                                              ; preds = %.preheader.i
+  %104 = sext i32 %87 to i64
+  %105 = getelementptr i64, ptr %74, i64 %104
+  %106 = load i64, ptr %105, align 8
+  %107 = lshr i64 %106, 9
+  %108 = and i64 %107, 18014398509481983
+  %109 = icmp ugt i64 %108, %38
+  br i1 %109, label %prev_badblocks.exit.thread, label %prev_badblocks.exit
 
-prev_badblocks.exit:                              ; preds = %91, %104, %79
-  %111 = phi i32 [ %87, %104 ], [ %80, %79 ], [ %93, %91 ]
-  %112 = icmp sgt i32 %111, -1
-  br i1 %112, label %prev_badblocks.exit.thread7, label %prev_badblocks.exit.thread
+prev_badblocks.exit:                              ; preds = %91, %103, %79
+  %110 = phi i32 [ %87, %103 ], [ %80, %79 ], [ %93, %91 ]
+  %111 = icmp sgt i32 %110, -1
+  br i1 %111, label %prev_badblocks.exit.thread7, label %prev_badblocks.exit.thread
 
 prev_badblocks.exit.thread7:                      ; preds = %71, %prev_badblocks.exit
-  %113 = phi ptr [ %74, %prev_badblocks.exit ], [ %46, %71 ]
-  %114 = phi i32 [ %111, %prev_badblocks.exit ], [ %72, %71 ]
-  %115 = add nuw i32 %114, 1
-  %116 = icmp slt i32 %115, %40
-  %.phi.trans.insert = zext nneg i32 %114 to i64
-  %.phi.trans.insert33 = getelementptr i64, ptr %113, i64 %.phi.trans.insert
+  %112 = phi ptr [ %74, %prev_badblocks.exit ], [ %46, %71 ]
+  %113 = phi i32 [ %110, %prev_badblocks.exit ], [ %72, %71 ]
+  %114 = add nuw i32 %113, 1
+  %115 = icmp slt i32 %114, %40
+  %.phi.trans.insert = zext nneg i32 %113 to i64
+  %.phi.trans.insert33 = getelementptr i64, ptr %112, i64 %.phi.trans.insert
   %.pre = load i64, ptr %.phi.trans.insert33, align 8
   %.pre35 = lshr i64 %.pre, 9
   %.pre37 = and i64 %.pre35, 18014398509481983
-  br i1 %116, label %prev_badblocks.exit.thread7._crit_edge, label %117
+  br i1 %115, label %prev_badblocks.exit.thread7._crit_edge, label %116
 
-117:                                              ; preds = %prev_badblocks.exit.thread7
-  %118 = icmp ult i64 %38, %.pre37
-  br i1 %118, label %175, label %119
+116:                                              ; preds = %prev_badblocks.exit.thread7
+  %117 = icmp ult i64 %38, %.pre37
+  br i1 %117, label %174, label %118
 
-119:                                              ; preds = %117
-  %120 = and i64 %.pre, 511
-  %121 = add nuw nsw i64 %120, 1
-  %122 = add nuw nsw i64 %121, %.pre37
-  %123 = icmp ult i64 %38, %122
-  br i1 %123, label %prev_badblocks.exit.thread7._crit_edge, label %175
+118:                                              ; preds = %116
+  %119 = and i64 %.pre, 511
+  %120 = add nuw nsw i64 %119, 1
+  %121 = add nuw nsw i64 %120, %.pre37
+  %122 = icmp ult i64 %38, %121
+  br i1 %122, label %prev_badblocks.exit.thread7._crit_edge, label %174
 
-prev_badblocks.exit.thread7._crit_edge:           ; preds = %prev_badblocks.exit.thread7, %119
-  %124 = icmp ult i64 %38, %.pre37
-  br i1 %124, label %prev_badblocks.exit.thread, label %125
+prev_badblocks.exit.thread7._crit_edge:           ; preds = %prev_badblocks.exit.thread7, %118
+  %123 = icmp ult i64 %38, %.pre37
+  br i1 %123, label %prev_badblocks.exit.thread, label %124
 
-125:                                              ; preds = %prev_badblocks.exit.thread7._crit_edge
-  %126 = and i64 %.pre, 511
-  %127 = add nuw nsw i64 %126, 1
-  %128 = add nuw nsw i64 %127, %.pre37
-  %129 = icmp ult i64 %38, %128
-  br i1 %129, label %130, label %prev_badblocks.exit.thread
+124:                                              ; preds = %prev_badblocks.exit.thread7._crit_edge
+  %125 = and i64 %.pre, 511
+  %126 = add nuw nsw i64 %125, 1
+  %127 = add nuw nsw i64 %126, %.pre37
+  %128 = icmp ult i64 %38, %127
+  br i1 %128, label %129, label %prev_badblocks.exit.thread
 
-130:                                              ; preds = %125
-  %131 = getelementptr i64, ptr %28, i64 %.phi.trans.insert
-  %132 = load i64, ptr %131, align 8
-  %133 = icmp sgt i64 %132, -1
-  %134 = lshr i64 %132, 63
-  %135 = trunc nuw nsw i64 %134 to i32
-  %136 = add i32 %35, %135
-  %137 = zext i1 %133 to i32
-  %138 = add i32 %36, %137
-  %139 = lshr i64 %132, 9
-  %140 = and i64 %139, 18014398509481983
-  %141 = and i64 %132, 511
-  %142 = add nuw nsw i64 %141, 1
-  %143 = add nuw nsw i64 %142, %140
-  %144 = add nsw i64 %38, %39
-  %145 = icmp ult i64 %143, %144
-  %146 = sub nsw i64 %143, %38
-  %147 = trunc i64 %146 to i32
-  %148 = select i1 %145, i32 %147, i32 %37
-  %149 = icmp eq i32 %33, 0
-  br i1 %149, label %150, label %175
+129:                                              ; preds = %124
+  %130 = getelementptr i64, ptr %28, i64 %.phi.trans.insert
+  %131 = load i64, ptr %130, align 8
+  %132 = icmp sgt i64 %131, -1
+  %133 = lshr i64 %131, 63
+  %134 = trunc nuw nsw i64 %133 to i32
+  %135 = add i32 %35, %134
+  %136 = zext i1 %132 to i32
+  %137 = add i32 %36, %136
+  %138 = lshr i64 %131, 9
+  %139 = and i64 %138, 18014398509481983
+  %140 = and i64 %131, 511
+  %141 = add nuw nsw i64 %140, 1
+  %142 = add nuw nsw i64 %141, %139
+  %143 = add nsw i64 %38, %39
+  %144 = icmp ult i64 %142, %143
+  %145 = sub nsw i64 %142, %38
+  %146 = trunc i64 %145 to i32
+  %147 = select i1 %144, i32 %146, i32 %37
+  %148 = icmp eq i32 %33, 0
+  br i1 %148, label %149, label %174
 
-150:                                              ; preds = %130
-  store i64 %140, ptr %3, align 8
-  %151 = load i64, ptr %131, align 8
-  %152 = trunc i64 %151 to i32
-  %153 = and i32 %152, 511
-  %154 = add nuw nsw i32 %153, 1
-  store i32 %154, ptr %4, align 4
-  br label %175
+149:                                              ; preds = %129
+  store i64 %139, ptr %3, align 8
+  %150 = load i64, ptr %130, align 8
+  %151 = trunc i64 %150 to i32
+  %152 = and i32 %151, 511
+  %153 = add nuw nsw i32 %152, 1
+  store i32 %153, ptr %4, align 4
+  br label %174
 
-prev_badblocks.exit.thread:                       ; preds = %104, %.thread.i, %125, %prev_badblocks.exit.thread7._crit_edge, %prev_badblocks.exit
-  %155 = phi ptr [ %74, %prev_badblocks.exit ], [ %113, %125 ], [ %113, %prev_badblocks.exit.thread7._crit_edge ], [ %74, %.thread.i ], [ %74, %104 ]
-  %156 = phi i32 [ %111, %prev_badblocks.exit ], [ %114, %125 ], [ %114, %prev_badblocks.exit.thread7._crit_edge ], [ -1, %.thread.i ], [ -1, %104 ]
-  %157 = add i32 %156, 1
-  %158 = icmp slt i32 %157, %40
-  br i1 %158, label %159, label %175
+prev_badblocks.exit.thread:                       ; preds = %103, %.thread.i, %124, %prev_badblocks.exit.thread7._crit_edge, %prev_badblocks.exit
+  %154 = phi ptr [ %74, %prev_badblocks.exit ], [ %112, %124 ], [ %112, %prev_badblocks.exit.thread7._crit_edge ], [ %74, %.thread.i ], [ %74, %103 ]
+  %155 = phi i32 [ %110, %prev_badblocks.exit ], [ %113, %124 ], [ %113, %prev_badblocks.exit.thread7._crit_edge ], [ -1, %.thread.i ], [ -1, %103 ]
+  %156 = add i32 %155, 1
+  %157 = icmp slt i32 %156, %40
+  br i1 %157, label %158, label %174
 
-159:                                              ; preds = %prev_badblocks.exit.thread
-  %160 = sext i32 %157 to i64
-  %161 = getelementptr i64, ptr %155, i64 %160
-  %162 = load i64, ptr %161, align 8
-  %163 = lshr i64 %162, 9
-  %164 = and i64 %163, 18014398509481983
-  %165 = icmp ult i64 %38, %164
-  %166 = add i64 %38, %39
-  %167 = icmp ugt i64 %166, %164
-  %168 = and i1 %165, %167
-  br i1 %168, label %169, label %175
+158:                                              ; preds = %prev_badblocks.exit.thread
+  %159 = sext i32 %156 to i64
+  %160 = getelementptr i64, ptr %154, i64 %159
+  %161 = load i64, ptr %160, align 8
+  %162 = lshr i64 %161, 9
+  %163 = and i64 %162, 18014398509481983
+  %164 = icmp ult i64 %38, %163
+  %165 = add i64 %38, %39
+  %166 = icmp ugt i64 %165, %163
+  %167 = and i1 %164, %166
+  br i1 %167, label %168, label %174
 
-169:                                              ; preds = %159
-  %170 = getelementptr i64, ptr %28, i64 %160
-  %171 = load i64, ptr %170, align 8
-  %172 = lshr i64 %171, 9
-  %173 = sub nsw i64 %172, %38
-  %174 = trunc i64 %173 to i32
-  br label %175
+168:                                              ; preds = %158
+  %169 = getelementptr i64, ptr %28, i64 %159
+  %170 = load i64, ptr %169, align 8
+  %171 = lshr i64 %170, 9
+  %172 = sub nsw i64 %171, %38
+  %173 = trunc i64 %172 to i32
+  br label %174
 
-175:                                              ; preds = %169, %159, %prev_badblocks.exit.thread, %150, %130, %119, %117, %.split
-  %176 = phi i32 [ %148, %150 ], [ %148, %130 ], [ %174, %169 ], [ %37, %.split ], [ %37, %prev_badblocks.exit.thread ], [ %37, %119 ], [ %37, %117 ], [ %37, %159 ]
-  %177 = phi i32 [ 1, %150 ], [ 1, %130 ], [ %33, %169 ], [ %33, %.split ], [ %33, %prev_badblocks.exit.thread ], [ %33, %119 ], [ %33, %117 ], [ %33, %159 ]
-  %178 = phi i32 [ %34, %150 ], [ %34, %130 ], [ %157, %169 ], [ %34, %.split ], [ %34, %prev_badblocks.exit.thread ], [ %34, %119 ], [ %34, %117 ], [ %34, %159 ]
-  %179 = phi i32 [ %136, %150 ], [ %136, %130 ], [ %35, %169 ], [ %35, %.split ], [ %35, %prev_badblocks.exit.thread ], [ %35, %119 ], [ %35, %117 ], [ %35, %159 ]
-  %180 = phi i32 [ %138, %150 ], [ %138, %130 ], [ %36, %169 ], [ %36, %.split ], [ %36, %prev_badblocks.exit.thread ], [ %36, %119 ], [ %36, %117 ], [ %36, %159 ]
-  %181 = sext i32 %176 to i64
-  %182 = add i64 %38, %181
-  %183 = sub i32 %37, %176
-  %184 = icmp sgt i32 %183, 0
-  br i1 %184, label %.split, label %.split18, !llvm.loop !15
+174:                                              ; preds = %168, %158, %prev_badblocks.exit.thread, %149, %129, %118, %116, %.split
+  %175 = phi i32 [ %147, %149 ], [ %147, %129 ], [ %173, %168 ], [ %37, %.split ], [ %37, %prev_badblocks.exit.thread ], [ %37, %118 ], [ %37, %116 ], [ %37, %158 ]
+  %176 = phi i32 [ 1, %149 ], [ 1, %129 ], [ %33, %168 ], [ %33, %.split ], [ %33, %prev_badblocks.exit.thread ], [ %33, %118 ], [ %33, %116 ], [ %33, %158 ]
+  %177 = phi i32 [ %34, %149 ], [ %34, %129 ], [ %156, %168 ], [ %34, %.split ], [ %34, %prev_badblocks.exit.thread ], [ %34, %118 ], [ %34, %116 ], [ %34, %158 ]
+  %178 = phi i32 [ %135, %149 ], [ %135, %129 ], [ %35, %168 ], [ %35, %.split ], [ %35, %prev_badblocks.exit.thread ], [ %35, %118 ], [ %35, %116 ], [ %35, %158 ]
+  %179 = phi i32 [ %137, %149 ], [ %137, %129 ], [ %36, %168 ], [ %36, %.split ], [ %36, %prev_badblocks.exit.thread ], [ %36, %118 ], [ %36, %116 ], [ %36, %158 ]
+  %180 = sext i32 %175 to i64
+  %181 = add i64 %38, %180
+  %182 = sub i32 %37, %175
+  %183 = icmp sgt i32 %182, 0
+  br i1 %183, label %.split, label %.split18, !llvm.loop !15
 
-.split18:                                         ; preds = %175
-  %185 = icmp sgt i32 %180, 0
-  %186 = icmp sgt i32 %179, 0
-  %187 = zext i1 %186 to i32
-  %188 = select i1 %185, i32 -1, i32 %187
-  %189 = icmp slt i32 %183, 0
-  br i1 %189, label %190, label %191, !prof !17
+.split18:                                         ; preds = %174
+  %184 = icmp sgt i32 %179, 0
+  %185 = icmp sgt i32 %178, 0
+  %186 = zext i1 %185 to i32
+  %187 = select i1 %184, i32 -1, i32 %186
+  %188 = icmp slt i32 %182, 0
+  br i1 %188, label %189, label %190, !prof !17
 
-190:                                              ; preds = %.split18
+189:                                              ; preds = %.split18
   tail call void asm sideeffect "344: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 344b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 344) #9, !srcloc !18
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 1358, i32 2305, i64 12) #9, !srcloc !19
   tail call void asm sideeffect "345: nop\0A\09.pushsection .discard.instr_end\0A\09.long 345b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 345) #9, !srcloc !20
-  br label %191
+  br label %190
 
-191:                                              ; preds = %.split18.thread, %190, %.split18
-  %.us-phi2359 = phi i32 [ 0, %.split18.thread ], [ %183, %190 ], [ 0, %.split18 ]
-  %.us-phi2258 = phi i64 [ %32, %.split18.thread ], [ %182, %190 ], [ %182, %.split18 ]
-  %.us-phi2157 = phi i32 [ 0, %.split18.thread ], [ %188, %190 ], [ %188, %.split18 ]
-  %.us-phi1956 = phi i32 [ %18, %.split18.thread ], [ %178, %190 ], [ %178, %.split18 ]
-  %.us-phi55 = phi i32 [ %17, %.split18.thread ], [ %177, %190 ], [ %177, %.split18 ]
+190:                                              ; preds = %.split18.thread, %189, %.split18
+  %.us-phi2359 = phi i32 [ 0, %.split18.thread ], [ %182, %189 ], [ 0, %.split18 ]
+  %.us-phi2258 = phi i64 [ %32, %.split18.thread ], [ %181, %189 ], [ %181, %.split18 ]
+  %.us-phi2157 = phi i32 [ 0, %.split18.thread ], [ %187, %189 ], [ %187, %.split18 ]
+  %.us-phi1956 = phi i32 [ %18, %.split18.thread ], [ %177, %189 ], [ %177, %.split18 ]
+  %.us-phi55 = phi i32 [ %17, %.split18.thread ], [ %176, %189 ], [ %176, %.split18 ]
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !21
-  %192 = load volatile i32, ptr %13, align 4
-  %193 = icmp eq i32 %192, %27
-  br i1 %193, label %194, label %16
+  %191 = load volatile i32, ptr %13, align 4
+  %192 = icmp eq i32 %191, %27
+  br i1 %192, label %193, label %16
 
-194:                                              ; preds = %191
+193:                                              ; preds = %190
   ret i32 %.us-phi2157
 }
 
@@ -1951,11 +1951,11 @@ define internal fastcc i32 @prev_badblocks(ptr noundef readonly captures(none) %
   br i1 %51, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %44, %56
-  %52 = phi i32 [ %66, %56 ], [ 0, %44 ]
-  %53 = phi i32 [ %68, %56 ], [ %4, %44 ]
+  %52 = phi i32 [ %65, %56 ], [ 0, %44 ]
+  %53 = phi i32 [ %67, %56 ], [ %4, %44 ]
   %54 = sub i32 %53, %52
   %55 = icmp sgt i32 %54, 1
-  br i1 %55, label %56, label %69
+  br i1 %55, label %56, label %68
 
 56:                                               ; preds = %.preheader
   %57 = add i32 %53, %52
@@ -1966,25 +1966,25 @@ define internal fastcc i32 @prev_badblocks(ptr noundef readonly captures(none) %
   %62 = lshr i64 %61, 9
   %63 = and i64 %62, 18014398509481983
   %64 = icmp eq i64 %63, %.0.val
-  %65 = icmp ult i64 %63, %.0.val
-  %66 = select i1 %65, i32 %58, i32 %52
-  %67 = icmp ugt i64 %63, %.0.val
-  %68 = select i1 %67, i32 %58, i32 %53
+  %.not = icmp ult i64 %63, %.0.val
+  %65 = select i1 %.not, i32 %58, i32 %52
+  %66 = icmp ugt i64 %63, %.0.val
+  %67 = select i1 %66, i32 %58, i32 %53
   br i1 %64, label %.loopexit, label %.preheader
 
-69:                                               ; preds = %.preheader
-  %70 = sext i32 %52 to i64
-  %71 = getelementptr i64, ptr %39, i64 %70
-  %72 = load i64, ptr %71, align 8
-  %73 = lshr i64 %72, 9
-  %74 = and i64 %73, 18014398509481983
-  %75 = icmp ugt i64 %74, %.0.val
-  %76 = select i1 %75, i32 -1, i32 %52
+68:                                               ; preds = %.preheader
+  %69 = sext i32 %52 to i64
+  %70 = getelementptr i64, ptr %39, i64 %69
+  %71 = load i64, ptr %70, align 8
+  %72 = lshr i64 %71, 9
+  %73 = and i64 %72, 18014398509481983
+  %74 = icmp ugt i64 %73, %.0.val
+  %75 = select i1 %74, i32 -1, i32 %52
   br label %.loopexit
 
-.loopexit:                                        ; preds = %56, %69, %44, %.thread, %36, %2
-  %77 = phi i32 [ -1, %.thread ], [ %45, %44 ], [ %37, %36 ], [ -1, %2 ], [ %76, %69 ], [ %58, %56 ]
-  ret i32 %77
+.loopexit:                                        ; preds = %56, %68, %44, %.thread, %36, %2
+  %76 = phi i32 [ -1, %.thread ], [ %45, %44 ], [ %37, %36 ], [ -1, %2 ], [ %75, %68 ], [ %58, %56 ]
+  ret i32 %76
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)

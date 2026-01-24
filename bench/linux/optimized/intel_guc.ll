@@ -731,10 +731,10 @@ define dso_local i32 @intel_guc_init(ptr noundef %0) local_unnamed_addr #0 align
   %185 = or i32 %182, %184
   %186 = icmp ugt i32 %185, 4589311
   %187 = and i32 %163, 14336
-  %188 = icmp eq i32 %187, 0
+  %188 = icmp ne i32 %187, 0
   %189 = or i32 %175, 4194304
-  %190 = select i1 %188, i32 %175, i32 %189
-  %191 = select i1 %186, i32 %190, i32 %175
+  %190 = select i1 %186, i1 %188, i1 false
+  %191 = select i1 %190, i32 %189, i32 %175
   %192 = getelementptr i8, ptr %0, i64 1484
   store i32 %191, ptr %192, align 4
   %193 = getelementptr inbounds nuw i8, ptr %161, i64 7192

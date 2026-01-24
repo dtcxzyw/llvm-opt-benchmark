@@ -3145,9 +3145,9 @@ define void @_ZN10OpenSubdiv6v3_6_03Far11SourcePatch8FinalizeEi(ptr noundef nonn
   %73 = load i16, ptr %72, align 2
   %74 = zext i16 %73 to i32
   %75 = add nsw i32 %66, -1
-  %.not80 = icmp eq i32 %75, %74
-  %76 = select i1 %.not80, i8 0, i8 8
-  %77 = select i1 %3, i8 %76, i8 0
+  %.not80 = icmp ne i32 %75, %74
+  %76 = select i1 %3, i1 %.not80, i1 false
+  %77 = select i1 %76, i8 8, i8 0
   %78 = and i8 %65, -25
   %79 = or disjoint i8 %77, %78
   %.not81 = icmp eq i16 %73, 0

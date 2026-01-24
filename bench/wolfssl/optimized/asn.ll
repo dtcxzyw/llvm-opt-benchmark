@@ -7010,7 +7010,7 @@ define range(i32 -192, 1) i32 @wc_RsaPublicKeyDecode_ex(ptr noundef %0, ptr noun
   ]
 
 28:                                               ; preds = %25, %25, %20
-  %.175 = phi i32 [ 0, %25 ], [ 0, %25 ], [ %.1, %20 ]
+  %.176 = phi i32 [ 0, %25 ], [ 0, %25 ], [ %.1, %20 ]
   %.045 = phi i32 [ %27, %25 ], [ %27, %25 ], [ 645, %20 ]
   %29 = getelementptr inbounds nuw i8, ptr %11, i64 160
   %30 = getelementptr inbounds nuw i8, ptr %11, i64 193
@@ -7023,9 +7023,9 @@ define range(i32 -192, 1) i32 @wc_RsaPublicKeyDecode_ex(ptr noundef %0, ptr noun
   %34 = getelementptr inbounds nuw i8, ptr %11, i64 153
   %35 = load i8, ptr %34, align 1, !tbaa !34
   %.not53 = icmp eq i8 %35, 0
-  %.not65 = icmp eq i32 %.045, 654
-  %36 = and i1 %.not65, %.not53
-  br i1 %36, label %37, label %.thread62
+  %36 = icmp eq i32 %.045, 654
+  %.not66 = and i1 %36, %.not53
+  br i1 %.not66, label %37, label %.thread62
 
 37:                                               ; preds = %33
   %38 = load i32, ptr %29, align 16, !tbaa !28
@@ -7098,7 +7098,7 @@ DecodeRsaPssParams.exit:                          ; preds = %58, %64, %RsaPssHas
   br label %68
 
 68:                                               ; preds = %DecodeRsaPssParams.exit, %28
-  %.3 = phi i32 [ %.327.i, %DecodeRsaPssParams.exit ], [ %.175, %28 ]
+  %.3 = phi i32 [ %.327.i, %DecodeRsaPssParams.exit ], [ %.176, %28 ]
   %69 = icmp eq i32 %.3, 0
   br i1 %69, label %70, label %.thread62
 
@@ -10001,13 +10001,13 @@ GetCertKey.exit:                                  ; preds = %276, %279, %281, %.
   %401 = or i32 %5, %4
   %402 = or i32 %401, %.14
   %or.cond33.not = icmp eq i32 %402, 0
-  br i1 %or.cond33.not, label %403, label %1077
+  br i1 %or.cond33.not, label %403, label %1076
 
 403:                                              ; preds = %400
   %404 = getelementptr inbounds nuw i8, ptr %0, i64 736
   %405 = load ptr, ptr %404, align 8, !tbaa !139
   %.not192 = icmp eq ptr %405, null
-  br i1 %.not192, label %1077, label %406
+  br i1 %.not192, label %1076, label %406
 
 406:                                              ; preds = %403
   call void @llvm.lifetime.start.p0(ptr nonnull %28)
@@ -10088,8 +10088,8 @@ GetCertKey.exit:                                  ; preds = %276, %279, %281, %.
   %470 = getelementptr inbounds nuw i8, ptr %25, i64 84
   br label %471
 
-471:                                              ; preds = %1068, %.lr.ph.i
-  %.02477.i = phi i32 [ 0, %.lr.ph.i ], [ %spec.select29.i, %1068 ]
+471:                                              ; preds = %1067, %.lr.ph.i
+  %.02477.i = phi i32 [ 0, %.lr.ph.i ], [ %spec.select29.i, %1067 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %31)
   store i8 0, ptr %31, align 1, !tbaa !3
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(160) %28, i8 0, i64 160, i1 false)
@@ -10099,7 +10099,7 @@ GetCertKey.exit:                                  ; preds = %276, %279, %281, %.
   %472 = call i32 @GetASN_Items(ptr noundef nonnull @certExtASN, ptr noundef nonnull %28, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %405, ptr noundef nonnull %30, i32 noundef %408)
   %473 = icmp eq i32 %472, 0
   %.pre87.i = load i32, ptr %30, align 4
-  br i1 %473, label %474, label %1068
+  br i1 %473, label %474, label %1067
 
 474:                                              ; preds = %471
   %475 = load i32, ptr %417, align 16, !tbaa !3
@@ -10107,20 +10107,20 @@ GetCertKey.exit:                                  ; preds = %276, %279, %281, %.
   %477 = zext i32 %.pre87.i to i64
   %478 = getelementptr inbounds nuw i8, ptr %405, i64 %477
   %479 = load i8, ptr %31, align 1, !tbaa !3
-  switch i32 %475, label %1065 [
+  switch i32 %475, label %1064 [
     i32 133, label %480
     i32 145, label %509
     i32 69, label %525
     i32 131, label %589
-    i32 149, label %773
-    i32 128, label %792
-    i32 146, label %846
-    i32 129, label %847
-    i32 151, label %868
-    i32 144, label %929
-    i32 168, label %953
-    i32 753, label %959
-    i32 150, label %969
+    i32 149, label %772
+    i32 128, label %791
+    i32 146, label %845
+    i32 129, label %846
+    i32 151, label %867
+    i32 144, label %928
+    i32 168, label %952
+    i32 753, label %958
+    i32 150, label %968
   ]
 
 480:                                              ; preds = %474
@@ -10163,9 +10163,9 @@ GetCertKey.exit:                                  ; preds = %276, %279, %281, %.
 497:                                              ; preds = %492
   %498 = load i8, ptr %466, align 4, !tbaa !143
   %499 = icmp slt i8 %498, 0
-  br i1 %499, label %DecodeBasicCaConstraint.exit.thread.i.i, label %DecodeBasicCaConstraint.exit.thread170.i.i
+  br i1 %499, label %DecodeBasicCaConstraint.exit.thread.i.i, label %DecodeBasicCaConstraint.exit.thread172.i.i
 
-DecodeBasicCaConstraint.exit.thread170.i.i:       ; preds = %497
+DecodeBasicCaConstraint.exit.thread172.i.i:       ; preds = %497
   %.not.not.i.i.i = icmp eq i8 %495, 0
   %500 = load i32, ptr %419, align 8
   %501 = select i1 %.not.not.i.i.i, i32 0, i32 16
@@ -10489,526 +10489,525 @@ DecodeAuthInfo.exit.i:                            ; preds = %585, %570
 632:                                              ; preds = %._crit_edge.i.i.i.i.i, %601
   %.240.i.i.i.i.i = phi i32 [ %.139.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %604, %601 ]
   %.2.i.i.i.i.i = phi i32 [ %.1.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ 2, %601 ]
-  %.240.i.i.fr.i.i.i = freeze i32 %.240.i.i.i.i.i
-  %633 = add nuw i32 %.2.i.i.i.i.i, %.240.i.i.fr.i.i.i
+  %633 = add nuw i32 %.2.i.i.i.i.i, %.240.i.i.i.i.i
   %.not16.i.i.i.i = icmp eq i32 %633, %476
   br i1 %.not16.i.i.i.i, label %GetASN_Sequence.exit.i.i.i, label %DecodeAltNames.exit.i.i
 
 GetASN_Sequence.exit.i.i.i:                       ; preds = %632
   store i32 %.2.i.i.i.i.i, ptr %21, align 4, !tbaa !22
-  %634 = icmp eq i32 %.240.i.i.fr.i.i.i, 0
-  br i1 %634, label %DecodeAltNames.exit.i.i, label %.lr.ph.i.i.i213
+  %.not.i124.i.i = icmp eq i32 %.240.i.i.i.i.i, 0
+  br i1 %.not.i124.i.i, label %DecodeAltNames.exit.i.i, label %.lr.ph.i.i.i213
 
 .lr.ph.i.i.i213:                                  ; preds = %GetASN_Sequence.exit.i.i.i
-  %635 = or i32 %596, 32832
-  store i32 %635, ptr %419, align 8
-  br label %636
+  %634 = or i32 %596, 32832
+  store i32 %634, ptr %419, align 8
+  br label %635
 
-636:                                              ; preds = %DecodeGeneralName.exit.i.i.i, %.lr.ph.i.i.i213
-  %.01733.i.i.i = phi i32 [ 0, %.lr.ph.i.i.i213 ], [ %637, %DecodeGeneralName.exit.i.i.i ]
+635:                                              ; preds = %DecodeGeneralName.exit.i.i.i, %.lr.ph.i.i.i213
+  %.01735.i.i.i = phi i32 [ 0, %.lr.ph.i.i.i213 ], [ %636, %DecodeGeneralName.exit.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
-  %637 = add nuw nsw i32 %.01733.i.i.i, 1
-  %exitcond.i.i.i = icmp eq i32 %.01733.i.i.i, 1024
-  br i1 %exitcond.i.i.i, label %.loopexit.sink.split.i.i.i, label %638
+  %636 = add nuw nsw i32 %.01735.i.i.i, 1
+  %exitcond.i.i.i = icmp eq i32 %.01735.i.i.i, 1024
+  br i1 %exitcond.i.i.i, label %.loopexit.sink.split.i.i.i, label %637
 
-638:                                              ; preds = %636
+637:                                              ; preds = %635
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %22, i8 0, i64 40, i1 false)
   store i8 11, ptr %441, align 16, !tbaa !32
   store ptr @generalNameChoice, ptr %442, align 8, !tbaa !3
-  %639 = call i32 @GetASN_Items(ptr noundef nonnull @altNameASN, ptr noundef nonnull %22, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %478, ptr noundef nonnull %21, i32 noundef %476)
-  %640 = icmp eq i32 %639, 0
+  %638 = call i32 @GetASN_Items(ptr noundef nonnull @altNameASN, ptr noundef nonnull %22, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %478, ptr noundef nonnull %21, i32 noundef %476)
+  %639 = icmp eq i32 %638, 0
   %.pre.i.i.i = load i32, ptr %21, align 4
-  br i1 %640, label %641, label %.loopexit.sink.split.i.i.i
+  br i1 %639, label %640, label %.loopexit.sink.split.i.i.i
 
-641:                                              ; preds = %638
-  %642 = load i8, ptr %443, align 1, !tbaa !34
-  %643 = load i32, ptr %444, align 4, !tbaa !30
-  switch i8 %642, label %770 [
-    i8 -126, label %645
-    i8 -92, label %662
-    i8 -127, label %721
+640:                                              ; preds = %637
+  %641 = load i8, ptr %443, align 1, !tbaa !34
+  %642 = load i32, ptr %444, align 4, !tbaa !30
+  switch i8 %641, label %769 [
+    i8 -126, label %644
+    i8 -92, label %661
+    i8 -127, label %720
     i8 -122, label %.preheader.i.i.i.i
   ]
 
-.preheader.i.i.i.i:                               ; preds = %641
-  %644 = icmp sgt i32 %643, 0
-  br i1 %644, label %.lr.ph.i.i.i.i, label %.loopexit.sink.split.i.i.i
+.preheader.i.i.i.i:                               ; preds = %640
+  %643 = icmp sgt i32 %642, 0
+  br i1 %643, label %.lr.ph.i.i.i.i, label %.loopexit.sink.split.i.i.i
 
-645:                                              ; preds = %641
-  %646 = zext i32 %.pre.i.i.i to i64
-  %647 = getelementptr inbounds nuw i8, ptr %478, i64 %646
-  %648 = call ptr @wolfSSL_Malloc(i64 noundef 24) #23
-  %.not.i.i.i.i.i.i = icmp eq ptr %648, null
-  br i1 %.not.i.i.i.i.i.i, label %.loopexit.sink.split.i.i.i, label %649
+644:                                              ; preds = %640
+  %645 = zext i32 %.pre.i.i.i to i64
+  %646 = getelementptr inbounds nuw i8, ptr %478, i64 %645
+  %647 = call ptr @wolfSSL_Malloc(i64 noundef 24) #23
+  %.not.i.i.i.i.i.i = icmp eq ptr %647, null
+  br i1 %.not.i.i.i.i.i.i, label %.loopexit.sink.split.i.i.i, label %648
 
-649:                                              ; preds = %645
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %648, i8 0, i64 24, i1 false)
-  %650 = sext i32 %643 to i64
-  %651 = add nsw i64 %650, 1
-  %652 = call ptr @wolfSSL_Malloc(i64 noundef %651) #23
-  %653 = getelementptr inbounds nuw i8, ptr %648, i64 16
-  store ptr %652, ptr %653, align 8, !tbaa !85
-  %654 = icmp eq ptr %652, null
-  br i1 %654, label %DecodeGeneralName.exit.thread79.sink.split.i.i.i, label %655
+648:                                              ; preds = %644
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %647, i8 0, i64 24, i1 false)
+  %649 = sext i32 %642 to i64
+  %650 = add nsw i64 %649, 1
+  %651 = call ptr @wolfSSL_Malloc(i64 noundef %650) #23
+  %652 = getelementptr inbounds nuw i8, ptr %647, i64 16
+  store ptr %651, ptr %652, align 8, !tbaa !85
+  %653 = icmp eq ptr %651, null
+  br i1 %653, label %DecodeGeneralName.exit.thread66.sink.split.i.i.i, label %654
 
-655:                                              ; preds = %649
-  %656 = getelementptr inbounds nuw i8, ptr %648, i64 8
-  store i32 2, ptr %656, align 8, !tbaa !87
-  %657 = getelementptr inbounds nuw i8, ptr %648, i64 12
-  store i32 %643, ptr %657, align 4, !tbaa !88
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %652, ptr nonnull readonly align 1 %647, i64 %650, i1 false)
-  %658 = load ptr, ptr %653, align 8, !tbaa !85
-  %659 = getelementptr inbounds i8, ptr %658, i64 %650
-  store i8 0, ptr %659, align 1, !tbaa !3
-  %660 = load ptr, ptr %445, align 8, !tbaa !151
-  store ptr %660, ptr %648, align 8, !tbaa !83
-  store ptr %648, ptr %445, align 8, !tbaa !151
-  %661 = add i32 %643, %.pre.i.i.i
+654:                                              ; preds = %648
+  %655 = getelementptr inbounds nuw i8, ptr %647, i64 8
+  store i32 2, ptr %655, align 8, !tbaa !87
+  %656 = getelementptr inbounds nuw i8, ptr %647, i64 12
+  store i32 %642, ptr %656, align 4, !tbaa !88
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %651, ptr nonnull readonly align 1 %646, i64 %649, i1 false)
+  %657 = load ptr, ptr %652, align 8, !tbaa !85
+  %658 = getelementptr inbounds i8, ptr %657, i64 %649
+  store i8 0, ptr %658, align 1, !tbaa !3
+  %659 = load ptr, ptr %445, align 8, !tbaa !151
+  store ptr %659, ptr %647, align 8, !tbaa !83
+  store ptr %647, ptr %445, align 8, !tbaa !151
+  %660 = add i32 %642, %.pre.i.i.i
   br label %DecodeGeneralName.exit.i.i.i
 
-662:                                              ; preds = %641
-  %663 = add i32 %643, %.pre.i.i.i
-  %664 = add i32 %.pre.i.i.i, 1
-  %.not.i.i24.i.i.i = icmp ugt i32 %664, %663
-  br i1 %.not.i.i24.i.i.i, label %.loopexit.sink.split.i.i.i, label %665
+661:                                              ; preds = %640
+  %662 = add i32 %642, %.pre.i.i.i
+  %663 = add i32 %.pre.i.i.i, 1
+  %.not.i.i24.i.i.i = icmp ugt i32 %663, %662
+  br i1 %.not.i.i24.i.i.i, label %.loopexit.sink.split.i.i.i, label %664
 
-665:                                              ; preds = %662
-  %666 = zext i32 %.pre.i.i.i to i64
-  %667 = getelementptr inbounds nuw i8, ptr %478, i64 %666
-  %668 = load i8, ptr %667, align 1, !tbaa !3
-  %.not15.i.i.i.i.i = icmp eq i8 %668, 48
+664:                                              ; preds = %661
+  %665 = zext i32 %.pre.i.i.i to i64
+  %666 = getelementptr inbounds nuw i8, ptr %478, i64 %665
+  %667 = load i8, ptr %666, align 1, !tbaa !3
+  %.not15.i.i.i.i.i = icmp eq i8 %667, 48
   br i1 %.not15.i.i.i.i.i, label %.thread.i.i.i.i.i, label %.loopexit.sink.split.i.i.i
 
-.thread.i.i.i.i.i:                                ; preds = %665
-  %669 = add i32 %.pre.i.i.i, 2
-  %670 = icmp ugt i32 %669, %663
-  br i1 %670, label %.loopexit.sink.split.i.i.i, label %671
+.thread.i.i.i.i.i:                                ; preds = %664
+  %668 = add i32 %.pre.i.i.i, 2
+  %669 = icmp ugt i32 %668, %662
+  br i1 %669, label %.loopexit.sink.split.i.i.i, label %670
 
-671:                                              ; preds = %.thread.i.i.i.i.i
-  %672 = zext i32 %664 to i64
-  %673 = getelementptr inbounds nuw i8, ptr %478, i64 %672
-  %674 = load i8, ptr %673, align 1, !tbaa !3
-  %675 = zext i8 %674 to i32
-  %676 = icmp slt i8 %674, 0
-  br i1 %676, label %677, label %704
+670:                                              ; preds = %.thread.i.i.i.i.i
+  %671 = zext i32 %663 to i64
+  %672 = getelementptr inbounds nuw i8, ptr %478, i64 %671
+  %673 = load i8, ptr %672, align 1, !tbaa !3
+  %674 = zext i8 %673 to i32
+  %675 = icmp slt i8 %673, 0
+  br i1 %675, label %676, label %703
 
-677:                                              ; preds = %671
-  %678 = and i32 %675, 127
-  %679 = icmp eq i8 %674, -128
-  br i1 %679, label %688, label %680
+676:                                              ; preds = %670
+  %677 = and i32 %674, 127
+  %678 = icmp eq i8 %673, -128
+  br i1 %678, label %687, label %679
 
-680:                                              ; preds = %677
-  %681 = icmp eq i32 %678, 1
-  br i1 %681, label %.thread68.i.i.i.i.i.i, label %682
+679:                                              ; preds = %676
+  %680 = icmp eq i32 %677, 1
+  br i1 %680, label %.thread68.i.i.i.i.i.i, label %681
 
-682:                                              ; preds = %680
-  %683 = icmp samesign ugt i32 %678, 4
-  br i1 %683, label %.loopexit.sink.split.i.i.i, label %684
+681:                                              ; preds = %679
+  %682 = icmp samesign ugt i32 %677, 4
+  br i1 %682, label %.loopexit.sink.split.i.i.i, label %683
 
-684:                                              ; preds = %682
-  %685 = shl nuw nsw i32 %678, 3
-  %686 = add nsw i32 %685, -8
-  %687 = shl nuw nsw i32 1, %686
-  br label %688
+683:                                              ; preds = %681
+  %684 = shl nuw nsw i32 %677, 3
+  %685 = add nsw i32 %684, -8
+  %686 = shl nuw nsw i32 1, %685
+  br label %687
 
-688:                                              ; preds = %684, %677
-  %.0.i.i.i.i.i.i = phi i32 [ %687, %684 ], [ 0, %677 ]
-  %689 = add i32 %678, %669
-  %690 = icmp ugt i32 %689, %663
-  br i1 %690, label %.loopexit.sink.split.i.i.i, label %.preheader.i.i.i.i.i.i
+687:                                              ; preds = %683, %676
+  %.0.i.i.i.i.i.i = phi i32 [ %686, %683 ], [ 0, %676 ]
+  %688 = add i32 %677, %668
+  %689 = icmp ugt i32 %688, %662
+  br i1 %689, label %.loopexit.sink.split.i.i.i, label %.preheader.i.i.i.i.i.i
 
-.thread68.i.i.i.i.i.i:                            ; preds = %680
-  %691 = add i32 %.pre.i.i.i, 3
-  %692 = icmp ugt i32 %691, %663
-  br i1 %692, label %.loopexit.sink.split.i.i.i, label %.lr.ph.preheader.i.i.i.i.i.i
+.thread68.i.i.i.i.i.i:                            ; preds = %679
+  %690 = add i32 %.pre.i.i.i, 3
+  %691 = icmp ugt i32 %690, %662
+  br i1 %691, label %.loopexit.sink.split.i.i.i, label %.lr.ph.preheader.i.i.i.i.i.i
 
-.preheader.i.i.i.i.i.i:                           ; preds = %688
-  %.not57.i.i.i.i.i.i = icmp eq i32 %678, 0
+.preheader.i.i.i.i.i.i:                           ; preds = %687
+  %.not57.i.i.i.i.i.i = icmp eq i32 %677, 0
   br i1 %.not57.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i, label %.lr.ph.preheader.i.i.i.i.i.i
 
 .lr.ph.preheader.i.i.i.i.i.i:                     ; preds = %.preheader.i.i.i.i.i.i, %.thread68.i.i.i.i.i.i
   %.07073.i.i.i.i.i.i = phi i32 [ %.0.i.i.i.i.i.i, %.preheader.i.i.i.i.i.i ], [ 128, %.thread68.i.i.i.i.i.i ]
-  %693 = phi i32 [ %689, %.preheader.i.i.i.i.i.i ], [ %691, %.thread68.i.i.i.i.i.i ]
+  %692 = phi i32 [ %688, %.preheader.i.i.i.i.i.i ], [ %690, %.thread68.i.i.i.i.i.i ]
   br label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %.lr.ph.i.i.i.i.i.i, %.lr.ph.preheader.i.i.i.i.i.i
-  %.03560.i.i.i.i.i.i = phi i32 [ %694, %.lr.ph.i.i.i.i.i.i ], [ %678, %.lr.ph.preheader.i.i.i.i.i.i ]
-  %.159.i.i.i.i.i.i = phi i32 [ %695, %.lr.ph.i.i.i.i.i.i ], [ %669, %.lr.ph.preheader.i.i.i.i.i.i ]
-  %.13958.i.i.i.i.i.i = phi i32 [ %701, %.lr.ph.i.i.i.i.i.i ], [ 0, %.lr.ph.preheader.i.i.i.i.i.i ]
-  %694 = add nsw i32 %.03560.i.i.i.i.i.i, -1
-  %695 = add i32 %.159.i.i.i.i.i.i, 1
-  %696 = zext i32 %.159.i.i.i.i.i.i to i64
-  %697 = getelementptr inbounds nuw i8, ptr %478, i64 %696
-  %698 = load i8, ptr %697, align 1, !tbaa !3
-  %699 = shl i32 %.13958.i.i.i.i.i.i, 8
-  %700 = zext i8 %698 to i32
-  %701 = or disjoint i32 %699, %700
-  %.not.i.i90.i.i.i.i = icmp eq i32 %694, 0
+  %.03560.i.i.i.i.i.i = phi i32 [ %693, %.lr.ph.i.i.i.i.i.i ], [ %677, %.lr.ph.preheader.i.i.i.i.i.i ]
+  %.159.i.i.i.i.i.i = phi i32 [ %694, %.lr.ph.i.i.i.i.i.i ], [ %668, %.lr.ph.preheader.i.i.i.i.i.i ]
+  %.13958.i.i.i.i.i.i = phi i32 [ %700, %.lr.ph.i.i.i.i.i.i ], [ 0, %.lr.ph.preheader.i.i.i.i.i.i ]
+  %693 = add nsw i32 %.03560.i.i.i.i.i.i, -1
+  %694 = add i32 %.159.i.i.i.i.i.i, 1
+  %695 = zext i32 %.159.i.i.i.i.i.i to i64
+  %696 = getelementptr inbounds nuw i8, ptr %478, i64 %695
+  %697 = load i8, ptr %696, align 1, !tbaa !3
+  %698 = shl i32 %.13958.i.i.i.i.i.i, 8
+  %699 = zext i8 %697 to i32
+  %700 = or disjoint i32 %698, %699
+  %.not.i.i90.i.i.i.i = icmp eq i32 %693, 0
   br i1 %.not.i.i90.i.i.i.i, label %._crit_edge.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !35
 
 ._crit_edge.i.i.i.i.i.i:                          ; preds = %.lr.ph.i.i.i.i.i.i, %.preheader.i.i.i.i.i.i
   %.07074.i.i.i.i.i.i = phi i32 [ %.0.i.i.i.i.i.i, %.preheader.i.i.i.i.i.i ], [ %.07073.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ]
-  %.139.lcssa.i.i.i.i.i.i = phi i32 [ 0, %.preheader.i.i.i.i.i.i ], [ %701, %.lr.ph.i.i.i.i.i.i ]
-  %.1.lcssa.i.i.i.i.i.i = phi i32 [ %669, %.preheader.i.i.i.i.i.i ], [ %693, %.lr.ph.i.i.i.i.i.i ]
-  %702 = icmp sgt i32 %.139.lcssa.i.i.i.i.i.i, -1
-  %703 = icmp sge i32 %.139.lcssa.i.i.i.i.i.i, %.07074.i.i.i.i.i.i
-  %or.cond55.i.i.i.i.i.i = select i1 %702, i1 %703, i1 false
-  br i1 %or.cond55.i.i.i.i.i.i, label %704, label %.loopexit.sink.split.i.i.i
+  %.139.lcssa.i.i.i.i.i.i = phi i32 [ 0, %.preheader.i.i.i.i.i.i ], [ %700, %.lr.ph.i.i.i.i.i.i ]
+  %.1.lcssa.i.i.i.i.i.i = phi i32 [ %668, %.preheader.i.i.i.i.i.i ], [ %692, %.lr.ph.i.i.i.i.i.i ]
+  %701 = icmp sgt i32 %.139.lcssa.i.i.i.i.i.i, -1
+  %702 = icmp sge i32 %.139.lcssa.i.i.i.i.i.i, %.07074.i.i.i.i.i.i
+  %or.cond55.i.i.i.i.i.i = select i1 %701, i1 %702, i1 false
+  br i1 %or.cond55.i.i.i.i.i.i, label %703, label %.loopexit.sink.split.i.i.i
 
-704:                                              ; preds = %._crit_edge.i.i.i.i.i.i, %671
-  %.240.i.i.i.i.i.i = phi i32 [ %.139.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %675, %671 ]
-  %.2.i.i.i.i.i.i = phi i32 [ %.1.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %669, %671 ]
-  %705 = add i32 %.2.i.i.i.i.i.i, %.240.i.i.i.i.i.i
-  %.not16.i.i.i.i.i = icmp eq i32 %705, %663
+703:                                              ; preds = %._crit_edge.i.i.i.i.i.i, %670
+  %.240.i.i.i.i.i.i = phi i32 [ %.139.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %674, %670 ]
+  %.2.i.i.i.i.i.i = phi i32 [ %.1.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %668, %670 ]
+  %704 = add i32 %.2.i.i.i.i.i.i, %.240.i.i.i.i.i.i
+  %.not16.i.i.i.i.i = icmp eq i32 %704, %662
   br i1 %.not16.i.i.i.i.i, label %GetASN_Sequence.exit.i.i.i.i, label %.loopexit.sink.split.i.i.i
 
-GetASN_Sequence.exit.i.i.i.i:                     ; preds = %704
-  %706 = zext i32 %.2.i.i.i.i.i.i to i64
-  %707 = getelementptr inbounds nuw i8, ptr %478, i64 %706
-  %708 = call ptr @wolfSSL_Malloc(i64 noundef 24) #23
-  %.not.i.i91.i.i.i.i = icmp eq ptr %708, null
-  br i1 %.not.i.i91.i.i.i.i, label %.loopexit.sink.split.i.i.i, label %709
+GetASN_Sequence.exit.i.i.i.i:                     ; preds = %703
+  %705 = zext i32 %.2.i.i.i.i.i.i to i64
+  %706 = getelementptr inbounds nuw i8, ptr %478, i64 %705
+  %707 = call ptr @wolfSSL_Malloc(i64 noundef 24) #23
+  %.not.i.i91.i.i.i.i = icmp eq ptr %707, null
+  br i1 %.not.i.i91.i.i.i.i, label %.loopexit.sink.split.i.i.i, label %708
 
-709:                                              ; preds = %GetASN_Sequence.exit.i.i.i.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %708, i8 0, i64 24, i1 false)
-  %710 = zext nneg i32 %.240.i.i.i.i.i.i to i64
-  %711 = add nuw nsw i64 %710, 1
-  %712 = call ptr @wolfSSL_Malloc(i64 noundef %711) #23
-  %713 = getelementptr inbounds nuw i8, ptr %708, i64 16
-  store ptr %712, ptr %713, align 8, !tbaa !85
-  %714 = icmp eq ptr %712, null
-  br i1 %714, label %DecodeGeneralName.exit.thread79.sink.split.i.i.i, label %715
+708:                                              ; preds = %GetASN_Sequence.exit.i.i.i.i
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %707, i8 0, i64 24, i1 false)
+  %709 = zext nneg i32 %.240.i.i.i.i.i.i to i64
+  %710 = add nuw nsw i64 %709, 1
+  %711 = call ptr @wolfSSL_Malloc(i64 noundef %710) #23
+  %712 = getelementptr inbounds nuw i8, ptr %707, i64 16
+  store ptr %711, ptr %712, align 8, !tbaa !85
+  %713 = icmp eq ptr %711, null
+  br i1 %713, label %DecodeGeneralName.exit.thread66.sink.split.i.i.i, label %714
 
-715:                                              ; preds = %709
-  %716 = getelementptr inbounds nuw i8, ptr %708, i64 8
-  store i32 4, ptr %716, align 8, !tbaa !87
-  %717 = getelementptr inbounds nuw i8, ptr %708, i64 12
-  store i32 %.240.i.i.i.i.i.i, ptr %717, align 4, !tbaa !88
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %712, ptr nonnull readonly align 1 %707, i64 %710, i1 false)
-  %718 = load ptr, ptr %713, align 8, !tbaa !85
-  %719 = getelementptr inbounds nuw i8, ptr %718, i64 %710
-  store i8 0, ptr %719, align 1, !tbaa !3
-  %720 = load ptr, ptr %447, align 8, !tbaa !151
-  store ptr %720, ptr %708, align 8, !tbaa !83
-  store ptr %708, ptr %447, align 8, !tbaa !151
+714:                                              ; preds = %708
+  %715 = getelementptr inbounds nuw i8, ptr %707, i64 8
+  store i32 4, ptr %715, align 8, !tbaa !87
+  %716 = getelementptr inbounds nuw i8, ptr %707, i64 12
+  store i32 %.240.i.i.i.i.i.i, ptr %716, align 4, !tbaa !88
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %711, ptr nonnull readonly align 1 %706, i64 %709, i1 false)
+  %717 = load ptr, ptr %712, align 8, !tbaa !85
+  %718 = getelementptr inbounds nuw i8, ptr %717, i64 %709
+  store i8 0, ptr %718, align 1, !tbaa !3
+  %719 = load ptr, ptr %447, align 8, !tbaa !151
+  store ptr %719, ptr %707, align 8, !tbaa !83
+  store ptr %707, ptr %447, align 8, !tbaa !151
   br label %DecodeGeneralName.exit.i.i.i
 
-721:                                              ; preds = %641
-  %722 = zext i32 %.pre.i.i.i to i64
-  %723 = getelementptr inbounds nuw i8, ptr %478, i64 %722
-  %724 = call ptr @wolfSSL_Malloc(i64 noundef 24) #23
-  %.not.i.i96.i.i.i.i = icmp eq ptr %724, null
-  br i1 %.not.i.i96.i.i.i.i, label %.loopexit.sink.split.i.i.i, label %725
+720:                                              ; preds = %640
+  %721 = zext i32 %.pre.i.i.i to i64
+  %722 = getelementptr inbounds nuw i8, ptr %478, i64 %721
+  %723 = call ptr @wolfSSL_Malloc(i64 noundef 24) #23
+  %.not.i.i96.i.i.i.i = icmp eq ptr %723, null
+  br i1 %.not.i.i96.i.i.i.i, label %.loopexit.sink.split.i.i.i, label %724
 
-725:                                              ; preds = %721
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %724, i8 0, i64 24, i1 false)
-  %726 = sext i32 %643 to i64
-  %727 = add nsw i64 %726, 1
-  %728 = call ptr @wolfSSL_Malloc(i64 noundef %727) #23
-  %729 = getelementptr inbounds nuw i8, ptr %724, i64 16
-  store ptr %728, ptr %729, align 8, !tbaa !85
-  %730 = icmp eq ptr %728, null
-  br i1 %730, label %DecodeGeneralName.exit.thread79.sink.split.i.i.i, label %731
+724:                                              ; preds = %720
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %723, i8 0, i64 24, i1 false)
+  %725 = sext i32 %642 to i64
+  %726 = add nsw i64 %725, 1
+  %727 = call ptr @wolfSSL_Malloc(i64 noundef %726) #23
+  %728 = getelementptr inbounds nuw i8, ptr %723, i64 16
+  store ptr %727, ptr %728, align 8, !tbaa !85
+  %729 = icmp eq ptr %727, null
+  br i1 %729, label %DecodeGeneralName.exit.thread66.sink.split.i.i.i, label %730
 
-731:                                              ; preds = %725
-  %732 = getelementptr inbounds nuw i8, ptr %724, i64 8
-  store i32 1, ptr %732, align 8, !tbaa !87
-  %733 = getelementptr inbounds nuw i8, ptr %724, i64 12
-  store i32 %643, ptr %733, align 4, !tbaa !88
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %728, ptr nonnull readonly align 1 %723, i64 %726, i1 false)
-  %734 = load ptr, ptr %729, align 8, !tbaa !85
-  %735 = getelementptr inbounds i8, ptr %734, i64 %726
-  store i8 0, ptr %735, align 1, !tbaa !3
-  %736 = load ptr, ptr %446, align 8, !tbaa !151
-  store ptr %736, ptr %724, align 8, !tbaa !83
-  store ptr %724, ptr %446, align 8, !tbaa !151
-  %737 = add i32 %643, %.pre.i.i.i
+730:                                              ; preds = %724
+  %731 = getelementptr inbounds nuw i8, ptr %723, i64 8
+  store i32 1, ptr %731, align 8, !tbaa !87
+  %732 = getelementptr inbounds nuw i8, ptr %723, i64 12
+  store i32 %642, ptr %732, align 4, !tbaa !88
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %727, ptr nonnull readonly align 1 %722, i64 %725, i1 false)
+  %733 = load ptr, ptr %728, align 8, !tbaa !85
+  %734 = getelementptr inbounds i8, ptr %733, i64 %725
+  store i8 0, ptr %734, align 1, !tbaa !3
+  %735 = load ptr, ptr %446, align 8, !tbaa !151
+  store ptr %735, ptr %723, align 8, !tbaa !83
+  store ptr %723, ptr %446, align 8, !tbaa !151
+  %736 = add i32 %642, %.pre.i.i.i
   br label %DecodeGeneralName.exit.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %.preheader.i.i.i.i, %743
-  %.0127.i.i.i.i = phi i32 [ %744, %743 ], [ 0, %.preheader.i.i.i.i ]
-  %738 = add i32 %.0127.i.i.i.i, %.pre.i.i.i
-  %739 = zext i32 %738 to i64
-  %740 = getelementptr inbounds nuw i8, ptr %478, i64 %739
-  %741 = load i8, ptr %740, align 1, !tbaa !3
-  switch i8 %741, label %743 [
+.lr.ph.i.i.i.i:                                   ; preds = %.preheader.i.i.i.i, %742
+  %.0127.i.i.i.i = phi i32 [ %743, %742 ], [ 0, %.preheader.i.i.i.i ]
+  %737 = add i32 %.0127.i.i.i.i, %.pre.i.i.i
+  %738 = zext i32 %737 to i64
+  %739 = getelementptr inbounds nuw i8, ptr %478, i64 %738
+  %740 = load i8, ptr %739, align 1, !tbaa !3
+  switch i8 %740, label %742 [
     i8 58, label %._crit_edge.i.i.i.i
-    i8 47, label %742
+    i8 47, label %741
   ]
 
-742:                                              ; preds = %.lr.ph.i.i.i.i
-  br label %743
+741:                                              ; preds = %.lr.ph.i.i.i.i
+  br label %742
 
-743:                                              ; preds = %742, %.lr.ph.i.i.i.i
-  %.1.i.i.i.i = phi i32 [ %643, %742 ], [ %.0127.i.i.i.i, %.lr.ph.i.i.i.i ]
-  %744 = add nuw nsw i32 %.1.i.i.i.i, 1
-  %745 = icmp slt i32 %744, %643
-  br i1 %745, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !152
+742:                                              ; preds = %741, %.lr.ph.i.i.i.i
+  %.1.i.i.i.i = phi i32 [ %642, %741 ], [ %.0127.i.i.i.i, %.lr.ph.i.i.i.i ]
+  %743 = add nuw nsw i32 %.1.i.i.i.i, 1
+  %744 = icmp slt i32 %743, %642
+  br i1 %744, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !152
 
-._crit_edge.i.i.i.i:                              ; preds = %743, %.lr.ph.i.i.i.i
-  %.0.lcssa.i.i.i.i = phi i32 [ %.0127.i.i.i.i, %.lr.ph.i.i.i.i ], [ %744, %743 ]
-  %746 = icmp eq i32 %.0.lcssa.i.i.i.i, 0
-  %747 = icmp eq i32 %.0.lcssa.i.i.i.i, %643
-  %or.cond.i.i.i.i = or i1 %746, %747
-  br i1 %or.cond.i.i.i.i, label %.loopexit.sink.split.i.i.i, label %748
+._crit_edge.i.i.i.i:                              ; preds = %742, %.lr.ph.i.i.i.i
+  %.0.lcssa.i.i.i.i = phi i32 [ %.0127.i.i.i.i, %.lr.ph.i.i.i.i ], [ %743, %742 ]
+  %745 = icmp eq i32 %.0.lcssa.i.i.i.i, 0
+  %746 = icmp eq i32 %.0.lcssa.i.i.i.i, %642
+  %or.cond.i.i.i.i = or i1 %745, %746
+  br i1 %or.cond.i.i.i.i, label %.loopexit.sink.split.i.i.i, label %747
 
-748:                                              ; preds = %._crit_edge.i.i.i.i
-  %749 = add i32 %.0.lcssa.i.i.i.i, %.pre.i.i.i
-  %750 = zext i32 %749 to i64
-  %751 = getelementptr inbounds nuw i8, ptr %478, i64 %750
-  %752 = load i8, ptr %751, align 1, !tbaa !3
-  %.not.i23.i.i.i = icmp eq i8 %752, 58
-  br i1 %.not.i23.i.i.i, label %753, label %.loopexit.sink.split.i.i.i
+747:                                              ; preds = %._crit_edge.i.i.i.i
+  %748 = add i32 %.0.lcssa.i.i.i.i, %.pre.i.i.i
+  %749 = zext i32 %748 to i64
+  %750 = getelementptr inbounds nuw i8, ptr %478, i64 %749
+  %751 = load i8, ptr %750, align 1, !tbaa !3
+  %.not.i23.i.i.i = icmp eq i8 %751, 58
+  br i1 %.not.i23.i.i.i, label %752, label %.loopexit.sink.split.i.i.i
 
-753:                                              ; preds = %748
-  %754 = zext i32 %.pre.i.i.i to i64
-  %755 = getelementptr inbounds nuw i8, ptr %478, i64 %754
-  %756 = call ptr @wolfSSL_Malloc(i64 noundef 24) #23
-  %.not.i.i101.i.i.i.i = icmp eq ptr %756, null
-  br i1 %.not.i.i101.i.i.i.i, label %.loopexit.sink.split.i.i.i, label %757
+752:                                              ; preds = %747
+  %753 = zext i32 %.pre.i.i.i to i64
+  %754 = getelementptr inbounds nuw i8, ptr %478, i64 %753
+  %755 = call ptr @wolfSSL_Malloc(i64 noundef 24) #23
+  %.not.i.i101.i.i.i.i = icmp eq ptr %755, null
+  br i1 %.not.i.i101.i.i.i.i, label %.loopexit.sink.split.i.i.i, label %756
 
-757:                                              ; preds = %753
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %756, i8 0, i64 24, i1 false)
-  %758 = zext nneg i32 %643 to i64
-  %759 = add nuw nsw i64 %758, 1
-  %760 = call ptr @wolfSSL_Malloc(i64 noundef %759) #23
-  %761 = getelementptr inbounds nuw i8, ptr %756, i64 16
-  store ptr %760, ptr %761, align 8, !tbaa !85
-  %762 = icmp eq ptr %760, null
-  br i1 %762, label %DecodeGeneralName.exit.thread79.sink.split.i.i.i, label %763
+756:                                              ; preds = %752
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %755, i8 0, i64 24, i1 false)
+  %757 = zext nneg i32 %642 to i64
+  %758 = add nuw nsw i64 %757, 1
+  %759 = call ptr @wolfSSL_Malloc(i64 noundef %758) #23
+  %760 = getelementptr inbounds nuw i8, ptr %755, i64 16
+  store ptr %759, ptr %760, align 8, !tbaa !85
+  %761 = icmp eq ptr %759, null
+  br i1 %761, label %DecodeGeneralName.exit.thread66.sink.split.i.i.i, label %762
 
-763:                                              ; preds = %757
-  %764 = getelementptr inbounds nuw i8, ptr %756, i64 8
-  store i32 6, ptr %764, align 8, !tbaa !87
-  %765 = getelementptr inbounds nuw i8, ptr %756, i64 12
-  store i32 %643, ptr %765, align 4, !tbaa !88
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %760, ptr nonnull readonly align 1 %755, i64 %758, i1 false)
-  %766 = load ptr, ptr %761, align 8, !tbaa !85
-  %767 = getelementptr inbounds nuw i8, ptr %766, i64 %758
-  store i8 0, ptr %767, align 1, !tbaa !3
-  %768 = load ptr, ptr %445, align 8, !tbaa !151
-  store ptr %768, ptr %756, align 8, !tbaa !83
-  store ptr %756, ptr %445, align 8, !tbaa !151
-  %769 = add i32 %643, %.pre.i.i.i
+762:                                              ; preds = %756
+  %763 = getelementptr inbounds nuw i8, ptr %755, i64 8
+  store i32 6, ptr %763, align 8, !tbaa !87
+  %764 = getelementptr inbounds nuw i8, ptr %755, i64 12
+  store i32 %642, ptr %764, align 4, !tbaa !88
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %759, ptr nonnull readonly align 1 %754, i64 %757, i1 false)
+  %765 = load ptr, ptr %760, align 8, !tbaa !85
+  %766 = getelementptr inbounds nuw i8, ptr %765, i64 %757
+  store i8 0, ptr %766, align 1, !tbaa !3
+  %767 = load ptr, ptr %445, align 8, !tbaa !151
+  store ptr %767, ptr %755, align 8, !tbaa !83
+  store ptr %755, ptr %445, align 8, !tbaa !151
+  %768 = add i32 %642, %.pre.i.i.i
   br label %DecodeGeneralName.exit.i.i.i
 
-770:                                              ; preds = %641
-  %771 = add i32 %643, %.pre.i.i.i
+769:                                              ; preds = %640
+  %770 = add i32 %642, %.pre.i.i.i
   br label %DecodeGeneralName.exit.i.i.i
 
-DecodeGeneralName.exit.thread79.sink.split.i.i.i: ; preds = %757, %725, %709, %649
-  %.lcssa94.sink.i.i.i = phi ptr [ %724, %725 ], [ %648, %649 ], [ %708, %709 ], [ %756, %757 ]
-  call void @wolfSSL_Free(ptr noundef nonnull %.lcssa94.sink.i.i.i) #23
+DecodeGeneralName.exit.thread66.sink.split.i.i.i: ; preds = %756, %724, %708, %648
+  %.lcssa72.sink.i.i.i = phi ptr [ %723, %724 ], [ %647, %648 ], [ %707, %708 ], [ %755, %756 ]
+  call void @wolfSSL_Free(ptr noundef nonnull %.lcssa72.sink.i.i.i) #23
   br label %.loopexit.sink.split.i.i.i
 
-DecodeGeneralName.exit.i.i.i:                     ; preds = %770, %763, %731, %715, %655
-  %.066.ph.i.i.i.i = phi i32 [ %769, %763 ], [ %737, %731 ], [ %663, %715 ], [ %661, %655 ], [ %771, %770 ]
+DecodeGeneralName.exit.i.i.i:                     ; preds = %769, %762, %730, %714, %654
+  %.066.ph.i.i.i.i = phi i32 [ %768, %762 ], [ %736, %730 ], [ %662, %714 ], [ %660, %654 ], [ %770, %769 ]
   store i32 %.066.ph.i.i.i.i, ptr %21, align 4, !tbaa !22
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
-  %772 = icmp ult i32 %.066.ph.i.i.i.i, %476
-  br i1 %772, label %636, label %DecodeAltNames.exit.i.i
+  %771 = icmp ult i32 %.066.ph.i.i.i.i, %476
+  br i1 %771, label %635, label %DecodeAltNames.exit.i.i
 
-.loopexit.sink.split.i.i.i:                       ; preds = %753, %748, %._crit_edge.i.i.i.i, %721, %GetASN_Sequence.exit.i.i.i.i, %704, %._crit_edge.i.i.i.i.i.i, %.thread68.i.i.i.i.i.i, %688, %682, %.thread.i.i.i.i.i, %665, %662, %645, %.preheader.i.i.i.i, %638, %636, %DecodeGeneralName.exit.thread79.sink.split.i.i.i
-  %.3.ph.i.i.i = phi i32 [ -125, %DecodeGeneralName.exit.thread79.sink.split.i.i.i ], [ -140, %._crit_edge.i.i.i.i.i.i ], [ -140, %688 ], [ -140, %.thread68.i.i.i.i.i.i ], [ -125, %753 ], [ -140, %662 ], [ -125, %645 ], [ -125, %721 ], [ -125, %GetASN_Sequence.exit.i.i.i.i ], [ -161, %748 ], [ -161, %._crit_edge.i.i.i.i ], [ %639, %638 ], [ -161, %.preheader.i.i.i.i ], [ -140, %665 ], [ -140, %682 ], [ -140, %.thread.i.i.i.i.i ], [ -140, %704 ], [ -161, %636 ]
+.loopexit.sink.split.i.i.i:                       ; preds = %752, %747, %._crit_edge.i.i.i.i, %720, %GetASN_Sequence.exit.i.i.i.i, %703, %._crit_edge.i.i.i.i.i.i, %.thread68.i.i.i.i.i.i, %687, %681, %.thread.i.i.i.i.i, %664, %661, %644, %.preheader.i.i.i.i, %637, %635, %DecodeGeneralName.exit.thread66.sink.split.i.i.i
+  %.3.ph.i.i.i = phi i32 [ -125, %DecodeGeneralName.exit.thread66.sink.split.i.i.i ], [ -140, %._crit_edge.i.i.i.i.i.i ], [ -140, %687 ], [ -140, %.thread68.i.i.i.i.i.i ], [ -125, %752 ], [ -140, %661 ], [ -125, %644 ], [ -125, %720 ], [ -125, %GetASN_Sequence.exit.i.i.i.i ], [ -161, %747 ], [ -161, %._crit_edge.i.i.i.i ], [ %638, %637 ], [ -161, %.preheader.i.i.i.i ], [ -140, %664 ], [ -140, %681 ], [ -140, %.thread.i.i.i.i.i ], [ -140, %703 ], [ -161, %635 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %DecodeAltNames.exit.i.i
 
 DecodeAltNames.exit.i.i:                          ; preds = %DecodeGeneralName.exit.i.i.i, %.loopexit.sink.split.i.i.i, %GetASN_Sequence.exit.i.i.i, %632, %._crit_edge.i.i.i.i.i, %.thread68.i.i.i.i.i, %617, %611, %598, %593
-  %.3.i.i.i = phi i32 [ -140, %593 ], [ -140, %598 ], [ %.3.ph.i.i.i, %.loopexit.sink.split.i.i.i ], [ -140, %617 ], [ -140, %GetASN_Sequence.exit.i.i.i ], [ -140, %611 ], [ -140, %.thread68.i.i.i.i.i ], [ -140, %._crit_edge.i.i.i.i.i ], [ -140, %632 ], [ 0, %DecodeGeneralName.exit.i.i.i ]
+  %.3.i.i.i = phi i32 [ -140, %617 ], [ %.3.ph.i.i.i, %.loopexit.sink.split.i.i.i ], [ -140, %593 ], [ -140, %GetASN_Sequence.exit.i.i.i ], [ -140, %598 ], [ -140, %611 ], [ -140, %.thread68.i.i.i.i.i ], [ -140, %._crit_edge.i.i.i.i.i ], [ -140, %632 ], [ 0, %DecodeGeneralName.exit.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %DecodeExtensionType.exit.i
 
-773:                                              ; preds = %474
-  %774 = load i32, ptr %419, align 8
-  %775 = and i32 %774, 4
-  %776 = icmp eq i32 %775, 0
-  br i1 %776, label %777, label %DecodeExtensionType.exit.i
+772:                                              ; preds = %474
+  %773 = load i32, ptr %419, align 8
+  %774 = and i32 %773, 4
+  %775 = icmp eq i32 %774, 0
+  br i1 %775, label %776, label %DecodeExtensionType.exit.i
 
-777:                                              ; preds = %773
+776:                                              ; preds = %772
   %.not100.not.i.i = icmp eq i8 %479, 0
-  %778 = and i32 %774, -8388613
-  %779 = select i1 %.not100.not.i.i, i32 4, i32 8388612
-  %780 = or disjoint i32 %778, %779
-  store i32 %780, ptr %419, align 8
-  br i1 %.not100.not.i.i, label %781, label %DecodeExtensionType.exit.i
+  %777 = and i32 %773, -8388613
+  %778 = select i1 %.not100.not.i.i, i32 4, i32 8388612
+  %779 = or disjoint i32 %777, %778
+  store i32 %779, ptr %419, align 8
+  br i1 %.not100.not.i.i, label %780, label %DecodeExtensionType.exit.i
 
-781:                                              ; preds = %777
+780:                                              ; preds = %776
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(160) %9, i8 0, i64 160, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 0, ptr %10, align 4, !tbaa !22
-  %782 = call i32 @GetASN_Items(ptr noundef nonnull @authKeyIdASN, ptr noundef nonnull %9, i32 noundef 4, i32 noundef 1, ptr noundef nonnull %478, ptr noundef nonnull %10, i32 noundef %476)
+  %781 = call i32 @GetASN_Items(ptr noundef nonnull @authKeyIdASN, ptr noundef nonnull %9, i32 noundef 4, i32 noundef 1, ptr noundef nonnull %478, ptr noundef nonnull %10, i32 noundef %476)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  %783 = icmp eq i32 %782, 0
-  %784 = load ptr, ptr %438, align 16
-  %785 = icmp ne ptr %784, null
-  %or.cond.i52.i = select i1 %783, i1 %785, i1 false
-  br i1 %or.cond.i52.i, label %786, label %DecodeAuthKeyId.exit.i
+  %782 = icmp eq i32 %781, 0
+  %783 = load ptr, ptr %438, align 16
+  %784 = icmp ne ptr %783, null
+  %or.cond.i52.i = select i1 %782, i1 %784, i1 false
+  br i1 %or.cond.i52.i, label %785, label %DecodeAuthKeyId.exit.i
 
-786:                                              ; preds = %781
-  %787 = load i32, ptr %439, align 8, !tbaa !3
-  %788 = icmp eq i32 %787, 20
-  br i1 %788, label %DecodeAuthKeyId.exit.thread.i, label %789
+785:                                              ; preds = %780
+  %786 = load i32, ptr %439, align 8, !tbaa !3
+  %787 = icmp eq i32 %786, 20
+  br i1 %787, label %DecodeAuthKeyId.exit.thread.i, label %788
 
-DecodeAuthKeyId.exit.thread.i:                    ; preds = %786
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %440, ptr noundef nonnull align 1 dereferenceable(20) %784, i64 20, i1 false)
+DecodeAuthKeyId.exit.thread.i:                    ; preds = %785
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %440, ptr noundef nonnull align 1 dereferenceable(20) %783, i64 20, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %DecodeExtensionType.exit.i
 
-789:                                              ; preds = %786
-  %790 = call i32 @wc_ShaHash(ptr noundef nonnull %784, i32 noundef %787, ptr noundef nonnull %440) #23
+788:                                              ; preds = %785
+  %789 = call i32 @wc_ShaHash(ptr noundef nonnull %783, i32 noundef %786, ptr noundef nonnull %440) #23
   br label %DecodeAuthKeyId.exit.i
 
-DecodeAuthKeyId.exit.i:                           ; preds = %789, %781
-  %.1.i.i = phi i32 [ %782, %781 ], [ %790, %789 ]
+DecodeAuthKeyId.exit.i:                           ; preds = %788, %780
+  %.1.i.i = phi i32 [ %781, %780 ], [ %789, %788 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %.1.i.fr.i = freeze i32 %.1.i.i
-  %791 = icmp slt i32 %.1.i.fr.i, 0
-  %spec.select.i = select i1 %791, i32 -140, i32 0
+  %790 = icmp slt i32 %.1.i.fr.i, 0
+  %spec.select.i = select i1 %790, i32 -140, i32 0
   br label %DecodeExtensionType.exit.i
 
-792:                                              ; preds = %474
-  %793 = load i32, ptr %419, align 8
-  %794 = and i32 %793, 2
-  %795 = icmp eq i32 %794, 0
-  br i1 %795, label %796, label %DecodeExtensionType.exit.i
+791:                                              ; preds = %474
+  %792 = load i32, ptr %419, align 8
+  %793 = and i32 %792, 2
+  %794 = icmp eq i32 %793, 0
+  br i1 %794, label %795, label %DecodeExtensionType.exit.i
 
-796:                                              ; preds = %792
+795:                                              ; preds = %791
   %.not98.not.i.i = icmp eq i8 %479, 0
-  %797 = and i32 %793, -33554435
-  %798 = select i1 %.not98.not.i.i, i32 2, i32 33554434
-  %799 = or disjoint i32 %797, %798
-  store i32 %799, ptr %419, align 8
-  br i1 %.not98.not.i.i, label %800, label %DecodeExtensionType.exit.i
+  %796 = and i32 %792, -33554435
+  %797 = select i1 %.not98.not.i.i, i32 2, i32 33554434
+  %798 = or disjoint i32 %796, %797
+  store i32 %798, ptr %419, align 8
+  br i1 %.not98.not.i.i, label %799, label %DecodeExtensionType.exit.i
 
-800:                                              ; preds = %796
-  %801 = icmp eq i32 %476, 0
-  br i1 %801, label %DecodeSubjKeyId.exit.thread.i, label %.thread.i.i.i.i.i.i
+799:                                              ; preds = %795
+  %800 = icmp eq i32 %476, 0
+  br i1 %800, label %DecodeSubjKeyId.exit.thread.i, label %.thread.i.i.i.i.i.i
 
-.thread.i.i.i.i.i.i:                              ; preds = %800
-  %802 = load i8, ptr %478, align 1, !tbaa !3
-  %803 = icmp ne i8 %802, 4
-  %804 = icmp eq i32 %476, 1
-  %or.cond15.i.i = or i1 %804, %803
-  br i1 %or.cond15.i.i, label %DecodeSubjKeyId.exit.thread.i, label %805
+.thread.i.i.i.i.i.i:                              ; preds = %799
+  %801 = load i8, ptr %478, align 1, !tbaa !3
+  %802 = icmp ne i8 %801, 4
+  %803 = icmp eq i32 %476, 1
+  %or.cond15.i.i = or i1 %803, %802
+  br i1 %or.cond15.i.i, label %DecodeSubjKeyId.exit.thread.i, label %804
 
-805:                                              ; preds = %.thread.i.i.i.i.i.i
-  %806 = getelementptr inbounds nuw i8, ptr %478, i64 1
-  %807 = load i8, ptr %806, align 1, !tbaa !3
-  %808 = zext i8 %807 to i32
-  %809 = icmp slt i8 %807, 0
-  br i1 %809, label %810, label %836
+804:                                              ; preds = %.thread.i.i.i.i.i.i
+  %805 = getelementptr inbounds nuw i8, ptr %478, i64 1
+  %806 = load i8, ptr %805, align 1, !tbaa !3
+  %807 = zext i8 %806 to i32
+  %808 = icmp slt i8 %806, 0
+  br i1 %808, label %809, label %835
 
-810:                                              ; preds = %805
-  %811 = and i32 %808, 127
-  %812 = icmp eq i8 %807, -128
-  br i1 %812, label %821, label %813
+809:                                              ; preds = %804
+  %810 = and i32 %807, 127
+  %811 = icmp eq i8 %806, -128
+  br i1 %811, label %820, label %812
 
-813:                                              ; preds = %810
-  %814 = icmp eq i32 %811, 1
-  br i1 %814, label %.thread68.i.i.i.i.i51.i, label %815
+812:                                              ; preds = %809
+  %813 = icmp eq i32 %810, 1
+  br i1 %813, label %.thread68.i.i.i.i.i51.i, label %814
 
-815:                                              ; preds = %813
-  %816 = icmp samesign ugt i32 %811, 4
-  br i1 %816, label %DecodeSubjKeyId.exit.thread.i, label %817
+814:                                              ; preds = %812
+  %815 = icmp samesign ugt i32 %810, 4
+  br i1 %815, label %DecodeSubjKeyId.exit.thread.i, label %816
 
-817:                                              ; preds = %815
-  %818 = shl nuw nsw i32 %811, 3
-  %819 = add nsw i32 %818, -8
-  %820 = shl nuw nsw i32 1, %819
-  br label %821
+816:                                              ; preds = %814
+  %817 = shl nuw nsw i32 %810, 3
+  %818 = add nsw i32 %817, -8
+  %819 = shl nuw nsw i32 1, %818
+  br label %820
 
-821:                                              ; preds = %817, %810
-  %.0.i.i.i.i.i36.i = phi i32 [ %820, %817 ], [ 0, %810 ]
-  %822 = add nuw nsw i32 %811, 2
-  %823 = icmp ugt i32 %822, %476
-  br i1 %823, label %DecodeSubjKeyId.exit.thread.i, label %.preheader.i.i.i.i.i37.i
+820:                                              ; preds = %816, %809
+  %.0.i.i.i.i.i36.i = phi i32 [ %819, %816 ], [ 0, %809 ]
+  %821 = add nuw nsw i32 %810, 2
+  %822 = icmp ugt i32 %821, %476
+  br i1 %822, label %DecodeSubjKeyId.exit.thread.i, label %.preheader.i.i.i.i.i37.i
 
-.thread68.i.i.i.i.i51.i:                          ; preds = %813
-  %824 = icmp ult i32 %476, 3
-  br i1 %824, label %DecodeSubjKeyId.exit.thread.i, label %.lr.ph.preheader.i.i.i.i.i39.i
+.thread68.i.i.i.i.i51.i:                          ; preds = %812
+  %823 = icmp ult i32 %476, 3
+  br i1 %823, label %DecodeSubjKeyId.exit.thread.i, label %.lr.ph.preheader.i.i.i.i.i39.i
 
-.preheader.i.i.i.i.i37.i:                         ; preds = %821
-  %.not57.i.i.i.i.i38.i = icmp eq i32 %811, 0
+.preheader.i.i.i.i.i37.i:                         ; preds = %820
+  %.not57.i.i.i.i.i38.i = icmp eq i32 %810, 0
   br i1 %.not57.i.i.i.i.i38.i, label %._crit_edge.i.i.i.i.i46.i, label %.lr.ph.preheader.i.i.i.i.i39.i
 
 .lr.ph.preheader.i.i.i.i.i39.i:                   ; preds = %.preheader.i.i.i.i.i37.i, %.thread68.i.i.i.i.i51.i
   %.07073.i.i.i.i.i40.i = phi i32 [ %.0.i.i.i.i.i36.i, %.preheader.i.i.i.i.i37.i ], [ 128, %.thread68.i.i.i.i.i51.i ]
-  %825 = phi i32 [ %822, %.preheader.i.i.i.i.i37.i ], [ 3, %.thread68.i.i.i.i.i51.i ]
+  %824 = phi i32 [ %821, %.preheader.i.i.i.i.i37.i ], [ 3, %.thread68.i.i.i.i.i51.i ]
   br label %.lr.ph.i.i.i.i.i41.i
 
 .lr.ph.i.i.i.i.i41.i:                             ; preds = %.lr.ph.i.i.i.i.i41.i, %.lr.ph.preheader.i.i.i.i.i39.i
-  %.03560.i.i.i.i.i42.i = phi i32 [ %826, %.lr.ph.i.i.i.i.i41.i ], [ %811, %.lr.ph.preheader.i.i.i.i.i39.i ]
-  %.159.i.i.i.i.i43.i = phi i32 [ %827, %.lr.ph.i.i.i.i.i41.i ], [ 2, %.lr.ph.preheader.i.i.i.i.i39.i ]
-  %.13958.i.i.i.i.i44.i = phi i32 [ %833, %.lr.ph.i.i.i.i.i41.i ], [ 0, %.lr.ph.preheader.i.i.i.i.i39.i ]
-  %826 = add nsw i32 %.03560.i.i.i.i.i42.i, -1
-  %827 = add i32 %.159.i.i.i.i.i43.i, 1
-  %828 = zext i32 %.159.i.i.i.i.i43.i to i64
-  %829 = getelementptr inbounds nuw i8, ptr %478, i64 %828
-  %830 = load i8, ptr %829, align 1, !tbaa !3
-  %831 = shl i32 %.13958.i.i.i.i.i44.i, 8
-  %832 = zext i8 %830 to i32
-  %833 = or disjoint i32 %831, %832
-  %.not.i.i.i.i.i45.i = icmp eq i32 %826, 0
+  %.03560.i.i.i.i.i42.i = phi i32 [ %825, %.lr.ph.i.i.i.i.i41.i ], [ %810, %.lr.ph.preheader.i.i.i.i.i39.i ]
+  %.159.i.i.i.i.i43.i = phi i32 [ %826, %.lr.ph.i.i.i.i.i41.i ], [ 2, %.lr.ph.preheader.i.i.i.i.i39.i ]
+  %.13958.i.i.i.i.i44.i = phi i32 [ %832, %.lr.ph.i.i.i.i.i41.i ], [ 0, %.lr.ph.preheader.i.i.i.i.i39.i ]
+  %825 = add nsw i32 %.03560.i.i.i.i.i42.i, -1
+  %826 = add i32 %.159.i.i.i.i.i43.i, 1
+  %827 = zext i32 %.159.i.i.i.i.i43.i to i64
+  %828 = getelementptr inbounds nuw i8, ptr %478, i64 %827
+  %829 = load i8, ptr %828, align 1, !tbaa !3
+  %830 = shl i32 %.13958.i.i.i.i.i44.i, 8
+  %831 = zext i8 %829 to i32
+  %832 = or disjoint i32 %830, %831
+  %.not.i.i.i.i.i45.i = icmp eq i32 %825, 0
   br i1 %.not.i.i.i.i.i45.i, label %._crit_edge.i.i.i.i.i46.i, label %.lr.ph.i.i.i.i.i41.i, !llvm.loop !35
 
 ._crit_edge.i.i.i.i.i46.i:                        ; preds = %.lr.ph.i.i.i.i.i41.i, %.preheader.i.i.i.i.i37.i
   %.07074.i.i.i.i.i47.i = phi i32 [ %.0.i.i.i.i.i36.i, %.preheader.i.i.i.i.i37.i ], [ %.07073.i.i.i.i.i40.i, %.lr.ph.i.i.i.i.i41.i ]
-  %.139.lcssa.i.i.i.i.i48.i = phi i32 [ 0, %.preheader.i.i.i.i.i37.i ], [ %833, %.lr.ph.i.i.i.i.i41.i ]
-  %.1.lcssa.i.i.i.i.i49.i = phi i32 [ 2, %.preheader.i.i.i.i.i37.i ], [ %825, %.lr.ph.i.i.i.i.i41.i ]
-  %834 = icmp sgt i32 %.139.lcssa.i.i.i.i.i48.i, -1
-  %835 = icmp sge i32 %.139.lcssa.i.i.i.i.i48.i, %.07074.i.i.i.i.i47.i
-  %or.cond55.i.i.i.i.i50.i = select i1 %834, i1 %835, i1 false
-  br i1 %or.cond55.i.i.i.i.i50.i, label %836, label %DecodeSubjKeyId.exit.thread.i
+  %.139.lcssa.i.i.i.i.i48.i = phi i32 [ 0, %.preheader.i.i.i.i.i37.i ], [ %832, %.lr.ph.i.i.i.i.i41.i ]
+  %.1.lcssa.i.i.i.i.i49.i = phi i32 [ 2, %.preheader.i.i.i.i.i37.i ], [ %824, %.lr.ph.i.i.i.i.i41.i ]
+  %833 = icmp sgt i32 %.139.lcssa.i.i.i.i.i48.i, -1
+  %834 = icmp sge i32 %.139.lcssa.i.i.i.i.i48.i, %.07074.i.i.i.i.i47.i
+  %or.cond55.i.i.i.i.i50.i = select i1 %833, i1 %834, i1 false
+  br i1 %or.cond55.i.i.i.i.i50.i, label %835, label %DecodeSubjKeyId.exit.thread.i
 
-836:                                              ; preds = %._crit_edge.i.i.i.i.i46.i, %805
-  %.240.i.i.i.i.i32.i = phi i32 [ %.139.lcssa.i.i.i.i.i48.i, %._crit_edge.i.i.i.i.i46.i ], [ %808, %805 ]
-  %.2.i.i.i.i.i33.i = phi i32 [ %.1.lcssa.i.i.i.i.i49.i, %._crit_edge.i.i.i.i.i46.i ], [ 2, %805 ]
-  %837 = add nuw i32 %.2.i.i.i.i.i33.i, %.240.i.i.i.i.i32.i
-  %838 = icmp ugt i32 %837, %476
-  br i1 %838, label %DecodeSubjKeyId.exit.thread.i, label %GetOctetString.exit.i.i
+835:                                              ; preds = %._crit_edge.i.i.i.i.i46.i, %804
+  %.240.i.i.i.i.i32.i = phi i32 [ %.139.lcssa.i.i.i.i.i48.i, %._crit_edge.i.i.i.i.i46.i ], [ %807, %804 ]
+  %.2.i.i.i.i.i33.i = phi i32 [ %.1.lcssa.i.i.i.i.i49.i, %._crit_edge.i.i.i.i.i46.i ], [ 2, %804 ]
+  %836 = add nuw i32 %.2.i.i.i.i.i33.i, %.240.i.i.i.i.i32.i
+  %837 = icmp ugt i32 %836, %476
+  br i1 %837, label %DecodeSubjKeyId.exit.thread.i, label %GetOctetString.exit.i.i
 
-GetOctetString.exit.i.i:                          ; preds = %836
+GetOctetString.exit.i.i:                          ; preds = %835
   %.not.i34.i = icmp eq i32 %.240.i.i.i.i.i32.i, 0
-  br i1 %.not.i34.i, label %DecodeExtensionType.exit.i, label %839
+  br i1 %.not.i34.i, label %DecodeExtensionType.exit.i, label %838
 
-839:                                              ; preds = %GetOctetString.exit.i.i
+838:                                              ; preds = %GetOctetString.exit.i.i
   store i32 %.240.i.i.i.i.i32.i, ptr %436, align 8, !tbaa !153
-  %840 = zext nneg i32 %.2.i.i.i.i.i33.i to i64
-  %841 = getelementptr inbounds nuw i8, ptr %478, i64 %840
-  %842 = icmp eq i32 %.240.i.i.i.i.i32.i, 20
-  br i1 %842, label %843, label %DecodeSubjKeyId.exit.i
+  %839 = zext nneg i32 %.2.i.i.i.i.i33.i to i64
+  %840 = getelementptr inbounds nuw i8, ptr %478, i64 %839
+  %841 = icmp eq i32 %.240.i.i.i.i.i32.i, 20
+  br i1 %841, label %842, label %DecodeSubjKeyId.exit.i
 
-843:                                              ; preds = %839
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %437, ptr noundef nonnull align 1 dereferenceable(20) %841, i64 20, i1 false)
+842:                                              ; preds = %838
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %437, ptr noundef nonnull align 1 dereferenceable(20) %840, i64 20, i1 false)
   br label %DecodeExtensionType.exit.i
 
-DecodeSubjKeyId.exit.i:                           ; preds = %839
-  %844 = call i32 @wc_ShaHash(ptr noundef nonnull %841, i32 noundef %.240.i.i.i.i.i32.i, ptr noundef nonnull %437) #23
-  %.fr.i = freeze i32 %844
-  %845 = icmp slt i32 %.fr.i, 0
-  br i1 %845, label %DecodeSubjKeyId.exit.thread.i, label %DecodeExtensionType.exit.i
+DecodeSubjKeyId.exit.i:                           ; preds = %838
+  %843 = call i32 @wc_ShaHash(ptr noundef nonnull %840, i32 noundef %.240.i.i.i.i.i32.i, ptr noundef nonnull %437) #23
+  %.fr.i = freeze i32 %843
+  %844 = icmp slt i32 %.fr.i, 0
+  br i1 %844, label %DecodeSubjKeyId.exit.thread.i, label %DecodeExtensionType.exit.i
 
-DecodeSubjKeyId.exit.thread.i:                    ; preds = %DecodeSubjKeyId.exit.i, %836, %._crit_edge.i.i.i.i.i46.i, %.thread68.i.i.i.i.i51.i, %821, %815, %.thread.i.i.i.i.i.i, %800
+DecodeSubjKeyId.exit.thread.i:                    ; preds = %DecodeSubjKeyId.exit.i, %835, %._crit_edge.i.i.i.i.i46.i, %.thread68.i.i.i.i.i51.i, %820, %814, %.thread.i.i.i.i.i.i, %799
   br label %DecodeExtensionType.exit.i
 
-846:                                              ; preds = %474
+845:                                              ; preds = %474
   %.not97.i.i = icmp eq i8 %479, 0
   %spec.select115.i.i = select i1 %.not97.i.i, i32 0, i32 -160
   br label %DecodeExtensionType.exit.i
 
-847:                                              ; preds = %474
-  %848 = load i32, ptr %419, align 8
-  %849 = and i32 %848, 128
-  %850 = icmp eq i32 %849, 0
-  br i1 %850, label %851, label %DecodeExtensionType.exit.i
+846:                                              ; preds = %474
+  %847 = load i32, ptr %419, align 8
+  %848 = and i32 %847, 128
+  %849 = icmp eq i32 %848, 0
+  br i1 %849, label %850, label %DecodeExtensionType.exit.i
 
-851:                                              ; preds = %847
+850:                                              ; preds = %846
   %.not96.not.i.i = icmp eq i8 %479, 0
-  %852 = and i32 %848, -67108993
-  %853 = select i1 %.not96.not.i.i, i32 128, i32 67108992
-  %854 = or disjoint i32 %852, %853
-  store i32 %854, ptr %419, align 8
+  %851 = and i32 %847, -67108993
+  %852 = select i1 %.not96.not.i.i, i32 128, i32 67108992
+  %853 = or disjoint i32 %851, %852
+  store i32 %853, ptr %419, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store i32 0, ptr %18, align 4, !tbaa !22
@@ -11020,565 +11019,565 @@ DecodeSubjKeyId.exit.thread.i:                    ; preds = %DecodeSubjKeyId.exi
   store i8 5, ptr %431, align 16, !tbaa !32
   store ptr %19, ptr %432, align 8, !tbaa !3
   store ptr %20, ptr %433, align 16, !tbaa !3
-  %855 = call i32 @GetASN_Items(ptr noundef nonnull @keyUsageASN, ptr noundef nonnull %17, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %478, ptr noundef nonnull %18, i32 noundef %476)
-  %856 = icmp eq i32 %855, 0
-  br i1 %856, label %857, label %DecodeKeyUsage.exit.i.i
+  %854 = call i32 @GetASN_Items(ptr noundef nonnull @keyUsageASN, ptr noundef nonnull %17, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %478, ptr noundef nonnull %18, i32 noundef %476)
+  %855 = icmp eq i32 %854, 0
+  br i1 %855, label %856, label %DecodeKeyUsage.exit.i.i
 
-857:                                              ; preds = %851
-  %858 = load i8, ptr %19, align 2, !tbaa !3
-  %859 = zext i8 %858 to i16
-  store i16 %859, ptr %434, align 8, !tbaa !154
-  %860 = load i32, ptr %20, align 4, !tbaa !22
-  %861 = icmp eq i32 %860, 2
-  br i1 %861, label %862, label %DecodeKeyUsage.exit.i.i
+856:                                              ; preds = %850
+  %857 = load i8, ptr %19, align 2, !tbaa !3
+  %858 = zext i8 %857 to i16
+  store i16 %858, ptr %434, align 8, !tbaa !154
+  %859 = load i32, ptr %20, align 4, !tbaa !22
+  %860 = icmp eq i32 %859, 2
+  br i1 %860, label %861, label %DecodeKeyUsage.exit.i.i
 
-862:                                              ; preds = %857
-  %863 = load i8, ptr %435, align 1, !tbaa !3
-  %864 = zext i8 %863 to i16
-  %865 = shl nuw i16 %864, 8
-  %866 = or disjoint i16 %865, %859
-  store i16 %866, ptr %434, align 8, !tbaa !154
+861:                                              ; preds = %856
+  %862 = load i8, ptr %435, align 1, !tbaa !3
+  %863 = zext i8 %862 to i16
+  %864 = shl nuw i16 %863, 8
+  %865 = or disjoint i16 %864, %858
+  store i16 %865, ptr %434, align 8, !tbaa !154
   br label %DecodeKeyUsage.exit.i.i
 
-DecodeKeyUsage.exit.i.i:                          ; preds = %862, %857, %851
+DecodeKeyUsage.exit.i.i:                          ; preds = %861, %856, %850
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
-  %867 = icmp slt i32 %855, 0
-  %spec.select116.i.i = select i1 %867, i32 -140, i32 0
+  %866 = icmp slt i32 %854, 0
+  %spec.select116.i.i = select i1 %866, i32 -140, i32 0
   br label %DecodeExtensionType.exit.i
 
-868:                                              ; preds = %474
-  %869 = load i32, ptr %419, align 8
-  %870 = and i32 %869, 256
-  %871 = icmp eq i32 %870, 0
-  br i1 %871, label %872, label %DecodeExtensionType.exit.i
+867:                                              ; preds = %474
+  %868 = load i32, ptr %419, align 8
+  %869 = and i32 %868, 256
+  %870 = icmp eq i32 %869, 0
+  br i1 %870, label %871, label %DecodeExtensionType.exit.i
 
-872:                                              ; preds = %868
+871:                                              ; preds = %867
   %.not95.not.i.i = icmp eq i8 %479, 0
-  %873 = and i32 %869, -134217985
-  %874 = select i1 %.not95.not.i.i, i32 256, i32 134217984
-  %875 = or disjoint i32 %873, %874
-  store i32 %875, ptr %419, align 8
+  %872 = and i32 %868, -134217985
+  %873 = select i1 %.not95.not.i.i, i32 256, i32 134217984
+  %874 = or disjoint i32 %872, %873
+  store i32 %874, ptr %419, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
-  %.not.i.i124.i.i = icmp eq i32 %476, 0
-  br i1 %.not.i.i124.i.i, label %928, label %876
+  %.not.i.i125.i.i = icmp eq i32 %476, 0
+  br i1 %.not.i.i125.i.i, label %927, label %875
 
-876:                                              ; preds = %872
-  %877 = load i8, ptr %478, align 1, !tbaa !3
-  %.not15.i.i125.i.i = icmp ne i8 %877, 48
-  %878 = icmp eq i32 %476, 1
-  %or.cond.i126.i.i = or i1 %878, %.not15.i.i125.i.i
-  br i1 %or.cond.i126.i.i, label %928, label %879
+875:                                              ; preds = %871
+  %876 = load i8, ptr %478, align 1, !tbaa !3
+  %.not15.i.i126.i.i = icmp ne i8 %876, 48
+  %877 = icmp eq i32 %476, 1
+  %or.cond.i127.i.i = or i1 %877, %.not15.i.i126.i.i
+  br i1 %or.cond.i127.i.i, label %927, label %878
 
-879:                                              ; preds = %876
-  %880 = getelementptr inbounds nuw i8, ptr %478, i64 1
-  %881 = load i8, ptr %880, align 1, !tbaa !3
-  %882 = zext i8 %881 to i32
-  %883 = icmp slt i8 %881, 0
-  br i1 %883, label %884, label %910
+878:                                              ; preds = %875
+  %879 = getelementptr inbounds nuw i8, ptr %478, i64 1
+  %880 = load i8, ptr %879, align 1, !tbaa !3
+  %881 = zext i8 %880 to i32
+  %882 = icmp slt i8 %880, 0
+  br i1 %882, label %883, label %909
 
-884:                                              ; preds = %879
-  %885 = and i32 %882, 127
-  %886 = icmp eq i8 %881, -128
-  br i1 %886, label %895, label %887
+883:                                              ; preds = %878
+  %884 = and i32 %881, 127
+  %885 = icmp eq i8 %880, -128
+  br i1 %885, label %894, label %886
 
-887:                                              ; preds = %884
-  %888 = icmp eq i32 %885, 1
-  br i1 %888, label %.thread68.i.i.i146.i.i, label %889
+886:                                              ; preds = %883
+  %887 = icmp eq i32 %884, 1
+  br i1 %887, label %.thread68.i.i.i147.i.i, label %888
 
-889:                                              ; preds = %887
-  %890 = icmp samesign ugt i32 %885, 4
-  br i1 %890, label %928, label %891
+888:                                              ; preds = %886
+  %889 = icmp samesign ugt i32 %884, 4
+  br i1 %889, label %927, label %890
 
-891:                                              ; preds = %889
-  %892 = shl nuw nsw i32 %885, 3
-  %893 = add nsw i32 %892, -8
-  %894 = shl nuw nsw i32 1, %893
-  br label %895
+890:                                              ; preds = %888
+  %891 = shl nuw nsw i32 %884, 3
+  %892 = add nsw i32 %891, -8
+  %893 = shl nuw nsw i32 1, %892
+  br label %894
 
-895:                                              ; preds = %891, %884
-  %.0.i.i.i131.i.i = phi i32 [ %894, %891 ], [ 0, %884 ]
-  %896 = add nuw nsw i32 %885, 2
-  %897 = icmp ugt i32 %896, %476
-  br i1 %897, label %928, label %.preheader.i.i.i132.i.i
+894:                                              ; preds = %890, %883
+  %.0.i.i.i132.i.i = phi i32 [ %893, %890 ], [ 0, %883 ]
+  %895 = add nuw nsw i32 %884, 2
+  %896 = icmp ugt i32 %895, %476
+  br i1 %896, label %927, label %.preheader.i.i.i133.i.i
 
-.thread68.i.i.i146.i.i:                           ; preds = %887
-  %898 = icmp ult i32 %476, 3
-  br i1 %898, label %928, label %.lr.ph.preheader.i.i.i134.i.i
+.thread68.i.i.i147.i.i:                           ; preds = %886
+  %897 = icmp ult i32 %476, 3
+  br i1 %897, label %927, label %.lr.ph.preheader.i.i.i135.i.i
 
-.preheader.i.i.i132.i.i:                          ; preds = %895
-  %.not57.i.i.i133.i.i = icmp eq i32 %885, 0
-  br i1 %.not57.i.i.i133.i.i, label %._crit_edge.i.i.i141.i.i, label %.lr.ph.preheader.i.i.i134.i.i
+.preheader.i.i.i133.i.i:                          ; preds = %894
+  %.not57.i.i.i134.i.i = icmp eq i32 %884, 0
+  br i1 %.not57.i.i.i134.i.i, label %._crit_edge.i.i.i142.i.i, label %.lr.ph.preheader.i.i.i135.i.i
 
-.lr.ph.preheader.i.i.i134.i.i:                    ; preds = %.preheader.i.i.i132.i.i, %.thread68.i.i.i146.i.i
-  %.07073.i.i.i135.i.i = phi i32 [ %.0.i.i.i131.i.i, %.preheader.i.i.i132.i.i ], [ 128, %.thread68.i.i.i146.i.i ]
-  %899 = phi i32 [ %896, %.preheader.i.i.i132.i.i ], [ 3, %.thread68.i.i.i146.i.i ]
-  br label %.lr.ph.i.i.i136.i.i
+.lr.ph.preheader.i.i.i135.i.i:                    ; preds = %.preheader.i.i.i133.i.i, %.thread68.i.i.i147.i.i
+  %.07073.i.i.i136.i.i = phi i32 [ %.0.i.i.i132.i.i, %.preheader.i.i.i133.i.i ], [ 128, %.thread68.i.i.i147.i.i ]
+  %898 = phi i32 [ %895, %.preheader.i.i.i133.i.i ], [ 3, %.thread68.i.i.i147.i.i ]
+  br label %.lr.ph.i.i.i137.i.i
 
-.lr.ph.i.i.i136.i.i:                              ; preds = %.lr.ph.i.i.i136.i.i, %.lr.ph.preheader.i.i.i134.i.i
-  %.03560.i.i.i137.i.i = phi i32 [ %900, %.lr.ph.i.i.i136.i.i ], [ %885, %.lr.ph.preheader.i.i.i134.i.i ]
-  %.159.i.i.i138.i.i = phi i32 [ %901, %.lr.ph.i.i.i136.i.i ], [ 2, %.lr.ph.preheader.i.i.i134.i.i ]
-  %.13958.i.i.i139.i.i = phi i32 [ %907, %.lr.ph.i.i.i136.i.i ], [ 0, %.lr.ph.preheader.i.i.i134.i.i ]
-  %900 = add nsw i32 %.03560.i.i.i137.i.i, -1
-  %901 = add i32 %.159.i.i.i138.i.i, 1
-  %902 = zext i32 %.159.i.i.i138.i.i to i64
-  %903 = getelementptr inbounds nuw i8, ptr %478, i64 %902
-  %904 = load i8, ptr %903, align 1, !tbaa !3
-  %905 = shl i32 %.13958.i.i.i139.i.i, 8
-  %906 = zext i8 %904 to i32
-  %907 = or disjoint i32 %905, %906
-  %.not.i.i.i140.i.i = icmp eq i32 %900, 0
-  br i1 %.not.i.i.i140.i.i, label %._crit_edge.i.i.i141.i.i, label %.lr.ph.i.i.i136.i.i, !llvm.loop !35
+.lr.ph.i.i.i137.i.i:                              ; preds = %.lr.ph.i.i.i137.i.i, %.lr.ph.preheader.i.i.i135.i.i
+  %.03560.i.i.i138.i.i = phi i32 [ %899, %.lr.ph.i.i.i137.i.i ], [ %884, %.lr.ph.preheader.i.i.i135.i.i ]
+  %.159.i.i.i139.i.i = phi i32 [ %900, %.lr.ph.i.i.i137.i.i ], [ 2, %.lr.ph.preheader.i.i.i135.i.i ]
+  %.13958.i.i.i140.i.i = phi i32 [ %906, %.lr.ph.i.i.i137.i.i ], [ 0, %.lr.ph.preheader.i.i.i135.i.i ]
+  %899 = add nsw i32 %.03560.i.i.i138.i.i, -1
+  %900 = add i32 %.159.i.i.i139.i.i, 1
+  %901 = zext i32 %.159.i.i.i139.i.i to i64
+  %902 = getelementptr inbounds nuw i8, ptr %478, i64 %901
+  %903 = load i8, ptr %902, align 1, !tbaa !3
+  %904 = shl i32 %.13958.i.i.i140.i.i, 8
+  %905 = zext i8 %903 to i32
+  %906 = or disjoint i32 %904, %905
+  %.not.i.i.i141.i.i = icmp eq i32 %899, 0
+  br i1 %.not.i.i.i141.i.i, label %._crit_edge.i.i.i142.i.i, label %.lr.ph.i.i.i137.i.i, !llvm.loop !35
 
-._crit_edge.i.i.i141.i.i:                         ; preds = %.lr.ph.i.i.i136.i.i, %.preheader.i.i.i132.i.i
-  %.07074.i.i.i142.i.i = phi i32 [ %.0.i.i.i131.i.i, %.preheader.i.i.i132.i.i ], [ %.07073.i.i.i135.i.i, %.lr.ph.i.i.i136.i.i ]
-  %.139.lcssa.i.i.i143.i.i = phi i32 [ 0, %.preheader.i.i.i132.i.i ], [ %907, %.lr.ph.i.i.i136.i.i ]
-  %.1.lcssa.i.i.i144.i.i = phi i32 [ 2, %.preheader.i.i.i132.i.i ], [ %899, %.lr.ph.i.i.i136.i.i ]
-  %908 = icmp sgt i32 %.139.lcssa.i.i.i143.i.i, -1
-  %909 = icmp sge i32 %.139.lcssa.i.i.i143.i.i, %.07074.i.i.i142.i.i
-  %or.cond55.i.i.i145.i.i = select i1 %908, i1 %909, i1 false
-  br i1 %or.cond55.i.i.i145.i.i, label %910, label %928
+._crit_edge.i.i.i142.i.i:                         ; preds = %.lr.ph.i.i.i137.i.i, %.preheader.i.i.i133.i.i
+  %.07074.i.i.i143.i.i = phi i32 [ %.0.i.i.i132.i.i, %.preheader.i.i.i133.i.i ], [ %.07073.i.i.i136.i.i, %.lr.ph.i.i.i137.i.i ]
+  %.139.lcssa.i.i.i144.i.i = phi i32 [ 0, %.preheader.i.i.i133.i.i ], [ %906, %.lr.ph.i.i.i137.i.i ]
+  %.1.lcssa.i.i.i145.i.i = phi i32 [ 2, %.preheader.i.i.i133.i.i ], [ %898, %.lr.ph.i.i.i137.i.i ]
+  %907 = icmp sgt i32 %.139.lcssa.i.i.i144.i.i, -1
+  %908 = icmp sge i32 %.139.lcssa.i.i.i144.i.i, %.07074.i.i.i143.i.i
+  %or.cond55.i.i.i146.i.i = select i1 %907, i1 %908, i1 false
+  br i1 %or.cond55.i.i.i146.i.i, label %909, label %927
 
-910:                                              ; preds = %._crit_edge.i.i.i141.i.i, %879
-  %.240.i.i.i127.i.i = phi i32 [ %.139.lcssa.i.i.i143.i.i, %._crit_edge.i.i.i141.i.i ], [ %882, %879 ]
-  %.2.i.i.i128.i.i = phi i32 [ %.1.lcssa.i.i.i144.i.i, %._crit_edge.i.i.i141.i.i ], [ 2, %879 ]
-  %911 = add nuw i32 %.2.i.i.i128.i.i, %.240.i.i.i127.i.i
-  %.not16.i.i129.i.i = icmp eq i32 %911, %476
-  br i1 %.not16.i.i129.i.i, label %912, label %928
+909:                                              ; preds = %._crit_edge.i.i.i142.i.i, %878
+  %.240.i.i.i128.i.i = phi i32 [ %.139.lcssa.i.i.i144.i.i, %._crit_edge.i.i.i142.i.i ], [ %881, %878 ]
+  %.2.i.i.i129.i.i = phi i32 [ %.1.lcssa.i.i.i145.i.i, %._crit_edge.i.i.i142.i.i ], [ 2, %878 ]
+  %910 = add nuw i32 %.2.i.i.i129.i.i, %.240.i.i.i128.i.i
+  %.not16.i.i130.i.i = icmp eq i32 %910, %476
+  br i1 %.not16.i.i130.i.i, label %911, label %927
 
-912:                                              ; preds = %910
-  store i32 %.2.i.i.i128.i.i, ptr %15, align 4, !tbaa !22
-  %913 = icmp ult i32 %.2.i.i.i128.i.i, %476
-  br i1 %913, label %.lr.ph.i130.i.i, label %DecodeExtKeyUsage.exit.i.i
+911:                                              ; preds = %909
+  store i32 %.2.i.i.i129.i.i, ptr %15, align 4, !tbaa !22
+  %912 = icmp ult i32 %.2.i.i.i129.i.i, %476
+  br i1 %912, label %.lr.ph.i131.i.i, label %DecodeExtKeyUsage.exit.i.i
 
-.lr.ph.i130.i.i:                                  ; preds = %912, %925
+.lr.ph.i131.i.i:                                  ; preds = %911, %924
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %16, i8 0, i64 40, i1 false)
   store i32 21, ptr %428, align 4, !tbaa !3
-  %914 = call i32 @GetASN_Items(ptr noundef nonnull @keyPurposeIdASN, ptr noundef nonnull %16, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %478, ptr noundef nonnull %15, i32 noundef %476)
-  switch i32 %914, label %.thread23.i.i.i [
-    i32 -148, label %925
-    i32 0, label %915
+  %913 = call i32 @GetASN_Items(ptr noundef nonnull @keyPurposeIdASN, ptr noundef nonnull %16, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %478, ptr noundef nonnull %15, i32 noundef %476)
+  switch i32 %913, label %.thread23.i.i.i [
+    i32 -148, label %924
+    i32 0, label %914
   ]
 
-915:                                              ; preds = %.lr.ph.i130.i.i
-  %916 = load i32, ptr %429, align 8, !tbaa !3
-  switch i32 %916, label %925 [
+914:                                              ; preds = %.lr.ph.i131.i.i
+  %915 = load i32, ptr %429, align 8, !tbaa !3
+  switch i32 %915, label %924 [
     i32 151, label %.sink.split.i.i.i
-    i32 71, label %917
-    i32 72, label %918
-    i32 73, label %919
-    i32 74, label %920
-    i32 78, label %921
-    i32 79, label %922
+    i32 71, label %916
+    i32 72, label %917
+    i32 73, label %918
+    i32 74, label %919
+    i32 78, label %920
+    i32 79, label %921
   ]
 
-917:                                              ; preds = %915
+916:                                              ; preds = %914
   br label %.sink.split.i.i.i
 
-918:                                              ; preds = %915
+917:                                              ; preds = %914
   br label %.sink.split.i.i.i
 
-919:                                              ; preds = %915
+918:                                              ; preds = %914
   br label %.sink.split.i.i.i
 
-920:                                              ; preds = %915
+919:                                              ; preds = %914
   br label %.sink.split.i.i.i
 
-921:                                              ; preds = %915
+920:                                              ; preds = %914
   br label %.sink.split.i.i.i
 
-922:                                              ; preds = %915
+921:                                              ; preds = %914
   br label %.sink.split.i.i.i
 
-.thread23.i.i.i:                                  ; preds = %.lr.ph.i130.i.i
+.thread23.i.i.i:                                  ; preds = %.lr.ph.i131.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
-  br label %928
+  br label %927
 
-.sink.split.i.i.i:                                ; preds = %922, %921, %920, %919, %918, %917, %915
-  %.sink29.i.i.i = phi i8 [ 64, %922 ], [ 32, %921 ], [ 16, %920 ], [ 8, %919 ], [ 4, %918 ], [ 2, %917 ], [ 1, %915 ]
-  %923 = load i8, ptr %430, align 2, !tbaa !155
-  %924 = or i8 %923, %.sink29.i.i.i
-  store i8 %924, ptr %430, align 2, !tbaa !155
-  br label %925
+.sink.split.i.i.i:                                ; preds = %921, %920, %919, %918, %917, %916, %914
+  %.sink29.i.i.i = phi i8 [ 64, %921 ], [ 32, %920 ], [ 16, %919 ], [ 8, %918 ], [ 4, %917 ], [ 2, %916 ], [ 1, %914 ]
+  %922 = load i8, ptr %430, align 2, !tbaa !155
+  %923 = or i8 %922, %.sink29.i.i.i
+  store i8 %923, ptr %430, align 2, !tbaa !155
+  br label %924
 
-925:                                              ; preds = %.sink.split.i.i.i, %915, %.lr.ph.i130.i.i
+924:                                              ; preds = %.sink.split.i.i.i, %914, %.lr.ph.i131.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
-  %926 = load i32, ptr %15, align 4
-  %927 = icmp ult i32 %926, %476
-  br i1 %927, label %.lr.ph.i130.i.i, label %DecodeExtKeyUsage.exit.i.i, !llvm.loop !156
+  %925 = load i32, ptr %15, align 4
+  %926 = icmp ult i32 %925, %476
+  br i1 %926, label %.lr.ph.i131.i.i, label %DecodeExtKeyUsage.exit.i.i, !llvm.loop !156
 
-DecodeExtKeyUsage.exit.i.i:                       ; preds = %925, %912
+DecodeExtKeyUsage.exit.i.i:                       ; preds = %924, %911
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %DecodeExtensionType.exit.i
 
-928:                                              ; preds = %.thread23.i.i.i, %910, %._crit_edge.i.i.i141.i.i, %.thread68.i.i.i146.i.i, %895, %889, %876, %872
+927:                                              ; preds = %.thread23.i.i.i, %909, %._crit_edge.i.i.i142.i.i, %.thread68.i.i.i147.i.i, %894, %888, %875, %871
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %DecodeExtensionType.exit.i
 
-929:                                              ; preds = %474
-  %930 = load i32, ptr %419, align 8
-  %931 = and i32 %930, 16
-  %.not.i.i211 = icmp eq i32 %931, 0
+928:                                              ; preds = %474
+  %929 = load i32, ptr %419, align 8
+  %930 = and i32 %929, 16
+  %.not.i.i211 = icmp eq i32 %930, 0
   %spec.select118.i.i = select i1 %.not.i.i211, i32 -198, i32 0
-  %932 = and i32 %930, 8
-  %933 = icmp eq i32 %932, 0
-  br i1 %933, label %934, label %DecodeExtensionType.exit.i
+  %931 = and i32 %929, 8
+  %932 = icmp eq i32 %931, 0
+  br i1 %932, label %933, label %DecodeExtensionType.exit.i
 
-934:                                              ; preds = %929
+933:                                              ; preds = %928
   %.not94.not.i.i = icmp eq i8 %479, 0
-  %935 = and i32 %930, -16777225
-  %936 = select i1 %.not94.not.i.i, i32 8, i32 16777224
-  %937 = or disjoint i32 %935, %936
-  store i32 %937, ptr %419, align 8
+  %934 = and i32 %929, -16777225
+  %935 = select i1 %.not94.not.i.i, i32 8, i32 16777224
+  %936 = or disjoint i32 %934, %935
+  store i32 %936, ptr %419, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i32 0, ptr %14, align 4, !tbaa !22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(120) %13, i8 0, i64 120, i1 false)
-  %938 = call i32 @GetASN_Items(ptr noundef nonnull @nameConstraintsASN, ptr noundef nonnull %13, i32 noundef 3, i32 noundef 1, ptr noundef nonnull %478, ptr noundef nonnull %14, i32 noundef %476)
-  %939 = icmp eq i32 %938, 0
-  %940 = load ptr, ptr %422, align 16
-  %941 = icmp ne ptr %940, null
-  %or.cond.i147.i.i = select i1 %939, i1 %941, i1 false
-  br i1 %or.cond.i147.i.i, label %942, label %945
+  %937 = call i32 @GetASN_Items(ptr noundef nonnull @nameConstraintsASN, ptr noundef nonnull %13, i32 noundef 3, i32 noundef 1, ptr noundef nonnull %478, ptr noundef nonnull %14, i32 noundef %476)
+  %938 = icmp eq i32 %937, 0
+  %939 = load ptr, ptr %422, align 16
+  %940 = icmp ne ptr %939, null
+  %or.cond.i148.i.i = select i1 %938, i1 %940, i1 false
+  br i1 %or.cond.i148.i.i, label %941, label %944
 
-942:                                              ; preds = %934
-  %943 = load i32, ptr %423, align 8, !tbaa !3
-  %944 = call fastcc i32 @DecodeSubtree(ptr noundef %940, i32 noundef %943, ptr noundef nonnull %424)
-  br label %945
+941:                                              ; preds = %933
+  %942 = load i32, ptr %423, align 8, !tbaa !3
+  %943 = call fastcc i32 @DecodeSubtree(ptr noundef %939, i32 noundef %942, ptr noundef nonnull %424)
+  br label %944
 
-945:                                              ; preds = %942, %934
-  %.1.i.i.i = phi i32 [ %944, %942 ], [ %938, %934 ]
-  %946 = icmp eq i32 %.1.i.i.i, 0
-  %947 = load ptr, ptr %425, align 8
-  %948 = icmp ne ptr %947, null
-  %or.cond9.i.i.i = select i1 %946, i1 %948, i1 false
-  br i1 %or.cond9.i.i.i, label %949, label %DecodeNameConstraints.exit.i.i
+944:                                              ; preds = %941, %933
+  %.1.i149.i.i = phi i32 [ %943, %941 ], [ %937, %933 ]
+  %945 = icmp eq i32 %.1.i149.i.i, 0
+  %946 = load ptr, ptr %425, align 8
+  %947 = icmp ne ptr %946, null
+  %or.cond9.i.i.i = select i1 %945, i1 %947, i1 false
+  br i1 %or.cond9.i.i.i, label %948, label %DecodeNameConstraints.exit.i.i
 
-949:                                              ; preds = %945
-  %950 = load i32, ptr %426, align 16, !tbaa !3
-  %951 = call fastcc i32 @DecodeSubtree(ptr noundef %947, i32 noundef %950, ptr noundef nonnull %427)
+948:                                              ; preds = %944
+  %949 = load i32, ptr %426, align 16, !tbaa !3
+  %950 = call fastcc i32 @DecodeSubtree(ptr noundef %946, i32 noundef %949, ptr noundef nonnull %427)
   br label %DecodeNameConstraints.exit.i.i
 
-DecodeNameConstraints.exit.i.i:                   ; preds = %949, %945
-  %.2.i.i.i212 = phi i32 [ %951, %949 ], [ %.1.i.i.i, %945 ]
+DecodeNameConstraints.exit.i.i:                   ; preds = %948, %944
+  %.2.i.i.i212 = phi i32 [ %950, %948 ], [ %.1.i149.i.i, %944 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  %952 = icmp slt i32 %.2.i.i.i212, 0
-  %spec.select119.i.i = select i1 %952, i32 -140, i32 %spec.select118.i.i
+  %951 = icmp slt i32 %.2.i.i.i212, 0
+  %spec.select119.i.i = select i1 %951, i32 -140, i32 %spec.select118.i.i
   br label %DecodeExtensionType.exit.i
 
-953:                                              ; preds = %474
-  %954 = load i32, ptr %419, align 8
-  %955 = and i32 %954, 65536
-  %956 = icmp eq i32 %955, 0
-  br i1 %956, label %957, label %DecodeExtensionType.exit.i
+952:                                              ; preds = %474
+  %953 = load i32, ptr %419, align 8
+  %954 = and i32 %953, 65536
+  %955 = icmp eq i32 %954, 0
+  br i1 %955, label %956, label %DecodeExtensionType.exit.i
 
-957:                                              ; preds = %953
-  %958 = or disjoint i32 %954, 65536
-  store i32 %958, ptr %419, align 8
+956:                                              ; preds = %952
+  %957 = or disjoint i32 %953, 65536
+  store i32 %957, ptr %419, align 8
   br label %DecodeExtensionType.exit.i
 
-959:                                              ; preds = %474
+958:                                              ; preds = %474
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i32 0, ptr %12, align 4, !tbaa !22
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %11, i8 0, i64 40, i1 false)
-  %960 = call i32 @GetASN_Items(ptr noundef nonnull @bitStringASN, ptr noundef nonnull %11, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %478, ptr noundef nonnull %12, i32 noundef %476)
-  %961 = icmp eq i32 %960, 0
+  %959 = call i32 @GetASN_Items(ptr noundef nonnull @bitStringASN, ptr noundef nonnull %11, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %478, ptr noundef nonnull %12, i32 noundef %476)
+  %960 = icmp eq i32 %959, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br i1 %961, label %962, label %968
+  br i1 %960, label %961, label %967
 
-962:                                              ; preds = %959
-  %963 = load i32, ptr %12, align 4, !tbaa !22
-  %964 = icmp ult i32 %963, %476
-  br i1 %964, label %DecodeNsCertType.exit.i.i, label %968
+961:                                              ; preds = %958
+  %962 = load i32, ptr %12, align 4, !tbaa !22
+  %963 = icmp ult i32 %962, %476
+  br i1 %963, label %DecodeNsCertType.exit.i.i, label %967
 
-DecodeNsCertType.exit.i.i:                        ; preds = %962
-  %965 = zext i32 %963 to i64
-  %966 = getelementptr inbounds nuw i8, ptr %478, i64 %965
-  %967 = load i8, ptr %966, align 1, !tbaa !3
-  store i8 %967, ptr %421, align 4, !tbaa !157
+DecodeNsCertType.exit.i.i:                        ; preds = %961
+  %964 = zext i32 %962 to i64
+  %965 = getelementptr inbounds nuw i8, ptr %478, i64 %964
+  %966 = load i8, ptr %965, align 1, !tbaa !3
+  store i8 %966, ptr %421, align 4, !tbaa !157
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %DecodeExtensionType.exit.i
 
-968:                                              ; preds = %962, %959
+967:                                              ; preds = %961, %958
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %DecodeExtensionType.exit.i
 
-969:                                              ; preds = %474
-  %970 = load i32, ptr %419, align 8
-  %971 = and i32 %970, 4096
-  %972 = icmp eq i32 %971, 0
-  br i1 %972, label %973, label %DecodeExtensionType.exit.i
+968:                                              ; preds = %474
+  %969 = load i32, ptr %419, align 8
+  %970 = and i32 %969, 4096
+  %971 = icmp eq i32 %970, 0
+  br i1 %971, label %972, label %DecodeExtensionType.exit.i
 
-973:                                              ; preds = %969
+972:                                              ; preds = %968
   %.not.not.i.i = icmp eq i8 %479, 0
-  %974 = and i32 %970, -2101249
-  %975 = select i1 %.not.not.i.i, i32 4096, i32 2101248
-  %976 = or disjoint i32 %974, %975
-  store i32 %976, ptr %419, align 8
-  %977 = icmp eq i32 %476, 0
-  br i1 %977, label %DecodeExtensionType.exit.i, label %.thread.i.i.i.i.i.i.i
+  %973 = and i32 %969, -2101249
+  %974 = select i1 %.not.not.i.i, i32 4096, i32 2101248
+  %975 = or disjoint i32 %973, %974
+  store i32 %975, ptr %419, align 8
+  %976 = icmp eq i32 %476, 0
+  br i1 %976, label %DecodeExtensionType.exit.i, label %.thread.i.i.i.i.i.i.i
 
-.thread.i.i.i.i.i.i.i:                            ; preds = %973
-  %978 = load i8, ptr %478, align 1, !tbaa !3
-  %979 = icmp ne i8 %978, 48
-  %980 = icmp eq i32 %476, 1
-  %or.cond45.i.i.i = or i1 %980, %979
-  br i1 %or.cond45.i.i.i, label %DecodeExtensionType.exit.i, label %981
+.thread.i.i.i.i.i.i.i:                            ; preds = %972
+  %977 = load i8, ptr %478, align 1, !tbaa !3
+  %978 = icmp ne i8 %977, 48
+  %979 = icmp eq i32 %476, 1
+  %or.cond45.i.i.i = or i1 %979, %978
+  br i1 %or.cond45.i.i.i, label %DecodeExtensionType.exit.i, label %980
 
-981:                                              ; preds = %.thread.i.i.i.i.i.i.i
-  %982 = getelementptr inbounds nuw i8, ptr %478, i64 1
-  %983 = load i8, ptr %982, align 1, !tbaa !3
-  %984 = zext i8 %983 to i32
-  %985 = icmp slt i8 %983, 0
-  br i1 %985, label %986, label %1012
+980:                                              ; preds = %.thread.i.i.i.i.i.i.i
+  %981 = getelementptr inbounds nuw i8, ptr %478, i64 1
+  %982 = load i8, ptr %981, align 1, !tbaa !3
+  %983 = zext i8 %982 to i32
+  %984 = icmp slt i8 %982, 0
+  br i1 %984, label %985, label %1011
 
-986:                                              ; preds = %981
-  %987 = and i32 %984, 127
-  %988 = icmp eq i8 %983, -128
-  br i1 %988, label %997, label %989
+985:                                              ; preds = %980
+  %986 = and i32 %983, 127
+  %987 = icmp eq i8 %982, -128
+  br i1 %987, label %996, label %988
 
-989:                                              ; preds = %986
-  %990 = icmp eq i32 %987, 1
-  br i1 %990, label %.thread68.i.i.i.i.i.i.i, label %991
+988:                                              ; preds = %985
+  %989 = icmp eq i32 %986, 1
+  br i1 %989, label %.thread68.i.i.i.i.i.i.i, label %990
 
-991:                                              ; preds = %989
-  %992 = icmp samesign ugt i32 %987, 4
-  br i1 %992, label %DecodeExtensionType.exit.i, label %993
+990:                                              ; preds = %988
+  %991 = icmp samesign ugt i32 %986, 4
+  br i1 %991, label %DecodeExtensionType.exit.i, label %992
 
-993:                                              ; preds = %991
-  %994 = shl nuw nsw i32 %987, 3
-  %995 = add nsw i32 %994, -8
-  %996 = shl nuw nsw i32 1, %995
-  br label %997
+992:                                              ; preds = %990
+  %993 = shl nuw nsw i32 %986, 3
+  %994 = add nsw i32 %993, -8
+  %995 = shl nuw nsw i32 1, %994
+  br label %996
 
-997:                                              ; preds = %993, %986
-  %.0.i.i.i.i.i.i.i = phi i32 [ %996, %993 ], [ 0, %986 ]
-  %998 = add nuw nsw i32 %987, 2
-  %999 = icmp ugt i32 %998, %476
-  br i1 %999, label %DecodeExtensionType.exit.i, label %.preheader.i.i.i.i.i.i.i
+996:                                              ; preds = %992, %985
+  %.0.i.i.i.i.i.i.i = phi i32 [ %995, %992 ], [ 0, %985 ]
+  %997 = add nuw nsw i32 %986, 2
+  %998 = icmp ugt i32 %997, %476
+  br i1 %998, label %DecodeExtensionType.exit.i, label %.preheader.i.i.i.i.i.i.i
 
-.thread68.i.i.i.i.i.i.i:                          ; preds = %989
-  %1000 = icmp ult i32 %476, 3
-  br i1 %1000, label %DecodeExtensionType.exit.i, label %.lr.ph.preheader.i.i.i.i.i.i.i
+.thread68.i.i.i.i.i.i.i:                          ; preds = %988
+  %999 = icmp ult i32 %476, 3
+  br i1 %999, label %DecodeExtensionType.exit.i, label %.lr.ph.preheader.i.i.i.i.i.i.i
 
-.preheader.i.i.i.i.i.i.i:                         ; preds = %997
-  %.not57.i.i.i.i.i.i.i = icmp eq i32 %987, 0
+.preheader.i.i.i.i.i.i.i:                         ; preds = %996
+  %.not57.i.i.i.i.i.i.i = icmp eq i32 %986, 0
   br i1 %.not57.i.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i.i, label %.lr.ph.preheader.i.i.i.i.i.i.i
 
 .lr.ph.preheader.i.i.i.i.i.i.i:                   ; preds = %.preheader.i.i.i.i.i.i.i, %.thread68.i.i.i.i.i.i.i
   %.07073.i.i.i.i.i.i.i = phi i32 [ %.0.i.i.i.i.i.i.i, %.preheader.i.i.i.i.i.i.i ], [ 128, %.thread68.i.i.i.i.i.i.i ]
-  %1001 = phi i32 [ %998, %.preheader.i.i.i.i.i.i.i ], [ 3, %.thread68.i.i.i.i.i.i.i ]
+  %1000 = phi i32 [ %997, %.preheader.i.i.i.i.i.i.i ], [ 3, %.thread68.i.i.i.i.i.i.i ]
   br label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %.lr.ph.i.i.i.i.i.i.i, %.lr.ph.preheader.i.i.i.i.i.i.i
-  %.03560.i.i.i.i.i.i.i = phi i32 [ %1002, %.lr.ph.i.i.i.i.i.i.i ], [ %987, %.lr.ph.preheader.i.i.i.i.i.i.i ]
-  %.159.i.i.i.i.i.i.i = phi i32 [ %1003, %.lr.ph.i.i.i.i.i.i.i ], [ 2, %.lr.ph.preheader.i.i.i.i.i.i.i ]
-  %.13958.i.i.i.i.i.i.i = phi i32 [ %1009, %.lr.ph.i.i.i.i.i.i.i ], [ 0, %.lr.ph.preheader.i.i.i.i.i.i.i ]
-  %1002 = add nsw i32 %.03560.i.i.i.i.i.i.i, -1
-  %1003 = add i32 %.159.i.i.i.i.i.i.i, 1
-  %1004 = zext i32 %.159.i.i.i.i.i.i.i to i64
-  %1005 = getelementptr inbounds nuw i8, ptr %478, i64 %1004
-  %1006 = load i8, ptr %1005, align 1, !tbaa !3
-  %1007 = shl i32 %.13958.i.i.i.i.i.i.i, 8
-  %1008 = zext i8 %1006 to i32
-  %1009 = or disjoint i32 %1007, %1008
-  %.not.i.i.i.i.i.i.i = icmp eq i32 %1002, 0
+  %.03560.i.i.i.i.i.i.i = phi i32 [ %1001, %.lr.ph.i.i.i.i.i.i.i ], [ %986, %.lr.ph.preheader.i.i.i.i.i.i.i ]
+  %.159.i.i.i.i.i.i.i = phi i32 [ %1002, %.lr.ph.i.i.i.i.i.i.i ], [ 2, %.lr.ph.preheader.i.i.i.i.i.i.i ]
+  %.13958.i.i.i.i.i.i.i = phi i32 [ %1008, %.lr.ph.i.i.i.i.i.i.i ], [ 0, %.lr.ph.preheader.i.i.i.i.i.i.i ]
+  %1001 = add nsw i32 %.03560.i.i.i.i.i.i.i, -1
+  %1002 = add i32 %.159.i.i.i.i.i.i.i, 1
+  %1003 = zext i32 %.159.i.i.i.i.i.i.i to i64
+  %1004 = getelementptr inbounds nuw i8, ptr %478, i64 %1003
+  %1005 = load i8, ptr %1004, align 1, !tbaa !3
+  %1006 = shl i32 %.13958.i.i.i.i.i.i.i, 8
+  %1007 = zext i8 %1005 to i32
+  %1008 = or disjoint i32 %1006, %1007
+  %.not.i.i.i.i.i.i.i = icmp eq i32 %1001, 0
   br i1 %.not.i.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !35
 
 ._crit_edge.i.i.i.i.i.i.i:                        ; preds = %.lr.ph.i.i.i.i.i.i.i, %.preheader.i.i.i.i.i.i.i
   %.07074.i.i.i.i.i.i.i = phi i32 [ %.0.i.i.i.i.i.i.i, %.preheader.i.i.i.i.i.i.i ], [ %.07073.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i ]
-  %.139.lcssa.i.i.i.i.i.i.i = phi i32 [ 0, %.preheader.i.i.i.i.i.i.i ], [ %1009, %.lr.ph.i.i.i.i.i.i.i ]
-  %.1.lcssa.i.i.i.i.i.i.i = phi i32 [ 2, %.preheader.i.i.i.i.i.i.i ], [ %1001, %.lr.ph.i.i.i.i.i.i.i ]
-  %1010 = icmp sgt i32 %.139.lcssa.i.i.i.i.i.i.i, -1
-  %1011 = icmp sge i32 %.139.lcssa.i.i.i.i.i.i.i, %.07074.i.i.i.i.i.i.i
-  %or.cond55.i.i.i.i.i.i.i = select i1 %1010, i1 %1011, i1 false
-  br i1 %or.cond55.i.i.i.i.i.i.i, label %1012, label %DecodeExtensionType.exit.i
+  %.139.lcssa.i.i.i.i.i.i.i = phi i32 [ 0, %.preheader.i.i.i.i.i.i.i ], [ %1008, %.lr.ph.i.i.i.i.i.i.i ]
+  %.1.lcssa.i.i.i.i.i.i.i = phi i32 [ 2, %.preheader.i.i.i.i.i.i.i ], [ %1000, %.lr.ph.i.i.i.i.i.i.i ]
+  %1009 = icmp sgt i32 %.139.lcssa.i.i.i.i.i.i.i, -1
+  %1010 = icmp sge i32 %.139.lcssa.i.i.i.i.i.i.i, %.07074.i.i.i.i.i.i.i
+  %or.cond55.i.i.i.i.i.i.i = select i1 %1009, i1 %1010, i1 false
+  br i1 %or.cond55.i.i.i.i.i.i.i, label %1011, label %DecodeExtensionType.exit.i
 
-1012:                                             ; preds = %._crit_edge.i.i.i.i.i.i.i, %981
-  %.240.i.i.i.i.i.i.i = phi i32 [ %.139.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ], [ %984, %981 ]
-  %.2.i.i.i.i.i.i.i = phi i32 [ %.1.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ], [ 2, %981 ]
-  %1013 = add nuw i32 %.2.i.i.i.i.i.i.i, %.240.i.i.i.i.i.i.i
-  %1014 = icmp ugt i32 %1013, %476
-  %1015 = icmp eq i32 %.240.i.i.i.i.i.i.i, 0
-  %or.cond46.i.i.i = or i1 %1015, %1014
-  br i1 %or.cond46.i.i.i, label %DecodeExtensionType.exit.i, label %1016
+1011:                                             ; preds = %._crit_edge.i.i.i.i.i.i.i, %980
+  %.240.i.i.i.i.i.i.i = phi i32 [ %.139.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ], [ %983, %980 ]
+  %.2.i.i.i.i.i.i.i = phi i32 [ %.1.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ], [ 2, %980 ]
+  %1012 = add nuw i32 %.2.i.i.i.i.i.i.i, %.240.i.i.i.i.i.i.i
+  %1013 = icmp ugt i32 %1012, %476
+  %1014 = icmp eq i32 %.240.i.i.i.i.i.i.i, 0
+  %or.cond46.i.i.i = or i1 %1014, %1013
+  br i1 %or.cond46.i.i.i, label %DecodeExtensionType.exit.i, label %1015
 
-1016:                                             ; preds = %1012
-  %1017 = zext nneg i32 %.2.i.i.i.i.i.i.i to i64
-  %1018 = getelementptr inbounds nuw i8, ptr %478, i64 %1017
-  %1019 = load i8, ptr %1018, align 1, !tbaa !3
-  switch i8 %1019, label %DecodeExtensionType.exit.i [
-    i8 -128, label %1021
-    i8 -127, label %1020
+1015:                                             ; preds = %1011
+  %1016 = zext nneg i32 %.2.i.i.i.i.i.i.i to i64
+  %1017 = getelementptr inbounds nuw i8, ptr %478, i64 %1016
+  %1018 = load i8, ptr %1017, align 1, !tbaa !3
+  switch i8 %1018, label %DecodeExtensionType.exit.i [
+    i8 -128, label %1020
+    i8 -127, label %1019
   ]
 
-1020:                                             ; preds = %1016
-  br label %1021
+1019:                                             ; preds = %1015
+  br label %1020
 
-1021:                                             ; preds = %1020, %1016
-  %.sink65.i.i.i = phi i32 [ 16384, %1020 ], [ 8192, %1016 ]
-  %1022 = or i32 %.sink65.i.i.i, %976
-  store i32 %1022, ptr %419, align 8
-  %1023 = add nuw nsw i32 %.2.i.i.i.i.i.i.i, 2
-  %1024 = icmp ugt i32 %1023, %476
-  br i1 %1024, label %DecodeExtensionType.exit.i, label %1025
+1020:                                             ; preds = %1019, %1015
+  %.sink65.i.i.i = phi i32 [ 16384, %1019 ], [ 8192, %1015 ]
+  %1021 = or i32 %.sink65.i.i.i, %975
+  store i32 %1021, ptr %419, align 8
+  %1022 = add nuw nsw i32 %.2.i.i.i.i.i.i.i, 2
+  %1023 = icmp ugt i32 %1022, %476
+  br i1 %1023, label %DecodeExtensionType.exit.i, label %1024
 
-1025:                                             ; preds = %1021
-  %1026 = getelementptr inbounds nuw i8, ptr %1018, i64 1
-  %1027 = load i8, ptr %1026, align 1, !tbaa !3
-  %1028 = zext i8 %1027 to i32
-  %1029 = icmp slt i8 %1027, 0
-  br i1 %1029, label %1030, label %1057
+1024:                                             ; preds = %1020
+  %1025 = getelementptr inbounds nuw i8, ptr %1017, i64 1
+  %1026 = load i8, ptr %1025, align 1, !tbaa !3
+  %1027 = zext i8 %1026 to i32
+  %1028 = icmp slt i8 %1026, 0
+  br i1 %1028, label %1029, label %1056
 
-1030:                                             ; preds = %1025
-  %1031 = and i32 %1028, 127
-  %1032 = icmp eq i8 %1027, -128
-  br i1 %1032, label %1041, label %1033
+1029:                                             ; preds = %1024
+  %1030 = and i32 %1027, 127
+  %1031 = icmp eq i8 %1026, -128
+  br i1 %1031, label %1040, label %1032
 
-1033:                                             ; preds = %1030
-  %1034 = icmp eq i32 %1031, 1
-  br i1 %1034, label %.thread68.i.i.i167.i.i, label %1035
+1032:                                             ; preds = %1029
+  %1033 = icmp eq i32 %1030, 1
+  br i1 %1033, label %.thread68.i.i.i169.i.i, label %1034
 
-1035:                                             ; preds = %1033
-  %1036 = icmp samesign ugt i32 %1031, 4
-  br i1 %1036, label %DecodeExtensionType.exit.i, label %1037
+1034:                                             ; preds = %1032
+  %1035 = icmp samesign ugt i32 %1030, 4
+  br i1 %1035, label %DecodeExtensionType.exit.i, label %1036
 
-1037:                                             ; preds = %1035
-  %1038 = shl nuw nsw i32 %1031, 3
-  %1039 = add nsw i32 %1038, -8
-  %1040 = shl nuw nsw i32 1, %1039
-  br label %1041
+1036:                                             ; preds = %1034
+  %1037 = shl nuw nsw i32 %1030, 3
+  %1038 = add nsw i32 %1037, -8
+  %1039 = shl nuw nsw i32 1, %1038
+  br label %1040
 
-1041:                                             ; preds = %1037, %1030
-  %.0.i.i.i152.i.i = phi i32 [ %1040, %1037 ], [ 0, %1030 ]
-  %1042 = add nuw nsw i32 %1031, %1023
-  %1043 = icmp ugt i32 %1042, %476
-  br i1 %1043, label %DecodeExtensionType.exit.i, label %.preheader.i.i.i153.i.i
+1040:                                             ; preds = %1036, %1029
+  %.0.i.i.i154.i.i = phi i32 [ %1039, %1036 ], [ 0, %1029 ]
+  %1041 = add nuw nsw i32 %1030, %1022
+  %1042 = icmp ugt i32 %1041, %476
+  br i1 %1042, label %DecodeExtensionType.exit.i, label %.preheader.i.i.i155.i.i
 
-.thread68.i.i.i167.i.i:                           ; preds = %1033
-  %1044 = add nuw nsw i32 %.2.i.i.i.i.i.i.i, 3
-  %1045 = icmp ugt i32 %1044, %476
-  br i1 %1045, label %DecodeExtensionType.exit.i, label %.lr.ph.preheader.i.i.i155.i.i
+.thread68.i.i.i169.i.i:                           ; preds = %1032
+  %1043 = add nuw nsw i32 %.2.i.i.i.i.i.i.i, 3
+  %1044 = icmp ugt i32 %1043, %476
+  br i1 %1044, label %DecodeExtensionType.exit.i, label %.lr.ph.preheader.i.i.i157.i.i
 
-.preheader.i.i.i153.i.i:                          ; preds = %1041
-  %.not57.i.i.i154.i.i = icmp eq i32 %1031, 0
-  br i1 %.not57.i.i.i154.i.i, label %._crit_edge.i.i.i162.i.i, label %.lr.ph.preheader.i.i.i155.i.i
+.preheader.i.i.i155.i.i:                          ; preds = %1040
+  %.not57.i.i.i156.i.i = icmp eq i32 %1030, 0
+  br i1 %.not57.i.i.i156.i.i, label %._crit_edge.i.i.i164.i.i, label %.lr.ph.preheader.i.i.i157.i.i
 
-.lr.ph.preheader.i.i.i155.i.i:                    ; preds = %.preheader.i.i.i153.i.i, %.thread68.i.i.i167.i.i
-  %.07073.i.i.i156.i.i = phi i32 [ %.0.i.i.i152.i.i, %.preheader.i.i.i153.i.i ], [ 128, %.thread68.i.i.i167.i.i ]
-  %1046 = phi i32 [ %1042, %.preheader.i.i.i153.i.i ], [ %1044, %.thread68.i.i.i167.i.i ]
-  br label %.lr.ph.i.i.i157.i.i
+.lr.ph.preheader.i.i.i157.i.i:                    ; preds = %.preheader.i.i.i155.i.i, %.thread68.i.i.i169.i.i
+  %.07073.i.i.i158.i.i = phi i32 [ %.0.i.i.i154.i.i, %.preheader.i.i.i155.i.i ], [ 128, %.thread68.i.i.i169.i.i ]
+  %1045 = phi i32 [ %1041, %.preheader.i.i.i155.i.i ], [ %1043, %.thread68.i.i.i169.i.i ]
+  br label %.lr.ph.i.i.i159.i.i
 
-.lr.ph.i.i.i157.i.i:                              ; preds = %.lr.ph.i.i.i157.i.i, %.lr.ph.preheader.i.i.i155.i.i
-  %.03560.i.i.i158.i.i = phi i32 [ %1047, %.lr.ph.i.i.i157.i.i ], [ %1031, %.lr.ph.preheader.i.i.i155.i.i ]
-  %.159.i.i.i159.i.i = phi i32 [ %1048, %.lr.ph.i.i.i157.i.i ], [ %1023, %.lr.ph.preheader.i.i.i155.i.i ]
-  %.13958.i.i.i160.i.i = phi i32 [ %1054, %.lr.ph.i.i.i157.i.i ], [ 0, %.lr.ph.preheader.i.i.i155.i.i ]
-  %1047 = add nsw i32 %.03560.i.i.i158.i.i, -1
-  %1048 = add i32 %.159.i.i.i159.i.i, 1
-  %1049 = zext i32 %.159.i.i.i159.i.i to i64
-  %1050 = getelementptr inbounds nuw i8, ptr %478, i64 %1049
-  %1051 = load i8, ptr %1050, align 1, !tbaa !3
-  %1052 = shl i32 %.13958.i.i.i160.i.i, 8
-  %1053 = zext i8 %1051 to i32
-  %1054 = or disjoint i32 %1052, %1053
-  %.not.i.i.i161.i.i = icmp eq i32 %1047, 0
-  br i1 %.not.i.i.i161.i.i, label %._crit_edge.i.i.i162.i.i, label %.lr.ph.i.i.i157.i.i, !llvm.loop !35
+.lr.ph.i.i.i159.i.i:                              ; preds = %.lr.ph.i.i.i159.i.i, %.lr.ph.preheader.i.i.i157.i.i
+  %.03560.i.i.i160.i.i = phi i32 [ %1046, %.lr.ph.i.i.i159.i.i ], [ %1030, %.lr.ph.preheader.i.i.i157.i.i ]
+  %.159.i.i.i161.i.i = phi i32 [ %1047, %.lr.ph.i.i.i159.i.i ], [ %1022, %.lr.ph.preheader.i.i.i157.i.i ]
+  %.13958.i.i.i162.i.i = phi i32 [ %1053, %.lr.ph.i.i.i159.i.i ], [ 0, %.lr.ph.preheader.i.i.i157.i.i ]
+  %1046 = add nsw i32 %.03560.i.i.i160.i.i, -1
+  %1047 = add i32 %.159.i.i.i161.i.i, 1
+  %1048 = zext i32 %.159.i.i.i161.i.i to i64
+  %1049 = getelementptr inbounds nuw i8, ptr %478, i64 %1048
+  %1050 = load i8, ptr %1049, align 1, !tbaa !3
+  %1051 = shl i32 %.13958.i.i.i162.i.i, 8
+  %1052 = zext i8 %1050 to i32
+  %1053 = or disjoint i32 %1051, %1052
+  %.not.i.i.i163.i.i = icmp eq i32 %1046, 0
+  br i1 %.not.i.i.i163.i.i, label %._crit_edge.i.i.i164.i.i, label %.lr.ph.i.i.i159.i.i, !llvm.loop !35
 
-._crit_edge.i.i.i162.i.i:                         ; preds = %.lr.ph.i.i.i157.i.i, %.preheader.i.i.i153.i.i
-  %.07074.i.i.i163.i.i = phi i32 [ %.0.i.i.i152.i.i, %.preheader.i.i.i153.i.i ], [ %.07073.i.i.i156.i.i, %.lr.ph.i.i.i157.i.i ]
-  %.139.lcssa.i.i.i164.i.i = phi i32 [ 0, %.preheader.i.i.i153.i.i ], [ %1054, %.lr.ph.i.i.i157.i.i ]
-  %.1.lcssa.i.i.i165.i.i = phi i32 [ %1023, %.preheader.i.i.i153.i.i ], [ %1046, %.lr.ph.i.i.i157.i.i ]
-  %1055 = icmp sgt i32 %.139.lcssa.i.i.i164.i.i, -1
-  %1056 = icmp sge i32 %.139.lcssa.i.i.i164.i.i, %.07074.i.i.i163.i.i
-  %or.cond55.i.i.i166.i.i = select i1 %1055, i1 %1056, i1 false
-  br i1 %or.cond55.i.i.i166.i.i, label %1057, label %DecodeExtensionType.exit.i
+._crit_edge.i.i.i164.i.i:                         ; preds = %.lr.ph.i.i.i159.i.i, %.preheader.i.i.i155.i.i
+  %.07074.i.i.i165.i.i = phi i32 [ %.0.i.i.i154.i.i, %.preheader.i.i.i155.i.i ], [ %.07073.i.i.i158.i.i, %.lr.ph.i.i.i159.i.i ]
+  %.139.lcssa.i.i.i166.i.i = phi i32 [ 0, %.preheader.i.i.i155.i.i ], [ %1053, %.lr.ph.i.i.i159.i.i ]
+  %.1.lcssa.i.i.i167.i.i = phi i32 [ %1022, %.preheader.i.i.i155.i.i ], [ %1045, %.lr.ph.i.i.i159.i.i ]
+  %1054 = icmp sgt i32 %.139.lcssa.i.i.i166.i.i, -1
+  %1055 = icmp sge i32 %.139.lcssa.i.i.i166.i.i, %.07074.i.i.i165.i.i
+  %or.cond55.i.i.i168.i.i = select i1 %1054, i1 %1055, i1 false
+  br i1 %or.cond55.i.i.i168.i.i, label %1056, label %DecodeExtensionType.exit.i
 
-1057:                                             ; preds = %._crit_edge.i.i.i162.i.i, %1025
-  %.240.i.i.i148.i.i = phi i32 [ %.139.lcssa.i.i.i164.i.i, %._crit_edge.i.i.i162.i.i ], [ %1028, %1025 ]
-  %.2.i.i.i149.i.i = phi i32 [ %.1.lcssa.i.i.i165.i.i, %._crit_edge.i.i.i162.i.i ], [ %1023, %1025 ]
-  %1058 = add nuw i32 %.2.i.i.i149.i.i, %.240.i.i.i148.i.i
-  %1059 = icmp ugt i32 %1058, %476
-  br i1 %1059, label %DecodeExtensionType.exit.i, label %1060
+1056:                                             ; preds = %._crit_edge.i.i.i164.i.i, %1024
+  %.240.i.i.i150.i.i = phi i32 [ %.139.lcssa.i.i.i166.i.i, %._crit_edge.i.i.i164.i.i ], [ %1027, %1024 ]
+  %.2.i.i.i151.i.i = phi i32 [ %.1.lcssa.i.i.i167.i.i, %._crit_edge.i.i.i164.i.i ], [ %1022, %1024 ]
+  %1057 = add nuw i32 %.2.i.i.i151.i.i, %.240.i.i.i150.i.i
+  %1058 = icmp ugt i32 %1057, %476
+  br i1 %1058, label %DecodeExtensionType.exit.i, label %1059
 
-1060:                                             ; preds = %1057
-  %1061 = icmp samesign ult i32 %.240.i.i.i148.i.i, 2
-  %.not.i150.i.i = icmp ult i32 %.2.i.i.i149.i.i, %476
-  %or.cond48.i.i.i = and i1 %1061, %.not.i150.i.i
+1059:                                             ; preds = %1056
+  %1060 = icmp samesign ult i32 %.240.i.i.i150.i.i, 2
+  %.not.i152.i.i = icmp ult i32 %.2.i.i.i151.i.i, %476
+  %or.cond48.i.i.i = and i1 %1060, %.not.i152.i.i
   br i1 %or.cond48.i.i.i, label %DecodePolicyConstraints.exit.i.i, label %DecodeExtensionType.exit.i
 
-DecodePolicyConstraints.exit.i.i:                 ; preds = %1060
-  %1062 = zext nneg i32 %.2.i.i.i149.i.i to i64
-  %1063 = getelementptr inbounds nuw i8, ptr %478, i64 %1062
-  %1064 = load i8, ptr %1063, align 1, !tbaa !3
-  store i8 %1064, ptr %420, align 2, !tbaa !158
+DecodePolicyConstraints.exit.i.i:                 ; preds = %1059
+  %1061 = zext nneg i32 %.2.i.i.i151.i.i to i64
+  %1062 = getelementptr inbounds nuw i8, ptr %478, i64 %1061
+  %1063 = load i8, ptr %1062, align 1, !tbaa !3
+  store i8 %1063, ptr %420, align 2, !tbaa !158
   br label %DecodeExtensionType.exit.i
 
-1065:                                             ; preds = %474
+1064:                                             ; preds = %474
   %.not107.i.i = icmp eq i8 %479, 0
   %spec.select122.i.i = select i1 %.not107.i.i, i32 0, i32 -160
   br label %DecodeExtensionType.exit.i
 
-DecodeExtensionType.exit.i:                       ; preds = %1065, %DecodePolicyConstraints.exit.i.i, %1060, %1057, %._crit_edge.i.i.i162.i.i, %.thread68.i.i.i167.i.i, %1041, %1035, %1021, %1016, %1012, %._crit_edge.i.i.i.i.i.i.i, %.thread68.i.i.i.i.i.i.i, %997, %991, %.thread.i.i.i.i.i.i.i, %973, %969, %968, %DecodeNsCertType.exit.i.i, %957, %953, %DecodeNameConstraints.exit.i.i, %929, %928, %DecodeExtKeyUsage.exit.i.i, %868, %DecodeKeyUsage.exit.i.i, %847, %846, %DecodeSubjKeyId.exit.thread.i, %DecodeSubjKeyId.exit.i, %843, %GetOctetString.exit.i.i, %796, %792, %DecodeAuthKeyId.exit.i, %DecodeAuthKeyId.exit.thread.i, %777, %773, %DecodeAltNames.exit.i.i, %589, %588, %DecodeAuthInfo.exit.i, %529, %525, %DecodeCrlDist.exit.i.i, %509, %508, %DecodeBasicCaConstraint.exit.i.i, %DecodeBasicCaConstraint.exit.thread170.i.i, %480
-  %.0.i.i210 = phi i32 [ 0, %DecodeNsCertType.exit.i.i ], [ -144, %953 ], [ -144, %480 ], [ -144, %509 ], [ -144, %525 ], [ -144, %589 ], [ -144, %773 ], [ -144, %792 ], [ -144, %847 ], [ -144, %868 ], [ -144, %929 ], [ -144, %969 ], [ %spec.select115.i.i, %846 ], [ %spec.select119.i.i, %DecodeNameConstraints.exit.i.i ], [ %spec.select122.i.i, %1065 ], [ 0, %DecodeAuthKeyId.exit.thread.i ], [ 0, %DecodeBasicCaConstraint.exit.thread170.i.i ], [ %spec.select108.i.i, %DecodeCrlDist.exit.i.i ], [ 0, %DecodeExtKeyUsage.exit.i.i ], [ -160, %529 ], [ %.3.i.i.i, %DecodeAltNames.exit.i.i ], [ -140, %.thread68.i.i.i167.i.i ], [ %spec.select116.i.i, %DecodeKeyUsage.exit.i.i ], [ -160, %777 ], [ 0, %DecodeAuthInfo.exit.i ], [ 0, %957 ], [ -160, %796 ], [ -140, %508 ], [ 0, %DecodeBasicCaConstraint.exit.i.i ], [ -140, %928 ], [ -140, %968 ], [ 0, %DecodePolicyConstraints.exit.i.i ], [ -140, %991 ], [ -140, %1057 ], [ -140, %._crit_edge.i.i.i162.i.i ], [ -140, %1016 ], [ -140, %1041 ], [ -140, %1060 ], [ -140, %1035 ], [ -140, %.thread.i.i.i.i.i.i.i ], [ -140, %973 ], [ -140, %.thread68.i.i.i.i.i.i.i ], [ -140, %997 ], [ -140, %._crit_edge.i.i.i.i.i.i.i ], [ -140, %1012 ], [ -140, %1021 ], [ -140, %588 ], [ 0, %843 ], [ %spec.select.i, %DecodeAuthKeyId.exit.i ], [ -140, %DecodeSubjKeyId.exit.thread.i ], [ 0, %DecodeSubjKeyId.exit.i ], [ 0, %GetOctetString.exit.i.i ]
-  %1066 = load i32, ptr %30, align 4, !tbaa !22
-  %1067 = add i32 %1066, %476
-  store i32 %1067, ptr %30, align 4, !tbaa !22
-  br label %1068
+DecodeExtensionType.exit.i:                       ; preds = %1064, %DecodePolicyConstraints.exit.i.i, %1059, %1056, %._crit_edge.i.i.i164.i.i, %.thread68.i.i.i169.i.i, %1040, %1034, %1020, %1015, %1011, %._crit_edge.i.i.i.i.i.i.i, %.thread68.i.i.i.i.i.i.i, %996, %990, %.thread.i.i.i.i.i.i.i, %972, %968, %967, %DecodeNsCertType.exit.i.i, %956, %952, %DecodeNameConstraints.exit.i.i, %928, %927, %DecodeExtKeyUsage.exit.i.i, %867, %DecodeKeyUsage.exit.i.i, %846, %845, %DecodeSubjKeyId.exit.thread.i, %DecodeSubjKeyId.exit.i, %842, %GetOctetString.exit.i.i, %795, %791, %DecodeAuthKeyId.exit.i, %DecodeAuthKeyId.exit.thread.i, %776, %772, %DecodeAltNames.exit.i.i, %589, %588, %DecodeAuthInfo.exit.i, %529, %525, %DecodeCrlDist.exit.i.i, %509, %508, %DecodeBasicCaConstraint.exit.i.i, %DecodeBasicCaConstraint.exit.thread172.i.i, %480
+  %.0.i.i210 = phi i32 [ 0, %DecodeNsCertType.exit.i.i ], [ -144, %952 ], [ -144, %480 ], [ -144, %509 ], [ -144, %525 ], [ -144, %589 ], [ -144, %772 ], [ -144, %791 ], [ -144, %846 ], [ -144, %867 ], [ -144, %928 ], [ -144, %968 ], [ %spec.select115.i.i, %845 ], [ %spec.select119.i.i, %DecodeNameConstraints.exit.i.i ], [ %spec.select122.i.i, %1064 ], [ 0, %DecodeAuthKeyId.exit.thread.i ], [ 0, %DecodeBasicCaConstraint.exit.thread172.i.i ], [ %spec.select108.i.i, %DecodeCrlDist.exit.i.i ], [ 0, %DecodeExtKeyUsage.exit.i.i ], [ -160, %529 ], [ %.3.i.i.i, %DecodeAltNames.exit.i.i ], [ -140, %.thread68.i.i.i169.i.i ], [ %spec.select116.i.i, %DecodeKeyUsage.exit.i.i ], [ -160, %776 ], [ 0, %DecodeAuthInfo.exit.i ], [ 0, %956 ], [ -160, %795 ], [ -140, %508 ], [ 0, %DecodeBasicCaConstraint.exit.i.i ], [ -140, %927 ], [ -140, %967 ], [ 0, %DecodePolicyConstraints.exit.i.i ], [ -140, %990 ], [ -140, %1056 ], [ -140, %._crit_edge.i.i.i164.i.i ], [ -140, %1015 ], [ -140, %1040 ], [ -140, %1059 ], [ -140, %1034 ], [ -140, %.thread.i.i.i.i.i.i.i ], [ -140, %972 ], [ -140, %.thread68.i.i.i.i.i.i.i ], [ -140, %996 ], [ -140, %._crit_edge.i.i.i.i.i.i.i ], [ -140, %1011 ], [ -140, %1020 ], [ -140, %588 ], [ 0, %842 ], [ %spec.select.i, %DecodeAuthKeyId.exit.i ], [ -140, %DecodeSubjKeyId.exit.thread.i ], [ 0, %DecodeSubjKeyId.exit.i ], [ 0, %GetOctetString.exit.i.i ]
+  %1065 = load i32, ptr %30, align 4, !tbaa !22
+  %1066 = add i32 %1065, %476
+  store i32 %1066, ptr %30, align 4, !tbaa !22
+  br label %1067
 
-1068:                                             ; preds = %DecodeExtensionType.exit.i, %471
-  %1069 = phi i32 [ %1067, %DecodeExtensionType.exit.i ], [ %.pre87.i, %471 ]
+1067:                                             ; preds = %DecodeExtensionType.exit.i, %471
+  %1068 = phi i32 [ %1066, %DecodeExtensionType.exit.i ], [ %.pre87.i, %471 ]
   %.3.i = phi i32 [ %.0.i.i210, %DecodeExtensionType.exit.i ], [ %472, %471 ]
-  %1070 = icmp eq i32 %.3.i, -160
-  %spec.select29.i = select i1 %1070, i32 -160, i32 %.02477.i
-  %spec.select30.i = select i1 %1070, i32 0, i32 %.3.i
+  %1069 = icmp eq i32 %.3.i, -160
+  %spec.select29.i = select i1 %1069, i32 -160, i32 %.02477.i
+  %spec.select30.i = select i1 %1069, i32 0, i32 %.3.i
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
-  %1071 = icmp eq i32 %spec.select30.i, 0
-  %1072 = icmp ult i32 %1069, %408
-  %1073 = select i1 %1071, i1 %1072, i1 false
-  br i1 %1073, label %471, label %._crit_edge.loopexit.i, !llvm.loop !159
+  %1070 = icmp eq i32 %spec.select30.i, 0
+  %1071 = icmp ult i32 %1068, %408
+  %1072 = select i1 %1070, i1 %1071, i1 false
+  br i1 %1072, label %471, label %._crit_edge.loopexit.i, !llvm.loop !159
 
-._crit_edge.loopexit.i:                           ; preds = %1068
-  %1074 = select i1 %1071, i32 %spec.select29.i, i32 %spec.select30.i
+._crit_edge.loopexit.i:                           ; preds = %1067
+  %1073 = select i1 %1070, i32 %spec.select29.i, i32 %spec.select30.i
   br label %DecodeCertExtensions.exit
 
 DecodeCertExtensions.exit:                        ; preds = %409, %._crit_edge.loopexit.i
-  %.lcssa76.i = phi i32 [ %410, %409 ], [ %1074, %._crit_edge.loopexit.i ]
+  %.lcssa76.i = phi i32 [ %410, %409 ], [ %1073, %._crit_edge.loopexit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   %.not193 = icmp eq ptr %2, null
-  br i1 %.not193, label %1077, label %1075
+  br i1 %.not193, label %1076, label %1074
 
 DecodeCertExtensions.exit.thread:                 ; preds = %406
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   %.not193285 = icmp eq ptr %2, null
-  br i1 %.not193285, label %1077, label %.sink.split
+  br i1 %.not193285, label %1076, label %.sink.split
 
-1075:                                             ; preds = %DecodeCertExtensions.exit
-  %1076 = icmp eq i32 %.lcssa76.i, -160
-  %spec.select407 = select i1 %1076, i32 -160, i32 0
-  %spec.select408 = select i1 %1076, i32 0, i32 %.lcssa76.i
+1074:                                             ; preds = %DecodeCertExtensions.exit
+  %1075 = icmp eq i32 %.lcssa76.i, -160
+  %spec.select407 = select i1 %1075, i32 -160, i32 0
+  %spec.select408 = select i1 %1075, i32 0, i32 %.lcssa76.i
   br label %.sink.split
 
-.sink.split:                                      ; preds = %1075, %DecodeCertExtensions.exit.thread
-  %.sink = phi i32 [ %spec.select407, %1075 ], [ 0, %DecodeCertExtensions.exit.thread ]
-  %.15.ph = phi i32 [ %spec.select408, %1075 ], [ -173, %DecodeCertExtensions.exit.thread ]
+.sink.split:                                      ; preds = %1074, %DecodeCertExtensions.exit.thread
+  %.sink = phi i32 [ %spec.select407, %1074 ], [ 0, %DecodeCertExtensions.exit.thread ]
+  %.15.ph = phi i32 [ %spec.select408, %1074 ], [ -173, %DecodeCertExtensions.exit.thread ]
   store i32 %.sink, ptr %2, align 4, !tbaa !22
-  br label %1077
+  br label %1076
 
-1077:                                             ; preds = %.sink.split, %DecodeCertExtensions.exit.thread, %DecodeCertExtensions.exit, %403, %400
+1076:                                             ; preds = %.sink.split, %DecodeCertExtensions.exit.thread, %DecodeCertExtensions.exit, %403, %400
   %.15 = phi i32 [ %.14, %400 ], [ 0, %403 ], [ -173, %DecodeCertExtensions.exit.thread ], [ %.lcssa76.i, %DecodeCertExtensions.exit ], [ %.15.ph, %.sink.split ]
-  %1078 = or i32 %.15, %.1166
-  %or.cond35.not194 = icmp eq i32 %1078, 0
-  %1079 = icmp ne i32 %.0159259, 0
-  %or.cond37 = and i1 %1079, %or.cond35.not194
+  %1077 = or i32 %.15, %.1166
+  %or.cond35.not194 = icmp eq i32 %1077, 0
+  %1078 = icmp ne i32 %.0159259, 0
+  %or.cond37 = and i1 %1078, %or.cond35.not194
   %spec.select200 = select i1 %or.cond37, i32 %.0159259, i32 %.15
   call void @llvm.lifetime.end.p0(ptr nonnull %46)
   call void @llvm.lifetime.end.p0(ptr nonnull %45)

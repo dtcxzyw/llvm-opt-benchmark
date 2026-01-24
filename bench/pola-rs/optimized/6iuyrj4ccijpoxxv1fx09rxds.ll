@@ -3082,10 +3082,9 @@ define hidden void @"_ZN124_$LT$futures_util..stream..try_stream..try_filter..Tr
   %15 = extractvalue { i64, i1 } %14, 1
   %16 = add nuw i64 %12, %7
   %not. = xor i1 %15, true
-  %spec.select3 = select i1 %15, i64 undef, i64 %16, !prof !5
   %narrow = select i1 %13, i1 %not., i1 false
   %.sroa.01.0 = zext i1 %narrow to i64
-  %.sroa.42.0 = select i1 %13, i64 %spec.select3, i64 undef
+  %.sroa.42.0 = select i1 %narrow, i64 %16, i64 undef
   store i64 0, ptr %0, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.01.0, ptr %17, align 8
@@ -3114,10 +3113,9 @@ define internal void @"_ZN124_$LT$futures_util..stream..try_stream..try_filter..
   %15 = extractvalue { i64, i1 } %14, 1
   %16 = add nuw i64 %12, %7
   %not. = xor i1 %15, true
-  %spec.select3 = select i1 %15, i64 undef, i64 %16, !prof !5
   %narrow = select i1 %13, i1 %not., i1 false
   %.sroa.01.0 = zext i1 %narrow to i64
-  %.sroa.42.0 = select i1 %13, i64 %spec.select3, i64 undef
+  %.sroa.42.0 = select i1 %narrow, i64 %16, i64 undef
   store i64 0, ptr %0, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.01.0, ptr %17, align 8

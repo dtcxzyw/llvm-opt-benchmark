@@ -78294,8 +78294,8 @@ _ZNK4llvm10IRPosition14getAnchorValueEv.exit.i:   ; preds = %74, %2
 _ZNK4llvm10IRPosition7getCtxIEv.exit:             ; preds = %_ZNK4llvm10IRPosition14getAnchorValueEv.exit.i, %86, %88, %.sink.split.i
   %.1.i = phi ptr [ %.0.i.i, %_ZNK4llvm10IRPosition14getAnchorValueEv.exit.i ], [ null, %88 ], [ null, %86 ], [ %94, %.sink.split.i ]
   %95 = load i8, ptr %69, align 8, !tbaa !156
-  %96 = icmp ult i8 %95, 29
-  br i1 %96, label %_ZN4llvm3isaINS_8CallBaseEPNS_11InstructionEEEbRKT0_.exit.thread.i, label %97
+  %96 = icmp ugt i8 %95, 28
+  br i1 %96, label %97, label %_ZN4llvm3isaINS_8CallBaseEPNS_11InstructionEEEbRKT0_.exit.thread.i
 
 97:                                               ; preds = %_ZNK4llvm10IRPosition7getCtxIEv.exit
   switch i8 %95, label %_ZN4llvm3isaINS_8CallBaseEPNS_11InstructionEEEbRKT0_.exit.i [

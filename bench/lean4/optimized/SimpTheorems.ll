@@ -2052,7 +2052,7 @@ lean_obj_tag.exit:                                ; preds = %5, %8
   %12 = ptrtoint ptr %1 to i64
   %13 = and i64 %12, 1
   %.not.i31 = icmp eq i64 %13, 0
-  br i1 %11, label %14, label %37
+  br i1 %11, label %14, label %38
 
 14:                                               ; preds = %lean_obj_tag.exit
   br i1 %.not.i31, label %18, label %15
@@ -2089,129 +2089,129 @@ lean_obj_tag.exit34:                              ; preds = %15, %18
 33:                                               ; preds = %22
   %34 = tail call zeroext i8 @lean_name_eq(ptr noundef %24, ptr noundef %28) #6
   %35 = icmp eq i8 %34, 0
-  %36 = icmp eq i8 %26, 0
-  %. = select i1 %36, i8 %30, i8 0
-  %.0 = select i1 %35, i8 0, i8 %.
+  %36 = icmp ne i8 %26, 0
+  %37 = select i1 %35, i1 true, i1 %36
+  %.0 = select i1 %37, i8 0, i8 %30
   br label %lean_dec.exit
 
-37:                                               ; preds = %lean_obj_tag.exit
-  br i1 %.not.i31, label %41, label %38
+38:                                               ; preds = %lean_obj_tag.exit
+  br i1 %.not.i31, label %42, label %39
 
-38:                                               ; preds = %37
-  %39 = lshr i64 %12, 1
-  %40 = trunc i64 %39 to i32
+39:                                               ; preds = %38
+  %40 = lshr i64 %12, 1
+  %41 = trunc i64 %40 to i32
   br label %lean_obj_tag.exit38
 
-41:                                               ; preds = %37
-  %42 = getelementptr i8, ptr %1, i64 4
-  %.val.i37 = load i32, ptr %42, align 4
-  %43 = lshr i32 %.val.i37, 24
+42:                                               ; preds = %38
+  %43 = getelementptr i8, ptr %1, i64 4
+  %.val.i37 = load i32, ptr %43, align 4
+  %44 = lshr i32 %.val.i37, 24
   br label %lean_obj_tag.exit38
 
-lean_obj_tag.exit38:                              ; preds = %38, %41
-  %.0.i36 = phi i32 [ %40, %38 ], [ %43, %41 ]
-  %44 = icmp eq i32 %.0.i36, 0
-  br i1 %44, label %lean_dec.exit, label %45
+lean_obj_tag.exit38:                              ; preds = %39, %42
+  %.0.i36 = phi i32 [ %41, %39 ], [ %44, %42 ]
+  %45 = icmp eq i32 %.0.i36, 0
+  br i1 %45, label %lean_dec.exit, label %46
 
-45:                                               ; preds = %lean_obj_tag.exit38
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %47 = load ptr, ptr %46, align 8, !tbaa !9
-  %48 = ptrtoint ptr %47 to i64
-  %49 = and i64 %48, 1
-  %.not.i39 = icmp eq i64 %49, 0
-  br i1 %.not.i39, label %50, label %l_Lean_Meta_Origin_key.exit
+46:                                               ; preds = %lean_obj_tag.exit38
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %48 = load ptr, ptr %47, align 8, !tbaa !9
+  %49 = ptrtoint ptr %48 to i64
+  %50 = and i64 %49, 1
+  %.not.i39 = icmp eq i64 %50, 0
+  br i1 %.not.i39, label %51, label %l_Lean_Meta_Origin_key.exit
 
-50:                                               ; preds = %45
-  %.val.i.i = load i32, ptr %47, align 4, !tbaa !4
-  %51 = icmp sgt i32 %.val.i.i, 0
-  br i1 %51, label %52, label %54, !prof !11
+51:                                               ; preds = %46
+  %.val.i.i = load i32, ptr %48, align 4, !tbaa !4
+  %52 = icmp sgt i32 %.val.i.i, 0
+  br i1 %52, label %53, label %55, !prof !11
 
-52:                                               ; preds = %50
-  %53 = add nuw i32 %.val.i.i, 1
-  store i32 %53, ptr %47, align 4, !tbaa !4
+53:                                               ; preds = %51
+  %54 = add nuw i32 %.val.i.i, 1
+  store i32 %54, ptr %48, align 4, !tbaa !4
   br label %l_Lean_Meta_Origin_key.exit
 
-54:                                               ; preds = %50
+55:                                               ; preds = %51
   %.not.i.i = icmp eq i32 %.val.i.i, 0
-  br i1 %.not.i.i, label %l_Lean_Meta_Origin_key.exit, label %55
+  br i1 %.not.i.i, label %l_Lean_Meta_Origin_key.exit, label %56
 
-55:                                               ; preds = %54
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %47) #6
+56:                                               ; preds = %55
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %48) #6
   br label %l_Lean_Meta_Origin_key.exit
 
-l_Lean_Meta_Origin_key.exit:                      ; preds = %45, %52, %54, %55
-  %56 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %57 = load ptr, ptr %56, align 8, !tbaa !9
-  %58 = ptrtoint ptr %57 to i64
-  %59 = and i64 %58, 1
-  %.not.i40 = icmp eq i64 %59, 0
-  br i1 %.not.i40, label %60, label %l_Lean_Meta_Origin_key.exit43
+l_Lean_Meta_Origin_key.exit:                      ; preds = %46, %53, %55, %56
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %58 = load ptr, ptr %57, align 8, !tbaa !9
+  %59 = ptrtoint ptr %58 to i64
+  %60 = and i64 %59, 1
+  %.not.i40 = icmp eq i64 %60, 0
+  br i1 %.not.i40, label %61, label %l_Lean_Meta_Origin_key.exit43
 
-60:                                               ; preds = %l_Lean_Meta_Origin_key.exit
-  %.val.i.i41 = load i32, ptr %57, align 4, !tbaa !4
-  %61 = icmp sgt i32 %.val.i.i41, 0
-  br i1 %61, label %62, label %64, !prof !11
+61:                                               ; preds = %l_Lean_Meta_Origin_key.exit
+  %.val.i.i41 = load i32, ptr %58, align 4, !tbaa !4
+  %62 = icmp sgt i32 %.val.i.i41, 0
+  br i1 %62, label %63, label %65, !prof !11
 
-62:                                               ; preds = %60
-  %63 = add nuw i32 %.val.i.i41, 1
-  store i32 %63, ptr %57, align 4, !tbaa !4
-  br label %67
+63:                                               ; preds = %61
+  %64 = add nuw i32 %.val.i.i41, 1
+  store i32 %64, ptr %58, align 4, !tbaa !4
+  br label %68
 
-64:                                               ; preds = %60
+65:                                               ; preds = %61
   %.not.i.i42 = icmp eq i32 %.val.i.i41, 0
-  br i1 %.not.i.i42, label %67, label %65
+  br i1 %.not.i.i42, label %68, label %66
 
-65:                                               ; preds = %64
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %57) #6
-  br label %67
+66:                                               ; preds = %65
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %58) #6
+  br label %68
 
 l_Lean_Meta_Origin_key.exit43:                    ; preds = %l_Lean_Meta_Origin_key.exit
-  %66 = tail call zeroext i8 @l_Lean_Name_lt(ptr noundef %47, ptr noundef %57) #6
+  %67 = tail call zeroext i8 @l_Lean_Name_lt(ptr noundef %48, ptr noundef %58) #6
   br label %lean_dec.exit27
 
-67:                                               ; preds = %62, %64, %65
-  %68 = tail call zeroext i8 @l_Lean_Name_lt(ptr noundef %47, ptr noundef nonnull %57) #6
-  %69 = load i32, ptr %57, align 4, !tbaa !4
-  %70 = icmp sgt i32 %69, 1
-  br i1 %70, label %71, label %73, !prof !11
+68:                                               ; preds = %63, %65, %66
+  %69 = tail call zeroext i8 @l_Lean_Name_lt(ptr noundef %48, ptr noundef nonnull %58) #6
+  %70 = load i32, ptr %58, align 4, !tbaa !4
+  %71 = icmp sgt i32 %70, 1
+  br i1 %71, label %72, label %74, !prof !11
 
-71:                                               ; preds = %67
-  %72 = add nsw i32 %69, -1
-  store i32 %72, ptr %57, align 4, !tbaa !4
+72:                                               ; preds = %68
+  %73 = add nsw i32 %70, -1
+  store i32 %73, ptr %58, align 4, !tbaa !4
   br label %lean_dec.exit27
 
-73:                                               ; preds = %67
-  %.not.i = icmp eq i32 %69, 0
-  br i1 %.not.i, label %lean_dec.exit27, label %74
+74:                                               ; preds = %68
+  %.not.i = icmp eq i32 %70, 0
+  br i1 %.not.i, label %lean_dec.exit27, label %75
 
-74:                                               ; preds = %73
-  tail call void @lean_dec_ref_cold(ptr noundef nonnull %57) #6
+75:                                               ; preds = %74
+  tail call void @lean_dec_ref_cold(ptr noundef nonnull %58) #6
   br label %lean_dec.exit27
 
-lean_dec.exit27:                                  ; preds = %74, %73, %71, %l_Lean_Meta_Origin_key.exit43
-  %75 = phi i8 [ %66, %l_Lean_Meta_Origin_key.exit43 ], [ %68, %71 ], [ %68, %73 ], [ %68, %74 ]
-  br i1 %.not.i39, label %76, label %lean_dec.exit
+lean_dec.exit27:                                  ; preds = %75, %74, %72, %l_Lean_Meta_Origin_key.exit43
+  %76 = phi i8 [ %67, %l_Lean_Meta_Origin_key.exit43 ], [ %69, %72 ], [ %69, %74 ], [ %69, %75 ]
+  br i1 %.not.i39, label %77, label %lean_dec.exit
 
-76:                                               ; preds = %lean_dec.exit27
-  %77 = load i32, ptr %47, align 4, !tbaa !4
-  %78 = icmp sgt i32 %77, 1
-  br i1 %78, label %79, label %81, !prof !11
+77:                                               ; preds = %lean_dec.exit27
+  %78 = load i32, ptr %48, align 4, !tbaa !4
+  %79 = icmp sgt i32 %78, 1
+  br i1 %79, label %80, label %82, !prof !11
 
-79:                                               ; preds = %76
-  %80 = add nsw i32 %77, -1
-  store i32 %80, ptr %47, align 4, !tbaa !4
+80:                                               ; preds = %77
+  %81 = add nsw i32 %78, -1
+  store i32 %81, ptr %48, align 4, !tbaa !4
   br label %lean_dec.exit
 
-81:                                               ; preds = %76
-  %.not.i28 = icmp eq i32 %77, 0
-  br i1 %.not.i28, label %lean_dec.exit, label %82
+82:                                               ; preds = %77
+  %.not.i28 = icmp eq i32 %78, 0
+  br i1 %.not.i28, label %lean_dec.exit, label %83
 
-82:                                               ; preds = %81
-  tail call void @lean_dec_ref_cold(ptr noundef nonnull %47) #6
+83:                                               ; preds = %82
+  tail call void @lean_dec_ref_cold(ptr noundef nonnull %48) #6
   br label %lean_dec.exit
 
-lean_dec.exit:                                    ; preds = %lean_dec.exit27, %79, %81, %82, %lean_obj_tag.exit38, %lean_obj_tag.exit34, %33, %22
-  %.2 = phi i8 [ 1, %lean_obj_tag.exit38 ], [ 1, %22 ], [ 0, %lean_obj_tag.exit34 ], [ %.0, %33 ], [ %75, %82 ], [ %75, %81 ], [ %75, %79 ], [ %75, %lean_dec.exit27 ]
+lean_dec.exit:                                    ; preds = %lean_dec.exit27, %80, %82, %83, %lean_obj_tag.exit38, %lean_obj_tag.exit34, %33, %22
+  %.2 = phi i8 [ 1, %lean_obj_tag.exit38 ], [ 1, %22 ], [ 0, %lean_obj_tag.exit34 ], [ %.0, %33 ], [ %76, %83 ], [ %76, %82 ], [ %76, %80 ], [ %76, %lean_dec.exit27 ]
   ret i8 %.2
 }
 

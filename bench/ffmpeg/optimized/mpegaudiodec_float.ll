@@ -114,29 +114,29 @@ define internal range(i32 -12, 1) i32 @decode_init(ptr noundef %0) #0 {
   %15 = icmp eq i32 %14, 3
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %17 = load i32, ptr %16, align 8, !tbaa !38
-  %.not = icmp eq i32 %17, 86030
-  %spec.select = select i1 %.not, i32 8, i32 3
-  %.sink = select i1 %15, i32 %spec.select, i32 8
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 348
-  store i32 %.sink, ptr %18, align 4, !tbaa !39
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 528
-  %20 = load i32, ptr %19, align 8, !tbaa !40
-  %21 = getelementptr inbounds nuw i8, ptr %3, i64 32936
-  store i32 %20, ptr %21, align 8, !tbaa !41
-  %22 = icmp eq i32 %17, 86029
-  br i1 %22, label %23, label %25
+  %.not = icmp ne i32 %17, 86030
+  %18 = and i1 %15, %.not
+  %.sink = select i1 %18, i32 3, i32 8
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 348
+  store i32 %.sink, ptr %19, align 4, !tbaa !39
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 528
+  %21 = load i32, ptr %20, align 8, !tbaa !40
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 32936
+  store i32 %21, ptr %22, align 8, !tbaa !41
+  %23 = icmp eq i32 %17, 86029
+  br i1 %23, label %24, label %26
 
-23:                                               ; preds = %._crit_edge
-  %24 = getelementptr inbounds nuw i8, ptr %3, i64 32928
-  store i32 1, ptr %24, align 16, !tbaa !42
-  br label %25
+24:                                               ; preds = %._crit_edge
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 32928
+  store i32 1, ptr %25, align 16, !tbaa !42
+  br label %26
 
-25:                                               ; preds = %23, %._crit_edge
-  %26 = tail call i32 @pthread_once(ptr noundef nonnull @decode_init.init_static_once, ptr noundef nonnull @decode_init_static) #14
+26:                                               ; preds = %24, %._crit_edge
+  %27 = tail call i32 @pthread_once(ptr noundef nonnull @decode_init.init_static_once, ptr noundef nonnull @decode_init_static) #14
   br label %.critedge
 
-.critedge:                                        ; preds = %1, %25
-  %.1 = phi i32 [ 0, %25 ], [ -12, %1 ]
+.critedge:                                        ; preds = %1, %26
+  %.1 = phi i32 [ 0, %26 ], [ -12, %1 ]
   ret i32 %.1
 }
 

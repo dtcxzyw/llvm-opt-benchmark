@@ -3770,62 +3770,62 @@ define void @_ZN16PacketListHeader12setAlignmentEP7QAction(ptr noundef align 8 d
   %3 = alloca %class.QVariant, align 8
   %4 = alloca %class.QVariant, align 8
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %22, label %5
+  br i1 %.not, label %23, label %5
 
 5:                                                ; preds = %2
   %6 = tail call noundef ptr @_ZNK7QAction11actionGroupEv(ptr noundef nonnull align 8 dereferenceable_or_null(16) %1)
   %.not14 = icmp eq ptr %6, null
-  br i1 %.not14, label %22, label %7
+  br i1 %.not14, label %23, label %7
 
 7:                                                ; preds = %5
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZNK7QObject8propertyEPKc(ptr dead_on_unwind nonnull writable sret(%class.QVariant) align 8 %3, ptr noundef nonnull align 8 dereferenceable_or_null(16) %6, ptr noundef nonnull @.str.3)
   %8 = invoke noundef i32 @_ZNK8QVariant5toIntEPb(ptr noundef nonnull align 8 dereferenceable_or_null(32) %3, ptr noundef null)
-          to label %9 unwind label %18
+          to label %9 unwind label %19
 
 9:                                                ; preds = %7
   call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(32) %3) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %10 = icmp sgt i32 %8, -1
-  br i1 %10, label %11, label %22
+  br i1 %10, label %11, label %23
 
 11:                                               ; preds = %9
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZNK7QAction4dataEv(ptr dead_on_unwind nonnull writable sret(%class.QVariant) align 8 %4, ptr noundef nonnull align 8 dereferenceable_or_null(16) %1)
   %12 = invoke i16 @_ZNK8QVariant6toCharEv(ptr noundef nonnull align 8 dereferenceable_or_null(32) %4)
-          to label %13 unwind label %20
+          to label %13 unwind label %21
 
 13:                                               ; preds = %11
   call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(32) %4) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %14 = call noundef zeroext i1 @_ZNK7QAction9isCheckedEv(ptr noundef nonnull align 8 dereferenceable_or_null(16) %1)
-  %15 = icmp ugt i16 %12, 255
+  %15 = icmp ult i16 %12, 256
   %16 = trunc nuw i16 %12 to i8
-  %spec.select.i = select i1 %15, i8 0, i8 %16
-  %17 = select i1 %14, i8 %spec.select.i, i8 0
-  call void @recent_set_column_xalign(i32 noundef %8, i8 noundef signext %17)
+  %17 = select i1 %14, i1 %15, i1 false
+  %18 = select i1 %17, i8 %16, i8 0
+  call void @recent_set_column_xalign(i32 noundef %8, i8 noundef signext %18)
   call void @_ZN16PacketListHeader13updatePacketsEb(ptr noundef align 8 dereferenceable_or_null(44) %0, i1 noundef zeroext false)
-  br label %22
+  br label %23
 
-18:                                               ; preds = %7
-  %19 = landingpad { ptr, i32 }
+19:                                               ; preds = %7
+  %20 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(32) %3) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %23
+  br label %24
 
-20:                                               ; preds = %11
-  %21 = landingpad { ptr, i32 }
+21:                                               ; preds = %11
+  %22 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(32) %4) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %23
+  br label %24
 
-22:                                               ; preds = %5, %13, %9, %2
+23:                                               ; preds = %5, %13, %9, %2
   ret void
 
-23:                                               ; preds = %20, %18
-  %.pn = phi { ptr, i32 } [ %21, %20 ], [ %19, %18 ]
+24:                                               ; preds = %21, %19
+  %.pn = phi { ptr, i32 } [ %22, %21 ], [ %20, %19 ]
   resume { ptr, i32 } %.pn
 }
 

@@ -6240,8 +6240,8 @@ if.end:                                           ; preds = %_ZNK8QuantLib8Setti
   %9 = load i64, ptr %ref.tmp9, align 8, !tbaa !73
   %cmp.i2 = icmp eq i64 %8, %9
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp9)
-  %__b.__a.i.val = call i64 @llvm.smax.i64(i64 %call7, i64 %8)
-  %retval.sroa.0.0 = select i1 %cmp.i2, i64 %call7, i64 %__b.__a.i.val
+  %10 = call i64 @llvm.smax.i64(i64 %call7, i64 %8)
+  %retval.sroa.0.0 = select i1 %cmp.i2, i64 %call7, i64 %10
   ret i64 %retval.sroa.0.0
 }
 

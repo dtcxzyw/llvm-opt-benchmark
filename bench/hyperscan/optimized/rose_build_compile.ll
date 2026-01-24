@@ -551,11 +551,12 @@ _ZNK3ue214RoseLiteralMap2atEj.exit:               ; preds = %74, %68
   %100 = and i8 %93, -33
   %101 = add i8 %100, -91
   %102 = icmp ult i8 %101, -26
-  %..0.i.i = select i1 %99, i1 true, i1 %.021.i.i
   %103 = select i1 %102, i1 true, i1 %99
   %not..i.i = xor i1 %103, true
   %.13.i.i = select i1 %not..i.i, i1 true, i1 %.0220.i.i
-  %.1.i.i = select i1 %102, i1 %.021.i.i, i1 %..0.i.i
+  %not.27.i.i = xor i1 %102, true
+  %not.25.i.i = select i1 %not.27.i.i, i1 %99, i1 false
+  %.1.i.i = select i1 %not.25.i.i, i1 true, i1 %.021.i.i
   %104 = add nuw i64 %.sroa.6.019.i.i, 1
   %.not.i.i = icmp eq i64 %104, %88
   br i1 %.not.i.i, label %_ZN3ue217mixed_sensitivityERKNS_11ue2_literalE.exit, label %.lr.ph.split.i.i, !llvm.loop !8

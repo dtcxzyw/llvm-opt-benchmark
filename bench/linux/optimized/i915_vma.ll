@@ -306,23 +306,23 @@ define internal fastcc ptr @vma_create(ptr noundef %0, ptr noundef %1, ptr nound
   %99 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br i1 %22, label %.split.us, label %.split
 
-.split.us:                                        ; preds = %97, %.thread
-  %100 = phi ptr [ %113, %.thread ], [ %95, %97 ]
+.split.us:                                        ; preds = %97, %.thread.us
+  %100 = phi ptr [ %113, %.thread.us ], [ %95, %97 ]
   %101 = getelementptr i8, ptr %100, i64 -360
   %102 = load ptr, ptr %101, align 8
   %103 = ptrtoint ptr %102 to i64
   %104 = sub i64 %103, %98
   %105 = icmp eq i64 %104, 0
-  br i1 %105, label %106, label %.thread
+  br i1 %105, label %106, label %.thread.us
 
 106:                                              ; preds = %.split.us
   %107 = getelementptr i8, ptr %100, i64 -88
   %108 = load i32, ptr %107, align 8
   %109 = zext i32 %108 to i64
   %.not.us = icmp eq i32 %108, 0
-  br i1 %.not.us, label %.split16.us, label %.thread
+  br i1 %.not.us, label %.split16.us, label %.thread.us
 
-.thread:                                          ; preds = %.split.us, %106
+.thread.us:                                       ; preds = %106, %.split.us
   %110 = phi i64 [ %109, %106 ], [ %104, %.split.us ]
   %111 = icmp slt i64 %110, 0
   %.v.us = select i1 %111, i64 8, i64 16
@@ -331,7 +331,7 @@ define internal fastcc ptr @vma_create(ptr noundef %0, ptr noundef %1, ptr nound
   %114 = icmp eq ptr %113, null
   br i1 %114, label %.split18.us, label %.split.us, !llvm.loop !9
 
-.thread42:                                        ; preds = %.split, %138
+.thread:                                          ; preds = %.split, %138
   %115 = phi i64 [ %139, %138 ], [ %124, %.split ]
   %116 = icmp slt i64 %115, 0
   %.v = select i1 %116, i64 8, i64 16
@@ -340,14 +340,14 @@ define internal fastcc ptr @vma_create(ptr noundef %0, ptr noundef %1, ptr nound
   %119 = icmp eq ptr %118, null
   br i1 %119, label %.split18.us, label %.split, !llvm.loop !9
 
-.split:                                           ; preds = %97, %.thread42
-  %120 = phi ptr [ %118, %.thread42 ], [ %95, %97 ]
+.split:                                           ; preds = %97, %.thread
+  %120 = phi ptr [ %118, %.thread ], [ %95, %97 ]
   %121 = getelementptr i8, ptr %120, i64 -360
   %122 = load ptr, ptr %121, align 8
   %123 = ptrtoint ptr %122 to i64
   %124 = sub i64 %123, %98
   %125 = icmp eq i64 %124, 0
-  br i1 %125, label %126, label %.thread42
+  br i1 %125, label %126, label %.thread
 
 126:                                              ; preds = %.split
   %127 = getelementptr i8, ptr %120, i64 -88
@@ -368,11 +368,11 @@ define internal fastcc ptr @vma_create(ptr noundef %0, ptr noundef %1, ptr nound
 138:                                              ; preds = %134, %126
   %139 = phi i64 [ %137, %134 ], [ %132, %126 ]
   %.not = icmp eq i64 %139, 0
-  br i1 %.not, label %.split16.us, label %.thread42
+  br i1 %.not, label %.split16.us, label %.thread
 
-.split18.us:                                      ; preds = %.thread42, %.thread
-  %.us-phi19 = phi i64 [ %.v.us, %.thread ], [ %.v, %.thread42 ]
-  %.us-phi20 = phi ptr [ %100, %.thread ], [ %120, %.thread42 ]
+.split18.us:                                      ; preds = %.thread, %.thread.us
+  %.us-phi19 = phi i64 [ %.v.us, %.thread.us ], [ %.v, %.thread ]
+  %.us-phi20 = phi ptr [ %100, %.thread.us ], [ %120, %.thread ]
   %140 = getelementptr inbounds nuw i8, ptr %.us-phi20, i64 %.us-phi19
   %141 = ptrtoint ptr %.us-phi20 to i64
   br label %142

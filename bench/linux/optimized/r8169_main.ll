@@ -4404,12 +4404,12 @@ define internal i64 @rtl8169_features_check(ptr noundef %0, ptr noundef readonly
 150:                                              ; preds = %145
   %151 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %152 = load i32, ptr %151, align 8
-  %153 = icmp ult i32 %152, 60
+  %153 = icmp ugt i32 %152, 59
   %154 = and i64 %2, -27
-  %155 = select i1 %153, i64 %154, i64 %2
-  %156 = tail call fastcc i32 @rtl_quirk_packet_padto(ptr noundef %5, ptr noundef %0)
-  %157 = icmp eq i32 %156, 0
-  %158 = select i1 %157, i64 %155, i64 %154
+  %155 = tail call fastcc i32 @rtl_quirk_packet_padto(ptr noundef %5, ptr noundef %0)
+  %156 = icmp eq i32 %155, 0
+  %157 = select i1 %156, i1 %153, i1 false
+  %158 = select i1 %157, i64 %2, i64 %154
   %159 = load ptr, ptr %6, align 8
   %160 = getelementptr inbounds nuw i8, ptr %0, i64 178
   %161 = load i16, ptr %160, align 2

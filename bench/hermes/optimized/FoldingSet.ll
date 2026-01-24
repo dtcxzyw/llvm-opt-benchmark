@@ -1470,9 +1470,9 @@ entry:
   %tobool.not = icmp eq ptr %0, null
   %1 = ptrtoint ptr %0 to i64
   %and.i = and i64 %1, 1
-  %tobool.not.i.not = icmp eq i64 %and.i, 0
-  %spec.select = select i1 %tobool.not.i.not, ptr %0, ptr %Bucket
-  %cond = select i1 %tobool.not, ptr %Bucket, ptr %spec.select
+  %tobool.not.i.not = icmp ne i64 %and.i, 0
+  %2 = select i1 %tobool.not, i1 true, i1 %tobool.not.i.not
+  %cond = select i1 %2, ptr %Bucket, ptr %0
   store ptr %cond, ptr %this, align 8
   ret void
 }

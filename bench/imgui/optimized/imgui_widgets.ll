@@ -14647,9 +14647,9 @@ define noundef zeroext i1 @_ZN5ImGui15DragFloatRange2EPKcPfS2_fffS1_S1_i(ptr nou
   store float %24, ptr %10, align 4, !tbaa !191
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %25 = load float, ptr %2, align 4, !tbaa !191
-  %26 = fcmp olt float %5, %25
-  %27 = select i1 %26, float %5, float %25
-  %28 = select i1 %23, float %25, float %27
+  %26 = fcmp uge float %5, %25
+  %27 = select i1 %23, i1 true, i1 %26
+  %28 = select i1 %27, float %25, float %5
   store float %28, ptr %11, align 4, !tbaa !191
   %29 = fcmp oeq float %24, %28
   %30 = select i1 %29, i32 2097152, i32 0
@@ -14661,14 +14661,14 @@ define noundef zeroext i1 @_ZN5ImGui15DragFloatRange2EPKcPfS2_fffS1_S1_i(ptr nou
   call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef %34)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %35 = load float, ptr %1, align 4, !tbaa !191
-  %36 = fcmp oge float %4, %35
-  %37 = select i1 %36, float %4, float %35
-  %38 = select i1 %23, float 0x47EFFFFFE0000000, float %5
-  %39 = select i1 %23, float %35, float %37
+  %36 = fcmp ult float %4, %35
+  %37 = select i1 %23, float 0x47EFFFFFE0000000, float %5
+  %38 = select i1 %23, i1 true, i1 %36
+  %39 = select i1 %38, float %35, float %4
   store float %39, ptr %12, align 4, !tbaa !191
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  store float %38, ptr %13, align 4, !tbaa !191
-  %40 = fcmp oeq float %39, %38
+  store float %37, ptr %13, align 4, !tbaa !191
+  %40 = fcmp oeq float %39, %37
   %41 = select i1 %40, i32 2097152, i32 0
   %42 = or i32 %41, %8
   %.not = icmp eq ptr %7, null

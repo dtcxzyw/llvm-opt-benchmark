@@ -13404,12 +13404,12 @@ _ZSt13move_backwardIPN6hermes14CodePointRangeES2_ET0_T_S4_S3_.exit: ; preds = %i
   %cmp18.not = icmp ugt ptr %I.addr.0, %Elt
   %conv.i27 = zext i32 %add to i64
   %add.ptr.i = getelementptr inbounds nuw %"struct.hermes::CodePointRange", ptr %12, i64 %conv.i27
-  %cmp20 = icmp ult ptr %Elt, %add.ptr.i
-  %spec.select.idx = select i1 %cmp20, i64 8, i64 0
-  %EltPtr.0.idx = select i1 %cmp18.not, i64 0, i64 %spec.select.idx
+  %cmp20 = icmp uge ptr %Elt, %add.ptr.i
+  %14 = select i1 %cmp18.not, i1 true, i1 %cmp20
+  %EltPtr.0.idx = select i1 %14, i64 0, i64 8
   %EltPtr.0 = getelementptr inbounds nuw i8, ptr %Elt, i64 %EltPtr.0.idx
-  %14 = load i64, ptr %EltPtr.0, align 4
-  store i64 %14, ptr %I.addr.0, align 4
+  %15 = load i64, ptr %EltPtr.0, align 4
+  store i64 %15, ptr %I.addr.0, align 4
   br label %return
 
 return:                                           ; preds = %_ZSt13move_backwardIPN6hermes14CodePointRangeES2_ET0_T_S4_S3_.exit, %_ZN4llvh23SmallVectorTemplateBaseIN6hermes14CodePointRangeELb1EE9push_backERKS2_.exit

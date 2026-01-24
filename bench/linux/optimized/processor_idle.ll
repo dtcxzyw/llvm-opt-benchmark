@@ -742,9 +742,9 @@ define internal fastcc noundef i32 @acpi_processor_get_power_info(ptr noundef %0
   %340 = icmp samesign ugt i32 %279, %339
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %282, i64 12
   %.pre43 = load i32, ptr %.phi.trans.insert, align 4
-  %341 = icmp ult i32 %.pre43, %280
-  %342 = select i1 %341, i8 1, i8 %278
-  %343 = select i1 %340, i8 %278, i8 %342
+  %341 = icmp uge i32 %.pre43, %280
+  %342 = select i1 %340, i1 true, i1 %341
+  %343 = select i1 %342, i8 %278, i8 1
   %344 = load i32, ptr @local_apic_timer_c2_ok, align 4
   %345 = load i32, ptr %5, align 8
   %346 = zext i32 %345 to i64

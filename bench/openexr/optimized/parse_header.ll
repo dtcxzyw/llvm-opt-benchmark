@@ -1042,9 +1042,9 @@ priv_init_scratch.exit.thread:                    ; preds = %69, %priv_init_scra
   %102 = load i8, ptr %101, align 2, !tbaa !80
   %.not93 = icmp eq i8 %102, 0
   %103 = and i32 %.0148152, 1024
-  %.not94 = icmp eq i32 %103, 0
-  %104 = select i1 %.not94, i8 31, i8 -1
-  %.sink = select i1 %.not93, i8 -1, i8 %104
+  %.not94 = icmp ne i32 %103, 0
+  %104 = or i1 %.not93, %.not94
+  %.sink = select i1 %104, i8 -1, i8 31
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 2
   store i8 %.sink, ptr %105, align 2, !tbaa !81
   %106 = lshr i32 %.0148152, 11

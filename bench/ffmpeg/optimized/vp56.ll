@@ -2842,14 +2842,14 @@ declare i32 @av_frame_ref(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: cold nounwind optsize uwtable
 define range(i32 -12, 1) i32 @ff_vp56_init_context(ptr noundef %0, ptr noundef initializes((0, 8)) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #2 {
   store ptr %0, ptr %1, align 16, !tbaa !63
-  %.not = icmp eq i32 %3, 0
-  %5 = select i1 %.not, i32 0, i32 33
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 712
-  %8 = load i32, ptr %7, align 8, !tbaa !144
-  %.not44 = icmp eq i32 %8, 0
-  %spec.store.select = select i1 %.not44, i32 %5, i32 0
-  store i32 %spec.store.select, ptr %6, align 8
+  %.not = icmp ne i32 %3, 0
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 712
+  %7 = load i32, ptr %6, align 8, !tbaa !144
+  %.not44 = icmp eq i32 %7, 0
+  %8 = and i1 %.not44, %.not
+  %spec.store.select = select i1 %8, i32 33, i32 0
+  store i32 %spec.store.select, ptr %5, align 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call void @ff_h264chroma_init(ptr noundef nonnull %9, i32 noundef 8) #8
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 72

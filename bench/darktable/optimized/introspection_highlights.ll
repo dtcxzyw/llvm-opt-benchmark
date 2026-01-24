@@ -5212,9 +5212,9 @@ default.unreachable:                              ; preds = %1063
 1239:                                             ; preds = %1211
   %.not476.i = icmp eq i32 %1108, 9
   %1240 = and i32 %1108, 3
-  %1241 = icmp eq i32 %1240, 1
-  %1242 = select i1 %1241, i32 1, i32 2
-  %1243 = select i1 %.not476.i, i32 2, i32 %1242
+  %1241 = icmp ne i32 %1240, 1
+  %1242 = or i1 %.not476.i, %1241
+  %1243 = select i1 %1242, i32 2, i32 1
   %1244 = load i32, ptr %1189, align 4, !tbaa !83
   %1245 = icmp sgt i32 %1244, 2
   br i1 %1245, label %.preheader623.lr.ph.i, label %._crit_edge653.i

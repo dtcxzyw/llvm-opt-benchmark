@@ -3072,76 +3072,76 @@ define hidden noundef ptr @_ZN7Matcher10match_treeEPK4Node(ptr noundef nonnull a
   %66 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %67 = load i32, ptr %66, align 8
   %68 = load ptr, ptr %3, align 8
-  %.not = icmp eq ptr %68, inttoptr (i64 1 to ptr)
-  %spec.store.select = select i1 %.not, i32 1, i32 2
+  %.not = icmp ne ptr %68, inttoptr (i64 1 to ptr)
   %69 = load i32, ptr %15, align 4
   %70 = and i32 %69, 1023
   %71 = icmp eq i32 %70, 512
-  %spec.select = select i1 %71, i32 2, i32 %spec.store.select
-  %72 = icmp ult i32 %spec.select, %67
-  br i1 %72, label %.lr.ph, label %.loopexit
+  %72 = select i1 %71, i1 true, i1 %.not
+  %spec.select = select i1 %72, i32 2, i32 1
+  %73 = icmp ult i32 %spec.select, %67
+  br i1 %73, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %59
-  %73 = getelementptr inbounds nuw i8, ptr %65, i64 24
-  %74 = zext nneg i32 %spec.select to i64
+  %74 = getelementptr inbounds nuw i8, ptr %65, i64 24
+  %75 = zext nneg i32 %spec.select to i64
   %wide.trip.count = zext i32 %67 to i64
-  br label %75
+  br label %76
 
-75:                                               ; preds = %.lr.ph, %90
-  %indvars.iv63 = phi i64 [ %74, %.lr.ph ], [ %indvars.iv.next64, %90 ]
-  %76 = load ptr, ptr %1, align 8
-  %77 = getelementptr inbounds nuw i8, ptr %76, i64 120
-  %78 = load ptr, ptr %77, align 8
-  %79 = trunc nuw i64 %indvars.iv63 to i32
-  %80 = call noundef i32 %78(ptr noundef nonnull align 8 dereferenceable(52) %1, i32 noundef %79) #15
-  %.not51 = icmp eq i32 %80, 0
-  br i1 %.not51, label %81, label %90
+76:                                               ; preds = %.lr.ph, %91
+  %indvars.iv63 = phi i64 [ %75, %.lr.ph ], [ %indvars.iv.next64, %91 ]
+  %77 = load ptr, ptr %1, align 8
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 120
+  %79 = load ptr, ptr %78, align 8
+  %80 = trunc nuw i64 %indvars.iv63 to i32
+  %81 = call noundef i32 %79(ptr noundef nonnull align 8 dereferenceable(52) %1, i32 noundef %80) #15
+  %.not51 = icmp eq i32 %81, 0
+  br i1 %.not51, label %82, label %91
 
-81:                                               ; preds = %75
-  %82 = load i32, ptr %73, align 8
-  %83 = zext i32 %82 to i64
-  %84 = icmp samesign ult i64 %indvars.iv63, %83
-  %85 = load ptr, ptr %31, align 8
-  %86 = getelementptr inbounds nuw ptr, ptr %85, i64 %indvars.iv63
-  %87 = load ptr, ptr %86, align 8
-  br i1 %84, label %88, label %89
+82:                                               ; preds = %76
+  %83 = load i32, ptr %74, align 8
+  %84 = zext i32 %83 to i64
+  %85 = icmp samesign ult i64 %indvars.iv63, %84
+  %86 = load ptr, ptr %31, align 8
+  %87 = getelementptr inbounds nuw ptr, ptr %86, i64 %indvars.iv63
+  %88 = load ptr, ptr %87, align 8
+  br i1 %85, label %89, label %90
 
-88:                                               ; preds = %81
-  call void @_ZN4Node7ins_reqEjPS_(ptr noundef nonnull align 8 dereferenceable(52) %65, i32 noundef %79, ptr noundef %87) #15
-  br label %90
+89:                                               ; preds = %82
+  call void @_ZN4Node7ins_reqEjPS_(ptr noundef nonnull align 8 dereferenceable(52) %65, i32 noundef %80, ptr noundef %88) #15
+  br label %91
 
-89:                                               ; preds = %81
-  call void @_ZN4Node7add_reqEPS_(ptr noundef nonnull align 8 dereferenceable(52) %65, ptr noundef %87) #15
-  br label %90
+90:                                               ; preds = %82
+  call void @_ZN4Node7add_reqEPS_(ptr noundef nonnull align 8 dereferenceable(52) %65, ptr noundef %88) #15
+  br label %91
 
-90:                                               ; preds = %75, %89, %88
+91:                                               ; preds = %76, %90, %89
   %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
   %exitcond66.not = icmp eq i64 %indvars.iv.next64, %wide.trip.count
-  br i1 %exitcond66.not, label %.loopexit, label %75, !llvm.loop !22
+  br i1 %exitcond66.not, label %.loopexit, label %76, !llvm.loop !22
 
-.loopexit:                                        ; preds = %90, %59, %57, %24
-  %.044 = phi ptr [ null, %24 ], [ null, %57 ], [ %65, %59 ], [ %65, %90 ]
-  %91 = load ptr, ptr %7, align 8
-  %.not.i.i.i.i = icmp eq ptr %91, null
-  br i1 %.not.i.i.i.i, label %93, label %92
+.loopexit:                                        ; preds = %91, %59, %57, %24
+  %.044 = phi ptr [ null, %24 ], [ null, %57 ], [ %65, %59 ], [ %65, %91 ]
+  %92 = load ptr, ptr %7, align 8
+  %.not.i.i.i.i = icmp eq ptr %92, null
+  br i1 %.not.i.i.i.i, label %94, label %93
 
-92:                                               ; preds = %.loopexit
+93:                                               ; preds = %.loopexit
   call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %5, i64 noundef %13) #15
   call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %7) #15
-  br label %93
+  br label %94
 
-93:                                               ; preds = %92, %.loopexit
-  %94 = load ptr, ptr %8, align 8
-  %.not8.i.i.i.i = icmp eq ptr %94, %9
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %95
+94:                                               ; preds = %93, %.loopexit
+  %95 = load ptr, ptr %8, align 8
+  %.not8.i.i.i.i = icmp eq ptr %95, %9
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %96
 
-95:                                               ; preds = %93
+96:                                               ; preds = %94
   store ptr %7, ptr %6, align 8
   store ptr %9, ptr %8, align 8
   store ptr %11, ptr %10, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %93, %95
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %94, %96
   ret ptr %.044
 }
 

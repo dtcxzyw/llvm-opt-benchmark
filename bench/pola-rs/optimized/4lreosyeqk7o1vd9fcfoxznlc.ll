@@ -1278,12 +1278,12 @@ define hidden { ptr, ptr } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   %8 = load ptr, ptr %7, align 8, !noalias !47, !align !51
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %10 = load ptr, ptr %9, align 8, !noalias !47
-  %.sroa.3.0.i = select i1 %6, ptr %10, ptr undef
   %.sroa.0.0.i = select i1 %6, ptr %8, ptr null
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !47
   %11 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
-  %.not = icmp eq ptr %.sroa.0.0.i, null
-  %. = select i1 %.not, ptr undef, ptr %.sroa.3.0.i
+  %.not = icmp ne ptr %.sroa.0.0.i, null
+  %.not4 = and i1 %.not, %6
+  %. = select i1 %.not4, ptr %10, ptr undef
   %12 = insertvalue { ptr, ptr } %11, ptr %., 1
   ret { ptr, ptr } %12
 }
@@ -1320,12 +1320,12 @@ define hidden { ptr, ptr } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   %8 = load ptr, ptr %7, align 8, !noalias !55, !align !51
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %10 = load ptr, ptr %9, align 8, !noalias !55
-  %.sroa.3.0.i = select i1 %6, ptr %10, ptr undef
   %.sroa.0.0.i = select i1 %6, ptr %8, ptr null
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !55
   %11 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
-  %.not = icmp eq ptr %.sroa.0.0.i, null
-  %. = select i1 %.not, ptr undef, ptr %.sroa.3.0.i
+  %.not = icmp ne ptr %.sroa.0.0.i, null
+  %.not4 = and i1 %.not, %6
+  %. = select i1 %.not4, ptr %10, ptr undef
   %12 = insertvalue { ptr, ptr } %11, ptr %., 1
   ret { ptr, ptr } %12
 }
@@ -1399,12 +1399,12 @@ define hidden { ptr, ptr } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   %8 = load ptr, ptr %7, align 8, !noalias !67, !align !51
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %10 = load ptr, ptr %9, align 8, !noalias !67
-  %.sroa.3.0.i = select i1 %6, ptr %10, ptr undef
   %.sroa.0.0.i = select i1 %6, ptr %8, ptr null
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !67
   %11 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
-  %.not = icmp eq ptr %.sroa.0.0.i, null
-  %. = select i1 %.not, ptr undef, ptr %.sroa.3.0.i
+  %.not = icmp ne ptr %.sroa.0.0.i, null
+  %.not4 = and i1 %.not, %6
+  %. = select i1 %.not4, ptr %10, ptr undef
   %12 = insertvalue { ptr, ptr } %11, ptr %., 1
   ret { ptr, ptr } %12
 }
@@ -1442,12 +1442,12 @@ define hidden { ptr, ptr } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   %8 = load ptr, ptr %7, align 8, !noalias !73, !align !51
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %10 = load ptr, ptr %9, align 8, !noalias !73
-  %.sroa.3.0.i = select i1 %6, ptr %10, ptr undef
   %.sroa.0.0.i = select i1 %6, ptr %8, ptr null
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !73
   %11 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
-  %.not = icmp eq ptr %.sroa.0.0.i, null
-  %. = select i1 %.not, ptr undef, ptr %.sroa.3.0.i
+  %.not = icmp ne ptr %.sroa.0.0.i, null
+  %.not4 = and i1 %.not, %6
+  %. = select i1 %.not4, ptr %10, ptr undef
   %12 = insertvalue { ptr, ptr } %11, ptr %., 1
   ret { ptr, ptr } %12
 }
@@ -1468,12 +1468,12 @@ define hidden { ptr, ptr } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   %8 = load ptr, ptr %7, align 8, !noalias !76, !align !51
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %10 = load ptr, ptr %9, align 8, !noalias !76
-  %.sroa.3.0.i = select i1 %6, ptr %10, ptr undef
   %.sroa.0.0.i = select i1 %6, ptr %8, ptr null
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !76
   %11 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
-  %.not = icmp eq ptr %.sroa.0.0.i, null
-  %. = select i1 %.not, ptr undef, ptr %.sroa.3.0.i
+  %.not = icmp ne ptr %.sroa.0.0.i, null
+  %.not4 = and i1 %.not, %6
+  %. = select i1 %.not4, ptr %10, ptr undef
   %12 = insertvalue { ptr, ptr } %11, ptr %., 1
   ret { ptr, ptr } %12
 }
@@ -1511,12 +1511,12 @@ define hidden { ptr, ptr } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   %8 = load ptr, ptr %7, align 8, !noalias !82, !align !51
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %10 = load ptr, ptr %9, align 8, !noalias !82
-  %.sroa.3.0.i = select i1 %6, ptr %10, ptr undef
   %.sroa.0.0.i = select i1 %6, ptr %8, ptr null
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !82
   %11 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
-  %.not = icmp eq ptr %.sroa.0.0.i, null
-  %. = select i1 %.not, ptr undef, ptr %.sroa.3.0.i
+  %.not = icmp ne ptr %.sroa.0.0.i, null
+  %.not4 = and i1 %.not, %6
+  %. = select i1 %.not4, ptr %10, ptr undef
   %12 = insertvalue { ptr, ptr } %11, ptr %., 1
   ret { ptr, ptr } %12
 }
@@ -1554,12 +1554,12 @@ define hidden { ptr, ptr } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   %8 = load ptr, ptr %7, align 8, !noalias !88, !align !51
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %10 = load ptr, ptr %9, align 8, !noalias !88
-  %.sroa.3.0.i = select i1 %6, ptr %10, ptr undef
   %.sroa.0.0.i = select i1 %6, ptr %8, ptr null
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !88
   %11 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
-  %.not = icmp eq ptr %.sroa.0.0.i, null
-  %. = select i1 %.not, ptr undef, ptr %.sroa.3.0.i
+  %.not = icmp ne ptr %.sroa.0.0.i, null
+  %.not4 = and i1 %.not, %6
+  %. = select i1 %.not4, ptr %10, ptr undef
   %12 = insertvalue { ptr, ptr } %11, ptr %., 1
   ret { ptr, ptr } %12
 }
@@ -1614,12 +1614,12 @@ define hidden { ptr, ptr } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   %8 = load ptr, ptr %7, align 8, !noalias !97, !align !51
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %10 = load ptr, ptr %9, align 8, !noalias !97
-  %.sroa.3.0.i = select i1 %6, ptr %10, ptr undef
   %.sroa.0.0.i = select i1 %6, ptr %8, ptr null
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !97
   %11 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
-  %.not = icmp eq ptr %.sroa.0.0.i, null
-  %. = select i1 %.not, ptr undef, ptr %.sroa.3.0.i
+  %.not = icmp ne ptr %.sroa.0.0.i, null
+  %.not4 = and i1 %.not, %6
+  %. = select i1 %.not4, ptr %10, ptr undef
   %12 = insertvalue { ptr, ptr } %11, ptr %., 1
   ret { ptr, ptr } %12
 }
@@ -1674,12 +1674,12 @@ define hidden { ptr, ptr } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   %8 = load ptr, ptr %7, align 8, !noalias !106, !align !51
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %10 = load ptr, ptr %9, align 8, !noalias !106
-  %.sroa.3.0.i = select i1 %6, ptr %10, ptr undef
   %.sroa.0.0.i = select i1 %6, ptr %8, ptr null
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !106
   %11 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
-  %.not = icmp eq ptr %.sroa.0.0.i, null
-  %. = select i1 %.not, ptr undef, ptr %.sroa.3.0.i
+  %.not = icmp ne ptr %.sroa.0.0.i, null
+  %.not4 = and i1 %.not, %6
+  %. = select i1 %.not4, ptr %10, ptr undef
   %12 = insertvalue { ptr, ptr } %11, ptr %., 1
   ret { ptr, ptr } %12
 }
@@ -1716,12 +1716,12 @@ define hidden { ptr, ptr } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   %8 = load ptr, ptr %7, align 8, !noalias !112, !align !51
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %10 = load ptr, ptr %9, align 8, !noalias !112
-  %.sroa.3.0.i = select i1 %6, ptr %10, ptr undef
   %.sroa.0.0.i = select i1 %6, ptr %8, ptr null
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !112
   %11 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
-  %.not = icmp eq ptr %.sroa.0.0.i, null
-  %. = select i1 %.not, ptr undef, ptr %.sroa.3.0.i
+  %.not = icmp ne ptr %.sroa.0.0.i, null
+  %.not4 = and i1 %.not, %6
+  %. = select i1 %.not4, ptr %10, ptr undef
   %12 = insertvalue { ptr, ptr } %11, ptr %., 1
   ret { ptr, ptr } %12
 }
@@ -1742,12 +1742,12 @@ define hidden { ptr, ptr } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   %8 = load ptr, ptr %7, align 8, !noalias !115, !align !51
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %10 = load ptr, ptr %9, align 8, !noalias !115
-  %.sroa.3.0.i = select i1 %6, ptr %10, ptr undef
   %.sroa.0.0.i = select i1 %6, ptr %8, ptr null
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !115
   %11 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
-  %.not = icmp eq ptr %.sroa.0.0.i, null
-  %. = select i1 %.not, ptr undef, ptr %.sroa.3.0.i
+  %.not = icmp ne ptr %.sroa.0.0.i, null
+  %.not4 = and i1 %.not, %6
+  %. = select i1 %.not4, ptr %10, ptr undef
   %12 = insertvalue { ptr, ptr } %11, ptr %., 1
   ret { ptr, ptr } %12
 }
@@ -1801,12 +1801,12 @@ define hidden { ptr, ptr } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   %8 = load ptr, ptr %7, align 8, !noalias !124, !align !51
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %10 = load ptr, ptr %9, align 8, !noalias !124
-  %.sroa.3.0.i = select i1 %6, ptr %10, ptr undef
   %.sroa.0.0.i = select i1 %6, ptr %8, ptr null
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !124
   %11 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
-  %.not = icmp eq ptr %.sroa.0.0.i, null
-  %. = select i1 %.not, ptr undef, ptr %.sroa.3.0.i
+  %.not = icmp ne ptr %.sroa.0.0.i, null
+  %.not4 = and i1 %.not, %6
+  %. = select i1 %.not4, ptr %10, ptr undef
   %12 = insertvalue { ptr, ptr } %11, ptr %., 1
   ret { ptr, ptr } %12
 }
@@ -2066,12 +2066,10 @@ define hidden { i1, i8 } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$
   %4 = load ptr, ptr %3, align 8, !alias.scope !185, !nonnull !8, !align !46, !noundef !8
   %5 = call { i8, i8 } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17he2345c4799312a35E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0, ptr noalias noundef nonnull align 1 %2, ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
   %6 = extractvalue { i8, i8 } %5, 0
-  %.not.i = icmp eq i8 %6, 2
   %7 = extractvalue { i8, i8 } %5, 1
   %8 = trunc i8 %6 to i1
-  %.sroa.3.0.i = select i1 %.not.i, i8 undef, i8 %7
   %9 = insertvalue { i1, i8 } poison, i1 %8, 0
-  %.sroa.3.0 = select i1 %8, i8 %.sroa.3.0.i, i8 undef
+  %.sroa.3.0 = select i1 %8, i8 %7, i8 undef
   %10 = insertvalue { i1, i8 } %9, i8 %.sroa.3.0, 1
   ret { i1, i8 } %10
 }
@@ -2092,12 +2090,12 @@ define hidden { ptr, ptr } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   %8 = load ptr, ptr %7, align 8, !noalias !188, !align !51
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %10 = load ptr, ptr %9, align 8, !noalias !188
-  %.sroa.3.0.i = select i1 %6, ptr %10, ptr undef
   %.sroa.0.0.i = select i1 %6, ptr %8, ptr null
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !188
   %11 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
-  %.not = icmp eq ptr %.sroa.0.0.i, null
-  %. = select i1 %.not, ptr undef, ptr %.sroa.3.0.i
+  %.not = icmp ne ptr %.sroa.0.0.i, null
+  %.not4 = and i1 %.not, %6
+  %. = select i1 %.not4, ptr %10, ptr undef
   %12 = insertvalue { ptr, ptr } %11, ptr %., 1
   ret { ptr, ptr } %12
 }
@@ -2168,12 +2166,12 @@ define hidden { ptr, ptr } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   %8 = load ptr, ptr %7, align 8, !noalias !200, !align !51
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %10 = load ptr, ptr %9, align 8, !noalias !200
-  %.sroa.3.0.i = select i1 %6, ptr %10, ptr undef
   %.sroa.0.0.i = select i1 %6, ptr %8, ptr null
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !200
   %11 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
-  %.not = icmp eq ptr %.sroa.0.0.i, null
-  %. = select i1 %.not, ptr undef, ptr %.sroa.3.0.i
+  %.not = icmp ne ptr %.sroa.0.0.i, null
+  %.not4 = and i1 %.not, %6
+  %. = select i1 %.not4, ptr %10, ptr undef
   %12 = insertvalue { ptr, ptr } %11, ptr %., 1
   ret { ptr, ptr } %12
 }
@@ -2268,12 +2266,12 @@ define hidden { ptr, ptr } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   %8 = load ptr, ptr %7, align 8, !noalias !215, !align !51
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %10 = load ptr, ptr %9, align 8, !noalias !215
-  %.sroa.3.0.i = select i1 %6, ptr %10, ptr undef
   %.sroa.0.0.i = select i1 %6, ptr %8, ptr null
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !215
   %11 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
-  %.not = icmp eq ptr %.sroa.0.0.i, null
-  %. = select i1 %.not, ptr undef, ptr %.sroa.3.0.i
+  %.not = icmp ne ptr %.sroa.0.0.i, null
+  %.not4 = and i1 %.not, %6
+  %. = select i1 %.not4, ptr %10, ptr undef
   %12 = insertvalue { ptr, ptr } %11, ptr %., 1
   ret { ptr, ptr } %12
 }
@@ -2310,12 +2308,12 @@ define hidden { ptr, ptr } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   %8 = load ptr, ptr %7, align 8, !noalias !221, !align !51
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %10 = load ptr, ptr %9, align 8, !noalias !221
-  %.sroa.3.0.i = select i1 %6, ptr %10, ptr undef
   %.sroa.0.0.i = select i1 %6, ptr %8, ptr null
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !221
   %11 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
-  %.not = icmp eq ptr %.sroa.0.0.i, null
-  %. = select i1 %.not, ptr undef, ptr %.sroa.3.0.i
+  %.not = icmp ne ptr %.sroa.0.0.i, null
+  %.not4 = and i1 %.not, %6
+  %. = select i1 %.not4, ptr %10, ptr undef
   %12 = insertvalue { ptr, ptr } %11, ptr %., 1
   ret { ptr, ptr } %12
 }
@@ -2374,12 +2372,12 @@ define hidden { ptr, ptr } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   %8 = load ptr, ptr %7, align 8, !noalias !231, !align !51
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %10 = load ptr, ptr %9, align 8, !noalias !231
-  %.sroa.3.0.i = select i1 %6, ptr %10, ptr undef
   %.sroa.0.0.i = select i1 %6, ptr %8, ptr null
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !231
   %11 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
-  %.not = icmp eq ptr %.sroa.0.0.i, null
-  %. = select i1 %.not, ptr undef, ptr %.sroa.3.0.i
+  %.not = icmp ne ptr %.sroa.0.0.i, null
+  %.not4 = and i1 %.not, %6
+  %. = select i1 %.not4, ptr %10, ptr undef
   %12 = insertvalue { ptr, ptr } %11, ptr %., 1
   ret { ptr, ptr } %12
 }
@@ -2400,12 +2398,12 @@ define hidden { ptr, ptr } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   %8 = load ptr, ptr %7, align 8, !noalias !234, !align !51
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %10 = load ptr, ptr %9, align 8, !noalias !234
-  %.sroa.3.0.i = select i1 %6, ptr %10, ptr undef
   %.sroa.0.0.i = select i1 %6, ptr %8, ptr null
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !234
   %11 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
-  %.not = icmp eq ptr %.sroa.0.0.i, null
-  %. = select i1 %.not, ptr undef, ptr %.sroa.3.0.i
+  %.not = icmp ne ptr %.sroa.0.0.i, null
+  %.not4 = and i1 %.not, %6
+  %. = select i1 %.not4, ptr %10, ptr undef
   %12 = insertvalue { ptr, ptr } %11, ptr %., 1
   ret { ptr, ptr } %12
 }
@@ -2464,12 +2462,12 @@ define hidden { ptr, ptr } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   %8 = load ptr, ptr %7, align 8, !noalias !244, !align !51
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %10 = load ptr, ptr %9, align 8, !noalias !244
-  %.sroa.3.0.i = select i1 %6, ptr %10, ptr undef
   %.sroa.0.0.i = select i1 %6, ptr %8, ptr null
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !244
   %11 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
-  %.not = icmp eq ptr %.sroa.0.0.i, null
-  %. = select i1 %.not, ptr undef, ptr %.sroa.3.0.i
+  %.not = icmp ne ptr %.sroa.0.0.i, null
+  %.not4 = and i1 %.not, %6
+  %. = select i1 %.not4, ptr %10, ptr undef
   %12 = insertvalue { ptr, ptr } %11, ptr %., 1
   ret { ptr, ptr } %12
 }
@@ -2528,12 +2526,12 @@ define hidden { ptr, ptr } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   %8 = load ptr, ptr %7, align 8, !noalias !253, !align !51
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %10 = load ptr, ptr %9, align 8, !noalias !253
-  %.sroa.3.0.i = select i1 %6, ptr %10, ptr undef
   %.sroa.0.0.i = select i1 %6, ptr %8, ptr null
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !253
   %11 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
-  %.not = icmp eq ptr %.sroa.0.0.i, null
-  %. = select i1 %.not, ptr undef, ptr %.sroa.3.0.i
+  %.not = icmp ne ptr %.sroa.0.0.i, null
+  %.not4 = and i1 %.not, %6
+  %. = select i1 %.not4, ptr %10, ptr undef
   %12 = insertvalue { ptr, ptr } %11, ptr %., 1
   ret { ptr, ptr } %12
 }
@@ -2587,12 +2585,12 @@ define hidden { ptr, ptr } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   %8 = load ptr, ptr %7, align 8, !noalias !262, !align !51
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %10 = load ptr, ptr %9, align 8, !noalias !262
-  %.sroa.3.0.i = select i1 %6, ptr %10, ptr undef
   %.sroa.0.0.i = select i1 %6, ptr %8, ptr null
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !262
   %11 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
-  %.not = icmp eq ptr %.sroa.0.0.i, null
-  %. = select i1 %.not, ptr undef, ptr %.sroa.3.0.i
+  %.not = icmp ne ptr %.sroa.0.0.i, null
+  %.not4 = and i1 %.not, %6
+  %. = select i1 %.not4, ptr %10, ptr undef
   %12 = insertvalue { ptr, ptr } %11, ptr %., 1
   ret { ptr, ptr } %12
 }
@@ -2666,12 +2664,12 @@ define hidden { ptr, ptr } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   %8 = load ptr, ptr %7, align 8, !noalias !274, !align !51
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %10 = load ptr, ptr %9, align 8, !noalias !274
-  %.sroa.3.0.i = select i1 %6, ptr %10, ptr undef
   %.sroa.0.0.i = select i1 %6, ptr %8, ptr null
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !274
   %11 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
-  %.not = icmp eq ptr %.sroa.0.0.i, null
-  %. = select i1 %.not, ptr undef, ptr %.sroa.3.0.i
+  %.not = icmp ne ptr %.sroa.0.0.i, null
+  %.not4 = and i1 %.not, %6
+  %. = select i1 %.not4, ptr %10, ptr undef
   %12 = insertvalue { ptr, ptr } %11, ptr %., 1
   ret { ptr, ptr } %12
 }
@@ -2811,12 +2809,12 @@ define hidden { ptr, ptr } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   %8 = load ptr, ptr %7, align 8, !noalias !299, !align !51
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %10 = load ptr, ptr %9, align 8, !noalias !299
-  %.sroa.3.0.i = select i1 %6, ptr %10, ptr undef
   %.sroa.0.0.i = select i1 %6, ptr %8, ptr null
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !299
   %11 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
-  %.not = icmp eq ptr %.sroa.0.0.i, null
-  %. = select i1 %.not, ptr undef, ptr %.sroa.3.0.i
+  %.not = icmp ne ptr %.sroa.0.0.i, null
+  %.not4 = and i1 %.not, %6
+  %. = select i1 %.not4, ptr %10, ptr undef
   %12 = insertvalue { ptr, ptr } %11, ptr %., 1
   ret { ptr, ptr } %12
 }
@@ -2875,12 +2873,12 @@ define hidden { ptr, ptr } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   %8 = load ptr, ptr %7, align 8, !noalias !308, !align !51
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %10 = load ptr, ptr %9, align 8, !noalias !308
-  %.sroa.3.0.i = select i1 %6, ptr %10, ptr undef
   %.sroa.0.0.i = select i1 %6, ptr %8, ptr null
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !308
   %11 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
-  %.not = icmp eq ptr %.sroa.0.0.i, null
-  %. = select i1 %.not, ptr undef, ptr %.sroa.3.0.i
+  %.not = icmp ne ptr %.sroa.0.0.i, null
+  %.not4 = and i1 %.not, %6
+  %. = select i1 %.not4, ptr %10, ptr undef
   %12 = insertvalue { ptr, ptr } %11, ptr %., 1
   ret { ptr, ptr } %12
 }
@@ -3002,12 +3000,12 @@ define hidden { ptr, ptr } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   %8 = load ptr, ptr %7, align 8, !noalias !328, !align !51
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %10 = load ptr, ptr %9, align 8, !noalias !328
-  %.sroa.3.0.i = select i1 %6, ptr %10, ptr undef
   %.sroa.0.0.i = select i1 %6, ptr %8, ptr null
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !328
   %11 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
-  %.not = icmp eq ptr %.sroa.0.0.i, null
-  %. = select i1 %.not, ptr undef, ptr %.sroa.3.0.i
+  %.not = icmp ne ptr %.sroa.0.0.i, null
+  %.not4 = and i1 %.not, %6
+  %. = select i1 %.not4, ptr %10, ptr undef
   %12 = insertvalue { ptr, ptr } %11, ptr %., 1
   ret { ptr, ptr } %12
 }
@@ -3045,12 +3043,12 @@ define hidden { ptr, ptr } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   %8 = load ptr, ptr %7, align 8, !noalias !334, !align !51
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %10 = load ptr, ptr %9, align 8, !noalias !334
-  %.sroa.3.0.i = select i1 %6, ptr %10, ptr undef
   %.sroa.0.0.i = select i1 %6, ptr %8, ptr null
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !334
   %11 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
-  %.not = icmp eq ptr %.sroa.0.0.i, null
-  %. = select i1 %.not, ptr undef, ptr %.sroa.3.0.i
+  %.not = icmp ne ptr %.sroa.0.0.i, null
+  %.not4 = and i1 %.not, %6
+  %. = select i1 %.not4, ptr %10, ptr undef
   %12 = insertvalue { ptr, ptr } %11, ptr %., 1
   ret { ptr, ptr } %12
 }
@@ -3088,12 +3086,12 @@ define hidden { ptr, ptr } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   %8 = load ptr, ptr %7, align 8, !noalias !340, !align !51
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %10 = load ptr, ptr %9, align 8, !noalias !340
-  %.sroa.3.0.i = select i1 %6, ptr %10, ptr undef
   %.sroa.0.0.i = select i1 %6, ptr %8, ptr null
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !340
   %11 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
-  %.not = icmp eq ptr %.sroa.0.0.i, null
-  %. = select i1 %.not, ptr undef, ptr %.sroa.3.0.i
+  %.not = icmp ne ptr %.sroa.0.0.i, null
+  %.not4 = and i1 %.not, %6
+  %. = select i1 %.not4, ptr %10, ptr undef
   %12 = insertvalue { ptr, ptr } %11, ptr %., 1
   ret { ptr, ptr } %12
 }
@@ -3234,12 +3232,12 @@ define hidden { ptr, ptr } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   %8 = load ptr, ptr %7, align 8, !noalias !364, !align !51
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %10 = load ptr, ptr %9, align 8, !noalias !364
-  %.sroa.3.0.i = select i1 %6, ptr %10, ptr undef
   %.sroa.0.0.i = select i1 %6, ptr %8, ptr null
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !364
   %11 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
-  %.not = icmp eq ptr %.sroa.0.0.i, null
-  %. = select i1 %.not, ptr undef, ptr %.sroa.3.0.i
+  %.not = icmp ne ptr %.sroa.0.0.i, null
+  %.not4 = and i1 %.not, %6
+  %. = select i1 %.not4, ptr %10, ptr undef
   %12 = insertvalue { ptr, ptr } %11, ptr %., 1
   ret { ptr, ptr } %12
 }
@@ -3311,12 +3309,12 @@ define hidden { ptr, ptr } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   %8 = load ptr, ptr %7, align 8, !noalias !376, !align !51
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %10 = load ptr, ptr %9, align 8, !noalias !376
-  %.sroa.3.0.i = select i1 %6, ptr %10, ptr undef
   %.sroa.0.0.i = select i1 %6, ptr %8, ptr null
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !376
   %11 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
-  %.not = icmp eq ptr %.sroa.0.0.i, null
-  %. = select i1 %.not, ptr undef, ptr %.sroa.3.0.i
+  %.not = icmp ne ptr %.sroa.0.0.i, null
+  %.not4 = and i1 %.not, %6
+  %. = select i1 %.not4, ptr %10, ptr undef
   %12 = insertvalue { ptr, ptr } %11, ptr %., 1
   ret { ptr, ptr } %12
 }
@@ -3337,12 +3335,12 @@ define hidden { ptr, ptr } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   %8 = load ptr, ptr %7, align 8, !noalias !379, !align !51
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %10 = load ptr, ptr %9, align 8, !noalias !379
-  %.sroa.3.0.i = select i1 %6, ptr %10, ptr undef
   %.sroa.0.0.i = select i1 %6, ptr %8, ptr null
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !379
   %11 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
-  %.not = icmp eq ptr %.sroa.0.0.i, null
-  %. = select i1 %.not, ptr undef, ptr %.sroa.3.0.i
+  %.not = icmp ne ptr %.sroa.0.0.i, null
+  %.not4 = and i1 %.not, %6
+  %. = select i1 %.not4, ptr %10, ptr undef
   %12 = insertvalue { ptr, ptr } %11, ptr %., 1
   ret { ptr, ptr } %12
 }
@@ -3395,12 +3393,12 @@ define hidden { ptr, ptr } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   %8 = load ptr, ptr %7, align 8, !noalias !388, !align !51
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %10 = load ptr, ptr %9, align 8, !noalias !388
-  %.sroa.3.0.i = select i1 %6, ptr %10, ptr undef
   %.sroa.0.0.i = select i1 %6, ptr %8, ptr null
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !388
   %11 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
-  %.not = icmp eq ptr %.sroa.0.0.i, null
-  %. = select i1 %.not, ptr undef, ptr %.sroa.3.0.i
+  %.not = icmp ne ptr %.sroa.0.0.i, null
+  %.not4 = and i1 %.not, %6
+  %. = select i1 %.not4, ptr %10, ptr undef
   %12 = insertvalue { ptr, ptr } %11, ptr %., 1
   ret { ptr, ptr } %12
 }
@@ -3440,12 +3438,12 @@ define hidden { ptr, ptr } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   %8 = load ptr, ptr %7, align 8, !noalias !394, !align !51
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %10 = load ptr, ptr %9, align 8, !noalias !394
-  %.sroa.3.0.i = select i1 %6, ptr %10, ptr undef
   %.sroa.0.0.i = select i1 %6, ptr %8, ptr null
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !394
   %11 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
-  %.not = icmp eq ptr %.sroa.0.0.i, null
-  %. = select i1 %.not, ptr undef, ptr %.sroa.3.0.i
+  %.not = icmp ne ptr %.sroa.0.0.i, null
+  %.not4 = and i1 %.not, %6
+  %. = select i1 %.not4, ptr %10, ptr undef
   %12 = insertvalue { ptr, ptr } %11, ptr %., 1
   ret { ptr, ptr } %12
 }

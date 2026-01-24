@@ -1568,10 +1568,9 @@ define internal fastcc void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F
   %117 = extractvalue { i64, i1 } %116, 1
   %118 = add nuw i64 %.sroa.7.0.i.i.i34.i.i, %spec.select41.i.i
   %not..i.i = xor i1 %117, true
-  %spec.select10.i.i = select i1 %117, i64 undef, i64 %118
   %narrow.i.i = select i1 %or.cond.i.i, i1 %not..i.i, i1 false
   %.sroa.03.0.i.i = zext i1 %narrow.i.i to i64
-  %.sroa.6.0.i.i = select i1 %or.cond.i.i, i64 %spec.select10.i.i, i64 undef
+  %.sroa.6.0.i.i = select i1 %narrow.i.i, i64 %118, i64 undef
   store i64 %.sroa.03.0.i.i, ptr %.sroa.6.i, align 8, !alias.scope !499, !noalias !506
   br label %"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hf9790bf83872f9fcE.exit"
 
@@ -2060,10 +2059,9 @@ define internal fastcc void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F
   %120 = extractvalue { i64, i1 } %119, 1
   %121 = add nuw i64 %.sroa.7.0.i.i35.i, %spec.select42.i
   %not..i = xor i1 %120, true
-  %spec.select10.i = select i1 %120, i64 undef, i64 %121
   %narrow.i = select i1 %or.cond.i, i1 %not..i, i1 false
   %.sroa.03.0.i = zext i1 %narrow.i to i64
-  %.sroa.6.0.i = select i1 %or.cond.i, i64 %spec.select10.i, i64 undef
+  %.sroa.6.0.i = select i1 %narrow.i, i64 %121, i64 undef
   store i64 %88, ptr %0, align 8, !alias.scope !676, !noalias !679
   %122 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.03.0.i, ptr %122, align 8, !alias.scope !676, !noalias !679

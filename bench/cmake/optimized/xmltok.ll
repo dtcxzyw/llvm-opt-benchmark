@@ -6684,12 +6684,12 @@ define internal i32 @little2_prologTok(ptr noundef readonly captures(none) %0, p
   %7 = ptrtoint ptr %1 to i64
   %8 = sub i64 %6, %7
   %9 = and i64 %8, 1
-  %.not191 = icmp eq i64 %9, 0
+  %.not191 = icmp ne i64 %9, 0
   %10 = and i64 %8, -2
-  %.not213 = icmp eq i64 %10, 0
-  %11 = getelementptr inbounds nuw i8, ptr %1, i64 %10
-  %12 = or i1 %.not191, %.not213
-  %.1183 = select i1 %12, ptr %2, ptr %11
+  %11 = icmp ne i64 %10, 0
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 %10
+  %.not213 = and i1 %.not191, %11
+  %.1183 = select i1 %.not213, ptr %12, ptr %2
   %cond.not = icmp eq i64 %8, 1
   br i1 %cond.not, label %237, label %13
 
@@ -12167,12 +12167,12 @@ define internal i32 @big2_prologTok(ptr noundef readonly captures(none) %0, ptr 
   %7 = ptrtoint ptr %1 to i64
   %8 = sub i64 %6, %7
   %9 = and i64 %8, 1
-  %.not191 = icmp eq i64 %9, 0
+  %.not191 = icmp ne i64 %9, 0
   %10 = and i64 %8, -2
-  %.not213 = icmp eq i64 %10, 0
-  %11 = getelementptr inbounds nuw i8, ptr %1, i64 %10
-  %12 = or i1 %.not191, %.not213
-  %.1183 = select i1 %12, ptr %2, ptr %11
+  %11 = icmp ne i64 %10, 0
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 %10
+  %.not213 = and i1 %.not191, %11
+  %.1183 = select i1 %.not213, ptr %12, ptr %2
   %cond.not = icmp eq i64 %8, 1
   br i1 %cond.not, label %242, label %13
 

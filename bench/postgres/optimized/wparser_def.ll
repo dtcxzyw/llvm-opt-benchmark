@@ -3695,7 +3695,7 @@ define internal fastcc noundef zeroext i1 @hlCover(ptr noundef readonly captures
   br label %.lr.ph168
 
 .lr.ph168:                                        ; preds = %.thread146, %.lr.ph168.lr.ph
-  %.0100250 = phi i32 [ %13, %.lr.ph168.lr.ph ], [ %77, %.thread146 ]
+  %.0100250 = phi i32 [ %13, %.lr.ph168.lr.ph ], [ %78, %.thread146 ]
   %14 = load i32, ptr %8, align 4
   %15 = icmp sgt i32 %14, 0
   br i1 %15, label %.lr.ph179, label %.loopexit
@@ -3801,15 +3801,15 @@ define internal fastcc noundef zeroext i1 @hlCover(ptr noundef readonly captures
   %exitcond219.not = icmp eq i64 %indvars.iv.next215, %wide.trip.count218
   br i1 %exitcond219.not, label %.critedge, label %32
 
-55:                                               ; preds = %.lr.ph197, %66
-  %indvars.iv220 = phi i64 [ 0, %.lr.ph197 ], [ %indvars.iv.next221, %66 ]
-  %.089195 = phi i32 [ -1, %.lr.ph197 ], [ %.1, %66 ]
-  %.090194 = phi i32 [ -1, %.lr.ph197 ], [ %.2, %66 ]
+55:                                               ; preds = %.lr.ph197, %67
+  %indvars.iv220 = phi i64 [ 0, %.lr.ph197 ], [ %indvars.iv.next221, %67 ]
+  %.089195 = phi i32 [ -1, %.lr.ph197 ], [ %.1, %67 ]
+  %.090194 = phi i32 [ -1, %.lr.ph197 ], [ %.2, %67 ]
   %56 = getelementptr inbounds nuw %struct.HeadlineWordEntry, ptr %42, i64 %indvars.iv220
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 16
   %58 = load ptr, ptr %57, align 8
   %59 = icmp eq ptr %58, null
-  br i1 %59, label %66, label %60
+  br i1 %59, label %67, label %60
 
 60:                                               ; preds = %55
   %61 = icmp slt i32 %.090194, 0
@@ -3817,59 +3817,59 @@ define internal fastcc noundef zeroext i1 @hlCover(ptr noundef readonly captures
   %63 = load i16, ptr %62, align 4
   %64 = zext i16 %63 to i32
   %.pre228 = trunc nuw nsw i64 %indvars.iv220 to i32
-  %.not130 = icmp sgt i32 %39, %64
+  %.not130 = icmp sle i32 %39, %64
   %65 = trunc nuw nsw i64 %indvars.iv220 to i32
-  %spec.select135 = select i1 %.not130, i32 %.090194, i32 %65
   %.pre-phi229 = select i1 %61, i32 %65, i32 %.pre228
-  %.3 = select i1 %61, i32 %spec.select135, i32 %.090194
+  %66 = and i1 %61, %.not130
+  %.3 = select i1 %66, i32 %65, i32 %.090194
   %.not131 = icmp samesign ult i32 %spec.select, %64
-  br i1 %.not131, label %._crit_edge198, label %66
+  br i1 %.not131, label %._crit_edge198, label %67
 
-66:                                               ; preds = %60, %55
+67:                                               ; preds = %60, %55
   %.2 = phi i32 [ %.090194, %55 ], [ %.3, %60 ]
   %.1 = phi i32 [ %.089195, %55 ], [ %.pre-phi229, %60 ]
   %indvars.iv.next221 = add nuw nsw i64 %indvars.iv220, 1
   %exitcond225.not = icmp eq i64 %indvars.iv.next221, %wide.trip.count224
   br i1 %exitcond225.not, label %._crit_edge198, label %55, !llvm.loop !37
 
-._crit_edge198:                                   ; preds = %66, %60
-  %.089.lcssa = phi i32 [ %.089195, %60 ], [ %.1, %66 ]
-  %.191 = phi i32 [ %.3, %60 ], [ %.2, %66 ]
-  %67 = icmp slt i32 %.191, 0
+._crit_edge198:                                   ; preds = %67, %60
+  %.089.lcssa = phi i32 [ %.089195, %60 ], [ %.1, %67 ]
+  %.191 = phi i32 [ %.3, %60 ], [ %.2, %67 ]
+  %68 = icmp slt i32 %.191, 0
   %.not132 = icmp slt i32 %.089.lcssa, %.191
-  %or.cond = select i1 %67, i1 true, i1 %.not132
-  br i1 %or.cond, label %.thread146, label %68
+  %or.cond = select i1 %68, i1 true, i1 %.not132
+  br i1 %or.cond, label %.thread146, label %69
 
-68:                                               ; preds = %._crit_edge198
+69:                                               ; preds = %._crit_edge198
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %69 = load ptr, ptr %0, align 8
-  %70 = zext nneg i32 %.191 to i64
-  %71 = getelementptr inbounds nuw %struct.HeadlineWordEntry, ptr %69, i64 %70
-  store ptr %71, ptr %7, align 8
-  %72 = add i32 %.089.lcssa, 1
-  %73 = sub i32 %72, %.191
-  store i32 %73, ptr %11, align 8
-  %74 = call zeroext i1 @TS_execute(ptr noundef nonnull %12, ptr noundef nonnull %7, i32 noundef 0, ptr noundef nonnull @checkcondition_HL) #15
-  br i1 %74, label %75, label %.thread149
+  %70 = load ptr, ptr %0, align 8
+  %71 = zext nneg i32 %.191 to i64
+  %72 = getelementptr inbounds nuw %struct.HeadlineWordEntry, ptr %70, i64 %71
+  store ptr %72, ptr %7, align 8
+  %73 = add i32 %.089.lcssa, 1
+  %74 = sub i32 %73, %.191
+  store i32 %74, ptr %11, align 8
+  %75 = call zeroext i1 @TS_execute(ptr noundef nonnull %12, ptr noundef nonnull %7, i32 noundef 0, ptr noundef nonnull @checkcondition_HL) #15
+  br i1 %75, label %76, label %.thread149
 
-.thread149:                                       ; preds = %68
+.thread149:                                       ; preds = %69
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.thread146
 
-75:                                               ; preds = %68
-  %76 = add nsw i32 %39, 1
-  store i32 %76, ptr %3, align 4
+76:                                               ; preds = %69
+  %77 = add nsw i32 %39, 1
+  store i32 %77, ptr %3, align 4
   store i32 %.191, ptr %4, align 4
   store i32 %.089.lcssa, ptr %5, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.loopexit
 
 .thread146:                                       ; preds = %.preheader, %._crit_edge198, %.critedge, %.thread149
-  %77 = add i32 %39, 1
+  %78 = add i32 %39, 1
   br label %.lr.ph168
 
-.loopexit:                                        ; preds = %.lr.ph168, %17, %24, %6, %75
-  %.4.ph = phi i1 [ false, %6 ], [ true, %75 ], [ false, %17 ], [ false, %24 ], [ false, %.lr.ph168 ]
+.loopexit:                                        ; preds = %.lr.ph168, %17, %24, %6, %76
+  %.4.ph = phi i1 [ false, %6 ], [ true, %76 ], [ false, %17 ], [ false, %24 ], [ false, %.lr.ph168 ]
   ret i1 %.4.ph
 }
 

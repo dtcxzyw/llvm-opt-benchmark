@@ -1747,9 +1747,9 @@ define hidden range(i32 0, 2) i32 @lj_debug_getinfo(ptr noundef %0, ptr noundef 
   %63 = add nsw i32 %62, %56
   store i32 %63, ptr %45, align 4, !tbaa !66
   %.not144 = icmp eq i32 %56, 0
-  %.not145 = icmp eq i32 %62, 0
-  %64 = select i1 %.not145, ptr @.str.18, ptr @.str.19
-  %65 = select i1 %.not144, ptr %64, ptr @.str.18
+  %.not145 = icmp ne i32 %62, 0
+  %64 = select i1 %.not144, i1 %.not145, i1 false
+  %65 = select i1 %64, ptr @.str.19, ptr @.str.18
   store ptr %65, ptr %46, align 8, !tbaa !67
   br label %136
 

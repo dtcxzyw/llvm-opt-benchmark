@@ -1198,7 +1198,7 @@ define dso_local void @meshopt_encodeVertexVersion(i32 noundef %0) local_unnamed
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local range(i32 -1, 2) i32 @meshopt_decodeVertexVersion(ptr noundef readonly captures(none) %0, i64 noundef %1) local_unnamed_addr #5 {
   %3 = icmp eq i64 %1, 0
-  br i1 %3, label %10, label %4
+  br i1 %3, label %11, label %4
 
 4:                                                ; preds = %2
   %5 = load i8, ptr %0, align 1, !tbaa !8
@@ -1206,12 +1206,12 @@ define dso_local range(i32 -1, 2) i32 @meshopt_decodeVertexVersion(ptr noundef r
   %7 = and i32 %6, 240
   %.not = icmp eq i32 %7, 160
   %8 = and i32 %6, 15
-  %9 = icmp samesign ugt i32 %8, 1
-  %. = select i1 %9, i32 -1, i32 %8
-  %.1 = select i1 %.not, i32 %., i32 -1
-  br label %10
+  %9 = icmp samesign ult i32 %8, 2
+  %10 = select i1 %.not, i1 %9, i1 false
+  %.1 = select i1 %10, i32 %8, i32 -1
+  br label %11
 
-10:                                               ; preds = %2, %4
+11:                                               ; preds = %2, %4
   %.0 = phi i32 [ %.1, %4 ], [ -1, %2 ]
   ret i32 %.0
 }

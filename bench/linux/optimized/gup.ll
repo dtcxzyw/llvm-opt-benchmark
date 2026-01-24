@@ -3391,8 +3391,8 @@ define dso_local i64 @get_user_pages_remote(ptr noundef %0, i64 noundef %1, i64 
 28:                                               ; preds = %27, %15
   %29 = phi i8 [ 1, %27 ], [ 0, %15 ]
   %30 = and i32 %13, 524288
-  %31 = icmp eq i32 %30, 0
-  br i1 %31, label %39, label %32
+  %31 = icmp ne i32 %30, 0
+  br i1 %31, label %32, label %39
 
 32:                                               ; preds = %28
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 1120
@@ -3409,8 +3409,8 @@ define dso_local i64 @get_user_pages_remote(ptr noundef %0, i64 noundef %1, i64 
 39:                                               ; preds = %37, %32, %28
   %40 = icmp eq ptr %4, null
   %41 = or i32 %13, 2
-  %42 = select i1 %31, i32 %41, i32 %13
-  %43 = select i1 %40, i32 %13, i32 %42
+  %42 = or i1 %40, %31
+  %43 = select i1 %42, i32 %13, i32 %41
   %44 = call fastcc i64 @__get_user_pages(ptr noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %43, ptr noundef %4, ptr noundef nonnull %12)
   %45 = and i32 %43, 2097152
   %46 = icmp eq i32 %45, 0
@@ -3868,8 +3868,8 @@ define dso_local i64 @get_user_pages(i64 noundef %0, i64 noundef %1, i32 noundef
 
 15:                                               ; preds = %8
   %16 = and i32 %13, 524288
-  %17 = icmp eq i32 %16, 0
-  br i1 %17, label %25, label %18
+  %17 = icmp ne i32 %16, 0
+  br i1 %17, label %18, label %25
 
 18:                                               ; preds = %15
   %19 = getelementptr inbounds nuw i8, ptr %12, i64 1120
@@ -3886,8 +3886,8 @@ define dso_local i64 @get_user_pages(i64 noundef %0, i64 noundef %1, i32 noundef
 25:                                               ; preds = %23, %18, %15
   %26 = icmp eq ptr %3, null
   %27 = or i32 %13, 2
-  %28 = select i1 %17, i32 %27, i32 %13
-  %29 = select i1 %26, i32 %13, i32 %28
+  %28 = or i1 %26, %17
+  %29 = select i1 %28, i32 %13, i32 %27
   %30 = call fastcc i64 @__get_user_pages(ptr noundef %12, i64 noundef %0, i64 noundef %1, i32 noundef %29, ptr noundef %3, ptr noundef nonnull %6)
   %31 = and i32 %29, 2097152
   %32 = icmp eq i32 %31, 0
@@ -4271,8 +4271,8 @@ define dso_local i64 @get_user_pages_unlocked(i64 noundef %0, i64 noundef %1, pt
 24:                                               ; preds = %22
   store i32 1, ptr %6, align 4
   %25 = and i32 %13, 524288
-  %26 = icmp eq i32 %25, 0
-  br i1 %26, label %34, label %27
+  %26 = icmp ne i32 %25, 0
+  br i1 %26, label %27, label %34
 
 27:                                               ; preds = %24
   %28 = getelementptr inbounds nuw i8, ptr %12, i64 1120
@@ -4289,8 +4289,8 @@ define dso_local i64 @get_user_pages_unlocked(i64 noundef %0, i64 noundef %1, pt
 34:                                               ; preds = %32, %27, %24
   %35 = icmp eq ptr %2, null
   %36 = or i32 %13, 2
-  %37 = select i1 %26, i32 %36, i32 %13
-  %38 = select i1 %35, i32 %13, i32 %37
+  %37 = or i1 %35, %26
+  %38 = select i1 %37, i32 %13, i32 %36
   %39 = call fastcc i64 @__get_user_pages(ptr noundef %12, i64 noundef %0, i64 noundef %1, i32 noundef %38, ptr noundef %2, ptr noundef nonnull %6)
   %40 = and i32 %38, 2097152
   %41 = icmp eq i32 %40, 0
@@ -6179,8 +6179,8 @@ define internal fastcc i64 @__gup_longterm_locked(ptr noundef %0, i64 noundef %1
 26:                                               ; preds = %25, %13
   %27 = phi i8 [ 1, %25 ], [ 0, %13 ]
   %28 = and i32 %5, 524288
-  %29 = icmp eq i32 %28, 0
-  br i1 %29, label %37, label %30
+  %29 = icmp ne i32 %28, 0
+  br i1 %29, label %30, label %37
 
 30:                                               ; preds = %26
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 1120
@@ -6197,8 +6197,8 @@ define internal fastcc i64 @__gup_longterm_locked(ptr noundef %0, i64 noundef %1
 37:                                               ; preds = %35, %30, %26
   %38 = icmp eq ptr %3, null
   %39 = or i32 %5, 2
-  %40 = select i1 %29, i32 %39, i32 %5
-  %41 = select i1 %38, i32 %5, i32 %40
+  %40 = or i1 %38, %29
+  %41 = select i1 %40, i32 %5, i32 %39
   %42 = tail call fastcc i64 @__get_user_pages(ptr noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %41, ptr noundef %3, ptr noundef %4)
   %43 = and i32 %41, 2097152
   %44 = icmp eq i32 %43, 0
@@ -6552,13 +6552,13 @@ define internal fastcc i64 @__gup_longterm_locked(ptr noundef %0, i64 noundef %1
   %221 = icmp eq i64 %2, 0
   %222 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %223 = and i32 %5, 524288
-  %224 = icmp eq i32 %223, 0
+  %224 = icmp ne i32 %223, 0
   %225 = getelementptr inbounds nuw i8, ptr %0, i64 1120
   %226 = getelementptr i8, ptr %0, i64 1123
   %227 = icmp eq ptr %3, null
   %228 = or i32 %5, 2
-  %229 = select i1 %224, i32 %228, i32 %5
-  %230 = select i1 %227, i32 %5, i32 %229
+  %229 = or i1 %227, %224
+  %230 = select i1 %229, i32 %5, i32 %228
   %231 = and i32 %230, 2097152
   %232 = icmp eq i32 %231, 0
   %233 = getelementptr inbounds nuw i8, ptr %216, i64 1936
@@ -6612,7 +6612,7 @@ define internal fastcc i64 @__gup_longterm_locked(ptr noundef %0, i64 noundef %1
 
 256:                                              ; preds = %255, %.lr.ph
   %257 = phi i8 [ 1, %255 ], [ 0, %.lr.ph ]
-  br i1 %224, label %263, label %258
+  br i1 %224, label %258, label %263
 
 258:                                              ; preds = %256
   %259 = load volatile i64, ptr %225, align 8

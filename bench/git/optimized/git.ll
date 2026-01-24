@@ -2350,196 +2350,196 @@ define internal fastcc i32 @run_builtin(ptr noundef nonnull readonly captures(no
   %.fr = freeze i32 %14
   %.not = icmp eq i32 %.fr, 0
   %15 = and i32 %8, 1
-  %.not32 = icmp eq i32 %15, 0
-  %spec.store.select = select i1 %.not32, i32 %9, i32 2
-  %spec.select = select i1 %.not, i32 %spec.store.select, i32 %9
+  %.not32 = icmp ne i32 %15, 0
+  %16 = select i1 %.not, i1 %.not32, i1 false
+  %spec.select = select i1 %16, i32 2, i32 %9
   br label %.thread
 
 .thread:                                          ; preds = %11, %4
-  %16 = phi i1 [ false, %4 ], [ %.not, %11 ]
-  %17 = phi i32 [ %9, %4 ], [ %spec.select, %11 ]
-  %18 = and i32 %17, 1
-  %.not33 = icmp eq i32 %18, 0
-  br i1 %.not33, label %21, label %19
+  %17 = phi i1 [ false, %4 ], [ %.not, %11 ]
+  %18 = phi i32 [ %9, %4 ], [ %spec.select, %11 ]
+  %19 = and i32 %18, 1
+  %.not33 = icmp eq i32 %19, 0
+  br i1 %.not33, label %22, label %20
 
-19:                                               ; preds = %.thread
-  %20 = tail call ptr @setup_git_directory() #16
+20:                                               ; preds = %.thread
+  %21 = tail call ptr @setup_git_directory() #16
   store i32 0, ptr %5, align 4, !tbaa !4
-  br label %25
+  br label %26
 
-21:                                               ; preds = %.thread
-  %22 = and i32 %17, 2
-  %.not34 = icmp eq i32 %22, 0
-  br i1 %.not34, label %25, label %23
+22:                                               ; preds = %.thread
+  %23 = and i32 %18, 2
+  %.not34 = icmp eq i32 %23, 0
+  br i1 %.not34, label %26, label %24
 
-23:                                               ; preds = %21
-  %24 = call ptr @setup_git_directory_gently(ptr noundef nonnull %5) #16
-  br label %25
+24:                                               ; preds = %22
+  %25 = call ptr @setup_git_directory_gently(ptr noundef nonnull %5) #16
+  br label %26
 
-25:                                               ; preds = %21, %23, %19
-  %.028 = phi ptr [ %20, %19 ], [ %24, %23 ], [ null, %21 ]
-  %26 = load i32, ptr @use_pager, align 4, !tbaa !4
-  %27 = icmp eq i32 %26, -1
-  %28 = icmp ne i32 %17, 0
-  %or.cond = and i1 %28, %27
-  br i1 %or.cond, label %29, label %thread-pre-split
+26:                                               ; preds = %22, %24, %20
+  %.028 = phi ptr [ %21, %20 ], [ %25, %24 ], [ null, %22 ]
+  %27 = load i32, ptr @use_pager, align 4, !tbaa !4
+  %28 = icmp eq i32 %27, -1
+  %29 = icmp ne i32 %18, 0
+  %or.cond = and i1 %29, %28
+  br i1 %or.cond, label %30, label %thread-pre-split
 
-29:                                               ; preds = %25
-  %30 = load i32, ptr %7, align 8, !tbaa !45
-  %31 = and i32 %30, 16
-  %.not35 = icmp eq i32 %31, 0
-  br i1 %.not35, label %32, label %thread-pre-split.thread
+30:                                               ; preds = %26
+  %31 = load i32, ptr %7, align 8, !tbaa !45
+  %32 = and i32 %31, 16
+  %.not35 = icmp eq i32 %32, 0
+  br i1 %.not35, label %33, label %thread-pre-split.thread
 
-32:                                               ; preds = %29
-  %33 = load ptr, ptr @the_repository, align 8, !tbaa !8
-  %34 = load ptr, ptr %0, align 8, !tbaa !11
-  %35 = call i32 @check_pager_config(ptr noundef %33, ptr noundef %34) #16
-  store i32 %35, ptr @use_pager, align 4, !tbaa !4
+33:                                               ; preds = %30
+  %34 = load ptr, ptr @the_repository, align 8, !tbaa !8
+  %35 = load ptr, ptr %0, align 8, !tbaa !11
+  %36 = call i32 @check_pager_config(ptr noundef %34, ptr noundef %35) #16
+  store i32 %36, ptr @use_pager, align 4, !tbaa !4
   br label %thread-pre-split
 
-thread-pre-split:                                 ; preds = %32, %25
-  %36 = phi i32 [ %26, %25 ], [ %35, %32 ]
-  %37 = icmp eq i32 %36, -1
-  br i1 %37, label %thread-pre-split.thread, label %41
+thread-pre-split:                                 ; preds = %33, %26
+  %37 = phi i32 [ %27, %26 ], [ %36, %33 ]
+  %38 = icmp eq i32 %37, -1
+  br i1 %38, label %thread-pre-split.thread, label %42
 
-thread-pre-split.thread:                          ; preds = %29, %thread-pre-split
-  %38 = load i32, ptr %7, align 8, !tbaa !45
-  %39 = and i32 %38, 4
-  %.not36 = icmp eq i32 %39, 0
-  br i1 %.not36, label %41, label %40
+thread-pre-split.thread:                          ; preds = %30, %thread-pre-split
+  %39 = load i32, ptr %7, align 8, !tbaa !45
+  %40 = and i32 %39, 4
+  %.not36 = icmp eq i32 %40, 0
+  br i1 %.not36, label %42, label %41
 
-40:                                               ; preds = %thread-pre-split.thread
+41:                                               ; preds = %thread-pre-split.thread
   store i32 1, ptr @use_pager, align 4, !tbaa !4
-  br label %41
+  br label %42
 
-41:                                               ; preds = %40, %thread-pre-split.thread, %thread-pre-split
-  %42 = phi i32 [ 1, %40 ], [ -1, %thread-pre-split.thread ], [ %36, %thread-pre-split ]
-  br i1 %28, label %43, label %48
+42:                                               ; preds = %41, %thread-pre-split.thread, %thread-pre-split
+  %43 = phi i32 [ 1, %41 ], [ -1, %thread-pre-split.thread ], [ %37, %thread-pre-split ]
+  br i1 %29, label %44, label %49
 
-43:                                               ; preds = %41
-  %44 = load ptr, ptr @startup_info, align 8, !tbaa !46
-  %45 = load i32, ptr %44, align 8, !tbaa !48
-  %.not37 = icmp eq i32 %45, 0
-  br i1 %.not37, label %48, label %46
+44:                                               ; preds = %42
+  %45 = load ptr, ptr @startup_info, align 8, !tbaa !46
+  %46 = load i32, ptr %45, align 8, !tbaa !48
+  %.not37 = icmp eq i32 %46, 0
+  br i1 %.not37, label %49, label %47
 
-46:                                               ; preds = %43
-  %47 = load ptr, ptr @the_repository, align 8, !tbaa !8
-  call void @trace_repo_setup(ptr noundef %47) #16
+47:                                               ; preds = %44
+  %48 = load ptr, ptr @the_repository, align 8, !tbaa !8
+  call void @trace_repo_setup(ptr noundef %48) #16
   %.pre = load i32, ptr @use_pager, align 4, !tbaa !4
-  br label %48
+  br label %49
 
-48:                                               ; preds = %46, %43, %41
-  %49 = phi i32 [ %.pre, %46 ], [ %42, %43 ], [ %42, %41 ]
-  switch i32 %49, label %commit_pager_choice.exit [
-    i32 0, label %50
-    i32 1, label %52
+49:                                               ; preds = %47, %44, %42
+  %50 = phi i32 [ %.pre, %47 ], [ %43, %44 ], [ %43, %42 ]
+  switch i32 %50, label %commit_pager_choice.exit [
+    i32 0, label %51
+    i32 1, label %53
   ]
 
-50:                                               ; preds = %48
-  %51 = call i32 @setenv(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16, i32 noundef 1) #16
+51:                                               ; preds = %49
+  %52 = call i32 @setenv(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16, i32 noundef 1) #16
   br label %commit_pager_choice.exit
 
-52:                                               ; preds = %48
-  %53 = load ptr, ptr @the_repository, align 8, !tbaa !8
-  call void @setup_pager(ptr noundef %53) #16
+53:                                               ; preds = %49
+  %54 = load ptr, ptr @the_repository, align 8, !tbaa !8
+  call void @setup_pager(ptr noundef %54) #16
   br label %commit_pager_choice.exit
 
-commit_pager_choice.exit:                         ; preds = %48, %50, %52
-  br i1 %16, label %58, label %54
+commit_pager_choice.exit:                         ; preds = %49, %51, %53
+  br i1 %17, label %59, label %55
 
-54:                                               ; preds = %commit_pager_choice.exit
-  %55 = load i32, ptr %7, align 8, !tbaa !45
-  %56 = and i32 %55, 8
-  %.not38 = icmp eq i32 %56, 0
-  br i1 %.not38, label %58, label %57
+55:                                               ; preds = %commit_pager_choice.exit
+  %56 = load i32, ptr %7, align 8, !tbaa !45
+  %57 = and i32 %56, 8
+  %.not38 = icmp eq i32 %57, 0
+  br i1 %.not38, label %59, label %58
 
-57:                                               ; preds = %54
+58:                                               ; preds = %55
   call void @setup_work_tree() #16
-  br label %58
+  br label %59
 
-58:                                               ; preds = %commit_pager_choice.exit, %54, %57
-  %59 = load i32, ptr getelementptr inbounds nuw (i8, ptr @trace_default_key, i64 8), align 8, !tbaa !27
-  %.not.i = icmp eq i32 %59, 0
-  %60 = load i8, ptr getelementptr inbounds nuw (i8, ptr @trace_default_key, i64 12), align 4
-  %61 = and i8 %60, 1
-  %.not3949 = icmp ne i8 %61, 0
+59:                                               ; preds = %commit_pager_choice.exit, %55, %58
+  %60 = load i32, ptr getelementptr inbounds nuw (i8, ptr @trace_default_key, i64 8), align 8, !tbaa !27
+  %.not.i = icmp eq i32 %60, 0
+  %61 = load i8, ptr getelementptr inbounds nuw (i8, ptr @trace_default_key, i64 12), align 4
+  %62 = and i8 %61, 1
+  %.not3949 = icmp ne i8 %62, 0
   %.not39 = select i1 %.not.i, i1 %.not3949, i1 false
-  br i1 %.not39, label %63, label %62
+  br i1 %.not39, label %64, label %63
 
-62:                                               ; preds = %58
+63:                                               ; preds = %59
   call void (ptr, i32, ptr, ptr, ...) @trace_argv_printf_fl(ptr noundef nonnull @.str.1, i32 noundef 476, ptr noundef %2, ptr noundef nonnull @.str.160) #16
-  br label %63
+  br label %64
 
-63:                                               ; preds = %62, %58
-  %64 = load ptr, ptr %0, align 8, !tbaa !11
-  call void @trace2_cmd_name_fl(ptr noundef nonnull @.str.1, i32 noundef 477, ptr noundef %64) #16
-  %65 = getelementptr inbounds nuw i8, ptr %3, i64 384
-  %66 = load ptr, ptr %65, align 8, !tbaa !50
-  call void @validate_cache_entries(ptr noundef %66) #16
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %68 = load ptr, ptr %67, align 8, !tbaa !68
-  %69 = load i32, ptr %5, align 4, !tbaa !4
-  %.not40 = icmp eq i32 %69, 0
-  %70 = select i1 %.not40, ptr %3, ptr null
-  %71 = call i32 %68(i32 noundef %1, ptr noundef %2, ptr noundef %.028, ptr noundef %70) #16
-  %72 = load ptr, ptr %65, align 8, !tbaa !50
-  call void @validate_cache_entries(ptr noundef %72) #16
-  %.not41 = icmp eq i32 %71, 0
-  br i1 %.not41, label %73, label %95
+64:                                               ; preds = %63, %59
+  %65 = load ptr, ptr %0, align 8, !tbaa !11
+  call void @trace2_cmd_name_fl(ptr noundef nonnull @.str.1, i32 noundef 477, ptr noundef %65) #16
+  %66 = getelementptr inbounds nuw i8, ptr %3, i64 384
+  %67 = load ptr, ptr %66, align 8, !tbaa !50
+  call void @validate_cache_entries(ptr noundef %67) #16
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %69 = load ptr, ptr %68, align 8, !tbaa !68
+  %70 = load i32, ptr %5, align 4, !tbaa !4
+  %.not40 = icmp eq i32 %70, 0
+  %71 = select i1 %.not40, ptr %3, ptr null
+  %72 = call i32 %69(i32 noundef %1, ptr noundef %2, ptr noundef %.028, ptr noundef %71) #16
+  %73 = load ptr, ptr %66, align 8, !tbaa !50
+  call void @validate_cache_entries(ptr noundef %73) #16
+  %.not41 = icmp eq i32 %72, 0
+  br i1 %.not41, label %74, label %96
 
-73:                                               ; preds = %63
-  %74 = load ptr, ptr @stdout, align 8, !tbaa !42
-  %75 = call i32 @fileno(ptr noundef %74) #16
-  %76 = call i32 @fstat64(i32 noundef %75, ptr noundef nonnull %6) #16
-  %.not42 = icmp eq i32 %76, 0
-  br i1 %.not42, label %77, label %95
+74:                                               ; preds = %64
+  %75 = load ptr, ptr @stdout, align 8, !tbaa !42
+  %76 = call i32 @fileno(ptr noundef %75) #16
+  %77 = call i32 @fstat64(i32 noundef %76, ptr noundef nonnull %6) #16
+  %.not42 = icmp eq i32 %77, 0
+  br i1 %.not42, label %78, label %96
 
-77:                                               ; preds = %73
-  %78 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %79 = load i32, ptr %78, align 8, !tbaa !69
-  %80 = trunc i32 %79 to i16
-  %trunc = and i16 %80, -4096
-  switch i16 %trunc, label %81 [
-    i16 4096, label %95
-    i16 -16384, label %95
+78:                                               ; preds = %74
+  %79 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %80 = load i32, ptr %79, align 8, !tbaa !69
+  %81 = trunc i32 %80 to i16
+  %trunc = and i16 %81, -4096
+  switch i16 %trunc, label %82 [
+    i16 4096, label %96
+    i16 -16384, label %96
   ]
 
-81:                                               ; preds = %77
-  %82 = load ptr, ptr @stdout, align 8, !tbaa !42
-  %83 = call i32 @fflush(ptr noundef %82)
-  %.not43 = icmp eq i32 %83, 0
-  br i1 %.not43, label %86, label %84
+82:                                               ; preds = %78
+  %83 = load ptr, ptr @stdout, align 8, !tbaa !42
+  %84 = call i32 @fflush(ptr noundef %83)
+  %.not43 = icmp eq i32 %84, 0
+  br i1 %.not43, label %87, label %85
 
-84:                                               ; preds = %81
-  %85 = call fastcc ptr @_(ptr noundef nonnull @.str.161)
-  call void (ptr, ...) @die_errno(ptr noundef %85) #18
+85:                                               ; preds = %82
+  %86 = call fastcc ptr @_(ptr noundef nonnull @.str.161)
+  call void (ptr, ...) @die_errno(ptr noundef %86) #18
   unreachable
 
-86:                                               ; preds = %81
-  %87 = load ptr, ptr @stdout, align 8, !tbaa !42
-  %88 = call i32 @ferror(ptr noundef %87) #16
-  %.not44 = icmp eq i32 %88, 0
-  br i1 %.not44, label %91, label %89
+87:                                               ; preds = %82
+  %88 = load ptr, ptr @stdout, align 8, !tbaa !42
+  %89 = call i32 @ferror(ptr noundef %88) #16
+  %.not44 = icmp eq i32 %89, 0
+  br i1 %.not44, label %92, label %90
 
-89:                                               ; preds = %86
-  %90 = call fastcc ptr @_(ptr noundef nonnull @.str.162)
-  call void (ptr, ...) @die(ptr noundef %90) #18
+90:                                               ; preds = %87
+  %91 = call fastcc ptr @_(ptr noundef nonnull @.str.162)
+  call void (ptr, ...) @die(ptr noundef %91) #18
   unreachable
 
-91:                                               ; preds = %86
-  %92 = call i32 @fclose(ptr noundef %87)
-  %.not45 = icmp eq i32 %92, 0
-  br i1 %.not45, label %95, label %93
+92:                                               ; preds = %87
+  %93 = call i32 @fclose(ptr noundef %88)
+  %.not45 = icmp eq i32 %93, 0
+  br i1 %.not45, label %96, label %94
 
-93:                                               ; preds = %91
-  %94 = call fastcc ptr @_(ptr noundef nonnull @.str.163)
-  call void (ptr, ...) @die_errno(ptr noundef %94) #18
+94:                                               ; preds = %92
+  %95 = call fastcc ptr @_(ptr noundef nonnull @.str.163)
+  call void (ptr, ...) @die_errno(ptr noundef %95) #18
   unreachable
 
-95:                                               ; preds = %91, %77, %77, %73, %63
+96:                                               ; preds = %92, %78, %78, %74, %64
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  ret i32 %71
+  ret i32 %72
 }
 
 declare ptr @setup_git_directory() local_unnamed_addr #1

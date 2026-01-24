@@ -291,7 +291,7 @@ _ZN3gmx28loadSimdPairInteractionMasksILb1EL12KernelLayout1EEENSt9enable_ifIXaaT_
   %170 = insertelement <8 x i32> poison, i32 %169, i64 0
   %171 = shufflevector <8 x i32> %170, <8 x i32> poison, <8 x i32> zeroinitializer
   %172 = and <8 x i32> %.sroa.03805.0.copyload, %171
-  %.not3860 = icmp eq <8 x i32> %172, zeroinitializer
+  %.not3860 = icmp ne <8 x i32> %172, zeroinitializer
   %173 = and <8 x i32> %.sroa.6.0.copyload, %171
   %.not3859 = icmp eq <8 x i32> %173, zeroinitializer
   %174 = shl nsw i32 %167, 2
@@ -419,7 +419,7 @@ _ZN3gmx17CoulombCalculatorILNS_17KernelCoulombTypeE2EE5forceILi2EEESt5arrayINS_9
   %268 = fmul <8 x float> %.sroa.73059.1, %266
   %269 = fmul <8 x float> %223, %223
   %270 = fmul <8 x float> %225, %225
-  %271 = select <8 x i1> %.not3860, <8 x i32> zeroinitializer, <8 x i32> %222
+  %271 = select <8 x i1> %.not3860, <8 x i32> %222, <8 x i32> zeroinitializer
   %272 = bitcast <8 x i32> %271 to <8 x float>
   %273 = select <8 x i1> %.not3859, <8 x i32> zeroinitializer, <8 x i32> %224
   %274 = bitcast <8 x i32> %273 to <8 x float>
@@ -460,8 +460,8 @@ _ZN3gmx17CoulombCalculatorILNS_17KernelCoulombTypeE2EE5forceILi2EEESt5arrayINS_9
   %299 = fmul <8 x float> %298, %298
   %300 = fmul <8 x float> %299, %299
   %301 = fmul <8 x float> %299, %300
-  %302 = select <8 x i1> %.not3860, <8 x float> zeroinitializer, <8 x float> %301
-  %303 = select <8 x i1> %289, <8 x float> %302, <8 x float> zeroinitializer
+  %302 = select <8 x i1> %289, <8 x i1> %.not3860, <8 x i1> zeroinitializer
+  %303 = select <8 x i1> %302, <8 x float> %301, <8 x float> zeroinitializer
   %304 = fmul <8 x float> %297, %303
   %305 = fmul <8 x float> %303, %304
   %306 = fsub <8 x float> %305, %304
@@ -790,9 +790,9 @@ _ZN3gmx28loadSimdPairInteractionMasksILb1EL12KernelLayout1EEENSt9enable_ifIXaaT_
   %517 = insertelement <8 x i32> poison, i32 %516, i64 0
   %518 = shufflevector <8 x i32> %517, <8 x i32> poison, <8 x i32> zeroinitializer
   %519 = and <8 x i32> %.sroa.03805.0.copyload, %518
-  %.not3857 = icmp eq <8 x i32> %519, zeroinitializer
+  %.not3857 = icmp ne <8 x i32> %519, zeroinitializer
   %520 = and <8 x i32> %.sroa.6.0.copyload, %518
-  %.not3858 = icmp eq <8 x i32> %520, zeroinitializer
+  %.not3858 = icmp ne <8 x i32> %520, zeroinitializer
   %521 = shl nsw i32 %514, 2
   %522 = mul nsw i32 %514, 12
   %523 = sext i32 %522 to i64
@@ -918,9 +918,9 @@ _ZN3gmx17CoulombCalculatorILNS_17KernelCoulombTypeE2EE5forceILi2EEESt5arrayINS_9
   %615 = fmul <8 x float> %.sroa.73059.1, %613
   %616 = fmul <8 x float> %570, %570
   %617 = fmul <8 x float> %572, %572
-  %618 = select <8 x i1> %.not3857, <8 x i32> zeroinitializer, <8 x i32> %569
+  %618 = select <8 x i1> %.not3857, <8 x i32> %569, <8 x i32> zeroinitializer
   %619 = bitcast <8 x i32> %618 to <8 x float>
-  %620 = select <8 x i1> %.not3858, <8 x i32> zeroinitializer, <8 x i32> %571
+  %620 = select <8 x i1> %.not3858, <8 x i32> %571, <8 x i32> zeroinitializer
   %621 = bitcast <8 x i32> %620 to <8 x float>
   %622 = tail call <8 x float> @llvm.x86.avx.round.ps.256(<8 x float> %575, i32 3)
   %623 = tail call <8 x float> @llvm.x86.avx.round.ps.256(<8 x float> %576, i32 3)
@@ -966,10 +966,10 @@ _ZN3gmx17CoulombCalculatorILNS_17KernelCoulombTypeE2EE5forceILi2EEESt5arrayINS_9
   %653 = fmul <8 x float> %650, %652
   %654 = fmul <8 x float> %651, %651
   %655 = fmul <8 x float> %651, %654
-  %656 = select <8 x i1> %.not3857, <8 x float> zeroinitializer, <8 x float> %653
-  %657 = select <8 x i1> %636, <8 x float> %656, <8 x float> zeroinitializer
-  %658 = select <8 x i1> %.not3858, <8 x float> zeroinitializer, <8 x float> %655
-  %659 = select <8 x i1> %637, <8 x float> %658, <8 x float> zeroinitializer
+  %656 = select <8 x i1> %636, <8 x i1> %.not3857, <8 x i1> zeroinitializer
+  %657 = select <8 x i1> %656, <8 x float> %653, <8 x float> zeroinitializer
+  %658 = select <8 x i1> %637, <8 x i1> %.not3858, <8 x i1> zeroinitializer
+  %659 = select <8 x i1> %658, <8 x float> %655, <8 x float> zeroinitializer
   %660 = fmul <8 x float> %646, %657
   %661 = fmul <8 x float> %647, %659
   %662 = fmul <8 x float> %657, %660

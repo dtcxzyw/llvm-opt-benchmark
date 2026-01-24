@@ -31472,13 +31472,13 @@ _ZNK21ConstBitOpTreeVisitor8LeafInfo14missingWordSelEv.exit: ; preds = %_ZNK7Ast
 
 _ZNK7AstNode10widthWordsEv.exit:                  ; preds = %34
   %40 = and i32 %19, 31
-  %.not7 = icmp eq i32 %40, 0
-  %41 = select i1 %.not7, i32 32, i32 %40
-  %42 = add nuw nsw i32 %23, 31
-  %43 = lshr i32 %42, 5
-  %44 = add nsw i32 %43, -1
-  %45 = icmp eq i32 %32, %44
-  %46 = select i1 %45, i32 %41, i32 32
+  %.not7 = icmp ne i32 %40, 0
+  %41 = add nuw nsw i32 %23, 31
+  %42 = lshr i32 %41, 5
+  %43 = add nsw i32 %42, -1
+  %44 = icmp eq i32 %32, %43
+  %45 = and i1 %.not7, %44
+  %46 = select i1 %45, i32 %40, i32 32
   br label %47
 
 47:                                               ; preds = %_ZNK21ConstBitOpTreeVisitor8LeafInfo14missingWordSelEv.exit, %_ZNK7AstNode6isWideEv.exit.thread, %_ZNK7AstNode10widthWordsEv.exit

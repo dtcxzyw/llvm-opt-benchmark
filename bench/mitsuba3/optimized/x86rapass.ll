@@ -2017,10 +2017,10 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder12moveVecToPtrE
   store i32 %24, ptr %52, align 4, !tbaa !85, !alias.scope !184
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 658
   %54 = load i8, ptr %53, align 2, !tbaa !154, !range !42, !noundef !43
-  %55 = icmp eq i8 %54, 0
-  %56 = select i1 %55, i32 421, i32 1154
-  %57 = icmp ugt i8 %14, 16
-  %58 = select i1 %57, i32 1154, i32 %56
+  %55 = icmp ne i8 %54, 0
+  %56 = icmp ugt i8 %14, 16
+  %57 = or i1 %56, %55
+  %58 = select i1 %57, i32 1154, i32 421
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %60 = load ptr, ptr %59, align 8, !tbaa !69
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 72

@@ -10474,14 +10474,14 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %4032 = bitcast <2 x i64> %.sroa.02001.8.vec.insert to <4 x float>
   %4033 = and <2 x i64> %.sroa.02001.8.vec.insert, %4031
   %4034 = fcmp uge <4 x float> %4030, %4032
-  %4035 = fcmp ule <4 x float> %4030, %4032
+  %4035 = fcmp ogt <4 x float> %4030, %4032
   %4036 = fcmp uno <4 x float> %4030, zeroinitializer
-  %4037 = fcmp uno <4 x float> %4032, zeroinitializer
-  %4038 = bitcast <2 x i64> %4033 to <4 x float>
-  %4039 = select <4 x i1> %4034, <4 x float> %4038, <4 x float> %4032
-  %4040 = select <4 x i1> %4035, <4 x float> %4039, <4 x float> %4030
-  %4041 = select <4 x i1> %4036, <4 x float> %4030, <4 x float> %4040
-  %4042 = select <4 x i1> %4037, <4 x float> %4032, <4 x float> %4041
+  %4037 = select <4 x i1> %4036, <4 x i1> splat (i1 true), <4 x i1> %4035
+  %4038 = fcmp uno <4 x float> %4032, zeroinitializer
+  %4039 = bitcast <2 x i64> %4033 to <4 x float>
+  %4040 = select <4 x i1> %4034, <4 x float> %4039, <4 x float> %4032
+  %4041 = select <4 x i1> %4037, <4 x float> %4030, <4 x float> %4040
+  %4042 = select <4 x i1> %4038, <4 x float> %4032, <4 x float> %4041
   store <4 x float> %4042, ptr %4029, align 16, !noalias !887
   store i64 1, ptr %0, align 4, !alias.scope !887
   br label %4983
@@ -10707,13 +10707,13 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %4158 = fcmp uge <2 x double> %4155, %.sroa.01985.8.vec.insert
   %4159 = select <2 x i1> %4158, <2 x i64> %4156, <2 x i64> splat (i64 -1)
   %4160 = and <2 x i64> %4159, %4157
-  %4161 = fcmp ule <2 x double> %4155, %.sroa.01985.8.vec.insert
+  %4161 = fcmp ogt <2 x double> %4155, %.sroa.01985.8.vec.insert
   %4162 = fcmp uno <2 x double> %4155, zeroinitializer
-  %4163 = fcmp uno <2 x double> %.sroa.01985.8.vec.insert, zeroinitializer
-  %4164 = bitcast <2 x i64> %4160 to <2 x double>
-  %4165 = select <2 x i1> %4161, <2 x double> %4164, <2 x double> %4155
-  %4166 = select <2 x i1> %4162, <2 x double> %4155, <2 x double> %4165
-  %4167 = select <2 x i1> %4163, <2 x double> %.sroa.01985.8.vec.insert, <2 x double> %4166
+  %4163 = select <2 x i1> %4162, <2 x i1> splat (i1 true), <2 x i1> %4161
+  %4164 = fcmp uno <2 x double> %.sroa.01985.8.vec.insert, zeroinitializer
+  %4165 = bitcast <2 x i64> %4160 to <2 x double>
+  %4166 = select <2 x i1> %4163, <2 x double> %4155, <2 x double> %4165
+  %4167 = select <2 x i1> %4164, <2 x double> %.sroa.01985.8.vec.insert, <2 x double> %4166
   store <2 x double> %4167, ptr %4154, align 16, !noalias !920
   store i64 1, ptr %0, align 4, !alias.scope !920
   br label %4983
@@ -11547,14 +11547,14 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %4664 = bitcast <2 x i64> %.sroa.01935.8.vec.insert to <4 x float>
   %4665 = and <2 x i64> %.sroa.01935.8.vec.insert, %4663
   %4666 = fcmp uge <4 x float> %4662, %4664
-  %4667 = fcmp ule <4 x float> %4662, %4664
+  %4667 = fcmp ogt <4 x float> %4662, %4664
   %4668 = fcmp uno <4 x float> %4662, zeroinitializer
-  %4669 = fcmp uno <4 x float> %4664, zeroinitializer
-  %4670 = bitcast <2 x i64> %4665 to <4 x float>
-  %4671 = select <4 x i1> %4666, <4 x float> %4670, <4 x float> %4664
-  %4672 = select <4 x i1> %4667, <4 x float> %4671, <4 x float> %4662
-  %4673 = select <4 x i1> %4668, <4 x float> %4662, <4 x float> %4672
-  %4674 = select <4 x i1> %4669, <4 x float> %4664, <4 x float> %4673
+  %4669 = select <4 x i1> %4668, <4 x i1> splat (i1 true), <4 x i1> %4667
+  %4670 = fcmp uno <4 x float> %4664, zeroinitializer
+  %4671 = bitcast <2 x i64> %4665 to <4 x float>
+  %4672 = select <4 x i1> %4666, <4 x float> %4671, <4 x float> %4664
+  %4673 = select <4 x i1> %4669, <4 x float> %4662, <4 x float> %4672
+  %4674 = select <4 x i1> %4670, <4 x float> %4664, <4 x float> %4673
   store <4 x float> %4674, ptr %4661, align 16, !noalias !1029
   store i64 1, ptr %0, align 4, !alias.scope !1029
   br label %4983
@@ -11612,13 +11612,13 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %4707 = fcmp uge <2 x double> %4704, %.sroa.01931.8.vec.insert
   %4708 = select <2 x i1> %4707, <2 x i64> %4705, <2 x i64> splat (i64 -1)
   %4709 = and <2 x i64> %4708, %4706
-  %4710 = fcmp ule <2 x double> %4704, %.sroa.01931.8.vec.insert
+  %4710 = fcmp ogt <2 x double> %4704, %.sroa.01931.8.vec.insert
   %4711 = fcmp uno <2 x double> %4704, zeroinitializer
-  %4712 = fcmp uno <2 x double> %.sroa.01931.8.vec.insert, zeroinitializer
-  %4713 = bitcast <2 x i64> %4709 to <2 x double>
-  %4714 = select <2 x i1> %4710, <2 x double> %4713, <2 x double> %4704
-  %4715 = select <2 x i1> %4711, <2 x double> %4704, <2 x double> %4714
-  %4716 = select <2 x i1> %4712, <2 x double> %.sroa.01931.8.vec.insert, <2 x double> %4715
+  %4712 = select <2 x i1> %4711, <2 x i1> splat (i1 true), <2 x i1> %4710
+  %4713 = fcmp uno <2 x double> %.sroa.01931.8.vec.insert, zeroinitializer
+  %4714 = bitcast <2 x i64> %4709 to <2 x double>
+  %4715 = select <2 x i1> %4712, <2 x double> %4704, <2 x double> %4714
+  %4716 = select <2 x i1> %4713, <2 x double> %.sroa.01931.8.vec.insert, <2 x double> %4715
   store <2 x double> %4716, ptr %4703, align 16, !noalias !1035
   store i64 1, ptr %0, align 4, !alias.scope !1035
   br label %4983

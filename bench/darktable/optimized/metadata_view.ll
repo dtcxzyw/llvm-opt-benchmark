@@ -411,18 +411,18 @@ define void @gui_update(ptr noundef readonly captures(none) %0) local_unnamed_ad
   %118 = load ptr, ptr %10, align 8, !tbaa !82
   %119 = call i32 @sqlite3_column_int(ptr noundef %118, i32 noundef 1) #13
   %120 = icmp eq i32 %119, %.0233
-  %121 = select i1 %120, i32 %.0239356, i32 0
-  %122 = select i1 %.not296, i1 true, i1 %120
-  %.1242 = select i1 %122, i32 %.0241355, i32 0
-  %.1240 = select i1 %.not296, i32 %121, i32 %.0239356
-  %123 = load ptr, ptr %10, align 8, !tbaa !82
-  %124 = call i32 @sqlite3_step(ptr noundef %123) #13
-  %125 = icmp eq i32 %124, 100
-  br i1 %125, label %.lr.ph, label %._crit_edge.loopexit
+  %121 = select i1 %.not296, i1 true, i1 %120
+  %.1242 = select i1 %121, i32 %.0241355, i32 0
+  %122 = xor i1 %120, true
+  %123 = select i1 %.not296, i1 %122, i1 false
+  %.1240 = select i1 %123, i32 0, i32 %.0239356
+  %124 = load ptr, ptr %10, align 8, !tbaa !82
+  %125 = call i32 @sqlite3_step(ptr noundef %124) #13
+  %126 = icmp eq i32 %125, 100
+  br i1 %126, label %.lr.ph, label %._crit_edge.loopexit
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %126 = icmp eq i32 %.1240, 0
-  %127 = zext i1 %126 to i32
+  %127 = xor i32 %.1240, 1
   %128 = xor i32 %.1242, 1
   br label %._crit_edge
 

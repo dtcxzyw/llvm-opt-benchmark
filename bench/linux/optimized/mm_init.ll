@@ -2372,7 +2372,7 @@ define internal fastcc void @mem_init_print_info() unnamed_addr #0 section ".ini
   %35 = icmp ule i64 sub (i64 ptrtoint (ptr @_etext to i64), i64 ptrtoint (ptr @_stext to i64)), sub (i64 ptrtoint (ptr @_einittext to i64), i64 ptrtoint (ptr @_sinittext to i64))
   %36 = or i1 %35, %34
   %37 = select i1 %36, i64 sub (i64 ptrtoint (ptr @_etext to i64), i64 ptrtoint (ptr @_stext to i64)), i64 sub (i64 sub (i64 ptrtoint (ptr @_etext to i64), i64 ptrtoint (ptr @_stext to i64)), i64 sub (i64 ptrtoint (ptr @_einittext to i64), i64 ptrtoint (ptr @_sinittext to i64)))
-  %38 = icmp ugt i64 %37, sub (i64 ptrtoint (ptr @__end_rodata to i64), i64 ptrtoint (ptr @__start_rodata to i64))
+  %38 = icmp ule i64 %37, sub (i64 ptrtoint (ptr @__end_rodata to i64), i64 ptrtoint (ptr @__start_rodata to i64))
   %39 = icmp uge i64 %spec.select, sub (i64 ptrtoint (ptr @_edata to i64), i64 ptrtoint (ptr @_sdata to i64))
   %40 = icmp ugt ptr @_sdata, @__init_begin
   %41 = icmp uge ptr @__init_begin, @_edata
@@ -2384,8 +2384,8 @@ define internal fastcc void @mem_init_print_info() unnamed_addr #0 section ".ini
   %47 = icmp uge ptr @__start_rodata, @_etext
   %48 = or i1 %46, %47
   %49 = sub i64 %37, sub (i64 ptrtoint (ptr @__end_rodata to i64), i64 ptrtoint (ptr @__start_rodata to i64))
-  %50 = select i1 %38, i64 %49, i64 %37
-  %51 = select i1 %48, i64 %37, i64 %50
+  %50 = or i1 %48, %38
+  %51 = select i1 %50, i64 %37, i64 %49
   %52 = icmp ugt ptr @_sdata, @__start_rodata
   %53 = icmp uge ptr @__start_rodata, @_edata
   %54 = or i1 %52, %53

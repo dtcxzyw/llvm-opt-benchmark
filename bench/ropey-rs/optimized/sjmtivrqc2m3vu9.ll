@@ -585,8 +585,8 @@ _ZN8smallvec10infallible17hac02ab9634219958E.exit: ; preds = %16, %1, %_ZN8small
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.4.0..sroa_idx, ptr nonnull align 1 %11, i64 %7, i1 false)
   %12 = load i64, ptr %3, align 8, !noundef !11
-  %13 = icmp slt i64 %12, 0
-  br i1 %13, label %14, label %_ZN8smallvec10deallocate17h8331b8735a47b8c8E.exit
+  %13 = icmp sgt i64 %12, -1
+  br i1 %13, label %_ZN8smallvec10deallocate17h8331b8735a47b8c8E.exit, label %14
 
 14:                                               ; preds = %9
   call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !90
@@ -1076,15 +1076,15 @@ define internal fastcc { i64, i64 } @"_ZN8smallvec17SmallVec$LT$A$GT$8try_grow17
   br i1 %.not, label %28, label %32
 
 14:                                               ; preds = %12
-  %15 = icmp slt i64 %1, 0
-  br i1 %15, label %32, label %16
+  %15 = icmp sgt i64 %1, -1
+  br i1 %15, label %16, label %32
 
 16:                                               ; preds = %14
   br i1 %.not, label %17, label %19
 
 17:                                               ; preds = %16
-  %18 = icmp slt i64 %.sink.i, 0
-  br i1 %18, label %32, label %23
+  %18 = icmp sgt i64 %.sink.i, -1
+  br i1 %18, label %23, label %32
 
 19:                                               ; preds = %16
   %20 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
@@ -1116,8 +1116,8 @@ define internal fastcc { i64, i64 } @"_ZN8smallvec17SmallVec$LT$A$GT$8try_grow17
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.4.0..sroa_idx, ptr nonnull align 1 %.sink13.i, i64 %9, i1 false)
   store i64 %9, ptr %3, align 8
-  %29 = icmp slt i64 %.sink.i, 0
-  br i1 %29, label %30, label %_ZN8smallvec10deallocate17h8331b8735a47b8c8E.exit
+  %29 = icmp sgt i64 %.sink.i, -1
+  br i1 %29, label %_ZN8smallvec10deallocate17h8331b8735a47b8c8E.exit, label %30
 
 30:                                               ; preds = %28
   call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !131

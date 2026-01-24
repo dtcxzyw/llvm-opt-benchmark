@@ -66,7 +66,7 @@ define ptr @Java_java_net_Inet6AddressImpl_lookupAllHostAddr(ptr noundef %0, ptr
   %9 = load ptr, ptr %8, align 8
   %10 = tail call zeroext i8 %9(ptr noundef nonnull %0) #12
   %.not = icmp eq i8 %10, 0
-  br i1 %.not, label %11, label %177
+  br i1 %.not, label %11, label %178
 
 11:                                               ; preds = %4
   %12 = icmp eq ptr %2, null
@@ -74,12 +74,12 @@ define ptr @Java_java_net_Inet6AddressImpl_lookupAllHostAddr(ptr noundef %0, ptr
 
 13:                                               ; preds = %11
   tail call void @JNU_ThrowNullPointerException(ptr noundef nonnull %0, ptr noundef nonnull @.str.1) #12
-  br label %177
+  br label %178
 
 14:                                               ; preds = %11
   %15 = tail call ptr @JNU_GetStringPlatformCharsStrict(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef null) #12
   %16 = icmp eq ptr %15, null
-  br i1 %16, label %177, label %17
+  br i1 %16, label %178, label %17
 
 17:                                               ; preds = %14
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -299,128 +299,127 @@ define ptr @Java_java_net_Inet6AddressImpl_lookupAllHostAddr(ptr noundef %0, ptr
   br i1 %.not167209, label %.loopexit.thread, label %.lr.ph215.preheader
 
 .lr.ph215.preheader:                              ; preds = %103
-  %104 = and i32 %3, 8
-  %.not165 = icmp eq i32 %104, 0
-  %105 = and i32 %3, 4
-  %.not166 = icmp eq i32 %105, 0
-  %..0132 = select i1 %.not166, i32 0, i32 %.0132.lcssa
-  %.0139 = select i1 %.not165, i32 %..0132, i32 0
+  %104 = and i32 %3, 12
+  %105 = icmp eq i32 %104, 4
+  %.0139 = select i1 %105, i32 %.0132.lcssa, i32 0
+  %106 = and i32 %3, 8
+  %.not165 = icmp eq i32 %106, 0
   %.0143 = select i1 %.not165, i32 0, i32 %.0147.lcssa
   br label %.lr.ph215
 
-.lr.ph215:                                        ; preds = %.lr.ph215.preheader, %168
-  %.1128213 = phi ptr [ %172, %168 ], [ %.1.lcssa, %.lr.ph215.preheader ]
-  %.1137212 = phi i32 [ %.2138, %168 ], [ 0, %.lr.ph215.preheader ]
-  %.1140211 = phi i32 [ %.3142, %168 ], [ %.0139, %.lr.ph215.preheader ]
-  %.1144210 = phi i32 [ %.3146, %168 ], [ %.0143, %.lr.ph215.preheader ]
-  %106 = getelementptr inbounds nuw i8, ptr %.1128213, i64 4
-  %107 = load i32, ptr %106, align 4
-  switch i32 %107, label %168 [
-    i32 2, label %108
-    i32 10, label %137
+.lr.ph215:                                        ; preds = %.lr.ph215.preheader, %169
+  %.1128213 = phi ptr [ %173, %169 ], [ %.1.lcssa, %.lr.ph215.preheader ]
+  %.1137212 = phi i32 [ %.2138, %169 ], [ 0, %.lr.ph215.preheader ]
+  %.1140211 = phi i32 [ %.3142, %169 ], [ %.0139, %.lr.ph215.preheader ]
+  %.1144210 = phi i32 [ %.3146, %169 ], [ %.0143, %.lr.ph215.preheader ]
+  %107 = getelementptr inbounds nuw i8, ptr %.1128213, i64 4
+  %108 = load i32, ptr %107, align 4
+  switch i32 %108, label %169 [
+    i32 2, label %109
+    i32 10, label %138
   ]
 
-108:                                              ; preds = %.lr.ph215
-  %109 = load ptr, ptr %0, align 8
-  %110 = getelementptr inbounds nuw i8, ptr %109, i64 224
-  %111 = load ptr, ptr %110, align 8
-  %112 = load ptr, ptr @ia4_class, align 8
-  %113 = load ptr, ptr @ia4_ctrID, align 8
-  %114 = call ptr (ptr, ptr, ptr, ...) %111(ptr noundef nonnull %0, ptr noundef %112, ptr noundef %113) #12
-  %115 = icmp eq ptr %114, null
-  br i1 %115, label %.loopexit, label %116
+109:                                              ; preds = %.lr.ph215
+  %110 = load ptr, ptr %0, align 8
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 224
+  %112 = load ptr, ptr %111, align 8
+  %113 = load ptr, ptr @ia4_class, align 8
+  %114 = load ptr, ptr @ia4_ctrID, align 8
+  %115 = call ptr (ptr, ptr, ptr, ...) %112(ptr noundef nonnull %0, ptr noundef %113, ptr noundef %114) #12
+  %116 = icmp eq ptr %115, null
+  br i1 %116, label %.loopexit, label %117
 
-116:                                              ; preds = %108
-  %117 = getelementptr inbounds nuw i8, ptr %.1128213, i64 24
-  %118 = load ptr, ptr %117, align 8
-  %119 = getelementptr inbounds nuw i8, ptr %118, i64 4
-  %120 = load i32, ptr %119, align 4
-  %121 = call i32 @ntohl(i32 noundef %120) #14
-  call void @setInetAddress_addr(ptr noundef nonnull %0, ptr noundef nonnull %114, i32 noundef %121) #12
-  %122 = load ptr, ptr %0, align 8
-  %123 = getelementptr inbounds nuw i8, ptr %122, i64 1824
-  %124 = load ptr, ptr %123, align 8
-  %125 = call zeroext i8 %124(ptr noundef nonnull %0) #12
-  %.not170 = icmp eq i8 %125, 0
-  br i1 %.not170, label %126, label %.loopexit
+117:                                              ; preds = %109
+  %118 = getelementptr inbounds nuw i8, ptr %.1128213, i64 24
+  %119 = load ptr, ptr %118, align 8
+  %120 = getelementptr inbounds nuw i8, ptr %119, i64 4
+  %121 = load i32, ptr %120, align 4
+  %122 = call i32 @ntohl(i32 noundef %121) #14
+  call void @setInetAddress_addr(ptr noundef nonnull %0, ptr noundef nonnull %115, i32 noundef %122) #12
+  %123 = load ptr, ptr %0, align 8
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 1824
+  %125 = load ptr, ptr %124, align 8
+  %126 = call zeroext i8 %125(ptr noundef nonnull %0) #12
+  %.not170 = icmp eq i8 %126, 0
+  br i1 %.not170, label %127, label %.loopexit
 
-126:                                              ; preds = %116
-  call void @setInetAddress_hostName(ptr noundef nonnull %0, ptr noundef nonnull %114, ptr noundef nonnull %2) #12
-  %127 = load ptr, ptr %0, align 8
-  %128 = getelementptr inbounds nuw i8, ptr %127, i64 1824
-  %129 = load ptr, ptr %128, align 8
-  %130 = call zeroext i8 %129(ptr noundef nonnull %0) #12
-  %.not171 = icmp eq i8 %130, 0
-  br i1 %.not171, label %131, label %.loopexit
+127:                                              ; preds = %117
+  call void @setInetAddress_hostName(ptr noundef nonnull %0, ptr noundef nonnull %115, ptr noundef nonnull %2) #12
+  %128 = load ptr, ptr %0, align 8
+  %129 = getelementptr inbounds nuw i8, ptr %128, i64 1824
+  %130 = load ptr, ptr %129, align 8
+  %131 = call zeroext i8 %130(ptr noundef nonnull %0) #12
+  %.not171 = icmp eq i8 %131, 0
+  br i1 %.not171, label %132, label %.loopexit
 
-131:                                              ; preds = %126
-  %132 = load ptr, ptr %0, align 8
-  %133 = getelementptr inbounds nuw i8, ptr %132, i64 1392
-  %134 = load ptr, ptr %133, align 8
-  %135 = or i32 %.1137212, %.1144210
-  call void %134(ptr noundef nonnull %0, ptr noundef nonnull %101, i32 noundef %135, ptr noundef nonnull %114) #12
-  %136 = add nsw i32 %.1144210, 1
-  br label %168
+132:                                              ; preds = %127
+  %133 = load ptr, ptr %0, align 8
+  %134 = getelementptr inbounds nuw i8, ptr %133, i64 1392
+  %135 = load ptr, ptr %134, align 8
+  %136 = or i32 %.1137212, %.1144210
+  call void %135(ptr noundef nonnull %0, ptr noundef nonnull %101, i32 noundef %136, ptr noundef nonnull %115) #12
+  %137 = add nsw i32 %.1144210, 1
+  br label %169
 
-137:                                              ; preds = %.lr.ph215
-  %138 = load ptr, ptr %0, align 8
-  %139 = getelementptr inbounds nuw i8, ptr %138, i64 224
-  %140 = load ptr, ptr %139, align 8
-  %141 = load ptr, ptr @ia6_class, align 8
-  %142 = load ptr, ptr @ia6_ctrID, align 8
-  %143 = call ptr (ptr, ptr, ptr, ...) %140(ptr noundef nonnull %0, ptr noundef %141, ptr noundef %142) #12
-  %144 = icmp eq ptr %143, null
-  br i1 %144, label %.loopexit, label %145
+138:                                              ; preds = %.lr.ph215
+  %139 = load ptr, ptr %0, align 8
+  %140 = getelementptr inbounds nuw i8, ptr %139, i64 224
+  %141 = load ptr, ptr %140, align 8
+  %142 = load ptr, ptr @ia6_class, align 8
+  %143 = load ptr, ptr @ia6_ctrID, align 8
+  %144 = call ptr (ptr, ptr, ptr, ...) %141(ptr noundef nonnull %0, ptr noundef %142, ptr noundef %143) #12
+  %145 = icmp eq ptr %144, null
+  br i1 %145, label %.loopexit, label %146
 
-145:                                              ; preds = %137
-  %146 = getelementptr inbounds nuw i8, ptr %.1128213, i64 24
-  %147 = load ptr, ptr %146, align 8
-  %148 = getelementptr inbounds nuw i8, ptr %147, i64 8
-  %149 = call zeroext i8 @setInet6Address_ipaddress(ptr noundef nonnull %0, ptr noundef nonnull %143, ptr noundef nonnull %148) #12
-  %150 = icmp eq i8 %149, 0
-  br i1 %150, label %.loopexit, label %151
+146:                                              ; preds = %138
+  %147 = getelementptr inbounds nuw i8, ptr %.1128213, i64 24
+  %148 = load ptr, ptr %147, align 8
+  %149 = getelementptr inbounds nuw i8, ptr %148, i64 8
+  %150 = call zeroext i8 @setInet6Address_ipaddress(ptr noundef nonnull %0, ptr noundef nonnull %144, ptr noundef nonnull %149) #12
+  %151 = icmp eq i8 %150, 0
+  br i1 %151, label %.loopexit, label %152
 
-151:                                              ; preds = %145
-  %152 = load ptr, ptr %146, align 8
-  %153 = getelementptr inbounds nuw i8, ptr %152, i64 24
-  %154 = load i32, ptr %153, align 4
-  %.not168 = icmp eq i32 %154, 0
-  br i1 %.not168, label %157, label %155
+152:                                              ; preds = %146
+  %153 = load ptr, ptr %147, align 8
+  %154 = getelementptr inbounds nuw i8, ptr %153, i64 24
+  %155 = load i32, ptr %154, align 4
+  %.not168 = icmp eq i32 %155, 0
+  br i1 %.not168, label %158, label %156
 
-155:                                              ; preds = %151
-  %156 = call zeroext i8 @setInet6Address_scopeid(ptr noundef nonnull %0, ptr noundef nonnull %143, i32 noundef %154) #12
-  br label %157
+156:                                              ; preds = %152
+  %157 = call zeroext i8 @setInet6Address_scopeid(ptr noundef nonnull %0, ptr noundef nonnull %144, i32 noundef %155) #12
+  br label %158
 
-157:                                              ; preds = %155, %151
-  call void @setInetAddress_hostName(ptr noundef nonnull %0, ptr noundef nonnull %143, ptr noundef nonnull %2) #12
-  %158 = load ptr, ptr %0, align 8
-  %159 = getelementptr inbounds nuw i8, ptr %158, i64 1824
-  %160 = load ptr, ptr %159, align 8
-  %161 = call zeroext i8 %160(ptr noundef nonnull %0) #12
-  %.not169 = icmp eq i8 %161, 0
-  br i1 %.not169, label %162, label %.loopexit
+158:                                              ; preds = %156, %152
+  call void @setInetAddress_hostName(ptr noundef nonnull %0, ptr noundef nonnull %144, ptr noundef nonnull %2) #12
+  %159 = load ptr, ptr %0, align 8
+  %160 = getelementptr inbounds nuw i8, ptr %159, i64 1824
+  %161 = load ptr, ptr %160, align 8
+  %162 = call zeroext i8 %161(ptr noundef nonnull %0) #12
+  %.not169 = icmp eq i8 %162, 0
+  br i1 %.not169, label %163, label %.loopexit
 
-162:                                              ; preds = %157
-  %163 = load ptr, ptr %0, align 8
-  %164 = getelementptr inbounds nuw i8, ptr %163, i64 1392
-  %165 = load ptr, ptr %164, align 8
-  %166 = or i32 %.1137212, %.1140211
-  call void %165(ptr noundef nonnull %0, ptr noundef nonnull %101, i32 noundef %166, ptr noundef nonnull %143) #12
-  %167 = add nsw i32 %.1140211, 1
-  br label %168
+163:                                              ; preds = %158
+  %164 = load ptr, ptr %0, align 8
+  %165 = getelementptr inbounds nuw i8, ptr %164, i64 1392
+  %166 = load ptr, ptr %165, align 8
+  %167 = or i32 %.1137212, %.1140211
+  call void %166(ptr noundef nonnull %0, ptr noundef nonnull %101, i32 noundef %167, ptr noundef nonnull %144) #12
+  %168 = add nsw i32 %.1140211, 1
+  br label %169
 
-168:                                              ; preds = %.lr.ph215, %162, %131
-  %.2145 = phi i32 [ %136, %131 ], [ %.1144210, %162 ], [ %.1144210, %.lr.ph215 ]
-  %.2141 = phi i32 [ %.1140211, %131 ], [ %167, %162 ], [ %.1140211, %.lr.ph215 ]
-  %169 = call i32 @addressesInSystemOrder(i32 noundef %3) #12
-  %.not172 = icmp ne i32 %169, 0
+169:                                              ; preds = %.lr.ph215, %163, %132
+  %.2145 = phi i32 [ %137, %132 ], [ %.1144210, %163 ], [ %.1144210, %.lr.ph215 ]
+  %.2141 = phi i32 [ %.1140211, %132 ], [ %168, %163 ], [ %.1140211, %.lr.ph215 ]
+  %170 = call i32 @addressesInSystemOrder(i32 noundef %3) #12
+  %.not172 = icmp ne i32 %170, 0
   %.3146 = select i1 %.not172, i32 0, i32 %.2145
   %.3142 = select i1 %.not172, i32 0, i32 %.2141
-  %170 = zext i1 %.not172 to i32
-  %.2138 = add nuw nsw i32 %.1137212, %170
-  %171 = getelementptr inbounds nuw i8, ptr %.1128213, i64 40
-  %172 = load ptr, ptr %171, align 8
-  %.not167 = icmp eq ptr %172, null
+  %171 = zext i1 %.not172 to i32
+  %.2138 = add nuw nsw i32 %.1137212, %171
+  %172 = getelementptr inbounds nuw i8, ptr %.1128213, i64 40
+  %173 = load ptr, ptr %172, align 8
+  %.not167 = icmp eq ptr %173, null
   br i1 %.not167, label %.loopexit, label %.lr.ph215, !llvm.loop !10
 
 .loopexit.thread:                                 ; preds = %22, %103
@@ -428,33 +427,33 @@ define ptr @Java_java_net_Inet6AddressImpl_lookupAllHostAddr(ptr noundef %0, ptr
   call void @JNU_ReleaseStringPlatformChars(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef nonnull %15) #12
   br label %._crit_edge233
 
-.loopexit:                                        ; preds = %116, %126, %157, %168, %108, %137, %145, %._crit_edge, %83
-  %.0124 = phi ptr [ %.1.lcssa, %._crit_edge ], [ %.1201, %83 ], [ %.1.lcssa, %145 ], [ %.1.lcssa, %137 ], [ %.1.lcssa, %108 ], [ %.1.lcssa, %168 ], [ %.1.lcssa, %157 ], [ %.1.lcssa, %126 ], [ %.1.lcssa, %116 ]
-  %.0123 = phi ptr [ null, %._crit_edge ], [ null, %83 ], [ %101, %116 ], [ %101, %126 ], [ %101, %157 ], [ %101, %168 ], [ null, %108 ], [ null, %137 ], [ null, %145 ]
+.loopexit:                                        ; preds = %117, %127, %158, %169, %109, %138, %146, %._crit_edge, %83
+  %.0124 = phi ptr [ %.1.lcssa, %._crit_edge ], [ %.1201, %83 ], [ %.1.lcssa, %146 ], [ %.1.lcssa, %138 ], [ %.1.lcssa, %109 ], [ %.1.lcssa, %169 ], [ %.1.lcssa, %158 ], [ %.1.lcssa, %127 ], [ %.1.lcssa, %117 ]
+  %.0123 = phi ptr [ null, %._crit_edge ], [ null, %83 ], [ %101, %117 ], [ %101, %127 ], [ %101, %158 ], [ %101, %169 ], [ null, %109 ], [ null, %138 ], [ null, %146 ]
   call void @JNU_ReleaseStringPlatformChars(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef nonnull %15) #12
   %.not179229 = icmp eq ptr %.0124, null
   br i1 %.not179229, label %._crit_edge233, label %.lr.ph232
 
 .lr.ph232:                                        ; preds = %.loopexit, %.lr.ph232
-  %.4230 = phi ptr [ %174, %.lr.ph232 ], [ %.0124, %.loopexit ]
-  %173 = getelementptr inbounds nuw i8, ptr %.4230, i64 40
-  %174 = load ptr, ptr %173, align 8
+  %.4230 = phi ptr [ %175, %.lr.ph232 ], [ %.0124, %.loopexit ]
+  %174 = getelementptr inbounds nuw i8, ptr %.4230, i64 40
+  %175 = load ptr, ptr %174, align 8
   call void @free(ptr noundef nonnull %.4230) #12
-  %.not179 = icmp eq ptr %174, null
+  %.not179 = icmp eq ptr %175, null
   br i1 %.not179, label %._crit_edge233, label %.lr.ph232, !llvm.loop !11
 
 ._crit_edge233:                                   ; preds = %.lr.ph232, %.loopexit.thread, %.loopexit
   %.0123257 = phi ptr [ %.0123.ph, %.loopexit.thread ], [ %.0123, %.loopexit ], [ %.0123, %.lr.ph232 ]
-  %175 = load ptr, ptr %6, align 8
-  %.not180 = icmp eq ptr %175, null
-  br i1 %.not180, label %177, label %176
+  %176 = load ptr, ptr %6, align 8
+  %.not180 = icmp eq ptr %176, null
+  br i1 %.not180, label %178, label %177
 
-176:                                              ; preds = %._crit_edge233
-  call void @freeaddrinfo(ptr noundef nonnull %175) #12
-  br label %177
+177:                                              ; preds = %._crit_edge233
+  call void @freeaddrinfo(ptr noundef nonnull %176) #12
+  br label %178
 
-177:                                              ; preds = %._crit_edge233, %176, %14, %4, %13
-  %.0 = phi ptr [ null, %14 ], [ null, %13 ], [ null, %4 ], [ %.0123257, %176 ], [ %.0123257, %._crit_edge233 ]
+178:                                              ; preds = %._crit_edge233, %177, %14, %4, %13
+  %.0 = phi ptr [ null, %14 ], [ null, %13 ], [ null, %4 ], [ %.0123257, %177 ], [ %.0123257, %._crit_edge233 ]
   ret ptr %.0
 }
 

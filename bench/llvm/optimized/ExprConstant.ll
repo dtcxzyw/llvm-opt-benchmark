@@ -74893,17 +74893,17 @@ _ZN4llvm9BitVector6resizeEjb.exit:                ; preds = %57, %_ZN4llvm15Smal
 define internal fastcc void @_ZNK12_GLOBAL__N_18EvalInfo21getStdAllocatorCallerEN4llvm9StringRefE(ptr dead_on_unwind noalias nonnull writable writeonly align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(968) %1, ptr readonly captures(none) %2, i64 %3) unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %.047 = load ptr, ptr %5, align 8, !tbaa !1074
-  %.not48 = icmp eq ptr %.047, %6
-  br i1 %.not48, label %._crit_edge, label %.lr.ph
+  %.050 = load ptr, ptr %5, align 8, !tbaa !1074
+  %.not51 = icmp eq ptr %.050, %6
+  br i1 %.not51, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
   %7 = icmp eq i64 %3, 0
   br label %8
 
 8:                                                ; preds = %.lr.ph, %_ZN4llvm16dyn_cast_or_nullIN5clang13CXXMethodDeclEKNS1_12FunctionDeclEEEDaPT0_.exit.thread
-  %.049 = phi ptr [ %.047, %.lr.ph ], [ %.0, %_ZN4llvm16dyn_cast_or_nullIN5clang13CXXMethodDeclEKNS1_12FunctionDeclEEEDaPT0_.exit.thread ]
-  %9 = getelementptr inbounds nuw i8, ptr %.049, i64 24
+  %.052 = phi ptr [ %.050, %.lr.ph ], [ %.0, %_ZN4llvm16dyn_cast_or_nullIN5clang13CXXMethodDeclEKNS1_12FunctionDeclEEEDaPT0_.exit.thread ]
+  %9 = getelementptr inbounds nuw i8, ptr %.052, i64 24
   %10 = load ptr, ptr %9, align 8, !tbaa !876
   %.not.i.i = icmp eq ptr %10, null
   br i1 %.not.i.i, label %_ZN4llvm16dyn_cast_or_nullIN5clang13CXXMethodDeclEKNS1_12FunctionDeclEEEDaPT0_.exit.thread, label %11
@@ -74966,8 +74966,8 @@ _ZNK5clang13CXXMethodDecl9getParentEv.exit:       ; preds = %_ZNK5clang14Identif
   %42 = load i32, ptr %41, align 4
   %43 = and i32 %42, 126
   %44 = icmp ne i32 %43, 58
-  %.not31 = or i1 %40, %44
-  br i1 %.not31, label %_ZN4llvm16dyn_cast_or_nullIN5clang13CXXMethodDeclEKNS1_12FunctionDeclEEEDaPT0_.exit.thread, label %45
+  %.not48 = or i1 %40, %44
+  br i1 %.not48, label %_ZN4llvm16dyn_cast_or_nullIN5clang13CXXMethodDeclEKNS1_12FunctionDeclEEEDaPT0_.exit.thread, label %45
 
 45:                                               ; preds = %_ZNK5clang13CXXMethodDecl9getParentEv.exit
   %46 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 -64
@@ -75012,13 +75012,13 @@ _ZNK5clang14IdentifierInfo5isStrILm10EEEbRAT__Kc.exit: ; preds = %57
   br i1 %72, label %74, label %_ZN4llvm16dyn_cast_or_nullIN5clang13CXXMethodDeclEKNS1_12FunctionDeclEEEDaPT0_.exit.thread
 
 _ZN4llvm16dyn_cast_or_nullIN5clang13CXXMethodDeclEKNS1_12FunctionDeclEEEDaPT0_.exit.thread: ; preds = %57, %22, %8, %11, %_ZN4llvm16dyn_cast_or_nullIN5clang13CXXMethodDeclEKNS1_12FunctionDeclEEEDaPT0_.exit, %_ZNK5clang14IdentifierInfo5isStrEN4llvm9StringRefE.exit, %_ZNK5clang13CXXMethodDecl9getParentEv.exit, %68, %66, %_ZNK5clang14IdentifierInfo5isStrILm10EEEbRAT__Kc.exit, %45
-  %73 = getelementptr inbounds nuw i8, ptr %.049, i64 16
+  %73 = getelementptr inbounds nuw i8, ptr %.052, i64 16
   %.0 = load ptr, ptr %73, align 8, !tbaa !1074
   %.not = icmp eq ptr %.0, %6
   br i1 %.not, label %._crit_edge, label %8, !llvm.loop !1771
 
 74:                                               ; preds = %68
-  %75 = getelementptr inbounds nuw i8, ptr %.049, i64 176
+  %75 = getelementptr inbounds nuw i8, ptr %.052, i64 176
   %76 = load i32, ptr %75, align 8, !tbaa !625
   store i32 %76, ptr %0, align 8, !tbaa !1691
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -75026,7 +75026,7 @@ _ZN4llvm16dyn_cast_or_nullIN5clang13CXXMethodDeclEKNS1_12FunctionDeclEEEDaPT0_.e
   %79 = load i64, ptr %78, align 8, !tbaa !21
   store i64 %79, ptr %77, align 8
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %81 = getelementptr inbounds nuw i8, ptr %.049, i64 40
+  %81 = getelementptr inbounds nuw i8, ptr %.052, i64 40
   %82 = load ptr, ptr %81, align 8, !tbaa !878
   store ptr %82, ptr %80, align 8, !tbaa !1694
   br label %84

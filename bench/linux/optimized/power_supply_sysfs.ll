@@ -750,9 +750,9 @@ define dso_local i32 @power_supply_charge_behaviour_parse(i32 noundef %0, ptr no
   %6 = zext nneg i32 %3 to i64
   %7 = shl nuw i64 1, %6
   %8 = and i64 %7, %5
-  %9 = icmp eq i64 %8, 0
-  %10 = select i1 %9, i32 -22, i32 %3
-  %11 = select i1 %4, i32 %3, i32 %10
+  %9 = icmp ne i64 %8, 0
+  %10 = select i1 %4, i1 true, i1 %9
+  %11 = select i1 %10, i32 %3, i32 -22
   ret i32 %11
 }
 

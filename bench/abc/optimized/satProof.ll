@@ -1170,10 +1170,9 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %203 = zext i32 %202 to i64
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %197, ptr noundef nonnull align 4 dereferenceable(1) %187, i64 %203, i1 false)
   %.not93 = icmp eq ptr %.084133, null
-  %.not94 = icmp ugt ptr %.084133, %187
-  %spec.select = select i1 %.not94, ptr %.084133, ptr null
-  %.185 = select i1 %.not93, ptr null, ptr %spec.select
-  %204 = or i1 %.not93, %.not94
+  %.not94.not = icmp ugt ptr %.084133, %187
+  %.185 = select i1 %.not94.not, ptr %.084133, ptr null
+  %204 = or i1 %.not93, %.not94.not
   %.1 = select i1 %204, i32 %.0134, i32 %189
   %indvars.iv.next146 = add nuw nsw i64 %indvars.iv145, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next146, %wide.trip.count

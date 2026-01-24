@@ -17765,8 +17765,8 @@ define linkonce_odr dso_local void @_ZN3tbb6detail2d119parallel_quick_sortIN9__g
 
 32:                                               ; preds = %21
   %33 = getelementptr i8, ptr %0, i64 160
-  %.not.i.i = icmp ult ptr %33, %1
-  br i1 %.not.i.i, label %34, label %_ZN3tbb6detail2d112parallel_forINS1_13blocked_rangeIN9__gnu_cxx17__normal_iteratorIPSt5arrayIhLm16EESt6vectorIS7_SaIS7_EEEEEENS1_23quick_sort_pretest_bodyISC_St4lessIS7_EEEEEvRKT_RKT0_RKNS1_16auto_partitionerERNS1_18task_group_contextE.exit
+  %.not.i.not.i.i = icmp ult ptr %33, %1
+  br i1 %.not.i.not.i.i, label %34, label %_ZN3tbb6detail2d112parallel_forINS1_13blocked_rangeIN9__gnu_cxx17__normal_iteratorIPSt5arrayIhLm16EESt6vectorIS7_SaIS7_EEEEEENS1_23quick_sort_pretest_bodyISC_St4lessIS7_EEEEEvRKT_RKT0_RKNS1_16auto_partitionerERNS1_18task_group_contextE.exit
 
 34:                                               ; preds = %32
   call void @llvm.lifetime.start.p0(ptr nonnull %7)

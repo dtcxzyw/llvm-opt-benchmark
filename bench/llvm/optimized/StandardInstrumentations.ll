@@ -51303,13 +51303,13 @@ define linkonce_odr hidden void @_ZN4llvm12function_refIFvPKNS_9FuncDataTINS_6DC
 
 _ZZN4llvm10IRComparerINS_6DCDataEE7compareEbSt8functionIFvbjRKNS_9FuncDataTIS1_EES7_EEENKUlPS6_SA_E_clESA_SA_.exit: ; preds = %3
   %.not.i = icmp eq ptr %1, null
-  %.not8.i = icmp eq ptr %2, null
-  %spec.select.i = select i1 %.not8.i, ptr %7, ptr %2
-  %.0.i = select i1 %.not.i, ptr %2, ptr %spec.select.i
+  %.not8.i = icmp ne ptr %2, null
+  %17 = or i1 %.not.i, %.not8.i
+  %.0.i = select i1 %17, ptr %2, ptr %7
   %.05.i = select i1 %.not.i, ptr %7, ptr %1
-  %17 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %18 = load ptr, ptr %17, align 8, !tbaa !1251
-  call void %18(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 8 dereferenceable(80) %.05.i, ptr noundef nonnull align 8 dereferenceable(80) %.0.i) #26
+  %18 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  %19 = load ptr, ptr %18, align 8, !tbaa !1251
+  call void %19(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 8 dereferenceable(80) %.05.i, ptr noundef nonnull align 8 dereferenceable(80) %.0.i) #26
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
@@ -54929,13 +54929,13 @@ define linkonce_odr hidden void @_ZN4llvm12function_refIFvPKNS_9FuncDataTINS_9Em
 
 _ZZN4llvm10IRComparerINS_9EmptyDataEE7compareEbSt8functionIFvbjRKNS_9FuncDataTIS1_EES7_EEENKUlPS6_SA_E_clESA_SA_.exit: ; preds = %3
   %.not.i = icmp eq ptr %1, null
-  %.not8.i = icmp eq ptr %2, null
-  %spec.select.i = select i1 %.not8.i, ptr %7, ptr %2
-  %.0.i = select i1 %.not.i, ptr %2, ptr %spec.select.i
+  %.not8.i = icmp ne ptr %2, null
+  %17 = or i1 %.not.i, %.not8.i
+  %.0.i = select i1 %17, ptr %2, ptr %7
   %.05.i = select i1 %.not.i, ptr %7, ptr %1
-  %17 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %18 = load ptr, ptr %17, align 8, !tbaa !533
-  call void %18(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 8 dereferenceable(80) %.05.i, ptr noundef nonnull align 8 dereferenceable(80) %.0.i) #26
+  %18 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  %19 = load ptr, ptr %18, align 8, !tbaa !533
+  call void %19(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 8 dereferenceable(80) %.05.i, ptr noundef nonnull align 8 dereferenceable(80) %.0.i) #26
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void

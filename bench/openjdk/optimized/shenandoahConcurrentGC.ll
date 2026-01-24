@@ -2209,7 +2209,7 @@ define hidden void @_ZN49ShenandoahEvacUpdateCleanupOopStorageRootsClosureC2Ev(p
 define hidden void @_ZN49ShenandoahEvacUpdateCleanupOopStorageRootsClosure6do_oopEPP7oopDesc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %1, align 8
   %4 = icmp eq ptr %3, null
-  br i1 %4, label %63, label %5
+  br i1 %4, label %64, label %5
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -2247,13 +2247,13 @@ _ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit: ; preds = %5
 
 32:                                               ; preds = %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit
   %33 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr null, ptr nonnull %3, ptr nonnull %1) #14, !srcloc !9
-  br label %63
+  br label %64
 
 _ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread: ; preds = %5, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %35 = load i8, ptr %34, align 8
   %36 = trunc i8 %35 to i1
-  br i1 %36, label %37, label %63
+  br i1 %36, label %37, label %64
 
 37:                                               ; preds = %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2268,7 +2268,7 @@ _ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread: ; preds = %5, %_
   %47 = getelementptr inbounds i8, ptr %46, i64 %44
   %48 = load i8, ptr %47, align 1
   %49 = icmp eq i8 %48, 1
-  br i1 %49, label %50, label %63
+  br i1 %49, label %50, label %64
 
 50:                                               ; preds = %37
   %51 = load volatile i64, ptr %3, align 8
@@ -2276,24 +2276,24 @@ _ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread: ; preds = %5, %_
   %53 = icmp eq i64 %52, 3
   %54 = and i64 %51, -4
   %55 = inttoptr i64 %54 to ptr
-  %.not.i.i.i = icmp eq i64 %54, 0
-  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr %3, ptr %55
-  %.0.i.i.i = select i1 %53, ptr %spec.select.i.i.i, ptr %3
-  %56 = icmp eq ptr %.0.i.i.i, %3
-  br i1 %56, label %57, label %61
+  %.not.i.i.i = icmp ne i64 %54, 0
+  %56 = and i1 %53, %.not.i.i.i
+  %.0.i.i.i = select i1 %56, ptr %55, ptr %3
+  %57 = icmp eq ptr %.0.i.i.i, %3
+  br i1 %57, label %58, label %62
 
-57:                                               ; preds = %50
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %59 = load ptr, ptr %58, align 8
-  %60 = tail call noundef ptr @_ZN14ShenandoahHeap15evacuate_objectEP7oopDescP6Thread(ptr noundef nonnull align 8 dereferenceable(2657) %39, ptr noundef nonnull %3, ptr noundef %59) #14
-  br label %61
+58:                                               ; preds = %50
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %60 = load ptr, ptr %59, align 8
+  %61 = tail call noundef ptr @_ZN14ShenandoahHeap15evacuate_objectEP7oopDescP6Thread(ptr noundef nonnull align 8 dereferenceable(2657) %39, ptr noundef nonnull %3, ptr noundef %60) #14
+  br label %62
 
-61:                                               ; preds = %57, %50
-  %.0 = phi ptr [ %60, %57 ], [ %.0.i.i.i, %50 ]
-  %62 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %.0, ptr nonnull %3, ptr nonnull %1) #14, !srcloc !9
-  br label %63
+62:                                               ; preds = %58, %50
+  %.0 = phi ptr [ %61, %58 ], [ %.0.i.i.i, %50 ]
+  %63 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %.0, ptr nonnull %3, ptr nonnull %1) #14, !srcloc !9
+  br label %64
 
-63:                                               ; preds = %32, %61, %37, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread, %2
+64:                                               ; preds = %32, %62, %37, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread, %2
   ret void
 }
 
@@ -2908,37 +2908,37 @@ _ZN22ShenandoahEvacOOMScopeC2Ev.exit:             ; preds = %11, %12, %16, %21
   %41 = icmp eq i64 %40, 3
   %42 = and i64 %39, -4
   %43 = inttoptr i64 %42 to ptr
-  %.not.i.i.i.i = icmp eq i64 %42, 0
-  %spec.select.i.i.i.i = select i1 %.not.i.i.i.i, ptr %22, ptr %43
-  %.0.i.i.i.i = select i1 %41, ptr %spec.select.i.i.i.i, ptr %22
-  %44 = icmp eq ptr %.0.i.i.i.i, %22
-  br i1 %44, label %45, label %49
+  %.not.i.i.i.i = icmp ne i64 %42, 0
+  %44 = and i1 %41, %.not.i.i.i.i
+  %.0.i.i.i.i = select i1 %44, ptr %43, ptr %22
+  %45 = icmp eq ptr %.0.i.i.i.i, %22
+  br i1 %45, label %46, label %50
 
-45:                                               ; preds = %38
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %47 = load ptr, ptr %46, align 8
-  %48 = tail call noundef ptr @_ZN14ShenandoahHeap15evacuate_objectEP7oopDescP6Thread(ptr noundef nonnull align 8 dereferenceable(2657) %26, ptr noundef nonnull %22, ptr noundef %47) #14
-  br label %49
+46:                                               ; preds = %38
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %48 = load ptr, ptr %47, align 8
+  %49 = tail call noundef ptr @_ZN14ShenandoahHeap15evacuate_objectEP7oopDescP6Thread(ptr noundef nonnull align 8 dereferenceable(2657) %26, ptr noundef nonnull %22, ptr noundef %48) #14
+  br label %50
 
-49:                                               ; preds = %45, %38
-  %.0.i = phi ptr [ %48, %45 ], [ %.0.i.i.i.i, %38 ]
-  %50 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %.0.i, ptr nonnull %22, ptr nonnull %1) #14, !srcloc !9
+50:                                               ; preds = %46, %38
+  %.0.i = phi ptr [ %49, %46 ], [ %.0.i.i.i.i, %38 ]
+  %51 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %.0.i, ptr nonnull %22, ptr nonnull %1) #14, !srcloc !9
   br label %_ZN39ShenandoahEvacuateUpdateRootClosureBaseILb1ELb1EE11do_oop_workIP7oopDescEEvPT_.exit
 
-_ZN39ShenandoahEvacuateUpdateRootClosureBaseILb1ELb1EE11do_oop_workIP7oopDescEEvPT_.exit: ; preds = %_ZN22ShenandoahEvacOOMScopeC2Ev.exit, %24, %49
-  %51 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
-  %52 = load i8, ptr %7, align 1
-  %53 = add i8 %52, -1
-  store i8 %53, ptr %7, align 1
-  %54 = icmp ugt i8 %52, 1
-  br i1 %54, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit, label %55
+_ZN39ShenandoahEvacuateUpdateRootClosureBaseILb1ELb1EE11do_oop_workIP7oopDescEEvPT_.exit: ; preds = %_ZN22ShenandoahEvacOOMScopeC2Ev.exit, %24, %50
+  %52 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
+  %53 = load i8, ptr %7, align 1
+  %54 = add i8 %53, -1
+  store i8 %54, ptr %7, align 1
+  %55 = icmp ugt i8 %53, 1
+  br i1 %55, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit, label %56
 
-55:                                               ; preds = %_ZN39ShenandoahEvacuateUpdateRootClosureBaseILb1ELb1EE11do_oop_workIP7oopDescEEvPT_.exit
-  %56 = getelementptr inbounds nuw i8, ptr %51, i64 2448
-  tail call void @_ZN24ShenandoahEvacOOMHandler17unregister_threadEP6Thread(ptr noundef nonnull align 8 dereferenceable(80) %56, ptr noundef nonnull %4) #14
+56:                                               ; preds = %_ZN39ShenandoahEvacuateUpdateRootClosureBaseILb1ELb1EE11do_oop_workIP7oopDescEEvPT_.exit
+  %57 = getelementptr inbounds nuw i8, ptr %52, i64 2448
+  tail call void @_ZN24ShenandoahEvacOOMHandler17unregister_threadEP6Thread(ptr noundef nonnull align 8 dereferenceable(80) %57, ptr noundef nonnull %4) #14
   br label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit
 
-_ZN22ShenandoahEvacOOMScopeD2Ev.exit:             ; preds = %_ZN39ShenandoahEvacuateUpdateRootClosureBaseILb1ELb1EE11do_oop_workIP7oopDescEEvPT_.exit, %55
+_ZN22ShenandoahEvacOOMScopeD2Ev.exit:             ; preds = %_ZN39ShenandoahEvacuateUpdateRootClosureBaseILb1ELb1EE11do_oop_workIP7oopDescEEvPT_.exit, %56
   ret void
 }
 
@@ -3013,49 +3013,49 @@ _ZN22ShenandoahEvacOOMScopeC2Ev.exit:             ; preds = %11, %12, %16, %21
   %48 = icmp eq i64 %47, 3
   %49 = and i64 %46, -4
   %50 = inttoptr i64 %49 to ptr
-  %.not.i.i.i.i = icmp eq i64 %49, 0
-  %spec.select.i.i.i.i = select i1 %.not.i.i.i.i, ptr %32, ptr %50
-  %.0.i.i.i.i = select i1 %48, ptr %spec.select.i.i.i.i, ptr %32
-  %51 = icmp eq ptr %.0.i.i.i.i, %32
-  br i1 %51, label %52, label %56
+  %.not.i.i.i.i = icmp ne i64 %49, 0
+  %51 = and i1 %48, %.not.i.i.i.i
+  %.0.i.i.i.i = select i1 %51, ptr %50, ptr %32
+  %52 = icmp eq ptr %.0.i.i.i.i, %32
+  br i1 %52, label %53, label %57
 
-52:                                               ; preds = %45
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %54 = load ptr, ptr %53, align 8
-  %55 = tail call noundef ptr @_ZN14ShenandoahHeap15evacuate_objectEP7oopDescP6Thread(ptr noundef nonnull align 8 dereferenceable(2657) %34, ptr noundef nonnull %32, ptr noundef %54) #14
+53:                                               ; preds = %45
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %55 = load ptr, ptr %54, align 8
+  %56 = tail call noundef ptr @_ZN14ShenandoahHeap15evacuate_objectEP7oopDescP6Thread(ptr noundef nonnull align 8 dereferenceable(2657) %34, ptr noundef nonnull %32, ptr noundef %55) #14
   %.pre.i = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %.pre14.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %.pre15.i = ptrtoint ptr %.pre.i to i64
   %.pre16.i = zext nneg i32 %.pre14.i to i64
-  br label %56
+  br label %57
 
-56:                                               ; preds = %52, %45
-  %.pre-phi17.i = phi i64 [ %.pre16.i, %52 ], [ %29, %45 ]
-  %.pre-phi.i = phi i64 [ %.pre15.i, %52 ], [ %26, %45 ]
-  %.0.i = phi ptr [ %55, %52 ], [ %.0.i.i.i.i, %45 ]
-  %57 = icmp eq ptr %.0.i, null
-  %58 = ptrtoint ptr %.0.i to i64
-  %59 = sub i64 %58, %.pre-phi.i
-  %60 = lshr i64 %59, %.pre-phi17.i
-  %61 = trunc i64 %60 to i32
-  %62 = select i1 %57, i32 0, i32 %61
-  %63 = tail call noundef i32 asm sideeffect "lock cmpxchgl $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %62, i32 %22, ptr nonnull %1) #14, !srcloc !10
+57:                                               ; preds = %53, %45
+  %.pre-phi17.i = phi i64 [ %.pre16.i, %53 ], [ %29, %45 ]
+  %.pre-phi.i = phi i64 [ %.pre15.i, %53 ], [ %26, %45 ]
+  %.0.i = phi ptr [ %56, %53 ], [ %.0.i.i.i.i, %45 ]
+  %58 = icmp eq ptr %.0.i, null
+  %59 = ptrtoint ptr %.0.i to i64
+  %60 = sub i64 %59, %.pre-phi.i
+  %61 = lshr i64 %60, %.pre-phi17.i
+  %62 = trunc i64 %61 to i32
+  %63 = select i1 %58, i32 0, i32 %62
+  %64 = tail call noundef i32 asm sideeffect "lock cmpxchgl $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %63, i32 %22, ptr nonnull %1) #14, !srcloc !10
   br label %_ZN39ShenandoahEvacuateUpdateRootClosureBaseILb1ELb1EE11do_oop_workI9narrowOopEEvPT_.exit
 
-_ZN39ShenandoahEvacuateUpdateRootClosureBaseILb1ELb1EE11do_oop_workI9narrowOopEEvPT_.exit: ; preds = %_ZN22ShenandoahEvacOOMScopeC2Ev.exit, %24, %56
-  %64 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
-  %65 = load i8, ptr %7, align 1
-  %66 = add i8 %65, -1
-  store i8 %66, ptr %7, align 1
-  %67 = icmp ugt i8 %65, 1
-  br i1 %67, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit, label %68
+_ZN39ShenandoahEvacuateUpdateRootClosureBaseILb1ELb1EE11do_oop_workI9narrowOopEEvPT_.exit: ; preds = %_ZN22ShenandoahEvacOOMScopeC2Ev.exit, %24, %57
+  %65 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
+  %66 = load i8, ptr %7, align 1
+  %67 = add i8 %66, -1
+  store i8 %67, ptr %7, align 1
+  %68 = icmp ugt i8 %66, 1
+  br i1 %68, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit, label %69
 
-68:                                               ; preds = %_ZN39ShenandoahEvacuateUpdateRootClosureBaseILb1ELb1EE11do_oop_workI9narrowOopEEvPT_.exit
-  %69 = getelementptr inbounds nuw i8, ptr %64, i64 2448
-  tail call void @_ZN24ShenandoahEvacOOMHandler17unregister_threadEP6Thread(ptr noundef nonnull align 8 dereferenceable(80) %69, ptr noundef nonnull %4) #14
+69:                                               ; preds = %_ZN39ShenandoahEvacuateUpdateRootClosureBaseILb1ELb1EE11do_oop_workI9narrowOopEEvPT_.exit
+  %70 = getelementptr inbounds nuw i8, ptr %65, i64 2448
+  tail call void @_ZN24ShenandoahEvacOOMHandler17unregister_threadEP6Thread(ptr noundef nonnull align 8 dereferenceable(80) %70, ptr noundef nonnull %4) #14
   br label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit
 
-_ZN22ShenandoahEvacOOMScopeD2Ev.exit:             ; preds = %_ZN39ShenandoahEvacuateUpdateRootClosureBaseILb1ELb1EE11do_oop_workI9narrowOopEEvPT_.exit, %68
+_ZN22ShenandoahEvacOOMScopeD2Ev.exit:             ; preds = %_ZN39ShenandoahEvacuateUpdateRootClosureBaseILb1ELb1EE11do_oop_workI9narrowOopEEvPT_.exit, %69
   ret void
 }
 
@@ -3821,73 +3821,73 @@ define linkonce_odr hidden noundef ptr @_ZN20ShenandoahBarrierSet22load_referenc
   %27 = icmp eq i64 %26, 3
   %28 = and i64 %25, -4
   %29 = inttoptr i64 %28 to ptr
-  %.not.i.i.i = icmp eq i64 %28, 0
-  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr %1, ptr %29
-  %.0.i.i.i = select i1 %27, ptr %spec.select.i.i.i, ptr %1
-  %30 = icmp eq ptr %1, %.0.i.i.i
-  br i1 %30, label %31, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit
+  %.not.i.i.i = icmp ne i64 %28, 0
+  %30 = and i1 %27, %.not.i.i.i
+  %.0.i.i.i = select i1 %30, ptr %29, ptr %1
+  %31 = icmp eq ptr %1, %.0.i.i.i
+  br i1 %31, label %32, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit
 
-31:                                               ; preds = %24
-  %32 = getelementptr inbounds nuw i8, ptr %12, i64 769
-  %33 = load volatile i8, ptr %32, align 1
+32:                                               ; preds = %24
+  %33 = getelementptr inbounds nuw i8, ptr %12, i64 769
+  %34 = load volatile i8, ptr %33, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
-  %34 = and i8 %33, 4
-  %.not14 = icmp eq i8 %34, 0
-  br i1 %.not14, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit, label %35
+  %35 = and i8 %34, 4
+  %.not14 = icmp eq i8 %35, 0
+  br i1 %.not14, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit, label %36
 
-35:                                               ; preds = %31
-  %36 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
-  %37 = load ptr, ptr %36, align 8
-  %38 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
-  %39 = getelementptr inbounds nuw i8, ptr %38, i64 2448
-  %40 = getelementptr inbounds nuw i8, ptr %37, i64 41
-  %41 = load i8, ptr %40, align 1
-  %42 = add i8 %41, 1
-  store i8 %42, ptr %40, align 1
-  %43 = icmp eq i8 %41, 0
-  br i1 %43, label %44, label %45
+36:                                               ; preds = %32
+  %37 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
+  %38 = load ptr, ptr %37, align 8
+  %39 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 2448
+  %41 = getelementptr inbounds nuw i8, ptr %38, i64 41
+  %42 = load i8, ptr %41, align 1
+  %43 = add i8 %42, 1
+  store i8 %43, ptr %41, align 1
+  %44 = icmp eq i8 %42, 0
+  br i1 %44, label %45, label %46
 
-44:                                               ; preds = %35
-  tail call void @_ZN24ShenandoahEvacOOMHandler15register_threadEP6Thread(ptr noundef nonnull align 8 dereferenceable(80) %39, ptr noundef nonnull %37) #14
+45:                                               ; preds = %36
+  tail call void @_ZN24ShenandoahEvacOOMHandler15register_threadEP6Thread(ptr noundef nonnull align 8 dereferenceable(80) %40, ptr noundef nonnull %38) #14
   br label %_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit
 
-45:                                               ; preds = %35
-  %46 = getelementptr inbounds nuw i8, ptr %37, i64 42
-  %47 = load i8, ptr %46, align 2
-  %48 = trunc i8 %47 to i1
-  br i1 %48, label %_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit, label %49
+46:                                               ; preds = %36
+  %47 = getelementptr inbounds nuw i8, ptr %38, i64 42
+  %48 = load i8, ptr %47, align 2
+  %49 = trunc i8 %48 to i1
+  br i1 %49, label %_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit, label %50
 
-49:                                               ; preds = %45
-  %50 = tail call noundef ptr @_ZN24ShenandoahEvacOOMHandler18counter_for_threadEP6Thread(ptr noundef nonnull align 8 dereferenceable(80) %39, ptr noundef nonnull %37) #14
-  %51 = load volatile i32, ptr %50, align 4
+50:                                               ; preds = %46
+  %51 = tail call noundef ptr @_ZN24ShenandoahEvacOOMHandler18counter_for_threadEP6Thread(ptr noundef nonnull align 8 dereferenceable(80) %40, ptr noundef nonnull %38) #14
+  %52 = load volatile i32, ptr %51, align 4
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
-  %52 = load i32, ptr @_ZN24ShenandoahEvacOOMCounter15OOM_MARKER_MASKE, align 4
-  %53 = and i32 %52, %51
-  %.not.i.i.i13 = icmp eq i32 %53, 0
-  br i1 %.not.i.i.i13, label %_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit, label %54
+  %53 = load i32, ptr @_ZN24ShenandoahEvacOOMCounter15OOM_MARKER_MASKE, align 4
+  %54 = and i32 %53, %52
+  %.not.i.i.i13 = icmp eq i32 %54, 0
+  br i1 %.not.i.i.i13, label %_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit, label %55
 
-54:                                               ; preds = %49
-  tail call void @_ZN24ShenandoahEvacOOMCounter9decrementEv(ptr noundef nonnull align 4 dereferenceable(64) %50) #14
-  tail call void @_ZN24ShenandoahEvacOOMHandler24wait_for_no_evac_threadsEv(ptr noundef nonnull align 8 dereferenceable(80) %39) #14
+55:                                               ; preds = %50
+  tail call void @_ZN24ShenandoahEvacOOMCounter9decrementEv(ptr noundef nonnull align 4 dereferenceable(64) %51) #14
+  tail call void @_ZN24ShenandoahEvacOOMHandler24wait_for_no_evac_threadsEv(ptr noundef nonnull align 8 dereferenceable(80) %40) #14
   br label %_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit
 
-_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit:      ; preds = %44, %45, %49, %54
-  %55 = load ptr, ptr %6, align 8
-  %56 = tail call noundef ptr @_ZN14ShenandoahHeap15evacuate_objectEP7oopDescP6Thread(ptr noundef nonnull align 8 dereferenceable(2657) %55, ptr noundef nonnull %1, ptr noundef nonnull %37) #14
-  %57 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
-  %58 = load i8, ptr %40, align 1
-  %59 = add i8 %58, -1
-  store i8 %59, ptr %40, align 1
-  %60 = icmp ugt i8 %58, 1
-  br i1 %60, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit, label %61
+_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit:      ; preds = %45, %46, %50, %55
+  %56 = load ptr, ptr %6, align 8
+  %57 = tail call noundef ptr @_ZN14ShenandoahHeap15evacuate_objectEP7oopDescP6Thread(ptr noundef nonnull align 8 dereferenceable(2657) %56, ptr noundef nonnull %1, ptr noundef nonnull %38) #14
+  %58 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
+  %59 = load i8, ptr %41, align 1
+  %60 = add i8 %59, -1
+  store i8 %60, ptr %41, align 1
+  %61 = icmp ugt i8 %59, 1
+  br i1 %61, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit, label %62
 
-61:                                               ; preds = %_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit
-  %62 = getelementptr inbounds nuw i8, ptr %57, i64 2448
-  tail call void @_ZN24ShenandoahEvacOOMHandler17unregister_threadEP6Thread(ptr noundef nonnull align 8 dereferenceable(80) %62, ptr noundef nonnull %37) #14
+62:                                               ; preds = %_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit
+  %63 = getelementptr inbounds nuw i8, ptr %58, i64 2448
+  tail call void @_ZN24ShenandoahEvacOOMHandler17unregister_threadEP6Thread(ptr noundef nonnull align 8 dereferenceable(80) %63, ptr noundef nonnull %38) #14
   br label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit
 
-_ZN22ShenandoahEvacOOMScopeD2Ev.exit:             ; preds = %61, %_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit, %5, %11, %24, %31, %2
-  %.0 = phi ptr [ %1, %5 ], [ %1, %2 ], [ %.0.i.i.i, %24 ], [ %.0.i.i.i, %31 ], [ %1, %11 ], [ %56, %_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit ], [ %56, %61 ]
+_ZN22ShenandoahEvacOOMScopeD2Ev.exit:             ; preds = %62, %_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit, %5, %11, %24, %32, %2
+  %.0 = phi ptr [ %1, %5 ], [ %1, %2 ], [ %.0.i.i.i, %24 ], [ %.0.i.i.i, %32 ], [ %1, %11 ], [ %57, %_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit ], [ %57, %62 ]
   ret ptr %.0
 }
 
@@ -4647,24 +4647,24 @@ define linkonce_odr hidden void @_ZN39ShenandoahEvacuateUpdateRootClosureBaseILb
   %22 = icmp eq i64 %21, 3
   %23 = and i64 %20, -4
   %24 = inttoptr i64 %23 to ptr
-  %.not.i.i.i.i = icmp eq i64 %23, 0
-  %spec.select.i.i.i.i = select i1 %.not.i.i.i.i, ptr %3, ptr %24
-  %.0.i.i.i.i = select i1 %22, ptr %spec.select.i.i.i.i, ptr %3
-  %25 = icmp eq ptr %.0.i.i.i.i, %3
-  br i1 %25, label %26, label %30
+  %.not.i.i.i.i = icmp ne i64 %23, 0
+  %25 = and i1 %22, %.not.i.i.i.i
+  %.0.i.i.i.i = select i1 %25, ptr %24, ptr %3
+  %26 = icmp eq ptr %.0.i.i.i.i, %3
+  br i1 %26, label %27, label %31
 
-26:                                               ; preds = %19
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %28 = load ptr, ptr %27, align 8
-  %29 = tail call noundef ptr @_ZN14ShenandoahHeap15evacuate_objectEP7oopDescP6Thread(ptr noundef nonnull align 8 dereferenceable(2657) %7, ptr noundef nonnull %3, ptr noundef %28) #14
-  br label %30
+27:                                               ; preds = %19
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %29 = load ptr, ptr %28, align 8
+  %30 = tail call noundef ptr @_ZN14ShenandoahHeap15evacuate_objectEP7oopDescP6Thread(ptr noundef nonnull align 8 dereferenceable(2657) %7, ptr noundef nonnull %3, ptr noundef %29) #14
+  br label %31
 
-30:                                               ; preds = %26, %19
-  %.0.i = phi ptr [ %29, %26 ], [ %.0.i.i.i.i, %19 ]
+31:                                               ; preds = %27, %19
+  %.0.i = phi ptr [ %30, %27 ], [ %.0.i.i.i.i, %19 ]
   store ptr %.0.i, ptr %1, align 8
   br label %_ZN39ShenandoahEvacuateUpdateRootClosureBaseILb0ELb1EE11do_oop_workIP7oopDescEEvPT_.exit
 
-_ZN39ShenandoahEvacuateUpdateRootClosureBaseILb0ELb1EE11do_oop_workIP7oopDescEEvPT_.exit: ; preds = %2, %5, %30
+_ZN39ShenandoahEvacuateUpdateRootClosureBaseILb0ELb1EE11do_oop_workIP7oopDescEEvPT_.exit: ; preds = %2, %5, %31
   ret void
 }
 
@@ -4703,34 +4703,34 @@ define linkonce_odr hidden void @_ZN39ShenandoahEvacuateUpdateRootClosureBaseILb
   %29 = icmp eq i64 %28, 3
   %30 = and i64 %27, -4
   %31 = inttoptr i64 %30 to ptr
-  %.not.i.i.i.i = icmp eq i64 %30, 0
-  %spec.select.i.i.i.i = select i1 %.not.i.i.i.i, ptr %13, ptr %31
-  %.0.i.i.i.i = select i1 %29, ptr %spec.select.i.i.i.i, ptr %13
-  %32 = icmp eq ptr %.0.i.i.i.i, %13
-  br i1 %32, label %33, label %37
+  %.not.i.i.i.i = icmp ne i64 %30, 0
+  %32 = and i1 %29, %.not.i.i.i.i
+  %.0.i.i.i.i = select i1 %32, ptr %31, ptr %13
+  %33 = icmp eq ptr %.0.i.i.i.i, %13
+  br i1 %33, label %34, label %38
 
-33:                                               ; preds = %26
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %35 = load ptr, ptr %34, align 8
-  %36 = tail call noundef ptr @_ZN14ShenandoahHeap15evacuate_objectEP7oopDescP6Thread(ptr noundef nonnull align 8 dereferenceable(2657) %15, ptr noundef nonnull %13, ptr noundef %35) #14
+34:                                               ; preds = %26
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %36 = load ptr, ptr %35, align 8
+  %37 = tail call noundef ptr @_ZN14ShenandoahHeap15evacuate_objectEP7oopDescP6Thread(ptr noundef nonnull align 8 dereferenceable(2657) %15, ptr noundef nonnull %13, ptr noundef %36) #14
   %.pre.i = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %.pre13.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %.pre14.i = ptrtoint ptr %.pre.i to i64
   %.pre15.i = zext nneg i32 %.pre13.i to i64
-  br label %37
+  br label %38
 
-37:                                               ; preds = %33, %26
-  %.pre-phi16.i = phi i64 [ %.pre15.i, %33 ], [ %10, %26 ]
-  %.pre-phi.i = phi i64 [ %.pre14.i, %33 ], [ %7, %26 ]
-  %.0.i = phi ptr [ %36, %33 ], [ %.0.i.i.i.i, %26 ]
-  %38 = ptrtoint ptr %.0.i to i64
-  %39 = sub i64 %38, %.pre-phi.i
-  %40 = lshr i64 %39, %.pre-phi16.i
-  %41 = trunc i64 %40 to i32
-  store i32 %41, ptr %1, align 4
+38:                                               ; preds = %34, %26
+  %.pre-phi16.i = phi i64 [ %.pre15.i, %34 ], [ %10, %26 ]
+  %.pre-phi.i = phi i64 [ %.pre14.i, %34 ], [ %7, %26 ]
+  %.0.i = phi ptr [ %37, %34 ], [ %.0.i.i.i.i, %26 ]
+  %39 = ptrtoint ptr %.0.i to i64
+  %40 = sub i64 %39, %.pre-phi.i
+  %41 = lshr i64 %40, %.pre-phi16.i
+  %42 = trunc i64 %41 to i32
+  store i32 %42, ptr %1, align 4
   br label %_ZN39ShenandoahEvacuateUpdateRootClosureBaseILb0ELb1EE11do_oop_workI9narrowOopEEvPT_.exit
 
-_ZN39ShenandoahEvacuateUpdateRootClosureBaseILb0ELb1EE11do_oop_workI9narrowOopEEvPT_.exit: ; preds = %2, %5, %37
+_ZN39ShenandoahEvacuateUpdateRootClosureBaseILb0ELb1EE11do_oop_workI9narrowOopEEvPT_.exit: ; preds = %2, %5, %38
   ret void
 }
 
@@ -4902,9 +4902,9 @@ define linkonce_odr hidden void @_ZN27ShenandoahUpdateRefsClosure6do_oopEPP7oopD
   %22 = icmp eq i64 %21, 3
   %23 = and i64 %20, -4
   %24 = inttoptr i64 %23 to ptr
-  %.not.i.i.i.i.i = icmp eq i64 %23, 0
-  %spec.select.i.i.i.i.i = select i1 %.not.i.i.i.i.i, ptr %3, ptr %24
-  %.0.i.i.i.i.i = select i1 %22, ptr %spec.select.i.i.i.i.i, ptr %3
+  %.not.i.i.i.i.i = icmp ne i64 %23, 0
+  %25 = and i1 %22, %.not.i.i.i.i.i
+  %.0.i.i.i.i.i = select i1 %25, ptr %24, ptr %3
   store ptr %.0.i.i.i.i.i, ptr %1, align 8
   br label %_ZN27ShenandoahUpdateRefsClosure11do_oop_workIP7oopDescEEvPT_.exit
 
@@ -4946,9 +4946,9 @@ define linkonce_odr hidden void @_ZN27ShenandoahUpdateRefsClosure6do_oopEP9narro
   %28 = and i64 %27, 3
   %29 = icmp eq i64 %28, 3
   %30 = and i64 %27, -4
-  %.not.i.i.i.i.i = icmp eq i64 %30, 0
-  %31 = select i1 %.not.i.i.i.i.i, i64 %14, i64 %30
-  %32 = select i1 %29, i64 %31, i64 %14
+  %.not.i.i.i.i.i = icmp ne i64 %30, 0
+  %31 = and i1 %29, %.not.i.i.i.i.i
+  %32 = select i1 %31, i64 %30, i64 %14
   %33 = sub i64 %32, %9
   %34 = lshr i64 %33, %12
   %35 = trunc i64 %34 to i32

@@ -27553,7 +27553,7 @@ _ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread40.thread.i.i: ; pre
   %90 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr78drop_in_place$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$17hc412214d92c40a45E"(i64 %.sroa.0.0.i.i, ptr %.sroa.3.0.i.i) #64
-          to label %.loopexit.split-lp unwind label %96
+          to label %.loopexit.split-lp unwind label %98
 
 91:                                               ; preds = %84
   %92 = load i64, ptr %5, align 8, !range !1176, !noundef !9
@@ -27561,17 +27561,18 @@ _ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread40.thread.i.i: ; pre
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %93 = load i64, ptr %6, align 8
   %trunc13 = trunc nuw i64 %.sroa.0.0.i.i to i1
-  %.sroa.4.1 = select i1 %trunc13, ptr %.sroa.3.0.i.i, ptr @anon.d3d098a4b0b761809e3d517f1c926583.249
   %.sroa.7.0 = select i1 %trunc, i64 %7, i64 %93
-  %.sroa.4.0 = select i1 %trunc, ptr %.sroa.4.1, ptr %.sroa.3.0.i.i
+  %94 = xor i1 %trunc13, true
+  %95 = select i1 %trunc, i1 %94, i1 false
+  %.sroa.4.0 = select i1 %95, ptr @anon.d3d098a4b0b761809e3d517f1c926583.249, ptr %.sroa.3.0.i.i
   %.sroa.0.0 = select i1 %trunc, i64 1, i64 %.sroa.0.0.i.i
   store i64 %.sroa.7.0, ptr %6, align 8
-  %94 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %95 = insertvalue { i64, ptr } %94, ptr %.sroa.4.0, 1
-  ret { i64, ptr } %95
+  %96 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
+  %97 = insertvalue { i64, ptr } %96, ptr %.sroa.4.0, 1
+  ret { i64, ptr } %97
 
-96:                                               ; preds = %89
-  %97 = landingpad { ptr, i32 }
+98:                                               ; preds = %89
+  %99 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #65
   unreachable

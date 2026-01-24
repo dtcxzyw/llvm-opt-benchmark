@@ -169,12 +169,12 @@ declare i64 @lzma_raw_coder_memusage(ptr noundef, ptr noundef) local_unnamed_add
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @lzma_mt_block_size(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #1 {
   %2 = icmp eq ptr %0, null
-  br i1 %2, label %.thread, label %.preheader39
+  br i1 %2, label %24, label %.preheader39
 
 .preheader39:                                     ; preds = %1
   %3 = load i64, ptr %0, align 8, !tbaa !21
   %.not47 = icmp eq i64 %3, -1
-  br i1 %.not47, label %.thread, label %.preheader
+  br i1 %.not47, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %.preheader39, %18
   %4 = phi i64 [ %21, %18 ], [ %3, %.preheader39 ]
@@ -186,7 +186,7 @@ define dso_local i64 @lzma_mt_block_size(ptr noundef readonly captures(address_i
 6:                                                ; preds = %8
   %7 = add nuw nsw i64 %.0610.i, 1
   %exitcond.not.i = icmp eq i64 %7, 10
-  br i1 %exitcond.not.i, label %.thread, label %8, !llvm.loop !11
+  br i1 %exitcond.not.i, label %.loopexit, label %8, !llvm.loop !11
 
 8:                                                ; preds = %.preheader, %6
   %.0610.i = phi i64 [ %7, %6 ], [ 0, %.preheader ]
@@ -205,8 +205,7 @@ encoder_find.exit:                                ; preds = %8
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %16 = load ptr, ptr %15, align 8, !tbaa !32
   %17 = tail call i64 %14(ptr noundef %16) #9
-  %.fr = freeze i64 %17
-  %spec.select = tail call i64 @llvm.umax.i64(i64 %.fr, i64 %.01949)
+  %spec.select = tail call i64 @llvm.umax.i64(i64 %17, i64 %.01949)
   br label %18
 
 18:                                               ; preds = %12, %encoder_find.exit
@@ -217,13 +216,16 @@ encoder_find.exit:                                ; preds = %8
   %.not = icmp eq i64 %21, -1
   br i1 %.not, label %.loopexit, label %.preheader, !llvm.loop !33
 
-.loopexit:                                        ; preds = %18
-  %22 = icmp eq i64 %.221.ph, 0
-  %spec.select77 = select i1 %22, i64 -1, i64 %.221.ph
-  br label %.thread
+.loopexit:                                        ; preds = %18, %6, %.preheader39
+  %.01946 = phi i64 [ %.01949, %6 ], [ 0, %.preheader39 ], [ %.221.ph, %18 ]
+  %.not44 = phi i1 [ false, %6 ], [ true, %.preheader39 ], [ true, %18 ]
+  %22 = icmp ne i64 %.01946, 0
+  %23 = select i1 %.not44, i1 %22, i1 false
+  %.4 = select i1 %23, i64 %.01946, i64 -1
+  br label %24
 
-.thread:                                          ; preds = %6, %.loopexit, %.preheader39, %1
-  %.0 = phi i64 [ -1, %1 ], [ -1, %.preheader39 ], [ %spec.select77, %.loopexit ], [ -1, %6 ]
+24:                                               ; preds = %1, %.loopexit
+  %.0 = phi i64 [ %.4, %.loopexit ], [ -1, %1 ]
   ret i64 %.0
 }
 

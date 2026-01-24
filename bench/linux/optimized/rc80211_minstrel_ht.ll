@@ -2049,7 +2049,7 @@ define internal fastcc void @minstrel_ht_update_stats(ptr noundef readonly captu
   %6 = load ptr, ptr %1, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 238
   %8 = load i8, ptr %7, align 2, !range !16, !noundef !17
-  %9 = icmp eq i8 %8, 0
+  %9 = icmp ne i8 %8, 0
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, 0
@@ -2117,64 +2117,64 @@ define internal fastcc void @minstrel_ht_update_stats(ptr noundef readonly captu
   %52 = load i16, ptr %51, align 2
   %53 = icmp eq i16 %52, 0
   %54 = select i1 %37, i16 272, i16 256
-  %55 = select i1 %9, i16 %54, i16 0
+  %55 = select i1 %9, i16 0, i16 %54
   %56 = select i1 %53, i16 %55, i16 288
-  br label %64
+  br label %63
 
-57:                                               ; preds = %64
+57:                                               ; preds = %63
   %58 = getelementptr inbounds nuw i8, ptr %1, i64 240
-  %59 = select i1 %9, ptr %3, ptr %5
-  %60 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %61 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %62 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %63 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  br label %69
+  %59 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %61 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  br label %68
 
-64:                                               ; preds = %64, %50
-  %65 = phi i64 [ 0, %50 ], [ %67, %64 ]
-  %66 = getelementptr i16, ptr %3, i64 %65
-  store i16 %56, ptr %66, align 2
-  %67 = add nuw nsw i64 %65, 1
-  %68 = icmp eq i64 %67, 4
-  br i1 %68, label %57, label %64, !llvm.loop !47
+63:                                               ; preds = %63, %50
+  %64 = phi i64 [ 0, %50 ], [ %66, %63 ]
+  %65 = getelementptr i16, ptr %3, i64 %64
+  store i16 %56, ptr %65, align 2
+  %66 = add nuw nsw i64 %64, 1
+  %67 = icmp eq i64 %66, 4
+  br i1 %67, label %57, label %63, !llvm.loop !47
 
-69:                                               ; preds = %518, %57
-  %70 = phi i64 [ 0, %57 ], [ %519, %518 ]
-  %71 = getelementptr %struct.minstrel_mcs_group_data, ptr %58, i64 %70
-  %72 = getelementptr i16, ptr %34, i64 %70
-  %73 = load i16, ptr %72, align 2
-  %74 = icmp eq i16 %73, 0
-  br i1 %74, label %518, label %75
+68:                                               ; preds = %518, %57
+  %69 = phi i64 [ 0, %57 ], [ %519, %518 ]
+  %70 = getelementptr %struct.minstrel_mcs_group_data, ptr %58, i64 %69
+  %71 = getelementptr i16, ptr %34, i64 %69
+  %72 = load i16, ptr %71, align 2
+  %73 = icmp eq i16 %72, 0
+  br i1 %73, label %518, label %74
 
-75:                                               ; preds = %69
-  %76 = trunc i64 %70 to i16
-  %77 = shl nuw nsw i16 %76, 4
-  br label %78
+74:                                               ; preds = %68
+  %75 = trunc i64 %69 to i16
+  %76 = shl nuw nsw i16 %75, 4
+  br label %77
 
-78:                                               ; preds = %78, %75
-  %79 = phi i64 [ 0, %75 ], [ %81, %78 ]
-  %80 = getelementptr i16, ptr %4, i64 %79
-  store i16 %77, ptr %80, align 2
-  %81 = add nuw nsw i64 %79, 1
-  %82 = icmp eq i64 %81, 4
-  br i1 %82, label %83, label %78, !llvm.loop !48
+77:                                               ; preds = %77, %74
+  %78 = phi i64 [ 0, %74 ], [ %80, %77 ]
+  %79 = getelementptr i16, ptr %4, i64 %78
+  store i16 %76, ptr %79, align 2
+  %80 = add nuw nsw i64 %78, 1
+  %81 = icmp eq i64 %80, 4
+  br i1 %81, label %82, label %77, !llvm.loop !48
 
-83:                                               ; preds = %78
-  %84 = icmp eq i64 %70, 16
-  %85 = select i1 %84, ptr %59, ptr %3
-  %86 = shl nuw nsw i64 %70, 4
-  %87 = getelementptr inbounds nuw i8, ptr %71, i64 12
-  %88 = and i64 %70, 62
+82:                                               ; preds = %77
+  %83 = icmp eq i64 %69, 16
+  %84 = and i1 %9, %83
+  %85 = select i1 %84, ptr %5, ptr %3
+  %86 = shl nuw nsw i64 %69, 4
+  %87 = getelementptr inbounds nuw i8, ptr %70, i64 12
+  %88 = and i64 %69, 62
   %89 = icmp eq i64 %88, 16
-  %90 = getelementptr %struct.mcs_group, ptr @minstrel_mcs_groups, i64 %70
+  %90 = getelementptr %struct.mcs_group, ptr @minstrel_mcs_groups, i64 %69
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 6
   %92 = getelementptr inbounds nuw i8, ptr %90, i64 3
   br label %93
 
-93:                                               ; preds = %.critedge, %83
-  %94 = phi i64 [ 9, %83 ], [ %513, %.critedge ]
-  %95 = phi i16 [ 0, %83 ], [ %512, %.critedge ]
-  %96 = load i16, ptr %72, align 2
+93:                                               ; preds = %.critedge, %82
+  %94 = phi i64 [ 9, %82 ], [ %513, %.critedge ]
+  %95 = phi i16 [ 0, %82 ], [ %512, %.critedge ]
+  %96 = load i16, ptr %71, align 2
   %97 = zext i16 %96 to i64
   %98 = shl nuw i64 1, %94
   %99 = and i64 %98, %97
@@ -2272,7 +2272,7 @@ define internal fastcc void @minstrel_ht_update_stats(ptr noundef readonly captu
 154:                                              ; preds = %152, %143
   %155 = phi i16 [ %151, %152 ], [ %144, %143 ]
   %156 = phi i16 [ %95, %152 ], [ %151, %143 ]
-  %157 = load i32, ptr %60, align 8
+  %157 = load i32, ptr %59, align 8
   %158 = icmp ult i16 %155, 409
   br i1 %158, label %.critedge, label %159
 
@@ -2280,11 +2280,11 @@ define internal fastcc void @minstrel_ht_update_stats(ptr noundef readonly captu
   br i1 %89, label %160, label %162
 
 160:                                              ; preds = %159
-  %161 = load i32, ptr %63, align 8
+  %161 = load i32, ptr %62, align 8
   br label %190
 
 162:                                              ; preds = %159
-  %163 = load i32, ptr %61, align 8
+  %163 = load i32, ptr %60, align 8
   %164 = icmp eq i32 %163, 0
   br i1 %164, label %167, label %165
 
@@ -2293,7 +2293,7 @@ define internal fastcc void @minstrel_ht_update_stats(ptr noundef readonly captu
   br label %190
 
 167:                                              ; preds = %162
-  %168 = load i16, ptr %62, align 4
+  %168 = load i16, ptr %61, align 4
   %169 = and i16 %168, -32
   %170 = icmp eq i16 %169, 256
   br i1 %170, label %190, label %171
@@ -2361,11 +2361,11 @@ define internal fastcc void @minstrel_ht_update_stats(ptr noundef readonly captu
   br i1 %218, label %219, label %221
 
 219:                                              ; preds = %216
-  %220 = load i32, ptr %63, align 8
+  %220 = load i32, ptr %62, align 8
   br label %249
 
 221:                                              ; preds = %216
-  %222 = load i32, ptr %61, align 8
+  %222 = load i32, ptr %60, align 8
   %223 = icmp eq i32 %222, 0
   br i1 %223, label %226, label %224
 
@@ -2374,7 +2374,7 @@ define internal fastcc void @minstrel_ht_update_stats(ptr noundef readonly captu
   br label %249
 
 226:                                              ; preds = %221
-  %227 = load i16, ptr %62, align 4
+  %227 = load i16, ptr %61, align 4
   %228 = and i16 %227, -32
   %229 = icmp eq i16 %228, 256
   br i1 %229, label %249, label %230
@@ -2455,11 +2455,11 @@ define internal fastcc void @minstrel_ht_update_stats(ptr noundef readonly captu
   br i1 %288, label %289, label %291
 
 289:                                              ; preds = %286
-  %290 = load i32, ptr %63, align 8
+  %290 = load i32, ptr %62, align 8
   br label %319
 
 291:                                              ; preds = %286
-  %292 = load i32, ptr %61, align 8
+  %292 = load i32, ptr %60, align 8
   %293 = icmp eq i32 %292, 0
   br i1 %293, label %296, label %294
 
@@ -2468,7 +2468,7 @@ define internal fastcc void @minstrel_ht_update_stats(ptr noundef readonly captu
   br label %319
 
 296:                                              ; preds = %291
-  %297 = load i16, ptr %62, align 4
+  %297 = load i16, ptr %61, align 4
   %298 = and i16 %297, -32
   %299 = icmp eq i16 %298, 256
   br i1 %299, label %319, label %300
@@ -2571,11 +2571,11 @@ minstrel_ht_sort_best_tp_rates.exit:              ; preds = %359, %361
   br i1 %366, label %367, label %369
 
 367:                                              ; preds = %364
-  %368 = load i32, ptr %63, align 8
+  %368 = load i32, ptr %62, align 8
   br label %397
 
 369:                                              ; preds = %364
-  %370 = load i32, ptr %61, align 8
+  %370 = load i32, ptr %60, align 8
   %371 = icmp eq i32 %370, 0
   br i1 %371, label %374, label %372
 
@@ -2584,7 +2584,7 @@ minstrel_ht_sort_best_tp_rates.exit:              ; preds = %359, %361
   br label %397
 
 374:                                              ; preds = %369
-  %375 = load i16, ptr %62, align 4
+  %375 = load i16, ptr %61, align 4
   %376 = and i16 %375, -32
   %377 = icmp eq i16 %376, 256
   br i1 %377, label %397, label %378
@@ -2665,11 +2665,11 @@ minstrel_ht_sort_best_tp_rates.exit:              ; preds = %359, %361
   br i1 %436, label %437, label %439
 
 437:                                              ; preds = %434
-  %438 = load i32, ptr %63, align 8
+  %438 = load i32, ptr %62, align 8
   br label %467
 
 439:                                              ; preds = %434
-  %440 = load i32, ptr %61, align 8
+  %440 = load i32, ptr %60, align 8
   %441 = icmp eq i32 %440, 0
   br i1 %441, label %444, label %442
 
@@ -2678,7 +2678,7 @@ minstrel_ht_sort_best_tp_rates.exit:              ; preds = %359, %361
   br label %467
 
 444:                                              ; preds = %439
-  %445 = load i16, ptr %62, align 4
+  %445 = load i16, ptr %61, align 4
   %446 = and i16 %445, -32
   %447 = icmp eq i16 %446, 256
   br i1 %447, label %467, label %448
@@ -2779,15 +2779,15 @@ minstrel_ht_sort_best_tp_rates.exit:              ; preds = %359, %361
   br i1 %514, label %515, label %93, !llvm.loop !50
 
 515:                                              ; preds = %.critedge
-  %516 = getelementptr inbounds nuw i8, ptr %71, i64 2
+  %516 = getelementptr inbounds nuw i8, ptr %70, i64 2
   %517 = load i64, ptr %4, align 8
   store i64 %517, ptr %516, align 2
   br label %518
 
-518:                                              ; preds = %515, %69
-  %519 = add nuw nsw i64 %70, 1
+518:                                              ; preds = %515, %68
+  %519 = add nuw nsw i64 %69, 1
   %520 = icmp eq i64 %519, 42
-  br i1 %520, label %521, label %69, !llvm.loop !51
+  br i1 %520, label %521, label %68, !llvm.loop !51
 
 521:                                              ; preds = %518
   %522 = load i16, ptr %5, align 8
@@ -2801,7 +2801,7 @@ minstrel_ht_sort_best_tp_rates.exit:              ; preds = %359, %361
   %528 = getelementptr i8, ptr %527, i64 %.idx49
   %529 = getelementptr i8, ptr %528, i64 28
   %530 = load i16, ptr %529, align 4
-  %531 = load i32, ptr %60, align 8
+  %531 = load i32, ptr %59, align 8
   %532 = icmp ult i16 %530, 409
   br i1 %532, label %587, label %533
 
@@ -2811,11 +2811,11 @@ minstrel_ht_sort_best_tp_rates.exit:              ; preds = %359, %361
   br i1 %535, label %536, label %538
 
 536:                                              ; preds = %533
-  %537 = load i32, ptr %63, align 8
+  %537 = load i32, ptr %62, align 8
   br label %566
 
 538:                                              ; preds = %533
-  %539 = load i32, ptr %61, align 8
+  %539 = load i32, ptr %60, align 8
   %540 = icmp eq i32 %539, 0
   br i1 %540, label %543, label %541
 
@@ -2824,7 +2824,7 @@ minstrel_ht_sort_best_tp_rates.exit:              ; preds = %359, %361
   br label %566
 
 543:                                              ; preds = %538
-  %544 = load i16, ptr %62, align 4
+  %544 = load i16, ptr %61, align 4
   %545 = and i16 %544, -32
   %546 = icmp eq i16 %545, 256
   br i1 %546, label %566, label %547
@@ -2899,11 +2899,11 @@ minstrel_ht_sort_best_tp_rates.exit:              ; preds = %359, %361
   br i1 %601, label %602, label %604
 
 602:                                              ; preds = %599
-  %603 = load i32, ptr %63, align 8
+  %603 = load i32, ptr %62, align 8
   br label %632
 
 604:                                              ; preds = %599
-  %605 = load i32, ptr %61, align 8
+  %605 = load i32, ptr %60, align 8
   %606 = icmp eq i32 %605, 0
   br i1 %606, label %609, label %607
 
@@ -2912,7 +2912,7 @@ minstrel_ht_sort_best_tp_rates.exit:              ; preds = %359, %361
   br label %632
 
 609:                                              ; preds = %604
-  %610 = load i16, ptr %62, align 4
+  %610 = load i16, ptr %61, align 4
   %611 = and i16 %610, -32
   %612 = icmp eq i16 %611, 256
   br i1 %612, label %632, label %613
@@ -2993,11 +2993,11 @@ minstrel_ht_sort_best_tp_rates.exit:              ; preds = %359, %361
   br i1 %670, label %671, label %673
 
 671:                                              ; preds = %668
-  %672 = load i32, ptr %63, align 8
+  %672 = load i32, ptr %62, align 8
   br label %701
 
 673:                                              ; preds = %668
-  %674 = load i32, ptr %61, align 8
+  %674 = load i32, ptr %60, align 8
   %675 = icmp eq i32 %674, 0
   br i1 %675, label %678, label %676
 
@@ -3006,7 +3006,7 @@ minstrel_ht_sort_best_tp_rates.exit:              ; preds = %359, %361
   br label %701
 
 678:                                              ; preds = %673
-  %679 = load i16, ptr %62, align 4
+  %679 = load i16, ptr %61, align 4
   %680 = and i16 %679, -32
   %681 = icmp eq i16 %680, 256
   br i1 %681, label %701, label %682
@@ -3087,11 +3087,11 @@ minstrel_ht_sort_best_tp_rates.exit:              ; preds = %359, %361
   br i1 %740, label %741, label %743
 
 741:                                              ; preds = %738
-  %742 = load i32, ptr %63, align 8
+  %742 = load i32, ptr %62, align 8
   br label %771
 
 743:                                              ; preds = %738
-  %744 = load i32, ptr %61, align 8
+  %744 = load i32, ptr %60, align 8
   %745 = icmp eq i32 %744, 0
   br i1 %745, label %748, label %746
 
@@ -3100,7 +3100,7 @@ minstrel_ht_sort_best_tp_rates.exit:              ; preds = %359, %361
   br label %771
 
 748:                                              ; preds = %743
-  %749 = load i16, ptr %62, align 4
+  %749 = load i16, ptr %61, align 4
   %750 = and i16 %749, -32
   %751 = icmp eq i16 %750, 256
   br i1 %751, label %771, label %752
@@ -3201,7 +3201,7 @@ minstrel_ht_sort_best_tp_rates.exit97:            ; preds = %811, %813
 
 .loopexit114:                                     ; preds = %minstrel_ht_sort_best_tp_rates.exit97, %653
   %818 = load i64, ptr %3, align 8
-  store i64 %818, ptr %62, align 4
+  store i64 %818, ptr %61, align 4
   %819 = trunc i64 %818 to i16
   %820 = and i16 %819, -32
   %821 = icmp eq i16 %820, 256
@@ -3287,11 +3287,11 @@ minstrel_ht_sort_best_tp_rates.exit97:            ; preds = %811, %813
   br i1 %884, label %885, label %887
 
 885:                                              ; preds = %882
-  %886 = load i32, ptr %63, align 8
+  %886 = load i32, ptr %62, align 8
   br label %905
 
 887:                                              ; preds = %882
-  %888 = load i32, ptr %61, align 8
+  %888 = load i32, ptr %60, align 8
   %889 = icmp eq i32 %888, 0
   br i1 %889, label %892, label %890
 
@@ -3388,11 +3388,11 @@ minstrel_ht_sort_best_tp_rates.exit97:            ; preds = %811, %813
   br i1 %929, label %960, label %958
 
 958:                                              ; preds = %957
-  %959 = load i32, ptr %63, align 8
+  %959 = load i32, ptr %62, align 8
   br label %973
 
 960:                                              ; preds = %957
-  %961 = load i32, ptr %61, align 8
+  %961 = load i32, ptr %60, align 8
   %962 = icmp eq i32 %961, 0
   br i1 %962, label %965, label %963
 
@@ -3439,11 +3439,11 @@ minstrel_ht_sort_best_tp_rates.exit97:            ; preds = %811, %813
   br i1 %990, label %991, label %993
 
 991:                                              ; preds = %988
-  %992 = load i32, ptr %63, align 8
+  %992 = load i32, ptr %62, align 8
   br label %1006
 
 993:                                              ; preds = %988
-  %994 = load i32, ptr %61, align 8
+  %994 = load i32, ptr %60, align 8
   %995 = icmp eq i32 %994, 0
   br i1 %995, label %998, label %996
 
@@ -3577,11 +3577,11 @@ minstrel_ht_sort_best_tp_rates.exit97:            ; preds = %811, %813
   br i1 %1081, label %1082, label %1084
 
 1082:                                             ; preds = %1079
-  %1083 = load i32, ptr %63, align 8
+  %1083 = load i32, ptr %62, align 8
   br label %1102
 
 1084:                                             ; preds = %1079
-  %1085 = load i32, ptr %61, align 8
+  %1085 = load i32, ptr %60, align 8
   %1086 = icmp eq i32 %1085, 0
   br i1 %1086, label %1089, label %1087
 
@@ -3645,11 +3645,11 @@ minstrel_ht_sort_best_tp_rates.exit97:            ; preds = %811, %813
   br i1 %1081, label %1129, label %1131
 
 1129:                                             ; preds = %1128
-  %1130 = load i32, ptr %63, align 8
+  %1130 = load i32, ptr %62, align 8
   br label %1149
 
 1131:                                             ; preds = %1128
-  %1132 = load i32, ptr %61, align 8
+  %1132 = load i32, ptr %60, align 8
   %1133 = icmp eq i32 %1132, 0
   br i1 %1133, label %1136, label %1134
 

@@ -107,7 +107,7 @@ init_pstring.exit175:                             ; preds = %init_pstring.exit17
 
 24:                                               ; preds = %21
   %25 = icmp eq ptr %22, %0
-  br i1 %25, label %121, label %26
+  br i1 %25, label %122, label %26
 
 26:                                               ; preds = %24
   %27 = getelementptr inbounds nuw i8, ptr %22, i64 3
@@ -129,7 +129,7 @@ init_pstring.exit175:                             ; preds = %init_pstring.exit17
   %34 = getelementptr inbounds nuw i8, ptr %.0126, i64 1
   %35 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %34, i32 noundef 93) #7
   %36 = icmp eq ptr %35, null
-  br i1 %36, label %121, label %37
+  br i1 %36, label %122, label %37
 
 37:                                               ; preds = %33
   %38 = getelementptr inbounds nuw i8, ptr %35, i64 1
@@ -178,7 +178,7 @@ init_pstring.exit175:                             ; preds = %init_pstring.exit17
   call void @ERR_new() #6
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 129, ptr noundef nonnull @__func__.OSSL_parse_url) #6
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 61, i32 noundef 123, ptr noundef nonnull @.str.4, ptr noundef nonnull %spec.select) #6
-  br label %122
+  br label %123
 
 .preheader:                                       ; preds = %.thread199, %.preheader
   %.0119 = phi ptr [ %64, %.preheader ], [ %spec.select, %.thread199 ]
@@ -207,7 +207,7 @@ init_pstring.exit175:                             ; preds = %init_pstring.exit17
   call void @ERR_new() #6
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 140, ptr noundef nonnull @__func__.OSSL_parse_url) #6
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 61, i32 noundef 125, ptr noundef null) #6
-  br label %121
+  br label %122
 
 71:                                               ; preds = %.critedge, %.critedge, %.critedge, %.critedge
   %72 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.3) #7
@@ -221,198 +221,198 @@ init_pstring.exit175:                             ; preds = %init_pstring.exit17
   %.4 = select i1 %.not145, ptr %.3, ptr %74
   %77 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.4, i32 noundef 35) #7
   %.not147 = icmp eq ptr %77, null
-  %78 = icmp eq ptr %.0115, %.0116
-  %spec.select161 = select i1 %78, ptr %77, ptr %.0116
+  %78 = icmp ne ptr %.0115, %.0116
   %79 = getelementptr inbounds nuw i8, ptr %77, i64 1
-  %.1117 = select i1 %.not147, ptr %.0116, ptr %spec.select161
+  %80 = select i1 %.not147, i1 true, i1 %78
+  %.1117 = select i1 %80, ptr %.0116, ptr %77
   %.0114 = select i1 %.not147, ptr %73, ptr %77
   %.0113 = select i1 %.not147, ptr %73, ptr %79
   br i1 %.not.i, label %copy_substring.exit.thread, label %copy_substring.exit
 
 copy_substring.exit:                              ; preds = %71
-  %80 = ptrtoint ptr %.0128 to i64
-  %81 = ptrtoint ptr %0 to i64
-  %82 = sub i64 %80, %81
-  %83 = call noalias ptr @CRYPTO_strndup(ptr noundef nonnull %0, i64 noundef %82, ptr noundef nonnull @.str, i32 noundef 42) #6
-  store ptr %83, ptr %1, align 8, !tbaa !3
-  %.not211 = icmp eq ptr %83, null
+  %81 = ptrtoint ptr %.0128 to i64
+  %82 = ptrtoint ptr %0 to i64
+  %83 = sub i64 %81, %82
+  %84 = call noalias ptr @CRYPTO_strndup(ptr noundef nonnull %0, i64 noundef %83, ptr noundef nonnull @.str, i32 noundef 42) #6
+  store ptr %84, ptr %1, align 8, !tbaa !3
+  %.not211 = icmp eq ptr %84, null
   br i1 %.not211, label %.thread210, label %copy_substring.exit.thread
 
 copy_substring.exit.thread:                       ; preds = %71, %copy_substring.exit
   br i1 %.not.i165, label %copy_substring.exit176.thread, label %copy_substring.exit176
 
 copy_substring.exit176:                           ; preds = %copy_substring.exit.thread
-  %84 = ptrtoint ptr %.1 to i64
-  %85 = ptrtoint ptr %.0126 to i64
-  %86 = sub i64 %84, %85
-  %87 = call noalias ptr @CRYPTO_strndup(ptr noundef nonnull %.0126, i64 noundef %86, ptr noundef nonnull @.str, i32 noundef 42) #6
-  store ptr %87, ptr %3, align 8, !tbaa !3
-  %.not212 = icmp eq ptr %87, null
-  br i1 %.not212, label %122, label %copy_substring.exit176.thread
+  %85 = ptrtoint ptr %.1 to i64
+  %86 = ptrtoint ptr %.0126 to i64
+  %87 = sub i64 %85, %86
+  %88 = call noalias ptr @CRYPTO_strndup(ptr noundef nonnull %.0126, i64 noundef %87, ptr noundef nonnull @.str, i32 noundef 42) #6
+  store ptr %88, ptr %3, align 8, !tbaa !3
+  %.not212 = icmp eq ptr %88, null
+  br i1 %.not212, label %123, label %copy_substring.exit176.thread
 
 copy_substring.exit176.thread:                    ; preds = %copy_substring.exit.thread, %copy_substring.exit176
   br i1 %.not.i167, label %copy_substring.exit177.thread, label %copy_substring.exit177
 
 copy_substring.exit177:                           ; preds = %copy_substring.exit176.thread
-  %88 = call noalias ptr @CRYPTO_strndup(ptr noundef nonnull %spec.select, i64 noundef %68, ptr noundef nonnull @.str, i32 noundef 42) #6
-  store ptr %88, ptr %4, align 8, !tbaa !3
-  %.not213 = icmp eq ptr %88, null
-  br i1 %.not213, label %122, label %copy_substring.exit177.thread
+  %89 = call noalias ptr @CRYPTO_strndup(ptr noundef nonnull %spec.select, i64 noundef %68, ptr noundef nonnull @.str, i32 noundef 42) #6
+  store ptr %89, ptr %4, align 8, !tbaa !3
+  %.not213 = icmp eq ptr %89, null
+  br i1 %.not213, label %123, label %copy_substring.exit177.thread
 
 copy_substring.exit177.thread:                    ; preds = %copy_substring.exit176.thread, %copy_substring.exit177
   br i1 %.not.i163, label %copy_substring.exit178.thread, label %copy_substring.exit178
 
 copy_substring.exit178:                           ; preds = %copy_substring.exit177.thread
-  %89 = ptrtoint ptr %.0127 to i64
-  %90 = ptrtoint ptr %.0112 to i64
-  %91 = sub i64 %89, %90
-  %92 = call noalias ptr @CRYPTO_strndup(ptr noundef nonnull %.0112, i64 noundef %91, ptr noundef nonnull @.str, i32 noundef 42) #6
-  store ptr %92, ptr %2, align 8, !tbaa !3
-  %.not214 = icmp eq ptr %92, null
-  br i1 %.not214, label %122, label %copy_substring.exit178.thread
+  %90 = ptrtoint ptr %.0127 to i64
+  %91 = ptrtoint ptr %.0112 to i64
+  %92 = sub i64 %90, %91
+  %93 = call noalias ptr @CRYPTO_strndup(ptr noundef nonnull %.0112, i64 noundef %92, ptr noundef nonnull @.str, i32 noundef 42) #6
+  store ptr %93, ptr %2, align 8, !tbaa !3
+  %.not214 = icmp eq ptr %93, null
+  br i1 %.not214, label %123, label %copy_substring.exit178.thread
 
 copy_substring.exit178.thread:                    ; preds = %copy_substring.exit177.thread, %copy_substring.exit178
   br i1 %.not.i174, label %copy_substring.exit179.thread, label %copy_substring.exit179
 
 copy_substring.exit179:                           ; preds = %copy_substring.exit178.thread
-  %93 = ptrtoint ptr %.0114 to i64
-  %94 = ptrtoint ptr %.0115 to i64
-  %95 = sub i64 %93, %94
-  %96 = call noalias ptr @CRYPTO_strndup(ptr noundef nonnull %.0115, i64 noundef %95, ptr noundef nonnull @.str, i32 noundef 42) #6
-  store ptr %96, ptr %7, align 8, !tbaa !3
-  %.not215 = icmp eq ptr %96, null
-  br i1 %.not215, label %122, label %copy_substring.exit179.thread
+  %94 = ptrtoint ptr %.0114 to i64
+  %95 = ptrtoint ptr %.0115 to i64
+  %96 = sub i64 %94, %95
+  %97 = call noalias ptr @CRYPTO_strndup(ptr noundef nonnull %.0115, i64 noundef %96, ptr noundef nonnull @.str, i32 noundef 42) #6
+  store ptr %97, ptr %7, align 8, !tbaa !3
+  %.not215 = icmp eq ptr %97, null
+  br i1 %.not215, label %123, label %copy_substring.exit179.thread
 
 copy_substring.exit179.thread:                    ; preds = %copy_substring.exit178.thread, %copy_substring.exit179
   br i1 %.not.i172, label %copy_substring.exit180.thread, label %copy_substring.exit180
 
 copy_substring.exit180:                           ; preds = %copy_substring.exit179.thread
-  %97 = ptrtoint ptr %73 to i64
-  %98 = ptrtoint ptr %.0113 to i64
-  %99 = sub i64 %97, %98
-  %100 = call noalias ptr @CRYPTO_strndup(ptr noundef nonnull %.0113, i64 noundef %99, ptr noundef nonnull @.str, i32 noundef 42) #6
-  store ptr %100, ptr %8, align 8, !tbaa !3
-  %.not216 = icmp eq ptr %100, null
-  br i1 %.not216, label %122, label %copy_substring.exit180.thread
+  %98 = ptrtoint ptr %73 to i64
+  %99 = ptrtoint ptr %.0113 to i64
+  %100 = sub i64 %98, %99
+  %101 = call noalias ptr @CRYPTO_strndup(ptr noundef nonnull %.0113, i64 noundef %100, ptr noundef nonnull @.str, i32 noundef 42) #6
+  store ptr %101, ptr %8, align 8, !tbaa !3
+  %.not216 = icmp eq ptr %101, null
+  br i1 %.not216, label %123, label %copy_substring.exit180.thread
 
 copy_substring.exit180.thread:                    ; preds = %copy_substring.exit179.thread, %copy_substring.exit180
-  br i1 %.not.i169, label %103, label %101
+  br i1 %.not.i169, label %104, label %102
 
-101:                                              ; preds = %copy_substring.exit180.thread
-  %102 = load i32, ptr %10, align 4, !tbaa !8
-  store i32 %102, ptr %5, align 4, !tbaa !8
-  br label %103
+102:                                              ; preds = %copy_substring.exit180.thread
+  %103 = load i32, ptr %10, align 4, !tbaa !8
+  store i32 %103, ptr %5, align 4, !tbaa !8
+  br label %104
 
-103:                                              ; preds = %101, %copy_substring.exit180.thread
-  %104 = load i8, ptr %.3, align 1, !tbaa !10
-  %105 = icmp eq i8 %104, 47
-  br i1 %105, label %106, label %111
+104:                                              ; preds = %102, %copy_substring.exit180.thread
+  %105 = load i8, ptr %.3, align 1, !tbaa !10
+  %106 = icmp eq i8 %105, 47
+  br i1 %106, label %107, label %112
 
-106:                                              ; preds = %103
+107:                                              ; preds = %104
   br i1 %.not.i170, label %free_pstring.exit194, label %copy_substring.exit181
 
-copy_substring.exit181:                           ; preds = %106
-  %107 = ptrtoint ptr %.1117 to i64
-  %108 = ptrtoint ptr %.3 to i64
-  %109 = sub i64 %107, %108
-  %110 = call noalias ptr @CRYPTO_strndup(ptr noundef nonnull %.3, i64 noundef %109, ptr noundef nonnull @.str, i32 noundef 42) #6
-  store ptr %110, ptr %6, align 8, !tbaa !3
-  %.not217 = icmp eq ptr %110, null
-  br i1 %.not217, label %122, label %free_pstring.exit194
+copy_substring.exit181:                           ; preds = %107
+  %108 = ptrtoint ptr %.1117 to i64
+  %109 = ptrtoint ptr %.3 to i64
+  %110 = sub i64 %108, %109
+  %111 = call noalias ptr @CRYPTO_strndup(ptr noundef nonnull %.3, i64 noundef %110, ptr noundef nonnull @.str, i32 noundef 42) #6
+  store ptr %111, ptr %6, align 8, !tbaa !3
+  %.not217 = icmp eq ptr %111, null
+  br i1 %.not217, label %123, label %free_pstring.exit194
 
-111:                                              ; preds = %103
-  br i1 %.not.i170, label %free_pstring.exit194, label %112
+112:                                              ; preds = %104
+  br i1 %.not.i170, label %free_pstring.exit194, label %113
 
-112:                                              ; preds = %111
-  %113 = getelementptr inbounds nuw i8, ptr %.1117, i64 1
-  %114 = ptrtoint ptr %113 to i64
-  %115 = ptrtoint ptr %.3 to i64
-  %116 = sub i64 %114, %115
-  %117 = add nsw i64 %116, 1
-  %118 = call noalias ptr @CRYPTO_malloc(i64 noundef %117, ptr noundef nonnull @.str, i32 noundef 179) #6
-  store ptr %118, ptr %6, align 8, !tbaa !3
-  %119 = icmp eq ptr %118, null
-  br i1 %119, label %122, label %.thread208
+113:                                              ; preds = %112
+  %114 = getelementptr inbounds nuw i8, ptr %.1117, i64 1
+  %115 = ptrtoint ptr %114 to i64
+  %116 = ptrtoint ptr %.3 to i64
+  %117 = sub i64 %115, %116
+  %118 = add nsw i64 %117, 1
+  %119 = call noalias ptr @CRYPTO_malloc(i64 noundef %118, ptr noundef nonnull @.str, i32 noundef 179) #6
+  store ptr %119, ptr %6, align 8, !tbaa !3
+  %120 = icmp eq ptr %119, null
+  br i1 %120, label %123, label %.thread208
 
-.thread208:                                       ; preds = %112
-  %120 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %118, i64 noundef %117, ptr noundef nonnull @.str.5, ptr noundef nonnull %.3) #6
+.thread208:                                       ; preds = %113
+  %121 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %119, i64 noundef %118, ptr noundef nonnull @.str.5, ptr noundef nonnull %.3) #6
   br label %free_pstring.exit194
 
-121:                                              ; preds = %33, %24, %70
+122:                                              ; preds = %33, %24, %70
   call void @ERR_new() #6
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 186, ptr noundef nonnull @__func__.OSSL_parse_url) #6
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 61, i32 noundef 101, ptr noundef null) #6
-  br label %122
+  br label %123
 
-122:                                              ; preds = %112, %copy_substring.exit181, %copy_substring.exit176, %copy_substring.exit177, %copy_substring.exit178, %copy_substring.exit179, %copy_substring.exit180, %121, %61
+123:                                              ; preds = %113, %copy_substring.exit181, %copy_substring.exit176, %copy_substring.exit177, %copy_substring.exit178, %copy_substring.exit179, %copy_substring.exit180, %122, %61
   br i1 %.not.i, label %free_pstring.exit, label %..thread210_crit_edge
 
-..thread210_crit_edge:                            ; preds = %122
+..thread210_crit_edge:                            ; preds = %123
   %.pre = load ptr, ptr %1, align 8, !tbaa !3
   br label %.thread210
 
 .thread210:                                       ; preds = %..thread210_crit_edge, %copy_substring.exit
-  %123 = phi ptr [ %.pre, %..thread210_crit_edge ], [ null, %copy_substring.exit ]
-  call void @CRYPTO_free(ptr noundef %123, ptr noundef nonnull @.str, i32 noundef 48) #6
+  %124 = phi ptr [ %.pre, %..thread210_crit_edge ], [ null, %copy_substring.exit ]
+  call void @CRYPTO_free(ptr noundef %124, ptr noundef nonnull @.str, i32 noundef 48) #6
   store ptr null, ptr %1, align 8, !tbaa !3
   br label %free_pstring.exit
 
-free_pstring.exit:                                ; preds = %122, %.thread210
-  br i1 %.not.i163, label %free_pstring.exit184, label %124
+free_pstring.exit:                                ; preds = %123, %.thread210
+  br i1 %.not.i163, label %free_pstring.exit184, label %125
 
-124:                                              ; preds = %free_pstring.exit
-  %125 = load ptr, ptr %2, align 8, !tbaa !3
-  call void @CRYPTO_free(ptr noundef %125, ptr noundef nonnull @.str, i32 noundef 48) #6
+125:                                              ; preds = %free_pstring.exit
+  %126 = load ptr, ptr %2, align 8, !tbaa !3
+  call void @CRYPTO_free(ptr noundef %126, ptr noundef nonnull @.str, i32 noundef 48) #6
   store ptr null, ptr %2, align 8, !tbaa !3
   br label %free_pstring.exit184
 
-free_pstring.exit184:                             ; preds = %free_pstring.exit, %124
-  br i1 %.not.i165, label %free_pstring.exit186, label %126
+free_pstring.exit184:                             ; preds = %free_pstring.exit, %125
+  br i1 %.not.i165, label %free_pstring.exit186, label %127
 
-126:                                              ; preds = %free_pstring.exit184
-  %127 = load ptr, ptr %3, align 8, !tbaa !3
-  call void @CRYPTO_free(ptr noundef %127, ptr noundef nonnull @.str, i32 noundef 48) #6
+127:                                              ; preds = %free_pstring.exit184
+  %128 = load ptr, ptr %3, align 8, !tbaa !3
+  call void @CRYPTO_free(ptr noundef %128, ptr noundef nonnull @.str, i32 noundef 48) #6
   store ptr null, ptr %3, align 8, !tbaa !3
   br label %free_pstring.exit186
 
-free_pstring.exit186:                             ; preds = %free_pstring.exit184, %126
-  br i1 %.not.i167, label %free_pstring.exit188, label %128
+free_pstring.exit186:                             ; preds = %free_pstring.exit184, %127
+  br i1 %.not.i167, label %free_pstring.exit188, label %129
 
-128:                                              ; preds = %free_pstring.exit186
-  %129 = load ptr, ptr %4, align 8, !tbaa !3
-  call void @CRYPTO_free(ptr noundef %129, ptr noundef nonnull @.str, i32 noundef 48) #6
+129:                                              ; preds = %free_pstring.exit186
+  %130 = load ptr, ptr %4, align 8, !tbaa !3
+  call void @CRYPTO_free(ptr noundef %130, ptr noundef nonnull @.str, i32 noundef 48) #6
   store ptr null, ptr %4, align 8, !tbaa !3
   br label %free_pstring.exit188
 
-free_pstring.exit188:                             ; preds = %free_pstring.exit186, %128
-  br i1 %.not.i170, label %free_pstring.exit190, label %130
+free_pstring.exit188:                             ; preds = %free_pstring.exit186, %129
+  br i1 %.not.i170, label %free_pstring.exit190, label %131
 
-130:                                              ; preds = %free_pstring.exit188
-  %131 = load ptr, ptr %6, align 8, !tbaa !3
-  call void @CRYPTO_free(ptr noundef %131, ptr noundef nonnull @.str, i32 noundef 48) #6
+131:                                              ; preds = %free_pstring.exit188
+  %132 = load ptr, ptr %6, align 8, !tbaa !3
+  call void @CRYPTO_free(ptr noundef %132, ptr noundef nonnull @.str, i32 noundef 48) #6
   store ptr null, ptr %6, align 8, !tbaa !3
   br label %free_pstring.exit190
 
-free_pstring.exit190:                             ; preds = %free_pstring.exit188, %130
-  br i1 %.not.i174, label %free_pstring.exit192, label %132
+free_pstring.exit190:                             ; preds = %free_pstring.exit188, %131
+  br i1 %.not.i174, label %free_pstring.exit192, label %133
 
-132:                                              ; preds = %free_pstring.exit190
-  %133 = load ptr, ptr %7, align 8, !tbaa !3
-  call void @CRYPTO_free(ptr noundef %133, ptr noundef nonnull @.str, i32 noundef 48) #6
+133:                                              ; preds = %free_pstring.exit190
+  %134 = load ptr, ptr %7, align 8, !tbaa !3
+  call void @CRYPTO_free(ptr noundef %134, ptr noundef nonnull @.str, i32 noundef 48) #6
   store ptr null, ptr %7, align 8, !tbaa !3
   br label %free_pstring.exit192
 
-free_pstring.exit192:                             ; preds = %free_pstring.exit190, %132
-  br i1 %.not.i172, label %free_pstring.exit194, label %134
+free_pstring.exit192:                             ; preds = %free_pstring.exit190, %133
+  br i1 %.not.i172, label %free_pstring.exit194, label %135
 
-134:                                              ; preds = %free_pstring.exit192
-  %135 = load ptr, ptr %8, align 8, !tbaa !3
-  call void @CRYPTO_free(ptr noundef %135, ptr noundef nonnull @.str, i32 noundef 48) #6
+135:                                              ; preds = %free_pstring.exit192
+  %136 = load ptr, ptr %8, align 8, !tbaa !3
+  call void @CRYPTO_free(ptr noundef %136, ptr noundef nonnull @.str, i32 noundef 48) #6
   store ptr null, ptr %8, align 8, !tbaa !3
   br label %free_pstring.exit194
 
-free_pstring.exit194:                             ; preds = %106, %134, %free_pstring.exit192, %.thread208, %copy_substring.exit181, %111, %20
-  %.0 = phi i32 [ 0, %20 ], [ 0, %134 ], [ 1, %.thread208 ], [ 1, %111 ], [ 1, %copy_substring.exit181 ], [ 0, %free_pstring.exit192 ], [ 1, %106 ]
+free_pstring.exit194:                             ; preds = %107, %135, %free_pstring.exit192, %.thread208, %copy_substring.exit181, %112, %20
+  %.0 = phi i32 [ 0, %20 ], [ 0, %135 ], [ 1, %.thread208 ], [ 1, %112 ], [ 1, %copy_substring.exit181 ], [ 0, %free_pstring.exit192 ], [ 1, %107 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %.0
 }

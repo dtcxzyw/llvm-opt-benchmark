@@ -2458,6 +2458,7 @@ define hidden void @_ZN11quinn_proto10connection5paths8PathData3new17hf6448ee096
   %44 = load i32, ptr %43, align 8, !range !146, !noundef !3
   %.not = icmp ne i32 %44, 1000000000
   %45 = getelementptr inbounds nuw i8, ptr %7, i64 48
+  %.not1.i = and i1 %2, %.not
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %46 = invoke noundef i16 @_ZN11quinn_proto6config9transport15TransportConfig15get_initial_mtu17h549d9ea7c2f59761E(ptr noalias noundef nonnull readonly align 8 dereferenceable(232) %7)
           to label %47 unwind label %40
@@ -2471,8 +2472,7 @@ define hidden void @_ZN11quinn_proto10connection5paths8PathData3new17hf6448ee096
 50:                                               ; preds = %47
   tail call void @llvm.experimental.noalias.scope.decl(metadata !147)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !150)
-  %.not.i39.not = and i1 %2, %.not
-  br i1 %.not.i39.not, label %51, label %53
+  br i1 %.not1.i, label %51, label %53
 
 51:                                               ; preds = %50
   %52 = invoke noundef i16 @_ZN11quinn_proto6config9transport15TransportConfig15get_initial_mtu17h549d9ea7c2f59761E(ptr noalias noundef nonnull readonly align 8 dereferenceable(232) %7)
@@ -2531,16 +2531,16 @@ define hidden void @_ZN11quinn_proto10connection5paths8PathData3new17hf6448ee096
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %77, ptr noundef nonnull align 4 dereferenceable(32) %1, i64 32, i1 false)
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 240
   store i32 1000000000, ptr %.sroa.3.0..sroa_idx, align 8
-  %.sroa.420.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 248
-  store i64 %30, ptr %.sroa.420.0..sroa_idx, align 8
+  %.sroa.421.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 248
+  store i64 %30, ptr %.sroa.421.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 256
   store i32 %32, ptr %.sroa.5.0..sroa_idx, align 8
-  %.sroa.622.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 264
-  store i64 %76, ptr %.sroa.622.0..sroa_idx, align 8
+  %.sroa.623.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 264
+  store i64 %76, ptr %.sroa.623.0..sroa_idx, align 8
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 272
   store i32 %75, ptr %.sroa.7.0..sroa_idx, align 8
-  %.sroa.823.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 280
-  store i64 %30, ptr %.sroa.823.0..sroa_idx, align 8
+  %.sroa.824.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 280
+  store i64 %30, ptr %.sroa.824.0..sroa_idx, align 8
   %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 288
   store i32 %32, ptr %.sroa.9.0..sroa_idx, align 8
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 392
@@ -2551,16 +2551,16 @@ define hidden void @_ZN11quinn_proto10connection5paths8PathData3new17hf6448ee096
   store ptr %28, ptr %80, align 8
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 184
   store i64 %5, ptr %81, align 8
-  %.sroa.425.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 192
-  store i32 %6, ptr %.sroa.425.0..sroa_idx, align 8
-  %.sroa.527.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 200
-  store i64 %.sroa.0.0.in.sroa.speculated.i.i.i, ptr %.sroa.527.0..sroa_idx, align 8
-  %.sroa.628.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 208
-  store i64 %37, ptr %.sroa.628.0..sroa_idx, align 8
-  %.sroa.729.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 216
-  store i64 %.sroa.0.0.in.sroa.speculated.i.i.i, ptr %.sroa.729.0..sroa_idx, align 8
-  %.sroa.830.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 224
-  store i16 %39, ptr %.sroa.830.0..sroa_idx, align 8
+  %.sroa.426.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 192
+  store i32 %6, ptr %.sroa.426.0..sroa_idx, align 8
+  %.sroa.528.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 200
+  store i64 %.sroa.0.0.in.sroa.speculated.i.i.i, ptr %.sroa.528.0..sroa_idx, align 8
+  %.sroa.629.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 208
+  store i64 %37, ptr %.sroa.629.0..sroa_idx, align 8
+  %.sroa.730.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 216
+  store i64 %.sroa.0.0.in.sroa.speculated.i.i.i, ptr %.sroa.730.0..sroa_idx, align 8
+  %.sroa.831.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 224
+  store i16 %39, ptr %.sroa.831.0..sroa_idx, align 8
   store i64 0, ptr %0, align 8
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 393
   store i8 0, ptr %82, align 1

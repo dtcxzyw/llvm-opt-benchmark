@@ -17092,24 +17092,24 @@ _ZN11mpz_managerILb0EE3setER3mpzl.exit:           ; preds = %_ZN11mpz_managerILb
 
 ._crit_edge:                                      ; preds = %_ZN15_scoped_numeralI11mpz_managerILb0EEEdVERK3mpz.exit
   %.pre972 = load i64, ptr %1270, align 8, !tbaa !60
-  %.not11.i.i = icmp sgt i64 %.pre972, 1
-  br i1 %.not11.i.i, label %.lr.ph.i.i.preheader, label %_ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvT_SA_.exit
+  %.not10.i.i = icmp sgt i64 %.pre972, 1
+  br i1 %.not10.i.i, label %.lr.ph.i.i.preheader, label %_ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvT_SA_.exit
 
 .lr.ph.i.i.preheader:                             ; preds = %._crit_edge
   %.pre = load ptr, ptr %52, align 8, !tbaa !58
   %1275 = getelementptr i8, ptr %.pre, i64 %.pre972
-  %.sroa.0.010.i.i = getelementptr i8, ptr %1275, i64 -1
+  %.sroa.0.09.i.i = getelementptr i8, ptr %1275, i64 -1
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %.lr.ph.i.i
-  %.sroa.0.013.i.i = phi ptr [ %.sroa.0.0.i.i, %.lr.ph.i.i ], [ %.sroa.0.010.i.i, %.lr.ph.i.i.preheader ]
-  %.sroa.06.012.i.i = phi ptr [ %1278, %.lr.ph.i.i ], [ %.pre, %.lr.ph.i.i.preheader ]
-  %1276 = load i8, ptr %.sroa.06.012.i.i, align 1, !tbaa !53
-  %1277 = load i8, ptr %.sroa.0.013.i.i, align 1, !tbaa !53
-  store i8 %1277, ptr %.sroa.06.012.i.i, align 1, !tbaa !53
-  store i8 %1276, ptr %.sroa.0.013.i.i, align 1, !tbaa !53
-  %1278 = getelementptr inbounds nuw i8, ptr %.sroa.06.012.i.i, i64 1
-  %.sroa.0.0.i.i = getelementptr inbounds i8, ptr %.sroa.0.013.i.i, i64 -1
+  %.sroa.0.012.i.i = phi ptr [ %.sroa.0.0.i.i, %.lr.ph.i.i ], [ %.sroa.0.09.i.i, %.lr.ph.i.i.preheader ]
+  %.sroa.06.011.i.i = phi ptr [ %1278, %.lr.ph.i.i ], [ %.pre, %.lr.ph.i.i.preheader ]
+  %1276 = load i8, ptr %.sroa.06.011.i.i, align 1, !tbaa !53
+  %1277 = load i8, ptr %.sroa.0.012.i.i, align 1, !tbaa !53
+  store i8 %1277, ptr %.sroa.06.011.i.i, align 1, !tbaa !53
+  store i8 %1276, ptr %.sroa.0.012.i.i, align 1, !tbaa !53
+  %1278 = getelementptr inbounds nuw i8, ptr %.sroa.06.011.i.i, i64 1
+  %.sroa.0.0.i.i = getelementptr inbounds i8, ptr %.sroa.0.012.i.i, i64 -1
   %.not.i.i = icmp ult ptr %1278, %.sroa.0.0.i.i
   br i1 %.not.i.i, label %.lr.ph.i.i, label %_ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvT_SA_.exit, !llvm.loop !212
 
@@ -17413,24 +17413,24 @@ _ZN11mpz_managerILb0EE3setER3mpzRKS1_.exit:       ; preds = %._ZN11mpz_managerIL
 
 ._crit_edge971:                                   ; preds = %1499, %_ZN11mpz_managerILb0EE3setER3mpzRKS1_.exit
   %1395 = load i64, ptr %1270, align 8, !tbaa !60
-  %.not11.i.i868 = icmp sgt i64 %1395, 1
-  br i1 %.not11.i.i868, label %.lr.ph.i.i870.preheader, label %_ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvT_SA_.exit875
+  %.not10.i.i868 = icmp sgt i64 %1395, 1
+  br i1 %.not10.i.i868, label %.lr.ph.i.i870.preheader, label %_ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvT_SA_.exit875
 
 .lr.ph.i.i870.preheader:                          ; preds = %._crit_edge971
   %1396 = load ptr, ptr %52, align 8, !tbaa !58
   %1397 = getelementptr i8, ptr %1396, i64 %1395
-  %.sroa.0.010.i.i867 = getelementptr i8, ptr %1397, i64 -1
+  %.sroa.0.09.i.i867 = getelementptr i8, ptr %1397, i64 -1
   br label %.lr.ph.i.i870
 
 .lr.ph.i.i870:                                    ; preds = %.lr.ph.i.i870.preheader, %.lr.ph.i.i870
-  %.sroa.0.013.i.i871 = phi ptr [ %.sroa.0.0.i.i873, %.lr.ph.i.i870 ], [ %.sroa.0.010.i.i867, %.lr.ph.i.i870.preheader ]
-  %.sroa.06.012.i.i872 = phi ptr [ %1400, %.lr.ph.i.i870 ], [ %1396, %.lr.ph.i.i870.preheader ]
-  %1398 = load i8, ptr %.sroa.06.012.i.i872, align 1, !tbaa !53
-  %1399 = load i8, ptr %.sroa.0.013.i.i871, align 1, !tbaa !53
-  store i8 %1399, ptr %.sroa.06.012.i.i872, align 1, !tbaa !53
-  store i8 %1398, ptr %.sroa.0.013.i.i871, align 1, !tbaa !53
-  %1400 = getelementptr inbounds nuw i8, ptr %.sroa.06.012.i.i872, i64 1
-  %.sroa.0.0.i.i873 = getelementptr inbounds i8, ptr %.sroa.0.013.i.i871, i64 -1
+  %.sroa.0.012.i.i871 = phi ptr [ %.sroa.0.0.i.i873, %.lr.ph.i.i870 ], [ %.sroa.0.09.i.i867, %.lr.ph.i.i870.preheader ]
+  %.sroa.06.011.i.i872 = phi ptr [ %1400, %.lr.ph.i.i870 ], [ %1396, %.lr.ph.i.i870.preheader ]
+  %1398 = load i8, ptr %.sroa.06.011.i.i872, align 1, !tbaa !53
+  %1399 = load i8, ptr %.sroa.0.012.i.i871, align 1, !tbaa !53
+  store i8 %1399, ptr %.sroa.06.011.i.i872, align 1, !tbaa !53
+  store i8 %1398, ptr %.sroa.0.012.i.i871, align 1, !tbaa !53
+  %1400 = getelementptr inbounds nuw i8, ptr %.sroa.06.011.i.i872, i64 1
+  %.sroa.0.0.i.i873 = getelementptr inbounds i8, ptr %.sroa.0.012.i.i871, i64 -1
   %.not.i.i874 = icmp ult ptr %1400, %.sroa.0.0.i.i873
   br i1 %.not.i.i874, label %.lr.ph.i.i870, label %_ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvT_SA_.exit875, !llvm.loop !212
 

@@ -8334,11 +8334,11 @@ _ZNK5clang11DeclContext9getParentEv.exit:         ; preds = %15, %23
   %29 = and i32 %28, 127
   %30 = add nsw i32 %29, -21
   %31 = icmp ult i32 %30, -2
-  %.not95 = or i1 %25, %31
+  %.not138 = or i1 %25, %31
   %.pre = load i24, ptr %12, align 8
   %32 = and i24 %.pre, 1048576
-  %.not136 = icmp eq i24 %32, 0
-  %or.cond = select i1 %.not95, i1 true, i1 %.not136
+  %.not139 = icmp eq i24 %32, 0
+  %or.cond = select i1 %.not138, i1 true, i1 %.not139
   br i1 %or.cond, label %36, label %33
 
 33:                                               ; preds = %_ZNK5clang11DeclContext9getParentEv.exit
@@ -8372,8 +8372,8 @@ _ZNK5clang11DeclContext9getParentEv.exit:         ; preds = %15, %23
   %47 = load i32, ptr %46, align 4
   %48 = and i32 %47, 127
   %49 = icmp ne i32 %48, 21
-  %.not97137 = icmp eq ptr %.081, null
-  %.not97 = or i1 %.not97137, %49
+  %.not97140 = icmp eq ptr %.081, null
+  %.not97 = or i1 %.not97140, %49
   br i1 %.not97, label %.thread, label %50
 
 50:                                               ; preds = %45
@@ -8386,21 +8386,21 @@ _ZNK5clang11DeclContext9getParentEv.exit:         ; preds = %15, %23
 .thread:                                          ; preds = %45, %50
   %.083121 = phi ptr [ %52, %50 ], [ %.081, %45 ]
   %54 = call ptr @_ZNK5clang17ObjCInterfaceDecl24visible_extensions_beginEv(ptr noundef nonnull align 8 dereferenceable(128) %.083121)
-  %.not138140 = icmp eq ptr %54, null
-  br i1 %.not138140, label %._crit_edge, label %.lr.ph
+  %.not141143 = icmp eq ptr %54, null
+  br i1 %.not141143, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN5clang17ObjCInterfaceDecl18isVisibleExtensionEPNS_16ObjCCategoryDeclE.exit.i.i, %.thread
-  %.sroa.0114.0141 = phi ptr [ %54, %.thread ], [ %.sroa.0114.1, %_ZN5clang17ObjCInterfaceDecl18isVisibleExtensionEPNS_16ObjCCategoryDeclE.exit.i.i ]
-  %55 = icmp eq ptr %.sroa.0114.0141, %.081
+  %.sroa.0114.0144 = phi ptr [ %54, %.thread ], [ %.sroa.0114.1, %_ZN5clang17ObjCInterfaceDecl18isVisibleExtensionEPNS_16ObjCCategoryDeclE.exit.i.i ]
+  %55 = icmp eq ptr %.sroa.0114.0144, %.081
   br i1 %55, label %select.unfold, label %56
 
 56:                                               ; preds = %.lr.ph
-  %57 = call fastcc noundef ptr @"_ZZNK5clang14ObjCMethodDecl16findPropertyDeclEbENK3$_0clEPKNS_17ObjCContainerDeclE"(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull %.sroa.0114.0141)
+  %57 = call fastcc noundef ptr @"_ZZNK5clang14ObjCMethodDecl16findPropertyDeclEbENK3$_0clEPKNS_17ObjCContainerDeclE"(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull %.sroa.0114.0144)
   %.not99 = icmp eq ptr %57, null
   br i1 %.not99, label %select.unfold, label %.thread127
 
 select.unfold:                                    ; preds = %56, %.lr.ph
-  %58 = getelementptr inbounds nuw i8, ptr %.sroa.0114.0141, i64 128
+  %58 = getelementptr inbounds nuw i8, ptr %.sroa.0114.0144, i64 128
   %59 = load ptr, ptr %58, align 8, !tbaa !74
   %.not1.i.i = icmp eq ptr %59, null
   br i1 %.not1.i.i, label %._crit_edge, label %.lr.ph.i.i
@@ -8479,22 +8479,22 @@ _ZNK5clang17ObjCInterfaceDecl13hasDefinitionEv.exit.i.i.i: ; preds = %76, %._cri
 _ZNK5clang17ObjCInterfaceDecl16known_categoriesEv.exit: ; preds = %_ZNK5clang17ObjCInterfaceDecl13hasDefinitionEv.exit.i.i.i, %87
   %.pre-phi6.i.i.i = phi ptr [ %.pre5.i.i.i, %87 ], [ %83, %_ZNK5clang17ObjCInterfaceDecl13hasDefinitionEv.exit.i.i.i ]
   %95 = getelementptr inbounds nuw i8, ptr %.pre-phi6.i.i.i, i64 56
-  br label %.lr.ph143
+  br label %.lr.ph146
 
-.lr.ph143:                                        ; preds = %select.unfold129, %_ZNK5clang17ObjCInterfaceDecl16known_categoriesEv.exit
+.lr.ph146:                                        ; preds = %select.unfold129, %_ZNK5clang17ObjCInterfaceDecl16known_categoriesEv.exit
   %.sink.in = phi ptr [ %99, %select.unfold129 ], [ %95, %_ZNK5clang17ObjCInterfaceDecl16known_categoriesEv.exit ]
   %.sink = load ptr, ptr %.sink.in, align 8, !tbaa !583, !nonnull !518, !noundef !518
   %96 = icmp eq ptr %.sink, %.081
   br i1 %96, label %select.unfold129, label %97
 
-97:                                               ; preds = %.lr.ph143
+97:                                               ; preds = %.lr.ph146
   %98 = call fastcc noundef ptr @"_ZZNK5clang14ObjCMethodDecl16findPropertyDeclEbENK3$_0clEPKNS_17ObjCContainerDeclE"(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull %.sink)
   %.not100 = icmp eq ptr %98, null
   br i1 %.not100, label %select.unfold129, label %.thread127
 
-select.unfold129:                                 ; preds = %97, %.lr.ph143
+select.unfold129:                                 ; preds = %97, %.lr.ph146
   %99 = getelementptr inbounds nuw i8, ptr %.sink, i64 128
-  br label %.lr.ph143
+  br label %.lr.ph146
 
 .thread127:                                       ; preds = %56, %97, %50, %36
   %.2 = phi ptr [ %44, %36 ], [ %98, %97 ], [ %53, %50 ], [ %57, %56 ]
@@ -8520,34 +8520,34 @@ select.unfold129:                                 ; preds = %97, %.lr.ph143
   %107 = zext i32 %106 to i64
   %.idx = shl nuw nsw i64 %107, 3
   %108 = getelementptr inbounds nuw i8, ptr %105, i64 %.idx
-  %.not149 = icmp eq i32 %106, 0
-  br i1 %.not149, label %._crit_edge153, label %.lr.ph152
+  %.not152 = icmp eq i32 %106, 0
+  br i1 %.not152, label %._crit_edge156, label %.lr.ph155
 
-.lr.ph152:                                        ; preds = %101, %.lr.ph152
-  %.082150 = phi ptr [ %111, %.lr.ph152 ], [ %105, %101 ]
-  %109 = load ptr, ptr %.082150, align 8, !tbaa !532
+.lr.ph155:                                        ; preds = %101, %.lr.ph155
+  %.082153 = phi ptr [ %111, %.lr.ph155 ], [ %105, %101 ]
+  %109 = load ptr, ptr %.082153, align 8, !tbaa !532
   %110 = call noundef ptr @_ZNK5clang14ObjCMethodDecl16findPropertyDeclEb(ptr noundef nonnull align 8 dereferenceable(136) %109, i1 noundef zeroext false)
   %.not94 = icmp ne ptr %110, null
-  %111 = getelementptr inbounds nuw i8, ptr %.082150, i64 8
+  %111 = getelementptr inbounds nuw i8, ptr %.082153, i64 8
   %.not = icmp eq ptr %111, %108
-  %or.cond181 = select i1 %.not94, i1 true, i1 %.not
-  br i1 %or.cond181, label %._crit_edge153.loopexit, label %.lr.ph152
+  %or.cond184 = select i1 %.not94, i1 true, i1 %.not
+  br i1 %or.cond184, label %._crit_edge156.loopexit, label %.lr.ph155
 
-._crit_edge153.loopexit:                          ; preds = %.lr.ph152
-  %.pre160 = load ptr, ptr %7, align 8, !tbaa !510
-  br label %._crit_edge153
+._crit_edge156.loopexit:                          ; preds = %.lr.ph155
+  %.pre163 = load ptr, ptr %7, align 8, !tbaa !510
+  br label %._crit_edge156
 
-._crit_edge153:                                   ; preds = %._crit_edge153.loopexit, %101
-  %112 = phi ptr [ %105, %101 ], [ %.pre160, %._crit_edge153.loopexit ]
-  %spec.select = phi ptr [ null, %101 ], [ %110, %._crit_edge153.loopexit ]
+._crit_edge156:                                   ; preds = %._crit_edge156.loopexit, %101
+  %112 = phi ptr [ %105, %101 ], [ %.pre163, %._crit_edge156.loopexit ]
+  %spec.select = phi ptr [ null, %101 ], [ %110, %._crit_edge156.loopexit ]
   %113 = icmp eq ptr %112, %102
   br i1 %113, label %_ZN4llvm11SmallVectorIPKN5clang14ObjCMethodDeclELj8EED2Ev.exit, label %114
 
-114:                                              ; preds = %._crit_edge153
+114:                                              ; preds = %._crit_edge156
   call void @free(ptr noundef %112) #25
   br label %_ZN4llvm11SmallVectorIPKN5clang14ObjCMethodDeclELj8EED2Ev.exit
 
-_ZN4llvm11SmallVectorIPKN5clang14ObjCMethodDeclELj8EED2Ev.exit: ; preds = %._crit_edge153, %114
+_ZN4llvm11SmallVectorIPKN5clang14ObjCMethodDeclELj8EED2Ev.exit: ; preds = %._crit_edge156, %114
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %115
 

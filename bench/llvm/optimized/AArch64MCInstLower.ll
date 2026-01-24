@@ -920,12 +920,12 @@ define hidden { i8, i64 } @_ZNK4llvm18AArch64MCInstLower22lowerSymbolOperandCOFF
   %28 = icmp eq i32 %.pre-phi, 6
   %29 = or disjoint i32 %.0, 64
   %spec.select63 = select i1 %28, i32 %29, i32 %.0
-  %30 = add nsw i32 %.pre-phi, -3
-  %31 = icmp ult i32 %30, 4
+  %30 = add nsw i32 %.pre-phi, -7
+  %31 = icmp ult i32 %30, -4
   br label %.thread.thread
 
 .thread.thread:                                   ; preds = %.thread, %18, %10, %24, %26, %22
-  %.pre-phi57 = phi i1 [ true, %22 ], [ true, %24 ], [ true, %26 ], [ false, %10 ], [ %31, %.thread ], [ false, %18 ]
+  %.pre-phi56 = phi i1 [ false, %22 ], [ false, %24 ], [ false, %26 ], [ true, %10 ], [ %31, %.thread ], [ true, %18 ]
   %.1 = phi i32 [ %23, %22 ], [ %25, %24 ], [ %27, %26 ], [ 41, %10 ], [ %spec.select63, %.thread ], [ 17, %18 ]
   %32 = load ptr, ptr %0, align 8, !tbaa !156
   %33 = tail call noundef ptr @_ZN4llvm15MCSymbolRefExpr6createEPKNS_8MCSymbolENS0_11VariantKindERNS_9MCContextENS_5SMLocE(ptr noundef %2, i16 noundef zeroext 0, ptr noundef nonnull align 8 dereferenceable(2432) %32, ptr null) #12
@@ -958,13 +958,13 @@ define hidden { i8, i64 } @_ZNK4llvm18AArch64MCInstLower22lowerSymbolOperandCOFF
   %52 = and i32 %8, 32
   %.not43 = icmp eq i32 %52, 0
   %53 = or i32 %.1, 256
-  %spec.select48 = select i1 %.pre-phi57, i32 %53, i32 %.1
-  %.2 = select i1 %.not43, i32 %.1, i32 %spec.select48
-  %54 = load ptr, ptr %0, align 8, !tbaa !156
-  %55 = tail call noundef ptr @_ZN4llvm13AArch64MCExpr6createEPKNS_6MCExprENS0_11VariantKindERNS_9MCContextE(ptr noundef %.041, i32 noundef %.2, ptr noundef nonnull align 8 dereferenceable(2432) %54) #12
-  %56 = icmp eq ptr %55, null
-  %57 = getelementptr inbounds nuw i8, ptr %55, i64 8
-  %spec.select = select i1 %56, ptr null, ptr %57
+  %54 = select i1 %.not43, i1 true, i1 %.pre-phi56
+  %.2 = select i1 %54, i32 %.1, i32 %53
+  %55 = load ptr, ptr %0, align 8, !tbaa !156
+  %56 = tail call noundef ptr @_ZN4llvm13AArch64MCExpr6createEPKNS_6MCExprENS0_11VariantKindERNS_9MCContextE(ptr noundef %.041, i32 noundef %.2, ptr noundef nonnull align 8 dereferenceable(2432) %55) #12
+  %57 = icmp eq ptr %56, null
+  %58 = getelementptr inbounds nuw i8, ptr %56, i64 8
+  %spec.select = select i1 %57, ptr null, ptr %58
   %.fca.1.load.cast.i = ptrtoint ptr %spec.select to i64
   %.fca.1.insert.i = insertvalue { i8, i64 } { i8 5, i64 poison }, i64 %.fca.1.load.cast.i, 1
   ret { i8, i64 } %.fca.1.insert.i

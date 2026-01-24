@@ -2900,9 +2900,9 @@ Abc_TtCheckCondDep.exit:                          ; preds = %1367, %If_CutTruthW
   %1380 = trunc i64 %1373 to i32
   %1381 = lshr i32 %1380, 24
   %1382 = icmp eq i32 %1381, %1379
-  %.not623 = icmp eq i32 %1381, 0
-  %1383 = select i1 %.not623, i64 0, i64 16384
-  %1384 = select i1 %1382, i64 %1383, i64 0
+  %.not623 = icmp ne i32 %1381, 0
+  %1383 = and i1 %.not623, %1382
+  %1384 = select i1 %1383, i64 16384, i64 0
   %1385 = and i64 %1373, -16385
   %1386 = or disjoint i64 %1384, %1385
   store i64 %1386, ptr %424, align 4

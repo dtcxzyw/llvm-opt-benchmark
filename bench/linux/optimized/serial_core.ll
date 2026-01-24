@@ -4896,9 +4896,9 @@ define internal void @uart_wait_until_sent(ptr noundef readonly captures(none) %
   %42 = tail call i64 @llvm.umax.i64(i64 %41, i64 1)
   %43 = icmp eq i32 %1, 0
   %44 = sext i32 %1 to i64
-  %45 = icmp ugt i64 %41, %44
-  %46 = select i1 %45, i64 %44, i64 %42
-  %47 = select i1 %43, i64 %42, i64 %46
+  %45 = icmp ule i64 %41, %44
+  %46 = select i1 %43, i1 true, i1 %45
+  %47 = select i1 %46, i64 %42, i64 %44
   %48 = getelementptr inbounds nuw i8, ptr %19, i64 280
   %49 = load i32, ptr %48, align 8
   %50 = and i32 %49, 1

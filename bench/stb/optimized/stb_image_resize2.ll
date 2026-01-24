@@ -3021,63 +3021,62 @@ define void @stbir__decode_uint8_linear_scaled(ptr noundef %0, i32 noundef %1, p
   %36 = getelementptr inbounds nuw i8, ptr %.068, i64 64
   %37 = getelementptr inbounds nuw i8, ptr %.069, i64 16
   %.not77 = icmp ugt ptr %36, %10
-  %38 = icmp eq ptr %36, %5
-  %. = select i1 %38, ptr %37, ptr %7
-  %.78 = select i1 %38, ptr %36, ptr %10
-  %.170 = select i1 %.not77, ptr %., ptr %37
-  %.1 = select i1 %.not77, ptr %.78, ptr %36
-  br i1 %38, label %.loopexit, label %11
+  %38 = icmp ne ptr %36, %5
+  %39 = and i1 %.not77, %38
+  %.170 = select i1 %39, ptr %7, ptr %37
+  %.1 = select i1 %39, ptr %10, ptr %36
+  br i1 %38, label %11, label %.loopexit
 
 .preheader:                                       ; preds = %.lr.ph, %.preheader81
-  %.271.lcssa = phi ptr [ %2, %.preheader81 ], [ %58, %.lr.ph ]
+  %.271.lcssa = phi ptr [ %2, %.preheader81 ], [ %59, %.lr.ph ]
   %.pn.lcssa = phi ptr [ %0, %.preheader81 ], [ %.286, %.lr.ph ]
-  %39 = icmp ult ptr %.pn.lcssa, %5
-  br i1 %39, label %.lr.ph90, label %.loopexit
+  %40 = icmp ult ptr %.pn.lcssa, %5
+  br i1 %40, label %.lr.ph90, label %.loopexit
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.286 = phi ptr [ %.2, %.lr.ph ], [ %.282, %.lr.ph.preheader ]
   %.pn85 = phi ptr [ %.286, %.lr.ph ], [ %0, %.lr.ph.preheader ]
-  %.27184 = phi ptr [ %58, %.lr.ph ], [ %2, %.lr.ph.preheader ]
+  %.27184 = phi ptr [ %59, %.lr.ph ], [ %2, %.lr.ph.preheader ]
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.286) #24, !srcloc !136
-  %40 = load i8, ptr %.27184, align 1, !tbaa !4
-  %41 = uitofp i8 %40 to float
-  %42 = fmul float %41, 0x3F70101020000000
-  store float %42, ptr %.pn85, align 4, !tbaa !50
-  %43 = getelementptr inbounds nuw i8, ptr %.27184, i64 1
-  %44 = load i8, ptr %43, align 1, !tbaa !4
-  %45 = uitofp i8 %44 to float
-  %46 = fmul float %45, 0x3F70101020000000
-  %47 = getelementptr inbounds nuw i8, ptr %.pn85, i64 4
-  store float %46, ptr %47, align 4, !tbaa !50
-  %48 = getelementptr inbounds nuw i8, ptr %.27184, i64 2
-  %49 = load i8, ptr %48, align 1, !tbaa !4
-  %50 = uitofp i8 %49 to float
-  %51 = fmul float %50, 0x3F70101020000000
-  %52 = getelementptr inbounds nuw i8, ptr %.pn85, i64 8
-  store float %51, ptr %52, align 4, !tbaa !50
-  %53 = getelementptr inbounds nuw i8, ptr %.27184, i64 3
-  %54 = load i8, ptr %53, align 1, !tbaa !4
-  %55 = uitofp i8 %54 to float
-  %56 = fmul float %55, 0x3F70101020000000
-  %57 = getelementptr inbounds nuw i8, ptr %.pn85, i64 12
-  store float %56, ptr %57, align 4, !tbaa !50
-  %58 = getelementptr inbounds nuw i8, ptr %.27184, i64 4
+  %41 = load i8, ptr %.27184, align 1, !tbaa !4
+  %42 = uitofp i8 %41 to float
+  %43 = fmul float %42, 0x3F70101020000000
+  store float %43, ptr %.pn85, align 4, !tbaa !50
+  %44 = getelementptr inbounds nuw i8, ptr %.27184, i64 1
+  %45 = load i8, ptr %44, align 1, !tbaa !4
+  %46 = uitofp i8 %45 to float
+  %47 = fmul float %46, 0x3F70101020000000
+  %48 = getelementptr inbounds nuw i8, ptr %.pn85, i64 4
+  store float %47, ptr %48, align 4, !tbaa !50
+  %49 = getelementptr inbounds nuw i8, ptr %.27184, i64 2
+  %50 = load i8, ptr %49, align 1, !tbaa !4
+  %51 = uitofp i8 %50 to float
+  %52 = fmul float %51, 0x3F70101020000000
+  %53 = getelementptr inbounds nuw i8, ptr %.pn85, i64 8
+  store float %52, ptr %53, align 4, !tbaa !50
+  %54 = getelementptr inbounds nuw i8, ptr %.27184, i64 3
+  %55 = load i8, ptr %54, align 1, !tbaa !4
+  %56 = uitofp i8 %55 to float
+  %57 = fmul float %56, 0x3F70101020000000
+  %58 = getelementptr inbounds nuw i8, ptr %.pn85, i64 12
+  store float %57, ptr %58, align 4, !tbaa !50
+  %59 = getelementptr inbounds nuw i8, ptr %.27184, i64 4
   %.2 = getelementptr inbounds nuw i8, ptr %.286, i64 16
   %.not = icmp ugt ptr %.2, %5
   br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !137
 
 .lr.ph90:                                         ; preds = %.preheader, %.lr.ph90
-  %.389 = phi ptr [ %62, %.lr.ph90 ], [ %.pn.lcssa, %.preheader ]
-  %.37288 = phi ptr [ %63, %.lr.ph90 ], [ %.271.lcssa, %.preheader ]
+  %.389 = phi ptr [ %63, %.lr.ph90 ], [ %.pn.lcssa, %.preheader ]
+  %.37288 = phi ptr [ %64, %.lr.ph90 ], [ %.271.lcssa, %.preheader ]
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.389) #24, !srcloc !138
-  %59 = load i8, ptr %.37288, align 1, !tbaa !4
-  %60 = uitofp i8 %59 to float
-  %61 = fmul float %60, 0x3F70101020000000
-  store float %61, ptr %.389, align 4, !tbaa !50
-  %62 = getelementptr inbounds nuw i8, ptr %.389, i64 4
-  %63 = getelementptr inbounds nuw i8, ptr %.37288, i64 1
-  %64 = icmp ult ptr %62, %5
-  br i1 %64, label %.lr.ph90, label %.loopexit, !llvm.loop !139
+  %60 = load i8, ptr %.37288, align 1, !tbaa !4
+  %61 = uitofp i8 %60 to float
+  %62 = fmul float %61, 0x3F70101020000000
+  store float %62, ptr %.389, align 4, !tbaa !50
+  %63 = getelementptr inbounds nuw i8, ptr %.389, i64 4
+  %64 = getelementptr inbounds nuw i8, ptr %.37288, i64 1
+  %65 = icmp ult ptr %63, %5
+  br i1 %65, label %.lr.ph90, label %.loopexit, !llvm.loop !139
 
 .loopexit:                                        ; preds = %.lr.ph90, %11, %.preheader
   ret void
@@ -3129,58 +3128,57 @@ define void @stbir__encode_uint8_linear_scaled(ptr noundef writeonly captures(ad
   %29 = getelementptr inbounds nuw i8, ptr %.0, i64 32
   %30 = getelementptr inbounds nuw i8, ptr %.059, i64 8
   %.not68 = icmp ugt ptr %30, %10
-  %31 = icmp eq ptr %30, %5
-  %.69 = select i1 %31, ptr %30, ptr %10
-  %.70 = select i1 %31, ptr %29, ptr %9
-  %.160 = select i1 %.not68, ptr %.69, ptr %30
-  %.1 = select i1 %.not68, ptr %.70, ptr %29
-  br i1 %31, label %.loopexit, label %11
+  %31 = icmp ne ptr %30, %5
+  %32 = and i1 %.not68, %31
+  %.160 = select i1 %32, ptr %10, ptr %30
+  %.1 = select i1 %32, ptr %9, ptr %29
+  br i1 %31, label %11, label %.loopexit
 
 .preheader:                                       ; preds = %.lr.ph, %.preheader72
   %.pn.lcssa = phi ptr [ %0, %.preheader72 ], [ %.26177, %.lr.ph ]
-  %.2.lcssa = phi ptr [ %2, %.preheader72 ], [ %43, %.lr.ph ]
-  %32 = icmp ult ptr %.pn.lcssa, %5
-  br i1 %32, label %.lr.ph81, label %.loopexit
+  %.2.lcssa = phi ptr [ %2, %.preheader72 ], [ %44, %.lr.ph ]
+  %33 = icmp ult ptr %.pn.lcssa, %5
+  br i1 %33, label %.lr.ph81, label %.loopexit
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.26177 = phi ptr [ %.261, %.lr.ph ], [ %.26173, %.lr.ph.preheader ]
-  %.276 = phi ptr [ %43, %.lr.ph ], [ %2, %.lr.ph.preheader ]
+  %.276 = phi ptr [ %44, %.lr.ph ], [ %2, %.lr.ph.preheader ]
   %.pn75 = phi ptr [ %.26177, %.lr.ph ], [ %0, %.lr.ph.preheader ]
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.276) #24, !srcloc !141
-  %33 = load <4 x float>, ptr %.276, align 1, !tbaa !4
-  %34 = fmul <4 x float> %33, splat (float 2.550000e+02)
-  %35 = fadd <4 x float> %34, splat (float 5.000000e-01)
-  %36 = tail call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %35, <4 x float> splat (float 2.550000e+02))
-  %37 = tail call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %36, <4 x float> zeroinitializer)
-  %38 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %37)
-  %39 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %38, <4 x i32> poison)
-  %40 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %39, <8 x i16> poison)
-  %41 = bitcast <16 x i8> %40 to <4 x i32>
-  %42 = extractelement <4 x i32> %41, i64 0
-  store i32 %42, ptr %.pn75, align 4, !tbaa !18
-  %43 = getelementptr inbounds nuw i8, ptr %.276, i64 16
+  %34 = load <4 x float>, ptr %.276, align 1, !tbaa !4
+  %35 = fmul <4 x float> %34, splat (float 2.550000e+02)
+  %36 = fadd <4 x float> %35, splat (float 5.000000e-01)
+  %37 = tail call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %36, <4 x float> splat (float 2.550000e+02))
+  %38 = tail call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %37, <4 x float> zeroinitializer)
+  %39 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %38)
+  %40 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %39, <4 x i32> poison)
+  %41 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %40, <8 x i16> poison)
+  %42 = bitcast <16 x i8> %41 to <4 x i32>
+  %43 = extractelement <4 x i32> %42, i64 0
+  store i32 %43, ptr %.pn75, align 4, !tbaa !18
+  %44 = getelementptr inbounds nuw i8, ptr %.276, i64 16
   %.261 = getelementptr inbounds nuw i8, ptr %.26177, i64 4
   %.not = icmp ugt ptr %.261, %5
   br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !142
 
 .lr.ph81:                                         ; preds = %.preheader, %.lr.ph81
-  %.380 = phi ptr [ %54, %.lr.ph81 ], [ %.2.lcssa, %.preheader ]
-  %.36279 = phi ptr [ %53, %.lr.ph81 ], [ %.pn.lcssa, %.preheader ]
+  %.380 = phi ptr [ %55, %.lr.ph81 ], [ %.2.lcssa, %.preheader ]
+  %.36279 = phi ptr [ %54, %.lr.ph81 ], [ %.pn.lcssa, %.preheader ]
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.380) #24, !srcloc !143
-  %44 = load float, ptr %.380, align 1, !tbaa !4
-  %45 = fmul float %44, 2.550000e+02
-  %46 = fadd float %45, 5.000000e-01
-  %47 = insertelement <4 x float> <float poison, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>, float %46, i64 0
-  %48 = tail call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %47, <4 x float> splat (float 2.550000e+02))
-  %49 = tail call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %48, <4 x float> zeroinitializer)
-  %50 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %49)
-  %51 = bitcast <4 x i32> %50 to <16 x i8>
-  %52 = extractelement <16 x i8> %51, i64 0
-  store i8 %52, ptr %.36279, align 1, !tbaa !4
-  %53 = getelementptr inbounds nuw i8, ptr %.36279, i64 1
-  %54 = getelementptr inbounds nuw i8, ptr %.380, i64 4
-  %55 = icmp ult ptr %53, %5
-  br i1 %55, label %.lr.ph81, label %.loopexit, !llvm.loop !144
+  %45 = load float, ptr %.380, align 1, !tbaa !4
+  %46 = fmul float %45, 2.550000e+02
+  %47 = fadd float %46, 5.000000e-01
+  %48 = insertelement <4 x float> <float poison, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>, float %47, i64 0
+  %49 = tail call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %48, <4 x float> splat (float 2.550000e+02))
+  %50 = tail call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %49, <4 x float> zeroinitializer)
+  %51 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %50)
+  %52 = bitcast <4 x i32> %51 to <16 x i8>
+  %53 = extractelement <16 x i8> %52, i64 0
+  store i8 %53, ptr %.36279, align 1, !tbaa !4
+  %54 = getelementptr inbounds nuw i8, ptr %.36279, i64 1
+  %55 = getelementptr inbounds nuw i8, ptr %.380, i64 4
+  %56 = icmp ult ptr %54, %5
+  br i1 %56, label %.lr.ph81, label %.loopexit, !llvm.loop !144
 
 .loopexit:                                        ; preds = %.lr.ph81, %11, %.preheader
   ret void
@@ -3239,58 +3237,57 @@ define void @stbir__decode_uint8_linear(ptr noundef %0, i32 noundef %1, ptr noun
   %32 = getelementptr inbounds nuw i8, ptr %.064, i64 64
   %33 = getelementptr inbounds nuw i8, ptr %.065, i64 16
   %.not73 = icmp ugt ptr %32, %10
-  %34 = icmp eq ptr %32, %5
-  %. = select i1 %34, ptr %33, ptr %7
-  %.74 = select i1 %34, ptr %32, ptr %10
-  %.166 = select i1 %.not73, ptr %., ptr %33
-  %.1 = select i1 %.not73, ptr %.74, ptr %32
-  br i1 %34, label %.loopexit, label %11
+  %34 = icmp ne ptr %32, %5
+  %35 = and i1 %.not73, %34
+  %.166 = select i1 %35, ptr %7, ptr %33
+  %.1 = select i1 %35, ptr %10, ptr %32
+  br i1 %34, label %11, label %.loopexit
 
 .preheader:                                       ; preds = %.lr.ph, %.preheader77
-  %.267.lcssa = phi ptr [ %2, %.preheader77 ], [ %50, %.lr.ph ]
+  %.267.lcssa = phi ptr [ %2, %.preheader77 ], [ %51, %.lr.ph ]
   %.pn.lcssa = phi ptr [ %0, %.preheader77 ], [ %.282, %.lr.ph ]
-  %35 = icmp ult ptr %.pn.lcssa, %5
-  br i1 %35, label %.lr.ph86, label %.loopexit
+  %36 = icmp ult ptr %.pn.lcssa, %5
+  br i1 %36, label %.lr.ph86, label %.loopexit
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.282 = phi ptr [ %.2, %.lr.ph ], [ %.278, %.lr.ph.preheader ]
   %.pn81 = phi ptr [ %.282, %.lr.ph ], [ %0, %.lr.ph.preheader ]
-  %.26780 = phi ptr [ %50, %.lr.ph ], [ %2, %.lr.ph.preheader ]
+  %.26780 = phi ptr [ %51, %.lr.ph ], [ %2, %.lr.ph.preheader ]
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.282) #24, !srcloc !146
-  %36 = load i8, ptr %.26780, align 1, !tbaa !4
-  %37 = uitofp i8 %36 to float
-  store float %37, ptr %.pn81, align 4, !tbaa !50
-  %38 = getelementptr inbounds nuw i8, ptr %.26780, i64 1
-  %39 = load i8, ptr %38, align 1, !tbaa !4
-  %40 = uitofp i8 %39 to float
-  %41 = getelementptr inbounds nuw i8, ptr %.pn81, i64 4
-  store float %40, ptr %41, align 4, !tbaa !50
-  %42 = getelementptr inbounds nuw i8, ptr %.26780, i64 2
-  %43 = load i8, ptr %42, align 1, !tbaa !4
-  %44 = uitofp i8 %43 to float
-  %45 = getelementptr inbounds nuw i8, ptr %.pn81, i64 8
-  store float %44, ptr %45, align 4, !tbaa !50
-  %46 = getelementptr inbounds nuw i8, ptr %.26780, i64 3
-  %47 = load i8, ptr %46, align 1, !tbaa !4
-  %48 = uitofp i8 %47 to float
-  %49 = getelementptr inbounds nuw i8, ptr %.pn81, i64 12
-  store float %48, ptr %49, align 4, !tbaa !50
-  %50 = getelementptr inbounds nuw i8, ptr %.26780, i64 4
+  %37 = load i8, ptr %.26780, align 1, !tbaa !4
+  %38 = uitofp i8 %37 to float
+  store float %38, ptr %.pn81, align 4, !tbaa !50
+  %39 = getelementptr inbounds nuw i8, ptr %.26780, i64 1
+  %40 = load i8, ptr %39, align 1, !tbaa !4
+  %41 = uitofp i8 %40 to float
+  %42 = getelementptr inbounds nuw i8, ptr %.pn81, i64 4
+  store float %41, ptr %42, align 4, !tbaa !50
+  %43 = getelementptr inbounds nuw i8, ptr %.26780, i64 2
+  %44 = load i8, ptr %43, align 1, !tbaa !4
+  %45 = uitofp i8 %44 to float
+  %46 = getelementptr inbounds nuw i8, ptr %.pn81, i64 8
+  store float %45, ptr %46, align 4, !tbaa !50
+  %47 = getelementptr inbounds nuw i8, ptr %.26780, i64 3
+  %48 = load i8, ptr %47, align 1, !tbaa !4
+  %49 = uitofp i8 %48 to float
+  %50 = getelementptr inbounds nuw i8, ptr %.pn81, i64 12
+  store float %49, ptr %50, align 4, !tbaa !50
+  %51 = getelementptr inbounds nuw i8, ptr %.26780, i64 4
   %.2 = getelementptr inbounds nuw i8, ptr %.282, i64 16
   %.not = icmp ugt ptr %.2, %5
   br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !147
 
 .lr.ph86:                                         ; preds = %.preheader, %.lr.ph86
-  %.385 = phi ptr [ %53, %.lr.ph86 ], [ %.pn.lcssa, %.preheader ]
-  %.36884 = phi ptr [ %54, %.lr.ph86 ], [ %.267.lcssa, %.preheader ]
+  %.385 = phi ptr [ %54, %.lr.ph86 ], [ %.pn.lcssa, %.preheader ]
+  %.36884 = phi ptr [ %55, %.lr.ph86 ], [ %.267.lcssa, %.preheader ]
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.385) #24, !srcloc !148
-  %51 = load i8, ptr %.36884, align 1, !tbaa !4
-  %52 = uitofp i8 %51 to float
-  store float %52, ptr %.385, align 4, !tbaa !50
-  %53 = getelementptr inbounds nuw i8, ptr %.385, i64 4
-  %54 = getelementptr inbounds nuw i8, ptr %.36884, i64 1
-  %55 = icmp ult ptr %53, %5
-  br i1 %55, label %.lr.ph86, label %.loopexit, !llvm.loop !149
+  %52 = load i8, ptr %.36884, align 1, !tbaa !4
+  %53 = uitofp i8 %52 to float
+  store float %53, ptr %.385, align 4, !tbaa !50
+  %54 = getelementptr inbounds nuw i8, ptr %.385, i64 4
+  %55 = getelementptr inbounds nuw i8, ptr %.36884, i64 1
+  %56 = icmp ult ptr %54, %5
+  br i1 %56, label %.lr.ph86, label %.loopexit, !llvm.loop !149
 
 .loopexit:                                        ; preds = %.lr.ph86, %11, %.preheader
   ret void
@@ -3340,55 +3337,54 @@ define void @stbir__encode_uint8_linear(ptr noundef writeonly captures(address) 
   %27 = getelementptr inbounds nuw i8, ptr %.061, i64 32
   %28 = getelementptr inbounds nuw i8, ptr %.063, i64 8
   %.not73 = icmp ugt ptr %28, %10
-  %29 = icmp eq ptr %28, %5
-  %.74 = select i1 %29, ptr %28, ptr %10
-  %.75 = select i1 %29, ptr %27, ptr %9
-  %.164 = select i1 %.not73, ptr %.74, ptr %28
-  %.162 = select i1 %.not73, ptr %.75, ptr %27
-  br i1 %29, label %.loopexit, label %11
+  %29 = icmp ne ptr %28, %5
+  %30 = and i1 %.not73, %29
+  %.164 = select i1 %30, ptr %10, ptr %28
+  %.162 = select i1 %30, ptr %9, ptr %27
+  br i1 %29, label %11, label %.loopexit
 
 .preheader:                                       ; preds = %.lr.ph, %.preheader77
   %.pn.lcssa = phi ptr [ %0, %.preheader77 ], [ %.26582, %.lr.ph ]
-  %.2.lcssa = phi ptr [ %2, %.preheader77 ], [ %40, %.lr.ph ]
-  %30 = icmp ult ptr %.pn.lcssa, %5
-  br i1 %30, label %.lr.ph86, label %.loopexit
+  %.2.lcssa = phi ptr [ %2, %.preheader77 ], [ %41, %.lr.ph ]
+  %31 = icmp ult ptr %.pn.lcssa, %5
+  br i1 %31, label %.lr.ph86, label %.loopexit
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.26582 = phi ptr [ %.265, %.lr.ph ], [ %.26578, %.lr.ph.preheader ]
-  %.281 = phi ptr [ %40, %.lr.ph ], [ %2, %.lr.ph.preheader ]
+  %.281 = phi ptr [ %41, %.lr.ph ], [ %2, %.lr.ph.preheader ]
   %.pn80 = phi ptr [ %.26582, %.lr.ph ], [ %0, %.lr.ph.preheader ]
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.281) #24, !srcloc !151
-  %31 = load <4 x float>, ptr %.281, align 1, !tbaa !4
-  %32 = fadd <4 x float> %31, splat (float 5.000000e-01)
-  %33 = tail call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %32, <4 x float> splat (float 2.550000e+02))
-  %34 = tail call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %33, <4 x float> zeroinitializer)
-  %35 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %34)
-  %36 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %35, <4 x i32> poison)
-  %37 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %36, <8 x i16> poison)
-  %38 = bitcast <16 x i8> %37 to <4 x i32>
-  %39 = extractelement <4 x i32> %38, i64 0
-  store i32 %39, ptr %.pn80, align 4, !tbaa !18
-  %40 = getelementptr inbounds nuw i8, ptr %.281, i64 16
+  %32 = load <4 x float>, ptr %.281, align 1, !tbaa !4
+  %33 = fadd <4 x float> %32, splat (float 5.000000e-01)
+  %34 = tail call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %33, <4 x float> splat (float 2.550000e+02))
+  %35 = tail call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %34, <4 x float> zeroinitializer)
+  %36 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %35)
+  %37 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %36, <4 x i32> poison)
+  %38 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %37, <8 x i16> poison)
+  %39 = bitcast <16 x i8> %38 to <4 x i32>
+  %40 = extractelement <4 x i32> %39, i64 0
+  store i32 %40, ptr %.pn80, align 4, !tbaa !18
+  %41 = getelementptr inbounds nuw i8, ptr %.281, i64 16
   %.265 = getelementptr inbounds nuw i8, ptr %.26582, i64 4
   %.not = icmp ugt ptr %.265, %5
   br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !152
 
 .lr.ph86:                                         ; preds = %.preheader, %.lr.ph86
-  %.385 = phi ptr [ %47, %.lr.ph86 ], [ %.2.lcssa, %.preheader ]
-  %.36684 = phi ptr [ %46, %.lr.ph86 ], [ %.pn.lcssa, %.preheader ]
+  %.385 = phi ptr [ %48, %.lr.ph86 ], [ %.2.lcssa, %.preheader ]
+  %.36684 = phi ptr [ %47, %.lr.ph86 ], [ %.pn.lcssa, %.preheader ]
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.385) #24, !srcloc !153
-  %41 = load float, ptr %.385, align 4, !tbaa !50
-  %42 = fadd float %41, 5.000000e-01
-  %43 = fcmp olt float %42, 0.000000e+00
-  %.0 = select i1 %43, float 0.000000e+00, float %42
-  %44 = fcmp ogt float %.0, 2.550000e+02
-  %.1 = select i1 %44, float 2.550000e+02, float %.0
-  %45 = fptoui float %.1 to i8
-  store i8 %45, ptr %.36684, align 1, !tbaa !4
-  %46 = getelementptr inbounds nuw i8, ptr %.36684, i64 1
-  %47 = getelementptr inbounds nuw i8, ptr %.385, i64 4
-  %48 = icmp ult ptr %46, %5
-  br i1 %48, label %.lr.ph86, label %.loopexit, !llvm.loop !154
+  %42 = load float, ptr %.385, align 4, !tbaa !50
+  %43 = fadd float %42, 5.000000e-01
+  %44 = fcmp olt float %43, 0.000000e+00
+  %.0 = select i1 %44, float 0.000000e+00, float %43
+  %45 = fcmp ogt float %.0, 2.550000e+02
+  %.1 = select i1 %45, float 2.550000e+02, float %.0
+  %46 = fptoui float %.1 to i8
+  store i8 %46, ptr %.36684, align 1, !tbaa !4
+  %47 = getelementptr inbounds nuw i8, ptr %.36684, i64 1
+  %48 = getelementptr inbounds nuw i8, ptr %.385, i64 4
+  %49 = icmp ult ptr %47, %5
+  br i1 %49, label %.lr.ph86, label %.loopexit, !llvm.loop !154
 
 .loopexit:                                        ; preds = %.lr.ph86, %11, %.preheader
   ret void
@@ -3638,188 +3634,187 @@ define void @stbir__encode_uint8_srgb(ptr noundef writeonly captures(address) %0
   %124 = getelementptr inbounds nuw i8, ptr %.0141, i64 64
   %125 = getelementptr inbounds nuw i8, ptr %.0142, i64 16
   %.not150 = icmp ugt ptr %125, %10
-  %126 = icmp eq ptr %125, %5
-  %. = select i1 %126, ptr %125, ptr %10
-  %.151 = select i1 %126, ptr %124, ptr %9
-  %.1143 = select i1 %.not150, ptr %., ptr %125
-  %.1 = select i1 %.not150, ptr %.151, ptr %124
-  br i1 %126, label %.loopexit, label %11
+  %126 = icmp ne ptr %125, %5
+  %127 = and i1 %.not150, %126
+  %.1143 = select i1 %127, ptr %10, ptr %125
+  %.1 = select i1 %127, ptr %9, ptr %124
+  br i1 %126, label %11, label %.loopexit
 
 .preheader:                                       ; preds = %stbir__linear_to_srgb_uchar.exit158, %.preheader162
   %.pn.lcssa = phi ptr [ %0, %.preheader162 ], [ %.2144167, %stbir__linear_to_srgb_uchar.exit158 ]
-  %.2.lcssa = phi ptr [ %2, %.preheader162 ], [ %214, %stbir__linear_to_srgb_uchar.exit158 ]
-  %127 = icmp ult ptr %.pn.lcssa, %5
-  br i1 %127, label %.lr.ph171, label %.loopexit
+  %.2.lcssa = phi ptr [ %2, %.preheader162 ], [ %215, %stbir__linear_to_srgb_uchar.exit158 ]
+  %128 = icmp ult ptr %.pn.lcssa, %5
+  br i1 %128, label %.lr.ph171, label %.loopexit
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %stbir__linear_to_srgb_uchar.exit158
   %.2144167 = phi ptr [ %.2144, %stbir__linear_to_srgb_uchar.exit158 ], [ %.2144163, %.lr.ph.preheader ]
-  %.2166 = phi ptr [ %214, %stbir__linear_to_srgb_uchar.exit158 ], [ %2, %.lr.ph.preheader ]
+  %.2166 = phi ptr [ %215, %stbir__linear_to_srgb_uchar.exit158 ], [ %2, %.lr.ph.preheader ]
   %.pn165 = phi ptr [ %.2144167, %stbir__linear_to_srgb_uchar.exit158 ], [ %0, %.lr.ph.preheader ]
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.2166) #24, !srcloc !159
-  %128 = load float, ptr %.2166, align 4, !tbaa !50
-  %129 = fcmp ogt float %128, 0x3F20000000000000
-  br i1 %129, label %130, label %stbir__linear_to_srgb_uchar.exit
+  %129 = load float, ptr %.2166, align 4, !tbaa !50
+  %130 = fcmp ogt float %129, 0x3F20000000000000
+  br i1 %130, label %131, label %stbir__linear_to_srgb_uchar.exit
 
-130:                                              ; preds = %.lr.ph
-  %131 = fcmp ogt float %128, 0x3FEFFFFFE0000000
-  br i1 %131, label %stbir__linear_to_srgb_uchar.exit, label %132
+131:                                              ; preds = %.lr.ph
+  %132 = fcmp ogt float %129, 0x3FEFFFFFE0000000
+  br i1 %132, label %stbir__linear_to_srgb_uchar.exit, label %133
 
-132:                                              ; preds = %130
-  %133 = bitcast float %128 to i32
-  %134 = add nsw i32 %133, -956301312
-  %135 = lshr i32 %134, 20
-  %136 = zext nneg i32 %135 to i64
-  %137 = getelementptr inbounds nuw i32, ptr @fp32_to_srgb8_tab4, i64 %136
-  %138 = load i32, ptr %137, align 4, !tbaa !18
-  %139 = lshr i32 %138, 7
-  %140 = and i32 %139, 16776704
-  %141 = and i32 %138, 65535
-  %142 = lshr i32 %133, 12
-  %143 = and i32 %142, 255
-  %144 = mul nuw nsw i32 %141, %143
-  %145 = add nuw nsw i32 %140, %144
-  %146 = lshr i32 %145, 16
-  %147 = trunc i32 %146 to i8
+133:                                              ; preds = %131
+  %134 = bitcast float %129 to i32
+  %135 = add nsw i32 %134, -956301312
+  %136 = lshr i32 %135, 20
+  %137 = zext nneg i32 %136 to i64
+  %138 = getelementptr inbounds nuw i32, ptr @fp32_to_srgb8_tab4, i64 %137
+  %139 = load i32, ptr %138, align 4, !tbaa !18
+  %140 = lshr i32 %139, 7
+  %141 = and i32 %140, 16776704
+  %142 = and i32 %139, 65535
+  %143 = lshr i32 %134, 12
+  %144 = and i32 %143, 255
+  %145 = mul nuw nsw i32 %142, %144
+  %146 = add nuw nsw i32 %141, %145
+  %147 = lshr i32 %146, 16
+  %148 = trunc i32 %147 to i8
   br label %stbir__linear_to_srgb_uchar.exit
 
-stbir__linear_to_srgb_uchar.exit:                 ; preds = %.lr.ph, %130, %132
-  %.0.i = phi i8 [ 0, %.lr.ph ], [ %147, %132 ], [ -1, %130 ]
+stbir__linear_to_srgb_uchar.exit:                 ; preds = %.lr.ph, %131, %133
+  %.0.i = phi i8 [ 0, %.lr.ph ], [ %148, %133 ], [ -1, %131 ]
   store i8 %.0.i, ptr %.pn165, align 1, !tbaa !4
-  %148 = getelementptr inbounds nuw i8, ptr %.2166, i64 4
-  %149 = load float, ptr %148, align 4, !tbaa !50
-  %150 = fcmp ogt float %149, 0x3F20000000000000
-  br i1 %150, label %151, label %stbir__linear_to_srgb_uchar.exit154
+  %149 = getelementptr inbounds nuw i8, ptr %.2166, i64 4
+  %150 = load float, ptr %149, align 4, !tbaa !50
+  %151 = fcmp ogt float %150, 0x3F20000000000000
+  br i1 %151, label %152, label %stbir__linear_to_srgb_uchar.exit154
 
-151:                                              ; preds = %stbir__linear_to_srgb_uchar.exit
-  %152 = fcmp ogt float %149, 0x3FEFFFFFE0000000
-  br i1 %152, label %stbir__linear_to_srgb_uchar.exit154, label %153
+152:                                              ; preds = %stbir__linear_to_srgb_uchar.exit
+  %153 = fcmp ogt float %150, 0x3FEFFFFFE0000000
+  br i1 %153, label %stbir__linear_to_srgb_uchar.exit154, label %154
 
-153:                                              ; preds = %151
-  %154 = bitcast float %149 to i32
-  %155 = add nsw i32 %154, -956301312
-  %156 = lshr i32 %155, 20
-  %157 = zext nneg i32 %156 to i64
-  %158 = getelementptr inbounds nuw i32, ptr @fp32_to_srgb8_tab4, i64 %157
-  %159 = load i32, ptr %158, align 4, !tbaa !18
-  %160 = lshr i32 %159, 7
-  %161 = and i32 %160, 16776704
-  %162 = and i32 %159, 65535
-  %163 = lshr i32 %154, 12
-  %164 = and i32 %163, 255
-  %165 = mul nuw nsw i32 %162, %164
-  %166 = add nuw nsw i32 %161, %165
-  %167 = lshr i32 %166, 16
-  %168 = trunc i32 %167 to i8
+154:                                              ; preds = %152
+  %155 = bitcast float %150 to i32
+  %156 = add nsw i32 %155, -956301312
+  %157 = lshr i32 %156, 20
+  %158 = zext nneg i32 %157 to i64
+  %159 = getelementptr inbounds nuw i32, ptr @fp32_to_srgb8_tab4, i64 %158
+  %160 = load i32, ptr %159, align 4, !tbaa !18
+  %161 = lshr i32 %160, 7
+  %162 = and i32 %161, 16776704
+  %163 = and i32 %160, 65535
+  %164 = lshr i32 %155, 12
+  %165 = and i32 %164, 255
+  %166 = mul nuw nsw i32 %163, %165
+  %167 = add nuw nsw i32 %162, %166
+  %168 = lshr i32 %167, 16
+  %169 = trunc i32 %168 to i8
   br label %stbir__linear_to_srgb_uchar.exit154
 
-stbir__linear_to_srgb_uchar.exit154:              ; preds = %stbir__linear_to_srgb_uchar.exit, %151, %153
-  %.0.i153 = phi i8 [ 0, %stbir__linear_to_srgb_uchar.exit ], [ %168, %153 ], [ -1, %151 ]
-  %169 = getelementptr inbounds nuw i8, ptr %.pn165, i64 1
-  store i8 %.0.i153, ptr %169, align 1, !tbaa !4
-  %170 = getelementptr inbounds nuw i8, ptr %.2166, i64 8
-  %171 = load float, ptr %170, align 4, !tbaa !50
-  %172 = fcmp ogt float %171, 0x3F20000000000000
-  br i1 %172, label %173, label %stbir__linear_to_srgb_uchar.exit156
+stbir__linear_to_srgb_uchar.exit154:              ; preds = %stbir__linear_to_srgb_uchar.exit, %152, %154
+  %.0.i153 = phi i8 [ 0, %stbir__linear_to_srgb_uchar.exit ], [ %169, %154 ], [ -1, %152 ]
+  %170 = getelementptr inbounds nuw i8, ptr %.pn165, i64 1
+  store i8 %.0.i153, ptr %170, align 1, !tbaa !4
+  %171 = getelementptr inbounds nuw i8, ptr %.2166, i64 8
+  %172 = load float, ptr %171, align 4, !tbaa !50
+  %173 = fcmp ogt float %172, 0x3F20000000000000
+  br i1 %173, label %174, label %stbir__linear_to_srgb_uchar.exit156
 
-173:                                              ; preds = %stbir__linear_to_srgb_uchar.exit154
-  %174 = fcmp ogt float %171, 0x3FEFFFFFE0000000
-  br i1 %174, label %stbir__linear_to_srgb_uchar.exit156, label %175
+174:                                              ; preds = %stbir__linear_to_srgb_uchar.exit154
+  %175 = fcmp ogt float %172, 0x3FEFFFFFE0000000
+  br i1 %175, label %stbir__linear_to_srgb_uchar.exit156, label %176
 
-175:                                              ; preds = %173
-  %176 = bitcast float %171 to i32
-  %177 = add nsw i32 %176, -956301312
-  %178 = lshr i32 %177, 20
-  %179 = zext nneg i32 %178 to i64
-  %180 = getelementptr inbounds nuw i32, ptr @fp32_to_srgb8_tab4, i64 %179
-  %181 = load i32, ptr %180, align 4, !tbaa !18
-  %182 = lshr i32 %181, 7
-  %183 = and i32 %182, 16776704
-  %184 = and i32 %181, 65535
-  %185 = lshr i32 %176, 12
-  %186 = and i32 %185, 255
-  %187 = mul nuw nsw i32 %184, %186
-  %188 = add nuw nsw i32 %183, %187
-  %189 = lshr i32 %188, 16
-  %190 = trunc i32 %189 to i8
+176:                                              ; preds = %174
+  %177 = bitcast float %172 to i32
+  %178 = add nsw i32 %177, -956301312
+  %179 = lshr i32 %178, 20
+  %180 = zext nneg i32 %179 to i64
+  %181 = getelementptr inbounds nuw i32, ptr @fp32_to_srgb8_tab4, i64 %180
+  %182 = load i32, ptr %181, align 4, !tbaa !18
+  %183 = lshr i32 %182, 7
+  %184 = and i32 %183, 16776704
+  %185 = and i32 %182, 65535
+  %186 = lshr i32 %177, 12
+  %187 = and i32 %186, 255
+  %188 = mul nuw nsw i32 %185, %187
+  %189 = add nuw nsw i32 %184, %188
+  %190 = lshr i32 %189, 16
+  %191 = trunc i32 %190 to i8
   br label %stbir__linear_to_srgb_uchar.exit156
 
-stbir__linear_to_srgb_uchar.exit156:              ; preds = %stbir__linear_to_srgb_uchar.exit154, %173, %175
-  %.0.i155 = phi i8 [ 0, %stbir__linear_to_srgb_uchar.exit154 ], [ %190, %175 ], [ -1, %173 ]
-  %191 = getelementptr inbounds nuw i8, ptr %.pn165, i64 2
-  store i8 %.0.i155, ptr %191, align 1, !tbaa !4
-  %192 = getelementptr inbounds nuw i8, ptr %.2166, i64 12
-  %193 = load float, ptr %192, align 4, !tbaa !50
-  %194 = fcmp ogt float %193, 0x3F20000000000000
-  br i1 %194, label %195, label %stbir__linear_to_srgb_uchar.exit158
+stbir__linear_to_srgb_uchar.exit156:              ; preds = %stbir__linear_to_srgb_uchar.exit154, %174, %176
+  %.0.i155 = phi i8 [ 0, %stbir__linear_to_srgb_uchar.exit154 ], [ %191, %176 ], [ -1, %174 ]
+  %192 = getelementptr inbounds nuw i8, ptr %.pn165, i64 2
+  store i8 %.0.i155, ptr %192, align 1, !tbaa !4
+  %193 = getelementptr inbounds nuw i8, ptr %.2166, i64 12
+  %194 = load float, ptr %193, align 4, !tbaa !50
+  %195 = fcmp ogt float %194, 0x3F20000000000000
+  br i1 %195, label %196, label %stbir__linear_to_srgb_uchar.exit158
 
-195:                                              ; preds = %stbir__linear_to_srgb_uchar.exit156
-  %196 = fcmp ogt float %193, 0x3FEFFFFFE0000000
-  br i1 %196, label %stbir__linear_to_srgb_uchar.exit158, label %197
+196:                                              ; preds = %stbir__linear_to_srgb_uchar.exit156
+  %197 = fcmp ogt float %194, 0x3FEFFFFFE0000000
+  br i1 %197, label %stbir__linear_to_srgb_uchar.exit158, label %198
 
-197:                                              ; preds = %195
-  %198 = bitcast float %193 to i32
-  %199 = add nsw i32 %198, -956301312
-  %200 = lshr i32 %199, 20
-  %201 = zext nneg i32 %200 to i64
-  %202 = getelementptr inbounds nuw i32, ptr @fp32_to_srgb8_tab4, i64 %201
-  %203 = load i32, ptr %202, align 4, !tbaa !18
-  %204 = lshr i32 %203, 7
-  %205 = and i32 %204, 16776704
-  %206 = and i32 %203, 65535
-  %207 = lshr i32 %198, 12
-  %208 = and i32 %207, 255
-  %209 = mul nuw nsw i32 %206, %208
-  %210 = add nuw nsw i32 %205, %209
-  %211 = lshr i32 %210, 16
-  %212 = trunc i32 %211 to i8
+198:                                              ; preds = %196
+  %199 = bitcast float %194 to i32
+  %200 = add nsw i32 %199, -956301312
+  %201 = lshr i32 %200, 20
+  %202 = zext nneg i32 %201 to i64
+  %203 = getelementptr inbounds nuw i32, ptr @fp32_to_srgb8_tab4, i64 %202
+  %204 = load i32, ptr %203, align 4, !tbaa !18
+  %205 = lshr i32 %204, 7
+  %206 = and i32 %205, 16776704
+  %207 = and i32 %204, 65535
+  %208 = lshr i32 %199, 12
+  %209 = and i32 %208, 255
+  %210 = mul nuw nsw i32 %207, %209
+  %211 = add nuw nsw i32 %206, %210
+  %212 = lshr i32 %211, 16
+  %213 = trunc i32 %212 to i8
   br label %stbir__linear_to_srgb_uchar.exit158
 
-stbir__linear_to_srgb_uchar.exit158:              ; preds = %stbir__linear_to_srgb_uchar.exit156, %195, %197
-  %.0.i157 = phi i8 [ 0, %stbir__linear_to_srgb_uchar.exit156 ], [ %212, %197 ], [ -1, %195 ]
-  %213 = getelementptr inbounds nuw i8, ptr %.pn165, i64 3
-  store i8 %.0.i157, ptr %213, align 1, !tbaa !4
-  %214 = getelementptr inbounds nuw i8, ptr %.2166, i64 16
+stbir__linear_to_srgb_uchar.exit158:              ; preds = %stbir__linear_to_srgb_uchar.exit156, %196, %198
+  %.0.i157 = phi i8 [ 0, %stbir__linear_to_srgb_uchar.exit156 ], [ %213, %198 ], [ -1, %196 ]
+  %214 = getelementptr inbounds nuw i8, ptr %.pn165, i64 3
+  store i8 %.0.i157, ptr %214, align 1, !tbaa !4
+  %215 = getelementptr inbounds nuw i8, ptr %.2166, i64 16
   %.2144 = getelementptr inbounds nuw i8, ptr %.2144167, i64 4
   %.not = icmp ugt ptr %.2144, %5
   br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !160
 
 .lr.ph171:                                        ; preds = %.preheader, %stbir__linear_to_srgb_uchar.exit160
-  %.3170 = phi ptr [ %236, %stbir__linear_to_srgb_uchar.exit160 ], [ %.2.lcssa, %.preheader ]
-  %.3145169 = phi ptr [ %235, %stbir__linear_to_srgb_uchar.exit160 ], [ %.pn.lcssa, %.preheader ]
+  %.3170 = phi ptr [ %237, %stbir__linear_to_srgb_uchar.exit160 ], [ %.2.lcssa, %.preheader ]
+  %.3145169 = phi ptr [ %236, %stbir__linear_to_srgb_uchar.exit160 ], [ %.pn.lcssa, %.preheader ]
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.3170) #24, !srcloc !161
-  %215 = load float, ptr %.3170, align 4, !tbaa !50
-  %216 = fcmp ogt float %215, 0x3F20000000000000
-  br i1 %216, label %217, label %stbir__linear_to_srgb_uchar.exit160
+  %216 = load float, ptr %.3170, align 4, !tbaa !50
+  %217 = fcmp ogt float %216, 0x3F20000000000000
+  br i1 %217, label %218, label %stbir__linear_to_srgb_uchar.exit160
 
-217:                                              ; preds = %.lr.ph171
-  %218 = fcmp ogt float %215, 0x3FEFFFFFE0000000
-  br i1 %218, label %stbir__linear_to_srgb_uchar.exit160, label %219
+218:                                              ; preds = %.lr.ph171
+  %219 = fcmp ogt float %216, 0x3FEFFFFFE0000000
+  br i1 %219, label %stbir__linear_to_srgb_uchar.exit160, label %220
 
-219:                                              ; preds = %217
-  %220 = bitcast float %215 to i32
-  %221 = add nsw i32 %220, -956301312
-  %222 = lshr i32 %221, 20
-  %223 = zext nneg i32 %222 to i64
-  %224 = getelementptr inbounds nuw i32, ptr @fp32_to_srgb8_tab4, i64 %223
-  %225 = load i32, ptr %224, align 4, !tbaa !18
-  %226 = lshr i32 %225, 7
-  %227 = and i32 %226, 16776704
-  %228 = and i32 %225, 65535
-  %229 = lshr i32 %220, 12
-  %230 = and i32 %229, 255
-  %231 = mul nuw nsw i32 %228, %230
-  %232 = add nuw nsw i32 %227, %231
-  %233 = lshr i32 %232, 16
-  %234 = trunc i32 %233 to i8
+220:                                              ; preds = %218
+  %221 = bitcast float %216 to i32
+  %222 = add nsw i32 %221, -956301312
+  %223 = lshr i32 %222, 20
+  %224 = zext nneg i32 %223 to i64
+  %225 = getelementptr inbounds nuw i32, ptr @fp32_to_srgb8_tab4, i64 %224
+  %226 = load i32, ptr %225, align 4, !tbaa !18
+  %227 = lshr i32 %226, 7
+  %228 = and i32 %227, 16776704
+  %229 = and i32 %226, 65535
+  %230 = lshr i32 %221, 12
+  %231 = and i32 %230, 255
+  %232 = mul nuw nsw i32 %229, %231
+  %233 = add nuw nsw i32 %228, %232
+  %234 = lshr i32 %233, 16
+  %235 = trunc i32 %234 to i8
   br label %stbir__linear_to_srgb_uchar.exit160
 
-stbir__linear_to_srgb_uchar.exit160:              ; preds = %.lr.ph171, %217, %219
-  %.0.i159 = phi i8 [ 0, %.lr.ph171 ], [ %234, %219 ], [ -1, %217 ]
+stbir__linear_to_srgb_uchar.exit160:              ; preds = %.lr.ph171, %218, %220
+  %.0.i159 = phi i8 [ 0, %.lr.ph171 ], [ %235, %220 ], [ -1, %218 ]
   store i8 %.0.i159, ptr %.3145169, align 1, !tbaa !4
-  %235 = getelementptr inbounds nuw i8, ptr %.3145169, i64 1
-  %236 = getelementptr inbounds nuw i8, ptr %.3170, i64 4
-  %237 = icmp ult ptr %235, %5
-  br i1 %237, label %.lr.ph171, label %.loopexit, !llvm.loop !162
+  %236 = getelementptr inbounds nuw i8, ptr %.3145169, i64 1
+  %237 = getelementptr inbounds nuw i8, ptr %.3170, i64 4
+  %238 = icmp ult ptr %236, %5
+  br i1 %238, label %.lr.ph171, label %.loopexit, !llvm.loop !162
 
 .loopexit:                                        ; preds = %stbir__linear_to_srgb_uchar.exit160, %11, %.preheader
   ret void
@@ -4007,123 +4002,122 @@ define void @stbir__encode_uint8_srgb4_linearalpha(ptr noundef writeonly capture
   %106 = getelementptr inbounds nuw i8, ptr %.0125, i64 16
   %107 = getelementptr inbounds nuw i8, ptr %.0123, i64 64
   %.not = icmp ugt ptr %106, %10
-  %108 = icmp eq ptr %106, %5
-  %. = select i1 %108, ptr %106, ptr %10
-  %.133 = select i1 %108, ptr %107, ptr %9
-  %.1126 = select i1 %.not, ptr %., ptr %106
-  %.1124 = select i1 %.not, ptr %.133, ptr %107
-  br i1 %108, label %.loopexit, label %11
+  %108 = icmp ne ptr %106, %5
+  %109 = and i1 %.not, %108
+  %.1126 = select i1 %109, ptr %10, ptr %106
+  %.1124 = select i1 %109, ptr %9, ptr %107
+  br i1 %108, label %11, label %.loopexit
 
 .preheader:                                       ; preds = %3, %stbir__linear_to_srgb_uchar.exit138
-  %.2127 = phi ptr [ %181, %stbir__linear_to_srgb_uchar.exit138 ], [ %0, %3 ]
-  %.2 = phi ptr [ %182, %stbir__linear_to_srgb_uchar.exit138 ], [ %2, %3 ]
+  %.2127 = phi ptr [ %182, %stbir__linear_to_srgb_uchar.exit138 ], [ %0, %3 ]
+  %.2 = phi ptr [ %183, %stbir__linear_to_srgb_uchar.exit138 ], [ %2, %3 ]
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.2) #24, !srcloc !165
-  %109 = load float, ptr %.2, align 4, !tbaa !50
-  %110 = fcmp ogt float %109, 0x3F20000000000000
-  br i1 %110, label %111, label %stbir__linear_to_srgb_uchar.exit
+  %110 = load float, ptr %.2, align 4, !tbaa !50
+  %111 = fcmp ogt float %110, 0x3F20000000000000
+  br i1 %111, label %112, label %stbir__linear_to_srgb_uchar.exit
 
-111:                                              ; preds = %.preheader
-  %112 = fcmp ogt float %109, 0x3FEFFFFFE0000000
-  br i1 %112, label %stbir__linear_to_srgb_uchar.exit, label %113
+112:                                              ; preds = %.preheader
+  %113 = fcmp ogt float %110, 0x3FEFFFFFE0000000
+  br i1 %113, label %stbir__linear_to_srgb_uchar.exit, label %114
 
-113:                                              ; preds = %111
-  %114 = bitcast float %109 to i32
-  %115 = add nsw i32 %114, -956301312
-  %116 = lshr i32 %115, 20
-  %117 = zext nneg i32 %116 to i64
-  %118 = getelementptr inbounds nuw i32, ptr @fp32_to_srgb8_tab4, i64 %117
-  %119 = load i32, ptr %118, align 4, !tbaa !18
-  %120 = lshr i32 %119, 7
-  %121 = and i32 %120, 16776704
-  %122 = and i32 %119, 65535
-  %123 = lshr i32 %114, 12
-  %124 = and i32 %123, 255
-  %125 = mul nuw nsw i32 %122, %124
-  %126 = add nuw nsw i32 %121, %125
-  %127 = lshr i32 %126, 16
-  %128 = trunc i32 %127 to i8
+114:                                              ; preds = %112
+  %115 = bitcast float %110 to i32
+  %116 = add nsw i32 %115, -956301312
+  %117 = lshr i32 %116, 20
+  %118 = zext nneg i32 %117 to i64
+  %119 = getelementptr inbounds nuw i32, ptr @fp32_to_srgb8_tab4, i64 %118
+  %120 = load i32, ptr %119, align 4, !tbaa !18
+  %121 = lshr i32 %120, 7
+  %122 = and i32 %121, 16776704
+  %123 = and i32 %120, 65535
+  %124 = lshr i32 %115, 12
+  %125 = and i32 %124, 255
+  %126 = mul nuw nsw i32 %123, %125
+  %127 = add nuw nsw i32 %122, %126
+  %128 = lshr i32 %127, 16
+  %129 = trunc i32 %128 to i8
   br label %stbir__linear_to_srgb_uchar.exit
 
-stbir__linear_to_srgb_uchar.exit:                 ; preds = %.preheader, %111, %113
-  %.0.i = phi i8 [ 0, %.preheader ], [ %128, %113 ], [ -1, %111 ]
+stbir__linear_to_srgb_uchar.exit:                 ; preds = %.preheader, %112, %114
+  %.0.i = phi i8 [ 0, %.preheader ], [ %129, %114 ], [ -1, %112 ]
   store i8 %.0.i, ptr %.2127, align 1, !tbaa !4
-  %129 = getelementptr inbounds nuw i8, ptr %.2, i64 4
-  %130 = load float, ptr %129, align 4, !tbaa !50
-  %131 = fcmp ogt float %130, 0x3F20000000000000
-  br i1 %131, label %132, label %stbir__linear_to_srgb_uchar.exit136
+  %130 = getelementptr inbounds nuw i8, ptr %.2, i64 4
+  %131 = load float, ptr %130, align 4, !tbaa !50
+  %132 = fcmp ogt float %131, 0x3F20000000000000
+  br i1 %132, label %133, label %stbir__linear_to_srgb_uchar.exit136
 
-132:                                              ; preds = %stbir__linear_to_srgb_uchar.exit
-  %133 = fcmp ogt float %130, 0x3FEFFFFFE0000000
-  br i1 %133, label %stbir__linear_to_srgb_uchar.exit136, label %134
+133:                                              ; preds = %stbir__linear_to_srgb_uchar.exit
+  %134 = fcmp ogt float %131, 0x3FEFFFFFE0000000
+  br i1 %134, label %stbir__linear_to_srgb_uchar.exit136, label %135
 
-134:                                              ; preds = %132
-  %135 = bitcast float %130 to i32
-  %136 = add nsw i32 %135, -956301312
-  %137 = lshr i32 %136, 20
-  %138 = zext nneg i32 %137 to i64
-  %139 = getelementptr inbounds nuw i32, ptr @fp32_to_srgb8_tab4, i64 %138
-  %140 = load i32, ptr %139, align 4, !tbaa !18
-  %141 = lshr i32 %140, 7
-  %142 = and i32 %141, 16776704
-  %143 = and i32 %140, 65535
-  %144 = lshr i32 %135, 12
-  %145 = and i32 %144, 255
-  %146 = mul nuw nsw i32 %143, %145
-  %147 = add nuw nsw i32 %142, %146
-  %148 = lshr i32 %147, 16
-  %149 = trunc i32 %148 to i8
+135:                                              ; preds = %133
+  %136 = bitcast float %131 to i32
+  %137 = add nsw i32 %136, -956301312
+  %138 = lshr i32 %137, 20
+  %139 = zext nneg i32 %138 to i64
+  %140 = getelementptr inbounds nuw i32, ptr @fp32_to_srgb8_tab4, i64 %139
+  %141 = load i32, ptr %140, align 4, !tbaa !18
+  %142 = lshr i32 %141, 7
+  %143 = and i32 %142, 16776704
+  %144 = and i32 %141, 65535
+  %145 = lshr i32 %136, 12
+  %146 = and i32 %145, 255
+  %147 = mul nuw nsw i32 %144, %146
+  %148 = add nuw nsw i32 %143, %147
+  %149 = lshr i32 %148, 16
+  %150 = trunc i32 %149 to i8
   br label %stbir__linear_to_srgb_uchar.exit136
 
-stbir__linear_to_srgb_uchar.exit136:              ; preds = %stbir__linear_to_srgb_uchar.exit, %132, %134
-  %.0.i135 = phi i8 [ 0, %stbir__linear_to_srgb_uchar.exit ], [ %149, %134 ], [ -1, %132 ]
-  %150 = getelementptr inbounds nuw i8, ptr %.2127, i64 1
-  store i8 %.0.i135, ptr %150, align 1, !tbaa !4
-  %151 = getelementptr inbounds nuw i8, ptr %.2, i64 8
-  %152 = load float, ptr %151, align 4, !tbaa !50
-  %153 = fcmp ogt float %152, 0x3F20000000000000
-  br i1 %153, label %154, label %stbir__linear_to_srgb_uchar.exit138
+stbir__linear_to_srgb_uchar.exit136:              ; preds = %stbir__linear_to_srgb_uchar.exit, %133, %135
+  %.0.i135 = phi i8 [ 0, %stbir__linear_to_srgb_uchar.exit ], [ %150, %135 ], [ -1, %133 ]
+  %151 = getelementptr inbounds nuw i8, ptr %.2127, i64 1
+  store i8 %.0.i135, ptr %151, align 1, !tbaa !4
+  %152 = getelementptr inbounds nuw i8, ptr %.2, i64 8
+  %153 = load float, ptr %152, align 4, !tbaa !50
+  %154 = fcmp ogt float %153, 0x3F20000000000000
+  br i1 %154, label %155, label %stbir__linear_to_srgb_uchar.exit138
 
-154:                                              ; preds = %stbir__linear_to_srgb_uchar.exit136
-  %155 = fcmp ogt float %152, 0x3FEFFFFFE0000000
-  br i1 %155, label %stbir__linear_to_srgb_uchar.exit138, label %156
+155:                                              ; preds = %stbir__linear_to_srgb_uchar.exit136
+  %156 = fcmp ogt float %153, 0x3FEFFFFFE0000000
+  br i1 %156, label %stbir__linear_to_srgb_uchar.exit138, label %157
 
-156:                                              ; preds = %154
-  %157 = bitcast float %152 to i32
-  %158 = add nsw i32 %157, -956301312
-  %159 = lshr i32 %158, 20
-  %160 = zext nneg i32 %159 to i64
-  %161 = getelementptr inbounds nuw i32, ptr @fp32_to_srgb8_tab4, i64 %160
-  %162 = load i32, ptr %161, align 4, !tbaa !18
-  %163 = lshr i32 %162, 7
-  %164 = and i32 %163, 16776704
-  %165 = and i32 %162, 65535
-  %166 = lshr i32 %157, 12
-  %167 = and i32 %166, 255
-  %168 = mul nuw nsw i32 %165, %167
-  %169 = add nuw nsw i32 %164, %168
-  %170 = lshr i32 %169, 16
-  %171 = trunc i32 %170 to i8
+157:                                              ; preds = %155
+  %158 = bitcast float %153 to i32
+  %159 = add nsw i32 %158, -956301312
+  %160 = lshr i32 %159, 20
+  %161 = zext nneg i32 %160 to i64
+  %162 = getelementptr inbounds nuw i32, ptr @fp32_to_srgb8_tab4, i64 %161
+  %163 = load i32, ptr %162, align 4, !tbaa !18
+  %164 = lshr i32 %163, 7
+  %165 = and i32 %164, 16776704
+  %166 = and i32 %163, 65535
+  %167 = lshr i32 %158, 12
+  %168 = and i32 %167, 255
+  %169 = mul nuw nsw i32 %166, %168
+  %170 = add nuw nsw i32 %165, %169
+  %171 = lshr i32 %170, 16
+  %172 = trunc i32 %171 to i8
   br label %stbir__linear_to_srgb_uchar.exit138
 
-stbir__linear_to_srgb_uchar.exit138:              ; preds = %stbir__linear_to_srgb_uchar.exit136, %154, %156
-  %.0.i137 = phi i8 [ 0, %stbir__linear_to_srgb_uchar.exit136 ], [ %171, %156 ], [ -1, %154 ]
-  %172 = getelementptr inbounds nuw i8, ptr %.2127, i64 2
-  store i8 %.0.i137, ptr %172, align 1, !tbaa !4
-  %173 = getelementptr inbounds nuw i8, ptr %.2, i64 12
-  %174 = load float, ptr %173, align 4, !tbaa !50
-  %175 = fmul float %174, 2.550000e+02
-  %176 = fadd float %175, 5.000000e-01
-  %177 = fcmp olt float %176, 0.000000e+00
-  %.0 = select i1 %177, float 0.000000e+00, float %176
-  %178 = fcmp ogt float %.0, 2.550000e+02
-  %.1 = select i1 %178, float 2.550000e+02, float %.0
-  %179 = fptoui float %.1 to i8
-  %180 = getelementptr inbounds nuw i8, ptr %.2127, i64 3
-  store i8 %179, ptr %180, align 1, !tbaa !4
-  %181 = getelementptr inbounds nuw i8, ptr %.2127, i64 4
-  %182 = getelementptr inbounds nuw i8, ptr %.2, i64 16
-  %183 = icmp ult ptr %181, %5
-  br i1 %183, label %.preheader, label %.loopexit, !llvm.loop !166
+stbir__linear_to_srgb_uchar.exit138:              ; preds = %stbir__linear_to_srgb_uchar.exit136, %155, %157
+  %.0.i137 = phi i8 [ 0, %stbir__linear_to_srgb_uchar.exit136 ], [ %172, %157 ], [ -1, %155 ]
+  %173 = getelementptr inbounds nuw i8, ptr %.2127, i64 2
+  store i8 %.0.i137, ptr %173, align 1, !tbaa !4
+  %174 = getelementptr inbounds nuw i8, ptr %.2, i64 12
+  %175 = load float, ptr %174, align 4, !tbaa !50
+  %176 = fmul float %175, 2.550000e+02
+  %177 = fadd float %176, 5.000000e-01
+  %178 = fcmp olt float %177, 0.000000e+00
+  %.0 = select i1 %178, float 0.000000e+00, float %177
+  %179 = fcmp ogt float %.0, 2.550000e+02
+  %.1 = select i1 %179, float 2.550000e+02, float %.0
+  %180 = fptoui float %.1 to i8
+  %181 = getelementptr inbounds nuw i8, ptr %.2127, i64 3
+  store i8 %180, ptr %181, align 1, !tbaa !4
+  %182 = getelementptr inbounds nuw i8, ptr %.2127, i64 4
+  %183 = getelementptr inbounds nuw i8, ptr %.2, i64 16
+  %184 = icmp ult ptr %182, %5
+  br i1 %184, label %.preheader, label %.loopexit, !llvm.loop !166
 
 .loopexit:                                        ; preds = %stbir__linear_to_srgb_uchar.exit138, %11
   ret void
@@ -4308,61 +4302,60 @@ define void @stbir__encode_uint8_srgb2_linearalpha(ptr noundef writeonly capture
   %88 = getelementptr inbounds nuw i8, ptr %.0108, i64 16
   %89 = getelementptr inbounds nuw i8, ptr %.0106, i64 64
   %.not = icmp ugt ptr %88, %10
-  %90 = icmp eq ptr %88, %5
-  %. = select i1 %90, ptr %88, ptr %10
-  %.116 = select i1 %90, ptr %89, ptr %9
-  %.1109 = select i1 %.not, ptr %., ptr %88
-  %.1107 = select i1 %.not, ptr %.116, ptr %89
-  br i1 %90, label %.loopexit, label %11
+  %90 = icmp ne ptr %88, %5
+  %91 = and i1 %.not, %90
+  %.1109 = select i1 %91, ptr %10, ptr %88
+  %.1107 = select i1 %91, ptr %9, ptr %89
+  br i1 %90, label %11, label %.loopexit
 
 .preheader:                                       ; preds = %3, %stbir__linear_to_srgb_uchar.exit
-  %.2110 = phi ptr [ %119, %stbir__linear_to_srgb_uchar.exit ], [ %0, %3 ]
-  %.2 = phi ptr [ %120, %stbir__linear_to_srgb_uchar.exit ], [ %2, %3 ]
+  %.2110 = phi ptr [ %120, %stbir__linear_to_srgb_uchar.exit ], [ %0, %3 ]
+  %.2 = phi ptr [ %121, %stbir__linear_to_srgb_uchar.exit ], [ %2, %3 ]
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.2) #24, !srcloc !169
-  %91 = load float, ptr %.2, align 4, !tbaa !50
-  %92 = fcmp ogt float %91, 0x3F20000000000000
-  br i1 %92, label %93, label %stbir__linear_to_srgb_uchar.exit
+  %92 = load float, ptr %.2, align 4, !tbaa !50
+  %93 = fcmp ogt float %92, 0x3F20000000000000
+  br i1 %93, label %94, label %stbir__linear_to_srgb_uchar.exit
 
-93:                                               ; preds = %.preheader
-  %94 = fcmp ogt float %91, 0x3FEFFFFFE0000000
-  br i1 %94, label %stbir__linear_to_srgb_uchar.exit, label %95
+94:                                               ; preds = %.preheader
+  %95 = fcmp ogt float %92, 0x3FEFFFFFE0000000
+  br i1 %95, label %stbir__linear_to_srgb_uchar.exit, label %96
 
-95:                                               ; preds = %93
-  %96 = bitcast float %91 to i32
-  %97 = add nsw i32 %96, -956301312
-  %98 = lshr i32 %97, 20
-  %99 = zext nneg i32 %98 to i64
-  %100 = getelementptr inbounds nuw i32, ptr @fp32_to_srgb8_tab4, i64 %99
-  %101 = load i32, ptr %100, align 4, !tbaa !18
-  %102 = lshr i32 %101, 7
-  %103 = and i32 %102, 16776704
-  %104 = and i32 %101, 65535
-  %105 = lshr i32 %96, 12
-  %106 = and i32 %105, 255
-  %107 = mul nuw nsw i32 %104, %106
-  %108 = add nuw nsw i32 %103, %107
-  %109 = lshr i32 %108, 16
-  %110 = trunc i32 %109 to i8
+96:                                               ; preds = %94
+  %97 = bitcast float %92 to i32
+  %98 = add nsw i32 %97, -956301312
+  %99 = lshr i32 %98, 20
+  %100 = zext nneg i32 %99 to i64
+  %101 = getelementptr inbounds nuw i32, ptr @fp32_to_srgb8_tab4, i64 %100
+  %102 = load i32, ptr %101, align 4, !tbaa !18
+  %103 = lshr i32 %102, 7
+  %104 = and i32 %103, 16776704
+  %105 = and i32 %102, 65535
+  %106 = lshr i32 %97, 12
+  %107 = and i32 %106, 255
+  %108 = mul nuw nsw i32 %105, %107
+  %109 = add nuw nsw i32 %104, %108
+  %110 = lshr i32 %109, 16
+  %111 = trunc i32 %110 to i8
   br label %stbir__linear_to_srgb_uchar.exit
 
-stbir__linear_to_srgb_uchar.exit:                 ; preds = %.preheader, %93, %95
-  %.0.i = phi i8 [ 0, %.preheader ], [ %110, %95 ], [ -1, %93 ]
+stbir__linear_to_srgb_uchar.exit:                 ; preds = %.preheader, %94, %96
+  %.0.i = phi i8 [ 0, %.preheader ], [ %111, %96 ], [ -1, %94 ]
   store i8 %.0.i, ptr %.2110, align 1, !tbaa !4
-  %111 = getelementptr inbounds nuw i8, ptr %.2, i64 4
-  %112 = load float, ptr %111, align 4, !tbaa !50
-  %113 = fmul float %112, 2.550000e+02
-  %114 = fadd float %113, 5.000000e-01
-  %115 = fcmp olt float %114, 0.000000e+00
-  %.0 = select i1 %115, float 0.000000e+00, float %114
-  %116 = fcmp ogt float %.0, 2.550000e+02
-  %.1 = select i1 %116, float 2.550000e+02, float %.0
-  %117 = fptoui float %.1 to i8
-  %118 = getelementptr inbounds nuw i8, ptr %.2110, i64 1
-  store i8 %117, ptr %118, align 1, !tbaa !4
-  %119 = getelementptr inbounds nuw i8, ptr %.2110, i64 2
-  %120 = getelementptr inbounds nuw i8, ptr %.2, i64 8
-  %121 = icmp ult ptr %119, %5
-  br i1 %121, label %.preheader, label %.loopexit, !llvm.loop !170
+  %112 = getelementptr inbounds nuw i8, ptr %.2, i64 4
+  %113 = load float, ptr %112, align 4, !tbaa !50
+  %114 = fmul float %113, 2.550000e+02
+  %115 = fadd float %114, 5.000000e-01
+  %116 = fcmp olt float %115, 0.000000e+00
+  %.0 = select i1 %116, float 0.000000e+00, float %115
+  %117 = fcmp ogt float %.0, 2.550000e+02
+  %.1 = select i1 %117, float 2.550000e+02, float %.0
+  %118 = fptoui float %.1 to i8
+  %119 = getelementptr inbounds nuw i8, ptr %.2110, i64 1
+  store i8 %118, ptr %119, align 1, !tbaa !4
+  %120 = getelementptr inbounds nuw i8, ptr %.2110, i64 2
+  %121 = getelementptr inbounds nuw i8, ptr %.2, i64 8
+  %122 = icmp ult ptr %120, %5
+  br i1 %122, label %.preheader, label %.loopexit, !llvm.loop !170
 
 .loopexit:                                        ; preds = %stbir__linear_to_srgb_uchar.exit, %11
   ret void
@@ -4409,63 +4402,62 @@ define void @stbir__decode_uint16_linear_scaled(ptr noundef %0, i32 noundef %1, 
   %22 = getelementptr inbounds nuw i8, ptr %.052, i64 32
   %23 = getelementptr inbounds nuw i8, ptr %.053, i64 16
   %.not61 = icmp ugt ptr %22, %10
-  %24 = icmp eq ptr %22, %5
-  %. = select i1 %24, ptr %23, ptr %7
-  %.62 = select i1 %24, ptr %22, ptr %10
-  %.154 = select i1 %.not61, ptr %., ptr %23
-  %.1 = select i1 %.not61, ptr %.62, ptr %22
-  br i1 %24, label %.loopexit, label %11
+  %24 = icmp ne ptr %22, %5
+  %25 = and i1 %.not61, %24
+  %.154 = select i1 %25, ptr %7, ptr %23
+  %.1 = select i1 %25, ptr %10, ptr %22
+  br i1 %24, label %11, label %.loopexit
 
 .preheader:                                       ; preds = %.lr.ph, %.preheader65
-  %.255.lcssa = phi ptr [ %2, %.preheader65 ], [ %44, %.lr.ph ]
+  %.255.lcssa = phi ptr [ %2, %.preheader65 ], [ %45, %.lr.ph ]
   %.pn.lcssa = phi ptr [ %0, %.preheader65 ], [ %.270, %.lr.ph ]
-  %25 = icmp ult ptr %.pn.lcssa, %5
-  br i1 %25, label %.lr.ph74, label %.loopexit
+  %26 = icmp ult ptr %.pn.lcssa, %5
+  br i1 %26, label %.lr.ph74, label %.loopexit
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.270 = phi ptr [ %.2, %.lr.ph ], [ %.266, %.lr.ph.preheader ]
   %.pn69 = phi ptr [ %.270, %.lr.ph ], [ %0, %.lr.ph.preheader ]
-  %.25568 = phi ptr [ %44, %.lr.ph ], [ %2, %.lr.ph.preheader ]
+  %.25568 = phi ptr [ %45, %.lr.ph ], [ %2, %.lr.ph.preheader ]
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.270) #24, !srcloc !172
-  %26 = load i16, ptr %.25568, align 2, !tbaa !173
-  %27 = uitofp i16 %26 to float
-  %28 = fmul float %27, 0x3EF0001000000000
-  store float %28, ptr %.pn69, align 4, !tbaa !50
-  %29 = getelementptr inbounds nuw i8, ptr %.25568, i64 2
-  %30 = load i16, ptr %29, align 2, !tbaa !173
-  %31 = uitofp i16 %30 to float
-  %32 = fmul float %31, 0x3EF0001000000000
-  %33 = getelementptr inbounds nuw i8, ptr %.pn69, i64 4
-  store float %32, ptr %33, align 4, !tbaa !50
-  %34 = getelementptr inbounds nuw i8, ptr %.25568, i64 4
-  %35 = load i16, ptr %34, align 2, !tbaa !173
-  %36 = uitofp i16 %35 to float
-  %37 = fmul float %36, 0x3EF0001000000000
-  %38 = getelementptr inbounds nuw i8, ptr %.pn69, i64 8
-  store float %37, ptr %38, align 4, !tbaa !50
-  %39 = getelementptr inbounds nuw i8, ptr %.25568, i64 6
-  %40 = load i16, ptr %39, align 2, !tbaa !173
-  %41 = uitofp i16 %40 to float
-  %42 = fmul float %41, 0x3EF0001000000000
-  %43 = getelementptr inbounds nuw i8, ptr %.pn69, i64 12
-  store float %42, ptr %43, align 4, !tbaa !50
-  %44 = getelementptr inbounds nuw i8, ptr %.25568, i64 8
+  %27 = load i16, ptr %.25568, align 2, !tbaa !173
+  %28 = uitofp i16 %27 to float
+  %29 = fmul float %28, 0x3EF0001000000000
+  store float %29, ptr %.pn69, align 4, !tbaa !50
+  %30 = getelementptr inbounds nuw i8, ptr %.25568, i64 2
+  %31 = load i16, ptr %30, align 2, !tbaa !173
+  %32 = uitofp i16 %31 to float
+  %33 = fmul float %32, 0x3EF0001000000000
+  %34 = getelementptr inbounds nuw i8, ptr %.pn69, i64 4
+  store float %33, ptr %34, align 4, !tbaa !50
+  %35 = getelementptr inbounds nuw i8, ptr %.25568, i64 4
+  %36 = load i16, ptr %35, align 2, !tbaa !173
+  %37 = uitofp i16 %36 to float
+  %38 = fmul float %37, 0x3EF0001000000000
+  %39 = getelementptr inbounds nuw i8, ptr %.pn69, i64 8
+  store float %38, ptr %39, align 4, !tbaa !50
+  %40 = getelementptr inbounds nuw i8, ptr %.25568, i64 6
+  %41 = load i16, ptr %40, align 2, !tbaa !173
+  %42 = uitofp i16 %41 to float
+  %43 = fmul float %42, 0x3EF0001000000000
+  %44 = getelementptr inbounds nuw i8, ptr %.pn69, i64 12
+  store float %43, ptr %44, align 4, !tbaa !50
+  %45 = getelementptr inbounds nuw i8, ptr %.25568, i64 8
   %.2 = getelementptr inbounds nuw i8, ptr %.270, i64 16
   %.not = icmp ugt ptr %.2, %5
   br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !175
 
 .lr.ph74:                                         ; preds = %.preheader, %.lr.ph74
-  %.373 = phi ptr [ %48, %.lr.ph74 ], [ %.pn.lcssa, %.preheader ]
-  %.35672 = phi ptr [ %49, %.lr.ph74 ], [ %.255.lcssa, %.preheader ]
+  %.373 = phi ptr [ %49, %.lr.ph74 ], [ %.pn.lcssa, %.preheader ]
+  %.35672 = phi ptr [ %50, %.lr.ph74 ], [ %.255.lcssa, %.preheader ]
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.373) #24, !srcloc !176
-  %45 = load i16, ptr %.35672, align 2, !tbaa !173
-  %46 = uitofp i16 %45 to float
-  %47 = fmul float %46, 0x3EF0001000000000
-  store float %47, ptr %.373, align 4, !tbaa !50
-  %48 = getelementptr inbounds nuw i8, ptr %.373, i64 4
-  %49 = getelementptr inbounds nuw i8, ptr %.35672, i64 2
-  %50 = icmp ult ptr %48, %5
-  br i1 %50, label %.lr.ph74, label %.loopexit, !llvm.loop !177
+  %46 = load i16, ptr %.35672, align 2, !tbaa !173
+  %47 = uitofp i16 %46 to float
+  %48 = fmul float %47, 0x3EF0001000000000
+  store float %48, ptr %.373, align 4, !tbaa !50
+  %49 = getelementptr inbounds nuw i8, ptr %.373, i64 4
+  %50 = getelementptr inbounds nuw i8, ptr %.35672, i64 2
+  %51 = icmp ult ptr %49, %5
+  br i1 %51, label %.lr.ph74, label %.loopexit, !llvm.loop !177
 
 .loopexit:                                        ; preds = %.lr.ph74, %11, %.preheader
   ret void
@@ -4520,61 +4512,60 @@ define void @stbir__encode_uint16_linear_scaled(ptr noundef writeonly captures(a
   %31 = getelementptr inbounds nuw i8, ptr %.0, i64 32
   %32 = getelementptr inbounds nuw i8, ptr %.053, i64 16
   %.not62 = icmp ugt ptr %32, %10
-  %33 = icmp eq ptr %32, %5
-  %.63 = select i1 %33, ptr %32, ptr %10
-  %.64 = select i1 %33, ptr %31, ptr %9
-  %.154 = select i1 %.not62, ptr %.63, ptr %32
-  %.1 = select i1 %.not62, ptr %.64, ptr %31
-  br i1 %33, label %.loopexit, label %11
+  %33 = icmp ne ptr %32, %5
+  %34 = and i1 %.not62, %33
+  %.154 = select i1 %34, ptr %10, ptr %32
+  %.1 = select i1 %34, ptr %9, ptr %31
+  br i1 %33, label %11, label %.loopexit
 
 .preheader:                                       ; preds = %.lr.ph, %.preheader66
   %.pn.lcssa = phi ptr [ %0, %.preheader66 ], [ %.25571, %.lr.ph ]
-  %.2.lcssa = phi ptr [ %2, %.preheader66 ], [ %48, %.lr.ph ]
-  %34 = icmp ult ptr %.pn.lcssa, %5
-  br i1 %34, label %.lr.ph75, label %.loopexit
+  %.2.lcssa = phi ptr [ %2, %.preheader66 ], [ %49, %.lr.ph ]
+  %35 = icmp ult ptr %.pn.lcssa, %5
+  br i1 %35, label %.lr.ph75, label %.loopexit
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.25571 = phi ptr [ %.255, %.lr.ph ], [ %.25567, %.lr.ph.preheader ]
-  %.270 = phi ptr [ %48, %.lr.ph ], [ %2, %.lr.ph.preheader ]
+  %.270 = phi ptr [ %49, %.lr.ph ], [ %2, %.lr.ph.preheader ]
   %.pn69 = phi ptr [ %.25571, %.lr.ph ], [ %0, %.lr.ph.preheader ]
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.270) #24, !srcloc !179
-  %35 = load <4 x float>, ptr %.270, align 1, !tbaa !4
-  %36 = fmul <4 x float> %35, splat (float 6.553500e+04)
-  %37 = fadd <4 x float> %36, splat (float 5.000000e-01)
-  %38 = tail call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %37, <4 x float> splat (float 6.553500e+04))
-  %39 = tail call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %38, <4 x float> zeroinitializer)
-  %40 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %39)
-  %41 = load <4 x i32>, ptr @stbir__s32_32768, align 16, !tbaa !4
-  %42 = sub <4 x i32> %40, %41
-  %43 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %42, <4 x i32> poison)
-  %44 = load <8 x i16>, ptr @stbir__s16_32768, align 16, !tbaa !4
-  %45 = sub <8 x i16> %43, %44
-  %46 = bitcast <8 x i16> %45 to <2 x i64>
-  %47 = extractelement <2 x i64> %46, i64 0
-  store i64 %47, ptr %.pn69, align 1, !tbaa !4
-  %48 = getelementptr inbounds nuw i8, ptr %.270, i64 16
+  %36 = load <4 x float>, ptr %.270, align 1, !tbaa !4
+  %37 = fmul <4 x float> %36, splat (float 6.553500e+04)
+  %38 = fadd <4 x float> %37, splat (float 5.000000e-01)
+  %39 = tail call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %38, <4 x float> splat (float 6.553500e+04))
+  %40 = tail call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %39, <4 x float> zeroinitializer)
+  %41 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %40)
+  %42 = load <4 x i32>, ptr @stbir__s32_32768, align 16, !tbaa !4
+  %43 = sub <4 x i32> %41, %42
+  %44 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %43, <4 x i32> poison)
+  %45 = load <8 x i16>, ptr @stbir__s16_32768, align 16, !tbaa !4
+  %46 = sub <8 x i16> %44, %45
+  %47 = bitcast <8 x i16> %46 to <2 x i64>
+  %48 = extractelement <2 x i64> %47, i64 0
+  store i64 %48, ptr %.pn69, align 1, !tbaa !4
+  %49 = getelementptr inbounds nuw i8, ptr %.270, i64 16
   %.255 = getelementptr inbounds nuw i8, ptr %.25571, i64 8
   %.not = icmp ugt ptr %.255, %5
   br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !180
 
 .lr.ph75:                                         ; preds = %.preheader, %.lr.ph75
-  %.374 = phi ptr [ %59, %.lr.ph75 ], [ %.2.lcssa, %.preheader ]
-  %.35673 = phi ptr [ %58, %.lr.ph75 ], [ %.pn.lcssa, %.preheader ]
+  %.374 = phi ptr [ %60, %.lr.ph75 ], [ %.2.lcssa, %.preheader ]
+  %.35673 = phi ptr [ %59, %.lr.ph75 ], [ %.pn.lcssa, %.preheader ]
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.374) #24, !srcloc !181
-  %49 = load float, ptr %.374, align 1, !tbaa !4
-  %50 = fmul float %49, 6.553500e+04
-  %51 = fadd float %50, 5.000000e-01
-  %52 = insertelement <4 x float> <float poison, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>, float %51, i64 0
-  %53 = tail call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %52, <4 x float> splat (float 6.553500e+04))
-  %54 = tail call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %53, <4 x float> zeroinitializer)
-  %55 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %54)
-  %56 = bitcast <4 x i32> %55 to <8 x i16>
-  %57 = extractelement <8 x i16> %56, i64 0
-  store i16 %57, ptr %.35673, align 2, !tbaa !173
-  %58 = getelementptr inbounds nuw i8, ptr %.35673, i64 2
-  %59 = getelementptr inbounds nuw i8, ptr %.374, i64 4
-  %60 = icmp ult ptr %58, %5
-  br i1 %60, label %.lr.ph75, label %.loopexit, !llvm.loop !182
+  %50 = load float, ptr %.374, align 1, !tbaa !4
+  %51 = fmul float %50, 6.553500e+04
+  %52 = fadd float %51, 5.000000e-01
+  %53 = insertelement <4 x float> <float poison, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>, float %52, i64 0
+  %54 = tail call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %53, <4 x float> splat (float 6.553500e+04))
+  %55 = tail call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %54, <4 x float> zeroinitializer)
+  %56 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %55)
+  %57 = bitcast <4 x i32> %56 to <8 x i16>
+  %58 = extractelement <8 x i16> %57, i64 0
+  store i16 %58, ptr %.35673, align 2, !tbaa !173
+  %59 = getelementptr inbounds nuw i8, ptr %.35673, i64 2
+  %60 = getelementptr inbounds nuw i8, ptr %.374, i64 4
+  %61 = icmp ult ptr %59, %5
+  br i1 %61, label %.lr.ph75, label %.loopexit, !llvm.loop !182
 
 .loopexit:                                        ; preds = %.lr.ph75, %11, %.preheader
   ret void
@@ -4619,58 +4610,57 @@ define void @stbir__decode_uint16_linear(ptr noundef %0, i32 noundef %1, ptr nou
   %20 = getelementptr inbounds nuw i8, ptr %.050, i64 32
   %21 = getelementptr inbounds nuw i8, ptr %.051, i64 16
   %.not59 = icmp ugt ptr %20, %10
-  %22 = icmp eq ptr %20, %5
-  %. = select i1 %22, ptr %21, ptr %7
-  %.60 = select i1 %22, ptr %20, ptr %10
-  %.152 = select i1 %.not59, ptr %., ptr %21
-  %.1 = select i1 %.not59, ptr %.60, ptr %20
-  br i1 %22, label %.loopexit, label %11
+  %22 = icmp ne ptr %20, %5
+  %23 = and i1 %.not59, %22
+  %.152 = select i1 %23, ptr %7, ptr %21
+  %.1 = select i1 %23, ptr %10, ptr %20
+  br i1 %22, label %11, label %.loopexit
 
 .preheader:                                       ; preds = %.lr.ph, %.preheader63
-  %.253.lcssa = phi ptr [ %2, %.preheader63 ], [ %38, %.lr.ph ]
+  %.253.lcssa = phi ptr [ %2, %.preheader63 ], [ %39, %.lr.ph ]
   %.pn.lcssa = phi ptr [ %0, %.preheader63 ], [ %.268, %.lr.ph ]
-  %23 = icmp ult ptr %.pn.lcssa, %5
-  br i1 %23, label %.lr.ph72, label %.loopexit
+  %24 = icmp ult ptr %.pn.lcssa, %5
+  br i1 %24, label %.lr.ph72, label %.loopexit
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.268 = phi ptr [ %.2, %.lr.ph ], [ %.264, %.lr.ph.preheader ]
   %.pn67 = phi ptr [ %.268, %.lr.ph ], [ %0, %.lr.ph.preheader ]
-  %.25366 = phi ptr [ %38, %.lr.ph ], [ %2, %.lr.ph.preheader ]
+  %.25366 = phi ptr [ %39, %.lr.ph ], [ %2, %.lr.ph.preheader ]
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.268) #24, !srcloc !184
-  %24 = load i16, ptr %.25366, align 2, !tbaa !173
-  %25 = uitofp i16 %24 to float
-  store float %25, ptr %.pn67, align 4, !tbaa !50
-  %26 = getelementptr inbounds nuw i8, ptr %.25366, i64 2
-  %27 = load i16, ptr %26, align 2, !tbaa !173
-  %28 = uitofp i16 %27 to float
-  %29 = getelementptr inbounds nuw i8, ptr %.pn67, i64 4
-  store float %28, ptr %29, align 4, !tbaa !50
-  %30 = getelementptr inbounds nuw i8, ptr %.25366, i64 4
-  %31 = load i16, ptr %30, align 2, !tbaa !173
-  %32 = uitofp i16 %31 to float
-  %33 = getelementptr inbounds nuw i8, ptr %.pn67, i64 8
-  store float %32, ptr %33, align 4, !tbaa !50
-  %34 = getelementptr inbounds nuw i8, ptr %.25366, i64 6
-  %35 = load i16, ptr %34, align 2, !tbaa !173
-  %36 = uitofp i16 %35 to float
-  %37 = getelementptr inbounds nuw i8, ptr %.pn67, i64 12
-  store float %36, ptr %37, align 4, !tbaa !50
-  %38 = getelementptr inbounds nuw i8, ptr %.25366, i64 8
+  %25 = load i16, ptr %.25366, align 2, !tbaa !173
+  %26 = uitofp i16 %25 to float
+  store float %26, ptr %.pn67, align 4, !tbaa !50
+  %27 = getelementptr inbounds nuw i8, ptr %.25366, i64 2
+  %28 = load i16, ptr %27, align 2, !tbaa !173
+  %29 = uitofp i16 %28 to float
+  %30 = getelementptr inbounds nuw i8, ptr %.pn67, i64 4
+  store float %29, ptr %30, align 4, !tbaa !50
+  %31 = getelementptr inbounds nuw i8, ptr %.25366, i64 4
+  %32 = load i16, ptr %31, align 2, !tbaa !173
+  %33 = uitofp i16 %32 to float
+  %34 = getelementptr inbounds nuw i8, ptr %.pn67, i64 8
+  store float %33, ptr %34, align 4, !tbaa !50
+  %35 = getelementptr inbounds nuw i8, ptr %.25366, i64 6
+  %36 = load i16, ptr %35, align 2, !tbaa !173
+  %37 = uitofp i16 %36 to float
+  %38 = getelementptr inbounds nuw i8, ptr %.pn67, i64 12
+  store float %37, ptr %38, align 4, !tbaa !50
+  %39 = getelementptr inbounds nuw i8, ptr %.25366, i64 8
   %.2 = getelementptr inbounds nuw i8, ptr %.268, i64 16
   %.not = icmp ugt ptr %.2, %5
   br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !185
 
 .lr.ph72:                                         ; preds = %.preheader, %.lr.ph72
-  %.371 = phi ptr [ %41, %.lr.ph72 ], [ %.pn.lcssa, %.preheader ]
-  %.35470 = phi ptr [ %42, %.lr.ph72 ], [ %.253.lcssa, %.preheader ]
+  %.371 = phi ptr [ %42, %.lr.ph72 ], [ %.pn.lcssa, %.preheader ]
+  %.35470 = phi ptr [ %43, %.lr.ph72 ], [ %.253.lcssa, %.preheader ]
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.371) #24, !srcloc !186
-  %39 = load i16, ptr %.35470, align 2, !tbaa !173
-  %40 = uitofp i16 %39 to float
-  store float %40, ptr %.371, align 4, !tbaa !50
-  %41 = getelementptr inbounds nuw i8, ptr %.371, i64 4
-  %42 = getelementptr inbounds nuw i8, ptr %.35470, i64 2
-  %43 = icmp ult ptr %41, %5
-  br i1 %43, label %.lr.ph72, label %.loopexit, !llvm.loop !187
+  %40 = load i16, ptr %.35470, align 2, !tbaa !173
+  %41 = uitofp i16 %40 to float
+  store float %41, ptr %.371, align 4, !tbaa !50
+  %42 = getelementptr inbounds nuw i8, ptr %.371, i64 4
+  %43 = getelementptr inbounds nuw i8, ptr %.35470, i64 2
+  %44 = icmp ult ptr %42, %5
+  br i1 %44, label %.lr.ph72, label %.loopexit, !llvm.loop !187
 
 .loopexit:                                        ; preds = %.lr.ph72, %11, %.preheader
   ret void
@@ -4723,58 +4713,57 @@ define void @stbir__encode_uint16_linear(ptr noundef writeonly captures(address)
   %29 = getelementptr inbounds nuw i8, ptr %.055, i64 32
   %30 = getelementptr inbounds nuw i8, ptr %.057, i64 16
   %.not67 = icmp ugt ptr %30, %10
-  %31 = icmp eq ptr %30, %5
-  %.68 = select i1 %31, ptr %30, ptr %10
-  %.69 = select i1 %31, ptr %29, ptr %9
-  %.158 = select i1 %.not67, ptr %.68, ptr %30
-  %.156 = select i1 %.not67, ptr %.69, ptr %29
-  br i1 %31, label %.loopexit, label %11
+  %31 = icmp ne ptr %30, %5
+  %32 = and i1 %.not67, %31
+  %.158 = select i1 %32, ptr %10, ptr %30
+  %.156 = select i1 %32, ptr %9, ptr %29
+  br i1 %31, label %11, label %.loopexit
 
 .preheader:                                       ; preds = %.lr.ph, %.preheader71
   %.pn.lcssa = phi ptr [ %0, %.preheader71 ], [ %.25976, %.lr.ph ]
-  %.2.lcssa = phi ptr [ %2, %.preheader71 ], [ %45, %.lr.ph ]
-  %32 = icmp ult ptr %.pn.lcssa, %5
-  br i1 %32, label %.lr.ph80, label %.loopexit
+  %.2.lcssa = phi ptr [ %2, %.preheader71 ], [ %46, %.lr.ph ]
+  %33 = icmp ult ptr %.pn.lcssa, %5
+  br i1 %33, label %.lr.ph80, label %.loopexit
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.25976 = phi ptr [ %.259, %.lr.ph ], [ %.25972, %.lr.ph.preheader ]
-  %.275 = phi ptr [ %45, %.lr.ph ], [ %2, %.lr.ph.preheader ]
+  %.275 = phi ptr [ %46, %.lr.ph ], [ %2, %.lr.ph.preheader ]
   %.pn74 = phi ptr [ %.25976, %.lr.ph ], [ %0, %.lr.ph.preheader ]
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.275) #24, !srcloc !189
-  %33 = load <4 x float>, ptr %.275, align 1, !tbaa !4
-  %34 = fadd <4 x float> %33, splat (float 5.000000e-01)
-  %35 = tail call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %34, <4 x float> splat (float 6.553500e+04))
-  %36 = tail call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %35, <4 x float> zeroinitializer)
-  %37 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %36)
-  %38 = load <4 x i32>, ptr @stbir__s32_32768, align 16, !tbaa !4
-  %39 = sub <4 x i32> %37, %38
-  %40 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %39, <4 x i32> poison)
-  %41 = load <8 x i16>, ptr @stbir__s16_32768, align 16, !tbaa !4
-  %42 = sub <8 x i16> %40, %41
-  %43 = bitcast <8 x i16> %42 to <2 x i64>
-  %44 = extractelement <2 x i64> %43, i64 0
-  store i64 %44, ptr %.pn74, align 1, !tbaa !4
-  %45 = getelementptr inbounds nuw i8, ptr %.275, i64 16
+  %34 = load <4 x float>, ptr %.275, align 1, !tbaa !4
+  %35 = fadd <4 x float> %34, splat (float 5.000000e-01)
+  %36 = tail call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %35, <4 x float> splat (float 6.553500e+04))
+  %37 = tail call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %36, <4 x float> zeroinitializer)
+  %38 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %37)
+  %39 = load <4 x i32>, ptr @stbir__s32_32768, align 16, !tbaa !4
+  %40 = sub <4 x i32> %38, %39
+  %41 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %40, <4 x i32> poison)
+  %42 = load <8 x i16>, ptr @stbir__s16_32768, align 16, !tbaa !4
+  %43 = sub <8 x i16> %41, %42
+  %44 = bitcast <8 x i16> %43 to <2 x i64>
+  %45 = extractelement <2 x i64> %44, i64 0
+  store i64 %45, ptr %.pn74, align 1, !tbaa !4
+  %46 = getelementptr inbounds nuw i8, ptr %.275, i64 16
   %.259 = getelementptr inbounds nuw i8, ptr %.25976, i64 8
   %.not = icmp ugt ptr %.259, %5
   br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !190
 
 .lr.ph80:                                         ; preds = %.preheader, %.lr.ph80
-  %.379 = phi ptr [ %52, %.lr.ph80 ], [ %.2.lcssa, %.preheader ]
-  %.36078 = phi ptr [ %51, %.lr.ph80 ], [ %.pn.lcssa, %.preheader ]
+  %.379 = phi ptr [ %53, %.lr.ph80 ], [ %.2.lcssa, %.preheader ]
+  %.36078 = phi ptr [ %52, %.lr.ph80 ], [ %.pn.lcssa, %.preheader ]
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.379) #24, !srcloc !191
-  %46 = load float, ptr %.379, align 4, !tbaa !50
-  %47 = fadd float %46, 5.000000e-01
-  %48 = fcmp olt float %47, 0.000000e+00
-  %.0 = select i1 %48, float 0.000000e+00, float %47
-  %49 = fcmp ogt float %.0, 6.553500e+04
-  %.1 = select i1 %49, float 6.553500e+04, float %.0
-  %50 = fptoui float %.1 to i16
-  store i16 %50, ptr %.36078, align 2, !tbaa !173
-  %51 = getelementptr inbounds nuw i8, ptr %.36078, i64 2
-  %52 = getelementptr inbounds nuw i8, ptr %.379, i64 4
-  %53 = icmp ult ptr %51, %5
-  br i1 %53, label %.lr.ph80, label %.loopexit, !llvm.loop !192
+  %47 = load float, ptr %.379, align 4, !tbaa !50
+  %48 = fadd float %47, 5.000000e-01
+  %49 = fcmp olt float %48, 0.000000e+00
+  %.0 = select i1 %49, float 0.000000e+00, float %48
+  %50 = fcmp ogt float %.0, 6.553500e+04
+  %.1 = select i1 %50, float 6.553500e+04, float %.0
+  %51 = fptoui float %.1 to i16
+  store i16 %51, ptr %.36078, align 2, !tbaa !173
+  %52 = getelementptr inbounds nuw i8, ptr %.36078, i64 2
+  %53 = getelementptr inbounds nuw i8, ptr %.379, i64 4
+  %54 = icmp ult ptr %52, %5
+  br i1 %54, label %.lr.ph80, label %.loopexit, !llvm.loop !192
 
 .loopexit:                                        ; preds = %.lr.ph80, %11, %.preheader
   ret void
@@ -5562,41 +5551,40 @@ define void @stbir__decode_uint8_linear_scaled_BGRA(ptr noundef %0, i32 noundef 
   %40 = getelementptr inbounds nuw i8, ptr %.065, i64 64
   %41 = getelementptr inbounds nuw i8, ptr %.066, i64 16
   %.not72 = icmp ugt ptr %40, %10
-  %42 = icmp eq ptr %40, %5
-  %. = select i1 %42, ptr %41, ptr %7
-  %.73 = select i1 %42, ptr %40, ptr %10
-  %.167 = select i1 %.not72, ptr %., ptr %41
-  %.1 = select i1 %.not72, ptr %.73, ptr %40
-  br i1 %42, label %.loopexit, label %11
+  %42 = icmp ne ptr %40, %5
+  %43 = and i1 %.not72, %42
+  %.167 = select i1 %43, ptr %7, ptr %41
+  %.1 = select i1 %43, ptr %10, ptr %40
+  br i1 %42, label %11, label %.loopexit
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.280 = phi ptr [ %.2, %.lr.ph ], [ %.276, %.lr.ph.preheader ]
   %.pn79 = phi ptr [ %.280, %.lr.ph ], [ %0, %.lr.ph.preheader ]
-  %.26878 = phi ptr [ %61, %.lr.ph ], [ %2, %.lr.ph.preheader ]
+  %.26878 = phi ptr [ %62, %.lr.ph ], [ %2, %.lr.ph.preheader ]
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.280) #24, !srcloc !206
-  %43 = getelementptr inbounds nuw i8, ptr %.26878, i64 2
-  %44 = load i8, ptr %43, align 1, !tbaa !4
-  %45 = uitofp i8 %44 to float
-  %46 = fmul float %45, 0x3F70101020000000
-  store float %46, ptr %.pn79, align 4, !tbaa !50
-  %47 = getelementptr inbounds nuw i8, ptr %.26878, i64 1
-  %48 = load i8, ptr %47, align 1, !tbaa !4
-  %49 = uitofp i8 %48 to float
-  %50 = fmul float %49, 0x3F70101020000000
-  %51 = getelementptr inbounds nuw i8, ptr %.pn79, i64 4
-  store float %50, ptr %51, align 4, !tbaa !50
-  %52 = load i8, ptr %.26878, align 1, !tbaa !4
-  %53 = uitofp i8 %52 to float
-  %54 = fmul float %53, 0x3F70101020000000
-  %55 = getelementptr inbounds nuw i8, ptr %.pn79, i64 8
-  store float %54, ptr %55, align 4, !tbaa !50
-  %56 = getelementptr inbounds nuw i8, ptr %.26878, i64 3
-  %57 = load i8, ptr %56, align 1, !tbaa !4
-  %58 = uitofp i8 %57 to float
-  %59 = fmul float %58, 0x3F70101020000000
-  %60 = getelementptr inbounds nuw i8, ptr %.pn79, i64 12
-  store float %59, ptr %60, align 4, !tbaa !50
-  %61 = getelementptr inbounds nuw i8, ptr %.26878, i64 4
+  %44 = getelementptr inbounds nuw i8, ptr %.26878, i64 2
+  %45 = load i8, ptr %44, align 1, !tbaa !4
+  %46 = uitofp i8 %45 to float
+  %47 = fmul float %46, 0x3F70101020000000
+  store float %47, ptr %.pn79, align 4, !tbaa !50
+  %48 = getelementptr inbounds nuw i8, ptr %.26878, i64 1
+  %49 = load i8, ptr %48, align 1, !tbaa !4
+  %50 = uitofp i8 %49 to float
+  %51 = fmul float %50, 0x3F70101020000000
+  %52 = getelementptr inbounds nuw i8, ptr %.pn79, i64 4
+  store float %51, ptr %52, align 4, !tbaa !50
+  %53 = load i8, ptr %.26878, align 1, !tbaa !4
+  %54 = uitofp i8 %53 to float
+  %55 = fmul float %54, 0x3F70101020000000
+  %56 = getelementptr inbounds nuw i8, ptr %.pn79, i64 8
+  store float %55, ptr %56, align 4, !tbaa !50
+  %57 = getelementptr inbounds nuw i8, ptr %.26878, i64 3
+  %58 = load i8, ptr %57, align 1, !tbaa !4
+  %59 = uitofp i8 %58 to float
+  %60 = fmul float %59, 0x3F70101020000000
+  %61 = getelementptr inbounds nuw i8, ptr %.pn79, i64 12
+  store float %60, ptr %61, align 4, !tbaa !50
+  %62 = getelementptr inbounds nuw i8, ptr %.26878, i64 4
   %.2 = getelementptr inbounds nuw i8, ptr %.280, i64 16
   %.not = icmp ugt ptr %.2, %5
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !207
@@ -5653,31 +5641,30 @@ define void @stbir__encode_uint8_linear_scaled_BGRA(ptr noundef writeonly captur
   %31 = getelementptr inbounds nuw i8, ptr %.0, i64 32
   %32 = getelementptr inbounds nuw i8, ptr %.054, i64 8
   %.not61 = icmp ugt ptr %32, %10
-  %33 = icmp eq ptr %32, %5
-  %.62 = select i1 %33, ptr %32, ptr %10
-  %.63 = select i1 %33, ptr %31, ptr %9
-  %.155 = select i1 %.not61, ptr %.62, ptr %32
-  %.1 = select i1 %.not61, ptr %.63, ptr %31
-  br i1 %33, label %.loopexit, label %11
+  %33 = icmp ne ptr %32, %5
+  %34 = and i1 %.not61, %33
+  %.155 = select i1 %34, ptr %10, ptr %32
+  %.1 = select i1 %34, ptr %9, ptr %31
+  br i1 %33, label %11, label %.loopexit
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.25669 = phi ptr [ %.256, %.lr.ph ], [ %.25665, %.lr.ph.preheader ]
-  %.268 = phi ptr [ %45, %.lr.ph ], [ %2, %.lr.ph.preheader ]
+  %.268 = phi ptr [ %46, %.lr.ph ], [ %2, %.lr.ph.preheader ]
   %.pn67 = phi ptr [ %.25669, %.lr.ph ], [ %0, %.lr.ph.preheader ]
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.268) #24, !srcloc !209
-  %34 = load <4 x float>, ptr %.268, align 1, !tbaa !4
-  %35 = fmul <4 x float> %34, splat (float 2.550000e+02)
-  %36 = fadd <4 x float> %35, splat (float 5.000000e-01)
-  %37 = shufflevector <4 x float> %36, <4 x float> poison, <4 x i32> <i32 2, i32 1, i32 0, i32 3>
-  %38 = tail call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %37, <4 x float> splat (float 2.550000e+02))
-  %39 = tail call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %38, <4 x float> zeroinitializer)
-  %40 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %39)
-  %41 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %40, <4 x i32> poison)
-  %42 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %41, <8 x i16> poison)
-  %43 = bitcast <16 x i8> %42 to <4 x i32>
-  %44 = extractelement <4 x i32> %43, i64 0
-  store i32 %44, ptr %.pn67, align 4, !tbaa !18
-  %45 = getelementptr inbounds nuw i8, ptr %.268, i64 16
+  %35 = load <4 x float>, ptr %.268, align 1, !tbaa !4
+  %36 = fmul <4 x float> %35, splat (float 2.550000e+02)
+  %37 = fadd <4 x float> %36, splat (float 5.000000e-01)
+  %38 = shufflevector <4 x float> %37, <4 x float> poison, <4 x i32> <i32 2, i32 1, i32 0, i32 3>
+  %39 = tail call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %38, <4 x float> splat (float 2.550000e+02))
+  %40 = tail call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %39, <4 x float> zeroinitializer)
+  %41 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %40)
+  %42 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %41, <4 x i32> poison)
+  %43 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %42, <8 x i16> poison)
+  %44 = bitcast <16 x i8> %43 to <4 x i32>
+  %45 = extractelement <4 x i32> %44, i64 0
+  store i32 %45, ptr %.pn67, align 4, !tbaa !18
+  %46 = getelementptr inbounds nuw i8, ptr %.268, i64 16
   %.256 = getelementptr inbounds nuw i8, ptr %.25669, i64 4
   %.not = icmp ugt ptr %.256, %5
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !210
@@ -5743,37 +5730,36 @@ define void @stbir__decode_uint8_linear_BGRA(ptr noundef %0, i32 noundef %1, ptr
   %36 = getelementptr inbounds nuw i8, ptr %.061, i64 64
   %37 = getelementptr inbounds nuw i8, ptr %.062, i64 16
   %.not68 = icmp ugt ptr %36, %10
-  %38 = icmp eq ptr %36, %5
-  %. = select i1 %38, ptr %37, ptr %7
-  %.69 = select i1 %38, ptr %36, ptr %10
-  %.163 = select i1 %.not68, ptr %., ptr %37
-  %.1 = select i1 %.not68, ptr %.69, ptr %36
-  br i1 %38, label %.loopexit, label %11
+  %38 = icmp ne ptr %36, %5
+  %39 = and i1 %.not68, %38
+  %.163 = select i1 %39, ptr %7, ptr %37
+  %.1 = select i1 %39, ptr %10, ptr %36
+  br i1 %38, label %11, label %.loopexit
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.276 = phi ptr [ %.2, %.lr.ph ], [ %.272, %.lr.ph.preheader ]
   %.pn75 = phi ptr [ %.276, %.lr.ph ], [ %0, %.lr.ph.preheader ]
-  %.26474 = phi ptr [ %53, %.lr.ph ], [ %2, %.lr.ph.preheader ]
+  %.26474 = phi ptr [ %54, %.lr.ph ], [ %2, %.lr.ph.preheader ]
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.276) #24, !srcloc !212
-  %39 = getelementptr inbounds nuw i8, ptr %.26474, i64 2
-  %40 = load i8, ptr %39, align 1, !tbaa !4
-  %41 = uitofp i8 %40 to float
-  store float %41, ptr %.pn75, align 4, !tbaa !50
-  %42 = getelementptr inbounds nuw i8, ptr %.26474, i64 1
-  %43 = load i8, ptr %42, align 1, !tbaa !4
-  %44 = uitofp i8 %43 to float
-  %45 = getelementptr inbounds nuw i8, ptr %.pn75, i64 4
-  store float %44, ptr %45, align 4, !tbaa !50
-  %46 = load i8, ptr %.26474, align 1, !tbaa !4
-  %47 = uitofp i8 %46 to float
-  %48 = getelementptr inbounds nuw i8, ptr %.pn75, i64 8
-  store float %47, ptr %48, align 4, !tbaa !50
-  %49 = getelementptr inbounds nuw i8, ptr %.26474, i64 3
-  %50 = load i8, ptr %49, align 1, !tbaa !4
-  %51 = uitofp i8 %50 to float
-  %52 = getelementptr inbounds nuw i8, ptr %.pn75, i64 12
-  store float %51, ptr %52, align 4, !tbaa !50
-  %53 = getelementptr inbounds nuw i8, ptr %.26474, i64 4
+  %40 = getelementptr inbounds nuw i8, ptr %.26474, i64 2
+  %41 = load i8, ptr %40, align 1, !tbaa !4
+  %42 = uitofp i8 %41 to float
+  store float %42, ptr %.pn75, align 4, !tbaa !50
+  %43 = getelementptr inbounds nuw i8, ptr %.26474, i64 1
+  %44 = load i8, ptr %43, align 1, !tbaa !4
+  %45 = uitofp i8 %44 to float
+  %46 = getelementptr inbounds nuw i8, ptr %.pn75, i64 4
+  store float %45, ptr %46, align 4, !tbaa !50
+  %47 = load i8, ptr %.26474, align 1, !tbaa !4
+  %48 = uitofp i8 %47 to float
+  %49 = getelementptr inbounds nuw i8, ptr %.pn75, i64 8
+  store float %48, ptr %49, align 4, !tbaa !50
+  %50 = getelementptr inbounds nuw i8, ptr %.26474, i64 3
+  %51 = load i8, ptr %50, align 1, !tbaa !4
+  %52 = uitofp i8 %51 to float
+  %53 = getelementptr inbounds nuw i8, ptr %.pn75, i64 12
+  store float %52, ptr %53, align 4, !tbaa !50
+  %54 = getelementptr inbounds nuw i8, ptr %.26474, i64 4
   %.2 = getelementptr inbounds nuw i8, ptr %.276, i64 16
   %.not = icmp ugt ptr %.2, %5
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !213
@@ -5828,30 +5814,29 @@ define void @stbir__encode_uint8_linear_BGRA(ptr noundef writeonly captures(addr
   %29 = getelementptr inbounds nuw i8, ptr %.0, i64 32
   %30 = getelementptr inbounds nuw i8, ptr %.054, i64 8
   %.not61 = icmp ugt ptr %30, %10
-  %31 = icmp eq ptr %30, %5
-  %.62 = select i1 %31, ptr %30, ptr %10
-  %.63 = select i1 %31, ptr %29, ptr %9
-  %.155 = select i1 %.not61, ptr %.62, ptr %30
-  %.1 = select i1 %.not61, ptr %.63, ptr %29
-  br i1 %31, label %.loopexit, label %11
+  %31 = icmp ne ptr %30, %5
+  %32 = and i1 %.not61, %31
+  %.155 = select i1 %32, ptr %10, ptr %30
+  %.1 = select i1 %32, ptr %9, ptr %29
+  br i1 %31, label %11, label %.loopexit
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.25669 = phi ptr [ %.256, %.lr.ph ], [ %.25665, %.lr.ph.preheader ]
-  %.268 = phi ptr [ %42, %.lr.ph ], [ %2, %.lr.ph.preheader ]
+  %.268 = phi ptr [ %43, %.lr.ph ], [ %2, %.lr.ph.preheader ]
   %.pn67 = phi ptr [ %.25669, %.lr.ph ], [ %0, %.lr.ph.preheader ]
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.268) #24, !srcloc !215
-  %32 = load <4 x float>, ptr %.268, align 1, !tbaa !4
-  %33 = fadd <4 x float> %32, splat (float 5.000000e-01)
-  %34 = shufflevector <4 x float> %33, <4 x float> poison, <4 x i32> <i32 2, i32 1, i32 0, i32 3>
-  %35 = tail call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %34, <4 x float> splat (float 2.550000e+02))
-  %36 = tail call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %35, <4 x float> zeroinitializer)
-  %37 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %36)
-  %38 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %37, <4 x i32> poison)
-  %39 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %38, <8 x i16> poison)
-  %40 = bitcast <16 x i8> %39 to <4 x i32>
-  %41 = extractelement <4 x i32> %40, i64 0
-  store i32 %41, ptr %.pn67, align 4, !tbaa !18
-  %42 = getelementptr inbounds nuw i8, ptr %.268, i64 16
+  %33 = load <4 x float>, ptr %.268, align 1, !tbaa !4
+  %34 = fadd <4 x float> %33, splat (float 5.000000e-01)
+  %35 = shufflevector <4 x float> %34, <4 x float> poison, <4 x i32> <i32 2, i32 1, i32 0, i32 3>
+  %36 = tail call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %35, <4 x float> splat (float 2.550000e+02))
+  %37 = tail call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %36, <4 x float> zeroinitializer)
+  %38 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %37)
+  %39 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %38, <4 x i32> poison)
+  %40 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %39, <8 x i16> poison)
+  %41 = bitcast <16 x i8> %40 to <4 x i32>
+  %42 = extractelement <4 x i32> %41, i64 0
+  store i32 %42, ptr %.pn67, align 4, !tbaa !18
+  %43 = getelementptr inbounds nuw i8, ptr %.268, i64 16
   %.256 = getelementptr inbounds nuw i8, ptr %.25669, i64 4
   %.not = icmp ugt ptr %.256, %5
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !216
@@ -6084,141 +6069,140 @@ define void @stbir__encode_uint8_srgb_BGRA(ptr noundef writeonly captures(addres
   %124 = getelementptr inbounds nuw i8, ptr %.0134, i64 64
   %125 = getelementptr inbounds nuw i8, ptr %.0135, i64 16
   %.not141 = icmp ugt ptr %125, %10
-  %126 = icmp eq ptr %125, %5
-  %. = select i1 %126, ptr %125, ptr %10
-  %.142 = select i1 %126, ptr %124, ptr %9
-  %.1136 = select i1 %.not141, ptr %., ptr %125
-  %.1 = select i1 %.not141, ptr %.142, ptr %124
-  br i1 %126, label %.loopexit, label %11
+  %126 = icmp ne ptr %125, %5
+  %127 = and i1 %.not141, %126
+  %.1136 = select i1 %127, ptr %10, ptr %125
+  %.1 = select i1 %127, ptr %9, ptr %124
+  br i1 %126, label %11, label %.loopexit
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %stbir__linear_to_srgb_uchar.exit149
   %.2137155 = phi ptr [ %.2137, %stbir__linear_to_srgb_uchar.exit149 ], [ %.2137151, %.lr.ph.preheader ]
-  %.2154 = phi ptr [ %213, %stbir__linear_to_srgb_uchar.exit149 ], [ %2, %.lr.ph.preheader ]
+  %.2154 = phi ptr [ %214, %stbir__linear_to_srgb_uchar.exit149 ], [ %2, %.lr.ph.preheader ]
   %.pn153 = phi ptr [ %.2137155, %stbir__linear_to_srgb_uchar.exit149 ], [ %0, %.lr.ph.preheader ]
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.2154) #24, !srcloc !219
-  %127 = getelementptr inbounds nuw i8, ptr %.2154, i64 8
-  %128 = load float, ptr %127, align 4, !tbaa !50
-  %129 = fcmp ogt float %128, 0x3F20000000000000
-  br i1 %129, label %130, label %stbir__linear_to_srgb_uchar.exit
+  %128 = getelementptr inbounds nuw i8, ptr %.2154, i64 8
+  %129 = load float, ptr %128, align 4, !tbaa !50
+  %130 = fcmp ogt float %129, 0x3F20000000000000
+  br i1 %130, label %131, label %stbir__linear_to_srgb_uchar.exit
 
-130:                                              ; preds = %.lr.ph
-  %131 = fcmp ogt float %128, 0x3FEFFFFFE0000000
-  br i1 %131, label %stbir__linear_to_srgb_uchar.exit, label %132
+131:                                              ; preds = %.lr.ph
+  %132 = fcmp ogt float %129, 0x3FEFFFFFE0000000
+  br i1 %132, label %stbir__linear_to_srgb_uchar.exit, label %133
 
-132:                                              ; preds = %130
-  %133 = bitcast float %128 to i32
-  %134 = add nsw i32 %133, -956301312
-  %135 = lshr i32 %134, 20
-  %136 = zext nneg i32 %135 to i64
-  %137 = getelementptr inbounds nuw i32, ptr @fp32_to_srgb8_tab4, i64 %136
-  %138 = load i32, ptr %137, align 4, !tbaa !18
-  %139 = lshr i32 %138, 7
-  %140 = and i32 %139, 16776704
-  %141 = and i32 %138, 65535
-  %142 = lshr i32 %133, 12
-  %143 = and i32 %142, 255
-  %144 = mul nuw nsw i32 %141, %143
-  %145 = add nuw nsw i32 %140, %144
-  %146 = lshr i32 %145, 16
-  %147 = trunc i32 %146 to i8
+133:                                              ; preds = %131
+  %134 = bitcast float %129 to i32
+  %135 = add nsw i32 %134, -956301312
+  %136 = lshr i32 %135, 20
+  %137 = zext nneg i32 %136 to i64
+  %138 = getelementptr inbounds nuw i32, ptr @fp32_to_srgb8_tab4, i64 %137
+  %139 = load i32, ptr %138, align 4, !tbaa !18
+  %140 = lshr i32 %139, 7
+  %141 = and i32 %140, 16776704
+  %142 = and i32 %139, 65535
+  %143 = lshr i32 %134, 12
+  %144 = and i32 %143, 255
+  %145 = mul nuw nsw i32 %142, %144
+  %146 = add nuw nsw i32 %141, %145
+  %147 = lshr i32 %146, 16
+  %148 = trunc i32 %147 to i8
   br label %stbir__linear_to_srgb_uchar.exit
 
-stbir__linear_to_srgb_uchar.exit:                 ; preds = %.lr.ph, %130, %132
-  %.0.i = phi i8 [ 0, %.lr.ph ], [ %147, %132 ], [ -1, %130 ]
+stbir__linear_to_srgb_uchar.exit:                 ; preds = %.lr.ph, %131, %133
+  %.0.i = phi i8 [ 0, %.lr.ph ], [ %148, %133 ], [ -1, %131 ]
   store i8 %.0.i, ptr %.pn153, align 1, !tbaa !4
-  %148 = getelementptr inbounds nuw i8, ptr %.2154, i64 4
-  %149 = load float, ptr %148, align 4, !tbaa !50
-  %150 = fcmp ogt float %149, 0x3F20000000000000
-  br i1 %150, label %151, label %stbir__linear_to_srgb_uchar.exit145
+  %149 = getelementptr inbounds nuw i8, ptr %.2154, i64 4
+  %150 = load float, ptr %149, align 4, !tbaa !50
+  %151 = fcmp ogt float %150, 0x3F20000000000000
+  br i1 %151, label %152, label %stbir__linear_to_srgb_uchar.exit145
 
-151:                                              ; preds = %stbir__linear_to_srgb_uchar.exit
-  %152 = fcmp ogt float %149, 0x3FEFFFFFE0000000
-  br i1 %152, label %stbir__linear_to_srgb_uchar.exit145, label %153
+152:                                              ; preds = %stbir__linear_to_srgb_uchar.exit
+  %153 = fcmp ogt float %150, 0x3FEFFFFFE0000000
+  br i1 %153, label %stbir__linear_to_srgb_uchar.exit145, label %154
 
-153:                                              ; preds = %151
-  %154 = bitcast float %149 to i32
-  %155 = add nsw i32 %154, -956301312
-  %156 = lshr i32 %155, 20
-  %157 = zext nneg i32 %156 to i64
-  %158 = getelementptr inbounds nuw i32, ptr @fp32_to_srgb8_tab4, i64 %157
-  %159 = load i32, ptr %158, align 4, !tbaa !18
-  %160 = lshr i32 %159, 7
-  %161 = and i32 %160, 16776704
-  %162 = and i32 %159, 65535
-  %163 = lshr i32 %154, 12
-  %164 = and i32 %163, 255
-  %165 = mul nuw nsw i32 %162, %164
-  %166 = add nuw nsw i32 %161, %165
-  %167 = lshr i32 %166, 16
-  %168 = trunc i32 %167 to i8
+154:                                              ; preds = %152
+  %155 = bitcast float %150 to i32
+  %156 = add nsw i32 %155, -956301312
+  %157 = lshr i32 %156, 20
+  %158 = zext nneg i32 %157 to i64
+  %159 = getelementptr inbounds nuw i32, ptr @fp32_to_srgb8_tab4, i64 %158
+  %160 = load i32, ptr %159, align 4, !tbaa !18
+  %161 = lshr i32 %160, 7
+  %162 = and i32 %161, 16776704
+  %163 = and i32 %160, 65535
+  %164 = lshr i32 %155, 12
+  %165 = and i32 %164, 255
+  %166 = mul nuw nsw i32 %163, %165
+  %167 = add nuw nsw i32 %162, %166
+  %168 = lshr i32 %167, 16
+  %169 = trunc i32 %168 to i8
   br label %stbir__linear_to_srgb_uchar.exit145
 
-stbir__linear_to_srgb_uchar.exit145:              ; preds = %stbir__linear_to_srgb_uchar.exit, %151, %153
-  %.0.i144 = phi i8 [ 0, %stbir__linear_to_srgb_uchar.exit ], [ %168, %153 ], [ -1, %151 ]
-  %169 = getelementptr inbounds nuw i8, ptr %.pn153, i64 1
-  store i8 %.0.i144, ptr %169, align 1, !tbaa !4
-  %170 = load float, ptr %.2154, align 4, !tbaa !50
-  %171 = fcmp ogt float %170, 0x3F20000000000000
-  br i1 %171, label %172, label %stbir__linear_to_srgb_uchar.exit147
+stbir__linear_to_srgb_uchar.exit145:              ; preds = %stbir__linear_to_srgb_uchar.exit, %152, %154
+  %.0.i144 = phi i8 [ 0, %stbir__linear_to_srgb_uchar.exit ], [ %169, %154 ], [ -1, %152 ]
+  %170 = getelementptr inbounds nuw i8, ptr %.pn153, i64 1
+  store i8 %.0.i144, ptr %170, align 1, !tbaa !4
+  %171 = load float, ptr %.2154, align 4, !tbaa !50
+  %172 = fcmp ogt float %171, 0x3F20000000000000
+  br i1 %172, label %173, label %stbir__linear_to_srgb_uchar.exit147
 
-172:                                              ; preds = %stbir__linear_to_srgb_uchar.exit145
-  %173 = fcmp ogt float %170, 0x3FEFFFFFE0000000
-  br i1 %173, label %stbir__linear_to_srgb_uchar.exit147, label %174
+173:                                              ; preds = %stbir__linear_to_srgb_uchar.exit145
+  %174 = fcmp ogt float %171, 0x3FEFFFFFE0000000
+  br i1 %174, label %stbir__linear_to_srgb_uchar.exit147, label %175
 
-174:                                              ; preds = %172
-  %175 = bitcast float %170 to i32
-  %176 = add nsw i32 %175, -956301312
-  %177 = lshr i32 %176, 20
-  %178 = zext nneg i32 %177 to i64
-  %179 = getelementptr inbounds nuw i32, ptr @fp32_to_srgb8_tab4, i64 %178
-  %180 = load i32, ptr %179, align 4, !tbaa !18
-  %181 = lshr i32 %180, 7
-  %182 = and i32 %181, 16776704
-  %183 = and i32 %180, 65535
-  %184 = lshr i32 %175, 12
-  %185 = and i32 %184, 255
-  %186 = mul nuw nsw i32 %183, %185
-  %187 = add nuw nsw i32 %182, %186
-  %188 = lshr i32 %187, 16
-  %189 = trunc i32 %188 to i8
+175:                                              ; preds = %173
+  %176 = bitcast float %171 to i32
+  %177 = add nsw i32 %176, -956301312
+  %178 = lshr i32 %177, 20
+  %179 = zext nneg i32 %178 to i64
+  %180 = getelementptr inbounds nuw i32, ptr @fp32_to_srgb8_tab4, i64 %179
+  %181 = load i32, ptr %180, align 4, !tbaa !18
+  %182 = lshr i32 %181, 7
+  %183 = and i32 %182, 16776704
+  %184 = and i32 %181, 65535
+  %185 = lshr i32 %176, 12
+  %186 = and i32 %185, 255
+  %187 = mul nuw nsw i32 %184, %186
+  %188 = add nuw nsw i32 %183, %187
+  %189 = lshr i32 %188, 16
+  %190 = trunc i32 %189 to i8
   br label %stbir__linear_to_srgb_uchar.exit147
 
-stbir__linear_to_srgb_uchar.exit147:              ; preds = %stbir__linear_to_srgb_uchar.exit145, %172, %174
-  %.0.i146 = phi i8 [ 0, %stbir__linear_to_srgb_uchar.exit145 ], [ %189, %174 ], [ -1, %172 ]
-  %190 = getelementptr inbounds nuw i8, ptr %.pn153, i64 2
-  store i8 %.0.i146, ptr %190, align 1, !tbaa !4
-  %191 = getelementptr inbounds nuw i8, ptr %.2154, i64 12
-  %192 = load float, ptr %191, align 4, !tbaa !50
-  %193 = fcmp ogt float %192, 0x3F20000000000000
-  br i1 %193, label %194, label %stbir__linear_to_srgb_uchar.exit149
+stbir__linear_to_srgb_uchar.exit147:              ; preds = %stbir__linear_to_srgb_uchar.exit145, %173, %175
+  %.0.i146 = phi i8 [ 0, %stbir__linear_to_srgb_uchar.exit145 ], [ %190, %175 ], [ -1, %173 ]
+  %191 = getelementptr inbounds nuw i8, ptr %.pn153, i64 2
+  store i8 %.0.i146, ptr %191, align 1, !tbaa !4
+  %192 = getelementptr inbounds nuw i8, ptr %.2154, i64 12
+  %193 = load float, ptr %192, align 4, !tbaa !50
+  %194 = fcmp ogt float %193, 0x3F20000000000000
+  br i1 %194, label %195, label %stbir__linear_to_srgb_uchar.exit149
 
-194:                                              ; preds = %stbir__linear_to_srgb_uchar.exit147
-  %195 = fcmp ogt float %192, 0x3FEFFFFFE0000000
-  br i1 %195, label %stbir__linear_to_srgb_uchar.exit149, label %196
+195:                                              ; preds = %stbir__linear_to_srgb_uchar.exit147
+  %196 = fcmp ogt float %193, 0x3FEFFFFFE0000000
+  br i1 %196, label %stbir__linear_to_srgb_uchar.exit149, label %197
 
-196:                                              ; preds = %194
-  %197 = bitcast float %192 to i32
-  %198 = add nsw i32 %197, -956301312
-  %199 = lshr i32 %198, 20
-  %200 = zext nneg i32 %199 to i64
-  %201 = getelementptr inbounds nuw i32, ptr @fp32_to_srgb8_tab4, i64 %200
-  %202 = load i32, ptr %201, align 4, !tbaa !18
-  %203 = lshr i32 %202, 7
-  %204 = and i32 %203, 16776704
-  %205 = and i32 %202, 65535
-  %206 = lshr i32 %197, 12
-  %207 = and i32 %206, 255
-  %208 = mul nuw nsw i32 %205, %207
-  %209 = add nuw nsw i32 %204, %208
-  %210 = lshr i32 %209, 16
-  %211 = trunc i32 %210 to i8
+197:                                              ; preds = %195
+  %198 = bitcast float %193 to i32
+  %199 = add nsw i32 %198, -956301312
+  %200 = lshr i32 %199, 20
+  %201 = zext nneg i32 %200 to i64
+  %202 = getelementptr inbounds nuw i32, ptr @fp32_to_srgb8_tab4, i64 %201
+  %203 = load i32, ptr %202, align 4, !tbaa !18
+  %204 = lshr i32 %203, 7
+  %205 = and i32 %204, 16776704
+  %206 = and i32 %203, 65535
+  %207 = lshr i32 %198, 12
+  %208 = and i32 %207, 255
+  %209 = mul nuw nsw i32 %206, %208
+  %210 = add nuw nsw i32 %205, %209
+  %211 = lshr i32 %210, 16
+  %212 = trunc i32 %211 to i8
   br label %stbir__linear_to_srgb_uchar.exit149
 
-stbir__linear_to_srgb_uchar.exit149:              ; preds = %stbir__linear_to_srgb_uchar.exit147, %194, %196
-  %.0.i148 = phi i8 [ 0, %stbir__linear_to_srgb_uchar.exit147 ], [ %211, %196 ], [ -1, %194 ]
-  %212 = getelementptr inbounds nuw i8, ptr %.pn153, i64 3
-  store i8 %.0.i148, ptr %212, align 1, !tbaa !4
-  %213 = getelementptr inbounds nuw i8, ptr %.2154, i64 16
+stbir__linear_to_srgb_uchar.exit149:              ; preds = %stbir__linear_to_srgb_uchar.exit147, %195, %197
+  %.0.i148 = phi i8 [ 0, %stbir__linear_to_srgb_uchar.exit147 ], [ %212, %197 ], [ -1, %195 ]
+  %213 = getelementptr inbounds nuw i8, ptr %.pn153, i64 3
+  store i8 %.0.i148, ptr %213, align 1, !tbaa !4
+  %214 = getelementptr inbounds nuw i8, ptr %.2154, i64 16
   %.2137 = getelementptr inbounds nuw i8, ptr %.2137155, i64 4
   %.not = icmp ugt ptr %.2137, %5
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !220
@@ -6409,123 +6393,122 @@ define void @stbir__encode_uint8_srgb4_linearalpha_BGRA(ptr noundef writeonly ca
   %106 = getelementptr inbounds nuw i8, ptr %.0125, i64 16
   %107 = getelementptr inbounds nuw i8, ptr %.0123, i64 64
   %.not = icmp ugt ptr %106, %10
-  %108 = icmp eq ptr %106, %5
-  %. = select i1 %108, ptr %106, ptr %10
-  %.133 = select i1 %108, ptr %107, ptr %9
-  %.1126 = select i1 %.not, ptr %., ptr %106
-  %.1124 = select i1 %.not, ptr %.133, ptr %107
-  br i1 %108, label %.loopexit, label %11
+  %108 = icmp ne ptr %106, %5
+  %109 = and i1 %.not, %108
+  %.1126 = select i1 %109, ptr %10, ptr %106
+  %.1124 = select i1 %109, ptr %9, ptr %107
+  br i1 %108, label %11, label %.loopexit
 
 .preheader:                                       ; preds = %3, %stbir__linear_to_srgb_uchar.exit138
-  %.2127 = phi ptr [ %181, %stbir__linear_to_srgb_uchar.exit138 ], [ %0, %3 ]
-  %.2 = phi ptr [ %182, %stbir__linear_to_srgb_uchar.exit138 ], [ %2, %3 ]
+  %.2127 = phi ptr [ %182, %stbir__linear_to_srgb_uchar.exit138 ], [ %0, %3 ]
+  %.2 = phi ptr [ %183, %stbir__linear_to_srgb_uchar.exit138 ], [ %2, %3 ]
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.2) #24, !srcloc !223
-  %109 = load float, ptr %.2, align 4, !tbaa !50
-  %110 = fcmp ogt float %109, 0x3F20000000000000
-  br i1 %110, label %111, label %stbir__linear_to_srgb_uchar.exit
+  %110 = load float, ptr %.2, align 4, !tbaa !50
+  %111 = fcmp ogt float %110, 0x3F20000000000000
+  br i1 %111, label %112, label %stbir__linear_to_srgb_uchar.exit
 
-111:                                              ; preds = %.preheader
-  %112 = fcmp ogt float %109, 0x3FEFFFFFE0000000
-  br i1 %112, label %stbir__linear_to_srgb_uchar.exit, label %113
+112:                                              ; preds = %.preheader
+  %113 = fcmp ogt float %110, 0x3FEFFFFFE0000000
+  br i1 %113, label %stbir__linear_to_srgb_uchar.exit, label %114
 
-113:                                              ; preds = %111
-  %114 = bitcast float %109 to i32
-  %115 = add nsw i32 %114, -956301312
-  %116 = lshr i32 %115, 20
-  %117 = zext nneg i32 %116 to i64
-  %118 = getelementptr inbounds nuw i32, ptr @fp32_to_srgb8_tab4, i64 %117
-  %119 = load i32, ptr %118, align 4, !tbaa !18
-  %120 = lshr i32 %119, 7
-  %121 = and i32 %120, 16776704
-  %122 = and i32 %119, 65535
-  %123 = lshr i32 %114, 12
-  %124 = and i32 %123, 255
-  %125 = mul nuw nsw i32 %122, %124
-  %126 = add nuw nsw i32 %121, %125
-  %127 = lshr i32 %126, 16
-  %128 = trunc i32 %127 to i8
+114:                                              ; preds = %112
+  %115 = bitcast float %110 to i32
+  %116 = add nsw i32 %115, -956301312
+  %117 = lshr i32 %116, 20
+  %118 = zext nneg i32 %117 to i64
+  %119 = getelementptr inbounds nuw i32, ptr @fp32_to_srgb8_tab4, i64 %118
+  %120 = load i32, ptr %119, align 4, !tbaa !18
+  %121 = lshr i32 %120, 7
+  %122 = and i32 %121, 16776704
+  %123 = and i32 %120, 65535
+  %124 = lshr i32 %115, 12
+  %125 = and i32 %124, 255
+  %126 = mul nuw nsw i32 %123, %125
+  %127 = add nuw nsw i32 %122, %126
+  %128 = lshr i32 %127, 16
+  %129 = trunc i32 %128 to i8
   br label %stbir__linear_to_srgb_uchar.exit
 
-stbir__linear_to_srgb_uchar.exit:                 ; preds = %.preheader, %111, %113
-  %.0.i = phi i8 [ 0, %.preheader ], [ %128, %113 ], [ -1, %111 ]
-  %129 = getelementptr inbounds nuw i8, ptr %.2127, i64 2
-  store i8 %.0.i, ptr %129, align 1, !tbaa !4
-  %130 = getelementptr inbounds nuw i8, ptr %.2, i64 4
-  %131 = load float, ptr %130, align 4, !tbaa !50
-  %132 = fcmp ogt float %131, 0x3F20000000000000
-  br i1 %132, label %133, label %stbir__linear_to_srgb_uchar.exit136
+stbir__linear_to_srgb_uchar.exit:                 ; preds = %.preheader, %112, %114
+  %.0.i = phi i8 [ 0, %.preheader ], [ %129, %114 ], [ -1, %112 ]
+  %130 = getelementptr inbounds nuw i8, ptr %.2127, i64 2
+  store i8 %.0.i, ptr %130, align 1, !tbaa !4
+  %131 = getelementptr inbounds nuw i8, ptr %.2, i64 4
+  %132 = load float, ptr %131, align 4, !tbaa !50
+  %133 = fcmp ogt float %132, 0x3F20000000000000
+  br i1 %133, label %134, label %stbir__linear_to_srgb_uchar.exit136
 
-133:                                              ; preds = %stbir__linear_to_srgb_uchar.exit
-  %134 = fcmp ogt float %131, 0x3FEFFFFFE0000000
-  br i1 %134, label %stbir__linear_to_srgb_uchar.exit136, label %135
+134:                                              ; preds = %stbir__linear_to_srgb_uchar.exit
+  %135 = fcmp ogt float %132, 0x3FEFFFFFE0000000
+  br i1 %135, label %stbir__linear_to_srgb_uchar.exit136, label %136
 
-135:                                              ; preds = %133
-  %136 = bitcast float %131 to i32
-  %137 = add nsw i32 %136, -956301312
-  %138 = lshr i32 %137, 20
-  %139 = zext nneg i32 %138 to i64
-  %140 = getelementptr inbounds nuw i32, ptr @fp32_to_srgb8_tab4, i64 %139
-  %141 = load i32, ptr %140, align 4, !tbaa !18
-  %142 = lshr i32 %141, 7
-  %143 = and i32 %142, 16776704
-  %144 = and i32 %141, 65535
-  %145 = lshr i32 %136, 12
-  %146 = and i32 %145, 255
-  %147 = mul nuw nsw i32 %144, %146
-  %148 = add nuw nsw i32 %143, %147
-  %149 = lshr i32 %148, 16
-  %150 = trunc i32 %149 to i8
+136:                                              ; preds = %134
+  %137 = bitcast float %132 to i32
+  %138 = add nsw i32 %137, -956301312
+  %139 = lshr i32 %138, 20
+  %140 = zext nneg i32 %139 to i64
+  %141 = getelementptr inbounds nuw i32, ptr @fp32_to_srgb8_tab4, i64 %140
+  %142 = load i32, ptr %141, align 4, !tbaa !18
+  %143 = lshr i32 %142, 7
+  %144 = and i32 %143, 16776704
+  %145 = and i32 %142, 65535
+  %146 = lshr i32 %137, 12
+  %147 = and i32 %146, 255
+  %148 = mul nuw nsw i32 %145, %147
+  %149 = add nuw nsw i32 %144, %148
+  %150 = lshr i32 %149, 16
+  %151 = trunc i32 %150 to i8
   br label %stbir__linear_to_srgb_uchar.exit136
 
-stbir__linear_to_srgb_uchar.exit136:              ; preds = %stbir__linear_to_srgb_uchar.exit, %133, %135
-  %.0.i135 = phi i8 [ 0, %stbir__linear_to_srgb_uchar.exit ], [ %150, %135 ], [ -1, %133 ]
-  %151 = getelementptr inbounds nuw i8, ptr %.2127, i64 1
-  store i8 %.0.i135, ptr %151, align 1, !tbaa !4
-  %152 = getelementptr inbounds nuw i8, ptr %.2, i64 8
-  %153 = load float, ptr %152, align 4, !tbaa !50
-  %154 = fcmp ogt float %153, 0x3F20000000000000
-  br i1 %154, label %155, label %stbir__linear_to_srgb_uchar.exit138
+stbir__linear_to_srgb_uchar.exit136:              ; preds = %stbir__linear_to_srgb_uchar.exit, %134, %136
+  %.0.i135 = phi i8 [ 0, %stbir__linear_to_srgb_uchar.exit ], [ %151, %136 ], [ -1, %134 ]
+  %152 = getelementptr inbounds nuw i8, ptr %.2127, i64 1
+  store i8 %.0.i135, ptr %152, align 1, !tbaa !4
+  %153 = getelementptr inbounds nuw i8, ptr %.2, i64 8
+  %154 = load float, ptr %153, align 4, !tbaa !50
+  %155 = fcmp ogt float %154, 0x3F20000000000000
+  br i1 %155, label %156, label %stbir__linear_to_srgb_uchar.exit138
 
-155:                                              ; preds = %stbir__linear_to_srgb_uchar.exit136
-  %156 = fcmp ogt float %153, 0x3FEFFFFFE0000000
-  br i1 %156, label %stbir__linear_to_srgb_uchar.exit138, label %157
+156:                                              ; preds = %stbir__linear_to_srgb_uchar.exit136
+  %157 = fcmp ogt float %154, 0x3FEFFFFFE0000000
+  br i1 %157, label %stbir__linear_to_srgb_uchar.exit138, label %158
 
-157:                                              ; preds = %155
-  %158 = bitcast float %153 to i32
-  %159 = add nsw i32 %158, -956301312
-  %160 = lshr i32 %159, 20
-  %161 = zext nneg i32 %160 to i64
-  %162 = getelementptr inbounds nuw i32, ptr @fp32_to_srgb8_tab4, i64 %161
-  %163 = load i32, ptr %162, align 4, !tbaa !18
-  %164 = lshr i32 %163, 7
-  %165 = and i32 %164, 16776704
-  %166 = and i32 %163, 65535
-  %167 = lshr i32 %158, 12
-  %168 = and i32 %167, 255
-  %169 = mul nuw nsw i32 %166, %168
-  %170 = add nuw nsw i32 %165, %169
-  %171 = lshr i32 %170, 16
-  %172 = trunc i32 %171 to i8
+158:                                              ; preds = %156
+  %159 = bitcast float %154 to i32
+  %160 = add nsw i32 %159, -956301312
+  %161 = lshr i32 %160, 20
+  %162 = zext nneg i32 %161 to i64
+  %163 = getelementptr inbounds nuw i32, ptr @fp32_to_srgb8_tab4, i64 %162
+  %164 = load i32, ptr %163, align 4, !tbaa !18
+  %165 = lshr i32 %164, 7
+  %166 = and i32 %165, 16776704
+  %167 = and i32 %164, 65535
+  %168 = lshr i32 %159, 12
+  %169 = and i32 %168, 255
+  %170 = mul nuw nsw i32 %167, %169
+  %171 = add nuw nsw i32 %166, %170
+  %172 = lshr i32 %171, 16
+  %173 = trunc i32 %172 to i8
   br label %stbir__linear_to_srgb_uchar.exit138
 
-stbir__linear_to_srgb_uchar.exit138:              ; preds = %stbir__linear_to_srgb_uchar.exit136, %155, %157
-  %.0.i137 = phi i8 [ 0, %stbir__linear_to_srgb_uchar.exit136 ], [ %172, %157 ], [ -1, %155 ]
+stbir__linear_to_srgb_uchar.exit138:              ; preds = %stbir__linear_to_srgb_uchar.exit136, %156, %158
+  %.0.i137 = phi i8 [ 0, %stbir__linear_to_srgb_uchar.exit136 ], [ %173, %158 ], [ -1, %156 ]
   store i8 %.0.i137, ptr %.2127, align 1, !tbaa !4
-  %173 = getelementptr inbounds nuw i8, ptr %.2, i64 12
-  %174 = load float, ptr %173, align 4, !tbaa !50
-  %175 = fmul float %174, 2.550000e+02
-  %176 = fadd float %175, 5.000000e-01
-  %177 = fcmp olt float %176, 0.000000e+00
-  %.0 = select i1 %177, float 0.000000e+00, float %176
-  %178 = fcmp ogt float %.0, 2.550000e+02
-  %.1 = select i1 %178, float 2.550000e+02, float %.0
-  %179 = fptoui float %.1 to i8
-  %180 = getelementptr inbounds nuw i8, ptr %.2127, i64 3
-  store i8 %179, ptr %180, align 1, !tbaa !4
-  %181 = getelementptr inbounds nuw i8, ptr %.2127, i64 4
-  %182 = getelementptr inbounds nuw i8, ptr %.2, i64 16
-  %183 = icmp ult ptr %181, %5
-  br i1 %183, label %.preheader, label %.loopexit, !llvm.loop !224
+  %174 = getelementptr inbounds nuw i8, ptr %.2, i64 12
+  %175 = load float, ptr %174, align 4, !tbaa !50
+  %176 = fmul float %175, 2.550000e+02
+  %177 = fadd float %176, 5.000000e-01
+  %178 = fcmp olt float %177, 0.000000e+00
+  %.0 = select i1 %178, float 0.000000e+00, float %177
+  %179 = fcmp ogt float %.0, 2.550000e+02
+  %.1 = select i1 %179, float 2.550000e+02, float %.0
+  %180 = fptoui float %.1 to i8
+  %181 = getelementptr inbounds nuw i8, ptr %.2127, i64 3
+  store i8 %180, ptr %181, align 1, !tbaa !4
+  %182 = getelementptr inbounds nuw i8, ptr %.2127, i64 4
+  %183 = getelementptr inbounds nuw i8, ptr %.2, i64 16
+  %184 = icmp ult ptr %182, %5
+  br i1 %184, label %.preheader, label %.loopexit, !llvm.loop !224
 
 .loopexit:                                        ; preds = %stbir__linear_to_srgb_uchar.exit138, %11
   ret void
@@ -6574,41 +6557,40 @@ define void @stbir__decode_uint16_linear_scaled_BGRA(ptr noundef %0, i32 noundef
   %24 = getelementptr inbounds nuw i8, ptr %.047, i64 32
   %25 = getelementptr inbounds nuw i8, ptr %.048, i64 16
   %.not54 = icmp ugt ptr %24, %10
-  %26 = icmp eq ptr %24, %5
-  %. = select i1 %26, ptr %25, ptr %7
-  %.55 = select i1 %26, ptr %24, ptr %10
-  %.149 = select i1 %.not54, ptr %., ptr %25
-  %.1 = select i1 %.not54, ptr %.55, ptr %24
-  br i1 %26, label %.loopexit, label %11
+  %26 = icmp ne ptr %24, %5
+  %27 = and i1 %.not54, %26
+  %.149 = select i1 %27, ptr %7, ptr %25
+  %.1 = select i1 %27, ptr %10, ptr %24
+  br i1 %26, label %11, label %.loopexit
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.262 = phi ptr [ %.2, %.lr.ph ], [ %.258, %.lr.ph.preheader ]
   %.pn61 = phi ptr [ %.262, %.lr.ph ], [ %0, %.lr.ph.preheader ]
-  %.25060 = phi ptr [ %45, %.lr.ph ], [ %2, %.lr.ph.preheader ]
+  %.25060 = phi ptr [ %46, %.lr.ph ], [ %2, %.lr.ph.preheader ]
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.262) #24, !srcloc !226
-  %27 = getelementptr inbounds nuw i8, ptr %.25060, i64 4
-  %28 = load i16, ptr %27, align 2, !tbaa !173
-  %29 = uitofp i16 %28 to float
-  %30 = fmul float %29, 0x3EF0001000000000
-  store float %30, ptr %.pn61, align 4, !tbaa !50
-  %31 = getelementptr inbounds nuw i8, ptr %.25060, i64 2
-  %32 = load i16, ptr %31, align 2, !tbaa !173
-  %33 = uitofp i16 %32 to float
-  %34 = fmul float %33, 0x3EF0001000000000
-  %35 = getelementptr inbounds nuw i8, ptr %.pn61, i64 4
-  store float %34, ptr %35, align 4, !tbaa !50
-  %36 = load i16, ptr %.25060, align 2, !tbaa !173
-  %37 = uitofp i16 %36 to float
-  %38 = fmul float %37, 0x3EF0001000000000
-  %39 = getelementptr inbounds nuw i8, ptr %.pn61, i64 8
-  store float %38, ptr %39, align 4, !tbaa !50
-  %40 = getelementptr inbounds nuw i8, ptr %.25060, i64 6
-  %41 = load i16, ptr %40, align 2, !tbaa !173
-  %42 = uitofp i16 %41 to float
-  %43 = fmul float %42, 0x3EF0001000000000
-  %44 = getelementptr inbounds nuw i8, ptr %.pn61, i64 12
-  store float %43, ptr %44, align 4, !tbaa !50
-  %45 = getelementptr inbounds nuw i8, ptr %.25060, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %.25060, i64 4
+  %29 = load i16, ptr %28, align 2, !tbaa !173
+  %30 = uitofp i16 %29 to float
+  %31 = fmul float %30, 0x3EF0001000000000
+  store float %31, ptr %.pn61, align 4, !tbaa !50
+  %32 = getelementptr inbounds nuw i8, ptr %.25060, i64 2
+  %33 = load i16, ptr %32, align 2, !tbaa !173
+  %34 = uitofp i16 %33 to float
+  %35 = fmul float %34, 0x3EF0001000000000
+  %36 = getelementptr inbounds nuw i8, ptr %.pn61, i64 4
+  store float %35, ptr %36, align 4, !tbaa !50
+  %37 = load i16, ptr %.25060, align 2, !tbaa !173
+  %38 = uitofp i16 %37 to float
+  %39 = fmul float %38, 0x3EF0001000000000
+  %40 = getelementptr inbounds nuw i8, ptr %.pn61, i64 8
+  store float %39, ptr %40, align 4, !tbaa !50
+  %41 = getelementptr inbounds nuw i8, ptr %.25060, i64 6
+  %42 = load i16, ptr %41, align 2, !tbaa !173
+  %43 = uitofp i16 %42 to float
+  %44 = fmul float %43, 0x3EF0001000000000
+  %45 = getelementptr inbounds nuw i8, ptr %.pn61, i64 12
+  store float %44, ptr %45, align 4, !tbaa !50
+  %46 = getelementptr inbounds nuw i8, ptr %.25060, i64 8
   %.2 = getelementptr inbounds nuw i8, ptr %.262, i64 16
   %.not = icmp ugt ptr %.2, %5
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !227
@@ -6668,34 +6650,33 @@ define void @stbir__encode_uint16_linear_scaled_BGRA(ptr noundef writeonly captu
   %33 = getelementptr inbounds nuw i8, ptr %.0, i64 32
   %34 = getelementptr inbounds nuw i8, ptr %.048, i64 16
   %.not55 = icmp ugt ptr %34, %10
-  %35 = icmp eq ptr %34, %5
-  %.56 = select i1 %35, ptr %34, ptr %10
-  %.57 = select i1 %35, ptr %33, ptr %9
-  %.149 = select i1 %.not55, ptr %.56, ptr %34
-  %.1 = select i1 %.not55, ptr %.57, ptr %33
-  br i1 %35, label %.loopexit, label %11
+  %35 = icmp ne ptr %34, %5
+  %36 = and i1 %.not55, %35
+  %.149 = select i1 %36, ptr %10, ptr %34
+  %.1 = select i1 %36, ptr %9, ptr %33
+  br i1 %35, label %11, label %.loopexit
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.25063 = phi ptr [ %.250, %.lr.ph ], [ %.25059, %.lr.ph.preheader ]
-  %.262 = phi ptr [ %50, %.lr.ph ], [ %2, %.lr.ph.preheader ]
+  %.262 = phi ptr [ %51, %.lr.ph ], [ %2, %.lr.ph.preheader ]
   %.pn61 = phi ptr [ %.25063, %.lr.ph ], [ %0, %.lr.ph.preheader ]
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.262) #24, !srcloc !229
-  %36 = load <4 x float>, ptr %.262, align 1, !tbaa !4
-  %37 = fmul <4 x float> %36, splat (float 6.553500e+04)
-  %38 = fadd <4 x float> %37, splat (float 5.000000e-01)
-  %39 = shufflevector <4 x float> %38, <4 x float> poison, <4 x i32> <i32 2, i32 1, i32 0, i32 3>
-  %40 = tail call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %39, <4 x float> splat (float 6.553500e+04))
-  %41 = tail call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %40, <4 x float> zeroinitializer)
-  %42 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %41)
-  %43 = load <4 x i32>, ptr @stbir__s32_32768, align 16, !tbaa !4
-  %44 = sub <4 x i32> %42, %43
-  %45 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %44, <4 x i32> poison)
-  %46 = load <8 x i16>, ptr @stbir__s16_32768, align 16, !tbaa !4
-  %47 = sub <8 x i16> %45, %46
-  %48 = bitcast <8 x i16> %47 to <2 x i64>
-  %49 = extractelement <2 x i64> %48, i64 0
-  store i64 %49, ptr %.pn61, align 1, !tbaa !4
-  %50 = getelementptr inbounds nuw i8, ptr %.262, i64 16
+  %37 = load <4 x float>, ptr %.262, align 1, !tbaa !4
+  %38 = fmul <4 x float> %37, splat (float 6.553500e+04)
+  %39 = fadd <4 x float> %38, splat (float 5.000000e-01)
+  %40 = shufflevector <4 x float> %39, <4 x float> poison, <4 x i32> <i32 2, i32 1, i32 0, i32 3>
+  %41 = tail call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %40, <4 x float> splat (float 6.553500e+04))
+  %42 = tail call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %41, <4 x float> zeroinitializer)
+  %43 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %42)
+  %44 = load <4 x i32>, ptr @stbir__s32_32768, align 16, !tbaa !4
+  %45 = sub <4 x i32> %43, %44
+  %46 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %45, <4 x i32> poison)
+  %47 = load <8 x i16>, ptr @stbir__s16_32768, align 16, !tbaa !4
+  %48 = sub <8 x i16> %46, %47
+  %49 = bitcast <8 x i16> %48 to <2 x i64>
+  %50 = extractelement <2 x i64> %49, i64 0
+  store i64 %50, ptr %.pn61, align 1, !tbaa !4
+  %51 = getelementptr inbounds nuw i8, ptr %.262, i64 16
   %.250 = getelementptr inbounds nuw i8, ptr %.25063, i64 8
   %.not = icmp ugt ptr %.250, %5
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !230
@@ -6745,37 +6726,36 @@ define void @stbir__decode_uint16_linear_BGRA(ptr noundef %0, i32 noundef %1, pt
   %22 = getelementptr inbounds nuw i8, ptr %.045, i64 32
   %23 = getelementptr inbounds nuw i8, ptr %.046, i64 16
   %.not52 = icmp ugt ptr %22, %10
-  %24 = icmp eq ptr %22, %5
-  %. = select i1 %24, ptr %23, ptr %7
-  %.53 = select i1 %24, ptr %22, ptr %10
-  %.147 = select i1 %.not52, ptr %., ptr %23
-  %.1 = select i1 %.not52, ptr %.53, ptr %22
-  br i1 %24, label %.loopexit, label %11
+  %24 = icmp ne ptr %22, %5
+  %25 = and i1 %.not52, %24
+  %.147 = select i1 %25, ptr %7, ptr %23
+  %.1 = select i1 %25, ptr %10, ptr %22
+  br i1 %24, label %11, label %.loopexit
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.260 = phi ptr [ %.2, %.lr.ph ], [ %.256, %.lr.ph.preheader ]
   %.pn59 = phi ptr [ %.260, %.lr.ph ], [ %0, %.lr.ph.preheader ]
-  %.24858 = phi ptr [ %39, %.lr.ph ], [ %2, %.lr.ph.preheader ]
+  %.24858 = phi ptr [ %40, %.lr.ph ], [ %2, %.lr.ph.preheader ]
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.260) #24, !srcloc !232
-  %25 = getelementptr inbounds nuw i8, ptr %.24858, i64 4
-  %26 = load i16, ptr %25, align 2, !tbaa !173
-  %27 = uitofp i16 %26 to float
-  store float %27, ptr %.pn59, align 4, !tbaa !50
-  %28 = getelementptr inbounds nuw i8, ptr %.24858, i64 2
-  %29 = load i16, ptr %28, align 2, !tbaa !173
-  %30 = uitofp i16 %29 to float
-  %31 = getelementptr inbounds nuw i8, ptr %.pn59, i64 4
-  store float %30, ptr %31, align 4, !tbaa !50
-  %32 = load i16, ptr %.24858, align 2, !tbaa !173
-  %33 = uitofp i16 %32 to float
-  %34 = getelementptr inbounds nuw i8, ptr %.pn59, i64 8
-  store float %33, ptr %34, align 4, !tbaa !50
-  %35 = getelementptr inbounds nuw i8, ptr %.24858, i64 6
-  %36 = load i16, ptr %35, align 2, !tbaa !173
-  %37 = uitofp i16 %36 to float
-  %38 = getelementptr inbounds nuw i8, ptr %.pn59, i64 12
-  store float %37, ptr %38, align 4, !tbaa !50
-  %39 = getelementptr inbounds nuw i8, ptr %.24858, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %.24858, i64 4
+  %27 = load i16, ptr %26, align 2, !tbaa !173
+  %28 = uitofp i16 %27 to float
+  store float %28, ptr %.pn59, align 4, !tbaa !50
+  %29 = getelementptr inbounds nuw i8, ptr %.24858, i64 2
+  %30 = load i16, ptr %29, align 2, !tbaa !173
+  %31 = uitofp i16 %30 to float
+  %32 = getelementptr inbounds nuw i8, ptr %.pn59, i64 4
+  store float %31, ptr %32, align 4, !tbaa !50
+  %33 = load i16, ptr %.24858, align 2, !tbaa !173
+  %34 = uitofp i16 %33 to float
+  %35 = getelementptr inbounds nuw i8, ptr %.pn59, i64 8
+  store float %34, ptr %35, align 4, !tbaa !50
+  %36 = getelementptr inbounds nuw i8, ptr %.24858, i64 6
+  %37 = load i16, ptr %36, align 2, !tbaa !173
+  %38 = uitofp i16 %37 to float
+  %39 = getelementptr inbounds nuw i8, ptr %.pn59, i64 12
+  store float %38, ptr %39, align 4, !tbaa !50
+  %40 = getelementptr inbounds nuw i8, ptr %.24858, i64 8
   %.2 = getelementptr inbounds nuw i8, ptr %.260, i64 16
   %.not = icmp ugt ptr %.2, %5
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !233
@@ -6833,33 +6813,32 @@ define void @stbir__encode_uint16_linear_BGRA(ptr noundef writeonly captures(add
   %31 = getelementptr inbounds nuw i8, ptr %.0, i64 32
   %32 = getelementptr inbounds nuw i8, ptr %.048, i64 16
   %.not55 = icmp ugt ptr %32, %10
-  %33 = icmp eq ptr %32, %5
-  %.56 = select i1 %33, ptr %32, ptr %10
-  %.57 = select i1 %33, ptr %31, ptr %9
-  %.149 = select i1 %.not55, ptr %.56, ptr %32
-  %.1 = select i1 %.not55, ptr %.57, ptr %31
-  br i1 %33, label %.loopexit, label %11
+  %33 = icmp ne ptr %32, %5
+  %34 = and i1 %.not55, %33
+  %.149 = select i1 %34, ptr %10, ptr %32
+  %.1 = select i1 %34, ptr %9, ptr %31
+  br i1 %33, label %11, label %.loopexit
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.25063 = phi ptr [ %.250, %.lr.ph ], [ %.25059, %.lr.ph.preheader ]
-  %.262 = phi ptr [ %47, %.lr.ph ], [ %2, %.lr.ph.preheader ]
+  %.262 = phi ptr [ %48, %.lr.ph ], [ %2, %.lr.ph.preheader ]
   %.pn61 = phi ptr [ %.25063, %.lr.ph ], [ %0, %.lr.ph.preheader ]
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.262) #24, !srcloc !235
-  %34 = load <4 x float>, ptr %.262, align 1, !tbaa !4
-  %35 = fadd <4 x float> %34, splat (float 5.000000e-01)
-  %36 = shufflevector <4 x float> %35, <4 x float> poison, <4 x i32> <i32 2, i32 1, i32 0, i32 3>
-  %37 = tail call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %36, <4 x float> splat (float 6.553500e+04))
-  %38 = tail call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %37, <4 x float> zeroinitializer)
-  %39 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %38)
-  %40 = load <4 x i32>, ptr @stbir__s32_32768, align 16, !tbaa !4
-  %41 = sub <4 x i32> %39, %40
-  %42 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %41, <4 x i32> poison)
-  %43 = load <8 x i16>, ptr @stbir__s16_32768, align 16, !tbaa !4
-  %44 = sub <8 x i16> %42, %43
-  %45 = bitcast <8 x i16> %44 to <2 x i64>
-  %46 = extractelement <2 x i64> %45, i64 0
-  store i64 %46, ptr %.pn61, align 1, !tbaa !4
-  %47 = getelementptr inbounds nuw i8, ptr %.262, i64 16
+  %35 = load <4 x float>, ptr %.262, align 1, !tbaa !4
+  %36 = fadd <4 x float> %35, splat (float 5.000000e-01)
+  %37 = shufflevector <4 x float> %36, <4 x float> poison, <4 x i32> <i32 2, i32 1, i32 0, i32 3>
+  %38 = tail call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %37, <4 x float> splat (float 6.553500e+04))
+  %39 = tail call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %38, <4 x float> zeroinitializer)
+  %40 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %39)
+  %41 = load <4 x i32>, ptr @stbir__s32_32768, align 16, !tbaa !4
+  %42 = sub <4 x i32> %40, %41
+  %43 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %42, <4 x i32> poison)
+  %44 = load <8 x i16>, ptr @stbir__s16_32768, align 16, !tbaa !4
+  %45 = sub <8 x i16> %43, %44
+  %46 = bitcast <8 x i16> %45 to <2 x i64>
+  %47 = extractelement <2 x i64> %46, i64 0
+  store i64 %47, ptr %.pn61, align 1, !tbaa !4
+  %48 = getelementptr inbounds nuw i8, ptr %.262, i64 16
   %.250 = getelementptr inbounds nuw i8, ptr %.25063, i64 8
   %.not = icmp ugt ptr %.250, %5
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !236
@@ -7490,41 +7469,40 @@ define void @stbir__decode_uint8_linear_scaled_ARGB(ptr noundef %0, i32 noundef 
   %40 = getelementptr inbounds nuw i8, ptr %.065, i64 64
   %41 = getelementptr inbounds nuw i8, ptr %.066, i64 16
   %.not72 = icmp ugt ptr %40, %10
-  %42 = icmp eq ptr %40, %5
-  %. = select i1 %42, ptr %41, ptr %7
-  %.73 = select i1 %42, ptr %40, ptr %10
-  %.167 = select i1 %.not72, ptr %., ptr %41
-  %.1 = select i1 %.not72, ptr %.73, ptr %40
-  br i1 %42, label %.loopexit, label %11
+  %42 = icmp ne ptr %40, %5
+  %43 = and i1 %.not72, %42
+  %.167 = select i1 %43, ptr %7, ptr %41
+  %.1 = select i1 %43, ptr %10, ptr %40
+  br i1 %42, label %11, label %.loopexit
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.280 = phi ptr [ %.2, %.lr.ph ], [ %.276, %.lr.ph.preheader ]
   %.pn79 = phi ptr [ %.280, %.lr.ph ], [ %0, %.lr.ph.preheader ]
-  %.26878 = phi ptr [ %61, %.lr.ph ], [ %2, %.lr.ph.preheader ]
+  %.26878 = phi ptr [ %62, %.lr.ph ], [ %2, %.lr.ph.preheader ]
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.280) #24, !srcloc !253
-  %43 = getelementptr inbounds nuw i8, ptr %.26878, i64 1
-  %44 = load i8, ptr %43, align 1, !tbaa !4
-  %45 = uitofp i8 %44 to float
-  %46 = fmul float %45, 0x3F70101020000000
-  store float %46, ptr %.pn79, align 4, !tbaa !50
-  %47 = getelementptr inbounds nuw i8, ptr %.26878, i64 2
-  %48 = load i8, ptr %47, align 1, !tbaa !4
-  %49 = uitofp i8 %48 to float
-  %50 = fmul float %49, 0x3F70101020000000
-  %51 = getelementptr inbounds nuw i8, ptr %.pn79, i64 4
-  store float %50, ptr %51, align 4, !tbaa !50
-  %52 = getelementptr inbounds nuw i8, ptr %.26878, i64 3
-  %53 = load i8, ptr %52, align 1, !tbaa !4
-  %54 = uitofp i8 %53 to float
-  %55 = fmul float %54, 0x3F70101020000000
-  %56 = getelementptr inbounds nuw i8, ptr %.pn79, i64 8
-  store float %55, ptr %56, align 4, !tbaa !50
-  %57 = load i8, ptr %.26878, align 1, !tbaa !4
-  %58 = uitofp i8 %57 to float
-  %59 = fmul float %58, 0x3F70101020000000
-  %60 = getelementptr inbounds nuw i8, ptr %.pn79, i64 12
-  store float %59, ptr %60, align 4, !tbaa !50
-  %61 = getelementptr inbounds nuw i8, ptr %.26878, i64 4
+  %44 = getelementptr inbounds nuw i8, ptr %.26878, i64 1
+  %45 = load i8, ptr %44, align 1, !tbaa !4
+  %46 = uitofp i8 %45 to float
+  %47 = fmul float %46, 0x3F70101020000000
+  store float %47, ptr %.pn79, align 4, !tbaa !50
+  %48 = getelementptr inbounds nuw i8, ptr %.26878, i64 2
+  %49 = load i8, ptr %48, align 1, !tbaa !4
+  %50 = uitofp i8 %49 to float
+  %51 = fmul float %50, 0x3F70101020000000
+  %52 = getelementptr inbounds nuw i8, ptr %.pn79, i64 4
+  store float %51, ptr %52, align 4, !tbaa !50
+  %53 = getelementptr inbounds nuw i8, ptr %.26878, i64 3
+  %54 = load i8, ptr %53, align 1, !tbaa !4
+  %55 = uitofp i8 %54 to float
+  %56 = fmul float %55, 0x3F70101020000000
+  %57 = getelementptr inbounds nuw i8, ptr %.pn79, i64 8
+  store float %56, ptr %57, align 4, !tbaa !50
+  %58 = load i8, ptr %.26878, align 1, !tbaa !4
+  %59 = uitofp i8 %58 to float
+  %60 = fmul float %59, 0x3F70101020000000
+  %61 = getelementptr inbounds nuw i8, ptr %.pn79, i64 12
+  store float %60, ptr %61, align 4, !tbaa !50
+  %62 = getelementptr inbounds nuw i8, ptr %.26878, i64 4
   %.2 = getelementptr inbounds nuw i8, ptr %.280, i64 16
   %.not = icmp ugt ptr %.2, %5
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !254
@@ -7581,31 +7559,30 @@ define void @stbir__encode_uint8_linear_scaled_ARGB(ptr noundef writeonly captur
   %31 = getelementptr inbounds nuw i8, ptr %.0, i64 32
   %32 = getelementptr inbounds nuw i8, ptr %.054, i64 8
   %.not61 = icmp ugt ptr %32, %10
-  %33 = icmp eq ptr %32, %5
-  %.62 = select i1 %33, ptr %32, ptr %10
-  %.63 = select i1 %33, ptr %31, ptr %9
-  %.155 = select i1 %.not61, ptr %.62, ptr %32
-  %.1 = select i1 %.not61, ptr %.63, ptr %31
-  br i1 %33, label %.loopexit, label %11
+  %33 = icmp ne ptr %32, %5
+  %34 = and i1 %.not61, %33
+  %.155 = select i1 %34, ptr %10, ptr %32
+  %.1 = select i1 %34, ptr %9, ptr %31
+  br i1 %33, label %11, label %.loopexit
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.25669 = phi ptr [ %.256, %.lr.ph ], [ %.25665, %.lr.ph.preheader ]
-  %.268 = phi ptr [ %45, %.lr.ph ], [ %2, %.lr.ph.preheader ]
+  %.268 = phi ptr [ %46, %.lr.ph ], [ %2, %.lr.ph.preheader ]
   %.pn67 = phi ptr [ %.25669, %.lr.ph ], [ %0, %.lr.ph.preheader ]
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.268) #24, !srcloc !256
-  %34 = load <4 x float>, ptr %.268, align 1, !tbaa !4
-  %35 = fmul <4 x float> %34, splat (float 2.550000e+02)
-  %36 = fadd <4 x float> %35, splat (float 5.000000e-01)
-  %37 = shufflevector <4 x float> %36, <4 x float> poison, <4 x i32> <i32 3, i32 0, i32 1, i32 2>
-  %38 = tail call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %37, <4 x float> splat (float 2.550000e+02))
-  %39 = tail call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %38, <4 x float> zeroinitializer)
-  %40 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %39)
-  %41 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %40, <4 x i32> poison)
-  %42 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %41, <8 x i16> poison)
-  %43 = bitcast <16 x i8> %42 to <4 x i32>
-  %44 = extractelement <4 x i32> %43, i64 0
-  store i32 %44, ptr %.pn67, align 4, !tbaa !18
-  %45 = getelementptr inbounds nuw i8, ptr %.268, i64 16
+  %35 = load <4 x float>, ptr %.268, align 1, !tbaa !4
+  %36 = fmul <4 x float> %35, splat (float 2.550000e+02)
+  %37 = fadd <4 x float> %36, splat (float 5.000000e-01)
+  %38 = shufflevector <4 x float> %37, <4 x float> poison, <4 x i32> <i32 3, i32 0, i32 1, i32 2>
+  %39 = tail call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %38, <4 x float> splat (float 2.550000e+02))
+  %40 = tail call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %39, <4 x float> zeroinitializer)
+  %41 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %40)
+  %42 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %41, <4 x i32> poison)
+  %43 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %42, <8 x i16> poison)
+  %44 = bitcast <16 x i8> %43 to <4 x i32>
+  %45 = extractelement <4 x i32> %44, i64 0
+  store i32 %45, ptr %.pn67, align 4, !tbaa !18
+  %46 = getelementptr inbounds nuw i8, ptr %.268, i64 16
   %.256 = getelementptr inbounds nuw i8, ptr %.25669, i64 4
   %.not = icmp ugt ptr %.256, %5
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !257
@@ -7671,37 +7648,36 @@ define void @stbir__decode_uint8_linear_ARGB(ptr noundef %0, i32 noundef %1, ptr
   %36 = getelementptr inbounds nuw i8, ptr %.061, i64 64
   %37 = getelementptr inbounds nuw i8, ptr %.062, i64 16
   %.not68 = icmp ugt ptr %36, %10
-  %38 = icmp eq ptr %36, %5
-  %. = select i1 %38, ptr %37, ptr %7
-  %.69 = select i1 %38, ptr %36, ptr %10
-  %.163 = select i1 %.not68, ptr %., ptr %37
-  %.1 = select i1 %.not68, ptr %.69, ptr %36
-  br i1 %38, label %.loopexit, label %11
+  %38 = icmp ne ptr %36, %5
+  %39 = and i1 %.not68, %38
+  %.163 = select i1 %39, ptr %7, ptr %37
+  %.1 = select i1 %39, ptr %10, ptr %36
+  br i1 %38, label %11, label %.loopexit
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.276 = phi ptr [ %.2, %.lr.ph ], [ %.272, %.lr.ph.preheader ]
   %.pn75 = phi ptr [ %.276, %.lr.ph ], [ %0, %.lr.ph.preheader ]
-  %.26474 = phi ptr [ %53, %.lr.ph ], [ %2, %.lr.ph.preheader ]
+  %.26474 = phi ptr [ %54, %.lr.ph ], [ %2, %.lr.ph.preheader ]
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.276) #24, !srcloc !259
-  %39 = getelementptr inbounds nuw i8, ptr %.26474, i64 1
-  %40 = load i8, ptr %39, align 1, !tbaa !4
-  %41 = uitofp i8 %40 to float
-  store float %41, ptr %.pn75, align 4, !tbaa !50
-  %42 = getelementptr inbounds nuw i8, ptr %.26474, i64 2
-  %43 = load i8, ptr %42, align 1, !tbaa !4
-  %44 = uitofp i8 %43 to float
-  %45 = getelementptr inbounds nuw i8, ptr %.pn75, i64 4
-  store float %44, ptr %45, align 4, !tbaa !50
-  %46 = getelementptr inbounds nuw i8, ptr %.26474, i64 3
-  %47 = load i8, ptr %46, align 1, !tbaa !4
-  %48 = uitofp i8 %47 to float
-  %49 = getelementptr inbounds nuw i8, ptr %.pn75, i64 8
-  store float %48, ptr %49, align 4, !tbaa !50
-  %50 = load i8, ptr %.26474, align 1, !tbaa !4
-  %51 = uitofp i8 %50 to float
-  %52 = getelementptr inbounds nuw i8, ptr %.pn75, i64 12
-  store float %51, ptr %52, align 4, !tbaa !50
-  %53 = getelementptr inbounds nuw i8, ptr %.26474, i64 4
+  %40 = getelementptr inbounds nuw i8, ptr %.26474, i64 1
+  %41 = load i8, ptr %40, align 1, !tbaa !4
+  %42 = uitofp i8 %41 to float
+  store float %42, ptr %.pn75, align 4, !tbaa !50
+  %43 = getelementptr inbounds nuw i8, ptr %.26474, i64 2
+  %44 = load i8, ptr %43, align 1, !tbaa !4
+  %45 = uitofp i8 %44 to float
+  %46 = getelementptr inbounds nuw i8, ptr %.pn75, i64 4
+  store float %45, ptr %46, align 4, !tbaa !50
+  %47 = getelementptr inbounds nuw i8, ptr %.26474, i64 3
+  %48 = load i8, ptr %47, align 1, !tbaa !4
+  %49 = uitofp i8 %48 to float
+  %50 = getelementptr inbounds nuw i8, ptr %.pn75, i64 8
+  store float %49, ptr %50, align 4, !tbaa !50
+  %51 = load i8, ptr %.26474, align 1, !tbaa !4
+  %52 = uitofp i8 %51 to float
+  %53 = getelementptr inbounds nuw i8, ptr %.pn75, i64 12
+  store float %52, ptr %53, align 4, !tbaa !50
+  %54 = getelementptr inbounds nuw i8, ptr %.26474, i64 4
   %.2 = getelementptr inbounds nuw i8, ptr %.276, i64 16
   %.not = icmp ugt ptr %.2, %5
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !260
@@ -7756,30 +7732,29 @@ define void @stbir__encode_uint8_linear_ARGB(ptr noundef writeonly captures(addr
   %29 = getelementptr inbounds nuw i8, ptr %.0, i64 32
   %30 = getelementptr inbounds nuw i8, ptr %.054, i64 8
   %.not61 = icmp ugt ptr %30, %10
-  %31 = icmp eq ptr %30, %5
-  %.62 = select i1 %31, ptr %30, ptr %10
-  %.63 = select i1 %31, ptr %29, ptr %9
-  %.155 = select i1 %.not61, ptr %.62, ptr %30
-  %.1 = select i1 %.not61, ptr %.63, ptr %29
-  br i1 %31, label %.loopexit, label %11
+  %31 = icmp ne ptr %30, %5
+  %32 = and i1 %.not61, %31
+  %.155 = select i1 %32, ptr %10, ptr %30
+  %.1 = select i1 %32, ptr %9, ptr %29
+  br i1 %31, label %11, label %.loopexit
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.25669 = phi ptr [ %.256, %.lr.ph ], [ %.25665, %.lr.ph.preheader ]
-  %.268 = phi ptr [ %42, %.lr.ph ], [ %2, %.lr.ph.preheader ]
+  %.268 = phi ptr [ %43, %.lr.ph ], [ %2, %.lr.ph.preheader ]
   %.pn67 = phi ptr [ %.25669, %.lr.ph ], [ %0, %.lr.ph.preheader ]
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.268) #24, !srcloc !262
-  %32 = load <4 x float>, ptr %.268, align 1, !tbaa !4
-  %33 = fadd <4 x float> %32, splat (float 5.000000e-01)
-  %34 = shufflevector <4 x float> %33, <4 x float> poison, <4 x i32> <i32 3, i32 0, i32 1, i32 2>
-  %35 = tail call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %34, <4 x float> splat (float 2.550000e+02))
-  %36 = tail call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %35, <4 x float> zeroinitializer)
-  %37 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %36)
-  %38 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %37, <4 x i32> poison)
-  %39 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %38, <8 x i16> poison)
-  %40 = bitcast <16 x i8> %39 to <4 x i32>
-  %41 = extractelement <4 x i32> %40, i64 0
-  store i32 %41, ptr %.pn67, align 4, !tbaa !18
-  %42 = getelementptr inbounds nuw i8, ptr %.268, i64 16
+  %33 = load <4 x float>, ptr %.268, align 1, !tbaa !4
+  %34 = fadd <4 x float> %33, splat (float 5.000000e-01)
+  %35 = shufflevector <4 x float> %34, <4 x float> poison, <4 x i32> <i32 3, i32 0, i32 1, i32 2>
+  %36 = tail call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %35, <4 x float> splat (float 2.550000e+02))
+  %37 = tail call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %36, <4 x float> zeroinitializer)
+  %38 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %37)
+  %39 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %38, <4 x i32> poison)
+  %40 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %39, <8 x i16> poison)
+  %41 = bitcast <16 x i8> %40 to <4 x i32>
+  %42 = extractelement <4 x i32> %41, i64 0
+  store i32 %42, ptr %.pn67, align 4, !tbaa !18
+  %43 = getelementptr inbounds nuw i8, ptr %.268, i64 16
   %.256 = getelementptr inbounds nuw i8, ptr %.25669, i64 4
   %.not = icmp ugt ptr %.256, %5
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !263
@@ -8012,141 +7987,140 @@ define void @stbir__encode_uint8_srgb_ARGB(ptr noundef writeonly captures(addres
   %124 = getelementptr inbounds nuw i8, ptr %.0134, i64 64
   %125 = getelementptr inbounds nuw i8, ptr %.0135, i64 16
   %.not141 = icmp ugt ptr %125, %10
-  %126 = icmp eq ptr %125, %5
-  %. = select i1 %126, ptr %125, ptr %10
-  %.142 = select i1 %126, ptr %124, ptr %9
-  %.1136 = select i1 %.not141, ptr %., ptr %125
-  %.1 = select i1 %.not141, ptr %.142, ptr %124
-  br i1 %126, label %.loopexit, label %11
+  %126 = icmp ne ptr %125, %5
+  %127 = and i1 %.not141, %126
+  %.1136 = select i1 %127, ptr %10, ptr %125
+  %.1 = select i1 %127, ptr %9, ptr %124
+  br i1 %126, label %11, label %.loopexit
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %stbir__linear_to_srgb_uchar.exit149
   %.2137155 = phi ptr [ %.2137, %stbir__linear_to_srgb_uchar.exit149 ], [ %.2137151, %.lr.ph.preheader ]
-  %.2154 = phi ptr [ %213, %stbir__linear_to_srgb_uchar.exit149 ], [ %2, %.lr.ph.preheader ]
+  %.2154 = phi ptr [ %214, %stbir__linear_to_srgb_uchar.exit149 ], [ %2, %.lr.ph.preheader ]
   %.pn153 = phi ptr [ %.2137155, %stbir__linear_to_srgb_uchar.exit149 ], [ %0, %.lr.ph.preheader ]
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.2154) #24, !srcloc !266
-  %127 = getelementptr inbounds nuw i8, ptr %.2154, i64 12
-  %128 = load float, ptr %127, align 4, !tbaa !50
-  %129 = fcmp ogt float %128, 0x3F20000000000000
-  br i1 %129, label %130, label %stbir__linear_to_srgb_uchar.exit
+  %128 = getelementptr inbounds nuw i8, ptr %.2154, i64 12
+  %129 = load float, ptr %128, align 4, !tbaa !50
+  %130 = fcmp ogt float %129, 0x3F20000000000000
+  br i1 %130, label %131, label %stbir__linear_to_srgb_uchar.exit
 
-130:                                              ; preds = %.lr.ph
-  %131 = fcmp ogt float %128, 0x3FEFFFFFE0000000
-  br i1 %131, label %stbir__linear_to_srgb_uchar.exit, label %132
+131:                                              ; preds = %.lr.ph
+  %132 = fcmp ogt float %129, 0x3FEFFFFFE0000000
+  br i1 %132, label %stbir__linear_to_srgb_uchar.exit, label %133
 
-132:                                              ; preds = %130
-  %133 = bitcast float %128 to i32
-  %134 = add nsw i32 %133, -956301312
-  %135 = lshr i32 %134, 20
-  %136 = zext nneg i32 %135 to i64
-  %137 = getelementptr inbounds nuw i32, ptr @fp32_to_srgb8_tab4, i64 %136
-  %138 = load i32, ptr %137, align 4, !tbaa !18
-  %139 = lshr i32 %138, 7
-  %140 = and i32 %139, 16776704
-  %141 = and i32 %138, 65535
-  %142 = lshr i32 %133, 12
-  %143 = and i32 %142, 255
-  %144 = mul nuw nsw i32 %141, %143
-  %145 = add nuw nsw i32 %140, %144
-  %146 = lshr i32 %145, 16
-  %147 = trunc i32 %146 to i8
+133:                                              ; preds = %131
+  %134 = bitcast float %129 to i32
+  %135 = add nsw i32 %134, -956301312
+  %136 = lshr i32 %135, 20
+  %137 = zext nneg i32 %136 to i64
+  %138 = getelementptr inbounds nuw i32, ptr @fp32_to_srgb8_tab4, i64 %137
+  %139 = load i32, ptr %138, align 4, !tbaa !18
+  %140 = lshr i32 %139, 7
+  %141 = and i32 %140, 16776704
+  %142 = and i32 %139, 65535
+  %143 = lshr i32 %134, 12
+  %144 = and i32 %143, 255
+  %145 = mul nuw nsw i32 %142, %144
+  %146 = add nuw nsw i32 %141, %145
+  %147 = lshr i32 %146, 16
+  %148 = trunc i32 %147 to i8
   br label %stbir__linear_to_srgb_uchar.exit
 
-stbir__linear_to_srgb_uchar.exit:                 ; preds = %.lr.ph, %130, %132
-  %.0.i = phi i8 [ 0, %.lr.ph ], [ %147, %132 ], [ -1, %130 ]
+stbir__linear_to_srgb_uchar.exit:                 ; preds = %.lr.ph, %131, %133
+  %.0.i = phi i8 [ 0, %.lr.ph ], [ %148, %133 ], [ -1, %131 ]
   store i8 %.0.i, ptr %.pn153, align 1, !tbaa !4
-  %148 = load float, ptr %.2154, align 4, !tbaa !50
-  %149 = fcmp ogt float %148, 0x3F20000000000000
-  br i1 %149, label %150, label %stbir__linear_to_srgb_uchar.exit145
+  %149 = load float, ptr %.2154, align 4, !tbaa !50
+  %150 = fcmp ogt float %149, 0x3F20000000000000
+  br i1 %150, label %151, label %stbir__linear_to_srgb_uchar.exit145
 
-150:                                              ; preds = %stbir__linear_to_srgb_uchar.exit
-  %151 = fcmp ogt float %148, 0x3FEFFFFFE0000000
-  br i1 %151, label %stbir__linear_to_srgb_uchar.exit145, label %152
+151:                                              ; preds = %stbir__linear_to_srgb_uchar.exit
+  %152 = fcmp ogt float %149, 0x3FEFFFFFE0000000
+  br i1 %152, label %stbir__linear_to_srgb_uchar.exit145, label %153
 
-152:                                              ; preds = %150
-  %153 = bitcast float %148 to i32
-  %154 = add nsw i32 %153, -956301312
-  %155 = lshr i32 %154, 20
-  %156 = zext nneg i32 %155 to i64
-  %157 = getelementptr inbounds nuw i32, ptr @fp32_to_srgb8_tab4, i64 %156
-  %158 = load i32, ptr %157, align 4, !tbaa !18
-  %159 = lshr i32 %158, 7
-  %160 = and i32 %159, 16776704
-  %161 = and i32 %158, 65535
-  %162 = lshr i32 %153, 12
-  %163 = and i32 %162, 255
-  %164 = mul nuw nsw i32 %161, %163
-  %165 = add nuw nsw i32 %160, %164
-  %166 = lshr i32 %165, 16
-  %167 = trunc i32 %166 to i8
+153:                                              ; preds = %151
+  %154 = bitcast float %149 to i32
+  %155 = add nsw i32 %154, -956301312
+  %156 = lshr i32 %155, 20
+  %157 = zext nneg i32 %156 to i64
+  %158 = getelementptr inbounds nuw i32, ptr @fp32_to_srgb8_tab4, i64 %157
+  %159 = load i32, ptr %158, align 4, !tbaa !18
+  %160 = lshr i32 %159, 7
+  %161 = and i32 %160, 16776704
+  %162 = and i32 %159, 65535
+  %163 = lshr i32 %154, 12
+  %164 = and i32 %163, 255
+  %165 = mul nuw nsw i32 %162, %164
+  %166 = add nuw nsw i32 %161, %165
+  %167 = lshr i32 %166, 16
+  %168 = trunc i32 %167 to i8
   br label %stbir__linear_to_srgb_uchar.exit145
 
-stbir__linear_to_srgb_uchar.exit145:              ; preds = %stbir__linear_to_srgb_uchar.exit, %150, %152
-  %.0.i144 = phi i8 [ 0, %stbir__linear_to_srgb_uchar.exit ], [ %167, %152 ], [ -1, %150 ]
-  %168 = getelementptr inbounds nuw i8, ptr %.pn153, i64 1
-  store i8 %.0.i144, ptr %168, align 1, !tbaa !4
-  %169 = getelementptr inbounds nuw i8, ptr %.2154, i64 4
-  %170 = load float, ptr %169, align 4, !tbaa !50
-  %171 = fcmp ogt float %170, 0x3F20000000000000
-  br i1 %171, label %172, label %stbir__linear_to_srgb_uchar.exit147
+stbir__linear_to_srgb_uchar.exit145:              ; preds = %stbir__linear_to_srgb_uchar.exit, %151, %153
+  %.0.i144 = phi i8 [ 0, %stbir__linear_to_srgb_uchar.exit ], [ %168, %153 ], [ -1, %151 ]
+  %169 = getelementptr inbounds nuw i8, ptr %.pn153, i64 1
+  store i8 %.0.i144, ptr %169, align 1, !tbaa !4
+  %170 = getelementptr inbounds nuw i8, ptr %.2154, i64 4
+  %171 = load float, ptr %170, align 4, !tbaa !50
+  %172 = fcmp ogt float %171, 0x3F20000000000000
+  br i1 %172, label %173, label %stbir__linear_to_srgb_uchar.exit147
 
-172:                                              ; preds = %stbir__linear_to_srgb_uchar.exit145
-  %173 = fcmp ogt float %170, 0x3FEFFFFFE0000000
-  br i1 %173, label %stbir__linear_to_srgb_uchar.exit147, label %174
+173:                                              ; preds = %stbir__linear_to_srgb_uchar.exit145
+  %174 = fcmp ogt float %171, 0x3FEFFFFFE0000000
+  br i1 %174, label %stbir__linear_to_srgb_uchar.exit147, label %175
 
-174:                                              ; preds = %172
-  %175 = bitcast float %170 to i32
-  %176 = add nsw i32 %175, -956301312
-  %177 = lshr i32 %176, 20
-  %178 = zext nneg i32 %177 to i64
-  %179 = getelementptr inbounds nuw i32, ptr @fp32_to_srgb8_tab4, i64 %178
-  %180 = load i32, ptr %179, align 4, !tbaa !18
-  %181 = lshr i32 %180, 7
-  %182 = and i32 %181, 16776704
-  %183 = and i32 %180, 65535
-  %184 = lshr i32 %175, 12
-  %185 = and i32 %184, 255
-  %186 = mul nuw nsw i32 %183, %185
-  %187 = add nuw nsw i32 %182, %186
-  %188 = lshr i32 %187, 16
-  %189 = trunc i32 %188 to i8
+175:                                              ; preds = %173
+  %176 = bitcast float %171 to i32
+  %177 = add nsw i32 %176, -956301312
+  %178 = lshr i32 %177, 20
+  %179 = zext nneg i32 %178 to i64
+  %180 = getelementptr inbounds nuw i32, ptr @fp32_to_srgb8_tab4, i64 %179
+  %181 = load i32, ptr %180, align 4, !tbaa !18
+  %182 = lshr i32 %181, 7
+  %183 = and i32 %182, 16776704
+  %184 = and i32 %181, 65535
+  %185 = lshr i32 %176, 12
+  %186 = and i32 %185, 255
+  %187 = mul nuw nsw i32 %184, %186
+  %188 = add nuw nsw i32 %183, %187
+  %189 = lshr i32 %188, 16
+  %190 = trunc i32 %189 to i8
   br label %stbir__linear_to_srgb_uchar.exit147
 
-stbir__linear_to_srgb_uchar.exit147:              ; preds = %stbir__linear_to_srgb_uchar.exit145, %172, %174
-  %.0.i146 = phi i8 [ 0, %stbir__linear_to_srgb_uchar.exit145 ], [ %189, %174 ], [ -1, %172 ]
-  %190 = getelementptr inbounds nuw i8, ptr %.pn153, i64 2
-  store i8 %.0.i146, ptr %190, align 1, !tbaa !4
-  %191 = getelementptr inbounds nuw i8, ptr %.2154, i64 8
-  %192 = load float, ptr %191, align 4, !tbaa !50
-  %193 = fcmp ogt float %192, 0x3F20000000000000
-  br i1 %193, label %194, label %stbir__linear_to_srgb_uchar.exit149
+stbir__linear_to_srgb_uchar.exit147:              ; preds = %stbir__linear_to_srgb_uchar.exit145, %173, %175
+  %.0.i146 = phi i8 [ 0, %stbir__linear_to_srgb_uchar.exit145 ], [ %190, %175 ], [ -1, %173 ]
+  %191 = getelementptr inbounds nuw i8, ptr %.pn153, i64 2
+  store i8 %.0.i146, ptr %191, align 1, !tbaa !4
+  %192 = getelementptr inbounds nuw i8, ptr %.2154, i64 8
+  %193 = load float, ptr %192, align 4, !tbaa !50
+  %194 = fcmp ogt float %193, 0x3F20000000000000
+  br i1 %194, label %195, label %stbir__linear_to_srgb_uchar.exit149
 
-194:                                              ; preds = %stbir__linear_to_srgb_uchar.exit147
-  %195 = fcmp ogt float %192, 0x3FEFFFFFE0000000
-  br i1 %195, label %stbir__linear_to_srgb_uchar.exit149, label %196
+195:                                              ; preds = %stbir__linear_to_srgb_uchar.exit147
+  %196 = fcmp ogt float %193, 0x3FEFFFFFE0000000
+  br i1 %196, label %stbir__linear_to_srgb_uchar.exit149, label %197
 
-196:                                              ; preds = %194
-  %197 = bitcast float %192 to i32
-  %198 = add nsw i32 %197, -956301312
-  %199 = lshr i32 %198, 20
-  %200 = zext nneg i32 %199 to i64
-  %201 = getelementptr inbounds nuw i32, ptr @fp32_to_srgb8_tab4, i64 %200
-  %202 = load i32, ptr %201, align 4, !tbaa !18
-  %203 = lshr i32 %202, 7
-  %204 = and i32 %203, 16776704
-  %205 = and i32 %202, 65535
-  %206 = lshr i32 %197, 12
-  %207 = and i32 %206, 255
-  %208 = mul nuw nsw i32 %205, %207
-  %209 = add nuw nsw i32 %204, %208
-  %210 = lshr i32 %209, 16
-  %211 = trunc i32 %210 to i8
+197:                                              ; preds = %195
+  %198 = bitcast float %193 to i32
+  %199 = add nsw i32 %198, -956301312
+  %200 = lshr i32 %199, 20
+  %201 = zext nneg i32 %200 to i64
+  %202 = getelementptr inbounds nuw i32, ptr @fp32_to_srgb8_tab4, i64 %201
+  %203 = load i32, ptr %202, align 4, !tbaa !18
+  %204 = lshr i32 %203, 7
+  %205 = and i32 %204, 16776704
+  %206 = and i32 %203, 65535
+  %207 = lshr i32 %198, 12
+  %208 = and i32 %207, 255
+  %209 = mul nuw nsw i32 %206, %208
+  %210 = add nuw nsw i32 %205, %209
+  %211 = lshr i32 %210, 16
+  %212 = trunc i32 %211 to i8
   br label %stbir__linear_to_srgb_uchar.exit149
 
-stbir__linear_to_srgb_uchar.exit149:              ; preds = %stbir__linear_to_srgb_uchar.exit147, %194, %196
-  %.0.i148 = phi i8 [ 0, %stbir__linear_to_srgb_uchar.exit147 ], [ %211, %196 ], [ -1, %194 ]
-  %212 = getelementptr inbounds nuw i8, ptr %.pn153, i64 3
-  store i8 %.0.i148, ptr %212, align 1, !tbaa !4
-  %213 = getelementptr inbounds nuw i8, ptr %.2154, i64 16
+stbir__linear_to_srgb_uchar.exit149:              ; preds = %stbir__linear_to_srgb_uchar.exit147, %195, %197
+  %.0.i148 = phi i8 [ 0, %stbir__linear_to_srgb_uchar.exit147 ], [ %212, %197 ], [ -1, %195 ]
+  %213 = getelementptr inbounds nuw i8, ptr %.pn153, i64 3
+  store i8 %.0.i148, ptr %213, align 1, !tbaa !4
+  %214 = getelementptr inbounds nuw i8, ptr %.2154, i64 16
   %.2137 = getelementptr inbounds nuw i8, ptr %.2137155, i64 4
   %.not = icmp ugt ptr %.2137, %5
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !267
@@ -8337,123 +8311,122 @@ define void @stbir__encode_uint8_srgb4_linearalpha_ARGB(ptr noundef writeonly ca
   %106 = getelementptr inbounds nuw i8, ptr %.0125, i64 16
   %107 = getelementptr inbounds nuw i8, ptr %.0123, i64 64
   %.not = icmp ugt ptr %106, %10
-  %108 = icmp eq ptr %106, %5
-  %. = select i1 %108, ptr %106, ptr %10
-  %.133 = select i1 %108, ptr %107, ptr %9
-  %.1126 = select i1 %.not, ptr %., ptr %106
-  %.1124 = select i1 %.not, ptr %.133, ptr %107
-  br i1 %108, label %.loopexit, label %11
+  %108 = icmp ne ptr %106, %5
+  %109 = and i1 %.not, %108
+  %.1126 = select i1 %109, ptr %10, ptr %106
+  %.1124 = select i1 %109, ptr %9, ptr %107
+  br i1 %108, label %11, label %.loopexit
 
 .preheader:                                       ; preds = %3, %stbir__linear_to_srgb_uchar.exit138
-  %.2127 = phi ptr [ %181, %stbir__linear_to_srgb_uchar.exit138 ], [ %0, %3 ]
-  %.2 = phi ptr [ %182, %stbir__linear_to_srgb_uchar.exit138 ], [ %2, %3 ]
+  %.2127 = phi ptr [ %182, %stbir__linear_to_srgb_uchar.exit138 ], [ %0, %3 ]
+  %.2 = phi ptr [ %183, %stbir__linear_to_srgb_uchar.exit138 ], [ %2, %3 ]
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.2) #24, !srcloc !270
-  %109 = load float, ptr %.2, align 4, !tbaa !50
-  %110 = fcmp ogt float %109, 0x3F20000000000000
-  br i1 %110, label %111, label %stbir__linear_to_srgb_uchar.exit
+  %110 = load float, ptr %.2, align 4, !tbaa !50
+  %111 = fcmp ogt float %110, 0x3F20000000000000
+  br i1 %111, label %112, label %stbir__linear_to_srgb_uchar.exit
 
-111:                                              ; preds = %.preheader
-  %112 = fcmp ogt float %109, 0x3FEFFFFFE0000000
-  br i1 %112, label %stbir__linear_to_srgb_uchar.exit, label %113
+112:                                              ; preds = %.preheader
+  %113 = fcmp ogt float %110, 0x3FEFFFFFE0000000
+  br i1 %113, label %stbir__linear_to_srgb_uchar.exit, label %114
 
-113:                                              ; preds = %111
-  %114 = bitcast float %109 to i32
-  %115 = add nsw i32 %114, -956301312
-  %116 = lshr i32 %115, 20
-  %117 = zext nneg i32 %116 to i64
-  %118 = getelementptr inbounds nuw i32, ptr @fp32_to_srgb8_tab4, i64 %117
-  %119 = load i32, ptr %118, align 4, !tbaa !18
-  %120 = lshr i32 %119, 7
-  %121 = and i32 %120, 16776704
-  %122 = and i32 %119, 65535
-  %123 = lshr i32 %114, 12
-  %124 = and i32 %123, 255
-  %125 = mul nuw nsw i32 %122, %124
-  %126 = add nuw nsw i32 %121, %125
-  %127 = lshr i32 %126, 16
-  %128 = trunc i32 %127 to i8
+114:                                              ; preds = %112
+  %115 = bitcast float %110 to i32
+  %116 = add nsw i32 %115, -956301312
+  %117 = lshr i32 %116, 20
+  %118 = zext nneg i32 %117 to i64
+  %119 = getelementptr inbounds nuw i32, ptr @fp32_to_srgb8_tab4, i64 %118
+  %120 = load i32, ptr %119, align 4, !tbaa !18
+  %121 = lshr i32 %120, 7
+  %122 = and i32 %121, 16776704
+  %123 = and i32 %120, 65535
+  %124 = lshr i32 %115, 12
+  %125 = and i32 %124, 255
+  %126 = mul nuw nsw i32 %123, %125
+  %127 = add nuw nsw i32 %122, %126
+  %128 = lshr i32 %127, 16
+  %129 = trunc i32 %128 to i8
   br label %stbir__linear_to_srgb_uchar.exit
 
-stbir__linear_to_srgb_uchar.exit:                 ; preds = %.preheader, %111, %113
-  %.0.i = phi i8 [ 0, %.preheader ], [ %128, %113 ], [ -1, %111 ]
-  %129 = getelementptr inbounds nuw i8, ptr %.2127, i64 1
-  store i8 %.0.i, ptr %129, align 1, !tbaa !4
-  %130 = getelementptr inbounds nuw i8, ptr %.2, i64 4
-  %131 = load float, ptr %130, align 4, !tbaa !50
-  %132 = fcmp ogt float %131, 0x3F20000000000000
-  br i1 %132, label %133, label %stbir__linear_to_srgb_uchar.exit136
+stbir__linear_to_srgb_uchar.exit:                 ; preds = %.preheader, %112, %114
+  %.0.i = phi i8 [ 0, %.preheader ], [ %129, %114 ], [ -1, %112 ]
+  %130 = getelementptr inbounds nuw i8, ptr %.2127, i64 1
+  store i8 %.0.i, ptr %130, align 1, !tbaa !4
+  %131 = getelementptr inbounds nuw i8, ptr %.2, i64 4
+  %132 = load float, ptr %131, align 4, !tbaa !50
+  %133 = fcmp ogt float %132, 0x3F20000000000000
+  br i1 %133, label %134, label %stbir__linear_to_srgb_uchar.exit136
 
-133:                                              ; preds = %stbir__linear_to_srgb_uchar.exit
-  %134 = fcmp ogt float %131, 0x3FEFFFFFE0000000
-  br i1 %134, label %stbir__linear_to_srgb_uchar.exit136, label %135
+134:                                              ; preds = %stbir__linear_to_srgb_uchar.exit
+  %135 = fcmp ogt float %132, 0x3FEFFFFFE0000000
+  br i1 %135, label %stbir__linear_to_srgb_uchar.exit136, label %136
 
-135:                                              ; preds = %133
-  %136 = bitcast float %131 to i32
-  %137 = add nsw i32 %136, -956301312
-  %138 = lshr i32 %137, 20
-  %139 = zext nneg i32 %138 to i64
-  %140 = getelementptr inbounds nuw i32, ptr @fp32_to_srgb8_tab4, i64 %139
-  %141 = load i32, ptr %140, align 4, !tbaa !18
-  %142 = lshr i32 %141, 7
-  %143 = and i32 %142, 16776704
-  %144 = and i32 %141, 65535
-  %145 = lshr i32 %136, 12
-  %146 = and i32 %145, 255
-  %147 = mul nuw nsw i32 %144, %146
-  %148 = add nuw nsw i32 %143, %147
-  %149 = lshr i32 %148, 16
-  %150 = trunc i32 %149 to i8
+136:                                              ; preds = %134
+  %137 = bitcast float %132 to i32
+  %138 = add nsw i32 %137, -956301312
+  %139 = lshr i32 %138, 20
+  %140 = zext nneg i32 %139 to i64
+  %141 = getelementptr inbounds nuw i32, ptr @fp32_to_srgb8_tab4, i64 %140
+  %142 = load i32, ptr %141, align 4, !tbaa !18
+  %143 = lshr i32 %142, 7
+  %144 = and i32 %143, 16776704
+  %145 = and i32 %142, 65535
+  %146 = lshr i32 %137, 12
+  %147 = and i32 %146, 255
+  %148 = mul nuw nsw i32 %145, %147
+  %149 = add nuw nsw i32 %144, %148
+  %150 = lshr i32 %149, 16
+  %151 = trunc i32 %150 to i8
   br label %stbir__linear_to_srgb_uchar.exit136
 
-stbir__linear_to_srgb_uchar.exit136:              ; preds = %stbir__linear_to_srgb_uchar.exit, %133, %135
-  %.0.i135 = phi i8 [ 0, %stbir__linear_to_srgb_uchar.exit ], [ %150, %135 ], [ -1, %133 ]
-  %151 = getelementptr inbounds nuw i8, ptr %.2127, i64 2
-  store i8 %.0.i135, ptr %151, align 1, !tbaa !4
-  %152 = getelementptr inbounds nuw i8, ptr %.2, i64 8
-  %153 = load float, ptr %152, align 4, !tbaa !50
-  %154 = fcmp ogt float %153, 0x3F20000000000000
-  br i1 %154, label %155, label %stbir__linear_to_srgb_uchar.exit138
+stbir__linear_to_srgb_uchar.exit136:              ; preds = %stbir__linear_to_srgb_uchar.exit, %134, %136
+  %.0.i135 = phi i8 [ 0, %stbir__linear_to_srgb_uchar.exit ], [ %151, %136 ], [ -1, %134 ]
+  %152 = getelementptr inbounds nuw i8, ptr %.2127, i64 2
+  store i8 %.0.i135, ptr %152, align 1, !tbaa !4
+  %153 = getelementptr inbounds nuw i8, ptr %.2, i64 8
+  %154 = load float, ptr %153, align 4, !tbaa !50
+  %155 = fcmp ogt float %154, 0x3F20000000000000
+  br i1 %155, label %156, label %stbir__linear_to_srgb_uchar.exit138
 
-155:                                              ; preds = %stbir__linear_to_srgb_uchar.exit136
-  %156 = fcmp ogt float %153, 0x3FEFFFFFE0000000
-  br i1 %156, label %stbir__linear_to_srgb_uchar.exit138, label %157
+156:                                              ; preds = %stbir__linear_to_srgb_uchar.exit136
+  %157 = fcmp ogt float %154, 0x3FEFFFFFE0000000
+  br i1 %157, label %stbir__linear_to_srgb_uchar.exit138, label %158
 
-157:                                              ; preds = %155
-  %158 = bitcast float %153 to i32
-  %159 = add nsw i32 %158, -956301312
-  %160 = lshr i32 %159, 20
-  %161 = zext nneg i32 %160 to i64
-  %162 = getelementptr inbounds nuw i32, ptr @fp32_to_srgb8_tab4, i64 %161
-  %163 = load i32, ptr %162, align 4, !tbaa !18
-  %164 = lshr i32 %163, 7
-  %165 = and i32 %164, 16776704
-  %166 = and i32 %163, 65535
-  %167 = lshr i32 %158, 12
-  %168 = and i32 %167, 255
-  %169 = mul nuw nsw i32 %166, %168
-  %170 = add nuw nsw i32 %165, %169
-  %171 = lshr i32 %170, 16
-  %172 = trunc i32 %171 to i8
+158:                                              ; preds = %156
+  %159 = bitcast float %154 to i32
+  %160 = add nsw i32 %159, -956301312
+  %161 = lshr i32 %160, 20
+  %162 = zext nneg i32 %161 to i64
+  %163 = getelementptr inbounds nuw i32, ptr @fp32_to_srgb8_tab4, i64 %162
+  %164 = load i32, ptr %163, align 4, !tbaa !18
+  %165 = lshr i32 %164, 7
+  %166 = and i32 %165, 16776704
+  %167 = and i32 %164, 65535
+  %168 = lshr i32 %159, 12
+  %169 = and i32 %168, 255
+  %170 = mul nuw nsw i32 %167, %169
+  %171 = add nuw nsw i32 %166, %170
+  %172 = lshr i32 %171, 16
+  %173 = trunc i32 %172 to i8
   br label %stbir__linear_to_srgb_uchar.exit138
 
-stbir__linear_to_srgb_uchar.exit138:              ; preds = %stbir__linear_to_srgb_uchar.exit136, %155, %157
-  %.0.i137 = phi i8 [ 0, %stbir__linear_to_srgb_uchar.exit136 ], [ %172, %157 ], [ -1, %155 ]
-  %173 = getelementptr inbounds nuw i8, ptr %.2127, i64 3
-  store i8 %.0.i137, ptr %173, align 1, !tbaa !4
-  %174 = getelementptr inbounds nuw i8, ptr %.2, i64 12
-  %175 = load float, ptr %174, align 4, !tbaa !50
-  %176 = fmul float %175, 2.550000e+02
-  %177 = fadd float %176, 5.000000e-01
-  %178 = fcmp olt float %177, 0.000000e+00
-  %.0 = select i1 %178, float 0.000000e+00, float %177
-  %179 = fcmp ogt float %.0, 2.550000e+02
-  %.1 = select i1 %179, float 2.550000e+02, float %.0
-  %180 = fptoui float %.1 to i8
-  store i8 %180, ptr %.2127, align 1, !tbaa !4
-  %181 = getelementptr inbounds nuw i8, ptr %.2127, i64 4
-  %182 = getelementptr inbounds nuw i8, ptr %.2, i64 16
-  %183 = icmp ult ptr %181, %5
-  br i1 %183, label %.preheader, label %.loopexit, !llvm.loop !271
+stbir__linear_to_srgb_uchar.exit138:              ; preds = %stbir__linear_to_srgb_uchar.exit136, %156, %158
+  %.0.i137 = phi i8 [ 0, %stbir__linear_to_srgb_uchar.exit136 ], [ %173, %158 ], [ -1, %156 ]
+  %174 = getelementptr inbounds nuw i8, ptr %.2127, i64 3
+  store i8 %.0.i137, ptr %174, align 1, !tbaa !4
+  %175 = getelementptr inbounds nuw i8, ptr %.2, i64 12
+  %176 = load float, ptr %175, align 4, !tbaa !50
+  %177 = fmul float %176, 2.550000e+02
+  %178 = fadd float %177, 5.000000e-01
+  %179 = fcmp olt float %178, 0.000000e+00
+  %.0 = select i1 %179, float 0.000000e+00, float %178
+  %180 = fcmp ogt float %.0, 2.550000e+02
+  %.1 = select i1 %180, float 2.550000e+02, float %.0
+  %181 = fptoui float %.1 to i8
+  store i8 %181, ptr %.2127, align 1, !tbaa !4
+  %182 = getelementptr inbounds nuw i8, ptr %.2127, i64 4
+  %183 = getelementptr inbounds nuw i8, ptr %.2, i64 16
+  %184 = icmp ult ptr %182, %5
+  br i1 %184, label %.preheader, label %.loopexit, !llvm.loop !271
 
 .loopexit:                                        ; preds = %stbir__linear_to_srgb_uchar.exit138, %11
   ret void
@@ -8502,41 +8475,40 @@ define void @stbir__decode_uint16_linear_scaled_ARGB(ptr noundef %0, i32 noundef
   %24 = getelementptr inbounds nuw i8, ptr %.047, i64 32
   %25 = getelementptr inbounds nuw i8, ptr %.048, i64 16
   %.not54 = icmp ugt ptr %24, %10
-  %26 = icmp eq ptr %24, %5
-  %. = select i1 %26, ptr %25, ptr %7
-  %.55 = select i1 %26, ptr %24, ptr %10
-  %.149 = select i1 %.not54, ptr %., ptr %25
-  %.1 = select i1 %.not54, ptr %.55, ptr %24
-  br i1 %26, label %.loopexit, label %11
+  %26 = icmp ne ptr %24, %5
+  %27 = and i1 %.not54, %26
+  %.149 = select i1 %27, ptr %7, ptr %25
+  %.1 = select i1 %27, ptr %10, ptr %24
+  br i1 %26, label %11, label %.loopexit
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.262 = phi ptr [ %.2, %.lr.ph ], [ %.258, %.lr.ph.preheader ]
   %.pn61 = phi ptr [ %.262, %.lr.ph ], [ %0, %.lr.ph.preheader ]
-  %.25060 = phi ptr [ %45, %.lr.ph ], [ %2, %.lr.ph.preheader ]
+  %.25060 = phi ptr [ %46, %.lr.ph ], [ %2, %.lr.ph.preheader ]
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.262) #24, !srcloc !273
-  %27 = getelementptr inbounds nuw i8, ptr %.25060, i64 2
-  %28 = load i16, ptr %27, align 2, !tbaa !173
-  %29 = uitofp i16 %28 to float
-  %30 = fmul float %29, 0x3EF0001000000000
-  store float %30, ptr %.pn61, align 4, !tbaa !50
-  %31 = getelementptr inbounds nuw i8, ptr %.25060, i64 4
-  %32 = load i16, ptr %31, align 2, !tbaa !173
-  %33 = uitofp i16 %32 to float
-  %34 = fmul float %33, 0x3EF0001000000000
-  %35 = getelementptr inbounds nuw i8, ptr %.pn61, i64 4
-  store float %34, ptr %35, align 4, !tbaa !50
-  %36 = getelementptr inbounds nuw i8, ptr %.25060, i64 6
-  %37 = load i16, ptr %36, align 2, !tbaa !173
-  %38 = uitofp i16 %37 to float
-  %39 = fmul float %38, 0x3EF0001000000000
-  %40 = getelementptr inbounds nuw i8, ptr %.pn61, i64 8
-  store float %39, ptr %40, align 4, !tbaa !50
-  %41 = load i16, ptr %.25060, align 2, !tbaa !173
-  %42 = uitofp i16 %41 to float
-  %43 = fmul float %42, 0x3EF0001000000000
-  %44 = getelementptr inbounds nuw i8, ptr %.pn61, i64 12
-  store float %43, ptr %44, align 4, !tbaa !50
-  %45 = getelementptr inbounds nuw i8, ptr %.25060, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %.25060, i64 2
+  %29 = load i16, ptr %28, align 2, !tbaa !173
+  %30 = uitofp i16 %29 to float
+  %31 = fmul float %30, 0x3EF0001000000000
+  store float %31, ptr %.pn61, align 4, !tbaa !50
+  %32 = getelementptr inbounds nuw i8, ptr %.25060, i64 4
+  %33 = load i16, ptr %32, align 2, !tbaa !173
+  %34 = uitofp i16 %33 to float
+  %35 = fmul float %34, 0x3EF0001000000000
+  %36 = getelementptr inbounds nuw i8, ptr %.pn61, i64 4
+  store float %35, ptr %36, align 4, !tbaa !50
+  %37 = getelementptr inbounds nuw i8, ptr %.25060, i64 6
+  %38 = load i16, ptr %37, align 2, !tbaa !173
+  %39 = uitofp i16 %38 to float
+  %40 = fmul float %39, 0x3EF0001000000000
+  %41 = getelementptr inbounds nuw i8, ptr %.pn61, i64 8
+  store float %40, ptr %41, align 4, !tbaa !50
+  %42 = load i16, ptr %.25060, align 2, !tbaa !173
+  %43 = uitofp i16 %42 to float
+  %44 = fmul float %43, 0x3EF0001000000000
+  %45 = getelementptr inbounds nuw i8, ptr %.pn61, i64 12
+  store float %44, ptr %45, align 4, !tbaa !50
+  %46 = getelementptr inbounds nuw i8, ptr %.25060, i64 8
   %.2 = getelementptr inbounds nuw i8, ptr %.262, i64 16
   %.not = icmp ugt ptr %.2, %5
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !274
@@ -8596,34 +8568,33 @@ define void @stbir__encode_uint16_linear_scaled_ARGB(ptr noundef writeonly captu
   %33 = getelementptr inbounds nuw i8, ptr %.0, i64 32
   %34 = getelementptr inbounds nuw i8, ptr %.048, i64 16
   %.not55 = icmp ugt ptr %34, %10
-  %35 = icmp eq ptr %34, %5
-  %.56 = select i1 %35, ptr %34, ptr %10
-  %.57 = select i1 %35, ptr %33, ptr %9
-  %.149 = select i1 %.not55, ptr %.56, ptr %34
-  %.1 = select i1 %.not55, ptr %.57, ptr %33
-  br i1 %35, label %.loopexit, label %11
+  %35 = icmp ne ptr %34, %5
+  %36 = and i1 %.not55, %35
+  %.149 = select i1 %36, ptr %10, ptr %34
+  %.1 = select i1 %36, ptr %9, ptr %33
+  br i1 %35, label %11, label %.loopexit
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.25063 = phi ptr [ %.250, %.lr.ph ], [ %.25059, %.lr.ph.preheader ]
-  %.262 = phi ptr [ %50, %.lr.ph ], [ %2, %.lr.ph.preheader ]
+  %.262 = phi ptr [ %51, %.lr.ph ], [ %2, %.lr.ph.preheader ]
   %.pn61 = phi ptr [ %.25063, %.lr.ph ], [ %0, %.lr.ph.preheader ]
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.262) #24, !srcloc !276
-  %36 = load <4 x float>, ptr %.262, align 1, !tbaa !4
-  %37 = fmul <4 x float> %36, splat (float 6.553500e+04)
-  %38 = fadd <4 x float> %37, splat (float 5.000000e-01)
-  %39 = shufflevector <4 x float> %38, <4 x float> poison, <4 x i32> <i32 3, i32 0, i32 1, i32 2>
-  %40 = tail call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %39, <4 x float> splat (float 6.553500e+04))
-  %41 = tail call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %40, <4 x float> zeroinitializer)
-  %42 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %41)
-  %43 = load <4 x i32>, ptr @stbir__s32_32768, align 16, !tbaa !4
-  %44 = sub <4 x i32> %42, %43
-  %45 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %44, <4 x i32> poison)
-  %46 = load <8 x i16>, ptr @stbir__s16_32768, align 16, !tbaa !4
-  %47 = sub <8 x i16> %45, %46
-  %48 = bitcast <8 x i16> %47 to <2 x i64>
-  %49 = extractelement <2 x i64> %48, i64 0
-  store i64 %49, ptr %.pn61, align 1, !tbaa !4
-  %50 = getelementptr inbounds nuw i8, ptr %.262, i64 16
+  %37 = load <4 x float>, ptr %.262, align 1, !tbaa !4
+  %38 = fmul <4 x float> %37, splat (float 6.553500e+04)
+  %39 = fadd <4 x float> %38, splat (float 5.000000e-01)
+  %40 = shufflevector <4 x float> %39, <4 x float> poison, <4 x i32> <i32 3, i32 0, i32 1, i32 2>
+  %41 = tail call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %40, <4 x float> splat (float 6.553500e+04))
+  %42 = tail call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %41, <4 x float> zeroinitializer)
+  %43 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %42)
+  %44 = load <4 x i32>, ptr @stbir__s32_32768, align 16, !tbaa !4
+  %45 = sub <4 x i32> %43, %44
+  %46 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %45, <4 x i32> poison)
+  %47 = load <8 x i16>, ptr @stbir__s16_32768, align 16, !tbaa !4
+  %48 = sub <8 x i16> %46, %47
+  %49 = bitcast <8 x i16> %48 to <2 x i64>
+  %50 = extractelement <2 x i64> %49, i64 0
+  store i64 %50, ptr %.pn61, align 1, !tbaa !4
+  %51 = getelementptr inbounds nuw i8, ptr %.262, i64 16
   %.250 = getelementptr inbounds nuw i8, ptr %.25063, i64 8
   %.not = icmp ugt ptr %.250, %5
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !277
@@ -8673,37 +8644,36 @@ define void @stbir__decode_uint16_linear_ARGB(ptr noundef %0, i32 noundef %1, pt
   %22 = getelementptr inbounds nuw i8, ptr %.045, i64 32
   %23 = getelementptr inbounds nuw i8, ptr %.046, i64 16
   %.not52 = icmp ugt ptr %22, %10
-  %24 = icmp eq ptr %22, %5
-  %. = select i1 %24, ptr %23, ptr %7
-  %.53 = select i1 %24, ptr %22, ptr %10
-  %.147 = select i1 %.not52, ptr %., ptr %23
-  %.1 = select i1 %.not52, ptr %.53, ptr %22
-  br i1 %24, label %.loopexit, label %11
+  %24 = icmp ne ptr %22, %5
+  %25 = and i1 %.not52, %24
+  %.147 = select i1 %25, ptr %7, ptr %23
+  %.1 = select i1 %25, ptr %10, ptr %22
+  br i1 %24, label %11, label %.loopexit
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.260 = phi ptr [ %.2, %.lr.ph ], [ %.256, %.lr.ph.preheader ]
   %.pn59 = phi ptr [ %.260, %.lr.ph ], [ %0, %.lr.ph.preheader ]
-  %.24858 = phi ptr [ %39, %.lr.ph ], [ %2, %.lr.ph.preheader ]
+  %.24858 = phi ptr [ %40, %.lr.ph ], [ %2, %.lr.ph.preheader ]
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.260) #24, !srcloc !279
-  %25 = getelementptr inbounds nuw i8, ptr %.24858, i64 2
-  %26 = load i16, ptr %25, align 2, !tbaa !173
-  %27 = uitofp i16 %26 to float
-  store float %27, ptr %.pn59, align 4, !tbaa !50
-  %28 = getelementptr inbounds nuw i8, ptr %.24858, i64 4
-  %29 = load i16, ptr %28, align 2, !tbaa !173
-  %30 = uitofp i16 %29 to float
-  %31 = getelementptr inbounds nuw i8, ptr %.pn59, i64 4
-  store float %30, ptr %31, align 4, !tbaa !50
-  %32 = getelementptr inbounds nuw i8, ptr %.24858, i64 6
-  %33 = load i16, ptr %32, align 2, !tbaa !173
-  %34 = uitofp i16 %33 to float
-  %35 = getelementptr inbounds nuw i8, ptr %.pn59, i64 8
-  store float %34, ptr %35, align 4, !tbaa !50
-  %36 = load i16, ptr %.24858, align 2, !tbaa !173
-  %37 = uitofp i16 %36 to float
-  %38 = getelementptr inbounds nuw i8, ptr %.pn59, i64 12
-  store float %37, ptr %38, align 4, !tbaa !50
-  %39 = getelementptr inbounds nuw i8, ptr %.24858, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %.24858, i64 2
+  %27 = load i16, ptr %26, align 2, !tbaa !173
+  %28 = uitofp i16 %27 to float
+  store float %28, ptr %.pn59, align 4, !tbaa !50
+  %29 = getelementptr inbounds nuw i8, ptr %.24858, i64 4
+  %30 = load i16, ptr %29, align 2, !tbaa !173
+  %31 = uitofp i16 %30 to float
+  %32 = getelementptr inbounds nuw i8, ptr %.pn59, i64 4
+  store float %31, ptr %32, align 4, !tbaa !50
+  %33 = getelementptr inbounds nuw i8, ptr %.24858, i64 6
+  %34 = load i16, ptr %33, align 2, !tbaa !173
+  %35 = uitofp i16 %34 to float
+  %36 = getelementptr inbounds nuw i8, ptr %.pn59, i64 8
+  store float %35, ptr %36, align 4, !tbaa !50
+  %37 = load i16, ptr %.24858, align 2, !tbaa !173
+  %38 = uitofp i16 %37 to float
+  %39 = getelementptr inbounds nuw i8, ptr %.pn59, i64 12
+  store float %38, ptr %39, align 4, !tbaa !50
+  %40 = getelementptr inbounds nuw i8, ptr %.24858, i64 8
   %.2 = getelementptr inbounds nuw i8, ptr %.260, i64 16
   %.not = icmp ugt ptr %.2, %5
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !280
@@ -8761,33 +8731,32 @@ define void @stbir__encode_uint16_linear_ARGB(ptr noundef writeonly captures(add
   %31 = getelementptr inbounds nuw i8, ptr %.0, i64 32
   %32 = getelementptr inbounds nuw i8, ptr %.048, i64 16
   %.not55 = icmp ugt ptr %32, %10
-  %33 = icmp eq ptr %32, %5
-  %.56 = select i1 %33, ptr %32, ptr %10
-  %.57 = select i1 %33, ptr %31, ptr %9
-  %.149 = select i1 %.not55, ptr %.56, ptr %32
-  %.1 = select i1 %.not55, ptr %.57, ptr %31
-  br i1 %33, label %.loopexit, label %11
+  %33 = icmp ne ptr %32, %5
+  %34 = and i1 %.not55, %33
+  %.149 = select i1 %34, ptr %10, ptr %32
+  %.1 = select i1 %34, ptr %9, ptr %31
+  br i1 %33, label %11, label %.loopexit
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.25063 = phi ptr [ %.250, %.lr.ph ], [ %.25059, %.lr.ph.preheader ]
-  %.262 = phi ptr [ %47, %.lr.ph ], [ %2, %.lr.ph.preheader ]
+  %.262 = phi ptr [ %48, %.lr.ph ], [ %2, %.lr.ph.preheader ]
   %.pn61 = phi ptr [ %.25063, %.lr.ph ], [ %0, %.lr.ph.preheader ]
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.262) #24, !srcloc !282
-  %34 = load <4 x float>, ptr %.262, align 1, !tbaa !4
-  %35 = fadd <4 x float> %34, splat (float 5.000000e-01)
-  %36 = shufflevector <4 x float> %35, <4 x float> poison, <4 x i32> <i32 3, i32 0, i32 1, i32 2>
-  %37 = tail call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %36, <4 x float> splat (float 6.553500e+04))
-  %38 = tail call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %37, <4 x float> zeroinitializer)
-  %39 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %38)
-  %40 = load <4 x i32>, ptr @stbir__s32_32768, align 16, !tbaa !4
-  %41 = sub <4 x i32> %39, %40
-  %42 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %41, <4 x i32> poison)
-  %43 = load <8 x i16>, ptr @stbir__s16_32768, align 16, !tbaa !4
-  %44 = sub <8 x i16> %42, %43
-  %45 = bitcast <8 x i16> %44 to <2 x i64>
-  %46 = extractelement <2 x i64> %45, i64 0
-  store i64 %46, ptr %.pn61, align 1, !tbaa !4
-  %47 = getelementptr inbounds nuw i8, ptr %.262, i64 16
+  %35 = load <4 x float>, ptr %.262, align 1, !tbaa !4
+  %36 = fadd <4 x float> %35, splat (float 5.000000e-01)
+  %37 = shufflevector <4 x float> %36, <4 x float> poison, <4 x i32> <i32 3, i32 0, i32 1, i32 2>
+  %38 = tail call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %37, <4 x float> splat (float 6.553500e+04))
+  %39 = tail call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %38, <4 x float> zeroinitializer)
+  %40 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %39)
+  %41 = load <4 x i32>, ptr @stbir__s32_32768, align 16, !tbaa !4
+  %42 = sub <4 x i32> %40, %41
+  %43 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %42, <4 x i32> poison)
+  %44 = load <8 x i16>, ptr @stbir__s16_32768, align 16, !tbaa !4
+  %45 = sub <8 x i16> %43, %44
+  %46 = bitcast <8 x i16> %45 to <2 x i64>
+  %47 = extractelement <2 x i64> %46, i64 0
+  store i64 %47, ptr %.pn61, align 1, !tbaa !4
+  %48 = getelementptr inbounds nuw i8, ptr %.262, i64 16
   %.250 = getelementptr inbounds nuw i8, ptr %.25063, i64 8
   %.not = icmp ugt ptr %.250, %5
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !283
@@ -9418,41 +9387,40 @@ define void @stbir__decode_uint8_linear_scaled_ABGR(ptr noundef %0, i32 noundef 
   %40 = getelementptr inbounds nuw i8, ptr %.065, i64 64
   %41 = getelementptr inbounds nuw i8, ptr %.066, i64 16
   %.not72 = icmp ugt ptr %40, %10
-  %42 = icmp eq ptr %40, %5
-  %. = select i1 %42, ptr %41, ptr %7
-  %.73 = select i1 %42, ptr %40, ptr %10
-  %.167 = select i1 %.not72, ptr %., ptr %41
-  %.1 = select i1 %.not72, ptr %.73, ptr %40
-  br i1 %42, label %.loopexit, label %11
+  %42 = icmp ne ptr %40, %5
+  %43 = and i1 %.not72, %42
+  %.167 = select i1 %43, ptr %7, ptr %41
+  %.1 = select i1 %43, ptr %10, ptr %40
+  br i1 %42, label %11, label %.loopexit
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.280 = phi ptr [ %.2, %.lr.ph ], [ %.276, %.lr.ph.preheader ]
   %.pn79 = phi ptr [ %.280, %.lr.ph ], [ %0, %.lr.ph.preheader ]
-  %.26878 = phi ptr [ %61, %.lr.ph ], [ %2, %.lr.ph.preheader ]
+  %.26878 = phi ptr [ %62, %.lr.ph ], [ %2, %.lr.ph.preheader ]
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.280) #24, !srcloc !300
-  %43 = getelementptr inbounds nuw i8, ptr %.26878, i64 3
-  %44 = load i8, ptr %43, align 1, !tbaa !4
-  %45 = uitofp i8 %44 to float
-  %46 = fmul float %45, 0x3F70101020000000
-  store float %46, ptr %.pn79, align 4, !tbaa !50
-  %47 = getelementptr inbounds nuw i8, ptr %.26878, i64 2
-  %48 = load i8, ptr %47, align 1, !tbaa !4
-  %49 = uitofp i8 %48 to float
-  %50 = fmul float %49, 0x3F70101020000000
-  %51 = getelementptr inbounds nuw i8, ptr %.pn79, i64 4
-  store float %50, ptr %51, align 4, !tbaa !50
-  %52 = getelementptr inbounds nuw i8, ptr %.26878, i64 1
-  %53 = load i8, ptr %52, align 1, !tbaa !4
-  %54 = uitofp i8 %53 to float
-  %55 = fmul float %54, 0x3F70101020000000
-  %56 = getelementptr inbounds nuw i8, ptr %.pn79, i64 8
-  store float %55, ptr %56, align 4, !tbaa !50
-  %57 = load i8, ptr %.26878, align 1, !tbaa !4
-  %58 = uitofp i8 %57 to float
-  %59 = fmul float %58, 0x3F70101020000000
-  %60 = getelementptr inbounds nuw i8, ptr %.pn79, i64 12
-  store float %59, ptr %60, align 4, !tbaa !50
-  %61 = getelementptr inbounds nuw i8, ptr %.26878, i64 4
+  %44 = getelementptr inbounds nuw i8, ptr %.26878, i64 3
+  %45 = load i8, ptr %44, align 1, !tbaa !4
+  %46 = uitofp i8 %45 to float
+  %47 = fmul float %46, 0x3F70101020000000
+  store float %47, ptr %.pn79, align 4, !tbaa !50
+  %48 = getelementptr inbounds nuw i8, ptr %.26878, i64 2
+  %49 = load i8, ptr %48, align 1, !tbaa !4
+  %50 = uitofp i8 %49 to float
+  %51 = fmul float %50, 0x3F70101020000000
+  %52 = getelementptr inbounds nuw i8, ptr %.pn79, i64 4
+  store float %51, ptr %52, align 4, !tbaa !50
+  %53 = getelementptr inbounds nuw i8, ptr %.26878, i64 1
+  %54 = load i8, ptr %53, align 1, !tbaa !4
+  %55 = uitofp i8 %54 to float
+  %56 = fmul float %55, 0x3F70101020000000
+  %57 = getelementptr inbounds nuw i8, ptr %.pn79, i64 8
+  store float %56, ptr %57, align 4, !tbaa !50
+  %58 = load i8, ptr %.26878, align 1, !tbaa !4
+  %59 = uitofp i8 %58 to float
+  %60 = fmul float %59, 0x3F70101020000000
+  %61 = getelementptr inbounds nuw i8, ptr %.pn79, i64 12
+  store float %60, ptr %61, align 4, !tbaa !50
+  %62 = getelementptr inbounds nuw i8, ptr %.26878, i64 4
   %.2 = getelementptr inbounds nuw i8, ptr %.280, i64 16
   %.not = icmp ugt ptr %.2, %5
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !301
@@ -9509,31 +9477,30 @@ define void @stbir__encode_uint8_linear_scaled_ABGR(ptr noundef writeonly captur
   %31 = getelementptr inbounds nuw i8, ptr %.0, i64 32
   %32 = getelementptr inbounds nuw i8, ptr %.054, i64 8
   %.not61 = icmp ugt ptr %32, %10
-  %33 = icmp eq ptr %32, %5
-  %.62 = select i1 %33, ptr %32, ptr %10
-  %.63 = select i1 %33, ptr %31, ptr %9
-  %.155 = select i1 %.not61, ptr %.62, ptr %32
-  %.1 = select i1 %.not61, ptr %.63, ptr %31
-  br i1 %33, label %.loopexit, label %11
+  %33 = icmp ne ptr %32, %5
+  %34 = and i1 %.not61, %33
+  %.155 = select i1 %34, ptr %10, ptr %32
+  %.1 = select i1 %34, ptr %9, ptr %31
+  br i1 %33, label %11, label %.loopexit
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.25669 = phi ptr [ %.256, %.lr.ph ], [ %.25665, %.lr.ph.preheader ]
-  %.268 = phi ptr [ %45, %.lr.ph ], [ %2, %.lr.ph.preheader ]
+  %.268 = phi ptr [ %46, %.lr.ph ], [ %2, %.lr.ph.preheader ]
   %.pn67 = phi ptr [ %.25669, %.lr.ph ], [ %0, %.lr.ph.preheader ]
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.268) #24, !srcloc !303
-  %34 = load <4 x float>, ptr %.268, align 1, !tbaa !4
-  %35 = fmul <4 x float> %34, splat (float 2.550000e+02)
-  %36 = fadd <4 x float> %35, splat (float 5.000000e-01)
-  %37 = shufflevector <4 x float> %36, <4 x float> poison, <4 x i32> <i32 3, i32 2, i32 1, i32 0>
-  %38 = tail call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %37, <4 x float> splat (float 2.550000e+02))
-  %39 = tail call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %38, <4 x float> zeroinitializer)
-  %40 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %39)
-  %41 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %40, <4 x i32> poison)
-  %42 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %41, <8 x i16> poison)
-  %43 = bitcast <16 x i8> %42 to <4 x i32>
-  %44 = extractelement <4 x i32> %43, i64 0
-  store i32 %44, ptr %.pn67, align 4, !tbaa !18
-  %45 = getelementptr inbounds nuw i8, ptr %.268, i64 16
+  %35 = load <4 x float>, ptr %.268, align 1, !tbaa !4
+  %36 = fmul <4 x float> %35, splat (float 2.550000e+02)
+  %37 = fadd <4 x float> %36, splat (float 5.000000e-01)
+  %38 = shufflevector <4 x float> %37, <4 x float> poison, <4 x i32> <i32 3, i32 2, i32 1, i32 0>
+  %39 = tail call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %38, <4 x float> splat (float 2.550000e+02))
+  %40 = tail call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %39, <4 x float> zeroinitializer)
+  %41 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %40)
+  %42 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %41, <4 x i32> poison)
+  %43 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %42, <8 x i16> poison)
+  %44 = bitcast <16 x i8> %43 to <4 x i32>
+  %45 = extractelement <4 x i32> %44, i64 0
+  store i32 %45, ptr %.pn67, align 4, !tbaa !18
+  %46 = getelementptr inbounds nuw i8, ptr %.268, i64 16
   %.256 = getelementptr inbounds nuw i8, ptr %.25669, i64 4
   %.not = icmp ugt ptr %.256, %5
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !304
@@ -9599,37 +9566,36 @@ define void @stbir__decode_uint8_linear_ABGR(ptr noundef %0, i32 noundef %1, ptr
   %36 = getelementptr inbounds nuw i8, ptr %.061, i64 64
   %37 = getelementptr inbounds nuw i8, ptr %.062, i64 16
   %.not68 = icmp ugt ptr %36, %10
-  %38 = icmp eq ptr %36, %5
-  %. = select i1 %38, ptr %37, ptr %7
-  %.69 = select i1 %38, ptr %36, ptr %10
-  %.163 = select i1 %.not68, ptr %., ptr %37
-  %.1 = select i1 %.not68, ptr %.69, ptr %36
-  br i1 %38, label %.loopexit, label %11
+  %38 = icmp ne ptr %36, %5
+  %39 = and i1 %.not68, %38
+  %.163 = select i1 %39, ptr %7, ptr %37
+  %.1 = select i1 %39, ptr %10, ptr %36
+  br i1 %38, label %11, label %.loopexit
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.276 = phi ptr [ %.2, %.lr.ph ], [ %.272, %.lr.ph.preheader ]
   %.pn75 = phi ptr [ %.276, %.lr.ph ], [ %0, %.lr.ph.preheader ]
-  %.26474 = phi ptr [ %53, %.lr.ph ], [ %2, %.lr.ph.preheader ]
+  %.26474 = phi ptr [ %54, %.lr.ph ], [ %2, %.lr.ph.preheader ]
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.276) #24, !srcloc !306
-  %39 = getelementptr inbounds nuw i8, ptr %.26474, i64 3
-  %40 = load i8, ptr %39, align 1, !tbaa !4
-  %41 = uitofp i8 %40 to float
-  store float %41, ptr %.pn75, align 4, !tbaa !50
-  %42 = getelementptr inbounds nuw i8, ptr %.26474, i64 2
-  %43 = load i8, ptr %42, align 1, !tbaa !4
-  %44 = uitofp i8 %43 to float
-  %45 = getelementptr inbounds nuw i8, ptr %.pn75, i64 4
-  store float %44, ptr %45, align 4, !tbaa !50
-  %46 = getelementptr inbounds nuw i8, ptr %.26474, i64 1
-  %47 = load i8, ptr %46, align 1, !tbaa !4
-  %48 = uitofp i8 %47 to float
-  %49 = getelementptr inbounds nuw i8, ptr %.pn75, i64 8
-  store float %48, ptr %49, align 4, !tbaa !50
-  %50 = load i8, ptr %.26474, align 1, !tbaa !4
-  %51 = uitofp i8 %50 to float
-  %52 = getelementptr inbounds nuw i8, ptr %.pn75, i64 12
-  store float %51, ptr %52, align 4, !tbaa !50
-  %53 = getelementptr inbounds nuw i8, ptr %.26474, i64 4
+  %40 = getelementptr inbounds nuw i8, ptr %.26474, i64 3
+  %41 = load i8, ptr %40, align 1, !tbaa !4
+  %42 = uitofp i8 %41 to float
+  store float %42, ptr %.pn75, align 4, !tbaa !50
+  %43 = getelementptr inbounds nuw i8, ptr %.26474, i64 2
+  %44 = load i8, ptr %43, align 1, !tbaa !4
+  %45 = uitofp i8 %44 to float
+  %46 = getelementptr inbounds nuw i8, ptr %.pn75, i64 4
+  store float %45, ptr %46, align 4, !tbaa !50
+  %47 = getelementptr inbounds nuw i8, ptr %.26474, i64 1
+  %48 = load i8, ptr %47, align 1, !tbaa !4
+  %49 = uitofp i8 %48 to float
+  %50 = getelementptr inbounds nuw i8, ptr %.pn75, i64 8
+  store float %49, ptr %50, align 4, !tbaa !50
+  %51 = load i8, ptr %.26474, align 1, !tbaa !4
+  %52 = uitofp i8 %51 to float
+  %53 = getelementptr inbounds nuw i8, ptr %.pn75, i64 12
+  store float %52, ptr %53, align 4, !tbaa !50
+  %54 = getelementptr inbounds nuw i8, ptr %.26474, i64 4
   %.2 = getelementptr inbounds nuw i8, ptr %.276, i64 16
   %.not = icmp ugt ptr %.2, %5
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !307
@@ -9684,30 +9650,29 @@ define void @stbir__encode_uint8_linear_ABGR(ptr noundef writeonly captures(addr
   %29 = getelementptr inbounds nuw i8, ptr %.0, i64 32
   %30 = getelementptr inbounds nuw i8, ptr %.054, i64 8
   %.not61 = icmp ugt ptr %30, %10
-  %31 = icmp eq ptr %30, %5
-  %.62 = select i1 %31, ptr %30, ptr %10
-  %.63 = select i1 %31, ptr %29, ptr %9
-  %.155 = select i1 %.not61, ptr %.62, ptr %30
-  %.1 = select i1 %.not61, ptr %.63, ptr %29
-  br i1 %31, label %.loopexit, label %11
+  %31 = icmp ne ptr %30, %5
+  %32 = and i1 %.not61, %31
+  %.155 = select i1 %32, ptr %10, ptr %30
+  %.1 = select i1 %32, ptr %9, ptr %29
+  br i1 %31, label %11, label %.loopexit
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.25669 = phi ptr [ %.256, %.lr.ph ], [ %.25665, %.lr.ph.preheader ]
-  %.268 = phi ptr [ %42, %.lr.ph ], [ %2, %.lr.ph.preheader ]
+  %.268 = phi ptr [ %43, %.lr.ph ], [ %2, %.lr.ph.preheader ]
   %.pn67 = phi ptr [ %.25669, %.lr.ph ], [ %0, %.lr.ph.preheader ]
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.268) #24, !srcloc !309
-  %32 = load <4 x float>, ptr %.268, align 1, !tbaa !4
-  %33 = fadd <4 x float> %32, splat (float 5.000000e-01)
-  %34 = shufflevector <4 x float> %33, <4 x float> poison, <4 x i32> <i32 3, i32 2, i32 1, i32 0>
-  %35 = tail call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %34, <4 x float> splat (float 2.550000e+02))
-  %36 = tail call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %35, <4 x float> zeroinitializer)
-  %37 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %36)
-  %38 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %37, <4 x i32> poison)
-  %39 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %38, <8 x i16> poison)
-  %40 = bitcast <16 x i8> %39 to <4 x i32>
-  %41 = extractelement <4 x i32> %40, i64 0
-  store i32 %41, ptr %.pn67, align 4, !tbaa !18
-  %42 = getelementptr inbounds nuw i8, ptr %.268, i64 16
+  %33 = load <4 x float>, ptr %.268, align 1, !tbaa !4
+  %34 = fadd <4 x float> %33, splat (float 5.000000e-01)
+  %35 = shufflevector <4 x float> %34, <4 x float> poison, <4 x i32> <i32 3, i32 2, i32 1, i32 0>
+  %36 = tail call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %35, <4 x float> splat (float 2.550000e+02))
+  %37 = tail call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %36, <4 x float> zeroinitializer)
+  %38 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %37)
+  %39 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %38, <4 x i32> poison)
+  %40 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %39, <8 x i16> poison)
+  %41 = bitcast <16 x i8> %40 to <4 x i32>
+  %42 = extractelement <4 x i32> %41, i64 0
+  store i32 %42, ptr %.pn67, align 4, !tbaa !18
+  %43 = getelementptr inbounds nuw i8, ptr %.268, i64 16
   %.256 = getelementptr inbounds nuw i8, ptr %.25669, i64 4
   %.not = icmp ugt ptr %.256, %5
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !310
@@ -9940,141 +9905,140 @@ define void @stbir__encode_uint8_srgb_ABGR(ptr noundef writeonly captures(addres
   %124 = getelementptr inbounds nuw i8, ptr %.0134, i64 64
   %125 = getelementptr inbounds nuw i8, ptr %.0135, i64 16
   %.not141 = icmp ugt ptr %125, %10
-  %126 = icmp eq ptr %125, %5
-  %. = select i1 %126, ptr %125, ptr %10
-  %.142 = select i1 %126, ptr %124, ptr %9
-  %.1136 = select i1 %.not141, ptr %., ptr %125
-  %.1 = select i1 %.not141, ptr %.142, ptr %124
-  br i1 %126, label %.loopexit, label %11
+  %126 = icmp ne ptr %125, %5
+  %127 = and i1 %.not141, %126
+  %.1136 = select i1 %127, ptr %10, ptr %125
+  %.1 = select i1 %127, ptr %9, ptr %124
+  br i1 %126, label %11, label %.loopexit
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %stbir__linear_to_srgb_uchar.exit149
   %.2137155 = phi ptr [ %.2137, %stbir__linear_to_srgb_uchar.exit149 ], [ %.2137151, %.lr.ph.preheader ]
-  %.2154 = phi ptr [ %213, %stbir__linear_to_srgb_uchar.exit149 ], [ %2, %.lr.ph.preheader ]
+  %.2154 = phi ptr [ %214, %stbir__linear_to_srgb_uchar.exit149 ], [ %2, %.lr.ph.preheader ]
   %.pn153 = phi ptr [ %.2137155, %stbir__linear_to_srgb_uchar.exit149 ], [ %0, %.lr.ph.preheader ]
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.2154) #24, !srcloc !313
-  %127 = getelementptr inbounds nuw i8, ptr %.2154, i64 12
-  %128 = load float, ptr %127, align 4, !tbaa !50
-  %129 = fcmp ogt float %128, 0x3F20000000000000
-  br i1 %129, label %130, label %stbir__linear_to_srgb_uchar.exit
+  %128 = getelementptr inbounds nuw i8, ptr %.2154, i64 12
+  %129 = load float, ptr %128, align 4, !tbaa !50
+  %130 = fcmp ogt float %129, 0x3F20000000000000
+  br i1 %130, label %131, label %stbir__linear_to_srgb_uchar.exit
 
-130:                                              ; preds = %.lr.ph
-  %131 = fcmp ogt float %128, 0x3FEFFFFFE0000000
-  br i1 %131, label %stbir__linear_to_srgb_uchar.exit, label %132
+131:                                              ; preds = %.lr.ph
+  %132 = fcmp ogt float %129, 0x3FEFFFFFE0000000
+  br i1 %132, label %stbir__linear_to_srgb_uchar.exit, label %133
 
-132:                                              ; preds = %130
-  %133 = bitcast float %128 to i32
-  %134 = add nsw i32 %133, -956301312
-  %135 = lshr i32 %134, 20
-  %136 = zext nneg i32 %135 to i64
-  %137 = getelementptr inbounds nuw i32, ptr @fp32_to_srgb8_tab4, i64 %136
-  %138 = load i32, ptr %137, align 4, !tbaa !18
-  %139 = lshr i32 %138, 7
-  %140 = and i32 %139, 16776704
-  %141 = and i32 %138, 65535
-  %142 = lshr i32 %133, 12
-  %143 = and i32 %142, 255
-  %144 = mul nuw nsw i32 %141, %143
-  %145 = add nuw nsw i32 %140, %144
-  %146 = lshr i32 %145, 16
-  %147 = trunc i32 %146 to i8
+133:                                              ; preds = %131
+  %134 = bitcast float %129 to i32
+  %135 = add nsw i32 %134, -956301312
+  %136 = lshr i32 %135, 20
+  %137 = zext nneg i32 %136 to i64
+  %138 = getelementptr inbounds nuw i32, ptr @fp32_to_srgb8_tab4, i64 %137
+  %139 = load i32, ptr %138, align 4, !tbaa !18
+  %140 = lshr i32 %139, 7
+  %141 = and i32 %140, 16776704
+  %142 = and i32 %139, 65535
+  %143 = lshr i32 %134, 12
+  %144 = and i32 %143, 255
+  %145 = mul nuw nsw i32 %142, %144
+  %146 = add nuw nsw i32 %141, %145
+  %147 = lshr i32 %146, 16
+  %148 = trunc i32 %147 to i8
   br label %stbir__linear_to_srgb_uchar.exit
 
-stbir__linear_to_srgb_uchar.exit:                 ; preds = %.lr.ph, %130, %132
-  %.0.i = phi i8 [ 0, %.lr.ph ], [ %147, %132 ], [ -1, %130 ]
+stbir__linear_to_srgb_uchar.exit:                 ; preds = %.lr.ph, %131, %133
+  %.0.i = phi i8 [ 0, %.lr.ph ], [ %148, %133 ], [ -1, %131 ]
   store i8 %.0.i, ptr %.pn153, align 1, !tbaa !4
-  %148 = getelementptr inbounds nuw i8, ptr %.2154, i64 8
-  %149 = load float, ptr %148, align 4, !tbaa !50
-  %150 = fcmp ogt float %149, 0x3F20000000000000
-  br i1 %150, label %151, label %stbir__linear_to_srgb_uchar.exit145
+  %149 = getelementptr inbounds nuw i8, ptr %.2154, i64 8
+  %150 = load float, ptr %149, align 4, !tbaa !50
+  %151 = fcmp ogt float %150, 0x3F20000000000000
+  br i1 %151, label %152, label %stbir__linear_to_srgb_uchar.exit145
 
-151:                                              ; preds = %stbir__linear_to_srgb_uchar.exit
-  %152 = fcmp ogt float %149, 0x3FEFFFFFE0000000
-  br i1 %152, label %stbir__linear_to_srgb_uchar.exit145, label %153
+152:                                              ; preds = %stbir__linear_to_srgb_uchar.exit
+  %153 = fcmp ogt float %150, 0x3FEFFFFFE0000000
+  br i1 %153, label %stbir__linear_to_srgb_uchar.exit145, label %154
 
-153:                                              ; preds = %151
-  %154 = bitcast float %149 to i32
-  %155 = add nsw i32 %154, -956301312
-  %156 = lshr i32 %155, 20
-  %157 = zext nneg i32 %156 to i64
-  %158 = getelementptr inbounds nuw i32, ptr @fp32_to_srgb8_tab4, i64 %157
-  %159 = load i32, ptr %158, align 4, !tbaa !18
-  %160 = lshr i32 %159, 7
-  %161 = and i32 %160, 16776704
-  %162 = and i32 %159, 65535
-  %163 = lshr i32 %154, 12
-  %164 = and i32 %163, 255
-  %165 = mul nuw nsw i32 %162, %164
-  %166 = add nuw nsw i32 %161, %165
-  %167 = lshr i32 %166, 16
-  %168 = trunc i32 %167 to i8
+154:                                              ; preds = %152
+  %155 = bitcast float %150 to i32
+  %156 = add nsw i32 %155, -956301312
+  %157 = lshr i32 %156, 20
+  %158 = zext nneg i32 %157 to i64
+  %159 = getelementptr inbounds nuw i32, ptr @fp32_to_srgb8_tab4, i64 %158
+  %160 = load i32, ptr %159, align 4, !tbaa !18
+  %161 = lshr i32 %160, 7
+  %162 = and i32 %161, 16776704
+  %163 = and i32 %160, 65535
+  %164 = lshr i32 %155, 12
+  %165 = and i32 %164, 255
+  %166 = mul nuw nsw i32 %163, %165
+  %167 = add nuw nsw i32 %162, %166
+  %168 = lshr i32 %167, 16
+  %169 = trunc i32 %168 to i8
   br label %stbir__linear_to_srgb_uchar.exit145
 
-stbir__linear_to_srgb_uchar.exit145:              ; preds = %stbir__linear_to_srgb_uchar.exit, %151, %153
-  %.0.i144 = phi i8 [ 0, %stbir__linear_to_srgb_uchar.exit ], [ %168, %153 ], [ -1, %151 ]
-  %169 = getelementptr inbounds nuw i8, ptr %.pn153, i64 1
-  store i8 %.0.i144, ptr %169, align 1, !tbaa !4
-  %170 = getelementptr inbounds nuw i8, ptr %.2154, i64 4
-  %171 = load float, ptr %170, align 4, !tbaa !50
-  %172 = fcmp ogt float %171, 0x3F20000000000000
-  br i1 %172, label %173, label %stbir__linear_to_srgb_uchar.exit147
+stbir__linear_to_srgb_uchar.exit145:              ; preds = %stbir__linear_to_srgb_uchar.exit, %152, %154
+  %.0.i144 = phi i8 [ 0, %stbir__linear_to_srgb_uchar.exit ], [ %169, %154 ], [ -1, %152 ]
+  %170 = getelementptr inbounds nuw i8, ptr %.pn153, i64 1
+  store i8 %.0.i144, ptr %170, align 1, !tbaa !4
+  %171 = getelementptr inbounds nuw i8, ptr %.2154, i64 4
+  %172 = load float, ptr %171, align 4, !tbaa !50
+  %173 = fcmp ogt float %172, 0x3F20000000000000
+  br i1 %173, label %174, label %stbir__linear_to_srgb_uchar.exit147
 
-173:                                              ; preds = %stbir__linear_to_srgb_uchar.exit145
-  %174 = fcmp ogt float %171, 0x3FEFFFFFE0000000
-  br i1 %174, label %stbir__linear_to_srgb_uchar.exit147, label %175
+174:                                              ; preds = %stbir__linear_to_srgb_uchar.exit145
+  %175 = fcmp ogt float %172, 0x3FEFFFFFE0000000
+  br i1 %175, label %stbir__linear_to_srgb_uchar.exit147, label %176
 
-175:                                              ; preds = %173
-  %176 = bitcast float %171 to i32
-  %177 = add nsw i32 %176, -956301312
-  %178 = lshr i32 %177, 20
-  %179 = zext nneg i32 %178 to i64
-  %180 = getelementptr inbounds nuw i32, ptr @fp32_to_srgb8_tab4, i64 %179
-  %181 = load i32, ptr %180, align 4, !tbaa !18
-  %182 = lshr i32 %181, 7
-  %183 = and i32 %182, 16776704
-  %184 = and i32 %181, 65535
-  %185 = lshr i32 %176, 12
-  %186 = and i32 %185, 255
-  %187 = mul nuw nsw i32 %184, %186
-  %188 = add nuw nsw i32 %183, %187
-  %189 = lshr i32 %188, 16
-  %190 = trunc i32 %189 to i8
+176:                                              ; preds = %174
+  %177 = bitcast float %172 to i32
+  %178 = add nsw i32 %177, -956301312
+  %179 = lshr i32 %178, 20
+  %180 = zext nneg i32 %179 to i64
+  %181 = getelementptr inbounds nuw i32, ptr @fp32_to_srgb8_tab4, i64 %180
+  %182 = load i32, ptr %181, align 4, !tbaa !18
+  %183 = lshr i32 %182, 7
+  %184 = and i32 %183, 16776704
+  %185 = and i32 %182, 65535
+  %186 = lshr i32 %177, 12
+  %187 = and i32 %186, 255
+  %188 = mul nuw nsw i32 %185, %187
+  %189 = add nuw nsw i32 %184, %188
+  %190 = lshr i32 %189, 16
+  %191 = trunc i32 %190 to i8
   br label %stbir__linear_to_srgb_uchar.exit147
 
-stbir__linear_to_srgb_uchar.exit147:              ; preds = %stbir__linear_to_srgb_uchar.exit145, %173, %175
-  %.0.i146 = phi i8 [ 0, %stbir__linear_to_srgb_uchar.exit145 ], [ %190, %175 ], [ -1, %173 ]
-  %191 = getelementptr inbounds nuw i8, ptr %.pn153, i64 2
-  store i8 %.0.i146, ptr %191, align 1, !tbaa !4
-  %192 = load float, ptr %.2154, align 4, !tbaa !50
-  %193 = fcmp ogt float %192, 0x3F20000000000000
-  br i1 %193, label %194, label %stbir__linear_to_srgb_uchar.exit149
+stbir__linear_to_srgb_uchar.exit147:              ; preds = %stbir__linear_to_srgb_uchar.exit145, %174, %176
+  %.0.i146 = phi i8 [ 0, %stbir__linear_to_srgb_uchar.exit145 ], [ %191, %176 ], [ -1, %174 ]
+  %192 = getelementptr inbounds nuw i8, ptr %.pn153, i64 2
+  store i8 %.0.i146, ptr %192, align 1, !tbaa !4
+  %193 = load float, ptr %.2154, align 4, !tbaa !50
+  %194 = fcmp ogt float %193, 0x3F20000000000000
+  br i1 %194, label %195, label %stbir__linear_to_srgb_uchar.exit149
 
-194:                                              ; preds = %stbir__linear_to_srgb_uchar.exit147
-  %195 = fcmp ogt float %192, 0x3FEFFFFFE0000000
-  br i1 %195, label %stbir__linear_to_srgb_uchar.exit149, label %196
+195:                                              ; preds = %stbir__linear_to_srgb_uchar.exit147
+  %196 = fcmp ogt float %193, 0x3FEFFFFFE0000000
+  br i1 %196, label %stbir__linear_to_srgb_uchar.exit149, label %197
 
-196:                                              ; preds = %194
-  %197 = bitcast float %192 to i32
-  %198 = add nsw i32 %197, -956301312
-  %199 = lshr i32 %198, 20
-  %200 = zext nneg i32 %199 to i64
-  %201 = getelementptr inbounds nuw i32, ptr @fp32_to_srgb8_tab4, i64 %200
-  %202 = load i32, ptr %201, align 4, !tbaa !18
-  %203 = lshr i32 %202, 7
-  %204 = and i32 %203, 16776704
-  %205 = and i32 %202, 65535
-  %206 = lshr i32 %197, 12
-  %207 = and i32 %206, 255
-  %208 = mul nuw nsw i32 %205, %207
-  %209 = add nuw nsw i32 %204, %208
-  %210 = lshr i32 %209, 16
-  %211 = trunc i32 %210 to i8
+197:                                              ; preds = %195
+  %198 = bitcast float %193 to i32
+  %199 = add nsw i32 %198, -956301312
+  %200 = lshr i32 %199, 20
+  %201 = zext nneg i32 %200 to i64
+  %202 = getelementptr inbounds nuw i32, ptr @fp32_to_srgb8_tab4, i64 %201
+  %203 = load i32, ptr %202, align 4, !tbaa !18
+  %204 = lshr i32 %203, 7
+  %205 = and i32 %204, 16776704
+  %206 = and i32 %203, 65535
+  %207 = lshr i32 %198, 12
+  %208 = and i32 %207, 255
+  %209 = mul nuw nsw i32 %206, %208
+  %210 = add nuw nsw i32 %205, %209
+  %211 = lshr i32 %210, 16
+  %212 = trunc i32 %211 to i8
   br label %stbir__linear_to_srgb_uchar.exit149
 
-stbir__linear_to_srgb_uchar.exit149:              ; preds = %stbir__linear_to_srgb_uchar.exit147, %194, %196
-  %.0.i148 = phi i8 [ 0, %stbir__linear_to_srgb_uchar.exit147 ], [ %211, %196 ], [ -1, %194 ]
-  %212 = getelementptr inbounds nuw i8, ptr %.pn153, i64 3
-  store i8 %.0.i148, ptr %212, align 1, !tbaa !4
-  %213 = getelementptr inbounds nuw i8, ptr %.2154, i64 16
+stbir__linear_to_srgb_uchar.exit149:              ; preds = %stbir__linear_to_srgb_uchar.exit147, %195, %197
+  %.0.i148 = phi i8 [ 0, %stbir__linear_to_srgb_uchar.exit147 ], [ %212, %197 ], [ -1, %195 ]
+  %213 = getelementptr inbounds nuw i8, ptr %.pn153, i64 3
+  store i8 %.0.i148, ptr %213, align 1, !tbaa !4
+  %214 = getelementptr inbounds nuw i8, ptr %.2154, i64 16
   %.2137 = getelementptr inbounds nuw i8, ptr %.2137155, i64 4
   %.not = icmp ugt ptr %.2137, %5
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !314
@@ -10265,123 +10229,122 @@ define void @stbir__encode_uint8_srgb4_linearalpha_ABGR(ptr noundef writeonly ca
   %106 = getelementptr inbounds nuw i8, ptr %.0125, i64 16
   %107 = getelementptr inbounds nuw i8, ptr %.0123, i64 64
   %.not = icmp ugt ptr %106, %10
-  %108 = icmp eq ptr %106, %5
-  %. = select i1 %108, ptr %106, ptr %10
-  %.133 = select i1 %108, ptr %107, ptr %9
-  %.1126 = select i1 %.not, ptr %., ptr %106
-  %.1124 = select i1 %.not, ptr %.133, ptr %107
-  br i1 %108, label %.loopexit, label %11
+  %108 = icmp ne ptr %106, %5
+  %109 = and i1 %.not, %108
+  %.1126 = select i1 %109, ptr %10, ptr %106
+  %.1124 = select i1 %109, ptr %9, ptr %107
+  br i1 %108, label %11, label %.loopexit
 
 .preheader:                                       ; preds = %3, %stbir__linear_to_srgb_uchar.exit138
-  %.2127 = phi ptr [ %181, %stbir__linear_to_srgb_uchar.exit138 ], [ %0, %3 ]
-  %.2 = phi ptr [ %182, %stbir__linear_to_srgb_uchar.exit138 ], [ %2, %3 ]
+  %.2127 = phi ptr [ %182, %stbir__linear_to_srgb_uchar.exit138 ], [ %0, %3 ]
+  %.2 = phi ptr [ %183, %stbir__linear_to_srgb_uchar.exit138 ], [ %2, %3 ]
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.2) #24, !srcloc !317
-  %109 = load float, ptr %.2, align 4, !tbaa !50
-  %110 = fcmp ogt float %109, 0x3F20000000000000
-  br i1 %110, label %111, label %stbir__linear_to_srgb_uchar.exit
+  %110 = load float, ptr %.2, align 4, !tbaa !50
+  %111 = fcmp ogt float %110, 0x3F20000000000000
+  br i1 %111, label %112, label %stbir__linear_to_srgb_uchar.exit
 
-111:                                              ; preds = %.preheader
-  %112 = fcmp ogt float %109, 0x3FEFFFFFE0000000
-  br i1 %112, label %stbir__linear_to_srgb_uchar.exit, label %113
+112:                                              ; preds = %.preheader
+  %113 = fcmp ogt float %110, 0x3FEFFFFFE0000000
+  br i1 %113, label %stbir__linear_to_srgb_uchar.exit, label %114
 
-113:                                              ; preds = %111
-  %114 = bitcast float %109 to i32
-  %115 = add nsw i32 %114, -956301312
-  %116 = lshr i32 %115, 20
-  %117 = zext nneg i32 %116 to i64
-  %118 = getelementptr inbounds nuw i32, ptr @fp32_to_srgb8_tab4, i64 %117
-  %119 = load i32, ptr %118, align 4, !tbaa !18
-  %120 = lshr i32 %119, 7
-  %121 = and i32 %120, 16776704
-  %122 = and i32 %119, 65535
-  %123 = lshr i32 %114, 12
-  %124 = and i32 %123, 255
-  %125 = mul nuw nsw i32 %122, %124
-  %126 = add nuw nsw i32 %121, %125
-  %127 = lshr i32 %126, 16
-  %128 = trunc i32 %127 to i8
+114:                                              ; preds = %112
+  %115 = bitcast float %110 to i32
+  %116 = add nsw i32 %115, -956301312
+  %117 = lshr i32 %116, 20
+  %118 = zext nneg i32 %117 to i64
+  %119 = getelementptr inbounds nuw i32, ptr @fp32_to_srgb8_tab4, i64 %118
+  %120 = load i32, ptr %119, align 4, !tbaa !18
+  %121 = lshr i32 %120, 7
+  %122 = and i32 %121, 16776704
+  %123 = and i32 %120, 65535
+  %124 = lshr i32 %115, 12
+  %125 = and i32 %124, 255
+  %126 = mul nuw nsw i32 %123, %125
+  %127 = add nuw nsw i32 %122, %126
+  %128 = lshr i32 %127, 16
+  %129 = trunc i32 %128 to i8
   br label %stbir__linear_to_srgb_uchar.exit
 
-stbir__linear_to_srgb_uchar.exit:                 ; preds = %.preheader, %111, %113
-  %.0.i = phi i8 [ 0, %.preheader ], [ %128, %113 ], [ -1, %111 ]
-  %129 = getelementptr inbounds nuw i8, ptr %.2127, i64 3
-  store i8 %.0.i, ptr %129, align 1, !tbaa !4
-  %130 = getelementptr inbounds nuw i8, ptr %.2, i64 4
-  %131 = load float, ptr %130, align 4, !tbaa !50
-  %132 = fcmp ogt float %131, 0x3F20000000000000
-  br i1 %132, label %133, label %stbir__linear_to_srgb_uchar.exit136
+stbir__linear_to_srgb_uchar.exit:                 ; preds = %.preheader, %112, %114
+  %.0.i = phi i8 [ 0, %.preheader ], [ %129, %114 ], [ -1, %112 ]
+  %130 = getelementptr inbounds nuw i8, ptr %.2127, i64 3
+  store i8 %.0.i, ptr %130, align 1, !tbaa !4
+  %131 = getelementptr inbounds nuw i8, ptr %.2, i64 4
+  %132 = load float, ptr %131, align 4, !tbaa !50
+  %133 = fcmp ogt float %132, 0x3F20000000000000
+  br i1 %133, label %134, label %stbir__linear_to_srgb_uchar.exit136
 
-133:                                              ; preds = %stbir__linear_to_srgb_uchar.exit
-  %134 = fcmp ogt float %131, 0x3FEFFFFFE0000000
-  br i1 %134, label %stbir__linear_to_srgb_uchar.exit136, label %135
+134:                                              ; preds = %stbir__linear_to_srgb_uchar.exit
+  %135 = fcmp ogt float %132, 0x3FEFFFFFE0000000
+  br i1 %135, label %stbir__linear_to_srgb_uchar.exit136, label %136
 
-135:                                              ; preds = %133
-  %136 = bitcast float %131 to i32
-  %137 = add nsw i32 %136, -956301312
-  %138 = lshr i32 %137, 20
-  %139 = zext nneg i32 %138 to i64
-  %140 = getelementptr inbounds nuw i32, ptr @fp32_to_srgb8_tab4, i64 %139
-  %141 = load i32, ptr %140, align 4, !tbaa !18
-  %142 = lshr i32 %141, 7
-  %143 = and i32 %142, 16776704
-  %144 = and i32 %141, 65535
-  %145 = lshr i32 %136, 12
-  %146 = and i32 %145, 255
-  %147 = mul nuw nsw i32 %144, %146
-  %148 = add nuw nsw i32 %143, %147
-  %149 = lshr i32 %148, 16
-  %150 = trunc i32 %149 to i8
+136:                                              ; preds = %134
+  %137 = bitcast float %132 to i32
+  %138 = add nsw i32 %137, -956301312
+  %139 = lshr i32 %138, 20
+  %140 = zext nneg i32 %139 to i64
+  %141 = getelementptr inbounds nuw i32, ptr @fp32_to_srgb8_tab4, i64 %140
+  %142 = load i32, ptr %141, align 4, !tbaa !18
+  %143 = lshr i32 %142, 7
+  %144 = and i32 %143, 16776704
+  %145 = and i32 %142, 65535
+  %146 = lshr i32 %137, 12
+  %147 = and i32 %146, 255
+  %148 = mul nuw nsw i32 %145, %147
+  %149 = add nuw nsw i32 %144, %148
+  %150 = lshr i32 %149, 16
+  %151 = trunc i32 %150 to i8
   br label %stbir__linear_to_srgb_uchar.exit136
 
-stbir__linear_to_srgb_uchar.exit136:              ; preds = %stbir__linear_to_srgb_uchar.exit, %133, %135
-  %.0.i135 = phi i8 [ 0, %stbir__linear_to_srgb_uchar.exit ], [ %150, %135 ], [ -1, %133 ]
-  %151 = getelementptr inbounds nuw i8, ptr %.2127, i64 2
-  store i8 %.0.i135, ptr %151, align 1, !tbaa !4
-  %152 = getelementptr inbounds nuw i8, ptr %.2, i64 8
-  %153 = load float, ptr %152, align 4, !tbaa !50
-  %154 = fcmp ogt float %153, 0x3F20000000000000
-  br i1 %154, label %155, label %stbir__linear_to_srgb_uchar.exit138
+stbir__linear_to_srgb_uchar.exit136:              ; preds = %stbir__linear_to_srgb_uchar.exit, %134, %136
+  %.0.i135 = phi i8 [ 0, %stbir__linear_to_srgb_uchar.exit ], [ %151, %136 ], [ -1, %134 ]
+  %152 = getelementptr inbounds nuw i8, ptr %.2127, i64 2
+  store i8 %.0.i135, ptr %152, align 1, !tbaa !4
+  %153 = getelementptr inbounds nuw i8, ptr %.2, i64 8
+  %154 = load float, ptr %153, align 4, !tbaa !50
+  %155 = fcmp ogt float %154, 0x3F20000000000000
+  br i1 %155, label %156, label %stbir__linear_to_srgb_uchar.exit138
 
-155:                                              ; preds = %stbir__linear_to_srgb_uchar.exit136
-  %156 = fcmp ogt float %153, 0x3FEFFFFFE0000000
-  br i1 %156, label %stbir__linear_to_srgb_uchar.exit138, label %157
+156:                                              ; preds = %stbir__linear_to_srgb_uchar.exit136
+  %157 = fcmp ogt float %154, 0x3FEFFFFFE0000000
+  br i1 %157, label %stbir__linear_to_srgb_uchar.exit138, label %158
 
-157:                                              ; preds = %155
-  %158 = bitcast float %153 to i32
-  %159 = add nsw i32 %158, -956301312
-  %160 = lshr i32 %159, 20
-  %161 = zext nneg i32 %160 to i64
-  %162 = getelementptr inbounds nuw i32, ptr @fp32_to_srgb8_tab4, i64 %161
-  %163 = load i32, ptr %162, align 4, !tbaa !18
-  %164 = lshr i32 %163, 7
-  %165 = and i32 %164, 16776704
-  %166 = and i32 %163, 65535
-  %167 = lshr i32 %158, 12
-  %168 = and i32 %167, 255
-  %169 = mul nuw nsw i32 %166, %168
-  %170 = add nuw nsw i32 %165, %169
-  %171 = lshr i32 %170, 16
-  %172 = trunc i32 %171 to i8
+158:                                              ; preds = %156
+  %159 = bitcast float %154 to i32
+  %160 = add nsw i32 %159, -956301312
+  %161 = lshr i32 %160, 20
+  %162 = zext nneg i32 %161 to i64
+  %163 = getelementptr inbounds nuw i32, ptr @fp32_to_srgb8_tab4, i64 %162
+  %164 = load i32, ptr %163, align 4, !tbaa !18
+  %165 = lshr i32 %164, 7
+  %166 = and i32 %165, 16776704
+  %167 = and i32 %164, 65535
+  %168 = lshr i32 %159, 12
+  %169 = and i32 %168, 255
+  %170 = mul nuw nsw i32 %167, %169
+  %171 = add nuw nsw i32 %166, %170
+  %172 = lshr i32 %171, 16
+  %173 = trunc i32 %172 to i8
   br label %stbir__linear_to_srgb_uchar.exit138
 
-stbir__linear_to_srgb_uchar.exit138:              ; preds = %stbir__linear_to_srgb_uchar.exit136, %155, %157
-  %.0.i137 = phi i8 [ 0, %stbir__linear_to_srgb_uchar.exit136 ], [ %172, %157 ], [ -1, %155 ]
-  %173 = getelementptr inbounds nuw i8, ptr %.2127, i64 1
-  store i8 %.0.i137, ptr %173, align 1, !tbaa !4
-  %174 = getelementptr inbounds nuw i8, ptr %.2, i64 12
-  %175 = load float, ptr %174, align 4, !tbaa !50
-  %176 = fmul float %175, 2.550000e+02
-  %177 = fadd float %176, 5.000000e-01
-  %178 = fcmp olt float %177, 0.000000e+00
-  %.0 = select i1 %178, float 0.000000e+00, float %177
-  %179 = fcmp ogt float %.0, 2.550000e+02
-  %.1 = select i1 %179, float 2.550000e+02, float %.0
-  %180 = fptoui float %.1 to i8
-  store i8 %180, ptr %.2127, align 1, !tbaa !4
-  %181 = getelementptr inbounds nuw i8, ptr %.2127, i64 4
-  %182 = getelementptr inbounds nuw i8, ptr %.2, i64 16
-  %183 = icmp ult ptr %181, %5
-  br i1 %183, label %.preheader, label %.loopexit, !llvm.loop !318
+stbir__linear_to_srgb_uchar.exit138:              ; preds = %stbir__linear_to_srgb_uchar.exit136, %156, %158
+  %.0.i137 = phi i8 [ 0, %stbir__linear_to_srgb_uchar.exit136 ], [ %173, %158 ], [ -1, %156 ]
+  %174 = getelementptr inbounds nuw i8, ptr %.2127, i64 1
+  store i8 %.0.i137, ptr %174, align 1, !tbaa !4
+  %175 = getelementptr inbounds nuw i8, ptr %.2, i64 12
+  %176 = load float, ptr %175, align 4, !tbaa !50
+  %177 = fmul float %176, 2.550000e+02
+  %178 = fadd float %177, 5.000000e-01
+  %179 = fcmp olt float %178, 0.000000e+00
+  %.0 = select i1 %179, float 0.000000e+00, float %178
+  %180 = fcmp ogt float %.0, 2.550000e+02
+  %.1 = select i1 %180, float 2.550000e+02, float %.0
+  %181 = fptoui float %.1 to i8
+  store i8 %181, ptr %.2127, align 1, !tbaa !4
+  %182 = getelementptr inbounds nuw i8, ptr %.2127, i64 4
+  %183 = getelementptr inbounds nuw i8, ptr %.2, i64 16
+  %184 = icmp ult ptr %182, %5
+  br i1 %184, label %.preheader, label %.loopexit, !llvm.loop !318
 
 .loopexit:                                        ; preds = %stbir__linear_to_srgb_uchar.exit138, %11
   ret void
@@ -10430,41 +10393,40 @@ define void @stbir__decode_uint16_linear_scaled_ABGR(ptr noundef %0, i32 noundef
   %24 = getelementptr inbounds nuw i8, ptr %.047, i64 32
   %25 = getelementptr inbounds nuw i8, ptr %.048, i64 16
   %.not54 = icmp ugt ptr %24, %10
-  %26 = icmp eq ptr %24, %5
-  %. = select i1 %26, ptr %25, ptr %7
-  %.55 = select i1 %26, ptr %24, ptr %10
-  %.149 = select i1 %.not54, ptr %., ptr %25
-  %.1 = select i1 %.not54, ptr %.55, ptr %24
-  br i1 %26, label %.loopexit, label %11
+  %26 = icmp ne ptr %24, %5
+  %27 = and i1 %.not54, %26
+  %.149 = select i1 %27, ptr %7, ptr %25
+  %.1 = select i1 %27, ptr %10, ptr %24
+  br i1 %26, label %11, label %.loopexit
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.262 = phi ptr [ %.2, %.lr.ph ], [ %.258, %.lr.ph.preheader ]
   %.pn61 = phi ptr [ %.262, %.lr.ph ], [ %0, %.lr.ph.preheader ]
-  %.25060 = phi ptr [ %45, %.lr.ph ], [ %2, %.lr.ph.preheader ]
+  %.25060 = phi ptr [ %46, %.lr.ph ], [ %2, %.lr.ph.preheader ]
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.262) #24, !srcloc !320
-  %27 = getelementptr inbounds nuw i8, ptr %.25060, i64 6
-  %28 = load i16, ptr %27, align 2, !tbaa !173
-  %29 = uitofp i16 %28 to float
-  %30 = fmul float %29, 0x3EF0001000000000
-  store float %30, ptr %.pn61, align 4, !tbaa !50
-  %31 = getelementptr inbounds nuw i8, ptr %.25060, i64 4
-  %32 = load i16, ptr %31, align 2, !tbaa !173
-  %33 = uitofp i16 %32 to float
-  %34 = fmul float %33, 0x3EF0001000000000
-  %35 = getelementptr inbounds nuw i8, ptr %.pn61, i64 4
-  store float %34, ptr %35, align 4, !tbaa !50
-  %36 = getelementptr inbounds nuw i8, ptr %.25060, i64 2
-  %37 = load i16, ptr %36, align 2, !tbaa !173
-  %38 = uitofp i16 %37 to float
-  %39 = fmul float %38, 0x3EF0001000000000
-  %40 = getelementptr inbounds nuw i8, ptr %.pn61, i64 8
-  store float %39, ptr %40, align 4, !tbaa !50
-  %41 = load i16, ptr %.25060, align 2, !tbaa !173
-  %42 = uitofp i16 %41 to float
-  %43 = fmul float %42, 0x3EF0001000000000
-  %44 = getelementptr inbounds nuw i8, ptr %.pn61, i64 12
-  store float %43, ptr %44, align 4, !tbaa !50
-  %45 = getelementptr inbounds nuw i8, ptr %.25060, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %.25060, i64 6
+  %29 = load i16, ptr %28, align 2, !tbaa !173
+  %30 = uitofp i16 %29 to float
+  %31 = fmul float %30, 0x3EF0001000000000
+  store float %31, ptr %.pn61, align 4, !tbaa !50
+  %32 = getelementptr inbounds nuw i8, ptr %.25060, i64 4
+  %33 = load i16, ptr %32, align 2, !tbaa !173
+  %34 = uitofp i16 %33 to float
+  %35 = fmul float %34, 0x3EF0001000000000
+  %36 = getelementptr inbounds nuw i8, ptr %.pn61, i64 4
+  store float %35, ptr %36, align 4, !tbaa !50
+  %37 = getelementptr inbounds nuw i8, ptr %.25060, i64 2
+  %38 = load i16, ptr %37, align 2, !tbaa !173
+  %39 = uitofp i16 %38 to float
+  %40 = fmul float %39, 0x3EF0001000000000
+  %41 = getelementptr inbounds nuw i8, ptr %.pn61, i64 8
+  store float %40, ptr %41, align 4, !tbaa !50
+  %42 = load i16, ptr %.25060, align 2, !tbaa !173
+  %43 = uitofp i16 %42 to float
+  %44 = fmul float %43, 0x3EF0001000000000
+  %45 = getelementptr inbounds nuw i8, ptr %.pn61, i64 12
+  store float %44, ptr %45, align 4, !tbaa !50
+  %46 = getelementptr inbounds nuw i8, ptr %.25060, i64 8
   %.2 = getelementptr inbounds nuw i8, ptr %.262, i64 16
   %.not = icmp ugt ptr %.2, %5
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !321
@@ -10524,34 +10486,33 @@ define void @stbir__encode_uint16_linear_scaled_ABGR(ptr noundef writeonly captu
   %33 = getelementptr inbounds nuw i8, ptr %.0, i64 32
   %34 = getelementptr inbounds nuw i8, ptr %.048, i64 16
   %.not55 = icmp ugt ptr %34, %10
-  %35 = icmp eq ptr %34, %5
-  %.56 = select i1 %35, ptr %34, ptr %10
-  %.57 = select i1 %35, ptr %33, ptr %9
-  %.149 = select i1 %.not55, ptr %.56, ptr %34
-  %.1 = select i1 %.not55, ptr %.57, ptr %33
-  br i1 %35, label %.loopexit, label %11
+  %35 = icmp ne ptr %34, %5
+  %36 = and i1 %.not55, %35
+  %.149 = select i1 %36, ptr %10, ptr %34
+  %.1 = select i1 %36, ptr %9, ptr %33
+  br i1 %35, label %11, label %.loopexit
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.25063 = phi ptr [ %.250, %.lr.ph ], [ %.25059, %.lr.ph.preheader ]
-  %.262 = phi ptr [ %50, %.lr.ph ], [ %2, %.lr.ph.preheader ]
+  %.262 = phi ptr [ %51, %.lr.ph ], [ %2, %.lr.ph.preheader ]
   %.pn61 = phi ptr [ %.25063, %.lr.ph ], [ %0, %.lr.ph.preheader ]
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.262) #24, !srcloc !323
-  %36 = load <4 x float>, ptr %.262, align 1, !tbaa !4
-  %37 = fmul <4 x float> %36, splat (float 6.553500e+04)
-  %38 = fadd <4 x float> %37, splat (float 5.000000e-01)
-  %39 = shufflevector <4 x float> %38, <4 x float> poison, <4 x i32> <i32 3, i32 2, i32 1, i32 0>
-  %40 = tail call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %39, <4 x float> splat (float 6.553500e+04))
-  %41 = tail call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %40, <4 x float> zeroinitializer)
-  %42 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %41)
-  %43 = load <4 x i32>, ptr @stbir__s32_32768, align 16, !tbaa !4
-  %44 = sub <4 x i32> %42, %43
-  %45 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %44, <4 x i32> poison)
-  %46 = load <8 x i16>, ptr @stbir__s16_32768, align 16, !tbaa !4
-  %47 = sub <8 x i16> %45, %46
-  %48 = bitcast <8 x i16> %47 to <2 x i64>
-  %49 = extractelement <2 x i64> %48, i64 0
-  store i64 %49, ptr %.pn61, align 1, !tbaa !4
-  %50 = getelementptr inbounds nuw i8, ptr %.262, i64 16
+  %37 = load <4 x float>, ptr %.262, align 1, !tbaa !4
+  %38 = fmul <4 x float> %37, splat (float 6.553500e+04)
+  %39 = fadd <4 x float> %38, splat (float 5.000000e-01)
+  %40 = shufflevector <4 x float> %39, <4 x float> poison, <4 x i32> <i32 3, i32 2, i32 1, i32 0>
+  %41 = tail call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %40, <4 x float> splat (float 6.553500e+04))
+  %42 = tail call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %41, <4 x float> zeroinitializer)
+  %43 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %42)
+  %44 = load <4 x i32>, ptr @stbir__s32_32768, align 16, !tbaa !4
+  %45 = sub <4 x i32> %43, %44
+  %46 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %45, <4 x i32> poison)
+  %47 = load <8 x i16>, ptr @stbir__s16_32768, align 16, !tbaa !4
+  %48 = sub <8 x i16> %46, %47
+  %49 = bitcast <8 x i16> %48 to <2 x i64>
+  %50 = extractelement <2 x i64> %49, i64 0
+  store i64 %50, ptr %.pn61, align 1, !tbaa !4
+  %51 = getelementptr inbounds nuw i8, ptr %.262, i64 16
   %.250 = getelementptr inbounds nuw i8, ptr %.25063, i64 8
   %.not = icmp ugt ptr %.250, %5
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !324
@@ -10601,37 +10562,36 @@ define void @stbir__decode_uint16_linear_ABGR(ptr noundef %0, i32 noundef %1, pt
   %22 = getelementptr inbounds nuw i8, ptr %.045, i64 32
   %23 = getelementptr inbounds nuw i8, ptr %.046, i64 16
   %.not52 = icmp ugt ptr %22, %10
-  %24 = icmp eq ptr %22, %5
-  %. = select i1 %24, ptr %23, ptr %7
-  %.53 = select i1 %24, ptr %22, ptr %10
-  %.147 = select i1 %.not52, ptr %., ptr %23
-  %.1 = select i1 %.not52, ptr %.53, ptr %22
-  br i1 %24, label %.loopexit, label %11
+  %24 = icmp ne ptr %22, %5
+  %25 = and i1 %.not52, %24
+  %.147 = select i1 %25, ptr %7, ptr %23
+  %.1 = select i1 %25, ptr %10, ptr %22
+  br i1 %24, label %11, label %.loopexit
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.260 = phi ptr [ %.2, %.lr.ph ], [ %.256, %.lr.ph.preheader ]
   %.pn59 = phi ptr [ %.260, %.lr.ph ], [ %0, %.lr.ph.preheader ]
-  %.24858 = phi ptr [ %39, %.lr.ph ], [ %2, %.lr.ph.preheader ]
+  %.24858 = phi ptr [ %40, %.lr.ph ], [ %2, %.lr.ph.preheader ]
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.260) #24, !srcloc !326
-  %25 = getelementptr inbounds nuw i8, ptr %.24858, i64 6
-  %26 = load i16, ptr %25, align 2, !tbaa !173
-  %27 = uitofp i16 %26 to float
-  store float %27, ptr %.pn59, align 4, !tbaa !50
-  %28 = getelementptr inbounds nuw i8, ptr %.24858, i64 4
-  %29 = load i16, ptr %28, align 2, !tbaa !173
-  %30 = uitofp i16 %29 to float
-  %31 = getelementptr inbounds nuw i8, ptr %.pn59, i64 4
-  store float %30, ptr %31, align 4, !tbaa !50
-  %32 = getelementptr inbounds nuw i8, ptr %.24858, i64 2
-  %33 = load i16, ptr %32, align 2, !tbaa !173
-  %34 = uitofp i16 %33 to float
-  %35 = getelementptr inbounds nuw i8, ptr %.pn59, i64 8
-  store float %34, ptr %35, align 4, !tbaa !50
-  %36 = load i16, ptr %.24858, align 2, !tbaa !173
-  %37 = uitofp i16 %36 to float
-  %38 = getelementptr inbounds nuw i8, ptr %.pn59, i64 12
-  store float %37, ptr %38, align 4, !tbaa !50
-  %39 = getelementptr inbounds nuw i8, ptr %.24858, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %.24858, i64 6
+  %27 = load i16, ptr %26, align 2, !tbaa !173
+  %28 = uitofp i16 %27 to float
+  store float %28, ptr %.pn59, align 4, !tbaa !50
+  %29 = getelementptr inbounds nuw i8, ptr %.24858, i64 4
+  %30 = load i16, ptr %29, align 2, !tbaa !173
+  %31 = uitofp i16 %30 to float
+  %32 = getelementptr inbounds nuw i8, ptr %.pn59, i64 4
+  store float %31, ptr %32, align 4, !tbaa !50
+  %33 = getelementptr inbounds nuw i8, ptr %.24858, i64 2
+  %34 = load i16, ptr %33, align 2, !tbaa !173
+  %35 = uitofp i16 %34 to float
+  %36 = getelementptr inbounds nuw i8, ptr %.pn59, i64 8
+  store float %35, ptr %36, align 4, !tbaa !50
+  %37 = load i16, ptr %.24858, align 2, !tbaa !173
+  %38 = uitofp i16 %37 to float
+  %39 = getelementptr inbounds nuw i8, ptr %.pn59, i64 12
+  store float %38, ptr %39, align 4, !tbaa !50
+  %40 = getelementptr inbounds nuw i8, ptr %.24858, i64 8
   %.2 = getelementptr inbounds nuw i8, ptr %.260, i64 16
   %.not = icmp ugt ptr %.2, %5
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !327
@@ -10689,33 +10649,32 @@ define void @stbir__encode_uint16_linear_ABGR(ptr noundef writeonly captures(add
   %31 = getelementptr inbounds nuw i8, ptr %.0, i64 32
   %32 = getelementptr inbounds nuw i8, ptr %.048, i64 16
   %.not55 = icmp ugt ptr %32, %10
-  %33 = icmp eq ptr %32, %5
-  %.56 = select i1 %33, ptr %32, ptr %10
-  %.57 = select i1 %33, ptr %31, ptr %9
-  %.149 = select i1 %.not55, ptr %.56, ptr %32
-  %.1 = select i1 %.not55, ptr %.57, ptr %31
-  br i1 %33, label %.loopexit, label %11
+  %33 = icmp ne ptr %32, %5
+  %34 = and i1 %.not55, %33
+  %.149 = select i1 %34, ptr %10, ptr %32
+  %.1 = select i1 %34, ptr %9, ptr %31
+  br i1 %33, label %11, label %.loopexit
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.25063 = phi ptr [ %.250, %.lr.ph ], [ %.25059, %.lr.ph.preheader ]
-  %.262 = phi ptr [ %47, %.lr.ph ], [ %2, %.lr.ph.preheader ]
+  %.262 = phi ptr [ %48, %.lr.ph ], [ %2, %.lr.ph.preheader ]
   %.pn61 = phi ptr [ %.25063, %.lr.ph ], [ %0, %.lr.ph.preheader ]
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.262) #24, !srcloc !329
-  %34 = load <4 x float>, ptr %.262, align 1, !tbaa !4
-  %35 = fadd <4 x float> %34, splat (float 5.000000e-01)
-  %36 = shufflevector <4 x float> %35, <4 x float> poison, <4 x i32> <i32 3, i32 2, i32 1, i32 0>
-  %37 = tail call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %36, <4 x float> splat (float 6.553500e+04))
-  %38 = tail call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %37, <4 x float> zeroinitializer)
-  %39 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %38)
-  %40 = load <4 x i32>, ptr @stbir__s32_32768, align 16, !tbaa !4
-  %41 = sub <4 x i32> %39, %40
-  %42 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %41, <4 x i32> poison)
-  %43 = load <8 x i16>, ptr @stbir__s16_32768, align 16, !tbaa !4
-  %44 = sub <8 x i16> %42, %43
-  %45 = bitcast <8 x i16> %44 to <2 x i64>
-  %46 = extractelement <2 x i64> %45, i64 0
-  store i64 %46, ptr %.pn61, align 1, !tbaa !4
-  %47 = getelementptr inbounds nuw i8, ptr %.262, i64 16
+  %35 = load <4 x float>, ptr %.262, align 1, !tbaa !4
+  %36 = fadd <4 x float> %35, splat (float 5.000000e-01)
+  %37 = shufflevector <4 x float> %36, <4 x float> poison, <4 x i32> <i32 3, i32 2, i32 1, i32 0>
+  %38 = tail call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %37, <4 x float> splat (float 6.553500e+04))
+  %39 = tail call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %38, <4 x float> zeroinitializer)
+  %40 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %39)
+  %41 = load <4 x i32>, ptr @stbir__s32_32768, align 16, !tbaa !4
+  %42 = sub <4 x i32> %40, %41
+  %43 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %42, <4 x i32> poison)
+  %44 = load <8 x i16>, ptr @stbir__s16_32768, align 16, !tbaa !4
+  %45 = sub <8 x i16> %43, %44
+  %46 = bitcast <8 x i16> %45 to <2 x i64>
+  %47 = extractelement <2 x i64> %46, i64 0
+  store i64 %47, ptr %.pn61, align 1, !tbaa !4
+  %48 = getelementptr inbounds nuw i8, ptr %.262, i64 16
   %.250 = getelementptr inbounds nuw i8, ptr %.25063, i64 8
   %.not = icmp ugt ptr %.250, %5
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !330
@@ -11346,69 +11305,68 @@ define void @stbir__decode_uint8_linear_scaled_AR(ptr noundef %0, i32 noundef %1
   %40 = getelementptr inbounds nuw i8, ptr %.074, i64 64
   %41 = getelementptr inbounds nuw i8, ptr %.075, i64 16
   %.not83 = icmp ugt ptr %40, %10
-  %42 = icmp eq ptr %40, %5
-  %. = select i1 %42, ptr %41, ptr %7
-  %.84 = select i1 %42, ptr %40, ptr %10
-  %.176 = select i1 %.not83, ptr %., ptr %41
-  %.1 = select i1 %.not83, ptr %.84, ptr %40
-  br i1 %42, label %.loopexit, label %11
+  %42 = icmp ne ptr %40, %5
+  %43 = and i1 %.not83, %42
+  %.176 = select i1 %43, ptr %7, ptr %41
+  %.1 = select i1 %43, ptr %10, ptr %40
+  br i1 %42, label %11, label %.loopexit
 
 .preheader:                                       ; preds = %.lr.ph, %.preheader87
-  %.277.lcssa = phi ptr [ %2, %.preheader87 ], [ %62, %.lr.ph ]
+  %.277.lcssa = phi ptr [ %2, %.preheader87 ], [ %63, %.lr.ph ]
   %.pn.lcssa = phi ptr [ %0, %.preheader87 ], [ %.292, %.lr.ph ]
-  %43 = icmp ult ptr %.pn.lcssa, %5
-  br i1 %43, label %.lr.ph96, label %.loopexit
+  %44 = icmp ult ptr %.pn.lcssa, %5
+  br i1 %44, label %.lr.ph96, label %.loopexit
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.292 = phi ptr [ %.2, %.lr.ph ], [ %.288, %.lr.ph.preheader ]
   %.pn91 = phi ptr [ %.292, %.lr.ph ], [ %0, %.lr.ph.preheader ]
-  %.27790 = phi ptr [ %62, %.lr.ph ], [ %2, %.lr.ph.preheader ]
+  %.27790 = phi ptr [ %63, %.lr.ph ], [ %2, %.lr.ph.preheader ]
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.292) #24, !srcloc !347
-  %44 = getelementptr inbounds nuw i8, ptr %.27790, i64 1
-  %45 = load i8, ptr %44, align 1, !tbaa !4
-  %46 = uitofp i8 %45 to float
-  %47 = fmul float %46, 0x3F70101020000000
-  store float %47, ptr %.pn91, align 4, !tbaa !50
-  %48 = load i8, ptr %.27790, align 1, !tbaa !4
-  %49 = uitofp i8 %48 to float
-  %50 = fmul float %49, 0x3F70101020000000
-  %51 = getelementptr inbounds nuw i8, ptr %.pn91, i64 4
-  store float %50, ptr %51, align 4, !tbaa !50
-  %52 = getelementptr inbounds nuw i8, ptr %.27790, i64 3
-  %53 = load i8, ptr %52, align 1, !tbaa !4
-  %54 = uitofp i8 %53 to float
-  %55 = fmul float %54, 0x3F70101020000000
-  %56 = getelementptr inbounds nuw i8, ptr %.pn91, i64 8
-  store float %55, ptr %56, align 4, !tbaa !50
-  %57 = getelementptr inbounds nuw i8, ptr %.27790, i64 2
-  %58 = load i8, ptr %57, align 1, !tbaa !4
-  %59 = uitofp i8 %58 to float
-  %60 = fmul float %59, 0x3F70101020000000
-  %61 = getelementptr inbounds nuw i8, ptr %.pn91, i64 12
-  store float %60, ptr %61, align 4, !tbaa !50
-  %62 = getelementptr inbounds nuw i8, ptr %.27790, i64 4
+  %45 = getelementptr inbounds nuw i8, ptr %.27790, i64 1
+  %46 = load i8, ptr %45, align 1, !tbaa !4
+  %47 = uitofp i8 %46 to float
+  %48 = fmul float %47, 0x3F70101020000000
+  store float %48, ptr %.pn91, align 4, !tbaa !50
+  %49 = load i8, ptr %.27790, align 1, !tbaa !4
+  %50 = uitofp i8 %49 to float
+  %51 = fmul float %50, 0x3F70101020000000
+  %52 = getelementptr inbounds nuw i8, ptr %.pn91, i64 4
+  store float %51, ptr %52, align 4, !tbaa !50
+  %53 = getelementptr inbounds nuw i8, ptr %.27790, i64 3
+  %54 = load i8, ptr %53, align 1, !tbaa !4
+  %55 = uitofp i8 %54 to float
+  %56 = fmul float %55, 0x3F70101020000000
+  %57 = getelementptr inbounds nuw i8, ptr %.pn91, i64 8
+  store float %56, ptr %57, align 4, !tbaa !50
+  %58 = getelementptr inbounds nuw i8, ptr %.27790, i64 2
+  %59 = load i8, ptr %58, align 1, !tbaa !4
+  %60 = uitofp i8 %59 to float
+  %61 = fmul float %60, 0x3F70101020000000
+  %62 = getelementptr inbounds nuw i8, ptr %.pn91, i64 12
+  store float %61, ptr %62, align 4, !tbaa !50
+  %63 = getelementptr inbounds nuw i8, ptr %.27790, i64 4
   %.2 = getelementptr inbounds nuw i8, ptr %.292, i64 16
   %.not = icmp ugt ptr %.2, %5
   br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !348
 
 .lr.ph96:                                         ; preds = %.preheader, %.lr.ph96
-  %.395 = phi ptr [ %71, %.lr.ph96 ], [ %.pn.lcssa, %.preheader ]
-  %.37894 = phi ptr [ %72, %.lr.ph96 ], [ %.277.lcssa, %.preheader ]
+  %.395 = phi ptr [ %72, %.lr.ph96 ], [ %.pn.lcssa, %.preheader ]
+  %.37894 = phi ptr [ %73, %.lr.ph96 ], [ %.277.lcssa, %.preheader ]
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.395) #24, !srcloc !349
-  %63 = getelementptr inbounds nuw i8, ptr %.37894, i64 1
-  %64 = load i8, ptr %63, align 1, !tbaa !4
-  %65 = uitofp i8 %64 to float
-  %66 = fmul float %65, 0x3F70101020000000
-  store float %66, ptr %.395, align 4, !tbaa !50
-  %67 = load i8, ptr %.37894, align 1, !tbaa !4
-  %68 = uitofp i8 %67 to float
-  %69 = fmul float %68, 0x3F70101020000000
-  %70 = getelementptr inbounds nuw i8, ptr %.395, i64 4
-  store float %69, ptr %70, align 4, !tbaa !50
-  %71 = getelementptr inbounds nuw i8, ptr %.395, i64 8
-  %72 = getelementptr inbounds nuw i8, ptr %.37894, i64 2
-  %73 = icmp ult ptr %71, %5
-  br i1 %73, label %.lr.ph96, label %.loopexit, !llvm.loop !350
+  %64 = getelementptr inbounds nuw i8, ptr %.37894, i64 1
+  %65 = load i8, ptr %64, align 1, !tbaa !4
+  %66 = uitofp i8 %65 to float
+  %67 = fmul float %66, 0x3F70101020000000
+  store float %67, ptr %.395, align 4, !tbaa !50
+  %68 = load i8, ptr %.37894, align 1, !tbaa !4
+  %69 = uitofp i8 %68 to float
+  %70 = fmul float %69, 0x3F70101020000000
+  %71 = getelementptr inbounds nuw i8, ptr %.395, i64 4
+  store float %70, ptr %71, align 4, !tbaa !50
+  %72 = getelementptr inbounds nuw i8, ptr %.395, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %.37894, i64 2
+  %74 = icmp ult ptr %72, %5
+  br i1 %74, label %.lr.ph96, label %.loopexit, !llvm.loop !350
 
 .loopexit:                                        ; preds = %.lr.ph96, %11, %.preheader
   ret void
@@ -11462,71 +11420,70 @@ define void @stbir__encode_uint8_linear_scaled_AR(ptr noundef writeonly captures
   %31 = getelementptr inbounds nuw i8, ptr %.0, i64 32
   %32 = getelementptr inbounds nuw i8, ptr %.065, i64 8
   %.not74 = icmp ugt ptr %32, %10
-  %33 = icmp eq ptr %32, %5
-  %.75 = select i1 %33, ptr %32, ptr %10
-  %.76 = select i1 %33, ptr %31, ptr %9
-  %.166 = select i1 %.not74, ptr %.75, ptr %32
-  %.1 = select i1 %.not74, ptr %.76, ptr %31
-  br i1 %33, label %.loopexit, label %11
+  %33 = icmp ne ptr %32, %5
+  %34 = and i1 %.not74, %33
+  %.166 = select i1 %34, ptr %10, ptr %32
+  %.1 = select i1 %34, ptr %9, ptr %31
+  br i1 %33, label %11, label %.loopexit
 
 .preheader:                                       ; preds = %.lr.ph, %.preheader78
   %.pn.lcssa = phi ptr [ %0, %.preheader78 ], [ %.26783, %.lr.ph ]
-  %.2.lcssa = phi ptr [ %2, %.preheader78 ], [ %46, %.lr.ph ]
-  %34 = icmp ult ptr %.pn.lcssa, %5
-  br i1 %34, label %.lr.ph87, label %.loopexit
+  %.2.lcssa = phi ptr [ %2, %.preheader78 ], [ %47, %.lr.ph ]
+  %35 = icmp ult ptr %.pn.lcssa, %5
+  br i1 %35, label %.lr.ph87, label %.loopexit
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.26783 = phi ptr [ %.267, %.lr.ph ], [ %.26779, %.lr.ph.preheader ]
-  %.282 = phi ptr [ %46, %.lr.ph ], [ %2, %.lr.ph.preheader ]
+  %.282 = phi ptr [ %47, %.lr.ph ], [ %2, %.lr.ph.preheader ]
   %.pn81 = phi ptr [ %.26783, %.lr.ph ], [ %0, %.lr.ph.preheader ]
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.282) #24, !srcloc !352
-  %35 = load <4 x float>, ptr %.282, align 1, !tbaa !4
-  %36 = fmul <4 x float> %35, splat (float 2.550000e+02)
-  %37 = fadd <4 x float> %36, splat (float 5.000000e-01)
-  %38 = shufflevector <4 x float> %37, <4 x float> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
-  %39 = tail call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %38, <4 x float> splat (float 2.550000e+02))
-  %40 = tail call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %39, <4 x float> zeroinitializer)
-  %41 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %40)
-  %42 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %41, <4 x i32> poison)
-  %43 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %42, <8 x i16> poison)
-  %44 = bitcast <16 x i8> %43 to <4 x i32>
-  %45 = extractelement <4 x i32> %44, i64 0
-  store i32 %45, ptr %.pn81, align 4, !tbaa !18
-  %46 = getelementptr inbounds nuw i8, ptr %.282, i64 16
+  %36 = load <4 x float>, ptr %.282, align 1, !tbaa !4
+  %37 = fmul <4 x float> %36, splat (float 2.550000e+02)
+  %38 = fadd <4 x float> %37, splat (float 5.000000e-01)
+  %39 = shufflevector <4 x float> %38, <4 x float> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
+  %40 = tail call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %39, <4 x float> splat (float 2.550000e+02))
+  %41 = tail call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %40, <4 x float> zeroinitializer)
+  %42 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %41)
+  %43 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %42, <4 x i32> poison)
+  %44 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %43, <8 x i16> poison)
+  %45 = bitcast <16 x i8> %44 to <4 x i32>
+  %46 = extractelement <4 x i32> %45, i64 0
+  store i32 %46, ptr %.pn81, align 4, !tbaa !18
+  %47 = getelementptr inbounds nuw i8, ptr %.282, i64 16
   %.267 = getelementptr inbounds nuw i8, ptr %.26783, i64 4
   %.not = icmp ugt ptr %.267, %5
   br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !353
 
 .lr.ph87:                                         ; preds = %.preheader, %.lr.ph87
-  %.386 = phi ptr [ %68, %.lr.ph87 ], [ %.2.lcssa, %.preheader ]
-  %.36885 = phi ptr [ %67, %.lr.ph87 ], [ %.pn.lcssa, %.preheader ]
+  %.386 = phi ptr [ %69, %.lr.ph87 ], [ %.2.lcssa, %.preheader ]
+  %.36885 = phi ptr [ %68, %.lr.ph87 ], [ %.pn.lcssa, %.preheader ]
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.386) #24, !srcloc !354
-  %47 = getelementptr inbounds nuw i8, ptr %.386, i64 4
-  %48 = load float, ptr %47, align 1, !tbaa !4
-  %49 = fmul float %48, 2.550000e+02
-  %50 = fadd float %49, 5.000000e-01
-  %51 = insertelement <4 x float> <float poison, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>, float %50, i64 0
-  %52 = tail call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %51, <4 x float> splat (float 2.550000e+02))
-  %53 = tail call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %52, <4 x float> zeroinitializer)
-  %54 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %53)
-  %55 = bitcast <4 x i32> %54 to <16 x i8>
-  %56 = extractelement <16 x i8> %55, i64 0
-  store i8 %56, ptr %.36885, align 1, !tbaa !4
-  %57 = load float, ptr %.386, align 1, !tbaa !4
-  %58 = fmul float %57, 2.550000e+02
-  %59 = fadd float %58, 5.000000e-01
-  %60 = insertelement <4 x float> <float poison, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>, float %59, i64 0
-  %61 = tail call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %60, <4 x float> splat (float 2.550000e+02))
-  %62 = tail call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %61, <4 x float> zeroinitializer)
-  %63 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %62)
-  %64 = bitcast <4 x i32> %63 to <16 x i8>
-  %65 = extractelement <16 x i8> %64, i64 0
-  %66 = getelementptr inbounds nuw i8, ptr %.36885, i64 1
-  store i8 %65, ptr %66, align 1, !tbaa !4
-  %67 = getelementptr inbounds nuw i8, ptr %.36885, i64 2
-  %68 = getelementptr inbounds nuw i8, ptr %.386, i64 8
-  %69 = icmp ult ptr %67, %5
-  br i1 %69, label %.lr.ph87, label %.loopexit, !llvm.loop !355
+  %48 = getelementptr inbounds nuw i8, ptr %.386, i64 4
+  %49 = load float, ptr %48, align 1, !tbaa !4
+  %50 = fmul float %49, 2.550000e+02
+  %51 = fadd float %50, 5.000000e-01
+  %52 = insertelement <4 x float> <float poison, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>, float %51, i64 0
+  %53 = tail call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %52, <4 x float> splat (float 2.550000e+02))
+  %54 = tail call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %53, <4 x float> zeroinitializer)
+  %55 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %54)
+  %56 = bitcast <4 x i32> %55 to <16 x i8>
+  %57 = extractelement <16 x i8> %56, i64 0
+  store i8 %57, ptr %.36885, align 1, !tbaa !4
+  %58 = load float, ptr %.386, align 1, !tbaa !4
+  %59 = fmul float %58, 2.550000e+02
+  %60 = fadd float %59, 5.000000e-01
+  %61 = insertelement <4 x float> <float poison, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>, float %60, i64 0
+  %62 = tail call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %61, <4 x float> splat (float 2.550000e+02))
+  %63 = tail call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %62, <4 x float> zeroinitializer)
+  %64 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %63)
+  %65 = bitcast <4 x i32> %64 to <16 x i8>
+  %66 = extractelement <16 x i8> %65, i64 0
+  %67 = getelementptr inbounds nuw i8, ptr %.36885, i64 1
+  store i8 %66, ptr %67, align 1, !tbaa !4
+  %68 = getelementptr inbounds nuw i8, ptr %.36885, i64 2
+  %69 = getelementptr inbounds nuw i8, ptr %.386, i64 8
+  %70 = icmp ult ptr %68, %5
+  br i1 %70, label %.lr.ph87, label %.loopexit, !llvm.loop !355
 
 .loopexit:                                        ; preds = %.lr.ph87, %11, %.preheader
   ret void
@@ -11589,63 +11546,62 @@ define void @stbir__decode_uint8_linear_AR(ptr noundef %0, i32 noundef %1, ptr n
   %36 = getelementptr inbounds nuw i8, ptr %.070, i64 64
   %37 = getelementptr inbounds nuw i8, ptr %.071, i64 16
   %.not79 = icmp ugt ptr %36, %10
-  %38 = icmp eq ptr %36, %5
-  %. = select i1 %38, ptr %37, ptr %7
-  %.80 = select i1 %38, ptr %36, ptr %10
-  %.172 = select i1 %.not79, ptr %., ptr %37
-  %.1 = select i1 %.not79, ptr %.80, ptr %36
-  br i1 %38, label %.loopexit, label %11
+  %38 = icmp ne ptr %36, %5
+  %39 = and i1 %.not79, %38
+  %.172 = select i1 %39, ptr %7, ptr %37
+  %.1 = select i1 %39, ptr %10, ptr %36
+  br i1 %38, label %11, label %.loopexit
 
 .preheader:                                       ; preds = %.lr.ph, %.preheader83
-  %.273.lcssa = phi ptr [ %2, %.preheader83 ], [ %54, %.lr.ph ]
+  %.273.lcssa = phi ptr [ %2, %.preheader83 ], [ %55, %.lr.ph ]
   %.pn.lcssa = phi ptr [ %0, %.preheader83 ], [ %.288, %.lr.ph ]
-  %39 = icmp ult ptr %.pn.lcssa, %5
-  br i1 %39, label %.lr.ph92, label %.loopexit
+  %40 = icmp ult ptr %.pn.lcssa, %5
+  br i1 %40, label %.lr.ph92, label %.loopexit
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.288 = phi ptr [ %.2, %.lr.ph ], [ %.284, %.lr.ph.preheader ]
   %.pn87 = phi ptr [ %.288, %.lr.ph ], [ %0, %.lr.ph.preheader ]
-  %.27386 = phi ptr [ %54, %.lr.ph ], [ %2, %.lr.ph.preheader ]
+  %.27386 = phi ptr [ %55, %.lr.ph ], [ %2, %.lr.ph.preheader ]
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.288) #24, !srcloc !357
-  %40 = getelementptr inbounds nuw i8, ptr %.27386, i64 1
-  %41 = load i8, ptr %40, align 1, !tbaa !4
-  %42 = uitofp i8 %41 to float
-  store float %42, ptr %.pn87, align 4, !tbaa !50
-  %43 = load i8, ptr %.27386, align 1, !tbaa !4
-  %44 = uitofp i8 %43 to float
-  %45 = getelementptr inbounds nuw i8, ptr %.pn87, i64 4
-  store float %44, ptr %45, align 4, !tbaa !50
-  %46 = getelementptr inbounds nuw i8, ptr %.27386, i64 3
-  %47 = load i8, ptr %46, align 1, !tbaa !4
-  %48 = uitofp i8 %47 to float
-  %49 = getelementptr inbounds nuw i8, ptr %.pn87, i64 8
-  store float %48, ptr %49, align 4, !tbaa !50
-  %50 = getelementptr inbounds nuw i8, ptr %.27386, i64 2
-  %51 = load i8, ptr %50, align 1, !tbaa !4
-  %52 = uitofp i8 %51 to float
-  %53 = getelementptr inbounds nuw i8, ptr %.pn87, i64 12
-  store float %52, ptr %53, align 4, !tbaa !50
-  %54 = getelementptr inbounds nuw i8, ptr %.27386, i64 4
+  %41 = getelementptr inbounds nuw i8, ptr %.27386, i64 1
+  %42 = load i8, ptr %41, align 1, !tbaa !4
+  %43 = uitofp i8 %42 to float
+  store float %43, ptr %.pn87, align 4, !tbaa !50
+  %44 = load i8, ptr %.27386, align 1, !tbaa !4
+  %45 = uitofp i8 %44 to float
+  %46 = getelementptr inbounds nuw i8, ptr %.pn87, i64 4
+  store float %45, ptr %46, align 4, !tbaa !50
+  %47 = getelementptr inbounds nuw i8, ptr %.27386, i64 3
+  %48 = load i8, ptr %47, align 1, !tbaa !4
+  %49 = uitofp i8 %48 to float
+  %50 = getelementptr inbounds nuw i8, ptr %.pn87, i64 8
+  store float %49, ptr %50, align 4, !tbaa !50
+  %51 = getelementptr inbounds nuw i8, ptr %.27386, i64 2
+  %52 = load i8, ptr %51, align 1, !tbaa !4
+  %53 = uitofp i8 %52 to float
+  %54 = getelementptr inbounds nuw i8, ptr %.pn87, i64 12
+  store float %53, ptr %54, align 4, !tbaa !50
+  %55 = getelementptr inbounds nuw i8, ptr %.27386, i64 4
   %.2 = getelementptr inbounds nuw i8, ptr %.288, i64 16
   %.not = icmp ugt ptr %.2, %5
   br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !358
 
 .lr.ph92:                                         ; preds = %.preheader, %.lr.ph92
-  %.391 = phi ptr [ %61, %.lr.ph92 ], [ %.pn.lcssa, %.preheader ]
-  %.37490 = phi ptr [ %62, %.lr.ph92 ], [ %.273.lcssa, %.preheader ]
+  %.391 = phi ptr [ %62, %.lr.ph92 ], [ %.pn.lcssa, %.preheader ]
+  %.37490 = phi ptr [ %63, %.lr.ph92 ], [ %.273.lcssa, %.preheader ]
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.391) #24, !srcloc !359
-  %55 = getelementptr inbounds nuw i8, ptr %.37490, i64 1
-  %56 = load i8, ptr %55, align 1, !tbaa !4
-  %57 = uitofp i8 %56 to float
-  store float %57, ptr %.391, align 4, !tbaa !50
-  %58 = load i8, ptr %.37490, align 1, !tbaa !4
-  %59 = uitofp i8 %58 to float
-  %60 = getelementptr inbounds nuw i8, ptr %.391, i64 4
-  store float %59, ptr %60, align 4, !tbaa !50
-  %61 = getelementptr inbounds nuw i8, ptr %.391, i64 8
-  %62 = getelementptr inbounds nuw i8, ptr %.37490, i64 2
-  %63 = icmp ult ptr %61, %5
-  br i1 %63, label %.lr.ph92, label %.loopexit, !llvm.loop !360
+  %56 = getelementptr inbounds nuw i8, ptr %.37490, i64 1
+  %57 = load i8, ptr %56, align 1, !tbaa !4
+  %58 = uitofp i8 %57 to float
+  store float %58, ptr %.391, align 4, !tbaa !50
+  %59 = load i8, ptr %.37490, align 1, !tbaa !4
+  %60 = uitofp i8 %59 to float
+  %61 = getelementptr inbounds nuw i8, ptr %.391, i64 4
+  store float %60, ptr %61, align 4, !tbaa !50
+  %62 = getelementptr inbounds nuw i8, ptr %.391, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %.37490, i64 2
+  %64 = icmp ult ptr %62, %5
+  br i1 %64, label %.lr.ph92, label %.loopexit, !llvm.loop !360
 
 .loopexit:                                        ; preds = %.lr.ph92, %11, %.preheader
   ret void
@@ -11697,66 +11653,65 @@ define void @stbir__encode_uint8_linear_AR(ptr noundef writeonly captures(addres
   %29 = getelementptr inbounds nuw i8, ptr %.069, i64 32
   %30 = getelementptr inbounds nuw i8, ptr %.073, i64 8
   %.not84 = icmp ugt ptr %30, %10
-  %31 = icmp eq ptr %30, %5
-  %.85 = select i1 %31, ptr %30, ptr %10
-  %.86 = select i1 %31, ptr %29, ptr %9
-  %.174 = select i1 %.not84, ptr %.85, ptr %30
-  %.170 = select i1 %.not84, ptr %.86, ptr %29
-  br i1 %31, label %.loopexit, label %11
+  %31 = icmp ne ptr %30, %5
+  %32 = and i1 %.not84, %31
+  %.174 = select i1 %32, ptr %10, ptr %30
+  %.170 = select i1 %32, ptr %9, ptr %29
+  br i1 %31, label %11, label %.loopexit
 
 .preheader:                                       ; preds = %.lr.ph, %.preheader88
   %.pn.lcssa = phi ptr [ %0, %.preheader88 ], [ %.27593, %.lr.ph ]
-  %.271.lcssa = phi ptr [ %2, %.preheader88 ], [ %43, %.lr.ph ]
-  %32 = icmp ult ptr %.pn.lcssa, %5
-  br i1 %32, label %.lr.ph97, label %.loopexit
+  %.271.lcssa = phi ptr [ %2, %.preheader88 ], [ %44, %.lr.ph ]
+  %33 = icmp ult ptr %.pn.lcssa, %5
+  br i1 %33, label %.lr.ph97, label %.loopexit
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.27593 = phi ptr [ %.275, %.lr.ph ], [ %.27589, %.lr.ph.preheader ]
-  %.27192 = phi ptr [ %43, %.lr.ph ], [ %2, %.lr.ph.preheader ]
+  %.27192 = phi ptr [ %44, %.lr.ph ], [ %2, %.lr.ph.preheader ]
   %.pn91 = phi ptr [ %.27593, %.lr.ph ], [ %0, %.lr.ph.preheader ]
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.27192) #24, !srcloc !362
-  %33 = load <4 x float>, ptr %.27192, align 1, !tbaa !4
-  %34 = fadd <4 x float> %33, splat (float 5.000000e-01)
-  %35 = shufflevector <4 x float> %34, <4 x float> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
-  %36 = tail call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %35, <4 x float> splat (float 2.550000e+02))
-  %37 = tail call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %36, <4 x float> zeroinitializer)
-  %38 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %37)
-  %39 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %38, <4 x i32> poison)
-  %40 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %39, <8 x i16> poison)
-  %41 = bitcast <16 x i8> %40 to <4 x i32>
-  %42 = extractelement <4 x i32> %41, i64 0
-  store i32 %42, ptr %.pn91, align 4, !tbaa !18
-  %43 = getelementptr inbounds nuw i8, ptr %.27192, i64 16
+  %34 = load <4 x float>, ptr %.27192, align 1, !tbaa !4
+  %35 = fadd <4 x float> %34, splat (float 5.000000e-01)
+  %36 = shufflevector <4 x float> %35, <4 x float> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
+  %37 = tail call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %36, <4 x float> splat (float 2.550000e+02))
+  %38 = tail call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %37, <4 x float> zeroinitializer)
+  %39 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %38)
+  %40 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %39, <4 x i32> poison)
+  %41 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %40, <8 x i16> poison)
+  %42 = bitcast <16 x i8> %41 to <4 x i32>
+  %43 = extractelement <4 x i32> %42, i64 0
+  store i32 %43, ptr %.pn91, align 4, !tbaa !18
+  %44 = getelementptr inbounds nuw i8, ptr %.27192, i64 16
   %.275 = getelementptr inbounds nuw i8, ptr %.27593, i64 4
   %.not = icmp ugt ptr %.275, %5
   br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !363
 
 .lr.ph97:                                         ; preds = %.preheader, %.lr.ph97
-  %.37296 = phi ptr [ %57, %.lr.ph97 ], [ %.271.lcssa, %.preheader ]
-  %.37695 = phi ptr [ %56, %.lr.ph97 ], [ %.pn.lcssa, %.preheader ]
+  %.37296 = phi ptr [ %58, %.lr.ph97 ], [ %.271.lcssa, %.preheader ]
+  %.37695 = phi ptr [ %57, %.lr.ph97 ], [ %.pn.lcssa, %.preheader ]
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.37296) #24, !srcloc !364
-  %44 = getelementptr inbounds nuw i8, ptr %.37296, i64 4
-  %45 = load float, ptr %44, align 4, !tbaa !50
-  %46 = fadd float %45, 5.000000e-01
-  %47 = fcmp olt float %46, 0.000000e+00
-  %.0 = select i1 %47, float 0.000000e+00, float %46
-  %48 = fcmp ogt float %.0, 2.550000e+02
-  %.1 = select i1 %48, float 2.550000e+02, float %.0
-  %49 = fptoui float %.1 to i8
-  store i8 %49, ptr %.37695, align 1, !tbaa !4
-  %50 = load float, ptr %.37296, align 4, !tbaa !50
-  %51 = fadd float %50, 5.000000e-01
-  %52 = fcmp olt float %51, 0.000000e+00
-  %.2 = select i1 %52, float 0.000000e+00, float %51
-  %53 = fcmp ogt float %.2, 2.550000e+02
-  %.3 = select i1 %53, float 2.550000e+02, float %.2
-  %54 = fptoui float %.3 to i8
-  %55 = getelementptr inbounds nuw i8, ptr %.37695, i64 1
-  store i8 %54, ptr %55, align 1, !tbaa !4
-  %56 = getelementptr inbounds nuw i8, ptr %.37695, i64 2
-  %57 = getelementptr inbounds nuw i8, ptr %.37296, i64 8
-  %58 = icmp ult ptr %56, %5
-  br i1 %58, label %.lr.ph97, label %.loopexit, !llvm.loop !365
+  %45 = getelementptr inbounds nuw i8, ptr %.37296, i64 4
+  %46 = load float, ptr %45, align 4, !tbaa !50
+  %47 = fadd float %46, 5.000000e-01
+  %48 = fcmp olt float %47, 0.000000e+00
+  %.0 = select i1 %48, float 0.000000e+00, float %47
+  %49 = fcmp ogt float %.0, 2.550000e+02
+  %.1 = select i1 %49, float 2.550000e+02, float %.0
+  %50 = fptoui float %.1 to i8
+  store i8 %50, ptr %.37695, align 1, !tbaa !4
+  %51 = load float, ptr %.37296, align 4, !tbaa !50
+  %52 = fadd float %51, 5.000000e-01
+  %53 = fcmp olt float %52, 0.000000e+00
+  %.2 = select i1 %53, float 0.000000e+00, float %52
+  %54 = fcmp ogt float %.2, 2.550000e+02
+  %.3 = select i1 %54, float 2.550000e+02, float %.2
+  %55 = fptoui float %.3 to i8
+  %56 = getelementptr inbounds nuw i8, ptr %.37695, i64 1
+  store i8 %55, ptr %56, align 1, !tbaa !4
+  %57 = getelementptr inbounds nuw i8, ptr %.37695, i64 2
+  %58 = getelementptr inbounds nuw i8, ptr %.37296, i64 8
+  %59 = icmp ult ptr %57, %5
+  br i1 %59, label %.lr.ph97, label %.loopexit, !llvm.loop !365
 
 .loopexit:                                        ; preds = %.lr.ph97, %11, %.preheader
   ret void
@@ -12013,219 +11968,218 @@ define void @stbir__encode_uint8_srgb_AR(ptr noundef writeonly captures(address)
   %124 = getelementptr inbounds nuw i8, ptr %.0143, i64 64
   %125 = getelementptr inbounds nuw i8, ptr %.0144, i64 16
   %.not152 = icmp ugt ptr %125, %10
-  %126 = icmp eq ptr %125, %5
-  %. = select i1 %126, ptr %125, ptr %10
-  %.153 = select i1 %126, ptr %124, ptr %9
-  %.1145 = select i1 %.not152, ptr %., ptr %125
-  %.1 = select i1 %.not152, ptr %.153, ptr %124
-  br i1 %126, label %.loopexit, label %11
+  %126 = icmp ne ptr %125, %5
+  %127 = and i1 %.not152, %126
+  %.1145 = select i1 %127, ptr %10, ptr %125
+  %.1 = select i1 %127, ptr %9, ptr %124
+  br i1 %126, label %11, label %.loopexit
 
 .preheader:                                       ; preds = %stbir__linear_to_srgb_uchar.exit160, %.preheader166
   %.pn.lcssa = phi ptr [ %0, %.preheader166 ], [ %.2146171, %stbir__linear_to_srgb_uchar.exit160 ]
-  %.2.lcssa = phi ptr [ %2, %.preheader166 ], [ %214, %stbir__linear_to_srgb_uchar.exit160 ]
-  %127 = icmp ult ptr %.pn.lcssa, %5
-  br i1 %127, label %.lr.ph175, label %.loopexit
+  %.2.lcssa = phi ptr [ %2, %.preheader166 ], [ %215, %stbir__linear_to_srgb_uchar.exit160 ]
+  %128 = icmp ult ptr %.pn.lcssa, %5
+  br i1 %128, label %.lr.ph175, label %.loopexit
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %stbir__linear_to_srgb_uchar.exit160
   %.2146171 = phi ptr [ %.2146, %stbir__linear_to_srgb_uchar.exit160 ], [ %.2146167, %.lr.ph.preheader ]
-  %.2170 = phi ptr [ %214, %stbir__linear_to_srgb_uchar.exit160 ], [ %2, %.lr.ph.preheader ]
+  %.2170 = phi ptr [ %215, %stbir__linear_to_srgb_uchar.exit160 ], [ %2, %.lr.ph.preheader ]
   %.pn169 = phi ptr [ %.2146171, %stbir__linear_to_srgb_uchar.exit160 ], [ %0, %.lr.ph.preheader ]
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.2170) #24, !srcloc !370
-  %128 = getelementptr inbounds nuw i8, ptr %.2170, i64 4
-  %129 = load float, ptr %128, align 4, !tbaa !50
-  %130 = fcmp ogt float %129, 0x3F20000000000000
-  br i1 %130, label %131, label %stbir__linear_to_srgb_uchar.exit
+  %129 = getelementptr inbounds nuw i8, ptr %.2170, i64 4
+  %130 = load float, ptr %129, align 4, !tbaa !50
+  %131 = fcmp ogt float %130, 0x3F20000000000000
+  br i1 %131, label %132, label %stbir__linear_to_srgb_uchar.exit
 
-131:                                              ; preds = %.lr.ph
-  %132 = fcmp ogt float %129, 0x3FEFFFFFE0000000
-  br i1 %132, label %stbir__linear_to_srgb_uchar.exit, label %133
+132:                                              ; preds = %.lr.ph
+  %133 = fcmp ogt float %130, 0x3FEFFFFFE0000000
+  br i1 %133, label %stbir__linear_to_srgb_uchar.exit, label %134
 
-133:                                              ; preds = %131
-  %134 = bitcast float %129 to i32
-  %135 = add nsw i32 %134, -956301312
-  %136 = lshr i32 %135, 20
-  %137 = zext nneg i32 %136 to i64
-  %138 = getelementptr inbounds nuw i32, ptr @fp32_to_srgb8_tab4, i64 %137
-  %139 = load i32, ptr %138, align 4, !tbaa !18
-  %140 = lshr i32 %139, 7
-  %141 = and i32 %140, 16776704
-  %142 = and i32 %139, 65535
-  %143 = lshr i32 %134, 12
-  %144 = and i32 %143, 255
-  %145 = mul nuw nsw i32 %142, %144
-  %146 = add nuw nsw i32 %141, %145
-  %147 = lshr i32 %146, 16
-  %148 = trunc i32 %147 to i8
+134:                                              ; preds = %132
+  %135 = bitcast float %130 to i32
+  %136 = add nsw i32 %135, -956301312
+  %137 = lshr i32 %136, 20
+  %138 = zext nneg i32 %137 to i64
+  %139 = getelementptr inbounds nuw i32, ptr @fp32_to_srgb8_tab4, i64 %138
+  %140 = load i32, ptr %139, align 4, !tbaa !18
+  %141 = lshr i32 %140, 7
+  %142 = and i32 %141, 16776704
+  %143 = and i32 %140, 65535
+  %144 = lshr i32 %135, 12
+  %145 = and i32 %144, 255
+  %146 = mul nuw nsw i32 %143, %145
+  %147 = add nuw nsw i32 %142, %146
+  %148 = lshr i32 %147, 16
+  %149 = trunc i32 %148 to i8
   br label %stbir__linear_to_srgb_uchar.exit
 
-stbir__linear_to_srgb_uchar.exit:                 ; preds = %.lr.ph, %131, %133
-  %.0.i = phi i8 [ 0, %.lr.ph ], [ %148, %133 ], [ -1, %131 ]
+stbir__linear_to_srgb_uchar.exit:                 ; preds = %.lr.ph, %132, %134
+  %.0.i = phi i8 [ 0, %.lr.ph ], [ %149, %134 ], [ -1, %132 ]
   store i8 %.0.i, ptr %.pn169, align 1, !tbaa !4
-  %149 = load float, ptr %.2170, align 4, !tbaa !50
-  %150 = fcmp ogt float %149, 0x3F20000000000000
-  br i1 %150, label %151, label %stbir__linear_to_srgb_uchar.exit156
+  %150 = load float, ptr %.2170, align 4, !tbaa !50
+  %151 = fcmp ogt float %150, 0x3F20000000000000
+  br i1 %151, label %152, label %stbir__linear_to_srgb_uchar.exit156
 
-151:                                              ; preds = %stbir__linear_to_srgb_uchar.exit
-  %152 = fcmp ogt float %149, 0x3FEFFFFFE0000000
-  br i1 %152, label %stbir__linear_to_srgb_uchar.exit156, label %153
+152:                                              ; preds = %stbir__linear_to_srgb_uchar.exit
+  %153 = fcmp ogt float %150, 0x3FEFFFFFE0000000
+  br i1 %153, label %stbir__linear_to_srgb_uchar.exit156, label %154
 
-153:                                              ; preds = %151
-  %154 = bitcast float %149 to i32
-  %155 = add nsw i32 %154, -956301312
-  %156 = lshr i32 %155, 20
-  %157 = zext nneg i32 %156 to i64
-  %158 = getelementptr inbounds nuw i32, ptr @fp32_to_srgb8_tab4, i64 %157
-  %159 = load i32, ptr %158, align 4, !tbaa !18
-  %160 = lshr i32 %159, 7
-  %161 = and i32 %160, 16776704
-  %162 = and i32 %159, 65535
-  %163 = lshr i32 %154, 12
-  %164 = and i32 %163, 255
-  %165 = mul nuw nsw i32 %162, %164
-  %166 = add nuw nsw i32 %161, %165
-  %167 = lshr i32 %166, 16
-  %168 = trunc i32 %167 to i8
+154:                                              ; preds = %152
+  %155 = bitcast float %150 to i32
+  %156 = add nsw i32 %155, -956301312
+  %157 = lshr i32 %156, 20
+  %158 = zext nneg i32 %157 to i64
+  %159 = getelementptr inbounds nuw i32, ptr @fp32_to_srgb8_tab4, i64 %158
+  %160 = load i32, ptr %159, align 4, !tbaa !18
+  %161 = lshr i32 %160, 7
+  %162 = and i32 %161, 16776704
+  %163 = and i32 %160, 65535
+  %164 = lshr i32 %155, 12
+  %165 = and i32 %164, 255
+  %166 = mul nuw nsw i32 %163, %165
+  %167 = add nuw nsw i32 %162, %166
+  %168 = lshr i32 %167, 16
+  %169 = trunc i32 %168 to i8
   br label %stbir__linear_to_srgb_uchar.exit156
 
-stbir__linear_to_srgb_uchar.exit156:              ; preds = %stbir__linear_to_srgb_uchar.exit, %151, %153
-  %.0.i155 = phi i8 [ 0, %stbir__linear_to_srgb_uchar.exit ], [ %168, %153 ], [ -1, %151 ]
-  %169 = getelementptr inbounds nuw i8, ptr %.pn169, i64 1
-  store i8 %.0.i155, ptr %169, align 1, !tbaa !4
-  %170 = getelementptr inbounds nuw i8, ptr %.2170, i64 12
-  %171 = load float, ptr %170, align 4, !tbaa !50
-  %172 = fcmp ogt float %171, 0x3F20000000000000
-  br i1 %172, label %173, label %stbir__linear_to_srgb_uchar.exit158
+stbir__linear_to_srgb_uchar.exit156:              ; preds = %stbir__linear_to_srgb_uchar.exit, %152, %154
+  %.0.i155 = phi i8 [ 0, %stbir__linear_to_srgb_uchar.exit ], [ %169, %154 ], [ -1, %152 ]
+  %170 = getelementptr inbounds nuw i8, ptr %.pn169, i64 1
+  store i8 %.0.i155, ptr %170, align 1, !tbaa !4
+  %171 = getelementptr inbounds nuw i8, ptr %.2170, i64 12
+  %172 = load float, ptr %171, align 4, !tbaa !50
+  %173 = fcmp ogt float %172, 0x3F20000000000000
+  br i1 %173, label %174, label %stbir__linear_to_srgb_uchar.exit158
 
-173:                                              ; preds = %stbir__linear_to_srgb_uchar.exit156
-  %174 = fcmp ogt float %171, 0x3FEFFFFFE0000000
-  br i1 %174, label %stbir__linear_to_srgb_uchar.exit158, label %175
+174:                                              ; preds = %stbir__linear_to_srgb_uchar.exit156
+  %175 = fcmp ogt float %172, 0x3FEFFFFFE0000000
+  br i1 %175, label %stbir__linear_to_srgb_uchar.exit158, label %176
 
-175:                                              ; preds = %173
-  %176 = bitcast float %171 to i32
-  %177 = add nsw i32 %176, -956301312
-  %178 = lshr i32 %177, 20
-  %179 = zext nneg i32 %178 to i64
-  %180 = getelementptr inbounds nuw i32, ptr @fp32_to_srgb8_tab4, i64 %179
-  %181 = load i32, ptr %180, align 4, !tbaa !18
-  %182 = lshr i32 %181, 7
-  %183 = and i32 %182, 16776704
-  %184 = and i32 %181, 65535
-  %185 = lshr i32 %176, 12
-  %186 = and i32 %185, 255
-  %187 = mul nuw nsw i32 %184, %186
-  %188 = add nuw nsw i32 %183, %187
-  %189 = lshr i32 %188, 16
-  %190 = trunc i32 %189 to i8
+176:                                              ; preds = %174
+  %177 = bitcast float %172 to i32
+  %178 = add nsw i32 %177, -956301312
+  %179 = lshr i32 %178, 20
+  %180 = zext nneg i32 %179 to i64
+  %181 = getelementptr inbounds nuw i32, ptr @fp32_to_srgb8_tab4, i64 %180
+  %182 = load i32, ptr %181, align 4, !tbaa !18
+  %183 = lshr i32 %182, 7
+  %184 = and i32 %183, 16776704
+  %185 = and i32 %182, 65535
+  %186 = lshr i32 %177, 12
+  %187 = and i32 %186, 255
+  %188 = mul nuw nsw i32 %185, %187
+  %189 = add nuw nsw i32 %184, %188
+  %190 = lshr i32 %189, 16
+  %191 = trunc i32 %190 to i8
   br label %stbir__linear_to_srgb_uchar.exit158
 
-stbir__linear_to_srgb_uchar.exit158:              ; preds = %stbir__linear_to_srgb_uchar.exit156, %173, %175
-  %.0.i157 = phi i8 [ 0, %stbir__linear_to_srgb_uchar.exit156 ], [ %190, %175 ], [ -1, %173 ]
-  %191 = getelementptr inbounds nuw i8, ptr %.pn169, i64 2
-  store i8 %.0.i157, ptr %191, align 1, !tbaa !4
-  %192 = getelementptr inbounds nuw i8, ptr %.2170, i64 8
-  %193 = load float, ptr %192, align 4, !tbaa !50
-  %194 = fcmp ogt float %193, 0x3F20000000000000
-  br i1 %194, label %195, label %stbir__linear_to_srgb_uchar.exit160
+stbir__linear_to_srgb_uchar.exit158:              ; preds = %stbir__linear_to_srgb_uchar.exit156, %174, %176
+  %.0.i157 = phi i8 [ 0, %stbir__linear_to_srgb_uchar.exit156 ], [ %191, %176 ], [ -1, %174 ]
+  %192 = getelementptr inbounds nuw i8, ptr %.pn169, i64 2
+  store i8 %.0.i157, ptr %192, align 1, !tbaa !4
+  %193 = getelementptr inbounds nuw i8, ptr %.2170, i64 8
+  %194 = load float, ptr %193, align 4, !tbaa !50
+  %195 = fcmp ogt float %194, 0x3F20000000000000
+  br i1 %195, label %196, label %stbir__linear_to_srgb_uchar.exit160
 
-195:                                              ; preds = %stbir__linear_to_srgb_uchar.exit158
-  %196 = fcmp ogt float %193, 0x3FEFFFFFE0000000
-  br i1 %196, label %stbir__linear_to_srgb_uchar.exit160, label %197
+196:                                              ; preds = %stbir__linear_to_srgb_uchar.exit158
+  %197 = fcmp ogt float %194, 0x3FEFFFFFE0000000
+  br i1 %197, label %stbir__linear_to_srgb_uchar.exit160, label %198
 
-197:                                              ; preds = %195
-  %198 = bitcast float %193 to i32
-  %199 = add nsw i32 %198, -956301312
-  %200 = lshr i32 %199, 20
-  %201 = zext nneg i32 %200 to i64
-  %202 = getelementptr inbounds nuw i32, ptr @fp32_to_srgb8_tab4, i64 %201
-  %203 = load i32, ptr %202, align 4, !tbaa !18
-  %204 = lshr i32 %203, 7
-  %205 = and i32 %204, 16776704
-  %206 = and i32 %203, 65535
-  %207 = lshr i32 %198, 12
-  %208 = and i32 %207, 255
-  %209 = mul nuw nsw i32 %206, %208
-  %210 = add nuw nsw i32 %205, %209
-  %211 = lshr i32 %210, 16
-  %212 = trunc i32 %211 to i8
+198:                                              ; preds = %196
+  %199 = bitcast float %194 to i32
+  %200 = add nsw i32 %199, -956301312
+  %201 = lshr i32 %200, 20
+  %202 = zext nneg i32 %201 to i64
+  %203 = getelementptr inbounds nuw i32, ptr @fp32_to_srgb8_tab4, i64 %202
+  %204 = load i32, ptr %203, align 4, !tbaa !18
+  %205 = lshr i32 %204, 7
+  %206 = and i32 %205, 16776704
+  %207 = and i32 %204, 65535
+  %208 = lshr i32 %199, 12
+  %209 = and i32 %208, 255
+  %210 = mul nuw nsw i32 %207, %209
+  %211 = add nuw nsw i32 %206, %210
+  %212 = lshr i32 %211, 16
+  %213 = trunc i32 %212 to i8
   br label %stbir__linear_to_srgb_uchar.exit160
 
-stbir__linear_to_srgb_uchar.exit160:              ; preds = %stbir__linear_to_srgb_uchar.exit158, %195, %197
-  %.0.i159 = phi i8 [ 0, %stbir__linear_to_srgb_uchar.exit158 ], [ %212, %197 ], [ -1, %195 ]
-  %213 = getelementptr inbounds nuw i8, ptr %.pn169, i64 3
-  store i8 %.0.i159, ptr %213, align 1, !tbaa !4
-  %214 = getelementptr inbounds nuw i8, ptr %.2170, i64 16
+stbir__linear_to_srgb_uchar.exit160:              ; preds = %stbir__linear_to_srgb_uchar.exit158, %196, %198
+  %.0.i159 = phi i8 [ 0, %stbir__linear_to_srgb_uchar.exit158 ], [ %213, %198 ], [ -1, %196 ]
+  %214 = getelementptr inbounds nuw i8, ptr %.pn169, i64 3
+  store i8 %.0.i159, ptr %214, align 1, !tbaa !4
+  %215 = getelementptr inbounds nuw i8, ptr %.2170, i64 16
   %.2146 = getelementptr inbounds nuw i8, ptr %.2146171, i64 4
   %.not = icmp ugt ptr %.2146, %5
   br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !371
 
 .lr.ph175:                                        ; preds = %.preheader, %stbir__linear_to_srgb_uchar.exit164
-  %.3174 = phi ptr [ %258, %stbir__linear_to_srgb_uchar.exit164 ], [ %.2.lcssa, %.preheader ]
-  %.3147173 = phi ptr [ %257, %stbir__linear_to_srgb_uchar.exit164 ], [ %.pn.lcssa, %.preheader ]
+  %.3174 = phi ptr [ %259, %stbir__linear_to_srgb_uchar.exit164 ], [ %.2.lcssa, %.preheader ]
+  %.3147173 = phi ptr [ %258, %stbir__linear_to_srgb_uchar.exit164 ], [ %.pn.lcssa, %.preheader ]
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.3174) #24, !srcloc !372
-  %215 = getelementptr inbounds nuw i8, ptr %.3174, i64 4
-  %216 = load float, ptr %215, align 4, !tbaa !50
-  %217 = fcmp ogt float %216, 0x3F20000000000000
-  br i1 %217, label %218, label %stbir__linear_to_srgb_uchar.exit162
+  %216 = getelementptr inbounds nuw i8, ptr %.3174, i64 4
+  %217 = load float, ptr %216, align 4, !tbaa !50
+  %218 = fcmp ogt float %217, 0x3F20000000000000
+  br i1 %218, label %219, label %stbir__linear_to_srgb_uchar.exit162
 
-218:                                              ; preds = %.lr.ph175
-  %219 = fcmp ogt float %216, 0x3FEFFFFFE0000000
-  br i1 %219, label %stbir__linear_to_srgb_uchar.exit162, label %220
+219:                                              ; preds = %.lr.ph175
+  %220 = fcmp ogt float %217, 0x3FEFFFFFE0000000
+  br i1 %220, label %stbir__linear_to_srgb_uchar.exit162, label %221
 
-220:                                              ; preds = %218
-  %221 = bitcast float %216 to i32
-  %222 = add nsw i32 %221, -956301312
-  %223 = lshr i32 %222, 20
-  %224 = zext nneg i32 %223 to i64
-  %225 = getelementptr inbounds nuw i32, ptr @fp32_to_srgb8_tab4, i64 %224
-  %226 = load i32, ptr %225, align 4, !tbaa !18
-  %227 = lshr i32 %226, 7
-  %228 = and i32 %227, 16776704
-  %229 = and i32 %226, 65535
-  %230 = lshr i32 %221, 12
-  %231 = and i32 %230, 255
-  %232 = mul nuw nsw i32 %229, %231
-  %233 = add nuw nsw i32 %228, %232
-  %234 = lshr i32 %233, 16
-  %235 = trunc i32 %234 to i8
+221:                                              ; preds = %219
+  %222 = bitcast float %217 to i32
+  %223 = add nsw i32 %222, -956301312
+  %224 = lshr i32 %223, 20
+  %225 = zext nneg i32 %224 to i64
+  %226 = getelementptr inbounds nuw i32, ptr @fp32_to_srgb8_tab4, i64 %225
+  %227 = load i32, ptr %226, align 4, !tbaa !18
+  %228 = lshr i32 %227, 7
+  %229 = and i32 %228, 16776704
+  %230 = and i32 %227, 65535
+  %231 = lshr i32 %222, 12
+  %232 = and i32 %231, 255
+  %233 = mul nuw nsw i32 %230, %232
+  %234 = add nuw nsw i32 %229, %233
+  %235 = lshr i32 %234, 16
+  %236 = trunc i32 %235 to i8
   br label %stbir__linear_to_srgb_uchar.exit162
 
-stbir__linear_to_srgb_uchar.exit162:              ; preds = %.lr.ph175, %218, %220
-  %.0.i161 = phi i8 [ 0, %.lr.ph175 ], [ %235, %220 ], [ -1, %218 ]
+stbir__linear_to_srgb_uchar.exit162:              ; preds = %.lr.ph175, %219, %221
+  %.0.i161 = phi i8 [ 0, %.lr.ph175 ], [ %236, %221 ], [ -1, %219 ]
   store i8 %.0.i161, ptr %.3147173, align 1, !tbaa !4
-  %236 = load float, ptr %.3174, align 4, !tbaa !50
-  %237 = fcmp ogt float %236, 0x3F20000000000000
-  br i1 %237, label %238, label %stbir__linear_to_srgb_uchar.exit164
+  %237 = load float, ptr %.3174, align 4, !tbaa !50
+  %238 = fcmp ogt float %237, 0x3F20000000000000
+  br i1 %238, label %239, label %stbir__linear_to_srgb_uchar.exit164
 
-238:                                              ; preds = %stbir__linear_to_srgb_uchar.exit162
-  %239 = fcmp ogt float %236, 0x3FEFFFFFE0000000
-  br i1 %239, label %stbir__linear_to_srgb_uchar.exit164, label %240
+239:                                              ; preds = %stbir__linear_to_srgb_uchar.exit162
+  %240 = fcmp ogt float %237, 0x3FEFFFFFE0000000
+  br i1 %240, label %stbir__linear_to_srgb_uchar.exit164, label %241
 
-240:                                              ; preds = %238
-  %241 = bitcast float %236 to i32
-  %242 = add nsw i32 %241, -956301312
-  %243 = lshr i32 %242, 20
-  %244 = zext nneg i32 %243 to i64
-  %245 = getelementptr inbounds nuw i32, ptr @fp32_to_srgb8_tab4, i64 %244
-  %246 = load i32, ptr %245, align 4, !tbaa !18
-  %247 = lshr i32 %246, 7
-  %248 = and i32 %247, 16776704
-  %249 = and i32 %246, 65535
-  %250 = lshr i32 %241, 12
-  %251 = and i32 %250, 255
-  %252 = mul nuw nsw i32 %249, %251
-  %253 = add nuw nsw i32 %248, %252
-  %254 = lshr i32 %253, 16
-  %255 = trunc i32 %254 to i8
+241:                                              ; preds = %239
+  %242 = bitcast float %237 to i32
+  %243 = add nsw i32 %242, -956301312
+  %244 = lshr i32 %243, 20
+  %245 = zext nneg i32 %244 to i64
+  %246 = getelementptr inbounds nuw i32, ptr @fp32_to_srgb8_tab4, i64 %245
+  %247 = load i32, ptr %246, align 4, !tbaa !18
+  %248 = lshr i32 %247, 7
+  %249 = and i32 %248, 16776704
+  %250 = and i32 %247, 65535
+  %251 = lshr i32 %242, 12
+  %252 = and i32 %251, 255
+  %253 = mul nuw nsw i32 %250, %252
+  %254 = add nuw nsw i32 %249, %253
+  %255 = lshr i32 %254, 16
+  %256 = trunc i32 %255 to i8
   br label %stbir__linear_to_srgb_uchar.exit164
 
-stbir__linear_to_srgb_uchar.exit164:              ; preds = %stbir__linear_to_srgb_uchar.exit162, %238, %240
-  %.0.i163 = phi i8 [ 0, %stbir__linear_to_srgb_uchar.exit162 ], [ %255, %240 ], [ -1, %238 ]
-  %256 = getelementptr inbounds nuw i8, ptr %.3147173, i64 1
-  store i8 %.0.i163, ptr %256, align 1, !tbaa !4
-  %257 = getelementptr inbounds nuw i8, ptr %.3147173, i64 2
-  %258 = getelementptr inbounds nuw i8, ptr %.3174, i64 8
-  %259 = icmp ult ptr %257, %5
-  br i1 %259, label %.lr.ph175, label %.loopexit, !llvm.loop !373
+stbir__linear_to_srgb_uchar.exit164:              ; preds = %stbir__linear_to_srgb_uchar.exit162, %239, %241
+  %.0.i163 = phi i8 [ 0, %stbir__linear_to_srgb_uchar.exit162 ], [ %256, %241 ], [ -1, %239 ]
+  %257 = getelementptr inbounds nuw i8, ptr %.3147173, i64 1
+  store i8 %.0.i163, ptr %257, align 1, !tbaa !4
+  %258 = getelementptr inbounds nuw i8, ptr %.3147173, i64 2
+  %259 = getelementptr inbounds nuw i8, ptr %.3174, i64 8
+  %260 = icmp ult ptr %258, %5
+  br i1 %260, label %.lr.ph175, label %.loopexit, !llvm.loop !373
 
 .loopexit:                                        ; preds = %stbir__linear_to_srgb_uchar.exit164, %11, %.preheader
   ret void
@@ -12409,61 +12363,60 @@ define void @stbir__encode_uint8_srgb2_linearalpha_AR(ptr noundef writeonly capt
   %88 = getelementptr inbounds nuw i8, ptr %.0108, i64 16
   %89 = getelementptr inbounds nuw i8, ptr %.0106, i64 64
   %.not = icmp ugt ptr %88, %10
-  %90 = icmp eq ptr %88, %5
-  %. = select i1 %90, ptr %88, ptr %10
-  %.116 = select i1 %90, ptr %89, ptr %9
-  %.1109 = select i1 %.not, ptr %., ptr %88
-  %.1107 = select i1 %.not, ptr %.116, ptr %89
-  br i1 %90, label %.loopexit, label %11
+  %90 = icmp ne ptr %88, %5
+  %91 = and i1 %.not, %90
+  %.1109 = select i1 %91, ptr %10, ptr %88
+  %.1107 = select i1 %91, ptr %9, ptr %89
+  br i1 %90, label %11, label %.loopexit
 
 .preheader:                                       ; preds = %3, %stbir__linear_to_srgb_uchar.exit
-  %.2110 = phi ptr [ %119, %stbir__linear_to_srgb_uchar.exit ], [ %0, %3 ]
-  %.2 = phi ptr [ %120, %stbir__linear_to_srgb_uchar.exit ], [ %2, %3 ]
+  %.2110 = phi ptr [ %120, %stbir__linear_to_srgb_uchar.exit ], [ %0, %3 ]
+  %.2 = phi ptr [ %121, %stbir__linear_to_srgb_uchar.exit ], [ %2, %3 ]
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.2) #24, !srcloc !376
-  %91 = load float, ptr %.2, align 4, !tbaa !50
-  %92 = fcmp ogt float %91, 0x3F20000000000000
-  br i1 %92, label %93, label %stbir__linear_to_srgb_uchar.exit
+  %92 = load float, ptr %.2, align 4, !tbaa !50
+  %93 = fcmp ogt float %92, 0x3F20000000000000
+  br i1 %93, label %94, label %stbir__linear_to_srgb_uchar.exit
 
-93:                                               ; preds = %.preheader
-  %94 = fcmp ogt float %91, 0x3FEFFFFFE0000000
-  br i1 %94, label %stbir__linear_to_srgb_uchar.exit, label %95
+94:                                               ; preds = %.preheader
+  %95 = fcmp ogt float %92, 0x3FEFFFFFE0000000
+  br i1 %95, label %stbir__linear_to_srgb_uchar.exit, label %96
 
-95:                                               ; preds = %93
-  %96 = bitcast float %91 to i32
-  %97 = add nsw i32 %96, -956301312
-  %98 = lshr i32 %97, 20
-  %99 = zext nneg i32 %98 to i64
-  %100 = getelementptr inbounds nuw i32, ptr @fp32_to_srgb8_tab4, i64 %99
-  %101 = load i32, ptr %100, align 4, !tbaa !18
-  %102 = lshr i32 %101, 7
-  %103 = and i32 %102, 16776704
-  %104 = and i32 %101, 65535
-  %105 = lshr i32 %96, 12
-  %106 = and i32 %105, 255
-  %107 = mul nuw nsw i32 %104, %106
-  %108 = add nuw nsw i32 %103, %107
-  %109 = lshr i32 %108, 16
-  %110 = trunc i32 %109 to i8
+96:                                               ; preds = %94
+  %97 = bitcast float %92 to i32
+  %98 = add nsw i32 %97, -956301312
+  %99 = lshr i32 %98, 20
+  %100 = zext nneg i32 %99 to i64
+  %101 = getelementptr inbounds nuw i32, ptr @fp32_to_srgb8_tab4, i64 %100
+  %102 = load i32, ptr %101, align 4, !tbaa !18
+  %103 = lshr i32 %102, 7
+  %104 = and i32 %103, 16776704
+  %105 = and i32 %102, 65535
+  %106 = lshr i32 %97, 12
+  %107 = and i32 %106, 255
+  %108 = mul nuw nsw i32 %105, %107
+  %109 = add nuw nsw i32 %104, %108
+  %110 = lshr i32 %109, 16
+  %111 = trunc i32 %110 to i8
   br label %stbir__linear_to_srgb_uchar.exit
 
-stbir__linear_to_srgb_uchar.exit:                 ; preds = %.preheader, %93, %95
-  %.0.i = phi i8 [ 0, %.preheader ], [ %110, %95 ], [ -1, %93 ]
-  %111 = getelementptr inbounds nuw i8, ptr %.2110, i64 1
-  store i8 %.0.i, ptr %111, align 1, !tbaa !4
-  %112 = getelementptr inbounds nuw i8, ptr %.2, i64 4
-  %113 = load float, ptr %112, align 4, !tbaa !50
-  %114 = fmul float %113, 2.550000e+02
-  %115 = fadd float %114, 5.000000e-01
-  %116 = fcmp olt float %115, 0.000000e+00
-  %.0 = select i1 %116, float 0.000000e+00, float %115
-  %117 = fcmp ogt float %.0, 2.550000e+02
-  %.1 = select i1 %117, float 2.550000e+02, float %.0
-  %118 = fptoui float %.1 to i8
-  store i8 %118, ptr %.2110, align 1, !tbaa !4
-  %119 = getelementptr inbounds nuw i8, ptr %.2110, i64 2
-  %120 = getelementptr inbounds nuw i8, ptr %.2, i64 8
-  %121 = icmp ult ptr %119, %5
-  br i1 %121, label %.preheader, label %.loopexit, !llvm.loop !377
+stbir__linear_to_srgb_uchar.exit:                 ; preds = %.preheader, %94, %96
+  %.0.i = phi i8 [ 0, %.preheader ], [ %111, %96 ], [ -1, %94 ]
+  %112 = getelementptr inbounds nuw i8, ptr %.2110, i64 1
+  store i8 %.0.i, ptr %112, align 1, !tbaa !4
+  %113 = getelementptr inbounds nuw i8, ptr %.2, i64 4
+  %114 = load float, ptr %113, align 4, !tbaa !50
+  %115 = fmul float %114, 2.550000e+02
+  %116 = fadd float %115, 5.000000e-01
+  %117 = fcmp olt float %116, 0.000000e+00
+  %.0 = select i1 %117, float 0.000000e+00, float %116
+  %118 = fcmp ogt float %.0, 2.550000e+02
+  %.1 = select i1 %118, float 2.550000e+02, float %.0
+  %119 = fptoui float %.1 to i8
+  store i8 %119, ptr %.2110, align 1, !tbaa !4
+  %120 = getelementptr inbounds nuw i8, ptr %.2110, i64 2
+  %121 = getelementptr inbounds nuw i8, ptr %.2, i64 8
+  %122 = icmp ult ptr %120, %5
+  br i1 %122, label %.preheader, label %.loopexit, !llvm.loop !377
 
 .loopexit:                                        ; preds = %stbir__linear_to_srgb_uchar.exit, %11
   ret void
@@ -12512,69 +12465,68 @@ define void @stbir__decode_uint16_linear_scaled_AR(ptr noundef %0, i32 noundef %
   %24 = getelementptr inbounds nuw i8, ptr %.056, i64 32
   %25 = getelementptr inbounds nuw i8, ptr %.057, i64 16
   %.not65 = icmp ugt ptr %24, %10
-  %26 = icmp eq ptr %24, %5
-  %. = select i1 %26, ptr %25, ptr %7
-  %.66 = select i1 %26, ptr %24, ptr %10
-  %.158 = select i1 %.not65, ptr %., ptr %25
-  %.1 = select i1 %.not65, ptr %.66, ptr %24
-  br i1 %26, label %.loopexit, label %11
+  %26 = icmp ne ptr %24, %5
+  %27 = and i1 %.not65, %26
+  %.158 = select i1 %27, ptr %7, ptr %25
+  %.1 = select i1 %27, ptr %10, ptr %24
+  br i1 %26, label %11, label %.loopexit
 
 .preheader:                                       ; preds = %.lr.ph, %.preheader69
-  %.259.lcssa = phi ptr [ %2, %.preheader69 ], [ %46, %.lr.ph ]
+  %.259.lcssa = phi ptr [ %2, %.preheader69 ], [ %47, %.lr.ph ]
   %.pn.lcssa = phi ptr [ %0, %.preheader69 ], [ %.274, %.lr.ph ]
-  %27 = icmp ult ptr %.pn.lcssa, %5
-  br i1 %27, label %.lr.ph78, label %.loopexit
+  %28 = icmp ult ptr %.pn.lcssa, %5
+  br i1 %28, label %.lr.ph78, label %.loopexit
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.274 = phi ptr [ %.2, %.lr.ph ], [ %.270, %.lr.ph.preheader ]
   %.pn73 = phi ptr [ %.274, %.lr.ph ], [ %0, %.lr.ph.preheader ]
-  %.25972 = phi ptr [ %46, %.lr.ph ], [ %2, %.lr.ph.preheader ]
+  %.25972 = phi ptr [ %47, %.lr.ph ], [ %2, %.lr.ph.preheader ]
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.274) #24, !srcloc !379
-  %28 = getelementptr inbounds nuw i8, ptr %.25972, i64 2
-  %29 = load i16, ptr %28, align 2, !tbaa !173
-  %30 = uitofp i16 %29 to float
-  %31 = fmul float %30, 0x3EF0001000000000
-  store float %31, ptr %.pn73, align 4, !tbaa !50
-  %32 = load i16, ptr %.25972, align 2, !tbaa !173
-  %33 = uitofp i16 %32 to float
-  %34 = fmul float %33, 0x3EF0001000000000
-  %35 = getelementptr inbounds nuw i8, ptr %.pn73, i64 4
-  store float %34, ptr %35, align 4, !tbaa !50
-  %36 = getelementptr inbounds nuw i8, ptr %.25972, i64 6
-  %37 = load i16, ptr %36, align 2, !tbaa !173
-  %38 = uitofp i16 %37 to float
-  %39 = fmul float %38, 0x3EF0001000000000
-  %40 = getelementptr inbounds nuw i8, ptr %.pn73, i64 8
-  store float %39, ptr %40, align 4, !tbaa !50
-  %41 = getelementptr inbounds nuw i8, ptr %.25972, i64 4
-  %42 = load i16, ptr %41, align 2, !tbaa !173
-  %43 = uitofp i16 %42 to float
-  %44 = fmul float %43, 0x3EF0001000000000
-  %45 = getelementptr inbounds nuw i8, ptr %.pn73, i64 12
-  store float %44, ptr %45, align 4, !tbaa !50
-  %46 = getelementptr inbounds nuw i8, ptr %.25972, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %.25972, i64 2
+  %30 = load i16, ptr %29, align 2, !tbaa !173
+  %31 = uitofp i16 %30 to float
+  %32 = fmul float %31, 0x3EF0001000000000
+  store float %32, ptr %.pn73, align 4, !tbaa !50
+  %33 = load i16, ptr %.25972, align 2, !tbaa !173
+  %34 = uitofp i16 %33 to float
+  %35 = fmul float %34, 0x3EF0001000000000
+  %36 = getelementptr inbounds nuw i8, ptr %.pn73, i64 4
+  store float %35, ptr %36, align 4, !tbaa !50
+  %37 = getelementptr inbounds nuw i8, ptr %.25972, i64 6
+  %38 = load i16, ptr %37, align 2, !tbaa !173
+  %39 = uitofp i16 %38 to float
+  %40 = fmul float %39, 0x3EF0001000000000
+  %41 = getelementptr inbounds nuw i8, ptr %.pn73, i64 8
+  store float %40, ptr %41, align 4, !tbaa !50
+  %42 = getelementptr inbounds nuw i8, ptr %.25972, i64 4
+  %43 = load i16, ptr %42, align 2, !tbaa !173
+  %44 = uitofp i16 %43 to float
+  %45 = fmul float %44, 0x3EF0001000000000
+  %46 = getelementptr inbounds nuw i8, ptr %.pn73, i64 12
+  store float %45, ptr %46, align 4, !tbaa !50
+  %47 = getelementptr inbounds nuw i8, ptr %.25972, i64 8
   %.2 = getelementptr inbounds nuw i8, ptr %.274, i64 16
   %.not = icmp ugt ptr %.2, %5
   br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !380
 
 .lr.ph78:                                         ; preds = %.preheader, %.lr.ph78
-  %.377 = phi ptr [ %55, %.lr.ph78 ], [ %.pn.lcssa, %.preheader ]
-  %.36076 = phi ptr [ %56, %.lr.ph78 ], [ %.259.lcssa, %.preheader ]
+  %.377 = phi ptr [ %56, %.lr.ph78 ], [ %.pn.lcssa, %.preheader ]
+  %.36076 = phi ptr [ %57, %.lr.ph78 ], [ %.259.lcssa, %.preheader ]
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.377) #24, !srcloc !381
-  %47 = getelementptr inbounds nuw i8, ptr %.36076, i64 2
-  %48 = load i16, ptr %47, align 2, !tbaa !173
-  %49 = uitofp i16 %48 to float
-  %50 = fmul float %49, 0x3EF0001000000000
-  store float %50, ptr %.377, align 4, !tbaa !50
-  %51 = load i16, ptr %.36076, align 2, !tbaa !173
-  %52 = uitofp i16 %51 to float
-  %53 = fmul float %52, 0x3EF0001000000000
-  %54 = getelementptr inbounds nuw i8, ptr %.377, i64 4
-  store float %53, ptr %54, align 4, !tbaa !50
-  %55 = getelementptr inbounds nuw i8, ptr %.377, i64 8
-  %56 = getelementptr inbounds nuw i8, ptr %.36076, i64 4
-  %57 = icmp ult ptr %55, %5
-  br i1 %57, label %.lr.ph78, label %.loopexit, !llvm.loop !382
+  %48 = getelementptr inbounds nuw i8, ptr %.36076, i64 2
+  %49 = load i16, ptr %48, align 2, !tbaa !173
+  %50 = uitofp i16 %49 to float
+  %51 = fmul float %50, 0x3EF0001000000000
+  store float %51, ptr %.377, align 4, !tbaa !50
+  %52 = load i16, ptr %.36076, align 2, !tbaa !173
+  %53 = uitofp i16 %52 to float
+  %54 = fmul float %53, 0x3EF0001000000000
+  %55 = getelementptr inbounds nuw i8, ptr %.377, i64 4
+  store float %54, ptr %55, align 4, !tbaa !50
+  %56 = getelementptr inbounds nuw i8, ptr %.377, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %.36076, i64 4
+  %58 = icmp ult ptr %56, %5
+  br i1 %58, label %.lr.ph78, label %.loopexit, !llvm.loop !382
 
 .loopexit:                                        ; preds = %.lr.ph78, %11, %.preheader
   ret void
@@ -12631,74 +12583,73 @@ define void @stbir__encode_uint16_linear_scaled_AR(ptr noundef writeonly capture
   %33 = getelementptr inbounds nuw i8, ptr %.0, i64 32
   %34 = getelementptr inbounds nuw i8, ptr %.059, i64 16
   %.not68 = icmp ugt ptr %34, %10
-  %35 = icmp eq ptr %34, %5
-  %.69 = select i1 %35, ptr %34, ptr %10
-  %.70 = select i1 %35, ptr %33, ptr %9
-  %.160 = select i1 %.not68, ptr %.69, ptr %34
-  %.1 = select i1 %.not68, ptr %.70, ptr %33
-  br i1 %35, label %.loopexit, label %11
+  %35 = icmp ne ptr %34, %5
+  %36 = and i1 %.not68, %35
+  %.160 = select i1 %36, ptr %10, ptr %34
+  %.1 = select i1 %36, ptr %9, ptr %33
+  br i1 %35, label %11, label %.loopexit
 
 .preheader:                                       ; preds = %.lr.ph, %.preheader72
   %.pn.lcssa = phi ptr [ %0, %.preheader72 ], [ %.26177, %.lr.ph ]
-  %.2.lcssa = phi ptr [ %2, %.preheader72 ], [ %51, %.lr.ph ]
-  %36 = icmp ult ptr %.pn.lcssa, %5
-  br i1 %36, label %.lr.ph81, label %.loopexit
+  %.2.lcssa = phi ptr [ %2, %.preheader72 ], [ %52, %.lr.ph ]
+  %37 = icmp ult ptr %.pn.lcssa, %5
+  br i1 %37, label %.lr.ph81, label %.loopexit
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.26177 = phi ptr [ %.261, %.lr.ph ], [ %.26173, %.lr.ph.preheader ]
-  %.276 = phi ptr [ %51, %.lr.ph ], [ %2, %.lr.ph.preheader ]
+  %.276 = phi ptr [ %52, %.lr.ph ], [ %2, %.lr.ph.preheader ]
   %.pn75 = phi ptr [ %.26177, %.lr.ph ], [ %0, %.lr.ph.preheader ]
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.276) #24, !srcloc !384
-  %37 = load <4 x float>, ptr %.276, align 1, !tbaa !4
-  %38 = fmul <4 x float> %37, splat (float 6.553500e+04)
-  %39 = fadd <4 x float> %38, splat (float 5.000000e-01)
-  %40 = shufflevector <4 x float> %39, <4 x float> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
-  %41 = tail call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %40, <4 x float> splat (float 6.553500e+04))
-  %42 = tail call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %41, <4 x float> zeroinitializer)
-  %43 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %42)
-  %44 = load <4 x i32>, ptr @stbir__s32_32768, align 16, !tbaa !4
-  %45 = sub <4 x i32> %43, %44
-  %46 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %45, <4 x i32> poison)
-  %47 = load <8 x i16>, ptr @stbir__s16_32768, align 16, !tbaa !4
-  %48 = sub <8 x i16> %46, %47
-  %49 = bitcast <8 x i16> %48 to <2 x i64>
-  %50 = extractelement <2 x i64> %49, i64 0
-  store i64 %50, ptr %.pn75, align 1, !tbaa !4
-  %51 = getelementptr inbounds nuw i8, ptr %.276, i64 16
+  %38 = load <4 x float>, ptr %.276, align 1, !tbaa !4
+  %39 = fmul <4 x float> %38, splat (float 6.553500e+04)
+  %40 = fadd <4 x float> %39, splat (float 5.000000e-01)
+  %41 = shufflevector <4 x float> %40, <4 x float> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
+  %42 = tail call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %41, <4 x float> splat (float 6.553500e+04))
+  %43 = tail call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %42, <4 x float> zeroinitializer)
+  %44 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %43)
+  %45 = load <4 x i32>, ptr @stbir__s32_32768, align 16, !tbaa !4
+  %46 = sub <4 x i32> %44, %45
+  %47 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %46, <4 x i32> poison)
+  %48 = load <8 x i16>, ptr @stbir__s16_32768, align 16, !tbaa !4
+  %49 = sub <8 x i16> %47, %48
+  %50 = bitcast <8 x i16> %49 to <2 x i64>
+  %51 = extractelement <2 x i64> %50, i64 0
+  store i64 %51, ptr %.pn75, align 1, !tbaa !4
+  %52 = getelementptr inbounds nuw i8, ptr %.276, i64 16
   %.261 = getelementptr inbounds nuw i8, ptr %.26177, i64 8
   %.not = icmp ugt ptr %.261, %5
   br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !385
 
 .lr.ph81:                                         ; preds = %.preheader, %.lr.ph81
-  %.380 = phi ptr [ %73, %.lr.ph81 ], [ %.2.lcssa, %.preheader ]
-  %.36279 = phi ptr [ %72, %.lr.ph81 ], [ %.pn.lcssa, %.preheader ]
+  %.380 = phi ptr [ %74, %.lr.ph81 ], [ %.2.lcssa, %.preheader ]
+  %.36279 = phi ptr [ %73, %.lr.ph81 ], [ %.pn.lcssa, %.preheader ]
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.380) #24, !srcloc !386
-  %52 = getelementptr inbounds nuw i8, ptr %.380, i64 4
-  %53 = load float, ptr %52, align 1, !tbaa !4
-  %54 = fmul float %53, 6.553500e+04
-  %55 = fadd float %54, 5.000000e-01
-  %56 = insertelement <4 x float> <float poison, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>, float %55, i64 0
-  %57 = tail call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %56, <4 x float> splat (float 6.553500e+04))
-  %58 = tail call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %57, <4 x float> zeroinitializer)
-  %59 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %58)
-  %60 = bitcast <4 x i32> %59 to <8 x i16>
-  %61 = extractelement <8 x i16> %60, i64 0
-  store i16 %61, ptr %.36279, align 2, !tbaa !173
-  %62 = load float, ptr %.380, align 1, !tbaa !4
-  %63 = fmul float %62, 6.553500e+04
-  %64 = fadd float %63, 5.000000e-01
-  %65 = insertelement <4 x float> <float poison, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>, float %64, i64 0
-  %66 = tail call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %65, <4 x float> splat (float 6.553500e+04))
-  %67 = tail call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %66, <4 x float> zeroinitializer)
-  %68 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %67)
-  %69 = bitcast <4 x i32> %68 to <8 x i16>
-  %70 = extractelement <8 x i16> %69, i64 0
-  %71 = getelementptr inbounds nuw i8, ptr %.36279, i64 2
-  store i16 %70, ptr %71, align 2, !tbaa !173
-  %72 = getelementptr inbounds nuw i8, ptr %.36279, i64 4
-  %73 = getelementptr inbounds nuw i8, ptr %.380, i64 8
-  %74 = icmp ult ptr %72, %5
-  br i1 %74, label %.lr.ph81, label %.loopexit, !llvm.loop !387
+  %53 = getelementptr inbounds nuw i8, ptr %.380, i64 4
+  %54 = load float, ptr %53, align 1, !tbaa !4
+  %55 = fmul float %54, 6.553500e+04
+  %56 = fadd float %55, 5.000000e-01
+  %57 = insertelement <4 x float> <float poison, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>, float %56, i64 0
+  %58 = tail call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %57, <4 x float> splat (float 6.553500e+04))
+  %59 = tail call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %58, <4 x float> zeroinitializer)
+  %60 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %59)
+  %61 = bitcast <4 x i32> %60 to <8 x i16>
+  %62 = extractelement <8 x i16> %61, i64 0
+  store i16 %62, ptr %.36279, align 2, !tbaa !173
+  %63 = load float, ptr %.380, align 1, !tbaa !4
+  %64 = fmul float %63, 6.553500e+04
+  %65 = fadd float %64, 5.000000e-01
+  %66 = insertelement <4 x float> <float poison, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>, float %65, i64 0
+  %67 = tail call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %66, <4 x float> splat (float 6.553500e+04))
+  %68 = tail call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %67, <4 x float> zeroinitializer)
+  %69 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %68)
+  %70 = bitcast <4 x i32> %69 to <8 x i16>
+  %71 = extractelement <8 x i16> %70, i64 0
+  %72 = getelementptr inbounds nuw i8, ptr %.36279, i64 2
+  store i16 %71, ptr %72, align 2, !tbaa !173
+  %73 = getelementptr inbounds nuw i8, ptr %.36279, i64 4
+  %74 = getelementptr inbounds nuw i8, ptr %.380, i64 8
+  %75 = icmp ult ptr %73, %5
+  br i1 %75, label %.lr.ph81, label %.loopexit, !llvm.loop !387
 
 .loopexit:                                        ; preds = %.lr.ph81, %11, %.preheader
   ret void
@@ -12745,63 +12696,62 @@ define void @stbir__decode_uint16_linear_AR(ptr noundef %0, i32 noundef %1, ptr 
   %22 = getelementptr inbounds nuw i8, ptr %.054, i64 32
   %23 = getelementptr inbounds nuw i8, ptr %.055, i64 16
   %.not63 = icmp ugt ptr %22, %10
-  %24 = icmp eq ptr %22, %5
-  %. = select i1 %24, ptr %23, ptr %7
-  %.64 = select i1 %24, ptr %22, ptr %10
-  %.156 = select i1 %.not63, ptr %., ptr %23
-  %.1 = select i1 %.not63, ptr %.64, ptr %22
-  br i1 %24, label %.loopexit, label %11
+  %24 = icmp ne ptr %22, %5
+  %25 = and i1 %.not63, %24
+  %.156 = select i1 %25, ptr %7, ptr %23
+  %.1 = select i1 %25, ptr %10, ptr %22
+  br i1 %24, label %11, label %.loopexit
 
 .preheader:                                       ; preds = %.lr.ph, %.preheader67
-  %.257.lcssa = phi ptr [ %2, %.preheader67 ], [ %40, %.lr.ph ]
+  %.257.lcssa = phi ptr [ %2, %.preheader67 ], [ %41, %.lr.ph ]
   %.pn.lcssa = phi ptr [ %0, %.preheader67 ], [ %.272, %.lr.ph ]
-  %25 = icmp ult ptr %.pn.lcssa, %5
-  br i1 %25, label %.lr.ph76, label %.loopexit
+  %26 = icmp ult ptr %.pn.lcssa, %5
+  br i1 %26, label %.lr.ph76, label %.loopexit
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.272 = phi ptr [ %.2, %.lr.ph ], [ %.268, %.lr.ph.preheader ]
   %.pn71 = phi ptr [ %.272, %.lr.ph ], [ %0, %.lr.ph.preheader ]
-  %.25770 = phi ptr [ %40, %.lr.ph ], [ %2, %.lr.ph.preheader ]
+  %.25770 = phi ptr [ %41, %.lr.ph ], [ %2, %.lr.ph.preheader ]
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.272) #24, !srcloc !389
-  %26 = getelementptr inbounds nuw i8, ptr %.25770, i64 2
-  %27 = load i16, ptr %26, align 2, !tbaa !173
-  %28 = uitofp i16 %27 to float
-  store float %28, ptr %.pn71, align 4, !tbaa !50
-  %29 = load i16, ptr %.25770, align 2, !tbaa !173
-  %30 = uitofp i16 %29 to float
-  %31 = getelementptr inbounds nuw i8, ptr %.pn71, i64 4
-  store float %30, ptr %31, align 4, !tbaa !50
-  %32 = getelementptr inbounds nuw i8, ptr %.25770, i64 6
-  %33 = load i16, ptr %32, align 2, !tbaa !173
-  %34 = uitofp i16 %33 to float
-  %35 = getelementptr inbounds nuw i8, ptr %.pn71, i64 8
-  store float %34, ptr %35, align 4, !tbaa !50
-  %36 = getelementptr inbounds nuw i8, ptr %.25770, i64 4
-  %37 = load i16, ptr %36, align 2, !tbaa !173
-  %38 = uitofp i16 %37 to float
-  %39 = getelementptr inbounds nuw i8, ptr %.pn71, i64 12
-  store float %38, ptr %39, align 4, !tbaa !50
-  %40 = getelementptr inbounds nuw i8, ptr %.25770, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %.25770, i64 2
+  %28 = load i16, ptr %27, align 2, !tbaa !173
+  %29 = uitofp i16 %28 to float
+  store float %29, ptr %.pn71, align 4, !tbaa !50
+  %30 = load i16, ptr %.25770, align 2, !tbaa !173
+  %31 = uitofp i16 %30 to float
+  %32 = getelementptr inbounds nuw i8, ptr %.pn71, i64 4
+  store float %31, ptr %32, align 4, !tbaa !50
+  %33 = getelementptr inbounds nuw i8, ptr %.25770, i64 6
+  %34 = load i16, ptr %33, align 2, !tbaa !173
+  %35 = uitofp i16 %34 to float
+  %36 = getelementptr inbounds nuw i8, ptr %.pn71, i64 8
+  store float %35, ptr %36, align 4, !tbaa !50
+  %37 = getelementptr inbounds nuw i8, ptr %.25770, i64 4
+  %38 = load i16, ptr %37, align 2, !tbaa !173
+  %39 = uitofp i16 %38 to float
+  %40 = getelementptr inbounds nuw i8, ptr %.pn71, i64 12
+  store float %39, ptr %40, align 4, !tbaa !50
+  %41 = getelementptr inbounds nuw i8, ptr %.25770, i64 8
   %.2 = getelementptr inbounds nuw i8, ptr %.272, i64 16
   %.not = icmp ugt ptr %.2, %5
   br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !390
 
 .lr.ph76:                                         ; preds = %.preheader, %.lr.ph76
-  %.375 = phi ptr [ %47, %.lr.ph76 ], [ %.pn.lcssa, %.preheader ]
-  %.35874 = phi ptr [ %48, %.lr.ph76 ], [ %.257.lcssa, %.preheader ]
+  %.375 = phi ptr [ %48, %.lr.ph76 ], [ %.pn.lcssa, %.preheader ]
+  %.35874 = phi ptr [ %49, %.lr.ph76 ], [ %.257.lcssa, %.preheader ]
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.375) #24, !srcloc !391
-  %41 = getelementptr inbounds nuw i8, ptr %.35874, i64 2
-  %42 = load i16, ptr %41, align 2, !tbaa !173
-  %43 = uitofp i16 %42 to float
-  store float %43, ptr %.375, align 4, !tbaa !50
-  %44 = load i16, ptr %.35874, align 2, !tbaa !173
-  %45 = uitofp i16 %44 to float
-  %46 = getelementptr inbounds nuw i8, ptr %.375, i64 4
-  store float %45, ptr %46, align 4, !tbaa !50
-  %47 = getelementptr inbounds nuw i8, ptr %.375, i64 8
-  %48 = getelementptr inbounds nuw i8, ptr %.35874, i64 4
-  %49 = icmp ult ptr %47, %5
-  br i1 %49, label %.lr.ph76, label %.loopexit, !llvm.loop !392
+  %42 = getelementptr inbounds nuw i8, ptr %.35874, i64 2
+  %43 = load i16, ptr %42, align 2, !tbaa !173
+  %44 = uitofp i16 %43 to float
+  store float %44, ptr %.375, align 4, !tbaa !50
+  %45 = load i16, ptr %.35874, align 2, !tbaa !173
+  %46 = uitofp i16 %45 to float
+  %47 = getelementptr inbounds nuw i8, ptr %.375, i64 4
+  store float %46, ptr %47, align 4, !tbaa !50
+  %48 = getelementptr inbounds nuw i8, ptr %.375, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %.35874, i64 4
+  %50 = icmp ult ptr %48, %5
+  br i1 %50, label %.lr.ph76, label %.loopexit, !llvm.loop !392
 
 .loopexit:                                        ; preds = %.lr.ph76, %11, %.preheader
   ret void
@@ -12856,69 +12806,68 @@ define void @stbir__encode_uint16_linear_AR(ptr noundef writeonly captures(addre
   %31 = getelementptr inbounds nuw i8, ptr %.063, i64 32
   %32 = getelementptr inbounds nuw i8, ptr %.067, i64 16
   %.not78 = icmp ugt ptr %32, %10
-  %33 = icmp eq ptr %32, %5
-  %.79 = select i1 %33, ptr %32, ptr %10
-  %.80 = select i1 %33, ptr %31, ptr %9
-  %.168 = select i1 %.not78, ptr %.79, ptr %32
-  %.164 = select i1 %.not78, ptr %.80, ptr %31
-  br i1 %33, label %.loopexit, label %11
+  %33 = icmp ne ptr %32, %5
+  %34 = and i1 %.not78, %33
+  %.168 = select i1 %34, ptr %10, ptr %32
+  %.164 = select i1 %34, ptr %9, ptr %31
+  br i1 %33, label %11, label %.loopexit
 
 .preheader:                                       ; preds = %.lr.ph, %.preheader82
   %.pn.lcssa = phi ptr [ %0, %.preheader82 ], [ %.26987, %.lr.ph ]
-  %.265.lcssa = phi ptr [ %2, %.preheader82 ], [ %48, %.lr.ph ]
-  %34 = icmp ult ptr %.pn.lcssa, %5
-  br i1 %34, label %.lr.ph91, label %.loopexit
+  %.265.lcssa = phi ptr [ %2, %.preheader82 ], [ %49, %.lr.ph ]
+  %35 = icmp ult ptr %.pn.lcssa, %5
+  br i1 %35, label %.lr.ph91, label %.loopexit
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.26987 = phi ptr [ %.269, %.lr.ph ], [ %.26983, %.lr.ph.preheader ]
-  %.26586 = phi ptr [ %48, %.lr.ph ], [ %2, %.lr.ph.preheader ]
+  %.26586 = phi ptr [ %49, %.lr.ph ], [ %2, %.lr.ph.preheader ]
   %.pn85 = phi ptr [ %.26987, %.lr.ph ], [ %0, %.lr.ph.preheader ]
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.26586) #24, !srcloc !394
-  %35 = load <4 x float>, ptr %.26586, align 1, !tbaa !4
-  %36 = fadd <4 x float> %35, splat (float 5.000000e-01)
-  %37 = shufflevector <4 x float> %36, <4 x float> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
-  %38 = tail call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %37, <4 x float> splat (float 6.553500e+04))
-  %39 = tail call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %38, <4 x float> zeroinitializer)
-  %40 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %39)
-  %41 = load <4 x i32>, ptr @stbir__s32_32768, align 16, !tbaa !4
-  %42 = sub <4 x i32> %40, %41
-  %43 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %42, <4 x i32> poison)
-  %44 = load <8 x i16>, ptr @stbir__s16_32768, align 16, !tbaa !4
-  %45 = sub <8 x i16> %43, %44
-  %46 = bitcast <8 x i16> %45 to <2 x i64>
-  %47 = extractelement <2 x i64> %46, i64 0
-  store i64 %47, ptr %.pn85, align 1, !tbaa !4
-  %48 = getelementptr inbounds nuw i8, ptr %.26586, i64 16
+  %36 = load <4 x float>, ptr %.26586, align 1, !tbaa !4
+  %37 = fadd <4 x float> %36, splat (float 5.000000e-01)
+  %38 = shufflevector <4 x float> %37, <4 x float> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
+  %39 = tail call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %38, <4 x float> splat (float 6.553500e+04))
+  %40 = tail call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %39, <4 x float> zeroinitializer)
+  %41 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %40)
+  %42 = load <4 x i32>, ptr @stbir__s32_32768, align 16, !tbaa !4
+  %43 = sub <4 x i32> %41, %42
+  %44 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %43, <4 x i32> poison)
+  %45 = load <8 x i16>, ptr @stbir__s16_32768, align 16, !tbaa !4
+  %46 = sub <8 x i16> %44, %45
+  %47 = bitcast <8 x i16> %46 to <2 x i64>
+  %48 = extractelement <2 x i64> %47, i64 0
+  store i64 %48, ptr %.pn85, align 1, !tbaa !4
+  %49 = getelementptr inbounds nuw i8, ptr %.26586, i64 16
   %.269 = getelementptr inbounds nuw i8, ptr %.26987, i64 8
   %.not = icmp ugt ptr %.269, %5
   br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !395
 
 .lr.ph91:                                         ; preds = %.preheader, %.lr.ph91
-  %.36690 = phi ptr [ %62, %.lr.ph91 ], [ %.265.lcssa, %.preheader ]
-  %.37089 = phi ptr [ %61, %.lr.ph91 ], [ %.pn.lcssa, %.preheader ]
+  %.36690 = phi ptr [ %63, %.lr.ph91 ], [ %.265.lcssa, %.preheader ]
+  %.37089 = phi ptr [ %62, %.lr.ph91 ], [ %.pn.lcssa, %.preheader ]
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.36690) #24, !srcloc !396
-  %49 = getelementptr inbounds nuw i8, ptr %.36690, i64 4
-  %50 = load float, ptr %49, align 4, !tbaa !50
-  %51 = fadd float %50, 5.000000e-01
-  %52 = fcmp olt float %51, 0.000000e+00
-  %.0 = select i1 %52, float 0.000000e+00, float %51
-  %53 = fcmp ogt float %.0, 6.553500e+04
-  %.1 = select i1 %53, float 6.553500e+04, float %.0
-  %54 = fptoui float %.1 to i16
-  store i16 %54, ptr %.37089, align 2, !tbaa !173
-  %55 = load float, ptr %.36690, align 4, !tbaa !50
-  %56 = fadd float %55, 5.000000e-01
-  %57 = fcmp olt float %56, 0.000000e+00
-  %.2 = select i1 %57, float 0.000000e+00, float %56
-  %58 = fcmp ogt float %.2, 6.553500e+04
-  %.3 = select i1 %58, float 6.553500e+04, float %.2
-  %59 = fptoui float %.3 to i16
-  %60 = getelementptr inbounds nuw i8, ptr %.37089, i64 2
-  store i16 %59, ptr %60, align 2, !tbaa !173
-  %61 = getelementptr inbounds nuw i8, ptr %.37089, i64 4
-  %62 = getelementptr inbounds nuw i8, ptr %.36690, i64 8
-  %63 = icmp ult ptr %61, %5
-  br i1 %63, label %.lr.ph91, label %.loopexit, !llvm.loop !397
+  %50 = getelementptr inbounds nuw i8, ptr %.36690, i64 4
+  %51 = load float, ptr %50, align 4, !tbaa !50
+  %52 = fadd float %51, 5.000000e-01
+  %53 = fcmp olt float %52, 0.000000e+00
+  %.0 = select i1 %53, float 0.000000e+00, float %52
+  %54 = fcmp ogt float %.0, 6.553500e+04
+  %.1 = select i1 %54, float 6.553500e+04, float %.0
+  %55 = fptoui float %.1 to i16
+  store i16 %55, ptr %.37089, align 2, !tbaa !173
+  %56 = load float, ptr %.36690, align 4, !tbaa !50
+  %57 = fadd float %56, 5.000000e-01
+  %58 = fcmp olt float %57, 0.000000e+00
+  %.2 = select i1 %58, float 0.000000e+00, float %57
+  %59 = fcmp ogt float %.2, 6.553500e+04
+  %.3 = select i1 %59, float 6.553500e+04, float %.2
+  %60 = fptoui float %.3 to i16
+  %61 = getelementptr inbounds nuw i8, ptr %.37089, i64 2
+  store i16 %60, ptr %61, align 2, !tbaa !173
+  %62 = getelementptr inbounds nuw i8, ptr %.37089, i64 4
+  %63 = getelementptr inbounds nuw i8, ptr %.36690, i64 8
+  %64 = icmp ult ptr %62, %5
+  br i1 %64, label %.lr.ph91, label %.loopexit, !llvm.loop !397
 
 .loopexit:                                        ; preds = %.lr.ph91, %11, %.preheader
   ret void

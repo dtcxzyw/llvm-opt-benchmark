@@ -220,49 +220,47 @@ define hidden range(i32 -2147483648, 2) i32 @indonesian_UTF_8_stem(ptr noundef %
 
 100:                                              ; preds = %.thread174
   %101 = tail call fastcc i32 @r_remove_second_order_prefix(ptr noundef nonnull %0)
-  %102 = icmp eq i32 %101, 0
-  %103 = icmp slt i32 %101, 0
-  %..5 = select i1 %103, i32 %101, i32 %.016.i.ph
-  %.9 = select i1 %102, i32 %.016.i.ph, i32 %..5
+  %102 = icmp slt i32 %101, 0
+  %.9 = select i1 %102, i32 %101, i32 %.016.i.ph
   %.not = icmp sgt i32 %101, -1
   br i1 %.not, label %r_remove_particle.exit.sink.split, label %r_remove_particle.exit
 
 .thread194:                                       ; preds = %79
   store i32 %74, ptr %5, align 8
-  %104 = tail call fastcc i32 @r_remove_second_order_prefix(ptr noundef nonnull %0)
-  %105 = icmp sgt i32 %104, -1
-  br i1 %105, label %106, label %r_remove_particle.exit
+  %103 = tail call fastcc i32 @r_remove_second_order_prefix(ptr noundef nonnull %0)
+  %104 = icmp sgt i32 %103, -1
+  br i1 %104, label %105, label %r_remove_particle.exit
 
-106:                                              ; preds = %.thread194
+105:                                              ; preds = %.thread194
   store i32 %74, ptr %5, align 8
-  %107 = load ptr, ptr %2, align 8
-  %108 = getelementptr inbounds nuw i8, ptr %107, i64 4
-  %109 = load i32, ptr %108, align 4
-  %110 = icmp sgt i32 %109, 2
-  br i1 %110, label %111, label %r_remove_particle.exit.sink.split
+  %106 = load ptr, ptr %2, align 8
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 4
+  %108 = load i32, ptr %107, align 4
+  %109 = icmp sgt i32 %108, 2
+  br i1 %109, label %110, label %r_remove_particle.exit.sink.split
 
-111:                                              ; preds = %106
+110:                                              ; preds = %105
   store i32 %74, ptr %24, align 8
-  %112 = load i32, ptr %25, align 4
-  store i32 %112, ptr %5, align 8
-  %113 = tail call fastcc i32 @r_remove_suffix(ptr noundef nonnull %0)
-  %.fr = freeze i32 %113
+  %111 = load i32, ptr %25, align 4
+  store i32 %111, ptr %5, align 8
+  %112 = tail call fastcc i32 @r_remove_suffix(ptr noundef nonnull %0)
+  %.fr = freeze i32 %112
   %.lobit207 = lshr i32 %.fr, 31
-  %114 = add nsw i32 %.lobit207, -1
-  %switch221 = icmp ult i32 %114, 7
+  %113 = add nsw i32 %.lobit207, -1
+  %switch221 = icmp ult i32 %113, 7
   br i1 %switch221, label %.critedge, label %r_remove_particle.exit.sink.split
 
-.critedge:                                        ; preds = %111
+.critedge:                                        ; preds = %110
   %.not216 = icmp sgt i32 %.fr, -1
   %spec.select = select i1 %.not216, i32 1, i32 %.fr
   br label %r_remove_particle.exit
 
-r_remove_particle.exit.sink.split:                ; preds = %106, %111, %90, %84, %100, %.thread174
+r_remove_particle.exit.sink.split:                ; preds = %105, %110, %90, %84, %100, %.thread174
   store i32 %74, ptr %5, align 8
   br label %r_remove_particle.exit
 
 r_remove_particle.exit:                           ; preds = %.critedge, %r_remove_particle.exit.sink.split, %82, %100, %94, %63, %.thread194, %37, %73, %47, %._crit_edge
-  %.0 = phi i32 [ %40, %37 ], [ 0, %73 ], [ 0, %47 ], [ %80, %82 ], [ 0, %._crit_edge ], [ %104, %.thread194 ], [ 1, %r_remove_particle.exit.sink.split ], [ %66, %63 ], [ %92, %94 ], [ %spec.select, %.critedge ], [ %.9, %100 ]
+  %.0 = phi i32 [ %40, %37 ], [ 0, %73 ], [ 0, %47 ], [ %80, %82 ], [ 0, %._crit_edge ], [ %103, %.thread194 ], [ 1, %r_remove_particle.exit.sink.split ], [ %66, %63 ], [ %92, %94 ], [ %spec.select, %.critedge ], [ %.9, %100 ]
   ret i32 %.0
 }
 

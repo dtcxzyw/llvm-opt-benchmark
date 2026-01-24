@@ -231,20 +231,20 @@ declare void @dt_bauhaus_slider_set_digits(ptr noundef, i32 noundef) local_unnam
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_quick_select(ptr noundef %0, ptr noundef captures(address) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #13 {
   %5 = icmp eq ptr %0, %2
-  br i1 %5, label %.loopexit, label %.preheader50
+  br i1 %5, label %.loopexit, label %.preheader51
 
-.preheader50:                                     ; preds = %4
+.preheader51:                                     ; preds = %4
   %.not = icmp eq i32 %3, 0
-  br i1 %.not, label %.preheader50.split.us, label %.preheader50.split
+  br i1 %.not, label %.preheader51.split.us, label %.preheader51.split
 
-.preheader50.split.us:                            ; preds = %.preheader50, %_partition.exit.loopexit.us
-  %.040.us = phi ptr [ %.242.us, %_partition.exit.loopexit.us ], [ %2, %.preheader50 ]
-  %.038.us = phi ptr [ %.1.us, %_partition.exit.loopexit.us ], [ %0, %.preheader50 ]
+.preheader51.split.us:                            ; preds = %.preheader51, %_partition.exit.loopexit.us
+  %.040.us = phi ptr [ %.141.us, %_partition.exit.loopexit.us ], [ %2, %.preheader51 ]
+  %.038.us = phi ptr [ %.1.us, %_partition.exit.loopexit.us ], [ %0, %.preheader51 ]
   %6 = getelementptr inbounds nuw i8, ptr %.038.us, i64 4
   %7 = icmp ugt ptr %.040.us, %6
   br i1 %7, label %8, label %.loopexit
 
-8:                                                ; preds = %.preheader50.split.us
+8:                                                ; preds = %.preheader51.split.us
   %9 = getelementptr inbounds i8, ptr %.040.us, i64 -4
   %10 = load float, ptr %.038.us, align 4, !tbaa !49
   %11 = load float, ptr %9, align 4, !tbaa !49
@@ -254,12 +254,12 @@ define hidden void @_quick_select(ptr noundef %0, ptr noundef captures(address) 
 13:                                               ; preds = %8
   store float %11, ptr %.038.us, align 4, !tbaa !49
   store float %10, ptr %9, align 4, !tbaa !49
-  %.pre65 = load float, ptr %.038.us, align 4, !tbaa !49
+  %.pre66 = load float, ptr %.038.us, align 4, !tbaa !49
   br label %14
 
 14:                                               ; preds = %13, %8
   %15 = phi float [ %10, %13 ], [ %11, %8 ]
-  %16 = phi float [ %.pre65, %13 ], [ %10, %8 ]
+  %16 = phi float [ %.pre66, %13 ], [ %10, %8 ]
   %17 = load float, ptr %1, align 4, !tbaa !49
   %18 = fcmp reassoc nsz arcp contract afn olt float %16, %17
   br i1 %18, label %20, label %19
@@ -267,23 +267,23 @@ define hidden void @_quick_select(ptr noundef %0, ptr noundef captures(address) 
 19:                                               ; preds = %14
   store float %17, ptr %.038.us, align 4, !tbaa !49
   store float %16, ptr %1, align 4, !tbaa !49
-  %.pre66 = load float, ptr %9, align 4, !tbaa !49
+  %.pre67 = load float, ptr %9, align 4, !tbaa !49
   br label %20
 
 20:                                               ; preds = %19, %14
   %21 = phi float [ %16, %19 ], [ %17, %14 ]
-  %22 = phi float [ %.pre66, %19 ], [ %15, %14 ]
+  %22 = phi float [ %.pre67, %19 ], [ %15, %14 ]
   %23 = fcmp reassoc nsz arcp contract afn olt float %22, %21
   br i1 %23, label %.preheader.us, label %24
 
 24:                                               ; preds = %20
   store float %21, ptr %9, align 4, !tbaa !49
   store float %22, ptr %1, align 4, !tbaa !49
-  %.pre67 = load float, ptr %9, align 4, !tbaa !49
+  %.pre68 = load float, ptr %9, align 4, !tbaa !49
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %24, %20
-  %25 = phi float [ %.pre67, %24 ], [ %22, %20 ]
+  %25 = phi float [ %.pre68, %24 ], [ %22, %20 ]
   br label %26
 
 26:                                               ; preds = %.preheader.us, %38
@@ -327,123 +327,123 @@ _partition.exit.loopexit.us:                      ; preds = %.critedge.i.us
   %41 = load float, ptr %28, align 4, !tbaa !49
   store float %41, ptr %9, align 4, !tbaa !49
   store float %40, ptr %28, align 4, !tbaa !49
-  %.not47.us = icmp eq ptr %1, %28
-  %42 = icmp ult ptr %1, %28
-  %43 = getelementptr inbounds nuw i8, ptr %.4.i.us, i64 8
-  %.242.us = select i1 %42, ptr %28, ptr %.040.us
-  %.not46.us = icmp ugt ptr %1, %28
-  %.1.us = select i1 %.not46.us, ptr %43, ptr %.038.us
-  br i1 %.not47.us, label %.loopexit, label %.preheader50.split.us
+  %.not48.us = icmp eq ptr %1, %28
+  %.not46.us = icmp ult ptr %1, %28
+  %42 = getelementptr inbounds nuw i8, ptr %.4.i.us, i64 8
+  %.141.us = select i1 %.not46.us, ptr %28, ptr %.040.us
+  %.not47.us = icmp ugt ptr %1, %28
+  %.1.us = select i1 %.not47.us, ptr %42, ptr %.038.us
+  br i1 %.not48.us, label %.loopexit, label %.preheader51.split.us
 
-.preheader50.split:                               ; preds = %.preheader50, %_partition.exit
-  %.040 = phi ptr [ %.242, %_partition.exit ], [ %2, %.preheader50 ]
-  %.038 = phi ptr [ %.1, %_partition.exit ], [ %0, %.preheader50 ]
-  %44 = getelementptr inbounds nuw i8, ptr %.038, i64 4
-  %45 = icmp ugt ptr %.040, %44
-  br i1 %45, label %46, label %.loopexit
+.preheader51.split:                               ; preds = %.preheader51, %_partition.exit
+  %.040 = phi ptr [ %.141, %_partition.exit ], [ %2, %.preheader51 ]
+  %.038 = phi ptr [ %.1, %_partition.exit ], [ %0, %.preheader51 ]
+  %43 = getelementptr inbounds nuw i8, ptr %.038, i64 4
+  %44 = icmp ugt ptr %.040, %43
+  br i1 %44, label %45, label %.loopexit
 
-46:                                               ; preds = %.preheader50.split
-  %47 = ptrtoint ptr %.040 to i64
-  %48 = ptrtoint ptr %.038 to i64
-  %49 = sub i64 %47, %48
-  %50 = ashr exact i64 %49, 2
-  %51 = sdiv i64 %50, 2
-  %52 = getelementptr inbounds float, ptr %.038, i64 %51
-  %53 = getelementptr inbounds i8, ptr %.040, i64 -4
-  %54 = load float, ptr %.038, align 4, !tbaa !49
-  %55 = load float, ptr %53, align 4, !tbaa !49
-  %56 = fcmp reassoc nsz arcp contract afn olt float %54, %55
-  br i1 %56, label %58, label %57
+45:                                               ; preds = %.preheader51.split
+  %46 = ptrtoint ptr %.040 to i64
+  %47 = ptrtoint ptr %.038 to i64
+  %48 = sub i64 %46, %47
+  %49 = ashr exact i64 %48, 2
+  %50 = sdiv i64 %49, 2
+  %51 = getelementptr inbounds float, ptr %.038, i64 %50
+  %52 = getelementptr inbounds i8, ptr %.040, i64 -4
+  %53 = load float, ptr %.038, align 4, !tbaa !49
+  %54 = load float, ptr %52, align 4, !tbaa !49
+  %55 = fcmp reassoc nsz arcp contract afn olt float %53, %54
+  br i1 %55, label %57, label %56
 
-57:                                               ; preds = %46
-  store float %55, ptr %.038, align 4, !tbaa !49
-  store float %54, ptr %53, align 4, !tbaa !49
+56:                                               ; preds = %45
+  store float %54, ptr %.038, align 4, !tbaa !49
+  store float %53, ptr %52, align 4, !tbaa !49
   %.pre = load float, ptr %.038, align 4, !tbaa !49
-  br label %58
+  br label %57
 
-58:                                               ; preds = %57, %46
-  %59 = phi float [ %54, %57 ], [ %55, %46 ]
-  %60 = phi float [ %.pre, %57 ], [ %54, %46 ]
-  %61 = load float, ptr %52, align 4, !tbaa !49
-  %62 = fcmp reassoc nsz arcp contract afn olt float %60, %61
-  br i1 %62, label %64, label %63
+57:                                               ; preds = %56, %45
+  %58 = phi float [ %53, %56 ], [ %54, %45 ]
+  %59 = phi float [ %.pre, %56 ], [ %53, %45 ]
+  %60 = load float, ptr %51, align 4, !tbaa !49
+  %61 = fcmp reassoc nsz arcp contract afn olt float %59, %60
+  br i1 %61, label %63, label %62
 
-63:                                               ; preds = %58
-  store float %61, ptr %.038, align 4, !tbaa !49
-  store float %60, ptr %52, align 4, !tbaa !49
-  %.pre61 = load float, ptr %53, align 4, !tbaa !49
-  br label %64
+62:                                               ; preds = %57
+  store float %60, ptr %.038, align 4, !tbaa !49
+  store float %59, ptr %51, align 4, !tbaa !49
+  %.pre62 = load float, ptr %52, align 4, !tbaa !49
+  br label %63
 
-64:                                               ; preds = %63, %58
-  %65 = phi float [ %60, %63 ], [ %61, %58 ]
-  %66 = phi float [ %.pre61, %63 ], [ %59, %58 ]
-  %67 = fcmp reassoc nsz arcp contract afn olt float %66, %65
-  br i1 %67, label %.preheader51.i, label %68
+63:                                               ; preds = %62, %57
+  %64 = phi float [ %59, %62 ], [ %60, %57 ]
+  %65 = phi float [ %.pre62, %62 ], [ %58, %57 ]
+  %66 = fcmp reassoc nsz arcp contract afn olt float %65, %64
+  br i1 %66, label %.preheader51.i, label %67
 
-68:                                               ; preds = %64
-  store float %65, ptr %53, align 4, !tbaa !49
-  store float %66, ptr %52, align 4, !tbaa !49
-  %.pre62 = load float, ptr %53, align 4, !tbaa !49
+67:                                               ; preds = %63
+  store float %64, ptr %52, align 4, !tbaa !49
+  store float %65, ptr %51, align 4, !tbaa !49
+  %.pre63 = load float, ptr %52, align 4, !tbaa !49
   br label %.preheader51.i
 
-.preheader51.i:                                   ; preds = %68, %64
-  %69 = phi float [ %66, %68 ], [ %65, %64 ]
-  %70 = phi float [ %.pre62, %68 ], [ %66, %64 ]
+.preheader51.i:                                   ; preds = %67, %63
+  %68 = phi float [ %65, %67 ], [ %64, %63 ]
+  %69 = phi float [ %.pre63, %67 ], [ %65, %63 ]
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.preheader51.i, %74
-  %.03857.i = phi ptr [ %73, %74 ], [ %.038, %.preheader51.i ]
-  %71 = load float, ptr %.03857.i, align 4, !tbaa !49
-  %72 = fcmp reassoc nsz arcp contract afn olt float %71, %70
-  %73 = getelementptr inbounds nuw i8, ptr %.03857.i, i64 4
-  %.not48.i = icmp eq ptr %73, %53
-  br i1 %72, label %74, label %.preheader.i
+.lr.ph.i:                                         ; preds = %.preheader51.i, %73
+  %.03857.i = phi ptr [ %72, %73 ], [ %.038, %.preheader51.i ]
+  %70 = load float, ptr %.03857.i, align 4, !tbaa !49
+  %71 = fcmp reassoc nsz arcp contract afn olt float %70, %69
+  %72 = getelementptr inbounds nuw i8, ptr %.03857.i, i64 4
+  %.not48.i = icmp eq ptr %72, %52
+  br i1 %71, label %73, label %.preheader.i
 
 .preheader.i:                                     ; preds = %.lr.ph.i
   br i1 %.not48.i, label %_partition.exit, label %.lr.ph62.i
 
-74:                                               ; preds = %.lr.ph.i
+73:                                               ; preds = %.lr.ph.i
   br i1 %.not48.i, label %_partition.exit, label %.lr.ph.i
 
-.lr.ph62.i:                                       ; preds = %.preheader.i, %80
-  %.061.i = phi ptr [ %.0.i, %80 ], [ %73, %.preheader.i ]
-  %.160.i = phi ptr [ %.2.i, %80 ], [ %.03857.i, %.preheader.i ]
-  %75 = load float, ptr %.061.i, align 4, !tbaa !49
-  %76 = fcmp reassoc nsz arcp contract afn olt float %75, %70
-  br i1 %76, label %77, label %80
+.lr.ph62.i:                                       ; preds = %.preheader.i, %79
+  %.061.i = phi ptr [ %.0.i, %79 ], [ %72, %.preheader.i ]
+  %.160.i = phi ptr [ %.2.i, %79 ], [ %.03857.i, %.preheader.i ]
+  %74 = load float, ptr %.061.i, align 4, !tbaa !49
+  %75 = fcmp reassoc nsz arcp contract afn olt float %74, %69
+  br i1 %75, label %76, label %79
 
-77:                                               ; preds = %.lr.ph62.i
-  %78 = load float, ptr %.160.i, align 4, !tbaa !49
-  store float %78, ptr %.061.i, align 4, !tbaa !49
-  store float %75, ptr %.160.i, align 4, !tbaa !49
-  %79 = getelementptr inbounds nuw i8, ptr %.160.i, i64 4
-  br label %80
+76:                                               ; preds = %.lr.ph62.i
+  %77 = load float, ptr %.160.i, align 4, !tbaa !49
+  store float %77, ptr %.061.i, align 4, !tbaa !49
+  store float %74, ptr %.160.i, align 4, !tbaa !49
+  %78 = getelementptr inbounds nuw i8, ptr %.160.i, i64 4
+  br label %79
 
-80:                                               ; preds = %77, %.lr.ph62.i
-  %.2.i = phi ptr [ %79, %77 ], [ %.160.i, %.lr.ph62.i ]
+79:                                               ; preds = %76, %.lr.ph62.i
+  %.2.i = phi ptr [ %78, %76 ], [ %.160.i, %.lr.ph62.i ]
   %.0.i = getelementptr inbounds nuw i8, ptr %.061.i, i64 4
-  %.not49.i = icmp eq ptr %.0.i, %53
+  %.not49.i = icmp eq ptr %.0.i, %52
   br i1 %.not49.i, label %_partition.exit.loopexit, label %.lr.ph62.i
 
-_partition.exit.loopexit:                         ; preds = %80
-  %.pre63 = load float, ptr %53, align 4, !tbaa !49
+_partition.exit.loopexit:                         ; preds = %79
   %.pre64 = load float, ptr %52, align 4, !tbaa !49
+  %.pre65 = load float, ptr %51, align 4, !tbaa !49
   br label %_partition.exit
 
-_partition.exit:                                  ; preds = %74, %_partition.exit.loopexit, %.preheader.i
-  %81 = phi float [ %69, %.preheader.i ], [ %.pre64, %_partition.exit.loopexit ], [ %69, %74 ]
-  %82 = phi float [ %70, %.preheader.i ], [ %.pre63, %_partition.exit.loopexit ], [ %70, %74 ]
-  store float %81, ptr %53, align 4, !tbaa !49
-  store float %82, ptr %52, align 4, !tbaa !49
-  %.not47 = icmp eq ptr %1, %52
-  %83 = icmp ult ptr %1, %52
-  %84 = getelementptr inbounds nuw i8, ptr %52, i64 4
-  %.242 = select i1 %83, ptr %52, ptr %.040
-  %.not46 = icmp ugt ptr %1, %52
-  %.1 = select i1 %.not46, ptr %84, ptr %.038
-  br i1 %.not47, label %.loopexit, label %.preheader50.split
+_partition.exit:                                  ; preds = %73, %_partition.exit.loopexit, %.preheader.i
+  %80 = phi float [ %68, %.preheader.i ], [ %.pre65, %_partition.exit.loopexit ], [ %68, %73 ]
+  %81 = phi float [ %69, %.preheader.i ], [ %.pre64, %_partition.exit.loopexit ], [ %69, %73 ]
+  store float %80, ptr %52, align 4, !tbaa !49
+  store float %81, ptr %51, align 4, !tbaa !49
+  %.not48 = icmp eq ptr %1, %51
+  %.not46 = icmp ult ptr %1, %51
+  %82 = getelementptr inbounds nuw i8, ptr %51, i64 4
+  %.141 = select i1 %.not46, ptr %51, ptr %.040
+  %.not47 = icmp ugt ptr %1, %51
+  %.1 = select i1 %.not47, ptr %82, ptr %.038
+  br i1 %.not48, label %.loopexit, label %.preheader51.split
 
-.loopexit:                                        ; preds = %.preheader50.split, %_partition.exit, %_partition.exit.loopexit.us, %.preheader50.split.us, %4
+.loopexit:                                        ; preds = %.preheader51.split, %_partition.exit, %_partition.exit.loopexit.us, %.preheader51.split.us, %4
   ret void
 }
 

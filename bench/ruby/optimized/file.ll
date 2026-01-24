@@ -493,9 +493,9 @@ define dso_local range(i64 0, 21) i64 @rb_file_directory_p(i64 %0, i64 noundef %
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %7 = load i32, ptr %6, align 8
   %8 = and i32 %7, 61440
-  %9 = icmp eq i32 %8, 16384
-  %. = select i1 %9, i64 20, i64 0
-  %.0 = select i1 %5, i64 0, i64 %.
+  %9 = icmp ne i32 %8, 16384
+  %10 = select i1 %5, i1 true, i1 %9
+  %.0 = select i1 %10, i64 0, i64 20
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i64 %.0
 }
@@ -4497,9 +4497,9 @@ define internal range(i64 0, 21) i64 @rb_file_file_p(i64 %0, i64 noundef %1) #0 
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %7 = load i32, ptr %6, align 8
   %8 = and i32 %7, 61440
-  %9 = icmp eq i32 %8, 32768
-  %10 = select i1 %9, i64 20, i64 0
-  %.0 = select i1 %5, i64 0, i64 %10
+  %9 = icmp ne i32 %8, 32768
+  %10 = select i1 %5, i1 true, i1 %9
+  %.0 = select i1 %10, i64 0, i64 20
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i64 %.0
 }
@@ -4512,9 +4512,9 @@ define internal range(i64 0, 21) i64 @rb_file_zero_p(i64 %0, i64 noundef %1) #0 
   %5 = icmp slt i32 %4, 0
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %7 = load i64, ptr %6, align 8
-  %8 = icmp eq i64 %7, 0
-  %9 = select i1 %8, i64 20, i64 0
-  %.0 = select i1 %5, i64 0, i64 %9
+  %8 = icmp ne i64 %7, 0
+  %9 = select i1 %5, i1 true, i1 %8
+  %.0 = select i1 %9, i64 0, i64 20
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i64 %.0
 }
@@ -4653,9 +4653,9 @@ define internal range(i64 0, 21) i64 @rb_file_pipe_p(i64 %0, i64 noundef %1) #0 
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %7 = load i32, ptr %6, align 8
   %8 = and i32 %7, 61440
-  %9 = icmp eq i32 %8, 4096
-  %. = select i1 %9, i64 20, i64 0
-  %.0 = select i1 %5, i64 0, i64 %.
+  %9 = icmp ne i32 %8, 4096
+  %10 = select i1 %5, i1 true, i1 %9
+  %.0 = select i1 %10, i64 0, i64 20
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i64 %.0
 }
@@ -4741,9 +4741,9 @@ define internal range(i64 0, 21) i64 @rb_file_socket_p(i64 %0, i64 noundef %1) #
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %7 = load i32, ptr %6, align 8
   %8 = and i32 %7, 61440
-  %9 = icmp eq i32 %8, 49152
-  %. = select i1 %9, i64 20, i64 0
-  %.0 = select i1 %5, i64 0, i64 %.
+  %9 = icmp ne i32 %8, 49152
+  %10 = select i1 %5, i1 true, i1 %9
+  %.0 = select i1 %10, i64 0, i64 20
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i64 %.0
 }
@@ -4757,9 +4757,9 @@ define internal range(i64 0, 21) i64 @rb_file_blockdev_p(i64 %0, i64 noundef %1)
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %7 = load i32, ptr %6, align 8
   %8 = and i32 %7, 61440
-  %9 = icmp eq i32 %8, 24576
-  %. = select i1 %9, i64 20, i64 0
-  %.0 = select i1 %5, i64 0, i64 %.
+  %9 = icmp ne i32 %8, 24576
+  %10 = select i1 %5, i1 true, i1 %9
+  %.0 = select i1 %10, i64 0, i64 20
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i64 %.0
 }
@@ -4773,9 +4773,9 @@ define internal range(i64 0, 21) i64 @rb_file_chardev_p(i64 %0, i64 noundef %1) 
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %7 = load i32, ptr %6, align 8
   %8 = and i32 %7, 61440
-  %9 = icmp eq i32 %8, 8192
-  %. = select i1 %9, i64 20, i64 0
-  %.0 = select i1 %5, i64 0, i64 %.
+  %9 = icmp ne i32 %8, 8192
+  %10 = select i1 %5, i1 true, i1 %9
+  %.0 = select i1 %10, i64 0, i64 20
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i64 %.0
 }
@@ -7560,12 +7560,12 @@ define internal i64 @rb_f_test(i32 noundef %0, ptr noundef %1, i64 %2) #0 {
   %24 = alloca %struct.stat, align 8
   %25 = alloca %struct.stat, align 8
   %26 = icmp eq i32 %0, 0
-  %.sink138.sroa.gep = getelementptr inbounds nuw i8, ptr %21, i64 112
-  %.sink138.sroa.gep140 = getelementptr inbounds nuw i8, ptr %21, i64 96
-  %.sink138.sroa.gep141 = getelementptr inbounds nuw i8, ptr %21, i64 80
-  %.sink139.sroa.gep = getelementptr inbounds nuw i8, ptr %21, i64 104
-  %.sink139.sroa.gep142 = getelementptr inbounds nuw i8, ptr %21, i64 88
-  %.sink139.sroa.gep143 = getelementptr inbounds nuw i8, ptr %21, i64 72
+  %.sink133.sroa.gep = getelementptr inbounds nuw i8, ptr %21, i64 112
+  %.sink133.sroa.gep135 = getelementptr inbounds nuw i8, ptr %21, i64 96
+  %.sink133.sroa.gep136 = getelementptr inbounds nuw i8, ptr %21, i64 80
+  %.sink134.sroa.gep = getelementptr inbounds nuw i8, ptr %21, i64 104
+  %.sink134.sroa.gep137 = getelementptr inbounds nuw i8, ptr %21, i64 88
+  %.sink134.sroa.gep138 = getelementptr inbounds nuw i8, ptr %21, i64 72
   br i1 %26, label %27, label %28
 
 27:                                               ; preds = %3
@@ -7630,38 +7630,38 @@ rb_num2char_inline.exit:                          ; preds = %RSTRING_PTR.exit.i,
   %.0.i = phi i8 [ %46, %RSTRING_PTR.exit.i ], [ %52, %rb_num2int_inline.exit.i ]
   %53 = sext i8 %.0.i to i32
   %54 = icmp eq i8 %.0.i, 0
-  br i1 %54, label %.thread133, label %55
+  br i1 %54, label %.thread128, label %55
 
 55:                                               ; preds = %rb_num2char_inline.exit
   %memchr = tail call ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.141, i32 %53, i64 23)
   %.not = icmp eq ptr %memchr, null
-  br i1 %.not, label %240, label %56
+  br i1 %.not, label %245, label %56
 
 56:                                               ; preds = %55
   tail call fastcc void @test_check(i32 noundef 1, i32 noundef %0, ptr noundef nonnull %1)
-  switch i8 %.0.i, label %240 [
+  switch i8 %.0.i, label %245 [
     i8 98, label %57
-    i8 99, label %66
-    i8 100, label %75
-    i8 101, label %84
-    i8 102, label %89
-    i8 103, label %99
-    i8 71, label %108
-    i8 107, label %117
-    i8 108, label %126
-    i8 111, label %130
-    i8 79, label %141
-    i8 112, label %152
-    i8 114, label %161
-    i8 82, label %167
-    i8 115, label %173
-    i8 83, label %189
-    i8 117, label %198
-    i8 119, label %207
-    i8 87, label %213
-    i8 120, label %219
-    i8 88, label %225
-    i8 122, label %231
+    i8 99, label %67
+    i8 100, label %77
+    i8 101, label %87
+    i8 102, label %92
+    i8 103, label %102
+    i8 71, label %111
+    i8 107, label %120
+    i8 108, label %129
+    i8 111, label %133
+    i8 79, label %144
+    i8 112, label %155
+    i8 114, label %165
+    i8 82, label %171
+    i8 115, label %177
+    i8 83, label %193
+    i8 117, label %203
+    i8 119, label %212
+    i8 87, label %218
+    i8 120, label %224
+    i8 88, label %230
+    i8 122, label %236
   ]
 
 57:                                               ; preds = %56
@@ -7673,509 +7673,509 @@ rb_num2char_inline.exit:                          ; preds = %RSTRING_PTR.exit.i,
   %62 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %63 = load i32, ptr %62, align 8
   %64 = and i32 %63, 61440
-  %65 = icmp eq i32 %64, 24576
-  %..i = select i1 %65, i64 20, i64 0
-  %.0.i100 = select i1 %61, i64 0, i64 %..i
+  %65 = icmp ne i32 %64, 24576
+  %66 = select i1 %61, i1 true, i1 %65
+  %.0.i100 = select i1 %66, i64 0, i64 20
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
-  br label %321
+  br label %326
 
-66:                                               ; preds = %56
-  %67 = getelementptr i8, ptr %1, i64 8
-  %68 = load i64, ptr %67, align 8, !tbaa !12
+67:                                               ; preds = %56
+  %68 = getelementptr i8, ptr %1, i64 8
+  %69 = load i64, ptr %68, align 8, !tbaa !12
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
-  %69 = call fastcc i32 @rb_stat(i64 noundef %68, ptr noundef %19)
-  %70 = icmp slt i32 %69, 0
-  %71 = getelementptr inbounds nuw i8, ptr %19, i64 24
-  %72 = load i32, ptr %71, align 8
-  %73 = and i32 %72, 61440
-  %74 = icmp eq i32 %73, 8192
-  %..i101 = select i1 %74, i64 20, i64 0
-  %.0.i102 = select i1 %70, i64 0, i64 %..i101
+  %70 = call fastcc i32 @rb_stat(i64 noundef %69, ptr noundef %19)
+  %71 = icmp slt i32 %70, 0
+  %72 = getelementptr inbounds nuw i8, ptr %19, i64 24
+  %73 = load i32, ptr %72, align 8
+  %74 = and i32 %73, 61440
+  %75 = icmp ne i32 %74, 8192
+  %76 = select i1 %71, i1 true, i1 %75
+  %.0.i101 = select i1 %76, i64 0, i64 20
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
-  br label %321
+  br label %326
 
-75:                                               ; preds = %56
-  %76 = getelementptr i8, ptr %1, i64 8
-  %77 = load i64, ptr %76, align 8, !tbaa !12
+77:                                               ; preds = %56
+  %78 = getelementptr i8, ptr %1, i64 8
+  %79 = load i64, ptr %78, align 8, !tbaa !12
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
-  %78 = call fastcc i32 @rb_stat(i64 noundef %77, ptr noundef %18)
-  %79 = icmp slt i32 %78, 0
-  %80 = getelementptr inbounds nuw i8, ptr %18, i64 24
-  %81 = load i32, ptr %80, align 8
-  %82 = and i32 %81, 61440
-  %83 = icmp eq i32 %82, 16384
-  %..i103 = select i1 %83, i64 20, i64 0
-  %.0.i104 = select i1 %79, i64 0, i64 %..i103
+  %80 = call fastcc i32 @rb_stat(i64 noundef %79, ptr noundef %18)
+  %81 = icmp slt i32 %80, 0
+  %82 = getelementptr inbounds nuw i8, ptr %18, i64 24
+  %83 = load i32, ptr %82, align 8
+  %84 = and i32 %83, 61440
+  %85 = icmp ne i32 %84, 16384
+  %86 = select i1 %81, i1 true, i1 %85
+  %.0.i102 = select i1 %86, i64 0, i64 20
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
-  br label %321
+  br label %326
 
-84:                                               ; preds = %56
-  %85 = getelementptr i8, ptr %1, i64 8
-  %86 = load i64, ptr %85, align 8, !tbaa !12
+87:                                               ; preds = %56
+  %88 = getelementptr i8, ptr %1, i64 8
+  %89 = load i64, ptr %88, align 8, !tbaa !12
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
-  %87 = call fastcc i32 @rb_stat(i64 noundef %86, ptr noundef %17)
-  %88 = icmp slt i32 %87, 0
-  %..i105 = select i1 %88, i64 0, i64 20
+  %90 = call fastcc i32 @rb_stat(i64 noundef %89, ptr noundef %17)
+  %91 = icmp slt i32 %90, 0
+  %..i = select i1 %91, i64 0, i64 20
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
-  br label %321
+  br label %326
 
-89:                                               ; preds = %56
-  %90 = getelementptr i8, ptr %1, i64 8
-  %91 = load i64, ptr %90, align 8, !tbaa !12
+92:                                               ; preds = %56
+  %93 = getelementptr i8, ptr %1, i64 8
+  %94 = load i64, ptr %93, align 8, !tbaa !12
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
-  %92 = call fastcc i32 @rb_stat(i64 noundef %91, ptr noundef %16)
-  %93 = icmp slt i32 %92, 0
-  %94 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  %95 = load i32, ptr %94, align 8
-  %96 = and i32 %95, 61440
-  %97 = icmp eq i32 %96, 32768
-  %98 = select i1 %97, i64 20, i64 0
-  %.0.i106 = select i1 %93, i64 0, i64 %98
+  %95 = call fastcc i32 @rb_stat(i64 noundef %94, ptr noundef %16)
+  %96 = icmp slt i32 %95, 0
+  %97 = getelementptr inbounds nuw i8, ptr %16, i64 24
+  %98 = load i32, ptr %97, align 8
+  %99 = and i32 %98, 61440
+  %100 = icmp ne i32 %99, 32768
+  %101 = select i1 %96, i1 true, i1 %100
+  %.0.i103 = select i1 %101, i64 0, i64 20
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
-  br label %321
+  br label %326
 
-99:                                               ; preds = %56
-  %100 = getelementptr i8, ptr %1, i64 8
-  %101 = load i64, ptr %100, align 8, !tbaa !12
+102:                                              ; preds = %56
+  %103 = getelementptr i8, ptr %1, i64 8
+  %104 = load i64, ptr %103, align 8, !tbaa !12
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
-  %102 = call fastcc i32 @rb_stat(i64 noundef %101, ptr noundef %15)
-  %103 = icmp slt i32 %102, 0
-  %104 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  %105 = load i32, ptr %104, align 8
-  %106 = and i32 %105, 1024
-  %.not.i.i107 = icmp eq i32 %106, 0
-  %107 = select i1 %103, i1 true, i1 %.not.i.i107
-  %.0.i.i = select i1 %107, i64 0, i64 20
+  %105 = call fastcc i32 @rb_stat(i64 noundef %104, ptr noundef %15)
+  %106 = icmp slt i32 %105, 0
+  %107 = getelementptr inbounds nuw i8, ptr %15, i64 24
+  %108 = load i32, ptr %107, align 8
+  %109 = and i32 %108, 1024
+  %.not.i.i104 = icmp eq i32 %109, 0
+  %110 = select i1 %106, i1 true, i1 %.not.i.i104
+  %.0.i.i = select i1 %110, i64 0, i64 20
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
-  br label %321
+  br label %326
 
-108:                                              ; preds = %56
-  %109 = getelementptr i8, ptr %1, i64 8
-  %110 = load i64, ptr %109, align 8, !tbaa !12
+111:                                              ; preds = %56
+  %112 = getelementptr i8, ptr %1, i64 8
+  %113 = load i64, ptr %112, align 8, !tbaa !12
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
-  %111 = call fastcc i32 @rb_stat(i64 noundef %110, ptr noundef %14)
-  %112 = icmp slt i32 %111, 0
-  br i1 %112, label %rb_file_grpowned_p.exit, label %113
+  %114 = call fastcc i32 @rb_stat(i64 noundef %113, ptr noundef %14)
+  %115 = icmp slt i32 %114, 0
+  br i1 %115, label %rb_file_grpowned_p.exit, label %116
 
-113:                                              ; preds = %108
-  %114 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  %115 = load i32, ptr %114, align 8, !tbaa !205
-  %116 = call fastcc i32 @rb_group_member(i32 noundef %115)
-  %.not.i = icmp eq i32 %116, 0
-  %..i108 = select i1 %.not.i, i64 0, i64 20
+116:                                              ; preds = %111
+  %117 = getelementptr inbounds nuw i8, ptr %14, i64 32
+  %118 = load i32, ptr %117, align 8, !tbaa !205
+  %119 = call fastcc i32 @rb_group_member(i32 noundef %118)
+  %.not.i = icmp eq i32 %119, 0
+  %..i105 = select i1 %.not.i, i64 0, i64 20
   br label %rb_file_grpowned_p.exit
 
-rb_file_grpowned_p.exit:                          ; preds = %108, %113
-  %.0.i109 = phi i64 [ 0, %108 ], [ %..i108, %113 ]
+rb_file_grpowned_p.exit:                          ; preds = %111, %116
+  %.0.i106 = phi i64 [ 0, %111 ], [ %..i105, %116 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  br label %321
+  br label %326
 
-117:                                              ; preds = %56
-  %118 = getelementptr i8, ptr %1, i64 8
-  %119 = load i64, ptr %118, align 8, !tbaa !12
+120:                                              ; preds = %56
+  %121 = getelementptr i8, ptr %1, i64 8
+  %122 = load i64, ptr %121, align 8, !tbaa !12
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  %120 = call fastcc i32 @rb_stat(i64 noundef %119, ptr noundef %13)
-  %121 = icmp slt i32 %120, 0
-  %122 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  %123 = load i32, ptr %122, align 8
-  %124 = and i32 %123, 512
-  %.not.i.i110 = icmp eq i32 %124, 0
-  %125 = select i1 %121, i1 true, i1 %.not.i.i110
-  %.0.i.i111 = select i1 %125, i64 0, i64 20
+  %123 = call fastcc i32 @rb_stat(i64 noundef %122, ptr noundef %13)
+  %124 = icmp slt i32 %123, 0
+  %125 = getelementptr inbounds nuw i8, ptr %13, i64 24
+  %126 = load i32, ptr %125, align 8
+  %127 = and i32 %126, 512
+  %.not.i.i107 = icmp eq i32 %127, 0
+  %128 = select i1 %124, i1 true, i1 %.not.i.i107
+  %.0.i.i108 = select i1 %128, i64 0, i64 20
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  br label %321
+  br label %326
 
-126:                                              ; preds = %56
-  %127 = getelementptr i8, ptr %1, i64 8
-  %128 = load i64, ptr %127, align 8, !tbaa !12
-  %129 = tail call i64 @rb_file_symlink_p(i64 poison, i64 noundef %128)
-  br label %321
+129:                                              ; preds = %56
+  %130 = getelementptr i8, ptr %1, i64 8
+  %131 = load i64, ptr %130, align 8, !tbaa !12
+  %132 = tail call i64 @rb_file_symlink_p(i64 poison, i64 noundef %131)
+  br label %326
 
-130:                                              ; preds = %56
-  %131 = getelementptr i8, ptr %1, i64 8
-  %132 = load i64, ptr %131, align 8, !tbaa !12
+133:                                              ; preds = %56
+  %134 = getelementptr i8, ptr %1, i64 8
+  %135 = load i64, ptr %134, align 8, !tbaa !12
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  %133 = call fastcc i32 @rb_stat(i64 noundef %132, ptr noundef %12)
-  %134 = icmp slt i32 %133, 0
-  br i1 %134, label %rb_file_owned_p.exit, label %135
+  %136 = call fastcc i32 @rb_stat(i64 noundef %135, ptr noundef %12)
+  %137 = icmp slt i32 %136, 0
+  br i1 %137, label %rb_file_owned_p.exit, label %138
 
-135:                                              ; preds = %130
-  %136 = getelementptr inbounds nuw i8, ptr %12, i64 28
-  %137 = load i32, ptr %136, align 4, !tbaa !204
-  %138 = call i32 @geteuid() #23
-  %139 = icmp eq i32 %137, %138
-  %140 = select i1 %139, i64 20, i64 0
+138:                                              ; preds = %133
+  %139 = getelementptr inbounds nuw i8, ptr %12, i64 28
+  %140 = load i32, ptr %139, align 4, !tbaa !204
+  %141 = call i32 @geteuid() #23
+  %142 = icmp eq i32 %140, %141
+  %143 = select i1 %142, i64 20, i64 0
   br label %rb_file_owned_p.exit
 
-rb_file_owned_p.exit:                             ; preds = %130, %135
-  %.0.i112 = phi i64 [ %140, %135 ], [ 0, %130 ]
+rb_file_owned_p.exit:                             ; preds = %133, %138
+  %.0.i109 = phi i64 [ %143, %138 ], [ 0, %133 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  br label %321
+  br label %326
 
-141:                                              ; preds = %56
-  %142 = getelementptr i8, ptr %1, i64 8
-  %143 = load i64, ptr %142, align 8, !tbaa !12
+144:                                              ; preds = %56
+  %145 = getelementptr i8, ptr %1, i64 8
+  %146 = load i64, ptr %145, align 8, !tbaa !12
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %144 = call fastcc i32 @rb_stat(i64 noundef %143, ptr noundef %11)
-  %145 = icmp slt i32 %144, 0
-  br i1 %145, label %rb_file_rowned_p.exit, label %146
+  %147 = call fastcc i32 @rb_stat(i64 noundef %146, ptr noundef %11)
+  %148 = icmp slt i32 %147, 0
+  br i1 %148, label %rb_file_rowned_p.exit, label %149
 
-146:                                              ; preds = %141
-  %147 = getelementptr inbounds nuw i8, ptr %11, i64 28
-  %148 = load i32, ptr %147, align 4, !tbaa !204
-  %149 = call i32 @getuid() #23
-  %150 = icmp eq i32 %148, %149
-  %151 = select i1 %150, i64 20, i64 0
+149:                                              ; preds = %144
+  %150 = getelementptr inbounds nuw i8, ptr %11, i64 28
+  %151 = load i32, ptr %150, align 4, !tbaa !204
+  %152 = call i32 @getuid() #23
+  %153 = icmp eq i32 %151, %152
+  %154 = select i1 %153, i64 20, i64 0
   br label %rb_file_rowned_p.exit
 
-rb_file_rowned_p.exit:                            ; preds = %141, %146
-  %.0.i113 = phi i64 [ %151, %146 ], [ 0, %141 ]
+rb_file_rowned_p.exit:                            ; preds = %144, %149
+  %.0.i110 = phi i64 [ %154, %149 ], [ 0, %144 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br label %321
+  br label %326
 
-152:                                              ; preds = %56
-  %153 = getelementptr i8, ptr %1, i64 8
-  %154 = load i64, ptr %153, align 8, !tbaa !12
+155:                                              ; preds = %56
+  %156 = getelementptr i8, ptr %1, i64 8
+  %157 = load i64, ptr %156, align 8, !tbaa !12
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %155 = call fastcc i32 @rb_stat(i64 noundef %154, ptr noundef %10)
-  %156 = icmp slt i32 %155, 0
-  %157 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  %158 = load i32, ptr %157, align 8
-  %159 = and i32 %158, 61440
-  %160 = icmp eq i32 %159, 4096
-  %..i114 = select i1 %160, i64 20, i64 0
-  %.0.i115 = select i1 %156, i64 0, i64 %..i114
+  %158 = call fastcc i32 @rb_stat(i64 noundef %157, ptr noundef %10)
+  %159 = icmp slt i32 %158, 0
+  %160 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  %161 = load i32, ptr %160, align 8
+  %162 = and i32 %161, 61440
+  %163 = icmp ne i32 %162, 4096
+  %164 = select i1 %159, i1 true, i1 %163
+  %.0.i111 = select i1 %164, i64 0, i64 20
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %321
+  br label %326
 
-161:                                              ; preds = %56
-  %162 = getelementptr i8, ptr %1, i64 8
-  %163 = load i64, ptr %162, align 8, !tbaa !12
-  %164 = tail call fastcc i32 @rb_eaccess(i64 noundef %163, i32 noundef 4)
-  %165 = icmp sgt i32 %164, -1
-  %166 = select i1 %165, i64 20, i64 0
-  br label %321
+165:                                              ; preds = %56
+  %166 = getelementptr i8, ptr %1, i64 8
+  %167 = load i64, ptr %166, align 8, !tbaa !12
+  %168 = tail call fastcc i32 @rb_eaccess(i64 noundef %167, i32 noundef 4)
+  %169 = icmp sgt i32 %168, -1
+  %170 = select i1 %169, i64 20, i64 0
+  br label %326
 
-167:                                              ; preds = %56
-  %168 = getelementptr i8, ptr %1, i64 8
-  %169 = load i64, ptr %168, align 8, !tbaa !12
-  %170 = tail call fastcc i32 @rb_access(i64 noundef %169, i32 noundef 4)
-  %171 = icmp sgt i32 %170, -1
-  %172 = select i1 %171, i64 20, i64 0
-  br label %321
+171:                                              ; preds = %56
+  %172 = getelementptr i8, ptr %1, i64 8
+  %173 = load i64, ptr %172, align 8, !tbaa !12
+  %174 = tail call fastcc i32 @rb_access(i64 noundef %173, i32 noundef 4)
+  %175 = icmp sgt i32 %174, -1
+  %176 = select i1 %175, i64 20, i64 0
+  br label %326
 
-173:                                              ; preds = %56
-  %174 = getelementptr i8, ptr %1, i64 8
-  %175 = load i64, ptr %174, align 8, !tbaa !12
+177:                                              ; preds = %56
+  %178 = getelementptr i8, ptr %1, i64 8
+  %179 = load i64, ptr %178, align 8, !tbaa !12
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %176 = call fastcc i32 @rb_stat(i64 noundef %175, ptr noundef %9)
-  %177 = icmp slt i32 %176, 0
-  br i1 %177, label %rb_file_size_p.exit, label %178
-
-178:                                              ; preds = %173
-  %179 = getelementptr inbounds nuw i8, ptr %9, i64 48
-  %180 = load i64, ptr %179, align 8, !tbaa !75
-  %181 = icmp eq i64 %180, 0
+  %180 = call fastcc i32 @rb_stat(i64 noundef %179, ptr noundef %9)
+  %181 = icmp slt i32 %180, 0
   br i1 %181, label %rb_file_size_p.exit, label %182
 
-182:                                              ; preds = %178
-  %183 = add i64 %180, 4611686018427387904
-  %or.cond.i.i = icmp sgt i64 %183, -1
-  br i1 %or.cond.i.i, label %184, label %187
+182:                                              ; preds = %177
+  %183 = getelementptr inbounds nuw i8, ptr %9, i64 48
+  %184 = load i64, ptr %183, align 8, !tbaa !75
+  %185 = icmp eq i64 %184, 0
+  br i1 %185, label %rb_file_size_p.exit, label %186
 
-184:                                              ; preds = %182
-  %185 = shl nsw i64 %180, 1
-  %186 = or disjoint i64 %185, 1
+186:                                              ; preds = %182
+  %187 = add i64 %184, 4611686018427387904
+  %or.cond.i.i = icmp sgt i64 %187, -1
+  br i1 %or.cond.i.i, label %188, label %191
+
+188:                                              ; preds = %186
+  %189 = shl nsw i64 %184, 1
+  %190 = or disjoint i64 %189, 1
   br label %rb_file_size_p.exit
 
-187:                                              ; preds = %182
-  %188 = call i64 @rb_int2big(i64 noundef %180) #23
+191:                                              ; preds = %186
+  %192 = call i64 @rb_int2big(i64 noundef %184) #23
   br label %rb_file_size_p.exit
 
-rb_file_size_p.exit:                              ; preds = %173, %178, %184, %187
-  %.0.i116 = phi i64 [ 4, %178 ], [ 4, %173 ], [ %186, %184 ], [ %188, %187 ]
+rb_file_size_p.exit:                              ; preds = %177, %182, %188, %191
+  %.0.i112 = phi i64 [ 4, %182 ], [ 4, %177 ], [ %190, %188 ], [ %192, %191 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %321
+  br label %326
 
-189:                                              ; preds = %56
-  %190 = getelementptr i8, ptr %1, i64 8
-  %191 = load i64, ptr %190, align 8, !tbaa !12
+193:                                              ; preds = %56
+  %194 = getelementptr i8, ptr %1, i64 8
+  %195 = load i64, ptr %194, align 8, !tbaa !12
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %192 = call fastcc i32 @rb_stat(i64 noundef %191, ptr noundef %8)
-  %193 = icmp slt i32 %192, 0
-  %194 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %195 = load i32, ptr %194, align 8
-  %196 = and i32 %195, 61440
-  %197 = icmp eq i32 %196, 49152
-  %..i117 = select i1 %197, i64 20, i64 0
-  %.0.i118 = select i1 %193, i64 0, i64 %..i117
+  %196 = call fastcc i32 @rb_stat(i64 noundef %195, ptr noundef %8)
+  %197 = icmp slt i32 %196, 0
+  %198 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  %199 = load i32, ptr %198, align 8
+  %200 = and i32 %199, 61440
+  %201 = icmp ne i32 %200, 49152
+  %202 = select i1 %197, i1 true, i1 %201
+  %.0.i113 = select i1 %202, i64 0, i64 20
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %321
+  br label %326
 
-198:                                              ; preds = %56
-  %199 = getelementptr i8, ptr %1, i64 8
-  %200 = load i64, ptr %199, align 8, !tbaa !12
+203:                                              ; preds = %56
+  %204 = getelementptr i8, ptr %1, i64 8
+  %205 = load i64, ptr %204, align 8, !tbaa !12
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %201 = call fastcc i32 @rb_stat(i64 noundef %200, ptr noundef %7)
-  %202 = icmp slt i32 %201, 0
-  %203 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %204 = load i32, ptr %203, align 8
-  %205 = and i32 %204, 2048
-  %.not.i.i119 = icmp eq i32 %205, 0
-  %206 = select i1 %202, i1 true, i1 %.not.i.i119
-  %.0.i.i120 = select i1 %206, i64 0, i64 20
+  %206 = call fastcc i32 @rb_stat(i64 noundef %205, ptr noundef %7)
+  %207 = icmp slt i32 %206, 0
+  %208 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %209 = load i32, ptr %208, align 8
+  %210 = and i32 %209, 2048
+  %.not.i.i114 = icmp eq i32 %210, 0
+  %211 = select i1 %207, i1 true, i1 %.not.i.i114
+  %.0.i.i115 = select i1 %211, i64 0, i64 20
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %321
+  br label %326
 
-207:                                              ; preds = %56
-  %208 = getelementptr i8, ptr %1, i64 8
-  %209 = load i64, ptr %208, align 8, !tbaa !12
-  %210 = tail call fastcc i32 @rb_eaccess(i64 noundef %209, i32 noundef 2)
-  %211 = icmp sgt i32 %210, -1
-  %212 = select i1 %211, i64 20, i64 0
-  br label %321
+212:                                              ; preds = %56
+  %213 = getelementptr i8, ptr %1, i64 8
+  %214 = load i64, ptr %213, align 8, !tbaa !12
+  %215 = tail call fastcc i32 @rb_eaccess(i64 noundef %214, i32 noundef 2)
+  %216 = icmp sgt i32 %215, -1
+  %217 = select i1 %216, i64 20, i64 0
+  br label %326
 
-213:                                              ; preds = %56
-  %214 = getelementptr i8, ptr %1, i64 8
-  %215 = load i64, ptr %214, align 8, !tbaa !12
-  %216 = tail call fastcc i32 @rb_access(i64 noundef %215, i32 noundef 2)
-  %217 = icmp sgt i32 %216, -1
-  %218 = select i1 %217, i64 20, i64 0
-  br label %321
+218:                                              ; preds = %56
+  %219 = getelementptr i8, ptr %1, i64 8
+  %220 = load i64, ptr %219, align 8, !tbaa !12
+  %221 = tail call fastcc i32 @rb_access(i64 noundef %220, i32 noundef 2)
+  %222 = icmp sgt i32 %221, -1
+  %223 = select i1 %222, i64 20, i64 0
+  br label %326
 
-219:                                              ; preds = %56
-  %220 = getelementptr i8, ptr %1, i64 8
-  %221 = load i64, ptr %220, align 8, !tbaa !12
-  %222 = tail call fastcc i32 @rb_eaccess(i64 noundef %221, i32 noundef 1)
-  %223 = icmp sgt i32 %222, -1
-  %224 = select i1 %223, i64 20, i64 0
-  br label %321
+224:                                              ; preds = %56
+  %225 = getelementptr i8, ptr %1, i64 8
+  %226 = load i64, ptr %225, align 8, !tbaa !12
+  %227 = tail call fastcc i32 @rb_eaccess(i64 noundef %226, i32 noundef 1)
+  %228 = icmp sgt i32 %227, -1
+  %229 = select i1 %228, i64 20, i64 0
+  br label %326
 
-225:                                              ; preds = %56
-  %226 = getelementptr i8, ptr %1, i64 8
-  %227 = load i64, ptr %226, align 8, !tbaa !12
-  %228 = tail call fastcc i32 @rb_access(i64 noundef %227, i32 noundef 1)
-  %229 = icmp sgt i32 %228, -1
-  %230 = select i1 %229, i64 20, i64 0
-  br label %321
+230:                                              ; preds = %56
+  %231 = getelementptr i8, ptr %1, i64 8
+  %232 = load i64, ptr %231, align 8, !tbaa !12
+  %233 = tail call fastcc i32 @rb_access(i64 noundef %232, i32 noundef 1)
+  %234 = icmp sgt i32 %233, -1
+  %235 = select i1 %234, i64 20, i64 0
+  br label %326
 
-231:                                              ; preds = %56
-  %232 = getelementptr i8, ptr %1, i64 8
-  %233 = load i64, ptr %232, align 8, !tbaa !12
+236:                                              ; preds = %56
+  %237 = getelementptr i8, ptr %1, i64 8
+  %238 = load i64, ptr %237, align 8, !tbaa !12
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %234 = call fastcc i32 @rb_stat(i64 noundef %233, ptr noundef %6)
-  %235 = icmp slt i32 %234, 0
-  %236 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  %237 = load i64, ptr %236, align 8
-  %238 = icmp eq i64 %237, 0
-  %239 = select i1 %238, i64 20, i64 0
-  %.0.i121 = select i1 %235, i64 0, i64 %239
+  %239 = call fastcc i32 @rb_stat(i64 noundef %238, ptr noundef %6)
+  %240 = icmp slt i32 %239, 0
+  %241 = getelementptr inbounds nuw i8, ptr %6, i64 48
+  %242 = load i64, ptr %241, align 8
+  %243 = icmp ne i64 %242, 0
+  %244 = select i1 %240, i1 true, i1 %243
+  %.0.i116 = select i1 %244, i64 0, i64 20
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %321
+  br label %326
 
-240:                                              ; preds = %56, %55
+245:                                              ; preds = %56, %55
   %memchr81 = tail call ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.142, i32 %53, i64 4)
   %.not82 = icmp eq ptr %memchr81, null
-  br i1 %.not82, label %257, label %241
+  br i1 %.not82, label %262, label %246
 
-241:                                              ; preds = %240
+246:                                              ; preds = %245
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
-  %242 = getelementptr i8, ptr %1, i64 8
-  %243 = load i64, ptr %242, align 8, !tbaa !12
-  store i64 %243, ptr %22, align 8, !tbaa !12
+  %247 = getelementptr i8, ptr %1, i64 8
+  %248 = load i64, ptr %247, align 8, !tbaa !12
+  store i64 %248, ptr %22, align 8, !tbaa !12
   tail call fastcc void @test_check(i32 noundef 1, i32 noundef %0, ptr noundef nonnull %1)
-  %244 = call fastcc i32 @rb_stat(i64 noundef %243, ptr noundef %21)
-  %245 = icmp eq i32 %244, -1
-  br i1 %245, label %246, label %252
+  %249 = call fastcc i32 @rb_stat(i64 noundef %248, ptr noundef %21)
+  %250 = icmp eq i32 %249, -1
+  br i1 %250, label %251, label %257
 
-246:                                              ; preds = %241
-  %247 = call ptr @rb_errno_ptr() #23
-  %248 = load i32, ptr %247, align 4, !tbaa !26
-  %249 = call i64 @rb_get_path(i64 noundef %243)
+251:                                              ; preds = %246
+  %252 = call ptr @rb_errno_ptr() #23
+  %253 = load i32, ptr %252, align 4, !tbaa !26
+  %254 = call i64 @rb_get_path(i64 noundef %248)
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   store ptr %22, ptr %23, align 8, !tbaa !46
   call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %23) #23, !srcloc !274
-  %250 = load ptr, ptr %23, align 8, !tbaa !46
+  %255 = load ptr, ptr %23, align 8, !tbaa !46
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
-  store volatile i64 %249, ptr %250, align 8, !tbaa !12
-  %251 = load i64, ptr %22, align 8, !tbaa !12
-  call void @rb_syserr_fail_path_in(ptr noundef nonnull @__func__.rb_f_test, i32 noundef %248, i64 noundef %251) #25
+  store volatile i64 %254, ptr %255, align 8, !tbaa !12
+  %256 = load i64, ptr %22, align 8, !tbaa !12
+  call void @rb_syserr_fail_path_in(ptr noundef nonnull @__func__.rb_f_test, i32 noundef %253, i64 noundef %256) #25
   unreachable
 
-252:                                              ; preds = %241
-  switch i8 %.0.i, label %256 [
+257:                                              ; preds = %246
+  switch i8 %.0.i, label %261 [
     i8 65, label %.thread
-    i8 77, label %253
-    i8 67, label %254
+    i8 77, label %258
+    i8 67, label %259
   ]
 
-253:                                              ; preds = %252
+258:                                              ; preds = %257
   br label %.thread
-
-254:                                              ; preds = %252
-  br label %.thread
-
-.thread:                                          ; preds = %252, %254, %253
-  %.sink139.sroa.phi = phi ptr [ %.sink139.sroa.gep, %254 ], [ %.sink139.sroa.gep142, %253 ], [ %.sink139.sroa.gep143, %252 ]
-  %.sink138.sroa.phi = phi ptr [ %.sink138.sroa.gep, %254 ], [ %.sink138.sroa.gep140, %253 ], [ %.sink138.sroa.gep141, %252 ]
-  %.val = load i64, ptr %.sink139.sroa.phi, align 8, !tbaa !12
-  %.val91 = load i64, ptr %.sink138.sroa.phi, align 8, !tbaa !12
-  %255 = call i64 @rb_time_nano_new(i64 noundef %.val, i64 noundef %.val91) #23
-  call void @llvm.lifetime.end.p0(ptr nonnull %22)
-  call void @llvm.lifetime.end.p0(ptr nonnull %21)
-  br label %321
-
-256:                                              ; preds = %252
-  call void @llvm.lifetime.end.p0(ptr nonnull %22)
-  call void @llvm.lifetime.end.p0(ptr nonnull %21)
-  br label %257
-
-257:                                              ; preds = %256, %240
-  %258 = icmp eq i8 %.0.i, 45
-  br i1 %258, label %259, label %277
 
 259:                                              ; preds = %257
+  br label %.thread
+
+.thread:                                          ; preds = %257, %259, %258
+  %.sink134.sroa.phi = phi ptr [ %.sink134.sroa.gep, %259 ], [ %.sink134.sroa.gep137, %258 ], [ %.sink134.sroa.gep138, %257 ]
+  %.sink133.sroa.phi = phi ptr [ %.sink133.sroa.gep, %259 ], [ %.sink133.sroa.gep135, %258 ], [ %.sink133.sroa.gep136, %257 ]
+  %.val = load i64, ptr %.sink134.sroa.phi, align 8, !tbaa !12
+  %.val91 = load i64, ptr %.sink133.sroa.phi, align 8, !tbaa !12
+  %260 = call i64 @rb_time_nano_new(i64 noundef %.val, i64 noundef %.val91) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  br label %326
+
+261:                                              ; preds = %257
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  br label %262
+
+262:                                              ; preds = %261, %245
+  %263 = icmp eq i8 %.0.i, 45
+  br i1 %263, label %264, label %282
+
+264:                                              ; preds = %262
   call fastcc void @test_check(i32 noundef 2, i32 noundef %0, ptr noundef nonnull %1)
-  %260 = getelementptr i8, ptr %1, i64 8
-  %261 = load i64, ptr %260, align 8, !tbaa !12
-  %262 = getelementptr i8, ptr %1, i64 16
-  %263 = load i64, ptr %262, align 8, !tbaa !12
+  %265 = getelementptr i8, ptr %1, i64 8
+  %266 = load i64, ptr %265, align 8, !tbaa !12
+  %267 = getelementptr i8, ptr %1, i64 16
+  %268 = load i64, ptr %267, align 8, !tbaa !12
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %264 = call fastcc i32 @rb_stat(i64 noundef %261, ptr noundef %4)
-  %265 = icmp slt i32 %264, 0
-  br i1 %265, label %rb_file_identical_p.exit, label %266
+  %269 = call fastcc i32 @rb_stat(i64 noundef %266, ptr noundef %4)
+  %270 = icmp slt i32 %269, 0
+  br i1 %270, label %rb_file_identical_p.exit, label %271
 
-266:                                              ; preds = %259
-  %267 = call fastcc i32 @rb_stat(i64 noundef %263, ptr noundef %5)
-  %268 = icmp slt i32 %267, 0
-  br i1 %268, label %rb_file_identical_p.exit, label %269
+271:                                              ; preds = %264
+  %272 = call fastcc i32 @rb_stat(i64 noundef %268, ptr noundef %5)
+  %273 = icmp slt i32 %272, 0
+  br i1 %273, label %rb_file_identical_p.exit, label %274
 
-269:                                              ; preds = %266
-  %270 = load i64, ptr %4, align 8, !tbaa !207
-  %271 = load i64, ptr %5, align 8, !tbaa !207
-  %.not.i122 = icmp eq i64 %270, %271
-  br i1 %.not.i122, label %272, label %rb_file_identical_p.exit
+274:                                              ; preds = %271
+  %275 = load i64, ptr %4, align 8, !tbaa !207
+  %276 = load i64, ptr %5, align 8, !tbaa !207
+  %.not.i117 = icmp eq i64 %275, %276
+  br i1 %.not.i117, label %277, label %rb_file_identical_p.exit
 
-272:                                              ; preds = %269
-  %273 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %274 = load i64, ptr %273, align 8, !tbaa !208
-  %275 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %276 = load i64, ptr %275, align 8, !tbaa !208
-  %.not3.i = icmp eq i64 %274, %276
-  %..i124 = select i1 %.not3.i, i64 20, i64 0
+277:                                              ; preds = %274
+  %278 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %279 = load i64, ptr %278, align 8, !tbaa !208
+  %280 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %281 = load i64, ptr %280, align 8, !tbaa !208
+  %.not3.i = icmp eq i64 %279, %281
+  %..i119 = select i1 %.not3.i, i64 20, i64 0
   br label %rb_file_identical_p.exit
 
-rb_file_identical_p.exit:                         ; preds = %259, %266, %269, %272
-  %.0.i123 = phi i64 [ 0, %269 ], [ 0, %259 ], [ 0, %266 ], [ %..i124, %272 ]
+rb_file_identical_p.exit:                         ; preds = %264, %271, %274, %277
+  %.0.i118 = phi i64 [ 0, %274 ], [ 0, %264 ], [ 0, %271 ], [ %..i119, %277 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %321
+  br label %326
 
-277:                                              ; preds = %257
-  %278 = and i32 %53, 255
-  %279 = zext nneg i32 %278 to i64
-  %memchr.bounds = icmp samesign ugt i32 %278, 63
-  %280 = shl nuw i64 1, %279
-  %281 = and i64 %280, 8070450532247928833
-  %memchr.bits = icmp eq i64 %281, 0
+282:                                              ; preds = %262
+  %283 = and i32 %53, 255
+  %284 = zext nneg i32 %283 to i64
+  %memchr.bounds = icmp samesign ugt i32 %283, 63
+  %285 = shl nuw i64 1, %284
+  %286 = and i64 %285, 8070450532247928833
+  %memchr.bits = icmp eq i64 %286, 0
   %memchr84.not = select i1 %memchr.bounds, i1 true, i1 %memchr.bits
-  br i1 %memchr84.not, label %311, label %282
+  br i1 %memchr84.not, label %316, label %287
 
-282:                                              ; preds = %277
+287:                                              ; preds = %282
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
   call fastcc void @test_check(i32 noundef 2, i32 noundef %0, ptr noundef nonnull %1)
-  %283 = getelementptr i8, ptr %1, i64 8
-  %284 = load i64, ptr %283, align 8, !tbaa !12
-  %285 = call fastcc i32 @rb_stat(i64 noundef %284, ptr noundef %24)
-  %286 = icmp slt i32 %285, 0
-  br i1 %286, label %.thread130, label %287
-
-287:                                              ; preds = %282
-  %288 = getelementptr i8, ptr %1, i64 16
+  %288 = getelementptr i8, ptr %1, i64 8
   %289 = load i64, ptr %288, align 8, !tbaa !12
-  %290 = call fastcc i32 @rb_stat(i64 noundef %289, ptr noundef %25)
+  %290 = call fastcc i32 @rb_stat(i64 noundef %289, ptr noundef %24)
   %291 = icmp slt i32 %290, 0
-  br i1 %291, label %.thread130, label %292
+  br i1 %291, label %.thread125, label %292
 
 292:                                              ; preds = %287
-  %293 = getelementptr inbounds nuw i8, ptr %24, i64 88
-  %.val92 = load i64, ptr %293, align 8, !tbaa !219
-  %294 = getelementptr inbounds nuw i8, ptr %24, i64 96
-  %.val93 = load i64, ptr %294, align 8, !tbaa !220
-  %295 = getelementptr inbounds nuw i8, ptr %25, i64 88
-  %.val94 = load i64, ptr %295, align 8, !tbaa !219
-  %296 = getelementptr inbounds nuw i8, ptr %25, i64 96
-  %.val95 = load i64, ptr %296, align 8, !tbaa !220
-  switch i8 %.0.i, label %310 [
-    i8 61, label %297
-    i8 62, label %300
-    i8 60, label %305
-  ]
+  %293 = getelementptr i8, ptr %1, i64 16
+  %294 = load i64, ptr %293, align 8, !tbaa !12
+  %295 = call fastcc i32 @rb_stat(i64 noundef %294, ptr noundef %25)
+  %296 = icmp slt i32 %295, 0
+  br i1 %296, label %.thread125, label %297
 
 297:                                              ; preds = %292
-  %298 = icmp eq i64 %.val92, %.val94
-  %299 = icmp eq i64 %.val93, %.val95
-  %or.cond = select i1 %298, i1 %299, i1 false
-  %spec.select = select i1 %or.cond, i64 20, i64 0
-  br label %.thread130
+  %298 = getelementptr inbounds nuw i8, ptr %24, i64 88
+  %.val92 = load i64, ptr %298, align 8, !tbaa !219
+  %299 = getelementptr inbounds nuw i8, ptr %24, i64 96
+  %.val93 = load i64, ptr %299, align 8, !tbaa !220
+  %300 = getelementptr inbounds nuw i8, ptr %25, i64 88
+  %.val94 = load i64, ptr %300, align 8, !tbaa !219
+  %301 = getelementptr inbounds nuw i8, ptr %25, i64 96
+  %.val95 = load i64, ptr %301, align 8, !tbaa !220
+  switch i8 %.0.i, label %315 [
+    i8 61, label %302
+    i8 62, label %305
+    i8 60, label %310
+  ]
 
-300:                                              ; preds = %292
-  %301 = icmp sgt i64 %.val92, %.val94
-  br i1 %301, label %.thread130, label %302
-
-302:                                              ; preds = %300
+302:                                              ; preds = %297
   %303 = icmp eq i64 %.val92, %.val94
-  %304 = icmp sgt i64 %.val93, %.val95
-  %or.cond87 = select i1 %303, i1 %304, i1 false
-  %spec.select89 = select i1 %or.cond87, i64 20, i64 0
-  br label %.thread130
+  %304 = icmp eq i64 %.val93, %.val95
+  %or.cond = select i1 %303, i1 %304, i1 false
+  %spec.select = select i1 %or.cond, i64 20, i64 0
+  br label %.thread125
 
-305:                                              ; preds = %292
-  %306 = icmp slt i64 %.val92, %.val94
-  br i1 %306, label %.thread130, label %307
+305:                                              ; preds = %297
+  %306 = icmp sgt i64 %.val92, %.val94
+  br i1 %306, label %.thread125, label %307
 
 307:                                              ; preds = %305
   %308 = icmp eq i64 %.val92, %.val94
-  %309 = icmp slt i64 %.val93, %.val95
-  %or.cond88 = select i1 %308, i1 %309, i1 false
+  %309 = icmp sgt i64 %.val93, %.val95
+  %or.cond87 = select i1 %308, i1 %309, i1 false
+  %spec.select89 = select i1 %or.cond87, i64 20, i64 0
+  br label %.thread125
+
+310:                                              ; preds = %297
+  %311 = icmp slt i64 %.val92, %.val94
+  br i1 %311, label %.thread125, label %312
+
+312:                                              ; preds = %310
+  %313 = icmp eq i64 %.val92, %.val94
+  %314 = icmp slt i64 %.val93, %.val95
+  %or.cond88 = select i1 %313, i1 %314, i1 false
   %spec.select90 = select i1 %or.cond88, i64 20, i64 0
-  br label %.thread130
+  br label %.thread125
 
-.thread130:                                       ; preds = %305, %282, %302, %287, %307, %300, %297
-  %.3.ph = phi i64 [ %spec.select, %297 ], [ 20, %300 ], [ %spec.select90, %307 ], [ 0, %287 ], [ %spec.select89, %302 ], [ 0, %282 ], [ 20, %305 ]
+.thread125:                                       ; preds = %310, %287, %307, %292, %312, %305, %302
+  %.3.ph = phi i64 [ %spec.select, %302 ], [ 20, %305 ], [ %spec.select90, %312 ], [ 0, %292 ], [ %spec.select89, %307 ], [ 0, %287 ], [ 20, %310 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
-  br label %321
+  br label %326
 
-310:                                              ; preds = %292
+315:                                              ; preds = %297
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
-  br label %311
+  br label %316
 
-311:                                              ; preds = %310, %277
-  %312 = add nsw i32 %53, -127
-  %313 = icmp ult i32 %312, -95
-  br i1 %313, label %.thread133, label %314
+316:                                              ; preds = %315, %282
+  %317 = add nsw i32 %53, -127
+  %318 = icmp ult i32 %317, -95
+  br i1 %318, label %.thread128, label %319
 
-314:                                              ; preds = %311
-  %315 = load i64, ptr @rb_eArgError, align 8, !tbaa !12
-  %316 = icmp eq i8 %.0.i, 39
-  %317 = icmp eq i8 %.0.i, 92
-  %318 = or i1 %316, %317
-  %319 = select i1 %318, ptr @.str.145, ptr @.str.121
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %315, ptr noundef nonnull @.str.144, ptr noundef nonnull %319, i32 noundef %53) #25
-  unreachable
-
-.thread133:                                       ; preds = %rb_num2char_inline.exit, %311
+319:                                              ; preds = %316
   %320 = load i64, ptr @rb_eArgError, align 8, !tbaa !12
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %320, ptr noundef nonnull @.str.146, i32 noundef %53) #25
+  %321 = icmp eq i8 %.0.i, 39
+  %322 = icmp eq i8 %.0.i, 92
+  %323 = or i1 %321, %322
+  %324 = select i1 %323, ptr @.str.145, ptr @.str.121
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %320, ptr noundef nonnull @.str.144, ptr noundef nonnull %324, i32 noundef %53) #25
   unreachable
 
-321:                                              ; preds = %.thread130, %.thread, %rb_file_identical_p.exit, %231, %225, %219, %213, %207, %198, %189, %rb_file_size_p.exit, %167, %161, %152, %rb_file_rowned_p.exit, %rb_file_owned_p.exit, %126, %117, %rb_file_grpowned_p.exit, %99, %89, %84, %75, %66, %57
-  %.0 = phi i64 [ %.0.i123, %rb_file_identical_p.exit ], [ %.3.ph, %.thread130 ], [ %255, %.thread ], [ %.0.i100, %57 ], [ %.0.i102, %66 ], [ %.0.i104, %75 ], [ %..i105, %84 ], [ %.0.i106, %89 ], [ %.0.i.i, %99 ], [ %.0.i109, %rb_file_grpowned_p.exit ], [ %.0.i.i111, %117 ], [ %129, %126 ], [ %.0.i112, %rb_file_owned_p.exit ], [ %.0.i113, %rb_file_rowned_p.exit ], [ %.0.i115, %152 ], [ %166, %161 ], [ %172, %167 ], [ %.0.i116, %rb_file_size_p.exit ], [ %.0.i118, %189 ], [ %.0.i.i120, %198 ], [ %212, %207 ], [ %218, %213 ], [ %224, %219 ], [ %230, %225 ], [ %.0.i121, %231 ]
+.thread128:                                       ; preds = %rb_num2char_inline.exit, %316
+  %325 = load i64, ptr @rb_eArgError, align 8, !tbaa !12
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %325, ptr noundef nonnull @.str.146, i32 noundef %53) #25
+  unreachable
+
+326:                                              ; preds = %.thread125, %.thread, %rb_file_identical_p.exit, %236, %230, %224, %218, %212, %203, %193, %rb_file_size_p.exit, %171, %165, %155, %rb_file_rowned_p.exit, %rb_file_owned_p.exit, %129, %120, %rb_file_grpowned_p.exit, %102, %92, %87, %77, %67, %57
+  %.0 = phi i64 [ %.0.i118, %rb_file_identical_p.exit ], [ %.3.ph, %.thread125 ], [ %260, %.thread ], [ %.0.i100, %57 ], [ %.0.i101, %67 ], [ %.0.i102, %77 ], [ %..i, %87 ], [ %.0.i103, %92 ], [ %.0.i.i, %102 ], [ %.0.i106, %rb_file_grpowned_p.exit ], [ %.0.i.i108, %120 ], [ %132, %129 ], [ %.0.i109, %rb_file_owned_p.exit ], [ %.0.i110, %rb_file_rowned_p.exit ], [ %.0.i111, %155 ], [ %170, %165 ], [ %176, %171 ], [ %.0.i112, %rb_file_size_p.exit ], [ %.0.i113, %193 ], [ %.0.i.i115, %203 ], [ %217, %212 ], [ %223, %218 ], [ %229, %224 ], [ %235, %230 ], [ %.0.i116, %236 ]
   ret i64 %.0
 }
 

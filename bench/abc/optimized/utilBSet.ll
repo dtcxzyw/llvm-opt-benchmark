@@ -2503,10 +2503,10 @@ define void @Abc_GenChaseNext(ptr noundef captures(none) %0, ptr noundef capture
   %.not77 = icmp eq i32 %7, 0
   br i1 %.not77, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %3, %34
-  %indvars.iv = phi i64 [ %indvars.iv.next, %34 ], [ %5, %3 ]
-  %8 = phi ptr [ %14, %34 ], [ %6, %3 ]
-  %.05379 = phi i32 [ %.1, %34 ], [ 0, %3 ]
+.lr.ph:                                           ; preds = %3, %35
+  %indvars.iv = phi i64 [ %indvars.iv.next, %35 ], [ %5, %3 ]
+  %8 = phi ptr [ %14, %35 ], [ %6, %3 ]
+  %.05379 = phi i32 [ %.1, %35 ], [ 0, %3 ]
   %9 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv
   %10 = load i32, ptr %9, align 4, !tbaa !7
   %11 = add nsw i32 %10, 1
@@ -2520,73 +2520,73 @@ define void @Abc_GenChaseNext(ptr noundef captures(none) %0, ptr noundef capture
   %16 = select i1 %.not61, i32 0, i32 %.neg
   %17 = add i32 %16, %13
   %.not65 = icmp slt i32 %11, %17
-  br i1 %.not65, label %18, label %27
+  br i1 %.not65, label %18, label %28
 
 18:                                               ; preds = %.lr.ph
   %19 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv
   %20 = and i32 %10, 1
   %.not63 = icmp eq i32 %20, 0
   %21 = add nsw i32 %10, 2
-  %22 = icmp slt i32 %21, %13
-  %spec.select = select i1 %22, i32 %21, i32 %11
-  %.054 = select i1 %.not63, i32 %11, i32 %spec.select
+  %22 = icmp sge i32 %21, %13
+  %23 = select i1 %.not63, i1 true, i1 %22
+  %.054 = select i1 %23, i32 %11, i32 %21
   store i32 %.054, ptr %19, align 4, !tbaa !7
   %.not64 = icmp eq i32 %.05379, 0
-  br i1 %.not64, label %23, label %.thread
+  br i1 %.not64, label %24, label %.thread
 
-23:                                               ; preds = %18
-  %24 = trunc nsw i64 %indvars.iv to i32
-  %25 = tail call i32 @llvm.smax.i32(i32 %24, i32 1)
-  %26 = add nsw i32 %25, -1
+24:                                               ; preds = %18
+  %25 = trunc nsw i64 %indvars.iv to i32
+  %26 = tail call i32 @llvm.smax.i32(i32 %25, i32 1)
+  %27 = add nsw i32 %26, -1
   br label %.thread.sink.split
 
-27:                                               ; preds = %.lr.ph
-  %28 = sext i32 %10 to i64
-  %29 = icmp slt i64 %indvars.iv, %28
-  %30 = zext i1 %29 to i32
-  store i32 %30, ptr %8, align 4, !tbaa !7
-  %31 = icmp eq i32 %.05379, 0
-  %or.cond.not = select i1 %29, i1 %31, i1 false
-  br i1 %or.cond.not, label %32, label %34
+28:                                               ; preds = %.lr.ph
+  %29 = sext i32 %10 to i64
+  %30 = icmp slt i64 %indvars.iv, %29
+  %31 = zext i1 %30 to i32
+  store i32 %31, ptr %8, align 4, !tbaa !7
+  %32 = icmp eq i32 %.05379, 0
+  %or.cond.not = select i1 %30, i1 %32, i1 false
+  br i1 %or.cond.not, label %33, label %35
 
-32:                                               ; preds = %27
-  %33 = trunc nsw i64 %indvars.iv to i32
-  store i32 %33, ptr %2, align 4, !tbaa !7
-  br label %34
+33:                                               ; preds = %28
+  %34 = trunc nsw i64 %indvars.iv to i32
+  store i32 %34, ptr %2, align 4, !tbaa !7
+  br label %35
 
-34:                                               ; preds = %27, %32
-  %.1 = phi i32 [ %.05379, %27 ], [ 1, %32 ]
-  %35 = load i32, ptr %14, align 4, !tbaa !7
-  %.not = icmp eq i32 %35, 0
+35:                                               ; preds = %28, %33
+  %.1 = phi i32 [ %.05379, %28 ], [ 1, %33 ]
+  %36 = load i32, ptr %14, align 4, !tbaa !7
+  %.not = icmp eq i32 %36, 0
   br i1 %.not, label %.lr.ph, label %._crit_edge.loopexit
 
-._crit_edge.loopexit:                             ; preds = %34
-  %36 = trunc nsw i64 %indvars.iv.next to i32
-  %37 = icmp eq i32 %.1, 0
+._crit_edge.loopexit:                             ; preds = %35
+  %37 = trunc nsw i64 %indvars.iv.next to i32
+  %38 = icmp eq i32 %.1, 0
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %3
-  %.055.lcssa = phi i32 [ %4, %3 ], [ %36, %._crit_edge.loopexit ]
-  %.053.lcssa = phi i1 [ true, %3 ], [ %37, %._crit_edge.loopexit ]
+  %.055.lcssa = phi i32 [ %4, %3 ], [ %37, %._crit_edge.loopexit ]
+  %.053.lcssa = phi i1 [ true, %3 ], [ %38, %._crit_edge.loopexit ]
   %.lcssa68 = phi i64 [ %5, %3 ], [ %indvars.iv.next, %._crit_edge.loopexit ]
   %.lcssa = phi ptr [ %6, %3 ], [ %14, %._crit_edge.loopexit ]
-  %38 = getelementptr inbounds i32, ptr %0, i64 %.lcssa68
-  %39 = load i32, ptr %38, align 4, !tbaa !7
-  %40 = add nsw i32 %39, -1
-  %41 = and i32 %40, 1
-  %.not58 = icmp eq i32 %41, 0
-  %42 = add nsw i32 %39, -2
-  %.not59 = icmp slt i32 %42, %.055.lcssa
+  %39 = getelementptr inbounds i32, ptr %0, i64 %.lcssa68
+  %40 = load i32, ptr %39, align 4, !tbaa !7
+  %41 = add nsw i32 %40, -1
+  %42 = and i32 %41, 1
+  %.not58 = icmp eq i32 %42, 0
+  %43 = add nsw i32 %40, -2
+  %.not59 = icmp slt i32 %43, %.055.lcssa
   %or.cond = select i1 %.not58, i1 true, i1 %.not59
-  %.0 = select i1 %or.cond, i32 %40, i32 %42
-  store i32 %.0, ptr %38, align 4, !tbaa !7
-  %43 = icmp sgt i32 %.0, %.055.lcssa
-  %44 = zext i1 %43 to i32
-  store i32 %44, ptr %.lcssa, align 4, !tbaa !7
+  %.0 = select i1 %or.cond, i32 %41, i32 %43
+  store i32 %.0, ptr %39, align 4, !tbaa !7
+  %44 = icmp sgt i32 %.0, %.055.lcssa
+  %45 = zext i1 %44 to i32
+  store i32 %45, ptr %.lcssa, align 4, !tbaa !7
   br i1 %.053.lcssa, label %.thread.sink.split, label %.thread
 
-.thread.sink.split:                               ; preds = %._crit_edge, %23
-  %.sink = phi i32 [ %26, %23 ], [ %.055.lcssa, %._crit_edge ]
+.thread.sink.split:                               ; preds = %._crit_edge, %24
+  %.sink = phi i32 [ %27, %24 ], [ %.055.lcssa, %._crit_edge ]
   store i32 %.sink, ptr %2, align 4, !tbaa !7
   br label %.thread
 
@@ -2661,12 +2661,12 @@ define noalias noundef ptr @Abc_GenChasePairs(i32 noundef %0, i32 noundef %1) lo
   %.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !7
   br i1 %.not77.i, label %.lr.ph.i, label %._crit_edge.i
 
-.lr.ph.i:                                         ; preds = %._crit_edge, %42
-  %24 = phi i32 [ %28, %42 ], [ %.pre, %._crit_edge ]
-  %.2 = phi i32 [ %spec.select, %42 ], [ %.029, %._crit_edge ]
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %42 ], [ %21, %._crit_edge ]
-  %25 = phi ptr [ %29, %42 ], [ %22, %._crit_edge ]
-  %.05379.i = phi i32 [ %spec.select31, %42 ], [ 0, %._crit_edge ]
+.lr.ph.i:                                         ; preds = %._crit_edge, %43
+  %24 = phi i32 [ %28, %43 ], [ %.pre, %._crit_edge ]
+  %.2 = phi i32 [ %spec.select, %43 ], [ %.029, %._crit_edge ]
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %43 ], [ %21, %._crit_edge ]
+  %25 = phi ptr [ %29, %43 ], [ %22, %._crit_edge ]
+  %.05379.i = phi i32 [ %spec.select31, %43 ], [ 0, %._crit_edge ]
   %26 = add nsw i32 %24, 1
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %27 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv.next.i
@@ -2678,94 +2678,94 @@ define noalias noundef ptr @Abc_GenChasePairs(i32 noundef %0, i32 noundef %1) lo
   %31 = select i1 %.not61.i, i32 0, i32 %.neg.i
   %32 = add i32 %31, %28
   %.not65.i = icmp slt i32 %26, %32
-  br i1 %.not65.i, label %33, label %42
+  br i1 %.not65.i, label %33, label %43
 
 33:                                               ; preds = %.lr.ph.i
   %34 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv.i
   %35 = and i32 %24, 1
   %.not63.i = icmp eq i32 %35, 0
   %36 = add nsw i32 %24, 2
-  %37 = icmp slt i32 %36, %28
-  %spec.select.i = select i1 %37, i32 %36, i32 %26
-  %.054.i = select i1 %.not63.i, i32 %26, i32 %spec.select.i
+  %37 = icmp sge i32 %36, %28
+  %38 = select i1 %.not63.i, i1 true, i1 %37
+  %.054.i = select i1 %38, i32 %26, i32 %36
   store i32 %.054.i, ptr %34, align 4, !tbaa !7
   %.not64.i = icmp eq i32 %.05379.i, 0
-  br i1 %.not64.i, label %38, label %Abc_GenChaseNext.exit
+  br i1 %.not64.i, label %39, label %Abc_GenChaseNext.exit
 
-38:                                               ; preds = %33
-  %39 = trunc nsw i64 %indvars.iv.i to i32
-  %40 = tail call i32 @llvm.smax.i32(i32 %39, i32 1)
-  %41 = add nsw i32 %40, -1
+39:                                               ; preds = %33
+  %40 = trunc nsw i64 %indvars.iv.i to i32
+  %41 = tail call i32 @llvm.smax.i32(i32 %40, i32 1)
+  %42 = add nsw i32 %41, -1
   br label %Abc_GenChaseNext.exit
 
-42:                                               ; preds = %.lr.ph.i
-  %43 = sext i32 %24 to i64
-  %44 = icmp slt i64 %indvars.iv.i, %43
-  %45 = zext i1 %44 to i32
-  store i32 %45, ptr %25, align 4, !tbaa !7
-  %46 = icmp eq i32 %.05379.i, 0
-  %or.cond.not.i = select i1 %44, i1 %46, i1 false
-  %47 = trunc nsw i64 %indvars.iv.i to i32
-  %spec.select = select i1 %or.cond.not.i, i32 %47, i32 %.2
+43:                                               ; preds = %.lr.ph.i
+  %44 = sext i32 %24 to i64
+  %45 = icmp slt i64 %indvars.iv.i, %44
+  %46 = zext i1 %45 to i32
+  store i32 %46, ptr %25, align 4, !tbaa !7
+  %47 = icmp eq i32 %.05379.i, 0
+  %or.cond.not.i = select i1 %45, i1 %47, i1 false
+  %48 = trunc nsw i64 %indvars.iv.i to i32
+  %spec.select = select i1 %or.cond.not.i, i32 %48, i32 %.2
   %spec.select31 = select i1 %or.cond.not.i, i32 1, i32 %.05379.i
-  %48 = load i32, ptr %29, align 4, !tbaa !7
-  %.not.i = icmp eq i32 %48, 0
+  %49 = load i32, ptr %29, align 4, !tbaa !7
+  %.not.i = icmp eq i32 %49, 0
   br i1 %.not.i, label %.lr.ph.i, label %._crit_edge.loopexit.i
 
-._crit_edge.loopexit.i:                           ; preds = %42
-  %49 = trunc nsw i64 %indvars.iv.next.i to i32
-  %50 = icmp eq i32 %spec.select31, 0
-  %51 = select i1 %50, i32 %49, i32 %spec.select
+._crit_edge.loopexit.i:                           ; preds = %43
+  %50 = trunc nsw i64 %indvars.iv.next.i to i32
+  %51 = icmp eq i32 %spec.select31, 0
+  %52 = select i1 %51, i32 %50, i32 %spec.select
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge, %._crit_edge.loopexit.i
-  %52 = phi i32 [ %28, %._crit_edge.loopexit.i ], [ %.pre, %._crit_edge ]
-  %.055.lcssa.i = phi i32 [ %49, %._crit_edge.loopexit.i ], [ %.029, %._crit_edge ]
-  %.053.lcssa.i = phi i32 [ %51, %._crit_edge.loopexit.i ], [ %.029, %._crit_edge ]
+  %53 = phi i32 [ %28, %._crit_edge.loopexit.i ], [ %.pre, %._crit_edge ]
+  %.055.lcssa.i = phi i32 [ %50, %._crit_edge.loopexit.i ], [ %.029, %._crit_edge ]
+  %.053.lcssa.i = phi i32 [ %52, %._crit_edge.loopexit.i ], [ %.029, %._crit_edge ]
   %.lcssa68.i = phi i64 [ %indvars.iv.next.i, %._crit_edge.loopexit.i ], [ %21, %._crit_edge ]
   %.lcssa.i = phi ptr [ %29, %._crit_edge.loopexit.i ], [ %22, %._crit_edge ]
-  %53 = getelementptr inbounds i32, ptr %3, i64 %.lcssa68.i
-  %54 = add nsw i32 %52, -1
-  %55 = and i32 %54, 1
-  %.not58.i = icmp eq i32 %55, 0
-  %56 = add nsw i32 %52, -2
-  %.not59.i = icmp slt i32 %56, %.055.lcssa.i
+  %54 = getelementptr inbounds i32, ptr %3, i64 %.lcssa68.i
+  %55 = add nsw i32 %53, -1
+  %56 = and i32 %55, 1
+  %.not58.i = icmp eq i32 %56, 0
+  %57 = add nsw i32 %53, -2
+  %.not59.i = icmp slt i32 %57, %.055.lcssa.i
   %or.cond.i = select i1 %.not58.i, i1 true, i1 %.not59.i
-  %.0.i = select i1 %or.cond.i, i32 %54, i32 %56
-  store i32 %.0.i, ptr %53, align 4, !tbaa !7
-  %57 = icmp sgt i32 %.0.i, %.055.lcssa.i
-  %58 = zext i1 %57 to i32
-  store i32 %58, ptr %.lcssa.i, align 4, !tbaa !7
+  %.0.i = select i1 %or.cond.i, i32 %55, i32 %57
+  store i32 %.0.i, ptr %54, align 4, !tbaa !7
+  %58 = icmp sgt i32 %.0.i, %.055.lcssa.i
+  %59 = zext i1 %58 to i32
+  store i32 %59, ptr %.lcssa.i, align 4, !tbaa !7
   br label %Abc_GenChaseNext.exit
 
-Abc_GenChaseNext.exit:                            ; preds = %._crit_edge.i, %38, %33
-  %.4 = phi i32 [ %.053.lcssa.i, %._crit_edge.i ], [ %.2, %33 ], [ %41, %38 ]
+Abc_GenChaseNext.exit:                            ; preds = %._crit_edge.i, %39, %33
+  %.4 = phi i32 [ %.053.lcssa.i, %._crit_edge.i ], [ %.2, %33 ], [ %42, %39 ]
   br i1 %11, label %.lr.ph55, label %.loopexit
 
-59:                                               ; preds = %.lr.ph55
+60:                                               ; preds = %.lr.ph55
   %indvars.iv.next75 = add nuw nsw i64 %indvars.iv74, 1
   %exitcond78.not = icmp eq i64 %indvars.iv.next75, %wide.trip.count77
   br i1 %exitcond78.not, label %.loopexit, label %.lr.ph55, !llvm.loop !65
 
-.lr.ph55:                                         ; preds = %Abc_GenChaseNext.exit, %59
-  %indvars.iv74 = phi i64 [ %indvars.iv.next75, %59 ], [ 0, %Abc_GenChaseNext.exit ]
-  %60 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv74
-  %61 = load i32, ptr %60, align 4, !tbaa !7
-  %62 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv74
-  %63 = load i32, ptr %62, align 4, !tbaa !7
-  %64 = icmp eq i32 %61, %63
-  br i1 %64, label %59, label %65
+.lr.ph55:                                         ; preds = %Abc_GenChaseNext.exit, %60
+  %indvars.iv74 = phi i64 [ %indvars.iv.next75, %60 ], [ 0, %Abc_GenChaseNext.exit ]
+  %61 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv74
+  %62 = load i32, ptr %61, align 4, !tbaa !7
+  %63 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv74
+  %64 = load i32, ptr %63, align 4, !tbaa !7
+  %65 = icmp eq i32 %62, %64
+  br i1 %65, label %60, label %66
 
-65:                                               ; preds = %.lr.ph55
-  tail call fastcc void @Vec_IntPushTwo(ptr noundef nonnull %6, i32 noundef %63, i32 noundef %61)
+66:                                               ; preds = %.lr.ph55
+  tail call fastcc void @Vec_IntPushTwo(ptr noundef nonnull %6, i32 noundef %64, i32 noundef %62)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %59, %Abc_GenChaseNext.exit, %65
-  %66 = load i32, ptr %13, align 4, !tbaa !7
-  %67 = icmp eq i32 %66, %0
-  br i1 %67, label %20, label %68, !llvm.loop !66
+.loopexit:                                        ; preds = %60, %Abc_GenChaseNext.exit, %66
+  %67 = load i32, ptr %13, align 4, !tbaa !7
+  %68 = icmp eq i32 %67, %0
+  br i1 %68, label %20, label %69, !llvm.loop !66
 
-68:                                               ; preds = %.loopexit
+69:                                               ; preds = %.loopexit
   tail call fastcc void @Vec_IntPushTwo(ptr noundef nonnull %6, i32 noundef 0, i32 noundef 0)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

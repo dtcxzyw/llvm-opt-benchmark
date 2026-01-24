@@ -14363,16 +14363,16 @@ _ZN4llvm7PHINode16setIncomingValueEjPNS_5ValueE.exit: ; preds = %104, %108
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 48
   %114 = getelementptr inbounds nuw i8, ptr %.0, i64 32
   %115 = load ptr, ptr %114, align 8, !tbaa !52
-  %116 = icmp eq ptr %115, %113
+  %116 = icmp ne ptr %115, %113
   %117 = getelementptr inbounds i8, ptr %115, i64 -24
-  %spec.select.i.i = select i1 %116, ptr null, ptr %117
   %118 = load i8, ptr %117, align 8, !tbaa !42
   %119 = icmp eq i8 %118, 84
-  %spec.select.i.i37 = select i1 %119, ptr %spec.select.i.i, ptr null
+  %120 = select i1 %119, i1 %116, i1 false
+  %spec.select.i.i37 = select i1 %120, ptr %117, ptr null
   %.not = icmp eq ptr %spec.select.i.i37, %3
-  br i1 %.not, label %120, label %17, !llvm.loop !724
+  br i1 %.not, label %121, label %17, !llvm.loop !724
 
-120:                                              ; preds = %_ZN4llvm7PHINode16setIncomingValueEjPNS_5ValueE.exit
+121:                                              ; preds = %_ZN4llvm7PHINode16setIncomingValueEjPNS_5ValueE.exit
   ret void
 }
 

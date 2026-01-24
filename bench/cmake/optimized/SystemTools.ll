@@ -16484,90 +16484,90 @@ define dso_local noundef range(i32 -1, 65536) i32 @_ZN5cmsys11SystemTools16GetTe
   store i64 0, ptr %5, align 8, !tbaa !18
   store i8 0, ptr %4, align 8, !tbaa !20
   %6 = call i32 (i32, i64, ...) @ioctl(i32 noundef 1, i64 noundef 21523, ptr noundef nonnull %1) #39
-  %7 = icmp ne i32 %6, -1
+  %7 = icmp eq i32 %6, -1
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %9 = load i16, ptr %8, align 2
-  %10 = icmp ne i16 %9, 0
-  %or.cond = select i1 %7, i1 %10, i1 false
+  %10 = icmp eq i16 %9, 0
   %11 = load i16, ptr %1, align 2
-  %12 = icmp ne i16 %11, 0
-  %or.cond7 = select i1 %or.cond, i1 %12, i1 false
+  %12 = icmp eq i16 %11, 0
   %13 = zext i16 %9 to i32
-  %spec.select = select i1 %or.cond7, i32 %13, i32 -1
   %14 = call i32 @isatty(i32 noundef 1) #39
   %.not = icmp eq i32 %14, 0
-  %.1 = select i1 %.not, i32 -1, i32 %spec.select
-  %15 = call ptr @getenv(ptr noundef nonnull @.str.31) #39
-  %.not.i.not = icmp eq ptr %15, null
-  br i1 %.not.i.not, label %_ZN5cmsys11SystemTools6GetEnvEPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %16
+  %15 = select i1 %.not, i1 true, i1 %7
+  %16 = select i1 %15, i1 true, i1 %10
+  %17 = select i1 %16, i1 true, i1 %12
+  %.1 = select i1 %17, i32 -1, i32 %13
+  %18 = call ptr @getenv(ptr noundef nonnull @.str.31) #39
+  %.not.i.not = icmp eq ptr %18, null
+  br i1 %.not.i.not, label %_ZN5cmsys11SystemTools6GetEnvEPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %19
 
-16:                                               ; preds = %0
-  %17 = load i64, ptr %5, align 8, !tbaa !18
-  %18 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %15) #39
-  %19 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %2, i64 noundef 0, i64 noundef %17, ptr noundef nonnull %15, i64 noundef %18)
-          to label %20 unwind label %33
+19:                                               ; preds = %0
+  %20 = load i64, ptr %5, align 8, !tbaa !18
+  %21 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %18) #39
+  %22 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %2, i64 noundef 0, i64 noundef %20, ptr noundef nonnull %18, i64 noundef %21)
+          to label %23 unwind label %36
 
-20:                                               ; preds = %16
-  %21 = load i64, ptr %5, align 8, !tbaa !18
-  %22 = icmp eq i64 %21, 0
-  br i1 %22, label %_ZN5cmsys11SystemTools6GetEnvEPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %23
+23:                                               ; preds = %19
+  %24 = load i64, ptr %5, align 8, !tbaa !18
+  %25 = icmp eq i64 %24, 0
+  br i1 %25, label %_ZN5cmsys11SystemTools6GetEnvEPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %26
 
-23:                                               ; preds = %20
+26:                                               ; preds = %23
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %24 = load ptr, ptr %2, align 8, !tbaa !21
-  %25 = call i64 @strtol(ptr noundef %24, ptr noundef nonnull %3, i32 noundef 0) #39
-  %26 = load ptr, ptr %3, align 8, !tbaa !82
-  %.not20 = icmp eq ptr %26, null
-  br i1 %.not20, label %39, label %27
+  %27 = load ptr, ptr %2, align 8, !tbaa !21
+  %28 = call i64 @strtol(ptr noundef %27, ptr noundef nonnull %3, i32 noundef 0) #39
+  %29 = load ptr, ptr %3, align 8, !tbaa !82
+  %.not20 = icmp eq ptr %29, null
+  br i1 %.not20, label %42, label %30
 
-27:                                               ; preds = %23
-  %28 = load i8, ptr %26, align 1, !tbaa !20
-  %29 = icmp eq i8 %28, 0
-  %30 = add i64 %25, -1
-  %31 = icmp ult i64 %30, 999
-  %or.cond11 = select i1 %29, i1 %31, i1 false
-  %32 = trunc nuw nsw i64 %25 to i32
-  %spec.select21 = select i1 %or.cond11, i32 %32, i32 %.1
-  br label %39
+30:                                               ; preds = %26
+  %31 = load i8, ptr %29, align 1, !tbaa !20
+  %32 = icmp eq i8 %31, 0
+  %33 = add i64 %28, -1
+  %34 = icmp ult i64 %33, 999
+  %or.cond11 = select i1 %32, i1 %34, i1 false
+  %35 = trunc nuw nsw i64 %28 to i32
+  %spec.select21 = select i1 %or.cond11, i32 %35, i32 %.1
+  br label %42
 
-33:                                               ; preds = %16
-  %34 = landingpad { ptr, i32 }
+36:                                               ; preds = %19
+  %37 = landingpad { ptr, i32 }
           cleanup
-  %35 = load ptr, ptr %2, align 8, !tbaa !21
-  %36 = icmp eq ptr %35, %4
-  br i1 %36, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
+  %38 = load ptr, ptr %2, align 8, !tbaa !21
+  %39 = icmp eq ptr %38, %4
+  br i1 %39, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %33
-  %37 = load i64, ptr %4, align 8, !tbaa !20
-  %38 = add i64 %37, 1
-  call void @_ZdlPvm(ptr noundef %35, i64 noundef %38) #41
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %36
+  %40 = load i64, ptr %4, align 8, !tbaa !20
+  %41 = add i64 %40, 1
+  call void @_ZdlPvm(ptr noundef %38, i64 noundef %41) #41
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %33, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %36, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
-  resume { ptr, i32 } %34
+  resume { ptr, i32 } %37
 
-39:                                               ; preds = %27, %23
-  %.3 = phi i32 [ %.1, %23 ], [ %spec.select21, %27 ]
+42:                                               ; preds = %30, %26
+  %.3 = phi i32 [ %.1, %26 ], [ %spec.select21, %30 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN5cmsys11SystemTools6GetEnvEPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
-_ZN5cmsys11SystemTools6GetEnvEPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %0, %39, %20
-  %.2 = phi i32 [ %.1, %20 ], [ %.3, %39 ], [ %.1, %0 ]
-  %40 = load ptr, ptr %2, align 8, !tbaa !21
-  %41 = icmp eq ptr %40, %4
-  br i1 %41, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit24, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i22
+_ZN5cmsys11SystemTools6GetEnvEPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %0, %42, %23
+  %.2 = phi i32 [ %.1, %23 ], [ %.3, %42 ], [ %.1, %0 ]
+  %43 = load ptr, ptr %2, align 8, !tbaa !21
+  %44 = icmp eq ptr %43, %4
+  br i1 %44, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit24, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i22
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i22: ; preds = %_ZN5cmsys11SystemTools6GetEnvEPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
-  %42 = load i64, ptr %4, align 8, !tbaa !20
-  %43 = add i64 %42, 1
-  call void @_ZdlPvm(ptr noundef %40, i64 noundef %43) #41
+  %45 = load i64, ptr %4, align 8, !tbaa !20
+  %46 = add i64 %45, 1
+  call void @_ZdlPvm(ptr noundef %43, i64 noundef %46) #41
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit24
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit24: ; preds = %_ZN5cmsys11SystemTools6GetEnvEPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i22
-  %44 = icmp slt i32 %.2, 9
-  %spec.store.select = select i1 %44, i32 -1, i32 %.2
+  %47 = icmp slt i32 %.2, 9
+  %spec.store.select = select i1 %47, i32 -1, i32 %.2
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %spec.store.select

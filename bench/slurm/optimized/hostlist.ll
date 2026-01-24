@@ -7188,8 +7188,9 @@ define internal fastcc range(i32 0, 2) i32 @_parse_single_range(ptr noundef nonn
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i32 %23, ptr %24, align 8
   %.not50 = icmp eq i32 %2, %23
-  %25 = select i1 %.not50, i32 36, i32 10
-  %.0 = select i1 %6, i32 10, i32 %25
+  %or.cond = select i1 %6, i1 true, i1 %.not50
+  %25 = xor i1 %6, %or.cond
+  %.0 = select i1 %25, i32 36, i32 10
   %26 = call i64 @strtoul(ptr noundef nonnull %0, ptr noundef nonnull %4, i32 noundef %.0) #22
   store i64 %26, ptr %1, align 8
   %27 = load ptr, ptr %4, align 8

@@ -488,13 +488,13 @@ define internal range(i32 0, 2) i32 @DBus_MessageFilter(ptr readnone captures(no
   call void @SDL_SendKeyboardText(ptr noundef %22) #5
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br label %134
+  br label %136
 
 23:                                               ; preds = %3
   %24 = load ptr, ptr %13, align 8
   %25 = tail call i32 %24(ptr noundef %1, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.21) #5
   %.not16 = icmp eq i32 %25, 0
-  br i1 %.not16, label %134, label %26
+  br i1 %.not16, label %136, label %26
 
 26:                                               ; preds = %23
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -524,11 +524,11 @@ define internal range(i32 0, 2) i32 @DBus_MessageFilter(ptr readnone captures(no
   %41 = getelementptr inbounds nuw i8, ptr %2, i64 280
   br label %42
 
-42:                                               ; preds = %77, %.lr.ph.i
-  %.05082.i = phi i64 [ 0, %.lr.ph.i ], [ %.151.i, %77 ]
-  %.15381.i = phi i32 [ -1, %.lr.ph.i ], [ %.2.i, %77 ]
-  %.15580.i = phi i32 [ -1, %.lr.ph.i ], [ %.256.i, %77 ]
-  %.15979.i = phi i64 [ 0, %.lr.ph.i ], [ %.260.i, %77 ]
+42:                                               ; preds = %79, %.lr.ph.i
+  %.05082.i = phi i64 [ 0, %.lr.ph.i ], [ %.151.i, %79 ]
+  %.15381.i = phi i32 [ -1, %.lr.ph.i ], [ %.2.i, %79 ]
+  %.15580.i = phi i32 [ -1, %.lr.ph.i ], [ %.256.i, %79 ]
+  %.15979.i = phi i64 [ 0, %.lr.ph.i ], [ %.260.i, %79 ]
   %43 = load ptr, ptr %35, align 8
   call void %43(ptr noundef nonnull %8, ptr noundef nonnull %9) #5
   store ptr null, ptr %6, align 8
@@ -563,7 +563,7 @@ define internal range(i32 0, 2) i32 @DBus_MessageFilter(ptr readnone captures(no
   %60 = icmp eq i32 %59, 105
   %61 = icmp eq i32 %.15381.i, -1
   %or.cond.i = select i1 %60, i1 %61, i1 false
-  br i1 %or.cond.i, label %62, label %68
+  br i1 %or.cond.i, label %62, label %70
 
 62:                                               ; preds = %55
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -572,167 +572,167 @@ define internal range(i32 0, 2) i32 @DBus_MessageFilter(ptr readnone captures(no
   %64 = load i32, ptr %10, align 4
   %65 = and i32 %64, 16
   %.not70.i = icmp eq i32 %65, 0
-  %66 = icmp eq i32 %.15580.i, -1
+  %66 = icmp ne i32 %.15580.i, -1
   %67 = trunc i64 %.05082.i to i32
-  %spec.select.i = select i1 %66, i32 %67, i32 %.15580.i
-  %spec.select75.i = select i1 %66, i32 -1, i32 %67
-  %.357.i = select i1 %.not70.i, i32 %.15580.i, i32 %spec.select.i
-  %.3.i = select i1 %.not70.i, i32 %spec.select75.i, i32 -1
+  %68 = select i1 %.not70.i, i1 true, i1 %66
+  %.357.i = select i1 %68, i32 %.15580.i, i32 %67
+  %69 = select i1 %.not70.i, i1 %66, i1 false
+  %.3.i = select i1 %69, i32 %67, i32 -1
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %68
+  br label %70
 
-68:                                               ; preds = %62, %55
+70:                                               ; preds = %62, %55
   %.256.i = phi i32 [ %.357.i, %62 ], [ %.15580.i, %55 ]
   %.2.i = phi i32 [ %.3.i, %62 ], [ %.15381.i, %55 ]
-  %69 = load ptr, ptr %41, align 8
-  %70 = call i32 %69(ptr noundef nonnull %8) #5
-  %71 = load ptr, ptr %6, align 8
-  %.not72.i = icmp eq ptr %71, null
-  br i1 %.not72.i, label %77, label %72
+  %71 = load ptr, ptr %41, align 8
+  %72 = call i32 %71(ptr noundef nonnull %8) #5
+  %73 = load ptr, ptr %6, align 8
+  %.not72.i = icmp eq ptr %73, null
+  br i1 %.not72.i, label %79, label %74
 
-72:                                               ; preds = %68
-  %73 = load i8, ptr %71, align 1
-  %.not73.i = icmp eq i8 %73, 0
-  br i1 %.not73.i, label %77, label %74
+74:                                               ; preds = %70
+  %75 = load i8, ptr %73, align 1
+  %.not73.i = icmp eq i8 %75, 0
+  br i1 %.not73.i, label %79, label %76
 
-74:                                               ; preds = %72
-  %75 = call i64 @SDL_utf8strlen_REAL(ptr noundef nonnull %71) #5
-  %76 = add i64 %75, %.05082.i
-  br label %77
+76:                                               ; preds = %74
+  %77 = call i64 @SDL_utf8strlen_REAL(ptr noundef nonnull %73) #5
+  %78 = add i64 %77, %.05082.i
+  br label %79
 
-77:                                               ; preds = %74, %72, %68
-  %.151.i = phi i64 [ %76, %74 ], [ %.05082.i, %72 ], [ %.05082.i, %68 ]
-  %78 = load ptr, ptr %30, align 8
-  %79 = call i32 %78(ptr noundef nonnull %8) #5
-  %80 = icmp eq i32 %79, 114
-  br i1 %80, label %42, label %._crit_edge.i, !llvm.loop !5
+79:                                               ; preds = %76, %74, %70
+  %.151.i = phi i64 [ %78, %76 ], [ %.05082.i, %74 ], [ %.05082.i, %70 ]
+  %80 = load ptr, ptr %30, align 8
+  %81 = call i32 %80(ptr noundef nonnull %8) #5
+  %82 = icmp eq i32 %81, 114
+  br i1 %82, label %42, label %._crit_edge.i, !llvm.loop !5
 
-._crit_edge.i:                                    ; preds = %77
-  %81 = trunc i64 %.151.i to i32
-  %82 = icmp ne i32 %.256.i, -1
-  %83 = icmp eq i32 %.2.i, -1
-  %or.cond5.i = select i1 %82, i1 %83, i1 false
-  %spec.select76.i = select i1 %or.cond5.i, i32 %81, i32 %.2.i
+._crit_edge.i:                                    ; preds = %79
+  %83 = trunc i64 %.151.i to i32
+  %84 = icmp ne i32 %.256.i, -1
+  %85 = icmp eq i32 %.2.i, -1
+  %or.cond5.i = select i1 %84, i1 %85, i1 false
+  %spec.select76.i = select i1 %or.cond5.i, i32 %83, i32 %.2.i
   %.not.i = icmp eq i64 %.260.i, 0
-  br i1 %.not.i, label %Fcitx_GetPreeditString.exit.thread, label %84
+  br i1 %.not.i, label %Fcitx_GetPreeditString.exit.thread, label %86
 
-84:                                               ; preds = %._crit_edge.i
-  %85 = add i64 %.260.i, 1
-  %86 = call noalias ptr @SDL_malloc_REAL(i64 noundef %85) #5
-  %.not65.i = icmp eq ptr %86, null
-  br i1 %.not65.i, label %Fcitx_GetPreeditString.exit.thread, label %87
+86:                                               ; preds = %._crit_edge.i
+  %87 = add i64 %.260.i, 1
+  %88 = call noalias ptr @SDL_malloc_REAL(i64 noundef %87) #5
+  %.not65.i = icmp eq ptr %88, null
+  br i1 %.not65.i, label %Fcitx_GetPreeditString.exit.thread, label %89
 
-87:                                               ; preds = %84
-  %88 = load ptr, ptr %35, align 8
-  call void %88(ptr noundef nonnull %7, ptr noundef nonnull %8) #5
-  %89 = load ptr, ptr %30, align 8
-  %90 = call i32 %89(ptr noundef nonnull %8) #5
-  %91 = icmp eq i32 %90, 114
-  br i1 %91, label %.lr.ph88.i, label %Fcitx_GetPreeditString.exit.thread31
+89:                                               ; preds = %86
+  %90 = load ptr, ptr %35, align 8
+  call void %90(ptr noundef nonnull %7, ptr noundef nonnull %8) #5
+  %91 = load ptr, ptr %30, align 8
+  %92 = call i32 %91(ptr noundef nonnull %8) #5
+  %93 = icmp eq i32 %92, 114
+  br i1 %93, label %.lr.ph88.i, label %Fcitx_GetPreeditString.exit.thread31
 
-.lr.ph88.i:                                       ; preds = %87, %107
-  %.04886.i = phi ptr [ %.149.i, %107 ], [ %86, %87 ]
-  %92 = load ptr, ptr %35, align 8
-  call void %92(ptr noundef nonnull %8, ptr noundef nonnull %9) #5
-  %93 = load ptr, ptr %30, align 8
-  %94 = call i32 %93(ptr noundef nonnull %9) #5
-  %95 = icmp eq i32 %94, 115
-  br i1 %95, label %96, label %107
+.lr.ph88.i:                                       ; preds = %89, %109
+  %.04886.i = phi ptr [ %.149.i, %109 ], [ %88, %89 ]
+  %94 = load ptr, ptr %35, align 8
+  call void %94(ptr noundef nonnull %8, ptr noundef nonnull %9) #5
+  %95 = load ptr, ptr %30, align 8
+  %96 = call i32 %95(ptr noundef nonnull %9) #5
+  %97 = icmp eq i32 %96, 115
+  br i1 %97, label %98, label %109
 
-96:                                               ; preds = %.lr.ph88.i
-  %97 = load ptr, ptr %40, align 8
-  call void %97(ptr noundef nonnull %9, ptr noundef nonnull %6) #5
-  %98 = load ptr, ptr %6, align 8
-  %.not66.i = icmp eq ptr %98, null
-  br i1 %.not66.i, label %107, label %99
+98:                                               ; preds = %.lr.ph88.i
+  %99 = load ptr, ptr %40, align 8
+  call void %99(ptr noundef nonnull %9, ptr noundef nonnull %6) #5
+  %100 = load ptr, ptr %6, align 8
+  %.not66.i = icmp eq ptr %100, null
+  br i1 %.not66.i, label %109, label %101
 
-99:                                               ; preds = %96
-  %100 = load i8, ptr %98, align 1
-  %.not67.i = icmp eq i8 %100, 0
-  br i1 %.not67.i, label %107, label %101
+101:                                              ; preds = %98
+  %102 = load i8, ptr %100, align 1
+  %.not67.i = icmp eq i8 %102, 0
+  br i1 %.not67.i, label %109, label %103
 
-101:                                              ; preds = %99
-  %102 = call i64 @SDL_strlen_REAL(ptr noundef nonnull %98) #5
-  %103 = load ptr, ptr %6, align 8
-  %104 = add i64 %102, 1
-  %105 = call i64 @SDL_strlcpy_REAL(ptr noundef %.04886.i, ptr noundef %103, i64 noundef %104) #5
-  %106 = getelementptr inbounds nuw i8, ptr %.04886.i, i64 %102
-  br label %107
+103:                                              ; preds = %101
+  %104 = call i64 @SDL_strlen_REAL(ptr noundef nonnull %100) #5
+  %105 = load ptr, ptr %6, align 8
+  %106 = add i64 %104, 1
+  %107 = call i64 @SDL_strlcpy_REAL(ptr noundef %.04886.i, ptr noundef %105, i64 noundef %106) #5
+  %108 = getelementptr inbounds nuw i8, ptr %.04886.i, i64 %104
+  br label %109
 
-107:                                              ; preds = %101, %99, %96, %.lr.ph88.i
-  %.149.i = phi ptr [ %106, %101 ], [ %.04886.i, %99 ], [ %.04886.i, %96 ], [ %.04886.i, %.lr.ph88.i ]
-  %108 = load ptr, ptr %41, align 8
-  %109 = call i32 %108(ptr noundef nonnull %8) #5
-  %110 = load ptr, ptr %30, align 8
+109:                                              ; preds = %103, %101, %98, %.lr.ph88.i
+  %.149.i = phi ptr [ %108, %103 ], [ %.04886.i, %101 ], [ %.04886.i, %98 ], [ %.04886.i, %.lr.ph88.i ]
+  %110 = load ptr, ptr %41, align 8
   %111 = call i32 %110(ptr noundef nonnull %8) #5
-  %112 = icmp eq i32 %111, 114
-  br i1 %112, label %.lr.ph88.i, label %Fcitx_GetPreeditString.exit.thread31, !llvm.loop !6
+  %112 = load ptr, ptr %30, align 8
+  %113 = call i32 %112(ptr noundef nonnull %8) #5
+  %114 = icmp eq i32 %113, 114
+  br i1 %114, label %.lr.ph88.i, label %Fcitx_GetPreeditString.exit.thread31, !llvm.loop !6
 
-Fcitx_GetPreeditString.exit.thread:               ; preds = %26, %._crit_edge.i, %84, %34
+Fcitx_GetPreeditString.exit.thread:               ; preds = %26, %._crit_edge.i, %86, %34
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @SDL_SendEditingText(ptr noundef nonnull @.str.22, i32 noundef 0, i32 noundef 0) #5
-  br label %132
+  br label %134
 
-Fcitx_GetPreeditString.exit.thread31:             ; preds = %107, %87
+Fcitx_GetPreeditString.exit.thread31:             ; preds = %109, %89
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %113 = icmp eq i32 %.256.i, -1
-  br i1 %113, label %114, label %128
+  %115 = icmp eq i32 %.256.i, -1
+  br i1 %115, label %116, label %130
 
-114:                                              ; preds = %Fcitx_GetPreeditString.exit.thread31
+116:                                              ; preds = %Fcitx_GetPreeditString.exit.thread31
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 -1, ptr %4, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %115 = load ptr, ptr %27, align 8
-  %116 = call i32 %115(ptr noundef %1, ptr noundef nonnull %5) #5
-  %117 = load ptr, ptr %41, align 8
-  %118 = call i32 %117(ptr noundef nonnull %5) #5
-  %119 = load ptr, ptr %30, align 8
+  %117 = load ptr, ptr %27, align 8
+  %118 = call i32 %117(ptr noundef %1, ptr noundef nonnull %5) #5
+  %119 = load ptr, ptr %41, align 8
   %120 = call i32 %119(ptr noundef nonnull %5) #5
-  %.not.i18 = icmp eq i32 %120, 105
+  %121 = load ptr, ptr %30, align 8
+  %122 = call i32 %121(ptr noundef nonnull %5) #5
+  %.not.i18 = icmp eq i32 %122, 105
   br i1 %.not.i18, label %Fcitx_GetPreeditCursorByte.exit, label %Fcitx_GetPreeditCursorByte.exit.thread
 
-Fcitx_GetPreeditCursorByte.exit.thread:           ; preds = %114
+Fcitx_GetPreeditCursorByte.exit.thread:           ; preds = %116
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %128
+  br label %130
 
-Fcitx_GetPreeditCursorByte.exit:                  ; preds = %114
-  %121 = load ptr, ptr %40, align 8
-  call void %121(ptr noundef nonnull %5, ptr noundef nonnull %4) #5
-  %122 = load i32, ptr %4, align 4
+Fcitx_GetPreeditCursorByte.exit:                  ; preds = %116
+  %123 = load ptr, ptr %40, align 8
+  call void %123(ptr noundef nonnull %5, ptr noundef nonnull %4) #5
+  %124 = load i32, ptr %4, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %123 = icmp sgt i32 %122, -1
-  br i1 %123, label %124, label %128
+  %125 = icmp sgt i32 %124, -1
+  br i1 %125, label %126, label %130
 
-124:                                              ; preds = %Fcitx_GetPreeditCursorByte.exit
-  %125 = zext nneg i32 %122 to i64
-  %126 = call i64 @SDL_utf8strnlen_REAL(ptr noundef nonnull %86, i64 noundef %125) #5
-  %127 = trunc i64 %126 to i32
-  br label %128
+126:                                              ; preds = %Fcitx_GetPreeditCursorByte.exit
+  %127 = zext nneg i32 %124 to i64
+  %128 = call i64 @SDL_utf8strnlen_REAL(ptr noundef nonnull %88, i64 noundef %127) #5
+  %129 = trunc i64 %128 to i32
+  br label %130
 
-128:                                              ; preds = %124, %Fcitx_GetPreeditCursorByte.exit, %Fcitx_GetPreeditCursorByte.exit.thread, %Fcitx_GetPreeditString.exit.thread31
-  %.024 = phi i32 [ %.256.i, %Fcitx_GetPreeditString.exit.thread31 ], [ %127, %124 ], [ -1, %Fcitx_GetPreeditCursorByte.exit ], [ -1, %Fcitx_GetPreeditCursorByte.exit.thread ]
-  %129 = icmp sgt i32 %spec.select76.i, -1
-  %130 = sub nsw i32 %spec.select76.i, %.024
-  %131 = select i1 %129, i32 %130, i32 -1
-  call void @SDL_SendEditingText(ptr noundef nonnull %86, i32 noundef %.024, i32 noundef %131) #5
-  call void @SDL_free_REAL(ptr noundef nonnull %86) #5
-  br label %132
-
-132:                                              ; preds = %Fcitx_GetPreeditString.exit.thread, %128
-  %133 = call ptr @SDL_GetKeyboardFocus_REAL() #5
-  call void @SDL_Fcitx_UpdateTextInputArea(ptr noundef %133)
+130:                                              ; preds = %126, %Fcitx_GetPreeditCursorByte.exit, %Fcitx_GetPreeditCursorByte.exit.thread, %Fcitx_GetPreeditString.exit.thread31
+  %.024 = phi i32 [ %.256.i, %Fcitx_GetPreeditString.exit.thread31 ], [ %129, %126 ], [ -1, %Fcitx_GetPreeditCursorByte.exit ], [ -1, %Fcitx_GetPreeditCursorByte.exit.thread ]
+  %131 = icmp sgt i32 %spec.select76.i, -1
+  %132 = sub nsw i32 %spec.select76.i, %.024
+  %133 = select i1 %131, i32 %132, i32 -1
+  call void @SDL_SendEditingText(ptr noundef nonnull %88, i32 noundef %.024, i32 noundef %133) #5
+  call void @SDL_free_REAL(ptr noundef nonnull %88) #5
   br label %134
 
-134:                                              ; preds = %23, %132, %16
-  %.0 = phi i32 [ 0, %16 ], [ 0, %132 ], [ 1, %23 ]
+134:                                              ; preds = %Fcitx_GetPreeditString.exit.thread, %130
+  %135 = call ptr @SDL_GetKeyboardFocus_REAL() #5
+  call void @SDL_Fcitx_UpdateTextInputArea(ptr noundef %135)
+  br label %136
+
+136:                                              ; preds = %23, %134, %16
+  %.0 = phi i32 [ 0, %16 ], [ 0, %134 ], [ 1, %23 ]
   ret i32 %.0
 }
 

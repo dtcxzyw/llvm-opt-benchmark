@@ -17017,12 +17017,12 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$
 28:                                               ; preds = %7, %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hcee0c3a46936b247E.exit25", %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hcee0c3a46936b247E.exit", %24
   %.sink = phi i64 [ %65, %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hcee0c3a46936b247E.exit25" ], [ %46, %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hcee0c3a46936b247E.exit" ], [ %27, %24 ], [ 0, %7 ]
   %.sroa.03.0.sink = phi i64 [ %.sroa.03.0, %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hcee0c3a46936b247E.exit25" ], [ %not..i, %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hcee0c3a46936b247E.exit" ], [ 1, %24 ], [ 1, %7 ]
-  %spec.select12.sink = phi i64 [ %spec.select12, %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hcee0c3a46936b247E.exit25" ], [ %45, %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hcee0c3a46936b247E.exit" ], [ %27, %24 ], [ 0, %7 ]
+  %.sroa.6.0.sink = phi i64 [ %.sroa.6.0, %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hcee0c3a46936b247E.exit25" ], [ %45, %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hcee0c3a46936b247E.exit" ], [ %27, %24 ], [ 0, %7 ]
   store i64 %.sink, ptr %0, align 8
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.03.0.sink, ptr %29, align 8
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %spec.select12.sink, ptr %30, align 8
+  store i64 %.sroa.6.0.sink, ptr %30, align 8
   ret void
 
 31:                                               ; preds = %8
@@ -17092,9 +17092,9 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$
   %67 = extractvalue { i64, i1 } %66, 1
   %68 = add nuw i64 %64, %60
   %not. = xor i1 %67, true
-  %spec.select12 = select i1 %67, i64 undef, i64 %68
   %narrow = select i1 %not..i19, i1 %not., i1 false
   %.sroa.03.0 = zext i1 %narrow to i64
+  %.sroa.6.0 = select i1 %narrow, i64 %68, i64 undef
   br label %28
 }
 

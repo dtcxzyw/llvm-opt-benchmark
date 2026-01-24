@@ -350,7 +350,7 @@ _ZN3gmx28loadSimdPairInteractionMasksILb1EL12KernelLayout1EEENSt9enable_ifIXaaT_
   %219 = insertelement <8 x i32> poison, i32 %218, i64 0
   %220 = shufflevector <8 x i32> %219, <8 x i32> poison, <8 x i32> zeroinitializer
   %221 = and <8 x i32> %.sroa.05095.0.copyload, %220
-  %.not5106 = icmp eq <8 x i32> %221, zeroinitializer
+  %.not5106 = icmp ne <8 x i32> %221, zeroinitializer
   %222 = and <8 x i32> %.sroa.6.0.copyload, %220
   %.not5105 = icmp eq <8 x i32> %222, zeroinitializer
   %223 = shl nsw i32 %216, 2
@@ -414,7 +414,7 @@ _ZN3gmx28loadSimdPairInteractionMasksILb1EL12KernelLayout1EEENSt9enable_ifIXaaT_
   %275 = fmul <8 x float> %.sroa.73984.1, %273
   %276 = and <8 x i32> %.sroa.04144.3, %269
   %277 = and <8 x i32> %.sroa.84150.3, %270
-  %278 = select <8 x i1> %.not5106, <8 x i32> zeroinitializer, <8 x i32> %276
+  %278 = select <8 x i1> %.not5106, <8 x i32> %276, <8 x i32> zeroinitializer
   %279 = bitcast <8 x i32> %278 to <8 x float>
   %280 = select <8 x i1> %.not5105, <8 x i32> zeroinitializer, <8 x i32> %277
   %281 = bitcast <8 x i32> %280 to <8 x float>
@@ -456,7 +456,7 @@ _ZN3gmx28loadSimdPairInteractionMasksILb1EL12KernelLayout1EEENSt9enable_ifIXaaT_
   %317 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %315, <8 x float> %287, <8 x float> %316)
   %318 = fmul <8 x float> %317, %311
   %319 = fmul <8 x float> %26, %318
-  %320 = select <8 x i1> %.not5106, <8 x i32> zeroinitializer, <8 x i32> %34
+  %320 = select <8 x i1> %.not5106, <8 x i32> %34, <8 x i32> zeroinitializer
   %321 = bitcast <8 x i32> %320 to <8 x float>
   %322 = fadd <8 x float> %304, %321
   %323 = select <8 x i1> %.not5105, <8 x i32> zeroinitializer, <8 x i32> %34
@@ -565,7 +565,7 @@ _ZN3gmx17EnergyAccumulatorILb0ELb1EE11addEnergiesILi2ELi1EL12KernelLayout1ELi4EL
   %418 = shufflevector <8 x float> %415, <8 x float> %416, <8 x i32> <i32 2, i32 10, i32 3, i32 11, i32 6, i32 14, i32 7, i32 15>
   %419 = fmul <8 x float> %372, %372
   %420 = fmul <8 x float> %372, %419
-  %421 = select <8 x i1> %.not5106, <8 x float> zeroinitializer, <8 x float> %420
+  %421 = select <8 x i1> %.not5106, <8 x float> %420, <8 x float> zeroinitializer
   %422 = fmul <8 x float> %421, %421
   %423 = fmul <8 x float> %255, %370
   %424 = fsub <8 x float> %423, %37
@@ -590,8 +590,8 @@ _ZN3gmx17EnergyAccumulatorILb0ELb1EE11addEnergiesILi2ELi1EL12KernelLayout1ELi4EL
   %443 = fmul <8 x float> %418, %442
   %444 = fsub <8 x float> %443, %439
   %445 = select <8 x i1> %410, <8 x float> %434, <8 x float> zeroinitializer
-  %446 = select <8 x i1> %.not5106, <8 x float> zeroinitializer, <8 x float> %444
-  %447 = select <8 x i1> %410, <8 x float> %446, <8 x float> zeroinitializer
+  %446 = select <8 x i1> %410, <8 x i1> %.not5106, <8 x i1> zeroinitializer
+  %447 = select <8 x i1> %446, <8 x float> %444, <8 x float> zeroinitializer
   store <8 x float> %369, ptr %.val.val, align 32, !tbaa !18
   %.sroa.01.0.copyload.i761 = load <8 x float>, ptr %91, align 32, !tbaa !18
   %448 = fadd <8 x float> %447, %.sroa.01.0.copyload.i761
@@ -971,9 +971,9 @@ _ZN3gmx28loadSimdPairInteractionMasksILb1EL12KernelLayout1EEENSt9enable_ifIXaaT_
   %741 = insertelement <8 x i32> poison, i32 %740, i64 0
   %742 = shufflevector <8 x i32> %741, <8 x i32> poison, <8 x i32> zeroinitializer
   %743 = and <8 x i32> %.sroa.05095.0.copyload, %742
-  %.not5103 = icmp eq <8 x i32> %743, zeroinitializer
+  %.not5103 = icmp ne <8 x i32> %743, zeroinitializer
   %744 = and <8 x i32> %.sroa.6.0.copyload, %742
-  %.not5104 = icmp eq <8 x i32> %744, zeroinitializer
+  %.not5104 = icmp ne <8 x i32> %744, zeroinitializer
   %745 = shl nsw i32 %738, 2
   %746 = mul nsw i32 %738, 12
   %747 = sext i32 %746 to i64
@@ -1058,9 +1058,9 @@ _ZN3gmx28loadSimdPairInteractionMasksILb1EL12KernelLayout1EEENSt9enable_ifIXaaT_
   %814 = fmul <8 x float> %.sroa.73984.1, %812
   %815 = and <8 x i32> %.sroa.04267.3, %810
   %816 = and <8 x i32> %.sroa.84273.3, %811
-  %817 = select <8 x i1> %.not5103, <8 x i32> zeroinitializer, <8 x i32> %815
+  %817 = select <8 x i1> %.not5103, <8 x i32> %815, <8 x i32> zeroinitializer
   %818 = bitcast <8 x i32> %817 to <8 x float>
-  %819 = select <8 x i1> %.not5104, <8 x i32> zeroinitializer, <8 x i32> %816
+  %819 = select <8 x i1> %.not5104, <8 x i32> %816, <8 x i32> zeroinitializer
   %820 = bitcast <8 x i32> %819 to <8 x float>
   %821 = and <8 x i32> %.sroa.04267.3, %798
   %822 = bitcast <8 x i32> %821 to <8 x float>
@@ -1100,10 +1100,10 @@ _ZN3gmx28loadSimdPairInteractionMasksILb1EL12KernelLayout1EEENSt9enable_ifIXaaT_
   %856 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %854, <8 x float> %826, <8 x float> %855)
   %857 = fmul <8 x float> %856, %850
   %858 = fmul <8 x float> %26, %857
-  %859 = select <8 x i1> %.not5103, <8 x i32> zeroinitializer, <8 x i32> %34
+  %859 = select <8 x i1> %.not5103, <8 x i32> %34, <8 x i32> zeroinitializer
   %860 = bitcast <8 x i32> %859 to <8 x float>
   %861 = fadd <8 x float> %843, %860
-  %862 = select <8 x i1> %.not5104, <8 x i32> zeroinitializer, <8 x i32> %34
+  %862 = select <8 x i1> %.not5104, <8 x i32> %34, <8 x i32> zeroinitializer
   %863 = bitcast <8 x i32> %862 to <8 x float>
   %864 = fadd <8 x float> %858, %863
   %865 = fsub <8 x float> %818, %861
@@ -1136,8 +1136,8 @@ _ZN3gmx28loadSimdPairInteractionMasksILb1EL12KernelLayout1EEENSt9enable_ifIXaaT_
   %880 = fmul <8 x float> %875, %879
   %881 = fmul <8 x float> %876, %876
   %882 = fmul <8 x float> %876, %881
-  %883 = select <8 x i1> %.not5103, <8 x float> zeroinitializer, <8 x float> %880
-  %884 = select <8 x i1> %.not5104, <8 x float> zeroinitializer, <8 x float> %882
+  %883 = select <8 x i1> %.not5103, <8 x float> %880, <8 x float> zeroinitializer
+  %884 = select <8 x i1> %.not5104, <8 x float> %882, <8 x float> zeroinitializer
   %885 = fmul <8 x float> %883, %883
   %886 = fmul <8 x float> %884, %884
   %887 = fmul <8 x float> %796, %873
@@ -1168,10 +1168,10 @@ _ZN3gmx28loadSimdPairInteractionMasksILb1EL12KernelLayout1EEENSt9enable_ifIXaaT_
   %912 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %886, <8 x float> splat (float 0x3FB5555560000000), <8 x float> %911)
   %913 = fmul <8 x float> %.sroa.45086.0..sroa.45086.32..sroa.07.0.copyload.i1079, %912
   %914 = fsub <8 x float> %913, %904
-  %915 = select <8 x i1> %.not5103, <8 x float> zeroinitializer, <8 x float> %909
-  %916 = select <8 x i1> %877, <8 x float> %915, <8 x float> zeroinitializer
-  %917 = select <8 x i1> %.not5104, <8 x float> zeroinitializer, <8 x float> %914
-  %918 = select <8 x i1> %878, <8 x float> %917, <8 x float> zeroinitializer
+  %915 = select <8 x i1> %877, <8 x i1> %.not5103, <8 x i1> zeroinitializer
+  %916 = select <8 x i1> %915, <8 x float> %909, <8 x float> zeroinitializer
+  %917 = select <8 x i1> %878, <8 x i1> %.not5104, <8 x i1> zeroinitializer
+  %918 = select <8 x i1> %917, <8 x float> %914, <8 x float> zeroinitializer
   store <8 x float> %922, ptr %.val.val, align 32, !tbaa !18
   %.promoted15.i = load <8 x float>, ptr %91, align 32, !tbaa !18
   br label %923

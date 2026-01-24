@@ -1104,11 +1104,10 @@ r_standard_suffix.exit.thread:                    ; preds = %r_standard_suffix.e
 r_i_verb_suffix.exit:                             ; preds = %373, %.thread.sink.split.i
   %376 = phi i32 [ %374, %373 ], [ %.ph.i, %.thread.sink.split.i ]
   %377 = icmp eq i32 %376, 0
-  %378 = icmp slt i32 %376, 0
   %.lobit = lshr i32 %376, 31
-  %..3 = select i1 %378, i32 %376, i32 %.3210
   %.5142 = select i1 %377, i32 4, i32 %.lobit
-  %.5 = select i1 %377, i32 %.3210, i32 %..3
+  %378 = icmp slt i32 %376, 0
+  %.5 = select i1 %378, i32 %376, i32 %.3210
   switch i32 %.5142, label %.thread [
     i32 0, label %.thread216
     i32 4, label %r_i_verb_suffix.exit.r_i_verb_suffix.exit.thread_crit_edge

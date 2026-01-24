@@ -11783,12 +11783,12 @@ define internal fastcc ptr @sock_recvmsg_guts(ptr noundef %0, ptr noundef %1, i3
   %41 = load i64, ptr %31, align 8, !tbaa !180
   %42 = icmp ult i64 %41, 16
   %43 = load ptr, ptr %30, align 8
-  %.not65130161174 = icmp eq ptr %43, null
-  %.not65130 = select i1 %42, i1 true, i1 %.not65130161174
+  %.not65130161 = icmp eq ptr %43, null
+  %.not65130 = select i1 %42, i1 true, i1 %.not65130161
   br i1 %.not65130, label %.thread112, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %40
-  %.val73176 = load i64, ptr %31, align 8
+  %.val73174 = load i64, ptr %31, align 8
   br label %cmsg_min_space.exit.i
 
 .lr.phthread-pre-split:                           ; preds = %98
@@ -11798,33 +11798,33 @@ define internal fastcc ptr @sock_recvmsg_guts(ptr noundef %0, ptr noundef %1, i3
   br i1 %44, label %get_cmsg_data_len.exit.thread, label %cmsg_min_space.exit.i
 
 cmsg_min_space.exit.i:                            ; preds = %.lr.ph.preheader, %.lr.phthread-pre-split
-  %.val73179 = phi i64 [ %.val73176, %.lr.ph.preheader ], [ %.val73, %.lr.phthread-pre-split ]
-  %.052132178 = phi ptr [ %43, %.lr.ph.preheader ], [ %92, %.lr.phthread-pre-split ]
-  %.val72177 = phi ptr [ %43, %.lr.ph.preheader ], [ %.val72.pr, %.lr.phthread-pre-split ]
-  %45 = ptrtoint ptr %.052132178 to i64
-  %46 = ptrtoint ptr %.val72177 to i64
+  %.val73177 = phi i64 [ %.val73174, %.lr.ph.preheader ], [ %.val73, %.lr.phthread-pre-split ]
+  %.052132176 = phi ptr [ %43, %.lr.ph.preheader ], [ %92, %.lr.phthread-pre-split ]
+  %.val72175 = phi ptr [ %43, %.lr.ph.preheader ], [ %.val72.pr, %.lr.phthread-pre-split ]
+  %45 = ptrtoint ptr %.052132176 to i64
+  %46 = ptrtoint ptr %.val72175 to i64
   %47 = sub i64 %45, %46
   %.not.i.i = icmp ugt i64 %47, -17
   %48 = add i64 %47, 16
-  %49 = icmp ugt i64 %48, %.val73179
+  %49 = icmp ugt i64 %48, %.val73177
   %narrow.i.not.i = select i1 %.not.i.i, i1 true, i1 %49
   br i1 %narrow.i.not.i, label %get_cmsg_data_len.exit.thread, label %50
 
 50:                                               ; preds = %cmsg_min_space.exit.i
-  %51 = load i64, ptr %.052132178, align 8, !tbaa !47
+  %51 = load i64, ptr %.052132176, align 8, !tbaa !47
   %52 = icmp ult i64 %51, 16
   br i1 %52, label %get_cmsg_data_len.exit.thread, label %53
 
 53:                                               ; preds = %50
-  %54 = getelementptr inbounds nuw i8, ptr %.052132178, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %.052132176, i64 16
   %55 = ptrtoint ptr %54 to i64
   %56 = sub i64 %55, %46
-  %57 = icmp ugt i64 %56, %.val73179
+  %57 = icmp ugt i64 %56, %.val73177
   br i1 %57, label %get_cmsg_data_len.exit.thread, label %get_cmsg_data_len.exit
 
 get_cmsg_data_len.exit:                           ; preds = %53
   %58 = add i64 %51, -16
-  %59 = sub nuw i64 %.val73179, %56
+  %59 = sub nuw i64 %.val73177, %56
   %.not14.i.not.not = icmp ult i64 %59, %58
   %..i = call i64 @llvm.umin.i64(i64 %59, i64 %58)
   br i1 %.not14.i.not.not, label %get_cmsg_data_len.exit.thread.thread, label %.thread
@@ -11851,11 +11851,11 @@ get_cmsg_data_len.exit.thread.thread:             ; preds = %get_cmsg_data_len.e
   br label %.thread109
 
 69:                                               ; preds = %.thread
-  %70 = getelementptr inbounds nuw i8, ptr %.052132178, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %.052132176, i64 16
   %71 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %70, i64 noundef %..i) #13
-  %72 = getelementptr inbounds nuw i8, ptr %.052132178, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %.052132176, i64 8
   %73 = load i32, ptr %72, align 8, !tbaa !35
-  %74 = getelementptr inbounds nuw i8, ptr %.052132178, i64 12
+  %74 = getelementptr inbounds nuw i8, ptr %.052132176, i64 12
   %75 = load i32, ptr %74, align 4, !tbaa !35
   %76 = call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.633, i32 noundef %73, i32 noundef %75, ptr noundef %71) #13
   %77 = icmp eq ptr %76, null
@@ -11885,14 +11885,14 @@ Py_DECREF.exit:                                   ; preds = %78, %81, %84
   br i1 %.not14.i.not.not, label %.thread112.loopexit, label %86
 
 86:                                               ; preds = %85
-  %87 = load i64, ptr %.052132178, align 8, !tbaa !47
+  %87 = load i64, ptr %.052132176, align 8, !tbaa !47
   %88 = icmp ult i64 %87, 16
   br i1 %88, label %.thread112.loopexit, label %89
 
 89:                                               ; preds = %86
   %90 = add i64 %87, 7
   %91 = and i64 %90, -8
-  %92 = getelementptr i8, ptr %.052132178, i64 %91
+  %92 = getelementptr i8, ptr %.052132176, i64 %91
   %93 = getelementptr i8, ptr %92, i64 16
   %94 = load ptr, ptr %30, align 8, !tbaa !179
   %95 = load i64, ptr %31, align 8, !tbaa !180
@@ -11959,12 +11959,12 @@ Py_XDECREF.exit:                                  ; preds = %25, %get_cmsg_data_
   %124 = load i64, ptr %31, align 8, !tbaa !180
   %125 = icmp ult i64 %124, 16
   %126 = load ptr, ptr %30, align 8
-  %.not69138162175 = icmp eq ptr %126, null
-  %.not69138 = select i1 %125, i1 true, i1 %.not69138162175
+  %.not69138162 = icmp eq ptr %126, null
+  %.not69138 = select i1 %125, i1 true, i1 %.not69138162
   br i1 %.not69138, label %get_cmsg_data_len.exit87.thread, label %.lr.ph140.preheader
 
 .lr.ph140.preheader:                              ; preds = %.thread109
-  %.val75180 = load i64, ptr %31, align 8
+  %.val75178 = load i64, ptr %31, align 8
   br label %cmsg_min_space.exit.i79
 
 .lr.ph140thread-pre-split:                        ; preds = %167
@@ -11974,42 +11974,42 @@ Py_XDECREF.exit:                                  ; preds = %25, %get_cmsg_data_
   br i1 %127, label %get_cmsg_data_len.exit87.thread, label %cmsg_min_space.exit.i79
 
 cmsg_min_space.exit.i79:                          ; preds = %.lr.ph140.preheader, %.lr.ph140thread-pre-split
-  %.val75183 = phi i64 [ %.val75180, %.lr.ph140.preheader ], [ %.val75, %.lr.ph140thread-pre-split ]
-  %.153139182 = phi ptr [ %126, %.lr.ph140.preheader ], [ %161, %.lr.ph140thread-pre-split ]
-  %.val74181 = phi ptr [ %126, %.lr.ph140.preheader ], [ %.val74.pr, %.lr.ph140thread-pre-split ]
-  %128 = ptrtoint ptr %.153139182 to i64
-  %129 = ptrtoint ptr %.val74181 to i64
+  %.val75181 = phi i64 [ %.val75178, %.lr.ph140.preheader ], [ %.val75, %.lr.ph140thread-pre-split ]
+  %.153139180 = phi ptr [ %126, %.lr.ph140.preheader ], [ %161, %.lr.ph140thread-pre-split ]
+  %.val74179 = phi ptr [ %126, %.lr.ph140.preheader ], [ %.val74.pr, %.lr.ph140thread-pre-split ]
+  %128 = ptrtoint ptr %.153139180 to i64
+  %129 = ptrtoint ptr %.val74179 to i64
   %130 = sub i64 %128, %129
   %.not.i.i80 = icmp ugt i64 %130, -17
   %131 = add i64 %130, 16
-  %132 = icmp ugt i64 %131, %.val75183
+  %132 = icmp ugt i64 %131, %.val75181
   %narrow.i.not.i81 = select i1 %.not.i.i80, i1 true, i1 %132
   br i1 %narrow.i.not.i81, label %get_cmsg_data_len.exit87.thread, label %133
 
 133:                                              ; preds = %cmsg_min_space.exit.i79
-  %134 = load i64, ptr %.153139182, align 8, !tbaa !47
+  %134 = load i64, ptr %.153139180, align 8, !tbaa !47
   %135 = icmp ult i64 %134, 16
   br i1 %135, label %get_cmsg_data_len.exit87.thread, label %136
 
 136:                                              ; preds = %133
-  %137 = getelementptr inbounds nuw i8, ptr %.153139182, i64 16
+  %137 = getelementptr inbounds nuw i8, ptr %.153139180, i64 16
   %138 = ptrtoint ptr %137 to i64
   %139 = sub i64 %138, %129
-  %140 = icmp ugt i64 %139, %.val75183
+  %140 = icmp ugt i64 %139, %.val75181
   br i1 %140, label %get_cmsg_data_len.exit87.thread, label %get_cmsg_data_len.exit87
 
 get_cmsg_data_len.exit87:                         ; preds = %136
   %141 = add i64 %134, -16
-  %142 = sub nuw i64 %.val75183, %139
+  %142 = sub nuw i64 %.val75181, %139
   %.not14.i83.not = icmp ult i64 %142, %141
-  %143 = getelementptr inbounds nuw i8, ptr %.153139182, i64 8
+  %143 = getelementptr inbounds nuw i8, ptr %.153139180, i64 8
   %144 = load i32, ptr %143, align 8, !tbaa !35
   %145 = icmp eq i32 %144, 1
   br i1 %145, label %146, label %.loopexit
 
 146:                                              ; preds = %get_cmsg_data_len.exit87
   %..i84 = call i64 @llvm.umin.i64(i64 %142, i64 %141)
-  %147 = getelementptr inbounds nuw i8, ptr %.153139182, i64 12
+  %147 = getelementptr inbounds nuw i8, ptr %.153139180, i64 12
   %148 = load i32, ptr %147, align 4, !tbaa !35
   %149 = icmp ne i32 %148, 1
   %150 = lshr i64 %..i84, 2
@@ -12031,14 +12031,14 @@ get_cmsg_data_len.exit87:                         ; preds = %136
   br i1 %.not14.i83.not, label %get_cmsg_data_len.exit87.thread, label %155
 
 155:                                              ; preds = %.loopexit
-  %156 = load i64, ptr %.153139182, align 8, !tbaa !47
+  %156 = load i64, ptr %.153139180, align 8, !tbaa !47
   %157 = icmp ult i64 %156, 16
   br i1 %157, label %get_cmsg_data_len.exit87.thread, label %158
 
 158:                                              ; preds = %155
   %159 = add i64 %156, 7
   %160 = and i64 %159, -8
-  %161 = getelementptr i8, ptr %.153139182, i64 %160
+  %161 = getelementptr i8, ptr %.153139180, i64 %160
   %162 = getelementptr i8, ptr %161, i64 16
   %163 = load ptr, ptr %30, align 8, !tbaa !179
   %164 = load i64, ptr %31, align 8, !tbaa !180

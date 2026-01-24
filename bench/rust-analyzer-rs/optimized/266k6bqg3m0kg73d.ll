@@ -1138,13 +1138,13 @@ define hidden { ptr, ptr } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   %7 = load ptr, ptr %6, align 8, !noalias !229
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %9 = load ptr, ptr %8, align 8, !noalias !229
-  %.sroa.3.0.i = select i1 %trunc.i, ptr %9, ptr undef
   %.sroa.0.0.i = select i1 %trunc.i, ptr %7, ptr null
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !229
-  %10 = icmp eq ptr %.sroa.0.0.i, null
-  %spec.select = select i1 %10, ptr undef, ptr %.sroa.3.0.i
+  %10 = icmp ne ptr %.sroa.0.0.i, null
+  %.not2 = and i1 %10, %trunc.i
+  %. = select i1 %.not2, ptr %9, ptr undef
   %11 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
-  %12 = insertvalue { ptr, ptr } %11, ptr %spec.select, 1
+  %12 = insertvalue { ptr, ptr } %11, ptr %., 1
   ret { ptr, ptr } %12
 }
 
@@ -1241,13 +1241,13 @@ define hidden { ptr, ptr } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   %7 = load ptr, ptr %6, align 8, !noalias !273
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %9 = load ptr, ptr %8, align 8, !noalias !273
-  %.sroa.3.0.i = select i1 %trunc.i, ptr %9, ptr undef
   %.sroa.0.0.i = select i1 %trunc.i, ptr %7, ptr null
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !273
-  %10 = icmp eq ptr %.sroa.0.0.i, null
-  %spec.select = select i1 %10, ptr undef, ptr %.sroa.3.0.i
+  %10 = icmp ne ptr %.sroa.0.0.i, null
+  %.not2 = and i1 %10, %trunc.i
+  %. = select i1 %.not2, ptr %9, ptr undef
   %11 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
-  %12 = insertvalue { ptr, ptr } %11, ptr %spec.select, 1
+  %12 = insertvalue { ptr, ptr } %11, ptr %., 1
   ret { ptr, ptr } %12
 }
 
@@ -1707,13 +1707,13 @@ define hidden { ptr, ptr } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   %7 = load ptr, ptr %6, align 8, !noalias !421
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %9 = load ptr, ptr %8, align 8, !noalias !421
-  %.sroa.3.0.i = select i1 %trunc.i, ptr %9, ptr undef
   %.sroa.0.0.i = select i1 %trunc.i, ptr %7, ptr null
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !421
-  %10 = icmp eq ptr %.sroa.0.0.i, null
-  %spec.select = select i1 %10, ptr undef, ptr %.sroa.3.0.i
+  %10 = icmp ne ptr %.sroa.0.0.i, null
+  %.not2 = and i1 %10, %trunc.i
+  %. = select i1 %.not2, ptr %9, ptr undef
   %11 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
-  %12 = insertvalue { ptr, ptr } %11, ptr %spec.select, 1
+  %12 = insertvalue { ptr, ptr } %11, ptr %., 1
   ret { ptr, ptr } %12
 }
 

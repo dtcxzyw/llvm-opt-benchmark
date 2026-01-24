@@ -576,8 +576,8 @@ _ZN5boost4urls6detail19get_width_from_argsEmNS_4core17basic_string_viewIcEENS1_1
   br i1 %.not21.i, label %_ZN5boost4urls12encoded_sizeINS0_7grammar9lut_charsEEEmNS_4core17basic_string_viewIcEERKT_NS0_13encoding_optsE.exit, label %.lr.ph.i, !llvm.loop !79
 
 .lr.ph32.i:                                       ; preds = %.preheader.i, %.lr.ph32.i
-  %.331.i = phi i64 [ %70, %.lr.ph32.i ], [ 0, %.preheader.i ]
-  %.12030.i = phi ptr [ %71, %.lr.ph32.i ], [ %1, %.preheader.i ]
+  %.331.i = phi i64 [ %71, %.lr.ph32.i ], [ 0, %.preheader.i ]
+  %.12030.i = phi ptr [ %72, %.lr.ph32.i ], [ %1, %.preheader.i ]
   %60 = load i8, ptr %.12030.i, align 1, !tbaa !23
   %61 = and i8 %60, 3
   %62 = zext nneg i8 %61 to i64
@@ -588,18 +588,18 @@ _ZN5boost4urls6detail19get_width_from_argsEmNS_4core17basic_string_viewIcEENS1_1
   %67 = shl nuw i64 1, %66
   %68 = and i64 %67, %64
   %.not23.i = icmp eq i64 %68, 0
-  %69 = icmp eq i8 %60, 32
-  %..i = select i1 %69, i64 1, i64 3
-  %.sink.i = select i1 %.not23.i, i64 %..i, i64 1
-  %70 = add i64 %.sink.i, %.331.i
-  %71 = getelementptr inbounds nuw i8, ptr %.12030.i, i64 1
-  %.not.i12 = icmp eq ptr %71, %44
+  %69 = icmp ne i8 %60, 32
+  %70 = and i1 %69, %.not23.i
+  %.sink.i = select i1 %70, i64 3, i64 1
+  %71 = add i64 %.sink.i, %.331.i
+  %72 = getelementptr inbounds nuw i8, ptr %.12030.i, i64 1
+  %.not.i12 = icmp eq ptr %72, %44
   br i1 %.not.i12, label %_ZN5boost4urls12encoded_sizeINS0_7grammar9lut_charsEEEmNS_4core17basic_string_viewIcEERKT_NS0_13encoding_optsE.exit, label %.lr.ph32.i, !llvm.loop !80
 
 _ZN5boost4urls12encoded_sizeINS0_7grammar9lut_charsEEEmNS_4core17basic_string_viewIcEERKT_NS0_13encoding_optsE.exit: ; preds = %.lr.ph.i, %.lr.ph32.i, %.preheader.i, %49
-  %.2.i = phi i64 [ %70, %.lr.ph32.i ], [ 0, %.preheader.i ], [ 0, %49 ], [ %.1.i, %.lr.ph.i ]
-  %72 = add i64 %.2.i, %.0
-  ret i64 %72
+  %.2.i = phi i64 [ %71, %.lr.ph32.i ], [ 0, %.preheader.i ], [ 0, %49 ], [ %.1.i, %.lr.ph.i ]
+  %73 = add i64 %.2.i, %.0
+  ret i64 %73
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable

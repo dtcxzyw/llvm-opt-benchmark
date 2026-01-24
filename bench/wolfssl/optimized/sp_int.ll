@@ -284,44 +284,45 @@ define range(i32 -98, 1) i32 @sp_copy(ptr noundef readonly captures(address) %0,
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond.not.not20 = or i1 %3, %4
-  %spec.store.select = select i1 %or.cond.not.not20, i32 -98, i32 0
   %.not = icmp eq ptr %0, %1
   %brmerge = or i1 %.not, %or.cond.not.not20
-  %spec.store.select.mux = select i1 %.not, i32 %spec.store.select, i32 -98
-  br i1 %brmerge, label %.thread16, label %5
+  %5 = xor i1 %or.cond.not.not20, true
+  %6 = and i1 %.not, %5
+  %spec.store.select.mux = select i1 %6, i32 0, i32 -98
+  br i1 %brmerge, label %.thread16, label %7
 
-5:                                                ; preds = %2
-  %6 = load i16, ptr %0, align 8, !tbaa !12
-  %7 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  %8 = load i16, ptr %7, align 2, !tbaa !10
-  %9 = icmp ugt i16 %6, %8
-  br i1 %9, label %.thread16, label %.thread
+7:                                                ; preds = %2
+  %8 = load i16, ptr %0, align 8, !tbaa !12
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 2
+  %10 = load i16, ptr %9, align 2, !tbaa !10
+  %11 = icmp ugt i16 %8, %10
+  br i1 %11, label %.thread16, label %.thread
 
-.thread:                                          ; preds = %5
-  %10 = icmp eq i16 %6, 0
-  br i1 %10, label %11, label %13
-
-11:                                               ; preds = %.thread
-  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i64 0, ptr %12, align 8, !tbaa !8
-  br label %_sp_copy.exit
+.thread:                                          ; preds = %7
+  %12 = icmp eq i16 %8, 0
+  br i1 %12, label %13, label %15
 
 13:                                               ; preds = %.thread
-  %14 = zext i16 %6 to i64
-  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %17 = shl nuw nsw i64 %14, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %15, ptr nonnull readonly align 8 %16, i64 %17, i1 false)
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i64 0, ptr %14, align 8, !tbaa !8
+  br label %_sp_copy.exit
+
+15:                                               ; preds = %.thread
+  %16 = zext i16 %8 to i64
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %19 = shl nuw nsw i64 %16, 3
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %17, ptr nonnull readonly align 8 %18, i64 %19, i1 false)
   %.pre.i = load i16, ptr %0, align 8, !tbaa !12
   br label %_sp_copy.exit
 
-_sp_copy.exit:                                    ; preds = %11, %13
-  %18 = phi i16 [ %.pre.i, %13 ], [ 0, %11 ]
-  store i16 %18, ptr %1, align 8, !tbaa !12
+_sp_copy.exit:                                    ; preds = %13, %15
+  %20 = phi i16 [ %.pre.i, %15 ], [ 0, %13 ]
+  store i16 %20, ptr %1, align 8, !tbaa !12
   br label %.thread16
 
-.thread16:                                        ; preds = %2, %5, %_sp_copy.exit
-  %.0 = phi i32 [ 0, %_sp_copy.exit ], [ -98, %5 ], [ %spec.store.select.mux, %2 ]
+.thread16:                                        ; preds = %2, %7, %_sp_copy.exit
+  %.0 = phi i32 [ 0, %_sp_copy.exit ], [ -98, %7 ], [ %spec.store.select.mux, %2 ]
   ret i32 %.0
 }
 
@@ -337,10 +338,9 @@ define range(i32 -98, 1) i32 @sp_init_copy(ptr noundef writeonly captures(addres
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 2
   store i16 129, ptr %6, align 2, !tbaa !10
   %7 = icmp eq ptr %1, null
-  %spec.store.select.i = select i1 %7, i32 -98, i32 0
   %.not.i = icmp eq ptr %1, %0
   %brmerge.i = or i1 %.not.i, %7
-  %spec.store.select.mux.i = select i1 %.not.i, i32 %spec.store.select.i, i32 -98
+  %spec.store.select.mux.i = select i1 %.not.i, i32 0, i32 -98
   br i1 %brmerge.i, label %sp_init.exit, label %8
 
 8:                                                ; preds = %4
@@ -9067,55 +9067,55 @@ sp_count_bits.exit:                               ; preds = %11, %.lr.ph36.i, %7
 
 44:                                               ; preds = %sp_count_bits.exit
   %45 = icmp ne ptr %3, null
-  %.not.i50 = icmp ne ptr %0, %3
-  %or.cond.not66 = and i1 %.not.i50, %45
-  br i1 %or.cond.not66, label %46, label %sp_copy.exit57.thread
+  %.not.i49 = icmp ne ptr %0, %3
+  %or.cond.not65 = and i1 %.not.i49, %45
+  br i1 %or.cond.not65, label %46, label %sp_copy.exit56.thread
 
 46:                                               ; preds = %44
   %47 = getelementptr inbounds nuw i8, ptr %3, i64 2
   %48 = load i16, ptr %47, align 2, !tbaa !10
   %49 = icmp ugt i16 %8, %48
-  br i1 %49, label %sp_copy.exit, label %.thread.i53
+  br i1 %49, label %sp_copy.exit, label %.thread.i52
 
-.thread.i53:                                      ; preds = %46
+.thread.i52:                                      ; preds = %46
   br i1 %.not25.i, label %50, label %52
 
-50:                                               ; preds = %.thread.i53
+50:                                               ; preds = %.thread.i52
   %51 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 0, ptr %51, align 8, !tbaa !8
-  br label %_sp_copy.exit.i55
+  br label %_sp_copy.exit.i54
 
-52:                                               ; preds = %.thread.i53
+52:                                               ; preds = %.thread.i52
   %53 = zext i16 %8 to i64
   %54 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %56 = shl nuw nsw i64 %53, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %54, ptr nonnull readonly align 8 %55, i64 %56, i1 false)
-  %.pre.i.i54 = load i16, ptr %0, align 8, !tbaa !12
-  br label %_sp_copy.exit.i55
+  %.pre.i.i53 = load i16, ptr %0, align 8, !tbaa !12
+  br label %_sp_copy.exit.i54
 
-_sp_copy.exit.i55:                                ; preds = %52, %50
-  %57 = phi i16 [ %.pre.i.i54, %52 ], [ 0, %50 ]
+_sp_copy.exit.i54:                                ; preds = %52, %50
+  %57 = phi i16 [ %.pre.i.i53, %52 ], [ 0, %50 ]
   store i16 %57, ptr %3, align 8, !tbaa !12
   %.pre = load i16, ptr %0, align 8, !tbaa !12
-  br label %sp_copy.exit57.thread
+  br label %sp_copy.exit56.thread
 
-sp_copy.exit57.thread:                            ; preds = %44, %_sp_copy.exit.i55
-  %58 = phi i16 [ %8, %44 ], [ %.pre, %_sp_copy.exit.i55 ]
+sp_copy.exit56.thread:                            ; preds = %44, %_sp_copy.exit.i54
+  %58 = phi i16 [ %8, %44 ], [ %.pre, %_sp_copy.exit.i54 ]
   %59 = lshr i32 %1, 6
   %60 = trunc i32 %59 to i16
   %61 = and i32 %59, 65535
   %62 = zext i16 %58 to i32
-  %.not.i58 = icmp samesign ult i32 %61, %62
-  br i1 %.not.i58, label %65, label %63
+  %.not.i57 = icmp samesign ult i32 %61, %62
+  br i1 %.not.i57, label %65, label %63
 
-63:                                               ; preds = %sp_copy.exit57.thread
+63:                                               ; preds = %sp_copy.exit56.thread
   store i16 0, ptr %2, align 8, !tbaa !3
   %64 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 0, ptr %64, align 8, !tbaa !8
   br label %sp_rshb.exit
 
-65:                                               ; preds = %sp_copy.exit57.thread
+65:                                               ; preds = %sp_copy.exit56.thread
   %66 = sub nuw nsw i32 %62, %61
   %67 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %68 = load i16, ptr %67, align 2, !tbaa !10
@@ -9126,18 +9126,18 @@ sp_copy.exit57.thread:                            ; preds = %44, %_sp_copy.exit.
 71:                                               ; preds = %65
   %72 = and i32 %1, 63
   %73 = icmp eq i32 %72, 0
-  br i1 %73, label %81, label %.preheader.i59
+  br i1 %73, label %81, label %.preheader.i58
 
-.preheader.i59:                                   ; preds = %71
+.preheader.i58:                                   ; preds = %71
   %74 = add nsw i32 %62, -1
   %75 = icmp samesign ugt i32 %74, %61
   br i1 %75, label %.lr.ph.i, label %.preheader.._crit_edge_crit_edge.i
 
-.preheader.._crit_edge_crit_edge.i:               ; preds = %.preheader.i59
+.preheader.._crit_edge_crit_edge.i:               ; preds = %.preheader.i58
   %.pre.i = zext nneg i32 %72 to i64
   br label %._crit_edge.i
 
-.lr.ph.i:                                         ; preds = %.preheader.i59
+.lr.ph.i:                                         ; preds = %.preheader.i58
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %77 = zext nneg i32 %72 to i64
   %78 = sub nuw nsw i32 64, %72
@@ -9251,14 +9251,14 @@ sp_rshb.exit:                                     ; preds = %._crit_edge.i, %90,
   %141 = getelementptr i64, ptr %3, i64 %indvars.iv
   %142 = load i64, ptr %141, align 8, !tbaa !8
   %143 = icmp eq i64 %142, 0
-  br i1 %143, label %138, label %.critedge.split.loop.exit90, !llvm.loop !98
+  br i1 %143, label %138, label %.critedge.split.loop.exit89, !llvm.loop !98
 
-.critedge.split.loop.exit90:                      ; preds = %140
+.critedge.split.loop.exit89:                      ; preds = %140
   %144 = trunc i64 %indvars.iv to i16
   br label %sp_copy.exit.sink.split
 
-sp_copy.exit.sink.split:                          ; preds = %138, %.critedge.split.loop.exit90, %37, %39
-  %.sink = phi i16 [ 0, %37 ], [ %.pre.i.i, %39 ], [ %144, %.critedge.split.loop.exit90 ], [ 0, %138 ]
+sp_copy.exit.sink.split:                          ; preds = %138, %.critedge.split.loop.exit89, %37, %39
+  %.sink = phi i16 [ 0, %37 ], [ %.pre.i.i, %39 ], [ %144, %.critedge.split.loop.exit89 ], [ 0, %138 ]
   store i16 %.sink, ptr %3, align 8, !tbaa !12
   br label %sp_copy.exit
 

@@ -2471,62 +2471,62 @@ define internal void @rgbtest_fill_picture_complement(ptr noundef readonly captu
   br i1 %10, label %.preheader.us, label %._crit_edge53
 
 .preheader.us:                                    ; preds = %.preheader.lr.ph, %._crit_edge.us
-  %.04451.us = phi i32 [ %33, %._crit_edge.us ], [ 0, %.preheader.lr.ph ]
+  %.04451.us = phi i32 [ %34, %._crit_edge.us ], [ 0, %.preheader.lr.ph ]
   %19 = mul nuw nsw i32 %.04451.us, 6
   %20 = icmp slt i32 %19, %6
-  %21 = icmp samesign ult i32 %19, %12
-  %22 = icmp samesign ult i32 %19, %13
-  %23 = icmp slt i32 %19, %14
-  %24 = icmp samesign ult i32 %19, %15
+  %21 = icmp slt i32 %19, %14
+  %22 = icmp samesign ult i32 %19, %15
   br i1 %20, label %.lr.ph.split.us.us, label %.lr.ph.split.us57.preheader
 
 .lr.ph.split.us57.preheader:                      ; preds = %.preheader.us
-  %brmerge = select i1 %21, i1 true, i1 %22
-  %brmerge58 = select i1 %brmerge, i1 true, i1 %23
+  %23 = icmp samesign ult i32 %19, %13
+  %24 = icmp samesign ult i32 %19, %12
+  %brmerge = select i1 %24, i1 true, i1 %23
+  %brmerge58 = select i1 %brmerge, i1 true, i1 %21
+  %25 = xor i1 %24, %brmerge
   br label %.lr.ph.split.us57
 
 .lr.ph.split.us57:                                ; preds = %.lr.ph.split.us57.preheader, %.lr.ph.split.us57
-  %.04350.us54 = phi i32 [ %32, %.lr.ph.split.us57 ], [ 0, %.lr.ph.split.us57.preheader ]
-  %25 = load i32, ptr %11, align 8, !tbaa !108
-  %spec.select.us55 = tail call i32 @llvm.smax.i32(i32 %25, i32 8)
-  %26 = shl i32 %.04350.us54, %spec.select.us55
-  %27 = sdiv i32 %26, %4
-  %.mux = select i1 %22, i32 0, i32 %27
-  %.mux.mux = select i1 %21, i32 %27, i32 %.mux
-  %..us = select i1 %24, i32 0, i32 %27
-  %.49.us = select i1 %24, i32 %27, i32 0
-  %.mux59 = select i1 %23, i32 %27, i32 %..us
+  %.04350.us54 = phi i32 [ %33, %.lr.ph.split.us57 ], [ 0, %.lr.ph.split.us57.preheader ]
+  %26 = load i32, ptr %11, align 8, !tbaa !108
+  %spec.select.us55 = tail call i32 @llvm.smax.i32(i32 %26, i32 8)
+  %27 = shl i32 %.04350.us54, %spec.select.us55
+  %28 = sdiv i32 %27, %4
+  %.mux.mux = select i1 %25, i32 0, i32 %28
+  %..us = select i1 %22, i32 0, i32 %28
+  %.49.us = select i1 %22, i32 %28, i32 0
+  %.mux59 = select i1 %21, i32 %28, i32 %..us
   %.042.us = select i1 %brmerge, i32 0, i32 %.mux59
-  %.mux60 = select i1 %23, i32 0, i32 %..us
-  %.041.us = select i1 %brmerge, i32 %27, i32 %.mux60
+  %.mux60 = select i1 %21, i32 0, i32 %..us
+  %.041.us = select i1 %brmerge, i32 %28, i32 %.mux60
   %.0.us = select i1 %brmerge58, i32 %.mux.mux, i32 %.49.us
-  %28 = load ptr, ptr %17, align 8, !tbaa !30
-  %29 = load ptr, ptr %28, align 8, !tbaa !31
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 36
-  %31 = load i32, ptr %30, align 4, !tbaa !61
-  tail call fastcc void @rgbtest_put_pixel(ptr noundef %1, ptr noundef nonnull %16, i32 noundef %.04350.us54, i32 noundef %.04451.us, i32 noundef %.042.us, i32 noundef %.041.us, i32 noundef %.0.us, i32 noundef %27, i32 noundef %31, ptr noundef nonnull %18)
-  %32 = add nuw nsw i32 %.04350.us54, 1
-  %exitcond.not = icmp eq i32 %32, %4
+  %29 = load ptr, ptr %17, align 8, !tbaa !30
+  %30 = load ptr, ptr %29, align 8, !tbaa !31
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 36
+  %32 = load i32, ptr %31, align 4, !tbaa !61
+  tail call fastcc void @rgbtest_put_pixel(ptr noundef %1, ptr noundef nonnull %16, i32 noundef %.04350.us54, i32 noundef %.04451.us, i32 noundef %.042.us, i32 noundef %.041.us, i32 noundef %.0.us, i32 noundef %28, i32 noundef %32, ptr noundef nonnull %18)
+  %33 = add nuw nsw i32 %.04350.us54, 1
+  %exitcond.not = icmp eq i32 %33, %4
   br i1 %exitcond.not, label %._crit_edge.us, label %.lr.ph.split.us57, !llvm.loop !109
 
 ._crit_edge.us:                                   ; preds = %.lr.ph.split.us57, %.lr.ph.split.us.us
-  %33 = add nuw nsw i32 %.04451.us, 1
-  %exitcond64.not = icmp eq i32 %33, %6
+  %34 = add nuw nsw i32 %.04451.us, 1
+  %exitcond64.not = icmp eq i32 %34, %6
   br i1 %exitcond64.not, label %._crit_edge53, label %.preheader.us, !llvm.loop !110
 
 .lr.ph.split.us.us:                               ; preds = %.preheader.us, %.lr.ph.split.us.us
-  %.04350.us.us = phi i32 [ %41, %.lr.ph.split.us.us ], [ 0, %.preheader.us ]
-  %34 = load i32, ptr %11, align 8, !tbaa !108
-  %spec.select.us.us = tail call i32 @llvm.smax.i32(i32 %34, i32 8)
-  %35 = shl i32 %.04350.us.us, %spec.select.us.us
-  %36 = sdiv i32 %35, %4
-  %37 = load ptr, ptr %17, align 8, !tbaa !30
-  %38 = load ptr, ptr %37, align 8, !tbaa !31
-  %39 = getelementptr inbounds nuw i8, ptr %38, i64 36
-  %40 = load i32, ptr %39, align 4, !tbaa !61
-  tail call fastcc void @rgbtest_put_pixel(ptr noundef nonnull %1, ptr noundef nonnull %16, i32 noundef %.04350.us.us, i32 noundef %.04451.us, i32 noundef %36, i32 noundef 0, i32 noundef 0, i32 noundef %36, i32 noundef %40, ptr noundef nonnull %18)
-  %41 = add nuw nsw i32 %.04350.us.us, 1
-  %exitcond63.not = icmp eq i32 %41, %4
+  %.04350.us.us = phi i32 [ %42, %.lr.ph.split.us.us ], [ 0, %.preheader.us ]
+  %35 = load i32, ptr %11, align 8, !tbaa !108
+  %spec.select.us.us = tail call i32 @llvm.smax.i32(i32 %35, i32 8)
+  %36 = shl i32 %.04350.us.us, %spec.select.us.us
+  %37 = sdiv i32 %36, %4
+  %38 = load ptr, ptr %17, align 8, !tbaa !30
+  %39 = load ptr, ptr %38, align 8, !tbaa !31
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 36
+  %41 = load i32, ptr %40, align 4, !tbaa !61
+  tail call fastcc void @rgbtest_put_pixel(ptr noundef nonnull %1, ptr noundef nonnull %16, i32 noundef %.04350.us.us, i32 noundef %.04451.us, i32 noundef %37, i32 noundef 0, i32 noundef 0, i32 noundef %37, i32 noundef %41, ptr noundef nonnull %18)
+  %42 = add nuw nsw i32 %.04350.us.us, 1
+  %exitcond63.not = icmp eq i32 %42, %4
   br i1 %exitcond63.not, label %._crit_edge.us, label %.lr.ph.split.us.us, !llvm.loop !109
 
 ._crit_edge53:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %2
@@ -2548,57 +2548,54 @@ define internal void @rgbtest_fill_picture(ptr noundef readonly captures(none) %
   %9 = load ptr, ptr %8, align 8, !tbaa !4
   %10 = icmp sgt i32 %4, 0
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 320
-  %12 = shl nuw i32 %.fr, 1
+  %12 = shl nuw nsw i32 %.fr, 1
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 312
   br i1 %10, label %.preheader.us, label %._crit_edge41
 
 .preheader.us:                                    ; preds = %.preheader.lr.ph, %._crit_edge.us
-  %.03239.us = phi i32 [ %28, %._crit_edge.us ], [ 0, %.preheader.lr.ph ]
+  %.03239.us = phi i32 [ %26, %._crit_edge.us ], [ 0, %.preheader.lr.ph ]
   %16 = mul i32 %.03239.us, 3
   %17 = icmp slt i32 %16, %.fr
-  %18 = icmp ult i32 %16, %12
-  %19 = or i1 %17, %18
-  br i1 %18, label %.lr.ph.split.us.us, label %.lr.ph.split.us47
+  %.not = icmp samesign ult i32 %16, %12
+  br i1 %17, label %.lr.ph.split.us.us, label %.lr.ph.split.us47
 
 .lr.ph.split.us47:                                ; preds = %.preheader.us, %.lr.ph.split.us47
-  %.03138.us42 = phi i32 [ %27, %.lr.ph.split.us47 ], [ 0, %.preheader.us ]
-  %20 = load i32, ptr %11, align 8, !tbaa !108
-  %spec.select.us43 = tail call i32 @llvm.smax.i32(i32 %20, i32 8)
-  %21 = shl i32 %.03138.us42, %spec.select.us43
-  %22 = sdiv i32 %21, %4
-  %.030.us44 = select i1 %17, i32 %22, i32 0
-  %.0.us45 = select i1 %19, i32 0, i32 %22
-  %23 = load ptr, ptr %14, align 8, !tbaa !30
-  %24 = load ptr, ptr %23, align 8, !tbaa !31
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 36
-  %26 = load i32, ptr %25, align 4, !tbaa !61
-  tail call fastcc void @rgbtest_put_pixel(ptr noundef %1, ptr noundef nonnull %13, i32 noundef %.03138.us42, i32 noundef %.03239.us, i32 noundef %.030.us44, i32 noundef 0, i32 noundef %.0.us45, i32 noundef %22, i32 noundef %26, ptr noundef nonnull %15)
-  %27 = add nuw nsw i32 %.03138.us42, 1
-  %exitcond.not = icmp eq i32 %27, %4
+  %.03138.us42 = phi i32 [ %25, %.lr.ph.split.us47 ], [ 0, %.preheader.us ]
+  %18 = load i32, ptr %11, align 8, !tbaa !108
+  %spec.select.us43 = tail call i32 @llvm.smax.i32(i32 %18, i32 8)
+  %19 = shl i32 %.03138.us42, %spec.select.us43
+  %20 = sdiv i32 %19, %4
+  %.029.us44 = select i1 %.not, i32 %20, i32 0
+  %.0.us45 = select i1 %.not, i32 0, i32 %20
+  %21 = load ptr, ptr %14, align 8, !tbaa !30
+  %22 = load ptr, ptr %21, align 8, !tbaa !31
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 36
+  %24 = load i32, ptr %23, align 4, !tbaa !61
+  tail call fastcc void @rgbtest_put_pixel(ptr noundef %1, ptr noundef nonnull %13, i32 noundef %.03138.us42, i32 noundef %.03239.us, i32 noundef 0, i32 noundef %.029.us44, i32 noundef %.0.us45, i32 noundef %20, i32 noundef %24, ptr noundef nonnull %15)
+  %25 = add nuw nsw i32 %.03138.us42, 1
+  %exitcond.not = icmp eq i32 %25, %4
   br i1 %exitcond.not, label %._crit_edge.us, label %.lr.ph.split.us47, !llvm.loop !111
 
 ._crit_edge.us:                                   ; preds = %.lr.ph.split.us47, %.lr.ph.split.us.us
-  %28 = add nuw nsw i32 %.03239.us, 1
-  %exitcond51.not = icmp eq i32 %28, %.fr
+  %26 = add nuw nsw i32 %.03239.us, 1
+  %exitcond51.not = icmp eq i32 %26, %.fr
   br i1 %exitcond51.not, label %._crit_edge41, label %.preheader.us, !llvm.loop !112
 
 .lr.ph.split.us.us:                               ; preds = %.preheader.us, %.lr.ph.split.us.us
-  %.03138.us.us = phi i32 [ %36, %.lr.ph.split.us.us ], [ 0, %.preheader.us ]
-  %29 = load i32, ptr %11, align 8, !tbaa !108
-  %spec.select.us.us = tail call i32 @llvm.smax.i32(i32 %29, i32 8)
-  %30 = shl i32 %.03138.us.us, %spec.select.us.us
-  %31 = sdiv i32 %30, %4
-  %.030.us.us = select i1 %17, i32 %31, i32 0
-  %.029.us.us = select i1 %17, i32 0, i32 %31
-  %32 = load ptr, ptr %14, align 8, !tbaa !30
-  %33 = load ptr, ptr %32, align 8, !tbaa !31
-  %34 = getelementptr inbounds nuw i8, ptr %33, i64 36
-  %35 = load i32, ptr %34, align 4, !tbaa !61
-  tail call fastcc void @rgbtest_put_pixel(ptr noundef nonnull %1, ptr noundef nonnull %13, i32 noundef %.03138.us.us, i32 noundef %.03239.us, i32 noundef %.030.us.us, i32 noundef %.029.us.us, i32 noundef 0, i32 noundef %31, i32 noundef %35, ptr noundef nonnull %15)
-  %36 = add nuw nsw i32 %.03138.us.us, 1
-  %exitcond50.not = icmp eq i32 %36, %4
+  %.03138.us.us = phi i32 [ %34, %.lr.ph.split.us.us ], [ 0, %.preheader.us ]
+  %27 = load i32, ptr %11, align 8, !tbaa !108
+  %spec.select.us.us = tail call i32 @llvm.smax.i32(i32 %27, i32 8)
+  %28 = shl i32 %.03138.us.us, %spec.select.us.us
+  %29 = sdiv i32 %28, %4
+  %30 = load ptr, ptr %14, align 8, !tbaa !30
+  %31 = load ptr, ptr %30, align 8, !tbaa !31
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 36
+  %33 = load i32, ptr %32, align 4, !tbaa !61
+  tail call fastcc void @rgbtest_put_pixel(ptr noundef nonnull %1, ptr noundef nonnull %13, i32 noundef %.03138.us.us, i32 noundef %.03239.us, i32 noundef %29, i32 noundef 0, i32 noundef 0, i32 noundef %29, i32 noundef %33, ptr noundef nonnull %15)
+  %34 = add nuw nsw i32 %.03138.us.us, 1
+  %exitcond50.not = icmp eq i32 %34, %4
   br i1 %exitcond50.not, label %._crit_edge.us, label %.lr.ph.split.us.us, !llvm.loop !111
 
 ._crit_edge41:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %2
@@ -3105,431 +3102,432 @@ define internal void @yuvtest_fill_picture(ptr noundef readonly captures(none) %
   br i1 %20, label %.preheader.us, label %._crit_edge44
 
 .preheader.us:                                    ; preds = %.preheader.lr.ph, %._crit_edge.us
-  %.03743.us = phi i32 [ %359, %._crit_edge.us ], [ 0, %.preheader.lr.ph ]
+  %.03743.us = phi i32 [ %361, %._crit_edge.us ], [ 0, %.preheader.lr.ph ]
   %33 = mul nuw nsw i32 %.03743.us, 3
   %34 = icmp slt i32 %33, %8
-  %35 = icmp samesign ult i32 %33, %21
+  %35 = icmp samesign uge i32 %33, %21
   %36 = select i1 %34, i1 true, i1 %35
-  br label %37
+  %37 = xor i1 %35, true
+  %38 = select i1 %34, i1 true, i1 %37
+  br label %39
 
-37:                                               ; preds = %.preheader.us, %yuvtest_put_pixel.exit.us
-  %.03642.us = phi i32 [ 0, %.preheader.us ], [ %358, %yuvtest_put_pixel.exit.us ]
-  %38 = shl i32 %.03642.us, %16
-  %39 = sdiv i32 %38, %6
-  %..us = select i1 %35, i32 %39, i32 %18
-  %.035.us = select i1 %34, i32 %39, i32 %18
-  %.034.us = select i1 %34, i32 %18, i32 %..us
-  %.0.us = select i1 %36, i32 %18, i32 %39
-  %40 = load ptr, ptr %9, align 8, !tbaa !30
-  %41 = load ptr, ptr %40, align 8, !tbaa !31
-  %42 = getelementptr inbounds nuw i8, ptr %41, i64 36
-  %43 = load i32, ptr %42, align 4, !tbaa !61
-  %44 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %43) #20
-  switch i32 %43, label %yuvtest_put_pixel.exit.us [
-    i32 230, label %317
-    i32 232, label %278
-    i32 214, label %278
-    i32 216, label %219
-    i32 242, label %219
-    i32 155, label %220
-    i32 208, label %191
-    i32 229, label %192
-    i32 205, label %192
-    i32 228, label %192
-    i32 79, label %161
-    i32 5, label %169
-    i32 14, label %169
-    i32 85, label %129
-    i32 91, label %129
-    i32 187, label %129
-    i32 97, label %129
-    i32 66, label %138
-    i32 68, label %138
-    i32 131, label %138
-    i32 133, label %138
-    i32 49, label %138
-    i32 188, label %105
-    i32 189, label %81
-    i32 200, label %45
-    i32 224, label %45
-    i32 204, label %45
+39:                                               ; preds = %.preheader.us, %yuvtest_put_pixel.exit.us
+  %.03642.us = phi i32 [ 0, %.preheader.us ], [ %360, %yuvtest_put_pixel.exit.us ]
+  %40 = shl i32 %.03642.us, %16
+  %41 = sdiv i32 %40, %6
+  %.035.us = select i1 %34, i32 %41, i32 %18
+  %.034.us = select i1 %36, i32 %18, i32 %41
+  %.0.us = select i1 %38, i32 %18, i32 %41
+  %42 = load ptr, ptr %9, align 8, !tbaa !30
+  %43 = load ptr, ptr %42, align 8, !tbaa !31
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 36
+  %45 = load i32, ptr %44, align 4, !tbaa !61
+  %46 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %45) #20
+  switch i32 %45, label %yuvtest_put_pixel.exit.us [
+    i32 230, label %319
+    i32 232, label %280
+    i32 214, label %280
+    i32 216, label %221
+    i32 242, label %221
+    i32 155, label %222
+    i32 208, label %193
+    i32 229, label %194
+    i32 205, label %194
+    i32 228, label %194
+    i32 79, label %163
+    i32 5, label %171
+    i32 14, label %171
+    i32 85, label %131
+    i32 91, label %131
+    i32 187, label %131
+    i32 97, label %131
+    i32 66, label %140
+    i32 68, label %140
+    i32 131, label %140
+    i32 133, label %140
+    i32 49, label %140
+    i32 188, label %107
+    i32 189, label %83
+    i32 200, label %47
+    i32 224, label %47
+    i32 204, label %47
   ]
 
-45:                                               ; preds = %37, %37, %37
-  %46 = getelementptr inbounds nuw i8, ptr %44, i64 40
-  %47 = load i32, ptr %46, align 8, !tbaa !72
-  %48 = sub nsw i32 16, %47
-  %49 = shl i32 %.035.us, %48
-  %50 = trunc i32 %49 to i16
-  %51 = load ptr, ptr %1, align 8, !tbaa !69
-  %52 = shl nuw nsw i32 %.03642.us, 1
-  %53 = load i32, ptr %22, align 8, !tbaa !70
-  %54 = mul nsw i32 %53, %.03743.us
-  %55 = add nsw i32 %54, %52
-  %56 = sext i32 %55 to i64
-  %57 = getelementptr inbounds i8, ptr %51, i64 %56
-  store i16 %50, ptr %57, align 2, !tbaa !76
-  %58 = getelementptr inbounds nuw i8, ptr %44, i64 60
-  %59 = load i32, ptr %58, align 4, !tbaa !72
-  %60 = sub nsw i32 16, %59
-  %61 = shl i32 %.034.us, %60
-  %62 = trunc i32 %61 to i16
-  %63 = load ptr, ptr %24, align 8, !tbaa !69
-  %64 = shl nsw i32 %.03642.us, 2
-  %65 = load i32, ptr %25, align 4, !tbaa !70
-  %66 = mul nsw i32 %65, %.03743.us
-  %67 = add nsw i32 %66, %64
-  %68 = sext i32 %67 to i64
-  %69 = getelementptr inbounds i8, ptr %63, i64 %68
-  store i16 %62, ptr %69, align 2, !tbaa !76
-  %70 = load i32, ptr %58, align 4, !tbaa !72
-  %71 = sub nsw i32 16, %70
-  %72 = shl i32 %.0.us, %71
-  %73 = trunc i32 %72 to i16
-  %74 = load ptr, ptr %24, align 8, !tbaa !69
-  %75 = load i32, ptr %25, align 4, !tbaa !70
-  %76 = mul nsw i32 %75, %.03743.us
-  %77 = add nsw i32 %76, %64
-  %78 = sext i32 %77 to i64
-  %79 = getelementptr i8, ptr %74, i64 %78
-  %80 = getelementptr i8, ptr %79, i64 2
-  store i16 %73, ptr %80, align 2, !tbaa !76
+47:                                               ; preds = %39, %39, %39
+  %48 = getelementptr inbounds nuw i8, ptr %46, i64 40
+  %49 = load i32, ptr %48, align 8, !tbaa !72
+  %50 = sub nsw i32 16, %49
+  %51 = shl i32 %.035.us, %50
+  %52 = trunc i32 %51 to i16
+  %53 = load ptr, ptr %1, align 8, !tbaa !69
+  %54 = shl nuw nsw i32 %.03642.us, 1
+  %55 = load i32, ptr %22, align 8, !tbaa !70
+  %56 = mul nsw i32 %55, %.03743.us
+  %57 = add nsw i32 %56, %54
+  %58 = sext i32 %57 to i64
+  %59 = getelementptr inbounds i8, ptr %53, i64 %58
+  store i16 %52, ptr %59, align 2, !tbaa !76
+  %60 = getelementptr inbounds nuw i8, ptr %46, i64 60
+  %61 = load i32, ptr %60, align 4, !tbaa !72
+  %62 = sub nsw i32 16, %61
+  %63 = shl i32 %.034.us, %62
+  %64 = trunc i32 %63 to i16
+  %65 = load ptr, ptr %24, align 8, !tbaa !69
+  %66 = shl nsw i32 %.03642.us, 2
+  %67 = load i32, ptr %25, align 4, !tbaa !70
+  %68 = mul nsw i32 %67, %.03743.us
+  %69 = add nsw i32 %68, %66
+  %70 = sext i32 %69 to i64
+  %71 = getelementptr inbounds i8, ptr %65, i64 %70
+  store i16 %64, ptr %71, align 2, !tbaa !76
+  %72 = load i32, ptr %60, align 4, !tbaa !72
+  %73 = sub nsw i32 16, %72
+  %74 = shl i32 %.0.us, %73
+  %75 = trunc i32 %74 to i16
+  %76 = load ptr, ptr %24, align 8, !tbaa !69
+  %77 = load i32, ptr %25, align 4, !tbaa !70
+  %78 = mul nsw i32 %77, %.03743.us
+  %79 = add nsw i32 %78, %66
+  %80 = sext i32 %79 to i64
+  %81 = getelementptr i8, ptr %76, i64 %80
+  %82 = getelementptr i8, ptr %81, i64 2
+  store i16 %75, ptr %82, align 2, !tbaa !76
   br label %yuvtest_put_pixel.exit.us
 
-81:                                               ; preds = %37
-  %82 = trunc i32 %.035.us to i8
-  %83 = load ptr, ptr %1, align 8, !tbaa !69
-  %84 = load i32, ptr %22, align 8, !tbaa !70
-  %85 = mul nsw i32 %84, %.03743.us
-  %86 = add nsw i32 %85, %.03642.us
-  %87 = sext i32 %86 to i64
-  %88 = getelementptr inbounds i8, ptr %83, i64 %87
-  store i8 %82, ptr %88, align 1, !tbaa !76
-  %89 = trunc i32 %.034.us to i8
-  %90 = load ptr, ptr %24, align 8, !tbaa !69
-  %91 = shl nuw nsw i32 %.03642.us, 1
-  %92 = load i32, ptr %25, align 4, !tbaa !70
-  %93 = mul nsw i32 %92, %.03743.us
-  %94 = add nsw i32 %93, %91
-  %95 = sext i32 %94 to i64
-  %96 = getelementptr i8, ptr %90, i64 %95
-  %97 = getelementptr i8, ptr %96, i64 1
-  store i8 %89, ptr %97, align 1, !tbaa !76
-  %98 = trunc i32 %.0.us to i8
-  %99 = load ptr, ptr %24, align 8, !tbaa !69
-  %100 = load i32, ptr %25, align 4, !tbaa !70
-  %101 = mul nsw i32 %100, %.03743.us
-  %102 = add nsw i32 %101, %91
-  %103 = sext i32 %102 to i64
-  %104 = getelementptr inbounds i8, ptr %99, i64 %103
-  store i8 %98, ptr %104, align 1, !tbaa !76
+83:                                               ; preds = %39
+  %84 = trunc i32 %.035.us to i8
+  %85 = load ptr, ptr %1, align 8, !tbaa !69
+  %86 = load i32, ptr %22, align 8, !tbaa !70
+  %87 = mul nsw i32 %86, %.03743.us
+  %88 = add nsw i32 %87, %.03642.us
+  %89 = sext i32 %88 to i64
+  %90 = getelementptr inbounds i8, ptr %85, i64 %89
+  store i8 %84, ptr %90, align 1, !tbaa !76
+  %91 = trunc i32 %.034.us to i8
+  %92 = load ptr, ptr %24, align 8, !tbaa !69
+  %93 = shl nuw nsw i32 %.03642.us, 1
+  %94 = load i32, ptr %25, align 4, !tbaa !70
+  %95 = mul nsw i32 %94, %.03743.us
+  %96 = add nsw i32 %95, %93
+  %97 = sext i32 %96 to i64
+  %98 = getelementptr i8, ptr %92, i64 %97
+  %99 = getelementptr i8, ptr %98, i64 1
+  store i8 %91, ptr %99, align 1, !tbaa !76
+  %100 = trunc i32 %.0.us to i8
+  %101 = load ptr, ptr %24, align 8, !tbaa !69
+  %102 = load i32, ptr %25, align 4, !tbaa !70
+  %103 = mul nsw i32 %102, %.03743.us
+  %104 = add nsw i32 %103, %93
+  %105 = sext i32 %104 to i64
+  %106 = getelementptr inbounds i8, ptr %101, i64 %105
+  store i8 %100, ptr %106, align 1, !tbaa !76
   br label %yuvtest_put_pixel.exit.us
 
-105:                                              ; preds = %37
-  %106 = trunc i32 %.035.us to i8
-  %107 = load ptr, ptr %1, align 8, !tbaa !69
-  %108 = load i32, ptr %22, align 8, !tbaa !70
-  %109 = mul nsw i32 %108, %.03743.us
-  %110 = add nsw i32 %109, %.03642.us
-  %111 = sext i32 %110 to i64
-  %112 = getelementptr inbounds i8, ptr %107, i64 %111
-  store i8 %106, ptr %112, align 1, !tbaa !76
-  %113 = trunc i32 %.034.us to i8
-  %114 = load ptr, ptr %24, align 8, !tbaa !69
-  %115 = shl nuw nsw i32 %.03642.us, 1
-  %116 = load i32, ptr %25, align 4, !tbaa !70
-  %117 = mul nsw i32 %116, %.03743.us
-  %118 = add nsw i32 %117, %115
-  %119 = sext i32 %118 to i64
-  %120 = getelementptr inbounds i8, ptr %114, i64 %119
-  store i8 %113, ptr %120, align 1, !tbaa !76
-  %121 = trunc i32 %.0.us to i8
-  %122 = load ptr, ptr %24, align 8, !tbaa !69
-  %123 = load i32, ptr %25, align 4, !tbaa !70
-  %124 = mul nsw i32 %123, %.03743.us
-  %125 = add nsw i32 %124, %115
-  %126 = sext i32 %125 to i64
-  %127 = getelementptr i8, ptr %122, i64 %126
-  %128 = getelementptr i8, ptr %127, i64 1
-  store i8 %121, ptr %128, align 1, !tbaa !76
+107:                                              ; preds = %39
+  %108 = trunc i32 %.035.us to i8
+  %109 = load ptr, ptr %1, align 8, !tbaa !69
+  %110 = load i32, ptr %22, align 8, !tbaa !70
+  %111 = mul nsw i32 %110, %.03743.us
+  %112 = add nsw i32 %111, %.03642.us
+  %113 = sext i32 %112 to i64
+  %114 = getelementptr inbounds i8, ptr %109, i64 %113
+  store i8 %108, ptr %114, align 1, !tbaa !76
+  %115 = trunc i32 %.034.us to i8
+  %116 = load ptr, ptr %24, align 8, !tbaa !69
+  %117 = shl nuw nsw i32 %.03642.us, 1
+  %118 = load i32, ptr %25, align 4, !tbaa !70
+  %119 = mul nsw i32 %118, %.03743.us
+  %120 = add nsw i32 %119, %117
+  %121 = sext i32 %120 to i64
+  %122 = getelementptr inbounds i8, ptr %116, i64 %121
+  store i8 %115, ptr %122, align 1, !tbaa !76
+  %123 = trunc i32 %.0.us to i8
+  %124 = load ptr, ptr %24, align 8, !tbaa !69
+  %125 = load i32, ptr %25, align 4, !tbaa !70
+  %126 = mul nsw i32 %125, %.03743.us
+  %127 = add nsw i32 %126, %117
+  %128 = sext i32 %127 to i64
+  %129 = getelementptr i8, ptr %124, i64 %128
+  %130 = getelementptr i8, ptr %129, i64 1
+  store i8 %123, ptr %130, align 1, !tbaa !76
   br label %yuvtest_put_pixel.exit.us
 
-129:                                              ; preds = %37, %37, %37, %37
-  %130 = trunc i32 %39 to i16
-  %131 = load ptr, ptr %26, align 8, !tbaa !69
-  %132 = shl nuw nsw i32 %.03642.us, 1
-  %133 = load i32, ptr %27, align 4, !tbaa !70
-  %134 = mul nsw i32 %133, %.03743.us
-  %135 = add nsw i32 %134, %132
-  %136 = sext i32 %135 to i64
-  %137 = getelementptr inbounds i8, ptr %131, i64 %136
-  store i16 %130, ptr %137, align 2, !tbaa !76
-  br label %138
+131:                                              ; preds = %39, %39, %39, %39
+  %132 = trunc i32 %41 to i16
+  %133 = load ptr, ptr %26, align 8, !tbaa !69
+  %134 = shl nuw nsw i32 %.03642.us, 1
+  %135 = load i32, ptr %27, align 4, !tbaa !70
+  %136 = mul nsw i32 %135, %.03743.us
+  %137 = add nsw i32 %136, %134
+  %138 = sext i32 %137 to i64
+  %139 = getelementptr inbounds i8, ptr %133, i64 %138
+  store i16 %132, ptr %139, align 2, !tbaa !76
+  br label %140
 
-138:                                              ; preds = %129, %37, %37, %37, %37, %37
-  %139 = trunc i32 %.035.us to i16
-  %140 = load ptr, ptr %1, align 8, !tbaa !69
-  %141 = shl nuw nsw i32 %.03642.us, 1
-  %142 = load i32, ptr %22, align 8, !tbaa !70
-  %143 = mul nsw i32 %142, %.03743.us
-  %144 = add nsw i32 %143, %141
-  %145 = sext i32 %144 to i64
-  %146 = getelementptr inbounds i8, ptr %140, i64 %145
-  store i16 %139, ptr %146, align 2, !tbaa !76
-  %147 = trunc i32 %.034.us to i16
-  %148 = load ptr, ptr %24, align 8, !tbaa !69
-  %149 = load i32, ptr %25, align 4, !tbaa !70
-  %150 = mul nsw i32 %149, %.03743.us
-  %151 = add nsw i32 %150, %141
-  %152 = sext i32 %151 to i64
-  %153 = getelementptr inbounds i8, ptr %148, i64 %152
-  store i16 %147, ptr %153, align 2, !tbaa !76
-  %154 = trunc i32 %.0.us to i16
-  %155 = load ptr, ptr %28, align 8, !tbaa !69
-  %156 = load i32, ptr %29, align 8, !tbaa !70
-  %157 = mul nsw i32 %156, %.03743.us
-  %158 = add nsw i32 %157, %141
-  %159 = sext i32 %158 to i64
-  %160 = getelementptr inbounds i8, ptr %155, i64 %159
-  store i16 %154, ptr %160, align 2, !tbaa !76
+140:                                              ; preds = %131, %39, %39, %39, %39, %39
+  %141 = trunc i32 %.035.us to i16
+  %142 = load ptr, ptr %1, align 8, !tbaa !69
+  %143 = shl nuw nsw i32 %.03642.us, 1
+  %144 = load i32, ptr %22, align 8, !tbaa !70
+  %145 = mul nsw i32 %144, %.03743.us
+  %146 = add nsw i32 %145, %143
+  %147 = sext i32 %146 to i64
+  %148 = getelementptr inbounds i8, ptr %142, i64 %147
+  store i16 %141, ptr %148, align 2, !tbaa !76
+  %149 = trunc i32 %.034.us to i16
+  %150 = load ptr, ptr %24, align 8, !tbaa !69
+  %151 = load i32, ptr %25, align 4, !tbaa !70
+  %152 = mul nsw i32 %151, %.03743.us
+  %153 = add nsw i32 %152, %143
+  %154 = sext i32 %153 to i64
+  %155 = getelementptr inbounds i8, ptr %150, i64 %154
+  store i16 %149, ptr %155, align 2, !tbaa !76
+  %156 = trunc i32 %.0.us to i16
+  %157 = load ptr, ptr %28, align 8, !tbaa !69
+  %158 = load i32, ptr %29, align 8, !tbaa !70
+  %159 = mul nsw i32 %158, %.03743.us
+  %160 = add nsw i32 %159, %143
+  %161 = sext i32 %160 to i64
+  %162 = getelementptr inbounds i8, ptr %157, i64 %161
+  store i16 %156, ptr %162, align 2, !tbaa !76
   br label %yuvtest_put_pixel.exit.us
 
-161:                                              ; preds = %37
-  %162 = trunc i32 %39 to i8
-  %163 = load ptr, ptr %26, align 8, !tbaa !69
-  %164 = load i32, ptr %27, align 4, !tbaa !70
-  %165 = mul nsw i32 %164, %.03743.us
-  %166 = add nsw i32 %165, %.03642.us
-  %167 = sext i32 %166 to i64
-  %168 = getelementptr inbounds i8, ptr %163, i64 %167
-  store i8 %162, ptr %168, align 1, !tbaa !76
-  br label %169
+163:                                              ; preds = %39
+  %164 = trunc i32 %41 to i8
+  %165 = load ptr, ptr %26, align 8, !tbaa !69
+  %166 = load i32, ptr %27, align 4, !tbaa !70
+  %167 = mul nsw i32 %166, %.03743.us
+  %168 = add nsw i32 %167, %.03642.us
+  %169 = sext i32 %168 to i64
+  %170 = getelementptr inbounds i8, ptr %165, i64 %169
+  store i8 %164, ptr %170, align 1, !tbaa !76
+  br label %171
 
-169:                                              ; preds = %161, %37, %37
-  %170 = trunc i32 %.035.us to i8
-  %171 = load ptr, ptr %1, align 8, !tbaa !69
-  %172 = load i32, ptr %22, align 8, !tbaa !70
-  %173 = mul nsw i32 %172, %.03743.us
-  %174 = add nsw i32 %173, %.03642.us
-  %175 = sext i32 %174 to i64
-  %176 = getelementptr inbounds i8, ptr %171, i64 %175
-  store i8 %170, ptr %176, align 1, !tbaa !76
-  %177 = trunc i32 %.034.us to i8
-  %178 = load ptr, ptr %24, align 8, !tbaa !69
-  %179 = load i32, ptr %25, align 4, !tbaa !70
-  %180 = mul nsw i32 %179, %.03743.us
-  %181 = add nsw i32 %180, %.03642.us
-  %182 = sext i32 %181 to i64
-  %183 = getelementptr inbounds i8, ptr %178, i64 %182
-  store i8 %177, ptr %183, align 1, !tbaa !76
-  %184 = trunc i32 %.0.us to i8
-  %185 = load ptr, ptr %28, align 8, !tbaa !69
-  %186 = load i32, ptr %29, align 8, !tbaa !70
-  %187 = mul nsw i32 %186, %.03743.us
-  %188 = add nsw i32 %187, %.03642.us
-  %189 = sext i32 %188 to i64
-  %190 = getelementptr inbounds i8, ptr %185, i64 %189
-  store i8 %184, ptr %190, align 1, !tbaa !76
+171:                                              ; preds = %163, %39, %39
+  %172 = trunc i32 %.035.us to i8
+  %173 = load ptr, ptr %1, align 8, !tbaa !69
+  %174 = load i32, ptr %22, align 8, !tbaa !70
+  %175 = mul nsw i32 %174, %.03743.us
+  %176 = add nsw i32 %175, %.03642.us
+  %177 = sext i32 %176 to i64
+  %178 = getelementptr inbounds i8, ptr %173, i64 %177
+  store i8 %172, ptr %178, align 1, !tbaa !76
+  %179 = trunc i32 %.034.us to i8
+  %180 = load ptr, ptr %24, align 8, !tbaa !69
+  %181 = load i32, ptr %25, align 4, !tbaa !70
+  %182 = mul nsw i32 %181, %.03743.us
+  %183 = add nsw i32 %182, %.03642.us
+  %184 = sext i32 %183 to i64
+  %185 = getelementptr inbounds i8, ptr %180, i64 %184
+  store i8 %179, ptr %185, align 1, !tbaa !76
+  %186 = trunc i32 %.0.us to i8
+  %187 = load ptr, ptr %28, align 8, !tbaa !69
+  %188 = load i32, ptr %29, align 8, !tbaa !70
+  %189 = mul nsw i32 %188, %.03743.us
+  %190 = add nsw i32 %189, %.03642.us
+  %191 = sext i32 %190 to i64
+  %192 = getelementptr inbounds i8, ptr %187, i64 %191
+  store i8 %186, ptr %192, align 1, !tbaa !76
   br label %yuvtest_put_pixel.exit.us
 
-191:                                              ; preds = %37
-  br label %192
+193:                                              ; preds = %39
+  br label %194
 
-192:                                              ; preds = %191, %37, %37, %37
-  %.1.i.us = phi i32 [ 255, %191 ], [ %39, %37 ], [ %39, %37 ], [ %39, %37 ]
-  %193 = load i8, ptr %23, align 1, !tbaa !76
-  %194 = zext i8 %193 to i32
-  %195 = shl nuw nsw i32 %194, 3
-  %196 = shl i32 %.035.us, %195
-  %197 = load i8, ptr %30, align 1, !tbaa !76
-  %198 = zext i8 %197 to i32
-  %199 = shl nuw nsw i32 %198, 3
-  %200 = shl i32 %.034.us, %199
-  %201 = add i32 %200, %196
-  %202 = load i8, ptr %31, align 1, !tbaa !76
-  %203 = zext i8 %202 to i32
-  %204 = shl nuw nsw i32 %203, 3
-  %205 = shl i32 %.0.us, %204
-  %206 = add i32 %201, %205
-  %207 = load i8, ptr %32, align 1, !tbaa !76
-  %208 = zext i8 %207 to i32
-  %209 = shl nuw nsw i32 %208, 3
-  %210 = shl i32 %.1.i.us, %209
-  %211 = add i32 %206, %210
-  %212 = load ptr, ptr %1, align 8, !tbaa !69
-  %213 = shl nsw i32 %.03642.us, 2
-  %214 = load i32, ptr %22, align 8, !tbaa !70
-  %215 = mul nsw i32 %214, %.03743.us
-  %216 = add nsw i32 %215, %213
-  %217 = sext i32 %216 to i64
-  %218 = getelementptr inbounds i8, ptr %212, i64 %217
-  store i32 %211, ptr %218, align 4, !tbaa !76
+194:                                              ; preds = %193, %39, %39, %39
+  %.1.i.us = phi i32 [ 255, %193 ], [ %41, %39 ], [ %41, %39 ], [ %41, %39 ]
+  %195 = load i8, ptr %23, align 1, !tbaa !76
+  %196 = zext i8 %195 to i32
+  %197 = shl nuw nsw i32 %196, 3
+  %198 = shl i32 %.035.us, %197
+  %199 = load i8, ptr %30, align 1, !tbaa !76
+  %200 = zext i8 %199 to i32
+  %201 = shl nuw nsw i32 %200, 3
+  %202 = shl i32 %.034.us, %201
+  %203 = add i32 %202, %198
+  %204 = load i8, ptr %31, align 1, !tbaa !76
+  %205 = zext i8 %204 to i32
+  %206 = shl nuw nsw i32 %205, 3
+  %207 = shl i32 %.0.us, %206
+  %208 = add i32 %203, %207
+  %209 = load i8, ptr %32, align 1, !tbaa !76
+  %210 = zext i8 %209 to i32
+  %211 = shl nuw nsw i32 %210, 3
+  %212 = shl i32 %.1.i.us, %211
+  %213 = add i32 %208, %212
+  %214 = load ptr, ptr %1, align 8, !tbaa !69
+  %215 = shl nsw i32 %.03642.us, 2
+  %216 = load i32, ptr %22, align 8, !tbaa !70
+  %217 = mul nsw i32 %216, %.03743.us
+  %218 = add nsw i32 %217, %215
+  %219 = sext i32 %218 to i64
+  %220 = getelementptr inbounds i8, ptr %214, i64 %219
+  store i32 %213, ptr %220, align 4, !tbaa !76
   br label %yuvtest_put_pixel.exit.us
 
-219:                                              ; preds = %37, %37
-  br label %220
+221:                                              ; preds = %39, %39
+  br label %222
 
-220:                                              ; preds = %219, %37
-  %.0.i.us = phi i32 [ 65535, %219 ], [ %39, %37 ]
-  %221 = getelementptr inbounds nuw i8, ptr %44, i64 36
-  %222 = load i32, ptr %221, align 4, !tbaa !114
-  %223 = shl i32 %.035.us, %222
-  %224 = trunc i32 %223 to i16
-  %225 = load ptr, ptr %1, align 8, !tbaa !69
-  %226 = shl nsw i32 %.03642.us, 3
-  %227 = load i8, ptr %23, align 1, !tbaa !76
-  %228 = zext i8 %227 to i32
-  %229 = shl nuw nsw i32 %228, 1
-  %230 = add nuw nsw i32 %229, %226
-  %231 = load i32, ptr %22, align 8, !tbaa !70
-  %232 = mul nsw i32 %231, %.03743.us
-  %233 = add nsw i32 %230, %232
-  %234 = sext i32 %233 to i64
-  %235 = getelementptr inbounds i8, ptr %225, i64 %234
-  store i16 %224, ptr %235, align 2, !tbaa !76
-  %236 = getelementptr inbounds nuw i8, ptr %44, i64 56
-  %237 = load i32, ptr %236, align 4, !tbaa !114
-  %238 = shl i32 %.034.us, %237
-  %239 = trunc i32 %238 to i16
-  %240 = load ptr, ptr %1, align 8, !tbaa !69
-  %241 = load i8, ptr %30, align 1, !tbaa !76
-  %242 = zext i8 %241 to i32
-  %243 = shl nuw nsw i32 %242, 1
-  %244 = add nuw nsw i32 %243, %226
-  %245 = load i32, ptr %22, align 8, !tbaa !70
-  %246 = mul nsw i32 %245, %.03743.us
-  %247 = add nsw i32 %244, %246
-  %248 = sext i32 %247 to i64
-  %249 = getelementptr inbounds i8, ptr %240, i64 %248
-  store i16 %239, ptr %249, align 2, !tbaa !76
-  %250 = getelementptr inbounds nuw i8, ptr %44, i64 76
-  %251 = load i32, ptr %250, align 4, !tbaa !114
-  %252 = shl i32 %.0.us, %251
-  %253 = trunc i32 %252 to i16
-  %254 = load ptr, ptr %1, align 8, !tbaa !69
-  %255 = load i8, ptr %31, align 1, !tbaa !76
-  %256 = zext i8 %255 to i32
-  %257 = shl nuw nsw i32 %256, 1
-  %258 = add nuw nsw i32 %257, %226
-  %259 = load i32, ptr %22, align 8, !tbaa !70
-  %260 = mul nsw i32 %259, %.03743.us
-  %261 = add nsw i32 %258, %260
-  %262 = sext i32 %261 to i64
-  %263 = getelementptr inbounds i8, ptr %254, i64 %262
-  store i16 %253, ptr %263, align 2, !tbaa !76
-  %264 = getelementptr inbounds nuw i8, ptr %44, i64 96
-  %265 = load i32, ptr %264, align 4, !tbaa !114
-  %266 = shl i32 %.0.i.us, %265
-  %267 = trunc i32 %266 to i16
-  %268 = load ptr, ptr %1, align 8, !tbaa !69
-  %269 = load i8, ptr %32, align 1, !tbaa !76
-  %270 = zext i8 %269 to i32
-  %271 = shl nuw nsw i32 %270, 1
-  %272 = add nuw nsw i32 %271, %226
-  %273 = load i32, ptr %22, align 8, !tbaa !70
-  %274 = mul nsw i32 %273, %.03743.us
-  %275 = add nsw i32 %272, %274
-  %276 = sext i32 %275 to i64
-  %277 = getelementptr inbounds i8, ptr %268, i64 %276
-  store i16 %267, ptr %277, align 2, !tbaa !76
+222:                                              ; preds = %221, %39
+  %.0.i.us = phi i32 [ 65535, %221 ], [ %41, %39 ]
+  %223 = getelementptr inbounds nuw i8, ptr %46, i64 36
+  %224 = load i32, ptr %223, align 4, !tbaa !114
+  %225 = shl i32 %.035.us, %224
+  %226 = trunc i32 %225 to i16
+  %227 = load ptr, ptr %1, align 8, !tbaa !69
+  %228 = shl nsw i32 %.03642.us, 3
+  %229 = load i8, ptr %23, align 1, !tbaa !76
+  %230 = zext i8 %229 to i32
+  %231 = shl nuw nsw i32 %230, 1
+  %232 = add nuw nsw i32 %231, %228
+  %233 = load i32, ptr %22, align 8, !tbaa !70
+  %234 = mul nsw i32 %233, %.03743.us
+  %235 = add nsw i32 %232, %234
+  %236 = sext i32 %235 to i64
+  %237 = getelementptr inbounds i8, ptr %227, i64 %236
+  store i16 %226, ptr %237, align 2, !tbaa !76
+  %238 = getelementptr inbounds nuw i8, ptr %46, i64 56
+  %239 = load i32, ptr %238, align 4, !tbaa !114
+  %240 = shl i32 %.034.us, %239
+  %241 = trunc i32 %240 to i16
+  %242 = load ptr, ptr %1, align 8, !tbaa !69
+  %243 = load i8, ptr %30, align 1, !tbaa !76
+  %244 = zext i8 %243 to i32
+  %245 = shl nuw nsw i32 %244, 1
+  %246 = add nuw nsw i32 %245, %228
+  %247 = load i32, ptr %22, align 8, !tbaa !70
+  %248 = mul nsw i32 %247, %.03743.us
+  %249 = add nsw i32 %246, %248
+  %250 = sext i32 %249 to i64
+  %251 = getelementptr inbounds i8, ptr %242, i64 %250
+  store i16 %241, ptr %251, align 2, !tbaa !76
+  %252 = getelementptr inbounds nuw i8, ptr %46, i64 76
+  %253 = load i32, ptr %252, align 4, !tbaa !114
+  %254 = shl i32 %.0.us, %253
+  %255 = trunc i32 %254 to i16
+  %256 = load ptr, ptr %1, align 8, !tbaa !69
+  %257 = load i8, ptr %31, align 1, !tbaa !76
+  %258 = zext i8 %257 to i32
+  %259 = shl nuw nsw i32 %258, 1
+  %260 = add nuw nsw i32 %259, %228
+  %261 = load i32, ptr %22, align 8, !tbaa !70
+  %262 = mul nsw i32 %261, %.03743.us
+  %263 = add nsw i32 %260, %262
+  %264 = sext i32 %263 to i64
+  %265 = getelementptr inbounds i8, ptr %256, i64 %264
+  store i16 %255, ptr %265, align 2, !tbaa !76
+  %266 = getelementptr inbounds nuw i8, ptr %46, i64 96
+  %267 = load i32, ptr %266, align 4, !tbaa !114
+  %268 = shl i32 %.0.i.us, %267
+  %269 = trunc i32 %268 to i16
+  %270 = load ptr, ptr %1, align 8, !tbaa !69
+  %271 = load i8, ptr %32, align 1, !tbaa !76
+  %272 = zext i8 %271 to i32
+  %273 = shl nuw nsw i32 %272, 1
+  %274 = add nuw nsw i32 %273, %228
+  %275 = load i32, ptr %22, align 8, !tbaa !70
+  %276 = mul nsw i32 %275, %.03743.us
+  %277 = add nsw i32 %274, %276
+  %278 = sext i32 %277 to i64
+  %279 = getelementptr inbounds i8, ptr %270, i64 %278
+  store i16 %269, ptr %279, align 2, !tbaa !76
   br label %yuvtest_put_pixel.exit.us
 
-278:                                              ; preds = %37, %37
-  %279 = getelementptr inbounds nuw i8, ptr %44, i64 32
-  %280 = load i32, ptr %279, align 8, !tbaa !113
-  %281 = shl nsw i32 %280, 3
-  %282 = getelementptr inbounds nuw i8, ptr %44, i64 36
-  %283 = load i32, ptr %282, align 4, !tbaa !114
-  %284 = add nsw i32 %281, %283
-  %285 = shl i32 %.035.us, %284
-  %286 = getelementptr inbounds nuw i8, ptr %44, i64 52
-  %287 = load i32, ptr %286, align 4, !tbaa !113
-  %288 = shl nsw i32 %287, 3
-  %289 = getelementptr inbounds nuw i8, ptr %44, i64 56
-  %290 = load i32, ptr %289, align 8, !tbaa !114
-  %291 = add nsw i32 %288, %290
-  %292 = shl i32 %.034.us, %291
-  %293 = add i32 %292, %285
-  %294 = getelementptr inbounds nuw i8, ptr %44, i64 72
-  %295 = load i32, ptr %294, align 8, !tbaa !113
-  %296 = shl nsw i32 %295, 3
-  %297 = getelementptr inbounds nuw i8, ptr %44, i64 76
-  %298 = load i32, ptr %297, align 4, !tbaa !114
-  %299 = add nsw i32 %296, %298
-  %300 = shl i32 %.0.us, %299
-  %301 = add i32 %293, %300
-  %302 = getelementptr inbounds nuw i8, ptr %44, i64 92
-  %303 = load i32, ptr %302, align 4, !tbaa !113
-  %304 = shl nsw i32 %303, 3
-  %305 = getelementptr inbounds nuw i8, ptr %44, i64 96
-  %306 = load i32, ptr %305, align 8, !tbaa !114
-  %307 = add nsw i32 %304, %306
-  %308 = shl i32 3, %307
-  %309 = add i32 %301, %308
-  %310 = load ptr, ptr %1, align 8, !tbaa !69
-  %311 = shl nsw i32 %.03642.us, 2
-  %312 = load i32, ptr %22, align 8, !tbaa !70
-  %313 = mul nsw i32 %312, %.03743.us
-  %314 = add nsw i32 %313, %311
-  %315 = sext i32 %314 to i64
-  %316 = getelementptr inbounds i8, ptr %310, i64 %315
-  store i32 %309, ptr %316, align 4, !tbaa !76
+280:                                              ; preds = %39, %39
+  %281 = getelementptr inbounds nuw i8, ptr %46, i64 32
+  %282 = load i32, ptr %281, align 8, !tbaa !113
+  %283 = shl nsw i32 %282, 3
+  %284 = getelementptr inbounds nuw i8, ptr %46, i64 36
+  %285 = load i32, ptr %284, align 4, !tbaa !114
+  %286 = add nsw i32 %283, %285
+  %287 = shl i32 %.035.us, %286
+  %288 = getelementptr inbounds nuw i8, ptr %46, i64 52
+  %289 = load i32, ptr %288, align 4, !tbaa !113
+  %290 = shl nsw i32 %289, 3
+  %291 = getelementptr inbounds nuw i8, ptr %46, i64 56
+  %292 = load i32, ptr %291, align 8, !tbaa !114
+  %293 = add nsw i32 %290, %292
+  %294 = shl i32 %.034.us, %293
+  %295 = add i32 %294, %287
+  %296 = getelementptr inbounds nuw i8, ptr %46, i64 72
+  %297 = load i32, ptr %296, align 8, !tbaa !113
+  %298 = shl nsw i32 %297, 3
+  %299 = getelementptr inbounds nuw i8, ptr %46, i64 76
+  %300 = load i32, ptr %299, align 4, !tbaa !114
+  %301 = add nsw i32 %298, %300
+  %302 = shl i32 %.0.us, %301
+  %303 = add i32 %295, %302
+  %304 = getelementptr inbounds nuw i8, ptr %46, i64 92
+  %305 = load i32, ptr %304, align 4, !tbaa !113
+  %306 = shl nsw i32 %305, 3
+  %307 = getelementptr inbounds nuw i8, ptr %46, i64 96
+  %308 = load i32, ptr %307, align 8, !tbaa !114
+  %309 = add nsw i32 %306, %308
+  %310 = shl i32 3, %309
+  %311 = add i32 %303, %310
+  %312 = load ptr, ptr %1, align 8, !tbaa !69
+  %313 = shl nsw i32 %.03642.us, 2
+  %314 = load i32, ptr %22, align 8, !tbaa !70
+  %315 = mul nsw i32 %314, %.03743.us
+  %316 = add nsw i32 %315, %313
+  %317 = sext i32 %316 to i64
+  %318 = getelementptr inbounds i8, ptr %312, i64 %317
+  store i32 %311, ptr %318, align 4, !tbaa !76
   br label %yuvtest_put_pixel.exit.us
 
-317:                                              ; preds = %37
-  %318 = load i8, ptr %23, align 1, !tbaa !76
-  %319 = zext i8 %318 to i32
-  %320 = shl nuw nsw i32 %319, 3
-  %321 = shl i32 %.035.us, %320
-  %322 = load i8, ptr %30, align 1, !tbaa !76
-  %323 = zext i8 %322 to i32
-  %324 = shl nuw nsw i32 %323, 3
-  %325 = shl i32 %.034.us, %324
-  %326 = add i32 %325, %321
-  %327 = load i8, ptr %31, align 1, !tbaa !76
-  %328 = zext i8 %327 to i32
-  %329 = shl nuw nsw i32 %328, 3
-  %330 = shl i32 %.0.us, %329
-  %331 = add i32 %326, %330
-  %332 = trunc i32 %331 to i8
-  %333 = load ptr, ptr %1, align 8, !tbaa !69
-  %334 = mul nuw nsw i32 %.03642.us, 3
-  %335 = load i32, ptr %22, align 8, !tbaa !70
-  %336 = mul nsw i32 %335, %.03743.us
-  %337 = add nsw i32 %336, %334
-  %338 = sext i32 %337 to i64
-  %339 = getelementptr inbounds i8, ptr %333, i64 %338
-  store i8 %332, ptr %339, align 1, !tbaa !76
-  %340 = lshr i32 %331, 8
-  %341 = trunc i32 %340 to i8
-  %342 = load ptr, ptr %1, align 8, !tbaa !69
-  %343 = load i32, ptr %22, align 8, !tbaa !70
-  %344 = mul nsw i32 %343, %.03743.us
-  %345 = add nsw i32 %344, %334
-  %346 = sext i32 %345 to i64
-  %347 = getelementptr inbounds i8, ptr %342, i64 %346
-  %348 = getelementptr inbounds nuw i8, ptr %347, i64 1
-  store i8 %341, ptr %348, align 1, !tbaa !76
-  %349 = lshr i32 %331, 16
-  %350 = trunc i32 %349 to i8
-  %351 = load ptr, ptr %1, align 8, !tbaa !69
-  %352 = load i32, ptr %22, align 8, !tbaa !70
-  %353 = mul nsw i32 %352, %.03743.us
-  %354 = add nsw i32 %353, %334
-  %355 = sext i32 %354 to i64
-  %356 = getelementptr inbounds i8, ptr %351, i64 %355
-  %357 = getelementptr inbounds nuw i8, ptr %356, i64 2
-  store i8 %350, ptr %357, align 1, !tbaa !76
+319:                                              ; preds = %39
+  %320 = load i8, ptr %23, align 1, !tbaa !76
+  %321 = zext i8 %320 to i32
+  %322 = shl nuw nsw i32 %321, 3
+  %323 = shl i32 %.035.us, %322
+  %324 = load i8, ptr %30, align 1, !tbaa !76
+  %325 = zext i8 %324 to i32
+  %326 = shl nuw nsw i32 %325, 3
+  %327 = shl i32 %.034.us, %326
+  %328 = add i32 %327, %323
+  %329 = load i8, ptr %31, align 1, !tbaa !76
+  %330 = zext i8 %329 to i32
+  %331 = shl nuw nsw i32 %330, 3
+  %332 = shl i32 %.0.us, %331
+  %333 = add i32 %328, %332
+  %334 = trunc i32 %333 to i8
+  %335 = load ptr, ptr %1, align 8, !tbaa !69
+  %336 = mul nuw nsw i32 %.03642.us, 3
+  %337 = load i32, ptr %22, align 8, !tbaa !70
+  %338 = mul nsw i32 %337, %.03743.us
+  %339 = add nsw i32 %338, %336
+  %340 = sext i32 %339 to i64
+  %341 = getelementptr inbounds i8, ptr %335, i64 %340
+  store i8 %334, ptr %341, align 1, !tbaa !76
+  %342 = lshr i32 %333, 8
+  %343 = trunc i32 %342 to i8
+  %344 = load ptr, ptr %1, align 8, !tbaa !69
+  %345 = load i32, ptr %22, align 8, !tbaa !70
+  %346 = mul nsw i32 %345, %.03743.us
+  %347 = add nsw i32 %346, %336
+  %348 = sext i32 %347 to i64
+  %349 = getelementptr inbounds i8, ptr %344, i64 %348
+  %350 = getelementptr inbounds nuw i8, ptr %349, i64 1
+  store i8 %343, ptr %350, align 1, !tbaa !76
+  %351 = lshr i32 %333, 16
+  %352 = trunc i32 %351 to i8
+  %353 = load ptr, ptr %1, align 8, !tbaa !69
+  %354 = load i32, ptr %22, align 8, !tbaa !70
+  %355 = mul nsw i32 %354, %.03743.us
+  %356 = add nsw i32 %355, %336
+  %357 = sext i32 %356 to i64
+  %358 = getelementptr inbounds i8, ptr %353, i64 %357
+  %359 = getelementptr inbounds nuw i8, ptr %358, i64 2
+  store i8 %352, ptr %359, align 1, !tbaa !76
   br label %yuvtest_put_pixel.exit.us
 
-yuvtest_put_pixel.exit.us:                        ; preds = %317, %278, %220, %192, %169, %138, %105, %81, %45, %37
-  %358 = add nuw nsw i32 %.03642.us, 1
-  %exitcond.not = icmp eq i32 %358, %6
-  br i1 %exitcond.not, label %._crit_edge.us, label %37, !llvm.loop !115
+yuvtest_put_pixel.exit.us:                        ; preds = %319, %280, %222, %194, %171, %140, %107, %83, %47, %39
+  %360 = add nuw nsw i32 %.03642.us, 1
+  %exitcond.not = icmp eq i32 %360, %6
+  br i1 %exitcond.not, label %._crit_edge.us, label %39, !llvm.loop !115
 
 ._crit_edge.us:                                   ; preds = %yuvtest_put_pixel.exit.us
-  %359 = add nuw nsw i32 %.03743.us, 1
-  %exitcond46.not = icmp eq i32 %359, %8
+  %361 = add nuw nsw i32 %.03743.us, 1
+  %exitcond46.not = icmp eq i32 %361, %8
   br i1 %exitcond46.not, label %._crit_edge44, label %.preheader.us, !llvm.loop !116
 
 ._crit_edge44:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %2

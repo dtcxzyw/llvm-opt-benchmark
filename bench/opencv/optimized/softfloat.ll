@@ -1965,7 +1965,7 @@ define noundef i32 @_Z7cvTruncRKN2cv10softdoubleE(ptr noundef nonnull readonly a
 8:                                                ; preds = %1
   %9 = icmp slt i64 %2, 0
   %10 = icmp samesign ugt i64 %4, 1053
-  br i1 %10, label %11, label %19
+  br i1 %10, label %11, label %18
 
 11:                                               ; preds = %8
   %12 = icmp eq i64 %4, 1054
@@ -1975,24 +1975,24 @@ define noundef i32 @_Z7cvTruncRKN2cv10softdoubleE(ptr noundef nonnull readonly a
   br i1 %or.cond3.i, label %_ZN2cvL19f64_to_i32_r_minMagENS_10softdoubleEb.exit, label %14
 
 14:                                               ; preds = %11
-  %15 = icmp eq i64 %4, 2047
-  %16 = icmp ne i64 %5, 0
-  %or.cond7.i = and i1 %16, %15
-  %17 = select i1 %9, i64 -2147483648, i64 2147483647
-  %18 = select i1 %or.cond7.i, i64 2147483647, i64 %17
+  %15 = icmp ne i64 %4, 2047
+  %16 = icmp eq i64 %5, 0
+  %or.cond7.not39.i = or i1 %16, %15
+  %.not.i = and i1 %9, %or.cond7.not39.i
+  %17 = select i1 %.not.i, i64 -2147483648, i64 2147483647
   br label %_ZN2cvL19f64_to_i32_r_minMagENS_10softdoubleEb.exit
 
-19:                                               ; preds = %8
-  %20 = or disjoint i64 %5, 4503599627370496
-  %21 = lshr i64 %20, %6
-  %22 = sub nsw i64 0, %21
-  %23 = select i1 %9, i64 %22, i64 %21
+18:                                               ; preds = %8
+  %19 = or disjoint i64 %5, 4503599627370496
+  %20 = lshr i64 %19, %6
+  %21 = sub nsw i64 0, %20
+  %22 = select i1 %9, i64 %21, i64 %20
   br label %_ZN2cvL19f64_to_i32_r_minMagENS_10softdoubleEb.exit
 
-_ZN2cvL19f64_to_i32_r_minMagENS_10softdoubleEb.exit: ; preds = %1, %11, %14, %19
-  %.0.i = phi i64 [ %23, %19 ], [ 0, %1 ], [ %18, %14 ], [ -2147483648, %11 ]
-  %24 = trunc nsw i64 %.0.i to i32
-  ret i32 %24
+_ZN2cvL19f64_to_i32_r_minMagENS_10softdoubleEb.exit: ; preds = %1, %11, %14, %18
+  %.0.i = phi i64 [ %22, %18 ], [ 0, %1 ], [ %17, %14 ], [ -2147483648, %11 ]
+  %23 = trunc nsw i64 %.0.i to i32
+  ret i32 %23
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable

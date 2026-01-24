@@ -593,11 +593,11 @@ define range(i64 -1, 1) i64 @gf_deserialize(ptr noundef captures(none) %0, ptr n
 40:                                               ; preds = %36, %37
   %41 = phi i64 [ %39, %37 ], [ -1, %36 ]
   %42 = trunc nuw nsw i128 %28 to i64
-  %43 = icmp eq i64 %42, 0
-  %44 = select i1 %43, i64 %41, i64 0
-  %45 = trunc nsw i128 %35 to i64
-  %.not41 = icmp eq i64 %45, 0
-  %46 = select i1 %.not41, i64 0, i64 %44
+  %43 = icmp ne i64 %42, 0
+  %44 = trunc nsw i128 %35 to i64
+  %.not41 = icmp eq i64 %44, 0
+  %45 = select i1 %.not41, i1 true, i1 %43
+  %46 = select i1 %45, i64 0, i64 %41
   ret i64 %46
 }
 

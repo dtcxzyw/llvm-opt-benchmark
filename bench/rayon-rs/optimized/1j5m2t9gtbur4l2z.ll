@@ -15,23 +15,23 @@ define { i64, i64 } @"_ZN90_$LT$rayon..range_inclusive..Iter$LT$char$GT$$u20$as$
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i8, ptr %5, align 4, !range !11, !alias.scope !5
   %7 = icmp ne i8 %6, 0
-  %.not.i = select i1 %.not.i.i, i1 true, i1 %7
-  br i1 %.not.i, label %"_ZN97_$LT$rayon..range_inclusive..Iter$LT$char$GT$$u20$as$u20$rayon..iter..IndexedParallelIterator$GT$3len17h5cf2a5fa4789d50cE.exit", label %8
+  %8 = select i1 %.not.i.i, i1 true, i1 %7
+  br i1 %8, label %"_ZN97_$LT$rayon..range_inclusive..Iter$LT$char$GT$$u20$as$u20$rayon..iter..IndexedParallelIterator$GT$3len17h5cf2a5fa4789d50cE.exit", label %9
 
-8:                                                ; preds = %1
-  %9 = sub nuw nsw i32 %4, %2
-  %10 = icmp samesign ult i32 %2, 55296
-  %11 = icmp samesign ugt i32 %4, 57343
-  %or.cond.i = and i1 %10, %11
-  %12 = select i1 %or.cond.i, i32 -2047, i32 1
-  %13 = add nsw i32 %9, %12
-  %14 = zext i32 %13 to i64
+9:                                                ; preds = %1
+  %10 = sub nuw nsw i32 %4, %2
+  %11 = icmp samesign ult i32 %2, 55296
+  %12 = icmp samesign ugt i32 %4, 57343
+  %or.cond.i = and i1 %11, %12
+  %13 = select i1 %or.cond.i, i32 -2047, i32 1
+  %14 = add nsw i32 %10, %13
+  %15 = zext i32 %14 to i64
   br label %"_ZN97_$LT$rayon..range_inclusive..Iter$LT$char$GT$$u20$as$u20$rayon..iter..IndexedParallelIterator$GT$3len17h5cf2a5fa4789d50cE.exit"
 
-"_ZN97_$LT$rayon..range_inclusive..Iter$LT$char$GT$$u20$as$u20$rayon..iter..IndexedParallelIterator$GT$3len17h5cf2a5fa4789d50cE.exit": ; preds = %1, %8
-  %.0.i = phi i64 [ %14, %8 ], [ 0, %1 ]
-  %15 = insertvalue { i64, i64 } { i64 1, i64 poison }, i64 %.0.i, 1
-  ret { i64, i64 } %15
+"_ZN97_$LT$rayon..range_inclusive..Iter$LT$char$GT$$u20$as$u20$rayon..iter..IndexedParallelIterator$GT$3len17h5cf2a5fa4789d50cE.exit": ; preds = %1, %9
+  %.0.i = phi i64 [ %15, %9 ], [ 0, %1 ]
+  %16 = insertvalue { i64, i64 } { i64 1, i64 poison }, i64 %.0.i, 1
+  ret { i64, i64 } %16
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
@@ -43,21 +43,21 @@ define noundef range(i64 0, 4294967296) i64 @"_ZN97_$LT$rayon..range_inclusive..
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i8, ptr %5, align 4, !range !11, !alias.scope !12
   %7 = icmp ne i8 %6, 0
-  %.not = select i1 %.not.i, i1 true, i1 %7
-  br i1 %.not, label %15, label %8
+  %8 = select i1 %.not.i, i1 true, i1 %7
+  br i1 %8, label %16, label %9
 
-8:                                                ; preds = %1
-  %9 = sub nuw nsw i32 %4, %2
-  %10 = icmp samesign ult i32 %2, 55296
-  %11 = icmp samesign ugt i32 %4, 57343
-  %or.cond = and i1 %10, %11
-  %12 = select i1 %or.cond, i32 -2047, i32 1
-  %13 = add nsw i32 %9, %12
-  %14 = zext i32 %13 to i64
-  br label %15
+9:                                                ; preds = %1
+  %10 = sub nuw nsw i32 %4, %2
+  %11 = icmp samesign ult i32 %2, 55296
+  %12 = icmp samesign ugt i32 %4, 57343
+  %or.cond = and i1 %11, %12
+  %13 = select i1 %or.cond, i32 -2047, i32 1
+  %14 = add nsw i32 %10, %13
+  %15 = zext i32 %14 to i64
+  br label %16
 
-15:                                               ; preds = %1, %8
-  %.0 = phi i64 [ %14, %8 ], [ 0, %1 ]
+16:                                               ; preds = %1, %9
+  %.0 = phi i64 [ %15, %9 ], [ 0, %1 ]
   ret i64 %.0
 }
 

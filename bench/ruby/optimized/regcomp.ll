@@ -8234,16 +8234,16 @@ define internal fastcc i32 @get_char_length_tree1(ptr noundef captures(none) %0,
   %7 = add i32 %3, 1
   store i32 0, ptr %2, align 4, !tbaa !7
   %8 = load i32, ptr %0, align 8, !tbaa !34
-  switch i32 %8, label %126 [
+  switch i32 %8, label %127 [
     i32 8, label %.preheader
     i32 9, label %23
-    i32 0, label %41
-    i32 5, label %67
-    i32 10, label %89
-    i32 2, label %97
-    i32 1, label %98
-    i32 3, label %98
-    i32 6, label %99
+    i32 0, label %42
+    i32 5, label %68
+    i32 10, label %90
+    i32 2, label %98
+    i32 1, label %99
+    i32 3, label %99
+    i32 6, label %100
     i32 7, label %.critedge
   ]
 
@@ -8282,7 +8282,7 @@ define internal fastcc i32 @get_char_length_tree1(ptr noundef captures(none) %0,
 
 .lr.ph102:                                        ; preds = %23, %30
   %.1101 = phi ptr [ %29, %30 ], [ %0, %23 ]
-  %.076100 = phi i32 [ %spec.select, %30 ], [ 0, %23 ]
+  %.076100 = phi i32 [ %.177, %30 ], [ 0, %23 ]
   %28 = getelementptr inbounds nuw i8, ptr %.1101, i64 16
   %29 = load ptr, ptr %28, align 8, !tbaa !34
   %.not89 = icmp eq ptr %29, null
@@ -8295,182 +8295,183 @@ define internal fastcc i32 @get_char_length_tree1(ptr noundef captures(none) %0,
   %34 = icmp eq i32 %33, 0
   %35 = load i32, ptr %5, align 4
   %36 = load i32, ptr %6, align 4
-  %.not91 = icmp eq i32 %35, %36
-  %spec.select = select i1 %.not91, i32 %.076100, i32 1
+  %.not91 = icmp ne i32 %35, %36
+  %37 = select i1 %34, i1 %.not91, i1 false
+  %.177 = select i1 %37, i32 1, i32 %.076100
   br i1 %34, label %.lr.ph102, label %.critedge94, !llvm.loop !249
 
 .critedge2:                                       ; preds = %.lr.ph102
   %.not90 = icmp eq i32 %.076100, 0
-  br i1 %.not90, label %39, label %37
+  br i1 %.not90, label %40, label %38
 
-37:                                               ; preds = %.critedge2
-  %38 = icmp eq i32 %3, 0
-  %. = select i1 %38, i32 -2, i32 -1
+38:                                               ; preds = %.critedge2
+  %39 = icmp eq i32 %3, 0
+  %. = select i1 %39, i32 -2, i32 -1
   br label %.critedge94
 
-39:                                               ; preds = %.critedge2
-  %40 = load i32, ptr %5, align 4, !tbaa !7
-  store i32 %40, ptr %2, align 4, !tbaa !7
+40:                                               ; preds = %.critedge2
+  %41 = load i32, ptr %5, align 4, !tbaa !7
+  store i32 %41, ptr %2, align 4, !tbaa !7
   br label %.critedge94
 
-.critedge94:                                      ; preds = %30, %23, %37, %39
-  %.2 = phi i32 [ %., %37 ], [ 0, %39 ], [ %26, %23 ], [ %33, %30 ]
+.critedge94:                                      ; preds = %30, %23, %38, %40
+  %.2 = phi i32 [ %., %38 ], [ 0, %40 ], [ %26, %23 ], [ %33, %30 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.critedge
 
-41:                                               ; preds = %4
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %43 = load ptr, ptr %42, align 8, !tbaa !155
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %45 = load ptr, ptr %44, align 8, !tbaa !157
-  %46 = icmp ult ptr %43, %45
-  br i1 %46, label %.lr.ph, label %.critedge
+42:                                               ; preds = %4
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %44 = load ptr, ptr %43, align 8, !tbaa !155
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %46 = load ptr, ptr %45, align 8, !tbaa !157
+  %47 = icmp ult ptr %44, %46
+  br i1 %47, label %.lr.ph, label %.critedge
 
-.lr.ph:                                           ; preds = %41
-  %47 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  br label %48
+.lr.ph:                                           ; preds = %42
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  br label %49
 
-48:                                               ; preds = %.lr.ph, %59
-  %49 = phi ptr [ %45, %.lr.ph ], [ %60, %59 ]
-  %50 = phi i32 [ 0, %.lr.ph ], [ %65, %59 ]
-  %.07399 = phi ptr [ %43, %.lr.ph ], [ %64, %59 ]
-  %51 = load ptr, ptr %47, align 8, !tbaa !73
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 16
-  %53 = load i32, ptr %52, align 8, !tbaa !159
-  %54 = getelementptr inbounds nuw i8, ptr %51, i64 20
-  %55 = load i32, ptr %54, align 4, !tbaa !160
-  %56 = icmp eq i32 %53, %55
-  br i1 %56, label %59, label %57
+49:                                               ; preds = %.lr.ph, %60
+  %50 = phi ptr [ %46, %.lr.ph ], [ %61, %60 ]
+  %51 = phi i32 [ 0, %.lr.ph ], [ %66, %60 ]
+  %.07399 = phi ptr [ %44, %.lr.ph ], [ %65, %60 ]
+  %52 = load ptr, ptr %48, align 8, !tbaa !73
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 16
+  %54 = load i32, ptr %53, align 8, !tbaa !159
+  %55 = getelementptr inbounds nuw i8, ptr %52, i64 20
+  %56 = load i32, ptr %55, align 4, !tbaa !160
+  %57 = icmp eq i32 %54, %56
+  br i1 %57, label %60, label %58
 
-57:                                               ; preds = %48
-  %58 = tail call i32 @onigenc_mbclen(ptr noundef %.07399, ptr noundef nonnull %49, ptr noundef nonnull %51) #22
+58:                                               ; preds = %49
+  %59 = tail call i32 @onigenc_mbclen(ptr noundef %.07399, ptr noundef nonnull %50, ptr noundef nonnull %52) #22
   %.pre = load i32, ptr %2, align 4, !tbaa !7
-  %.pre105 = load ptr, ptr %44, align 8, !tbaa !157
-  br label %59
+  %.pre105 = load ptr, ptr %45, align 8, !tbaa !157
+  br label %60
 
-59:                                               ; preds = %48, %57
-  %60 = phi ptr [ %.pre105, %57 ], [ %49, %48 ]
-  %61 = phi i32 [ %.pre, %57 ], [ %50, %48 ]
-  %62 = phi i32 [ %58, %57 ], [ %53, %48 ]
-  %63 = sext i32 %62 to i64
-  %64 = getelementptr i8, ptr %.07399, i64 %63
-  %65 = add i32 %61, 1
-  store i32 %65, ptr %2, align 4, !tbaa !7
-  %66 = icmp ult ptr %64, %60
-  br i1 %66, label %48, label %.critedge, !llvm.loop !250
+60:                                               ; preds = %49, %58
+  %61 = phi ptr [ %.pre105, %58 ], [ %50, %49 ]
+  %62 = phi i32 [ %.pre, %58 ], [ %51, %49 ]
+  %63 = phi i32 [ %59, %58 ], [ %54, %49 ]
+  %64 = sext i32 %63 to i64
+  %65 = getelementptr i8, ptr %.07399, i64 %64
+  %66 = add i32 %62, 1
+  store i32 %66, ptr %2, align 4, !tbaa !7
+  %67 = icmp ult ptr %65, %61
+  br i1 %67, label %49, label %.critedge, !llvm.loop !250
 
-67:                                               ; preds = %4
-  %68 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %69 = load i32, ptr %68, align 8, !tbaa !150
-  %70 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %71 = load i32, ptr %70, align 4, !tbaa !148
-  %72 = icmp eq i32 %69, %71
-  br i1 %72, label %73, label %.critedge
+68:                                               ; preds = %4
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %70 = load i32, ptr %69, align 8, !tbaa !150
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %72 = load i32, ptr %71, align 4, !tbaa !148
+  %73 = icmp eq i32 %70, %72
+  br i1 %73, label %74, label %.critedge
 
-73:                                               ; preds = %67
-  %74 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %75 = load ptr, ptr %74, align 8, !tbaa !151
-  %76 = call fastcc i32 @get_char_length_tree1(ptr noundef %75, ptr noundef %1, ptr noundef %5, i32 noundef %7)
-  %77 = icmp eq i32 %76, 0
-  br i1 %77, label %78, label %.critedge
+74:                                               ; preds = %68
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %76 = load ptr, ptr %75, align 8, !tbaa !151
+  %77 = call fastcc i32 @get_char_length_tree1(ptr noundef %76, ptr noundef %1, ptr noundef %5, i32 noundef %7)
+  %78 = icmp eq i32 %77, 0
+  br i1 %78, label %79, label %.critedge
 
-78:                                               ; preds = %73
-  %79 = load i32, ptr %68, align 8, !tbaa !150
-  %80 = icmp eq i32 %79, 0
-  br i1 %80, label %distance_multiply.exit, label %81
+79:                                               ; preds = %74
+  %80 = load i32, ptr %69, align 8, !tbaa !150
+  %81 = icmp eq i32 %80, 0
+  br i1 %81, label %distance_multiply.exit, label %82
 
-81:                                               ; preds = %78
-  %82 = load i32, ptr %5, align 4, !tbaa !7
-  %83 = sext i32 %82 to i64
-  %84 = sext i32 %79 to i64
-  %85 = udiv i64 -1, %84
-  %86 = icmp ugt i64 %85, %83
-  %87 = mul i32 %82, %79
-  %88 = select i1 %86, i32 %87, i32 -1
+82:                                               ; preds = %79
+  %83 = load i32, ptr %5, align 4, !tbaa !7
+  %84 = sext i32 %83 to i64
+  %85 = sext i32 %80 to i64
+  %86 = udiv i64 -1, %85
+  %87 = icmp ugt i64 %86, %84
+  %88 = mul i32 %83, %80
+  %89 = select i1 %87, i32 %88, i32 -1
   br label %distance_multiply.exit
 
-distance_multiply.exit:                           ; preds = %78, %81
-  %.0.i95 = phi i32 [ 0, %78 ], [ %88, %81 ]
+distance_multiply.exit:                           ; preds = %79, %82
+  %.0.i95 = phi i32 [ 0, %79 ], [ %89, %82 ]
   store i32 %.0.i95, ptr %2, align 4, !tbaa !7
   br label %.critedge
 
-89:                                               ; preds = %4
-  %90 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %91 = load i32, ptr %90, align 4, !tbaa !34
-  %92 = and i32 %91, 128
-  %.not88 = icmp eq i32 %92, 0
-  br i1 %.not88, label %93, label %.critedge
+90:                                               ; preds = %4
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %92 = load i32, ptr %91, align 4, !tbaa !34
+  %93 = and i32 %92, 128
+  %.not88 = icmp eq i32 %93, 0
+  br i1 %.not88, label %94, label %.critedge
 
-93:                                               ; preds = %89
-  %94 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %95 = load ptr, ptr %94, align 8, !tbaa !34
-  %96 = tail call fastcc i32 @get_char_length_tree1(ptr noundef %95, ptr noundef %1, ptr noundef %2, i32 noundef %7)
+94:                                               ; preds = %90
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %96 = load ptr, ptr %95, align 8, !tbaa !34
+  %97 = tail call fastcc i32 @get_char_length_tree1(ptr noundef %96, ptr noundef %1, ptr noundef %2, i32 noundef %7)
   br label %.critedge
 
-97:                                               ; preds = %4
+98:                                               ; preds = %4
   store i32 1, ptr %2, align 4, !tbaa !7
   br label %.critedge
 
-98:                                               ; preds = %4, %4
+99:                                               ; preds = %4, %4
   store i32 1, ptr %2, align 4, !tbaa !7
   br label %.critedge
 
-99:                                               ; preds = %4
-  %100 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %101 = load i32, ptr %100, align 8, !tbaa !152
-  %102 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %101)
-  %103 = icmp eq i32 %102, 1
-  br i1 %103, label %.split, label %.critedge
+100:                                              ; preds = %4
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %102 = load i32, ptr %101, align 8, !tbaa !152
+  %103 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %102)
+  %104 = icmp eq i32 %103, 1
+  br i1 %104, label %.split, label %.critedge
 
-.split:                                           ; preds = %99
-  %104 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %101, i1 true)
-  switch i32 %104, label %.critedge [
-    i32 0, label %105
-    i32 1, label %122
-    i32 2, label %122
-    i32 3, label %122
+.split:                                           ; preds = %100
+  %105 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %102, i1 true)
+  switch i32 %105, label %.critedge [
+    i32 0, label %106
+    i32 1, label %123
+    i32 2, label %123
+    i32 3, label %123
   ]
 
-105:                                              ; preds = %.split
-  %106 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %107 = load i32, ptr %106, align 4, !tbaa !142
-  %108 = and i32 %107, 4
-  %.not = icmp eq i32 %108, 0
-  br i1 %.not, label %112, label %109
+106:                                              ; preds = %.split
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %108 = load i32, ptr %107, align 4, !tbaa !142
+  %109 = and i32 %108, 4
+  %.not = icmp eq i32 %109, 0
+  br i1 %.not, label %113, label %110
 
-109:                                              ; preds = %105
-  %110 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %111 = load i32, ptr %110, align 8, !tbaa !251
-  store i32 %111, ptr %2, align 4, !tbaa !7
+110:                                              ; preds = %106
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %112 = load i32, ptr %111, align 8, !tbaa !251
+  store i32 %112, ptr %2, align 4, !tbaa !7
   br label %.critedge
 
-112:                                              ; preds = %105
-  %113 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %114 = load ptr, ptr %113, align 8, !tbaa !144
-  %115 = tail call fastcc i32 @get_char_length_tree1(ptr noundef %114, ptr noundef %1, ptr noundef %2, i32 noundef %7)
-  %116 = icmp eq i32 %115, 0
-  br i1 %116, label %117, label %.critedge
+113:                                              ; preds = %106
+  %114 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %115 = load ptr, ptr %114, align 8, !tbaa !144
+  %116 = tail call fastcc i32 @get_char_length_tree1(ptr noundef %115, ptr noundef %1, ptr noundef %2, i32 noundef %7)
+  %117 = icmp eq i32 %116, 0
+  br i1 %117, label %118, label %.critedge
 
-117:                                              ; preds = %112
-  %118 = load i32, ptr %2, align 4, !tbaa !7
-  %119 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i32 %118, ptr %119, align 8, !tbaa !251
-  %120 = load i32, ptr %106, align 4, !tbaa !34
-  %121 = or i32 %120, 4
-  store i32 %121, ptr %106, align 4, !tbaa !34
+118:                                              ; preds = %113
+  %119 = load i32, ptr %2, align 4, !tbaa !7
+  %120 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store i32 %119, ptr %120, align 8, !tbaa !251
+  %121 = load i32, ptr %107, align 4, !tbaa !34
+  %122 = or i32 %121, 4
+  store i32 %122, ptr %107, align 4, !tbaa !34
   br label %.critedge
 
-122:                                              ; preds = %.split, %.split, %.split
-  %123 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %124 = load ptr, ptr %123, align 8, !tbaa !144
-  %125 = tail call fastcc i32 @get_char_length_tree1(ptr noundef %124, ptr noundef %1, ptr noundef %2, i32 noundef %7)
+123:                                              ; preds = %.split, %.split, %.split
+  %124 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %125 = load ptr, ptr %124, align 8, !tbaa !144
+  %126 = tail call fastcc i32 @get_char_length_tree1(ptr noundef %125, ptr noundef %1, ptr noundef %2, i32 noundef %7)
   br label %.critedge
 
-126:                                              ; preds = %4
+127:                                              ; preds = %4
   br label %.critedge
 
-.critedge:                                        ; preds = %59, %.preheader, %13, %41, %122, %112, %117, %109, %99, %.split, %89, %distance_multiply.exit, %73, %67, %93, %126, %98, %97, %.critedge94, %4
-  %.074 = phi i32 [ -1, %126 ], [ %115, %112 ], [ %125, %122 ], [ %.2, %.critedge94 ], [ 0, %99 ], [ 0, %13 ], [ -1, %67 ], [ %96, %93 ], [ 0, %97 ], [ 0, %98 ], [ -1, %89 ], [ 0, %4 ], [ 0, %distance_multiply.exit ], [ %76, %73 ], [ 0, %.split ], [ 0, %109 ], [ 0, %117 ], [ 0, %41 ], [ %11, %.preheader ], [ 0, %59 ]
+.critedge:                                        ; preds = %60, %.preheader, %13, %42, %123, %113, %118, %110, %100, %.split, %90, %distance_multiply.exit, %74, %68, %94, %127, %99, %98, %.critedge94, %4
+  %.074 = phi i32 [ -1, %127 ], [ %116, %113 ], [ %126, %123 ], [ %.2, %.critedge94 ], [ 0, %100 ], [ 0, %13 ], [ -1, %68 ], [ %97, %94 ], [ 0, %98 ], [ 0, %99 ], [ -1, %90 ], [ 0, %4 ], [ 0, %distance_multiply.exit ], [ %77, %74 ], [ 0, %.split ], [ 0, %110 ], [ 0, %118 ], [ 0, %42 ], [ %11, %.preheader ], [ 0, %60 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.074
 }

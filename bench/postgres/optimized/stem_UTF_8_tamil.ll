@@ -1030,10 +1030,9 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_remove_question_suffixes
   %26 = tail call fastcc i32 @r_fix_ending(ptr noundef nonnull %0)
   %.fr = freeze i32 %26
   %27 = icmp eq i32 %.fr, 0
-  %28 = icmp slt i32 %.fr, 0
-  %..013.i = select i1 %28, i32 %.fr, i32 %.013.i
   %.lobit.i = lshr i32 %.fr, 31
-  %.114.i = select i1 %27, i32 %.013.i, i32 %..013.i
+  %28 = icmp slt i32 %.fr, 0
+  %.114.i = select i1 %28, i32 %.fr, i32 %.013.i
   %.0.i = select i1 %27, i32 4, i32 %.lobit.i
   switch i32 %.0.i, label %30 [
     i32 0, label %29
@@ -1285,10 +1284,9 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_remove_common_word_endin
   %78 = tail call fastcc i32 @r_fix_ending(ptr noundef nonnull %0)
   %.fr = freeze i32 %78
   %79 = icmp eq i32 %.fr, 0
-  %80 = icmp slt i32 %.fr, 0
-  %..013.i = select i1 %80, i32 %.fr, i32 %.013.i
   %.lobit.i = lshr i32 %.fr, 31
-  %.114.i = select i1 %79, i32 %.013.i, i32 %..013.i
+  %80 = icmp slt i32 %.fr, 0
+  %.114.i = select i1 %80, i32 %.fr, i32 %.013.i
   %.0.i = select i1 %79, i32 4, i32 %.lobit.i
   switch i32 %.0.i, label %82 [
     i32 0, label %81
@@ -1675,10 +1673,9 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_remove_vetrumai_urupukal
   %160 = tail call fastcc i32 @r_fix_ending(ptr noundef nonnull %0)
   %.fr = freeze i32 %160
   %161 = icmp eq i32 %.fr, 0
-  %162 = icmp slt i32 %.fr, 0
-  %..013.i = select i1 %162, i32 %.fr, i32 %.013.i
   %.lobit.i = lshr i32 %.fr, 31
-  %.114.i = select i1 %161, i32 %.013.i, i32 %..013.i
+  %162 = icmp slt i32 %.fr, 0
+  %.114.i = select i1 %162, i32 %.fr, i32 %.013.i
   %.0.i = select i1 %161, i32 4, i32 %.lobit.i
   switch i32 %.0.i, label %164 [
     i32 0, label %163
@@ -2443,10 +2440,9 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_remove_tense_suffixes(pt
   %251 = tail call fastcc i32 @r_fix_ending(ptr noundef nonnull %0)
   %.fr.i = freeze i32 %251
   %252 = icmp eq i32 %.fr.i, 0
-  %253 = icmp slt i32 %.fr.i, 0
-  %..013.i.i = select i1 %253, i32 %.fr.i, i32 %.013.i.i
   %.lobit.i.i = lshr i32 %.fr.i, 31
-  %.114.i.i = select i1 %252, i32 %.013.i.i, i32 %..013.i.i
+  %253 = icmp slt i32 %.fr.i, 0
+  %.114.i.i = select i1 %253, i32 %.fr.i, i32 %.013.i.i
   %.0.i.i = select i1 %252, i32 4, i32 %.lobit.i.i
   switch i32 %.0.i.i, label %255 [
     i32 0, label %254

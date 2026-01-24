@@ -8742,9 +8742,9 @@ _ZN6icu_7712_GLOBAL__N_113AliasReplacer8notEmptyEPKc.exit.i72: ; preds = %_ZN6ic
   %143 = load i8, ptr %.4.ph, align 1, !tbaa !25
   %.fr.i = freeze i8 %143
   %.not.i73 = icmp eq i8 %.fr.i, 0
-  %144 = icmp eq ptr %140, null
-  %145 = select i1 %144, ptr %.4.ph, ptr %140
-  %spec.select.i = select i1 %.not.i73, ptr %140, ptr %145
+  %144 = icmp ne ptr %140, null
+  %145 = select i1 %.not.i73, i1 true, i1 %144
+  %spec.select.i = select i1 %145, ptr %140, ptr %.4.ph
   br label %_ZN6icu_7712_GLOBAL__N_113AliasReplacer15deleteOrReplaceEPKcS3_S3_.exit
 
 _ZN6icu_7712_GLOBAL__N_113AliasReplacer15deleteOrReplaceEPKcS3_S3_.exit: ; preds = %_ZN6icu_7712_GLOBAL__N_113AliasReplacer24parseLanguageReplacementEPKcRS3_S4_S4_S4_S4_RNS_7UVectorER10UErrorCode.exit, %_ZN6icu_7712_GLOBAL__N_113AliasReplacer8notEmptyEPKc.exit.i72

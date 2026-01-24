@@ -573,10 +573,9 @@ define void @_ZN4toku12lock_request16build_wait_graphEPNS_3wfgERKNS_9txnid_setE(
   %.fr.i.i.i = freeze i64 %29
   %30 = icmp ult i64 %.fr.i.i.i, %11
   %31 = add nuw i32 %25, 1
-  %.not37.i.i.i = icmp eq i64 %.fr.i.i.i, %11
-  %..025.i.i.i = select i1 %.not37.i.i.i, i32 %25, i32 %.02541.i.i.i
+  %.not37.i.i.i.not = icmp eq i64 %.fr.i.i.i, %11
   %.130.i.i.i = select i1 %30, i32 %.02939.i.i.i, i32 %25
-  %.126.i.i.i = select i1 %30, i32 %.02541.i.i.i, i32 %..025.i.i.i
+  %.126.i.i.i = select i1 %.not37.i.i.i.not, i32 %25, i32 %.02541.i.i.i
   %.1.i.i.i = select i1 %30, i32 %31, i32 %.02442.i.i.i
   %.not.i.i.i = icmp eq i32 %.1.i.i.i, %.130.i.i.i
   br i1 %.not.i.i.i, label %._crit_edge.i.i.i, label %23, !llvm.loop !54
@@ -2918,10 +2917,9 @@ define internal void @"_ZNSt17_Function_handlerIFvmEZN4toku12lock_request15deadl
   %.fr.i.i.i.i.i.i = freeze i64 %28
   %29 = icmp ult i64 %.fr.i.i.i.i.i.i, %.val2
   %30 = add nuw i32 %24, 1
-  %.not37.i.i.i.i.i.i = icmp eq i64 %.fr.i.i.i.i.i.i, %.val2
-  %..025.i.i.i.i.i.i = select i1 %.not37.i.i.i.i.i.i, i32 %24, i32 %.02541.i.i.i.i.i.i
+  %.not37.i.i.i.not.i.i.i = icmp eq i64 %.fr.i.i.i.i.i.i, %.val2
   %.130.i.i.i.i.i.i = select i1 %29, i32 %.02939.i.i.i.i.i.i, i32 %24
-  %.126.i.i.i.i.i.i = select i1 %29, i32 %.02541.i.i.i.i.i.i, i32 %..025.i.i.i.i.i.i
+  %.126.i.i.i.i.i.i = select i1 %.not37.i.i.i.not.i.i.i, i32 %24, i32 %.02541.i.i.i.i.i.i
   %.1.i.i.i.i.i.i = select i1 %29, i32 %30, i32 %.02442.i.i.i.i.i.i
   %.not.i.i.i.i.i.i = icmp eq i32 %.1.i.i.i.i.i.i, %.130.i.i.i.i.i.i
   br i1 %.not.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i, label %22, !llvm.loop !54

@@ -613,9 +613,9 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit137: ; preds = %_ZN4cvc58internal1
   %272 = load i64, ptr %271, align 8
   %273 = trunc i64 %272 to i32
   %274 = and i32 %273, 1023
-  %275 = icmp eq i32 %274, 78
-  %276 = select i1 %275, i32 76, i32 %274
-  %277 = select i1 %76, i32 %274, i32 %276
+  %275 = icmp ne i32 %274, 78
+  %276 = select i1 %76, i1 true, i1 %275
+  %277 = select i1 %276, i32 %274, i32 76
   %278 = getelementptr inbounds nuw i8, ptr %0, i64 272
   store i32 %277, ptr %278, align 8, !tbaa !159
   br label %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit232

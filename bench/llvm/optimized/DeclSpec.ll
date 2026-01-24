@@ -524,8 +524,9 @@ define dso_local void @_ZN5clang15DeclaratorChunk11getFunctionEbbNS_14SourceLoca
   %59 = trunc nuw i8 %58 to i1
   %60 = load ptr, ptr %22, align 8
   %.not.i.i = icmp eq ptr %60, null
-  %61 = select i1 %.not.i.i, i16 0, i16 512
-  %spec.select = select i1 %59, i16 512, i16 %61
+  %.not76 = select i1 %59, i1 true, i1 %.not.i.i
+  %61 = xor i1 %.not76, %59
+  %spec.select = select i1 %61, i16 0, i16 512
   %62 = or disjoint i16 %46, %49
   %63 = or disjoint i16 %62, %53
   %64 = or disjoint i16 %63, %42

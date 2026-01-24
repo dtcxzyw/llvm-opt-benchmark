@@ -11391,19 +11391,19 @@ _ZN4pbrt13NextFloatDownEf.exit:                   ; preds = %13, %18
 
 _ZN4pbrt11NextFloatUpEf.exit:                     ; preds = %_ZN4pbrt13NextFloatDownEf.exit, %23
   %.011.i = phi float [ %27, %23 ], [ 0x7FF0000000000000, %_ZN4pbrt13NextFloatDownEf.exit ]
-  %28 = fcmp ogt float %.010.i, -1.000000e+00
-  %.sroa.speculated8 = select i1 %28, float %.010.i, float -1.000000e+00
+  %28 = fcmp ule float %.010.i, -1.000000e+00
   %29 = fcmp olt float %.011.i, 1.000000e+00
   %.sroa.speculated = select i1 %29, float %.011.i, float 1.000000e+00
   %30 = fcmp ole float %.sroa.0.0.vec.extract, 0x400921FB60000000
   %31 = fcmp oge float %.sroa.0.4.vec.extract, 0x400921FB60000000
   %32 = and i1 %30, %31
-  %spec.select = select i1 %32, float -1.000000e+00, float %.sroa.speculated8
-  %33 = fcmp olt float %.sroa.speculated, %spec.select
-  %.sroa.speculated5.i = select i1 %33, float %.sroa.speculated, float %spec.select
+  %33 = select i1 %32, i1 true, i1 %28
+  %spec.select = select i1 %33, float -1.000000e+00, float %.010.i
+  %34 = fcmp olt float %.sroa.speculated, %spec.select
+  %.sroa.speculated5.i = select i1 %34, float %.sroa.speculated, float %spec.select
   %.sroa.029.0.vec.insert = insertelement <2 x float> poison, float %.sroa.speculated5.i, i64 0
-  %34 = fcmp olt float %spec.select, %.sroa.speculated
-  %.sroa.speculated.i = select i1 %34, float %.sroa.speculated, float %spec.select
+  %35 = fcmp olt float %spec.select, %.sroa.speculated
+  %.sroa.speculated.i = select i1 %35, float %.sroa.speculated, float %spec.select
   %.sroa.029.4.vec.insert = insertelement <2 x float> %.sroa.029.0.vec.insert, float %.sroa.speculated.i, i64 1
   ret <2 x float> %.sroa.029.4.vec.insert
 }
@@ -11483,23 +11483,23 @@ _ZN4pbrt13NextFloatDownEf.exit:                   ; preds = %13, %18
 
 _ZN4pbrt11NextFloatUpEf.exit:                     ; preds = %_ZN4pbrt13NextFloatDownEf.exit, %23
   %.011.i = phi float [ %27, %23 ], [ 0x7FF0000000000000, %_ZN4pbrt13NextFloatDownEf.exit ]
-  %28 = fcmp ogt float %.010.i, -1.000000e+00
-  %.sroa.speculated11 = select i1 %28, float %.010.i, float -1.000000e+00
-  %29 = fcmp olt float %.011.i, 1.000000e+00
-  %.sroa.speculated = select i1 %29, float %.011.i, float 1.000000e+00
+  %28 = fcmp ule float %.010.i, -1.000000e+00
+  %29 = fcmp uge float %.011.i, 1.000000e+00
   %30 = fcmp ole float %.sroa.0.0.vec.extract, 0x3FF921FB60000000
   %31 = fcmp oge float %.sroa.0.4.vec.extract, 0x3FF921FB60000000
   %32 = and i1 %30, %31
-  %spec.select = select i1 %32, float 1.000000e+00, float %.sroa.speculated
-  %33 = fcmp ole float %.sroa.0.0.vec.extract, 0x4012D97C80000000
-  %34 = fcmp oge float %.sroa.0.4.vec.extract, 0x4012D97C80000000
-  %35 = and i1 %33, %34
-  %.1 = select i1 %35, float -1.000000e+00, float %.sroa.speculated11
-  %36 = fcmp olt float %spec.select, %.1
-  %.sroa.speculated5.i = select i1 %36, float %spec.select, float %.1
+  %33 = select i1 %32, i1 true, i1 %29
+  %spec.select = select i1 %33, float 1.000000e+00, float %.011.i
+  %34 = fcmp ole float %.sroa.0.0.vec.extract, 0x4012D97C80000000
+  %35 = fcmp oge float %.sroa.0.4.vec.extract, 0x4012D97C80000000
+  %36 = and i1 %34, %35
+  %37 = select i1 %36, i1 true, i1 %28
+  %.1 = select i1 %37, float -1.000000e+00, float %.010.i
+  %38 = fcmp olt float %spec.select, %.1
+  %.sroa.speculated5.i = select i1 %38, float %spec.select, float %.1
   %.sroa.033.0.vec.insert = insertelement <2 x float> poison, float %.sroa.speculated5.i, i64 0
-  %37 = fcmp olt float %.1, %spec.select
-  %.sroa.speculated.i = select i1 %37, float %spec.select, float %.1
+  %39 = fcmp olt float %.1, %spec.select
+  %.sroa.speculated.i = select i1 %39, float %spec.select, float %.1
   %.sroa.033.4.vec.insert = insertelement <2 x float> %.sroa.033.0.vec.insert, float %.sroa.speculated.i, i64 1
   ret <2 x float> %.sroa.033.4.vec.insert
 }

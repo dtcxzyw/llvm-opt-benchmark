@@ -6042,9 +6042,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit746: ; preds = %20
   %2038 = icmp eq ptr %2036, %2037
   %2039 = load ptr, ptr %179, align 8
   %2040 = load ptr, ptr %861, align 8
-  %2041 = icmp eq ptr %2039, %2040
-  %2042 = select i1 %2041, i32 300, i32 30
-  %2043 = select i1 %2038, i32 %2042, i32 300
+  %2041 = icmp ne ptr %2039, %2040
+  %2042 = select i1 %2038, i1 %2041, i1 false
+  %2043 = select i1 %2042, i32 30, i32 300
   %2044 = invoke noundef i32 @_ZN2cv7waitKeyEi(i32 noundef %2043)
           to label %2045 unwind label %2055
 

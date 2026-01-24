@@ -68,9 +68,9 @@ define noundef i64 @_ZN4base7SysInfo21AmountOfVirtualMemoryEv() local_unnamed_ad
   %6 = call i32 @getrlimit(i32 noundef 2, ptr noundef nonnull %1) #11
   %.not.i.i.i.i.i.i = icmp eq i32 %6, 0
   %7 = load i64, ptr %1, align 8
-  %8 = icmp eq i64 %7, -1
-  %9 = select i1 %8, i64 0, i64 %7
-  %.0.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i, i64 %9, i64 0
+  %8 = icmp ne i64 %7, -1
+  %9 = select i1 %.not.i.i.i.i.i.i, i1 %8, i1 false
+  %.0.i.i.i.i.i.i = select i1 %9, i64 %7, i64 0
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   store i64 %.0.i.i.i.i.i.i, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_121g_lazy_virtual_memoryE, i64 8), align 8, !tbaa !8
   call void @_ZN4base8internal20CompleteLazyInstanceEPllPvPFvS2_E(ptr noundef nonnull @_ZN12_GLOBAL__N_121g_lazy_virtual_memoryE, i64 noundef ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_121g_lazy_virtual_memoryE, i64 8) to i64), ptr noundef nonnull @_ZN12_GLOBAL__N_121g_lazy_virtual_memoryE, ptr noundef null)

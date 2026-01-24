@@ -705,26 +705,25 @@ define internal fastcc void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A
   %137 = extractvalue { i64, i1 } %136, 1
   %138 = add nuw i64 %.sroa.8.1.i.i31, %.sroa.7.1.i.i18
   %not..i.i43 = xor i1 %137, true
-  %.sroa.531.0.i.i45 = select i1 %137, i64 undef, i64 %138, !prof !182
-  %.sroa.6.047 = select i1 %or.cond42.i.i41, i64 %.sroa.531.0.i.i45, i64 undef
-  %139 = add nuw nsw i64 %.sroa.060.0.i.i33, %.sroa.0.0.i.i20
-  %140 = tail call i64 @llvm.uadd.sat.i64(i64 %78, i64 %139)
+  %139 = select i1 %or.cond42.i.i41, i1 %not..i.i43, i1 false
+  %.sroa.6.047 = select i1 %139, i64 %138, i64 undef
+  %140 = add nuw nsw i64 %.sroa.060.0.i.i33, %.sroa.0.0.i.i20
+  %141 = tail call i64 @llvm.uadd.sat.i64(i64 %78, i64 %140)
   %trunc = trunc nuw i64 %80 to i1
-  %141 = select i1 %trunc, i1 %or.cond42.i.i41, i1 false
-  %or.cond = select i1 %141, i1 %not..i.i43, i1 false
-  %142 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %82, i64 %.sroa.6.047)
-  %143 = extractvalue { i64, i1 } %142, 1
-  %144 = add nuw i64 %.sroa.6.047, %82
-  %not. = xor i1 %143, true
-  %spec.select7 = select i1 %143, i64 undef, i64 %144, !prof !182
+  %142 = select i1 %trunc, i1 %or.cond42.i.i41, i1 false
+  %or.cond = select i1 %142, i1 %not..i.i43, i1 false
+  %143 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %82, i64 %.sroa.6.047)
+  %144 = extractvalue { i64, i1 } %143, 1
+  %145 = add nuw i64 %.sroa.6.047, %82
+  %not. = xor i1 %144, true
   %narrow = select i1 %or.cond, i1 %not., i1 false
   %.sroa.03.0 = zext i1 %narrow to i64
-  %.sroa.6.0 = select i1 %or.cond, i64 %spec.select7, i64 undef
-  store i64 %140, ptr %0, align 8
-  %145 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sroa.03.0, ptr %145, align 8
-  %146 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.6.0, ptr %146, align 8
+  %.sroa.6.0 = select i1 %narrow, i64 %145, i64 undef
+  store i64 %141, ptr %0, align 8
+  %146 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %.sroa.03.0, ptr %146, align 8
+  %147 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %.sroa.6.0, ptr %147, align 8
   br label %75
 }
 

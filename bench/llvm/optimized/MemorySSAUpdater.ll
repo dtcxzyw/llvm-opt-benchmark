@@ -7346,9 +7346,8 @@ _ZNK4llvm9MemorySSA16getBlockAccessesEPKNS_10BasicBlockE.exit: ; preds = %_ZNK4l
   %46 = getelementptr inbounds i8, ptr %.sroa.026.035, i64 -32
   %47 = load i8, ptr %46, align 8, !tbaa !159
   %48 = and i8 %47, -2
-  %spec.select.i.i.i.i.i.i.i.i.not = icmp eq i8 %48, 26
-  %spec.select.i.i = select i1 %spec.select.i.i.i.i.i.i.i.i.not, ptr %46, ptr null
-  br i1 %spec.select.i.i.i.i.i.i.i.i.not, label %49, label %104
+  %spec.select.i.i.i.i.i.i.i.i.not.not = icmp eq i8 %48, 26
+  br i1 %spec.select.i.i.i.i.i.i.i.i.not.not, label %49, label %104
 
 49:                                               ; preds = %45
   %50 = getelementptr inbounds nuw i8, ptr %.sroa.026.035, i64 40
@@ -7469,7 +7468,7 @@ _ZN4llvm15ValueHandleBaseD2Ev.exit:               ; preds = %_ZN4llvm16dyn_cast_
   %.1.i.i.i = getelementptr inbounds i8, ptr %46, i64 %.1.v.i.i.i
   %98 = load ptr, ptr %.1.i.i.i, align 8, !tbaa !170
   %99 = call fastcc noundef ptr @_ZL28getNewDefiningAccessForClonePN4llvm12MemoryAccessERKNS_8ValueMapIPKNS_5ValueENS_14WeakTrackingVHENS_14ValueMapConfigIS5_NS_3sys10SmartMutexILb0EEEEEEERNS_13SmallDenseMapIPNS_9MemoryPhiES1_Lj4ENS_12DenseMapInfoISH_vEENS_6detail12DenseMapPairISH_S1_EEEEPNS_9MemorySSAENS_12function_refIFbPNS_10BasicBlockEEEE(ptr noundef %98, ptr noundef nonnull align 8 dereferenceable(57) %3, ptr noundef nonnull align 8 dereferenceable(72) %4, ptr noundef %95, ptr %.sroa.0.0.copyload, i64 %.sroa.2.0.copyload)
-  %100 = select i1 %6, ptr null, ptr %spec.select.i.i
+  %100 = select i1 %6, ptr null, ptr %46
   %101 = call noundef ptr @_ZN4llvm9MemorySSA19createDefinedAccessEPNS_11InstructionEPNS_12MemoryAccessEPKNS_14MemoryUseOrDefEb(ptr noundef nonnull align 8 dereferenceable(317) %95, ptr noundef nonnull %.0.i.i, ptr noundef %99, ptr noundef %100, i1 noundef zeroext false) #17
   %.not25 = icmp eq ptr %101, null
   br i1 %.not25, label %104, label %102

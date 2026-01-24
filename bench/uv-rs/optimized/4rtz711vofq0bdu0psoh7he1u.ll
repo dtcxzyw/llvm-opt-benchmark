@@ -3765,9 +3765,9 @@ define hidden void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..funct
   %switch.not.i = icmp samesign ult i64 %6, 2
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 176
   %8 = load i64, ptr %7, align 8, !range !170, !noalias !1018
-  %9 = icmp eq i64 %8, -9223372036854775808
-  %..i = select i1 %9, ptr null, ptr %7
-  %.sroa.0.0.i = select i1 %switch.not.i, ptr %..i, ptr null
+  %9 = icmp ne i64 %8, -9223372036854775808
+  %10 = select i1 %switch.not.i, i1 %9, i1 false
+  %.sroa.0.0.i = select i1 %10, ptr %7, ptr null
   store i64 1, ptr %0, align 8, !alias.scope !1018, !noalias !1022
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.0.0.i, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !1018, !noalias !1022
@@ -3793,13 +3793,13 @@ define hidden void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..funct
   %12 = tail call noundef align 8 dereferenceable(720) ptr @_ZN12uv_workspace9workspace15WorkspaceMember14pyproject_toml17he7ec6c0d2f124047E(ptr noalias noundef nonnull readonly align 8 dereferenceable(856) %2), !noalias !1024
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %14 = load i64, ptr %13, align 8, !range !149, !noalias !1024, !noundef !3
-  %15 = icmp eq i64 %14, 2
+  %15 = icmp ne i64 %14, 2
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 56
   %17 = load i64, ptr %16, align 8, !range !132, !noalias !1024
   %trunc.i = trunc nuw i64 %17 to i1
   %18 = getelementptr inbounds nuw i8, ptr %12, i64 64
-  %spec.select.i = select i1 %trunc.i, ptr %18, ptr null
-  %.sroa.02.0.i = select i1 %15, ptr null, ptr %spec.select.i
+  %.not148.i = select i1 %15, i1 %trunc.i, i1 false
+  %.sroa.02.0.i = select i1 %.not148.i, ptr %18, ptr null
   %19 = tail call noundef align 8 dereferenceable(720) ptr @_ZN12uv_workspace9workspace15WorkspaceMember14pyproject_toml17he7ec6c0d2f124047E(ptr noalias noundef nonnull readonly align 8 dereferenceable(856) %2), !noalias !1024
   %20 = load i64, ptr %19, align 8, !range !132, !noalias !1024, !noundef !3
   %trunc89.i = trunc nuw i64 %20 to i1
@@ -3811,13 +3811,13 @@ define hidden void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..funct
   %switch.not.i = icmp samesign ult i64 %24, 2
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 200
   %26 = load i64, ptr %25, align 8, !range !170, !noalias !1024
-  %27 = icmp eq i64 %26, -9223372036854775808
-  %.91.i = select i1 %27, ptr null, ptr %25
-  %.sroa.05.0.i = select i1 %switch.not.i, ptr %.91.i, ptr null
+  %27 = icmp ne i64 %26, -9223372036854775808
+  %28 = select i1 %switch.not.i, i1 %27, i1 false
+  %.sroa.05.0.i = select i1 %28, ptr %25, ptr null
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1027)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1030)
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i64 1, ptr %28, align 8, !alias.scope !1032, !noalias !1034
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store i64 1, ptr %29, align 8, !alias.scope !1032, !noalias !1034
   %.sroa.0120.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %.sroa.0.0.i, ptr %.sroa.0120.sroa.4.0..sroa_idx.i, align 8, !alias.scope !1032, !noalias !1034
   %.sroa.0120.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -25435,9 +25435,9 @@ define hidden void @"_ZN2uv8commands7project14install_target13InstallTarget7inde
   %switch.not = icmp samesign ult i64 %6, 2
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 176
   %8 = load i64, ptr %7, align 8, !range !170
-  %9 = icmp eq i64 %8, -9223372036854775808
-  %. = select i1 %9, ptr null, ptr %7
-  %.sroa.0.0 = select i1 %switch.not, ptr %., ptr null
+  %9 = icmp ne i64 %8, -9223372036854775808
+  %10 = select i1 %switch.not, i1 %9, i1 false
+  %.sroa.0.0 = select i1 %10, ptr %7, ptr null
   store i64 1, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.0.0, ptr %.sroa.4.0..sroa_idx, align 8
@@ -25823,13 +25823,13 @@ define hidden void @"_ZN2uv8commands7project14install_target13InstallTarget12req
   %12 = tail call noundef align 8 dereferenceable(720) ptr @_ZN12uv_workspace9workspace15WorkspaceMember14pyproject_toml17he7ec6c0d2f124047E(ptr noalias noundef nonnull readonly align 8 dereferenceable(856) %2)
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %14 = load i64, ptr %13, align 8, !range !149, !noundef !3
-  %15 = icmp eq i64 %14, 2
+  %15 = icmp ne i64 %14, 2
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 56
   %17 = load i64, ptr %16, align 8, !range !132
   %trunc = trunc nuw i64 %17 to i1
   %18 = getelementptr inbounds nuw i8, ptr %12, i64 64
-  %spec.select = select i1 %trunc, ptr %18, ptr null
-  %.sroa.02.0 = select i1 %15, ptr null, ptr %spec.select
+  %.not148 = select i1 %15, i1 %trunc, i1 false
+  %.sroa.02.0 = select i1 %.not148, ptr %18, ptr null
   %19 = tail call noundef align 8 dereferenceable(720) ptr @_ZN12uv_workspace9workspace15WorkspaceMember14pyproject_toml17he7ec6c0d2f124047E(ptr noalias noundef nonnull readonly align 8 dereferenceable(856) %2)
   %20 = load i64, ptr %19, align 8, !range !132, !noundef !3
   %trunc89 = trunc nuw i64 %20 to i1
@@ -25841,13 +25841,13 @@ define hidden void @"_ZN2uv8commands7project14install_target13InstallTarget12req
   %switch.not = icmp samesign ult i64 %24, 2
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 200
   %26 = load i64, ptr %25, align 8, !range !170
-  %27 = icmp eq i64 %26, -9223372036854775808
-  %.91 = select i1 %27, ptr null, ptr %25
-  %.sroa.05.0 = select i1 %switch.not, ptr %.91, ptr null
+  %27 = icmp ne i64 %26, -9223372036854775808
+  %28 = select i1 %switch.not, i1 %27, i1 false
+  %.sroa.05.0 = select i1 %28, ptr %25, ptr null
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6032)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6035)
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i64 1, ptr %28, align 8, !alias.scope !6037, !noalias !6035
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store i64 1, ptr %29, align 8, !alias.scope !6037, !noalias !6035
   %.sroa.0120.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %.sroa.0.0, ptr %.sroa.0120.sroa.4.0..sroa_idx, align 8, !alias.scope !6037, !noalias !6035
   %.sroa.0120.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 64

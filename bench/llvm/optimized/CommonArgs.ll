@@ -30758,7 +30758,7 @@ define dso_local noundef i32 @_ZN5clang6driver5tools26getAMDGPUCodeObjectVersion
   %3 = alloca i64, align 8
   %4 = tail call fastcc noundef ptr @_ZL27getAMDGPUCodeObjectArgumentRKN5clang6driver6DriverERKN4llvm3opt7ArgListE(ptr noundef nonnull align 8 dereferenceable(176) %1)
   %.not = icmp eq ptr %4, null
-  br i1 %.not, label %15, label %5
+  br i1 %.not, label %16, label %5
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -30776,14 +30776,14 @@ _ZN4llvm9StringRefC2EPKc.exit:                    ; preds = %5, %9
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %12 = call noundef zeroext i1 @_ZN4llvm20getAsUnsignedIntegerENS_9StringRefEjRy(ptr %8, i64 %11, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(8) %3) #22
   %13 = load i64, ptr %3, align 8
-  %.not.i4 = icmp ult i64 %13, 4294967296
+  %.not.i4 = icmp ugt i64 %13, 4294967295
   %14 = trunc nuw i64 %13 to i32
-  %spec.select = select i1 %.not.i4, i32 %14, i32 5
-  %.1 = select i1 %12, i32 5, i32 %spec.select
+  %15 = select i1 %12, i1 true, i1 %.not.i4
+  %.1 = select i1 %15, i32 5, i32 %14
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %15
+  br label %16
 
-15:                                               ; preds = %_ZN4llvm9StringRefC2EPKc.exit, %2
+16:                                               ; preds = %_ZN4llvm9StringRefC2EPKc.exit, %2
   %.0 = phi i32 [ 5, %2 ], [ %.1, %_ZN4llvm9StringRefC2EPKc.exit ]
   ret i32 %.0
 }

@@ -2573,22 +2573,25 @@ _ZNK7rocksdb17FSWritableFilePtr3getEv.exit.thread11: ; preds = %24
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 128
   %43 = load ptr, ptr %42, align 8
   %44 = invoke noundef i32 %43(ptr noundef nonnull align 8 dereferenceable(33) %.0.i7)
-          to label %45 unwind label %49
+          to label %45 unwind label %51
 
 45:                                               ; preds = %40
   %46 = icmp eq i32 %44, 4
   %47 = icmp eq i32 %6, 4
-  %..i = select i1 %47, i32 %44, i32 %6
-  %.0.i8 = select i1 %46, i32 %6, i32 %..i
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %.0.i8, ptr %48, align 4, !tbaa !210
+  %or.cond.i = and i1 %47, %46
+  %48 = xor i1 %47, true
+  %49 = or i1 %46, %48
+  %spec.select.i = select i1 %49, i32 %6, i32 %44
+  %.0.i8 = select i1 %or.cond.i, i32 4, i32 %spec.select.i
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store i32 %.0.i8, ptr %50, align 4, !tbaa !210
   br label %_ZNK7rocksdb17FSWritableFilePtr3getEv.exit.thread
 
-49:                                               ; preds = %40
-  %50 = landingpad { ptr, i32 }
+51:                                               ; preds = %40
+  %52 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %7) #26
-  resume { ptr, i32 } %50
+  resume { ptr, i32 } %52
 
 _ZNK7rocksdb17FSWritableFilePtr3getEv.exit.thread: ; preds = %28, %_ZNK7rocksdb17FSWritableFilePtr3getEv.exit.thread11, %_ZNK7rocksdb17FSWritableFilePtr3getEv.exit, %45
   ret void
@@ -11259,8 +11262,11 @@ _ZN7rocksdb17FileOperationInfoD2Ev.exit14:        ; preds = %52, %_ZNKSt14defaul
 define noundef i32 @_ZN7rocksdb18WritableFileWriter25DecideRateLimiterPriorityENS_3Env10IOPriorityES2_(i32 noundef %0, i32 noundef %1) local_unnamed_addr #14 align 2 {
   %3 = icmp eq i32 %0, 4
   %4 = icmp eq i32 %1, 4
-  %. = select i1 %4, i32 %0, i32 %1
-  %.0 = select i1 %3, i32 %1, i32 %.
+  %or.cond = and i1 %3, %4
+  %5 = xor i1 %4, true
+  %6 = or i1 %3, %5
+  %spec.select = select i1 %6, i32 %1, i32 %0
+  %.0 = select i1 %or.cond, i32 4, i32 %spec.select
   ret i32 %.0
 }
 

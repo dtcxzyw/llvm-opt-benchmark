@@ -2657,12 +2657,12 @@ type_base.exit:                                   ; preds = %44
   %94 = phi ptr [ %90, %86 ], [ %92, %91 ]
   %95 = getelementptr inbounds nuw ptr, ptr %40, i64 %indvars.iv147
   store ptr %94, ptr %95, align 8
-  %.not122 = icmp eq ptr %.0112128, null
+  %.not122 = icmp ne ptr %.0112128, null
   %96 = call ptr @LLVMTypeOf(ptr noundef %94) #6
   %.not123 = icmp ne ptr %.0112128, %96
-  %spec.select125 = select i1 %.not123, i1 true, i1 %.0109129
-  %.1113 = select i1 %.not122, ptr %96, ptr %.0112128
-  %.1 = select i1 %.not122, i1 %.0109129, i1 %spec.select125
+  %.1113 = select i1 %.not122, ptr %.0112128, ptr %96
+  %.not166 = select i1 %.not122, i1 %.not123, i1 false
+  %.1 = select i1 %.not166, i1 true, i1 %.0109129
   %indvars.iv.next148 = add nuw nsw i64 %indvars.iv147, 1
   %exitcond150.not = icmp eq i64 %indvars.iv.next148, %64
   br i1 %exitcond150.not, label %._crit_edge132, label %.lr.ph131, !llvm.loop !16

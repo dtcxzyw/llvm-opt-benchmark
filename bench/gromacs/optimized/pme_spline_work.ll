@@ -32,9 +32,9 @@ define void @_ZN15pme_spline_workC2Ei(ptr noundef nonnull writeonly align 16 cap
 8:                                                ; preds = %.preheader, %8
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %8 ]
   %.not = icmp samesign ult i64 %indvars.iv, %indvars.iv38
-  %9 = icmp slt i64 %indvars.iv, %7
-  %10 = select i1 %9, float -1.000000e+00, float 1.000000e+00
-  %11 = select i1 %.not, float 1.000000e+00, float %10
+  %9 = icmp sge i64 %indvars.iv, %7
+  %10 = select i1 %.not, i1 true, i1 %9
+  %11 = select i1 %10, float 1.000000e+00, float -1.000000e+00
   %12 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
   store float %11, ptr %12, align 4, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

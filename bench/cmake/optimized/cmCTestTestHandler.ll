@@ -37857,12 +37857,12 @@ define dso_local void @_ZN18cmCTestTestHandler15CleanTestOutputERNSt7__cxx1112ba
 
 .noexc:                                           ; preds = %36
   %.not.i = icmp eq ptr %37, null
-  %.not1.i = icmp ugt ptr %37, %33
-  %spec.select.i = select i1 %.not1.i, ptr %.014.i, ptr %37
+  %.not1.not.i = icmp ugt ptr %37, %33
+  %spec.select.i = select i1 %.not1.not.i, ptr %.014.i, ptr %37
   %38 = getelementptr inbounds nuw i8, ptr %.014.i, i64 1
   %.2.i = select i1 %.not.i, ptr %38, ptr %spec.select.i
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br i1 %.not1.i, label %"_ZZN18cmCTestTestHandler15CleanTestOutputERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmN12cmCTestTypes14TruncationModeEENK3$_0clEPKcSB_m.exit", label %34
+  br i1 %.not1.not.i, label %"_ZZN18cmCTestTestHandler15CleanTestOutputERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmN12cmCTestTypes14TruncationModeEENK3$_0clEPKcSB_m.exit", label %34
 
 "_ZZN18cmCTestTestHandler15CleanTestOutputERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmN12cmCTestTypes14TruncationModeEENK3$_0clEPKcSB_m.exit": ; preds = %.noexc, %34
   %.1.i = phi ptr [ %.2.i, %.noexc ], [ %.014.i, %34 ]
@@ -38033,12 +38033,12 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i55
 
 .noexc64:                                         ; preds = %92
   %.not.i60 = icmp eq ptr %93, null
-  %.not1.i61 = icmp ugt ptr %93, %89
-  %spec.select.i62 = select i1 %.not1.i61, ptr %.014.i58, ptr %93
+  %.not1.not.i61 = icmp ugt ptr %93, %89
+  %spec.select.i62 = select i1 %.not1.not.i61, ptr %.014.i58, ptr %93
   %94 = getelementptr inbounds nuw i8, ptr %.014.i58, i64 1
   %.2.i63 = select i1 %.not.i60, ptr %94, ptr %spec.select.i62
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br i1 %.not1.i61, label %"_ZZN18cmCTestTestHandler15CleanTestOutputERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmN12cmCTestTypes14TruncationModeEENK3$_0clEPKcSB_m.exit65", label %90
+  br i1 %.not1.not.i61, label %"_ZZN18cmCTestTestHandler15CleanTestOutputERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmN12cmCTestTypes14TruncationModeEENK3$_0clEPKcSB_m.exit65", label %90
 
 "_ZZN18cmCTestTestHandler15CleanTestOutputERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmN12cmCTestTypes14TruncationModeEENK3$_0clEPKcSB_m.exit65": ; preds = %.noexc64, %90
   %.1.i59 = phi ptr [ %.2.i63, %.noexc64 ], [ %.014.i58, %90 ]
@@ -38246,12 +38246,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit87: ; preds = %_ZN
 
 .noexc94:                                         ; preds = %161
   %.not.i90 = icmp eq ptr %162, null
-  %.not1.i91 = icmp ugt ptr %162, %158
-  %spec.select.i92 = select i1 %.not1.i91, ptr %.014.i88, ptr %162
+  %.not1.not.i91 = icmp ugt ptr %162, %158
+  %spec.select.i92 = select i1 %.not1.not.i91, ptr %.014.i88, ptr %162
   %163 = getelementptr inbounds nuw i8, ptr %.014.i88, i64 1
   %.2.i93 = select i1 %.not.i90, ptr %163, ptr %spec.select.i92
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br i1 %.not1.i91, label %"_ZZN18cmCTestTestHandler15CleanTestOutputERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmN12cmCTestTypes14TruncationModeEENK3$_0clEPKcSB_m.exit95", label %159
+  br i1 %.not1.not.i91, label %"_ZZN18cmCTestTestHandler15CleanTestOutputERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmN12cmCTestTypes14TruncationModeEENK3$_0clEPKcSB_m.exit95", label %159
 
 "_ZZN18cmCTestTestHandler15CleanTestOutputERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmN12cmCTestTypes14TruncationModeEENK3$_0clEPKcSB_m.exit95": ; preds = %.noexc94, %159
   %.1.i89 = phi ptr [ %.2.i93, %.noexc94 ], [ %.014.i88, %159 ]

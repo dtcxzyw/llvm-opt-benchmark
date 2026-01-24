@@ -5895,7 +5895,7 @@ while.body.lr.ph:                                 ; preds = %entry
   br label %while.body
 
 while.body:                                       ; preds = %while.body, %while.body.lr.ph
-  %__holeIndex.addr.069 = phi i64 [ %__holeIndex, %while.body.lr.ph ], [ %11, %while.body ]
+  %__holeIndex.addr.069 = phi i64 [ %__holeIndex, %while.body.lr.ph ], [ %12, %while.body ]
   %add = shl i64 %__holeIndex.addr.069, 1
   %mul = add i64 %add, 2
   %add.ptr.i = getelementptr inbounds %"class.irr::core::vector3d", ptr %__first.coerce, i64 %mul
@@ -5955,17 +5955,17 @@ while.body:                                       ; preds = %while.body, %while.
   %10 = load i32, ptr %estimated_cost18.i.i, align 4
   %.fr = freeze i32 %9
   %.fr1 = freeze i32 %10
-  %cmp.i.i = icmp sgt i32 %.fr, %.fr1
-  %spec.select = select i1 %cmp.i.i, i64 %sub5, i64 %mul
-  %11 = select i1 %or.cond.i.i, i64 %mul, i64 %spec.select
-  %add.ptr.i56 = getelementptr inbounds %"class.irr::core::vector3d", ptr %__first.coerce, i64 %11
+  %cmp.i.i = icmp sle i32 %.fr, %.fr1
+  %11 = or i1 %or.cond.i.i, %cmp.i.i
+  %12 = select i1 %11, i64 %mul, i64 %sub5
+  %add.ptr.i56 = getelementptr inbounds %"class.irr::core::vector3d", ptr %__first.coerce, i64 %12
   %add.ptr.i57 = getelementptr inbounds %"class.irr::core::vector3d", ptr %__first.coerce, i64 %__holeIndex.addr.069
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %add.ptr.i57, ptr noundef nonnull align 2 dereferenceable(6) %add.ptr.i56, i64 6, i1 false), !tbaa.struct !24
-  %cmp = icmp slt i64 %11, %div
+  %cmp = icmp slt i64 %12, %div
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !185
 
 while.end:                                        ; preds = %while.body, %entry
-  %__holeIndex.addr.0.lcssa = phi i64 [ %__holeIndex, %entry ], [ %11, %while.body ]
+  %__holeIndex.addr.0.lcssa = phi i64 [ %__holeIndex, %entry ], [ %12, %while.body ]
   %and = and i64 %__len, 1
   %cmp18 = icmp eq i64 %and, 0
   br i1 %cmp18, label %land.lhs.true, label %if.end35
@@ -5987,8 +5987,8 @@ if.then22:                                        ; preds = %land.lhs.true
 if.end35:                                         ; preds = %if.then22, %land.lhs.true, %while.end
   %__holeIndex.addr.1 = phi i64 [ %sub26, %if.then22 ], [ %__holeIndex.addr.0.lcssa, %land.lhs.true ], [ %__holeIndex.addr.0.lcssa, %while.end ]
   call void @llvm.lifetime.start.p0(ptr nonnull %__cmp)
-  %12 = ptrtoint ptr %__comp.coerce to i64
-  store i64 %12, ptr %__cmp, align 8, !tbaa !115
+  %13 = ptrtoint ptr %__comp.coerce to i64
+  store i64 %13, ptr %__cmp, align 8, !tbaa !115
   call void @_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN3irr4core8vector3dIsEESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops14_Iter_comp_valI26PathfinderCompareHeuristicEEEvT_T0_SG_T1_RT2_(ptr %__first.coerce, i64 noundef %__holeIndex.addr.1, i64 noundef %__holeIndex, i48 %__value.coerce, ptr noundef nonnull align 8 dereferenceable(8) %__cmp)
   call void @llvm.lifetime.end.p0(ptr nonnull %__cmp)
   ret void

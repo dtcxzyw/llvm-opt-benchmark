@@ -1483,11 +1483,9 @@ define hidden { i32, i32 } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   %4 = load ptr, ptr %3, align 8, !alias.scope !3, !nonnull !6, !align !7, !noundef !6
   %5 = call { i32, i32 } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h497a69042fb67fc6E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noalias noundef nonnull align 1 %2, ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
   %6 = extractvalue { i32, i32 } %5, 0
-  %.not.i = icmp eq i32 %6, 2
   %7 = extractvalue { i32, i32 } %5, 1
-  %spec.select.i = select i1 %.not.i, i32 undef, i32 %7
   %8 = trunc i32 %6 to i1
-  %.sroa.3.0 = select i1 %8, i32 %spec.select.i, i32 undef
+  %.sroa.3.0 = select i1 %8, i32 %7, i32 undef
   %.sroa.0.0 = and i32 %6, 1
   %9 = insertvalue { i32, i32 } poison, i32 %.sroa.0.0, 0
   %10 = insertvalue { i32, i32 } %9, i32 %.sroa.3.0, 1
@@ -1501,11 +1499,9 @@ define hidden { i32, i32 } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   %4 = load ptr, ptr %3, align 8, !alias.scope !8, !nonnull !6, !align !7, !noundef !6
   %5 = call { i32, i32 } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h224a3983d1cf84f1E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noalias noundef nonnull align 1 %2, ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
   %6 = extractvalue { i32, i32 } %5, 0
-  %.not.i = icmp eq i32 %6, 2
   %7 = extractvalue { i32, i32 } %5, 1
-  %spec.select.i = select i1 %.not.i, i32 undef, i32 %7
   %8 = trunc i32 %6 to i1
-  %.sroa.3.0 = select i1 %8, i32 %spec.select.i, i32 undef
+  %.sroa.3.0 = select i1 %8, i32 %7, i32 undef
   %.sroa.0.0 = and i32 %6, 1
   %9 = insertvalue { i32, i32 } poison, i32 %.sroa.0.0, 0
   %10 = insertvalue { i32, i32 } %9, i32 %.sroa.3.0, 1
@@ -1558,11 +1554,9 @@ define hidden { i32, i32 } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   %4 = load ptr, ptr %3, align 8, !alias.scope !19, !nonnull !6, !align !7, !noundef !6
   %5 = call { i32, i32 } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17he991836c9902f99bE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noalias noundef nonnull align 1 %2, ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
   %6 = extractvalue { i32, i32 } %5, 0
-  %.not.i = icmp eq i32 %6, 2
   %7 = extractvalue { i32, i32 } %5, 1
-  %spec.select.i = select i1 %.not.i, i32 undef, i32 %7
   %8 = trunc i32 %6 to i1
-  %.sroa.3.0 = select i1 %8, i32 %spec.select.i, i32 undef
+  %.sroa.3.0 = select i1 %8, i32 %7, i32 undef
   %.sroa.0.0 = and i32 %6, 1
   %9 = insertvalue { i32, i32 } poison, i32 %.sroa.0.0, 0
   %10 = insertvalue { i32, i32 } %9, i32 %.sroa.3.0, 1
@@ -1576,11 +1570,9 @@ define hidden { i32, i32 } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   %4 = load ptr, ptr %3, align 8, !alias.scope !22, !nonnull !6, !align !7, !noundef !6
   %5 = call { i32, i32 } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h9e0027faefccbd48E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noalias noundef nonnull align 1 %2, ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
   %6 = extractvalue { i32, i32 } %5, 0
-  %.not.i = icmp eq i32 %6, 2
   %7 = extractvalue { i32, i32 } %5, 1
-  %spec.select.i = select i1 %.not.i, i32 undef, i32 %7
   %8 = trunc i32 %6 to i1
-  %.sroa.3.0 = select i1 %8, i32 %spec.select.i, i32 undef
+  %.sroa.3.0 = select i1 %8, i32 %7, i32 undef
   %.sroa.0.0 = and i32 %6, 1
   %9 = insertvalue { i32, i32 } poison, i32 %.sroa.0.0, 0
   %10 = insertvalue { i32, i32 } %9, i32 %.sroa.3.0, 1
@@ -1594,11 +1586,9 @@ define hidden { i32, i32 } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   %4 = load ptr, ptr %3, align 8, !alias.scope !25, !nonnull !6, !align !7, !noundef !6
   %5 = call { i32, i32 } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h17e9ce5d4e345b7eE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noalias noundef nonnull align 1 %2, ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
   %6 = extractvalue { i32, i32 } %5, 0
-  %.not.i = icmp eq i32 %6, 2
   %7 = extractvalue { i32, i32 } %5, 1
-  %spec.select.i = select i1 %.not.i, i32 undef, i32 %7
   %8 = trunc i32 %6 to i1
-  %.sroa.3.0 = select i1 %8, i32 %spec.select.i, i32 undef
+  %.sroa.3.0 = select i1 %8, i32 %7, i32 undef
   %.sroa.0.0 = and i32 %6, 1
   %9 = insertvalue { i32, i32 } poison, i32 %.sroa.0.0, 0
   %10 = insertvalue { i32, i32 } %9, i32 %.sroa.3.0, 1
@@ -1612,11 +1602,9 @@ define hidden { i32, i32 } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   %4 = load ptr, ptr %3, align 8, !alias.scope !28, !nonnull !6, !align !7, !noundef !6
   %5 = call { i32, i32 } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h2eddf4ed1ff19b86E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noalias noundef nonnull align 1 %2, ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
   %6 = extractvalue { i32, i32 } %5, 0
-  %.not.i = icmp eq i32 %6, 2
   %7 = extractvalue { i32, i32 } %5, 1
-  %spec.select.i = select i1 %.not.i, i32 undef, i32 %7
   %8 = trunc i32 %6 to i1
-  %.sroa.3.0 = select i1 %8, i32 %spec.select.i, i32 undef
+  %.sroa.3.0 = select i1 %8, i32 %7, i32 undef
   %.sroa.0.0 = and i32 %6, 1
   %9 = insertvalue { i32, i32 } poison, i32 %.sroa.0.0, 0
   %10 = insertvalue { i32, i32 } %9, i32 %.sroa.3.0, 1
@@ -1630,11 +1618,9 @@ define hidden { i32, i32 } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   %4 = load ptr, ptr %3, align 8, !alias.scope !31, !nonnull !6, !align !7, !noundef !6
   %5 = call { i32, i32 } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h2acf8c73f3fb4014E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noalias noundef nonnull align 1 %2, ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
   %6 = extractvalue { i32, i32 } %5, 0
-  %.not.i = icmp eq i32 %6, 2
   %7 = extractvalue { i32, i32 } %5, 1
-  %spec.select.i = select i1 %.not.i, i32 undef, i32 %7
   %8 = trunc i32 %6 to i1
-  %.sroa.3.0 = select i1 %8, i32 %spec.select.i, i32 undef
+  %.sroa.3.0 = select i1 %8, i32 %7, i32 undef
   %.sroa.0.0 = and i32 %6, 1
   %9 = insertvalue { i32, i32 } poison, i32 %.sroa.0.0, 0
   %10 = insertvalue { i32, i32 } %9, i32 %.sroa.3.0, 1
@@ -1648,12 +1634,10 @@ define hidden { i1, i8 } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$
   %4 = load ptr, ptr %3, align 8, !alias.scope !34, !nonnull !6, !align !17, !noundef !6
   %5 = call { i8, i8 } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hac86dc3dd7272d43E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias noundef nonnull align 1 %2, ptr noalias noundef nonnull align 1 dereferenceable(1) %4)
   %6 = extractvalue { i8, i8 } %5, 0
-  %.not.i = icmp eq i8 %6, 2
   %7 = extractvalue { i8, i8 } %5, 1
   %8 = trunc i8 %6 to i1
-  %.sroa.3.0.i = select i1 %.not.i, i8 undef, i8 %7
   %9 = insertvalue { i1, i8 } poison, i1 %8, 0
-  %.sroa.3.0 = select i1 %8, i8 %.sroa.3.0.i, i8 undef
+  %.sroa.3.0 = select i1 %8, i8 %7, i8 undef
   %10 = insertvalue { i1, i8 } %9, i8 %.sroa.3.0, 1
   ret { i1, i8 } %10
 }
@@ -1665,12 +1649,10 @@ define hidden { i1, i8 } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$
   %4 = load ptr, ptr %3, align 8, !alias.scope !37, !nonnull !6, !align !17, !noundef !6
   %5 = call { i8, i8 } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h04b0783b297ddb70E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias noundef nonnull align 1 %2, ptr noalias noundef nonnull align 1 dereferenceable(1) %4)
   %6 = extractvalue { i8, i8 } %5, 0
-  %.not.i = icmp eq i8 %6, 2
   %7 = extractvalue { i8, i8 } %5, 1
   %8 = trunc i8 %6 to i1
-  %.sroa.3.0.i = select i1 %.not.i, i8 undef, i8 %7
   %9 = insertvalue { i1, i8 } poison, i1 %8, 0
-  %.sroa.3.0 = select i1 %8, i8 %.sroa.3.0.i, i8 undef
+  %.sroa.3.0 = select i1 %8, i8 %7, i8 undef
   %10 = insertvalue { i1, i8 } %9, i8 %.sroa.3.0, 1
   ret { i1, i8 } %10
 }
@@ -1682,11 +1664,9 @@ define hidden { i32, i32 } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   %4 = load ptr, ptr %3, align 8, !alias.scope !40, !nonnull !6, !align !7, !noundef !6
   %5 = call { i32, i32 } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hdb2d40376fc7e124E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noalias noundef nonnull align 1 %2, ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
   %6 = extractvalue { i32, i32 } %5, 0
-  %.not.i = icmp eq i32 %6, 2
   %7 = extractvalue { i32, i32 } %5, 1
-  %spec.select.i = select i1 %.not.i, i32 undef, i32 %7
   %8 = trunc i32 %6 to i1
-  %.sroa.3.0 = select i1 %8, i32 %spec.select.i, i32 undef
+  %.sroa.3.0 = select i1 %8, i32 %7, i32 undef
   %.sroa.0.0 = and i32 %6, 1
   %9 = insertvalue { i32, i32 } poison, i32 %.sroa.0.0, 0
   %10 = insertvalue { i32, i32 } %9, i32 %.sroa.3.0, 1
@@ -1700,11 +1680,9 @@ define hidden { i32, i32 } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   %4 = load ptr, ptr %3, align 8, !alias.scope !43, !nonnull !6, !align !7, !noundef !6
   %5 = call { i32, i32 } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hba1817bf79d0ec63E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noalias noundef nonnull align 1 %2, ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
   %6 = extractvalue { i32, i32 } %5, 0
-  %.not.i = icmp eq i32 %6, 2
   %7 = extractvalue { i32, i32 } %5, 1
-  %spec.select.i = select i1 %.not.i, i32 undef, i32 %7
   %8 = trunc i32 %6 to i1
-  %.sroa.3.0 = select i1 %8, i32 %spec.select.i, i32 undef
+  %.sroa.3.0 = select i1 %8, i32 %7, i32 undef
   %.sroa.0.0 = and i32 %6, 1
   %9 = insertvalue { i32, i32 } poison, i32 %.sroa.0.0, 0
   %10 = insertvalue { i32, i32 } %9, i32 %.sroa.3.0, 1

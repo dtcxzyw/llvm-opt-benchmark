@@ -414,7 +414,7 @@ define void @tiling_callback(ptr noundef readonly captures(none) %0, ptr noundef
   %50 = tail call i32 @dt_mipmap_cache_get_matching_size(ptr noundef %49, i32 noundef %9, i32 noundef %12) #25
   %51 = tail call ptr @dt_conf_get_string_const(ptr noundef nonnull @.str.140) #25
   %52 = tail call i32 @dt_mipmap_cache_get_min_mip_from_pref(ptr noundef %51) #25
-  %.not3.i = icmp ult i32 %50, %52
+  %.not2.i = icmp ult i32 %50, %52
   %.pre = load i32, ptr %8, align 4, !tbaa !29
   %.pre168 = load i32, ptr %15, align 4, !tbaa !29
   br label %demosaic_qual_flags.exit
@@ -422,7 +422,7 @@ define void @tiling_callback(ptr noundef readonly captures(none) %0, ptr noundef
 demosaic_qual_flags.exit:                         ; preds = %48, %45, %44, %34
   %53 = phi i32 [ %16, %34 ], [ %16, %44 ], [ %16, %45 ], [ %.pre168, %48 ]
   %54 = phi i32 [ %9, %34 ], [ %9, %44 ], [ %9, %45 ], [ %.pre, %48 ]
-  %.0.i = phi i1 [ true, %34 ], [ false, %44 ], [ false, %45 ], [ %.not3.i, %48 ]
+  %.0.i = phi i1 [ true, %34 ], [ false, %44 ], [ false, %45 ], [ %.not2.i, %48 ]
   %55 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %56 = load float, ptr %55, align 4, !tbaa !28
   %57 = select reassoc nsz arcp contract afn i1 %30, float 0x3FE5581060000000, float 5.000000e-01
@@ -741,11 +741,11 @@ define void @process(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %51 = tail call i32 @dt_mipmap_cache_get_matching_size(ptr noundef %50, i32 noundef %47, i32 noundef %49) #25
   %52 = tail call ptr @dt_conf_get_string_const(ptr noundef nonnull @.str.140) #25
   %53 = tail call i32 @dt_mipmap_cache_get_min_mip_from_pref(ptr noundef %52) #25
-  %.not3.i = icmp ult i32 %51, %53
+  %.not2.i = icmp ult i32 %51, %53
   br label %54
 
 54:                                               ; preds = %45, %42, %41, %6
-  %.0.i = phi i1 [ true, %6 ], [ false, %41 ], [ false, %42 ], [ %.not3.i, %45 ]
+  %.0.i = phi i1 [ true, %6 ], [ false, %41 ], [ false, %42 ], [ %.not2.i, %45 ]
   %55 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %56 = load float, ptr %55, align 4, !tbaa !28
   %57 = select reassoc nsz arcp contract afn i1 %39, float 0x3FE5581060000000, float 5.000000e-01

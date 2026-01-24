@@ -1427,9 +1427,9 @@ define range(i32 -1, -2147483648) i32 @H5G_visit(ptr noundef %0, ptr noundef %1,
 
 ._crit_edge:                                      ; preds = %15
   %.pre = load i8, ptr @H5G_init_g, align 1, !tbaa !3, !range !7
-  %.pre65 = load i8, ptr @H5_libterm_g, align 1, !range !7
-  %.pre66 = trunc nuw i8 %.pre to i1
-  %.pre67 = trunc nuw i8 %.pre65 to i1
+  %.pre66 = load i8, ptr @H5_libterm_g, align 1, !range !7
+  %.pre67 = trunc nuw i8 %.pre to i1
+  %.pre68 = trunc nuw i8 %.pre66 to i1
   br label %22
 
 18:                                               ; preds = %15
@@ -1440,9 +1440,9 @@ define range(i32 -1, -2147483648) i32 @H5G_visit(ptr noundef %0, ptr noundef %1,
   br label %.thread
 
 22:                                               ; preds = %._crit_edge, %6
-  %.pre-phi68 = phi i1 [ %.pre67, %._crit_edge ], [ %13, %6 ]
-  %.pre-phi = phi i1 [ %.pre66, %._crit_edge ], [ %11, %6 ]
-  %23 = xor i1 %.pre-phi68, true
+  %.pre-phi69 = phi i1 [ %.pre68, %._crit_edge ], [ %13, %6 ]
+  %.pre-phi = phi i1 [ %.pre67, %._crit_edge ], [ %11, %6 ]
+  %23 = xor i1 %.pre-phi69, true
   %24 = select i1 %.pre-phi, i1 true, i1 %23
   br i1 %24, label %25, label %134, !prof !9
 
@@ -1571,13 +1571,13 @@ define range(i32 -1, -2147483648) i32 @H5G_visit(ptr noundef %0, ptr noundef %1,
   br label %.thread
 
 101:                                              ; preds = %94
-  %.not59 = icmp eq i32 %95, 0
+  %.not59 = icmp ne i32 %95, 0
   %102 = icmp ne i32 %2, 1
   %103 = load i8, ptr %8, align 8, !range !7
   %104 = trunc nuw i8 %103 to i1
   %or.cond = select i1 %102, i1 true, i1 %104
-  %spec.store.select3 = select i1 %or.cond, i32 %2, i32 0
-  %.049 = select i1 %.not59, i32 0, i32 %spec.store.select3
+  %.not65 = select i1 %.not59, i1 %or.cond, i1 false
+  %.049 = select i1 %.not65, i32 %2, i32 0
   %105 = call i32 @H5G__obj_iterate(ptr noundef nonnull %82, i32 noundef %.049, i32 noundef %3, i64 noundef 0, ptr noundef null, ptr noundef nonnull @H5G__visit_cb, ptr noundef nonnull %7) #11
   %106 = icmp slt i32 %105, 0
   br i1 %106, label %107, label %.thread
@@ -1701,7 +1701,7 @@ define internal i32 @H5G__visit_cb(ptr noundef %0, ptr noundef %1) #0 {
 .thread:                                          ; preds = %30
   store ptr %31, ptr %28, align 8, !tbaa !60
   store i64 %24, ptr %25, align 8, !tbaa !61
-  %.pre115 = load ptr, ptr %20, align 8, !tbaa !48
+  %.pre116 = load ptr, ptr %20, align 8, !tbaa !48
   br label %._crit_edge
 
 33:                                               ; preds = %30
@@ -1711,7 +1711,7 @@ define internal i32 @H5G__visit_cb(ptr noundef %0, ptr noundef %1) #0 {
   br label %.thread108
 
 ._crit_edge:                                      ; preds = %19, %.thread
-  %37 = phi ptr [ %.pre115, %.thread ], [ %21, %19 ]
+  %37 = phi ptr [ %.pre116, %.thread ], [ %21, %19 ]
   %38 = phi ptr [ %31, %.thread ], [ %29, %19 ]
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %40 = getelementptr inbounds nuw i8, ptr %38, i64 %12
@@ -1859,13 +1859,13 @@ define internal i32 @H5G__visit_cb(ptr noundef %0, ptr noundef %1) #0 {
   br label %139
 
 132:                                              ; preds = %117
-  %.not = icmp eq i32 %126, 0
+  %.not = icmp ne i32 %126, 0
   %133 = icmp ne i32 %120, 1
   %134 = load i8, ptr %10, align 8, !range !7
   %135 = trunc nuw i8 %134 to i1
   %or.cond = select i1 %133, i1 true, i1 %135
-  %spec.store.select5 = select i1 %or.cond, i32 %120, i32 0
-  %.075 = select i1 %.not, i32 0, i32 %spec.store.select5
+  %.not115 = select i1 %.not, i1 %or.cond, i1 false
+  %.075 = select i1 %.not115, i32 %120, i32 0
   store ptr %4, ptr %45, align 8, !tbaa !55
   %136 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %137 = load i32, ptr %136, align 4, !tbaa !57

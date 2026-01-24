@@ -1603,12 +1603,12 @@ define internal i32 @dissect_rdm(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %46 = load i32, ptr @hf_rdm_command_class, align 4
   %47 = tail call ptr @proto_tree_add_item(ptr noundef %45, i32 noundef %46, ptr noundef %0, i32 noundef 19, i32 noundef 1, i32 noundef 0)
   %48 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 20)
-  %cond.i.i = icmp eq i16 %.0.i, 25972
+  %49 = icmp sgt i16 %48, -1
+  %cond.i.i = icmp ne i16 %.0.i, 25972
+  %50 = or i1 %cond.i.i, %49
   %hf_rdm_parameter_id.val.i.i = load i32, ptr @hf_rdm_parameter_id, align 4
   %hf_etc_parameter_id.val.i.i = load i32, ptr @hf_etc_parameter_id, align 4
-  %49 = icmp slt i16 %48, 0
-  %50 = and i1 %cond.i.i, %49
-  %51 = select i1 %50, i32 %hf_etc_parameter_id.val.i.i, i32 %hf_rdm_parameter_id.val.i.i
+  %51 = select i1 %50, i32 %hf_rdm_parameter_id.val.i.i, i32 %hf_etc_parameter_id.val.i.i
   %52 = tail call ptr @proto_tree_add_item(ptr noundef %45, i32 noundef %51, ptr noundef %0, i32 noundef 20, i32 noundef 2, i32 noundef 0)
   %53 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 22)
   %54 = load i32, ptr @hf_rdm_parameter_data_length, align 4
@@ -3325,8 +3325,8 @@ define internal fastcc range(i32 2, 0) i32 @dissect_rdm_pd_supported_parameters(
   br i1 %or.cond, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %5
-  %cond.i = icmp eq i16 %4, 25972
-  br i1 %cond.i, label %.preheader.split, label %.preheader.split.us
+  %cond.i.not = icmp eq i16 %4, 25972
+  br i1 %cond.i.not, label %.preheader.split, label %.preheader.split.us
 
 .preheader.split.us:                              ; preds = %.preheader, %.preheader.split.us
   %.1.us = phi i32 [ %9, %.preheader.split.us ], [ 23, %.preheader ]
@@ -3367,23 +3367,23 @@ define internal fastcc range(i32 23, 279) i32 @dissect_rdm_pd_parameter_descript
 
 6:                                                ; preds = %5
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 23)
-  %cond.i = icmp eq i16 %4, 25972
+  %8 = icmp sgt i16 %7, -1
+  %cond.i = icmp ne i16 %4, 25972
+  %9 = or i1 %cond.i, %8
   %hf_rdm_pd_parameter_id.val.i = load i32, ptr @hf_rdm_pd_parameter_id, align 4
   %hf_etc_pd_parameter_id.val.i = load i32, ptr @hf_etc_pd_parameter_id, align 4
-  %8 = icmp slt i16 %7, 0
-  %9 = and i1 %cond.i, %8
-  %10 = select i1 %9, i32 %hf_etc_pd_parameter_id.val.i, i32 %hf_rdm_pd_parameter_id.val.i
+  %10 = select i1 %9, i32 %hf_rdm_pd_parameter_id.val.i, i32 %hf_etc_pd_parameter_id.val.i
   %11 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %10, ptr noundef %0, i32 noundef 23, i32 noundef 2, i32 noundef 0)
   br label %41
 
 12:                                               ; preds = %5
   %13 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 23)
-  %cond.i31 = icmp eq i16 %4, 25972
+  %14 = icmp sgt i16 %13, -1
+  %cond.i31 = icmp ne i16 %4, 25972
+  %15 = or i1 %cond.i31, %14
   %hf_rdm_pd_parameter_id.val.i32 = load i32, ptr @hf_rdm_pd_parameter_id, align 4
   %hf_etc_pd_parameter_id.val.i33 = load i32, ptr @hf_etc_pd_parameter_id, align 4
-  %14 = icmp slt i16 %13, 0
-  %15 = and i1 %cond.i31, %14
-  %16 = select i1 %15, i32 %hf_etc_pd_parameter_id.val.i33, i32 %hf_rdm_pd_parameter_id.val.i32
+  %16 = select i1 %15, i32 %hf_rdm_pd_parameter_id.val.i32, i32 %hf_etc_pd_parameter_id.val.i33
   %17 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %16, ptr noundef %0, i32 noundef 23, i32 noundef 2, i32 noundef 0)
   %18 = load i32, ptr @hf_rdm_pd_parameter_pdl_size, align 4
   %19 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %18, ptr noundef %0, i32 noundef 25, i32 noundef 1, i32 noundef 0)

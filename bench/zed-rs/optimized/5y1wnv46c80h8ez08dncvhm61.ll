@@ -11026,148 +11026,147 @@ define internal fastcc noundef range(i8 0, 23) i8 @"_ZN9html5ever12tree_builder3
 9:                                                ; preds = %.lr.ph, %.backedge
   %.sroa.5.046 = phi ptr [ %7, %.lr.ph ], [ %10, %.backedge ]
   %10 = getelementptr inbounds i8, ptr %.sroa.5.046, i64 -8
-  %11 = icmp eq ptr %10, %3
+  %11 = icmp ne ptr %10, %3
   %12 = load ptr, ptr %8, align 8, !noundef !4
   %13 = icmp eq ptr %12, null
-  %spec.select = select i1 %11, ptr %8, ptr %10
-  %.sroa.05.0 = select i1 %13, ptr %10, ptr %spec.select
-  %14 = tail call { ptr, ptr } @"_ZN91_$LT$markup5ever_rcdom..RcDom$u20$as$u20$markup5ever..interface..tree_builder..TreeSink$GT$9elem_name17h4e753bf026563d2eE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %.sroa.05.0)
-  %15 = extractvalue { ptr, ptr } %14, 0
-  %16 = load i64, ptr %15, align 8, !noundef !4
-  %17 = icmp eq i64 %16, 30064771074
-  br i1 %17, label %18, label %.backedge
+  %14 = select i1 %13, i1 true, i1 %11
+  %.sroa.05.0 = select i1 %14, ptr %10, ptr %8
+  %15 = tail call { ptr, ptr } @"_ZN91_$LT$markup5ever_rcdom..RcDom$u20$as$u20$markup5ever..interface..tree_builder..TreeSink$GT$9elem_name17h4e753bf026563d2eE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %.sroa.05.0)
+  %16 = extractvalue { ptr, ptr } %15, 0
+  %17 = load i64, ptr %16, align 8, !noundef !4
+  %18 = icmp eq i64 %17, 30064771074
+  br i1 %18, label %19, label %.backedge
 
-.loopexit:                                        ; preds = %.backedge, %18, %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$15html_elem_named17h363f1592e1b13660E.exit15.backedge", %58, %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$15html_elem_named17h363f1592e1b13660E.exit", %.backedge.thread, %39, %31, %1, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hfd149221a0723dd3E.exit", %32, %33, %34, %35, %40, %41, %64, %42
-  %.sroa.0.0 = phi i8 [ %69, %64 ], [ 15, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hfd149221a0723dd3E.exit" ], [ 19, %41 ], [ %., %42 ], [ 6, %40 ], [ 12, %32 ], [ 10, %33 ], [ 11, %34 ], [ 8, %35 ], [ 6, %1 ], [ 3, %39 ], [ 15, %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$15html_elem_named17h363f1592e1b13660E.exit" ], [ 6, %.backedge.thread ], [ 14, %31 ], [ 15, %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$15html_elem_named17h363f1592e1b13660E.exit15.backedge" ], [ 16, %58 ], [ 6, %.backedge ], [ 13, %18 ]
+.loopexit:                                        ; preds = %.backedge, %42, %34, %19, %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$15html_elem_named17h363f1592e1b13660E.exit15.backedge", %61, %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$15html_elem_named17h363f1592e1b13660E.exit", %1, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hfd149221a0723dd3E.exit", %35, %36, %37, %38, %43, %44, %67, %45
+  %.sroa.0.0 = phi i8 [ %72, %67 ], [ 15, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hfd149221a0723dd3E.exit" ], [ 19, %44 ], [ %., %45 ], [ 6, %43 ], [ 12, %35 ], [ 10, %36 ], [ 11, %37 ], [ 8, %38 ], [ 6, %1 ], [ 15, %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$15html_elem_named17h363f1592e1b13660E.exit" ], [ 15, %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$15html_elem_named17h363f1592e1b13660E.exit15.backedge" ], [ 16, %61 ], [ 14, %34 ], [ 6, %.backedge ], [ 13, %19 ], [ 3, %42 ]
   ret i8 %.sroa.0.0
 
-18:                                               ; preds = %9
-  %19 = extractvalue { ptr, ptr } %14, 1
-  %20 = load i64, ptr %19, align 8, !noundef !4
-  switch i64 %20, label %.backedge [
-    i64 2529735737346, label %21
-    i64 94489280514, label %31
-    i64 214748364802, label %31
+19:                                               ; preds = %9
+  %20 = extractvalue { ptr, ptr } %15, 1
+  %21 = load i64, ptr %20, align 8, !noundef !4
+  switch i64 %21, label %.backedge [
+    i64 2529735737346, label %23
+    i64 94489280514, label %34
+    i64 214748364802, label %34
     i64 1185410973698, label %.loopexit
-    i64 3813930958850, label %32
-    i64 4170413244418, label %32
-    i64 17179869186, label %32
-    i64 1559073128450, label %33
-    i64 373662154754, label %34
-    i64 3972844748802, label %35
-    i64 2156073582594, label %36
-    i64 1872605741058, label %39
-    i64 2366526980098, label %40
-    i64 4376571674626, label %41
-    i64 3723736645634, label %42
+    i64 3813930958850, label %35
+    i64 4170413244418, label %35
+    i64 17179869186, label %35
+    i64 1559073128450, label %36
+    i64 373662154754, label %37
+    i64 3972844748802, label %38
+    i64 2156073582594, label %39
+    i64 1872605741058, label %42
+    i64 2366526980098, label %43
+    i64 4376571674626, label %44
+    i64 3723736645634, label %45
   ]
 
-.backedge.thread:                                 ; preds = %31, %39
-  br label %.loopexit
+.backedge:                                        ; preds = %19, %34, %42, %9
+  %22 = icmp eq ptr %3, %10
+  br i1 %22, label %.loopexit, label %9
 
-.backedge:                                        ; preds = %18, %9
-  br i1 %11, label %.loopexit, label %9
+23:                                               ; preds = %19
+  %24 = ptrtoint ptr %10 to i64
+  %25 = ptrtoint ptr %3 to i64
+  %26 = sub nuw i64 %24, %25
+  %27 = lshr exact i64 %26, 3
+  %28 = load ptr, ptr %2, align 8, !nonnull !4, !noundef !4
+  %29 = load i64, ptr %4, align 8, !noundef !4
+  %30 = icmp ugt i64 %27, %29
+  br i1 %30, label %31, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hfd149221a0723dd3E.exit"
 
-21:                                               ; preds = %18
-  %22 = ptrtoint ptr %10 to i64
-  %23 = ptrtoint ptr %3 to i64
-  %24 = sub nuw i64 %22, %23
-  %25 = lshr exact i64 %24, 3
-  %26 = load ptr, ptr %2, align 8, !nonnull !4, !noundef !4
-  %27 = load i64, ptr %4, align 8, !noundef !4
-  %28 = icmp ugt i64 %25, %27
-  br i1 %28, label %29, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hfd149221a0723dd3E.exit"
-
-29:                                               ; preds = %21
-  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h87b545b7962eada9E(i64 noundef %25, i64 noundef %27, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b244ddacf973f5fee137b0ea6cb9ab8a.137) #19, !noalias !1235
+31:                                               ; preds = %23
+  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h87b545b7962eada9E(i64 noundef %27, i64 noundef %29, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b244ddacf973f5fee137b0ea6cb9ab8a.137) #19, !noalias !1235
   unreachable
 
-"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hfd149221a0723dd3E.exit": ; preds = %21
-  br i1 %11, label %.loopexit, label %.lr.ph54.preheader
+"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hfd149221a0723dd3E.exit": ; preds = %23
+  %32 = icmp eq ptr %10, %3
+  br i1 %32, label %.loopexit, label %.lr.ph54.preheader
 
 .lr.ph54.preheader:                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hfd149221a0723dd3E.exit"
-  %30 = getelementptr inbounds i8, ptr %26, i64 %24
+  %33 = getelementptr inbounds i8, ptr %28, i64 %26
   br label %.lr.ph54
 
-31:                                               ; preds = %18, %18
-  br i1 %11, label %.backedge.thread, label %.loopexit
+34:                                               ; preds = %19, %19
+  br i1 %11, label %.loopexit, label %.backedge
 
-32:                                               ; preds = %18, %18, %18
+35:                                               ; preds = %19, %19, %19
   br label %.loopexit
 
-33:                                               ; preds = %18
+36:                                               ; preds = %19
   br label %.loopexit
 
-34:                                               ; preds = %18
+37:                                               ; preds = %19
   br label %.loopexit
 
-35:                                               ; preds = %18
+38:                                               ; preds = %19
   br label %.loopexit
 
-36:                                               ; preds = %18
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %38 = load i64, ptr %37, align 8, !noundef !4
-  %.not = icmp eq i64 %38, 0
-  br i1 %.not, label %63, label %64
+39:                                               ; preds = %19
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %41 = load i64, ptr %40, align 8, !noundef !4
+  %.not = icmp eq i64 %41, 0
+  br i1 %.not, label %66, label %67
 
-39:                                               ; preds = %18
-  br i1 %11, label %.backedge.thread, label %.loopexit
+42:                                               ; preds = %19
+  br i1 %11, label %.loopexit, label %.backedge
 
-40:                                               ; preds = %18
+43:                                               ; preds = %19
   br label %.loopexit
 
-41:                                               ; preds = %18
+44:                                               ; preds = %19
   br label %.loopexit
 
-42:                                               ; preds = %18
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %44 = load ptr, ptr %43, align 8, !noundef !4
-  %45 = icmp eq ptr %44, null
-  %. = select i1 %45, i8 2, i8 5
+45:                                               ; preds = %19
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %47 = load ptr, ptr %46, align 8, !noundef !4
+  %48 = icmp eq ptr %47, null
+  %. = select i1 %48, i8 2, i8 5
   br label %.loopexit
 
 .lr.ph54:                                         ; preds = %.lr.ph54.preheader, %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$15html_elem_named17h363f1592e1b13660E.exit15.backedge"
-  %.sroa.517.053 = phi ptr [ %46, %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$15html_elem_named17h363f1592e1b13660E.exit15.backedge" ], [ %30, %.lr.ph54.preheader ]
-  %46 = getelementptr inbounds i8, ptr %.sroa.517.053, i64 -8
-  %47 = tail call { ptr, ptr } @"_ZN91_$LT$markup5ever_rcdom..RcDom$u20$as$u20$markup5ever..interface..tree_builder..TreeSink$GT$9elem_name17h4e753bf026563d2eE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(192) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %46)
-  %48 = extractvalue { ptr, ptr } %47, 0
-  %49 = load i64, ptr %48, align 8, !range !57, !noundef !4
-  %50 = icmp eq i64 %49, 30064771074
-  br i1 %50, label %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$15html_elem_named17h363f1592e1b13660E.exit", label %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$15html_elem_named17h363f1592e1b13660E.exit.thread"
+  %.sroa.517.053 = phi ptr [ %49, %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$15html_elem_named17h363f1592e1b13660E.exit15.backedge" ], [ %33, %.lr.ph54.preheader ]
+  %49 = getelementptr inbounds i8, ptr %.sroa.517.053, i64 -8
+  %50 = tail call { ptr, ptr } @"_ZN91_$LT$markup5ever_rcdom..RcDom$u20$as$u20$markup5ever..interface..tree_builder..TreeSink$GT$9elem_name17h4e753bf026563d2eE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(192) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %49)
+  %51 = extractvalue { ptr, ptr } %50, 0
+  %52 = load i64, ptr %51, align 8, !range !57, !noundef !4
+  %53 = icmp eq i64 %52, 30064771074
+  br i1 %53, label %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$15html_elem_named17h363f1592e1b13660E.exit", label %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$15html_elem_named17h363f1592e1b13660E.exit.thread"
 
 "_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$15html_elem_named17h363f1592e1b13660E.exit": ; preds = %.lr.ph54
-  %51 = extractvalue { ptr, ptr } %47, 1
-  %52 = load i64, ptr %51, align 8, !range !57, !noundef !4
-  %53 = icmp eq i64 %52, 2156073582594
-  br i1 %53, label %.loopexit, label %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$15html_elem_named17h363f1592e1b13660E.exit.thread"
+  %54 = extractvalue { ptr, ptr } %50, 1
+  %55 = load i64, ptr %54, align 8, !range !57, !noundef !4
+  %56 = icmp eq i64 %55, 2156073582594
+  br i1 %56, label %.loopexit, label %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$15html_elem_named17h363f1592e1b13660E.exit.thread"
 
 "_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$15html_elem_named17h363f1592e1b13660E.exit.thread": ; preds = %.lr.ph54, %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$15html_elem_named17h363f1592e1b13660E.exit"
-  %54 = tail call { ptr, ptr } @"_ZN91_$LT$markup5ever_rcdom..RcDom$u20$as$u20$markup5ever..interface..tree_builder..TreeSink$GT$9elem_name17h4e753bf026563d2eE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(192) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %46)
-  %55 = extractvalue { ptr, ptr } %54, 0
-  %56 = load i64, ptr %55, align 8, !range !57, !noundef !4
-  %57 = icmp eq i64 %56, 30064771074
-  br i1 %57, label %58, label %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$15html_elem_named17h363f1592e1b13660E.exit15.backedge"
+  %57 = tail call { ptr, ptr } @"_ZN91_$LT$markup5ever_rcdom..RcDom$u20$as$u20$markup5ever..interface..tree_builder..TreeSink$GT$9elem_name17h4e753bf026563d2eE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(192) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %49)
+  %58 = extractvalue { ptr, ptr } %57, 0
+  %59 = load i64, ptr %58, align 8, !range !57, !noundef !4
+  %60 = icmp eq i64 %59, 30064771074
+  br i1 %60, label %61, label %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$15html_elem_named17h363f1592e1b13660E.exit15.backedge"
 
-58:                                               ; preds = %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$15html_elem_named17h363f1592e1b13660E.exit.thread"
-  %59 = extractvalue { ptr, ptr } %54, 1
-  %60 = load i64, ptr %59, align 8, !range !57, !noundef !4
-  %61 = icmp eq i64 %60, 3972844748802
-  br i1 %61, label %.loopexit, label %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$15html_elem_named17h363f1592e1b13660E.exit15.backedge"
+61:                                               ; preds = %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$15html_elem_named17h363f1592e1b13660E.exit.thread"
+  %62 = extractvalue { ptr, ptr } %57, 1
+  %63 = load i64, ptr %62, align 8, !range !57, !noundef !4
+  %64 = icmp eq i64 %63, 3972844748802
+  br i1 %64, label %.loopexit, label %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$15html_elem_named17h363f1592e1b13660E.exit15.backedge"
 
-"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$15html_elem_named17h363f1592e1b13660E.exit15.backedge": ; preds = %58, %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$15html_elem_named17h363f1592e1b13660E.exit.thread"
-  %62 = icmp eq ptr %26, %46
-  br i1 %62, label %.loopexit, label %.lr.ph54
+"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$15html_elem_named17h363f1592e1b13660E.exit15.backedge": ; preds = %61, %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$15html_elem_named17h363f1592e1b13660E.exit.thread"
+  %65 = icmp eq ptr %28, %49
+  br i1 %65, label %.loopexit, label %.lr.ph54
 
-63:                                               ; preds = %36
+66:                                               ; preds = %39
   tail call void @_ZN4core6option13unwrap_failed17hba6b08832f9ce30bE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b244ddacf973f5fee137b0ea6cb9ab8a.138) #19
   unreachable
 
-64:                                               ; preds = %36
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %66 = load ptr, ptr %65, align 8, !nonnull !4, !noundef !4
-  %67 = getelementptr i8, ptr %66, i64 %38
-  %68 = getelementptr i8, ptr %67, i64 -1
-  %69 = load i8, ptr %68, align 1, !range !7, !noundef !4
+67:                                               ; preds = %39
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %69 = load ptr, ptr %68, align 8, !nonnull !4, !noundef !4
+  %70 = getelementptr i8, ptr %69, i64 %41
+  %71 = getelementptr i8, ptr %70, i64 -1
+  %72 = load i8, ptr %71, align 1, !range !7, !noundef !4
   br label %.loopexit
 }
 

@@ -8797,11 +8797,11 @@ define hidden range(i32 0, 256) i32 @mbedtls_ssl_tls12_get_preferred_hash_for_si
 
 .preheader:                                       ; preds = %2
   %7 = load i16, ptr %5, align 2, !tbaa !101
-  %.not21 = icmp eq i16 %7, 0
-  br i1 %.not21, label %.loopexit, label %mbedtls_ssl_md_alg_from_hash.exit
+  %.not22 = icmp eq i16 %7, 0
+  br i1 %.not22, label %.loopexit, label %mbedtls_ssl_md_alg_from_hash.exit
 
 8:                                                ; preds = %mbedtls_ssl_md_alg_from_hash.exit
-  %9 = add i32 %.01522, 1
+  %9 = add i32 %.01523, 1
   %10 = zext i32 %9 to i64
   %11 = getelementptr inbounds nuw i16, ptr %5, i64 %10
   %12 = load i16, ptr %11, align 2, !tbaa !101
@@ -8810,16 +8810,16 @@ define hidden range(i32 0, 256) i32 @mbedtls_ssl_tls12_get_preferred_hash_for_si
 
 mbedtls_ssl_md_alg_from_hash.exit:                ; preds = %.preheader, %8
   %13 = phi i16 [ %12, %8 ], [ %7, %.preheader ]
-  %.01522 = phi i32 [ %9, %8 ], [ 0, %.preheader ]
+  %.01523 = phi i32 [ %9, %8 ], [ 0, %.preheader ]
   %14 = zext i16 %13 to i32
   %15 = lshr i32 %14, 8
   %16 = trunc nuw i32 %15 to i8
-  %17 = add i8 %16, -7
-  %switch = icmp ult i8 %17, -6
-  %18 = and i32 %14, 255
-  %.not20 = icmp ne i32 %1, %18
-  %19 = or i1 %switch, %.not20
-  br i1 %19, label %8, label %.loopexit
+  %.off = add i8 %16, -1
+  %switch21 = icmp ult i8 %.off, 6
+  %17 = and i32 %14, 255
+  %18 = icmp eq i32 %1, %17
+  %.not20 = and i1 %18, %switch21
+  br i1 %.not20, label %.loopexit, label %8
 
 .loopexit:                                        ; preds = %8, %mbedtls_ssl_md_alg_from_hash.exit, %.preheader, %2
   %.0 = phi i32 [ 0, %2 ], [ 0, %.preheader ], [ 0, %8 ], [ %15, %mbedtls_ssl_md_alg_from_hash.exit ]

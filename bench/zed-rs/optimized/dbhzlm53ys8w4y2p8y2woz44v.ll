@@ -4179,14 +4179,15 @@ define hidden void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shi
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %7 = load i8, ptr %6, align 1, !range !29, !noundef !30
   %8 = trunc nuw i8 %7 to i1
-  %..i.i = select i1 %8, i64 19, i64 12
   %anon.511fa55d48a1429fc1328947c32230de.155.anon.511fa55d48a1429fc1328947c32230de.154.i.i = select i1 %8, ptr @anon.511fa55d48a1429fc1328947c32230de.155, ptr @anon.511fa55d48a1429fc1328947c32230de.154
-  %.sroa.4.0.i.i = select i1 %5, i64 %..i.i, i64 19
+  %9 = xor i1 %8, true
+  %10 = and i1 %5, %9
+  %.sroa.4.0.i.i = select i1 %10, i64 12, i64 19
   %.sroa.0.0.i.i = select i1 %5, ptr %anon.511fa55d48a1429fc1328947c32230de.155.anon.511fa55d48a1429fc1328947c32230de.154.i.i, ptr @anon.511fa55d48a1429fc1328947c32230de.153
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 568
-  tail call void @"_ZN67_$LT$gpui..window..WindowContext$u20$as$u20$gpui..VisualContext$GT$8new_view17h367af4fde30fce69E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %9, ptr noalias noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i, i64 noundef %.sroa.4.0.i.i), !noalias !782
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 600
-  store ptr @_ZN4gpui4view8any_view6render17h6b3410a5af9f7f39E, ptr %10, align 8, !alias.scope !785, !noalias !789
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 568
+  tail call void @"_ZN67_$LT$gpui..window..WindowContext$u20$as$u20$gpui..VisualContext$GT$8new_view17h367af4fde30fce69E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %11, ptr noalias noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i, i64 noundef %.sroa.4.0.i.i), !noalias !782
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 600
+  store ptr @_ZN4gpui4view8any_view6render17h6b3410a5af9f7f39E, ptr %12, align 8, !alias.scope !785, !noalias !789
   store i64 2, ptr %0, align 8, !alias.scope !785, !noalias !789
   ret void
 }
@@ -13112,14 +13113,15 @@ define hidden void @"_ZN9title_bar6collab37_$LT$impl$u20$title_bar..TitleBar$GT$
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %7 = load i8, ptr %6, align 1, !range !29
   %8 = trunc nuw i8 %7 to i1
-  %. = select i1 %8, i64 19, i64 12
   %anon.511fa55d48a1429fc1328947c32230de.155.anon.511fa55d48a1429fc1328947c32230de.154 = select i1 %8, ptr @anon.511fa55d48a1429fc1328947c32230de.155, ptr @anon.511fa55d48a1429fc1328947c32230de.154
-  %.sroa.4.0 = select i1 %5, i64 %., i64 19
+  %9 = xor i1 %8, true
+  %10 = select i1 %5, i1 %9, i1 false
+  %.sroa.4.0 = select i1 %10, i64 12, i64 19
   %.sroa.0.0 = select i1 %5, ptr %anon.511fa55d48a1429fc1328947c32230de.155.anon.511fa55d48a1429fc1328947c32230de.154, ptr @anon.511fa55d48a1429fc1328947c32230de.153
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 568
-  tail call void @"_ZN67_$LT$gpui..window..WindowContext$u20$as$u20$gpui..VisualContext$GT$8new_view17h367af4fde30fce69E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %9, ptr noalias noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0, i64 noundef %.sroa.4.0)
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 600
-  store ptr @_ZN4gpui4view8any_view6render17h6b3410a5af9f7f39E, ptr %10, align 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 568
+  tail call void @"_ZN67_$LT$gpui..window..WindowContext$u20$as$u20$gpui..VisualContext$GT$8new_view17h367af4fde30fce69E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %11, ptr noalias noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0, i64 noundef %.sroa.4.0)
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 600
+  store ptr @_ZN4gpui4view8any_view6render17h6b3410a5af9f7f39E, ptr %12, align 8
   store i64 2, ptr %0, align 8
   ret void
 }

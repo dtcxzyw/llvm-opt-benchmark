@@ -1691,9 +1691,9 @@ define internal range(i32 -8, 1) i32 @netmon_dump_can_write_encap_1_x(i32 nounde
   %3 = zext nneg i32 %0 to i64
   %4 = shl nuw nsw i64 1, %3
   %5 = and i64 %4, 8089
-  %.not = icmp eq i64 %5, 0
-  %spec.select = select i1 %.not, i32 0, i32 -8
-  %.0 = select i1 %2, i32 -8, i32 %spec.select
+  %.not = icmp ne i64 %5, 0
+  %6 = select i1 %2, i1 true, i1 %.not
+  %.0 = select i1 %6, i32 -8, i32 0
   ret i32 %.0
 }
 

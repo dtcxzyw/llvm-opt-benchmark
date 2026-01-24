@@ -347,11 +347,12 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit175: ; preds = %_Z14wa
   %246 = load i32, ptr %94, align 4, !tbaa !37
   %247 = icmp ne i32 %246, 10
   %or.cond5 = or i1 %2, %247
-  %248 = icmp eq i32 %246, 11
-  %249 = select i1 %248, i32 128, i32 0
-  %250 = select i1 %or.cond5, i32 %249, i32 128
-  %brmerge.not = select i1 %25, i1 %248, i1 false
-  br i1 %brmerge.not, label %251, label %252
+  %248 = icmp ne i32 %246, 11
+  %249 = and i1 %248, %or.cond5
+  %250 = select i1 %249, i32 0, i32 128
+  %.not = xor i1 %25, true
+  %brmerge = select i1 %.not, i1 true, i1 %248
+  br i1 %brmerge, label %252, label %251
 
 251:                                              ; preds = %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit175
   store i8 1, ptr %30, align 1, !tbaa !232

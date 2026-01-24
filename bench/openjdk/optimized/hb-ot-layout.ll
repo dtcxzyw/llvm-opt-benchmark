@@ -9632,13 +9632,12 @@ _ZNK2OT8GSUBGPOS11get_featureEj.exit:             ; preds = %_ZNK2OT8GSUBGPOS16g
   %61 = getelementptr inbounds nuw i8, ptr %.0.i.i1.i.i, i64 1
   %62 = load i8, ptr %61, align 1
   %63 = or i8 %62, %60
-  %64 = icmp eq i8 %63, 0
+  %64 = icmp ne i8 %63, 0
   %65 = zext i8 %60 to i64
   %66 = shl nuw nsw i64 %65, 8
   %67 = zext i8 %62 to i64
   %68 = getelementptr inbounds nuw i8, ptr %.0.i.i1.i.i, i64 %66
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 %67
-  %.0.i.i.i = select i1 %64, ptr @_hb_NullPool, ptr %69
   %70 = icmp eq i32 %2, 65535
   br i1 %70, label %_ZNK2OT8GSUBGPOS15get_feature_tagEj.exit, label %71
 
@@ -9697,77 +9696,78 @@ _ZNK2OT13RecordArrayOfINS_7FeatureEE7get_tagEj.exit.i: ; preds = %97, %_ZNK2OT8G
   %107 = shl nuw nsw i32 %106, 16
   %108 = or disjoint i32 %107, %103
   %109 = icmp eq i32 %108, 1668677632
-  %110 = select i1 %109, ptr %.0.i.i.i, ptr @_hb_NullPool
+  %110 = select i1 %109, i1 %64, i1 false
+  %111 = select i1 %110, ptr %69, ptr @_hb_NullPool
   br label %_ZNK2OT8GSUBGPOS15get_feature_tagEj.exit
 
 _ZNK2OT8GSUBGPOS15get_feature_tagEj.exit:         ; preds = %_ZNK2OT8GSUBGPOS11get_featureEj.exit, %_ZNK2OT13RecordArrayOfINS_7FeatureEE7get_tagEj.exit.i
-  %spec.select.i = phi ptr [ %110, %_ZNK2OT13RecordArrayOfINS_7FeatureEE7get_tagEj.exit.i ], [ @_hb_NullPool, %_ZNK2OT8GSUBGPOS11get_featureEj.exit ]
+  %spec.select.i = phi ptr [ %111, %_ZNK2OT13RecordArrayOfINS_7FeatureEE7get_tagEj.exit.i ], [ @_hb_NullPool, %_ZNK2OT8GSUBGPOS11get_featureEj.exit ]
   %.not.i = icmp eq ptr %4, null
   br i1 %.not.i, label %_ZNK2OT30FeatureParamsCharacterVariants14get_charactersEjPjS1_.exit, label %_ZNK10hb_array_tIKN2OT7IntTypeIjLj3EEEE9sub_arrayEjPj.exit.i
 
 _ZNK10hb_array_tIKN2OT7IntTypeIjLj3EEEE9sub_arrayEjPj.exit.i: ; preds = %_ZNK2OT8GSUBGPOS15get_feature_tagEj.exit
-  %111 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 12
-  %112 = load i8, ptr %111, align 1
-  %113 = zext i8 %112 to i32
-  %114 = shl nuw nsw i32 %113, 8
-  %115 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 13
-  %116 = load i8, ptr %115, align 1
-  %117 = zext i8 %116 to i32
-  %.sroa.2.8.insert.ext.i.i.i = or disjoint i32 %114, %117
+  %112 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 12
+  %113 = load i8, ptr %112, align 1
+  %114 = zext i8 %113 to i32
+  %115 = shl nuw nsw i32 %114, 8
+  %116 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 13
+  %117 = load i8, ptr %116, align 1
+  %118 = zext i8 %117 to i32
+  %.sroa.2.8.insert.ext.i.i.i = or disjoint i32 %115, %118
   %storemerge.i.i = tail call i32 @llvm.usub.sat.i32(i32 %.sroa.2.8.insert.ext.i.i.i, i32 %3)
-  %118 = load i32, ptr %4, align 4
-  %.sroa.speculated.i.i = tail call i32 @llvm.umin.i32(i32 %storemerge.i.i, i32 %118)
+  %119 = load i32, ptr %4, align 4
+  %.sroa.speculated.i.i = tail call i32 @llvm.umin.i32(i32 %storemerge.i.i, i32 %119)
   store i32 %.sroa.speculated.i.i, ptr %4, align 4
   %.not5.i.i.i = icmp eq i32 %.sroa.speculated.i.i, 0
   br i1 %.not5.i.i.i, label %_ZNK2OT30FeatureParamsCharacterVariants14get_charactersEjPjS1_.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZNK10hb_array_tIKN2OT7IntTypeIjLj3EEEE9sub_arrayEjPj.exit.i
-  %119 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 14
-  %120 = zext i32 %3 to i64
-  %121 = getelementptr inbounds nuw %"struct.OT::IntType.201", ptr %119, i64 %120
-  %122 = load i32, ptr @_hb_NullPool, align 16
-  br label %123
+  %120 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 14
+  %121 = zext i32 %3 to i64
+  %122 = getelementptr inbounds nuw %"struct.OT::IntType.201", ptr %120, i64 %121
+  %123 = load i32, ptr @_hb_NullPool, align 16
+  br label %124
 
-123:                                              ; preds = %_ZN9hb_iter_tI10hb_array_tIjERjEdeEv.exit.i.i.i.i, %.lr.ph.i.i.i
+124:                                              ; preds = %_ZN9hb_iter_tI10hb_array_tIjERjEdeEv.exit.i.i.i.i, %.lr.ph.i.i.i
   %.sroa.015.0.i = phi ptr [ %5, %.lr.ph.i.i.i ], [ %.sroa.015.1.i, %_ZN9hb_iter_tI10hb_array_tIjERjEdeEv.exit.i.i.i.i ]
   %.sroa.4.0.i = phi i32 [ %.sroa.speculated.i.i, %.lr.ph.i.i.i ], [ %.sroa.4.1.i, %_ZN9hb_iter_tI10hb_array_tIjERjEdeEv.exit.i.i.i.i ]
-  %.sroa.0.07.i.i.i = phi ptr [ %121, %.lr.ph.i.i.i ], [ %131, %_ZN9hb_iter_tI10hb_array_tIjERjEdeEv.exit.i.i.i.i ]
-  %.sroa.4.06.i.i.i = phi i32 [ %.sroa.speculated.i.i, %.lr.ph.i.i.i ], [ %130, %_ZN9hb_iter_tI10hb_array_tIjERjEdeEv.exit.i.i.i.i ]
+  %.sroa.0.07.i.i.i = phi ptr [ %122, %.lr.ph.i.i.i ], [ %132, %_ZN9hb_iter_tI10hb_array_tIjERjEdeEv.exit.i.i.i.i ]
+  %.sroa.4.06.i.i.i = phi i32 [ %.sroa.speculated.i.i, %.lr.ph.i.i.i ], [ %131, %_ZN9hb_iter_tI10hb_array_tIjERjEdeEv.exit.i.i.i.i ]
   %.sroa.0.0.copyload.i.i.i = load i24, ptr %.sroa.0.07.i.i.i, align 1
   %.sroa.3.0.extract.shift.i.i.i.i = lshr i24 %.sroa.0.0.copyload.i.i.i, 16
-  %124 = shl i24 %.sroa.0.0.copyload.i.i.i, 16
-  %125 = and i24 %.sroa.0.0.copyload.i.i.i, 65280
-  %126 = or disjoint i24 %125, %124
-  %127 = or disjoint i24 %126, %.sroa.3.0.extract.shift.i.i.i.i
-  %128 = zext i24 %127 to i32
+  %125 = shl i24 %.sroa.0.0.copyload.i.i.i, 16
+  %126 = and i24 %.sroa.0.0.copyload.i.i.i, 65280
+  %127 = or disjoint i24 %126, %125
+  %128 = or disjoint i24 %127, %.sroa.3.0.extract.shift.i.i.i.i
+  %129 = zext i24 %128 to i32
   %.not.i.i.i.i.i.i = icmp eq i32 %.sroa.4.0.i, 0
-  br i1 %.not.i.i.i.i.i.i, label %129, label %_ZN9hb_iter_tI10hb_array_tIjERjEdeEv.exit.i.i.i.i
+  br i1 %.not.i.i.i.i.i.i, label %130, label %_ZN9hb_iter_tI10hb_array_tIjERjEdeEv.exit.i.i.i.i
 
-129:                                              ; preds = %123
-  store i32 %122, ptr @_hb_CrapPool, align 16
+130:                                              ; preds = %124
+  store i32 %123, ptr @_hb_CrapPool, align 16
   br label %_ZN9hb_iter_tI10hb_array_tIjERjEdeEv.exit.i.i.i.i
 
-_ZN9hb_iter_tI10hb_array_tIjERjEdeEv.exit.i.i.i.i: ; preds = %129, %123
-  %.sroa.015.1.idx.i = phi i64 [ 0, %129 ], [ 4, %123 ]
-  %.0.i.i.i.i.i.i = phi ptr [ @_hb_CrapPool, %129 ], [ %.sroa.015.0.i, %123 ]
-  store i32 %128, ptr %.0.i.i.i.i.i.i, align 4
+_ZN9hb_iter_tI10hb_array_tIjERjEdeEv.exit.i.i.i.i: ; preds = %130, %124
+  %.sroa.015.1.idx.i = phi i64 [ 0, %130 ], [ 4, %124 ]
+  %.0.i.i.i.i.i.i = phi ptr [ @_hb_CrapPool, %130 ], [ %.sroa.015.0.i, %124 ]
+  store i32 %129, ptr %.0.i.i.i.i.i.i, align 4
   %.sroa.015.1.i = getelementptr inbounds nuw i8, ptr %.sroa.015.0.i, i64 %.sroa.015.1.idx.i
   %.sroa.4.1.i = tail call i32 @llvm.usub.sat.i32(i32 %.sroa.4.0.i, i32 1)
-  %130 = add nsw i32 %.sroa.4.06.i.i.i, -1
-  %131 = getelementptr inbounds nuw i8, ptr %.sroa.0.07.i.i.i, i64 3
-  %.not.i.i.i13 = icmp eq i32 %130, 0
-  br i1 %.not.i.i.i13, label %_ZNK2OT30FeatureParamsCharacterVariants14get_charactersEjPjS1_.exit, label %123, !llvm.loop !48
+  %131 = add nsw i32 %.sroa.4.06.i.i.i, -1
+  %132 = getelementptr inbounds nuw i8, ptr %.sroa.0.07.i.i.i, i64 3
+  %.not.i.i.i13 = icmp eq i32 %131, 0
+  br i1 %.not.i.i.i13, label %_ZNK2OT30FeatureParamsCharacterVariants14get_charactersEjPjS1_.exit, label %124, !llvm.loop !48
 
 _ZNK2OT30FeatureParamsCharacterVariants14get_charactersEjPjS1_.exit: ; preds = %_ZN9hb_iter_tI10hb_array_tIjERjEdeEv.exit.i.i.i.i, %_ZNK2OT8GSUBGPOS15get_feature_tagEj.exit, %_ZNK10hb_array_tIKN2OT7IntTypeIjLj3EEEE9sub_arrayEjPj.exit.i
-  %132 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 12
-  %133 = load i8, ptr %132, align 1
-  %134 = zext i8 %133 to i32
-  %135 = shl nuw nsw i32 %134, 8
-  %136 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 13
-  %137 = load i8, ptr %136, align 1
-  %138 = zext i8 %137 to i32
-  %139 = or disjoint i32 %135, %138
-  ret i32 %139
+  %133 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 12
+  %134 = load i8, ptr %133, align 1
+  %135 = zext i8 %134 to i32
+  %136 = shl nuw nsw i32 %135, 8
+  %137 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 13
+  %138 = load i8, ptr %137, align 1
+  %139 = zext i8 %138 to i32
+  %140 = or disjoint i32 %136, %139
+  ret i32 %140
 }
 
 ; Function Attrs: mustprogress uwtable

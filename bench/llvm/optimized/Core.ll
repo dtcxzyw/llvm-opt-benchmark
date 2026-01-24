@@ -10885,12 +10885,10 @@ declare noundef ptr @_ZNK4llvm11Instruction5cloneEv(ptr noundef nonnull align 8 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local ptr @LLVMIsATerminatorInst(ptr noundef readonly captures(ret: address, provenance) %0) local_unnamed_addr #11 {
   %2 = load i8, ptr %0, align 8, !tbaa !207
-  %3 = icmp ult i8 %2, 29
-  %4 = add i8 %2, -30
-  %5 = icmp ult i8 %4, 11
-  %spec.select = select i1 %5, ptr %0, ptr null
-  %6 = select i1 %3, ptr null, ptr %spec.select
-  ret ptr %6
+  %3 = add i8 %2, -41
+  %4 = icmp ult i8 %3, -11
+  %5 = select i1 %4, ptr null, ptr %0
+  ret ptr %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable

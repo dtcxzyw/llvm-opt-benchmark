@@ -592,10 +592,10 @@ _ZNK6vectorIN3sat15model_converter5entryELb1EjE4sizeEv.exit: ; preds = %2
   br label %.lr.ph96
 
 .loopexit:                                        ; preds = %_ZN6vectorIN3sat7literalELb0EjE5resetEv.exit76, %43, %_ZNK6vectorIN3sat7literalELb0EjE3endEv.exit
-  %14 = phi ptr [ %25, %_ZNK6vectorIN3sat7literalELb0EjE3endEv.exit ], [ %25, %43 ], [ %219, %_ZN6vectorIN3sat7literalELb0EjE5resetEv.exit76 ]
-  %15 = phi ptr [ %26, %_ZNK6vectorIN3sat7literalELb0EjE3endEv.exit ], [ %26, %43 ], [ %220, %_ZN6vectorIN3sat7literalELb0EjE5resetEv.exit76 ]
-  %16 = phi ptr [ %27, %_ZNK6vectorIN3sat7literalELb0EjE3endEv.exit ], [ %27, %43 ], [ %221, %_ZN6vectorIN3sat7literalELb0EjE5resetEv.exit76 ]
-  %17 = phi ptr [ %28, %_ZNK6vectorIN3sat7literalELb0EjE3endEv.exit ], [ %28, %43 ], [ %221, %_ZN6vectorIN3sat7literalELb0EjE5resetEv.exit76 ]
+  %14 = phi ptr [ %25, %_ZNK6vectorIN3sat7literalELb0EjE3endEv.exit ], [ %25, %43 ], [ %221, %_ZN6vectorIN3sat7literalELb0EjE5resetEv.exit76 ]
+  %15 = phi ptr [ %26, %_ZNK6vectorIN3sat7literalELb0EjE3endEv.exit ], [ %26, %43 ], [ %222, %_ZN6vectorIN3sat7literalELb0EjE5resetEv.exit76 ]
+  %16 = phi ptr [ %27, %_ZNK6vectorIN3sat7literalELb0EjE3endEv.exit ], [ %27, %43 ], [ %223, %_ZN6vectorIN3sat7literalELb0EjE5resetEv.exit76 ]
+  %17 = phi ptr [ %28, %_ZNK6vectorIN3sat7literalELb0EjE3endEv.exit ], [ %28, %43 ], [ %223, %_ZN6vectorIN3sat7literalELb0EjE5resetEv.exit76 ]
   %18 = load i32, ptr %10, align 8, !tbaa !17
   %19 = zext i32 %18 to i64
   %.wide = icmp ugt i64 %29, %19
@@ -686,11 +686,11 @@ _ZNK6vectorIN3sat7literalELb0EjE3endEv.exit:      ; preds = %43
   br label %56
 
 56:                                               ; preds = %.lr.ph, %_ZN6vectorIN3sat7literalELb0EjE5resetEv.exit76
-  %57 = phi ptr [ %25, %.lr.ph ], [ %219, %_ZN6vectorIN3sat7literalELb0EjE5resetEv.exit76 ]
-  %58 = phi ptr [ %26, %.lr.ph ], [ %220, %_ZN6vectorIN3sat7literalELb0EjE5resetEv.exit76 ]
-  %59 = phi ptr [ %27, %.lr.ph ], [ %221, %_ZN6vectorIN3sat7literalELb0EjE5resetEv.exit76 ]
+  %57 = phi ptr [ %25, %.lr.ph ], [ %221, %_ZN6vectorIN3sat7literalELb0EjE5resetEv.exit76 ]
+  %58 = phi ptr [ %26, %.lr.ph ], [ %222, %_ZN6vectorIN3sat7literalELb0EjE5resetEv.exit76 ]
+  %59 = phi ptr [ %27, %.lr.ph ], [ %223, %_ZN6vectorIN3sat7literalELb0EjE5resetEv.exit76 ]
   %.05395 = phi i8 [ 0, %.lr.ph ], [ %.154, %_ZN6vectorIN3sat7literalELb0EjE5resetEv.exit76 ]
-  %.05594 = phi ptr [ %45, %.lr.ph ], [ %222, %_ZN6vectorIN3sat7literalELb0EjE5resetEv.exit76 ]
+  %.05594 = phi ptr [ %45, %.lr.ph ], [ %224, %_ZN6vectorIN3sat7literalELb0EjE5resetEv.exit76 ]
   %.05693 = phi i1 [ false, %.lr.ph ], [ %.157, %_ZN6vectorIN3sat7literalELb0EjE5resetEv.exit76 ]
   %.05992 = phi i32 [ 0, %.lr.ph ], [ %.160, %_ZN6vectorIN3sat7literalELb0EjE5resetEv.exit76 ]
   %60 = load i32, ptr %.05594, align 4, !tbaa !9
@@ -1028,7 +1028,7 @@ _ZNK6vectorI5lboolLb0EjE4sizeEv.exit.thread:      ; preds = %188, %_ZNK6vectorI5
   %.pre = load ptr, ptr %1, align 8, !tbaa !183
   br label %200
 
-198:                                              ; preds = %214, %213, %210, %197, %_ZNK6vectorI5lboolLb0EjE4sizeEv.exit.thread
+198:                                              ; preds = %216, %215, %212, %197, %_ZNK6vectorI5lboolLb0EjE4sizeEv.exit.thread
   %199 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -1036,7 +1036,6 @@ _ZNK6vectorI5lboolLb0EjE4sizeEv.exit.thread:      ; preds = %188, %_ZNK6vectorI5
 200:                                              ; preds = %._crit_edge99, %_ZNK6vectorI5lboolLb0EjE4sizeEv.exit
   %201 = phi ptr [ %.pre, %._crit_edge99 ], [ %192, %_ZNK6vectorI5lboolLb0EjE4sizeEv.exit ]
   %202 = icmp eq i32 %191, %32
-  %spec.select = select i1 %202, i1 %190, i1 %.05693
   %203 = zext nneg i32 %191 to i64
   %204 = getelementptr inbounds nuw i32, ptr %201, i64 %203
   %205 = load i32, ptr %204, align 4, !tbaa !184
@@ -1044,45 +1043,47 @@ _ZNK6vectorI5lboolLb0EjE4sizeEv.exit.thread:      ; preds = %188, %_ZNK6vectorI5
   %spec.select.i = select i1 %.not90, i32 %205, i32 %206
   %207 = icmp eq i32 %spec.select.i, 1
   %brmerge = select i1 %207, i1 true, i1 %202
-  %spec.select.mux = select i1 %207, i1 %spec.select, i1 %190
+  %208 = xor i1 %202, true
+  %209 = select i1 %207, i1 %208, i1 false
+  %spec.select.mux = select i1 %209, i1 %.05693, i1 %190
   %.mux = zext i1 %207 to i8
-  br i1 %brmerge, label %_ZN6vectorIN3sat7literalELb0EjE5resetEv.exit76, label %208
+  br i1 %brmerge, label %_ZN6vectorIN3sat7literalELb0EjE5resetEv.exit76, label %210
 
-208:                                              ; preds = %200
-  %209 = icmp eq i32 %205, 0
-  br i1 %209, label %210, label %_ZN6vectorIN3sat7literalELb0EjE5resetEv.exit76
-
-210:                                              ; preds = %208
-  %211 = invoke noundef zeroext i1 @_ZNK3sat15model_converter13legal_to_flipEj(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %191)
-          to label %212 unwind label %198
+210:                                              ; preds = %200
+  %211 = icmp eq i32 %205, 0
+  br i1 %211, label %212, label %_ZN6vectorIN3sat7literalELb0EjE5resetEv.exit76
 
 212:                                              ; preds = %210
-  br i1 %211, label %215, label %213
-
-213:                                              ; preds = %212
-  invoke void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.2, i32 noundef 106, ptr noundef nonnull @.str.13)
+  %213 = invoke noundef zeroext i1 @_ZNK3sat15model_converter13legal_to_flipEj(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %191)
           to label %214 unwind label %198
 
-214:                                              ; preds = %213
-  invoke void @_Z18invoke_exit_actionj(i32 noundef 114)
-          to label %215 unwind label %198
+214:                                              ; preds = %212
+  br i1 %213, label %217, label %215
 
-215:                                              ; preds = %214, %212
-  %216 = select i1 %.not90, i32 1, i32 -1
-  %217 = load ptr, ptr %1, align 8, !tbaa !183
-  %218 = getelementptr inbounds nuw i32, ptr %217, i64 %203
-  store i32 %216, ptr %218, align 4, !tbaa !184
+215:                                              ; preds = %214
+  invoke void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.2, i32 noundef 106, ptr noundef nonnull @.str.13)
+          to label %216 unwind label %198
+
+216:                                              ; preds = %215
+  invoke void @_Z18invoke_exit_actionj(i32 noundef 114)
+          to label %217 unwind label %198
+
+217:                                              ; preds = %216, %214
+  %218 = select i1 %.not90, i32 1, i32 -1
+  %219 = load ptr, ptr %1, align 8, !tbaa !183
+  %220 = getelementptr inbounds nuw i32, ptr %219, i64 %203
+  store i32 %218, ptr %220, align 4, !tbaa !184
   br label %_ZN6vectorIN3sat7literalELb0EjE5resetEv.exit76
 
-_ZN6vectorIN3sat7literalELb0EjE5resetEv.exit76:   ; preds = %200, %125, %_ZNK3sat15model_converter13process_stackER7svectorI5lbooljERKS1_INS_7literalEjERKS1_ISt4pairIjS5_EjE.exit, %208, %215, %178
-  %219 = phi ptr [ %179, %208 ], [ %179, %178 ], [ %179, %200 ], [ %179, %215 ], [ %57, %125 ], [ %57, %_ZNK3sat15model_converter13process_stackER7svectorI5lbooljERKS1_INS_7literalEjERKS1_ISt4pairIjS5_EjE.exit ]
-  %220 = phi ptr [ %180, %208 ], [ %180, %178 ], [ %180, %200 ], [ %180, %215 ], [ %58, %125 ], [ null, %_ZNK3sat15model_converter13process_stackER7svectorI5lbooljERKS1_INS_7literalEjERKS1_ISt4pairIjS5_EjE.exit ]
-  %221 = phi ptr [ %181, %208 ], [ %181, %178 ], [ %181, %200 ], [ %181, %215 ], [ %58, %125 ], [ null, %_ZNK3sat15model_converter13process_stackER7svectorI5lbooljERKS1_INS_7literalEjERKS1_ISt4pairIjS5_EjE.exit ]
-  %.160 = phi i32 [ %.05992, %208 ], [ %.05992, %178 ], [ %.05992, %200 ], [ %.05992, %215 ], [ %124, %125 ], [ %124, %_ZNK3sat15model_converter13process_stackER7svectorI5lbooljERKS1_INS_7literalEjERKS1_ISt4pairIjS5_EjE.exit ]
-  %.157 = phi i1 [ %.05693, %208 ], [ %.05693, %178 ], [ %spec.select.mux, %200 ], [ %.05693, %215 ], [ %.05693, %125 ], [ %.05693, %_ZNK3sat15model_converter13process_stackER7svectorI5lbooljERKS1_INS_7literalEjERKS1_ISt4pairIjS5_EjE.exit ]
-  %.154 = phi i8 [ 0, %208 ], [ 1, %178 ], [ %.mux, %200 ], [ 1, %215 ], [ 0, %125 ], [ 0, %_ZNK3sat15model_converter13process_stackER7svectorI5lbooljERKS1_INS_7literalEjERKS1_ISt4pairIjS5_EjE.exit ]
-  %222 = getelementptr inbounds nuw i8, ptr %.05594, i64 4
-  %.not = icmp eq ptr %222, %51
+_ZN6vectorIN3sat7literalELb0EjE5resetEv.exit76:   ; preds = %200, %125, %_ZNK3sat15model_converter13process_stackER7svectorI5lbooljERKS1_INS_7literalEjERKS1_ISt4pairIjS5_EjE.exit, %210, %217, %178
+  %221 = phi ptr [ %179, %210 ], [ %179, %178 ], [ %179, %200 ], [ %179, %217 ], [ %57, %125 ], [ %57, %_ZNK3sat15model_converter13process_stackER7svectorI5lbooljERKS1_INS_7literalEjERKS1_ISt4pairIjS5_EjE.exit ]
+  %222 = phi ptr [ %180, %210 ], [ %180, %178 ], [ %180, %200 ], [ %180, %217 ], [ %58, %125 ], [ null, %_ZNK3sat15model_converter13process_stackER7svectorI5lbooljERKS1_INS_7literalEjERKS1_ISt4pairIjS5_EjE.exit ]
+  %223 = phi ptr [ %181, %210 ], [ %181, %178 ], [ %181, %200 ], [ %181, %217 ], [ %58, %125 ], [ null, %_ZNK3sat15model_converter13process_stackER7svectorI5lbooljERKS1_INS_7literalEjERKS1_ISt4pairIjS5_EjE.exit ]
+  %.160 = phi i32 [ %.05992, %210 ], [ %.05992, %178 ], [ %.05992, %200 ], [ %.05992, %217 ], [ %124, %125 ], [ %124, %_ZNK3sat15model_converter13process_stackER7svectorI5lbooljERKS1_INS_7literalEjERKS1_ISt4pairIjS5_EjE.exit ]
+  %.157 = phi i1 [ %.05693, %210 ], [ %.05693, %178 ], [ %spec.select.mux, %200 ], [ %.05693, %217 ], [ %.05693, %125 ], [ %.05693, %_ZNK3sat15model_converter13process_stackER7svectorI5lbooljERKS1_INS_7literalEjERKS1_ISt4pairIjS5_EjE.exit ]
+  %.154 = phi i8 [ 0, %210 ], [ 1, %178 ], [ %.mux, %200 ], [ 1, %217 ], [ 0, %125 ], [ 0, %_ZNK3sat15model_converter13process_stackER7svectorI5lbooljERKS1_INS_7literalEjERKS1_ISt4pairIjS5_EjE.exit ]
+  %224 = getelementptr inbounds nuw i8, ptr %.05594, i64 4
+  %.not = icmp eq ptr %224, %51
   br i1 %.not, label %.loopexit, label %56
 
 .body:                                            ; preds = %122, %198, %69, %171, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i, %41

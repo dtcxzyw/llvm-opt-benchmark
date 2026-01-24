@@ -8718,32 +8718,32 @@ define i32 @FT_Set_Char_Size(ptr noundef readonly captures(address_is_null) %0, 
   %6 = alloca %struct.FT_Size_RequestRec_, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.not = icmp eq i64 %1, 0
-  %.not24 = icmp eq i64 %2, 0
-  %spec.select = select i1 %.not24, i64 %1, i64 %2
+  %.not24 = icmp ne i64 %2, 0
   %.019 = select i1 %.not, i64 %2, i64 %1
-  %.018 = select i1 %.not, i64 %2, i64 %spec.select
+  %7 = or i1 %.not, %.not24
+  %.018 = select i1 %7, i64 %2, i64 %1
   %.not25 = icmp eq i32 %3, 0
-  %.not26 = icmp eq i32 %4, 0
-  %spec.select28 = select i1 %.not26, i32 %3, i32 %4
+  %.not26 = icmp ne i32 %4, 0
   %.016 = select i1 %.not25, i32 %4, i32 %3
-  %.0 = select i1 %.not25, i32 %4, i32 %spec.select28
+  %8 = or i1 %.not25, %.not26
+  %.0 = select i1 %8, i32 %4, i32 %3
   %.not27 = icmp eq i32 %.016, 0
   %spec.select29 = select i1 %.not27, i32 72, i32 %.016
   %spec.select30 = select i1 %.not27, i32 72, i32 %.0
   %spec.store.select1 = tail call i64 @llvm.smax.i64(i64 %.018, i64 64)
   %spec.store.select = tail call i64 @llvm.smax.i64(i64 %.019, i64 64)
   store i32 0, ptr %6, align 8, !tbaa !349
-  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 %spec.store.select, ptr %7, align 8, !tbaa !352
-  %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i64 %spec.store.select1, ptr %8, align 8, !tbaa !354
-  %9 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store i32 %spec.select29, ptr %9, align 8, !tbaa !351
-  %10 = getelementptr inbounds nuw i8, ptr %6, i64 28
-  store i32 %spec.select30, ptr %10, align 4, !tbaa !353
-  %11 = call i32 @FT_Request_Size(ptr noundef %0, ptr noundef nonnull %6)
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store i64 %spec.store.select, ptr %9, align 8, !tbaa !352
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store i64 %spec.store.select1, ptr %10, align 8, !tbaa !354
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  store i32 %spec.select29, ptr %11, align 8, !tbaa !351
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 28
+  store i32 %spec.select30, ptr %12, align 4, !tbaa !353
+  %13 = call i32 @FT_Request_Size(ptr noundef %0, ptr noundef nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  ret i32 %11
+  ret i32 %13
 }
 
 ; Function Attrs: nounwind uwtable

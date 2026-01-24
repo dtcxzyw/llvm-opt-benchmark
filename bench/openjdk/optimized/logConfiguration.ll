@@ -1291,13 +1291,13 @@ _ZN16LogSelectionListC2Ev.exit:                   ; preds = %14
   %53 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef %52, i8 noundef zeroext 17, i32 noundef 0) #11
   %54 = call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %.032, i32 noundef 34) #12
   %55 = call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %.032, i32 noundef 61) #12
-  %.not.i = icmp eq ptr %54, null
+  %.not.i = icmp ne ptr %54, null
   %56 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.032, ptr noundef nonnull dereferenceable(7) @.str.12) #12
   %57 = icmp eq i32 %56, 0
   %58 = icmp ugt ptr %55, %54
-  %spec.store.select44.i = select i1 %58, ptr null, ptr %55
-  %.03345.i = select i1 %.not.i, ptr %55, ptr %spec.store.select44.i
-  %.not4146.i = icmp eq ptr %.03345.i, null
+  %.not53.i = and i1 %.not.i, %58
+  %.not414651.i = icmp eq ptr %55, null
+  %.not4146.i = or i1 %.not414651.i, %.not53.i
   br i1 %57, label %.thread.i, label %59
 
 59:                                               ; preds = %47
@@ -1307,8 +1307,8 @@ _ZN16LogSelectionListC2Ev.exit:                   ; preds = %14
   br i1 %.not4146.i, label %.thread48.i, label %60
 
 60:                                               ; preds = %.thread.i, %59
-  %61 = getelementptr inbounds nuw i8, ptr %.03345.i, i64 1
-  %62 = ptrtoint ptr %.03345.i to i64
+  %61 = getelementptr inbounds nuw i8, ptr %55, i64 1
+  %62 = ptrtoint ptr %55 to i64
   %63 = ptrtoint ptr %.032 to i64
   %reass.sub = sub i64 %62, %63
   %64 = add i64 %reass.sub, 1
@@ -1329,7 +1329,7 @@ _ZN16LogSelectionListC2Ev.exit:                   ; preds = %14
   %.036.i = phi i64 [ %64, %60 ], [ 0, %65 ], [ %70, %68 ], [ 0, %.thread.i ]
   %.035.i = phi ptr [ %61, %60 ], [ %.032, %65 ], [ %.032, %68 ], [ %.032, %.thread.i ]
   %71 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.035.i) #12
-  br i1 %.not.i, label %85, label %72
+  br i1 %.not.i, label %72, label %85
 
 72:                                               ; preds = %.thread48.i
   %73 = getelementptr inbounds nuw i8, ptr %54, i64 1

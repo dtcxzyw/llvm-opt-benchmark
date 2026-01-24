@@ -283,24 +283,24 @@ define dso_local noundef double @_ZN4llvm12MCSchedModel23getReciprocalThroughput
   %13 = zext i16 %12 to i64
   %.idx = mul nuw nsw i64 %13, 6
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx
-  %.not21 = icmp eq i16 %12, 0
-  br i1 %.not21, label %._crit_edge.thread, label %.lr.ph
+  %.not20 = icmp eq i16 %12, 0
+  br i1 %.not20, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 32
   br label %16
 
-16:                                               ; preds = %.lr.ph, %33
-  %.01523 = phi ptr [ %10, %.lr.ph ], [ %35, %33 ]
-  %.sroa.6.022 = phi i8 [ 0, %.lr.ph ], [ %.sroa.6.1, %33 ]
-  %17 = phi double [ undef, %.lr.ph ], [ %34, %33 ]
-  %18 = getelementptr inbounds nuw i8, ptr %.01523, i64 2
+16:                                               ; preds = %.lr.ph, %34
+  %.01522 = phi ptr [ %10, %.lr.ph ], [ %36, %34 ]
+  %.sroa.6.021 = phi i8 [ 0, %.lr.ph ], [ %.sroa.6.1, %34 ]
+  %17 = phi double [ undef, %.lr.ph ], [ %35, %34 ]
+  %18 = getelementptr inbounds nuw i8, ptr %.01522, i64 2
   %19 = load i16, ptr %18, align 2, !tbaa !85
   %.not16 = icmp eq i16 %19, 0
-  br i1 %.not16, label %33, label %20
+  br i1 %.not16, label %34, label %20
 
 20:                                               ; preds = %16
-  %21 = load i16, ptr %.01523, align 2, !tbaa !87
+  %21 = load i16, ptr %.01522, align 2, !tbaa !87
   %22 = load ptr, ptr %15, align 8, !tbaa !88
   %23 = zext i16 %21 to i64
   %24 = getelementptr inbounds nuw %"struct.llvm::MCProcResourceDesc", ptr %22, i64 %23
@@ -309,38 +309,38 @@ define dso_local noundef double @_ZN4llvm12MCSchedModel23getReciprocalThroughput
   %27 = uitofp i32 %26 to double
   %28 = uitofp i16 %19 to double
   %29 = fdiv double %27, %28
-  %30 = trunc nuw i8 %.sroa.6.022 to i1
-  %31 = fcmp olt double %29, %17
-  %..i.val = select i1 %31, double %29, double %17
-  %32 = select i1 %30, double %..i.val, double %29
-  br label %33
+  %30 = trunc nuw i8 %.sroa.6.021 to i1
+  %31 = fcmp uge double %29, %17
+  %32 = select i1 %30, i1 %31, i1 false
+  %33 = select i1 %32, double %17, double %29
+  br label %34
 
-33:                                               ; preds = %16, %20
-  %34 = phi double [ %17, %16 ], [ %32, %20 ]
-  %.sroa.6.1 = phi i8 [ %.sroa.6.022, %16 ], [ 1, %20 ]
-  %35 = getelementptr inbounds nuw i8, ptr %.01523, i64 6
-  %.not = icmp eq ptr %35, %14
+34:                                               ; preds = %16, %20
+  %35 = phi double [ %17, %16 ], [ %33, %20 ]
+  %.sroa.6.1 = phi i8 [ %.sroa.6.021, %16 ], [ 1, %20 ]
+  %36 = getelementptr inbounds nuw i8, ptr %.01522, i64 6
+  %.not = icmp eq ptr %36, %14
   br i1 %.not, label %._crit_edge, label %16, !llvm.loop !91
 
-._crit_edge:                                      ; preds = %33
-  %36 = trunc nuw i8 %.sroa.6.1 to i1
-  br i1 %36, label %37, label %._crit_edge.thread
+._crit_edge:                                      ; preds = %34
+  %37 = trunc nuw i8 %.sroa.6.1 to i1
+  br i1 %37, label %38, label %._crit_edge.thread
 
-37:                                               ; preds = %._crit_edge
-  %38 = fdiv double 1.000000e+00, %34
-  br label %45
+38:                                               ; preds = %._crit_edge
+  %39 = fdiv double 1.000000e+00, %35
+  br label %46
 
 ._crit_edge.thread:                               ; preds = %2, %._crit_edge
-  %39 = load i16, ptr %1, align 2
-  %40 = and i16 %39, 8191
-  %41 = uitofp nneg i16 %40 to double
-  %42 = load i32, ptr %4, align 8, !tbaa !92
-  %43 = uitofp i32 %42 to double
-  %44 = fdiv double %41, %43
-  br label %45
+  %40 = load i16, ptr %1, align 2
+  %41 = and i16 %40, 8191
+  %42 = uitofp nneg i16 %41 to double
+  %43 = load i32, ptr %4, align 8, !tbaa !92
+  %44 = uitofp i32 %43 to double
+  %45 = fdiv double %42, %44
+  br label %46
 
-45:                                               ; preds = %._crit_edge.thread, %37
-  %.0 = phi double [ %38, %37 ], [ %44, %._crit_edge.thread ]
+46:                                               ; preds = %._crit_edge.thread, %38
+  %.0 = phi double [ %39, %38 ], [ %45, %._crit_edge.thread ]
   ret double %.0
 }
 
@@ -408,24 +408,24 @@ define dso_local noundef double @_ZNK4llvm12MCSchedModel23getReciprocalThroughpu
   %47 = zext i16 %46 to i64
   %.idx.i = mul nuw nsw i64 %47, 6
   %48 = getelementptr inbounds nuw i8, ptr %44, i64 %.idx.i
-  %.not21.i = icmp eq i16 %46, 0
-  br i1 %.not21.i, label %._crit_edge.thread.i, label %.lr.ph.i
+  %.not20.i = icmp eq i16 %46, 0
+  br i1 %.not20.i, label %._crit_edge.thread.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %._crit_edge
   %49 = getelementptr inbounds nuw i8, ptr %38, i64 32
   br label %50
 
-50:                                               ; preds = %67, %.lr.ph.i
-  %.01523.i = phi ptr [ %44, %.lr.ph.i ], [ %69, %67 ]
-  %.sroa.6.022.i = phi i8 [ 0, %.lr.ph.i ], [ %.sroa.6.1.i, %67 ]
-  %51 = phi double [ undef, %.lr.ph.i ], [ %68, %67 ]
-  %52 = getelementptr inbounds nuw i8, ptr %.01523.i, i64 2
+50:                                               ; preds = %68, %.lr.ph.i
+  %.01522.i = phi ptr [ %44, %.lr.ph.i ], [ %70, %68 ]
+  %.sroa.6.021.i = phi i8 [ 0, %.lr.ph.i ], [ %.sroa.6.1.i, %68 ]
+  %51 = phi double [ undef, %.lr.ph.i ], [ %69, %68 ]
+  %52 = getelementptr inbounds nuw i8, ptr %.01522.i, i64 2
   %53 = load i16, ptr %52, align 2, !tbaa !85
   %.not16.i = icmp eq i16 %53, 0
-  br i1 %.not16.i, label %67, label %54
+  br i1 %.not16.i, label %68, label %54
 
 54:                                               ; preds = %50
-  %55 = load i16, ptr %.01523.i, align 2, !tbaa !87
+  %55 = load i16, ptr %.01522.i, align 2, !tbaa !87
   %56 = load ptr, ptr %49, align 8, !tbaa !88
   %57 = zext i16 %55 to i64
   %58 = getelementptr inbounds nuw %"struct.llvm::MCProcResourceDesc", ptr %56, i64 %57
@@ -434,36 +434,36 @@ define dso_local noundef double @_ZNK4llvm12MCSchedModel23getReciprocalThroughpu
   %61 = uitofp i32 %60 to double
   %62 = uitofp i16 %53 to double
   %63 = fdiv double %61, %62
-  %64 = trunc nuw i8 %.sroa.6.022.i to i1
-  %65 = fcmp olt double %63, %51
-  %..i.val.i = select i1 %65, double %63, double %51
-  %66 = select i1 %64, double %..i.val.i, double %63
-  br label %67
+  %64 = trunc nuw i8 %.sroa.6.021.i to i1
+  %65 = fcmp uge double %63, %51
+  %66 = select i1 %64, i1 %65, i1 false
+  %67 = select i1 %66, double %51, double %63
+  br label %68
 
-67:                                               ; preds = %54, %50
-  %68 = phi double [ %51, %50 ], [ %66, %54 ]
-  %.sroa.6.1.i = phi i8 [ %.sroa.6.022.i, %50 ], [ 1, %54 ]
-  %69 = getelementptr inbounds nuw i8, ptr %.01523.i, i64 6
-  %.not.i = icmp eq ptr %69, %48
+68:                                               ; preds = %54, %50
+  %69 = phi double [ %51, %50 ], [ %67, %54 ]
+  %.sroa.6.1.i = phi i8 [ %.sroa.6.021.i, %50 ], [ 1, %54 ]
+  %70 = getelementptr inbounds nuw i8, ptr %.01522.i, i64 6
+  %.not.i = icmp eq ptr %70, %48
   br i1 %.not.i, label %._crit_edge.i, label %50, !llvm.loop !91
 
-._crit_edge.i:                                    ; preds = %67
-  %70 = trunc nuw i8 %.sroa.6.1.i to i1
-  br i1 %70, label %71, label %._crit_edge.thread.i
+._crit_edge.i:                                    ; preds = %68
+  %71 = trunc nuw i8 %.sroa.6.1.i to i1
+  br i1 %71, label %72, label %._crit_edge.thread.i
 
-71:                                               ; preds = %._crit_edge.i
-  %72 = fdiv double 1.000000e+00, %68
+72:                                               ; preds = %._crit_edge.i
+  %73 = fdiv double 1.000000e+00, %69
   br label %_ZN4llvm12MCSchedModel23getReciprocalThroughputERKNS_15MCSubtargetInfoERKNS_16MCSchedClassDescE.exit
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %._crit_edge
-  %73 = uitofp nneg i16 %.lcssa17 to double
-  %74 = load i32, ptr %38, align 8, !tbaa !92
-  %75 = uitofp i32 %74 to double
-  %76 = fdiv double %73, %75
+  %74 = uitofp nneg i16 %.lcssa17 to double
+  %75 = load i32, ptr %38, align 8, !tbaa !92
+  %76 = uitofp i32 %75 to double
+  %77 = fdiv double %74, %76
   br label %_ZN4llvm12MCSchedModel23getReciprocalThroughputERKNS_15MCSubtargetInfoERKNS_16MCSchedClassDescE.exit
 
-_ZN4llvm12MCSchedModel23getReciprocalThroughputERKNS_15MCSubtargetInfoERKNS_16MCSchedClassDescE.exit: ; preds = %._crit_edge.thread.i, %71, %18
-  %.0 = phi double [ %21, %18 ], [ %72, %71 ], [ %76, %._crit_edge.thread.i ]
+_ZN4llvm12MCSchedModel23getReciprocalThroughputERKNS_15MCSubtargetInfoERKNS_16MCSchedClassDescE.exit: ; preds = %._crit_edge.thread.i, %72, %18
+  %.0 = phi double [ %21, %18 ], [ %73, %72 ], [ %77, %._crit_edge.thread.i ]
   ret double %.0
 }
 
@@ -481,54 +481,54 @@ define dso_local noundef double @_ZN4llvm12MCSchedModel23getReciprocalThroughput
   %12 = load i16, ptr %11, align 2, !tbaa !99
   %13 = zext i16 %12 to i64
   %14 = getelementptr inbounds nuw %"struct.llvm::InstrStage", ptr %10, i64 %13
-  %.not16 = icmp eq i16 %8, %12
-  br i1 %.not16, label %._crit_edge.thread, label %.lr.ph.preheader
+  %.not15 = icmp eq i16 %8, %12
+  br i1 %.not15, label %._crit_edge.thread, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %2
   %15 = zext i16 %8 to i64
   %16 = getelementptr inbounds nuw %"struct.llvm::InstrStage", ptr %10, i64 %15
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %30
-  %.01018 = phi ptr [ %32, %30 ], [ %16, %.lr.ph.preheader ]
-  %.sroa.6.017 = phi i8 [ %.sroa.6.1, %30 ], [ 0, %.lr.ph.preheader ]
-  %17 = phi double [ %31, %30 ], [ undef, %.lr.ph.preheader ]
-  %18 = load i32, ptr %.01018, align 8, !tbaa !100
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %31
+  %.01017 = phi ptr [ %33, %31 ], [ %16, %.lr.ph.preheader ]
+  %.sroa.6.016 = phi i8 [ %.sroa.6.1, %31 ], [ 0, %.lr.ph.preheader ]
+  %17 = phi double [ %32, %31 ], [ undef, %.lr.ph.preheader ]
+  %18 = load i32, ptr %.01017, align 8, !tbaa !100
   %.not11 = icmp eq i32 %18, 0
-  br i1 %.not11, label %30, label %19
+  br i1 %.not11, label %31, label %19
 
 19:                                               ; preds = %.lr.ph
-  %20 = getelementptr inbounds nuw i8, ptr %.01018, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %.01017, i64 8
   %21 = load i64, ptr %20, align 8, !tbaa !103
   %22 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %21)
   %23 = trunc nuw nsw i64 %22 to i32
   %24 = uitofp nneg i32 %23 to double
   %25 = uitofp i32 %18 to double
   %26 = fdiv double %24, %25
-  %27 = trunc nuw i8 %.sroa.6.017 to i1
-  %28 = fcmp olt double %26, %17
-  %..i.val = select i1 %28, double %26, double %17
-  %29 = select i1 %27, double %..i.val, double %26
-  br label %30
+  %27 = trunc nuw i8 %.sroa.6.016 to i1
+  %28 = fcmp uge double %26, %17
+  %29 = select i1 %27, i1 %28, i1 false
+  %30 = select i1 %29, double %17, double %26
+  br label %31
 
-30:                                               ; preds = %.lr.ph, %19
-  %31 = phi double [ %17, %.lr.ph ], [ %29, %19 ]
-  %.sroa.6.1 = phi i8 [ %.sroa.6.017, %.lr.ph ], [ 1, %19 ]
-  %32 = getelementptr inbounds nuw i8, ptr %.01018, i64 24
-  %.not = icmp eq ptr %32, %14
+31:                                               ; preds = %.lr.ph, %19
+  %32 = phi double [ %17, %.lr.ph ], [ %30, %19 ]
+  %.sroa.6.1 = phi i8 [ %.sroa.6.016, %.lr.ph ], [ 1, %19 ]
+  %33 = getelementptr inbounds nuw i8, ptr %.01017, i64 24
+  %.not = icmp eq ptr %33, %14
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !104
 
-._crit_edge:                                      ; preds = %30
-  %33 = trunc nuw i8 %.sroa.6.1 to i1
-  br i1 %33, label %34, label %._crit_edge.thread
+._crit_edge:                                      ; preds = %31
+  %34 = trunc nuw i8 %.sroa.6.1 to i1
+  br i1 %34, label %35, label %._crit_edge.thread
 
-34:                                               ; preds = %._crit_edge
-  %35 = fdiv double 1.000000e+00, %31
+35:                                               ; preds = %._crit_edge
+  %36 = fdiv double 1.000000e+00, %32
   br label %._crit_edge.thread
 
-._crit_edge.thread:                               ; preds = %2, %._crit_edge, %34
-  %36 = phi double [ %35, %34 ], [ 1.000000e+00, %._crit_edge ], [ 1.000000e+00, %2 ]
-  ret double %36
+._crit_edge.thread:                               ; preds = %2, %._crit_edge, %35
+  %37 = phi double [ %36, %35 ], [ 1.000000e+00, %._crit_edge ], [ 1.000000e+00, %2 ]
+  ret double %37
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable

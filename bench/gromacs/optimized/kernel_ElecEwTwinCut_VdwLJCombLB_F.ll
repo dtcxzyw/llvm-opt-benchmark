@@ -270,7 +270,7 @@ _ZN3gmx28loadSimdPairInteractionMasksILb1EL12KernelLayout1EEENSt9enable_ifIXaaT_
   %164 = insertelement <8 x i32> poison, i32 %163, i64 0
   %165 = shufflevector <8 x i32> %164, <8 x i32> poison, <8 x i32> zeroinitializer
   %166 = and <8 x i32> %.sroa.03607.0.copyload, %165
-  %.not3618 = icmp eq <8 x i32> %166, zeroinitializer
+  %.not3618 = icmp ne <8 x i32> %166, zeroinitializer
   %167 = and <8 x i32> %.sroa.6.0.copyload, %165
   %.not3617 = icmp eq <8 x i32> %167, zeroinitializer
   %168 = shl nsw i32 %161, 2
@@ -338,7 +338,7 @@ _ZN3gmx28loadSimdPairInteractionMasksILb1EL12KernelLayout1EEENSt9enable_ifIXaaT_
   %224 = bitcast <8 x i32> %223 to <8 x float>
   %225 = fmul <8 x float> %222, %222
   %226 = fmul <8 x float> %224, %224
-  %227 = select <8 x i1> %.not3618, <8 x i32> zeroinitializer, <8 x i32> %221
+  %227 = select <8 x i1> %.not3618, <8 x i32> %221, <8 x i32> zeroinitializer
   %228 = bitcast <8 x i32> %227 to <8 x float>
   %229 = select <8 x i1> %.not3617, <8 x i32> zeroinitializer, <8 x i32> %223
   %230 = bitcast <8 x i32> %229 to <8 x float>
@@ -401,8 +401,8 @@ _ZN3gmx28loadSimdPairInteractionMasksILb1EL12KernelLayout1EEENSt9enable_ifIXaaT_
   %285 = fmul <8 x float> %284, %284
   %286 = fmul <8 x float> %285, %285
   %287 = fmul <8 x float> %285, %286
-  %288 = select <8 x i1> %.not3618, <8 x float> zeroinitializer, <8 x float> %287
-  %289 = select <8 x i1> %275, <8 x float> %288, <8 x float> zeroinitializer
+  %288 = select <8 x i1> %275, <8 x i1> %.not3618, <8 x i1> zeroinitializer
+  %289 = select <8 x i1> %288, <8 x float> %287, <8 x float> zeroinitializer
   %290 = fmul <8 x float> %283, %289
   %291 = fmul <8 x float> %289, %290
   %292 = fsub <8 x float> %291, %290
@@ -689,9 +689,9 @@ _ZN3gmx28loadSimdPairInteractionMasksILb1EL12KernelLayout1EEENSt9enable_ifIXaaT_
   %492 = insertelement <8 x i32> poison, i32 %491, i64 0
   %493 = shufflevector <8 x i32> %492, <8 x i32> poison, <8 x i32> zeroinitializer
   %494 = and <8 x i32> %.sroa.03607.0.copyload, %493
-  %.not3615 = icmp eq <8 x i32> %494, zeroinitializer
+  %.not3615 = icmp ne <8 x i32> %494, zeroinitializer
   %495 = and <8 x i32> %.sroa.6.0.copyload, %493
-  %.not3616 = icmp eq <8 x i32> %495, zeroinitializer
+  %.not3616 = icmp ne <8 x i32> %495, zeroinitializer
   %496 = shl nsw i32 %489, 2
   %497 = mul nsw i32 %489, 12
   %498 = sext i32 %497 to i64
@@ -757,9 +757,9 @@ _ZN3gmx28loadSimdPairInteractionMasksILb1EL12KernelLayout1EEENSt9enable_ifIXaaT_
   %552 = bitcast <8 x i32> %551 to <8 x float>
   %553 = fmul <8 x float> %550, %550
   %554 = fmul <8 x float> %552, %552
-  %555 = select <8 x i1> %.not3615, <8 x i32> zeroinitializer, <8 x i32> %549
+  %555 = select <8 x i1> %.not3615, <8 x i32> %549, <8 x i32> zeroinitializer
   %556 = bitcast <8 x i32> %555 to <8 x float>
-  %557 = select <8 x i1> %.not3616, <8 x i32> zeroinitializer, <8 x i32> %551
+  %557 = select <8 x i1> %.not3616, <8 x i32> %551, <8 x i32> zeroinitializer
   %558 = bitcast <8 x i32> %557 to <8 x float>
   %559 = and <8 x i32> %.sroa.02787.3, %530
   %560 = bitcast <8 x i32> %559 to <8 x float>
@@ -827,10 +827,10 @@ _ZN3gmx28loadSimdPairInteractionMasksILb1EL12KernelLayout1EEENSt9enable_ifIXaaT_
   %620 = fmul <8 x float> %617, %619
   %621 = fmul <8 x float> %618, %618
   %622 = fmul <8 x float> %618, %621
-  %623 = select <8 x i1> %.not3615, <8 x float> zeroinitializer, <8 x float> %620
-  %624 = select <8 x i1> %603, <8 x float> %623, <8 x float> zeroinitializer
-  %625 = select <8 x i1> %.not3616, <8 x float> zeroinitializer, <8 x float> %622
-  %626 = select <8 x i1> %604, <8 x float> %625, <8 x float> zeroinitializer
+  %623 = select <8 x i1> %603, <8 x i1> %.not3615, <8 x i1> zeroinitializer
+  %624 = select <8 x i1> %623, <8 x float> %620, <8 x float> zeroinitializer
+  %625 = select <8 x i1> %604, <8 x i1> %.not3616, <8 x i1> zeroinitializer
+  %626 = select <8 x i1> %625, <8 x float> %622, <8 x float> zeroinitializer
   %627 = fmul <8 x float> %613, %624
   %628 = fmul <8 x float> %614, %626
   %629 = fmul <8 x float> %624, %627

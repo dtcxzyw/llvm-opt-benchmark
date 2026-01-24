@@ -1026,8 +1026,8 @@ define range(i32 -84, 1) i32 @av_utf8_decode(ptr noundef writeonly captures(none
   %15 = and i8 %14, 64
   %16 = zext nneg i8 %15 to i32
   %17 = and i8 %8, %15
-  %.not7196 = icmp eq i8 %17, 0
-  br i1 %.not7196, label %._crit_edge.thread, label %.lr.ph
+  %.not71106 = icmp eq i8 %17, 0
+  br i1 %.not71106, label %._crit_edge.thread, label %.lr.ph
 
 ._crit_edge.thread:                               ; preds = %13
   %18 = shl nuw nsw i32 %16, 1
@@ -1037,38 +1037,38 @@ define range(i32 -84, 1) i32 @av_utf8_decode(ptr noundef writeonly captures(none
   br label %41
 
 .lr.ph:                                           ; preds = %13, %27
-  %.056100 = phi i32 [ %22, %27 ], [ 0, %13 ]
-  %.06099 = phi i64 [ %31, %27 ], [ %9, %13 ]
-  %.06298 = phi i32 [ %32, %27 ], [ %16, %13 ]
-  %.16597 = phi ptr [ %28, %27 ], [ %7, %13 ]
-  %22 = add nuw nsw i32 %.056100, 1
-  %.not76 = icmp ult ptr %.16597, %2
+  %.056110 = phi i32 [ %22, %27 ], [ 0, %13 ]
+  %.060109 = phi i64 [ %31, %27 ], [ %9, %13 ]
+  %.062108 = phi i32 [ %32, %27 ], [ %16, %13 ]
+  %.165107 = phi ptr [ %28, %27 ], [ %7, %13 ]
+  %22 = add nuw nsw i32 %.056110, 1
+  %.not76 = icmp ult ptr %.165107, %2
   br i1 %.not76, label %23, label %.critedge.sink.split
 
 23:                                               ; preds = %.lr.ph
-  %24 = load i8, ptr %.16597, align 1, !tbaa !4
+  %24 = load i8, ptr %.165107, align 1, !tbaa !4
   %25 = zext i8 %24 to i32
   %26 = add nsw i32 %25, -128
   %.not77 = icmp ult i32 %26, 64
   br i1 %.not77, label %27, label %.critedge.sink.split
 
 27:                                               ; preds = %23
-  %28 = getelementptr inbounds nuw i8, ptr %.16597, i64 1
-  %29 = shl i64 %.06099, 6
+  %28 = getelementptr inbounds nuw i8, ptr %.165107, i64 1
+  %29 = shl i64 %.060109, 6
   %30 = zext nneg i32 %26 to i64
   %31 = or disjoint i64 %29, %30
-  %32 = shl i32 %.06298, 5
+  %32 = shl i32 %.062108, 5
   %33 = zext i32 %32 to i64
   %34 = and i64 %29, %33
   %.not71 = icmp eq i64 %34, 0
   br i1 %.not71, label %._crit_edge, label %.lr.ph, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %27
-  %35 = shl i32 %.06298, 6
+  %35 = shl i32 %.062108, 6
   %36 = add i32 %35, -1
   %37 = zext i32 %36 to i64
   %38 = and i64 %31, %37
-  %39 = icmp samesign ult i32 %.056100, 5
+  %39 = icmp samesign ult i32 %.056110, 5
   br i1 %39, label %41, label %40
 
 40:                                               ; preds = %._crit_edge
@@ -1078,9 +1078,9 @@ define range(i32 -84, 1) i32 @av_utf8_decode(ptr noundef writeonly captures(none
 
 41:                                               ; preds = %._crit_edge.thread, %._crit_edge
   %42 = phi i64 [ %21, %._crit_edge.thread ], [ %38, %._crit_edge ]
-  %.056.lcssa119 = phi i32 [ 0, %._crit_edge.thread ], [ %22, %._crit_edge ]
-  %.165.lcssa118 = phi ptr [ %7, %._crit_edge.thread ], [ %28, %._crit_edge ]
-  %43 = zext nneg i32 %.056.lcssa119 to i64
+  %.056.lcssa129 = phi i32 [ 0, %._crit_edge.thread ], [ %22, %._crit_edge ]
+  %.165.lcssa128 = phi ptr [ %7, %._crit_edge.thread ], [ %28, %._crit_edge ]
+  %43 = zext nneg i32 %.056.lcssa129 to i64
   %44 = getelementptr inbounds nuw i32, ptr @__const.av_utf8_decode.overlong_encoding_mins, i64 %43
   %45 = load i32, ptr %44, align 4, !tbaa !28
   %46 = zext i32 %45 to i64
@@ -1095,18 +1095,16 @@ define range(i32 -84, 1) i32 @av_utf8_decode(ptr noundef writeonly captures(none
   %51 = icmp samesign ugt i64 %42, 1114111
   %52 = and i32 %3, 1
   %.not72 = icmp eq i32 %52, 0
-  %or.cond78 = and i1 %.not72, %51
-  %.158 = select i1 %or.cond78, i32 -84, i32 0
-  %53 = icmp samesign ugt i64 %42, 31
-  %54 = add nsw i64 %42, -9
-  %55 = icmp ult i64 %54, 2
-  %or.cond5.not87 = or i1 %53, %55
-  %56 = icmp eq i64 %42, 13
-  %or.cond7.not84 = or i1 %56, %or.cond5.not87
+  %or.cond78.not.not97 = and i1 %.not72, %51
+  %53 = icmp samesign ult i64 %42, 32
+  %54 = add nsw i64 %42, -11
+  %55 = icmp ult i64 %54, -2
+  %or.cond5.not87.not95 = and i1 %53, %55
+  %56 = icmp ne i64 %42, 13
+  %or.cond7.not84.not92 = and i1 %56, %or.cond5.not87.not95
   %57 = and i32 %3, 8
-  %.not73 = icmp eq i32 %57, 0
-  %or.cond79 = or i1 %.not73, %or.cond7.not84
-  %.259 = select i1 %or.cond79, i32 %.158, i32 -84
+  %.not73 = icmp ne i32 %57, 0
+  %or.cond79.not90 = and i1 %.not73, %or.cond7.not84.not92
   %58 = and i64 %42, 2147481600
   %or.cond9 = icmp eq i64 %58, 55296
   %59 = and i32 %3, 4
@@ -1118,11 +1116,13 @@ define range(i32 -84, 1) i32 @av_utf8_decode(ptr noundef writeonly captures(none
   %.not75 = icmp eq i32 %61, 0
   %or.cond81 = and i1 %.not75, %or.cond11
   %62 = or i1 %or.cond81, %or.cond80
-  %spec.select = select i1 %62, i32 -84, i32 %.259
+  %63 = select i1 %62, i1 true, i1 %or.cond79.not90
+  %64 = select i1 %63, i1 true, i1 %or.cond78.not.not97
+  %spec.select = select i1 %64, i32 -84, i32 0
   br label %.critedge.sink.split
 
 .critedge.sink.split:                             ; preds = %23, %.lr.ph, %6, %41, %49
-  %.sink = phi ptr [ %7, %6 ], [ %.165.lcssa118, %41 ], [ %.165.lcssa118, %49 ], [ %7, %.lr.ph ], [ %7, %23 ]
+  %.sink = phi ptr [ %7, %6 ], [ %.165.lcssa128, %41 ], [ %.165.lcssa128, %49 ], [ %7, %.lr.ph ], [ %7, %23 ]
   %.0.ph = phi i32 [ -84, %6 ], [ -84, %41 ], [ %spec.select, %49 ], [ -84, %.lr.ph ], [ -84, %23 ]
   store ptr %.sink, ptr %1, align 8, !tbaa !9
   br label %.critedge

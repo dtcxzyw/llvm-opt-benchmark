@@ -2084,7 +2084,7 @@ sema_analyse_expr.exit499:                        ; preds = %sema_analyse_expr_l
 
 199:                                              ; preds = %195
   %.not492 = icmp eq ptr %5, null
-  br i1 %.not492, label %200, label %534
+  br i1 %.not492, label %200, label %535
 
 200:                                              ; preds = %199
   %201 = load i64, ptr %25, align 8
@@ -2106,7 +2106,7 @@ sema_analyse_expr.exit499:                        ; preds = %sema_analyse_expr_l
 
 203:                                              ; preds = %.thread505
   %.not491 = icmp eq ptr %5, null
-  br i1 %.not491, label %204, label %534
+  br i1 %.not491, label %204, label %535
 
 204:                                              ; preds = %203
   %205 = load i64, ptr %25, align 8
@@ -2728,117 +2728,117 @@ thread-pre-split:                                 ; preds = %.thread514, %361
   %.not475 = icmp eq i32 %.fr, 0
   %485 = load i8, ptr %334, align 4
   %486 = and i8 %485, 2
-  %.not476 = icmp eq i8 %486, 0
-  %spec.select = select i1 %.not476, i8 %.lobit, i8 1
-  %spec.select537 = select i1 %.not475, i8 %spec.select, i8 %.lobit
-  %487 = icmp ne i32 %.fr, 1
-  %or.cond7 = select i1 %487, i1 true, i1 %.not460
-  br i1 %or.cond7, label %.thread535, label %488
+  %.not476 = icmp ne i8 %486, 0
+  %487 = select i1 %.not475, i1 %.not476, i1 false
+  %spec.select537 = select i1 %487, i8 1, i8 %.lobit
+  %488 = icmp ne i32 %.fr, 1
+  %or.cond7 = select i1 %488, i1 true, i1 %.not460
+  br i1 %or.cond7, label %.thread535, label %489
 
-488:                                              ; preds = %482
-  %489 = load ptr, ptr %479, align 8
-  %.not477 = icmp eq ptr %489, null
-  br i1 %.not477, label %.thread535, label %490
+489:                                              ; preds = %482
+  %490 = load ptr, ptr %479, align 8
+  %.not477 = icmp eq ptr %490, null
+  br i1 %.not477, label %.thread535, label %491
 
-490:                                              ; preds = %488
-  %491 = getelementptr inbounds nuw i8, ptr %489, i64 16
-  %492 = load ptr, ptr %491, align 8
-  %.not478 = icmp eq ptr %492, null
-  br i1 %.not478, label %.thread535, label %493
+491:                                              ; preds = %489
+  %492 = getelementptr inbounds nuw i8, ptr %490, i64 16
+  %493 = load ptr, ptr %492, align 8
+  %.not478 = icmp eq ptr %493, null
+  br i1 %.not478, label %.thread535, label %494
 
-493:                                              ; preds = %490
-  %494 = call zeroext i1 @expr_is_constant_eval(ptr noundef nonnull %492, i32 noundef 3) #12
-  br i1 %494, label %495, label %.thread535
+494:                                              ; preds = %491
+  %495 = call zeroext i1 @expr_is_constant_eval(ptr noundef nonnull %493, i32 noundef 3) #12
+  br i1 %495, label %496, label %.thread535
 
-495:                                              ; preds = %493
+496:                                              ; preds = %494
   %.not479 = icmp eq ptr %337, null
-  br i1 %.not479, label %._crit_edge584, label %496
+  br i1 %.not479, label %._crit_edge584, label %497
 
-496:                                              ; preds = %495
-  %497 = getelementptr inbounds i8, ptr %337, i64 -8
-  %498 = load i32, ptr %497, align 4
-  %.not590 = icmp eq i32 %498, 0
+497:                                              ; preds = %496
+  %498 = getelementptr inbounds i8, ptr %337, i64 -8
+  %499 = load i32, ptr %498, align 4
+  %.not590 = icmp eq i32 %499, 0
   br i1 %.not590, label %._crit_edge584, label %.lr.ph583.preheader
 
-.lr.ph583.preheader:                              ; preds = %496
-  %wide.trip.count637 = zext i32 %498 to i64
+.lr.ph583.preheader:                              ; preds = %497
+  %wide.trip.count637 = zext i32 %499 to i64
   br label %.lr.ph583
 
-.lr.ph583:                                        ; preds = %.lr.ph583.preheader, %504
-  %indvars.iv634 = phi i64 [ 0, %.lr.ph583.preheader ], [ %indvars.iv.next635, %504 ]
-  %499 = getelementptr inbounds nuw ptr, ptr %337, i64 %indvars.iv634
-  %500 = load ptr, ptr %499, align 8
-  %.not480 = icmp eq ptr %500, null
-  br i1 %.not480, label %504, label %501
+.lr.ph583:                                        ; preds = %.lr.ph583.preheader, %505
+  %indvars.iv634 = phi i64 [ 0, %.lr.ph583.preheader ], [ %indvars.iv.next635, %505 ]
+  %500 = getelementptr inbounds nuw ptr, ptr %337, i64 %indvars.iv634
+  %501 = load ptr, ptr %500, align 8
+  %.not480 = icmp eq ptr %501, null
+  br i1 %.not480, label %505, label %502
 
-501:                                              ; preds = %.lr.ph583
-  %502 = getelementptr inbounds nuw i8, ptr %500, i64 80
-  %503 = load i32, ptr %502, align 8
-  %trunc = trunc i32 %503 to i8
+502:                                              ; preds = %.lr.ph583
+  %503 = getelementptr inbounds nuw i8, ptr %501, i64 80
+  %504 = load i32, ptr %503, align 8
+  %trunc = trunc i32 %504 to i8
   switch i8 %trunc, label %.thread535 [
-    i8 11, label %504
-    i8 12, label %504
-    i8 7, label %504
+    i8 11, label %505
+    i8 12, label %505
+    i8 7, label %505
   ]
 
-504:                                              ; preds = %501, %501, %501, %.lr.ph583
+505:                                              ; preds = %502, %502, %502, %.lr.ph583
   %indvars.iv.next635 = add nuw nsw i64 %indvars.iv634, 1
   %exitcond638.not = icmp eq i64 %indvars.iv.next635, %wide.trip.count637
   br i1 %exitcond638.not, label %._crit_edge584, label %.lr.ph583, !llvm.loop !16
 
-._crit_edge584:                                   ; preds = %504, %495, %496
-  %505 = call zeroext i1 @ast_is_compile_time(ptr noundef %36) #12
-  br i1 %505, label %506, label %.thread535
+._crit_edge584:                                   ; preds = %505, %496, %497
+  %506 = call zeroext i1 @ast_is_compile_time(ptr noundef %36) #12
+  br i1 %506, label %507, label %.thread535
 
-506:                                              ; preds = %._crit_edge584
+507:                                              ; preds = %._crit_edge584
   %.sroa.0365.0.copyload = load i64, ptr %25, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(56) %492, i64 56, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(56) %493, i64 56, i1 false)
   store i64 %.sroa.0365.0.copyload, ptr %25, align 8
-  br label %526
+  br label %527
 
-.thread535:                                       ; preds = %501, %488, %.thread532, %482, %._crit_edge584, %493, %490
-  %507 = phi i8 [ %spec.select527, %.thread532 ], [ %spec.select537, %482 ], [ %spec.select537, %._crit_edge584 ], [ %spec.select537, %488 ], [ %spec.select537, %493 ], [ %spec.select537, %490 ], [ %spec.select537, %501 ]
-  %508 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %509 = load i16, ptr %508, align 8
-  %510 = and i16 %509, -256
-  %511 = or disjoint i16 %510, 38
-  store i16 %511, ptr %508, align 8
-  %512 = load i8, ptr %8, align 1
-  %513 = load i8, ptr %176, align 4
-  %514 = shl i8 %512, 3
-  %515 = and i8 %514, 8
-  %516 = and i8 %513, -15
-  %517 = select i1 %.0398, i8 4, i8 0
-  %518 = or i8 %.0376, %517
-  %519 = or i8 %518, %515
+.thread535:                                       ; preds = %502, %489, %.thread532, %482, %._crit_edge584, %494, %491
+  %508 = phi i8 [ %spec.select527, %.thread532 ], [ %spec.select537, %482 ], [ %spec.select537, %._crit_edge584 ], [ %spec.select537, %489 ], [ %spec.select537, %494 ], [ %spec.select537, %491 ], [ %spec.select537, %502 ]
+  %509 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %510 = load i16, ptr %509, align 8
+  %511 = and i16 %510, -256
+  %512 = or disjoint i16 %511, 38
+  store i16 %512, ptr %509, align 8
+  %513 = load i8, ptr %8, align 1
+  %514 = load i8, ptr %176, align 4
+  %515 = shl i8 %513, 3
+  %516 = and i8 %515, 8
+  %517 = and i8 %514, -15
+  %518 = select i1 %.0398, i8 4, i8 0
+  %519 = or i8 %.0376, %518
   %520 = or i8 %519, %516
-  store i8 %520, ptr %176, align 4
-  %521 = getelementptr inbounds nuw i8, ptr %36, i64 16
-  %522 = load i32, ptr %521, align 8
-  store i32 %522, ptr %70, align 8
+  %521 = or i8 %520, %517
+  store i8 %521, ptr %176, align 4
+  %522 = getelementptr inbounds nuw i8, ptr %36, i64 16
+  %523 = load i32, ptr %522, align 8
+  store i32 %523, ptr %70, align 8
   store ptr %3, ptr %71, align 8
-  %523 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store ptr %337, ptr %523, align 8
+  %524 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  store ptr %337, ptr %524, align 8
   store ptr %315, ptr %277, align 8
-  %524 = and i8 %520, -2
-  %525 = or disjoint i8 %524, %507
-  store i8 %525, ptr %176, align 4
-  br label %526
+  %525 = and i8 %521, -2
+  %526 = or disjoint i8 %525, %508
+  store i8 %526, ptr %176, align 4
+  br label %527
 
-526:                                              ; preds = %.thread535, %506
-  %527 = phi i8 [ %507, %.thread535 ], [ %spec.select537, %506 ]
+527:                                              ; preds = %.thread535, %507
+  %528 = phi i8 [ %508, %.thread535 ], [ %spec.select537, %507 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %229, ptr noundef nonnull align 8 dereferenceable(48) %9, i64 48, i1 false)
-  %528 = trunc nuw i8 %527 to i1
-  br i1 %528, label %529, label %533
+  %529 = trunc nuw i8 %528 to i1
+  br i1 %529, label %530, label %534
 
-529:                                              ; preds = %526
-  %530 = getelementptr inbounds nuw i8, ptr %0, i64 252
-  %531 = load i8, ptr %530, align 4
-  %532 = or i8 %531, 2
-  store i8 %532, ptr %530, align 4
-  br label %533
+530:                                              ; preds = %527
+  %531 = getelementptr inbounds nuw i8, ptr %0, i64 252
+  %532 = load i8, ptr %531, align 4
+  %533 = or i8 %532, 2
+  store i8 %533, ptr %531, align 4
+  br label %534
 
-533:                                              ; preds = %529, %526
+534:                                              ; preds = %530, %527
   call void @sema_context_destroy(ptr noundef nonnull %10) #12
   br label %.critedge
 
@@ -2847,12 +2847,12 @@ thread-pre-split:                                 ; preds = %.thread514, %361
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %229, ptr noundef nonnull align 8 dereferenceable(48) %9, i64 48, i1 false)
   br label %.critedge
 
-534:                                              ; preds = %203, %199
+535:                                              ; preds = %203, %199
   store i8 1, ptr %5, align 1
   br label %.critedge
 
-.critedge:                                        ; preds = %sema_analyse_expr_lvalue.exit711, %sema_analyse_expr_lvalue.exit, %sema_analyse_expr.exit499, %sema_analyse_expr.exit, %224, %213, %148, %143, %105, %100, %61, %534, %.loopexit541, %533, %457, %210, %204, %200, %18
-  %.0404 = phi i1 [ false, %18 ], [ false, %61 ], [ true, %533 ], [ false, %534 ], [ false, %200 ], [ false, %204 ], [ false, %.loopexit541 ], [ false, %457 ], [ false, %148 ], [ false, %210 ], [ false, %105 ], [ false, %100 ], [ false, %224 ], [ false, %143 ], [ false, %213 ], [ false, %sema_analyse_expr.exit ], [ false, %sema_analyse_expr.exit499 ], [ false, %sema_analyse_expr_lvalue.exit ], [ false, %sema_analyse_expr_lvalue.exit711 ]
+.critedge:                                        ; preds = %sema_analyse_expr_lvalue.exit711, %sema_analyse_expr_lvalue.exit, %sema_analyse_expr.exit499, %sema_analyse_expr.exit, %224, %213, %148, %143, %105, %100, %61, %535, %.loopexit541, %534, %457, %210, %204, %200, %18
+  %.0404 = phi i1 [ false, %18 ], [ false, %61 ], [ true, %534 ], [ false, %535 ], [ false, %200 ], [ false, %204 ], [ false, %.loopexit541 ], [ false, %457 ], [ false, %148 ], [ false, %210 ], [ false, %105 ], [ false, %100 ], [ false, %224 ], [ false, %143 ], [ false, %213 ], [ false, %sema_analyse_expr.exit ], [ false, %sema_analyse_expr.exit499 ], [ false, %sema_analyse_expr_lvalue.exit ], [ false, %sema_analyse_expr_lvalue.exit711 ]
   ret i1 %.0404
 }
 
@@ -12804,7 +12804,7 @@ define internal fastcc noundef zeroext i1 @sema_call_analyse_func_invocation(ptr
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %30 = load i64, ptr %29, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %30, ptr noundef nonnull @.str.99) #12
-  br label %81
+  br label %82
 
 31:                                               ; preds = %24, %7
   %32 = and i8 %.pre, 8
@@ -12820,7 +12820,7 @@ define internal fastcc noundef zeroext i1 @sema_call_analyse_func_invocation(ptr
 
 37:                                               ; preds = %33, %31
   %38 = call fastcc zeroext i1 @sema_call_analyse_invocation(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull byval(%struct.CalledDecl) align 8 %9, ptr noundef %8, ptr noundef %6)
-  br i1 %38, label %39, label %81
+  br i1 %38, label %39, label %82
 
 39:                                               ; preds = %37
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 72
@@ -12838,7 +12838,7 @@ define internal fastcc noundef zeroext i1 @sema_call_analyse_func_invocation(ptr
   store i16 %51, ptr %45, align 8
   %52 = load ptr, ptr @type_void, align 8
   %.not45 = icmp eq ptr %43, %52
-  br i1 %.not45, label %73, label %53
+  br i1 %.not45, label %74, label %53
 
 53:                                               ; preds = %39
   %.not46 = icmp eq ptr %43, null
@@ -12858,12 +12858,12 @@ define internal fastcc noundef zeroext i1 @sema_call_analyse_func_invocation(ptr
 61:                                               ; preds = %54, %57
   %.038 = phi i32 [ %60, %57 ], [ %55, %54 ]
   %.038.fr = freeze i32 %.038
-  %62 = icmp ne i32 %.038.fr, 40
-  %spec.select = select i1 %62, i16 0, i16 4096
+  %62 = icmp eq i32 %.038.fr, 40
+  %spec.select = select i1 %62, i16 4096, i16 0
   br label %.thread
 
 .thread:                                          ; preds = %61, %53
-  %.03750 = phi i1 [ true, %53 ], [ %62, %61 ]
+  %.03750 = phi i1 [ false, %53 ], [ %62, %61 ]
   %63 = phi i16 [ 0, %53 ], [ %spec.select, %61 ]
   %64 = and i16 %51, -4097
   %65 = or disjoint i16 %63, %64
@@ -12872,34 +12872,34 @@ define internal fastcc noundef zeroext i1 @sema_call_analyse_func_invocation(ptr
   %67 = trunc i8 %66 to i1
   %68 = and i8 %66, 2
   %.not47 = icmp eq i8 %68, 0
-  %69 = select i1 %.not47, i16 2048, i16 0
-  %spec.select53 = select i1 %.03750, i16 0, i16 %69
-  %70 = select i1 %67, i16 2048, i16 %spec.select53
-  %71 = and i16 %65, -2049
-  %72 = or disjoint i16 %70, %71
-  store i16 %72, ptr %45, align 8
-  br label %73
+  %69 = select i1 %.03750, i1 %.not47, i1 false
+  %70 = select i1 %67, i1 true, i1 %69
+  %71 = select i1 %70, i16 2048, i16 0
+  %72 = and i16 %65, -2049
+  %73 = or disjoint i16 %71, %72
+  store i16 %73, ptr %45, align 8
+  br label %74
 
-73:                                               ; preds = %.thread, %39
-  %74 = trunc i8 %44 to i1
-  br i1 %74, label %75, label %80
+74:                                               ; preds = %.thread, %39
+  %75 = trunc i8 %44 to i1
+  br i1 %75, label %76, label %81
 
-75:                                               ; preds = %73
-  %76 = load i32, ptr %43, align 8
-  %77 = icmp eq i32 %76, 40
-  br i1 %77, label %80, label %78
+76:                                               ; preds = %74
+  %77 = load i32, ptr %43, align 8
+  %78 = icmp eq i32 %77, 40
+  br i1 %78, label %81, label %79
 
-78:                                               ; preds = %75
-  %79 = tail call ptr @type_get_optional(ptr noundef nonnull %43) #12
-  br label %80
-
-80:                                               ; preds = %73, %75, %78
-  %.0 = phi ptr [ %79, %78 ], [ %43, %75 ], [ %43, %73 ]
-  store ptr %.0, ptr %2, align 8
+79:                                               ; preds = %76
+  %80 = tail call ptr @type_get_optional(ptr noundef nonnull %43) #12
   br label %81
 
-81:                                               ; preds = %37, %80, %28
-  %.039 = phi i1 [ true, %80 ], [ false, %28 ], [ false, %37 ]
+81:                                               ; preds = %74, %76, %79
+  %.0 = phi ptr [ %80, %79 ], [ %43, %76 ], [ %43, %74 ]
+  store ptr %.0, ptr %2, align 8
+  br label %82
+
+82:                                               ; preds = %37, %81, %28
+  %.039 = phi i1 [ true, %81 ], [ false, %28 ], [ false, %37 ]
   ret i1 %.039
 }
 

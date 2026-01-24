@@ -404,7 +404,7 @@ _ZN3gmx28loadSimdPairInteractionMasksILb1EL12KernelLayout1EEENSt9enable_ifIXaaT_
   %247 = insertelement <8 x i32> poison, i32 %246, i64 0
   %248 = shufflevector <8 x i32> %247, <8 x i32> poison, <8 x i32> zeroinitializer
   %249 = and <8 x i32> %.sroa.04701.0.copyload, %248
-  %.not4783 = icmp eq <8 x i32> %249, zeroinitializer
+  %.not4783 = icmp ne <8 x i32> %249, zeroinitializer
   %250 = and <8 x i32> %.sroa.6.0.copyload, %248
   %.not4782 = icmp eq <8 x i32> %250, zeroinitializer
   %251 = shl nsw i32 %244, 2
@@ -589,7 +589,7 @@ _ZN3gmx17CoulombCalculatorILNS_17KernelCoulombTypeE2EE24forceAndCorrectionEnergy
   %384 = shufflevector <4 x float> %.val651, <4 x float> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3>
   %385 = fmul <8 x float> %.sroa.03785.1, %384
   %386 = fmul <8 x float> %.sroa.73789.1, %384
-  %387 = select <8 x i1> %.not4783, <8 x i32> zeroinitializer, <8 x i32> %299
+  %387 = select <8 x i1> %.not4783, <8 x i32> %299, <8 x i32> zeroinitializer
   %388 = bitcast <8 x i32> %387 to <8 x float>
   %389 = select <8 x i1> %.not4782, <8 x i32> zeroinitializer, <8 x i32> %301
   %390 = bitcast <8 x i32> %389 to <8 x float>
@@ -605,7 +605,7 @@ _ZN3gmx17CoulombCalculatorILNS_17KernelCoulombTypeE2EE24forceAndCorrectionEnergy
   %400 = fmul <8 x float> %28, %394
   %401 = fadd <8 x float> %.sroa.44716.0..sroa.44716.32..sroa.0.0.copyload.i745, %396
   %402 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %400, <8 x float> %401, <8 x float> %.sroa.44708.0..sroa.44708.32..sroa.0.0.copyload.i765)
-  %403 = select <8 x i1> %.not4783, <8 x i32> zeroinitializer, <8 x i32> %39
+  %403 = select <8 x i1> %.not4783, <8 x i32> %39, <8 x i32> zeroinitializer
   %404 = bitcast <8 x i32> %403 to <8 x float>
   %405 = fadd <8 x float> %399, %404
   %406 = select <8 x i1> %.not4782, <8 x i32> zeroinitializer, <8 x i32> %39
@@ -630,7 +630,7 @@ _ZN3gmx17CoulombCalculatorILNS_17KernelCoulombTypeE2EE24forceAndCorrectionEnergy
   %422 = fmul <8 x float> %420, %.sroa.04696.0..sroa.04696.0..sroa.01.0.copyload.i787
   %423 = fmul <8 x float> %417, %417
   %424 = fmul <8 x float> %417, %423
-  %425 = select <8 x i1> %.not4783, <8 x float> zeroinitializer, <8 x float> %424
+  %425 = select <8 x i1> %.not4783, <8 x float> %424, <8 x float> zeroinitializer
   %426 = fmul <8 x float> %425, %425
   %427 = fmul <8 x float> %421, %425
   %428 = fmul <8 x float> %426, %422
@@ -638,8 +638,8 @@ _ZN3gmx17CoulombCalculatorILNS_17KernelCoulombTypeE2EE24forceAndCorrectionEnergy
   %430 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %422, <8 x float> %45, <8 x float> %428)
   %431 = fmul <8 x float> %429, splat (float 0xBFC5555560000000)
   %432 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %430, <8 x float> splat (float 0x3FB5555560000000), <8 x float> %431)
-  %433 = select <8 x i1> %.not4783, <8 x float> zeroinitializer, <8 x float> %432
-  %434 = select <8 x i1> %418, <8 x float> %433, <8 x float> zeroinitializer
+  %433 = select <8 x i1> %418, <8 x i1> %.not4783, <8 x i1> zeroinitializer
+  %434 = select <8 x i1> %433, <8 x float> %432, <8 x float> zeroinitializer
   %435 = load ptr, ptr %77, align 8, !tbaa !82
   %436 = load ptr, ptr %435, align 8, !tbaa !83
   %437 = getelementptr inbounds nuw i8, ptr %435, i64 8
@@ -1155,9 +1155,9 @@ _ZN3gmx28loadSimdPairInteractionMasksILb1EL12KernelLayout1EEENSt9enable_ifIXaaT_
   %777 = insertelement <8 x i32> poison, i32 %776, i64 0
   %778 = shufflevector <8 x i32> %777, <8 x i32> poison, <8 x i32> zeroinitializer
   %779 = and <8 x i32> %.sroa.04701.0.copyload, %778
-  %.not4780 = icmp eq <8 x i32> %779, zeroinitializer
+  %.not4780 = icmp ne <8 x i32> %779, zeroinitializer
   %780 = and <8 x i32> %.sroa.6.0.copyload, %778
-  %.not4781 = icmp eq <8 x i32> %780, zeroinitializer
+  %.not4781 = icmp ne <8 x i32> %780, zeroinitializer
   %781 = shl nsw i32 %774, 2
   %782 = mul nsw i32 %774, 12
   %783 = sext i32 %782 to i64
@@ -1340,9 +1340,9 @@ _ZN3gmx17CoulombCalculatorILNS_17KernelCoulombTypeE2EE24forceAndCorrectionEnergy
   %914 = shufflevector <4 x float> %.val639, <4 x float> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3>
   %915 = fmul <8 x float> %.sroa.03785.1, %914
   %916 = fmul <8 x float> %.sroa.73789.1, %914
-  %917 = select <8 x i1> %.not4780, <8 x i32> zeroinitializer, <8 x i32> %829
+  %917 = select <8 x i1> %.not4780, <8 x i32> %829, <8 x i32> zeroinitializer
   %918 = bitcast <8 x i32> %917 to <8 x float>
-  %919 = select <8 x i1> %.not4781, <8 x i32> zeroinitializer, <8 x i32> %831
+  %919 = select <8 x i1> %.not4781, <8 x i32> %831, <8 x i32> zeroinitializer
   %920 = bitcast <8 x i32> %919 to <8 x float>
   %921 = tail call <8 x float> @llvm.x86.avx.round.ps.256(<8 x float> %835, i32 3)
   %922 = tail call <8 x float> @llvm.x86.avx.round.ps.256(<8 x float> %836, i32 3)
@@ -1356,10 +1356,10 @@ _ZN3gmx17CoulombCalculatorILNS_17KernelCoulombTypeE2EE24forceAndCorrectionEnergy
   %930 = fmul <8 x float> %28, %924
   %931 = fadd <8 x float> %.sroa.44746.0..sroa.44746.32..sroa.0.0.copyload.i1107, %926
   %932 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %930, <8 x float> %931, <8 x float> %.sroa.44738.0..sroa.44738.32..sroa.0.0.copyload.i1129)
-  %933 = select <8 x i1> %.not4780, <8 x i32> zeroinitializer, <8 x i32> %39
+  %933 = select <8 x i1> %.not4780, <8 x i32> %39, <8 x i32> zeroinitializer
   %934 = bitcast <8 x i32> %933 to <8 x float>
   %935 = fadd <8 x float> %929, %934
-  %936 = select <8 x i1> %.not4781, <8 x i32> zeroinitializer, <8 x i32> %39
+  %936 = select <8 x i1> %.not4781, <8 x i32> %39, <8 x i32> zeroinitializer
   %937 = bitcast <8 x i32> %936 to <8 x float>
   %938 = fadd <8 x float> %932, %937
   %939 = fsub <8 x float> %918, %935
@@ -1421,8 +1421,8 @@ _ZN3gmx31accumulateGroupPairEnergies2xMMILm2EEEvNS_9SimdFloatEPfS2_RKSt5arrayIiX
   %977 = fmul <8 x float> %966, %976
   %978 = fmul <8 x float> %967, %967
   %979 = fmul <8 x float> %967, %978
-  %980 = select <8 x i1> %.not4780, <8 x float> zeroinitializer, <8 x float> %977
-  %981 = select <8 x i1> %.not4781, <8 x float> zeroinitializer, <8 x float> %979
+  %980 = select <8 x i1> %.not4780, <8 x float> %977, <8 x float> zeroinitializer
+  %981 = select <8 x i1> %.not4781, <8 x float> %979, <8 x float> zeroinitializer
   %982 = fmul <8 x float> %980, %980
   %983 = fmul <8 x float> %981, %981
   %984 = fmul <8 x float> %972, %980
@@ -1437,10 +1437,10 @@ _ZN3gmx31accumulateGroupPairEnergies2xMMILm2EEEvNS_9SimdFloatEPfS2_RKSt5arrayIiX
   %993 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %975, <8 x float> %45, <8 x float> %987)
   %994 = fmul <8 x float> %989, splat (float 0xBFC5555560000000)
   %995 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %993, <8 x float> splat (float 0x3FB5555560000000), <8 x float> %994)
-  %996 = select <8 x i1> %.not4780, <8 x float> zeroinitializer, <8 x float> %992
-  %997 = select <8 x i1> %968, <8 x float> %996, <8 x float> zeroinitializer
-  %998 = select <8 x i1> %.not4781, <8 x float> zeroinitializer, <8 x float> %995
-  %999 = select <8 x i1> %969, <8 x float> %998, <8 x float> zeroinitializer
+  %996 = select <8 x i1> %968, <8 x i1> %.not4780, <8 x i1> zeroinitializer
+  %997 = select <8 x i1> %996, <8 x float> %992, <8 x float> zeroinitializer
+  %998 = select <8 x i1> %969, <8 x i1> %.not4781, <8 x i1> zeroinitializer
+  %999 = select <8 x i1> %998, <8 x float> %995, <8 x float> zeroinitializer
   br label %.preheader.i1220
 
 .preheader.i1220:                                 ; preds = %.preheader.i1220.preheader, %_ZN3gmx31accumulateGroupPairEnergies2xMMILm2EEEvNS_9SimdFloatEPfS2_RKSt5arrayIiXT_EE.exit27.i

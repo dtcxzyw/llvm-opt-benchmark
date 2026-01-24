@@ -77174,8 +77174,8 @@ ma_node_get_output_channels.exit:                 ; preds = %9, %13
   %32 = add i64 %.03444, %31
   %.not41 = icmp eq i32 %28, 0
   %33 = icmp ne i32 %30, 0
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %34 = select i1 %.not41, i1 %33, i1 false
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %35 = icmp ult i64 %32, %2
   %or.cond = select i1 %34, i1 %35, i1 false
   br i1 %or.cond, label %21, label %._crit_edge
@@ -83202,8 +83202,8 @@ ma_node_get_output_channels.exit.i:               ; preds = %13, %9
   %32 = add i64 %.03444.i, %31
   %.not41.i = icmp eq i32 %28, 0
   %33 = icmp ne i32 %30, 0
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %34 = select i1 %.not41.i, i1 %33, i1 false
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %35 = icmp ult i64 %32, %2
   %or.cond.i = select i1 %34, i1 %35, i1 false
   br i1 %or.cond.i, label %21, label %._crit_edge.i
@@ -125304,8 +125304,8 @@ ma_node_get_output_channels.exit.i:               ; preds = %15, %11
   %34 = add nuw nsw i64 %.03444.i, %33
   %.not41.i = icmp eq i32 %30, 0
   %35 = icmp ne i32 %32, 0
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %36 = select i1 %.not41.i, i1 %35, i1 false
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %37 = icmp samesign ult i64 %34, %9
   %or.cond.i = select i1 %36, i1 %37, i1 false
   br i1 %or.cond.i, label %23, label %._crit_edge.i

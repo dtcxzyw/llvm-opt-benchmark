@@ -72453,21 +72453,21 @@ cond.end:                                         ; preds = %for.end, %init.i.i.
   %result_ec.sroa.0.0 = phi i32 [ 3, %init.i.i.i ], [ 3, %cond.true ], [ 3, %init.check.i.i.i ], [ %ec.coerce0, %for.end ]
   %cmp.i64.not = icmp eq i32 %ec.coerce0, 0
   %42 = load i64, ptr %search_position_70, align 8
-  %cmp75 = icmp eq i64 %42, -1
-  %spec.select = select i1 %cmp75, i64 0, i64 %42
-  %cond = select i1 %cmp.i64.not, i64 %spec.select, i64 0
+  %cmp75 = icmp ne i64 %42, -1
+  %43 = select i1 %cmp.i64.not, i1 %cmp75, i1 false
+  %cond = select i1 %43, i64 %42, i64 0
   %handler_ = getelementptr inbounds nuw i8, ptr %this, i64 64
-  %43 = load ptr, ptr %handler_, align 8
-  %arg_.i.i.i = getelementptr inbounds nuw i8, ptr %43, i64 8
-  store i32 %result_ec.sroa.0.0, ptr %arg_.i.i.i, align 8
-  %result_ec.sroa.374.0.arg_.i.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %43, i64 16
-  store ptr %result_ec.sroa.374.0, ptr %result_ec.sroa.374.0.arg_.i.i.i.sroa_idx, align 8
-  %second3.i.i.i.i = getelementptr inbounds nuw i8, ptr %43, i64 24
-  store i64 %cond, ptr %second3.i.i.i.i, align 8
   %44 = load ptr, ptr %handler_, align 8
-  %45 = load ptr, ptr %44, align 8
+  %arg_.i.i.i = getelementptr inbounds nuw i8, ptr %44, i64 8
+  store i32 %result_ec.sroa.0.0, ptr %arg_.i.i.i, align 8
+  %result_ec.sroa.374.0.arg_.i.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %44, i64 16
+  store ptr %result_ec.sroa.374.0, ptr %result_ec.sroa.374.0.arg_.i.i.i.sroa_idx, align 8
+  %second3.i.i.i.i = getelementptr inbounds nuw i8, ptr %44, i64 24
+  store i64 %cond, ptr %second3.i.i.i.i, align 8
+  %45 = load ptr, ptr %handler_, align 8
   %46 = load ptr, ptr %45, align 8
-  call fastcc void %46(ptr nonnull %45)
+  %47 = load ptr, ptr %46, align 8
+  call fastcc void %47(ptr nonnull %46)
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %cond.end, %if.end55

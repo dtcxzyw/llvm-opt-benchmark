@@ -78,15 +78,15 @@ _ZL26expandKernelSanitizerMasksN5clang13SanitizerMaskE.exit: ; preds = %8
   %35 = tail call noundef zeroext i1 @_ZNK5clang7CodeGen13CodeGenModule18isInNoSanitizeListENS_13SanitizerMaskEPN4llvm14GlobalVariableENS_14SourceLocationENS_8QualTypeENS3_9StringRefE(ptr noundef nonnull align 8 dereferenceable(3608) %31, i64 %34, i64 0, ptr noundef nonnull %1, i32 %2, i64 %5, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %9) #8
   %36 = zext i1 %35 to i8
   %37 = and i64 %23, 16
-  %.not.i.i94.not = icmp eq i64 %37, 0
+  %.not.i.i94.not = icmp ne i64 %37, 0
   %.mask = and i8 %.sroa.0126.0, 2
-  %38 = select i1 %.not.i.i94.not, i8 %.mask, i8 2
   %.sroa.0126.0.masked = and i8 %.sroa.0126.0, -3
-  %39 = load ptr, ptr %0, align 8, !tbaa !8
-  %40 = and i64 %spec.select, 16
+  %38 = load ptr, ptr %0, align 8, !tbaa !8
+  %39 = and i64 %spec.select, 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
-  %41 = tail call noundef zeroext i1 @_ZNK5clang7CodeGen13CodeGenModule18isInNoSanitizeListENS_13SanitizerMaskEPN4llvm14GlobalVariableENS_14SourceLocationENS_8QualTypeENS3_9StringRefE(ptr noundef nonnull align 8 dereferenceable(3608) %39, i64 %40, i64 0, ptr noundef nonnull %1, i32 %2, i64 %5, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %10) #8
-  %42 = select i1 %41, i8 2, i8 %38
+  %40 = tail call noundef zeroext i1 @_ZNK5clang7CodeGen13CodeGenModule18isInNoSanitizeListENS_13SanitizerMaskEPN4llvm14GlobalVariableENS_14SourceLocationENS_8QualTypeENS3_9StringRefE(ptr noundef nonnull align 8 dereferenceable(3608) %38, i64 %39, i64 0, ptr noundef nonnull %1, i32 %2, i64 %5, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %10) #8
+  %41 = or i1 %40, %.not.i.i94.not
+  %42 = select i1 %41, i8 2, i8 %.mask
   %43 = or i8 %.sroa.0126.0.masked, %33
   %44 = or i8 %43, %36
   %45 = or disjoint i8 %44, %42
@@ -118,13 +118,13 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.thread6.i: ; preds = %_ZNK4llvm9String
   %58 = select i1 %.not.i100.not, i8 %.mask69, i8 4
   %59 = and i8 %45, -5
   %60 = and i64 %23, 448
-  %.not.i.i104.not = icmp eq i64 %60, 0
-  %61 = select i1 %.not.i.i104.not, i8 %58, i8 0
-  %62 = load ptr, ptr %0, align 8, !tbaa !8
-  %63 = and i64 %spec.select, 448
+  %.not.i.i104.not = icmp ne i64 %60, 0
+  %61 = load ptr, ptr %0, align 8, !tbaa !8
+  %62 = and i64 %spec.select, 448
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
-  %64 = tail call noundef zeroext i1 @_ZNK5clang7CodeGen13CodeGenModule18isInNoSanitizeListENS_13SanitizerMaskEPN4llvm14GlobalVariableENS_14SourceLocationENS_8QualTypeENS3_9StringRefE(ptr noundef nonnull align 8 dereferenceable(3608) %62, i64 %63, i64 0, ptr noundef nonnull %1, i32 %2, i64 %5, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %11) #8
-  %65 = select i1 %64, i8 0, i8 %61
+  %63 = tail call noundef zeroext i1 @_ZNK5clang7CodeGen13CodeGenModule18isInNoSanitizeListENS_13SanitizerMaskEPN4llvm14GlobalVariableENS_14SourceLocationENS_8QualTypeENS3_9StringRefE(ptr noundef nonnull align 8 dereferenceable(3608) %61, i64 %62, i64 0, ptr noundef nonnull %1, i32 %2, i64 %5, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %11) #8
+  %64 = or i1 %63, %.not.i.i104.not
+  %65 = select i1 %64, i8 0, i8 %58
   %66 = or disjoint i8 %65, %59
   br label %68
 

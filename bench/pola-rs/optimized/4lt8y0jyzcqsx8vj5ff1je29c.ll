@@ -743,12 +743,10 @@ define hidden { i1, i8 } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$
   %4 = load ptr, ptr %3, align 8, !alias.scope !29, !nonnull !4, !align !14, !noundef !4
   %5 = call { i8, i8 } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hc0c3da88dee2fbbdE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0, ptr noalias noundef nonnull align 1 %2, ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
   %6 = extractvalue { i8, i8 } %5, 0
-  %.not.i = icmp eq i8 %6, 2
   %7 = extractvalue { i8, i8 } %5, 1
   %8 = trunc i8 %6 to i1
-  %.sroa.3.0.i = select i1 %.not.i, i8 undef, i8 %7
   %9 = insertvalue { i1, i8 } poison, i1 %8, 0
-  %.sroa.3.0 = select i1 %8, i8 %.sroa.3.0.i, i8 undef
+  %.sroa.3.0 = select i1 %8, i8 %7, i8 undef
   %10 = insertvalue { i1, i8 } %9, i8 %.sroa.3.0, 1
   ret { i1, i8 } %10
 }
@@ -845,13 +843,13 @@ define hidden { ptr, ptr } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   %8 = load ptr, ptr %7, align 8, !noalias !45
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %10 = load ptr, ptr %9, align 8, !noalias !45
-  %.sroa.3.0.i = select i1 %6, ptr %10, ptr undef
   %.sroa.0.0.i = select i1 %6, ptr %8, ptr null
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !45
-  %.not = icmp eq ptr %.sroa.0.0.i, null
-  %spec.select = select i1 %.not, ptr undef, ptr %.sroa.3.0.i
+  %.not = icmp ne ptr %.sroa.0.0.i, null
+  %.not3 = and i1 %.not, %6
+  %. = select i1 %.not3, ptr %10, ptr undef
   %11 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
-  %12 = insertvalue { ptr, ptr } %11, ptr %spec.select, 1
+  %12 = insertvalue { ptr, ptr } %11, ptr %., 1
   ret { ptr, ptr } %12
 }
 

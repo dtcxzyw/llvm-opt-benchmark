@@ -97,9 +97,9 @@ timelib_day_of_week_ex.exit:                      ; preds = %8, %10
   %27 = icmp slt i64 %26, 0
   %28 = select i1 %27, i64 7, i64 0
   %spec.select.i18.i = add nsw i64 %28, %26
-  %29 = icmp eq i64 %spec.select.i18.i, 0
-  %spec.store.select.i = select i1 %29, i64 7, i64 %spec.select.i18.i
-  ret i64 %spec.store.select.i
+  %.not = icmp eq i64 %spec.select.i18.i, 0
+  %.0.i = select i1 %.not, i64 7, i64 %spec.select.i18.i
+  ret i64 %.0.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
@@ -388,9 +388,9 @@ timelib_day_of_week_ex.exit:                      ; preds = %11, %13
   %30 = icmp slt i64 %29, 0
   %31 = select i1 %30, i64 7, i64 0
   %spec.select.i18.i = add nsw i64 %31, %29
-  %32 = icmp eq i64 %spec.select.i18.i, 0
-  %spec.store.select.i = select i1 %32, i64 7, i64 %spec.select.i18.i
-  store i64 %spec.store.select.i, ptr %5, align 8, !tbaa !8
+  %.not = icmp eq i64 %spec.select.i18.i, 0
+  %.0.i = select i1 %.not, i64 7, i64 %spec.select.i18.i
+  store i64 %.0.i, ptr %5, align 8, !tbaa !8
   ret void
 }
 

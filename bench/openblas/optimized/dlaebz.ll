@@ -424,9 +424,9 @@ define void @dlaebz_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   br i1 %.not575609, label %._crit_edge, label %.lr.ph613.preheader
 
 .lr.ph613.preheader:                              ; preds = %.lr.ph617
-  %219 = fcmp ole double %214, %217
-  %220 = select i1 %219, double %214, double %217
-  %.0 = select i1 %216, double %220, double %214
+  %219 = fcmp ugt double %214, %217
+  %220 = and i1 %216, %219
+  %.0 = select i1 %220, double %217, double %214
   %221 = add nuw i32 %218, 1
   %wide.trip.count677 = zext i32 %221 to i64
   br label %.lr.ph613
@@ -444,11 +444,11 @@ define void @dlaebz_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %228 = fsub double %223, %227
   %229 = fsub double %228, %212
   %230 = fcmp ole double %229, %215
-  %231 = fcmp ole double %229, %217
-  %232 = select i1 %231, double %229, double %217
-  %233 = zext i1 %230 to i32
-  %.2553 = add nuw nsw i32 %.1552610, %233
-  %.2 = select i1 %230, double %232, double %229
+  %231 = fcmp ugt double %229, %217
+  %232 = zext i1 %230 to i32
+  %.2553 = add nuw nsw i32 %.1552610, %232
+  %233 = and i1 %230, %231
+  %.2 = select i1 %233, double %217, double %229
   %indvars.iv.next675 = add nuw nsw i64 %indvars.iv674, 1
   %exitcond678.not = icmp eq i64 %indvars.iv.next675, %wide.trip.count677
   br i1 %exitcond678.not, label %._crit_edge, label %.lr.ph613, !llvm.loop !19

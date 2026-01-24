@@ -114,8 +114,8 @@ define dso_local noundef range(i32 0, 2) i32 @groups_search(ptr noundef readonly
   br label %8
 
 8:                                                ; preds = %12, %4
-  %9 = phi i32 [ 0, %4 ], [ %22, %12 ]
-  %10 = phi i32 [ %6, %4 ], [ %23, %12 ]
+  %9 = phi i32 [ 0, %4 ], [ %20, %12 ]
+  %10 = phi i32 [ %6, %4 ], [ %21, %12 ]
   %11 = icmp ult i32 %9, %10
   br i1 %11, label %12, label %.loopexit
 
@@ -127,16 +127,15 @@ define dso_local noundef range(i32 0, 2) i32 @groups_search(ptr noundef readonly
   %17 = load i32, ptr %16, align 4
   %18 = icmp ult i32 %17, %1
   %19 = add nuw i32 %14, 1
-  %20 = icmp ugt i32 %17, %1
-  %21 = select i1 %20, i32 %14, i32 %10
-  %22 = select i1 %18, i32 %19, i32 %9
-  %23 = select i1 %18, i32 %10, i32 %21
-  %24 = icmp eq i32 %17, %1
-  br i1 %24, label %.loopexit, label %8, !llvm.loop !6
+  %.not = icmp ugt i32 %17, %1
+  %20 = select i1 %18, i32 %19, i32 %9
+  %21 = select i1 %.not, i32 %14, i32 %10
+  %22 = icmp eq i32 %17, %1
+  br i1 %22, label %.loopexit, label %8, !llvm.loop !6
 
 .loopexit:                                        ; preds = %12, %8, %2
-  %25 = phi i32 [ 0, %2 ], [ 0, %8 ], [ 1, %12 ]
-  ret i32 %25
+  %23 = phi i32 [ 0, %2 ], [ 0, %8 ], [ 1, %12 ]
+  ret i32 %23
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -619,8 +618,8 @@ define dso_local noundef range(i32 0, 2) i32 @in_group_p(i32 %0) #4 align 16 {
   br label %17
 
 17:                                               ; preds = %21, %13
-  %18 = phi i32 [ 0, %13 ], [ %31, %21 ]
-  %19 = phi i32 [ %15, %13 ], [ %32, %21 ]
+  %18 = phi i32 [ 0, %13 ], [ %29, %21 ]
+  %19 = phi i32 [ %15, %13 ], [ %30, %21 ]
   %20 = icmp ult i32 %18, %19
   br i1 %20, label %21, label %.loopexit
 
@@ -632,16 +631,15 @@ define dso_local noundef range(i32 0, 2) i32 @in_group_p(i32 %0) #4 align 16 {
   %26 = load i32, ptr %25, align 4
   %27 = icmp ult i32 %26, %0
   %28 = add nuw i32 %23, 1
-  %29 = icmp ugt i32 %26, %0
-  %30 = select i1 %29, i32 %23, i32 %19
-  %31 = select i1 %27, i32 %28, i32 %18
-  %32 = select i1 %27, i32 %19, i32 %30
-  %33 = icmp eq i32 %26, %0
-  br i1 %33, label %.loopexit, label %17, !llvm.loop !6
+  %.not = icmp ugt i32 %26, %0
+  %29 = select i1 %27, i32 %28, i32 %18
+  %30 = select i1 %.not, i32 %23, i32 %19
+  %31 = icmp eq i32 %26, %0
+  br i1 %31, label %.loopexit, label %17, !llvm.loop !6
 
 .loopexit:                                        ; preds = %21, %17, %9, %1
-  %34 = phi i32 [ 1, %1 ], [ 0, %9 ], [ 0, %17 ], [ 1, %21 ]
-  ret i32 %34
+  %32 = phi i32 [ 1, %1 ], [ 0, %9 ], [ 0, %17 ], [ 1, %21 ]
+  ret i32 %32
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none)
@@ -668,8 +666,8 @@ define dso_local noundef range(i32 0, 2) i32 @in_egroup_p(i32 %0) #4 align 16 {
   br label %17
 
 17:                                               ; preds = %21, %13
-  %18 = phi i32 [ 0, %13 ], [ %31, %21 ]
-  %19 = phi i32 [ %15, %13 ], [ %32, %21 ]
+  %18 = phi i32 [ 0, %13 ], [ %29, %21 ]
+  %19 = phi i32 [ %15, %13 ], [ %30, %21 ]
   %20 = icmp ult i32 %18, %19
   br i1 %20, label %21, label %.loopexit
 
@@ -681,16 +679,15 @@ define dso_local noundef range(i32 0, 2) i32 @in_egroup_p(i32 %0) #4 align 16 {
   %26 = load i32, ptr %25, align 4
   %27 = icmp ult i32 %26, %0
   %28 = add nuw i32 %23, 1
-  %29 = icmp ugt i32 %26, %0
-  %30 = select i1 %29, i32 %23, i32 %19
-  %31 = select i1 %27, i32 %28, i32 %18
-  %32 = select i1 %27, i32 %19, i32 %30
-  %33 = icmp eq i32 %26, %0
-  br i1 %33, label %.loopexit, label %17, !llvm.loop !6
+  %.not = icmp ugt i32 %26, %0
+  %29 = select i1 %27, i32 %28, i32 %18
+  %30 = select i1 %.not, i32 %23, i32 %19
+  %31 = icmp eq i32 %26, %0
+  br i1 %31, label %.loopexit, label %17, !llvm.loop !6
 
 .loopexit:                                        ; preds = %21, %17, %9, %1
-  %34 = phi i32 [ 1, %1 ], [ 0, %9 ], [ 0, %17 ], [ 1, %21 ]
-  ret i32 %34
+  %32 = phi i32 [ 1, %1 ], [ 0, %9 ], [ 0, %17 ], [ 1, %21 ]
+  ret i32 %32
 }
 
 ; Function Attrs: null_pointer_is_valid allocsize(0)

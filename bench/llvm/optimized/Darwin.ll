@@ -12061,10 +12061,9 @@ _ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_.e
   %1289 = load i8, ptr %41, align 1, !range !15
   %1290 = trunc nuw i8 %1289 to i1
   %not. = xor i1 %1290, true
-  %spec.select647 = select i1 %1290, ptr @.str.265, ptr @.str.92
   %narrow = select i1 %1288, i1 %not., i1 false
   %.sroa.0544.0 = zext i1 %narrow to i64
-  %.sroa.6.0 = select i1 %1288, ptr %spec.select647, ptr @.str.265
+  %.sroa.6.0 = select i1 %narrow, ptr @.str.92, ptr @.str.265
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %1291 = call noalias noundef nonnull dereferenceable(520) ptr @_Znwm(i64 noundef 520) #25, !noalias !592

@@ -1259,20 +1259,20 @@ _ZNSt12_Vector_baseItSaItEE11_M_allocateEm.exit.i: ; preds = %.noexc193, %_ZNSt6
   %135 = load ptr, ptr %11, align 8, !tbaa !112
   %136 = load ptr, ptr %45, align 8, !tbaa !112
   %137 = icmp ne ptr %135, %136
-  %.sroa.0.010.i.i = getelementptr inbounds i8, ptr %136, i64 -2
-  %.not11.i.i = icmp ult ptr %135, %.sroa.0.010.i.i
-  %or.cond.i.i = select i1 %137, i1 %.not11.i.i, i1 false
+  %.sroa.0.09.i.i = getelementptr inbounds i8, ptr %136, i64 -2
+  %.not10.i.i = icmp ult ptr %135, %.sroa.0.09.i.i
+  %or.cond.i.i = select i1 %137, i1 %.not10.i.i, i1 false
   br i1 %or.cond.i.i, label %.lr.ph.i.i, label %_ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPtSt6vectorItSaItEEEEEvT_S7_.exit
 
 .lr.ph.i.i:                                       ; preds = %134, %.lr.ph.i.i
-  %.sroa.0.013.i.i = phi ptr [ %.sroa.0.0.i.i, %.lr.ph.i.i ], [ %.sroa.0.010.i.i, %134 ]
-  %.sroa.06.012.i.i = phi ptr [ %140, %.lr.ph.i.i ], [ %135, %134 ]
-  %138 = load i16, ptr %.sroa.06.012.i.i, align 2, !tbaa !113
-  %139 = load i16, ptr %.sroa.0.013.i.i, align 2, !tbaa !113
-  store i16 %139, ptr %.sroa.06.012.i.i, align 2, !tbaa !113
-  store i16 %138, ptr %.sroa.0.013.i.i, align 2, !tbaa !113
-  %140 = getelementptr inbounds nuw i8, ptr %.sroa.06.012.i.i, i64 2
-  %.sroa.0.0.i.i = getelementptr inbounds i8, ptr %.sroa.0.013.i.i, i64 -2
+  %.sroa.0.012.i.i = phi ptr [ %.sroa.0.0.i.i, %.lr.ph.i.i ], [ %.sroa.0.09.i.i, %134 ]
+  %.sroa.06.011.i.i = phi ptr [ %140, %.lr.ph.i.i ], [ %135, %134 ]
+  %138 = load i16, ptr %.sroa.06.011.i.i, align 2, !tbaa !113
+  %139 = load i16, ptr %.sroa.0.012.i.i, align 2, !tbaa !113
+  store i16 %139, ptr %.sroa.06.011.i.i, align 2, !tbaa !113
+  store i16 %138, ptr %.sroa.0.012.i.i, align 2, !tbaa !113
+  %140 = getelementptr inbounds nuw i8, ptr %.sroa.06.011.i.i, i64 2
+  %.sroa.0.0.i.i = getelementptr inbounds i8, ptr %.sroa.0.012.i.i, i64 -2
   %.not.i.i = icmp ult ptr %140, %.sroa.0.0.i.i
   br i1 %.not.i.i, label %.lr.ph.i.i, label %_ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPtSt6vectorItSaItEEEEEvT_S7_.exit, !llvm.loop !114
 

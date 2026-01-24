@@ -71,7 +71,7 @@ define noundef zeroext i1 @_ZN5boost4urls6detail12segment_iter7measureERm(ptr no
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 45
   %5 = load i8, ptr %4, align 1, !tbaa !17, !range !19, !noundef !20
   %6 = trunc nuw i8 %5 to i1
-  br i1 %6, label %42, label %7
+  br i1 %6, label %43, label %7
 
 7:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -124,8 +124,8 @@ define noundef zeroext i1 @_ZN5boost4urls6detail12segment_iter7measureERm(ptr no
   br i1 %.not21.i, label %_ZN5boost4urls12encoded_sizeINS0_7grammar9lut_charsEEEmNS_4core17basic_string_viewIcEERKT_NS0_13encoding_optsE.exit, label %.lr.ph.i, !llvm.loop !25
 
 .lr.ph32.i:                                       ; preds = %.preheader.i, %.lr.ph32.i
-  %.331.i = phi i64 [ %38, %.lr.ph32.i ], [ 0, %.preheader.i ]
-  %.12030.i = phi ptr [ %39, %.lr.ph32.i ], [ %.sroa.01.0.copyload, %.preheader.i ]
+  %.331.i = phi i64 [ %39, %.lr.ph32.i ], [ 0, %.preheader.i ]
+  %.12030.i = phi ptr [ %40, %.lr.ph32.i ], [ %.sroa.01.0.copyload, %.preheader.i ]
   %28 = load i8, ptr %.12030.i, align 1, !tbaa !24
   %29 = and i8 %28, 3
   %30 = zext nneg i8 %29 to i64
@@ -136,24 +136,24 @@ define noundef zeroext i1 @_ZN5boost4urls6detail12segment_iter7measureERm(ptr no
   %35 = shl nuw i64 1, %34
   %36 = and i64 %35, %32
   %.not23.i = icmp eq i64 %36, 0
-  %37 = icmp eq i8 %28, 32
-  %..i = select i1 %37, i64 1, i64 3
-  %.sink.i = select i1 %.not23.i, i64 %..i, i64 1
-  %38 = add i64 %.sink.i, %.331.i
-  %39 = getelementptr inbounds nuw i8, ptr %.12030.i, i64 1
-  %.not.i = icmp eq ptr %39, %12
+  %37 = icmp ne i8 %28, 32
+  %38 = and i1 %37, %.not23.i
+  %.sink.i = select i1 %38, i64 3, i64 1
+  %39 = add i64 %.sink.i, %.331.i
+  %40 = getelementptr inbounds nuw i8, ptr %.12030.i, i64 1
+  %.not.i = icmp eq ptr %40, %12
   br i1 %.not.i, label %_ZN5boost4urls12encoded_sizeINS0_7grammar9lut_charsEEEmNS_4core17basic_string_viewIcEERKT_NS0_13encoding_optsE.exit, label %.lr.ph32.i, !llvm.loop !27
 
 _ZN5boost4urls12encoded_sizeINS0_7grammar9lut_charsEEEmNS_4core17basic_string_viewIcEERKT_NS0_13encoding_optsE.exit: ; preds = %.lr.ph.i, %.lr.ph32.i, %.preheader.i, %17
-  %.2.i = phi i64 [ %38, %.lr.ph32.i ], [ 0, %.preheader.i ], [ 0, %17 ], [ %.1.i, %.lr.ph.i ]
-  %40 = load i64, ptr %1, align 8, !tbaa !7
-  %41 = add i64 %40, %.2.i
-  store i64 %41, ptr %1, align 8, !tbaa !7
+  %.2.i = phi i64 [ %39, %.lr.ph32.i ], [ 0, %.preheader.i ], [ 0, %17 ], [ %.1.i, %.lr.ph.i ]
+  %41 = load i64, ptr %1, align 8, !tbaa !7
+  %42 = add i64 %41, %.2.i
+  store i64 %42, ptr %1, align 8, !tbaa !7
   store i8 1, ptr %4, align 1, !tbaa !17
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %42
+  br label %43
 
-42:                                               ; preds = %2, %_ZN5boost4urls12encoded_sizeINS0_7grammar9lut_charsEEEmNS_4core17basic_string_viewIcEERKT_NS0_13encoding_optsE.exit
+43:                                               ; preds = %2, %_ZN5boost4urls12encoded_sizeINS0_7grammar9lut_charsEEEmNS_4core17basic_string_viewIcEERKT_NS0_13encoding_optsE.exit
   %.0 = xor i1 %6, true
   ret i1 %.0
 }
@@ -407,8 +407,8 @@ define void @_ZN5boost4urls6detail18segments_iter_base12measure_implERmNS_4core1
   br i1 %.not21.i, label %_ZN5boost4urls12encoded_sizeINS0_7grammar9lut_charsEEEmNS_4core17basic_string_viewIcEERKT_NS0_13encoding_optsE.exit, label %.lr.ph.i, !llvm.loop !25
 
 .lr.ph32.i:                                       ; preds = %.preheader.i, %.lr.ph32.i
-  %.331.i = phi i64 [ %32, %.lr.ph32.i ], [ 0, %.preheader.i ]
-  %.12030.i = phi ptr [ %33, %.lr.ph32.i ], [ %1, %.preheader.i ]
+  %.331.i = phi i64 [ %33, %.lr.ph32.i ], [ 0, %.preheader.i ]
+  %.12030.i = phi ptr [ %34, %.lr.ph32.i ], [ %1, %.preheader.i ]
   %22 = load i8, ptr %.12030.i, align 1, !tbaa !24
   %23 = and i8 %22, 3
   %24 = zext nneg i8 %23 to i64
@@ -419,19 +419,19 @@ define void @_ZN5boost4urls6detail18segments_iter_base12measure_implERmNS_4core1
   %29 = shl nuw i64 1, %28
   %30 = and i64 %29, %26
   %.not23.i = icmp eq i64 %30, 0
-  %31 = icmp eq i8 %22, 32
-  %..i = select i1 %31, i64 1, i64 3
-  %.sink.i = select i1 %.not23.i, i64 %..i, i64 1
-  %32 = add i64 %.sink.i, %.331.i
-  %33 = getelementptr inbounds nuw i8, ptr %.12030.i, i64 1
-  %.not.i = icmp eq ptr %33, %6
+  %31 = icmp ne i8 %22, 32
+  %32 = and i1 %31, %.not23.i
+  %.sink.i = select i1 %32, i64 3, i64 1
+  %33 = add i64 %.sink.i, %.331.i
+  %34 = getelementptr inbounds nuw i8, ptr %.12030.i, i64 1
+  %.not.i = icmp eq ptr %34, %6
   br i1 %.not.i, label %_ZN5boost4urls12encoded_sizeINS0_7grammar9lut_charsEEEmNS_4core17basic_string_viewIcEERKT_NS0_13encoding_optsE.exit, label %.lr.ph32.i, !llvm.loop !27
 
 _ZN5boost4urls12encoded_sizeINS0_7grammar9lut_charsEEEmNS_4core17basic_string_viewIcEERKT_NS0_13encoding_optsE.exit: ; preds = %.lr.ph.i, %.lr.ph32.i, %.preheader.i, %11
-  %.2.i = phi i64 [ %32, %.lr.ph32.i ], [ 0, %.preheader.i ], [ 0, %11 ], [ %.1.i, %.lr.ph.i ]
-  %34 = load i64, ptr %0, align 8, !tbaa !7
-  %35 = add i64 %34, %.2.i
-  store i64 %35, ptr %0, align 8, !tbaa !7
+  %.2.i = phi i64 [ %33, %.lr.ph32.i ], [ 0, %.preheader.i ], [ 0, %11 ], [ %.1.i, %.lr.ph.i ]
+  %35 = load i64, ptr %0, align 8, !tbaa !7
+  %36 = add i64 %35, %.2.i
+  store i64 %36, ptr %0, align 8, !tbaa !7
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }

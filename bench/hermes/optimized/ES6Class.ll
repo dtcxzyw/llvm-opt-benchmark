@@ -30763,12 +30763,12 @@ _ZSt13move_backwardIPPN6hermes6ESTree4NodeES4_ET0_T_S6_S5_.exit: ; preds = %if.e
   %cmp18.not = icmp ugt ptr %I.addr.0, %Elt
   %conv.i27 = zext i32 %add to i64
   %add.ptr.i = getelementptr inbounds nuw ptr, ptr %12, i64 %conv.i27
-  %cmp20 = icmp ult ptr %Elt, %add.ptr.i
-  %spec.select.idx = select i1 %cmp20, i64 8, i64 0
-  %EltPtr.0.idx = select i1 %cmp18.not, i64 0, i64 %spec.select.idx
+  %cmp20 = icmp uge ptr %Elt, %add.ptr.i
+  %14 = select i1 %cmp18.not, i1 true, i1 %cmp20
+  %EltPtr.0.idx = select i1 %14, i64 0, i64 8
   %EltPtr.0 = getelementptr inbounds nuw i8, ptr %Elt, i64 %EltPtr.0.idx
-  %14 = load ptr, ptr %EltPtr.0, align 8
-  store ptr %14, ptr %I.addr.0, align 8
+  %15 = load ptr, ptr %EltPtr.0, align 8
+  store ptr %15, ptr %I.addr.0, align 8
   br label %return
 
 return:                                           ; preds = %_ZSt13move_backwardIPPN6hermes6ESTree4NodeES4_ET0_T_S6_S5_.exit, %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree4NodeELb1EE9push_backERKS4_.exit

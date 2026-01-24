@@ -664,9 +664,9 @@ define internal fastcc void @clockevents_config(ptr noundef %0, i32 noundef %1) 
   %47 = xor i64 %46, -1
   %48 = icmp ult i64 %31, %47
   %49 = shl nuw i64 1, %.pre-phi
-  %50 = icmp ult i64 %49, %30
-  %51 = select i1 %50, i64 0, i64 %31
-  %52 = select i1 %48, i64 %51, i64 0
+  %50 = icmp uge i64 %49, %30
+  %51 = select i1 %48, i1 %50, i1 false
+  %52 = select i1 %51, i64 %31, i64 0
   %53 = add i64 %52, %46
   %54 = udiv i64 %53, %30
   %55 = tail call i64 @llvm.umax.i64(i64 %54, i64 1000)

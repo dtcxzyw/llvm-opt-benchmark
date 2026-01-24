@@ -485,9 +485,9 @@ _ZN3gmxL41supportsDynamicPairlistGenerationIntervalERK10t_inputrec.exit203.threa
 104:                                              ; preds = %99, %_ZN3gmxL41supportsDynamicPairlistGenerationIntervalERK10t_inputrec.exit203
   %105 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %106 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcmm(ptr noundef nonnull align 8 dereferenceable(32) %105, ptr noundef nonnull @.str.16, i64 noundef 0, i64 noundef 8) #28
-  %.not187 = icmp eq i64 %106, -1
-  %107 = select i1 %.not187, float 1.250000e+00, float 0x3FF6666660000000
-  %108 = select i1 %7, float 0x3FF6666660000000, float %107
+  %.not187 = icmp ne i64 %106, -1
+  %107 = or i1 %7, %.not187
+  %108 = select i1 %107, float 0x3FF6666660000000, float 1.250000e+00
   %109 = fadd float %108, 0x3FB99999A0000000
   %110 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %111 = load i32, ptr %110, align 8, !tbaa !110

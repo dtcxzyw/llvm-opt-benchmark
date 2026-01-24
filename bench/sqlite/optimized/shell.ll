@@ -33122,70 +33122,70 @@ declare ptr @__ctype_b_loc() local_unnamed_addr #26
 define internal fastcc ptr @decimal_new(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #1 {
   %4 = tail call i32 @sqlite3_value_type(ptr noundef %1) #44
   %.not = icmp eq i32 %2, 0
-  %5 = icmp eq i32 %4, 2
-  %6 = icmp eq i32 %4, 4
-  %or.cond = or i1 %5, %6
-  %spec.store.select = select i1 %or.cond, i32 3, i32 %4
-  %.029 = select i1 %.not, i32 %4, i32 %spec.store.select
-  switch i32 %.029, label %31 [
-    i32 3, label %7
-    i32 1, label %7
-    i32 2, label %12
-    i32 4, label %15
+  %5 = icmp ne i32 %4, 2
+  %6 = icmp ne i32 %4, 4
+  %or.cond.not = and i1 %5, %6
+  %7 = select i1 %.not, i1 true, i1 %or.cond.not
+  %.029 = select i1 %7, i32 %4, i32 3
+  switch i32 %.029, label %32 [
+    i32 3, label %8
+    i32 1, label %8
+    i32 2, label %13
+    i32 4, label %16
   ]
 
-7:                                                ; preds = %3, %3
-  %8 = tail call ptr @sqlite3_value_text(ptr noundef %1) #44
-  %9 = tail call i32 @sqlite3_value_bytes(ptr noundef %1) #44
-  %10 = tail call fastcc ptr @decimalNewFromText(ptr noundef %8, i32 noundef %9)
-  %11 = icmp eq ptr %10, null
-  br i1 %11, label %28, label %31
+8:                                                ; preds = %3, %3
+  %9 = tail call ptr @sqlite3_value_text(ptr noundef %1) #44
+  %10 = tail call i32 @sqlite3_value_bytes(ptr noundef %1) #44
+  %11 = tail call fastcc ptr @decimalNewFromText(ptr noundef %9, i32 noundef %10)
+  %12 = icmp eq ptr %11, null
+  br i1 %12, label %29, label %32
 
-12:                                               ; preds = %3
-  %13 = tail call double @sqlite3_value_double(ptr noundef %1) #44
-  %14 = tail call fastcc ptr @decimalFromDouble(double noundef %13)
-  br label %31
+13:                                               ; preds = %3
+  %14 = tail call double @sqlite3_value_double(ptr noundef %1) #44
+  %15 = tail call fastcc ptr @decimalFromDouble(double noundef %14)
+  br label %32
 
-15:                                               ; preds = %3
-  %16 = tail call i32 @sqlite3_value_bytes(ptr noundef %1) #44
-  %.not32 = icmp eq i32 %16, 8
-  br i1 %.not32, label %17, label %31
+16:                                               ; preds = %3
+  %17 = tail call i32 @sqlite3_value_bytes(ptr noundef %1) #44
+  %.not32 = icmp eq i32 %17, 8
+  br i1 %.not32, label %18, label %32
 
-17:                                               ; preds = %15
-  %18 = tail call ptr @sqlite3_value_blob(ptr noundef %1) #44
-  br label %19
+18:                                               ; preds = %16
+  %19 = tail call ptr @sqlite3_value_blob(ptr noundef %1) #44
+  br label %20
 
-19:                                               ; preds = %17, %19
-  %indvars.iv = phi i64 [ 0, %17 ], [ %indvars.iv.next, %19 ]
-  %.02535 = phi i64 [ 0, %17 ], [ %24, %19 ]
-  %20 = shl i64 %.02535, 8
-  %21 = getelementptr inbounds nuw i8, ptr %18, i64 %indvars.iv
-  %22 = load i8, ptr %21, align 1, !tbaa !25
-  %23 = zext i8 %22 to i64
-  %24 = or disjoint i64 %20, %23
+20:                                               ; preds = %18, %20
+  %indvars.iv = phi i64 [ 0, %18 ], [ %indvars.iv.next, %20 ]
+  %.02537 = phi i64 [ 0, %18 ], [ %25, %20 ]
+  %21 = shl i64 %.02537, 8
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 %indvars.iv
+  %23 = load i8, ptr %22, align 1, !tbaa !25
+  %24 = zext i8 %23 to i64
+  %25 = or disjoint i64 %21, %24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %25, label %19, !llvm.loop !694
+  br i1 %exitcond.not, label %26, label %20, !llvm.loop !694
 
-25:                                               ; preds = %19
-  %26 = bitcast i64 %24 to double
-  %27 = tail call fastcc ptr @decimalFromDouble(double noundef %26)
-  br label %31
+26:                                               ; preds = %20
+  %27 = bitcast i64 %25 to double
+  %28 = tail call fastcc ptr @decimalFromDouble(double noundef %27)
+  br label %32
 
-28:                                               ; preds = %7
+29:                                               ; preds = %8
   %.not33 = icmp eq ptr %0, null
-  br i1 %.not33, label %30, label %29
+  br i1 %.not33, label %31, label %30
 
-29:                                               ; preds = %28
+30:                                               ; preds = %29
   tail call void @sqlite3_result_error_nomem(ptr noundef nonnull %0) #44
-  br label %30
-
-30:                                               ; preds = %29, %28
-  tail call void @sqlite3_free(ptr noundef null) #44
   br label %31
 
-31:                                               ; preds = %7, %3, %12, %15, %25, %30
-  %.0 = phi ptr [ null, %30 ], [ null, %3 ], [ %10, %7 ], [ %14, %12 ], [ %27, %25 ], [ null, %15 ]
+31:                                               ; preds = %30, %29
+  tail call void @sqlite3_free(ptr noundef null) #44
+  br label %32
+
+32:                                               ; preds = %8, %3, %13, %16, %26, %31
+  %.0 = phi ptr [ null, %31 ], [ null, %3 ], [ %11, %8 ], [ %15, %13 ], [ %28, %26 ], [ null, %16 ]
   ret ptr %.0
 }
 

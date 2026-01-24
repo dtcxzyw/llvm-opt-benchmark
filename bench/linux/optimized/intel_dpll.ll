@@ -2600,21 +2600,21 @@ define internal i32 @ilk_crtc_compute_clock(ptr noundef %0, ptr noundef %1) #1 a
   %141 = add i32 %140, -512
   %142 = or i32 %137, %141
   %143 = and i64 %134, 72
-  %144 = icmp eq i64 %143, 0
+  %144 = icmp ne i64 %143, 0
   %145 = or i32 %142, 1073741824
   %146 = and i32 %133, 2432
-  %147 = icmp eq i32 %146, 0
-  %148 = select i1 %147, i1 %144, i1 false
-  %149 = select i1 %148, i32 %142, i32 %145
-  %150 = getelementptr inbounds nuw i8, ptr %95, i64 2638
-  %151 = load i8, ptr %150, align 2
-  %152 = zext i8 %151 to i32
-  %153 = tail call i32 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight32\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntl $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i32 %152) #13, !srcloc !47
-  %154 = icmp eq i32 %153, 3
-  %155 = and i64 %134, 2
-  %156 = icmp eq i64 %155, 0
-  %157 = select i1 %156, i32 %149, i32 %145
-  %158 = select i1 %154, i32 %157, i32 %149
+  %147 = icmp ne i32 %146, 0
+  %148 = getelementptr inbounds nuw i8, ptr %95, i64 2638
+  %149 = load i8, ptr %148, align 2
+  %150 = zext i8 %149 to i32
+  %151 = tail call i32 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight32\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntl $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i32 %150) #13, !srcloc !47
+  %152 = icmp eq i32 %151, 3
+  %153 = and i64 %134, 2
+  %154 = icmp ne i64 %153, 0
+  %155 = select i1 %152, i1 %154, i1 false
+  %156 = select i1 %155, i1 true, i1 %147
+  %157 = select i1 %156, i1 true, i1 %144
+  %158 = select i1 %157, i32 %145, i32 %142
   %159 = load i32, ptr %61, align 8
   %160 = add i32 %159, -1
   %161 = shl i32 65537, %160

@@ -2632,7 +2632,7 @@ define internal fastcc void @dissect_xid(ptr noundef %0, ptr noundef readonly ca
 .critedge168:                                     ; preds = %.critedge165, %.thread171, %39, %.critedge167
   %47 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 12)
   %48 = icmp sgt i32 %47, 0
-  br i1 %48, label %49, label %143
+  br i1 %48, label %49, label %142
 
 49:                                               ; preds = %.critedge168
   %.not151 = icmp eq ptr %2, null
@@ -2657,187 +2657,186 @@ define internal fastcc void @dissect_xid(ptr noundef %0, ptr noundef readonly ca
   %58 = add i32 %.0144, 12
   %59 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %58)
   %60 = icmp eq i32 %.0144, 0
-  %61 = icmp eq i32 %57, 2
-  %spec.select = select i1 %61, i8 %59, i8 %.0141
+  %.not175 = icmp eq i32 %57, 2
   %.1143 = select i1 %60, i8 %59, i8 %.0142
-  %.1 = select i1 %60, i8 %.0141, i8 %spec.select
-  %62 = icmp sgt i8 %59, -1
-  br i1 %62, label %63, label %56
+  %.1 = select i1 %.not175, i8 %59, i8 %.0141
+  %61 = icmp sgt i8 %59, -1
+  br i1 %61, label %62, label %56
 
-63:                                               ; preds = %56
-  br i1 %.not151, label %117, label %64
+62:                                               ; preds = %56
+  br i1 %.not151, label %116, label %63
 
-64:                                               ; preds = %63
-  %65 = load i32, ptr @hf_lmp_xid_hints, align 4
-  %66 = tail call ptr @proto_tree_add_item(ptr noundef %.0140, i32 noundef %65, ptr noundef %0, i32 noundef 12, i32 noundef %57, i32 noundef 0)
-  %67 = zext i8 %.1143 to i32
-  %68 = zext i8 %.1 to i32
-  %69 = or i32 %68, %67
-  %.not152 = icmp eq i32 %69, 0
-  br i1 %.not152, label %117, label %70
+63:                                               ; preds = %62
+  %64 = load i32, ptr @hf_lmp_xid_hints, align 4
+  %65 = tail call ptr @proto_tree_add_item(ptr noundef %.0140, i32 noundef %64, ptr noundef %0, i32 noundef 12, i32 noundef %57, i32 noundef 0)
+  %66 = zext i8 %.1143 to i32
+  %67 = zext i8 %.1 to i32
+  %68 = or i32 %66, %67
+  %.not152 = icmp eq i32 %68, 0
+  br i1 %.not152, label %116, label %69
 
-70:                                               ; preds = %64
+69:                                               ; preds = %63
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i8 0, ptr %6, align 16
-  %71 = and i32 %67, 1
-  %.not153 = icmp eq i32 %71, 0
-  br i1 %.not153, label %74, label %72
+  %70 = and i32 %66, 1
+  %.not153 = icmp eq i32 %70, 0
+  br i1 %.not153, label %73, label %71
 
-72:                                               ; preds = %70
-  %73 = call i64 @g_strlcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.329, i64 noundef 256)
-  br label %74
+71:                                               ; preds = %69
+  %72 = call i64 @g_strlcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.329, i64 noundef 256)
+  br label %73
 
-74:                                               ; preds = %72, %70
-  %75 = and i32 %67, 2
-  %.not154 = icmp eq i32 %75, 0
-  br i1 %.not154, label %78, label %76
+73:                                               ; preds = %71, %69
+  %74 = and i32 %66, 2
+  %.not154 = icmp eq i32 %74, 0
+  br i1 %.not154, label %77, label %75
 
-76:                                               ; preds = %74
-  %77 = call i64 @g_strlcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.330, i64 noundef 256)
-  br label %78
+75:                                               ; preds = %73
+  %76 = call i64 @g_strlcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.330, i64 noundef 256)
+  br label %77
 
-78:                                               ; preds = %76, %74
-  %79 = and i32 %67, 4
-  %.not155 = icmp eq i32 %79, 0
-  br i1 %.not155, label %82, label %80
+77:                                               ; preds = %75, %73
+  %78 = and i32 %66, 4
+  %.not155 = icmp eq i32 %78, 0
+  br i1 %.not155, label %81, label %79
 
-80:                                               ; preds = %78
-  %81 = call i64 @g_strlcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.331, i64 noundef 256)
-  br label %82
+79:                                               ; preds = %77
+  %80 = call i64 @g_strlcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.331, i64 noundef 256)
+  br label %81
 
-82:                                               ; preds = %80, %78
-  %83 = and i32 %67, 8
-  %.not156 = icmp eq i32 %83, 0
-  br i1 %.not156, label %86, label %84
+81:                                               ; preds = %79, %77
+  %82 = and i32 %66, 8
+  %.not156 = icmp eq i32 %82, 0
+  br i1 %.not156, label %85, label %83
 
-84:                                               ; preds = %82
-  %85 = call i64 @g_strlcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.332, i64 noundef 256)
-  br label %86
+83:                                               ; preds = %81
+  %84 = call i64 @g_strlcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.332, i64 noundef 256)
+  br label %85
 
-86:                                               ; preds = %84, %82
-  %87 = and i32 %67, 16
-  %.not157 = icmp eq i32 %87, 0
-  br i1 %.not157, label %90, label %88
+85:                                               ; preds = %83, %81
+  %86 = and i32 %66, 16
+  %.not157 = icmp eq i32 %86, 0
+  br i1 %.not157, label %89, label %87
 
-88:                                               ; preds = %86
-  %89 = call i64 @g_strlcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.333, i64 noundef 256)
-  br label %90
+87:                                               ; preds = %85
+  %88 = call i64 @g_strlcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.333, i64 noundef 256)
+  br label %89
 
-90:                                               ; preds = %88, %86
-  %91 = and i32 %67, 32
-  %.not158 = icmp eq i32 %91, 0
-  br i1 %.not158, label %94, label %92
+89:                                               ; preds = %87, %85
+  %90 = and i32 %66, 32
+  %.not158 = icmp eq i32 %90, 0
+  br i1 %.not158, label %93, label %91
 
-92:                                               ; preds = %90
-  %93 = call i64 @g_strlcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.334, i64 noundef 256)
-  br label %94
+91:                                               ; preds = %89
+  %92 = call i64 @g_strlcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.334, i64 noundef 256)
+  br label %93
 
-94:                                               ; preds = %92, %90
-  %95 = and i32 %67, 64
-  %.not159 = icmp eq i32 %95, 0
-  br i1 %.not159, label %98, label %96
+93:                                               ; preds = %91, %89
+  %94 = and i32 %66, 64
+  %.not159 = icmp eq i32 %94, 0
+  br i1 %.not159, label %97, label %95
 
-96:                                               ; preds = %94
-  %97 = call i64 @g_strlcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.335, i64 noundef 256)
-  br label %98
+95:                                               ; preds = %93
+  %96 = call i64 @g_strlcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.335, i64 noundef 256)
+  br label %97
 
-98:                                               ; preds = %96, %94
-  %99 = and i32 %68, 1
-  %.not160 = icmp eq i32 %99, 0
-  br i1 %.not160, label %102, label %100
+97:                                               ; preds = %95, %93
+  %98 = and i32 %67, 1
+  %.not160 = icmp eq i32 %98, 0
+  br i1 %.not160, label %101, label %99
 
-100:                                              ; preds = %98
-  %101 = call i64 @g_strlcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.336, i64 noundef 256)
-  br label %102
+99:                                               ; preds = %97
+  %100 = call i64 @g_strlcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.336, i64 noundef 256)
+  br label %101
 
-102:                                              ; preds = %100, %98
-  %103 = and i32 %68, 2
-  %.not161 = icmp eq i32 %103, 0
-  br i1 %.not161, label %106, label %104
+101:                                              ; preds = %99, %97
+  %102 = and i32 %67, 2
+  %.not161 = icmp eq i32 %102, 0
+  br i1 %.not161, label %105, label %103
 
-104:                                              ; preds = %102
-  %105 = call i64 @g_strlcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.337, i64 noundef 256)
-  br label %106
+103:                                              ; preds = %101
+  %104 = call i64 @g_strlcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.337, i64 noundef 256)
+  br label %105
 
-106:                                              ; preds = %104, %102
-  %107 = and i32 %68, 4
-  %.not162 = icmp eq i32 %107, 0
-  br i1 %.not162, label %110, label %108
+105:                                              ; preds = %103, %101
+  %106 = and i32 %67, 4
+  %.not162 = icmp eq i32 %106, 0
+  br i1 %.not162, label %109, label %107
 
-108:                                              ; preds = %106
-  %109 = call i64 @g_strlcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.338, i64 noundef 256)
-  br label %110
+107:                                              ; preds = %105
+  %108 = call i64 @g_strlcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.338, i64 noundef 256)
+  br label %109
 
-110:                                              ; preds = %108, %106
-  %111 = and i32 %68, 32
-  %.not163 = icmp eq i32 %111, 0
-  br i1 %.not163, label %114, label %112
+109:                                              ; preds = %107, %105
+  %110 = and i32 %67, 32
+  %.not163 = icmp eq i32 %110, 0
+  br i1 %.not163, label %113, label %111
 
-112:                                              ; preds = %110
-  %113 = call i64 @g_strlcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.339, i64 noundef 256)
-  br label %114
+111:                                              ; preds = %109
+  %112 = call i64 @g_strlcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.339, i64 noundef 256)
+  br label %113
 
-114:                                              ; preds = %112, %110
-  %115 = call i64 @g_strlcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.255, i64 noundef 256)
+113:                                              ; preds = %111, %109
+  %114 = call i64 @g_strlcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.255, i64 noundef 256)
   store i8 32, ptr %6, align 16
-  %116 = getelementptr inbounds nuw i8, ptr %6, i64 1
-  store i8 40, ptr %116, align 1
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %66, ptr noundef nonnull @.str, ptr noundef nonnull %6)
+  %115 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  store i8 40, ptr %115, align 1
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %65, ptr noundef nonnull @.str, ptr noundef nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %117
+  br label %116
 
-117:                                              ; preds = %64, %114, %63
-  %118 = add i32 %.0144, 13
-  %119 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %118)
-  %120 = icmp sgt i32 %119, 0
-  br i1 %120, label %121, label %143
+116:                                              ; preds = %63, %113, %62
+  %117 = add i32 %.0144, 13
+  %118 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %117)
+  %119 = icmp sgt i32 %118, 0
+  br i1 %119, label %120, label %142
 
-121:                                              ; preds = %117
-  %122 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %118)
-  br i1 %.not151, label %127, label %123
+120:                                              ; preds = %116
+  %121 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %117)
+  br i1 %.not151, label %126, label %122
 
-123:                                              ; preds = %121
-  %124 = load i32, ptr @hf_lmp_xid_charset, align 4
-  %125 = zext i8 %122 to i32
-  %126 = call ptr @proto_tree_add_uint(ptr noundef %.0140, i32 noundef %124, ptr noundef %0, i32 noundef %118, i32 noundef 1, i32 noundef %125)
-  br label %127
+122:                                              ; preds = %120
+  %123 = load i32, ptr @hf_lmp_xid_charset, align 4
+  %124 = zext i8 %121 to i32
+  %125 = call ptr @proto_tree_add_uint(ptr noundef %.0140, i32 noundef %123, ptr noundef %0, i32 noundef %117, i32 noundef 1, i32 noundef %124)
+  br label %126
 
-127:                                              ; preds = %123, %121
-  %128 = add i32 %.0144, 14
-  %129 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %128)
-  %130 = icmp sgt i32 %129, 0
-  br i1 %130, label %131, label %143
+126:                                              ; preds = %122, %120
+  %127 = add i32 %.0144, 14
+  %128 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %127)
+  %129 = icmp sgt i32 %128, 0
+  br i1 %129, label %130, label %142
 
-131:                                              ; preds = %127
-  %switch.tableidx = add i8 %122, 1
-  %132 = icmp ult i8 %switch.tableidx, 11
-  br i1 %132, label %switch.lookup, label %.critedge170
+130:                                              ; preds = %126
+  %switch.tableidx = add i8 %121, 1
+  %131 = icmp ult i8 %switch.tableidx, 11
+  br i1 %131, label %switch.lookup, label %.critedge170
 
-.critedge170:                                     ; preds = %131
-  br i1 %.not151, label %143, label %.sink.split
+.critedge170:                                     ; preds = %130
+  br i1 %.not151, label %142, label %.sink.split
 
-switch.lookup:                                    ; preds = %131
-  %133 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.dissect_xid, i64 %133
+switch.lookup:                                    ; preds = %130
+  %132 = zext nneg i8 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.dissect_xid, i64 %132
   %switch.load = load i32, ptr %switch.gep, align 4
-  %134 = getelementptr inbounds nuw i8, ptr %1, i64 408
-  %135 = load ptr, ptr %134, align 8
-  %136 = call ptr @tvb_get_string_enc(ptr noundef %135, ptr noundef %0, i32 noundef %128, i32 noundef %129, i32 noundef %switch.load)
-  %137 = load ptr, ptr %16, align 8
-  %138 = load ptr, ptr %134, align 8
-  %139 = call i64 @strlen(ptr noundef %136) #8
-  %140 = call ptr @format_text(ptr noundef %138, ptr noundef %136, i64 noundef %139)
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %137, i32 noundef 25, ptr noundef nonnull @.str.265, ptr noundef %140)
-  br i1 %.not151, label %143, label %.sink.split
+  %133 = getelementptr inbounds nuw i8, ptr %1, i64 408
+  %134 = load ptr, ptr %133, align 8
+  %135 = call ptr @tvb_get_string_enc(ptr noundef %134, ptr noundef %0, i32 noundef %127, i32 noundef %128, i32 noundef %switch.load)
+  %136 = load ptr, ptr %16, align 8
+  %137 = load ptr, ptr %133, align 8
+  %138 = call i64 @strlen(ptr noundef %135) #8
+  %139 = call ptr @format_text(ptr noundef %137, ptr noundef %135, i64 noundef %138)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %136, i32 noundef 25, ptr noundef nonnull @.str.265, ptr noundef %139)
+  br i1 %.not151, label %142, label %.sink.split
 
 .sink.split:                                      ; preds = %.critedge170, %switch.lookup
   %hf_lmp_xid_name.sink = phi ptr [ @hf_lmp_xid_name, %switch.lookup ], [ @hf_lmp_xid_name_no_encoding, %.critedge170 ]
   %.0.sink = phi i32 [ %switch.load, %switch.lookup ], [ 0, %.critedge170 ]
-  %141 = load i32, ptr %hf_lmp_xid_name.sink, align 4
-  %142 = call ptr @proto_tree_add_item(ptr noundef %.0140, i32 noundef %141, ptr noundef %0, i32 noundef %128, i32 noundef -1, i32 noundef %.0.sink)
-  br label %143
+  %140 = load i32, ptr %hf_lmp_xid_name.sink, align 4
+  %141 = call ptr @proto_tree_add_item(ptr noundef %.0140, i32 noundef %140, ptr noundef %0, i32 noundef %127, i32 noundef -1, i32 noundef %.0.sink)
+  br label %142
 
-143:                                              ; preds = %.sink.split, %117, %switch.lookup, %.critedge170, %127, %.critedge168
+142:                                              ; preds = %.sink.split, %116, %switch.lookup, %.critedge170, %126, %.critedge168
   ret void
 }
 

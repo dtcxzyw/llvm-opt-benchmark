@@ -3658,9 +3658,9 @@ define internal fastcc void @trace_encoding(ptr noundef %0, ptr noundef %1, ptr 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %17 = and i64 %indvars.iv.next, 7
   %.not24 = icmp eq i64 %17, 0
-  %18 = icmp ugt i64 %4, %indvars.iv.next
-  %19 = select i1 %18, i32 32, i32 10
-  %20 = select i1 %.not24, i32 10, i32 %19
+  %18 = icmp ule i64 %4, %indvars.iv.next
+  %19 = or i1 %.not24, %18
+  %20 = select i1 %19, i32 10, i32 32
   %21 = trunc nuw nsw i64 %indvars.iv to i32
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %6, ptr noundef nonnull @.str.64, i32 noundef %21, i32 noundef %14, i32 noundef %16, i32 noundef %20) #22
   %exitcond.not = icmp eq i64 %indvars.iv.next, %4

@@ -1374,7 +1374,7 @@ define void @sequence_analysis_dump_to_file(ptr noundef %0, ptr noundef %1, i32 
 .outer227:                                        ; preds = %.outer227.preheader, %18
   %.0159.ph = phi i16 [ %.1160, %18 ], [ 0, %.outer227.preheader ]
   %.0157.ph = phi i1 [ %.1158, %18 ], [ false, %.outer227.preheader ]
-  %.0155.ph = phi i1 [ false, %18 ], [ true, %.outer227.preheader ]
+  %.0155.ph.not = phi i1 [ true, %18 ], [ false, %.outer227.preheader ]
   %.0151.ph = phi i32 [ %19, %18 ], [ 0, %.outer227.preheader ]
   %.1.ph = phi ptr [ %14, %18 ], [ %.1.ph.ph, %.outer227.preheader ]
   br label %10
@@ -1398,9 +1398,9 @@ define void @sequence_analysis_dump_to_file(ptr noundef %0, ptr noundef %1, i32 
   %20 = getelementptr inbounds nuw i8, ptr %12, i64 96
   %21 = load i16, ptr %20, align 8
   %.not175 = icmp ne i16 %21, %.0159.ph
-  %spec.select = select i1 %.not175, i1 true, i1 %.0157.ph
-  %.1160 = select i1 %.0155.ph, i16 %21, i16 %.0159.ph
-  %.1158 = select i1 %.0155.ph, i1 %.0157.ph, i1 %spec.select
+  %.1160 = select i1 %.0155.ph.not, i16 %.0159.ph, i16 %21
+  %.not296 = select i1 %.0155.ph.not, i1 %.not175, i1 false
+  %.1158 = select i1 %.not296, i1 true, i1 %.0157.ph
   br label %.outer227, !llvm.loop !12
 
 22:                                               ; preds = %10

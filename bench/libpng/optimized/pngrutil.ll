@@ -151,10 +151,10 @@ define i32 @png_get_int_32(ptr noundef readonly captures(none) %0) local_unnamed
   %17 = or disjoint i32 %16, %12
   %18 = or disjoint i32 %17, %4
   %notsub = add i32 %18, -1
-  %19 = icmp slt i32 %notsub, 0
-  %. = select i1 %19, i32 %18, i32 0
+  %19 = icmp sgt i32 %notsub, -1
   %20 = icmp slt i32 %4, 0
-  %.0 = select i1 %20, i32 %., i32 %18
+  %21 = select i1 %20, i1 %19, i1 false
+  %.0 = select i1 %21, i32 0, i32 %18
   ret i32 %.0
 }
 

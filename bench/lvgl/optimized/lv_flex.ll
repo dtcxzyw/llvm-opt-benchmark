@@ -330,135 +330,133 @@ place_content.exit:                               ; preds = %139, %134, %125, %1
   %or.cond213 = and i1 %26, %.not98
   %.sroa.speculated143 = select i1 %.not, i32 %.0178, i32 %.0180
   %149 = add nsw i32 %.087, %.sroa.speculated143
-  %150 = and i1 %.not, %or.cond213
-  %.1179 = select i1 %150, i32 %149, i32 %.0178
-  %151 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %152 = icmp ult i32 %147, %.pre250
-  br i1 %152, label %.lr.ph231, label %._crit_edge232
+  %150 = xor i1 %.not, true
+  %151 = and i1 %or.cond213, %150
+  %.1181 = select i1 %151, i32 %149, i32 %.0180
+  %152 = and i1 %.not, %or.cond213
+  %.1179 = select i1 %152, i32 %149, i32 %.0178
+  %153 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %154 = icmp ult i32 %147, %.pre250
+  br i1 %154, label %.lr.ph231, label %._crit_edge232
 
 .lr.ph231:                                        ; preds = %.thread201
-  %153 = getelementptr inbounds nuw i8, ptr %5, i64 28
-  %154 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %155 = add i32 %.0176, %37
-  br i1 %26, label %.lr.ph231.split.us.preheader, label %.lr.ph231.split
+  %155 = getelementptr inbounds nuw i8, ptr %5, i64 28
+  %156 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %157 = add i32 %.0176, %37
+  br i1 %26, label %.lr.ph231.split.us, label %.lr.ph231.split
 
-.lr.ph231.split.us.preheader:                     ; preds = %.lr.ph231
-  %spec.select214 = select i1 %.not, i32 %.0180, i32 %149
-  %.1181 = select i1 %.not98, i32 %spec.select214, i32 %.0180
-  br label %.lr.ph231.split.us
-
-.lr.ph231.split.us:                               ; preds = %.lr.ph231.split.us.preheader, %.cont135.us
-  %.185230.us = phi i32 [ %158, %.cont135.us ], [ %147, %.lr.ph231.split.us.preheader ]
-  %.2229.us = phi i32 [ %spec.select219.us, %.cont135.us ], [ %.1179, %.lr.ph231.split.us.preheader ]
-  %.2182228.us = phi i32 [ %spec.select218.us, %.cont135.us ], [ %.1181, %.lr.ph231.split.us.preheader ]
+.lr.ph231.split.us:                               ; preds = %.lr.ph231, %.cont135.us
+  %.185230.us = phi i32 [ %160, %.cont135.us ], [ %147, %.lr.ph231 ]
+  %.2229.us = phi i32 [ %spec.select219.us, %.cont135.us ], [ %.1179, %.lr.ph231 ]
+  %.2182228.us = phi i32 [ %spec.select218.us, %.cont135.us ], [ %.1181, %.lr.ph231 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %156 = load i8, ptr %153, align 4
-  %157 = or i8 %156, 1
-  store i8 %157, ptr %153, align 4
-  %158 = call fastcc i32 @find_track_end(ptr noundef nonnull %0, ptr noundef %3, i32 noundef %.185230.us, i32 noundef %36, i32 noundef %38, ptr noundef %5)
-  %159 = load i8, ptr %10, align 4
-  %160 = and i8 %159, 1
-  %.not99.us = icmp eq i8 %160, 0
-  br i1 %.not99.us, label %161, label %.else146.us
+  %158 = load i8, ptr %155, align 4
+  %159 = or i8 %158, 1
+  store i8 %159, ptr %155, align 4
+  %160 = call fastcc i32 @find_track_end(ptr noundef nonnull %0, ptr noundef %3, i32 noundef %.185230.us, i32 noundef %36, i32 noundef %38, ptr noundef %5)
+  %161 = load i8, ptr %10, align 4
+  %162 = and i8 %161, 1
+  %.not99.us = icmp eq i8 %162, 0
+  br i1 %.not99.us, label %163, label %.else146.us
 
-161:                                              ; preds = %.lr.ph231.split.us
-  %162 = load i32, ptr %5, align 8, !tbaa !52
+163:                                              ; preds = %.lr.ph231.split.us
+  %164 = load i32, ptr %5, align 8, !tbaa !52
   %.sroa.speculated149.us = select i1 %.not, i32 %.2229.us, i32 %.2182228.us
-  %163 = sub nsw i32 %.sroa.speculated149.us, %162
-  %spec.select216.us = select i1 %.not, i32 %.2182228.us, i32 %163
-  %spec.select217.us = select i1 %.not, i32 %163, i32 %.2229.us
+  %165 = sub nsw i32 %.sroa.speculated149.us, %164
+  %spec.select216.us = select i1 %.not, i32 %.2182228.us, i32 %165
+  %spec.select217.us = select i1 %.not, i32 %165, i32 %.2229.us
   br label %.else146.us
 
-.else146.us:                                      ; preds = %161, %.lr.ph231.split.us
-  %.3183.us = phi i32 [ %.2182228.us, %.lr.ph231.split.us ], [ %spec.select216.us, %161 ]
-  %.3.us = phi i32 [ %.2229.us, %.lr.ph231.split.us ], [ %spec.select217.us, %161 ]
-  call fastcc void @children_repos(ptr noundef nonnull %0, ptr noundef %3, i32 noundef %.185230.us, i32 noundef %158, i32 noundef %.3.us, i32 noundef %.3183.us, i32 noundef %36, i32 noundef %38, ptr noundef %5)
-  %164 = load ptr, ptr %154, align 8, !tbaa !56
-  tail call void @lv_free(ptr noundef %164) #7
-  br i1 %.not99.us, label %169, label %165
+.else146.us:                                      ; preds = %163, %.lr.ph231.split.us
+  %.3183.us = phi i32 [ %.2182228.us, %.lr.ph231.split.us ], [ %spec.select216.us, %163 ]
+  %.3.us = phi i32 [ %.2229.us, %.lr.ph231.split.us ], [ %spec.select217.us, %163 ]
+  call fastcc void @children_repos(ptr noundef nonnull %0, ptr noundef %3, i32 noundef %.185230.us, i32 noundef %160, i32 noundef %.3.us, i32 noundef %.3183.us, i32 noundef %36, i32 noundef %38, ptr noundef %5)
+  %166 = load ptr, ptr %156, align 8, !tbaa !56
+  tail call void @lv_free(ptr noundef %166) #7
+  br i1 %.not99.us, label %171, label %167
 
-165:                                              ; preds = %.else146.us
-  %166 = load i32, ptr %5, align 8, !tbaa !52
+167:                                              ; preds = %.else146.us
+  %168 = load i32, ptr %5, align 8, !tbaa !52
   %.sroa.speculated155.us = select i1 %.not, i32 %.3.us, i32 %.3183.us
-  %167 = add i32 %155, %166
-  %168 = add nsw i32 %167, %.sroa.speculated155.us
+  %169 = add i32 %157, %168
+  %170 = add nsw i32 %169, %.sroa.speculated155.us
   br label %.cont135.us
 
-169:                                              ; preds = %.else146.us
+171:                                              ; preds = %.else146.us
   %.sroa.speculated152.us = select i1 %.not, i32 %.3.us, i32 %.3183.us
-  %170 = sub i32 %.sroa.speculated152.us, %155
+  %172 = sub i32 %.sroa.speculated152.us, %157
   br label %.cont135.us
 
-.cont135.us:                                      ; preds = %169, %165
-  %storemerge.us = phi i32 [ %170, %169 ], [ %168, %165 ]
+.cont135.us:                                      ; preds = %171, %167
+  %storemerge.us = phi i32 [ %172, %171 ], [ %170, %167 ]
   %spec.select218.us = select i1 %.not, i32 %.3183.us, i32 %storemerge.us
   %spec.select219.us = select i1 %.not, i32 %storemerge.us, i32 %.3.us
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %171 = load ptr, ptr %151, align 8, !tbaa !45
-  %172 = getelementptr inbounds nuw i8, ptr %171, i64 64
-  %173 = load i16, ptr %172, align 8, !tbaa !46
-  %174 = zext i16 %173 to i32
-  %175 = icmp ult i32 %158, %174
-  br i1 %175, label %.lr.ph231.split.us, label %._crit_edge232, !llvm.loop !57
+  %173 = load ptr, ptr %153, align 8, !tbaa !45
+  %174 = getelementptr inbounds nuw i8, ptr %173, i64 64
+  %175 = load i16, ptr %174, align 8, !tbaa !46
+  %176 = zext i16 %175 to i32
+  %177 = icmp ult i32 %160, %176
+  br i1 %177, label %.lr.ph231.split.us, label %._crit_edge232, !llvm.loop !57
 
 .lr.ph231.split:                                  ; preds = %.lr.ph231
   br i1 %.not, label %.critedge.us, label %.critedge
 
 .critedge.us:                                     ; preds = %.lr.ph231.split, %.critedge.us
-  %.185230.us233 = phi i32 [ %178, %.critedge.us ], [ %147, %.lr.ph231.split ]
-  %.2229.us234 = phi i32 [ %182, %.critedge.us ], [ %.1179, %.lr.ph231.split ]
+  %.185230.us233 = phi i32 [ %180, %.critedge.us ], [ %147, %.lr.ph231.split ]
+  %.2229.us234 = phi i32 [ %184, %.critedge.us ], [ %.1179, %.lr.ph231.split ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %176 = load i8, ptr %153, align 4
-  %177 = or i8 %176, 1
-  store i8 %177, ptr %153, align 4
-  %178 = call fastcc i32 @find_track_end(ptr noundef nonnull %0, ptr noundef %3, i32 noundef %.185230.us233, i32 noundef %36, i32 noundef %38, ptr noundef %5)
-  call fastcc void @children_repos(ptr noundef nonnull %0, ptr noundef %3, i32 noundef %.185230.us233, i32 noundef %178, i32 noundef %.2229.us234, i32 noundef %.0180, i32 noundef %36, i32 noundef %38, ptr noundef %5)
-  %179 = load ptr, ptr %154, align 8, !tbaa !56
-  tail call void @lv_free(ptr noundef %179) #7
-  %180 = load i32, ptr %5, align 8, !tbaa !52
-  %181 = add i32 %155, %180
-  %182 = add nsw i32 %181, %.2229.us234
+  %178 = load i8, ptr %155, align 4
+  %179 = or i8 %178, 1
+  store i8 %179, ptr %155, align 4
+  %180 = call fastcc i32 @find_track_end(ptr noundef nonnull %0, ptr noundef %3, i32 noundef %.185230.us233, i32 noundef %36, i32 noundef %38, ptr noundef %5)
+  call fastcc void @children_repos(ptr noundef nonnull %0, ptr noundef %3, i32 noundef %.185230.us233, i32 noundef %180, i32 noundef %.2229.us234, i32 noundef %.1181, i32 noundef %36, i32 noundef %38, ptr noundef %5)
+  %181 = load ptr, ptr %156, align 8, !tbaa !56
+  tail call void @lv_free(ptr noundef %181) #7
+  %182 = load i32, ptr %5, align 8, !tbaa !52
+  %183 = add i32 %157, %182
+  %184 = add nsw i32 %183, %.2229.us234
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %183 = load ptr, ptr %151, align 8, !tbaa !45
-  %184 = getelementptr inbounds nuw i8, ptr %183, i64 64
-  %185 = load i16, ptr %184, align 8, !tbaa !46
-  %186 = zext i16 %185 to i32
-  %187 = icmp ult i32 %178, %186
-  br i1 %187, label %.critedge.us, label %._crit_edge232, !llvm.loop !57
+  %185 = load ptr, ptr %153, align 8, !tbaa !45
+  %186 = getelementptr inbounds nuw i8, ptr %185, i64 64
+  %187 = load i16, ptr %186, align 8, !tbaa !46
+  %188 = zext i16 %187 to i32
+  %189 = icmp ult i32 %180, %188
+  br i1 %189, label %.critedge.us, label %._crit_edge232, !llvm.loop !57
 
 .critedge:                                        ; preds = %.lr.ph231.split, %.critedge
-  %.185230 = phi i32 [ %190, %.critedge ], [ %147, %.lr.ph231.split ]
-  %.2182228 = phi i32 [ %194, %.critedge ], [ %.0180, %.lr.ph231.split ]
+  %.185230 = phi i32 [ %192, %.critedge ], [ %147, %.lr.ph231.split ]
+  %.2182228 = phi i32 [ %196, %.critedge ], [ %.1181, %.lr.ph231.split ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %188 = load i8, ptr %153, align 4
-  %189 = or i8 %188, 1
-  store i8 %189, ptr %153, align 4
-  %190 = call fastcc i32 @find_track_end(ptr noundef nonnull %0, ptr noundef %3, i32 noundef %.185230, i32 noundef %36, i32 noundef %38, ptr noundef %5)
-  call fastcc void @children_repos(ptr noundef nonnull %0, ptr noundef %3, i32 noundef %.185230, i32 noundef %190, i32 noundef %.0178, i32 noundef %.2182228, i32 noundef %36, i32 noundef %38, ptr noundef %5)
-  %191 = load ptr, ptr %154, align 8, !tbaa !56
-  tail call void @lv_free(ptr noundef %191) #7
-  %192 = load i32, ptr %5, align 8, !tbaa !52
-  %193 = add i32 %155, %192
-  %194 = add nsw i32 %193, %.2182228
+  %190 = load i8, ptr %155, align 4
+  %191 = or i8 %190, 1
+  store i8 %191, ptr %155, align 4
+  %192 = call fastcc i32 @find_track_end(ptr noundef nonnull %0, ptr noundef %3, i32 noundef %.185230, i32 noundef %36, i32 noundef %38, ptr noundef %5)
+  call fastcc void @children_repos(ptr noundef nonnull %0, ptr noundef %3, i32 noundef %.185230, i32 noundef %192, i32 noundef %.0178, i32 noundef %.2182228, i32 noundef %36, i32 noundef %38, ptr noundef %5)
+  %193 = load ptr, ptr %156, align 8, !tbaa !56
+  tail call void @lv_free(ptr noundef %193) #7
+  %194 = load i32, ptr %5, align 8, !tbaa !52
+  %195 = add i32 %157, %194
+  %196 = add nsw i32 %195, %.2182228
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %195 = load ptr, ptr %151, align 8, !tbaa !45
-  %196 = getelementptr inbounds nuw i8, ptr %195, i64 64
-  %197 = load i16, ptr %196, align 8, !tbaa !46
-  %198 = zext i16 %197 to i32
-  %199 = icmp ult i32 %190, %198
-  br i1 %199, label %.critedge, label %._crit_edge232, !llvm.loop !57
+  %197 = load ptr, ptr %153, align 8, !tbaa !45
+  %198 = getelementptr inbounds nuw i8, ptr %197, i64 64
+  %199 = load i16, ptr %198, align 8, !tbaa !46
+  %200 = zext i16 %199 to i32
+  %201 = icmp ult i32 %192, %200
+  br i1 %201, label %.critedge, label %._crit_edge232, !llvm.loop !57
 
 ._crit_edge232:                                   ; preds = %.critedge, %.critedge.us, %.cont135.us, %.thread201
-  %200 = icmp eq i32 %.sroa.0.0.extract.trunc.i112, 1073741823
-  %or.cond5 = select i1 %200, i1 true, i1 %73
-  br i1 %or.cond5, label %201, label %203
+  %202 = icmp eq i32 %.sroa.0.0.extract.trunc.i112, 1073741823
+  %or.cond5 = select i1 %202, i1 true, i1 %73
+  br i1 %or.cond5, label %203, label %205
 
-201:                                              ; preds = %._crit_edge232
-  %202 = tail call zeroext i1 @lv_obj_refr_size(ptr noundef nonnull %0) #7
-  br label %203
+203:                                              ; preds = %._crit_edge232
+  %204 = tail call zeroext i1 @lv_obj_refr_size(ptr noundef nonnull %0) #7
+  br label %205
 
-203:                                              ; preds = %._crit_edge232, %201
-  %204 = tail call i32 @lv_obj_send_event(ptr noundef nonnull %0, i32 noundef 51, ptr noundef null) #7
+205:                                              ; preds = %._crit_edge232, %203
+  %206 = tail call i32 @lv_obj_send_event(ptr noundef nonnull %0, i32 noundef 51, ptr noundef null) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }

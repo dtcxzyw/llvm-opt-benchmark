@@ -2056,101 +2056,101 @@ define range(i32 0, 2) i32 @X509_STORE_CTX_set_purpose(ptr noundef readonly capt
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @X509_STORE_CTX_purpose_inherit(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = icmp eq i32 %2, 0
-  %6 = icmp eq i32 %1, 0
-  %spec.select = select i1 %6, i32 %2, i32 %1
-  %.032 = select i1 %5, i32 %1, i32 %spec.select
+  %6 = icmp ne i32 %1, 0
+  %7 = or i1 %6, %5
+  %.032 = select i1 %7, i32 %1, i32 %2
   %.031 = select i1 %5, i32 %1, i32 %2
-  %7 = icmp ne i32 %.031, 0
-  br i1 %7, label %8, label %28
+  %8 = icmp ne i32 %.031, 0
+  br i1 %8, label %9, label %29
 
-8:                                                ; preds = %4
-  %9 = tail call i32 @X509_PURPOSE_get_by_id(i32 noundef %.031) #10
-  %10 = icmp eq i32 %9, -1
-  br i1 %10, label %11, label %12
+9:                                                ; preds = %4
+  %10 = tail call i32 @X509_PURPOSE_get_by_id(i32 noundef %.031) #10
+  %11 = icmp eq i32 %10, -1
+  br i1 %11, label %12, label %13
 
-11:                                               ; preds = %8
+12:                                               ; preds = %9
   tail call void @ERR_new() #10
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 2419, ptr noundef nonnull @__func__.X509_STORE_CTX_purpose_inherit) #10
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 11, i32 noundef 121, ptr noundef null) #10
   br label %.critedge
 
-12:                                               ; preds = %8
-  %13 = tail call ptr @X509_PURPOSE_get0(i32 noundef %9) #10
-  %14 = getelementptr inbounds nuw i8, ptr %13, i64 4
-  %15 = load i32, ptr %14, align 4, !tbaa !123
-  %16 = icmp eq i32 %15, 0
-  br i1 %16, label %17, label %23
+13:                                               ; preds = %9
+  %14 = tail call ptr @X509_PURPOSE_get0(i32 noundef %10) #10
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 4
+  %16 = load i32, ptr %15, align 4, !tbaa !123
+  %17 = icmp eq i32 %16, 0
+  br i1 %17, label %18, label %24
 
-17:                                               ; preds = %12
-  %18 = tail call i32 @X509_PURPOSE_get_by_id(i32 noundef %.032) #10
-  %19 = icmp eq i32 %18, -1
-  br i1 %19, label %20, label %21
+18:                                               ; preds = %13
+  %19 = tail call i32 @X509_PURPOSE_get_by_id(i32 noundef %.032) #10
+  %20 = icmp eq i32 %19, -1
+  br i1 %20, label %21, label %22
 
-20:                                               ; preds = %17
+21:                                               ; preds = %18
   tail call void @ERR_new() #10
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 2426, ptr noundef nonnull @__func__.X509_STORE_CTX_purpose_inherit) #10
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 11, i32 noundef 121, ptr noundef null) #10
   br label %.critedge
 
-21:                                               ; preds = %17
-  %22 = tail call ptr @X509_PURPOSE_get0(i32 noundef %18) #10
-  br label %23
+22:                                               ; preds = %18
+  %23 = tail call ptr @X509_PURPOSE_get0(i32 noundef %19) #10
+  br label %24
 
-23:                                               ; preds = %21, %12
-  %.029 = phi ptr [ %22, %21 ], [ %13, %12 ]
-  %24 = icmp eq i32 %3, 0
-  br i1 %24, label %25, label %.thread
+24:                                               ; preds = %22, %13
+  %.029 = phi ptr [ %23, %22 ], [ %14, %13 ]
+  %25 = icmp eq i32 %3, 0
+  br i1 %25, label %26, label %.thread
 
-25:                                               ; preds = %23
-  %26 = getelementptr inbounds nuw i8, ptr %.029, i64 4
-  %27 = load i32, ptr %26, align 4, !tbaa !123
-  br label %28
+26:                                               ; preds = %24
+  %27 = getelementptr inbounds nuw i8, ptr %.029, i64 4
+  %28 = load i32, ptr %27, align 4, !tbaa !123
+  br label %29
 
-28:                                               ; preds = %25, %4
-  %.030 = phi i32 [ %3, %4 ], [ %27, %25 ]
+29:                                               ; preds = %26, %4
+  %.030 = phi i32 [ %3, %4 ], [ %28, %26 ]
   %.not = icmp eq i32 %.030, 0
-  br i1 %.not, label %32, label %.thread
+  br i1 %.not, label %33, label %.thread
 
-.thread:                                          ; preds = %23, %28
-  %.03041 = phi i32 [ %.030, %28 ], [ %3, %23 ]
-  %29 = tail call i32 @X509_TRUST_get_by_id(i32 noundef %.03041) #10
-  %30 = icmp eq i32 %29, -1
-  br i1 %30, label %31, label %32
+.thread:                                          ; preds = %24, %29
+  %.03041 = phi i32 [ %.030, %29 ], [ %3, %24 ]
+  %30 = tail call i32 @X509_TRUST_get_by_id(i32 noundef %.03041) #10
+  %31 = icmp eq i32 %30, -1
+  br i1 %31, label %32, label %33
 
-31:                                               ; preds = %.thread
+32:                                               ; preds = %.thread
   tail call void @ERR_new() #10
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 2438, ptr noundef nonnull @__func__.X509_STORE_CTX_purpose_inherit) #10
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 11, i32 noundef 120, ptr noundef null) #10
   br label %.critedge
 
-32:                                               ; preds = %.thread, %28
-  %33 = phi i1 [ true, %.thread ], [ false, %28 ]
-  %.03042 = phi i32 [ %.03041, %.thread ], [ 0, %28 ]
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %35 = load ptr, ptr %34, align 8, !tbaa !49
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 32
-  %37 = load i32, ptr %36, align 8, !tbaa !125
-  %38 = icmp eq i32 %37, 0
-  %or.cond = and i1 %7, %38
-  br i1 %or.cond, label %39, label %40
+33:                                               ; preds = %.thread, %29
+  %34 = phi i1 [ true, %.thread ], [ false, %29 ]
+  %.03042 = phi i32 [ %.03041, %.thread ], [ 0, %29 ]
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %36 = load ptr, ptr %35, align 8, !tbaa !49
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 32
+  %38 = load i32, ptr %37, align 8, !tbaa !125
+  %39 = icmp eq i32 %38, 0
+  %or.cond = and i1 %8, %39
+  br i1 %or.cond, label %40, label %41
 
-39:                                               ; preds = %32
-  store i32 %.031, ptr %36, align 8, !tbaa !125
-  br label %40
+40:                                               ; preds = %33
+  store i32 %.031, ptr %37, align 8, !tbaa !125
+  br label %41
 
-40:                                               ; preds = %39, %32
-  %41 = getelementptr inbounds nuw i8, ptr %35, i64 36
-  %42 = load i32, ptr %41, align 4, !tbaa !126
-  %43 = icmp eq i32 %42, 0
-  %or.cond3 = and i1 %33, %43
-  br i1 %or.cond3, label %44, label %.critedge
+41:                                               ; preds = %40, %33
+  %42 = getelementptr inbounds nuw i8, ptr %36, i64 36
+  %43 = load i32, ptr %42, align 4, !tbaa !126
+  %44 = icmp eq i32 %43, 0
+  %or.cond3 = and i1 %34, %44
+  br i1 %or.cond3, label %45, label %.critedge
 
-44:                                               ; preds = %40
-  store i32 %.03042, ptr %41, align 4, !tbaa !126
+45:                                               ; preds = %41
+  store i32 %.03042, ptr %42, align 4, !tbaa !126
   br label %.critedge
 
-.critedge:                                        ; preds = %11, %20, %40, %44, %31
-  %.134 = phi i32 [ 0, %31 ], [ 1, %40 ], [ 1, %44 ], [ 0, %20 ], [ 0, %11 ]
+.critedge:                                        ; preds = %12, %21, %41, %45, %32
+  %.134 = phi i32 [ 0, %32 ], [ 1, %41 ], [ 1, %45 ], [ 0, %21 ], [ 0, %12 ]
   ret i32 %.134
 }
 

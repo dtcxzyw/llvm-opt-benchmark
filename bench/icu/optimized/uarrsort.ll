@@ -68,12 +68,11 @@ define i32 @uprv_stableBinarySearch_77(ptr noundef %0, i32 noundef %1, ptr nound
   %16 = tail call noundef i32 %4(ptr noundef %5, ptr noundef %2, ptr noundef %15)
   %17 = icmp eq i32 %16, 0
   %18 = add nsw i32 %12, 1
-  %19 = icmp slt i32 %16, 0
-  %.030. = select i1 %19, i32 %.03043, i32 %12
-  %..029 = select i1 %19, i32 %12, i32 %.02944
+  %19 = icmp sgt i32 %16, -1
+  %.030. = select i1 %19, i32 %12, i32 %.03043
   %.133 = select i1 %17, i8 1, i8 %.03242
   %.131 = select i1 %17, i32 %18, i32 %.030.
-  %.1 = select i1 %17, i32 %.02944, i32 %..029
+  %.1 = select i1 %19, i32 %.02944, i32 %12
   %20 = sub nsw i32 %.1, %.131
   %21 = icmp sgt i32 %20, 8
   br i1 %21, label %.lr.ph, label %.preheader, !llvm.loop !9
@@ -258,12 +257,11 @@ common.resume:                                    ; preds = %109, %.loopexit.spl
 .noexc11.i:                                       ; preds = %.lr.ph.i.i.i
   %58 = icmp eq i32 %57, 0
   %59 = add nsw i32 %53, 1
-  %60 = icmp slt i32 %57, 0
-  %.030..i.i.i = select i1 %60, i32 %.03043.i.i.i, i32 %53
-  %..029.i.i.i = select i1 %60, i32 %53, i32 %.02944.i.i.i
+  %60 = icmp sgt i32 %57, -1
+  %.030..i.i.i = select i1 %60, i32 %53, i32 %.03043.i.i.i
   %.133.i.i.i = select i1 %58, i8 1, i8 %.03242.i.i.i
   %.131.i.i.i = select i1 %58, i32 %59, i32 %.030..i.i.i
-  %.1.i.i.i = select i1 %58, i32 %.02944.i.i.i, i32 %..029.i.i.i
+  %.1.i.i.i = select i1 %60, i32 %.02944.i.i.i, i32 %53
   %61 = sub nsw i32 %.1.i.i.i, %.131.i.i.i
   %62 = icmp sgt i32 %61, 8
   br i1 %62, label %.lr.ph.i.i.i, label %.preheader.i.i.i, !llvm.loop !9
@@ -534,12 +532,11 @@ define internal fastcc void @_ZL12subQuickSortPciiiPFiPKvS1_S1_ES1_PvS4_(ptr nou
   %31 = tail call noundef i32 %4(ptr noundef %5, ptr noundef nonnull %21, ptr noundef %30)
   %32 = icmp eq i32 %31, 0
   %33 = add nsw i32 %27, 1
-  %34 = icmp slt i32 %31, 0
-  %.030..i.i = select i1 %34, i32 %.03043.i.i, i32 %27
-  %..029.i.i = select i1 %34, i32 %27, i32 %.02944.i.i
+  %34 = icmp sgt i32 %31, -1
+  %.030..i.i = select i1 %34, i32 %27, i32 %.03043.i.i
   %.133.i.i = select i1 %32, i8 1, i8 %.03242.i.i
   %.131.i.i = select i1 %32, i32 %33, i32 %.030..i.i
-  %.1.i.i = select i1 %32, i32 %.02944.i.i, i32 %..029.i.i
+  %.1.i.i = select i1 %34, i32 %.02944.i.i, i32 %27
   %35 = sub nsw i32 %.1.i.i, %.131.i.i
   %36 = icmp sgt i32 %35, 8
   br i1 %36, label %.lr.ph.i.i, label %.preheader.i.i, !llvm.loop !9

@@ -2010,7 +2010,7 @@ define internal fastcc noundef range(i32 0, 3) i32 @_ZL10cnvSigTypeP10UConverter
 
 .critedge:                                        ; preds = %10, %1
   call void @uset_close_77(ptr noundef %7)
-  br label %22
+  br label %23
 
 12:                                               ; preds = %10
   call void @uset_close_77(ptr noundef %7)
@@ -2034,16 +2034,16 @@ define internal fastcc noundef range(i32 0, 3) i32 @_ZL10cnvSigTypeP10UConverter
   %20 = call ptr @ucnv_detectUnicodeSignature_77(ptr noundef nonnull %5, i32 noundef %19, ptr noundef null, ptr noundef nonnull %2)
   %.not8 = icmp eq ptr %20, null
   %21 = load i32, ptr %2, align 4
-  %.inv = icmp slt i32 %21, 1
-  %spec.select = select i1 %.inv, i32 2, i32 1
-  %.2 = select i1 %.not8, i32 1, i32 %spec.select
+  %.inv = icmp sgt i32 %21, 0
+  %22 = select i1 %.not8, i1 true, i1 %.inv
+  %.2 = select i1 %22, i32 1, i32 2
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %22
+  br label %23
 
-22:                                               ; preds = %.critedge, %12
+23:                                               ; preds = %.critedge, %12
   %.1 = phi i32 [ %.2, %12 ], [ 0, %.critedge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.1

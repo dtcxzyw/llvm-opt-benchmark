@@ -23508,9 +23508,9 @@ _ZNSt3mapImN4cvc58internal12NodeTemplateILb0EEESt4lessImESaISt4pairIKmS3_EEE4fin
   %.pre = load i8, ptr %304, align 8, !tbaa !606, !range !404
   %438 = icmp eq i32 %434, 0
   %439 = zext i1 %438 to i8
-  %440 = icmp eq i8 %.pre, %439
-  %441 = select i1 %440, i64 1, i64 2
-  %442 = select i1 %437, i64 2, i64 %441
+  %440 = icmp ne i8 %.pre, %439
+  %441 = select i1 %437, i1 true, i1 %440
+  %442 = select i1 %441, i64 2, i64 1
   %443 = load ptr, ptr %303, align 8, !tbaa !180
   %444 = getelementptr inbounds nuw i64, ptr %443, i64 %442
   %445 = load i64, ptr %444, align 8, !tbaa !133

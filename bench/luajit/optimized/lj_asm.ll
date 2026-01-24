@@ -14346,9 +14346,9 @@ emit_rr.exit194.i:                                ; preds = %7166, %7152
   %7172 = shl nuw i32 1, %7171
   %7173 = and i32 %7172, 6315993
   %.not154.i328 = icmp eq i32 %7173, 0
-  %7174 = icmp eq i8 %.pre-phi.i327, 20
-  %7175 = select i1 %7174, i32 524800, i32 0
-  %7176 = select i1 %.not154.i328, i32 %7175, i32 524800
+  %7174 = icmp ne i8 %.pre-phi.i327, 20
+  %7175 = select i1 %.not154.i328, i1 %7174, i1 false
+  %7176 = select i1 %7175, i32 0, i32 524800
   %7177 = or disjoint i32 %7176, %.0.i175.i
   %7178 = call fastcc i32 @asm_fuseload(ptr noundef nonnull %29, i32 noundef %6802, i32 noundef -65536)
   call fastcc void @emit_mrm(ptr noundef nonnull %29, i32 noundef %7047, i32 noundef %7177, i32 noundef %7178)

@@ -3830,21 +3830,21 @@ _ZN5rowan6cursor8NodeData6inc_rc17h79dd31861126988eE.exit.i.i.i.i.i: ; preds = %
   store i64 %26, ptr %1, align 8, !alias.scope !1474, !noalias !1471
   %27 = tail call { i64, ptr } @"_ZN75_$LT$syntax..ast..generated..nodes..Adt$u20$as$u20$syntax..ast..AstNode$GT$4cast17hc14d0f0722f7b563E"(ptr noundef nonnull %.val.i.i.i17.i), !noalias !1486
   %28 = extractvalue { i64, ptr } %27, 0
-  %29 = icmp eq i64 %28, 3
+  %29 = icmp ne i64 %28, 3
   %30 = icmp eq i64 %26, 0
-  %spec.select1.i.i.i = select i1 %29, i64 4, i64 %28
-  %31 = select i1 %30, i64 %28, i64 %spec.select1.i.i.i
-  %32 = icmp eq i64 %31, 4
-  br i1 %32, label %3, label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$rowan..cursor..SyntaxNode$GT$$GT$17h623242364afb6dabE.llvm.836043833466553463.exit.split.loop.exit8.i"
+  %31 = select i1 %30, i1 true, i1 %29
+  %32 = icmp ne i64 %28, 4
+  %.not28.i = select i1 %31, i1 %32, i1 false
+  br i1 %.not28.i, label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$rowan..cursor..SyntaxNode$GT$$GT$17h623242364afb6dabE.llvm.836043833466553463.exit.split.loop.exit8.i", label %3
 
 "_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$rowan..cursor..SyntaxNode$GT$$GT$17h623242364afb6dabE.llvm.836043833466553463.exit.split.loop.exit8.i": ; preds = %25
   %33 = extractvalue { i64, ptr } %27, 1
-  %.5.i.le.i = select i1 %29, ptr undef, ptr %33
+  %.5.i.le.i = select i1 %29, ptr %33, ptr undef
   br label %_ZN4core4iter6traits8iterator8Iterator8try_fold17hf479decf088945ccE.llvm.836043833466553463.exit
 
 _ZN4core4iter6traits8iterator8Iterator8try_fold17hf479decf088945ccE.llvm.836043833466553463.exit: ; preds = %3, %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$rowan..cursor..SyntaxNode$GT$$GT$17h623242364afb6dabE.llvm.836043833466553463.exit.split.loop.exit8.i"
   %.sroa.3.0.i = phi ptr [ %.5.i.le.i, %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$rowan..cursor..SyntaxNode$GT$$GT$17h623242364afb6dabE.llvm.836043833466553463.exit.split.loop.exit8.i" ], [ undef, %3 ]
-  %.sroa.0.0.i = phi i64 [ %31, %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$rowan..cursor..SyntaxNode$GT$$GT$17h623242364afb6dabE.llvm.836043833466553463.exit.split.loop.exit8.i" ], [ 4, %3 ]
+  %.sroa.0.0.i = phi i64 [ %28, %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$rowan..cursor..SyntaxNode$GT$$GT$17h623242364afb6dabE.llvm.836043833466553463.exit.split.loop.exit8.i" ], [ 4, %3 ]
   %34 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0.i, 0
   %35 = insertvalue { i64, ptr } %34, ptr %.sroa.3.0.i, 1
   ret { i64, ptr } %35
@@ -18867,21 +18867,21 @@ _ZN5rowan6cursor8NodeData6inc_rc17h79dd31861126988eE.exit.i.i.i.i: ; preds = %10
   store i64 %27, ptr %1, align 8
   %28 = tail call { i64, ptr } @"_ZN75_$LT$syntax..ast..generated..nodes..Adt$u20$as$u20$syntax..ast..AstNode$GT$4cast17hc14d0f0722f7b563E"(ptr noundef nonnull %.val.i.i.i17)
   %29 = extractvalue { i64, ptr } %28, 0
-  %30 = icmp eq i64 %29, 3
+  %30 = icmp ne i64 %29, 3
   %31 = icmp eq i64 %27, 0
-  %spec.select1.i.i = select i1 %30, i64 4, i64 %29
-  %32 = select i1 %31, i64 %29, i64 %spec.select1.i.i
-  %33 = icmp eq i64 %32, 4
-  br i1 %33, label %4, label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$rowan..cursor..SyntaxNode$GT$$GT$17h623242364afb6dabE.llvm.836043833466553463.exit.split.loop.exit8"
+  %32 = select i1 %31, i1 true, i1 %30
+  %33 = icmp ne i64 %29, 4
+  %.not28 = select i1 %32, i1 %33, i1 false
+  br i1 %.not28, label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$rowan..cursor..SyntaxNode$GT$$GT$17h623242364afb6dabE.llvm.836043833466553463.exit.split.loop.exit8", label %4
 
 "_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$rowan..cursor..SyntaxNode$GT$$GT$17h623242364afb6dabE.llvm.836043833466553463.exit.split.loop.exit8": ; preds = %26
   %34 = extractvalue { i64, ptr } %28, 1
-  %.5.i.le = select i1 %30, ptr undef, ptr %34
+  %.5.i.le = select i1 %30, ptr %34, ptr undef
   br label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$rowan..cursor..SyntaxNode$GT$$GT$17h623242364afb6dabE.llvm.836043833466553463.exit"
 
 "_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$rowan..cursor..SyntaxNode$GT$$GT$17h623242364afb6dabE.llvm.836043833466553463.exit": ; preds = %4, %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$rowan..cursor..SyntaxNode$GT$$GT$17h623242364afb6dabE.llvm.836043833466553463.exit.split.loop.exit8"
   %.sroa.3.0 = phi ptr [ %.5.i.le, %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$rowan..cursor..SyntaxNode$GT$$GT$17h623242364afb6dabE.llvm.836043833466553463.exit.split.loop.exit8" ], [ undef, %4 ]
-  %.sroa.0.0 = phi i64 [ %32, %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$rowan..cursor..SyntaxNode$GT$$GT$17h623242364afb6dabE.llvm.836043833466553463.exit.split.loop.exit8" ], [ 4, %4 ]
+  %.sroa.0.0 = phi i64 [ %29, %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$rowan..cursor..SyntaxNode$GT$$GT$17h623242364afb6dabE.llvm.836043833466553463.exit.split.loop.exit8" ], [ 4, %4 ]
   %35 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
   %36 = insertvalue { i64, ptr } %35, ptr %.sroa.3.0, 1
   ret { i64, ptr } %36

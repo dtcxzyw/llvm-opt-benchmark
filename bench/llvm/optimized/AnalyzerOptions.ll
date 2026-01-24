@@ -619,11 +619,11 @@ _ZNK4llvm9StringRef12getAsIntegerIiEEbjRT_.exit:
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %10 = call noundef zeroext i1 @_ZN4llvm18getAsSignedIntegerENS_9StringRefEjRx(ptr %8, i64 %9, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(8) %6) #12
   %11 = load i64, ptr %6, align 8
-  %12 = add i64 %11, 2147483648
-  %.not.i = icmp ult i64 %12, 4294967296
+  %12 = add i64 %11, -2147483648
+  %.not.i = icmp ult i64 %12, -4294967296
   %13 = trunc nsw i64 %11 to i32
-  %spec.select = select i1 %.not.i, i32 %13, i32 0
-  %.0 = select i1 %10, i32 0, i32 %spec.select
+  %14 = select i1 %10, i1 true, i1 %.not.i
+  %.0 = select i1 %14, i32 0, i32 %13
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
@@ -643,11 +643,11 @@ define dso_local noundef i32 @_ZNK5clang15AnalyzerOptions23getCheckerIntegerOpti
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %16 = call noundef zeroext i1 @_ZN4llvm18getAsSignedIntegerENS_9StringRefEjRx(ptr %14, i64 %15, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(8) %6) #12
   %17 = load i64, ptr %6, align 8
-  %18 = add i64 %17, 2147483648
-  %.not.i.i = icmp ult i64 %18, 4294967296
+  %18 = add i64 %17, -2147483648
+  %.not.i.i = icmp ult i64 %18, -4294967296
   %19 = trunc nsw i64 %17 to i32
-  %spec.select.i = select i1 %.not.i.i, i32 %19, i32 0
-  %.0.i = select i1 %16, i32 0, i32 %spec.select.i
+  %20 = select i1 %16, i1 true, i1 %.not.i.i
+  %.0.i = select i1 %20, i32 0, i32 %19
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0.i
 }

@@ -7632,7 +7632,7 @@ define internal fastcc i64 @PS_Conv_ToFixed(ptr noundef captures(none) %0, ptr n
 .lr.ph:                                           ; preds = %.preheader127
   %35 = icmp eq i64 %.095.fr, 0
   %36 = sub i64 %4, %29
-  %scevgep244 = getelementptr i8, ptr %28, i64 %36
+  %scevgep245 = getelementptr i8, ptr %28, i64 %36
   br i1 %35, label %.lr.ph.split, label %.lr.ph.split.us
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %53
@@ -7734,11 +7734,11 @@ define internal fastcc i64 @PS_Conv_ToFixed(ptr noundef captures(none) %0, ptr n
   %.281.ph = phi i64 [ %.180138, %62 ], [ %73, %72 ], [ %.180138, %70 ]
   %.2.ph = phi i64 [ %.168139, %62 ], [ %.168139, %72 ], [ %71, %70 ]
   %storemerge = getelementptr inbounds nuw i8, ptr %storemerge140, i64 1
-  %exitcond245.not = icmp eq ptr %storemerge, %1
-  br i1 %exitcond245.not, label %.loopexit128, label %.lr.ph.split, !llvm.loop !492
+  %exitcond246.not = icmp eq ptr %storemerge, %1
+  br i1 %exitcond246.not, label %.loopexit128, label %.lr.ph.split, !llvm.loop !492
 
 .loopexit128:                                     ; preds = %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %38, %40, %53, %.lr.ph.split, %.lr.ph.split, %.lr.ph.split, %.lr.ph.split, %.lr.ph.split, %.lr.ph.split, %55, %57, %74, %.preheader127
-  %storemerge.lcssa = phi ptr [ %storemerge136, %.preheader127 ], [ %scevgep244, %74 ], [ %storemerge140, %57 ], [ %storemerge140, %55 ], [ %storemerge140, %.lr.ph.split ], [ %storemerge140, %.lr.ph.split ], [ %storemerge140, %.lr.ph.split ], [ %storemerge140, %.lr.ph.split ], [ %storemerge140, %.lr.ph.split ], [ %storemerge140, %.lr.ph.split ], [ %storemerge140.us, %40 ], [ %storemerge140.us, %38 ], [ %storemerge140.us, %.lr.ph.split.us ], [ %storemerge140.us, %.lr.ph.split.us ], [ %storemerge140.us, %.lr.ph.split.us ], [ %storemerge140.us, %.lr.ph.split.us ], [ %storemerge140.us, %.lr.ph.split.us ], [ %storemerge140.us, %.lr.ph.split.us ], [ %scevgep244, %53 ]
+  %storemerge.lcssa = phi ptr [ %storemerge136, %.preheader127 ], [ %scevgep245, %74 ], [ %storemerge140, %57 ], [ %storemerge140, %55 ], [ %storemerge140, %.lr.ph.split ], [ %storemerge140, %.lr.ph.split ], [ %storemerge140, %.lr.ph.split ], [ %storemerge140, %.lr.ph.split ], [ %storemerge140, %.lr.ph.split ], [ %storemerge140, %.lr.ph.split ], [ %storemerge140.us, %40 ], [ %storemerge140.us, %38 ], [ %storemerge140.us, %.lr.ph.split.us ], [ %storemerge140.us, %.lr.ph.split.us ], [ %storemerge140.us, %.lr.ph.split.us ], [ %storemerge140.us, %.lr.ph.split.us ], [ %storemerge140.us, %.lr.ph.split.us ], [ %storemerge140.us, %.lr.ph.split.us ], [ %scevgep245, %53 ]
   %.188.lcssa = phi i64 [ 0, %.preheader127 ], [ %.289.ph, %74 ], [ %.188137, %57 ], [ %.188137, %55 ], [ %.188137, %.lr.ph.split ], [ %.188137, %.lr.ph.split ], [ %.188137, %.lr.ph.split ], [ %.188137, %.lr.ph.split ], [ %.188137, %.lr.ph.split ], [ %.188137, %.lr.ph.split ], [ %.188137.us, %40 ], [ %.188137.us, %38 ], [ %.188137.us, %.lr.ph.split.us ], [ %.188137.us, %.lr.ph.split.us ], [ %.188137.us, %.lr.ph.split.us ], [ %.188137.us, %.lr.ph.split.us ], [ %.188137.us, %.lr.ph.split.us ], [ %.188137.us, %.lr.ph.split.us ], [ %.289.ph.us, %53 ]
   %.180.lcssa = phi i64 [ 1, %.preheader127 ], [ %.281.ph, %74 ], [ %.180138, %57 ], [ %.180138, %55 ], [ %.180138, %.lr.ph.split ], [ %.180138, %.lr.ph.split ], [ %.180138, %.lr.ph.split ], [ %.180138, %.lr.ph.split ], [ %.180138, %.lr.ph.split ], [ %.180138, %.lr.ph.split ], [ %.180138.us, %40 ], [ %.180138.us, %38 ], [ %.180138.us, %.lr.ph.split.us ], [ %.180138.us, %.lr.ph.split.us ], [ %.180138.us, %.lr.ph.split.us ], [ %.180138.us, %.lr.ph.split.us ], [ %.180138.us, %.lr.ph.split.us ], [ %.180138.us, %.lr.ph.split.us ], [ %.281.ph.us, %53 ]
   %.168.lcssa = phi i64 [ %2, %.preheader127 ], [ %.2.ph, %74 ], [ %.168139, %57 ], [ %.168139, %55 ], [ %.168139, %.lr.ph.split ], [ %.168139, %.lr.ph.split ], [ %.168139, %.lr.ph.split ], [ %.168139, %.lr.ph.split ], [ %.168139, %.lr.ph.split ], [ %.168139, %.lr.ph.split ], [ %2, %53 ], [ %2, %40 ], [ %2, %38 ], [ %2, %.lr.ph.split.us ], [ %2, %.lr.ph.split.us ], [ %2, %.lr.ph.split.us ], [ %2, %.lr.ph.split.us ], [ %2, %.lr.ph.split.us ], [ %2, %.lr.ph.split.us ]
@@ -7838,8 +7838,8 @@ define internal fastcc i64 @PS_Conv_ToFixed(ptr noundef captures(none) %0, ptr n
 
 110:                                              ; preds = %118
   %111 = add nsw i64 %.8231, 1
-  %exitcond246.not = icmp eq i64 %111, 0
-  br i1 %exitcond246.not, label %._crit_edge, label %.lr.ph232, !llvm.loop !494
+  %exitcond247.not = icmp eq i64 %111, 0
+  br i1 %exitcond247.not, label %._crit_edge, label %.lr.ph232, !llvm.loop !494
 
 .lr.ph232:                                        ; preds = %.preheader, %110
   %.8231 = phi i64 [ %111, %110 ], [ %.4, %.preheader ]

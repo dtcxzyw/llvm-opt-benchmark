@@ -1334,12 +1334,12 @@ define hidden zeroext i8 @Curl_conn_http_version(ptr noundef %0) local_unnamed_a
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 112
   %14 = load ptr, ptr %13, align 8, !tbaa !49
   %15 = call i32 %14(ptr noundef nonnull %.01424, ptr noundef %0, i32 noundef 9, ptr noundef nonnull %2, ptr noundef null) #12
-  %.not19 = icmp eq i32 %15, 0
+  %.not19 = icmp ne i32 %15, 0
   %16 = load i32, ptr %2, align 4
   %or.cond = icmp ugt i32 %16, 255
   %17 = trunc i32 %16 to i8
-  %18 = select i1 %or.cond, i8 0, i8 %17
-  %.113 = select i1 %.not19, i8 %18, i8 0
+  %18 = select i1 %.not19, i1 true, i1 %or.cond
+  %.113 = select i1 %18, i8 0, i8 %17
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.loopexit
 

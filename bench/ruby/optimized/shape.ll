@@ -917,8 +917,8 @@ shape_get_iv_index.exit.sink.split.i:             ; preds = %49, %shape_cache_ge
   %64 = getelementptr %struct.rb_shape, ptr %7, i64 %63
   %65 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %66 = load ptr, ptr %65, align 8, !tbaa !55
-  %.not = icmp eq ptr %66, null
-  br i1 %.not, label %.preheader150, label %67
+  %.not = icmp ne ptr %66, null
+  br i1 %.not, label %67, label %.preheader150
 
 67:                                               ; preds = %62
   %68 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -1002,116 +1002,116 @@ shape_get_iv_index.exit.sink.split.i:             ; preds = %49, %shape_cache_ge
   %110 = getelementptr inbounds nuw i8, ptr %.044.lcssa, i64 32
   %111 = load ptr, ptr %110, align 8, !tbaa !55
   %.not47 = icmp eq ptr %111, null
-  %spec.select49 = select i1 %.not, ptr %.044.lcssa, ptr %9
-  %spec.select69 = select i1 %.not47, ptr %spec.select49, ptr %.044.lcssa
+  %112 = and i1 %.not, %.not47
+  %spec.select69 = select i1 %112, ptr %9, ptr %.044.lcssa
   store i32 %0, ptr %3, align 4, !tbaa !54
-  %112 = getelementptr inbounds nuw i8, ptr %spec.select69, i64 32
-  %113 = load ptr, ptr %112, align 8, !tbaa !55
-  %.not.i.i50 = icmp eq ptr %113, null
-  br i1 %.not.i.i50, label %.thread.i51, label %114
+  %113 = getelementptr inbounds nuw i8, ptr %spec.select69, i64 32
+  %114 = load ptr, ptr %113, align 8, !tbaa !55
+  %.not.i.i50 = icmp eq ptr %114, null
+  br i1 %.not.i.i50, label %.thread.i51, label %115
 
-114:                                              ; preds = %.critedge
-  %115 = getelementptr inbounds nuw i8, ptr %spec.select69, i64 16
-  %116 = load i32, ptr %115, align 8, !tbaa !40
-  %117 = icmp ugt i32 %116, 9
-  br i1 %117, label %.lr.ph.i.i.i59, label %.thread.i51
+115:                                              ; preds = %.critedge
+  %116 = getelementptr inbounds nuw i8, ptr %spec.select69, i64 16
+  %117 = load i32, ptr %116, align 8, !tbaa !40
+  %118 = icmp ugt i32 %117, 9
+  br i1 %118, label %.lr.ph.i.i.i59, label %.thread.i51
 
-.lr.ph.i.i.i59:                                   ; preds = %114
-  %118 = load ptr, ptr @rb_shape_tree_ptr, align 8
-  %119 = getelementptr inbounds nuw i8, ptr %118, i64 24
-  br label %120
+.lr.ph.i.i.i59:                                   ; preds = %115
+  %119 = load ptr, ptr @rb_shape_tree_ptr, align 8
+  %120 = getelementptr inbounds nuw i8, ptr %119, i64 24
+  br label %121
 
-120:                                              ; preds = %tailrecurse.backedge.i.i.i62, %.lr.ph.i.i.i59
-  %.tr16.i.i.i60 = phi ptr [ %113, %.lr.ph.i.i.i59 ], [ %131, %tailrecurse.backedge.i.i.i62 ]
-  %121 = load i64, ptr %.tr16.i.i.i60, align 8, !tbaa !56
-  %122 = icmp eq i64 %121, %1
-  br i1 %122, label %shape_cache_get_iv_index.exit.i66, label %123
+121:                                              ; preds = %tailrecurse.backedge.i.i.i62, %.lr.ph.i.i.i59
+  %.tr16.i.i.i60 = phi ptr [ %114, %.lr.ph.i.i.i59 ], [ %132, %tailrecurse.backedge.i.i.i62 ]
+  %122 = load i64, ptr %.tr16.i.i.i60, align 8, !tbaa !56
+  %123 = icmp eq i64 %122, %1
+  br i1 %123, label %shape_cache_get_iv_index.exit.i66, label %124
 
-123:                                              ; preds = %120
-  %124 = icmp ult i64 %1, %121
-  br i1 %124, label %125, label %133
+124:                                              ; preds = %121
+  %125 = icmp ult i64 %1, %122
+  br i1 %125, label %126, label %134
 
-125:                                              ; preds = %123
-  %126 = getelementptr i8, ptr %.tr16.i.i.i60, i64 16
-  %.val.i.i.i65 = load i32, ptr %126, align 8, !tbaa !58
-  %127 = icmp eq i32 %.val.i.i.i65, 0
-  br i1 %127, label %rb_shape_get_iv_index.exit, label %tailrecurse.backedge.i.i.i62
+126:                                              ; preds = %124
+  %127 = getelementptr i8, ptr %.tr16.i.i.i60, i64 16
+  %.val.i.i.i65 = load i32, ptr %127, align 8, !tbaa !58
+  %128 = icmp eq i32 %.val.i.i.i65, 0
+  br i1 %128, label %rb_shape_get_iv_index.exit, label %tailrecurse.backedge.i.i.i62
 
-tailrecurse.backedge.i.i.i62:                     ; preds = %133, %125
-  %.val13.sink.i.i.i63 = phi i32 [ %.val13.i.i.i61, %133 ], [ %.val.i.i.i65, %125 ]
-  %128 = load ptr, ptr %119, align 8, !tbaa !59
-  %129 = add i32 %.val13.sink.i.i.i63, -1
-  %130 = zext i32 %129 to i64
-  %131 = getelementptr %struct.redblack_node, ptr %128, i64 %130
-  %132 = icmp eq ptr %131, null
-  br i1 %132, label %rb_shape_get_iv_index.exit, label %120
+tailrecurse.backedge.i.i.i62:                     ; preds = %134, %126
+  %.val13.sink.i.i.i63 = phi i32 [ %.val13.i.i.i61, %134 ], [ %.val.i.i.i65, %126 ]
+  %129 = load ptr, ptr %120, align 8, !tbaa !59
+  %130 = add i32 %.val13.sink.i.i.i63, -1
+  %131 = zext i32 %130 to i64
+  %132 = getelementptr %struct.redblack_node, ptr %129, i64 %131
+  %133 = icmp eq ptr %132, null
+  br i1 %133, label %rb_shape_get_iv_index.exit, label %121
 
-133:                                              ; preds = %123
-  %134 = getelementptr i8, ptr %.tr16.i.i.i60, i64 20
-  %.val13.i.i.i61 = load i32, ptr %134, align 4, !tbaa !60
-  %135 = icmp eq i32 %.val13.i.i.i61, 0
-  br i1 %135, label %rb_shape_get_iv_index.exit, label %tailrecurse.backedge.i.i.i62
+134:                                              ; preds = %124
+  %135 = getelementptr i8, ptr %.tr16.i.i.i60, i64 20
+  %.val13.i.i.i61 = load i32, ptr %135, align 4, !tbaa !60
+  %136 = icmp eq i32 %.val13.i.i.i61, 0
+  br i1 %136, label %rb_shape_get_iv_index.exit, label %tailrecurse.backedge.i.i.i62
 
-shape_cache_get_iv_index.exit.i66:                ; preds = %120
-  %136 = getelementptr i8, ptr %.tr16.i.i.i60, i64 8
-  %.val.i.i67 = load ptr, ptr %136, align 8, !tbaa !61
-  %137 = ptrtoint ptr %.val.i.i67 to i64
-  %138 = and i64 %137, -2
-  %139 = inttoptr i64 %138 to ptr
+shape_cache_get_iv_index.exit.i66:                ; preds = %121
+  %137 = getelementptr i8, ptr %.tr16.i.i.i60, i64 8
+  %.val.i.i67 = load ptr, ptr %137, align 8, !tbaa !61
+  %138 = ptrtoint ptr %.val.i.i67 to i64
+  %139 = and i64 %138, -2
+  %140 = inttoptr i64 %139 to ptr
   br label %shape_get_iv_index.exit.sink.split.i57
 
-.thread.i51:                                      ; preds = %114, %.critedge
-  %140 = getelementptr inbounds nuw i8, ptr %spec.select69, i64 28
-  %141 = load i32, ptr %140, align 4, !tbaa !20
-  %.not15.i.i52 = icmp eq i32 %141, -1
+.thread.i51:                                      ; preds = %115, %.critedge
+  %141 = getelementptr inbounds nuw i8, ptr %spec.select69, i64 28
+  %142 = load i32, ptr %141, align 4, !tbaa !20
+  %.not15.i.i52 = icmp eq i32 %142, -1
   br i1 %.not15.i.i52, label %rb_shape_get_iv_index.exit, label %.lr.ph.i.i53
 
 .lr.ph.i.i53:                                     ; preds = %.thread.i51
-  %142 = load ptr, ptr @rb_shape_tree_ptr, align 8
-  br label %143
+  %143 = load ptr, ptr @rb_shape_tree_ptr, align 8
+  br label %144
 
-143:                                              ; preds = %152, %.lr.ph.i.i53
-  %144 = phi i32 [ %141, %.lr.ph.i.i53 ], [ %157, %152 ]
-  %.01016.i.i54 = phi ptr [ %spec.select69, %.lr.ph.i.i53 ], [ %155, %152 ]
-  %145 = getelementptr inbounds nuw i8, ptr %.01016.i.i54, i64 8
-  %146 = load i64, ptr %145, align 8, !tbaa !42
-  %147 = icmp eq i64 %146, %1
-  br i1 %147, label %148, label %152
+144:                                              ; preds = %153, %.lr.ph.i.i53
+  %145 = phi i32 [ %142, %.lr.ph.i.i53 ], [ %158, %153 ]
+  %.01016.i.i54 = phi ptr [ %spec.select69, %.lr.ph.i.i53 ], [ %156, %153 ]
+  %146 = getelementptr inbounds nuw i8, ptr %.01016.i.i54, i64 8
+  %147 = load i64, ptr %146, align 8, !tbaa !42
+  %148 = icmp eq i64 %147, %1
+  br i1 %148, label %149, label %153
 
-148:                                              ; preds = %143
-  %149 = getelementptr inbounds nuw i8, ptr %.01016.i.i54, i64 24
-  %150 = load i8, ptr %149, align 8, !tbaa !27
-  switch i8 %150, label %152 [
+149:                                              ; preds = %144
+  %150 = getelementptr inbounds nuw i8, ptr %.01016.i.i54, i64 24
+  %151 = load i8, ptr %150, align 8, !tbaa !27
+  switch i8 %151, label %153 [
     i8 1, label %shape_get_iv_index.exit.sink.split.i57
     i8 0, label %rb_shape_get_iv_index.exit
     i8 3, label %rb_shape_get_iv_index.exit
-    i8 4, label %151
-    i8 2, label %151
+    i8 4, label %152
+    i8 2, label %152
   ]
 
-151:                                              ; preds = %148, %148
+152:                                              ; preds = %149, %149
   tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.5) #16
   unreachable
 
-152:                                              ; preds = %148, %143
-  %153 = load ptr, ptr %142, align 8, !tbaa !16
-  %154 = zext i32 %144 to i64
-  %155 = getelementptr %struct.rb_shape, ptr %153, i64 %154
-  %156 = getelementptr inbounds nuw i8, ptr %155, i64 28
-  %157 = load i32, ptr %156, align 4, !tbaa !20
-  %.not.i8.i55 = icmp eq i32 %157, -1
-  br i1 %.not.i8.i55, label %rb_shape_get_iv_index.exit, label %143, !llvm.loop !62
+153:                                              ; preds = %149, %144
+  %154 = load ptr, ptr %143, align 8, !tbaa !16
+  %155 = zext i32 %145 to i64
+  %156 = getelementptr %struct.rb_shape, ptr %154, i64 %155
+  %157 = getelementptr inbounds nuw i8, ptr %156, i64 28
+  %158 = load i32, ptr %157, align 4, !tbaa !20
+  %.not.i8.i55 = icmp eq i32 %158, -1
+  br i1 %.not.i8.i55, label %rb_shape_get_iv_index.exit, label %144, !llvm.loop !62
 
-shape_get_iv_index.exit.sink.split.i57:           ; preds = %148, %shape_cache_get_iv_index.exit.i66
-  %.01016.i.lcssa.sink.i58 = phi ptr [ %139, %shape_cache_get_iv_index.exit.i66 ], [ %.01016.i.i54, %148 ]
-  %158 = getelementptr inbounds nuw i8, ptr %.01016.i.lcssa.sink.i58, i64 16
-  %159 = load i32, ptr %158, align 8, !tbaa !40
-  %160 = add i32 %159, -1
-  store i32 %160, ptr %2, align 4, !tbaa !54
+shape_get_iv_index.exit.sink.split.i57:           ; preds = %149, %shape_cache_get_iv_index.exit.i66
+  %.01016.i.lcssa.sink.i58 = phi ptr [ %140, %shape_cache_get_iv_index.exit.i66 ], [ %.01016.i.i54, %149 ]
+  %159 = getelementptr inbounds nuw i8, ptr %.01016.i.lcssa.sink.i58, i64 16
+  %160 = load i32, ptr %159, align 8, !tbaa !40
+  %161 = add i32 %160, -1
+  store i32 %161, ptr %2, align 4, !tbaa !54
   br label %rb_shape_get_iv_index.exit
 
-rb_shape_get_iv_index.exit:                       ; preds = %133, %tailrecurse.backedge.i.i.i62, %125, %152, %148, %148, %34, %tailrecurse.backedge.i.i.i, %26, %53, %49, %49, %shape_get_iv_index.exit.sink.split.i57, %.thread.i51, %shape_get_iv_index.exit.sink.split.i, %.thread.i, %86, %96
-  %.042 = phi i1 [ false, %.thread.i51 ], [ true, %86 ], [ true, %96 ], [ true, %shape_get_iv_index.exit.sink.split.i ], [ false, %34 ], [ true, %shape_get_iv_index.exit.sink.split.i57 ], [ false, %.thread.i ], [ false, %53 ], [ false, %152 ], [ false, %49 ], [ false, %49 ], [ false, %26 ], [ false, %tailrecurse.backedge.i.i.i ], [ false, %148 ], [ false, %148 ], [ false, %125 ], [ false, %tailrecurse.backedge.i.i.i62 ], [ false, %133 ]
+rb_shape_get_iv_index.exit:                       ; preds = %134, %tailrecurse.backedge.i.i.i62, %126, %153, %149, %149, %34, %tailrecurse.backedge.i.i.i, %26, %53, %49, %49, %shape_get_iv_index.exit.sink.split.i57, %.thread.i51, %shape_get_iv_index.exit.sink.split.i, %.thread.i, %86, %96
+  %.042 = phi i1 [ false, %.thread.i51 ], [ true, %86 ], [ true, %96 ], [ true, %shape_get_iv_index.exit.sink.split.i ], [ false, %34 ], [ true, %shape_get_iv_index.exit.sink.split.i57 ], [ false, %.thread.i ], [ false, %53 ], [ false, %153 ], [ false, %49 ], [ false, %49 ], [ false, %26 ], [ false, %tailrecurse.backedge.i.i.i ], [ false, %149 ], [ false, %149 ], [ false, %126 ], [ false, %tailrecurse.backedge.i.i.i62 ], [ false, %134 ]
   ret i1 %.042
 }
 

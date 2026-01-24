@@ -4527,7 +4527,7 @@ define internal fastcc void @update_backups(ptr noundef %0, i64 noundef %1, ptr 
 20:                                               ; preds = %5
   %21 = ptrtoint ptr %18 to i64
   %22 = trunc i64 %21 to i32
-  br label %240
+  br label %241
 
 23:                                               ; preds = %5
   %24 = icmp eq i32 %4, 0
@@ -4610,11 +4610,11 @@ define internal fastcc void @update_backups(ptr noundef %0, i64 noundef %1, ptr 
   %78 = sext i32 %14 to i64
   br label %85
 
-.thread:                                          ; preds = %230, %217, %215, %232
-  %79 = phi i32 [ %68, %232 ], [ %223, %217 ], [ %207, %230 ], [ %89, %215 ]
-  %80 = phi i32 [ %87, %232 ], [ %229, %217 ], [ %87, %230 ], [ %87, %215 ]
-  %81 = phi i32 [ %88, %232 ], [ %228, %217 ], [ %88, %230 ], [ %88, %215 ]
-  %82 = phi i32 [ %89, %232 ], [ %227, %217 ], [ %231, %230 ], [ %216, %215 ]
+.thread:                                          ; preds = %231, %217, %215, %233
+  %79 = phi i32 [ %68, %233 ], [ %223, %217 ], [ %207, %231 ], [ %89, %215 ]
+  %80 = phi i32 [ %87, %233 ], [ %230, %217 ], [ %87, %231 ], [ %87, %215 ]
+  %81 = phi i32 [ %88, %233 ], [ %229, %217 ], [ %88, %231 ], [ %88, %215 ]
+  %82 = phi i32 [ %89, %233 ], [ %226, %217 ], [ %232, %231 ], [ %216, %215 ]
   %83 = load i32, ptr %70, align 64
   %84 = icmp ult i32 %79, %83
   br i1 %84, label %85, label %.thread22
@@ -4789,7 +4789,7 @@ define internal fastcc void @update_backups(ptr noundef %0, i64 noundef %1, ptr 
 
 184:                                              ; preds = %183, %180
   tail call void @__brelse(ptr noundef nonnull %130) #13
-  br i1 %24, label %185, label %232
+  br i1 %24, label %185, label %233
 
 185:                                              ; preds = %184
   %186 = load ptr, ptr %6, align 8
@@ -4824,7 +4824,7 @@ define internal fastcc void @update_backups(ptr noundef %0, i64 noundef %1, ptr 
   %207 = load i32, ptr %206, align 4
   %208 = add nuw nsw i64 %203, 1
   %209 = icmp eq i32 %207, 0
-  br i1 %209, label %200, label %230, !llvm.loop !8
+  br i1 %209, label %200, label %231, !llvm.loop !8
 
 210:                                              ; preds = %185
   %211 = getelementptr inbounds nuw i8, ptr %188, i64 100
@@ -4845,55 +4845,56 @@ define internal fastcc void @update_backups(ptr noundef %0, i64 noundef %1, ptr 
   %222 = select i1 %221, i32 7, i32 %219
   %223 = tail call i32 @llvm.umin.i32(i32 %87, i32 %220)
   %224 = mul i32 %222, %223
-  %225 = select i1 %218, i32 %224, i32 %88
-  %226 = or i1 %218, %221
-  %227 = select i1 %226, i32 %89, i32 %224
-  %228 = select i1 %221, i32 %88, i32 %225
-  %229 = select i1 %221, i32 %224, i32 %87
+  %225 = or i1 %218, %221
+  %226 = select i1 %225, i32 %89, i32 %224
+  %227 = xor i1 %218, true
+  %228 = or i1 %221, %227
+  %229 = select i1 %228, i32 %88, i32 %224
+  %230 = select i1 %221, i32 %224, i32 %87
   br label %.thread
 
-230:                                              ; preds = %202
-  %231 = trunc i64 %208 to i32
+231:                                              ; preds = %202
+  %232 = trunc i64 %208 to i32
   br label %.thread
 
-232:                                              ; preds = %184
+233:                                              ; preds = %184
   %.not = icmp eq i32 %86, %68
   br i1 %.not, label %.thread22, label %.thread
 
-.thread22:                                        ; preds = %193, %117, %107, %232, %.thread, %200, %135, %65
-  %233 = phi i32 [ %69, %65 ], [ %86, %135 ], [ -1, %200 ], [ -1, %193 ], [ %86, %117 ], [ %86, %107 ], [ %79, %.thread ], [ %68, %232 ]
-  %234 = phi i32 [ 0, %65 ], [ %133, %135 ], [ %181, %200 ], [ %181, %193 ], [ -12, %117 ], [ %108, %107 ], [ %181, %.thread ], [ %181, %232 ]
-  %235 = tail call i32 @__ext4_journal_stop(ptr noundef nonnull @__func__.update_backups, i32 noundef 1218, ptr noundef %18) #13
-  %236 = icmp eq i32 %235, 0
-  %237 = icmp ne i32 %234, 0
-  %238 = or i1 %237, %236
-  %239 = select i1 %238, i32 %234, i32 %235
-  br label %240
+.thread22:                                        ; preds = %193, %117, %107, %233, %.thread, %200, %135, %65
+  %234 = phi i32 [ %69, %65 ], [ %86, %135 ], [ -1, %200 ], [ -1, %193 ], [ %86, %117 ], [ %86, %107 ], [ %79, %.thread ], [ %68, %233 ]
+  %235 = phi i32 [ 0, %65 ], [ %133, %135 ], [ %181, %200 ], [ %181, %193 ], [ -12, %117 ], [ %108, %107 ], [ %181, %.thread ], [ %181, %233 ]
+  %236 = tail call i32 @__ext4_journal_stop(ptr noundef nonnull @__func__.update_backups, i32 noundef 1218, ptr noundef %18) #13
+  %237 = icmp eq i32 %236, 0
+  %238 = icmp ne i32 %235, 0
+  %239 = or i1 %238, %237
+  %240 = select i1 %239, i32 %235, i32 %236
+  br label %241
 
-240:                                              ; preds = %.thread22, %20
-  %241 = phi i32 [ 1, %20 ], [ %233, %.thread22 ]
-  %242 = phi i32 [ %22, %20 ], [ %239, %.thread22 ]
-  %243 = icmp eq i32 %242, 0
-  br i1 %243, label %255, label %244
+241:                                              ; preds = %.thread22, %20
+  %242 = phi i32 [ 1, %20 ], [ %234, %.thread22 ]
+  %243 = phi i32 [ %22, %20 ], [ %240, %.thread22 ]
+  %244 = icmp eq i32 %243, 0
+  br i1 %244, label %256, label %245
 
-244:                                              ; preds = %240
-  tail call void (ptr, ptr, i32, ptr, ...) @__ext4_warning(ptr noundef %0, ptr noundef nonnull @__func__.update_backups, i32 noundef 1234, ptr noundef nonnull @.str.50, i32 noundef %241, i32 noundef %242) #13
-  %245 = getelementptr inbounds nuw i8, ptr %7, i64 168
-  %246 = load i16, ptr %245, align 8
-  %247 = and i16 %246, -2
-  store i16 %247, ptr %245, align 8
-  %248 = getelementptr inbounds nuw i8, ptr %7, i64 104
-  %249 = load ptr, ptr %248, align 8
-  %250 = getelementptr inbounds nuw i8, ptr %249, i64 58
-  %251 = load i16, ptr %250, align 2
-  %252 = and i16 %251, -2
-  store i16 %252, ptr %250, align 2
-  %253 = getelementptr inbounds nuw i8, ptr %7, i64 96
-  %254 = load ptr, ptr %253, align 32
-  tail call void @mark_buffer_dirty(ptr noundef %254) #13
-  br label %255
+245:                                              ; preds = %241
+  tail call void (ptr, ptr, i32, ptr, ...) @__ext4_warning(ptr noundef %0, ptr noundef nonnull @__func__.update_backups, i32 noundef 1234, ptr noundef nonnull @.str.50, i32 noundef %242, i32 noundef %243) #13
+  %246 = getelementptr inbounds nuw i8, ptr %7, i64 168
+  %247 = load i16, ptr %246, align 8
+  %248 = and i16 %247, -2
+  store i16 %248, ptr %246, align 8
+  %249 = getelementptr inbounds nuw i8, ptr %7, i64 104
+  %250 = load ptr, ptr %249, align 8
+  %251 = getelementptr inbounds nuw i8, ptr %250, i64 58
+  %252 = load i16, ptr %251, align 2
+  %253 = and i16 %252, -2
+  store i16 %253, ptr %251, align 2
+  %254 = getelementptr inbounds nuw i8, ptr %7, i64 96
+  %255 = load ptr, ptr %254, align 32
+  tail call void @mark_buffer_dirty(ptr noundef %255) #13
+  br label %256
 
-255:                                              ; preds = %244, %240
+256:                                              ; preds = %245, %241
   ret void
 }
 
@@ -5109,12 +5110,12 @@ define internal fastcc i32 @verify_reserved_gdb(ptr noundef %0, i32 noundef %1, 
   %37 = icmp ult i64 %36, %34
   br i1 %37, label %.thread, label %.split.us.split.us, !llvm.loop !65
 
-.split.us.split:                                  ; preds = %.split.us, %64
-  %38 = phi i32 [ %52, %64 ], [ 1, %.split.us ]
-  %39 = phi i32 [ %53, %64 ], [ 5, %.split.us ]
-  %40 = phi i32 [ %54, %64 ], [ 7, %.split.us ]
-  %41 = phi ptr [ %65, %64 ], [ %.40.val, %.split.us ]
-  %42 = phi i32 [ %66, %64 ], [ 0, %.split.us ]
+.split.us.split:                                  ; preds = %.split.us, %65
+  %38 = phi i32 [ %51, %65 ], [ 1, %.split.us ]
+  %39 = phi i32 [ %54, %65 ], [ 5, %.split.us ]
+  %40 = phi i32 [ %55, %65 ], [ 7, %.split.us ]
+  %41 = phi ptr [ %66, %65 ], [ %.40.val, %.split.us ]
+  %42 = phi i32 [ %67, %65 ], [ 0, %.split.us ]
   %43 = icmp ult i32 %39, %38
   %44 = select i1 %43, i32 5, i32 3
   %45 = tail call i32 @llvm.umin.i32(i32 %39, i32 %38)
@@ -5122,91 +5123,92 @@ define internal fastcc i32 @verify_reserved_gdb(ptr noundef %0, i32 noundef %1, 
   %47 = select i1 %46, i32 7, i32 %44
   %48 = tail call i32 @llvm.umin.i32(i32 %40, i32 %45)
   %49 = mul i32 %47, %48
-  %50 = select i1 %43, i32 %49, i32 %39
-  %51 = or i1 %43, %46
-  %52 = select i1 %51, i32 %38, i32 %49
-  %53 = select i1 %46, i32 %39, i32 %50
-  %54 = select i1 %46, i32 %49, i32 %40
-  %55 = icmp ult i32 %48, %1
-  br i1 %55, label %56, label %.thread
+  %50 = or i1 %43, %46
+  %51 = select i1 %50, i32 %38, i32 %49
+  %52 = xor i1 %43, true
+  %53 = or i1 %46, %52
+  %54 = select i1 %53, i32 %39, i32 %49
+  %55 = select i1 %46, i32 %49, i32 %40
+  %56 = icmp ult i32 %48, %1
+  br i1 %56, label %57, label %.thread
 
-56:                                               ; preds = %.split.us.split
-  %57 = load i32, ptr %41, align 4
-  %58 = zext i32 %57 to i64
-  %59 = zext i32 %48 to i64
-  %60 = load i64, ptr %12, align 16
-  %61 = mul i64 %60, %59
-  %62 = add i64 %61, %.24.val
-  %63 = icmp eq i64 %62, %58
-  br i1 %63, label %64, label %.split11.us
+57:                                               ; preds = %.split.us.split
+  %58 = load i32, ptr %41, align 4
+  %59 = zext i32 %58 to i64
+  %60 = zext i32 %48 to i64
+  %61 = load i64, ptr %12, align 16
+  %62 = mul i64 %61, %60
+  %63 = add i64 %62, %.24.val
+  %64 = icmp eq i64 %63, %59
+  br i1 %64, label %65, label %.split11.us
 
-64:                                               ; preds = %56
-  %65 = getelementptr i8, ptr %41, i64 4
-  %66 = add i32 %42, 1
-  %67 = sext i32 %66 to i64
-  %68 = load i64, ptr %13, align 8
-  %69 = lshr i64 %68, 2
-  %70 = icmp ult i64 %69, %67
-  br i1 %70, label %.thread, label %.split.us.split, !llvm.loop !65
+65:                                               ; preds = %57
+  %66 = getelementptr i8, ptr %41, i64 4
+  %67 = add i32 %42, 1
+  %68 = sext i32 %67 to i64
+  %69 = load i64, ptr %13, align 8
+  %70 = lshr i64 %69, 2
+  %71 = icmp ult i64 %70, %68
+  br i1 %71, label %.thread, label %.split.us.split, !llvm.loop !65
 
-.split:                                           ; preds = %2, %98
-  %71 = phi i32 [ %88, %98 ], [ 1, %2 ]
-  %72 = phi ptr [ %99, %98 ], [ %.40.val, %2 ]
-  %73 = phi i32 [ %100, %98 ], [ 0, %2 ]
-  %74 = icmp ugt i32 %71, 2
-  br i1 %74, label %.thread, label %75
+.split:                                           ; preds = %2, %99
+  %72 = phi i32 [ %89, %99 ], [ 1, %2 ]
+  %73 = phi ptr [ %100, %99 ], [ %.40.val, %2 ]
+  %74 = phi i32 [ %101, %99 ], [ 0, %2 ]
+  %75 = icmp ugt i32 %72, 2
+  br i1 %75, label %.thread, label %76
 
-75:                                               ; preds = %.split
-  %76 = zext nneg i32 %71 to i64
-  br label %79
+76:                                               ; preds = %.split
+  %77 = zext nneg i32 %72 to i64
+  br label %80
 
-77:                                               ; preds = %79
-  %78 = icmp eq i64 %85, 3
-  br i1 %78, label %.thread, label %79, !llvm.loop !8
+78:                                               ; preds = %80
+  %79 = icmp eq i64 %86, 3
+  br i1 %79, label %.thread, label %80, !llvm.loop !8
 
-79:                                               ; preds = %77, %75
-  %80 = phi i64 [ 2, %77 ], [ %76, %75 ]
-  %81 = add nuw nsw i64 %80, 4294967295
-  %82 = and i64 %81, 4294967295
-  %83 = getelementptr i32, ptr %11, i64 %82
-  %84 = load i32, ptr %83, align 4
-  %85 = add nuw nsw i64 %80, 1
-  %86 = icmp eq i32 %84, 0
-  br i1 %86, label %77, label %87, !llvm.loop !8
+80:                                               ; preds = %78, %76
+  %81 = phi i64 [ 2, %78 ], [ %77, %76 ]
+  %82 = add nuw nsw i64 %81, 4294967295
+  %83 = and i64 %82, 4294967295
+  %84 = getelementptr i32, ptr %11, i64 %83
+  %85 = load i32, ptr %84, align 4
+  %86 = add nuw nsw i64 %81, 1
+  %87 = icmp eq i32 %85, 0
+  br i1 %87, label %78, label %88, !llvm.loop !8
 
-87:                                               ; preds = %79
-  %88 = trunc nuw nsw i64 %85 to i32
-  %89 = icmp ult i32 %84, %1
-  br i1 %89, label %90, label %.thread
+88:                                               ; preds = %80
+  %89 = trunc nuw nsw i64 %86 to i32
+  %90 = icmp ult i32 %85, %1
+  br i1 %90, label %91, label %.thread
 
-90:                                               ; preds = %87
-  %91 = load i32, ptr %72, align 4
-  %92 = zext i32 %91 to i64
-  %93 = zext i32 %84 to i64
-  %94 = load i64, ptr %12, align 16
-  %95 = mul i64 %94, %93
-  %96 = add i64 %95, %.24.val
-  %97 = icmp eq i64 %96, %92
-  br i1 %97, label %98, label %.split11.us
+91:                                               ; preds = %88
+  %92 = load i32, ptr %73, align 4
+  %93 = zext i32 %92 to i64
+  %94 = zext i32 %85 to i64
+  %95 = load i64, ptr %12, align 16
+  %96 = mul i64 %95, %94
+  %97 = add i64 %96, %.24.val
+  %98 = icmp eq i64 %97, %93
+  br i1 %98, label %99, label %.split11.us
 
-.split11.us:                                      ; preds = %90, %56, %23
-  %.us-phi12 = phi i64 [ %62, %56 ], [ %29, %23 ], [ %96, %90 ]
-  %.us-phi13 = phi i32 [ %48, %56 ], [ %19, %23 ], [ %84, %90 ]
+.split11.us:                                      ; preds = %91, %57, %23
+  %.us-phi12 = phi i64 [ %63, %57 ], [ %29, %23 ], [ %97, %91 ]
+  %.us-phi13 = phi i32 [ %48, %57 ], [ %19, %23 ], [ %85, %91 ]
   tail call void (ptr, ptr, i32, ptr, ...) @__ext4_warning(ptr noundef %0, ptr noundef nonnull @__func__.verify_reserved_gdb, i32 noundef 795, ptr noundef nonnull @.str.44, i64 noundef %.24.val, i32 noundef %.us-phi13, i64 noundef %.us-phi12) #13
   br label %.thread
 
-98:                                               ; preds = %90
-  %99 = getelementptr i8, ptr %72, i64 4
-  %100 = add i32 %73, 1
-  %101 = sext i32 %100 to i64
-  %102 = load i64, ptr %13, align 8
-  %103 = lshr i64 %102, 2
-  %104 = icmp ult i64 %103, %101
-  br i1 %104, label %.thread, label %.split, !llvm.loop !65
+99:                                               ; preds = %91
+  %100 = getelementptr i8, ptr %73, i64 4
+  %101 = add i32 %74, 1
+  %102 = sext i32 %101 to i64
+  %103 = load i64, ptr %13, align 8
+  %104 = lshr i64 %103, 2
+  %105 = icmp ult i64 %104, %102
+  br i1 %105, label %.thread, label %.split, !llvm.loop !65
 
-.thread:                                          ; preds = %87, %98, %.split, %77, %.split.us.split, %64, %.split.us.split.us, %31, %.split11.us
-  %105 = phi i32 [ -22, %.split11.us ], [ %42, %.split.us.split ], [ %73, %77 ], [ %18, %.split.us.split.us ], [ -27, %31 ], [ -27, %64 ], [ %73, %.split ], [ -27, %98 ], [ %73, %87 ]
-  ret i32 %105
+.thread:                                          ; preds = %88, %99, %.split, %78, %.split.us.split, %65, %.split.us.split.us, %31, %.split11.us
+  %106 = phi i32 [ -22, %.split11.us ], [ %42, %.split.us.split ], [ %74, %78 ], [ %18, %.split.us.split.us ], [ -27, %31 ], [ -27, %65 ], [ %74, %.split ], [ -27, %99 ], [ %74, %88 ]
+  ret i32 %106
 }
 
 ; Function Attrs: null_pointer_is_valid

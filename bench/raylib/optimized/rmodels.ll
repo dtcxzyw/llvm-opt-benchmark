@@ -30347,7 +30347,7 @@ define void @DrawCylinderEx(<2 x float> %0, float %1, <2 x float> %2, float %3, 
   %or.cond = select i1 %12, i1 %13, i1 false
   %14 = fcmp oeq float %11, 0.000000e+00
   %or.cond5 = select i1 %or.cond, i1 %14, i1 false
-  br i1 %or.cond5, label %115, label %15
+  br i1 %or.cond5, label %117, label %15
 
 15:                                               ; preds = %8
   %.sroa.4.0.extract.shift = lshr i32 %7, 24
@@ -30359,166 +30359,167 @@ define void @DrawCylinderEx(<2 x float> %0, float %1, <2 x float> %2, float %3, 
   %.sroa.0150.0.extract.trunc = trunc i32 %7 to i8
   %16 = tail call float @llvm.fabs.f32(float %9)
   %17 = tail call float @llvm.fabs.f32(float %10)
-  %18 = fcmp olt float %17, %16
-  %.0.i = select i1 %18, float %17, float %16
-  %.sroa.7.0.i = select i1 %18, float 1.000000e+00, float 0.000000e+00
+  %18 = fcmp uge float %17, %16
+  %.0.i = select i1 %18, float %16, float %17
   %19 = tail call float @llvm.fabs.f32(float %11)
   %20 = fcmp olt float %19, %.0.i
   %.sroa.9.1.i = select i1 %20, float 1.000000e+00, float 0.000000e+00
-  %.sroa.7.1.i = select i1 %20, float 0.000000e+00, float %.sroa.7.0.i
   %21 = or i1 %18, %20
-  %.sroa.01.1.i = select i1 %21, float 0.000000e+00, float 1.000000e+00
-  %22 = fneg float %.sroa.7.1.i
-  %23 = fmul float %11, %22
-  %24 = tail call float @llvm.fmuladd.f32(float %10, float %.sroa.9.1.i, float %23)
-  %.sroa.033.0.vec.insert.i = insertelement <2 x float> poison, float %24, i64 0
-  %25 = fneg float %.sroa.9.1.i
-  %26 = fmul float %9, %25
-  %27 = tail call float @llvm.fmuladd.f32(float %11, float %.sroa.01.1.i, float %26)
-  %.sroa.033.4.vec.insert.i = insertelement <2 x float> %.sroa.033.0.vec.insert.i, float %27, i64 1
-  %28 = fneg float %.sroa.01.1.i
-  %29 = fmul float %10, %28
-  %30 = tail call float @llvm.fmuladd.f32(float %9, float %.sroa.7.1.i, float %29)
-  %31 = fmul float %27, %27
-  %32 = tail call float @llvm.fmuladd.f32(float %24, float %24, float %31)
-  %33 = tail call float @llvm.fmuladd.f32(float %30, float %30, float %32)
-  %34 = tail call float @sqrtf(float noundef %33) #63
-  %35 = fcmp une float %34, 0.000000e+00
-  br i1 %35, label %36, label %Vector3Normalize.exit
+  %.sroa.7.1.i = select i1 %21, float 0.000000e+00, float 1.000000e+00
+  %22 = xor i1 %18, true
+  %23 = or i1 %20, %22
+  %.sroa.01.1.i = select i1 %23, float 0.000000e+00, float 1.000000e+00
+  %24 = fneg float %.sroa.7.1.i
+  %25 = fmul float %11, %24
+  %26 = tail call float @llvm.fmuladd.f32(float %10, float %.sroa.9.1.i, float %25)
+  %.sroa.033.0.vec.insert.i = insertelement <2 x float> poison, float %26, i64 0
+  %27 = fneg float %.sroa.9.1.i
+  %28 = fmul float %9, %27
+  %29 = tail call float @llvm.fmuladd.f32(float %11, float %.sroa.01.1.i, float %28)
+  %.sroa.033.4.vec.insert.i = insertelement <2 x float> %.sroa.033.0.vec.insert.i, float %29, i64 1
+  %30 = fneg float %.sroa.01.1.i
+  %31 = fmul float %10, %30
+  %32 = tail call float @llvm.fmuladd.f32(float %9, float %.sroa.7.1.i, float %31)
+  %33 = fmul float %29, %29
+  %34 = tail call float @llvm.fmuladd.f32(float %26, float %26, float %33)
+  %35 = tail call float @llvm.fmuladd.f32(float %32, float %32, float %34)
+  %36 = tail call float @sqrtf(float noundef %35) #63
+  %37 = fcmp une float %36, 0.000000e+00
+  br i1 %37, label %38, label %Vector3Normalize.exit
 
-36:                                               ; preds = %15
-  %37 = fdiv float 1.000000e+00, %34
-  %38 = fmul float %24, %37
-  %.sroa.013.0.vec.insert.i = insertelement <2 x float> poison, float %38, i64 0
-  %39 = fmul float %27, %37
-  %.sroa.013.4.vec.insert.i = insertelement <2 x float> %.sroa.013.0.vec.insert.i, float %39, i64 1
-  %40 = fmul float %30, %37
+38:                                               ; preds = %15
+  %39 = fdiv float 1.000000e+00, %36
+  %40 = fmul float %26, %39
+  %.sroa.013.0.vec.insert.i = insertelement <2 x float> poison, float %40, i64 0
+  %41 = fmul float %29, %39
+  %.sroa.013.4.vec.insert.i = insertelement <2 x float> %.sroa.013.0.vec.insert.i, float %41, i64 1
+  %42 = fmul float %32, %39
   br label %Vector3Normalize.exit
 
-Vector3Normalize.exit:                            ; preds = %15, %36
-  %.sroa.013.0.i = phi <2 x float> [ %.sroa.013.4.vec.insert.i, %36 ], [ %.sroa.033.4.vec.insert.i, %15 ]
-  %.sroa.617.0.i = phi float [ %40, %36 ], [ %30, %15 ]
+Vector3Normalize.exit:                            ; preds = %15, %38
+  %.sroa.013.0.i = phi <2 x float> [ %.sroa.013.4.vec.insert.i, %38 ], [ %.sroa.033.4.vec.insert.i, %15 ]
+  %.sroa.617.0.i = phi float [ %42, %38 ], [ %32, %15 ]
   %.sroa.011.4.vec.extract.i = extractelement <2 x float> %.sroa.013.0.i, i64 1
-  %41 = fneg float %10
-  %42 = fmul float %.sroa.617.0.i, %41
-  %43 = tail call float @llvm.fmuladd.f32(float %.sroa.011.4.vec.extract.i, float %11, float %42)
-  %.sroa.018.0.vec.insert.i = insertelement <2 x float> poison, float %43, i64 0
+  %43 = fneg float %10
+  %44 = fmul float %.sroa.617.0.i, %43
+  %45 = tail call float @llvm.fmuladd.f32(float %.sroa.011.4.vec.extract.i, float %11, float %44)
+  %.sroa.018.0.vec.insert.i = insertelement <2 x float> poison, float %45, i64 0
   %.sroa.011.0.vec.extract.i = extractelement <2 x float> %.sroa.013.0.i, i64 0
-  %44 = fneg float %11
-  %45 = fmul float %.sroa.011.0.vec.extract.i, %44
-  %46 = tail call float @llvm.fmuladd.f32(float %.sroa.617.0.i, float %9, float %45)
-  %.sroa.018.4.vec.insert.i = insertelement <2 x float> %.sroa.018.0.vec.insert.i, float %46, i64 1
-  %47 = fneg float %9
-  %48 = fmul float %.sroa.011.4.vec.extract.i, %47
-  %49 = tail call float @llvm.fmuladd.f32(float %.sroa.011.0.vec.extract.i, float %10, float %48)
-  %50 = fmul float %46, %46
-  %51 = tail call float @llvm.fmuladd.f32(float %43, float %43, float %50)
-  %52 = tail call float @llvm.fmuladd.f32(float %49, float %49, float %51)
-  %53 = tail call float @sqrtf(float noundef %52) #63
-  %54 = fcmp une float %53, 0.000000e+00
-  br i1 %54, label %55, label %Vector3Normalize.exit201
+  %46 = fneg float %11
+  %47 = fmul float %.sroa.011.0.vec.extract.i, %46
+  %48 = tail call float @llvm.fmuladd.f32(float %.sroa.617.0.i, float %9, float %47)
+  %.sroa.018.4.vec.insert.i = insertelement <2 x float> %.sroa.018.0.vec.insert.i, float %48, i64 1
+  %49 = fneg float %9
+  %50 = fmul float %.sroa.011.4.vec.extract.i, %49
+  %51 = tail call float @llvm.fmuladd.f32(float %.sroa.011.0.vec.extract.i, float %10, float %50)
+  %52 = fmul float %48, %48
+  %53 = tail call float @llvm.fmuladd.f32(float %45, float %45, float %52)
+  %54 = tail call float @llvm.fmuladd.f32(float %51, float %51, float %53)
+  %55 = tail call float @sqrtf(float noundef %54) #63
+  %56 = fcmp une float %55, 0.000000e+00
+  br i1 %56, label %57, label %Vector3Normalize.exit201
 
-55:                                               ; preds = %Vector3Normalize.exit
-  %56 = fdiv float 1.000000e+00, %53
-  %57 = fmul float %43, %56
-  %.sroa.013.0.vec.insert.i199 = insertelement <2 x float> poison, float %57, i64 0
-  %58 = fmul float %46, %56
-  %.sroa.013.4.vec.insert.i200 = insertelement <2 x float> %.sroa.013.0.vec.insert.i199, float %58, i64 1
-  %59 = fmul float %49, %56
+57:                                               ; preds = %Vector3Normalize.exit
+  %58 = fdiv float 1.000000e+00, %55
+  %59 = fmul float %45, %58
+  %.sroa.013.0.vec.insert.i199 = insertelement <2 x float> poison, float %59, i64 0
+  %60 = fmul float %48, %58
+  %.sroa.013.4.vec.insert.i200 = insertelement <2 x float> %.sroa.013.0.vec.insert.i199, float %60, i64 1
+  %61 = fmul float %51, %58
   br label %Vector3Normalize.exit201
 
-Vector3Normalize.exit201:                         ; preds = %Vector3Normalize.exit, %55
-  %.sroa.013.0.i195 = phi <2 x float> [ %.sroa.013.4.vec.insert.i200, %55 ], [ %.sroa.018.4.vec.insert.i, %Vector3Normalize.exit ]
-  %.sroa.617.0.i196 = phi float [ %59, %55 ], [ %49, %Vector3Normalize.exit ]
-  %60 = uitofp nneg i32 %spec.store.select to float
-  %61 = fdiv float 0x401921FB60000000, %60
+Vector3Normalize.exit201:                         ; preds = %Vector3Normalize.exit, %57
+  %.sroa.013.0.i195 = phi <2 x float> [ %.sroa.013.4.vec.insert.i200, %57 ], [ %.sroa.018.4.vec.insert.i, %Vector3Normalize.exit ]
+  %.sroa.617.0.i196 = phi float [ %61, %57 ], [ %51, %Vector3Normalize.exit ]
+  %62 = uitofp nneg i32 %spec.store.select to float
+  %63 = fdiv float 0x401921FB60000000, %62
   tail call void @rlBegin(i32 noundef 4) #63
   tail call void @rlColor4ub(i8 noundef zeroext %.sroa.0150.0.extract.trunc, i8 noundef zeroext %.sroa.2151.0.extract.trunc, i8 noundef zeroext %.sroa.3.0.extract.trunc, i8 noundef zeroext %.sroa.4.0.extract.trunc) #63
   %.sroa.084.0.vec.extract = extractelement <2 x float> %.sroa.013.0.i195, i64 0
   %.sroa.084.4.vec.extract = extractelement <2 x float> %.sroa.013.0.i195, i64 1
-  %62 = fcmp ogt float %4, 0.000000e+00
-  %63 = fcmp ogt float %5, 0.000000e+00
-  br label %65
+  %64 = fcmp ogt float %4, 0.000000e+00
+  %65 = fcmp ogt float %5, 0.000000e+00
+  br label %67
 
-64:                                               ; preds = %114
+66:                                               ; preds = %116
   tail call void @rlEnd() #63
-  br label %115
+  br label %117
 
-65:                                               ; preds = %Vector3Normalize.exit201, %114
-  %.0202 = phi i32 [ 0, %Vector3Normalize.exit201 ], [ %78, %114 ]
-  %66 = uitofp nneg i32 %.0202 to float
-  %67 = fmul float %61, %66
-  %68 = tail call float @sinf(float noundef %67) #63
-  %69 = fmul float %4, %68
-  %70 = tail call float @cosf(float noundef %67) #63
+67:                                               ; preds = %Vector3Normalize.exit201, %116
+  %.0202 = phi i32 [ 0, %Vector3Normalize.exit201 ], [ %80, %116 ]
+  %68 = uitofp nneg i32 %.0202 to float
+  %69 = fmul float %63, %68
+  %70 = tail call float @sinf(float noundef %69) #63
   %71 = fmul float %4, %70
-  %72 = tail call float @llvm.fmuladd.f32(float %69, float %.sroa.011.0.vec.extract.i, float %.sroa.0172.0.vec.extract)
-  %73 = tail call float @llvm.fmuladd.f32(float %71, float %.sroa.084.0.vec.extract, float %72)
-  %74 = tail call float @llvm.fmuladd.f32(float %69, float %.sroa.011.4.vec.extract.i, float %.sroa.0172.4.vec.extract)
-  %75 = tail call float @llvm.fmuladd.f32(float %71, float %.sroa.084.4.vec.extract, float %74)
-  %76 = tail call float @llvm.fmuladd.f32(float %69, float %.sroa.617.0.i, float %1)
-  %77 = tail call float @llvm.fmuladd.f32(float %71, float %.sroa.617.0.i196, float %76)
-  %78 = add nuw nsw i32 %.0202, 1
-  %79 = uitofp nneg i32 %78 to float
-  %80 = fmul float %61, %79
-  %81 = tail call float @sinf(float noundef %80) #63
-  %82 = fmul float %4, %81
-  %83 = tail call float @cosf(float noundef %80) #63
+  %72 = tail call float @cosf(float noundef %69) #63
+  %73 = fmul float %4, %72
+  %74 = tail call float @llvm.fmuladd.f32(float %71, float %.sroa.011.0.vec.extract.i, float %.sroa.0172.0.vec.extract)
+  %75 = tail call float @llvm.fmuladd.f32(float %73, float %.sroa.084.0.vec.extract, float %74)
+  %76 = tail call float @llvm.fmuladd.f32(float %71, float %.sroa.011.4.vec.extract.i, float %.sroa.0172.4.vec.extract)
+  %77 = tail call float @llvm.fmuladd.f32(float %73, float %.sroa.084.4.vec.extract, float %76)
+  %78 = tail call float @llvm.fmuladd.f32(float %71, float %.sroa.617.0.i, float %1)
+  %79 = tail call float @llvm.fmuladd.f32(float %73, float %.sroa.617.0.i196, float %78)
+  %80 = add nuw nsw i32 %.0202, 1
+  %81 = uitofp nneg i32 %80 to float
+  %82 = fmul float %63, %81
+  %83 = tail call float @sinf(float noundef %82) #63
   %84 = fmul float %4, %83
-  %85 = tail call float @llvm.fmuladd.f32(float %82, float %.sroa.011.0.vec.extract.i, float %.sroa.0172.0.vec.extract)
-  %86 = tail call float @llvm.fmuladd.f32(float %84, float %.sroa.084.0.vec.extract, float %85)
-  %87 = tail call float @llvm.fmuladd.f32(float %82, float %.sroa.011.4.vec.extract.i, float %.sroa.0172.4.vec.extract)
-  %88 = tail call float @llvm.fmuladd.f32(float %84, float %.sroa.084.4.vec.extract, float %87)
-  %89 = tail call float @llvm.fmuladd.f32(float %82, float %.sroa.617.0.i, float %1)
-  %90 = tail call float @llvm.fmuladd.f32(float %84, float %.sroa.617.0.i196, float %89)
-  %91 = tail call float @sinf(float noundef %67) #63
-  %92 = fmul float %5, %91
-  %93 = tail call float @cosf(float noundef %67) #63
+  %85 = tail call float @cosf(float noundef %82) #63
+  %86 = fmul float %4, %85
+  %87 = tail call float @llvm.fmuladd.f32(float %84, float %.sroa.011.0.vec.extract.i, float %.sroa.0172.0.vec.extract)
+  %88 = tail call float @llvm.fmuladd.f32(float %86, float %.sroa.084.0.vec.extract, float %87)
+  %89 = tail call float @llvm.fmuladd.f32(float %84, float %.sroa.011.4.vec.extract.i, float %.sroa.0172.4.vec.extract)
+  %90 = tail call float @llvm.fmuladd.f32(float %86, float %.sroa.084.4.vec.extract, float %89)
+  %91 = tail call float @llvm.fmuladd.f32(float %84, float %.sroa.617.0.i, float %1)
+  %92 = tail call float @llvm.fmuladd.f32(float %86, float %.sroa.617.0.i196, float %91)
+  %93 = tail call float @sinf(float noundef %69) #63
   %94 = fmul float %5, %93
-  %95 = tail call float @llvm.fmuladd.f32(float %92, float %.sroa.011.0.vec.extract.i, float %.sroa.0154.0.vec.extract)
-  %96 = tail call float @llvm.fmuladd.f32(float %94, float %.sroa.084.0.vec.extract, float %95)
-  %97 = tail call float @llvm.fmuladd.f32(float %92, float %.sroa.011.4.vec.extract.i, float %.sroa.0154.4.vec.extract)
-  %98 = tail call float @llvm.fmuladd.f32(float %94, float %.sroa.084.4.vec.extract, float %97)
-  %99 = tail call float @llvm.fmuladd.f32(float %92, float %.sroa.617.0.i, float %3)
-  %100 = tail call float @llvm.fmuladd.f32(float %94, float %.sroa.617.0.i196, float %99)
-  %101 = tail call float @sinf(float noundef %80) #63
-  %102 = fmul float %5, %101
-  %103 = tail call float @cosf(float noundef %80) #63
+  %95 = tail call float @cosf(float noundef %69) #63
+  %96 = fmul float %5, %95
+  %97 = tail call float @llvm.fmuladd.f32(float %94, float %.sroa.011.0.vec.extract.i, float %.sroa.0154.0.vec.extract)
+  %98 = tail call float @llvm.fmuladd.f32(float %96, float %.sroa.084.0.vec.extract, float %97)
+  %99 = tail call float @llvm.fmuladd.f32(float %94, float %.sroa.011.4.vec.extract.i, float %.sroa.0154.4.vec.extract)
+  %100 = tail call float @llvm.fmuladd.f32(float %96, float %.sroa.084.4.vec.extract, float %99)
+  %101 = tail call float @llvm.fmuladd.f32(float %94, float %.sroa.617.0.i, float %3)
+  %102 = tail call float @llvm.fmuladd.f32(float %96, float %.sroa.617.0.i196, float %101)
+  %103 = tail call float @sinf(float noundef %82) #63
   %104 = fmul float %5, %103
-  %105 = tail call float @llvm.fmuladd.f32(float %102, float %.sroa.011.0.vec.extract.i, float %.sroa.0154.0.vec.extract)
-  %106 = tail call float @llvm.fmuladd.f32(float %104, float %.sroa.084.0.vec.extract, float %105)
-  %107 = tail call float @llvm.fmuladd.f32(float %102, float %.sroa.011.4.vec.extract.i, float %.sroa.0154.4.vec.extract)
-  %108 = tail call float @llvm.fmuladd.f32(float %104, float %.sroa.084.4.vec.extract, float %107)
-  %109 = tail call float @llvm.fmuladd.f32(float %102, float %.sroa.617.0.i, float %3)
-  %110 = tail call float @llvm.fmuladd.f32(float %104, float %.sroa.617.0.i196, float %109)
-  br i1 %62, label %111, label %112
+  %105 = tail call float @cosf(float noundef %82) #63
+  %106 = fmul float %5, %105
+  %107 = tail call float @llvm.fmuladd.f32(float %104, float %.sroa.011.0.vec.extract.i, float %.sroa.0154.0.vec.extract)
+  %108 = tail call float @llvm.fmuladd.f32(float %106, float %.sroa.084.0.vec.extract, float %107)
+  %109 = tail call float @llvm.fmuladd.f32(float %104, float %.sroa.011.4.vec.extract.i, float %.sroa.0154.4.vec.extract)
+  %110 = tail call float @llvm.fmuladd.f32(float %106, float %.sroa.084.4.vec.extract, float %109)
+  %111 = tail call float @llvm.fmuladd.f32(float %104, float %.sroa.617.0.i, float %3)
+  %112 = tail call float @llvm.fmuladd.f32(float %106, float %.sroa.617.0.i196, float %111)
+  br i1 %64, label %113, label %114
 
-111:                                              ; preds = %65
+113:                                              ; preds = %67
   tail call void @rlVertex3f(float noundef %.sroa.0172.0.vec.extract, float noundef %.sroa.0172.4.vec.extract, float noundef %1) #63
-  tail call void @rlVertex3f(float noundef %86, float noundef %88, float noundef %90) #63
-  tail call void @rlVertex3f(float noundef %73, float noundef %75, float noundef %77) #63
-  br label %112
-
-112:                                              ; preds = %111, %65
-  tail call void @rlVertex3f(float noundef %73, float noundef %75, float noundef %77) #63
-  tail call void @rlVertex3f(float noundef %86, float noundef %88, float noundef %90) #63
-  tail call void @rlVertex3f(float noundef %96, float noundef %98, float noundef %100) #63
-  tail call void @rlVertex3f(float noundef %86, float noundef %88, float noundef %90) #63
-  tail call void @rlVertex3f(float noundef %106, float noundef %108, float noundef %110) #63
-  tail call void @rlVertex3f(float noundef %96, float noundef %98, float noundef %100) #63
-  br i1 %63, label %113, label %114
-
-113:                                              ; preds = %112
-  tail call void @rlVertex3f(float noundef %.sroa.0154.0.vec.extract, float noundef %.sroa.0154.4.vec.extract, float noundef %3) #63
-  tail call void @rlVertex3f(float noundef %96, float noundef %98, float noundef %100) #63
-  tail call void @rlVertex3f(float noundef %106, float noundef %108, float noundef %110) #63
+  tail call void @rlVertex3f(float noundef %88, float noundef %90, float noundef %92) #63
+  tail call void @rlVertex3f(float noundef %75, float noundef %77, float noundef %79) #63
   br label %114
 
-114:                                              ; preds = %113, %112
-  %exitcond.not = icmp eq i32 %78, %spec.store.select
-  br i1 %exitcond.not, label %64, label %65
+114:                                              ; preds = %113, %67
+  tail call void @rlVertex3f(float noundef %75, float noundef %77, float noundef %79) #63
+  tail call void @rlVertex3f(float noundef %88, float noundef %90, float noundef %92) #63
+  tail call void @rlVertex3f(float noundef %98, float noundef %100, float noundef %102) #63
+  tail call void @rlVertex3f(float noundef %88, float noundef %90, float noundef %92) #63
+  tail call void @rlVertex3f(float noundef %108, float noundef %110, float noundef %112) #63
+  tail call void @rlVertex3f(float noundef %98, float noundef %100, float noundef %102) #63
+  br i1 %65, label %115, label %116
 
-115:                                              ; preds = %8, %64
+115:                                              ; preds = %114
+  tail call void @rlVertex3f(float noundef %.sroa.0154.0.vec.extract, float noundef %.sroa.0154.4.vec.extract, float noundef %3) #63
+  tail call void @rlVertex3f(float noundef %98, float noundef %100, float noundef %102) #63
+  tail call void @rlVertex3f(float noundef %108, float noundef %110, float noundef %112) #63
+  br label %116
+
+116:                                              ; preds = %115, %114
+  %exitcond.not = icmp eq i32 %80, %spec.store.select
+  br i1 %exitcond.not, label %66, label %67
+
+117:                                              ; preds = %8, %66
   ret void
 }
 
@@ -30616,7 +30617,7 @@ define void @DrawCylinderWiresEx(<2 x float> %0, float %1, <2 x float> %2, float
   %or.cond = select i1 %12, i1 %13, i1 false
   %14 = fcmp oeq float %11, 0.000000e+00
   %or.cond5 = select i1 %or.cond, i1 %14, i1 false
-  br i1 %or.cond5, label %109, label %15
+  br i1 %or.cond5, label %111, label %15
 
 15:                                               ; preds = %8
   %.sroa.4138.0.extract.shift = lshr i32 %7, 24
@@ -30628,146 +30629,147 @@ define void @DrawCylinderWiresEx(<2 x float> %0, float %1, <2 x float> %2, float
   %.sroa.0136.0.extract.trunc = trunc i32 %7 to i8
   %16 = tail call float @llvm.fabs.f32(float %9)
   %17 = tail call float @llvm.fabs.f32(float %10)
-  %18 = fcmp olt float %17, %16
-  %.0.i = select i1 %18, float %17, float %16
-  %.sroa.7.0.i = select i1 %18, float 1.000000e+00, float 0.000000e+00
+  %18 = fcmp uge float %17, %16
+  %.0.i = select i1 %18, float %16, float %17
   %19 = tail call float @llvm.fabs.f32(float %11)
   %20 = fcmp olt float %19, %.0.i
   %.sroa.9.1.i = select i1 %20, float 1.000000e+00, float 0.000000e+00
-  %.sroa.7.1.i = select i1 %20, float 0.000000e+00, float %.sroa.7.0.i
   %21 = or i1 %18, %20
-  %.sroa.01.1.i = select i1 %21, float 0.000000e+00, float 1.000000e+00
-  %22 = fneg float %.sroa.7.1.i
-  %23 = fmul float %11, %22
-  %24 = tail call float @llvm.fmuladd.f32(float %10, float %.sroa.9.1.i, float %23)
-  %.sroa.033.0.vec.insert.i = insertelement <2 x float> poison, float %24, i64 0
-  %25 = fneg float %.sroa.9.1.i
-  %26 = fmul float %9, %25
-  %27 = tail call float @llvm.fmuladd.f32(float %11, float %.sroa.01.1.i, float %26)
-  %.sroa.033.4.vec.insert.i = insertelement <2 x float> %.sroa.033.0.vec.insert.i, float %27, i64 1
-  %28 = fneg float %.sroa.01.1.i
-  %29 = fmul float %10, %28
-  %30 = tail call float @llvm.fmuladd.f32(float %9, float %.sroa.7.1.i, float %29)
-  %31 = fmul float %27, %27
-  %32 = tail call float @llvm.fmuladd.f32(float %24, float %24, float %31)
-  %33 = tail call float @llvm.fmuladd.f32(float %30, float %30, float %32)
-  %34 = tail call float @sqrtf(float noundef %33) #63
-  %35 = fcmp une float %34, 0.000000e+00
-  br i1 %35, label %36, label %Vector3Normalize.exit
+  %.sroa.7.1.i = select i1 %21, float 0.000000e+00, float 1.000000e+00
+  %22 = xor i1 %18, true
+  %23 = or i1 %20, %22
+  %.sroa.01.1.i = select i1 %23, float 0.000000e+00, float 1.000000e+00
+  %24 = fneg float %.sroa.7.1.i
+  %25 = fmul float %11, %24
+  %26 = tail call float @llvm.fmuladd.f32(float %10, float %.sroa.9.1.i, float %25)
+  %.sroa.033.0.vec.insert.i = insertelement <2 x float> poison, float %26, i64 0
+  %27 = fneg float %.sroa.9.1.i
+  %28 = fmul float %9, %27
+  %29 = tail call float @llvm.fmuladd.f32(float %11, float %.sroa.01.1.i, float %28)
+  %.sroa.033.4.vec.insert.i = insertelement <2 x float> %.sroa.033.0.vec.insert.i, float %29, i64 1
+  %30 = fneg float %.sroa.01.1.i
+  %31 = fmul float %10, %30
+  %32 = tail call float @llvm.fmuladd.f32(float %9, float %.sroa.7.1.i, float %31)
+  %33 = fmul float %29, %29
+  %34 = tail call float @llvm.fmuladd.f32(float %26, float %26, float %33)
+  %35 = tail call float @llvm.fmuladd.f32(float %32, float %32, float %34)
+  %36 = tail call float @sqrtf(float noundef %35) #63
+  %37 = fcmp une float %36, 0.000000e+00
+  br i1 %37, label %38, label %Vector3Normalize.exit
 
-36:                                               ; preds = %15
-  %37 = fdiv float 1.000000e+00, %34
-  %38 = fmul float %24, %37
-  %.sroa.013.0.vec.insert.i = insertelement <2 x float> poison, float %38, i64 0
-  %39 = fmul float %27, %37
-  %.sroa.013.4.vec.insert.i = insertelement <2 x float> %.sroa.013.0.vec.insert.i, float %39, i64 1
-  %40 = fmul float %30, %37
+38:                                               ; preds = %15
+  %39 = fdiv float 1.000000e+00, %36
+  %40 = fmul float %26, %39
+  %.sroa.013.0.vec.insert.i = insertelement <2 x float> poison, float %40, i64 0
+  %41 = fmul float %29, %39
+  %.sroa.013.4.vec.insert.i = insertelement <2 x float> %.sroa.013.0.vec.insert.i, float %41, i64 1
+  %42 = fmul float %32, %39
   br label %Vector3Normalize.exit
 
-Vector3Normalize.exit:                            ; preds = %15, %36
-  %.sroa.013.0.i = phi <2 x float> [ %.sroa.013.4.vec.insert.i, %36 ], [ %.sroa.033.4.vec.insert.i, %15 ]
-  %.sroa.617.0.i = phi float [ %40, %36 ], [ %30, %15 ]
+Vector3Normalize.exit:                            ; preds = %15, %38
+  %.sroa.013.0.i = phi <2 x float> [ %.sroa.013.4.vec.insert.i, %38 ], [ %.sroa.033.4.vec.insert.i, %15 ]
+  %.sroa.617.0.i = phi float [ %42, %38 ], [ %32, %15 ]
   %.sroa.011.4.vec.extract.i = extractelement <2 x float> %.sroa.013.0.i, i64 1
-  %41 = fneg float %10
-  %42 = fmul float %.sroa.617.0.i, %41
-  %43 = tail call float @llvm.fmuladd.f32(float %.sroa.011.4.vec.extract.i, float %11, float %42)
-  %.sroa.018.0.vec.insert.i = insertelement <2 x float> poison, float %43, i64 0
+  %43 = fneg float %10
+  %44 = fmul float %.sroa.617.0.i, %43
+  %45 = tail call float @llvm.fmuladd.f32(float %.sroa.011.4.vec.extract.i, float %11, float %44)
+  %.sroa.018.0.vec.insert.i = insertelement <2 x float> poison, float %45, i64 0
   %.sroa.011.0.vec.extract.i = extractelement <2 x float> %.sroa.013.0.i, i64 0
-  %44 = fneg float %11
-  %45 = fmul float %.sroa.011.0.vec.extract.i, %44
-  %46 = tail call float @llvm.fmuladd.f32(float %.sroa.617.0.i, float %9, float %45)
-  %.sroa.018.4.vec.insert.i = insertelement <2 x float> %.sroa.018.0.vec.insert.i, float %46, i64 1
-  %47 = fneg float %9
-  %48 = fmul float %.sroa.011.4.vec.extract.i, %47
-  %49 = tail call float @llvm.fmuladd.f32(float %.sroa.011.0.vec.extract.i, float %10, float %48)
-  %50 = fmul float %46, %46
-  %51 = tail call float @llvm.fmuladd.f32(float %43, float %43, float %50)
-  %52 = tail call float @llvm.fmuladd.f32(float %49, float %49, float %51)
-  %53 = tail call float @sqrtf(float noundef %52) #63
-  %54 = fcmp une float %53, 0.000000e+00
-  br i1 %54, label %55, label %Vector3Normalize.exit178
+  %46 = fneg float %11
+  %47 = fmul float %.sroa.011.0.vec.extract.i, %46
+  %48 = tail call float @llvm.fmuladd.f32(float %.sroa.617.0.i, float %9, float %47)
+  %.sroa.018.4.vec.insert.i = insertelement <2 x float> %.sroa.018.0.vec.insert.i, float %48, i64 1
+  %49 = fneg float %9
+  %50 = fmul float %.sroa.011.4.vec.extract.i, %49
+  %51 = tail call float @llvm.fmuladd.f32(float %.sroa.011.0.vec.extract.i, float %10, float %50)
+  %52 = fmul float %48, %48
+  %53 = tail call float @llvm.fmuladd.f32(float %45, float %45, float %52)
+  %54 = tail call float @llvm.fmuladd.f32(float %51, float %51, float %53)
+  %55 = tail call float @sqrtf(float noundef %54) #63
+  %56 = fcmp une float %55, 0.000000e+00
+  br i1 %56, label %57, label %Vector3Normalize.exit178
 
-55:                                               ; preds = %Vector3Normalize.exit
-  %56 = fdiv float 1.000000e+00, %53
-  %57 = fmul float %43, %56
-  %.sroa.013.0.vec.insert.i176 = insertelement <2 x float> poison, float %57, i64 0
-  %58 = fmul float %46, %56
-  %.sroa.013.4.vec.insert.i177 = insertelement <2 x float> %.sroa.013.0.vec.insert.i176, float %58, i64 1
-  %59 = fmul float %49, %56
+57:                                               ; preds = %Vector3Normalize.exit
+  %58 = fdiv float 1.000000e+00, %55
+  %59 = fmul float %45, %58
+  %.sroa.013.0.vec.insert.i176 = insertelement <2 x float> poison, float %59, i64 0
+  %60 = fmul float %48, %58
+  %.sroa.013.4.vec.insert.i177 = insertelement <2 x float> %.sroa.013.0.vec.insert.i176, float %60, i64 1
+  %61 = fmul float %51, %58
   br label %Vector3Normalize.exit178
 
-Vector3Normalize.exit178:                         ; preds = %Vector3Normalize.exit, %55
-  %.sroa.013.0.i172 = phi <2 x float> [ %.sroa.013.4.vec.insert.i177, %55 ], [ %.sroa.018.4.vec.insert.i, %Vector3Normalize.exit ]
-  %.sroa.617.0.i173 = phi float [ %59, %55 ], [ %49, %Vector3Normalize.exit ]
-  %60 = uitofp nneg i32 %spec.store.select to float
-  %61 = fdiv float 0x401921FB60000000, %60
+Vector3Normalize.exit178:                         ; preds = %Vector3Normalize.exit, %57
+  %.sroa.013.0.i172 = phi <2 x float> [ %.sroa.013.4.vec.insert.i177, %57 ], [ %.sroa.018.4.vec.insert.i, %Vector3Normalize.exit ]
+  %.sroa.617.0.i173 = phi float [ %61, %57 ], [ %51, %Vector3Normalize.exit ]
+  %62 = uitofp nneg i32 %spec.store.select to float
+  %63 = fdiv float 0x401921FB60000000, %62
   tail call void @rlBegin(i32 noundef 1) #63
   tail call void @rlColor4ub(i8 noundef zeroext %.sroa.0136.0.extract.trunc, i8 noundef zeroext %.sroa.2137.0.extract.trunc, i8 noundef zeroext %.sroa.3.0.extract.trunc, i8 noundef zeroext %.sroa.4138.0.extract.trunc) #63
   %.sroa.072.0.vec.extract = extractelement <2 x float> %.sroa.013.0.i172, i64 0
   %.sroa.072.4.vec.extract = extractelement <2 x float> %.sroa.013.0.i172, i64 1
-  br label %63
+  br label %65
 
-62:                                               ; preds = %63
+64:                                               ; preds = %65
   tail call void @rlEnd() #63
-  br label %109
+  br label %111
 
-63:                                               ; preds = %Vector3Normalize.exit178, %63
-  %.0179 = phi i32 [ 0, %Vector3Normalize.exit178 ], [ %76, %63 ]
-  %64 = uitofp nneg i32 %.0179 to float
-  %65 = fmul float %61, %64
-  %66 = tail call float @sinf(float noundef %65) #63
-  %67 = fmul float %4, %66
-  %68 = tail call float @cosf(float noundef %65) #63
+65:                                               ; preds = %Vector3Normalize.exit178, %65
+  %.0179 = phi i32 [ 0, %Vector3Normalize.exit178 ], [ %78, %65 ]
+  %66 = uitofp nneg i32 %.0179 to float
+  %67 = fmul float %63, %66
+  %68 = tail call float @sinf(float noundef %67) #63
   %69 = fmul float %4, %68
-  %70 = tail call float @llvm.fmuladd.f32(float %67, float %.sroa.011.0.vec.extract.i, float %.sroa.0154.0.vec.extract)
-  %71 = tail call float @llvm.fmuladd.f32(float %69, float %.sroa.072.0.vec.extract, float %70)
-  %72 = tail call float @llvm.fmuladd.f32(float %67, float %.sroa.011.4.vec.extract.i, float %.sroa.0154.4.vec.extract)
-  %73 = tail call float @llvm.fmuladd.f32(float %69, float %.sroa.072.4.vec.extract, float %72)
-  %74 = tail call float @llvm.fmuladd.f32(float %67, float %.sroa.617.0.i, float %1)
-  %75 = tail call float @llvm.fmuladd.f32(float %69, float %.sroa.617.0.i173, float %74)
-  %76 = add nuw nsw i32 %.0179, 1
-  %77 = uitofp nneg i32 %76 to float
-  %78 = fmul float %61, %77
-  %79 = tail call float @sinf(float noundef %78) #63
-  %80 = fmul float %4, %79
-  %81 = tail call float @cosf(float noundef %78) #63
+  %70 = tail call float @cosf(float noundef %67) #63
+  %71 = fmul float %4, %70
+  %72 = tail call float @llvm.fmuladd.f32(float %69, float %.sroa.011.0.vec.extract.i, float %.sroa.0154.0.vec.extract)
+  %73 = tail call float @llvm.fmuladd.f32(float %71, float %.sroa.072.0.vec.extract, float %72)
+  %74 = tail call float @llvm.fmuladd.f32(float %69, float %.sroa.011.4.vec.extract.i, float %.sroa.0154.4.vec.extract)
+  %75 = tail call float @llvm.fmuladd.f32(float %71, float %.sroa.072.4.vec.extract, float %74)
+  %76 = tail call float @llvm.fmuladd.f32(float %69, float %.sroa.617.0.i, float %1)
+  %77 = tail call float @llvm.fmuladd.f32(float %71, float %.sroa.617.0.i173, float %76)
+  %78 = add nuw nsw i32 %.0179, 1
+  %79 = uitofp nneg i32 %78 to float
+  %80 = fmul float %63, %79
+  %81 = tail call float @sinf(float noundef %80) #63
   %82 = fmul float %4, %81
-  %83 = tail call float @llvm.fmuladd.f32(float %80, float %.sroa.011.0.vec.extract.i, float %.sroa.0154.0.vec.extract)
-  %84 = tail call float @llvm.fmuladd.f32(float %82, float %.sroa.072.0.vec.extract, float %83)
-  %85 = tail call float @llvm.fmuladd.f32(float %80, float %.sroa.011.4.vec.extract.i, float %.sroa.0154.4.vec.extract)
-  %86 = tail call float @llvm.fmuladd.f32(float %82, float %.sroa.072.4.vec.extract, float %85)
-  %87 = tail call float @llvm.fmuladd.f32(float %80, float %.sroa.617.0.i, float %1)
-  %88 = tail call float @llvm.fmuladd.f32(float %82, float %.sroa.617.0.i173, float %87)
-  %89 = tail call float @sinf(float noundef %65) #63
-  %90 = fmul float %5, %89
-  %91 = tail call float @cosf(float noundef %65) #63
+  %83 = tail call float @cosf(float noundef %80) #63
+  %84 = fmul float %4, %83
+  %85 = tail call float @llvm.fmuladd.f32(float %82, float %.sroa.011.0.vec.extract.i, float %.sroa.0154.0.vec.extract)
+  %86 = tail call float @llvm.fmuladd.f32(float %84, float %.sroa.072.0.vec.extract, float %85)
+  %87 = tail call float @llvm.fmuladd.f32(float %82, float %.sroa.011.4.vec.extract.i, float %.sroa.0154.4.vec.extract)
+  %88 = tail call float @llvm.fmuladd.f32(float %84, float %.sroa.072.4.vec.extract, float %87)
+  %89 = tail call float @llvm.fmuladd.f32(float %82, float %.sroa.617.0.i, float %1)
+  %90 = tail call float @llvm.fmuladd.f32(float %84, float %.sroa.617.0.i173, float %89)
+  %91 = tail call float @sinf(float noundef %67) #63
   %92 = fmul float %5, %91
-  %93 = tail call float @llvm.fmuladd.f32(float %90, float %.sroa.011.0.vec.extract.i, float %.sroa.0141.0.vec.extract)
-  %94 = tail call float @llvm.fmuladd.f32(float %92, float %.sroa.072.0.vec.extract, float %93)
-  %95 = tail call float @llvm.fmuladd.f32(float %90, float %.sroa.011.4.vec.extract.i, float %.sroa.0141.4.vec.extract)
-  %96 = tail call float @llvm.fmuladd.f32(float %92, float %.sroa.072.4.vec.extract, float %95)
-  %97 = tail call float @llvm.fmuladd.f32(float %90, float %.sroa.617.0.i, float %3)
-  %98 = tail call float @llvm.fmuladd.f32(float %92, float %.sroa.617.0.i173, float %97)
-  %99 = tail call float @sinf(float noundef %78) #63
-  %100 = fmul float %5, %99
-  %101 = tail call float @cosf(float noundef %78) #63
+  %93 = tail call float @cosf(float noundef %67) #63
+  %94 = fmul float %5, %93
+  %95 = tail call float @llvm.fmuladd.f32(float %92, float %.sroa.011.0.vec.extract.i, float %.sroa.0141.0.vec.extract)
+  %96 = tail call float @llvm.fmuladd.f32(float %94, float %.sroa.072.0.vec.extract, float %95)
+  %97 = tail call float @llvm.fmuladd.f32(float %92, float %.sroa.011.4.vec.extract.i, float %.sroa.0141.4.vec.extract)
+  %98 = tail call float @llvm.fmuladd.f32(float %94, float %.sroa.072.4.vec.extract, float %97)
+  %99 = tail call float @llvm.fmuladd.f32(float %92, float %.sroa.617.0.i, float %3)
+  %100 = tail call float @llvm.fmuladd.f32(float %94, float %.sroa.617.0.i173, float %99)
+  %101 = tail call float @sinf(float noundef %80) #63
   %102 = fmul float %5, %101
-  %103 = tail call float @llvm.fmuladd.f32(float %100, float %.sroa.011.0.vec.extract.i, float %.sroa.0141.0.vec.extract)
-  %104 = tail call float @llvm.fmuladd.f32(float %102, float %.sroa.072.0.vec.extract, float %103)
-  %105 = tail call float @llvm.fmuladd.f32(float %100, float %.sroa.011.4.vec.extract.i, float %.sroa.0141.4.vec.extract)
-  %106 = tail call float @llvm.fmuladd.f32(float %102, float %.sroa.072.4.vec.extract, float %105)
-  %107 = tail call float @llvm.fmuladd.f32(float %100, float %.sroa.617.0.i, float %3)
-  %108 = tail call float @llvm.fmuladd.f32(float %102, float %.sroa.617.0.i173, float %107)
-  tail call void @rlVertex3f(float noundef %71, float noundef %73, float noundef %75) #63
-  tail call void @rlVertex3f(float noundef %84, float noundef %86, float noundef %88) #63
-  tail call void @rlVertex3f(float noundef %71, float noundef %73, float noundef %75) #63
-  tail call void @rlVertex3f(float noundef %94, float noundef %96, float noundef %98) #63
-  tail call void @rlVertex3f(float noundef %94, float noundef %96, float noundef %98) #63
-  tail call void @rlVertex3f(float noundef %104, float noundef %106, float noundef %108) #63
-  %exitcond.not = icmp eq i32 %76, %spec.store.select
-  br i1 %exitcond.not, label %62, label %63
+  %103 = tail call float @cosf(float noundef %80) #63
+  %104 = fmul float %5, %103
+  %105 = tail call float @llvm.fmuladd.f32(float %102, float %.sroa.011.0.vec.extract.i, float %.sroa.0141.0.vec.extract)
+  %106 = tail call float @llvm.fmuladd.f32(float %104, float %.sroa.072.0.vec.extract, float %105)
+  %107 = tail call float @llvm.fmuladd.f32(float %102, float %.sroa.011.4.vec.extract.i, float %.sroa.0141.4.vec.extract)
+  %108 = tail call float @llvm.fmuladd.f32(float %104, float %.sroa.072.4.vec.extract, float %107)
+  %109 = tail call float @llvm.fmuladd.f32(float %102, float %.sroa.617.0.i, float %3)
+  %110 = tail call float @llvm.fmuladd.f32(float %104, float %.sroa.617.0.i173, float %109)
+  tail call void @rlVertex3f(float noundef %73, float noundef %75, float noundef %77) #63
+  tail call void @rlVertex3f(float noundef %86, float noundef %88, float noundef %90) #63
+  tail call void @rlVertex3f(float noundef %73, float noundef %75, float noundef %77) #63
+  tail call void @rlVertex3f(float noundef %96, float noundef %98, float noundef %100) #63
+  tail call void @rlVertex3f(float noundef %96, float noundef %98, float noundef %100) #63
+  tail call void @rlVertex3f(float noundef %106, float noundef %108, float noundef %110) #63
+  %exitcond.not = icmp eq i32 %78, %spec.store.select
+  br i1 %exitcond.not, label %64, label %65
 
-109:                                              ; preds = %8, %62
+111:                                              ; preds = %8, %64
   ret void
 }
 
@@ -30820,282 +30822,283 @@ Vector3Normalize.exit:                            ; preds = %8, %20
   %.sroa.617.0.i = phi float [ %24, %20 ], [ %.sroa.11.0, %8 ]
   %25 = tail call float @llvm.fabs.f32(float %.sroa.07.0.vec.extract.i)
   %26 = tail call float @llvm.fabs.f32(float %.sroa.07.4.vec.extract.i)
-  %27 = fcmp olt float %26, %25
-  %.0.i = select i1 %27, float %26, float %25
-  %.sroa.7.0.i = select i1 %27, float 1.000000e+00, float 0.000000e+00
+  %27 = fcmp uge float %26, %25
+  %.0.i = select i1 %27, float %25, float %26
   %28 = tail call float @llvm.fabs.f32(float %.sroa.11.0)
   %29 = fcmp olt float %28, %.0.i
   %.sroa.9.1.i = select i1 %29, float 1.000000e+00, float 0.000000e+00
-  %.sroa.7.1.i = select i1 %29, float 0.000000e+00, float %.sroa.7.0.i
   %30 = or i1 %27, %29
-  %.sroa.01.1.i = select i1 %30, float 0.000000e+00, float 1.000000e+00
-  %31 = fneg float %.sroa.7.1.i
-  %32 = fmul float %.sroa.11.0, %31
-  %33 = tail call float @llvm.fmuladd.f32(float %.sroa.07.4.vec.extract.i, float %.sroa.9.1.i, float %32)
-  %.sroa.033.0.vec.insert.i = insertelement <2 x float> poison, float %33, i64 0
-  %34 = fneg float %.sroa.9.1.i
-  %35 = fmul float %.sroa.07.0.vec.extract.i, %34
-  %36 = tail call float @llvm.fmuladd.f32(float %.sroa.11.0, float %.sroa.01.1.i, float %35)
-  %.sroa.033.4.vec.insert.i = insertelement <2 x float> %.sroa.033.0.vec.insert.i, float %36, i64 1
-  %37 = fneg float %.sroa.01.1.i
-  %38 = fmul float %.sroa.07.4.vec.extract.i, %37
-  %39 = tail call float @llvm.fmuladd.f32(float %.sroa.07.0.vec.extract.i, float %.sroa.7.1.i, float %38)
-  %40 = fmul float %36, %36
-  %41 = tail call float @llvm.fmuladd.f32(float %33, float %33, float %40)
-  %42 = tail call float @llvm.fmuladd.f32(float %39, float %39, float %41)
-  %43 = tail call float @sqrtf(float noundef %42) #63
-  %44 = fcmp une float %43, 0.000000e+00
-  br i1 %44, label %45, label %Vector3Normalize.exit418
+  %.sroa.7.1.i = select i1 %30, float 0.000000e+00, float 1.000000e+00
+  %31 = xor i1 %27, true
+  %32 = or i1 %29, %31
+  %.sroa.01.1.i = select i1 %32, float 0.000000e+00, float 1.000000e+00
+  %33 = fneg float %.sroa.7.1.i
+  %34 = fmul float %.sroa.11.0, %33
+  %35 = tail call float @llvm.fmuladd.f32(float %.sroa.07.4.vec.extract.i, float %.sroa.9.1.i, float %34)
+  %.sroa.033.0.vec.insert.i = insertelement <2 x float> poison, float %35, i64 0
+  %36 = fneg float %.sroa.9.1.i
+  %37 = fmul float %.sroa.07.0.vec.extract.i, %36
+  %38 = tail call float @llvm.fmuladd.f32(float %.sroa.11.0, float %.sroa.01.1.i, float %37)
+  %.sroa.033.4.vec.insert.i = insertelement <2 x float> %.sroa.033.0.vec.insert.i, float %38, i64 1
+  %39 = fneg float %.sroa.01.1.i
+  %40 = fmul float %.sroa.07.4.vec.extract.i, %39
+  %41 = tail call float @llvm.fmuladd.f32(float %.sroa.07.0.vec.extract.i, float %.sroa.7.1.i, float %40)
+  %42 = fmul float %38, %38
+  %43 = tail call float @llvm.fmuladd.f32(float %35, float %35, float %42)
+  %44 = tail call float @llvm.fmuladd.f32(float %41, float %41, float %43)
+  %45 = tail call float @sqrtf(float noundef %44) #63
+  %46 = fcmp une float %45, 0.000000e+00
+  br i1 %46, label %47, label %Vector3Normalize.exit418
 
-45:                                               ; preds = %Vector3Normalize.exit
-  %46 = fdiv float 1.000000e+00, %43
-  %47 = fmul float %33, %46
-  %.sroa.013.0.vec.insert.i416 = insertelement <2 x float> poison, float %47, i64 0
-  %48 = fmul float %36, %46
-  %.sroa.013.4.vec.insert.i417 = insertelement <2 x float> %.sroa.013.0.vec.insert.i416, float %48, i64 1
-  %49 = fmul float %39, %46
+47:                                               ; preds = %Vector3Normalize.exit
+  %48 = fdiv float 1.000000e+00, %45
+  %49 = fmul float %35, %48
+  %.sroa.013.0.vec.insert.i416 = insertelement <2 x float> poison, float %49, i64 0
+  %50 = fmul float %38, %48
+  %.sroa.013.4.vec.insert.i417 = insertelement <2 x float> %.sroa.013.0.vec.insert.i416, float %50, i64 1
+  %51 = fmul float %41, %48
   br label %Vector3Normalize.exit418
 
-Vector3Normalize.exit418:                         ; preds = %Vector3Normalize.exit, %45
-  %.sroa.013.0.i412 = phi <2 x float> [ %.sroa.013.4.vec.insert.i417, %45 ], [ %.sroa.033.4.vec.insert.i, %Vector3Normalize.exit ]
-  %.sroa.617.0.i413 = phi float [ %49, %45 ], [ %39, %Vector3Normalize.exit ]
+Vector3Normalize.exit418:                         ; preds = %Vector3Normalize.exit, %47
+  %.sroa.013.0.i412 = phi <2 x float> [ %.sroa.013.4.vec.insert.i417, %47 ], [ %.sroa.033.4.vec.insert.i, %Vector3Normalize.exit ]
+  %.sroa.617.0.i413 = phi float [ %51, %47 ], [ %41, %Vector3Normalize.exit ]
   %.sroa.011.4.vec.extract.i = extractelement <2 x float> %.sroa.013.0.i412, i64 1
-  %50 = fneg float %.sroa.07.4.vec.extract.i
-  %51 = fmul float %.sroa.617.0.i413, %50
-  %52 = tail call float @llvm.fmuladd.f32(float %.sroa.011.4.vec.extract.i, float %.sroa.11.0, float %51)
-  %.sroa.018.0.vec.insert.i = insertelement <2 x float> poison, float %52, i64 0
+  %52 = fneg float %.sroa.07.4.vec.extract.i
+  %53 = fmul float %.sroa.617.0.i413, %52
+  %54 = tail call float @llvm.fmuladd.f32(float %.sroa.011.4.vec.extract.i, float %.sroa.11.0, float %53)
+  %.sroa.018.0.vec.insert.i = insertelement <2 x float> poison, float %54, i64 0
   %.sroa.011.0.vec.extract.i = extractelement <2 x float> %.sroa.013.0.i412, i64 0
-  %53 = fneg float %.sroa.11.0
-  %54 = fmul float %.sroa.011.0.vec.extract.i, %53
-  %55 = tail call float @llvm.fmuladd.f32(float %.sroa.617.0.i413, float %.sroa.07.0.vec.extract.i, float %54)
-  %.sroa.018.4.vec.insert.i = insertelement <2 x float> %.sroa.018.0.vec.insert.i, float %55, i64 1
-  %56 = fneg float %.sroa.07.0.vec.extract.i
-  %57 = fmul float %.sroa.011.4.vec.extract.i, %56
-  %58 = tail call float @llvm.fmuladd.f32(float %.sroa.011.0.vec.extract.i, float %.sroa.07.4.vec.extract.i, float %57)
-  %59 = fmul float %55, %55
-  %60 = tail call float @llvm.fmuladd.f32(float %52, float %52, float %59)
-  %61 = tail call float @llvm.fmuladd.f32(float %58, float %58, float %60)
-  %62 = tail call float @sqrtf(float noundef %61) #63
-  %63 = fcmp une float %62, 0.000000e+00
-  br i1 %63, label %64, label %Vector3Normalize.exit429
+  %55 = fneg float %.sroa.11.0
+  %56 = fmul float %.sroa.011.0.vec.extract.i, %55
+  %57 = tail call float @llvm.fmuladd.f32(float %.sroa.617.0.i413, float %.sroa.07.0.vec.extract.i, float %56)
+  %.sroa.018.4.vec.insert.i = insertelement <2 x float> %.sroa.018.0.vec.insert.i, float %57, i64 1
+  %58 = fneg float %.sroa.07.0.vec.extract.i
+  %59 = fmul float %.sroa.011.4.vec.extract.i, %58
+  %60 = tail call float @llvm.fmuladd.f32(float %.sroa.011.0.vec.extract.i, float %.sroa.07.4.vec.extract.i, float %59)
+  %61 = fmul float %57, %57
+  %62 = tail call float @llvm.fmuladd.f32(float %54, float %54, float %61)
+  %63 = tail call float @llvm.fmuladd.f32(float %60, float %60, float %62)
+  %64 = tail call float @sqrtf(float noundef %63) #63
+  %65 = fcmp une float %64, 0.000000e+00
+  br i1 %65, label %66, label %Vector3Normalize.exit429
 
-64:                                               ; preds = %Vector3Normalize.exit418
-  %65 = fdiv float 1.000000e+00, %62
-  %66 = fmul float %52, %65
-  %.sroa.013.0.vec.insert.i427 = insertelement <2 x float> poison, float %66, i64 0
-  %67 = fmul float %55, %65
-  %.sroa.013.4.vec.insert.i428 = insertelement <2 x float> %.sroa.013.0.vec.insert.i427, float %67, i64 1
-  %68 = fmul float %58, %65
+66:                                               ; preds = %Vector3Normalize.exit418
+  %67 = fdiv float 1.000000e+00, %64
+  %68 = fmul float %54, %67
+  %.sroa.013.0.vec.insert.i427 = insertelement <2 x float> poison, float %68, i64 0
+  %69 = fmul float %57, %67
+  %.sroa.013.4.vec.insert.i428 = insertelement <2 x float> %.sroa.013.0.vec.insert.i427, float %69, i64 1
+  %70 = fmul float %60, %67
   br label %Vector3Normalize.exit429
 
-Vector3Normalize.exit429:                         ; preds = %Vector3Normalize.exit418, %64
-  %.sroa.013.0.i423 = phi <2 x float> [ %.sroa.013.4.vec.insert.i428, %64 ], [ %.sroa.018.4.vec.insert.i, %Vector3Normalize.exit418 ]
-  %.sroa.617.0.i424 = phi float [ %68, %64 ], [ %58, %Vector3Normalize.exit418 ]
-  %69 = uitofp nneg i32 %spec.store.select to float
-  %70 = fdiv float 0x401921FB60000000, %69
-  %71 = sitofp i32 %6 to float
-  %72 = fdiv float 0x3FF921FB60000000, %71
+Vector3Normalize.exit429:                         ; preds = %Vector3Normalize.exit418, %66
+  %.sroa.013.0.i423 = phi <2 x float> [ %.sroa.013.4.vec.insert.i428, %66 ], [ %.sroa.018.4.vec.insert.i, %Vector3Normalize.exit418 ]
+  %.sroa.617.0.i424 = phi float [ %70, %66 ], [ %60, %Vector3Normalize.exit418 ]
+  %71 = uitofp nneg i32 %spec.store.select to float
+  %72 = fdiv float 0x401921FB60000000, %71
+  %73 = sitofp i32 %6 to float
+  %74 = fdiv float 0x3FF921FB60000000, %73
   tail call void @rlBegin(i32 noundef 4) #63
   tail call void @rlColor4ub(i8 noundef zeroext %.sroa.0365.0.extract.trunc, i8 noundef zeroext %.sroa.2366.0.extract.trunc, i8 noundef zeroext %.sroa.3367.0.extract.trunc, i8 noundef zeroext %.sroa.4368.0.extract.trunc) #63
-  %73 = icmp sgt i32 %6, 0
+  %75 = icmp sgt i32 %6, 0
   %.sroa.0215.0.vec.extract = extractelement <2 x float> %.sroa.013.0.i423, i64 0
   %.sroa.0215.4.vec.extract = extractelement <2 x float> %.sroa.013.0.i423, i64 1
-  br i1 %73, label %.preheader434.us, label %.split.us
+  br i1 %75, label %.preheader434.us, label %.split.us
 
 .preheader434.us:                                 ; preds = %Vector3Normalize.exit429, %._crit_edge.us
-  %.sroa.617.0.i.pn442.us = phi float [ %168, %._crit_edge.us ], [ %.sroa.617.0.i, %Vector3Normalize.exit429 ]
+  %.sroa.617.0.i.pn442.us = phi float [ %170, %._crit_edge.us ], [ %.sroa.617.0.i, %Vector3Normalize.exit429 ]
   %.sroa.013.0.i.pn441.us = phi <2 x float> [ %.sroa.06.4.vec.insert.i.us, %._crit_edge.us ], [ %.sroa.013.0.i, %Vector3Normalize.exit429 ]
   %.sroa.12193.0440.us = phi float [ %1, %._crit_edge.us ], [ %3, %Vector3Normalize.exit429 ]
   %.sroa.8187.0439.us = phi float [ %.sroa.0388.4.vec.extract, %._crit_edge.us ], [ %.sroa.0371.4.vec.extract, %Vector3Normalize.exit429 ]
   %.sroa.0182.0438.us = phi float [ %.sroa.0388.0.vec.extract, %._crit_edge.us ], [ %.sroa.0371.0.vec.extract, %Vector3Normalize.exit429 ]
-  %74 = phi i1 [ false, %._crit_edge.us ], [ true, %Vector3Normalize.exit429 ]
+  %76 = phi i1 [ false, %._crit_edge.us ], [ true, %Vector3Normalize.exit429 ]
   %.sroa.0308.0.vec.extract.us = extractelement <2 x float> %.sroa.013.0.i.pn441.us, i64 0
   %.sroa.0308.4.vec.extract.us = extractelement <2 x float> %.sroa.013.0.i.pn441.us, i64 1
   br label %.preheader433.us
 
-75:                                               ; preds = %160
-  %exitcond445.not = icmp eq i32 %163, %6
+77:                                               ; preds = %162
+  %exitcond445.not = icmp eq i32 %165, %6
   br i1 %exitcond445.not, label %._crit_edge.us, label %.preheader433.us
 
-76:                                               ; preds = %.preheader433.us, %160
-  %.0405435.us = phi i32 [ 0, %.preheader433.us ], [ %98, %160 ]
-  %77 = uitofp nneg i32 %.0405435.us to float
-  %78 = fmul float %70, %77
-  %79 = tail call float @sinf(float noundef %78) #63
-  %80 = tail call float @cosf(float noundef %162) #63
-  %81 = fmul float %79, %80
-  %82 = tail call float @cosf(float noundef %78) #63
-  %83 = tail call float @cosf(float noundef %162) #63
-  %84 = fmul float %82, %83
-  %85 = tail call float @sinf(float noundef %162) #63
-  %86 = fmul float %.sroa.011.0.vec.extract.i, %81
-  %87 = tail call float @llvm.fmuladd.f32(float %85, float %.sroa.0308.0.vec.extract.us, float %86)
-  %88 = tail call float @llvm.fmuladd.f32(float %84, float %.sroa.0215.0.vec.extract, float %87)
-  %89 = tail call float @llvm.fmuladd.f32(float %88, float %4, float %.sroa.0182.0438.us)
-  %90 = fmul float %.sroa.011.4.vec.extract.i, %81
-  %91 = tail call float @llvm.fmuladd.f32(float %85, float %.sroa.0308.4.vec.extract.us, float %90)
-  %92 = tail call float @llvm.fmuladd.f32(float %84, float %.sroa.0215.4.vec.extract, float %91)
-  %93 = tail call float @llvm.fmuladd.f32(float %92, float %4, float %.sroa.8187.0439.us)
-  %94 = fmul float %.sroa.617.0.i413, %81
-  %95 = tail call float @llvm.fmuladd.f32(float %85, float %.sroa.617.0.i.pn442.us, float %94)
-  %96 = tail call float @llvm.fmuladd.f32(float %84, float %.sroa.617.0.i424, float %95)
-  %97 = tail call float @llvm.fmuladd.f32(float %96, float %4, float %.sroa.12193.0440.us)
-  %98 = add nuw nsw i32 %.0405435.us, 1
-  %99 = uitofp nneg i32 %98 to float
-  %100 = fmul float %70, %99
-  %101 = tail call float @sinf(float noundef %100) #63
-  %102 = tail call float @cosf(float noundef %162) #63
-  %103 = fmul float %101, %102
-  %104 = tail call float @cosf(float noundef %100) #63
-  %105 = tail call float @cosf(float noundef %162) #63
-  %106 = fmul float %104, %105
-  %107 = tail call float @sinf(float noundef %162) #63
-  %108 = fmul float %.sroa.011.0.vec.extract.i, %103
-  %109 = tail call float @llvm.fmuladd.f32(float %107, float %.sroa.0308.0.vec.extract.us, float %108)
-  %110 = tail call float @llvm.fmuladd.f32(float %106, float %.sroa.0215.0.vec.extract, float %109)
-  %111 = tail call float @llvm.fmuladd.f32(float %110, float %4, float %.sroa.0182.0438.us)
-  %112 = fmul float %.sroa.011.4.vec.extract.i, %103
-  %113 = tail call float @llvm.fmuladd.f32(float %107, float %.sroa.0308.4.vec.extract.us, float %112)
-  %114 = tail call float @llvm.fmuladd.f32(float %106, float %.sroa.0215.4.vec.extract, float %113)
-  %115 = tail call float @llvm.fmuladd.f32(float %114, float %4, float %.sroa.8187.0439.us)
-  %116 = fmul float %.sroa.617.0.i413, %103
-  %117 = tail call float @llvm.fmuladd.f32(float %107, float %.sroa.617.0.i.pn442.us, float %116)
-  %118 = tail call float @llvm.fmuladd.f32(float %106, float %.sroa.617.0.i424, float %117)
-  %119 = tail call float @llvm.fmuladd.f32(float %118, float %4, float %.sroa.12193.0440.us)
-  %120 = tail call float @sinf(float noundef %78) #63
-  %121 = tail call float @cosf(float noundef %165) #63
-  %122 = fmul float %120, %121
-  %123 = tail call float @cosf(float noundef %78) #63
-  %124 = tail call float @cosf(float noundef %165) #63
-  %125 = fmul float %123, %124
-  %126 = tail call float @sinf(float noundef %165) #63
-  %127 = fmul float %.sroa.011.0.vec.extract.i, %122
-  %128 = tail call float @llvm.fmuladd.f32(float %126, float %.sroa.0308.0.vec.extract.us, float %127)
-  %129 = tail call float @llvm.fmuladd.f32(float %125, float %.sroa.0215.0.vec.extract, float %128)
-  %130 = tail call float @llvm.fmuladd.f32(float %129, float %4, float %.sroa.0182.0438.us)
-  %131 = fmul float %.sroa.011.4.vec.extract.i, %122
-  %132 = tail call float @llvm.fmuladd.f32(float %126, float %.sroa.0308.4.vec.extract.us, float %131)
-  %133 = tail call float @llvm.fmuladd.f32(float %125, float %.sroa.0215.4.vec.extract, float %132)
-  %134 = tail call float @llvm.fmuladd.f32(float %133, float %4, float %.sroa.8187.0439.us)
-  %135 = fmul float %.sroa.617.0.i413, %122
-  %136 = tail call float @llvm.fmuladd.f32(float %126, float %.sroa.617.0.i.pn442.us, float %135)
-  %137 = tail call float @llvm.fmuladd.f32(float %125, float %.sroa.617.0.i424, float %136)
-  %138 = tail call float @llvm.fmuladd.f32(float %137, float %4, float %.sroa.12193.0440.us)
-  %139 = tail call float @sinf(float noundef %100) #63
-  %140 = tail call float @cosf(float noundef %165) #63
-  %141 = fmul float %139, %140
-  %142 = tail call float @cosf(float noundef %100) #63
-  %143 = tail call float @cosf(float noundef %165) #63
-  %144 = fmul float %142, %143
-  %145 = tail call float @sinf(float noundef %165) #63
-  %146 = fmul float %.sroa.011.0.vec.extract.i, %141
-  %147 = tail call float @llvm.fmuladd.f32(float %145, float %.sroa.0308.0.vec.extract.us, float %146)
-  %148 = tail call float @llvm.fmuladd.f32(float %144, float %.sroa.0215.0.vec.extract, float %147)
-  %149 = tail call float @llvm.fmuladd.f32(float %148, float %4, float %.sroa.0182.0438.us)
-  %150 = fmul float %.sroa.011.4.vec.extract.i, %141
-  %151 = tail call float @llvm.fmuladd.f32(float %145, float %.sroa.0308.4.vec.extract.us, float %150)
-  %152 = tail call float @llvm.fmuladd.f32(float %144, float %.sroa.0215.4.vec.extract, float %151)
-  %153 = tail call float @llvm.fmuladd.f32(float %152, float %4, float %.sroa.8187.0439.us)
-  %154 = fmul float %.sroa.617.0.i413, %141
-  %155 = tail call float @llvm.fmuladd.f32(float %145, float %.sroa.617.0.i.pn442.us, float %154)
-  %156 = tail call float @llvm.fmuladd.f32(float %144, float %.sroa.617.0.i424, float %155)
-  %157 = tail call float @llvm.fmuladd.f32(float %156, float %4, float %.sroa.12193.0440.us)
-  tail call void @rlVertex3f(float noundef %89, float noundef %93, float noundef %97) #63
-  br i1 %74, label %159, label %158
+78:                                               ; preds = %.preheader433.us, %162
+  %.0405435.us = phi i32 [ 0, %.preheader433.us ], [ %100, %162 ]
+  %79 = uitofp nneg i32 %.0405435.us to float
+  %80 = fmul float %72, %79
+  %81 = tail call float @sinf(float noundef %80) #63
+  %82 = tail call float @cosf(float noundef %164) #63
+  %83 = fmul float %81, %82
+  %84 = tail call float @cosf(float noundef %80) #63
+  %85 = tail call float @cosf(float noundef %164) #63
+  %86 = fmul float %84, %85
+  %87 = tail call float @sinf(float noundef %164) #63
+  %88 = fmul float %.sroa.011.0.vec.extract.i, %83
+  %89 = tail call float @llvm.fmuladd.f32(float %87, float %.sroa.0308.0.vec.extract.us, float %88)
+  %90 = tail call float @llvm.fmuladd.f32(float %86, float %.sroa.0215.0.vec.extract, float %89)
+  %91 = tail call float @llvm.fmuladd.f32(float %90, float %4, float %.sroa.0182.0438.us)
+  %92 = fmul float %.sroa.011.4.vec.extract.i, %83
+  %93 = tail call float @llvm.fmuladd.f32(float %87, float %.sroa.0308.4.vec.extract.us, float %92)
+  %94 = tail call float @llvm.fmuladd.f32(float %86, float %.sroa.0215.4.vec.extract, float %93)
+  %95 = tail call float @llvm.fmuladd.f32(float %94, float %4, float %.sroa.8187.0439.us)
+  %96 = fmul float %.sroa.617.0.i413, %83
+  %97 = tail call float @llvm.fmuladd.f32(float %87, float %.sroa.617.0.i.pn442.us, float %96)
+  %98 = tail call float @llvm.fmuladd.f32(float %86, float %.sroa.617.0.i424, float %97)
+  %99 = tail call float @llvm.fmuladd.f32(float %98, float %4, float %.sroa.12193.0440.us)
+  %100 = add nuw nsw i32 %.0405435.us, 1
+  %101 = uitofp nneg i32 %100 to float
+  %102 = fmul float %72, %101
+  %103 = tail call float @sinf(float noundef %102) #63
+  %104 = tail call float @cosf(float noundef %164) #63
+  %105 = fmul float %103, %104
+  %106 = tail call float @cosf(float noundef %102) #63
+  %107 = tail call float @cosf(float noundef %164) #63
+  %108 = fmul float %106, %107
+  %109 = tail call float @sinf(float noundef %164) #63
+  %110 = fmul float %.sroa.011.0.vec.extract.i, %105
+  %111 = tail call float @llvm.fmuladd.f32(float %109, float %.sroa.0308.0.vec.extract.us, float %110)
+  %112 = tail call float @llvm.fmuladd.f32(float %108, float %.sroa.0215.0.vec.extract, float %111)
+  %113 = tail call float @llvm.fmuladd.f32(float %112, float %4, float %.sroa.0182.0438.us)
+  %114 = fmul float %.sroa.011.4.vec.extract.i, %105
+  %115 = tail call float @llvm.fmuladd.f32(float %109, float %.sroa.0308.4.vec.extract.us, float %114)
+  %116 = tail call float @llvm.fmuladd.f32(float %108, float %.sroa.0215.4.vec.extract, float %115)
+  %117 = tail call float @llvm.fmuladd.f32(float %116, float %4, float %.sroa.8187.0439.us)
+  %118 = fmul float %.sroa.617.0.i413, %105
+  %119 = tail call float @llvm.fmuladd.f32(float %109, float %.sroa.617.0.i.pn442.us, float %118)
+  %120 = tail call float @llvm.fmuladd.f32(float %108, float %.sroa.617.0.i424, float %119)
+  %121 = tail call float @llvm.fmuladd.f32(float %120, float %4, float %.sroa.12193.0440.us)
+  %122 = tail call float @sinf(float noundef %80) #63
+  %123 = tail call float @cosf(float noundef %167) #63
+  %124 = fmul float %122, %123
+  %125 = tail call float @cosf(float noundef %80) #63
+  %126 = tail call float @cosf(float noundef %167) #63
+  %127 = fmul float %125, %126
+  %128 = tail call float @sinf(float noundef %167) #63
+  %129 = fmul float %.sroa.011.0.vec.extract.i, %124
+  %130 = tail call float @llvm.fmuladd.f32(float %128, float %.sroa.0308.0.vec.extract.us, float %129)
+  %131 = tail call float @llvm.fmuladd.f32(float %127, float %.sroa.0215.0.vec.extract, float %130)
+  %132 = tail call float @llvm.fmuladd.f32(float %131, float %4, float %.sroa.0182.0438.us)
+  %133 = fmul float %.sroa.011.4.vec.extract.i, %124
+  %134 = tail call float @llvm.fmuladd.f32(float %128, float %.sroa.0308.4.vec.extract.us, float %133)
+  %135 = tail call float @llvm.fmuladd.f32(float %127, float %.sroa.0215.4.vec.extract, float %134)
+  %136 = tail call float @llvm.fmuladd.f32(float %135, float %4, float %.sroa.8187.0439.us)
+  %137 = fmul float %.sroa.617.0.i413, %124
+  %138 = tail call float @llvm.fmuladd.f32(float %128, float %.sroa.617.0.i.pn442.us, float %137)
+  %139 = tail call float @llvm.fmuladd.f32(float %127, float %.sroa.617.0.i424, float %138)
+  %140 = tail call float @llvm.fmuladd.f32(float %139, float %4, float %.sroa.12193.0440.us)
+  %141 = tail call float @sinf(float noundef %102) #63
+  %142 = tail call float @cosf(float noundef %167) #63
+  %143 = fmul float %141, %142
+  %144 = tail call float @cosf(float noundef %102) #63
+  %145 = tail call float @cosf(float noundef %167) #63
+  %146 = fmul float %144, %145
+  %147 = tail call float @sinf(float noundef %167) #63
+  %148 = fmul float %.sroa.011.0.vec.extract.i, %143
+  %149 = tail call float @llvm.fmuladd.f32(float %147, float %.sroa.0308.0.vec.extract.us, float %148)
+  %150 = tail call float @llvm.fmuladd.f32(float %146, float %.sroa.0215.0.vec.extract, float %149)
+  %151 = tail call float @llvm.fmuladd.f32(float %150, float %4, float %.sroa.0182.0438.us)
+  %152 = fmul float %.sroa.011.4.vec.extract.i, %143
+  %153 = tail call float @llvm.fmuladd.f32(float %147, float %.sroa.0308.4.vec.extract.us, float %152)
+  %154 = tail call float @llvm.fmuladd.f32(float %146, float %.sroa.0215.4.vec.extract, float %153)
+  %155 = tail call float @llvm.fmuladd.f32(float %154, float %4, float %.sroa.8187.0439.us)
+  %156 = fmul float %.sroa.617.0.i413, %143
+  %157 = tail call float @llvm.fmuladd.f32(float %147, float %.sroa.617.0.i.pn442.us, float %156)
+  %158 = tail call float @llvm.fmuladd.f32(float %146, float %.sroa.617.0.i424, float %157)
+  %159 = tail call float @llvm.fmuladd.f32(float %158, float %4, float %.sroa.12193.0440.us)
+  tail call void @rlVertex3f(float noundef %91, float noundef %95, float noundef %99) #63
+  br i1 %76, label %161, label %160
 
-158:                                              ; preds = %76
-  tail call void @rlVertex3f(float noundef %130, float noundef %134, float noundef %138) #63
-  tail call void @rlVertex3f(float noundef %111, float noundef %115, float noundef %119) #63
-  tail call void @rlVertex3f(float noundef %111, float noundef %115, float noundef %119) #63
-  tail call void @rlVertex3f(float noundef %130, float noundef %134, float noundef %138) #63
-  tail call void @rlVertex3f(float noundef %149, float noundef %153, float noundef %157) #63
-  br label %160
+160:                                              ; preds = %78
+  tail call void @rlVertex3f(float noundef %132, float noundef %136, float noundef %140) #63
+  tail call void @rlVertex3f(float noundef %113, float noundef %117, float noundef %121) #63
+  tail call void @rlVertex3f(float noundef %113, float noundef %117, float noundef %121) #63
+  tail call void @rlVertex3f(float noundef %132, float noundef %136, float noundef %140) #63
+  tail call void @rlVertex3f(float noundef %151, float noundef %155, float noundef %159) #63
+  br label %162
 
-159:                                              ; preds = %76
-  tail call void @rlVertex3f(float noundef %111, float noundef %115, float noundef %119) #63
-  tail call void @rlVertex3f(float noundef %130, float noundef %134, float noundef %138) #63
-  tail call void @rlVertex3f(float noundef %111, float noundef %115, float noundef %119) #63
-  tail call void @rlVertex3f(float noundef %149, float noundef %153, float noundef %157) #63
-  tail call void @rlVertex3f(float noundef %130, float noundef %134, float noundef %138) #63
-  br label %160
+161:                                              ; preds = %78
+  tail call void @rlVertex3f(float noundef %113, float noundef %117, float noundef %121) #63
+  tail call void @rlVertex3f(float noundef %132, float noundef %136, float noundef %140) #63
+  tail call void @rlVertex3f(float noundef %113, float noundef %117, float noundef %121) #63
+  tail call void @rlVertex3f(float noundef %151, float noundef %155, float noundef %159) #63
+  tail call void @rlVertex3f(float noundef %132, float noundef %136, float noundef %140) #63
+  br label %162
 
-160:                                              ; preds = %159, %158
-  %exitcond.not = icmp eq i32 %98, %spec.store.select
-  br i1 %exitcond.not, label %75, label %76
+162:                                              ; preds = %161, %160
+  %exitcond.not = icmp eq i32 %100, %spec.store.select
+  br i1 %exitcond.not, label %77, label %78
 
-.preheader433.us:                                 ; preds = %.preheader434.us, %75
-  %.0404436.us = phi i32 [ 0, %.preheader434.us ], [ %163, %75 ]
-  %161 = uitofp nneg i32 %.0404436.us to float
-  %162 = fmul float %72, %161
-  %163 = add nuw nsw i32 %.0404436.us, 1
-  %164 = uitofp nneg i32 %163 to float
-  %165 = fmul float %72, %164
-  br label %76
+.preheader433.us:                                 ; preds = %.preheader434.us, %77
+  %.0404436.us = phi i32 [ 0, %.preheader434.us ], [ %165, %77 ]
+  %163 = uitofp nneg i32 %.0404436.us to float
+  %164 = fmul float %74, %163
+  %165 = add nuw nsw i32 %.0404436.us, 1
+  %166 = uitofp nneg i32 %165 to float
+  %167 = fmul float %74, %166
+  br label %78
 
-._crit_edge.us:                                   ; preds = %75
-  %166 = fneg float %.sroa.0308.0.vec.extract.us
-  %167 = fneg <2 x float> %.sroa.013.0.i.pn441.us
-  %.sroa.06.4.vec.insert.i.us = insertelement <2 x float> %167, float %166, i64 0
-  %168 = fneg float %.sroa.617.0.i.pn442.us
-  br i1 %74, label %.preheader434.us, label %.split.us
+._crit_edge.us:                                   ; preds = %77
+  %168 = fneg float %.sroa.0308.0.vec.extract.us
+  %169 = fneg <2 x float> %.sroa.013.0.i.pn441.us
+  %.sroa.06.4.vec.insert.i.us = insertelement <2 x float> %169, float %168, i64 0
+  %170 = fneg float %.sroa.617.0.i.pn442.us
+  br i1 %76, label %.preheader434.us, label %.split.us
 
 .split.us:                                        ; preds = %._crit_edge.us, %Vector3Normalize.exit429
   br i1 %spec.select, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %.split.us, %.preheader
-  %.0406443 = phi i32 [ %181, %.preheader ], [ 0, %.split.us ]
-  %169 = uitofp nneg i32 %.0406443 to float
-  %170 = fmul float %70, %169
-  %171 = tail call float @sinf(float noundef %170) #63
-  %172 = fmul float %4, %171
-  %173 = tail call float @cosf(float noundef %170) #63
+  %.0406443 = phi i32 [ %183, %.preheader ], [ 0, %.split.us ]
+  %171 = uitofp nneg i32 %.0406443 to float
+  %172 = fmul float %72, %171
+  %173 = tail call float @sinf(float noundef %172) #63
   %174 = fmul float %4, %173
-  %175 = tail call float @llvm.fmuladd.f32(float %172, float %.sroa.011.0.vec.extract.i, float %.sroa.0388.0.vec.extract)
-  %176 = tail call float @llvm.fmuladd.f32(float %174, float %.sroa.0215.0.vec.extract, float %175)
-  %177 = tail call float @llvm.fmuladd.f32(float %172, float %.sroa.011.4.vec.extract.i, float %.sroa.0388.4.vec.extract)
-  %178 = tail call float @llvm.fmuladd.f32(float %174, float %.sroa.0215.4.vec.extract, float %177)
-  %179 = tail call float @llvm.fmuladd.f32(float %172, float %.sroa.617.0.i413, float %1)
-  %180 = tail call float @llvm.fmuladd.f32(float %174, float %.sroa.617.0.i424, float %179)
-  %181 = add nuw nsw i32 %.0406443, 1
-  %182 = uitofp nneg i32 %181 to float
-  %183 = fmul float %70, %182
-  %184 = tail call float @sinf(float noundef %183) #63
-  %185 = fmul float %4, %184
-  %186 = tail call float @cosf(float noundef %183) #63
+  %175 = tail call float @cosf(float noundef %172) #63
+  %176 = fmul float %4, %175
+  %177 = tail call float @llvm.fmuladd.f32(float %174, float %.sroa.011.0.vec.extract.i, float %.sroa.0388.0.vec.extract)
+  %178 = tail call float @llvm.fmuladd.f32(float %176, float %.sroa.0215.0.vec.extract, float %177)
+  %179 = tail call float @llvm.fmuladd.f32(float %174, float %.sroa.011.4.vec.extract.i, float %.sroa.0388.4.vec.extract)
+  %180 = tail call float @llvm.fmuladd.f32(float %176, float %.sroa.0215.4.vec.extract, float %179)
+  %181 = tail call float @llvm.fmuladd.f32(float %174, float %.sroa.617.0.i413, float %1)
+  %182 = tail call float @llvm.fmuladd.f32(float %176, float %.sroa.617.0.i424, float %181)
+  %183 = add nuw nsw i32 %.0406443, 1
+  %184 = uitofp nneg i32 %183 to float
+  %185 = fmul float %72, %184
+  %186 = tail call float @sinf(float noundef %185) #63
   %187 = fmul float %4, %186
-  %188 = tail call float @llvm.fmuladd.f32(float %185, float %.sroa.011.0.vec.extract.i, float %.sroa.0388.0.vec.extract)
-  %189 = tail call float @llvm.fmuladd.f32(float %187, float %.sroa.0215.0.vec.extract, float %188)
-  %190 = tail call float @llvm.fmuladd.f32(float %185, float %.sroa.011.4.vec.extract.i, float %.sroa.0388.4.vec.extract)
-  %191 = tail call float @llvm.fmuladd.f32(float %187, float %.sroa.0215.4.vec.extract, float %190)
-  %192 = tail call float @llvm.fmuladd.f32(float %185, float %.sroa.617.0.i413, float %1)
-  %193 = tail call float @llvm.fmuladd.f32(float %187, float %.sroa.617.0.i424, float %192)
-  %194 = tail call float @sinf(float noundef %170) #63
-  %195 = fmul float %4, %194
-  %196 = tail call float @cosf(float noundef %170) #63
+  %188 = tail call float @cosf(float noundef %185) #63
+  %189 = fmul float %4, %188
+  %190 = tail call float @llvm.fmuladd.f32(float %187, float %.sroa.011.0.vec.extract.i, float %.sroa.0388.0.vec.extract)
+  %191 = tail call float @llvm.fmuladd.f32(float %189, float %.sroa.0215.0.vec.extract, float %190)
+  %192 = tail call float @llvm.fmuladd.f32(float %187, float %.sroa.011.4.vec.extract.i, float %.sroa.0388.4.vec.extract)
+  %193 = tail call float @llvm.fmuladd.f32(float %189, float %.sroa.0215.4.vec.extract, float %192)
+  %194 = tail call float @llvm.fmuladd.f32(float %187, float %.sroa.617.0.i413, float %1)
+  %195 = tail call float @llvm.fmuladd.f32(float %189, float %.sroa.617.0.i424, float %194)
+  %196 = tail call float @sinf(float noundef %172) #63
   %197 = fmul float %4, %196
-  %198 = tail call float @llvm.fmuladd.f32(float %195, float %.sroa.011.0.vec.extract.i, float %.sroa.0371.0.vec.extract)
-  %199 = tail call float @llvm.fmuladd.f32(float %197, float %.sroa.0215.0.vec.extract, float %198)
-  %200 = tail call float @llvm.fmuladd.f32(float %195, float %.sroa.011.4.vec.extract.i, float %.sroa.0371.4.vec.extract)
-  %201 = tail call float @llvm.fmuladd.f32(float %197, float %.sroa.0215.4.vec.extract, float %200)
-  %202 = tail call float @llvm.fmuladd.f32(float %195, float %.sroa.617.0.i413, float %3)
-  %203 = tail call float @llvm.fmuladd.f32(float %197, float %.sroa.617.0.i424, float %202)
-  %204 = tail call float @sinf(float noundef %183) #63
-  %205 = fmul float %4, %204
-  %206 = tail call float @cosf(float noundef %183) #63
+  %198 = tail call float @cosf(float noundef %172) #63
+  %199 = fmul float %4, %198
+  %200 = tail call float @llvm.fmuladd.f32(float %197, float %.sroa.011.0.vec.extract.i, float %.sroa.0371.0.vec.extract)
+  %201 = tail call float @llvm.fmuladd.f32(float %199, float %.sroa.0215.0.vec.extract, float %200)
+  %202 = tail call float @llvm.fmuladd.f32(float %197, float %.sroa.011.4.vec.extract.i, float %.sroa.0371.4.vec.extract)
+  %203 = tail call float @llvm.fmuladd.f32(float %199, float %.sroa.0215.4.vec.extract, float %202)
+  %204 = tail call float @llvm.fmuladd.f32(float %197, float %.sroa.617.0.i413, float %3)
+  %205 = tail call float @llvm.fmuladd.f32(float %199, float %.sroa.617.0.i424, float %204)
+  %206 = tail call float @sinf(float noundef %185) #63
   %207 = fmul float %4, %206
-  %208 = tail call float @llvm.fmuladd.f32(float %205, float %.sroa.011.0.vec.extract.i, float %.sroa.0371.0.vec.extract)
-  %209 = tail call float @llvm.fmuladd.f32(float %207, float %.sroa.0215.0.vec.extract, float %208)
-  %210 = tail call float @llvm.fmuladd.f32(float %205, float %.sroa.011.4.vec.extract.i, float %.sroa.0371.4.vec.extract)
-  %211 = tail call float @llvm.fmuladd.f32(float %207, float %.sroa.0215.4.vec.extract, float %210)
-  %212 = tail call float @llvm.fmuladd.f32(float %205, float %.sroa.617.0.i413, float %3)
-  %213 = tail call float @llvm.fmuladd.f32(float %207, float %.sroa.617.0.i424, float %212)
-  tail call void @rlVertex3f(float noundef %176, float noundef %178, float noundef %180) #63
-  tail call void @rlVertex3f(float noundef %189, float noundef %191, float noundef %193) #63
-  tail call void @rlVertex3f(float noundef %199, float noundef %201, float noundef %203) #63
-  tail call void @rlVertex3f(float noundef %189, float noundef %191, float noundef %193) #63
-  tail call void @rlVertex3f(float noundef %209, float noundef %211, float noundef %213) #63
-  tail call void @rlVertex3f(float noundef %199, float noundef %201, float noundef %203) #63
-  %exitcond446.not = icmp eq i32 %181, %spec.store.select
+  %208 = tail call float @cosf(float noundef %185) #63
+  %209 = fmul float %4, %208
+  %210 = tail call float @llvm.fmuladd.f32(float %207, float %.sroa.011.0.vec.extract.i, float %.sroa.0371.0.vec.extract)
+  %211 = tail call float @llvm.fmuladd.f32(float %209, float %.sroa.0215.0.vec.extract, float %210)
+  %212 = tail call float @llvm.fmuladd.f32(float %207, float %.sroa.011.4.vec.extract.i, float %.sroa.0371.4.vec.extract)
+  %213 = tail call float @llvm.fmuladd.f32(float %209, float %.sroa.0215.4.vec.extract, float %212)
+  %214 = tail call float @llvm.fmuladd.f32(float %207, float %.sroa.617.0.i413, float %3)
+  %215 = tail call float @llvm.fmuladd.f32(float %209, float %.sroa.617.0.i424, float %214)
+  tail call void @rlVertex3f(float noundef %178, float noundef %180, float noundef %182) #63
+  tail call void @rlVertex3f(float noundef %191, float noundef %193, float noundef %195) #63
+  tail call void @rlVertex3f(float noundef %201, float noundef %203, float noundef %205) #63
+  tail call void @rlVertex3f(float noundef %191, float noundef %193, float noundef %195) #63
+  tail call void @rlVertex3f(float noundef %211, float noundef %213, float noundef %215) #63
+  tail call void @rlVertex3f(float noundef %201, float noundef %203, float noundef %205) #63
+  %exitcond446.not = icmp eq i32 %183, %spec.store.select
   br i1 %exitcond446.not, label %.loopexit, label %.preheader
 
 .loopexit:                                        ; preds = %.preheader, %.split.us
@@ -31152,272 +31155,273 @@ Vector3Normalize.exit:                            ; preds = %8, %20
   %.sroa.617.0.i = phi float [ %24, %20 ], [ %.sroa.11.0, %8 ]
   %25 = tail call float @llvm.fabs.f32(float %.sroa.07.0.vec.extract.i)
   %26 = tail call float @llvm.fabs.f32(float %.sroa.07.4.vec.extract.i)
-  %27 = fcmp olt float %26, %25
-  %.0.i = select i1 %27, float %26, float %25
-  %.sroa.7.0.i = select i1 %27, float 1.000000e+00, float 0.000000e+00
+  %27 = fcmp uge float %26, %25
+  %.0.i = select i1 %27, float %25, float %26
   %28 = tail call float @llvm.fabs.f32(float %.sroa.11.0)
   %29 = fcmp olt float %28, %.0.i
   %.sroa.9.1.i = select i1 %29, float 1.000000e+00, float 0.000000e+00
-  %.sroa.7.1.i = select i1 %29, float 0.000000e+00, float %.sroa.7.0.i
   %30 = or i1 %27, %29
-  %.sroa.01.1.i = select i1 %30, float 0.000000e+00, float 1.000000e+00
-  %31 = fneg float %.sroa.7.1.i
-  %32 = fmul float %.sroa.11.0, %31
-  %33 = tail call float @llvm.fmuladd.f32(float %.sroa.07.4.vec.extract.i, float %.sroa.9.1.i, float %32)
-  %.sroa.033.0.vec.insert.i = insertelement <2 x float> poison, float %33, i64 0
-  %34 = fneg float %.sroa.9.1.i
-  %35 = fmul float %.sroa.07.0.vec.extract.i, %34
-  %36 = tail call float @llvm.fmuladd.f32(float %.sroa.11.0, float %.sroa.01.1.i, float %35)
-  %.sroa.033.4.vec.insert.i = insertelement <2 x float> %.sroa.033.0.vec.insert.i, float %36, i64 1
-  %37 = fneg float %.sroa.01.1.i
-  %38 = fmul float %.sroa.07.4.vec.extract.i, %37
-  %39 = tail call float @llvm.fmuladd.f32(float %.sroa.07.0.vec.extract.i, float %.sroa.7.1.i, float %38)
-  %40 = fmul float %36, %36
-  %41 = tail call float @llvm.fmuladd.f32(float %33, float %33, float %40)
-  %42 = tail call float @llvm.fmuladd.f32(float %39, float %39, float %41)
-  %43 = tail call float @sqrtf(float noundef %42) #63
-  %44 = fcmp une float %43, 0.000000e+00
-  br i1 %44, label %45, label %Vector3Normalize.exit411
+  %.sroa.7.1.i = select i1 %30, float 0.000000e+00, float 1.000000e+00
+  %31 = xor i1 %27, true
+  %32 = or i1 %29, %31
+  %.sroa.01.1.i = select i1 %32, float 0.000000e+00, float 1.000000e+00
+  %33 = fneg float %.sroa.7.1.i
+  %34 = fmul float %.sroa.11.0, %33
+  %35 = tail call float @llvm.fmuladd.f32(float %.sroa.07.4.vec.extract.i, float %.sroa.9.1.i, float %34)
+  %.sroa.033.0.vec.insert.i = insertelement <2 x float> poison, float %35, i64 0
+  %36 = fneg float %.sroa.9.1.i
+  %37 = fmul float %.sroa.07.0.vec.extract.i, %36
+  %38 = tail call float @llvm.fmuladd.f32(float %.sroa.11.0, float %.sroa.01.1.i, float %37)
+  %.sroa.033.4.vec.insert.i = insertelement <2 x float> %.sroa.033.0.vec.insert.i, float %38, i64 1
+  %39 = fneg float %.sroa.01.1.i
+  %40 = fmul float %.sroa.07.4.vec.extract.i, %39
+  %41 = tail call float @llvm.fmuladd.f32(float %.sroa.07.0.vec.extract.i, float %.sroa.7.1.i, float %40)
+  %42 = fmul float %38, %38
+  %43 = tail call float @llvm.fmuladd.f32(float %35, float %35, float %42)
+  %44 = tail call float @llvm.fmuladd.f32(float %41, float %41, float %43)
+  %45 = tail call float @sqrtf(float noundef %44) #63
+  %46 = fcmp une float %45, 0.000000e+00
+  br i1 %46, label %47, label %Vector3Normalize.exit411
 
-45:                                               ; preds = %Vector3Normalize.exit
-  %46 = fdiv float 1.000000e+00, %43
-  %47 = fmul float %33, %46
-  %.sroa.013.0.vec.insert.i409 = insertelement <2 x float> poison, float %47, i64 0
-  %48 = fmul float %36, %46
-  %.sroa.013.4.vec.insert.i410 = insertelement <2 x float> %.sroa.013.0.vec.insert.i409, float %48, i64 1
-  %49 = fmul float %39, %46
+47:                                               ; preds = %Vector3Normalize.exit
+  %48 = fdiv float 1.000000e+00, %45
+  %49 = fmul float %35, %48
+  %.sroa.013.0.vec.insert.i409 = insertelement <2 x float> poison, float %49, i64 0
+  %50 = fmul float %38, %48
+  %.sroa.013.4.vec.insert.i410 = insertelement <2 x float> %.sroa.013.0.vec.insert.i409, float %50, i64 1
+  %51 = fmul float %41, %48
   br label %Vector3Normalize.exit411
 
-Vector3Normalize.exit411:                         ; preds = %Vector3Normalize.exit, %45
-  %.sroa.013.0.i405 = phi <2 x float> [ %.sroa.013.4.vec.insert.i410, %45 ], [ %.sroa.033.4.vec.insert.i, %Vector3Normalize.exit ]
-  %.sroa.617.0.i406 = phi float [ %49, %45 ], [ %39, %Vector3Normalize.exit ]
+Vector3Normalize.exit411:                         ; preds = %Vector3Normalize.exit, %47
+  %.sroa.013.0.i405 = phi <2 x float> [ %.sroa.013.4.vec.insert.i410, %47 ], [ %.sroa.033.4.vec.insert.i, %Vector3Normalize.exit ]
+  %.sroa.617.0.i406 = phi float [ %51, %47 ], [ %41, %Vector3Normalize.exit ]
   %.sroa.011.4.vec.extract.i = extractelement <2 x float> %.sroa.013.0.i405, i64 1
-  %50 = fneg float %.sroa.07.4.vec.extract.i
-  %51 = fmul float %.sroa.617.0.i406, %50
-  %52 = tail call float @llvm.fmuladd.f32(float %.sroa.011.4.vec.extract.i, float %.sroa.11.0, float %51)
-  %.sroa.018.0.vec.insert.i = insertelement <2 x float> poison, float %52, i64 0
+  %52 = fneg float %.sroa.07.4.vec.extract.i
+  %53 = fmul float %.sroa.617.0.i406, %52
+  %54 = tail call float @llvm.fmuladd.f32(float %.sroa.011.4.vec.extract.i, float %.sroa.11.0, float %53)
+  %.sroa.018.0.vec.insert.i = insertelement <2 x float> poison, float %54, i64 0
   %.sroa.011.0.vec.extract.i = extractelement <2 x float> %.sroa.013.0.i405, i64 0
-  %53 = fneg float %.sroa.11.0
-  %54 = fmul float %.sroa.011.0.vec.extract.i, %53
-  %55 = tail call float @llvm.fmuladd.f32(float %.sroa.617.0.i406, float %.sroa.07.0.vec.extract.i, float %54)
-  %.sroa.018.4.vec.insert.i = insertelement <2 x float> %.sroa.018.0.vec.insert.i, float %55, i64 1
-  %56 = fneg float %.sroa.07.0.vec.extract.i
-  %57 = fmul float %.sroa.011.4.vec.extract.i, %56
-  %58 = tail call float @llvm.fmuladd.f32(float %.sroa.011.0.vec.extract.i, float %.sroa.07.4.vec.extract.i, float %57)
-  %59 = fmul float %55, %55
-  %60 = tail call float @llvm.fmuladd.f32(float %52, float %52, float %59)
-  %61 = tail call float @llvm.fmuladd.f32(float %58, float %58, float %60)
-  %62 = tail call float @sqrtf(float noundef %61) #63
-  %63 = fcmp une float %62, 0.000000e+00
-  br i1 %63, label %64, label %Vector3Normalize.exit422
+  %55 = fneg float %.sroa.11.0
+  %56 = fmul float %.sroa.011.0.vec.extract.i, %55
+  %57 = tail call float @llvm.fmuladd.f32(float %.sroa.617.0.i406, float %.sroa.07.0.vec.extract.i, float %56)
+  %.sroa.018.4.vec.insert.i = insertelement <2 x float> %.sroa.018.0.vec.insert.i, float %57, i64 1
+  %58 = fneg float %.sroa.07.0.vec.extract.i
+  %59 = fmul float %.sroa.011.4.vec.extract.i, %58
+  %60 = tail call float @llvm.fmuladd.f32(float %.sroa.011.0.vec.extract.i, float %.sroa.07.4.vec.extract.i, float %59)
+  %61 = fmul float %57, %57
+  %62 = tail call float @llvm.fmuladd.f32(float %54, float %54, float %61)
+  %63 = tail call float @llvm.fmuladd.f32(float %60, float %60, float %62)
+  %64 = tail call float @sqrtf(float noundef %63) #63
+  %65 = fcmp une float %64, 0.000000e+00
+  br i1 %65, label %66, label %Vector3Normalize.exit422
 
-64:                                               ; preds = %Vector3Normalize.exit411
-  %65 = fdiv float 1.000000e+00, %62
-  %66 = fmul float %52, %65
-  %.sroa.013.0.vec.insert.i420 = insertelement <2 x float> poison, float %66, i64 0
-  %67 = fmul float %55, %65
-  %.sroa.013.4.vec.insert.i421 = insertelement <2 x float> %.sroa.013.0.vec.insert.i420, float %67, i64 1
-  %68 = fmul float %58, %65
+66:                                               ; preds = %Vector3Normalize.exit411
+  %67 = fdiv float 1.000000e+00, %64
+  %68 = fmul float %54, %67
+  %.sroa.013.0.vec.insert.i420 = insertelement <2 x float> poison, float %68, i64 0
+  %69 = fmul float %57, %67
+  %.sroa.013.4.vec.insert.i421 = insertelement <2 x float> %.sroa.013.0.vec.insert.i420, float %69, i64 1
+  %70 = fmul float %60, %67
   br label %Vector3Normalize.exit422
 
-Vector3Normalize.exit422:                         ; preds = %Vector3Normalize.exit411, %64
-  %.sroa.013.0.i416 = phi <2 x float> [ %.sroa.013.4.vec.insert.i421, %64 ], [ %.sroa.018.4.vec.insert.i, %Vector3Normalize.exit411 ]
-  %.sroa.617.0.i417 = phi float [ %68, %64 ], [ %58, %Vector3Normalize.exit411 ]
-  %69 = uitofp nneg i32 %spec.store.select to float
-  %70 = fdiv float 0x401921FB60000000, %69
-  %71 = sitofp i32 %6 to float
-  %72 = fdiv float 0x3FF921FB60000000, %71
+Vector3Normalize.exit422:                         ; preds = %Vector3Normalize.exit411, %66
+  %.sroa.013.0.i416 = phi <2 x float> [ %.sroa.013.4.vec.insert.i421, %66 ], [ %.sroa.018.4.vec.insert.i, %Vector3Normalize.exit411 ]
+  %.sroa.617.0.i417 = phi float [ %70, %66 ], [ %60, %Vector3Normalize.exit411 ]
+  %71 = uitofp nneg i32 %spec.store.select to float
+  %72 = fdiv float 0x401921FB60000000, %71
+  %73 = sitofp i32 %6 to float
+  %74 = fdiv float 0x3FF921FB60000000, %73
   tail call void @rlBegin(i32 noundef 1) #63
   tail call void @rlColor4ub(i8 noundef zeroext %.sroa.0358.0.extract.trunc, i8 noundef zeroext %.sroa.2359.0.extract.trunc, i8 noundef zeroext %.sroa.3360.0.extract.trunc, i8 noundef zeroext %.sroa.4361.0.extract.trunc) #63
-  %73 = icmp sgt i32 %6, 0
+  %75 = icmp sgt i32 %6, 0
   %.sroa.0208.0.vec.extract = extractelement <2 x float> %.sroa.013.0.i416, i64 0
   %.sroa.0208.4.vec.extract = extractelement <2 x float> %.sroa.013.0.i416, i64 1
-  br i1 %73, label %.preheader427.us, label %.split.us
+  br i1 %75, label %.preheader427.us, label %.split.us
 
 .preheader427.us:                                 ; preds = %Vector3Normalize.exit422, %._crit_edge.us
-  %.sroa.617.0.i.pn435.us = phi float [ %165, %._crit_edge.us ], [ %.sroa.617.0.i, %Vector3Normalize.exit422 ]
+  %.sroa.617.0.i.pn435.us = phi float [ %167, %._crit_edge.us ], [ %.sroa.617.0.i, %Vector3Normalize.exit422 ]
   %.sroa.013.0.i.pn434.us = phi <2 x float> [ %.sroa.06.4.vec.insert.i.us, %._crit_edge.us ], [ %.sroa.013.0.i, %Vector3Normalize.exit422 ]
   %.sroa.12.0433.us = phi float [ %1, %._crit_edge.us ], [ %3, %Vector3Normalize.exit422 ]
   %.sroa.8181.0432.us = phi float [ %.sroa.0381.4.vec.extract, %._crit_edge.us ], [ %.sroa.0364.4.vec.extract, %Vector3Normalize.exit422 ]
   %.sroa.0176.0431.us = phi float [ %.sroa.0381.0.vec.extract, %._crit_edge.us ], [ %.sroa.0364.0.vec.extract, %Vector3Normalize.exit422 ]
-  %74 = phi i1 [ false, %._crit_edge.us ], [ true, %Vector3Normalize.exit422 ]
+  %76 = phi i1 [ false, %._crit_edge.us ], [ true, %Vector3Normalize.exit422 ]
   %.sroa.0301.0.vec.extract.us = extractelement <2 x float> %.sroa.013.0.i.pn434.us, i64 0
   %.sroa.0301.4.vec.extract.us = extractelement <2 x float> %.sroa.013.0.i.pn434.us, i64 1
   br label %.preheader426.us
 
-75:                                               ; preds = %76
-  %exitcond438.not = icmp eq i32 %160, %6
+77:                                               ; preds = %78
+  %exitcond438.not = icmp eq i32 %162, %6
   br i1 %exitcond438.not, label %._crit_edge.us, label %.preheader426.us
 
-76:                                               ; preds = %.preheader426.us, %76
-  %.0398428.us = phi i32 [ 0, %.preheader426.us ], [ %98, %76 ]
-  %77 = uitofp nneg i32 %.0398428.us to float
-  %78 = fmul float %70, %77
-  %79 = tail call float @sinf(float noundef %78) #63
-  %80 = tail call float @cosf(float noundef %159) #63
-  %81 = fmul float %79, %80
-  %82 = tail call float @cosf(float noundef %78) #63
-  %83 = tail call float @cosf(float noundef %159) #63
-  %84 = fmul float %82, %83
-  %85 = tail call float @sinf(float noundef %159) #63
-  %86 = fmul float %.sroa.011.0.vec.extract.i, %81
-  %87 = tail call float @llvm.fmuladd.f32(float %85, float %.sroa.0301.0.vec.extract.us, float %86)
-  %88 = tail call float @llvm.fmuladd.f32(float %84, float %.sroa.0208.0.vec.extract, float %87)
-  %89 = tail call float @llvm.fmuladd.f32(float %88, float %4, float %.sroa.0176.0431.us)
-  %90 = fmul float %.sroa.011.4.vec.extract.i, %81
-  %91 = tail call float @llvm.fmuladd.f32(float %85, float %.sroa.0301.4.vec.extract.us, float %90)
-  %92 = tail call float @llvm.fmuladd.f32(float %84, float %.sroa.0208.4.vec.extract, float %91)
-  %93 = tail call float @llvm.fmuladd.f32(float %92, float %4, float %.sroa.8181.0432.us)
-  %94 = fmul float %.sroa.617.0.i406, %81
-  %95 = tail call float @llvm.fmuladd.f32(float %85, float %.sroa.617.0.i.pn435.us, float %94)
-  %96 = tail call float @llvm.fmuladd.f32(float %84, float %.sroa.617.0.i417, float %95)
-  %97 = tail call float @llvm.fmuladd.f32(float %96, float %4, float %.sroa.12.0433.us)
-  %98 = add nuw nsw i32 %.0398428.us, 1
-  %99 = uitofp nneg i32 %98 to float
-  %100 = fmul float %70, %99
-  %101 = tail call float @sinf(float noundef %100) #63
-  %102 = tail call float @cosf(float noundef %159) #63
-  %103 = fmul float %101, %102
-  %104 = tail call float @cosf(float noundef %100) #63
-  %105 = tail call float @cosf(float noundef %159) #63
-  %106 = fmul float %104, %105
-  %107 = tail call float @sinf(float noundef %159) #63
-  %108 = fmul float %.sroa.011.0.vec.extract.i, %103
-  %109 = tail call float @llvm.fmuladd.f32(float %107, float %.sroa.0301.0.vec.extract.us, float %108)
-  %110 = tail call float @llvm.fmuladd.f32(float %106, float %.sroa.0208.0.vec.extract, float %109)
-  %111 = tail call float @llvm.fmuladd.f32(float %110, float %4, float %.sroa.0176.0431.us)
-  %112 = fmul float %.sroa.011.4.vec.extract.i, %103
-  %113 = tail call float @llvm.fmuladd.f32(float %107, float %.sroa.0301.4.vec.extract.us, float %112)
-  %114 = tail call float @llvm.fmuladd.f32(float %106, float %.sroa.0208.4.vec.extract, float %113)
-  %115 = tail call float @llvm.fmuladd.f32(float %114, float %4, float %.sroa.8181.0432.us)
-  %116 = fmul float %.sroa.617.0.i406, %103
-  %117 = tail call float @llvm.fmuladd.f32(float %107, float %.sroa.617.0.i.pn435.us, float %116)
-  %118 = tail call float @llvm.fmuladd.f32(float %106, float %.sroa.617.0.i417, float %117)
-  %119 = tail call float @llvm.fmuladd.f32(float %118, float %4, float %.sroa.12.0433.us)
-  %120 = tail call float @sinf(float noundef %78) #63
-  %121 = tail call float @cosf(float noundef %162) #63
-  %122 = fmul float %120, %121
-  %123 = tail call float @cosf(float noundef %78) #63
-  %124 = tail call float @cosf(float noundef %162) #63
-  %125 = fmul float %123, %124
-  %126 = tail call float @sinf(float noundef %162) #63
-  %127 = fmul float %.sroa.011.0.vec.extract.i, %122
-  %128 = tail call float @llvm.fmuladd.f32(float %126, float %.sroa.0301.0.vec.extract.us, float %127)
-  %129 = tail call float @llvm.fmuladd.f32(float %125, float %.sroa.0208.0.vec.extract, float %128)
-  %130 = tail call float @llvm.fmuladd.f32(float %129, float %4, float %.sroa.0176.0431.us)
-  %131 = fmul float %.sroa.011.4.vec.extract.i, %122
-  %132 = tail call float @llvm.fmuladd.f32(float %126, float %.sroa.0301.4.vec.extract.us, float %131)
-  %133 = tail call float @llvm.fmuladd.f32(float %125, float %.sroa.0208.4.vec.extract, float %132)
-  %134 = tail call float @llvm.fmuladd.f32(float %133, float %4, float %.sroa.8181.0432.us)
-  %135 = fmul float %.sroa.617.0.i406, %122
-  %136 = tail call float @llvm.fmuladd.f32(float %126, float %.sroa.617.0.i.pn435.us, float %135)
-  %137 = tail call float @llvm.fmuladd.f32(float %125, float %.sroa.617.0.i417, float %136)
-  %138 = tail call float @llvm.fmuladd.f32(float %137, float %4, float %.sroa.12.0433.us)
-  %139 = tail call float @sinf(float noundef %100) #63
-  %140 = tail call float @cosf(float noundef %162) #63
-  %141 = fmul float %139, %140
-  %142 = tail call float @cosf(float noundef %100) #63
-  %143 = tail call float @cosf(float noundef %162) #63
-  %144 = fmul float %142, %143
-  %145 = tail call float @sinf(float noundef %162) #63
-  %146 = fmul float %.sroa.011.0.vec.extract.i, %141
-  %147 = tail call float @llvm.fmuladd.f32(float %145, float %.sroa.0301.0.vec.extract.us, float %146)
-  %148 = tail call float @llvm.fmuladd.f32(float %144, float %.sroa.0208.0.vec.extract, float %147)
-  %149 = tail call float @llvm.fmuladd.f32(float %148, float %4, float %.sroa.0176.0431.us)
-  %150 = fmul float %.sroa.011.4.vec.extract.i, %141
-  %151 = tail call float @llvm.fmuladd.f32(float %145, float %.sroa.0301.4.vec.extract.us, float %150)
-  %152 = tail call float @llvm.fmuladd.f32(float %144, float %.sroa.0208.4.vec.extract, float %151)
-  %153 = tail call float @llvm.fmuladd.f32(float %152, float %4, float %.sroa.8181.0432.us)
-  %154 = fmul float %.sroa.617.0.i406, %141
-  %155 = tail call float @llvm.fmuladd.f32(float %145, float %.sroa.617.0.i.pn435.us, float %154)
-  %156 = tail call float @llvm.fmuladd.f32(float %144, float %.sroa.617.0.i417, float %155)
-  %157 = tail call float @llvm.fmuladd.f32(float %156, float %4, float %.sroa.12.0433.us)
-  tail call void @rlVertex3f(float noundef %89, float noundef %93, float noundef %97) #63
-  tail call void @rlVertex3f(float noundef %111, float noundef %115, float noundef %119) #63
-  tail call void @rlVertex3f(float noundef %111, float noundef %115, float noundef %119) #63
-  tail call void @rlVertex3f(float noundef %130, float noundef %134, float noundef %138) #63
-  tail call void @rlVertex3f(float noundef %89, float noundef %93, float noundef %97) #63
-  tail call void @rlVertex3f(float noundef %130, float noundef %134, float noundef %138) #63
-  tail call void @rlVertex3f(float noundef %111, float noundef %115, float noundef %119) #63
-  tail call void @rlVertex3f(float noundef %149, float noundef %153, float noundef %157) #63
-  tail call void @rlVertex3f(float noundef %130, float noundef %134, float noundef %138) #63
-  tail call void @rlVertex3f(float noundef %149, float noundef %153, float noundef %157) #63
-  %exitcond.not = icmp eq i32 %98, %spec.store.select
-  br i1 %exitcond.not, label %75, label %76
+78:                                               ; preds = %.preheader426.us, %78
+  %.0398428.us = phi i32 [ 0, %.preheader426.us ], [ %100, %78 ]
+  %79 = uitofp nneg i32 %.0398428.us to float
+  %80 = fmul float %72, %79
+  %81 = tail call float @sinf(float noundef %80) #63
+  %82 = tail call float @cosf(float noundef %161) #63
+  %83 = fmul float %81, %82
+  %84 = tail call float @cosf(float noundef %80) #63
+  %85 = tail call float @cosf(float noundef %161) #63
+  %86 = fmul float %84, %85
+  %87 = tail call float @sinf(float noundef %161) #63
+  %88 = fmul float %.sroa.011.0.vec.extract.i, %83
+  %89 = tail call float @llvm.fmuladd.f32(float %87, float %.sroa.0301.0.vec.extract.us, float %88)
+  %90 = tail call float @llvm.fmuladd.f32(float %86, float %.sroa.0208.0.vec.extract, float %89)
+  %91 = tail call float @llvm.fmuladd.f32(float %90, float %4, float %.sroa.0176.0431.us)
+  %92 = fmul float %.sroa.011.4.vec.extract.i, %83
+  %93 = tail call float @llvm.fmuladd.f32(float %87, float %.sroa.0301.4.vec.extract.us, float %92)
+  %94 = tail call float @llvm.fmuladd.f32(float %86, float %.sroa.0208.4.vec.extract, float %93)
+  %95 = tail call float @llvm.fmuladd.f32(float %94, float %4, float %.sroa.8181.0432.us)
+  %96 = fmul float %.sroa.617.0.i406, %83
+  %97 = tail call float @llvm.fmuladd.f32(float %87, float %.sroa.617.0.i.pn435.us, float %96)
+  %98 = tail call float @llvm.fmuladd.f32(float %86, float %.sroa.617.0.i417, float %97)
+  %99 = tail call float @llvm.fmuladd.f32(float %98, float %4, float %.sroa.12.0433.us)
+  %100 = add nuw nsw i32 %.0398428.us, 1
+  %101 = uitofp nneg i32 %100 to float
+  %102 = fmul float %72, %101
+  %103 = tail call float @sinf(float noundef %102) #63
+  %104 = tail call float @cosf(float noundef %161) #63
+  %105 = fmul float %103, %104
+  %106 = tail call float @cosf(float noundef %102) #63
+  %107 = tail call float @cosf(float noundef %161) #63
+  %108 = fmul float %106, %107
+  %109 = tail call float @sinf(float noundef %161) #63
+  %110 = fmul float %.sroa.011.0.vec.extract.i, %105
+  %111 = tail call float @llvm.fmuladd.f32(float %109, float %.sroa.0301.0.vec.extract.us, float %110)
+  %112 = tail call float @llvm.fmuladd.f32(float %108, float %.sroa.0208.0.vec.extract, float %111)
+  %113 = tail call float @llvm.fmuladd.f32(float %112, float %4, float %.sroa.0176.0431.us)
+  %114 = fmul float %.sroa.011.4.vec.extract.i, %105
+  %115 = tail call float @llvm.fmuladd.f32(float %109, float %.sroa.0301.4.vec.extract.us, float %114)
+  %116 = tail call float @llvm.fmuladd.f32(float %108, float %.sroa.0208.4.vec.extract, float %115)
+  %117 = tail call float @llvm.fmuladd.f32(float %116, float %4, float %.sroa.8181.0432.us)
+  %118 = fmul float %.sroa.617.0.i406, %105
+  %119 = tail call float @llvm.fmuladd.f32(float %109, float %.sroa.617.0.i.pn435.us, float %118)
+  %120 = tail call float @llvm.fmuladd.f32(float %108, float %.sroa.617.0.i417, float %119)
+  %121 = tail call float @llvm.fmuladd.f32(float %120, float %4, float %.sroa.12.0433.us)
+  %122 = tail call float @sinf(float noundef %80) #63
+  %123 = tail call float @cosf(float noundef %164) #63
+  %124 = fmul float %122, %123
+  %125 = tail call float @cosf(float noundef %80) #63
+  %126 = tail call float @cosf(float noundef %164) #63
+  %127 = fmul float %125, %126
+  %128 = tail call float @sinf(float noundef %164) #63
+  %129 = fmul float %.sroa.011.0.vec.extract.i, %124
+  %130 = tail call float @llvm.fmuladd.f32(float %128, float %.sroa.0301.0.vec.extract.us, float %129)
+  %131 = tail call float @llvm.fmuladd.f32(float %127, float %.sroa.0208.0.vec.extract, float %130)
+  %132 = tail call float @llvm.fmuladd.f32(float %131, float %4, float %.sroa.0176.0431.us)
+  %133 = fmul float %.sroa.011.4.vec.extract.i, %124
+  %134 = tail call float @llvm.fmuladd.f32(float %128, float %.sroa.0301.4.vec.extract.us, float %133)
+  %135 = tail call float @llvm.fmuladd.f32(float %127, float %.sroa.0208.4.vec.extract, float %134)
+  %136 = tail call float @llvm.fmuladd.f32(float %135, float %4, float %.sroa.8181.0432.us)
+  %137 = fmul float %.sroa.617.0.i406, %124
+  %138 = tail call float @llvm.fmuladd.f32(float %128, float %.sroa.617.0.i.pn435.us, float %137)
+  %139 = tail call float @llvm.fmuladd.f32(float %127, float %.sroa.617.0.i417, float %138)
+  %140 = tail call float @llvm.fmuladd.f32(float %139, float %4, float %.sroa.12.0433.us)
+  %141 = tail call float @sinf(float noundef %102) #63
+  %142 = tail call float @cosf(float noundef %164) #63
+  %143 = fmul float %141, %142
+  %144 = tail call float @cosf(float noundef %102) #63
+  %145 = tail call float @cosf(float noundef %164) #63
+  %146 = fmul float %144, %145
+  %147 = tail call float @sinf(float noundef %164) #63
+  %148 = fmul float %.sroa.011.0.vec.extract.i, %143
+  %149 = tail call float @llvm.fmuladd.f32(float %147, float %.sroa.0301.0.vec.extract.us, float %148)
+  %150 = tail call float @llvm.fmuladd.f32(float %146, float %.sroa.0208.0.vec.extract, float %149)
+  %151 = tail call float @llvm.fmuladd.f32(float %150, float %4, float %.sroa.0176.0431.us)
+  %152 = fmul float %.sroa.011.4.vec.extract.i, %143
+  %153 = tail call float @llvm.fmuladd.f32(float %147, float %.sroa.0301.4.vec.extract.us, float %152)
+  %154 = tail call float @llvm.fmuladd.f32(float %146, float %.sroa.0208.4.vec.extract, float %153)
+  %155 = tail call float @llvm.fmuladd.f32(float %154, float %4, float %.sroa.8181.0432.us)
+  %156 = fmul float %.sroa.617.0.i406, %143
+  %157 = tail call float @llvm.fmuladd.f32(float %147, float %.sroa.617.0.i.pn435.us, float %156)
+  %158 = tail call float @llvm.fmuladd.f32(float %146, float %.sroa.617.0.i417, float %157)
+  %159 = tail call float @llvm.fmuladd.f32(float %158, float %4, float %.sroa.12.0433.us)
+  tail call void @rlVertex3f(float noundef %91, float noundef %95, float noundef %99) #63
+  tail call void @rlVertex3f(float noundef %113, float noundef %117, float noundef %121) #63
+  tail call void @rlVertex3f(float noundef %113, float noundef %117, float noundef %121) #63
+  tail call void @rlVertex3f(float noundef %132, float noundef %136, float noundef %140) #63
+  tail call void @rlVertex3f(float noundef %91, float noundef %95, float noundef %99) #63
+  tail call void @rlVertex3f(float noundef %132, float noundef %136, float noundef %140) #63
+  tail call void @rlVertex3f(float noundef %113, float noundef %117, float noundef %121) #63
+  tail call void @rlVertex3f(float noundef %151, float noundef %155, float noundef %159) #63
+  tail call void @rlVertex3f(float noundef %132, float noundef %136, float noundef %140) #63
+  tail call void @rlVertex3f(float noundef %151, float noundef %155, float noundef %159) #63
+  %exitcond.not = icmp eq i32 %100, %spec.store.select
+  br i1 %exitcond.not, label %77, label %78
 
-.preheader426.us:                                 ; preds = %.preheader427.us, %75
-  %.0397429.us = phi i32 [ 0, %.preheader427.us ], [ %160, %75 ]
-  %158 = uitofp nneg i32 %.0397429.us to float
-  %159 = fmul float %72, %158
-  %160 = add nuw nsw i32 %.0397429.us, 1
-  %161 = uitofp nneg i32 %160 to float
-  %162 = fmul float %72, %161
-  br label %76
+.preheader426.us:                                 ; preds = %.preheader427.us, %77
+  %.0397429.us = phi i32 [ 0, %.preheader427.us ], [ %162, %77 ]
+  %160 = uitofp nneg i32 %.0397429.us to float
+  %161 = fmul float %74, %160
+  %162 = add nuw nsw i32 %.0397429.us, 1
+  %163 = uitofp nneg i32 %162 to float
+  %164 = fmul float %74, %163
+  br label %78
 
-._crit_edge.us:                                   ; preds = %75
-  %163 = fneg float %.sroa.0301.0.vec.extract.us
-  %164 = fneg <2 x float> %.sroa.013.0.i.pn434.us
-  %.sroa.06.4.vec.insert.i.us = insertelement <2 x float> %164, float %163, i64 0
-  %165 = fneg float %.sroa.617.0.i.pn435.us
-  br i1 %74, label %.preheader427.us, label %.split.us
+._crit_edge.us:                                   ; preds = %77
+  %165 = fneg float %.sroa.0301.0.vec.extract.us
+  %166 = fneg <2 x float> %.sroa.013.0.i.pn434.us
+  %.sroa.06.4.vec.insert.i.us = insertelement <2 x float> %166, float %165, i64 0
+  %167 = fneg float %.sroa.617.0.i.pn435.us
+  br i1 %76, label %.preheader427.us, label %.split.us
 
 .split.us:                                        ; preds = %._crit_edge.us, %Vector3Normalize.exit422
   br i1 %spec.select, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %.split.us, %.preheader
-  %.0399436 = phi i32 [ %178, %.preheader ], [ 0, %.split.us ]
-  %166 = uitofp nneg i32 %.0399436 to float
-  %167 = fmul float %70, %166
-  %168 = tail call float @sinf(float noundef %167) #63
-  %169 = fmul float %4, %168
-  %170 = tail call float @cosf(float noundef %167) #63
+  %.0399436 = phi i32 [ %180, %.preheader ], [ 0, %.split.us ]
+  %168 = uitofp nneg i32 %.0399436 to float
+  %169 = fmul float %72, %168
+  %170 = tail call float @sinf(float noundef %169) #63
   %171 = fmul float %4, %170
-  %172 = tail call float @llvm.fmuladd.f32(float %169, float %.sroa.011.0.vec.extract.i, float %.sroa.0381.0.vec.extract)
-  %173 = tail call float @llvm.fmuladd.f32(float %171, float %.sroa.0208.0.vec.extract, float %172)
-  %174 = tail call float @llvm.fmuladd.f32(float %169, float %.sroa.011.4.vec.extract.i, float %.sroa.0381.4.vec.extract)
-  %175 = tail call float @llvm.fmuladd.f32(float %171, float %.sroa.0208.4.vec.extract, float %174)
-  %176 = tail call float @llvm.fmuladd.f32(float %169, float %.sroa.617.0.i406, float %1)
-  %177 = tail call float @llvm.fmuladd.f32(float %171, float %.sroa.617.0.i417, float %176)
-  %178 = add nuw nsw i32 %.0399436, 1
-  %179 = uitofp nneg i32 %178 to float
-  %180 = fmul float %70, %179
-  %181 = tail call float @sinf(float noundef %180) #63
-  %182 = fmul float %4, %181
-  %183 = tail call float @cosf(float noundef %180) #63
+  %172 = tail call float @cosf(float noundef %169) #63
+  %173 = fmul float %4, %172
+  %174 = tail call float @llvm.fmuladd.f32(float %171, float %.sroa.011.0.vec.extract.i, float %.sroa.0381.0.vec.extract)
+  %175 = tail call float @llvm.fmuladd.f32(float %173, float %.sroa.0208.0.vec.extract, float %174)
+  %176 = tail call float @llvm.fmuladd.f32(float %171, float %.sroa.011.4.vec.extract.i, float %.sroa.0381.4.vec.extract)
+  %177 = tail call float @llvm.fmuladd.f32(float %173, float %.sroa.0208.4.vec.extract, float %176)
+  %178 = tail call float @llvm.fmuladd.f32(float %171, float %.sroa.617.0.i406, float %1)
+  %179 = tail call float @llvm.fmuladd.f32(float %173, float %.sroa.617.0.i417, float %178)
+  %180 = add nuw nsw i32 %.0399436, 1
+  %181 = uitofp nneg i32 %180 to float
+  %182 = fmul float %72, %181
+  %183 = tail call float @sinf(float noundef %182) #63
   %184 = fmul float %4, %183
-  %185 = tail call float @llvm.fmuladd.f32(float %182, float %.sroa.011.0.vec.extract.i, float %.sroa.0381.0.vec.extract)
-  %186 = tail call float @llvm.fmuladd.f32(float %184, float %.sroa.0208.0.vec.extract, float %185)
-  %187 = tail call float @llvm.fmuladd.f32(float %182, float %.sroa.011.4.vec.extract.i, float %.sroa.0381.4.vec.extract)
-  %188 = tail call float @llvm.fmuladd.f32(float %184, float %.sroa.0208.4.vec.extract, float %187)
-  %189 = tail call float @llvm.fmuladd.f32(float %182, float %.sroa.617.0.i406, float %1)
-  %190 = tail call float @llvm.fmuladd.f32(float %184, float %.sroa.617.0.i417, float %189)
-  %191 = tail call float @sinf(float noundef %167) #63
-  %192 = fmul float %4, %191
-  %193 = tail call float @cosf(float noundef %167) #63
+  %185 = tail call float @cosf(float noundef %182) #63
+  %186 = fmul float %4, %185
+  %187 = tail call float @llvm.fmuladd.f32(float %184, float %.sroa.011.0.vec.extract.i, float %.sroa.0381.0.vec.extract)
+  %188 = tail call float @llvm.fmuladd.f32(float %186, float %.sroa.0208.0.vec.extract, float %187)
+  %189 = tail call float @llvm.fmuladd.f32(float %184, float %.sroa.011.4.vec.extract.i, float %.sroa.0381.4.vec.extract)
+  %190 = tail call float @llvm.fmuladd.f32(float %186, float %.sroa.0208.4.vec.extract, float %189)
+  %191 = tail call float @llvm.fmuladd.f32(float %184, float %.sroa.617.0.i406, float %1)
+  %192 = tail call float @llvm.fmuladd.f32(float %186, float %.sroa.617.0.i417, float %191)
+  %193 = tail call float @sinf(float noundef %169) #63
   %194 = fmul float %4, %193
-  %195 = tail call float @llvm.fmuladd.f32(float %192, float %.sroa.011.0.vec.extract.i, float %.sroa.0364.0.vec.extract)
-  %196 = tail call float @llvm.fmuladd.f32(float %194, float %.sroa.0208.0.vec.extract, float %195)
-  %197 = tail call float @llvm.fmuladd.f32(float %192, float %.sroa.011.4.vec.extract.i, float %.sroa.0364.4.vec.extract)
-  %198 = tail call float @llvm.fmuladd.f32(float %194, float %.sroa.0208.4.vec.extract, float %197)
-  %199 = tail call float @llvm.fmuladd.f32(float %192, float %.sroa.617.0.i406, float %3)
-  %200 = tail call float @llvm.fmuladd.f32(float %194, float %.sroa.617.0.i417, float %199)
-  %201 = tail call float @sinf(float noundef %180) #63
-  %202 = fmul float %4, %201
-  %203 = tail call float @cosf(float noundef %180) #63
+  %195 = tail call float @cosf(float noundef %169) #63
+  %196 = fmul float %4, %195
+  %197 = tail call float @llvm.fmuladd.f32(float %194, float %.sroa.011.0.vec.extract.i, float %.sroa.0364.0.vec.extract)
+  %198 = tail call float @llvm.fmuladd.f32(float %196, float %.sroa.0208.0.vec.extract, float %197)
+  %199 = tail call float @llvm.fmuladd.f32(float %194, float %.sroa.011.4.vec.extract.i, float %.sroa.0364.4.vec.extract)
+  %200 = tail call float @llvm.fmuladd.f32(float %196, float %.sroa.0208.4.vec.extract, float %199)
+  %201 = tail call float @llvm.fmuladd.f32(float %194, float %.sroa.617.0.i406, float %3)
+  %202 = tail call float @llvm.fmuladd.f32(float %196, float %.sroa.617.0.i417, float %201)
+  %203 = tail call float @sinf(float noundef %182) #63
   %204 = fmul float %4, %203
-  %205 = tail call float @llvm.fmuladd.f32(float %202, float %.sroa.011.0.vec.extract.i, float %.sroa.0364.0.vec.extract)
-  %206 = tail call float @llvm.fmuladd.f32(float %204, float %.sroa.0208.0.vec.extract, float %205)
-  %207 = tail call float @llvm.fmuladd.f32(float %202, float %.sroa.011.4.vec.extract.i, float %.sroa.0364.4.vec.extract)
-  %208 = tail call float @llvm.fmuladd.f32(float %204, float %.sroa.0208.4.vec.extract, float %207)
-  %209 = tail call float @llvm.fmuladd.f32(float %202, float %.sroa.617.0.i406, float %3)
-  %210 = tail call float @llvm.fmuladd.f32(float %204, float %.sroa.617.0.i417, float %209)
-  tail call void @rlVertex3f(float noundef %173, float noundef %175, float noundef %177) #63
-  tail call void @rlVertex3f(float noundef %196, float noundef %198, float noundef %200) #63
-  tail call void @rlVertex3f(float noundef %186, float noundef %188, float noundef %190) #63
-  tail call void @rlVertex3f(float noundef %206, float noundef %208, float noundef %210) #63
-  tail call void @rlVertex3f(float noundef %186, float noundef %188, float noundef %190) #63
-  tail call void @rlVertex3f(float noundef %196, float noundef %198, float noundef %200) #63
-  %exitcond439.not = icmp eq i32 %178, %spec.store.select
+  %205 = tail call float @cosf(float noundef %182) #63
+  %206 = fmul float %4, %205
+  %207 = tail call float @llvm.fmuladd.f32(float %204, float %.sroa.011.0.vec.extract.i, float %.sroa.0364.0.vec.extract)
+  %208 = tail call float @llvm.fmuladd.f32(float %206, float %.sroa.0208.0.vec.extract, float %207)
+  %209 = tail call float @llvm.fmuladd.f32(float %204, float %.sroa.011.4.vec.extract.i, float %.sroa.0364.4.vec.extract)
+  %210 = tail call float @llvm.fmuladd.f32(float %206, float %.sroa.0208.4.vec.extract, float %209)
+  %211 = tail call float @llvm.fmuladd.f32(float %204, float %.sroa.617.0.i406, float %3)
+  %212 = tail call float @llvm.fmuladd.f32(float %206, float %.sroa.617.0.i417, float %211)
+  tail call void @rlVertex3f(float noundef %175, float noundef %177, float noundef %179) #63
+  tail call void @rlVertex3f(float noundef %198, float noundef %200, float noundef %202) #63
+  tail call void @rlVertex3f(float noundef %188, float noundef %190, float noundef %192) #63
+  tail call void @rlVertex3f(float noundef %208, float noundef %210, float noundef %212) #63
+  tail call void @rlVertex3f(float noundef %188, float noundef %190, float noundef %192) #63
+  tail call void @rlVertex3f(float noundef %198, float noundef %200, float noundef %202) #63
+  %exitcond439.not = icmp eq i32 %180, %spec.store.select
   br i1 %exitcond439.not, label %.loopexit, label %.preheader
 
 .loopexit:                                        ; preds = %.preheader, %.split.us

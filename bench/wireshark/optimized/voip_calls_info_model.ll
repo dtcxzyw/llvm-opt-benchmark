@@ -2279,10 +2279,10 @@ _ZNK11QModelIndex7isValidEv.exit.thread:
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load ptr, ptr %7, align 8
   %.fr = freeze ptr %8
-  %.not = icmp eq ptr %.fr, null
-  %spec.select = select i1 %.not, i32 10, i32 0
-  %9 = select i1 %or.cond, i32 %spec.select, i32 10
-  ret i32 %9
+  %.not = icmp ne ptr %.fr, null
+  %9 = and i1 %or.cond, %.not
+  %10 = select i1 %9, i32 0, i32 10
+  ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid

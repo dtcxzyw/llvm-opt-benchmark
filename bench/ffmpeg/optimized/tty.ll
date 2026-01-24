@@ -47,7 +47,7 @@ define internal i32 @read_probe(ptr noundef readonly captures(none) %0) #0 {
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !11
   %wide.trip.count39 = zext nneg i32 %3 to i64
-  br label %29
+  br label %30
 
 11:                                               ; preds = %.lr.ph, %isansicode.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %isansicode.exit ]
@@ -74,46 +74,46 @@ isansicode.exit:                                  ; preds = %11, %11, %11, %14
   br i1 %exitcond.not, label %.critedge, label %11, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %isansicode.exit25, %.preheader
-  %.1.lcssa = phi i32 [ 8, %.preheader ], [ %37, %isansicode.exit25 ]
+  %.1.lcssa = phi i32 [ 8, %.preheader ], [ %38, %isansicode.exit25 ]
   %20 = zext nneg i32 %.1.lcssa to i64
   %21 = mul nuw nsw i64 %20, 99
   %22 = zext nneg i32 %3 to i64
   %23 = udiv i64 %21, %22
-  %24 = icmp ugt i32 %.1.lcssa, 400
+  %24 = icmp samesign ult i32 %.1.lcssa, 401
   %25 = load ptr, ptr %0, align 8, !tbaa !15
   %26 = tail call i32 @av_match_ext(ptr noundef %25, ptr noundef nonnull @tty_extensions) #4
   %.not24 = icmp eq i32 %26, 0
-  %27 = trunc i64 %23 to i32
-  %spec.select = select i1 %24, i32 %27, i32 0
-  %28 = select i1 %.not24, i32 0, i32 %spec.select
+  %27 = select i1 %.not24, i1 true, i1 %24
+  %28 = trunc i64 %23 to i32
+  %29 = select i1 %27, i32 0, i32 %28
   br label %.critedge.thread
 
-29:                                               ; preds = %.lr.ph32, %isansicode.exit25
+30:                                               ; preds = %.lr.ph32, %isansicode.exit25
   %indvars.iv36 = phi i64 [ 8, %.lr.ph32 ], [ %indvars.iv.next37, %isansicode.exit25 ]
-  %.130 = phi i32 [ 8, %.lr.ph32 ], [ %37, %isansicode.exit25 ]
-  %30 = getelementptr inbounds nuw i8, ptr %10, i64 %indvars.iv36
-  %31 = load i8, ptr %30, align 1, !tbaa !12
-  switch i8 %31, label %32 [
+  %.130 = phi i32 [ 8, %.lr.ph32 ], [ %38, %isansicode.exit25 ]
+  %31 = getelementptr inbounds nuw i8, ptr %10, i64 %indvars.iv36
+  %32 = load i8, ptr %31, align 1, !tbaa !12
+  switch i8 %32, label %33 [
     i8 27, label %isansicode.exit25
     i8 13, label %isansicode.exit25
     i8 10, label %isansicode.exit25
   ]
 
-32:                                               ; preds = %29
-  %33 = add i8 %31, -32
-  %34 = icmp ult i8 %33, 95
-  %35 = zext i1 %34 to i32
+33:                                               ; preds = %30
+  %34 = add i8 %32, -32
+  %35 = icmp ult i8 %34, 95
+  %36 = zext i1 %35 to i32
   br label %isansicode.exit25
 
-isansicode.exit25:                                ; preds = %29, %29, %29, %32
-  %36 = phi i32 [ 1, %29 ], [ %35, %32 ], [ 1, %29 ], [ 1, %29 ]
-  %37 = add i32 %36, %.130
+isansicode.exit25:                                ; preds = %30, %30, %30, %33
+  %37 = phi i32 [ 1, %30 ], [ %36, %33 ], [ 1, %30 ], [ 1, %30 ]
+  %38 = add nuw nsw i32 %37, %.130
   %indvars.iv.next37 = add nuw nsw i64 %indvars.iv36, 1
   %exitcond40.not = icmp eq i64 %indvars.iv.next37, %wide.trip.count39
-  br i1 %exitcond40.not, label %._crit_edge, label %29, !llvm.loop !16
+  br i1 %exitcond40.not, label %._crit_edge, label %30, !llvm.loop !16
 
 .critedge.thread:                                 ; preds = %.critedge, %1, %._crit_edge
-  %.021 = phi i32 [ 0, %1 ], [ %28, %._crit_edge ], [ 0, %.critedge ]
+  %.021 = phi i32 [ 0, %1 ], [ %29, %._crit_edge ], [ 0, %.critedge ]
   ret i32 %.021
 }
 

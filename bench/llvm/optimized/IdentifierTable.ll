@@ -25033,9 +25033,9 @@ define internal fastcc noundef range(i32 1, 5) i32 @_ZL16getKeywordStatusRKN5cla
   %65 = lshr i32 %31, 26
   %66 = and i32 %65, 4
   %67 = and i64 %46, 4294967296
-  %.not49.i = icmp eq i64 %67, 0
-  %68 = select i1 %.not49.i, i32 4, i32 0
-  %69 = select i1 %.not, i32 0, i32 %68
+  %.not49.i = icmp ne i64 %67, 0
+  %68 = select i1 %.not, i1 true, i1 %.not49.i
+  %69 = select i1 %68, i32 0, i32 4
   %70 = and i64 %.fr, 1024
   %.not50.i = icmp eq i64 %70, 0
   %71 = select i1 %.not50.i, i32 0, i32 3

@@ -4891,7 +4891,6 @@ _ZNK4llvm12RecordKeeper6getDefENS_9StringRefE.exit.thread: ; preds = %_ZNK4llvm9
   %or.cond = or i1 %112, %113
   %or.cond33 = and i1 %or.cond, %.not30
   %114 = or i1 %44, %or.cond33
-  %spec.select149 = select i1 %114, i8 1, i8 %27
   %115 = tail call noundef ptr @_ZNK4llvm6Record18getValueAsBitsInitENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) %24, ptr nonnull @.str.246, i64 9) #22
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 32
   %117 = load i32, ptr %116, align 8, !tbaa !98
@@ -5202,9 +5201,10 @@ _ZN12_GLOBAL__N_117isExplicitUnalignEPKN4llvm18CodeGenInstructionE.exit.thread: 
   %210 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store i64 %.sroa.2.0.copyload.i.i100, ptr %210, align 8
   %211 = call noundef i64 @_ZNK4llvm9StringRef4findES0_m(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr nonnull @.str.248, i64 6, i64 noundef 0) #22
-  %.not153 = icmp eq i64 %211, -1
+  %.not153 = icmp ne i64 %211, -1
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
-  %spec.select151 = select i1 %.not153, i8 %spec.select149, i8 1
+  %.not154 = select i1 %.not153, i1 true, i1 %114
+  %spec.select151 = select i1 %.not154, i8 1, i8 %27
   br label %212
 
 212:                                              ; preds = %7, %_ZN12_GLOBAL__N_117isExplicitUnalignEPKN4llvm18CodeGenInstructionE.exit.thread

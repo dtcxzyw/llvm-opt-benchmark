@@ -5614,12 +5614,12 @@ timetz_cmp_internal.exit.thread:
   %13 = mul nsw i64 %12, 1000000
   %14 = add i64 %13, %.val8
   %15 = icmp sgt i64 %11, %14
-  %16 = icmp slt i64 %11, %14
-  %17 = icmp slt i32 %.val7.fr, %.val9.fr
-  %or.cond = or i1 %16, %17
-  %spec.select = select i1 %or.cond, i64 %2, i64 %5
-  %18 = select i1 %15, i64 %5, i64 %spec.select
-  ret i64 %18
+  %16 = icmp sge i64 %11, %14
+  %17 = icmp sge i32 %.val7.fr, %.val9.fr
+  %or.cond.not = and i1 %16, %17
+  %18 = or i1 %15, %or.cond.not
+  %19 = select i1 %18, i64 %5, i64 %2
+  ret i64 %19
 }
 
 ; Function Attrs: nounwind uwtable

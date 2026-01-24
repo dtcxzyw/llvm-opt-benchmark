@@ -10554,14 +10554,15 @@ _ZN3std2io16append_to_string17h222d33b778b12ac8E.exit: ; preds = %107
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !2890
   %119 = load i64, ptr %8, align 8, !alias.scope !2843, !noalias !2846
   %trunc13.i = trunc nuw i64 %.sroa.0.0.i.i.i to i1
-  %.sroa.4.1.i = select i1 %trunc13.i, ptr %108, ptr @anon.8a58ca14b8540b50fa38bce56da43586.71
   %.sroa.7.0.i = select i1 %trunc.i, i64 %9, i64 %119
-  %.sroa.4.0.i = select i1 %trunc.i, ptr %.sroa.4.1.i, ptr %108
+  %120 = xor i1 %trunc13.i, true
+  %121 = select i1 %trunc.i, i1 %120, i1 false
+  %.sroa.4.0.i = select i1 %121, ptr @anon.8a58ca14b8540b50fa38bce56da43586.71, ptr %108
   %.sroa.0.0.i = select i1 %trunc.i, i64 1, i64 %.sroa.0.0.i.i.i
   store i64 %.sroa.7.0.i, ptr %8, align 8, !alias.scope !2843, !noalias !2846
-  %120 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0.i, 0
-  %121 = insertvalue { i64, ptr } %120, ptr %.sroa.4.0.i, 1
-  ret { i64, ptr } %121
+  %122 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0.i, 0
+  %123 = insertvalue { i64, ptr } %122, ptr %.sroa.4.0.i, 1
+  ret { i64, ptr } %123
 }
 
 ; Function Attrs: nonlazybind uwtable

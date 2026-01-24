@@ -68875,14 +68875,14 @@ define hidden void @_ZN8smallvec12layout_array17h8687a3deb9c6503cE.llvm.14675025
 
 6:                                                ; preds = %2
   %7 = icmp ugt i64 %4, 9223372036854775800
-  %..i = select i1 %7, i64 0, i64 8
+  %.sroa.0.0.i = select i1 %7, i64 0, i64 8
   br i1 %7, label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h38448b7199b40306E.exit", label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h38448b7199b40306E.exit.sink.split"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h38448b7199b40306E.exit.sink.split": ; preds = %2, %6
   %.sink13 = phi i64 [ 16, %6 ], [ 8, %2 ]
   %.sink11 = phi i64 [ %4, %6 ], [ 0, %2 ]
   %.sink10.ph = phi i64 [ 8, %6 ], [ 16, %2 ]
-  %.sink.ph = phi i64 [ %..i, %6 ], [ %4, %2 ]
+  %.sink.ph = phi i64 [ %.sroa.0.0.i, %6 ], [ %4, %2 ]
   %storemerge.ph = phi i64 [ 0, %6 ], [ 1, %2 ]
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink13
   store i64 %.sink11, ptr %8, align 8
@@ -68890,7 +68890,7 @@ define hidden void @_ZN8smallvec12layout_array17h8687a3deb9c6503cE.llvm.14675025
 
 "_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h38448b7199b40306E.exit": ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h38448b7199b40306E.exit.sink.split", %6
   %.sink10 = phi i64 [ 8, %6 ], [ %.sink10.ph, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h38448b7199b40306E.exit.sink.split" ]
-  %.sink = phi i64 [ %..i, %6 ], [ %.sink.ph, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h38448b7199b40306E.exit.sink.split" ]
+  %.sink = phi i64 [ %.sroa.0.0.i, %6 ], [ %.sink.ph, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h38448b7199b40306E.exit.sink.split" ]
   %storemerge = phi i64 [ 1, %6 ], [ %storemerge.ph, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h38448b7199b40306E.exit.sink.split" ]
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink10
   store i64 %.sink, ptr %9, align 8

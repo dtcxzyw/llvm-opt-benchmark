@@ -3822,15 +3822,15 @@ define internal fastcc range(i32 0, 2) i32 @ti12xx_2nd_slot_empty(ptr noundef re
   %40 = and i32 %39, 15360
   %41 = icmp eq i32 %40, 0
   %42 = and i32 %39, 6
-  %43 = icmp eq i32 %42, 0
-  %44 = select i1 %43, i32 0, i32 16384
-  %45 = select i1 %41, i32 16384, i32 %44
+  %43 = icmp ne i32 %42, 0
+  %44 = or i1 %41, %43
+  %45 = select i1 %44, i32 16384, i32 0
   %46 = and i32 %39, 32
   %47 = icmp eq i32 %46, 0
   br i1 %47, label %55, label %48
 
 48:                                               ; preds = %35
-  %49 = select i1 %43, i32 128, i32 0
+  %49 = select i1 %43, i32 0, i32 128
   %50 = and i32 %39, 8
   %51 = icmp eq i32 %50, 0
   %52 = select i1 %51, i32 0, i32 320

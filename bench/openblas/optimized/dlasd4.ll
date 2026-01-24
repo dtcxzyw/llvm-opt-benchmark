@@ -1095,11 +1095,11 @@ thread-pre-split:                                 ; preds = %._crit_edge1786
   %or.cond1648 = or i1 %720, %721
   %722 = fcmp ugt double %708, 0.000000e+00
   %723 = fcmp oge double %.01547, %.21481
-  %724 = fcmp ole double %.01531, %.21481
-  %725 = select i1 %724, double %.01531, double %.21481
-  %726 = select i1 %722, i1 true, i1 %723
-  %.11548 = select i1 %726, double %.01547, double %.21481
-  %.11532 = select i1 %722, double %725, double %.01531
+  %724 = fcmp ugt double %.01531, %.21481
+  %725 = select i1 %722, i1 true, i1 %723
+  %.11548 = select i1 %725, double %.01547, double %.21481
+  %726 = select i1 %722, i1 %724, i1 false
+  %.11532 = select i1 %726, double %.21481, double %.01531
   store i32 2, ptr %12, align 4, !tbaa !3
   %.not1601 = or i1 %or.cond1648, %.not16011649
   br i1 %.not1601, label %727, label %804
@@ -1654,11 +1654,11 @@ thread-pre-split:                                 ; preds = %._crit_edge1786
 1075:                                             ; preds = %1067
   %1076 = fcmp ugt double %1071, 0.000000e+00
   %1077 = fcmp oge double %.215491750, %.314821759
-  %1078 = fcmp ole double %.215331752, %.314821759
-  %1079 = select i1 %1078, double %.215331752, double %.314821759
-  %1080 = select i1 %1076, i1 true, i1 %1077
-  %.31550 = select i1 %1080, double %.215491750, double %.314821759
-  %.31534 = select i1 %1076, double %1079, double %.215331752
+  %1078 = fcmp ugt double %.215331752, %.314821759
+  %1079 = select i1 %1076, i1 true, i1 %1077
+  %.31550 = select i1 %1079, double %.215491750, double %.314821759
+  %1080 = select i1 %1076, i1 %1078, i1 false
+  %.31534 = select i1 %1080, double %.314821759, double %.215331752
   %.not1617 = icmp eq i32 %.315021755, 0
   br i1 %.not1617, label %1081, label %1179
 

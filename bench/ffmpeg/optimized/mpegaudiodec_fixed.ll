@@ -102,25 +102,25 @@ define internal noundef i32 @decode_init(ptr noundef %0) #0 {
   %7 = icmp eq i32 %6, 1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load i32, ptr %8, align 8, !tbaa !34
-  %.not = icmp eq i32 %9, 86030
-  %spec.select = select i1 %.not, i32 6, i32 1
-  %.sink = select i1 %7, i32 %spec.select, i32 6
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 348
-  store i32 %.sink, ptr %10, align 4, !tbaa !35
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 528
-  %12 = load i32, ptr %11, align 8, !tbaa !36
-  %13 = getelementptr inbounds nuw i8, ptr %2, i64 32936
-  store i32 %12, ptr %13, align 8, !tbaa !37
-  %14 = icmp eq i32 %9, 86029
-  br i1 %14, label %15, label %17
+  %.not = icmp ne i32 %9, 86030
+  %10 = and i1 %7, %.not
+  %.sink = select i1 %10, i32 1, i32 6
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 348
+  store i32 %.sink, ptr %11, align 4, !tbaa !35
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 528
+  %13 = load i32, ptr %12, align 8, !tbaa !36
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 32936
+  store i32 %13, ptr %14, align 8, !tbaa !37
+  %15 = icmp eq i32 %9, 86029
+  br i1 %15, label %16, label %18
 
-15:                                               ; preds = %._crit_edge
-  %16 = getelementptr inbounds nuw i8, ptr %2, i64 32928
-  store i32 1, ptr %16, align 16, !tbaa !38
-  br label %17
+16:                                               ; preds = %._crit_edge
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 32928
+  store i32 1, ptr %17, align 16, !tbaa !38
+  br label %18
 
-17:                                               ; preds = %15, %._crit_edge
-  %18 = tail call i32 @pthread_once(ptr noundef nonnull @decode_init.init_static_once, ptr noundef nonnull @decode_init_static) #14
+18:                                               ; preds = %16, %._crit_edge
+  %19 = tail call i32 @pthread_once(ptr noundef nonnull @decode_init.init_static_once, ptr noundef nonnull @decode_init_static) #14
   ret i32 0
 }
 

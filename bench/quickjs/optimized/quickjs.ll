@@ -162691,9 +162691,9 @@ js_parse_cond_expr.exit:                          ; preds = %1065, %1052
   %1095 = load i8, ptr %1094, align 2, !tbaa !636
   %1096 = and i8 %1095, 4
   %.not222 = icmp eq i8 %1096, 0
-  %1097 = icmp eq i32 %1068, 2
-  %1098 = select i1 %1097, i8 -76, i8 %1091
-  %.0200 = select i1 %.not222, i8 %1091, i8 %1098
+  %1097 = icmp ne i32 %1068, 2
+  %1098 = or i1 %1097, %.not222
+  %.0200 = select i1 %1098, i8 %1091, i8 -76
   call fastcc void @emit_op(ptr noundef %0, i8 noundef zeroext %.0200)
   %.pre408 = load i32, ptr %67, align 4, !tbaa !67
   %.pre409 = load i32, ptr %69, align 4, !tbaa !67

@@ -2763,12 +2763,12 @@ ehl_combo_pll_div_frac_wa_needed.exit16:          ; preds = %258, %262
   %295 = getelementptr inbounds nuw i8, ptr %212, i64 872
   %296 = load i32, ptr %295, align 8
   %297 = and i32 %296, 64
-  %298 = icmp eq i32 %297, 0
+  %298 = icmp ne i32 %297, 0
   %299 = getelementptr inbounds nuw i8, ptr %290, i64 2632
   %300 = load i16, ptr %299, align 8
   %301 = icmp ugt i16 %300, 11
-  %302 = select i1 %298, i32 8100000, i32 10000000
-  %303 = select i1 %298, i32 8100000, i32 7992000
+  %302 = select i1 %298, i32 10000000, i32 8100000
+  %303 = select i1 %298, i32 7992000, i32 8100000
   %304 = mul i32 %294, 5
   br label %305
 
@@ -2790,10 +2790,10 @@ ehl_combo_pll_div_frac_wa_needed.exit16:          ; preds = %258, %262
 
 317:                                              ; preds = %311
   %318 = icmp eq i32 %312, 1
-  %319 = select i1 %298, i32 2560, i32 1280
-  %320 = select i1 %301, i32 16384, i32 32768
-  %321 = select i1 %318, i32 1280, i32 %319
-  %322 = select i1 %318, i32 0, i32 %320
+  %319 = select i1 %301, i32 16384, i32 32768
+  %320 = or i1 %298, %318
+  %321 = select i1 %320, i32 1280, i32 2560
+  %322 = select i1 %318, i32 0, i32 %319
   switch i8 %308, label %323 [
     i8 2, label %334
     i8 3, label %325

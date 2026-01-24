@@ -9786,87 +9786,87 @@ define hidden void @_Z14_mi_os_free_exPvmb10mi_memid_s(ptr noundef %0, i64 %1, i
 _Z22_mi_os_good_alloc_sizem.exit:                 ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %10 = load i64, ptr %9, align 8, !tbaa !25
-  %11 = icmp eq i64 %10, 0
+  %11 = icmp ne i64 %10, 0
   %12 = load ptr, ptr %3, align 8, !tbaa !25
   %.not = icmp eq ptr %12, %0
   %13 = ptrtoint ptr %0 to i64
   %14 = ptrtoint ptr %12 to i64
   %15 = sub i64 %13, %14
-  %spec.select = select i1 %11, i64 %15, i64 %10
   %.017 = select i1 %.not, ptr %0, ptr %12
-  %.0 = select i1 %.not, i64 %10, i64 %spec.select
-  %16 = icmp eq i32 %6, 4
-  br i1 %16, label %17, label %42
+  %16 = select i1 %.not, i1 true, i1 %11
+  %.0 = select i1 %16, i64 %10, i64 %15
+  %17 = icmp eq i32 %6, 4
+  br i1 %17, label %18, label %43
 
-17:                                               ; preds = %_Z22_mi_os_good_alloc_sizem.exit
-  %18 = icmp ne ptr %.017, null
-  %19 = icmp ugt i64 %.0, 1073741823
-  %or.cond12.i = and i1 %18, %19
+18:                                               ; preds = %_Z22_mi_os_good_alloc_sizem.exit
+  %19 = icmp ne ptr %.017, null
+  %20 = icmp ugt i64 %.0, 1073741823
+  %or.cond12.i = and i1 %19, %20
   br i1 %or.cond12.i, label %.lr.ph.i, label %_ZL24mi_os_free_huge_os_pagesPvm.exit
 
-.lr.ph.i:                                         ; preds = %17, %_ZL15mi_os_prim_freePvmm.exit.i
-  %.011.i = phi ptr [ %40, %_ZL15mi_os_prim_freePvmm.exit.i ], [ %.017, %17 ]
-  %.0710.i = phi i64 [ %39, %_ZL15mi_os_prim_freePvmm.exit.i ], [ %.0, %17 ]
-  %20 = tail call i32 @munmap(ptr noundef nonnull %.011.i, i64 noundef 1073741824) #57
-  %21 = icmp eq i32 %20, -1
-  br i1 %21, label %_Z13_mi_prim_freePvm.exit.i.i, label %_Z13_mi_prim_freePvm.exit.thread.i.i
+.lr.ph.i:                                         ; preds = %18, %_ZL15mi_os_prim_freePvmm.exit.i
+  %.011.i = phi ptr [ %41, %_ZL15mi_os_prim_freePvmm.exit.i ], [ %.017, %18 ]
+  %.0710.i = phi i64 [ %40, %_ZL15mi_os_prim_freePvmm.exit.i ], [ %.0, %18 ]
+  %21 = tail call i32 @munmap(ptr noundef nonnull %.011.i, i64 noundef 1073741824) #57
+  %22 = icmp eq i32 %21, -1
+  br i1 %22, label %_Z13_mi_prim_freePvm.exit.i.i, label %_Z13_mi_prim_freePvm.exit.thread.i.i
 
 _Z13_mi_prim_freePvm.exit.i.i:                    ; preds = %.lr.ph.i
-  %22 = tail call ptr @__errno_location() #61
-  %23 = load i32, ptr %22, align 4, !tbaa !66
-  %.not.i.i = icmp eq i32 %23, 0
-  br i1 %.not.i.i, label %_Z13_mi_prim_freePvm.exit.thread.i.i, label %24
+  %23 = tail call ptr @__errno_location() #61
+  %24 = load i32, ptr %23, align 4, !tbaa !66
+  %.not.i.i = icmp eq i32 %24, 0
+  br i1 %.not.i.i, label %_Z13_mi_prim_freePvm.exit.thread.i.i, label %25
 
-24:                                               ; preds = %_Z13_mi_prim_freePvm.exit.i.i
-  tail call void (ptr, ...) @_Z19_mi_warning_messagePKcz(ptr noundef nonnull @.str.160, i32 noundef %23, i32 noundef %23, i64 noundef 1073741824, ptr noundef nonnull %.011.i)
+25:                                               ; preds = %_Z13_mi_prim_freePvm.exit.i.i
+  tail call void (ptr, ...) @_Z19_mi_warning_messagePKcz(ptr noundef nonnull @.str.160, i32 noundef %24, i32 noundef %24, i64 noundef 1073741824, ptr noundef nonnull %.011.i)
   br label %_Z13_mi_prim_freePvm.exit.thread.i.i
 
-_Z13_mi_prim_freePvm.exit.thread.i.i:             ; preds = %24, %_Z13_mi_prim_freePvm.exit.i.i, %.lr.ph.i
-  %25 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 72), i64 -1073741824 monotonic, align 8
-  %26 = add nsw i64 %25, -1073741824
-  %27 = load atomic i64, ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 64) monotonic, align 64
-  %.old3.i.i.i.i.i = icmp slt i64 %27, %26
+_Z13_mi_prim_freePvm.exit.thread.i.i:             ; preds = %25, %_Z13_mi_prim_freePvm.exit.i.i, %.lr.ph.i
+  %26 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 72), i64 -1073741824 monotonic, align 8
+  %27 = add nsw i64 %26, -1073741824
+  %28 = load atomic i64, ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 64) monotonic, align 64
+  %.old3.i.i.i.i.i = icmp slt i64 %28, %27
   br i1 %.old3.i.i.i.i.i, label %.preheader.i.i.i.i.i, label %_ZL24mi_atomic_maxi64_relaxedPVll.exit.i.i.i.i
 
 .preheader.i.i.i.i.i:                             ; preds = %_Z13_mi_prim_freePvm.exit.thread.i.i, %.preheader.i.i.i.i.i
-  %.0.i.i.i.i.i = phi i64 [ %30, %.preheader.i.i.i.i.i ], [ %27, %_Z13_mi_prim_freePvm.exit.thread.i.i ]
-  %28 = cmpxchg weak ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 64), i64 %.0.i.i.i.i.i, i64 %26 release monotonic, align 8
-  %29 = extractvalue { i64, i1 } %28, 1
-  %30 = extractvalue { i64, i1 } %28, 0
-  %31 = icmp sge i64 %30, %26
-  %or.cond.not.i.i.i.i.i = select i1 %29, i1 true, i1 %31
+  %.0.i.i.i.i.i = phi i64 [ %31, %.preheader.i.i.i.i.i ], [ %28, %_Z13_mi_prim_freePvm.exit.thread.i.i ]
+  %29 = cmpxchg weak ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 64), i64 %.0.i.i.i.i.i, i64 %27 release monotonic, align 8
+  %30 = extractvalue { i64, i1 } %29, 1
+  %31 = extractvalue { i64, i1 } %29, 0
+  %32 = icmp sge i64 %31, %27
+  %or.cond.not.i.i.i.i.i = select i1 %30, i1 true, i1 %32
   br i1 %or.cond.not.i.i.i.i.i, label %_ZL24mi_atomic_maxi64_relaxedPVll.exit.i.i.i.i, label %.preheader.i.i.i.i.i, !llvm.loop !140
 
 _ZL24mi_atomic_maxi64_relaxedPVll.exit.i.i.i.i:   ; preds = %.preheader.i.i.i.i.i, %_Z13_mi_prim_freePvm.exit.thread.i.i
-  %32 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 48), i64 -1073741824 monotonic, align 8
-  %33 = add nsw i64 %32, -1073741824
-  %34 = load atomic i64, ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 40) monotonic, align 8
-  %.old3.i.i.i16.i.i = icmp slt i64 %34, %33
+  %33 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 48), i64 -1073741824 monotonic, align 8
+  %34 = add nsw i64 %33, -1073741824
+  %35 = load atomic i64, ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 40) monotonic, align 8
+  %.old3.i.i.i16.i.i = icmp slt i64 %35, %34
   br i1 %.old3.i.i.i16.i.i, label %.preheader.i.i.i18.i.i, label %_ZL15mi_os_prim_freePvmm.exit.i
 
 .preheader.i.i.i18.i.i:                           ; preds = %_ZL24mi_atomic_maxi64_relaxedPVll.exit.i.i.i.i, %.preheader.i.i.i18.i.i
-  %.0.i.i.i19.i.i = phi i64 [ %37, %.preheader.i.i.i18.i.i ], [ %34, %_ZL24mi_atomic_maxi64_relaxedPVll.exit.i.i.i.i ]
-  %35 = cmpxchg weak ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 40), i64 %.0.i.i.i19.i.i, i64 %33 release monotonic, align 8
-  %36 = extractvalue { i64, i1 } %35, 1
-  %37 = extractvalue { i64, i1 } %35, 0
-  %38 = icmp sge i64 %37, %33
-  %or.cond.not.i.i.i20.i.i = select i1 %36, i1 true, i1 %38
+  %.0.i.i.i19.i.i = phi i64 [ %38, %.preheader.i.i.i18.i.i ], [ %35, %_ZL24mi_atomic_maxi64_relaxedPVll.exit.i.i.i.i ]
+  %36 = cmpxchg weak ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 40), i64 %.0.i.i.i19.i.i, i64 %34 release monotonic, align 8
+  %37 = extractvalue { i64, i1 } %36, 1
+  %38 = extractvalue { i64, i1 } %36, 0
+  %39 = icmp sge i64 %38, %34
+  %or.cond.not.i.i.i20.i.i = select i1 %37, i1 true, i1 %39
   br i1 %or.cond.not.i.i.i20.i.i, label %_ZL15mi_os_prim_freePvmm.exit.i, label %.preheader.i.i.i18.i.i, !llvm.loop !140
 
 _ZL15mi_os_prim_freePvmm.exit.i:                  ; preds = %.preheader.i.i.i18.i.i, %_ZL24mi_atomic_maxi64_relaxedPVll.exit.i.i.i.i
-  %39 = add i64 %.0710.i, -1073741824
-  %40 = getelementptr inbounds nuw i8, ptr %.011.i, i64 1073741824
-  %41 = icmp ugt i64 %39, 1073741823
-  br i1 %41, label %.lr.ph.i, label %_ZL24mi_os_free_huge_os_pagesPvm.exit, !llvm.loop !170
+  %40 = add i64 %.0710.i, -1073741824
+  %41 = getelementptr inbounds nuw i8, ptr %.011.i, i64 1073741824
+  %42 = icmp ugt i64 %40, 1073741823
+  br i1 %42, label %.lr.ph.i, label %_ZL24mi_os_free_huge_os_pagesPvm.exit, !llvm.loop !170
 
-42:                                               ; preds = %_Z22_mi_os_good_alloc_sizem.exit
-  %43 = select i1 %.not, i64 0, i64 %15
-  %.018 = sub i64 %10, %43
-  %44 = select i1 %2, i64 %.018, i64 0
-  tail call fastcc void @_ZL15mi_os_prim_freePvmm(ptr noundef %.017, i64 noundef %.0, i64 noundef %44)
+43:                                               ; preds = %_Z22_mi_os_good_alloc_sizem.exit
+  %44 = select i1 %.not, i64 0, i64 %15
+  %.018 = sub i64 %10, %44
+  %45 = select i1 %2, i64 %.018, i64 0
+  tail call fastcc void @_ZL15mi_os_prim_freePvmm(ptr noundef %.017, i64 noundef %.0, i64 noundef %45)
   br label %_ZL24mi_os_free_huge_os_pagesPvm.exit
 
-_ZL24mi_os_free_huge_os_pagesPvm.exit:            ; preds = %_ZL15mi_os_prim_freePvmm.exit.i, %17, %42, %4
+_ZL24mi_os_free_huge_os_pagesPvm.exit:            ; preds = %_ZL15mi_os_prim_freePvmm.exit.i, %18, %43, %4
   ret void
 }
 

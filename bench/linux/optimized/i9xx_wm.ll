@@ -1262,9 +1262,9 @@ define internal noundef range(i32 -22, 1) i32 @ilk_compute_pipe_wm(ptr noundef r
   %78 = getelementptr inbounds nuw i8, ptr %6, i64 2632
   %79 = load i16, ptr %78, align 8
   %80 = icmp ult i16 %79, 7
-  %81 = icmp eq i8 %68, 0
-  %82 = select i1 %81, i32 %77, i32 1
-  %83 = select i1 %80, i32 %82, i32 %77
+  %81 = icmp ne i8 %68, 0
+  %82 = select i1 %80, i1 %81, i1 false
+  %83 = select i1 %82, i32 1, i32 %77
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(100) %14, i8 0, i64 100, i1 false)
   tail call fastcc void @ilk_compute_wm_level(ptr noundef %6, i32 noundef 0, ptr noundef %13, ptr noundef %58, ptr noundef %59, ptr noundef %60, ptr noundef nonnull %14)
   %84 = load i8, ptr %66, align 2, !range !27, !noundef !28

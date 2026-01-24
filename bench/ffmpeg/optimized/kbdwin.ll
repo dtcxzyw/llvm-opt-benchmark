@@ -56,9 +56,9 @@ define internal fastcc void @kbd_window_init(ptr noundef writeonly captures(addr
   %24 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv
   store double %23, ptr %24, align 8, !tbaa !4
   %.not59 = icmp eq i64 %indvars.iv, 0
-  %25 = icmp slt i64 %indvars.iv, %14
-  %26 = select i1 %25, double 2.000000e+00, double 1.000000e+00
-  %27 = select i1 %.not59, double 1.000000e+00, double %26
+  %25 = icmp sge i64 %indvars.iv, %14
+  %26 = or i1 %.not59, %25
+  %27 = select i1 %26, double 1.000000e+00, double 2.000000e+00
   %28 = tail call nsz double @llvm.fmuladd.f64(double %23, double %27, double %.04862)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

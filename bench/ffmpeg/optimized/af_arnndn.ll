@@ -3762,9 +3762,9 @@ compute_frame_features.exit.i:                    ; preds = %791
 
 793:                                              ; preds = %796
   %.not.i.i = icmp eq i64 %indvars.iv349.i.i, %indvars.iv353.i.i
-  %794 = fcmp nsz ogt float %.0174293.i.i, %802
-  %795 = select nsz i1 %794, float %802, float %.0174293.i.i
-  %.1.i.i = select nsz i1 %.not.i.i, float %.0174293.i.i, float %795
+  %794 = fcmp nsz ule float %.0174293.i.i, %802
+  %795 = select i1 %.not.i.i, i1 true, i1 %794
+  %.1.i.i = select nsz i1 %795, float %.0174293.i.i, float %802
   %indvars.iv.next350.i.i = add nuw nsw i64 %indvars.iv349.i.i, 1
   %exitcond352.not.i.i = icmp eq i64 %indvars.iv.next350.i.i, 8
   br i1 %exitcond352.not.i.i, label %791, label %.preheader.i.i, !llvm.loop !183

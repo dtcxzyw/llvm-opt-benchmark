@@ -4035,8 +4035,8 @@ _ZNK5clang4Type10isVoidTypeEv.exit.thread:        ; preds = %33, %_ZNK5clang4Typ
   %72 = zext i32 %71 to i64
   %.idx = shl nuw nsw i64 %72, 3
   %73 = getelementptr inbounds nuw i8, ptr %70, i64 %.idx
-  %.not89215 = icmp eq i32 %71, 0
-  br i1 %.not89215, label %._crit_edge, label %.lr.ph
+  %.not89217 = icmp eq i32 %71, 0
+  br i1 %.not89217, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %52
   %74 = getelementptr inbounds nuw i8, ptr %7, i64 120
@@ -4056,8 +4056,8 @@ _ZNK5clang4Type10isVoidTypeEv.exit.thread:        ; preds = %33, %_ZNK5clang4Typ
   br i1 %.not90, label %385, label %225
 
 84:                                               ; preds = %.lr.ph, %223
-  %.0216 = phi ptr [ %70, %.lr.ph ], [ %224, %223 ]
-  %85 = load ptr, ptr %.0216, align 8, !tbaa !769
+  %.0218 = phi ptr [ %70, %.lr.ph ], [ %224, %223 ]
+  %85 = load ptr, ptr %.0218, align 8, !tbaa !769
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 28
   %87 = load i32, ptr %86, align 4
   %88 = and i32 %87, 128
@@ -4355,7 +4355,7 @@ _ZL24HasExplicitOwnershipAttrRN5clang4SemaEPNS_11ParmVarDeclE.exit.thread: ; pre
   br label %223
 
 223:                                              ; preds = %221, %_ZL24HasExplicitOwnershipAttrRN5clang4SemaEPNS_11ParmVarDeclE.exit.thread
-  %224 = getelementptr inbounds nuw i8, ptr %.0216, i64 8
+  %224 = getelementptr inbounds nuw i8, ptr %.0218, i64 8
   %.not89 = icmp eq ptr %224, %73
   br i1 %.not89, label %._crit_edge, label %84
 
@@ -4763,8 +4763,8 @@ _ZN5clang4Decl14getDeclContextEv.exit127:         ; preds = %_ZN5clang4Decl14get
 
 427:                                              ; preds = %_ZN5clang4Decl14getDeclContextEv.exit127
   %428 = icmp ne i32 %423, 21
-  %.not94 = select i1 %428, i1 true, i1 %419
-  br i1 %.not94, label %.thread, label %429
+  %.not213 = select i1 %428, i1 true, i1 %419
+  br i1 %.not213, label %.thread, label %429
 
 429:                                              ; preds = %427
   %430 = getelementptr inbounds i8, ptr %.0.i126, i64 -8
@@ -4981,11 +4981,11 @@ _ZNK5clang4Sema14getCurFunctionEv.exit142:        ; preds = %531
   %.fr = freeze ptr %560
   %561 = getelementptr inbounds nuw i8, ptr %559, i64 8
   %562 = load i32, ptr %561, align 8, !tbaa !725
-  %.fr212 = freeze i32 %562
-  %563 = zext i32 %.fr212 to i64
+  %.fr214 = freeze i32 %562
+  %563 = zext i32 %.fr214 to i64
   %.idx.i.i = shl nuw nsw i64 %563, 3
   %564 = getelementptr i8, ptr %.fr, i64 %.idx.i.i
-  %.not.i.i145 = icmp eq i32 %.fr212, 0
+  %.not.i.i145 = icmp eq i32 %.fr214, 0
   br i1 %.not.i.i145, label %_ZNK5clang4Decl7hasAttrINS_21ObjCRequiresSuperAttrEEEbv.exit.thread203, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %558, %569
@@ -5002,8 +5002,8 @@ _ZNK5clang4Sema14getCurFunctionEv.exit142:        ; preds = %531
   br i1 %.not.i.i.i.i.i, label %_ZNK5clang4Decl7hasAttrINS_21ObjCRequiresSuperAttrEEEbv.exit.thread203, label %.lr.ph.i.i.i.i.i, !llvm.loop !1159
 
 _ZNK5clang4Decl7hasAttrINS_21ObjCRequiresSuperAttrEEEbv.exit: ; preds = %.lr.ph.i.i.i.i.i
-  %.not213 = icmp eq ptr %.sroa.07.1.i.i.i.i, %564
-  %spec.select206 = select i1 %.not213, i32 0, i32 4096
+  %.not215 = icmp eq ptr %.sroa.07.1.i.i.i.i, %564
+  %spec.select206 = select i1 %.not215, i32 0, i32 4096
   br label %_ZNK5clang4Decl7hasAttrINS_21ObjCRequiresSuperAttrEEEbv.exit.thread203
 
 _ZNK5clang4Decl7hasAttrINS_21ObjCRequiresSuperAttrEEEbv.exit.thread203: ; preds = %569, %_ZNK5clang4Decl7hasAttrINS_21ObjCRequiresSuperAttrEEEbv.exit, %558, %554, %549

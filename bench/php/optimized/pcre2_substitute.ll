@@ -1828,9 +1828,9 @@ select.unfold1504:                                ; preds = %430, %421
   %848 = load i64, ptr %66, align 8, !tbaa !14
   %849 = load i64, ptr %101, align 8, !tbaa !14
   %.not1324 = icmp eq i64 %848, %849
-  %850 = icmp ugt i64 %848, %.0795
-  %851 = select i1 %850, i32 0, i32 -2147483640
-  %852 = select i1 %.not1324, i32 %851, i32 0
+  %850 = icmp ule i64 %848, %.0795
+  %851 = select i1 %.not1324, i1 %850, i1 false
+  %852 = select i1 %851, i32 -2147483640, i32 0
   br label %.thread1687
 
 .thread1687:                                      ; preds = %154, %175, %.thread1682, %.critedge, %161, %163

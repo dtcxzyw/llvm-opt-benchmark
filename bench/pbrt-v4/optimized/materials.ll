@@ -1852,26 +1852,24 @@ _ZN4pbrt5ClampIiiEENS_15SampledSpectrumERKS1_T_T0_.exit: ; preds = %279
   %285 = fcmp olt float %.043, %.044
   %286 = select i1 %285, float %.044, float %.043
   %287 = fcmp olt float %286, 0x3F50624DE0000000
-  %288 = fcmp olt float %.044, 0x3F1A36E2E0000000
-  %.sroa.speculated.i118 = select i1 %288, float 0x3F1A36E2E0000000, float %.044
-  %.sroa.5144.0 = select i1 %287, float %.044, float %.sroa.speculated.i118
-  %289 = fcmp olt float %.043, 0x3F1A36E2E0000000
-  %.sroa.speculated5.i117 = select i1 %289, float 0x3F1A36E2E0000000, float %.043
-  %.sroa.0143.0 = select i1 %287, float %.043, float %.sroa.speculated5.i117
+  %288 = fcmp uge float %.044, 0x3F1A36E2E0000000
+  %289 = or i1 %288, %287
+  %290 = fcmp uge float %.043, 0x3F1A36E2E0000000
+  %291 = or i1 %290, %287
   %.fca.0.load.i131 = load <2 x float>, ptr %5, align 8
   %.fca.1.gep.i133 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.fca.1.load.i134 = load <2 x float>, ptr %.fca.1.gep.i133, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %53)
-  %290 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %291 = load i64, ptr %290, align 8, !tbaa !18
-  store i64 %291, ptr %55, align 8, !tbaa !18
+  %292 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %293 = load i64, ptr %292, align 8, !tbaa !18
+  store i64 %293, ptr %55, align 8, !tbaa !18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(76) %56, ptr noundef nonnull align 4 dereferenceable(76) %2, i64 76, i1 false)
-  %292 = call noundef float @_ZN4pbrt21BasicTextureEvaluatorclENS_12FloatTextureENS_18TextureEvalContextE(ptr noundef nonnull align 1 dereferenceable(1) %31, ptr noundef nonnull %55, ptr noundef nonnull byval(%"struct.pbrt::TextureEvalContext") align 8 %56)
-  %293 = fcmp olt float %292, -1.000000e+00
-  %294 = fcmp ogt float %292, 1.000000e+00
-  %..i = select i1 %294, float 1.000000e+00, float %292
-  %.0.i = select i1 %293, float -1.000000e+00, float %..i
+  %294 = call noundef float @_ZN4pbrt21BasicTextureEvaluatorclENS_12FloatTextureENS_18TextureEvalContextE(ptr noundef nonnull align 1 dereferenceable(1) %31, ptr noundef nonnull %55, ptr noundef nonnull byval(%"struct.pbrt::TextureEvalContext") align 8 %56)
+  %295 = fcmp olt float %294, -1.000000e+00
+  %296 = fcmp ogt float %294, 1.000000e+00
+  %..i = select i1 %296, float 1.000000e+00, float %294
+  %.0.i = select i1 %295, float -1.000000e+00, float %..i
   store float %.042, ptr %57, align 8, !tbaa !34
   %.4..4..4..sroa_idx = getelementptr inbounds nuw i8, ptr %57, i64 4
   store <2 x float> %.sroa.0148.0, ptr %.4..4..4..sroa_idx, align 4
@@ -1881,23 +1879,25 @@ _ZN4pbrt5ClampIiiEENS_15SampledSpectrumERKS1_T_T0_.exit: ; preds = %279
   %.sroa.01.0.copyload = load <2 x float>, ptr %39, align 8
   %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %39, i64 8
   %.sroa.22.0.copyload = load <2 x float>, ptr %.sroa.22.0..sroa_idx, align 8, !tbaa !39
-  %295 = bitcast float %.sroa.0143.0 to i32
-  %296 = bitcast float %.sroa.5144.0 to i32
-  %297 = getelementptr inbounds nuw i8, ptr %1, i64 108
-  %298 = load i32, ptr %297, align 4, !tbaa !85
-  %299 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  %300 = load i32, ptr %299, align 8, !tbaa !86
+  %297 = bitcast float %.043 to i32
+  %298 = bitcast float %.044 to i32
+  %299 = getelementptr inbounds nuw i8, ptr %1, i64 108
+  %300 = load i32, ptr %299, align 4, !tbaa !85
+  %301 = getelementptr inbounds nuw i8, ptr %1, i64 112
+  %302 = load i32, ptr %301, align 8, !tbaa !86
   %.0..0..0..sroa.0.0.copyload = load <2 x float>, ptr %57, align 8
-  %301 = extractelement <2 x float> %.sroa.0148.0, i64 1
-  %.sroa.0.sroa.2.0.insert.ext = zext i32 %296 to i64
-  %.sroa.0.sroa.2.0.insert.shift = shl nuw i64 %.sroa.0.sroa.2.0.insert.ext, 32
-  %.sroa.0.sroa.0.0.insert.ext = zext i32 %295 to i64
+  %303 = extractelement <2 x float> %.sroa.0148.0, i64 1
+  %304 = zext i32 %298 to i64
+  %305 = shl nuw i64 %304, 32
+  %.sroa.0.sroa.2.0.insert.shift = select i1 %289, i64 %305, i64 4094254845668622336
+  %306 = zext i32 %297 to i64
+  %.sroa.0.sroa.0.0.insert.ext = select i1 %291, i64 %306, i64 953267991
   %.sroa.0.sroa.0.0.insert.insert = or disjoint i64 %.sroa.0.sroa.2.0.insert.shift, %.sroa.0.sroa.0.0.insert.ext
   store <2 x float> %.0..0..0..sroa.0.0.copyload, ptr %0, align 4
   %.sroa.25.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store float %301, ptr %.sroa.25.0..sroa_idx.i.i, align 4, !tbaa !14
-  %302 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i64 %.sroa.0.sroa.0.0.insert.insert, ptr %302, align 4
+  store float %303, ptr %.sroa.25.0..sroa_idx.i.i, align 4, !tbaa !14
+  %307 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store i64 %.sroa.0.sroa.0.0.insert.insert, ptr %307, align 4
   %.sroa.4155.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 20
   store <2 x float> %.sroa.03.0.copyload, ptr %.sroa.4155.0..sroa_idx, align 4
   %.sroa.5156.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -1906,20 +1906,20 @@ _ZN4pbrt5ClampIiiEENS_15SampledSpectrumERKS1_T_T0_.exit: ; preds = %279
   store <2 x float> %.sroa.01.0.copyload, ptr %.sroa.6.0..sroa_idx, align 4
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 44
   store <2 x float> %.sroa.22.0.copyload, ptr %.sroa.7.0..sroa_idx, align 4
-  %303 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  %304 = fcmp olt float %79, 0x3810000000000000
-  %.sroa.speculated.i.i = select i1 %304, float 0x3810000000000000, float %79
-  store float %.sroa.speculated.i.i, ptr %303, align 4, !tbaa !87
-  %305 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store float %.0.i, ptr %305, align 4, !tbaa !90
-  %306 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  store <2 x float> %.fca.0.load.i131, ptr %306, align 4
+  %308 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  %309 = fcmp olt float %79, 0x3810000000000000
+  %.sroa.speculated.i.i = select i1 %309, float 0x3810000000000000, float %79
+  store float %.sroa.speculated.i.i, ptr %308, align 4, !tbaa !87
+  %310 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store float %.0.i, ptr %310, align 4, !tbaa !90
+  %311 = getelementptr inbounds nuw i8, ptr %0, i64 60
+  store <2 x float> %.fca.0.load.i131, ptr %311, align 4
   %.sroa.4142.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 68
   store <2 x float> %.fca.1.load.i134, ptr %.sroa.4142.0..sroa_idx, align 4, !tbaa !39
-  %307 = getelementptr inbounds nuw i8, ptr %0, i64 76
-  store i32 %298, ptr %307, align 4, !tbaa !91
-  %308 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store i32 %300, ptr %308, align 4, !tbaa !92
+  %312 = getelementptr inbounds nuw i8, ptr %0, i64 76
+  store i32 %300, ptr %312, align 4, !tbaa !91
+  %313 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  store i32 %302, ptr %313, align 4, !tbaa !92
   call void @llvm.lifetime.end.p0(ptr nonnull %39)
   call void @llvm.lifetime.end.p0(ptr nonnull %38)
   ret void
@@ -2394,26 +2394,24 @@ _ZN4pbrt5ClampIiiEENS_15SampledSpectrumERKS1_T_T0_.exit: ; preds = %182
   %188 = fcmp olt float %.043, %.044
   %189 = select i1 %188, float %.044, float %.043
   %190 = fcmp olt float %189, 0x3F50624DE0000000
-  %191 = fcmp olt float %.044, 0x3F1A36E2E0000000
-  %.sroa.speculated.i102 = select i1 %191, float 0x3F1A36E2E0000000, float %.044
-  %.sroa.5121.0 = select i1 %190, float %.044, float %.sroa.speculated.i102
-  %192 = fcmp olt float %.043, 0x3F1A36E2E0000000
-  %.sroa.speculated5.i101 = select i1 %192, float 0x3F1A36E2E0000000, float %.043
-  %.sroa.0120.0 = select i1 %190, float %.043, float %.sroa.speculated5.i101
+  %191 = fcmp uge float %.044, 0x3F1A36E2E0000000
+  %192 = or i1 %191, %190
+  %193 = fcmp uge float %.043, 0x3F1A36E2E0000000
+  %194 = or i1 %193, %190
   %.fca.0.load.i108 = load <2 x float>, ptr %5, align 8
   %.fca.1.gep.i110 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.fca.1.load.i111 = load <2 x float>, ptr %.fca.1.gep.i110, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %43)
-  %193 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %194 = load i64, ptr %193, align 8, !tbaa !18
-  store i64 %194, ptr %47, align 8, !tbaa !18
+  %195 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %196 = load i64, ptr %195, align 8, !tbaa !18
+  store i64 %196, ptr %47, align 8, !tbaa !18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(76) %48, ptr noundef nonnull align 4 dereferenceable(76) %2, i64 76, i1 false)
-  %195 = call noundef float @_ZN4pbrt25UniversalTextureEvaluatorclENS_12FloatTextureENS_18TextureEvalContextE(ptr noundef nonnull align 1 dereferenceable(1) %15, ptr noundef nonnull %47, ptr noundef nonnull byval(%"struct.pbrt::TextureEvalContext") align 8 %48)
-  %196 = fcmp olt float %195, -1.000000e+00
-  %197 = fcmp ogt float %195, 1.000000e+00
-  %..i = select i1 %197, float 1.000000e+00, float %195
-  %.0.i = select i1 %196, float -1.000000e+00, float %..i
+  %197 = call noundef float @_ZN4pbrt25UniversalTextureEvaluatorclENS_12FloatTextureENS_18TextureEvalContextE(ptr noundef nonnull align 1 dereferenceable(1) %15, ptr noundef nonnull %47, ptr noundef nonnull byval(%"struct.pbrt::TextureEvalContext") align 8 %48)
+  %198 = fcmp olt float %197, -1.000000e+00
+  %199 = fcmp ogt float %197, 1.000000e+00
+  %..i = select i1 %199, float 1.000000e+00, float %197
+  %.0.i = select i1 %198, float -1.000000e+00, float %..i
   store float %.042, ptr %49, align 8, !tbaa !34
   %.4..4..4..sroa_idx = getelementptr inbounds nuw i8, ptr %49, i64 4
   store <2 x float> %.sroa.0125.0, ptr %.4..4..4..sroa_idx, align 4
@@ -2423,23 +2421,25 @@ _ZN4pbrt5ClampIiiEENS_15SampledSpectrumERKS1_T_T0_.exit: ; preds = %182
   %.sroa.01.0.copyload = load <2 x float>, ptr %23, align 8
   %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 8
   %.sroa.22.0.copyload = load <2 x float>, ptr %.sroa.22.0..sroa_idx, align 8, !tbaa !39
-  %198 = bitcast float %.sroa.0120.0 to i32
-  %199 = bitcast float %.sroa.5121.0 to i32
-  %200 = getelementptr inbounds nuw i8, ptr %1, i64 108
-  %201 = load i32, ptr %200, align 4, !tbaa !85
-  %202 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  %203 = load i32, ptr %202, align 8, !tbaa !86
+  %200 = bitcast float %.043 to i32
+  %201 = bitcast float %.044 to i32
+  %202 = getelementptr inbounds nuw i8, ptr %1, i64 108
+  %203 = load i32, ptr %202, align 4, !tbaa !85
+  %204 = getelementptr inbounds nuw i8, ptr %1, i64 112
+  %205 = load i32, ptr %204, align 8, !tbaa !86
   %.0..0..0..sroa.0.0.copyload = load <2 x float>, ptr %49, align 8
-  %204 = extractelement <2 x float> %.sroa.0125.0, i64 1
-  %.sroa.0.sroa.2.0.insert.ext = zext i32 %199 to i64
-  %.sroa.0.sroa.2.0.insert.shift = shl nuw i64 %.sroa.0.sroa.2.0.insert.ext, 32
-  %.sroa.0.sroa.0.0.insert.ext = zext i32 %198 to i64
+  %206 = extractelement <2 x float> %.sroa.0125.0, i64 1
+  %207 = zext i32 %201 to i64
+  %208 = shl nuw i64 %207, 32
+  %.sroa.0.sroa.2.0.insert.shift = select i1 %192, i64 %208, i64 4094254845668622336
+  %209 = zext i32 %200 to i64
+  %.sroa.0.sroa.0.0.insert.ext = select i1 %194, i64 %209, i64 953267991
   %.sroa.0.sroa.0.0.insert.insert = or disjoint i64 %.sroa.0.sroa.2.0.insert.shift, %.sroa.0.sroa.0.0.insert.ext
   store <2 x float> %.0..0..0..sroa.0.0.copyload, ptr %0, align 4
   %.sroa.25.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store float %204, ptr %.sroa.25.0..sroa_idx.i.i, align 4, !tbaa !14
-  %205 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i64 %.sroa.0.sroa.0.0.insert.insert, ptr %205, align 4
+  store float %206, ptr %.sroa.25.0..sroa_idx.i.i, align 4, !tbaa !14
+  %210 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store i64 %.sroa.0.sroa.0.0.insert.insert, ptr %210, align 4
   %.sroa.4132.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 20
   store <2 x float> %.sroa.03.0.copyload, ptr %.sroa.4132.0..sroa_idx, align 4
   %.sroa.5133.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -2448,20 +2448,20 @@ _ZN4pbrt5ClampIiiEENS_15SampledSpectrumERKS1_T_T0_.exit: ; preds = %182
   store <2 x float> %.sroa.01.0.copyload, ptr %.sroa.6.0..sroa_idx, align 4
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 44
   store <2 x float> %.sroa.22.0.copyload, ptr %.sroa.7.0..sroa_idx, align 4
-  %206 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  %207 = fcmp olt float %71, 0x3810000000000000
-  %.sroa.speculated.i.i = select i1 %207, float 0x3810000000000000, float %71
-  store float %.sroa.speculated.i.i, ptr %206, align 4, !tbaa !87
-  %208 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store float %.0.i, ptr %208, align 4, !tbaa !90
-  %209 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  store <2 x float> %.fca.0.load.i108, ptr %209, align 4
+  %211 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  %212 = fcmp olt float %71, 0x3810000000000000
+  %.sroa.speculated.i.i = select i1 %212, float 0x3810000000000000, float %71
+  store float %.sroa.speculated.i.i, ptr %211, align 4, !tbaa !87
+  %213 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store float %.0.i, ptr %213, align 4, !tbaa !90
+  %214 = getelementptr inbounds nuw i8, ptr %0, i64 60
+  store <2 x float> %.fca.0.load.i108, ptr %214, align 4
   %.sroa.4119.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 68
   store <2 x float> %.fca.1.load.i111, ptr %.sroa.4119.0..sroa_idx, align 4, !tbaa !39
-  %210 = getelementptr inbounds nuw i8, ptr %0, i64 76
-  store i32 %201, ptr %210, align 4, !tbaa !91
-  %211 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store i32 %203, ptr %211, align 4, !tbaa !92
+  %215 = getelementptr inbounds nuw i8, ptr %0, i64 76
+  store i32 %203, ptr %215, align 4, !tbaa !91
+  %216 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  store i32 %205, ptr %216, align 4, !tbaa !92
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   ret void

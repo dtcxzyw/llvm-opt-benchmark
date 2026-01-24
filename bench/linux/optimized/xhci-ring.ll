@@ -4747,8 +4747,8 @@ define dso_local range(i32 -2147483648, 1) i32 @xhci_queue_bulk_tx(ptr noundef %
   %311 = or i32 %310, %308
   %312 = icmp eq i8 %307, 0
   %313 = load i16, ptr %108, align 2
-  %314 = icmp ult i16 %313, 256
-  br i1 %314, label %315, label %321
+  %314 = icmp ugt i16 %313, 255
+  br i1 %314, label %321, label %315
 
 315:                                              ; preds = %305
   %316 = load i64, ptr %109, align 8
@@ -4772,8 +4772,8 @@ define dso_local range(i32 -2147483648, 1) i32 @xhci_queue_bulk_tx(ptr noundef %
   %328 = load i64, ptr %109, align 8
   %329 = and i64 %328, 2097152
   %330 = icmp eq i64 %329, 0
-  %331 = select i1 %314, i32 0, i32 %271
-  %332 = select i1 %330, i32 %271, i32 %331
+  %331 = or i1 %314, %330
+  %332 = select i1 %331, i32 %271, i32 0
   %333 = load ptr, ptr %11, align 8
   %334 = getelementptr inbounds nuw i8, ptr %333, i64 4
   %335 = load i16, ptr %334, align 1
@@ -6013,8 +6013,8 @@ define dso_local range(i32 -2147483648, 1) i32 @xhci_queue_isoc_tx_prepare(ptr n
   %356 = and i32 %355, 65535
   %357 = sub nuw nsw i32 65536, %356
   %358 = tail call i32 @llvm.smin.i32(i32 %357, i32 %318)
-  %359 = icmp ult i16 %353, 256
-  br i1 %359, label %360, label %367
+  %359 = icmp ugt i16 %353, 255
+  br i1 %359, label %367, label %360
 
 360:                                              ; preds = %352
   %361 = load i64, ptr %153, align 8
@@ -6040,8 +6040,8 @@ define dso_local range(i32 -2147483648, 1) i32 @xhci_queue_isoc_tx_prepare(ptr n
   %375 = load i64, ptr %153, align 8
   %376 = and i64 %375, 2097152
   %377 = icmp eq i64 %376, 0
-  %378 = select i1 %359, i32 0, i32 %358
-  %379 = select i1 %377, i32 %358, i32 %378
+  %378 = or i1 %359, %377
+  %379 = select i1 %378, i32 %358, i32 0
   %380 = load ptr, ptr %141, align 8
   %381 = getelementptr inbounds nuw i8, ptr %380, i64 4
   %382 = load i16, ptr %381, align 1

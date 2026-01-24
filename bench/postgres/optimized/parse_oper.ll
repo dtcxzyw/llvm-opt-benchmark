@@ -296,7 +296,7 @@ find_oper_cache_entry.exit:                       ; preds = %19
   %26 = zext i32 %24 to i64
   %27 = call ptr @SearchSysCache1(i32 noundef 40, i64 noundef %26) #8
   %.not45 = icmp eq ptr %27, null
-  br i1 %.not45, label %find_oper_cache_entry.exit.thread, label %60
+  br i1 %.not45, label %find_oper_cache_entry.exit.thread, label %61
 
 find_oper_cache_entry.exit.thread:                ; preds = %19, %find_oper_cache_entry.exit, %25, %6
   %28 = icmp eq i32 %2, 705
@@ -342,78 +342,78 @@ binary_oper_exact.exit.thread59:                  ; preds = %36, %.thread42.i, %
 39:                                               ; preds = %binary_oper_exact.exit.thread59
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %40 = icmp eq i32 %3, 0
-  %41 = icmp eq i32 %2, 0
-  %spec.select = select i1 %41, i32 %3, i32 %2
+  %41 = icmp ne i32 %2, 0
   %.237 = select i1 %40, i32 %2, i32 %3
-  %.2 = select i1 %40, i32 %2, i32 %spec.select
+  %42 = or i1 %41, %40
+  %.2 = select i1 %42, i32 %2, i32 %3
   store i32 %.2, ptr %10, align 4
-  %42 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  store i32 %.237, ptr %42, align 4
+  %43 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  store i32 %.237, ptr %43, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %38, ptr %7, align 8
-  %43 = call i32 @func_match_argtypes(i32 noundef 2, ptr noundef nonnull %10, ptr noundef nonnull %38, ptr noundef nonnull %7) #8
-  switch i32 %43, label %46 [
+  %44 = call i32 @func_match_argtypes(i32 noundef 2, ptr noundef nonnull %10, ptr noundef nonnull %38, ptr noundef nonnull %7) #8
+  switch i32 %44, label %47 [
     i32 0, label %.thread83
-    i32 1, label %44
+    i32 1, label %45
   ]
 
-44:                                               ; preds = %39
-  %45 = load ptr, ptr %7, align 8
-  br label %49
+45:                                               ; preds = %39
+  %46 = load ptr, ptr %7, align 8
+  br label %50
 
-46:                                               ; preds = %39
-  %47 = load ptr, ptr %7, align 8
-  %48 = call ptr @func_select_candidate(i32 noundef 2, ptr noundef nonnull %10, ptr noundef %47) #8
-  %.not.i52 = icmp eq ptr %48, null
-  br i1 %.not.i52, label %.thread83, label %49
+47:                                               ; preds = %39
+  %48 = load ptr, ptr %7, align 8
+  %49 = call ptr @func_select_candidate(i32 noundef 2, ptr noundef nonnull %10, ptr noundef %48) #8
+  %.not.i52 = icmp eq ptr %49, null
+  br i1 %.not.i52, label %.thread83, label %50
 
-.thread83:                                        ; preds = %39, %46
-  %.0.i51.ph = phi i32 [ 1, %46 ], [ %43, %39 ]
+.thread83:                                        ; preds = %39, %47
+  %.0.i51.ph = phi i32 [ 1, %47 ], [ %44, %39 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.thread88
 
-49:                                               ; preds = %44, %46
-  %.sink14.i = phi ptr [ %45, %44 ], [ %48, %46 ]
-  %50 = getelementptr inbounds nuw i8, ptr %.sink14.i, i64 12
-  %51 = load i32, ptr %50, align 4
+50:                                               ; preds = %45, %47
+  %.sink14.i = phi ptr [ %46, %45 ], [ %49, %47 ]
+  %51 = getelementptr inbounds nuw i8, ptr %.sink14.i, i64 12
+  %52 = load i32, ptr %51, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  %.not48 = icmp eq i32 %51, 0
+  %.not48 = icmp eq i32 %52, 0
   br i1 %.not48, label %.thread88, label %.thread
 
-.thread:                                          ; preds = %36, %.thread.i, %binary_oper_exact.exit, %49
-  %.03174 = phi i32 [ 2, %49 ], [ 0, %binary_oper_exact.exit ], [ 0, %.thread.i ], [ 0, %36 ]
-  %.03372 = phi i32 [ %.2, %49 ], [ %2, %binary_oper_exact.exit ], [ 705, %.thread.i ], [ %2, %36 ]
-  %.03570 = phi i32 [ %.237, %49 ], [ %3, %binary_oper_exact.exit ], [ %3, %.thread.i ], [ %3, %36 ]
-  %.05468 = phi i32 [ %51, %49 ], [ %33, %binary_oper_exact.exit ], [ %34, %.thread.i ], [ %37, %36 ]
-  %52 = zext i32 %.05468 to i64
-  %53 = call ptr @SearchSysCache1(i32 noundef 40, i64 noundef %52) #8
-  %.not49 = icmp eq ptr %53, null
-  br i1 %.not49, label %.thread88, label %54
+.thread:                                          ; preds = %36, %.thread.i, %binary_oper_exact.exit, %50
+  %.03174 = phi i32 [ 2, %50 ], [ 0, %binary_oper_exact.exit ], [ 0, %.thread.i ], [ 0, %36 ]
+  %.03372 = phi i32 [ %.2, %50 ], [ %2, %binary_oper_exact.exit ], [ 705, %.thread.i ], [ %2, %36 ]
+  %.03570 = phi i32 [ %.237, %50 ], [ %3, %binary_oper_exact.exit ], [ %3, %.thread.i ], [ %3, %36 ]
+  %.05468 = phi i32 [ %52, %50 ], [ %33, %binary_oper_exact.exit ], [ %34, %.thread.i ], [ %37, %36 ]
+  %53 = zext i32 %.05468 to i64
+  %54 = call ptr @SearchSysCache1(i32 noundef 40, i64 noundef %53) #8
+  %.not49 = icmp eq ptr %54, null
+  br i1 %.not49, label %.thread88, label %55
 
-54:                                               ; preds = %.thread
-  br i1 %11, label %55, label %60
+55:                                               ; preds = %.thread
+  br i1 %11, label %56, label %61
 
-55:                                               ; preds = %54
-  %56 = load ptr, ptr @OprCacheHash, align 8
-  %57 = call ptr @hash_search(ptr noundef %56, ptr noundef nonnull %9, i32 noundef 1, ptr noundef null) #8
-  %58 = getelementptr inbounds nuw i8, ptr %57, i64 136
-  store i32 %.05468, ptr %58, align 4
-  br label %60
+56:                                               ; preds = %55
+  %57 = load ptr, ptr @OprCacheHash, align 8
+  %58 = call ptr @hash_search(ptr noundef %57, ptr noundef nonnull %9, i32 noundef 1, ptr noundef null) #8
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 136
+  store i32 %.05468, ptr %59, align 4
+  br label %61
 
-.thread88:                                        ; preds = %binary_oper_exact.exit.thread59, %.thread83, %49, %.thread
-  %.0357197 = phi i32 [ %.03570, %.thread ], [ %.237, %.thread83 ], [ %.237, %49 ], [ %3, %binary_oper_exact.exit.thread59 ]
-  %.0337396 = phi i32 [ %.03372, %.thread ], [ %.2, %.thread83 ], [ %.2, %49 ], [ %2, %binary_oper_exact.exit.thread59 ]
-  %.0317595 = phi i32 [ %.03174, %.thread ], [ %.0.i51.ph, %.thread83 ], [ 2, %49 ], [ 0, %binary_oper_exact.exit.thread59 ]
-  br i1 %4, label %60, label %59
+.thread88:                                        ; preds = %binary_oper_exact.exit.thread59, %.thread83, %50, %.thread
+  %.0357197 = phi i32 [ %.03570, %.thread ], [ %.237, %.thread83 ], [ %.237, %50 ], [ %3, %binary_oper_exact.exit.thread59 ]
+  %.0337396 = phi i32 [ %.03372, %.thread ], [ %.2, %.thread83 ], [ %.2, %50 ], [ %2, %binary_oper_exact.exit.thread59 ]
+  %.0317595 = phi i32 [ %.03174, %.thread ], [ %.0.i51.ph, %.thread83 ], [ 2, %50 ], [ 0, %binary_oper_exact.exit.thread59 ]
+  br i1 %4, label %61, label %60
 
-59:                                               ; preds = %.thread88
+60:                                               ; preds = %.thread88
   call fastcc void @op_error(ptr noundef %0, ptr noundef %1, i32 noundef %.0337396, i32 noundef %.0357197, i32 noundef %.0317595, i32 noundef %5)
   unreachable
 
-60:                                               ; preds = %55, %54, %.thread88, %25
-  %.0 = phi ptr [ %27, %25 ], [ null, %.thread88 ], [ %53, %55 ], [ %53, %54 ]
+61:                                               ; preds = %56, %55, %.thread88, %25
+  %.0 = phi ptr [ %27, %25 ], [ null, %.thread88 ], [ %54, %56 ], [ %54, %55 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret ptr %.0
 }

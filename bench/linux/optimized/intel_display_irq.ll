@@ -2681,9 +2681,9 @@ define dso_local void @gen8_de_irq_handler(ptr noundef %0, i32 noundef %1) local
   %233 = icmp ne i32 %230, 0
   %234 = select i1 %232, i1 %233, i1 false
   %235 = and i32 %158, 8388608
-  %236 = icmp eq i32 %235, 0
-  %237 = select i1 %236, i32 6, i32 5
-  %238 = select i1 %234, i32 5, i32 %237
+  %236 = icmp ne i32 %235, 0
+  %237 = or i1 %236, %234
+  %238 = select i1 %237, i32 5, i32 6
   %239 = shl nuw nsw i32 %238, 11
   %240 = add nuw nsw i32 %239, 428080
   %241 = load ptr, ptr %156, align 8

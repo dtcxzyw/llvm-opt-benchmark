@@ -3815,11 +3815,11 @@ declare void @ws_log_fatal_full(ptr noundef, i32 noundef, ptr noundef, i64 nound
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @set_time_hour_min_sec(ptr noundef readonly captures(none) %0, i64 %.0.val, i32 %.8.val, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
-  %4 = icmp slt i64 %.0.val, 0
+  %4 = icmp sgt i64 %.0.val, -1
   %spec.select = tail call i64 @llvm.abs.i64(i64 %.0.val, i1 false)
   %5 = icmp sgt i32 %.8.val, -1
-  %6 = select i1 %4, ptr @.str.26, ptr @.str.1
-  %.1 = select i1 %5, ptr %6, ptr @.str.26
+  %6 = and i1 %4, %5
+  %.1 = select i1 %6, ptr @.str.1, ptr @.str.26
   %.057 = tail call i32 @llvm.abs.i32(i32 %.8.val, i1 false)
   %7 = icmp sgt i64 %spec.select, 3599
   br i1 %7, label %8, label %16

@@ -519,9 +519,9 @@ define dso_local ptr @acpi_companion_match(ptr noundef readonly captures(address
   %21 = phi ptr [ %19, %17 ], [ null, %12 ]
   tail call void @mutex_unlock(ptr noundef %13) #15
   %22 = icmp eq ptr %21, null
-  %23 = icmp eq ptr %21, %0
-  %24 = select i1 %23, ptr %5, ptr null
-  %25 = select i1 %22, ptr null, ptr %24
+  %23 = icmp ne ptr %21, %0
+  %24 = or i1 %22, %23
+  %25 = select i1 %24, ptr null, ptr %5
   br label %26
 
 26:                                               ; preds = %20, %8, %1
@@ -752,9 +752,9 @@ define dso_local ptr @acpi_match_device(ptr noundef %0, ptr noundef readonly cap
   %23 = phi ptr [ %21, %19 ], [ null, %14 ]
   tail call void @mutex_unlock(ptr noundef %15) #15
   %24 = icmp eq ptr %23, null
-  %25 = icmp eq ptr %23, %1
-  %26 = select i1 %25, ptr %7, ptr null
-  %27 = select i1 %24, ptr null, ptr %26
+  %25 = icmp ne ptr %23, %1
+  %26 = or i1 %24, %25
+  %27 = select i1 %26, ptr null, ptr %7
   br label %28
 
 28:                                               ; preds = %22, %10, %2
@@ -878,9 +878,9 @@ define dso_local ptr @acpi_device_get_match_data(ptr noundef readonly captures(a
   %74 = phi ptr [ %72, %70 ], [ null, %65 ]
   tail call void @mutex_unlock(ptr noundef %66) #15
   %75 = icmp eq ptr %74, null
-  %76 = icmp eq ptr %74, %0
-  %77 = select i1 %76, ptr %11, ptr null
-  %78 = select i1 %75, ptr null, ptr %77
+  %76 = icmp ne ptr %74, %0
+  %77 = or i1 %75, %76
+  %78 = select i1 %77, ptr null, ptr %11
   br label %79
 
 79:                                               ; preds = %73, %61, %58
@@ -1011,9 +1011,9 @@ define dso_local noundef zeroext i1 @acpi_driver_match_device(ptr noundef readon
   %66 = phi ptr [ %64, %62 ], [ null, %57 ]
   tail call void @mutex_unlock(ptr noundef %58) #15
   %67 = icmp eq ptr %66, null
-  %68 = icmp eq ptr %66, %0
-  %69 = select i1 %68, ptr %11, ptr null
-  %70 = select i1 %67, ptr null, ptr %69
+  %68 = icmp ne ptr %66, %0
+  %69 = or i1 %67, %68
+  %70 = select i1 %69, ptr null, ptr %11
   br label %71
 
 71:                                               ; preds = %65, %53, %52

@@ -21242,9 +21242,9 @@ define hidden { i32, i32 } @_ZN6editor8movement29find_preceding_boundary_point17
   %16 = icmp ugt i32 %.fr19, 127
   br i1 %16, label %.split.us.split.us, label %.split.us.split
 
-.split.us.split.us:                               ; preds = %.split.us, %32
-  %17 = phi i64 [ %33, %32 ], [ %11, %.split.us ]
-  %.sroa.04.0.us.us = phi i32 [ %18, %32 ], [ 1114112, %.split.us ]
+.split.us.split.us:                               ; preds = %.split.us, %33
+  %17 = phi i64 [ %34, %33 ], [ %11, %.split.us ]
+  %.sroa.04.0.us.us = phi i32 [ %18, %33 ], [ 1114112, %.split.us ]
   %18 = call fastcc noundef i32 @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h45bea4f52df3f37dE"(ptr noalias noundef align 8 dereferenceable(904) %7), !range !2506
   %19 = icmp ne i32 %18, 1114112
   %20 = icmp ne i32 %18, 10
@@ -21254,117 +21254,117 @@ define hidden { i32, i32 } @_ZN6editor8movement29find_preceding_boundary_point17
 
 21:                                               ; preds = %.split.us.split.us
   %22 = icmp eq i32 %.sroa.04.0.us.us, 1114112
-  br i1 %22, label %26, label %.noexc.us.us
+  br i1 %22, label %27, label %.noexc.us.us
 
 .noexc.us.us:                                     ; preds = %21
   %23 = call noundef zeroext i1 @_ZN4core7unicode12unicode_data9uppercase6lookup17h3730f78382640962E(i32 noundef %.fr19)
-  %24 = add nsw i32 %.sroa.04.0.us.us, -65
-  %or.cond2.i.i.us.us = icmp ult i32 %24, 26
+  %24 = add nsw i32 %.sroa.04.0.us.us, -91
+  %or.cond2.i.i.us.us = icmp ult i32 %24, -26
   %25 = or disjoint i32 %.sroa.04.0.us.us, 32
-  %spec.select.i.i.us.us = select i1 %or.cond2.i.i.us.us, i32 %25, i32 %.sroa.04.0.us.us
-  %.pn.i.i.us.us = select i1 %23, i32 %.sroa.04.0.us.us, i32 %spec.select.i.i.us.us
+  %26 = select i1 %23, i1 true, i1 %or.cond2.i.i.us.us
+  %.pn.i.i.us.us = select i1 %26, i32 %.sroa.04.0.us.us, i32 %25
   %.sroa.08.0.in.i.i.us.us = icmp eq i32 %.fr19, %.pn.i.i.us.us
-  br i1 %.sroa.08.0.in.i.i.us.us, label %.split16.us, label %26
+  br i1 %.sroa.08.0.in.i.i.us.us, label %.split16.us, label %27
 
-26:                                               ; preds = %.noexc.us.us, %21
-  %27 = icmp samesign ult i32 %18, 128
-  br i1 %27, label %32, label %28
+27:                                               ; preds = %.noexc.us.us, %21
+  %28 = icmp samesign ult i32 %18, 128
+  br i1 %28, label %33, label %29
 
-28:                                               ; preds = %26
-  %29 = icmp samesign ult i32 %18, 2048
-  br i1 %29, label %32, label %30
+29:                                               ; preds = %27
+  %30 = icmp samesign ult i32 %18, 2048
+  br i1 %30, label %33, label %31
 
-30:                                               ; preds = %28
-  %31 = icmp samesign ult i32 %18, 65536
-  %..us.us = select i1 %31, i64 -3, i64 -4
-  br label %32
+31:                                               ; preds = %29
+  %32 = icmp samesign ult i32 %18, 65536
+  %..us.us = select i1 %32, i64 -3, i64 -4
+  br label %33
 
-32:                                               ; preds = %30, %28, %26
-  %.sroa.03.0.neg.us.us = phi i64 [ -2, %28 ], [ %..us.us, %30 ], [ -1, %26 ]
-  %33 = add i64 %17, %.sroa.03.0.neg.us.us
-  store i64 %33, ptr %8, align 8
+33:                                               ; preds = %31, %29, %27
+  %.sroa.03.0.neg.us.us = phi i64 [ -2, %29 ], [ %..us.us, %31 ], [ -1, %27 ]
+  %34 = add i64 %17, %.sroa.03.0.neg.us.us
+  store i64 %34, ptr %8, align 8
   br label %.split.us.split.us
 
-.split.us.split:                                  ; preds = %.split.us, %49
-  %34 = phi i64 [ %50, %49 ], [ %11, %.split.us ]
-  %.sroa.04.0.us = phi i32 [ %35, %49 ], [ 1114112, %.split.us ]
-  %35 = call fastcc noundef i32 @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h45bea4f52df3f37dE"(ptr noalias noundef align 8 dereferenceable(904) %7), !range !2506
-  %36 = icmp ne i32 %35, 1114112
-  %37 = icmp ne i32 %35, 10
-  %or.cond.not.us = or i1 %3, %37
-  %or.cond.us = and i1 %36, %or.cond.not.us
-  br i1 %or.cond.us, label %38, label %.split16.us
+.split.us.split:                                  ; preds = %.split.us, %50
+  %35 = phi i64 [ %51, %50 ], [ %11, %.split.us ]
+  %.sroa.04.0.us = phi i32 [ %36, %50 ], [ 1114112, %.split.us ]
+  %36 = call fastcc noundef i32 @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h45bea4f52df3f37dE"(ptr noalias noundef align 8 dereferenceable(904) %7), !range !2506
+  %37 = icmp ne i32 %36, 1114112
+  %38 = icmp ne i32 %36, 10
+  %or.cond.not.us = or i1 %3, %38
+  %or.cond.us = and i1 %37, %or.cond.not.us
+  br i1 %or.cond.us, label %39, label %.split16.us
 
-38:                                               ; preds = %.split.us.split
-  %39 = icmp eq i32 %.sroa.04.0.us, 1114112
-  br i1 %39, label %43, label %40
+39:                                               ; preds = %.split.us.split
+  %40 = icmp eq i32 %.sroa.04.0.us, 1114112
+  br i1 %40, label %44, label %41
 
-40:                                               ; preds = %38
-  %41 = add nsw i32 %.sroa.04.0.us, -65
-  %or.cond2.i.i.us = icmp ult i32 %41, 26
-  %42 = or disjoint i32 %.sroa.04.0.us, 32
-  %spec.select.i.i.us = select i1 %or.cond2.i.i.us, i32 %42, i32 %.sroa.04.0.us
+41:                                               ; preds = %39
+  %42 = add nsw i32 %.sroa.04.0.us, -65
+  %or.cond2.i.i.us = icmp ult i32 %42, 26
+  %43 = or disjoint i32 %.sroa.04.0.us, 32
+  %spec.select.i.i.us = select i1 %or.cond2.i.i.us, i32 %43, i32 %.sroa.04.0.us
   %.sroa.08.0.in.i.i.us = icmp eq i32 %.fr19, %spec.select.i.i.us
-  br i1 %.sroa.08.0.in.i.i.us, label %.split16.us, label %43
+  br i1 %.sroa.08.0.in.i.i.us, label %.split16.us, label %44
 
-43:                                               ; preds = %40, %38
-  %44 = icmp samesign ult i32 %35, 128
-  br i1 %44, label %49, label %45
+44:                                               ; preds = %41, %39
+  %45 = icmp samesign ult i32 %36, 128
+  br i1 %45, label %50, label %46
 
-45:                                               ; preds = %43
-  %46 = icmp samesign ult i32 %35, 2048
-  br i1 %46, label %49, label %47
+46:                                               ; preds = %44
+  %47 = icmp samesign ult i32 %36, 2048
+  br i1 %47, label %50, label %48
 
-47:                                               ; preds = %45
-  %48 = icmp samesign ult i32 %35, 65536
-  %..us = select i1 %48, i64 -3, i64 -4
-  br label %49
+48:                                               ; preds = %46
+  %49 = icmp samesign ult i32 %36, 65536
+  %..us = select i1 %49, i64 -3, i64 -4
+  br label %50
 
-49:                                               ; preds = %47, %45, %43
-  %.sroa.03.0.neg.us = phi i64 [ -2, %45 ], [ %..us, %47 ], [ -1, %43 ]
-  %50 = add i64 %34, %.sroa.03.0.neg.us
-  store i64 %50, ptr %8, align 8
+50:                                               ; preds = %48, %46, %44
+  %.sroa.03.0.neg.us = phi i64 [ -2, %46 ], [ %..us, %48 ], [ -1, %44 ]
+  %51 = add i64 %35, %.sroa.03.0.neg.us
+  store i64 %51, ptr %8, align 8
   br label %.split.us.split
 
-.split:                                           ; preds = %6, %64
-  %51 = phi i64 [ %65, %64 ], [ %11, %6 ]
-  %.sroa.04.0 = phi i32 [ %52, %64 ], [ 1114112, %6 ]
-  %52 = call fastcc noundef i32 @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h45bea4f52df3f37dE"(ptr noalias noundef align 8 dereferenceable(904) %7), !range !2506
-  %53 = icmp ne i32 %52, 1114112
-  %54 = icmp ne i32 %52, 10
-  %or.cond.not = or i1 %3, %54
-  %or.cond = and i1 %53, %or.cond.not
-  br i1 %or.cond, label %56, label %.split16.us
+.split:                                           ; preds = %6, %65
+  %52 = phi i64 [ %66, %65 ], [ %11, %6 ]
+  %.sroa.04.0 = phi i32 [ %53, %65 ], [ 1114112, %6 ]
+  %53 = call fastcc noundef i32 @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h45bea4f52df3f37dE"(ptr noalias noundef align 8 dereferenceable(904) %7), !range !2506
+  %54 = icmp ne i32 %53, 1114112
+  %55 = icmp ne i32 %53, 10
+  %or.cond.not = or i1 %3, %55
+  %or.cond = and i1 %54, %or.cond.not
+  br i1 %or.cond, label %57, label %.split16.us
 
-.split16.us:                                      ; preds = %56, %.split, %40, %.split.us.split, %.noexc.us.us, %.split.us.split.us
+.split16.us:                                      ; preds = %57, %.split, %41, %.split.us.split, %.noexc.us.us, %.split.us.split.us
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %55 = call { i32, i32 } @"_ZN47_$LT$usize$u20$as$u20$multi_buffer..ToPoint$GT$8to_point17h1d3a45c77a85c408E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %0)
+  %56 = call { i32, i32 } @"_ZN47_$LT$usize$u20$as$u20$multi_buffer..ToPoint$GT$8to_point17h1d3a45c77a85c408E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %0)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  ret { i32, i32 } %55
+  ret { i32, i32 } %56
 
-56:                                               ; preds = %.split
-  %57 = icmp ne i32 %.sroa.04.0, 1114112
+57:                                               ; preds = %.split
+  %58 = icmp ne i32 %.sroa.04.0, 1114112
   %.sroa.08.0.in.i.i = icmp eq i32 %.fr19, %.sroa.04.0
-  %or.cond18 = and i1 %57, %.sroa.08.0.in.i.i
-  br i1 %or.cond18, label %.split16.us, label %58
+  %or.cond18 = and i1 %58, %.sroa.08.0.in.i.i
+  br i1 %or.cond18, label %.split16.us, label %59
 
-58:                                               ; preds = %56
-  %59 = icmp samesign ult i32 %52, 128
-  br i1 %59, label %64, label %60
+59:                                               ; preds = %57
+  %60 = icmp samesign ult i32 %53, 128
+  br i1 %60, label %65, label %61
 
-60:                                               ; preds = %58
-  %61 = icmp samesign ult i32 %52, 2048
-  br i1 %61, label %64, label %62
+61:                                               ; preds = %59
+  %62 = icmp samesign ult i32 %53, 2048
+  br i1 %62, label %65, label %63
 
-62:                                               ; preds = %60
-  %63 = icmp samesign ult i32 %52, 65536
-  %. = select i1 %63, i64 -3, i64 -4
-  br label %64
+63:                                               ; preds = %61
+  %64 = icmp samesign ult i32 %53, 65536
+  %. = select i1 %64, i64 -3, i64 -4
+  br label %65
 
-64:                                               ; preds = %60, %62, %58
-  %.sroa.03.0.neg = phi i64 [ -2, %60 ], [ %., %62 ], [ -1, %58 ]
-  %65 = add i64 %51, %.sroa.03.0.neg
-  store i64 %65, ptr %8, align 8
+65:                                               ; preds = %61, %63, %59
+  %.sroa.03.0.neg = phi i64 [ -2, %61 ], [ %., %63 ], [ -1, %59 ]
+  %66 = add i64 %52, %.sroa.03.0.neg
+  store i64 %66, ptr %8, align 8
   br label %.split
 }
 
