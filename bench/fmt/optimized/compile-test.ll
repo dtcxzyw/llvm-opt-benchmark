@@ -49408,13 +49408,13 @@ _ZN3fmt3v116detail18to_nonnegative_intIdiTnNSt9enable_ifIXntsr3std11is_integralI
   %62 = icmp eq i32 %3, 1
   br i1 %62, label %_ZN3fmt3v116detail13write_paddingINS0_14basic_appenderIcEEEET_S5_NS1_8pad_typeEi.exit, label %63
 
-63:                                               ; preds = %60
+68:                                               ; preds = %60
   %64 = icmp eq i32 %3, 2
   %65 = select i1 %64, i8 32, i8 48
   %66 = icmp sgt i32 %61, 0
-  br i1 %66, label %.lr.ph.i.i, label %_ZN3fmt3v116detail13write_paddingINS0_14basic_appenderIcEEEET_S5_NS1_8pad_typeEi.exit
+  br i1 %66, label %73, label %_ZN3fmt3v116detail13write_paddingINS0_14basic_appenderIcEEEET_S5_NS1_8pad_typeEi.exit
 
-.lr.ph.i.i:                                       ; preds = %63
+73:                                               ; preds = %68
   %67 = getelementptr inbounds nuw i8, ptr %.sroa.02.0.copyload, i64 8
   %68 = getelementptr inbounds nuw i8, ptr %.sroa.02.0.copyload, i64 16
   %69 = getelementptr inbounds nuw i8, ptr %.sroa.02.0.copyload, i64 24
@@ -49437,13 +49437,13 @@ _ZN3fmt3v116detail18to_nonnegative_intIdiTnNSt9enable_ifIXntsr3std11is_integralI
 
 _ZN3fmt3v1114basic_appenderIcEaSEc.exit.i.i:      ; preds = %75, %70
   %.pre-phi.i.i.i.i = phi i64 [ %72, %70 ], [ %.pre2.i.i.i.i, %75 ]
-  %77 = phi i64 [ %71, %70 ], [ %.pre.i.i.i.i, %75 ]
-  %78 = load ptr, ptr %.sroa.02.0.copyload, align 8, !tbaa !413
+  %75 = phi i64 [ %71, %70 ], [ %.pre.i.i.i.i, %75 ]
+  %76 = load ptr, ptr %.sroa.02.0.copyload, align 8, !tbaa !413
   store i64 %.pre-phi.i.i.i.i, ptr %67, align 8, !tbaa !415
-  %79 = getelementptr inbounds nuw i8, ptr %78, i64 %77
-  store i8 %65, ptr %79, align 1, !tbaa !29
-  %80 = add nuw nsw i32 %.04.i.i, 1
-  %exitcond.not.i.i = icmp eq i32 %80, %61
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 %75
+  store i8 %65, ptr %77, align 1, !tbaa !29
+  %78 = add nuw nsw i32 %.04.i.i, 1
+  %exitcond.not.i.i = icmp eq i32 %78, %61
   br i1 %exitcond.not.i.i, label %_ZN3fmt3v116detail13write_paddingINS0_14basic_appenderIcEEEET_S5_NS1_8pad_typeEi.exit, label %70, !llvm.loop !728
 
 _ZN3fmt3v116detail13write_paddingINS0_14basic_appenderIcEEEET_S5_NS1_8pad_typeEi.exit: ; preds = %_ZN3fmt3v1114basic_appenderIcEaSEc.exit.i.i, %60, %63
@@ -49451,9 +49451,9 @@ _ZN3fmt3v116detail13write_paddingINS0_14basic_appenderIcEEEET_S5_NS1_8pad_typeEi
   br label %_ZN3fmt3v116detail18to_nonnegative_intIdiTnNSt9enable_ifIXntsr3std11is_integralIT_EE5valueEiE4typeELi0EEET0_S4_S7_.exit._crit_edge
 
 _ZN3fmt3v116detail18to_nonnegative_intIdiTnNSt9enable_ifIXntsr3std11is_integralIT_EE5valueEiE4typeELi0EEET0_S4_S7_.exit._crit_edge: ; preds = %_ZN3fmt3v116detail18to_nonnegative_intIdiTnNSt9enable_ifIXntsr3std11is_integralIT_EE5valueEiE4typeELi0EEET0_S4_S7_.exit, %_ZN3fmt3v116detail13write_paddingINS0_14basic_appenderIcEEEET_S5_NS1_8pad_typeEi.exit
-  %81 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %82 = tail call ptr @_ZN3fmt3v116detail14format_decimalIcjNS0_14basic_appenderIcEETnNSt9enable_ifIXntsr3std10is_pointerINSt9remove_cvINSt16remove_referenceIT1_E4typeEE4typeEEE5valueEiE4typeELi0EEES8_S8_T0_i(ptr %.sroa.02.0.copyload, i32 noundef %40, i32 noundef %57)
-  store ptr %82, ptr %81, align 8, !tbaa !632
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %80 = tail call ptr @_ZN3fmt3v116detail14format_decimalIcjNS0_14basic_appenderIcEETnNSt9enable_ifIXntsr3std10is_pointerINSt9remove_cvINSt16remove_referenceIT1_E4typeEE4typeEEE5valueEiE4typeELi0EEES8_S8_T0_i(ptr %.sroa.02.0.copyload, i32 noundef %40, i32 noundef %57)
+  store ptr %80, ptr %79, align 8, !tbaa !632
   br label %_ZN3fmt3v116detail16chrono_formatterINS0_15generic_contextISt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcEENS0_14basic_appenderIcEEdSt5ratioILl1ELl1000EEE9write_nanEv.exit
 
 _ZN3fmt3v116detail16chrono_formatterINS0_15generic_contextISt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcEENS0_14basic_appenderIcEEdSt5ratioILl1ELl1000EEE9write_nanEv.exit: ; preds = %_ZN3fmt3v1114basic_appenderIcEaSEc.exit.i.i.i.i.i.i.i.i, %_ZN3fmt3v116detail18to_nonnegative_intIdiTnNSt9enable_ifIXntsr3std11is_integralIT_EE5valueEiE4typeELi0EEET0_S4_S7_.exit._crit_edge

@@ -4176,8 +4176,8 @@ sp_rshb.exit.thread:                              ; preds = %367
 
 .preheader.i212:                                  ; preds = %370
   %374 = add nsw i32 %368, -1
-  %.not336 = icmp eq i32 %374, 0
-  br i1 %.not336, label %.preheader.._crit_edge_crit_edge.i, label %.lr.ph.i215
+  %.not334 = icmp eq i32 %374, 0
+  br i1 %.not334, label %.preheader.._crit_edge_crit_edge.i, label %.lr.ph.i215
 
 .preheader.._crit_edge_crit_edge.i:               ; preds = %.preheader.i212
   %.pre.i213 = zext nneg i32 %.0119.ph to i64
@@ -4267,13 +4267,13 @@ _sp_copy.exit217:                                 ; preds = %370, %sp_rshb.exit
   %417 = getelementptr i64, ptr %3, i64 %indvars.iv282
   %418 = load i64, ptr %417, align 8, !tbaa !8
   %419 = icmp eq i64 %418, 0
-  br i1 %419, label %414, label %.critedge.split.loop.exit373, !llvm.loop !70
+  br i1 %419, label %414, label %.critedge.split.loop.exit371, !llvm.loop !70
 
-.critedge.split.loop.exit373:                     ; preds = %416
+.critedge.split.loop.exit371:                     ; preds = %416
   %420 = trunc i64 %indvars.iv282 to i16
   br label %.sink.split
 
-.sink.split:                                      ; preds = %414, %.critedge.split.loop.exit373, %_sp_copy.exit217.thread
+.sink.split:                                      ; preds = %414, %.critedge.split.loop.exit371, %_sp_copy.exit217.thread
   %.sink = phi i16 [ 0, %_sp_copy.exit217.thread ], [ %420, %.critedge.split.loop.exit373 ], [ 0, %414 ]
   store i16 %.sink, ptr %3, align 8, !tbaa !12
   br label %421
@@ -4318,13 +4318,13 @@ _sp_copy.exit219:                                 ; preds = %422
   %435 = getelementptr i64, ptr %2, i64 %indvars.iv285
   %436 = load i64, ptr %435, align 8, !tbaa !8
   %437 = icmp eq i64 %436, 0
-  br i1 %437, label %432, label %.critedge13.split.loop.exit375, !llvm.loop !71
+  br i1 %437, label %432, label %.critedge13.split.loop.exit373, !llvm.loop !71
 
-.critedge13.split.loop.exit375:                   ; preds = %434
+.critedge13.split.loop.exit373:                   ; preds = %434
   %438 = trunc i64 %indvars.iv285 to i16
   br label %.critedge13
 
-.critedge13:                                      ; preds = %432, %.critedge13.split.loop.exit375
+.critedge13:                                      ; preds = %432, %.critedge13.split.loop.exit373
   %.0.in.lcssa = phi i16 [ %438, %.critedge13.split.loop.exit375 ], [ 0, %432 ]
   store i16 %.0.in.lcssa, ptr %2, align 8, !tbaa !12
   br label %sp_lshb.exit.thread242

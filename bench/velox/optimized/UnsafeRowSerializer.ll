@@ -18409,12 +18409,12 @@ if.then.i.i.lr.ph.split:                          ; preds = %if.then.i.i.lr.ph
   br i1 %tobool.i.not.i.i18.i.i, label %if.then.i.i.lr.ph.split.split.us.split, label %if.then.i.i
 
 if.then.i.i.lr.ph.split.split.us.split:           ; preds = %if.then.i.i.lr.ph.split
-  %or.cond.demorgan = or i1 %tobool.i.not.i.i.i.i72, %tobool21.i.i.i
-  br i1 %or.cond.demorgan, label %while.end, label %while.body7.us88
+  %brmerge = or i1 %tobool.i.not.i.i.i.i72, %tobool21.i.i.i
+  br i1 %brmerge, label %while.end, label %while.body7.us88
 
 while.body7.us88:                                 ; preds = %if.then.i.i.lr.ph.split.split.us.split, %while.body7.us88
-  %__first.sroa.0.174.us167 = phi ptr [ %incdec.ptr.i.us89, %while.body7.us88 ], [ %__first.sroa.0.0, %if.then.i.i.lr.ph.split.split.us.split ]
-  %incdec.ptr.i.us89 = getelementptr inbounds nuw i8, ptr %__first.sroa.0.174.us167, i64 4
+  %__first.sroa.0.174.us165 = phi ptr [ %incdec.ptr.i.us89, %while.body7.us88 ], [ %__first.sroa.0.0, %if.then.i.i.lr.ph.split.split.us.split ]
+  %incdec.ptr.i.us89 = getelementptr inbounds nuw i8, ptr %__first.sroa.0.174.us165, i64 4
   %12 = load i32, ptr %incdec.ptr.i.us89, align 4
   %idxprom.i.i.us = sext i32 %12 to i64
   %arrayidx.i.i.us = getelementptr inbounds i32, ptr %6, i64 %idxprom.i.i.us

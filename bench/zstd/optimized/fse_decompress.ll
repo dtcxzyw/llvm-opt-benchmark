@@ -101,10 +101,10 @@ define internal fastcc range(i64 -46, 1) i64 @FSE_buildDTable_internal(ptr nound
   br label %.preheader
 
 .lr.ph160:                                        ; preds = %.lr.ph160.preheader, %._crit_edge155
-  %indvars.iv177 = phi i64 [ 0, %.lr.ph160.preheader ], [ %indvars.iv.next178, %._crit_edge155 ]
+  %indvars.iv174 = phi i64 [ 0, %.lr.ph160.preheader ], [ %indvars.iv.next175, %._crit_edge155 ]
   %.0123158 = phi i64 [ 0, %.lr.ph160.preheader ], [ %57, %._crit_edge155 ]
   %.0126157 = phi i64 [ 0, %.lr.ph160.preheader ], [ %58, %._crit_edge155 ]
-  %49 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv177
+  %49 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv174
   %50 = load i16, ptr %49, align 2, !tbaa !3
   %51 = getelementptr inbounds nuw i8, ptr %10, i64 %.0123158
   store i64 %.0126157, ptr %51, align 1, !tbaa !11
@@ -116,20 +116,20 @@ define internal fastcc range(i64 -46, 1) i64 @FSE_buildDTable_internal(ptr nound
   br label %.lr.ph154
 
 .lr.ph154:                                        ; preds = %.lr.ph154.preheader, %.lr.ph154
-  %indvars.iv174 = phi i64 [ 8, %.lr.ph154.preheader ], [ %indvars.iv.next175, %.lr.ph154 ]
-  %54 = getelementptr inbounds nuw i8, ptr %51, i64 %indvars.iv174
+  %indvars.iv171 = phi i64 [ 8, %.lr.ph154.preheader ], [ %indvars.iv.next172, %.lr.ph154 ]
+  %54 = getelementptr inbounds nuw i8, ptr %51, i64 %indvars.iv171
   store i64 %.0126157, ptr %54, align 1, !tbaa !11
-  %indvars.iv.next175 = add nuw nsw i64 %indvars.iv174, 8
-  %55 = icmp samesign ult i64 %indvars.iv.next175, %53
+  %indvars.iv.next172 = add nuw nsw i64 %indvars.iv171, 8
+  %55 = icmp samesign ult i64 %indvars.iv.next172, %53
   br i1 %55, label %.lr.ph154, label %._crit_edge155, !llvm.loop !13
 
 ._crit_edge155:                                   ; preds = %.lr.ph154, %.lr.ph160
   %56 = sext i16 %50 to i64
   %57 = add i64 %.0123158, %56
-  %indvars.iv.next178 = add nuw nsw i64 %indvars.iv177, 1
+  %indvars.iv.next175 = add nuw nsw i64 %indvars.iv174, 1
   %58 = add i64 %.0126157, 72340172838076673
-  %exitcond181.not = icmp eq i64 %indvars.iv.next178, %14
-  br i1 %exitcond181.not, label %.preheader136, label %.lr.ph160, !llvm.loop !14
+  %exitcond179.not = icmp eq i64 %indvars.iv.next175, %14
+  br i1 %exitcond179.not, label %.preheader136, label %.lr.ph160, !llvm.loop !14
 
 .preheader:                                       ; preds = %.preheader136, %.preheader
   %.0124163 = phi i64 [ 0, %.preheader136 ], [ %72, %.preheader ]
@@ -160,16 +160,16 @@ define internal fastcc range(i64 -46, 1) i64 @FSE_buildDTable_internal(ptr nound
   br label %.preheader138
 
 .preheader138:                                    ; preds = %.preheader138.lr.ph, %._crit_edge146
-  %indvars.iv169 = phi i64 [ 0, %.preheader138.lr.ph ], [ %indvars.iv.next170, %._crit_edge146 ]
+  %indvars.iv166 = phi i64 [ 0, %.preheader138.lr.ph ], [ %indvars.iv.next167, %._crit_edge146 ]
   %.0117149 = phi i32 [ 0, %.preheader138.lr.ph ], [ %.1118.lcssa, %._crit_edge146 ]
-  %77 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv169
+  %77 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv166
   %78 = load i16, ptr %77, align 2, !tbaa !3
   %79 = sext i16 %78 to i32
   %80 = icmp sgt i16 %78, 0
   br i1 %80, label %.lr.ph145, label %._crit_edge146
 
 .lr.ph145:                                        ; preds = %.preheader138
-  %81 = trunc i64 %indvars.iv169 to i8
+  %81 = trunc i64 %indvars.iv166 to i8
   br label %82
 
 82:                                               ; preds = %.lr.ph145, %88
@@ -190,54 +190,54 @@ define internal fastcc range(i64 -46, 1) i64 @FSE_buildDTable_internal(ptr nound
 
 88:                                               ; preds = %86
   %89 = add nuw nsw i32 %.0116144, 1
-  %exitcond168.not = icmp eq i32 %89, %79
-  br i1 %exitcond168.not, label %._crit_edge146, label %82, !llvm.loop !18
+  %exitcond165.not = icmp eq i32 %89, %79
+  br i1 %exitcond165.not, label %._crit_edge146, label %82, !llvm.loop !18
 
 ._crit_edge146:                                   ; preds = %88, %.preheader138
   %.1118.lcssa = phi i32 [ %.0117149, %.preheader138 ], [ %.2, %88 ]
-  %indvars.iv.next170 = add nuw nsw i64 %indvars.iv169, 1
-  %exitcond173.not = icmp eq i64 %indvars.iv.next170, %14
-  br i1 %exitcond173.not, label %._crit_edge150, label %.preheader138, !llvm.loop !19
+  %indvars.iv.next167 = add nuw nsw i64 %indvars.iv166, 1
+  %exitcond170.not = icmp eq i64 %indvars.iv.next167, %14
+  br i1 %exitcond170.not, label %._crit_edge150, label %.preheader138, !llvm.loop !19
 
 ._crit_edge150:                                   ; preds = %._crit_edge146
-  %90 = icmp eq i32 %.1118.lcssa, 0
-  br i1 %90, label %._crit_edge150..loopexit137_crit_edge, label %.loopexit
+  %.not = icmp eq i32 %.1118.lcssa, 0
+  br i1 %.not, label %._crit_edge150..loopexit137_crit_edge, label %.loopexit
 
 ._crit_edge150..loopexit137_crit_edge:            ; preds = %._crit_edge150
   %.pre = zext nneg i32 %12 to i64
   br label %.loopexit137
 
 .loopexit137:                                     ; preds = %.preheader, %._crit_edge150..loopexit137_crit_edge
-  %wide.trip.count185.pre-phi = phi i64 [ %.pre, %._crit_edge150..loopexit137_crit_edge ], [ %47, %.preheader ]
-  br label %91
+  %wide.trip.count184.pre-phi = phi i64 [ %.pre, %._crit_edge150..loopexit137_crit_edge ], [ %47, %.preheader ]
+  br label %90
 
-91:                                               ; preds = %.loopexit137, %91
-  %indvars.iv182 = phi i64 [ 0, %.loopexit137 ], [ %indvars.iv.next183, %91 ]
-  %92 = getelementptr inbounds nuw %struct.FSE_decode_t, ptr %7, i64 %indvars.iv182
-  %93 = getelementptr inbounds nuw i8, ptr %92, i64 2
-  %94 = load i8, ptr %93, align 2, !tbaa !7
-  %95 = zext i8 %94 to i64
-  %96 = getelementptr inbounds nuw i16, ptr %4, i64 %95
-  %97 = load i16, ptr %96, align 2, !tbaa !3
-  %98 = add i16 %97, 1
-  store i16 %98, ptr %96, align 2, !tbaa !3
-  %99 = zext i16 %97 to i32
-  %100 = tail call range(i32 16, 32) i32 @llvm.ctlz.i32(i32 range(i32 0, 65536) %99, i1 true)
-  %101 = xor i32 %100, 31
-  %102 = sub nsw i32 %3, %101
-  %103 = trunc nsw i32 %102 to i8
-  %104 = getelementptr inbounds nuw i8, ptr %92, i64 3
-  store i8 %103, ptr %104, align 1, !tbaa !20
-  %105 = and i32 %102, 255
-  %106 = shl i32 %99, %105
-  %107 = sub i32 %106, %12
-  %108 = trunc i32 %107 to i16
-  store i16 %108, ptr %92, align 2, !tbaa !21
-  %indvars.iv.next183 = add nuw nsw i64 %indvars.iv182, 1
-  %exitcond186.not = icmp eq i64 %indvars.iv.next183, %wide.trip.count185.pre-phi
-  br i1 %exitcond186.not, label %.loopexit, label %91, !llvm.loop !22
+90:                                               ; preds = %.loopexit137, %90
+  %indvars.iv180 = phi i64 [ 0, %.loopexit137 ], [ %indvars.iv.next181, %91 ]
+  %91 = getelementptr inbounds nuw %struct.FSE_decode_t, ptr %7, i64 %indvars.iv180
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 2
+  %93 = load i8, ptr %92, align 2, !tbaa !7
+  %94 = zext i8 %93 to i64
+  %95 = getelementptr inbounds nuw i16, ptr %4, i64 %94
+  %96 = load i16, ptr %95, align 2, !tbaa !3
+  %97 = add i16 %96, 1
+  store i16 %97, ptr %95, align 2, !tbaa !3
+  %98 = zext i16 %96 to i32
+  %99 = tail call range(i32 16, 32) i32 @llvm.ctlz.i32(i32 range(i32 0, 65536) %98, i1 true)
+  %100 = xor i32 %99, 31
+  %101 = sub nsw i32 %3, %100
+  %102 = trunc nsw i32 %101 to i8
+  %103 = getelementptr inbounds nuw i8, ptr %91, i64 3
+  store i8 %102, ptr %103, align 1, !tbaa !20
+  %104 = and i32 %101, 255
+  %105 = shl i32 %98, %104
+  %106 = sub i32 %105, %12
+  %107 = trunc i32 %106 to i16
+  store i16 %107, ptr %91, align 2, !tbaa !21
+  %indvars.iv.next181 = add nuw nsw i64 %indvars.iv180, 1
+  %exitcond185.not = icmp eq i64 %indvars.iv.next181, %wide.trip.count184.pre-phi
+  br i1 %exitcond185.not, label %.loopexit, label %90, !llvm.loop !22
 
-.loopexit:                                        ; preds = %91, %22, %6, %._crit_edge150
+.loopexit:                                        ; preds = %90, %22, %6, %._crit_edge150
   %.0 = phi i64 [ -1, %._crit_edge150 ], [ -46, %6 ], [ -44, %22 ], [ 0, %91 ]
   ret i64 %.0
 }

@@ -88588,23 +88588,23 @@ _ZNSt6vectorIN11flatbuffers6OffsetIN10reflection8KeyValueEEESaIS4_EE17_M_realloc
 85:                                               ; preds = %47
   %86 = landingpad { ptr, i32 }
           cleanup
-  br label %98
+  br label %96
 
 87:                                               ; preds = %51
   %88 = landingpad { ptr, i32 }
           cleanup
-  br label %98
+  br label %96
 
 .loopexit:                                        ; preds = %59, %_ZNKSt6vectorIN11flatbuffers6OffsetIN10reflection8KeyValueEEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i
   %.sroa.15.065.lcssa72 = phi ptr [ %.sroa.15.065, %59 ], [ %.sroa.10.067, %_ZNKSt6vectorIN11flatbuffers6OffsetIN10reflection8KeyValueEEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i ]
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %98
+  br label %96
 
 .loopexit.split-lp:                               ; preds = %70
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %98
+  br label %96
 
 _ZNSt6vectorIN11flatbuffers6OffsetIN10reflection8KeyValueEEESaIS4_EE9push_backEOS4_.exit: ; preds = %63, %_ZNSt6vectorIN11flatbuffers6OffsetIN10reflection8KeyValueEEESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i, %43
   %.sroa.15.1 = phi ptr [ %.sroa.15.065, %43 ], [ %84, %_ZNSt6vectorIN11flatbuffers6OffsetIN10reflection8KeyValueEEESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i ], [ %.sroa.15.065, %63 ]
@@ -88619,48 +88619,48 @@ _ZNSt6vectorIN11flatbuffers6OffsetIN10reflection8KeyValueEEESaIS4_EE9push_backEO
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %1, ptr %4, align 8, !tbaa !1817, !alias.scope !1946
   invoke void @_ZSt13__stable_sortIPN11flatbuffers6OffsetIN10reflection8KeyValueEEEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEEvT_SE_T0_(ptr noundef %.sroa.037.1, ptr noundef %91, ptr noundef nonnull %4)
-          to label %.noexc24 unwind label %93
+          to label %.noexc24 unwind label %.thread
 
 .noexc24:                                         ; preds = %90
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %92 = invoke i32 @_ZN11flatbuffers21FlatBufferBuilderImplILb0EE12CreateVectorIN10reflection8KeyValueEEENS_6OffsetINS_6VectorINS5_IT_EEjEEEEPKS8_m(ptr noundef nonnull align 8 dereferenceable(128) %1, ptr noundef %.sroa.037.1, i64 noundef %15)
-          to label %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE26CreateVectorOfSortedTablesIN10reflection8KeyValueESaINS_6OffsetIS4_EEEEENS5_INS_6VectorINS5_IT_EEjEEEEPSt6vectorISA_T0_E.exit unwind label %93
+          to label %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE26CreateVectorOfSortedTablesIN10reflection8KeyValueESaINS_6OffsetIS4_EEEEENS5_INS_6VectorINS5_IT_EEjEEEEPSt6vectorISA_T0_E.exit unwind label %.thread
 
-93:                                               ; preds = %.noexc24, %90
-  %94 = landingpad { ptr, i32 }
+.thread:                                          ; preds = %.noexc24, %90
+  %93 = landingpad { ptr, i32 }
           cleanup
   br label %98
 
 _ZN11flatbuffers21FlatBufferBuilderImplILb0EE26CreateVectorOfSortedTablesIN10reflection8KeyValueESaINS_6OffsetIS4_EEEEENS5_INS_6VectorINS5_IT_EEjEEEEPSt6vectorISA_T0_E.exit: ; preds = %._crit_edge, %.noexc24
   %.sroa.046.0 = phi i32 [ %92, %.noexc24 ], [ 0, %._crit_edge ]
   %.not.i.i.i26 = icmp eq ptr %.sroa.037.1, null
-  br i1 %.not.i.i.i26, label %_ZNSt6vectorIN11flatbuffers6OffsetIN10reflection8KeyValueEEESaIS4_EED2Ev.exit, label %95
+  br i1 %.not.i.i.i26, label %_ZNSt6vectorIN11flatbuffers6OffsetIN10reflection8KeyValueEEESaIS4_EED2Ev.exit, label %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE26CreateVectorOfSortedTablesIN10reflection8KeyValueESaINS_6OffsetIS4_EEEEENS5_INS_6VectorINS5_IT_EEjEEEEPSt6vectorISA_T0_E.exit.thread97
 
-95:                                               ; preds = %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE26CreateVectorOfSortedTablesIN10reflection8KeyValueESaINS_6OffsetIS4_EEEEENS5_INS_6VectorINS5_IT_EEjEEEEPSt6vectorISA_T0_E.exit
+_ZN11flatbuffers21FlatBufferBuilderImplILb0EE26CreateVectorOfSortedTablesIN10reflection8KeyValueESaINS_6OffsetIS4_EEEEENS5_INS_6VectorINS5_IT_EEjEEEEPSt6vectorISA_T0_E.exit.thread97: ; preds = %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE26CreateVectorOfSortedTablesIN10reflection8KeyValueESaINS_6OffsetIS4_EEEEENS5_INS_6VectorINS5_IT_EEjEEEEPSt6vectorISA_T0_E.exit
   %96 = ptrtoint ptr %.sroa.15.1 to i64
   %97 = sub i64 %96, %13
   call void @_ZdlPvm(ptr noundef nonnull %.sroa.037.1, i64 noundef %97) #36
   br label %_ZNSt6vectorIN11flatbuffers6OffsetIN10reflection8KeyValueEEESaIS4_EED2Ev.exit
 
-_ZNSt6vectorIN11flatbuffers6OffsetIN10reflection8KeyValueEEESaIS4_EED2Ev.exit: ; preds = %3, %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE26CreateVectorOfSortedTablesIN10reflection8KeyValueESaINS_6OffsetIS4_EEEEENS5_INS_6VectorINS5_IT_EEjEEEEPSt6vectorISA_T0_E.exit, %95
+_ZNSt6vectorIN11flatbuffers6OffsetIN10reflection8KeyValueEEESaIS4_EED2Ev.exit: ; preds = %3, %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE26CreateVectorOfSortedTablesIN10reflection8KeyValueESaINS_6OffsetIS4_EEEEENS5_INS_6VectorINS5_IT_EEjEEEEPSt6vectorISA_T0_E.exit, %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE26CreateVectorOfSortedTablesIN10reflection8KeyValueESaINS_6OffsetIS4_EEEEENS5_INS_6VectorINS5_IT_EEjEEEEPSt6vectorISA_T0_E.exit.thread97
   %.sroa.046.096 = phi i32 [ %.sroa.046.0, %95 ], [ %.sroa.046.0, %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE26CreateVectorOfSortedTablesIN10reflection8KeyValueESaINS_6OffsetIS4_EEEEENS5_INS_6VectorINS5_IT_EEjEEEEPSt6vectorISA_T0_E.exit ], [ 0, %3 ]
   ret i32 %.sroa.046.096
 
-98:                                               ; preds = %.loopexit, %.loopexit.split-lp, %87, %85, %93
+96:                                               ; preds = %.loopexit, %.loopexit.split-lp, %87, %85, %93
   %.sroa.15.062 = phi ptr [ %.sroa.15.1, %93 ], [ %.sroa.15.065, %87 ], [ %.sroa.15.065, %85 ], [ %.sroa.15.065.lcssa72, %.loopexit ], [ %.sroa.10.067, %.loopexit.split-lp ]
-  %.sroa.037.052 = phi ptr [ %.sroa.037.1, %93 ], [ %.sroa.037.068, %87 ], [ %.sroa.037.068, %85 ], [ %.sroa.037.068, %.loopexit ], [ %.sroa.037.068, %.loopexit.split-lp ]
+  %.pn.pn.pn.pn = phi ptr [ %.sroa.037.1, %93 ], [ %.sroa.037.068, %87 ], [ %.sroa.037.068, %85 ], [ %.sroa.037.068, %.loopexit ], [ %.sroa.037.068, %.loopexit.split-lp ]
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %94, %93 ], [ %88, %87 ], [ %86, %85 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %.not.i.i.i27 = icmp eq ptr %.sroa.037.052, null
   br i1 %.not.i.i.i27, label %_ZNSt6vectorIN11flatbuffers6OffsetIN10reflection8KeyValueEEESaIS4_EED2Ev.exit28, label %99
 
-99:                                               ; preds = %98
+99: ; preds = %96
   %100 = ptrtoint ptr %.sroa.15.062 to i64
   %101 = ptrtoint ptr %.sroa.037.052 to i64
   %102 = sub i64 %100, %101
   call void @_ZdlPvm(ptr noundef nonnull %.sroa.037.052, i64 noundef %102) #36
   br label %_ZNSt6vectorIN11flatbuffers6OffsetIN10reflection8KeyValueEEESaIS4_EED2Ev.exit28
 
-_ZNSt6vectorIN11flatbuffers6OffsetIN10reflection8KeyValueEEESaIS4_EED2Ev.exit28: ; preds = %98, %99
+_ZNSt6vectorIN11flatbuffers6OffsetIN10reflection8KeyValueEEESaIS4_EED2Ev.exit28: ; preds = %96, %99
   resume { ptr, i32 } %.pn.pn.pn.pn
 }
 

@@ -1066,15 +1066,15 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %_ZNSt6vector
   store float 0.000000e+00, ptr %254, align 4, !tbaa !45
   %255 = add nsw i64 %251, -1
   %256 = icmp eq i64 %255, 0
-  br i1 %256, label %.lr.ph.preheader.i, label %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i
+  br i1 %256, label %.lr.ph.i.preheader, label %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i
 
 _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i: ; preds = %.noexc158
   %257 = getelementptr i8, ptr %254, i64 4
   %.idx.i.i.i.i.i.i.i.i = shl nuw nsw i64 %255, 2
   call void @llvm.memset.p0.i64(ptr align 4 %257, i8 0, i64 %.idx.i.i.i.i.i.i.i.i, i1 false), !tbaa !45
-  br label %.lr.ph.preheader.i
+  br label %.lr.ph.i.preheader
 
-.lr.ph.preheader.i:                               ; preds = %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i, %.noexc158
+.lr.ph.i.preheader:                               ; preds = %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i, %.noexc158
   %umax.i = call i64 @llvm.umax.i64(i64 %251, i64 1)
   br label %.lr.ph.i
 
@@ -1416,14 +1416,14 @@ _ZNK4ncnn3Mat5emptyEv.exit142:                    ; preds = %396
   br i1 %.not.i.i.i159, label %_ZNSt6vectorImSaImEED2Ev.exit, label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %.noexc140, %.critedge
-  %.0370 = phi i32 [ %.0, %.critedge ], [ 0, %.noexc140 ]
+  %.0369 = phi i32 [ %.0, %.critedge ], [ 0, %.noexc140 ]
   %416 = ptrtoint ptr %.sroa.19203.4 to i64
   %417 = sub i64 %416, %348
   call void @_ZdlPvm(ptr noundef nonnull %.sroa.0193.4, i64 noundef %417) #21
   br label %_ZNSt6vectorImSaImEED2Ev.exit
 
 _ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %.critedge, %.critedge.thread
-  %.0371 = phi i32 [ %.0, %.critedge ], [ %.0370, %.critedge.thread ]
+  %.0370 = phi i32 [ %.0, %.critedge ], [ %.0369, %.critedge.thread ]
   %418 = load ptr, ptr %12, align 8, !tbaa !77
   %.not.i.i.i160 = icmp eq ptr %418, null
   br i1 %.not.i.i.i160, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %419
@@ -1498,7 +1498,7 @@ _ZN4ncnn3MatD2Ev.exit97:                          ; preds = %433, %_ZNSt6vectorI
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  ret i32 %.0371
+  ret i32 %.0370
 
 .body:                                            ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit46.i, %370, %409
   %.sroa.0193.0 = phi ptr [ %.sroa.0193.1, %_ZNSt6vectorIfSaIfEED2Ev.exit46.i ], [ %.sroa.0193.4, %409 ], [ %.sroa.0193.4, %370 ]

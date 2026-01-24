@@ -1026,8 +1026,8 @@ Fraig_UtilInfoAlloc.exit:                         ; preds = %20, %1
   %indvars.iv61 = phi i64 [ 0, %..preheader_crit_edge.us.us ], [ %indvars.iv.next62, %40 ]
   %41 = getelementptr inbounds nuw i32, ptr %48, i64 %indvars.iv61
   %42 = load i32, ptr %41, align 4, !tbaa !119
-  %gep72 = getelementptr inbounds nuw i32, ptr %invariant.gep71, i64 %indvars.iv61
-  store i32 %42, ptr %gep72, align 4, !tbaa !119
+  %gep73 = getelementptr inbounds nuw i32, ptr %invariant.gep72, i64 %indvars.iv61
+  store i32 %42, ptr %gep73, align 4, !tbaa !119
   %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
   %exitcond65.not = icmp eq i64 %indvars.iv.next62, %wide.trip.count64
   br i1 %exitcond65.not, label %._crit_edge.us.us, label %40, !llvm.loop !120
@@ -1045,7 +1045,7 @@ Fraig_UtilInfoAlloc.exit:                         ; preds = %20, %1
 ..preheader_crit_edge.us.us:                      ; preds = %43
   %47 = getelementptr inbounds nuw i8, ptr %35, i64 112
   %48 = load ptr, ptr %47, align 8, !tbaa !122
-  %invariant.gep71 = getelementptr inbounds nuw i32, ptr %37, i64 %33
+  %invariant.gep72 = getelementptr inbounds nuw i32, ptr %37, i64 %33
   br label %40
 
 ._crit_edge.us.us:                                ; preds = %40

@@ -1319,9 +1319,9 @@ _ZNSt6vectorIdSaIdEEC2EmRKdRKS0_.exit:            ; preds = %.noexc17, %_ZNSt6ve
   %.not = icmp eq ptr %5, %6
   %.not32 = icmp eq ptr %12, %13
   %or.cond = or i1 %.not, %.not32
-  br i1 %or.cond, label %._crit_edge31, label %.preheader.us.preheader
+  br i1 %or.cond, label %._crit_edge31, label %.preheader.us
 
-.preheader.us.preheader:                          ; preds = %_ZNSt6vectorIdSaIdEEC2EmRKdRKS0_.exit
+.preheader.us:                                    ; preds = %_ZNSt6vectorIdSaIdEEC2EmRKdRKS0_.exit
   %umax = tail call i64 @llvm.umax.i64(i64 %17, i64 1)
   %umax34 = tail call i64 @llvm.umax.i64(i64 %10, i64 1)
   br label %.preheader.us

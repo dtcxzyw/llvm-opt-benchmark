@@ -2132,14 +2132,14 @@ _ZN22verification_type_info7set_bciEt.exit:       ; preds = %248, %247, %236, %.
   br i1 %.not166, label %.thread230, label %.lr.ph155.preheader
 
 .lr.ph155.preheader:                              ; preds = %253
-  %254 = getelementptr inbounds nuw i8, ptr %.071.lcssa, i64 2
+  %256 = getelementptr inbounds nuw i8, ptr %.071.lcssa, i64 2
   %255 = call noundef i16 @llvm.bswap.i16(i16 %.0.i.i.i.i97)
   %256 = zext i16 %255 to i32
   br label %.lr.ph155
 
 .lr.ph155:                                        ; preds = %.lr.ph155.preheader, %_ZN22verification_type_info7set_bciEt.exit100
   %.0153 = phi i32 [ %274, %_ZN22verification_type_info7set_bciEt.exit100 ], [ 0, %.lr.ph155.preheader ]
-  %.172152 = phi ptr [ %273, %_ZN22verification_type_info7set_bciEt.exit100 ], [ %254, %.lr.ph155.preheader ]
+  %.172152 = phi ptr [ %273, %_ZN22verification_type_info7set_bciEt.exit100 ], [ %256, %.lr.ph155.preheader ]
   %257 = load i8, ptr %.172152, align 1
   %258 = icmp eq i8 %257, 8
   br i1 %258, label %259, label %_ZN22verification_type_info7set_bciEt.exit100
@@ -2254,15 +2254,15 @@ thread-pre-split.thread248:                       ; preds = %thread-pre-split
   %304 = getelementptr inbounds nuw i8, ptr %.168, i64 3
   %.0.i.i.i.i.i.i104 = load i16, ptr %304, align 1
   %.not.i.i105 = icmp eq i16 %.0.i.i.i.i.i.i104, 0
-  br i1 %.not.i.i105, label %_ZNK10full_frame13end_of_localsEv.exit.thread.i, label %.lr.ph.preheader.i.i
+  br i1 %.not.i.i105, label %_ZNK10full_frame13end_of_localsEv.exit.thread.i, label %.lr.ph.i.i
 
 _ZNK10full_frame13end_of_localsEv.exit.thread.i:  ; preds = %.thread230
-  %.0.i.i.i.i315.i = load i16, ptr %303, align 1
-  %305 = call noundef i16 @llvm.bswap.i16(i16 %.0.i.i.i.i315.i)
-  %306 = getelementptr inbounds nuw i8, ptr %.168, i64 7
+  %.0.i.i.i.i312.i = load i16, ptr %303, align 1
+  %307 = call noundef i16 @llvm.bswap.i16(i16 %.0.i.i.i.i312.i)
+  %308 = getelementptr inbounds nuw i8, ptr %.168, i64 7
   br label %.preheader.i.i106
 
-.lr.ph.preheader.i.i:                             ; preds = %.thread230
+.lr.ph.i.i:                                       ; preds = %.thread230
   %307 = call noundef i16 @llvm.bswap.i16(i16 %.0.i.i.i.i.i.i104)
   %308 = zext i16 %307 to i32
   br label %.lr.ph.i.i
@@ -2289,12 +2289,12 @@ _ZNK10full_frame13end_of_localsEv.exit.thread.i:  ; preds = %.thread230
   br label %.preheader.i.i106
 
 .preheader.i.i106:                                ; preds = %.preheader.i.i106.loopexit, %_ZNK10full_frame13end_of_localsEv.exit.thread.i
-  %315 = phi ptr [ %306, %_ZNK10full_frame13end_of_localsEv.exit.thread.i ], [ %314, %.preheader.i.i106.loopexit ]
-  %.in.i = phi i16 [ %305, %_ZNK10full_frame13end_of_localsEv.exit.thread.i ], [ %313, %.preheader.i.i106.loopexit ]
-  %.0.i.i.i.i316.i = phi i16 [ %.0.i.i.i.i315.i, %_ZNK10full_frame13end_of_localsEv.exit.thread.i ], [ %.0.i.i.i.i3.i, %.preheader.i.i106.loopexit ]
+  %315 = phi ptr [ %308, %_ZNK10full_frame13end_of_localsEv.exit.thread.i ], [ %314, %.preheader.i.i106.loopexit ]
+  %.in.i = phi i16 [ %307, %_ZNK10full_frame13end_of_localsEv.exit.thread.i ], [ %313, %.preheader.i.i106.loopexit ]
+  %.0.i.i.i.i313.i = phi i16 [ %.0.i.i.i.i312.i, %_ZNK10full_frame13end_of_localsEv.exit.thread.i ], [ %.0.i.i.i.i3.i, %.preheader.i.i106.loopexit ]
   %.016.lcssa.i.i = phi i64 [ 7, %_ZNK10full_frame13end_of_localsEv.exit.thread.i ], [ %319, %.preheader.i.i106.loopexit ]
   %316 = zext i16 %.in.i to i32
-  %.not6.i = icmp eq i16 %.0.i.i.i.i316.i, 0
+  %.not6.i = icmp eq i16 %.0.i.i.i.i313.i, 0
   br i1 %.not6.i, label %_ZNK15stack_map_frame4nextEv.exit, label %.lr.ph28.i.i
 
 .lr.ph.i4.i:                                      ; preds = %.lr.ph.i4.i, %.lr.ph.i4.preheader.i

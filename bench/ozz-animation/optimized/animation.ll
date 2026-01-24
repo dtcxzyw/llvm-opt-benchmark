@@ -881,8 +881,8 @@ _ZN3ozz2io8OArchivelsINS0_8internal5ArrayIcEEEEvRKT_.exit: ; preds = %.lr.ph.i.i
   %193 = call noundef i64 %192(ptr noundef nonnull align 8 dereferenceable(8) %189, ptr noundef nonnull %6, i64 noundef 4)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %194 = add nuw i64 %.0.i5.i.i72, 1
-  %exitcond113.not = icmp eq i64 %194, %.sroa.26.0.copyload
-  br i1 %exitcond113.not, label %_ZN3ozz2io8OArchivelsINS0_8internal5ArrayIfEEEEvRKT_.exit, label %.lr.ph.i.i71, !llvm.loop !76
+  %exitcond109.not = icmp eq i64 %194, %.sroa.26.0.copyload
+  br i1 %exitcond109.not, label %_ZN3ozz2io8OArchivelsINS0_8internal5ArrayIfEEEEvRKT_.exit, label %.lr.ph.i.i71, !llvm.loop !76
 
 195:                                              ; preds = %_ZN3ozz2io8OArchivelsINS0_8internal5ArrayIcEEEEvRKT_.exit
   %196 = shl i64 %.sroa.26.0.copyload, 2
@@ -904,9 +904,9 @@ _ZN3ozz2io8OArchivelsINS0_8internal5ArrayIfEEEEvRKT_.exit: ; preds = %.lr.ph.i.i
 
 .preheader.i.i.i.i.i:                             ; preds = %_ZN3ozz2io8OArchivelsINS0_8internal5ArrayIfEEEEvRKT_.exit
   %.not8.i.i.i.i.i = icmp eq i64 %.sroa.24.0.copyload, 0
-  br i1 %.not8.i.i.i.i.i, label %_ZN3ozz2io8OArchivelsINS0_8internal5ArrayINS_9animation8internal9Float3KeyEEEEEvRKT_.exit, label %.lr.ph.i.i.preheader.i.i.i
+  br i1 %.not8.i.i.i.i.i, label %_ZN3ozz2io8OArchivelsINS0_8internal5ArrayINS_9animation8internal9Float3KeyEEEEEvRKT_.exit, label %.lr.ph.i.i.i.i.i
 
-.lr.ph.i.i.preheader.i.i.i:                       ; preds = %.preheader.i.i.i.i.i
+.lr.ph.i.i.i.i.i:                                 ; preds = %.preheader.i.i.i.i.i
   %umax.i.i.i = call i64 @llvm.umax.i64(i64 %202, i64 1)
   br label %.lr.ph.i.i.i.i.i
 
@@ -956,25 +956,25 @@ _ZN3ozz2io8OArchivelsINS0_8internal5ArrayINS_9animation8internal9Float3KeyEEEEEv
   %umax.i.i.i76 = call i64 @llvm.umax.i64(i64 %222, i64 1)
   br label %.lr.ph.i.i.i.i.i77
 
-.lr.ph.i.i.i.i.i77:                               ; preds = %.lr.ph.i.i.i.i.i77, %.lr.ph.i.i.preheader.i.i.i75
-  %.0.i5.i.i.i.i.i78 = phi i64 [ %234, %.lr.ph.i.i.i.i.i77 ], [ 0, %.lr.ph.i.i.preheader.i.i.i75 ]
-  %225 = getelementptr inbounds nuw i16, ptr %.sroa.01.0.copyload, i64 %.0.i5.i.i.i.i.i78
+.lr.ph.i.i.i.i.i75:                               ; preds = %.lr.ph.i.i.i.i.i77, %.lr.ph.i.i.preheader.i.i.i75
+  %.0.i5.i.i.i.i.i76 = phi i64 [ %234, %.lr.ph.i.i.i.i.i77 ], [ 0, %.lr.ph.i.i.preheader.i.i.i75 ]
+  %225 = getelementptr inbounds nuw i16, ptr %.sroa.01.0.copyload, i64 %.0.i5.i.i.i.i.i76
   %226 = load i16, ptr %225, align 2, !tbaa !77
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %227 = load i8, ptr %22, align 8, !tbaa !65, !range !69, !noundef !70
   %228 = trunc nuw i8 %227 to i1
-  %.sroa.0.0.insert.insert.i.i.i.i.i.i79 = call i16 @llvm.bswap.i16(i16 %226)
-  %spec.select.i.i.i.i.i.i80 = select i1 %228, i16 %.sroa.0.0.insert.insert.i.i.i.i.i.i79, i16 %226
-  store i16 %spec.select.i.i.i.i.i.i80, ptr %4, align 2, !tbaa !77
+  %.sroa.0.0.insert.insert.i.i.i.i.i.i77 = call i16 @llvm.bswap.i16(i16 %226)
+  %spec.select.i.i.i.i.i.i78 = select i1 %228, i16 %.sroa.0.0.insert.insert.i.i.i.i.i.i77, i16 %226
+  store i16 %spec.select.i.i.i.i.i.i78, ptr %4, align 2, !tbaa !77
   %229 = load ptr, ptr %1, align 8, !tbaa !71
   %230 = load ptr, ptr %229, align 8, !tbaa !48
   %231 = getelementptr inbounds nuw i8, ptr %230, i64 16
   %232 = load ptr, ptr %231, align 8
   %233 = call noundef i64 %232(ptr noundef nonnull align 8 dereferenceable(8) %229, ptr noundef nonnull %4, i64 noundef 2)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %234 = add nuw i64 %.0.i5.i.i.i.i.i78, 1
-  %exitcond.not.i.i.i81 = icmp eq i64 %234, %umax.i.i.i76
-  br i1 %exitcond.not.i.i.i81, label %_ZN3ozz2io8OArchivelsINS0_8internal5ArrayINS_9animation8internal13QuaternionKeyEEEEEvRKT_.exit, label %.lr.ph.i.i.i.i.i77, !llvm.loop !79
+  %234 = add nuw i64 %.0.i5.i.i.i.i.i76, 1
+  %exitcond.not.i.i.i79 = icmp eq i64 %234, %umax.i.i.i76
+  br i1 %exitcond.not.i.i.i79, label %_ZN3ozz2io8OArchivelsINS0_8internal5ArrayINS_9animation8internal13QuaternionKeyEEEEEvRKT_.exit, label %.lr.ph.i.i.i.i.i75, !llvm.loop !79
 
 235:                                              ; preds = %_ZN3ozz2io8OArchivelsINS0_8internal5ArrayINS_9animation8internal9Float3KeyEEEEEvRKT_.exit
   %236 = mul i64 %.sroa.22.0.copyload, 6
@@ -985,7 +985,7 @@ _ZN3ozz2io8OArchivelsINS0_8internal5ArrayINS_9animation8internal9Float3KeyEEEEEv
   %241 = call noundef i64 %240(ptr noundef nonnull align 8 dereferenceable(8) %237, ptr noundef %.sroa.01.0.copyload, i64 noundef %236)
   br label %_ZN3ozz2io8OArchivelsINS0_8internal5ArrayINS_9animation8internal13QuaternionKeyEEEEEvRKT_.exit
 
-_ZN3ozz2io8OArchivelsINS0_8internal5ArrayINS_9animation8internal13QuaternionKeyEEEEEvRKT_.exit: ; preds = %.lr.ph.i.i.i.i.i77, %.preheader.i.i.i.i.i73, %235
+_ZN3ozz2io8OArchivelsINS0_8internal5ArrayINS_9animation8internal13QuaternionKeyEEEEEvRKT_.exit: ; preds = %.lr.ph.i.i.i.i.i75, %.preheader.i.i.i.i.i73, %235
   call void @_ZN3ozz2io6ExternINS_9animation9Animation14TKeyframesCtrlILb0EEEE4SaveERNS0_8OArchiveEPKS5_m(ptr noundef nonnull align 8 dereferenceable(9) %1, ptr noundef nonnull align 8 dereferenceable(68) %142, i64 noundef 1)
   %.sroa.0.0.copyload = load ptr, ptr %89, align 8, !tbaa !36
   %.sroa.2.0.copyload = load i64, ptr %90, align 8, !tbaa !16
@@ -998,29 +998,29 @@ _ZN3ozz2io8OArchivelsINS0_8internal5ArrayINS_9animation8internal13QuaternionKeyE
   %.not8.i.i.i.i.i83 = icmp eq i64 %.sroa.2.0.copyload, 0
   br i1 %.not8.i.i.i.i.i83, label %_ZN3ozz2io8OArchivelsINS0_8internal5ArrayINS_9animation8internal9Float3KeyEEEEEvRKT_.exit91, label %.lr.ph.i.i.preheader.i.i.i84
 
-.lr.ph.i.i.preheader.i.i.i84:                     ; preds = %.preheader.i.i.i.i.i82
+.preheader.i.i.i.i.i80:                           ; preds = %.preheader.i.i.i.i.i82
   %umax.i.i.i85 = call i64 @llvm.umax.i64(i64 %242, i64 1)
-  br label %.lr.ph.i.i.i.i.i86
+  br label %.lr.ph.i.i.i.i.i82
 
-.lr.ph.i.i.i.i.i86:                               ; preds = %.lr.ph.i.i.i.i.i86, %.lr.ph.i.i.preheader.i.i.i84
-  %.0.i5.i.i.i.i.i87 = phi i64 [ %254, %.lr.ph.i.i.i.i.i86 ], [ 0, %.lr.ph.i.i.preheader.i.i.i84 ]
-  %245 = getelementptr inbounds nuw i16, ptr %.sroa.0.0.copyload, i64 %.0.i5.i.i.i.i.i87
+.lr.ph.i.i.i.i.i82:                               ; preds = %.lr.ph.i.i.i.i.i86, %.preheader.i.i.i.i.i80
+  %.0.i5.i.i.i.i.i83 = phi i64 [ %254, %.lr.ph.i.i.i.i.i86 ], [ 0, %.lr.ph.i.i.preheader.i.i.i84 ]
+  %245 = getelementptr inbounds nuw i16, ptr %.sroa.0.0.copyload, i64 %.0.i5.i.i.i.i.i83
   %246 = load i16, ptr %245, align 2, !tbaa !77
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %247 = load i8, ptr %22, align 8, !tbaa !65, !range !69, !noundef !70
   %248 = trunc nuw i8 %247 to i1
-  %.sroa.0.0.insert.insert.i.i.i.i.i.i88 = call i16 @llvm.bswap.i16(i16 %246)
-  %spec.select.i.i.i.i.i.i89 = select i1 %248, i16 %.sroa.0.0.insert.insert.i.i.i.i.i.i88, i16 %246
-  store i16 %spec.select.i.i.i.i.i.i89, ptr %3, align 2, !tbaa !77
+  %.sroa.0.0.insert.insert.i.i.i.i.i.i84 = call i16 @llvm.bswap.i16(i16 %246)
+  %spec.select.i.i.i.i.i.i85 = select i1 %248, i16 %.sroa.0.0.insert.insert.i.i.i.i.i.i84, i16 %246
+  store i16 %spec.select.i.i.i.i.i.i85, ptr %3, align 2, !tbaa !77
   %249 = load ptr, ptr %1, align 8, !tbaa !71
   %250 = load ptr, ptr %249, align 8, !tbaa !48
   %251 = getelementptr inbounds nuw i8, ptr %250, i64 16
   %252 = load ptr, ptr %251, align 8
   %253 = call noundef i64 %252(ptr noundef nonnull align 8 dereferenceable(8) %249, ptr noundef nonnull %3, i64 noundef 2)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %254 = add nuw i64 %.0.i5.i.i.i.i.i87, 1
-  %exitcond.not.i.i.i90 = icmp eq i64 %254, %umax.i.i.i85
-  br i1 %exitcond.not.i.i.i90, label %_ZN3ozz2io8OArchivelsINS0_8internal5ArrayINS_9animation8internal9Float3KeyEEEEEvRKT_.exit91, label %.lr.ph.i.i.i.i.i86, !llvm.loop !79
+  %254 = add nuw i64 %.0.i5.i.i.i.i.i83, 1
+  %exitcond.not.i.i.i86 = icmp eq i64 %254, %umax.i.i.i85
+  br i1 %exitcond.not.i.i.i86, label %_ZN3ozz2io8OArchivelsINS0_8internal5ArrayINS_9animation8internal9Float3KeyEEEEEvRKT_.exit87, label %.lr.ph.i.i.i.i.i82, !llvm.loop !79
 
 255:                                              ; preds = %_ZN3ozz2io8OArchivelsINS0_8internal5ArrayINS_9animation8internal13QuaternionKeyEEEEEvRKT_.exit
   %256 = mul i64 %.sroa.2.0.copyload, 6
@@ -1029,9 +1029,9 @@ _ZN3ozz2io8OArchivelsINS0_8internal5ArrayINS_9animation8internal13QuaternionKeyE
   %259 = getelementptr inbounds nuw i8, ptr %258, i64 16
   %260 = load ptr, ptr %259, align 8
   %261 = call noundef i64 %260(ptr noundef nonnull align 8 dereferenceable(8) %257, ptr noundef %.sroa.0.0.copyload, i64 noundef %256)
-  br label %_ZN3ozz2io8OArchivelsINS0_8internal5ArrayINS_9animation8internal9Float3KeyEEEEEvRKT_.exit91
+  br label %_ZN3ozz2io8OArchivelsINS0_8internal5ArrayINS_9animation8internal9Float3KeyEEEEEvRKT_.exit87
 
-_ZN3ozz2io8OArchivelsINS0_8internal5ArrayINS_9animation8internal9Float3KeyEEEEEvRKT_.exit91: ; preds = %.lr.ph.i.i.i.i.i86, %.preheader.i.i.i.i.i82, %255
+_ZN3ozz2io8OArchivelsINS0_8internal5ArrayINS_9animation8internal9Float3KeyEEEEEvRKT_.exit87: ; preds = %.lr.ph.i.i.i.i.i82, %.preheader.i.i.i.i.i82, %255
   ret void
 }
 
