@@ -5974,13 +5974,13 @@ _ZN6hermes2vm15HandleRootOwner10makeHandleINS0_11HermesValueEEENS0_6HandleIT_EEO
 if.end35:                                         ; preds = %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_11HermesValueEEENS0_6HandleIT_EEONS0_12PseudoHandleIS5_EE.exit
   %argCount_.i = getelementptr inbounds nuw i8, ptr %args, i64 8
   %15 = load i32, ptr %argCount_.i, align 8
+  %conv = zext i32 %15 to i64
   %cmp.not = icmp eq i32 %15, 0
+  %.pre = add i64 %14, %conv
   br i1 %cmp.not, label %if.end203, label %if.then38
 
 if.then38:                                        ; preds = %if.end35
-  %conv = zext i32 %15 to i64
-  %add = add i64 %14, %conv
-  %cmp39 = icmp ugt i64 %add, 9007199254740990
+  %cmp39 = icmp ugt i64 %.pre, 9007199254740990
   br i1 %cmp39, label %if.then41, label %if.end43
 
 if.then41:                                        ; preds = %if.then38
@@ -6253,8 +6253,7 @@ if.end192:                                        ; preds = %for.body
   br i1 %cmp.i.i.i.not, label %if.end203, label %for.body
 
 if.end203:                                        ; preds = %if.end192, %if.end35, %while.end
-  %add204.pre-phi = phi i64 [ %add, %while.end ], [ %14, %if.end35 ], [ %add, %if.end192 ]
-  %conv.i161 = uitofp i64 %add204.pre-phi to double
+  %conv.i161 = uitofp i64 %.pre to double
   %62 = bitcast double %conv.i161 to i64
   %63 = load ptr, ptr %topGCScope_.i, align 8
   %next_.i.i.i.i.i.i.i163 = getelementptr inbounds nuw i8, ptr %63, i64 192

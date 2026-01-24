@@ -7451,12 +7451,13 @@ Vec_IntPush.exit125:                              ; preds = %.Vec_IntGrow.exit10
 
 .lr.ph172.preheader:                              ; preds = %.lr.ph162
   call fastcc void @Vec_IntSelectSortCost2Reverse(ptr noundef %5, i32 noundef %2, ptr noundef %4)
-  %341 = zext nneg i32 %10 to i64
-  %342 = zext nneg i32 %8 to i64
-  %343 = add nuw nsw i32 %6, 1
+  %341 = sext i32 %10 to i64
+  %342 = sext i32 %8 to i64
+  %smax251 = tail call i32 @llvm.smax.i32(i32 %6, i32 0)
+  %343 = add nuw nsw i32 %smax251, 1
   %wide.trip.count252 = zext nneg i32 %343 to i64
-  %wide.trip.count246 = zext nneg i32 %8 to i64
-  %wide.trip.count239 = zext nneg i32 %10 to i64
+  %wide.trip.count246 = zext i32 %8 to i64
+  %wide.trip.count239 = zext i32 %10 to i64
   br label %.lr.ph172
 
 .loopexit130:                                     ; preds = %.loopexit129, %.lr.ph172
@@ -7466,12 +7467,13 @@ Vec_IntPush.exit125:                              ; preds = %.Vec_IntGrow.exit10
   br i1 %exitcond253.not, label %.lr.ph184.preheader, label %.lr.ph172, !llvm.loop !207
 
 .lr.ph184.preheader:                              ; preds = %.loopexit130
-  %344 = zext nneg i32 %10 to i64
-  %345 = zext nneg i32 %8 to i64
-  %346 = add nuw nsw i32 %6, 1
+  %344 = sext i32 %10 to i64
+  %345 = sext i32 %8 to i64
+  %smax284 = tail call i32 @llvm.smax.i32(i32 %6, i32 0)
+  %346 = add nuw nsw i32 %smax284, 1
   %wide.trip.count285 = zext nneg i32 %346 to i64
-  %wide.trip.count279 = zext nneg i32 %8 to i64
-  %wide.trip.count272 = zext nneg i32 %10 to i64
+  %wide.trip.count279 = zext i32 %8 to i64
+  %wide.trip.count272 = zext i32 %10 to i64
   %wide.trip.count263 = zext nneg i32 %2 to i64
   br label %.lr.ph184
 
@@ -7480,7 +7482,7 @@ Vec_IntPush.exit125:                              ; preds = %.Vec_IntGrow.exit10
   %indvars.iv241 = phi i64 [ 1, %.lr.ph172.preheader ], [ %indvars.iv.next242, %.loopexit130 ]
   %indvars.iv232 = phi i64 [ 2, %.lr.ph172.preheader ], [ %indvars.iv.next233, %.loopexit130 ]
   %indvars.iv.next249 = add nuw nsw i64 %indvars.iv248, 1
-  %347 = icmp samesign ult i64 %indvars.iv.next249, %342
+  %347 = icmp slt i64 %indvars.iv.next249, %342
   br i1 %347, label %.lr.ph168, label %.loopexit130
 
 .lr.ph168:                                        ; preds = %.lr.ph172
@@ -7496,7 +7498,7 @@ Vec_IntPush.exit125:                              ; preds = %.Vec_IntGrow.exit10
   %indvars.iv243 = phi i64 [ %indvars.iv241, %.lr.ph168 ], [ %indvars.iv.next244, %.loopexit129 ]
   %indvars.iv234 = phi i64 [ %indvars.iv232, %.lr.ph168 ], [ %indvars.iv.next235, %.loopexit129 ]
   %indvars.iv.next244 = add nuw nsw i64 %indvars.iv243, 1
-  %350 = icmp samesign ult i64 %indvars.iv.next244, %341
+  %350 = icmp slt i64 %indvars.iv.next244, %341
   br i1 %350, label %.lr.ph165, label %.loopexit129
 
 .lr.ph165:                                        ; preds = %349
@@ -7549,7 +7551,7 @@ Vec_IntPush.exit125:                              ; preds = %.Vec_IntGrow.exit10
   %indvars.iv265 = phi i64 [ 2, %.lr.ph184.preheader ], [ %indvars.iv.next266, %.loopexit127 ]
   %indvars.iv254 = phi i64 [ 3, %.lr.ph184.preheader ], [ %indvars.iv.next255, %.loopexit127 ]
   %indvars.iv.next282 = add nuw nsw i64 %indvars.iv281, 1
-  %373 = icmp samesign ult i64 %indvars.iv.next282, %345
+  %373 = icmp slt i64 %indvars.iv.next282, %345
   br i1 %373, label %.lr.ph181, label %.loopexit127
 
 .lr.ph181:                                        ; preds = %.lr.ph184
@@ -7567,7 +7569,7 @@ Vec_IntPush.exit125:                              ; preds = %.Vec_IntGrow.exit10
   %indvars.iv267 = phi i64 [ %indvars.iv265, %.lr.ph181 ], [ %indvars.iv.next268, %.loopexit126 ]
   %indvars.iv256 = phi i64 [ %indvars.iv254, %.lr.ph181 ], [ %indvars.iv.next257, %.loopexit126 ]
   %indvars.iv.next277 = add nuw nsw i64 %indvars.iv276, 1
-  %376 = icmp samesign ult i64 %indvars.iv.next277, %344
+  %376 = icmp slt i64 %indvars.iv.next277, %344
   br i1 %376, label %.lr.ph178, label %.loopexit126
 
 .lr.ph178:                                        ; preds = %375

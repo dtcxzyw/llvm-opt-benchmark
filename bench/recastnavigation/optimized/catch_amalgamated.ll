@@ -4522,6 +4522,7 @@ _ZNSt6vectorIdSaIdEE7reserveEm.exit24.thread.i:   ; preds = %_ZNSt12_Vector_base
 _ZNSt6vectorIdSaIdEE5clearEv.exit.us.preheader.i: ; preds = %_ZNSt6vectorIdSaIdEE7reserveEm.exit24.thread.i
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 %26
   %41 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %umax.i = tail call i64 @llvm.umax.i64(i64 %27, i64 1)
   br label %_ZNSt6vectorIdSaIdEE5clearEv.exit.us.i
 
 _ZNSt6vectorIdSaIdEE5clearEv.exit.preheader.i:    ; preds = %_ZNSt6vectorIdSaIdEE7reserveEm.exit24.i
@@ -4658,8 +4659,8 @@ _ZNSt6vectorIdSaIdEE9push_backERKd.exit.us.i:     ; preds = %_ZNSt6vectorIdSaIdE
   %.pn67.us.i = phi ptr [ %86, %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJRKdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i.us.i ], [ %.sroa.9.183.us.i, %72 ]
   %.sroa.048.4.us.i = phi ptr [ %85, %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJRKdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i.us.i ], [ %.sroa.048.284.us.i, %72 ]
   %.sroa.9.4.us.i = getelementptr inbounds nuw i8, ptr %.pn67.us.i, i64 8
-  %91 = add nuw i64 %.01485.us.i, 1
-  %exitcond.not.i = icmp eq i64 %91, %27
+  %91 = add nuw nsw i64 %.01485.us.i, 1
+  %exitcond.not.i = icmp eq i64 %91, %umax.i
   br i1 %exitcond.not.i, label %._crit_edge.us.i, label %69, !llvm.loop !16
 
 ._crit_edge.us.i:                                 ; preds = %_ZNSt6vectorIdSaIdEE9push_backERKd.exit.us.i
@@ -27287,7 +27288,7 @@ define dso_local void @_ZN5Catch11StringMakerIavE7convertB5cxx11Ea(ptr dead_on_u
   %6 = alloca %"class.std::allocator.1", align 1
   %7 = alloca [4 x i8], align 4
   %8 = alloca %"class.std::allocator.1", align 1
-  %9 = sext i8 %1 to i64
+  %9 = zext i8 %1 to i64
   switch i8 %1, label %34 [
     i8 13, label %10
     i8 12, label %16

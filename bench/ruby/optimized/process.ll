@@ -8615,91 +8615,90 @@ maxgroups.exit:                                   ; preds = %RARRAY_LENINT.exit,
   unreachable
 
 34:                                               ; preds = %maxgroups.exit
-  %sext = shl nsw i64 %.0.i.i, 32
   %35 = icmp ult i64 %.0.i.i, 256
-  br i1 %35, label %36, label %39
+  br i1 %35, label %36, label %38
 
 36:                                               ; preds = %34
+  %sext = shl nuw nsw i64 %.0.i.i, 2
   store i64 0, ptr %3, align 8, !tbaa !43
-  %37 = lshr exact i64 %sext, 30
-  %38 = alloca i8, i64 %37, align 16
-  br label %46
+  %37 = alloca i8, i64 %sext, align 16
+  br label %45
 
-39:                                               ; preds = %34
-  %40 = icmp ugt i64 %.0.i.i, 4611686018427387903
-  br i1 %40, label %41, label %rb_alloc_tmp_buffer2.exit, !prof !100
+38:                                               ; preds = %34
+  %39 = icmp ugt i64 %.0.i.i, 4611686018427387903
+  br i1 %39, label %40, label %rb_alloc_tmp_buffer2.exit, !prof !100
 
-41:                                               ; preds = %39
+40:                                               ; preds = %38
   tail call void @ruby_malloc_size_overflow(i64 noundef range(i64 -2147483648, 2147483648) %.0.i.i, i64 noundef range(i64 -2147483648, 2147483648) 4) #30
   unreachable
 
-rb_alloc_tmp_buffer2.exit:                        ; preds = %39
-  %42 = lshr exact i64 %sext, 30
-  %43 = add nuw nsw i64 %42, 7
-  %44 = lshr i64 %43, 3
-  %45 = call noalias nonnull ptr @rb_alloc_tmp_buffer_with_count(ptr noundef nonnull %3, i64 noundef %42, i64 noundef %44) #31
-  br label %46
+rb_alloc_tmp_buffer2.exit:                        ; preds = %38
+  %41 = shl nuw nsw i64 %.0.i.i, 2
+  %42 = add nuw nsw i64 %41, 7
+  %43 = lshr i64 %42, 3
+  %44 = call noalias nonnull ptr @rb_alloc_tmp_buffer_with_count(ptr noundef nonnull %3, i64 noundef %41, i64 noundef %43) #31
+  br label %45
 
-46:                                               ; preds = %rb_alloc_tmp_buffer2.exit, %36
-  %47 = phi ptr [ %38, %36 ], [ %45, %rb_alloc_tmp_buffer2.exit ]
-  %48 = icmp sgt i64 %.0.i.i, 0
-  br i1 %48, label %.lr.ph, label %._crit_edge.thread
+45:                                               ; preds = %rb_alloc_tmp_buffer2.exit, %36
+  %46 = phi ptr [ %37, %36 ], [ %44, %rb_alloc_tmp_buffer2.exit ]
+  %47 = icmp sgt i64 %.0.i.i, 0
+  br i1 %47, label %.lr.ph, label %._crit_edge.thread
 
-.lr.ph:                                           ; preds = %46
-  %49 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %50 = getelementptr inbounds nuw i8, ptr %9, i64 32
+.lr.ph:                                           ; preds = %45
+  %48 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %smax = call i32 @llvm.smax.i32(i32 %22, i32 1)
   %wide.trip.count = zext nneg i32 %smax to i64
-  br label %51
+  br label %50
 
-51:                                               ; preds = %.lr.ph, %RARRAY_AREF.exit
+50:                                               ; preds = %.lr.ph, %RARRAY_AREF.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %RARRAY_AREF.exit ]
-  %52 = load i64, ptr %9, align 8, !tbaa !69
-  %53 = and i64 %52, 8192
-  %.not.i.i20 = icmp eq i64 %53, 0
-  br i1 %.not.i.i20, label %54, label %RARRAY_AREF.exit
+  %51 = load i64, ptr %9, align 8, !tbaa !69
+  %52 = and i64 %51, 8192
+  %.not.i.i20 = icmp eq i64 %52, 0
+  br i1 %.not.i.i20, label %53, label %RARRAY_AREF.exit
 
-54:                                               ; preds = %51
-  %55 = load ptr, ptr %50, align 8, !tbaa !67
+53:                                               ; preds = %50
+  %54 = load ptr, ptr %49, align 8, !tbaa !67
   br label %RARRAY_AREF.exit
 
-RARRAY_AREF.exit:                                 ; preds = %51, %54
-  %.0.i.i21 = phi ptr [ %55, %54 ], [ %49, %51 ]
-  %56 = getelementptr i64, ptr %.0.i.i21, i64 %indvars.iv
-  %57 = load i64, ptr %56, align 8, !tbaa !43
-  %58 = call fastcc i32 @obj2gid(i64 noundef %57, ptr noundef %4)
-  %59 = getelementptr i32, ptr %47, i64 %indvars.iv
-  store i32 %58, ptr %59, align 4, !tbaa !60
+RARRAY_AREF.exit:                                 ; preds = %50, %53
+  %.0.i.i21 = phi ptr [ %54, %53 ], [ %48, %50 ]
+  %55 = getelementptr i64, ptr %.0.i.i21, i64 %indvars.iv
+  %56 = load i64, ptr %55, align 8, !tbaa !43
+  %57 = call fastcc i32 @obj2gid(i64 noundef %56, ptr noundef %4)
+  %58 = getelementptr i32, ptr %46, i64 %indvars.iv
+  store i32 %57, ptr %58, align 4, !tbaa !60
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %51, !llvm.loop !259
+  br i1 %exitcond.not, label %._crit_edge, label %50, !llvm.loop !259
 
 ._crit_edge:                                      ; preds = %RARRAY_AREF.exit
   %.pre = load i64, ptr %4, align 8, !tbaa !43
   %.not = icmp eq i64 %.pre, 0
-  br i1 %.not, label %._crit_edge.thread, label %60
+  br i1 %.not, label %._crit_edge.thread, label %59
 
-60:                                               ; preds = %._crit_edge
-  %61 = call i64 @rb_str_resize(i64 noundef %.pre, i64 noundef 0) #28
+59:                                               ; preds = %._crit_edge
+  %60 = call i64 @rb_str_resize(i64 noundef %.pre, i64 noundef 0) #28
   br label %._crit_edge.thread
 
-._crit_edge.thread:                               ; preds = %46, %._crit_edge, %60
-  %62 = call i32 @setgroups(i64 noundef %.0.i.i, ptr noundef nonnull %47) #28
-  %63 = icmp eq i32 %62, -1
-  br i1 %63, label %64, label %67
+._crit_edge.thread:                               ; preds = %45, %._crit_edge, %59
+  %61 = call i32 @setgroups(i64 noundef %.0.i.i, ptr noundef nonnull %46) #28
+  %62 = icmp eq i32 %61, -1
+  br i1 %62, label %63, label %66
 
-64:                                               ; preds = %._crit_edge.thread
-  %65 = call ptr @rb_errno_ptr() #28
-  %66 = load i32, ptr %65, align 4, !tbaa !60
-  call void @rb_syserr_fail(i32 noundef %66, ptr noundef null) #30
+63:                                               ; preds = %._crit_edge.thread
+  %64 = call ptr @rb_errno_ptr() #28
+  %65 = load i32, ptr %64, align 4, !tbaa !60
+  call void @rb_syserr_fail(i32 noundef %65, ptr noundef null) #30
   unreachable
 
-67:                                               ; preds = %._crit_edge.thread
+66:                                               ; preds = %._crit_edge.thread
   call void @rb_free_tmp_buffer(ptr noundef nonnull %3) #28
-  %68 = call i64 @proc_getgroups(i64 poison)
+  %67 = call i64 @proc_getgroups(i64 poison)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  ret i64 %68
+  ret i64 %67
 }
 
 ; Function Attrs: nounwind sspstrong uwtable

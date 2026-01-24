@@ -491,10 +491,7 @@ _ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit.thread.i.i: ; preds = %_ZNSt6vec
   %26 = ptrtoint ptr %24 to i64
   %27 = ptrtoint ptr %23 to i64
   %28 = sub i64 %26, %27
-  %29 = and i64 %28, 2147483648
-  %30 = icmp eq i64 %29, 0
-  tail call void @llvm.assume(i1 %30)
-  %.sroa.212.8.insert.ext = and i64 %28, 2147483647
+  %.sroa.212.8.insert.ext = and i64 %28, 4294967295
   %.sroa.212.8.insert.insert = or disjoint i64 %.sroa.212.8.insert.ext, 244834610708480
   store ptr %23, ptr %7, align 8
   store i64 %.sroa.212.8.insert.insert, ptr %.sroa.423.0..sroa_idx, align 8
@@ -1174,7 +1171,7 @@ _ZNK8rawspeed10ByteStream10peekBufferEj.exit:     ; preds = %7
   br i1 %.not, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZNK8rawspeed10ByteStream10peekBufferEj.exit
-  %29 = and i64 %17, 2147483644
+  %29 = and i64 %17, 4294967292
   %scevgep.i.i.i = getelementptr i8, ptr %24, i64 %29
   br label %30
 

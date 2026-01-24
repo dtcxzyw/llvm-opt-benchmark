@@ -1131,7 +1131,7 @@ _ZN4core4hash3sip9u8to64_le17ha75b6e91f974688fE.exit.i.i.i: ; preds = %23, %21
   br i1 %106, label %107, label %_ZN4core4hash3sip9u8to64_le17ha75b6e91f974688fE.exit20.i.i.i
 
 107:                                              ; preds = %105
-  %108 = add nsw i64 %.1.i16.i.i.i, %.09.lcssa.i.i.i
+  %108 = add i64 %.1.i16.i.i.i, %.09.lcssa.i.i.i
   %109 = icmp ult i64 %108, 8
   tail call void @llvm.assume(i1 %109)
   %110 = getelementptr inbounds nuw i8, ptr %2, i64 %108
@@ -9554,7 +9554,7 @@ define void @_ZN13mini_lsm_mvcc5table9BlockMeta17decode_block_meta17haf61d2a259e
           cleanup
   br label %"_ZN4core3ptr71drop_in_place$LT$mini_lsm_mvcc..key..Key$LT$bytes..bytes..Bytes$GT$$GT$17h6017671203e4d70dE.exit"
 
-.loopexit.split-lp:                               ; preds = %.invoke, %25, %49, %24
+.loopexit.split-lp:                               ; preds = %.invoke, %24, %49, %23
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr71drop_in_place$LT$mini_lsm_mvcc..key..Key$LT$bytes..bytes..Bytes$GT$$GT$17h6017671203e4d70dE.exit"
@@ -9566,31 +9566,32 @@ define void @_ZN13mini_lsm_mvcc5table9BlockMeta17decode_block_meta17haf61d2a259e
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store ptr %20, ptr %11, align 8, !alias.scope !1866
   store i64 %19, ptr %12, align 8, !alias.scope !1866
-  %21 = zext i32 %18 to i64
-  %22 = add i64 %2, -8
-  %23 = icmp ugt i64 %22, %19
-  br i1 %23, label %24, label %25
+  %21 = add i64 %2, -8
+  %22 = icmp ugt i64 %21, %19
+  br i1 %22, label %23, label %24
 
-24:                                               ; preds = %16
-  invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %22, i64 noundef %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.21ba830f692c8102c13f4b6a0597537d.114) #38
+23:                                               ; preds = %16
+  invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %21, i64 noundef %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.21ba830f692c8102c13f4b6a0597537d.114) #38
           to label %.noexc18 unwind label %.loopexit.split-lp
 
-.noexc18:                                         ; preds = %24
+.noexc18:                                         ; preds = %23
   unreachable
 
-25:                                               ; preds = %16
-  %26 = invoke noundef i32 @_ZN9crc32fast4hash17h6087a78bdf39b11dE(ptr noalias noundef nonnull readonly align 1 %20, i64 noundef %22)
+24:                                               ; preds = %16
+  %25 = invoke noundef i32 @_ZN9crc32fast4hash17h6087a78bdf39b11dE(ptr noalias noundef nonnull readonly align 1 %20, i64 noundef %21)
           to label %.preheader unwind label %.loopexit.split-lp
 
-.preheader:                                       ; preds = %25
+.preheader:                                       ; preds = %24
   %.not52 = icmp eq i32 %17, 0
   br i1 %.not52, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %27 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  %28 = getelementptr inbounds nuw i8, ptr %6, i64 80
-  %29 = getelementptr inbounds nuw i8, ptr %6, i64 40
+  %26 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %6, i64 80
+  %28 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 72
+  %29 = tail call i32 @llvm.umax.i32(i32 %18, i32 1)
+  %umax = zext i32 %29 to i64
   br label %32
 
 ._crit_edge:                                      ; preds = %163, %.preheader
@@ -9626,7 +9627,7 @@ define void @_ZN13mini_lsm_mvcc5table9BlockMeta17decode_block_meta17haf61d2a259e
   %47 = getelementptr inbounds nuw i8, ptr %37, i64 12
   store ptr %47, ptr %11, align 8, !alias.scope !1887
   store i64 %46, ptr %12, align 8, !alias.scope !1887
-  %.not = icmp eq i32 %45, %26
+  %.not = icmp eq i32 %45, %25
   br i1 %.not, label %48, label %49
 
 48:                                               ; preds = %43
@@ -9838,7 +9839,7 @@ common.resume:                                    ; preds = %"_ZN4core3ptr71drop
   store i64 %135, ptr %12, align 8, !alias.scope !1953
   call void @llvm.experimental.noalias.scope.decl(metadata !1956)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 32, i1 false), !alias.scope !1959
-  store i64 %134, ptr %27, align 8, !alias.scope !1961, !noalias !1956
+  store i64 %134, ptr %26, align 8, !alias.scope !1961, !noalias !1956
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.experimental.noalias.scope.decl(metadata !1962)
   %137 = icmp ult i64 %135, 2
@@ -9895,10 +9896,10 @@ common.resume:                                    ; preds = %"_ZN4core3ptr71drop
   store ptr %154, ptr %11, align 8, !alias.scope !1974
   store i64 %153, ptr %12, align 8, !alias.scope !1974
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %29, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull align 8 dereferenceable(40) %9, i64 40, i1 false)
-  store i64 %119, ptr %28, align 8
+  store i64 %119, ptr %27, align 8
   store i64 %152, ptr %.sroa.2.0..sroa_idx, align 8
   %155 = load i64, ptr %14, align 8, !alias.scope !1977, !noalias !1980, !noundef !4
   %156 = load i64, ptr %10, align 8, !alias.scope !1977, !noalias !1980, !noundef !4
@@ -9934,7 +9935,7 @@ common.resume:                                    ; preds = %"_ZN4core3ptr71drop
   store i64 %167, ptr %14, align 8, !alias.scope !1977, !noalias !1980
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  %exitcond.not = icmp eq i64 %33, %21
+  %exitcond.not = icmp eq i64 %33, %umax
   br i1 %exitcond.not, label %._crit_edge, label %32
 
 168:                                              ; preds = %148
@@ -14597,6 +14598,9 @@ declare i64 @llvm.umin.i64(i64, i64) #37
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare range(i8 -1, 2) i8 @llvm.scmp.i8.i64(i64, i64) #37
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #37
 
 attributes #0 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

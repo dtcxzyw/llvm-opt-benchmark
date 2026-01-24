@@ -265,8 +265,9 @@ do.body.us.i:                                     ; preds = %do.body.us.i, %entr
   %Shift.0.us.i = phi i32 [ %add.us.i, %do.body.us.i ], [ 0, %entry ]
   %incdec.ptr.us.i = getelementptr inbounds nuw i8, ptr %p.addr.0.us.i, i64 1
   %0 = load i8, ptr %p.addr.0.us.i, align 1
-  %1 = and i8 %0, 127
-  %conv8.us.i = zext nneg i8 %1 to i64
+  %conv7.us.i = zext i8 %0 to i32
+  %and.us.i = and i32 %conv7.us.i, 127
+  %conv8.us.i = zext nneg i32 %and.us.i to i64
   %sh_prom.us.i = zext nneg i32 %Shift.0.us.i to i64
   %shl.us.i = shl i64 %conv8.us.i, %sh_prom.us.i
   %or.us.i = or i64 %shl.us.i, %Value.0.us.i
@@ -275,14 +276,15 @@ do.body.us.i:                                     ; preds = %do.body.us.i, %entr
   br i1 %cmp10.us.i, label %do.body.us.i, label %_ZN4llvh13decodeSLEB128EPKhPjS1_PPKc.exit, !llvm.loop !8
 
 _ZN4llvh13decodeSLEB128EPKhPjS1_PPKc.exit:        ; preds = %do.body.us.i
-  %p25.i = ptrtoint ptr %arrayidx.i to i64
-  %tobool13.not.i = icmp samesign ult i8 %0, 64
+  %p24.i = ptrtoint ptr %arrayidx.i to i64
+  %and12.i = and i32 %conv7.us.i, 64
+  %tobool13.not.i = icmp eq i32 %and12.i, 0
   %sh_prom15.i = zext nneg i32 %add.us.i to i64
   %shl16.i = shl nsw i64 -1, %sh_prom15.i
   %or17.i = select i1 %tobool13.not.i, i64 0, i64 %shl16.i
   %Value.1.i = or i64 %or.us.i, %or17.i
   %sub.ptr.lhs.cast21.pn.i = ptrtoint ptr %incdec.ptr.us.i to i64
-  %sub.ptr.sub23.sink.i = sub i64 %sub.ptr.lhs.cast21.pn.i, %p25.i
+  %sub.ptr.sub23.sink.i = sub i64 %sub.ptr.lhs.cast21.pn.i, %p24.i
   %conv24.i = trunc i64 %sub.ptr.sub23.sink.i to i32
   store i64 %Value.1.i, ptr %output, align 8
   ret i32 %conv24.i

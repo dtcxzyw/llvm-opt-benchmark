@@ -36754,10 +36754,14 @@ define internal range(i32 0, 23) i32 @experimental_utilization_batch_query_ctl(p
   %15 = load i64, ptr %4, align 8, !tbaa !4
   %16 = mul i64 %8, 24
   %.not33 = icmp eq i64 %15, %16
-  br i1 %.not33, label %.lr.ph, label %.loopexit
+  br i1 %.not33, label %.preheader, label %.loopexit
 
-.lr.ph:                                           ; preds = %14, %.lr.ph
-  %.042 = phi i64 [ %22, %.lr.ph ], [ 0, %14 ]
+.preheader:                                       ; preds = %14
+  %.not43 = icmp eq i64 %8, 0
+  br i1 %.not43, label %.loopexit, label %.lr.ph
+
+.lr.ph:                                           ; preds = %.preheader, %.lr.ph
+  %.042 = phi i64 [ %22, %.lr.ph ], [ 0, %.preheader ]
   %17 = getelementptr inbounds nuw ptr, ptr %5, i64 %.042
   %18 = load ptr, ptr %17, align 8, !tbaa !230
   %19 = getelementptr inbounds nuw %struct.inspect_extent_util_stats_s, ptr %3, i64 %.042
@@ -36768,8 +36772,8 @@ define internal range(i32 0, 23) i32 @experimental_utilization_batch_query_ctl(p
   %exitcond.not = icmp eq i64 %22, %8
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !288
 
-.loopexit:                                        ; preds = %.lr.ph, %7, %14
-  %.028 = phi i32 [ 22, %7 ], [ 22, %14 ], [ 0, %.lr.ph ]
+.loopexit:                                        ; preds = %.lr.ph, %.preheader, %7, %14
+  %.028 = phi i32 [ 22, %7 ], [ 22, %14 ], [ 0, %.preheader ], [ 0, %.lr.ph ]
   ret i32 %.028
 }
 

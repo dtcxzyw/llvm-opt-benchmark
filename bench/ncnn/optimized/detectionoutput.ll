@@ -1516,19 +1516,20 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %_ZNSt6vector
   store float 0.000000e+00, ptr %208, align 4, !tbaa !31
   %209 = add nsw i64 %205, -1
   %210 = icmp eq i64 %209, 0
-  br i1 %210, label %.lr.ph.i.preheader, label %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i
+  br i1 %210, label %.lr.ph.preheader.i, label %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i
 
 _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i: ; preds = %.noexc53
   %211 = getelementptr i8, ptr %208, i64 4
   %.idx.i.i.i.i.i.i.i.i = shl nuw nsw i64 %209, 2
   call void @llvm.memset.p0.i64(ptr align 4 %211, i8 0, i64 %.idx.i.i.i.i.i.i.i.i, i1 false), !tbaa !31
-  br label %.lr.ph.i.preheader
+  br label %.lr.ph.preheader.i
 
-.lr.ph.i.preheader:                               ; preds = %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i, %.noexc53
+.lr.ph.preheader.i:                               ; preds = %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i, %.noexc53
+  %umax.i = call i64 @llvm.umax.i64(i64 %205, i64 1)
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
-  %.03665.i = phi i64 [ %224, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
+.lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
+  %.03665.i = phi i64 [ %224, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
   %212 = getelementptr inbounds nuw %"struct.ncnn::BBoxRect", ptr %201, i64 %.03665.i
   %213 = getelementptr inbounds nuw i8, ptr %212, i64 8
   %214 = load float, ptr %213, align 4, !tbaa !76
@@ -1543,7 +1544,7 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i: ; preds = %.noexc53
   %223 = getelementptr inbounds nuw float, ptr %208, i64 %.03665.i
   store float %222, ptr %223, align 4, !tbaa !31
   %224 = add nuw i64 %.03665.i, 1
-  %exitcond.not.i = icmp eq i64 %224, %205
+  %exitcond.not.i = icmp eq i64 %224, %umax.i
   br i1 %exitcond.not.i, label %.lr.ph74.i, label %.lr.ph.i, !llvm.loop !91
 
 .lr.ph74.i:                                       ; preds = %.lr.ph.i, %_ZNSt6vectorImSaImEE9push_backERKm.exit.i
@@ -1707,7 +1708,7 @@ _ZNSt6vectorImSaImEE9push_backERKm.exit.i:        ; preds = %_ZNSt6vectorImSaImE
   %298 = phi ptr [ %225, %._crit_edge.i ], [ %291, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i ], [ %225, %281 ]
   %299 = phi ptr [ %226, %._crit_edge.i ], [ %295, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i ], [ %282, %281 ]
   %300 = add nuw i64 %storemerge73.i, 1
-  %exitcond81.not.i = icmp eq i64 %300, %205
+  %exitcond81.not.i = icmp eq i64 %300, %umax.i
   br i1 %exitcond81.not.i, label %_ZN4ncnnL17nms_sorted_bboxesERKSt6vectorINS_8BBoxRectESaIS1_EERS0_ImSaImEEf.exit, label %.lr.ph74.i, !llvm.loop !94
 
 _ZNSt6vectorIfSaIfEED2Ev.exit49.i:                ; preds = %.loopexit.split-lp.i, %.loopexit.i

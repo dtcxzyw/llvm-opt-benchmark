@@ -2273,11 +2273,15 @@ define internal fastcc i32 @mgf_mask(ptr noundef captures(none) %0, i64 noundef 
   br i1 %.not39, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %23
-  br i1 %.not56, label %._crit_edge, label %.lr.ph
+  br i1 %.not56, label %._crit_edge, label %.lr.ph.preheader
 
-.lr.ph:                                           ; preds = %.preheader, %.lr.ph
-  %.02241 = phi i64 [ %30, %.lr.ph ], [ 0, %.preheader ]
-  %.12540 = phi ptr [ %27, %.lr.ph ], [ %.02443, %.preheader ]
+.lr.ph.preheader:                                 ; preds = %.preheader
+  %umax = call i64 @llvm.umax.i64(i64 %spec.select, i64 1)
+  br label %.lr.ph
+
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
+  %.02241 = phi i64 [ %30, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %.12540 = phi ptr [ %27, %.lr.ph ], [ %.02443, %.lr.ph.preheader ]
   %25 = getelementptr inbounds nuw i8, ptr %7, i64 %.02241
   %26 = load i8, ptr %25, align 1, !tbaa !23
   %27 = getelementptr inbounds nuw i8, ptr %.12540, i64 1
@@ -2285,7 +2289,7 @@ define internal fastcc i32 @mgf_mask(ptr noundef captures(none) %0, i64 noundef 
   %29 = xor i8 %28, %26
   store i8 %29, ptr %.12540, align 1, !tbaa !23
   %30 = add nuw nsw i64 %.02241, 1
-  %exitcond.not = icmp eq i64 %30, %spec.select
+  %exitcond.not = icmp eq i64 %30, %umax
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
@@ -3944,6 +3948,9 @@ declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #13
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #11
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umax.i64(i64, i64) #11
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

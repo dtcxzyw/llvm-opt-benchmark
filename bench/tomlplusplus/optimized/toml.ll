@@ -10872,10 +10872,14 @@ define noundef zeroext i1 @_ZN4toml2v35array5equalERKS1_S3_(ptr noundef nonnull 
 
 .preheader:                                       ; preds = %4
   %20 = icmp eq ptr %7, %8
-  br i1 %20, label %.critedge, label %.lr.ph
+  br i1 %20, label %.critedge, label %.lr.ph.preheader
 
-.lr.ph:                                           ; preds = %.preheader, %"_ZN4toml2v34node8do_visitIZNS0_5array5equalERKS3_S5_E3$_0RS1_EEDcOT_OT0_.exit.thread31"
-  %.02134 = phi i64 [ %156, %"_ZN4toml2v34node8do_visitIZNS0_5array5equalERKS3_S5_E3$_0RS1_EEDcOT_OT0_.exit.thread31" ], [ 0, %.preheader ]
+.lr.ph.preheader:                                 ; preds = %.preheader
+  %umax = tail call i64 @llvm.umax.i64(i64 %12, i64 1)
+  br label %.lr.ph
+
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %"_ZN4toml2v34node8do_visitIZNS0_5array5equalERKS3_S5_E3$_0RS1_EEDcOT_OT0_.exit.thread31"
+  %.02134 = phi i64 [ %156, %"_ZN4toml2v34node8do_visitIZNS0_5array5equalERKS3_S5_E3$_0RS1_EEDcOT_OT0_.exit.thread31" ], [ 0, %.lr.ph.preheader ]
   %21 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %8, i64 %.02134
   %22 = load ptr, ptr %21, align 8, !tbaa !179
   %23 = load ptr, ptr %22, align 8, !tbaa !44
@@ -11115,7 +11119,7 @@ _ZN4toml2v3eqERKNS0_4timeES3_.exit.i.i.i.i.i:     ; preds = %133
 
 "_ZN4toml2v34node8do_visitIZNS0_5array5equalERKS3_S5_E3$_0RS1_EEDcOT_OT0_.exit.thread31": ; preds = %_ZN4toml2v34impl10fpclassifyERKd.exit.thread.i.i.i.i, %_ZN4toml2v34impl10fpclassifyERKd.exit13.thr_comm.i.i.i.i, %44, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i, %_ZN4toml2v34impl10fpclassifyERKd.exit13.i.i.i.i, %98, %47, %58, %151, %74, %36, %34, %"_ZN4toml2v34node8do_visitIZNS0_5array5equalERKS3_S5_E3$_0RS1_EEDcOT_OT0_.exit"
   %156 = add nuw i64 %.02134, 1
-  %exitcond.not = icmp eq i64 %156, %12
+  %exitcond.not = icmp eq i64 %156, %umax
   br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !280
 
 .critedge:                                        ; preds = %_ZN4toml2v34impl10fpclassifyERKd.exit.thread.i.i.i.i, %_ZN4toml2v34impl10fpclassifyERKd.exit13.thr_comm.i.i.i.i, %_ZN4toml2v34impl10fpclassifyERKd.exit13.i.i.i.i, %121, %127, %133, %110, %104, %_ZN4toml2v3eqERKNS0_4dateES3_.exit.i.i.i.i.i, %_ZN4toml2v3eqERKNS0_4timeES3_.exit.i.i.i.i.i, %80, %86, %92, %62, %68, %38, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i, %98, %47, %58, %151, %74, %36, %34, %.lr.ph, %"_ZN4toml2v34node8do_visitIZNS0_5array5equalERKS3_S5_E3$_0RS1_EEDcOT_OT0_.exit.thread31", %"_ZN4toml2v34node8do_visitIZNS0_5array5equalERKS3_S5_E3$_0RS1_EEDcOT_OT0_.exit", %.preheader, %4, %2
@@ -42727,7 +42731,7 @@ define linkonce_odr { ptr, i32 } @_ZSt12__to_chars_iIhENSt9enable_ifIXsr5__or_IS
   ]
 
 12:                                               ; preds = %9
-  %13 = tail call noundef range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %5, i1 true)
+  %13 = tail call noundef range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %5, i1 false)
   %14 = sub nuw nsw i32 35, %13
   %15 = lshr i32 %14, 2
   %16 = ptrtoint ptr %1 to i64
@@ -42866,7 +42870,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i:    ; preds = %9
   br label %_ZNSt8__detail13__to_chars_16IjEENSt9enable_ifIXsr5__or_ISt5__or_IJSt7is_sameINSt9remove_cvIT_E4typeEaES3_IS7_sES3_IS7_iES3_IS7_lES3_IS7_xES3_IS7_nEEES2_IJS3_IS7_hES3_IS7_tES3_IS7_jES3_IS7_mES3_IS7_yES3_IS7_oEEES3_IcS7_EEE5valueESt15to_chars_resultE4typeEPcSQ_S5_.exit.sink.split
 
 90:                                               ; preds = %9
-  %91 = tail call noundef range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %5, i1 true)
+  %91 = tail call noundef range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %5, i1 false)
   %92 = sub nuw nsw i32 32, %91
   %93 = ptrtoint ptr %1 to i64
   %94 = ptrtoint ptr %0 to i64
@@ -42880,7 +42884,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i:    ; preds = %9
   br i1 %.not16.i, label %_ZNSt8__detail13__to_chars_16IjEENSt9enable_ifIXsr5__or_ISt5__or_IJSt7is_sameINSt9remove_cvIT_E4typeEaES3_IS7_sES3_IS7_iES3_IS7_lES3_IS7_xES3_IS7_nEEES2_IJS3_IS7_hES3_IS7_tES3_IS7_jES3_IS7_mES3_IS7_yES3_IS7_oEEES3_IcS7_EEE5valueESt15to_chars_resultE4typeEPcSQ_S5_.exit.sink.split, label %.lr.ph.preheader.i35
 
 .lr.ph.preheader.i35:                             ; preds = %.preheader.i
-  %.015.i = xor i32 %91, 31
+  %.015.i = sub nuw nsw i32 31, %91
   %98 = zext nneg i32 %.015.i to i64
   br label %.lr.ph.i36
 
@@ -43011,7 +43015,7 @@ define linkonce_odr { ptr, i32 } @_ZSt12__to_chars_iItENSt9enable_ifIXsr5__or_IS
   ]
 
 12:                                               ; preds = %9
-  %13 = tail call noundef range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %5, i1 true)
+  %13 = tail call noundef range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %5, i1 false)
   %14 = sub nuw nsw i32 35, %13
   %15 = lshr i32 %14, 2
   %16 = ptrtoint ptr %1 to i64
@@ -43146,7 +43150,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i:    ; preds = %53, %51, %.lr.ph.i.
   br label %_ZNSt8__detail13__to_chars_16IjEENSt9enable_ifIXsr5__or_ISt5__or_IJSt7is_sameINSt9remove_cvIT_E4typeEaES3_IS7_sES3_IS7_iES3_IS7_lES3_IS7_xES3_IS7_nEEES2_IJS3_IS7_hES3_IS7_tES3_IS7_jES3_IS7_mES3_IS7_yES3_IS7_oEEES3_IcS7_EEE5valueESt15to_chars_resultE4typeEPcSQ_S5_.exit.sink.split
 
 90:                                               ; preds = %9
-  %91 = tail call noundef range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %5, i1 true)
+  %91 = tail call noundef range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %5, i1 false)
   %92 = trunc nuw nsw i32 %91 to i8
   %.lhs.trunc.i = sub nuw nsw i8 34, %92
   %93 = udiv i8 %.lhs.trunc.i, 3
@@ -43208,7 +43212,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i:    ; preds = %53, %51, %.lr.ph.i.
   br label %_ZNSt8__detail13__to_chars_16IjEENSt9enable_ifIXsr5__or_ISt5__or_IJSt7is_sameINSt9remove_cvIT_E4typeEaES3_IS7_sES3_IS7_iES3_IS7_lES3_IS7_xES3_IS7_nEEES2_IJS3_IS7_hES3_IS7_tES3_IS7_jES3_IS7_mES3_IS7_yES3_IS7_oEEES3_IcS7_EEE5valueESt15to_chars_resultE4typeEPcSQ_S5_.exit.sink.split
 
 124:                                              ; preds = %9
-  %125 = tail call noundef range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %5, i1 true)
+  %125 = tail call noundef range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %5, i1 false)
   %126 = sub nuw nsw i32 32, %125
   %127 = ptrtoint ptr %1 to i64
   %128 = ptrtoint ptr %0 to i64
@@ -43222,7 +43226,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i:    ; preds = %53, %51, %.lr.ph.i.
   br i1 %.not16.i, label %_ZNSt8__detail13__to_chars_16IjEENSt9enable_ifIXsr5__or_ISt5__or_IJSt7is_sameINSt9remove_cvIT_E4typeEaES3_IS7_sES3_IS7_iES3_IS7_lES3_IS7_xES3_IS7_nEEES2_IJS3_IS7_hES3_IS7_tES3_IS7_jES3_IS7_mES3_IS7_yES3_IS7_oEEES3_IcS7_EEE5valueESt15to_chars_resultE4typeEPcSQ_S5_.exit.sink.split, label %.lr.ph.preheader.i41
 
 .lr.ph.preheader.i41:                             ; preds = %.preheader.i
-  %.015.i = xor i32 %125, 31
+  %.015.i = sub nuw nsw i32 31, %125
   %132 = zext nneg i32 %.015.i to i64
   br label %.lr.ph.i42
 

@@ -10491,7 +10491,7 @@ if.end.i71:                                       ; preds = %if.else71
   %conv2.i = zext i8 %47 to i32
   %sub.i72 = shl nuw nsw i32 %conv2.i, 7
   %shl.i73 = add nsw i32 %conv.i69, -128
-  %add.i74 = or disjoint i32 %sub.i72, %shl.i73
+  %add.i74 = add nuw nsw i32 %shl.i73, %sub.i72
   %cmp3.i = icmp sgt i8 %47, -1
   br i1 %cmp3.i, label %if.then4.i, label %if.end6.i
 
@@ -17641,34 +17641,40 @@ if.end.i.i:                                       ; preds = %if.then6
 
 _ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit: ; preds = %cond.true.i
   %cmp = icmp slt i32 %0, 0
-  br i1 %cmp, label %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit26, label %if.end27
+  br i1 %cmp, label %cond.true.i23, label %if.end27
 
 _ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit.thread: ; preds = %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase23AllocatedSizeAtCapacityEv.exit
   %cmp46 = icmp slt i32 %0, %9
   br i1 %cmp46, label %cond.false.i20, label %if.then21
 
+cond.true.i23:                                    ; preds = %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit
+  %sub.i.i13 = add i64 %7, -1
+  %13 = inttoptr i64 %sub.i.i13 to ptr
+  br label %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit26
+
 cond.false.i20:                                   ; preds = %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit.thread
   %elements.i1448 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %idxprom.i1549 = sext i32 %0 to i64
   %arrayidx.i1650 = getelementptr inbounds ptr, ptr %elements.i1448, i64 %idxprom.i1549
-  %13 = sext i32 %9 to i64
+  %14 = sext i32 %9 to i64
   %.pre = load ptr, ptr %arrayidx.i1650, align 8
   br label %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit26
 
-_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit26: ; preds = %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit, %cond.false.i20
-  %14 = phi ptr [ %.pre, %cond.false.i20 ], [ null, %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit ]
-  %elements.i1452 = phi ptr [ %elements.i1448, %cond.false.i20 ], [ inttoptr (i64 7 to ptr), %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit ]
-  %cond3.i22 = phi i64 [ %13, %cond.false.i20 ], [ 0, %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit ]
-  %arrayidx.i32 = getelementptr inbounds ptr, ptr %elements.i1452, i64 %cond3.i22
+_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit26: ; preds = %cond.true.i23, %cond.false.i20
+  %15 = phi ptr [ null, %cond.true.i23 ], [ %.pre, %cond.false.i20 ]
+  %16 = phi ptr [ %13, %cond.true.i23 ], [ %8, %cond.false.i20 ]
+  %cond3.i22 = phi i64 [ 0, %cond.true.i23 ], [ %14, %cond.false.i20 ]
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %arrayidx.i32 = getelementptr inbounds ptr, ptr %17, i64 %cond3.i22
   %retval.0.i33 = select i1 %cmp.i.i, ptr %this, ptr %arrayidx.i32
-  store ptr %14, ptr %retval.0.i33, align 8
-  %15 = load ptr, ptr %this, align 8
-  %16 = ptrtoint ptr %15 to i64
-  %sub.i34 = add i64 %16, -1
-  %17 = inttoptr i64 %sub.i34 to ptr
-  %18 = load i32, ptr %17, align 8
-  %inc18 = add nsw i32 %18, 1
-  store i32 %inc18, ptr %17, align 8
+  store ptr %15, ptr %retval.0.i33, align 8
+  %18 = load ptr, ptr %this, align 8
+  %19 = ptrtoint ptr %18 to i64
+  %sub.i34 = add i64 %19, -1
+  %20 = inttoptr i64 %sub.i34 to ptr
+  %21 = load i32, ptr %20, align 8
+  %inc18 = add nsw i32 %21, 1
+  store i32 %inc18, ptr %20, align 8
   br label %if.end27
 
 if.then21:                                        ; preds = %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit.thread
@@ -17677,17 +17683,17 @@ if.then21:                                        ; preds = %_ZNK6google8protobu
   br label %if.end27
 
 if.end27:                                         ; preds = %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit, %if.end.i.i, %if.then6, %if.then21, %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit26, %if.then
-  %19 = load i32, ptr %current_size_.i, align 8
-  %add = add nsw i32 %19, 1
+  %22 = load i32, ptr %current_size_.i, align 8
+  %add = add nsw i32 %22, 1
   store i32 %add, ptr %current_size_.i, align 8
-  %20 = load ptr, ptr %this, align 8
-  %21 = ptrtoint ptr %20 to i64
-  %and.i.i38 = and i64 %21, 1
+  %23 = load ptr, ptr %this, align 8
+  %24 = ptrtoint ptr %23 to i64
+  %and.i.i38 = and i64 %24, 1
   %cmp.i.i39 = icmp eq i64 %and.i.i38, 0
-  %sub.i.i40 = add i64 %21, -1
-  %22 = inttoptr i64 %sub.i.i40 to ptr
-  %elements.i41 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %idxprom.i42 = sext i32 %19 to i64
+  %sub.i.i40 = add i64 %24, -1
+  %25 = inttoptr i64 %sub.i.i40 to ptr
+  %elements.i41 = getelementptr inbounds nuw i8, ptr %25, i64 8
+  %idxprom.i42 = sext i32 %22 to i64
   %arrayidx.i43 = getelementptr inbounds ptr, ptr %elements.i41, i64 %idxprom.i42
   %retval.0.i44 = select i1 %cmp.i.i39, ptr %this, ptr %arrayidx.i43
   store ptr %value, ptr %retval.0.i44, align 8

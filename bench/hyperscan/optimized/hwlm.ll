@@ -111,7 +111,6 @@ vermUnalign.exit54:                               ; preds = %43
   %58 = load <16 x i8>, ptr %.032.i171, align 16
   %59 = icmp eq <16 x i8> %32, %58
   %60 = getelementptr inbounds nuw i8, ptr %.032.i171, i64 16
-  call void @llvm.assume(i1 true) [ "align"(ptr %60, i64 16) ]
   %61 = load <16 x i8>, ptr %60, align 16
   %62 = icmp eq <16 x i8> %32, %61
   %63 = shufflevector <16 x i1> %59, <16 x i1> %62, <32 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 24, i32 25, i32 26, i32 27, i32 28, i32 29, i32 30, i32 31>
@@ -241,7 +240,6 @@ vermUnalignNocase.exit50:                         ; preds = %109
   %126 = and <16 x i8> %125, splat (i8 -33)
   %127 = icmp eq <16 x i8> %97, %126
   %128 = getelementptr inbounds nuw i8, ptr %.036.i163, i64 16
-  call void @llvm.assume(i1 true) [ "align"(ptr %128, i64 16) ]
   %129 = load <16 x i8>, ptr %128, align 16
   %130 = and <16 x i8> %129, splat (i8 -33)
   %131 = icmp eq <16 x i8> %97, %130
@@ -720,7 +718,6 @@ vermUnalign.exit184:                              ; preds = %37
   %52 = load <16 x i8>, ptr %.032.i556, align 16
   %53 = icmp eq <16 x i8> %27, %52
   %54 = getelementptr inbounds nuw i8, ptr %.032.i556, i64 16
-  call void @llvm.assume(i1 true) [ "align"(ptr %54, i64 16) ]
   %55 = load <16 x i8>, ptr %54, align 16
   %56 = icmp eq <16 x i8> %27, %55
   %57 = shufflevector <16 x i1> %53, <16 x i1> %56, <32 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 24, i32 25, i32 26, i32 27, i32 28, i32 29, i32 30, i32 31>
@@ -846,7 +843,6 @@ vermUnalignNocase.exit168:                        ; preds = %102
   %119 = and <16 x i8> %118, splat (i8 -33)
   %120 = icmp eq <16 x i8> %91, %119
   %121 = getelementptr inbounds nuw i8, ptr %.036.i548, i64 16
-  call void @llvm.assume(i1 true) [ "align"(ptr %121, i64 16) ]
   %122 = load <16 x i8>, ptr %121, align 16
   %123 = and <16 x i8> %122, splat (i8 -33)
   %124 = icmp eq <16 x i8> %91, %123
@@ -1530,7 +1526,6 @@ vermUnalign.exit196:                              ; preds = %485
   %500 = load <16 x i8>, ptr %.032.i236604, align 16
   %501 = icmp eq <16 x i8> %474, %500
   %502 = getelementptr inbounds nuw i8, ptr %.032.i236604, i64 16
-  call void @llvm.assume(i1 true) [ "align"(ptr %502, i64 16) ]
   %503 = load <16 x i8>, ptr %502, align 16
   %504 = icmp eq <16 x i8> %474, %503
   %505 = shufflevector <16 x i1> %501, <16 x i1> %504, <32 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 24, i32 25, i32 26, i32 27, i32 28, i32 29, i32 30, i32 31>
@@ -1661,7 +1656,6 @@ vermUnalignNocase.exit180:                        ; preds = %551
   %568 = and <16 x i8> %567, splat (i8 -33)
   %569 = icmp eq <16 x i8> %539, %568
   %570 = getelementptr inbounds nuw i8, ptr %.036.i210594, i64 16
-  call void @llvm.assume(i1 true) [ "align"(ptr %570, i64 16) ]
   %571 = load <16 x i8>, ptr %570, align 16
   %572 = and <16 x i8> %571, splat (i8 -33)
   %573 = icmp eq <16 x i8> %539, %572

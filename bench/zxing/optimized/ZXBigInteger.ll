@@ -504,10 +504,11 @@ _ZNSt6vectorImSaImEE6resizeEm.exit:               ; preds = %41, %43, %45, %47
   %48 = load ptr, ptr %17, align 8, !tbaa !15
   %49 = load ptr, ptr %19, align 8, !tbaa !15
   %50 = load ptr, ptr %2, align 8, !tbaa !15
+  %umax = tail call i64 @llvm.umax.i64(i64 %31, i64 1)
   br label %55
 
 .preheader55:                                     ; preds = %55
-  %51 = icmp ult i64 %31, %25
+  %51 = icmp ult i64 %umax, %25
   %52 = select i1 %51, i1 %.050.in, i1 false
   br i1 %52, label %.lr.ph60, label %.preheader
 
@@ -533,11 +534,11 @@ _ZNSt6vectorImSaImEE6resizeEm.exit:               ; preds = %41, %43, %45, %47
   %65 = getelementptr inbounds nuw i64, ptr %50, i64 %.057
   store i64 %.051, ptr %65, align 8, !tbaa !23
   %66 = add nuw i64 %.057, 1
-  %exitcond.not = icmp eq i64 %66, %31
+  %exitcond.not = icmp eq i64 %66, %umax
   br i1 %exitcond.not, label %.preheader55, label %55, !llvm.loop !47
 
 .preheader:                                       ; preds = %70, %_ZNSt6vectorImSaImEE6resizeEm.exit, %.preheader55
-  %.1.lcssa = phi i64 [ %31, %.preheader55 ], [ 0, %_ZNSt6vectorImSaImEE6resizeEm.exit ], [ %76, %70 ]
+  %.1.lcssa = phi i64 [ %umax, %.preheader55 ], [ 0, %_ZNSt6vectorImSaImEE6resizeEm.exit ], [ %76, %70 ]
   %.lcssa = phi i1 [ %.050.in, %.preheader55 ], [ false, %_ZNSt6vectorImSaImEE6resizeEm.exit ], [ %74, %70 ]
   %67 = icmp ult i64 %.1.lcssa, %25
   br i1 %67, label %.lr.ph64, label %._crit_edge
@@ -548,7 +549,7 @@ _ZNSt6vectorImSaImEE6resizeEm.exit:               ; preds = %41, %43, %45, %47
   br label %79
 
 70:                                               ; preds = %.lr.ph60, %70
-  %.159 = phi i64 [ %31, %.lr.ph60 ], [ %76, %70 ]
+  %.159 = phi i64 [ %umax, %.lr.ph60 ], [ %76, %70 ]
   %71 = getelementptr inbounds nuw i64, ptr %53, i64 %.159
   %72 = load i64, ptr %71, align 8, !tbaa !23
   %73 = add i64 %72, 1
@@ -643,10 +644,11 @@ _ZNSt6vectorImSaImEE6resizeEm.exit:               ; preds = %26, %28, %30, %32
 .lr.ph:                                           ; preds = %_ZNSt6vectorImSaImEE6resizeEm.exit
   %33 = load ptr, ptr %0, align 8, !tbaa !15
   %34 = load ptr, ptr %1, align 8, !tbaa !15
+  %umax = tail call i64 @llvm.umax.i64(i64 %17, i64 1)
   br label %38
 
 .preheader46:                                     ; preds = %38
-  %35 = icmp ult i64 %17, %10
+  %35 = icmp ult i64 %umax, %10
   %36 = select i1 %35, i1 %.0.in, i1 false
   br i1 %36, label %.lr.ph51, label %.preheader45
 
@@ -670,11 +672,11 @@ _ZNSt6vectorImSaImEE6resizeEm.exit:               ; preds = %26, %28, %30, %32
   %47 = getelementptr inbounds nuw i64, ptr %.pre60.pre61.pre, i64 %.04347
   store i64 %.041, ptr %47, align 8, !tbaa !23
   %48 = add nuw i64 %.04347, 1
-  %exitcond.not = icmp eq i64 %48, %17
+  %exitcond.not = icmp eq i64 %48, %umax
   br i1 %exitcond.not, label %.preheader46, label %38, !llvm.loop !50
 
 .preheader45:                                     ; preds = %51, %_ZNSt6vectorImSaImEE6resizeEm.exit, %.preheader46
-  %.144.lcssa = phi i64 [ %17, %.preheader46 ], [ 0, %_ZNSt6vectorImSaImEE6resizeEm.exit ], [ %57, %51 ]
+  %.144.lcssa = phi i64 [ %umax, %.preheader46 ], [ 0, %_ZNSt6vectorImSaImEE6resizeEm.exit ], [ %57, %51 ]
   %49 = icmp ult i64 %.144.lcssa, %10
   br i1 %49, label %.lr.ph54, label %.preheader
 
@@ -683,7 +685,7 @@ _ZNSt6vectorImSaImEE6resizeEm.exit:               ; preds = %26, %28, %30, %32
   br label %61
 
 51:                                               ; preds = %.lr.ph51, %51
-  %.14450 = phi i64 [ %17, %.lr.ph51 ], [ %57, %51 ]
+  %.14450 = phi i64 [ %umax, %.lr.ph51 ], [ %57, %51 ]
   %52 = getelementptr inbounds nuw i64, ptr %37, i64 %.14450
   %53 = load i64, ptr %52, align 8, !tbaa !23
   %54 = icmp eq i64 %53, 0

@@ -1444,7 +1444,8 @@ _ZN17double_conversion6Bignum14EnsureCapacityEi.exit.preheader: ; preds = %1
 
 .lr.ph:                                           ; preds = %_ZN17double_conversion6Bignum14EnsureCapacityEi.exit.preheader
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %8 = zext nneg i32 %3 to i64
+  %8 = zext nneg i16 %2 to i64
+  %wide.trip.count = zext nneg i32 %3 to i64
   %invariant.gep = getelementptr inbounds nuw i32, ptr %7, i64 %8
   br label %_ZN17double_conversion6Bignum14EnsureCapacityEi.exit
 
@@ -1454,7 +1455,8 @@ _ZN17double_conversion6Bignum14EnsureCapacityEi.exit.preheader: ; preds = %1
 
 .preheader51.lr.ph:                               ; preds = %_ZN17double_conversion6Bignum14EnsureCapacityEi.exit
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %11 = zext nneg i32 %3 to i64
+  %11 = zext nneg i16 %2 to i64
+  %wide.trip.count93 = zext nneg i32 %3 to i64
   %invariant.gep117 = getelementptr i32, ptr %10, i64 %11
   %invariant.gep119 = getelementptr inbounds nuw i32, ptr %10, i64 %11
   br label %.lr.ph57.preheader
@@ -1466,7 +1468,7 @@ _ZN17double_conversion6Bignum14EnsureCapacityEi.exit: ; preds = %.lr.ph, %_ZN17d
   %gep = getelementptr inbounds nuw i32, ptr %invariant.gep, i64 %indvars.iv
   store i32 %13, ptr %gep, align 4, !tbaa !9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %8
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.preheader51.lr.ph, label %_ZN17double_conversion6Bignum14EnsureCapacityEi.exit, !llvm.loop !31
 
 .lr.ph57.preheader:                               ; preds = %._crit_edge, %.preheader51.lr.ph
@@ -1517,7 +1519,7 @@ _ZN17double_conversion6Bignum14EnsureCapacityEi.exit: ; preds = %.lr.ph, %_ZN17d
   %28 = lshr i64 %24, 28
   %indvars.iv.next76 = add nuw nsw i64 %indvars.iv75, 1
   %indvars.iv.next89 = add nuw nsw i64 %indvars.iv88, 1
-  %exitcond94.not = icmp eq i64 %indvars.iv.next76, %11
+  %exitcond94.not = icmp eq i64 %indvars.iv.next76, %wide.trip.count93
   br i1 %exitcond94.not, label %.preheader, label %.lr.ph57.preheader, !llvm.loop !33
 
 ._crit_edge71:                                    ; preds = %._crit_edge66, %.preheader

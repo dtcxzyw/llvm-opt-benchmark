@@ -103,21 +103,14 @@ define hidden range(i32 0, 2) i32 @mlib_ImageLookUp_Bit_U8_1(ptr noundef %0, i32
   %52 = trunc nuw nsw i64 %50 to i32
   %53 = sub nuw nsw i32 8, %52
   %spec.select = call i32 @llvm.smin.i32(i32 %53, i32 %4)
-  br i1 %36, label %.lr.ph.preheader, label %.._crit_edge_crit_edge
+  %54 = sext i32 %spec.select to i64
+  br i1 %36, label %.lr.ph, label %._crit_edge
 
-.._crit_edge_crit_edge:                           ; preds = %51
-  %.pre = sext i32 %spec.select to i64
-  br label %._crit_edge
-
-.lr.ph.preheader:                                 ; preds = %51
-  %54 = zext nneg i32 %spec.select to i64
-  br label %.lr.ph
-
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %indvars.iv176 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next177, %.lr.ph ]
-  %.1145 = phi i32 [ %7, %.lr.ph.preheader ], [ %.2, %.lr.ph ]
-  %.1111144 = phi ptr [ %.0116160, %.lr.ph.preheader ], [ %.2112, %.lr.ph ]
-  %.1115143 = phi i32 [ %4, %.lr.ph.preheader ], [ %66, %.lr.ph ]
+.lr.ph:                                           ; preds = %51, %.lr.ph
+  %indvars.iv176 = phi i64 [ %indvars.iv.next177, %.lr.ph ], [ 0, %51 ]
+  %.1145 = phi i32 [ %.2, %.lr.ph ], [ %7, %51 ]
+  %.1111144 = phi ptr [ %.2112, %.lr.ph ], [ %.0116160, %51 ]
+  %.1115143 = phi i32 [ %66, %.lr.ph ], [ %4, %51 ]
   %55 = load ptr, ptr %8, align 8
   %56 = load i8, ptr %.1111144, align 1
   %57 = zext i8 %56 to i32
@@ -136,15 +129,14 @@ define hidden range(i32 0, 2) i32 @mlib_ImageLookUp_Bit_U8_1(ptr noundef %0, i32
   %.2 = add nsw i32 %.2.v, %.1145
   %66 = add nsw i32 %.1115143, -1
   %indvars.iv.next177 = add nuw nsw i64 %indvars.iv176, 1
-  %67 = icmp samesign ult i64 %indvars.iv.next177, %54
+  %67 = icmp slt i64 %indvars.iv.next177, %54
   br i1 %67, label %.lr.ph, label %._crit_edge, !llvm.loop !10
 
-._crit_edge:                                      ; preds = %.lr.ph, %.._crit_edge_crit_edge
-  %.pre-phi = phi i64 [ %.pre, %.._crit_edge_crit_edge ], [ %54, %.lr.ph ]
-  %.1115.lcssa = phi i32 [ %4, %.._crit_edge_crit_edge ], [ %66, %.lr.ph ]
-  %.1111.lcssa = phi ptr [ %.0116160, %.._crit_edge_crit_edge ], [ %.2112, %.lr.ph ]
-  %.1.lcssa = phi i32 [ %7, %.._crit_edge_crit_edge ], [ %.2, %.lr.ph ]
-  %68 = getelementptr inbounds i8, ptr %.0117159, i64 %.pre-phi
+._crit_edge:                                      ; preds = %.lr.ph, %51
+  %.1115.lcssa = phi i32 [ %4, %51 ], [ %66, %.lr.ph ]
+  %.1111.lcssa = phi ptr [ %.0116160, %51 ], [ %.2112, %.lr.ph ]
+  %.1.lcssa = phi i32 [ %7, %51 ], [ %.2, %.lr.ph ]
+  %68 = getelementptr inbounds i8, ptr %.0117159, i64 %54
   br label %69
 
 69:                                               ; preds = %._crit_edge, %48
@@ -290,7 +282,7 @@ define hidden range(i32 0, 2) i32 @mlib_ImageLookUp_Bit_U8_2(ptr noundef %0, i32
 14:                                               ; preds = %9
   %15 = add nuw nsw i32 %12, 7
   %16 = lshr i32 %15, 3
-  %17 = add nuw nsw i32 %16, %12
+  %17 = add nsw i32 %16, %12
   %18 = tail call ptr @mlib_malloc(i32 noundef %17) #3
   %19 = icmp eq ptr %18, null
   br i1 %19, label %203, label %20
@@ -378,7 +370,7 @@ define hidden range(i32 0, 2) i32 @mlib_ImageLookUp_Bit_U8_2(ptr noundef %0, i32
   %.095.us.us = phi i64 [ %65, %61 ], [ %60, %54 ]
   %.2.us.us = phi i32 [ 8, %61 ], [ 0, %54 ]
   %.1.us.us = phi ptr [ %spec.select.us.us.sroa.sel.v.sroa.sel, %61 ], [ %spec.select.us.us, %54 ]
-  %.neg.us.us = sub nsw i32 %.2.us.us, %12
+  %.neg.us.us = sub i32 %.2.us.us, %12
   %67 = shl i32 %.neg.us.us, 3
   %68 = add i32 %67, 64
   %69 = zext nneg i32 %68 to i64
@@ -691,7 +683,7 @@ define hidden range(i32 0, 2) i32 @mlib_ImageLookUp_Bit_U8_3(ptr noundef %0, i32
 15:                                               ; preds = %9
   %16 = add nuw nsw i32 %13, 7
   %17 = lshr i32 %16, 3
-  %18 = add nuw nsw i32 %17, %13
+  %18 = add nsw i32 %17, %13
   %19 = tail call ptr @mlib_malloc(i32 noundef %18) #3
   %20 = icmp eq ptr %19, null
   br i1 %20, label %190, label %21
@@ -995,7 +987,7 @@ define hidden range(i32 0, 2) i32 @mlib_ImageLookUp_Bit_U8_4(ptr noundef %0, i32
 15:                                               ; preds = %9
   %16 = add nuw nsw i32 %13, 7
   %17 = lshr i32 %16, 3
-  %18 = add nuw nsw i32 %17, %13
+  %18 = add nsw i32 %17, %13
   %19 = tail call ptr @mlib_malloc(i32 noundef %18) #3
   %20 = icmp eq ptr %19, null
   br i1 %20, label %160, label %21

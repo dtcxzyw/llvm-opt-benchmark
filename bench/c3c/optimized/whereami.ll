@@ -13,85 +13,99 @@ define dso_local noundef ptr @find_executable_path() local_unnamed_addr #0 {
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = call ptr @realpath(ptr noundef nonnull @.str.1, ptr noundef nonnull %2) #7
   %.not.i = icmp eq ptr %3, null
-  br i1 %.not.i, label %get_executable_path_raw.exit.thread, label %get_executable_path_raw.exit.thread33
+  br i1 %.not.i, label %get_executable_path_raw.exit.thread, label %4
 
 get_executable_path_raw.exit.thread:              ; preds = %0
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %28
+  br label %32
 
-get_executable_path_raw.exit.thread33:            ; preds = %0
-  %4 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #8
-  %5 = trunc i64 %4 to i32
-  %spec.select = call i32 @llvm.smax.i32(i32 %5, i32 0)
+4:                                                ; preds = %0
+  %5 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #8
+  %6 = trunc i64 %5 to i32
+  %.not19.i = icmp sgt i32 %6, 0
+  br i1 %.not19.i, label %get_executable_path_raw.exit.thread33, label %get_executable_path_raw.exit
+
+get_executable_path_raw.exit.thread33:            ; preds = %4
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %6 = add nuw i32 %spec.select, 1
-  %7 = zext i32 %6 to i64
-  %8 = call noalias ptr @malloc(i64 noundef %7) #9
+  br label %9
+
+get_executable_path_raw.exit:                     ; preds = %4
+  %sext.i.mask = and i64 %5, 4294967295
+  %7 = icmp eq i64 %sext.i.mask, 0
+  call void @llvm.assume(i1 %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  %8 = icmp slt i32 %6, 0
+  br i1 %8, label %32, label %9
+
+9:                                                ; preds = %get_executable_path_raw.exit.thread33, %get_executable_path_raw.exit
+  %10 = add i64 %5, 1
+  %11 = and i64 %10, 4294967295
+  %12 = call noalias ptr @malloc(i64 noundef %11) #9
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
-  %9 = call ptr @realpath(ptr noundef nonnull @.str.1, ptr noundef nonnull %1) #7
-  %.not.i27 = icmp eq ptr %9, null
-  br i1 %.not.i27, label %get_executable_path_raw.exit31, label %10
+  %13 = call ptr @realpath(ptr noundef nonnull @.str.1, ptr noundef nonnull %1) #7
+  %.not.i27 = icmp eq ptr %13, null
+  br i1 %.not.i27, label %get_executable_path_raw.exit31, label %14
 
-10:                                               ; preds = %get_executable_path_raw.exit.thread33
-  %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #8
-  %12 = trunc i64 %11 to i32
-  %.not19.i28 = icmp slt i32 %spec.select, %12
-  br i1 %.not19.i28, label %get_executable_path_raw.exit31, label %13
+14:                                               ; preds = %9
+  %15 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %13) #8
+  %16 = trunc i64 %15 to i32
+  %.not19.i28 = icmp slt i32 %6, %16
+  br i1 %.not19.i28, label %get_executable_path_raw.exit31, label %17
 
-13:                                               ; preds = %10
-  %sext.i29 = shl i64 %11, 32
-  %14 = ashr exact i64 %sext.i29, 32
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %8, ptr nonnull align 1 %9, i64 %14, i1 false)
+17:                                               ; preds = %14
+  %sext.i29 = shl i64 %15, 32
+  %18 = ashr exact i64 %sext.i29, 32
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %12, ptr nonnull align 1 %13, i64 %18, i1 false)
   br label %get_executable_path_raw.exit31
 
-get_executable_path_raw.exit31:                   ; preds = %get_executable_path_raw.exit.thread33, %10, %13
+get_executable_path_raw.exit31:                   ; preds = %9, %14, %17
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
-  %15 = zext nneg i32 %spec.select to i64
-  %16 = getelementptr inbounds nuw i8, ptr %8, i64 %15
-  store i8 0, ptr %16, align 1
-  %.not = icmp slt i32 %5, 1
+  %19 = and i64 %5, 4294967295
+  %20 = getelementptr inbounds nuw i8, ptr %12, i64 %19
+  store i8 0, ptr %20, align 1
+  %.not = icmp eq i32 %6, 0
   br i1 %.not, label %.preheader.preheader, label %.lr.ph
 
 .lr.ph:                                           ; preds = %get_executable_path_raw.exit31, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %get_executable_path_raw.exit31 ]
-  %17 = getelementptr inbounds nuw i8, ptr %8, i64 %indvars.iv
-  %18 = load i8, ptr %17, align 1
-  %19 = icmp eq i8 %18, 92
-  %spec.store.select = select i1 %19, i8 47, i8 %18
-  store i8 %spec.store.select, ptr %17, align 1
+  %21 = getelementptr inbounds nuw i8, ptr %12, i64 %indvars.iv
+  %22 = load i8, ptr %21, align 1
+  %23 = icmp eq i8 %22, 92
+  %spec.store.select = select i1 %23, i8 47, i8 %22
+  store i8 %spec.store.select, ptr %21, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %15
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %19
   br i1 %exitcond.not, label %.preheader.preheader, label %.lr.ph, !llvm.loop !7
 
 .preheader.preheader:                             ; preds = %.lr.ph, %get_executable_path_raw.exit31
   br label %.preheader
 
-.preheader:                                       ; preds = %.preheader.preheader, %21
-  %indvars.iv40 = phi i64 [ %indvars.iv.next41, %21 ], [ %15, %.preheader.preheader ]
-  %20 = icmp sgt i64 %indvars.iv40, 0
-  br i1 %20, label %21, label %27
+.preheader:                                       ; preds = %.preheader.preheader, %25
+  %indvars.iv40 = phi i64 [ %indvars.iv.next41, %25 ], [ %19, %.preheader.preheader ]
+  %24 = icmp sgt i64 %indvars.iv40, 0
+  br i1 %24, label %25, label %31
 
-21:                                               ; preds = %.preheader
+25:                                               ; preds = %.preheader
   %indvars.iv.next41 = add nsw i64 %indvars.iv40, -1
-  %22 = getelementptr inbounds nuw i8, ptr %8, i64 %indvars.iv.next41
-  %23 = load i8, ptr %22, align 1
-  switch i8 %23, label %.preheader [
-    i8 47, label %24
-    i8 92, label %24
+  %26 = getelementptr inbounds nuw i8, ptr %12, i64 %indvars.iv.next41
+  %27 = load i8, ptr %26, align 1
+  switch i8 %27, label %.preheader [
+    i8 47, label %28
+    i8 92, label %28
   ], !llvm.loop !9
 
-24:                                               ; preds = %21, %21
-  %25 = and i64 %indvars.iv40, 4294967295
-  %26 = getelementptr inbounds nuw i8, ptr %8, i64 %25
-  store i8 0, ptr %26, align 1
-  br label %28
+28:                                               ; preds = %25, %25
+  %29 = and i64 %indvars.iv40, 4294967295
+  %30 = getelementptr inbounds nuw i8, ptr %12, i64 %29
+  store i8 0, ptr %30, align 1
+  br label %32
 
-27:                                               ; preds = %.preheader
-  store i8 0, ptr %16, align 1
-  br label %28
+31:                                               ; preds = %.preheader
+  store i8 0, ptr %20, align 1
+  br label %32
 
-28:                                               ; preds = %get_executable_path_raw.exit.thread, %27, %24
-  %.025 = phi ptr [ %8, %27 ], [ %8, %24 ], [ @.str, %get_executable_path_raw.exit.thread ]
+32:                                               ; preds = %get_executable_path_raw.exit.thread, %get_executable_path_raw.exit, %31, %28
+  %.025 = phi ptr [ %12, %31 ], [ %12, %28 ], [ @.str, %get_executable_path_raw.exit ], [ @.str, %get_executable_path_raw.exit.thread ]
   ret ptr %.025
 }
 
@@ -113,8 +127,8 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
-; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #6
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #6
 
 attributes #0 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -122,7 +136,7 @@ attributes #2 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #7 = { nounwind }
 attributes #8 = { nounwind willreturn memory(read) }
 attributes #9 = { nounwind allocsize(0) }

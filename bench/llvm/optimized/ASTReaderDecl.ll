@@ -59155,7 +59155,6 @@ _ZN4llvm13TinyPtrVectorIPN5clang13serialization10ModuleFileEE3endEv.exit: ; pred
   call void @llvm.assume(i1 true) [ "align"(ptr %50, i64 4) ]
   %.0.copyload.i.i.i.i = load i32, ptr %50, align 4
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 4
-  call void @llvm.assume(i1 true) [ "align"(ptr %51, i64 4) ]
   %.0.copyload.i.i.i2.i = load i32, ptr %51, align 4
   %52 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %53 = call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #30
@@ -59404,7 +59403,6 @@ _ZN4llvm13TinyPtrVectorIPN5clang13serialization10ModuleFileEE3endEv.exit: ; pred
   call void @llvm.assume(i1 true) [ "align"(ptr %50, i64 4) ]
   %.0.copyload.i.i.i.i = load i32, ptr %50, align 4
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 4
-  call void @llvm.assume(i1 true) [ "align"(ptr %51, i64 4) ]
   %.0.copyload.i.i.i2.i = load i32, ptr %51, align 4
   %52 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %53 = call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #30
@@ -78513,7 +78511,7 @@ _ZN4llvm15SmallVectorImplIPN5clang13serialization10ModuleFileEE7reserveEm.exit.i
   %57 = load ptr, ptr %0, align 8, !tbaa !111
   %58 = zext i32 %.pre9.i to i64
   %59 = getelementptr inbounds nuw ptr, ptr %57, i64 %58
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %59, ptr nonnull align 8 %49, i64 %16, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %59, ptr align 8 %49, i64 %16, i1 false)
   %.pre.i46 = load i32, ptr %9, align 8, !tbaa !896
   br label %_ZN4llvm15SmallVectorImplIPN5clang13serialization10ModuleFileEE6appendISt13move_iteratorIPS4_EvEEvT_SA_.exit
 
@@ -78554,7 +78552,7 @@ _ZSt13move_backwardIPPN5clang13serialization10ModuleFileES4_ET0_T_S6_S5_.exit: ;
   %74 = getelementptr inbounds nuw ptr, ptr %44, i64 %73
   %75 = sub nsw i64 0, %47
   %76 = getelementptr inbounds ptr, ptr %74, i64 %75
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %76, ptr align 8 %45, i64 %gepdiff, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %76, ptr align 8 %45, i64 %gepdiff, i1 false)
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %70

@@ -735,9 +735,9 @@ EncoderInit.exit:                                 ; preds = %391
 
 .lr.ph:                                           ; preds = %397
   %400 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  %401 = sub nsw i32 %.6.ph, %398
+  %401 = sub i32 %.6.ph, %398
   %402 = sext i32 %401 to i64
-  %wide.trip.count = zext nneg i32 %398 to i64
+  %wide.trip.count = zext i32 %398 to i64
   %invariant.gep = getelementptr %struct.CrunchConfig, ptr %6, i64 %402
   br label %403
 
@@ -2608,7 +2608,8 @@ VP8LPutBits.exit272.i:                            ; preds = %732, %727
 .lr.ph339.preheader.i:                            ; preds = %749, %.thread412.i
   %.2204415.i = phi i32 [ %748, %.thread412.i ], [ %673, %749 ]
   %750 = mul i32 %.0225.lcssa.i, 5
-  %wide.trip.count380.i = zext i32 %750 to i64
+  %umax.i = call i32 @llvm.umax.i32(i32 %750, i32 1)
+  %wide.trip.count380.i = zext i32 %umax.i to i64
   br label %.lr.ph339.i
 
 .lr.ph339.i:                                      ; preds = %.lr.ph339.i, %.lr.ph339.preheader.i
@@ -4897,6 +4898,9 @@ declare i32 @llvm.umin.i32(i32, i32) #7
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #7
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #7
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

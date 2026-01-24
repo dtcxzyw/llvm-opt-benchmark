@@ -336,8 +336,8 @@ define void @_ZN6icu_7714IndianCalendar19handleComputeFieldsEiR10UErrorCode(ptr 
   %23 = srem i32 %19, 100
   %.not.i.i = icmp ne i32 %23, 0
   %24 = srem i32 %19, 400
-  %.not52 = icmp eq i32 %24, 0
-  %or.cond = or i1 %.not.i.i, %.not52
+  %.not50 = icmp eq i32 %24, 0
+  %or.cond = or i1 %.not.i.i, %.not50
   br i1 %or.cond, label %_ZN6icu_77L15isGregorianLeapEi.exit.thread44, label %_ZN6icu_77L15isGregorianLeapEi.exit.thread
 
 _ZN6icu_77L15isGregorianLeapEi.exit.thread:       ; preds = %22, %17
@@ -360,8 +360,8 @@ _ZN6icu_77L15isGregorianLeapEi.exit.thread44:     ; preds = %22, %_ZN6icu_77L15i
   %.not.i.i40 = icmp ne i32 %33, 0
   %34 = srem i32 %5, 400
   %.not = icmp eq i32 %34, 0
-  %or.cond53 = or i1 %.not.i.i40, %.not
-  br i1 %or.cond53, label %_ZN6icu_77L15isGregorianLeapEi.exit41.thread48, label %_ZN6icu_77L15isGregorianLeapEi.exit41.thread
+  %or.cond51 = or i1 %.not.i.i40, %.not
+  br i1 %or.cond51, label %_ZN6icu_77L15isGregorianLeapEi.exit41.thread48, label %_ZN6icu_77L15isGregorianLeapEi.exit41.thread
 
 _ZN6icu_77L15isGregorianLeapEi.exit41.thread:     ; preds = %32, %28
   br label %_ZN6icu_77L15isGregorianLeapEi.exit41.thread48
@@ -384,14 +384,12 @@ _ZN6icu_77L15isGregorianLeapEi.exit41.thread48:   ; preds = %32, %_ZN6icu_77L15i
   br i1 %41, label %42, label %49
 
 42:                                               ; preds = %39
-  %.lhs.trunc = trunc nsw i32 %40 to i16
-  %43 = sdiv i16 %.lhs.trunc, 31
-  %44 = uitofp nneg i16 %43 to double
+  %43 = udiv i32 %40, 31
+  %44 = uitofp nneg i32 %43 to double
   %45 = tail call double @uprv_floor_77(double noundef %44)
   %46 = fptosi double %45 to i32
   %47 = add nsw i32 %46, 1
-  %48 = srem i16 %.lhs.trunc, 31
-  %.sext51 = sext i16 %48 to i32
+  %48 = urem i32 %40, 31
   br label %57
 
 49:                                               ; preds = %39
@@ -406,7 +404,7 @@ _ZN6icu_77L15isGregorianLeapEi.exit41.thread48:   ; preds = %32, %_ZN6icu_77L15i
 
 57:                                               ; preds = %37, %42, %49
   %.032 = phi i32 [ %55, %49 ], [ %47, %42 ], [ 0, %37 ]
-  %.031.in = phi i32 [ %56, %49 ], [ %.sext51, %42 ], [ %.033, %37 ]
+  %.031.in = phi i32 [ %56, %49 ], [ %48, %42 ], [ %.033, %37 ]
   %.031 = add nsw i32 %.031.in, 1
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %58, align 8, !tbaa !6

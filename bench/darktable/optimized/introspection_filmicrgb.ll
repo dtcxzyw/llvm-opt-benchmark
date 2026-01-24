@@ -4538,11 +4538,8 @@ init_reconstruct.exit:                            ; preds = %81, %71
   %140 = getelementptr inbounds nuw i8, ptr %1, i64 %.05763.i
   %141 = load float, ptr %140, align 4, !tbaa !140, !alias.scope !364, !noalias !368
   %142 = getelementptr inbounds nuw float, ptr %57, i64 %.05763.i
-  call void @llvm.assume(i1 true) [ "align"(ptr %142, i64 16) ]
   %143 = getelementptr inbounds nuw float, ptr %.0108, i64 %.05763.i
-  call void @llvm.assume(i1 true) [ "align"(ptr %143, i64 16) ]
   %144 = getelementptr inbounds nuw float, ptr %.0107, i64 %.05763.i
-  call void @llvm.assume(i1 true) [ "align"(ptr %144, i64 16) ]
   %145 = load float, ptr %144, align 16, !tbaa !140, !alias.scope !362, !noalias !369
   %146 = getelementptr inbounds nuw i8, ptr %144, i64 4
   %147 = load float, ptr %146, align 4, !tbaa !140, !alias.scope !362, !noalias !369
@@ -4667,9 +4664,7 @@ init_reconstruct.exit:                            ; preds = %81, %71
   %215 = getelementptr inbounds nuw i8, ptr %1, i64 %.04956.i
   %216 = load float, ptr %215, align 4, !tbaa !140, !alias.scope !379, !noalias !383
   %217 = getelementptr inbounds nuw float, ptr %57, i64 %.04956.i
-  call void @llvm.assume(i1 true) [ "align"(ptr %217, i64 16) ]
   %218 = getelementptr inbounds nuw float, ptr %.0107, i64 %.04956.i
-  call void @llvm.assume(i1 true) [ "align"(ptr %218, i64 16) ]
   %219 = load float, ptr %218, align 16, !tbaa !140, !alias.scope !377, !noalias !385
   %220 = getelementptr inbounds nuw i8, ptr %218, i64 4
   %221 = load float, ptr %220, align 4, !tbaa !140, !alias.scope !377, !noalias !385

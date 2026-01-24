@@ -184,7 +184,7 @@ ir_bitqueue_pop.exit:                             ; preds = %25
 
 40:                                               ; preds = %ir_bitqueue_pop.exit
   %41 = load ptr, ptr %0, align 8, !tbaa !38
-  %42 = zext nneg i32 %36 to i64
+  %42 = zext i32 %36 to i64
   %43 = getelementptr inbounds nuw %struct._ir_insn, ptr %41, i64 %42
   %44 = load i8, ptr %43, align 8, !tbaa !39
   %45 = zext i8 %44 to i64
@@ -2270,53 +2270,54 @@ ir_bitqueue_add.exit381.thread:                   ; preds = %1036, %ir_sccp_add_
 
 ir_sccp_make_bottom_ex.exit369:                   ; preds = %._crit_edge506.thread, %792, %743, %733, %385, %725, %ir_sccp_make_bottom_ex.exit, %729, %395, %335, %330, %310, %305, %285, %255, %ir_sccp_add_identity.exit, %304, %336, %329, %749, %748, %794, %ir_bitqueue_add.exit379.thread, %ir_bitqueue_add.exit381.thread, %ir_bitqueue_add.exit380, %ir_bitqueue_add.exit378.thread
   %1136 = load ptr, ptr %11, align 8, !tbaa !41
-  %1137 = getelementptr inbounds nuw %struct._ir_use_list, ptr %1136, i64 %42
-  %1138 = getelementptr inbounds nuw i8, ptr %1137, i64 4
-  %1139 = load i32, ptr %1138, align 4, !tbaa !42
-  %1140 = icmp sgt i32 %1139, 0
-  br i1 %1140, label %.lr.ph534.preheader, label %ir_sccp_add_uses.exit.backedge
+  %1137 = sext i32 %36 to i64
+  %1138 = getelementptr inbounds %struct._ir_use_list, ptr %1136, i64 %1137
+  %1139 = getelementptr inbounds nuw i8, ptr %1138, i64 4
+  %1140 = load i32, ptr %1139, align 4, !tbaa !42
+  %1141 = icmp sgt i32 %1140, 0
+  br i1 %1141, label %.lr.ph534.preheader, label %ir_sccp_add_uses.exit.backedge
 
 .lr.ph534.preheader:                              ; preds = %ir_sccp_make_bottom_ex.exit369
-  %1141 = load ptr, ptr %20, align 8, !tbaa !47
-  %1142 = load i32, ptr %1137, align 4, !tbaa !48
-  %1143 = sext i32 %1142 to i64
-  %1144 = getelementptr inbounds i32, ptr %1141, i64 %1143
+  %1142 = load ptr, ptr %20, align 8, !tbaa !47
+  %1143 = load i32, ptr %1138, align 4, !tbaa !48
+  %1144 = sext i32 %1143 to i64
+  %1145 = getelementptr inbounds i32, ptr %1142, i64 %1144
   br label %.lr.ph534
 
 .lr.ph534:                                        ; preds = %.lr.ph534.preheader, %ir_bitqueue_add.exit.i
-  %.0.i383533 = phi i32 [ %1163, %ir_bitqueue_add.exit.i ], [ %1139, %.lr.ph534.preheader ]
-  %.012.i532 = phi ptr [ %1162, %ir_bitqueue_add.exit.i ], [ %1144, %.lr.ph534.preheader ]
-  %1145 = load i32, ptr %.012.i532, align 4, !tbaa !40
-  %1146 = sext i32 %1145 to i64
-  %1147 = getelementptr inbounds %struct._ir_insn, ptr %1, i64 %1146
-  %1148 = load i8, ptr %1147, align 8, !tbaa !39
-  %.not.i384 = icmp eq i8 %1148, 108
-  br i1 %.not.i384, label %ir_bitqueue_add.exit.i, label %1149
+  %.0.i383533 = phi i32 [ %1164, %ir_bitqueue_add.exit.i ], [ %1140, %.lr.ph534.preheader ]
+  %.012.i532 = phi ptr [ %1163, %ir_bitqueue_add.exit.i ], [ %1145, %.lr.ph534.preheader ]
+  %1146 = load i32, ptr %.012.i532, align 4, !tbaa !40
+  %1147 = sext i32 %1146 to i64
+  %1148 = getelementptr inbounds %struct._ir_insn, ptr %1, i64 %1147
+  %1149 = load i8, ptr %1148, align 8, !tbaa !39
+  %.not.i384 = icmp eq i8 %1149, 108
+  br i1 %.not.i384, label %ir_bitqueue_add.exit.i, label %1150
 
-1149:                                             ; preds = %.lr.ph534
-  %1150 = lshr i32 %1145, 6
-  %1151 = and i32 %1145, 63
-  %1152 = zext nneg i32 %1151 to i64
-  %1153 = shl nuw i64 1, %1152
-  %1154 = load ptr, ptr %7, align 8, !tbaa !36
-  %1155 = zext nneg i32 %1150 to i64
-  %1156 = getelementptr inbounds nuw i64, ptr %1154, i64 %1155
-  %1157 = load i64, ptr %1156, align 8, !tbaa !37
-  %1158 = or i64 %1157, %1153
-  store i64 %1158, ptr %1156, align 8, !tbaa !37
-  %1159 = load i32, ptr %6, align 4, !tbaa !35
-  %1160 = icmp ult i32 %1150, %1159
-  br i1 %1160, label %1161, label %ir_bitqueue_add.exit.i
+1150:                                             ; preds = %.lr.ph534
+  %1151 = lshr i32 %1146, 6
+  %1152 = and i32 %1146, 63
+  %1153 = zext nneg i32 %1152 to i64
+  %1154 = shl nuw i64 1, %1153
+  %1155 = load ptr, ptr %7, align 8, !tbaa !36
+  %1156 = zext nneg i32 %1151 to i64
+  %1157 = getelementptr inbounds nuw i64, ptr %1155, i64 %1156
+  %1158 = load i64, ptr %1157, align 8, !tbaa !37
+  %1159 = or i64 %1158, %1154
+  store i64 %1159, ptr %1157, align 8, !tbaa !37
+  %1160 = load i32, ptr %6, align 4, !tbaa !35
+  %1161 = icmp ult i32 %1151, %1160
+  br i1 %1161, label %1162, label %ir_bitqueue_add.exit.i
 
-1161:                                             ; preds = %1149
-  store i32 %1150, ptr %6, align 4, !tbaa !35
+1162:                                             ; preds = %1150
+  store i32 %1151, ptr %6, align 4, !tbaa !35
   br label %ir_bitqueue_add.exit.i
 
-ir_bitqueue_add.exit.i:                           ; preds = %1149, %1161, %.lr.ph534
-  %1162 = getelementptr inbounds nuw i8, ptr %.012.i532, i64 4
-  %1163 = add nsw i32 %.0.i383533, -1
-  %1164 = icmp sgt i32 %.0.i383533, 1
-  br i1 %1164, label %.lr.ph534, label %ir_sccp_add_uses.exit.backedge
+ir_bitqueue_add.exit.i:                           ; preds = %1150, %1162, %.lr.ph534
+  %1163 = getelementptr inbounds nuw i8, ptr %.012.i532, i64 4
+  %1164 = add nsw i32 %.0.i383533, -1
+  %1165 = icmp sgt i32 %.0.i383533, 1
+  br i1 %1165, label %.lr.ph534, label %ir_sccp_add_uses.exit.backedge
 
 .loopexit459:                                     ; preds = %ir_bitqueue_pop.exit, %ir_bitqueue_pop.exit.thread
   ret void
@@ -6001,7 +6002,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse.backedg
 
 19:                                               ; preds = %15, %15
   %20 = load ptr, ptr %7, align 8, !tbaa !41
-  %21 = getelementptr inbounds nuw %struct._ir_use_list, ptr %20, i64 %17
+  %21 = getelementptr inbounds %struct._ir_use_list, ptr %20, i64 %17
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 4
   %23 = load i32, ptr %22, align 4, !tbaa !42
   %24 = icmp eq i32 %23, 1
@@ -6018,7 +6019,7 @@ tailrecurse.backedge:                             ; preds = %19, %35
 
 29:                                               ; preds = %15, %15, %15, %15, %15, %15
   %30 = load ptr, ptr %7, align 8, !tbaa !41
-  %31 = getelementptr inbounds nuw %struct._ir_use_list, ptr %30, i64 %17
+  %31 = getelementptr inbounds %struct._ir_use_list, ptr %30, i64 %17
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 4
   %33 = load i32, ptr %32, align 4, !tbaa !42
   %34 = icmp eq i32 %33, 1
@@ -6070,12 +6071,12 @@ define internal fastcc i32 @ir_promote_d2f(ptr noundef %0, i32 noundef %1, i32 n
 15:                                               ; preds = %13
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %17 = load ptr, ptr %16, align 8, !tbaa !41
-  %18 = getelementptr inbounds nuw %struct._ir_use_list, ptr %17, i64 %5
+  %18 = getelementptr inbounds %struct._ir_use_list, ptr %17, i64 %5
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %20 = load i32, ptr %19, align 4, !tbaa !42
   tail call void @ir_use_list_remove_all(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2) #14
   %21 = load ptr, ptr %16, align 8, !tbaa !41
-  %22 = getelementptr inbounds nuw %struct._ir_use_list, ptr %21, i64 %5
+  %22 = getelementptr inbounds %struct._ir_use_list, ptr %21, i64 %5
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 4
   %24 = load i32, ptr %23, align 4, !tbaa !42
   %25 = icmp eq i32 %24, 0
@@ -6104,7 +6105,7 @@ define internal fastcc i32 @ir_promote_d2f(ptr noundef %0, i32 noundef %1, i32 n
 35:                                               ; preds = %15
   %36 = tail call zeroext i1 @ir_use_list_add(ptr noundef nonnull %0, i32 noundef %27, i32 noundef %2) #14
   %37 = load ptr, ptr %16, align 8, !tbaa !41
-  %38 = getelementptr inbounds nuw %struct._ir_use_list, ptr %37, i64 %5
+  %38 = getelementptr inbounds %struct._ir_use_list, ptr %37, i64 %5
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 4
   %40 = load i32, ptr %39, align 4, !tbaa !42
   %41 = sub i32 %20, %40
@@ -6493,7 +6494,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse.backedg
 
 17:                                               ; preds = %13
   %18 = load ptr, ptr %7, align 8, !tbaa !41
-  %19 = getelementptr inbounds nuw %struct._ir_use_list, ptr %18, i64 %15
+  %19 = getelementptr inbounds %struct._ir_use_list, ptr %18, i64 %15
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %21 = load i32, ptr %20, align 4, !tbaa !42
   %22 = icmp eq i32 %21, 1
@@ -6501,7 +6502,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse.backedg
 
 23:                                               ; preds = %13, %13
   %24 = load ptr, ptr %7, align 8, !tbaa !41
-  %25 = getelementptr inbounds nuw %struct._ir_use_list, ptr %24, i64 %15
+  %25 = getelementptr inbounds %struct._ir_use_list, ptr %24, i64 %15
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 4
   %27 = load i32, ptr %26, align 4, !tbaa !42
   %28 = icmp eq i32 %27, 1
@@ -6518,7 +6519,7 @@ tailrecurse.backedge:                             ; preds = %23, %39
 
 33:                                               ; preds = %13, %13, %13, %13, %13
   %34 = load ptr, ptr %7, align 8, !tbaa !41
-  %35 = getelementptr inbounds nuw %struct._ir_use_list, ptr %34, i64 %15
+  %35 = getelementptr inbounds %struct._ir_use_list, ptr %34, i64 %15
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 4
   %37 = load i32, ptr %36, align 4, !tbaa !42
   %38 = icmp eq i32 %37, 1
@@ -6570,12 +6571,12 @@ define internal fastcc i32 @ir_promote_f2d(ptr noundef %0, i32 noundef %1, i32 n
 15:                                               ; preds = %13
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %17 = load ptr, ptr %16, align 8, !tbaa !41
-  %18 = getelementptr inbounds nuw %struct._ir_use_list, ptr %17, i64 %5
+  %18 = getelementptr inbounds %struct._ir_use_list, ptr %17, i64 %5
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %20 = load i32, ptr %19, align 4, !tbaa !42
   tail call void @ir_use_list_remove_all(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2) #14
   %21 = load ptr, ptr %16, align 8, !tbaa !41
-  %22 = getelementptr inbounds nuw %struct._ir_use_list, ptr %21, i64 %5
+  %22 = getelementptr inbounds %struct._ir_use_list, ptr %21, i64 %5
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 4
   %24 = load i32, ptr %23, align 4, !tbaa !42
   %25 = icmp eq i32 %24, 0
@@ -6604,7 +6605,7 @@ define internal fastcc i32 @ir_promote_f2d(ptr noundef %0, i32 noundef %1, i32 n
 35:                                               ; preds = %15
   %36 = tail call zeroext i1 @ir_use_list_add(ptr noundef nonnull %0, i32 noundef %27, i32 noundef %2) #14
   %37 = load ptr, ptr %16, align 8, !tbaa !41
-  %38 = getelementptr inbounds nuw %struct._ir_use_list, ptr %37, i64 %5
+  %38 = getelementptr inbounds %struct._ir_use_list, ptr %37, i64 %5
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 4
   %40 = load i32, ptr %39, align 4, !tbaa !42
   %41 = sub i32 %20, %40
@@ -6666,7 +6667,7 @@ ir_find1.exit:                                    ; preds = %63
 72:                                               ; preds = %ir_find1.exit
   tail call void @ir_use_list_remove_one(ptr noundef nonnull %0, i32 noundef %50, i32 noundef %1) #14
   %73 = load ptr, ptr %51, align 8, !tbaa !41
-  %74 = getelementptr inbounds nuw %struct._ir_use_list, ptr %73, i64 %5
+  %74 = getelementptr inbounds %struct._ir_use_list, ptr %73, i64 %5
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 4
   store i32 0, ptr %75, align 4, !tbaa !42
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
@@ -6766,7 +6767,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse.backedg
 
 24:                                               ; preds = %11, %11, %11
   %25 = load ptr, ptr %8, align 8, !tbaa !41
-  %26 = getelementptr inbounds nuw %struct._ir_use_list, ptr %25, i64 %13
+  %26 = getelementptr inbounds %struct._ir_use_list, ptr %25, i64 %13
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 4
   %28 = load i32, ptr %27, align 4, !tbaa !42
   %29 = icmp eq i32 %28, 1
@@ -6783,7 +6784,7 @@ tailrecurse.backedge:                             ; preds = %24, %40
 
 34:                                               ; preds = %11, %11, %11, %11, %11, %11, %11, %11
   %35 = load ptr, ptr %8, align 8, !tbaa !41
-  %36 = getelementptr inbounds nuw %struct._ir_use_list, ptr %35, i64 %13
+  %36 = getelementptr inbounds %struct._ir_use_list, ptr %35, i64 %13
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 4
   %38 = load i32, ptr %37, align 4, !tbaa !42
   %39 = icmp eq i32 %38, 1
@@ -6836,12 +6837,12 @@ define internal fastcc i32 @ir_promote_i2i(ptr noundef %0, i32 noundef range(i32
 16:                                               ; preds = %14, %14
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %18 = load ptr, ptr %17, align 8, !tbaa !41
-  %19 = getelementptr inbounds nuw %struct._ir_use_list, ptr %18, i64 %6
+  %19 = getelementptr inbounds %struct._ir_use_list, ptr %18, i64 %6
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %21 = load i32, ptr %20, align 4, !tbaa !42
   tail call void @ir_use_list_remove_all(ptr noundef nonnull %0, i32 noundef %2, i32 noundef %3) #14
   %22 = load ptr, ptr %17, align 8, !tbaa !41
-  %23 = getelementptr inbounds nuw %struct._ir_use_list, ptr %22, i64 %6
+  %23 = getelementptr inbounds %struct._ir_use_list, ptr %22, i64 %6
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 4
   %25 = load i32, ptr %24, align 4, !tbaa !42
   %26 = icmp eq i32 %25, 0
@@ -6870,7 +6871,7 @@ define internal fastcc i32 @ir_promote_i2i(ptr noundef %0, i32 noundef range(i32
 36:                                               ; preds = %16
   %37 = tail call zeroext i1 @ir_use_list_add(ptr noundef nonnull %0, i32 noundef %28, i32 noundef %3) #14
   %38 = load ptr, ptr %17, align 8, !tbaa !41
-  %39 = getelementptr inbounds nuw %struct._ir_use_list, ptr %38, i64 %6
+  %39 = getelementptr inbounds %struct._ir_use_list, ptr %38, i64 %6
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 4
   %41 = load i32, ptr %40, align 4, !tbaa !42
   %42 = sub i32 %21, %41

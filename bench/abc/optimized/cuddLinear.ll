@@ -30,6 +30,7 @@ define range(i32 0, 2) i32 @Cudd_PrintLinear(ptr noundef readonly captures(none)
 .preheader.preheader:                             ; preds = %.preheader.lr.ph
   %10 = zext nneg i32 %6 to i64
   %wide.trip.count42 = zext nneg i32 %3 to i64
+  %wide.trip.count = zext i32 %6 to i64
   br label %.preheader
 
 .preheader.us:                                    ; preds = %.preheader.lr.ph, %14
@@ -57,8 +58,8 @@ define range(i32 0, 2) i32 @Cudd_PrintLinear(ptr noundef readonly captures(none)
 18:                                               ; preds = %.preheader, %31
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %31 ]
   %19 = load ptr, ptr %8, align 8, !tbaa !27
-  %20 = getelementptr inbounds nuw i64, ptr %19, i64 %indvars.iv
-  %21 = getelementptr inbounds nuw i64, ptr %20, i64 %17
+  %20 = getelementptr i64, ptr %19, i64 %indvars.iv
+  %21 = getelementptr i64, ptr %20, i64 %17
   %22 = load i64, ptr %21, align 8, !tbaa !28
   br label %23
 
@@ -79,7 +80,7 @@ define range(i32 0, 2) i32 @Cudd_PrintLinear(ptr noundef readonly captures(none)
 
 31:                                               ; preds = %28
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond38.not = icmp eq i64 %indvars.iv.next, %10
+  %exitcond38.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond38.not, label %._crit_edge, label %18, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %31
@@ -829,20 +830,20 @@ define range(i32 0, 2) i32 @cuddResizeLinear(ptr noundef captures(none) %0) loca
   %33 = zext nneg i32 %6 to i64
   %34 = sext i32 %13 to i64
   %wide.trip.count78 = zext nneg i32 %3 to i64
-  %wide.trip.count = zext nneg i32 %6 to i64
+  %wide.trip.count = zext i32 %6 to i64
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %._crit_edge
   %indvars.iv75 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next76, %._crit_edge ]
   %35 = mul nuw nsw i64 %indvars.iv75, %33
   %36 = mul nsw i64 %indvars.iv75, %34
-  %invariant.gep = getelementptr inbounds nuw i64, ptr %8, i64 %35
+  %invariant.gep = getelementptr i64, ptr %8, i64 %35
   %invariant.gep87 = getelementptr i64, ptr %17, i64 %36
   br label %37
 
 37:                                               ; preds = %.preheader, %37
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %37 ]
-  %gep = getelementptr inbounds nuw i64, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr i64, ptr %invariant.gep, i64 %indvars.iv
   %38 = load i64, ptr %gep, align 8, !tbaa !28
   %gep88 = getelementptr i64, ptr %invariant.gep87, i64 %indvars.iv
   store i64 %38, ptr %gep88, align 8, !tbaa !28

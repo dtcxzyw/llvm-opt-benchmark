@@ -2218,15 +2218,19 @@ define dso_local noundef nonnull align 8 dereferenceable(136) ptr @_ZN4Type15get
   %11 = sub i64 %9, %10
   %12 = ashr exact i64 %11, 3
   %.not = icmp eq ptr %7, %8
-  br i1 %.not, label %._crit_edge.thread, label %.lr.ph
+  br i1 %.not, label %._crit_edge.thread, label %.lr.ph.preheader
+
+.lr.ph.preheader:                                 ; preds = %.preheader
+  %umax = tail call i64 @llvm.umax.i64(i64 %12, i64 1)
+  br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %24
   %13 = icmp eq ptr %25, null
   br i1 %13, label %._crit_edge.thread, label %_ZNSt6vectorIP4TypeSaIS1_EE9push_backERKS1_.exit
 
-.lr.ph:                                           ; preds = %.preheader, %24
-  %14 = phi ptr [ %25, %24 ], [ null, %.preheader ]
-  %.01724 = phi i64 [ %26, %24 ], [ 0, %.preheader ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %24
+  %14 = phi ptr [ %25, %24 ], [ null, %.lr.ph.preheader ]
+  %.01724 = phi i64 [ %26, %24 ], [ 0, %.lr.ph.preheader ]
   %15 = getelementptr inbounds nuw ptr, ptr %8, i64 %.01724
   %16 = load ptr, ptr %15, align 8, !tbaa !35
   %17 = load i32, ptr %16, align 8, !tbaa !36
@@ -2246,7 +2250,7 @@ define dso_local noundef nonnull align 8 dereferenceable(136) ptr @_ZN4Type15get
 24:                                               ; preds = %23, %19, %.lr.ph
   %25 = phi ptr [ %16, %23 ], [ %14, %19 ], [ %14, %.lr.ph ]
   %26 = add nuw i64 %.01724, 1
-  %exitcond.not = icmp eq i64 %26, %12
+  %exitcond.not = icmp eq i64 %26, %umax
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !98
 
 ._crit_edge.thread:                               ; preds = %.preheader, %._crit_edge
@@ -2497,15 +2501,19 @@ define dso_local noundef ptr @_ZN4Type17find_pointer_typeEPKS_b(ptr noundef %0, 
   %7 = sub i64 %5, %6
   %8 = ashr exact i64 %7, 3
   %.not = icmp eq ptr %3, %4
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
+
+.lr.ph.preheader:                                 ; preds = %2
+  %umax = tail call i64 @llvm.umax.i64(i64 %8, i64 1)
+  br label %.lr.ph
 
 9:                                                ; preds = %.lr.ph
   %10 = add nuw i64 %.01029, 1
-  %exitcond.not = icmp eq i64 %10, %8
+  %exitcond.not = icmp eq i64 %10, %umax
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !100
 
-.lr.ph:                                           ; preds = %2, %9
-  %.01029 = phi i64 [ %10, %9 ], [ 0, %2 ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %9
+  %.01029 = phi i64 [ %10, %9 ], [ 0, %.lr.ph.preheader ]
   %11 = getelementptr inbounds nuw ptr, ptr %4, i64 %.01029
   %12 = load ptr, ptr %11, align 8, !tbaa !35
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8

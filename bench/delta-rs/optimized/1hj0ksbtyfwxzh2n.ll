@@ -1498,7 +1498,8 @@ define hidden void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..H
   %28 = getelementptr inbounds i8, ptr %27, i64 -32
   %.val4.i.us.us.i = load i8, ptr %28, align 1, !range !280, !noalias !439, !noundef !30
   %29 = add nsw i8 %.val4.i.us.us.i, -16
-  %30 = icmp eq i8 %29, %narrow3.i.i.i.i
+  %narrow.i.i.i.us.us.i = call i8 @llvm.umin.i8(i8 %29, i8 4)
+  %30 = icmp eq i8 %narrow.i.i.i.us.us.i, %narrow3.i.i.i.i
   br i1 %30, label %.loopexit, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hf2c06e39f5cfe2f3E.llvm.8649443668325006364.exit.backedge.us.us.i"
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hf2c06e39f5cfe2f3E.llvm.8649443668325006364.exit.backedge.us.us.i": ; preds = %.lr.ph.us.i
@@ -1655,7 +1656,8 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$G
   %31 = getelementptr inbounds i8, ptr %30, i64 -32
   %.val4.i.us.us.i.i = load i8, ptr %31, align 1, !range !280, !alias.scope !468, !noalias !473, !noundef !30
   %32 = add nsw i8 %.val4.i.us.us.i.i, -16
-  %33 = icmp eq i8 %32, %narrow.i.i.i.i.i.i
+  %narrow3.i.i.i.i.us.us.i.i = tail call i8 @llvm.umin.i8(i8 %32, i8 4)
+  %33 = icmp eq i8 %narrow.i.i.i.i.i.i, %narrow3.i.i.i.i.us.us.i.i
   br i1 %33, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$3get17ha9a9951e792ef5ecE.llvm.8649443668325006364.exit", label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hc0a1e1d2e0cec8eaE.exit.backedge.us.us.i.i"
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hc0a1e1d2e0cec8eaE.exit.backedge.us.us.i.i": ; preds = %.lr.ph.us.i.i
@@ -1827,7 +1829,8 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h78
   %29 = getelementptr inbounds i8, ptr %28, i64 -32
   %.val4.i.us.i.us.i = load i8, ptr %29, align 1, !range !280, !alias.scope !505, !noalias !510, !noundef !30
   %30 = add nsw i8 %.val4.i.us.i.us.i, -16
-  %31 = icmp eq i8 %30, %narrow.i.i.i.i.i.i
+  %narrow3.i.i.i.i.us.i.us.i = call i8 @llvm.umin.i8(i8 %30, i8 4)
+  %31 = icmp eq i8 %narrow.i.i.i.i.i.i, %narrow3.i.i.i.i.us.i.us.i
   br i1 %31, label %.loopexit, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17he651dd2f9ed3996bE.exit.backedge.us.i.us.i"
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17he651dd2f9ed3996bE.exit.backedge.us.i.us.i": ; preds = %.lr.ph.split.us.i.us.i
@@ -2144,7 +2147,8 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @"_ZN9hashbrown3ra
   %26 = getelementptr inbounds i8, ptr %25, i64 -32
   %.val4.i.us.us.i = load i8, ptr %26, align 1, !range !280, !alias.scope !542, !noalias !547, !noundef !30
   %27 = add nsw i8 %.val4.i.us.us.i, -16
-  %28 = icmp eq i8 %27, %narrow.i.i.i.i.i
+  %narrow3.i.i.i.i.us.us.i = tail call i8 @llvm.umin.i8(i8 %27, i8 4)
+  %28 = icmp eq i8 %narrow.i.i.i.i.i, %narrow3.i.i.i.i.us.us.i
   br i1 %28, label %.split.us.i, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hc0a1e1d2e0cec8eaE.exit.backedge.us.us.i"
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hc0a1e1d2e0cec8eaE.exit.backedge.us.us.i": ; preds = %.lr.ph.us.i
@@ -2265,7 +2269,8 @@ define hidden noundef ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h1c2a
   %26 = getelementptr inbounds i8, ptr %25, i64 -32
   %.val4.i.us.us = load i8, ptr %26, align 1, !range !280, !alias.scope !560, !noalias !565, !noundef !30
   %27 = add nsw i8 %.val4.i.us.us, -16
-  %28 = icmp eq i8 %27, %narrow.i.i.i.i
+  %narrow3.i.i.i.i.us.us = tail call i8 @llvm.umin.i8(i8 %27, i8 4)
+  %28 = icmp eq i8 %narrow.i.i.i.i, %narrow3.i.i.i.i.us.us
   br i1 %28, label %.split.us, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hc0a1e1d2e0cec8eaE.exit.backedge.us.us"
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hc0a1e1d2e0cec8eaE.exit.backedge.us.us": ; preds = %.lr.ph.us
@@ -2383,7 +2388,8 @@ define hidden noundef ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h67bf
   %25 = getelementptr inbounds i8, ptr %24, i64 -32
   %.val4.i.us.us = load i8, ptr %25, align 1, !range !280, !noalias !578, !noundef !30
   %26 = add nsw i8 %.val4.i.us.us, -16
-  %27 = icmp eq i8 %26, %narrow3.i.i.i
+  %narrow.i.i.i.us.us = tail call i8 @llvm.umin.i8(i8 %26, i8 4)
+  %27 = icmp eq i8 %narrow.i.i.i.us.us, %narrow3.i.i.i
   br i1 %27, label %.split.us, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hf2c06e39f5cfe2f3E.llvm.8649443668325006364.exit.backedge.us.us"
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hf2c06e39f5cfe2f3E.llvm.8649443668325006364.exit.backedge.us.us": ; preds = %.lr.ph.us

@@ -25760,7 +25760,7 @@ rb_array_const_ptr.exit:                          ; preds = %25, %27
   %37 = load ptr, ptr %5, align 8, !tbaa !95
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %38 = load volatile i64, ptr %37, align 8, !tbaa !7
-  br label %52
+  br label %51
 
 39:                                               ; preds = %RARRAY_LENINT.exit
   %40 = icmp ugt i64 %.0.i.i, 2305843009213693951
@@ -25771,35 +25771,34 @@ rb_array_const_ptr.exit:                          ; preds = %25, %27
   unreachable
 
 rbimpl_size_mul_or_raise.exit:                    ; preds = %39
-  %42 = shl nuw i64 %.0.i.i, 3
-  %43 = and i64 %42, 34359738360
-  %44 = alloca i8, i64 %43, align 16
-  br i1 %.not.i.i, label %47, label %45
+  %42 = shl nuw nsw i64 %.0.i.i, 3
+  %43 = alloca i8, i64 %42, align 16
+  br i1 %.not.i.i, label %46, label %44
 
-45:                                               ; preds = %rbimpl_size_mul_or_raise.exit
-  %46 = getelementptr inbounds nuw i8, ptr %6, i64 16
+44:                                               ; preds = %rbimpl_size_mul_or_raise.exit
+  %45 = getelementptr inbounds nuw i8, ptr %6, i64 16
   br label %rbimpl_size_mul_or_raise.exit18
 
-47:                                               ; preds = %rbimpl_size_mul_or_raise.exit
-  %48 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %49 = load ptr, ptr %48, align 8, !tbaa !26
+46:                                               ; preds = %rbimpl_size_mul_or_raise.exit
+  %47 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %48 = load ptr, ptr %47, align 8, !tbaa !26
   br label %rbimpl_size_mul_or_raise.exit18
 
-rbimpl_size_mul_or_raise.exit18:                  ; preds = %47, %45
-  %.0.i16 = phi ptr [ %46, %45 ], [ %49, %47 ]
+rbimpl_size_mul_or_raise.exit18:                  ; preds = %46, %44
+  %.0.i16 = phi ptr [ %45, %44 ], [ %48, %46 ]
   %.not.i19 = icmp eq i64 %.0.i.i, 0
-  br i1 %.not.i19, label %ruby_nonempty_memcpy.exit, label %50
+  br i1 %.not.i19, label %ruby_nonempty_memcpy.exit, label %49
 
-50:                                               ; preds = %rbimpl_size_mul_or_raise.exit18
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 %44, ptr noundef nonnull readonly align 1 %.0.i16, i64 noundef %43, i1 noundef false) #20
+49:                                               ; preds = %rbimpl_size_mul_or_raise.exit18
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 %43, ptr noundef nonnull readonly align 1 %.0.i16, i64 noundef %42, i1 noundef false) #20
   br label %ruby_nonempty_memcpy.exit
 
-ruby_nonempty_memcpy.exit:                        ; preds = %rbimpl_size_mul_or_raise.exit18, %50
-  %51 = call fastcc i64 @rb_funcallv_scope(i64 noundef %0, i64 noundef %1, i32 noundef %17, ptr noundef nonnull %44, i32 noundef 1)
-  br label %52
+ruby_nonempty_memcpy.exit:                        ; preds = %rbimpl_size_mul_or_raise.exit18, %49
+  %50 = call fastcc i64 @rb_funcallv_scope(i64 noundef %0, i64 noundef %1, i32 noundef %17, ptr noundef nonnull %43, i32 noundef 1)
+  br label %51
 
-52:                                               ; preds = %ruby_nonempty_memcpy.exit, %rb_array_const_ptr.exit
-  %.0 = phi i64 [ %36, %rb_array_const_ptr.exit ], [ %51, %ruby_nonempty_memcpy.exit ]
+51:                                               ; preds = %ruby_nonempty_memcpy.exit, %rb_array_const_ptr.exit
+  %.0 = phi i64 [ %36, %rb_array_const_ptr.exit ], [ %50, %ruby_nonempty_memcpy.exit ]
   ret i64 %.0
 }
 
@@ -51378,7 +51377,7 @@ vm_proc_to_block_handler.exit:                    ; preds = %vm_proc_to_block_ha
 8:                                                ; preds = %vm_proc_to_block_handler.exit
   %9 = and i64 %.09, 255
   %10 = icmp eq i64 %9, 12
-  br i1 %10, label %vm_block_handler_type.exit.i, label %11
+  br i1 %10, label %39, label %11
 
 11:                                               ; preds = %8
   %12 = icmp eq i64 %.09, 0
@@ -51393,7 +51392,7 @@ RB_SYMBOL_P.exit.i:                               ; preds = %11
   %.fr.i = freeze i64 %17
   %18 = and i64 %.fr.i, 31
   %19 = icmp eq i64 %18, 20
-  br i1 %19, label %RB_SYMBOL_P.exit.i.i, label %vm_block_handler_type.exit.thread14
+  br i1 %19, label %.thread, label %vm_block_handler_type.exit.thread14
 
 vm_block_handler_type.exit:                       ; preds = %11
   %20 = xor i1 %12, true
@@ -51443,24 +51442,32 @@ vm_proc_to_block_handler.exit.backedge:           ; preds = %28, %31, %34, %36
 38:                                               ; preds = %vm_block_handler_type.exit.thread14
   unreachable
 
-RB_SYMBOL_P.exit.i.i:                             ; preds = %RB_SYMBOL_P.exit.i
-  %39 = inttoptr i64 %.09 to ptr
-  %40 = load i64, ptr %39, align 8, !tbaa !97
-  %.fr.i.i = freeze i64 %40
-  %41 = and i64 %.fr.i.i, 31
-  %42 = icmp eq i64 %41, 20
-  br i1 %42, label %vm_block_handler_type.exit.i, label %vm_invoke_block.exit
+39:                                               ; preds = %8
+  %cond = icmp eq i64 %7, 1
+  br i1 %cond, label %vm_invoke_block.exit, label %vm_block_handler_type.exit.i
 
-vm_block_handler_type.exit.i:                     ; preds = %8, %RB_SYMBOL_P.exit.i.i
+.thread:                                          ; preds = %RB_SYMBOL_P.exit.i
+  %cond45 = icmp eq i64 %7, 1
+  br i1 %cond45, label %vm_invoke_block.exit, label %RB_SYMBOL_P.exit.i.i
+
+RB_SYMBOL_P.exit.i.i:                             ; preds = %.thread
+  %40 = inttoptr i64 %.09 to ptr
+  %41 = load i64, ptr %40, align 8, !tbaa !97
+  %.fr.i.i = freeze i64 %41
+  %42 = and i64 %.fr.i.i, 31
+  %43 = icmp eq i64 %42, 20
+  br i1 %43, label %vm_block_handler_type.exit.i, label %vm_invoke_block.exit
+
+vm_block_handler_type.exit.i:                     ; preds = %39, %RB_SYMBOL_P.exit.i.i
   br label %vm_invoke_block.exit
 
 vm_invoke_block.exit.loopexit:                    ; preds = %vm_proc_to_block_handler.exit
   br label %vm_invoke_block.exit
 
-vm_invoke_block.exit:                             ; preds = %vm_proc_to_block_handler.exit, %vm_invoke_block.exit.loopexit, %RB_SYMBOL_P.exit.i.i, %vm_block_handler_type.exit.i
-  %.0.i12 = phi ptr [ @vm_invoke_symbol_block, %vm_block_handler_type.exit.i ], [ @vm_invoke_ifunc_block, %vm_invoke_block.exit.loopexit ], [ @vm_invoke_proc_block, %RB_SYMBOL_P.exit.i.i ], [ @vm_invoke_iseq_block, %vm_proc_to_block_handler.exit ]
-  %43 = tail call i64 %.0.i12(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %.0.in, i64 noundef %.09) #20, !callees !248
-  ret i64 %43
+vm_invoke_block.exit:                             ; preds = %vm_proc_to_block_handler.exit, %vm_invoke_block.exit.loopexit, %.thread, %39, %RB_SYMBOL_P.exit.i.i, %vm_block_handler_type.exit.i
+  %.0.i12 = phi ptr [ @vm_invoke_symbol_block, %vm_block_handler_type.exit.i ], [ @vm_invoke_iseq_block, %.thread ], [ @vm_invoke_proc_block, %RB_SYMBOL_P.exit.i.i ], [ @vm_invoke_ifunc_block, %vm_invoke_block.exit.loopexit ], [ @vm_invoke_iseq_block, %39 ], [ @vm_invoke_iseq_block, %vm_proc_to_block_handler.exit ]
+  %44 = tail call i64 %.0.i12(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %.0.in, i64 noundef %.09) #20, !callees !248
+  ret i64 %44
 }
 
 ; Function Attrs: nounwind sspstrong uwtable

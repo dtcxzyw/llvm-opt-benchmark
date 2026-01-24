@@ -9431,12 +9431,12 @@ define hidden i32 @FT_CMap_New(ptr noundef %0, ptr noundef %1, ptr noundef reado
   %5 = icmp ne ptr %0, null
   %6 = icmp ne ptr %2, null
   %or.cond = and i1 %5, %6
-  br i1 %or.cond, label %7, label %68
+  br i1 %or.cond, label %7, label %69
 
 7:                                                ; preds = %4
   %8 = load ptr, ptr %2, align 8, !tbaa !385
   %.not = icmp eq ptr %8, null
-  br i1 %.not, label %68, label %9
+  br i1 %.not, label %69, label %9
 
 9:                                                ; preds = %7
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 184
@@ -9473,7 +9473,7 @@ select.unfold:                                    ; preds = %ft_mem_qalloc.exit.
 21:                                               ; preds = %select.unfold
   %22 = tail call i32 %20(ptr noundef nonnull %.0.i17.i.ph, ptr noundef %1) #35
   %.not36 = icmp eq i32 %22, 0
-  br i1 %.not36, label %23, label %58
+  br i1 %.not36, label %23, label %59
 
 23:                                               ; preds = %21, %select.unfold
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 72
@@ -9505,74 +9505,75 @@ select.unfold:                                    ; preds = %ft_mem_qalloc.exit.
 
 39:                                               ; preds = %37
   %40 = icmp eq i32 %25, 0
-  br i1 %40, label %41, label %46
+  br i1 %40, label %41, label %47
 
 41:                                               ; preds = %39
   %42 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %43 = load ptr, ptr %42, align 8, !tbaa !179
-  %44 = tail call ptr %43(ptr noundef %11, i64 noundef 8) #35
-  %45 = icmp eq ptr %44, null
-  br i1 %45, label %ft_mem_qrealloc.exit, label %52
+  %44 = shl nuw nsw i64 %28, 3
+  %45 = tail call ptr %43(ptr noundef %11, i64 noundef %44) #35
+  %46 = icmp eq ptr %45, null
+  br i1 %46, label %ft_mem_qrealloc.exit, label %53
 
-46:                                               ; preds = %39
-  %47 = shl nsw i64 %26, 3
-  %48 = shl nsw i64 %28, 3
-  %49 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  %50 = load ptr, ptr %49, align 8, !tbaa !205
-  %51 = tail call ptr %50(ptr noundef %11, i64 noundef %47, i64 noundef %48, ptr noundef %30) #35
-  %.not.i = icmp eq ptr %51, null
-  br i1 %.not.i, label %ft_mem_qrealloc.exit, label %52
+47:                                               ; preds = %39
+  %48 = shl nsw i64 %26, 3
+  %49 = shl nsw i64 %28, 3
+  %50 = getelementptr inbounds nuw i8, ptr %11, i64 24
+  %51 = load ptr, ptr %50, align 8, !tbaa !205
+  %52 = tail call ptr %51(ptr noundef %11, i64 noundef %48, i64 noundef %49, ptr noundef %30) #35
+  %.not.i = icmp eq ptr %52, null
+  br i1 %.not.i, label %ft_mem_qrealloc.exit, label %53
 
-ft_mem_qrealloc.exit:                             ; preds = %41, %46, %23, %37
-  %.033.i = phi i32 [ 10, %37 ], [ 64, %46 ], [ 6, %23 ], [ 64, %41 ]
-  %.0.i = phi ptr [ %30, %37 ], [ %30, %46 ], [ %30, %23 ], [ null, %41 ]
+ft_mem_qrealloc.exit:                             ; preds = %41, %47, %23, %37
+  %.033.i = phi i32 [ 10, %37 ], [ 64, %47 ], [ 6, %23 ], [ 64, %41 ]
+  %.0.i = phi ptr [ %30, %37 ], [ %30, %47 ], [ %30, %23 ], [ null, %41 ]
   store ptr %.0.i, ptr %29, align 8, !tbaa !337
-  br label %58
+  br label %59
 
-52:                                               ; preds = %46, %41
-  %.0.i.ph = phi ptr [ %51, %46 ], [ %44, %41 ]
+53:                                               ; preds = %47, %41
+  %.0.i.ph = phi ptr [ %52, %47 ], [ %45, %41 ]
   store ptr %.0.i.ph, ptr %29, align 8, !tbaa !337
-  %53 = load i32, ptr %24, align 8, !tbaa !336
-  %54 = add nsw i32 %53, 1
-  store i32 %54, ptr %24, align 8, !tbaa !336
-  %55 = sext i32 %53 to i64
-  %56 = getelementptr inbounds ptr, ptr %.0.i.ph, i64 %55
-  store ptr %.0.i17.i.ph, ptr %56, align 8, !tbaa !338
+  %54 = load i32, ptr %24, align 8, !tbaa !336
+  %55 = add nsw i32 %54, 1
+  store i32 %55, ptr %24, align 8, !tbaa !336
+  %56 = sext i32 %54 to i64
+  %57 = getelementptr inbounds ptr, ptr %.0.i.ph, i64 %56
+  store ptr %.0.i17.i.ph, ptr %57, align 8, !tbaa !338
   br label %ft_mem_alloc.exit
 
-ft_mem_alloc.exit:                                ; preds = %ft_mem_qalloc.exit.i, %ft_mem_qalloc.exit.thread.i, %52, %ft_cmap_done_internal.exit
-  %.1 = phi i32 [ 0, %52 ], [ %.042, %ft_cmap_done_internal.exit ], [ 6, %ft_mem_qalloc.exit.thread.i ], [ 64, %ft_mem_qalloc.exit.i ]
-  %.0 = phi ptr [ %.0.i17.i.ph, %52 ], [ null, %ft_cmap_done_internal.exit ], [ null, %ft_mem_qalloc.exit.thread.i ], [ null, %ft_mem_qalloc.exit.i ]
+ft_mem_alloc.exit:                                ; preds = %ft_mem_qalloc.exit.i, %ft_mem_qalloc.exit.thread.i, %53, %ft_cmap_done_internal.exit
+  %.1 = phi i32 [ 0, %53 ], [ %.042, %ft_cmap_done_internal.exit ], [ 6, %ft_mem_qalloc.exit.thread.i ], [ 64, %ft_mem_qalloc.exit.i ]
+  %.0 = phi ptr [ %.0.i17.i.ph, %53 ], [ null, %ft_cmap_done_internal.exit ], [ null, %ft_mem_qalloc.exit.thread.i ], [ null, %ft_mem_qalloc.exit.i ]
   %.not38 = icmp eq ptr %3, null
-  br i1 %.not38, label %68, label %57
+  br i1 %.not38, label %69, label %58
 
-57:                                               ; preds = %ft_mem_alloc.exit
+58:                                               ; preds = %ft_mem_alloc.exit
   store ptr %.0, ptr %3, align 8, !tbaa !397
-  br label %68
+  br label %69
 
-58:                                               ; preds = %ft_mem_qrealloc.exit, %21
+59:                                               ; preds = %ft_mem_qrealloc.exit, %21
   %.042 = phi i32 [ %.033.i, %ft_mem_qrealloc.exit ], [ %22, %21 ]
-  %59 = load ptr, ptr %18, align 8, !tbaa !292
-  %60 = load ptr, ptr %.0.i17.i.ph, align 8, !tbaa !339
-  %61 = getelementptr inbounds nuw i8, ptr %60, i64 184
-  %62 = load ptr, ptr %61, align 8, !tbaa !60
-  %63 = getelementptr inbounds nuw i8, ptr %59, i64 16
-  %64 = load ptr, ptr %63, align 8, !tbaa !340
-  %.not.i39 = icmp eq ptr %64, null
-  br i1 %.not.i39, label %ft_cmap_done_internal.exit, label %65
+  %60 = load ptr, ptr %18, align 8, !tbaa !292
+  %61 = load ptr, ptr %.0.i17.i.ph, align 8, !tbaa !339
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 184
+  %63 = load ptr, ptr %62, align 8, !tbaa !60
+  %64 = getelementptr inbounds nuw i8, ptr %60, i64 16
+  %65 = load ptr, ptr %64, align 8, !tbaa !340
+  %.not.i39 = icmp eq ptr %65, null
+  br i1 %.not.i39, label %ft_cmap_done_internal.exit, label %66
 
-65:                                               ; preds = %58
-  tail call void %64(ptr noundef nonnull %.0.i17.i.ph) #35
+66:                                               ; preds = %59
+  tail call void %65(ptr noundef nonnull %.0.i17.i.ph) #35
   br label %ft_cmap_done_internal.exit
 
-ft_cmap_done_internal.exit:                       ; preds = %58, %65
-  %66 = getelementptr inbounds nuw i8, ptr %62, i64 16
-  %67 = load ptr, ptr %66, align 8, !tbaa !61
-  tail call void %67(ptr noundef %62, ptr noundef nonnull %.0.i17.i.ph) #35
+ft_cmap_done_internal.exit:                       ; preds = %59, %66
+  %67 = getelementptr inbounds nuw i8, ptr %63, i64 16
+  %68 = load ptr, ptr %67, align 8, !tbaa !61
+  tail call void %68(ptr noundef %63, ptr noundef nonnull %.0.i17.i.ph) #35
   br label %ft_mem_alloc.exit
 
-68:                                               ; preds = %ft_mem_alloc.exit, %57, %4, %7
-  %.028 = phi i32 [ 6, %4 ], [ 6, %7 ], [ %.1, %57 ], [ %.1, %ft_mem_alloc.exit ]
+69:                                               ; preds = %ft_mem_alloc.exit, %58, %4, %7
+  %.028 = phi i32 [ 6, %4 ], [ 6, %7 ], [ %.1, %58 ], [ %.1, %ft_mem_alloc.exit ]
   ret i32 %.028
 }
 

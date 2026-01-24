@@ -1419,6 +1419,7 @@ if.then:                                          ; preds = %entry
 
 for.body.preheader:                               ; preds = %if.then
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
+  %umax = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 1)
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %if.else
@@ -1444,7 +1445,7 @@ if.else:                                          ; preds = %for.body
   %or.cond = select i1 %tobool7, i1 %cmp8, i1 false
   %spec.select = select i1 %or.cond, i64 %i.038, i64 %found_empty.039
   %inc = add nuw i64 %i.038, 1
-  %exitcond.not = icmp eq i64 %inc, %sub.ptr.div.i
+  %exitcond.not = icmp eq i64 %inc, %umax
   br i1 %exitcond.not, label %if.then12, label %for.body, !llvm.loop !9
 
 if.then12:                                        ; preds = %if.else, %if.then6
@@ -1781,6 +1782,9 @@ declare noundef i32 @_ZN2EA4StdC24RandomLinearCongruential19RandomUint32UniformE
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #16
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umax.i64(i64, i64) #17
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #17

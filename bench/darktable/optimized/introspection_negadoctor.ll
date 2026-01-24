@@ -430,9 +430,7 @@ define void @process(ptr noundef readnone captures(none) %0, ptr noundef readonl
 54:                                               ; preds = %77
   call void @llvm.assume(i1 true) [ "align"(ptr %43, i64 16) ]
   %55 = getelementptr inbounds nuw i8, ptr %43, i64 16
-  call void @llvm.assume(i1 true) [ "align"(ptr %55, i64 16) ]
   %56 = getelementptr inbounds nuw i8, ptr %43, i64 32
-  call void @llvm.assume(i1 true) [ "align"(ptr %56, i64 16) ]
   %57 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %58 = load i32, ptr %57, align 4, !tbaa !59
   %59 = sext i32 %58 to i64

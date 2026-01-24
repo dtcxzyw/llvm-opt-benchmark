@@ -115,6 +115,8 @@ list_length.exit:                                 ; preds = %19, %20
 
 .lr.ph:                                           ; preds = %._crit_edge
   %39 = getelementptr inbounds nuw i8, ptr %24, i64 64
+  %umax = call i32 @llvm.umax.i32(i32 %36, i32 1)
+  %wide.trip.count105 = zext nneg i32 %umax to i64
   br label %44
 
 .preheader:                                       ; preds = %44, %._crit_edge
@@ -134,7 +136,7 @@ list_length.exit:                                 ; preds = %19, %20
   %47 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv102
   store ptr %46, ptr %47, align 8
   %indvars.iv.next103 = add nuw nsw i64 %indvars.iv102, 1
-  %exitcond106.not = icmp eq i64 %indvars.iv.next103, %35
+  %exitcond106.not = icmp eq i64 %indvars.iv.next103, %wide.trip.count105
   br i1 %exitcond106.not, label %.preheader, label %44, !llvm.loop !7
 
 .lr.ph129:                                        ; preds = %.lr.ph92, %107
@@ -234,20 +236,25 @@ list_length.exit:                                 ; preds = %19, %20
 
 .critedge.thread:                                 ; preds = %.preheader, %111, %.critedge
   call void @pfree(ptr noundef %27) #9
-  br i1 %.not, label %._crit_edge98, label %.lr.ph97
+  br i1 %.not, label %._crit_edge98, label %.lr.ph97.preheader
+
+.lr.ph97.preheader:                               ; preds = %.critedge.thread
+  %umax115 = call i32 @llvm.umax.i32(i32 %36, i32 1)
+  %wide.trip.count116 = zext nneg i32 %umax115 to i64
+  br label %.lr.ph97
 
 ._crit_edge98:                                    ; preds = %.lr.ph97, %.critedge.thread
   call void @CatalogCloseIndexes(ptr noundef %34) #9
   call void @table_close(ptr noundef %24, i32 noundef 3) #9
   ret void
 
-.lr.ph97:                                         ; preds = %.critedge.thread, %.lr.ph97
-  %indvars.iv112 = phi i64 [ %indvars.iv.next113, %.lr.ph97 ], [ 0, %.critedge.thread ]
+.lr.ph97:                                         ; preds = %.lr.ph97.preheader, %.lr.ph97
+  %indvars.iv112 = phi i64 [ 0, %.lr.ph97.preheader ], [ %indvars.iv.next113, %.lr.ph97 ]
   %112 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv112
   %113 = load ptr, ptr %112, align 8
   call void @ExecDropSingleTupleTableSlot(ptr noundef %113) #9
   %indvars.iv.next113 = add nuw nsw i64 %indvars.iv112, 1
-  %exitcond117.not = icmp eq i64 %indvars.iv.next113, %35
+  %exitcond117.not = icmp eq i64 %indvars.iv.next113, %wide.trip.count116
   br i1 %exitcond117.not, label %._crit_edge98, label %.lr.ph97, !llvm.loop !8
 }
 
@@ -1158,6 +1165,9 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #8
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #8
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

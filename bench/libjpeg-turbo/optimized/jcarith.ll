@@ -1472,10 +1472,9 @@ define internal noundef i32 @encode_mcu_AC_refine(ptr noundef %0, ptr noundef re
   %105 = sub nsw i32 0, %94
   %106 = load i32, ptr %29, align 8, !tbaa !76
   %107 = lshr i32 %105, %106
-  %trunc = trunc nuw i32 %107 to i16
-  switch i16 %trunc, label %108 [
-    i16 0, label %113
-    i16 1, label %111
+  switch i32 %107, label %108 [
+    i32 0, label %113
+    i32 1, label %111
   ]
 
 108:                                              ; preds = %104

@@ -664,11 +664,8 @@ dt_colormatrix_transpose.exit349:                 ; preds = %121
   call void @llvm.assume(i1 true) [ "align"(ptr %136, i64 64) ]
   call void @llvm.assume(i1 true) [ "align"(ptr %47, i64 16) ]
   %137 = getelementptr inbounds nuw i8, ptr %47, i64 32
-  call void @llvm.assume(i1 true) [ "align"(ptr %137, i64 16) ]
   %138 = getelementptr inbounds nuw i8, ptr %47, i64 16
-  call void @llvm.assume(i1 true) [ "align"(ptr %138, i64 16) ]
   %139 = getelementptr inbounds nuw i8, ptr %47, i64 48
-  call void @llvm.assume(i1 true) [ "align"(ptr %139, i64 16) ]
   %140 = getelementptr inbounds nuw i8, ptr %47, i64 72
   call void @llvm.assume(i1 true) [ "align"(ptr %140, i64 16) ]
   %141 = getelementptr inbounds nuw i8, ptr %47, i64 100
