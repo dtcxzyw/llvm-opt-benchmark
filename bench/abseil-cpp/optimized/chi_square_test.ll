@@ -2095,39 +2095,39 @@ _ZNSt6vectorIiSaIiEED2Ev.exit118:                 ; preds = %83, %74, %81, %76, 
   br i1 %92, label %_ZNSt6vectorIiSaIiEED2Ev.exit118.thread, label %89
 
 93:                                               ; preds = %66, %_ZN7testing15AssertionResultD2Ev.exit
-  %.083.idx166 = phi i64 [ 0, %66 ], [ %.083.add, %_ZN7testing15AssertionResultD2Ev.exit ]
-  %.083.ptr167 = getelementptr inbounds nuw i8, ptr %2, i64 %.083.idx166
+  %.083.idx165 = phi i64 [ 0, %66 ], [ %.083.add, %_ZN7testing15AssertionResultD2Ev.exit ]
+  %.083.ptr166 = getelementptr inbounds nuw i8, ptr %2, i64 %.083.idx165
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  invoke void @_ZN7testing11ScopedTraceC2IiEEPKciRKT_(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull @.str.3, i32 noundef 161, ptr noundef nonnull align 4 dereferenceable(4) %.083.ptr167)
+  invoke void @_ZN7testing11ScopedTraceC2IiEEPKciRKT_(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull @.str.3, i32 noundef 161, ptr noundef nonnull align 4 dereferenceable(4) %.083.ptr166)
           to label %.preheader159 unwind label %123
 
-.preheader159:                                    ; preds = %93
-  %94 = getelementptr inbounds nuw i8, ptr %.083.ptr167, i64 8
-  %95 = getelementptr inbounds nuw i8, ptr %.083.ptr167, i64 16
+.preheader158:                                    ; preds = %93
+  %94 = getelementptr inbounds nuw i8, ptr %.083.ptr166, i64 8
+  %95 = getelementptr inbounds nuw i8, ptr %.083.ptr166, i64 16
   %96 = load ptr, ptr %95, align 8, !tbaa !59
   %97 = load ptr, ptr %94, align 8, !tbaa !57
-  %.not168 = icmp eq ptr %96, %97
-  br i1 %.not168, label %.preheader159.._crit_edge_crit_edge, label %.lr.ph
+  %.not167 = icmp eq ptr %96, %97
+  br i1 %.not167, label %.preheader158.._crit_edge_crit_edge, label %.lr.ph
 
-.preheader159.._crit_edge_crit_edge:              ; preds = %.preheader159
-  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.083.ptr167, i64 32
+.preheader158.._crit_edge_crit_edge:              ; preds = %.preheader158
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.083.ptr166, i64 32
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !60
   br label %._crit_edge
 
-.lr.ph:                                           ; preds = %.preheader159
+.lr.ph:                                           ; preds = %.preheader158
   %98 = ptrtoint ptr %96 to i64
   %99 = ptrtoint ptr %97 to i64
   %100 = sub i64 %98, %99
   %101 = ashr exact i64 %100, 2
-  %102 = getelementptr inbounds nuw i8, ptr %.083.ptr167, i64 32
+  %102 = getelementptr inbounds nuw i8, ptr %.083.ptr166, i64 32
   %103 = load ptr, ptr %102, align 8, !tbaa !57
   br label %125
 
-._crit_edge:                                      ; preds = %125, %.preheader159.._crit_edge_crit_edge
+._crit_edge:                                      ; preds = %125, %.preheader158.._crit_edge_crit_edge
   %104 = phi ptr [ %.pre, %.preheader159.._crit_edge_crit_edge ], [ %103, %125 ]
   %.080.lcssa = phi double [ 0.000000e+00, %.preheader159.._crit_edge_crit_edge ], [ %135, %125 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %105 = getelementptr inbounds nuw i8, ptr %.083.ptr167, i64 40
+  %105 = getelementptr inbounds nuw i8, ptr %.083.ptr166, i64 40
   %106 = load ptr, ptr %105, align 8, !tbaa !60
   %107 = icmp ne ptr %104, %106
   %108 = icmp ne ptr %97, %96
@@ -2173,7 +2173,7 @@ _ZN4absl15random_internal9ChiSquareIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorI
 
 125:                                              ; preds = %.lr.ph, %125
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %125 ]
-  %.080162 = phi double [ 0.000000e+00, %.lr.ph ], [ %135, %125 ]
+  %.080161 = phi double [ 0.000000e+00, %.lr.ph ], [ %135, %125 ]
   %126 = getelementptr inbounds nuw i32, ptr %103, i64 %indvars.iv
   %127 = load i32, ptr %126, align 4, !tbaa !39
   %128 = getelementptr inbounds nuw i32, ptr %97, i64 %indvars.iv
@@ -2183,7 +2183,7 @@ _ZN4absl15random_internal9ChiSquareIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorI
   %132 = fmul double %131, %131
   %133 = sitofp i32 %129 to double
   %134 = fdiv double %132, %133
-  %135 = fadd double %.080162, %134
+  %135 = fadd double %.080161, %134
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %101
   br i1 %exitcond.not, label %._crit_edge, label %125, !llvm.loop !63
@@ -2301,7 +2301,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %164, %_ZNKSt14defau
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @_ZN7testing11ScopedTraceD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %.083.add = add nuw nsw i64 %.083.idx166, 56
+  %.083.add = add nuw nsw i64 %.083.idx165, 56
   %.not = icmp eq i64 %.083.add, 280
   br i1 %.not, label %.preheader, label %93
 

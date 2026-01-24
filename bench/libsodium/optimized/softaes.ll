@@ -13,21 +13,21 @@ define hidden { i64, i64 } @_sodium_softaes_block_encrypt(i64 %0, i64 %1, i64 %2
   %8 = alloca [4 x i8], align 64
   %9 = alloca [4 x i8], align 64
   %10 = alloca [4 x i8], align 64
-  %.sroa.221.0.extract.shift = lshr i64 %0, 32
-  %.sroa.523.8.extract.shift = lshr i64 %1, 32
+  %.sroa.220.0.extract.shift = lshr i64 %0, 32
+  %.sroa.522.8.extract.shift = lshr i64 %1, 32
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %11 = trunc i64 %0 to i8
   store i8 %11, ptr %7, align 64
-  %12 = trunc i64 %.sroa.221.0.extract.shift to i8
+  %12 = trunc i64 %.sroa.220.0.extract.shift to i8
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 1
   store i8 %12, ptr %13, align 1
   %14 = trunc i64 %1 to i8
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 2
   store i8 %14, ptr %15, align 2
-  %16 = trunc i64 %.sroa.523.8.extract.shift to i8
+  %16 = trunc i64 %.sroa.522.8.extract.shift to i8
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 3
   store i8 %16, ptr %17, align 1
   %18 = lshr i64 %0, 40
@@ -67,8 +67,8 @@ define hidden { i64, i64 } @_sodium_softaes_block_encrypt(i64 %0, i64 %1, i64 %2
   %42 = trunc i64 %41 to i8
   %43 = getelementptr inbounds nuw i8, ptr %10, i64 1
   store i8 %42, ptr %43, align 1
-  %sum.shift26 = lshr i64 %0, 56
-  %44 = trunc nuw i64 %sum.shift26 to i8
+  %sum.shift25 = lshr i64 %0, 56
+  %44 = trunc nuw i64 %sum.shift25 to i8
   %45 = getelementptr inbounds nuw i8, ptr %10, i64 2
   store i8 %44, ptr %45, align 2
   %46 = lshr i64 %1, 24

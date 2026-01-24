@@ -718,8 +718,8 @@ lv_arc_draw.exit:                                 ; preds = %._crit_edge.i, %350
   call fastcc void @get_knob_area(ptr noundef %316, i32 %.val.i, i32 %.val45.i, i32 noundef %318, ptr noundef %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @lv_draw_rect_dsc_init(ptr noundef nonnull %7) #7
-  %372 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store ptr %317, ptr %372, align 8, !tbaa !57
+  %370 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  store ptr %317, ptr %370, align 8, !tbaa !57
   call void @lv_obj_init_draw_rect_dsc(ptr noundef %316, i32 noundef 196608, ptr noundef nonnull %7) #7
   call void @lv_draw_rect(ptr noundef %317, ptr noundef nonnull %7, ptr noundef nonnull %6) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %7)

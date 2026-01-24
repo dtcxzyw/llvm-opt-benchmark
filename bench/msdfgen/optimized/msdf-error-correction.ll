@@ -418,15 +418,15 @@ invoke.cont:
   %2 = bytecast b64 %0 to i64
   %3 = bytecast b32 %1 to i32
   %height = getelementptr inbounds nuw i8, ptr %sdf, i64 12
-  %4 = lshr b64 %0, 32
-  %5 = trunc b64 %4 to b32
+  %1 = lshr b64 %0, 32
+  %5 = trunc b64 %1 to b32
   %6 = bytecast b32 %5 to i32
   %mul4.i = mul nsw i32 %6, %3
   %conv.i = sext i32 %mul4.i to i64
   %call.i = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %conv.i) #10
   store ptr %call.i, ptr %ref.tmp, align 8
-  %7 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
-  store i64 %2, ptr %7, align 8
+  %2 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
+  store i64 %2, ptr %2, align 8
   invoke void @_ZN7msdfgen19MSDFErrorCorrectionC1ERKNS_9BitmapRefIhLi1EEERKNS_10ProjectionEd(ptr noundef nonnull align 8 dereferenceable(72) %ec, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %projection, double noundef %range)
           to label %invoke.cont1 unwind label %_ZN7msdfgen6BitmapIhLi1EED2Ev.exit
 
@@ -442,20 +442,20 @@ if.then:                                          ; preds = %invoke.cont2
           to label %if.end unwind label %_ZN7msdfgen6BitmapIhLi1EED2Ev.exit
 
 _ZN7msdfgen6BitmapIhLi1EED2Ev.exit:               ; preds = %invoke.cont6, %if.end, %if.then, %invoke.cont1, %invoke.cont
-  %8 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdaPv(ptr noundef nonnull %call.i) #11
-  resume { ptr, i32 } %8
+  resume { ptr, i32 } %3
 
 if.end:                                           ; preds = %if.then, %invoke.cont2
-  %9 = load ptr, ptr %sdf, align 8
-  store ptr %9, ptr %ref.tmp4, align 8
+  %4 = load ptr, ptr %sdf, align 8
+  store ptr %4, ptr %ref.tmp4, align 8
   %width.i = getelementptr inbounds nuw i8, ptr %ref.tmp4, i64 8
-  %10 = load i32, ptr %width, align 8
-  store i32 %10, ptr %width.i, align 8
+  %5 = load i32, ptr %width, align 8
+  store i32 %5, ptr %width.i, align 8
   %height.i = getelementptr inbounds nuw i8, ptr %ref.tmp4, i64 12
-  %11 = load i32, ptr %height, align 4
-  store i32 %11, ptr %height.i, align 4
+  %6 = load i32, ptr %height, align 4
+  store i32 %6, ptr %height.i, align 4
   invoke void @_ZN7msdfgen19MSDFErrorCorrection10findErrorsILi3EEEvRKNS_14BitmapConstRefIfXT_EEE(ptr noundef nonnull align 8 dereferenceable(72) %ec, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp4)
           to label %invoke.cont6 unwind label %_ZN7msdfgen6BitmapIhLi1EED2Ev.exit
 
@@ -487,15 +487,15 @@ invoke.cont:
   %2 = bytecast b64 %0 to i64
   %3 = bytecast b32 %1 to i32
   %height = getelementptr inbounds nuw i8, ptr %sdf, i64 12
-  %4 = lshr b64 %0, 32
-  %5 = trunc b64 %4 to b32
+  %1 = lshr b64 %0, 32
+  %5 = trunc b64 %1 to b32
   %6 = bytecast b32 %5 to i32
   %mul4.i = mul nsw i32 %6, %3
   %conv.i = sext i32 %mul4.i to i64
   %call.i = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %conv.i) #10
   store ptr %call.i, ptr %ref.tmp, align 8
-  %7 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
-  store i64 %2, ptr %7, align 8
+  %2 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
+  store i64 %2, ptr %2, align 8
   invoke void @_ZN7msdfgen19MSDFErrorCorrectionC1ERKNS_9BitmapRefIhLi1EEERKNS_10ProjectionEd(ptr noundef nonnull align 8 dereferenceable(72) %ec, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %projection, double noundef %range)
           to label %invoke.cont1 unwind label %_ZN7msdfgen6BitmapIhLi1EED2Ev.exit
 
@@ -511,20 +511,20 @@ if.then:                                          ; preds = %invoke.cont2
           to label %if.end unwind label %_ZN7msdfgen6BitmapIhLi1EED2Ev.exit
 
 _ZN7msdfgen6BitmapIhLi1EED2Ev.exit:               ; preds = %invoke.cont6, %if.end, %if.then, %invoke.cont1, %invoke.cont
-  %8 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdaPv(ptr noundef nonnull %call.i) #11
-  resume { ptr, i32 } %8
+  resume { ptr, i32 } %3
 
 if.end:                                           ; preds = %if.then, %invoke.cont2
-  %9 = load ptr, ptr %sdf, align 8
-  store ptr %9, ptr %ref.tmp4, align 8
+  %4 = load ptr, ptr %sdf, align 8
+  store ptr %4, ptr %ref.tmp4, align 8
   %width.i = getelementptr inbounds nuw i8, ptr %ref.tmp4, i64 8
-  %10 = load i32, ptr %width, align 8
-  store i32 %10, ptr %width.i, align 8
+  %5 = load i32, ptr %width, align 8
+  store i32 %5, ptr %width.i, align 8
   %height.i = getelementptr inbounds nuw i8, ptr %ref.tmp4, i64 12
-  %11 = load i32, ptr %height, align 4
-  store i32 %11, ptr %height.i, align 4
+  %6 = load i32, ptr %height, align 4
+  store i32 %6, ptr %height.i, align 4
   invoke void @_ZN7msdfgen19MSDFErrorCorrection10findErrorsILi4EEEvRKNS_14BitmapConstRefIfXT_EEE(ptr noundef nonnull align 8 dereferenceable(72) %ec, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp4)
           to label %invoke.cont6 unwind label %_ZN7msdfgen6BitmapIhLi1EED2Ev.exit
 

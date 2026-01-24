@@ -1865,7 +1865,7 @@ define internal void @generic_set_mtrr(i32 noundef %0, i64 noundef %1, i64 nound
 
 20:                                               ; preds = %17, %15
   call void @llvm.memset.p0.i64(ptr noundef align 4 dereferenceable(16) %7, i8 0, i64 16, i1 false)
-  br label %70
+  br label %67
 
 21:                                               ; preds = %4
   %22 = shl i64 %1, 12
@@ -1926,31 +1926,31 @@ define internal void @generic_set_mtrr(i32 noundef %0, i64 noundef %1, i64 nound
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_write_msr, i64 8), i32 2) #17
           to label %65 [label %63], !srcloc !23
 
-63:                                               ; preds = %54
+61:                                               ; preds = %54
   %64 = bytecast b64 %56 to i64
   call void @do_trace_write_msr(i32 noundef %55, i64 noundef %64, i32 noundef %62) #17
   br label %65
 
-65:                                               ; preds = %63, %54
-  %66 = icmp slt i32 %62, 0
-  br i1 %66, label %67, label %70
+62:                                               ; preds = %61, %54
+  %63 = icmp slt i32 %62, 0
+  br i1 %63, label %64, label %67
 
-67:                                               ; preds = %65
-  %68 = call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #20, !srcloc !26
-  %69 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.10, i32 noundef %68, i32 noundef %55, i32 noundef %58, i32 noundef %61) #18
-  br label %70
+64:                                               ; preds = %62
+  %65 = call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #20, !srcloc !26
+  %66 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.10, i32 noundef %65, i32 noundef %55, i32 noundef %58, i32 noundef %61) #18
+  br label %67
 
-70:                                               ; preds = %67, %65, %20
+67:                                               ; preds = %64, %62, %20
   call void @cache_enable() #17
-  %71 = and i64 %8, 512
-  %72 = icmp eq i64 %71, 0
-  br i1 %72, label %74, label %73
+  %68 = and i64 %8, 512
+  %69 = icmp eq i64 %68, 0
+  br i1 %69, label %71, label %70
 
-73:                                               ; preds = %70
+70:                                               ; preds = %67
   call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !42
-  br label %74
+  br label %71
 
-74:                                               ; preds = %73, %70
+71:                                               ; preds = %70, %67
   ret void
 }
 

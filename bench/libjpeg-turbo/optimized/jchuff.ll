@@ -1495,13 +1495,13 @@ define internal void @finish_pass_huff(ptr noundef %0) #0 {
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %9 = load i64, ptr %8, align 8, !tbaa !94
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %.sroa.20.16.copyload1931 = load i64, ptr %10, align 8, !tbaa !28
+  %.sroa.20.16.copyload19 = load i64, ptr %10, align 8, !tbaa !28
   %.sroa.24.16..sroa_idx20 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  %.sroa.24.16.copyload2132 = load i32, ptr %.sroa.24.16..sroa_idx20, align 8, !tbaa !36
+  %.sroa.24.16.copyload21 = load i32, ptr %.sroa.24.16..sroa_idx20, align 8, !tbaa !36
   %.sroa.26.16..sroa_idx22 = getelementptr inbounds nuw i8, ptr %4, i64 44
   %.sroa.26.16.copyload23 = load b160, ptr %.sroa.26.16..sroa_idx22, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %.059.i = sub i32 64, %.sroa.24.16.copyload2132
+  %.059.i = sub i32 64, %.sroa.24.16.copyload21
   %11 = icmp ugt i64 %9, 511
   %spec.select = select i1 %11, ptr %7, ptr %2
   %12 = icmp sgt i32 %.059.i, 7
@@ -1515,7 +1515,7 @@ define internal void @finish_pass_huff(ptr noundef %0) #0 {
   %indvars.iv.i = phi i64 [ %13, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.16379.i = phi ptr [ %spec.select, %.lr.ph.preheader.i ], [ %.neg73.sroa.sel.i, %.lr.ph.i ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -8
-  %14 = lshr i64 %.sroa.20.16.copyload1931, %indvars.iv.next.i
+  %14 = lshr i64 %.sroa.20.16.copyload19, %indvars.iv.next.i
   %15 = trunc i64 %14 to i8
   store i8 %15, ptr %.16379.i, align 1, !tbaa !28
   %16 = getelementptr inbounds nuw i8, ptr %.16379.i, i64 1
@@ -1540,7 +1540,7 @@ define internal void @finish_pass_huff(ptr noundef %0) #0 {
 20:                                               ; preds = %._crit_edge.i
   %21 = sub nsw i32 8, %.160.lcssa.i
   %22 = zext nneg i32 %21 to i64
-  %23 = shl i64 %.sroa.20.16.copyload1931, %22
+  %23 = shl i64 %.sroa.20.16.copyload19, %22
   %24 = lshr i32 255, %.160.lcssa.i
   %25 = zext nneg i32 %24 to i64
   %26 = or i64 %23, %25
@@ -1621,12 +1621,12 @@ flush_bits.exit.thread:                           ; preds = %46, %48, %32
   br label %55
 
 55:                                               ; preds = %flush_bits.exit.thread, %51
-  %.sroa.0.230 = phi ptr [ %.sroa.0.2.ph, %flush_bits.exit.thread ], [ %35, %51 ]
-  %.sroa.11.229 = phi i64 [ %.sroa.11.2.ph, %flush_bits.exit.thread ], [ 0, %51 ]
+  %.sroa.0.229 = phi ptr [ %.sroa.0.2.ph, %flush_bits.exit.thread ], [ %35, %51 ]
+  %.sroa.11.228 = phi i64 [ %.sroa.11.2.ph, %flush_bits.exit.thread ], [ 0, %51 ]
   %56 = load ptr, ptr %5, align 8, !tbaa !87
-  store ptr %.sroa.0.230, ptr %56, align 8, !tbaa !88
+  store ptr %.sroa.0.229, ptr %56, align 8, !tbaa !88
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
-  store i64 %.sroa.11.229, ptr %57, align 8, !tbaa !94
+  store i64 %.sroa.11.228, ptr %57, align 8, !tbaa !94
   store i64 0, ptr %10, align 8, !tbaa !28
   store i32 64, ptr %.sroa.24.16..sroa_idx20, align 8, !tbaa !36
   store b160 %.sroa.26.16.copyload23, ptr %.sroa.26.16..sroa_idx22, align 4

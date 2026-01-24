@@ -185,7 +185,7 @@ define range(i8 -1, 2) i8 @"_ZN80_$LT$logos_codegen..leaf..Leaf$u20$as$u20$logos
 
 ; Function Attrs: nonlazybind uwtable
 define zeroext i1 @"_ZN62_$LT$logos_codegen..leaf..Leaf$u20$as$u20$core..fmt..Debug$GT$3fmt17h3d614ea8667d2eb2E"(ptr align 8 %0, ptr align 8 %1) unnamed_addr #0 {
-  %.sroa.08 = alloca b128, align 16
+  %3 = alloca b128, align 16
   %.sroa.06 = alloca b128, align 16
   %3 = alloca [16 x i8], align 16
   %4 = alloca [48 x i8], align 8
@@ -195,8 +195,8 @@ define zeroext i1 @"_ZN62_$LT$logos_codegen..leaf..Leaf$u20$as$u20$core..fmt..De
   %8 = alloca [8 x i8], align 8
   store ptr %0, ptr %8, align 8
   store ptr %8, ptr %.sroa.06, align 16
-  %.sroa.06.8..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.06, i64 8
-  store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h5cfe351e61291627E", ptr %.sroa.06.8..sroa_idx, align 8
+  %.sroa.24.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.06, i64 8
+  store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h5cfe351e61291627E", ptr %.sroa.24.0..sroa_idx, align 8
   %.sroa.06.0..sroa.06.0..sroa.06.0..sroa.06.0..sroa.06.0..sroa.02.0.copyload = load b128, ptr %.sroa.06, align 16
   store b128 %.sroa.06.0..sroa.06.0..sroa.06.0..sroa.06.0..sroa.06.0..sroa.02.0.copyload, ptr %6, align 16
   store ptr @anon.bef61f983d4a6c39990a3ef2792f4b31.1, ptr %7, align 8
@@ -238,9 +238,9 @@ define zeroext i1 @"_ZN62_$LT$logos_codegen..leaf..Leaf$u20$as$u20$core..fmt..De
 
 26:                                               ; preds = %19
   store ptr %16, ptr %5, align 8
-  store ptr %5, ptr %.sroa.08, align 16
-  %.sroa.08.8..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.08, i64 8
-  store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h8060ba6b309d212aE", ptr %.sroa.08.8..sroa_idx, align 8
+  store ptr %5, ptr %3, align 16
+  %.sroa.28.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h8060ba6b309d212aE", ptr %.sroa.28.0..sroa_idx, align 8
   %.sroa.08.0..sroa.08.0..sroa.08.0..sroa.08.0..sroa.08.0..sroa.04.0.copyload = load b128, ptr %.sroa.08, align 16
   store b128 %.sroa.08.0..sroa.08.0..sroa.08.0..sroa.08.0..sroa.08.0..sroa.04.0.copyload, ptr %3, align 16
   store ptr @anon.bef61f983d4a6c39990a3ef2792f4b31.5, ptr %4, align 8

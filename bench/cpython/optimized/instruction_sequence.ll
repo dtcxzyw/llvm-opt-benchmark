@@ -2002,10 +2002,10 @@ _PyInstructionSequence_ApplyLabelMap.exit.i:      ; preds = %._crit_edge.i.i, %2
   %61 = bytecast b32 %.sroa.5.0.copyload.i to i32
   %62 = bytecast b32 %.sroa.7.0.copyload.i to i32
   %63 = bytecast b32 %.sroa.9.0.copyload.i to i32
-  %64 = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.17, i32 noundef %51, i32 noundef %59, i32 noundef %60, i32 noundef %61, i32 noundef %62, i32 noundef %63) #6
+  %62 = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.17, i32 noundef %51, i32 noundef %59, i32 noundef %60, i32 noundef %61, i32 noundef %62, i32 noundef %63) #6
   br label %71
 
-65:                                               ; preds = %47
+63:                                               ; preds = %47
   %66 = bytecast b32 %.sroa.0.0.copyload.i to i32
   %67 = bytecast b32 %.sroa.5.0.copyload.i to i32
   %68 = bytecast b32 %.sroa.7.0.copyload.i to i32
@@ -2013,12 +2013,12 @@ _PyInstructionSequence_ApplyLabelMap.exit.i:      ; preds = %._crit_edge.i.i, %2
   %70 = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.18, i32 noundef %51, ptr noundef nonnull @_Py_NoneStruct, i32 noundef %66, i32 noundef %67, i32 noundef %68, i32 noundef %69) #6
   br label %71
 
-71:                                               ; preds = %65, %57
+71:; preds = %65, %57
   %.025.i = phi ptr [ %64, %57 ], [ %70, %65 ]
   %72 = icmp eq ptr %.025.i, null
   br i1 %72, label %80, label %73
 
-73:                                               ; preds = %71
+73: ; preds = %71
   %74 = tail call i32 @PyList_Append(ptr noundef nonnull %37, ptr noundef nonnull %.025.i) #6
   %75 = load i32, ptr %.025.i, align 8, !tbaa !35
   %.not.i.i = icmp sgt i32 %75, -1
@@ -2036,24 +2036,24 @@ _PyInstructionSequence_ApplyLabelMap.exit.i:      ; preds = %._crit_edge.i.i, %2
 
 Py_DECREF.exit.i:                                 ; preds = %79, %76, %73
   %.not30.i = icmp eq i32 %74, 0
-  br i1 %.not30.i, label %43, label %80
+  br i1 %.not30.i, label %43, label %72
 
-80:                                               ; preds = %Py_DECREF.exit.i, %71
-  %81 = load i32, ptr %37, align 8, !tbaa !35
-  %.not.i.i.i = icmp sgt i32 %81, -1
-  br i1 %.not.i.i.i, label %82, label %InstructionSequenceType_get_instructions_impl.exit
+72:                                               ; preds = %Py_DECREF.exit.i, %71
+  %73 = load i32, ptr %37, align 8, !tbaa !35
+  %.not.i.i.i = icmp sgt i32 %73, -1
+  br i1 %.not.i.i.i, label %74, label %InstructionSequenceType_get_instructions_impl.exit
 
-82:                                               ; preds = %80
-  %83 = add nsw i32 %81, -1
-  store i32 %83, ptr %37, align 8, !tbaa !35
-  %84 = icmp eq i32 %83, 0
-  br i1 %84, label %85, label %InstructionSequenceType_get_instructions_impl.exit
+74:                                               ; preds = %72
+  %75 = add nsw i32 %73, -1
+  store i32 %75, ptr %37, align 8, !tbaa !35
+  %76 = icmp eq i32 %75, 0
+  br i1 %76, label %77, label %InstructionSequenceType_get_instructions_impl.exit
 
-85:                                               ; preds = %82
+77:                                               ; preds = %74
   tail call void @_Py_Dealloc(ptr noundef nonnull %37) #6
   br label %InstructionSequenceType_get_instructions_impl.exit
 
-InstructionSequenceType_get_instructions_impl.exit: ; preds = %43, %_PyInstructionSequence_ApplyLabelMap.exit.i, %.preheader.i, %80, %82, %85
+InstructionSequenceType_get_instructions_impl.exit: ; preds = %43, %_PyInstructionSequence_ApplyLabelMap.exit.i, %.preheader.i, %72, %74, %77
   %.1.i = phi ptr [ null, %85 ], [ null, %_PyInstructionSequence_ApplyLabelMap.exit.i ], [ null, %80 ], [ null, %82 ], [ %37, %.preheader.i ], [ %37, %43 ]
   ret ptr %.1.i
 }

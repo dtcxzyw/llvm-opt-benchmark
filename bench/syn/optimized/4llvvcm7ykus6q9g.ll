@@ -19026,24 +19026,24 @@ define void @"_ZN65_$LT$syn..parse..ParseBuffer$u20$as$u20$core..ops..drop..Drop
 
 12:                                               ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %.sroa.0.0.copyload8 = load i32, ptr %13, align 8
+  %.sroa.0.0.copyload = load i32, ptr %13, align 8
   %.sroa.47.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %.sroa.47.0.copyload9 = load ptr, ptr %.sroa.47.0..sroa_idx, align 8
+  %.sroa.47.0.copyload = load ptr, ptr %.sroa.47.0..sroa_idx, align 8
   store i32 1, ptr %13, align 8
   %.sroa.44.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 20
   store i32 %.fca.1.extract, ptr %.sroa.44.0..sroa_idx, align 4
-  %switch.i = icmp samesign ult i32 %.sroa.0.0.copyload8, 2
+  %switch.i = icmp samesign ult i32 %.sroa.0.0.copyload, 2
   br i1 %switch.i, label %"_ZN4core3ptr43drop_in_place$LT$syn..parse..Unexpected$GT$17h5bf2b0fced757446E.llvm.8351105841907204142.exit", label %14
 
 14:                                               ; preds = %12
-  %15 = load i64, ptr %.sroa.47.0.copyload9, align 8, !noalias !7699, !noundef !4
+  %15 = load i64, ptr %.sroa.47.0.copyload, align 8, !noalias !7699, !noundef !4
   %16 = add i64 %15, -1
-  store i64 %16, ptr %.sroa.47.0.copyload9, align 8, !noalias !7699
+  store i64 %16, ptr %.sroa.47.0.copyload, align 8, !noalias !7699
   %17 = icmp eq i64 %16, 0
-  br i1 %17, label %18, label %"_ZN4core3ptr43drop_in_place$LT$syn..parse..Unexpected$GT$17h5bf2b0fced757446E.llvm.8351105841907204142.exit"
+  br i1 %17, label %25, label %35
 
-18:                                               ; preds = %14
-  %19 = getelementptr inbounds nuw i8, ptr %.sroa.47.0.copyload9, i64 16
+25:                                               ; preds = %14
+  %19 = getelementptr inbounds nuw i8, ptr %.sroa.47.0.copyload, i64 16
   tail call void @"_ZN4core3ptr67drop_in_place$LT$core..cell..Cell$LT$syn..parse..Unexpected$GT$$GT$17haf2750eab111b2d0E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %19), !noalias !7699
   %20 = getelementptr inbounds nuw i8, ptr %.sroa.47.0.copyload9, i64 8
   %21 = load i64, ptr %20, align 8, !noalias !7699, !noundef !4
@@ -19052,11 +19052,11 @@ define void @"_ZN65_$LT$syn..parse..ParseBuffer$u20$as$u20$core..ops..drop..Drop
   %23 = icmp eq i64 %22, 0
   br i1 %23, label %24, label %"_ZN4core3ptr43drop_in_place$LT$syn..parse..Unexpected$GT$17h5bf2b0fced757446E.llvm.8351105841907204142.exit"
 
-24:                                               ; preds = %18
+"_ZN4core3ptr43drop_in_place$LT$syn..parse..Unexpected$GT$17h5bf2b0fced757446E.llvm.8351105841907204142.exit": ; preds = %18
   tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.47.0.copyload9, i64 noundef 32, i64 noundef 8) #17, !noalias !7706
-  br label %"_ZN4core3ptr43drop_in_place$LT$syn..parse..Unexpected$GT$17h5bf2b0fced757446E.llvm.8351105841907204142.exit"
+  br label %35
 
-"_ZN4core3ptr43drop_in_place$LT$syn..parse..Unexpected$GT$17h5bf2b0fced757446E.llvm.8351105841907204142.exit": ; preds = %12, %14, %18, %24, %8
+35:                                               ; preds = %12, %14, %18, %24, %8
   %25 = load i64, ptr %9, align 8, !noalias !7707, !noundef !4
   %26 = add i64 %25, -1
   store i64 %26, ptr %9, align 8, !noalias !7707

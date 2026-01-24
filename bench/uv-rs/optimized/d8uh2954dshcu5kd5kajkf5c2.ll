@@ -60,13 +60,13 @@ define hidden noundef zeroext i1 @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display
 ; Function Attrs: cold noreturn nonlazybind uwtable
 define hidden void @"_ZN48_$LT$rancor..Panic$u20$as$u20$rancor..Source$GT$3new17h8fe388935c858a97E"() unnamed_addr #2 personality ptr @rust_eh_personality {
   %1 = alloca [0 x i8], align 1
-  %.sroa.02 = alloca b128, align 16
+  %2 = alloca b128, align 16
   %2 = alloca [16 x i8], align 16
   %3 = alloca [48 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.02)
-  store ptr %1, ptr %.sroa.02, align 16
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  store ptr %1, ptr %2, align 16
   %.sroa.02.8..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.02, i64 8
   store ptr @"_ZN72_$LT$core..num..error..TryFromIntError$u20$as$u20$core..fmt..Display$GT$3fmt17hf1ac7d7031f01a42E", ptr %.sroa.02.8..sroa_idx, align 8
   %.sroa.02.0..sroa.02.0..sroa.02.0..sroa.02.0..sroa.02.0..sroa.0.0.copyload = load b128, ptr %.sroa.02, align 16
@@ -88,13 +88,13 @@ define hidden void @"_ZN48_$LT$rancor..Panic$u20$as$u20$rancor..Source$GT$3new17
 ; Function Attrs: cold noreturn nonlazybind uwtable
 define hidden void @"_ZN48_$LT$rancor..Panic$u20$as$u20$rancor..Source$GT$3new17ha5fff19c722e1a3cE"() unnamed_addr #2 personality ptr @rust_eh_personality {
   %1 = alloca [0 x i8], align 1
-  %.sroa.02 = alloca b128, align 16
+  %2 = alloca b128, align 16
   %2 = alloca [16 x i8], align 16
   %3 = alloca [48 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.02)
-  store ptr %1, ptr %.sroa.02, align 16
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  store ptr %1, ptr %2, align 16
   %.sroa.02.8..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.02, i64 8
   store ptr @"_ZN67_$LT$rkyv..rel_ptr..IsizeOverflow$u20$as$u20$core..fmt..Display$GT$3fmt17h5074ed4862fcc1fdE", ptr %.sroa.02.8..sroa_idx, align 8
   %.sroa.02.0..sroa.02.0..sroa.02.0..sroa.02.0..sroa.02.0..sroa.0.0.copyload = load b128, ptr %.sroa.02, align 16

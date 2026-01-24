@@ -767,44 +767,44 @@ _ZN6google7logging8internal13CheckOpStringD2Ev.exit: ; preds = %_ZNSt10unique_pt
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 0
 
-14:                                               ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit
+13:                                               ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   invoke void @_ZN6google15LogMessageFatalC1EPKciRKNS_7logging8internal13CheckOpStringE(ptr noundef nonnull align 8 dereferenceable(96) %8, ptr noundef nonnull @.str.25, i32 noundef 51, ptr noundef nonnull align 8 dereferenceable(8) %6)
-          to label %15 unwind label %19
+          to label %15 unwind label %18
 
-15:                                               ; preds = %14
-  %16 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(96) %8)
-          to label %17 unwind label %21
+14:                                               ; preds = %13
+  %15 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(96) %8)
+          to label %17 unwind label %20
 
-17:                                               ; preds = %15
+16:                                               ; preds = %14
   invoke void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %8) #33
-          to label %18 unwind label %19
+          to label %18 unwind label %18
 
-18:                                               ; preds = %17
+17:                                               ; preds = %16
   unreachable
 
-19:                                               ; preds = %17, %14
-  %20 = landingpad { ptr, i32 }
+18:                                               ; preds = %16, %13
+  %19 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @_ZN6google7logging8internal13CheckOpStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  resume { ptr, i32 } %20
+  resume { ptr, i32 } %19
 
-21:                                               ; preds = %15
-  %22 = landingpad { ptr, i32 }
+20:                                               ; preds = %14
+  %21 = landingpad { ptr, i32 }
           cleanup
   invoke void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %8) #33
-          to label %23 unwind label %24
+          to label %23 unwind label %23
 
-23:                                               ; preds = %21
+22:                                               ; preds = %20
   unreachable
 
-24:                                               ; preds = %21
-  %25 = landingpad { ptr, i32 }
+23:                                               ; preds = %20
+  %24 = landingpad { ptr, i32 }
           catch ptr null
-  %26 = extractvalue { ptr, i32 } %25, 0
-  call void @__clang_call_terminate(ptr %26) #31
+  %25 = extractvalue { ptr, i32 } %24, 0
+  call void @__clang_call_terminate(ptr %25) #31
   unreachable
 }
 

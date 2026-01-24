@@ -35,20 +35,20 @@ define void @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$
   %14 = phi i64 [ %.pre, %10 ], [ %13, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %15 = icmp eq i64 %14, -9223372036854775808
-  br i1 %15, label %18, label %16
+  br i1 %15, label %18, label %14
 
-16:                                               ; preds = %"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h135a3ea68131f67dE.exit"
+14:                                               ; preds = %"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h135a3ea68131f67dE.exit"
   %.sroa.0.0.copyload = load b192, ptr %5, align 16
   store b192 %.sroa.0.0.copyload, ptr %0, align 8
   br label %17
 
-17:                                               ; preds = %16, %18
+15:                                               ; preds = %14, %16
   ret void
 
-18:                                               ; preds = %"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h135a3ea68131f67dE.exit"
+16:                                               ; preds = %"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h135a3ea68131f67dE.exit"
   store i64 -9223372036854775808, ptr %0, align 8
   call void @"_ZN4core3ptr91drop_in_place$LT$core..ops..control_flow..ControlFlow$LT$std..ffi..os_str..OsString$GT$$GT$17hd8ed568e5e45570dE"(ptr nonnull align 8 %5)
-  br label %17
+  br label %15
 }
 
 ; Function Attrs: nonlazybind uwtable

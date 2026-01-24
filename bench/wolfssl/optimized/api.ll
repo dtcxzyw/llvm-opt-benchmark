@@ -30163,7 +30163,7 @@ define internal range(i32 0, 2) i32 @test_tls_alert_no_server_hello() #0 {
   store i56 11261206681682709, ptr %3, align 8
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 65536
   store i32 7, ptr %18, align 8, !tbaa !158
-  br label %.critedge107
+  br label %.critedge106
 
 .critedge:                                        ; preds = %0
   store i56 11261206681682709, ptr %3, align 8
@@ -30172,7 +30172,7 @@ define internal range(i32 0, 2) i32 @test_tls_alert_no_server_hello() #0 {
   %20 = load ptr, ptr %1, align 8, !tbaa !145
   %21 = call i32 @wolfSSL_connect(ptr noundef %20) #27
   %22 = icmp eq i32 %21, -1
-  br i1 %22, label %.critedge109, label %23
+  br i1 %22, label %.critedge108, label %23
 
 23:                                               ; preds = %.critedge
   %24 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, ptr noundef nonnull @.str.1, i32 noundef 95193)
@@ -30186,15 +30186,15 @@ define internal range(i32 0, 2) i32 @test_tls_alert_no_server_hello() #0 {
   %32 = call i64 @fwrite(ptr nonnull @.str.8, i64 2, i64 1, ptr %31)
   %33 = load ptr, ptr @stdout, align 8, !tbaa !22
   %34 = call i32 @fflush(ptr noundef %33)
-  br label %.critedge107
+  br label %.critedge106
 
-.critedge109:                                     ; preds = %.critedge
+.critedge108:                                     ; preds = %.critedge
   %35 = load ptr, ptr %1, align 8, !tbaa !145
   %36 = call i32 @wolfSSL_get_error(ptr noundef %35, i32 noundef -1) #27
   %37 = icmp eq i32 %36, -313
-  br i1 %37, label %.critedge107, label %38
+  br i1 %37, label %.critedge106, label %38
 
-38:                                               ; preds = %.critedge109
+38:                                               ; preds = %.critedge108
   %39 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, ptr noundef nonnull @.str.1, i32 noundef 95194)
   %40 = load ptr, ptr @stdout, align 8, !tbaa !22
   %41 = call i64 @fwrite(ptr nonnull @.str.2, i64 15, i64 1, ptr %40)
@@ -30206,9 +30206,9 @@ define internal range(i32 0, 2) i32 @test_tls_alert_no_server_hello() #0 {
   %47 = call i64 @fwrite(ptr nonnull @.str.8, i64 2, i64 1, ptr %46)
   %48 = load ptr, ptr @stdout, align 8, !tbaa !22
   %49 = call i32 @fflush(ptr noundef %48)
-  br label %.critedge107
+  br label %.critedge106
 
-.critedge107:                                     ; preds = %23, %6, %.critedge109, %38
+.critedge106:                                     ; preds = %23, %6, %.critedge108, %38
   %.5 = phi i32 [ 1, %.critedge109 ], [ 0, %23 ], [ 0, %38 ], [ 0, %6 ]
   %50 = load ptr, ptr %1, align 8, !tbaa !145
   call void @wolfSSL_free(ptr noundef %50) #27

@@ -6179,7 +6179,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3irr5scene15SSkinMeshBuffer17convertTo2TCoordsEv(ptr noundef nonnull align 8 dereferenceable(441) %this) local_unnamed_addr #2 comdat align 2 {
 entry:
-  %Vertex.sroa.0.sroa.0 = alloca b192, align 16
+  %Vertex.sroa.0 = alloca b192, align 16
   %VertexType = getelementptr inbounds nuw i8, ptr %this, i64 392
   %0 = load i32, ptr %VertexType, align 8, !tbaa !212
   %cmp = icmp eq i32 %0, 0
@@ -6227,11 +6227,11 @@ for.body:                                         ; preds = %_ZN3irr4core5arrayI
   %4 = phi ptr [ %.pre, %for.body.lr.ph ], [ %12, %_ZN3irr4core5arrayINS_5video17S3DVertex2TCoordsEE9push_backERKS3_.exit ]
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %_ZN3irr4core5arrayINS_5video17S3DVertex2TCoordsEE9push_backERKS3_.exit ]
   %5 = phi ptr [ %2, %for.body.lr.ph ], [ %14, %_ZN3irr4core5arrayINS_5video17S3DVertex2TCoordsEE9push_backERKS3_.exit ]
-  call void @llvm.lifetime.start.p0(ptr nonnull %Vertex.sroa.0.sroa.0)
+  call void @llvm.lifetime.start.p0(ptr nonnull %Vertex.sroa.0)
   %add.ptr.i.i = getelementptr inbounds nuw %"struct.irr::video::S3DVertex", ptr %5, i64 %indvars.iv
   %Color = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 24
   %6 = load i32, ptr %Color, align 4, !tbaa !64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(12) %Vertex.sroa.0.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %add.ptr.i.i, i64 12, i1 false), !tbaa.struct !180
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(12) %Vertex.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %add.ptr.i.i, i64 12, i1 false), !tbaa.struct !180
   %Normal = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %Vertex.sroa.0.sroa.0.12.Normal11.sroa_idx, ptr noundef nonnull align 4 dereferenceable(12) %Normal, i64 12, i1 false), !tbaa.struct !180
   %TCoords = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 28
@@ -6241,7 +6241,7 @@ for.body:                                         ; preds = %_ZN3irr4core5arrayI
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %for.body
-  %Vertex.sroa.0.sroa.0.0.Vertex.sroa.0.sroa.0.0.Vertex.sroa.0.sroa.0.0.Vertex.sroa.0.sroa.0.0.Vertex.sroa.0.sroa.0.0.copyload = load b192, ptr %Vertex.sroa.0.sroa.0, align 16
+  %Vertex.sroa.0.sroa.0.0.Vertex.sroa.0.sroa.0.0.Vertex.sroa.0.sroa.0.0.Vertex.sroa.0.sroa.0.0.Vertex.sroa.0.sroa.0.0.copyload = load b192, ptr %Vertex.sroa.0, align 16
   store b192 %Vertex.sroa.0.sroa.0.0.Vertex.sroa.0.sroa.0.0.Vertex.sroa.0.sroa.0.0.Vertex.sroa.0.sroa.0.0.Vertex.sroa.0.sroa.0.0.copyload, ptr %4, align 4
   %Vertex.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i32 %6, ptr %Vertex.sroa.7.0..sroa_idx, align 4
@@ -6278,7 +6278,7 @@ _ZNKSt6vectorIN3irr5video17S3DVertex2TCoordsESaIS2_EE12_M_check_lenEmPKc.exit.i.
   %mul.i.i.i.i.i.i = mul nuw nsw i64 %cond.i.i.i.i, 44
   %call5.i.i.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i) #23
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i, i64 %sub.ptr.sub.i.i.i.i.i
-  %Vertex.sroa.0.sroa.0.0.Vertex.sroa.0.sroa.0.0.Vertex.sroa.0.sroa.0.0.Vertex.sroa.0.sroa.0.0.Vertex.sroa.0.sroa.0.0.copyload1 = load b192, ptr %Vertex.sroa.0.sroa.0, align 16
+  %Vertex.sroa.0.sroa.0.0.Vertex.sroa.0.sroa.0.0.Vertex.sroa.0.sroa.0.0.Vertex.sroa.0.sroa.0.0.Vertex.sroa.0.sroa.0.0.copyload1 = load b192, ptr %Vertex.sroa.0, align 16
   store b192 %Vertex.sroa.0.sroa.0.0.Vertex.sroa.0.sroa.0.0.Vertex.sroa.0.sroa.0.0.Vertex.sroa.0.sroa.0.0.Vertex.sroa.0.sroa.0.0.copyload1, ptr %add.ptr.i.i.i, align 4
   %Vertex.sroa.7.0.add.ptr.i.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i, i64 24
   store i32 %6, ptr %Vertex.sroa.7.0.add.ptr.i.i.i.sroa_idx, align 4
@@ -6318,7 +6318,7 @@ _ZNSt6vectorIN3irr5video17S3DVertex2TCoordsESaIS2_EE17_M_realloc_insertIJRKS2_EE
 _ZN3irr4core5arrayINS_5video17S3DVertex2TCoordsEE9push_backERKS3_.exit: ; preds = %_ZNSt6vectorIN3irr5video17S3DVertex2TCoordsESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, %if.then.i.i
   %12 = phi ptr [ %incdec.ptr.i.i, %if.then.i.i ], [ %incdec.ptr.i.i.i, %_ZNSt6vectorIN3irr5video17S3DVertex2TCoordsESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ]
   store i8 0, ptr %is_sorted.i30, align 8, !tbaa !33
-  call void @llvm.lifetime.end.p0(ptr nonnull %Vertex.sroa.0.sroa.0)
+  call void @llvm.lifetime.end.p0(ptr nonnull %Vertex.sroa.0)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %13 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !236
   %14 = load ptr, ptr %Vertices_Standard, align 8, !tbaa !242

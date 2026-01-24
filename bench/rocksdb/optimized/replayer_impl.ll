@@ -1025,8 +1025,8 @@ define void @_ZN7rocksdb12ReplayerImpl7ExecuteERKSt10unique_ptrINS_11TraceRecord
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7rocksdb12ReplayerImpl6ReplayERKNS_13ReplayOptionsERKSt8functionIFvNS_6StatusEOSt10unique_ptrINS_17TraceRecordResultESt14default_deleteIS7_EEEE(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(92) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(32) %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::unique_ptr.10", align 8
-  %6 = alloca %"class.std::function", align 16
-  %7 = alloca %"class.std::function.54", align 16
+  %.sroa.0.i.i.i200 = alloca %"class.std::function", align 16
+  %6 = alloca %"class.std::function.54", align 16
   %8 = alloca %struct.timespec, align 8
   %9 = alloca %"class.std::unique_ptr.10", align 8
   %10 = alloca %"class.std::unique_ptr.10", align 8
@@ -2325,8 +2325,8 @@ _ZN7rocksdb5TraceaSEOS0_.exit:                    ; preds = %_ZNSt7__cxx1112basi
   %468 = landingpad { ptr, i32 }
           cleanup
   %469 = load ptr, ptr %349, align 16, !tbaa !98
-  %.not.i.i.i200 = icmp eq ptr %469, null
-  br i1 %.not.i.i.i200, label %.body203, label %470
+  %.not.i.i.i201 = icmp eq ptr %469, null
+  br i1 %.not.i.i.i201, label %.body203, label %470
 
 470:                                              ; preds = %467
   %471 = invoke noundef zeroext i1 %469(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 3)
@@ -2343,7 +2343,7 @@ _ZNSt8functionIFvN7rocksdb6StatusEOSt10unique_ptrINS0_17TraceRecordResultESt14de
   %475 = phi ptr [ null, %459 ], [ %465, %464 ]
   %476 = phi ptr [ null, %459 ], [ %466, %464 ]
   %.sroa.0.0.copyload.i.i.i201 = phi b128 [ 0, %459 ], [ %.sroa.0.0.copyload.i.i.pre.i, %464 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %460, i64 16, i1 false), !tbaa.struct !124
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %.sroa.0.i.i.i200, ptr noundef nonnull align 8 dereferenceable(32) %460, i64 16, i1 false), !tbaa.struct !124
   store b128 %.sroa.0.0.copyload.i.i.i201, ptr %460, align 8, !tbaa !46
   %477 = getelementptr inbounds nuw i8, ptr %427, i64 120
   %478 = load ptr, ptr %477, align 8, !tbaa !123

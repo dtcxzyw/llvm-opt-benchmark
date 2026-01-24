@@ -281,14 +281,14 @@ _ZNSt10unique_ptrIiSt14default_deleteIiEED2Ev.exit:
 3:                                                ; preds = %_ZNSt10unique_ptrIiSt14default_deleteIiEED2Ev.exit
   %4 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZNKSt14default_deleteIiEclEPi.exit.i.i219
+  br label %_ZNKSt14default_deleteIiEclEPi.exit.i.i218
 
-_ZN7testing15AssertionResultD2Ev.exit182:         ; preds = %_ZNSt10unique_ptrIiSt14default_deleteIiEED2Ev.exit
+_ZN7testing15AssertionResultD2Ev.exit181:         ; preds = %_ZNSt10unique_ptrIiSt14default_deleteIiEED2Ev.exit
   store i32 1, ptr %2, align 4, !noalias !7
   %5 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #17
-          to label %6 unwind label %_ZNKSt14default_deleteIiEclEPi.exit.i.i216
+          to label %6 unwind label %_ZNKSt14default_deleteIiEclEPi.exit.i.i215
 
-6:                                                ; preds = %_ZN7testing15AssertionResultD2Ev.exit182
+6:                                                ; preds = %_ZN7testing15AssertionResultD2Ev.exit181
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 1, ptr %7, align 8, !noalias !10
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 12
@@ -306,55 +306,55 @@ _ZN7testing15AssertionResultD2Ev.exit182:         ; preds = %_ZNSt10unique_ptrIi
 15:                                               ; preds = %6
   store i32 0, ptr %7, align 8
   store i32 0, ptr %8, align 4
-  %16 = load ptr, ptr %5, align 8
-  %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %18 = load ptr, ptr %17, align 8
+  %14 = load ptr, ptr %5, align 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %16 = load ptr, ptr %15, align 8
   tail call void %18(ptr noundef nonnull align 8 dereferenceable(16) %5) #15
-  %19 = load ptr, ptr %5, align 8
-  %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
-  %21 = load ptr, ptr %20, align 8
+  %17 = load ptr, ptr %5, align 8
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
+  %19 = load ptr, ptr %18, align 8
   tail call void %21(ptr noundef nonnull align 8 dereferenceable(16) %5) #15
-  br label %_ZNSt10unique_ptrIiSt14default_deleteIiEED2Ev.exit208
+  br label %_ZNSt10unique_ptrIiSt14default_deleteIiEED2Ev.exit207
 
-22:                                               ; preds = %6
-  %23 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i = icmp eq i8 %23, 0
-  br i1 %.not.i.i.i, label %26, label %24
+20:                                               ; preds = %6
+  %21 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i = icmp eq i8 %21, 0
+  br i1 %.not.i.i.i, label %24, label %22
 
-24:                                               ; preds = %22
-  %25 = add nsw i32 %13, -1
-  store i32 %25, ptr %7, align 4
+22:                                               ; preds = %20
+  %23 = add nsw i32 %13, -1
+  store i32 %23, ptr %7, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
 
-26:                                               ; preds = %22
-  %27 = atomicrmw volatile add ptr %7, i32 -1 acq_rel, align 4
+24:                                               ; preds = %20
+  %25 = atomicrmw volatile add ptr %7, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
 
-_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %26, %24
-  %.0.i.i.i.i = phi i32 [ %13, %24 ], [ %27, %26 ]
-  %28 = icmp eq i32 %.0.i.i.i.i, 1
-  br i1 %28, label %29, label %_ZNSt10unique_ptrIiSt14default_deleteIiEED2Ev.exit208, !prof !13
+_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %24, %22
+  %.0.i.i.i.i = phi i32 [ %13, %24 ], [ %25, %26 ]
+  %26 = icmp eq i32 %.0.i.i.i.i, 1
+  br i1 %26, label %27, label %_ZNSt10unique_ptrIiSt14default_deleteIiEED2Ev.exit207, !prof !13
 
-29:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
+27:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
   tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #15
-  br label %_ZNSt10unique_ptrIiSt14default_deleteIiEED2Ev.exit208
+  br label %_ZNSt10unique_ptrIiSt14default_deleteIiEED2Ev.exit207
 
-_ZNSt10unique_ptrIiSt14default_deleteIiEED2Ev.exit208: ; preds = %15, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %29
+_ZNSt10unique_ptrIiSt14default_deleteIiEED2Ev.exit207: ; preds = %15, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %27
   tail call void @_ZdlPvm(ptr noundef nonnull %1, i64 noundef 4) #16
   tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 4) #16
   ret void
 
-_ZNKSt14default_deleteIiEclEPi.exit.i.i216:       ; preds = %_ZN7testing15AssertionResultD2Ev.exit182
-  %30 = landingpad { ptr, i32 }
+_ZNKSt14default_deleteIiEclEPi.exit.i.i215:       ; preds = %_ZN7testing15AssertionResultD2Ev.exit181
+  %28 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPvm(ptr noundef nonnull %1, i64 noundef 4) #16
-  br label %_ZNKSt14default_deleteIiEclEPi.exit.i.i219
+  br label %_ZNKSt14default_deleteIiEclEPi.exit.i.i218
 
-_ZNKSt14default_deleteIiEclEPi.exit.i.i219:       ; preds = %3, %_ZNKSt14default_deleteIiEclEPi.exit.i.i216
-  %.sroa.0451.0.ph = phi ptr [ %2, %_ZNKSt14default_deleteIiEclEPi.exit.i.i216 ], [ %1, %3 ]
-  %.pn72.pn.pn.pn.pn.pn.ph = phi { ptr, i32 } [ %30, %_ZNKSt14default_deleteIiEclEPi.exit.i.i216 ], [ %4, %3 ]
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.0451.0.ph, i64 noundef 4) #16
-  resume { ptr, i32 } %.pn72.pn.pn.pn.pn.pn.ph
+_ZNKSt14default_deleteIiEclEPi.exit.i.i218:       ; preds = %3, %_ZNKSt14default_deleteIiEclEPi.exit.i.i215
+  %.sroa.0444.0.ph = phi ptr [ %2, %_ZNKSt14default_deleteIiEclEPi.exit.i.i216 ], [ %1, %3 ]
+  %.pn71.pn.pn.pn.pn.pn.ph = phi { ptr, i32 } [ %28, %_ZNKSt14default_deleteIiEclEPi.exit.i.i216 ], [ %4, %3 ]
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.0444.0.ph, i64 noundef 4) #16
+  resume { ptr, i32 } %.pn71.pn.pn.pn.pn.pn.ph
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

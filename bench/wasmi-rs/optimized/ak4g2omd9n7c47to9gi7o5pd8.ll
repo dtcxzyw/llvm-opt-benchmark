@@ -22,7 +22,7 @@ define noundef i16 @_ZN8wasmi_ir4span7RegSpan3new17h2e0d12b5ffb4f6ceE(i16 nounde
 
 ; Function Attrs: nonlazybind uwtable
 define { i16, i16 } @_ZN8wasmi_ir4span7RegSpan10iter_sized17h726dc644deb3ee3dE(i16 noundef %0, i64 noundef %1) unnamed_addr #1 {
-  %.sroa.03.i = alloca b128, align 16
+  %3 = alloca b128, align 16
   %3 = alloca [16 x i8], align 16
   %4 = alloca [48 x i8], align 8
   %5 = alloca [8 x i8], align 8
@@ -46,8 +46,8 @@ define { i16, i16 } @_ZN8wasmi_ir4span7RegSpan10iter_sized17h726dc644deb3ee3dE(i
 14:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.03.i)
-  store ptr %5, ptr %.sroa.03.i, align 16
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  store ptr %5, ptr %3, align 16
   %.sroa.03.i.8.i.8.i.8..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.03.i, i64 8
   store ptr @"_ZN4core3fmt3num3imp54_$LT$impl$u20$core..fmt..Display$u20$for$u20$usize$GT$3fmt17hd8f455fd1d89d1b2E", ptr %.sroa.03.i.8.i.8.i.8..sroa_idx, align 8
   %.sroa.03.i.0..sroa.03.i.0..sroa.03.i.0..sroa.03.0..sroa.03.0..sroa.03.0..sroa.03.0..sroa.01.0.copyload.i = load b128, ptr %.sroa.03.i, align 16

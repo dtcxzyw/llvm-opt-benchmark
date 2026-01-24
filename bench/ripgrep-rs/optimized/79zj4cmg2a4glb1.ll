@@ -774,7 +774,7 @@ _ZN5alloc3fmt6format17hf6ddbaba453730d3E.exit.i:  ; preds = %17
   invoke void @_ZN5alloc7raw_vec17capacity_overflow17h2434c0983b86c347E() #13
           to label %.noexc21.i unwind label %29, !noalias !83
 
-.noexc21.i:                                       ; preds = %65
+.noexc18.i:                                       ; preds = %65
   unreachable
 
 66:                                               ; preds = %.noexc.i
@@ -784,7 +784,7 @@ _ZN5alloc3fmt6format17hf6ddbaba453730d3E.exit.i:  ; preds = %17
   invoke void @_ZN5alloc5alloc18handle_alloc_error17h836e982fea7018bdE(i64 noundef %64, i64 noundef %.sroa.33.0.i.i.i.i) #13
           to label %.noexc22.i unwind label %29, !noalias !83
 
-.noexc22.i:                                       ; preds = %66
+.noexc19.i:                                       ; preds = %66
   unreachable
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$13shrink_to_fit17hfe01a7dd54a028caE.exit.i": ; preds = %.noexc.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h382480773498739eE.exit.i"

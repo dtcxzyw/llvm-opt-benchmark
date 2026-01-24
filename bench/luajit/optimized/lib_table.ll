@@ -240,7 +240,7 @@ define internal noundef i32 @lj_cf_table_insert(ptr noundef %0) #0 {
   %66 = icmp ult i32 %65, 9
   br i1 %66, label %67, label %86
 
-67:                                               ; preds = %57
+67:; preds = %57
   %68 = and i64 %62, 140737488355327
   %69 = inttoptr i64 %68 to ptr
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
@@ -249,14 +249,14 @@ define internal noundef i32 @lj_cf_table_insert(ptr noundef %0) #0 {
   %.not50 = icmp eq i8 %72, 0
   br i1 %.not50, label %86, label %73
 
-73:                                               ; preds = %67
+73: ; preds = %67
   %74 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %75 = load i8, ptr %74, align 8, !tbaa !14
   %76 = and i8 %75, 4
   %.not51 = icmp eq i8 %76, 0
   br i1 %.not51, label %86, label %77
 
-77:                                               ; preds = %73
+77: ; preds = %73
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %79 = load i64, ptr %78, align 8, !tbaa !25
   %80 = inttoptr i64 %79 to ptr

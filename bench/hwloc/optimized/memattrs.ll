@@ -2829,42 +2829,42 @@ hwloc__update_best_initiator.exit:                ; preds = %84, %85, %86
   %87 = bytecast b32 %.sroa.0.1 to i32
   %88 = bytecast b64 %.sroa.441.1 to ptr
   %.not36 = icmp eq ptr %5, null
-  br i1 %.not36, label %90, label %89
+  br i1 %.not36, label %88, label %87
 
-89:                                               ; preds = %._crit_edge
+87:                                               ; preds = %._crit_edge
   store i64 %.145, ptr %5, align 8, !tbaa !63
-  br label %90
+  br label %88
 
-90:                                               ; preds = %89, %._crit_edge
+88:                                               ; preds = %87, %._crit_edge
   store i32 %87, ptr %4, align 8, !tbaa !89
   switch i32 %87, label %95 [
-    i32 1, label %91
-    i32 0, label %93
+    i32 1, label %89
+    i32 0, label %91
   ]
 
-91:                                               ; preds = %90
-  %92 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %88, ptr %92, align 8, !tbaa !48
+89:                                               ; preds = %88
+  %90 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store ptr %88, ptr %90, align 8, !tbaa !48
   br label %from_internal_location.exit
 
-93:                                               ; preds = %90
-  %94 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %88, ptr %94, align 8, !tbaa !48
+91:                                               ; preds = %88
+  %92 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store ptr %88, ptr %92, align 8, !tbaa !48
   %.not.i37 = icmp eq ptr %88, null
   %..i = sext i1 %.not.i37 to i32
   br label %from_internal_location.exit
 
-95:                                               ; preds = %90
-  %96 = tail call ptr @__errno_location() #33
-  store i32 22, ptr %96, align 4, !tbaa !60
+93:                                               ; preds = %88
+  %94 = tail call ptr @__errno_location() #33
+  store i32 22, ptr %94, align 4, !tbaa !60
   br label %from_internal_location.exit
 
 ._crit_edge.thread:                               ; preds = %hwloc__memattr_get_target.exit
-  %97 = tail call ptr @__errno_location() #33
-  store i32 2, ptr %97, align 4, !tbaa !60
+  %95 = tail call ptr @__errno_location() #33
+  store i32 2, ptr %95, align 4, !tbaa !60
   br label %from_internal_location.exit
 
-from_internal_location.exit:                      ; preds = %95, %93, %91, %._crit_edge.thread, %.loopexit, %24, %14, %9
+from_internal_location.exit:                      ; preds = %93, %91, %89, %._crit_edge.thread, %.loopexit, %24, %14, %9
   %.0 = phi i32 [ -1, %14 ], [ -1, %9 ], [ -1, %._crit_edge.thread ], [ -1, %.loopexit ], [ -1, %24 ], [ -1, %95 ], [ 0, %91 ], [ %..i, %93 ]
   ret i32 %.0
 }

@@ -455,19 +455,19 @@ define void @_Z15PlayChunkCommoni(i32 noundef %0) local_unnamed_addr #3 {
   br i1 %8, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %_Z16PlaySingleCommonii.exit
-  %9 = phi i32 [ %26, %_Z16PlaySingleCommonii.exit ], [ %7, %1 ]
+  %8 = phi i32 [ %26, %_Z16PlaySingleCommonii.exit ], [ %7, %1 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @playparam, i64 8), align 8
-  %11 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @playparam, i64 8), align 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %12 = sext i32 %9 to i64
   %13 = getelementptr inbounds %struct.deal, ptr %11, i64 %12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %3, ptr noundef nonnull align 4 dereferenceable(96) %13, i64 96, i1 false)
   %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @traceparam, i64 8), align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 4
-  %16 = getelementptr inbounds %struct.playTraceBin, ptr %15, i64 %12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(420) %4, ptr noundef nonnull align 4 dereferenceable(420) %16, i64 420, i1 false)
+  %14 = getelementptr inbounds %struct.playTraceBin, ptr %15, i64 %12
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(420) %4, ptr noundef nonnull align 4 dereferenceable(420) %14, i64 420, i1 false)
   %17 = call i32 @AnalysePlayBin(ptr noundef nonnull byval(%struct.deal) align 8 %3, ptr noundef nonnull byval(%struct.playTraceBin) align 8 %4, ptr noundef nonnull %2, i32 noundef %0)
   %18 = icmp eq i32 %17, 1
   br i1 %18, label %19, label %23
@@ -475,20 +475,20 @@ define void @_Z15PlayChunkCommoni(i32 noundef %0) local_unnamed_addr #3 {
 19:                                               ; preds = %.lr.ph
   %20 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @traceparam, i64 16), align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 4
-  %22 = getelementptr inbounds %struct.solvedPlay, ptr %21, i64 %12
+  %20 = getelementptr inbounds %struct.solvedPlay, ptr %21, i64 %12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(216) %22, ptr noundef nonnull align 4 dereferenceable(216) %2, i64 216, i1 false)
   br label %_Z16PlaySingleCommonii.exit
 
-23:                                               ; preds = %.lr.ph
+22:                                               ; preds = %.lr.ph
   store i32 %17, ptr getelementptr inbounds nuw (i8, ptr @playparam, i64 24), align 8
   br label %_Z16PlaySingleCommonii.exit
 
-_Z16PlaySingleCommonii.exit:                      ; preds = %19, %23
+_Z16PlaySingleCommonii.exit:                      ; preds = %19, %22
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %24 = tail call i64 @_ZN9Scheduler9GetNumberEi(ptr noundef nonnull align 8 dereferenceable(43416) @scheduler, i32 noundef %0)
-  %25 = bitcast i64 %24 to b64
+  %23 = tail call i64 @_ZN9Scheduler9GetNumberEi(ptr noundef nonnull align 8 dereferenceable(43416) @scheduler, i32 noundef %0)
+  %25 = bitcast i64 %23 to b64
   %.sroa.01.0.extract.trunc = trunc b64 %25 to b32
   %26 = bytecast b32 %.sroa.01.0.extract.trunc to i32
   %27 = icmp eq i32 %26, -1

@@ -258,7 +258,7 @@ _ZN14regex_automata4meta5regex5Regex17search_slots_with17h8984827c8519266fE.exit
   %128 = add i64 %120, -1
   %129 = add i64 %125, -1
   %.not.i.i6.i = icmp ugt i64 %128, %129
-  br i1 %.not.i.i6.i, label %130, label %_ZN14regex_automata4util6search5Match3new17h307438f5bfcbcec4E.exit.i.i
+  br i1 %.not.i.i6.i, label %130, label %"_ZN103_$LT$regex_automata..meta..regex..CapturesMatches$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17ha483752b0a2e2074E.exit"
 
 130:                                              ; preds = %127
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !60
@@ -274,7 +274,7 @@ _ZN14regex_automata4meta5regex5Regex17search_slots_with17h8984827c8519266fE.exit
   call void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0335a70b866b932772266027cc677848.13) #7, !noalias !63
   unreachable
 
-_ZN14regex_automata4util6search5Match3new17h307438f5bfcbcec4E.exit.i.i: ; preds = %127
+"_ZN103_$LT$regex_automata..meta..regex..CapturesMatches$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17ha483752b0a2e2074E.exit": ; preds = %127
   %135 = bitcast i64 %128 to b64
   %136 = bitcast i64 %129 to b64
   %137 = bitcast i32 %.fca.1.extract.i.i to b32

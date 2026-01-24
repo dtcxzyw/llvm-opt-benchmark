@@ -473,8 +473,8 @@ define weak_odr noundef float @_ZNK7mitsuba15UniformSpectrumIfN5drjit6MatrixINS_
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr <2 x float> @_ZNK7mitsuba15UniformSpectrumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE16wavelength_rangeEv(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #7 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %.sroa.0.0.copyload1 = load <2 x float>, ptr %2, align 4
-  ret <2 x float> %.sroa.0.0.copyload1
+  %.sroa.0.0.copyload = load <2 x float>, ptr %2, align 4
+  ret <2 x float> %.sroa.0.0.copyload
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

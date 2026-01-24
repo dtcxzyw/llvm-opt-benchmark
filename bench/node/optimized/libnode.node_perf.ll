@@ -1224,31 +1224,31 @@ if.end8:                                          ; preds = %if.end
   %callback_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i9, i64 24
   store ptr %call.i, ptr %callback_.i.i.i.i, align 8, !noalias !11
   %tail_.i.i = getelementptr inbounds nuw i8, ptr %data, i64 2448
-  %7 = load ptr, ptr %tail_.i.i, align 8
-  %8 = atomicrmw add ptr %native_immediates_.i, i64 1 seq_cst, align 8
+  %8 = load ptr, ptr %tail_.i.i, align 8
+  %9 = atomicrmw add ptr %native_immediates_.i, i64 1 seq_cst, align 8
   store ptr %call.i.i.i9, ptr %tail_.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %7, null
+  %cmp.not.i.i = icmp eq ptr %8, null
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end8
-  %next_.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %9 = load ptr, ptr %next_.i.i.i, align 8
+  %next_.i.i.i = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %10 = load ptr, ptr %next_.i.i.i, align 8
   store ptr %call.i.i.i9, ptr %next_.i.i.i, align 8
-  %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %9, null
+  %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %10, null
   br i1 %tobool.not.i.i.i.i.i.i.i, label %return, label %if.end.sink.split.i.i
 
 if.else.i.i:                                      ; preds = %if.end8
   %head_.i.i = getelementptr inbounds nuw i8, ptr %data, i64 2440
-  %10 = load ptr, ptr %head_.i.i, align 8
+  %11 = load ptr, ptr %head_.i.i, align 8
   store ptr %call.i.i.i9, ptr %head_.i.i, align 8
-  %tobool.not.i.i.i.i.i.i = icmp eq ptr %10, null
+  %tobool.not.i.i.i.i.i.i = icmp eq ptr %11, null
   br i1 %tobool.not.i.i.i.i.i.i, label %return, label %if.end.sink.split.i.i
 
 if.end.sink.split.i.i:                            ; preds = %if.else.i.i, %if.then.i.i
-  %.sink6.i.i = phi ptr [ %9, %if.then.i.i ], [ %10, %if.else.i.i ]
+  %.sink6.i.i = phi ptr [ %10, %if.then.i.i ], [ %11, %if.else.i.i ]
   %vtable.i.i.i.i.i.i.i = load ptr, ptr %.sink6.i.i, align 8
   %vfn.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i.i.i, i64 8
-  %11 = load ptr, ptr %vfn.i.i.i.i.i.i.i, align 8
+  %12 = load ptr, ptr %vfn.i.i.i.i.i.i.i, align 8
   call void %11(ptr noundef nonnull align 8 dereferenceable(24) %.sink6.i.i) #20
   br label %return
 
@@ -3460,10 +3460,10 @@ if.then.i23:                                      ; preds = %for.body, %_ZNKSt10
   br label %_ZNSt10_HashtableIN4node12CleanupQueue19CleanupHookCallbackES2_SaIS2_ENSt8__detail9_IdentityENS2_5EqualENS2_4HashENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb1ELb1ELb1EEEE12_Scoped_nodeD2Ev.exit
 
 _ZNSt10_HashtableIN4node12CleanupQueue19CleanupHookCallbackES2_SaIS2_ENSt8__detail9_IdentityENS2_5EqualENS2_4HashENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb1ELb1ELb1EEEE12_Scoped_nodeD2Ev.exit: ; preds = %cleanup, %if.then.i23
-  %retval.sroa.4.040 = phi i8 [ 1, %cleanup ], [ 0, %if.then.i23 ]
-  %retval.sroa.0.038 = phi ptr [ %call5.i.i.i.i, %cleanup ], [ %retval.sroa.0.0.ph, %if.then.i23 ]
-  %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %retval.sroa.0.038, 0
-  %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %retval.sroa.4.040, 1
+  %retval.sroa.4.039 = phi i8 [ 1, %cleanup ], [ 0, %if.then.i23 ]
+  %retval.sroa.0.037 = phi ptr [ %call5.i.i.i.i, %cleanup ], [ %retval.sroa.0.0.ph, %if.then.i23 ]
+  %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %retval.sroa.0.037, 0
+  %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %retval.sroa.4.039, 1
   ret { ptr, i8 } %.fca.1.insert
 }
 

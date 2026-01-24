@@ -21340,11 +21340,11 @@ _ZNK7testing18WithParamInterfaceISt5tupleIJPKcjjN12_GLOBAL__N_112TestPlatformEEE
   %19 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %20 = load i32, ptr %19, align 8
   store i32 %20, ptr %14, align 8
-  %.val4.i.i.i.i1 = load i64, ptr %13, align 8
+  %.val4.i.i.i.i = load i64, ptr %13, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 8
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 %.val4.i.i.i.i1, ptr %21, align 8
+  store i64 %.val4.i.i.i.i, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %24 = call i32 @hs_compile(ptr noundef %16, i32 noundef %18, i32 noundef %20, ptr noundef nonnull %3, ptr noundef nonnull %22, ptr noundef nonnull %23)

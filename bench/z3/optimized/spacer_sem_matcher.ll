@@ -90,9 +90,9 @@ define hidden noundef zeroext i1 @_ZN6spacer11sem_matcher9match_varEP3varP4expr(
   br i1 %16, label %17, label %_ZNK12substitution4findEP3varjR11expr_offset.exit
 
 17:                                               ; preds = %3
-  %.sroa.06.0.copyload11 = load ptr, ptr %11, align 8, !tbaa !42
+  %.sroa.06.0.copyload = load ptr, ptr %11, align 8, !tbaa !42
   %18 = load ptr, ptr %0, align 8, !tbaa !8
-  %19 = tail call noundef zeroext i1 @_ZNK11ast_manager9are_equalEP4exprS1_(ptr noundef nonnull align 8 dereferenceable(976) %18, ptr noundef %.sroa.06.0.copyload11, ptr noundef %2)
+  %19 = tail call noundef zeroext i1 @_ZNK11ast_manager9are_equalEP4exprS1_(ptr noundef nonnull align 8 dereferenceable(976) %18, ptr noundef %.sroa.06.0.copyload, ptr noundef %2)
   br i1 %19, label %63, label %64
 
 _ZNK12substitution4findEP3varjR11expr_offset.exit: ; preds = %3

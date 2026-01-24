@@ -66,7 +66,7 @@ _ZN6evmone8baseline12_GLOBAL__N_112analyze_eof1ESt17basic_string_viewIhN4evmc11b
   %28 = sub nuw i64 %1, %12
   %.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 %28, i64 %27)
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 %12
-  %.sroa.0.0.copyload.i = load b128, ptr %5, align 16, !noalias !3
+  %30 = load b128, ptr %5, align 16, !noalias !3
   %30 = load ptr, ptr %15, align 16, !tbaa !6, !noalias !3
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %32 = load ptr, ptr %31, align 16, !tbaa !15, !noalias !3

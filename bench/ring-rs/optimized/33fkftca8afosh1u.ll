@@ -971,20 +971,20 @@ define noundef zeroext i1 @"_ZN4ring3rsa12verification93_$LT$impl$u20$ring..sign
 
 14:                                               ; preds = %7
   %.sroa.46.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %.sroa.46.0.copyload8 = load i64, ptr %.sroa.46.0..sroa_idx, align 8
+  %.sroa.46.0.copyload = load i64, ptr %.sroa.46.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %.sroa.5.0.copyload9 = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !nonnull !12, !noundef !12
+  %.sroa.5.0.copyload = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !nonnull !12, !noundef !12
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 24
-  %.sroa.6.0.copyload10 = load i64, ptr %.sroa.6.0..sroa_idx, align 8
+  %.sroa.6.0.copyload = load i64, ptr %.sroa.6.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %12, ptr %9, align 8
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i64 %.sroa.46.0.copyload8, ptr %15, align 8
+  store i64 %.sroa.46.0.copyload, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store ptr %.sroa.5.0.copyload9, ptr %16, align 8
+  store ptr %.sroa.5.0.copyload, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  store i64 %.sroa.6.0.copyload10, ptr %17, align 8
+  store i64 %.sroa.6.0.copyload, ptr %17, align 8
   %18 = call noundef i8 @_ZN4core4sync6atomic11atomic_load17h757d58c2fa035f26E.llvm.8403485840513791397(ptr noundef nonnull align 1 @_ZN4ring3cpu8features4INIT17hdec16924e286df23E, i8 noundef 2)
   %19 = icmp ult i8 %18, 4
   call void @llvm.assume(i1 %19)

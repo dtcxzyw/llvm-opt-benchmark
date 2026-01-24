@@ -1273,7 +1273,7 @@ define hidden range(i32 -501, 1) i32 @nghttp2_http_parse_priority(ptr noundef ca
   %10 = call i32 @sfparse_parser_dict(ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6) #9
   switch i32 %10, label %.loopexit [
     i32 0, label %11
-    i32 -2, label %28
+    i32 -2, label %27
   ]
 
 11:                                               ; preds = %9
@@ -1311,12 +1311,12 @@ define hidden range(i32 -501, 1) i32 @nghttp2_http_parse_priority(ptr noundef ca
   %27 = bitcast i32 %26 to b32
   br label %.outer.outer40
 
-28:                                               ; preds = %9
+27:                                               ; preds = %9
   store b32 %.sroa.0.0.ph.ph41, ptr %0, align 4, !tbaa !67
   store b32 %.sroa.5.0.ph.ph, ptr %.sroa.5.0..sroa_idx, align 4, !tbaa !67
   br label %.loopexit
 
-.loopexit:                                        ; preds = %20, %16, %9, %28
+.loopexit:                                        ; preds = %20, %16, %9, %27
   %.0 = phi i32 [ 0, %28 ], [ -501, %9 ], [ -501, %16 ], [ -501, %20 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

@@ -276,8 +276,8 @@ _ZNSt6vectorI16common_log_entrySaIS0_EED2Ev.exit: ; preds = %_ZSt8_DestroyIP16co
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 48
   tail call void @_ZNSt18condition_variableD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %36) #24
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %.sroa.0.0.copyload1.i.i = load i64, ptr %37, align 8, !tbaa !44
-  %.not.i = icmp eq i64 %.sroa.0.0.copyload1.i.i, 0
+  %.sroa.0.0.copyload.i.i = load i64, ptr %37, align 8, !tbaa !44
+  %.not.i = icmp eq i64 %.sroa.0.0.copyload.i.i, 0
   br i1 %.not.i, label %_ZNSt6threadD2Ev.exit, label %38
 
 38:                                               ; preds = %_ZNSt6vectorI16common_log_entrySaIS0_EED2Ev.exit
@@ -378,7 +378,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 106
   %7 = load i8, ptr %6, align 2, !tbaa !45, !range !46, !noundef !47
   %8 = trunc nuw i8 %7 to i1
-  br i1 %8, label %27, label %9
+  br i1 %8, label %28, label %9
 
 9:                                                ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
   store i8 1, ptr %6, align 2, !tbaa !45
@@ -386,7 +386,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %1
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 0, ptr %3, align 8, !tbaa !50
   %10 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #23
-          to label %.noexc unwind label %29
+          to label %.noexc unwind label %30
 
 .noexc:                                           ; preds = %9
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN10common_log6resumeEvEUlvE_EEEEEE, i64 16), ptr %10, align 8, !tbaa !51
@@ -394,64 +394,64 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %1
   store ptr %0, ptr %11, align 8, !tbaa !53
   store ptr %10, ptr %2, align 8, !tbaa !55
   invoke void @_ZNSt6thread15_M_start_threadESt10unique_ptrINS_6_StateESt14default_deleteIS1_EEPFvvE(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull %2, ptr noundef null)
-          to label %12 unwind label %17
+          to label %12 unwind label %18
 
-12:                                               ; preds = %.noexc
-  %13 = load ptr, ptr %2, align 8, !tbaa !55
-  %.not.i.i2 = icmp eq ptr %13, null
-  br i1 %.not.i.i2, label %23, label %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i.i
+13:                                               ; preds = %.noexc
+  %14 = load ptr, ptr %2, align 8, !tbaa !55
+  %.not.i.i2 = icmp eq ptr %14, null
+  br i1 %.not.i.i2, label %24, label %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i.i
 
-_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i.i: ; preds = %12
-  %14 = load ptr, ptr %13, align 8, !tbaa !51
-  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %16 = load ptr, ptr %15, align 8
-  call void %16(ptr noundef nonnull align 8 dereferenceable(8) %13) #24
-  br label %23
+_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i.i: ; preds = %13
+  %15 = load ptr, ptr %14, align 8, !tbaa !51
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %17 = load ptr, ptr %16, align 8
+  call void %16(ptr noundef nonnull align 8 dereferenceable(8) %14) #24
+  br label %24
 
-17:                                               ; preds = %.noexc
-  %18 = landingpad { ptr, i32 }
+18:                                               ; preds = %.noexc
+  %19 = landingpad { ptr, i32 }
           cleanup
-  %19 = load ptr, ptr %2, align 8, !tbaa !55
-  %.not.i5.i = icmp eq ptr %19, null
+  %20 = load ptr, ptr %2, align 8, !tbaa !55
+  %.not.i5.i = icmp eq ptr %20, null
   br i1 %.not.i5.i, label %.body, label %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i6.i
 
-_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i6.i: ; preds = %17
-  %20 = load ptr, ptr %19, align 8, !tbaa !51
-  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  %22 = load ptr, ptr %21, align 8
-  call void %22(ptr noundef nonnull align 8 dereferenceable(8) %19) #24
+_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i6.i: ; preds = %18
+  %21 = load ptr, ptr %20, align 8, !tbaa !51
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %23 = load ptr, ptr %22, align 8
+  call void %22(ptr noundef nonnull align 8 dereferenceable(8) %20) #24
   br label %.body
 
-23:                                               ; preds = %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i.i, %12
+24:                                               ; preds = %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i.i, %13
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %.sroa.0.0.copyload1.i.i = load i64, ptr %24, align 8
-  %.not.i = icmp eq i64 %.sroa.0.0.copyload1.i.i, 0
-  br i1 %.not.i, label %_ZNSt6threadD2Ev.exit, label %25
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %.sroa.0.0.copyload.i.i = load i64, ptr %25, align 8
+  %.not.i = icmp eq i64 %.sroa.0.0.copyload.i.i, 0
+  br i1 %.not.i, label %_ZNSt6threadD2Ev.exit, label %26
 
-25:                                               ; preds = %23
+26:                                               ; preds = %24
   call void @_ZSt9terminatev() #25
   unreachable
 
-_ZNSt6threadD2Ev.exit:                            ; preds = %23
-  %26 = load b64, ptr %3, align 8, !tbaa !44
-  store b64 %26, ptr %24, align 8, !tbaa !44
+_ZNSt6threadD2Ev.exit:                            ; preds = %24
+  %27 = load b64, ptr %3, align 8, !tbaa !44
+  store b64 %27, ptr %25, align 8, !tbaa !44
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %27
+  br label %28
 
-27:                                               ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, %_ZNSt6threadD2Ev.exit
-  %28 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %0) #24
+28:                                               ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, %_ZNSt6threadD2Ev.exit
+  %29 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %0) #24
   ret void
 
-29:                                               ; preds = %9
-  %30 = landingpad { ptr, i32 }
+30:                                               ; preds = %9
+  %31 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.body:                                            ; preds = %17, %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i6.i, %29
-  %eh.lpad-body = phi { ptr, i32 } [ %30, %29 ], [ %18, %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i6.i ], [ %18, %17 ]
+.body:                                            ; preds = %18, %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i6.i, %30
+  %eh.lpad-body = phi { ptr, i32 } [ %31, %29 ], [ %19, %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i6.i ], [ %19, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %31 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %0) #24
+  %32 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %0) #24
   resume { ptr, i32 } %eh.lpad-body
 }
 
@@ -1020,8 +1020,8 @@ _ZNSt6vectorI16common_log_entrySaIS0_EE6resizeEm.exit: ; preds = %._ZNSt6vectorI
 _ZN16common_log_entryD2Ev.exit:                   ; preds = %45, %47
   tail call void @_ZNSt6vectorI16common_log_entrySaIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #24
   tail call void @_ZNSt18condition_variableD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #24
-  %.sroa.0.0.copyload1.i.i = load i64, ptr %3, align 8, !tbaa !44
-  %.not.i = icmp eq i64 %.sroa.0.0.copyload1.i.i, 0
+  %.sroa.0.0.copyload.i.i = load i64, ptr %3, align 8, !tbaa !44
+  %.not.i = icmp eq i64 %.sroa.0.0.copyload.i.i, 0
   br i1 %.not.i, label %_ZNSt6threadD2Ev.exit, label %53
 
 53:                                               ; preds = %_ZN16common_log_entryD2Ev.exit

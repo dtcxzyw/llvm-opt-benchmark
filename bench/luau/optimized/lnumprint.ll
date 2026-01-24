@@ -49,7 +49,7 @@ define hidden noundef ptr @_Z12luai_num2strPcd(ptr noundef captures(ret: address
 25:                                               ; preds = %21
   store i8 48, ptr %22, align 1, !tbaa !5
   %26 = getelementptr inbounds nuw i8, ptr %22, i64 1
-  br label %_ZL12printspecialPcim.exit
+  br label %279
 
 27:                                               ; preds = %21
   %28 = or disjoint i64 %9, 4503599627370496
@@ -424,9 +424,9 @@ _ZL8printexpPci.exit:                             ; preds = %_Z8trimzeroPc.exit8
 _Z8trimzeroPc.exit:                               ; preds = %239, %220, %_ZL8printexpPci.exit, %243, %226
   %.1 = phi ptr [ %278, %_ZL8printexpPci.exit ], [ %228, %226 ], [ %.0.i80, %220 ], [ %247, %243 ], [ %.0.i81, %239 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %_ZL12printspecialPcim.exit
+  br label %279
 
-_ZL12printspecialPcim.exit:                       ; preds = %19, %13, %_Z8trimzeroPc.exit, %25
+279:                                              ; preds = %19, %13, %_Z8trimzeroPc.exit, %25
   %.071 = phi ptr [ %.1, %_Z8trimzeroPc.exit ], [ %26, %25 ], [ %18, %13 ], [ %20, %19 ]
   ret ptr %.071
 }

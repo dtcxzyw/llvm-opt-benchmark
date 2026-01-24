@@ -2745,7 +2745,7 @@ declare void @_ZNSt11logic_errorC2EOS_(ptr noundef nonnull align 8 dereferenceab
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5folly13fbstring_coreIcE13reserveMediumEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %minCapacity) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %nascent = alloca %"class.folly::fbstring_core", align 16
+  %t.i = alloca %"class.folly::fbstring_core", align 16
   %capacity_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i64, ptr %capacity_.i, align 8
   %and.i = and i64 %0, 4611686018427387903
@@ -2853,8 +2853,8 @@ invoke.cont:                                      ; preds = %sw.bb.i
   %10 = load ptr, ptr %nascent, align 16
   %sub.ptr.sub.i = add nsw i64 %8, 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %10, ptr align 1 %9, i64 %sub.ptr.sub.i, i1 false)
-  %t.sroa.0.0.copyload.i = load b192, ptr %nascent, align 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %nascent, ptr noundef nonnull align 8 dereferenceable(24) %this, i64 24, i1 false)
+  %t.sroa.0.0.copyload.i = load b192, ptr %t.i, align 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %t.i, ptr noundef nonnull align 8 dereferenceable(24) %this, i64 24, i1 false)
   store b192 %t.sroa.0.0.copyload.i, ptr %this, align 8
   %11 = load i8, ptr %arrayidx.i.i.i, align 1
   %cmp.i14 = icmp ult i8 %11, 64

@@ -616,15 +616,15 @@ define i32 @ucnvsel_serialize_77(ptr noundef readonly captures(none) %0, ptr nou
   br i1 %8, label %14, label %9
 
 9:                                                ; preds = %7
-  %.not56 = icmp eq i32 %2, 0
-  br i1 %.not56, label %15, label %10
+  %.not59 = icmp eq i32 %2, 0
+  br i1 %.not59, label %15, label %10
 
 10:                                               ; preds = %9
   %11 = icmp ne ptr %1, null
   %12 = ptrtoint ptr %1 to i64
   %13 = and i64 %12, 3
-  %.not57 = icmp eq i64 %13, 0
-  %or.cond = and i1 %11, %.not57
+  %.not60 = icmp eq i64 %13, 0
+  %or.cond = and i1 %11, %.not60
   br i1 %or.cond, label %15, label %14
 
 14:                                               ; preds = %10, %7
@@ -635,10 +635,10 @@ define i32 @ucnvsel_serialize_77(ptr noundef readonly captures(none) %0, ptr nou
   %16 = load ptr, ptr %0, align 8, !tbaa !33
   %17 = tail call i32 @utrie2_serialize_77(ptr noundef %16, ptr noundef null, i32 noundef 0, ptr noundef nonnull %3)
   %18 = load i32, ptr %3, align 4, !tbaa !3
-  %.not58 = icmp eq i32 %18, 15
+  %.not61 = icmp eq i32 %18, 15
   %19 = icmp slt i32 %18, 1
-  %or.cond63 = or i1 %.not58, %19
-  br i1 %or.cond63, label %20, label %53
+  %or.cond66 = or i1 %.not61, %19
+  br i1 %or.cond66, label %20, label %53
 
 20:                                               ; preds = %15
   store i32 0, ptr %3, align 4, !tbaa !3
@@ -678,10 +678,10 @@ define i32 @ucnvsel_serialize_77(ptr noundef readonly captures(none) %0, ptr nou
   store b32 %34, ptr %.sroa.6.0..sroa_idx, align 1
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 44
   store i32 %24, ptr %.sroa.7.0..sroa_idx, align 1
-  %.sroa.8.0..sroa_idx61 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  store i352 0, ptr %.sroa.8.0..sroa_idx61, align 1
-  %.sroa.862.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 92
-  store i32 %32, ptr %.sroa.862.0..sroa_idx, align 1
+  %.sroa.8.0..sroa_idx64 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  store i352 0, ptr %.sroa.8.0..sroa_idx64, align 1
+  %.sroa.865.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 92
+  store i32 %32, ptr %.sroa.865.0..sroa_idx, align 1
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %38 = load ptr, ptr %0, align 8, !tbaa !33
   %39 = tail call i32 @utrie2_serialize_77(ptr noundef %38, ptr noundef nonnull %37, i32 noundef %17, ptr noundef nonnull %3)

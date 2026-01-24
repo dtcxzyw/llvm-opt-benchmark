@@ -2269,12 +2269,12 @@ rtree_metadata_read.exit.i:                       ; preds = %605, %593, %581, %5
   br label %prof_tctx_destroy.exit
 
 prof_tctx_should_destroy.exit.thread:             ; preds = %8, %2, %11, %prof_tctx_should_destroy.exit
-  %617 = load ptr, ptr %1, align 8, !tbaa !71
-  %618 = load ptr, ptr %617, align 8, !tbaa !26
-  %619 = getelementptr inbounds nuw i8, ptr %618, i64 64
-  store atomic i8 0, ptr %619 monotonic, align 1
-  %620 = getelementptr inbounds nuw i8, ptr %618, i64 72
-  %621 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %620) #11
+  %613 = load ptr, ptr %1, align 8, !tbaa !71
+  %614 = load ptr, ptr %613, align 8, !tbaa !26
+  %615 = getelementptr inbounds nuw i8, ptr %614, i64 64
+  store atomic i8 0, ptr %615 monotonic, align 1
+  %616 = getelementptr inbounds nuw i8, ptr %614, i64 72
+  %617 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %616) #11
   br label %prof_tctx_destroy.exit
 
 prof_tctx_destroy.exit:                           ; preds = %rtree_metadata_read.exit.i, %505, %prof_tctx_should_destroy.exit.thread
@@ -2404,15 +2404,15 @@ rtree_metadata_read.exit:                         ; preds = %15, %25, %37, %49
   %58 = trunc i8 %57 to i1
   br i1 %58, label %59, label %60, !prof !17
 
-59:                                               ; preds = %rtree_metadata_read.exit
+53:                                               ; preds = %rtree_metadata_read.exit
   call void @je_arena_dalloc_small(ptr noundef %0, ptr noundef %1) #11
-  br label %61
+  br label %55
 
-60:                                               ; preds = %rtree_metadata_read.exit
+54:                                               ; preds = %rtree_metadata_read.exit
   call fastcc void @arena_dalloc_large_no_tcache(ptr noundef %0, ptr noundef %1)
-  br label %61
+  br label %55
 
-61:                                               ; preds = %60, %59
+55:                                               ; preds = %54, %53
   ret void
 }
 

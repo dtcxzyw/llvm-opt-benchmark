@@ -224,13 +224,13 @@ define hidden noundef nonnull align 8 ptr @"_ZN3std3sys12thread_local10fast_loca
   br i1 %3, label %6, label %4
 
 4:                                                ; preds = %2
-  %.sroa.03.0.copyload6.i.i = load i64, ptr %1, align 8, !alias.scope !28
+  %.sroa.03.0.copyload.i.i = load i64, ptr %1, align 8, !alias.scope !28
   %.sroa.5.0..sroa.0.0.1.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.5.0.copyload7.i.i = load i64, ptr %.sroa.5.0..sroa.0.0.1.sroa_idx.i.i, align 8, !alias.scope !28
+  %.sroa.5.0.copyload.i.i = load i64, ptr %.sroa.5.0..sroa.0.0.1.sroa_idx.i.i, align 8, !alias.scope !28
   %.sroa.6.0..sroa.0.0.1.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.sroa.6.0.copyload8.i.i = load i64, ptr %.sroa.6.0..sroa.0.0.1.sroa_idx.i.i, align 8, !alias.scope !28
+  %.sroa.6.0.copyload.i.i = load i64, ptr %.sroa.6.0..sroa.0.0.1.sroa_idx.i.i, align 8, !alias.scope !28
   store i64 0, ptr %1, align 8, !alias.scope !28
-  %5 = icmp eq i64 %.sroa.03.0.copyload6.i.i, 1
+  %5 = icmp eq i64 %.sroa.03.0.copyload.i.i, 1
   br i1 %5, label %8, label %6
 
 6:                                                ; preds = %4, %2
@@ -238,8 +238,8 @@ define hidden noundef nonnull align 8 ptr @"_ZN3std3sys12thread_local10fast_loca
   br label %"_ZN3std3sys12thread_local4lazy21LazyKeyInner$LT$T$GT$10initialize17hf6c829a085f1314aE.exit"
 
 8:                                                ; preds = %4
-  %9 = insertvalue { i64, i64 } poison, i64 %.sroa.5.0.copyload7.i.i, 0
-  %10 = insertvalue { i64, i64 } %9, i64 %.sroa.6.0.copyload8.i.i, 1
+  %9 = insertvalue { i64, i64 } poison, i64 %.sroa.5.0.copyload.i.i, 0
+  %10 = insertvalue { i64, i64 } %9, i64 %.sroa.6.0.copyload.i.i, 1
   br label %"_ZN3std3sys12thread_local4lazy21LazyKeyInner$LT$T$GT$10initialize17hf6c829a085f1314aE.exit"
 
 "_ZN3std3sys12thread_local4lazy21LazyKeyInner$LT$T$GT$10initialize17hf6c829a085f1314aE.exit": ; preds = %6, %8
@@ -268,13 +268,13 @@ define hidden noundef nonnull align 8 ptr @"_ZN3std3sys12thread_local10fast_loca
   br i1 %5, label %8, label %6
 
 6:                                                ; preds = %4
-  %.sroa.03.0.copyload6.i.i.i = load i64, ptr %1, align 8, !alias.scope !39
+  %.sroa.03.0.copyload.i.i.i = load i64, ptr %1, align 8, !alias.scope !39
   %.sroa.5.0..sroa.0.0.1.sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.5.0.copyload7.i.i.i = load i64, ptr %.sroa.5.0..sroa.0.0.1.sroa_idx.i.i.i, align 8, !alias.scope !39
+  %.sroa.5.0.copyload.i.i.i = load i64, ptr %.sroa.5.0..sroa.0.0.1.sroa_idx.i.i.i, align 8, !alias.scope !39
   %.sroa.6.0..sroa.0.0.1.sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.sroa.6.0.copyload8.i.i.i = load i64, ptr %.sroa.6.0..sroa.0.0.1.sroa_idx.i.i.i, align 8, !alias.scope !39
+  %.sroa.6.0.copyload.i.i.i = load i64, ptr %.sroa.6.0..sroa.0.0.1.sroa_idx.i.i.i, align 8, !alias.scope !39
   store i64 0, ptr %1, align 8, !alias.scope !39
-  %7 = icmp eq i64 %.sroa.03.0.copyload6.i.i.i, 1
+  %7 = icmp eq i64 %.sroa.03.0.copyload.i.i.i, 1
   br i1 %7, label %10, label %8
 
 8:                                                ; preds = %6, %4
@@ -282,8 +282,8 @@ define hidden noundef nonnull align 8 ptr @"_ZN3std3sys12thread_local10fast_loca
   br label %"_ZN3std3sys12thread_local10fast_local12Key$LT$T$GT$14try_initialize17hc18e14b3635f6853E.llvm.16429374078602074278.exit"
 
 10:                                               ; preds = %6
-  %11 = insertvalue { i64, i64 } poison, i64 %.sroa.5.0.copyload7.i.i.i, 0
-  %12 = insertvalue { i64, i64 } %11, i64 %.sroa.6.0.copyload8.i.i.i, 1
+  %11 = insertvalue { i64, i64 } poison, i64 %.sroa.5.0.copyload.i.i.i, 0
+  %12 = insertvalue { i64, i64 } %11, i64 %.sroa.6.0.copyload.i.i.i, 1
   br label %"_ZN3std3sys12thread_local10fast_local12Key$LT$T$GT$14try_initialize17hc18e14b3635f6853E.llvm.16429374078602074278.exit"
 
 "_ZN3std3sys12thread_local10fast_local12Key$LT$T$GT$14try_initialize17hc18e14b3635f6853E.llvm.16429374078602074278.exit": ; preds = %8, %10

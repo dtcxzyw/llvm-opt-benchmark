@@ -361,7 +361,7 @@ _ZNSolsEPFRSoS_E.exit37:                          ; preds = %105
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %107
-  %.183 = phi i32 [ 1, %107 ], [ 200, %.thread.sink.split ]
+  %.182 = phi i32 [ 1, %107 ], [ 200, %.thread.sink.split ]
   %108 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.8, i64 noundef 66)
   %109 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !17
   %110 = getelementptr i8, ptr %109, i64 -24
@@ -532,13 +532,13 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit72: ; preds = %17
 
 _ZN5boost9unit_testneIKcEEbRKNS0_13basic_cstringIT_EEPS4_.exit55.sink.split: ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit66, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit72
   %.sink = phi ptr [ %182, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit72 ], [ %126, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit66 ]
-  %.182.ph = phi i32 [ %.0, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit72 ], [ %.183, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit66 ]
+  %.181.ph = phi i32 [ %.0, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit72 ], [ %.182, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit66 ]
   %183 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5flushEv(ptr noundef nonnull align 8 dereferenceable(8) %.sink)
   br label %_ZN5boost9unit_testneIKcEEbRKNS0_13basic_cstringIT_EEPS4_.exit55
 
 _ZN5boost9unit_testneIKcEEbRKNS0_13basic_cstringIT_EEPS4_.exit55: ; preds = %160, %_ZN5boost9unit_testneIKcEEbRKNS0_13basic_cstringIT_EEPS4_.exit55.sink.split
-  %.182 = phi i32 [ %.182.ph, %_ZN5boost9unit_testneIKcEEbRKNS0_13basic_cstringIT_EEPS4_.exit55.sink.split ], [ %.0, %160 ]
-  ret i32 %.182
+  %.181 = phi i32 [ %.181.ph, %_ZN5boost9unit_testneIKcEEbRKNS0_13basic_cstringIT_EEPS4_.exit55.sink.split ], [ %.0, %160 ]
+  ret i32 %.181
 
 184:                                              ; preds = %154, %148, %127
   %.merged = phi { ptr, i32 } [ %149, %148 ], [ %.pn27.pn, %127 ], [ %.pn31, %154 ]

@@ -31,10 +31,10 @@ define void @"_ZN13polars_schema6schema15Schema$LT$D$GT$26from_iter_check_duplic
   store b128 %.sroa.02.0..sroa.02.0..sroa.02.0..sroa.02.0..sroa.02.0..sroa.0.0.copyload, ptr %6, align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !3
   store b64 bitcast (ptr @anon.66c3e8860d4ac71fabea404516538705.4 to b64), ptr %4, align 8, !noalias !10
-  %.sroa.45.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 2, ptr %.sroa.45.0..sroa_idx, align 8, !noalias !10
-  %.sroa.56.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %6, ptr %.sroa.56.0..sroa_idx, align 8, !noalias !10
+  %.sroa.44.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i64 2, ptr %.sroa.44.0..sroa_idx, align 8, !noalias !10
+  %.sroa.55.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store ptr %6, ptr %.sroa.55.0..sroa_idx, align 8, !noalias !10
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 1, ptr %.sroa.6.0..sroa_idx, align 8, !noalias !10
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 32

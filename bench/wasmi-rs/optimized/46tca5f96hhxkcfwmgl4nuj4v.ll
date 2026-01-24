@@ -31,13 +31,13 @@ define noundef i32 @_ZN17wasmi_collections15string_interner3Sym10from_usize17hb7
 
 ; Function Attrs: cold inlinehint noreturn nonlazybind uwtable
 define internal fastcc void @"_ZN17wasmi_collections15string_interner3Sym10from_usize28_$u7b$$u7b$closure$u7d$$u7d$17h7d69614459d22174E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0) unnamed_addr #2 {
-  %.sroa.02 = alloca b128, align 16
+  %2 = alloca b128, align 16
   %2 = alloca [16 x i8], align 16
   %3 = alloca [48 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.02)
-  store ptr %0, ptr %.sroa.02, align 16
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  store ptr %0, ptr %2, align 16
   %.sroa.02.8..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.02, i64 8
   store ptr @"_ZN4core3fmt3num3imp54_$LT$impl$u20$core..fmt..Display$u20$for$u20$usize$GT$3fmt17hd8f455fd1d89d1b2E", ptr %.sroa.02.8..sroa_idx, align 8
   %.sroa.02.0..sroa.02.0..sroa.02.0..sroa.02.0..sroa.02.0..sroa.0.0.copyload = load b128, ptr %.sroa.02, align 16

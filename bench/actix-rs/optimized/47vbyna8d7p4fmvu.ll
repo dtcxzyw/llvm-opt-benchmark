@@ -56,10 +56,10 @@ define void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17
   %20 = icmp ne ptr %1, null
   call void @llvm.assume(i1 %20)
   store ptr %1, ptr %.sroa.02, align 16
-  %.sroa.02.8..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.02, i64 8
-  store ptr %19, ptr %.sroa.02.8..sroa_idx, align 8
-  %.sroa.02.16..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.02, i64 16
-  store i64 0, ptr %.sroa.02.16..sroa_idx, align 16
+  %.sroa.0.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.02, i64 8
+  store ptr %19, ptr %.sroa.0.sroa.2.0..sroa_idx, align 8
+  %.sroa.0.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.02, i64 16
+  store i64 0, ptr %.sroa.0.sroa.3.0..sroa_idx, align 16
   %.sroa.02.0..sroa.02.0..sroa.02.0..sroa.02.0..sroa.02.0..sroa.0.0.copyload1 = load b192, ptr %.sroa.02, align 16
   store b192 %.sroa.02.0..sroa.02.0..sroa.02.0..sroa.02.0..sroa.02.0..sroa.0.0.copyload1, ptr %5, align 16
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 24

@@ -1229,8 +1229,8 @@ if.else:                                          ; preds = %if.end
   %10 = load i32, ptr %overflow_bytes_.i, align 4
   %add.i = add i32 %10, %9
   %add2.i = add i32 %add.i, %conv.i.i
-  %cmp.i9 = icmp sgt i32 %add2.i, 0
-  br i1 %cmp.i9, label %if.then.i, label %if.end22
+  %cmp.i7 = icmp sgt i32 %add2.i, 0
+  br i1 %cmp.i7, label %if.then.i, label %if.end22
 
 if.then.i:                                        ; preds = %if.else
   %11 = load ptr, ptr %input_, align 8
@@ -3998,10 +3998,10 @@ for.body.lr.ph.i:                                 ; preds = %if.then5
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
   %target.addr.07.i = phi ptr [ %ptr, %for.body.lr.ph.i ], [ %add.ptr.i12, %for.body.i ]
-  %retval.sroa.0.0.copyload1.i.i = load i64, ptr %__begin3.i, align 8
-  %retval.sroa.2.0.copyload2.i.i = load ptr, ptr %retval.sroa.2.0.current_chunk_.sroa_idx.i.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %target.addr.07.i, ptr align 1 %retval.sroa.2.0.copyload2.i.i, i64 %retval.sroa.0.0.copyload1.i.i, i1 false)
-  %add.ptr.i12 = getelementptr inbounds i8, ptr %target.addr.07.i, i64 %retval.sroa.0.0.copyload1.i.i
+  %retval.sroa.0.0.copyload.i.i = load i64, ptr %__begin3.i, align 8
+  %retval.sroa.2.0.copyload.i.i = load ptr, ptr %retval.sroa.2.0.current_chunk_.sroa_idx.i.i, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %target.addr.07.i, ptr align 1 %retval.sroa.2.0.copyload.i.i, i64 %retval.sroa.0.0.copyload.i.i, i1 false)
+  %add.ptr.i12 = getelementptr inbounds i8, ptr %target.addr.07.i, i64 %retval.sroa.0.0.copyload.i.i
   %call6.i = call noundef nonnull align 8 dereferenceable(152) ptr @_ZN4absl12lts_202308024Cord13ChunkIteratorppEv(ptr noundef nonnull align 8 dereferenceable(152) %__begin3.i)
   %7 = load i64, ptr %bytes_remaining_.i.i.i, align 8
   %cmp.i.i.not.i = icmp eq i64 %7, 0
@@ -4059,10 +4059,10 @@ for.body.lr.ph.i33:                               ; preds = %if.then14
 
 for.body.i35:                                     ; preds = %for.body.i35, %for.body.lr.ph.i33
   %target.addr.07.i36 = phi ptr [ %ptr, %for.body.lr.ph.i33 ], [ %add.ptr.i39, %for.body.i35 ]
-  %retval.sroa.0.0.copyload1.i.i37 = load i64, ptr %__begin3.i30, align 8
-  %retval.sroa.2.0.copyload2.i.i38 = load ptr, ptr %retval.sroa.2.0.current_chunk_.sroa_idx.i.i34, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %target.addr.07.i36, ptr align 1 %retval.sroa.2.0.copyload2.i.i38, i64 %retval.sroa.0.0.copyload1.i.i37, i1 false)
-  %add.ptr.i39 = getelementptr inbounds i8, ptr %target.addr.07.i36, i64 %retval.sroa.0.0.copyload1.i.i37
+  %retval.sroa.0.0.copyload.i.i37 = load i64, ptr %__begin3.i30, align 8
+  %retval.sroa.2.0.copyload.i.i38 = load ptr, ptr %retval.sroa.2.0.current_chunk_.sroa_idx.i.i34, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %target.addr.07.i36, ptr align 1 %retval.sroa.2.0.copyload.i.i38, i64 %retval.sroa.0.0.copyload.i.i37, i1 false)
+  %add.ptr.i39 = getelementptr inbounds i8, ptr %target.addr.07.i36, i64 %retval.sroa.0.0.copyload.i.i37
   %call6.i40 = call noundef nonnull align 8 dereferenceable(152) ptr @_ZN4absl12lts_202308024Cord13ChunkIteratorppEv(ptr noundef nonnull align 8 dereferenceable(152) %__begin3.i30)
   %11 = load i64, ptr %bytes_remaining_.i.i.i31, align 8
   %cmp.i.i.not.i41 = icmp eq i64 %11, 0
@@ -4705,10 +4705,10 @@ for.body.lr.ph.i:                                 ; preds = %entry
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
   %target.addr.07.i = phi ptr [ %target, %for.body.lr.ph.i ], [ %add.ptr.i, %for.body.i ]
-  %retval.sroa.0.0.copyload1.i.i = load i64, ptr %__begin3.i, align 8
-  %retval.sroa.2.0.copyload2.i.i = load ptr, ptr %retval.sroa.2.0.current_chunk_.sroa_idx.i.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %target.addr.07.i, ptr align 1 %retval.sroa.2.0.copyload2.i.i, i64 %retval.sroa.0.0.copyload1.i.i, i1 false)
-  %add.ptr.i = getelementptr inbounds i8, ptr %target.addr.07.i, i64 %retval.sroa.0.0.copyload1.i.i
+  %retval.sroa.0.0.copyload.i.i = load i64, ptr %__begin3.i, align 8
+  %retval.sroa.2.0.copyload.i.i = load ptr, ptr %retval.sroa.2.0.current_chunk_.sroa_idx.i.i, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %target.addr.07.i, ptr align 1 %retval.sroa.2.0.copyload.i.i, i64 %retval.sroa.0.0.copyload.i.i, i1 false)
+  %add.ptr.i = getelementptr inbounds i8, ptr %target.addr.07.i, i64 %retval.sroa.0.0.copyload.i.i
   %call6.i = call noundef nonnull align 8 dereferenceable(152) ptr @_ZN4absl12lts_202308024Cord13ChunkIteratorppEv(ptr noundef nonnull align 8 dereferenceable(152) %__begin3.i)
   %1 = load i64, ptr %bytes_remaining_.i.i.i, align 8
   %cmp.i.i.not.i = icmp eq i64 %1, 0

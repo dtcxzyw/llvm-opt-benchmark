@@ -304,8 +304,8 @@ define hidden void @"_ZN19pyo3_macros_backend6params15impl_arg_params28_$u7b$$u7
 21:                                               ; preds = %4
   store ptr %17, ptr %15, align 8
   store ptr %15, ptr %.sroa.08, align 16
-  %.sroa.08.8..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.08, i64 8
-  store ptr @"_ZN86_$LT$quote..__private..IdentFragmentAdapter$LT$T$GT$$u20$as$u20$core..fmt..Display$GT$3fmt17h9d63ece71c44c931E", ptr %.sroa.08.8..sroa_idx, align 8
+  %.sroa.26.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.08, i64 8
+  store ptr @"_ZN86_$LT$quote..__private..IdentFragmentAdapter$LT$T$GT$$u20$as$u20$core..fmt..Display$GT$3fmt17h9d63ece71c44c931E", ptr %.sroa.26.0..sroa_idx, align 8
   %.sroa.08.0..sroa.08.0..sroa.08.0..sroa.08.0..sroa.08.0..sroa.04.0.copyload = load b128, ptr %.sroa.08, align 16
   store b128 %.sroa.08.0..sroa.08.0..sroa.08.0..sroa.08.0..sroa.08.0..sroa.04.0.copyload, ptr %11, align 16
   store ptr @anon.3e7959b224c09f7393f0ebd8e51eb812.6, ptr %12, align 8
