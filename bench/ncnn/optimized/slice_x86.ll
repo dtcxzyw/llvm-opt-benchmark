@@ -408,7 +408,11 @@ _ZNK4ncnn3Mat5emptyEv.exit646:                    ; preds = %159
   %188 = icmp eq ptr %182, %183
   %189 = getelementptr inbounds nuw i8, ptr %183, i64 24
   %190 = load i32, ptr %189, align 8, !tbaa !24
-  br i1 %188, label %._crit_edge, label %.lr.ph891
+  br i1 %188, label %._crit_edge, label %.lr.ph891.preheader
+
+.lr.ph891.preheader:                              ; preds = %.critedge614
+  %umax = tail call i64 @llvm.umax.i64(i64 %187, i64 1)
+  br label %.lr.ph891
 
 ._crit_edge:                                      ; preds = %.lr.ph891, %.critedge614.thread, %.critedge614
   %.0859.lcssa = phi i32 [ %190, %.critedge614 ], [ %125, %.critedge614.thread ], [ %.sroa.speculated849, %.lr.ph891 ]
@@ -463,15 +467,15 @@ _ZN4ncnn3Mat6addrefEv.exit676:                    ; preds = %._crit_edge, %217
   %220 = icmp sgt i32 %219, %.0859.lcssa
   br i1 %220, label %225, label %252
 
-.lr.ph891:                                        ; preds = %.critedge614, %.lr.ph891
-  %.0520890 = phi i64 [ %224, %.lr.ph891 ], [ 0, %.critedge614 ]
-  %.0859888 = phi i32 [ %.sroa.speculated849, %.lr.ph891 ], [ %190, %.critedge614 ]
+.lr.ph891:                                        ; preds = %.lr.ph891.preheader, %.lr.ph891
+  %.0520890 = phi i64 [ %224, %.lr.ph891 ], [ 0, %.lr.ph891.preheader ]
+  %.0859888 = phi i32 [ %.sroa.speculated849, %.lr.ph891 ], [ %190, %.lr.ph891.preheader ]
   %221 = getelementptr inbounds nuw %"class.ncnn::Mat", ptr %183, i64 %.0520890
   %222 = getelementptr inbounds nuw i8, ptr %221, i64 24
   %223 = load i32, ptr %222, align 4, !tbaa !25
   %.sroa.speculated849 = tail call i32 @llvm.smin.i32(i32 %223, i32 %.0859888)
   %224 = add nuw i64 %.0520890, 1
-  %exitcond.not = icmp eq i64 %224, %187
+  %exitcond.not = icmp eq i64 %224, %umax
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph891, !llvm.loop !53
 
 225:                                              ; preds = %_ZN4ncnn3Mat6addrefEv.exit676
@@ -599,8 +603,8 @@ _ZN4ncnn3MatD2Ev.exit656:                         ; preds = %237, %234, %243, %2
   %indvars.iv = phi i64 [ 0, %.lr.ph899.us.preheader ], [ %indvars.iv.next, %._crit_edge900.us ]
   %.2541902.us = phi ptr [ %.0539906, %.lr.ph899.us.preheader ], [ %304, %._crit_edge900.us ]
   %286 = getelementptr inbounds nuw float, ptr %.2541902.us, i64 %257
-  %287 = getelementptr inbounds nuw float, ptr %.2541902.us, i64 %259
-  %288 = getelementptr inbounds nuw float, ptr %.2541902.us, i64 %261
+  %287 = getelementptr inbounds float, ptr %.2541902.us, i64 %259
+  %288 = getelementptr inbounds float, ptr %.2541902.us, i64 %261
   %.reass.us = mul i64 %factor.op.mul, %indvars.iv
   %289 = getelementptr inbounds nuw i8, ptr %275, i64 %.reass.us
   br label %290
@@ -633,7 +637,7 @@ _ZN4ncnn3MatD2Ev.exit656:                         ; preds = %237, %234, %243, %2
   br i1 %exitcond979.not, label %._crit_edge900.us, label %290, !llvm.loop !56
 
 ._crit_edge900.us:                                ; preds = %290
-  %304 = getelementptr inbounds nuw float, ptr %.2541902.us, i64 %264
+  %304 = getelementptr inbounds float, ptr %.2541902.us, i64 %264
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond981.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond981.not, label %.loopexit875, label %.lr.ph899.us, !llvm.loop !57
@@ -956,7 +960,11 @@ _ZNK4ncnn3Mat5emptyEv.exit649:                    ; preds = %465
   %499 = icmp eq ptr %493, %494
   %500 = getelementptr inbounds nuw i8, ptr %494, i64 24
   %501 = load i32, ptr %500, align 8, !tbaa !24
-  br i1 %499, label %._crit_edge924, label %.lr.ph923
+  br i1 %499, label %._crit_edge924, label %.lr.ph923.preheader
+
+.lr.ph923.preheader:                              ; preds = %.critedge622
+  %umax982 = call i64 @llvm.umax.i64(i64 %498, i64 1)
+  br label %.lr.ph923
 
 ._crit_edge924:                                   ; preds = %.lr.ph923, %.critedge622.thread, %.critedge622
   %.0861.lcssa = phi i32 [ %501, %.critedge622 ], [ %433, %.critedge622.thread ], [ %.sroa.speculated, %.lr.ph923 ]
@@ -1008,15 +1016,15 @@ _ZN4ncnn3Mat6addrefEv.exit:                       ; preds = %._crit_edge924, %52
   %529 = icmp sgt i32 %528, %.0861.lcssa
   br i1 %529, label %534, label %546
 
-.lr.ph923:                                        ; preds = %.critedge622, %.lr.ph923
-  %.0561922 = phi i64 [ %533, %.lr.ph923 ], [ 0, %.critedge622 ]
-  %.0861920 = phi i32 [ %.sroa.speculated, %.lr.ph923 ], [ %501, %.critedge622 ]
+.lr.ph923:                                        ; preds = %.lr.ph923.preheader, %.lr.ph923
+  %.0561922 = phi i64 [ %533, %.lr.ph923 ], [ 0, %.lr.ph923.preheader ]
+  %.0861920 = phi i32 [ %.sroa.speculated, %.lr.ph923 ], [ %501, %.lr.ph923.preheader ]
   %530 = getelementptr inbounds nuw %"class.ncnn::Mat", ptr %494, i64 %.0561922
   %531 = getelementptr inbounds nuw i8, ptr %530, i64 24
   %532 = load i32, ptr %531, align 4, !tbaa !25
   %.sroa.speculated = call i32 @llvm.smin.i32(i32 %532, i32 %.0861920)
   %533 = add nuw i64 %.0561922, 1
-  %exitcond983.not = icmp eq i64 %533, %498
+  %exitcond983.not = icmp eq i64 %533, %umax982
   br i1 %exitcond983.not, label %._crit_edge924, label %.lr.ph923, !llvm.loop !62
 
 534:                                              ; preds = %_ZN4ncnn3Mat6addrefEv.exit
@@ -2394,6 +2402,9 @@ declare i32 @llvm.smin.i32(i32, i32) #12
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umax.i64(i64, i64) #12
 
 attributes #0 = { inlinehint mustprogress nounwind uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="0" "no-infs-fp-math"="true" "no-nans-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "reciprocal-estimates"="none" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "unsafe-fp-math"="true" }
 attributes #1 = { "approx-func-fp-math"="true" "no-infs-fp-math"="true" "no-nans-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "reciprocal-estimates"="none" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "unsafe-fp-math"="true" }

@@ -29,7 +29,7 @@ define range(i32 -2147483646, -2147483648) i32 @i2a_ASN1_STRING(ptr noundef %0, 
   br label %13
 
 11:                                               ; preds = %6
-  %12 = tail call i32 @BIO_write(ptr noundef %0, ptr noundef nonnull @.str, i32 noundef 1) #3
+  %12 = tail call i32 @BIO_write(ptr noundef %0, ptr noundef nonnull @.str, i32 noundef 1) #4
   %.not20 = icmp eq i32 %12, 1
   br i1 %.not20, label %.loopexit, label %.loopexit22
 
@@ -44,7 +44,7 @@ define range(i32 -2147483646, -2147483648) i32 @i2a_ASN1_STRING(ptr noundef %0, 
   br i1 %or.cond, label %17, label %21
 
 17:                                               ; preds = %13
-  %18 = call i32 @BIO_write(ptr noundef %0, ptr noundef nonnull @.str.1, i32 noundef 2) #3
+  %18 = call i32 @BIO_write(ptr noundef %0, ptr noundef nonnull @.str.1, i32 noundef 2) #4
   %.not18 = icmp eq i32 %18, 2
   br i1 %.not18, label %19, label %.loopexit22
 
@@ -57,8 +57,8 @@ define range(i32 -2147483646, -2147483648) i32 @i2a_ASN1_STRING(ptr noundef %0, 
   %22 = load ptr, ptr %10, align 8, !tbaa !11
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 %indvars.iv
   %24 = load i8, ptr %23, align 1, !tbaa !12
-  %25 = call i64 @ossl_to_hex(ptr noundef nonnull %4, i8 noundef zeroext %24) #3
-  %26 = call i32 @BIO_write(ptr noundef %0, ptr noundef nonnull %4, i32 noundef 2) #3
+  %25 = call i64 @ossl_to_hex(ptr noundef nonnull %4, i8 noundef zeroext %24) #4
+  %26 = call i32 @BIO_write(ptr noundef %0, ptr noundef nonnull %4, i32 noundef 2) #4
   %.not19 = icmp eq i32 %26, 2
   br i1 %.not19, label %27, label %.loopexit22
 
@@ -85,7 +85,7 @@ declare i64 @ossl_to_hex(ptr noundef, i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @a2i_ASN1_STRING(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
-  %5 = tail call i32 @BIO_gets(ptr noundef %0, ptr noundef %2, i32 noundef %3) #3
+  %5 = tail call i32 @BIO_gets(ptr noundef %0, ptr noundef %2, i32 noundef %3) #4
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %.lr.ph128, label %.loopexit96
 
@@ -149,7 +149,7 @@ define range(i32 0, 2) i32 @a2i_ASN1_STRING(ptr noundef %0, ptr noundef writeonl
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
   %32 = load i8, ptr %31, align 1, !tbaa !12
   %33 = sext i8 %32 to i32
-  %34 = tail call i32 @ossl_ctype_check(i32 noundef %33, i32 noundef 16) #3
+  %34 = tail call i32 @ossl_ctype_check(i32 noundef %33, i32 noundef 16) #4
   %.not = icmp eq i32 %34, 0
   br i1 %.not, label %._crit_edge.split.loop.exit175, label %35
 
@@ -177,10 +177,10 @@ define range(i32 0, 2) i32 @a2i_ASN1_STRING(ptr noundef %0, ptr noundef writeonl
   br i1 %.not89, label %45, label %44
 
 44:                                               ; preds = %41
-  tail call void @ERR_new() #3
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str.2, i32 noundef 92, ptr noundef nonnull @__func__.a2i_ASN1_STRING) #3
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 13, i32 noundef 145, ptr noundef null) #3
-  tail call void @CRYPTO_free(ptr noundef %.079124, ptr noundef nonnull @.str.2, i32 noundef 93) #3
+  tail call void @ERR_new() #4
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str.2, i32 noundef 92, ptr noundef nonnull @__func__.a2i_ASN1_STRING) #4
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 13, i32 noundef 145, ptr noundef null) #4
+  tail call void @CRYPTO_free(ptr noundef %.079124, ptr noundef nonnull @.str.2, i32 noundef 93) #4
   br label %72
 
 45:                                               ; preds = %41
@@ -192,19 +192,20 @@ define range(i32 0, 2) i32 @a2i_ASN1_STRING(ptr noundef %0, ptr noundef writeonl
 49:                                               ; preds = %45
   %50 = add i32 %42, %.074125
   %51 = zext i32 %50 to i64
-  %52 = tail call ptr @CRYPTO_realloc(ptr noundef %.079124, i64 noundef %51, ptr noundef nonnull @.str.2, i32 noundef 98) #3
+  %52 = tail call ptr @CRYPTO_realloc(ptr noundef %.079124, i64 noundef %51, ptr noundef nonnull @.str.2, i32 noundef 98) #4
   %53 = icmp eq ptr %52, null
   br i1 %53, label %54, label %.preheader.preheader
 
 54:                                               ; preds = %49
-  tail call void @CRYPTO_free(ptr noundef %.079124, ptr noundef nonnull @.str.2, i32 noundef 100) #3
+  tail call void @CRYPTO_free(ptr noundef %.079124, ptr noundef nonnull @.str.2, i32 noundef 100) #4
   br label %72
 
 .preheader.preheader:                             ; preds = %45, %49
   %.281 = phi ptr [ %.079124, %45 ], [ %52, %49 ]
   %.1 = phi i32 [ %.073126, %45 ], [ %50, %49 ]
   %55 = zext nneg i32 %.074125 to i64
-  %wide.trip.count = zext nneg i32 %46 to i64
+  %umax = tail call i32 @llvm.umax.i32(i32 %46, i32 1)
+  %wide.trip.count = zext nneg i32 %umax to i64
   %invariant.gep177 = getelementptr inbounds nuw i8, ptr %.281, i64 %55
   br label %.preheader
 
@@ -220,15 +221,15 @@ define range(i32 0, 2) i32 @a2i_ASN1_STRING(ptr noundef %0, ptr noundef writeonl
   %indvars.iv145 = phi i64 [ 0, %.preheader ], [ 1, %62 ]
   %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %indvars.iv145
   %58 = load i8, ptr %gep, align 1, !tbaa !12
-  %59 = tail call i32 @OPENSSL_hexchar2int(i8 noundef zeroext %58) #3
+  %59 = tail call i32 @OPENSSL_hexchar2int(i8 noundef zeroext %58) #4
   %60 = icmp slt i32 %59, 0
   br i1 %60, label %61, label %62
 
 61:                                               ; preds = %56
-  tail call void @ERR_new() #3
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str.2, i32 noundef 110, ptr noundef nonnull @__func__.a2i_ASN1_STRING) #3
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 13, i32 noundef 141, ptr noundef null) #3
-  tail call void @CRYPTO_free(ptr noundef %.281, ptr noundef nonnull @.str.2, i32 noundef 111) #3
+  tail call void @ERR_new() #4
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str.2, i32 noundef 110, ptr noundef nonnull @__func__.a2i_ASN1_STRING) #4
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 13, i32 noundef 141, ptr noundef null) #4
+  tail call void @CRYPTO_free(ptr noundef %.281, ptr noundef nonnull @.str.2, i32 noundef 111) #4
   br label %72
 
 62:                                               ; preds = %56
@@ -249,7 +250,7 @@ define range(i32 0, 2) i32 @a2i_ASN1_STRING(ptr noundef %0, ptr noundef writeonl
   br i1 %28, label %68, label %.loopexit96
 
 68:                                               ; preds = %._crit_edge122
-  %69 = tail call i32 @BIO_gets(ptr noundef %0, ptr noundef nonnull %2, i32 noundef %3) #3
+  %69 = tail call i32 @BIO_gets(ptr noundef %0, ptr noundef nonnull %2, i32 noundef %3) #4
   %70 = icmp slt i32 %69, 1
   br i1 %70, label %.loopexit, label %.lr.ph128
 
@@ -263,10 +264,10 @@ define range(i32 0, 2) i32 @a2i_ASN1_STRING(ptr noundef %0, ptr noundef writeonl
 
 .loopexit:                                        ; preds = %._crit_edge, %19, %12, %68, %._crit_edge.thread
   %.079112 = phi ptr [ %.079124, %._crit_edge.thread ], [ %.079124, %._crit_edge ], [ %.079124, %19 ], [ %.079124, %12 ], [ %.281, %68 ]
-  tail call void @ERR_new() #3
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str.2, i32 noundef 129, ptr noundef nonnull @__func__.a2i_ASN1_STRING) #3
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 13, i32 noundef 150, ptr noundef null) #3
-  tail call void @CRYPTO_free(ptr noundef %.079112, ptr noundef nonnull @.str.2, i32 noundef 130) #3
+  tail call void @ERR_new() #4
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str.2, i32 noundef 129, ptr noundef nonnull @__func__.a2i_ASN1_STRING) #4
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 13, i32 noundef 150, ptr noundef null) #4
+  tail call void @CRYPTO_free(ptr noundef %.079112, ptr noundef nonnull @.str.2, i32 noundef 130) #4
   br label %72
 
 72:                                               ; preds = %.loopexit, %.loopexit96, %61, %54, %44
@@ -296,10 +297,14 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #3
+
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { nounwind }
+attributes #3 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #4 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

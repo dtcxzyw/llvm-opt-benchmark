@@ -1143,7 +1143,7 @@ _ZNK5clang5Token17getIdentifierInfoEv.exit13.i135: ; preds = %431, %430, %430, %
   store i8 0, ptr %95, align 8, !tbaa !389
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.backedge, %.lr.ph.preheader
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZNK5clang13SourceManager16getDecomposedLocENS_14SourceLocationE.exit191
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %436 = load ptr, ptr %17, align 8, !tbaa !3, !noalias !390
@@ -1489,26 +1489,27 @@ _ZNK5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit.thread14.i188: ; 
 
 _ZNK5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit.thread.i189: ; preds = %587, %_ZNK5clang13SourceManager9getFileIDENS_14SourceLocationE.exit.i171
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %.lr.ph.backedge
+  br label %_ZNK5clang13SourceManager16getDecomposedLocENS_14SourceLocationE.exit191
 
 _ZNK5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit.i174: ; preds = %590, %_ZNK4llvm11PagedVectorIN5clang6SrcMgr9SLocEntryELm32EEixEm.exit.i.i.i.i.i.i.i179
   %594 = phi ptr [ %586, %_ZNK4llvm11PagedVectorIN5clang6SrcMgr9SLocEntryELm32EEixEm.exit.i.i.i.i.i.i.i179 ], [ %593, %590 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not.i175 = icmp eq ptr %594, null
-  br i1 %.not.i175, label %.lr.ph.backedge, label %595
-
-.lr.ph.backedge:                                  ; preds = %_ZNK5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit.i174, %_ZNK5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit.thread.i189, %595
-  br label %.lr.ph, !llvm.loop !397
+  br i1 %.not.i175, label %_ZNK5clang13SourceManager16getDecomposedLocENS_14SourceLocationE.exit191, label %595
 
 595:                                              ; preds = %_ZNK5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit.i174, %_ZNK5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit.thread14.i188
   %596 = phi ptr [ %588, %_ZNK5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit.thread14.i188 ], [ %594, %_ZNK5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit.i174 ]
   %597 = load i32, ptr %596, align 8
   %598 = and i32 %597, 2147483647
   %599 = sub nsw i32 %469, %598
-  %600 = icmp ult i32 %599, %.sroa.3.0.extract.trunc.i120
-  br i1 %600, label %.lr.ph.backedge, label %._crit_edge
+  br label %_ZNK5clang13SourceManager16getDecomposedLocENS_14SourceLocationE.exit191
 
-._crit_edge:                                      ; preds = %595
+_ZNK5clang13SourceManager16getDecomposedLocENS_14SourceLocationE.exit191: ; preds = %_ZNK5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit.thread.i189, %_ZNK5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit.i174, %595
+  %.sroa.3.0.i176 = phi i32 [ %599, %595 ], [ 0, %_ZNK5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit.thread.i189 ], [ 0, %_ZNK5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit.i174 ]
+  %600 = icmp ult i32 %.sroa.3.0.i176, %.sroa.3.0.extract.trunc.i120
+  br i1 %600, label %.lr.ph, label %._crit_edge, !llvm.loop !397
+
+._crit_edge:                                      ; preds = %_ZNK5clang13SourceManager16getDecomposedLocENS_14SourceLocationE.exit191
   %.pre = load i64, ptr %96, align 8, !tbaa !388
   %.pre436 = load ptr, ptr %12, align 8, !tbaa !396
   %601 = add i64 %.pre, 1

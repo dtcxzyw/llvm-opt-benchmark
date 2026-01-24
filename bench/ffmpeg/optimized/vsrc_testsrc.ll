@@ -911,6 +911,7 @@ define internal void @haldclutsrc_fill_picture(ptr noundef readonly captures(non
   %53 = getelementptr inbounds nuw i8, ptr %3, i64 2
   %54 = icmp eq i32 %38, 4
   %55 = getelementptr inbounds nuw i8, ptr %3, i64 3
+  %umax = call i32 @llvm.umax.i32(i32 %27, i32 1)
   br label %.preheader321
 
 .preheader321:                                    ; preds = %.preheader321.lr.ph, %338
@@ -1302,17 +1303,17 @@ define internal void @haldclutsrc_fill_picture(ptr noundef readonly captures(non
   %spec.select = add nsw i32 %.2247322, %334
   %spec.select252 = select i1 %333, i32 0, i32 %332
   %335 = add nuw nsw i32 %.0324, 1
-  %exitcond.not = icmp eq i32 %335, %27
+  %exitcond.not = icmp eq i32 %335, %umax
   br i1 %exitcond.not, label %336, label %96, !llvm.loop !79
 
 336:                                              ; preds = %331
   %337 = add nuw nsw i32 %.0242327, 1
-  %exitcond332.not = icmp eq i32 %337, %27
+  %exitcond332.not = icmp eq i32 %337, %umax
   br i1 %exitcond332.not, label %338, label %.preheader, !llvm.loop !81
 
 338:                                              ; preds = %336
   %339 = add nuw nsw i32 %.0243330, 1
-  %exitcond333.not = icmp eq i32 %339, %27
+  %exitcond333.not = icmp eq i32 %339, %umax
   br i1 %exitcond333.not, label %._crit_edge, label %.preheader321, !llvm.loop !82
 
 ._crit_edge:                                      ; preds = %338, %31

@@ -1310,6 +1310,7 @@ define ptr @Abc_NtkSwapVariables(ptr noundef %0) local_unnamed_addr #0 {
 .lr.ph.preheader:                                 ; preds = %1
   %6 = lshr i32 %.val31.val, 1
   %7 = zext nneg i32 %6 to i64
+  %wide.trip.count = zext nneg i32 %6 to i64
   br label %.lr.ph
 
 .preheader:                                       ; preds = %.lr.ph, %1
@@ -1341,7 +1342,7 @@ define ptr @Abc_NtkSwapVariables(ptr noundef %0) local_unnamed_addr #0 {
   store ptr %22, ptr %19, align 8, !tbaa !30
   store ptr %20, ptr %21, align 8, !tbaa !30
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %7
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !62
 
 23:                                               ; preds = %.lr.ph53, %62

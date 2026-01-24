@@ -1193,14 +1193,18 @@ if.then3.i:                                       ; preds = %if.end.i
   %div44.i.i = lshr i64 %4, 16
   %spec.store.select.i.i = call i64 @llvm.umin.i64(i64 %div44.i.i, i64 20)
   %cmp152.not.i.i = icmp eq i64 %div44.i.i, 0
-  br i1 %cmp152.not.i.i, label %do.body.preheader.i.i, label %for.body.i.i
+  br i1 %cmp152.not.i.i, label %do.body.preheader.i.i, label %for.body.lr.ph.i.i
+
+for.body.lr.ph.i.i:                               ; preds = %if.then3.i
+  %umax.i.i = call i64 @llvm.umax.i64(i64 %spec.store.select.i.i, i64 1)
+  br label %for.body.i.i
 
 do.body.preheader.i.i:                            ; preds = %for.body.i.i, %if.then3.i
   %conv.i.i = trunc nuw nsw i64 %spec.store.select.i.i to i32
   br label %do.body.i.i
 
-for.body.i.i:                                     ; preds = %if.then3.i, %for.body.i.i
-  %k.053.i.i = phi i64 [ %inc.i.i, %for.body.i.i ], [ 0, %if.then3.i ]
+for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.lr.ph.i.i
+  %k.053.i.i = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %inc.i.i, %for.body.i.i ]
   %mul.i.i = shl nuw i64 %k.053.i.i, 16
   %add.ptr.i.i = getelementptr inbounds i8, ptr %3, i64 %mul.i.i
   %arrayidx.i.i = getelementptr inbounds nuw %struct.iovec, ptr %iov.i.i, i64 %k.053.i.i
@@ -1219,7 +1223,7 @@ for.body.i.i:                                     ; preds = %if.then3.i, %for.bo
   store i32 28, ptr %msg_namelen.i.i, align 8
   %msg_control.i.i = getelementptr inbounds nuw i8, ptr %arrayidx3.i.i, i64 32
   %inc.i.i = add nuw nsw i64 %k.053.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %inc.i.i, %spec.store.select.i.i
+  %exitcond.not.i.i = icmp eq i64 %inc.i.i, %umax.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %msg_control.i.i, i8 0, i64 20, i1 false)
   br i1 %exitcond.not.i.i, label %do.body.preheader.i.i, label %for.body.i.i
 
@@ -2242,6 +2246,9 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umax.i64(i64, i64) #9
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #9

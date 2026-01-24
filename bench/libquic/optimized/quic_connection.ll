@@ -3012,6 +3012,7 @@ define noundef zeroext i1 @_ZN3net14QuicConnection19SelectMutualVersionERKSt6vec
   %.pre60.i.i.i.i = sub i64 %15, %.pre59.i.i.i.i
   %21 = ashr exact i64 %.pre60.i.i.i.i, 2
   %22 = getelementptr inbounds nuw i8, ptr %scevgep.i.i.i.i, i64 4
+  %umax116 = tail call i64 @llvm.umax.i64(i64 %11, i64 1)
   br label %.lr.ph.i.i.i.i.us
 
 .lr.ph.i.i.i.i.us:                                ; preds = %.critedge.us, %.lr.ph.split.us
@@ -3099,7 +3100,7 @@ _ZN4base13ContainsValueISt6vectorIN3net11QuicVersionESaIS3_EES3_EEbRKT_RKT0_.exi
 
 .critedge.us:                                     ; preds = %_ZN4base13ContainsValueISt6vectorIN3net11QuicVersionESaIS3_EES3_EEbRKT_RKT0_.exit.us, %._crit_edge.loopexit.i.i.i.i.us
   %56 = add nuw i64 %.01430.us, 1
-  %exitcond117.not = icmp eq i64 %56, %11
+  %exitcond117.not = icmp eq i64 %56, %umax116
   br i1 %exitcond117.not, label %.critedge16, label %.lr.ph.i.i.i.i.us, !llvm.loop !303
 
 .lr.ph.split:                                     ; preds = %.lr.ph
@@ -3114,6 +3115,7 @@ _ZN4base13ContainsValueISt6vectorIN3net11QuicVersionESaIS3_EES3_EEbRKT_RKT0_.exi
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split
   %59 = load i32, ptr %12, align 4, !tbaa !301
   %60 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %umax114 = tail call i64 @llvm.umax.i64(i64 %11, i64 1)
   br label %._crit_edge.i.i.i.i.us34
 
 ._crit_edge.i.i.i.i.us34:                         ; preds = %.critedge.us43, %.lr.ph.split.split.us
@@ -3141,11 +3143,12 @@ _ZN4base13ContainsValueISt6vectorIN3net11QuicVersionESaIS3_EES3_EEbRKT_RKT0_.exi
 
 .critedge.us43:                                   ; preds = %_ZN4base13ContainsValueISt6vectorIN3net11QuicVersionESaIS3_EES3_EEbRKT_RKT0_.exit.us40
   %70 = add nuw i64 %.01430.us36, 1
-  %exitcond115.not = icmp eq i64 %70, %11
+  %exitcond115.not = icmp eq i64 %70, %umax114
   br i1 %exitcond115.not, label %.critedge16, label %._crit_edge.i.i.i.i.us34, !llvm.loop !303
 
 .lr.ph.split.split.us51:                          ; preds = %.lr.ph.split
   %71 = load i32, ptr %12, align 4, !tbaa !301
+  %umax112 = tail call i64 @llvm.umax.i64(i64 %11, i64 1)
   br label %._crit_edge.i.i.i.i.us52
 
 ._crit_edge.i.i.i.i.us52:                         ; preds = %.critedge.us63, %.lr.ph.split.split.us51
@@ -3168,7 +3171,7 @@ _ZN4base13ContainsValueISt6vectorIN3net11QuicVersionESaIS3_EES3_EEbRKT_RKT0_.exi
 
 .critedge.us63:                                   ; preds = %_ZN4base13ContainsValueISt6vectorIN3net11QuicVersionESaIS3_EES3_EEbRKT_RKT0_.exit.us60
   %77 = add nuw i64 %.01430.us54, 1
-  %exitcond113.not = icmp eq i64 %77, %11
+  %exitcond113.not = icmp eq i64 %77, %umax112
   br i1 %exitcond113.not, label %.critedge16, label %._crit_edge.i.i.i.i.us52, !llvm.loop !303
 
 .lr.ph.split.split.us71:                          ; preds = %.lr.ph.split
@@ -3180,7 +3183,7 @@ _ZN4base13ContainsValueISt6vectorIN3net11QuicVersionESaIS3_EES3_EEbRKT_RKT0_.exi
   br i1 %.not18.us8293, label %.critedge.us83.preheader, label %.split.us
 
 .critedge.us83.preheader:                         ; preds = %.lr.ph.split.split.us71
-  %80 = add nsw i64 %11, -1
+  %80 = tail call i64 @llvm.usub.sat.i64(i64 %11, i64 1)
   br label %.critedge.us83
 
 ._crit_edge.i.i.i.i.us72:                         ; preds = %.critedge.us83
@@ -13250,6 +13253,9 @@ declare i64 @llvm.umin.i64(i64, i64) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #24
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.usub.sat.i64(i64, i64) #23
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

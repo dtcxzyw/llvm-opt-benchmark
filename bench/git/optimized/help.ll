@@ -520,58 +520,59 @@ st_add.exit:                                      ; preds = %3
   br i1 %7, label %8, label %st_add.exit23
 
 8:                                                ; preds = %st_add.exit
-  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.46, i64 noundef -1, i64 noundef 1) #22
+  %9 = or disjoint i64 %4, 8
+  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.46, i64 noundef %9, i64 noundef 1) #22
   unreachable
 
 st_add.exit23:                                    ; preds = %st_add.exit
-  %9 = add nsw i64 %4, 9
-  %10 = tail call ptr @xcalloc(i64 noundef 1, i64 noundef %9) #23
-  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %11, ptr align 1 %1, i64 %4, i1 false)
-  store i64 %4, ptr %10, align 8, !tbaa !4
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %13 = load i32, ptr %12, align 4, !tbaa !8
-  %14 = load i32, ptr %0, align 8, !tbaa !13
-  %.not = icmp slt i32 %13, %14
-  br i1 %.not, label %st_add.exit23._crit_edge, label %15
+  %10 = add nsw i64 %4, 9
+  %11 = tail call ptr @xcalloc(i64 noundef 1, i64 noundef %10) #23
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %12, ptr align 1 %1, i64 %4, i1 false)
+  store i64 %4, ptr %11, align 8, !tbaa !4
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %14 = load i32, ptr %13, align 4, !tbaa !8
+  %15 = load i32, ptr %0, align 8, !tbaa !13
+  %.not = icmp slt i32 %14, %15
+  br i1 %.not, label %st_add.exit23._crit_edge, label %16
 
 st_add.exit23._crit_edge:                         ; preds = %st_add.exit23
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !14
-  br label %26
+  br label %27
 
-15:                                               ; preds = %st_add.exit23
-  %16 = add nsw i32 %13, 1
-  %17 = mul i32 %14, 3
-  %18 = add i32 %17, 48
-  %19 = sdiv i32 %18, 2
-  %. = tail call i32 @llvm.smax.i32(i32 %19, i32 %16)
+16:                                               ; preds = %st_add.exit23
+  %17 = add nsw i32 %14, 1
+  %18 = mul i32 %15, 3
+  %19 = add i32 %18, 48
+  %20 = sdiv i32 %19, 2
+  %. = tail call i32 @llvm.smax.i32(i32 %20, i32 %17)
   store i32 %., ptr %0, align 8, !tbaa !13
-  %20 = sext i32 %. to i64
+  %21 = sext i32 %. to i64
   %mul.ov.i = icmp slt i32 %., 0
-  br i1 %mul.ov.i, label %21, label %st_mult.exit
+  br i1 %mul.ov.i, label %22, label %st_mult.exit
 
-21:                                               ; preds = %15
-  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.47, i64 noundef 8, i64 noundef %20) #22
+22:                                               ; preds = %16
+  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.47, i64 noundef 8, i64 noundef %21) #22
   unreachable
 
-st_mult.exit:                                     ; preds = %15
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %23 = load ptr, ptr %22, align 8, !tbaa !14
-  %24 = shl nuw nsw i64 %20, 3
-  %25 = tail call ptr @xrealloc(ptr noundef %23, i64 noundef %24) #23
-  store ptr %25, ptr %22, align 8, !tbaa !14
-  %.pre24 = load i32, ptr %12, align 4, !tbaa !8
-  br label %26
+st_mult.exit:                                     ; preds = %16
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %24 = load ptr, ptr %23, align 8, !tbaa !14
+  %25 = shl nuw nsw i64 %21, 3
+  %26 = tail call ptr @xrealloc(ptr noundef %24, i64 noundef %25) #23
+  store ptr %26, ptr %23, align 8, !tbaa !14
+  %.pre24 = load i32, ptr %13, align 4, !tbaa !8
+  br label %27
 
-26:                                               ; preds = %st_add.exit23._crit_edge, %st_mult.exit
-  %27 = phi i32 [ %13, %st_add.exit23._crit_edge ], [ %.pre24, %st_mult.exit ]
-  %28 = phi ptr [ %.pre, %st_add.exit23._crit_edge ], [ %25, %st_mult.exit ]
-  %29 = add nsw i32 %27, 1
-  store i32 %29, ptr %12, align 4, !tbaa !8
-  %30 = sext i32 %27 to i64
-  %31 = getelementptr inbounds ptr, ptr %28, i64 %30
-  store ptr %10, ptr %31, align 8, !tbaa !15
+27:                                               ; preds = %st_add.exit23._crit_edge, %st_mult.exit
+  %28 = phi i32 [ %14, %st_add.exit23._crit_edge ], [ %.pre24, %st_mult.exit ]
+  %29 = phi ptr [ %.pre, %st_add.exit23._crit_edge ], [ %26, %st_mult.exit ]
+  %30 = add nsw i32 %28, 1
+  store i32 %30, ptr %13, align 4, !tbaa !8
+  %31 = sext i32 %28 to i64
+  %32 = getelementptr inbounds ptr, ptr %29, i64 %31
+  store ptr %11, ptr %32, align 8, !tbaa !15
   ret void
 }
 

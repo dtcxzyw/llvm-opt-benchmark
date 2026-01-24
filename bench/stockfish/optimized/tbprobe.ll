@@ -2028,31 +2028,33 @@ define internal fastcc noundef range(i32 -2, -2147483648) i32 @_ZN9Stockfish12_G
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %28
-  %30 = icmp eq i64 %.144, %10
-  br i1 %30, label %.thread, label %._crit_edge.thread
+  %30 = icmp ne i64 %.144, 0
+  %31 = icmp eq i64 %.144, %10
+  %32 = and i1 %30, %31
+  br i1 %32, label %.thread, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %2, %._crit_edge
   %.042.lcssa63 = phi i32 [ %.1, %._crit_edge ], [ -2, %2 ]
-  %31 = call fastcc noundef i32 @_ZN9Stockfish12_GLOBAL__N_111probe_tableILNS0_6TBTypeE0ENS_10Tablebases8WDLScoreEEET0_RKNS_8PositionEPNS3_10ProbeStateES4_(ptr noundef nonnull align 8 dereferenceable(865) %0, ptr noundef %1)
-  %32 = load i32, ptr %1, align 4
-  %33 = icmp eq i32 %32, 0
-  br i1 %33, label %.loopexit, label %34
+  %33 = call fastcc noundef i32 @_ZN9Stockfish12_GLOBAL__N_111probe_tableILNS0_6TBTypeE0ENS_10Tablebases8WDLScoreEEET0_RKNS_8PositionEPNS3_10ProbeStateES4_(ptr noundef nonnull align 8 dereferenceable(865) %0, ptr noundef %1)
+  %34 = load i32, ptr %1, align 4
+  %35 = icmp eq i32 %34, 0
+  br i1 %35, label %.loopexit, label %36
 
-34:                                               ; preds = %._crit_edge.thread
-  %.not47 = icmp slt i32 %.042.lcssa63, %31
+36:                                               ; preds = %._crit_edge.thread
+  %.not47 = icmp slt i32 %.042.lcssa63, %33
   br i1 %.not47, label %.loopexit.sink.split, label %.thread
 
-.thread:                                          ; preds = %._crit_edge, %34
-  %.042.lcssa6468 = phi i32 [ %.042.lcssa63, %34 ], [ %.1, %._crit_edge ]
-  %35 = phi i1 [ false, %34 ], [ true, %._crit_edge ]
-  %36 = icmp sgt i32 %.042.lcssa6468, 0
-  %37 = or i1 %36, %35
-  %38 = select i1 %37, i32 2, i32 1
+.thread:                                          ; preds = %._crit_edge, %36
+  %.042.lcssa6468 = phi i32 [ %.042.lcssa63, %36 ], [ %.1, %._crit_edge ]
+  %37 = phi i1 [ false, %36 ], [ true, %._crit_edge ]
+  %38 = icmp sgt i32 %.042.lcssa6468, 0
+  %39 = or i1 %38, %37
+  %40 = select i1 %39, i32 2, i32 1
   br label %.loopexit.sink.split
 
-.loopexit.sink.split:                             ; preds = %26, %34, %.thread
-  %.sink = phi i32 [ 1, %34 ], [ %38, %.thread ], [ 2, %26 ]
-  %.0.ph = phi i32 [ %31, %34 ], [ %.042.lcssa6468, %.thread ], [ 2, %26 ]
+.loopexit.sink.split:                             ; preds = %26, %36, %.thread
+  %.sink = phi i32 [ 1, %36 ], [ %40, %.thread ], [ 2, %26 ]
+  %.0.ph = phi i32 [ %33, %36 ], [ %.042.lcssa6468, %.thread ], [ 2, %26 ]
   store i32 %.sink, ptr %1, align 4
   br label %.loopexit
 
@@ -3856,31 +3858,33 @@ define internal fastcc noundef range(i32 -2, 4094) i32 @_ZN9Stockfish12_GLOBAL__
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %35
-  %37 = icmp eq i64 %.147, %10
-  br i1 %37, label %.thread, label %._crit_edge.thread
+  %37 = icmp ne i64 %.147, 0
+  %38 = icmp eq i64 %.147, %10
+  %39 = and i1 %37, %38
+  br i1 %39, label %.thread, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %2, %._crit_edge
   %.045.lcssa67 = phi i32 [ %.1, %._crit_edge ], [ -2, %2 ]
-  %38 = call fastcc noundef i32 @_ZN9Stockfish12_GLOBAL__N_111probe_tableILNS0_6TBTypeE0ENS_10Tablebases8WDLScoreEEET0_RKNS_8PositionEPNS3_10ProbeStateES4_(ptr noundef nonnull align 8 dereferenceable(865) %0, ptr noundef %1)
-  %39 = load i32, ptr %1, align 4
-  %40 = icmp eq i32 %39, 0
-  br i1 %40, label %.loopexit, label %41
+  %40 = call fastcc noundef i32 @_ZN9Stockfish12_GLOBAL__N_111probe_tableILNS0_6TBTypeE0ENS_10Tablebases8WDLScoreEEET0_RKNS_8PositionEPNS3_10ProbeStateES4_(ptr noundef nonnull align 8 dereferenceable(865) %0, ptr noundef %1)
+  %41 = load i32, ptr %1, align 4
+  %42 = icmp eq i32 %41, 0
+  br i1 %42, label %.loopexit, label %43
 
-41:                                               ; preds = %._crit_edge.thread
-  %.not50 = icmp slt i32 %.045.lcssa67, %38
+43:                                               ; preds = %._crit_edge.thread
+  %.not50 = icmp slt i32 %.045.lcssa67, %40
   br i1 %.not50, label %.loopexit.sink.split, label %.thread
 
-.thread:                                          ; preds = %._crit_edge, %41
-  %.045.lcssa6872 = phi i32 [ %.045.lcssa67, %41 ], [ %.1, %._crit_edge ]
-  %42 = phi i1 [ false, %41 ], [ true, %._crit_edge ]
-  %43 = icmp sgt i32 %.045.lcssa6872, 0
-  %44 = or i1 %43, %42
-  %45 = select i1 %44, i32 2, i32 1
+.thread:                                          ; preds = %._crit_edge, %43
+  %.045.lcssa6872 = phi i32 [ %.045.lcssa67, %43 ], [ %.1, %._crit_edge ]
+  %44 = phi i1 [ false, %43 ], [ true, %._crit_edge ]
+  %45 = icmp sgt i32 %.045.lcssa6872, 0
+  %46 = or i1 %45, %44
+  %47 = select i1 %46, i32 2, i32 1
   br label %.loopexit.sink.split
 
-.loopexit.sink.split:                             ; preds = %33, %41, %.thread
-  %.sink = phi i32 [ 1, %41 ], [ %45, %.thread ], [ 2, %33 ]
-  %.0.ph = phi i32 [ %38, %41 ], [ %.045.lcssa6872, %.thread ], [ 2, %33 ]
+.loopexit.sink.split:                             ; preds = %33, %43, %.thread
+  %.sink = phi i32 [ 1, %43 ], [ %47, %.thread ], [ 2, %33 ]
+  %.0.ph = phi i32 [ %40, %43 ], [ %.045.lcssa6872, %.thread ], [ 2, %33 ]
   store i32 %.sink, ptr %1, align 4
   br label %.loopexit
 
@@ -8600,7 +8604,7 @@ define linkonce_odr dso_local void @_ZSt22__chunk_insertion_sortIPN9Stockfish6Sq
 
 _ZSt16__insertion_sortIPN9Stockfish6SquareEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbS1_S1_EEEEvT_S9_T0_.exit.us: ; preds = %.lr.ph, %_ZSt16__insertion_sortIPN9Stockfish6SquareEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbS1_S1_EEEEvT_S9_T0_.exit.us
   %.029.us = phi ptr [ %9, %_ZSt16__insertion_sortIPN9Stockfish6SquareEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbS1_S1_EEEEvT_S9_T0_.exit.us ], [ %0, %.lr.ph ]
-  %9 = getelementptr inbounds nuw i8, ptr %.029.us, i64 %.idx
+  %9 = getelementptr inbounds i8, ptr %.029.us, i64 %.idx
   %10 = ptrtoint ptr %9 to i64
   %11 = sub i64 %5, %10
   %12 = ashr exact i64 %11, 2
@@ -10761,7 +10765,7 @@ _ZSt4moveIPN9Stockfish6Search8RootMoveEN9__gnu_cxx17__normal_iteratorIS3_St6vect
   %.lcssa.i25 = phi i64 [ %16, %"_ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iteratorIPN9Stockfish6Search8RootMoveESt6vectorIS4_SaIS4_EEEES5_lNS0_5__ops15_Iter_comp_iterIZNS2_10Tablebases15rank_root_movesERKNS2_10OptionsMapERNS2_8PositionERS8_E3$_0EEEvT_SL_T0_T1_T2_.exit" ], [ %176, %"_ZSt12__move_mergeIPN9Stockfish6Search8RootMoveEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEENS4_5__ops15_Iter_comp_iterIZNS0_10Tablebases15rank_root_movesERKNS0_10OptionsMapERNS0_8PositionERS8_E3$_0EEET0_T_SM_SM_SM_SL_T1_.exit" ]
   %.sroa.speculated.i26 = tail call i64 @llvm.smin.i64(i64 %18, i64 %.lcssa.i25)
   %177 = getelementptr inbounds %"struct.Stockfish::Search::RootMove", ptr %.0.lcssa.i24, i64 %.sroa.speculated.i26
-  tail call fastcc void @"_ZSt12__move_mergeIPN9Stockfish6Search8RootMoveEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEENS4_5__ops15_Iter_comp_iterIZNS0_10Tablebases15rank_root_movesERKNS0_10OptionsMapERNS0_8PositionERS8_E3$_0EEET0_T_SM_SM_SM_SL_T1_"(ptr noundef %.0.lcssa.i24, ptr noundef %177, ptr noundef %177, ptr noundef nonnull %8, ptr %.sroa.022.0.lcssa.i)
+  tail call fastcc void @"_ZSt12__move_mergeIPN9Stockfish6Search8RootMoveEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEENS4_5__ops15_Iter_comp_iterIZNS0_10Tablebases15rank_root_movesERKNS0_10OptionsMapERNS0_8PositionERS8_E3$_0EEET0_T_SM_SM_SM_SL_T1_"(ptr noundef %.0.lcssa.i24, ptr noundef %177, ptr noundef %177, ptr noundef %8, ptr %.sroa.022.0.lcssa.i)
   %178 = icmp slt i64 %94, %7
   br i1 %178, label %17, label %._crit_edge, !llvm.loop !209
 

@@ -504,14 +504,15 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %_ZNSt6vectorIZ
   %104 = icmp eq i64 %103, 0
   br i1 %104, label %.lr.ph213.preheader, label %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i
 
-.lr.ph213.preheader:                              ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc106
-  br label %.lr.ph213
-
 _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc106
   %105 = getelementptr i8, ptr %101, i64 4
   %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %103, 2
   call void @llvm.memset.p0.i64(ptr align 4 %105, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !25
   br label %.lr.ph213.preheader
+
+.lr.ph213.preheader:                              ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc106
+  %umax = call i64 @llvm.umax.i64(i64 %97, i64 1)
+  br label %.lr.ph213
 
 .preheader199.loopexit:                           ; preds = %.lr.ph213
   %106 = ptrtoint ptr %102 to i64
@@ -549,7 +550,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc106
   %115 = load i32, ptr %114, align 4, !tbaa !25
   %116 = add nsw i32 %115, %.062212
   %117 = add nuw i64 %.067211, 1
-  %exitcond.not = icmp eq i64 %117, %97
+  %exitcond.not = icmp eq i64 %117, %umax
   br i1 %exitcond.not, label %.preheader199.loopexit, label %.lr.ph213, !llvm.loop !39
 
 ._crit_edge226:                                   ; preds = %.loopexit, %.preheader199

@@ -6166,9 +6166,11 @@ define linkonce_odr dso_local void @_ZNK2OT7VarData18get_region_scalarsEPKijRKNS
   %15 = load i16, ptr %3, align 1
   %.fr = freeze i16 %15
   %16 = tail call i16 @llvm.bswap.i16(i16 %.fr)
-  %17 = zext i16 %16 to i64
+  %17 = zext i16 %16 to i32
   %.not4254.not.i = icmp eq i16 %.fr, 0
   %18 = zext i32 %2 to i64
+  %umax.i = tail call i32 @llvm.umax.i32(i32 %17, i32 1)
+  %wide.trip.count.i = zext nneg i32 %umax.i to i64
   %wide.trip.count26 = zext nneg i32 %spec.select.i to i64
   br i1 %.not4254.not.i, label %.lr.ph.split.us, label %.lr.ph.split
 
@@ -6212,88 +6214,89 @@ define linkonce_odr dso_local void @_ZNK2OT7VarData18get_region_scalarsEPKijRKNS
   br i1 %.not.i, label %.lr.ph.preheader.i, label %_ZNK2OT13VarRegionList8evaluateEjPKijPf.exit, !prof !105
 
 .lr.ph.preheader.i:                               ; preds = %.lr.ph.split
-  %35 = zext i16 %34 to i64
-  %36 = mul nuw nsw i64 %17, %35
-  %37 = getelementptr inbounds nuw %"struct.OT::VarRegionAxis", ptr %14, i64 %36
+  %35 = zext i16 %34 to i32
+  %36 = mul nuw i32 %17, %35
+  %37 = zext i32 %36 to i64
+  %38 = getelementptr inbounds nuw %"struct.OT::VarRegionAxis", ptr %14, i64 %37
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNK2OT13VarRegionAxis8evaluateEi.exit.thread.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %_ZNK2OT13VarRegionAxis8evaluateEi.exit.thread.i ]
-  %.03455.i = phi float [ 1.000000e+00, %.lr.ph.preheader.i ], [ %76, %_ZNK2OT13VarRegionAxis8evaluateEi.exit.thread.i ]
-  %38 = icmp samesign ult i64 %indvars.iv.i, %18
-  br i1 %38, label %39, label %42
+  %.03455.i = phi float [ 1.000000e+00, %.lr.ph.preheader.i ], [ %77, %_ZNK2OT13VarRegionAxis8evaluateEi.exit.thread.i ]
+  %39 = icmp samesign ult i64 %indvars.iv.i, %18
+  br i1 %39, label %40, label %43
 
-39:                                               ; preds = %.lr.ph.i
-  %40 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.i
-  %41 = load i32, ptr %40, align 4, !tbaa !148
-  br label %42
+40:                                               ; preds = %.lr.ph.i
+  %41 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.i
+  %42 = load i32, ptr %41, align 4, !tbaa !148
+  br label %43
 
-42:                                               ; preds = %39, %.lr.ph.i
-  %43 = phi i32 [ %41, %39 ], [ 0, %.lr.ph.i ]
-  %44 = getelementptr inbounds nuw %"struct.OT::VarRegionAxis", ptr %37, i64 %indvars.iv.i
-  %45 = getelementptr inbounds nuw i8, ptr %44, i64 2
-  %46 = load i16, ptr %45, align 1, !tbaa !174
-  %47 = tail call noundef i16 @llvm.bswap.i16(i16 %46)
-  %48 = sext i16 %47 to i32
-  %49 = icmp eq i16 %46, 0
-  %50 = icmp eq i32 %43, %48
-  %or.cond32.i.i = or i1 %49, %50
-  br i1 %or.cond32.i.i, label %_ZNK2OT13VarRegionAxis8evaluateEi.exit.thread.i, label %51
+43:                                               ; preds = %40, %.lr.ph.i
+  %44 = phi i32 [ %42, %40 ], [ 0, %.lr.ph.i ]
+  %45 = getelementptr inbounds nuw %"struct.OT::VarRegionAxis", ptr %38, i64 %indvars.iv.i
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 2
+  %47 = load i16, ptr %46, align 1, !tbaa !174
+  %48 = tail call noundef i16 @llvm.bswap.i16(i16 %47)
+  %49 = sext i16 %48 to i32
+  %50 = icmp eq i16 %47, 0
+  %51 = icmp eq i32 %44, %49
+  %or.cond32.i.i = or i1 %50, %51
+  br i1 %or.cond32.i.i, label %_ZNK2OT13VarRegionAxis8evaluateEi.exit.thread.i, label %52
 
-51:                                               ; preds = %42
-  %52 = icmp eq i32 %43, 0
-  br i1 %52, label %_ZNK2OT13VarRegionList8evaluateEjPKijPf.exit, label %53
+52:                                               ; preds = %43
+  %53 = icmp eq i32 %44, 0
+  br i1 %53, label %_ZNK2OT13VarRegionList8evaluateEjPKijPf.exit, label %54
 
-53:                                               ; preds = %51
-  %54 = load i16, ptr %44, align 1, !tbaa !174
-  %55 = tail call noundef i16 @llvm.bswap.i16(i16 %54)
-  %56 = sext i16 %55 to i32
-  %57 = getelementptr inbounds nuw i8, ptr %44, i64 4
-  %58 = load i16, ptr %57, align 1, !tbaa !174
-  %59 = tail call noundef i16 @llvm.bswap.i16(i16 %58)
-  %60 = sext i16 %59 to i32
-  %61 = icmp sgt i16 %55, %47
-  %62 = icmp sgt i16 %47, %59
-  %63 = or i1 %61, %62
-  br i1 %63, label %_ZNK2OT13VarRegionAxis8evaluateEi.exit.thread.i, label %64, !prof !30
+54:                                               ; preds = %52
+  %55 = load i16, ptr %45, align 1, !tbaa !174
+  %56 = tail call noundef i16 @llvm.bswap.i16(i16 %55)
+  %57 = sext i16 %56 to i32
+  %58 = getelementptr inbounds nuw i8, ptr %45, i64 4
+  %59 = load i16, ptr %58, align 1, !tbaa !174
+  %60 = tail call noundef i16 @llvm.bswap.i16(i16 %59)
+  %61 = sext i16 %60 to i32
+  %62 = icmp sgt i16 %56, %48
+  %63 = icmp sgt i16 %48, %60
+  %64 = or i1 %62, %63
+  br i1 %64, label %_ZNK2OT13VarRegionAxis8evaluateEi.exit.thread.i, label %65, !prof !30
 
-64:                                               ; preds = %53
-  %65 = icmp slt i16 %55, 0
-  %66 = icmp sgt i16 %59, 0
-  %or.cond.i.i = and i1 %65, %66
-  br i1 %or.cond.i.i, label %_ZNK2OT13VarRegionAxis8evaluateEi.exit.thread.i, label %67, !prof !30
+65:                                               ; preds = %54
+  %66 = icmp slt i16 %56, 0
+  %67 = icmp sgt i16 %60, 0
+  %or.cond.i.i = and i1 %66, %67
+  br i1 %or.cond.i.i, label %_ZNK2OT13VarRegionAxis8evaluateEi.exit.thread.i, label %68, !prof !30
 
-67:                                               ; preds = %64
-  %.not.i.i = icmp sgt i32 %43, %56
-  %.not31.i.i = icmp slt i32 %43, %60
+68:                                               ; preds = %65
+  %.not.i.i = icmp sgt i32 %44, %57
+  %.not31.i.i = icmp slt i32 %44, %61
   %or.cond33.i.i = and i1 %.not.i.i, %.not31.i.i
   br i1 %or.cond33.i.i, label %_ZNK2OT13VarRegionAxis8evaluateEi.exit.i, label %_ZNK2OT13VarRegionList8evaluateEjPKijPf.exit
 
-_ZNK2OT13VarRegionAxis8evaluateEi.exit.i:         ; preds = %67
-  %68 = icmp slt i32 %43, %48
-  %69 = sub nsw i32 %43, %56
-  %70 = sub nsw i32 %48, %56
-  %71 = sub nsw i32 %60, %43
-  %72 = sub nsw i32 %60, %48
-  %.sink68.i = select i1 %68, i32 %70, i32 %72
-  %.sink.in.i = select i1 %68, i32 %69, i32 %71
-  %.sink.i = sitofp i32 %.sink.in.i to float
-  %73 = sitofp i32 %.sink68.i to float
-  %74 = fdiv float %.sink.i, %73
-  %75 = fcmp une float %74, 0.000000e+00
-  br i1 %75, label %_ZNK2OT13VarRegionAxis8evaluateEi.exit.thread.i, label %_ZNK2OT13VarRegionList8evaluateEjPKijPf.exit
+_ZNK2OT13VarRegionAxis8evaluateEi.exit.i:         ; preds = %68
+  %69 = icmp slt i32 %44, %49
+  %70 = sub nsw i32 %44, %57
+  %71 = sub nsw i32 %49, %57
+  %72 = sub nsw i32 %61, %44
+  %73 = sub nsw i32 %61, %49
+  %.sink68.i = select i1 %69, i32 %71, i32 %73
+  %.sink.in.i = select i1 %69, i32 %70, i32 %72
+  %.sink.i = uitofp nneg i32 %.sink.in.i to float
+  %74 = sitofp i32 %.sink68.i to float
+  %75 = fdiv float %.sink.i, %74
+  %76 = fcmp une float %75, 0.000000e+00
+  br i1 %76, label %_ZNK2OT13VarRegionAxis8evaluateEi.exit.thread.i, label %_ZNK2OT13VarRegionList8evaluateEjPKijPf.exit
 
-_ZNK2OT13VarRegionAxis8evaluateEi.exit.thread.i:  ; preds = %_ZNK2OT13VarRegionAxis8evaluateEi.exit.i, %64, %53, %42
-  %.0.i44.i = phi float [ %74, %_ZNK2OT13VarRegionAxis8evaluateEi.exit.i ], [ 1.000000e+00, %42 ], [ 1.000000e+00, %53 ], [ 1.000000e+00, %64 ]
-  %76 = fmul float %.03455.i, %.0.i44.i
+_ZNK2OT13VarRegionAxis8evaluateEi.exit.thread.i:  ; preds = %_ZNK2OT13VarRegionAxis8evaluateEi.exit.i, %65, %54, %43
+  %.0.i44.i = phi float [ %75, %_ZNK2OT13VarRegionAxis8evaluateEi.exit.i ], [ 1.000000e+00, %43 ], [ 1.000000e+00, %54 ], [ 1.000000e+00, %65 ]
+  %77 = fmul float %.03455.i, %.0.i44.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %17
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %_ZNK2OT13VarRegionList8evaluateEjPKijPf.exit, label %.lr.ph.i, !llvm.loop !176
 
-_ZNK2OT13VarRegionList8evaluateEjPKijPf.exit:     ; preds = %_ZNK2OT13VarRegionAxis8evaluateEi.exit.thread.i, %51, %67, %_ZNK2OT13VarRegionAxis8evaluateEi.exit.i, %.lr.ph.split
-  %.0.i = phi float [ 0.000000e+00, %.lr.ph.split ], [ %76, %_ZNK2OT13VarRegionAxis8evaluateEi.exit.thread.i ], [ 0.000000e+00, %67 ], [ 0.000000e+00, %_ZNK2OT13VarRegionAxis8evaluateEi.exit.i ], [ 0.000000e+00, %51 ]
-  %77 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv
-  store float %.0.i, ptr %77, align 4, !tbaa !156
+_ZNK2OT13VarRegionList8evaluateEjPKijPf.exit:     ; preds = %_ZNK2OT13VarRegionAxis8evaluateEi.exit.thread.i, %52, %68, %_ZNK2OT13VarRegionAxis8evaluateEi.exit.i, %.lr.ph.split
+  %.0.i = phi float [ 0.000000e+00, %.lr.ph.split ], [ %77, %_ZNK2OT13VarRegionAxis8evaluateEi.exit.thread.i ], [ 0.000000e+00, %68 ], [ 0.000000e+00, %_ZNK2OT13VarRegionAxis8evaluateEi.exit.i ], [ 0.000000e+00, %52 ]
+  %78 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv
+  store float %.0.i, ptr %78, align 4, !tbaa !156
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count26
   br i1 %exitcond.not, label %.preheader, label %.lr.ph.split, !llvm.loop !173

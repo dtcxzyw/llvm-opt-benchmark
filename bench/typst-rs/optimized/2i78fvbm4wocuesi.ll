@@ -115218,9 +115218,8 @@ define hidden noundef zeroext i1 @"_ZN5typst6layout6inline7shaping10ShapedText11
 
 73:                                               ; preds = %70
   %74 = tail call i16 @llvm.bswap.i16(i16 %.val.i.i.i56.i.i.i)
-  %.not.i.i.i = icmp ult i16 %17, %74
   %75 = add i16 %74, -1
-  %spec.select.i.i.i = select i1 %.not.i.i.i, i16 %17, i16 %75
+  %spec.select.i.i.i = tail call i16 @llvm.umin.i16(i16 %17, i16 %75)
   %76 = lshr i16 %68, 4
   %77 = and i16 %76, 3
   %78 = add nuw nsw i16 %77, 1
@@ -137007,6 +137006,9 @@ declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64, i64) #78
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #78
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i16 @llvm.umin.i16(i16, i16) #78
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.umax.i16(i16, i16) #78

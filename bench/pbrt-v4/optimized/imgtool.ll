@@ -16415,6 +16415,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit506: ; preds = %88
   %906 = getelementptr inbounds nuw i8, ptr %42, i64 32
   %907 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %908 = getelementptr inbounds nuw i8, ptr %40, i64 32
+  %umax = call i64 @llvm.umax.i64(i64 %768, i64 1)
   %909 = getelementptr inbounds nuw i8, ptr %41, i64 17
   %910 = getelementptr inbounds nuw i8, ptr %41, i64 49
   %911 = getelementptr inbounds nuw i8, ptr %41, i64 81
@@ -16504,7 +16505,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit509: ; preds = %91
 
 ._crit_edge1206:                                  ; preds = %_ZN4pbrt16ImageChannelDescD2Ev.exit, %.preheader
   %indvars.iv.next1279 = add nuw i64 %indvars.iv1278, 1
-  %exitcond1281.not = icmp eq i64 %indvars.iv.next1279, %768
+  %exitcond1281.not = icmp eq i64 %indvars.iv.next1279, %umax
   br i1 %exitcond1281.not, label %._crit_edge1209, label %928, !llvm.loop !344
 
 936:                                              ; preds = %928
@@ -29438,8 +29439,8 @@ _ZN4pstd3pmr21polymorphic_allocatorIiE17deallocate_objectIiEEvPT_m.exit.i.i.i: ;
   br label %_ZN4pbrt13InlinedVectorIiLi4EN4pstd3pmr21polymorphic_allocatorIiEEE6resizeEm.exit.i
 
 _ZN4pbrt13InlinedVectorIiLi4EN4pstd3pmr21polymorphic_allocatorIiEEE6resizeEm.exit.i: ; preds = %.lr.ph.i.i, %922
-  %941 = phi i64 [ %.pre1532, %.lr.ph.i.i ], [ %928, %922 ]
-  %942 = phi ptr [ %938, %.lr.ph.i.i ], [ null, %922 ]
+  %941 = phi i64 [ %928, %922 ], [ %.pre1532, %.lr.ph.i.i ]
+  %942 = phi ptr [ null, %922 ], [ %938, %.lr.ph.i.i ]
   store i64 %929, ptr %930, align 8, !tbaa !341, !alias.scope !589
   %943 = trunc i64 %941 to i32
   %944 = icmp sgt i32 %943, 0
@@ -29594,8 +29595,8 @@ _ZN4pstd3pmr21polymorphic_allocatorIiE17deallocate_objectIiEEvPT_m.exit.i.i.i615
   br label %_ZN4pbrt13InlinedVectorIiLi4EN4pstd3pmr21polymorphic_allocatorIiEEE6resizeEm.exit.i608
 
 _ZN4pbrt13InlinedVectorIiLi4EN4pstd3pmr21polymorphic_allocatorIiEEE6resizeEm.exit.i608: ; preds = %.lr.ph.i.i606, %_ZN4pbrt16ImageChannelDescD2Ev.exit
-  %1003 = phi i64 [ %.pre1534, %.lr.ph.i.i606 ], [ %990, %_ZN4pbrt16ImageChannelDescD2Ev.exit ]
-  %1004 = phi ptr [ %1000, %.lr.ph.i.i606 ], [ null, %_ZN4pbrt16ImageChannelDescD2Ev.exit ]
+  %1003 = phi i64 [ %990, %_ZN4pbrt16ImageChannelDescD2Ev.exit ], [ %.pre1534, %.lr.ph.i.i606 ]
+  %1004 = phi ptr [ null, %_ZN4pbrt16ImageChannelDescD2Ev.exit ], [ %1000, %.lr.ph.i.i606 ]
   store i64 %991, ptr %992, align 8, !tbaa !341, !alias.scope !594
   %1005 = trunc i64 %1003 to i32
   %1006 = icmp sgt i32 %1005, 0
@@ -29862,8 +29863,8 @@ _ZN4pstd3pmr21polymorphic_allocatorIiE17deallocate_objectIiEEvPT_m.exit.i.i.i648
   br label %_ZN4pbrt13InlinedVectorIiLi4EN4pstd3pmr21polymorphic_allocatorIiEEE6resizeEm.exit.i641
 
 _ZN4pbrt13InlinedVectorIiLi4EN4pstd3pmr21polymorphic_allocatorIiEEE6resizeEm.exit.i641: ; preds = %.lr.ph.i.i639, %1095
-  %1113 = phi i64 [ %.pre1554, %.lr.ph.i.i639 ], [ %1100, %1095 ]
-  %1114 = phi ptr [ %1110, %.lr.ph.i.i639 ], [ null, %1095 ]
+  %1113 = phi i64 [ %1100, %1095 ], [ %.pre1554, %.lr.ph.i.i639 ]
+  %1114 = phi ptr [ null, %1095 ], [ %1110, %.lr.ph.i.i639 ]
   store i64 %1101, ptr %1102, align 8, !tbaa !341, !alias.scope !598
   %1115 = trunc i64 %1113 to i32
   %1116 = icmp sgt i32 %1115, 0
@@ -30055,8 +30056,8 @@ _ZN4pstd3pmr21polymorphic_allocatorIiE17deallocate_objectIiEEvPT_m.exit.i.i.i669
   br label %_ZN4pbrt13InlinedVectorIiLi4EN4pstd3pmr21polymorphic_allocatorIiEEE6resizeEm.exit.i662
 
 _ZN4pbrt13InlinedVectorIiLi4EN4pstd3pmr21polymorphic_allocatorIiEEE6resizeEm.exit.i662: ; preds = %.lr.ph.i.i660, %1166
-  %1184 = phi i64 [ %.pre1553, %.lr.ph.i.i660 ], [ %1171, %1166 ]
-  %1185 = phi ptr [ %1181, %.lr.ph.i.i660 ], [ null, %1166 ]
+  %1184 = phi i64 [ %1171, %1166 ], [ %.pre1553, %.lr.ph.i.i660 ]
+  %1185 = phi ptr [ null, %1166 ], [ %1181, %.lr.ph.i.i660 ]
   store i64 %1172, ptr %1173, align 8, !tbaa !341, !alias.scope !601
   %1186 = trunc i64 %1184 to i32
   %1187 = icmp sgt i32 %1186, 0
@@ -32306,7 +32307,7 @@ _ZN4pstd3pmr21polymorphic_allocatorIiE17deallocate_objectIiEEvPT_m.exit.i.i: ; p
   br label %_ZN4pbrt13InlinedVectorIiLi4EN4pstd3pmr21polymorphic_allocatorIiEEE6resizeEm.exit
 
 _ZN4pbrt13InlinedVectorIiLi4EN4pstd3pmr21polymorphic_allocatorIiEEE6resizeEm.exit: ; preds = %2, %.lr.ph.i
-  %22 = phi ptr [ %18, %.lr.ph.i ], [ null, %2 ]
+  %22 = phi ptr [ null, %2 ], [ %18, %.lr.ph.i ]
   store i64 %9, ptr %10, align 8, !tbaa !341
   %23 = load i64, ptr %7, align 8, !tbaa !225
   %24 = trunc i64 %23 to i32
@@ -38656,8 +38657,8 @@ _ZN4pstd3pmr21polymorphic_allocatorIiE17deallocate_objectIiEEvPT_m.exit.i.i.i: ;
   br label %_ZN4pbrt13InlinedVectorIiLi4EN4pstd3pmr21polymorphic_allocatorIiEEE6resizeEm.exit.i
 
 _ZN4pbrt13InlinedVectorIiLi4EN4pstd3pmr21polymorphic_allocatorIiEEE6resizeEm.exit.i: ; preds = %.lr.ph.i.i, %781
-  %797 = phi i64 [ %.pre998, %.lr.ph.i.i ], [ %786, %781 ]
-  %798 = phi ptr [ %795, %.lr.ph.i.i ], [ null, %781 ]
+  %797 = phi i64 [ %786, %781 ], [ %.pre998, %.lr.ph.i.i ]
+  %798 = phi ptr [ null, %781 ], [ %795, %.lr.ph.i.i ]
   store i64 %787, ptr %583, align 8, !tbaa !341, !alias.scope !695
   %799 = trunc i64 %797 to i32
   %800 = icmp sgt i32 %799, 0
@@ -106231,8 +106232,8 @@ _ZN4pstd3pmr21polymorphic_allocatorIiE17deallocate_objectIiEEvPT_m.exit.i.i.i.i.
   br label %_ZN4pbrt13InlinedVectorIiLi4EN4pstd3pmr21polymorphic_allocatorIiEEE6resizeEm.exit.i.i.i.i
 
 _ZN4pbrt13InlinedVectorIiLi4EN4pstd3pmr21polymorphic_allocatorIiEEE6resizeEm.exit.i.i.i.i: ; preds = %.lr.ph.i.i73.i.i.i, %118
-  %137 = phi i64 [ %.pre398.i.i.i, %.lr.ph.i.i73.i.i.i ], [ %124, %118 ]
-  %138 = phi ptr [ %134, %.lr.ph.i.i73.i.i.i ], [ null, %118 ]
+  %137 = phi i64 [ %124, %118 ], [ %.pre398.i.i.i, %.lr.ph.i.i73.i.i.i ]
+  %138 = phi ptr [ null, %118 ], [ %134, %.lr.ph.i.i73.i.i.i ]
   store i64 %125, ptr %126, align 8, !tbaa !341, !alias.scope !2108
   %139 = trunc i64 %137 to i32
   %140 = icmp sgt i32 %139, 0
@@ -106398,8 +106399,8 @@ _ZN4pstd3pmr21polymorphic_allocatorIiE17deallocate_objectIiEEvPT_m.exit.i.i.i88.
   br label %_ZN4pbrt13InlinedVectorIiLi4EN4pstd3pmr21polymorphic_allocatorIiEEE6resizeEm.exit.i81.i.i.i
 
 _ZN4pbrt13InlinedVectorIiLi4EN4pstd3pmr21polymorphic_allocatorIiEEE6resizeEm.exit.i81.i.i.i: ; preds = %.lr.ph.i.i79.i.i.i, %187
-  %205 = phi i64 [ %.pre397.i.i.i, %.lr.ph.i.i79.i.i.i ], [ %192, %187 ]
-  %206 = phi ptr [ %202, %.lr.ph.i.i79.i.i.i ], [ null, %187 ]
+  %205 = phi i64 [ %192, %187 ], [ %.pre397.i.i.i, %.lr.ph.i.i79.i.i.i ]
+  %206 = phi ptr [ null, %187 ], [ %202, %.lr.ph.i.i79.i.i.i ]
   store i64 %193, ptr %194, align 8, !tbaa !341, !alias.scope !2111
   %207 = trunc i64 %205 to i32
   %208 = icmp sgt i32 %207, 0
@@ -106553,8 +106554,8 @@ _ZN4pstd3pmr21polymorphic_allocatorIiE17deallocate_objectIiEEvPT_m.exit.i.i.i110
   br label %_ZN4pbrt13InlinedVectorIiLi4EN4pstd3pmr21polymorphic_allocatorIiEEE6resizeEm.exit.i103.i.i.i
 
 _ZN4pbrt13InlinedVectorIiLi4EN4pstd3pmr21polymorphic_allocatorIiEEE6resizeEm.exit.i103.i.i.i: ; preds = %.lr.ph.i.i101.i.i.i, %248
-  %266 = phi i64 [ %.pre.i.i.i, %.lr.ph.i.i101.i.i.i ], [ %253, %248 ]
-  %267 = phi ptr [ %263, %.lr.ph.i.i101.i.i.i ], [ null, %248 ]
+  %266 = phi i64 [ %253, %248 ], [ %.pre.i.i.i, %.lr.ph.i.i101.i.i.i ]
+  %267 = phi ptr [ null, %248 ], [ %263, %.lr.ph.i.i101.i.i.i ]
   store i64 %254, ptr %255, align 8, !tbaa !341, !alias.scope !2114
   %268 = trunc i64 %266 to i32
   %269 = icmp sgt i32 %268, 0

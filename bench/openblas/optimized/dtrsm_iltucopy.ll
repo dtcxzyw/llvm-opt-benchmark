@@ -44,18 +44,18 @@ define noundef i32 @dtrsm_iltucopy(i64 noundef %0, i64 noundef %1, ptr noundef r
   %19 = getelementptr inbounds nuw double, ptr %.1218247.us, i64 %.0207249.us
   %20 = getelementptr inbounds double, ptr %19, i64 %13
   store double 1.000000e+00, ptr %20, align 8, !tbaa !3
-  %.not297 = icmp eq i64 %16, 15
-  br i1 %.not297, label %.thread239.us, label %.lr.ph.us
+  %21 = icmp samesign ult i64 %16, 15
+  br i1 %21, label %.lr.ph.us, label %.thread239.us
 
 .lr.ph.us:                                        ; preds = %18, %.lr.ph.us
   %.0198.in246.us = phi i64 [ %.0198.us, %.lr.ph.us ], [ %16, %18 ]
-  %.0198.us = add nsw i64 %.0198.in246.us, 1
-  %21 = getelementptr inbounds double, ptr %.0250.us, i64 %.0198.us
-  %22 = load double, ptr %21, align 8, !tbaa !3
-  %23 = getelementptr inbounds double, ptr %.1218247.us, i64 %.0198.us
-  store double %22, ptr %23, align 8, !tbaa !3
-  %24 = icmp slt i64 %.0198.in246.us, 14
-  br i1 %24, label %.lr.ph.us, label %.thread239.us, !llvm.loop !7
+  %.0198.us = add nuw nsw i64 %.0198.in246.us, 1
+  %22 = getelementptr inbounds nuw double, ptr %.0250.us, i64 %.0198.us
+  %23 = load double, ptr %22, align 8, !tbaa !3
+  %24 = getelementptr inbounds nuw double, ptr %.1218247.us, i64 %.0198.us
+  store double %23, ptr %24, align 8, !tbaa !3
+  %exitcond.not = icmp eq i64 %.0198.us, 15
+  br i1 %exitcond.not, label %.thread239.us, label %.lr.ph.us, !llvm.loop !7
 
 .thread.us:                                       ; preds = %14
   %25 = load double, ptr %.0250.us, align 8, !tbaa !3
@@ -126,8 +126,8 @@ define noundef i32 @dtrsm_iltucopy(i64 noundef %0, i64 noundef %1, ptr noundef r
   %71 = getelementptr inbounds nuw i8, ptr %.1218247.us, i64 128
   %72 = getelementptr inbounds double, ptr %.0250.us, i64 %3
   %73 = add nuw nsw i64 %.0207249.us, 1
-  %exitcond.not = icmp eq i64 %73, %0
-  br i1 %exitcond.not, label %._crit_edge.us, label %14, !llvm.loop !9
+  %exitcond308.not = icmp eq i64 %73, %0
+  br i1 %exitcond308.not, label %._crit_edge.us, label %14, !llvm.loop !9
 
 ._crit_edge.us:                                   ; preds = %.thread239.us
   %74 = getelementptr inbounds nuw i8, ptr %.0222252.us, i64 128
@@ -169,18 +169,18 @@ define noundef i32 @dtrsm_iltucopy(i64 noundef %0, i64 noundef %1, ptr noundef r
   %88 = getelementptr inbounds nuw double, ptr %.3220265, i64 %.1208267
   %89 = getelementptr inbounds double, ptr %88, i64 %82
   store double 1.000000e+00, ptr %89, align 8, !tbaa !3
-  %.not298 = icmp eq i64 %85, 7
-  br i1 %.not298, label %.thread241, label %.lr.ph
+  %90 = icmp samesign ult i64 %85, 7
+  br i1 %90, label %.lr.ph, label %.thread241
 
 .lr.ph:                                           ; preds = %87, %.lr.ph
   %.1199.in264 = phi i64 [ %.1199, %.lr.ph ], [ %85, %87 ]
-  %.1199 = add nsw i64 %.1199.in264, 1
-  %90 = getelementptr inbounds double, ptr %.1268, i64 %.1199
-  %91 = load double, ptr %90, align 8, !tbaa !3
-  %92 = getelementptr inbounds double, ptr %.3220265, i64 %.1199
-  store double %91, ptr %92, align 8, !tbaa !3
-  %93 = icmp slt i64 %.1199.in264, 6
-  br i1 %93, label %.lr.ph, label %.thread241, !llvm.loop !11
+  %.1199 = add nuw nsw i64 %.1199.in264, 1
+  %91 = getelementptr inbounds nuw double, ptr %.1268, i64 %.1199
+  %92 = load double, ptr %91, align 8, !tbaa !3
+  %93 = getelementptr inbounds nuw double, ptr %.3220265, i64 %.1199
+  store double %92, ptr %93, align 8, !tbaa !3
+  %exitcond311.not = icmp eq i64 %.1199, 7
+  br i1 %exitcond311.not, label %.thread241, label %.lr.ph, !llvm.loop !11
 
 .thread240:                                       ; preds = %83
   %94 = load double, ptr %.1268, align 8, !tbaa !3
@@ -219,8 +219,8 @@ define noundef i32 @dtrsm_iltucopy(i64 noundef %0, i64 noundef %1, ptr noundef r
   %116 = getelementptr inbounds nuw i8, ptr %.3220265, i64 64
   %117 = getelementptr inbounds double, ptr %.1268, i64 %3
   %118 = add nuw nsw i64 %.1208267, 1
-  %exitcond313.not = icmp eq i64 %118, %0
-  br i1 %exitcond313.not, label %._crit_edge, label %83, !llvm.loop !12
+  %exitcond312.not = icmp eq i64 %118, %0
+  br i1 %exitcond312.not, label %._crit_edge, label %83, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.thread241, %79
   %.3220.lcssa = phi ptr [ %.0217.lcssa, %79 ], [ %116, %.thread241 ]
@@ -260,18 +260,18 @@ define noundef i32 @dtrsm_iltucopy(i64 noundef %0, i64 noundef %1, ptr noundef r
   %131 = getelementptr inbounds nuw double, ptr %.5273, i64 %.2209275
   %132 = getelementptr inbounds double, ptr %131, i64 %125
   store double 1.000000e+00, ptr %132, align 8, !tbaa !3
-  %.not299 = icmp eq i64 %128, 3
-  br i1 %.not299, label %.thread243, label %.lr.ph272
+  %133 = icmp samesign ult i64 %128, 3
+  br i1 %133, label %.lr.ph272, label %.thread243
 
 .lr.ph272:                                        ; preds = %130, %.lr.ph272
   %.2200.in270 = phi i64 [ %.2200, %.lr.ph272 ], [ %128, %130 ]
-  %.2200 = add nsw i64 %.2200.in270, 1
-  %133 = getelementptr inbounds double, ptr %.2276, i64 %.2200
-  %134 = load double, ptr %133, align 8, !tbaa !3
-  %135 = getelementptr inbounds double, ptr %.5273, i64 %.2200
-  store double %134, ptr %135, align 8, !tbaa !3
-  %136 = icmp slt i64 %.2200.in270, 2
-  br i1 %136, label %.lr.ph272, label %.thread243, !llvm.loop !13
+  %.2200 = add nuw nsw i64 %.2200.in270, 1
+  %134 = getelementptr inbounds nuw double, ptr %.2276, i64 %.2200
+  %135 = load double, ptr %134, align 8, !tbaa !3
+  %136 = getelementptr inbounds nuw double, ptr %.5273, i64 %.2200
+  store double %135, ptr %136, align 8, !tbaa !3
+  %exitcond315.not = icmp eq i64 %.2200, 3
+  br i1 %exitcond315.not, label %.thread243, label %.lr.ph272, !llvm.loop !13
 
 .thread242:                                       ; preds = %126
   %137 = load double, ptr %.2276, align 8, !tbaa !3
@@ -313,16 +313,16 @@ define noundef i32 @dtrsm_iltucopy(i64 noundef %0, i64 noundef %1, ptr noundef r
 153:                                              ; preds = %151
   %154 = getelementptr inbounds nuw i8, ptr %.2224, i64 16
   %155 = icmp sgt i64 %0, 0
-  br i1 %155, label %.lr.ph289, label %._crit_edge290
+  br i1 %155, label %.lr.ph290, label %._crit_edge291
 
-.lr.ph289:                                        ; preds = %153
+.lr.ph290:                                        ; preds = %153
   %156 = sub i64 0, %.2204
   br label %157
 
-157:                                              ; preds = %.lr.ph289, %.thread245
-  %.3287 = phi ptr [ %.2224, %.lr.ph289 ], [ %173, %.thread245 ]
-  %.3210286 = phi i64 [ 0, %.lr.ph289 ], [ %174, %.thread245 ]
-  %.7284 = phi ptr [ %.4221, %.lr.ph289 ], [ %172, %.thread245 ]
+157:                                              ; preds = %.lr.ph290, %.thread245
+  %.3287 = phi ptr [ %.2224, %.lr.ph290 ], [ %173, %.thread245 ]
+  %.3210286 = phi i64 [ 0, %.lr.ph290 ], [ %174, %.thread245 ]
+  %.7283 = phi ptr [ %.4221, %.lr.ph290 ], [ %172, %.thread245 ]
   %.not235 = icmp slt i64 %.3210286, %.2204
   br i1 %.not235, label %.thread244, label %158
 
@@ -332,79 +332,76 @@ define noundef i32 @dtrsm_iltucopy(i64 noundef %0, i64 noundef %1, ptr noundef r
   br i1 %160, label %161, label %.thread245
 
 161:                                              ; preds = %158
-  %162 = getelementptr inbounds nuw double, ptr %.7284, i64 %.3210286
+  %162 = getelementptr inbounds nuw double, ptr %.7283, i64 %.3210286
   %163 = getelementptr inbounds double, ptr %162, i64 %156
   store double 1.000000e+00, ptr %163, align 8, !tbaa !3
-  %.not300 = icmp eq i64 %159, 1
-  br i1 %.not300, label %.thread245, label %.lr.ph283
+  %164 = icmp eq i64 %.3210286, %.2204
+  br i1 %164, label %.lr.ph282, label %.thread245
 
-.lr.ph283:                                        ; preds = %161, %.lr.ph283
-  %.3201.in281 = phi i64 [ %.3201, %.lr.ph283 ], [ %159, %161 ]
-  %.3201 = add nsw i64 %.3201.in281, 1
-  %164 = getelementptr inbounds double, ptr %.3287, i64 %.3201
-  %165 = load double, ptr %164, align 8, !tbaa !3
-  %166 = getelementptr inbounds double, ptr %.7284, i64 %.3201
-  store double %165, ptr %166, align 8, !tbaa !3
-  %167 = icmp slt i64 %.3201.in281, 0
-  br i1 %167, label %.lr.ph283, label %.thread245, !llvm.loop !15
+.lr.ph282:                                        ; preds = %161
+  %165 = getelementptr inbounds nuw i8, ptr %.3287, i64 8
+  %166 = getelementptr inbounds nuw i8, ptr %.7283, i64 8
+  %167 = load double, ptr %165, align 8, !tbaa !3
+  store double %167, ptr %166, align 8, !tbaa !3
+  br label %.thread245
 
 .thread244:                                       ; preds = %157
   %168 = load double, ptr %.3287, align 8, !tbaa !3
-  store double %168, ptr %.7284, align 8, !tbaa !3
+  store double %168, ptr %.7283, align 8, !tbaa !3
   %169 = getelementptr inbounds nuw i8, ptr %.3287, i64 8
   %170 = load double, ptr %169, align 8, !tbaa !3
-  %171 = getelementptr inbounds nuw i8, ptr %.7284, i64 8
+  %171 = getelementptr inbounds nuw i8, ptr %.7283, i64 8
   store double %170, ptr %171, align 8, !tbaa !3
   br label %.thread245
 
-.thread245:                                       ; preds = %.lr.ph283, %161, %158, %.thread244
-  %172 = getelementptr inbounds nuw i8, ptr %.7284, i64 16
+.thread245:                                       ; preds = %161, %.lr.ph282, %158, %.thread244
+  %172 = getelementptr inbounds nuw i8, ptr %.7283, i64 16
   %173 = getelementptr inbounds double, ptr %.3287, i64 %3
   %174 = add nuw nsw i64 %.3210286, 1
-  %exitcond319.not = icmp eq i64 %174, %0
-  br i1 %exitcond319.not, label %._crit_edge290, label %157, !llvm.loop !16
+  %exitcond317.not = icmp eq i64 %174, %0
+  br i1 %exitcond317.not, label %._crit_edge291, label %157, !llvm.loop !15
 
-._crit_edge290:                                   ; preds = %.thread245, %153
+._crit_edge291:                                   ; preds = %.thread245, %153
   %.7.lcssa = phi ptr [ %.4221, %153 ], [ %172, %.thread245 ]
   %175 = add nsw i64 %.2204, 2
   br label %176
 
-176:                                              ; preds = %._crit_edge290, %151
-  %.3225 = phi ptr [ %154, %._crit_edge290 ], [ %.2224, %151 ]
-  %.6 = phi ptr [ %.7.lcssa, %._crit_edge290 ], [ %.4221, %151 ]
-  %.3205 = phi i64 [ %175, %._crit_edge290 ], [ %.2204, %151 ]
+176:                                              ; preds = %._crit_edge291, %151
+  %.3225 = phi ptr [ %154, %._crit_edge291 ], [ %.2224, %151 ]
+  %.6 = phi ptr [ %.7.lcssa, %._crit_edge291 ], [ %.4221, %151 ]
+  %.3205 = phi i64 [ %175, %._crit_edge291 ], [ %.2204, %151 ]
   %177 = and i64 %1, 1
   %.not232 = icmp ne i64 %177, 0
   %178 = icmp sgt i64 %0, 0
   %or.cond = and i1 %.not232, %178
-  br i1 %or.cond, label %.lr.ph296, label %.loopexit
+  br i1 %or.cond, label %.lr.ph297, label %.loopexit
 
-.lr.ph296:                                        ; preds = %176, %183
-  %.4295 = phi ptr [ %185, %183 ], [ %.3225, %176 ]
-  %.4211294 = phi i64 [ %186, %183 ], [ 0, %176 ]
-  %.8292 = phi ptr [ %184, %183 ], [ %.6, %176 ]
-  %.not233 = icmp slt i64 %.4211294, %.3205
-  %or.cond.not = icmp eq i64 %.4211294, %.3205
+.lr.ph297:                                        ; preds = %176, %183
+  %.4296 = phi ptr [ %185, %183 ], [ %.3225, %176 ]
+  %.4211295 = phi i64 [ %186, %183 ], [ 0, %176 ]
+  %.8293 = phi ptr [ %184, %183 ], [ %.6, %176 ]
+  %.not233 = icmp slt i64 %.4211295, %.3205
+  %or.cond.not = icmp eq i64 %.4211295, %.3205
   br i1 %or.cond.not, label %179, label %180
 
-179:                                              ; preds = %.lr.ph296
-  store double 1.000000e+00, ptr %.8292, align 8, !tbaa !3
+179:                                              ; preds = %.lr.ph297
+  store double 1.000000e+00, ptr %.8293, align 8, !tbaa !3
   br label %180
 
-180:                                              ; preds = %179, %.lr.ph296
+180:                                              ; preds = %179, %.lr.ph297
   br i1 %.not233, label %181, label %183
 
 181:                                              ; preds = %180
-  %182 = load double, ptr %.4295, align 8, !tbaa !3
-  store double %182, ptr %.8292, align 8, !tbaa !3
+  %182 = load double, ptr %.4296, align 8, !tbaa !3
+  store double %182, ptr %.8293, align 8, !tbaa !3
   br label %183
 
 183:                                              ; preds = %181, %180
-  %184 = getelementptr inbounds nuw i8, ptr %.8292, i64 8
-  %185 = getelementptr inbounds double, ptr %.4295, i64 %3
-  %186 = add nuw nsw i64 %.4211294, 1
-  %exitcond320.not = icmp eq i64 %186, %0
-  br i1 %exitcond320.not, label %.loopexit, label %.lr.ph296, !llvm.loop !17
+  %184 = getelementptr inbounds nuw i8, ptr %.8293, i64 8
+  %185 = getelementptr inbounds double, ptr %.4296, i64 %3
+  %186 = add nuw nsw i64 %.4211295, 1
+  %exitcond318.not = icmp eq i64 %186, %0
+  br i1 %exitcond318.not, label %.loopexit, label %.lr.ph297, !llvm.loop !16
 
 .loopexit:                                        ; preds = %183, %176
   ret i32 0
@@ -431,4 +428,3 @@ attributes #0 = { nofree norecurse nosync nounwind memory(write, argmem: readwri
 !14 = distinct !{!14, !8}
 !15 = distinct !{!15, !8}
 !16 = distinct !{!16, !8}
-!17 = distinct !{!17, !8}

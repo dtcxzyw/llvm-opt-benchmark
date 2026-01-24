@@ -1867,9 +1867,8 @@ define hidden { i16, i16 } @_ZN10ttf_parser4Face17glyph_hor_advance17hb4fa0311c0
 
 58:                                               ; preds = %55
   %59 = tail call i16 @llvm.bswap.i16(i16 %.val.i.i.i56.i.i)
-  %.not.i.i = icmp ult i16 %1, %59
   %60 = add i16 %59, -1
-  %spec.select.i.i = select i1 %.not.i.i, i16 %1, i16 %60
+  %spec.select.i.i = tail call i16 @llvm.umin.i16(i16 %1, i16 %60)
   %61 = lshr i16 %53, 4
   %62 = and i16 %61, 3
   %63 = add nuw nsw i16 %62, 1
@@ -2168,7 +2167,11 @@ define hidden noundef zeroext i1 @_ZN10ttf_parser6tables4cmap7format29Subtable21
 
 .preheader:                                       ; preds = %38
   %.not = icmp eq i16 %.val.i.i.i46.i.i.i, 0
-  br i1 %.not, label %.thread71, label %.lr.ph
+  br i1 %.not, label %.thread71, label %.lr.ph.preheader
+
+.lr.ph.preheader:                                 ; preds = %.preheader
+  %umax = tail call i16 @llvm.umax.i16(i16 %33, i16 1)
+  br label %.lr.ph
 
 43:                                               ; preds = %35
   %44 = extractvalue { i16, i1 } %36, 0
@@ -2205,8 +2208,8 @@ define hidden noundef zeroext i1 @_ZN10ttf_parser6tables4cmap7format29Subtable21
   %exitcond80 = icmp eq i64 %indvars.iv.next, 256
   br i1 %exitcond80, label %.thread, label %13
 
-.lr.ph:                                           ; preds = %.preheader, %"_ZN5typst4text4font4book8FontInfo8from_ttf28_$u7b$$u7b$closure$u7d$$u7d$17h0310702bb3c7057cE.exit58"
-  %.sroa.017.075 = phi i16 [ %60, %"_ZN5typst4text4font4book8FontInfo8from_ttf28_$u7b$$u7b$closure$u7d$$u7d$17h0310702bb3c7057cE.exit58" ], [ 0, %.preheader ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %"_ZN5typst4text4font4book8FontInfo8from_ttf28_$u7b$$u7b$closure$u7d$$u7d$17h0310702bb3c7057cE.exit58"
+  %.sroa.017.075 = phi i16 [ %60, %"_ZN5typst4text4font4book8FontInfo8from_ttf28_$u7b$$u7b$closure$u7d$$u7d$17h0310702bb3c7057cE.exit58" ], [ 0, %.lr.ph.preheader ]
   %60 = add nuw i16 %.sroa.017.075, 1
   %61 = tail call { i16, i1 } @llvm.uadd.with.overflow.i16(i16 %42, i16 %.sroa.017.075)
   %62 = extractvalue { i16, i1 } %61, 1
@@ -2233,7 +2236,7 @@ define hidden noundef zeroext i1 @_ZN10ttf_parser6tables4cmap7format29Subtable21
   %73 = load i64, ptr %11, align 8, !alias.scope !250, !noundef !4
   %74 = add i64 %73, 1
   store i64 %74, ptr %11, align 8, !alias.scope !250
-  %exitcond.not = icmp eq i16 %60, %33
+  %exitcond.not = icmp eq i16 %60, %umax
   br i1 %exitcond.not, label %.thread71, label %.lr.ph
 }
 
@@ -138762,6 +138765,12 @@ declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_add
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #56
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i16 @llvm.umin.i16(i16, i16) #54
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i16 @llvm.umax.i16(i16, i16) #54
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64, i64) #54

@@ -25152,13 +25152,13 @@ define hidden noalias noundef ptr @par_shapes_create_cylinder(i32 noundef %0, i3
   %.073114.us.i = phi i32 [ 0, %.preheader.us.i ], [ %45, %44 ]
   %.176113.us.i = phi ptr [ %.075119.us.i, %.preheader.us.i ], [ %61, %44 ]
   %45 = add nuw nsw i32 %.073114.us.i, 1
-  %46 = add nuw nsw i32 %.073114.us.i, %.077118.us.i
-  %47 = add nuw nsw i32 %46, %0
+  %46 = add nsw i32 %.073114.us.i, %.077118.us.i
+  %47 = add nsw i32 %46, %0
   %48 = trunc i32 %47 to i16
   %49 = add i16 %48, 1
   %50 = getelementptr inbounds nuw i8, ptr %.176113.us.i, i64 2
   store i16 %49, ptr %.176113.us.i, align 2
-  %51 = add nuw nsw i32 %45, %.077118.us.i
+  %51 = add nsw i32 %45, %.077118.us.i
   %52 = trunc i32 %51 to i16
   %53 = getelementptr inbounds nuw i8, ptr %.176113.us.i, i64 4
   store i16 %52, ptr %50, align 2
@@ -25167,7 +25167,7 @@ define hidden noalias noundef ptr @par_shapes_create_cylinder(i32 noundef %0, i3
   store i16 %54, ptr %53, align 2
   %56 = getelementptr inbounds nuw i8, ptr %.176113.us.i, i64 8
   store i16 %49, ptr %55, align 2
-  %57 = add nuw nsw i32 %51, %0
+  %57 = add nsw i32 %51, %0
   %58 = trunc i32 %57 to i16
   %59 = add i16 %58, 1
   %60 = getelementptr inbounds nuw i8, ptr %.176113.us.i, i64 10
@@ -25178,7 +25178,7 @@ define hidden noalias noundef ptr @par_shapes_create_cylinder(i32 noundef %0, i3
   br i1 %exitcond128.not.i, label %._crit_edge116.us.i, label %44
 
 ._crit_edge116.us.i:                              ; preds = %44
-  %62 = add nuw nsw i32 %.077118.us.i, %6
+  %62 = add nsw i32 %.077118.us.i, %6
   %63 = add nuw nsw i32 %.074120.us.i, 1
   %exitcond129.not.i = icmp eq i32 %63, %1
   br i1 %exitcond129.not.i, label %par_shapes_create_parametric.exit, label %.preheader.us.i
@@ -25344,13 +25344,13 @@ define hidden noalias noundef ptr @par_shapes_create_parametric(ptr noundef read
   %.073114.us = phi i32 [ 0, %.preheader.us ], [ %63, %62 ]
   %.176113.us = phi ptr [ %.075119.us, %.preheader.us ], [ %79, %62 ]
   %63 = add nuw nsw i32 %.073114.us, 1
-  %64 = add nuw nsw i32 %.073114.us, %.077118.us
-  %65 = add nuw nsw i32 %64, %1
+  %64 = add nsw i32 %.073114.us, %.077118.us
+  %65 = add nsw i32 %64, %1
   %66 = trunc i32 %65 to i16
   %67 = add i16 %66, 1
   %68 = getelementptr inbounds nuw i8, ptr %.176113.us, i64 2
   store i16 %67, ptr %.176113.us, align 2
-  %69 = add nuw nsw i32 %63, %.077118.us
+  %69 = add nsw i32 %63, %.077118.us
   %70 = trunc i32 %69 to i16
   %71 = getelementptr inbounds nuw i8, ptr %.176113.us, i64 4
   store i16 %70, ptr %68, align 2
@@ -25359,7 +25359,7 @@ define hidden noalias noundef ptr @par_shapes_create_parametric(ptr noundef read
   store i16 %72, ptr %71, align 2
   %74 = getelementptr inbounds nuw i8, ptr %.176113.us, i64 8
   store i16 %67, ptr %73, align 2
-  %75 = add nuw nsw i32 %69, %1
+  %75 = add nsw i32 %69, %1
   %76 = trunc i32 %75 to i16
   %77 = add i16 %76, 1
   %78 = getelementptr inbounds nuw i8, ptr %.176113.us, i64 10
@@ -25370,7 +25370,7 @@ define hidden noalias noundef ptr @par_shapes_create_parametric(ptr noundef read
   br i1 %exitcond128.not, label %._crit_edge116.us, label %62
 
 ._crit_edge116.us:                                ; preds = %62
-  %80 = add nuw nsw i32 %.077118.us, %8
+  %80 = add nsw i32 %.077118.us, %8
   %81 = add nuw nsw i32 %.074120.us, 1
   %exitcond129.not = icmp eq i32 %81, %2
   br i1 %exitcond129.not, label %._crit_edge121, label %.preheader.us
@@ -25501,13 +25501,13 @@ define hidden noalias noundef ptr @par_shapes_create_cone(i32 noundef %0, i32 no
   %.073114.us.i = phi i32 [ 0, %.preheader.us.i ], [ %48, %47 ]
   %.176113.us.i = phi ptr [ %.075119.us.i, %.preheader.us.i ], [ %64, %47 ]
   %48 = add nuw nsw i32 %.073114.us.i, 1
-  %49 = add nuw nsw i32 %.073114.us.i, %.077118.us.i
-  %50 = add nuw nsw i32 %49, %0
+  %49 = add nsw i32 %.073114.us.i, %.077118.us.i
+  %50 = add nsw i32 %49, %0
   %51 = trunc i32 %50 to i16
   %52 = add i16 %51, 1
   %53 = getelementptr inbounds nuw i8, ptr %.176113.us.i, i64 2
   store i16 %52, ptr %.176113.us.i, align 2
-  %54 = add nuw nsw i32 %48, %.077118.us.i
+  %54 = add nsw i32 %48, %.077118.us.i
   %55 = trunc i32 %54 to i16
   %56 = getelementptr inbounds nuw i8, ptr %.176113.us.i, i64 4
   store i16 %55, ptr %53, align 2
@@ -25516,7 +25516,7 @@ define hidden noalias noundef ptr @par_shapes_create_cone(i32 noundef %0, i32 no
   store i16 %57, ptr %56, align 2
   %59 = getelementptr inbounds nuw i8, ptr %.176113.us.i, i64 8
   store i16 %52, ptr %58, align 2
-  %60 = add nuw nsw i32 %54, %0
+  %60 = add nsw i32 %54, %0
   %61 = trunc i32 %60 to i16
   %62 = add i16 %61, 1
   %63 = getelementptr inbounds nuw i8, ptr %.176113.us.i, i64 10
@@ -25527,7 +25527,7 @@ define hidden noalias noundef ptr @par_shapes_create_cone(i32 noundef %0, i32 no
   br i1 %exitcond128.not.i, label %._crit_edge116.us.i, label %47
 
 ._crit_edge116.us.i:                              ; preds = %47
-  %65 = add nuw nsw i32 %.077118.us.i, %6
+  %65 = add nsw i32 %.077118.us.i, %6
   %66 = add nuw nsw i32 %.074120.us.i, 1
   %exitcond129.not.i = icmp eq i32 %66, %1
   br i1 %exitcond129.not.i, label %par_shapes_create_parametric.exit, label %.preheader.us.i
@@ -25865,13 +25865,13 @@ define hidden noalias noundef ptr @par_shapes_create_parametric_sphere(i32 nound
   %.073114.us.i = phi i32 [ 0, %.preheader.us.i ], [ %53, %52 ]
   %.176113.us.i = phi ptr [ %.075119.us.i, %.preheader.us.i ], [ %69, %52 ]
   %53 = add nuw nsw i32 %.073114.us.i, 1
-  %54 = add nuw nsw i32 %.073114.us.i, %.077118.us.i
-  %55 = add nuw nsw i32 %54, %0
+  %54 = add nsw i32 %.073114.us.i, %.077118.us.i
+  %55 = add nsw i32 %54, %0
   %56 = trunc i32 %55 to i16
   %57 = add i16 %56, 1
   %58 = getelementptr inbounds nuw i8, ptr %.176113.us.i, i64 2
   store i16 %57, ptr %.176113.us.i, align 2
-  %59 = add nuw nsw i32 %53, %.077118.us.i
+  %59 = add nsw i32 %53, %.077118.us.i
   %60 = trunc i32 %59 to i16
   %61 = getelementptr inbounds nuw i8, ptr %.176113.us.i, i64 4
   store i16 %60, ptr %58, align 2
@@ -25880,7 +25880,7 @@ define hidden noalias noundef ptr @par_shapes_create_parametric_sphere(i32 nound
   store i16 %62, ptr %61, align 2
   %64 = getelementptr inbounds nuw i8, ptr %.176113.us.i, i64 8
   store i16 %57, ptr %63, align 2
-  %65 = add nuw nsw i32 %59, %0
+  %65 = add nsw i32 %59, %0
   %66 = trunc i32 %65 to i16
   %67 = add i16 %66, 1
   %68 = getelementptr inbounds nuw i8, ptr %.176113.us.i, i64 10
@@ -25891,7 +25891,7 @@ define hidden noalias noundef ptr @par_shapes_create_parametric_sphere(i32 nound
   br i1 %exitcond128.not.i, label %._crit_edge116.us.i, label %52
 
 ._crit_edge116.us.i:                              ; preds = %52
-  %70 = add nuw nsw i32 %.077118.us.i, %6
+  %70 = add nsw i32 %.077118.us.i, %6
   %71 = add nuw nsw i32 %.074120.us.i, 1
   %exitcond129.not.i = icmp eq i32 %71, %1
   br i1 %exitcond129.not.i, label %par_shapes_create_parametric.exit, label %.preheader.us.i
@@ -26134,13 +26134,13 @@ define hidden noalias noundef ptr @par_shapes_create_hemisphere(i32 noundef %0, 
   %.073114.us.i = phi i32 [ 0, %.preheader.us.i ], [ %52, %51 ]
   %.176113.us.i = phi ptr [ %.075119.us.i, %.preheader.us.i ], [ %68, %51 ]
   %52 = add nuw nsw i32 %.073114.us.i, 1
-  %53 = add nuw nsw i32 %.073114.us.i, %.077118.us.i
-  %54 = add nuw nsw i32 %53, %0
+  %53 = add nsw i32 %.073114.us.i, %.077118.us.i
+  %54 = add nsw i32 %53, %0
   %55 = trunc i32 %54 to i16
   %56 = add i16 %55, 1
   %57 = getelementptr inbounds nuw i8, ptr %.176113.us.i, i64 2
   store i16 %56, ptr %.176113.us.i, align 2
-  %58 = add nuw nsw i32 %52, %.077118.us.i
+  %58 = add nsw i32 %52, %.077118.us.i
   %59 = trunc i32 %58 to i16
   %60 = getelementptr inbounds nuw i8, ptr %.176113.us.i, i64 4
   store i16 %59, ptr %57, align 2
@@ -26149,7 +26149,7 @@ define hidden noalias noundef ptr @par_shapes_create_hemisphere(i32 noundef %0, 
   store i16 %61, ptr %60, align 2
   %63 = getelementptr inbounds nuw i8, ptr %.176113.us.i, i64 8
   store i16 %56, ptr %62, align 2
-  %64 = add nuw nsw i32 %58, %0
+  %64 = add nsw i32 %58, %0
   %65 = trunc i32 %64 to i16
   %66 = add i16 %65, 1
   %67 = getelementptr inbounds nuw i8, ptr %.176113.us.i, i64 10
@@ -26160,7 +26160,7 @@ define hidden noalias noundef ptr @par_shapes_create_hemisphere(i32 noundef %0, 
   br i1 %exitcond128.not.i, label %._crit_edge116.us.i, label %51
 
 ._crit_edge116.us.i:                              ; preds = %51
-  %69 = add nuw nsw i32 %.077118.us.i, %6
+  %69 = add nsw i32 %.077118.us.i, %6
   %70 = add nuw nsw i32 %.074120.us.i, 1
   %exitcond129.not.i = icmp eq i32 %70, %1
   br i1 %exitcond129.not.i, label %par_shapes_create_parametric.exit, label %.preheader.us.i
@@ -26299,13 +26299,13 @@ define hidden noalias noundef ptr @par_shapes_create_torus(i32 noundef %0, i32 n
   %.073114.us.i = phi i32 [ 0, %.preheader.us.i ], [ %56, %55 ]
   %.176113.us.i = phi ptr [ %.075119.us.i, %.preheader.us.i ], [ %72, %55 ]
   %56 = add nuw nsw i32 %.073114.us.i, 1
-  %57 = add nuw nsw i32 %.073114.us.i, %.077118.us.i
-  %58 = add nuw nsw i32 %57, %0
+  %57 = add nsw i32 %.073114.us.i, %.077118.us.i
+  %58 = add nsw i32 %57, %0
   %59 = trunc i32 %58 to i16
   %60 = add i16 %59, 1
   %61 = getelementptr inbounds nuw i8, ptr %.176113.us.i, i64 2
   store i16 %60, ptr %.176113.us.i, align 2
-  %62 = add nuw nsw i32 %56, %.077118.us.i
+  %62 = add nsw i32 %56, %.077118.us.i
   %63 = trunc i32 %62 to i16
   %64 = getelementptr inbounds nuw i8, ptr %.176113.us.i, i64 4
   store i16 %63, ptr %61, align 2
@@ -26314,7 +26314,7 @@ define hidden noalias noundef ptr @par_shapes_create_torus(i32 noundef %0, i32 n
   store i16 %65, ptr %64, align 2
   %67 = getelementptr inbounds nuw i8, ptr %.176113.us.i, i64 8
   store i16 %60, ptr %66, align 2
-  %68 = add nuw nsw i32 %62, %0
+  %68 = add nsw i32 %62, %0
   %69 = trunc i32 %68 to i16
   %70 = add i16 %69, 1
   %71 = getelementptr inbounds nuw i8, ptr %.176113.us.i, i64 10
@@ -26325,7 +26325,7 @@ define hidden noalias noundef ptr @par_shapes_create_torus(i32 noundef %0, i32 n
   br i1 %exitcond128.not.i, label %._crit_edge116.us.i, label %55
 
 ._crit_edge116.us.i:                              ; preds = %55
-  %73 = add nuw nsw i32 %.077118.us.i, %7
+  %73 = add nsw i32 %.077118.us.i, %7
   %74 = add nuw nsw i32 %.074120.us.i, 1
   %exitcond129.not.i = icmp eq i32 %74, %1
   br i1 %exitcond129.not.i, label %par_shapes_create_parametric.exit, label %.preheader.us.i
@@ -26772,13 +26772,13 @@ define hidden noalias noundef ptr @par_shapes_create_plane(i32 noundef %0, i32 n
   %.073114.us.i = phi i32 [ 0, %.preheader.us.i ], [ %39, %38 ]
   %.176113.us.i = phi ptr [ %.075119.us.i, %.preheader.us.i ], [ %55, %38 ]
   %39 = add nuw nsw i32 %.073114.us.i, 1
-  %40 = add nuw nsw i32 %.073114.us.i, %.077118.us.i
-  %41 = add nuw nsw i32 %40, %0
+  %40 = add nsw i32 %.073114.us.i, %.077118.us.i
+  %41 = add nsw i32 %40, %0
   %42 = trunc i32 %41 to i16
   %43 = add i16 %42, 1
   %44 = getelementptr inbounds nuw i8, ptr %.176113.us.i, i64 2
   store i16 %43, ptr %.176113.us.i, align 2
-  %45 = add nuw nsw i32 %39, %.077118.us.i
+  %45 = add nsw i32 %39, %.077118.us.i
   %46 = trunc i32 %45 to i16
   %47 = getelementptr inbounds nuw i8, ptr %.176113.us.i, i64 4
   store i16 %46, ptr %44, align 2
@@ -26787,7 +26787,7 @@ define hidden noalias noundef ptr @par_shapes_create_plane(i32 noundef %0, i32 n
   store i16 %48, ptr %47, align 2
   %50 = getelementptr inbounds nuw i8, ptr %.176113.us.i, i64 8
   store i16 %43, ptr %49, align 2
-  %51 = add nuw nsw i32 %45, %0
+  %51 = add nsw i32 %45, %0
   %52 = trunc i32 %51 to i16
   %53 = add i16 %52, 1
   %54 = getelementptr inbounds nuw i8, ptr %.176113.us.i, i64 10
@@ -26798,7 +26798,7 @@ define hidden noalias noundef ptr @par_shapes_create_plane(i32 noundef %0, i32 n
   br i1 %exitcond128.not.i, label %._crit_edge116.us.i, label %38
 
 ._crit_edge116.us.i:                              ; preds = %38
-  %56 = add nuw nsw i32 %.077118.us.i, %6
+  %56 = add nsw i32 %.077118.us.i, %6
   %57 = add nuw nsw i32 %.074120.us.i, 1
   %exitcond129.not.i = icmp eq i32 %57, %1
   br i1 %exitcond129.not.i, label %par_shapes_create_parametric.exit, label %.preheader.us.i
@@ -45368,6 +45368,7 @@ define void @GenMeshPlane(ptr dead_on_unwind noalias writable sret(%struct.Mesh)
 .lr.ph.preheader:                                 ; preds = %.lr.ph144
   %14 = zext nneg i32 %6 to i64
   %wide.trip.count178 = zext i32 %7 to i64
+  %wide.trip.count = zext nneg i32 %6 to i64
   br label %.lr.ph
 
 ._crit_edge145:                                   ; preds = %._crit_edge, %.lr.ph144, %5
@@ -45409,7 +45410,7 @@ define void @GenMeshPlane(ptr dead_on_unwind noalias writable sret(%struct.Mesh)
   %.sroa.376.0..sroa_idx = getelementptr inbounds nuw i8, ptr %gep, i64 8
   store float %21, ptr %.sroa.376.0..sroa_idx, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %14
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %23
 
 ._crit_edge149:                                   ; preds = %.lr.ph148, %._crit_edge145
@@ -45426,6 +45427,7 @@ define void @GenMeshPlane(ptr dead_on_unwind noalias writable sret(%struct.Mesh)
 .preheader138.preheader:                          ; preds = %.preheader138.lr.ph
   %33 = zext nneg i32 %6 to i64
   %wide.trip.count193 = zext i32 %7 to i64
+  %wide.trip.count188 = zext nneg i32 %6 to i64
   br label %.preheader138
 
 .lr.ph148:                                        ; preds = %.lr.ph148.preheader, %.lr.ph148
@@ -45473,7 +45475,7 @@ define void @GenMeshPlane(ptr dead_on_unwind noalias writable sret(%struct.Mesh)
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %gep225, i64 4
   store float %38, ptr %.sroa.2.0..sroa_idx, align 4
   %indvars.iv.next186 = add nuw nsw i64 %indvars.iv185, 1
-  %exitcond189.not = icmp eq i64 %indvars.iv.next186, %33
+  %exitcond189.not = icmp eq i64 %indvars.iv.next186, %wide.trip.count188
   br i1 %exitcond189.not, label %._crit_edge153, label %45
 
 ._crit_edge161:                                   ; preds = %.lr.ph160, %._crit_edge156

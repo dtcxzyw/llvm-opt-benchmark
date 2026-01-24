@@ -1103,13 +1103,14 @@ _ZNSt6vectorIPN5ceres8internal14ParameterBlockESaIS3_EE7reserveEm.exit: ; preds 
   %87 = ptrtoint ptr %26 to i64
   %88 = ptrtoint ptr %27 to i64
   %89 = sub i64 %87, %88
-  %90 = ashr exact i64 %89, 3
   %.not271 = icmp eq ptr %26, %27
   br i1 %.not271, label %._crit_edge265, label %.lr.ph264
 
 .lr.ph264:                                        ; preds = %_ZNSt6vectorIPN5ceres8internal14ParameterBlockESaIS3_EE7reserveEm.exit
+  %90 = ashr exact i64 %89, 3
   %91 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %umax = call i64 @llvm.umax.i64(i64 %90, i64 1)
   br label %171
 
 _ZN4absl12lts_2024011618container_internal12raw_hash_setINS1_17FlatHashSetPolicyIPN5ceres8internal14ParameterBlockEEENS1_6HashEqIS7_vE4HashENSA_2EqESaIS7_EE14const_iteratorppEv.exit: ; preds = %._crit_edge.i.i.i87, %.lr.ph
@@ -1674,7 +1675,7 @@ _ZNK5ceres8internal5GraphIPNS0_14ParameterBlockEE9NeighborsERKS3_.exit: ; preds 
 
 .loopexit219:                                     ; preds = %._crit_edge.i.i.i142, %._crit_edge.i.i.i120, %.loopexit218
   %indvars.iv.next = add nuw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %90
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %umax
   br i1 %exitcond.not, label %._crit_edge265.loopexit, label %171, !llvm.loop !114
 
 ._crit_edge270.loopexit:                          ; preds = %_ZNSt6vectorIPN5ceres8internal14ParameterBlockESaIS3_EE9push_backERKS3_.exit169

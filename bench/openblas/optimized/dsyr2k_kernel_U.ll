@@ -77,7 +77,7 @@ define noundef i32 @dsyr2k_kernel_U(i64 noundef %0, i64 noundef %1, i64 noundef 
 
 .lr.ph:                                           ; preds = %48
   %.not = icmp eq i32 %9, 0
-  br i1 %.not, label %.lr.ph.split.us, label %.lr.ph.split
+  br i1 %.not, label %.lr.ph.split.us, label %.preheader.lr.ph
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
   %.0121144.us = phi i64 [ %58, %.lr.ph.split.us ], [ 0, %.lr.ph ]
@@ -94,68 +94,64 @@ define noundef i32 @dsyr2k_kernel_U(i64 noundef %0, i64 noundef %1, i64 noundef 
   %59 = icmp slt i64 %58, %.1
   br i1 %59, label %.lr.ph.split.us, label %.loopexit137, !llvm.loop !3
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %.loopexit
-  %indvars.iv151 = phi i64 [ %indvars.iv.next152, %.loopexit ], [ %.1, %.lr.ph ]
-  %.0121144 = phi i64 [ %89, %.loopexit ], [ 0, %.lr.ph ]
-  %60 = call i64 @llvm.smax.i64(i64 %indvars.iv151, i64 1)
-  %61 = call i64 @llvm.umin.i64(i64 %60, i64 32)
-  %62 = sub nsw i64 %.1, %.0121144
-  %63 = call i64 @llvm.smin.i64(i64 %62, i64 32)
+.preheader.lr.ph:                                 ; preds = %.lr.ph, %.loopexit
+  %indvars.iv152 = phi i64 [ %indvars.iv.next153, %.loopexit ], [ %.1, %.lr.ph ]
+  %.0121144 = phi i64 [ %86, %.loopexit ], [ 0, %.lr.ph ]
+  %smin = call i64 @llvm.smin.i64(i64 %indvars.iv152, i64 32)
+  %umax = call i64 @llvm.umax.i64(i64 %smin, i64 1)
+  %60 = sub nsw i64 %.1, %.0121144
+  %61 = call i64 @llvm.smin.i64(i64 %60, i64 32)
   %sext = shl i64 %.0121144, 32
-  %64 = ashr exact i64 %sext, 32
-  %65 = mul nsw i64 %.0121144, %2
-  %66 = getelementptr inbounds double, ptr %.0130, i64 %65
-  %67 = mul nsw i64 %.0121144, %7
-  %68 = getelementptr inbounds double, ptr %.1129, i64 %67
-  %69 = call i32 @dgemm_kernel(i64 noundef %64, i64 noundef %63, i64 noundef %2, double noundef %3, ptr noundef %.0127, ptr noundef %66, ptr noundef %68, i64 noundef %7) #4
-  %70 = call i32 @dgemm_beta(i64 noundef %63, i64 noundef %63, i64 noundef 0, double noundef 0.000000e+00, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0, ptr noundef nonnull %11, i64 noundef %63) #4
-  %71 = getelementptr inbounds double, ptr %.0127, i64 %65
-  %72 = call i32 @dgemm_kernel(i64 noundef %63, i64 noundef %63, i64 noundef %2, double noundef %3, ptr noundef %71, ptr noundef %66, ptr noundef nonnull %11, i64 noundef %63) #4
-  %73 = icmp sgt i64 %62, 0
-  br i1 %73, label %.preheader.lr.ph, label %.loopexit
-
-.preheader.lr.ph:                                 ; preds = %.lr.ph.split
+  %62 = ashr exact i64 %sext, 32
+  %63 = mul nsw i64 %.0121144, %2
+  %64 = getelementptr inbounds double, ptr %.0130, i64 %63
+  %65 = mul nsw i64 %.0121144, %7
+  %66 = getelementptr inbounds double, ptr %.1129, i64 %65
+  %67 = call i32 @dgemm_kernel(i64 noundef %62, i64 noundef %61, i64 noundef %2, double noundef %3, ptr noundef %.0127, ptr noundef %64, ptr noundef %66, i64 noundef %7) #4
+  %68 = call i32 @dgemm_beta(i64 noundef %61, i64 noundef %61, i64 noundef 0, double noundef 0.000000e+00, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0, ptr noundef nonnull %11, i64 noundef %61) #4
+  %69 = getelementptr inbounds double, ptr %.0127, i64 %63
+  %70 = call i32 @dgemm_kernel(i64 noundef %61, i64 noundef %61, i64 noundef %2, double noundef %3, ptr noundef %69, ptr noundef %64, ptr noundef nonnull %11, i64 noundef %61) #4
   %invariant.gep138 = getelementptr double, ptr %.1129, i64 %.0121144
   br label %.preheader
 
-.preheader:                                       ; preds = %.preheader.lr.ph, %87
-  %indvars.iv = phi i64 [ 1, %.preheader.lr.ph ], [ %indvars.iv.next, %87 ]
-  %.0122143 = phi i64 [ 0, %.preheader.lr.ph ], [ %88, %87 ]
-  %74 = mul nuw nsw i64 %.0122143, %63
-  %invariant.gep = getelementptr double, ptr %11, i64 %74
-  %75 = getelementptr double, ptr %11, i64 %.0122143
-  %76 = add nuw nsw i64 %.0122143, %.0121144
-  %77 = mul nsw i64 %76, %7
-  %invariant.gep140 = getelementptr double, ptr %invariant.gep138, i64 %77
-  br label %78
+.preheader:                                       ; preds = %.preheader.lr.ph, %84
+  %indvars.iv = phi i64 [ 1, %.preheader.lr.ph ], [ %indvars.iv.next, %84 ]
+  %.0122143 = phi i64 [ 0, %.preheader.lr.ph ], [ %85, %84 ]
+  %71 = mul nuw nsw i64 %.0122143, %61
+  %invariant.gep = getelementptr inbounds double, ptr %11, i64 %71
+  %72 = getelementptr inbounds nuw double, ptr %11, i64 %.0122143
+  %73 = add nuw nsw i64 %.0122143, %.0121144
+  %74 = mul nsw i64 %73, %7
+  %invariant.gep140 = getelementptr double, ptr %invariant.gep138, i64 %74
+  br label %75
 
-78:                                               ; preds = %.preheader, %78
-  %.0123142 = phi i64 [ 0, %.preheader ], [ %86, %78 ]
-  %gep = getelementptr double, ptr %invariant.gep, i64 %.0123142
-  %79 = load double, ptr %gep, align 8, !tbaa !5
-  %80 = mul nuw nsw i64 %.0123142, %63
-  %81 = getelementptr double, ptr %75, i64 %80
-  %82 = load double, ptr %81, align 8, !tbaa !5
-  %83 = fadd double %79, %82
+75:                                               ; preds = %.preheader, %75
+  %.0123142 = phi i64 [ 0, %.preheader ], [ %83, %75 ]
+  %gep = getelementptr inbounds nuw double, ptr %invariant.gep, i64 %.0123142
+  %76 = load double, ptr %gep, align 8, !tbaa !5
+  %77 = mul nuw nsw i64 %.0123142, %61
+  %78 = getelementptr inbounds nuw double, ptr %72, i64 %77
+  %79 = load double, ptr %78, align 8, !tbaa !5
+  %80 = fadd double %76, %79
   %gep141 = getelementptr double, ptr %invariant.gep140, i64 %.0123142
-  %84 = load double, ptr %gep141, align 8, !tbaa !5
-  %85 = fadd double %84, %83
-  store double %85, ptr %gep141, align 8, !tbaa !5
-  %86 = add nuw nsw i64 %.0123142, 1
-  %exitcond.not = icmp eq i64 %86, %indvars.iv
-  br i1 %exitcond.not, label %87, label %78, !llvm.loop !9
+  %81 = load double, ptr %gep141, align 8, !tbaa !5
+  %82 = fadd double %81, %80
+  store double %82, ptr %gep141, align 8, !tbaa !5
+  %83 = add nuw i64 %.0123142, 1
+  %exitcond.not = icmp eq i64 %83, %indvars.iv
+  br i1 %exitcond.not, label %84, label %75, !llvm.loop !9
 
-87:                                               ; preds = %78
-  %88 = add nuw nsw i64 %.0122143, 1
+84:                                               ; preds = %75
+  %85 = add nuw nsw i64 %.0122143, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond153.not = icmp eq i64 %88, %61
-  br i1 %exitcond153.not, label %.loopexit, label %.preheader, !llvm.loop !10
+  %exitcond154.not = icmp eq i64 %85, %umax
+  br i1 %exitcond154.not, label %.loopexit, label %.preheader, !llvm.loop !10
 
-.loopexit:                                        ; preds = %87, %.lr.ph.split
-  %89 = add nuw nsw i64 %.0121144, 32
-  %90 = icmp slt i64 %89, %.1
-  %indvars.iv.next152 = add i64 %indvars.iv151, -32
-  br i1 %90, label %.lr.ph.split, label %.loopexit137, !llvm.loop !3
+.loopexit:                                        ; preds = %84
+  %86 = add nuw nsw i64 %.0121144, 32
+  %87 = icmp slt i64 %86, %.1
+  %indvars.iv.next153 = add i64 %indvars.iv152, -32
+  br i1 %87, label %.preheader.lr.ph, label %.loopexit137, !llvm.loop !3
 
 .loopexit137:                                     ; preds = %.loopexit, %.lr.ph.split.us, %48, %40, %30, %20, %16, %14
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -176,10 +172,7 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 declare i64 @llvm.smin.i64(i64, i64) #3
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smax.i64(i64, i64) #3
-
-; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #3
+declare i64 @llvm.umax.i64(i64, i64) #3
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="skylake-avx512" "target-features"="+adx,+aes,+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vl,+bmi,+bmi2,+clflushopt,+clwb,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdrnd,+rdseed,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsavec,+xsaveopt,+xsaves" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="skylake-avx512" "target-features"="+adx,+aes,+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vl,+bmi,+bmi2,+clflushopt,+clwb,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdrnd,+rdseed,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsavec,+xsaveopt,+xsaves" }

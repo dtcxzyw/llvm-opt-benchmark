@@ -1822,18 +1822,18 @@ switch.lookup:                                    ; preds = %150
   br label %_ZN11OpenImageIO6v3_1_03pvtL20get_intsample_maxvalERKNS0_9ImageSpecE.exit.i
 
 170:                                              ; preds = %.noexc60
-  %switch.tableidx300 = add i8 %.sroa.0.0.copyload.i.i, -2
-  %171 = icmp ult i8 %switch.tableidx300, 6
-  br i1 %171, label %switch.lookup301, label %_ZN11OpenImageIO6v3_1_03pvtL20get_intsample_maxvalERKNS0_9ImageSpecE.exit.i
+  %switch.tableidx299 = add i8 %.sroa.0.0.copyload.i.i, -2
+  %171 = icmp ult i8 %switch.tableidx299, 6
+  br i1 %171, label %switch.lookup300, label %_ZN11OpenImageIO6v3_1_03pvtL20get_intsample_maxvalERKNS0_9ImageSpecE.exit.i
 
-switch.lookup301:                                 ; preds = %170
-  %172 = zext nneg i8 %switch.tableidx300 to i64
-  %switch.gep302 = getelementptr inbounds nuw i64, ptr @switch.table._ZN11OpenImageIO6v3_1_03pvt11print_statsERSoNS0_17basic_string_viewIcSt11char_traitsIcEEERKNS0_8ImageBufERKNS0_9ImageSpecENS0_3ROIERNSt7__cxx1112basic_stringIcS5_SaIcEEE.1, i64 %172
-  %switch.load303 = load i64, ptr %switch.gep302, align 8
+switch.lookup300:                                 ; preds = %170
+  %172 = zext nneg i8 %switch.tableidx299 to i64
+  %switch.gep301 = getelementptr inbounds nuw i64, ptr @switch.table._ZN11OpenImageIO6v3_1_03pvt11print_statsERSoNS0_17basic_string_viewIcSt11char_traitsIcEEERKNS0_8ImageBufERKNS0_9ImageSpecENS0_3ROIERNSt7__cxx1112basic_stringIcS5_SaIcEEE.1, i64 %172
+  %switch.load302 = load i64, ptr %switch.gep301, align 8
   br label %_ZN11OpenImageIO6v3_1_03pvtL20get_intsample_maxvalERKNS0_9ImageSpecE.exit.i
 
-_ZN11OpenImageIO6v3_1_03pvtL20get_intsample_maxvalERKNS0_9ImageSpecE.exit.i: ; preds = %162, %170, %switch.lookup301, %166, %163
-  %.0.i.i = phi i64 [ %165, %163 ], [ %169, %166 ], [ %switch.load303, %switch.lookup301 ], [ 0, %170 ], [ 0, %162 ]
+_ZN11OpenImageIO6v3_1_03pvtL20get_intsample_maxvalERKNS0_9ImageSpecE.exit.i: ; preds = %162, %170, %switch.lookup300, %166, %163
+  %.0.i.i = phi i64 [ %165, %163 ], [ %169, %166 ], [ %switch.load302, %switch.lookup300 ], [ 0, %170 ], [ 0, %162 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %34)
   %173 = trunc i64 %.0.i.i to i32
   invoke void @_ZN3fmt2v85printIA14_cJRN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEEEEcEEvRSt13basic_ostreamIT1_S6_ISB_EERKT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 1 dereferenceable(14) @.str.13, ptr noundef nonnull align 8 dereferenceable(16) %51)
@@ -2978,7 +2978,7 @@ _ZNSt6vectorImSaImEE6resizeEmRKm.exit.i:          ; preds = %533, %531, %_ZNSt12
   %585 = sub i64 %583, %584
   %586 = ashr exact i64 %585, 3
   %.not303.i = icmp eq ptr %.sroa.15.0.lcssa.i, %.sroa.0.0.lcssa.i
-  br i1 %.not303.i, label %._crit_edge296.thread.i, label %.lr.ph295.i
+  br i1 %.not303.i, label %._crit_edge296.thread.i, label %.lr.ph295.preheader.i
 
 ._crit_edge296.thread.i:                          ; preds = %582
   call void @llvm.lifetime.start.p0(ptr nonnull %26)
@@ -2987,6 +2987,10 @@ _ZNSt6vectorImSaImEE6resizeEmRKm.exit.i:          ; preds = %533, %531, %_ZNSt12
   store i64 0, ptr %27, align 8, !tbaa !40
   call void @llvm.lifetime.start.p0(ptr nonnull %28)
   br label %._crit_edge301.i
+
+.lr.ph295.preheader.i:                            ; preds = %582
+  %umax.i = call i64 @llvm.umax.i64(i64 %586, i64 1)
+  br label %.lr.ph295.i
 
 .lr.ph300.i:                                      ; preds = %.lr.ph295.i
   %587 = uitofp i64 %599 to double
@@ -3022,14 +3026,14 @@ _ZNSt6vectorImSaImEE6resizeEmRKm.exit.i:          ; preds = %533, %531, %_ZNSt12
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   br label %653
 
-.lr.ph295.i:                                      ; preds = %582, %.lr.ph295.i
-  %.0105293.i = phi i64 [ %600, %.lr.ph295.i ], [ 0, %582 ]
-  %.0106292.i = phi i64 [ %599, %.lr.ph295.i ], [ 0, %582 ]
+.lr.ph295.i:                                      ; preds = %.lr.ph295.i, %.lr.ph295.preheader.i
+  %.0105293.i = phi i64 [ %600, %.lr.ph295.i ], [ 0, %.lr.ph295.preheader.i ]
+  %.0106292.i = phi i64 [ %599, %.lr.ph295.i ], [ 0, %.lr.ph295.preheader.i ]
   %597 = getelementptr inbounds nuw i64, ptr %.sroa.0.0.lcssa.i, i64 %.0105293.i
   %598 = load i64, ptr %597, align 8, !tbaa !40
   %599 = add i64 %598, %.0106292.i
   %600 = add nuw i64 %.0105293.i, 1
-  %exitcond324.not.i = icmp eq i64 %600, %586
+  %exitcond324.not.i = icmp eq i64 %600, %umax.i
   br i1 %exitcond324.not.i, label %.lr.ph300.i, label %.lr.ph295.i, !llvm.loop !123
 
 ._crit_edge301.i:                                 ; preds = %630, %._crit_edge296.thread.i
@@ -5086,7 +5090,7 @@ _ZN3fmt2v816visit_format_argINS0_6detail21default_arg_formatterIcEENS0_20basic_f
   %103 = getelementptr inbounds nuw i8, ptr %.040.i75, i64 %102
   %104 = call ptr @_ZN3fmt2v86detail17copy_str_noinlineIcPKcNS0_8appenderEEET1_T0_S7_S6_(ptr noundef %.040.i75, ptr noundef %103, ptr %.sroa.0.0.copyload.i.i25)
   store ptr %104, ptr %92, align 8
-  %105 = call noundef ptr @_ZN3fmt2v86detail23parse_replacement_fieldIcRZNS1_10vformat_toIcEEvRNS1_6bufferIT_EENS0_17basic_string_viewIS5_EENS0_17basic_format_argsINS0_20basic_format_contextINSt11conditionalIXsr3std7is_sameINS0_13type_identityIS5_E4typeEcEE5valueENS0_8appenderESt20back_insert_iteratorINS4_ISF_EEEE4typeESF_EEEENS1_10locale_refEE14format_handlerEEPKS5_SS_SS_OT0_(ptr noundef nonnull %.042.i74, ptr noundef nonnull %95, ptr noundef nonnull align 8 dereferenceable(64) %13)
+  %105 = call noundef ptr @_ZN3fmt2v86detail23parse_replacement_fieldIcRZNS1_10vformat_toIcEEvRNS1_6bufferIT_EENS0_17basic_string_viewIS5_EENS0_17basic_format_argsINS0_20basic_format_contextINSt11conditionalIXsr3std7is_sameINS0_13type_identityIS5_E4typeEcEE5valueENS0_8appenderESt20back_insert_iteratorINS4_ISF_EEEE4typeESF_EEEENS1_10locale_refEE14format_handlerEEPKS5_SS_SS_OT0_(ptr noundef nonnull %.042.i74, ptr noundef %95, ptr noundef nonnull align 8 dereferenceable(64) %13)
   br label %120
 
 106:                                              ; preds = %.lr.ph76
@@ -5170,13 +5174,13 @@ _ZN3fmt2v86detail13error_handler8on_errorEPKc.exit26: ; preds = %.critedge.i
   br i1 %.not, label %.critedge54.i, label %134
 
 .critedge54.i:                                    ; preds = %129
-  call void @_ZZN3fmt2v86detail19parse_format_stringILb0EcZNS1_10vformat_toIcEEvRNS1_6bufferIT_EENS0_17basic_string_viewIS5_EENS0_17basic_format_argsINS0_20basic_format_contextINSt11conditionalIXsr3std7is_sameINS0_13type_identityIS5_E4typeEcEE5valueENS0_8appenderESt20back_insert_iteratorINS4_ISF_EEEE4typeESF_EEEENS1_10locale_refEE14format_handlerEEvNS8_IT0_EEOT1_EN6writerclEPKcSW_(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull %.3.i72, ptr noundef nonnull %95)
+  call void @_ZZN3fmt2v86detail19parse_format_stringILb0EcZNS1_10vformat_toIcEEvRNS1_6bufferIT_EENS0_17basic_string_viewIS5_EENS0_17basic_format_argsINS0_20basic_format_contextINSt11conditionalIXsr3std7is_sameINS0_13type_identityIS5_E4typeEcEE5valueENS0_8appenderESt20back_insert_iteratorINS4_ISF_EEEE4typeESF_EEEENS1_10locale_refEE14format_handlerEEvNS8_IT0_EEOT1_EN6writerclEPKcSW_(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull %.3.i72, ptr noundef %95)
   br label %.loopexit
 
 134:                                              ; preds = %129, %127
   %.0 = phi ptr [ %.3.i72, %127 ], [ %133, %129 ]
   call void @_ZZN3fmt2v86detail19parse_format_stringILb0EcZNS1_10vformat_toIcEEvRNS1_6bufferIT_EENS0_17basic_string_viewIS5_EENS0_17basic_format_argsINS0_20basic_format_contextINSt11conditionalIXsr3std7is_sameINS0_13type_identityIS5_E4typeEcEE5valueENS0_8appenderESt20back_insert_iteratorINS4_ISF_EEEE4typeESF_EEEENS1_10locale_refEE14format_handlerEEvNS8_IT0_EEOT1_EN6writerclEPKcSW_(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull %.3.i72, ptr noundef nonnull %.0)
-  %135 = call noundef ptr @_ZN3fmt2v86detail23parse_replacement_fieldIcRZNS1_10vformat_toIcEEvRNS1_6bufferIT_EENS0_17basic_string_viewIS5_EENS0_17basic_format_argsINS0_20basic_format_contextINSt11conditionalIXsr3std7is_sameINS0_13type_identityIS5_E4typeEcEE5valueENS0_8appenderESt20back_insert_iteratorINS4_ISF_EEEE4typeESF_EEEENS1_10locale_refEE14format_handlerEEPKS5_SS_SS_OT0_(ptr noundef nonnull %.0, ptr noundef nonnull %95, ptr noundef nonnull align 8 dereferenceable(64) %13)
+  %135 = call noundef ptr @_ZN3fmt2v86detail23parse_replacement_fieldIcRZNS1_10vformat_toIcEEvRNS1_6bufferIT_EENS0_17basic_string_viewIS5_EENS0_17basic_format_argsINS0_20basic_format_contextINSt11conditionalIXsr3std7is_sameINS0_13type_identityIS5_E4typeEcEE5valueENS0_8appenderESt20back_insert_iteratorINS4_ISF_EEEE4typeESF_EEEENS1_10locale_refEE14format_handlerEEPKS5_SS_SS_OT0_(ptr noundef nonnull %.0, ptr noundef %95, ptr noundef nonnull align 8 dereferenceable(64) %13)
   %.not.i = icmp eq ptr %135, %95
   br i1 %.not.i, label %.loopexit, label %127, !llvm.loop !163
 
@@ -29287,7 +29291,7 @@ define linkonce_odr hidden noundef ptr @_ZN3fmt2v89formatterINS0_17basic_string_
   br label %_ZN3fmt2v86detail18parse_format_specsIcRNS1_13specs_checkerINS1_21dynamic_specs_handlerINS0_26basic_format_parse_contextIcNS1_13error_handlerEEEEEEEEEPKT_SD_SD_OT0_.exit.sink.split
 
 31:                                               ; preds = %13, %18, %22
-  %32 = call noundef ptr @_ZN3fmt2v86detail11parse_alignIcRNS1_13specs_checkerINS1_21dynamic_specs_handlerINS0_26basic_format_parse_contextIcNS1_13error_handlerEEEEEEEEEPKT_SD_SD_OT0_(ptr noundef %8, ptr noundef nonnull %11, ptr noundef nonnull align 8 dereferenceable(28) %7)
+  %32 = call noundef ptr @_ZN3fmt2v86detail11parse_alignIcRNS1_13specs_checkerINS1_21dynamic_specs_handlerINS0_26basic_format_parse_contextIcNS1_13error_handlerEEEEEEEEEPKT_SD_SD_OT0_(ptr noundef %8, ptr noundef %11, ptr noundef nonnull align 8 dereferenceable(28) %7)
   %33 = icmp eq ptr %32, %11
   br i1 %33, label %_ZN3fmt2v86detail18parse_format_specsIcRNS1_13specs_checkerINS1_21dynamic_specs_handlerINS0_26basic_format_parse_contextIcNS1_13error_handlerEEEEEEEEEPKT_SD_SD_OT0_.exit, label %34
 
@@ -29419,7 +29423,7 @@ _ZN3fmt2v86detail13specs_checkerINS1_21dynamic_specs_handlerINS0_26basic_format_
 
 79:                                               ; preds = %_ZN3fmt2v86detail13specs_checkerINS1_21dynamic_specs_handlerINS0_26basic_format_parse_contextIcNS1_13error_handlerEEEEEE7on_zeroEv.exit, %58
   %.2.i = phi ptr [ %77, %_ZN3fmt2v86detail13specs_checkerINS1_21dynamic_specs_handlerINS0_26basic_format_parse_contextIcNS1_13error_handlerEEEEEE7on_zeroEv.exit ], [ %.1.i, %58 ]
-  %80 = call noundef ptr @_ZN3fmt2v86detail11parse_widthIcRNS1_13specs_checkerINS1_21dynamic_specs_handlerINS0_26basic_format_parse_contextIcNS1_13error_handlerEEEEEEEEEPKT_SD_SD_OT0_(ptr noundef nonnull %.2.i, ptr noundef nonnull %11, ptr noundef nonnull align 8 dereferenceable(28) %7)
+  %80 = call noundef ptr @_ZN3fmt2v86detail11parse_widthIcRNS1_13specs_checkerINS1_21dynamic_specs_handlerINS0_26basic_format_parse_contextIcNS1_13error_handlerEEEEEEEEEPKT_SD_SD_OT0_(ptr noundef nonnull %.2.i, ptr noundef %11, ptr noundef nonnull align 8 dereferenceable(28) %7)
   %81 = icmp eq ptr %80, %11
   br i1 %81, label %_ZN3fmt2v86detail18parse_format_specsIcRNS1_13specs_checkerINS1_21dynamic_specs_handlerINS0_26basic_format_parse_contextIcNS1_13error_handlerEEEEEEEEEPKT_SD_SD_OT0_.exit, label %82
 
@@ -29429,7 +29433,7 @@ _ZN3fmt2v86detail13specs_checkerINS1_21dynamic_specs_handlerINS0_26basic_format_
   br i1 %84, label %85, label %88
 
 85:                                               ; preds = %82
-  %86 = call noundef ptr @_ZN3fmt2v86detail15parse_precisionIcRNS1_13specs_checkerINS1_21dynamic_specs_handlerINS0_26basic_format_parse_contextIcNS1_13error_handlerEEEEEEEEEPKT_SD_SD_OT0_(ptr noundef nonnull %80, ptr noundef nonnull %11, ptr noundef nonnull align 8 dereferenceable(28) %7)
+  %86 = call noundef ptr @_ZN3fmt2v86detail15parse_precisionIcRNS1_13specs_checkerINS1_21dynamic_specs_handlerINS0_26basic_format_parse_contextIcNS1_13error_handlerEEEEEEEEEPKT_SD_SD_OT0_(ptr noundef nonnull %80, ptr noundef %11, ptr noundef nonnull align 8 dereferenceable(28) %7)
   %87 = icmp eq ptr %86, %11
   br i1 %87, label %_ZN3fmt2v86detail18parse_format_specsIcRNS1_13specs_checkerINS1_21dynamic_specs_handlerINS0_26basic_format_parse_contextIcNS1_13error_handlerEEEEEEEEEPKT_SD_SD_OT0_.exit, label %thread-pre-split22
 

@@ -6059,7 +6059,7 @@ if.end.i:                                         ; preds = %while.body
   %conv2.i = zext i8 %7 to i32
   %sub.i = shl nuw nsw i32 %conv2.i, 7
   %shl.i = add nsw i32 %conv.i, -128
-  %add.i = or disjoint i32 %sub.i, %shl.i
+  %add.i = add nuw nsw i32 %shl.i, %sub.i
   %cmp3.i = icmp sgt i8 %7, -1
   br i1 %cmp3.i, label %if.then4.i, label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
@@ -11597,7 +11597,7 @@ if.end.i:                                         ; preds = %while.body
   %conv2.i = zext i8 %7 to i32
   %sub.i = shl nuw nsw i32 %conv2.i, 7
   %shl.i = add nsw i32 %conv.i, -128
-  %add.i = or disjoint i32 %sub.i, %shl.i
+  %add.i = add nuw nsw i32 %shl.i, %sub.i
   %cmp3.i = icmp sgt i8 %7, -1
   br i1 %cmp3.i, label %if.then4.i, label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
@@ -11680,7 +11680,7 @@ if.end.i.i13:                                     ; preds = %if.then25
   %conv2.i.i = zext i8 %16 to i32
   %sub.i.i14 = shl nuw nsw i32 %conv2.i.i, 7
   %shl.i.i15 = add nsw i32 %conv.i.i10, -128
-  %add.i.i16 = or disjoint i32 %sub.i.i14, %shl.i.i15
+  %add.i.i16 = add nuw nsw i32 %shl.i.i15, %sub.i.i14
   %tobool4.not.i.i = icmp sgt i8 %16, -1
   br i1 %tobool4.not.i.i, label %if.then5.i.i, label %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit
 
@@ -12766,7 +12766,7 @@ if.end.i9:                                        ; preds = %while.body
   %conv2.i = zext i8 %7 to i32
   %sub.i = shl nuw nsw i32 %conv2.i, 7
   %shl.i = add nsw i32 %conv.i, -128
-  %add.i = or disjoint i32 %sub.i, %shl.i
+  %add.i = add nuw nsw i32 %shl.i, %sub.i
   %cmp3.i = icmp sgt i8 %7, -1
   br i1 %cmp3.i, label %if.then4.i, label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
@@ -13593,7 +13593,7 @@ if.end.i:                                         ; preds = %while.body
   %conv2.i = zext i8 %7 to i32
   %sub.i = shl nuw nsw i32 %conv2.i, 7
   %shl.i = add nsw i32 %conv.i, -128
-  %add.i = or disjoint i32 %sub.i, %shl.i
+  %add.i = add nuw nsw i32 %shl.i, %sub.i
   %cmp3.i = icmp sgt i8 %7, -1
   br i1 %cmp3.i, label %if.then4.i, label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
@@ -14522,7 +14522,7 @@ if.end.i:                                         ; preds = %while.body
   %conv2.i = zext i8 %7 to i32
   %sub.i = shl nuw nsw i32 %conv2.i, 7
   %shl.i = add nsw i32 %conv.i, -128
-  %add.i = or disjoint i32 %sub.i, %shl.i
+  %add.i = add nuw nsw i32 %shl.i, %sub.i
   %cmp3.i = icmp sgt i8 %7, -1
   br i1 %cmp3.i, label %if.then4.i, label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
@@ -21917,7 +21917,7 @@ if.end.i157:                                      ; preds = %while.body
   %conv2.i = zext i8 %21 to i32
   %sub.i = shl nuw nsw i32 %conv2.i, 7
   %shl.i = add nsw i32 %conv.i, -128
-  %add.i = or disjoint i32 %sub.i, %shl.i
+  %add.i = add nuw nsw i32 %shl.i, %sub.i
   %cmp3.i = icmp sgt i8 %21, -1
   br i1 %cmp3.i, label %if.then4.i, label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
@@ -22182,7 +22182,7 @@ if.end.i.i188:                                    ; preds = %if.then42
   %conv2.i.i = zext i8 %37 to i32
   %sub.i.i189 = shl nuw nsw i32 %conv2.i.i, 7
   %shl.i.i190 = add nsw i32 %conv.i.i185, -128
-  %add.i.i191 = or disjoint i32 %sub.i.i189, %shl.i.i190
+  %add.i.i191 = add nuw nsw i32 %shl.i.i190, %sub.i.i189
   %tobool4.not.i.i = icmp sgt i8 %37, -1
   br i1 %tobool4.not.i.i, label %if.then5.i.i, label %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit
 
@@ -23182,7 +23182,7 @@ if.end.i.i453:                                    ; preds = %do.body456
   %conv2.i.i454 = zext i8 %158 to i32
   %sub.i.i455 = shl nuw nsw i32 %conv2.i.i454, 7
   %shl.i.i456 = add nsw i32 %conv.i.i450, -128
-  %add.i.i457 = or disjoint i32 %sub.i.i455, %shl.i.i456
+  %add.i.i457 = add nuw nsw i32 %shl.i.i456, %sub.i.i455
   %tobool4.not.i.i458 = icmp sgt i8 %158, -1
   br i1 %tobool4.not.i.i458, label %if.then5.i.i463, label %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit465
 
@@ -25325,7 +25325,7 @@ if.end.i.i2941:                                   ; preds = %if.then1657
   %conv2.i.i2942 = zext i8 %377 to i32
   %sub.i.i2943 = shl nuw nsw i32 %conv2.i.i2942, 7
   %shl.i.i2944 = add nsw i32 %conv.i.i2938, -128
-  %add.i.i2945 = or disjoint i32 %sub.i.i2943, %shl.i.i2944
+  %add.i.i2945 = add nuw nsw i32 %shl.i.i2944, %sub.i.i2943
   %tobool4.not.i.i2946 = icmp sgt i8 %377, -1
   br i1 %tobool4.not.i.i2946, label %if.then5.i.i2950, label %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit2952
 
@@ -25945,7 +25945,7 @@ if.end.i.i1099:                                   ; preds = %do.body2061
   %conv2.i.i1100 = zext i8 %416 to i32
   %sub.i.i1101 = shl nuw nsw i32 %conv2.i.i1100, 7
   %shl.i.i1102 = add nsw i32 %conv.i.i1096, -128
-  %add.i.i1103 = or disjoint i32 %sub.i.i1101, %shl.i.i1102
+  %add.i.i1103 = add nuw nsw i32 %shl.i.i1102, %sub.i.i1101
   %tobool4.not.i.i1104 = icmp sgt i8 %416, -1
   br i1 %tobool4.not.i.i1104, label %if.then5.i.i1109, label %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit1111
 
@@ -26634,7 +26634,7 @@ if.end.i.i1310:                                   ; preds = %if.then2504
   %conv2.i.i1311 = zext i8 %471 to i32
   %sub.i.i1312 = shl nuw nsw i32 %conv2.i.i1311, 7
   %shl.i.i1313 = add nsw i32 %conv.i.i1307, -128
-  %add.i.i1314 = or disjoint i32 %sub.i.i1312, %shl.i.i1313
+  %add.i.i1314 = add nuw nsw i32 %shl.i.i1313, %sub.i.i1312
   %tobool4.not.i.i1315 = icmp sgt i8 %471, -1
   br i1 %tobool4.not.i.i1315, label %if.then5.i.i1320, label %if.end7.i.i1316
 
@@ -27245,7 +27245,7 @@ if.end.i.i1522:                                   ; preds = %if.then2709
   %conv2.i.i1523 = zext i8 %545 to i32
   %sub.i.i1524 = shl nuw nsw i32 %conv2.i.i1523, 7
   %shl.i.i1525 = add nsw i32 %conv.i.i1519, -128
-  %add.i.i1526 = or disjoint i32 %sub.i.i1524, %shl.i.i1525
+  %add.i.i1526 = add nuw nsw i32 %shl.i.i1525, %sub.i.i1524
   %tobool4.not.i.i1527 = icmp sgt i8 %545, -1
   br i1 %tobool4.not.i.i1527, label %if.then5.i.i1532, label %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit1534
 
@@ -47874,15 +47874,15 @@ if.end686:                                        ; preds = %if.end674, %_ZN6goo
   %conv693 = zext i32 %call.i1401 to i64
   %mul694 = shl nuw nsw i64 %conv693, 2
   %cmp695.not = icmp eq i32 %call.i1401, 0
+  %.pre2495 = trunc i64 %mul694 to i32
   br i1 %cmp695.not, label %if.end701, label %if.then696
 
 if.then696:                                       ; preds = %if.end686
-  %conv697 = trunc i64 %mul694 to i32
-  %cmp.i.i1402 = icmp slt i32 %conv697, 0
+  %cmp.i.i1402 = icmp slt i32 %.pre2495, 0
   br i1 %cmp.i.i1402, label %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1411, label %if.else.i.i1403
 
 if.else.i.i1403:                                  ; preds = %if.then696
-  %or.i.i.i1404 = or disjoint i32 %conv697, 1
+  %or.i.i.i1404 = or disjoint i32 %.pre2495, 1
   %366 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i1404, i1 true)
   %xor.i.i.i.i1405 = xor i32 %366, 31
   %mul.i.i.i1406 = mul nuw nsw i32 %xor.i.i.i.i1405, 9
@@ -47898,25 +47898,24 @@ _ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1411: ; preds = %if
   br label %if.end701
 
 if.end701:                                        ; preds = %if.end686, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1411
-  %conv.i1412.pre-phi = phi i32 [ %conv697, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1411 ], [ 0, %if.end686 ]
   %total_size.31 = phi i64 [ %add700, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1411 ], [ %add689, %if.end686 ]
   %_packed_fixed32_cached_byte_size_ = getelementptr inbounds nuw i8, ptr %this, i64 2424
-  store atomic i32 %conv.i1412.pre-phi, ptr %_packed_fixed32_cached_byte_size_ monotonic, align 8
+  store atomic i32 %.pre2495, ptr %_packed_fixed32_cached_byte_size_ monotonic, align 8
   %add704 = add i64 %total_size.31, %mul694
   %packed_fixed64_.i = getelementptr inbounds nuw i8, ptr %this, i64 2432
   %call.i1413 = call noundef i32 @_ZNK6google8protobuf13RepeatedFieldImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %packed_fixed64_.i)
   %conv708 = zext i32 %call.i1413 to i64
   %mul709 = shl nuw nsw i64 %conv708, 3
   %cmp710.not = icmp eq i32 %call.i1413, 0
+  %.pre2496 = trunc i64 %mul709 to i32
   br i1 %cmp710.not, label %if.end716, label %if.then711
 
 if.then711:                                       ; preds = %if.end701
-  %conv712 = trunc i64 %mul709 to i32
-  %cmp.i.i1414 = icmp slt i32 %conv712, 0
+  %cmp.i.i1414 = icmp slt i32 %.pre2496, 0
   br i1 %cmp.i.i1414, label %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1423, label %if.else.i.i1415
 
 if.else.i.i1415:                                  ; preds = %if.then711
-  %or.i.i.i1416 = or disjoint i32 %conv712, 1
+  %or.i.i.i1416 = or disjoint i32 %.pre2496, 1
   %368 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i1416, i1 true)
   %xor.i.i.i.i1417 = xor i32 %368, 31
   %mul.i.i.i1418 = mul nuw nsw i32 %xor.i.i.i.i1417, 9
@@ -47932,25 +47931,24 @@ _ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1423: ; preds = %if
   br label %if.end716
 
 if.end716:                                        ; preds = %if.end701, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1423
-  %conv.i1424.pre-phi = phi i32 [ %conv712, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1423 ], [ 0, %if.end701 ]
   %total_size.32 = phi i64 [ %add715, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1423 ], [ %add704, %if.end701 ]
   %_packed_fixed64_cached_byte_size_ = getelementptr inbounds nuw i8, ptr %this, i64 2448
-  store atomic i32 %conv.i1424.pre-phi, ptr %_packed_fixed64_cached_byte_size_ monotonic, align 8
+  store atomic i32 %.pre2496, ptr %_packed_fixed64_cached_byte_size_ monotonic, align 8
   %add719 = add i64 %total_size.32, %mul709
   %packed_sfixed32_.i = getelementptr inbounds nuw i8, ptr %this, i64 2456
   %call.i1425 = call noundef i32 @_ZNK6google8protobuf13RepeatedFieldIiE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %packed_sfixed32_.i)
   %conv723 = zext i32 %call.i1425 to i64
   %mul724 = shl nuw nsw i64 %conv723, 2
   %cmp725.not = icmp eq i32 %call.i1425, 0
+  %.pre2497 = trunc i64 %mul724 to i32
   br i1 %cmp725.not, label %if.end731, label %if.then726
 
 if.then726:                                       ; preds = %if.end716
-  %conv727 = trunc i64 %mul724 to i32
-  %cmp.i.i1426 = icmp slt i32 %conv727, 0
+  %cmp.i.i1426 = icmp slt i32 %.pre2497, 0
   br i1 %cmp.i.i1426, label %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1435, label %if.else.i.i1427
 
 if.else.i.i1427:                                  ; preds = %if.then726
-  %or.i.i.i1428 = or disjoint i32 %conv727, 1
+  %or.i.i.i1428 = or disjoint i32 %.pre2497, 1
   %370 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i1428, i1 true)
   %xor.i.i.i.i1429 = xor i32 %370, 31
   %mul.i.i.i1430 = mul nuw nsw i32 %xor.i.i.i.i1429, 9
@@ -47966,25 +47964,24 @@ _ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1435: ; preds = %if
   br label %if.end731
 
 if.end731:                                        ; preds = %if.end716, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1435
-  %conv.i1436.pre-phi = phi i32 [ %conv727, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1435 ], [ 0, %if.end716 ]
   %total_size.33 = phi i64 [ %add730, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1435 ], [ %add719, %if.end716 ]
   %_packed_sfixed32_cached_byte_size_ = getelementptr inbounds nuw i8, ptr %this, i64 2472
-  store atomic i32 %conv.i1436.pre-phi, ptr %_packed_sfixed32_cached_byte_size_ monotonic, align 8
+  store atomic i32 %.pre2497, ptr %_packed_sfixed32_cached_byte_size_ monotonic, align 8
   %add734 = add i64 %total_size.33, %mul724
   %packed_sfixed64_.i = getelementptr inbounds nuw i8, ptr %this, i64 2480
   %call.i1437 = call noundef i32 @_ZNK6google8protobuf13RepeatedFieldIlE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %packed_sfixed64_.i)
   %conv738 = zext i32 %call.i1437 to i64
   %mul739 = shl nuw nsw i64 %conv738, 3
   %cmp740.not = icmp eq i32 %call.i1437, 0
+  %.pre2498 = trunc i64 %mul739 to i32
   br i1 %cmp740.not, label %if.end746, label %if.then741
 
 if.then741:                                       ; preds = %if.end731
-  %conv742 = trunc i64 %mul739 to i32
-  %cmp.i.i1438 = icmp slt i32 %conv742, 0
+  %cmp.i.i1438 = icmp slt i32 %.pre2498, 0
   br i1 %cmp.i.i1438, label %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1447, label %if.else.i.i1439
 
 if.else.i.i1439:                                  ; preds = %if.then741
-  %or.i.i.i1440 = or disjoint i32 %conv742, 1
+  %or.i.i.i1440 = or disjoint i32 %.pre2498, 1
   %372 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i1440, i1 true)
   %xor.i.i.i.i1441 = xor i32 %372, 31
   %mul.i.i.i1442 = mul nuw nsw i32 %xor.i.i.i.i1441, 9
@@ -48000,25 +47997,24 @@ _ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1447: ; preds = %if
   br label %if.end746
 
 if.end746:                                        ; preds = %if.end731, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1447
-  %conv.i1448.pre-phi = phi i32 [ %conv742, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1447 ], [ 0, %if.end731 ]
   %total_size.34 = phi i64 [ %add745, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1447 ], [ %add734, %if.end731 ]
   %_packed_sfixed64_cached_byte_size_ = getelementptr inbounds nuw i8, ptr %this, i64 2496
-  store atomic i32 %conv.i1448.pre-phi, ptr %_packed_sfixed64_cached_byte_size_ monotonic, align 8
+  store atomic i32 %.pre2498, ptr %_packed_sfixed64_cached_byte_size_ monotonic, align 8
   %add749 = add i64 %total_size.34, %mul739
   %packed_float_.i = getelementptr inbounds nuw i8, ptr %this, i64 2504
   %call.i1450 = call noundef i32 @_ZNK6google8protobuf13RepeatedFieldIfE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %packed_float_.i)
   %conv753 = zext i32 %call.i1450 to i64
   %mul754 = shl nuw nsw i64 %conv753, 2
   %cmp755.not = icmp eq i32 %call.i1450, 0
+  %.pre2499 = trunc i64 %mul754 to i32
   br i1 %cmp755.not, label %if.end761, label %if.then756
 
 if.then756:                                       ; preds = %if.end746
-  %conv757 = trunc i64 %mul754 to i32
-  %cmp.i.i1451 = icmp slt i32 %conv757, 0
+  %cmp.i.i1451 = icmp slt i32 %.pre2499, 0
   br i1 %cmp.i.i1451, label %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1460, label %if.else.i.i1452
 
 if.else.i.i1452:                                  ; preds = %if.then756
-  %or.i.i.i1453 = or disjoint i32 %conv757, 1
+  %or.i.i.i1453 = or disjoint i32 %.pre2499, 1
   %374 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i1453, i1 true)
   %xor.i.i.i.i1454 = xor i32 %374, 31
   %mul.i.i.i1455 = mul nuw nsw i32 %xor.i.i.i.i1454, 9
@@ -48034,25 +48030,24 @@ _ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1460: ; preds = %if
   br label %if.end761
 
 if.end761:                                        ; preds = %if.end746, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1460
-  %conv.i1461.pre-phi = phi i32 [ %conv757, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1460 ], [ 0, %if.end746 ]
   %total_size.35 = phi i64 [ %add760, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1460 ], [ %add749, %if.end746 ]
   %_packed_float_cached_byte_size_ = getelementptr inbounds nuw i8, ptr %this, i64 2520
-  store atomic i32 %conv.i1461.pre-phi, ptr %_packed_float_cached_byte_size_ monotonic, align 8
+  store atomic i32 %.pre2499, ptr %_packed_float_cached_byte_size_ monotonic, align 8
   %add764 = add i64 %total_size.35, %mul754
   %packed_double_.i = getelementptr inbounds nuw i8, ptr %this, i64 2528
   %call.i1462 = call noundef i32 @_ZNK6google8protobuf13RepeatedFieldIdE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %packed_double_.i)
   %conv768 = zext i32 %call.i1462 to i64
   %mul769 = shl nuw nsw i64 %conv768, 3
   %cmp770.not = icmp eq i32 %call.i1462, 0
+  %.pre2500 = trunc i64 %mul769 to i32
   br i1 %cmp770.not, label %if.end776, label %if.then771
 
 if.then771:                                       ; preds = %if.end761
-  %conv772 = trunc i64 %mul769 to i32
-  %cmp.i.i1463 = icmp slt i32 %conv772, 0
+  %cmp.i.i1463 = icmp slt i32 %.pre2500, 0
   br i1 %cmp.i.i1463, label %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1472, label %if.else.i.i1464
 
 if.else.i.i1464:                                  ; preds = %if.then771
-  %or.i.i.i1465 = or disjoint i32 %conv772, 1
+  %or.i.i.i1465 = or disjoint i32 %.pre2500, 1
   %376 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i1465, i1 true)
   %xor.i.i.i.i1466 = xor i32 %376, 31
   %mul.i.i.i1467 = mul nuw nsw i32 %xor.i.i.i.i1466, 9
@@ -48068,10 +48063,9 @@ _ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1472: ; preds = %if
   br label %if.end776
 
 if.end776:                                        ; preds = %if.end761, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1472
-  %conv.i1473.pre-phi = phi i32 [ %conv772, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1472 ], [ 0, %if.end761 ]
   %total_size.36 = phi i64 [ %add775, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1472 ], [ %add764, %if.end761 ]
   %_packed_double_cached_byte_size_ = getelementptr inbounds nuw i8, ptr %this, i64 2544
-  store atomic i32 %conv.i1473.pre-phi, ptr %_packed_double_cached_byte_size_ monotonic, align 8
+  store atomic i32 %.pre2500, ptr %_packed_double_cached_byte_size_ monotonic, align 8
   %add779 = add i64 %total_size.36, %mul769
   %packed_bool_.i = getelementptr inbounds nuw i8, ptr %this, i64 2552
   %call.i1474 = call noundef i32 @_ZNK6google8protobuf13RepeatedFieldIbE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %packed_bool_.i)
@@ -51562,7 +51556,7 @@ if.end.i:                                         ; preds = %while.body
   %conv2.i = zext i8 %7 to i32
   %sub.i = shl nuw nsw i32 %conv2.i, 7
   %shl.i = add nsw i32 %conv.i, -128
-  %add.i = or disjoint i32 %sub.i, %shl.i
+  %add.i = add nuw nsw i32 %shl.i, %sub.i
   %cmp3.i = icmp sgt i8 %7, -1
   br i1 %cmp3.i, label %if.then4.i, label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
@@ -52403,7 +52397,7 @@ if.end.i:                                         ; preds = %while.body
   %conv2.i = zext i8 %7 to i32
   %sub.i = shl nuw nsw i32 %conv2.i, 7
   %shl.i = add nsw i32 %conv.i, -128
-  %add.i = or disjoint i32 %sub.i, %shl.i
+  %add.i = add nuw nsw i32 %shl.i, %sub.i
   %cmp3.i = icmp sgt i8 %7, -1
   br i1 %cmp3.i, label %if.then4.i, label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
@@ -53800,7 +53794,7 @@ if.end.i11:                                       ; preds = %while.body
   %conv2.i = zext i8 %7 to i32
   %sub.i = shl nuw nsw i32 %conv2.i, 7
   %shl.i = add nsw i32 %conv.i, -128
-  %add.i = or disjoint i32 %sub.i, %shl.i
+  %add.i = add nuw nsw i32 %shl.i, %sub.i
   %cmp3.i = icmp sgt i8 %7, -1
   br i1 %cmp3.i, label %if.then4.i, label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
@@ -55854,7 +55848,7 @@ if.end.i:                                         ; preds = %while.body
   %conv2.i = zext i8 %7 to i32
   %sub.i = shl nuw nsw i32 %conv2.i, 7
   %shl.i = add nsw i32 %conv.i, -128
-  %add.i = or disjoint i32 %sub.i, %shl.i
+  %add.i = add nuw nsw i32 %shl.i, %sub.i
   %cmp3.i = icmp sgt i8 %7, -1
   br i1 %cmp3.i, label %if.then4.i, label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
@@ -56687,7 +56681,7 @@ if.end.i:                                         ; preds = %while.body
   %conv2.i = zext i8 %7 to i32
   %sub.i = shl nuw nsw i32 %conv2.i, 7
   %shl.i = add nsw i32 %conv.i, -128
-  %add.i = or disjoint i32 %sub.i, %shl.i
+  %add.i = add nuw nsw i32 %shl.i, %sub.i
   %cmp3.i = icmp sgt i8 %7, -1
   br i1 %cmp3.i, label %if.then4.i, label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
@@ -57557,7 +57551,7 @@ if.end.i:                                         ; preds = %while.body
   %conv2.i = zext i8 %7 to i32
   %sub.i = shl nuw nsw i32 %conv2.i, 7
   %shl.i = add nsw i32 %conv.i, -128
-  %add.i = or disjoint i32 %sub.i, %shl.i
+  %add.i = add nuw nsw i32 %shl.i, %sub.i
   %cmp3.i = icmp sgt i8 %7, -1
   br i1 %cmp3.i, label %if.then4.i, label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
@@ -58480,7 +58474,7 @@ if.end.i:                                         ; preds = %while.body
   %conv2.i = zext i8 %7 to i32
   %sub.i = shl nuw nsw i32 %conv2.i, 7
   %shl.i = add nsw i32 %conv.i, -128
-  %add.i = or disjoint i32 %sub.i, %shl.i
+  %add.i = add nuw nsw i32 %shl.i, %sub.i
   %cmp3.i = icmp sgt i8 %7, -1
   br i1 %cmp3.i, label %if.then4.i, label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
@@ -61591,7 +61585,7 @@ if.end.i:                                         ; preds = %while.body
   %conv2.i = zext i8 %7 to i32
   %sub.i = shl nuw nsw i32 %conv2.i, 7
   %shl.i = add nsw i32 %conv.i, -128
-  %add.i = or disjoint i32 %sub.i, %shl.i
+  %add.i = add nuw nsw i32 %shl.i, %sub.i
   %cmp3.i = icmp sgt i8 %7, -1
   br i1 %cmp3.i, label %if.then4.i, label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
@@ -61635,7 +61629,7 @@ if.end.i.i.i:                                     ; preds = %if.then3
   %conv2.i.i.i = zext i8 %12 to i32
   %sub.i.i.i = shl nuw nsw i32 %conv2.i.i.i, 7
   %shl.i.i.i = add nsw i32 %conv.i.i.i, -128
-  %add.i.i.i = or disjoint i32 %sub.i.i.i, %shl.i.i.i
+  %add.i.i.i = add nuw nsw i32 %shl.i.i.i, %sub.i.i.i
   %tobool4.not.i.i.i = icmp sgt i8 %12, -1
   br i1 %tobool4.not.i.i.i, label %if.then5.i.i.i, label %if.end7.i.i.i
 
@@ -61671,7 +61665,7 @@ if.end.i.i.i13:                                   ; preds = %if.then10
   %conv2.i.i.i15 = zext i8 %17 to i32
   %sub.i.i.i16 = shl nuw nsw i32 %conv2.i.i.i15, 7
   %shl.i.i.i17 = add nsw i32 %conv.i.i.i11, -128
-  %add.i.i.i18 = or disjoint i32 %sub.i.i.i16, %shl.i.i.i17
+  %add.i.i.i18 = add nuw nsw i32 %shl.i.i.i17, %sub.i.i.i16
   %tobool4.not.i.i.i19 = icmp sgt i8 %17, -1
   br i1 %tobool4.not.i.i.i19, label %if.then5.i.i.i23, label %if.end7.i.i.i20
 
@@ -62180,7 +62174,7 @@ if.end.i:                                         ; preds = %while.body
   %conv2.i = zext i8 %7 to i32
   %sub.i = shl nuw nsw i32 %conv2.i, 7
   %shl.i = add nsw i32 %conv.i, -128
-  %add.i = or disjoint i32 %sub.i, %shl.i
+  %add.i = add nuw nsw i32 %shl.i, %sub.i
   %cmp3.i = icmp sgt i8 %7, -1
   br i1 %cmp3.i, label %if.then4.i, label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
@@ -62773,7 +62767,7 @@ if.end.i:                                         ; preds = %while.body
   %conv2.i = zext i8 %7 to i32
   %sub.i = shl nuw nsw i32 %conv2.i, 7
   %shl.i = add nsw i32 %conv.i, -128
-  %add.i = or disjoint i32 %sub.i, %shl.i
+  %add.i = add nuw nsw i32 %shl.i, %sub.i
   %cmp3.i = icmp sgt i8 %7, -1
   br i1 %cmp3.i, label %if.then4.i, label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
@@ -62817,7 +62811,7 @@ if.end.i.i.i:                                     ; preds = %if.then3
   %conv2.i.i.i = zext i8 %12 to i32
   %sub.i.i.i = shl nuw nsw i32 %conv2.i.i.i, 7
   %shl.i.i.i = add nsw i32 %conv.i.i.i, -128
-  %add.i.i.i = or disjoint i32 %sub.i.i.i, %shl.i.i.i
+  %add.i.i.i = add nuw nsw i32 %shl.i.i.i, %sub.i.i.i
   %tobool4.not.i.i.i = icmp sgt i8 %12, -1
   br i1 %tobool4.not.i.i.i, label %if.then5.i.i.i, label %if.end7.i.i.i
 
@@ -62853,7 +62847,7 @@ if.end.i.i.i13:                                   ; preds = %if.then10
   %conv2.i.i.i15 = zext i8 %17 to i32
   %sub.i.i.i16 = shl nuw nsw i32 %conv2.i.i.i15, 7
   %shl.i.i.i17 = add nsw i32 %conv.i.i.i11, -128
-  %add.i.i.i18 = or disjoint i32 %sub.i.i.i16, %shl.i.i.i17
+  %add.i.i.i18 = add nuw nsw i32 %shl.i.i.i17, %sub.i.i.i16
   %tobool4.not.i.i.i19 = icmp sgt i8 %17, -1
   br i1 %tobool4.not.i.i.i19, label %if.then5.i.i.i23, label %if.end7.i.i.i20
 
@@ -63356,7 +63350,7 @@ if.end.i:                                         ; preds = %while.body
   %conv2.i = zext i8 %7 to i32
   %sub.i = shl nuw nsw i32 %conv2.i, 7
   %shl.i = add nsw i32 %conv.i, -128
-  %add.i = or disjoint i32 %sub.i, %shl.i
+  %add.i = add nuw nsw i32 %shl.i, %sub.i
   %cmp3.i = icmp sgt i8 %7, -1
   br i1 %cmp3.i, label %if.then4.i, label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
@@ -63961,7 +63955,7 @@ if.end.i:                                         ; preds = %while.body
   %conv2.i = zext i8 %7 to i32
   %sub.i = shl nuw nsw i32 %conv2.i, 7
   %shl.i = add nsw i32 %conv.i, -128
-  %add.i = or disjoint i32 %sub.i, %shl.i
+  %add.i = add nuw nsw i32 %shl.i, %sub.i
   %cmp3.i = icmp sgt i8 %7, -1
   br i1 %cmp3.i, label %if.then4.i, label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
@@ -64580,7 +64574,7 @@ if.end.i:                                         ; preds = %while.body
   %conv2.i = zext i8 %7 to i32
   %sub.i = shl nuw nsw i32 %conv2.i, 7
   %shl.i = add nsw i32 %conv.i, -128
-  %add.i = or disjoint i32 %sub.i, %shl.i
+  %add.i = add nuw nsw i32 %shl.i, %sub.i
   %cmp3.i = icmp sgt i8 %7, -1
   br i1 %cmp3.i, label %if.then4.i, label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
@@ -65157,7 +65151,7 @@ if.end.i:                                         ; preds = %while.body
   %conv2.i = zext i8 %7 to i32
   %sub.i = shl nuw nsw i32 %conv2.i, 7
   %shl.i = add nsw i32 %conv.i, -128
-  %add.i = or disjoint i32 %sub.i, %shl.i
+  %add.i = add nuw nsw i32 %shl.i, %sub.i
   %cmp3.i = icmp sgt i8 %7, -1
   br i1 %cmp3.i, label %if.then4.i, label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
@@ -65564,7 +65558,7 @@ if.end.i:                                         ; preds = %while.body
   %conv2.i = zext i8 %7 to i32
   %sub.i = shl nuw nsw i32 %conv2.i, 7
   %shl.i = add nsw i32 %conv.i, -128
-  %add.i = or disjoint i32 %sub.i, %shl.i
+  %add.i = add nuw nsw i32 %shl.i, %sub.i
   %cmp3.i = icmp sgt i8 %7, -1
   br i1 %cmp3.i, label %if.then4.i, label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
@@ -65977,7 +65971,7 @@ if.end.i:                                         ; preds = %while.body
   %conv2.i = zext i8 %7 to i32
   %sub.i = shl nuw nsw i32 %conv2.i, 7
   %shl.i = add nsw i32 %conv.i, -128
-  %add.i = or disjoint i32 %sub.i, %shl.i
+  %add.i = add nuw nsw i32 %shl.i, %sub.i
   %cmp3.i = icmp sgt i8 %7, -1
   br i1 %cmp3.i, label %if.then4.i, label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
@@ -66384,7 +66378,7 @@ if.end.i:                                         ; preds = %while.body
   %conv2.i = zext i8 %7 to i32
   %sub.i = shl nuw nsw i32 %conv2.i, 7
   %shl.i = add nsw i32 %conv.i, -128
-  %add.i = or disjoint i32 %sub.i, %shl.i
+  %add.i = add nuw nsw i32 %shl.i, %sub.i
   %cmp3.i = icmp sgt i8 %7, -1
   br i1 %cmp3.i, label %if.then4.i, label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
@@ -66820,7 +66814,7 @@ if.end.i:                                         ; preds = %while.body
   %conv2.i = zext i8 %7 to i32
   %sub.i = shl nuw nsw i32 %conv2.i, 7
   %shl.i = add nsw i32 %conv.i, -128
-  %add.i = or disjoint i32 %sub.i, %shl.i
+  %add.i = add nuw nsw i32 %shl.i, %sub.i
   %cmp3.i = icmp sgt i8 %7, -1
   br i1 %cmp3.i, label %if.then4.i, label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
@@ -66864,7 +66858,7 @@ if.end.i.i.i:                                     ; preds = %if.then3
   %conv2.i.i.i = zext i8 %12 to i32
   %sub.i.i.i = shl nuw nsw i32 %conv2.i.i.i, 7
   %shl.i.i.i = add nsw i32 %conv.i.i.i, -128
-  %add.i.i.i = or disjoint i32 %sub.i.i.i, %shl.i.i.i
+  %add.i.i.i = add nuw nsw i32 %shl.i.i.i, %sub.i.i.i
   %tobool4.not.i.i.i = icmp sgt i8 %12, -1
   br i1 %tobool4.not.i.i.i, label %if.then5.i.i.i, label %if.end7.i.i.i
 
@@ -67332,7 +67326,7 @@ if.end.i:                                         ; preds = %while.body
   %conv2.i = zext i8 %7 to i32
   %sub.i = shl nuw nsw i32 %conv2.i, 7
   %shl.i = add nsw i32 %conv.i, -128
-  %add.i = or disjoint i32 %sub.i, %shl.i
+  %add.i = add nuw nsw i32 %shl.i, %sub.i
   %cmp3.i = icmp sgt i8 %7, -1
   br i1 %cmp3.i, label %if.then4.i, label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
@@ -67376,7 +67370,7 @@ if.end.i.i.i:                                     ; preds = %if.then3
   %conv2.i.i.i = zext i8 %12 to i32
   %sub.i.i.i = shl nuw nsw i32 %conv2.i.i.i, 7
   %shl.i.i.i = add nsw i32 %conv.i.i.i, -128
-  %add.i.i.i = or disjoint i32 %sub.i.i.i, %shl.i.i.i
+  %add.i.i.i = add nuw nsw i32 %shl.i.i.i, %sub.i.i.i
   %tobool4.not.i.i.i = icmp sgt i8 %12, -1
   br i1 %tobool4.not.i.i.i, label %if.then5.i.i.i, label %if.end7.i.i.i
 
@@ -67823,7 +67817,7 @@ if.end.i:                                         ; preds = %while.body
   %conv2.i = zext i8 %7 to i32
   %sub.i = shl nuw nsw i32 %conv2.i, 7
   %shl.i = add nsw i32 %conv.i, -128
-  %add.i = or disjoint i32 %sub.i, %shl.i
+  %add.i = add nuw nsw i32 %shl.i, %sub.i
   %cmp3.i = icmp sgt i8 %7, -1
   br i1 %cmp3.i, label %if.then4.i, label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
@@ -67862,7 +67856,7 @@ if.end.i.i.i.i:                                   ; preds = %if.then3
   %conv2.i.i.i.i = zext i8 %12 to i32
   %sub.i.i.i.i = shl nuw nsw i32 %conv2.i.i.i.i, 7
   %shl.i.i.i.i = add nsw i32 %conv.i.i.i.i, -128
-  %add.i.i.i.i = or disjoint i32 %sub.i.i.i.i, %shl.i.i.i.i
+  %add.i.i.i.i = add nuw nsw i32 %shl.i.i.i.i, %sub.i.i.i.i
   %tobool4.not.i.i.i.i = icmp sgt i8 %12, -1
   br i1 %tobool4.not.i.i.i.i, label %if.then5.i.i.i.i, label %if.end7.i.i.i.i
 
@@ -67899,7 +67893,7 @@ if.end.i.i.i.i14:                                 ; preds = %if.then10
   %conv2.i.i.i.i15 = zext i8 %17 to i32
   %sub.i.i.i.i16 = shl nuw nsw i32 %conv2.i.i.i.i15, 7
   %shl.i.i.i.i17 = add nsw i32 %conv.i.i.i.i11, -128
-  %add.i.i.i.i18 = or disjoint i32 %sub.i.i.i.i16, %shl.i.i.i.i17
+  %add.i.i.i.i18 = add nuw nsw i32 %shl.i.i.i.i17, %sub.i.i.i.i16
   %tobool4.not.i.i.i.i19 = icmp sgt i8 %17, -1
   br i1 %tobool4.not.i.i.i.i19, label %if.then5.i.i.i.i26, label %if.end7.i.i.i.i20
 
@@ -68322,7 +68316,7 @@ if.end.i:                                         ; preds = %while.body
   %conv2.i = zext i8 %7 to i32
   %sub.i = shl nuw nsw i32 %conv2.i, 7
   %shl.i = add nsw i32 %conv.i, -128
-  %add.i = or disjoint i32 %sub.i, %shl.i
+  %add.i = add nuw nsw i32 %shl.i, %sub.i
   %cmp3.i = icmp sgt i8 %7, -1
   br i1 %cmp3.i, label %if.then4.i, label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
@@ -68915,7 +68909,7 @@ if.end.i:                                         ; preds = %while.body
   %conv2.i = zext i8 %7 to i32
   %sub.i = shl nuw nsw i32 %conv2.i, 7
   %shl.i = add nsw i32 %conv.i, -128
-  %add.i = or disjoint i32 %sub.i, %shl.i
+  %add.i = add nuw nsw i32 %shl.i, %sub.i
   %cmp3.i = icmp sgt i8 %7, -1
   br i1 %cmp3.i, label %if.then4.i, label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
@@ -69553,7 +69547,7 @@ if.end.i:                                         ; preds = %while.body
   %conv2.i = zext i8 %7 to i32
   %sub.i = shl nuw nsw i32 %conv2.i, 7
   %shl.i = add nsw i32 %conv.i, -128
-  %add.i = or disjoint i32 %sub.i, %shl.i
+  %add.i = add nuw nsw i32 %shl.i, %sub.i
   %cmp3.i = icmp sgt i8 %7, -1
   br i1 %cmp3.i, label %if.then4.i, label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
@@ -70272,7 +70266,7 @@ if.end.i:                                         ; preds = %while.body
   %conv2.i = zext i8 %7 to i32
   %sub.i = shl nuw nsw i32 %conv2.i, 7
   %shl.i = add nsw i32 %conv.i, -128
-  %add.i = or disjoint i32 %sub.i, %shl.i
+  %add.i = add nuw nsw i32 %shl.i, %sub.i
   %cmp3.i = icmp sgt i8 %7, -1
   br i1 %cmp3.i, label %if.then4.i, label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
@@ -70962,7 +70956,7 @@ if.end.i:                                         ; preds = %while.body
   %conv2.i = zext i8 %7 to i32
   %sub.i = shl nuw nsw i32 %conv2.i, 7
   %shl.i = add nsw i32 %conv.i, -128
-  %add.i = or disjoint i32 %sub.i, %shl.i
+  %add.i = add nuw nsw i32 %shl.i, %sub.i
   %cmp3.i = icmp sgt i8 %7, -1
   br i1 %cmp3.i, label %if.then4.i, label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
@@ -71059,7 +71053,7 @@ if.end.i.i.i.i:                                   ; preds = %if.then10
   %conv2.i.i.i.i = zext i8 %22 to i32
   %sub.i.i.i.i = shl nuw nsw i32 %conv2.i.i.i.i, 7
   %shl.i.i.i.i = add nsw i32 %conv.i.i.i.i, -128
-  %add.i.i.i.i = or disjoint i32 %sub.i.i.i.i, %shl.i.i.i.i
+  %add.i.i.i.i = add nuw nsw i32 %shl.i.i.i.i, %sub.i.i.i.i
   %tobool4.not.i.i.i.i = icmp sgt i8 %22, -1
   br i1 %tobool4.not.i.i.i.i, label %if.then5.i.i.i.i, label %if.end7.i.i.i.i
 
@@ -71617,7 +71611,7 @@ if.end.i:                                         ; preds = %while.body
   %conv2.i = zext i8 %7 to i32
   %sub.i = shl nuw nsw i32 %conv2.i, 7
   %shl.i = add nsw i32 %conv.i, -128
-  %add.i = or disjoint i32 %sub.i, %shl.i
+  %add.i = add nuw nsw i32 %shl.i, %sub.i
   %cmp3.i = icmp sgt i8 %7, -1
   br i1 %cmp3.i, label %if.then4.i, label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
@@ -71714,7 +71708,7 @@ if.end.i.i.i.i:                                   ; preds = %if.then10
   %conv2.i.i.i.i = zext i8 %22 to i32
   %sub.i.i.i.i = shl nuw nsw i32 %conv2.i.i.i.i, 7
   %shl.i.i.i.i = add nsw i32 %conv.i.i.i.i, -128
-  %add.i.i.i.i = or disjoint i32 %sub.i.i.i.i, %shl.i.i.i.i
+  %add.i.i.i.i = add nuw nsw i32 %shl.i.i.i.i, %sub.i.i.i.i
   %tobool4.not.i.i.i.i = icmp sgt i8 %22, -1
   br i1 %tobool4.not.i.i.i.i, label %if.then5.i.i.i.i, label %if.end7.i.i.i.i
 
@@ -121426,7 +121420,7 @@ while.end.i:                                      ; preds = %while.body.i, %if.e
   br i1 %or.cond, label %if.then9.i, label %if.end16.i
 
 if.then9.i:                                       ; preds = %while.end.i
-  %sub12.i = or disjoint i64 %sub, 1
+  %sub12.i = or i64 %sub, 1
   %add.ptr13.i = getelementptr inbounds nuw %"struct.google::protobuf::internal::SortItem", ptr %__first, i64 %sub12.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr10, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr13.i, i64 16, i1 false)
   br label %if.end16.i
@@ -122195,7 +122189,7 @@ while.end.i:                                      ; preds = %while.body.i, %if.e
   br i1 %or.cond, label %if.then9.i, label %if.end16.i
 
 if.then9.i:                                       ; preds = %while.end.i
-  %sub12.i = or disjoint i64 %sub, 1
+  %sub12.i = or i64 %sub, 1
   %add.ptr13.i = getelementptr inbounds nuw %"struct.google::protobuf::internal::SortItem.179", ptr %__first, i64 %sub12.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr9, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr13.i, i64 16, i1 false)
   br label %if.end16.i
@@ -122967,7 +122961,7 @@ while.end.i:                                      ; preds = %while.body.i, %if.e
   br i1 %or.cond, label %if.then9.i, label %if.end16.i
 
 if.then9.i:                                       ; preds = %while.end.i
-  %sub12.i = or disjoint i64 %sub, 1
+  %sub12.i = or i64 %sub, 1
   %add.ptr13.i = getelementptr inbounds nuw %"struct.google::protobuf::internal::SortItem.190", ptr %__first, i64 %sub12.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr10, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr13.i, i64 16, i1 false)
   br label %if.end16.i
@@ -123730,7 +123724,7 @@ while.end.i:                                      ; preds = %while.body.i, %if.e
   br i1 %or.cond, label %if.then9.i, label %if.end16.i
 
 if.then9.i:                                       ; preds = %while.end.i
-  %sub12.i = or disjoint i64 %sub, 1
+  %sub12.i = or i64 %sub, 1
   %add.ptr13.i = getelementptr inbounds nuw %"struct.google::protobuf::internal::SortItem.201", ptr %__first, i64 %sub12.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr9, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr13.i, i64 16, i1 false)
   br label %if.end16.i
@@ -124502,7 +124496,7 @@ while.end.i:                                      ; preds = %while.body.i, %if.e
   br i1 %or.cond, label %if.then9.i, label %if.end16.i
 
 if.then9.i:                                       ; preds = %while.end.i
-  %sub12.i = or disjoint i64 %sub, 1
+  %sub12.i = or i64 %sub, 1
   %add.ptr13.i = getelementptr inbounds nuw %"struct.google::protobuf::internal::SortItem.212", ptr %__first, i64 %sub12.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr10, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr13.i, i64 16, i1 false)
   br label %if.end16.i
@@ -125274,7 +125268,7 @@ while.end.i:                                      ; preds = %while.body.i, %if.e
   br i1 %or.cond, label %if.then9.i, label %if.end16.i
 
 if.then9.i:                                       ; preds = %while.end.i
-  %sub12.i = or disjoint i64 %sub, 1
+  %sub12.i = or i64 %sub, 1
   %add.ptr13.i = getelementptr inbounds nuw %"struct.google::protobuf::internal::SortItem.223", ptr %__first, i64 %sub12.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr10, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr13.i, i64 16, i1 false)
   br label %if.end16.i
@@ -136263,7 +136257,7 @@ if.end.i.i.i:                                     ; preds = %if.then
   %conv2.i.i.i = zext i8 %9 to i32
   %sub.i.i.i = shl nuw nsw i32 %conv2.i.i.i, 7
   %shl.i.i.i = add nsw i32 %conv.i.i.i, -128
-  %add.i.i.i = or disjoint i32 %sub.i.i.i, %shl.i.i.i
+  %add.i.i.i = add nuw nsw i32 %shl.i.i.i, %sub.i.i.i
   %tobool4.not.i.i.i = icmp sgt i8 %9, -1
   br i1 %tobool4.not.i.i.i, label %_ZN6google8protobuf8internal14MapTypeHandlerILNS1_14WireFormatLite9FieldTypeE5EiE4ReadEPKcPNS1_12ParseContextEPi.exit.thread, label %_ZN6google8protobuf8internal14MapTypeHandlerILNS1_14WireFormatLite9FieldTypeE5EiE4ReadEPKcPNS1_12ParseContextEPi.exit
 
@@ -136520,7 +136514,7 @@ if.end.i.i:                                       ; preds = %entry
   %conv2.i.i = zext i8 %1 to i32
   %sub.i.i = shl nuw nsw i32 %conv2.i.i, 7
   %shl.i.i = add nsw i32 %conv.i.i, -128
-  %add.i.i = or disjoint i32 %sub.i.i, %shl.i.i
+  %add.i.i = add nuw nsw i32 %shl.i.i, %sub.i.i
   %tobool4.not.i.i = icmp sgt i8 %1, -1
   br i1 %tobool4.not.i.i, label %if.then5.i.i, label %if.end7.i.i
 
@@ -137177,7 +137171,7 @@ if.end.i.i.i:                                     ; preds = %if.then
   %conv2.i.i.i = zext i8 %9 to i32
   %sub.i.i.i = shl nuw nsw i32 %conv2.i.i.i, 7
   %shl.i.i.i = add nsw i32 %conv.i.i.i, -128
-  %add.i.i.i = or disjoint i32 %sub.i.i.i, %shl.i.i.i
+  %add.i.i.i = add nuw nsw i32 %shl.i.i.i, %sub.i.i.i
   %tobool4.not.i.i.i = icmp sgt i8 %9, -1
   br i1 %tobool4.not.i.i.i, label %_ZN6google8protobuf8internal14MapTypeHandlerILNS1_14WireFormatLite9FieldTypeE13EjE4ReadEPKcPNS1_12ParseContextEPj.exit.thread, label %_ZN6google8protobuf8internal14MapTypeHandlerILNS1_14WireFormatLite9FieldTypeE13EjE4ReadEPKcPNS1_12ParseContextEPj.exit
 
@@ -137434,7 +137428,7 @@ if.end.i.i:                                       ; preds = %entry
   %conv2.i.i = zext i8 %1 to i32
   %sub.i.i = shl nuw nsw i32 %conv2.i.i, 7
   %shl.i.i = add nsw i32 %conv.i.i, -128
-  %add.i.i = or disjoint i32 %sub.i.i, %shl.i.i
+  %add.i.i = add nuw nsw i32 %shl.i.i, %sub.i.i
   %tobool4.not.i.i = icmp sgt i8 %1, -1
   br i1 %tobool4.not.i.i, label %if.then5.i.i, label %if.end7.i.i
 
@@ -140523,7 +140517,7 @@ if.end.i.i.i:                                     ; preds = %if.then
   %conv2.i.i.i = zext i8 %9 to i32
   %sub.i.i.i = shl nuw nsw i32 %conv2.i.i.i, 7
   %shl.i.i.i = add nsw i32 %conv.i.i.i, -128
-  %add.i.i.i = or disjoint i32 %sub.i.i.i, %shl.i.i.i
+  %add.i.i.i = add nuw nsw i32 %shl.i.i.i, %sub.i.i.i
   %tobool4.not.i.i.i = icmp sgt i8 %9, -1
   br i1 %tobool4.not.i.i.i, label %_ZN6google8protobuf8internal14MapTypeHandlerILNS1_14WireFormatLite9FieldTypeE5EiE4ReadEPKcPNS1_12ParseContextEPi.exit.thread, label %_ZN6google8protobuf8internal14MapTypeHandlerILNS1_14WireFormatLite9FieldTypeE5EiE4ReadEPKcPNS1_12ParseContextEPi.exit
 
@@ -140934,7 +140928,7 @@ if.end.i.i.i:                                     ; preds = %if.then
   %conv2.i.i.i = zext i8 %9 to i32
   %sub.i.i.i = shl nuw nsw i32 %conv2.i.i.i, 7
   %shl.i.i.i = add nsw i32 %conv.i.i.i, -128
-  %add.i.i.i = or disjoint i32 %sub.i.i.i, %shl.i.i.i
+  %add.i.i.i = add nuw nsw i32 %shl.i.i.i, %sub.i.i.i
   %tobool4.not.i.i.i = icmp sgt i8 %9, -1
   br i1 %tobool4.not.i.i.i, label %_ZN6google8protobuf8internal14MapTypeHandlerILNS1_14WireFormatLite9FieldTypeE5EiE4ReadEPKcPNS1_12ParseContextEPi.exit.thread, label %_ZN6google8protobuf8internal14MapTypeHandlerILNS1_14WireFormatLite9FieldTypeE5EiE4ReadEPKcPNS1_12ParseContextEPi.exit
 
@@ -141341,7 +141335,7 @@ if.end.i.i.i.i:                                   ; preds = %if.then
   %conv2.i.i.i.i = zext i8 %9 to i32
   %sub.i.i.i.i = shl nuw nsw i32 %conv2.i.i.i.i, 7
   %shl.i.i.i.i = add nsw i32 %conv.i.i.i.i, -128
-  %add.i.i.i.i = or disjoint i32 %sub.i.i.i.i, %shl.i.i.i.i
+  %add.i.i.i.i = add nuw nsw i32 %shl.i.i.i.i, %sub.i.i.i.i
   %tobool4.not.i.i.i.i = icmp sgt i8 %9, -1
   br i1 %tobool4.not.i.i.i.i, label %if.then5.i.i.i.i, label %_ZN6google8protobuf8internal14MapTypeHandlerILNS1_14WireFormatLite9FieldTypeE8EbE4ReadEPKcPNS1_12ParseContextEPb.exit
 
@@ -141622,7 +141616,7 @@ if.end.i.i.i:                                     ; preds = %entry
   %conv2.i.i.i = zext i8 %1 to i32
   %sub.i.i.i = shl nuw nsw i32 %conv2.i.i.i, 7
   %shl.i.i.i = add nsw i32 %conv.i.i.i, -128
-  %add.i.i.i = or disjoint i32 %sub.i.i.i, %shl.i.i.i
+  %add.i.i.i = add nuw nsw i32 %shl.i.i.i, %sub.i.i.i
   %tobool4.not.i.i.i = icmp sgt i8 %1, -1
   br i1 %tobool4.not.i.i.i, label %if.then5.i.i.i, label %if.end7.i.i.i
 

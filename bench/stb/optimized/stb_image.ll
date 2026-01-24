@@ -26911,11 +26911,15 @@ stbi__get8.exit.i204:                             ; preds = %stbi__refill_buffer
 
 stbi__readval.exit215.preheader:                  ; preds = %303
   %.not364 = icmp eq i8 %.0.i188, 0
-  br i1 %.not364, label %stbi__readval.exit215._crit_edge, label %.lr.ph353
+  br i1 %.not364, label %stbi__readval.exit215._crit_edge, label %.lr.ph353.preheader
 
-.lr.ph353:                                        ; preds = %stbi__readval.exit215.preheader, %stbi__copyval.exit
-  %.0104352 = phi i32 [ %315, %stbi__copyval.exit ], [ 0, %stbi__readval.exit215.preheader ]
-  %.3351 = phi ptr [ %316, %stbi__copyval.exit ], [ %.1109355, %stbi__readval.exit215.preheader ]
+.lr.ph353.preheader:                              ; preds = %stbi__readval.exit215.preheader
+  %umax = tail call i32 @llvm.umax.i32(i32 %spec.select328, i32 1)
+  br label %.lr.ph353
+
+.lr.ph353:                                        ; preds = %.lr.ph353.preheader, %stbi__copyval.exit
+  %.0104352 = phi i32 [ %315, %stbi__copyval.exit ], [ 0, %.lr.ph353.preheader ]
+  %.3351 = phi ptr [ %316, %stbi__copyval.exit ], [ %.1109355, %.lr.ph353.preheader ]
   %305 = load i8, ptr %169, align 1, !tbaa !343
   %306 = zext i8 %305 to i32
   br label %307
@@ -26943,7 +26947,7 @@ stbi__readval.exit215.preheader:                  ; preds = %303
 stbi__copyval.exit:                               ; preds = %313
   %315 = add nuw nsw i32 %.0104352, 1
   %316 = getelementptr inbounds nuw i8, ptr %.3351, i64 4
-  %exitcond379.not = icmp eq i32 %315, %spec.select328
+  %exitcond379.not = icmp eq i32 %315, %umax
   br i1 %exitcond379.not, label %stbi__readval.exit215._crit_edge, label %.lr.ph353, !llvm.loop !346
 
 stbi__readval.exit215._crit_edge:                 ; preds = %stbi__copyval.exit, %stbi__readval.exit215.preheader
@@ -29176,7 +29180,7 @@ stbi__get8.exit130:                               ; preds = %105, %108, %stbi__r
   %129 = zext i8 %.0.i129 to i32
   %130 = shl i32 %129, %.083
   %131 = or i32 %130, %.085
-  %132 = add nsw i32 %.083, 8
+  %132 = add nuw nsw i32 %.083, 8
   br label %64
 
 133:                                              ; preds = %64

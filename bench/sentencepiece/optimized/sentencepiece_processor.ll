@@ -5728,6 +5728,7 @@ _ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE17_S_check_init_l
   %269 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store ptr %267, ptr %269, align 8, !tbaa !206, !alias.scope !227
   store ptr %scevgep.i.i.i.i.i.i, ptr %268, align 8, !tbaa !221, !alias.scope !227
+  %umax.i = call i64 @llvm.umax.i64(i64 %263, i64 1)
   br label %270
 
 270:                                              ; preds = %270, %.noexc119
@@ -5741,7 +5742,7 @@ _ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE17_S_check_init_l
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %275, i64 8
   store ptr %272, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !196, !noalias !227
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %263
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %umax.i
   br i1 %exitcond.not.i, label %_ZN13sentencepiece12_GLOBAL__N_112ToPieceArrayERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EE.exit, label %270, !llvm.loop !230
 
 _ZN13sentencepiece12_GLOBAL__N_112ToPieceArrayERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EE.exit: ; preds = %270, %.thread.i
@@ -6623,6 +6624,7 @@ _ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE17_S_check_init_l
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %14, ptr %16, align 8, !tbaa !206, !alias.scope !238
   store ptr %scevgep.i.i.i.i.i.i, ptr %15, align 8, !tbaa !221, !alias.scope !238
+  %umax.i = tail call i64 @llvm.umax.i64(i64 %10, i64 1)
   br label %17
 
 17:                                               ; preds = %17, %.lr.ph.i
@@ -6636,7 +6638,7 @@ _ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE17_S_check_init_l
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %22, i64 8
   store ptr %19, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !196, !noalias !238
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %10
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %umax.i
   br i1 %exitcond.not.i, label %_ZN13sentencepiece12_GLOBAL__N_112ToPieceArrayERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EE.exit, label %17, !llvm.loop !230
 
 _ZN13sentencepiece12_GLOBAL__N_112ToPieceArrayERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EE.exit: ; preds = %17, %.thread.i
@@ -14876,6 +14878,7 @@ _ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE17_S_check_init_l
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %14, ptr %16, align 8, !tbaa !206, !alias.scope !345
   store ptr %scevgep.i.i.i.i.i.i, ptr %15, align 8, !tbaa !221, !alias.scope !345
+  %umax.i = tail call i64 @llvm.umax.i64(i64 %10, i64 1)
   br label %17
 
 17:                                               ; preds = %17, %.lr.ph.i
@@ -14889,7 +14892,7 @@ _ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE17_S_check_init_l
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %22, i64 8
   store ptr %19, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !196, !noalias !345
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %10
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %umax.i
   br i1 %exitcond.not.i, label %_ZN13sentencepiece12_GLOBAL__N_112ToPieceArrayERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EE.exit, label %17, !llvm.loop !230
 
 _ZN13sentencepiece12_GLOBAL__N_112ToPieceArrayERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EE.exit: ; preds = %17, %.thread.i
