@@ -2265,9 +2265,9 @@ _ZNK3g2o17SparseBlockMatrixIN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEEE8nonZerosEv.e
   br i1 %.not130.i, label %_ZNK3g2o20SparseBlockMatrixCCSIN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEEE7fillCCSEPiS5_Pdb.exit, label %.lr.ph123.i
 
 .lr.ph123.i:                                      ; preds = %_ZNK3g2o17SparseBlockMatrixIN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEEE8nonZerosEv.exit
-  %90 = load ptr, ptr %81, align 8, !tbaa !151
-  %91 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %92 = load ptr, ptr %91, align 8, !tbaa !152
+  %94 = load ptr, ptr %81, align 8, !tbaa !151
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %96 = load ptr, ptr %95, align 8, !tbaa !152
   %93 = ptrtoint ptr %88 to i64
   %94 = ptrtoint ptr %89 to i64
   %95 = sub i64 %93, %94
@@ -2279,8 +2279,8 @@ _ZNK3g2o17SparseBlockMatrixIN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEEE8nonZerosEv.e
 
 .lr.ph123.split.us.i:                             ; preds = %._crit_edge74.us.i, %.lr.ph123.i
   %.033122.us.i = phi ptr [ %.1.lcssa.us.i, %._crit_edge74.us.i ], [ %85, %.lr.ph123.i ]
-  %.035121.us.i = phi ptr [ %.136.lcssa.us.i, %._crit_edge74.us.i ], [ %92, %.lr.ph123.i ]
-  %.037120.us.i = phi ptr [ %.138.lcssa.us.i, %._crit_edge74.us.i ], [ %90, %.lr.ph123.i ]
+  %.035121.us.i = phi ptr [ %.136.lcssa.us.i, %._crit_edge74.us.i ], [ %96, %.lr.ph123.i ]
+  %.037120.us.i = phi ptr [ %.138.lcssa.us.i, %._crit_edge74.us.i ], [ %94, %.lr.ph123.i ]
   %.041118.us.i = phi i64 [ %116, %._crit_edge74.us.i ], [ 0, %.lr.ph123.i ]
   %.042117.us.i = phi i32 [ %.143.lcssa.us.i, %._crit_edge74.us.i ], [ 0, %.lr.ph123.i ]
   %.not.us.i = icmp eq i64 %.041118.us.i, 0

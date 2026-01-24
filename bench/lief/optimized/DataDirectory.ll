@@ -20,7 +20,7 @@ define hidden void @_ZN4LIEF2PE23init_c_data_directoriesEP11Pe_Binary_tPNS0_6Bin
   %8 = ptrtoint ptr %4 to i64
   %9 = sub i64 %7, %8
   %10 = add i64 %9, 8
-  %11 = tail call noalias ptr @malloc(i64 noundef %10) #5
+  %11 = tail call noalias ptr @malloc(i64 noundef %10) #4
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 232
   store ptr %11, ptr %12, align 8, !tbaa !13
   %.not = icmp eq ptr %6, %4
@@ -38,7 +38,7 @@ _ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_2PE13DataDirectoryESt14defau
 
 _ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_2PE13DataDirectoryESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEixEm.exit: ; preds = %_ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_2PE13DataDirectoryESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEixEm.exit.lr.ph, %_ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_2PE13DataDirectoryESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEixEm.exit
   %.021 = phi i64 [ 0, %_ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_2PE13DataDirectoryESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEixEm.exit.lr.ph ], [ %24, %_ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_2PE13DataDirectoryESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEixEm.exit ]
-  %15 = tail call noalias dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #5
+  %15 = tail call noalias dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #4
   %16 = getelementptr inbounds nuw ptr, ptr %11, i64 %.021
   store ptr %15, ptr %16, align 8, !tbaa !27
   %17 = getelementptr inbounds %"class.std::unique_ptr.107", ptr %4, i64 %.021
@@ -72,13 +72,13 @@ define hidden void @_ZN4LIEF2PE24destroy_data_directoriesEP11Pe_Binary_t(ptr nou
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %1
   %5 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %3, %1 ]
-  tail call void @free(ptr noundef %5) #6
+  tail call void @free(ptr noundef %5) #5
   ret void
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %6 = phi ptr [ %9, %.lr.ph ], [ %4, %1 ]
   %.08 = phi i64 [ %7, %.lr.ph ], [ 0, %1 ]
-  tail call void @free(ptr noundef nonnull %6) #6
+  tail call void @free(ptr noundef nonnull %6) #5
   %7 = add i64 %.08, 1
   %8 = getelementptr inbounds nuw ptr, ptr %3, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !27

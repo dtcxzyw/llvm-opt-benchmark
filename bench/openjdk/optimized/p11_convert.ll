@@ -594,9 +594,9 @@ define hidden noalias noundef ptr @jDateObjectToCKDatePtr(ptr noundef %0, ptr no
 
 .preheader130:                                    ; preds = %54
   %.not142 = icmp eq i32 %50, 0
-  br i1 %.not142, label %._crit_edge, label %.lr.ph.preheader
+  br i1 %.not142, label %._crit_edge, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %.preheader130
+.lr.ph:                                           ; preds = %.preheader130
   %umax = tail call i64 @llvm.umin.i64(i64 %51, i64 4)
   br label %.lr.ph
 

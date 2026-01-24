@@ -8034,7 +8034,7 @@ define void @_ZN8mini_lsm5table9BlockMeta17decode_block_meta17hadb1c8ed04b6277dE
           cleanup
   br label %.body
 
-.loopexit.split-lp:                               ; preds = %.invoke, %24, %42, %23
+.loopexit.split-lp:                               ; preds = %.invoke, %25, %42, %24
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -8050,24 +8050,24 @@ define void @_ZN8mini_lsm5table9BlockMeta17decode_block_meta17hadb1c8ed04b6277dE
   %22 = icmp ugt i64 %21, %19
   br i1 %22, label %23, label %24
 
-23:                                               ; preds = %16
+24:                                               ; preds = %16
   invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %21, i64 noundef %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.7c19c97e3fdb202712c0ff18ddcac760.86) #46
           to label %.noexc12 unwind label %.loopexit.split-lp
 
-.noexc12:                                         ; preds = %23
+.noexc12:                                         ; preds = %24
   unreachable
 
-24:                                               ; preds = %16
-  %25 = invoke noundef i32 @_ZN9crc32fast4hash17h6087a78bdf39b11dE(ptr noalias noundef nonnull readonly align 1 %20, i64 noundef %21)
+25:                                               ; preds = %16
+  %26 = invoke noundef i32 @_ZN9crc32fast4hash17h6087a78bdf39b11dE(ptr noalias noundef nonnull readonly align 1 %20, i64 noundef %21)
           to label %.preheader unwind label %.loopexit.split-lp
 
-.preheader:                                       ; preds = %24
+.preheader:                                       ; preds = %25
   %.not36 = icmp eq i32 %17, 0
   br i1 %.not36, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %26 = getelementptr inbounds nuw i8, ptr %6, i64 64
-  %27 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %6, i64 64
+  %28 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %28 = tail call i32 @llvm.umax.i32(i32 %18, i32 1)
   %umax = zext i32 %28 to i64
   br label %31
@@ -8094,7 +8094,7 @@ define void @_ZN8mini_lsm5table9BlockMeta17decode_block_meta17hadb1c8ed04b6277dE
   %40 = getelementptr inbounds nuw i8, ptr %36, i64 4
   store ptr %40, ptr %11, align 8, !alias.scope !2100
   store i64 %39, ptr %12, align 8, !alias.scope !2100
-  %.not = icmp eq i32 %38, %25
+  %.not = icmp eq i32 %38, %26
   br i1 %.not, label %41, label %42
 
 41:                                               ; preds = %35
@@ -8307,10 +8307,10 @@ common.resume:                                    ; preds = %.body, %.body21
 
 129:                                              ; preds = %122
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 32, i1 false)
-  store i64 %110, ptr %26, align 8
+  store i64 %110, ptr %27, align 8
   %130 = load i64, ptr %14, align 8, !alias.scope !2173, !noalias !2176, !noundef !9
   %131 = load i64, ptr %10, align 8, !alias.scope !2173, !noalias !2176, !noundef !9
   %132 = icmp eq i64 %130, %131

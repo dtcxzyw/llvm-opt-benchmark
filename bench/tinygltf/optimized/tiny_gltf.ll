@@ -91455,9 +91455,9 @@ _ZL10stbi__get8P13stbi__context.exit.i204.i:      ; preds = %_ZL19stbi__refill_b
 
 _ZL13stbi__readvalP13stbi__contextiPh.exit215.preheader.i: ; preds = %366
   %.not364.i = icmp eq i8 %.0.i188.i, 0
-  br i1 %.not364.i, label %_ZL13stbi__readvalP13stbi__contextiPh.exit215._crit_edge.i, label %.lr.ph352.preheader.i
+  br i1 %.not364.i, label %_ZL13stbi__readvalP13stbi__contextiPh.exit215._crit_edge.i, label %.lr.ph352.i
 
-.lr.ph352.preheader.i:                            ; preds = %_ZL13stbi__readvalP13stbi__contextiPh.exit215.preheader.i
+.lr.ph352.i:                                      ; preds = %_ZL13stbi__readvalP13stbi__contextiPh.exit215.preheader.i
   %umax.i = tail call i32 @llvm.umax.i32(i32 %spec.select328.i, i32 1)
   br label %.lr.ph352.i
 

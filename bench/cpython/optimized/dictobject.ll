@@ -1237,9 +1237,9 @@ define hidden noundef i32 @_PyDict_CheckConsistency(ptr noundef %0, i32 noundef 
   %61 = icmp ult i8 %13, 8
   %62 = icmp ugt i8 %13, 31
   %63 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  br i1 %61, label %dictkeys_get_index.exit.us.preheader, label %.lr.ph.split
+  br i1 %61, label %dictkeys_get_index.exit.us, label %.lr.ph.split
 
-dictkeys_get_index.exit.us.preheader:             ; preds = %.lr.ph
+dictkeys_get_index.exit.us:                       ; preds = %.lr.ph
   %smax180 = tail call i64 @llvm.smax.i64(i64 %60, i64 1)
   br label %dictkeys_get_index.exit.us
 

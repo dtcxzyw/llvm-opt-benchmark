@@ -8294,9 +8294,9 @@ define hidden noundef zeroext i1 @_ZNK5osgeo4proj9operation15OperationMethod15_i
   br i1 %32, label %.preheader, label %46
 
 .preheader:                                       ; preds = %31
-  br i1 %.not64117.not, label %.thread, label %.lr.ph.preheader
+  br i1 %.not64117.not, label %.thread, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %.preheader
+.lr.ph:                                           ; preds = %.preheader
   %umax129 = tail call i64 @llvm.umax.i64(i64 %24, i64 1)
   br label %.lr.ph
 

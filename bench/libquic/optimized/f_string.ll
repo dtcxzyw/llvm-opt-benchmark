@@ -30,7 +30,7 @@ define hidden range(i32 -2147483646, -2147483648) i32 @i2a_ASN1_STRING(ptr nound
   br label %14
 
 12:                                               ; preds = %6
-  %13 = tail call i32 @BIO_write(ptr noundef %0, ptr noundef nonnull @.str.1, i32 noundef 1) #7
+  %13 = tail call i32 @BIO_write(ptr noundef %0, ptr noundef nonnull @.str.1, i32 noundef 1) #6
   %.not22 = icmp eq i32 %13, 1
   br i1 %.not22, label %.loopexit, label %.loopexit24
 
@@ -45,7 +45,7 @@ define hidden range(i32 -2147483646, -2147483648) i32 @i2a_ASN1_STRING(ptr nound
   br i1 %or.cond, label %18, label %22
 
 18:                                               ; preds = %14
-  %19 = call i32 @BIO_write(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef 2) #7
+  %19 = call i32 @BIO_write(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef 2) #6
   %.not20 = icmp eq i32 %19, 2
   br i1 %.not20, label %20, label %.loopexit24
 
@@ -69,7 +69,7 @@ define hidden range(i32 -2147483646, -2147483648) i32 @i2a_ASN1_STRING(ptr nound
   %33 = getelementptr inbounds nuw i8, ptr @.str, i64 %32
   %34 = load i8, ptr %33, align 1, !tbaa !15
   store i8 %34, ptr %11, align 1, !tbaa !15
-  %35 = call i32 @BIO_write(ptr noundef %0, ptr noundef nonnull %4, i32 noundef 2) #7
+  %35 = call i32 @BIO_write(ptr noundef %0, ptr noundef nonnull %4, i32 noundef 2) #6
   %.not21 = icmp eq i32 %35, 2
   br i1 %.not21, label %36, label %.loopexit24
 
@@ -94,7 +94,7 @@ declare i32 @BIO_write(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @a2i_ASN1_STRING(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
-  %5 = tail call i32 @BIO_gets(ptr noundef %0, ptr noundef %2, i32 noundef %3) #7
+  %5 = tail call i32 @BIO_gets(ptr noundef %0, ptr noundef %2, i32 noundef %3) #6
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %.lr.ph162, label %.loopexit130
 
@@ -202,7 +202,7 @@ switch.early.test._crit_edge:                     ; preds = %34, %switch.early.t
   br i1 %.not, label %44, label %43
 
 43:                                               ; preds = %40
-  tail call void @ERR_put_error(i32 noundef 12, i32 noundef 0, i32 noundef 166, ptr noundef nonnull @.str.3, i32 noundef 143) #7
+  tail call void @ERR_put_error(i32 noundef 12, i32 noundef 0, i32 noundef 166, ptr noundef nonnull @.str.3, i32 noundef 143) #6
   br label %84
 
 44:                                               ; preds = %40
@@ -218,11 +218,11 @@ switch.early.test._crit_edge:                     ; preds = %34, %switch.early.t
   br i1 %49, label %52, label %54
 
 52:                                               ; preds = %48
-  %53 = tail call noalias ptr @malloc(i64 noundef %51) #8
+  %53 = tail call noalias ptr @malloc(i64 noundef %51) #7
   br label %56
 
 54:                                               ; preds = %48
-  %55 = tail call ptr @realloc(ptr noundef nonnull %.0102157, i64 noundef %51) #9
+  %55 = tail call ptr @realloc(ptr noundef nonnull %.0102157, i64 noundef %51) #8
   br label %56
 
 56:                                               ; preds = %54, %52
@@ -231,7 +231,7 @@ switch.early.test._crit_edge:                     ; preds = %34, %switch.early.t
   br i1 %57, label %58, label %59
 
 58:                                               ; preds = %56
-  tail call void @ERR_put_error(i32 noundef 12, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str.3, i32 noundef 156) #7
+  tail call void @ERR_put_error(i32 noundef 12, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str.3, i32 noundef 156) #6
   br label %84
 
 59:                                               ; preds = %56
@@ -282,7 +282,7 @@ switch.early.test._crit_edge:                     ; preds = %34, %switch.early.t
   br label %75
 
 74:                                               ; preds = %70
-  tail call void @ERR_put_error(i32 noundef 12, i32 noundef 0, i32 noundef 160, ptr noundef nonnull @.str.3, i32 noundef 172) #7
+  tail call void @ERR_put_error(i32 noundef 12, i32 noundef 0, i32 noundef 160, ptr noundef nonnull @.str.3, i32 noundef 172) #6
   br label %84
 
 75:                                               ; preds = %62, %68, %72
@@ -303,7 +303,7 @@ switch.early.test._crit_edge:                     ; preds = %34, %switch.early.t
   br i1 %28, label %80, label %.loopexit130
 
 80:                                               ; preds = %._crit_edge155
-  %81 = tail call i32 @BIO_gets(ptr noundef %0, ptr noundef nonnull %2, i32 noundef %3) #7
+  %81 = tail call i32 @BIO_gets(ptr noundef %0, ptr noundef nonnull %2, i32 noundef %3) #6
   %82 = icmp slt i32 %81, 1
   br i1 %82, label %.loopexit, label %.lr.ph162
 
@@ -317,7 +317,7 @@ switch.early.test._crit_edge:                     ; preds = %34, %switch.early.t
 
 .loopexit:                                        ; preds = %switch.early.test._crit_edge, %19, %12, %80, %switch.early.test._crit_edge.thread
   %.0102146 = phi ptr [ %.0102157, %switch.early.test._crit_edge.thread ], [ %.0102157, %switch.early.test._crit_edge ], [ %.0102157, %19 ], [ %.0102157, %12 ], [ %.2, %80 ]
-  tail call void @ERR_put_error(i32 noundef 12, i32 noundef 0, i32 noundef 171, ptr noundef nonnull @.str.3, i32 noundef 191) #7
+  tail call void @ERR_put_error(i32 noundef 12, i32 noundef 0, i32 noundef 171, ptr noundef nonnull @.str.3, i32 noundef 191) #6
   br label %84
 
 84:                                               ; preds = %43, %58, %74, %.loopexit130, %.loopexit
@@ -327,7 +327,7 @@ switch.early.test._crit_edge:                     ; preds = %34, %switch.early.t
   br i1 %.not119, label %86, label %85
 
 85:                                               ; preds = %84
-  tail call void @free(ptr noundef nonnull %.3) #7
+  tail call void @free(ptr noundef nonnull %.3) #6
   br label %86
 
 86:                                               ; preds = %85, %84
