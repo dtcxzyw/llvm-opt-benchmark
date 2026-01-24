@@ -30643,11 +30643,11 @@ define linkonce_odr void @_ZN3vcg3tri15SurfaceSamplingI6CMeshO11BaseSamplerE11Fa
   br i1 %3, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZN3vcg3tri15SurfaceSamplingI6CMeshO11BaseSamplerE17SingleFaceSimilarEP6CFaceORS3_i.exit.us
-  %64 = phi ptr [ %138, %_ZN3vcg3tri15SurfaceSamplingI6CMeshO11BaseSamplerE17SingleFaceSimilarEP6CFaceORS3_i.exit.us ], [ %9, %.lr.ph ]
-  %.01931.us = phi double [ %140, %_ZN3vcg3tri15SurfaceSamplingI6CMeshO11BaseSamplerE17SingleFaceSimilarEP6CFaceORS3_i.exit.us ], [ 0.000000e+00, %.lr.ph ]
-  %.sroa.024.030.us = phi ptr [ %141, %_ZN3vcg3tri15SurfaceSamplingI6CMeshO11BaseSamplerE17SingleFaceSimilarEP6CFaceORS3_i.exit.us ], [ %7, %.lr.ph ]
-  %65 = getelementptr inbounds nuw i8, ptr %.sroa.024.030.us, i64 8
-  %66 = getelementptr inbounds nuw i8, ptr %.sroa.024.030.us, i64 16
+  %64 = phi ptr [ %137, %_ZN3vcg3tri15SurfaceSamplingI6CMeshO11BaseSamplerE17SingleFaceSimilarEP6CFaceORS3_i.exit.us ], [ %9, %.lr.ph ]
+  %.01932.us = phi double [ %139, %_ZN3vcg3tri15SurfaceSamplingI6CMeshO11BaseSamplerE17SingleFaceSimilarEP6CFaceORS3_i.exit.us ], [ 0.000000e+00, %.lr.ph ]
+  %.sroa.024.031.us = phi ptr [ %140, %_ZN3vcg3tri15SurfaceSamplingI6CMeshO11BaseSamplerE17SingleFaceSimilarEP6CFaceORS3_i.exit.us ], [ %7, %.lr.ph ]
+  %65 = getelementptr inbounds nuw i8, ptr %.sroa.024.031.us, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %.sroa.024.031.us, i64 16
   %67 = load ptr, ptr %66, align 8
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 8
   %69 = load ptr, ptr %65, align 8
@@ -30665,7 +30665,7 @@ define linkonce_odr void @_ZN3vcg3tri15SurfaceSamplingI6CMeshO11BaseSamplerE11Fa
   %81 = getelementptr inbounds nuw i8, ptr %69, i64 16
   %82 = load float, ptr %81, align 4
   %83 = fsub float %80, %82
-  %84 = getelementptr inbounds nuw i8, ptr %.sroa.024.030.us, i64 24
+  %84 = getelementptr inbounds nuw i8, ptr %.sroa.024.031.us, i64 24
   %85 = load ptr, ptr %84, align 8
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 8
   %87 = load float, ptr %86, align 4
@@ -30691,7 +30691,7 @@ define linkonce_odr void @_ZN3vcg3tri15SurfaceSamplingI6CMeshO11BaseSamplerE11Fa
   %107 = tail call noundef float @sqrtf(float noundef %106) #23
   %108 = fpext float %107 to double
   %109 = fmul double %108, 5.000000e-01
-  %110 = tail call double @llvm.fmuladd.f64(double %109, double %63, double %.01931.us)
+  %110 = tail call double @llvm.fmuladd.f64(double %109, double %63, double %.01932.us)
   %111 = fptosi double %110 to i32
   %112 = icmp sgt i32 %111, 0
   br i1 %112, label %113, label %_ZN3vcg3tri15SurfaceSamplingI6CMeshO11BaseSamplerE17SingleFaceSimilarEP6CFaceORS3_i.exit.us
@@ -30699,143 +30699,143 @@ define linkonce_odr void @_ZN3vcg3tri15SurfaceSamplingI6CMeshO11BaseSamplerE11Fa
 113:                                              ; preds = %.lr.ph.split.us
   %114 = uitofp nneg i32 %111 to double
   %115 = tail call double @llvm.fmuladd.f64(double %114, double 8.000000e+00, double 1.000000e+00)
-  %116 = tail call double @sqrt(double noundef %115) #23
-  %117 = fadd double %116, 5.000000e+00
-  %118 = fmul double %117, 5.000000e-01
-  %119 = fptosi double %118 to i32
-  %120 = add i32 %119, -1
-  %121 = sitofp i32 %120 to float
-  %122 = fdiv float 1.000000e+00, %121
-  %123 = icmp sgt i32 %119, 2
-  br i1 %123, label %.preheader.preheader.i.us, label %_ZN3vcg3tri15SurfaceSamplingI6CMeshO11BaseSamplerE17SingleFaceSimilarEP6CFaceORS3_i.exit.us
+  %sqrt.us = tail call double @llvm.sqrt.f64(double %115)
+  %116 = fadd double %sqrt.us, 5.000000e+00
+  %117 = fmul double %116, 5.000000e-01
+  %118 = fptosi double %117 to i32
+  %119 = add i32 %118, -1
+  %120 = sitofp i32 %119 to float
+  %121 = fdiv float 1.000000e+00, %120
+  %122 = icmp sgt i32 %118, 2
+  br i1 %122, label %.preheader.preheader.i.us, label %_ZN3vcg3tri15SurfaceSamplingI6CMeshO11BaseSamplerE17SingleFaceSimilarEP6CFaceORS3_i.exit.us
 
 .preheader.preheader.i.us:                        ; preds = %113
-  %124 = add nsw i32 %119, -3
-  %125 = add nsw i32 %119, -2
+  %123 = add nsw i32 %118, -3
+  %124 = add nsw i32 %118, -2
   br label %.preheader.i.us
 
 .preheader.i.us:                                  ; preds = %._crit_edge.i.us, %.preheader.preheader.i.us
-  %indvars.iv32.i.us = phi i32 [ %125, %.preheader.preheader.i.us ], [ %indvars.iv.next33.i.us, %._crit_edge.i.us ]
-  %indvars.iv.i.us = phi i32 [ %124, %.preheader.preheader.i.us ], [ %indvars.iv.next.i.us, %._crit_edge.i.us ]
+  %indvars.iv32.i.us = phi i32 [ %124, %.preheader.preheader.i.us ], [ %indvars.iv.next33.i.us, %._crit_edge.i.us ]
+  %indvars.iv.i.us = phi i32 [ %123, %.preheader.preheader.i.us ], [ %indvars.iv.next.i.us, %._crit_edge.i.us ]
   %.029.i.us = phi i32 [ 0, %.preheader.preheader.i.us ], [ %.1.lcssa.i.us, %._crit_edge.i.us ]
-  %.02228.i.us = phi i32 [ 1, %.preheader.preheader.i.us ], [ %137, %._crit_edge.i.us ]
-  %126 = sub nsw i32 %120, %.02228.i.us
-  %127 = icmp sgt i32 %126, 1
-  br i1 %127, label %.lr.ph.i22.us, label %._crit_edge.i.us
+  %.02228.i.us = phi i32 [ 1, %.preheader.preheader.i.us ], [ %136, %._crit_edge.i.us ]
+  %125 = sub nsw i32 %119, %.02228.i.us
+  %126 = icmp sgt i32 %125, 1
+  br i1 %126, label %.lr.ph.i22.us, label %._crit_edge.i.us
 
 .lr.ph.i22.us:                                    ; preds = %.preheader.i.us
-  %128 = uitofp nneg i32 %.02228.i.us to float
-  %129 = fmul float %122, %128
-  %.sroa.0.0.vec.insert.i.us = insertelement <2 x float> poison, float %129, i64 0
-  br label %130
+  %127 = uitofp nneg i32 %.02228.i.us to float
+  %128 = fmul float %121, %127
+  %.sroa.0.0.vec.insert.i.us = insertelement <2 x float> poison, float %128, i64 0
+  br label %129
 
-130:                                              ; preds = %130, %.lr.ph.i22.us
-  %.02326.i.us = phi i32 [ 1, %.lr.ph.i22.us ], [ %135, %130 ]
-  %131 = uitofp nneg i32 %.02326.i.us to float
-  %132 = fmul float %122, %131
-  %133 = tail call float @llvm.fmuladd.f32(float %128, float %122, float %132)
-  %134 = fsub float 1.000000e+00, %133
-  %.sroa.0.4.vec.insert.i.us = insertelement <2 x float> %.sroa.0.0.vec.insert.i.us, float %132, i64 1
-  tail call void @_ZN11BaseSampler7AddFaceERK6CFaceON3vcg6Point3IfEE(ptr noundef nonnull align 8 dereferenceable(27) %1, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.024.030.us, <2 x float> %.sroa.0.4.vec.insert.i.us, float %134)
-  %135 = add nuw nsw i32 %.02326.i.us, 1
-  %exitcond.not.i.us = icmp eq i32 %135, %indvars.iv32.i.us
-  br i1 %exitcond.not.i.us, label %._crit_edge.loopexit.i23.us, label %130, !llvm.loop !89
+129:                                              ; preds = %129, %.lr.ph.i22.us
+  %.02326.i.us = phi i32 [ 1, %.lr.ph.i22.us ], [ %134, %129 ]
+  %130 = uitofp nneg i32 %.02326.i.us to float
+  %131 = fmul float %121, %130
+  %132 = tail call float @llvm.fmuladd.f32(float %127, float %121, float %131)
+  %133 = fsub float 1.000000e+00, %132
+  %.sroa.0.4.vec.insert.i.us = insertelement <2 x float> %.sroa.0.0.vec.insert.i.us, float %131, i64 1
+  tail call void @_ZN11BaseSampler7AddFaceERK6CFaceON3vcg6Point3IfEE(ptr noundef nonnull align 8 dereferenceable(27) %1, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.024.031.us, <2 x float> %.sroa.0.4.vec.insert.i.us, float %133)
+  %134 = add nuw nsw i32 %.02326.i.us, 1
+  %exitcond.not.i.us = icmp eq i32 %134, %indvars.iv32.i.us
+  br i1 %exitcond.not.i.us, label %._crit_edge.loopexit.i23.us, label %129, !llvm.loop !89
 
-._crit_edge.loopexit.i23.us:                      ; preds = %130
-  %136 = add i32 %.029.i.us, %indvars.iv.i.us
+._crit_edge.loopexit.i23.us:                      ; preds = %129
+  %135 = add i32 %.029.i.us, %indvars.iv.i.us
   br label %._crit_edge.i.us
 
 ._crit_edge.i.us:                                 ; preds = %._crit_edge.loopexit.i23.us, %.preheader.i.us
-  %.1.lcssa.i.us = phi i32 [ %.029.i.us, %.preheader.i.us ], [ %136, %._crit_edge.loopexit.i23.us ]
-  %137 = add nuw nsw i32 %.02228.i.us, 1
+  %.1.lcssa.i.us = phi i32 [ %.029.i.us, %.preheader.i.us ], [ %135, %._crit_edge.loopexit.i23.us ]
+  %136 = add nuw nsw i32 %.02228.i.us, 1
   %indvars.iv.next.i.us = add i32 %indvars.iv.i.us, -1
   %indvars.iv.next33.i.us = add i32 %indvars.iv32.i.us, -1
-  %exitcond34.not.i.us = icmp eq i32 %137, %120
+  %exitcond34.not.i.us = icmp eq i32 %136, %119
   br i1 %exitcond34.not.i.us, label %_ZN3vcg3tri15SurfaceSamplingI6CMeshO11BaseSamplerE17SingleFaceSimilarEP6CFaceORS3_i.exit.us.loopexit, label %.preheader.i.us, !llvm.loop !90
 
 _ZN3vcg3tri15SurfaceSamplingI6CMeshO11BaseSamplerE17SingleFaceSimilarEP6CFaceORS3_i.exit.us.loopexit: ; preds = %._crit_edge.i.us
-  %.pre33 = load ptr, ptr %8, align 8
+  %.pre34 = load ptr, ptr %8, align 8
   br label %_ZN3vcg3tri15SurfaceSamplingI6CMeshO11BaseSamplerE17SingleFaceSimilarEP6CFaceORS3_i.exit.us
 
 _ZN3vcg3tri15SurfaceSamplingI6CMeshO11BaseSamplerE17SingleFaceSimilarEP6CFaceORS3_i.exit.us: ; preds = %_ZN3vcg3tri15SurfaceSamplingI6CMeshO11BaseSamplerE17SingleFaceSimilarEP6CFaceORS3_i.exit.us.loopexit, %113, %.lr.ph.split.us
-  %138 = phi ptr [ %64, %.lr.ph.split.us ], [ %64, %113 ], [ %.pre33, %_ZN3vcg3tri15SurfaceSamplingI6CMeshO11BaseSamplerE17SingleFaceSimilarEP6CFaceORS3_i.exit.us.loopexit ]
+  %137 = phi ptr [ %64, %.lr.ph.split.us ], [ %64, %113 ], [ %.pre34, %_ZN3vcg3tri15SurfaceSamplingI6CMeshO11BaseSamplerE17SingleFaceSimilarEP6CFaceORS3_i.exit.us.loopexit ]
   %.0.us = phi i32 [ %111, %.lr.ph.split.us ], [ 0, %113 ], [ %.1.lcssa.i.us, %_ZN3vcg3tri15SurfaceSamplingI6CMeshO11BaseSamplerE17SingleFaceSimilarEP6CFaceORS3_i.exit.us.loopexit ]
-  %139 = sitofp i32 %.0.us to double
-  %140 = fsub double %110, %139
-  %141 = getelementptr inbounds nuw i8, ptr %.sroa.024.030.us, i64 48
-  %.not.us = icmp eq ptr %141, %138
+  %138 = sitofp i32 %.0.us to double
+  %139 = fsub double %110, %138
+  %140 = getelementptr inbounds nuw i8, ptr %.sroa.024.031.us, i64 48
+  %.not.us = icmp eq ptr %140, %137
   br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !91
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZN3vcg3tri15SurfaceSamplingI6CMeshO11BaseSamplerE17SingleFaceSimilarEP6CFaceORS3_i.exit
-  %142 = phi ptr [ %196, %_ZN3vcg3tri15SurfaceSamplingI6CMeshO11BaseSamplerE17SingleFaceSimilarEP6CFaceORS3_i.exit ], [ %9, %.lr.ph ]
-  %.01931 = phi double [ %198, %_ZN3vcg3tri15SurfaceSamplingI6CMeshO11BaseSamplerE17SingleFaceSimilarEP6CFaceORS3_i.exit ], [ 0.000000e+00, %.lr.ph ]
-  %.sroa.024.030 = phi ptr [ %199, %_ZN3vcg3tri15SurfaceSamplingI6CMeshO11BaseSamplerE17SingleFaceSimilarEP6CFaceORS3_i.exit ], [ %7, %.lr.ph ]
-  %143 = getelementptr inbounds nuw i8, ptr %.sroa.024.030, i64 8
-  %144 = getelementptr inbounds nuw i8, ptr %.sroa.024.030, i64 16
-  %145 = load ptr, ptr %144, align 8
-  %146 = getelementptr inbounds nuw i8, ptr %145, i64 8
-  %147 = load ptr, ptr %143, align 8
-  %148 = getelementptr inbounds nuw i8, ptr %147, i64 8
-  %149 = load float, ptr %146, align 4
-  %150 = load float, ptr %148, align 4
-  %151 = fsub float %149, %150
-  %152 = getelementptr inbounds nuw i8, ptr %145, i64 12
-  %153 = load float, ptr %152, align 4
-  %154 = getelementptr inbounds nuw i8, ptr %147, i64 12
-  %155 = load float, ptr %154, align 4
-  %156 = fsub float %153, %155
-  %157 = getelementptr inbounds nuw i8, ptr %145, i64 16
-  %158 = load float, ptr %157, align 4
-  %159 = getelementptr inbounds nuw i8, ptr %147, i64 16
-  %160 = load float, ptr %159, align 4
-  %161 = fsub float %158, %160
-  %162 = getelementptr inbounds nuw i8, ptr %.sroa.024.030, i64 24
-  %163 = load ptr, ptr %162, align 8
-  %164 = getelementptr inbounds nuw i8, ptr %163, i64 8
-  %165 = load float, ptr %164, align 4
-  %166 = fsub float %165, %150
-  %167 = getelementptr inbounds nuw i8, ptr %163, i64 12
-  %168 = load float, ptr %167, align 4
-  %169 = fsub float %168, %155
-  %170 = getelementptr inbounds nuw i8, ptr %163, i64 16
-  %171 = load float, ptr %170, align 4
-  %172 = fsub float %171, %160
-  %173 = fneg float %169
-  %174 = fmul float %161, %173
-  %175 = tail call float @llvm.fmuladd.f32(float %156, float %172, float %174)
-  %176 = fneg float %172
-  %177 = fmul float %151, %176
-  %178 = tail call float @llvm.fmuladd.f32(float %161, float %166, float %177)
-  %179 = fneg float %166
-  %180 = fmul float %156, %179
-  %181 = tail call float @llvm.fmuladd.f32(float %151, float %169, float %180)
-  %182 = fmul float %178, %178
-  %183 = tail call float @llvm.fmuladd.f32(float %175, float %175, float %182)
-  %184 = tail call float @llvm.fmuladd.f32(float %181, float %181, float %183)
-  %185 = tail call noundef float @sqrtf(float noundef %184) #23
-  %186 = fpext float %185 to double
-  %187 = fmul double %186, 5.000000e-01
-  %188 = tail call double @llvm.fmuladd.f64(double %187, double %63, double %.01931)
-  %189 = fptosi double %188 to i32
-  %190 = icmp sgt i32 %189, 0
-  br i1 %190, label %191, label %_ZN3vcg3tri15SurfaceSamplingI6CMeshO11BaseSamplerE17SingleFaceSimilarEP6CFaceORS3_i.exit
+  %141 = phi ptr [ %195, %_ZN3vcg3tri15SurfaceSamplingI6CMeshO11BaseSamplerE17SingleFaceSimilarEP6CFaceORS3_i.exit ], [ %9, %.lr.ph ]
+  %.01932 = phi double [ %197, %_ZN3vcg3tri15SurfaceSamplingI6CMeshO11BaseSamplerE17SingleFaceSimilarEP6CFaceORS3_i.exit ], [ 0.000000e+00, %.lr.ph ]
+  %.sroa.024.031 = phi ptr [ %198, %_ZN3vcg3tri15SurfaceSamplingI6CMeshO11BaseSamplerE17SingleFaceSimilarEP6CFaceORS3_i.exit ], [ %7, %.lr.ph ]
+  %142 = getelementptr inbounds nuw i8, ptr %.sroa.024.031, i64 8
+  %143 = getelementptr inbounds nuw i8, ptr %.sroa.024.031, i64 16
+  %144 = load ptr, ptr %143, align 8
+  %145 = getelementptr inbounds nuw i8, ptr %144, i64 8
+  %146 = load ptr, ptr %142, align 8
+  %147 = getelementptr inbounds nuw i8, ptr %146, i64 8
+  %148 = load float, ptr %145, align 4
+  %149 = load float, ptr %147, align 4
+  %150 = fsub float %148, %149
+  %151 = getelementptr inbounds nuw i8, ptr %144, i64 12
+  %152 = load float, ptr %151, align 4
+  %153 = getelementptr inbounds nuw i8, ptr %146, i64 12
+  %154 = load float, ptr %153, align 4
+  %155 = fsub float %152, %154
+  %156 = getelementptr inbounds nuw i8, ptr %144, i64 16
+  %157 = load float, ptr %156, align 4
+  %158 = getelementptr inbounds nuw i8, ptr %146, i64 16
+  %159 = load float, ptr %158, align 4
+  %160 = fsub float %157, %159
+  %161 = getelementptr inbounds nuw i8, ptr %.sroa.024.031, i64 24
+  %162 = load ptr, ptr %161, align 8
+  %163 = getelementptr inbounds nuw i8, ptr %162, i64 8
+  %164 = load float, ptr %163, align 4
+  %165 = fsub float %164, %149
+  %166 = getelementptr inbounds nuw i8, ptr %162, i64 12
+  %167 = load float, ptr %166, align 4
+  %168 = fsub float %167, %154
+  %169 = getelementptr inbounds nuw i8, ptr %162, i64 16
+  %170 = load float, ptr %169, align 4
+  %171 = fsub float %170, %159
+  %172 = fneg float %168
+  %173 = fmul float %160, %172
+  %174 = tail call float @llvm.fmuladd.f32(float %155, float %171, float %173)
+  %175 = fneg float %171
+  %176 = fmul float %150, %175
+  %177 = tail call float @llvm.fmuladd.f32(float %160, float %165, float %176)
+  %178 = fneg float %165
+  %179 = fmul float %155, %178
+  %180 = tail call float @llvm.fmuladd.f32(float %150, float %168, float %179)
+  %181 = fmul float %177, %177
+  %182 = tail call float @llvm.fmuladd.f32(float %174, float %174, float %181)
+  %183 = tail call float @llvm.fmuladd.f32(float %180, float %180, float %182)
+  %184 = tail call noundef float @sqrtf(float noundef %183) #23
+  %185 = fpext float %184 to double
+  %186 = fmul double %185, 5.000000e-01
+  %187 = tail call double @llvm.fmuladd.f64(double %186, double %63, double %.01932)
+  %188 = fptosi double %187 to i32
+  %189 = icmp sgt i32 %188, 0
+  br i1 %189, label %190, label %_ZN3vcg3tri15SurfaceSamplingI6CMeshO11BaseSamplerE17SingleFaceSimilarEP6CFaceORS3_i.exit
 
-191:                                              ; preds = %.lr.ph.split
-  %192 = uitofp nneg i32 %189 to double
-  %sqrt = tail call double @llvm.sqrt.f64(double %192)
-  %193 = fadd double %sqrt, 1.000000e+00
-  %194 = fptosi double %193 to i32
-  %195 = tail call noundef i32 @_ZN3vcg3tri15SurfaceSamplingI6CMeshO11BaseSamplerE21SingleFaceSimilarDualEP6CFaceORS3_ib(ptr noundef nonnull %.sroa.024.030, ptr noundef nonnull align 8 dereferenceable(27) %1, i32 noundef %194, i1 noundef zeroext %4)
+190:                                              ; preds = %.lr.ph.split
+  %191 = uitofp nneg i32 %188 to double
+  %sqrt29 = tail call double @llvm.sqrt.f64(double %191)
+  %192 = fadd double %sqrt29, 1.000000e+00
+  %193 = fptosi double %192 to i32
+  %194 = tail call noundef i32 @_ZN3vcg3tri15SurfaceSamplingI6CMeshO11BaseSamplerE21SingleFaceSimilarDualEP6CFaceORS3_ib(ptr noundef nonnull %.sroa.024.031, ptr noundef nonnull align 8 dereferenceable(27) %1, i32 noundef %193, i1 noundef zeroext %4)
   %.pre = load ptr, ptr %8, align 8
   br label %_ZN3vcg3tri15SurfaceSamplingI6CMeshO11BaseSamplerE17SingleFaceSimilarEP6CFaceORS3_i.exit
 
-_ZN3vcg3tri15SurfaceSamplingI6CMeshO11BaseSamplerE17SingleFaceSimilarEP6CFaceORS3_i.exit: ; preds = %191, %.lr.ph.split
-  %196 = phi ptr [ %142, %.lr.ph.split ], [ %.pre, %191 ]
-  %.0 = phi i32 [ %189, %.lr.ph.split ], [ %195, %191 ]
-  %197 = sitofp i32 %.0 to double
-  %198 = fsub double %188, %197
-  %199 = getelementptr inbounds nuw i8, ptr %.sroa.024.030, i64 48
-  %.not = icmp eq ptr %199, %196
+_ZN3vcg3tri15SurfaceSamplingI6CMeshO11BaseSamplerE17SingleFaceSimilarEP6CFaceORS3_i.exit: ; preds = %190, %.lr.ph.split
+  %195 = phi ptr [ %141, %.lr.ph.split ], [ %.pre, %190 ]
+  %.0 = phi i32 [ %188, %.lr.ph.split ], [ %194, %190 ]
+  %196 = sitofp i32 %.0 to double
+  %197 = fsub double %187, %196
+  %198 = getelementptr inbounds nuw i8, ptr %.sroa.024.031, i64 48
+  %.not = icmp eq ptr %198, %195
   br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !91
 
 ._crit_edge:                                      ; preds = %_ZN3vcg3tri15SurfaceSamplingI6CMeshO11BaseSamplerE17SingleFaceSimilarEP6CFaceORS3_i.exit, %_ZN3vcg3tri15SurfaceSamplingI6CMeshO11BaseSamplerE17SingleFaceSimilarEP6CFaceORS3_i.exit.us, %5

@@ -35625,10 +35625,8 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.us: ; preds =
   %105 = getelementptr i8, ptr %104, i64 %62
   %106 = uitofp i16 %95 to float
   %107 = call float @llvm.fmuladd.f32(float %106, float 0x3F6FE01FE0000000, float 5.000000e-01)
-  %.inv.i.i.i.i.i.us = fcmp oge float %107, 0.000000e+00
-  %.0.i.i.i.i.i.i.us = select i1 %.inv.i.i.i.i.i.us, float %107, float 0.000000e+00
-  %108 = fcmp ogt float %.0.i.i.i.i.i.i.us, 2.550000e+02
-  %.1.i.i.i.i.i.i.us = select i1 %108, float 2.550000e+02, float %.0.i.i.i.i.i.i.us
+  %108 = fcmp ogt float %107, 2.550000e+02
+  %.1.i.i.i.i.i.i.us = select i1 %108, float 2.550000e+02, float %107
   %109 = fptoui float %.1.i.i.i.i.i.i.us to i8
   store i8 %109, ptr %105, align 1, !tbaa !112
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -36432,10 +36430,8 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.us: ; preds =
   %105 = getelementptr i8, ptr %104, i64 %62
   %106 = uitofp i32 %95 to float
   %107 = call float @llvm.fmuladd.f32(float %106, float 0x3E6FE00000000000, float 5.000000e-01)
-  %.inv.i.i.i.i.i.us = fcmp oge float %107, 0.000000e+00
-  %.0.i.i.i.i.i.i.us = select i1 %.inv.i.i.i.i.i.us, float %107, float 0.000000e+00
-  %108 = fcmp ogt float %.0.i.i.i.i.i.i.us, 2.550000e+02
-  %.1.i.i.i.i.i.i.us = select i1 %108, float 2.550000e+02, float %.0.i.i.i.i.i.i.us
+  %108 = fcmp ogt float %107, 2.550000e+02
+  %.1.i.i.i.i.i.i.us = select i1 %108, float 2.550000e+02, float %107
   %109 = fptoui float %.1.i.i.i.i.i.i.us to i8
   store i8 %109, ptr %105, align 1, !tbaa !112
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -40313,9 +40309,9 @@ define internal fastcc void @_ZN11OpenImageIO6v3_1_0L11set_pixels_IthEEbRNS0_8Im
   %9 = load i32, ptr %8, align 4, !tbaa !41
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %11 = load i32, ptr %10, align 8, !tbaa !40
-  %.fr30 = freeze i32 %11
-  %.fr29 = freeze i32 %9
-  %12 = sub i32 %.fr29, %.fr30
+  %.fr28 = freeze i32 %11
+  %.fr27 = freeze i32 %9
+  %12 = sub i32 %.fr27, %.fr28
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %0, ptr %7, align 8, !tbaa !371
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -40419,9 +40415,9 @@ _ZN11OpenImageIO6v3_1_08ImageBuf8IteratorIthEC2ERS1_RKNS0_3ROIENS1_8WrapModeE.ex
   br i1 %61, label %_ZN11OpenImageIO6v3_1_08ImageBuf8IteratorIthEC2ERS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.us.preheader, label %_ZN11OpenImageIO6v3_1_08ImageBuf8IteratorIthEC2ERS1_RKNS0_3ROIENS1_8WrapModeE.exit.split
 
 _ZN11OpenImageIO6v3_1_08ImageBuf8IteratorIthEC2ERS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.us.preheader: ; preds = %_ZN11OpenImageIO6v3_1_08ImageBuf8IteratorIthEC2ERS1_RKNS0_3ROIENS1_8WrapModeE.exit
-  %62 = sext i32 %.fr30 to i64
+  %62 = sext i32 %.fr28 to i64
   %wide.trip.count = zext nneg i32 %12 to i64
-  %wide.trip.count37 = zext nneg i32 %12 to i64
+  %wide.trip.count35 = zext nneg i32 %12 to i64
   br label %_ZN11OpenImageIO6v3_1_08ImageBuf8IteratorIthEC2ERS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.us
 
 _ZN11OpenImageIO6v3_1_08ImageBuf8IteratorIthEC2ERS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.us: ; preds = %_ZN11OpenImageIO6v3_1_08ImageBuf8IteratorIthEC2ERS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.us.preheader, %..loopexit_crit_edge.us
@@ -40473,15 +40469,15 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.us: ; preds =
   %95 = load ptr, ptr %94, align 8, !tbaa !189
   %96 = load i32, ptr %95, align 8, !tbaa !50
   %97 = icmp eq i32 %96, 3
-  br i1 %97, label %.lr.ph.split.us23, label %.lr.ph.split.us.us, !prof !137
+  br i1 %97, label %.lr.ph.split.us21, label %.lr.ph.split.us.us, !prof !137
 
 ..loopexit_crit_edge.us:                          ; preds = %115, %106, %_ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.us
   invoke void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv(ptr noundef nonnull align 8 dereferenceable(126) %7)
-          to label %_ZN11OpenImageIO6v3_1_08ImageBuf8IteratorIthEC2ERS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.us unwind label %.split25.us, !llvm.loop !549
+          to label %_ZN11OpenImageIO6v3_1_08ImageBuf8IteratorIthEC2ERS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.us unwind label %.split23.us, !llvm.loop !549
 
-.lr.ph.split.us23:                                ; preds = %.lr.ph.us, %106
-  %indvars.iv34 = phi i64 [ %indvars.iv.next35, %106 ], [ 0, %.lr.ph.us ]
-  %98 = getelementptr inbounds nuw i8, ptr %92, i64 %indvars.iv34
+.lr.ph.split.us21:                                ; preds = %.lr.ph.us, %106
+  %indvars.iv32 = phi i64 [ %indvars.iv.next33, %106 ], [ 0, %.lr.ph.us ]
+  %98 = getelementptr inbounds nuw i8, ptr %92, i64 %indvars.iv32
   %99 = load i8, ptr %98, align 1, !tbaa !112
   %100 = load ptr, ptr %7, align 8, !tbaa !371
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 8
@@ -40490,25 +40486,23 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.us: ; preds =
   %104 = icmp eq i32 %103, 3
   br i1 %104, label %105, label %106, !prof !137
 
-105:                                              ; preds = %.lr.ph.split.us23
+105:                                              ; preds = %.lr.ph.split.us21
   invoke void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBase13make_writableEv(ptr noundef nonnull align 8 dereferenceable(126) %7)
-          to label %106 unwind label %.split27.us
+          to label %106 unwind label %.split25.us
 
-106:                                              ; preds = %105, %.lr.ph.split.us23
+106:                                              ; preds = %105, %.lr.ph.split.us21
   %107 = load ptr, ptr %15, align 8, !tbaa !376
-  %108 = getelementptr i16, ptr %107, i64 %indvars.iv34
+  %108 = getelementptr i16, ptr %107, i64 %indvars.iv32
   %109 = getelementptr i16, ptr %108, i64 %62
   %110 = uitofp i8 %99 to float
   %111 = call float @llvm.fmuladd.f32(float %110, float 2.570000e+02, float 5.000000e-01)
-  %.inv.i.i.i.i.i.us19 = fcmp oge float %111, 0.000000e+00
-  %.0.i.i.i.i.i.i.us20 = select i1 %.inv.i.i.i.i.i.us19, float %111, float 0.000000e+00
-  %112 = fcmp ogt float %.0.i.i.i.i.i.i.us20, 6.553500e+04
-  %.1.i.i.i.i.i.i.us21 = select i1 %112, float 6.553500e+04, float %.0.i.i.i.i.i.i.us20
-  %113 = fptoui float %.1.i.i.i.i.i.i.us21 to i16
+  %112 = fcmp ogt float %111, 6.553500e+04
+  %.1.i.i.i.i.i.i.us19 = select i1 %112, float 6.553500e+04, float %111
+  %113 = fptoui float %.1.i.i.i.i.i.i.us19 to i16
   store i16 %113, ptr %109, align 2, !tbaa !394
-  %indvars.iv.next35 = add nuw nsw i64 %indvars.iv34, 1
-  %exitcond38.not = icmp eq i64 %indvars.iv.next35, %wide.trip.count37
-  br i1 %exitcond38.not, label %..loopexit_crit_edge.us, label %.lr.ph.split.us23, !llvm.loop !550
+  %indvars.iv.next33 = add nuw nsw i64 %indvars.iv32, 1
+  %exitcond36.not = icmp eq i64 %indvars.iv.next33, %wide.trip.count35
+  br i1 %exitcond36.not, label %..loopexit_crit_edge.us, label %.lr.ph.split.us21, !llvm.loop !550
 
 .lr.ph.split.us.us:                               ; preds = %.lr.ph.us
   %114 = load ptr, ptr %15, align 8, !tbaa !376
@@ -40522,22 +40516,20 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.us: ; preds =
   %gep = getelementptr i16, ptr %invariant.gep, i64 %indvars.iv
   %118 = uitofp i8 %117 to float
   %119 = call float @llvm.fmuladd.f32(float %118, float 2.570000e+02, float 5.000000e-01)
-  %.inv.i.i.i.i.i.us.us = fcmp oge float %119, 0.000000e+00
-  %.0.i.i.i.i.i.i.us.us = select i1 %.inv.i.i.i.i.i.us.us, float %119, float 0.000000e+00
-  %120 = fcmp ogt float %.0.i.i.i.i.i.i.us.us, 6.553500e+04
-  %.1.i.i.i.i.i.i.us.us = select i1 %120, float 6.553500e+04, float %.0.i.i.i.i.i.i.us.us
+  %120 = fcmp ogt float %119, 6.553500e+04
+  %.1.i.i.i.i.i.i.us.us = select i1 %120, float 6.553500e+04, float %119
   %121 = fptoui float %.1.i.i.i.i.i.i.us.us to i16
   store i16 %121, ptr %gep, align 2, !tbaa !394
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %115, !llvm.loop !551
 
-.split25.us:                                      ; preds = %..loopexit_crit_edge.us
+.split23.us:                                      ; preds = %..loopexit_crit_edge.us
   %122 = landingpad { ptr, i32 }
           cleanup
   br label %143
 
-.split27.us:                                      ; preds = %105
+.split25.us:                                      ; preds = %105
   %123 = landingpad { ptr, i32 }
           cleanup
   br label %143
@@ -40587,15 +40579,15 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %.split.us, %
 
 _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread: ; preds = %_ZN11OpenImageIO6v3_1_08ImageBuf8IteratorIthEC2ERS1_RKNS0_3ROIENS1_8WrapModeE.exit.split, %126, %130, %_ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit
   invoke void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv(ptr noundef nonnull align 8 dereferenceable(126) %7)
-          to label %_ZN11OpenImageIO6v3_1_08ImageBuf8IteratorIthEC2ERS1_RKNS0_3ROIENS1_8WrapModeE.exit.split unwind label %.split25, !llvm.loop !549
+          to label %_ZN11OpenImageIO6v3_1_08ImageBuf8IteratorIthEC2ERS1_RKNS0_3ROIENS1_8WrapModeE.exit.split unwind label %.split23, !llvm.loop !549
 
-.split25:                                         ; preds = %_ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread
+.split23:                                         ; preds = %_ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread
   %142 = landingpad { ptr, i32 }
           cleanup
   br label %143
 
-143:                                              ; preds = %.split25, %.split25.us, %.split27.us
-  %.pn = phi { ptr, i32 } [ %123, %.split27.us ], [ %142, %.split25 ], [ %122, %.split25.us ]
+143:                                              ; preds = %.split23, %.split23.us, %.split25.us
+  %.pn = phi { ptr, i32 } [ %123, %.split25.us ], [ %142, %.split23 ], [ %122, %.split23.us ]
   call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %7) #37
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   resume { ptr, i32 } %.pn
@@ -41798,9 +41790,9 @@ define internal fastcc void @_ZN11OpenImageIO6v3_1_0L11set_pixels_ItjEEbRNS0_8Im
   %9 = load i32, ptr %8, align 4, !tbaa !41
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %11 = load i32, ptr %10, align 8, !tbaa !40
-  %.fr30 = freeze i32 %11
-  %.fr29 = freeze i32 %9
-  %12 = sub i32 %.fr29, %.fr30
+  %.fr28 = freeze i32 %11
+  %.fr27 = freeze i32 %9
+  %12 = sub i32 %.fr27, %.fr28
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %0, ptr %7, align 8, !tbaa !371
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -41904,9 +41896,9 @@ _ZN11OpenImageIO6v3_1_08ImageBuf8IteratorItjEC2ERS1_RKNS0_3ROIENS1_8WrapModeE.ex
   br i1 %61, label %_ZN11OpenImageIO6v3_1_08ImageBuf8IteratorItjEC2ERS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.us.preheader, label %_ZN11OpenImageIO6v3_1_08ImageBuf8IteratorItjEC2ERS1_RKNS0_3ROIENS1_8WrapModeE.exit.split
 
 _ZN11OpenImageIO6v3_1_08ImageBuf8IteratorItjEC2ERS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.us.preheader: ; preds = %_ZN11OpenImageIO6v3_1_08ImageBuf8IteratorItjEC2ERS1_RKNS0_3ROIENS1_8WrapModeE.exit
-  %62 = sext i32 %.fr30 to i64
+  %62 = sext i32 %.fr28 to i64
   %wide.trip.count = zext nneg i32 %12 to i64
-  %wide.trip.count37 = zext nneg i32 %12 to i64
+  %wide.trip.count35 = zext nneg i32 %12 to i64
   br label %_ZN11OpenImageIO6v3_1_08ImageBuf8IteratorItjEC2ERS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.us
 
 _ZN11OpenImageIO6v3_1_08ImageBuf8IteratorItjEC2ERS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.us: ; preds = %_ZN11OpenImageIO6v3_1_08ImageBuf8IteratorItjEC2ERS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.us.preheader, %..loopexit_crit_edge.us
@@ -41958,15 +41950,15 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.us: ; preds =
   %95 = load ptr, ptr %94, align 8, !tbaa !189
   %96 = load i32, ptr %95, align 8, !tbaa !50
   %97 = icmp eq i32 %96, 3
-  br i1 %97, label %.lr.ph.split.us23, label %.lr.ph.split.us.us, !prof !137
+  br i1 %97, label %.lr.ph.split.us21, label %.lr.ph.split.us.us, !prof !137
 
 ..loopexit_crit_edge.us:                          ; preds = %115, %106, %_ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.us
   invoke void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv(ptr noundef nonnull align 8 dereferenceable(126) %7)
-          to label %_ZN11OpenImageIO6v3_1_08ImageBuf8IteratorItjEC2ERS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.us unwind label %.split25.us, !llvm.loop !563
+          to label %_ZN11OpenImageIO6v3_1_08ImageBuf8IteratorItjEC2ERS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.us unwind label %.split23.us, !llvm.loop !563
 
-.lr.ph.split.us23:                                ; preds = %.lr.ph.us, %106
-  %indvars.iv34 = phi i64 [ %indvars.iv.next35, %106 ], [ 0, %.lr.ph.us ]
-  %98 = getelementptr inbounds nuw i32, ptr %92, i64 %indvars.iv34
+.lr.ph.split.us21:                                ; preds = %.lr.ph.us, %106
+  %indvars.iv32 = phi i64 [ %indvars.iv.next33, %106 ], [ 0, %.lr.ph.us ]
+  %98 = getelementptr inbounds nuw i32, ptr %92, i64 %indvars.iv32
   %99 = load i32, ptr %98, align 4, !tbaa !113
   %100 = load ptr, ptr %7, align 8, !tbaa !371
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 8
@@ -41975,25 +41967,23 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.us: ; preds =
   %104 = icmp eq i32 %103, 3
   br i1 %104, label %105, label %106, !prof !137
 
-105:                                              ; preds = %.lr.ph.split.us23
+105:                                              ; preds = %.lr.ph.split.us21
   invoke void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBase13make_writableEv(ptr noundef nonnull align 8 dereferenceable(126) %7)
-          to label %106 unwind label %.split27.us
+          to label %106 unwind label %.split25.us
 
-106:                                              ; preds = %105, %.lr.ph.split.us23
+106:                                              ; preds = %105, %.lr.ph.split.us21
   %107 = load ptr, ptr %15, align 8, !tbaa !376
-  %108 = getelementptr i16, ptr %107, i64 %indvars.iv34
+  %108 = getelementptr i16, ptr %107, i64 %indvars.iv32
   %109 = getelementptr i16, ptr %108, i64 %62
   %110 = uitofp i32 %99 to float
   %111 = call float @llvm.fmuladd.f32(float %110, float 0x3EEFFFE000000000, float 5.000000e-01)
-  %.inv.i.i.i.i.i.us19 = fcmp oge float %111, 0.000000e+00
-  %.0.i.i.i.i.i.i.us20 = select i1 %.inv.i.i.i.i.i.us19, float %111, float 0.000000e+00
-  %112 = fcmp ogt float %.0.i.i.i.i.i.i.us20, 6.553500e+04
-  %.1.i.i.i.i.i.i.us21 = select i1 %112, float 6.553500e+04, float %.0.i.i.i.i.i.i.us20
-  %113 = fptoui float %.1.i.i.i.i.i.i.us21 to i16
+  %112 = fcmp ogt float %111, 6.553500e+04
+  %.1.i.i.i.i.i.i.us19 = select i1 %112, float 6.553500e+04, float %111
+  %113 = fptoui float %.1.i.i.i.i.i.i.us19 to i16
   store i16 %113, ptr %109, align 2, !tbaa !394
-  %indvars.iv.next35 = add nuw nsw i64 %indvars.iv34, 1
-  %exitcond38.not = icmp eq i64 %indvars.iv.next35, %wide.trip.count37
-  br i1 %exitcond38.not, label %..loopexit_crit_edge.us, label %.lr.ph.split.us23, !llvm.loop !564
+  %indvars.iv.next33 = add nuw nsw i64 %indvars.iv32, 1
+  %exitcond36.not = icmp eq i64 %indvars.iv.next33, %wide.trip.count35
+  br i1 %exitcond36.not, label %..loopexit_crit_edge.us, label %.lr.ph.split.us21, !llvm.loop !564
 
 .lr.ph.split.us.us:                               ; preds = %.lr.ph.us
   %114 = load ptr, ptr %15, align 8, !tbaa !376
@@ -42007,22 +41997,20 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.us: ; preds =
   %gep = getelementptr i16, ptr %invariant.gep, i64 %indvars.iv
   %118 = uitofp i32 %117 to float
   %119 = call float @llvm.fmuladd.f32(float %118, float 0x3EEFFFE000000000, float 5.000000e-01)
-  %.inv.i.i.i.i.i.us.us = fcmp oge float %119, 0.000000e+00
-  %.0.i.i.i.i.i.i.us.us = select i1 %.inv.i.i.i.i.i.us.us, float %119, float 0.000000e+00
-  %120 = fcmp ogt float %.0.i.i.i.i.i.i.us.us, 6.553500e+04
-  %.1.i.i.i.i.i.i.us.us = select i1 %120, float 6.553500e+04, float %.0.i.i.i.i.i.i.us.us
+  %120 = fcmp ogt float %119, 6.553500e+04
+  %.1.i.i.i.i.i.i.us.us = select i1 %120, float 6.553500e+04, float %119
   %121 = fptoui float %.1.i.i.i.i.i.i.us.us to i16
   store i16 %121, ptr %gep, align 2, !tbaa !394
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %115, !llvm.loop !565
 
-.split25.us:                                      ; preds = %..loopexit_crit_edge.us
+.split23.us:                                      ; preds = %..loopexit_crit_edge.us
   %122 = landingpad { ptr, i32 }
           cleanup
   br label %143
 
-.split27.us:                                      ; preds = %105
+.split25.us:                                      ; preds = %105
   %123 = landingpad { ptr, i32 }
           cleanup
   br label %143
@@ -42072,15 +42060,15 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %.split.us, %
 
 _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread: ; preds = %_ZN11OpenImageIO6v3_1_08ImageBuf8IteratorItjEC2ERS1_RKNS0_3ROIENS1_8WrapModeE.exit.split, %126, %130, %_ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit
   invoke void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv(ptr noundef nonnull align 8 dereferenceable(126) %7)
-          to label %_ZN11OpenImageIO6v3_1_08ImageBuf8IteratorItjEC2ERS1_RKNS0_3ROIENS1_8WrapModeE.exit.split unwind label %.split25, !llvm.loop !563
+          to label %_ZN11OpenImageIO6v3_1_08ImageBuf8IteratorItjEC2ERS1_RKNS0_3ROIENS1_8WrapModeE.exit.split unwind label %.split23, !llvm.loop !563
 
-.split25:                                         ; preds = %_ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread
+.split23:                                         ; preds = %_ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread
   %142 = landingpad { ptr, i32 }
           cleanup
   br label %143
 
-143:                                              ; preds = %.split25, %.split25.us, %.split27.us
-  %.pn = phi { ptr, i32 } [ %123, %.split27.us ], [ %142, %.split25 ], [ %122, %.split25.us ]
+143:                                              ; preds = %.split23, %.split23.us, %.split25.us
+  %.pn = phi { ptr, i32 } [ %123, %.split25.us ], [ %142, %.split23 ], [ %122, %.split23.us ]
   call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %7) #37
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   resume { ptr, i32 } %.pn
@@ -48118,9 +48106,9 @@ define internal fastcc void @_ZN11OpenImageIO6v3_1_0L11set_pixels_IjhEEbRNS0_8Im
   %9 = load i32, ptr %8, align 4, !tbaa !41
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %11 = load i32, ptr %10, align 8, !tbaa !40
-  %.fr30 = freeze i32 %11
-  %.fr29 = freeze i32 %9
-  %12 = sub i32 %.fr29, %.fr30
+  %.fr28 = freeze i32 %11
+  %.fr27 = freeze i32 %9
+  %12 = sub i32 %.fr27, %.fr28
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %0, ptr %7, align 8, !tbaa !371
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -48224,9 +48212,9 @@ _ZN11OpenImageIO6v3_1_08ImageBuf8IteratorIjhEC2ERS1_RKNS0_3ROIENS1_8WrapModeE.ex
   br i1 %61, label %_ZN11OpenImageIO6v3_1_08ImageBuf8IteratorIjhEC2ERS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.us.preheader, label %_ZN11OpenImageIO6v3_1_08ImageBuf8IteratorIjhEC2ERS1_RKNS0_3ROIENS1_8WrapModeE.exit.split
 
 _ZN11OpenImageIO6v3_1_08ImageBuf8IteratorIjhEC2ERS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.us.preheader: ; preds = %_ZN11OpenImageIO6v3_1_08ImageBuf8IteratorIjhEC2ERS1_RKNS0_3ROIENS1_8WrapModeE.exit
-  %62 = sext i32 %.fr30 to i64
+  %62 = sext i32 %.fr28 to i64
   %wide.trip.count = zext nneg i32 %12 to i64
-  %wide.trip.count37 = zext nneg i32 %12 to i64
+  %wide.trip.count35 = zext nneg i32 %12 to i64
   br label %_ZN11OpenImageIO6v3_1_08ImageBuf8IteratorIjhEC2ERS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.us
 
 _ZN11OpenImageIO6v3_1_08ImageBuf8IteratorIjhEC2ERS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.us: ; preds = %_ZN11OpenImageIO6v3_1_08ImageBuf8IteratorIjhEC2ERS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.us.preheader, %..loopexit_crit_edge.us
@@ -48278,15 +48266,15 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.us: ; preds =
   %95 = load ptr, ptr %94, align 8, !tbaa !189
   %96 = load i32, ptr %95, align 8, !tbaa !50
   %97 = icmp eq i32 %96, 3
-  br i1 %97, label %.lr.ph.split.us23, label %.lr.ph.split.us.us, !prof !137
+  br i1 %97, label %.lr.ph.split.us21, label %.lr.ph.split.us.us, !prof !137
 
 ..loopexit_crit_edge.us:                          ; preds = %115, %106, %_ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.us
   invoke void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv(ptr noundef nonnull align 8 dereferenceable(126) %7)
-          to label %_ZN11OpenImageIO6v3_1_08ImageBuf8IteratorIjhEC2ERS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.us unwind label %.split25.us, !llvm.loop !619
+          to label %_ZN11OpenImageIO6v3_1_08ImageBuf8IteratorIjhEC2ERS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.us unwind label %.split23.us, !llvm.loop !619
 
-.lr.ph.split.us23:                                ; preds = %.lr.ph.us, %106
-  %indvars.iv34 = phi i64 [ %indvars.iv.next35, %106 ], [ 0, %.lr.ph.us ]
-  %98 = getelementptr inbounds nuw i8, ptr %92, i64 %indvars.iv34
+.lr.ph.split.us21:                                ; preds = %.lr.ph.us, %106
+  %indvars.iv32 = phi i64 [ %indvars.iv.next33, %106 ], [ 0, %.lr.ph.us ]
+  %98 = getelementptr inbounds nuw i8, ptr %92, i64 %indvars.iv32
   %99 = load i8, ptr %98, align 1, !tbaa !112
   %100 = load ptr, ptr %7, align 8, !tbaa !371
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 8
@@ -48295,25 +48283,23 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.us: ; preds =
   %104 = icmp eq i32 %103, 3
   br i1 %104, label %105, label %106, !prof !137
 
-105:                                              ; preds = %.lr.ph.split.us23
+105:                                              ; preds = %.lr.ph.split.us21
   invoke void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBase13make_writableEv(ptr noundef nonnull align 8 dereferenceable(126) %7)
-          to label %106 unwind label %.split27.us
+          to label %106 unwind label %.split25.us
 
-106:                                              ; preds = %105, %.lr.ph.split.us23
+106:                                              ; preds = %105, %.lr.ph.split.us21
   %107 = load ptr, ptr %15, align 8, !tbaa !376
-  %108 = getelementptr i32, ptr %107, i64 %indvars.iv34
+  %108 = getelementptr i32, ptr %107, i64 %indvars.iv32
   %109 = getelementptr i32, ptr %108, i64 %62
   %110 = uitofp i8 %99 to double
   %111 = call double @llvm.fmuladd.f64(double %110, double 0x4170101010000000, double 5.000000e-01)
-  %.inv.i.i.i.i.i.us19 = fcmp oge double %111, 0.000000e+00
-  %.0.i.i.i.i.i.i.us20 = select i1 %.inv.i.i.i.i.i.us19, double %111, double 0.000000e+00
-  %112 = fcmp ogt double %.0.i.i.i.i.i.i.us20, 0x41EFFFFFFFE00000
-  %.1.i.i.i.i.i.i.us21 = select i1 %112, double 0x41EFFFFFFFE00000, double %.0.i.i.i.i.i.i.us20
-  %113 = fptoui double %.1.i.i.i.i.i.i.us21 to i32
+  %112 = fcmp ogt double %111, 0x41EFFFFFFFE00000
+  %.1.i.i.i.i.i.i.us19 = select i1 %112, double 0x41EFFFFFFFE00000, double %111
+  %113 = fptoui double %.1.i.i.i.i.i.i.us19 to i32
   store i32 %113, ptr %109, align 4, !tbaa !113
-  %indvars.iv.next35 = add nuw nsw i64 %indvars.iv34, 1
-  %exitcond38.not = icmp eq i64 %indvars.iv.next35, %wide.trip.count37
-  br i1 %exitcond38.not, label %..loopexit_crit_edge.us, label %.lr.ph.split.us23, !llvm.loop !620
+  %indvars.iv.next33 = add nuw nsw i64 %indvars.iv32, 1
+  %exitcond36.not = icmp eq i64 %indvars.iv.next33, %wide.trip.count35
+  br i1 %exitcond36.not, label %..loopexit_crit_edge.us, label %.lr.ph.split.us21, !llvm.loop !620
 
 .lr.ph.split.us.us:                               ; preds = %.lr.ph.us
   %114 = load ptr, ptr %15, align 8, !tbaa !376
@@ -48327,22 +48313,20 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.us: ; preds =
   %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv
   %118 = uitofp i8 %117 to double
   %119 = call double @llvm.fmuladd.f64(double %118, double 0x4170101010000000, double 5.000000e-01)
-  %.inv.i.i.i.i.i.us.us = fcmp oge double %119, 0.000000e+00
-  %.0.i.i.i.i.i.i.us.us = select i1 %.inv.i.i.i.i.i.us.us, double %119, double 0.000000e+00
-  %120 = fcmp ogt double %.0.i.i.i.i.i.i.us.us, 0x41EFFFFFFFE00000
-  %.1.i.i.i.i.i.i.us.us = select i1 %120, double 0x41EFFFFFFFE00000, double %.0.i.i.i.i.i.i.us.us
+  %120 = fcmp ogt double %119, 0x41EFFFFFFFE00000
+  %.1.i.i.i.i.i.i.us.us = select i1 %120, double 0x41EFFFFFFFE00000, double %119
   %121 = fptoui double %.1.i.i.i.i.i.i.us.us to i32
   store i32 %121, ptr %gep, align 4, !tbaa !113
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %115, !llvm.loop !621
 
-.split25.us:                                      ; preds = %..loopexit_crit_edge.us
+.split23.us:                                      ; preds = %..loopexit_crit_edge.us
   %122 = landingpad { ptr, i32 }
           cleanup
   br label %143
 
-.split27.us:                                      ; preds = %105
+.split25.us:                                      ; preds = %105
   %123 = landingpad { ptr, i32 }
           cleanup
   br label %143
@@ -48392,15 +48376,15 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %.split.us, %
 
 _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread: ; preds = %_ZN11OpenImageIO6v3_1_08ImageBuf8IteratorIjhEC2ERS1_RKNS0_3ROIENS1_8WrapModeE.exit.split, %126, %130, %_ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit
   invoke void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv(ptr noundef nonnull align 8 dereferenceable(126) %7)
-          to label %_ZN11OpenImageIO6v3_1_08ImageBuf8IteratorIjhEC2ERS1_RKNS0_3ROIENS1_8WrapModeE.exit.split unwind label %.split25, !llvm.loop !619
+          to label %_ZN11OpenImageIO6v3_1_08ImageBuf8IteratorIjhEC2ERS1_RKNS0_3ROIENS1_8WrapModeE.exit.split unwind label %.split23, !llvm.loop !619
 
-.split25:                                         ; preds = %_ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread
+.split23:                                         ; preds = %_ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread
   %142 = landingpad { ptr, i32 }
           cleanup
   br label %143
 
-143:                                              ; preds = %.split25, %.split25.us, %.split27.us
-  %.pn = phi { ptr, i32 } [ %123, %.split27.us ], [ %142, %.split25 ], [ %122, %.split25.us ]
+143:                                              ; preds = %.split23, %.split23.us, %.split25.us
+  %.pn = phi { ptr, i32 } [ %123, %.split25.us ], [ %142, %.split23 ], [ %122, %.split23.us ]
   call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %7) #37
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   resume { ptr, i32 } %.pn
@@ -48721,9 +48705,9 @@ define internal fastcc void @_ZN11OpenImageIO6v3_1_0L11set_pixels_IjtEEbRNS0_8Im
   %9 = load i32, ptr %8, align 4, !tbaa !41
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %11 = load i32, ptr %10, align 8, !tbaa !40
-  %.fr30 = freeze i32 %11
-  %.fr29 = freeze i32 %9
-  %12 = sub i32 %.fr29, %.fr30
+  %.fr28 = freeze i32 %11
+  %.fr27 = freeze i32 %9
+  %12 = sub i32 %.fr27, %.fr28
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %0, ptr %7, align 8, !tbaa !371
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -48827,9 +48811,9 @@ _ZN11OpenImageIO6v3_1_08ImageBuf8IteratorIjtEC2ERS1_RKNS0_3ROIENS1_8WrapModeE.ex
   br i1 %61, label %_ZN11OpenImageIO6v3_1_08ImageBuf8IteratorIjtEC2ERS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.us.preheader, label %_ZN11OpenImageIO6v3_1_08ImageBuf8IteratorIjtEC2ERS1_RKNS0_3ROIENS1_8WrapModeE.exit.split
 
 _ZN11OpenImageIO6v3_1_08ImageBuf8IteratorIjtEC2ERS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.us.preheader: ; preds = %_ZN11OpenImageIO6v3_1_08ImageBuf8IteratorIjtEC2ERS1_RKNS0_3ROIENS1_8WrapModeE.exit
-  %62 = sext i32 %.fr30 to i64
+  %62 = sext i32 %.fr28 to i64
   %wide.trip.count = zext nneg i32 %12 to i64
-  %wide.trip.count37 = zext nneg i32 %12 to i64
+  %wide.trip.count35 = zext nneg i32 %12 to i64
   br label %_ZN11OpenImageIO6v3_1_08ImageBuf8IteratorIjtEC2ERS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.us
 
 _ZN11OpenImageIO6v3_1_08ImageBuf8IteratorIjtEC2ERS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.us: ; preds = %_ZN11OpenImageIO6v3_1_08ImageBuf8IteratorIjtEC2ERS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.us.preheader, %..loopexit_crit_edge.us
@@ -48881,15 +48865,15 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.us: ; preds =
   %95 = load ptr, ptr %94, align 8, !tbaa !189
   %96 = load i32, ptr %95, align 8, !tbaa !50
   %97 = icmp eq i32 %96, 3
-  br i1 %97, label %.lr.ph.split.us23, label %.lr.ph.split.us.us, !prof !137
+  br i1 %97, label %.lr.ph.split.us21, label %.lr.ph.split.us.us, !prof !137
 
 ..loopexit_crit_edge.us:                          ; preds = %115, %106, %_ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.us
   invoke void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv(ptr noundef nonnull align 8 dereferenceable(126) %7)
-          to label %_ZN11OpenImageIO6v3_1_08ImageBuf8IteratorIjtEC2ERS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.us unwind label %.split25.us, !llvm.loop !624
+          to label %_ZN11OpenImageIO6v3_1_08ImageBuf8IteratorIjtEC2ERS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.us unwind label %.split23.us, !llvm.loop !624
 
-.lr.ph.split.us23:                                ; preds = %.lr.ph.us, %106
-  %indvars.iv34 = phi i64 [ %indvars.iv.next35, %106 ], [ 0, %.lr.ph.us ]
-  %98 = getelementptr inbounds nuw i16, ptr %92, i64 %indvars.iv34
+.lr.ph.split.us21:                                ; preds = %.lr.ph.us, %106
+  %indvars.iv32 = phi i64 [ %indvars.iv.next33, %106 ], [ 0, %.lr.ph.us ]
+  %98 = getelementptr inbounds nuw i16, ptr %92, i64 %indvars.iv32
   %99 = load i16, ptr %98, align 2, !tbaa !394
   %100 = load ptr, ptr %7, align 8, !tbaa !371
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 8
@@ -48898,25 +48882,23 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.us: ; preds =
   %104 = icmp eq i32 %103, 3
   br i1 %104, label %105, label %106, !prof !137
 
-105:                                              ; preds = %.lr.ph.split.us23
+105:                                              ; preds = %.lr.ph.split.us21
   invoke void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBase13make_writableEv(ptr noundef nonnull align 8 dereferenceable(126) %7)
-          to label %106 unwind label %.split27.us
+          to label %106 unwind label %.split25.us
 
-106:                                              ; preds = %105, %.lr.ph.split.us23
+106:                                              ; preds = %105, %.lr.ph.split.us21
   %107 = load ptr, ptr %15, align 8, !tbaa !376
-  %108 = getelementptr i32, ptr %107, i64 %indvars.iv34
+  %108 = getelementptr i32, ptr %107, i64 %indvars.iv32
   %109 = getelementptr i32, ptr %108, i64 %62
   %110 = uitofp i16 %99 to double
   %111 = call double @llvm.fmuladd.f64(double %110, double 6.553700e+04, double 5.000000e-01)
-  %.inv.i.i.i.i.i.us19 = fcmp oge double %111, 0.000000e+00
-  %.0.i.i.i.i.i.i.us20 = select i1 %.inv.i.i.i.i.i.us19, double %111, double 0.000000e+00
-  %112 = fcmp ogt double %.0.i.i.i.i.i.i.us20, 0x41EFFFFFFFE00000
-  %.1.i.i.i.i.i.i.us21 = select i1 %112, double 0x41EFFFFFFFE00000, double %.0.i.i.i.i.i.i.us20
-  %113 = fptoui double %.1.i.i.i.i.i.i.us21 to i32
+  %112 = fcmp ogt double %111, 0x41EFFFFFFFE00000
+  %.1.i.i.i.i.i.i.us19 = select i1 %112, double 0x41EFFFFFFFE00000, double %111
+  %113 = fptoui double %.1.i.i.i.i.i.i.us19 to i32
   store i32 %113, ptr %109, align 4, !tbaa !113
-  %indvars.iv.next35 = add nuw nsw i64 %indvars.iv34, 1
-  %exitcond38.not = icmp eq i64 %indvars.iv.next35, %wide.trip.count37
-  br i1 %exitcond38.not, label %..loopexit_crit_edge.us, label %.lr.ph.split.us23, !llvm.loop !625
+  %indvars.iv.next33 = add nuw nsw i64 %indvars.iv32, 1
+  %exitcond36.not = icmp eq i64 %indvars.iv.next33, %wide.trip.count35
+  br i1 %exitcond36.not, label %..loopexit_crit_edge.us, label %.lr.ph.split.us21, !llvm.loop !625
 
 .lr.ph.split.us.us:                               ; preds = %.lr.ph.us
   %114 = load ptr, ptr %15, align 8, !tbaa !376
@@ -48930,22 +48912,20 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.us: ; preds =
   %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv
   %118 = uitofp i16 %117 to double
   %119 = call double @llvm.fmuladd.f64(double %118, double 6.553700e+04, double 5.000000e-01)
-  %.inv.i.i.i.i.i.us.us = fcmp oge double %119, 0.000000e+00
-  %.0.i.i.i.i.i.i.us.us = select i1 %.inv.i.i.i.i.i.us.us, double %119, double 0.000000e+00
-  %120 = fcmp ogt double %.0.i.i.i.i.i.i.us.us, 0x41EFFFFFFFE00000
-  %.1.i.i.i.i.i.i.us.us = select i1 %120, double 0x41EFFFFFFFE00000, double %.0.i.i.i.i.i.i.us.us
+  %120 = fcmp ogt double %119, 0x41EFFFFFFFE00000
+  %.1.i.i.i.i.i.i.us.us = select i1 %120, double 0x41EFFFFFFFE00000, double %119
   %121 = fptoui double %.1.i.i.i.i.i.i.us.us to i32
   store i32 %121, ptr %gep, align 4, !tbaa !113
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %115, !llvm.loop !626
 
-.split25.us:                                      ; preds = %..loopexit_crit_edge.us
+.split23.us:                                      ; preds = %..loopexit_crit_edge.us
   %122 = landingpad { ptr, i32 }
           cleanup
   br label %143
 
-.split27.us:                                      ; preds = %105
+.split25.us:                                      ; preds = %105
   %123 = landingpad { ptr, i32 }
           cleanup
   br label %143
@@ -48995,15 +48975,15 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %.split.us, %
 
 _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread: ; preds = %_ZN11OpenImageIO6v3_1_08ImageBuf8IteratorIjtEC2ERS1_RKNS0_3ROIENS1_8WrapModeE.exit.split, %126, %130, %_ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit
   invoke void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv(ptr noundef nonnull align 8 dereferenceable(126) %7)
-          to label %_ZN11OpenImageIO6v3_1_08ImageBuf8IteratorIjtEC2ERS1_RKNS0_3ROIENS1_8WrapModeE.exit.split unwind label %.split25, !llvm.loop !624
+          to label %_ZN11OpenImageIO6v3_1_08ImageBuf8IteratorIjtEC2ERS1_RKNS0_3ROIENS1_8WrapModeE.exit.split unwind label %.split23, !llvm.loop !624
 
-.split25:                                         ; preds = %_ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread
+.split23:                                         ; preds = %_ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread
   %142 = landingpad { ptr, i32 }
           cleanup
   br label %143
 
-143:                                              ; preds = %.split25, %.split25.us, %.split27.us
-  %.pn = phi { ptr, i32 } [ %123, %.split27.us ], [ %142, %.split25 ], [ %122, %.split25.us ]
+143:                                              ; preds = %.split23, %.split23.us, %.split25.us
+  %.pn = phi { ptr, i32 } [ %123, %.split25.us ], [ %142, %.split23 ], [ %122, %.split23.us ]
   call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %7) #37
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   resume { ptr, i32 } %.pn
@@ -170363,10 +170343,8 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.us.i.i.i: ; p
   %102 = load i16, ptr %gep.i.i.i, align 2, !tbaa !394
   %103 = uitofp i16 %102 to float
   %104 = call float @llvm.fmuladd.f32(float %103, float 0x3F6FE01FE0000000, float 5.000000e-01)
-  %.inv.i.i.i.i.us.i.i.i = fcmp oge float %104, 0.000000e+00
-  %.0.i.i.i.i.i.us.i.i.i = select i1 %.inv.i.i.i.i.us.i.i.i, float %104, float 0.000000e+00
-  %105 = fcmp ogt float %.0.i.i.i.i.i.us.i.i.i, 2.550000e+02
-  %.1.i.i.i.i.i.us.i.i.i = select i1 %105, float 2.550000e+02, float %.0.i.i.i.i.i.us.i.i.i
+  %105 = fcmp ogt float %104, 2.550000e+02
+  %.1.i.i.i.i.i.us.i.i.i = select i1 %105, float 2.550000e+02, float %104
   %106 = fptoui float %.1.i.i.i.i.i.us.i.i.i to i8
   %107 = getelementptr inbounds nuw i8, ptr %100, i64 %indvars.iv.i.i.i
   store i8 %106, ptr %107, align 1, !tbaa !112
@@ -173685,10 +173663,8 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.us.i.i.i: ; p
   %103 = load i8, ptr %gep.i.i.i, align 1, !tbaa !112
   %104 = uitofp i8 %103 to float
   %105 = call float @llvm.fmuladd.f32(float %104, float 2.570000e+02, float 5.000000e-01)
-  %.inv.i.i.i.i.us.i.i.i = fcmp oge float %105, 0.000000e+00
-  %.0.i.i.i.i.i.us.i.i.i = select i1 %.inv.i.i.i.i.us.i.i.i, float %105, float 0.000000e+00
-  %106 = fcmp ogt float %.0.i.i.i.i.i.us.i.i.i, 6.553500e+04
-  %.1.i.i.i.i.i.us.i.i.i = select i1 %106, float 6.553500e+04, float %.0.i.i.i.i.i.us.i.i.i
+  %106 = fcmp ogt float %105, 6.553500e+04
+  %.1.i.i.i.i.i.us.i.i.i = select i1 %106, float 6.553500e+04, float %105
   %107 = fptoui float %.1.i.i.i.i.i.us.i.i.i to i16
   %108 = getelementptr inbounds nuw i16, ptr %100, i64 %indvars.iv.i.i.i
   store i16 %107, ptr %108, align 2, !tbaa !394

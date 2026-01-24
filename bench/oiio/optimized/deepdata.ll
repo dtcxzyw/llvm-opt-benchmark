@@ -4264,7 +4264,7 @@ _ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit: ; preds = %_ZNK11OpenImag
   %44 = getelementptr inbounds nuw %"struct.OpenImageIO::v3_1_0::TypeDesc", ptr %43, i64 %37
   %45 = load i64, ptr %44, align 4
   %.sroa.01.0.extract.trunc = trunc i64 %45 to i8
-  switch i8 %.sroa.01.0.extract.trunc, label %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit48 [
+  switch i8 %.sroa.01.0.extract.trunc, label %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit42 [
     i8 6, label %46
     i8 11, label %48
     i8 10, label %57
@@ -4351,11 +4351,9 @@ _ZNK11OpenImageIO6v3_1_019ConstDataArrayProxyIN9Imath_3_14halfEjEixEi.exit: ; pr
   %89 = load i8, ptr %42, align 1, !tbaa !46
   %90 = uitofp i8 %89 to double
   %91 = tail call double @llvm.fmuladd.f64(double %90, double 0x4170101010000000, double 5.000000e-01)
-  %.inv.i.i.i25 = fcmp oge double %91, 0.000000e+00
-  %.0.i.i.i.i26 = select i1 %.inv.i.i.i25, double %91, double 0.000000e+00
-  %92 = fcmp ogt double %.0.i.i.i.i26, 0x41EFFFFFFFE00000
-  %.1.i.i.i.i27 = select i1 %92, double 0x41EFFFFFFFE00000, double %.0.i.i.i.i26
-  %93 = fptoui double %.1.i.i.i.i27 to i32
+  %92 = fcmp ogt double %91, 0x41EFFFFFFFE00000
+  %.1.i.i.i.i25 = select i1 %92, double 0x41EFFFFFFFE00000, double %91
+  %93 = fptoui double %.1.i.i.i.i25 to i32
   br label %_ZNK11OpenImageIO6v3_1_08DeepData8data_ptrElii.exit.thread
 
 94:                                               ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit
@@ -4365,22 +4363,20 @@ _ZNK11OpenImageIO6v3_1_019ConstDataArrayProxyIN9Imath_3_14halfEjEixEi.exit: ; pr
   %98 = fcmp olt double %97, 0.000000e+00
   %99 = select i1 %98, double -5.000000e-01, double 5.000000e-01
   %100 = fadd double %97, %99
-  %.inv.i.i.i28 = fcmp oge double %100, 0.000000e+00
-  %.0.i.i.i.i29 = select i1 %.inv.i.i.i28, double %100, double 0.000000e+00
-  %101 = fcmp ogt double %.0.i.i.i.i29, 0x41EFFFFFFFE00000
-  %.1.i.i.i.i30 = select i1 %101, double 0x41EFFFFFFFE00000, double %.0.i.i.i.i29
-  %102 = fptoui double %.1.i.i.i.i30 to i32
+  %.inv.i.i.i26 = fcmp oge double %100, 0.000000e+00
+  %.0.i.i.i.i27 = select i1 %.inv.i.i.i26, double %100, double 0.000000e+00
+  %101 = fcmp ogt double %.0.i.i.i.i27, 0x41EFFFFFFFE00000
+  %.1.i.i.i.i28 = select i1 %101, double 0x41EFFFFFFFE00000, double %.0.i.i.i.i27
+  %102 = fptoui double %.1.i.i.i.i28 to i32
   br label %_ZNK11OpenImageIO6v3_1_08DeepData8data_ptrElii.exit.thread
 
 103:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit
   %104 = load i16, ptr %42, align 2, !tbaa !144
   %105 = uitofp i16 %104 to double
   %106 = tail call double @llvm.fmuladd.f64(double %105, double 6.553700e+04, double 5.000000e-01)
-  %.inv.i.i.i31 = fcmp oge double %106, 0.000000e+00
-  %.0.i.i.i.i32 = select i1 %.inv.i.i.i31, double %106, double 0.000000e+00
-  %107 = fcmp ogt double %.0.i.i.i.i32, 0x41EFFFFFFFE00000
-  %.1.i.i.i.i33 = select i1 %107, double 0x41EFFFFFFFE00000, double %.0.i.i.i.i32
-  %108 = fptoui double %.1.i.i.i.i33 to i32
+  %107 = fcmp ogt double %106, 0x41EFFFFFFFE00000
+  %.1.i.i.i.i29 = select i1 %107, double 0x41EFFFFFFFE00000, double %106
+  %108 = fptoui double %.1.i.i.i.i29 to i32
   br label %_ZNK11OpenImageIO6v3_1_08DeepData8data_ptrElii.exit.thread
 
 109:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit
@@ -4390,11 +4386,11 @@ _ZNK11OpenImageIO6v3_1_019ConstDataArrayProxyIN9Imath_3_14halfEjEixEi.exit: ; pr
   %113 = fcmp olt double %112, 0.000000e+00
   %114 = select i1 %113, double -5.000000e-01, double 5.000000e-01
   %115 = fadd double %112, %114
-  %.inv.i.i.i34 = fcmp oge double %115, 0.000000e+00
-  %.0.i.i.i.i35 = select i1 %.inv.i.i.i34, double %115, double 0.000000e+00
-  %116 = fcmp ogt double %.0.i.i.i.i35, 0x41EFFFFFFFE00000
-  %.1.i.i.i.i36 = select i1 %116, double 0x41EFFFFFFFE00000, double %.0.i.i.i.i35
-  %117 = fptoui double %.1.i.i.i.i36 to i32
+  %.inv.i.i.i30 = fcmp oge double %115, 0.000000e+00
+  %.0.i.i.i.i31 = select i1 %.inv.i.i.i30, double %115, double 0.000000e+00
+  %116 = fcmp ogt double %.0.i.i.i.i31, 0x41EFFFFFFFE00000
+  %.1.i.i.i.i32 = select i1 %116, double 0x41EFFFFFFFE00000, double %.0.i.i.i.i31
+  %117 = fptoui double %.1.i.i.i.i32 to i32
   br label %_ZNK11OpenImageIO6v3_1_08DeepData8data_ptrElii.exit.thread
 
 118:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit
@@ -4404,22 +4400,20 @@ _ZNK11OpenImageIO6v3_1_019ConstDataArrayProxyIN9Imath_3_14halfEjEixEi.exit: ; pr
   %122 = fcmp olt double %121, 0.000000e+00
   %123 = select i1 %122, double -5.000000e-01, double 5.000000e-01
   %124 = fadd double %121, %123
-  %.inv.i.i.i37 = fcmp oge double %124, 0.000000e+00
-  %.0.i.i.i.i38 = select i1 %.inv.i.i.i37, double %124, double 0.000000e+00
-  %125 = fcmp ogt double %.0.i.i.i.i38, 0x41EFFFFFFFE00000
-  %.1.i.i.i.i39 = select i1 %125, double 0x41EFFFFFFFE00000, double %.0.i.i.i.i38
-  %126 = fptoui double %.1.i.i.i.i39 to i32
+  %.inv.i.i.i33 = fcmp oge double %124, 0.000000e+00
+  %.0.i.i.i.i34 = select i1 %.inv.i.i.i33, double %124, double 0.000000e+00
+  %125 = fcmp ogt double %.0.i.i.i.i34, 0x41EFFFFFFFE00000
+  %.1.i.i.i.i35 = select i1 %125, double 0x41EFFFFFFFE00000, double %.0.i.i.i.i34
+  %126 = fptoui double %.1.i.i.i.i35 to i32
   br label %_ZNK11OpenImageIO6v3_1_08DeepData8data_ptrElii.exit.thread
 
 127:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit
   %128 = load i64, ptr %42, align 8, !tbaa !145
   %129 = uitofp i64 %128 to double
   %130 = tail call double @llvm.fmuladd.f64(double %129, double 0x3DEFFFFFFFE00000, double 5.000000e-01)
-  %.inv.i.i.i40 = fcmp oge double %130, 0.000000e+00
-  %.0.i.i.i.i41 = select i1 %.inv.i.i.i40, double %130, double 0.000000e+00
-  %131 = fcmp ogt double %.0.i.i.i.i41, 0x41EFFFFFFFE00000
-  %.1.i.i.i.i42 = select i1 %131, double 0x41EFFFFFFFE00000, double %.0.i.i.i.i41
-  %132 = fptoui double %.1.i.i.i.i42 to i32
+  %131 = fcmp ogt double %130, 0x41EFFFFFFFE00000
+  %.1.i.i.i.i36 = select i1 %131, double 0x41EFFFFFFFE00000, double %130
+  %132 = fptoui double %.1.i.i.i.i36 to i32
   br label %_ZNK11OpenImageIO6v3_1_08DeepData8data_ptrElii.exit.thread
 
 133:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit
@@ -4429,22 +4423,22 @@ _ZNK11OpenImageIO6v3_1_019ConstDataArrayProxyIN9Imath_3_14halfEjEixEi.exit: ; pr
   %137 = fcmp olt double %136, 0.000000e+00
   %138 = select i1 %137, double -5.000000e-01, double 5.000000e-01
   %139 = fadd double %136, %138
-  %.inv.i.i.i43 = fcmp oge double %139, 0.000000e+00
-  %.0.i.i.i.i44 = select i1 %.inv.i.i.i43, double %139, double 0.000000e+00
-  %140 = fcmp ogt double %.0.i.i.i.i44, 0x41EFFFFFFFE00000
-  %.1.i.i.i.i45 = select i1 %140, double 0x41EFFFFFFFE00000, double %.0.i.i.i.i44
-  %141 = fptoui double %.1.i.i.i.i45 to i32
+  %.inv.i.i.i37 = fcmp oge double %139, 0.000000e+00
+  %.0.i.i.i.i38 = select i1 %.inv.i.i.i37, double %139, double 0.000000e+00
+  %140 = fcmp ogt double %.0.i.i.i.i38, 0x41EFFFFFFFE00000
+  %.1.i.i.i.i39 = select i1 %140, double 0x41EFFFFFFFE00000, double %.0.i.i.i.i38
+  %141 = fptoui double %.1.i.i.i.i39 to i32
   br label %_ZNK11OpenImageIO6v3_1_08DeepData8data_ptrElii.exit.thread
 
-_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit48: ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit
+_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit42: ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit
   %142 = trunc i64 %45 to i32
   %143 = and i32 %142, 255
   %144 = load ptr, ptr @stderr, align 8, !tbaa !88
   %145 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %144, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.1, i32 noundef 728, ptr noundef nonnull @__FUNCTION__._ZNK11OpenImageIO6v3_1_08DeepData15deep_value_uintElii, ptr noundef nonnull @.str.11, i32 noundef %143) #34
   br label %_ZNK11OpenImageIO6v3_1_08DeepData8data_ptrElii.exit.thread
 
-_ZNK11OpenImageIO6v3_1_08DeepData8data_ptrElii.exit.thread: ; preds = %4, %6, %13, %15, %22, %_ZNK11OpenImageIO6v3_1_08DeepData8data_ptrElii.exit, %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit48, %133, %127, %118, %109, %103, %94, %88, %_ZNK11OpenImageIO6v3_1_019ConstDataArrayProxyIN9Imath_3_14halfEjEixEi.exit, %48, %46
-  %.0 = phi i32 [ 0, %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit48 ], [ %47, %46 ], [ %56, %48 ], [ %87, %_ZNK11OpenImageIO6v3_1_019ConstDataArrayProxyIN9Imath_3_14halfEjEixEi.exit ], [ %93, %88 ], [ %102, %94 ], [ %108, %103 ], [ %117, %109 ], [ %126, %118 ], [ %132, %127 ], [ %141, %133 ], [ 0, %_ZNK11OpenImageIO6v3_1_08DeepData8data_ptrElii.exit ], [ 0, %22 ], [ 0, %15 ], [ 0, %13 ], [ 0, %6 ], [ 0, %4 ]
+_ZNK11OpenImageIO6v3_1_08DeepData8data_ptrElii.exit.thread: ; preds = %4, %6, %13, %15, %22, %_ZNK11OpenImageIO6v3_1_08DeepData8data_ptrElii.exit, %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit42, %133, %127, %118, %109, %103, %94, %88, %_ZNK11OpenImageIO6v3_1_019ConstDataArrayProxyIN9Imath_3_14halfEjEixEi.exit, %48, %46
+  %.0 = phi i32 [ 0, %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit42 ], [ %47, %46 ], [ %56, %48 ], [ %87, %_ZNK11OpenImageIO6v3_1_019ConstDataArrayProxyIN9Imath_3_14halfEjEixEi.exit ], [ %93, %88 ], [ %102, %94 ], [ %108, %103 ], [ %117, %109 ], [ %126, %118 ], [ %132, %127 ], [ %141, %133 ], [ 0, %_ZNK11OpenImageIO6v3_1_08DeepData8data_ptrElii.exit ], [ 0, %22 ], [ 0, %15 ], [ 0, %13 ], [ 0, %6 ], [ 0, %4 ]
   ret i32 %.0
 }
 
@@ -4703,7 +4697,7 @@ define void @_ZN11OpenImageIO6v3_1_08DeepData14set_deep_valueEliij(ptr noundef n
   %10 = load i32, ptr %9, align 8
   %11 = icmp slt i32 %2, %10
   %or.cond.i = select i1 %8, i1 %11, i1 false
-  br i1 %or.cond.i, label %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit, label %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit51
+  br i1 %or.cond.i, label %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit, label %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit45
 
 _ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit: ; preds = %7
   %12 = load ptr, ptr %0, align 8, !tbaa !35
@@ -4804,10 +4798,8 @@ _ZN11OpenImageIO6v3_1_09DataProxyIN9Imath_3_14halfEjEaSEj.exit: ; preds = %27, %
 63:                                               ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit
   %64 = uitofp i32 %4 to float
   %65 = tail call float @llvm.fmuladd.f32(float %64, float 0x3E6FE00000000000, float 5.000000e-01)
-  %.inv.i.i.i = fcmp oge float %65, 0.000000e+00
-  %.0.i.i.i.i30 = select i1 %.inv.i.i.i, float %65, float 0.000000e+00
-  %66 = fcmp ogt float %.0.i.i.i.i30, 2.550000e+02
-  %.1.i.i.i.i = select i1 %66, float 2.550000e+02, float %.0.i.i.i.i30
+  %66 = fcmp ogt float %65, 2.550000e+02
+  %.1.i.i.i.i = select i1 %66, float 2.550000e+02, float %65
   %67 = fptoui float %.1.i.i.i.i to i8
   store i8 %67, ptr %6, align 1, !tbaa !46
   br label %104
@@ -4815,33 +4807,31 @@ _ZN11OpenImageIO6v3_1_09DataProxyIN9Imath_3_14halfEjEaSEj.exit: ; preds = %27, %
 68:                                               ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit
   %69 = uitofp i32 %4 to float
   %70 = tail call float @llvm.fmuladd.f32(float %69, float 0x3E5FC00000000000, float 5.000000e-01)
-  %.inv.i.i.i31 = fcmp oge float %70, -1.280000e+02
-  %.0.i.i.i.i32 = select i1 %.inv.i.i.i31, float %70, float -1.280000e+02
-  %71 = fcmp ogt float %.0.i.i.i.i32, 1.270000e+02
-  %.1.i.i.i.i33 = select i1 %71, float 1.270000e+02, float %.0.i.i.i.i32
-  %72 = fptosi float %.1.i.i.i.i33 to i8
+  %.inv.i.i.i = fcmp oge float %70, -1.280000e+02
+  %.0.i.i.i.i30 = select i1 %.inv.i.i.i, float %70, float -1.280000e+02
+  %71 = fcmp ogt float %.0.i.i.i.i30, 1.270000e+02
+  %.1.i.i.i.i31 = select i1 %71, float 1.270000e+02, float %.0.i.i.i.i30
+  %72 = fptosi float %.1.i.i.i.i31 to i8
   store i8 %72, ptr %6, align 1, !tbaa !46
   br label %104
 
 73:                                               ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit
   %74 = uitofp i32 %4 to float
   %75 = tail call float @llvm.fmuladd.f32(float %74, float 0x3EEFFFE000000000, float 5.000000e-01)
-  %.inv.i.i.i34 = fcmp oge float %75, 0.000000e+00
-  %.0.i.i.i.i35 = select i1 %.inv.i.i.i34, float %75, float 0.000000e+00
-  %76 = fcmp ogt float %.0.i.i.i.i35, 6.553500e+04
-  %.1.i.i.i.i36 = select i1 %76, float 6.553500e+04, float %.0.i.i.i.i35
-  %77 = fptoui float %.1.i.i.i.i36 to i16
+  %76 = fcmp ogt float %75, 6.553500e+04
+  %.1.i.i.i.i32 = select i1 %76, float 6.553500e+04, float %75
+  %77 = fptoui float %.1.i.i.i.i32 to i16
   store i16 %77, ptr %6, align 2, !tbaa !144
   br label %104
 
 78:                                               ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit
   %79 = uitofp i32 %4 to float
   %80 = tail call float @llvm.fmuladd.f32(float %79, float 0x3EDFFFC000000000, float 5.000000e-01)
-  %.inv.i.i.i37 = fcmp oge float %80, -3.276800e+04
-  %.0.i.i.i.i38 = select i1 %.inv.i.i.i37, float %80, float -3.276800e+04
-  %81 = fcmp ogt float %.0.i.i.i.i38, 3.276700e+04
-  %.1.i.i.i.i39 = select i1 %81, float 3.276700e+04, float %.0.i.i.i.i38
-  %82 = fptosi float %.1.i.i.i.i39 to i16
+  %.inv.i.i.i33 = fcmp oge float %80, -3.276800e+04
+  %.0.i.i.i.i34 = select i1 %.inv.i.i.i33, float %80, float -3.276800e+04
+  %81 = fcmp ogt float %.0.i.i.i.i34, 3.276700e+04
+  %.1.i.i.i.i35 = select i1 %81, float 3.276700e+04, float %.0.i.i.i.i34
+  %82 = fptosi float %.1.i.i.i.i35 to i16
   store i16 %82, ptr %6, align 2, !tbaa !144
   br label %104
 
@@ -4852,48 +4842,46 @@ _ZN11OpenImageIO6v3_1_09DataProxyIN9Imath_3_14halfEjEaSEj.exit: ; preds = %27, %
 84:                                               ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit
   %85 = uitofp i32 %4 to double
   %86 = tail call double @llvm.fmuladd.f64(double %85, double 0x3FDFFFFFFFE00000, double 5.000000e-01)
-  %.inv.i.i.i40 = fcmp oge double %86, 0xC1E0000000000000
-  %.0.i.i.i.i41 = select i1 %.inv.i.i.i40, double %86, double 0xC1E0000000000000
-  %87 = fcmp ogt double %.0.i.i.i.i41, 0x41DFFFFFFFC00000
-  %.1.i.i.i.i42 = select i1 %87, double 0x41DFFFFFFFC00000, double %.0.i.i.i.i41
-  %88 = fptosi double %.1.i.i.i.i42 to i32
+  %.inv.i.i.i36 = fcmp oge double %86, 0xC1E0000000000000
+  %.0.i.i.i.i37 = select i1 %.inv.i.i.i36, double %86, double 0xC1E0000000000000
+  %87 = fcmp ogt double %.0.i.i.i.i37, 0x41DFFFFFFFC00000
+  %.1.i.i.i.i38 = select i1 %87, double 0x41DFFFFFFFC00000, double %.0.i.i.i.i37
+  %88 = fptosi double %.1.i.i.i.i38 to i32
   store i32 %88, ptr %6, align 4, !tbaa !84
   br label %104
 
 89:                                               ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit
   %90 = uitofp i32 %4 to double
   %91 = tail call double @llvm.fmuladd.f64(double %90, double 0x41F0000000100000, double 5.000000e-01)
-  %.inv.i.i.i43 = fcmp oge double %91, 0.000000e+00
-  %.0.i.i.i.i44 = select i1 %.inv.i.i.i43, double %91, double 0.000000e+00
-  %92 = fcmp ogt double %.0.i.i.i.i44, 0x43F0000000000000
-  %.1.i.i.i.i45 = select i1 %92, double 0x43F0000000000000, double %.0.i.i.i.i44
-  %93 = fptoui double %.1.i.i.i.i45 to i64
+  %92 = fcmp ogt double %91, 0x43F0000000000000
+  %.1.i.i.i.i39 = select i1 %92, double 0x43F0000000000000, double %91
+  %93 = fptoui double %.1.i.i.i.i39 to i64
   store i64 %93, ptr %6, align 8, !tbaa !95
   br label %104
 
 94:                                               ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit
   %95 = uitofp i32 %4 to double
   %96 = tail call double @llvm.fmuladd.f64(double %95, double 0x41E0000000100000, double 5.000000e-01)
-  %.inv.i.i.i46 = fcmp oge double %96, 0xC3E0000000000000
-  %.0.i.i.i.i47 = select i1 %.inv.i.i.i46, double %96, double 0xC3E0000000000000
-  %97 = fcmp ogt double %.0.i.i.i.i47, 0x43E0000000000000
-  %.1.i.i.i.i48 = select i1 %97, double 0x43E0000000000000, double %.0.i.i.i.i47
-  %98 = fptosi double %.1.i.i.i.i48 to i64
+  %.inv.i.i.i40 = fcmp oge double %96, 0xC3E0000000000000
+  %.0.i.i.i.i41 = select i1 %.inv.i.i.i40, double %96, double 0xC3E0000000000000
+  %97 = fcmp ogt double %.0.i.i.i.i41, 0x43E0000000000000
+  %.1.i.i.i.i42 = select i1 %97, double 0x43E0000000000000, double %.0.i.i.i.i41
+  %98 = fptosi double %.1.i.i.i.i42 to i64
   store i64 %98, ptr %6, align 8, !tbaa !95
   br label %104
 
 99:                                               ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit
   %100 = trunc i64 %16 to i32
   %101 = and i32 %100, 255
-  br label %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit51
+  br label %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit45
 
-_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit51: ; preds = %7, %99
-  %.sroa.0.0.insert.insert.i50 = phi i32 [ %101, %99 ], [ 0, %7 ]
+_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit45: ; preds = %7, %99
+  %.sroa.0.0.insert.insert.i44 = phi i32 [ %101, %99 ], [ 0, %7 ]
   %102 = load ptr, ptr @stderr, align 8, !tbaa !88
-  %103 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %102, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.1, i32 noundef 818, ptr noundef nonnull @__FUNCTION__._ZN11OpenImageIO6v3_1_08DeepData14set_deep_valueEliif, ptr noundef nonnull @.str.11, i32 noundef %.sroa.0.0.insert.insert.i50) #34
+  %103 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %102, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.1, i32 noundef 818, ptr noundef nonnull @__FUNCTION__._ZN11OpenImageIO6v3_1_08DeepData14set_deep_valueEliif, ptr noundef nonnull @.str.11, i32 noundef %.sroa.0.0.insert.insert.i44) #34
   br label %104
 
-104:                                              ; preds = %17, %_ZN11OpenImageIO6v3_1_09DataProxyIN9Imath_3_14halfEjEaSEj.exit, %63, %68, %73, %78, %83, %84, %89, %94, %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit51, %5
+104:                                              ; preds = %17, %_ZN11OpenImageIO6v3_1_09DataProxyIN9Imath_3_14halfEjEaSEj.exit, %63, %68, %73, %78, %83, %84, %89, %94, %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit45, %5
   ret void
 }
 
