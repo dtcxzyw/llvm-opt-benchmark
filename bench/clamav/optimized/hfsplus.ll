@@ -929,7 +929,8 @@ define internal fastcc i32 @hfsplus_walk_catalog(ptr noundef nonnull %0, ptr nou
 .lr.ph491:                                        ; preds = %82
   %86 = zext i16 %85 to i32
   %87 = zext i16 %85 to i64
-  %wide.trip.count = zext nneg i16 %rev.i to i64
+  %umax = call i16 @llvm.umax.i16(i16 %rev.i, i16 1)
+  %wide.trip.count = zext nneg i16 %umax to i64
   br label %88
 
 88:                                               ; preds = %.lr.ph491, %470
@@ -1241,7 +1242,8 @@ forkdata_print.exit439:                           ; preds = %194, %198
 .lr.ph.i:                                         ; preds = %229
   %233 = zext i16 %232 to i32
   %234 = zext i16 %232 to i64
-  %wide.trip.count.i = zext nneg i16 %rev.i.i to i64
+  %umax.i = call i16 @llvm.umax.i16(i16 %rev.i.i, i16 1)
+  %wide.trip.count.i = zext nneg i16 %umax.i to i64
   br label %235
 
 235:                                              ; preds = %286, %.lr.ph.i
@@ -2989,6 +2991,9 @@ declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_add
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #9
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i16 @llvm.umax.i16(i16, i16) #9
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11

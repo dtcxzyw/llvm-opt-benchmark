@@ -5537,13 +5537,16 @@ FindMatchLengthWithLimit.exit204.i:               ; preds = %178, %.critedge.i19
   %233 = lshr i64 %232, 4
   %234 = insertelement <16 x i8> poison, i8 %223, i64 0
   %235 = shufflevector <16 x i8> %234, <16 x i8> poison, <16 x i32> zeroinitializer
-  %invariant.umin = tail call i64 @llvm.umin.i64(i64 %233, i64 4)
   %.not982 = icmp eq i64 %233, 0
-  br i1 %.not982, label %._crit_edge667.thread, label %.lr.ph666
+  br i1 %.not982, label %._crit_edge667.thread, label %.lr.ph666.preheader
 
-.lr.ph666:                                        ; preds = %._crit_edge, %.lr.ph666
-  %.020.i393664 = phi i64 [ %243, %.lr.ph666 ], [ 0, %._crit_edge ]
-  %.021.i392663 = phi i64 [ %244, %.lr.ph666 ], [ 0, %._crit_edge ]
+.lr.ph666.preheader:                              ; preds = %._crit_edge
+  %invariant.umin = tail call i64 @llvm.umin.i64(i64 %233, i64 4)
+  br label %.lr.ph666
+
+.lr.ph666:                                        ; preds = %.lr.ph666.preheader, %.lr.ph666
+  %.020.i393664 = phi i64 [ %243, %.lr.ph666 ], [ 0, %.lr.ph666.preheader ]
+  %.021.i392663 = phi i64 [ %244, %.lr.ph666 ], [ 0, %.lr.ph666.preheader ]
   %236 = shl nuw nsw i64 %.021.i392663, 4
   %237 = getelementptr inbounds nuw i8, ptr %150, i64 %236
   %238 = load <16 x i8>, ptr %237, align 1, !tbaa !53, !noalias !299
@@ -8206,13 +8209,16 @@ FindMatchLengthWithLimit.exit209.i:               ; preds = %178, %.critedge.i20
   %233 = lshr i64 %232, 4
   %234 = insertelement <16 x i8> poison, i8 %223, i64 0
   %235 = shufflevector <16 x i8> %234, <16 x i8> poison, <16 x i32> zeroinitializer
-  %invariant.umin = tail call i64 @llvm.umin.i64(i64 %233, i64 4)
   %.not984 = icmp eq i64 %233, 0
-  br i1 %.not984, label %._crit_edge669.thread, label %.lr.ph668
+  br i1 %.not984, label %._crit_edge669.thread, label %.lr.ph668.preheader
 
-.lr.ph668:                                        ; preds = %._crit_edge, %.lr.ph668
-  %.020.i.i666 = phi i64 [ %243, %.lr.ph668 ], [ 0, %._crit_edge ]
-  %.021.i220.i665 = phi i64 [ %244, %.lr.ph668 ], [ 0, %._crit_edge ]
+.lr.ph668.preheader:                              ; preds = %._crit_edge
+  %invariant.umin = tail call i64 @llvm.umin.i64(i64 %233, i64 4)
+  br label %.lr.ph668
+
+.lr.ph668:                                        ; preds = %.lr.ph668.preheader, %.lr.ph668
+  %.020.i.i666 = phi i64 [ %243, %.lr.ph668 ], [ 0, %.lr.ph668.preheader ]
+  %.021.i220.i665 = phi i64 [ %244, %.lr.ph668 ], [ 0, %.lr.ph668.preheader ]
   %236 = shl nuw nsw i64 %.021.i220.i665, 4
   %237 = getelementptr inbounds nuw i8, ptr %149, i64 %236
   %238 = load <16 x i8>, ptr %237, align 1, !tbaa !53, !noalias !397
@@ -36465,13 +36471,16 @@ FindMatchLengthWithLimit.exit204.i:               ; preds = %175, %.critedge.i19
   %230 = lshr i64 %229, 4
   %231 = insertelement <16 x i8> poison, i8 %220, i64 0
   %232 = shufflevector <16 x i8> %231, <16 x i8> poison, <16 x i32> zeroinitializer
-  %invariant.umin = tail call i64 @llvm.umin.i64(i64 %230, i64 4)
   %.not711 = icmp eq i64 %230, 0
-  br i1 %.not711, label %._crit_edge522.thread, label %.lr.ph521
+  br i1 %.not711, label %._crit_edge522.thread, label %.lr.ph521.preheader
 
-.lr.ph521:                                        ; preds = %._crit_edge, %.lr.ph521
-  %.020.i293519 = phi i64 [ %240, %.lr.ph521 ], [ 0, %._crit_edge ]
-  %.021.i292518 = phi i64 [ %241, %.lr.ph521 ], [ 0, %._crit_edge ]
+.lr.ph521.preheader:                              ; preds = %._crit_edge
+  %invariant.umin = tail call i64 @llvm.umin.i64(i64 %230, i64 4)
+  br label %.lr.ph521
+
+.lr.ph521:                                        ; preds = %.lr.ph521.preheader, %.lr.ph521
+  %.020.i293519 = phi i64 [ %240, %.lr.ph521 ], [ 0, %.lr.ph521.preheader ]
+  %.021.i292518 = phi i64 [ %241, %.lr.ph521 ], [ 0, %.lr.ph521.preheader ]
   %233 = shl nuw nsw i64 %.021.i292518, 4
   %234 = getelementptr inbounds nuw i8, ptr %147, i64 %233
   %235 = load <16 x i8>, ptr %234, align 1, !tbaa !53, !noalias !1611
@@ -38409,13 +38418,16 @@ FindMatchLengthWithLimit.exit209.i:               ; preds = %175, %.critedge.i20
   %230 = lshr i64 %229, 4
   %231 = insertelement <16 x i8> poison, i8 %220, i64 0
   %232 = shufflevector <16 x i8> %231, <16 x i8> poison, <16 x i32> zeroinitializer
-  %invariant.umin = tail call i64 @llvm.umin.i64(i64 %230, i64 4)
   %.not713 = icmp eq i64 %230, 0
-  br i1 %.not713, label %._crit_edge524.thread, label %.lr.ph523
+  br i1 %.not713, label %._crit_edge524.thread, label %.lr.ph523.preheader
 
-.lr.ph523:                                        ; preds = %._crit_edge, %.lr.ph523
-  %.020.i.i521 = phi i64 [ %240, %.lr.ph523 ], [ 0, %._crit_edge ]
-  %.021.i220.i520 = phi i64 [ %241, %.lr.ph523 ], [ 0, %._crit_edge ]
+.lr.ph523.preheader:                              ; preds = %._crit_edge
+  %invariant.umin = tail call i64 @llvm.umin.i64(i64 %230, i64 4)
+  br label %.lr.ph523
+
+.lr.ph523:                                        ; preds = %.lr.ph523.preheader, %.lr.ph523
+  %.020.i.i521 = phi i64 [ %240, %.lr.ph523 ], [ 0, %.lr.ph523.preheader ]
+  %.021.i220.i520 = phi i64 [ %241, %.lr.ph523 ], [ 0, %.lr.ph523.preheader ]
   %233 = shl nuw nsw i64 %.021.i220.i520, 4
   %234 = getelementptr inbounds nuw i8, ptr %146, i64 %233
   %235 = load <16 x i8>, ptr %234, align 1, !tbaa !53, !noalias !1669

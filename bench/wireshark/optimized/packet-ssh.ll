@@ -2658,14 +2658,22 @@ ssh_kex_make_bignum.exit:                         ; preds = %17, %21
 ssh_kex_make_bignum.exit216:                      ; preds = %ssh_kex_make_bignum.exit, %31
   %.0.i215 = phi ptr [ %33, %31 ], [ null, %ssh_kex_make_bignum.exit ]
   %.not208218.not = icmp eq i64 %13, 0
-  br i1 %.not208218.not, label %.critedge.preheader, label %.lr.ph
+  br i1 %.not208218.not, label %.critedge.preheader, label %.lr.ph.preheader
+
+.lr.ph.preheader:                                 ; preds = %ssh_kex_make_bignum.exit216
+  %umax = tail call i64 @llvm.umax.i64(i64 %28, i64 1)
+  br label %.lr.ph
 
 .critedge.preheader:                              ; preds = %67, %ssh_kex_make_bignum.exit216
   %.not211220.not = icmp eq i64 %14, 0
-  br i1 %.not211220.not, label %.critedge213, label %.lr.ph222
+  br i1 %.not211220.not, label %.critedge213, label %.lr.ph222.preheader
 
-.lr.ph:                                           ; preds = %ssh_kex_make_bignum.exit216, %67
-  %.0189219 = phi i64 [ %72, %67 ], [ 0, %ssh_kex_make_bignum.exit216 ]
+.lr.ph222.preheader:                              ; preds = %.critedge.preheader
+  %umax223 = tail call i64 @llvm.umax.i64(i64 %18, i64 1)
+  br label %.lr.ph222
+
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %67
+  %.0189219 = phi i64 [ %72, %67 ], [ 0, %.lr.ph.preheader ]
   %38 = shl nuw i64 %.0189219, 1
   %39 = getelementptr i8, ptr %.0187, i64 %38
   %40 = load i8, ptr %39, align 1
@@ -2727,11 +2735,11 @@ ssh_kex_make_bignum.exit216:                      ; preds = %ssh_kex_make_bignum
   %71 = getelementptr i8, ptr %70, i64 %.0189219
   store i8 %69, ptr %71, align 1
   %72 = add nuw nsw i64 %.0189219, 1
-  %exitcond.not = icmp eq i64 %72, %28
+  %exitcond.not = icmp eq i64 %72, %umax
   br i1 %exitcond.not, label %.critedge.preheader, label %.lr.ph, !llvm.loop !11
 
-.lr.ph222:                                        ; preds = %.critedge.preheader, %.critedge
-  %.0191221 = phi i64 [ %106, %.critedge ], [ 0, %.critedge.preheader ]
+.lr.ph222:                                        ; preds = %.lr.ph222.preheader, %.critedge
+  %.0191221 = phi i64 [ %106, %.critedge ], [ 0, %.lr.ph222.preheader ]
   %73 = shl nuw i64 %.0191221, 1
   %74 = getelementptr i8, ptr %.0, i64 %73
   %75 = load i8, ptr %74, align 1
@@ -2793,7 +2801,7 @@ ssh_kex_make_bignum.exit216:                      ; preds = %ssh_kex_make_bignum
   %105 = getelementptr i8, ptr %104, i64 %.0191221
   store i8 %103, ptr %105, align 1
   %106 = add nuw nsw i64 %.0191221, 1
-  %exitcond224.not = icmp eq i64 %106, %18
+  %exitcond224.not = icmp eq i64 %106, %umax223
   br i1 %exitcond224.not, label %.critedge213, label %.lr.ph222, !llvm.loop !12
 
 .critedge213:                                     ; preds = %.critedge, %.critedge.preheader
@@ -8795,6 +8803,9 @@ declare i64 @llvm.umin.i64(i64, i64) #20
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.bswap.i64(i64) #20
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umax.i64(i64, i64) #20
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #20

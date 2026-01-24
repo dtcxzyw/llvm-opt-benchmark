@@ -77,14 +77,17 @@ define dso_local void @uv__platform_invalidate_fd(ptr noundef readonly captures(
   %12 = zext i32 %11 to i64
   %13 = getelementptr inbounds nuw ptr, ptr %5, i64 %12
   %14 = load ptr, ptr %13, align 8, !tbaa !23
-  %15 = ptrtoint ptr %14 to i64
   %.not = icmp ne ptr %10, null
-  %16 = icmp ne ptr %14, null
-  %or.cond = select i1 %.not, i1 %16, i1 false
-  br i1 %or.cond, label %.lr.ph, label %.loopexit
+  %15 = icmp ne ptr %14, null
+  %or.cond = select i1 %.not, i1 %15, i1 false
+  br i1 %or.cond, label %.lr.ph.preheader, label %.loopexit
 
-.lr.ph:                                           ; preds = %2, %22
-  %.016 = phi i64 [ %23, %22 ], [ 0, %2 ]
+.lr.ph.preheader:                                 ; preds = %2
+  %16 = ptrtoint ptr %14 to i64
+  br label %.lr.ph
+
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %22
+  %.016 = phi i64 [ %23, %22 ], [ 0, %.lr.ph.preheader ]
   %17 = getelementptr inbounds nuw %struct.epoll_event, ptr %10, i64 %.016
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 4
   %19 = load i32, ptr %18, align 1, !tbaa !25
@@ -97,7 +100,7 @@ define dso_local void @uv__platform_invalidate_fd(ptr noundef readonly captures(
 
 22:                                               ; preds = %.lr.ph, %21
   %23 = add nuw i64 %.016, 1
-  %exitcond.not = icmp eq i64 %23, %15
+  %exitcond.not = icmp eq i64 %23, %16
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !26
 
 .loopexit:                                        ; preds = %22, %2

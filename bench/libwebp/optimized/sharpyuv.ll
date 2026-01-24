@@ -1171,7 +1171,7 @@ define internal fastcc void @ImportOneRow(ptr noundef readonly captures(none) %0
 .split67.us:                                      ; preds = %.split.split, %.split.split.us, %.split.us
   %74 = and i32 %5, 1
   %.not = icmp eq i32 %74, 0
-  br i1 %.not, label %91, label %75
+  br i1 %.not, label %90, label %75
 
 75:                                               ; preds = %.split67.us
   %76 = sext i32 %5 to i64
@@ -1185,16 +1185,15 @@ define internal fastcc void @ImportOneRow(ptr noundef readonly captures(none) %0
   %83 = getelementptr i8, ptr %82, i64 -2
   %84 = load i16, ptr %83, align 2, !tbaa !14
   store i16 %84, ptr %82, align 2, !tbaa !14
-  %85 = shl nsw i32 %8, 1
-  %86 = add nsw i32 %85, %5
-  %87 = sext i32 %86 to i64
-  %88 = getelementptr i16, ptr %6, i64 %87
-  %89 = getelementptr i8, ptr %88, i64 -2
-  %90 = load i16, ptr %89, align 2, !tbaa !14
-  store i16 %90, ptr %88, align 2, !tbaa !14
-  br label %91
+  %85 = add nsw i32 %15, %5
+  %86 = sext i32 %85 to i64
+  %87 = getelementptr i16, ptr %6, i64 %86
+  %88 = getelementptr i8, ptr %87, i64 -2
+  %89 = load i16, ptr %88, align 2, !tbaa !14
+  store i16 %89, ptr %87, align 2, !tbaa !14
+  br label %90
 
-91:                                               ; preds = %75, %.split67.us
+90:                                               ; preds = %75, %.split67.us
   ret void
 }
 

@@ -24263,7 +24263,8 @@ cdce.end10.i.i:                                   ; preds = %cdce.call102, %cdce
   %.sroa.7.0..sroa_idx140 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %.sroa.8.0..sroa_idx141 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %66 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %wide.trip.count122 = zext nneg i32 %24 to i64
+  %umax121 = tail call i32 @llvm.umax.i32(i32 %24, i32 1)
+  %wide.trip.count122 = zext nneg i32 %umax121 to i64
   br label %ma_bpf2_get_heap_size.exit.us
 
 .lr.ph.split.preheader:                           ; preds = %59, %.thread146
@@ -24278,7 +24279,8 @@ cdce.end10.i.i:                                   ; preds = %cdce.call102, %cdce
   %.pn = zext nneg i32 %.pn.in to i64
   %70 = getelementptr i8, ptr %1, i64 %.pn
   %71 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %wide.trip.count = zext nneg i32 %24 to i64
+  %umax = tail call i32 @llvm.umax.i32(i32 %24, i32 1)
+  %wide.trip.count = zext nneg i32 %umax to i64
   br label %.lr.ph.split
 
 ma_bpf2_get_heap_size.exit.us:                    ; preds = %.lr.ph.thread, %79
@@ -41791,7 +41793,7 @@ ma_resampler_process_pcm_frames.exit.i72:         ; preds = %577
   %593 = load i32, ptr %508, align 8, !tbaa !1026
   %594 = zext i32 %592 to i64
   %595 = mul i64 %591, %594
-  call void @ma_pcm_convert(ptr noundef nonnull %.078.i57, i32 noundef %589, ptr noundef nonnull %.078..i, i32 noundef %590, i64 noundef %595, i32 noundef %593)
+  call void @ma_pcm_convert(ptr noundef nonnull %.078.i57, i32 noundef %589, ptr noundef %.078..i, i32 noundef %590, i64 noundef %595, i32 noundef %593)
   br label %596
 
 596:                                              ; preds = %588, %584
@@ -61769,7 +61771,7 @@ define internal range(i32 -17, 1) i32 @ma_decoder__on_read_memory(ptr noundef ca
   br i1 %13, label %22, label %14
 
 14:                                               ; preds = %6
-  %.not22 = icmp eq i64 %2, 0
+  %.not22 = icmp eq i64 %spec.select, 0
   br i1 %.not22, label %20, label %15
 
 15:                                               ; preds = %14
@@ -89784,7 +89786,7 @@ ma_dr_wav__seek_forward.exit:                     ; preds = %203
   br i1 %.not461, label %227, label %.thread816
 
 227:                                              ; preds = %223
-  %228 = add nsw i64 %194, 16
+  %228 = add i64 %194, 16
   %229 = add i64 %226, %228
   %230 = load i64, ptr %20, align 8
   %231 = load ptr, ptr %0, align 8, !tbaa !1141

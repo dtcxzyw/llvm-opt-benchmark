@@ -8574,7 +8574,7 @@ _ZL18stbiw__zlib_flushfPhPjPi.exit445:            ; preds = %_ZL14stbiw__sbgrowf
 592:                                              ; preds = %573, %584, %589
   %.11 = phi ptr [ %.10, %573 ], [ %.10, %584 ], [ %591, %589 ]
   %593 = lshr i32 %spec.store.select1, 8
-  %594 = trunc i32 %593 to i8
+  %594 = trunc nuw i32 %593 to i8
   %595 = getelementptr inbounds i8, ptr %.11, i64 -4
   %596 = load i32, ptr %595, align 4, !tbaa !8
   %597 = add nsw i32 %596, 1
@@ -8649,14 +8649,14 @@ _ZL14stbiw__sbgrowfPPvii.exit475:                 ; preds = %629, %624, %612
   %639 = load i32, ptr %634, align 4, !tbaa !8
   %640 = sext i32 %639 to i64
   %641 = getelementptr inbounds i8, ptr %.13, i64 %640
-  %642 = sext i32 %.4197784 to i64
-  %643 = getelementptr inbounds i8, ptr %0, i64 %642
-  %644 = sext i32 %spec.store.select1 to i64
+  %642 = zext nneg i32 %.4197784 to i64
+  %643 = getelementptr inbounds nuw i8, ptr %0, i64 %642
+  %644 = zext nneg i32 %spec.store.select1 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %641, ptr align 1 %643, i64 %644, i1 false)
   %645 = load i32, ptr %634, align 4, !tbaa !8
   %646 = add nsw i32 %645, %spec.store.select1
   store i32 %646, ptr %634, align 4, !tbaa !8
-  %647 = add nsw i32 %spec.store.select1, %.4197784
+  %647 = add nuw nsw i32 %spec.store.select1, %.4197784
   %648 = icmp slt i32 %647, %1
   br i1 %648, label %.lr.ph786, label %.loopexit, !llvm.loop !113
 
@@ -91455,11 +91455,15 @@ _ZL10stbi__get8P13stbi__context.exit.i204.i:      ; preds = %_ZL19stbi__refill_b
 
 _ZL13stbi__readvalP13stbi__contextiPh.exit215.preheader.i: ; preds = %366
   %.not364.i = icmp eq i8 %.0.i188.i, 0
-  br i1 %.not364.i, label %_ZL13stbi__readvalP13stbi__contextiPh.exit215._crit_edge.i, label %.lr.ph352.i
+  br i1 %.not364.i, label %_ZL13stbi__readvalP13stbi__contextiPh.exit215._crit_edge.i, label %.lr.ph352.preheader.i
 
-.lr.ph352.i:                                      ; preds = %_ZL13stbi__readvalP13stbi__contextiPh.exit215.preheader.i, %_ZL13stbi__copyvaliPhPKh.exit.i
-  %.0104351.i = phi i32 [ %378, %_ZL13stbi__copyvaliPhPKh.exit.i ], [ 0, %_ZL13stbi__readvalP13stbi__contextiPh.exit215.preheader.i ]
-  %.3350.i = phi ptr [ %379, %_ZL13stbi__copyvaliPhPKh.exit.i ], [ %.1109354.i, %_ZL13stbi__readvalP13stbi__contextiPh.exit215.preheader.i ]
+.lr.ph352.preheader.i:                            ; preds = %_ZL13stbi__readvalP13stbi__contextiPh.exit215.preheader.i
+  %umax.i = tail call i32 @llvm.umax.i32(i32 %spec.select328.i, i32 1)
+  br label %.lr.ph352.i
+
+.lr.ph352.i:                                      ; preds = %_ZL13stbi__copyvaliPhPKh.exit.i, %.lr.ph352.preheader.i
+  %.0104351.i = phi i32 [ %378, %_ZL13stbi__copyvaliPhPKh.exit.i ], [ 0, %.lr.ph352.preheader.i ]
+  %.3350.i = phi ptr [ %379, %_ZL13stbi__copyvaliPhPKh.exit.i ], [ %.1109354.i, %.lr.ph352.preheader.i ]
   %368 = load i8, ptr %232, align 1, !tbaa !2839
   %369 = zext i8 %368 to i32
   br label %370
@@ -91487,7 +91491,7 @@ _ZL13stbi__readvalP13stbi__contextiPh.exit215.preheader.i: ; preds = %366
 _ZL13stbi__copyvaliPhPKh.exit.i:                  ; preds = %376
   %378 = add nuw nsw i32 %.0104351.i, 1
   %379 = getelementptr inbounds nuw i8, ptr %.3350.i, i64 4
-  %exitcond378.not.i = icmp eq i32 %378, %spec.select328.i
+  %exitcond378.not.i = icmp eq i32 %378, %umax.i
   br i1 %exitcond378.not.i, label %_ZL13stbi__readvalP13stbi__contextiPh.exit215._crit_edge.i, label %.lr.ph352.i, !llvm.loop !2844
 
 _ZL13stbi__readvalP13stbi__contextiPh.exit215._crit_edge.i: ; preds = %_ZL13stbi__copyvaliPhPKh.exit.i, %_ZL13stbi__readvalP13stbi__contextiPh.exit215.preheader.i
@@ -103728,7 +103732,7 @@ _ZL10stbi__get8P13stbi__context.exit130.i:        ; preds = %_ZL19stbi__refill_b
   %313 = zext i8 %.0.i129.i to i32
   %314 = shl i32 %313, %.083.i
   %315 = or i32 %314, %.085.i
-  %316 = add nsw i32 %.083.i, 8
+  %316 = add nuw nsw i32 %.083.i, 8
   br label %250, !llvm.loop !3056
 
 317:                                              ; preds = %250

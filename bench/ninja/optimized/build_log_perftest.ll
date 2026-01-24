@@ -1126,7 +1126,11 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIP
   %110 = sub i64 %108, %109
   %111 = ashr exact i64 %110, 2
   %.not167 = icmp eq ptr %.sroa.17.2.ph, %.sroa.085.4.ph
-  br i1 %.not167, label %._crit_edge, label %.lr.ph
+  br i1 %.not167, label %._crit_edge, label %.lr.ph.preheader
+
+.lr.ph.preheader:                                 ; preds = %106
+  %umax = call i64 @llvm.umax.i64(i64 %111, i64 1)
+  br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %106
   %.025.lcssa = phi i32 [ %107, %106 ], [ %.126, %.lr.ph ]
@@ -1139,11 +1143,11 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIP
   %116 = invoke noundef i32 @_Z19platformAwareUnlinkPKc(ptr noundef nonnull @_ZL13kTestFilename)
           to label %125 unwind label %123
 
-.lr.ph:                                           ; preds = %106, %.lr.ph
-  %.0163 = phi i64 [ %122, %.lr.ph ], [ 0, %106 ]
-  %.023162 = phi float [ %120, %.lr.ph ], [ 0.000000e+00, %106 ]
-  %.024161 = phi i32 [ %.1, %.lr.ph ], [ %107, %106 ]
-  %.025160 = phi i32 [ %.126, %.lr.ph ], [ %107, %106 ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
+  %.0163 = phi i64 [ %122, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %.023162 = phi float [ %120, %.lr.ph ], [ 0.000000e+00, %.lr.ph.preheader ]
+  %.024161 = phi i32 [ %.1, %.lr.ph ], [ %107, %.lr.ph.preheader ]
+  %.025160 = phi i32 [ %.126, %.lr.ph ], [ %107, %.lr.ph.preheader ]
   %117 = getelementptr inbounds nuw i32, ptr %.sroa.085.4.ph, i64 %.0163
   %118 = load i32, ptr %117, align 4, !tbaa !72
   %119 = sitofp i32 %118 to float
@@ -1153,7 +1157,7 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIP
   %.126 = call i32 @llvm.smin.i32(i32 %118, i32 %.025160)
   %.1 = select i1 %121, i32 %.024161, i32 %spec.select
   %122 = add nuw i64 %.0163, 1
-  %exitcond188.not = icmp eq i64 %122, %111
+  %exitcond188.not = icmp eq i64 %122, %umax
   br i1 %exitcond188.not, label %._crit_edge, label %.lr.ph, !llvm.loop !74
 
 123:                                              ; preds = %._crit_edge

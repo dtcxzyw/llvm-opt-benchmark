@@ -20021,7 +20021,9 @@ default.unreachable:                              ; preds = %858
   %885 = icmp eq ptr %.sroa.060.1437, %875
   %.sroa.060.1.idx = select i1 %885, i64 0, i64 32
   %.sroa.060.1 = getelementptr inbounds nuw i8, ptr %.sroa.060.1437, i64 %.sroa.060.1.idx
-  br i1 %885, label %._crit_edge440, label %879
+  %.not79336 = icmp eq ptr %.sroa.060.1437, null
+  %.not79 = or i1 %885, %.not79336
+  br i1 %.not79, label %._crit_edge440, label %879
 
 886:                                              ; preds = %879
   %887 = getelementptr inbounds nuw i8, ptr %.sroa.060.0436, i64 4

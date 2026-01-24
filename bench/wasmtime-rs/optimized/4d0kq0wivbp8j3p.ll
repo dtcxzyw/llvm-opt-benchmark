@@ -13108,7 +13108,11 @@ _ZN16wasmtime_environ4fact10trampoline5Stack5slice17h53dfc4a49c5b29deE.exit: ; p
   %87 = getelementptr inbounds nuw i8, ptr %36, i64 16
   store i64 0, ptr %87, align 8
   %.not185 = icmp eq ptr %57, %58
-  br i1 %.not185, label %._crit_edge179, label %.lr.ph178
+  br i1 %.not185, label %._crit_edge179, label %.lr.ph178.preheader
+
+.lr.ph178.preheader:                              ; preds = %85
+  %umax = call i64 @llvm.umax.i64(i64 %62, i64 1)
+  br label %.lr.ph178
 
 88:                                               ; preds = %80
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2882)
@@ -13256,9 +13260,9 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler8i32_load17hd522cff0fdf3771fE.exi
   invoke void @_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E(ptr noalias noundef nonnull align 8 dereferenceable(136) %0, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(48) %35)
           to label %141 unwind label %.loopexit.split-lp163
 
-.lr.ph178:                                        ; preds = %85, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h49a5fd9dd434deb5E.exit"
-  %129 = phi i64 [ %140, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h49a5fd9dd434deb5E.exit" ], [ 0, %85 ]
-  %.sroa.020.0176 = phi i64 [ %130, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h49a5fd9dd434deb5E.exit" ], [ 0, %85 ]
+.lr.ph178:                                        ; preds = %.lr.ph178.preheader, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h49a5fd9dd434deb5E.exit"
+  %129 = phi i64 [ %140, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h49a5fd9dd434deb5E.exit" ], [ 0, %.lr.ph178.preheader ]
+  %.sroa.020.0176 = phi i64 [ %130, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h49a5fd9dd434deb5E.exit" ], [ 0, %.lr.ph178.preheader ]
   %130 = add nuw nsw i64 %.sroa.020.0176, 1
   %131 = trunc i64 %.sroa.020.0176 to i32
   %132 = add i32 %131, 1
@@ -13282,7 +13286,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler8i32_load17hd522cff0fdf3771fE.exi
   %139 = load i64, ptr %87, align 8, !alias.scope !2922, !noundef !4
   %140 = add i64 %139, 1
   store i64 %140, ptr %87, align 8
-  %exitcond193.not = icmp eq i64 %130, %62
+  %exitcond193.not = icmp eq i64 %130, %umax
   br i1 %exitcond193.not, label %._crit_edge179.loopexit, label %.lr.ph178
 
 141:                                              ; preds = %._crit_edge179
@@ -14903,7 +14907,11 @@ _ZN16wasmtime_environ4fact10trampoline5Stack5slice17h53dfc4a49c5b29deE.exit: ; p
   %86 = getelementptr inbounds nuw i8, ptr %36, i64 16
   store i64 0, ptr %86, align 8
   %.not187 = icmp eq ptr %56, %57
-  br i1 %.not187, label %._crit_edge181, label %.lr.ph180
+  br i1 %.not187, label %._crit_edge181, label %.lr.ph180.preheader
+
+.lr.ph180.preheader:                              ; preds = %84
+  %umax = call i64 @llvm.umax.i64(i64 %61, i64 1)
+  br label %.lr.ph180
 
 87:                                               ; preds = %79
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3134)
@@ -15051,9 +15059,9 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler8i32_load17hd522cff0fdf3771fE.exi
   invoke void @_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E(ptr noalias noundef nonnull align 8 dereferenceable(136) %0, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(48) %35)
           to label %140 unwind label %.loopexit.split-lp165
 
-.lr.ph180:                                        ; preds = %84, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h49a5fd9dd434deb5E.exit"
-  %128 = phi i64 [ %139, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h49a5fd9dd434deb5E.exit" ], [ 0, %84 ]
-  %.sroa.020.0178 = phi i64 [ %129, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h49a5fd9dd434deb5E.exit" ], [ 0, %84 ]
+.lr.ph180:                                        ; preds = %.lr.ph180.preheader, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h49a5fd9dd434deb5E.exit"
+  %128 = phi i64 [ %139, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h49a5fd9dd434deb5E.exit" ], [ 0, %.lr.ph180.preheader ]
+  %.sroa.020.0178 = phi i64 [ %129, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h49a5fd9dd434deb5E.exit" ], [ 0, %.lr.ph180.preheader ]
   %129 = add nuw nsw i64 %.sroa.020.0178, 1
   %130 = trunc i64 %.sroa.020.0178 to i32
   %131 = add i32 %130, 1
@@ -15077,7 +15085,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler8i32_load17hd522cff0fdf3771fE.exi
   %138 = load i64, ptr %86, align 8, !alias.scope !3173, !noundef !4
   %139 = add i64 %138, 1
   store i64 %139, ptr %86, align 8
-  %exitcond195.not = icmp eq i64 %129, %61
+  %exitcond195.not = icmp eq i64 %129, %umax
   br i1 %exitcond195.not, label %._crit_edge181.loopexit, label %.lr.ph180
 
 140:                                              ; preds = %._crit_edge181
@@ -16768,6 +16776,9 @@ declare i64 @llvm.umin.i64(i64, i64) #40
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #43
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umax.i64(i64, i64) #40
 
 attributes #0 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { inlinehint mustprogress nofree norecurse nounwind nonlazybind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

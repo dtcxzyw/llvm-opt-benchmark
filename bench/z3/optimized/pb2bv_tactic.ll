@@ -14632,7 +14632,8 @@ _ZN8rationalD2Ev.exit43:                          ; preds = %.noexc.i42
   %79 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %80 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %81 = getelementptr inbounds nuw i8, ptr %7, i64 20
-  %wide.trip.count = zext nneg i32 %13 to i64
+  %umax = call i32 @llvm.umax.i32(i32 %13, i32 1)
+  %wide.trip.count = zext nneg i32 %umax to i64
   br label %91
 
 82:                                               ; preds = %_ZNK6vectorIN12pb2bv_tactic3imp8monomialELb1EjE4sizeEv.exit.thread
@@ -17263,7 +17264,7 @@ _ZSt17__merge_sort_loopIPN12pb2bv_tactic3imp8monomialES3_lN9__gnu_cxx5__ops15_It
   %.lcssa.i33 = phi i64 [ %13, %_ZSt17__merge_sort_loopIPN12pb2bv_tactic3imp8monomialES3_lN9__gnu_cxx5__ops15_Iter_comp_iterINS1_11monomial_ltEEEEvT_S9_T0_T1_T2_.exit ], [ %30, %.lr.ph.i27 ]
   %.sroa.speculated.i34 = tail call i64 @llvm.smin.i64(i64 %15, i64 %.lcssa.i33)
   %31 = getelementptr inbounds %"struct.pb2bv_tactic::imp::monomial", ptr %.0.lcssa.i32, i64 %.sroa.speculated.i34
-  %32 = tail call noundef ptr @_ZSt12__move_mergeIPN12pb2bv_tactic3imp8monomialES3_N9__gnu_cxx5__ops15_Iter_comp_iterINS1_11monomial_ltEEEET0_T_SA_SA_SA_S9_T1_(ptr noundef %.0.lcssa.i32, ptr noundef %31, ptr noundef %31, ptr noundef nonnull %8, ptr noundef %.020.lcssa.i31)
+  %32 = tail call noundef ptr @_ZSt12__move_mergeIPN12pb2bv_tactic3imp8monomialES3_N9__gnu_cxx5__ops15_Iter_comp_iterINS1_11monomial_ltEEEET0_T_SA_SA_SA_S9_T1_(ptr noundef %.0.lcssa.i32, ptr noundef %31, ptr noundef %31, ptr noundef %8, ptr noundef %.020.lcssa.i31)
   %33 = icmp slt i64 %24, %7
   br i1 %33, label %14, label %._crit_edge, !llvm.loop !444
 
@@ -33948,6 +33949,9 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #22
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #21
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #21
 
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

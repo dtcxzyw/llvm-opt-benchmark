@@ -21815,14 +21815,14 @@ define internal fastcc i32 @tt_face_load_hdmx(ptr noundef %0, ptr noundef %1) un
   %11 = load i64, ptr %4, align 8
   %12 = icmp ult i64 %11, 8
   %or.cond = select i1 %10, i1 true, i1 %12
-  br i1 %or.cond, label %73, label %13
+  br i1 %or.cond, label %74, label %13
 
 13:                                               ; preds = %2
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 1288
   %15 = call i32 @FT_Stream_ExtractFrame(ptr noundef nonnull %1, i64 noundef %11, ptr noundef nonnull %14) #23
   store i32 %15, ptr %3, align 4, !tbaa !204
   %.not = icmp eq i32 %15, 0
-  br i1 %.not, label %16, label %70
+  br i1 %.not, label %16, label %71
 
 16:                                               ; preds = %13
   %17 = load ptr, ptr %14, align 8, !tbaa !819
@@ -21860,7 +21860,7 @@ define internal fastcc i32 @tt_face_load_hdmx(ptr noundef %0, ptr noundef %1) un
   %48 = icmp ne i8 %21, 0
   %49 = icmp eq i32 %27, 0
   %or.cond3 = select i1 %48, i1 true, i1 %49
-  br i1 %or.cond3, label %72, label %50
+  br i1 %or.cond3, label %73, label %50
 
 50:                                               ; preds = %16
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -21868,7 +21868,7 @@ define internal fastcc i32 @tt_face_load_hdmx(ptr noundef %0, ptr noundef %1) un
   %53 = add nsw i64 %52, 5
   %54 = and i64 %53, -4
   %.not57 = icmp eq i64 %spec.select, %54
-  br i1 %.not57, label %55, label %72
+  br i1 %.not57, label %55, label %73
 
 55:                                               ; preds = %50
   %56 = zext nneg i32 %27 to i64
@@ -21877,58 +21877,59 @@ define internal fastcc i32 @tt_face_load_hdmx(ptr noundef %0, ptr noundef %1) un
   store ptr %57, ptr %58, align 8, !tbaa !96
   %59 = load i32, ptr %3, align 4, !tbaa !204
   %.not58 = icmp eq i32 %59, 0
-  br i1 %.not58, label %.lr.ph.preheader, label %72
+  br i1 %.not58, label %.lr.ph.preheader, label %73
 
 .lr.ph.preheader:                                 ; preds = %55
-  %wide.trip.count = zext i8 %25 to i64
+  %60 = or disjoint i32 %23, %26
+  %wide.trip.count = zext nneg i32 %60 to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %62
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %62 ]
-  %.05060 = phi ptr [ %28, %.lr.ph.preheader ], [ %60, %62 ]
-  %60 = getelementptr inbounds nuw i8, ptr %.05060, i64 %spec.select
-  %61 = icmp ugt ptr %60, %19
-  br i1 %61, label %._crit_edge.split.loop.exit68, label %62
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %63
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %63 ]
+  %.05060 = phi ptr [ %28, %.lr.ph.preheader ], [ %61, %63 ]
+  %61 = getelementptr inbounds nuw i8, ptr %.05060, i64 %spec.select
+  %62 = icmp ugt ptr %61, %19
+  br i1 %62, label %._crit_edge.split.loop.exit68, label %63
 
-62:                                               ; preds = %.lr.ph
-  %63 = getelementptr inbounds nuw ptr, ptr %57, i64 %indvars.iv
-  store ptr %.05060, ptr %63, align 8, !tbaa !252
+63:                                               ; preds = %.lr.ph
+  %64 = getelementptr inbounds nuw ptr, ptr %57, i64 %indvars.iv
+  store ptr %.05060, ptr %64, align 8, !tbaa !252
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !820
 
 ._crit_edge.split.loop.exit68:                    ; preds = %.lr.ph
-  %64 = trunc nuw nsw i64 %indvars.iv to i32
+  %65 = trunc nuw nsw i64 %indvars.iv to i32
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %62, %._crit_edge.split.loop.exit68
-  %.052.lcssa.ph = phi i32 [ %64, %._crit_edge.split.loop.exit68 ], [ %26, %62 ]
-  %65 = zext nneg i32 %.052.lcssa.ph to i64
-  call void @qsort(ptr noundef %57, i64 noundef %65, i64 noundef 8, ptr noundef nonnull @compare_ppem) #23
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 1304
-  store i32 %.052.lcssa.ph, ptr %66, align 8, !tbaa !801
-  %67 = load i64, ptr %4, align 8, !tbaa !223
-  %68 = getelementptr inbounds nuw i8, ptr %0, i64 1296
-  store i64 %67, ptr %68, align 8, !tbaa !821
+._crit_edge:                                      ; preds = %63, %._crit_edge.split.loop.exit68
+  %.052.lcssa.ph = phi i32 [ %65, %._crit_edge.split.loop.exit68 ], [ %60, %63 ]
+  %66 = zext nneg i32 %.052.lcssa.ph to i64
+  call void @qsort(ptr noundef %57, i64 noundef %66, i64 noundef 8, ptr noundef nonnull @compare_ppem) #23
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 1304
+  store i32 %.052.lcssa.ph, ptr %67, align 8, !tbaa !801
+  %68 = load i64, ptr %4, align 8, !tbaa !223
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 1296
+  store i64 %68, ptr %69, align 8, !tbaa !821
   br label %.sink.split
 
-.sink.split:                                      ; preds = %._crit_edge, %72
-  %.sink71 = phi i64 [ 1296, %72 ], [ 1312, %._crit_edge ]
-  %.sink = phi i64 [ 0, %72 ], [ %spec.select, %._crit_edge ]
-  %69 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink71
-  store i64 %.sink, ptr %69, align 8, !tbaa !223
-  br label %70
+.sink.split:                                      ; preds = %._crit_edge, %73
+  %.sink71 = phi i64 [ 1296, %73 ], [ 1312, %._crit_edge ]
+  %.sink = phi i64 [ 0, %73 ], [ %spec.select, %._crit_edge ]
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink71
+  store i64 %.sink, ptr %70, align 8, !tbaa !223
+  br label %71
 
-70:                                               ; preds = %.sink.split, %13
-  %71 = load i32, ptr %3, align 4, !tbaa !204
-  br label %73
+71:                                               ; preds = %.sink.split, %13
+  %72 = load i32, ptr %3, align 4, !tbaa !204
+  br label %74
 
-72:                                               ; preds = %55, %50, %16
+73:                                               ; preds = %55, %50, %16
   call void @FT_Stream_ReleaseFrame(ptr noundef nonnull %1, ptr noundef nonnull %14) #23
   br label %.sink.split
 
-73:                                               ; preds = %2, %70
-  %.0 = phi i32 [ %71, %70 ], [ 0, %2 ]
+74:                                               ; preds = %2, %71
+  %.0 = phi i32 [ %72, %71 ], [ 0, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
