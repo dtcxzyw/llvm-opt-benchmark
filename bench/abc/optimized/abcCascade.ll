@@ -1187,121 +1187,85 @@ define void @Abc_ResPrintAllCofs(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   %smax27 = tail call i32 @llvm.smax.i32(i32 %6, i32 1)
   br i1 %7, label %.lr.ph23.split.us, label %.lr.ph23.split
 
-.lr.ph23.split.us:                                ; preds = %.lr.ph23, %45
-  %.021.us = phi i32 [ %46, %45 ], [ 0, %.lr.ph23 ]
-  %8 = and i32 %.021.us, 1431655765
-  %9 = lshr i32 %.021.us, 1
-  %10 = and i32 %9, 357913941
-  %11 = add nuw nsw i32 %10, %8
-  %12 = and i32 %11, 858993459
-  %13 = lshr i32 %11, 2
-  %14 = and i32 %13, 322122547
-  %15 = add nuw nsw i32 %14, %12
-  %16 = and i32 %15, 117901063
-  %17 = lshr i32 %15, 4
-  %18 = and i32 %17, 117901063
-  %19 = add nuw nsw i32 %18, %16
-  %20 = and i32 %19, 983055
-  %21 = lshr i32 %19, 8
-  %22 = and i32 %21, 983055
-  %23 = add nuw nsw i32 %22, %20
-  %24 = and i32 %23, 31
-  %25 = lshr i32 %23, 16
-  %26 = add nuw nsw i32 %24, %25
-  %27 = add nsw i32 %26, -7
-  %or.cond.us = icmp ult i32 %27, -4
-  br i1 %or.cond.us, label %45, label %28
+.lr.ph23.split.us:                                ; preds = %.lr.ph23, %27
+  %.021.us = phi i32 [ %28, %27 ], [ 0, %.lr.ph23 ]
+  %8 = call range(i32 0, 32) i32 @llvm.ctpop.i32(i32 %.021.us)
+  %9 = add nsw i32 %8, -7
+  %or.cond.us = icmp ult i32 %9, -4
+  br i1 %or.cond.us, label %27, label %10
 
-28:                                               ; preds = %.lr.ph23.split.us
-  %29 = call i32 @Abc_ResCofCount(ptr noundef %0, ptr noundef %1, i32 noundef %.021.us, ptr noundef nonnull %5)
-  %30 = icmp ult i32 %29, 2
-  %31 = add i32 %29, -1
-  %32 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %31, i1 true)
-  %33 = sub nuw nsw i32 32, %32
-  %.09.i.i.us = select i1 %30, i32 %29, i32 %33
-  %34 = mul nsw i32 %.09.i.i.us, 10000
-  %35 = add nsw i32 %.09.i.i.us, -1
-  %.neg.i.us = shl nsw i32 -1, %35
-  %36 = add i32 %.neg.i.us, %29
-  %37 = mul nsw i32 %36, %36
-  %38 = add nsw i32 %37, %34
-  %39 = icmp sgt i32 %29, %3
-  br i1 %39, label %45, label %.preheader.us
+10:                                               ; preds = %.lr.ph23.split.us
+  %11 = call i32 @Abc_ResCofCount(ptr noundef %0, ptr noundef %1, i32 noundef %.021.us, ptr noundef nonnull %5)
+  %12 = icmp ult i32 %11, 2
+  %13 = add i32 %11, -1
+  %14 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %13, i1 true)
+  %15 = sub nuw nsw i32 32, %14
+  %.09.i.i.us = select i1 %12, i32 %11, i32 %15
+  %16 = mul nsw i32 %.09.i.i.us, 10000
+  %17 = add nsw i32 %.09.i.i.us, -1
+  %.neg.i.us = shl nsw i32 -1, %17
+  %18 = add i32 %.neg.i.us, %11
+  %19 = mul nsw i32 %18, %18
+  %20 = add nsw i32 %19, %16
+  %21 = icmp sgt i32 %11, %3
+  br i1 %21, label %27, label %.preheader.us
 
-.preheader.us:                                    ; preds = %28, %.preheader.us
-  %.01820.us = phi i32 [ %44, %.preheader.us ], [ 0, %28 ]
-  %40 = shl nuw i32 1, %.01820.us
-  %41 = and i32 %40, %.021.us
-  %.not.us = icmp eq i32 %41, 0
-  %42 = add nuw nsw i32 %.01820.us, 97
-  %43 = select i1 %.not.us, i32 45, i32 %42
-  %putchar.us = call i32 @putchar(i32 %43)
-  %44 = add nuw nsw i32 %.01820.us, 1
-  %exitcond26.not = icmp eq i32 %44, %2
+.preheader.us:                                    ; preds = %10, %.preheader.us
+  %.01820.us = phi i32 [ %26, %.preheader.us ], [ 0, %10 ]
+  %22 = shl nuw i32 1, %.01820.us
+  %23 = and i32 %22, %.021.us
+  %.not.us = icmp eq i32 %23, 0
+  %24 = add nuw nsw i32 %.01820.us, 97
+  %25 = select i1 %.not.us, i32 45, i32 %24
+  %putchar.us = call i32 @putchar(i32 %25)
+  %26 = add nuw nsw i32 %.01820.us, 1
+  %exitcond26.not = icmp eq i32 %26, %2
   br i1 %exitcond26.not, label %._crit_edge.us, label %.preheader.us, !llvm.loop !74
 
-45:                                               ; preds = %._crit_edge.us, %28, %.lr.ph23.split.us
-  %46 = add nuw nsw i32 %.021.us, 1
-  %exitcond28.not = icmp eq i32 %46, %smax27
+27:                                               ; preds = %._crit_edge.us, %10, %.lr.ph23.split.us
+  %28 = add nuw nsw i32 %.021.us, 1
+  %exitcond28.not = icmp eq i32 %28, %smax27
   br i1 %exitcond28.not, label %._crit_edge24, label %.lr.ph23.split.us, !llvm.loop !75
 
 ._crit_edge.us:                                   ; preds = %.preheader.us
-  %47 = load i32, ptr %5, align 4, !tbaa !39
-  %48 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, i32 noundef %26, i32 noundef %29, i32 noundef %.09.i.i.us, i32 noundef %47, i32 noundef %38)
-  br label %45
+  %29 = load i32, ptr %5, align 4, !tbaa !39
+  %30 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, i32 noundef %8, i32 noundef %11, i32 noundef %.09.i.i.us, i32 noundef %29, i32 noundef %20)
+  br label %27
 
-.lr.ph23.split:                                   ; preds = %.lr.ph23, %83
-  %.021 = phi i32 [ %84, %83 ], [ 0, %.lr.ph23 ]
-  %49 = and i32 %.021, 1431655765
-  %50 = lshr i32 %.021, 1
-  %51 = and i32 %50, 357913941
-  %52 = add nuw nsw i32 %51, %49
-  %53 = and i32 %52, 858993459
-  %54 = lshr i32 %52, 2
-  %55 = and i32 %54, 322122547
-  %56 = add nuw nsw i32 %55, %53
-  %57 = and i32 %56, 117901063
-  %58 = lshr i32 %56, 4
-  %59 = and i32 %58, 117901063
-  %60 = add nuw nsw i32 %59, %57
-  %61 = and i32 %60, 983055
-  %62 = lshr i32 %60, 8
-  %63 = and i32 %62, 983055
-  %64 = add nuw nsw i32 %63, %61
-  %65 = and i32 %64, 31
-  %66 = lshr i32 %64, 16
-  %67 = add nuw nsw i32 %65, %66
-  %68 = add nsw i32 %67, -7
-  %or.cond = icmp ult i32 %68, -4
-  br i1 %or.cond, label %83, label %69
+.lr.ph23.split:                                   ; preds = %.lr.ph23, %47
+  %.021 = phi i32 [ %48, %47 ], [ 0, %.lr.ph23 ]
+  %31 = call range(i32 0, 32) i32 @llvm.ctpop.i32(i32 %.021)
+  %32 = add nsw i32 %31, -7
+  %or.cond = icmp ult i32 %32, -4
+  br i1 %or.cond, label %47, label %33
 
-69:                                               ; preds = %.lr.ph23.split
-  %70 = call i32 @Abc_ResCofCount(ptr noundef %0, ptr noundef %1, i32 noundef %.021, ptr noundef nonnull %5)
-  %71 = icmp sgt i32 %70, %3
-  br i1 %71, label %83, label %.preheader
+33:                                               ; preds = %.lr.ph23.split
+  %34 = call i32 @Abc_ResCofCount(ptr noundef %0, ptr noundef %1, i32 noundef %.021, ptr noundef nonnull %5)
+  %35 = icmp sgt i32 %34, %3
+  br i1 %35, label %47, label %.preheader
 
-.preheader:                                       ; preds = %69
-  %72 = icmp ult i32 %70, 2
-  %73 = add i32 %70, -1
-  %74 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %73, i1 true)
-  %75 = sub nuw nsw i32 32, %74
-  %.09.i.i = select i1 %72, i32 %70, i32 %75
-  %76 = add nsw i32 %.09.i.i, -1
-  %.neg.i = shl nsw i32 -1, %76
-  %77 = add i32 %.neg.i, %70
-  %78 = mul nsw i32 %77, %77
-  %79 = mul nsw i32 %.09.i.i, 10000
-  %80 = add nsw i32 %78, %79
-  %81 = load i32, ptr %5, align 4, !tbaa !39
-  %82 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, i32 noundef %67, i32 noundef %70, i32 noundef %.09.i.i, i32 noundef %81, i32 noundef %80)
-  br label %83
+.preheader:                                       ; preds = %33
+  %36 = icmp ult i32 %34, 2
+  %37 = add i32 %34, -1
+  %38 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %37, i1 true)
+  %39 = sub nuw nsw i32 32, %38
+  %.09.i.i = select i1 %36, i32 %34, i32 %39
+  %40 = add nsw i32 %.09.i.i, -1
+  %.neg.i = shl nsw i32 -1, %40
+  %41 = add i32 %.neg.i, %34
+  %42 = mul nsw i32 %41, %41
+  %43 = mul nsw i32 %.09.i.i, 10000
+  %44 = add nsw i32 %42, %43
+  %45 = load i32, ptr %5, align 4, !tbaa !39
+  %46 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, i32 noundef %31, i32 noundef %34, i32 noundef %.09.i.i, i32 noundef %45, i32 noundef %44)
+  br label %47
 
-83:                                               ; preds = %69, %.lr.ph23.split, %.preheader
-  %84 = add nuw nsw i32 %.021, 1
-  %exitcond.not = icmp eq i32 %84, %smax27
+47:                                               ; preds = %33, %.lr.ph23.split, %.preheader
+  %48 = add nuw nsw i32 %.021, 1
+  %exitcond.not = icmp eq i32 %48, %smax27
   br i1 %exitcond.not, label %._crit_edge24, label %.lr.ph23.split, !llvm.loop !75
 
-._crit_edge24:                                    ; preds = %83, %45, %4
+._crit_edge24:                                    ; preds = %47, %27, %4
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
@@ -3877,95 +3841,77 @@ define void @Abc_NtkExploreCofs(ptr noundef %0, ptr noundef %1, ptr readnone cap
   %wide.trip.count = zext nneg i32 %3 to i64
   br label %19
 
-19:                                               ; preds = %.lr.ph57, %62
-  %.055 = phi i32 [ 0, %.lr.ph57 ], [ %63, %62 ]
-  %20 = and i32 %.055, 1431655765
-  %21 = lshr i32 %.055, 1
-  %22 = and i32 %21, 357913941
-  %23 = add nuw nsw i32 %22, %20
-  %24 = and i32 %23, 858993459
-  %25 = lshr i32 %23, 2
-  %26 = and i32 %25, 322122547
-  %27 = add nuw nsw i32 %26, %24
-  %28 = and i32 %27, 117901063
-  %29 = lshr i32 %27, 4
-  %30 = and i32 %29, 117901063
-  %31 = add nuw nsw i32 %30, %28
-  %32 = and i32 %31, 983055
-  %33 = lshr i32 %31, 8
-  %34 = and i32 %33, 983055
-  %35 = add nuw nsw i32 %34, %32
-  %36 = and i32 %35, 31
-  %37 = lshr i32 %35, 16
-  %38 = add nuw nsw i32 %36, %37
-  %.not = icmp eq i32 %38, %4
-  %.not45 = icmp eq i32 %38, %15
+19:                                               ; preds = %.lr.ph57, %44
+  %.055 = phi i32 [ 0, %.lr.ph57 ], [ %45, %44 ]
+  %20 = call range(i32 0, 32) i32 @llvm.ctpop.i32(i32 %.055)
+  %.not = icmp eq i32 %20, %4
+  %.not45 = icmp eq i32 %20, %15
   %or.cond = select i1 %.not, i1 true, i1 %.not45
-  %.not46 = icmp eq i32 %38, %16
+  %.not46 = icmp eq i32 %20, %16
   %or.cond48 = select i1 %or.cond, i1 true, i1 %.not46
-  br i1 %or.cond48, label %.preheader49, label %62
+  br i1 %or.cond48, label %.preheader49, label %44
 
 .preheader49:                                     ; preds = %19
   br i1 %17, label %.lr.ph, label %._crit_edge.thread
 
-.lr.ph:                                           ; preds = %.preheader49, %50
-  %indvars.iv = phi i64 [ %indvars.iv.next, %50 ], [ 0, %.preheader49 ]
-  %.03950 = phi i32 [ %.140, %50 ], [ 0, %.preheader49 ]
-  %39 = trunc nuw nsw i64 %indvars.iv to i32
-  %40 = shl nuw i32 1, %39
-  %41 = and i32 %40, %.055
-  %42 = icmp eq i32 %41, 0
-  br i1 %42, label %50, label %43
+.lr.ph:                                           ; preds = %.preheader49, %32
+  %indvars.iv = phi i64 [ %indvars.iv.next, %32 ], [ 0, %.preheader49 ]
+  %.03950 = phi i32 [ %.140, %32 ], [ 0, %.preheader49 ]
+  %21 = trunc nuw nsw i64 %indvars.iv to i32
+  %22 = shl nuw i32 1, %21
+  %23 = and i32 %22, %.055
+  %24 = icmp eq i32 %23, 0
+  br i1 %24, label %32, label %25
 
-43:                                               ; preds = %.lr.ph
-  %44 = load ptr, ptr %18, align 8, !tbaa !51
-  %45 = getelementptr inbounds nuw ptr, ptr %44, i64 %indvars.iv
-  %46 = load ptr, ptr %45, align 8, !tbaa !65
-  %47 = add nsw i32 %.03950, 1
-  %48 = sext i32 %.03950 to i64
-  %49 = getelementptr inbounds ptr, ptr %6, i64 %48
-  store ptr %46, ptr %49, align 8, !tbaa !65
-  br label %50
+25:                                               ; preds = %.lr.ph
+  %26 = load ptr, ptr %18, align 8, !tbaa !51
+  %27 = getelementptr inbounds nuw ptr, ptr %26, i64 %indvars.iv
+  %28 = load ptr, ptr %27, align 8, !tbaa !65
+  %29 = add nsw i32 %.03950, 1
+  %30 = sext i32 %.03950 to i64
+  %31 = getelementptr inbounds ptr, ptr %6, i64 %30
+  store ptr %28, ptr %31, align 8, !tbaa !65
+  br label %32
 
-50:                                               ; preds = %.lr.ph, %43
-  %.140 = phi i32 [ %.03950, %.lr.ph ], [ %47, %43 ]
+32:                                               ; preds = %.lr.ph, %25
+  %.140 = phi i32 [ %.03950, %.lr.ph ], [ %29, %25 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !92
 
-._crit_edge:                                      ; preds = %50
-  %51 = call i32 @Abc_NtkBddCofCount(ptr noundef %9, ptr noundef %13, ptr noundef nonnull %6, i32 noundef %.140)
-  %52 = icmp sgt i32 %51, 8
-  br i1 %52, label %62, label %.lr.ph53
+._crit_edge:                                      ; preds = %32
+  %33 = call i32 @Abc_NtkBddCofCount(ptr noundef %9, ptr noundef %13, ptr noundef nonnull %6, i32 noundef %.140)
+  %34 = icmp sgt i32 %33, 8
+  br i1 %34, label %44, label %.lr.ph53
 
 ._crit_edge.thread:                               ; preds = %.preheader49
-  %53 = call i32 @Abc_NtkBddCofCount(ptr noundef %9, ptr noundef %13, ptr noundef nonnull %6, i32 noundef 0)
-  %54 = icmp sgt i32 %53, 8
-  br i1 %54, label %62, label %._crit_edge54
+  %35 = call i32 @Abc_NtkBddCofCount(ptr noundef %9, ptr noundef %13, ptr noundef nonnull %6, i32 noundef 0)
+  %36 = icmp sgt i32 %35, 8
+  br i1 %36, label %44, label %._crit_edge54
 
 .lr.ph53:                                         ; preds = %._crit_edge, %.lr.ph53
-  %.152 = phi i32 [ %59, %.lr.ph53 ], [ 0, %._crit_edge ]
-  %55 = shl nuw i32 1, %.152
-  %56 = and i32 %55, %.055
-  %57 = icmp eq i32 %56, 0
-  %58 = add nuw nsw i32 %.152, 97
-  %.sink = select i1 %57, i32 45, i32 %58
+  %.152 = phi i32 [ %41, %.lr.ph53 ], [ 0, %._crit_edge ]
+  %37 = shl nuw i32 1, %.152
+  %38 = and i32 %37, %.055
+  %39 = icmp eq i32 %38, 0
+  %40 = add nuw nsw i32 %.152, 97
+  %.sink = select i1 %39, i32 45, i32 %40
   %putchar = call i32 @putchar(i32 %.sink)
-  %59 = add nuw nsw i32 %.152, 1
-  %exitcond61.not = icmp eq i32 %59, %3
+  %41 = add nuw nsw i32 %.152, 1
+  %exitcond61.not = icmp eq i32 %41, %3
   br i1 %exitcond61.not, label %._crit_edge54, label %.lr.ph53, !llvm.loop !93
 
 ._crit_edge54:                                    ; preds = %.lr.ph53, %._crit_edge.thread
-  %60 = phi i32 [ %53, %._crit_edge.thread ], [ %51, %.lr.ph53 ]
-  %61 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, i32 noundef %60)
-  br label %62
+  %42 = phi i32 [ %35, %._crit_edge.thread ], [ %33, %.lr.ph53 ]
+  %43 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, i32 noundef %42)
+  br label %44
 
-62:                                               ; preds = %._crit_edge.thread, %19, %._crit_edge, %._crit_edge54
-  %63 = add nuw nsw i32 %.055, 1
-  %exitcond62.not = icmp eq i32 %63, %14
+44:                                               ; preds = %._crit_edge.thread, %19, %._crit_edge, %._crit_edge54
+  %45 = add nuw nsw i32 %.055, 1
+  %exitcond62.not = icmp eq i32 %45, %14
   br i1 %exitcond62.not, label %._crit_edge58, label %19, !llvm.loop !94
 
-._crit_edge58:                                    ; preds = %62, %5
+._crit_edge58:                                    ; preds = %44, %5
   call void @Cudd_RecursiveDeref(ptr noundef %9, ptr noundef %13) #20
   call void @Extra_StopManager(ptr noundef %9) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -4764,6 +4710,9 @@ declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_add
 
 ; Function Attrs: nofree nounwind
 declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #16
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ctpop.i32(i32) #17
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #17

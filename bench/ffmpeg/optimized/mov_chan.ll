@@ -813,67 +813,39 @@ define range(i32 -2147483648, 1) i32 @ff_mov_read_chnl(ptr noundef %0, ptr nound
 
 40:                                               ; preds = %34
   %41 = trunc i64 %35 to i32
-  %42 = lshr i32 %41, 1
-  %43 = and i32 %42, 1431655765
-  %44 = sub i32 %41, %43
-  %45 = and i32 %44, 858993459
-  %46 = lshr i32 %44, 2
-  %47 = and i32 %46, 858993459
-  %48 = add nuw nsw i32 %47, %45
-  %49 = lshr i32 %48, 4
-  %50 = add nuw nsw i32 %49, %48
-  %51 = and i32 %50, 252645135
-  %52 = lshr i32 %51, 8
-  %53 = add nuw nsw i32 %52, %51
-  %54 = lshr i32 %53, 16
-  %55 = add nuw nsw i32 %54, %53
-  %56 = and i32 %55, 63
-  %57 = lshr i64 %35, 32
-  %58 = trunc nuw i64 %57 to i32
-  %59 = lshr i32 %58, 1
-  %60 = and i32 %59, 1431655765
-  %61 = sub i32 %58, %60
-  %62 = and i32 %61, 858993459
-  %63 = lshr i32 %61, 2
-  %64 = and i32 %63, 858993459
-  %65 = add nuw nsw i32 %64, %62
-  %66 = lshr i32 %65, 4
-  %67 = add nuw nsw i32 %66, %65
-  %68 = and i32 %67, 252645135
-  %69 = lshr i32 %68, 8
-  %70 = add nuw nsw i32 %69, %68
-  %71 = lshr i32 %70, 16
-  %72 = add nuw nsw i32 %71, %70
-  %73 = and i32 %72, 63
-  %74 = add nuw nsw i32 %73, %56
-  %75 = getelementptr inbounds nuw i8, ptr %37, i64 132
-  %76 = load i32, ptr %75, align 4, !tbaa !21
-  %77 = icmp slt i32 %76, 1
-  %78 = xor i32 %74, 65535
-  %79 = icmp sgt i32 %76, %78
-  %or.cond.i = select i1 %77, i1 true, i1 %79
+  %42 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %41)
+  %43 = lshr i64 %35, 32
+  %44 = trunc nuw i64 %43 to i32
+  %45 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %44)
+  %46 = add nuw nsw i32 %45, %42
+  %47 = getelementptr inbounds nuw i8, ptr %37, i64 132
+  %48 = load i32, ptr %47, align 4, !tbaa !21
+  %49 = icmp slt i32 %48, 1
+  %50 = xor i32 %46, 65535
+  %51 = icmp sgt i32 %48, %50
+  %or.cond.i = select i1 %49, i1 true, i1 %51
   br i1 %or.cond.i, label %.thread67, label %ff_mov_get_channel_layout_from_config.exit
 
 ff_mov_get_channel_layout_from_config.exit:       ; preds = %40
-  %80 = shl i32 %7, 16
-  %81 = add nuw nsw i32 %76, %74
-  %82 = or i32 %81, %80
-  %83 = tail call fastcc i32 @mov_get_channel_layout(ptr noundef nonnull %38, i32 noundef %82, i64 noundef %35, ptr noundef nonnull @iso_ch_layout_map)
-  %84 = icmp sgt i32 %83, -1
-  br i1 %84, label %ff_mov_get_channel_layout_from_config.exit.thread, label %.thread67
+  %52 = shl i32 %7, 16
+  %53 = add nuw nsw i32 %48, %46
+  %54 = or i32 %53, %52
+  %55 = tail call fastcc i32 @mov_get_channel_layout(ptr noundef nonnull %38, i32 noundef %54, i64 noundef %35, ptr noundef nonnull @iso_ch_layout_map)
+  %56 = icmp sgt i32 %55, -1
+  br i1 %56, label %ff_mov_get_channel_layout_from_config.exit.thread, label %.thread67
 
 ff_mov_get_channel_layout_from_config.exit.thread: ; preds = %34, %ff_mov_get_channel_layout_from_config.exit, %._crit_edge, %3
-  %85 = and i32 %4, 2
-  %.not56 = icmp eq i32 %85, 0
-  br i1 %.not56, label %.thread67, label %86
+  %57 = and i32 %4, 2
+  %.not56 = icmp eq i32 %57, 0
+  br i1 %.not56, label %.thread67, label %58
 
-86:                                               ; preds = %ff_mov_get_channel_layout_from_config.exit.thread
-  %87 = tail call i32 @avio_r8(ptr noundef %1) #3
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 56, ptr noundef nonnull @.str.9, i32 noundef %87) #3
+58:                                               ; preds = %ff_mov_get_channel_layout_from_config.exit.thread
+  %59 = tail call i32 @avio_r8(ptr noundef %1) #3
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 56, ptr noundef nonnull @.str.9, i32 noundef %59) #3
   br label %.thread67
 
-.thread67:                                        ; preds = %40, %8, %._crit_edge, %ff_mov_get_channel_layout_from_config.exit, %ff_mov_get_channel_layout_from_config.exit.thread, %86
-  %.4 = phi i32 [ 0, %ff_mov_get_channel_layout_from_config.exit.thread ], [ 0, %86 ], [ %14, %8 ], [ %83, %ff_mov_get_channel_layout_from_config.exit ], [ %32, %._crit_edge ], [ -1094995529, %40 ]
+.thread67:                                        ; preds = %40, %8, %._crit_edge, %ff_mov_get_channel_layout_from_config.exit, %ff_mov_get_channel_layout_from_config.exit.thread, %58
+  %.4 = phi i32 [ 0, %ff_mov_get_channel_layout_from_config.exit.thread ], [ 0, %58 ], [ %14, %8 ], [ %55, %ff_mov_get_channel_layout_from_config.exit ], [ %32, %._crit_edge ], [ -1094995529, %40 ]
   ret i32 %.4
 }
 
@@ -883,6 +855,9 @@ declare i64 @avio_rb64(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #2
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ctpop.i32(i32) #2
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

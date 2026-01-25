@@ -311,84 +311,66 @@ define range(i32 0, 2) i32 @Lpk_FunSuppMinimize(ptr noundef %0) local_unnamed_ad
   %8 = shl nsw i32 -1, %7
   %9 = xor i32 %8, %3
   %10 = icmp eq i32 %9, -1
-  br i1 %10, label %63, label %11
+  br i1 %10, label %45, label %11
 
 11:                                               ; preds = %1
   %12 = and i32 %5, -1073741825
   store i32 %12, ptr %4, align 8
-  %13 = and i32 %3, 1431655765
-  %14 = lshr i32 %3, 1
-  %15 = and i32 %14, 1431655765
-  %16 = add nuw i32 %15, %13
-  %17 = and i32 %16, 858993459
-  %18 = lshr i32 %16, 2
-  %19 = and i32 %18, 858993459
-  %20 = add nuw nsw i32 %19, %17
-  %21 = and i32 %20, 117901063
-  %22 = lshr i32 %20, 4
-  %23 = and i32 %22, 117901063
-  %24 = add nuw nsw i32 %23, %21
-  %25 = and i32 %24, 983055
-  %26 = lshr i32 %24, 8
-  %27 = and i32 %26, 983055
-  %28 = add nuw nsw i32 %27, %25
-  %29 = and i32 %28, 31
-  %30 = lshr i32 %28, 16
-  %31 = add nuw nsw i32 %29, %30
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 228
-  %33 = tail call i32 @llvm.usub.sat.i32(i32 %7, i32 5)
-  %34 = shl nuw nsw i32 1, %33
-  %35 = zext nneg i32 %34 to i64
-  %36 = getelementptr inbounds nuw i32, ptr %32, i64 %35
-  tail call void @Kit_TruthShrink(ptr noundef nonnull %36, ptr noundef nonnull %32, i32 noundef %31, i32 noundef %7, i32 noundef %3, i32 noundef 1) #13
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 212
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 148
-  br label %39
+  %13 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %3)
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 228
+  %15 = tail call i32 @llvm.usub.sat.i32(i32 %7, i32 5)
+  %16 = shl nuw nsw i32 1, %15
+  %17 = zext nneg i32 %16 to i64
+  %18 = getelementptr inbounds nuw i32, ptr %14, i64 %17
+  tail call void @Kit_TruthShrink(ptr noundef nonnull %18, ptr noundef nonnull %14, i32 noundef %13, i32 noundef %7, i32 noundef %3, i32 noundef 1) #13
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 212
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 148
+  br label %21
 
-39:                                               ; preds = %11, %53
-  %indvars.iv = phi i64 [ 0, %11 ], [ %indvars.iv.next, %53 ]
-  %.02629 = phi i32 [ 0, %11 ], [ %.1, %53 ]
-  %40 = load i32, ptr %2, align 4, !tbaa !13
-  %41 = trunc nuw nsw i64 %indvars.iv to i32
-  %42 = shl nuw nsw i32 1, %41
-  %43 = and i32 %40, %42
-  %.not = icmp eq i32 %43, 0
-  br i1 %.not, label %53, label %44
+21:                                               ; preds = %11, %35
+  %indvars.iv = phi i64 [ 0, %11 ], [ %indvars.iv.next, %35 ]
+  %.02629 = phi i32 [ 0, %11 ], [ %.1, %35 ]
+  %22 = load i32, ptr %2, align 4, !tbaa !13
+  %23 = trunc nuw nsw i64 %indvars.iv to i32
+  %24 = shl nuw nsw i32 1, %23
+  %25 = and i32 %22, %24
+  %.not = icmp eq i32 %25, 0
+  br i1 %.not, label %35, label %26
 
-44:                                               ; preds = %39
-  %45 = getelementptr inbounds nuw i8, ptr %37, i64 %indvars.iv
-  %46 = load i8, ptr %45, align 1, !tbaa !17
-  %47 = sext i32 %.02629 to i64
-  %48 = getelementptr inbounds i8, ptr %37, i64 %47
-  store i8 %46, ptr %48, align 1, !tbaa !17
-  %49 = getelementptr inbounds nuw i32, ptr %38, i64 %indvars.iv
-  %50 = load i32, ptr %49, align 4, !tbaa !14
-  %51 = getelementptr inbounds i32, ptr %38, i64 %47
-  store i32 %50, ptr %51, align 4, !tbaa !14
-  %52 = add nsw i32 %.02629, 1
-  br label %53
+26:                                               ; preds = %21
+  %27 = getelementptr inbounds nuw i8, ptr %19, i64 %indvars.iv
+  %28 = load i8, ptr %27, align 1, !tbaa !17
+  %29 = sext i32 %.02629 to i64
+  %30 = getelementptr inbounds i8, ptr %19, i64 %29
+  store i8 %28, ptr %30, align 1, !tbaa !17
+  %31 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv
+  %32 = load i32, ptr %31, align 4, !tbaa !14
+  %33 = getelementptr inbounds i32, ptr %20, i64 %29
+  store i32 %32, ptr %33, align 4, !tbaa !14
+  %34 = add nsw i32 %.02629, 1
+  br label %35
 
-53:                                               ; preds = %44, %39
-  %.1 = phi i32 [ %52, %44 ], [ %.02629, %39 ]
+35:                                               ; preds = %26, %21
+  %.1 = phi i32 [ %34, %26 ], [ %.02629, %21 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %54, label %39, !llvm.loop !21
+  br i1 %exitcond.not, label %36, label %21, !llvm.loop !21
 
-54:                                               ; preds = %53
-  %55 = load i32, ptr %4, align 8
-  %56 = shl i32 %.1, 7
-  %57 = and i32 %56, 3968
-  %58 = and i32 %55, -3969
-  %59 = or disjoint i32 %58, %57
-  store i32 %59, ptr %4, align 8
-  %60 = and i32 %.1, 31
-  %61 = shl nsw i32 -1, %60
-  %62 = xor i32 %61, -1
-  store i32 %62, ptr %2, align 4, !tbaa !13
-  br label %63
+36:                                               ; preds = %35
+  %37 = load i32, ptr %4, align 8
+  %38 = shl i32 %.1, 7
+  %39 = and i32 %38, 3968
+  %40 = and i32 %37, -3969
+  %41 = or disjoint i32 %40, %39
+  store i32 %41, ptr %4, align 8
+  %42 = and i32 %.1, 31
+  %43 = shl nsw i32 -1, %42
+  %44 = xor i32 %43, -1
+  store i32 %44, ptr %2, align 4, !tbaa !13
+  br label %45
 
-63:                                               ; preds = %1, %54
-  %.0 = phi i32 [ 1, %54 ], [ 0, %1 ]
+45:                                               ; preds = %1, %36
+  %.0 = phi i32 [ 1, %36 ], [ 0, %1 ]
   ret i32 %.0
 }
 
@@ -524,6 +506,9 @@ declare i32 @llvm.smax.i32(i32, i32) #11
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.usub.sat.i32(i32, i32) #11
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ctpop.i32(i32) #11
 
 attributes #0 = { mustprogress nofree nounwind willreturn memory(write, argmem: none, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

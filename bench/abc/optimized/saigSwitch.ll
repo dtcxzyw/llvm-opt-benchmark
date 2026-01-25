@@ -19,7 +19,7 @@ define noalias noundef ptr @Saig_ManCreateMan(ptr noundef readonly captures(none
   %.val32.val = load i32, ptr %3, align 4, !tbaa !21
   %4 = add nsw i32 %.val32.val, 1
   %5 = sext i32 %4 to i64
-  %6 = tail call noalias ptr @calloc(i64 noundef %5, i64 noundef 16) #18
+  %6 = tail call noalias ptr @calloc(i64 noundef %5, i64 noundef 16) #19
   %7 = icmp sgt i32 %.val32.val, 0
   br i1 %7, label %.lr.ph, label %..critedge_crit_edge
 
@@ -164,19 +164,19 @@ define void @Saig_ManSimulateFrames(ptr noundef captures(none) %0, i32 noundef %
   %4 = icmp sgt i32 %1, 0
   br i1 %4, label %.preheader, label %._crit_edge
 
-.preheader:                                       ; preds = %3, %74
-  %.033 = phi i32 [ %75, %74 ], [ 0, %3 ]
+.preheader:                                       ; preds = %3, %56
+  %.033 = phi i32 [ %57, %56 ], [ 0, %3 ]
   %.not26 = icmp eq i32 %.033, 0
   %.not27 = icmp slt i32 %.033, %2
   br label %5
 
-5:                                                ; preds = %.preheader, %72
-  %.024 = phi ptr [ %73, %72 ], [ %0, %.preheader ]
+5:                                                ; preds = %.preheader, %54
+  %.024 = phi ptr [ %55, %54 ], [ %0, %.preheader ]
   %6 = getelementptr inbounds nuw i8, ptr %.024, i64 8
   %7 = load i32, ptr %6, align 4
   %trunc = trunc i32 %7 to i8
   switch i8 %trunc, label %46 [
-    i8 7, label %74
+    i8 7, label %56
     i8 5, label %8
     i8 3, label %25
     i8 2, label %32
@@ -224,7 +224,7 @@ define void @Saig_ManSimulateFrames(ptr noundef captures(none) %0, i32 noundef %
   br i1 %34, label %35, label %37
 
 35:                                               ; preds = %32
-  %36 = tail call i32 @Aig_ManRandom(i32 noundef 0) #19
+  %36 = tail call i32 @Aig_ManRandom(i32 noundef 0) #20
   br label %.sink.split
 
 37:                                               ; preds = %32
@@ -248,46 +248,28 @@ define void @Saig_ManSimulateFrames(ptr noundef captures(none) %0, i32 noundef %
   br label %46
 
 46:                                               ; preds = %.sink.split, %5, %37
-  br i1 %.not27, label %72, label %47
+  br i1 %.not27, label %54, label %47
 
 47:                                               ; preds = %46
   %48 = getelementptr inbounds nuw i8, ptr %.024, i64 12
   %49 = load i32, ptr %48, align 4, !tbaa !37
-  %50 = and i32 %49, 1431655765
-  %51 = lshr i32 %49, 1
-  %52 = and i32 %51, 1431655765
-  %53 = add nuw i32 %52, %50
-  %54 = and i32 %53, 858993459
-  %55 = lshr i32 %53, 2
-  %56 = and i32 %55, 858993459
-  %57 = add nuw nsw i32 %56, %54
-  %58 = and i32 %57, 117901063
-  %59 = lshr i32 %57, 4
-  %60 = and i32 %59, 117901063
-  %61 = add nuw nsw i32 %60, %58
-  %62 = and i32 %61, 983055
-  %63 = lshr i32 %61, 8
-  %64 = and i32 %63, 983055
-  %65 = add nuw nsw i32 %64, %62
-  %66 = and i32 %65, 31
-  %67 = lshr i32 %65, 16
-  %68 = add nuw nsw i32 %66, %67
-  %69 = load i32, ptr %6, align 4
-  %70 = shl nuw nsw i32 %68, 8
-  %71 = add i32 %70, %69
-  store i32 %71, ptr %6, align 4
-  br label %72
+  %50 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %49)
+  %51 = load i32, ptr %6, align 4
+  %52 = shl nuw nsw i32 %50, 8
+  %53 = add i32 %52, %51
+  store i32 %53, ptr %6, align 4
+  br label %54
 
-72:                                               ; preds = %46, %47
-  %73 = getelementptr inbounds nuw i8, ptr %.024, i64 16
+54:                                               ; preds = %46, %47
+  %55 = getelementptr inbounds nuw i8, ptr %.024, i64 16
   br label %5, !llvm.loop !38
 
-74:                                               ; preds = %5
-  %75 = add nuw nsw i32 %.033, 1
-  %exitcond.not = icmp eq i32 %75, %1
+56:                                               ; preds = %5
+  %57 = add nuw nsw i32 %.033, 1
+  %exitcond.not = icmp eq i32 %57, %1
   br i1 %exitcond.not, label %._crit_edge, label %.preheader, !llvm.loop !39
 
-._crit_edge:                                      ; preds = %74, %3
+._crit_edge:                                      ; preds = %56, %3
   ret void
 }
 
@@ -337,7 +319,7 @@ define noalias noundef ptr @Saig_ManComputeSwitchProb4s(ptr noundef readonly cap
   %.val = load ptr, ptr %8, align 8, !tbaa !3
   %9 = getelementptr i8, ptr %.val, i64 4
   %.val.val = load i32, ptr %9, align 4, !tbaa !21
-  %10 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #20
+  %10 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #21
   %11 = add i32 %.val.val, -1
   %or.cond.i.i = icmp ult i32 %11, 15
   %spec.store.select.i.i = select i1 %or.cond.i.i, i32 16, i32 %.val.val
@@ -355,7 +337,7 @@ Vec_IntAlloc.exit.thread.i:                       ; preds = %4
 Vec_IntAlloc.exit.i:                              ; preds = %4
   %14 = sext i32 %spec.store.select.i.i to i64
   %15 = shl nsw i64 %14, 2
-  %16 = tail call noalias ptr @malloc(i64 noundef %15) #20
+  %16 = tail call noalias ptr @malloc(i64 noundef %15) #21
   %17 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %16, ptr %17, align 8, !tbaa !42
   store i32 %.val.val, ptr %12, align 4, !tbaa !43
@@ -371,17 +353,17 @@ Vec_IntAlloc.exit.i:                              ; preds = %4
 Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.thread.i, %Vec_IntAlloc.exit.i, %18
   %21 = phi ptr [ null, %Vec_IntAlloc.exit.thread.i ], [ null, %Vec_IntAlloc.exit.i ], [ %16, %18 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %22 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %7) #19
+  %22 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %7) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %23 = call ptr @Saig_ManCreateMan(ptr noundef nonnull %0)
-  %24 = call i32 @Aig_ManRandom(i32 noundef 1) #19
-  %25 = call ptr @Abc_FrameReadFlag(ptr noundef nonnull @.str) #19
+  %24 = call i32 @Aig_ManRandom(i32 noundef 1) #20
+  %25 = call ptr @Abc_FrameReadFlag(ptr noundef nonnull @.str) #20
   %.not = icmp eq ptr %25, null
   br i1 %.not, label %30, label %26
 
 26:                                               ; preds = %Vec_IntStart.exit
-  %27 = call ptr @Abc_FrameReadFlag(ptr noundef nonnull @.str) #19
-  %28 = call i64 @strtol(ptr noundef nonnull captures(none) %27, ptr noundef null, i32 noundef 10) #19
+  %27 = call ptr @Abc_FrameReadFlag(ptr noundef nonnull @.str) #20
+  %28 = call i64 @strtol(ptr noundef nonnull captures(none) %27, ptr noundef null, i32 noundef 10) #20
   %29 = trunc i64 %28 to i32
   br label %30
 
@@ -398,11 +380,11 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.t
 Abc_Clock.exit39:                                 ; preds = %31, %30
   %.1 = phi i32 [ %1, %31 ], [ %.0, %30 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %34 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %6) #19
+  %34 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %6) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @Saig_ManSimulateFrames(ptr noundef %23, i32 noundef %.1, i32 noundef %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %35 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %5) #19
+  %35 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %5) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %36 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %37 = load i32, ptr %36, align 4
@@ -460,7 +442,7 @@ Abc_Clock.exit39:                                 ; preds = %31, %30
   br i1 %.not35, label %.loopexit, label %.lr.ph.split, !llvm.loop !46
 
 .loopexit:                                        ; preds = %.lr.ph.split, %.lr.ph.split.us, %Abc_Clock.exit39
-  call void @free(ptr noundef nonnull %23) #19
+  call void @free(ptr noundef nonnull %23) #20
   ret ptr %10
 }
 
@@ -479,7 +461,7 @@ define noundef ptr @Aig_CManStart(i32 noundef %0, i32 noundef %1, i32 noundef %2
   %6 = add i32 %5, %4
   %7 = sext i32 %6 to i64
   %8 = add nsw i64 %7, 40
-  %9 = tail call noalias ptr @malloc(i64 noundef %8) #20
+  %9 = tail call noalias ptr @malloc(i64 noundef %8) #21
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i64 0, ptr %10, align 8
   store i32 %0, ptr %9, align 8, !tbaa !47
@@ -512,7 +494,7 @@ define void @Aig_CManStop(ptr noundef captures(address_is_null) %0) local_unname
   br i1 %.not, label %3, label %2
 
 2:                                                ; preds = %1
-  tail call void @free(ptr noundef nonnull %0) #19
+  tail call void @free(ptr noundef nonnull %0) #20
   br label %3
 
 3:                                                ; preds = %1, %2
@@ -921,7 +903,7 @@ define noundef ptr @Aig_CManCreate(ptr noundef readonly captures(none) %0) local
   %9 = add i32 %8, %7
   %10 = sext i32 %9 to i64
   %11 = add nsw i64 %10, 40
-  %12 = tail call noalias ptr @malloc(i64 noundef %11) #20
+  %12 = tail call noalias ptr @malloc(i64 noundef %11) #21
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store i64 0, ptr %13, align 8
   store i32 %.val42, ptr %12, align 8, !tbaa !47
@@ -1211,6 +1193,9 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #17
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #17
 
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ctpop.i32(i32) #18
+
 attributes #0 = { nofree nounwind memory(readwrite, argmem: read, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1229,9 +1214,10 @@ attributes #14 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trap
 attributes #15 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #16 = { mustprogress nocallback nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #17 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #18 = { nounwind allocsize(0,1) }
-attributes #19 = { nounwind }
-attributes #20 = { nounwind allocsize(0) }
+attributes #18 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #19 = { nounwind allocsize(0,1) }
+attributes #20 = { nounwind }
+attributes #21 = { nounwind allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

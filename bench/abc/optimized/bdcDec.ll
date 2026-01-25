@@ -700,10 +700,10 @@ define range(i32 0, -2147483648) i32 @Bdc_DecomposeWeakOr(ptr noundef readonly c
   br label %12
 
 12:                                               ; preds = %.lr.ph, %Kit_TruthIsImply.exit
-  %13 = phi i32 [ %6, %.lr.ph ], [ %72, %Kit_TruthIsImply.exit ]
+  %13 = phi i32 [ %6, %.lr.ph ], [ %54, %Kit_TruthIsImply.exit ]
   %.070 = phi i32 [ 0, %.lr.ph ], [ %.1, %Kit_TruthIsImply.exit ]
   %.04469 = phi i32 [ -1, %.lr.ph ], [ %.145, %Kit_TruthIsImply.exit ]
-  %.04668 = phi i32 [ 0, %.lr.ph ], [ %73, %Kit_TruthIsImply.exit ]
+  %.04668 = phi i32 [ 0, %.lr.ph ], [ %55, %Kit_TruthIsImply.exit ]
   %14 = load i32, ptr %1, align 8, !tbaa !26
   %15 = shl nuw i32 1, %.04668
   %16 = and i32 %14, %15
@@ -759,91 +759,73 @@ select.unfold.preheader.i:                        ; preds = %38
 
 select.unfold.i52:                                ; preds = %select.unfold.i52, %select.unfold.preheader.i
   %indvars.iv.i53 = phi i64 [ %46, %select.unfold.preheader.i ], [ %indvars.iv.next.i, %select.unfold.i52 ]
-  %.08.i = phi i32 [ 0, %select.unfold.preheader.i ], [ %68, %select.unfold.i52 ]
+  %.08.i = phi i32 [ 0, %select.unfold.preheader.i ], [ %50, %select.unfold.i52 ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i53, -1
   %47 = getelementptr inbounds nuw i32, ptr %40, i64 %indvars.iv.next.i
   %48 = load i32, ptr %47, align 4, !tbaa !29
-  %49 = and i32 %48, 1431655765
-  %50 = lshr i32 %48, 1
-  %51 = and i32 %50, 1431655765
-  %52 = add nuw i32 %51, %49
-  %53 = and i32 %52, 858993459
-  %54 = lshr i32 %52, 2
-  %55 = and i32 %54, 858993459
-  %56 = add nuw nsw i32 %55, %53
-  %57 = and i32 %56, 117901063
-  %58 = lshr i32 %56, 4
-  %59 = and i32 %58, 117901063
-  %60 = add nuw nsw i32 %59, %57
-  %61 = and i32 %60, 983055
-  %62 = lshr i32 %60, 8
-  %63 = and i32 %62, 983055
-  %64 = add nuw nsw i32 %63, %61
-  %65 = and i32 %64, 31
-  %66 = lshr i32 %64, 16
-  %67 = add nuw nsw i32 %66, %.08.i
-  %68 = add nuw nsw i32 %67, %65
-  %69 = icmp samesign ugt i64 %indvars.iv.i53, 1
-  br i1 %69, label %select.unfold.i52, label %Kit_TruthCountOnes.exit.loopexit, !llvm.loop !49
+  %49 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %48)
+  %50 = add nuw nsw i32 %49, %.08.i
+  %51 = icmp samesign ugt i64 %indvars.iv.i53, 1
+  br i1 %51, label %select.unfold.i52, label %Kit_TruthCountOnes.exit.loopexit, !llvm.loop !49
 
 Kit_TruthCountOnes.exit.loopexit:                 ; preds = %select.unfold.i52
-  %70 = tail call i32 @llvm.umax.i32(i32 %68, i32 1)
+  %52 = tail call i32 @llvm.umax.i32(i32 %50, i32 1)
   br label %Kit_TruthCountOnes.exit
 
 Kit_TruthCountOnes.exit:                          ; preds = %Kit_TruthCountOnes.exit.loopexit, %38
-  %.0.lcssa.i = phi i32 [ 1, %38 ], [ %70, %Kit_TruthCountOnes.exit.loopexit ]
-  %71 = icmp slt i32 %.070, %.0.lcssa.i
-  %spec.select = select i1 %71, i32 %.04668, i32 %.04469
+  %.0.lcssa.i = phi i32 [ 1, %38 ], [ %52, %Kit_TruthCountOnes.exit.loopexit ]
+  %53 = icmp slt i32 %.070, %.0.lcssa.i
+  %spec.select = select i1 %53, i32 %.04668, i32 %.04469
   %spec.select50 = tail call i32 @llvm.smax.i32(i32 %.070, i32 %.0.lcssa.i)
   br label %Kit_TruthIsImply.exit
 
 Kit_TruthIsImply.exit:                            ; preds = %select.unfold.i, %Kit_TruthCountOnes.exit, %12
-  %72 = phi i32 [ %13, %12 ], [ %41, %Kit_TruthCountOnes.exit ], [ %23, %select.unfold.i ]
+  %54 = phi i32 [ %13, %12 ], [ %41, %Kit_TruthCountOnes.exit ], [ %23, %select.unfold.i ]
   %.145 = phi i32 [ %.04469, %12 ], [ %spec.select, %Kit_TruthCountOnes.exit ], [ %.04469, %select.unfold.i ]
   %.1 = phi i32 [ %.070, %12 ], [ %spec.select50, %Kit_TruthCountOnes.exit ], [ %.070, %select.unfold.i ]
-  %73 = add nuw nsw i32 %.04668, 1
-  %74 = icmp slt i32 %73, %72
-  br i1 %74, label %12, label %._crit_edge, !llvm.loop !50
+  %55 = add nuw nsw i32 %.04668, 1
+  %56 = icmp slt i32 %55, %54
+  br i1 %56, label %12, label %._crit_edge, !llvm.loop !50
 
 ._crit_edge:                                      ; preds = %Kit_TruthIsImply.exit
   %.not = icmp eq i32 %.1, 0
-  br i1 %.not, label %._crit_edge.thread, label %75
+  br i1 %.not, label %._crit_edge.thread, label %57
 
-75:                                               ; preds = %._crit_edge
-  %76 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %77 = load ptr, ptr %76, align 8, !tbaa !27
-  %78 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %79 = load ptr, ptr %78, align 8, !tbaa !25
-  tail call void @Kit_TruthExistNew(ptr noundef %77, ptr noundef %79, i32 noundef %72, i32 noundef %.145) #7
-  %80 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %81 = load ptr, ptr %80, align 8, !tbaa !23
-  %82 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %83 = load ptr, ptr %82, align 8, !tbaa !23
-  %84 = load ptr, ptr %76, align 8, !tbaa !27
-  %85 = load i32, ptr %5, align 8, !tbaa !24
-  %86 = icmp slt i32 %85, 6
-  %87 = add nsw i32 %85, -5
-  %88 = shl nuw i32 1, %87
-  %spec.select.i54 = select i1 %86, i32 1, i32 %88
-  %89 = icmp sgt i32 %spec.select.i54, 0
-  br i1 %89, label %select.unfold.preheader.i55, label %Kit_TruthAnd.exit
+57:                                               ; preds = %._crit_edge
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %59 = load ptr, ptr %58, align 8, !tbaa !27
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %61 = load ptr, ptr %60, align 8, !tbaa !25
+  tail call void @Kit_TruthExistNew(ptr noundef %59, ptr noundef %61, i32 noundef %54, i32 noundef %.145) #7
+  %62 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %63 = load ptr, ptr %62, align 8, !tbaa !23
+  %64 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %65 = load ptr, ptr %64, align 8, !tbaa !23
+  %66 = load ptr, ptr %58, align 8, !tbaa !27
+  %67 = load i32, ptr %5, align 8, !tbaa !24
+  %68 = icmp slt i32 %67, 6
+  %69 = add nsw i32 %67, -5
+  %70 = shl nuw i32 1, %69
+  %spec.select.i54 = select i1 %68, i32 1, i32 %70
+  %71 = icmp sgt i32 %spec.select.i54, 0
+  br i1 %71, label %select.unfold.preheader.i55, label %Kit_TruthAnd.exit
 
-select.unfold.preheader.i55:                      ; preds = %75
-  %90 = zext nneg i32 %spec.select.i54 to i64
+select.unfold.preheader.i55:                      ; preds = %57
+  %72 = zext nneg i32 %spec.select.i54 to i64
   br label %select.unfold.i56
 
 select.unfold.i56:                                ; preds = %select.unfold.i56, %select.unfold.preheader.i55
-  %indvars.iv.i57 = phi i64 [ %90, %select.unfold.preheader.i55 ], [ %indvars.iv.next.i58, %select.unfold.i56 ]
+  %indvars.iv.i57 = phi i64 [ %72, %select.unfold.preheader.i55 ], [ %indvars.iv.next.i58, %select.unfold.i56 ]
   %indvars.iv.next.i58 = add nsw i64 %indvars.iv.i57, -1
-  %91 = getelementptr inbounds nuw i32, ptr %83, i64 %indvars.iv.next.i58
-  %92 = load i32, ptr %91, align 4, !tbaa !29
-  %93 = getelementptr inbounds nuw i32, ptr %84, i64 %indvars.iv.next.i58
-  %94 = load i32, ptr %93, align 4, !tbaa !29
-  %95 = and i32 %94, %92
-  %96 = getelementptr inbounds nuw i32, ptr %81, i64 %indvars.iv.next.i58
-  store i32 %95, ptr %96, align 4, !tbaa !29
-  %97 = icmp samesign ugt i64 %indvars.iv.i57, 1
-  br i1 %97, label %select.unfold.i56, label %Kit_TruthAnd.exit.loopexit, !llvm.loop !42
+  %73 = getelementptr inbounds nuw i32, ptr %65, i64 %indvars.iv.next.i58
+  %74 = load i32, ptr %73, align 4, !tbaa !29
+  %75 = getelementptr inbounds nuw i32, ptr %66, i64 %indvars.iv.next.i58
+  %76 = load i32, ptr %75, align 4, !tbaa !29
+  %77 = and i32 %76, %74
+  %78 = getelementptr inbounds nuw i32, ptr %63, i64 %indvars.iv.next.i58
+  store i32 %77, ptr %78, align 4, !tbaa !29
+  %79 = icmp samesign ugt i64 %indvars.iv.i57, 1
+  br i1 %79, label %select.unfold.i56, label %Kit_TruthAnd.exit.loopexit, !llvm.loop !42
 
 Kit_TruthAnd.exit.loopexit:                       ; preds = %select.unfold.i56
   %.pre = load i32, ptr %5, align 8, !tbaa !24
@@ -851,46 +833,46 @@ Kit_TruthAnd.exit.loopexit:                       ; preds = %select.unfold.i56
   %.pre77 = shl nuw i32 1, %.pre76
   br label %Kit_TruthAnd.exit
 
-Kit_TruthAnd.exit:                                ; preds = %Kit_TruthAnd.exit.loopexit, %75
-  %.pre-phi78 = phi i32 [ %.pre77, %Kit_TruthAnd.exit.loopexit ], [ %88, %75 ]
-  %98 = phi i32 [ %.pre, %Kit_TruthAnd.exit.loopexit ], [ %85, %75 ]
-  %99 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %100 = load ptr, ptr %99, align 8, !tbaa !25
-  %101 = load ptr, ptr %78, align 8, !tbaa !25
-  %102 = icmp slt i32 %98, 6
-  %spec.select.i59 = select i1 %102, i32 1, i32 %.pre-phi78
-  %103 = icmp sgt i32 %spec.select.i59, 0
-  br i1 %103, label %select.unfold.preheader.i60, label %Kit_TruthCopy.exit
+Kit_TruthAnd.exit:                                ; preds = %Kit_TruthAnd.exit.loopexit, %57
+  %.pre-phi78 = phi i32 [ %.pre77, %Kit_TruthAnd.exit.loopexit ], [ %70, %57 ]
+  %80 = phi i32 [ %.pre, %Kit_TruthAnd.exit.loopexit ], [ %67, %57 ]
+  %81 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %82 = load ptr, ptr %81, align 8, !tbaa !25
+  %83 = load ptr, ptr %60, align 8, !tbaa !25
+  %84 = icmp slt i32 %80, 6
+  %spec.select.i59 = select i1 %84, i32 1, i32 %.pre-phi78
+  %85 = icmp sgt i32 %spec.select.i59, 0
+  br i1 %85, label %select.unfold.preheader.i60, label %Kit_TruthCopy.exit
 
 select.unfold.preheader.i60:                      ; preds = %Kit_TruthAnd.exit
-  %104 = zext nneg i32 %spec.select.i59 to i64
+  %86 = zext nneg i32 %spec.select.i59 to i64
   br label %select.unfold.i61
 
 select.unfold.i61:                                ; preds = %select.unfold.i61, %select.unfold.preheader.i60
-  %indvars.iv.i62 = phi i64 [ %104, %select.unfold.preheader.i60 ], [ %indvars.iv.next.i63, %select.unfold.i61 ]
+  %indvars.iv.i62 = phi i64 [ %86, %select.unfold.preheader.i60 ], [ %indvars.iv.next.i63, %select.unfold.i61 ]
   %indvars.iv.next.i63 = add nsw i64 %indvars.iv.i62, -1
-  %105 = getelementptr inbounds nuw i32, ptr %101, i64 %indvars.iv.next.i63
-  %106 = load i32, ptr %105, align 4, !tbaa !29
-  %107 = getelementptr inbounds nuw i32, ptr %100, i64 %indvars.iv.next.i63
-  store i32 %106, ptr %107, align 4, !tbaa !29
-  %108 = icmp samesign ugt i64 %indvars.iv.i62, 1
-  br i1 %108, label %select.unfold.i61, label %Kit_TruthCopy.exit.loopexit, !llvm.loop !32
+  %87 = getelementptr inbounds nuw i32, ptr %83, i64 %indvars.iv.next.i63
+  %88 = load i32, ptr %87, align 4, !tbaa !29
+  %89 = getelementptr inbounds nuw i32, ptr %82, i64 %indvars.iv.next.i63
+  store i32 %88, ptr %89, align 4, !tbaa !29
+  %90 = icmp samesign ugt i64 %indvars.iv.i62, 1
+  br i1 %90, label %select.unfold.i61, label %Kit_TruthCopy.exit.loopexit, !llvm.loop !32
 
 Kit_TruthCopy.exit.loopexit:                      ; preds = %select.unfold.i61
   %.pre75 = load i32, ptr %5, align 8, !tbaa !24
   br label %Kit_TruthCopy.exit
 
 Kit_TruthCopy.exit:                               ; preds = %Kit_TruthCopy.exit.loopexit, %Kit_TruthAnd.exit
-  %109 = phi i32 [ %.pre75, %Kit_TruthCopy.exit.loopexit ], [ %98, %Kit_TruthAnd.exit ]
-  %110 = shl nuw i32 1, %.145
-  %111 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  store i32 %110, ptr %111, align 4, !tbaa !40
-  %112 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store i32 0, ptr %112, align 4, !tbaa !40
-  %113 = mul nsw i32 %.1, 1000
-  %114 = shl nuw i32 1, %109
-  %115 = sdiv i32 %113, %114
-  %spec.store.select1 = tail call i32 @llvm.umax.i32(i32 %115, i32 1)
+  %91 = phi i32 [ %.pre75, %Kit_TruthCopy.exit.loopexit ], [ %80, %Kit_TruthAnd.exit ]
+  %92 = shl nuw i32 1, %.145
+  %93 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  store i32 %92, ptr %93, align 4, !tbaa !40
+  %94 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  store i32 0, ptr %94, align 4, !tbaa !40
+  %95 = mul nsw i32 %.1, 1000
+  %96 = shl nuw i32 1, %91
+  %97 = sdiv i32 %95, %96
+  %spec.store.select1 = tail call i32 @llvm.umax.i32(i32 %97, i32 1)
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %4, %._crit_edge, %Kit_TruthCopy.exit
@@ -2490,6 +2472,9 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #6
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ctpop.i32(i32) #6
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #6
