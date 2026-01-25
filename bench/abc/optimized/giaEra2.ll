@@ -159,7 +159,7 @@ define i32 @Gia_ManCountMinterms(ptr noundef readonly captures(none) %0) local_u
   %.val = load i32, ptr %4, align 8, !tbaa !20
   %.val.fr = freeze i32 %.val
   %5 = icmp sgt i32 %.val.fr, 30
-  br i1 %5, label %87, label %6
+  br i1 %5, label %105, label %6
 
 6:                                                ; preds = %1
   %7 = shl nuw nsw i32 1, %.val.fr
@@ -345,14 +345,14 @@ Gia_ManCountMintermsInCube.exit.us:               ; preds = %._crit_edge41.us.i.
 
 ._crit_edge:                                      ; preds = %.critedge
   %.not25 = icmp eq ptr %13, null
-  br i1 %.not25, label %87, label %._crit_edge.thread
+  br i1 %.not25, label %105, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.lr.ph37, %._crit_edge
   %.0.lcssa53 = phi i32 [ 0, %._crit_edge ], [ %86, %.lr.ph37 ]
   tail call void @free(ptr noundef nonnull %13) #30
-  br label %87
+  br label %105
 
-87:                                               ; preds = %._crit_edge.thread, %._crit_edge, %1
+105:                                              ; preds = %._crit_edge.thread, %._crit_edge, %1
   %.021 = phi i32 [ -1, %1 ], [ 0, %._crit_edge ], [ %.0.lcssa53, %._crit_edge.thread ]
   ret i32 %.021
 }

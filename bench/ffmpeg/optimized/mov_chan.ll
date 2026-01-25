@@ -827,25 +827,25 @@ define range(i32 -2147483648, 1) i32 @ff_mov_read_chnl(ptr noundef %0, ptr nound
   br i1 %or.cond.i, label %.thread67, label %ff_mov_get_channel_layout_from_config.exit
 
 ff_mov_get_channel_layout_from_config.exit:       ; preds = %40
-  %52 = shl i32 %7, 16
-  %53 = add nuw nsw i32 %48, %46
-  %54 = or i32 %53, %52
-  %55 = tail call fastcc i32 @mov_get_channel_layout(ptr noundef nonnull %38, i32 noundef %54, i64 noundef %35, ptr noundef nonnull @iso_ch_layout_map)
-  %56 = icmp sgt i32 %55, -1
-  br i1 %56, label %ff_mov_get_channel_layout_from_config.exit.thread, label %.thread67
+  %80 = shl i32 %7, 16
+  %81 = add nuw nsw i32 %48, %46
+  %82 = or i32 %81, %80
+  %83 = tail call fastcc i32 @mov_get_channel_layout(ptr noundef nonnull %38, i32 noundef %82, i64 noundef %35, ptr noundef nonnull @iso_ch_layout_map)
+  %84 = icmp sgt i32 %83, -1
+  br i1 %84, label %ff_mov_get_channel_layout_from_config.exit.thread, label %.thread67
 
 ff_mov_get_channel_layout_from_config.exit.thread: ; preds = %34, %ff_mov_get_channel_layout_from_config.exit, %._crit_edge, %3
-  %57 = and i32 %4, 2
-  %.not56 = icmp eq i32 %57, 0
-  br i1 %.not56, label %.thread67, label %58
+  %85 = and i32 %4, 2
+  %.not56 = icmp eq i32 %85, 0
+  br i1 %.not56, label %.thread67, label %86
 
-58:                                               ; preds = %ff_mov_get_channel_layout_from_config.exit.thread
-  %59 = tail call i32 @avio_r8(ptr noundef %1) #3
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 56, ptr noundef nonnull @.str.9, i32 noundef %59) #3
+86:                                               ; preds = %ff_mov_get_channel_layout_from_config.exit.thread
+  %87 = tail call i32 @avio_r8(ptr noundef %1) #3
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 56, ptr noundef nonnull @.str.9, i32 noundef %87) #3
   br label %.thread67
 
-.thread67:                                        ; preds = %40, %8, %._crit_edge, %ff_mov_get_channel_layout_from_config.exit, %ff_mov_get_channel_layout_from_config.exit.thread, %58
-  %.4 = phi i32 [ 0, %ff_mov_get_channel_layout_from_config.exit.thread ], [ 0, %58 ], [ %14, %8 ], [ %55, %ff_mov_get_channel_layout_from_config.exit ], [ %32, %._crit_edge ], [ -1094995529, %40 ]
+.thread67:                                        ; preds = %40, %8, %._crit_edge, %ff_mov_get_channel_layout_from_config.exit, %ff_mov_get_channel_layout_from_config.exit.thread, %86
+  %.4 = phi i32 [ 0, %ff_mov_get_channel_layout_from_config.exit.thread ], [ 0, %58 ], [ %14, %8 ], [ %83, %ff_mov_get_channel_layout_from_config.exit ], [ %32, %._crit_edge ], [ -1094995529, %40 ]
   ret i32 %.4
 }
 

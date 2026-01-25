@@ -311,7 +311,7 @@ define range(i32 0, 2) i32 @Lpk_FunSuppMinimize(ptr noundef %0) local_unnamed_ad
   %8 = shl nsw i32 -1, %7
   %9 = xor i32 %8, %3
   %10 = icmp eq i32 %9, -1
-  br i1 %10, label %45, label %11
+  br i1 %10, label %63, label %11
 
 11:                                               ; preds = %1
   %12 = and i32 %5, -1073741825
@@ -327,7 +327,7 @@ define range(i32 0, 2) i32 @Lpk_FunSuppMinimize(ptr noundef %0) local_unnamed_ad
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 148
   br label %21
 
-21:                                               ; preds = %11, %35
+21:; preds = %11, %35
   %indvars.iv = phi i64 [ 0, %11 ], [ %indvars.iv.next, %35 ]
   %.02629 = phi i32 [ 0, %11 ], [ %.1, %35 ]
   %22 = load i32, ptr %2, align 4, !tbaa !13
@@ -337,11 +337,11 @@ define range(i32 0, 2) i32 @Lpk_FunSuppMinimize(ptr noundef %0) local_unnamed_ad
   %.not = icmp eq i32 %25, 0
   br i1 %.not, label %35, label %26
 
-26:                                               ; preds = %21
+26:; preds = %21
   %27 = getelementptr inbounds nuw i8, ptr %19, i64 %indvars.iv
   %28 = load i8, ptr %27, align 1, !tbaa !17
   %29 = sext i32 %.02629 to i64
-  %30 = getelementptr inbounds i8, ptr %19, i64 %29
+  %37 = getelementptr inbounds i8, ptr %19, i64 %29
   store i8 %28, ptr %30, align 1, !tbaa !17
   %31 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv
   %32 = load i32, ptr %31, align 4, !tbaa !14
@@ -350,26 +350,26 @@ define range(i32 0, 2) i32 @Lpk_FunSuppMinimize(ptr noundef %0) local_unnamed_ad
   %34 = add nsw i32 %.02629, 1
   br label %35
 
-35:                                               ; preds = %26, %21
+35:; preds = %26, %21
   %.1 = phi i32 [ %34, %26 ], [ %.02629, %21 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %36, label %21, !llvm.loop !21
+  br i1 %exitcond.not, label %54, label %21, !llvm.loop !21
 
-36:                                               ; preds = %35
-  %37 = load i32, ptr %4, align 8
-  %38 = shl i32 %.1, 7
-  %39 = and i32 %38, 3968
-  %40 = and i32 %37, -3969
-  %41 = or disjoint i32 %40, %39
-  store i32 %41, ptr %4, align 8
-  %42 = and i32 %.1, 31
-  %43 = shl nsw i32 -1, %42
-  %44 = xor i32 %43, -1
-  store i32 %44, ptr %2, align 4, !tbaa !13
-  br label %45
+54:                                               ; preds = %35
+  %55 = load i32, ptr %4, align 8
+  %56 = shl i32 %.1, 7
+  %57 = and i32 %56, 3968
+  %58 = and i32 %55, -3969
+  %59 = or disjoint i32 %58, %57
+  store i32 %59, ptr %4, align 8
+  %60 = and i32 %.1, 31
+  %61 = shl nsw i32 -1, %60
+  %62 = xor i32 %61, -1
+  store i32 %62, ptr %2, align 4, !tbaa !13
+  br label %63
 
-45:                                               ; preds = %1, %36
+63:                                               ; preds = %1, %54
   %.0 = phi i32 [ 1, %36 ], [ 0, %1 ]
   ret i32 %.0
 }
