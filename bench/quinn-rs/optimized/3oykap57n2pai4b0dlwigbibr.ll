@@ -15216,7 +15216,7 @@ _ZN11quinn_proto10connection10Connection3pto17h99244f2a43238643E.exit: ; preds =
   %38 = extractvalue { i64, i1 } %36, 1
   %39 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %37, i64 %34)
   %40 = extractvalue { i64, i1 } %39, 1
-  %41 = select i1 %38, i1 true, i1 %40
+  %41 = select i1 %38, i1 true, i1 %40, !prof !71
   br i1 %41, label %54, label %47, !prof !71
 
 42:                                               ; preds = %7
@@ -15525,7 +15525,7 @@ _ZN4core4time8Duration11checked_add17h757bdf52c7b42d91E.exit.thread.i.cont: ; pr
   %168 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %166, i64 %162)
   %169 = extractvalue { i64, i1 } %168, 1
   %170 = add nuw i64 %166, %162
-  %171 = select i1 %167, i1 true, i1 %169
+  %171 = select i1 %167, i1 true, i1 %169, !prof !71
   %.sroa.0.0.i = select i1 %171, i64 undef, i64 %170, !prof !71
   br i1 %171, label %_ZN4core4time8Duration11checked_add17h757bdf52c7b42d91E.exit.thread.i.invoke, label %172, !prof !71
 
@@ -16525,7 +16525,7 @@ define internal fastcc void @_ZN11quinn_proto10connection10Connection18pto_time_
   %30 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %28, i64 %24)
   %31 = extractvalue { i64, i1 } %30, 1
   %32 = add nuw i64 %24, %28
-  %33 = select i1 %29, i1 true, i1 %31
+  %33 = select i1 %29, i1 true, i1 %31, !prof !71
   br i1 %33, label %38, label %34, !prof !71
 
 34:                                               ; preds = %"_ZN4core3num21_$LT$impl$u20$u32$GT$3pow17hadf714769d1b5f54E.exit"
@@ -16637,7 +16637,7 @@ define internal fastcc void @_ZN11quinn_proto10connection10Connection18pto_time_
   %83 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %81, i64 %77)
   %84 = extractvalue { i64, i1 } %83, 1
   %85 = add nuw i64 %77, %81
-  %86 = select i1 %82, i1 true, i1 %84
+  %86 = select i1 %82, i1 true, i1 %84, !prof !71
   br i1 %86, label %99, label %88, !prof !71
 
 87:                                               ; preds = %69
@@ -17058,7 +17058,7 @@ _ZN11quinn_proto10connection10Connection3pto17h99244f2a43238643E.exit: ; preds =
   %42 = extractvalue { i64, i1 } %40, 1
   %43 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %41, i64 %38)
   %44 = extractvalue { i64, i1 } %43, 1
-  %45 = select i1 %42, i1 true, i1 %44
+  %45 = select i1 %42, i1 true, i1 %44, !prof !71
   br i1 %45, label %58, label %48, !prof !71
 
 46:                                               ; preds = %7
@@ -32388,7 +32388,7 @@ _ZN4core4time8Duration11checked_add17h757bdf52c7b42d91E.exit.i127.i: ; preds = %
   %900 = extractvalue { i64, i1 } %898, 1
   %901 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %899, i64 %896)
   %902 = extractvalue { i64, i1 } %901, 1
-  %903 = select i1 %900, i1 true, i1 %902
+  %903 = select i1 %900, i1 true, i1 %902, !prof !71
   br i1 %903, label %.invoke.i, label %904, !prof !71
 
 904:                                              ; preds = %890
@@ -38017,7 +38017,7 @@ _ZN11quinn_proto10connection10Connection3pto17h99244f2a43238643E.exit: ; preds =
   %33 = extractvalue { i64, i1 } %31, 1
   %34 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %32, i64 %29)
   %35 = extractvalue { i64, i1 } %34, 1
-  %36 = select i1 %33, i1 true, i1 %35
+  %36 = select i1 %33, i1 true, i1 %35, !prof !71
   br i1 %36, label %44, label %37, !prof !71
 
 37:                                               ; preds = %_ZN11quinn_proto10connection10Connection3pto17h99244f2a43238643E.exit

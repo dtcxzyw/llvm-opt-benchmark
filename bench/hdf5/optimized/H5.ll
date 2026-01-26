@@ -150,7 +150,7 @@ define range(i32 -1, 1) i32 @H5__init_package() local_unnamed_addr #0 {
   %.not = select i1 %not., i1 %4, i1 false
   %5 = load i8, ptr @H5_libinit_g, align 1, !range !7
   %6 = trunc nuw i8 %5 to i1
-  %7 = select i1 %.not, i1 true, i1 %6
+  %7 = select i1 %.not, i1 true, i1 %6, !prof !9
   %or.cond4 = select i1 %7, i1 true, i1 %4, !prof !9
   br i1 %or.cond4, label %15, label %8, !prof !9
 
@@ -206,7 +206,7 @@ define range(i32 -1, 1) i32 @H5_init_library() local_unnamed_addr #0 {
   %.not = select i1 %not., i1 %15, i1 false
   %16 = load i8, ptr @H5_libinit_g, align 1, !range !7
   %17 = trunc nuw i8 %16 to i1
-  %18 = select i1 %.not, i1 true, i1 %17
+  %18 = select i1 %.not, i1 true, i1 %17, !prof !9
   %or.cond15 = select i1 %18, i1 true, i1 %15, !prof !9
   br i1 %or.cond15, label %101, label %19, !prof !9
 

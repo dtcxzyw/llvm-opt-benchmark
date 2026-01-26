@@ -5399,7 +5399,7 @@ define internal fastcc void @_ZN6quiche8recovery11gcongestion8recovery9GRecovery
   %23 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %21, i64 %17)
   %24 = extractvalue { i64, i1 } %23, 1
   %25 = add nuw i64 %21, %17
-  %26 = select i1 %22, i1 true, i1 %24
+  %26 = select i1 %22, i1 true, i1 %24, !prof !23
   br i1 %26, label %31, label %27, !prof !23
 
 27:                                               ; preds = %5
@@ -5531,7 +5531,7 @@ define internal fastcc void @_ZN6quiche8recovery11gcongestion8recovery9GRecovery
   %86 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %84, i64 %80)
   %87 = extractvalue { i64, i1 } %86, 1
   %88 = add nuw i64 %84, %80
-  %89 = select i1 %85, i1 true, i1 %87
+  %89 = select i1 %85, i1 true, i1 %87, !prof !23
   br i1 %89, label %102, label %91, !prof !23
 
 90:                                               ; preds = %67, %54, %53, %._crit_edge
@@ -7044,7 +7044,7 @@ define { i64, i32 } @"_ZN100_$LT$quiche..recovery..gcongestion..recovery..GRecov
   %9 = icmp ugt i64 %5, 4611686018427387903
   %10 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %8, i64 %.zext)
   %11 = extractvalue { i64, i1 } %10, 1
-  %12 = select i1 %9, i1 true, i1 %11
+  %12 = select i1 %9, i1 true, i1 %11, !prof !23
   br i1 %12, label %34, label %13, !prof !23
 
 13:                                               ; preds = %1

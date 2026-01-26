@@ -2326,7 +2326,7 @@ define hidden { i64, i32 } @_ZN11quinn_proto10connection6pacing5Pacer5delay17hd5
   %170 = udiv i64 %169, 1000000000
   %171 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %167, i64 %170)
   %172 = extractvalue { i64, i1 } %171, 1
-  %173 = select i1 %166, i1 true, i1 %172
+  %173 = select i1 %166, i1 true, i1 %172, !prof !36
   %174 = urem i64 %169, 1000000000
   %175 = trunc nuw nsw i64 %174 to i32
   %.sroa.3.0.i = select i1 %173, i32 1000000000, i32 %175, !prof !36
@@ -3364,7 +3364,7 @@ _ZN4core4time8Duration11checked_sub17h366c2e4ca015d589E.exit73: ; preds = %94, %
   %108 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %106, i64 %.zext116)
   %109 = extractvalue { i64, i1 } %108, 1
   %110 = add nuw i64 %106, %.zext116
-  %111 = select i1 %107, i1 true, i1 %109
+  %111 = select i1 %107, i1 true, i1 %109, !prof !36
   br i1 %111, label %125, label %113, !prof !36
 
 112:                                              ; preds = %81, %85
@@ -3417,7 +3417,7 @@ _ZN4core4time8Duration11checked_sub17h366c2e4ca015d589E.exit73: ; preds = %94, %
   %141 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %139, i64 %135)
   %142 = extractvalue { i64, i1 } %141, 1
   %143 = add nuw i64 %139, %135
-  %144 = select i1 %140, i1 true, i1 %142
+  %144 = select i1 %140, i1 true, i1 %142, !prof !36
   br i1 %144, label %158, label %146, !prof !36
 
 145:                                              ; preds = %120, %113

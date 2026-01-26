@@ -5253,7 +5253,7 @@ define internal fastcc void @_ZN6quiche8recovery10congestion8recovery14LegacyRec
   %57 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %55, i64 %51)
   %58 = extractvalue { i64, i1 } %57, 1
   %59 = add nuw i64 %55, %51
-  %60 = select i1 %56, i1 true, i1 %58
+  %60 = select i1 %56, i1 true, i1 %58, !prof !475
   br i1 %60, label %65, label %61, !prof !475
 
 61:                                               ; preds = %"_ZN4core3num21_$LT$impl$u20$u32$GT$3pow17hadf714769d1b5f54E.exit"
@@ -5413,7 +5413,7 @@ define internal fastcc void @_ZN6quiche8recovery10congestion8recovery14LegacyRec
   %122 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %120, i64 %116)
   %123 = extractvalue { i64, i1 } %122, 1
   %124 = add nuw i64 %120, %116
-  %125 = select i1 %121, i1 true, i1 %123
+  %125 = select i1 %121, i1 true, i1 %123, !prof !475
   br i1 %125, label %.invoke, label %126, !prof !475
 
 126:                                              ; preds = %.loopexit
@@ -8761,7 +8761,7 @@ define hidden void @_ZN6quiche8recovery3rtt8RttStats10update_rtt17h9ca2c75d62d2b
   %160 = extractvalue { i64, i1 } %158, 1
   %161 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %159, i64 %.zext)
   %162 = extractvalue { i64, i1 } %161, 1
-  %163 = select i1 %160, i1 true, i1 %162
+  %163 = select i1 %160, i1 true, i1 %162, !prof !475
   br i1 %163, label %223, label %_ZN4core4time8Duration11checked_div17h374d5e2d370f745fE.exit86, !prof !475
 
 164:                                              ; preds = %146
@@ -8853,7 +8853,7 @@ _ZN4core4time8Duration11checked_div17h374d5e2d370f745fE.exit86: ; preds = %151
   %219 = extractvalue { i64, i1 } %217, 1
   %220 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %218, i64 %215)
   %221 = extractvalue { i64, i1 } %220, 1
-  %222 = select i1 %219, i1 true, i1 %221
+  %222 = select i1 %219, i1 true, i1 %221, !prof !475
   br i1 %222, label %240, label %_ZN4core4time8Duration11checked_div17h374d5e2d370f745fE.exit94, !prof !475
 
 223:                                              ; preds = %151

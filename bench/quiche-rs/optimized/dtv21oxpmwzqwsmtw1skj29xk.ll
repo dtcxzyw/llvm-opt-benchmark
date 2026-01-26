@@ -5112,7 +5112,7 @@ select.unfold:                                    ; preds = %721, %718
   %1038 = extractvalue { i64, i1 } %1036, 1
   %1039 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %1037, i64 %1035)
   %1040 = extractvalue { i64, i1 } %1039, 1
-  %1041 = select i1 %1038, i1 true, i1 %1040
+  %1041 = select i1 %1038, i1 true, i1 %1040, !prof !3
   br i1 %1041, label %1045, label %1042, !prof !3
 
 1042:                                             ; preds = %1032
@@ -11326,7 +11326,7 @@ common.resume:                                    ; preds = %2655, %2670, %"_ZN4
   %1597 = extractvalue { i64, i1 } %1595, 1
   %1598 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %1596, i64 %1594)
   %1599 = extractvalue { i64, i1 } %1598, 1
-  %1600 = select i1 %1597, i1 true, i1 %1599
+  %1600 = select i1 %1597, i1 true, i1 %1599, !prof !3
   br i1 %1600, label %1606, label %1601, !prof !3
 
 1601:                                             ; preds = %1591
@@ -11464,7 +11464,7 @@ common.resume:                                    ; preds = %2655, %2670, %"_ZN4
   %1652 = extractvalue { i64, i1 } %1650, 1
   %1653 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %1651, i64 %1649)
   %1654 = extractvalue { i64, i1 } %1653, 1
-  %1655 = select i1 %1652, i1 true, i1 %1654
+  %1655 = select i1 %1652, i1 true, i1 %1654, !prof !3
   br i1 %1655, label %1661, label %1656, !prof !3
 
 1656:                                             ; preds = %1646
@@ -15790,7 +15790,7 @@ define internal fastcc { i64, i32 } @"_ZN6quiche19Connection$LT$F$GT$12idle_time
   %48 = extractvalue { i64, i1 } %46, 1
   %49 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %47, i64 %45)
   %50 = extractvalue { i64, i1 } %49, 1
-  %51 = select i1 %48, i1 true, i1 %50
+  %51 = select i1 %48, i1 true, i1 %50, !prof !3
   br i1 %51, label %70, label %61, !prof !3
 
 52:                                               ; preds = %37
@@ -18346,7 +18346,7 @@ define internal fastcc { i64, i64 } @"_ZN6quiche19Connection$LT$F$GT$13process_f
   %831 = extractvalue { i64, i1 } %829, 1
   %832 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %830, i64 %828)
   %833 = extractvalue { i64, i1 } %832, 1
-  %834 = select i1 %831, i1 true, i1 %833
+  %834 = select i1 %831, i1 true, i1 %833, !prof !3
   br i1 %834, label %838, label %835, !prof !3
 
 835:                                              ; preds = %825
@@ -18458,7 +18458,7 @@ define internal fastcc { i64, i64 } @"_ZN6quiche19Connection$LT$F$GT$13process_f
   %883 = extractvalue { i64, i1 } %881, 1
   %884 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %882, i64 %880)
   %885 = extractvalue { i64, i1 } %884, 1
-  %886 = select i1 %883, i1 true, i1 %885
+  %886 = select i1 %883, i1 true, i1 %885, !prof !3
   br i1 %886, label %890, label %887, !prof !3
 
 887:                                              ; preds = %877
