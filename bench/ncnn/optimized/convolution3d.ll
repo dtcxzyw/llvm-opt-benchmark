@@ -1689,7 +1689,7 @@ define internal void @_ZNK4ncnn13Convolution3D7forwardERKNS_3MatERS1_RKNS_6Optio
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 208
   %17 = load i32, ptr %16, align 8, !tbaa !18
   %18 = icmp sgt i32 %17, 0
-  br i1 %18, label %19, label %156
+  br i1 %18, label %19, label %153
 
 19:                                               ; preds = %11
   %20 = add nsw i32 %17, -1
@@ -1775,8 +1775,8 @@ define internal void @_ZNK4ncnn13Convolution3D7forwardERKNS_3MatERS1_RKNS_6Optio
   br label %.preheader121.us.us.us.us
 
 .preheader121.us.us.us.us:                        ; preds = %._crit_edge137.split.us.us.us.us.us, %.preheader121.lr.ph.split.us.split.us.us.us
-  %.048147.us.us.us.us = phi ptr [ %53, %.preheader121.lr.ph.split.us.split.us.us.us ], [ %153, %._crit_edge137.split.us.us.us.us.us ]
-  %.050145.us.us.us.us = phi i32 [ 0, %.preheader121.lr.ph.split.us.split.us.us.us ], [ %155, %._crit_edge137.split.us.us.us.us.us ]
+  %.048147.us.us.us.us = phi ptr [ %53, %.preheader121.lr.ph.split.us.split.us.us.us ], [ %150, %._crit_edge137.split.us.us.us.us.us ]
+  %.050145.us.us.us.us = phi i32 [ 0, %.preheader121.lr.ph.split.us.split.us.us.us ], [ %152, %._crit_edge137.split.us.us.us.us.us ]
   %58 = load i32, ptr %7, align 4
   %59 = load i32, ptr %8, align 4
   %60 = mul i32 %58, %57
@@ -1788,8 +1788,8 @@ define internal void @_ZNK4ncnn13Convolution3D7forwardERKNS_3MatERS1_RKNS_6Optio
   br label %.preheader.us.us.us.us.us
 
 .preheader.us.us.us.us.us:                        ; preds = %._crit_edge134.us.us.us.us.us, %.preheader121.us.us.us.us
-  %.1136.us.us.us.us.us = phi ptr [ %.048147.us.us.us.us, %.preheader121.us.us.us.us ], [ %153, %._crit_edge134.us.us.us.us.us ]
-  %.056135.us.us.us.us.us = phi i32 [ 0, %.preheader121.us.us.us.us ], [ %154, %._crit_edge134.us.us.us.us.us ]
+  %.1136.us.us.us.us.us = phi ptr [ %.048147.us.us.us.us, %.preheader121.us.us.us.us ], [ %150, %._crit_edge134.us.us.us.us.us ]
+  %.056135.us.us.us.us.us = phi i32 [ 0, %.preheader121.us.us.us.us ], [ %151, %._crit_edge134.us.us.us.us.us ]
   %65 = load i32, ptr %36, align 4
   %66 = load i32, ptr %37, align 8
   %67 = load ptr, ptr %9, align 8
@@ -1821,11 +1821,11 @@ define internal void @_ZNK4ncnn13Convolution3D7forwardERKNS_3MatERS1_RKNS_6Optio
   br i1 %63, label %.noexc76.lr.ph.us.us.us.us.us, label %._crit_edge.us.us.us.us.us
 
 ._crit_edge.us.us.us.us.us:                       ; preds = %._ZN4ncnn3MatD2Ev.exit_crit_edge.us.us.us.us.us.us, %.noexc76.lr.ph.us.us.us.us.us, %82
-  %.154.lcssa.us.us.us.us.us = phi float [ %.053.us.us.us.us.us, %82 ], [ %.053.us.us.us.us.us, %.noexc76.lr.ph.us.us.us.us.us ], [ %151, %._ZN4ncnn3MatD2Ev.exit_crit_edge.us.us.us.us.us.us ]
+  %.154.lcssa.us.us.us.us.us = phi float [ %.053.us.us.us.us.us, %82 ], [ %.053.us.us.us.us.us, %.noexc76.lr.ph.us.us.us.us.us ], [ %148, %._ZN4ncnn3MatD2Ev.exit_crit_edge.us.us.us.us.us.us ]
   switch i32 %56, label %_ZL13activation_ssfiRKN4ncnn3MatE.exit.us.us.us.us.us [
-    i32 1, label %126
-    i32 2, label %120
-    i32 3, label %112
+    i32 1, label %123
+    i32 2, label %117
+    i32 3, label %110
     i32 4, label %105
     i32 5, label %99
     i32 6, label %83
@@ -1862,107 +1862,104 @@ define internal void @_ZNK4ncnn13Convolution3D7forwardERKNS_3MatERS1_RKNS_6Optio
   br label %_ZL13activation_ssfiRKN4ncnn3MatE.exit.us.us.us.us.us
 
 105:                                              ; preds = %._crit_edge.us.us.us.us.us
-  %106 = fcmp fast ogt float %.154.lcssa.us.us.us.us.us, 0x40561814A0000000
-  %.sroa.speculated110.us.us.us.us.us = select i1 %106, float 0x40561814A0000000, float %.154.lcssa.us.us.us.us.us
-  %107 = fcmp fast olt float %.sroa.speculated110.us.us.us.us.us, 0xC0561814A0000000
-  %.sroa.speculated110.neg.us.us.us.us.us = fneg fast float %.sroa.speculated110.us.us.us.us.us
-  %108 = call fast float @llvm.exp.f32(float %.sroa.speculated110.neg.us.us.us.us.us)
-  %109 = fadd fast float %108, 1.000000e+00
-  %110 = fdiv fast float 1.000000e+00, %109
-  %111 = select i1 %107, float 0x37F6A0A880000000, float %110
+  %.sroa.speculated110.us.us.us.us.us = call nnan ninf nsz float @llvm.minnum.f32(float %.154.lcssa.us.us.us.us.us, float 0x40561814A0000000)
+  %.sroa.speculated.us.us.us.us.us = call nnan ninf nsz float @llvm.maxnum.f32(float %.sroa.speculated110.us.us.us.us.us, float 0xC0561814A0000000)
+  %106 = fneg fast float %.sroa.speculated.us.us.us.us.us
+  %107 = call fast float @llvm.exp.f32(float %106)
+  %108 = fadd fast float %107, 1.000000e+00
+  %109 = fdiv fast float 1.000000e+00, %108
   br label %_ZL13activation_ssfiRKN4ncnn3MatE.exit.us.us.us.us.us
 
-112:                                              ; preds = %._crit_edge.us.us.us.us.us
-  %113 = load ptr, ptr %44, align 8, !tbaa !16
+110:                                              ; preds = %._crit_edge.us.us.us.us.us
+  %111 = load ptr, ptr %44, align 8, !tbaa !16
+  %112 = load float, ptr %111, align 4, !tbaa !82
+  %113 = getelementptr inbounds nuw i8, ptr %111, i64 4
   %114 = load float, ptr %113, align 4, !tbaa !82
-  %115 = getelementptr inbounds nuw i8, ptr %113, i64 4
-  %116 = load float, ptr %115, align 4, !tbaa !82
-  %117 = fcmp fast olt float %.154.lcssa.us.us.us.us.us, %114
-  %.0119.us.us.us.us.us = select nsz i1 %117, float %114, float %.154.lcssa.us.us.us.us.us
-  %118 = fcmp fast ogt float %.0119.us.us.us.us.us, %116
-  br i1 %118, label %119, label %_ZL13activation_ssfiRKN4ncnn3MatE.exit.us.us.us.us.us
+  %.0119.us.us.us.us.us = call nnan ninf nsz float @llvm.maxnum.f32(float %.154.lcssa.us.us.us.us.us, float %112)
+  %115 = fcmp fast ogt float %.0119.us.us.us.us.us, %114
+  br i1 %115, label %116, label %_ZL13activation_ssfiRKN4ncnn3MatE.exit.us.us.us.us.us
 
-119:                                              ; preds = %112
+116:                                              ; preds = %110
   br label %_ZL13activation_ssfiRKN4ncnn3MatE.exit.us.us.us.us.us
 
-120:                                              ; preds = %._crit_edge.us.us.us.us.us
-  %121 = load ptr, ptr %44, align 8, !tbaa !16
-  %122 = load float, ptr %121, align 4, !tbaa !82
-  %123 = fcmp fast ogt float %.154.lcssa.us.us.us.us.us, 0.000000e+00
-  %124 = select fast i1 %123, float 1.000000e+00, float %122
-  %125 = fmul fast float %124, %.154.lcssa.us.us.us.us.us
+117:                                              ; preds = %._crit_edge.us.us.us.us.us
+  %118 = load ptr, ptr %44, align 8, !tbaa !16
+  %119 = load float, ptr %118, align 4, !tbaa !82
+  %120 = fcmp fast ogt float %.154.lcssa.us.us.us.us.us, 0.000000e+00
+  %121 = select fast i1 %120, float 1.000000e+00, float %119
+  %122 = fmul fast float %121, %.154.lcssa.us.us.us.us.us
   br label %_ZL13activation_ssfiRKN4ncnn3MatE.exit.us.us.us.us.us
 
-126:                                              ; preds = %._crit_edge.us.us.us.us.us
-  %127 = call fast float @llvm.maxnum.f32(float nofpclass(nan inf) %.154.lcssa.us.us.us.us.us, float 0.000000e+00)
+123:                                              ; preds = %._crit_edge.us.us.us.us.us
+  %124 = call fast float @llvm.maxnum.f32(float nofpclass(nan inf) %.154.lcssa.us.us.us.us.us, float 0.000000e+00)
   br label %_ZL13activation_ssfiRKN4ncnn3MatE.exit.us.us.us.us.us
 
-_ZL13activation_ssfiRKN4ncnn3MatE.exit.us.us.us.us.us: ; preds = %126, %120, %119, %112, %105, %99, %95, %91, %83, %._crit_edge.us.us.us.us.us
-  %.1120.us.us.us.us.us = phi nsz float [ %.154.lcssa.us.us.us.us.us, %._crit_edge.us.us.us.us.us ], [ %127, %126 ], [ %125, %120 ], [ %116, %119 ], [ %.0119.us.us.us.us.us, %112 ], [ %111, %105 ], [ %104, %99 ], [ %98, %95 ], [ %.154.lcssa.us.us.us.us.us, %91 ], [ 0.000000e+00, %83 ]
-  %128 = getelementptr inbounds nuw float, ptr %.1136.us.us.us.us.us, i64 %indvars.iv181
-  store float %.1120.us.us.us.us.us, ptr %128, align 4, !tbaa !82
+_ZL13activation_ssfiRKN4ncnn3MatE.exit.us.us.us.us.us: ; preds = %123, %117, %116, %110, %105, %99, %95, %91, %83, %._crit_edge.us.us.us.us.us
+  %.1120.us.us.us.us.us = phi nsz float [ %.154.lcssa.us.us.us.us.us, %._crit_edge.us.us.us.us.us ], [ %124, %123 ], [ %122, %117 ], [ %114, %116 ], [ %.0119.us.us.us.us.us, %110 ], [ %109, %105 ], [ %104, %99 ], [ %98, %95 ], [ %.154.lcssa.us.us.us.us.us, %91 ], [ 0.000000e+00, %83 ]
+  %125 = getelementptr inbounds nuw float, ptr %.1136.us.us.us.us.us, i64 %indvars.iv181
+  store float %.1120.us.us.us.us.us, ptr %125, align 4, !tbaa !82
   %indvars.iv.next182 = add nuw nsw i64 %indvars.iv181, 1
   %exitcond185.not = icmp eq i64 %indvars.iv.next182, %wide.trip.count184
   br i1 %exitcond185.not, label %._crit_edge134.us.us.us.us.us, label %77, !llvm.loop !83
 
 .noexc76.lr.ph.us.us.us.us.us:                    ; preds = %82
-  %129 = load i32, ptr %40, align 4, !tbaa !43
-  %130 = mul nsw i32 %129, %.050145.us.us.us.us
-  %131 = sext i32 %130 to i64
-  %132 = mul i64 %73, %131
-  %invariant.gep.us.us.us.us.us = getelementptr i8, ptr %67, i64 %132
-  %133 = load i32, ptr %41, align 8, !tbaa !42
-  %134 = mul nsw i32 %133, %.056135.us.us.us.us.us
-  %135 = sext i32 %134 to i64
-  %136 = mul i64 %72, %135
-  %invariant.gep130.us.us.us.us.us = getelementptr i8, ptr %invariant.gep.us.us.us.us.us, i64 %136
-  %137 = load i32, ptr %42, align 4, !tbaa !41
-  %138 = trunc nuw nsw i64 %indvars.iv181 to i32
-  %139 = mul nsw i32 %137, %138
-  %140 = sext i32 %139 to i64
-  %invariant.gep132.us.us.us.us.us = getelementptr float, ptr %invariant.gep130.us.us.us.us.us, i64 %140
-  %141 = load ptr, ptr %10, align 8
+  %126 = load i32, ptr %40, align 4, !tbaa !43
+  %127 = mul nsw i32 %126, %.050145.us.us.us.us
+  %128 = sext i32 %127 to i64
+  %129 = mul i64 %73, %128
+  %invariant.gep.us.us.us.us.us = getelementptr i8, ptr %67, i64 %129
+  %130 = load i32, ptr %41, align 8, !tbaa !42
+  %131 = mul nsw i32 %130, %.056135.us.us.us.us.us
+  %132 = sext i32 %131 to i64
+  %133 = mul i64 %72, %132
+  %invariant.gep130.us.us.us.us.us = getelementptr i8, ptr %invariant.gep.us.us.us.us.us, i64 %133
+  %134 = load i32, ptr %42, align 4, !tbaa !41
+  %135 = trunc nuw nsw i64 %indvars.iv181 to i32
+  %136 = mul nsw i32 %134, %135
+  %137 = sext i32 %136 to i64
+  %invariant.gep132.us.us.us.us.us = getelementptr float, ptr %invariant.gep130.us.us.us.us.us, i64 %137
+  %138 = load ptr, ptr %10, align 8
   br i1 %75, label %.noexc76.us.us.us.us.us.us, label %._crit_edge.us.us.us.us.us
 
 .noexc76.us.us.us.us.us.us:                       ; preds = %.noexc76.lr.ph.us.us.us.us.us, %._ZN4ncnn3MatD2Ev.exit_crit_edge.us.us.us.us.us.us
   %indvars.iv176 = phi i64 [ %indvars.iv.next177, %._ZN4ncnn3MatD2Ev.exit_crit_edge.us.us.us.us.us.us ], [ 0, %.noexc76.lr.ph.us.us.us.us.us ]
-  %.052127.us.us.us.us.us.us = phi ptr [ %152, %._ZN4ncnn3MatD2Ev.exit_crit_edge.us.us.us.us.us.us ], [ %64, %.noexc76.lr.ph.us.us.us.us.us ]
-  %.154126.us.us.us.us.us.us = phi float [ %151, %._ZN4ncnn3MatD2Ev.exit_crit_edge.us.us.us.us.us.us ], [ %.053.us.us.us.us.us, %.noexc76.lr.ph.us.us.us.us.us ]
+  %.052127.us.us.us.us.us.us = phi ptr [ %149, %._ZN4ncnn3MatD2Ev.exit_crit_edge.us.us.us.us.us.us ], [ %64, %.noexc76.lr.ph.us.us.us.us.us ]
+  %.154126.us.us.us.us.us.us = phi float [ %148, %._ZN4ncnn3MatD2Ev.exit_crit_edge.us.us.us.us.us.us ], [ %.053.us.us.us.us.us, %.noexc76.lr.ph.us.us.us.us.us ]
   %.reass.us.us.us.us.us.us = mul i64 %factor.op.mul.us.us.us.us.us, %indvars.iv176
   %gep.us.us.us.us.us.us = getelementptr i8, ptr %invariant.gep132.us.us.us.us.us, i64 %.reass.us.us.us.us.us.us
-  br label %142
+  br label %139
 
-142:                                              ; preds = %142, %.noexc76.us.us.us.us.us.us
-  %indvars.iv = phi i64 [ %indvars.iv.next, %142 ], [ 0, %.noexc76.us.us.us.us.us.us ]
-  %.2123.us.us.us.us.us.us = phi float [ %151, %142 ], [ %.154126.us.us.us.us.us.us, %.noexc76.us.us.us.us.us.us ]
-  %143 = getelementptr inbounds nuw i32, ptr %141, i64 %indvars.iv
-  %144 = load i32, ptr %143, align 4, !tbaa !61
-  %145 = sext i32 %144 to i64
-  %146 = getelementptr inbounds float, ptr %gep.us.us.us.us.us.us, i64 %145
-  %147 = load float, ptr %146, align 4, !tbaa !82
-  %148 = getelementptr inbounds nuw float, ptr %.052127.us.us.us.us.us.us, i64 %indvars.iv
-  %149 = load float, ptr %148, align 4, !tbaa !82
-  %150 = fmul fast float %149, %147
-  %151 = fadd fast float %150, %.2123.us.us.us.us.us.us
+139:                                              ; preds = %139, %.noexc76.us.us.us.us.us.us
+  %indvars.iv = phi i64 [ %indvars.iv.next, %139 ], [ 0, %.noexc76.us.us.us.us.us.us ]
+  %.2123.us.us.us.us.us.us = phi float [ %148, %139 ], [ %.154126.us.us.us.us.us.us, %.noexc76.us.us.us.us.us.us ]
+  %140 = getelementptr inbounds nuw i32, ptr %138, i64 %indvars.iv
+  %141 = load i32, ptr %140, align 4, !tbaa !61
+  %142 = sext i32 %141 to i64
+  %143 = getelementptr inbounds float, ptr %gep.us.us.us.us.us.us, i64 %142
+  %144 = load float, ptr %143, align 4, !tbaa !82
+  %145 = getelementptr inbounds nuw float, ptr %.052127.us.us.us.us.us.us, i64 %indvars.iv
+  %146 = load float, ptr %145, align 4, !tbaa !82
+  %147 = fmul fast float %146, %144
+  %148 = fadd fast float %147, %.2123.us.us.us.us.us.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._ZN4ncnn3MatD2Ev.exit_crit_edge.us.us.us.us.us.us, label %142, !llvm.loop !84
+  br i1 %exitcond.not, label %._ZN4ncnn3MatD2Ev.exit_crit_edge.us.us.us.us.us.us, label %139, !llvm.loop !84
 
-._ZN4ncnn3MatD2Ev.exit_crit_edge.us.us.us.us.us.us: ; preds = %142
-  %152 = getelementptr inbounds nuw float, ptr %.052127.us.us.us.us.us.us, i64 %76
+._ZN4ncnn3MatD2Ev.exit_crit_edge.us.us.us.us.us.us: ; preds = %139
+  %149 = getelementptr inbounds nuw float, ptr %.052127.us.us.us.us.us.us, i64 %76
   %indvars.iv.next177 = add nuw nsw i64 %indvars.iv176, 1
   %exitcond180.not = icmp eq i64 %indvars.iv.next177, %wide.trip.count179
   br i1 %exitcond180.not, label %._crit_edge.us.us.us.us.us, label %.noexc76.us.us.us.us.us.us, !llvm.loop !85
 
 ._crit_edge134.us.us.us.us.us:                    ; preds = %_ZL13activation_ssfiRKN4ncnn3MatE.exit.us.us.us.us.us
-  %153 = getelementptr inbounds nuw float, ptr %.1136.us.us.us.us.us, i64 %52
-  %154 = add nuw nsw i32 %.056135.us.us.us.us.us, 1
-  %exitcond186.not = icmp eq i32 %154, %32
+  %150 = getelementptr inbounds nuw float, ptr %.1136.us.us.us.us.us, i64 %52
+  %151 = add nuw nsw i32 %.056135.us.us.us.us.us, 1
+  %exitcond186.not = icmp eq i32 %151, %32
   br i1 %exitcond186.not, label %._crit_edge137.split.us.us.us.us.us, label %.preheader.us.us.us.us.us, !llvm.loop !86
 
 ._crit_edge137.split.us.us.us.us.us:              ; preds = %._crit_edge134.us.us.us.us.us
-  %155 = add nuw nsw i32 %.050145.us.us.us.us, 1
-  %exitcond187.not = icmp eq i32 %155, %30
+  %152 = add nuw nsw i32 %.050145.us.us.us.us, 1
+  %exitcond187.not = icmp eq i32 %152, %30
   br i1 %exitcond187.not, label %._crit_edge.split.us.us.us, label %.preheader121.us.us.us.us, !llvm.loop !87
 
 ._crit_edge157:                                   ; preds = %._crit_edge.split.us.us.us, %.noexc75.lr.ph.split.us.split.us, %.noexc75.lr.ph, %19
@@ -1971,9 +1968,9 @@ _ZL13activation_ssfiRKN4ncnn3MatE.exit.us.us.us.us.us: ; preds = %126, %120, %11
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  br label %156
+  br label %153
 
-156:                                              ; preds = %._crit_edge157, %11
+153:                                              ; preds = %._crit_edge157, %11
   ret void
 }
 
@@ -2026,6 +2023,9 @@ declare i32 @llvm.smin.i32(i32, i32) #16
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #17
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.minnum.f32(float, float) #16
 
 attributes #0 = { inlinehint mustprogress nounwind uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="0" "no-infs-fp-math"="true" "no-nans-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "reciprocal-estimates"="none" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "unsafe-fp-math"="true" }
 attributes #1 = { mustprogress uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="0" "no-infs-fp-math"="true" "no-nans-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "reciprocal-estimates"="none" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "unsafe-fp-math"="true" }

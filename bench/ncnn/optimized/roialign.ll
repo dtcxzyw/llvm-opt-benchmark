@@ -141,92 +141,90 @@ _ZNK4ncnn3Mat5emptyEv.exit:                       ; preds = %4
   store float %61, ptr %9, align 4, !tbaa !44
   %62 = fsub fast float %53, %47
   %63 = fsub fast float %56, %50
-  br label %69
+  br label %67
 
 64:                                               ; preds = %42
   %65 = fsub fast float %53, %47
   %66 = fsub fast float %56, %50
-  %67 = fcmp fast olt float %65, 1.000000e+00
-  %.sroa.speculated39 = select i1 %67, float 1.000000e+00, float %65
-  %68 = fcmp fast olt float %66, 1.000000e+00
-  %.sroa.speculated37 = select i1 %68, float 1.000000e+00, float %66
-  br label %69
+  %.sroa.speculated39 = tail call nnan ninf nsz float @llvm.maxnum.f32(float %65, float 1.000000e+00)
+  %.sroa.speculated37 = tail call nnan ninf nsz float @llvm.maxnum.f32(float %66, float 1.000000e+00)
+  br label %67
 
-69:                                               ; preds = %.thread, %64
+67:                                               ; preds = %.thread, %64
   %.048 = phi nsz float [ %63, %.thread ], [ %.sroa.speculated37, %64 ]
   %.047 = phi nsz float [ %62, %.thread ], [ %.sroa.speculated39, %64 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %70 = load i32, ptr %27, align 8, !tbaa !4
-  %71 = sitofp i32 %70 to float
-  %72 = fdiv fast float %.047, %71
-  store float %72, ptr %10, align 4, !tbaa !44
+  %68 = load i32, ptr %27, align 8, !tbaa !4
+  %69 = sitofp i32 %68 to float
+  %70 = fdiv fast float %.047, %69
+  store float %70, ptr %10, align 4, !tbaa !44
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %73 = load i32, ptr %29, align 4, !tbaa !27
-  %74 = sitofp i32 %73 to float
-  %75 = fdiv fast float %.048, %74
-  store float %75, ptr %11, align 4, !tbaa !44
-  %76 = getelementptr inbounds nuw i8, ptr %0, i64 228
-  %77 = load i32, ptr %76, align 4, !tbaa !31
-  switch i32 %77, label %97 [
-    i32 0, label %78
-    i32 1, label %81
+  %71 = load i32, ptr %29, align 4, !tbaa !27
+  %72 = sitofp i32 %71 to float
+  %73 = fdiv fast float %.048, %72
+  store float %73, ptr %11, align 4, !tbaa !44
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 228
+  %75 = load i32, ptr %74, align 4, !tbaa !31
+  switch i32 %75, label %95 [
+    i32 0, label %76
+    i32 1, label %79
   ]
 
-78:                                               ; preds = %69
-  %79 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %80 = load i32, ptr %79, align 4, !tbaa !47
-  tail call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %15, i32 %80)
+76:                                               ; preds = %67
+  %77 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %78 = load i32, ptr %77, align 4, !tbaa !47
+  tail call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %15, i32 %78)
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 10, ptr nonnull @_ZNK4ncnn8ROIAlign7forwardERKSt6vectorINS_3MatESaIS2_EERS4_RKNS_6OptionE.omp_outlined, ptr nonnull %7, ptr nonnull %16, ptr nonnull %26, ptr nonnull %0, ptr nonnull %9, ptr nonnull %11, ptr nonnull %8, ptr nonnull %10, ptr nonnull %6, ptr nonnull %5)
-  br label %97
+  br label %95
 
-81:                                               ; preds = %69
+79:                                               ; preds = %67
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  %82 = getelementptr inbounds nuw i8, ptr %0, i64 220
-  %83 = load i32, ptr %82, align 4, !tbaa !29
-  %84 = icmp sgt i32 %83, 0
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 220
+  %81 = load i32, ptr %80, align 4, !tbaa !29
+  %82 = icmp sgt i32 %81, 0
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  br i1 %84, label %85, label %88
+  br i1 %82, label %83, label %86
 
-85:                                               ; preds = %81
-  %86 = uitofp nneg i32 %83 to float
-  %87 = fptosi float %86 to i32
-  br label %92
+83:                                               ; preds = %79
+  %84 = uitofp nneg i32 %81 to float
+  %85 = fptosi float %84 to i32
+  br label %90
 
-88:                                               ; preds = %81
-  %89 = tail call fast noundef float @llvm.ceil.f32(float nofpclass(nan inf) %75)
-  %90 = fptosi float %89 to i32
-  %91 = tail call fast noundef float @llvm.ceil.f32(float nofpclass(nan inf) %72)
-  %.pre = fptosi float %91 to i32
-  br label %92
+86:                                               ; preds = %79
+  %87 = tail call fast noundef float @llvm.ceil.f32(float nofpclass(nan inf) %73)
+  %88 = fptosi float %87 to i32
+  %89 = tail call fast noundef float @llvm.ceil.f32(float nofpclass(nan inf) %70)
+  %.pre = fptosi float %89 to i32
+  br label %90
 
-92:                                               ; preds = %88, %85
-  %.pre-phi = phi i32 [ %.pre, %88 ], [ %87, %85 ]
-  %.sink = phi i32 [ %90, %88 ], [ %87, %85 ]
+90:                                               ; preds = %86, %83
+  %.pre-phi = phi i32 [ %.pre, %86 ], [ %85, %83 ]
+  %.sink = phi i32 [ %88, %86 ], [ %85, %83 ]
   store i32 %.sink, ptr %12, align 4, !tbaa !36
   store i32 %.pre-phi, ptr %13, align 4, !tbaa !36
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
-  %93 = mul nsw i32 %.sink, %.pre-phi
-  %.sroa.speculated = tail call i32 @llvm.smax.i32(i32 %93, i32 1)
-  %94 = uitofp nneg i32 %.sroa.speculated to float
-  store float %94, ptr %14, align 4, !tbaa !44
-  %95 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %96 = load i32, ptr %95, align 4, !tbaa !47
-  tail call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %15, i32 %96)
+  %91 = mul nsw i32 %.sink, %.pre-phi
+  %.sroa.speculated = tail call i32 @llvm.smax.i32(i32 %91, i32 1)
+  %92 = uitofp nneg i32 %.sroa.speculated to float
+  store float %92, ptr %14, align 4, !tbaa !44
+  %93 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %94 = load i32, ptr %93, align 4, !tbaa !47
+  tail call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %15, i32 %94)
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 13, ptr nonnull @_ZNK4ncnn8ROIAlign7forwardERKSt6vectorINS_3MatESaIS2_EERS4_RKNS_6OptionE.omp_outlined.1, ptr nonnull %7, ptr nonnull %16, ptr nonnull %26, ptr nonnull %0, ptr nonnull %12, ptr nonnull %9, ptr nonnull %11, ptr nonnull %13, ptr nonnull %8, ptr nonnull %10, ptr nonnull %6, ptr nonnull %5, ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  br label %97
+  br label %95
 
-97:                                               ; preds = %69, %92, %78
+95:                                               ; preds = %67, %90, %76
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZNK4ncnn3Mat5emptyEv.exit.thread
 
-_ZNK4ncnn3Mat5emptyEv.exit.thread:                ; preds = %4, %_ZNK4ncnn3Mat5emptyEv.exit, %97
-  %.028 = phi i32 [ 0, %97 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit ], [ -100, %4 ]
+_ZNK4ncnn3Mat5emptyEv.exit.thread:                ; preds = %4, %_ZNK4ncnn3Mat5emptyEv.exit, %95
+  %.028 = phi i32 [ 0, %95 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit ], [ -100, %4 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

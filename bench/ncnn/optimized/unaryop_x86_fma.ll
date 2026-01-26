@@ -3005,7 +3005,7 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_fma_functor13
   %37 = bitcast <8 x i32> %36 to <8 x float>
   %38 = fcmp fast ogt <8 x float> %37, splat (float 1.000000e+00)
   %39 = select <8 x i1> %38, <8 x float> splat (float -1.000000e+00), <8 x float> %37
-  %40 = select <8 x i1> %38, <8 x float> %37, <8 x float> splat (float 1.000000e+00)
+  %40 = call nnan ninf nsz <8 x float> @llvm.maxnum.v8f32(<8 x float> %37, <8 x float> splat (float 1.000000e+00))
   %41 = fdiv fast <8 x float> %39, %40
   %42 = fmul fast <8 x float> %41, %41
   %43 = fmul fast <8 x float> %42, %42
@@ -3046,7 +3046,7 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_fma_functor13
   %67 = bitcast <4 x i32> %66 to <4 x float>
   %68 = fcmp fast ogt <4 x float> %67, splat (float 1.000000e+00)
   %69 = select <4 x i1> %68, <4 x float> splat (float -1.000000e+00), <4 x float> %67
-  %70 = select <4 x i1> %68, <4 x float> %67, <4 x float> splat (float 1.000000e+00)
+  %70 = call nnan ninf nsz <4 x float> @llvm.maxnum.v4f32(<4 x float> %67, <4 x float> splat (float 1.000000e+00))
   %71 = fdiv fast <4 x float> %69, %70
   %72 = fmul fast <4 x float> %71, %71
   %73 = fmul fast <4 x float> %72, %72
@@ -3846,6 +3846,12 @@ declare <4 x float> @llvm.fabs.v4f32(<4 x float>) #13
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare <8 x float> @llvm.fabs.v8f32(<8 x float>) #13
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare <8 x float> @llvm.maxnum.v8f32(<8 x float>, <8 x float>) #13
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare <4 x float> @llvm.maxnum.v4f32(<4 x float>, <4 x float>) #13
 
 attributes #0 = { nounwind "approx-func-fp-math"="true" "no-infs-fp-math"="true" "no-nans-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "reciprocal-estimates"="none" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" "unsafe-fp-math"="true" }
 attributes #1 = { inlinehint mustprogress nounwind uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="0" "no-infs-fp-math"="true" "no-nans-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "reciprocal-estimates"="none" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" "unsafe-fp-math"="true" }

@@ -6642,7 +6642,7 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %2033 = tail call <4 x float> @llvm.fabs.v4f32(<4 x float> %2030)
   %2034 = fcmp fast ogt <4 x float> %2033, splat (float 1.000000e+00)
   %2035 = select <4 x i1> %2034, <4 x float> splat (float -1.000000e+00), <4 x float> %2033
-  %2036 = select <4 x i1> %2034, <4 x float> %2033, <4 x float> splat (float 1.000000e+00)
+  %2036 = tail call nnan ninf nsz <4 x float> @llvm.maxnum.v4f32(<4 x float> %2033, <4 x float> splat (float 1.000000e+00))
   %2037 = fdiv fast <4 x float> %2035, %2036
   %2038 = fmul fast <4 x float> %2037, %2037
   %2039 = fmul fast <4 x float> %2038, %2038
@@ -6763,7 +6763,7 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %2114 = tail call <4 x float> @llvm.fabs.v4f32(<4 x float> %2111)
   %2115 = fcmp fast ogt <4 x float> %2114, splat (float 1.000000e+00)
   %2116 = select <4 x i1> %2115, <4 x float> splat (float -1.000000e+00), <4 x float> %2114
-  %2117 = select <4 x i1> %2115, <4 x float> %2114, <4 x float> splat (float 1.000000e+00)
+  %2117 = tail call nnan ninf nsz <4 x float> @llvm.maxnum.v4f32(<4 x float> %2114, <4 x float> splat (float 1.000000e+00))
   %2118 = fdiv fast <4 x float> %2116, %2117
   %2119 = fmul fast <4 x float> %2118, %2118
   %2120 = fmul fast <4 x float> %2119, %2119
@@ -6877,7 +6877,7 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %2191 = tail call <4 x float> @llvm.fabs.v4f32(<4 x float> %2188)
   %2192 = fcmp fast ogt <4 x float> %2191, splat (float 1.000000e+00)
   %2193 = select <4 x i1> %2192, <4 x float> splat (float -1.000000e+00), <4 x float> %2191
-  %2194 = select <4 x i1> %2192, <4 x float> %2191, <4 x float> splat (float 1.000000e+00)
+  %2194 = tail call nnan ninf nsz <4 x float> @llvm.maxnum.v4f32(<4 x float> %2191, <4 x float> splat (float 1.000000e+00))
   %2195 = fdiv fast <4 x float> %2193, %2194
   %2196 = fmul fast <4 x float> %2195, %2195
   %2197 = fmul fast <4 x float> %2196, %2196
@@ -6970,7 +6970,7 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %2259 = tail call <4 x float> @llvm.fabs.v4f32(<4 x float> %2256)
   %2260 = fcmp fast ogt <4 x float> %2259, splat (float 1.000000e+00)
   %2261 = select <4 x i1> %2260, <4 x float> splat (float -1.000000e+00), <4 x float> %2259
-  %2262 = select <4 x i1> %2260, <4 x float> %2259, <4 x float> splat (float 1.000000e+00)
+  %2262 = tail call nnan ninf nsz <4 x float> @llvm.maxnum.v4f32(<4 x float> %2259, <4 x float> splat (float 1.000000e+00))
   %2263 = fdiv fast <4 x float> %2261, %2262
   %2264 = fmul fast <4 x float> %2263, %2263
   %2265 = fmul fast <4 x float> %2264, %2264
@@ -7051,7 +7051,7 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %2322 = tail call <4 x float> @llvm.fabs.v4f32(<4 x float> %2319)
   %2323 = fcmp fast ogt <4 x float> %2322, splat (float 1.000000e+00)
   %2324 = select <4 x i1> %2323, <4 x float> splat (float -1.000000e+00), <4 x float> %2322
-  %2325 = select <4 x i1> %2323, <4 x float> %2322, <4 x float> splat (float 1.000000e+00)
+  %2325 = tail call nnan ninf nsz <4 x float> @llvm.maxnum.v4f32(<4 x float> %2322, <4 x float> splat (float 1.000000e+00))
   %2326 = fdiv fast <4 x float> %2324, %2325
   %2327 = fmul fast <4 x float> %2326, %2326
   %2328 = fmul fast <4 x float> %2327, %2327
@@ -7127,7 +7127,7 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %2385 = tail call <4 x float> @llvm.fabs.v4f32(<4 x float> %2382)
   %2386 = fcmp fast ogt <4 x float> %2385, splat (float 1.000000e+00)
   %2387 = select <4 x i1> %2386, <4 x float> splat (float -1.000000e+00), <4 x float> %2385
-  %2388 = select <4 x i1> %2386, <4 x float> %2385, <4 x float> splat (float 1.000000e+00)
+  %2388 = tail call nnan ninf nsz <4 x float> @llvm.maxnum.v4f32(<4 x float> %2385, <4 x float> splat (float 1.000000e+00))
   %2389 = fdiv fast <4 x float> %2387, %2388
   %2390 = fmul fast <4 x float> %2389, %2389
   %2391 = fmul fast <4 x float> %2390, %2390
@@ -7217,7 +7217,7 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %2446 = tail call <4 x float> @llvm.fabs.v4f32(<4 x float> %2443)
   %2447 = fcmp fast ogt <4 x float> %2446, splat (float 1.000000e+00)
   %2448 = select <4 x i1> %2447, <4 x float> splat (float -1.000000e+00), <4 x float> %2446
-  %2449 = select <4 x i1> %2447, <4 x float> %2446, <4 x float> splat (float 1.000000e+00)
+  %2449 = tail call nnan ninf nsz <4 x float> @llvm.maxnum.v4f32(<4 x float> %2446, <4 x float> splat (float 1.000000e+00))
   %2450 = fdiv fast <4 x float> %2448, %2449
   %2451 = fmul fast <4 x float> %2450, %2450
   %2452 = fmul fast <4 x float> %2451, %2451
@@ -7337,7 +7337,7 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %2527 = tail call <4 x float> @llvm.fabs.v4f32(<4 x float> %2524)
   %2528 = fcmp fast ogt <4 x float> %2527, splat (float 1.000000e+00)
   %2529 = select <4 x i1> %2528, <4 x float> splat (float -1.000000e+00), <4 x float> %2527
-  %2530 = select <4 x i1> %2528, <4 x float> %2527, <4 x float> splat (float 1.000000e+00)
+  %2530 = tail call nnan ninf nsz <4 x float> @llvm.maxnum.v4f32(<4 x float> %2527, <4 x float> splat (float 1.000000e+00))
   %2531 = fdiv fast <4 x float> %2529, %2530
   %2532 = fmul fast <4 x float> %2531, %2531
   %2533 = fmul fast <4 x float> %2532, %2532
@@ -7452,7 +7452,7 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %2603 = tail call <4 x float> @llvm.fabs.v4f32(<4 x float> %2600)
   %2604 = fcmp fast ogt <4 x float> %2603, splat (float 1.000000e+00)
   %2605 = select <4 x i1> %2604, <4 x float> splat (float -1.000000e+00), <4 x float> %2603
-  %2606 = select <4 x i1> %2604, <4 x float> %2603, <4 x float> splat (float 1.000000e+00)
+  %2606 = tail call nnan ninf nsz <4 x float> @llvm.maxnum.v4f32(<4 x float> %2603, <4 x float> splat (float 1.000000e+00))
   %2607 = fdiv fast <4 x float> %2605, %2606
   %2608 = fmul fast <4 x float> %2607, %2607
   %2609 = fmul fast <4 x float> %2608, %2608
@@ -7545,7 +7545,7 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %2672 = tail call <4 x float> @llvm.fabs.v4f32(<4 x float> %2669)
   %2673 = fcmp fast ogt <4 x float> %2672, splat (float 1.000000e+00)
   %2674 = select <4 x i1> %2673, <4 x float> splat (float -1.000000e+00), <4 x float> %2672
-  %2675 = select <4 x i1> %2673, <4 x float> %2672, <4 x float> splat (float 1.000000e+00)
+  %2675 = tail call nnan ninf nsz <4 x float> @llvm.maxnum.v4f32(<4 x float> %2672, <4 x float> splat (float 1.000000e+00))
   %2676 = fdiv fast <4 x float> %2674, %2675
   %2677 = fmul fast <4 x float> %2676, %2676
   %2678 = fmul fast <4 x float> %2677, %2677
@@ -7625,7 +7625,7 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %2735 = tail call <4 x float> @llvm.fabs.v4f32(<4 x float> %2732)
   %2736 = fcmp fast ogt <4 x float> %2735, splat (float 1.000000e+00)
   %2737 = select <4 x i1> %2736, <4 x float> splat (float -1.000000e+00), <4 x float> %2735
-  %2738 = select <4 x i1> %2736, <4 x float> %2735, <4 x float> splat (float 1.000000e+00)
+  %2738 = tail call nnan ninf nsz <4 x float> @llvm.maxnum.v4f32(<4 x float> %2735, <4 x float> splat (float 1.000000e+00))
   %2739 = fdiv fast <4 x float> %2737, %2738
   %2740 = fmul fast <4 x float> %2739, %2739
   %2741 = fmul fast <4 x float> %2740, %2740
@@ -7702,7 +7702,7 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %2797 = tail call <4 x float> @llvm.fabs.v4f32(<4 x float> %2794)
   %2798 = fcmp fast ogt <4 x float> %2797, splat (float 1.000000e+00)
   %2799 = select <4 x i1> %2798, <4 x float> splat (float -1.000000e+00), <4 x float> %2797
-  %2800 = select <4 x i1> %2798, <4 x float> %2797, <4 x float> splat (float 1.000000e+00)
+  %2800 = tail call nnan ninf nsz <4 x float> @llvm.maxnum.v4f32(<4 x float> %2797, <4 x float> splat (float 1.000000e+00))
   %2801 = fdiv fast <4 x float> %2799, %2800
   %2802 = fmul fast <4 x float> %2801, %2801
   %2803 = fmul fast <4 x float> %2802, %2802
@@ -8313,6 +8313,9 @@ declare i32 @llvm.smax.i32(i32, i32) #16
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare <4 x float> @llvm.fabs.v4f32(<4 x float>) #16
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare <4 x float> @llvm.maxnum.v4f32(<4 x float>, <4 x float>) #16
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #16

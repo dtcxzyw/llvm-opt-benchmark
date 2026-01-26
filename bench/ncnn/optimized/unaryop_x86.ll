@@ -3102,7 +3102,7 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_19UnaryOp_x86_functor13unar
   %50 = bitcast <4 x i32> %49 to <4 x float>
   %51 = fcmp fast ogt <4 x float> %50, splat (float 1.000000e+00)
   %52 = select <4 x i1> %51, <4 x float> splat (float -1.000000e+00), <4 x float> %50
-  %53 = select <4 x i1> %51, <4 x float> %50, <4 x float> splat (float 1.000000e+00)
+  %53 = call nnan ninf nsz <4 x float> @llvm.maxnum.v4f32(<4 x float> %50, <4 x float> splat (float 1.000000e+00))
   %54 = fdiv fast <4 x float> %52, %53
   %55 = fmul fast <4 x float> %54, %54
   %56 = fmul fast <4 x float> %55, %55
@@ -3960,6 +3960,9 @@ declare i32 @llvm.smin.i32(i32, i32) #13
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare <4 x float> @llvm.fabs.v4f32(<4 x float>) #13
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare <4 x float> @llvm.maxnum.v4f32(<4 x float>, <4 x float>) #13
 
 attributes #0 = { nounwind "approx-func-fp-math"="true" "no-infs-fp-math"="true" "no-nans-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "reciprocal-estimates"="none" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "unsafe-fp-math"="true" }
 attributes #1 = { inlinehint mustprogress nounwind uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="0" "no-infs-fp-math"="true" "no-nans-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "reciprocal-estimates"="none" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "unsafe-fp-math"="true" }

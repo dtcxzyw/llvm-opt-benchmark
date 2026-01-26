@@ -444,7 +444,7 @@ define internal void @_ZNK4ncnn9Pooling1D7forwardERKNS_3MatERS1_RKNS_6OptionE.om
   %10 = alloca i32, align 4
   %11 = load i32, ptr %2, align 4, !tbaa !38
   %12 = icmp sgt i32 %11, 0
-  br i1 %12, label %13, label %40
+  br i1 %12, label %13, label %39
 
 13:                                               ; preds = %6
   %14 = add nsw i32 %11, -1
@@ -496,15 +496,14 @@ define internal void @_ZNK4ncnn9Pooling1D7forwardERKNS_3MatERS1_RKNS_6OptionE.om
   %.02425.us = phi float [ %31, %.lr.ph.us ], [ %.sroa.speculated.us, %32 ]
   %33 = getelementptr inbounds nuw float, ptr %30, i64 %indvars.iv34
   %34 = load float, ptr %33, align 4, !tbaa !53
-  %35 = fcmp fast olt float %.02425.us, %34
-  %.sroa.speculated.us = select i1 %35, float %34, float %.02425.us
+  %.sroa.speculated.us = call nnan ninf nsz float @llvm.maxnum.f32(float %.02425.us, float %34)
   %indvars.iv.next35 = add nuw nsw i64 %indvars.iv34, 1
   %exitcond37.not = icmp eq i64 %indvars.iv.next35, %wide.trip.count
   br i1 %exitcond37.not, label %._crit_edge.us, label %32, !llvm.loop !55
 
 ._crit_edge.us:                                   ; preds = %32
-  %36 = getelementptr inbounds nuw float, ptr %27, i64 %indvars.iv38
-  store float %.sroa.speculated.us, ptr %36, align 4, !tbaa !53
+  %35 = getelementptr inbounds nuw float, ptr %27, i64 %indvars.iv38
+  store float %.sroa.speculated.us, ptr %35, align 4, !tbaa !53
   %indvars.iv.next39 = add nsw i64 %indvars.iv38, 1
   %lftr.wideiv41 = trunc i64 %indvars.iv.next39 to i32
   %exitcond42.not = icmp eq i32 %29, %lftr.wideiv41
@@ -513,10 +512,10 @@ define internal void @_ZNK4ncnn9Pooling1D7forwardERKNS_3MatERS1_RKNS_6OptionE.om
 .lr.ph30.split:                                   ; preds = %.lr.ph30, %.lr.ph30.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph30.split ], [ %28, %.lr.ph30 ]
   %.reass = mul i64 %factor.op.mul, %indvars.iv
-  %37 = getelementptr inbounds nuw i8, ptr %19, i64 %.reass
-  %38 = load float, ptr %37, align 4, !tbaa !53
-  %39 = getelementptr inbounds nuw float, ptr %27, i64 %indvars.iv
-  store float %38, ptr %39, align 4, !tbaa !53
+  %36 = getelementptr inbounds nuw i8, ptr %19, i64 %.reass
+  %37 = load float, ptr %36, align 4, !tbaa !53
+  %38 = getelementptr inbounds nuw float, ptr %27, i64 %indvars.iv
+  store float %37, ptr %38, align 4, !tbaa !53
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %29, %lftr.wideiv
@@ -528,9 +527,9 @@ define internal void @_ZNK4ncnn9Pooling1D7forwardERKNS_3MatERS1_RKNS_6OptionE.om
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %40
+  br label %39
 
-40:                                               ; preds = %._crit_edge31, %6
+39:                                               ; preds = %._crit_edge31, %6
   ret void
 }
 
@@ -670,7 +669,7 @@ define internal void @_ZNK4ncnn9Pooling1D7forwardERKNS_3MatERS1_RKNS_6OptionE.om
   %11 = alloca i32, align 4
   %12 = load i32, ptr %2, align 4, !tbaa !38
   %13 = icmp sgt i32 %12, 0
-  br i1 %13, label %14, label %57
+  br i1 %13, label %14, label %56
 
 14:                                               ; preds = %7
   %15 = add nsw i32 %12, -1
@@ -759,8 +758,7 @@ define internal void @_ZNK4ncnn9Pooling1D7forwardERKNS_3MatERS1_RKNS_6OptionE.om
   %.03637.us = phi float [ %51, %.lr.ph.us.preheader ], [ %.sroa.speculated.us, %.lr.ph.us ]
   %54 = getelementptr inbounds float, ptr %39, i64 %indvars.iv
   %55 = load float, ptr %54, align 4, !tbaa !53
-  %56 = fcmp fast olt float %.03637.us, %55
-  %.sroa.speculated.us = select i1 %56, float %55, float %.03637.us
+  %.sroa.speculated.us = call nnan ninf nsz float @llvm.maxnum.f32(float %.03637.us, float %55)
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.us, label %.lr.ph.us, !llvm.loop !61
@@ -777,9 +775,9 @@ define internal void @_ZNK4ncnn9Pooling1D7forwardERKNS_3MatERS1_RKNS_6OptionE.om
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %57
+  br label %56
 
-57:                                               ; preds = %._crit_edge47, %7
+56:                                               ; preds = %._crit_edge47, %7
   ret void
 }
 
@@ -1132,7 +1130,7 @@ define internal void @_ZNK4ncnn9Pooling1D7forwardERKNS_3MatERS1_RKNS_6OptionE.om
   %11 = alloca i32, align 4
   %12 = load i32, ptr %2, align 4, !tbaa !38
   %13 = icmp sgt i32 %12, 0
-  br i1 %13, label %14, label %59
+  br i1 %13, label %14, label %58
 
 14:                                               ; preds = %7
   %15 = add nsw i32 %12, -1
@@ -1208,15 +1206,14 @@ define internal void @_ZNK4ncnn9Pooling1D7forwardERKNS_3MatERS1_RKNS_6OptionE.om
   %.03132.us.us.us = phi float [ %.sroa.speculated.us.us.us, %47 ], [ %46, %.lr.ph.us.us.us ]
   %48 = getelementptr inbounds nuw float, ptr %45, i64 %indvars.iv52
   %49 = load float, ptr %48, align 4, !tbaa !53
-  %50 = fcmp fast olt float %.03132.us.us.us, %49
-  %.sroa.speculated.us.us.us = select i1 %50, float %49, float %.03132.us.us.us
+  %.sroa.speculated.us.us.us = call nnan ninf nsz float @llvm.maxnum.f32(float %.03132.us.us.us, float %49)
   %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
   %exitcond56.not = icmp eq i64 %indvars.iv.next53, %wide.trip.count55
   br i1 %exitcond56.not, label %._crit_edge.us.us.us, label %47, !llvm.loop !71
 
 ._crit_edge.us.us.us:                             ; preds = %47
-  %51 = getelementptr inbounds nuw float, ptr %43, i64 %indvars.iv57
-  store float %.sroa.speculated.us.us.us, ptr %51, align 4, !tbaa !53
+  %50 = getelementptr inbounds nuw float, ptr %43, i64 %indvars.iv57
+  store float %.sroa.speculated.us.us.us, ptr %50, align 4, !tbaa !53
   %indvars.iv.next58 = add nuw nsw i64 %indvars.iv57, 1
   %exitcond61.not = icmp eq i64 %indvars.iv.next58, %wide.trip.count60
   br i1 %exitcond61.not, label %._crit_edge37.split.us.us.us, label %.lr.ph.us.us.us, !llvm.loop !72
@@ -1230,23 +1227,23 @@ define internal void @_ZNK4ncnn9Pooling1D7forwardERKNS_3MatERS1_RKNS_6OptionE.om
 .lr.ph36.us:                                      ; preds = %.lr.ph.split.us, %._crit_edge37.split.us43
   %indvars.iv48 = phi i64 [ %indvars.iv.next49, %._crit_edge37.split.us43 ], [ %40, %.lr.ph.split.us ]
   %.reass.us = mul i64 %factor.op.mul, %indvars.iv48
-  %52 = getelementptr inbounds nuw i8, ptr %20, i64 %.reass.us
+  %51 = getelementptr inbounds nuw i8, ptr %20, i64 %.reass.us
   %.reass41.us = mul i64 %factor.op.mul40, %indvars.iv48
-  %53 = getelementptr inbounds nuw i8, ptr %26, i64 %.reass41.us
-  br label %54
+  %52 = getelementptr inbounds nuw i8, ptr %26, i64 %.reass41.us
+  br label %53
 
-54:                                               ; preds = %.lr.ph36.us, %54
-  %indvars.iv = phi i64 [ 0, %.lr.ph36.us ], [ %indvars.iv.next, %54 ]
-  %55 = mul nsw i64 %indvars.iv, %39
-  %56 = getelementptr inbounds float, ptr %52, i64 %55
-  %57 = load float, ptr %56, align 4, !tbaa !53
-  %58 = getelementptr inbounds nuw float, ptr %53, i64 %indvars.iv
-  store float %57, ptr %58, align 4, !tbaa !53
+53:                                               ; preds = %.lr.ph36.us, %53
+  %indvars.iv = phi i64 [ 0, %.lr.ph36.us ], [ %indvars.iv.next, %53 ]
+  %54 = mul nsw i64 %indvars.iv, %39
+  %55 = getelementptr inbounds float, ptr %51, i64 %54
+  %56 = load float, ptr %55, align 4, !tbaa !53
+  %57 = getelementptr inbounds nuw float, ptr %52, i64 %indvars.iv
+  store float %56, ptr %57, align 4, !tbaa !53
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count60
-  br i1 %exitcond.not, label %._crit_edge37.split.us43, label %54, !llvm.loop !72
+  br i1 %exitcond.not, label %._crit_edge37.split.us43, label %53, !llvm.loop !72
 
-._crit_edge37.split.us43:                         ; preds = %54
+._crit_edge37.split.us43:                         ; preds = %53
   %indvars.iv.next49 = add nsw i64 %indvars.iv48, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next49 to i32
   %exitcond51.not = icmp eq i32 %41, %lftr.wideiv
@@ -1258,9 +1255,9 @@ define internal void @_ZNK4ncnn9Pooling1D7forwardERKNS_3MatERS1_RKNS_6OptionE.om
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %59
+  br label %58
 
-59:                                               ; preds = %._crit_edge, %7
+58:                                               ; preds = %._crit_edge, %7
   ret void
 }
 
@@ -1589,6 +1586,9 @@ declare i32 @llvm.smin.i32(i32, i32) #12
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.maxnum.f32(float, float) #12
 
 attributes #0 = { nounwind "approx-func-fp-math"="true" "no-infs-fp-math"="true" "no-nans-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "reciprocal-estimates"="none" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "unsafe-fp-math"="true" }
 attributes #1 = { inlinehint mustprogress nounwind uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="0" "no-infs-fp-math"="true" "no-nans-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "reciprocal-estimates"="none" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "unsafe-fp-math"="true" }

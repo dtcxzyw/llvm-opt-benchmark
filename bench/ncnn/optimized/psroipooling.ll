@@ -130,24 +130,22 @@ _ZNK4ncnn3Mat5emptyEv.exit:                       ; preds = %28
   %62 = tail call fast float @llvm.round.f32(float %61)
   %63 = fmul fast float %62, %48
   %64 = fsub fast float %58, %49
-  %65 = fcmp fast olt float %64, 0x3FB99999A0000000
-  %.sroa.speculated27 = select i1 %65, float 0x3FB99999A0000000, float %64
-  %66 = fsub fast float %63, %53
-  %67 = fcmp fast olt float %66, 0x3FB99999A0000000
-  %.sroa.speculated = select i1 %67, float 0x3FB99999A0000000, float %66
+  %.sroa.speculated27 = tail call nnan ninf nsz float @llvm.maxnum.f32(float %64, float 0x3FB99999A0000000)
+  %65 = fsub fast float %63, %53
+  %.sroa.speculated = tail call nnan ninf nsz float @llvm.maxnum.f32(float %65, float 0x3FB99999A0000000)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %68 = load i32, ptr %22, align 8, !tbaa !4
-  %69 = sitofp i32 %68 to float
-  %70 = fdiv fast float %.sroa.speculated27, %69
-  store float %70, ptr %9, align 4, !tbaa !42
+  %66 = load i32, ptr %22, align 8, !tbaa !4
+  %67 = sitofp i32 %66 to float
+  %68 = fdiv fast float %.sroa.speculated27, %67
+  store float %68, ptr %9, align 4, !tbaa !42
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %71 = load i32, ptr %25, align 4, !tbaa !27
-  %72 = sitofp i32 %71 to float
-  %73 = fdiv fast float %.sroa.speculated, %72
-  store float %73, ptr %10, align 4, !tbaa !42
-  %74 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %75 = load i32, ptr %74, align 4, !tbaa !43
-  tail call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %11, i32 %75)
+  %69 = load i32, ptr %25, align 4, !tbaa !27
+  %70 = sitofp i32 %69 to float
+  %71 = fdiv fast float %.sroa.speculated, %70
+  store float %71, ptr %10, align 4, !tbaa !42
+  %72 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %73 = load i32, ptr %72, align 4, !tbaa !43
+  tail call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %11, i32 %73)
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 9, ptr nonnull @_ZNK4ncnn12PSROIPooling7forwardERKSt6vectorINS_3MatESaIS2_EERS4_RKNS_6OptionE.omp_outlined, ptr nonnull %0, ptr nonnull %31, ptr nonnull %12, ptr nonnull %8, ptr nonnull %10, ptr nonnull %7, ptr nonnull %9, ptr nonnull %6, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -439,6 +437,9 @@ declare i64 @llvm.smin.i64(i64, i64) #9
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #9
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.maxnum.f32(float, float) #9
 
 attributes #0 = { nounwind "approx-func-fp-math"="true" "no-infs-fp-math"="true" "no-nans-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "reciprocal-estimates"="none" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "unsafe-fp-math"="true" }
 attributes #1 = { inlinehint mustprogress nounwind uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="0" "no-infs-fp-math"="true" "no-nans-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "reciprocal-estimates"="none" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "unsafe-fp-math"="true" }

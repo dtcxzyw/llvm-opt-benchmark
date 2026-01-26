@@ -91,7 +91,7 @@ define internal void @_ZNK4ncnn7Sigmoid15forward_inplaceERNS_3MatERKNS_6OptionE.
   %9 = alloca i32, align 4
   %10 = load i32, ptr %2, align 4, !tbaa !16
   %11 = icmp sgt i32 %10, 0
-  br i1 %11, label %12, label %37
+  br i1 %11, label %12, label %35
 
 12:                                               ; preds = %5
   %13 = add nsw i32 %10, -1
@@ -139,15 +139,13 @@ define internal void @_ZNK4ncnn7Sigmoid15forward_inplaceERNS_3MatERKNS_6OptionE.
   %indvars.iv = phi i64 [ 0, %.noexc.us ], [ %indvars.iv.next, %28 ]
   %29 = getelementptr inbounds nuw float, ptr %27, i64 %indvars.iv
   %30 = load float, ptr %29, align 4, !tbaa !43
-  %31 = fcmp fast ogt float %30, 0x40561814A0000000
-  %.sroa.speculated25.us = select i1 %31, float 0x40561814A0000000, float %30
-  %32 = fcmp fast olt float %.sroa.speculated25.us, 0xC0561814A0000000
-  %.sroa.speculated25.neg.us = fneg fast float %.sroa.speculated25.us
-  %33 = call fast float @llvm.exp.f32(float %.sroa.speculated25.neg.us)
-  %34 = fadd fast float %33, 1.000000e+00
-  %35 = fdiv fast float 1.000000e+00, %34
-  %36 = select i1 %32, float 0x37F6A0A880000000, float %35
-  store float %36, ptr %29, align 4, !tbaa !43
+  %.sroa.speculated25.us = call nnan ninf nsz float @llvm.minnum.f32(float %30, float 0x40561814A0000000)
+  %.sroa.speculated.us = call nnan ninf nsz float @llvm.maxnum.f32(float %.sroa.speculated25.us, float 0xC0561814A0000000)
+  %31 = fneg fast float %.sroa.speculated.us
+  %32 = call fast float @llvm.exp.f32(float %31)
+  %33 = fadd fast float %32, 1.000000e+00
+  %34 = fdiv fast float 1.000000e+00, %33
+  store float %34, ptr %29, align 4, !tbaa !43
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.us, label %28, !llvm.loop !45
@@ -164,9 +162,9 @@ define internal void @_ZNK4ncnn7Sigmoid15forward_inplaceERNS_3MatERKNS_6OptionE.
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %37
+  br label %35
 
-37:                                               ; preds = %._crit_edge37, %5
+35:                                               ; preds = %._crit_edge37, %5
   ret void
 }
 
@@ -201,6 +199,12 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #10
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.maxnum.f32(float, float) #10
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.minnum.f32(float, float) #10
 
 attributes #0 = { nounwind "approx-func-fp-math"="true" "no-infs-fp-math"="true" "no-nans-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "reciprocal-estimates"="none" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "unsafe-fp-math"="true" }
 attributes #1 = { inlinehint mustprogress nounwind uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="0" "no-infs-fp-math"="true" "no-nans-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "reciprocal-estimates"="none" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "unsafe-fp-math"="true" }

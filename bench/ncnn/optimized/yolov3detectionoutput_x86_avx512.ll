@@ -1006,7 +1006,7 @@ _ZN4ncnn3MatD2Ev.exit154:                         ; preds = %.preheader289.lr.ph
   %.1137307 = phi i32 [ %167, %.lr.ph311 ], [ %.0136.lcssa, %.preheader ]
   %164 = load float, ptr %.1135308, align 4, !tbaa !44
   %165 = fcmp fast ogt float %164, %.2132309
-  %.3133 = select nsz i1 %165, float %164, float %.2132309
+  %.3133 = call nnan ninf nsz float @llvm.maxnum.f32(float %164, float %.2132309)
   %.3 = select i1 %165, i32 %.1137307, i32 %.2310
   %166 = getelementptr inbounds i8, ptr %.1135308, i64 %91
   %167 = add nuw nsw i32 %.1137307, 1
@@ -1328,6 +1328,9 @@ declare i64 @llvm.umax.i64(i64, i64) #19
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #19
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.maxnum.f32(float, float) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.cttz.i8(i8, i1 immarg) #20

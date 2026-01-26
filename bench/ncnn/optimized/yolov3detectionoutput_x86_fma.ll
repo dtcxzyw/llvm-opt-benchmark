@@ -947,7 +947,7 @@ _ZN4ncnn3MatD2Ev.exit117:                         ; preds = %.preheader.lr.ph, %
   %.0101262 = phi ptr [ %128, %.lr.ph ], [ %120, %115 ]
   %126 = load float, ptr %.0101262, align 4, !tbaa !44
   %127 = fcmp fast ogt float %126, %.099263
-  %.1100 = select nsz i1 %127, float %126, float %.099263
+  %.1100 = call nnan ninf nsz float @llvm.maxnum.f32(float %126, float %.099263)
   %.197 = select i1 %127, i32 %.098264, i32 %.096265
   %128 = getelementptr inbounds i8, ptr %.0101262, i64 %76
   %129 = add nuw nsw i32 %.098264, 1
@@ -1263,6 +1263,9 @@ declare i64 @llvm.umax.i64(i64, i64) #17
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #17
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.maxnum.f32(float, float) #17
 
 attributes #0 = { nounwind "approx-func-fp-math"="true" "no-infs-fp-math"="true" "no-nans-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "reciprocal-estimates"="none" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" "unsafe-fp-math"="true" }
 attributes #1 = { inlinehint mustprogress nounwind uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="0" "no-infs-fp-math"="true" "no-nans-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "reciprocal-estimates"="none" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" "unsafe-fp-math"="true" }
