@@ -1078,7 +1078,7 @@ _ZN7rocksdb11ReadOptionsD2Ev.exit.i:              ; preds = %.noexc49
   store i8 0, ptr %.sroa.10.0..sroa_idx, align 1, !noalias !205
   %.sroa.1191.0..sroa_idx = getelementptr inbounds nuw i8, ptr %200, i64 84
   store i8 1, ptr %.sroa.1191.0..sroa_idx, align 4, !noalias !205
-  %202 = getelementptr inbounds nuw i8, ptr %200, i64 88
+  %.sroa.12.0..sroa_idx = getelementptr inbounds nuw i8, ptr %200, i64 88
   %203 = getelementptr inbounds nuw i8, ptr %200, i64 160
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(72) %202, i8 0, i64 72, i1 false)
   store i8 1, ptr %203, align 8, !noalias !205

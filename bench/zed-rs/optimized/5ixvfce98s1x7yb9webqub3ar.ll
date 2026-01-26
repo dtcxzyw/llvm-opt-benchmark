@@ -3399,7 +3399,7 @@ define hidden noalias noundef nonnull ptr @"_ZN8sum_tree16SumTree$LT$T$GT$3new17
   store i64 1, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i8 1, ptr %4, align 8
-  %5 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 24
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 920
   store i32 0, ptr %.sroa.6.0..sroa_idx, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %5, i8 0, i64 28, i1 false)
@@ -3408,27 +3408,27 @@ define hidden noalias noundef nonnull ptr @"_ZN8sum_tree16SumTree$LT$T$GT$3new17
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h095e114da815d656E.llvm.8892032343851396646.exit"
 
-9:                                                ; preds = %1
+8:                                                ; preds = %1
   invoke void @_ZN5alloc5alloc18handle_alloc_error17h6d7f2bdbc63ffea9E(i64 noundef 8, i64 noundef 1216) #26
-          to label %.noexc unwind label %10
+          to label %.noexc unwind label %9
 
-.noexc:                                           ; preds = %9
+.noexc:                                           ; preds = %8
   unreachable
 
-10:                                               ; preds = %9
-  %11 = landingpad { ptr, i32 }
+9:                                                ; preds = %8
+  %10 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr104drop_in_place$LT$alloc..sync..ArcInner$LT$sum_tree..Node$LT$notifications..NotificationEntry$GT$$GT$$GT$17h7bcbe88042353e2eE"(ptr noalias noundef nonnull align 8 dereferenceable(1216) %2) #27
-          to label %14 unwind label %12
+          to label %14 unwind label %11
 
-12:                                               ; preds = %10
-  %13 = landingpad { ptr, i32 }
+11:                                               ; preds = %9
+  %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
   unreachable
 
-14:                                               ; preds = %10
-  resume { ptr, i32 } %11
+13:                                               ; preds = %9
+  resume { ptr, i32 } %10
 
 "_ZN5alloc5boxed12Box$LT$T$GT$3new17h095e114da815d656E.llvm.8892032343851396646.exit": ; preds = %1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1216) %7, ptr noundef nonnull align 8 dereferenceable(1216) %2, i64 1216, i1 false)

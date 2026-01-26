@@ -808,14 +808,14 @@ declare noundef zeroext i1 @_ZN7Decoder15get_source_infoEPhPcmPib(ptr noundef, p
 define internal fastcc void @_ZL10next_frame5frameP6Thread(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef byval(%class.frame) align 8 %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %class.RegisterMap, align 8
   %.not = icmp eq ptr %2, null
-  br i1 %.not, label %69, label %5
+  br i1 %.not, label %67, label %5
 
 5:                                                ; preds = %3
   %6 = load ptr, ptr %2, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %8 = load ptr, ptr %7, align 8
   %9 = tail call noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(888) %2) #21
-  br i1 %9, label %10, label %69
+  br i1 %9, label %10, label %67
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -853,7 +853,7 @@ _ZNK5frame7real_fpEv.exit:                        ; preds = %17, %22
   %32 = icmp ugt ptr %27, %25
   %33 = icmp uge ptr %25, %31
   %34 = select i1 %32, i1 %33, i1 false
-  br i1 %34, label %37, label %35
+  br i1 %34, label %36, label %35
 
 35:                                               ; preds = %_ZNK5frame7real_fpEv.exit
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -861,100 +861,100 @@ _ZNK5frame7real_fpEv.exit:                        ; preds = %17, %22
   store i32 2, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i8 0, ptr %.sroa.6.0..sroa_idx, align 4
-  %36 = getelementptr i8, ptr %0, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %36, i8 0, i64 16, i1 false)
+  %.sroa.7.0..sroa_idx = getelementptr i8, ptr %0, i64 40
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx, i8 0, i64 16, i1 false)
   br label %_ZNK5frame6senderEP11RegisterMap.exit
 
-37:                                               ; preds = %_ZNK5frame7real_fpEv.exit
-  %38 = load ptr, ptr @_ZN19AbstractInterpreter5_codeE, align 8
-  %.not.i.i = icmp eq ptr %38, null
+36:                                               ; preds = %_ZNK5frame7real_fpEv.exit
+  %37 = load ptr, ptr @_ZN19AbstractInterpreter5_codeE, align 8
+  %.not.i.i = icmp eq ptr %37, null
   br i1 %.not.i.i, label %_ZNK5frame20is_interpreted_frameEv.exit.thread, label %_ZNK5frame20is_interpreted_frameEv.exit
 
-_ZNK5frame20is_interpreted_frameEv.exit:          ; preds = %37
-  %39 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  %42 = load ptr, ptr %41, align 8
-  %.not.i.i.i = icmp ule ptr %42, %40
-  %43 = getelementptr inbounds nuw i8, ptr %38, i64 20
-  %44 = load i32, ptr %43, align 4
-  %45 = sext i32 %44 to i64
-  %46 = getelementptr inbounds i8, ptr %42, i64 %45
-  %47 = icmp ult ptr %40, %46
-  %48 = select i1 %.not.i.i.i, i1 %47, i1 false
-  br i1 %48, label %53, label %_ZNK5frame20is_interpreted_frameEv.exit.thread
+_ZNK5frame20is_interpreted_frameEv.exit:          ; preds = %36
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %39 = load ptr, ptr %38, align 8
+  %40 = getelementptr inbounds nuw i8, ptr %37, i64 8
+  %41 = load ptr, ptr %40, align 8
+  %.not.i.i.i = icmp ule ptr %41, %39
+  %42 = getelementptr inbounds nuw i8, ptr %37, i64 20
+  %43 = load i32, ptr %42, align 4
+  %44 = sext i32 %43 to i64
+  %45 = getelementptr inbounds i8, ptr %41, i64 %44
+  %46 = icmp ult ptr %39, %45
+  %47 = select i1 %.not.i.i.i, i1 %46, i1 false
+  br i1 %47, label %52, label %_ZNK5frame20is_interpreted_frameEv.exit.thread
 
-_ZNK5frame20is_interpreted_frameEv.exit.thread:   ; preds = %37, %_ZNK5frame20is_interpreted_frameEv.exit
-  br i1 %.not.i, label %64, label %49
+_ZNK5frame20is_interpreted_frameEv.exit.thread:   ; preds = %36, %_ZNK5frame20is_interpreted_frameEv.exit
+  br i1 %.not.i, label %63, label %48
 
-49:                                               ; preds = %_ZNK5frame20is_interpreted_frameEv.exit.thread
-  %50 = getelementptr inbounds nuw i8, ptr %12, i64 44
-  %51 = load i32, ptr %50, align 4
-  %52 = icmp sgt i32 %51, 0
-  br i1 %52, label %53, label %64
+48:                                               ; preds = %_ZNK5frame20is_interpreted_frameEv.exit.thread
+  %49 = getelementptr inbounds nuw i8, ptr %12, i64 44
+  %50 = load i32, ptr %49, align 4
+  %51 = icmp sgt i32 %50, 0
+  br i1 %51, label %52, label %63
 
-53:                                               ; preds = %49, %_ZNK5frame20is_interpreted_frameEv.exit
+52:                                               ; preds = %48, %_ZNK5frame20is_interpreted_frameEv.exit
   call void @_ZN11RegisterMapC1EP10JavaThreadNS_9UpdateMapENS_13ProcessFramesENS_16WalkContinuationE(ptr noundef nonnull align 8 dereferenceable(4983) %4, ptr noundef nonnull %2, i32 noundef 0, i32 noundef 1, i32 noundef 0) #21
   call void @_ZNK5frame10sender_rawEP11RegisterMap(ptr dead_on_unwind nonnull writable sret(%class.frame) align 8 %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull %4)
-  %54 = getelementptr inbounds nuw i8, ptr %4, i64 4981
-  %55 = load i8, ptr %54, align 1, !noalias !12
-  %56 = trunc i8 %55 to i1
-  br i1 %56, label %57, label %_ZNK5frame6senderEP11RegisterMap.exit
+  %53 = getelementptr inbounds nuw i8, ptr %4, i64 4981
+  %54 = load i8, ptr %53, align 1, !noalias !12
+  %55 = trunc i8 %54 to i1
+  br i1 %55, label %56, label %_ZNK5frame6senderEP11RegisterMap.exit
 
-57:                                               ; preds = %53
-  %58 = getelementptr inbounds nuw i8, ptr %4, i64 4968
-  %59 = load ptr, ptr %58, align 8, !noalias !12
-  %60 = icmp eq ptr %59, null
-  br i1 %60, label %_ZNK11RegisterMap7in_contEv.exit.thread.i, label %_ZNK11RegisterMap7in_contEv.exit.i
+56:                                               ; preds = %52
+  %57 = getelementptr inbounds nuw i8, ptr %4, i64 4968
+  %58 = load ptr, ptr %57, align 8, !noalias !12
+  %59 = icmp eq ptr %58, null
+  br i1 %59, label %_ZNK11RegisterMap7in_contEv.exit.thread.i, label %_ZNK11RegisterMap7in_contEv.exit.i
 
-_ZNK11RegisterMap7in_contEv.exit.i:               ; preds = %57
-  %61 = load ptr, ptr %59, align 8
-  %.not.i5 = icmp eq ptr %61, null
+_ZNK11RegisterMap7in_contEv.exit.i:               ; preds = %56
+  %60 = load ptr, ptr %58, align 8
+  %.not.i5 = icmp eq ptr %60, null
   br i1 %.not.i5, label %_ZNK11RegisterMap7in_contEv.exit.thread.i, label %_ZNK5frame6senderEP11RegisterMap.exit
 
-_ZNK11RegisterMap7in_contEv.exit.thread.i:        ; preds = %_ZNK11RegisterMap7in_contEv.exit.i, %57
-  %62 = getelementptr inbounds nuw i8, ptr %4, i64 4960
-  %63 = load ptr, ptr %62, align 8, !noalias !12
-  call void @_ZN17StackWatermarkSet12on_iterationEP10JavaThreadRK5frame(ptr noundef %63, ptr noundef nonnull align 8 dereferenceable(56) %0) #21
+_ZNK11RegisterMap7in_contEv.exit.thread.i:        ; preds = %_ZNK11RegisterMap7in_contEv.exit.i, %56
+  %61 = getelementptr inbounds nuw i8, ptr %4, i64 4960
+  %62 = load ptr, ptr %61, align 8, !noalias !12
+  call void @_ZN17StackWatermarkSet12on_iterationEP10JavaThreadRK5frame(ptr noundef %62, ptr noundef nonnull align 8 dereferenceable(56) %0) #21
   br label %_ZNK5frame6senderEP11RegisterMap.exit
 
-64:                                               ; preds = %49, %_ZNK5frame20is_interpreted_frameEv.exit.thread
-  %65 = call noundef zeroext i1 @_ZN2os16is_first_C_frameEP5frame(ptr noundef nonnull %1) #21
-  br i1 %65, label %66, label %68
+63:                                               ; preds = %48, %_ZNK5frame20is_interpreted_frameEv.exit.thread
+  %64 = call noundef zeroext i1 @_ZN2os16is_first_C_frameEP5frame(ptr noundef nonnull %1) #21
+  br i1 %64, label %65, label %66
 
-66:                                               ; preds = %64
+65:                                               ; preds = %63
   %.sroa.5.0..sroa_idx10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false)
   store i32 2, ptr %.sroa.5.0..sroa_idx10, align 8
   %.sroa.6.0..sroa_idx14 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i8 0, ptr %.sroa.6.0..sroa_idx14, align 4
-  %67 = getelementptr i8, ptr %0, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %67, i8 0, i64 16, i1 false)
+  %.sroa.7.0..sroa_idx18 = getelementptr i8, ptr %0, i64 40
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx18, i8 0, i64 16, i1 false)
   br label %_ZNK5frame6senderEP11RegisterMap.exit
 
-68:                                               ; preds = %64
+66:                                               ; preds = %63
   call void @_ZN2os22get_sender_for_C_frameEP5frame(ptr dead_on_unwind nonnull writable sret(%class.frame) align 8 %0, ptr noundef nonnull %1) #21
   br label %_ZNK5frame6senderEP11RegisterMap.exit
 
-69:                                               ; preds = %5, %3
-  %70 = call noundef zeroext i1 @_ZN2os16is_first_C_frameEP5frame(ptr noundef nonnull %1) #21
-  br i1 %70, label %71, label %73
+67:                                               ; preds = %5, %3
+  %68 = call noundef zeroext i1 @_ZN2os16is_first_C_frameEP5frame(ptr noundef nonnull %1) #21
+  br i1 %68, label %69, label %70
 
-71:                                               ; preds = %69
+69:                                               ; preds = %67
   %.sroa.5.0..sroa_idx12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false)
   store i32 2, ptr %.sroa.5.0..sroa_idx12, align 8
   %.sroa.6.0..sroa_idx16 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i8 0, ptr %.sroa.6.0..sroa_idx16, align 4
-  %72 = getelementptr i8, ptr %0, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %72, i8 0, i64 16, i1 false)
+  %.sroa.7.0..sroa_idx19 = getelementptr i8, ptr %0, i64 40
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx19, i8 0, i64 16, i1 false)
   br label %_ZNK5frame6senderEP11RegisterMap.exit
 
-73:                                               ; preds = %69
+70:                                               ; preds = %67
   call void @_ZN2os22get_sender_for_C_frameEP5frame(ptr dead_on_unwind nonnull writable sret(%class.frame) align 8 %0, ptr noundef nonnull %1) #21
   br label %_ZNK5frame6senderEP11RegisterMap.exit
 
-_ZNK5frame6senderEP11RegisterMap.exit:            ; preds = %_ZNK11RegisterMap7in_contEv.exit.thread.i, %_ZNK11RegisterMap7in_contEv.exit.i, %53, %73, %71, %68, %66, %35
+_ZNK5frame6senderEP11RegisterMap.exit:            ; preds = %_ZNK11RegisterMap7in_contEv.exit.thread.i, %_ZNK11RegisterMap7in_contEv.exit.i, %52, %70, %69, %66, %65, %35
   ret void
 }
 

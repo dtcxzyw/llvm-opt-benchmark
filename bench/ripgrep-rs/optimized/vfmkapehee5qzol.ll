@@ -261,7 +261,7 @@ define noundef zeroext i1 @"_ZN75_$LT$grep_searcher..searcher..ConfigError$u20$a
 40:                                               ; preds = %42
   %41 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h65d73292556f9b3fE"(ptr noalias noundef align 8 dereferenceable(24) %4) #15
+  invoke fastcc void @"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h65d73292556f9b3fE"(ptr noalias noundef align 8 dereferenceable(24) %4) #17
           to label %66 unwind label %64
 
 42:                                               ; preds = %2
@@ -323,7 +323,7 @@ define noundef zeroext i1 @"_ZN75_$LT$grep_searcher..searcher..ConfigError$u20$a
 64:                                               ; preds = %40
   %65 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17h76c6e1c84248d3ffE() #16
+  call void @_ZN4core9panicking16panic_in_cleanup17h76c6e1c84248d3ffE() #18
   unreachable
 
 66:                                               ; preds = %40
@@ -333,7 +333,7 @@ define noundef zeroext i1 @"_ZN75_$LT$grep_searcher..searcher..ConfigError$u20$a
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define void @"_ZN83_$LT$grep_searcher..searcher..SearcherBuilder$u20$as$u20$core..default..Default$GT$7default17h1eb392486cf6be6bE"(ptr noalias noundef writeonly sret({ { { i64, [1 x i64] }, i64, i64, ptr, { { i8, [1 x i8] } }, { { i8, [1 x i8] } }, i8, i8, i8, i8, i8, i8, i8, [5 x i8] } }) align 8 captures(none) dereferenceable(56) initializes((0, 8), (16, 43), (44, 51)) %0) unnamed_addr #5 {
   store i64 0, ptr %0, align 8, !alias.scope !46
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 41
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %2, i8 0, i64 25, i1 false), !alias.scope !46
   store i8 10, ptr %.sroa.7.0..sroa_idx.i, align 1, !alias.scope !46
@@ -359,7 +359,7 @@ define void @"_ZN83_$LT$grep_searcher..searcher..SearcherBuilder$u20$as$u20$core
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define void @_ZN13grep_searcher8searcher15SearcherBuilder3new17h7507b8ba43c3233aE(ptr noalias noundef writeonly sret({ { { i64, [1 x i64] }, i64, i64, ptr, { { i8, [1 x i8] } }, { { i8, [1 x i8] } }, i8, i8, i8, i8, i8, i8, i8, [5 x i8] } }) align 8 captures(none) dereferenceable(56) initializes((0, 8), (16, 43), (44, 51)) %0) unnamed_addr #5 {
   store i64 0, ptr %0, align 8
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 41
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %2, i8 0, i64 25, i1 false)
   store i8 10, ptr %.sroa.7.0..sroa_idx, align 1
@@ -445,7 +445,7 @@ define void @_ZN13grep_searcher8searcher15SearcherBuilder5build17hcf078266012f3a
 42:                                               ; preds = %40
   %43 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr73drop_in_place$LT$core..cell..RefCell$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17hb776f477337cf7d8E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %3) #15
+  invoke void @"_ZN4core3ptr73drop_in_place$LT$core..cell..RefCell$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17hb776f477337cf7d8E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %3) #17
           to label %54 unwind label %52
 
 44:                                               ; preds = %40
@@ -538,7 +538,7 @@ define void @_ZN13grep_searcher8searcher15SearcherBuilder5build17hcf078266012f3a
 52:                                               ; preds = %42
   %53 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17h76c6e1c84248d3ffE() #16
+  call void @_ZN4core9panicking16panic_in_cleanup17h76c6e1c84248d3ffE() #18
   unreachable
 
 54:                                               ; preds = %42
@@ -653,8 +653,8 @@ define noundef nonnull align 8 dereferenceable(56) ptr @_ZN13grep_searcher8searc
 define void @_ZN13grep_searcher8searcher8Searcher3new17h49d6fa31f5b6ac05E(ptr noalias noundef writeonly sret({ { { i64, [1 x i64] }, i64, i64, ptr, { { i8, [1 x i8] } }, { { i8, [1 x i8] } }, i8, i8, i8, i8, i8, i8, i8, [5 x i8] }, { ptr, i8, i8, i8, i8, [4 x i8] }, { i64, { { { i64, ptr, {} }, i64 } } }, { i64, { { { { i64, [1 x i64] }, i64, { i8, [1 x i8] }, i8, [5 x i8] }, { i64, [1 x i64] }, { { i64, ptr, {} }, i64 }, i64, i64, i64, i64 } } }, { i64, { { { i64, ptr, {} }, i64 } } } }) align 8 captures(none) dereferenceable(248) %0) unnamed_addr #0 {
   %2 = alloca { { { i64, [1 x i64] }, i64, i64, ptr, { { i8, [1 x i8] } }, { { i8, [1 x i8] } }, i8, i8, i8, i8, i8, i8, i8, [5 x i8] } }, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  store i64 0, ptr %2, align 8, !alias.scope !58
-  %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  store i64 0, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !58
+  %3 = getelementptr inbounds nuw i8, ptr %.sroa.4.0..sroa_idx, i64 16
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 41
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %3, i8 0, i64 25, i1 false), !alias.scope !58
   store i8 10, ptr %.sroa.7.0..sroa_idx.i, align 1, !alias.scope !58
@@ -691,7 +691,7 @@ define void @_ZN13grep_searcher8searcher8Searcher20set_binary_detection17h065e2b
   br i1 %8, label %10, label %9
 
 9:                                                ; preds = %3
-  tail call void @_ZN4core4cell22panic_already_borrowed17ha88f2034c7bb6b9fE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.54225e673a00e8dbc55e954d1531c0a4.22) #17
+  tail call void @_ZN4core4cell22panic_already_borrowed17ha88f2034c7bb6b9fE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.54225e673a00e8dbc55e954d1531c0a4.22) #19
   unreachable
 
 10:                                               ; preds = %3
@@ -790,10 +790,10 @@ declare noundef i32 @rust_eh_personality(i32 noundef, i32 noundef, i64 noundef, 
 declare hidden { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17ha43889fc6207b940E"(i64 noundef, i1 noundef zeroext) unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h7680d97ef6a240a9E"(ptr noalias noundef readonly align 8 dereferenceable(8), ptr noalias noundef align 8 dereferenceable(64)) unnamed_addr #0
@@ -811,10 +811,10 @@ declare void @_ZN5alloc6string6String15from_utf8_lossy17h30ad7bb308df0ad4E(ptr n
 declare hidden noundef zeroext i1 @"_ZN66_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..fmt..Display$GT$3fmt17h054688d84beda431E"(ptr noalias noundef readonly align 8 dereferenceable(24), ptr noalias noundef align 8 dereferenceable(64)) unnamed_addr #0
 
 ; Function Attrs: cold noreturn nounwind nonlazybind uwtable
-declare void @_ZN4core9panicking16panic_in_cleanup17h76c6e1c84248d3ffE() unnamed_addr #8
+declare void @_ZN4core9panicking16panic_in_cleanup17h76c6e1c84248d3ffE() unnamed_addr #10
 
 ; Function Attrs: cold noreturn nonlazybind uwtable
-declare void @_ZN4core4cell22panic_already_borrowed17ha88f2034c7bb6b9fE(ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #9
+declare void @_ZN4core4cell22panic_already_borrowed17ha88f2034c7bb6b9fE(ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #11
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hf1ca94f6c4270e81E.llvm.9700538728918920724"(ptr noalias noundef sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24), ptr noalias noundef readonly align 8 dereferenceable(16)) unnamed_addr #0
@@ -829,28 +829,28 @@ declare hidden void @"_ZN4core3ptr73drop_in_place$LT$core..cell..RefCell$LT$allo
 declare hidden noundef align 8 dereferenceable_or_null(8) ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb77157482c0e5572E.llvm.17343405228183790979"(ptr noalias noundef align 8 dereferenceable(16)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #11
+declare void @llvm.assume(i1 noundef) #13
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #12
+declare i64 @llvm.umin.i64(i64, i64) #14
 
 ; Function Attrs: nocallback nofree nounwind nonlazybind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #13
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #14
+declare void @llvm.experimental.noalias.scope.decl(metadata) #16
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #12
+declare i64 @llvm.umax.i64(i64, i64) #14
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.usub.sat.i64(i64, i64) #12
+declare i64 @llvm.usub.sat.i64(i64, i64) #14
 
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
@@ -858,14 +858,14 @@ attributes #2 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "tar
 attributes #3 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #4 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #5 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) }
 attributes #8 = { cold noreturn nounwind nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #9 = { cold noreturn nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #11 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #12 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #13 = { nocallback nofree nounwind nonlazybind willreturn memory(argmem: read) }
+attributes #13 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: read) }
 attributes #14 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #15 = { cold }
 attributes #16 = { cold noreturn nounwind }

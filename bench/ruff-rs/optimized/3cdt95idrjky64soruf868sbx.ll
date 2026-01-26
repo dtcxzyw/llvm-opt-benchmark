@@ -641,8 +641,8 @@ _ZN14ruff_formatter7printer12PrinterState13with_capacity17hee129c1351fd740fE.exi
   store i64 0, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.12.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 168
   store i32 0, ptr %.sroa.12.0..sroa_idx, align 8
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %33, i8 0, i64 17, i1 false)
+  %.sroa.13.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 176
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %.sroa.13.0..sroa_idx, i8 0, i64 17, i1 false)
   ret void
 }
 

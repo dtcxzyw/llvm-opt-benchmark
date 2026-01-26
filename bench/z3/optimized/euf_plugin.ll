@@ -71,15 +71,15 @@ _ZN3euf6egraph16push_plugin_undoEj.exit:          ; preds = %8, %14
   %18 = zext i32 %15 to i64
   %19 = getelementptr inbounds nuw %"struct.euf::egraph::update_record", ptr %16, i64 %18
   store i32 14, ptr %19, align 8, !tbaa !14
-  %20 = getelementptr i8, ptr %19, i64 8
+  %.sroa.4.0..sroa_idx.i = getelementptr i8, ptr %19, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %20, i8 0, i64 16, i1 false)
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %19, i64 24
   store i32 %17, ptr %.sroa.5.0..sroa_idx.i, align 8
-  %21 = load ptr, ptr %5, align 8, !tbaa !9
-  %22 = getelementptr inbounds i8, ptr %21, i64 -4
-  %23 = load i32, ptr %22, align 4, !tbaa !12
-  %24 = add i32 %23, 1
-  store i32 %24, ptr %22, align 4, !tbaa !12
+  %20 = load ptr, ptr %5, align 8, !tbaa !9
+  %21 = getelementptr inbounds i8, ptr %20, i64 -4
+  %22 = load i32, ptr %21, align 4, !tbaa !12
+  %23 = add i32 %22, 1
+  store i32 %23, ptr %21, align 4, !tbaa !12
   ret void
 }
 

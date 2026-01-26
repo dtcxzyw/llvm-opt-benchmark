@@ -398,7 +398,7 @@ define dso_local void @_ZN5clang7CodeGen13CGObjCRuntime24EmitValueForIvarAtOffse
 
 36:                                               ; preds = %8
   call void @_ZN5clang7CodeGen15CodeGenFunction29MakeNaturalAlignRawAddrLValueEPN4llvm5ValueENS_8QualTypeE(ptr dead_on_unwind writable sret(%"class.clang::CodeGen::LValue") align 8 %0, ptr noundef nonnull align 8 dereferenceable(6496) %2, ptr noundef %32, i64 %26) #13
-  br label %126
+  br label %124
 
 37:                                               ; preds = %8
   %38 = load ptr, ptr %15, align 8, !tbaa !382
@@ -518,24 +518,24 @@ _ZN5clang7CodeGen6LValue12MakeBitfieldENS0_7AddressERKNS0_14CGBitFieldInfoENS_8Q
   store i64 %67, ptr %.sroa.557.0..sroa_idx, align 8
   %.sroa.658.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i8 0, ptr %.sroa.658.0..sroa_idx, align 8
-  %119 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %119, i8 0, i64 16, i1 false)
+  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx, i8 0, i64 16, i1 false)
   store i32 0, ptr %112, align 8
-  %120 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %120, i8 0, i64 32, i1 false)
+  %.sroa.460.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 96
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.460.0..sroa_idx, i8 0, i64 32, i1 false)
   store i64 %26, ptr %114, align 8, !tbaa !345, !alias.scope !641
-  %121 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store i64 %118, ptr %121, align 8, !tbaa !652, !alias.scope !641
+  %119 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  store i64 %118, ptr %119, align 8, !tbaa !652, !alias.scope !641
   store i32 0, ptr %113, align 4, !tbaa !653, !alias.scope !641
-  %122 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %123 = load i8, ptr %122, align 8, !alias.scope !641
-  %124 = and i8 %123, -128
-  store i8 %124, ptr %122, align 8, !alias.scope !641
-  %125 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  store ptr null, ptr %125, align 8, !tbaa !654, !alias.scope !641
-  br label %126
+  %120 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %121 = load i8, ptr %120, align 8, !alias.scope !641
+  %122 = and i8 %121, -128
+  store i8 %122, ptr %120, align 8, !alias.scope !641
+  %123 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  store ptr null, ptr %123, align 8, !tbaa !654, !alias.scope !641
+  br label %124
 
-126:                                              ; preds = %_ZN5clang7CodeGen6LValue12MakeBitfieldENS0_7AddressERKNS0_14CGBitFieldInfoENS_8QualTypeENS0_14LValueBaseInfoENS0_14TBAAAccessInfoE.exit, %36
+124:                                              ; preds = %_ZN5clang7CodeGen6LValue12MakeBitfieldENS0_7AddressERKNS0_14CGBitFieldInfoENS_8QualTypeENS0_14LValueBaseInfoENS0_14TBAAAccessInfoE.exit, %36
   ret void
 }
 

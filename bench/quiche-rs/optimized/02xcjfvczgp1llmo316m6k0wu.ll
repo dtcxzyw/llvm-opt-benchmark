@@ -1183,9 +1183,9 @@ define hidden void @_ZN6quiche8recovery8Recovery15new_with_config17h65c91eaa3e16
 .body:                                            ; preds = %21
   %.pre = load i64, ptr %6, align 8, !range !45
   %28 = icmp eq i64 %.pre, 2
-  br i1 %28, label %34, label %35
+  br i1 %28, label %33, label %34
 
-29:                                               ; preds = %8, %33, %30
+29:                                               ; preds = %8, %32, %30
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 
@@ -1218,8 +1218,8 @@ define hidden void @_ZN6quiche8recovery8Recovery15new_with_config17h65c91eaa3e16
   store i64 0, ptr %.sroa.1111.0..sroa_idx, align 8, !alias.scope !60
   %.sroa.12.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 504
   store i32 0, ptr %.sroa.12.0..sroa_idx, align 8, !alias.scope !60
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 512
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %31, i8 0, i64 24, i1 false)
+  %.sroa.13.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 512
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.13.0..sroa_idx, i8 0, i64 24, i1 false)
   %.sroa.15.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 2024
   store i64 0, ptr %.sroa.15.0..sroa_idx, align 8, !alias.scope !60
   %.sroa.16.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 2032
@@ -1260,21 +1260,21 @@ define hidden void @_ZN6quiche8recovery8Recovery15new_with_config17h65c91eaa3e16
   store i32 0, ptr %.sroa.37.0..sroa_idx, align 8, !alias.scope !60
   %32 = load i64, ptr %6, align 8, !range !45, !noundef !3
   %.not7 = icmp eq i64 %32, 2
-  br i1 %.not7, label %29, label %33
+  br i1 %.not7, label %29, label %32
 
-33:                                               ; preds = %30
+32:                                               ; preds = %30
   call void @"_ZN4core3ptr71drop_in_place$LT$quiche..recovery..gcongestion..recovery..GRecovery$GT$17h0215cbe79a3e56eeE"(ptr noalias noundef nonnull align 8 dereferenceable(1952) %6)
   br label %29
 
-34:                                               ; preds = %35, %.body
+33:                                               ; preds = %34, %.body
   resume { ptr, i32 } %22
 
-35:                                               ; preds = %.body
+34:                                               ; preds = %.body
   invoke void @"_ZN4core3ptr71drop_in_place$LT$quiche..recovery..gcongestion..recovery..GRecovery$GT$17h0215cbe79a3e56eeE"(ptr noalias noundef nonnull align 8 dereferenceable(1952) %6) #18
-          to label %34 unwind label %36
+          to label %34 unwind label %35
 
-36:                                               ; preds = %35
-  %37 = landingpad { ptr, i32 }
+35:                                               ; preds = %34
+  %36 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #19
   unreachable

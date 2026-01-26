@@ -58535,7 +58535,7 @@ define internal fastcc void @"_ZN14ockam_identity14secure_channel9handshake9hand
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = alloca { i64, [3 x i64] }, align 8
   %.sroa.570.sroa.4 = alloca [64 x i8], align 8
-  %.sroa.987 = alloca [8 x i64], align 8
+  %.sroa.1075 = alloca [8 x i64], align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 138
   %7 = load i8, ptr %6, align 2, !range !4, !noundef !5
   switch i8 %7, label %default.unreachable108 [
@@ -58805,8 +58805,8 @@ common.ret:                                       ; preds = %113, %101
   %112 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.sroa.570.sroa.4.48..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.570.sroa.4, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.570.sroa.4.48..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %112, i64 24, i1 false)
-  %.sroa.987.16..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.987, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.987.16..sroa_idx, i8 0, i64 48, i1 false)
+  %.sroa.1075.16..sroa_idx109 = getelementptr inbounds nuw i8, ptr %.sroa.1075, i64 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.1075.16..sroa_idx109, i8 0, i64 48, i1 false)
   store i8 0, ptr %111, align 8
   store i8 0, ptr %107, align 1
   br label %113
@@ -58832,7 +58832,7 @@ common.ret:                                       ; preds = %113, %101
   %.sroa.886.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr null, ptr %.sroa.886.0..sroa_idx, align 8
   %.sroa.987.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 112
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.987.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.987, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.987.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.1075, i64 64, i1 false)
   %.sroa.1189.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 192
   store i8 0, ptr %.sroa.1189.0..sroa_idx, align 8
   %.sroa.1391.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 225

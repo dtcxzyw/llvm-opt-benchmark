@@ -489,8 +489,8 @@ define hidden void @"_ZN85_$LT$std..sync..poison..rwlock..RwLock$LT$T$GT$$u20$as
   store ptr inttoptr (i64 8 to ptr), ptr %.sroa.814.0..sroa_idx, align 8
   %.sroa.1016.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr inttoptr (i64 8 to ptr), ptr %.sroa.1016.0..sroa_idx, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, i8 0, i64 48, i1 false)
+  %.sroa.1218.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 136
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.1218.0..sroa_idx, i8 0, i64 48, i1 false)
   %.sroa.1319.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 184
   store ptr inttoptr (i64 8 to ptr), ptr %.sroa.1319.0..sroa_idx, align 8
   %.sroa.1622.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 248

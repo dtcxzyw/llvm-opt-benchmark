@@ -15854,8 +15854,8 @@ define void @_ZN2c43yml6ParserC2ERKNS0_9CallbacksENS0_13ParserOptionsE(ptr nound
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(73) %18, i8 0, i64 73, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %17, i8 0, i64 104, i1 false)
   store i32 0, ptr %7, align 8
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %19, i8 0, i64 144, i1 false)
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 64
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %.sroa.5.0..sroa_idx, i8 0, i64 144, i1 false)
   store i64 1, ptr %13, align 8, !tbaa !251, !noalias !258
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %20, ptr %16, align 8, !tbaa !261
@@ -17143,15 +17143,15 @@ _ZN2c43yml6detail5stackINS0_6Parser5StateELm16EE4pushERKS4_.exit: ; preds = %._Z
   %22 = phi ptr [ %.pre, %._ZN2c43yml6detail5stackINS0_6Parser5StateELm16EE4pushERKS4_.exit_crit_edge ], [ %4, %.sink.split.i.i ]
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 2488
   store i32 0, ptr %22, align 8
-  %24 = getelementptr i8, ptr %22, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(144) %24, i8 0, i64 144, i1 false)
-  %25 = load i64, ptr %5, align 8, !tbaa !251, !noalias !278
-  %26 = add i64 %25, 1
-  store i64 %26, ptr %5, align 8, !tbaa !251, !noalias !278
+  %.sroa.4.0..sroa_idx = getelementptr i8, ptr %22, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(144) %.sroa.4.0..sroa_idx, i8 0, i64 144, i1 false)
+  %24 = load i64, ptr %5, align 8, !tbaa !251, !noalias !278
+  %25 = add i64 %24, 1
+  store i64 %25, ptr %5, align 8, !tbaa !251, !noalias !278
   %27 = load ptr, ptr %23, align 8, !tbaa !247
   %28 = getelementptr %"struct.c4::yml::Parser::State", ptr %27, i64 %26
-  %29 = getelementptr i8, ptr %28, i64 -152
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 2544
+  %27 = getelementptr i8, ptr %28, i64 -152
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 2544
   store ptr %29, ptr %30, align 8, !tbaa !261
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %32 = load ptr, ptr %31, align 8, !tbaa !281
@@ -17164,41 +17164,41 @@ _ZN2c43yml6detail5stackINS0_6Parser5StateELm16EE4pushERKS4_.exit: ; preds = %._Z
   br i1 %.not.i.i1, label %_ZN2c43yml6Parser5State5resetEPKcm.exit, label %.split.i.i
 
 .split.i.i:                                       ; preds = %_ZN2c43yml6detail5stackINS0_6Parser5StateELm16EE4pushERKS4_.exit
-  %36 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %32) #44
+  %35 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %32) #44
   br label %_ZN2c43yml6Parser5State5resetEPKcm.exit
 
 _ZN2c43yml6Parser5State5resetEPKcm.exit:          ; preds = %_ZN2c43yml6detail5stackINS0_6Parser5StateELm16EE4pushERKS4_.exit, %.split.i.i
-  %.sroa.3.0.i.i = phi i64 [ %36, %.split.i.i ], [ 0, %_ZN2c43yml6detail5stackINS0_6Parser5StateELm16EE4pushERKS4_.exit ]
-  %37 = getelementptr i8, ptr %28, i64 -104
-  %38 = getelementptr i8, ptr %28, i64 -80
-  store ptr %32, ptr %38, align 8, !tbaa !67
+  %.sroa.3.0.i.i = phi i64 [ %35, %.split.i.i ], [ 0, %_ZN2c43yml6detail5stackINS0_6Parser5StateELm16EE4pushERKS4_.exit ]
+  %36 = getelementptr i8, ptr %28, i64 -104
+  %37 = getelementptr i8, ptr %28, i64 -80
+  store ptr %32, ptr %37, align 8, !tbaa !67
   %.sroa.4.0..sroa_idx.i = getelementptr i8, ptr %28, i64 -72
   store i64 %.sroa.3.0.i.i, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !68
-  store i64 0, ptr %37, align 8, !tbaa !104
-  %39 = getelementptr i8, ptr %28, i64 -96
-  store i64 1, ptr %39, align 8, !tbaa !105
-  %40 = getelementptr i8, ptr %28, i64 -88
-  store i64 1, ptr %40, align 8, !tbaa !58
-  %41 = getelementptr i8, ptr %28, i64 -136
-  store i64 %34, ptr %41, align 8, !tbaa !283
-  %42 = getelementptr i8, ptr %28, i64 -128
-  %43 = getelementptr i8, ptr %28, i64 -8
-  store i64 0, ptr %43, align 8, !tbaa !284
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %42, i8 0, i64 24, i1 false)
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 2552
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 2632
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(73) %44, i8 0, i64 73, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %45, i8 0, i64 48, i1 false)
-  %46 = load i32, ptr %0, align 8, !tbaa !285
-  %47 = and i32 %46, 1
-  %.not = icmp eq i32 %47, 0
-  br i1 %.not, label %49, label %48
+  store i64 0, ptr %36, align 8, !tbaa !104
+  %38 = getelementptr i8, ptr %28, i64 -96
+  store i64 1, ptr %38, align 8, !tbaa !105
+  %39 = getelementptr i8, ptr %28, i64 -88
+  store i64 1, ptr %39, align 8, !tbaa !58
+  %40 = getelementptr i8, ptr %28, i64 -136
+  store i64 %34, ptr %40, align 8, !tbaa !283
+  %41 = getelementptr i8, ptr %28, i64 -128
+  %42 = getelementptr i8, ptr %28, i64 -8
+  store i64 0, ptr %42, align 8, !tbaa !284
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %41, i8 0, i64 24, i1 false)
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 2552
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 2632
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(73) %43, i8 0, i64 73, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %44, i8 0, i64 48, i1 false)
+  %45 = load i32, ptr %0, align 8, !tbaa !285
+  %46 = and i32 %45, 1
+  %.not = icmp eq i32 %46, 0
+  br i1 %.not, label %48, label %47
 
-48:                                               ; preds = %_ZN2c43yml6Parser5State5resetEPKcm.exit
+47:                                               ; preds = %_ZN2c43yml6Parser5State5resetEPKcm.exit
   call void @_ZN2c43yml6Parser18_prepare_locationsEv(ptr noundef nonnull align 8 dereferenceable(2736) %0)
-  br label %49
+  br label %48
 
-49:                                               ; preds = %48, %_ZN2c43yml6Parser5State5resetEPKcm.exit
+48:                                               ; preds = %47, %_ZN2c43yml6Parser5State5resetEPKcm.exit
   ret void
 }
 

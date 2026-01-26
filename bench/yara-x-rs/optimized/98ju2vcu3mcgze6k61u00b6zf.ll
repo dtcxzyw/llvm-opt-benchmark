@@ -104684,7 +104684,7 @@ define void @_ZN6yara_x7modules3lnk8__main__17h18da8520601c462fE(ptr dead_on_unw
   %.sroa.17 = alloca [16 x i8], align 8
   %.sroa.18 = alloca [16 x i8], align 8
   %.sroa.19 = alloca [16 x i8], align 8
-  %.sroa.25 = alloca [29 x i8], align 4
+  %.sroa.27 = alloca [29 x i8], align 4
   %.sroa.26 = alloca [7 x i8], align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.12)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.13)
@@ -104694,7 +104694,7 @@ define void @_ZN6yara_x7modules3lnk8__main__17h18da8520601c462fE(ptr dead_on_unw
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.17)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.18)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.19)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.25)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.27)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.26)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10321)
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !10324
@@ -104794,8 +104794,8 @@ define void @_ZN6yara_x7modules3lnk8__main__17h18da8520601c462fE(ptr dead_on_unw
   br label %18
 
 15:                                               ; preds = %11
-  %.sroa.25.4..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.25, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(25) %.sroa.25.4..sroa_idx, i8 0, i64 25, i1 false), !alias.scope !10321, !noalias !10326
+  %.sroa.20.i.4.i.4.i.4..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.25, i64 4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(25) %.sroa.20.i.4.i.4.i.4..sroa_idx, i8 0, i64 25, i1 false), !alias.scope !10321, !noalias !10326
   br label %18
 
 16:                                               ; preds = %9
@@ -104957,7 +104957,7 @@ common.resume:                                    ; preds = %22, %9
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.17)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.18)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.19)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.27)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.26)
   ret void
 }
