@@ -547,15 +547,12 @@ define internal noundef nonnull align 8 dereferenceable(120) ptr @"_ZN92_$LT$tra
 define void @_ZN14ruff_formatter7printer7Printer3new17hb87feb3b7185d88aE(ptr dead_on_unwind noalias noundef writable writeonly sret([224 x i8]) align 8 captures(none) dereferenceable(224) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i48 %3) unnamed_addr #2 personality ptr @rust_eh_personality {
   %5 = alloca [24 x i8], align 8
   %6 = alloca [200 x i8], align 8
-  %.sroa.13 = alloca [21 x i8], align 4
   %7 = alloca [16 x i8], align 8
   store ptr %1, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %2, ptr %8, align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.13)
   %9 = call { ptr, i64 } @_ZN14ruff_formatter11source_code10SourceCode6as_str17habb1484e1597b945E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %7)
   %10 = extractvalue { ptr, i64 } %9, 1
-  call void @llvm.experimental.noalias.scope.decl(metadata !26)
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !26
   call void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$15try_allocate_in17h5a05c8893d2b3610E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %5, i64 noundef %10, i1 noundef zeroext false, i64 noundef 1, i64 noundef 1), !noalias !26
   %11 = load i64, ptr %5, align 8, !range !29, !noalias !26, !noundef !3
@@ -613,8 +610,6 @@ _ZN14ruff_formatter7printer12PrinterState13with_capacity17hee129c1351fd740fE.exi
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.6.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %22, i64 24, i1 false)
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  %.sroa.13.4..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.13, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(17) %.sroa.13.4..sroa_idx, i8 0, i64 17, i1 false), !alias.scope !26
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %23, i64 24, i1 false)
   %24 = getelementptr inbounds nuw i8, ptr %6, i64 72
@@ -646,9 +641,8 @@ _ZN14ruff_formatter7printer12PrinterState13with_capacity17hee129c1351fd740fE.exi
   store i64 0, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.12.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 168
   store i32 0, ptr %.sroa.12.0..sroa_idx, align 8
-  %.sroa.13.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 172
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(21) %.sroa.13.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(21) %.sroa.13, i64 21, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.13)
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %33, i8 0, i64 17, i1 false)
   ret void
 }
 

@@ -718,7 +718,6 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7rocksdb18CompactionIteratorC2EPNS_20InternalIteratorBaseINS_5SliceEEEPKNS_10ComparatorEPNS_11MergeHelperEmPSt6vectorImSaImEEmmmPKNS_15SnapshotCheckerEPNS_3EnvEbbPNS_28CompactionRangeDelAggregatorEPNS_15BlobFileBuilderEbbRKSt6atomicIbESt10unique_ptrINS0_15CompactionProxyESt14default_deleteISS_EEbPKNS_16CompactionFilterEPSP_St10shared_ptrINS_6LoggerEEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8optionalImE(ptr noundef nonnull align 8 dereferenceable(1241) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 %4, ptr noundef %5, i64 noundef %6, i64 noundef %7, i64 noundef %8, ptr noundef %9, ptr noundef %10, i1 noundef zeroext %11, i1 noundef zeroext %12, ptr noundef %13, ptr noundef %14, i1 noundef zeroext %15, i1 noundef zeroext %16, ptr noundef nonnull align 1 dereferenceable(1) %17, ptr noundef captures(none) %18, i1 noundef zeroext %19, ptr noundef %20, ptr noundef %21, ptr noundef readonly captures(none) %22, ptr noundef %23, ptr noundef readonly byval(%"class.std::optional") align 8 captures(none) %24) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
-  %.sroa.12 = alloca [75 x i8], align 1
   %26 = zext i1 %15 to i8
   %27 = zext i1 %16 to i8
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1056,9 +1055,6 @@ _ZN7rocksdb18CompactionIterator44ComputeBlobGarbageCollectionCutoffFileNumberEPK
   br label %_ZN7rocksdb18CompactionIterator25CreateBlobFetcherIfNeededEPKNS0_15CompactionProxyE.exit
 
 _ZN7rocksdb11ReadOptionsD2Ev.exit.i:              ; preds = %.noexc49
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.12)
-  %.sroa.12.3..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.12, i64 3
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(72) %.sroa.12.3..sroa_idx, i8 0, i64 72, i1 false), !noalias !205
   %200 = invoke noalias noundef nonnull dereferenceable(176) ptr @_Znwm(i64 noundef 176) #28
           to label %.noexc50 unwind label %297
 
@@ -1082,11 +1078,9 @@ _ZN7rocksdb11ReadOptionsD2Ev.exit.i:              ; preds = %.noexc49
   store i8 0, ptr %.sroa.10.0..sroa_idx, align 1, !noalias !205
   %.sroa.1191.0..sroa_idx = getelementptr inbounds nuw i8, ptr %200, i64 84
   store i8 1, ptr %.sroa.1191.0..sroa_idx, align 4, !noalias !205
-  %.sroa.12.0..sroa_idx = getelementptr inbounds nuw i8, ptr %200, i64 85
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(43) %.sroa.12.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(43) %.sroa.12, i64 43, i1 false), !noalias !205
-  %202 = getelementptr inbounds nuw i8, ptr %200, i64 128
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %202, i8 0, i64 32, i1 false), !noalias !205
+  %202 = getelementptr inbounds nuw i8, ptr %200, i64 88
   %203 = getelementptr inbounds nuw i8, ptr %200, i64 160
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(72) %202, i8 0, i64 72, i1 false)
   store i8 1, ptr %203, align 8, !noalias !205
   %.sroa.15.152..sroa_idx = getelementptr inbounds nuw i8, ptr %200, i64 161
   store i8 0, ptr %.sroa.15.152..sroa_idx, align 1, !noalias !205
@@ -1097,7 +1091,6 @@ _ZN7rocksdb11ReadOptionsD2Ev.exit.i:              ; preds = %.noexc49
   %.sroa.1892.152..sroa_idx = getelementptr inbounds nuw i8, ptr %200, i64 168
   store i64 0, ptr %.sroa.1892.152..sroa_idx, align 8, !noalias !205
   store ptr %200, ptr %191, align 8, !tbaa !224, !alias.scope !205
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.12)
   br label %_ZN7rocksdb18CompactionIterator25CreateBlobFetcherIfNeededEPKNS0_15CompactionProxyE.exit
 
 _ZN7rocksdb18CompactionIterator25CreateBlobFetcherIfNeededEPKNS0_15CompactionProxyE.exit: ; preds = %.noexc50, %199, %192

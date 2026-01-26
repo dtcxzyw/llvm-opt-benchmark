@@ -4116,7 +4116,6 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__10_StackNodeESaIS1_EED2Ev
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN32pxrInternal_v0_24__pxrReserved__18TraceAggregateNode31CalculateInclusiveCounterValuesEv(ptr noundef nonnull align 8 dereferenceable(185) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  %.sroa.3.i = alloca [20 x i8], align 4
   %2 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -4180,11 +4179,10 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_18TraceAggregateNodeEEptEv.ex
 .lr.ph95:                                         ; preds = %._crit_edge85
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %.sroa.3.i.4..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.3.i, i64 4
   br label %27
 
 27:                                               ; preds = %.lr.ph95, %._crit_edge91
-  %.sroa.036.093 = phi ptr [ %23, %.lr.ph95 ], [ %233, %._crit_edge91 ]
+  %.sroa.036.093 = phi ptr [ %23, %.lr.ph95 ], [ %235, %._crit_edge91 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %28 = load ptr, ptr %.sroa.036.093, align 8
   %.not.i17 = icmp eq ptr %28, null
@@ -4212,16 +4210,15 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_18TraceAggregateNodeEEptEv.ex
   %.not6288 = icmp eq ptr %35, %37
   br i1 %.not6288, label %._crit_edge91, label %.lr.ph90
 
-.lr.ph90:                                         ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_18TraceAggregateNodeEEptEv.exit18, %231
-  %.sroa.032.089 = phi ptr [ %232, %231 ], [ %35, %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_18TraceAggregateNodeEEptEv.exit18 ]
+.lr.ph90:                                         ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_18TraceAggregateNodeEEptEv.exit18, %233
+  %.sroa.032.089 = phi ptr [ %234, %233 ], [ %35, %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_18TraceAggregateNodeEEptEv.exit18 ]
   %38 = getelementptr inbounds nuw i8, ptr %.sroa.032.089, i64 8
   %39 = load double, ptr %38, align 8
   %40 = fcmp une double %39, 0.000000e+00
-  br i1 %40, label %41, label %231
+  br i1 %40, label %41, label %233
 
 41:                                               ; preds = %.lr.ph90
   %42 = load i32, ptr %.sroa.032.089, align 4
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.3.i)
   %43 = load ptr, ptr %25, align 8
   %.not.i19 = icmp eq ptr %43, null
   br i1 %.not.i19, label %185, label %44
@@ -4566,116 +4563,114 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TfDenseHashMapIiNS_18TraceAggregateNode13
 
 192:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14TfDenseHashMapIiNS_18TraceAggregateNode13_CounterValueENS_6TfHashESt8equal_toIiELj128EE10_FindInVecERKi.exit.i, %._crit_edge.i
   %193 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %187, %_ZN32pxrInternal_v0_24__pxrReserved__14TfDenseHashMapIiNS_18TraceAggregateNode13_CounterValueENS_6TfHashESt8equal_toIiELj128EE10_FindInVecERKi.exit.i ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.3.i.4..sroa_idx, i8 0, i64 16, i1 false)
   %194 = load ptr, ptr %26, align 8
   %.not.i.i.i = icmp eq ptr %193, %194
-  br i1 %.not.i.i.i, label %198, label %195
+  br i1 %.not.i.i.i, label %199, label %195
 
 195:                                              ; preds = %192
   store i32 %42, ptr %193, align 8
-  %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %193, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.3.0..sroa_idx.i, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.3.i, i64 20, i1 false)
-  %196 = load ptr, ptr %17, align 8
-  %197 = getelementptr inbounds nuw i8, ptr %196, i64 24
-  store ptr %197, ptr %17, align 8
+  %196 = getelementptr i8, ptr %193, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %196, i8 0, i64 16, i1 false)
+  %197 = load ptr, ptr %17, align 8
+  %198 = getelementptr inbounds nuw i8, ptr %197, i64 24
+  store ptr %198, ptr %17, align 8
   %.pre22.i = load ptr, ptr %15, align 8
   br label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__14TfDenseHashMapIiNS0_18TraceAggregateNode13_CounterValueENS0_6TfHashESt8equal_toIiELj128EE18_InternalValueTypeESaIS8_EE9push_backEOS8_.exit.i
 
-198:                                              ; preds = %192
-  %199 = load ptr, ptr %15, align 8
-  %200 = ptrtoint ptr %193 to i64
-  %201 = ptrtoint ptr %199 to i64
-  %202 = sub i64 %200, %201
-  %203 = icmp eq i64 %202, 9223372036854775800
-  br i1 %203, label %204, label %_ZNKSt6vectorIN32pxrInternal_v0_24__pxrReserved__14TfDenseHashMapIiNS0_18TraceAggregateNode13_CounterValueENS0_6TfHashESt8equal_toIiELj128EE18_InternalValueTypeESaIS8_EE12_M_check_lenEmPKc.exit.i.i.i.i
+199:                                              ; preds = %192
+  %200 = load ptr, ptr %15, align 8
+  %201 = ptrtoint ptr %193 to i64
+  %202 = ptrtoint ptr %200 to i64
+  %203 = sub i64 %201, %202
+  %204 = icmp eq i64 %203, 9223372036854775800
+  br i1 %204, label %205, label %_ZNKSt6vectorIN32pxrInternal_v0_24__pxrReserved__14TfDenseHashMapIiNS0_18TraceAggregateNode13_CounterValueENS0_6TfHashESt8equal_toIiELj128EE18_InternalValueTypeESaIS8_EE12_M_check_lenEmPKc.exit.i.i.i.i
 
-204:                                              ; preds = %198
+205:                                              ; preds = %199
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.6) #20
   unreachable
 
-_ZNKSt6vectorIN32pxrInternal_v0_24__pxrReserved__14TfDenseHashMapIiNS0_18TraceAggregateNode13_CounterValueENS0_6TfHashESt8equal_toIiELj128EE18_InternalValueTypeESaIS8_EE12_M_check_lenEmPKc.exit.i.i.i.i: ; preds = %198
-  %205 = sdiv exact i64 %202, 24
-  %.sroa.speculated.i.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %205, i64 1)
-  %206 = add nsw i64 %.sroa.speculated.i.i.i.i.i, %205
-  %207 = icmp ult i64 %206, %205
-  %208 = tail call i64 @llvm.umin.i64(i64 %206, i64 384307168202282325)
-  %209 = select i1 %207, i64 384307168202282325, i64 %208
-  %.not.i.i.i.i.i = icmp ne i64 %209, 0
+_ZNKSt6vectorIN32pxrInternal_v0_24__pxrReserved__14TfDenseHashMapIiNS0_18TraceAggregateNode13_CounterValueENS0_6TfHashESt8equal_toIiELj128EE18_InternalValueTypeESaIS8_EE12_M_check_lenEmPKc.exit.i.i.i.i: ; preds = %199
+  %206 = sdiv exact i64 %203, 24
+  %.sroa.speculated.i.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %206, i64 1)
+  %207 = add nsw i64 %.sroa.speculated.i.i.i.i.i, %206
+  %208 = icmp ult i64 %207, %206
+  %209 = tail call i64 @llvm.umin.i64(i64 %207, i64 384307168202282325)
+  %210 = select i1 %208, i64 384307168202282325, i64 %209
+  %.not.i.i.i.i.i = icmp ne i64 %210, 0
   tail call void @llvm.assume(i1 %.not.i.i.i.i.i)
-  %210 = mul nuw nsw i64 %209, 24
-  %211 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %210) #17
-  %212 = getelementptr inbounds i8, ptr %211, i64 %202
-  store i32 %42, ptr %212, align 8
-  %.sroa.3.0..sroa_idx8.i = getelementptr inbounds nuw i8, ptr %212, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.3.0..sroa_idx8.i, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.3.i, i64 20, i1 false)
-  %.not10.i.i.i.i.i.i.i = icmp eq ptr %199, %193
+  %211 = mul nuw nsw i64 %210, 24
+  %212 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %211) #17
+  %213 = getelementptr inbounds i8, ptr %212, i64 %203
+  store i32 %42, ptr %213, align 8
+  %214 = getelementptr i8, ptr %213, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %214, i8 0, i64 16, i1 false)
+  %.not10.i.i.i.i.i.i.i = icmp eq ptr %200, %193
   br i1 %.not10.i.i.i.i.i.i.i, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__14TfDenseHashMapIiNS0_18TraceAggregateNode13_CounterValueENS0_6TfHashESt8equal_toIiELj128EE18_InternalValueTypeESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit22.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %_ZNKSt6vectorIN32pxrInternal_v0_24__pxrReserved__14TfDenseHashMapIiNS0_18TraceAggregateNode13_CounterValueENS0_6TfHashESt8equal_toIiELj128EE18_InternalValueTypeESaIS8_EE12_M_check_lenEmPKc.exit.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i
-  %.012.i.i.i.i.i.i.i = phi ptr [ %214, %.lr.ph.i.i.i.i.i.i.i ], [ %211, %_ZNKSt6vectorIN32pxrInternal_v0_24__pxrReserved__14TfDenseHashMapIiNS0_18TraceAggregateNode13_CounterValueENS0_6TfHashESt8equal_toIiELj128EE18_InternalValueTypeESaIS8_EE12_M_check_lenEmPKc.exit.i.i.i.i ]
-  %.0911.i.i.i.i.i.i.i = phi ptr [ %213, %.lr.ph.i.i.i.i.i.i.i ], [ %199, %_ZNKSt6vectorIN32pxrInternal_v0_24__pxrReserved__14TfDenseHashMapIiNS0_18TraceAggregateNode13_CounterValueENS0_6TfHashESt8equal_toIiELj128EE18_InternalValueTypeESaIS8_EE12_M_check_lenEmPKc.exit.i.i.i.i ]
+  %.012.i.i.i.i.i.i.i = phi ptr [ %216, %.lr.ph.i.i.i.i.i.i.i ], [ %212, %_ZNKSt6vectorIN32pxrInternal_v0_24__pxrReserved__14TfDenseHashMapIiNS0_18TraceAggregateNode13_CounterValueENS0_6TfHashESt8equal_toIiELj128EE18_InternalValueTypeESaIS8_EE12_M_check_lenEmPKc.exit.i.i.i.i ]
+  %.0911.i.i.i.i.i.i.i = phi ptr [ %215, %.lr.ph.i.i.i.i.i.i.i ], [ %200, %_ZNKSt6vectorIN32pxrInternal_v0_24__pxrReserved__14TfDenseHashMapIiNS0_18TraceAggregateNode13_CounterValueENS0_6TfHashESt8equal_toIiELj128EE18_InternalValueTypeESaIS8_EE12_M_check_lenEmPKc.exit.i.i.i.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.012.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %.0911.i.i.i.i.i.i.i, i64 24, i1 false), !alias.scope !63
-  %213 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i.i.i, i64 24
-  %214 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i.i, i64 24
-  %.not.i.i.i.i.i.i.i = icmp eq ptr %213, %193
+  %215 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i.i.i, i64 24
+  %216 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i.i, i64 24
+  %.not.i.i.i.i.i.i.i = icmp eq ptr %215, %193
   br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__14TfDenseHashMapIiNS0_18TraceAggregateNode13_CounterValueENS0_6TfHashESt8equal_toIiELj128EE18_InternalValueTypeESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit22.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !67
 
 _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__14TfDenseHashMapIiNS0_18TraceAggregateNode13_CounterValueENS0_6TfHashESt8equal_toIiELj128EE18_InternalValueTypeESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit22.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i, %_ZNKSt6vectorIN32pxrInternal_v0_24__pxrReserved__14TfDenseHashMapIiNS0_18TraceAggregateNode13_CounterValueENS0_6TfHashESt8equal_toIiELj128EE18_InternalValueTypeESaIS8_EE12_M_check_lenEmPKc.exit.i.i.i.i
-  %.0.lcssa.i.i.i.i.i.i.i = phi ptr [ %211, %_ZNKSt6vectorIN32pxrInternal_v0_24__pxrReserved__14TfDenseHashMapIiNS0_18TraceAggregateNode13_CounterValueENS0_6TfHashESt8equal_toIiELj128EE18_InternalValueTypeESaIS8_EE12_M_check_lenEmPKc.exit.i.i.i.i ], [ %214, %.lr.ph.i.i.i.i.i.i.i ]
-  %215 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i.i.i, i64 24
-  %.not.i23.i.i.i.i = icmp eq ptr %199, null
-  br i1 %.not.i23.i.i.i.i, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__14TfDenseHashMapIiNS0_18TraceAggregateNode13_CounterValueENS0_6TfHashESt8equal_toIiELj128EE18_InternalValueTypeESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i.i, label %216
+  %.0.lcssa.i.i.i.i.i.i.i = phi ptr [ %212, %_ZNKSt6vectorIN32pxrInternal_v0_24__pxrReserved__14TfDenseHashMapIiNS0_18TraceAggregateNode13_CounterValueENS0_6TfHashESt8equal_toIiELj128EE18_InternalValueTypeESaIS8_EE12_M_check_lenEmPKc.exit.i.i.i.i ], [ %216, %.lr.ph.i.i.i.i.i.i.i ]
+  %217 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i.i.i, i64 24
+  %.not.i23.i.i.i.i = icmp eq ptr %200, null
+  br i1 %.not.i23.i.i.i.i, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__14TfDenseHashMapIiNS0_18TraceAggregateNode13_CounterValueENS0_6TfHashESt8equal_toIiELj128EE18_InternalValueTypeESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i.i, label %218
 
-216:                                              ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__14TfDenseHashMapIiNS0_18TraceAggregateNode13_CounterValueENS0_6TfHashESt8equal_toIiELj128EE18_InternalValueTypeESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit22.i.i.i.i
-  tail call void @_ZdlPvm(ptr noundef nonnull %199, i64 noundef %202) #21
+218:                                              ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__14TfDenseHashMapIiNS0_18TraceAggregateNode13_CounterValueENS0_6TfHashESt8equal_toIiELj128EE18_InternalValueTypeESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit22.i.i.i.i
+  tail call void @_ZdlPvm(ptr noundef nonnull %200, i64 noundef %203) #21
   br label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__14TfDenseHashMapIiNS0_18TraceAggregateNode13_CounterValueENS0_6TfHashESt8equal_toIiELj128EE18_InternalValueTypeESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i.i
 
-_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__14TfDenseHashMapIiNS0_18TraceAggregateNode13_CounterValueENS0_6TfHashESt8equal_toIiELj128EE18_InternalValueTypeESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i.i: ; preds = %216, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__14TfDenseHashMapIiNS0_18TraceAggregateNode13_CounterValueENS0_6TfHashESt8equal_toIiELj128EE18_InternalValueTypeESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit22.i.i.i.i
-  store ptr %211, ptr %15, align 8
-  store ptr %215, ptr %17, align 8
-  %217 = getelementptr inbounds nuw %"struct.pxrInternal_v0_24__pxrReserved__::TfDenseHashMap<int, pxrInternal_v0_24__pxrReserved__::TraceAggregateNode::_CounterValue, pxrInternal_v0_24__pxrReserved__::TfHash>::_InternalValueType", ptr %211, i64 %209
-  store ptr %217, ptr %26, align 8
+_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__14TfDenseHashMapIiNS0_18TraceAggregateNode13_CounterValueENS0_6TfHashESt8equal_toIiELj128EE18_InternalValueTypeESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i.i: ; preds = %218, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__14TfDenseHashMapIiNS0_18TraceAggregateNode13_CounterValueENS0_6TfHashESt8equal_toIiELj128EE18_InternalValueTypeESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit22.i.i.i.i
+  store ptr %212, ptr %15, align 8
+  store ptr %217, ptr %17, align 8
+  %219 = getelementptr inbounds nuw %"struct.pxrInternal_v0_24__pxrReserved__::TfDenseHashMap<int, pxrInternal_v0_24__pxrReserved__::TraceAggregateNode::_CounterValue, pxrInternal_v0_24__pxrReserved__::TfHash>::_InternalValueType", ptr %212, i64 %210
+  store ptr %219, ptr %26, align 8
   br label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__14TfDenseHashMapIiNS0_18TraceAggregateNode13_CounterValueENS0_6TfHashESt8equal_toIiELj128EE18_InternalValueTypeESaIS8_EE9push_backEOS8_.exit.i
 
 _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__14TfDenseHashMapIiNS0_18TraceAggregateNode13_CounterValueENS0_6TfHashESt8equal_toIiELj128EE18_InternalValueTypeESaIS8_EE9push_backEOS8_.exit.i: ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__14TfDenseHashMapIiNS0_18TraceAggregateNode13_CounterValueENS0_6TfHashESt8equal_toIiELj128EE18_InternalValueTypeESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i.i, %195
-  %218 = phi ptr [ %.pre22.i, %195 ], [ %211, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__14TfDenseHashMapIiNS0_18TraceAggregateNode13_CounterValueENS0_6TfHashESt8equal_toIiELj128EE18_InternalValueTypeESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i.i ]
-  %219 = phi ptr [ %197, %195 ], [ %215, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__14TfDenseHashMapIiNS0_18TraceAggregateNode13_CounterValueENS0_6TfHashESt8equal_toIiELj128EE18_InternalValueTypeESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i.i ]
-  %220 = ptrtoint ptr %219 to i64
-  %221 = ptrtoint ptr %218 to i64
-  %222 = sub i64 %220, %221
-  %223 = sdiv exact i64 %222, 24
-  %224 = icmp ugt i64 %223, 127
-  br i1 %224, label %225, label %_ZN32pxrInternal_v0_24__pxrReserved__14TfDenseHashMapIiNS_18TraceAggregateNode13_CounterValueENS_6TfHashESt8equal_toIiELj128EE20_CreateTableIfNeededEv.exit.i
+  %220 = phi ptr [ %.pre22.i, %195 ], [ %212, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__14TfDenseHashMapIiNS0_18TraceAggregateNode13_CounterValueENS0_6TfHashESt8equal_toIiELj128EE18_InternalValueTypeESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i.i ]
+  %221 = phi ptr [ %198, %195 ], [ %217, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__14TfDenseHashMapIiNS0_18TraceAggregateNode13_CounterValueENS0_6TfHashESt8equal_toIiELj128EE18_InternalValueTypeESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i.i ]
+  %222 = ptrtoint ptr %221 to i64
+  %223 = ptrtoint ptr %220 to i64
+  %224 = sub i64 %222, %223
+  %225 = sdiv exact i64 %224, 24
+  %226 = icmp ugt i64 %225, 127
+  br i1 %226, label %227, label %_ZN32pxrInternal_v0_24__pxrReserved__14TfDenseHashMapIiNS_18TraceAggregateNode13_CounterValueENS_6TfHashESt8equal_toIiELj128EE20_CreateTableIfNeededEv.exit.i
 
-225:                                              ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__14TfDenseHashMapIiNS0_18TraceAggregateNode13_CounterValueENS0_6TfHashESt8equal_toIiELj128EE18_InternalValueTypeESaIS8_EE9push_backEOS8_.exit.i
+227:                                              ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__14TfDenseHashMapIiNS0_18TraceAggregateNode13_CounterValueENS0_6TfHashESt8equal_toIiELj128EE18_InternalValueTypeESaIS8_EE9push_backEOS8_.exit.i
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__14TfDenseHashMapIiNS_18TraceAggregateNode13_CounterValueENS_6TfHashESt8equal_toIiELj128EE12_CreateTableEv(ptr noundef nonnull align 8 dereferenceable(32) %15)
   %.pre23.i = load ptr, ptr %17, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__14TfDenseHashMapIiNS_18TraceAggregateNode13_CounterValueENS_6TfHashESt8equal_toIiELj128EE20_CreateTableIfNeededEv.exit.i
 
-_ZN32pxrInternal_v0_24__pxrReserved__14TfDenseHashMapIiNS_18TraceAggregateNode13_CounterValueENS_6TfHashESt8equal_toIiELj128EE20_CreateTableIfNeededEv.exit.i: ; preds = %225, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__14TfDenseHashMapIiNS0_18TraceAggregateNode13_CounterValueENS0_6TfHashESt8equal_toIiELj128EE18_InternalValueTypeESaIS8_EE9push_backEOS8_.exit.i
-  %226 = phi ptr [ %219, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__14TfDenseHashMapIiNS0_18TraceAggregateNode13_CounterValueENS0_6TfHashESt8equal_toIiELj128EE18_InternalValueTypeESaIS8_EE9push_backEOS8_.exit.i ], [ %.pre23.i, %225 ]
-  %scevgep.i.i.i.i = getelementptr i8, ptr %226, i64 -24
+_ZN32pxrInternal_v0_24__pxrReserved__14TfDenseHashMapIiNS_18TraceAggregateNode13_CounterValueENS_6TfHashESt8equal_toIiELj128EE20_CreateTableIfNeededEv.exit.i: ; preds = %227, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__14TfDenseHashMapIiNS0_18TraceAggregateNode13_CounterValueENS0_6TfHashESt8equal_toIiELj128EE18_InternalValueTypeESaIS8_EE9push_backEOS8_.exit.i
+  %228 = phi ptr [ %221, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__14TfDenseHashMapIiNS0_18TraceAggregateNode13_CounterValueENS0_6TfHashESt8equal_toIiELj128EE18_InternalValueTypeESaIS8_EE9push_backEOS8_.exit.i ], [ %.pre23.i, %227 ]
+  %scevgep.i.i.i.i = getelementptr i8, ptr %228, i64 -24
   %.pre = load double, ptr %38, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__14TfDenseHashMapIiNS_18TraceAggregateNode13_CounterValueENS_6TfHashESt8equal_toIiELj128EE6insertERKSt4pairIKiS2_E.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__14TfDenseHashMapIiNS_18TraceAggregateNode13_CounterValueENS_6TfHashESt8equal_toIiELj128EE6insertERKSt4pairIKiS2_E.exit: ; preds = %.loopexit, %_ZN32pxrInternal_v0_24__pxrReserved__14TfDenseHashMapIiNS_18TraceAggregateNode13_CounterValueENS_6TfHashESt8equal_toIiELj128EE10_FindInVecERKi.exit.i, %_ZN32pxrInternal_v0_24__pxrReserved__14TfDenseHashMapIiNS_18TraceAggregateNode13_CounterValueENS_6TfHashESt8equal_toIiELj128EE20_CreateTableIfNeededEv.exit.i
-  %227 = phi double [ %.pre, %_ZN32pxrInternal_v0_24__pxrReserved__14TfDenseHashMapIiNS_18TraceAggregateNode13_CounterValueENS_6TfHashESt8equal_toIiELj128EE20_CreateTableIfNeededEv.exit.i ], [ %39, %.loopexit ], [ %39, %_ZN32pxrInternal_v0_24__pxrReserved__14TfDenseHashMapIiNS_18TraceAggregateNode13_CounterValueENS_6TfHashESt8equal_toIiELj128EE10_FindInVecERKi.exit.i ]
+  %229 = phi double [ %.pre, %_ZN32pxrInternal_v0_24__pxrReserved__14TfDenseHashMapIiNS_18TraceAggregateNode13_CounterValueENS_6TfHashESt8equal_toIiELj128EE20_CreateTableIfNeededEv.exit.i ], [ %39, %.loopexit ], [ %39, %_ZN32pxrInternal_v0_24__pxrReserved__14TfDenseHashMapIiNS_18TraceAggregateNode13_CounterValueENS_6TfHashESt8equal_toIiELj128EE10_FindInVecERKi.exit.i ]
   %.sroa.020.0.i = phi ptr [ %scevgep.i.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__14TfDenseHashMapIiNS_18TraceAggregateNode13_CounterValueENS_6TfHashESt8equal_toIiELj128EE20_CreateTableIfNeededEv.exit.i ], [ %184, %.loopexit ], [ %.sroa.05.0.lcssa.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__14TfDenseHashMapIiNS_18TraceAggregateNode13_CounterValueENS_6TfHashESt8equal_toIiELj128EE10_FindInVecERKi.exit.i ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.3.i)
-  %228 = getelementptr inbounds nuw i8, ptr %.sroa.020.0.i, i64 8
-  %229 = load double, ptr %228, align 8
-  %230 = fadd double %227, %229
-  store double %230, ptr %228, align 8
-  br label %231
+  %230 = getelementptr inbounds nuw i8, ptr %.sroa.020.0.i, i64 8
+  %231 = load double, ptr %230, align 8
+  %232 = fadd double %229, %231
+  store double %232, ptr %230, align 8
+  br label %233
 
-231:                                              ; preds = %.lr.ph90, %_ZN32pxrInternal_v0_24__pxrReserved__14TfDenseHashMapIiNS_18TraceAggregateNode13_CounterValueENS_6TfHashESt8equal_toIiELj128EE6insertERKSt4pairIKiS2_E.exit
-  %232 = getelementptr inbounds nuw i8, ptr %.sroa.032.089, i64 24
-  %.not62 = icmp eq ptr %232, %37
+233:                                              ; preds = %.lr.ph90, %_ZN32pxrInternal_v0_24__pxrReserved__14TfDenseHashMapIiNS_18TraceAggregateNode13_CounterValueENS_6TfHashESt8equal_toIiELj128EE6insertERKSt4pairIKiS2_E.exit
+  %234 = getelementptr inbounds nuw i8, ptr %.sroa.032.089, i64 24
+  %.not62 = icmp eq ptr %234, %37
   br i1 %.not62, label %._crit_edge91, label %.lr.ph90
 
-._crit_edge91:                                    ; preds = %231, %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_18TraceAggregateNodeEEptEv.exit18
-  %233 = getelementptr inbounds nuw i8, ptr %.sroa.036.093, i64 8
-  %.not61 = icmp eq ptr %233, %24
+._crit_edge91:                                    ; preds = %233, %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_18TraceAggregateNodeEEptEv.exit18
+  %235 = getelementptr inbounds nuw i8, ptr %.sroa.036.093, i64 8
+  %.not61 = icmp eq ptr %235, %24
   br i1 %.not61, label %._crit_edge96, label %27
 
 ._crit_edge96:                                    ; preds = %._crit_edge91, %._crit_edge85

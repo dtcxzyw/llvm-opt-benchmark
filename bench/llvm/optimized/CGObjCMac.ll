@@ -25480,7 +25480,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_19CGObjCMac25EmitTryOrSynchronizedS
   %28 = alloca i32, align 4
   %29 = alloca [1 x ptr], align 8
   %30 = alloca %"class.clang::CodeGen::Address", align 8
-  %.sroa.13531 = alloca [23 x i8], align 1
+  %.sroa.5569 = alloca [23 x i8], align 1
   %.sroa.11587 = alloca [23 x i8], align 1
   %31 = alloca %"struct.llvm::detail::DenseSetEmpty", align 1
   %32 = alloca %"struct.std::pair.1416", align 8
@@ -25501,7 +25501,6 @@ define internal fastcc void @_ZN12_GLOBAL__N_19CGObjCMac25EmitTryOrSynchronizedS
   %47 = alloca ptr, align 8
   %48 = alloca %"class.llvm::Twine", align 8
   %49 = alloca %"class.llvm::Twine", align 8
-  %.sroa.8574 = alloca [23 x i8], align 1
   %50 = alloca %"class.clang::CodeGen::RawAddress", align 8
   %51 = alloca %"class.llvm::Twine", align 8
   %52 = alloca %"class.clang::CodeGen::Address", align 8
@@ -25634,7 +25633,6 @@ define internal fastcc void @_ZN12_GLOBAL__N_19CGObjCMac25EmitTryOrSynchronizedS
   store i16 257, ptr %140, align 8
   %141 = call noundef ptr @_ZN5clang7CodeGen15CodeGenFunction23EmitNounwindRuntimeCallEN4llvm14FunctionCalleeENS2_8ArrayRefIPNS2_5ValueEEERKNS2_5TwineE(ptr noundef nonnull align 8 dereferenceable(6496) %1, ptr %138, ptr %139, ptr nonnull %47, i64 1, ptr noundef nonnull align 8 dereferenceable(34) %49) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %49)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.8574)
   %142 = load ptr, ptr %47, align 8, !tbaa !1361
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 8
   %144 = load ptr, ptr %143, align 8, !tbaa !994
@@ -25659,11 +25657,9 @@ define internal fastcc void @_ZN12_GLOBAL__N_19CGObjCMac25EmitTryOrSynchronizedS
   %.sink10.i = select i1 %150, i64 %151, i64 0
   %.sink.i = select i1 %150, ptr %.sroa.4637.0.copyload, ptr null
   %storemerge.i = select i1 %150, i64 %.sroa.5638.0.copyload, i64 0
-  %.sroa.8574.7..sroa_idx813 = getelementptr inbounds nuw i8, ptr %.sroa.8574, i64 7
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %.sroa.8574.7..sroa_idx813, i8 0, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.11587, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.8574, i64 23, i1 false)
+  %.sroa.11587.7..sroa_idx813 = getelementptr inbounds nuw i8, ptr %.sroa.11587, i64 7
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %.sroa.11587.7..sroa_idx813, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %51)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8574)
   %152 = load ptr, ptr %47, align 8, !tbaa !1361
   %153 = and i64 %.sink10.i, -8
   %154 = inttoptr i64 %153 to ptr
@@ -26194,10 +26190,10 @@ _ZN12_GLOBAL__N_114FragileHazardsC2ERN5clang7CodeGen15CodeGenFunctionE.exit: ; p
   %.sink10.i220 = select i1 %359, i64 %360, i64 0
   %.sink.i221 = select i1 %359, ptr %.sroa.4648.0.copyload, ptr null
   %storemerge.i222 = select i1 %359, i64 %.sroa.5649.0.copyload, i64 0
-  %.sroa.13531.7..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.13531, i64 7
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %.sroa.13531.7..sroa_idx, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %57)
   %361 = getelementptr inbounds nuw i8, ptr %1, i64 2224
+  %.sroa.5569.7..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.5569, i64 7
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %.sroa.5569.7..sroa_idx, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %30)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %30, ptr noundef nonnull align 8 dereferenceable(48) %52, i64 48, i1 false)
   %362 = call noundef ptr @_ZN5clang7CodeGen12EHScopeStack11pushCleanupENS0_11CleanupKindEm(ptr noundef nonnull align 8 dereferenceable(320) %361, i32 noundef 3, i64 noundef 168) #28
@@ -26223,7 +26219,7 @@ _ZN12_GLOBAL__N_114FragileHazardsC2ERN5clang7CodeGen15CodeGenFunctionE.exit: ; p
   %.sroa.6658.0..sroa_idx = getelementptr inbounds nuw i8, ptr %362, i64 88
   store i8 0, ptr %.sroa.6658.0..sroa_idx, align 8
   %.sroa.7659.0..sroa_idx = getelementptr inbounds nuw i8, ptr %362, i64 89
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.7659.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.13531, i64 23, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.7659.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.5569, i64 23, i1 false)
   %366 = getelementptr inbounds nuw i8, ptr %362, i64 112
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %366, ptr noundef nonnull readonly align 8 dereferenceable(48) %30, i64 48, i1 false)
   %367 = getelementptr inbounds nuw i8, ptr %362, i64 160

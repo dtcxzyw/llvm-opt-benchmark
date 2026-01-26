@@ -15819,7 +15819,6 @@ _ZN2c43yml6detail5stackINS0_6Parser5StateELm16EE5_freeEv.exit: ; preds = %.noexc
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @_ZN2c43yml6ParserC2ERKNS0_9CallbacksENS0_13ParserOptionsE(ptr noundef nonnull align 8 dereferenceable(2736) initializes((0, 4), (8, 56)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1, i32 %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-  %.sroa.5 = alloca [148 x i8], align 4
   store i32 %2, ptr %0, align 8, !tbaa !17
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -15854,16 +15853,12 @@ define void @_ZN2c43yml6ParserC2ERKNS0_9CallbacksENS0_13ParserOptionsE(ptr nound
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 2552
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(73) %18, i8 0, i64 73, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %17, i8 0, i64 104, i1 false)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5)
-  %.sroa.5.4..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.5, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(144) %.sroa.5.4..sroa_idx, i8 0, i64 144, i1 false)
   store i32 0, ptr %7, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 60
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(148) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(148) %.sroa.5, i64 148, i1 false)
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %19, i8 0, i64 144, i1 false)
   store i64 1, ptr %13, align 8, !tbaa !251, !noalias !258
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5)
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store ptr %19, ptr %16, align 8, !tbaa !261
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store ptr %20, ptr %16, align 8, !tbaa !261
   ret void
 }
 
@@ -17101,7 +17096,6 @@ _ZN2c43yml6detail5stackINS0_6Parser5StateELm16EE3_cbERKNS0_9CallbacksE.exit._cri
 define void @_ZN2c43yml6Parser6_resetEv(ptr noundef nonnull align 8 dereferenceable(2736) %0) local_unnamed_addr #1 align 2 {
   %2 = alloca [36 x i8], align 16
   %3 = alloca %"struct.c4::yml::Location", align 8
-  %.sroa.4 = alloca [148 x i8], align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 2496
   %6 = load i64, ptr %5, align 8, !tbaa !251
@@ -17130,9 +17124,6 @@ define void @_ZN2c43yml6Parser6_resetEv(ptr noundef nonnull align 8 dereferencea
 
 17:                                               ; preds = %1, %8
   store i64 0, ptr %5, align 8, !tbaa !251
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4)
-  %.sroa.4.4..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.4, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(144) %.sroa.4.4..sroa_idx, i8 0, i64 144, i1 false)
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 2504
   %19 = load i64, ptr %18, align 8, !tbaa !249, !noalias !278
   %20 = icmp eq i64 %19, 0
@@ -17152,63 +17143,62 @@ _ZN2c43yml6detail5stackINS0_6Parser5StateELm16EE4pushERKS4_.exit: ; preds = %._Z
   %22 = phi ptr [ %.pre, %._ZN2c43yml6detail5stackINS0_6Parser5StateELm16EE4pushERKS4_.exit_crit_edge ], [ %4, %.sink.split.i.i ]
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 2488
   store i32 0, ptr %22, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(148) %.sroa.4.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(148) %.sroa.4, i64 148, i1 false)
-  %24 = load i64, ptr %5, align 8, !tbaa !251, !noalias !278
-  %25 = add i64 %24, 1
-  store i64 %25, ptr %5, align 8, !tbaa !251, !noalias !278
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4)
-  %26 = load ptr, ptr %23, align 8, !tbaa !247
-  %27 = getelementptr %"struct.c4::yml::Parser::State", ptr %26, i64 %25
-  %28 = getelementptr i8, ptr %27, i64 -152
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 2544
-  store ptr %28, ptr %29, align 8, !tbaa !261
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %31 = load ptr, ptr %30, align 8, !tbaa !281
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %33 = load i64, ptr %32, align 8, !tbaa !252
-  store i32 3, ptr %28, align 8, !tbaa !254
-  %34 = getelementptr i8, ptr %27, i64 -144
-  store i64 0, ptr %34, align 8, !tbaa !282
-  %.not.i.i1 = icmp eq ptr %31, null
+  %24 = getelementptr i8, ptr %22, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(144) %24, i8 0, i64 144, i1 false)
+  %25 = load i64, ptr %5, align 8, !tbaa !251, !noalias !278
+  %26 = add i64 %25, 1
+  store i64 %26, ptr %5, align 8, !tbaa !251, !noalias !278
+  %27 = load ptr, ptr %23, align 8, !tbaa !247
+  %28 = getelementptr %"struct.c4::yml::Parser::State", ptr %27, i64 %26
+  %29 = getelementptr i8, ptr %28, i64 -152
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 2544
+  store ptr %29, ptr %30, align 8, !tbaa !261
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %32 = load ptr, ptr %31, align 8, !tbaa !281
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %34 = load i64, ptr %33, align 8, !tbaa !252
+  store i32 3, ptr %29, align 8, !tbaa !254
+  %35 = getelementptr i8, ptr %28, i64 -144
+  store i64 0, ptr %35, align 8, !tbaa !282
+  %.not.i.i1 = icmp eq ptr %32, null
   br i1 %.not.i.i1, label %_ZN2c43yml6Parser5State5resetEPKcm.exit, label %.split.i.i
 
 .split.i.i:                                       ; preds = %_ZN2c43yml6detail5stackINS0_6Parser5StateELm16EE4pushERKS4_.exit
-  %35 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %31) #44
+  %36 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %32) #44
   br label %_ZN2c43yml6Parser5State5resetEPKcm.exit
 
 _ZN2c43yml6Parser5State5resetEPKcm.exit:          ; preds = %_ZN2c43yml6detail5stackINS0_6Parser5StateELm16EE4pushERKS4_.exit, %.split.i.i
-  %.sroa.3.0.i.i = phi i64 [ %35, %.split.i.i ], [ 0, %_ZN2c43yml6detail5stackINS0_6Parser5StateELm16EE4pushERKS4_.exit ]
-  %36 = getelementptr i8, ptr %27, i64 -104
-  %37 = getelementptr i8, ptr %27, i64 -80
-  store ptr %31, ptr %37, align 8, !tbaa !67
-  %.sroa.4.0..sroa_idx.i = getelementptr i8, ptr %27, i64 -72
+  %.sroa.3.0.i.i = phi i64 [ %36, %.split.i.i ], [ 0, %_ZN2c43yml6detail5stackINS0_6Parser5StateELm16EE4pushERKS4_.exit ]
+  %37 = getelementptr i8, ptr %28, i64 -104
+  %38 = getelementptr i8, ptr %28, i64 -80
+  store ptr %32, ptr %38, align 8, !tbaa !67
+  %.sroa.4.0..sroa_idx.i = getelementptr i8, ptr %28, i64 -72
   store i64 %.sroa.3.0.i.i, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !68
-  store i64 0, ptr %36, align 8, !tbaa !104
-  %38 = getelementptr i8, ptr %27, i64 -96
-  store i64 1, ptr %38, align 8, !tbaa !105
-  %39 = getelementptr i8, ptr %27, i64 -88
-  store i64 1, ptr %39, align 8, !tbaa !58
-  %40 = getelementptr i8, ptr %27, i64 -136
-  store i64 %33, ptr %40, align 8, !tbaa !283
-  %41 = getelementptr i8, ptr %27, i64 -128
-  %42 = getelementptr i8, ptr %27, i64 -8
-  store i64 0, ptr %42, align 8, !tbaa !284
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %41, i8 0, i64 24, i1 false)
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 2552
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 2632
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(73) %43, i8 0, i64 73, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %44, i8 0, i64 48, i1 false)
-  %45 = load i32, ptr %0, align 8, !tbaa !285
-  %46 = and i32 %45, 1
-  %.not = icmp eq i32 %46, 0
-  br i1 %.not, label %48, label %47
+  store i64 0, ptr %37, align 8, !tbaa !104
+  %39 = getelementptr i8, ptr %28, i64 -96
+  store i64 1, ptr %39, align 8, !tbaa !105
+  %40 = getelementptr i8, ptr %28, i64 -88
+  store i64 1, ptr %40, align 8, !tbaa !58
+  %41 = getelementptr i8, ptr %28, i64 -136
+  store i64 %34, ptr %41, align 8, !tbaa !283
+  %42 = getelementptr i8, ptr %28, i64 -128
+  %43 = getelementptr i8, ptr %28, i64 -8
+  store i64 0, ptr %43, align 8, !tbaa !284
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %42, i8 0, i64 24, i1 false)
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 2552
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 2632
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(73) %44, i8 0, i64 73, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %45, i8 0, i64 48, i1 false)
+  %46 = load i32, ptr %0, align 8, !tbaa !285
+  %47 = and i32 %46, 1
+  %.not = icmp eq i32 %47, 0
+  br i1 %.not, label %49, label %48
 
-47:                                               ; preds = %_ZN2c43yml6Parser5State5resetEPKcm.exit
+48:                                               ; preds = %_ZN2c43yml6Parser5State5resetEPKcm.exit
   call void @_ZN2c43yml6Parser18_prepare_locationsEv(ptr noundef nonnull align 8 dereferenceable(2736) %0)
-  br label %48
+  br label %49
 
-48:                                               ; preds = %47, %_ZN2c43yml6Parser5State5resetEPKcm.exit
+49:                                               ; preds = %48, %_ZN2c43yml6Parser5State5resetEPKcm.exit
   ret void
 }
 

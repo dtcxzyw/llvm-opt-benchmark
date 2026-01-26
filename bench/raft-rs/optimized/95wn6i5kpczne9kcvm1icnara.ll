@@ -464,9 +464,8 @@ define internal fastcc void @"_ZN77_$LT$raft_proto..protos..eraftpb..ConfState$u
   resume { ptr, i32 } %.pn.pn.pn.pn
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN85_$LT$std..sync..poison..rwlock..RwLock$LT$T$GT$$u20$as$u20$core..default..Default$GT$7default17hfdc02a4a953d2efdE"(ptr dead_on_unwind noalias noundef writable writeonly sret([280 x i8]) align 8 captures(none) dereferenceable(280) initializes((0, 9), (16, 241), (248, 249), (272, 274)) %0) unnamed_addr #4 {
-  %.sroa.12 = alloca [55 x i8], align 1
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
+define hidden void @"_ZN85_$LT$std..sync..poison..rwlock..RwLock$LT$T$GT$$u20$as$u20$core..default..Default$GT$7default17hfdc02a4a953d2efdE"(ptr dead_on_unwind noalias noundef writable writeonly sret([280 x i8]) align 8 captures(none) dereferenceable(280) initializes((0, 9), (16, 129), (136, 241), (248, 249), (272, 274)) %0) unnamed_addr #2 {
   %.sroa.511.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.511.0..sroa_idx, i8 0, i64 16, i1 false)
   %.sroa.713.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -475,8 +474,6 @@ define hidden void @"_ZN85_$LT$std..sync..poison..rwlock..RwLock$LT$T$GT$$u20$as
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.915.0..sroa_idx, i8 0, i64 16, i1 false)
   %.sroa.1117.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %.sroa.1117.0..sroa_idx, i8 0, i64 25, i1 false)
-  %.sroa.12.7..sroa_idx26 = getelementptr inbounds nuw i8, ptr %.sroa.12, i64 7
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(48) %.sroa.12.7..sroa_idx26, i8 0, i64 48, i1 false)
   %.sroa.1420.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 192
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %.sroa.1420.0..sroa_idx, i8 0, i64 49, i1 false)
   store i64 0, ptr %0, align 8
@@ -492,8 +489,8 @@ define hidden void @"_ZN85_$LT$std..sync..poison..rwlock..RwLock$LT$T$GT$$u20$as
   store ptr inttoptr (i64 8 to ptr), ptr %.sroa.814.0..sroa_idx, align 8
   %.sroa.1016.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr inttoptr (i64 8 to ptr), ptr %.sroa.1016.0..sroa_idx, align 8
-  %.sroa.1218.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 129
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(55) %.sroa.1218.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(55) %.sroa.12, i64 55, i1 false)
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, i8 0, i64 48, i1 false)
   %.sroa.1319.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 184
   store ptr inttoptr (i64 8 to ptr), ptr %.sroa.1319.0..sroa_idx, align 8
   %.sroa.1622.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 248
