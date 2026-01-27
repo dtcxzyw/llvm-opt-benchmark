@@ -1377,12 +1377,12 @@ _ZN4llvm2cl6parserIPKNS_8PassInfoEE16addLiteralOptionIS4_EEvNS_9StringRefERKT_S7
   %62 = getelementptr inbounds nuw i8, ptr %60, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %62, ptr noundef nonnull align 8 dereferenceable(9) %.016.i.i.i.sroa.phi.i, i64 9, i1 false)
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueIPKNS_8PassInfoEEE, i64 16), ptr %61, align 8, !tbaa !102
-  %63 = load i32, ptr %41, align 8, !tbaa !156
-  %64 = add i32 %63, 1
-  store i32 %64, ptr %41, align 8, !tbaa !156
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %66 = load ptr, ptr %65, align 8, !tbaa !176
-  call void @_ZN4llvm2cl16AddLiteralOptionERNS0_6OptionENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(120) %66, ptr %.sroa.0.0.copyload.i6, i64 %32) #20
+  %64 = load i32, ptr %41, align 8, !tbaa !156
+  %65 = add i32 %64, 1
+  store i32 %65, ptr %41, align 8, !tbaa !156
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %67 = load ptr, ptr %66, align 8, !tbaa !176
+  call void @_ZN4llvm2cl16AddLiteralOptionERNS0_6OptionENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(120) %67, ptr %.sroa.0.0.copyload.i6, i64 %32) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZNK4llvm14PassNameParser13ignorablePassEPKNS_8PassInfoE.exit.thread
 

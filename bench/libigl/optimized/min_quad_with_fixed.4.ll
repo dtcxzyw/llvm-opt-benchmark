@@ -190,13 +190,13 @@ _ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELi1ELi2E
   br i1 %78, label %79, label %.split.loop.exit
 
 79:                                               ; preds = %.preheader
-  br i1 %75, label %.preheader, label %.split.loop.exit269, !llvm.loop !25
+  br i1 %75, label %.preheader, label %.split.loop.exit267, !llvm.loop !25
 
 .split.loop.exit:                                 ; preds = %.preheader
   %80 = trunc nuw nsw i64 %indvars.iv to i32
-  br label %.split.loop.exit269
+  br label %.split.loop.exit267
 
-.split.loop.exit269:                              ; preds = %79, %.split.loop.exit
+.split.loop.exit267:                              ; preds = %79, %.split.loop.exit
   %.0169 = phi i32 [ %80, %.split.loop.exit ], [ -1, %79 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %0, ptr noundef nonnull align 16 dereferenceable(16) %4, i64 16, i1 false), !tbaa.struct !10
   %81 = sext i32 %.0169 to i64
@@ -217,17 +217,17 @@ _ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELi1ELi2E
   store double %91, ptr %85, align 8, !tbaa !20
   br label %103
 
-92:                                               ; preds = %.split.loop.exit269, %101
+92:                                               ; preds = %.split.loop.exit267, %101
   %93 = phi double [ %84, %.split.loop.exit269 ], [ %102, %101 ]
   %94 = phi i1 [ true, %.split.loop.exit269 ], [ false, %101 ]
-  %indvars.iv263 = phi i64 [ 0, %.split.loop.exit269 ], [ 1, %101 ]
-  %.not = icmp eq i64 %indvars.iv263, %86
+  %indvars.iv262 = phi i64 [ 0, %.split.loop.exit269 ], [ 1, %101 ]
+  %.not = icmp eq i64 %indvars.iv262, %86
   br i1 %.not, label %101, label %95
 
 95:                                               ; preds = %92
-  %96 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv263
+  %96 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv262
   %97 = load double, ptr %96, align 8, !tbaa !20
-  %gep = getelementptr double, ptr %invariant.gep, i64 %indvars.iv263
+  %gep = getelementptr double, ptr %invariant.gep, i64 %indvars.iv262
   %98 = load double, ptr %gep, align 8, !tbaa !20
   %99 = fneg double %97
   %100 = tail call double @llvm.fmuladd.f64(double %99, double %98, double %93)

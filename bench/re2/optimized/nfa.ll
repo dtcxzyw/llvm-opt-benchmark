@@ -2085,10 +2085,10 @@ if.then:                                          ; preds = %entry
   %cmp2 = icmp eq i32 %nmatch, 0
   br i1 %cmp2, label %if.then3, label %if.end4
 
-if.then3:                                         ; preds = %if.then
+if.then3:; preds = %if.then
   br label %if.end4
 
-if.end4:                                          ; preds = %if.then, %if.then3, %entry
+if.end4:; preds = %if.then, %if.then3, %entry
   %nmatch.addr.0 = phi i32 [ 1, %if.then3 ], [ %nmatch, %if.then ], [ %nmatch, %entry ]
   %match.addr.0.sroa.phi.sroa.phi = phi ptr [ %match.addr.0.sroa.phi.sroa.gep, %if.then3 ], [ %match.addr.0.sroa.phi.sroa.gep8, %if.then ], [ %match.addr.0.sroa.phi.sroa.gep8, %entry ]
   %match.addr.0 = phi ptr [ %sp, %if.then3 ], [ %match, %if.then ], [ %match, %entry ]
@@ -2114,8 +2114,8 @@ land.lhs.true:                                    ; preds = %if.end9
   %agg.tmp11.sroa.0.0.copyload = load ptr, ptr %match.addr.0, align 8
   %agg.tmp11.sroa.2.0.copyload = load i64, ptr %match.addr.0.sroa.phi.sroa.phi, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %agg.tmp11.sroa.0.0.copyload, i64 %agg.tmp11.sroa.2.0.copyload
-  %add.ptr.i10 = getelementptr inbounds i8, ptr %text.coerce0, i64 %text.coerce1
-  %cmp17.not = icmp eq ptr %add.ptr.i, %add.ptr.i10
+  %add.ptr.i9 = getelementptr inbounds i8, ptr %text.coerce0, i64 %text.coerce1
+  %cmp17.not = icmp eq ptr %add.ptr.i, %add.ptr.i9
   br i1 %cmp17.not, label %if.end19, label %cleanup
 
 if.end19:                                         ; preds = %land.lhs.true, %if.end9

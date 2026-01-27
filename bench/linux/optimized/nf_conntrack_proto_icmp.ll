@@ -84,9 +84,9 @@ define dso_local noundef zeroext i1 @icmp_pkt_to_tuple(ptr noundef %0, i32 nound
   br label %.thread
 
 .thread:                                          ; preds = %15, %13, %.thread2, %18
-  %30 = phi i1 [ false, %18 ], [ true, %.thread2 ], [ false, %13 ], [ false, %15 ]
+  %32 = phi i1 [ false, %18 ], [ true, %.thread2 ], [ false, %13 ], [ false, %15 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  ret i1 %30
+  ret i1 %32
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)

@@ -11397,10 +11397,10 @@ define void @_ZN3nix45base64Encode_encodeAndDecodeNonPrintable_Test8TestBodyEv(p
 
 .lr.ph.i:                                         ; preds = %1, %.lr.ph.i
   %.sroa.042.0 = phi ptr [ %13, %1 ], [ %15, %.lr.ph.i ]
-  %.sroa.phi = phi ptr [ %.sroa.gep44, %1 ], [ %.sroa.gep, %.lr.ph.i ]
+  %.02.i = phi ptr [ %.sroa.gep44, %1 ], [ %.sroa.gep, %.lr.ph.i ]
   %.02.i = phi i8 [ 0, %1 ], [ %14, %.lr.ph.i ]
-  store i8 %.02.i, ptr %.sroa.phi, align 1
-  %14 = add i8 %.02.i, 1
+  store i8 %.02.i, ptr %.02.i, align 1
+  %15 = add i8 %.02.i, 1
   %15 = getelementptr inbounds i8, ptr %.sroa.042.0, i64 -1
   %.sroa.gep = getelementptr inbounds i8, ptr %.sroa.042.0, i64 -2
   %16 = icmp eq ptr %15, %2

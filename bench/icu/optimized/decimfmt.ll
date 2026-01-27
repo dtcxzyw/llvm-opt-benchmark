@@ -8731,19 +8731,19 @@ define void @_ZNK6icu_7713DecimalFormat17doFastFormatInt32EibRNS_13UnicodeString
   %24 = getelementptr inbounds nuw i8, ptr %17, i64 4530
   br label %25
 
-25:                                               ; preds = %.lr.ph, %42
-  %.132 = phi i32 [ %.0, %.lr.ph ], [ %.sroa.0.0.extract.trunc, %42 ]
-  %.01831 = phi ptr [ %15, %.lr.ph ], [ %46, %42 ]
-  %.018.sroa.phi30 = phi ptr [ %.018.sroa.gep, %.lr.ph ], [ %.018.sroa.gep23, %42 ]
-  %.02029 = phi i8 [ 0, %.lr.ph ], [ %.121, %42 ]
+25:                                               ; preds = %.lr.ph, %43
+  %.130 = phi i32 [ %.0, %.lr.ph ], [ %.sroa.0.0.extract.trunc, %42 ]
+  %.01829 = phi ptr [ %15, %.lr.ph ], [ %47, %42 ]
+  %.02028 = phi ptr [ %.018.sroa.gep, %.lr.ph ], [ %.018.sroa.gep23, %42 ]
+  %.02227 = phi i8 [ 0, %.lr.ph ], [ %.121, %42 ]
   %.02228 = phi i8 [ 0, %.lr.ph ], [ %47, %42 ]
-  %26 = icmp ne i32 %.132, 0
+  %27 = icmp ne i32 %.132, 0
   %27 = icmp samesign ugt i8 %narrow, %.02228
   %28 = select i1 %26, i1 true, i1 %27
   br i1 %28, label %36, label %.critedge
 
-.critedge:                                        ; preds = %25, %42, %14
-  %.018.lcssa = phi ptr [ %15, %14 ], [ %46, %42 ], [ %.01831, %25 ]
+.critedge:                                        ; preds = %25, %43, %14
+  %.018.lcssa = phi ptr [ %15, %14 ], [ %47, %42 ], [ %.01829, %25 ]
   %29 = ptrtoint ptr %.018.lcssa to i64
   %30 = ptrtoint ptr %6 to i64
   %31 = sub i64 %29, %30
@@ -8751,34 +8751,34 @@ define void @_ZNK6icu_7713DecimalFormat17doFastFormatInt32EibRNS_13UnicodeString
   %33 = trunc i64 %32 to i32
   %34 = sub nsw i32 13, %33
   %35 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString8doAppendEPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull %.018.lcssa, i32 noundef 0, i32 noundef %34)
-          to label %_ZN6icu_7713UnicodeString6appendENS_14ConstChar16PtrEi.exit unwind label %48
+          to label %_ZN6icu_7713UnicodeString6appendENS_14ConstChar16PtrEi.exit unwind label %49
 
 36:                                               ; preds = %25
   %37 = add i8 %.02029, 1
   %38 = icmp eq i8 %.02029, 3
-  br i1 %38, label %39, label %42
+  br i1 %38, label %39, label %43
 
 39:                                               ; preds = %36
   %40 = load i16, ptr %23, align 2, !tbaa !199
   %.not = icmp eq i16 %40, 0
-  br i1 %.not, label %42, label %41
+  br i1 %.not, label %43, label %41
 
 41:                                               ; preds = %39
-  store i16 %40, ptr %.018.sroa.phi30, align 2, !tbaa !21
+  store i16 %40, ptr %.02028, align 2, !tbaa !21
   br label %42
 
-42:                                               ; preds = %41, %39, %36
+43:                                               ; preds = %41, %39, %36
   %.121 = phi i8 [ 1, %41 ], [ 4, %39 ], [ %37, %36 ]
-  %.119 = phi ptr [ %.018.sroa.phi30, %41 ], [ %.01831, %39 ], [ %.01831, %36 ]
-  %43 = call i64 @div(i32 noundef %.132, i32 noundef 10) #22
-  %.sroa.0.0.extract.trunc = trunc i64 %43 to i32
-  %.sroa.4.0.extract.shift = lshr i64 %43, 32
+  %.119 = phi ptr [ %.02028, %41 ], [ %.01829, %39 ], [ %.01829, %36 ]
+  %44 = call i64 @div(i32 noundef %.130, i32 noundef 10) #22
+  %.sroa.0.0.extract.trunc = trunc i64 %44 to i32
+  %.sroa.4.0.extract.shift = lshr i64 %44, 32
   %.sroa.4.0.extract.trunc = trunc i64 %.sroa.4.0.extract.shift to i16
-  %44 = load i16, ptr %24, align 2, !tbaa !198
-  %45 = add i16 %44, %.sroa.4.0.extract.trunc
-  %46 = getelementptr inbounds i8, ptr %.119, i64 -2
+  %45 = load i16, ptr %24, align 2, !tbaa !198
+  %46 = add i16 %45, %.sroa.4.0.extract.trunc
+  %47 = getelementptr inbounds i8, ptr %.119, i64 -2
   %.018.sroa.gep23 = getelementptr inbounds i8, ptr %.119, i64 -4
-  store i16 %45, ptr %46, align 2, !tbaa !21
+  store i16 %45, ptr %47, align 2, !tbaa !21
   %47 = add nuw nsw i8 %.02228, 1
   %exitcond.not = icmp eq i8 %47, %21
   br i1 %exitcond.not, label %.critedge, label %25, !llvm.loop !203
@@ -8788,12 +8788,12 @@ _ZN6icu_7713UnicodeString6appendENS_14ConstChar16PtrEi.exit: ; preds = %.critedg
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 
-48:                                               ; preds = %.critedge
-  %49 = landingpad { ptr, i32 }
+49:                                               ; preds = %.critedge
+  %50 = landingpad { ptr, i32 }
           cleanup
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.018.lcssa) #19, !srcloc !175
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  resume { ptr, i32 } %49
+  resume { ptr, i32 } %50
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)

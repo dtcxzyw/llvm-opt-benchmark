@@ -4538,9 +4538,9 @@ ehcleanup234:                                     ; preds = %lpad230.body, %if.t
   br i1 %cmp.i.i.i846, label %ehcleanup235, label %ehcleanup235.sink.split
 
 ehcleanup235.sink.split:                          ; preds = %ehcleanup234, %lpad.i.i
-  %.sink244 = phi ptr [ %136, %lpad.i.i ], [ %180, %ehcleanup234 ]
+  %.sink243 = phi ptr [ %136, %lpad.i.i ], [ %180, %ehcleanup234 ]
   %.pn586.pn.ph = phi { ptr, i32 } [ %135, %lpad.i.i ], [ %eh.lpad-body1179, %ehcleanup234 ]
-  call void @_ZdlPv(ptr noundef %.sink244) #34
+  call void @_ZdlPv(ptr noundef %.sink243) #34
   br label %ehcleanup235
 
 ehcleanup235:                                     ; preds = %ehcleanup235.sink.split, %ehcleanup234, %lpad.i.i
@@ -4577,9 +4577,9 @@ ehcleanup254:                                     ; preds = %lpad249, %if.then.i
   br i1 %cmp.i.i.i858, label %ehcleanup255, label %ehcleanup255.sink.split
 
 ehcleanup255.sink.split:                          ; preds = %ehcleanup254, %lpad.i.i803
-  %.sink245 = phi ptr [ %167, %lpad.i.i803 ], [ %183, %ehcleanup254 ]
+  %.sink244 = phi ptr [ %167, %lpad.i.i803 ], [ %183, %ehcleanup254 ]
   %.pn589.pn.ph = phi { ptr, i32 } [ %166, %lpad.i.i803 ], [ %.pn589, %ehcleanup254 ]
-  call void @_ZdlPv(ptr noundef %.sink245) #34
+  call void @_ZdlPv(ptr noundef %.sink244) #34
   br label %ehcleanup255
 
 ehcleanup255:                                     ; preds = %ehcleanup255.sink.split, %ehcleanup254, %lpad.i.i803

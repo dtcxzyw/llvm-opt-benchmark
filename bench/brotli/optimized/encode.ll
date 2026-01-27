@@ -7408,16 +7408,16 @@ define internal fastcc void @DecideOverLiteralContextModeling(ptr noundef readon
   %12 = icmp slt i32 %4, 5
   %13 = icmp samesign ult i64 %2, 64
   %or.cond = select i1 %12, i1 true, i1 %13
-  br i1 %or.cond, label %345, label %14
+  br i1 %or.cond, label %346, label %14
 
 14:                                               ; preds = %9
   %15 = icmp ult i64 %5, 1048576
   %.pre = add nuw nsw i64 %2, %1
-  br i1 %15, label %._crit_edge91, label %.lr.ph85.preheader.i
+  br i1 %15, label %._crit_edge92, label %.lr.ph85.preheader.i
 
-._crit_edge91:                                    ; preds = %14
-  %.pre92 = add nuw nsw i64 %1, 64
-  br label %.lr.ph74.preheader
+._crit_edge92:                                    ; preds = %14
+  %.pre93 = add nuw nsw i64 %1, 64
+  br label %.lr.ph75.preheader
 
 .lr.ph85.preheader.i:                             ; preds = %14
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 128
@@ -7651,29 +7651,29 @@ ShannonEntropy.exit.i:                            ; preds = %FastLog2.exit72.i, 
   %132 = fdiv double 1.000000e+00, %131
   %133 = fmul double %132, %128
   %134 = fcmp ogt double %133, 3.000000e+00
-  br i1 %134, label %.lr.ph74.preheader, label %135
+  br i1 %134, label %.lr.ph75.preheader, label %135
 
 135:                                              ; preds = %130
   %136 = fmul double %132, %.2.i61.i
   %137 = fsub double %136, %133
   %138 = fcmp olt double %137, 2.000000e-01
-  br i1 %138, label %.lr.ph74.preheader, label %ShouldUseComplexStaticContextMap.exit
+  br i1 %138, label %.lr.ph75.preheader, label %ShouldUseComplexStaticContextMap.exit
 
 ShouldUseComplexStaticContextMap.exit:            ; preds = %135
   store i64 13, ptr %6, align 8, !tbaa !69
   store ptr @ShouldUseComplexStaticContextMap.kStaticContextMapComplexUTF8, ptr %7, align 8, !tbaa !590
-  br label %345
+  br label %346
 
-.lr.ph74.preheader:                               ; preds = %130, %135, %._crit_edge91
-  %.pre-phi93 = phi i64 [ %.pre92, %._crit_edge91 ], [ %17, %135 ], [ %17, %130 ]
+.lr.ph75.preheader:                               ; preds = %130, %135, %._crit_edge92
+  %.pre-phi94 = phi i64 [ %.pre93, %._crit_edge91 ], [ %17, %135 ], [ %17, %130 ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %8, i8 0, i64 36, i1 false)
   br label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %._crit_edge, %.lr.ph74.preheader
-  %indvars.iv = phi i64 [ %.pre-phi93, %.lr.ph74.preheader ], [ %indvars.iv.next, %._crit_edge ]
-  %.072 = phi i64 [ %1, %.lr.ph74.preheader ], [ %157, %._crit_edge ]
-  %.03768 = add nuw nsw i64 %.072, 1
-  %139 = and i64 %.072, %3
+.lr.ph.preheader:                                 ; preds = %._crit_edge, %.lr.ph75.preheader
+  %indvars.iv = phi i64 [ %.pre-phi94, %.lr.ph74.preheader ], [ %indvars.iv.next, %._crit_edge ]
+  %.073 = phi i64 [ %1, %.lr.ph74.preheader ], [ %157, %._crit_edge ]
+  %.03769 = add nuw nsw i64 %.073, 1
+  %139 = and i64 %.073, %3
   %140 = getelementptr inbounds nuw i8, ptr %0, i64 %139
   %141 = load i8, ptr %140, align 1, !tbaa !70
   %142 = lshr i8 %141, 6
@@ -7684,9 +7684,9 @@ ShouldUseComplexStaticContextMap.exit:            ; preds = %135
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.038.in = phi i32 [ %151, %.lr.ph ], [ %.038.in.pre, %.lr.ph.preheader ]
-  %.03770 = phi i64 [ %.037, %.lr.ph ], [ %.03768, %.lr.ph.preheader ]
+  %.03771 = phi i64 [ %.037, %.lr.ph ], [ %.03769, %.lr.ph.preheader ]
   %.038 = mul nsw i32 %.038.in, 3
-  %145 = and i64 %.03770, %3
+  %145 = and i64 %.03771, %3
   %146 = getelementptr inbounds nuw i8, ptr %0, i64 %145
   %147 = load i8, ptr %146, align 1, !tbaa !70
   %148 = lshr i8 %147, 6
@@ -7699,24 +7699,24 @@ ShouldUseComplexStaticContextMap.exit:            ; preds = %135
   %155 = load i32, ptr %154, align 4, !tbaa !59
   %156 = add i32 %155, 1
   store i32 %156, ptr %154, align 4, !tbaa !59
-  %.037 = add nuw nsw i64 %.03770, 1
+  %.037 = add nuw nsw i64 %.03771, 1
   %exitcond.not = icmp eq i64 %.037, %indvars.iv
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !742
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %157 = add nuw nsw i64 %.072, 4096
+  %157 = add nuw nsw i64 %.073, 4096
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4096
   %.not42 = icmp samesign ugt i64 %indvars.iv.next, %.pre
-  br i1 %.not42, label %._crit_edge75, label %.lr.ph.preheader, !llvm.loop !743
+  br i1 %.not42, label %._crit_edge76, label %.lr.ph.preheader, !llvm.loop !743
 
-._crit_edge75:                                    ; preds = %._crit_edge
+._crit_edge76:                                    ; preds = %._crit_edge
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %10, i8 0, i64 12, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %11, i8 0, i64 24, i1 false)
   br label %158
 
-158:                                              ; preds = %158, %._crit_edge75
+158:                                              ; preds = %158, %._crit_edge76
   %.088.i = phi i64 [ 0, %._crit_edge75 ], [ %169, %158 ]
   %159 = getelementptr inbounds nuw i32, ptr %8, i64 %.088.i
   %160 = load i32, ptr %159, align 4, !tbaa !59
@@ -7745,7 +7745,7 @@ ShouldUseComplexStaticContextMap.exit:            ; preds = %135
   br label %.preheader.i44
 
 170:                                              ; preds = %FastLog2.exit51.i
-  %171 = load i32, ptr %.0.i43.idx.sroa.phi106.sroa.phi.i, align 4, !tbaa !59
+  %171 = load i32, ptr %183, align 4, !tbaa !59
   %172 = zext i32 %171 to i64
   %173 = add i64 %186, %172
   %174 = uitofp i32 %171 to double
@@ -7755,23 +7755,23 @@ ShouldUseComplexStaticContextMap.exit:            ; preds = %135
 176:                                              ; preds = %170
   %177 = getelementptr inbounds nuw double, ptr @kBrotliLog2Table, i64 %172
   %178 = load double, ptr %177, align 8, !tbaa !587
-  br label %FastLog2.exit.i51
+  br label %FastLog2.exit.i52
 
 179:                                              ; preds = %170
   %180 = tail call double @log2(double noundef %174) #19, !tbaa !59
-  br label %FastLog2.exit.i51
+  br label %FastLog2.exit.i52
 
-FastLog2.exit.i51:                                ; preds = %179, %176
+FastLog2.exit.i52:                                ; preds = %179, %176
   %.0.i47.i = phi double [ %178, %176 ], [ %180, %179 ]
   %181 = fneg double %174
   %182 = tail call double @llvm.fmuladd.f64(double %181, double %.0.i47.i, double %195)
   br label %.preheader.i44
 
-.preheader.i44:                                   ; preds = %.preheader.i44.preheader, %FastLog2.exit.i51
+.preheader.i44:                                   ; preds = %.preheader.i44.preheader, %FastLog2.exit.i52
   %.025.i41.i = phi i64 [ %173, %FastLog2.exit.i51 ], [ 0, %.preheader.i44.preheader ]
   %.023.i42.i = phi double [ %182, %FastLog2.exit.i51 ], [ 0.000000e+00, %.preheader.i44.preheader ]
   %.0.i43.idx.sroa.phi.i = phi ptr [ %.0.i43.idx.sroa.gep.i, %FastLog2.exit.i51 ], [ %10, %.preheader.i44.preheader ]
-  %.0.i43.idx.sroa.phi106.sroa.phi.i = phi ptr [ %.0.i43.idx.sroa.phi106.sroa.gep.i, %FastLog2.exit.i51 ], [ %.0.i43.idx.sroa.phi106.sroa.gep109.i, %.preheader.i44.preheader ]
+  %183 = phi ptr [ %.0.i43.idx.sroa.phi106.sroa.gep.i, %FastLog2.exit.i51 ], [ %.0.i43.idx.sroa.phi106.sroa.gep109.i, %.preheader.i44.preheader ]
   %183 = phi i1 [ false, %FastLog2.exit.i51 ], [ true, %.preheader.i44.preheader ]
   %184 = load i32, ptr %.0.i43.idx.sroa.phi.i, align 4, !tbaa !59
   %185 = zext i32 %184 to i64
@@ -7904,8 +7904,8 @@ ShannonEntropy.exit40.i:                          ; preds = %FastLog2.exit55.i, 
   br label %256
 
 243:                                              ; preds = %FastLog2.exit63.i
-  %.add74.i50 = add nuw nsw i64 %.0.i31.idx.i, 8
-  %244 = load i32, ptr %.ptr75.i45, align 4, !tbaa !59
+  %.add74.i51 = add nuw nsw i64 %.0.i31.idx.i, 8
+  %244 = load i32, ptr %.ptr75.i46, align 4, !tbaa !59
   %245 = zext i32 %244 to i64
   %246 = add i64 %259, %245
   %247 = uitofp i32 %244 to double
@@ -7930,9 +7930,9 @@ FastLog2.exit59.i:                                ; preds = %252, %249
 256:                                              ; preds = %FastLog2.exit59.i, %ShannonEntropy.exit40.i
   %.025.i29.i = phi i64 [ 0, %ShannonEntropy.exit40.i ], [ %246, %FastLog2.exit59.i ]
   %.023.i30.i = phi double [ 0.000000e+00, %ShannonEntropy.exit40.i ], [ %255, %FastLog2.exit59.i ]
-  %.0.i31.idx.i = phi i64 [ 12, %ShannonEntropy.exit40.i ], [ %.add74.i50, %FastLog2.exit59.i ]
+  %.0.i31.idx.i = phi i64 [ 12, %ShannonEntropy.exit40.i ], [ %.add74.i51, %FastLog2.exit59.i ]
   %.0.i31.ptr.i = getelementptr inbounds nuw i8, ptr %11, i64 %.0.i31.idx.i
-  %.ptr75.i45 = getelementptr inbounds nuw i8, ptr %.0.i31.ptr.i, i64 4
+  %.ptr75.i46 = getelementptr inbounds nuw i8, ptr %.0.i31.ptr.i, i64 4
   %257 = load i32, ptr %.0.i31.ptr.i, align 4, !tbaa !59
   %258 = zext i32 %257 to i64
   %259 = add i64 %.025.i29.i, %258
@@ -7983,11 +7983,11 @@ ShannonEntropy.exit34.i:                          ; preds = %FastLog2.exit61.i, 
   %.2.i33.i = phi double [ %279, %FastLog2.exit61.i ], [ %268, %270 ]
   br label %280
 
-280:                                              ; preds = %ShannonEntropy.exit.i48, %ShannonEntropy.exit34.i
+280:                                              ; preds = %ShannonEntropy.exit.i49, %ShannonEntropy.exit34.i
   %.190.i = phi i64 [ 0, %ShannonEntropy.exit34.i ], [ %320, %ShannonEntropy.exit.i48 ]
   %.sroa.17.089.i = phi double [ 0.000000e+00, %ShannonEntropy.exit34.i ], [ %319, %ShannonEntropy.exit.i48 ]
-  %.idx.i46 = mul nuw nsw i64 %.190.i, 12
-  %281 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx.i46
+  %.idx.i47 = mul nuw nsw i64 %.190.i, 12
+  %281 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx.i47
   br label %295
 
 282:                                              ; preds = %FastLog2.exit69.i
@@ -8043,8 +8043,8 @@ FastLog2.exit69.i:                                ; preds = %305, %302
   br i1 %296, label %282, label %309
 
 309:                                              ; preds = %FastLog2.exit69.i
-  %.not27.i.i47 = icmp eq i64 %299, 0
-  br i1 %.not27.i.i47, label %ShannonEntropy.exit.i48, label %310
+  %.not27.i.i48 = icmp eq i64 %299, 0
+  br i1 %.not27.i.i48, label %ShannonEntropy.exit.i49, label %310
 
 310:                                              ; preds = %309
   %311 = uitofp i64 %299 to double
@@ -8063,16 +8063,16 @@ FastLog2.exit69.i:                                ; preds = %305, %302
 FastLog2.exit67.i:                                ; preds = %316, %313
   %.0.i66.i = phi double [ %315, %313 ], [ %317, %316 ]
   %318 = tail call double @llvm.fmuladd.f64(double %311, double %.0.i66.i, double %308)
-  br label %ShannonEntropy.exit.i48
+  br label %ShannonEntropy.exit.i49
 
-ShannonEntropy.exit.i48:                          ; preds = %FastLog2.exit67.i, %309
-  %.2.i.i49 = phi double [ %318, %FastLog2.exit67.i ], [ %308, %309 ]
-  %319 = fadd double %.sroa.17.089.i, %.2.i.i49
+ShannonEntropy.exit.i49:                          ; preds = %FastLog2.exit67.i, %309
+  %.2.i.i50 = phi double [ %318, %FastLog2.exit67.i ], [ %308, %309 ]
+  %319 = fadd double %.sroa.17.089.i, %.2.i.i50
   %320 = add nuw nsw i64 %.190.i, 1
   %exitcond99.not.i = icmp eq i64 %320, 3
   br i1 %exitcond99.not.i, label %321, label %280, !llvm.loop !745
 
-321:                                              ; preds = %ShannonEntropy.exit.i48
+321:                                              ; preds = %ShannonEntropy.exit.i49
   %322 = fadd double %.2.i39.i, %.2.i33.i
   %323 = load i32, ptr %10, align 4, !tbaa !59
   %324 = load i32, ptr %.0.i43.idx.sroa.phi106.sroa.gep109.i, align 4, !tbaa !59
@@ -8098,27 +8098,27 @@ ShannonEntropy.exit.i48:                          ; preds = %FastLog2.exit67.i, 
   store i64 1, ptr %6, align 8, !tbaa !69
   br label %ChooseContextMap.exit
 
-340:                                              ; preds = %321
-  %341 = fsub double %331, %.sroa.17.1.i
-  %342 = fcmp olt double %341, 2.000000e-02
-  br i1 %342, label %343, label %344
+341:                                              ; preds = %321
+  %342 = fsub double %331, %.sroa.17.1.i
+  %343 = fcmp olt double %342, 2.000000e-02
+  br i1 %343, label %344, label %345
 
-343:                                              ; preds = %340
+344:                                              ; preds = %341
   store i64 2, ptr %6, align 8, !tbaa !69
   store ptr @ChooseContextMap.kStaticContextMapSimpleUTF8, ptr %7, align 8, !tbaa !590
   br label %ChooseContextMap.exit
 
-344:                                              ; preds = %340
+345:                                              ; preds = %341
   store i64 3, ptr %6, align 8, !tbaa !69
   store ptr @ChooseContextMap.kStaticContextMapContinuation, ptr %7, align 8, !tbaa !590
   br label %ChooseContextMap.exit
 
-ChooseContextMap.exit:                            ; preds = %339, %343, %344
+ChooseContextMap.exit:                            ; preds = %339, %344, %345
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %345
+  br label %346
 
-345:                                              ; preds = %ShouldUseComplexStaticContextMap.exit, %ChooseContextMap.exit, %9
+346:                                              ; preds = %ShouldUseComplexStaticContextMap.exit, %ChooseContextMap.exit, %9
   ret void
 }
 

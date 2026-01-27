@@ -1236,9 +1236,9 @@ H5T_update_shared.exit:                           ; preds = %.H5T_update_shared.
 .thread:                                          ; preds = %151
   %161 = call i32 @H5O_unpin(ptr noundef nonnull %78) #9
   %162 = icmp slt i32 %161, 0
-  br i1 %162, label %.thread121, label %.thread119
+  br i1 %162, label %.thread115, label %.thread113
 
-.thread121:                                       ; preds = %.thread
+.thread115:                                       ; preds = %.thread
   %163 = load i64, ptr @H5E_DATATYPE_g, align 8, !tbaa !11
   %164 = load i64, ptr @H5E_CANTUNPIN_g, align 8, !tbaa !11
   %165 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__commit, i32 noundef 521, i64 noundef %163, i64 noundef %164, ptr noundef nonnull @.str.49) #9
@@ -1248,33 +1248,33 @@ H5T_update_shared.exit:                           ; preds = %.H5T_update_shared.
   br i1 %.071, label %173, label %.thread112
 
 .thread104:                                       ; preds = %77
-  %166 = load i64, ptr @H5E_ATTR_g, align 8, !tbaa !11
-  %167 = load i64, ptr @H5E_CANTPIN_g, align 8, !tbaa !11
-  %168 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__commit, i32 noundef 481, i64 noundef %166, i64 noundef %167, ptr noundef nonnull @.str.42) #9
+  %168 = load i64, ptr @H5E_ATTR_g, align 8, !tbaa !11
+  %169 = load i64, ptr @H5E_CANTPIN_g, align 8, !tbaa !11
+  %170 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__commit, i32 noundef 481, i64 noundef %168, i64 noundef %169, ptr noundef nonnull @.str.42) #9
   br label %173
 
 169:                                              ; preds = %158
   %170 = load i64, ptr @H5E_DATATYPE_g, align 8, !tbaa !11
-  %171 = load i64, ptr @H5E_CANTUNPIN_g, align 8, !tbaa !11
+  %173 = load i64, ptr @H5E_CANTUNPIN_g, align 8, !tbaa !11
   %172 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__commit, i32 noundef 521, i64 noundef %170, i64 noundef %171, ptr noundef nonnull @.str.49) #9
   br i1 %.071, label %173, label %.thread112
 
-.thread112:                                       ; preds = %.thread121, %169, %.thread92
+.thread112:; preds = %.thread121, %169, %.thread92
   %.ph111 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %.ph = getelementptr inbounds nuw i8, ptr %1, i64 48
   br label %173
 
 173:                                              ; preds = %169, %.thread104, %.thread92, %.thread112
   %174 = phi ptr [ %.ph111, %.thread112 ], [ %.0.sroa.gep, %.thread92 ], [ %.0.sroa.gep, %.thread104 ], [ %.0.sroa.gep, %169 ]
-  %.071839196107114 = phi i1 [ false, %.thread112 ], [ true, %.thread92 ], [ true, %.thread104 ], [ true, %169 ]
-  %175 = phi ptr [ %.ph, %.thread112 ], [ %4, %.thread92 ], [ %4, %.thread104 ], [ %4, %169 ]
-  %176 = call i32 @H5O_dec_rc_by_loc(ptr noundef nonnull %175) #9
+  %180 = phi i1 [ false, %.thread112 ], [ true, %.thread92 ], [ true, %.thread104 ], [ true, %169 ]
+  %.071839196106 = phi ptr [ %.ph, %.thread112 ], [ %4, %.thread92 ], [ %4, %.thread104 ], [ %4, %169 ]
+  %176 = call i32 @H5O_dec_rc_by_loc(ptr noundef nonnull %.071839196106) #9
   %177 = icmp slt i32 %176, 0
   br i1 %177, label %178, label %182
 
 178:                                              ; preds = %173
   %179 = load i64, ptr @H5E_DATATYPE_g, align 8, !tbaa !11
-  %180 = load i64, ptr @H5E_CANTDEC_g, align 8, !tbaa !11
+  %185 = load i64, ptr @H5E_CANTDEC_g, align 8, !tbaa !11
   %181 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__commit, i32 noundef 535, i64 noundef %179, i64 noundef %180, ptr noundef nonnull @.str.33) #9
   br label %182
 
@@ -1285,7 +1285,7 @@ H5T_update_shared.exit:                           ; preds = %.H5T_update_shared.
 
 185:                                              ; preds = %182
   %186 = load i64, ptr @H5E_DATATYPE_g, align 8, !tbaa !11
-  %187 = load i64, ptr @H5E_CLOSEERROR_g, align 8, !tbaa !11
+  %192 = load i64, ptr @H5E_CLOSEERROR_g, align 8, !tbaa !11
   %188 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__commit, i32 noundef 537, i64 noundef %186, i64 noundef %187, ptr noundef nonnull @.str.21) #9
   br label %189
 
@@ -1295,38 +1295,38 @@ H5T_update_shared.exit:                           ; preds = %.H5T_update_shared.
   %192 = icmp slt i32 %191, 0
   br i1 %192, label %193, label %197
 
-193:                                              ; preds = %189
+193:; preds = %189
   %194 = load i64, ptr @H5E_DATATYPE_g, align 8, !tbaa !11
   %195 = load i64, ptr @H5E_CANTDELETE_g, align 8, !tbaa !11
   %196 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__commit, i32 noundef 539, i64 noundef %194, i64 noundef %195, ptr noundef nonnull @.str.22) #9
+  br i1 %.071839196107114, label %203, label %.thread101.thread
+
+197:; preds = %189
   br i1 %.071839196107114, label %.thread101, label %.thread101.thread
 
-197:                                              ; preds = %189
-  br i1 %.071839196107114, label %.thread101, label %.thread101.thread
-
-.thread101:                                       ; preds = %65, %73, %193, %197
+203:                                              ; preds = %65, %73, %193, %197
   %198 = call i32 @H5O_loc_free(ptr noundef nonnull %4) #9
   %199 = call i32 @H5G_name_free(ptr noundef nonnull %5) #9
   br label %.thread101.thread
 
 .thread101.thread:                                ; preds = %58, %51, %44, %36, %29, %25, %16, %193, %.thread101, %197
-  %200 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %201 = load ptr, ptr %200, align 8, !tbaa !29
-  %202 = getelementptr inbounds nuw i8, ptr %201, i64 8
-  %203 = load i32, ptr %202, align 8, !tbaa !30
-  %switch = icmp ult i32 %203, 2
-  br i1 %switch, label %204, label %.thread119
+  %206 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %207 = load ptr, ptr %206, align 8, !tbaa !29
+  %208 = getelementptr inbounds nuw i8, ptr %207, i64 8
+  %209 = load i32, ptr %208, align 8, !tbaa !30
+  %switch = icmp ult i32 %209, 2
+  br i1 %switch, label %210, label %.thread113
 
-204:                                              ; preds = %.thread101.thread
-  %205 = load i32, ptr %1, align 8, !tbaa !40
-  %206 = icmp eq i32 %205, 2
-  br i1 %206, label %207, label %.thread119
+210:                                              ; preds = %.thread101.thread
+  %211 = load i32, ptr %1, align 8, !tbaa !40
+  %212 = icmp eq i32 %211, 2
+  br i1 %212, label %213, label %.thread113
 
-207:                                              ; preds = %204
+213:                                              ; preds = %210
   store i32 0, ptr %1, align 8, !tbaa !40
-  br label %.thread119
+  br label %.thread113
 
-.thread119:                                       ; preds = %.thread, %.thread101.thread, %207, %204, %3
+.thread113:                                       ; preds = %.thread, %.thread101.thread, %213, %210, %3
   %.068 = phi i32 [ -1, %207 ], [ -1, %204 ], [ -1, %.thread101.thread ], [ 0, %3 ], [ 0, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

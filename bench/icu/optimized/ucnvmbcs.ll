@@ -6182,8 +6182,8 @@ define internal void @_ZL17ucnv_MBCSWriteSubP25UConverterFromUnicodeArgsiP10UErr
 9:                                                ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %.pre.pre, i64 288
   %11 = load ptr, ptr %10, align 8, !tbaa !67
-  %.not36 = icmp eq ptr %11, null
-  br i1 %.not36, label %16, label %12
+  %.not33 = icmp eq ptr %11, null
+  br i1 %.not33, label %16, label %12
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 95
@@ -6220,36 +6220,36 @@ define internal void @_ZL17ucnv_MBCSWriteSubP25UConverterFromUnicodeArgsiP10UErr
   %.2.sroa.phi.sroa.gep35 = getelementptr inbounds nuw i8, ptr %4, i64 2
   switch i32 %.0, label %47 [
     i32 1, label %31
-    i32 2, label %38
+    i32 2, label %40
   ]
 
 31:                                               ; preds = %30
   %32 = getelementptr inbounds nuw i8, ptr %6, i64 80
   %33 = load i32, ptr %32, align 8, !tbaa !112
   %34 = icmp eq i32 %33, 2
-  br i1 %34, label %35, label %36
+  br i1 %34, label %35, label %37
 
 35:                                               ; preds = %31
   store i32 1, ptr %32, align 8, !tbaa !112
   store i8 15, ptr %4, align 1, !tbaa !28
-  br label %36
+  br label %37
 
-36:                                               ; preds = %35, %31
-  %.031.sroa.phi = phi ptr [ %.2.sroa.phi.sroa.gep35, %35 ], [ %.2.sroa.gep34, %31 ]
+37:                                               ; preds = %35, %31
+  %.031 = phi ptr [ %.2.sroa.phi.sroa.gep35, %35 ], [ %.2.sroa.gep34, %31 ]
   %.031 = phi ptr [ %.2.sroa.gep34, %35 ], [ %4, %31 ]
   %37 = load i8, ptr %.029, align 1, !tbaa !28
   store i8 %37, ptr %.031, align 1, !tbaa !28
   br label %48
 
-38:                                               ; preds = %30
-  %39 = getelementptr inbounds nuw i8, ptr %6, i64 80
-  %40 = load i32, ptr %39, align 8, !tbaa !112
-  %41 = icmp ult i32 %40, 2
-  br i1 %41, label %42, label %43
+40:                                               ; preds = %30
+  %41 = getelementptr inbounds nuw i8, ptr %6, i64 80
+  %42 = load i32, ptr %41, align 8, !tbaa !112
+  %43 = icmp ult i32 %42, 2
+  br i1 %43, label %44, label %43
 
-42:                                               ; preds = %38
-  store i32 2, ptr %39, align 8, !tbaa !112
-  %.2.sroa.phi.sroa.gep = getelementptr inbounds nuw i8, ptr %4, i64 3
+44:                                               ; preds = %40
+  store i32 2, ptr %41, align 8, !tbaa !112
+  %45 = getelementptr inbounds nuw i8, ptr %4, i64 3
   store i8 14, ptr %4, align 1, !tbaa !28
   br label %43
 
@@ -6264,25 +6264,25 @@ define internal void @_ZL17ucnv_MBCSWriteSubP25UConverterFromUnicodeArgsiP10UErr
   store i8 %46, ptr %.2.sroa.phi, align 1, !tbaa !28
   br label %48
 
-47:                                               ; preds = %30
+46:                                               ; preds = %30
   store i32 1, ptr %2, align 4, !tbaa !35
   br label %54
 
-48:                                               ; preds = %43, %36
-  %.132 = phi ptr [ %.031.sroa.phi, %36 ], [ %.2.sroa.phi.sroa.phi, %43 ]
+48:; preds = %43, %36
+  %.132 = phi ptr [ %.031, %36 ], [ %.2.sroa.phi.sroa.phi, %43 ]
   %49 = ptrtoint ptr %.132 to i64
   %50 = ptrtoint ptr %4 to i64
   %51 = sub i64 %49, %50
   %52 = trunc i64 %51 to i32
   br label %53
 
-53:                                               ; preds = %48, %25
+52:                                               ; preds = %48, %25
   %.130 = phi ptr [ %4, %48 ], [ %.029, %25 ]
   %.1 = phi i32 [ %52, %48 ], [ %.0, %25 ]
   call void @ucnv_cbFromUWriteBytes_77(ptr noundef nonnull %0, ptr noundef %.130, i32 noundef %.1, i32 noundef %1, ptr noundef %2)
-  br label %54
+  br label %59
 
-54:                                               ; preds = %53, %47
+59:                                               ; preds = %53, %47
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }

@@ -21028,9 +21028,9 @@ _ZN3fmt2v86detail16chrono_formatterINS0_20basic_format_contextINS0_8appenderEcEE
   store i16 %61, ptr %56, align 1
   %62 = udiv i32 %.021.i.i, 100
   %63 = icmp ugt i32 %.021.i.i, 9999
-  br i1 %63, label %.lr.ph.i.i, label %._crit_edge.i.loopexit.i, !llvm.loop !756
+  br i1 %63, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !756
 
-._crit_edge.i.loopexit.i:                         ; preds = %.lr.ph.i.i
+._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i
   %.019.lcssa.i.sroa.gep8.le.i = getelementptr inbounds i8, ptr %.01920.i.i, i64 -3
   %.019.lcssa.i.sroa.gep5.le.i = getelementptr inbounds i8, ptr %.01920.i.i, i64 -4
   br label %._crit_edge.i.i
@@ -21040,27 +21040,27 @@ _ZN3fmt2v86detail16chrono_formatterINS0_20basic_format_contextINS0_8appenderEcEE
   %.019.lcssa.i.sroa.phi6.i = phi ptr [ %.019.lcssa.i.sroa.gep7.i, %_ZN3fmt2v86detail16chrono_formatterINS0_20basic_format_contextINS0_8appenderEcEESt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEElSt5ratioILl1ELl1000EEE10write_signEv.exit._crit_edge ], [ %.019.lcssa.i.sroa.gep8.le.i, %._crit_edge.i.loopexit.i ]
   %.0.lcssa.i.i = phi i32 [ %23, %_ZN3fmt2v86detail16chrono_formatterINS0_20basic_format_contextINS0_8appenderEcEESt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEElSt5ratioILl1ELl1000EEE10write_signEv.exit._crit_edge ], [ %62, %._crit_edge.i.loopexit.i ]
   %64 = icmp samesign ult i32 %.0.lcssa.i.i, 10
-  br i1 %64, label %65, label %68
+  br i1 %64, label %65, label %69
 
 65:                                               ; preds = %._crit_edge.i.i
   %66 = trunc nuw nsw i32 %.0.lcssa.i.i to i8
   %67 = or disjoint i8 %66, 48
-  store i8 %67, ptr %.019.lcssa.i.sroa.phi6.i, align 1, !tbaa !16
+  store i8 %67, ptr %.0.lcssa.i.i, align 1, !tbaa !16
   br label %_ZN3fmt2v86detail14format_decimalIcjSt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEETnNSt9enable_ifIXntsr3std10is_pointerINSt9remove_cvINSt16remove_referenceIT1_E4typeEE4typeEEE5valueEiE4typeELi0EEENS1_21format_decimal_resultISB_EESB_T0_i.exit
 
-68:                                               ; preds = %._crit_edge.i.i
+69:                                               ; preds = %._crit_edge.i.i
   %69 = shl nuw nsw i32 %.0.lcssa.i.i, 1
   %70 = zext nneg i32 %69 to i64
   %71 = getelementptr inbounds nuw i8, ptr @.str.92, i64 %70
   %72 = load i16, ptr %71, align 1
-  store i16 %72, ptr %.019.lcssa.i.sroa.phi.i, align 1
+  store i16 %72, ptr %.019.lcssa.i.i, align 1
   br label %_ZN3fmt2v86detail14format_decimalIcjSt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEETnNSt9enable_ifIXntsr3std10is_pointerINSt9remove_cvINSt16remove_referenceIT1_E4typeEE4typeEEE5valueEiE4typeELi0EEENS1_21format_decimal_resultISB_EESB_T0_i.exit
 
-_ZN3fmt2v86detail14format_decimalIcjSt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEETnNSt9enable_ifIXntsr3std10is_pointerINSt9remove_cvINSt16remove_referenceIT1_E4typeEE4typeEEE5valueEiE4typeELi0EEENS1_21format_decimal_resultISB_EESB_T0_i.exit: ; preds = %65, %68
-  %73 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %74 = call ptr @_ZN3fmt2v86detail17copy_str_noinlineIcPcSt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET1_T0_SA_S9_(ptr noundef nonnull %4, ptr noundef nonnull %54, ptr %.sroa.02.0.copyload)
+_ZN3fmt2v86detail14format_decimalIcjSt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEETnNSt9enable_ifIXntsr3std10is_pointerINSt9remove_cvINSt16remove_referenceIT1_E4typeEE4typeEEE5valueEiE4typeELi0EEENS1_21format_decimal_resultISB_EESB_T0_i.exit: ; preds = %65, %69
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %76 = call ptr @_ZN3fmt2v86detail17copy_str_noinlineIcPcSt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET1_T0_SA_S9_(ptr noundef nonnull %4, ptr noundef nonnull %54, ptr %.sroa.02.0.copyload)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  store ptr %74, ptr %73, align 8
+  store ptr %76, ptr %75, align 8
   ret void
 }
 
@@ -22748,29 +22748,29 @@ _ZSt6fill_nISt20back_insert_iteratorIN3fmt2v819basic_memory_bufferIcLm500ESaIcEE
   br label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %48
-  %.019.lcssa.i.sroa.phi.i = phi ptr [ %.019.lcssa.i.sroa.gep.i, %48 ], [ %.019.lcssa.i.sroa.gep5.le.i, %.lr.ph.i.i ]
-  %.019.lcssa.i.sroa.phi6.i = phi ptr [ %.019.lcssa.i.sroa.gep7.i, %48 ], [ %.019.lcssa.i.sroa.gep8.le.i, %.lr.ph.i.i ]
+  %.019.lcssa.i.i = phi ptr [ %.019.lcssa.i.sroa.gep.i, %48 ], [ %.019.lcssa.i.sroa.gep5.le.i, %.lr.ph.i.i ]
+  %.0.lcssa.i.i = phi ptr [ %.019.lcssa.i.sroa.gep7.i, %48 ], [ %.019.lcssa.i.sroa.gep8.le.i, %.lr.ph.i.i ]
   %.0.lcssa.i.i = phi i64 [ %18, %48 ], [ %56, %.lr.ph.i.i ]
   %57 = icmp samesign ult i64 %.0.lcssa.i.i, 10
   br i1 %57, label %58, label %61
 
-58:                                               ; preds = %._crit_edge.i.i
+58:; preds = %._crit_edge.i.i
   %59 = trunc nuw nsw i64 %.0.lcssa.i.i to i8
   %60 = or disjoint i8 %59, 48
-  store i8 %60, ptr %.019.lcssa.i.sroa.phi6.i, align 1, !tbaa !16
+  store i8 %60, ptr %.0.lcssa.i.i, align 1, !tbaa !16
   br label %_ZN3fmt2v86detail14format_decimalIcmSt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEETnNSt9enable_ifIXntsr3std10is_pointerINSt9remove_cvINSt16remove_referenceIT1_E4typeEE4typeEEE5valueEiE4typeELi0EEENS1_21format_decimal_resultISB_EESB_T0_i.exit
 
-61:                                               ; preds = %._crit_edge.i.i
+63:                                               ; preds = %._crit_edge.i.i
   %62 = shl nuw nsw i64 %.0.lcssa.i.i, 1
   %63 = getelementptr inbounds nuw i8, ptr @.str.92, i64 %62
   %64 = load i16, ptr %63, align 1
-  store i16 %64, ptr %.019.lcssa.i.sroa.phi.i, align 1
+  store i16 %64, ptr %.019.lcssa.i.i, align 1
   br label %_ZN3fmt2v86detail14format_decimalIcmSt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEETnNSt9enable_ifIXntsr3std10is_pointerINSt9remove_cvINSt16remove_referenceIT1_E4typeEE4typeEEE5valueEiE4typeELi0EEENS1_21format_decimal_resultISB_EESB_T0_i.exit
 
-_ZN3fmt2v86detail14format_decimalIcmSt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEETnNSt9enable_ifIXntsr3std10is_pointerINSt9remove_cvINSt16remove_referenceIT1_E4typeEE4typeEEE5valueEiE4typeELi0EEENS1_21format_decimal_resultISB_EESB_T0_i.exit: ; preds = %58, %61
-  %65 = call ptr @_ZN3fmt2v86detail17copy_str_noinlineIcPcSt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET1_T0_SA_S9_(ptr noundef nonnull %3, ptr noundef nonnull %50, ptr %.sroa.0.0.copyload.pre)
+_ZN3fmt2v86detail14format_decimalIcmSt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEETnNSt9enable_ifIXntsr3std10is_pointerINSt9remove_cvINSt16remove_referenceIT1_E4typeEE4typeEEE5valueEiE4typeELi0EEENS1_21format_decimal_resultISB_EESB_T0_i.exit: ; preds = %58, %63
+  %68 = call ptr @_ZN3fmt2v86detail17copy_str_noinlineIcPcSt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET1_T0_SA_S9_(ptr noundef nonnull %3, ptr noundef nonnull %50, ptr %.sroa.0.0.copyload.pre)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  store ptr %65, ptr %4, align 8
+  store ptr %68, ptr %4, align 8
   ret void
 }
 

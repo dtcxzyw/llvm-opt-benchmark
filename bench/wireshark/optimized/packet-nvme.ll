@@ -2880,7 +2880,7 @@ define hidden void @nvme_add_data_tr_pkt(ptr noundef readonly captures(none) %0,
   br i1 %.not, label %nvme_build_done_frame_key.exit, label %8
 
 8:                                                ; preds = %4
-  %.0.i.sroa.phi.sroa.gep = getelementptr inbounds nuw i8, ptr %7, i64 40
+  %.0.i.sroa.gep = getelementptr inbounds nuw i8, ptr %7, i64 40
   %.0.i.sroa.phi.sroa.gep5 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store i32 1, ptr %7, align 16
   store ptr %5, ptr %.0.i.sroa.phi.sroa.gep9, align 8
@@ -2917,7 +2917,7 @@ define hidden ptr @nvme_lookup_data_tr_pkt(ptr noundef readonly captures(none) %
   br i1 %.not, label %nvme_build_done_frame_key.exit, label %7
 
 7:                                                ; preds = %3
-  %.0.i.sroa.phi.sroa.gep = getelementptr inbounds nuw i8, ptr %6, i64 40
+  %.0.i.sroa.gep = getelementptr inbounds nuw i8, ptr %6, i64 40
   %.0.i.sroa.phi.sroa.gep4 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store i32 1, ptr %6, align 16
   store ptr %4, ptr %.0.i.sroa.phi.sroa.gep8, align 8

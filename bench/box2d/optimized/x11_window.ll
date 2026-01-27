@@ -5539,8 +5539,8 @@ define hidden void @_glfwWaitEventsX11() local_unnamed_addr #0 {
 
 .preheader.i:                                     ; preds = %.lr.ph.i, %24
   %exitcond.i = phi i1 [ true, %24 ], [ false, %.lr.ph.i ]
-  %indvars.iv.i.sroa.phi.sroa.phi = phi ptr [ %13, %24 ], [ %10, %.lr.ph.i ]
-  %25 = load i16, ptr %indvars.iv.i.sroa.phi.sroa.phi, align 2, !tbaa !115
+  %25 = phi ptr [ %13, %24 ], [ %10, %.lr.ph.i ]
+  %25 = load i16, ptr %27, align 2, !tbaa !115
   %26 = and i16 %25, 1
   %.not10.i = icmp eq i16 %26, 0
   br i1 %.not10.i, label %24, label %waitForAnyEvent.exit
@@ -5610,8 +5610,8 @@ define hidden void @_glfwWaitEventsTimeoutX11(double noundef %0) local_unnamed_a
 
 .preheader.i:                                     ; preds = %.lr.ph.i, %26
   %exitcond.i = phi i1 [ true, %26 ], [ false, %.lr.ph.i ]
-  %indvars.iv.i.sroa.phi.sroa.phi = phi ptr [ %15, %26 ], [ %12, %.lr.ph.i ]
-  %27 = load i16, ptr %indvars.iv.i.sroa.phi.sroa.phi, align 2, !tbaa !115
+  %27 = phi ptr [ %15, %26 ], [ %12, %.lr.ph.i ]
+  %27 = load i16, ptr %25, align 2, !tbaa !115
   %28 = and i16 %27, 1
   %.not10.i = icmp eq i16 %28, 0
   br i1 %.not10.i, label %26, label %waitForAnyEvent.exit

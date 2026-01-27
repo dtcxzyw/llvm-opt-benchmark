@@ -5,7 +5,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -12, 1) i32 @ff_jpeg2000_dwt_init(ptr noundef writeonly captures(none) initializes((320, 322)) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
-  %.sroa.0 = alloca i32, align 16
+  %5 = alloca i32, align 16
   %.sroa.5 = alloca i32, align 4
   %.sroa.8 = alloca i32, align 8
   %.sroa.10 = alloca i32, align 4
@@ -14,13 +14,13 @@ define range(i32 -12, 1) i32 @ff_jpeg2000_dwt_init(ptr noundef writeonly capture
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.8)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.10)
   %5 = trunc i32 %2 to i8
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 320
-  store i8 %5, ptr %6, align 8, !tbaa !4
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 320
+  store i8 %5, ptr %10, align 8, !tbaa !4
   %7 = trunc i32 %3 to i8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 321
   store i8 %7, ptr %8, align 1, !tbaa !11
   %.sroa.0.0.copyload = load i32, ptr %1, align 4, !tbaa !12
-  store i32 %.sroa.0.0.copyload, ptr %.sroa.0, align 16, !tbaa !12
+  store i32 %.sroa.0.0.copyload, ptr %5, align 16, !tbaa !12
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.sroa.5.0.copyload = load i32, ptr %.sroa.5.0..sroa_idx, align 4, !tbaa !12
   store i32 %.sroa.5.0.copyload, ptr %.sroa.5, align 4, !tbaa !12
@@ -40,32 +40,32 @@ define range(i32 -12, 1) i32 @ff_jpeg2000_dwt_init(ptr noundef writeonly capture
   br i1 %11, label %.preheader.lr.ph, label %._crit_edge
 
 .preheader.lr.ph:                                 ; preds = %4
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %13 = zext nneg i32 %2 to i64
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  %21 = zext nneg i32 %2 to i64
   br label %.preheader
 
 .loopexit:                                        ; preds = %.critedge
-  %14 = icmp sgt i64 %indvars.iv63, 1
-  br i1 %14, label %.preheader, label %._crit_edge, !llvm.loop !14
+  %22 = icmp sgt i64 %indvars.iv63, 1
+  br i1 %22, label %.preheader, label %._crit_edge, !llvm.loop !14
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %.loopexit
-  %indvars.iv63 = phi i64 [ %13, %.preheader.lr.ph ], [ %indvars.iv.next64, %.loopexit ]
+  %indvars.iv63 = phi i64 [ %21, %.preheader.lr.ph ], [ %indvars.iv.next64, %.loopexit ]
   %indvars.iv.next64 = add nsw i64 %indvars.iv63, -1
-  %15 = getelementptr inbounds nuw [2 x i32], ptr %0, i64 %indvars.iv.next64
-  %16 = getelementptr inbounds nuw [2 x i8], ptr %12, i64 %indvars.iv.next64
+  %23 = getelementptr inbounds nuw [2 x i32], ptr %0, i64 %indvars.iv.next64
+  %24 = getelementptr inbounds nuw [2 x i8], ptr %20, i64 %indvars.iv.next64
   br label %.critedge
 
 .critedge:                                        ; preds = %.preheader, %.critedge
-  %17 = phi i1 [ true, %.preheader ], [ false, %.critedge ]
-  %indvars.iv60.sroa.phi.sroa.phi69 = phi ptr [ %.sroa.5, %.preheader ], [ %.sroa.10, %.critedge ]
+  %25 = phi i1 [ true, %.preheader ], [ false, %.critedge ]
+  %indvars.iv60.sroa.phi = phi ptr [ %.sroa.5, %.preheader ], [ %.sroa.10, %.critedge ]
   %indvars.iv60.sroa.phi = phi ptr [ %.sroa.0, %.preheader ], [ %.sroa.8, %.critedge ]
   %indvars.iv60 = phi i64 [ 0, %.preheader ], [ 1, %.critedge ]
-  %18 = load i32, ptr %indvars.iv60.sroa.phi.sroa.phi69, align 4, !tbaa !12
-  %19 = load i32, ptr %indvars.iv60.sroa.phi, align 8, !tbaa !12
+  %18 = load i32, ptr %indvars.iv60.sroa.phi, align 4, !tbaa !12
+  %27 = load i32, ptr %indvars.iv60.sroa.phi, align 8, !tbaa !12
   %20 = sub nsw i32 %18, %19
-  %21 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv60
+  %21 = getelementptr inbounds nuw i32, ptr %23, i64 %indvars.iv60
   store i32 %20, ptr %21, align 4, !tbaa !12
-  %22 = trunc i32 %19 to i8
+  %22 = trunc i32 %27 to i8
   %23 = and i8 %22, 1
   %24 = getelementptr inbounds nuw i8, ptr %16, i64 %indvars.iv60
   store i8 %23, ptr %24, align 1, !tbaa !16
@@ -73,10 +73,10 @@ define range(i32 -12, 1) i32 @ff_jpeg2000_dwt_init(ptr noundef writeonly capture
   %26 = add nsw i32 %25, 1
   %27 = ashr i32 %26, 1
   store i32 %27, ptr %indvars.iv60.sroa.phi, align 8, !tbaa !12
-  %28 = load i32, ptr %indvars.iv60.sroa.phi.sroa.phi69, align 4, !tbaa !12
+  %28 = load i32, ptr %indvars.iv60.sroa.phi, align 4, !tbaa !12
   %29 = add nsw i32 %28, 1
   %30 = ashr i32 %29, 1
-  store i32 %30, ptr %indvars.iv60.sroa.phi.sroa.phi69, align 4, !tbaa !12
+  store i32 %30, ptr %indvars.iv60.sroa.phi, align 4, !tbaa !12
   br i1 %17, label %.critedge, label %.loopexit, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.loopexit, %4
@@ -107,18 +107,18 @@ define range(i32 -12, 1) i32 @ff_jpeg2000_dwt_init(ptr noundef writeonly capture
 41:                                               ; preds = %._crit_edge
   %42 = add nsw i32 %., 6
   %43 = sext i32 %42 to i64
-  %44 = tail call ptr @av_malloc_array(i64 noundef %43, i64 noundef 4) #7
+  %44 = tail call ptr @av_malloc_array(i64 noundef %43, i64 noundef 4) #8
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 328
   store ptr %44, ptr %45, align 8, !tbaa !19
-  %.not = icmp eq ptr %44, null
-  br i1 %.not, label %47, label %46
+  %.not50 = icmp eq ptr %44, null
+  br i1 %.not50, label %47, label %46
 
 46:                                               ; preds = %41, %36, %31
   br label %47
 
-47:                                               ; preds = %._crit_edge, %41, %36, %31, %46
+47:; preds = %._crit_edge, %41, %36, %31, %46
   %.0 = phi i32 [ -12, %41 ], [ 0, %46 ], [ -12, %36 ], [ -12, %31 ], [ -1, %._crit_edge ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.10)
@@ -2704,9 +2704,9 @@ dwt_decode97_float.exit:                          ; preds = %._crit_edge152.i, %
 ; Function Attrs: nounwind uwtable
 define void @ff_dwt_destroy(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 336
-  tail call void @av_freep(ptr noundef nonnull %2) #7
+  tail call void @av_freep(ptr noundef nonnull %2) #8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 328
-  tail call void @av_freep(ptr noundef nonnull %3) #7
+  tail call void @av_freep(ptr noundef nonnull %3) #8
   ret void
 }
 

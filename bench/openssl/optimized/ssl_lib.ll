@@ -9858,7 +9858,7 @@ define internal range(i64 0, 4294967296) i64 @ssl_session_hash(ptr noundef reado
   br label %7
 
 7:                                                ; preds = %6, %1
-  %.0.sroa.phi = phi ptr [ %.sroa.0, %6 ], [ %2, %1 ]
+  %.0 = phi ptr [ %.sroa.0, %6 ], [ %2, %1 ]
   %.0.sroa.phi9 = phi ptr [ %.sroa.0.1.gep10.sroa_idx, %6 ], [ %.0.sroa.gep11, %1 ]
   %.0.sroa.phi12 = phi ptr [ %.sroa.0.2.gep13.sroa_idx, %6 ], [ %.0.sroa.gep14, %1 ]
   %.0.sroa.phi15 = phi ptr [ %.sroa.0.3.gep16.sroa_idx, %6 ], [ %.0.sroa.gep17, %1 ]

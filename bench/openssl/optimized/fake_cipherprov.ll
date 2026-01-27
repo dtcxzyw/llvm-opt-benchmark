@@ -357,38 +357,38 @@ define internal i32 @fake_skeymgmt_export(ptr noundef %0, i32 noundef %1, ptr no
   %.0.sroa.gep12 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %8 = and i32 %1, 1
   %.not = icmp eq i32 %8, 0
-  br i1 %.not, label %11, label %9
+  br i1 %.not, label %12, label %9
 
 9:                                                ; preds = %4
   %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #12
   call void @OSSL_PARAM_construct_utf8_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %5, ptr noundef nonnull @.str.13, ptr noundef nonnull %0, i64 noundef %10) #11
-  %.0.sroa.gep = getelementptr inbounds nuw i8, ptr %5, i64 80
-  br label %11
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 80
+  br label %12
 
-11:                                               ; preds = %9, %4
-  %.0.sroa.phi = phi ptr [ %.0.sroa.gep, %9 ], [ %.0.sroa.gep12, %4 ]
+12:                                               ; preds = %9, %4
+  %.0 = phi ptr [ %11, %9 ], [ %.0.sroa.gep12, %4 ]
   %.0 = phi ptr [ %.0.sroa.gep12, %9 ], [ %5, %4 ]
   %12 = and i32 %1, 2
   %.not13 = icmp eq i32 %12, 0
   br i1 %.not13, label %15, label %13
 
-13:                                               ; preds = %11
+14:                                               ; preds = %12
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @OSSL_PARAM_construct_octet_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %6, ptr noundef nonnull @.str.18, ptr noundef nonnull %14, i64 noundef 16) #11
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  call void @OSSL_PARAM_construct_octet_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %6, ptr noundef nonnull @.str.18, ptr noundef nonnull %15, i64 noundef 16) #11
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.0, ptr noundef nonnull align 8 dereferenceable(40) %6, i64 40, i1 false), !tbaa.struct !22
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %15
 
-15:                                               ; preds = %13, %11
-  %.1 = phi ptr [ %.0.sroa.phi, %13 ], [ %.0, %11 ]
+17:                                               ; preds = %14, %12
+  %.1 = phi ptr [ %.0, %13 ], [ %.0, %11 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @OSSL_PARAM_construct_end(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %7) #11
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.1, ptr noundef nonnull align 8 dereferenceable(40) %7, i64 40, i1 false), !tbaa.struct !22
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %16 = call i32 %2(ptr noundef nonnull %5, ptr noundef %3) #11
+  %18 = call i32 %2(ptr noundef nonnull %5, ptr noundef %3) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  ret i32 %16
+  ret i32 %18
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)

@@ -3856,29 +3856,29 @@ define internal noundef ptr @"_ZZN8nanobind6detail11func_createILb0ELb1EZL28nano
   %storemerge.i6 = phi ptr [ %71, %66 ], [ %58, %49 ]
   store ptr %storemerge.i6, ptr %9, align 8, !tbaa !168, !alias.scope !171
   call void @llvm.experimental.noalias.scope.decl(metadata !183)
-  %76 = load i32, ptr %storemerge.i, align 4, !tbaa !124, !noalias !183
-  %77 = add nsw i32 %75, %76
-  store i32 %77, ptr %7, align 4, !tbaa !124, !alias.scope !183
-  %78 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  %74 = load i32, ptr %storemerge.i, align 4, !tbaa !124, !noalias !183
+  %75 = add nsw i32 %75, %74
+  store i32 %75, ptr %7, align 4, !tbaa !124, !alias.scope !183
+  %76 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %79 = load i32, ptr %storemerge.i.sroa.phi15, align 4, !tbaa !124, !noalias !183
   %80 = add nsw i32 %74, %79
-  store i32 %80, ptr %78, align 4, !tbaa !124, !alias.scope !183
+  store i32 %80, ptr %76, align 4, !tbaa !124, !alias.scope !183
   %81 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %82 = load i32, ptr %storemerge.i.sroa.phi, align 4, !tbaa !124, !noalias !183
   %83 = add nsw i32 %73, %82
   store i32 %83, ptr %81, align 4, !tbaa !124, !alias.scope !183
   %or.cond.i = icmp ult i32 %3, 2
   %spec.store.select.i = select i1 %or.cond.i, i32 4, i32 %3
-  %84 = call ptr @_ZN8nanobind6detail11type_casterIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEEiE8from_cppERKS4_NS_9rv_policyEPNS0_12cleanup_listE(ptr noundef nonnull align 4 dereferenceable(12) %7, i32 noundef %spec.store.select.i, ptr noundef %4) #32
+  %88 = call ptr @_ZN8nanobind6detail11type_casterIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEEiE8from_cppERKS4_NS_9rv_policyEPNS0_12cleanup_listE(ptr noundef nonnull align 4 dereferenceable(12) %7, i32 noundef %spec.store.select.i, ptr noundef %4) #32
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %"_ZZN8nanobind6detail11func_createILb0ELb1EZL28nanobind_init_test_eigen_extRNS_7module_EE3$_2N5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEEJRKNS5_3RefIKS7_Li0ENS5_11InnerStrideILi1EEEEESE_EJLm0ELm1EEJNS_5scopeENS_4nameENS_3argESH_EEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_ENKUlPvPSJ_PhNS_9rv_policyEPNS0_12cleanup_listEE_clESX_SY_SZ_S10_S12_.exit"
 
 "_ZZN8nanobind6detail11func_createILb0ELb1EZL28nanobind_init_test_eigen_extRNS_7module_EE3$_2N5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEEJRKNS5_3RefIKS7_Li0ENS5_11InnerStrideILi1EEEEESE_EJLm0ELm1EEJNS_5scopeENS_4nameENS_3argESH_EEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_ENKUlPvPSJ_PhNS_9rv_policyEPNS0_12cleanup_listEE_clESX_SY_SZ_S10_S12_.exit": ; preds = %5, %14, %72
-  %.0.i = phi ptr [ %84, %72 ], [ inttoptr (i64 1 to ptr), %14 ], [ inttoptr (i64 1 to ptr), %5 ]
-  %85 = getelementptr inbounds nuw i8, ptr %6, i64 168
-  %86 = load ptr, ptr %85, align 8, !tbaa !154
+  %.0.i = phi ptr [ %88, %72 ], [ inttoptr (i64 1 to ptr), %14 ], [ inttoptr (i64 1 to ptr), %5 ]
+  %89 = getelementptr inbounds nuw i8, ptr %6, i64 168
+  %90 = load ptr, ptr %89, align 8, !tbaa !154
   call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef %86) #32
   %87 = load ptr, ptr %10, align 8, !tbaa !125
   call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef %87) #32
@@ -4094,29 +4094,29 @@ define internal noundef ptr @"_ZZN8nanobind6detail11func_createILb0ELb1EZL28nano
   %storemerge.i6 = phi ptr [ %71, %66 ], [ %58, %49 ]
   store ptr %storemerge.i6, ptr %9, align 8, !tbaa !198, !alias.scope !200
   call void @llvm.experimental.noalias.scope.decl(metadata !212)
-  %76 = load i32, ptr %storemerge.i, align 4, !tbaa !124, !noalias !212
-  %77 = add nsw i32 %75, %76
-  store i32 %77, ptr %7, align 4, !tbaa !124, !alias.scope !212
-  %78 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  %74 = load i32, ptr %storemerge.i, align 4, !tbaa !124, !noalias !212
+  %75 = add nsw i32 %75, %74
+  store i32 %75, ptr %7, align 4, !tbaa !124, !alias.scope !212
+  %76 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %79 = load i32, ptr %storemerge.i.sroa.phi15, align 4, !tbaa !124, !noalias !212
   %80 = add nsw i32 %74, %79
-  store i32 %80, ptr %78, align 4, !tbaa !124, !alias.scope !212
+  store i32 %80, ptr %76, align 4, !tbaa !124, !alias.scope !212
   %81 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %82 = load i32, ptr %storemerge.i.sroa.phi, align 4, !tbaa !124, !noalias !212
   %83 = add nsw i32 %73, %82
   store i32 %83, ptr %81, align 4, !tbaa !124, !alias.scope !212
   %or.cond.i = icmp ult i32 %3, 2
   %spec.store.select.i = select i1 %or.cond.i, i32 4, i32 %3
-  %84 = call ptr @_ZN8nanobind6detail11type_casterIN5Eigen6MatrixIiLi1ELi3ELi1ELi1ELi3EEEiE8from_cppERKS4_NS_9rv_policyEPNS0_12cleanup_listE(ptr noundef nonnull align 4 dereferenceable(12) %7, i32 noundef %spec.store.select.i, ptr noundef %4) #32
+  %88 = call ptr @_ZN8nanobind6detail11type_casterIN5Eigen6MatrixIiLi1ELi3ELi1ELi1ELi3EEEiE8from_cppERKS4_NS_9rv_policyEPNS0_12cleanup_listE(ptr noundef nonnull align 4 dereferenceable(12) %7, i32 noundef %spec.store.select.i, ptr noundef %4) #32
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %"_ZZN8nanobind6detail11func_createILb0ELb1EZL28nanobind_init_test_eigen_extRNS_7module_EE3$_3N5Eigen6MatrixIiLi1ELi3ELi1ELi1ELi3EEEJRKNS5_3RefIKS7_Li0ENS5_11InnerStrideILi1EEEEESE_EJLm0ELm1EEJNS_5scopeENS_4nameENS_3argESH_EEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_ENKUlPvPSJ_PhNS_9rv_policyEPNS0_12cleanup_listEE_clESX_SY_SZ_S10_S12_.exit"
 
 "_ZZN8nanobind6detail11func_createILb0ELb1EZL28nanobind_init_test_eigen_extRNS_7module_EE3$_3N5Eigen6MatrixIiLi1ELi3ELi1ELi1ELi3EEEJRKNS5_3RefIKS7_Li0ENS5_11InnerStrideILi1EEEEESE_EJLm0ELm1EEJNS_5scopeENS_4nameENS_3argESH_EEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_ENKUlPvPSJ_PhNS_9rv_policyEPNS0_12cleanup_listEE_clESX_SY_SZ_S10_S12_.exit": ; preds = %5, %14, %72
-  %.0.i = phi ptr [ %84, %72 ], [ inttoptr (i64 1 to ptr), %14 ], [ inttoptr (i64 1 to ptr), %5 ]
-  %85 = getelementptr inbounds nuw i8, ptr %6, i64 168
-  %86 = load ptr, ptr %85, align 8, !tbaa !154
+  %.0.i = phi ptr [ %88, %72 ], [ inttoptr (i64 1 to ptr), %14 ], [ inttoptr (i64 1 to ptr), %5 ]
+  %89 = getelementptr inbounds nuw i8, ptr %6, i64 168
+  %90 = load ptr, ptr %89, align 8, !tbaa !154
   call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef %86) #32
   %87 = load ptr, ptr %10, align 8, !tbaa !125
   call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef %87) #32

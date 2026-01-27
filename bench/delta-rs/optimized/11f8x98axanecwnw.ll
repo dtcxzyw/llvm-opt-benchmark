@@ -132932,7 +132932,7 @@ define internal fastcc void @"_ZN14deltalake_core5table10DeltaTable18update_incr
     i8 4, label %1671
   ]
 
-default.unreachable529:                           ; preds = %1799, %1748, %1719, %1696, %1671, %456, %378, %335, %314, %3
+default.unreachable519:                           ; preds = %1799, %1748, %1719, %1696, %1671, %456, %378, %335, %314, %3
   unreachable
 
 130:                                              ; preds = %3
@@ -133371,7 +133371,7 @@ default.unreachable529:                           ; preds = %1799, %1748, %1719,
           cleanup
   br label %309
 
-.thread530:                                       ; preds = %276
+.thread520:                                       ; preds = %276
   %291 = extractvalue { ptr, ptr } %288, 0
   %292 = extractvalue { ptr, ptr } %288, 1
   %293 = load ptr, ptr %131, align 8, !nonnull !4, !align !5, !noundef !4
@@ -133522,23 +133522,23 @@ default.unreachable529:                           ; preds = %1799, %1748, %1719,
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.8151.sroa.3.sroa.3.sroa.3.i.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.8151.sroa.5.i.i)
   switch i8 %.pre.i, label %default.unreachable529 [
-    i8 0, label %._crit_edge451
+    i8 0, label %._crit_edge441
     i8 1, label %.invoke.i
     i8 2, label %375
     i8 3, label %378
     i8 4, label %337
   ]
 
-._crit_edge451:                                   ; preds = %335
-  %.phi.trans.insert452 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  %.pre453 = load ptr, ptr %.phi.trans.insert452, align 8, !noalias !25381
-  %.phi.trans.insert454 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  %.pre455 = load ptr, ptr %.phi.trans.insert454, align 8, !noalias !25381
-  %.phi.trans.insert456 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  %.pre457 = load ptr, ptr %.phi.trans.insert456, align 8, !noalias !25381
-  %.pre458 = load i64, ptr %336, align 8, !range !141, !noalias !25381
-  %.phi.trans.insert459 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %.pre460 = load i64, ptr %.phi.trans.insert459, align 8, !noalias !25381
+._crit_edge441:                                   ; preds = %335
+  %.phi.trans.insert442 = getelementptr inbounds nuw i8, ptr %1, i64 112
+  %.pre443 = load ptr, ptr %.phi.trans.insert442, align 8, !noalias !25381
+  %.phi.trans.insert444 = getelementptr inbounds nuw i8, ptr %1, i64 120
+  %.pre445 = load ptr, ptr %.phi.trans.insert444, align 8, !noalias !25381
+  %.phi.trans.insert446 = getelementptr inbounds nuw i8, ptr %1, i64 128
+  %.pre447 = load ptr, ptr %.phi.trans.insert446, align 8, !noalias !25381
+  %.pre448 = load i64, ptr %336, align 8, !range !141, !noalias !25381
+  %.phi.trans.insert449 = getelementptr inbounds nuw i8, ptr %1, i64 104
+  %.pre450 = load i64, ptr %.phi.trans.insert449, align 8, !noalias !25381
   br label %338
 
 337:                                              ; preds = %335
@@ -133547,14 +133547,14 @@ default.unreachable529:                           ; preds = %1799, %1748, %1719,
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.10207.sroa.0.i.i)
   br label %1456
 
-338:                                              ; preds = %._crit_edge451, %.thread126.i
+338:                                              ; preds = %._crit_edge441, %.thread126.i
   %339 = phi ptr [ %317, %.thread126.i ], [ %316, %._crit_edge451 ]
   %340 = phi ptr [ %318, %.thread126.i ], [ %315, %._crit_edge451 ]
-  %341 = phi i64 [ %327, %.thread126.i ], [ %.pre460, %._crit_edge451 ]
-  %342 = phi i64 [ %325, %.thread126.i ], [ %.pre458, %._crit_edge451 ]
-  %343 = phi ptr [ %324, %.thread126.i ], [ %.pre457, %._crit_edge451 ]
-  %344 = phi ptr [ %322, %.thread126.i ], [ %.pre455, %._crit_edge451 ]
-  %345 = phi ptr [ %320, %.thread126.i ], [ %.pre453, %._crit_edge451 ]
+  %341 = phi i64 [ %327, %.thread126.i ], [ %.pre450, %._crit_edge451 ]
+  %342 = phi i64 [ %325, %.thread126.i ], [ %.pre448, %._crit_edge451 ]
+  %343 = phi ptr [ %324, %.thread126.i ], [ %.pre447, %._crit_edge451 ]
+  %344 = phi ptr [ %322, %.thread126.i ], [ %.pre445, %._crit_edge451 ]
+  %345 = phi ptr [ %320, %.thread126.i ], [ %.pre443, %._crit_edge451 ]
   %346 = phi ptr [ %.sroa.13.0..sroa_idx.i, %.thread126.i ], [ %.phi.trans.insert.i, %._crit_edge451 ]
   %347 = phi ptr [ %328, %.thread126.i ], [ %336, %._crit_edge451 ]
   %348 = getelementptr inbounds nuw i8, ptr %1, i64 177
@@ -137257,8 +137257,8 @@ common.ret:                                       ; preds = %2768, %2737, %1667
 
 1671:                                             ; preds = %3
   call void @llvm.lifetime.start.p0(ptr nonnull %113)
-  %.phi.trans.insert461 = getelementptr inbounds nuw i8, ptr %1, i64 1376
-  %.pre462 = load i8, ptr %.phi.trans.insert461, align 8, !range !2376, !noalias !25871
+  %.phi.trans.insert451 = getelementptr inbounds nuw i8, ptr %1, i64 1376
+  %.pre452 = load i8, ptr %.phi.trans.insert451, align 8, !range !2376, !noalias !25871
   %1672 = getelementptr inbounds nuw i8, ptr %1, i64 80
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.789.i.sroa.7)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.789.i.sroa.8)
@@ -137268,14 +137268,14 @@ common.ret:                                       ; preds = %2768, %2737, %1667
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.1052.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %48)
   %1673 = getelementptr inbounds nuw i8, ptr %1, i64 1376
-  switch i8 %.pre462, label %default.unreachable529 [
+  switch i8 %.pre452, label %default.unreachable529 [
     i8 0, label %1674
-    i8 1, label %.invoke540
+    i8 1, label %.invoke530
     i8 2, label %1693
     i8 3, label %1696
   ]
 
-1674:                                             ; preds = %.thread530, %1671
+1674:                                             ; preds = %.thread520, %1671
   %1675 = phi ptr [ %306, %.thread530 ], [ %1673, %1671 ]
   %1676 = phi ptr [ %305, %.thread530 ], [ %1672, %1671 ]
   %1677 = getelementptr inbounds nuw i8, ptr %1, i64 120
@@ -137329,15 +137329,15 @@ common.ret:                                       ; preds = %2768, %2737, %1667
   br label %1698
 
 1693:                                             ; preds = %1671
-  br label %.invoke540
+  br label %.invoke530
 
-.invoke540:                                       ; preds = %1671, %1693
+.invoke530:                                       ; preds = %1671, %1693
   %1694 = phi ptr [ @str.b, %1693 ], [ @str.a, %1671 ]
   %1695 = phi i64 [ 34, %1693 ], [ 35, %1671 ]
   invoke void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 %1694, i64 noundef %1695, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ee42cc83d0486e413260d7ca4d417329.1026) #68
           to label %.cont541 unwind label %2735
 
-.cont541:                                         ; preds = %.invoke540
+.cont531:                                         ; preds = %.invoke530
   unreachable
 
 1696:                                             ; preds = %1671
@@ -137355,33 +137355,33 @@ common.ret:                                       ; preds = %2768, %2737, %1667
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.1161.i.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %46)
   switch i8 %.pre.i100, label %default.unreachable529 [
-    i8 0, label %._crit_edge463
+    i8 0, label %._crit_edge453
     i8 1, label %.invoke.i156
     i8 2, label %1716
     i8 3, label %1719
     i8 4, label %2637
   ]
 
-._crit_edge463:                                   ; preds = %1696
-  %.phi.trans.insert464 = getelementptr inbounds nuw i8, ptr %1, i64 200
-  %.pre465 = load ptr, ptr %.phi.trans.insert464, align 8, !noalias !25876
-  %.phi.trans.insert466 = getelementptr inbounds nuw i8, ptr %1, i64 208
-  %.pre467 = load ptr, ptr %.phi.trans.insert466, align 8, !noalias !25876
-  %.phi.trans.insert468 = getelementptr inbounds nuw i8, ptr %1, i64 216
-  %.pre469 = load ptr, ptr %.phi.trans.insert468, align 8, !noalias !25876
-  %.pre470 = load i64, ptr %1697, align 8, !range !141, !noalias !25876
-  %.phi.trans.insert471 = getelementptr inbounds nuw i8, ptr %1, i64 168
-  %.pre472 = load i64, ptr %.phi.trans.insert471, align 8, !noalias !25876
+._crit_edge453:                                   ; preds = %1696
+  %.phi.trans.insert454 = getelementptr inbounds nuw i8, ptr %1, i64 200
+  %.pre455 = load ptr, ptr %.phi.trans.insert454, align 8, !noalias !25876
+  %.phi.trans.insert456 = getelementptr inbounds nuw i8, ptr %1, i64 208
+  %.pre457 = load ptr, ptr %.phi.trans.insert456, align 8, !noalias !25876
+  %.phi.trans.insert458 = getelementptr inbounds nuw i8, ptr %1, i64 216
+  %.pre459 = load ptr, ptr %.phi.trans.insert458, align 8, !noalias !25876
+  %.pre460 = load i64, ptr %1697, align 8, !range !141, !noalias !25876
+  %.phi.trans.insert461 = getelementptr inbounds nuw i8, ptr %1, i64 168
+  %.pre462 = load i64, ptr %.phi.trans.insert461, align 8, !noalias !25876
   br label %1698
 
-1698:                                             ; preds = %._crit_edge463, %.thread158.i
+1698:                                             ; preds = %._crit_edge453, %.thread158.i
   %1699 = phi ptr [ %1675, %.thread158.i ], [ %1673, %._crit_edge463 ]
   %1700 = phi ptr [ %1676, %.thread158.i ], [ %1672, %._crit_edge463 ]
-  %1701 = phi i64 [ %1688, %.thread158.i ], [ %.pre472, %._crit_edge463 ]
-  %1702 = phi i64 [ %1686, %.thread158.i ], [ %.pre470, %._crit_edge463 ]
-  %1703 = phi ptr [ %1683, %.thread158.i ], [ %.pre469, %._crit_edge463 ]
-  %1704 = phi ptr [ %1681, %.thread158.i ], [ %.pre467, %._crit_edge463 ]
-  %1705 = phi ptr [ %1678, %.thread158.i ], [ %.pre465, %._crit_edge463 ]
+  %1701 = phi i64 [ %1688, %.thread158.i ], [ %.pre462, %._crit_edge463 ]
+  %1702 = phi i64 [ %1686, %.thread158.i ], [ %.pre460, %._crit_edge463 ]
+  %1703 = phi ptr [ %1683, %.thread158.i ], [ %.pre459, %._crit_edge463 ]
+  %1704 = phi ptr [ %1681, %.thread158.i ], [ %.pre457, %._crit_edge463 ]
+  %1705 = phi ptr [ %1678, %.thread158.i ], [ %.pre455, %._crit_edge463 ]
   %1706 = phi ptr [ %.sroa.14.0..sroa_idx.i, %.thread158.i ], [ %.phi.trans.insert.i99, %._crit_edge463 ]
   %1707 = phi ptr [ %1692, %.thread158.i ], [ %1697, %._crit_edge463 ]
   %1708 = getelementptr inbounds nuw i8, ptr %1, i64 241
@@ -139993,7 +139993,7 @@ common.ret:                                       ; preds = %2768, %2737, %1667
   %.sroa.12121.0.i.i = phi i64 [ %.sroa.092.sroa.4.0.copyload.i.i, %2600 ], [ %.sroa.1195.sroa.7.1.i.i, %2655 ]
   %.sroa.13123.i.i.sroa.0.0.copyload = load i64, ptr %.sroa.6101.sroa.5.i.sink.i, align 8, !noalias !25876
   %.sroa.13123.i.i.sroa.8.0.copyload = load i64, ptr %.sroa.6101.sroa.5.i.sink.i.sroa.phi, align 8, !noalias !25876
-  %.sroa.13123.i.i.sroa.9.0.copyload = load i64, ptr %.sroa.6101.sroa.5.i.sink.i.sroa.phi442, align 8, !noalias !25876
+  %.sroa.13123.i.i.sroa.8.0.copyload = load i64, ptr %.sroa.6101.sroa.5.i.sink.i.sroa.phi442, align 8, !noalias !25876
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.13123.i.i.sroa.10, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6101.sroa.5.i.sink.i.sroa.phi445, i64 16, i1 false), !noalias !25876
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.13123.i.i.sroa.11, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6101.sroa.5.i.sink.i.sroa.phi448, i64 16, i1 false), !noalias !25876
   %2606 = getelementptr inbounds nuw i8, ptr %1, i64 248
@@ -140483,7 +140483,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.llvm.82263
   invoke fastcc void @"_ZN4core3ptr106drop_in_place$LT$deltalake_core..kernel..snapshot..EagerSnapshot..try_new..$u7b$$u7b$closure$u7d$$u7d$$GT$17hdf86644352895c76E"(ptr noundef nonnull align 8 %2734) #66
           to label %2718 unwind label %2715, !noalias !25875
 
-2735:                                             ; preds = %.invoke540
+2735:                                             ; preds = %.invoke530
   %2736 = landingpad { ptr, i32 }
           cleanup
   br label %.body160
@@ -140610,7 +140610,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.llvm.82263
           to label %"_ZN4core3ptr66drop_in_place$LT$deltalake_core..table..state..DeltaTableState$GT$17ha047414fbea9f01eE.exit.i._ZN4core3ptr94drop_in_place$LT$core..option..Option$LT$deltalake_core..table..state..DeltaTableState$GT$$GT$17hca0599d363ddd71bE.exit_crit_edge" unwind label %2765
 
 "_ZN4core3ptr66drop_in_place$LT$deltalake_core..table..state..DeltaTableState$GT$17ha047414fbea9f01eE.exit.i._ZN4core3ptr94drop_in_place$LT$core..option..Option$LT$deltalake_core..table..state..DeltaTableState$GT$$GT$17hca0599d363ddd71bE.exit_crit_edge": ; preds = %"_ZN4core3ptr66drop_in_place$LT$deltalake_core..table..state..DeltaTableState$GT$17ha047414fbea9f01eE.exit.i"
-  %.pre473 = load ptr, ptr %2750, align 8
+  %.pre463 = load ptr, ptr %2750, align 8
   br label %"_ZN4core3ptr94drop_in_place$LT$core..option..Option$LT$deltalake_core..table..state..DeltaTableState$GT$$GT$17hca0599d363ddd71bE.exit"
 
 2765:                                             ; preds = %"_ZN4core3ptr66drop_in_place$LT$deltalake_core..table..state..DeltaTableState$GT$17ha047414fbea9f01eE.exit.i"
@@ -140619,7 +140619,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.llvm.82263
   br label %2769
 
 "_ZN4core3ptr94drop_in_place$LT$core..option..Option$LT$deltalake_core..table..state..DeltaTableState$GT$$GT$17hca0599d363ddd71bE.exit": ; preds = %"_ZN4core3ptr66drop_in_place$LT$deltalake_core..table..state..DeltaTableState$GT$17ha047414fbea9f01eE.exit.i._ZN4core3ptr94drop_in_place$LT$core..option..Option$LT$deltalake_core..table..state..DeltaTableState$GT$$GT$17hca0599d363ddd71bE.exit_crit_edge", %2749
-  %2767 = phi ptr [ %.pre473, %"_ZN4core3ptr66drop_in_place$LT$deltalake_core..table..state..DeltaTableState$GT$17ha047414fbea9f01eE.exit.i._ZN4core3ptr94drop_in_place$LT$core..option..Option$LT$deltalake_core..table..state..DeltaTableState$GT$$GT$17hca0599d363ddd71bE.exit_crit_edge" ], [ %2751, %2749 ]
+  %2767 = phi ptr [ %.pre463, %"_ZN4core3ptr66drop_in_place$LT$deltalake_core..table..state..DeltaTableState$GT$17ha047414fbea9f01eE.exit.i._ZN4core3ptr94drop_in_place$LT$core..option..Option$LT$deltalake_core..table..state..DeltaTableState$GT$$GT$17hca0599d363ddd71bE.exit_crit_edge" ], [ %2751, %2749 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(592) %2767, ptr noundef nonnull align 8 dereferenceable(592) %113, i64 592, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %113)
   br label %2768

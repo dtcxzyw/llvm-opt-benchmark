@@ -1878,7 +1878,7 @@ define internal noalias noundef nonnull ptr @storage_compact_thread(ptr noundef 
   call void @extstore_get_stats(ptr noundef %0, ptr noundef nonnull %3) #21
   %55 = load i64, ptr %31, align 8, !tbaa !43
   %56 = icmp eq i64 %55, 0
-  br i1 %56, label %.loopexit142, label %.preheader.i
+  br i1 %56, label %.loopexit141, label %.preheader.i
 
 57:                                               ; preds = %.preheader.i
   %58 = and i8 %.sroa.0.0, -2
@@ -2010,7 +2010,7 @@ define internal noalias noundef nonnull ptr @storage_compact_thread(ptr noundef 
 124:                                              ; preds = %122
   %125 = load i32, ptr %39, align 8, !tbaa !194
   call void @extstore_evict_page(ptr noundef %0, i32 noundef %125, i64 noundef %123) #21
-  br label %.loopexit142
+  br label %.loopexit141
 
 126:                                              ; preds = %122, %118, %._crit_edge.i
   %.sroa.0.3 = phi i8 [ %58, %._crit_edge.i ], [ %119, %122 ], [ %119, %118 ]
@@ -2032,7 +2032,7 @@ define internal noalias noundef nonnull ptr @storage_compact_thread(ptr noundef 
 134:                                              ; preds = %132
   %135 = load i32, ptr %43, align 16, !tbaa !194
   call void @extstore_evict_page(ptr noundef %0, i32 noundef %135, i64 noundef %133) #21
-  br label %.loopexit142
+  br label %.loopexit141
 
 136:                                              ; preds = %132, %128, %126
   %.sroa.0.4 = phi i8 [ %.sroa.0.3, %126 ], [ %129, %132 ], [ %129, %128 ]
@@ -2062,7 +2062,7 @@ define internal noalias noundef nonnull ptr @storage_compact_thread(ptr noundef 
   %151 = getelementptr inbounds nuw i8, ptr %141, i64 16
   %152 = load i64, ptr %151, align 8, !tbaa !197
   %.not100.i = icmp eq i64 %152, -1
-  br i1 %.not100.i, label %153, label %.loopexit141
+  br i1 %.not100.i, label %153, label %.loopexit156
 
 153:                                              ; preds = %150
   %154 = icmp ult i32 %148, %138
@@ -2095,13 +2095,13 @@ define internal noalias noundef nonnull ptr @storage_compact_thread(ptr noundef 
   %.sroa.0.6 = phi i8 [ %.sroa.0.5, %140 ], [ %.sroa.0.5, %155 ], [ %spec.select, %159 ], [ %.sroa.0.5, %153 ], [ %.sroa.0.5, %146 ]
   %indvars.iv.next133.i = add nuw nsw i64 %indvars.iv132.i, 1
   %exitcond135.not.i = icmp eq i64 %indvars.iv.next133.i, 6
-  br i1 %exitcond135.not.i, label %.loopexit142, label %140, !llvm.loop !199
+  br i1 %exitcond135.not.i, label %.loopexit141, label %140, !llvm.loop !199
 
-.loopexit141:                                     ; preds = %150
+.loopexit156:                                     ; preds = %150
   %.lcssa162.sroa.gep.le = getelementptr inbounds nuw i8, ptr %141, i64 4
   br label %167
 
-167:                                              ; preds = %.loopexit141, %161
+167: ; preds = %.loopexit141, %161
   %.379.in = phi ptr [ %.lcssa163.sroa.gep.le, %161 ], [ %.lcssa162.sroa.gep.le, %.loopexit141 ]
   %.375 = phi i64 [ %157, %161 ], [ %152, %.loopexit141 ]
   %.sroa.0.8 = phi i8 [ %165, %161 ], [ %.sroa.0.5, %.loopexit141 ]
@@ -2117,7 +2117,7 @@ define internal noalias noundef nonnull ptr @storage_compact_thread(ptr noundef 
   %171 = call i32 (ptr, i32, ptr, ...) @logger_log(ptr noundef nonnull %6, i32 noundef 12, ptr noundef null, i32 noundef %.379, i64 noundef %.375) #21
   br label %.lr.ph
 
-.loopexit142:                                     ; preds = %166, %134, %124, %.loopexit
+.loopexit141:                                     ; preds = %166, %134, %124, %.loopexit
   %.sroa.0.8.ph = phi i8 [ %119, %124 ], [ %129, %134 ], [ %.sroa.0.0, %.loopexit ], [ %.sroa.0.6, %166 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -2564,7 +2564,7 @@ storage_compact_readback.exit:                    ; preds = %.thread194.i, %398
   %410 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %20) #21
   br label %.loopexit.backedge
 
-.loopexit.backedge:                               ; preds = %.thread138, %.loopexit142
+.loopexit.backedge:                               ; preds = %.thread138, %.loopexit141
   %.sroa.0.0.be = phi i8 [ %.sroa.0.8.ph, %.loopexit142 ], [ %.sroa.0.8, %.thread138 ]
   br label %.loopexit
 

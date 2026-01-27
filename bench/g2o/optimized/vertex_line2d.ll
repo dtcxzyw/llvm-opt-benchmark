@@ -353,17 +353,17 @@ define linkonce_odr noundef double @_ZN3g2o10BaseVertexILi2ENS_6Line2DEE11solveD
   %3 = alloca %"class.Eigen::Matrix", align 16
   %4 = alloca %"class.Eigen::LLT", align 16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %.sroa.012.0.copyload = load ptr, ptr %5, align 16
-  %6 = load double, ptr %.sroa.012.0.copyload, align 8, !tbaa !52
+  %.sroa.011.0.copyload = load ptr, ptr %5, align 16
+  %6 = load double, ptr %.sroa.011.0.copyload, align 8, !tbaa !52
   %7 = fadd double %1, %6
-  %8 = getelementptr i8, ptr %.sroa.012.0.copyload, i64 8
+  %8 = getelementptr i8, ptr %.sroa.011.0.copyload, i64 8
   %9 = fmul double %1, 0.000000e+00
   %10 = load double, ptr %8, align 8, !tbaa !52
   %11 = fadd double %9, %10
-  %12 = getelementptr i8, ptr %.sroa.012.0.copyload, i64 16
+  %12 = getelementptr i8, ptr %.sroa.011.0.copyload, i64 16
   %13 = load double, ptr %12, align 8, !tbaa !52
   %14 = fadd double %9, %13
-  %15 = getelementptr i8, ptr %.sroa.012.0.copyload, i64 24
+  %15 = getelementptr i8, ptr %.sroa.011.0.copyload, i64 24
   %16 = load double, ptr %15, align 8, !tbaa !52
   %17 = fadd double %1, %16
   %18 = fneg double %14
@@ -379,31 +379,31 @@ define linkonce_odr noundef double @_ZN3g2o10BaseVertexILi2ENS_6Line2DEE11solveD
   %.sroa.gep22 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %.sroa.8.16.vec.insert = insertelement <2 x double> poison, double %14, i64 0
   %.sroa.8.24.vec.insert = insertelement <2 x double> %.sroa.8.16.vec.insert, double %17, i64 1
-  %.sroa.015.0.vec.insert = insertelement <2 x double> poison, double %7, i64 0
-  %.sroa.015.8.vec.insert = insertelement <2 x double> %.sroa.015.0.vec.insert, double %11, i64 1
+  %.sroa.014.0.vec.insert = insertelement <2 x double> poison, double %7, i64 0
+  %.sroa.014.8.vec.insert = insertelement <2 x double> %.sroa.014.0.vec.insert, double %11, i64 1
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  store <2 x double> %.sroa.015.8.vec.insert, ptr %4, align 16, !tbaa !66, !alias.scope !67
+  store <2 x double> %.sroa.014.8.vec.insert, ptr %4, align 16, !tbaa !66, !alias.scope !67
   store <2 x double> %.sroa.8.24.vec.insert, ptr %.sroa.gep22, align 16, !tbaa !66, !alias.scope !67
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store double 0.000000e+00, ptr %24, align 16, !tbaa !70, !alias.scope !67
   br label %48
 
-25:                                               ; preds = %63
-  %26 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  store i8 1, ptr %26, align 8, !tbaa !77, !alias.scope !67
+26:                                               ; preds = %63
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  store i8 1, ptr %27, align 8, !tbaa !77, !alias.scope !67
   br label %_ZN5Eigen9DenseBaseINS_5BlockINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELin1ELi1ELb0EEEEdVERKd.exit.i.i.i.i.i.i
 
-_ZN5Eigen9DenseBaseINS_5BlockINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELin1ELi1ELb0EEEEdVERKd.exit.i.i.i.i.i.i: ; preds = %_ZN5Eigen9DenseBaseINS_5BlockINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELin1ELi1ELb0EEEEdVERKd.exit.i.i.i.i.i.i.backedge, %25
+_ZN5Eigen9DenseBaseINS_5BlockINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELin1ELi1ELb0EEEEdVERKd.exit.i.i.i.i.i.i: ; preds = %_ZN5Eigen9DenseBaseINS_5BlockINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELin1ELi1ELb0EEEEdVERKd.exit.i.i.i.i.i.i.backedge, %26
   %.not53.i.i.i.i.i.i = phi i1 [ true, %25 ], [ false, %_ZN5Eigen9DenseBaseINS_5BlockINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELin1ELi1ELb0EEEEdVERKd.exit.i.i.i.i.i.i.backedge ]
   %.not54.i.i.i.i.i.i = phi i1 [ false, %25 ], [ true, %_ZN5Eigen9DenseBaseINS_5BlockINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELin1ELi1ELb0EEEEdVERKd.exit.i.i.i.i.i.i.backedge ]
-  %27 = phi i64 [ 8, %25 ], [ 16, %_ZN5Eigen9DenseBaseINS_5BlockINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELin1ELi1ELb0EEEEdVERKd.exit.i.i.i.i.i.i.backedge ]
-  %.03456.i.i.i.i.i.i.sroa.phi = phi ptr [ %4, %25 ], [ %.048.i.i.i.sroa.gep7, %_ZN5Eigen9DenseBaseINS_5BlockINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELin1ELi1ELb0EEEEdVERKd.exit.i.i.i.i.i.i.backedge ]
+  %.03456.i.i.i.i.i.i.sroa.phi = phi i64 [ 8, %25 ], [ 16, %_ZN5Eigen9DenseBaseINS_5BlockINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELin1ELi1ELb0EEEEdVERKd.exit.i.i.i.i.i.i.backedge ]
+  %.03456.i.i.i.i.i.i = phi ptr [ %4, %25 ], [ %.048.i.i.i.sroa.gep7, %_ZN5Eigen9DenseBaseINS_5BlockINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELin1ELi1ELb0EEEEdVERKd.exit.i.i.i.i.i.i.backedge ]
   %.03456.i.i.i.i.i.i = phi i64 [ 0, %25 ], [ 1, %_ZN5Eigen9DenseBaseINS_5BlockINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELin1ELi1ELb0EEEEdVERKd.exit.i.i.i.i.i.i.backedge ]
-  %28 = getelementptr inbounds nuw i8, ptr %4, i64 %27
+  %29 = getelementptr inbounds nuw i8, ptr %4, i64 %.03456.i.i.i.i.i.i.sroa.phi
   %29 = xor i64 %.03456.i.i.i.i.i.i, 1
   %.idx.i.i.i.i.i.i.i.i.i = shl nuw nsw i64 %.03456.i.i.i.i.i.i, 4
-  %30 = getelementptr inbounds nuw i8, ptr %28, i64 %.idx.i.i.i.i.i.i.i.i.i
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 %.idx.i.i.i.i.i.i.i.i.i
   %31 = getelementptr i8, ptr %.03456.i.i.i.i.i.i.sroa.phi, i64 %.idx.i.i.i.i.i.i.i.i.i
   %32 = load double, ptr %31, align 8, !tbaa !52, !alias.scope !67
   br i1 %.not53.i.i.i.i.i.i, label %36, label %_ZNK5Eigen10MatrixBaseINS_5BlockINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELi1ELin1ELb0EEEE11squaredNormEv.exit.i.i.i.i.i.i
@@ -487,7 +487,7 @@ _ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELi1ELi2E
 
 63:                                               ; preds = %62, %_ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELi1ELi2ELb0EEELi1ELin1ELb0EEEE6lpNormILi1EEEdv.exit.i.i.i
   %64 = phi double [ %.0.i.i.i56.i.i.i, %62 ], [ %49, %_ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELi1ELi2ELb0EEELi1ELin1ELb0EEEE6lpNormILi1EEEdv.exit.i.i.i ]
-  br i1 %.not.i.i.i.i.i.not.i.i.i, label %48, label %25, !llvm.loop !79
+  br i1 %.not.i.i.i.i.i.not.i.i.i, label %48, label %26, !llvm.loop !79
 
 65:                                               ; preds = %36, %38
   %66 = zext i1 %37 to i32

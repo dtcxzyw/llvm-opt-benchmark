@@ -3351,9 +3351,9 @@ _ZNSt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
   store i16 %39, ptr %34, align 1
   %40 = udiv i32 %.021.i.i, 100
   %41 = icmp ugt i32 %.021.i.i, 9999
-  br i1 %41, label %.lr.ph.i.i, label %._crit_edge.i.loopexit.i, !llvm.loop !93
+  br i1 %41, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !93
 
-._crit_edge.i.loopexit.i:                         ; preds = %.lr.ph.i.i
+._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i
   %.019.lcssa.i.sroa.gep8.le.i = getelementptr inbounds i8, ptr %.01920.i.i, i64 -3
   %.019.lcssa.i.sroa.gep5.le.i = getelementptr inbounds i8, ptr %.01920.i.i, i64 -4
   br label %._crit_edge.i.i
@@ -3363,7 +3363,7 @@ _ZNSt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
   %.019.lcssa.i.sroa.phi6.i = phi ptr [ %.019.lcssa.i.sroa.gep7.i, %31 ], [ %.019.lcssa.i.sroa.gep8.le.i, %._crit_edge.i.loopexit.i ]
   %.0.lcssa.i.i = phi i32 [ %spec.select, %31 ], [ %40, %._crit_edge.i.loopexit.i ]
   %42 = icmp samesign ult i32 %.0.lcssa.i.i, 10
-  br i1 %42, label %43, label %46
+  br i1 %42, label %43, label %47
 
 43:                                               ; preds = %._crit_edge.i.i
   %44 = trunc nuw nsw i32 %.0.lcssa.i.i to i8
@@ -3371,7 +3371,7 @@ _ZNSt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
   store i8 %45, ptr %.019.lcssa.i.sroa.phi6.i, align 1, !tbaa !17
   br label %51
 
-46:                                               ; preds = %._crit_edge.i.i
+47:                                               ; preds = %._crit_edge.i.i
   %47 = shl nuw nsw i32 %.0.lcssa.i.i, 1
   %48 = zext nneg i32 %47 to i64
   %49 = getelementptr inbounds nuw i8, ptr @.str.6, i64 %48
@@ -3379,10 +3379,10 @@ _ZNSt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
   store i16 %50, ptr %.019.lcssa.i.sroa.phi.i, align 1
   br label %51
 
-51:                                               ; preds = %46, %43
-  %52 = call ptr @_ZN3fmt3v116detail13copy_noinlineIcPcSt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEET1_T0_SD_SC_(ptr noundef nonnull %3, ptr noundef nonnull %32, ptr %0)
+53:                                               ; preds = %47, %43
+  %54 = call ptr @_ZN3fmt3v116detail13copy_noinlineIcPcSt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEET1_T0_SD_SC_(ptr noundef nonnull %3, ptr noundef nonnull %32, ptr %0)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  ret ptr %52
+  ret ptr %54
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)

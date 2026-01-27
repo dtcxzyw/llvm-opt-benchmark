@@ -28596,14 +28596,14 @@ _ZN3std4path4Path4join17h69e3f6b484ec3542E.exit:  ; preds = %4
           to label %.thread unwind label %67
 
 40:                                               ; preds = %"_ZN9uv_python13version_files17PythonVersionFile17find_in_directory28_$u7b$$u7b$closure$u7d$$u7d$17hd284aa86cd509c5dE.exit.i.i"
-  %.sroa.535.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.535.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.phi.sroa.phi, i64 16, i1 false)
+  %.sroa.534.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.534.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.phi.sroa.phi, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !5994
   br label %"_ZN4core3ptr83drop_in_place$LT$core..ops..control_flow..ControlFlow$LT$std..path..PathBuf$GT$$GT$17h0fd52fe330263055E.llvm.7725695193857395179.exit"
 
 "_ZN4core3ptr83drop_in_place$LT$core..ops..control_flow..ControlFlow$LT$std..path..PathBuf$GT$$GT$17h0fd52fe330263055E.llvm.7725695193857395179.exit": ; preds = %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0769681911e9e408E.exit.i", %.noexc3, %40
-  %.sroa.0.0.copyload10.i.lcssa40.sink = phi i64 [ %.sroa.0.0.copyload10.i, %40 ], [ -9223372036854775808, %.noexc3 ], [ -9223372036854775808, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0769681911e9e408E.exit.i" ]
-  store i64 %.sroa.0.0.copyload10.i.lcssa40.sink, ptr %0, align 8
+  %.sroa.0.0.copyload10.i.lcssa42.sink = phi i64 [ %.sroa.0.0.copyload10.i, %40 ], [ -9223372036854775808, %.noexc3 ], [ -9223372036854775808, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0769681911e9e408E.exit.i" ]
+  store i64 %.sroa.0.0.copyload10.i.lcssa42.sink, ptr %0, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !6016)
   call void @llvm.experimental.noalias.scope.decl(metadata !6019)
   %41 = load i64, ptr %18, align 8, !alias.scope !6022, !noundef !8

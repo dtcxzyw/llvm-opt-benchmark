@@ -29897,15 +29897,15 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %.
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i: ; preds = %153
   store ptr %156, ptr %0, align 8, !tbaa !21
-  %162 = load i64, ptr %.sroa.phi, align 8, !tbaa !26
-  store i64 %162, ptr %155, align 8, !tbaa !26
+  %164 = load i64, ptr %.sroa.phi, align 8, !tbaa !26
+  store i64 %164, ptr %155, align 8, !tbaa !26
   %.pre = load i64, ptr %.sroa.phi54, align 8, !tbaa !24
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %158, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i
-  %163 = phi i64 [ %159, %158 ], [ %.pre, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i ]
-  %164 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %163, ptr %164, align 8, !tbaa !24
+  %165 = phi i64 [ %159, %158 ], [ %.pre, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i ]
+  %166 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %163, ptr %166, align 8, !tbaa !24
   store ptr %.sroa.phi, ptr %154, align 8, !tbaa !21
   store i64 0, ptr %.sroa.phi54, align 8, !tbaa !24
   store i8 0, ptr %.sroa.phi, align 1, !tbaa !26

@@ -147,7 +147,7 @@ define dso_local noundef i32 @fpconv_g_fmt(ptr noundef writeonly captures(none) 
   br i1 %.not.i, label %set_number_format.exit, label %7
 
 7:                                                ; preds = %3
-  %.0.i.sroa.phi.sroa.gep = getelementptr inbounds nuw i8, ptr %5, i64 5
+  %.0.i.sroa.gep = getelementptr inbounds nuw i8, ptr %5, i64 5
   %8 = sdiv i32 %2, 10
   %9 = trunc i32 %8 to i8
   %10 = add i8 %9, 48
@@ -155,7 +155,7 @@ define dso_local noundef i32 @fpconv_g_fmt(ptr noundef writeonly captures(none) 
   br label %set_number_format.exit
 
 set_number_format.exit:                           ; preds = %3, %7
-  %.0.i.sroa.phi.sroa.phi = phi ptr [ %.0.i.sroa.phi.sroa.gep, %7 ], [ %.0.i.sroa.phi.sroa.gep13, %3 ]
+  %.0.i.sroa.phi = phi ptr [ %.0.i.sroa.gep, %7 ], [ %.0.i.sroa.phi.sroa.gep13, %3 ]
   %.0.i.sroa.phi.sroa.phi14 = phi ptr [ %.0.i.sroa.phi.sroa.gep13, %7 ], [ %.0.i.sroa.phi.sroa.gep16, %3 ]
   %.0.i.sroa.phi = phi ptr [ %.0.i.sroa.phi.sroa.gep16, %7 ], [ %.0.i.sroa.gep12, %3 ]
   %11 = srem i32 %2, 10
@@ -163,34 +163,34 @@ set_number_format.exit:                           ; preds = %3, %7
   %13 = add nsw i8 %12, 48
   store i8 %13, ptr %.0.i.sroa.phi, align 1, !tbaa !4
   store i8 103, ptr %.0.i.sroa.phi.sroa.phi14, align 1, !tbaa !4
-  store i8 0, ptr %.0.i.sroa.phi.sroa.phi, align 1, !tbaa !4
+  store i8 0, ptr %.0.i.sroa.phi, align 1, !tbaa !4
   %14 = load i8, ptr @locale_decimal_point, align 1, !tbaa !4
   %15 = icmp eq i8 %14, 46
   br i1 %15, label %16, label %18
 
-16:                                               ; preds = %set_number_format.exit
+16:; preds = %set_number_format.exit
   %17 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 32, ptr noundef nonnull %5, double noundef %1) #11
   br label %.loopexit
 
-18:                                               ; preds = %set_number_format.exit
-  %19 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 32, ptr noundef nonnull %5, double noundef %1) #11
-  %20 = load i8, ptr @locale_decimal_point, align 1, !tbaa !4
-  br label %21
+20:                                               ; preds = %set_number_format.exit
+  %21 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 32, ptr noundef nonnull %5, double noundef %1) #11
+  %22 = load i8, ptr @locale_decimal_point, align 1, !tbaa !4
+  br label %23
 
-21:                                               ; preds = %21, %18
-  %.010 = phi ptr [ %0, %18 ], [ %24, %21 ]
-  %.0 = phi ptr [ %4, %18 ], [ %25, %21 ]
-  %22 = load i8, ptr %.0, align 1, !tbaa !4
-  %23 = icmp eq i8 %22, %20
-  %spec.select = select i1 %23, i8 46, i8 %22
-  %24 = getelementptr inbounds nuw i8, ptr %.010, i64 1
+23:                                               ; preds = %23, %20
+  %.010 = phi ptr [ %0, %18 ], [ %26, %21 ]
+  %.0 = phi ptr [ %4, %18 ], [ %27, %21 ]
+  %24 = load i8, ptr %.0, align 1, !tbaa !4
+  %25 = icmp eq i8 %24, %22
+  %spec.select = select i1 %25, i8 46, i8 %24
+  %26 = getelementptr inbounds nuw i8, ptr %.010, i64 1
   store i8 %spec.select, ptr %.010, align 1, !tbaa !4
-  %25 = getelementptr inbounds nuw i8, ptr %.0, i64 1
-  %.not = icmp eq i8 %22, 0
-  br i1 %.not, label %.loopexit, label %21, !llvm.loop !14
+  %27 = getelementptr inbounds nuw i8, ptr %.0, i64 1
+  %.not = icmp eq i8 %24, 0
+  br i1 %.not, label %.loopexit, label %23, !llvm.loop !14
 
-.loopexit:                                        ; preds = %21, %16
-  %.09 = phi i32 [ %17, %16 ], [ %19, %21 ]
+.loopexit:                                        ; preds = %23, %16
+  %.09 = phi i32 [ %17, %16 ], [ %21, %21 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.09

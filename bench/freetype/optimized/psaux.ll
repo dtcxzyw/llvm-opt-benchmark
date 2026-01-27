@@ -17593,7 +17593,7 @@ define internal fastcc void @cf2_doFlex(ptr noundef nonnull captures(none) %0, p
   %15 = getelementptr i8, ptr %0, i64 24
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %wide.trip.count = select i1 %13, i64 9, i64 10
-  %indvars.iv87.sroa.phi.sroa.gep109 = getelementptr inbounds nuw i8, ptr %7, i64 28
+  %indvars.iv87.sroa.gep94 = getelementptr inbounds nuw i8, ptr %7, i64 28
   %indvars.iv87.sroa.phi.sroa.gep106 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %indvars.iv87.sroa.phi.sroa.gep103 = getelementptr inbounds nuw i8, ptr %7, i64 20
   %indvars.iv87.sroa.phi.sroa.gep100 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -17914,19 +17914,19 @@ cf2_stack_getReal.exit82:                         ; preds = %140, %142, %144, %1
 
 165:                                              ; preds = %162, %165
   %166 = phi i1 [ true, %162 ], [ false, %165 ]
-  %indvars.iv87.sroa.phi.sroa.phi = phi ptr [ %indvars.iv87.sroa.phi.sroa.gep, %162 ], [ %indvars.iv87.sroa.phi.sroa.gep95, %165 ]
+  %indvars.iv87.sroa.phi = phi ptr [ %indvars.iv87.sroa.phi.sroa.gep, %162 ], [ %indvars.iv87.sroa.phi.sroa.gep95, %165 ]
   %indvars.iv87.sroa.phi.sroa.phi96 = phi ptr [ %indvars.iv87.sroa.phi.sroa.gep97, %162 ], [ %indvars.iv87.sroa.phi.sroa.gep98, %165 ]
   %indvars.iv87.sroa.phi.sroa.phi99 = phi ptr [ %indvars.iv87.sroa.phi.sroa.gep100, %162 ], [ %indvars.iv87.sroa.phi.sroa.gep101, %165 ]
   %indvars.iv87.sroa.phi.sroa.phi102 = phi ptr [ %indvars.iv87.sroa.phi.sroa.gep103, %162 ], [ %indvars.iv87.sroa.phi.sroa.gep104, %165 ]
   %indvars.iv87.sroa.phi.sroa.phi105 = phi ptr [ %indvars.iv87.sroa.phi.sroa.gep106, %162 ], [ %indvars.iv87.sroa.phi.sroa.gep107, %165 ]
-  %indvars.iv87.sroa.phi.sroa.phi108 = phi ptr [ %indvars.iv87.sroa.phi.sroa.gep109, %162 ], [ %indvars.iv87.sroa.phi.sroa.gep110, %165 ]
-  %167 = load i32, ptr %indvars.iv87.sroa.phi.sroa.phi, align 8, !tbaa !16
+  %indvars.iv87.sroa.phi.sroa.phi108 = phi ptr [ %indvars.iv87.sroa.gep94, %162 ], [ %indvars.iv87.sroa.phi.sroa.gep110, %165 ]
+  %172 = load i32, ptr %indvars.iv87.sroa.phi, align 8, !tbaa !16
   %168 = load i32, ptr %indvars.iv87.sroa.phi.sroa.phi96, align 4, !tbaa !16
-  %169 = load i32, ptr %indvars.iv87.sroa.phi.sroa.phi99, align 8, !tbaa !16
+  %174 = load i32, ptr %indvars.iv87.sroa.phi.sroa.phi99, align 8, !tbaa !16
   %170 = load i32, ptr %indvars.iv87.sroa.phi.sroa.phi102, align 4, !tbaa !16
-  %171 = load i32, ptr %indvars.iv87.sroa.phi.sroa.phi105, align 8, !tbaa !16
+  %176 = load i32, ptr %indvars.iv87.sroa.phi.sroa.phi105, align 8, !tbaa !16
   %172 = load i32, ptr %indvars.iv87.sroa.phi.sroa.phi108, align 4, !tbaa !16
-  tail call fastcc void @cf2_glyphpath_curveTo(ptr noundef %3, i32 noundef %167, i32 noundef %168, i32 noundef %169, i32 noundef %170, i32 noundef %171, i32 noundef %172)
+  tail call fastcc void @cf2_glyphpath_curveTo(ptr noundef %3, i32 noundef %167, i32 noundef %168, i32 noundef %174, i32 noundef %170, i32 noundef %176, i32 noundef %172)
   br i1 %166, label %165, label %173, !llvm.loop !704
 
 173:                                              ; preds = %165

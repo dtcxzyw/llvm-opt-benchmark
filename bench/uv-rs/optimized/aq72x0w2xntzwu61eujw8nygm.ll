@@ -23787,8 +23787,8 @@ switch.lookup:                                    ; preds = %25
   br label %"_ZN76_$LT$toml_edit..raw_string..RawStringInner$u20$as$u20$core..clone..Clone$GT$5clone17hd2356e0c68194c9bE.exit.i.sink.split"
 
 "_ZN76_$LT$toml_edit..raw_string..RawStringInner$u20$as$u20$core..clone..Clone$GT$5clone17hd2356e0c68194c9bE.exit.i.sink.split": ; preds = %34, %29, %41
-  %.sink55 = phi i64 [ -9223372036854775806, %41 ], [ -9223372036854775805, %29 ], [ -9223372036854775808, %34 ]
-  store i64 %.sink55, ptr %6, align 8, !noalias !5714
+  %.sink37 = phi i64 [ -9223372036854775806, %41 ], [ -9223372036854775805, %29 ], [ -9223372036854775808, %34 ]
+  store i64 %.sink37, ptr %6, align 8, !noalias !5714
   br label %"_ZN76_$LT$toml_edit..raw_string..RawStringInner$u20$as$u20$core..clone..Clone$GT$5clone17hd2356e0c68194c9bE.exit.i"
 
 "_ZN76_$LT$toml_edit..raw_string..RawStringInner$u20$as$u20$core..clone..Clone$GT$5clone17hd2356e0c68194c9bE.exit.i": ; preds = %"_ZN76_$LT$toml_edit..raw_string..RawStringInner$u20$as$u20$core..clone..Clone$GT$5clone17hd2356e0c68194c9bE.exit.i.sink.split", %39

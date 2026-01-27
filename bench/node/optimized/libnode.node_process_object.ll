@@ -562,7 +562,7 @@ do.end157:                                        ; preds = %if.then.i699, %_ZN2
 
 for.body.i:                                       ; preds = %for.inc.i, %do.end157
   %__i.019.i.idx = phi i64 [ 32, %do.end157 ], [ %__i.019.i.add, %for.inc.i ]
-  %__first.pn18.i.sroa.phi = phi ptr [ %__first.pn18.i.sroa.gep, %do.end157 ], [ %__first.pn18.i.sroa.gep289, %for.inc.i ]
+  %__first.pn18.i = phi ptr [ %__first.pn18.i.sroa.gep, %do.end157 ], [ %__first.pn18.i.sroa.gep289, %for.inc.i ]
   %__first.pn18.i.sroa.phi290 = phi ptr [ %__first.pn18.i.sroa.gep291, %do.end157 ], [ %__first.pn18.i.sroa.gep292, %for.inc.i ]
   %__first.pn18.i.sroa.phi293 = phi ptr [ %__first.pn18.i.sroa.gep294, %do.end157 ], [ %__first.pn18.i.sroa.gep295, %for.inc.i ]
   %__i.019.i.ptr = getelementptr inbounds nuw i8, ptr %versions_array, i64 %__i.019.i.idx
@@ -570,7 +570,7 @@ for.body.i:                                       ; preds = %for.inc.i, %do.end1
   %__first.pn18.i.sroa.gep292 = getelementptr inbounds nuw i8, ptr %__i.019.i.ptr, i64 48
   %__first.pn18.i.sroa.gep289 = getelementptr i8, ptr %__i.019.i.ptr, i64 40
   %__i.0.val.i = load i64, ptr %__i.019.i.ptr, align 16
-  %__i.0.val12.i = load ptr, ptr %__first.pn18.i.sroa.phi, align 8
+  %__i.0.val12.i = load ptr, ptr %__first.pn18.i, align 8
   %__first.val.i = load i64, ptr %versions_array, align 16
   %.sroa.speculated.i.i.i.i.i = call i64 @llvm.umin.i64(i64 %__first.val.i, i64 %__i.0.val.i)
   %cmp.i2.i.i.i.i.i = icmp eq i64 %.sroa.speculated.i.i.i.i.i, 0
@@ -632,8 +632,8 @@ while.cond.i.i:                                   ; preds = %while.body.i.i, %if
   br i1 %cmp.i2.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i: ; preds = %while.cond.i.i
-  %63 = getelementptr i8, ptr %__last.addr.0.i.i, i64 -24
-  %__next.0.val9.i.i = load ptr, ptr %63, align 8
+  %64 = getelementptr i8, ptr %__last.addr.0.i.i, i64 -24
+  %__next.0.val9.i.i = load ptr, ptr %64, align 8
   %call.i.i.i.i.i.i.i = call i32 @memcmp(ptr noundef readonly %__i.0.val12.i, ptr noundef readonly %__next.0.val9.i.i, i64 noundef %.sroa.speculated.i.i.i.i.i.i) #19
   %cmp.i.i.i.i.i14.i = icmp eq i32 %call.i.i.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i14.i, label %if.then.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4node19CreateProcessObjectEPNS2_5RealmEE3$_0EclISt4pairISt17basic_string_viewIcSt11char_traitsIcEESC_EPSD_EEbRT_T0_.exit.i.i"
@@ -695,8 +695,8 @@ while.cond.i.i.i.i.i:                             ; preds = %while.body.i.i.i.i.
   br i1 %cmp.i2.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i.i: ; preds = %while.cond.i.i.i.i.i
-  %64 = getelementptr i8, ptr %__last.addr.0.i.i.i.i.i, i64 -24
-  %__next.0.val9.i.i.i.i.i = load ptr, ptr %64, align 8
+  %65 = getelementptr i8, ptr %__last.addr.0.i.i.i.i.i, i64 -24
+  %__next.0.val9.i.i.i.i.i = load ptr, ptr %65, align 8
   %call.i.i.i.i.i.i.i.i.i.i = call i32 @memcmp(ptr noundef readonly %__val.sroa.3.0.copyload.i.i.i.i.i, ptr noundef readonly %__next.0.val9.i.i.i.i.i, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i.i.i) #19
   %cmp.i.i.i.i.i.i.i.i.i = icmp eq i32 %call.i.i.i.i.i.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4node19CreateProcessObjectEPNS2_5RealmEE3$_0EclISt4pairISt17basic_string_viewIcSt11char_traitsIcEESC_EPSD_EEbRT_T0_.exit.i.i.i.i.i"
@@ -735,10 +735,10 @@ for.body:                                         ; preds = %"_ZSt25__unguarded_
   %__begin1.0.idx288 = phi i64 [ %__begin1.0.add, %for.inc ], [ 0, %"_ZSt25__unguarded_linear_insertIPSt4pairISt17basic_string_viewIcSt11char_traitsIcEES4_EN9__gnu_cxx5__ops14_Val_comp_iterIZN4node19CreateProcessObjectEPNSA_5RealmEE3$_0EEEvT_T0_.exit.i.i.i.i" ]
   %__begin1.0.ptr = getelementptr inbounds nuw i8, ptr %versions_array, i64 %__begin1.0.idx288
   %_M_str.i = getelementptr inbounds nuw i8, ptr %__begin1.0.ptr, i64 8
-  %65 = load ptr, ptr %_M_str.i, align 8
-  %66 = load i64, ptr %__begin1.0.ptr, align 16
-  %conv = trunc i64 %66 to i32
-  %call.i217 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %0, ptr noundef %65, i32 noundef 0, i32 noundef %conv) #19
+  %66 = load ptr, ptr %_M_str.i, align 8
+  %67 = load i64, ptr %__begin1.0.ptr, align 16
+  %conv = trunc i64 %67 to i32
+  %call.i217 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %0, ptr noundef %66, i32 noundef 0, i32 noundef %conv) #19
   %cmp.i.i218 = icmp eq ptr %call.i217, null
   br i1 %cmp.i.i218, label %if.then.i.i, label %_ZN4node13OneByteStringEPN2v87IsolateEPKci.exit
 
@@ -749,10 +749,10 @@ if.then.i.i:                                      ; preds = %for.body
 _ZN4node13OneByteStringEPN2v87IsolateEPKci.exit:  ; preds = %for.body, %if.then.i.i
   %second = getelementptr inbounds nuw i8, ptr %__begin1.0.ptr, i64 16
   %_M_str.i219 = getelementptr inbounds nuw i8, ptr %__begin1.0.ptr, i64 24
-  %67 = load ptr, ptr %_M_str.i219, align 8
-  %68 = load i64, ptr %second, align 16
-  %conv332 = trunc i64 %68 to i32
-  %call.i220 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %0, ptr noundef %67, i32 noundef 0, i32 noundef %conv332) #19
+  %68 = load ptr, ptr %_M_str.i219, align 8
+  %69 = load i64, ptr %second, align 16
+  %conv332 = trunc i64 %69 to i32
+  %call.i220 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %0, ptr noundef %68, i32 noundef 0, i32 noundef %conv332) #19
   %cmp.i.i221 = icmp eq ptr %call.i220, null
   br i1 %cmp.i.i221, label %if.then.i.i222, label %_ZN4node13OneByteStringEPN2v87IsolateEPKci.exit223
 
@@ -803,9 +803,9 @@ if.then.i.i.i229:                                 ; preds = %do.body381
 
 _ZN4node21FIXED_ONE_BYTE_STRINGILi5EEEN2v85LocalINS1_6StringEEEPNS1_7IsolateERAT__Kc.exit230: ; preds = %do.body381, %if.then.i.i.i229
   %call398 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZN4node11per_process8metadataE, i64 832)) #19
-  %69 = extractvalue { i64, ptr } %call398, 0
+  %70 = extractvalue { i64, ptr } %call398, 0
   %call3.i232 = call noundef ptr @_ZN2v87Context10GetIsolateEv(ptr noundef nonnull align 1 dereferenceable(1) %call1) #19
-  %cmp5.i233 = icmp ugt i64 %69, 536870887
+  %cmp5.i233 = icmp ugt i64 %70, 536870887
   br i1 %cmp5.i233, label %_ZN4node9ToV8ValueEN2v85LocalINS0_7ContextEEESt17basic_string_viewIcSt11char_traitsIcEEPNS0_7IsolateE.exit239.thread, label %_ZN4node9ToV8ValueEN2v85LocalINS0_7ContextEEESt17basic_string_viewIcSt11char_traitsIcEEPNS0_7IsolateE.exit239
 
 _ZN4node9ToV8ValueEN2v85LocalINS0_7ContextEEESt17basic_string_viewIcSt11char_traitsIcEEPNS0_7IsolateE.exit239.thread: ; preds = %_ZN4node21FIXED_ONE_BYTE_STRINGILi5EEEN2v85LocalINS1_6StringEEEPNS1_7IsolateERAT__Kc.exit230
@@ -813,9 +813,9 @@ _ZN4node9ToV8ValueEN2v85LocalINS0_7ContextEEESt17basic_string_viewIcSt11char_tra
   br label %if.then.i725
 
 _ZN4node9ToV8ValueEN2v85LocalINS0_7ContextEEESt17basic_string_viewIcSt11char_traitsIcEEPNS0_7IsolateE.exit239: ; preds = %_ZN4node21FIXED_ONE_BYTE_STRINGILi5EEEN2v85LocalINS1_6StringEEEPNS1_7IsolateERAT__Kc.exit230
-  %70 = extractvalue { i64, ptr } %call398, 1
-  %conv.i235 = trunc nuw nsw i64 %69 to i32
-  %call11.i236 = call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef %call3.i232, ptr noundef %70, i32 noundef 0, i32 noundef %conv.i235) #19
+  %71 = extractvalue { i64, ptr } %call398, 1
+  %conv.i235 = trunc nuw nsw i64 %70 to i32
+  %call11.i236 = call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef %call3.i232, ptr noundef %71, i32 noundef 0, i32 noundef %conv.i235) #19
   %cmp.i.i809 = icmp eq ptr %call11.i236, null
   br i1 %cmp.i.i809, label %if.then.i725, label %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit726
 
@@ -844,9 +844,9 @@ if.then.i.i.i242:                                 ; preds = %do.body423
 
 _ZN4node21FIXED_ONE_BYTE_STRINGILi9EEEN2v85LocalINS1_6StringEEEPNS1_7IsolateERAT__Kc.exit243: ; preds = %do.body423, %if.then.i.i.i242
   %call440 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZN4node11per_process8metadataE, i64 864)) #19
-  %71 = extractvalue { i64, ptr } %call440, 0
+  %72 = extractvalue { i64, ptr } %call440, 0
   %call3.i245 = call noundef ptr @_ZN2v87Context10GetIsolateEv(ptr noundef nonnull align 1 dereferenceable(1) %call1) #19
-  %cmp5.i246 = icmp ugt i64 %71, 536870887
+  %cmp5.i246 = icmp ugt i64 %72, 536870887
   br i1 %cmp5.i246, label %_ZN4node9ToV8ValueEN2v85LocalINS0_7ContextEEESt17basic_string_viewIcSt11char_traitsIcEEPNS0_7IsolateE.exit252.thread, label %_ZN4node9ToV8ValueEN2v85LocalINS0_7ContextEEESt17basic_string_viewIcSt11char_traitsIcEEPNS0_7IsolateE.exit252
 
 _ZN4node9ToV8ValueEN2v85LocalINS0_7ContextEEESt17basic_string_viewIcSt11char_traitsIcEEPNS0_7IsolateE.exit252.thread: ; preds = %_ZN4node21FIXED_ONE_BYTE_STRINGILi9EEEN2v85LocalINS1_6StringEEEPNS1_7IsolateERAT__Kc.exit243
@@ -854,9 +854,9 @@ _ZN4node9ToV8ValueEN2v85LocalINS0_7ContextEEESt17basic_string_viewIcSt11char_tra
   br label %if.then.i718
 
 _ZN4node9ToV8ValueEN2v85LocalINS0_7ContextEEESt17basic_string_viewIcSt11char_traitsIcEEPNS0_7IsolateE.exit252: ; preds = %_ZN4node21FIXED_ONE_BYTE_STRINGILi9EEEN2v85LocalINS1_6StringEEEPNS1_7IsolateERAT__Kc.exit243
-  %72 = extractvalue { i64, ptr } %call440, 1
-  %conv.i248 = trunc nuw nsw i64 %71 to i32
-  %call11.i249 = call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef %call3.i245, ptr noundef %72, i32 noundef 0, i32 noundef %conv.i248) #19
+  %73 = extractvalue { i64, ptr } %call440, 1
+  %conv.i248 = trunc nuw nsw i64 %72 to i32
+  %call11.i249 = call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef %call3.i245, ptr noundef %73, i32 noundef 0, i32 noundef %conv.i248) #19
   %cmp.i.i814 = icmp eq ptr %call11.i249, null
   br i1 %cmp.i.i814, label %if.then.i718, label %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit719
 
@@ -904,9 +904,9 @@ if.then.i.i.i259:                                 ; preds = %do.body499
 
 _ZN4node21FIXED_ONE_BYTE_STRINGILi5EEEN2v85LocalINS1_6StringEEEPNS1_7IsolateERAT__Kc.exit260: ; preds = %do.body499, %if.then.i.i.i259
   %call516 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZN4node11per_process8metadataE, i64 800)) #19
-  %73 = extractvalue { i64, ptr } %call516, 0
+  %74 = extractvalue { i64, ptr } %call516, 0
   %call3.i262 = call noundef ptr @_ZN2v87Context10GetIsolateEv(ptr noundef nonnull align 1 dereferenceable(1) %call1) #19
-  %cmp5.i263 = icmp ugt i64 %73, 536870887
+  %cmp5.i263 = icmp ugt i64 %74, 536870887
   br i1 %cmp5.i263, label %_ZN4node9ToV8ValueEN2v85LocalINS0_7ContextEEESt17basic_string_viewIcSt11char_traitsIcEEPNS0_7IsolateE.exit269.thread, label %_ZN4node9ToV8ValueEN2v85LocalINS0_7ContextEEESt17basic_string_viewIcSt11char_traitsIcEEPNS0_7IsolateE.exit269
 
 _ZN4node9ToV8ValueEN2v85LocalINS0_7ContextEEESt17basic_string_viewIcSt11char_traitsIcEEPNS0_7IsolateE.exit269.thread: ; preds = %_ZN4node21FIXED_ONE_BYTE_STRINGILi5EEEN2v85LocalINS1_6StringEEEPNS1_7IsolateERAT__Kc.exit260
@@ -914,9 +914,9 @@ _ZN4node9ToV8ValueEN2v85LocalINS0_7ContextEEESt17basic_string_viewIcSt11char_tra
   br label %if.then.i712
 
 _ZN4node9ToV8ValueEN2v85LocalINS0_7ContextEEESt17basic_string_viewIcSt11char_traitsIcEEPNS0_7IsolateE.exit269: ; preds = %_ZN4node21FIXED_ONE_BYTE_STRINGILi5EEEN2v85LocalINS1_6StringEEEPNS1_7IsolateERAT__Kc.exit260
-  %74 = extractvalue { i64, ptr } %call516, 1
-  %conv.i265 = trunc nuw nsw i64 %73 to i32
-  %call11.i266 = call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef %call3.i262, ptr noundef %74, i32 noundef 0, i32 noundef %conv.i265) #19
+  %75 = extractvalue { i64, ptr } %call516, 1
+  %conv.i265 = trunc nuw nsw i64 %74 to i32
+  %call11.i266 = call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef %call3.i262, ptr noundef %75, i32 noundef 0, i32 noundef %conv.i265) #19
   %cmp.i.i819 = icmp eq ptr %call11.i266, null
   br i1 %cmp.i.i819, label %if.then.i712, label %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit
 

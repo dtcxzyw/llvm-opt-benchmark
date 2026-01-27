@@ -1087,7 +1087,7 @@ if.then:                                          ; preds = %entry
   %cmp2 = icmp slt i32 %nmatch, 1
   br i1 %cmp2, label %if.then3, label %if.end4
 
-if.then3:                                         ; preds = %if.then
+if.then3:; preds = %if.then
   br label %if.end4
 
 if.end4:                                          ; preds = %if.then, %if.then3, %entry
@@ -1096,7 +1096,7 @@ if.end4:                                          ; preds = %if.then, %if.then3,
   %match.addr.0 = phi ptr [ %sp0, %if.then3 ], [ %match, %if.then ], [ %match, %entry ]
   %anchor.addr.0 = phi i32 [ 1, %if.then3 ], [ 1, %if.then ], [ %anchor, %entry ]
   call void @_ZN3re28BitStateC1EPNS_4ProgE(ptr noundef nonnull align 8 dereferenceable(116) %b, ptr noundef nonnull %this)
-  %cmp5 = icmp eq i32 %anchor.addr.0, 1
+  %cmp510 = icmp eq i32 %anchor.addr.0, 1
   %cmp6 = icmp ne i32 %kind, 0
   %call = invoke noundef zeroext i1 @_ZN3re28BitState6SearchEN4absl7debian211string_viewES3_bbPS3_i(ptr noundef nonnull align 8 dereferenceable(116) %b, ptr %text.coerce0, i64 %text.coerce1, ptr %context.coerce0, i64 %context.coerce1, i1 noundef zeroext %cmp5, i1 noundef zeroext %cmp6, ptr noundef %match.addr.0, i32 noundef %nmatch.addr.0)
           to label %invoke.cont unwind label %lpad
@@ -1117,8 +1117,8 @@ land.lhs.true:                                    ; preds = %if.end11
   %agg.tmp13.sroa.0.0.copyload = load ptr, ptr %match.addr.0, align 8
   %agg.tmp13.sroa.2.0.copyload = load i64, ptr %match.addr.0.sroa.phi.sroa.phi, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %agg.tmp13.sroa.0.0.copyload, i64 %agg.tmp13.sroa.2.0.copyload
-  %add.ptr.i10 = getelementptr inbounds i8, ptr %text.coerce0, i64 %text.coerce1
-  %cmp19.not = icmp eq ptr %add.ptr.i, %add.ptr.i10
+  %add.ptr.i9 = getelementptr inbounds i8, ptr %text.coerce0, i64 %text.coerce1
+  %cmp19.not = icmp eq ptr %add.ptr.i, %add.ptr.i9
   br i1 %cmp19.not, label %if.end21, label %cleanup
 
 if.end21:                                         ; preds = %land.lhs.true, %if.end11

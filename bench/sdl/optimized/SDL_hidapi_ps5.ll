@@ -1744,7 +1744,7 @@ define internal fastcc zeroext i1 @HIDAPI_DriverPS5_InternalSendJoystickEffect(p
 
 14:                                               ; preds = %4
   %15 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.5) #9
-  br label %121
+  br label %122
 
 16:                                               ; preds = %4
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 29
@@ -1808,9 +1808,9 @@ HIDAPI_DriverPS5_SetEnhancedModeAvailable.exit:   ; preds = %37, %.sink.split.i
   tail call void @HIDAPI_UpdateDeviceProperties(ptr noundef %49) #9
   %.pre = load i8, ptr %17, align 1, !range !5
   %50 = trunc nuw i8 %.pre to i1
-  br i1 %50, label %HIDAPI_DriverPS5_UpdateEnhancedModeOnApplicationUsage.exit.thread40, label %HIDAPI_DriverPS5_SetEnhancedModeAvailable.exit.thread
+  br i1 %50, label %HIDAPI_DriverPS5_UpdateEnhancedModeOnApplicationUsage.exit.thread39, label %HIDAPI_DriverPS5_SetEnhancedModeAvailable.exit.thread
 
-HIDAPI_DriverPS5_UpdateEnhancedModeOnApplicationUsage.exit.thread40: ; preds = %HIDAPI_DriverPS5_SetEnhancedModeAvailable.exit
+HIDAPI_DriverPS5_UpdateEnhancedModeOnApplicationUsage.exit.thread39: ; preds = %HIDAPI_DriverPS5_SetEnhancedModeAvailable.exit
   store i32 1, ptr %22, align 8
   br label %81
 
@@ -1857,10 +1857,10 @@ HIDAPI_DriverPS5_SetEnhancedModeAvailable.exit.thread: ; preds = %25, %HIDAPI_Dr
 
 73:                                               ; preds = %69, %64
   %74 = phi i8 [ 3, %64 ], [ 2, %69 ]
-  %.sink34 = phi i8 [ %65, %64 ], [ %56, %69 ]
+  %.sink33 = phi i8 [ %65, %64 ], [ %56, %69 ]
   %.sink = phi i8 [ %68, %64 ], [ %72, %69 ]
   %75 = getelementptr inbounds nuw i8, ptr %5, i64 3
-  store i8 %.sink34, ptr %75, align 1
+  store i8 %.sink33, ptr %75, align 1
   %76 = getelementptr inbounds nuw i8, ptr %5, i64 2
   store i8 %.sink, ptr %76, align 1
   store i8 %74, ptr %5, align 1
@@ -1870,16 +1870,16 @@ HIDAPI_DriverPS5_UpdateEnhancedModeOnApplicationUsage.exit: ; preds = %57, %73, 
   %77 = call fastcc zeroext i1 @HIDAPI_DriverPS5_InternalSendJoystickEffect(ptr noundef nonnull %0, ptr noundef nonnull %5, i32 noundef 47, i1 noundef zeroext false)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %78 = tail call fastcc zeroext i1 @HIDAPI_DriverPS5_UpdateEffects(ptr noundef nonnull %0, i32 noundef 24, i1 noundef zeroext false)
-  %.pre36.pre = load i8, ptr %17, align 1, !range !5
-  %79 = trunc nuw i8 %.pre36.pre to i1
+  %.pre35.pre = load i8, ptr %17, align 1, !range !5
+  %79 = trunc nuw i8 %.pre35.pre to i1
   store i32 1, ptr %22, align 8
   br i1 %79, label %81, label %HIDAPI_DriverPS5_UpdateEnhancedModeOnApplicationUsage.exit.thread
 
 HIDAPI_DriverPS5_UpdateEnhancedModeOnApplicationUsage.exit.thread: ; preds = %20, %21, %HIDAPI_DriverPS5_UpdateEnhancedModeOnApplicationUsage.exit
   %80 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.5) #9
-  br label %121
+  br label %122
 
-81:                                               ; preds = %HIDAPI_DriverPS5_UpdateEnhancedModeOnApplicationUsage.exit.thread40, %HIDAPI_DriverPS5_UpdateEnhancedModeOnApplicationUsage.exit, %16
+81:                                               ; preds = %HIDAPI_DriverPS5_UpdateEnhancedModeOnApplicationUsage.exit.thread39, %HIDAPI_DriverPS5_UpdateEnhancedModeOnApplicationUsage.exit, %16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(78) %6, i8 0, i64 78, i1 false)
   %82 = load ptr, ptr %0, align 8
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 84
@@ -1892,12 +1892,12 @@ HIDAPI_DriverPS5_UpdateEnhancedModeOnApplicationUsage.exit.thread: ; preds = %20
   br label %87
 
 87:                                               ; preds = %81, %86
-  %.sink35 = phi i8 [ 49, %86 ], [ 2, %81 ]
+  %.sink34 = phi i8 [ 49, %86 ], [ 2, %81 ]
   %.030.sroa.phi.sroa.phi = phi ptr [ %.030.sroa.phi.sroa.gep, %86 ], [ %.030.sroa.gep, %81 ]
   %.030.sroa.phi = phi ptr [ %.030.sroa.gep, %86 ], [ %.030.sroa.gep32, %81 ]
   %.030 = phi i64 [ 2, %86 ], [ 1, %81 ]
   %.029 = phi i32 [ 78, %86 ], [ 48, %81 ]
-  store i8 %.sink35, ptr %6, align 16
+  store i8 %.sink34, ptr %6, align 16
   %88 = sub nuw nsw i64 78, %.030
   %89 = sext i32 %2 to i64
   %90 = tail call i64 @llvm.umin.i64(i64 %88, i64 %89)
@@ -1918,12 +1918,12 @@ HIDAPI_DriverPS5_UpdateEnhancedModeOnApplicationUsage.exit.thread: ; preds = %20
 
 97:                                               ; preds = %91, %87
   %98 = call zeroext i1 @SDL_HIDAPI_LockRumble() #9
-  br i1 %98, label %99, label %121
+  br i1 %98, label %99, label %122
 
 99:                                               ; preds = %97
   %100 = load ptr, ptr %0, align 8
   %101 = call zeroext i1 @SDL_HIDAPI_GetPendingRumbleLocked(ptr noundef %100, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9) #9
-  br i1 %101, label %102, label %118
+  br i1 %101, label %102, label %119
 
 102:                                              ; preds = %99
   %103 = load ptr, ptr %7, align 8
@@ -1931,13 +1931,13 @@ HIDAPI_DriverPS5_UpdateEnhancedModeOnApplicationUsage.exit.thread: ; preds = %20
   %105 = load ptr, ptr %8, align 8
   %106 = load i32, ptr %105, align 4
   %107 = icmp eq i32 %.029, %106
-  br i1 %107, label %108, label %118
+  br i1 %107, label %108, label %119
 
 108:                                              ; preds = %102
   %109 = load i8, ptr %.030.sroa.phi, align 1
   %110 = load i8, ptr %104, align 1
   %111 = icmp eq i8 %109, %110
-  br i1 %111, label %112, label %118
+  br i1 %111, label %112, label %119
 
 112:                                              ; preds = %108
   %113 = load i8, ptr %.030.sroa.phi.sroa.phi, align 1
@@ -1947,18 +1947,18 @@ HIDAPI_DriverPS5_UpdateEnhancedModeOnApplicationUsage.exit.thread: ; preds = %20
   br i1 %116, label %.critedge, label %118
 
 .critedge:                                        ; preds = %112
-  %117 = zext nneg i32 %.029 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %103, ptr noundef nonnull align 16 dereferenceable(1) %6, i64 %117, i1 false)
+  %118 = zext nneg i32 %.029 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %103, ptr noundef nonnull align 16 dereferenceable(1) %6, i64 %118, i1 false)
   call void @SDL_HIDAPI_UnlockRumble() #9
-  br label %121
+  br label %122
 
-118:                                              ; preds = %112, %108, %102, %99
-  %119 = load ptr, ptr %0, align 8
-  %120 = call i32 @SDL_HIDAPI_SendRumbleAndUnlock(ptr noundef %119, ptr noundef nonnull %6, i32 noundef %.029) #9
-  %.not = icmp eq i32 %120, %.029
-  br label %121
+119:                                              ; preds = %112, %108, %102, %99
+  %120 = load ptr, ptr %0, align 8
+  %121 = call i32 @SDL_HIDAPI_SendRumbleAndUnlock(ptr noundef %120, ptr noundef nonnull %6, i32 noundef %.029) #9
+  %.not = icmp eq i32 %121, %.029
+  br label %122
 
-121:                                              ; preds = %118, %.critedge, %97, %HIDAPI_DriverPS5_UpdateEnhancedModeOnApplicationUsage.exit.thread, %14
+122:                                              ; preds = %119, %.critedge, %97, %HIDAPI_DriverPS5_UpdateEnhancedModeOnApplicationUsage.exit.thread, %14
   %.0 = phi i1 [ %.not, %118 ], [ false, %97 ], [ true, %.critedge ], [ %15, %14 ], [ %80, %HIDAPI_DriverPS5_UpdateEnhancedModeOnApplicationUsage.exit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)

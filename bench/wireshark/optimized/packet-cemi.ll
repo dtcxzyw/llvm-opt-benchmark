@@ -3293,67 +3293,67 @@ proto_tree_add_data.exit226:                      ; preds = %.lr.ph.split.us.spl
   store i64 %51, ptr %92, align 8
   %93 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store i8 0, ptr %93, align 8
-  br i1 %.not210, label %.preheader, label %.loopexit7
+  br i1 %.not210, label %.preheader, label %.loopexit6
 
 .preheader:                                       ; preds = %88
-  %.020119 = load ptr, ptr @knx_keyring_ga_senders, align 8
-  %.not21120 = icmp eq ptr %.020119, null
-  br i1 %.not21120, label %._crit_edge.thread, label %.lr.ph.outer
+  %.020118 = load ptr, ptr @knx_keyring_ga_senders, align 8
+  %.not21119 = icmp eq ptr %.020118, null
+  br i1 %.not21119, label %._crit_edge.thread, label %.lr.ph.outer
 
 .lr.ph.outer:                                     ; preds = %.preheader, %.thread
-  %.020122.ph = phi ptr [ %.020155, %.thread ], [ %.020119, %.preheader ]
+  %.020121.ph = phi ptr [ %.020154, %.thread ], [ %.020118, %.preheader ]
   %94 = phi i1 [ false, %.thread ], [ true, %.preheader ]
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.outer, %102
-  %.020122 = phi ptr [ %.0201, %102 ], [ %.020122.ph, %.lr.ph.outer ]
-  %95 = getelementptr inbounds nuw i8, ptr %.020122, i64 8
+  %.020121 = phi ptr [ %.0201, %102 ], [ %.020121.ph, %.lr.ph.outer ]
+  %95 = getelementptr inbounds nuw i8, ptr %.020121, i64 8
   %96 = load i16, ptr %95, align 8
   %97 = icmp eq i16 %96, %7
   br i1 %97, label %98, label %102
 
 98:                                               ; preds = %.lr.ph
-  %99 = getelementptr inbounds nuw i8, ptr %.020122, i64 10
+  %99 = getelementptr inbounds nuw i8, ptr %.020121, i64 10
   %100 = load i16, ptr %99, align 2
   %101 = icmp eq i16 %100, %5
-  br i1 %101, label %.loopexit7, label %.thread
+  br i1 %101, label %.loopexit6, label %.thread
 
 102:                                              ; preds = %.lr.ph
-  %.0201 = load ptr, ptr %.020122, align 8
+  %.0201 = load ptr, ptr %.020121, align 8
   %.not211 = icmp eq ptr %.0201, null
   br i1 %.not211, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 .thread:                                          ; preds = %98
-  %.020155 = load ptr, ptr %.020122, align 8
-  %.not21156 = icmp eq ptr %.020155, null
-  br i1 %.not21156, label %._crit_edge.thread58, label %.lr.ph.outer, !llvm.loop !9
+  %.020154 = load ptr, ptr %.020121, align 8
+  %.not21155 = icmp eq ptr %.020154, null
+  br i1 %.not21155, label %._crit_edge.thread57, label %.lr.ph.outer, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %102
-  br i1 %94, label %._crit_edge.thread, label %._crit_edge.thread58
+  br i1 %94, label %._crit_edge.thread, label %._crit_edge.thread57
 
-._crit_edge.thread58:                             ; preds = %.thread, %._crit_edge
+._crit_edge.thread57:                             ; preds = %.thread, %._crit_edge
   %103 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %6, ptr noundef nonnull @ei_knxip_error, ptr noundef nonnull @.str.627)
-  br label %.loopexit7
+  br label %.loopexit6
 
 ._crit_edge.thread:                               ; preds = %.preheader, %._crit_edge
   %104 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %8, ptr noundef nonnull @ei_knxip_warning, ptr noundef nonnull @.str.628)
-  br label %.loopexit7
+  br label %.loopexit6
 
-.loopexit7:                                       ; preds = %98, %._crit_edge.thread, %._crit_edge.thread58, %88
+.loopexit6:                                       ; preds = %98, %._crit_edge.thread, %._crit_edge.thread57, %88
   %.3 = phi i8 [ %20, %88 ], [ %20, %._crit_edge.thread ], [ 1, %._crit_edge.thread58 ], [ %20, %98 ]
-  %.019623 = load ptr, ptr @knx_keyring_ia_seqs, align 8
-  %.not21424 = icmp eq ptr %.019623, null
-  br i1 %.not21424, label %.loopexit, label %.lr.ph27
+  %.019622 = load ptr, ptr @knx_keyring_ia_seqs, align 8
+  %.not21423 = icmp eq ptr %.019622, null
+  br i1 %.not21423, label %.loopexit, label %.lr.ph26
 
-.lr.ph27:                                         ; preds = %.loopexit7, %114
-  %.019625 = phi ptr [ %.0196, %114 ], [ %.019623, %.loopexit7 ]
-  %105 = getelementptr inbounds nuw i8, ptr %.019625, i64 8
+.lr.ph26:                                         ; preds = %.loopexit6, %114
+  %.019624 = phi ptr [ %.0196, %114 ], [ %.019622, %.loopexit7 ]
+  %105 = getelementptr inbounds nuw i8, ptr %.019624, i64 8
   %106 = load i16, ptr %105, align 8
   %107 = icmp eq i16 %106, %5
   br i1 %107, label %108, label %114
 
-108:                                              ; preds = %.lr.ph27
-  %109 = getelementptr inbounds nuw i8, ptr %.019625, i64 16
+108:                                              ; preds = %.lr.ph26
+  %109 = getelementptr inbounds nuw i8, ptr %.019624, i64 16
   %110 = load i64, ptr %109, align 8
   %111 = icmp ugt i64 %110, %51
   br i1 %111, label %112, label %114
@@ -3362,12 +3362,12 @@ proto_tree_add_data.exit226:                      ; preds = %.lr.ph.split.us.spl
   %113 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %37, ptr noundef nonnull @ei_knxip_error, ptr noundef nonnull @.str.629, i64 noundef %110)
   br label %.loopexit
 
-114:                                              ; preds = %.lr.ph27, %108
-  %.0196 = load ptr, ptr %.019625, align 8
+114:                                              ; preds = %.lr.ph26, %108
+  %.0196 = load ptr, ptr %.019624, align 8
   %.not214 = icmp eq ptr %.0196, null
-  br i1 %.not214, label %.loopexit, label %.lr.ph27, !llvm.loop !10
+  br i1 %.not214, label %.loopexit, label %.lr.ph26, !llvm.loop !10
 
-.loopexit:                                        ; preds = %114, %.loopexit7, %112
+.loopexit:                                        ; preds = %114, %.loopexit6, %112
   %115 = tail call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef 0, i32 noundef %11)
   %116 = sext i32 %54 to i64
   %117 = getelementptr i8, ptr %115, i64 %116
@@ -3508,7 +3508,7 @@ proto_tree_add_data.exit226:                      ; preds = %.lr.ph.split.us.spl
   %165 = load i8, ptr @knx_decryption_key_count, align 1
   %166 = zext i8 %165 to i64
   %167 = icmp samesign ult i64 %indvars.iv.next.i, %166
-  br i1 %167, label %.lr.ph276.i, label %.loopexit60, !llvm.loop !14
+  br i1 %167, label %.lr.ph276.i, label %.loopexit59, !llvm.loop !14
 
 .lr.ph276.i:                                      ; preds = %.loopexit203.i, %164
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %164 ], [ 0, %.loopexit203.i ]
@@ -3580,7 +3580,7 @@ proto_tree_add_data.exit226:                      ; preds = %.lr.ph.split.us.spl
   %.7142.fr.i = freeze i8 %.7142.i
   %.not170.i = icmp eq i8 %.7142.fr.i, 0
   %spec.select.i = select i1 %.not170.i, ptr @.str.660, ptr @.str.659
-  br label %.loopexit60
+  br label %.loopexit59
 
 decrypt_data_security_data.exit:                  ; preds = %._crit_edge282.i
   %195 = call ptr @tvb_new_child_real_data(ptr noundef %0, ptr noundef nonnull %.11132191.i, i32 noundef %118, i32 noundef %118)
@@ -3674,7 +3674,7 @@ proto_tree_add_data.exit238:                      ; preds = %.lr.ph.split.us.spl
   %246 = call i32 @call_dissector(ptr noundef nonnull %244, ptr noundef %243, ptr noundef %1, ptr noundef %2)
   br label %251
 
-.loopexit60:                                      ; preds = %164, %.thread193.i
+.loopexit59:                                      ; preds = %164, %.thread193.i
   %247 = phi ptr [ %spec.select.i, %.thread193.i ], [ @.str.659, %164 ]
   %248 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull %93, i64 noundef 128, i32 noundef 2, i64 noundef 128, ptr noundef nonnull %247)
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.635)
@@ -3682,11 +3682,11 @@ proto_tree_add_data.exit238:                      ; preds = %.lr.ph.split.us.spl
   %.not216 = icmp eq i8 %249, 0
   br i1 %.not216, label %251, label %250
 
-250:                                              ; preds = %.loopexit60
+250:                                              ; preds = %.loopexit59
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.632, ptr noundef nonnull %93)
   br label %251
 
-251:                                              ; preds = %proto_tree_add_data.exit238, %245, %224, %.loopexit60, %250
+251:                                              ; preds = %proto_tree_add_data.exit238, %245, %224, %.loopexit59, %250
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %252
 

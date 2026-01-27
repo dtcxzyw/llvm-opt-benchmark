@@ -97,7 +97,7 @@ common.resume:                                    ; preds = %"_ZN4core3ptr115dro
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd00f51a6fb41cc4eE.exit"
   %.sroa.53.0.copyload14 = phi i8 [ %.sroa.53.0.copyload, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd00f51a6fb41cc4eE.exit" ], [ %.sroa.53.0.copyload13, %.lr.ph.preheader ]
-  %.sroa.phi = phi ptr [ %.sroa.gep, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd00f51a6fb41cc4eE.exit" ], [ %.sroa.gep19, %.lr.ph.preheader ]
+  %27 = phi ptr [ %.sroa.gep, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd00f51a6fb41cc4eE.exit" ], [ %.sroa.gep19, %.lr.ph.preheader ]
   %27 = phi ptr [ %8, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd00f51a6fb41cc4eE.exit" ], [ %3, %.lr.ph.preheader ]
   %.sroa.01.0.copyload = load i8, ptr %27, align 8, !alias.scope !13
   store i8 %.sroa.53.0.copyload14, ptr %2, align 8

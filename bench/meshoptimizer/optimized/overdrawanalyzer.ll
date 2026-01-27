@@ -109,7 +109,7 @@ _ZN17meshopt_Allocator8allocateIfEEPT_m.exit:     ; preds = %._crit_edge
 ._crit_edge144:                                   ; preds = %.lr.ph143, %_ZN17meshopt_Allocator8allocateIfEEPT_m.exit
   %44 = load ptr, ptr @_ZN17meshopt_Allocator8StorageTIvE8allocateE, align 8, !tbaa !8
   %45 = invoke noundef ptr %44(i64 noundef 1048576)
-          to label %_ZN17meshopt_Allocator8allocateIN7meshopt14OverdrawBufferEEEPT_m.exit unwind label %154
+          to label %_ZN17meshopt_Allocator8allocateIN7meshopt14OverdrawBufferEEEPT_m.exit unwind label %157
 
 _ZN17meshopt_Allocator8allocateIN7meshopt14OverdrawBufferEEEPT_m.exit: ; preds = %._crit_edge144
   %46 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -257,7 +257,7 @@ default.unreachable:                              ; preds = %.lr.ph147.us
 122:                                              ; preds = %._crit_edge
   %123 = landingpad { ptr, i32 }
           cleanup
-  br label %170
+  br label %173
 
 .lr.ph143:                                        ; preds = %_ZN17meshopt_Allocator8allocateIfEEPT_m.exit, %.lr.ph143
   %.0121142 = phi i64 [ %143, %.lr.ph143 ], [ 0, %_ZN17meshopt_Allocator8allocateIfEEPT_m.exit ]
@@ -288,102 +288,102 @@ default.unreachable:                              ; preds = %.lr.ph147.us
   %exitcond184.not = icmp eq i64 %143, %1
   br i1 %exitcond184.not, label %._crit_edge144, label %.lr.ph143, !llvm.loop !23
 
-.lr.ph.i.preheader:                               ; preds = %48, %157
-  %.us-phi = phi i32 [ %169, %157 ], [ %59, %48 ]
-  %.us-phi171 = phi i32 [ %168, %157 ], [ %58, %48 ]
+.lr.ph.i.preheader:                               ; preds = %48, %160
+  %.us-phi = phi i32 [ %172, %157 ], [ %59, %48 ]
+  %.us-phi171 = phi i32 [ %171, %157 ], [ %58, %48 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %146
   %.not.i = phi i1 [ true, %146 ], [ false, %.lr.ph.i.preheader ]
-  %.04.i.sroa.phi.sroa.phi = phi ptr [ %6, %146 ], [ %.04.i.sroa.phi.sroa.gep241, %.lr.ph.i.preheader ]
+  %144 = phi ptr [ %6, %146 ], [ %.04.i.sroa.phi.sroa.gep241, %.lr.ph.i.preheader ]
   %144 = load ptr, ptr @_ZN17meshopt_Allocator8StorageTIvE10deallocateE, align 8, !tbaa !8
-  %145 = load ptr, ptr %.04.i.sroa.phi.sroa.phi, align 8, !tbaa !8
+  %146 = load ptr, ptr %144, align 8, !tbaa !8
   invoke void %144(ptr noundef %145)
-          to label %146 unwind label %147
+          to label %146 unwind label %150
 
-146:                                              ; preds = %.lr.ph.i
+146: ; preds = %.lr.ph.i
   br i1 %.not.i, label %_ZN17meshopt_AllocatorD2Ev.exit, label %.lr.ph.i, !llvm.loop !24
 
-147:                                              ; preds = %.lr.ph.i
-  %148 = landingpad { ptr, i32 }
+150:                                              ; preds = %.lr.ph.i
+  %151 = landingpad { ptr, i32 }
           catch ptr null
-  %149 = extractvalue { ptr, i32 } %148, 0
-  tail call void @__clang_call_terminate(ptr %149) #12
+  %152 = extractvalue { ptr, i32 } %151, 0
+  tail call void @__clang_call_terminate(ptr %152) #12
   unreachable
 
 _ZN17meshopt_AllocatorD2Ev.exit:                  ; preds = %146
   %.not = icmp eq i32 %.us-phi171, 0
-  %150 = uitofp i32 %.us-phi to float
-  %151 = uitofp i32 %.us-phi171 to float
-  %152 = fdiv float %150, %151
-  %153 = select i1 %.not, float 0.000000e+00, float %152
+  %153 = uitofp i32 %.us-phi to float
+  %154 = uitofp i32 %.us-phi171 to float
+  %155 = fdiv float %153, %154
+  %156 = select i1 %.not, float 0.000000e+00, float %155
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.sroa.0101.sroa.6.0.insert.ext = zext i32 %.us-phi to i64
   %.sroa.0101.sroa.6.0.insert.shift = shl nuw i64 %.sroa.0101.sroa.6.0.insert.ext, 32
   %.sroa.0101.sroa.0.0.insert.ext = zext i32 %.us-phi171 to i64
   %.sroa.0101.sroa.0.0.insert.insert = or disjoint i64 %.sroa.0101.sroa.6.0.insert.shift, %.sroa.0101.sroa.0.0.insert.ext
   %.fca.0.insert = insertvalue { i64, float } poison, i64 %.sroa.0101.sroa.0.0.insert.insert, 0
-  %.fca.1.insert = insertvalue { i64, float } %.fca.0.insert, float %153, 1
+  %.fca.1.insert = insertvalue { i64, float } %.fca.0.insert, float %156, 1
   ret { i64, float } %.fca.1.insert
 
-154:                                              ; preds = %._crit_edge144
-  %155 = landingpad { ptr, i32 }
+157:                                              ; preds = %._crit_edge144
+  %158 = landingpad { ptr, i32 }
           cleanup
-  br label %170
+  br label %173
 
-.preheader139:                                    ; preds = %_ZN17meshopt_Allocator8allocateIN7meshopt14OverdrawBufferEEEPT_m.exit, %157
-  %.sroa.0101.sroa.0.0165 = phi i32 [ %168, %157 ], [ 0, %_ZN17meshopt_Allocator8allocateIN7meshopt14OverdrawBufferEEEPT_m.exit ]
-  %.sroa.0101.sroa.6.0164 = phi i32 [ %169, %157 ], [ 0, %_ZN17meshopt_Allocator8allocateIN7meshopt14OverdrawBufferEEEPT_m.exit ]
-  %.0117163 = phi i32 [ %158, %157 ], [ 0, %_ZN17meshopt_Allocator8allocateIN7meshopt14OverdrawBufferEEEPT_m.exit ]
+.preheader139:                                    ; preds = %_ZN17meshopt_Allocator8allocateIN7meshopt14OverdrawBufferEEEPT_m.exit, %160
+  %.sroa.0101.sroa.0.0165 = phi i32 [ %171, %157 ], [ 0, %_ZN17meshopt_Allocator8allocateIN7meshopt14OverdrawBufferEEEPT_m.exit ]
+  %.sroa.0101.sroa.6.0164 = phi i32 [ %172, %157 ], [ 0, %_ZN17meshopt_Allocator8allocateIN7meshopt14OverdrawBufferEEEPT_m.exit ]
+  %.0117163 = phi i32 [ %161, %157 ], [ 0, %_ZN17meshopt_Allocator8allocateIN7meshopt14OverdrawBufferEEEPT_m.exit ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1048576) %45, i8 0, i64 1048576, i1 false)
   br label %.preheader138
 
-.preheader138:                                    ; preds = %.preheader139, %160
+.preheader138:                                    ; preds = %.preheader139, %163
   %indvars.iv204 = phi i64 [ 0, %.preheader139 ], [ %indvars.iv.next205, %160 ]
-  %.sroa.0101.sroa.0.1162 = phi i32 [ %.sroa.0101.sroa.0.0165, %.preheader139 ], [ %168, %160 ]
-  %.sroa.0101.sroa.6.1161 = phi i32 [ %.sroa.0101.sroa.6.0164, %.preheader139 ], [ %169, %160 ]
-  %156 = getelementptr inbounds nuw [256 x [2 x i32]], ptr %47, i64 %indvars.iv204
+  %.sroa.0101.sroa.0.1162 = phi i32 [ %.sroa.0101.sroa.0.0165, %.preheader139 ], [ %171, %160 ]
+  %.sroa.0101.sroa.6.1161 = phi i32 [ %.sroa.0101.sroa.6.0164, %.preheader139 ], [ %172, %160 ]
+  %159 = getelementptr inbounds nuw [256 x [2 x i32]], ptr %47, i64 %indvars.iv204
   br label %.preheader
 
-157:                                              ; preds = %160
-  %158 = add nuw nsw i32 %.0117163, 1
-  %exitcond208.not = icmp eq i32 %158, 3
+160:                                              ; preds = %163
+  %161 = add nuw nsw i32 %.0117163, 1
+  %exitcond208.not = icmp eq i32 %161, 3
   br i1 %exitcond208.not, label %.lr.ph.i.preheader, label %.preheader139, !llvm.loop !16
 
-.preheader:                                       ; preds = %.preheader138, %161
+.preheader:                                       ; preds = %.preheader138, %164
   %indvars.iv200 = phi i64 [ 0, %.preheader138 ], [ %indvars.iv.next201, %161 ]
-  %.sroa.0101.sroa.0.2159 = phi i32 [ %.sroa.0101.sroa.0.1162, %.preheader138 ], [ %168, %161 ]
-  %.sroa.0101.sroa.6.2158 = phi i32 [ %.sroa.0101.sroa.6.1161, %.preheader138 ], [ %169, %161 ]
-  %159 = getelementptr inbounds nuw [2 x i32], ptr %156, i64 %indvars.iv200
-  br label %162
+  %.sroa.0101.sroa.0.2159 = phi i32 [ %.sroa.0101.sroa.0.1162, %.preheader138 ], [ %171, %161 ]
+  %.sroa.0101.sroa.6.2158 = phi i32 [ %.sroa.0101.sroa.6.1161, %.preheader138 ], [ %172, %161 ]
+  %162 = getelementptr inbounds nuw [2 x i32], ptr %159, i64 %indvars.iv200
+  br label %165
 
-160:                                              ; preds = %161
+163:                                              ; preds = %164
   %indvars.iv.next205 = add nuw nsw i64 %indvars.iv204, 1
   %exitcond207.not = icmp eq i64 %indvars.iv.next205, 256
-  br i1 %exitcond207.not, label %157, label %.preheader138, !llvm.loop !17
+  br i1 %exitcond207.not, label %160, label %.preheader138, !llvm.loop !17
 
-161:                                              ; preds = %162
+164:                                              ; preds = %165
   %indvars.iv.next201 = add nuw nsw i64 %indvars.iv200, 1
   %exitcond203.not = icmp eq i64 %indvars.iv.next201, 256
-  br i1 %exitcond203.not, label %160, label %.preheader, !llvm.loop !18
+  br i1 %exitcond203.not, label %163, label %.preheader, !llvm.loop !18
 
-162:                                              ; preds = %.preheader, %162
-  %163 = phi i1 [ true, %.preheader ], [ false, %162 ]
+165:                                              ; preds = %.preheader, %165
+  %166 = phi i1 [ true, %.preheader ], [ false, %162 ]
   %indvars.iv197 = phi i64 [ 0, %.preheader ], [ 1, %162 ]
-  %.sroa.0101.sroa.0.3156 = phi i32 [ %.sroa.0101.sroa.0.2159, %.preheader ], [ %168, %162 ]
-  %.sroa.0101.sroa.6.3155 = phi i32 [ %.sroa.0101.sroa.6.2158, %.preheader ], [ %169, %162 ]
-  %164 = getelementptr inbounds nuw i32, ptr %159, i64 %indvars.iv197
-  %165 = load i32, ptr %164, align 4, !tbaa !19
-  %166 = icmp ne i32 %165, 0
-  %167 = zext i1 %166 to i32
-  %168 = add i32 %.sroa.0101.sroa.0.3156, %167
-  %169 = add i32 %165, %.sroa.0101.sroa.6.3155
-  br i1 %163, label %162, label %161, !llvm.loop !21
+  %.sroa.0101.sroa.0.3156 = phi i32 [ %.sroa.0101.sroa.0.2159, %.preheader ], [ %171, %162 ]
+  %.sroa.0101.sroa.6.3155 = phi i32 [ %.sroa.0101.sroa.6.2158, %.preheader ], [ %172, %162 ]
+  %167 = getelementptr inbounds nuw i32, ptr %162, i64 %indvars.iv197
+  %168 = load i32, ptr %167, align 4, !tbaa !19
+  %169 = icmp ne i32 %168, 0
+  %170 = zext i1 %169 to i32
+  %171 = add i32 %.sroa.0101.sroa.0.3156, %170
+  %172 = add i32 %168, %.sroa.0101.sroa.6.3155
+  br i1 %166, label %165, label %164, !llvm.loop !21
 
-170:                                              ; preds = %154, %122
-  %.pn.pn = phi { ptr, i32 } [ %123, %122 ], [ %155, %154 ]
+173:                                              ; preds = %157, %122
+  %.pn.pn = phi { ptr, i32 } [ %123, %122 ], [ %158, %154 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @_ZN17meshopt_AllocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %6) #13

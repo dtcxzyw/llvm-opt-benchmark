@@ -15579,8 +15579,8 @@ define dso_local void @addReplyClusterLinkDescription(ptr noundef %0, ptr nounde
   tail call void @addReplyBulkCString(ptr noundef %0, ptr noundef nonnull %6) #33
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %8 = load ptr, ptr %7, align 8, !tbaa !162
-  %.not30 = icmp eq ptr %8, null
-  br i1 %.not30, label %9, label %10, !prof !90
+  %.not29 = icmp eq ptr %8, null
+  br i1 %.not29, label %9, label %10, !prof !90
 
 9:                                                ; preds = %2
   tail call void @_serverAssert(ptr noundef nonnull @.str.172, ptr noundef nonnull @.str.18, i32 noundef 5517) #33
@@ -15600,44 +15600,44 @@ define dso_local void @addReplyClusterLinkDescription(ptr noundef %0, ptr nounde
   %.1.sroa.gep27 = getelementptr inbounds nuw i8, ptr %3, i64 1
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load ptr, ptr %14, align 8, !tbaa !161
-  %.not31 = icmp eq ptr %15, null
-  br i1 %.not31, label %22, label %16
+  %.not30 = icmp eq ptr %15, null
+  br i1 %.not30, label %24, label %16
 
 16:                                               ; preds = %10
   %17 = getelementptr i8, ptr %15, i64 64
   %.val = load ptr, ptr %17, align 8, !tbaa !301
-  %.not35 = icmp eq ptr %.val, null
-  br i1 %.not35, label %19, label %18
+  %.not34 = icmp eq ptr %.val, null
+  br i1 %.not34, label %20, label %18
 
 18:                                               ; preds = %16
-  %.1.sroa.gep = getelementptr inbounds nuw i8, ptr %3, i64 2
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 2
   store i8 114, ptr %3, align 1, !tbaa !50
-  br label %19
+  br label %20
 
-19:                                               ; preds = %18, %16
-  %.1.sroa.phi = phi ptr [ %.1.sroa.gep, %18 ], [ %.1.sroa.gep27, %16 ]
+20:                                               ; preds = %18, %16
+  %.1 = phi ptr [ %19, %18 ], [ %.1.sroa.gep27, %16 ]
   %.1 = phi ptr [ %.1.sroa.gep27, %18 ], [ %3, %16 ]
   %20 = getelementptr i8, ptr %15, i64 56
   %.val34 = load ptr, ptr %20, align 8, !tbaa !302
   %.not36 = icmp eq ptr %.val34, null
   br i1 %.not36, label %22, label %21
 
-21:                                               ; preds = %19
+22:                                               ; preds = %20
   store i8 119, ptr %.1, align 1, !tbaa !50
-  br label %22
+  br label %24
 
-22:                                               ; preds = %19, %21, %10
-  %.0 = phi ptr [ %.1.sroa.phi, %21 ], [ %.1, %19 ], [ %3, %10 ]
+24:                                               ; preds = %20, %22, %10
+  %.0 = phi ptr [ %.1, %21 ], [ %.1, %19 ], [ %3, %10 ]
   store i8 0, ptr %.0, align 1, !tbaa !50
   tail call void @addReplyBulkCString(ptr noundef %0, ptr noundef nonnull @.str.175) #33
   call void @addReplyBulkCString(ptr noundef %0, ptr noundef nonnull %3) #33
   call void @addReplyBulkCString(ptr noundef %0, ptr noundef nonnull @.str.176) #33
-  %23 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %24 = load i64, ptr %23, align 8, !tbaa !156
-  call void @addReplyLongLong(ptr noundef %0, i64 noundef %24) #33
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %26 = load i64, ptr %25, align 8, !tbaa !156
+  call void @addReplyLongLong(ptr noundef %0, i64 noundef %26) #33
   call void @addReplyBulkCString(ptr noundef %0, ptr noundef nonnull @.str.177) #33
-  %25 = load i64, ptr %23, align 8, !tbaa !156
-  call void @addReplyLongLong(ptr noundef %0, i64 noundef %25) #33
+  %27 = load i64, ptr %25, align 8, !tbaa !156
+  call void @addReplyLongLong(ptr noundef %0, i64 noundef %27) #33
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }

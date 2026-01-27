@@ -935,14 +935,14 @@ define hidden void @_ZN10tokio_util4util8poll_buf14poll_write_buf17h82ae71698102
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   br label %22
 
-22:                                               ; preds = %74, %"_ZN83_$LT$bytes..buf..chain..Chain$LT$T$C$U$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17hf464eb06e4c12f10E.exit", %21
+22:                                               ; preds = %76, %"_ZN83_$LT$bytes..buf..chain..Chain$LT$T$C$U$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17hf464eb06e4c12f10E.exit", %21
   ret void
 
 23:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   br label %49
 
-24:                                               ; preds = %69
+24:                                               ; preds = %71
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %.val1.i.i.i = load i64, ptr %12, align 8, !alias.scope !161, !noundef !4
@@ -1063,12 +1063,12 @@ define hidden void @_ZN10tokio_util4util8poll_buf14poll_write_buf17h82ae71698102
   store ptr %62, ptr %10, align 8, !alias.scope !209, !noalias !198
   store i64 %61, ptr %.0.i.i.i.sroa.phi.sroa.gep, align 8, !alias.scope !209, !noalias !198
   %.pre = load i64, ptr %16, align 8, !noalias !211
-  %.pre45 = load i64, ptr %18, align 8, !noalias !211
-  %.pre46 = tail call noundef i64 @llvm.umin.i64(i64 %.pre, i64 %.pre45)
+  %.pre44 = load i64, ptr %18, align 8, !noalias !211
+  %.pre45 = tail call noundef i64 @llvm.umin.i64(i64 %.pre, i64 %.pre44)
   br label %"_ZN59_$LT$$RF$mut$u20$T$u20$as$u20$bytes..buf..buf_impl..Buf$GT$15chunks_vectored17h20d7facc44bd3061E.exit.i"
 
 "_ZN59_$LT$$RF$mut$u20$T$u20$as$u20$bytes..buf..buf_impl..Buf$GT$15chunks_vectored17h20d7facc44bd3061E.exit.i": ; preds = %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$5chunk17h9e64eb0525e92282E.llvm.14454416546450068341.exit.i.i.i", %54
-  %.0.sroa.speculated.i.i.i.i.i.i.i.pre-phi = phi i64 [ %.pre46, %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$5chunk17h9e64eb0525e92282E.llvm.14454416546450068341.exit.i.i.i" ], [ %.0.sroa.speculated.i.i.i.i.i.i, %54 ]
+  %.0.sroa.speculated.i.i.i.i.i.i.i.pre-phi = phi i64 [ %.pre45, %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$5chunk17h9e64eb0525e92282E.llvm.14454416546450068341.exit.i.i.i" ], [ %.0.sroa.speculated.i.i.i.i.i.i, %54 ]
   %.0.i.i.i.sroa.phi.sroa.phi = phi ptr [ %.0.i.i.i.sroa.phi.sroa.gep44, %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$5chunk17h9e64eb0525e92282E.llvm.14454416546450068341.exit.i.i.i" ], [ %.0.i.i.i.sroa.phi.sroa.gep, %54 ]
   %.0.i.i.i.sroa.phi = phi ptr [ %.0.i.i.i.sroa.gep43, %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$5chunk17h9e64eb0525e92282E.llvm.14454416546450068341.exit.i.i.i" ], [ %10, %54 ]
   %.0.i.i.i = phi i64 [ 1, %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$5chunk17h9e64eb0525e92282E.llvm.14454416546450068341.exit.i.i.i" ], [ 0, %54 ]
@@ -1076,42 +1076,42 @@ define hidden void @_ZN10tokio_util4util8poll_buf14poll_write_buf17h82ae71698102
   tail call void @llvm.experimental.noalias.scope.decl(metadata !219)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !220)
   %.not.i.i.i.i41 = icmp eq i64 %.0.sroa.speculated.i.i.i.i.i.i.i.pre-phi, 0
-  br i1 %.not.i.i.i.i41, label %"_ZN83_$LT$bytes..buf..chain..Chain$LT$T$C$U$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$15chunks_vectored17hd785c9b15a275205E.exit", label %63
+  br i1 %.not.i.i.i.i41, label %"_ZN83_$LT$bytes..buf..chain..Chain$LT$T$C$U$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$15chunks_vectored17hd785c9b15a275205E.exit", label %64
 
-63:                                               ; preds = %"_ZN59_$LT$$RF$mut$u20$T$u20$as$u20$bytes..buf..buf_impl..Buf$GT$15chunks_vectored17h20d7facc44bd3061E.exit.i"
-  %64 = getelementptr inbounds nuw i8, ptr %.val34, i64 8
-  %65 = load ptr, ptr %64, align 8, !noalias !211, !noundef !4
-  store ptr %65, ptr %.0.i.i.i.sroa.phi, align 8, !alias.scope !211
+64:                                               ; preds = %"_ZN59_$LT$$RF$mut$u20$T$u20$as$u20$bytes..buf..buf_impl..Buf$GT$15chunks_vectored17h20d7facc44bd3061E.exit.i"
+  %65 = getelementptr inbounds nuw i8, ptr %.val34, i64 8
+  %66 = load ptr, ptr %65, align 8, !noalias !211, !noundef !4
+  store ptr %66, ptr %.0.i.i.i.sroa.phi, align 8, !alias.scope !211
   store i64 %.0.sroa.speculated.i.i.i.i.i.i.i.pre-phi, ptr %.0.i.i.i.sroa.phi.sroa.phi, align 8, !alias.scope !211
   br label %"_ZN83_$LT$bytes..buf..chain..Chain$LT$T$C$U$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$15chunks_vectored17hd785c9b15a275205E.exit"
 
-"_ZN83_$LT$bytes..buf..chain..Chain$LT$T$C$U$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$15chunks_vectored17hd785c9b15a275205E.exit": ; preds = %"_ZN59_$LT$$RF$mut$u20$T$u20$as$u20$bytes..buf..buf_impl..Buf$GT$15chunks_vectored17h20d7facc44bd3061E.exit.i", %63
+"_ZN83_$LT$bytes..buf..chain..Chain$LT$T$C$U$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$15chunks_vectored17hd785c9b15a275205E.exit": ; preds = %"_ZN59_$LT$$RF$mut$u20$T$u20$as$u20$bytes..buf..buf_impl..Buf$GT$15chunks_vectored17h20d7facc44bd3061E.exit.i", %64
   %.0.i.i.i.i = phi i64 [ 0, %"_ZN59_$LT$$RF$mut$u20$T$u20$as$u20$bytes..buf..buf_impl..Buf$GT$15chunks_vectored17h20d7facc44bd3061E.exit.i" ], [ 1, %63 ]
-  %66 = add nuw nsw i64 %.0.i.i.i.i, %.0.i.i.i
+  %68 = add nuw nsw i64 %.0.i.i.i.i, %.0.i.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  call void @"_ZN89_$LT$tokio..net..tcp..stream..TcpStream$u20$as$u20$tokio..io..async_write..AsyncWrite$GT$19poll_write_vectored17h5fb88229c5ce0e60E"(ptr noalias noundef nonnull sret({ i64, [1 x i64] }) align 8 captures(none) dereferenceable(16) %9, ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 %10, i64 noundef %66)
-  %67 = load i64, ptr %9, align 8, !range !151, !noundef !4
-  %68 = icmp eq i64 %67, 2
-  br i1 %68, label %71, label %69
-
-69:                                               ; preds = %"_ZN83_$LT$bytes..buf..chain..Chain$LT$T$C$U$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$15chunks_vectored17hd785c9b15a275205E.exit"
-  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
-  %70 = icmp eq i64 %67, 0
-  br i1 %70, label %24, label %72
+  call void @"_ZN89_$LT$tokio..net..tcp..stream..TcpStream$u20$as$u20$tokio..io..async_write..AsyncWrite$GT$19poll_write_vectored17h5fb88229c5ce0e60E"(ptr noalias noundef nonnull sret({ i64, [1 x i64] }) align 8 captures(none) dereferenceable(16) %9, ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 %10, i64 noundef %68)
+  %69 = load i64, ptr %9, align 8, !range !151, !noundef !4
+  %70 = icmp eq i64 %69, 2
+  br i1 %70, label %73, label %71
 
 71:                                               ; preds = %"_ZN83_$LT$bytes..buf..chain..Chain$LT$T$C$U$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$15chunks_vectored17hd785c9b15a275205E.exit"
-  store i64 2, ptr %0, align 8
-  br label %74
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
+  %72 = icmp eq i64 %69, 0
+  br i1 %72, label %24, label %74
 
-72:                                               ; preds = %69
-  %73 = inttoptr i64 %.sroa.2.0.copyload to ptr
+73:                                               ; preds = %"_ZN83_$LT$bytes..buf..chain..Chain$LT$T$C$U$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$15chunks_vectored17hd785c9b15a275205E.exit"
+  store i64 2, ptr %0, align 8
+  br label %76
+
+74:                                               ; preds = %71
+  %75 = inttoptr i64 %.sroa.2.0.copyload to ptr
   store i64 1, ptr %0, align 8
   %.sroa.425.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %73, ptr %.sroa.425.0..sroa_idx, align 8
-  br label %74
+  store ptr %75, ptr %.sroa.425.0..sroa_idx, align 8
+  br label %76
 
-74:                                               ; preds = %72, %71
+76:                                               ; preds = %74, %73
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %22
@@ -1160,7 +1160,7 @@ define hidden void @_ZN10tokio_util4util8poll_buf14poll_write_buf17he36f3c8aa1d1
   %29 = tail call noundef zeroext i1 %28(ptr noundef nonnull align 1 %24), !noalias !233
   br i1 %29, label %48, label %31
 
-30:                                               ; preds = %80, %113, %"_ZN83_$LT$bytes..buf..chain..Chain$LT$T$C$U$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17hf464eb06e4c12f10E.exit", %22
+30:                                               ; preds = %80, %115, %"_ZN83_$LT$bytes..buf..chain..Chain$LT$T$C$U$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17hf464eb06e4c12f10E.exit", %22
   ret void
 
 31:                                               ; preds = %23
@@ -1221,7 +1221,7 @@ define hidden void @_ZN10tokio_util4util8poll_buf14poll_write_buf17he36f3c8aa1d1
   store ptr %54, ptr %.sroa.428.0..sroa_idx, align 8
   br label %80
 
-55:                                               ; preds = %110, %52
+55:                                               ; preds = %112, %52
   %.0 = phi i64 [ %.sroa.2.0.copyload, %110 ], [ %.sroa.212.0.copyload, %52 ]
   %.val1.i.i.i = load i64, ptr %13, align 8, !alias.scope !255, !noundef !4
   %56 = load i64, ptr %14, align 8, !alias.scope !255, !noundef !4
@@ -1355,53 +1355,53 @@ define hidden void @_ZN10tokio_util4util8poll_buf14poll_write_buf17he36f3c8aa1d1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !313)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !316)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !319)
-  %97 = load i64, ptr %17, align 8, !noalias !322, !noundef !4
-  %98 = load i64, ptr %19, align 8, !noalias !322, !noundef !4
-  %.0.sroa.speculated.i.i.i.i.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %97, i64 %98)
+  %98 = load i64, ptr %17, align 8, !noalias !322, !noundef !4
+  %99 = load i64, ptr %19, align 8, !noalias !322, !noundef !4
+  %.0.sroa.speculated.i.i.i.i.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %98, i64 %99)
   %.not.i.i.i.i41 = icmp eq i64 %.0.sroa.speculated.i.i.i.i.i.i.i, 0
-  br i1 %.not.i.i.i.i41, label %"_ZN83_$LT$bytes..buf..chain..Chain$LT$T$C$U$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$15chunks_vectored17hd785c9b15a275205E.exit", label %99
+  br i1 %.not.i.i.i.i41, label %"_ZN83_$LT$bytes..buf..chain..Chain$LT$T$C$U$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$15chunks_vectored17hd785c9b15a275205E.exit", label %100
 
-99:                                               ; preds = %"_ZN59_$LT$$RF$mut$u20$T$u20$as$u20$bytes..buf..buf_impl..Buf$GT$15chunks_vectored17h20d7facc44bd3061E.exit.i"
-  %100 = getelementptr inbounds nuw i8, ptr %.val34, i64 8
-  %101 = load ptr, ptr %100, align 8, !noalias !322, !noundef !4
-  store ptr %101, ptr %.0.i.i.i.sroa.phi, align 8, !alias.scope !322
+100:                                              ; preds = %"_ZN59_$LT$$RF$mut$u20$T$u20$as$u20$bytes..buf..buf_impl..Buf$GT$15chunks_vectored17h20d7facc44bd3061E.exit.i"
+  %101 = getelementptr inbounds nuw i8, ptr %.val34, i64 8
+  %102 = load ptr, ptr %101, align 8, !noalias !322, !noundef !4
+  store ptr %102, ptr %.0.i.i.i.sroa.phi, align 8, !alias.scope !322
   store i64 %.0.sroa.speculated.i.i.i.i.i.i.i, ptr %.0.i.i.i.sroa.phi.sroa.phi, align 8, !alias.scope !322
   br label %"_ZN83_$LT$bytes..buf..chain..Chain$LT$T$C$U$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$15chunks_vectored17hd785c9b15a275205E.exit"
 
-"_ZN83_$LT$bytes..buf..chain..Chain$LT$T$C$U$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$15chunks_vectored17hd785c9b15a275205E.exit": ; preds = %"_ZN59_$LT$$RF$mut$u20$T$u20$as$u20$bytes..buf..buf_impl..Buf$GT$15chunks_vectored17h20d7facc44bd3061E.exit.i", %99
+"_ZN83_$LT$bytes..buf..chain..Chain$LT$T$C$U$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$15chunks_vectored17hd785c9b15a275205E.exit": ; preds = %"_ZN59_$LT$$RF$mut$u20$T$u20$as$u20$bytes..buf..buf_impl..Buf$GT$15chunks_vectored17h20d7facc44bd3061E.exit.i", %100
   %.0.i.i.i.i = phi i64 [ 0, %"_ZN59_$LT$$RF$mut$u20$T$u20$as$u20$bytes..buf..buf_impl..Buf$GT$15chunks_vectored17h20d7facc44bd3061E.exit.i" ], [ 1, %99 ]
-  %102 = add nuw nsw i64 %.0.i.i.i.i, %.0.i.i.i
+  %104 = add nuw nsw i64 %.0.i.i.i.i, %.0.i.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %103 = getelementptr inbounds nuw i8, ptr %26, i64 56
-  %104 = load ptr, ptr %103, align 8, !invariant.load !4, !noalias !323, !nonnull !4
-  call void %104(ptr noalias noundef nonnull sret({ i64, [1 x i64] }) align 8 captures(none) dereferenceable(16) %10, ptr noalias noundef nonnull align 1 %24, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 %11, i64 noundef %102), !noalias !329
-  %105 = load i64, ptr %10, align 8, !range !151, !noundef !4
-  %106 = icmp eq i64 %105, 2
-  br i1 %106, label %109, label %107
-
-107:                                              ; preds = %"_ZN83_$LT$bytes..buf..chain..Chain$LT$T$C$U$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$15chunks_vectored17hd785c9b15a275205E.exit"
-  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
-  %108 = icmp eq i64 %105, 0
-  br i1 %108, label %110, label %111
+  %105 = getelementptr inbounds nuw i8, ptr %26, i64 56
+  %106 = load ptr, ptr %105, align 8, !invariant.load !4, !noalias !323, !nonnull !4
+  call void %104(ptr noalias noundef nonnull sret({ i64, [1 x i64] }) align 8 captures(none) dereferenceable(16) %10, ptr noalias noundef nonnull align 1 %24, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 %11, i64 noundef %104), !noalias !329
+  %107 = load i64, ptr %10, align 8, !range !151, !noundef !4
+  %108 = icmp eq i64 %107, 2
+  br i1 %108, label %111, label %109
 
 109:                                              ; preds = %"_ZN83_$LT$bytes..buf..chain..Chain$LT$T$C$U$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$15chunks_vectored17hd785c9b15a275205E.exit"
-  store i64 2, ptr %0, align 8
-  br label %113
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
+  %110 = icmp eq i64 %107, 0
+  br i1 %110, label %112, label %113
 
-110:                                              ; preds = %107
+111:                                              ; preds = %"_ZN83_$LT$bytes..buf..chain..Chain$LT$T$C$U$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$15chunks_vectored17hd785c9b15a275205E.exit"
+  store i64 2, ptr %0, align 8
+  br label %115
+
+112:                                              ; preds = %109
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %55
 
-111:                                              ; preds = %107
-  %112 = inttoptr i64 %.sroa.2.0.copyload to ptr
+113:                                              ; preds = %109
+  %114 = inttoptr i64 %.sroa.2.0.copyload to ptr
   store i64 1, ptr %0, align 8
   %.sroa.425.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %112, ptr %.sroa.425.0..sroa_idx, align 8
-  br label %113
+  store ptr %114, ptr %.sroa.425.0..sroa_idx, align 8
+  br label %115
 
-113:                                              ; preds = %111, %109
+115:                                              ; preds = %113, %111
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %30

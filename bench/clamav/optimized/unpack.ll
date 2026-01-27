@@ -533,8 +533,8 @@ define linkonce_odr void @_ZN12SubAllocator14GlueFreeBlocksEv(ptr noundef nonnul
 46:                                               ; preds = %.lr.ph47
   %47 = getelementptr inbounds nuw i8, ptr %.03350, i64 %38
   %.sroa.phi81 = getelementptr inbounds nuw i8, ptr %47, i64 4
-  %48 = getelementptr inbounds nuw i8, ptr %.03350, i64 %38
-  %.sroa.phi = getelementptr inbounds nuw i8, ptr %48, i64 12
+  %49 = getelementptr inbounds nuw i8, ptr %.03350, i64 %38
+  %.sroa.phi = getelementptr inbounds nuw i8, ptr %49, i64 12
   %49 = load ptr, ptr %.sroa.phi81, align 1, !tbaa !42
   %50 = load ptr, ptr %.sroa.phi, align 1, !tbaa !38
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 4
