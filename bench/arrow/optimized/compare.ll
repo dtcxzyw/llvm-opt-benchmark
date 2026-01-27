@@ -12983,7 +12983,7 @@ _ZNK5arrow9ArrayData9GetValuesIhEEPKT_il.exit4.i: ; preds = %_ZNK5arrow9ArrayDat
   %28 = load ptr, ptr %27, align 8, !noalias !773
   %29 = icmp ne ptr %.0.i.i, null
   %30 = icmp ne ptr %28, null
-  %31 = select i1 %26, i1 %30, i1 false
+  %31 = select i1 %26, i1 %30, i1 false, !prof !96
   %or.cond.i = and i1 %29, %31
   br i1 %or.cond.i, label %32, label %_ZNK5arrow9ArrayData9GetValuesIhEEPKT_il.exit4.thread.i
 
@@ -13584,7 +13584,7 @@ _ZNK5arrow9ArrayData9GetValuesIhEEPKT_il.exit4.i: ; preds = %_ZNK5arrow9ArrayDat
   %28 = load ptr, ptr %27, align 8, !noalias !787
   %29 = icmp ne ptr %.0.i.i, null
   %30 = icmp ne ptr %28, null
-  %31 = select i1 %26, i1 %30, i1 false
+  %31 = select i1 %26, i1 %30, i1 false, !prof !96
   %or.cond.i = and i1 %29, %31
   br i1 %or.cond.i, label %32, label %_ZNK5arrow9ArrayData9GetValuesIhEEPKT_il.exit4.thread.i
 
@@ -13954,7 +13954,7 @@ _ZNK5arrow9ArrayData9GetValuesIhEEPKT_il.exit5:   ; preds = %_ZNK5arrow9ArrayDat
   %33 = load ptr, ptr %32, align 8
   %34 = icmp ne ptr %.0.i, null
   %35 = icmp ne ptr %33, null
-  %36 = select i1 %31, i1 %35, i1 false
+  %36 = select i1 %31, i1 %35, i1 false, !prof !96
   %or.cond = and i1 %34, %36
   br i1 %or.cond, label %37, label %_ZNK5arrow9ArrayData9GetValuesIhEEPKT_il.exit5.thread
 

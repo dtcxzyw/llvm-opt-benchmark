@@ -25635,7 +25635,7 @@ _ZNK2OT13SortedArrayOfINS_21CmapSubtableLongGroupENS_7IntTypeIjLj4EEEE7bsearchIj
   %85 = sub i32 %1, %78
   %86 = add i32 %84, %85
   %.not.i17.not29 = icmp eq i32 %86, 0
-  %.not.i17.not = select i1 %.not.i.i16, i1 true, i1 %.not.i17.not29
+  %.not.i17.not = select i1 %.not.i.i16, i1 true, i1 %.not.i17.not29, !prof !33
   br i1 %.not.i17.not, label %_ZNK2OT19CmapSubtableFormat09get_glyphEjPj.exit, label %87, !prof !33
 
 87:                                               ; preds = %_ZNK2OT13SortedArrayOfINS_21CmapSubtableLongGroupENS_7IntTypeIjLj4EEEE7bsearchIjEERKS1_RKT_S7_.exit.i

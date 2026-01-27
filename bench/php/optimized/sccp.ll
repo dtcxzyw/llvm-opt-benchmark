@@ -8350,7 +8350,7 @@ can_ct_eval_func_call.exit:                       ; preds = %36
   %48 = extractvalue { i64, i64 } %46, 1
   %.not.i11.i = icmp ne i64 %48, 0
   %49 = icmp ult i64 %47, 65536
-  %50 = select i1 %.not.i11.i, i1 true, i1 %49
+  %50 = select i1 %.not.i11.i, i1 true, i1 %49, !prof !37
   %spec.select.i = xor i1 %.not.i11.i, %50
   br i1 %spec.select.i, label %can_ct_eval_func_call.exit.thread55, label %can_ct_eval_func_call.exit.thread
 

@@ -483,7 +483,7 @@ define void @_ZN6quiche11flowcontrol11FlowControl15autotune_window17hf4945369274
   %13 = select i1 %.cmp4, i32 %12, i32 %.urem
   %14 = icmp slt i64 %3, 0
   %.not35 = icmp eq i32 %13, 1000000000
-  %.not3 = select i1 %14, i1 true, i1 %.not35
+  %.not3 = select i1 %14, i1 true, i1 %.not35, !prof !23
   br i1 %.not3, label %25, label %16, !prof !23
 
 15:                                               ; preds = %26, %16, %5

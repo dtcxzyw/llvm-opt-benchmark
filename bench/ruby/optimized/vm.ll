@@ -11537,7 +11537,7 @@ vm_objtostring.exit:                              ; preds = %rb_type.exit.i, %18
   %1953 = and i16 %1952, 8
   %1954 = icmp ne i16 %1953, 0
   %1955 = icmp eq i64 %1950, 36
-  %1956 = select i1 %1954, i1 true, i1 %1955
+  %1956 = select i1 %1954, i1 true, i1 %1955, !prof !176
   br i1 %1956, label %1957, label %1976
 
 1957:                                             ; preds = %1948
@@ -11599,7 +11599,7 @@ rb_array_len.exit2490:                            ; preds = %1964, %1967
   %1985 = and i16 %1984, 16
   %1986 = icmp ne i16 %1985, 0
   %1987 = icmp eq i64 %1982, 36
-  %1988 = select i1 %1986, i1 true, i1 %1987
+  %1988 = select i1 %1986, i1 true, i1 %1987, !prof !176
   br i1 %1988, label %1989, label %2011
 
 1989:                                             ; preds = %1980
@@ -11664,7 +11664,7 @@ RHASH_SIZE.exit2494:                              ; preds = %1996, %1999
   %2020 = and i16 %2019, 4
   %2021 = icmp ne i16 %2020, 0
   %2022 = icmp eq i64 %2017, 36
-  %2023 = select i1 %2021, i1 true, i1 %2022
+  %2023 = select i1 %2021, i1 true, i1 %2022, !prof !176
   br i1 %2023, label %2024, label %2029
 
 2024:                                             ; preds = %2015
@@ -11799,7 +11799,7 @@ vm_method_cfunc_is.exit.i._crit_edge:             ; preds = %vm_method_cfunc_is.
   %2088 = and i16 %2087, 4
   %2089 = icmp ne i16 %2088, 0
   %2090 = icmp eq i64 %2085, 36
-  %2091 = select i1 %2089, i1 true, i1 %2090
+  %2091 = select i1 %2089, i1 true, i1 %2090, !prof !176
   br i1 %2091, label %2092, label %2097
 
 2092:                                             ; preds = %2083
