@@ -2345,39 +2345,39 @@ check_marker.exit560:                             ; preds = %163, %175
   %or.cond552 = select i1 %or.cond550, i1 true, i1 %559
   br i1 %or.cond552, label %.split584, label %560
 
-560:                                              ; preds = %550
+560: ; preds = %550
   %561 = mul nsw i64 %536, %517
   %562 = add nsw i64 %540, %561
   %563 = add i64 %562, -2147483647
   %564 = icmp ult i64 %563, -4294967293
   br i1 %564, label %.split584, label %565
 
-565:                                              ; preds = %560
+565:; preds = %560
   %566 = mul nsw i64 %539, %518
   %567 = add i64 %540, -2147483647
   %568 = add i64 %567, %566
   %569 = icmp ult i64 %568, -4294967293
   br i1 %569, label %.split584, label %570
 
-570:                                              ; preds = %565
+570:; preds = %565
   %571 = add i64 %566, -2147483647
   %572 = add i64 %571, %562
   %573 = icmp ult i64 %572, -4294967293
   br i1 %573, label %.split584, label %532
 
-574:                                              ; preds = %532
+574:; preds = %532
   %575 = load i32, ptr %18, align 4, !tbaa !112
   br label %576
 
-576:                                              ; preds = %574, %472
+576:; preds = %574, %472
   %.sink = phi i32 [ %575, %574 ], [ 1, %472 ]
   %577 = getelementptr inbounds nuw i8, ptr %0, i64 4840
   store i32 %.sink, ptr %577, align 8, !tbaa !4
-  %578 = getelementptr inbounds nuw i8, ptr %0, i64 4844
+  %579 = getelementptr inbounds nuw i8, ptr %0, i64 4844
   %579 = getelementptr inbounds nuw i8, ptr %0, i64 4860
   br label %580
 
-580:                                              ; preds = %576, %580
+580:; preds = %576, %580
   %.5587 = phi i32 [ 0, %576 ], [ %597, %580 ]
   %581 = and i32 %.5587, 1
   %582 = zext nneg i32 %581 to i64
@@ -2390,8 +2390,8 @@ check_marker.exit560:                             ; preds = %163, %175
   %589 = getelementptr inbounds nuw [2 x i32], ptr %578, i64 %582
   %590 = getelementptr inbounds nuw i32, ptr %589, i64 %585
   store i32 %588, ptr %590, align 4, !tbaa !39
-  %591 = getelementptr inbounds nuw [2 x i64], ptr %4, i64 %582
-  %592 = getelementptr inbounds nuw i64, ptr %591, i64 %585
+  %592 = getelementptr inbounds nuw [2 x i64], ptr %4, i64 %582
+  %592 = getelementptr inbounds nuw i64, ptr %592, i64 %585
   %593 = load i64, ptr %592, align 8, !tbaa !118
   %594 = trunc i64 %593 to i32
   %595 = getelementptr inbounds nuw [2 x i32], ptr %579, i64 %582
@@ -2401,7 +2401,7 @@ check_marker.exit560:                             ; preds = %163, %175
   %exitcond.not = icmp eq i32 %597, 4
   br i1 %exitcond.not, label %.loopexit, label %580, !llvm.loop !122
 
-.split584:                                        ; preds = %511, %508, %504, %.split, %570, %565, %560, %550, %545, %533, %486
+.split584:; preds = %511, %508, %504, %.split, %570, %565, %560, %550, %545, %533, %486
   %.str.63.sink = phi ptr [ @.str.63, %486 ], [ @.str.64, %570 ], [ @.str.64, %533 ], [ @.str.64, %545 ], [ @.str.64, %550 ], [ @.str.64, %560 ], [ @.str.64, %565 ], [ @.str.63, %.split ], [ @.str.63, %504 ], [ @.str.63, %508 ], [ @.str.63, %511 ]
   %598 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %599 = load ptr, ptr %598, align 8, !tbaa !61

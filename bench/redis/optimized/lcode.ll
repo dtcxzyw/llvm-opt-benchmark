@@ -150,7 +150,7 @@ define hidden i32 @luaK_jump(ptr noundef captures(none) %0) local_unnamed_addr #
 
 27:                                               ; preds = %22
   %28 = load ptr, ptr %4, align 8, !tbaa !30
-  tail call void @luaX_syntaxerror(ptr noundef %28, ptr noundef nonnull @.str.1) #8
+  tail call void @luaX_syntaxerror(ptr noundef %28, ptr noundef nonnull @.str.1) #9
   %.pre.i = load i32, ptr %23, align 4, !tbaa !29
   br label %fixjump.exit.i
 
@@ -227,7 +227,7 @@ define hidden void @luaK_concat(ptr noundef readonly captures(none) %0, ptr noun
 24:                                               ; preds = %19
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %26 = load ptr, ptr %25, align 8, !tbaa !30
-  tail call void @luaX_syntaxerror(ptr noundef %26, ptr noundef nonnull @.str.1) #8
+  tail call void @luaX_syntaxerror(ptr noundef %26, ptr noundef nonnull @.str.1) #9
   %.pre = load i32, ptr %20, align 4, !tbaa !29
   br label %fixjump.exit
 
@@ -322,7 +322,7 @@ define hidden void @luaK_patchlist(ptr noundef captures(none) %0, i32 noundef %1
 30:                                               ; preds = %25
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = load ptr, ptr %31, align 8, !tbaa !30
-  tail call void @luaX_syntaxerror(ptr noundef %32, ptr noundef nonnull @.str.1) #8
+  tail call void @luaX_syntaxerror(ptr noundef %32, ptr noundef nonnull @.str.1) #9
   %.pre.i.i = load i32, ptr %26, align 4, !tbaa !29
   br label %fixjump.exit.i.i
 
@@ -401,7 +401,7 @@ getjumpcontrol.exit.i.i:                          ; preds = %58, %51
 fixjump.exit16.sink.split.sink.split.i:           ; preds = %69, %61
   %.sink23.ph.ph.i = phi i32 [ %66, %61 ], [ %70, %69 ]
   %73 = load ptr, ptr %39, align 8, !tbaa !30
-  tail call void @luaX_syntaxerror(ptr noundef %73, ptr noundef nonnull @.str.1) #8
+  tail call void @luaX_syntaxerror(ptr noundef %73, ptr noundef nonnull @.str.1) #9
   br label %fixjump.exit16.sink.split.i
 
 fixjump.exit16.sink.split.i:                      ; preds = %fixjump.exit16.sink.split.sink.split.i, %61
@@ -475,7 +475,7 @@ define hidden void @luaK_patchtohere(ptr noundef captures(none) initializes((52,
 27:                                               ; preds = %22
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %29 = load ptr, ptr %28, align 8, !tbaa !30
-  tail call void @luaX_syntaxerror(ptr noundef %29, ptr noundef nonnull @.str.1) #8
+  tail call void @luaX_syntaxerror(ptr noundef %29, ptr noundef nonnull @.str.1) #9
   %.pre.i = load i32, ptr %23, align 4, !tbaa !29
   br label %fixjump.exit.i
 
@@ -577,7 +577,7 @@ getjumpcontrol.exit.i:                            ; preds = %27, %20
 fixjump.exit16.sink.split.sink.split:             ; preds = %44, %40
   %.sink23.ph.ph = phi i32 [ %41, %40 ], [ %45, %44 ]
   %48 = load ptr, ptr %6, align 8, !tbaa !30
-  tail call void @luaX_syntaxerror(ptr noundef %48, ptr noundef nonnull @.str.1) #8
+  tail call void @luaX_syntaxerror(ptr noundef %48, ptr noundef nonnull @.str.1) #9
   br label %fixjump.exit16.sink.split
 
 fixjump.exit16.sink.split:                        ; preds = %fixjump.exit16.sink.split.sink.split, %40
@@ -620,7 +620,7 @@ define hidden void @luaK_checkstack(ptr noundef readonly captures(none) %0, i32 
 13:                                               ; preds = %11
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %15 = load ptr, ptr %14, align 8, !tbaa !30
-  tail call void @luaX_syntaxerror(ptr noundef %15, ptr noundef nonnull @.str) #8
+  tail call void @luaX_syntaxerror(ptr noundef %15, ptr noundef nonnull @.str) #9
   %.pre = load ptr, ptr %0, align 8, !tbaa !19
   br label %16
 
@@ -656,7 +656,7 @@ define hidden void @luaK_reserveregs(ptr noundef captures(none) %0, i32 noundef 
 13:                                               ; preds = %11
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %15 = load ptr, ptr %14, align 8, !tbaa !30
-  tail call void @luaX_syntaxerror(ptr noundef %15, ptr noundef nonnull @.str) #8
+  tail call void @luaX_syntaxerror(ptr noundef %15, ptr noundef nonnull @.str) #9
   %.pre.i = load ptr, ptr %0, align 8, !tbaa !19
   %.pre.pre = load i32, ptr %3, align 4, !tbaa !41
   %.pre5 = add nsw i32 %.pre.pre, %1
@@ -694,7 +694,7 @@ define internal fastcc i32 @addk(ptr noundef captures(none) %0, ptr noundef nonn
   %5 = load ptr, ptr %4, align 8, !tbaa !45
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !46
-  %8 = tail call ptr @luaH_set(ptr noundef %5, ptr noundef %7, ptr noundef nonnull %1) #8
+  %8 = tail call ptr @luaH_set(ptr noundef %5, ptr noundef %7, ptr noundef nonnull %1) #9
   %9 = load ptr, ptr %0, align 8, !tbaa !19
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 76
   %11 = load i32, ptr %10, align 4, !tbaa !47
@@ -722,7 +722,7 @@ define internal fastcc i32 @addk(ptr noundef captures(none) %0, ptr noundef nonn
 24:                                               ; preds = %18
   %25 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %26 = load ptr, ptr %25, align 8, !tbaa !49
-  %27 = tail call ptr @luaM_growaux_(ptr noundef %5, ptr noundef %26, ptr noundef nonnull %10, i64 noundef 16, i32 noundef 262143, ptr noundef nonnull @.str.2) #8
+  %27 = tail call ptr @luaM_growaux_(ptr noundef %5, ptr noundef %26, ptr noundef nonnull %10, i64 noundef 16, i32 noundef 262143, ptr noundef nonnull @.str.2) #9
   store ptr %27, ptr %25, align 8, !tbaa !49
   %.pre = load i32, ptr %10, align 4, !tbaa !47
   br label %28
@@ -777,7 +777,7 @@ define internal fastcc i32 @addk(ptr noundef captures(none) %0, ptr noundef nonn
   br i1 %.not38, label %55, label %54
 
 54:                                               ; preds = %50
-  tail call void @luaC_barrierf(ptr noundef %5, ptr noundef nonnull %9, ptr noundef nonnull %46) #8
+  tail call void @luaC_barrierf(ptr noundef %5, ptr noundef nonnull %9, ptr noundef nonnull %46) #9
   br label %55
 
 55:                                               ; preds = %54, %50, %45, %._crit_edge
@@ -868,7 +868,7 @@ define hidden void @luaK_setreturns(ptr noundef captures(none) %0, ptr noundef r
 49:                                               ; preds = %47
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %51 = load ptr, ptr %50, align 8, !tbaa !30
-  tail call void @luaX_syntaxerror(ptr noundef %51, ptr noundef nonnull @.str) #8
+  tail call void @luaX_syntaxerror(ptr noundef %51, ptr noundef nonnull @.str) #9
   %.pre.i.i = load ptr, ptr %0, align 8, !tbaa !19
   %.pre.pre.i = load i32, ptr %37, align 4, !tbaa !41
   %.pre5.i = add nsw i32 %.pre.pre.i, 1
@@ -1116,7 +1116,7 @@ freeexp.exit:                                     ; preds = %2, %5, %9, %13
 26:                                               ; preds = %24
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %28 = load ptr, ptr %27, align 8, !tbaa !30
-  tail call void @luaX_syntaxerror(ptr noundef %28, ptr noundef nonnull @.str) #8
+  tail call void @luaX_syntaxerror(ptr noundef %28, ptr noundef nonnull @.str) #9
   %.pre.i.i = load ptr, ptr %0, align 8, !tbaa !19
   %.pre.pre.i = load i32, ptr %17, align 4, !tbaa !41
   %.pre5.i = add nsw i32 %.pre.pre.i, 1
@@ -1192,7 +1192,7 @@ define internal fastcc void @exp2reg(ptr noundef captures(none) %0, ptr noundef 
 30:                                               ; preds = %25
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = load ptr, ptr %31, align 8, !tbaa !30
-  tail call void @luaX_syntaxerror(ptr noundef %32, ptr noundef nonnull @.str.1) #8
+  tail call void @luaX_syntaxerror(ptr noundef %32, ptr noundef nonnull @.str.1) #9
   %.pre.i = load i32, ptr %26, align 4, !tbaa !29
   br label %fixjump.exit.i
 
@@ -1360,7 +1360,7 @@ need_value.exit:                                  ; preds = %getjumpcontrol.exit
 
 113:                                              ; preds = %108
   %114 = load ptr, ptr %90, align 8, !tbaa !30
-  tail call void @luaX_syntaxerror(ptr noundef %114, ptr noundef nonnull @.str.1) #8
+  tail call void @luaX_syntaxerror(ptr noundef %114, ptr noundef nonnull @.str.1) #9
   %.pre.i.i = load i32, ptr %109, align 4, !tbaa !29
   br label %fixjump.exit.i.i
 
@@ -1438,7 +1438,7 @@ luaK_jump.exit:                                   ; preds = %fixjump.exit.i.i, %
 
 159:                                              ; preds = %154
   %160 = load ptr, ptr %126, align 8, !tbaa !30
-  tail call void @luaX_syntaxerror(ptr noundef %160, ptr noundef nonnull @.str.1) #8
+  tail call void @luaX_syntaxerror(ptr noundef %160, ptr noundef nonnull @.str.1) #9
   %.pre.i.i66 = load i32, ptr %155, align 4, !tbaa !29
   br label %fixjump.exit.i.i65
 
@@ -1546,7 +1546,7 @@ freeexp.exit.i:                                   ; preds = %28, %24, %20, %17
 41:                                               ; preds = %39
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %43 = load ptr, ptr %42, align 8, !tbaa !30
-  tail call void @luaX_syntaxerror(ptr noundef %43, ptr noundef nonnull @.str) #8
+  tail call void @luaX_syntaxerror(ptr noundef %43, ptr noundef nonnull @.str) #9
   %.pre.i.i.i = load ptr, ptr %0, align 8, !tbaa !19
   %.pre.pre.i.i = load i32, ptr %32, align 4, !tbaa !41
   %.pre5.i.i = add nsw i32 %.pre.pre.i.i, 1
@@ -1863,7 +1863,7 @@ freeexp.exit:                                     ; preds = %3, %7, %11, %15
 29:                                               ; preds = %27
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %31 = load ptr, ptr %30, align 8, !tbaa !30
-  tail call void @luaX_syntaxerror(ptr noundef %31, ptr noundef nonnull @.str) #8
+  tail call void @luaX_syntaxerror(ptr noundef %31, ptr noundef nonnull @.str) #9
   %.pre.i.i = load ptr, ptr %0, align 8, !tbaa !19
   %.pre.pre.i = load i32, ptr %19, align 4, !tbaa !41
   %.pre5.i = add nsw i32 %.pre.pre.i, 2
@@ -2022,7 +2022,7 @@ invertjump.exit:                                  ; preds = %10, %17
 48:                                               ; preds = %43
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %50 = load ptr, ptr %49, align 8, !tbaa !30
-  tail call void @luaX_syntaxerror(ptr noundef %50, ptr noundef nonnull @.str.1) #8
+  tail call void @luaX_syntaxerror(ptr noundef %50, ptr noundef nonnull @.str.1) #9
   %.pre.i15 = load i32, ptr %44, align 4, !tbaa !29
   br label %fixjump.exit.i
 
@@ -2086,7 +2086,7 @@ luaK_concat.exit:                                 ; preds = %2, %2, %2, %26, %33
 82:                                               ; preds = %77
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %84 = load ptr, ptr %83, align 8, !tbaa !30
-  tail call void @luaX_syntaxerror(ptr noundef %84, ptr noundef nonnull @.str.1) #8
+  tail call void @luaX_syntaxerror(ptr noundef %84, ptr noundef nonnull @.str.1) #9
   %.pre.i.i = load i32, ptr %78, align 4, !tbaa !29
   br label %fixjump.exit.i.i
 
@@ -2153,7 +2153,7 @@ define internal fastcc i32 @jumponcond(ptr noundef captures(none) %0, ptr nounde
 32:                                               ; preds = %30
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %34 = load ptr, ptr %33, align 8, !tbaa !30
-  tail call void @luaX_syntaxerror(ptr noundef %34, ptr noundef nonnull @.str) #8
+  tail call void @luaX_syntaxerror(ptr noundef %34, ptr noundef nonnull @.str) #9
   %.pre.i.i.i = load ptr, ptr %0, align 8, !tbaa !19
   %.pre.pre.i.i = load i32, ptr %23, align 4, !tbaa !41
   %.pre5.i.i = add nsw i32 %.pre.pre.i.i, 1
@@ -2327,7 +2327,7 @@ invertjump.exit.i:                                ; preds = %34, %27
 50:                                               ; preds = %48
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %52 = load ptr, ptr %51, align 8, !tbaa !30
-  tail call void @luaX_syntaxerror(ptr noundef %52, ptr noundef nonnull @.str) #8
+  tail call void @luaX_syntaxerror(ptr noundef %52, ptr noundef nonnull @.str) #9
   %.pre.i.i.i.i = load ptr, ptr %0, align 8, !tbaa !19
   %.pre.pre.i.i.i = load i32, ptr %41, align 4, !tbaa !41
   %.pre5.i.i.i = add nsw i32 %.pre.pre.i.i.i, 1
@@ -2839,7 +2839,7 @@ define hidden void @luaK_infix(ptr noundef captures(none) %0, i32 noundef %1, pt
 34:                                               ; preds = %29
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %36 = load ptr, ptr %35, align 8, !tbaa !30
-  tail call void @luaX_syntaxerror(ptr noundef %36, ptr noundef nonnull @.str.1) #8
+  tail call void @luaX_syntaxerror(ptr noundef %36, ptr noundef nonnull @.str.1) #9
   %.pre.i.i = load i32, ptr %30, align 4, !tbaa !29
   br label %fixjump.exit.i.i
 
@@ -2903,7 +2903,7 @@ luaK_concat.exit.i:                               ; preds = %fixjump.exit.i.i, %
 68:                                               ; preds = %63
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %70 = load ptr, ptr %69, align 8, !tbaa !30
-  tail call void @luaX_syntaxerror(ptr noundef %70, ptr noundef nonnull @.str.1) #8
+  tail call void @luaX_syntaxerror(ptr noundef %70, ptr noundef nonnull @.str.1) #9
   %.pre.i.i.i = load i32, ptr %64, align 4, !tbaa !29
   br label %fixjump.exit.i.i.i
 
@@ -2965,7 +2965,7 @@ freeexp.exit.i:                                   ; preds = %87, %83, %79, %76
 100:                                              ; preds = %98
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %102 = load ptr, ptr %101, align 8, !tbaa !30
-  tail call void @luaX_syntaxerror(ptr noundef %102, ptr noundef nonnull @.str) #8
+  tail call void @luaX_syntaxerror(ptr noundef %102, ptr noundef nonnull @.str) #9
   %.pre.i.i.i11 = load ptr, ptr %0, align 8, !tbaa !19
   %.pre.pre.i.i = load i32, ptr %91, align 4, !tbaa !41
   %.pre5.i.i = add nsw i32 %.pre.pre.i.i, 1
@@ -3083,7 +3083,7 @@ define hidden void @luaK_posfix(ptr noundef %0, i32 noundef %1, ptr noundef capt
 29:                                               ; preds = %24
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %31 = load ptr, ptr %30, align 8, !tbaa !30
-  tail call void @luaX_syntaxerror(ptr noundef %31, ptr noundef nonnull @.str.1) #8
+  tail call void @luaX_syntaxerror(ptr noundef %31, ptr noundef nonnull @.str.1) #9
   %.pre.i = load i32, ptr %25, align 4, !tbaa !29
   br label %fixjump.exit.i
 
@@ -3148,7 +3148,7 @@ luaK_concat.exit:                                 ; preds = %5, %14, %fixjump.ex
 61:                                               ; preds = %56
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %63 = load ptr, ptr %62, align 8, !tbaa !30
-  tail call void @luaX_syntaxerror(ptr noundef %63, ptr noundef nonnull @.str.1) #8
+  tail call void @luaX_syntaxerror(ptr noundef %63, ptr noundef nonnull @.str.1) #9
   %.pre.i78 = load i32, ptr %57, align 4, !tbaa !29
   br label %fixjump.exit.i77
 
@@ -3289,7 +3289,7 @@ freeexp.exit.i:                                   ; preds = %124, %120, %116, %1
 137:                                              ; preds = %135
   %138 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %139 = load ptr, ptr %138, align 8, !tbaa !30
-  tail call void @luaX_syntaxerror(ptr noundef %139, ptr noundef nonnull @.str) #8
+  tail call void @luaX_syntaxerror(ptr noundef %139, ptr noundef nonnull @.str) #9
   %.pre.i.i.i = load ptr, ptr %0, align 8, !tbaa !19
   %.pre.pre.i.i = load i32, ptr %128, align 4, !tbaa !41
   %.pre5.i.i = add nsw i32 %.pre.pre.i.i, 1
@@ -3794,7 +3794,7 @@ getjumpcontrol.exit.i.i.i:                        ; preds = %28, %21
 fixjump.exit16.sink.split.sink.split.i.i:         ; preds = %39, %31
   %.sink23.ph.ph.i.i = phi i32 [ %36, %31 ], [ %40, %39 ]
   %43 = load ptr, ptr %9, align 8, !tbaa !30
-  tail call void @luaX_syntaxerror(ptr noundef %43, ptr noundef nonnull @.str.1) #8
+  tail call void @luaX_syntaxerror(ptr noundef %43, ptr noundef nonnull @.str.1) #9
   br label %fixjump.exit16.sink.split.i.i
 
 fixjump.exit16.sink.split.i.i:                    ; preds = %fixjump.exit16.sink.split.sink.split.i.i, %31
@@ -3836,7 +3836,7 @@ dischargejpc.exit._crit_edge:                     ; preds = %dischargejpc.exit
   %53 = load ptr, ptr %52, align 8, !tbaa !45
   %54 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %55 = load ptr, ptr %54, align 8, !tbaa !20
-  %56 = tail call ptr @luaM_growaux_(ptr noundef %53, ptr noundef %55, ptr noundef nonnull %49, i64 noundef 4, i32 noundef 2147483645, ptr noundef nonnull @.str.3) #8
+  %56 = tail call ptr @luaM_growaux_(ptr noundef %53, ptr noundef %55, ptr noundef nonnull %49, i64 noundef 4, i32 noundef 2147483645, ptr noundef nonnull @.str.3) #9
   store ptr %56, ptr %54, align 8, !tbaa !20
   %.pre22 = load i32, ptr %7, align 8, !tbaa !4
   br label %57
@@ -3863,7 +3863,7 @@ dischargejpc.exit._crit_edge:                     ; preds = %dischargejpc.exit
   %67 = load ptr, ptr %66, align 8, !tbaa !45
   %68 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %69 = load ptr, ptr %68, align 8, !tbaa !56
-  %70 = tail call ptr @luaM_growaux_(ptr noundef %67, ptr noundef %69, ptr noundef nonnull %63, i64 noundef 4, i32 noundef 2147483645, ptr noundef nonnull @.str.3) #8
+  %70 = tail call ptr @luaM_growaux_(ptr noundef %67, ptr noundef %69, ptr noundef nonnull %63, i64 noundef 4, i32 noundef 2147483645, ptr noundef nonnull @.str.3) #9
   store ptr %70, ptr %68, align 8, !tbaa !56
   %.pre25 = load i32, ptr %7, align 8, !tbaa !4
   br label %71
@@ -4155,7 +4155,7 @@ define internal fastcc i32 @condjump(ptr noundef captures(none) %0, i32 noundef 
 
 41:                                               ; preds = %36
   %42 = load ptr, ptr %12, align 8, !tbaa !30
-  tail call void @luaX_syntaxerror(ptr noundef %42, ptr noundef nonnull @.str.1) #8
+  tail call void @luaX_syntaxerror(ptr noundef %42, ptr noundef nonnull @.str.1) #9
   %.pre.i.i = load i32, ptr %37, align 4, !tbaa !29
   br label %fixjump.exit.i.i
 
@@ -4174,19 +4174,19 @@ luaK_jump.exit:                                   ; preds = %5, %24, %fixjump.ex
 }
 
 ; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.floor.f64(double) #5
+declare double @llvm.floor.f64(double) #6
 
 ; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #5
+declare double @llvm.fmuladd.f64(double, double, double) #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @pow(double noundef, double noundef) local_unnamed_addr #6
+declare double @pow(double noundef, double noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -4195,7 +4195,7 @@ attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: readwrite) }
 attributes #8 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}

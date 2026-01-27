@@ -1419,7 +1419,7 @@ define internal void @sbr_hf_apply_noise_0(ptr noundef captures(none) %0, ptr no
 
 sbr_hf_apply_noise.exit.sink.split:               ; preds = %31, %16
   %.lcssa18.sink = phi i32 [ %19, %16 ], [ %35, %31 ]
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str, i32 noundef %.lcssa18.sink) #6
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str, i32 noundef %.lcssa18.sink) #7
   br label %sbr_hf_apply_noise.exit
 
 sbr_hf_apply_noise.exit:                          ; preds = %.thread, %sbr_hf_apply_noise.exit.sink.split, %6
@@ -1527,7 +1527,7 @@ define internal void @sbr_hf_apply_noise_1(ptr noundef captures(none) %0, ptr no
 
 sbr_hf_apply_noise.exit.sink.split:               ; preds = %35, %19
   %.lcssa21.sink = phi i32 [ %22, %19 ], [ %39, %35 ]
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str, i32 noundef %.lcssa21.sink) #6
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str, i32 noundef %.lcssa21.sink) #7
   br label %sbr_hf_apply_noise.exit
 
 sbr_hf_apply_noise.exit:                          ; preds = %.thread, %sbr_hf_apply_noise.exit.sink.split, %6
@@ -1629,7 +1629,7 @@ define internal void @sbr_hf_apply_noise_2(ptr noundef captures(none) %0, ptr no
 
 sbr_hf_apply_noise.exit.sink.split:               ; preds = %31, %16
   %.lcssa18.sink = phi i32 [ %19, %16 ], [ %35, %31 ]
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str, i32 noundef %.lcssa18.sink) #6
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str, i32 noundef %.lcssa18.sink) #7
   br label %sbr_hf_apply_noise.exit
 
 sbr_hf_apply_noise.exit:                          ; preds = %.thread, %sbr_hf_apply_noise.exit.sink.split, %6
@@ -1737,7 +1737,7 @@ define internal void @sbr_hf_apply_noise_3(ptr noundef captures(none) %0, ptr no
 
 sbr_hf_apply_noise.exit.sink.split:               ; preds = %34, %18
   %.lcssa21.sink = phi i32 [ %21, %18 ], [ %38, %34 ]
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str, i32 noundef %.lcssa21.sink) #6
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str, i32 noundef %.lcssa21.sink) #7
   br label %sbr_hf_apply_noise.exit
 
 sbr_hf_apply_noise.exit:                          ; preds = %.thread, %sbr_hf_apply_noise.exit.sink.split, %6
@@ -1747,7 +1747,7 @@ sbr_hf_apply_noise.exit:                          ; preds = %.thread, %sbr_hf_ap
 declare void @av_log(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #5
+declare i32 @llvm.smax.i32(i32, i32) #6
 
 attributes #0 = { cold mustprogress nofree norecurse nosync nounwind optsize willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

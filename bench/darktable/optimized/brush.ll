@@ -7784,7 +7784,7 @@ dt_masks_dynbuf_add_2.exit:                       ; preds = %239, %241, %245
   %256 = load float, ptr %255, align 4, !tbaa !93
   %257 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store float %256, ptr %257, align 4, !tbaa !93
-  %.pre183 = load float, ptr %6, align 4, !tbaa !93
+  %.pre181 = load float, ptr %6, align 4, !tbaa !93
   br label %264
 
 258:                                              ; preds = %250
@@ -7797,12 +7797,12 @@ dt_masks_dynbuf_add_2.exit:                       ; preds = %239, %241, %245
   %262 = load float, ptr %261, align 4, !tbaa !93
   %263 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store float %262, ptr %263, align 4, !tbaa !93
-  %.pre182 = load float, ptr %7, align 4, !tbaa !93
+  %.pre180 = load float, ptr %7, align 4, !tbaa !93
   br label %264
 
 264:                                              ; preds = %258, %260, %254
-  %265 = phi float [ %253, %258 ], [ %251, %260 ], [ %.pre183, %254 ]
-  %266 = phi float [ %251, %258 ], [ %.pre182, %260 ], [ %253, %254 ]
+  %265 = phi float [ %253, %258 ], [ %251, %260 ], [ %.pre181, %254 ]
+  %266 = phi float [ %251, %258 ], [ %.pre180, %260 ], [ %253, %254 ]
   %267 = fptosi float %266 to i32
   %268 = fptosi float %265 to i32
   %269 = add i32 %267, -3
@@ -7813,8 +7813,8 @@ dt_masks_dynbuf_add_2.exit:                       ; preds = %239, %241, %245
 ._crit_edge:                                      ; preds = %264
   %.phi.trans.insert = getelementptr i8, ptr %6, i64 4
   %.val147.pre = load float, ptr %.phi.trans.insert, align 4, !tbaa !93
-  %.phi.trans.insert185 = getelementptr i8, ptr %7, i64 4
-  %.val149.pre = load float, ptr %.phi.trans.insert185, align 4, !tbaa !93
+  %.phi.trans.insert183 = getelementptr i8, ptr %7, i64 4
+  %.val149.pre = load float, ptr %.phi.trans.insert183, align 4, !tbaa !93
   br label %282
 
 272:                                              ; preds = %264
@@ -8069,9 +8069,9 @@ _brush_points_recurs_border_small_gaps.exit:      ; preds = %.lr.ph.i, %dt_masks
   br label %dt_masks_dynbuf_add_2.exit160.sink.split
 
 dt_masks_dynbuf_add_2.exit160.sink.split:         ; preds = %385, %402
-  %.sink212 = phi ptr [ %405, %402 ], [ %388, %385 ]
+  %.sink210 = phi ptr [ %405, %402 ], [ %388, %385 ]
   %.sink = phi float [ %389, %402 ], [ %372, %385 ]
-  %406 = getelementptr i8, ptr %.sink212, i64 4
+  %406 = getelementptr i8, ptr %.sink210, i64 4
   store float %.sink, ptr %406, align 4, !tbaa !93
   br label %dt_masks_dynbuf_add_2.exit160
 
@@ -8081,9 +8081,9 @@ dt_masks_dynbuf_add_2.exit160:                    ; preds = %dt_masks_dynbuf_add
 .split133:                                        ; preds = %dt_masks_dynbuf_add_2.exit160
   %407 = getelementptr i8, ptr %13, i64 136
   %408 = getelementptr i8, ptr %11, i64 136
-  %phi.call180 = load i64, ptr %407, align 8, !tbaa !92
-  %.val145181 = load i64, ptr %408, align 8, !tbaa !92
-  %409 = icmp ult i64 %phi.call180, %.val145181
+  %phi.call178 = load i64, ptr %407, align 8, !tbaa !92
+  %.val145179 = load i64, ptr %408, align 8, !tbaa !92
+  %409 = icmp ult i64 %phi.call178, %.val145179
   br i1 %409, label %.split.lr.ph, label %.loopexit
 
 .split.lr.ph:                                     ; preds = %.split133
@@ -8096,7 +8096,7 @@ dt_masks_dynbuf_add_2.exit160:                    ; preds = %dt_masks_dynbuf_add
   br label %.split
 
 .split:                                           ; preds = %.split.lr.ph, %dt_masks_dynbuf_add_2.exit174
-  %phi.call187 = phi i64 [ %phi.call180, %.split.lr.ph ], [ %phi.call, %dt_masks_dynbuf_add_2.exit174 ]
+  %phi.call185 = phi i64 [ %phi.call178, %.split.lr.ph ], [ %phi.call, %dt_masks_dynbuf_add_2.exit174 ]
   %416 = load float, ptr %410, align 4, !tbaa !93
   %417 = fpext reassoc nsz arcp contract afn float %416 to double
   %418 = load float, ptr %411, align 4, !tbaa !93
@@ -8115,7 +8115,7 @@ dt_masks_dynbuf_add_2.exit160:                    ; preds = %dt_masks_dynbuf_add
   %430 = fadd reassoc nsz arcp contract afn double %429, %425
   %431 = fptrunc reassoc nsz arcp contract afn double %430 to float
   store float %431, ptr %414, align 4, !tbaa !93
-  %432 = add i64 %phi.call187, 2
+  %432 = add i64 %phi.call185, 2
   %433 = load i64, ptr %415, align 8, !tbaa !151
   %.not.i168 = icmp ult i64 %432, %433
   br i1 %.not.i168, label %440, label %434, !prof !152
@@ -8138,7 +8138,7 @@ dt_masks_dynbuf_add_2.exit160:                    ; preds = %dt_masks_dynbuf_add
 
 440:                                              ; preds = %._crit_edge.i170, %.split
   %.pre-phi.i173 = phi i64 [ %.pre12.i172, %._crit_edge.i170 ], [ %432, %.split ]
-  %441 = phi i64 [ %phi.call.pre, %._crit_edge.i170 ], [ %phi.call187, %.split ]
+  %441 = phi i64 [ %phi.call.pre, %._crit_edge.i170 ], [ %phi.call185, %.split ]
   %442 = load ptr, ptr %13, align 8, !tbaa !89
   %443 = getelementptr inbounds nuw float, ptr %442, i64 %441
   store float %423, ptr %443, align 4, !tbaa !93
@@ -8148,7 +8148,7 @@ dt_masks_dynbuf_add_2.exit160:                    ; preds = %dt_masks_dynbuf_add
   br label %dt_masks_dynbuf_add_2.exit174
 
 dt_masks_dynbuf_add_2.exit174:                    ; preds = %434, %436, %440
-  %phi.call = phi i64 [ %phi.call187, %434 ], [ %phi.call.pre, %436 ], [ %.pre-phi.i173, %440 ]
+  %phi.call = phi i64 [ %phi.call185, %434 ], [ %phi.call.pre, %436 ], [ %.pre-phi.i173, %440 ]
   %.val145 = load i64, ptr %408, align 8, !tbaa !92
   %445 = icmp ult i64 %phi.call, %.val145
   br i1 %445, label %.split, label %.loopexit
