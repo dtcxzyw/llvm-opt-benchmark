@@ -26759,45 +26759,45 @@ bary_pack.exit:                                   ; preds = %ruby_nonempty_memcp
   %.0254.i = phi i32 [ %79, %ruby_nonempty_memcpy.exit364.i ], [ 0, %66 ], [ %spec.select.i, %.thread530.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %.023 = call i32 @llvm.abs.i32(i32 %.0254.i, i1 true)
   %82 = lshr i32 %.0254.i, 31
   %.022 = xor i32 %82, %1
   %.not26 = icmp eq i32 %1, %82
-  %83 = icmp samesign ugt i32 %.023, 1
-  %84 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %85 = load i64, ptr %84, align 8
-  %86 = icmp ugt i64 %85, 7
-  %or.cond5 = select i1 %83, i1 true, i1 %86
-  br i1 %.not26, label %90, label %87
+  %83 = add nsw i32 %.0254.i, -2
+  %84 = icmp ult i32 %83, -3
+  %85 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %86 = load i64, ptr %85, align 8
+  %87 = icmp ugt i64 %86, 7
+  %or.cond5 = select i1 %84, i1 true, i1 %87
+  br i1 %.not26, label %91, label %88
 
-87:                                               ; preds = %bary_pack.exit
-  br i1 %or.cond5, label %88, label %95
+88:                                               ; preds = %bary_pack.exit
+  br i1 %or.cond5, label %89, label %96
 
-88:                                               ; preds = %87
-  %89 = load i64, ptr @rb_eRangeError, align 8, !tbaa !7
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %89, ptr noundef nonnull @.str.43) #30
+89:                                               ; preds = %88
+  %90 = load i64, ptr @rb_eRangeError, align 8, !tbaa !7
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %90, ptr noundef nonnull @.str.43) #30
   unreachable
 
-90:                                               ; preds = %bary_pack.exit
-  br i1 %or.cond5, label %91, label %95
+91:                                               ; preds = %bary_pack.exit
+  br i1 %or.cond5, label %92, label %96
 
-91:                                               ; preds = %90
-  %92 = load i64, ptr %8, align 8, !tbaa !11
-  %93 = and i64 %92, 8192
-  %.not = icmp eq i64 %93, 0
-  %94 = select i1 %.not, i64 -1, i64 1
+92:                                               ; preds = %91
+  %93 = load i64, ptr %8, align 8, !tbaa !11
+  %94 = and i64 %93, 8192
+  %.not = icmp eq i64 %94, 0
+  %95 = select i1 %.not, i64 -1, i64 1
   br label %bigzero_p.exit.thread
 
-95:                                               ; preds = %90, %87
-  %96 = load i64, ptr %7, align 16, !tbaa !7
-  %97 = trunc i64 %96 to i32
-  %98 = and i32 %97, 31
-  %99 = call i64 @llvm.fshl.i64(i64 %85, i64 %96, i64 59)
-  %100 = call fastcc i64 @big_shift3(i64 noundef %0, i32 noundef %.022, i64 noundef %99, i32 noundef %98)
+96:                                               ; preds = %91, %88
+  %97 = load i64, ptr %7, align 16, !tbaa !7
+  %98 = trunc i64 %97 to i32
+  %99 = and i32 %98, 31
+  %100 = call i64 @llvm.fshl.i64(i64 %86, i64 %97, i64 59)
+  %101 = call fastcc i64 @big_shift3(i64 noundef %0, i32 noundef %.022, i64 noundef %100, i32 noundef %99)
   br label %bigzero_p.exit.thread
 
-bigzero_p.exit.thread:                            ; preds = %31, %BIGNUM_LEN.exit.i, %BIGNUM_LEN.exit31.thread, %BIGNUM_LEN.exit.thread, %BIGNUM_LEN.exit, %BIGNUM_LEN.exit31, %95, %91
-  %.0 = phi i64 [ %94, %91 ], [ %100, %95 ], [ 1, %BIGNUM_LEN.exit31.thread ], [ 1, %BIGNUM_LEN.exit31 ], [ 1, %BIGNUM_LEN.exit ], [ 1, %BIGNUM_LEN.exit.thread ], [ 1, %BIGNUM_LEN.exit.i ], [ 1, %31 ]
+bigzero_p.exit.thread:                            ; preds = %31, %BIGNUM_LEN.exit.i, %BIGNUM_LEN.exit31.thread, %BIGNUM_LEN.exit.thread, %BIGNUM_LEN.exit, %BIGNUM_LEN.exit31, %96, %92
+  %.0 = phi i64 [ %95, %92 ], [ %101, %96 ], [ 1, %BIGNUM_LEN.exit31.thread ], [ 1, %BIGNUM_LEN.exit31 ], [ 1, %BIGNUM_LEN.exit ], [ 1, %BIGNUM_LEN.exit.thread ], [ 1, %BIGNUM_LEN.exit.i ], [ 1, %31 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i64 %.0
 }
@@ -31742,9 +31742,6 @@ declare i64 @llvm.smin.i64(i64, i64) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.abs.i64(i64, i1 immarg) #25
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #25
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #27

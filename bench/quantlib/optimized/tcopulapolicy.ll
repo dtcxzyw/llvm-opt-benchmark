@@ -14217,8 +14217,8 @@ if.end4:                                          ; preds = %if.end
   %add21.i.i = fadd x86_fp80 %add16.i.i, %mul18.i.i
   %div = sdiv i32 %4, 3
   %rem = srem i32 %4, 3
-  %8 = tail call i32 @llvm.abs.i32(i32 %div, i1 true)
-  %cmp10 = icmp samesign ult i32 %8, 64
+  %8 = add nsw i32 %div, 63
+  %cmp10 = icmp ult i32 %8, 127
   br i1 %cmp10, label %if.then11, label %if.else20
 
 if.then11:                                        ; preds = %if.end4
@@ -21983,8 +21983,8 @@ if.end4:                                          ; preds = %if.end
   %add21.i.i = fadd x86_fp80 %add16.i.i, %mul18.i.i
   %div = sdiv i32 %4, 3
   %rem = srem i32 %4, 3
-  %8 = tail call i32 @llvm.abs.i32(i32 %div, i1 true)
-  %cmp10 = icmp samesign ult i32 %8, 64
+  %8 = add nsw i32 %div, 63
+  %cmp10 = icmp ult i32 %8, 127
   br i1 %cmp10, label %if.then11, label %if.else20
 
 if.then11:                                        ; preds = %if.end4

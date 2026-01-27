@@ -1530,10 +1530,10 @@ define internal noundef i32 @gray_cubic_to(ptr noundef readonly captures(none) %
   %47 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
   %.neg.i = mul i64 %44, -3
   %48 = getelementptr inbounds nuw i8, ptr %.0.i, i64 48
-  %49 = add i64 %.neg.i, %43
-  %50 = add i64 %49, %46
-  %51 = call i64 @llvm.abs.i64(i64 %50, i1 true)
-  %52 = icmp samesign ugt i64 %51, 128
+  %49 = add i64 %43, -129
+  %50 = add i64 %49, %.neg.i
+  %51 = add i64 %50, %46
+  %52 = icmp ult i64 %51, -257
   br i1 %52, label %.preheader._crit_edge.i, label %53
 
 .preheader._crit_edge.i:                          ; preds = %.preheader.i
@@ -1552,12 +1552,12 @@ define internal noundef i32 @gray_cubic_to(ptr noundef readonly captures(none) %
   %57 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
   %58 = load i64, ptr %57, align 8, !tbaa !65
   %.neg91.i = mul i64 %58, -3
-  %59 = add i64 %.neg91.i, %56
-  %60 = getelementptr inbounds nuw i8, ptr %.0.i, i64 56
-  %61 = load i64, ptr %60, align 8, !tbaa !65
-  %62 = add nsw i64 %59, %61
-  %63 = call i64 @llvm.abs.i64(i64 %62, i1 true)
-  %64 = icmp samesign ugt i64 %63, 128
+  %59 = getelementptr inbounds nuw i8, ptr %.0.i, i64 56
+  %60 = load i64, ptr %59, align 8, !tbaa !65
+  %61 = add i64 %56, -129
+  %62 = add i64 %61, %.neg91.i
+  %63 = add i64 %62, %60
+  %64 = icmp ult i64 %63, -257
   br i1 %64, label %85, label %65
 
 65:                                               ; preds = %53
@@ -1565,21 +1565,21 @@ define internal noundef i32 @gray_cubic_to(ptr noundef readonly captures(none) %
   %67 = load i64, ptr %66, align 8, !tbaa !63
   %.neg92.i = mul i64 %67, -3
   %68 = shl nsw i64 %43, 1
-  %69 = add i64 %45, %68
-  %70 = add i64 %69, %.neg92.i
-  %71 = call i64 @llvm.abs.i64(i64 %70, i1 true)
-  %72 = icmp samesign ugt i64 %71, 128
+  %69 = add i64 %68, -129
+  %70 = add i64 %69, %45
+  %71 = add i64 %70, %.neg92.i
+  %72 = icmp ult i64 %71, -257
   br i1 %72, label %85, label %73
 
 73:                                               ; preds = %65
   %74 = getelementptr inbounds nuw i8, ptr %.0.i, i64 40
   %75 = load i64, ptr %74, align 8, !tbaa !65
   %.neg93.i = mul i64 %75, -3
-  %76 = shl nsw i64 %61, 1
-  %77 = add i64 %76, %55
-  %78 = add i64 %77, %.neg93.i
-  %79 = call i64 @llvm.abs.i64(i64 %78, i1 true)
-  %80 = icmp samesign ugt i64 %79, 128
+  %76 = shl nsw i64 %60, 1
+  %77 = add i64 %55, -129
+  %78 = add i64 %77, %76
+  %79 = add i64 %78, %.neg93.i
+  %80 = icmp ult i64 %79, -257
   br i1 %80, label %85, label %81
 
 81:                                               ; preds = %73
@@ -1604,7 +1604,7 @@ define internal noundef i32 @gray_cubic_to(ptr noundef readonly captures(none) %
 85:                                               ; preds = %73, %65, %53, %.preheader._crit_edge.i
   %86 = phi i64 [ %.pre28.i, %.preheader._crit_edge.i ], [ %58, %53 ], [ %58, %65 ], [ %58, %73 ]
   %87 = phi i64 [ %.pre26.i, %.preheader._crit_edge.i ], [ %55, %53 ], [ %55, %65 ], [ %55, %73 ]
-  %88 = phi i64 [ %.pre24.i, %.preheader._crit_edge.i ], [ %61, %53 ], [ %61, %65 ], [ %61, %73 ]
+  %88 = phi i64 [ %.pre24.i, %.preheader._crit_edge.i ], [ %60, %53 ], [ %60, %65 ], [ %60, %73 ]
   %89 = getelementptr inbounds nuw i8, ptr %.0.i, i64 96
   store i64 %43, ptr %89, align 8, !tbaa !63
   %90 = add nsw i64 %45, %44

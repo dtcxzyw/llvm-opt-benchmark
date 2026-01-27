@@ -3691,9 +3691,9 @@ make_flat_edge.exit:                              ; preds = %1874, %1828, %.thre
   %1900 = load ptr, ptr %1899, align 8, !tbaa !16
   %1901 = getelementptr inbounds nuw i8, ptr %1900, i64 360
   %1902 = load i32, ptr %1901, align 8, !tbaa !112
-  %1903 = sub nsw i32 %1893, %1902
-  %1904 = call i32 @llvm.abs.i32(i32 %1903, i1 true)
-  %1905 = icmp samesign ugt i32 %1904, 1
+  %1903 = add i32 %1893, -2
+  %1904 = sub i32 %1903, %1902
+  %1905 = icmp ult i32 %1904, -3
   %1906 = getelementptr inbounds nuw i8, ptr %1882, i64 16
   %1907 = load ptr, ptr %1906, align 8, !tbaa !16
   br i1 %1905, label %1908, label %1975
