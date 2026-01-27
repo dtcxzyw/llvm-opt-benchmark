@@ -4406,8 +4406,8 @@ define void @_ZN19pyo3_macros_backend7pyclass13build_py_enum17h60a3267f4a4b75f9E
   call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #14
   unreachable
 
-.body:                                            ; preds = %146, %141, %.body22.thread66
-  %.pn14 = phi { ptr, i32 } [ %.pn, %.body22.thread66 ], [ %147, %146 ], [ %142, %141 ]
+.body:                                            ; preds = %146, %141, %.body22.thread67
+  %.pn14 = phi { ptr, i32 } [ %.pn, %.body22.thread67 ], [ %147, %146 ], [ %142, %141 ]
   invoke void @"_ZN4core3ptr62drop_in_place$LT$pyo3_macros_backend..pyclass..PyClassArgs$GT$17h2dd9a1b192133412E"(ptr align 8 %2) #13
           to label %763 unwind label %761
 
@@ -4450,15 +4450,15 @@ define void @_ZN19pyo3_macros_backend7pyclass13build_py_enum17h60a3267f4a4b75f9E
   %161 = icmp eq i32 %160, 1
   br i1 %161, label %168, label %170
 
-.body22.thread66:                                 ; preds = %754, %753, %.body22, %.body22.thread, %162
-  %.pn = phi { ptr, i32 } [ %163, %162 ], [ %eh.lpad-body2365, %.body22.thread ], [ %lpad.thr_comm.split-lp, %.body22 ], [ %.pn103.pn.i.i, %753 ], [ %.pn103.pn.i.i, %754 ]
+.body22.thread67:                                 ; preds = %754, %753, %.body22, %.body22.thread, %162
+  %.pn = phi { ptr, i32 } [ %163, %162 ], [ %eh.lpad-body2366, %.body22.thread ], [ %lpad.thr_comm.split-lp, %.body22 ], [ %.pn103.pn.i.i, %753 ], [ %.pn103.pn.i.i, %754 ]
   invoke void @"_ZN4core3ptr52drop_in_place$LT$pyo3_macros_backend..utils..Ctx$GT$17hccc8b41e50c8ff50E"(ptr nonnull align 8 %134) #13
           to label %.body unwind label %761
 
 162:                                              ; preds = %757, %191, %183, %176, %174, %168, %166, %164, %157
   %163 = landingpad { ptr, i32 }
           cleanup
-  br label %.body22.thread66
+  br label %.body22.thread67
 
 164:                                              ; preds = %157
   %165 = invoke i32 @_ZN5quote7spanned10join_spans17h3bdea0c35a14c843E(ptr nonnull align 8 %127)
@@ -4469,9 +4469,9 @@ define void @_ZN19pyo3_macros_backend7pyclass13build_py_enum17h60a3267f4a4b75f9E
           to label %.sink.split unwind label %162
 
 .sink.split:                                      ; preds = %166, %191, %176
-  %.sink122 = phi ptr [ %132, %176 ], [ %131, %191 ], [ %133, %166 ]
+  %.sink123 = phi ptr [ %132, %176 ], [ %131, %191 ], [ %133, %166 ]
   %167 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %167, ptr noundef nonnull align 8 dereferenceable(24) %.sink122, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %167, ptr noundef nonnull align 8 dereferenceable(24) %.sink123, i64 24, i1 false)
   store i64 -9223372036854775807, ptr %0, align 8
   br label %.invoke
 
@@ -4530,7 +4530,7 @@ define void @_ZN19pyo3_macros_backend7pyclass13build_py_enum17h60a3267f4a4b75f9E
   call void @llvm.lifetime.start.p0(ptr nonnull %122)
   %193 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %194 = invoke { ptr, ptr } @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$4iter17h67a054ffbb848404E"(ptr nonnull align 8 %193)
-          to label %.noexc18 unwind label %.body22.thread70
+          to label %.noexc18 unwind label %.body22.thread71
 
 .noexc18:                                         ; preds = %192
   %195 = extractvalue { ptr, ptr } %194, 0
@@ -4555,7 +4555,7 @@ define void @_ZN19pyo3_macros_backend7pyclass13build_py_enum17h60a3267f4a4b75f9E
 
 204:                                              ; preds = %201
   invoke void @"_ZN4core3ptr68drop_in_place$LT$syn..punctuated..Iter$LT$syn..data..Variant$GT$$GT$17hd9764f76659cb30dE"(ptr nonnull align 8 %122)
-          to label %.noexc19 unwind label %.body22.thread70
+          to label %.noexc19 unwind label %.body22.thread71
 
 .noexc19:                                         ; preds = %204
   br i1 %203, label %236, label %205
@@ -4567,7 +4567,7 @@ define void @_ZN19pyo3_macros_backend7pyclass13build_py_enum17h60a3267f4a4b75f9E
   call void @llvm.lifetime.start.p0(ptr nonnull %119), !noalias !18
   call void @llvm.lifetime.start.p0(ptr nonnull %120), !noalias !18
   %206 = invoke { ptr, ptr } @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$4iter17h67a054ffbb848404E"(ptr nonnull align 8 %193)
-          to label %.noexc20 unwind label %.body22.thread70
+          to label %.noexc20 unwind label %.body22.thread71
 
 .noexc20:                                         ; preds = %205
   %207 = extractvalue { ptr, ptr } %206, 0
@@ -4633,13 +4633,13 @@ define void @_ZN19pyo3_macros_backend7pyclass13build_py_enum17h60a3267f4a4b75f9E
   br i1 %231, label %_ZN19pyo3_macros_backend7pyclass18PyClassComplexEnum3new17hc45de032ef82f632E.exit.i, label %_ZN19pyo3_macros_backend7pyclass18PyClassComplexEnum3new17hc45de032ef82f632E.exit.thread.i
 
 _ZN19pyo3_macros_backend7pyclass18PyClassComplexEnum3new17hc45de032ef82f632E.exit.thread.i: ; preds = %229
-  %.sroa.339.sroa.0.0.copyload84.i = load i64, ptr %232, align 8, !noalias !18
+  %.sroa.339.sroa.0.0.copyload85.i = load i64, ptr %232, align 8, !noalias !18
   %.sroa.339.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %118, i64 16
-  %.sroa.339.sroa.4.0.copyload86.i = load i64, ptr %.sroa.339.sroa.4.0..sroa_idx.i, align 8, !noalias !18
+  %.sroa.339.sroa.4.0.copyload87.i = load i64, ptr %.sroa.339.sroa.4.0..sroa_idx.i, align 8, !noalias !18
   %.sroa.640.8..sroa_idx42.i = getelementptr inbounds nuw i8, ptr %118, i64 24
   %.sroa.640.8.copyload43.i = load ptr, ptr %.sroa.640.8..sroa_idx42.i, align 8, !noalias !18
   invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %120)
-          to label %.noexc21 unwind label %.body22.thread70
+          to label %.noexc21 unwind label %.body22.thread71
 
 .noexc21:                                         ; preds = %_ZN19pyo3_macros_backend7pyclass18PyClassComplexEnum3new17hc45de032ef82f632E.exit.thread.i
   call void @llvm.lifetime.end.p0(ptr nonnull %116), !noalias !18
@@ -4663,7 +4663,7 @@ _ZN19pyo3_macros_backend7pyclass18PyClassComplexEnum3new17hc45de032ef82f632E.exi
   %.sroa.339.sroa.4.0..sroa.339.0..sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %118, i64 24
   %.sroa.339.sroa.4.0.copyload.i = load i64, ptr %.sroa.339.sroa.4.0..sroa.339.0..sroa_idx.sroa_idx.i, align 8, !noalias !18
   invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %120)
-          to label %.noexc24 unwind label %.body22.thread70
+          to label %.noexc24 unwind label %.body22.thread71
 
 .noexc24:                                         ; preds = %_ZN19pyo3_macros_backend7pyclass18PyClassComplexEnum3new17hc45de032ef82f632E.exit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %116), !noalias !18
@@ -4685,11 +4685,11 @@ _ZN19pyo3_macros_backend7pyclass18PyClassComplexEnum3new17hc45de032ef82f632E.exi
   call void @llvm.lifetime.start.p0(ptr nonnull %114), !noalias !18
   call void @llvm.lifetime.start.p0(ptr nonnull %115), !noalias !18
   %237 = invoke i32 @_ZN11proc_macro24Span9call_site17hd2dde5e549e8d6b3E()
-          to label %.noexc25 unwind label %.body22.thread70
+          to label %.noexc25 unwind label %.body22.thread71
 
 .noexc25:                                         ; preds = %236
   invoke void @_ZN11proc_macro25Ident3new17h223c9bbdc8ed4ba9E(ptr nonnull sret([24 x i8]) align 8 %115, ptr nonnull align 1 @anon.16a1457f15a8bdd65dd860daa07f2c8d.49, i64 5, i32 %237, ptr nonnull align 8 @anon.16a1457f15a8bdd65dd860daa07f2c8d.50)
-          to label %.noexc26 unwind label %.body22.thread70
+          to label %.noexc26 unwind label %.body22.thread71
 
 .noexc26:                                         ; preds = %.noexc25
   %238 = load ptr, ptr %184, align 8, !noalias !24
@@ -4727,6 +4727,8 @@ _ZN19pyo3_macros_backend7pyclass18PyClassComplexEnum3new17hc45de032ef82f632E.exi
   %251 = load i64, ptr %113, align 8, !noalias !24
   %.not15.i.i = icmp eq i64 %251, -9223372036854775808
   %252 = getelementptr inbounds nuw i8, ptr %113, i64 8
+  %.sink21.i.sroa.gep58.i = getelementptr inbounds nuw i8, ptr %113, i64 16
+  %.sink21.i.sroa.phi.i.sroa.gep62 = getelementptr inbounds nuw i8, ptr %113, i64 24
   br i1 %.not15.i.i, label %_ZN19pyo3_macros_backend7pyclass17PyClassSimpleEnum3new17h3e7f2d8550f6dc85E.exit.thread.i, label %253
 
 253:                                              ; preds = %250
@@ -4783,14 +4785,14 @@ _ZN19pyo3_macros_backend7pyclass18PyClassComplexEnum3new17hc45de032ef82f632E.exi
   unreachable
 
 _ZN19pyo3_macros_backend7pyclass17PyClassSimpleEnum3new17h3e7f2d8550f6dc85E.exit.thread.i: ; preds = %271, %250
+  %.sink21.i.sroa.phi.i.sroa.phi = phi ptr [ %.sink21.i.sroa.phi.i.sroa.gep, %271 ], [ %.sink21.i.sroa.phi.i.sroa.gep62, %250 ]
+  %.sink21.i.sroa.phi.i = phi ptr [ %.sink21.i.sroa.gep.i, %271 ], [ %.sink21.i.sroa.gep58.i, %250 ]
   %.sink21.i.i = phi ptr [ %274, %271 ], [ %252, %250 ]
   %.sroa.337.8.copyload.i = load i64, ptr %.sink21.i.i, align 8, !noalias !18
-  %.sroa.6.8..sink21.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sink21.i.i, i64 8
-  %.sroa.6.sroa.0.0.copyload.i = load i64, ptr %.sroa.6.8..sink21.i.sroa_idx.i, align 8, !noalias !18
-  %.sroa.6.sroa.4.0..sroa.6.8..sink21.i.sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sink21.i.i, i64 16
-  %.sroa.6.sroa.4.0.copyload.i = load i64, ptr %.sroa.6.sroa.4.0..sroa.6.8..sink21.i.sroa_idx.sroa_idx.i, align 8, !noalias !18
+  %.sroa.6.sroa.0.0.copyload.i = load i64, ptr %.sink21.i.sroa.phi.i, align 8, !noalias !18
+  %.sroa.6.sroa.4.0.copyload.i = load i64, ptr %.sink21.i.sroa.phi.i.sroa.phi, align 8, !noalias !18
   invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %115)
-          to label %.noexc27 unwind label %.body22.thread70
+          to label %.noexc27 unwind label %.body22.thread71
 
 .noexc27:                                         ; preds = %_ZN19pyo3_macros_backend7pyclass17PyClassSimpleEnum3new17h3e7f2d8550f6dc85E.exit.thread.i
   call void @llvm.lifetime.end.p0(ptr nonnull %107), !noalias !18
@@ -4814,14 +4816,14 @@ _ZN19pyo3_macros_backend7pyclass17PyClassSimpleEnum3new17h3e7f2d8550f6dc85E.exit
   %272 = load i64, ptr %107, align 8, !noalias !24
   %273 = icmp eq i64 %272, 0
   %274 = getelementptr inbounds nuw i8, ptr %107, i64 8
+  %.sink21.i.sroa.gep.i = getelementptr inbounds nuw i8, ptr %107, i64 16
+  %.sink21.i.sroa.phi.i.sroa.gep = getelementptr inbounds nuw i8, ptr %107, i64 24
   br i1 %273, label %_ZN19pyo3_macros_backend7pyclass17PyClassSimpleEnum3new17h3e7f2d8550f6dc85E.exit.i, label %_ZN19pyo3_macros_backend7pyclass17PyClassSimpleEnum3new17h3e7f2d8550f6dc85E.exit.thread.i
 
 _ZN19pyo3_macros_backend7pyclass17PyClassSimpleEnum3new17h3e7f2d8550f6dc85E.exit.i: ; preds = %271
   %.sroa.08.i.sroa.0.0.copyload.i = load i64, ptr %274, align 8, !noalias !24
-  %.sroa.08.i.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %107, i64 16
-  %.sroa.08.i.sroa.4.0.copyload.i = load i64, ptr %.sroa.08.i.sroa.4.0..sroa_idx.i, align 8, !noalias !24
-  %.sroa.08.i.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %107, i64 24
-  %275 = load i64, ptr %.sroa.08.i.sroa.5.0..sroa_idx.i, align 8, !noalias !24
+  %.sroa.08.i.sroa.4.0.copyload.i = load i64, ptr %.sink21.i.sroa.gep.i, align 8, !noalias !24
+  %275 = load i64, ptr %.sink21.i.sroa.phi.i.sroa.gep, align 8, !noalias !24
   %276 = load i64, ptr %115, align 8, !noalias !24
   %.sroa.08.i.sroa.7.24..sroa_idx.i = getelementptr inbounds nuw i8, ptr %115, i64 8
   %.sroa.08.i.sroa.7.24.copyload.i = load i64, ptr %.sroa.08.i.sroa.7.24..sroa_idx.i, align 8, !noalias !24
@@ -4840,10 +4842,10 @@ _ZN19pyo3_macros_backend7pyclass17PyClassSimpleEnum3new17h3e7f2d8550f6dc85E.exit
   br i1 %.not35.i, label %.thread, label %281
 
 277:                                              ; preds = %.noexc24, %.noexc21
-  %.sroa.339.sroa.0.0.i = phi i64 [ %.sroa.339.sroa.0.0.copyload.i, %.noexc24 ], [ %.sroa.339.sroa.0.0.copyload84.i, %.noexc21 ]
-  %.sroa.339.sroa.4.0.i = phi i64 [ %.sroa.339.sroa.4.0.copyload.i, %.noexc24 ], [ %.sroa.339.sroa.4.0.copyload86.i, %.noexc21 ]
-  %.sroa.640.062.i = phi ptr [ %235, %.noexc24 ], [ %.sroa.640.8.copyload43.i, %.noexc21 ]
-  %278 = ptrtoint ptr %.sroa.640.062.i to i64
+  %.sroa.339.sroa.0.0.i = phi i64 [ %.sroa.339.sroa.0.0.copyload.i, %.noexc24 ], [ %.sroa.339.sroa.0.0.copyload85.i, %.noexc21 ]
+  %.sroa.339.sroa.4.0.i = phi i64 [ %.sroa.339.sroa.4.0.copyload.i, %.noexc24 ], [ %.sroa.339.sroa.4.0.copyload87.i, %.noexc21 ]
+  %.sroa.640.063.i = phi ptr [ %235, %.noexc24 ], [ %.sroa.640.8.copyload43.i, %.noexc21 ]
+  %278 = ptrtoint ptr %.sroa.640.063.i to i64
   br label %.thread
 
 279:                                              ; preds = %199
@@ -4852,7 +4854,7 @@ _ZN19pyo3_macros_backend7pyclass17PyClassSimpleEnum3new17h3e7f2d8550f6dc85E.exit
   call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #14, !noalias !18
   unreachable
 
-.body22.thread70:                                 ; preds = %_ZN19pyo3_macros_backend7pyclass17PyClassSimpleEnum3new17h3e7f2d8550f6dc85E.exit.thread.i, %192, %204, %205, %_ZN19pyo3_macros_backend7pyclass18PyClassComplexEnum3new17hc45de032ef82f632E.exit.thread.i, %_ZN19pyo3_macros_backend7pyclass18PyClassComplexEnum3new17hc45de032ef82f632E.exit.i, %236, %.noexc25
+.body22.thread71:                                 ; preds = %_ZN19pyo3_macros_backend7pyclass17PyClassSimpleEnum3new17h3e7f2d8550f6dc85E.exit.thread.i, %192, %204, %205, %_ZN19pyo3_macros_backend7pyclass18PyClassComplexEnum3new17hc45de032ef82f632E.exit.thread.i, %_ZN19pyo3_macros_backend7pyclass18PyClassComplexEnum3new17hc45de032ef82f632E.exit.i, %236, %.noexc25
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.body22.thread
@@ -4860,7 +4862,7 @@ _ZN19pyo3_macros_backend7pyclass17PyClassSimpleEnum3new17h3e7f2d8550f6dc85E.exit
 .body22:                                          ; preds = %_ZN19pyo3_macros_backend7pyclass16impl_simple_enum17hed1b310fd78c2cb4E.exit.i, %755
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %.body22.thread66
+  br label %.body22.thread67
 
 .thread:                                          ; preds = %277, %_ZN19pyo3_macros_backend7pyclass17PyClassSimpleEnum3new17h3e7f2d8550f6dc85E.exit.i, %.noexc27
   %.sroa.12.0.ph = phi i64 [ %.sroa.6.sroa.4.0.copyload.i, %.noexc27 ], [ %276, %_ZN19pyo3_macros_backend7pyclass17PyClassSimpleEnum3new17h3e7f2d8550f6dc85E.exit.i ], [ %278, %277 ]
@@ -6729,11 +6731,11 @@ _ZN19pyo3_macros_backend7pyclass19PyClassImplsBuilder3doc17h25ee8c37c895cbd4E.ex
           to label %750 unwind label %708, !noalias !33
 
 753:                                              ; preds = %750
-  br i1 %.sroa.045.2.i.i, label %754, label %.body22.thread66
+  br i1 %.sroa.045.2.i.i, label %754, label %.body22.thread67
 
 754:                                              ; preds = %753
   invoke void @"_ZN4core3ptr96drop_in_place$LT$alloc..vec..Vec$LT$pyo3_macros_backend..pyclass..PyClassEnumUnitVariant$GT$$GT$17h04322233856c519dE"(ptr nonnull align 8 %106) #13
-          to label %.body22.thread66 unwind label %708, !noalias !33
+          to label %.body22.thread67 unwind label %708, !noalias !33
 
 _ZN19pyo3_macros_backend7pyclass16impl_simple_enum17hed1b310fd78c2cb4E.exit.i: ; preds = %747, %749, %707
   invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %.sroa.339.sroa.0.sroa.4.0..sroa.339.0..sroa_idx.sroa_idx)
@@ -6828,15 +6830,15 @@ _ZN19pyo3_macros_backend7pyclass16impl_simple_enum17hed1b310fd78c2cb4E.exit.i: ;
           to label %759 unwind label %.body22
 
 757:                                              ; preds = %.thread, %281
-  %.sroa.4.083 = phi i64 [ %.sroa.4.0.ph, %.thread ], [ %.sroa.08.i.sroa.4.0.copyload.i, %281 ]
-  %.sroa.9.082 = phi i64 [ %.sroa.9.0.ph, %.thread ], [ %275, %281 ]
-  %.sroa.12.081 = phi i64 [ %.sroa.12.0.ph, %.thread ], [ %276, %281 ]
+  %.sroa.4.084 = phi i64 [ %.sroa.4.0.ph, %.thread ], [ %.sroa.08.i.sroa.4.0.copyload.i, %281 ]
+  %.sroa.9.083 = phi i64 [ %.sroa.9.0.ph, %.thread ], [ %275, %281 ]
+  %.sroa.12.082 = phi i64 [ %.sroa.12.0.ph, %.thread ], [ %276, %281 ]
   %758 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sroa.4.083, ptr %758, align 8
+  store i64 %.sroa.4.084, ptr %758, align 8
   %.sroa.260.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.9.082, ptr %.sroa.260.0..sroa_idx, align 8
+  store i64 %.sroa.9.083, ptr %.sroa.260.0..sroa_idx, align 8
   %.sroa.361.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %.sroa.12.081, ptr %.sroa.361.0..sroa_idx, align 8
+  store i64 %.sroa.12.082, ptr %.sroa.361.0..sroa_idx, align 8
   store i64 -9223372036854775807, ptr %0, align 8
   invoke void @"_ZN4core3ptr58drop_in_place$LT$pyo3_macros_backend..utils..PythonDoc$GT$17h7e63866d37bbf73dE"(ptr nonnull align 8 %130)
           to label %.invoke unwind label %162
@@ -6854,12 +6856,12 @@ _ZN19pyo3_macros_backend7pyclass16impl_simple_enum17hed1b310fd78c2cb4E.exit.i: ;
   call void @"_ZN4core3ptr62drop_in_place$LT$pyo3_macros_backend..pyclass..PyClassArgs$GT$17h2dd9a1b192133412E"(ptr align 8 %2)
   ret void
 
-.body22.thread:                                   ; preds = %211, %220, %243, %199, %.body22.thread70
-  %eh.lpad-body2365 = phi { ptr, i32 } [ %lpad.thr_comm, %.body22.thread70 ], [ %212, %211 ], [ %221, %220 ], [ %.pn18.i.i, %243 ], [ %200, %199 ]
+.body22.thread:                                   ; preds = %211, %220, %243, %199, %.body22.thread71
+  %eh.lpad-body2366 = phi { ptr, i32 } [ %lpad.thr_comm, %.body22.thread71 ], [ %212, %211 ], [ %221, %220 ], [ %.pn18.i.i, %243 ], [ %200, %199 ]
   invoke void @"_ZN4core3ptr58drop_in_place$LT$pyo3_macros_backend..utils..PythonDoc$GT$17h7e63866d37bbf73dE"(ptr nonnull align 8 %130) #13
-          to label %.body22.thread66 unwind label %761
+          to label %.body22.thread67 unwind label %761
 
-761:                                              ; preds = %.body22.thread, %.body22.thread66, %.body
+761:                                              ; preds = %.body22.thread, %.body22.thread67, %.body
   %762 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #14

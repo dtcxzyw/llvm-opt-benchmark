@@ -681,22 +681,24 @@ _ZN5eastl16intrusive_sdlistIN15TestSDListLocal7IntNodeEE5eraseENS_23IntrusiveSDL
 
 for.body:                                         ; preds = %_ZN5eastl16intrusive_sdlistIN15TestSDListLocal7IntNodeEE5eraseENS_23IntrusiveSDListIteratorIS2_PS2_RS2_EES7_.exit, %_ZN5eastl16intrusive_sdlistIN15TestSDListLocal7IntNodeEE10push_frontERS2_.exit96
   %indvars.iv = phi i64 [ 4, %_ZN5eastl16intrusive_sdlistIN15TestSDListLocal7IntNodeEE5eraseENS_23IntrusiveSDListIteratorIS2_PS2_RS2_EES7_.exit ], [ %indvars.iv.next, %_ZN5eastl16intrusive_sdlistIN15TestSDListLocal7IntNodeEE10push_frontERS2_.exit96 ]
+  %arrayidx373376.sroa.phi = phi ptr [ inttoptr (i64 8 to ptr), %_ZN5eastl16intrusive_sdlistIN15TestSDListLocal7IntNodeEE5eraseENS_23IntrusiveSDListIteratorIS2_PS2_RS2_EES7_.exit ], [ %arrayidx373376.sroa.gep, %_ZN5eastl16intrusive_sdlistIN15TestSDListLocal7IntNodeEE10push_frontERS2_.exit96 ]
   %arrayidx373376 = phi ptr [ null, %_ZN5eastl16intrusive_sdlistIN15TestSDListLocal7IntNodeEE5eraseENS_23IntrusiveSDListIteratorIS2_PS2_RS2_EES7_.exit ], [ %arrayidx, %_ZN5eastl16intrusive_sdlistIN15TestSDListLocal7IntNodeEE10push_frontERS2_.exit96 ]
+  %arrayidx32374375.sroa.phi = phi ptr [ inttoptr (i64 8 to ptr), %_ZN5eastl16intrusive_sdlistIN15TestSDListLocal7IntNodeEE5eraseENS_23IntrusiveSDListIteratorIS2_PS2_RS2_EES7_.exit ], [ %arrayidx32374375.sroa.gep, %_ZN5eastl16intrusive_sdlistIN15TestSDListLocal7IntNodeEE10push_frontERS2_.exit96 ]
   %arrayidx32374375 = phi ptr [ null, %_ZN5eastl16intrusive_sdlistIN15TestSDListLocal7IntNodeEE5eraseENS_23IntrusiveSDListIteratorIS2_PS2_RS2_EES7_.exit ], [ %arrayidx32, %_ZN5eastl16intrusive_sdlistIN15TestSDListLocal7IntNodeEE10push_frontERS2_.exit96 ]
   %arrayidx = getelementptr inbounds nuw %"struct.TestSDListLocal::IntNode", ptr %nodes, i64 %indvars.iv
+  %arrayidx373376.sroa.gep = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   store ptr %arrayidx373376, ptr %arrayidx, align 8
-  %mppPrevNext.i89 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
-  store ptr %l, ptr %mppPrevNext.i89, align 8
+  store ptr %l, ptr %arrayidx373376.sroa.gep, align 8
   %tobool.not.i90 = icmp eq ptr %arrayidx373376, null
   br i1 %tobool.not.i90, label %_ZN5eastl16intrusive_sdlistIN15TestSDListLocal7IntNodeEE10push_frontERS2_.exit, label %if.then.i91
 
 if.then.i91:                                      ; preds = %for.body
-  %mppPrevNext7.i = getelementptr inbounds nuw i8, ptr %arrayidx373376, i64 8
-  store ptr %arrayidx, ptr %mppPrevNext7.i, align 8
+  store ptr %arrayidx, ptr %arrayidx373376.sroa.phi, align 8
   br label %_ZN5eastl16intrusive_sdlistIN15TestSDListLocal7IntNodeEE10push_frontERS2_.exit
 
 _ZN5eastl16intrusive_sdlistIN15TestSDListLocal7IntNodeEE10push_frontERS2_.exit: ; preds = %for.body, %if.then.i91
   %arrayidx32 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 120
+  %arrayidx32374375.sroa.gep = getelementptr inbounds nuw i8, ptr %arrayidx, i64 128
   store ptr %arrayidx32374375, ptr %arrayidx32, align 8
   %mppPrevNext.i92 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 128
   store ptr %l2, ptr %mppPrevNext.i92, align 8
@@ -704,8 +706,7 @@ _ZN5eastl16intrusive_sdlistIN15TestSDListLocal7IntNodeEE10push_frontERS2_.exit: 
   br i1 %tobool.not.i93, label %_ZN5eastl16intrusive_sdlistIN15TestSDListLocal7IntNodeEE10push_frontERS2_.exit96, label %if.then.i94
 
 if.then.i94:                                      ; preds = %_ZN5eastl16intrusive_sdlistIN15TestSDListLocal7IntNodeEE10push_frontERS2_.exit
-  %mppPrevNext7.i95 = getelementptr inbounds nuw i8, ptr %arrayidx32374375, i64 8
-  store ptr %arrayidx32, ptr %mppPrevNext7.i95, align 8
+  store ptr %arrayidx32, ptr %arrayidx32374375.sroa.phi, align 8
   br label %_ZN5eastl16intrusive_sdlistIN15TestSDListLocal7IntNodeEE10push_frontERS2_.exit96
 
 _ZN5eastl16intrusive_sdlistIN15TestSDListLocal7IntNodeEE10push_frontERS2_.exit96: ; preds = %_ZN5eastl16intrusive_sdlistIN15TestSDListLocal7IntNodeEE10push_frontERS2_.exit, %if.then.i94

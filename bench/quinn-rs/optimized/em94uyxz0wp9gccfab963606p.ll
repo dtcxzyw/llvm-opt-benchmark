@@ -3693,9 +3693,9 @@ define void @"_ZN93_$LT$quinn_proto..range_set..array_range_set..ArrayRangeSet$u
   %3 = alloca [16 x i8], align 8
   %4 = alloca [24 x i8], align 8
   %5 = alloca [16 x i8], align 8
-  %.sroa.4.sroa.0 = alloca [6 x i8], align 2
   %6 = alloca [24 x i8], align 8
   %7 = alloca [48 x i8], align 8
+  %.sroa.5.sroa.5.sroa.0 = alloca [6 x i8], align 2
   %8 = load i64, ptr %1, align 8, !range !13, !noundef !3
   %.not = icmp eq i64 %8, 0
   br i1 %.not, label %27, label %9
@@ -3746,20 +3746,22 @@ define void @"_ZN93_$LT$quinn_proto..range_set..array_range_set..ArrayRangeSet$u
   ret void
 
 25:                                               ; preds = %9
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5.sroa.5.sroa.0)
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h004a0c1af006e751E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %26, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.dc71d0a5682d3db708e0e7797e95149f.157)
   %.sroa.5.sroa.0.0.copyload4 = load i16, ptr %6, align 8
   %.sroa.5.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 2
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.sroa.4.sroa.0, ptr noundef nonnull align 2 dereferenceable(6) %.sroa.5.sroa.5.0..sroa_idx, i64 6, i1 false)
-  %.sroa.4.sroa.2.0..sroa.5.sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %.sroa.4.sroa.2.0.copyload22 = load i64, ptr %.sroa.4.sroa.2.0..sroa.5.sroa.5.0..sroa_idx.sroa_idx, align 8
-  %.sroa.4.sroa.3.0..sroa.5.sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %.sroa.4.sroa.3.0.copyload23 = load i64, ptr %.sroa.4.sroa.3.0..sroa.5.sroa.5.0..sroa_idx.sroa_idx, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.sroa.5.sroa.5.sroa.0, ptr noundef nonnull align 2 dereferenceable(6) %.sroa.5.sroa.5.0..sroa_idx, i64 6, i1 false)
+  %.sroa.5.sroa.5.sroa.5.0..sroa.5.sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %.sroa.5.sroa.5.sroa.5.0.copyload24 = load i64, ptr %.sroa.5.sroa.5.sroa.5.0..sroa.5.sroa.5.0..sroa_idx.sroa_idx, align 8
+  %.sroa.5.sroa.5.sroa.6.0..sroa.5.sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %.sroa.5.sroa.5.sroa.6.0.copyload25 = load i64, ptr %.sroa.5.sroa.5.sroa.6.0..sroa.5.sroa.5.0..sroa_idx.sroa_idx, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %43
 
 27:                                               ; preds = %2
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5.sroa.5.sroa.0)
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 48
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -3795,25 +3797,26 @@ define void @"_ZN93_$LT$quinn_proto..range_set..array_range_set..ArrayRangeSet$u
   br label %43
 
 43:                                               ; preds = %"_ZN4core5array25try_from_trusted_iterator4next28_$u7b$$u7b$closure$u7d$$u7d$17hb363037d40d5f7faE.exit.i.i.i", %25
-  %.sroa.4.sroa.2.0 = phi i64 [ %37, %"_ZN4core5array25try_from_trusted_iterator4next28_$u7b$$u7b$closure$u7d$$u7d$17hb363037d40d5f7faE.exit.i.i.i" ], [ %.sroa.4.sroa.2.0.copyload22, %25 ]
-  %.sroa.4.sroa.3.0 = phi i64 [ %38, %"_ZN4core5array25try_from_trusted_iterator4next28_$u7b$$u7b$closure$u7d$$u7d$17hb363037d40d5f7faE.exit.i.i.i" ], [ %.sroa.4.sroa.3.0.copyload23, %25 ]
-  %.sroa.4.sroa.4.0 = phi i64 [ %40, %"_ZN4core5array25try_from_trusted_iterator4next28_$u7b$$u7b$closure$u7d$$u7d$17hb363037d40d5f7faE.exit.i.i.i" ], [ undef, %25 ]
-  %.sroa.4.sroa.5.0 = phi i64 [ %41, %"_ZN4core5array25try_from_trusted_iterator4next28_$u7b$$u7b$closure$u7d$$u7d$17hb363037d40d5f7faE.exit.i.i.i" ], [ undef, %25 ]
-  %.sroa.02.0 = phi i64 [ 0, %"_ZN4core5array25try_from_trusted_iterator4next28_$u7b$$u7b$closure$u7d$$u7d$17hb363037d40d5f7faE.exit.i.i.i" ], [ 1, %25 ]
-  %.sroa.5.sroa.0.0 = phi i16 [ %42, %"_ZN4core5array25try_from_trusted_iterator4next28_$u7b$$u7b$closure$u7d$$u7d$17hb363037d40d5f7faE.exit.i.i.i" ], [ %.sroa.5.sroa.0.0.copyload4, %25 ]
+  %.sroa.5.sroa.5.sroa.5.0 = phi i64 [ %.sroa.5.sroa.5.sroa.5.0.copyload24, %25 ], [ %37, %"_ZN4core5array25try_from_trusted_iterator4next28_$u7b$$u7b$closure$u7d$$u7d$17hb363037d40d5f7faE.exit.i.i.i" ]
+  %.sroa.5.sroa.5.sroa.6.0 = phi i64 [ %.sroa.5.sroa.5.sroa.6.0.copyload25, %25 ], [ %38, %"_ZN4core5array25try_from_trusted_iterator4next28_$u7b$$u7b$closure$u7d$$u7d$17hb363037d40d5f7faE.exit.i.i.i" ]
+  %.sroa.5.sroa.5.sroa.7.0 = phi i64 [ undef, %25 ], [ %40, %"_ZN4core5array25try_from_trusted_iterator4next28_$u7b$$u7b$closure$u7d$$u7d$17hb363037d40d5f7faE.exit.i.i.i" ]
+  %.sroa.5.sroa.5.sroa.8.0 = phi i64 [ undef, %25 ], [ %41, %"_ZN4core5array25try_from_trusted_iterator4next28_$u7b$$u7b$closure$u7d$$u7d$17hb363037d40d5f7faE.exit.i.i.i" ]
+  %.sroa.02.0 = phi i64 [ 1, %25 ], [ 0, %"_ZN4core5array25try_from_trusted_iterator4next28_$u7b$$u7b$closure$u7d$$u7d$17hb363037d40d5f7faE.exit.i.i.i" ]
+  %.sroa.5.sroa.0.0 = phi i16 [ %.sroa.5.sroa.0.0.copyload4, %25 ], [ %42, %"_ZN4core5array25try_from_trusted_iterator4next28_$u7b$$u7b$closure$u7d$$u7d$17hb363037d40d5f7faE.exit.i.i.i" ]
   store i64 %.sroa.02.0, ptr %0, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i16 %.sroa.5.sroa.0.0, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 10
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx, ptr noundef nonnull align 2 dereferenceable(6) %.sroa.4.sroa.0, i64 6, i1 false)
-  %.sroa.4.sroa.2.0..sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.4.sroa.2.0, ptr %.sroa.4.sroa.2.0..sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx.sroa_idx, align 8
-  %.sroa.4.sroa.3.0..sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %.sroa.4.sroa.3.0, ptr %.sroa.4.sroa.3.0..sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx.sroa_idx, align 8
-  %.sroa.4.sroa.4.0..sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 %.sroa.4.sroa.4.0, ptr %.sroa.4.sroa.4.0..sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx.sroa_idx, align 8
-  %.sroa.4.sroa.5.0..sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i64 %.sroa.4.sroa.5.0, ptr %.sroa.4.sroa.5.0..sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx.sroa_idx, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx, ptr noundef nonnull align 2 dereferenceable(6) %.sroa.5.sroa.5.sroa.0, i64 6, i1 false)
+  %.sroa.5.sroa.5.sroa.5.0..sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %.sroa.5.sroa.5.sroa.5.0, ptr %.sroa.5.sroa.5.sroa.5.0..sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx.sroa_idx, align 8
+  %.sroa.5.sroa.5.sroa.6.0..sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i64 %.sroa.5.sroa.5.sroa.6.0, ptr %.sroa.5.sroa.5.sroa.6.0..sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx.sroa_idx, align 8
+  %.sroa.5.sroa.5.sroa.7.0..sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i64 %.sroa.5.sroa.5.sroa.7.0, ptr %.sroa.5.sroa.5.sroa.7.0..sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx.sroa_idx, align 8
+  %.sroa.5.sroa.5.sroa.8.0..sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store i64 %.sroa.5.sroa.5.sroa.8.0, ptr %.sroa.5.sroa.5.sroa.8.0..sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx.sroa_idx, align 8
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5.sroa.5.sroa.0)
   br label %24
 }
 

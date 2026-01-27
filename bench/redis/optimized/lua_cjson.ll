@@ -313,6 +313,7 @@ define internal noundef i32 @json_encode(ptr noundef %0) #0 {
   %2 = alloca %struct.strbuf_t, align 8
   %3 = tail call ptr @lua_touserdata(ptr noundef %0, i32 noundef -10003) #12
   %.not.i = icmp eq ptr %3, null
+  %.0.sroa.gep17 = getelementptr inbounds nuw i8, ptr %2, i64 16
   br i1 %.not.i, label %4, label %json_fetch_config.exit
 
 4:                                                ; preds = %1
@@ -337,30 +338,30 @@ json_fetch_config.exit:                           ; preds = %1, %4
 
 13:                                               ; preds = %10
   call void @strbuf_init(ptr noundef nonnull %2, i64 noundef 0) #12
-  br label %17
+  br label %16
 
 14:                                               ; preds = %10
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 1280
-  %16 = getelementptr inbounds nuw i8, ptr %3, i64 1296
-  store i64 0, ptr %16, align 8, !tbaa !32
-  br label %17
+  %.0.sroa.gep = getelementptr i8, ptr %3, i64 1296
+  store i64 0, ptr %.0.sroa.gep, align 8, !tbaa !32
+  br label %16
 
-17:                                               ; preds = %14, %13
+16:                                               ; preds = %14, %13
+  %.0.sroa.phi = phi ptr [ %.0.sroa.gep, %14 ], [ %.0.sroa.gep17, %13 ]
   %.0 = phi ptr [ %15, %14 ], [ %2, %13 ]
   call fastcc void @json_append_data(ptr noundef %0, ptr noundef nonnull %3, i32 noundef 0, ptr noundef nonnull %.0)
   %.0.val = load ptr, ptr %.0, align 8, !tbaa !33
-  %18 = getelementptr i8, ptr %.0, i64 16
-  %.0.val16 = load i64, ptr %18, align 8, !tbaa !32
+  %.0.val16 = load i64, ptr %.0.sroa.phi, align 8, !tbaa !32
   call void @lua_pushlstring(ptr noundef %0, ptr noundef %.0.val, i64 noundef %.0.val16) #12
-  %19 = load i32, ptr %11, align 8, !tbaa !19
-  %.not15 = icmp eq i32 %19, 0
-  br i1 %.not15, label %20, label %21
+  %17 = load i32, ptr %11, align 8, !tbaa !19
+  %.not15 = icmp eq i32 %17, 0
+  br i1 %.not15, label %18, label %19
 
-20:                                               ; preds = %17
+18:                                               ; preds = %16
   call void @strbuf_free(ptr noundef nonnull %.0) #12
-  br label %21
+  br label %19
 
-21:                                               ; preds = %20, %17
+19:                                               ; preds = %18, %16
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 1
 }

@@ -848,6 +848,7 @@ define void @_ZN5ZXing28FindConcentricPatternCornersERKNS_9BitMatrixENS_6PointTI
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %11 = load i8, ptr %10, align 8, !tbaa !45, !range !41, !noundef !42
   %12 = trunc nuw i8 %11 to i1
+  %.01218.i.i.i.sroa.gep41 = getelementptr inbounds nuw i8, ptr %8, i64 24
   br i1 %12, label %15, label %13
 
 13:                                               ; preds = %6
@@ -882,11 +883,11 @@ define void @_ZN5ZXing28FindConcentricPatternCornersERKNS_9BitMatrixENS_6PointTI
   %.sroa.0.0.copyload.i.i.i.i = phi double [ %34, %.lr.ph.i.i.i ], [ %.sroa.0.0.copyload.i.pre.i.i.i, %22 ]
   %.idx.i = phi i64 [ %.add.i, %.lr.ph.i.i.i ], [ 16, %22 ]
   %.019.i.i.i = phi ptr [ %spec.select.i.i.i, %.lr.ph.i.i.i ], [ %8, %22 ]
-  %.01218.i.i.i = phi ptr [ %.ptr.i, %.lr.ph.i.i.i ], [ %8, %22 ]
+  %.01218.i.i.i.sroa.phi = phi ptr [ %.01218.i.i.i.sroa.gep, %.lr.ph.i.i.i ], [ %.01218.i.i.i.sroa.gep41, %22 ]
   %.ptr.i = getelementptr inbounds nuw i8, ptr %8, i64 %.idx.i
+  %.01218.i.i.i.sroa.gep = getelementptr inbounds nuw i8, ptr %.ptr.i, i64 24
   %.sroa.01.0.copyload.i.i.i.i = load double, ptr %.ptr.i, align 8, !tbaa !23, !noalias !47
-  %.sroa.22.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %.01218.i.i.i, i64 24
-  %.sroa.22.0.copyload.i.i.i.i = load double, ptr %.sroa.22.0..sroa_idx.i.i.i.i, align 8, !tbaa !23, !noalias !47
+  %.sroa.22.0.copyload.i.i.i.i = load double, ptr %.01218.i.i.i.sroa.phi, align 8, !tbaa !23, !noalias !47
   %.sroa.2.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %.019.i.i.i, i64 8
   %.sroa.2.0.copyload.i.i.i.i = load double, ptr %.sroa.2.0..sroa_idx.i.i.i.i, align 8, !tbaa !23, !noalias !47
   %23 = fsub double %.sroa.01.0.copyload.i.i.i.i, %.sroa.07.0.copyload.i
@@ -1369,11 +1370,11 @@ _ZNSt3_V26rotateIN9__gnu_cxx17__normal_iteratorIPN5ZXing6PointTIdEESt6vectorIS5_
   %164 = mul nsw i32 %95, 5
   %165 = sdiv i32 %164, 8
   %166 = sext i32 %165 to i64
-  %.idx352.i = shl nuw nsw i64 %166, 4
-  %167 = getelementptr inbounds nuw i8, ptr %.sroa.046.5.i, i64 %.idx352.i
+  %.idx376.i = shl nuw nsw i64 %166, 4
+  %167 = getelementptr inbounds nuw i8, ptr %.sroa.046.5.i, i64 %.idx376.i
   %168 = icmp eq i32 %161, %165
   %169 = add nuw nsw i64 %.idx.i, 16
-  %.not21.i.i95.i = icmp samesign eq i64 %169, %.idx352.i
+  %.not21.i.i95.i = icmp samesign eq i64 %169, %.idx376.i
   %or.cond.i.i96.i = select i1 %168, i1 true, i1 %.not21.i.i95.i
   br i1 %or.cond.i.i96.i, label %"_ZSt11max_elementIPN5ZXing6PointTIdEEZNS0_L23FitQadrilateralToPointsES2_RSt6vectorIS2_SaIS2_EEE3$_0ET_S9_S9_T0_.exit.i", label %.lr.ph.preheader.i.i97.i
 
@@ -1479,13 +1480,13 @@ _ZNSt3_V26rotateIN9__gnu_cxx17__normal_iteratorIPN5ZXing6PointTIdEESt6vectorIS5_
   call void @_ZdlPvm(ptr noundef nonnull %187, i64 noundef 32) #19, !noalias !65
   %213 = sdiv i32 %95, 8
   %214 = sext i32 %213 to i64
-  %.idx353.i = shl nuw nsw i64 %214, 4
-  %215 = getelementptr inbounds nuw i8, ptr %.sroa.046.5.i, i64 %.idx353.i
+  %.idx377.i = shl nuw nsw i64 %214, 4
+  %215 = getelementptr inbounds nuw i8, ptr %.sroa.046.5.i, i64 %.idx377.i
   %216 = icmp eq i32 %213, %161
-  %217 = add nuw nsw i64 %.idx353.i, 16
+  %217 = add nuw nsw i64 %.idx377.i, 16
   %.not19.i.i.i = icmp samesign eq i64 %217, %.idx.i
-  %or.cond368.i = select i1 %216, i1 true, i1 %.not19.i.i.i
-  br i1 %or.cond368.i, label %.loopexit.i124.i, label %.lr.ph.i.i102.i
+  %or.cond391.i = select i1 %216, i1 true, i1 %.not19.i.i.i
+  br i1 %or.cond391.i, label %.loopexit.i124.i, label %.lr.ph.i.i102.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %.073.i.i = phi double [ %223, %.lr.ph.i.i ], [ 0.000000e+00, %.lr.ph.preheader.i.i ]
@@ -1540,13 +1541,13 @@ _ZNSt3_V26rotateIN9__gnu_cxx17__normal_iteratorIPN5ZXing6PointTIdEESt6vectorIS5_
   %242 = mul nsw i32 %95, 7
   %243 = sdiv i32 %242, 8
   %244 = sext i32 %243 to i64
-  %.idx356.i = shl nuw nsw i64 %244, 4
-  %245 = getelementptr inbounds nuw i8, ptr %.sroa.046.5.i, i64 %.idx356.i
+  %.idx380.i = shl nuw nsw i64 %244, 4
+  %245 = getelementptr inbounds nuw i8, ptr %.sroa.046.5.i, i64 %.idx380.i
   %246 = icmp eq i32 %165, %243
-  %247 = add nuw nsw i64 %.idx352.i, 16
-  %.not19.i.i136.i = icmp samesign eq i64 %247, %.idx356.i
-  %or.cond369.i = select i1 %246, i1 true, i1 %.not19.i.i136.i
-  br i1 %or.cond369.i, label %"_ZZN5ZXingL23FitQadrilateralToPointsENS_6PointTIdEERSt6vectorIS1_SaIS1_EEEN3$_1D2Ev.exit157.i", label %.lr.ph.i.i137.i
+  %247 = add nuw nsw i64 %.idx376.i, 16
+  %.not19.i.i136.i = icmp samesign eq i64 %247, %.idx380.i
+  %or.cond392.i = select i1 %246, i1 true, i1 %.not19.i.i136.i
+  br i1 %or.cond392.i, label %"_ZZN5ZXingL23FitQadrilateralToPointsENS_6PointTIdEERSt6vectorIS1_SaIS1_EEEN3$_1D2Ev.exit157.i", label %.lr.ph.i.i137.i
 
 .lr.ph.i.i137.i:                                  ; preds = %.loopexit.i124.i
   %248 = getelementptr inbounds nuw i8, ptr %167, i64 16
@@ -1993,12 +1994,12 @@ _ZNSt3_V26rotateIN9__gnu_cxx17__normal_iteratorIPN5ZXing6PointTIdEESt6vectorIS5_
   %480 = getelementptr inbounds nuw i8, ptr %12, i64 256
   %481 = fcmp uno double %.sroa.10.24.copyload7.i.i.i.i.i.i.i, 0.000000e+00
   %482 = fcmp uno double %.sroa.10.24.copyload7.i40.i.i.i.i.i.i, 0.000000e+00
-  %or.cond521.i = select i1 %481, i1 true, i1 %482
+  %or.cond547.i = select i1 %481, i1 true, i1 %482
   %483 = fcmp uno double %.sroa.10.24.copyload7.i52.i.i.i.i.i.i, 0.000000e+00
-  %or.cond522.i = select i1 %or.cond521.i, i1 true, i1 %483
+  %or.cond548.i = select i1 %or.cond547.i, i1 true, i1 %483
   %484 = fcmp uno double %.sroa.10.24.copyload7.i64.i.i.i.i.i.i, 0.000000e+00
-  %or.cond523.i = select i1 %or.cond522.i, i1 true, i1 %484
-  br i1 %or.cond523.i, label %.loopexit370.i, label %.thread.i12
+  %or.cond549.i = select i1 %or.cond548.i, i1 true, i1 %484
+  br i1 %or.cond549.i, label %.loopexit393.i, label %.thread.i12
 
 .thread.i12:                                      ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5ZXingL23FitQadrilateralToPointsENS2_6PointTIdEERSt6vectorIS4_SaIS4_EEE3$_2EclIPNS2_14RegressionLineEEEbT_.exit.i.i.i.i.i.i"
   call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !65
@@ -2025,8 +2026,8 @@ _ZNSt3_V26rotateIN9__gnu_cxx17__normal_iteratorIPN5ZXing6PointTIdEESt6vectorIS5_
   %493 = load ptr, ptr %492, align 8, !tbaa !86, !noalias !65
   %494 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv.i
   %495 = load ptr, ptr %494, align 8, !tbaa !86, !noalias !65
-  %.not410.i = icmp eq ptr %493, %495
-  br i1 %.not410.i, label %.critedge80.i, label %.lr.ph.i
+  %.not436.i = icmp eq ptr %493, %495
+  br i1 %.not436.i, label %.critedge80.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %491
   %496 = ptrtoint ptr %495 to i64
@@ -2060,9 +2061,9 @@ _ZNSt3_V26rotateIN9__gnu_cxx17__normal_iteratorIPN5ZXing6PointTIdEESt6vectorIS5_
   br label %515
 
 515:                                              ; preds = %.critedge.us.i, %.lr.ph.split.us.i
-  %.071411.us.i = phi ptr [ %493, %.lr.ph.split.us.i ], [ %521, %.critedge.us.i ]
-  %.sroa.07.0.copyload.us.i = load double, ptr %.071411.us.i, align 8, !tbaa !23, !noalias !65
-  %.sroa.2.0..sroa_idx.us.i = getelementptr inbounds nuw i8, ptr %.071411.us.i, i64 8
+  %.071437.us.i = phi ptr [ %493, %.lr.ph.split.us.i ], [ %521, %.critedge.us.i ]
+  %.sroa.07.0.copyload.us.i = load double, ptr %.071437.us.i, align 8, !tbaa !23, !noalias !65
+  %.sroa.2.0..sroa_idx.us.i = getelementptr inbounds nuw i8, ptr %.071437.us.i, i64 8
   %.sroa.2.0.copyload.us.i = load double, ptr %.sroa.2.0..sroa_idx.us.i, align 8, !tbaa !23, !noalias !65
   %516 = fmul double %.sroa.3.0.i.i.i.us.i, %.sroa.2.0.copyload.us.i
   %517 = call noundef double @llvm.fmuladd.f64(double %.sroa.0.0.i.i.i.us.i, double %.sroa.07.0.copyload.us.i, double %516)
@@ -2072,7 +2073,7 @@ _ZNSt3_V26rotateIN9__gnu_cxx17__normal_iteratorIPN5ZXing6PointTIdEESt6vectorIS5_
   br i1 %520, label %.split.us.i, label %.critedge.us.i
 
 .critedge.us.i:                                   ; preds = %515
-  %521 = getelementptr inbounds nuw i8, ptr %.071411.us.i, i64 16
+  %521 = getelementptr inbounds nuw i8, ptr %.071437.us.i, i64 16
   %.not.us.i = icmp eq ptr %521, %495
   br i1 %.not.us.i, label %.critedge80.i, label %515, !llvm.loop !87
 
@@ -2086,10 +2087,10 @@ _ZNSt3_V26rotateIN9__gnu_cxx17__normal_iteratorIPN5ZXing6PointTIdEESt6vectorIS5_
   br label %522
 
 522:                                              ; preds = %522, %.critedge82.i
-  %indvars.iv454.i = phi i64 [ 0, %.critedge82.i ], [ %indvars.iv.next455.i, %522 ]
-  %523 = getelementptr inbounds nuw %"class.ZXing::RegressionLine", ptr %12, i64 %indvars.iv454.i
-  %indvars.iv.next455.i = add nuw nsw i64 %indvars.iv454.i, 1
-  %524 = and i64 %indvars.iv.next455.i, 3
+  %indvars.iv480.i = phi i64 [ 0, %.critedge82.i ], [ %indvars.iv.next481.i, %522 ]
+  %523 = getelementptr inbounds nuw %"class.ZXing::RegressionLine", ptr %12, i64 %indvars.iv480.i
+  %indvars.iv.next481.i = add nuw nsw i64 %indvars.iv480.i, 1
+  %524 = and i64 %indvars.iv.next481.i, 3
   %525 = getelementptr inbounds nuw %"class.ZXing::RegressionLine", ptr %12, i64 %524
   %526 = getelementptr inbounds nuw i8, ptr %523, i64 40
   %527 = load double, ptr %526, align 8, !tbaa !77, !noalias !65
@@ -2113,25 +2114,25 @@ _ZNSt3_V26rotateIN9__gnu_cxx17__normal_iteratorIPN5ZXing6PointTIdEESt6vectorIS5_
   %545 = fmul double %538, %534
   %546 = call double @llvm.fmuladd.f64(double %527, double %540, double %545)
   %547 = fdiv double %546, %536
-  %548 = getelementptr inbounds nuw %"struct.ZXing::PointT", ptr %15, i64 %indvars.iv454.i
+  %548 = getelementptr inbounds nuw %"struct.ZXing::PointT", ptr %15, i64 %indvars.iv480.i
   store double %544, ptr %548, align 8
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %548, i64 8
   store double %547, ptr %.sroa.5.0..sroa_idx.i, align 8
-  %exitcond457.not.i = icmp eq i64 %indvars.iv.next455.i, 4
-  br i1 %exitcond457.not.i, label %.split.us.i, label %522, !llvm.loop !89
+  %exitcond483.not.i = icmp eq i64 %indvars.iv.next481.i, 4
+  br i1 %exitcond483.not.i, label %.split.us.i, label %522, !llvm.loop !89
 
 .split.us.i:                                      ; preds = %515, %522
   %.sroa.6.0 = phi i1 [ true, %522 ], [ false, %515 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !65
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !65
-  br label %.loopexit370.i
+  br label %.loopexit393.i
 
-.loopexit370.i:                                   ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5ZXingL23FitQadrilateralToPointsENS2_6PointTIdEERSt6vectorIS4_SaIS4_EEE3$_2EclIPNS2_14RegressionLineEEEbT_.exit.i.i.i.i.i.i", %.split.us.i
+.loopexit393.i:                                   ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5ZXingL23FitQadrilateralToPointsENS2_6PointTIdEERSt6vectorIS4_SaIS4_EEE3$_2EclIPNS2_14RegressionLineEEEbT_.exit.i.i.i.i.i.i", %.split.us.i
   %.sroa.6.1 = phi i1 [ %.sroa.6.0, %.split.us.i ], [ false, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5ZXingL23FitQadrilateralToPointsENS2_6PointTIdEERSt6vectorIS4_SaIS4_EEE3$_2EclIPNS2_14RegressionLineEEEbT_.exit.i.i.i.i.i.i" ]
   br label %549
 
-549:                                              ; preds = %_ZN5ZXing14RegressionLineD2Ev.exit.i.i, %.loopexit370.i
-  %550 = phi ptr [ %480, %.loopexit370.i ], [ %551, %_ZN5ZXing14RegressionLineD2Ev.exit.i.i ]
+549:                                              ; preds = %_ZN5ZXing14RegressionLineD2Ev.exit.i.i, %.loopexit393.i
+  %550 = phi ptr [ %480, %.loopexit393.i ], [ %551, %_ZN5ZXing14RegressionLineD2Ev.exit.i.i ]
   %551 = getelementptr inbounds i8, ptr %550, i64 -64
   %552 = load ptr, ptr %551, align 8, !tbaa !90, !noalias !65
   %.not.i.i.i.i.i197.i = icmp eq ptr %552, null

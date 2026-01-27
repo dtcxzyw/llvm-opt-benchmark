@@ -2077,21 +2077,31 @@ entry:
   call void @_ZN3re23NFAC1EPNS_4ProgE(ptr noundef nonnull align 8 dereferenceable(233) %nfa, ptr noundef nonnull %this)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %sp, i8 0, i64 16, i1 false)
   %cmp = icmp eq i32 %kind, 2
+  %match.addr.0.sroa.phi.sroa.gep = getelementptr inbounds nuw i8, ptr %sp, i64 8
+  %match.addr.0.sroa.phi.sroa.gep8 = getelementptr inbounds nuw i8, ptr %match, i64 8
+  br i1 %cmp, label %if.then, label %if.end4
+
+if.then:                                          ; preds = %entry
   %cmp2 = icmp eq i32 %nmatch, 0
-  %spec.select = call i32 @llvm.umax.i32(i32 %nmatch, i32 1)
-  %spec.select8 = select i1 %cmp2, ptr %sp, ptr %match
-  %nmatch.addr.0 = select i1 %cmp, i32 %spec.select, i32 %nmatch
-  %match.addr.0 = select i1 %cmp, ptr %spec.select8, ptr %match
-  %cmp610 = icmp eq i32 %anchor, 1
-  %cmp6 = or i1 %cmp610, %cmp
+  br i1 %cmp2, label %if.then3, label %if.end4
+
+if.then3:                                         ; preds = %if.then
+  br label %if.end4
+
+if.end4:                                          ; preds = %if.then, %if.then3, %entry
+  %nmatch.addr.0 = phi i32 [ 1, %if.then3 ], [ %nmatch, %if.then ], [ %nmatch, %entry ]
+  %match.addr.0.sroa.phi.sroa.phi = phi ptr [ %match.addr.0.sroa.phi.sroa.gep, %if.then3 ], [ %match.addr.0.sroa.phi.sroa.gep8, %if.then ], [ %match.addr.0.sroa.phi.sroa.gep8, %entry ]
+  %match.addr.0 = phi ptr [ %sp, %if.then3 ], [ %match, %if.then ], [ %match, %entry ]
+  %anchor.addr.0 = phi i32 [ 1, %if.then3 ], [ 1, %if.then ], [ %anchor, %entry ]
+  %cmp6 = icmp eq i32 %anchor.addr.0, 1
   %cmp7 = icmp ne i32 %kind, 0
   %call = invoke noundef zeroext i1 @_ZN3re23NFA6SearchEN4absl7debian211string_viewES3_bbPS3_i(ptr noundef nonnull align 8 dereferenceable(233) %nfa, ptr %text.coerce0, i64 %text.coerce1, ptr %context.coerce0, i64 %context.coerce1, i1 noundef zeroext %cmp6, i1 noundef zeroext %cmp7, ptr noundef %match.addr.0, i32 noundef %nmatch.addr.0)
           to label %invoke.cont unwind label %lpad
 
-invoke.cont:                                      ; preds = %entry
+invoke.cont:                                      ; preds = %if.end4
   br i1 %call, label %if.end9, label %cleanup
 
-lpad:                                             ; preds = %entry
+lpad:                                             ; preds = %if.end4
   %0 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3re23NFAD1Ev(ptr noundef nonnull align 8 dereferenceable(233) %nfa) #19
@@ -2101,13 +2111,11 @@ if.end9:                                          ; preds = %invoke.cont
   br i1 %cmp, label %land.lhs.true, label %if.end19
 
 land.lhs.true:                                    ; preds = %if.end9
-  %agg.tmp11.sroa.0.0.copyload = load ptr, ptr %spec.select8, align 8
-  %spec.select8.sroa.sel.v.sroa.sel.v = select i1 %cmp2, ptr %sp, ptr %match
-  %spec.select8.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.select8.sroa.sel.v.sroa.sel.v, i64 8
-  %agg.tmp11.sroa.2.0.copyload = load i64, ptr %spec.select8.sroa.sel.v.sroa.sel, align 8
+  %agg.tmp11.sroa.0.0.copyload = load ptr, ptr %match.addr.0, align 8
+  %agg.tmp11.sroa.2.0.copyload = load i64, ptr %match.addr.0.sroa.phi.sroa.phi, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %agg.tmp11.sroa.0.0.copyload, i64 %agg.tmp11.sroa.2.0.copyload
-  %add.ptr.i9 = getelementptr inbounds i8, ptr %text.coerce0, i64 %text.coerce1
-  %cmp17.not = icmp eq ptr %add.ptr.i, %add.ptr.i9
+  %add.ptr.i10 = getelementptr inbounds i8, ptr %text.coerce0, i64 %text.coerce1
+  %cmp17.not = icmp eq ptr %add.ptr.i, %add.ptr.i10
   br i1 %cmp17.not, label %if.end19, label %cleanup
 
 if.end19:                                         ; preds = %land.lhs.true, %if.end9
@@ -3045,9 +3053,6 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #15
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #14
-
-; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #14
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

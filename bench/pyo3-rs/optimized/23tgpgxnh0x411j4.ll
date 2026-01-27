@@ -2898,6 +2898,8 @@ define void @_ZN19pyo3_macros_backend6module22pymodule_function_impl17h420385ba0
   %95 = alloca [96 x i8], align 8
   %96 = alloca [96 x i8], align 8
   %97 = getelementptr inbounds nuw i8, ptr %1, i64 288
+  %.sink4.i.i.sroa.gep107 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %.sink4.i.i.sroa.gep108 = getelementptr inbounds nuw i8, ptr %5, i64 8
   invoke void @_ZN19pyo3_macros_backend6module15PyModuleOptions10from_attrs17h2ba671b8227fd0f4E(ptr nonnull sret([96 x i8]) align 8 %95, ptr nonnull align 8 %97)
           to label %101 unwind label %99
 
@@ -3037,6 +3039,7 @@ define void @_ZN19pyo3_macros_backend6module22pymodule_function_impl17h420385ba0
   %125 = getelementptr inbounds nuw i8, ptr %30, i64 288
   %126 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %127 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %.sink4.i.i.sroa.gep = getelementptr inbounds nuw i8, ptr %4, i64 16
   %.sroa.345.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %7, i64 8
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %7, i64 32
   %.sroa.222.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %27, i64 8
@@ -3182,9 +3185,8 @@ define void @_ZN19pyo3_macros_backend6module22pymodule_function_impl17h420385ba0
 
 split:                                            ; preds = %168, %158, %._crit_edge
   %.sroa.345.i.sroa.0.0.copyload = phi i64 [ %.sroa.345.i.sroa.0.0.copyload.pre, %._crit_edge ], [ %159, %158 ], [ %169, %168 ]
-  %.sink4.i.i = phi ptr [ %127, %._crit_edge ], [ %6, %158 ], [ %5, %168 ]
-  %.sroa.345.i.sroa.7.0..sink4.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %.sink4.i.i, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.345.i.sroa.7, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.345.i.sroa.7.0..sink4.i.i.sroa_idx, i64 16, i1 false), !noalias !13
+  %.sink4.i.i.sroa.phi = phi ptr [ %.sink4.i.i.sroa.gep, %._crit_edge ], [ %.sink4.i.i.sroa.gep107, %158 ], [ %.sink4.i.i.sroa.gep108, %168 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.345.i.sroa.7, ptr noundef nonnull align 8 dereferenceable(16) %.sink4.i.i.sroa.phi, i64 16, i1 false), !noalias !13
   invoke void @"_ZN4core3ptr86drop_in_place$LT$core..option..Option$LT$pyo3_macros_backend..module..PyFnArgs$GT$$GT$17hb7db8e98c1ed90b2E"(ptr nonnull align 8 %7)
           to label %.thread66.i unwind label %.thread63.loopexit.split-lp.i, !noalias !13
 
@@ -3573,7 +3575,7 @@ split:                                            ; preds = %168, %158, %._crit_
 
 .body:                                            ; preds = %258, %253, %566
   %.sroa.022.1 = phi i1 [ false, %566 ], [ %.sroa.022.0, %258 ], [ true, %253 ]
-  %.pn83 = phi { ptr, i32 } [ %.pn81109, %566 ], [ %259, %258 ], [ %.pn42.pn.i, %253 ]
+  %.pn83 = phi { ptr, i32 } [ %.pn81111, %566 ], [ %259, %258 ], [ %.pn42.pn.i, %253 ]
   invoke void @"_ZN4core3ptr193drop_in_place$LT$core..option..Option$LT$pyo3_macros_backend..attributes..KeywordAttribute$LT$syn..token..Crate$C$pyo3_macros_backend..attributes..LitStrValue$LT$syn..path..Path$GT$$GT$$GT$$GT$17h63c9f30e5cfbae17E"(ptr nonnull align 8 %96) #10
           to label %568 unwind label %312
 
@@ -3648,9 +3650,9 @@ split:                                            ; preds = %168, %158, %._crit_
 
 269:                                              ; preds = %265
   invoke void @"_ZN57_$LT$proc_macro2..Ident$u20$as$u20$syn..ext..IdentExt$GT$5unraw17h1c3cef370109501aE"(ptr nonnull sret([24 x i8]) align 8 %91, ptr nonnull align 8 %267)
-          to label %276 unwind label %.thread111
+          to label %276 unwind label %.thread113
 
-.thread111:                                       ; preds = %269
+.thread113:                                       ; preds = %269
   %270 = landingpad { ptr, i32 }
           cleanup
   br label %567
@@ -4710,12 +4712,12 @@ split:                                            ; preds = %168, %158, %._crit_
           to label %563 unwind label %486
 
 566:                                              ; preds = %274, %567, %273
-  %.pn81109 = phi { ptr, i32 } [ %275, %274 ], [ %.pn81110, %567 ], [ %.pn79, %273 ]
+  %.pn81111 = phi { ptr, i32 } [ %275, %274 ], [ %.pn81112, %567 ], [ %.pn79, %273 ]
   invoke void @"_ZN4core3ptr52drop_in_place$LT$pyo3_macros_backend..utils..Ctx$GT$17hccc8b41e50c8ff50E"(ptr nonnull align 8 %94) #10
           to label %.body unwind label %312
 
-567:                                              ; preds = %.thread111, %273
-  %.pn81110 = phi { ptr, i32 } [ %270, %.thread111 ], [ %.pn79, %273 ]
+567:                                              ; preds = %.thread113, %273
+  %.pn81112 = phi { ptr, i32 } [ %270, %.thread113 ], [ %.pn79, %273 ]
   invoke void @"_ZN4core3ptr59drop_in_place$LT$alloc..vec..Vec$LT$syn..stmt..Stmt$GT$$GT$17h299169f71cf82063E"(ptr nonnull align 8 %93) #10
           to label %566 unwind label %312
 

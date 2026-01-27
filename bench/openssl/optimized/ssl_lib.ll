@@ -9840,6 +9840,9 @@ declare noalias ptr @CRYPTO_strdup(ptr noundef, ptr noundef, i32 noundef) local_
 define internal range(i64 0, 4294967296) i64 @ssl_session_hash(ptr noundef readonly captures(none) %0) #10 {
   %.sroa.0 = alloca i32, align 4
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 600
+  %.0.sroa.gep17 = getelementptr inbounds nuw i8, ptr %0, i64 603
+  %.0.sroa.gep14 = getelementptr inbounds nuw i8, ptr %0, i64 602
+  %.0.sroa.gep11 = getelementptr inbounds nuw i8, ptr %0, i64 601
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 592
   %4 = load i64, ptr %3, align 8, !tbaa !253
@@ -9849,14 +9852,32 @@ define internal range(i64 0, 4294967296) i64 @ssl_session_hash(ptr noundef reado
 6:                                                ; preds = %1
   store i32 0, ptr %.sroa.0, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %.sroa.0, ptr nonnull align 8 %2, i64 %4, i1 false)
+  %.sroa.0.3.gep16.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 3
+  %.sroa.0.2.gep13.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 2
+  %.sroa.0.1.gep10.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 1
   br label %7
 
 7:                                                ; preds = %6, %1
-  %.0 = phi ptr [ %.sroa.0, %6 ], [ %2, %1 ]
-  %8 = load i32, ptr %.0, align 1
-  %9 = zext i32 %8 to i64
+  %.0.sroa.phi = phi ptr [ %.sroa.0, %6 ], [ %2, %1 ]
+  %.0.sroa.phi9 = phi ptr [ %.sroa.0.1.gep10.sroa_idx, %6 ], [ %.0.sroa.gep11, %1 ]
+  %.0.sroa.phi12 = phi ptr [ %.sroa.0.2.gep13.sroa_idx, %6 ], [ %.0.sroa.gep14, %1 ]
+  %.0.sroa.phi15 = phi ptr [ %.sroa.0.3.gep16.sroa_idx, %6 ], [ %.0.sroa.gep17, %1 ]
+  %8 = load i8, ptr %.0.sroa.phi, align 1, !tbaa !261
+  %9 = zext i8 %8 to i64
+  %10 = load i8, ptr %.0.sroa.phi9, align 1, !tbaa !261
+  %11 = zext i8 %10 to i64
+  %12 = shl nuw nsw i64 %11, 8
+  %13 = or disjoint i64 %12, %9
+  %14 = load i8, ptr %.0.sroa.phi12, align 1, !tbaa !261
+  %15 = zext i8 %14 to i64
+  %16 = shl nuw nsw i64 %15, 16
+  %17 = or disjoint i64 %13, %16
+  %18 = load i8, ptr %.0.sroa.phi15, align 1, !tbaa !261
+  %19 = zext i8 %18 to i64
+  %20 = shl nuw nsw i64 %19, 24
+  %21 = or disjoint i64 %17, %20
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
-  ret i64 %9
+  ret i64 %21
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: read) uwtable

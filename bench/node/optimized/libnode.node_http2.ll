@@ -3000,17 +3000,19 @@ entry:
   %1 = load i32, ptr %arrayidx.i.i.i, align 4
   %and.i = and i32 %1, 1
   %tobool.not.i = icmp eq i32 %and.i, 0
+  %count.0.i.sroa.phi.sroa.gep3 = getelementptr inbounds nuw i8, ptr %entries, i64 4
   br i1 %tobool.not.i, label %do.body4.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
   %count.0.i.sroa.gep = getelementptr inbounds nuw i8, ptr %entries, i64 8
+  %count.0.i.sroa.phi.sroa.gep = getelementptr inbounds nuw i8, ptr %entries, i64 12
   %2 = load i32, ptr %0, align 4
   store i32 1, ptr %entries, align 16
-  %ref.tmp3.sroa.2.0.arrayidx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %entries, i64 4
-  store i32 %2, ptr %ref.tmp3.sroa.2.0.arrayidx.sroa_idx.i, align 4
+  store i32 %2, ptr %count.0.i.sroa.phi.sroa.gep3, align 4
   br label %do.body4.i
 
 do.body4.i:                                       ; preds = %if.then.i, %entry
+  %count.0.i.sroa.phi.sroa.phi = phi ptr [ %count.0.i.sroa.phi.sroa.gep, %if.then.i ], [ %count.0.i.sroa.phi.sroa.gep3, %entry ]
   %count.0.i.sroa.phi = phi ptr [ %count.0.i.sroa.gep, %if.then.i ], [ %entries, %entry ]
   %count.0.i = phi i64 [ 1, %if.then.i ], [ 0, %entry ]
   %and5.i = and i32 %1, 2
@@ -3022,8 +3024,7 @@ if.then7.i:                                       ; preds = %do.body4.i
   %3 = load i32, ptr %arrayidx.i.i34.i, align 4
   %inc14.i = add nuw nsw i64 %count.0.i, 1
   store i32 2, ptr %count.0.i.sroa.phi, align 4
-  %ref.tmp11.sroa.2.0.arrayidx15.sroa_idx.i = getelementptr inbounds nuw i8, ptr %count.0.i.sroa.phi, i64 4
-  store i32 %3, ptr %ref.tmp11.sroa.2.0.arrayidx15.sroa_idx.i, align 4
+  store i32 %3, ptr %count.0.i.sroa.phi.sroa.phi, align 4
   br label %do.body18.i
 
 do.body18.i:                                      ; preds = %if.then7.i, %do.body4.i

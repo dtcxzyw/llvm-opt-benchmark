@@ -15215,13 +15215,17 @@ define range(i32 -173, 1) i32 @wc_EccPublicKeyDecode(ptr noundef %0, ptr noundef
   %or.cond3.not38 = and i1 %or.cond.not41, %9
   %10 = icmp ne i32 %3, 0
   %or.cond5.not = and i1 %or.cond3.not38, %10
-  %.031.sroa.gep = getelementptr inbounds nuw i8, ptr %6, i64 160
-  %.0.sroa.gep = getelementptr inbounds nuw i8, ptr %6, i64 280
-  br i1 %or.cond5.not, label %11, label %.thread62
+  %.031.sroa.phi.sroa.gep51 = getelementptr inbounds nuw i8, ptr %6, i64 193
+  %.031.sroa.phi.sroa.gep = getelementptr inbounds nuw i8, ptr %6, i64 184
+  %.0.sroa.phi.sroa.gep59 = getelementptr inbounds nuw i8, ptr %6, i64 288
+  %.0.sroa.phi.sroa.gep = getelementptr inbounds nuw i8, ptr %6, i64 296
+  br i1 %or.cond5.not, label %11, label %.thread81
 
 11:                                               ; preds = %4
-  %.0.sroa.gep48 = getelementptr inbounds nuw i8, ptr %6, i64 200
-  %.031.sroa.gep46 = getelementptr inbounds nuw i8, ptr %6, i64 120
+  %.0.sroa.phi.sroa.gep56 = getelementptr inbounds nuw i8, ptr %6, i64 216
+  %.0.sroa.phi.sroa.gep60 = getelementptr inbounds nuw i8, ptr %6, i64 208
+  %.031.sroa.phi.sroa.gep48 = getelementptr inbounds nuw i8, ptr %6, i64 144
+  %.031.sroa.phi.sroa.gep52 = getelementptr inbounds nuw i8, ptr %6, i64 153
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(240) %6, i8 0, i64 240, i1 false)
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 112
   store i8 6, ptr %12, align 16, !tbaa !32
@@ -15241,40 +15245,38 @@ define range(i32 -173, 1) i32 @wc_EccPublicKeyDecode(ptr noundef %0, ptr noundef
   store i32 3, ptr %18, align 4, !tbaa !3
   %19 = call i32 @GetASN_Items(ptr noundef nonnull @eccKeyASN, ptr noundef nonnull %6, i32 noundef 8, i32 noundef 1, ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %3)
   %.not42 = icmp eq i32 %19, 0
-  br i1 %.not42, label %.thread, label %.thread62
+  br i1 %.not42, label %.thread, label %.thread81
 
 .thread:                                          ; preds = %17, %11
-  %.0.sroa.phi55 = phi ptr [ %.0.sroa.gep, %17 ], [ %.0.sroa.gep48, %11 ]
-  %.031.sroa.phi53 = phi ptr [ %.031.sroa.gep, %17 ], [ %.031.sroa.gep46, %11 ]
-  %20 = getelementptr inbounds nuw i8, ptr %.031.sroa.phi53, i64 33
-  %21 = load i8, ptr %20, align 1, !tbaa !34
-  %.not43 = icmp eq i8 %21, 0
-  br i1 %.not43, label %.thread62, label %22
+  %.0.sroa.phi.sroa.phi5872 = phi ptr [ %.0.sroa.phi.sroa.gep59, %17 ], [ %.0.sroa.phi.sroa.gep60, %11 ]
+  %.0.sroa.phi.sroa.phi70 = phi ptr [ %.0.sroa.phi.sroa.gep, %17 ], [ %.0.sroa.phi.sroa.gep56, %11 ]
+  %.031.sroa.phi.sroa.phi5068 = phi ptr [ %.031.sroa.phi.sroa.gep51, %17 ], [ %.031.sroa.phi.sroa.gep52, %11 ]
+  %.031.sroa.phi.sroa.phi67 = phi ptr [ %.031.sroa.phi.sroa.gep, %17 ], [ %.031.sroa.phi.sroa.gep48, %11 ]
+  %20 = load i8, ptr %.031.sroa.phi.sroa.phi5068, align 1, !tbaa !34
+  %.not43 = icmp eq i8 %20, 0
+  br i1 %.not43, label %.thread81, label %21
 
-22:                                               ; preds = %.thread
-  %23 = getelementptr inbounds nuw i8, ptr %.031.sroa.phi53, i64 24
-  %24 = load i32, ptr %23, align 8, !tbaa !3
+21:                                               ; preds = %.thread
+  %22 = load i32, ptr %.031.sroa.phi.sroa.phi67, align 8, !tbaa !3
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %25 = call i32 @wc_ecc_get_oid(i32 noundef %24, ptr noundef null, ptr noundef nonnull %5) #23
-  %26 = icmp slt i32 %25, 0
-  %27 = load i32, ptr %5, align 4
-  %28 = icmp eq i32 %27, 0
-  %or.cond.i = select i1 %26, i1 true, i1 %28
+  %23 = call i32 @wc_ecc_get_oid(i32 noundef %22, ptr noundef null, ptr noundef nonnull %5) #23
+  %24 = icmp slt i32 %23, 0
+  %25 = load i32, ptr %5, align 4
+  %26 = icmp eq i32 %25, 0
+  %or.cond.i = select i1 %24, i1 true, i1 %26
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br i1 %or.cond.i, label %.thread62, label %29
+  br i1 %or.cond.i, label %.thread81, label %27
 
-29:                                               ; preds = %22
-  %30 = getelementptr inbounds nuw i8, ptr %.0.sroa.phi55, i64 8
-  %31 = load ptr, ptr %30, align 8, !tbaa !3
-  %32 = getelementptr inbounds nuw i8, ptr %.0.sroa.phi55, i64 16
-  %33 = load i32, ptr %32, align 8, !tbaa !3
-  %34 = call i32 @wc_ecc_import_x963_ex(ptr noundef %31, i32 noundef %33, ptr noundef nonnull %2, i32 noundef %25) #23
-  %.not44 = icmp eq i32 %34, 0
+27:                                               ; preds = %21
+  %28 = load ptr, ptr %.0.sroa.phi.sroa.phi5872, align 8, !tbaa !3
+  %29 = load i32, ptr %.0.sroa.phi.sroa.phi70, align 8, !tbaa !3
+  %30 = call i32 @wc_ecc_import_x963_ex(ptr noundef %28, i32 noundef %29, ptr noundef nonnull %2, i32 noundef %23) #23
+  %.not44 = icmp eq i32 %30, 0
   %spec.store.select6 = select i1 %.not44, i32 0, i32 -171
-  br label %.thread62
+  br label %.thread81
 
-.thread62:                                        ; preds = %4, %22, %17, %.thread, %29
-  %.3 = phi i32 [ %spec.store.select6, %29 ], [ -144, %22 ], [ -140, %17 ], [ -140, %.thread ], [ -173, %4 ]
+.thread81:                                        ; preds = %4, %21, %17, %.thread, %27
+  %.3 = phi i32 [ %spec.store.select6, %27 ], [ -144, %21 ], [ -140, %17 ], [ -140, %.thread ], [ -173, %4 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.3
 }

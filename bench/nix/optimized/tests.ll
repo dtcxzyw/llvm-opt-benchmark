@@ -11392,15 +11392,18 @@ define void @_ZN3nix45base64Encode_encodeAndDecodeNonPrintable_Test8TestBodyEv(p
   %11 = alloca %"class.testing::Message", align 8
   %12 = alloca %"class.testing::internal::AssertHelper", align 8
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 256
+  %.sroa.gep44 = getelementptr inbounds nuw i8, ptr %2, i64 255
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %1, %.lr.ph.i
-  %.sroa.042.0 = phi ptr [ %13, %1 ], [ %14, %.lr.ph.i ]
-  %.02.i = phi i8 [ 0, %1 ], [ %15, %.lr.ph.i ]
-  %14 = getelementptr inbounds i8, ptr %.sroa.042.0, i64 -1
-  store i8 %.02.i, ptr %14, align 1
-  %15 = add i8 %.02.i, 1
-  %16 = icmp eq ptr %14, %2
+  %.sroa.042.0 = phi ptr [ %13, %1 ], [ %15, %.lr.ph.i ]
+  %.sroa.phi = phi ptr [ %.sroa.gep44, %1 ], [ %.sroa.gep, %.lr.ph.i ]
+  %.02.i = phi i8 [ 0, %1 ], [ %14, %.lr.ph.i ]
+  store i8 %.02.i, ptr %.sroa.phi, align 1
+  %14 = add i8 %.02.i, 1
+  %15 = getelementptr inbounds i8, ptr %.sroa.042.0, i64 -1
+  %.sroa.gep = getelementptr inbounds i8, ptr %.sroa.042.0, i64 -2
+  %16 = icmp eq ptr %15, %2
   br i1 %16, label %_ZSt4iotaISt16reverse_iteratorIPcEiEvT_S3_T0_.exit, label %.lr.ph.i, !llvm.loop !133
 
 _ZSt4iotaISt16reverse_iteratorIPcEiEvT_S3_T0_.exit: ; preds = %.lr.ph.i

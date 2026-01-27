@@ -2874,27 +2874,30 @@ define hidden void @nvme_add_data_tr_pkt(ptr noundef readonly captures(none) %0,
   store i32 %3, ptr %6, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.not = icmp eq i32 %2, 0
+  %.0.i.sroa.gep = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %.0.i.sroa.phi.sroa.gep9 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %.0.i.sroa.phi.sroa.gep3 = getelementptr inbounds nuw i8, ptr %7, i64 24
   br i1 %.not, label %nvme_build_done_frame_key.exit, label %8
 
 8:                                                ; preds = %4
-  %.0.i.sroa.gep = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %.0.i.sroa.phi.sroa.gep = getelementptr inbounds nuw i8, ptr %7, i64 40
+  %.0.i.sroa.phi.sroa.gep5 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store i32 1, ptr %7, align 16
-  %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr %5, ptr %9, align 8
+  store ptr %5, ptr %.0.i.sroa.phi.sroa.gep9, align 8
   br label %nvme_build_done_frame_key.exit
 
 nvme_build_done_frame_key.exit:                   ; preds = %4, %8
+  %.0.i.sroa.phi.sroa.phi = phi ptr [ %.0.i.sroa.phi.sroa.gep, %8 ], [ %.0.i.sroa.phi.sroa.gep3, %4 ]
+  %.0.i.sroa.phi.sroa.phi4 = phi ptr [ %.0.i.sroa.phi.sroa.gep5, %8 ], [ %.0.i.sroa.gep, %4 ]
+  %.0.i.sroa.phi.sroa.phi7 = phi ptr [ %.0.i.sroa.phi.sroa.gep3, %8 ], [ %.0.i.sroa.phi.sroa.gep9, %4 ]
   %.0.i.sroa.phi = phi ptr [ %.0.i.sroa.gep, %8 ], [ %7, %4 ]
   store i32 1, ptr %.0.i.sroa.phi, align 8
-  %10 = getelementptr inbounds nuw i8, ptr %.0.i.sroa.phi, i64 8
-  store ptr %6, ptr %10, align 8
-  %11 = getelementptr i8, ptr %.0.i.sroa.phi, i64 16
-  store i32 0, ptr %11, align 8
-  %12 = getelementptr i8, ptr %.0.i.sroa.phi, i64 24
-  store ptr null, ptr %12, align 8
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %14 = load ptr, ptr %13, align 8
-  call void @wmem_tree_insert32_array(ptr noundef %14, ptr noundef nonnull %7, ptr noundef %1)
+  store ptr %6, ptr %.0.i.sroa.phi.sroa.phi7, align 8
+  store i32 0, ptr %.0.i.sroa.phi.sroa.phi4, align 8
+  store ptr null, ptr %.0.i.sroa.phi.sroa.phi, align 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %10 = load ptr, ptr %9, align 8
+  call void @wmem_tree_insert32_array(ptr noundef %10, ptr noundef nonnull %7, ptr noundef %1)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 }
@@ -2908,29 +2911,32 @@ define hidden ptr @nvme_lookup_data_tr_pkt(ptr noundef readonly captures(none) %
   store i32 %2, ptr %5, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.not = icmp eq i32 %1, 0
+  %.0.i.sroa.gep = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %.0.i.sroa.phi.sroa.gep8 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %.0.i.sroa.phi.sroa.gep2 = getelementptr inbounds nuw i8, ptr %6, i64 24
   br i1 %.not, label %nvme_build_done_frame_key.exit, label %7
 
 7:                                                ; preds = %3
-  %.0.i.sroa.gep = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %.0.i.sroa.phi.sroa.gep = getelementptr inbounds nuw i8, ptr %6, i64 40
+  %.0.i.sroa.phi.sroa.gep4 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store i32 1, ptr %6, align 16
-  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr %4, ptr %8, align 8
+  store ptr %4, ptr %.0.i.sroa.phi.sroa.gep8, align 8
   br label %nvme_build_done_frame_key.exit
 
 nvme_build_done_frame_key.exit:                   ; preds = %3, %7
+  %.0.i.sroa.phi.sroa.phi = phi ptr [ %.0.i.sroa.phi.sroa.gep, %7 ], [ %.0.i.sroa.phi.sroa.gep2, %3 ]
+  %.0.i.sroa.phi.sroa.phi3 = phi ptr [ %.0.i.sroa.phi.sroa.gep4, %7 ], [ %.0.i.sroa.gep, %3 ]
+  %.0.i.sroa.phi.sroa.phi6 = phi ptr [ %.0.i.sroa.phi.sroa.gep2, %7 ], [ %.0.i.sroa.phi.sroa.gep8, %3 ]
   %.0.i.sroa.phi = phi ptr [ %.0.i.sroa.gep, %7 ], [ %6, %3 ]
   store i32 1, ptr %.0.i.sroa.phi, align 8
-  %9 = getelementptr inbounds nuw i8, ptr %.0.i.sroa.phi, i64 8
-  store ptr %5, ptr %9, align 8
-  %10 = getelementptr i8, ptr %.0.i.sroa.phi, i64 16
-  store i32 0, ptr %10, align 8
-  %11 = getelementptr i8, ptr %.0.i.sroa.phi, i64 24
-  store ptr null, ptr %11, align 8
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %13 = load ptr, ptr %12, align 8
-  %14 = call ptr @wmem_tree_lookup32_array(ptr noundef %13, ptr noundef nonnull %6)
+  store ptr %5, ptr %.0.i.sroa.phi.sroa.phi6, align 8
+  store i32 0, ptr %.0.i.sroa.phi.sroa.phi3, align 8
+  store ptr null, ptr %.0.i.sroa.phi.sroa.phi, align 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %9 = load ptr, ptr %8, align 8
+  %10 = call ptr @wmem_tree_lookup32_array(ptr noundef %9, ptr noundef nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  ret ptr %14
+  ret ptr %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable

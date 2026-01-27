@@ -1587,9 +1587,10 @@ entry:
   %sign3 = getelementptr inbounds nuw i8, ptr %arg, i64 18
   %2 = load i8, ptr %sign3, align 2
   %cmp4 = icmp eq i8 %2, 0
-  %bufLen.addr.1.i.i80.sroa.gep = getelementptr inbounds nuw i8, ptr %valBuf, i64 65
-  %bufLen.addr.1.i.i80.sroa.gep93 = getelementptr inbounds nuw i8, ptr %valBuf, i64 66
-  %bufLen.addr.2.i.sroa.gep = getelementptr inbounds nuw i8, ptr %valBuf, i64 64
+  %bufLen.addr.1.i.i91.sroa.gep = getelementptr inbounds nuw i8, ptr %valBuf, i64 65
+  %bufLen.addr.1.i.i91.sroa.phi.sroa.gep107 = getelementptr inbounds nuw i8, ptr %valBuf, i64 64
+  %bufLen.addr.1.i.i91.sroa.phi.sroa.gep = getelementptr inbounds nuw i8, ptr %valBuf, i64 63
+  %bufLen.addr.1.i.i91.sroa.gep104 = getelementptr inbounds nuw i8, ptr %valBuf, i64 66
   br i1 %cmp4, label %_ZNK5folly9FormatArg7enforceIbJRA52_KcEEEvRKT_DpOT0_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
@@ -1613,9 +1614,9 @@ sw.bb:                                            ; preds = %_ZNK5folly9FormatAr
   %basePrefix = getelementptr inbounds nuw i8, ptr %arg, i64 19
   %3 = load i8, ptr %basePrefix, align 1
   %4 = trunc i8 %3 to i1
-  br i1 %4, label %if.then.i53, label %_ZNK5folly9FormatArg7enforceIbJRA31_KcRcRA12_S2_EEEvRKT_DpOT0_.exit
+  br i1 %4, label %if.then.i64, label %_ZNK5folly9FormatArg7enforceIbJRA31_KcRcRA12_S2_EEEvRKT_DpOT0_.exit
 
-if.then.i53:                                      ; preds = %sw.bb
+if.then.i64:                                      ; preds = %sw.bb
   call void @_ZNK5folly9FormatArg5errorIJRA31_KcRcRA12_S2_EEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(84) %arg, ptr noundef nonnull align 1 dereferenceable(31) @.str.17, ptr noundef nonnull align 1 dereferenceable(1) %presentation, ptr noundef nonnull align 1 dereferenceable(12) @.str.18) #25
   unreachable
 
@@ -1623,9 +1624,9 @@ _ZNK5folly9FormatArg7enforceIbJRA31_KcRcRA12_S2_EEEvRKT_DpOT0_.exit: ; preds = %
   %thousandsSeparator = getelementptr inbounds nuw i8, ptr %arg, i64 20
   %5 = load i8, ptr %thousandsSeparator, align 4
   %6 = trunc i8 %5 to i1
-  br i1 %6, label %if.then.i55, label %_ZNK5folly9FormatArg7enforceIbJRA26_KcRcRA12_S2_EEEvRKT_DpOT0_.exit
+  br i1 %6, label %if.then.i66, label %_ZNK5folly9FormatArg7enforceIbJRA26_KcRcRA12_S2_EEEvRKT_DpOT0_.exit
 
-if.then.i55:                                      ; preds = %_ZNK5folly9FormatArg7enforceIbJRA31_KcRcRA12_S2_EEEvRKT_DpOT0_.exit
+if.then.i66:                                      ; preds = %_ZNK5folly9FormatArg7enforceIbJRA31_KcRcRA12_S2_EEEvRKT_DpOT0_.exit
   call void @_ZNK5folly9FormatArg5errorIJRA26_KcRcRA12_S2_EEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(84) %arg, ptr noundef nonnull align 1 dereferenceable(26) @.str.19, ptr noundef nonnull align 1 dereferenceable(1) %presentation, ptr noundef nonnull align 1 dereferenceable(12) @.str.18) #25
   unreachable
 
@@ -1642,19 +1643,19 @@ sw.bb16:                                          ; preds = %_ZNK5folly9FormatAr
   %basePrefix18 = getelementptr inbounds nuw i8, ptr %arg, i64 19
   %7 = load i8, ptr %basePrefix18, align 1
   %8 = trunc i8 %7 to i1
-  br i1 %8, label %if.then.i57, label %_ZNK5folly9FormatArg7enforceIbJRA31_KcRcRA12_S2_EEEvRKT_DpOT0_.exit58
+  br i1 %8, label %if.then.i68, label %_ZNK5folly9FormatArg7enforceIbJRA31_KcRcRA12_S2_EEEvRKT_DpOT0_.exit69
 
-if.then.i57:                                      ; preds = %sw.bb16
+if.then.i68:                                      ; preds = %sw.bb16
   call void @_ZNK5folly9FormatArg5errorIJRA31_KcRcRA12_S2_EEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(84) %arg, ptr noundef nonnull align 1 dereferenceable(31) @.str.17, ptr noundef nonnull align 1 dereferenceable(1) %presentation, ptr noundef nonnull align 1 dereferenceable(12) @.str.18) #25
   unreachable
 
-_ZNK5folly9FormatArg7enforceIbJRA31_KcRcRA12_S2_EEEvRKT_DpOT0_.exit58: ; preds = %sw.bb16
+_ZNK5folly9FormatArg7enforceIbJRA31_KcRcRA12_S2_EEEvRKT_DpOT0_.exit69: ; preds = %sw.bb16
   %add.ptr23 = getelementptr inbounds nuw i8, ptr %valBuf, i64 1
   %conv26 = zext i8 %1 to i64
   br label %for.body.i.i.i.i
 
-for.body.i.i.i.i:                                 ; preds = %if.end.i9.i.i.i, %_ZNK5folly9FormatArg7enforceIbJRA31_KcRcRA12_S2_EEEvRKT_DpOT0_.exit58
-  %i.i.019.i.i.i = phi i64 [ 0, %_ZNK5folly9FormatArg7enforceIbJRA31_KcRcRA12_S2_EEEvRKT_DpOT0_.exit58 ], [ %inc.i.i.i.i, %if.end.i9.i.i.i ]
+for.body.i.i.i.i:                                 ; preds = %if.end.i9.i.i.i, %_ZNK5folly9FormatArg7enforceIbJRA31_KcRcRA12_S2_EEEvRKT_DpOT0_.exit69
+  %i.i.019.i.i.i = phi i64 [ 0, %_ZNK5folly9FormatArg7enforceIbJRA31_KcRcRA12_S2_EEEvRKT_DpOT0_.exit69 ], [ %inc.i.i.i.i, %if.end.i9.i.i.i ]
   %arrayidx.i.i.i.i = getelementptr inbounds nuw i64, ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 %i.i.019.i.i.i
   %9 = load i64, ptr %arrayidx.i.i.i.i, align 8
   %cmp1.i8.i.i.i = icmp ugt i64 %9, %conv26
@@ -1728,23 +1729,23 @@ sw.bb33:                                          ; preds = %_ZNK5folly9FormatAr
   %basePrefix35 = getelementptr inbounds nuw i8, ptr %arg, i64 19
   %14 = load i8, ptr %basePrefix35, align 1
   %15 = trunc i8 %14 to i1
-  br i1 %15, label %if.then.i60, label %_ZNK5folly9FormatArg7enforceIbJRA31_KcRcRA12_S2_EEEvRKT_DpOT0_.exit61
+  br i1 %15, label %if.then.i71, label %_ZNK5folly9FormatArg7enforceIbJRA31_KcRcRA12_S2_EEEvRKT_DpOT0_.exit72
 
-if.then.i60:                                      ; preds = %sw.bb33
+if.then.i71:                                      ; preds = %sw.bb33
   call void @_ZNK5folly9FormatArg5errorIJRA31_KcRcRA12_S2_EEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(84) %arg, ptr noundef nonnull align 1 dereferenceable(31) @.str.17, ptr noundef nonnull align 1 dereferenceable(1) %presentation, ptr noundef nonnull align 1 dereferenceable(12) @.str.18) #25
   unreachable
 
-_ZNK5folly9FormatArg7enforceIbJRA31_KcRcRA12_S2_EEEvRKT_DpOT0_.exit61: ; preds = %sw.bb33
+_ZNK5folly9FormatArg7enforceIbJRA31_KcRcRA12_S2_EEEvRKT_DpOT0_.exit72: ; preds = %sw.bb33
   %thousandsSeparator40 = getelementptr inbounds nuw i8, ptr %arg, i64 20
   %16 = load i8, ptr %thousandsSeparator40, align 4
   %17 = trunc i8 %16 to i1
-  br i1 %17, label %if.then.i63, label %_ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit
+  br i1 %17, label %if.then.i74, label %_ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit
 
-if.then.i63:                                      ; preds = %_ZNK5folly9FormatArg7enforceIbJRA31_KcRcRA12_S2_EEEvRKT_DpOT0_.exit61
+if.then.i74:                                      ; preds = %_ZNK5folly9FormatArg7enforceIbJRA31_KcRcRA12_S2_EEEvRKT_DpOT0_.exit72
   call void @_ZNK5folly9FormatArg5errorIJRA45_KcRcRA12_S2_EEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(84) %arg, ptr noundef nonnull align 1 dereferenceable(45) @.str.21, ptr noundef nonnull align 1 dereferenceable(1) %presentation, ptr noundef nonnull align 1 dereferenceable(12) @.str.18) #25
   unreachable
 
-_ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit: ; preds = %_ZNK5folly9FormatArg7enforceIbJRA31_KcRcRA12_S2_EEEvRKT_DpOT0_.exit61
+_ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit: ; preds = %_ZNK5folly9FormatArg7enforceIbJRA31_KcRcRA12_S2_EEEvRKT_DpOT0_.exit72
   %add.ptr45 = getelementptr inbounds nuw i8, ptr %valBuf, i64 1
   store i8 %1, ptr %add.ptr45, align 1
   %add.ptr46 = getelementptr inbounds nuw i8, ptr %valBuf, i64 2
@@ -1755,144 +1756,144 @@ sw.bb47:                                          ; preds = %_ZNK5folly9FormatAr
   %thousandsSeparator49 = getelementptr inbounds nuw i8, ptr %arg, i64 20
   %18 = load i8, ptr %thousandsSeparator49, align 4
   %19 = trunc i8 %18 to i1
-  br i1 %19, label %if.then.i65, label %_ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit66
+  br i1 %19, label %if.then.i76, label %_ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit77
 
-if.then.i65:                                      ; preds = %sw.bb47
+if.then.i76:                                      ; preds = %sw.bb47
   call void @_ZNK5folly9FormatArg5errorIJRA45_KcRcRA12_S2_EEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(84) %arg, ptr noundef nonnull align 1 dereferenceable(45) @.str.21, ptr noundef nonnull align 1 dereferenceable(1) %presentation, ptr noundef nonnull align 1 dereferenceable(12) @.str.18) #25
   unreachable
 
-_ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit66: ; preds = %sw.bb47
+_ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit77: ; preds = %sw.bb47
   %add.ptr54 = getelementptr inbounds nuw i8, ptr %valBuf, i64 67
   store ptr %add.ptr54, ptr %valBufEnd, align 8
   %conv18.i = zext i8 %1 to i64
   %arrayidx.i.i28.i = getelementptr inbounds nuw %"struct.std::array.11", ptr @_ZN5folly6detail11formatOctalE, i64 %conv18.i
   %arrayidx.i.i29.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i28.i, i64 2
   %20 = load i8, ptr %arrayidx.i.i29.i, align 1
-  store i8 %20, ptr %bufLen.addr.1.i.i80.sroa.gep93, align 2
+  store i8 %20, ptr %bufLen.addr.1.i.i91.sroa.gep104, align 2
   %cmp.i = icmp ugt i8 %1, 7
   br i1 %cmp.i, label %if.end.i, label %_ZN5folly6detail11uintToOctalIhEEmPcmT_.exit
 
-if.end.i:                                         ; preds = %_ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit66
+if.end.i:                                         ; preds = %_ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit77
   %arrayidx.i.i31.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i28.i, i64 1
   %21 = load i8, ptr %arrayidx.i.i31.i, align 1
-  store i8 %21, ptr %bufLen.addr.1.i.i80.sroa.gep, align 1
+  store i8 %21, ptr %bufLen.addr.1.i.i91.sroa.gep, align 1
   %cmp29.i = icmp ugt i8 %1, 63
   br i1 %cmp29.i, label %if.then30.i, label %_ZN5folly6detail11uintToOctalIhEEmPcmT_.exit
 
 if.then30.i:                                      ; preds = %if.end.i
   %22 = load i8, ptr %arrayidx.i.i28.i, align 1
-  store i8 %22, ptr %bufLen.addr.2.i.sroa.gep, align 16
+  store i8 %22, ptr %bufLen.addr.1.i.i91.sroa.phi.sroa.gep107, align 16
   br label %_ZN5folly6detail11uintToOctalIhEEmPcmT_.exit
 
-_ZN5folly6detail11uintToOctalIhEEmPcmT_.exit:     ; preds = %_ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit66, %if.end.i, %if.then30.i
-  %bufLen.addr.2.i.sroa.phi = phi ptr [ %bufLen.addr.2.i.sroa.gep, %if.then30.i ], [ %bufLen.addr.1.i.i80.sroa.gep, %if.end.i ], [ %bufLen.addr.1.i.i80.sroa.gep93, %_ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit66 ]
+_ZN5folly6detail11uintToOctalIhEEmPcmT_.exit:     ; preds = %_ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit77, %if.end.i, %if.then30.i
+  %bufLen.addr.2.i.sroa.phi.sroa.phi = phi ptr [ %bufLen.addr.1.i.i91.sroa.phi.sroa.gep, %if.then30.i ], [ %bufLen.addr.1.i.i91.sroa.phi.sroa.gep107, %if.end.i ], [ %bufLen.addr.1.i.i91.sroa.gep, %_ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit77 ]
+  %bufLen.addr.2.i.sroa.phi = phi ptr [ %bufLen.addr.1.i.i91.sroa.phi.sroa.gep107, %if.then30.i ], [ %bufLen.addr.1.i.i91.sroa.gep, %if.end.i ], [ %bufLen.addr.1.i.i91.sroa.gep104, %_ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit77 ]
   %basePrefix57 = getelementptr inbounds nuw i8, ptr %arg, i64 19
   %23 = load i8, ptr %basePrefix57, align 1
   %tobool58 = trunc i8 %23 to i1
   br i1 %tobool58, label %if.then59, label %if.end115
 
 if.then59:                                        ; preds = %_ZN5folly6detail11uintToOctalIhEEmPcmT_.exit
-  %incdec.ptr = getelementptr inbounds i8, ptr %bufLen.addr.2.i.sroa.phi, i64 -1
-  store i8 48, ptr %incdec.ptr, align 1
+  store i8 48, ptr %bufLen.addr.2.i.sroa.phi.sroa.phi, align 1
   br label %if.end115
 
 sw.bb61:                                          ; preds = %_ZNK5folly9FormatArg7enforceIbJRA52_KcEEEvRKT_DpOT0_.exit
   %thousandsSeparator63 = getelementptr inbounds nuw i8, ptr %arg, i64 20
   %24 = load i8, ptr %thousandsSeparator63, align 4
   %25 = trunc i8 %24 to i1
-  br i1 %25, label %if.then.i68, label %_ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit70
+  br i1 %25, label %if.then.i79, label %_ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit81
 
-if.then.i68:                                      ; preds = %sw.bb61
+if.then.i79:                                      ; preds = %sw.bb61
   call void @_ZNK5folly9FormatArg5errorIJRA45_KcRcRA12_S2_EEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(84) %arg, ptr noundef nonnull align 1 dereferenceable(45) @.str.21, ptr noundef nonnull align 1 dereferenceable(1) %presentation, ptr noundef nonnull align 1 dereferenceable(12) @.str.18) #25
   unreachable
 
-_ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit70: ; preds = %sw.bb61
+_ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit81: ; preds = %sw.bb61
   %add.ptr68 = getelementptr inbounds nuw i8, ptr %valBuf, i64 67
   store ptr %add.ptr68, ptr %valBufEnd, align 8
   %conv13.i.i = zext i8 %1 to i64
   %arrayidx.i.i22.i.i = getelementptr inbounds nuw %"struct.std::array.13", ptr @_ZN5folly6detail14formatHexLowerE, i64 %conv13.i.i
   %arrayidx.i.i23.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i22.i.i, i64 1
   %26 = load i8, ptr %arrayidx.i.i23.i.i, align 1
-  store i8 %26, ptr %bufLen.addr.1.i.i80.sroa.gep93, align 2
+  store i8 %26, ptr %bufLen.addr.1.i.i91.sroa.gep104, align 2
   %cmp.i.i = icmp ugt i8 %1, 15
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN5folly6detail14uintToHexLowerIhEEmPcmT_.exit
 
-if.then.i.i:                                      ; preds = %_ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit70
+if.then.i.i:                                      ; preds = %_ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit81
   %27 = load i8, ptr %arrayidx.i.i22.i.i, align 1
-  store i8 %27, ptr %bufLen.addr.1.i.i80.sroa.gep, align 1
+  store i8 %27, ptr %bufLen.addr.1.i.i91.sroa.gep, align 1
   br label %_ZN5folly6detail14uintToHexLowerIhEEmPcmT_.exit
 
-_ZN5folly6detail14uintToHexLowerIhEEmPcmT_.exit:  ; preds = %_ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit70, %if.then.i.i
-  %bufLen.addr.1.i.i.sroa.phi = phi ptr [ %bufLen.addr.1.i.i80.sroa.gep, %if.then.i.i ], [ %bufLen.addr.1.i.i80.sroa.gep93, %_ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit70 ]
+_ZN5folly6detail14uintToHexLowerIhEEmPcmT_.exit:  ; preds = %_ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit81, %if.then.i.i
+  %bufLen.addr.1.i.i.sroa.phi.sroa.phi = phi ptr [ %bufLen.addr.1.i.i91.sroa.phi.sroa.gep, %if.then.i.i ], [ %bufLen.addr.1.i.i91.sroa.phi.sroa.gep107, %_ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit81 ]
+  %bufLen.addr.1.i.i.sroa.phi.sroa.phi111 = phi ptr [ %bufLen.addr.1.i.i91.sroa.phi.sroa.gep107, %if.then.i.i ], [ %bufLen.addr.1.i.i91.sroa.gep, %_ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit81 ]
+  %bufLen.addr.1.i.i.sroa.phi = phi ptr [ %bufLen.addr.1.i.i91.sroa.gep, %if.then.i.i ], [ %bufLen.addr.1.i.i91.sroa.gep104, %_ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit81 ]
   %basePrefix72 = getelementptr inbounds nuw i8, ptr %arg, i64 19
   %28 = load i8, ptr %basePrefix72, align 1
   %tobool73 = trunc i8 %28 to i1
   br i1 %tobool73, label %if.then74, label %if.end115
 
 if.then74:                                        ; preds = %_ZN5folly6detail14uintToHexLowerIhEEmPcmT_.exit
-  %incdec.ptr75 = getelementptr inbounds i8, ptr %bufLen.addr.1.i.i.sroa.phi, i64 -1
-  store i8 120, ptr %incdec.ptr75, align 1
-  %incdec.ptr76 = getelementptr inbounds i8, ptr %bufLen.addr.1.i.i.sroa.phi, i64 -2
-  store i8 48, ptr %incdec.ptr76, align 1
+  store i8 120, ptr %bufLen.addr.1.i.i.sroa.phi.sroa.phi111, align 1
+  store i8 48, ptr %bufLen.addr.1.i.i.sroa.phi.sroa.phi, align 1
   br label %if.end115
 
 sw.bb78:                                          ; preds = %_ZNK5folly9FormatArg7enforceIbJRA52_KcEEEvRKT_DpOT0_.exit
   %thousandsSeparator80 = getelementptr inbounds nuw i8, ptr %arg, i64 20
   %29 = load i8, ptr %thousandsSeparator80, align 4
   %30 = trunc i8 %29 to i1
-  br i1 %30, label %if.then.i72, label %_ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit74
+  br i1 %30, label %if.then.i83, label %_ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit85
 
-if.then.i72:                                      ; preds = %sw.bb78
+if.then.i83:                                      ; preds = %sw.bb78
   call void @_ZNK5folly9FormatArg5errorIJRA45_KcRcRA12_S2_EEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(84) %arg, ptr noundef nonnull align 1 dereferenceable(45) @.str.21, ptr noundef nonnull align 1 dereferenceable(1) %presentation, ptr noundef nonnull align 1 dereferenceable(12) @.str.18) #25
   unreachable
 
-_ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit74: ; preds = %sw.bb78
+_ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit85: ; preds = %sw.bb78
   %add.ptr85 = getelementptr inbounds nuw i8, ptr %valBuf, i64 67
   store ptr %add.ptr85, ptr %valBufEnd, align 8
-  %conv13.i.i75 = zext i8 %1 to i64
-  %arrayidx.i.i22.i.i76 = getelementptr inbounds nuw %"struct.std::array.13", ptr @_ZN5folly6detail14formatHexUpperE, i64 %conv13.i.i75
-  %arrayidx.i.i23.i.i77 = getelementptr inbounds nuw i8, ptr %arrayidx.i.i22.i.i76, i64 1
-  %31 = load i8, ptr %arrayidx.i.i23.i.i77, align 1
-  store i8 %31, ptr %bufLen.addr.1.i.i80.sroa.gep93, align 2
-  %cmp.i.i79 = icmp ugt i8 %1, 15
-  br i1 %cmp.i.i79, label %if.then.i.i81, label %_ZN5folly6detail14uintToHexUpperIhEEmPcmT_.exit
+  %conv13.i.i86 = zext i8 %1 to i64
+  %arrayidx.i.i22.i.i87 = getelementptr inbounds nuw %"struct.std::array.13", ptr @_ZN5folly6detail14formatHexUpperE, i64 %conv13.i.i86
+  %arrayidx.i.i23.i.i88 = getelementptr inbounds nuw i8, ptr %arrayidx.i.i22.i.i87, i64 1
+  %31 = load i8, ptr %arrayidx.i.i23.i.i88, align 1
+  store i8 %31, ptr %bufLen.addr.1.i.i91.sroa.gep104, align 2
+  %cmp.i.i90 = icmp ugt i8 %1, 15
+  br i1 %cmp.i.i90, label %if.then.i.i92, label %_ZN5folly6detail14uintToHexUpperIhEEmPcmT_.exit
 
-if.then.i.i81:                                    ; preds = %_ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit74
-  %32 = load i8, ptr %arrayidx.i.i22.i.i76, align 1
-  store i8 %32, ptr %bufLen.addr.1.i.i80.sroa.gep, align 1
+if.then.i.i92:                                    ; preds = %_ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit85
+  %32 = load i8, ptr %arrayidx.i.i22.i.i87, align 1
+  store i8 %32, ptr %bufLen.addr.1.i.i91.sroa.gep, align 1
   br label %_ZN5folly6detail14uintToHexUpperIhEEmPcmT_.exit
 
-_ZN5folly6detail14uintToHexUpperIhEEmPcmT_.exit:  ; preds = %_ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit74, %if.then.i.i81
-  %bufLen.addr.1.i.i80.sroa.phi = phi ptr [ %bufLen.addr.1.i.i80.sroa.gep, %if.then.i.i81 ], [ %bufLen.addr.1.i.i80.sroa.gep93, %_ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit74 ]
+_ZN5folly6detail14uintToHexUpperIhEEmPcmT_.exit:  ; preds = %_ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit85, %if.then.i.i92
+  %bufLen.addr.1.i.i91.sroa.phi.sroa.phi = phi ptr [ %bufLen.addr.1.i.i91.sroa.phi.sroa.gep, %if.then.i.i92 ], [ %bufLen.addr.1.i.i91.sroa.phi.sroa.gep107, %_ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit85 ]
+  %bufLen.addr.1.i.i91.sroa.phi.sroa.phi106 = phi ptr [ %bufLen.addr.1.i.i91.sroa.phi.sroa.gep107, %if.then.i.i92 ], [ %bufLen.addr.1.i.i91.sroa.gep, %_ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit85 ]
+  %bufLen.addr.1.i.i91.sroa.phi = phi ptr [ %bufLen.addr.1.i.i91.sroa.gep, %if.then.i.i92 ], [ %bufLen.addr.1.i.i91.sroa.gep104, %_ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit85 ]
   %basePrefix89 = getelementptr inbounds nuw i8, ptr %arg, i64 19
   %33 = load i8, ptr %basePrefix89, align 1
   %tobool90 = trunc i8 %33 to i1
   br i1 %tobool90, label %if.then91, label %if.end115
 
 if.then91:                                        ; preds = %_ZN5folly6detail14uintToHexUpperIhEEmPcmT_.exit
-  %incdec.ptr92 = getelementptr inbounds i8, ptr %bufLen.addr.1.i.i80.sroa.phi, i64 -1
-  store i8 88, ptr %incdec.ptr92, align 1
-  %incdec.ptr93 = getelementptr inbounds i8, ptr %bufLen.addr.1.i.i80.sroa.phi, i64 -2
-  store i8 48, ptr %incdec.ptr93, align 1
+  store i8 88, ptr %bufLen.addr.1.i.i91.sroa.phi.sroa.phi106, align 1
+  store i8 48, ptr %bufLen.addr.1.i.i91.sroa.phi.sroa.phi, align 1
   br label %if.end115
 
 sw.bb95:                                          ; preds = %_ZNK5folly9FormatArg7enforceIbJRA52_KcEEEvRKT_DpOT0_.exit, %_ZNK5folly9FormatArg7enforceIbJRA52_KcEEEvRKT_DpOT0_.exit
   %thousandsSeparator97 = getelementptr inbounds nuw i8, ptr %arg, i64 20
   %34 = load i8, ptr %thousandsSeparator97, align 4
   %35 = trunc i8 %34 to i1
-  br i1 %35, label %if.then.i84, label %_ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit86
+  br i1 %35, label %if.then.i95, label %_ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit97
 
-if.then.i84:                                      ; preds = %sw.bb95
+if.then.i95:                                      ; preds = %sw.bb95
   call void @_ZNK5folly9FormatArg5errorIJRA45_KcRcRA12_S2_EEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(84) %arg, ptr noundef nonnull align 1 dereferenceable(45) @.str.21, ptr noundef nonnull align 1 dereferenceable(1) %presentation, ptr noundef nonnull align 1 dereferenceable(12) @.str.18) #25
   unreachable
 
-_ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit86: ; preds = %sw.bb95
+_ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit97: ; preds = %sw.bb95
   %add.ptr102 = getelementptr inbounds nuw i8, ptr %valBuf, i64 67
   store ptr %add.ptr102, ptr %valBufEnd, align 8
-  %cmp.i87 = icmp eq i8 %1, 0
-  br i1 %cmp.i87, label %if.then.i88, label %for.body.us.i
+  %cmp.i98 = icmp eq i8 %1, 0
+  br i1 %cmp.i98, label %if.then.i99, label %for.body.us.i
 
-for.body.us.i:                                    ; preds = %_ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit86
+for.body.us.i:                                    ; preds = %_ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit97
   %add.ptr.us.i = getelementptr inbounds nuw i8, ptr %valBuf, i64 59
   %conv2.us.i = zext i8 %1 to i64
   %arrayidx.i.i.us.i = getelementptr inbounds nuw %"struct.std::array.15", ptr @_ZN5folly6detail12formatBinaryE, i64 %conv2.us.i
@@ -1900,8 +1901,8 @@ for.body.us.i:                                    ; preds = %_ZNK5folly9FormatAr
   store i64 %36, ptr %add.ptr.us.i, align 1
   br label %while.cond.i
 
-if.then.i88:                                      ; preds = %_ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit86
-  store i8 48, ptr %bufLen.addr.1.i.i80.sroa.gep93, align 2
+if.then.i99:                                      ; preds = %_ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit97
+  store i8 48, ptr %bufLen.addr.1.i.i91.sroa.gep104, align 2
   br label %_ZN5folly6detail12uintToBinaryIhEEmPcmT_.exit
 
 while.cond.i:                                     ; preds = %while.cond.i, %for.body.us.i
@@ -1912,8 +1913,8 @@ while.cond.i:                                     ; preds = %while.cond.i, %for.
   %inc.i = add i64 %bufLen.addr.1.i, 1
   br i1 %cmp11.i, label %while.cond.i, label %_ZN5folly6detail12uintToBinaryIhEEmPcmT_.exit, !llvm.loop !28
 
-_ZN5folly6detail12uintToBinaryIhEEmPcmT_.exit:    ; preds = %while.cond.i, %if.then.i88
-  %retval.0.i = phi i64 [ 66, %if.then.i88 ], [ %bufLen.addr.1.i, %while.cond.i ]
+_ZN5folly6detail12uintToBinaryIhEEmPcmT_.exit:    ; preds = %while.cond.i, %if.then.i99
+  %retval.0.i = phi i64 [ 66, %if.then.i99 ], [ %bufLen.addr.1.i, %while.cond.i ]
   %arrayidx105 = getelementptr inbounds i8, ptr %valBuf, i64 %retval.0.i
   %basePrefix106 = getelementptr inbounds nuw i8, ptr %arg, i64 19
   %38 = load i8, ptr %basePrefix106, align 1
@@ -1921,8 +1922,8 @@ _ZN5folly6detail12uintToBinaryIhEEmPcmT_.exit:    ; preds = %while.cond.i, %if.t
   br i1 %tobool107, label %if.then108, label %if.end115
 
 if.then108:                                       ; preds = %_ZN5folly6detail12uintToBinaryIhEEmPcmT_.exit
-  %incdec.ptr109 = getelementptr inbounds i8, ptr %arrayidx105, i64 -1
-  store i8 %spec.store.select, ptr %incdec.ptr109, align 1
+  %valBufBegin.0.sroa.gep62 = getelementptr inbounds i8, ptr %arrayidx105, i64 -1
+  store i8 %spec.store.select, ptr %valBufBegin.0.sroa.gep62, align 1
   %incdec.ptr110 = getelementptr inbounds i8, ptr %arrayidx105, i64 -2
   store i8 48, ptr %incdec.ptr110, align 1
   br label %if.end115
@@ -1935,15 +1936,15 @@ if.end115:                                        ; preds = %_ZNK5folly9FormatAr
   %39 = phi ptr [ %add.ptr15, %_ZNK5folly9FormatArg7enforceIbJRA26_KcRcRA12_S2_EEEvRKT_DpOT0_.exit ], [ %.pre, %if.then31 ], [ %add.ptr28, %_ZN5folly16to_ascii_decimalEPcPKcm.exit ], [ %add.ptr46, %_ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit ], [ %add.ptr54, %if.then59 ], [ %add.ptr54, %_ZN5folly6detail11uintToOctalIhEEmPcmT_.exit ], [ %add.ptr68, %if.then74 ], [ %add.ptr68, %_ZN5folly6detail14uintToHexLowerIhEEmPcmT_.exit ], [ %add.ptr85, %if.then91 ], [ %add.ptr85, %_ZN5folly6detail14uintToHexUpperIhEEmPcmT_.exit ], [ %add.ptr102, %if.then108 ], [ %add.ptr102, %_ZN5folly6detail12uintToBinaryIhEEmPcmT_.exit ]
   %tobool.not.i = phi i1 [ false, %_ZNK5folly9FormatArg7enforceIbJRA26_KcRcRA12_S2_EEEvRKT_DpOT0_.exit ], [ false, %if.then31 ], [ false, %_ZN5folly16to_ascii_decimalEPcPKcm.exit ], [ false, %_ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit ], [ true, %if.then59 ], [ false, %_ZN5folly6detail11uintToOctalIhEEmPcmT_.exit ], [ true, %if.then74 ], [ false, %_ZN5folly6detail14uintToHexLowerIhEEmPcmT_.exit ], [ true, %if.then91 ], [ false, %_ZN5folly6detail14uintToHexUpperIhEEmPcmT_.exit ], [ true, %if.then108 ], [ false, %_ZN5folly6detail12uintToBinaryIhEEmPcmT_.exit ]
   %prefixLen.0 = phi i32 [ 0, %_ZNK5folly9FormatArg7enforceIbJRA26_KcRcRA12_S2_EEEvRKT_DpOT0_.exit ], [ 0, %if.then31 ], [ 0, %_ZN5folly16to_ascii_decimalEPcPKcm.exit ], [ 0, %_ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit ], [ 1, %if.then59 ], [ 0, %_ZN5folly6detail11uintToOctalIhEEmPcmT_.exit ], [ 2, %if.then74 ], [ 0, %_ZN5folly6detail14uintToHexLowerIhEEmPcmT_.exit ], [ 2, %if.then91 ], [ 0, %_ZN5folly6detail14uintToHexUpperIhEEmPcmT_.exit ], [ 2, %if.then108 ], [ 0, %_ZN5folly6detail12uintToBinaryIhEEmPcmT_.exit ]
-  %valBufBegin.0 = phi ptr [ %add.ptr, %_ZNK5folly9FormatArg7enforceIbJRA26_KcRcRA12_S2_EEEvRKT_DpOT0_.exit ], [ %add.ptr23, %if.then31 ], [ %add.ptr23, %_ZN5folly16to_ascii_decimalEPcPKcm.exit ], [ %add.ptr45, %_ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit ], [ %incdec.ptr, %if.then59 ], [ %bufLen.addr.2.i.sroa.phi, %_ZN5folly6detail11uintToOctalIhEEmPcmT_.exit ], [ %incdec.ptr76, %if.then74 ], [ %bufLen.addr.1.i.i.sroa.phi, %_ZN5folly6detail14uintToHexLowerIhEEmPcmT_.exit ], [ %incdec.ptr93, %if.then91 ], [ %bufLen.addr.1.i.i80.sroa.phi, %_ZN5folly6detail14uintToHexUpperIhEEmPcmT_.exit ], [ %incdec.ptr110, %if.then108 ], [ %arrayidx105, %_ZN5folly6detail12uintToBinaryIhEEmPcmT_.exit ]
+  %valBufBegin.0 = phi ptr [ %add.ptr, %_ZNK5folly9FormatArg7enforceIbJRA26_KcRcRA12_S2_EEEvRKT_DpOT0_.exit ], [ %add.ptr23, %if.then31 ], [ %add.ptr23, %_ZN5folly16to_ascii_decimalEPcPKcm.exit ], [ %add.ptr45, %_ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit ], [ %bufLen.addr.2.i.sroa.phi.sroa.phi, %if.then59 ], [ %bufLen.addr.2.i.sroa.phi, %_ZN5folly6detail11uintToOctalIhEEmPcmT_.exit ], [ %bufLen.addr.1.i.i.sroa.phi.sroa.phi, %if.then74 ], [ %bufLen.addr.1.i.i.sroa.phi, %_ZN5folly6detail14uintToHexLowerIhEEmPcmT_.exit ], [ %bufLen.addr.1.i.i91.sroa.phi.sroa.phi, %if.then91 ], [ %bufLen.addr.1.i.i91.sroa.phi, %_ZN5folly6detail14uintToHexUpperIhEEmPcmT_.exit ], [ %incdec.ptr110, %if.then108 ], [ %arrayidx105, %_ZN5folly6detail12uintToBinaryIhEEmPcmT_.exit ]
   %precision.i = getelementptr inbounds nuw i8, ptr %arg, i64 32
   store i32 -1, ptr %precision.i, align 8
   %align.i = getelementptr inbounds nuw i8, ptr %arg, i64 17
   %40 = load i8, ptr %align.i, align 1
-  %cmp.i89 = icmp eq i8 %40, 0
-  br i1 %cmp.i89, label %if.then.i92, label %if.else.i
+  %cmp.i100 = icmp eq i8 %40, 0
+  br i1 %cmp.i100, label %if.then.i103, label %if.else.i
 
-if.then.i92:                                      ; preds = %if.end115
+if.then.i103:                                     ; preds = %if.end115
   store i8 2, ptr %align.i, align 1
   br label %_ZN5folly12format_value12formatNumberINS_6detail27BaseFormatterAppendToStringINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEvNS_5RangeIPKcEEiRNS_9FormatArgERT_.exit
 
@@ -1960,10 +1961,10 @@ if.then4.i:                                       ; preds = %if.else.i
   %.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 %sub.ptr.sub.i.i.i, i64 %conv.i)
   %41 = load ptr, ptr %cb, align 8
   %call3.i.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %41, ptr noundef %valBufBegin.0, i64 noundef %.sroa.speculated.i.i)
-  %cmp.i.i90 = icmp ult i64 %sub.ptr.sub.i.i.i, %conv.i
-  br i1 %cmp.i.i90, label %if.then.i.i91, label %_ZN5folly5RangeIPKcE7advanceEm.exit.i
+  %cmp.i.i101 = icmp ult i64 %sub.ptr.sub.i.i.i, %conv.i
+  br i1 %cmp.i.i101, label %if.then.i.i102, label %_ZN5folly5RangeIPKcE7advanceEm.exit.i
 
-if.then.i.i91:                                    ; preds = %if.then4.i
+if.then.i.i102:                                   ; preds = %if.then4.i
   call void @_ZN5folly6detail16throw_exception_ISt12out_of_rangeJPKcEEEvDpT0_(ptr noundef nonnull @.str.26) #16
   unreachable
 
@@ -1976,8 +1977,8 @@ _ZN5folly5RangeIPKcE7advanceEm.exit.i:            ; preds = %if.then4.i
   store i32 %.sroa.speculated.i, ptr %width.i, align 8
   br label %_ZN5folly12format_value12formatNumberINS_6detail27BaseFormatterAppendToStringINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEvNS_5RangeIPKcEEiRNS_9FormatArgERT_.exit
 
-_ZN5folly12format_value12formatNumberINS_6detail27BaseFormatterAppendToStringINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEvNS_5RangeIPKcEEiRNS_9FormatArgERT_.exit: ; preds = %if.then.i92, %if.else.i, %_ZN5folly5RangeIPKcE7advanceEm.exit.i
-  %val.sroa.0.0.i = phi ptr [ %valBufBegin.0, %if.then.i92 ], [ %add.ptr.i.i, %_ZN5folly5RangeIPKcE7advanceEm.exit.i ], [ %valBufBegin.0, %if.else.i ]
+_ZN5folly12format_value12formatNumberINS_6detail27BaseFormatterAppendToStringINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEvNS_5RangeIPKcEEiRNS_9FormatArgERT_.exit: ; preds = %if.then.i103, %if.else.i, %_ZN5folly5RangeIPKcE7advanceEm.exit.i
+  %val.sroa.0.0.i = phi ptr [ %valBufBegin.0, %if.then.i103 ], [ %add.ptr.i.i, %_ZN5folly5RangeIPKcE7advanceEm.exit.i ], [ %valBufBegin.0, %if.else.i ]
   call void @_ZN5folly12format_value12formatStringINS_6detail27BaseFormatterAppendToStringINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEvNS_5RangeIPKcEERNS_9FormatArgERT_(ptr %val.sroa.0.0.i, ptr %39, ptr noundef nonnull align 8 dereferenceable(84) %arg, ptr noundef nonnull align 8 dereferenceable(8) %cb)
   ret void
 }

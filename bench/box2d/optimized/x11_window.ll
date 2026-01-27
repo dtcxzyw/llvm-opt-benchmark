@@ -5539,12 +5539,10 @@ define hidden void @_glfwWaitEventsX11() local_unnamed_addr #0 {
 
 .preheader.i:                                     ; preds = %.lr.ph.i, %24
   %exitcond.i = phi i1 [ true, %24 ], [ false, %.lr.ph.i ]
-  %25 = phi i64 [ 16, %24 ], [ 8, %.lr.ph.i ]
-  %26 = getelementptr inbounds nuw i8, ptr %1, i64 %25
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 6
-  %28 = load i16, ptr %27, align 2, !tbaa !115
-  %29 = and i16 %28, 1
-  %.not10.i = icmp eq i16 %29, 0
+  %indvars.iv.i.sroa.phi.sroa.phi = phi ptr [ %13, %24 ], [ %10, %.lr.ph.i ]
+  %25 = load i16, ptr %indvars.iv.i.sroa.phi.sroa.phi, align 2, !tbaa !115
+  %26 = and i16 %25, 1
+  %.not10.i = icmp eq i16 %26, 0
   br i1 %.not10.i, label %24, label %waitForAnyEvent.exit
 
 waitForAnyEvent.exit:                             ; preds = %.critedge.loopexit.i, %.lr.ph.i, %.preheader.i, %17
@@ -5612,12 +5610,10 @@ define hidden void @_glfwWaitEventsTimeoutX11(double noundef %0) local_unnamed_a
 
 .preheader.i:                                     ; preds = %.lr.ph.i, %26
   %exitcond.i = phi i1 [ true, %26 ], [ false, %.lr.ph.i ]
-  %27 = phi i64 [ 16, %26 ], [ 8, %.lr.ph.i ]
-  %28 = getelementptr inbounds nuw i8, ptr %2, i64 %27
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 6
-  %30 = load i16, ptr %29, align 2, !tbaa !115
-  %31 = and i16 %30, 1
-  %.not10.i = icmp eq i16 %31, 0
+  %indvars.iv.i.sroa.phi.sroa.phi = phi ptr [ %15, %26 ], [ %12, %.lr.ph.i ]
+  %27 = load i16, ptr %indvars.iv.i.sroa.phi.sroa.phi, align 2, !tbaa !115
+  %28 = and i16 %27, 1
+  %.not10.i = icmp eq i16 %28, 0
   br i1 %.not10.i, label %26, label %waitForAnyEvent.exit
 
 waitForAnyEvent.exit:                             ; preds = %.critedge.loopexit.i, %.lr.ph.i, %.preheader.i, %19

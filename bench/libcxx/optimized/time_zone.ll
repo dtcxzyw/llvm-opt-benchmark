@@ -15722,6 +15722,7 @@ define linkonce_odr hidden ptr @_ZNSt3__111__formatter34__format_floating_point_
   br i1 %3, label %.sink.split.i, label %7
 
 7:                                                ; preds = %5
+  %.0.i.sroa.gep = getelementptr inbounds nuw i8, ptr %6, i64 3
   %8 = lshr i8 %.sroa.012.0.extract.trunc, 3
   %9 = and i8 %8, 3
   switch i8 %9, label %_ZNSt3__111__formatter13__insert_signB8ne210000ITkNS_19contiguous_iteratorEPcQ7same_asIcNS_11conditionalIXsr21__is_primary_templateINS_15iterator_traitsIu14__remove_cvrefIT_EEEEE5valueENS_26indirectly_readable_traitsIS6_EES7_E4type10value_typeEEEES5_S5_bNS_13__format_spec6__signE.exit [
@@ -15735,10 +15736,12 @@ define linkonce_odr hidden ptr @_ZNSt3__111__formatter34__format_floating_point_
 .sink.split.i:                                    ; preds = %10, %7, %5
   %.sink.i = phi i8 [ 45, %5 ], [ 32, %10 ], [ 43, %7 ]
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  %.0.i.sroa.gep21 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i8 %.sink.i, ptr %6, align 1, !tbaa !17
   br label %_ZNSt3__111__formatter13__insert_signB8ne210000ITkNS_19contiguous_iteratorEPcQ7same_asIcNS_11conditionalIXsr21__is_primary_templateINS_15iterator_traitsIu14__remove_cvrefIT_EEEEE5valueENS_26indirectly_readable_traitsIS6_EES7_E4type10value_typeEEEES5_S5_bNS_13__format_spec6__signE.exit
 
 _ZNSt3__111__formatter13__insert_signB8ne210000ITkNS_19contiguous_iteratorEPcQ7same_asIcNS_11conditionalIXsr21__is_primary_templateINS_15iterator_traitsIu14__remove_cvrefIT_EEEEE5valueENS_26indirectly_readable_traitsIS6_EES7_E4type10value_typeEEEES5_S5_bNS_13__format_spec6__signE.exit: ; preds = %7, %.sink.split.i
+  %.0.i.sroa.phi = phi ptr [ %.0.i.sroa.gep, %7 ], [ %.0.i.sroa.gep21, %.sink.split.i ]
   %.0.i = phi ptr [ %6, %7 ], [ %11, %.sink.split.i ]
   %.sroa.6.0.extract.shift = lshr i64 %1, 8
   %.sroa.6.0.extract.trunc = trunc i64 %.sroa.6.0.extract.shift to i8
@@ -15750,21 +15753,20 @@ _ZNSt3__111__formatter13__insert_signB8ne210000ITkNS_19contiguous_iteratorEPcQ7s
   %15 = getelementptr inbounds nuw i8, ptr @.str.78, i64 %13
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 %14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.0.i, ptr noundef nonnull align 1 dereferenceable(3) %16, i64 3, i1 false)
-  %17 = getelementptr inbounds nuw i8, ptr %.0.i, i64 3
-  %18 = and i8 %.sroa.012.0.extract.trunc, 7
-  %19 = icmp eq i8 %18, 4
-  %20 = and i64 %1, 248
-  %21 = or disjoint i64 %20, 3
+  %17 = and i8 %.sroa.012.0.extract.trunc, 7
+  %18 = icmp eq i8 %17, 4
+  %19 = and i64 %1, 248
+  %20 = or disjoint i64 %19, 3
   %.sroa.6.0.insert.insert = and i64 %1, -256
-  %22 = and i64 %1, 255
-  %.sroa.012.0.insert.ext = select i1 %19, i64 %21, i64 %22
+  %21 = and i64 %1, 255
+  %.sroa.012.0.insert.ext = select i1 %18, i64 %20, i64 %21
   %.sroa.012.0.insert.insert = or disjoint i64 %.sroa.012.0.insert.ext, %.sroa.6.0.insert.insert
-  %23 = ptrtoint ptr %17 to i64
-  %24 = ptrtoint ptr %6 to i64
-  %25 = sub i64 %23, %24
-  %26 = call ptr @_ZNSt3__111__formatter7__writeB8ne210000IccTkNS_15output_iteratorIRKT_EENS_20back_insert_iteratorINS_8__format15__output_bufferIcEEEEEEDtfp0_ENS_17basic_string_viewIS3_NS_11char_traitsIS3_EEEET1_NS_13__format_spec23__parsed_specificationsIT0_EEl(ptr nonnull %6, i64 %25, ptr %0, i64 %.sroa.012.0.insert.insert, i64 %2, i64 noundef %25)
+  %22 = ptrtoint ptr %.0.i.sroa.phi to i64
+  %23 = ptrtoint ptr %6 to i64
+  %24 = sub i64 %22, %23
+  %25 = call ptr @_ZNSt3__111__formatter7__writeB8ne210000IccTkNS_15output_iteratorIRKT_EENS_20back_insert_iteratorINS_8__format15__output_bufferIcEEEEEEDtfp0_ENS_17basic_string_viewIS3_NS_11char_traitsIS3_EEEET1_NS_13__format_spec23__parsed_specificationsIT0_EEl(ptr nonnull %6, i64 %24, ptr %0, i64 %.sroa.012.0.insert.insert, i64 %2, i64 noundef %24)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  ret ptr %26
+  ret ptr %25
 }
 
 ; Function Attrs: mustprogress uwtable

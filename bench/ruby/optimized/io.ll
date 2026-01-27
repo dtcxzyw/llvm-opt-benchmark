@@ -6691,6 +6691,7 @@ define dso_local void @rb_close_before_exec(i32 noundef %0, i32 noundef %1, i64 
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = tail call i32 @rb_cloexec_open(ptr noundef nonnull @.str.207, i32 noundef 256, i32 noundef 0)
   %7 = icmp slt i32 %6, 0
+  %.01928.i.sroa.gep32 = getelementptr inbounds nuw i8, ptr %4, i64 7
   br i1 %7, label %linux_get_maxfd.exit, label %8
 
 8:                                                ; preds = %3
@@ -6704,116 +6705,117 @@ define dso_local void @rb_close_before_exec(i32 noundef %0, i32 noundef %1, i64 
   %14 = icmp samesign ugt i64 %9, 9
   br i1 %14, label %.lr.ph.i, label %.critedge.i
 
-.lr.ph.i:                                         ; preds = %11, %24
-  %15 = phi i64 [ %27, %24 ], [ %9, %11 ]
-  %.01925.i = phi ptr [ %25, %24 ], [ %4, %11 ]
-  %16 = call ptr @memchr(ptr noundef nonnull dereferenceable(1) %.01925.i, i32 noundef 10, i64 noundef %15) #33
+.lr.ph.i:                                         ; preds = %11, %23
+  %15 = phi i64 [ %26, %23 ], [ %9, %11 ]
+  %.01928.i.sroa.phi = phi ptr [ %.01928.i.sroa.gep, %23 ], [ %.01928.i.sroa.gep32, %11 ]
+  %.01928.i = phi ptr [ %24, %23 ], [ %4, %11 ]
+  %16 = call ptr @memchr(ptr noundef nonnull dereferenceable(1) %.01928.i, i32 noundef 10, i64 noundef %15) #33
   %.not.i = icmp eq ptr %16, null
   br i1 %.not.i, label %.critedge.i, label %17
 
 17:                                               ; preds = %.lr.ph.i
-  %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(7) %.01925.i, ptr noundef nonnull dereferenceable(7) @.str.208, i64 7)
+  %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(7) %.01928.i, ptr noundef nonnull dereferenceable(7) @.str.208, i64 7)
   %18 = icmp eq i32 %bcmp.i, 0
-  br i1 %18, label %19, label %24
+  br i1 %18, label %19, label %23
 
 19:                                               ; preds = %17
-  %20 = getelementptr i8, ptr %.01925.i, i64 7
   store i8 0, ptr %16, align 1, !tbaa !76
-  %21 = call i64 @ruby_strtoul(ptr noundef %20, ptr noundef null, i32 noundef 10) #28
-  %22 = trunc i64 %21 to i32
-  %23 = call i32 @close(i32 noundef %6) #28
+  %20 = call i64 @ruby_strtoul(ptr noundef %.01928.i.sroa.phi, ptr noundef null, i32 noundef 10) #28
+  %21 = trunc i64 %20 to i32
+  %22 = call i32 @close(i32 noundef %6) #28
   br label %linux_get_maxfd.exit
 
-24:                                               ; preds = %17
-  %25 = getelementptr i8, ptr %16, i64 1
-  %26 = ptrtoint ptr %25 to i64
-  %27 = sub i64 %13, %26
-  %28 = icmp sgt i64 %27, 9
-  br i1 %28, label %.lr.ph.i, label %.critedge.i, !llvm.loop !131
+23:                                               ; preds = %17
+  %24 = getelementptr i8, ptr %16, i64 1
+  %.01928.i.sroa.gep = getelementptr i8, ptr %16, i64 8
+  %25 = ptrtoint ptr %24 to i64
+  %26 = sub i64 %13, %25
+  %27 = icmp sgt i64 %26, 9
+  br i1 %27, label %.lr.ph.i, label %.critedge.i, !llvm.loop !131
 
-.critedge.i:                                      ; preds = %24, %.lr.ph.i, %11, %8
-  %29 = call i32 @close(i32 noundef %6) #28
-  %30 = trunc i64 %9 to i32
+.critedge.i:                                      ; preds = %23, %.lr.ph.i, %11, %8
+  %28 = call i32 @close(i32 noundef %6) #28
+  %29 = trunc i64 %9 to i32
   br label %linux_get_maxfd.exit
 
 linux_get_maxfd.exit:                             ; preds = %3, %19, %.critedge.i
-  %.0.i = phi i32 [ %22, %19 ], [ %30, %.critedge.i ], [ %6, %3 ]
+  %.0.i = phi i32 [ %21, %19 ], [ %29, %.critedge.i ], [ %6, %3 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %spec.select = call i32 @llvm.smax.i32(i32 %1, i32 %.0.i)
   %.0 = call i32 @llvm.smax.i32(i32 %5, i32 %spec.select)
-  %.not35 = icmp sgt i32 %0, %.0
-  br i1 %.not35, label %._crit_edge, label %.lr.ph
+  %.not36 = icmp sgt i32 %0, %.0
+  br i1 %.not36, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %linux_get_maxfd.exit
-  %31 = icmp eq i64 %2, 4
-  br i1 %31, label %.lr.ph.split.us, label %.lr.ph.split
+  %30 = icmp eq i64 %2, 4
+  br i1 %30, label %.lr.ph.split.us, label %.lr.ph.split
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph, %39
-  %.137.us = phi i32 [ %.2.us, %39 ], [ %.0, %.lr.ph ]
-  %.02236.us = phi i32 [ %40, %39 ], [ %0, %.lr.ph ]
-  %32 = call i32 (i32, i32, ...) @fcntl(i32 noundef %.02236.us, i32 noundef 1) #28
-  %33 = and i32 %32, 1
-  %.not30.us = icmp eq i32 %33, 0
-  br i1 %.not30.us, label %.thread.us, label %34
+.lr.ph.split.us:                                  ; preds = %.lr.ph, %38
+  %.138.us = phi i32 [ %.2.us, %38 ], [ %.0, %.lr.ph ]
+  %.02237.us = phi i32 [ %39, %38 ], [ %0, %.lr.ph ]
+  %31 = call i32 (i32, i32, ...) @fcntl(i32 noundef %.02237.us, i32 noundef 1) #28
+  %32 = and i32 %31, 1
+  %.not30.us = icmp eq i32 %32, 0
+  br i1 %.not30.us, label %.thread.us, label %33
 
-34:                                               ; preds = %.lr.ph.split.us
-  %.not29.us = icmp eq i32 %32, -1
-  br i1 %.not29.us, label %39, label %37
+33:                                               ; preds = %.lr.ph.split.us
+  %.not29.us = icmp eq i32 %31, -1
+  br i1 %.not29.us, label %38, label %36
 
 .thread.us:                                       ; preds = %.lr.ph.split.us
-  %35 = or disjoint i32 %32, 1
-  %36 = call i32 (i32, i32, ...) @fcntl(i32 noundef %.02236.us, i32 noundef 2, i32 noundef %35) #28
-  br label %37
+  %34 = or disjoint i32 %31, 1
+  %35 = call i32 (i32, i32, ...) @fcntl(i32 noundef %.02237.us, i32 noundef 2, i32 noundef %34) #28
+  br label %36
 
-37:                                               ; preds = %.thread.us, %34
-  %38 = add i32 %.02236.us, 20
-  %spec.select31.us = call i32 @llvm.smax.i32(i32 %.137.us, i32 %38)
-  br label %39
+36:                                               ; preds = %.thread.us, %33
+  %37 = add i32 %.02237.us, 20
+  %spec.select31.us = call i32 @llvm.smax.i32(i32 %.138.us, i32 %37)
+  br label %38
 
-39:                                               ; preds = %37, %34
-  %.2.us = phi i32 [ %.137.us, %34 ], [ %spec.select31.us, %37 ]
-  %40 = add i32 %.02236.us, 1
-  %.not.us = icmp sgt i32 %40, %.2.us
+38:                                               ; preds = %36, %33
+  %.2.us = phi i32 [ %.138.us, %33 ], [ %spec.select31.us, %36 ]
+  %39 = add i32 %.02237.us, 1
+  %.not.us = icmp sgt i32 %39, %.2.us
   br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !132
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %54
-  %.137 = phi i32 [ %.2, %54 ], [ %.0, %.lr.ph ]
-  %.02236 = phi i32 [ %55, %54 ], [ %0, %.lr.ph ]
-  %41 = sext i32 %.02236 to i64
-  %42 = shl nsw i64 %41, 1
-  %43 = or disjoint i64 %42, 1
-  %44 = call i64 @rb_hash_lookup(i64 noundef %2, i64 noundef %43) #28
-  %45 = and i64 %44, -5
-  %.not32 = icmp eq i64 %45, 0
-  br i1 %.not32, label %46, label %54
+.lr.ph.split:                                     ; preds = %.lr.ph, %53
+  %.138 = phi i32 [ %.2, %53 ], [ %.0, %.lr.ph ]
+  %.02237 = phi i32 [ %54, %53 ], [ %0, %.lr.ph ]
+  %40 = sext i32 %.02237 to i64
+  %41 = shl nsw i64 %40, 1
+  %42 = or disjoint i64 %41, 1
+  %43 = call i64 @rb_hash_lookup(i64 noundef %2, i64 noundef %42) #28
+  %44 = and i64 %43, -5
+  %.not33 = icmp eq i64 %44, 0
+  br i1 %.not33, label %45, label %53
 
-46:                                               ; preds = %.lr.ph.split
-  %47 = call i32 (i32, i32, ...) @fcntl(i32 noundef %.02236, i32 noundef 1) #28
-  %48 = and i32 %47, 1
-  %.not30 = icmp eq i32 %48, 0
-  br i1 %.not30, label %.thread, label %51
+45:                                               ; preds = %.lr.ph.split
+  %46 = call i32 (i32, i32, ...) @fcntl(i32 noundef %.02237, i32 noundef 1) #28
+  %47 = and i32 %46, 1
+  %.not30 = icmp eq i32 %47, 0
+  br i1 %.not30, label %.thread, label %50
 
-.thread:                                          ; preds = %46
-  %49 = or disjoint i32 %47, 1
-  %50 = call i32 (i32, i32, ...) @fcntl(i32 noundef %.02236, i32 noundef 2, i32 noundef %49) #28
-  br label %52
+.thread:                                          ; preds = %45
+  %48 = or disjoint i32 %46, 1
+  %49 = call i32 (i32, i32, ...) @fcntl(i32 noundef %.02237, i32 noundef 2, i32 noundef %48) #28
+  br label %51
 
-51:                                               ; preds = %46
-  %.not29 = icmp eq i32 %47, -1
-  br i1 %.not29, label %54, label %52
+50:                                               ; preds = %45
+  %.not29 = icmp eq i32 %46, -1
+  br i1 %.not29, label %53, label %51
 
-52:                                               ; preds = %.thread, %51
-  %53 = add i32 %.02236, 20
-  %spec.select31 = call i32 @llvm.smax.i32(i32 %.137, i32 %53)
-  br label %54
+51:                                               ; preds = %.thread, %50
+  %52 = add i32 %.02237, 20
+  %spec.select31 = call i32 @llvm.smax.i32(i32 %.138, i32 %52)
+  br label %53
 
-54:                                               ; preds = %52, %51, %.lr.ph.split
-  %.2 = phi i32 [ %.137, %.lr.ph.split ], [ %spec.select31, %52 ], [ %.137, %51 ]
-  %55 = add i32 %.02236, 1
-  %.not = icmp sgt i32 %55, %.2
+53:                                               ; preds = %51, %50, %.lr.ph.split
+  %.2 = phi i32 [ %.138, %.lr.ph.split ], [ %spec.select31, %51 ], [ %.138, %50 ]
+  %54 = add i32 %.02237, 1
+  %.not = icmp sgt i32 %54, %.2
   br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !132
 
-._crit_edge:                                      ; preds = %54, %39, %linux_get_maxfd.exit
+._crit_edge:                                      ; preds = %53, %38, %linux_get_maxfd.exit
   ret void
 }
 

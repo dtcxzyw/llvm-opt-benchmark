@@ -192,15 +192,17 @@ define dso_local void @_ZN11cmQtAutoGen5ToolsB5cxx11Ebbb(ptr dead_on_unwind noal
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %8, i8 0, i64 48, i1 false)
   %.0.sroa.gep = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %.0.sroa.phi.sroa.gep = getelementptr inbounds nuw i8, ptr %8, i64 24
+  %.0.sroa.phi.sroa.gep25 = getelementptr inbounds nuw i8, ptr %8, i64 8
   br i1 %1, label %9, label %10
 
 9:                                                ; preds = %4
   store i64 7, ptr %8, align 8, !tbaa !4
-  %.sroa.423.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr @.str.5, ptr %.sroa.423.0..sroa_idx, align 8, !tbaa !8
+  store ptr @.str.5, ptr %.0.sroa.phi.sroa.gep25, align 8, !tbaa !8
   br label %10
 
 10:                                               ; preds = %9, %4
+  %.0.sroa.phi.sroa.phi = phi ptr [ %.0.sroa.phi.sroa.gep, %9 ], [ %.0.sroa.phi.sroa.gep25, %4 ]
   %.0.sroa.phi = phi ptr [ %.0.sroa.gep, %9 ], [ %8, %4 ]
   %.0 = phi i64 [ 1, %9 ], [ 0, %4 ]
   br i1 %2, label %11, label %13
@@ -208,8 +210,7 @@ define dso_local void @_ZN11cmQtAutoGen5ToolsB5cxx11Ebbb(ptr dead_on_unwind noal
 11:                                               ; preds = %10
   %12 = add nuw nsw i64 %.0, 1
   store i64 7, ptr %.0.sroa.phi, align 8, !tbaa !4
-  %.sroa.421.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.0.sroa.phi, i64 8
-  store ptr @.str.6, ptr %.sroa.421.0..sroa_idx, align 8, !tbaa !8
+  store ptr @.str.6, ptr %.0.sroa.phi.sroa.phi, align 8, !tbaa !8
   br label %13
 
 13:                                               ; preds = %11, %10
@@ -234,8 +235,7 @@ _ZNSt5arrayISt17basic_string_viewIcSt11char_traitsIcEELm3EE2atEm.exit: ; preds =
 
 17:                                               ; preds = %16
   %.sroa.0.0.copyload.i = load i64, ptr %8, align 8, !tbaa !4
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %.sroa.2.0.copyload.i = load ptr, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !8
+  %.sroa.2.0.copyload.i = load ptr, ptr %.0.sroa.phi.sroa.gep25, align 8, !tbaa !8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %18, ptr %0, align 8, !tbaa !11
   %19 = icmp eq ptr %.sroa.2.0.copyload.i, null
@@ -289,8 +289,7 @@ _ZNSt5arrayISt17basic_string_viewIcSt11char_traitsIcEELm3EE2atEm.exit: ; preds =
 34:                                               ; preds = %16
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !17
   %.sroa.01.0.copyload.i = load i64, ptr %8, align 8, !tbaa !4, !noalias !17
-  %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %.sroa.22.0.copyload.i = load ptr, ptr %.sroa.22.0..sroa_idx.i, align 8, !tbaa !8, !noalias !17
+  %.sroa.22.0.copyload.i = load ptr, ptr %.0.sroa.phi.sroa.gep25, align 8, !tbaa !8, !noalias !17
   store i64 %.sroa.01.0.copyload.i, ptr %6, align 8, !tbaa !4, !alias.scope !20, !noalias !17
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %.sroa.22.0.copyload.i, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !tbaa !8, !alias.scope !20, !noalias !17
@@ -304,8 +303,7 @@ _ZNSt5arrayISt17basic_string_viewIcSt11char_traitsIcEELm3EE2atEm.exit: ; preds =
   store ptr null, ptr %37, align 8, !tbaa !23, !alias.scope !27, !noalias !17
   %38 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %.sroa.0.0.copyload.i9 = load i64, ptr %.0.sroa.gep, align 8, !tbaa !4, !noalias !17
-  %.sroa.2.0..sroa_idx.i10 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %.sroa.2.0.copyload.i11 = load ptr, ptr %.sroa.2.0..sroa_idx.i10, align 8, !tbaa !8, !noalias !17
+  %.sroa.2.0.copyload.i11 = load ptr, ptr %.0.sroa.phi.sroa.gep, align 8, !tbaa !8, !noalias !17
   store i64 %.sroa.0.0.copyload.i9, ptr %38, align 8, !tbaa !4, !alias.scope !30, !noalias !17
   %.sroa.4.0..sroa_idx.i23.i = getelementptr inbounds nuw i8, ptr %6, i64 56
   store ptr %.sroa.2.0.copyload.i11, ptr %.sroa.4.0..sroa_idx.i23.i, align 8, !tbaa !8, !alias.scope !30, !noalias !17
@@ -319,8 +317,7 @@ _ZNSt5arrayISt17basic_string_viewIcSt11char_traitsIcEELm3EE2atEm.exit: ; preds =
   %41 = getelementptr inbounds nuw i8, ptr %8, i64 32
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !33
   %.sroa.03.0.copyload.i = load i64, ptr %8, align 8, !tbaa !4, !noalias !33
-  %.sroa.24.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %.sroa.24.0.copyload.i = load ptr, ptr %.sroa.24.0..sroa_idx.i, align 8, !tbaa !8, !noalias !33
+  %.sroa.24.0.copyload.i = load ptr, ptr %.0.sroa.phi.sroa.gep25, align 8, !tbaa !8, !noalias !33
   store i64 %.sroa.03.0.copyload.i, ptr %5, align 8, !tbaa !4, !alias.scope !36, !noalias !33
   %.sroa.4.0..sroa_idx.i.i12 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %.sroa.24.0.copyload.i, ptr %.sroa.4.0..sroa_idx.i.i12, align 8, !tbaa !8, !alias.scope !36, !noalias !33
@@ -334,8 +331,7 @@ _ZNSt5arrayISt17basic_string_viewIcSt11char_traitsIcEELm3EE2atEm.exit: ; preds =
   store ptr null, ptr %44, align 8, !tbaa !23, !alias.scope !39, !noalias !33
   %45 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %.sroa.01.0.copyload.i13 = load i64, ptr %.0.sroa.gep, align 8, !tbaa !4, !noalias !33
-  %.sroa.22.0..sroa_idx.i14 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %.sroa.22.0.copyload.i15 = load ptr, ptr %.sroa.22.0..sroa_idx.i14, align 8, !tbaa !8, !noalias !33
+  %.sroa.22.0.copyload.i15 = load ptr, ptr %.0.sroa.phi.sroa.gep, align 8, !tbaa !8, !noalias !33
   store i64 %.sroa.01.0.copyload.i13, ptr %45, align 8, !tbaa !4, !alias.scope !42, !noalias !33
   %.sroa.4.0..sroa_idx.i27.i = getelementptr inbounds nuw i8, ptr %5, i64 56
   store ptr %.sroa.22.0.copyload.i15, ptr %.sroa.4.0..sroa_idx.i27.i, align 8, !tbaa !8, !alias.scope !42, !noalias !33

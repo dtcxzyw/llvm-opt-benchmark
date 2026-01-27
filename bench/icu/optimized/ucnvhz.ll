@@ -951,31 +951,32 @@ define internal void @_ZL12_HZ_WriteSubP25UConverterFromUnicodeArgsiP10UErrorCod
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !13
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  %.0.sroa.gep11 = getelementptr inbounds nuw i8, ptr %4, i64 1
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 18
   %10 = load i8, ptr %9, align 2, !tbaa !27
   %.not = icmp eq i8 %10, 0
-  br i1 %.not, label %14, label %11
+  br i1 %.not, label %13, label %11
 
 11:                                               ; preds = %3
-  %12 = getelementptr inbounds nuw i8, ptr %4, i64 1
   store i8 126, ptr %4, align 1, !tbaa !35
-  %13 = getelementptr inbounds nuw i8, ptr %4, i64 2
-  store i8 125, ptr %12, align 1, !tbaa !35
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 2
+  %.0.sroa.gep = getelementptr inbounds nuw i8, ptr %4, i64 3
+  store i8 125, ptr %.0.sroa.gep11, align 1, !tbaa !35
   store i8 0, ptr %9, align 2, !tbaa !27
-  br label %14
+  br label %13
 
-14:                                               ; preds = %11, %3
-  %.0 = phi ptr [ %13, %11 ], [ %4, %3 ]
-  %15 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  %16 = load ptr, ptr %15, align 8, !tbaa !60
-  %17 = load i8, ptr %16, align 1, !tbaa !35
-  %18 = getelementptr inbounds nuw i8, ptr %.0, i64 1
-  store i8 %17, ptr %.0, align 1, !tbaa !35
-  %19 = ptrtoint ptr %18 to i64
-  %20 = ptrtoint ptr %4 to i64
-  %21 = sub i64 %19, %20
-  %22 = trunc i64 %21 to i32
-  call void @ucnv_cbFromUWriteBytes_77(ptr noundef nonnull %0, ptr noundef nonnull %4, i32 noundef %22, i32 noundef %1, ptr noundef %2)
+13:                                               ; preds = %11, %3
+  %.0.sroa.phi = phi ptr [ %.0.sroa.gep, %11 ], [ %.0.sroa.gep11, %3 ]
+  %.0 = phi ptr [ %12, %11 ], [ %4, %3 ]
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 40
+  %15 = load ptr, ptr %14, align 8, !tbaa !60
+  %16 = load i8, ptr %15, align 1, !tbaa !35
+  store i8 %16, ptr %.0, align 1, !tbaa !35
+  %17 = ptrtoint ptr %.0.sroa.phi to i64
+  %18 = ptrtoint ptr %4 to i64
+  %19 = sub i64 %17, %18
+  %20 = trunc i64 %19 to i32
+  call void @ucnv_cbFromUWriteBytes_77(ptr noundef nonnull %0, ptr noundef nonnull %4, i32 noundef %20, i32 noundef %1, ptr noundef %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }

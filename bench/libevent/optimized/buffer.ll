@@ -5617,7 +5617,7 @@ define i32 @evbuffer_write_atmost(ptr noundef %0, i32 noundef %1, i64 noundef %2
 evbuffer_write_sendfile.exit:                     ; preds = %34, %34, %37
   %.0.i = phi i32 [ %38, %37 ], [ 0, %34 ], [ 0, %34 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %71
+  br label %69
 
 39:                                               ; preds = %19
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -5626,7 +5626,7 @@ evbuffer_write_sendfile.exit:                     ; preds = %34, %34, %37
 .lr.ph.i:                                         ; preds = %39, %52
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %52 ], [ 0, %39 ]
   %.03143.i = phi ptr [ %.031.i, %52 ], [ %18, %39 ]
-  %.03241.i = phi i64 [ %54, %52 ], [ %.0, %39 ]
+  %.03241.i = phi i64 [ %53, %52 ], [ %.0, %39 ]
   %40 = getelementptr inbounds nuw i8, ptr %.03143.i, i64 32
   %41 = load i32, ptr %40, align 8
   %42 = and i32 %41, 2
@@ -5640,87 +5640,86 @@ evbuffer_write_sendfile.exit:                     ; preds = %34, %34, %37
   %47 = load i64, ptr %46, align 8
   %48 = getelementptr inbounds i8, ptr %45, i64 %47
   %49 = getelementptr inbounds nuw %struct.iovec, ptr %4, i64 %indvars.iv.i
+  %.lcssa.sroa.gep.i = getelementptr inbounds nuw i8, ptr %49, i64 8
   store ptr %48, ptr %49, align 16
   %50 = getelementptr inbounds nuw i8, ptr %.03143.i, i64 24
   %51 = load i64, ptr %50, align 8
   %.not36.i = icmp ult i64 %.03241.i, %51
-  br i1 %.not36.i, label %58, label %52
+  br i1 %.not36.i, label %57, label %52
 
 52:                                               ; preds = %43
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %53 = getelementptr inbounds nuw i8, ptr %49, i64 8
-  store i64 %51, ptr %53, align 8
-  %54 = sub nuw nsw i64 %.03241.i, %51
+  store i64 %51, ptr %.lcssa.sroa.gep.i, align 8
+  %53 = sub nuw nsw i64 %.03241.i, %51
   %.031.i = load ptr, ptr %.03143.i, align 8
-  %55 = icmp ne ptr %.031.i, null
-  %56 = icmp samesign ult i64 %indvars.iv.i, 127
-  %or.cond3.i = select i1 %55, i1 %56, i1 false
-  %57 = icmp ne i64 %54, 0
-  %or.cond5.i = select i1 %or.cond3.i, i1 %57, i1 false
+  %54 = icmp ne ptr %.031.i, null
+  %55 = icmp samesign ult i64 %indvars.iv.i, 127
+  %or.cond3.i = select i1 %54, i1 %55, i1 false
+  %56 = icmp ne i64 %53, 0
+  %or.cond5.i = select i1 %or.cond3.i, i1 %56, i1 false
   br i1 %or.cond5.i, label %.lr.ph.i, label %.critedge.loopexit.i, !llvm.loop !33
 
-58:                                               ; preds = %43
-  %59 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %60 = add nuw nsw i32 %59, 1
-  %61 = getelementptr inbounds nuw i8, ptr %49, i64 8
-  store i64 %.03241.i, ptr %61, align 8
+57:                                               ; preds = %43
+  %58 = trunc nuw nsw i64 %indvars.iv.i to i32
+  %59 = add nuw nsw i32 %58, 1
+  store i64 %.03241.i, ptr %.lcssa.sroa.gep.i, align 8
   br label %.critedge.i
 
 .critedge.loopexit.i:                             ; preds = %52, %.lr.ph.i
   %indvars.iv.lcssa.sink.i = phi i64 [ %indvars.iv.next.i, %52 ], [ %indvars.iv.i, %.lr.ph.i ]
-  %62 = trunc i64 %indvars.iv.lcssa.sink.i to i32
+  %60 = trunc i64 %indvars.iv.lcssa.sink.i to i32
   br label %.critedge.i
 
-.critedge.i:                                      ; preds = %.critedge.loopexit.i, %58
-  %.1.i = phi i32 [ %60, %58 ], [ %62, %.critedge.loopexit.i ]
-  switch i32 %.1.i, label %68 [
+.critedge.i:                                      ; preds = %.critedge.loopexit.i, %57
+  %.1.i = phi i32 [ %59, %57 ], [ %60, %.critedge.loopexit.i ]
+  switch i32 %.1.i, label %66 [
     i32 0, label %evbuffer_write_iovec.exit
-    i32 1, label %63
+    i32 1, label %61
   ]
 
-63:                                               ; preds = %.critedge.i
-  %64 = load ptr, ptr %4, align 16
-  %65 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %66 = load i64, ptr %65, align 8
-  %67 = tail call i64 @write(i32 noundef %1, ptr noundef %64, i64 noundef %66) #16
-  br label %70
+61:                                               ; preds = %.critedge.i
+  %62 = load ptr, ptr %4, align 16
+  %63 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %64 = load i64, ptr %63, align 8
+  %65 = tail call i64 @write(i32 noundef %1, ptr noundef %62, i64 noundef %64) #16
+  br label %68
 
-68:                                               ; preds = %.critedge.i
-  %69 = call i64 @writev(i32 noundef %1, ptr noundef nonnull %4, i32 noundef %.1.i) #16
-  br label %70
+66:                                               ; preds = %.critedge.i
+  %67 = call i64 @writev(i32 noundef %1, ptr noundef nonnull %4, i32 noundef %.1.i) #16
+  br label %68
 
-70:                                               ; preds = %68, %63
-  %.030.in.i = phi i64 [ %67, %63 ], [ %69, %68 ]
+68:                                               ; preds = %66, %61
+  %.030.in.i = phi i64 [ %65, %61 ], [ %67, %66 ]
   %.030.i = trunc i64 %.030.in.i to i32
   br label %evbuffer_write_iovec.exit
 
-evbuffer_write_iovec.exit:                        ; preds = %.thread, %.critedge.i, %70
-  %.033.i = phi i32 [ %.030.i, %70 ], [ %.1.i, %.critedge.i ], [ 0, %.thread ]
+evbuffer_write_iovec.exit:                        ; preds = %.thread, %.critedge.i, %68
+  %.033.i = phi i32 [ %.030.i, %68 ], [ %.1.i, %.critedge.i ], [ 0, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %71
+  br label %69
 
-71:                                               ; preds = %evbuffer_write_sendfile.exit, %evbuffer_write_iovec.exit
+69:                                               ; preds = %evbuffer_write_sendfile.exit, %evbuffer_write_iovec.exit
   %.022 = phi i32 [ %.033.i, %evbuffer_write_iovec.exit ], [ %.0.i, %evbuffer_write_sendfile.exit ]
-  %72 = icmp sgt i32 %.022, 0
-  br i1 %72, label %73, label %.thread31
+  %70 = icmp sgt i32 %.022, 0
+  br i1 %70, label %71, label %.thread31
 
-73:                                               ; preds = %71
-  %74 = zext nneg i32 %.022 to i64
-  %75 = call i32 @evbuffer_drain(ptr noundef nonnull %0, i64 noundef %74)
+71:                                               ; preds = %69
+  %72 = zext nneg i32 %.022 to i64
+  %73 = call i32 @evbuffer_drain(ptr noundef nonnull %0, i64 noundef %72)
   br label %.thread31
 
-.thread31:                                        ; preds = %._crit_edge, %71, %73, %11
-  %.2 = phi i32 [ -1, %11 ], [ %.022, %73 ], [ %.022, %71 ], [ -1, %._crit_edge ]
-  %76 = load ptr, ptr %6, align 8
-  %.not30 = icmp eq ptr %76, null
-  br i1 %.not30, label %80, label %77
+.thread31:                                        ; preds = %._crit_edge, %69, %71, %11
+  %.2 = phi i32 [ -1, %11 ], [ %.022, %71 ], [ %.022, %69 ], [ -1, %._crit_edge ]
+  %74 = load ptr, ptr %6, align 8
+  %.not30 = icmp eq ptr %74, null
+  br i1 %.not30, label %78, label %75
 
-77:                                               ; preds = %.thread31
-  %78 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @evthread_lock_fns_, i64 32), align 8
-  %79 = call i32 %78(i32 noundef 0, ptr noundef nonnull %76) #16
-  br label %80
+75:                                               ; preds = %.thread31
+  %76 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @evthread_lock_fns_, i64 32), align 8
+  %77 = call i32 %76(i32 noundef 0, ptr noundef nonnull %74) #16
+  br label %78
 
-80:                                               ; preds = %77, %.thread31
+78:                                               ; preds = %75, %.thread31
   ret i32 %.2
 }
 

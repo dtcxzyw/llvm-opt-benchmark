@@ -8656,9 +8656,9 @@ define internal fastcc void @shrink_node(ptr noundef %0, ptr noundef captures(ad
   %.pre = load i16, ptr %17, align 8
   %113 = and i16 %.pre, 2
   %114 = icmp eq i16 %113, 0
-  %or.cond78 = select i1 %112, i1 %114, i1 false
+  %or.cond79 = select i1 %112, i1 %114, i1 false
   %115 = and i16 %.pre, -4097
-  %masksel = select i1 %or.cond78, i16 4096, i16 0
+  %masksel = select i1 %or.cond79, i16 4096, i16 0
   %116 = or disjoint i16 %115, %masksel
   store i16 %116, ptr %17, align 8
   %117 = load i32, ptr %21, align 64
@@ -8696,11 +8696,11 @@ define internal fastcc void @shrink_node(ptr noundef %0, ptr noundef captures(ad
   %141 = add i64 %119, %118
   %142 = add i64 %141, %120
   %143 = icmp ule i64 %142, %136
-  %.pre43 = load i16, ptr %17, align 8
-  %144 = and i16 %.pre43, 1
+  %.pre44 = load i16, ptr %17, align 8
+  %144 = and i16 %.pre44, 1
   %145 = icmp eq i16 %144, 0
-  %or.cond80 = select i1 %143, i1 %145, i1 false
-  br i1 %or.cond80, label %146, label %153
+  %or.cond81 = select i1 %143, i1 %145, i1 false
+  br i1 %or.cond81, label %146, label %153
 
 146:                                              ; preds = %139
   %147 = load i8, ptr %20, align 1
@@ -8713,7 +8713,7 @@ define internal fastcc void @shrink_node(ptr noundef %0, ptr noundef captures(ad
 
 153:                                              ; preds = %146, %139
   %154 = phi i16 [ %152, %146 ], [ 0, %139 ]
-  %155 = and i16 %.pre43, -8193
+  %155 = and i16 %.pre44, -8193
   %156 = or disjoint i16 %155, %154
   store i16 %156, ptr %17, align 8
   %157 = call i32 @__SCT__cond_resched() #14
@@ -8807,7 +8807,7 @@ define internal fastcc void @shrink_node(ptr noundef %0, ptr noundef captures(ad
   %218 = phi i64 [ 0, %206 ], [ %248, %245 ]
   %219 = icmp samesign ugt i64 %218, 1
   %220 = zext i1 %219 to i32
-  br i1 %211, label %.loopexit29, label %.preheader
+  br i1 %211, label %.loopexit30, label %.preheader
 
 .preheader:                                       ; preds = %217, %233
   %221 = phi i64 [ %235, %233 ], [ 0, %217 ]
@@ -8830,34 +8830,34 @@ define internal fastcc void @shrink_node(ptr noundef %0, ptr noundef captures(ad
   %234 = phi i64 [ %232, %227 ], [ %222, %.preheader ]
   %235 = add nuw nsw i64 %221, 1
   %236 = icmp eq i64 %235, %216
-  br i1 %236, label %.loopexit29, label %.preheader, !llvm.loop !146
+  br i1 %236, label %.loopexit30, label %.preheader, !llvm.loop !146
 
-.loopexit29:                                      ; preds = %233, %217
+.loopexit30:                                      ; preds = %233, %217
   %237 = phi i64 [ 0, %217 ], [ %234, %233 ]
   %238 = lshr i64 %237, %214
-  switch i32 %208, label %default.unreachable71 [
+  switch i32 %208, label %default.unreachable72 [
     i32 0, label %245
     i32 1, label %239
     i32 3, label %242
     i32 2, label %242
   ]
 
-239:                                              ; preds = %.loopexit29
+239:                                              ; preds = %.loopexit30
   %.sroa.speculated = select i1 %219, i64 %.sroa.5.0, i64 %.sroa.0.1
   %240 = mul i64 %238, %.sroa.speculated
   %241 = udiv i64 %240, %209
   br label %245
 
-242:                                              ; preds = %.loopexit29, %.loopexit29
+242:                                              ; preds = %.loopexit30, %.loopexit30
   %243 = icmp eq i32 %207, %220
   %244 = select i1 %243, i64 %238, i64 0
   br label %245
 
-default.unreachable71:                            ; preds = %.loopexit29
+default.unreachable72:                            ; preds = %.loopexit30
   unreachable
 
-245:                                              ; preds = %242, %239, %.loopexit29
-  %246 = phi i64 [ %241, %239 ], [ %238, %.loopexit29 ], [ %244, %242 ]
+245:                                              ; preds = %242, %239, %.loopexit30
+  %246 = phi i64 [ %241, %239 ], [ %238, %.loopexit30 ], [ %244, %242 ]
   %247 = getelementptr i64, ptr %6, i64 %218
   store i64 %246, ptr %247, align 8
   %248 = add nuw nsw i64 %218, 1
@@ -8883,26 +8883,26 @@ default.unreachable71:                            ; preds = %.loopexit29
   %264 = load i64, ptr %25, align 16
   %265 = icmp ne i64 %264, 0
   %266 = select i1 %263, i1 true, i1 %265
-  br i1 %266, label %267, label %.loopexit32
+  br i1 %266, label %267, label %.loopexit33
 
 267:                                              ; preds = %250
   %268 = getelementptr inbounds nuw i8, ptr %252, i64 1936
   br label %278
 
 269:                                              ; preds = %437, %420
-  %270 = phi i64 [ %.pre50, %437 ], [ %.pre51, %420 ]
-  %271 = phi i64 [ %.pre48, %437 ], [ %.pre49, %420 ]
-  %272 = phi i64 [ %.pre46, %437 ], [ %.pre47, %420 ]
+  %270 = phi i64 [ %.pre51, %437 ], [ %.pre52, %420 ]
+  %271 = phi i64 [ %.pre49, %437 ], [ %.pre50, %420 ]
+  %272 = phi i64 [ %.pre47, %437 ], [ %.pre48, %420 ]
   %273 = icmp ne i64 %272, 0
   %274 = icmp ne i64 %271, 0
   %275 = select i1 %273, i1 true, i1 %274
   %276 = icmp ne i64 %270, 0
   %277 = select i1 %275, i1 true, i1 %276
-  br i1 %277, label %.backedge, label %.loopexit32
+  br i1 %277, label %.backedge, label %.loopexit33
 
 278:                                              ; preds = %.backedge, %267
   %279 = phi i64 [ %259, %267 ], [ %.be, %.backedge ]
-  %280 = phi i64 [ 0, %267 ], [ %.be86, %.backedge ]
+  %280 = phi i64 [ 0, %267 ], [ %.be87, %.backedge ]
   %281 = phi i64 [ 0, %267 ], [ %417, %.backedge ]
   %282 = icmp eq i64 %279, 0
   br i1 %282, label %416, label %283
@@ -9048,11 +9048,11 @@ default.unreachable71:                            ; preds = %.loopexit29
 
 365:                                              ; preds = %346
   call void @wakeup_flusher_threads(i32 noundef 1) #14
-  %.pre45 = load i32, ptr %31, align 4
+  %.pre46 = load i32, ptr %31, align 4
   br label %366
 
 366:                                              ; preds = %365, %346
-  %367 = phi i32 [ %.pre45, %365 ], [ %362, %346 ]
+  %367 = phi i32 [ %.pre46, %365 ], [ %362, %346 ]
   %368 = load i32, ptr %5, align 4
   %369 = load i32, ptr %10, align 8
   %370 = add i32 %369, %368
@@ -9147,31 +9147,31 @@ default.unreachable71:                            ; preds = %.loopexit29
 
 ._crit_edge:                                      ; preds = %416
   %.phi.trans.insert.phi.trans.insert = getelementptr i64, ptr %6, i64 %418
-  %.pre44.pre = load i64, ptr %.phi.trans.insert.phi.trans.insert, align 8
+  %.pre45.pre = load i64, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br label %.backedge
 
 .backedge:                                        ; preds = %._crit_edge, %269
-  %.be = phi i64 [ %.pre44.pre, %._crit_edge ], [ %272, %269 ]
-  %.be86 = phi i64 [ %418, %._crit_edge ], [ 0, %269 ]
+  %.be = phi i64 [ %.pre45.pre, %._crit_edge ], [ %272, %269 ]
+  %.be87 = phi i64 [ %418, %._crit_edge ], [ 0, %269 ]
   br label %278, !llvm.loop !153
 
 420:                                              ; preds = %416
   %421 = call i32 @__SCT__cond_resched() #14
   %422 = icmp ult i64 %417, %158
   %423 = select i1 %422, i1 true, i1 %258
-  %.pre47 = load i64, ptr %6, align 16
-  %.pre49 = load i64, ptr %24, align 8
-  %.pre51 = load i64, ptr %25, align 16
+  %.pre48 = load i64, ptr %6, align 16
+  %.pre50 = load i64, ptr %24, align 8
+  %.pre52 = load i64, ptr %25, align 16
   br i1 %423, label %269, label %424, !llvm.loop !154
 
 424:                                              ; preds = %420
-  %425 = add i64 %.pre49, %.pre51
+  %425 = add i64 %.pre50, %.pre52
   %426 = load i64, ptr %41, align 8
-  %427 = add i64 %426, %.pre47
+  %427 = add i64 %426, %.pre48
   %428 = icmp ne i64 %425, 0
   %429 = icmp ne i64 %427, 0
   %430 = select i1 %428, i1 %429, i1 false
-  br i1 %430, label %431, label %.loopexit32
+  br i1 %430, label %431, label %.loopexit33
 
 431:                                              ; preds = %424
   %432 = icmp ugt i64 %425, %427
@@ -9191,14 +9191,16 @@ default.unreachable71:                            ; preds = %.loopexit29
   %440 = phi i64 [ %425, %435 ], [ %427, %433 ]
   %441 = phi i32 [ 0, %435 ], [ 2, %433 ]
   %.sroa.phi = phi ptr [ %25, %435 ], [ %6, %433 ]
+  %.sroa.phi24.sroa.phi = phi ptr [ %24, %435 ], [ %41, %433 ]
   %442 = load i64, ptr %438, align 8
   %443 = add i64 %439, 1
   %444 = add i64 %443, %442
   %445 = mul i64 %440, 100
   %446 = udiv i64 %445, %444
+  store i64 0, ptr %.sroa.phi, align 16
+  store i64 0, ptr %.sroa.phi24.sroa.phi, align 8
   %447 = zext nneg i32 %441 to i64
   %448 = getelementptr i64, ptr %7, i64 %447
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %.sroa.phi, i8 0, i64 16, i1 false)
   %449 = load i64, ptr %448, align 16
   %450 = getelementptr i64, ptr %6, i64 %447
   %451 = load i64, ptr %450, align 16
@@ -9219,12 +9221,12 @@ default.unreachable71:                            ; preds = %.loopexit29
   %465 = udiv i64 %464, 100
   %466 = call i64 @llvm.usub.sat.i64(i64 %465, i64 %463)
   store i64 %466, ptr %461, align 8
-  %.pre46 = load i64, ptr %6, align 16
-  %.pre48 = load i64, ptr %24, align 8
-  %.pre50 = load i64, ptr %25, align 16
+  %.pre47 = load i64, ptr %6, align 16
+  %.pre49 = load i64, ptr %24, align 8
+  %.pre51 = load i64, ptr %25, align 16
   br label %269
 
-.loopexit32:                                      ; preds = %424, %269, %250
+.loopexit33:                                      ; preds = %424, %269, %250
   %467 = phi i64 [ 0, %250 ], [ %417, %269 ], [ %417, %424 ]
   call void @blk_finish_plug(ptr noundef nonnull %8) #14
   %468 = load i64, ptr %11, align 8
@@ -9234,7 +9236,7 @@ default.unreachable71:                            ; preds = %.loopexit29
   %471 = icmp sgt i64 %470, 0
   br i1 %471, label %484, label %472
 
-472:                                              ; preds = %.loopexit32
+472:                                              ; preds = %.loopexit33
   %473 = load i32, ptr %21, align 64
   %474 = load i8, ptr @numa_demotion_enabled, align 1, !range !41, !noundef !42
   %475 = icmp eq i8 %474, 0
@@ -9254,7 +9256,7 @@ default.unreachable71:                            ; preds = %.loopexit29
   %483 = icmp eq i32 %482, -1
   br i1 %483, label %498, label %484
 
-484:                                              ; preds = %481, %.loopexit32
+484:                                              ; preds = %481, %.loopexit33
   %485 = call i64 @node_page_state(ptr noundef %0, i32 noundef 0) #14
   %486 = call i64 @node_page_state(ptr noundef %0, i32 noundef 1) #14
   %487 = add i64 %486, %485
@@ -9411,18 +9413,18 @@ default.unreachable71:                            ; preds = %.loopexit29
 572:                                              ; preds = %568, %571
   %573 = load i8, ptr %23, align 4
   %574 = icmp slt i8 %573, 0
-  br i1 %574, label %.loopexit31, label %.preheader30
+  br i1 %574, label %.loopexit32, label %.preheader31
 
-.preheader30:                                     ; preds = %572, %.thread28
-  %575 = phi i8 [ %596, %.thread28 ], [ %573, %572 ]
-  %576 = phi i64 [ %597, %.thread28 ], [ 0, %572 ]
+.preheader31:                                     ; preds = %572, %.thread29
+  %575 = phi i8 [ %596, %.thread29 ], [ %573, %572 ]
+  %576 = phi i64 [ %597, %.thread29 ], [ 0, %572 ]
   %577 = getelementptr %struct.zone, ptr %0, i64 %576
   %578 = getelementptr inbounds nuw i8, ptr %577, i64 136
   %579 = load volatile i64, ptr %578, align 8
   %580 = icmp eq i64 %579, 0
-  br i1 %580, label %.thread28, label %581
+  br i1 %580, label %.thread29, label %581
 
-581:                                              ; preds = %.preheader30
+581:                                              ; preds = %.preheader31
   %582 = sext i8 %575 to i32
   %583 = load i8, ptr %47, align 2
   %584 = sext i8 %583 to i32
@@ -9439,25 +9441,25 @@ default.unreachable71:                            ; preds = %.loopexit29
   %593 = load i8, ptr %23, align 4
   %594 = sext i8 %593 to i32
   %595 = call zeroext i1 @compaction_suitable(ptr noundef %577, i32 noundef %592, i32 noundef %594) #14
-  br i1 %595, label %.thread, label %..thread28_crit_edge
+  br i1 %595, label %.thread, label %..thread29_crit_edge
 
-..thread28_crit_edge:                             ; preds = %590
-  %.pre52 = load i8, ptr %23, align 4
-  br label %.thread28
+..thread29_crit_edge:                             ; preds = %590
+  %.pre53 = load i8, ptr %23, align 4
+  br label %.thread29
 
-.thread28:                                        ; preds = %..thread28_crit_edge, %.preheader30
-  %596 = phi i8 [ %.pre52, %..thread28_crit_edge ], [ %575, %.preheader30 ]
+.thread29:                                        ; preds = %..thread29_crit_edge, %.preheader31
+  %596 = phi i8 [ %.pre53, %..thread29_crit_edge ], [ %575, %.preheader31 ]
   %597 = add nuw nsw i64 %576, 1
   %598 = sext i8 %596 to i64
   %599 = icmp slt i64 %576, %598
-  br i1 %599, label %.preheader30, label %.loopexit31.loopexit, !llvm.loop !155
+  br i1 %599, label %.preheader31, label %.loopexit32.loopexit, !llvm.loop !155
 
-.loopexit31.loopexit:                             ; preds = %.thread28
-  %.pre53 = load i8, ptr %47, align 2
-  br label %.loopexit31
+.loopexit32.loopexit:                             ; preds = %.thread29
+  %.pre54 = load i8, ptr %47, align 2
+  br label %.loopexit32
 
-.loopexit31:                                      ; preds = %.loopexit31.loopexit, %572
-  %600 = phi i8 [ %.pre53, %.loopexit31.loopexit ], [ %564, %572 ]
+.loopexit32:                                      ; preds = %.loopexit32.loopexit, %572
+  %600 = phi i8 [ %.pre54, %.loopexit32.loopexit ], [ %564, %572 ]
   %601 = sext i8 %600 to i64
   %602 = and i64 %601, 4294967295
   %603 = shl i64 2, %602
@@ -9467,7 +9469,7 @@ default.unreachable71:                            ; preds = %.loopexit29
   %607 = icmp sgt i64 %606, 0
   br i1 %607, label %619, label %608
 
-608:                                              ; preds = %.loopexit31
+608:                                              ; preds = %.loopexit32
   %609 = load i8, ptr @numa_demotion_enabled, align 1, !range !41, !noundef !42
   %610 = icmp eq i8 %609, 0
   br i1 %610, label %622, label %611
@@ -9486,7 +9488,7 @@ default.unreachable71:                            ; preds = %.loopexit29
   %618 = icmp eq i32 %617, -1
   br i1 %618, label %622, label %619
 
-619:                                              ; preds = %616, %.loopexit31
+619:                                              ; preds = %616, %.loopexit32
   %620 = call i64 @node_page_state(ptr noundef %0, i32 noundef 0) #14
   %621 = add i64 %620, %604
   br label %622

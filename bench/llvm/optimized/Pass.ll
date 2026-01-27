@@ -1356,6 +1356,7 @@ _ZN4llvm9StringRefC2EPKc.exit19:                  ; preds = %_ZN4llvm9StringRefC
   call void @_ZN4llvm23SmallVectorTemplateBaseINS_2cl6parserIPKNS_8PassInfoEE10OptionInfoELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %40, i64 noundef %44)
   %55 = load ptr, ptr %40, align 8, !tbaa !155
   %56 = getelementptr inbounds i8, ptr %55, i64 %54
+  %.016.i.i.i.sroa.gep10.i = getelementptr inbounds nuw i8, ptr %56, i64 40
   br label %_ZN4llvm2cl6parserIPKNS_8PassInfoEE16addLiteralOptionIS4_EEvNS_9StringRefERKT_S7_.exit
 
 .critedge.i.i.i.i:                                ; preds = %47
@@ -1365,6 +1366,7 @@ _ZN4llvm9StringRefC2EPKc.exit19:                  ; preds = %_ZN4llvm9StringRefC
 
 _ZN4llvm2cl6parserIPKNS_8PassInfoEE16addLiteralOptionIS4_EEvNS_9StringRefERKT_S7_.exit: ; preds = %_ZN4llvm9StringRefC2EPKc.exit19, %51, %.critedge.i.i.i.i
   %57 = phi ptr [ %.pre3.i.i, %_ZN4llvm9StringRefC2EPKc.exit19 ], [ %55, %51 ], [ %.pre.i.i, %.critedge.i.i.i.i ]
+  %.016.i.i.i.sroa.phi.i = phi ptr [ %39, %_ZN4llvm9StringRefC2EPKc.exit19 ], [ %.016.i.i.i.sroa.gep10.i, %51 ], [ %39, %.critedge.i.i.i.i ]
   %.016.i.i.i.i = phi ptr [ %3, %_ZN4llvm9StringRefC2EPKc.exit19 ], [ %56, %51 ], [ %3, %.critedge.i.i.i.i ]
   %58 = load i32, ptr %41, align 8, !tbaa !156
   %59 = zext i32 %58 to i64
@@ -1373,15 +1375,14 @@ _ZN4llvm2cl6parserIPKNS_8PassInfoEE16addLiteralOptionIS4_EEvNS_9StringRefERKT_S7
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 32
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl15OptionValueCopyIPKNS_8PassInfoEEE, i64 16), ptr %61, align 8, !tbaa !102
   %62 = getelementptr inbounds nuw i8, ptr %60, i64 40
-  %63 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %62, ptr noundef nonnull align 8 dereferenceable(9) %63, i64 9, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %62, ptr noundef nonnull align 8 dereferenceable(9) %.016.i.i.i.sroa.phi.i, i64 9, i1 false)
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueIPKNS_8PassInfoEEE, i64 16), ptr %61, align 8, !tbaa !102
-  %64 = load i32, ptr %41, align 8, !tbaa !156
-  %65 = add i32 %64, 1
-  store i32 %65, ptr %41, align 8, !tbaa !156
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %67 = load ptr, ptr %66, align 8, !tbaa !176
-  call void @_ZN4llvm2cl16AddLiteralOptionERNS0_6OptionENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(120) %67, ptr %.sroa.0.0.copyload.i6, i64 %32) #20
+  %63 = load i32, ptr %41, align 8, !tbaa !156
+  %64 = add i32 %63, 1
+  store i32 %64, ptr %41, align 8, !tbaa !156
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %66 = load ptr, ptr %65, align 8, !tbaa !176
+  call void @_ZN4llvm2cl16AddLiteralOptionERNS0_6OptionENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(120) %66, ptr %.sroa.0.0.copyload.i6, i64 %32) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZNK4llvm14PassNameParser13ignorablePassEPKNS_8PassInfoE.exit.thread
 

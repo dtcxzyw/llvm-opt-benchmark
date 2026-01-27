@@ -528,6 +528,7 @@ define internal fastcc range(i32 -2147483648, 129) i32 @inet_cidr_pton_ipv6(ptr 
   %4 = alloca [16 x i8], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = icmp ult i64 %2, 16
+  %.081.ptr.ptr215.sroa.gep265 = getelementptr inbounds nuw i8, ptr %4, i64 1
   br i1 %5, label %128, label %6
 
 6:                                                ; preds = %3
@@ -553,6 +554,7 @@ define internal fastcc range(i32 -2147483648, 129) i32 @inet_cidr_pton_ipv6(ptr 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %getv4.exit
   %11 = phi i8 [ %103, %getv4.exit ], [ %.ph, %.lr.ph.preheader ]
   %.pn = phi ptr [ %12, %getv4.exit ], [ %.075211.ph, %.lr.ph.preheader ]
+  %.081.ptr.ptr215.sroa.phi = phi ptr [ %.081.ptr.ptr215.sroa.gep, %getv4.exit ], [ %.081.ptr.ptr215.sroa.gep265, %.lr.ph.preheader ]
   %.081.ptr.ptr215 = phi ptr [ %.081.ptr.ptr, %getv4.exit ], [ %4, %.lr.ph.preheader ]
   %.066214 = phi i32 [ %.167, %getv4.exit ], [ 0, %.lr.ph.preheader ]
   %.068213 = phi i32 [ %.2, %getv4.exit ], [ 0, %.lr.ph.preheader ]
@@ -609,11 +611,10 @@ define internal fastcc range(i32 -2147483648, 129) i32 @inet_cidr_pton_ipv6(ptr 
 31:                                               ; preds = %27
   %32 = lshr i32 %.068213, 8
   %33 = trunc i32 %32 to i8
-  %.ptr96 = getelementptr inbounds nuw i8, ptr %.081.ptr.ptr215, i64 1
   store i8 %33, ptr %.081.ptr.ptr215, align 1
   %34 = trunc i32 %.068213 to i8
   %.add = add nuw nsw i64 %.081.idx209, 2
-  store i8 %34, ptr %.ptr96, align 1
+  store i8 %34, ptr %.081.ptr.ptr215.sroa.phi, align 1
   br label %getv4.exit, !llvm.loop !11
 
 35:                                               ; preds = %24
@@ -768,6 +769,7 @@ getv4.exit:                                       ; preds = %26, %.thread, %31
   %.2 = phi i32 [ %21, %.thread ], [ 0, %31 ], [ %.068213, %26 ]
   %.167 = phi i32 [ %22, %.thread ], [ 0, %31 ], [ %.066214, %26 ]
   %.081.ptr.ptr = getelementptr inbounds nuw i8, ptr %4, i64 %.283.idx
+  %.081.ptr.ptr215.sroa.gep = getelementptr inbounds nuw i8, ptr %.081.ptr.ptr, i64 1
   %103 = load i8, ptr %12, align 1
   %.not91 = icmp eq i8 %103, 0
   br i1 %.not91, label %getv4.exit.thread136, label %.lr.ph
@@ -806,19 +808,19 @@ getv4.exit.thread136.thread:                      ; preds = %77, %106, %getv4.ex
   br label %getv4.exit.thread136.thread.thread
 
 getv4.exit.thread136.thread.thread:               ; preds = %getv4.exit.thread136.thread, %84
-  %.3.idx293 = phi i64 [ %.3.idx, %getv4.exit.thread136.thread ], [ %.081.add, %84 ]
-  %.078200291 = phi ptr [ %.078200, %getv4.exit.thread136.thread ], [ %.078210, %84 ]
+  %.3.idx294 = phi i64 [ %.3.idx, %getv4.exit.thread136.thread ], [ %.081.add, %84 ]
+  %.078200292 = phi ptr [ %.078200, %getv4.exit.thread136.thread ], [ %.078210, %84 ]
   %112 = phi i32 [ %spec.select, %getv4.exit.thread136.thread ], [ 128, %84 ]
-  %.not101 = icmp eq ptr %.078200291, null
+  %.not101 = icmp eq ptr %.078200292, null
   br i1 %.not101, label %126, label %113
 
 113:                                              ; preds = %getv4.exit.thread136.thread.thread
-  %.3.ptr.ptr = getelementptr i8, ptr %4, i64 %.3.idx293
+  %.3.ptr.ptr = getelementptr i8, ptr %4, i64 %.3.idx294
   %114 = ptrtoint ptr %.3.ptr.ptr to i64
-  %115 = ptrtoint ptr %.078200291 to i64
+  %115 = ptrtoint ptr %.078200292 to i64
   %116 = sub i64 %114, %115
   %117 = trunc i64 %116 to i32
-  %118 = icmp eq i64 %.3.idx293, 16
+  %118 = icmp eq i64 %.3.idx294, 16
   br i1 %118, label %getv4.exit.thread126, label %.preheader
 
 .preheader:                                       ; preds = %113
@@ -836,7 +838,7 @@ getv4.exit.thread136.thread.thread:               ; preds = %getv4.exit.thread13
   %120 = sub i64 %116, %indvars.iv
   %sext = shl i64 %120, 32
   %121 = ashr exact i64 %sext, 32
-  %122 = getelementptr inbounds i8, ptr %.078200291, i64 %121
+  %122 = getelementptr inbounds i8, ptr %.078200292, i64 %121
   %123 = load i8, ptr %122, align 1
   %124 = sub nsw i64 0, %indvars.iv
   %125 = getelementptr inbounds i8, ptr %.ptr, i64 %124
@@ -847,7 +849,7 @@ getv4.exit.thread136.thread.thread:               ; preds = %getv4.exit.thread13
   br i1 %exitcond, label %.thread148, label %.lr.ph221, !llvm.loop !13
 
 126:                                              ; preds = %getv4.exit.thread136.thread.thread
-  %.not103 = icmp eq i64 %.3.idx293, 16
+  %.not103 = icmp eq i64 %.3.idx294, 16
   br i1 %.not103, label %.thread148, label %getv4.exit.thread126
 
 .thread148:                                       ; preds = %.lr.ph221, %.preheader, %126

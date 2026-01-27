@@ -519,24 +519,27 @@ define linkonce_odr void @_ZN12SubAllocator14GlueFreeBlocksEv(ptr noundef nonnul
   br label %63
 
 .lr.ph47:                                         ; preds = %.preheader42, %46
-  %38 = phi ptr [ %58, %46 ], [ %33, %.preheader42 ]
+  %38 = phi i64 [ %57, %46 ], [ %32, %.preheader42 ]
   %39 = phi i32 [ %55, %46 ], [ %30, %.preheader42 ]
   %40 = phi i16 [ %54, %46 ], [ %.promoted46, %.preheader42 ]
-  %41 = getelementptr inbounds nuw i8, ptr %38, i64 2
-  %42 = load i16, ptr %41, align 1, !tbaa !44
+  %41 = getelementptr inbounds nuw i8, ptr %.03350, i64 %38
+  %.sroa.phi84 = getelementptr inbounds nuw i8, ptr %41, i64 2
+  %42 = load i16, ptr %.sroa.phi84, align 1, !tbaa !44
   %43 = zext i16 %42 to i32
   %44 = add nuw nsw i32 %39, %43
   %45 = icmp samesign ult i32 %44, 65536
   br i1 %45, label %46, label %.critedge
 
 46:                                               ; preds = %.lr.ph47
-  %47 = getelementptr inbounds nuw i8, ptr %38, i64 4
-  %48 = load ptr, ptr %47, align 1, !tbaa !42
-  %49 = getelementptr inbounds nuw i8, ptr %38, i64 12
-  %50 = load ptr, ptr %49, align 1, !tbaa !38
+  %47 = getelementptr inbounds nuw i8, ptr %.03350, i64 %38
+  %.sroa.phi81 = getelementptr inbounds nuw i8, ptr %47, i64 4
+  %48 = getelementptr inbounds nuw i8, ptr %.03350, i64 %38
+  %.sroa.phi = getelementptr inbounds nuw i8, ptr %48, i64 12
+  %49 = load ptr, ptr %.sroa.phi81, align 1, !tbaa !42
+  %50 = load ptr, ptr %.sroa.phi, align 1, !tbaa !38
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 4
-  store ptr %48, ptr %51, align 1, !tbaa !42
-  %52 = load ptr, ptr %47, align 1, !tbaa !42
+  store ptr %49, ptr %51, align 1, !tbaa !42
+  %52 = load ptr, ptr %.sroa.phi81, align 1, !tbaa !42
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 12
   store ptr %50, ptr %53, align 1, !tbaa !38
   %54 = add i16 %42, %40

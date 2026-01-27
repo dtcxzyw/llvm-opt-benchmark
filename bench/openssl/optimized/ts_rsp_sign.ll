@@ -1127,6 +1127,7 @@ TS_RESP_CTX_add_failure_info.exit.sink.split.i:   ; preds = %152, %125
   %202 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %6, i64 noundef 23, ptr noundef nonnull @.str.12, i32 noundef %191, i32 noundef %194, i32 noundef %196, i32 noundef %198, i32 noundef %200, i32 noundef %201) #9
   %203 = sext i32 %202 to i64
   %204 = getelementptr inbounds i8, ptr %6, i64 %203
+  %.027.sroa.gep30.i.i = getelementptr inbounds nuw i8, ptr %204, i64 1
   %.not.i.i35 = icmp eq i32 %183, 0
   br i1 %.not.i.i35, label %.loopexit.i.i, label %205
 
@@ -1142,27 +1143,28 @@ TS_RESP_CTX_add_failure_info.exit.sink.split.i:   ; preds = %152, %125
   %.1.i.i = phi ptr [ %210, %205 ], [ %212, %211 ]
   %212 = getelementptr inbounds i8, ptr %.1.i.i, i64 -1
   %213 = load i8, ptr %212, align 1, !tbaa !79
-  switch i8 %213, label %.loopexit.i.i [
+  switch i8 %213, label %214 [
     i8 48, label %211
-    i8 46, label %.loopexit.i.i.loopexit
+    i8 46, label %.loopexit.i.i
   ]
 
-.loopexit.i.i.loopexit:                           ; preds = %211
+214:                                              ; preds = %211
+  %.027.sroa.phi.sroa.gep31.i.i = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 1
   br label %.loopexit.i.i
 
-.loopexit.i.i:                                    ; preds = %211, %.loopexit.i.i.loopexit, %188
-  %.027.i.i = phi ptr [ %212, %.loopexit.i.i.loopexit ], [ %204, %188 ], [ %.1.i.i, %211 ]
-  %214 = getelementptr inbounds nuw i8, ptr %.027.i.i, i64 1
+.loopexit.i.i:                                    ; preds = %211, %214, %188
+  %.027.sroa.phi.i.i = phi ptr [ %.027.sroa.phi.sroa.gep31.i.i, %214 ], [ %.027.sroa.gep30.i.i, %188 ], [ %.1.i.i, %211 ]
+  %.027.i.i = phi ptr [ %.1.i.i, %214 ], [ %204, %188 ], [ %212, %211 ]
   store i8 90, ptr %.027.i.i, align 1, !tbaa !79
-  store i8 0, ptr %214, align 1, !tbaa !79
+  store i8 0, ptr %.027.sroa.phi.i.i, align 1, !tbaa !79
   %215 = call ptr @ASN1_GENERALIZEDTIME_new() #9
   %216 = icmp eq ptr %215, null
   br i1 %216, label %TS_RESP_set_genTime_with_precision.exit.thread.i, label %217
 
 217:                                              ; preds = %.loopexit.i.i
   %218 = call i32 @ASN1_GENERALIZEDTIME_set_string(ptr noundef nonnull %215, ptr noundef nonnull %6) #9
-  %.not35.i.i = icmp eq i32 %218, 0
-  br i1 %.not35.i.i, label %219, label %220
+  %.not39.i.i = icmp eq i32 %218, 0
+  br i1 %.not39.i.i, label %219, label %220
 
 219:                                              ; preds = %217
   call void @ASN1_GENERALIZEDTIME_free(ptr noundef nonnull %215) #9
@@ -1201,7 +1203,7 @@ TS_RESP_set_genTime_with_precision.exit.thread.i: ; preds = %219, %.loopexit.i.i
   %229 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %230 = load ptr, ptr %229, align 8, !tbaa !44
   %.not76.i = icmp eq ptr %230, null
-  br i1 %.not76.i, label %.thread129.i, label %231
+  br i1 %.not76.i, label %.thread128.i, label %231
 
 231:                                              ; preds = %228, %225, %222
   %232 = call ptr @TS_ACCURACY_new() #9
@@ -1211,42 +1213,42 @@ TS_RESP_set_genTime_with_precision.exit.thread.i: ; preds = %219, %.loopexit.i.i
 234:                                              ; preds = %231
   %.pre.i36 = load ptr, ptr %223, align 8, !tbaa !42
   %.not77.i = icmp eq ptr %.pre.i36, null
-  br i1 %.not77.i, label %.thread129.i, label %235
+  br i1 %.not77.i, label %.thread128.i, label %235
 
 235:                                              ; preds = %234
   %236 = call i32 @TS_ACCURACY_set_seconds(ptr noundef nonnull %232, ptr noundef nonnull %.pre.i36) #9
   %.not78.i = icmp eq i32 %236, 0
-  br i1 %.not78.i, label %.thread.i, label %.thread129.i
+  br i1 %.not78.i, label %.thread.i, label %.thread128.i
 
-.thread129.i:                                     ; preds = %235, %234, %228
-  %.152132.i = phi ptr [ %232, %234 ], [ %232, %235 ], [ null, %228 ]
+.thread128.i:                                     ; preds = %235, %234, %228
+  %.152131.i = phi ptr [ %232, %234 ], [ %232, %235 ], [ null, %228 ]
   %237 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %238 = load ptr, ptr %237, align 8, !tbaa !43
   %.not79.i = icmp eq ptr %238, null
   br i1 %.not79.i, label %241, label %239
 
-239:                                              ; preds = %.thread129.i
-  %240 = call i32 @TS_ACCURACY_set_millis(ptr noundef %.152132.i, ptr noundef nonnull %238) #9
+239:                                              ; preds = %.thread128.i
+  %240 = call i32 @TS_ACCURACY_set_millis(ptr noundef %.152131.i, ptr noundef nonnull %238) #9
   %.not80.i = icmp eq i32 %240, 0
   br i1 %.not80.i, label %.thread.i, label %241
 
-241:                                              ; preds = %239, %.thread129.i
+241:                                              ; preds = %239, %.thread128.i
   %242 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %243 = load ptr, ptr %242, align 8, !tbaa !44
   %.not81.i = icmp eq ptr %243, null
   br i1 %.not81.i, label %246, label %244
 
 244:                                              ; preds = %241
-  %245 = call i32 @TS_ACCURACY_set_micros(ptr noundef %.152132.i, ptr noundef nonnull %243) #9
+  %245 = call i32 @TS_ACCURACY_set_micros(ptr noundef %.152131.i, ptr noundef nonnull %243) #9
   %.not82.i = icmp eq i32 %245, 0
   br i1 %.not82.i, label %.thread.i, label %246
 
 246:                                              ; preds = %244, %241
-  %.not83.i = icmp eq ptr %.152132.i, null
+  %.not83.i = icmp eq ptr %.152131.i, null
   br i1 %.not83.i, label %249, label %247
 
 247:                                              ; preds = %246
-  %248 = call i32 @TS_TST_INFO_set_accuracy(ptr noundef nonnull %153, ptr noundef nonnull %.152132.i) #9
+  %248 = call i32 @TS_TST_INFO_set_accuracy(ptr noundef nonnull %153, ptr noundef nonnull %.152131.i) #9
   %.not84.i = icmp eq i32 %248, 0
   br i1 %.not84.i, label %.thread.i, label %249
 
@@ -1302,7 +1304,7 @@ TS_RESP_set_genTime_with_precision.exit.thread.i: ; preds = %219, %.loopexit.i.i
 
 .thread.i:                                        ; preds = %272, %267, %264, %259, %253, %247, %244, %239, %235, %231, %220, %TS_RESP_set_genTime_with_precision.exit.thread.i, %173, %171, %164, %159, %157, %155, %.loopexit
   %.0107.i = phi ptr [ %265, %272 ], [ null, %157 ], [ null, %159 ], [ null, %171 ], [ null, %173 ], [ null, %220 ], [ null, %235 ], [ null, %239 ], [ null, %244 ], [ null, %247 ], [ null, %253 ], [ null, %259 ], [ %265, %267 ], [ null, %155 ], [ null, %264 ], [ null, %231 ], [ null, %TS_RESP_set_genTime_with_precision.exit.thread.i ], [ null, %164 ], [ null, %.loopexit ]
-  %.051105.i = phi ptr [ %.152132.i, %272 ], [ null, %157 ], [ null, %159 ], [ null, %171 ], [ null, %173 ], [ null, %220 ], [ %232, %235 ], [ %.152132.i, %239 ], [ %.152132.i, %244 ], [ %.152132.i, %247 ], [ %.152132.i, %253 ], [ %.152132.i, %259 ], [ %.152132.i, %267 ], [ null, %155 ], [ %.152132.i, %264 ], [ null, %231 ], [ null, %TS_RESP_set_genTime_with_precision.exit.thread.i ], [ null, %164 ], [ null, %.loopexit ]
+  %.051105.i = phi ptr [ %.152131.i, %272 ], [ null, %157 ], [ null, %159 ], [ null, %171 ], [ null, %173 ], [ null, %220 ], [ %232, %235 ], [ %.152131.i, %239 ], [ %.152131.i, %244 ], [ %.152131.i, %247 ], [ %.152131.i, %253 ], [ %.152131.i, %259 ], [ %.152131.i, %267 ], [ null, %155 ], [ %.152131.i, %264 ], [ null, %231 ], [ null, %TS_RESP_set_genTime_with_precision.exit.thread.i ], [ null, %164 ], [ null, %.loopexit ]
   %.053103.i = phi ptr [ %215, %272 ], [ null, %157 ], [ null, %159 ], [ null, %171 ], [ null, %173 ], [ %215, %220 ], [ %215, %235 ], [ %215, %239 ], [ %215, %244 ], [ %215, %247 ], [ %215, %253 ], [ %215, %259 ], [ %215, %267 ], [ null, %155 ], [ %215, %264 ], [ %215, %231 ], [ null, %TS_RESP_set_genTime_with_precision.exit.thread.i ], [ null, %164 ], [ null, %.loopexit ]
   %.054101.i = phi ptr [ %169, %272 ], [ null, %157 ], [ null, %159 ], [ %169, %171 ], [ %169, %173 ], [ %169, %220 ], [ %169, %235 ], [ %169, %239 ], [ %169, %244 ], [ %169, %247 ], [ %169, %253 ], [ %169, %259 ], [ %169, %267 ], [ null, %155 ], [ %169, %264 ], [ %169, %231 ], [ %169, %TS_RESP_set_genTime_with_precision.exit.thread.i ], [ null, %164 ], [ null, %.loopexit ]
   call void @TS_TST_INFO_free(ptr noundef %153) #9
@@ -1322,7 +1324,7 @@ TS_RESP_set_genTime_with_precision.exit.thread.i: ; preds = %219, %.loopexit.i.i
 
 ts_RESP_create_tst_info.exit:                     ; preds = %261, %272, %.thread.i, %279
   %.0106.i = phi ptr [ %265, %272 ], [ %.0107.i, %279 ], [ %.0107.i, %.thread.i ], [ null, %261 ]
-  %.051104.i = phi ptr [ %.152132.i, %272 ], [ %.051105.i, %279 ], [ %.051105.i, %.thread.i ], [ %.152132.i, %261 ]
+  %.051104.i = phi ptr [ %.152131.i, %272 ], [ %.051105.i, %279 ], [ %.051105.i, %.thread.i ], [ %.152131.i, %261 ]
   %.053102.i = phi ptr [ %215, %272 ], [ %.053103.i, %279 ], [ %.053103.i, %.thread.i ], [ %215, %261 ]
   %.054100.i = phi ptr [ %169, %272 ], [ %.054101.i, %279 ], [ %.054101.i, %.thread.i ], [ %169, %261 ]
   %.055.i = phi ptr [ %153, %272 ], [ null, %279 ], [ null, %.thread.i ], [ %153, %261 ]

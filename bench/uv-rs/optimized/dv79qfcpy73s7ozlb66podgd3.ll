@@ -24235,9 +24235,13 @@ define hidden void @_ZN9toml_edit5array5Array8value_op17h29b20e53606ef933E(ptr n
   %11 = icmp ne i64 %9, 0
   %brmerge.not = and i1 %2, %11
   %.sink.i.sroa.gep = getelementptr inbounds nuw i8, ptr %6, i64 120
+  %.sink.i7.sroa.phi.sroa.gep51 = getelementptr inbounds nuw i8, ptr %6, i64 144
   %.sink.i.sroa.gep11 = getelementptr inbounds nuw i8, ptr %6, i64 80
+  %.sink.i7.sroa.phi.sroa.gep52 = getelementptr inbounds nuw i8, ptr %6, i64 104
   %.sink.i.sroa.gep12 = getelementptr inbounds nuw i8, ptr %6, i64 56
+  %.sink.i7.sroa.phi.sroa.gep53 = getelementptr inbounds nuw i8, ptr %6, i64 80
   %.sink.i.sroa.gep13 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %.sink.i7.sroa.phi.sroa.gep54 = getelementptr inbounds nuw i8, ptr %6, i64 56
   br i1 %brmerge.not, label %13, label %12
 
 12:                                               ; preds = %3
@@ -24265,6 +24269,7 @@ define hidden void @_ZN9toml_edit5array5Array8value_op17h29b20e53606ef933E(ptr n
   br label %18
 
 18:                                               ; preds = %17, %16, %15, %13
+  %.sink.i.sroa.phi.sroa.phi = phi ptr [ %.sink.i7.sroa.phi.sroa.gep51, %17 ], [ %.sink.i7.sroa.phi.sroa.gep52, %16 ], [ %.sink.i7.sroa.phi.sroa.gep53, %13 ], [ %.sink.i7.sroa.phi.sroa.gep54, %15 ]
   %.sink.i.sroa.phi = phi ptr [ %.sink.i.sroa.gep, %17 ], [ %.sink.i.sroa.gep11, %16 ], [ %.sink.i.sroa.gep12, %13 ], [ %.sink.i.sroa.gep13, %15 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.018)
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !4163
@@ -24281,14 +24286,12 @@ define hidden void @_ZN9toml_edit5array5Array8value_op17h29b20e53606ef933E(ptr n
   %20 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sink.i.sroa.phi, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.018, i64 24, i1 false), !noalias !4160
-  %.sroa.5.0..sink.i.sroa.phi.sroa_idx = getelementptr inbounds nuw i8, ptr %.sink.i.sroa.phi, i64 24
-  store i64 -9223372036854775808, ptr %.sroa.5.0..sink.i.sroa.phi.sroa_idx, align 8, !noalias !4160
+  store i64 -9223372036854775808, ptr %.sink.i.sroa.phi.sroa.phi, align 8, !noalias !4160
   br label %44
 
 _ZN9toml_edit5value5Value8decorate17hf3fc8173b8dbabcbE.exit: ; preds = %.noexc
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sink.i.sroa.phi, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.018, i64 24, i1 false), !noalias !4160
-  %.sroa.5.0..sink.i.sroa.phi.sroa_idx19 = getelementptr inbounds nuw i8, ptr %.sink.i.sroa.phi, i64 24
-  store i64 -9223372036854775808, ptr %.sroa.5.0..sink.i.sroa.phi.sroa_idx19, align 8, !noalias !4160
+  store i64 -9223372036854775808, ptr %.sink.i.sroa.phi.sroa.phi, align 8, !noalias !4160
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.018)
   br label %21
 
@@ -24339,6 +24342,7 @@ _ZN9toml_edit5value5Value8decorate17hf3fc8173b8dbabcbE.exit: ; preds = %.noexc
   br label %34
 
 34:                                               ; preds = %33, %32, %31, %29
+  %.sink.i7.sroa.phi.sroa.phi = phi ptr [ %.sink.i7.sroa.phi.sroa.gep51, %33 ], [ %.sink.i7.sroa.phi.sroa.gep52, %32 ], [ %.sink.i7.sroa.phi.sroa.gep53, %29 ], [ %.sink.i7.sroa.phi.sroa.gep54, %31 ]
   %.sink.i7.sroa.phi = phi ptr [ %.sink.i.sroa.gep, %33 ], [ %.sink.i.sroa.gep11, %32 ], [ %.sink.i.sroa.gep12, %29 ], [ %.sink.i.sroa.gep13, %31 ]
   invoke void @"_ZN4core3ptr43drop_in_place$LT$toml_edit..repr..Decor$GT$17he4fe14ed5f3561faE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %.sink.i7.sroa.phi)
           to label %_ZN9toml_edit5value5Value8decorate17hf3fc8173b8dbabcbE.exit10 unwind label %35
@@ -24347,14 +24351,12 @@ _ZN9toml_edit5value5Value8decorate17hf3fc8173b8dbabcbE.exit: ; preds = %.noexc
   %36 = landingpad { ptr, i32 }
           cleanup
   store i64 -9223372036854775808, ptr %.sink.i7.sroa.phi, align 8, !noalias !4185
-  %.sroa.630.0..sink.i7.sroa.phi.sroa_idx = getelementptr inbounds nuw i8, ptr %.sink.i7.sroa.phi, i64 24
-  store i64 -9223372036854775808, ptr %.sroa.630.0..sink.i7.sroa.phi.sroa_idx, align 8, !noalias !4185
+  store i64 -9223372036854775808, ptr %.sink.i7.sroa.phi.sroa.phi, align 8, !noalias !4185
   br label %44
 
 _ZN9toml_edit5value5Value8decorate17hf3fc8173b8dbabcbE.exit10: ; preds = %34
   store i64 -9223372036854775808, ptr %.sink.i7.sroa.phi, align 8, !noalias !4185
-  %.sroa.630.0..sink.i7.sroa.phi.sroa_idx31 = getelementptr inbounds nuw i8, ptr %.sink.i7.sroa.phi, i64 24
-  store i64 -9223372036854775808, ptr %.sroa.630.0..sink.i7.sroa.phi.sroa_idx31, align 8, !noalias !4185
+  store i64 -9223372036854775808, ptr %.sink.i7.sroa.phi.sroa.phi, align 8, !noalias !4185
   br label %21
 
 37:                                               ; preds = %18

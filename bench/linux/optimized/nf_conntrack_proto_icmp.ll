@@ -45,6 +45,8 @@ define dso_local noundef zeroext i1 @icmp_pkt_to_tuple(ptr noundef %0, i32 nound
   %10 = add i32 %1, %9
   %11 = sub i32 %7, %10
   %12 = icmp sgt i32 %11, 7
+  %.sroa.gep5 = getelementptr inbounds nuw i8, ptr %5, i64 1
+  %.sroa.gep8 = getelementptr inbounds nuw i8, ptr %5, i64 4
   br i1 %12, label %18, label %13, !prof !6
 
 13:                                               ; preds = %4
@@ -61,28 +63,30 @@ define dso_local noundef zeroext i1 @icmp_pkt_to_tuple(ptr noundef %0, i32 nound
   %20 = load ptr, ptr %19, align 8
   %21 = sext i32 %1 to i64
   %22 = getelementptr i8, ptr %20, i64 %21
+  %.sroa.gep7 = getelementptr inbounds nuw i8, ptr %22, i64 4
+  %.sroa.gep = getelementptr inbounds nuw i8, ptr %22, i64 1
   %.not = icmp eq ptr %22, null
   br i1 %.not, label %.thread, label %.thread2
 
 .thread2:                                         ; preds = %15, %18
+  %.sroa.phi = phi ptr [ %.sroa.gep, %18 ], [ %.sroa.gep5, %15 ]
+  %.sroa.phi6 = phi ptr [ %.sroa.gep7, %18 ], [ %.sroa.gep8, %15 ]
   %23 = phi ptr [ %22, %18 ], [ %5, %15 ]
   %24 = load i8, ptr %23, align 4
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 36
   store i8 %24, ptr %25, align 4
-  %26 = getelementptr inbounds nuw i8, ptr %23, i64 4
-  %27 = load i16, ptr %26, align 4
-  %28 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i16 %27, ptr %28, align 4
-  %29 = getelementptr inbounds nuw i8, ptr %23, i64 1
-  %30 = load i8, ptr %29, align 1
-  %31 = getelementptr inbounds nuw i8, ptr %3, i64 37
-  store i8 %30, ptr %31, align 1
+  %26 = load i16, ptr %.sroa.phi6, align 4
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store i16 %26, ptr %27, align 4
+  %28 = load i8, ptr %.sroa.phi, align 1
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 37
+  store i8 %28, ptr %29, align 1
   br label %.thread
 
 .thread:                                          ; preds = %15, %13, %.thread2, %18
-  %32 = phi i1 [ false, %18 ], [ true, %.thread2 ], [ false, %13 ], [ false, %15 ]
+  %30 = phi i1 [ false, %18 ], [ true, %.thread2 ], [ false, %13 ], [ false, %15 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  ret i1 %32
+  ret i1 %30
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)

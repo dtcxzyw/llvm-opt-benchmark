@@ -3334,6 +3334,8 @@ _ZNSt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %3, i8 0, i64 10, i1 false)
   %32 = getelementptr inbounds i8, ptr %3, i64 %13
+  %.019.lcssa.i.sroa.gep7.i = getelementptr inbounds i8, ptr %32, i64 -1
+  %.019.lcssa.i.sroa.gep.i = getelementptr inbounds i8, ptr %32, i64 -2
   %33 = icmp ugt i32 %spec.select, 99
   br i1 %33, label %.lr.ph.i.i, label %._crit_edge.i.i
 
@@ -3349,34 +3351,38 @@ _ZNSt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
   store i16 %39, ptr %34, align 1
   %40 = udiv i32 %.021.i.i, 100
   %41 = icmp ugt i32 %.021.i.i, 9999
-  br i1 %41, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !93
+  br i1 %41, label %.lr.ph.i.i, label %._crit_edge.i.loopexit.i, !llvm.loop !93
 
-._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %31
-  %.019.lcssa.i.i = phi ptr [ %32, %31 ], [ %34, %.lr.ph.i.i ]
-  %.0.lcssa.i.i = phi i32 [ %spec.select, %31 ], [ %40, %.lr.ph.i.i ]
+._crit_edge.i.loopexit.i:                         ; preds = %.lr.ph.i.i
+  %.019.lcssa.i.sroa.gep8.le.i = getelementptr inbounds i8, ptr %.01920.i.i, i64 -3
+  %.019.lcssa.i.sroa.gep5.le.i = getelementptr inbounds i8, ptr %.01920.i.i, i64 -4
+  br label %._crit_edge.i.i
+
+._crit_edge.i.i:                                  ; preds = %._crit_edge.i.loopexit.i, %31
+  %.019.lcssa.i.sroa.phi.i = phi ptr [ %.019.lcssa.i.sroa.gep.i, %31 ], [ %.019.lcssa.i.sroa.gep5.le.i, %._crit_edge.i.loopexit.i ]
+  %.019.lcssa.i.sroa.phi6.i = phi ptr [ %.019.lcssa.i.sroa.gep7.i, %31 ], [ %.019.lcssa.i.sroa.gep8.le.i, %._crit_edge.i.loopexit.i ]
+  %.0.lcssa.i.i = phi i32 [ %spec.select, %31 ], [ %40, %._crit_edge.i.loopexit.i ]
   %42 = icmp samesign ult i32 %.0.lcssa.i.i, 10
-  br i1 %42, label %43, label %47
+  br i1 %42, label %43, label %46
 
 43:                                               ; preds = %._crit_edge.i.i
   %44 = trunc nuw nsw i32 %.0.lcssa.i.i to i8
   %45 = or disjoint i8 %44, 48
-  %46 = getelementptr inbounds i8, ptr %.019.lcssa.i.i, i64 -1
-  store i8 %45, ptr %46, align 1, !tbaa !17
-  br label %53
+  store i8 %45, ptr %.019.lcssa.i.sroa.phi6.i, align 1, !tbaa !17
+  br label %51
 
-47:                                               ; preds = %._crit_edge.i.i
-  %48 = getelementptr inbounds i8, ptr %.019.lcssa.i.i, i64 -2
-  %49 = shl nuw nsw i32 %.0.lcssa.i.i, 1
-  %50 = zext nneg i32 %49 to i64
-  %51 = getelementptr inbounds nuw i8, ptr @.str.6, i64 %50
-  %52 = load i16, ptr %51, align 1
-  store i16 %52, ptr %48, align 1
-  br label %53
+46:                                               ; preds = %._crit_edge.i.i
+  %47 = shl nuw nsw i32 %.0.lcssa.i.i, 1
+  %48 = zext nneg i32 %47 to i64
+  %49 = getelementptr inbounds nuw i8, ptr @.str.6, i64 %48
+  %50 = load i16, ptr %49, align 1
+  store i16 %50, ptr %.019.lcssa.i.sroa.phi.i, align 1
+  br label %51
 
-53:                                               ; preds = %47, %43
-  %54 = call ptr @_ZN3fmt3v116detail13copy_noinlineIcPcSt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEET1_T0_SD_SC_(ptr noundef nonnull %3, ptr noundef nonnull %32, ptr %0)
+51:                                               ; preds = %46, %43
+  %52 = call ptr @_ZN3fmt3v116detail13copy_noinlineIcPcSt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEET1_T0_SD_SC_(ptr noundef nonnull %3, ptr noundef nonnull %32, ptr %0)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  ret ptr %54
+  ret ptr %52
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)

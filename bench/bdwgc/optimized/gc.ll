@@ -43924,10 +43924,11 @@ define internal noalias noundef ptr @GC_mark_thread(ptr noundef %0) #1 {
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(10) %3, ptr noundef nonnull align 1 dereferenceable(10) @.str.310, i64 10, i1 false)
   %11 = icmp ugt i32 %10, 9
   %.0.sroa.gep8.i = getelementptr inbounds nuw i8, ptr %3, i64 10
+  %.0.sroa.phi9.sroa.gep12.i = getelementptr inbounds nuw i8, ptr %3, i64 11
   br i1 %11, label %12, label %17
 
 12:                                               ; preds = %7
-  %.0.sroa.gep.i = getelementptr inbounds nuw i8, ptr %3, i64 11
+  %.0.sroa.phi9.sroa.gep.i = getelementptr inbounds nuw i8, ptr %3, i64 12
   %13 = udiv i32 %10, 10
   %14 = urem i32 %13, 10
   %15 = trunc nuw nsw i32 %14 to i8
@@ -43936,138 +43937,138 @@ define internal noalias noundef ptr @GC_mark_thread(ptr noundef %0) #1 {
   br label %17
 
 17:                                               ; preds = %12, %7
-  %.0.sroa.phi.i = phi ptr [ %.0.sroa.gep.i, %12 ], [ %.0.sroa.gep8.i, %7 ]
+  %.0.sroa.phi.i = phi ptr [ %.0.sroa.phi9.sroa.gep12.i, %12 ], [ %.0.sroa.gep8.i, %7 ]
+  %.0.sroa.phi9.sroa.phi.i = phi ptr [ %.0.sroa.phi9.sroa.gep.i, %12 ], [ %.0.sroa.phi9.sroa.gep12.i, %7 ]
   %18 = urem i32 %10, 10
   %19 = trunc nuw nsw i32 %18 to i8
   %20 = or disjoint i8 %19, 48
   store i8 %20, ptr %.0.sroa.phi.i, align 1, !tbaa !41
-  %21 = getelementptr inbounds nuw i8, ptr %.0.sroa.phi.i, i64 1
-  store i8 0, ptr %21, align 1, !tbaa !41
-  %22 = tail call i64 @pthread_self() #54
-  %23 = call i32 @pthread_setname_np(i64 noundef %22, ptr noundef nonnull %3) #47
-  %.not.i = icmp eq i32 %23, 0
-  br i1 %.not.i, label %set_marker_thread_name.exit, label %24, !prof !13
+  store i8 0, ptr %.0.sroa.phi9.sroa.phi.i, align 1, !tbaa !41
+  %21 = tail call i64 @pthread_self() #54
+  %22 = call i32 @pthread_setname_np(i64 noundef %21, ptr noundef nonnull %3) #47
+  %.not.i = icmp eq i32 %22, 0
+  br i1 %.not.i, label %set_marker_thread_name.exit, label %23, !prof !13
 
-24:                                               ; preds = %17
-  %25 = load ptr, ptr @GC_current_warn_proc, align 8, !tbaa !12
-  call void %25(ptr noundef nonnull @.str.311, i64 noundef 0) #47
+23:                                               ; preds = %17
+  %24 = load ptr, ptr @GC_current_warn_proc, align 8, !tbaa !12
+  call void %24(ptr noundef nonnull @.str.311, i64 noundef 0) #47
   br label %set_marker_thread_name.exit
 
-set_marker_thread_name.exit:                      ; preds = %17, %24
+set_marker_thread_name.exit:                      ; preds = %17, %23
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %26 = call i32 @pthread_mutex_trylock(ptr noundef nonnull @mark_mutex) #47
-  %27 = icmp eq i32 %26, 0
-  br i1 %27, label %GC_acquire_mark_lock.exit, label %.preheader.i.i, !prof !13
+  %25 = call i32 @pthread_mutex_trylock(ptr noundef nonnull @mark_mutex) #47
+  %26 = icmp eq i32 %25, 0
+  br i1 %26, label %GC_acquire_mark_lock.exit, label %.preheader.i.i, !prof !13
 
-.preheader.i.i:                                   ; preds = %set_marker_thread_name.exit, %31
-  %.079.i.i = phi i32 [ %32, %31 ], [ 1, %set_marker_thread_name.exit ]
+.preheader.i.i:                                   ; preds = %set_marker_thread_name.exit, %30
+  %.079.i.i = phi i32 [ %31, %30 ], [ 1, %set_marker_thread_name.exit ]
   fence syncscope("singlethread") seq_cst
-  %28 = call i32 @pthread_mutex_trylock(ptr noundef nonnull @mark_mutex) #47
-  switch i32 %28, label %29 [
+  %27 = call i32 @pthread_mutex_trylock(ptr noundef nonnull @mark_mutex) #47
+  switch i32 %27, label %28 [
     i32 0, label %GC_acquire_mark_lock.exit
-    i32 16, label %31
+    i32 16, label %30
   ]
 
-29:                                               ; preds = %.preheader.i.i
-  %30 = load ptr, ptr @GC_on_abort, align 8, !tbaa !12
-  call void %30(ptr noundef nonnull @.str.342) #47
+28:                                               ; preds = %.preheader.i.i
+  %29 = load ptr, ptr @GC_on_abort, align 8, !tbaa !12
+  call void %29(ptr noundef nonnull @.str.342) #47
   call void @abort() #51
   unreachable
 
-31:                                               ; preds = %.preheader.i.i
-  %32 = shl nuw nsw i32 %.079.i.i, 1
-  %33 = icmp samesign ult i32 %.079.i.i, 65
-  br i1 %33, label %.preheader.i.i, label %34, !llvm.loop !14
+30:                                               ; preds = %.preheader.i.i
+  %31 = shl nuw nsw i32 %.079.i.i, 1
+  %32 = icmp samesign ult i32 %.079.i.i, 65
+  br i1 %32, label %.preheader.i.i, label %33, !llvm.loop !14
 
-34:                                               ; preds = %31
-  %35 = call i32 @pthread_mutex_lock(ptr noundef nonnull @mark_mutex) #47
+33:                                               ; preds = %30
+  %34 = call i32 @pthread_mutex_lock(ptr noundef nonnull @mark_mutex) #47
   br label %GC_acquire_mark_lock.exit
 
-GC_acquire_mark_lock.exit:                        ; preds = %.preheader.i.i, %set_marker_thread_name.exit, %34
-  %36 = load i64, ptr @GC_fl_builder_count, align 8, !tbaa !10
-  %37 = add nsw i64 %36, -1
-  store i64 %37, ptr @GC_fl_builder_count, align 8, !tbaa !10
-  %38 = icmp eq i64 %37, 0
-  br i1 %38, label %39, label %GC_notify_all_builder.exit
+GC_acquire_mark_lock.exit:                        ; preds = %.preheader.i.i, %set_marker_thread_name.exit, %33
+  %35 = load i64, ptr @GC_fl_builder_count, align 8, !tbaa !10
+  %36 = add nsw i64 %35, -1
+  store i64 %36, ptr @GC_fl_builder_count, align 8, !tbaa !10
+  %37 = icmp eq i64 %36, 0
+  br i1 %37, label %38, label %GC_notify_all_builder.exit
 
-39:                                               ; preds = %GC_acquire_mark_lock.exit
-  %40 = call i32 @pthread_cond_broadcast(ptr noundef nonnull @builder_cv) #47
-  %.not.i6 = icmp eq i32 %40, 0
-  br i1 %.not.i6, label %GC_notify_all_builder.exit, label %41
+38:                                               ; preds = %GC_acquire_mark_lock.exit
+  %39 = call i32 @pthread_cond_broadcast(ptr noundef nonnull @builder_cv) #47
+  %.not.i6 = icmp eq i32 %39, 0
+  br i1 %.not.i6, label %GC_notify_all_builder.exit, label %40
 
-41:                                               ; preds = %39
-  %42 = load ptr, ptr @GC_on_abort, align 8, !tbaa !12
-  call void %42(ptr noundef nonnull @.str.137) #47
+40:                                               ; preds = %38
+  %41 = load ptr, ptr @GC_on_abort, align 8, !tbaa !12
+  call void %41(ptr noundef nonnull @.str.137) #47
   call void @abort() #51
   unreachable
 
-GC_notify_all_builder.exit:                       ; preds = %39, %GC_acquire_mark_lock.exit
+GC_notify_all_builder.exit:                       ; preds = %38, %GC_acquire_mark_lock.exit
   %.pre10 = load i64, ptr @GC_mark_no, align 8, !tbaa !10
-  br label %43
+  br label %42
 
-43:                                               ; preds = %GC_help_marker.exit, %GC_notify_all_builder.exit
-  %44 = phi i64 [ %.pre10, %GC_notify_all_builder.exit ], [ %65, %GC_help_marker.exit ]
-  %.0 = phi i64 [ 0, %GC_notify_all_builder.exit ], [ %66, %GC_help_marker.exit ]
-  %45 = sub i64 %.0, %44
-  %46 = icmp ugt i64 %45, 2
-  %spec.select = select i1 %46, i64 %44, i64 %.0
+42:                                               ; preds = %GC_help_marker.exit, %GC_notify_all_builder.exit
+  %43 = phi i64 [ %.pre10, %GC_notify_all_builder.exit ], [ %64, %GC_help_marker.exit ]
+  %.0 = phi i64 [ 0, %GC_notify_all_builder.exit ], [ %65, %GC_help_marker.exit ]
+  %44 = sub i64 %.0, %43
+  %45 = icmp ugt i64 %44, 2
+  %spec.select = select i1 %45, i64 %43, i64 %.0
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.2.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   br label %GC_wait_marker.exit.i
 
-GC_wait_marker.exit.i:                            ; preds = %.critedge.i, %43
-  %47 = load i64, ptr @GC_mark_no, align 8, !tbaa !10
-  %48 = icmp ult i64 %47, %spec.select
-  br i1 %48, label %.critedge.i, label %49
+GC_wait_marker.exit.i:                            ; preds = %.critedge.i, %42
+  %46 = load i64, ptr @GC_mark_no, align 8, !tbaa !10
+  %47 = icmp ult i64 %46, %spec.select
+  br i1 %47, label %.critedge.i, label %48
 
-49:                                               ; preds = %GC_wait_marker.exit.i
+48:                                               ; preds = %GC_wait_marker.exit.i
   %.b.i = load i1, ptr @GC_help_wanted, align 1
-  %50 = icmp ne i64 %47, %spec.select
-  %.not6.i = or i1 %50, %.b.i
-  br i1 %.not6.i, label %54, label %.critedge.i
+  %49 = icmp ne i64 %46, %spec.select
+  %.not6.i = or i1 %49, %.b.i
+  br i1 %.not6.i, label %53, label %.critedge.i
 
-.critedge.i:                                      ; preds = %49, %GC_wait_marker.exit.i
-  %51 = call i32 @pthread_cond_wait(ptr noundef nonnull @mark_cv, ptr noundef nonnull @mark_mutex) #47
-  %.not.i.i = icmp eq i32 %51, 0
-  br i1 %.not.i.i, label %GC_wait_marker.exit.i, label %52, !llvm.loop !549
+.critedge.i:                                      ; preds = %48, %GC_wait_marker.exit.i
+  %50 = call i32 @pthread_cond_wait(ptr noundef nonnull @mark_cv, ptr noundef nonnull @mark_mutex) #47
+  %.not.i.i = icmp eq i32 %50, 0
+  br i1 %.not.i.i, label %GC_wait_marker.exit.i, label %51, !llvm.loop !549
 
-52:                                               ; preds = %.critedge.i
-  %53 = load ptr, ptr @GC_on_abort, align 8, !tbaa !12
-  call void %53(ptr noundef nonnull @.str.141) #47
+51:                                               ; preds = %.critedge.i
+  %52 = load ptr, ptr @GC_on_abort, align 8, !tbaa !12
+  call void %52(ptr noundef nonnull @.str.141) #47
   call void @abort() #51
   unreachable
 
-54:                                               ; preds = %49
-  %55 = load i32, ptr @GC_helper_count, align 4, !tbaa !3
-  %56 = zext i32 %55 to i64
-  store volatile i64 %56, ptr %.sroa.2.i, align 8, !tbaa !124
-  %.not.i7 = icmp eq i64 %47, %spec.select
-  br i1 %.not.i7, label %57, label %GC_help_marker.exit
+53:                                               ; preds = %48
+  %54 = load i32, ptr @GC_helper_count, align 4, !tbaa !3
+  %55 = zext i32 %54 to i64
+  store volatile i64 %55, ptr %.sroa.2.i, align 8, !tbaa !124
+  %.not.i7 = icmp eq i64 %46, %spec.select
+  br i1 %.not.i7, label %56, label %GC_help_marker.exit
 
-57:                                               ; preds = %54
+56:                                               ; preds = %53
   %.sroa.2.i.0..sroa.2.i.0..sroa.2.i.0..sroa.2.0..sroa.2.0..sroa.2.0..sroa.2.8..i = load volatile i64, ptr %.sroa.2.i, align 8, !tbaa !124
-  %58 = load i32, ptr @GC_parallel, align 4, !tbaa !3
-  %59 = zext i32 %58 to i64
-  %60 = icmp ugt i64 %.sroa.2.i.0..sroa.2.i.0..sroa.2.i.0..sroa.2.0..sroa.2.0..sroa.2.0..sroa.2.8..i, %59
-  br i1 %60, label %GC_help_marker.exit, label %61
+  %57 = load i32, ptr @GC_parallel, align 4, !tbaa !3
+  %58 = zext i32 %57 to i64
+  %59 = icmp ugt i64 %.sroa.2.i.0..sroa.2.i.0..sroa.2.i.0..sroa.2.0..sroa.2.0..sroa.2.0..sroa.2.8..i, %58
+  br i1 %59, label %GC_help_marker.exit, label %60
 
-61:                                               ; preds = %57
+60:                                               ; preds = %56
   %.sroa.2.i.0..sroa.2.i.0..sroa.2.i.0..sroa.2.0..sroa.2.0..sroa.2.0..sroa.2.8.1.i = load volatile i64, ptr %.sroa.2.i, align 8, !tbaa !124
-  %62 = trunc i64 %.sroa.2.i.0..sroa.2.i.0..sroa.2.i.0..sroa.2.0..sroa.2.0..sroa.2.0..sroa.2.8.1.i to i32
-  %63 = add i32 %62, 1
-  store i32 %63, ptr @GC_helper_count, align 4, !tbaa !3
+  %61 = trunc i64 %.sroa.2.i.0..sroa.2.i.0..sroa.2.i.0..sroa.2.0..sroa.2.0..sroa.2.0..sroa.2.8.1.i to i32
+  %62 = add i32 %61, 1
+  store i32 %62, ptr @GC_helper_count, align 4, !tbaa !3
   %.sroa.2.i.0..sroa.2.i.0..sroa.2.i.0..sroa.2.0..sroa.2.0..sroa.2.0..sroa.2.8.2.i = load volatile i64, ptr %.sroa.2.i, align 8, !tbaa !124
-  %64 = trunc i64 %.sroa.2.i.0..sroa.2.i.0..sroa.2.i.0..sroa.2.0..sroa.2.0..sroa.2.0..sroa.2.8.2.i to i32
-  call fastcc void @GC_mark_local(ptr noundef nonnull %2, i32 noundef %64)
+  %63 = trunc i64 %.sroa.2.i.0..sroa.2.i.0..sroa.2.i.0..sroa.2.0..sroa.2.0..sroa.2.0..sroa.2.8.2.i to i32
+  call fastcc void @GC_mark_local(ptr noundef nonnull %2, i32 noundef %63)
   %.pre = load i64, ptr @GC_mark_no, align 8, !tbaa !10
   br label %GC_help_marker.exit
 
-GC_help_marker.exit:                              ; preds = %54, %57, %61
-  %65 = phi i64 [ %47, %54 ], [ %spec.select, %57 ], [ %.pre, %61 ]
+GC_help_marker.exit:                              ; preds = %53, %56, %60
+  %64 = phi i64 [ %46, %53 ], [ %spec.select, %56 ], [ %.pre, %60 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.2.i)
-  %66 = add i64 %spec.select, 1
-  br label %43
+  %65 = add i64 %spec.select, 1
+  br label %42
 }
 
 ; Function Attrs: nounwind

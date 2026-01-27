@@ -3176,16 +3176,16 @@ check_longlong_async_signal_safe.exit:            ; preds = %18, %.sink.split.i
   %.0.i = phi ptr [ %19, %18 ], [ %.0.ph.i, %.sink.split.i ]
   switch i8 %24, label %.loopexit [
     i8 115, label %144
-    i8 112, label %check_longlong_async_signal_safe.exit..thread79_crit_edge
+    i8 112, label %check_longlong_async_signal_safe.exit..thread80_crit_edge
     i8 100, label %25
     i8 105, label %25
     i8 117, label %25
     i8 120, label %25
   ]
 
-check_longlong_async_signal_safe.exit..thread79_crit_edge: ; preds = %check_longlong_async_signal_safe.exit
+check_longlong_async_signal_safe.exit..thread80_crit_edge: ; preds = %check_longlong_async_signal_safe.exit
   %.pre = load i32, ptr %3, align 8
-  br label %.thread79
+  br label %.thread80
 
 25:                                               ; preds = %check_longlong_async_signal_safe.exit, %check_longlong_async_signal_safe.exit, %check_longlong_async_signal_safe.exit, %check_longlong_async_signal_safe.exit
   %26 = icmp eq i8 %24, 117
@@ -3193,7 +3193,7 @@ check_longlong_async_signal_safe.exit..thread79_crit_edge: ; preds = %check_long
   br i1 %.not, label %27, label %54
 
 27:                                               ; preds = %25
-  br i1 %26, label %28, label %.thread79
+  br i1 %26, label %28, label %.thread80
 
 28:                                               ; preds = %27
   %29 = icmp ult i32 %.pre100, 41
@@ -3218,12 +3218,12 @@ check_longlong_async_signal_safe.exit..thread79_crit_edge: ; preds = %check_long
   %40 = load i64, ptr %39, align 8, !tbaa !37
   br label %82
 
-.thread79:                                        ; preds = %check_longlong_async_signal_safe.exit..thread79_crit_edge, %27
-  %41 = phi i32 [ %.pre, %check_longlong_async_signal_safe.exit..thread79_crit_edge ], [ %.pre100, %27 ]
+.thread80:                                        ; preds = %check_longlong_async_signal_safe.exit..thread80_crit_edge, %27
+  %41 = phi i32 [ %.pre, %check_longlong_async_signal_safe.exit..thread80_crit_edge ], [ %.pre100, %27 ]
   %42 = icmp ult i32 %41, 41
   br i1 %42, label %43, label %48
 
-43:                                               ; preds = %.thread79
+43:                                               ; preds = %.thread80
   %44 = load ptr, ptr %9, align 8
   %45 = zext nneg i32 %41 to i64
   %46 = getelementptr i8, ptr %44, i64 %45
@@ -3231,7 +3231,7 @@ check_longlong_async_signal_safe.exit..thread79_crit_edge: ; preds = %check_long
   store i32 %47, ptr %3, align 8
   br label %51
 
-48:                                               ; preds = %.thread79
+48:                                               ; preds = %.thread80
   %49 = load ptr, ptr %8, align 8
   %50 = getelementptr i8, ptr %49, i64 8
   store ptr %50, ptr %8, align 8
@@ -3293,7 +3293,7 @@ check_longlong_async_signal_safe.exit..thread79_crit_edge: ; preds = %check_long
   br label %82
 
 82:                                               ; preds = %65, %78, %38, %51
-  %.not6477 = phi i1 [ false, %38 ], [ false, %51 ], [ true, %65 ], [ true, %78 ]
+  %.not6478 = phi i1 [ false, %38 ], [ false, %51 ], [ true, %65 ], [ true, %78 ]
   %.052 = phi i64 [ 0, %38 ], [ %53, %51 ], [ 0, %65 ], [ %81, %78 ]
   %.051 = phi i64 [ %40, %38 ], [ 0, %51 ], [ %68, %65 ], [ 0, %78 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -3318,7 +3318,7 @@ check_longlong_async_signal_safe.exit..thread79_crit_edge: ; preds = %check_long
   store i8 %92, ptr %.07.i, align 1, !tbaa !9
   %93 = udiv i64 %.0.i68, 10
   %.not.i69 = icmp ult i64 %.0.i68, 10
-  br i1 %.not.i69, label %u2string_async_signal_safe.exit, label %89, !llvm.loop !62
+  br i1 %.not.i69, label %u2string_async_signal_safe.exit.loopexit, label %89, !llvm.loop !62
 
 94:                                               ; preds = %82
   %95 = icmp slt i64 %.052, 0
@@ -3446,18 +3446,23 @@ check_longlong_async_signal_safe.exit..thread79_crit_edge: ; preds = %check_long
 i2string_async_signal_safe.exit:                  ; preds = %125, %108
   %.252.i = phi ptr [ %.151.i, %108 ], [ %127, %125 ]
   %128 = getelementptr inbounds nuw i8, ptr %.252.i, i64 1
+  %.sroa.gep72 = getelementptr inbounds nuw i8, ptr %.252.i, i64 9
   br label %u2string_async_signal_safe.exit
 
-u2string_async_signal_safe.exit:                  ; preds = %89, %i2string_async_signal_safe.exit
-  %129 = phi ptr [ %128, %i2string_async_signal_safe.exit ], [ %.07.i, %89 ]
+u2string_async_signal_safe.exit.loopexit:         ; preds = %89
+  %.sroa.gep.le = getelementptr inbounds nuw i8, ptr %.pn.i, i64 7
+  br label %u2string_async_signal_safe.exit
+
+u2string_async_signal_safe.exit:                  ; preds = %u2string_async_signal_safe.exit.loopexit, %i2string_async_signal_safe.exit
+  %.sroa.phi = phi ptr [ %.sroa.gep72, %i2string_async_signal_safe.exit ], [ %.sroa.gep.le, %u2string_async_signal_safe.exit.loopexit ]
+  %129 = phi ptr [ %128, %i2string_async_signal_safe.exit ], [ %.07.i, %u2string_async_signal_safe.exit.loopexit ]
   %130 = load i8, ptr %.0.i, align 1, !tbaa !9
   %131 = icmp eq i8 %130, 120
-  %or.cond.not67 = and i1 %.not6477, %131
+  %or.cond.not67 = and i1 %.not6478, %131
   %132 = icmp slt i64 %.052, 0
   %or.cond3 = select i1 %or.cond.not67, i1 %132, i1 false
-  %spec.select.idx.sroa.sel.idx.sroa.sel.idx = select i1 %or.cond3, i64 8, i64 0
-  %spec.select.idx.sroa.sel.idx.sroa.sel = getelementptr inbounds nuw i8, ptr %129, i64 %spec.select.idx.sroa.sel.idx.sroa.sel.idx
-  %133 = load i8, ptr %spec.select.idx.sroa.sel.idx.sroa.sel, align 1, !tbaa !9
+  %spec.select = select i1 %or.cond3, ptr %.sroa.phi, ptr %129
+  %133 = load i8, ptr %spec.select, align 1, !tbaa !9
   %134 = icmp ne i8 %133, 0
   %135 = icmp ult ptr %.049, %7
   %136 = select i1 %134, i1 %135, i1 false
@@ -3465,11 +3470,11 @@ u2string_async_signal_safe.exit:                  ; preds = %89, %i2string_async
 
 .lr.ph:                                           ; preds = %u2string_async_signal_safe.exit, %.lr.ph
   %137 = phi i8 [ %140, %.lr.ph ], [ %133, %u2string_async_signal_safe.exit ]
-  %.190 = phi ptr [ %138, %.lr.ph ], [ %spec.select.idx.sroa.sel.idx.sroa.sel, %u2string_async_signal_safe.exit ]
-  %.389 = phi ptr [ %139, %.lr.ph ], [ %.049, %u2string_async_signal_safe.exit ]
-  %138 = getelementptr inbounds nuw i8, ptr %.190, i64 1
-  %139 = getelementptr inbounds nuw i8, ptr %.389, i64 1
-  store i8 %137, ptr %.389, align 1, !tbaa !9
+  %.191 = phi ptr [ %138, %.lr.ph ], [ %spec.select, %u2string_async_signal_safe.exit ]
+  %.390 = phi ptr [ %139, %.lr.ph ], [ %.049, %u2string_async_signal_safe.exit ]
+  %138 = getelementptr inbounds nuw i8, ptr %.191, i64 1
+  %139 = getelementptr inbounds nuw i8, ptr %.390, i64 1
+  store i8 %137, ptr %.390, align 1, !tbaa !9
   %140 = load i8, ptr %138, align 1, !tbaa !9
   %141 = icmp ne i8 %140, 0
   %142 = icmp ult ptr %139, %7
@@ -3509,24 +3514,24 @@ u2string_async_signal_safe.exit:                  ; preds = %89, %i2string_async
   %159 = icmp ne i8 %158, 0
   %160 = icmp ult ptr %.049, %7
   %161 = select i1 %159, i1 %160, i1 false
-  br i1 %161, label %.lr.ph94, label %.loopexit
+  br i1 %161, label %.lr.ph95, label %.loopexit
 
-.lr.ph94:                                         ; preds = %155, %.lr.ph94
-  %162 = phi i8 [ %165, %.lr.ph94 ], [ %158, %155 ]
-  %.092 = phi ptr [ %163, %.lr.ph94 ], [ %spec.store.select, %155 ]
-  %.491 = phi ptr [ %164, %.lr.ph94 ], [ %.049, %155 ]
-  %163 = getelementptr inbounds nuw i8, ptr %.092, i64 1
-  %164 = getelementptr inbounds nuw i8, ptr %.491, i64 1
-  store i8 %162, ptr %.491, align 1, !tbaa !9
+.lr.ph95:                                         ; preds = %155, %.lr.ph95
+  %162 = phi i8 [ %165, %.lr.ph95 ], [ %158, %155 ]
+  %.093 = phi ptr [ %163, %.lr.ph95 ], [ %spec.store.select, %155 ]
+  %.492 = phi ptr [ %164, %.lr.ph95 ], [ %.049, %155 ]
+  %163 = getelementptr inbounds nuw i8, ptr %.093, i64 1
+  %164 = getelementptr inbounds nuw i8, ptr %.492, i64 1
+  store i8 %162, ptr %.492, align 1, !tbaa !9
   %165 = load i8, ptr %163, align 1, !tbaa !9
   %166 = icmp ne i8 %165, 0
   %167 = icmp ult ptr %164, %7
   %168 = select i1 %166, i1 %167, i1 false
-  br i1 %168, label %.lr.ph94, label %.loopexit, !llvm.loop !66
+  br i1 %168, label %.lr.ph95, label %.loopexit, !llvm.loop !66
 
-.loopexit:                                        ; preds = %.lr.ph94, %155, %check_longlong_async_signal_safe.exit, %16, %._crit_edge
-  %.155.ph = phi ptr [ %.0.i, %check_longlong_async_signal_safe.exit ], [ %.0.i, %._crit_edge ], [ %.054, %16 ], [ %.0.i, %155 ], [ %.0.i, %.lr.ph94 ]
-  %.2.ph = phi ptr [ %.049, %check_longlong_async_signal_safe.exit ], [ %.3.lcssa, %._crit_edge ], [ %17, %16 ], [ %.049, %155 ], [ %164, %.lr.ph94 ]
+.loopexit:                                        ; preds = %.lr.ph95, %155, %check_longlong_async_signal_safe.exit, %16, %._crit_edge
+  %.155.ph = phi ptr [ %.0.i, %check_longlong_async_signal_safe.exit ], [ %.0.i, %._crit_edge ], [ %.054, %16 ], [ %.0.i, %155 ], [ %.0.i, %.lr.ph95 ]
+  %.2.ph = phi ptr [ %.049, %check_longlong_async_signal_safe.exit ], [ %.3.lcssa, %._crit_edge ], [ %17, %16 ], [ %.049, %155 ], [ %164, %.lr.ph95 ]
   %169 = getelementptr inbounds nuw i8, ptr %.155.ph, i64 1
   br label %12, !llvm.loop !67
 

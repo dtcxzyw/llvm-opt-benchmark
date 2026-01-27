@@ -2098,6 +2098,7 @@ define internal fastcc ptr @new_raw_public_key(ptr noundef %0, ptr noundef %1, i
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !tbaa !17
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  %.015.sroa.gep = getelementptr inbounds nuw i8, ptr %5, i64 40
   %8 = load i8, ptr %0, align 1, !tbaa !49
   %9 = icmp eq i8 %8, 88
   %10 = load ptr, ptr @libctx, align 8, !tbaa !15
@@ -2106,56 +2107,56 @@ define internal fastcc ptr @new_raw_public_key(ptr noundef %0, ptr noundef %1, i
 11:                                               ; preds = %3
   %12 = tail call ptr @EVP_PKEY_CTX_new_from_name(ptr noundef %10, ptr noundef nonnull %0, ptr noundef null) #5
   %13 = icmp eq ptr %12, null
-  br i1 %13, label %27, label %17
+  br i1 %13, label %25, label %16
 
 .thread:                                          ; preds = %3
   %14 = tail call ptr @EVP_PKEY_CTX_new_from_name(ptr noundef %10, ptr noundef nonnull @.str.5, ptr noundef null) #5
   %15 = icmp eq ptr %14, null
-  br i1 %15, label %27, label %.thread21
+  br i1 %15, label %25, label %.thread22
 
-.thread21:                                        ; preds = %.thread
-  %16 = getelementptr inbounds nuw i8, ptr %5, i64 40
+.thread22:                                        ; preds = %.thread
+  %.015.sroa.gep18 = getelementptr inbounds nuw i8, ptr %5, i64 80
   call void @OSSL_PARAM_construct_utf8_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %5, ptr noundef nonnull @.str.43, ptr noundef nonnull %0, i64 noundef 0) #5
-  br label %17
+  br label %16
 
-17:                                               ; preds = %11, %.thread21
-  %.0161924 = phi ptr [ %14, %.thread21 ], [ %12, %11 ]
-  %.015 = phi ptr [ %16, %.thread21 ], [ %5, %11 ]
-  %18 = getelementptr inbounds nuw i8, ptr %.015, i64 40
+16:                                               ; preds = %11, %.thread22
+  %.0162025 = phi ptr [ %14, %.thread22 ], [ %12, %11 ]
+  %.015.sroa.phi = phi ptr [ %.015.sroa.gep18, %.thread22 ], [ %.015.sroa.gep, %11 ]
+  %.015 = phi ptr [ %.015.sroa.gep, %.thread22 ], [ %5, %11 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @OSSL_PARAM_construct_octet_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %6, ptr noundef nonnull @.str.44, ptr noundef %1, i64 noundef %2) #5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.015, ptr noundef nonnull align 8 dereferenceable(40) %6, i64 40, i1 false), !tbaa.struct !4
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @OSSL_PARAM_construct_end(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %7) #5
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %18, ptr noundef nonnull align 8 dereferenceable(40) %7, i64 40, i1 false), !tbaa.struct !4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.015.sroa.phi, ptr noundef nonnull align 8 dereferenceable(40) %7, i64 40, i1 false), !tbaa.struct !4
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %19 = call i32 @EVP_PKEY_fromdata_init(ptr noundef nonnull %.0161924) #5
-  %20 = icmp slt i32 %19, 1
-  br i1 %20, label %.critedge, label %21
+  %17 = call i32 @EVP_PKEY_fromdata_init(ptr noundef nonnull %.0162025) #5
+  %18 = icmp slt i32 %17, 1
+  br i1 %18, label %.critedge, label %19
 
-21:                                               ; preds = %17
-  %22 = call i32 @EVP_PKEY_fromdata(ptr noundef nonnull %.0161924, ptr noundef nonnull %4, i32 noundef 134, ptr noundef nonnull %5) #5
-  %23 = icmp slt i32 %22, 1
-  br i1 %23, label %..critedge_crit_edge, label %25
+19:                                               ; preds = %16
+  %20 = call i32 @EVP_PKEY_fromdata(ptr noundef nonnull %.0162025, ptr noundef nonnull %4, i32 noundef 134, ptr noundef nonnull %5) #5
+  %21 = icmp slt i32 %20, 1
+  br i1 %21, label %..critedge_crit_edge, label %23
 
-..critedge_crit_edge:                             ; preds = %21
+..critedge_crit_edge:                             ; preds = %19
   %.pre = load ptr, ptr %4, align 8, !tbaa !17
   br label %.critedge
 
-.critedge:                                        ; preds = %..critedge_crit_edge, %17
-  %24 = phi ptr [ %.pre, %..critedge_crit_edge ], [ null, %17 ]
-  call void @EVP_PKEY_free(ptr noundef %24) #5
+.critedge:                                        ; preds = %..critedge_crit_edge, %16
+  %22 = phi ptr [ %.pre, %..critedge_crit_edge ], [ null, %16 ]
+  call void @EVP_PKEY_free(ptr noundef %22) #5
   store ptr null, ptr %4, align 8, !tbaa !17
+  br label %23
+
+23:                                               ; preds = %.critedge, %19
+  call void @EVP_PKEY_CTX_free(ptr noundef nonnull %.0162025) #5
+  %24 = load ptr, ptr %4, align 8, !tbaa !17
   br label %25
 
-25:                                               ; preds = %.critedge, %21
-  call void @EVP_PKEY_CTX_free(ptr noundef nonnull %.0161924) #5
-  %26 = load ptr, ptr %4, align 8, !tbaa !17
-  br label %27
-
-27:                                               ; preds = %.thread, %11, %25
-  %.0 = phi ptr [ %26, %25 ], [ null, %11 ], [ null, %.thread ]
+25:                                               ; preds = %.thread, %11, %23
+  %.0 = phi ptr [ %24, %23 ], [ null, %11 ], [ null, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0

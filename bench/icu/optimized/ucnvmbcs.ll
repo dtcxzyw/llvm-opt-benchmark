@@ -6182,8 +6182,8 @@ define internal void @_ZL17ucnv_MBCSWriteSubP25UConverterFromUnicodeArgsiP10UErr
 9:                                                ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %.pre.pre, i64 288
   %11 = load ptr, ptr %10, align 8, !tbaa !67
-  %.not33 = icmp eq ptr %11, null
-  br i1 %.not33, label %16, label %12
+  %.not36 = icmp eq ptr %11, null
+  br i1 %.not36, label %16, label %12
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 95
@@ -6213,75 +6213,76 @@ define internal void @_ZL17ucnv_MBCSWriteSubP25UConverterFromUnicodeArgsiP10UErr
   %27 = getelementptr inbounds nuw i8, ptr %.pre.pre, i64 252
   %28 = load i8, ptr %27, align 4, !tbaa !39
   %29 = icmp eq i8 %28, 12
-  br i1 %29, label %30, label %58
+  br i1 %29, label %30, label %53
 
 30:                                               ; preds = %25
-  switch i32 %.0, label %52 [
+  %.2.sroa.gep34 = getelementptr inbounds nuw i8, ptr %4, i64 1
+  %.2.sroa.phi.sroa.gep35 = getelementptr inbounds nuw i8, ptr %4, i64 2
+  switch i32 %.0, label %47 [
     i32 1, label %31
-    i32 2, label %40
+    i32 2, label %38
   ]
 
 31:                                               ; preds = %30
   %32 = getelementptr inbounds nuw i8, ptr %6, i64 80
   %33 = load i32, ptr %32, align 8, !tbaa !112
   %34 = icmp eq i32 %33, 2
-  br i1 %34, label %35, label %37
+  br i1 %34, label %35, label %36
 
 35:                                               ; preds = %31
   store i32 1, ptr %32, align 8, !tbaa !112
-  %36 = getelementptr inbounds nuw i8, ptr %4, i64 1
   store i8 15, ptr %4, align 1, !tbaa !28
-  br label %37
+  br label %36
 
-37:                                               ; preds = %35, %31
-  %.031 = phi ptr [ %36, %35 ], [ %4, %31 ]
-  %38 = load i8, ptr %.029, align 1, !tbaa !28
-  %39 = getelementptr inbounds nuw i8, ptr %.031, i64 1
-  store i8 %38, ptr %.031, align 1, !tbaa !28
-  br label %53
+36:                                               ; preds = %35, %31
+  %.031.sroa.phi = phi ptr [ %.2.sroa.phi.sroa.gep35, %35 ], [ %.2.sroa.gep34, %31 ]
+  %.031 = phi ptr [ %.2.sroa.gep34, %35 ], [ %4, %31 ]
+  %37 = load i8, ptr %.029, align 1, !tbaa !28
+  store i8 %37, ptr %.031, align 1, !tbaa !28
+  br label %48
 
-40:                                               ; preds = %30
-  %41 = getelementptr inbounds nuw i8, ptr %6, i64 80
-  %42 = load i32, ptr %41, align 8, !tbaa !112
-  %43 = icmp ult i32 %42, 2
-  br i1 %43, label %44, label %46
+38:                                               ; preds = %30
+  %39 = getelementptr inbounds nuw i8, ptr %6, i64 80
+  %40 = load i32, ptr %39, align 8, !tbaa !112
+  %41 = icmp ult i32 %40, 2
+  br i1 %41, label %42, label %43
 
-44:                                               ; preds = %40
-  store i32 2, ptr %41, align 8, !tbaa !112
-  %45 = getelementptr inbounds nuw i8, ptr %4, i64 1
+42:                                               ; preds = %38
+  store i32 2, ptr %39, align 8, !tbaa !112
+  %.2.sroa.phi.sroa.gep = getelementptr inbounds nuw i8, ptr %4, i64 3
   store i8 14, ptr %4, align 1, !tbaa !28
-  br label %46
+  br label %43
 
-46:                                               ; preds = %44, %40
-  %.2 = phi ptr [ %45, %44 ], [ %4, %40 ]
-  %47 = load i8, ptr %.029, align 1, !tbaa !28
-  %48 = getelementptr inbounds nuw i8, ptr %.2, i64 1
-  store i8 %47, ptr %.2, align 1, !tbaa !28
-  %49 = getelementptr inbounds nuw i8, ptr %.029, i64 1
-  %50 = load i8, ptr %49, align 1, !tbaa !28
-  %51 = getelementptr inbounds nuw i8, ptr %.2, i64 2
-  store i8 %50, ptr %48, align 1, !tbaa !28
+43:                                               ; preds = %42, %38
+  %.2.sroa.phi.sroa.phi = phi ptr [ %.2.sroa.phi.sroa.gep, %42 ], [ %.2.sroa.phi.sroa.gep35, %38 ]
+  %.2.sroa.phi = phi ptr [ %.2.sroa.phi.sroa.gep35, %42 ], [ %.2.sroa.gep34, %38 ]
+  %.2 = phi ptr [ %.2.sroa.gep34, %42 ], [ %4, %38 ]
+  %44 = load i8, ptr %.029, align 1, !tbaa !28
+  store i8 %44, ptr %.2, align 1, !tbaa !28
+  %45 = getelementptr inbounds nuw i8, ptr %.029, i64 1
+  %46 = load i8, ptr %45, align 1, !tbaa !28
+  store i8 %46, ptr %.2.sroa.phi, align 1, !tbaa !28
+  br label %48
+
+47:                                               ; preds = %30
+  store i32 1, ptr %2, align 4, !tbaa !35
+  br label %54
+
+48:                                               ; preds = %43, %36
+  %.132 = phi ptr [ %.031.sroa.phi, %36 ], [ %.2.sroa.phi.sroa.phi, %43 ]
+  %49 = ptrtoint ptr %.132 to i64
+  %50 = ptrtoint ptr %4 to i64
+  %51 = sub i64 %49, %50
+  %52 = trunc i64 %51 to i32
   br label %53
 
-52:                                               ; preds = %30
-  store i32 1, ptr %2, align 4, !tbaa !35
-  br label %59
-
-53:                                               ; preds = %46, %37
-  %.132 = phi ptr [ %39, %37 ], [ %51, %46 ]
-  %54 = ptrtoint ptr %.132 to i64
-  %55 = ptrtoint ptr %4 to i64
-  %56 = sub i64 %54, %55
-  %57 = trunc i64 %56 to i32
-  br label %58
-
-58:                                               ; preds = %53, %25
-  %.130 = phi ptr [ %4, %53 ], [ %.029, %25 ]
-  %.1 = phi i32 [ %57, %53 ], [ %.0, %25 ]
+53:                                               ; preds = %48, %25
+  %.130 = phi ptr [ %4, %48 ], [ %.029, %25 ]
+  %.1 = phi i32 [ %52, %48 ], [ %.0, %25 ]
   call void @ucnv_cbFromUWriteBytes_77(ptr noundef nonnull %0, ptr noundef %.130, i32 noundef %.1, i32 noundef %1, ptr noundef %2)
-  br label %59
+  br label %54
 
-59:                                               ; preds = %58, %52
+54:                                               ; preds = %53, %47
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }

@@ -562,22 +562,22 @@ _ZL13gmx_snew_implI9t_pdbinfoEvPKcS2_iRPT_m.exit: ; preds = %99
   br label %.body
 
 .loopexit.split-lp.loopexit:                      ; preds = %.noexc73, %.critedge.i.i
-  %lpad.loopexit117 = landingpad { ptr, i32 }
+  %lpad.loopexit137 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
 .loopexit.split-lp.loopexit.split-lp.loopexit:    ; preds = %._crit_edge537.i
-  %lpad.loopexit121 = landingpad { ptr, i32 }
+  %lpad.loopexit141 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %.invoke, %861, %.noexc75, %_ZL11split_chainPK7t_atomsPA3_KfiPSt6vectorI10IndexGroupSaIS6_EE.exit.i, %458
-  %lpad.loopexit123 = landingpad { ptr, i32 }
+  %lpad.loopexit143 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %255
-  %lpad.loopexit126 = landingpad { ptr, i32 }
+  %lpad.loopexit146 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
@@ -587,9 +587,9 @@ _ZL13gmx_snew_implI9t_pdbinfoEvPKcS2_iRPT_m.exit: ; preds = %99
   br label %.body
 
 126:                                              ; preds = %.preheader, %_ZNSt6vectorI10IndexGroupSaIS0_EED2Ev.exit
-  %.sroa.0111.0197 = phi ptr [ %61, %.preheader ], [ %155, %_ZNSt6vectorI10IndexGroupSaIS0_EED2Ev.exit ]
+  %.sroa.0111.0218 = phi ptr [ %61, %.preheader ], [ %155, %_ZNSt6vectorI10IndexGroupSaIS0_EED2Ev.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %36)
-  %127 = load ptr, ptr %.sroa.0111.0197, align 8, !tbaa !28
+  %127 = load ptr, ptr %.sroa.0111.0218, align 8, !tbaa !28
   invoke void @_Z10init_indexPKc(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.55") align 8 %36, ptr noundef %127)
           to label %128 unwind label %156
 
@@ -658,9 +658,9 @@ _ZSt8_DestroyIP10IndexGroupS0_EvT_S2_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIP
 
 _ZNSt6vectorI10IndexGroupSaIS0_EED2Ev.exit:       ; preds = %_ZSt8_DestroyIP10IndexGroupS0_EvT_S2_RSaIT0_E.exit.i, %150
   call void @llvm.lifetime.end.p0(ptr nonnull %36)
-  %155 = getelementptr inbounds nuw i8, ptr %.sroa.0111.0197, i64 32
-  %.not114 = icmp eq ptr %155, %62
-  br i1 %.not114, label %.loopexit128, label %126
+  %155 = getelementptr inbounds nuw i8, ptr %.sroa.0111.0218, i64 32
+  %.not133 = icmp eq ptr %155, %62
+  br i1 %.not133, label %.loopexit148, label %126
 
 156:                                              ; preds = %126
   %157 = landingpad { ptr, i32 }
@@ -803,7 +803,7 @@ _ZSt8_DestroyIP10IndexGroupS0_EvT_S2_RSaIT0_E.exit.i54: ; preds = %_ZSt8_Destroy
 
 _ZNSt6vectorI10IndexGroupSaIS0_EED2Ev.exit57:     ; preds = %_ZSt8_DestroyIP10IndexGroupS0_EvT_S2_RSaIT0_E.exit.i54, %208
   call void @llvm.lifetime.end.p0(ptr nonnull %37)
-  br label %.loopexit128
+  br label %.loopexit148
 
 213:                                              ; preds = %161
   %214 = landingpad { ptr, i32 }
@@ -811,10 +811,10 @@ _ZNSt6vectorI10IndexGroupSaIS0_EED2Ev.exit57:     ; preds = %_ZSt8_DestroyIP10In
   call void @llvm.lifetime.end.p0(ptr nonnull %37)
   br label %.body
 
-.loopexit128:                                     ; preds = %_ZNSt6vectorI10IndexGroupSaIS0_EED2Ev.exit, %_ZNSt6vectorI10IndexGroupSaIS0_EED2Ev.exit57
+.loopexit148:                                     ; preds = %_ZNSt6vectorI10IndexGroupSaIS0_EED2Ev.exit, %_ZNSt6vectorI10IndexGroupSaIS0_EED2Ev.exit57
   br i1 %.013, label %228, label %215
 
-215:                                              ; preds = %.loopexit128
+215:                                              ; preds = %.loopexit148
   %216 = load ptr, ptr %35, align 8, !tbaa !50
   %217 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %218 = load ptr, ptr %217, align 8, !tbaa !52
@@ -856,7 +856,7 @@ _ZL19impliedNumberOfAtomN3gmx8ArrayRefIK10IndexGroupEE.exit: ; preds = %._crit_e
   %227 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.36, i32 noundef %.0.lcssa.i)
   br label %228
 
-228:                                              ; preds = %_ZL19impliedNumberOfAtomN3gmx8ArrayRefIK10IndexGroupEE.exit, %.loopexit128
+228:                                              ; preds = %_ZL19impliedNumberOfAtomN3gmx8ArrayRefIK10IndexGroupEE.exit, %.loopexit148
   %229 = load i32, ptr @_ZZ12gmx_make_ndxiPPcE6natoms, align 4, !tbaa !4
   %230 = load ptr, ptr %25, align 8, !tbaa !46
   %231 = load i8, ptr @_ZZ12gmx_make_ndxiPPcE8bVerbose, align 1, !tbaa !22, !range !61, !noundef !62
@@ -1086,6 +1086,7 @@ sub_1.i:                                          ; preds = %299
 
 309:                                              ; preds = %.tail.i
   %310 = getelementptr inbounds nuw i8, ptr %storemerge.i, i64 3
+  %.sroa.gep128 = getelementptr inbounds nuw i8, ptr %storemerge.i, i64 4
   store ptr %310, ptr %8, align 8, !tbaa !21
   %311 = load i8, ptr %310, align 1, !tbaa !31
   %312 = icmp eq i8 %311, 32
@@ -1097,20 +1098,24 @@ sub_1.i:                                          ; preds = %299
   store ptr %314, ptr %8, align 8, !tbaa !21
   %315 = load i8, ptr %314, align 1, !tbaa !31
   %316 = icmp eq i8 %315, 32
-  br i1 %316, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i, !llvm.loop !66
+  br i1 %316, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i.loopexit, !llvm.loop !66
 
-._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i, %309
-  %317 = phi i8 [ %311, %309 ], [ %315, %.lr.ph.i.i.i ]
-  %318 = phi ptr [ %310, %309 ], [ %314, %.lr.ph.i.i.i ]
+._crit_edge.i.i.i.loopexit:                       ; preds = %.lr.ph.i.i.i
+  %.sroa.gep129.le = getelementptr inbounds nuw i8, ptr %313, i64 2
+  br label %._crit_edge.i.i.i
+
+._crit_edge.i.i.i:                                ; preds = %._crit_edge.i.i.i.loopexit, %309
+  %317 = phi i8 [ %311, %309 ], [ %315, %._crit_edge.i.i.i.loopexit ]
+  %.sroa.phi127 = phi ptr [ %.sroa.gep128, %309 ], [ %.sroa.gep129.le, %._crit_edge.i.i.i.loopexit ]
+  %318 = phi ptr [ %310, %309 ], [ %314, %._crit_edge.i.i.i.loopexit ]
   %319 = sext i8 %317 to i32
   %isdigittmp.i.i.i = add nsw i32 %319, -48
   %isdigit.i.i.i = icmp ult i32 %isdigittmp.i.i.i, 10
   br i1 %isdigit.i.i.i, label %.preheader.i.i.i, label %_ZL9parse_intPPcPi.exit.thread.i
 
 .preheader.i.i.i:                                 ; preds = %._crit_edge.i.i.i
-  %storemerge29.i.i.i = getelementptr inbounds nuw i8, ptr %318, i64 1
-  store ptr %storemerge29.i.i.i, ptr %8, align 8, !tbaa !21
-  %320 = load i8, ptr %storemerge29.i.i.i, align 1, !tbaa !31
+  store ptr %.sroa.phi127, ptr %8, align 8, !tbaa !21
+  %320 = load i8, ptr %.sroa.phi127, align 1, !tbaa !31
   %321 = sext i8 %320 to i32
   %isdigittmp2130.i.i.i = add nsw i32 %321, -48
   %isdigit2231.i.i.i = icmp ult i32 %isdigittmp2130.i.i.i, 10
@@ -1118,7 +1123,7 @@ sub_1.i:                                          ; preds = %299
 
 .lr.ph34.i.i.i:                                   ; preds = %.preheader.i.i.i, %.lr.ph34.i.i.i
   %322 = phi i32 [ %326, %.lr.ph34.i.i.i ], [ %321, %.preheader.i.i.i ]
-  %storemerge33.i.i.i = phi ptr [ %storemerge.i.i.i, %.lr.ph34.i.i.i ], [ %storemerge29.i.i.i, %.preheader.i.i.i ]
+  %storemerge33.i.i.i = phi ptr [ %storemerge.i.i.i, %.lr.ph34.i.i.i ], [ %.sroa.phi127, %.preheader.i.i.i ]
   %storemerge2432.i.i.i = phi i32 [ %storemerge24.i.i.i, %.lr.ph34.i.i.i ], [ %isdigittmp.i.i.i, %.preheader.i.i.i ]
   %323 = mul nsw i32 %storemerge2432.i.i.i, 10
   %324 = add nsw i32 %322, -48
@@ -1132,7 +1137,7 @@ sub_1.i:                                          ; preds = %299
   br i1 %isdigit22.i.i.i, label %.lr.ph34.i.i.i, label %._crit_edge35.i.i.i, !llvm.loop !67
 
 ._crit_edge35.i.i.i:                              ; preds = %.lr.ph34.i.i.i, %.preheader.i.i.i
-  %.promoted557646.i = phi ptr [ %storemerge29.i.i.i, %.preheader.i.i.i ], [ %storemerge.i.i.i, %.lr.ph34.i.i.i ]
+  %.promoted557646.i = phi ptr [ %.sroa.phi127, %.preheader.i.i.i ], [ %storemerge.i.i.i, %.lr.ph34.i.i.i ]
   %.0419.i = phi i32 [ %isdigittmp.i.i.i, %.preheader.i.i.i ], [ %storemerge24.i.i.i, %.lr.ph34.i.i.i ]
   %327 = phi ptr [ %318, %.preheader.i.i.i ], [ %storemerge33.i.i.i, %.lr.ph34.i.i.i ]
   %.lcssa25.i.i.i = phi i8 [ %320, %.preheader.i.i.i ], [ %325, %.lr.ph34.i.i.i ]
@@ -1157,8 +1162,8 @@ sub_1.i:                                          ; preds = %299
   br i1 %.not23.i17.i.i, label %_ZL9parse_intPPcPi.exit.i.preheader, label %335
 
 _ZL9parse_intPPcPi.exit.i.preheader:              ; preds = %_ZL14parse_int_charPPcPiPh.exit.i.i, %.thread.i.i
-  %.ph510 = phi i8 [ %.pre.i.i.i, %_ZL14parse_int_charPPcPiPh.exit.i.i ], [ %.lcssa25.i.i.i, %.thread.i.i ]
-  %.ph511 = phi ptr [ %330, %_ZL14parse_int_charPPcPiPh.exit.i.i ], [ %.promoted557646.i, %.thread.i.i ]
+  %.ph558 = phi i8 [ %.pre.i.i.i, %_ZL14parse_int_charPPcPiPh.exit.i.i ], [ %.lcssa25.i.i.i, %.thread.i.i ]
+  %.ph559 = phi ptr [ %330, %_ZL14parse_int_charPPcPiPh.exit.i.i ], [ %.promoted557646.i, %.thread.i.i ]
   br label %_ZL9parse_intPPcPi.exit.i
 
 335:                                              ; preds = %.thread.i.i, %329
@@ -1174,8 +1179,8 @@ _ZL14parse_int_charPPcPiPh.exit.i.i:              ; preds = %329
   br label %_ZL9parse_intPPcPi.exit.thread.i
 
 _ZL9parse_intPPcPi.exit.i:                        ; preds = %_ZL9parse_intPPcPi.exit.i.preheader, %339
-  %337 = phi i8 [ %.pre647.i, %339 ], [ %.ph510, %_ZL9parse_intPPcPi.exit.i.preheader ]
-  %338 = phi ptr [ %340, %339 ], [ %.ph511, %_ZL9parse_intPPcPi.exit.i.preheader ]
+  %337 = phi i8 [ %.pre647.i, %339 ], [ %.ph558, %_ZL9parse_intPPcPi.exit.i.preheader ]
+  %338 = phi ptr [ %340, %339 ], [ %.ph559, %_ZL9parse_intPPcPi.exit.i.preheader ]
   switch i8 %337, label %_ZL9parse_intPPcPi.exit217.sink.split.i [
     i8 32, label %339
     i8 45, label %341
@@ -1203,6 +1208,7 @@ _ZL9parse_intPPcPi.exit.i:                        ; preds = %_ZL9parse_intPPcPi.
 
 ._crit_edge.i.i191.i:                             ; preds = %.lr.ph.i.i216.i, %341
   %349 = phi i8 [ %343, %341 ], [ %347, %.lr.ph.i.i216.i ]
+  %.pn134 = phi ptr [ %338, %341 ], [ %345, %.lr.ph.i.i216.i ]
   %350 = phi ptr [ %342, %341 ], [ %346, %.lr.ph.i.i216.i ]
   %351 = sext i8 %349 to i32
   %isdigittmp.i.i192.i = add nsw i32 %351, -48
@@ -1210,9 +1216,9 @@ _ZL9parse_intPPcPi.exit.i:                        ; preds = %_ZL9parse_intPPcPi.
   br i1 %isdigit.i.i193.i, label %.preheader.i.i195.i, label %_ZL9parse_intPPcPi.exit217.i
 
 .preheader.i.i195.i:                              ; preds = %._crit_edge.i.i191.i
-  %storemerge29.i.i196.i = getelementptr inbounds nuw i8, ptr %350, i64 1
-  store ptr %storemerge29.i.i196.i, ptr %8, align 8, !tbaa !21
-  %352 = load i8, ptr %storemerge29.i.i196.i, align 1, !tbaa !31
+  %.sroa.phi130 = getelementptr inbounds nuw i8, ptr %.pn134, i64 2
+  store ptr %.sroa.phi130, ptr %8, align 8, !tbaa !21
+  %352 = load i8, ptr %.sroa.phi130, align 1, !tbaa !31
   %353 = sext i8 %352 to i32
   %isdigittmp2130.i.i197.i = add nsw i32 %353, -48
   %isdigit2231.i.i198.i = icmp ult i32 %isdigittmp2130.i.i197.i, 10
@@ -1220,7 +1226,7 @@ _ZL9parse_intPPcPi.exit.i:                        ; preds = %_ZL9parse_intPPcPi.
 
 .lr.ph34.i.i209.i:                                ; preds = %.preheader.i.i195.i, %.lr.ph34.i.i209.i
   %354 = phi i32 [ %358, %.lr.ph34.i.i209.i ], [ %353, %.preheader.i.i195.i ]
-  %storemerge33.i.i210.i = phi ptr [ %storemerge.i.i213.i, %.lr.ph34.i.i209.i ], [ %storemerge29.i.i196.i, %.preheader.i.i195.i ]
+  %storemerge33.i.i210.i = phi ptr [ %storemerge.i.i213.i, %.lr.ph34.i.i209.i ], [ %.sroa.phi130, %.preheader.i.i195.i ]
   %storemerge2432.i.i211.i = phi i32 [ %storemerge24.i.i212.i, %.lr.ph34.i.i209.i ], [ %isdigittmp.i.i192.i, %.preheader.i.i195.i ]
   %355 = mul nsw i32 %storemerge2432.i.i211.i, 10
   %356 = add nsw i32 %354, -48
@@ -1234,7 +1240,7 @@ _ZL9parse_intPPcPi.exit.i:                        ; preds = %_ZL9parse_intPPcPi.
   br i1 %isdigit22.i.i215.i, label %.lr.ph34.i.i209.i, label %._crit_edge35.i.i199.i, !llvm.loop !67
 
 ._crit_edge35.i.i199.i:                           ; preds = %.lr.ph34.i.i209.i, %.preheader.i.i195.i
-  %.promoted560649.i = phi ptr [ %storemerge29.i.i196.i, %.preheader.i.i195.i ], [ %storemerge.i.i213.i, %.lr.ph34.i.i209.i ]
+  %.promoted560649.i = phi ptr [ %.sroa.phi130, %.preheader.i.i195.i ], [ %storemerge.i.i213.i, %.lr.ph34.i.i209.i ]
   %.1422.i = phi i32 [ %isdigittmp.i.i192.i, %.preheader.i.i195.i ], [ %storemerge24.i.i212.i, %.lr.ph34.i.i209.i ]
   %359 = phi ptr [ %350, %.preheader.i.i195.i ], [ %storemerge33.i.i210.i, %.lr.ph34.i.i209.i ]
   %.lcssa25.i.i200.i = phi i8 [ %352, %.preheader.i.i195.i ], [ %357, %.lr.ph34.i.i209.i ]
@@ -1300,6 +1306,7 @@ _ZL9parse_intPPcPi.exit217.i:                     ; preds = %_ZL9parse_intPPcPi.
 
 377:                                              ; preds = %.tail.thread.i
   %378 = getelementptr inbounds nuw i8, ptr %storemerge.i, i64 4
+  %.sroa.gep125 = getelementptr inbounds nuw i8, ptr %storemerge.i, i64 5
   store ptr %378, ptr %8, align 8, !tbaa !21
   %379 = load i8, ptr %378, align 1, !tbaa !31
   %380 = icmp eq i8 %379, 32
@@ -1311,20 +1318,24 @@ _ZL9parse_intPPcPi.exit217.i:                     ; preds = %_ZL9parse_intPPcPi.
   store ptr %382, ptr %8, align 8, !tbaa !21
   %383 = load i8, ptr %382, align 1, !tbaa !31
   %384 = icmp eq i8 %383, 32
-  br i1 %384, label %.lr.ph.i.i243.i, label %._crit_edge.i.i218.i, !llvm.loop !66
+  br i1 %384, label %.lr.ph.i.i243.i, label %._crit_edge.i.i218.i.loopexit, !llvm.loop !66
 
-._crit_edge.i.i218.i:                             ; preds = %.lr.ph.i.i243.i, %377
-  %385 = phi i8 [ %379, %377 ], [ %383, %.lr.ph.i.i243.i ]
-  %386 = phi ptr [ %378, %377 ], [ %382, %.lr.ph.i.i243.i ]
+._crit_edge.i.i218.i.loopexit:                    ; preds = %.lr.ph.i.i243.i
+  %.sroa.gep126.le = getelementptr inbounds nuw i8, ptr %381, i64 2
+  br label %._crit_edge.i.i218.i
+
+._crit_edge.i.i218.i:                             ; preds = %._crit_edge.i.i218.i.loopexit, %377
+  %385 = phi i8 [ %379, %377 ], [ %383, %._crit_edge.i.i218.i.loopexit ]
+  %.sroa.phi124 = phi ptr [ %.sroa.gep125, %377 ], [ %.sroa.gep126.le, %._crit_edge.i.i218.i.loopexit ]
+  %386 = phi ptr [ %378, %377 ], [ %382, %._crit_edge.i.i218.i.loopexit ]
   %387 = sext i8 %385 to i32
   %isdigittmp.i.i219.i = add nsw i32 %387, -48
   %isdigit.i.i220.i = icmp ult i32 %isdigittmp.i.i219.i, 10
   br i1 %isdigit.i.i220.i, label %.preheader.i.i222.i, label %_ZL9parse_intPPcPi.exit.thread.i
 
 .preheader.i.i222.i:                              ; preds = %._crit_edge.i.i218.i
-  %storemerge29.i.i223.i = getelementptr inbounds nuw i8, ptr %386, i64 1
-  store ptr %storemerge29.i.i223.i, ptr %8, align 8, !tbaa !21
-  %388 = load i8, ptr %storemerge29.i.i223.i, align 1, !tbaa !31
+  store ptr %.sroa.phi124, ptr %8, align 8, !tbaa !21
+  %388 = load i8, ptr %.sroa.phi124, align 1, !tbaa !31
   %389 = sext i8 %388 to i32
   %isdigittmp2130.i.i224.i = add nsw i32 %389, -48
   %isdigit2231.i.i225.i = icmp ult i32 %isdigittmp2130.i.i224.i, 10
@@ -1332,7 +1343,7 @@ _ZL9parse_intPPcPi.exit217.i:                     ; preds = %_ZL9parse_intPPcPi.
 
 .lr.ph34.i.i236.i:                                ; preds = %.preheader.i.i222.i, %.lr.ph34.i.i236.i
   %390 = phi i32 [ %394, %.lr.ph34.i.i236.i ], [ %389, %.preheader.i.i222.i ]
-  %storemerge33.i.i237.i = phi ptr [ %storemerge.i.i240.i, %.lr.ph34.i.i236.i ], [ %storemerge29.i.i223.i, %.preheader.i.i222.i ]
+  %storemerge33.i.i237.i = phi ptr [ %storemerge.i.i240.i, %.lr.ph34.i.i236.i ], [ %.sroa.phi124, %.preheader.i.i222.i ]
   %storemerge2432.i.i238.i = phi i32 [ %storemerge24.i.i239.i, %.lr.ph34.i.i236.i ], [ %isdigittmp.i.i219.i, %.preheader.i.i222.i ]
   %391 = mul nsw i32 %storemerge2432.i.i238.i, 10
   %392 = add nsw i32 %390, -48
@@ -1403,6 +1414,7 @@ _ZL9parse_intPPcPi.exit244.i:                     ; preds = %_ZL14parse_int_char
 
 418:                                              ; preds = %415
   %419 = getelementptr inbounds nuw i8, ptr %storemerge.i, i64 4
+  %.sroa.gep122 = getelementptr inbounds nuw i8, ptr %storemerge.i, i64 5
   store ptr %419, ptr %8, align 8, !tbaa !21
   %420 = load i8, ptr %419, align 1, !tbaa !31
   %421 = icmp eq i8 %420, 32
@@ -1414,20 +1426,24 @@ _ZL9parse_intPPcPi.exit244.i:                     ; preds = %_ZL14parse_int_char
   store ptr %423, ptr %8, align 8, !tbaa !21
   %424 = load i8, ptr %423, align 1, !tbaa !31
   %425 = icmp eq i8 %424, 32
-  br i1 %425, label %.lr.ph.i.i270.i, label %._crit_edge.i.i245.i, !llvm.loop !66
+  br i1 %425, label %.lr.ph.i.i270.i, label %._crit_edge.i.i245.i.loopexit, !llvm.loop !66
 
-._crit_edge.i.i245.i:                             ; preds = %.lr.ph.i.i270.i, %418
-  %426 = phi i8 [ %420, %418 ], [ %424, %.lr.ph.i.i270.i ]
-  %427 = phi ptr [ %419, %418 ], [ %423, %.lr.ph.i.i270.i ]
+._crit_edge.i.i245.i.loopexit:                    ; preds = %.lr.ph.i.i270.i
+  %.sroa.gep123.le = getelementptr inbounds nuw i8, ptr %422, i64 2
+  br label %._crit_edge.i.i245.i
+
+._crit_edge.i.i245.i:                             ; preds = %._crit_edge.i.i245.i.loopexit, %418
+  %426 = phi i8 [ %420, %418 ], [ %424, %._crit_edge.i.i245.i.loopexit ]
+  %.sroa.phi121 = phi ptr [ %.sroa.gep122, %418 ], [ %.sroa.gep123.le, %._crit_edge.i.i245.i.loopexit ]
+  %427 = phi ptr [ %419, %418 ], [ %423, %._crit_edge.i.i245.i.loopexit ]
   %428 = sext i8 %426 to i32
   %isdigittmp.i.i246.i = add nsw i32 %428, -48
   %isdigit.i.i247.i = icmp ult i32 %isdigittmp.i.i246.i, 10
   br i1 %isdigit.i.i247.i, label %.preheader.i.i249.i, label %_ZL9parse_intPPcPi.exit.thread.i
 
 .preheader.i.i249.i:                              ; preds = %._crit_edge.i.i245.i
-  %storemerge29.i.i250.i = getelementptr inbounds nuw i8, ptr %427, i64 1
-  store ptr %storemerge29.i.i250.i, ptr %8, align 8, !tbaa !21
-  %429 = load i8, ptr %storemerge29.i.i250.i, align 1, !tbaa !31
+  store ptr %.sroa.phi121, ptr %8, align 8, !tbaa !21
+  %429 = load i8, ptr %.sroa.phi121, align 1, !tbaa !31
   %430 = sext i8 %429 to i32
   %isdigittmp2130.i.i251.i = add nsw i32 %430, -48
   %isdigit2231.i.i252.i = icmp ult i32 %isdigittmp2130.i.i251.i, 10
@@ -1435,7 +1451,7 @@ _ZL9parse_intPPcPi.exit244.i:                     ; preds = %_ZL14parse_int_char
 
 .lr.ph34.i.i263.i:                                ; preds = %.preheader.i.i249.i, %.lr.ph34.i.i263.i
   %431 = phi i32 [ %435, %.lr.ph34.i.i263.i ], [ %430, %.preheader.i.i249.i ]
-  %storemerge33.i.i264.i = phi ptr [ %storemerge.i.i267.i, %.lr.ph34.i.i263.i ], [ %storemerge29.i.i250.i, %.preheader.i.i249.i ]
+  %storemerge33.i.i264.i = phi ptr [ %storemerge.i.i267.i, %.lr.ph34.i.i263.i ], [ %.sroa.phi121, %.preheader.i.i249.i ]
   %storemerge2432.i.i265.i = phi i32 [ %storemerge24.i.i266.i, %.lr.ph34.i.i263.i ], [ %isdigittmp.i.i246.i, %.preheader.i.i249.i ]
   %432 = mul nsw i32 %storemerge2432.i.i265.i, 10
   %433 = add nsw i32 %431, -48
@@ -1449,7 +1465,7 @@ _ZL9parse_intPPcPi.exit244.i:                     ; preds = %_ZL14parse_int_char
   br i1 %isdigit22.i.i269.i, label %.lr.ph34.i.i263.i, label %._crit_edge35.i.i253.i, !llvm.loop !67
 
 ._crit_edge35.i.i253.i:                           ; preds = %.lr.ph34.i.i263.i, %.preheader.i.i249.i
-  %436 = phi ptr [ %storemerge29.i.i250.i, %.preheader.i.i249.i ], [ %storemerge.i.i267.i, %.lr.ph34.i.i263.i ]
+  %436 = phi ptr [ %.sroa.phi121, %.preheader.i.i249.i ], [ %storemerge.i.i267.i, %.lr.ph34.i.i263.i ]
   %.4.i = phi i32 [ %isdigittmp.i.i246.i, %.preheader.i.i249.i ], [ %storemerge24.i.i266.i, %.lr.ph34.i.i263.i ]
   %437 = phi ptr [ %427, %.preheader.i.i249.i ], [ %storemerge33.i.i264.i, %.lr.ph34.i.i263.i ]
   %.lcssa25.i.i254.i = phi i8 [ %429, %.preheader.i.i249.i ], [ %434, %.lr.ph34.i.i263.i ]
@@ -1630,6 +1646,7 @@ _ZL13list_residuesPK7t_atoms.exit.i:              ; preds = %.loopexit.i.i, %480
 
 526:                                              ; preds = %523
   %527 = getelementptr inbounds nuw i8, ptr %storemerge.i, i64 7
+  %.sroa.gep119 = getelementptr inbounds nuw i8, ptr %storemerge.i, i64 8
   store ptr %527, ptr %8, align 8, !tbaa !21
   %528 = load i8, ptr %527, align 1, !tbaa !31
   %529 = icmp eq i8 %528, 32
@@ -1641,20 +1658,24 @@ _ZL13list_residuesPK7t_atoms.exit.i:              ; preds = %.loopexit.i.i, %480
   store ptr %531, ptr %8, align 8, !tbaa !21
   %532 = load i8, ptr %531, align 1, !tbaa !31
   %533 = icmp eq i8 %532, 32
-  br i1 %533, label %.lr.ph.i.i298.i, label %._crit_edge.i.i273.i, !llvm.loop !66
+  br i1 %533, label %.lr.ph.i.i298.i, label %._crit_edge.i.i273.i.loopexit, !llvm.loop !66
 
-._crit_edge.i.i273.i:                             ; preds = %.lr.ph.i.i298.i, %526
-  %534 = phi i8 [ %528, %526 ], [ %532, %.lr.ph.i.i298.i ]
-  %535 = phi ptr [ %527, %526 ], [ %531, %.lr.ph.i.i298.i ]
+._crit_edge.i.i273.i.loopexit:                    ; preds = %.lr.ph.i.i298.i
+  %.sroa.gep120.le = getelementptr inbounds nuw i8, ptr %530, i64 2
+  br label %._crit_edge.i.i273.i
+
+._crit_edge.i.i273.i:                             ; preds = %._crit_edge.i.i273.i.loopexit, %526
+  %534 = phi i8 [ %528, %526 ], [ %532, %._crit_edge.i.i273.i.loopexit ]
+  %.sroa.phi118 = phi ptr [ %.sroa.gep119, %526 ], [ %.sroa.gep120.le, %._crit_edge.i.i273.i.loopexit ]
+  %535 = phi ptr [ %527, %526 ], [ %531, %._crit_edge.i.i273.i.loopexit ]
   %536 = sext i8 %534 to i32
   %isdigittmp.i.i274.i = add nsw i32 %536, -48
   %isdigit.i.i275.i = icmp ult i32 %isdigittmp.i.i274.i, 10
   br i1 %isdigit.i.i275.i, label %.preheader.i.i277.i, label %_ZL9parse_intPPcPi.exit.thread.i
 
 .preheader.i.i277.i:                              ; preds = %._crit_edge.i.i273.i
-  %storemerge29.i.i278.i = getelementptr inbounds nuw i8, ptr %535, i64 1
-  store ptr %storemerge29.i.i278.i, ptr %8, align 8, !tbaa !21
-  %537 = load i8, ptr %storemerge29.i.i278.i, align 1, !tbaa !31
+  store ptr %.sroa.phi118, ptr %8, align 8, !tbaa !21
+  %537 = load i8, ptr %.sroa.phi118, align 1, !tbaa !31
   %538 = sext i8 %537 to i32
   %isdigittmp2130.i.i279.i = add nsw i32 %538, -48
   %isdigit2231.i.i280.i = icmp ult i32 %isdigittmp2130.i.i279.i, 10
@@ -1662,7 +1683,7 @@ _ZL13list_residuesPK7t_atoms.exit.i:              ; preds = %.loopexit.i.i, %480
 
 .lr.ph34.i.i291.i:                                ; preds = %.preheader.i.i277.i, %.lr.ph34.i.i291.i
   %539 = phi i32 [ %543, %.lr.ph34.i.i291.i ], [ %538, %.preheader.i.i277.i ]
-  %storemerge33.i.i292.i = phi ptr [ %storemerge.i.i295.i, %.lr.ph34.i.i291.i ], [ %storemerge29.i.i278.i, %.preheader.i.i277.i ]
+  %storemerge33.i.i292.i = phi ptr [ %storemerge.i.i295.i, %.lr.ph34.i.i291.i ], [ %.sroa.phi118, %.preheader.i.i277.i ]
   %storemerge2432.i.i293.i = phi i32 [ %storemerge24.i.i294.i, %.lr.ph34.i.i291.i ], [ %isdigittmp.i.i274.i, %.preheader.i.i277.i ]
   %540 = mul nsw i32 %storemerge2432.i.i293.i, 10
   %541 = add nsw i32 %539, -48
@@ -2312,6 +2333,7 @@ _ZL11split_chainPK7t_atomsPA3_KfiPSt6vectorI10IndexGroupSaIS6_EE.exit.i: ; preds
 
 780:                                              ; preds = %777
   %781 = getelementptr inbounds nuw i8, ptr %storemerge.i, i64 8
+  %.sroa.gep116 = getelementptr inbounds nuw i8, ptr %storemerge.i, i64 9
   store ptr %781, ptr %8, align 8, !tbaa !21
   %782 = load i8, ptr %781, align 1, !tbaa !31
   %783 = icmp eq i8 %782, 32
@@ -2323,20 +2345,24 @@ _ZL11split_chainPK7t_atomsPA3_KfiPSt6vectorI10IndexGroupSaIS6_EE.exit.i: ; preds
   store ptr %785, ptr %8, align 8, !tbaa !21
   %786 = load i8, ptr %785, align 1, !tbaa !31
   %787 = icmp eq i8 %786, 32
-  br i1 %787, label %.lr.ph.i.i335.i, label %._crit_edge.i.i310.i, !llvm.loop !66
+  br i1 %787, label %.lr.ph.i.i335.i, label %._crit_edge.i.i310.i.loopexit, !llvm.loop !66
 
-._crit_edge.i.i310.i:                             ; preds = %.lr.ph.i.i335.i, %780
-  %788 = phi i8 [ %782, %780 ], [ %786, %.lr.ph.i.i335.i ]
-  %789 = phi ptr [ %781, %780 ], [ %785, %.lr.ph.i.i335.i ]
+._crit_edge.i.i310.i.loopexit:                    ; preds = %.lr.ph.i.i335.i
+  %.sroa.gep117.le = getelementptr inbounds nuw i8, ptr %784, i64 2
+  br label %._crit_edge.i.i310.i
+
+._crit_edge.i.i310.i:                             ; preds = %._crit_edge.i.i310.i.loopexit, %780
+  %788 = phi i8 [ %782, %780 ], [ %786, %._crit_edge.i.i310.i.loopexit ]
+  %.sroa.phi115 = phi ptr [ %.sroa.gep116, %780 ], [ %.sroa.gep117.le, %._crit_edge.i.i310.i.loopexit ]
+  %789 = phi ptr [ %781, %780 ], [ %785, %._crit_edge.i.i310.i.loopexit ]
   %790 = sext i8 %788 to i32
   %isdigittmp.i.i311.i = add nsw i32 %790, -48
   %isdigit.i.i312.i = icmp ult i32 %isdigittmp.i.i311.i, 10
   br i1 %isdigit.i.i312.i, label %.preheader.i.i314.i, label %_ZL9parse_intPPcPi.exit.thread.i
 
 .preheader.i.i314.i:                              ; preds = %._crit_edge.i.i310.i
-  %storemerge29.i.i315.i = getelementptr inbounds nuw i8, ptr %789, i64 1
-  store ptr %storemerge29.i.i315.i, ptr %8, align 8, !tbaa !21
-  %791 = load i8, ptr %storemerge29.i.i315.i, align 1, !tbaa !31
+  store ptr %.sroa.phi115, ptr %8, align 8, !tbaa !21
+  %791 = load i8, ptr %.sroa.phi115, align 1, !tbaa !31
   %792 = sext i8 %791 to i32
   %isdigittmp2130.i.i316.i = add nsw i32 %792, -48
   %isdigit2231.i.i317.i = icmp ult i32 %isdigittmp2130.i.i316.i, 10
@@ -2344,7 +2370,7 @@ _ZL11split_chainPK7t_atomsPA3_KfiPSt6vectorI10IndexGroupSaIS6_EE.exit.i: ; preds
 
 .lr.ph34.i.i328.i:                                ; preds = %.preheader.i.i314.i, %.lr.ph34.i.i328.i
   %793 = phi i32 [ %797, %.lr.ph34.i.i328.i ], [ %792, %.preheader.i.i314.i ]
-  %storemerge33.i.i329.i = phi ptr [ %storemerge.i.i332.i, %.lr.ph34.i.i328.i ], [ %storemerge29.i.i315.i, %.preheader.i.i314.i ]
+  %storemerge33.i.i329.i = phi ptr [ %storemerge.i.i332.i, %.lr.ph34.i.i328.i ], [ %.sroa.phi115, %.preheader.i.i314.i ]
   %storemerge2432.i.i330.i = phi i32 [ %storemerge24.i.i331.i, %.lr.ph34.i.i328.i ], [ %isdigittmp.i.i311.i, %.preheader.i.i314.i ]
   %794 = mul nsw i32 %storemerge2432.i.i330.i, 10
   %795 = add nsw i32 %793, -48
@@ -2415,6 +2441,7 @@ _ZL9parse_intPPcPi.exit336.i:                     ; preds = %_ZL14parse_int_char
 
 821:                                              ; preds = %818
   %822 = getelementptr inbounds nuw i8, ptr %storemerge.i, i64 7
+  %.sroa.gep = getelementptr inbounds nuw i8, ptr %storemerge.i, i64 8
   store ptr %822, ptr %8, align 8, !tbaa !21
   %823 = load i8, ptr %822, align 1, !tbaa !31
   %824 = icmp eq i8 %823, 32
@@ -2426,20 +2453,24 @@ _ZL9parse_intPPcPi.exit336.i:                     ; preds = %_ZL14parse_int_char
   store ptr %826, ptr %8, align 8, !tbaa !21
   %827 = load i8, ptr %826, align 1, !tbaa !31
   %828 = icmp eq i8 %827, 32
-  br i1 %828, label %.lr.ph.i.i362.i, label %._crit_edge.i.i337.i, !llvm.loop !66
+  br i1 %828, label %.lr.ph.i.i362.i, label %._crit_edge.i.i337.i.loopexit, !llvm.loop !66
 
-._crit_edge.i.i337.i:                             ; preds = %.lr.ph.i.i362.i, %821
-  %829 = phi i8 [ %823, %821 ], [ %827, %.lr.ph.i.i362.i ]
-  %830 = phi ptr [ %822, %821 ], [ %826, %.lr.ph.i.i362.i ]
+._crit_edge.i.i337.i.loopexit:                    ; preds = %.lr.ph.i.i362.i
+  %.sroa.gep114.le = getelementptr inbounds nuw i8, ptr %825, i64 2
+  br label %._crit_edge.i.i337.i
+
+._crit_edge.i.i337.i:                             ; preds = %._crit_edge.i.i337.i.loopexit, %821
+  %829 = phi i8 [ %823, %821 ], [ %827, %._crit_edge.i.i337.i.loopexit ]
+  %.sroa.phi = phi ptr [ %.sroa.gep, %821 ], [ %.sroa.gep114.le, %._crit_edge.i.i337.i.loopexit ]
+  %830 = phi ptr [ %822, %821 ], [ %826, %._crit_edge.i.i337.i.loopexit ]
   %831 = sext i8 %829 to i32
   %isdigittmp.i.i338.i = add nsw i32 %831, -48
   %isdigit.i.i339.i = icmp ult i32 %isdigittmp.i.i338.i, 10
   br i1 %isdigit.i.i339.i, label %.preheader.i.i341.i, label %_ZL9parse_intPPcPi.exit.thread.i
 
 .preheader.i.i341.i:                              ; preds = %._crit_edge.i.i337.i
-  %storemerge29.i.i342.i = getelementptr inbounds nuw i8, ptr %830, i64 1
-  store ptr %storemerge29.i.i342.i, ptr %8, align 8, !tbaa !21
-  %832 = load i8, ptr %storemerge29.i.i342.i, align 1, !tbaa !31
+  store ptr %.sroa.phi, ptr %8, align 8, !tbaa !21
+  %832 = load i8, ptr %.sroa.phi, align 1, !tbaa !31
   %833 = sext i8 %832 to i32
   %isdigittmp2130.i.i343.i = add nsw i32 %833, -48
   %isdigit2231.i.i344.i = icmp ult i32 %isdigittmp2130.i.i343.i, 10
@@ -2447,7 +2478,7 @@ _ZL9parse_intPPcPi.exit336.i:                     ; preds = %_ZL14parse_int_char
 
 .lr.ph34.i.i355.i:                                ; preds = %.preheader.i.i341.i, %.lr.ph34.i.i355.i
   %834 = phi i32 [ %838, %.lr.ph34.i.i355.i ], [ %833, %.preheader.i.i341.i ]
-  %storemerge33.i.i356.i = phi ptr [ %storemerge.i.i359.i, %.lr.ph34.i.i355.i ], [ %storemerge29.i.i342.i, %.preheader.i.i341.i ]
+  %storemerge33.i.i356.i = phi ptr [ %storemerge.i.i359.i, %.lr.ph34.i.i355.i ], [ %.sroa.phi, %.preheader.i.i341.i ]
   %storemerge2432.i.i357.i = phi i32 [ %storemerge24.i.i358.i, %.lr.ph34.i.i355.i ], [ %isdigittmp.i.i338.i, %.preheader.i.i341.i ]
   %835 = mul nsw i32 %storemerge2432.i.i357.i, 10
   %836 = add nsw i32 %834, -48
@@ -3176,7 +3207,7 @@ _ZNSt6vectorI10IndexGroupSaIS0_EED2Ev.exit101:    ; preds = %_ZSt8_DestroyIP10In
   br label %1074
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit, %_ZNSt6vectorIiSaIiEED2Ev.exit108.i.i, %1031, %213, %160
-  %.pn33 = phi { ptr, i32 } [ %.pn30, %160 ], [ %214, %213 ], [ %.pn185.i, %1031 ], [ %.pn94.i.i, %_ZNSt6vectorIiSaIiEED2Ev.exit108.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit117, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit121, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit123, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit126, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn33 = phi { ptr, i32 } [ %.pn30, %160 ], [ %214, %213 ], [ %.pn185.i, %1031 ], [ %.pn94.i.i, %_ZNSt6vectorIiSaIiEED2Ev.exit108.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit137, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit141, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit143, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit146, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZNSt6vectorI10IndexGroupSaIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %35) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %35)
   br label %1072

@@ -31792,7 +31792,7 @@ define internal fastcc void @_ZN5vcpkgL26get_printable_architectureB5cxx11ERKNS_
   store i64 7, ptr %5, align 8, !tbaa !76
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 23
   store i8 0, ptr %6, align 1, !tbaa !15
-  br label %109
+  br label %107
 
 ._crit_edge.i.i5:                                 ; preds = %1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %4, ptr noundef nonnull align 1 dereferenceable(15) @.str.274, i64 15, i1 false)
@@ -31800,7 +31800,7 @@ define internal fastcc void @_ZN5vcpkgL26get_printable_architectureB5cxx11ERKNS_
   store i64 15, ptr %7, align 8, !tbaa !76
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 31
   store i8 0, ptr %8, align 1, !tbaa !15
-  br label %109
+  br label %107
 
 ._crit_edge.i.i9:                                 ; preds = %1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %4, ptr noundef nonnull align 1 dereferenceable(3) @.str.275, i64 3, i1 false)
@@ -31808,7 +31808,7 @@ define internal fastcc void @_ZN5vcpkgL26get_printable_architectureB5cxx11ERKNS_
   store i64 3, ptr %9, align 8, !tbaa !76
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 19
   store i8 0, ptr %10, align 1, !tbaa !15
-  br label %109
+  br label %107
 
 ._crit_edge.i.i13:                                ; preds = %1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %4, ptr noundef nonnull align 1 dereferenceable(3) @.str.276, i64 3, i1 false)
@@ -31816,7 +31816,7 @@ define internal fastcc void @_ZN5vcpkgL26get_printable_architectureB5cxx11ERKNS_
   store i64 3, ptr %11, align 8, !tbaa !76
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 19
   store i8 0, ptr %12, align 1, !tbaa !15
-  br label %109
+  br label %107
 
 ._crit_edge.i.i17:                                ; preds = %1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %4, ptr noundef nonnull align 1 dereferenceable(5) @.str.277, i64 5, i1 false)
@@ -31824,7 +31824,7 @@ define internal fastcc void @_ZN5vcpkgL26get_printable_architectureB5cxx11ERKNS_
   store i64 5, ptr %13, align 8, !tbaa !76
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 21
   store i8 0, ptr %14, align 1, !tbaa !15
-  br label %109
+  br label %107
 
 ._crit_edge.i.i21:                                ; preds = %1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(7) %4, ptr noundef nonnull align 1 dereferenceable(7) @.str.278, i64 7, i1 false)
@@ -31832,7 +31832,7 @@ define internal fastcc void @_ZN5vcpkgL26get_printable_architectureB5cxx11ERKNS_
   store i64 7, ptr %15, align 8, !tbaa !76
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 23
   store i8 0, ptr %16, align 1, !tbaa !15
-  br label %109
+  br label %107
 
 ._crit_edge.i.i25:                                ; preds = %1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %4, ptr noundef nonnull align 1 dereferenceable(6) @.str.279, i64 6, i1 false)
@@ -31840,7 +31840,7 @@ define internal fastcc void @_ZN5vcpkgL26get_printable_architectureB5cxx11ERKNS_
   store i64 6, ptr %17, align 8, !tbaa !76
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 22
   store i8 0, ptr %18, align 2, !tbaa !15
-  br label %109
+  br label %107
 
 ._crit_edge.i.i29:                                ; preds = %1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %4, ptr noundef nonnull align 1 dereferenceable(3) @.str.276, i64 3, i1 false)
@@ -31848,7 +31848,7 @@ define internal fastcc void @_ZN5vcpkgL26get_printable_architectureB5cxx11ERKNS_
   store i64 3, ptr %19, align 8, !tbaa !76
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 19
   store i8 0, ptr %20, align 1, !tbaa !15
-  br label %109
+  br label %107
 
 ._crit_edge.i.i33:                                ; preds = %1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(13) %4, ptr noundef nonnull align 1 dereferenceable(13) @.str.280, i64 13, i1 false)
@@ -31856,7 +31856,7 @@ define internal fastcc void @_ZN5vcpkgL26get_printable_architectureB5cxx11ERKNS_
   store i64 13, ptr %21, align 8, !tbaa !76
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 29
   store i8 0, ptr %22, align 1, !tbaa !15
-  br label %109
+  br label %107
 
 ._crit_edge.i.i37:                                ; preds = %1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %4, ptr noundef nonnull align 1 dereferenceable(3) @.str.281, i64 3, i1 false)
@@ -31864,7 +31864,7 @@ define internal fastcc void @_ZN5vcpkgL26get_printable_architectureB5cxx11ERKNS_
   store i64 3, ptr %23, align 8, !tbaa !76
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 19
   store i8 0, ptr %24, align 1, !tbaa !15
-  br label %109
+  br label %107
 
 ._crit_edge.i.i41:                                ; preds = %1
   store i32 875979113, ptr %4, align 8
@@ -31872,7 +31872,7 @@ define internal fastcc void @_ZN5vcpkgL26get_printable_architectureB5cxx11ERKNS_
   store i64 4, ptr %25, align 8, !tbaa !76
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i8 0, ptr %26, align 4, !tbaa !15
-  br label %109
+  br label %107
 
 .noexc.i46:                                       ; preds = %1
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -31888,7 +31888,7 @@ define internal fastcc void @_ZN5vcpkgL26get_printable_architectureB5cxx11ERKNS_
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 %28
   store i8 0, ptr %31, align 1, !tbaa !15
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %109
+  br label %107
 
 ._crit_edge.i.i49:                                ; preds = %1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %4, ptr noundef nonnull align 1 dereferenceable(6) @.str.284, i64 6, i1 false)
@@ -31896,7 +31896,7 @@ define internal fastcc void @_ZN5vcpkgL26get_printable_architectureB5cxx11ERKNS_
   store i64 6, ptr %32, align 8, !tbaa !76
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 22
   store i8 0, ptr %33, align 2, !tbaa !15
-  br label %109
+  br label %107
 
 ._crit_edge.i.i53:                                ; preds = %1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(7) %4, ptr noundef nonnull align 1 dereferenceable(7) @.str.285, i64 7, i1 false)
@@ -31904,7 +31904,7 @@ define internal fastcc void @_ZN5vcpkgL26get_printable_architectureB5cxx11ERKNS_
   store i64 7, ptr %34, align 8, !tbaa !76
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 23
   store i8 0, ptr %35, align 1, !tbaa !15
-  br label %109
+  br label %107
 
 ._crit_edge.i.i57:                                ; preds = %1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %4, ptr noundef nonnull align 1 dereferenceable(9) @.str.286, i64 9, i1 false)
@@ -31912,7 +31912,7 @@ define internal fastcc void @_ZN5vcpkgL26get_printable_architectureB5cxx11ERKNS_
   store i64 9, ptr %36, align 8, !tbaa !76
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 25
   store i8 0, ptr %37, align 1, !tbaa !15
-  br label %109
+  br label %107
 
 ._crit_edge.i.i61:                                ; preds = %1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %4, ptr noundef nonnull align 1 dereferenceable(3) @.str.287, i64 3, i1 false)
@@ -31920,7 +31920,7 @@ define internal fastcc void @_ZN5vcpkgL26get_printable_architectureB5cxx11ERKNS_
   store i64 3, ptr %38, align 8, !tbaa !76
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 19
   store i8 0, ptr %39, align 1, !tbaa !15
-  br label %109
+  br label %107
 
 ._crit_edge.i.i65:                                ; preds = %1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %4, ptr noundef nonnull align 1 dereferenceable(5) @.str.288, i64 5, i1 false)
@@ -31928,7 +31928,7 @@ define internal fastcc void @_ZN5vcpkgL26get_printable_architectureB5cxx11ERKNS_
   store i64 5, ptr %40, align 8, !tbaa !76
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 21
   store i8 0, ptr %41, align 1, !tbaa !15
-  br label %109
+  br label %107
 
 ._crit_edge.i.i69:                                ; preds = %1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(7) %4, ptr noundef nonnull align 1 dereferenceable(7) @.str.289, i64 7, i1 false)
@@ -31936,7 +31936,7 @@ define internal fastcc void @_ZN5vcpkgL26get_printable_architectureB5cxx11ERKNS_
   store i64 7, ptr %42, align 8, !tbaa !76
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 23
   store i8 0, ptr %43, align 1, !tbaa !15
-  br label %109
+  br label %107
 
 ._crit_edge.i.i73:                                ; preds = %1
   store i64 3617284912206539122, ptr %4, align 8
@@ -31944,7 +31944,7 @@ define internal fastcc void @_ZN5vcpkgL26get_printable_architectureB5cxx11ERKNS_
   store i64 8, ptr %44, align 8, !tbaa !76
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i8 0, ptr %45, align 8, !tbaa !15
-  br label %109
+  br label %107
 
 ._crit_edge.i.i77:                                ; preds = %1
   store i64 3762244525212526962, ptr %4, align 8
@@ -31952,7 +31952,7 @@ define internal fastcc void @_ZN5vcpkgL26get_printable_architectureB5cxx11ERKNS_
   store i64 8, ptr %46, align 8, !tbaa !76
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i8 0, ptr %47, align 8, !tbaa !15
-  br label %109
+  br label %107
 
 ._crit_edge.i.i81:                                ; preds = %1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %4, ptr noundef nonnull align 1 dereferenceable(9) @.str.292, i64 9, i1 false)
@@ -31960,7 +31960,7 @@ define internal fastcc void @_ZN5vcpkgL26get_printable_architectureB5cxx11ERKNS_
   store i64 9, ptr %48, align 8, !tbaa !76
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 25
   store i8 0, ptr %49, align 1, !tbaa !15
-  br label %109
+  br label %107
 
 ._crit_edge.i.i85:                                ; preds = %1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %4, ptr noundef nonnull align 1 dereferenceable(11) @.str.293, i64 11, i1 false)
@@ -31968,7 +31968,7 @@ define internal fastcc void @_ZN5vcpkgL26get_printable_architectureB5cxx11ERKNS_
   store i64 11, ptr %50, align 8, !tbaa !76
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 27
   store i8 0, ptr %51, align 1, !tbaa !15
-  br label %109
+  br label %107
 
 ._crit_edge.i.i89:                                ; preds = %1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %4, ptr noundef nonnull align 1 dereferenceable(15) @.str.294, i64 15, i1 false)
@@ -31976,7 +31976,7 @@ define internal fastcc void @_ZN5vcpkgL26get_printable_architectureB5cxx11ERKNS_
   store i64 15, ptr %52, align 8, !tbaa !76
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 31
   store i8 0, ptr %53, align 1, !tbaa !15
-  br label %109
+  br label %107
 
 ._crit_edge.i.i93:                                ; preds = %1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %4, ptr noundef nonnull align 1 dereferenceable(11) @.str.295, i64 11, i1 false)
@@ -31984,7 +31984,7 @@ define internal fastcc void @_ZN5vcpkgL26get_printable_architectureB5cxx11ERKNS_
   store i64 11, ptr %54, align 8, !tbaa !76
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 27
   store i8 0, ptr %55, align 1, !tbaa !15
-  br label %109
+  br label %107
 
 ._crit_edge.i.i97:                                ; preds = %1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %4, ptr noundef nonnull align 1 dereferenceable(11) @.str.296, i64 11, i1 false)
@@ -31992,7 +31992,7 @@ define internal fastcc void @_ZN5vcpkgL26get_printable_architectureB5cxx11ERKNS_
   store i64 11, ptr %56, align 8, !tbaa !76
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 27
   store i8 0, ptr %57, align 1, !tbaa !15
-  br label %109
+  br label %107
 
 ._crit_edge.i.i101:                               ; preds = %1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %4, ptr noundef nonnull align 1 dereferenceable(5) @.str.297, i64 5, i1 false)
@@ -32000,7 +32000,7 @@ define internal fastcc void @_ZN5vcpkgL26get_printable_architectureB5cxx11ERKNS_
   store i64 5, ptr %58, align 8, !tbaa !76
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 21
   store i8 0, ptr %59, align 1, !tbaa !15
-  br label %109
+  br label %107
 
 ._crit_edge.i.i105:                               ; preds = %1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %4, ptr noundef nonnull align 1 dereferenceable(14) @.str.298, i64 14, i1 false)
@@ -32008,7 +32008,7 @@ define internal fastcc void @_ZN5vcpkgL26get_printable_architectureB5cxx11ERKNS_
   store i64 14, ptr %60, align 8, !tbaa !76
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 30
   store i8 0, ptr %61, align 2, !tbaa !15
-  br label %109
+  br label %107
 
 ._crit_edge.i.i109:                               ; preds = %1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %4, ptr noundef nonnull align 1 dereferenceable(12) @.str.299, i64 12, i1 false)
@@ -32016,7 +32016,7 @@ define internal fastcc void @_ZN5vcpkgL26get_printable_architectureB5cxx11ERKNS_
   store i64 12, ptr %62, align 8, !tbaa !76
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i8 0, ptr %63, align 4, !tbaa !15
-  br label %109
+  br label %107
 
 ._crit_edge.i.i113:                               ; preds = %1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %4, ptr noundef nonnull align 1 dereferenceable(11) @.str.300, i64 11, i1 false)
@@ -32024,7 +32024,7 @@ define internal fastcc void @_ZN5vcpkgL26get_printable_architectureB5cxx11ERKNS_
   store i64 11, ptr %64, align 8, !tbaa !76
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 27
   store i8 0, ptr %65, align 1, !tbaa !15
-  br label %109
+  br label %107
 
 ._crit_edge.i.i117:                               ; preds = %1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %4, ptr noundef nonnull align 1 dereferenceable(11) @.str.301, i64 11, i1 false)
@@ -32032,14 +32032,14 @@ define internal fastcc void @_ZN5vcpkgL26get_printable_architectureB5cxx11ERKNS_
   store i64 11, ptr %66, align 8, !tbaa !76
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 27
   store i8 0, ptr %67, align 1, !tbaa !15
-  br label %109
+  br label %107
 
 68:                                               ; preds = %1
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %69, align 8, !tbaa !76
   store i8 0, ptr %4, align 8, !tbaa !15
   %70 = invoke ptr @_ZN3fmt3v116detail13copy_noinlineIcPKcSt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEET1_T0_SE_SD_(ptr noundef nonnull @.str.303, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.303, i64 8), ptr nonnull %0)
-          to label %.noexc121 unwind label %103
+          to label %.noexc121 unwind label %101
 
 .noexc121:                                        ; preds = %68
   %71 = zext i16 %.0.val to i32
@@ -32055,6 +32055,8 @@ define internal fastcc void @_ZN5vcpkgL26get_printable_architectureB5cxx11ERKNS_
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %2, i8 0, i64 10, i1 false)
   %81 = getelementptr inbounds i8, ptr %2, i64 %80
+  %.019.lcssa.i.sroa.gep7.i.i.i.i = getelementptr inbounds i8, ptr %81, i64 -1
+  %.019.lcssa.i.sroa.gep.i.i.i.i = getelementptr inbounds i8, ptr %81, i64 -2
   %82 = icmp ugt i16 %.0.val, 99
   br i1 %82, label %.lr.ph.i.i.i.i.i, label %._crit_edge.i.i.i.i.i
 
@@ -32070,55 +32072,59 @@ define internal fastcc void @_ZN5vcpkgL26get_printable_architectureB5cxx11ERKNS_
   store i16 %88, ptr %83, align 1
   %89 = udiv i32 %.021.i.i.i.i.i, 100
   %90 = icmp samesign ugt i32 %.021.i.i.i.i.i, 9999
-  br i1 %90, label %.lr.ph.i.i.i.i.i, label %._crit_edge.i.i.i.i.i, !llvm.loop !711
+  br i1 %90, label %.lr.ph.i.i.i.i.i, label %._crit_edge.i.loopexit.i.i.i.i, !llvm.loop !711
 
-._crit_edge.i.i.i.i.i:                            ; preds = %.lr.ph.i.i.i.i.i, %.noexc121
-  %.019.lcssa.i.i.i.i.i = phi ptr [ %81, %.noexc121 ], [ %83, %.lr.ph.i.i.i.i.i ]
-  %.0.lcssa.i.i.i.i.i = phi i32 [ %71, %.noexc121 ], [ %89, %.lr.ph.i.i.i.i.i ]
+._crit_edge.i.loopexit.i.i.i.i:                   ; preds = %.lr.ph.i.i.i.i.i
+  %.019.lcssa.i.sroa.gep8.le.i.i.i.i = getelementptr inbounds i8, ptr %.01920.i.i.i.i.i, i64 -3
+  %.019.lcssa.i.sroa.gep5.le.i.i.i.i = getelementptr inbounds i8, ptr %.01920.i.i.i.i.i, i64 -4
+  br label %._crit_edge.i.i.i.i.i
+
+._crit_edge.i.i.i.i.i:                            ; preds = %._crit_edge.i.loopexit.i.i.i.i, %.noexc121
+  %.019.lcssa.i.sroa.phi.i.i.i.i = phi ptr [ %.019.lcssa.i.sroa.gep.i.i.i.i, %.noexc121 ], [ %.019.lcssa.i.sroa.gep5.le.i.i.i.i, %._crit_edge.i.loopexit.i.i.i.i ]
+  %.019.lcssa.i.sroa.phi6.i.i.i.i = phi ptr [ %.019.lcssa.i.sroa.gep7.i.i.i.i, %.noexc121 ], [ %.019.lcssa.i.sroa.gep8.le.i.i.i.i, %._crit_edge.i.loopexit.i.i.i.i ]
+  %.0.lcssa.i.i.i.i.i = phi i32 [ %71, %.noexc121 ], [ %89, %._crit_edge.i.loopexit.i.i.i.i ]
   %91 = icmp samesign ult i32 %.0.lcssa.i.i.i.i.i, 10
-  br i1 %91, label %92, label %96
+  br i1 %91, label %92, label %95
 
 92:                                               ; preds = %._crit_edge.i.i.i.i.i
   %93 = trunc nuw nsw i32 %.0.lcssa.i.i.i.i.i to i8
   %94 = or disjoint i8 %93, 48
-  %95 = getelementptr inbounds i8, ptr %.019.lcssa.i.i.i.i.i, i64 -1
-  store i8 %94, ptr %95, align 1, !tbaa !15
+  store i8 %94, ptr %.019.lcssa.i.sroa.phi6.i.i.i.i, align 1, !tbaa !15
   br label %_ZNK3fmt3v116detail5fieldIctLi0EE6formatISt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEJtEEET_SD_DpRKT0_.exit.i
 
-96:                                               ; preds = %._crit_edge.i.i.i.i.i
-  %97 = getelementptr inbounds i8, ptr %.019.lcssa.i.i.i.i.i, i64 -2
-  %98 = shl nuw nsw i32 %.0.lcssa.i.i.i.i.i, 1
-  %99 = zext nneg i32 %98 to i64
-  %100 = getelementptr inbounds nuw i8, ptr @.str.305, i64 %99
-  %101 = load i16, ptr %100, align 1
-  store i16 %101, ptr %97, align 1
+95:                                               ; preds = %._crit_edge.i.i.i.i.i
+  %96 = shl nuw nsw i32 %.0.lcssa.i.i.i.i.i, 1
+  %97 = zext nneg i32 %96 to i64
+  %98 = getelementptr inbounds nuw i8, ptr @.str.305, i64 %97
+  %99 = load i16, ptr %98, align 1
+  store i16 %99, ptr %.019.lcssa.i.sroa.phi.i.i.i.i, align 1
   br label %_ZNK3fmt3v116detail5fieldIctLi0EE6formatISt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEJtEEET_SD_DpRKT0_.exit.i
 
-_ZNK3fmt3v116detail5fieldIctLi0EE6formatISt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEJtEEET_SD_DpRKT0_.exit.i: ; preds = %96, %92
-  %102 = invoke ptr @_ZN3fmt3v116detail13copy_noinlineIcPcSt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEET1_T0_SD_SC_(ptr noundef nonnull %2, ptr noundef nonnull %81, ptr %70)
-          to label %_ZN3fmt3v116formatINS0_6detail6concatINS2_4textIcEENS2_5fieldIctLi0EEEEEJtEcTnNSt9enable_ifIXsr6detail18is_compiled_formatIT_EE5valueEiE4typeELi0EEENSt7__cxx1112basic_stringIT1_St11char_traitsISF_ESaISF_EEERKSA_DpRKT0_.exit unwind label %103
+_ZNK3fmt3v116detail5fieldIctLi0EE6formatISt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEJtEEET_SD_DpRKT0_.exit.i: ; preds = %95, %92
+  %100 = invoke ptr @_ZN3fmt3v116detail13copy_noinlineIcPcSt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEET1_T0_SD_SC_(ptr noundef nonnull %2, ptr noundef nonnull %81, ptr %70)
+          to label %_ZN3fmt3v116formatINS0_6detail6concatINS2_4textIcEENS2_5fieldIctLi0EEEEEJtEcTnNSt9enable_ifIXsr6detail18is_compiled_formatIT_EE5valueEiE4typeELi0EEENSt7__cxx1112basic_stringIT1_St11char_traitsISF_ESaISF_EEERKSA_DpRKT0_.exit unwind label %101
 
-103:                                              ; preds = %_ZNK3fmt3v116detail5fieldIctLi0EE6formatISt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEJtEEET_SD_DpRKT0_.exit.i, %68
-  %104 = landingpad { ptr, i32 }
+101:                                              ; preds = %_ZNK3fmt3v116detail5fieldIctLi0EE6formatISt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEJtEEET_SD_DpRKT0_.exit.i, %68
+  %102 = landingpad { ptr, i32 }
           cleanup
-  %105 = load ptr, ptr %0, align 8, !tbaa !10
-  %106 = icmp eq ptr %105, %4
-  br i1 %106, label %common.resume, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
+  %103 = load ptr, ptr %0, align 8, !tbaa !10
+  %104 = icmp eq ptr %103, %4
+  br i1 %104, label %common.resume, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %103
-  %107 = load i64, ptr %4, align 8, !tbaa !15
-  %108 = add i64 %107, 1
-  call void @_ZdlPvm(ptr noundef %105, i64 noundef %108) #24
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %101
+  %105 = load i64, ptr %4, align 8, !tbaa !15
+  %106 = add i64 %105, 1
+  call void @_ZdlPvm(ptr noundef %103, i64 noundef %106) #24
   br label %common.resume
 
-common.resume:                                    ; preds = %103, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-  resume { ptr, i32 } %104
+common.resume:                                    ; preds = %101, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
+  resume { ptr, i32 } %102
 
 _ZN3fmt3v116formatINS0_6detail6concatINS2_4textIcEENS2_5fieldIctLi0EEEEEJtEcTnNSt9enable_ifIXsr6detail18is_compiled_formatIT_EE5valueEiE4typeELi0EEENSt7__cxx1112basic_stringIT1_St11char_traitsISF_ESaISF_EEERKSA_DpRKT0_.exit: ; preds = %_ZNK3fmt3v116detail5fieldIctLi0EE6formatISt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEJtEEET_SD_DpRKT0_.exit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %109
+  br label %107
 
-109:                                              ; preds = %_ZN3fmt3v116formatINS0_6detail6concatINS2_4textIcEENS2_5fieldIctLi0EEEEEJtEcTnNSt9enable_ifIXsr6detail18is_compiled_formatIT_EE5valueEiE4typeELi0EEENSt7__cxx1112basic_stringIT1_St11char_traitsISF_ESaISF_EEERKSA_DpRKT0_.exit, %._crit_edge.i.i117, %._crit_edge.i.i113, %._crit_edge.i.i109, %._crit_edge.i.i105, %._crit_edge.i.i101, %._crit_edge.i.i97, %._crit_edge.i.i93, %._crit_edge.i.i89, %._crit_edge.i.i85, %._crit_edge.i.i81, %._crit_edge.i.i77, %._crit_edge.i.i73, %._crit_edge.i.i69, %._crit_edge.i.i65, %._crit_edge.i.i61, %._crit_edge.i.i57, %._crit_edge.i.i53, %._crit_edge.i.i49, %.noexc.i46, %._crit_edge.i.i41, %._crit_edge.i.i37, %._crit_edge.i.i33, %._crit_edge.i.i29, %._crit_edge.i.i25, %._crit_edge.i.i21, %._crit_edge.i.i17, %._crit_edge.i.i13, %._crit_edge.i.i9, %._crit_edge.i.i5, %._crit_edge.i.i
+107:                                              ; preds = %_ZN3fmt3v116formatINS0_6detail6concatINS2_4textIcEENS2_5fieldIctLi0EEEEEJtEcTnNSt9enable_ifIXsr6detail18is_compiled_formatIT_EE5valueEiE4typeELi0EEENSt7__cxx1112basic_stringIT1_St11char_traitsISF_ESaISF_EEERKSA_DpRKT0_.exit, %._crit_edge.i.i117, %._crit_edge.i.i113, %._crit_edge.i.i109, %._crit_edge.i.i105, %._crit_edge.i.i101, %._crit_edge.i.i97, %._crit_edge.i.i93, %._crit_edge.i.i89, %._crit_edge.i.i85, %._crit_edge.i.i81, %._crit_edge.i.i77, %._crit_edge.i.i73, %._crit_edge.i.i69, %._crit_edge.i.i65, %._crit_edge.i.i61, %._crit_edge.i.i57, %._crit_edge.i.i53, %._crit_edge.i.i49, %.noexc.i46, %._crit_edge.i.i41, %._crit_edge.i.i37, %._crit_edge.i.i33, %._crit_edge.i.i29, %._crit_edge.i.i25, %._crit_edge.i.i21, %._crit_edge.i.i17, %._crit_edge.i.i13, %._crit_edge.i.i9, %._crit_edge.i.i5, %._crit_edge.i.i
   ret void
 }
 

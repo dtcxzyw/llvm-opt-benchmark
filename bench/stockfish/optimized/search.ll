@@ -2712,7 +2712,8 @@ define dso_local noundef zeroext i1 @_ZN9Stockfish6Search8RootMove22extract_pond
   %8 = load ptr, ptr %7, align 8
   %9 = load i16, ptr %8, align 2
   %10 = icmp eq i16 %9, 0
-  br i1 %10, label %111, label %11
+  %.029.lcssa.i.i.i.i.sroa.gep10 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  br i1 %10, label %109, label %11
 
 11:                                               ; preds = %3
   %12 = tail call noundef zeroext i1 @_ZNK9Stockfish8Position11gives_checkENS_4MoveE(ptr noundef nonnull align 8 dereferenceable(865) %2, i16 %9) #22
@@ -2758,6 +2759,7 @@ _ZNK9Stockfish8Position3keyEv.exit:               ; preds = %11, %20
 .lr.ph.i.i.i.i:                                   ; preds = %31
   %40 = and i64 %37, -32
   %scevgep.i.i.i.i = getelementptr i8, ptr %6, i64 %40
+  %.029.lcssa.i.i.i.i.sroa.gep = getelementptr inbounds nuw i8, ptr %scevgep.i.i.i.i, i64 8
   br label %41
 
 41:                                               ; preds = %56, %.lr.ph.i.i.i.i
@@ -2777,13 +2779,13 @@ _ZNK9Stockfish8Position3keyEv.exit:               ; preds = %11, %20
   %49 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 16
   %50 = load i16, ptr %49, align 2
   %51 = icmp eq i16 %50, %.sroa.0.0.copyload.i
-  br i1 %51, label %_ZNK9Stockfish8MoveListILNS_7GenTypeE5EE8containsENS_4MoveE.exit.loopexit.split.loop.exit32, label %52
+  br i1 %51, label %_ZNK9Stockfish8MoveListILNS_7GenTypeE5EE8containsENS_4MoveE.exit.loopexit.split.loop.exit33, label %52
 
 52:                                               ; preds = %48
   %53 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 24
   %54 = load i16, ptr %53, align 2
   %55 = icmp eq i16 %54, %.sroa.0.0.copyload.i
-  br i1 %55, label %_ZNK9Stockfish8MoveListILNS_7GenTypeE5EE8containsENS_4MoveE.exit.loopexit.split.loop.exit34, label %56
+  br i1 %55, label %_ZNK9Stockfish8MoveListILNS_7GenTypeE5EE8containsENS_4MoveE.exit.loopexit.split.loop.exit35, label %56
 
 56:                                               ; preds = %52
   %57 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 32
@@ -2798,6 +2800,7 @@ _ZNK9Stockfish8Position3keyEv.exit:               ; preds = %11, %20
 
 ._crit_edge.i.i.i.i:                              ; preds = %._crit_edge.loopexit.i.i.i.i, %31
   %.pre-phi56.i.i.i.i = phi i64 [ %.pre55.i.i.i.i, %._crit_edge.loopexit.i.i.i.i ], [ %37, %31 ]
+  %.029.lcssa.i.i.i.i.sroa.phi = phi ptr [ %.029.lcssa.i.i.i.i.sroa.gep, %._crit_edge.loopexit.i.i.i.i ], [ %.029.lcssa.i.i.i.i.sroa.gep10, %31 ]
   %.029.lcssa.i.i.i.i = phi ptr [ %scevgep.i.i.i.i, %._crit_edge.loopexit.i.i.i.i ], [ %6, %31 ]
   %60 = ashr exact i64 %.pre-phi56.i.i.i.i, 3
   switch i64 %60, label %_ZNSt6vectorIN9Stockfish4MoveESaIS1_EE9push_backERKS1_.exit [
@@ -2809,123 +2812,119 @@ _ZNK9Stockfish8Position3keyEv.exit:               ; preds = %11, %20
 61:                                               ; preds = %._crit_edge.i.i.i.i
   %62 = load i16, ptr %.029.lcssa.i.i.i.i, align 2
   %63 = icmp eq i16 %62, %.sroa.0.0.copyload.i
-  br i1 %63, label %_ZNK9Stockfish8MoveListILNS_7GenTypeE5EE8containsENS_4MoveE.exit, label %64
+  br i1 %63, label %_ZNK9Stockfish8MoveListILNS_7GenTypeE5EE8containsENS_4MoveE.exit, label %._crit_edge._crit_edge.i.i.i.i
 
-64:                                               ; preds = %61
-  %65 = getelementptr inbounds nuw i8, ptr %.029.lcssa.i.i.i.i, i64 8
-  br label %._crit_edge._crit_edge.i.i.i.i
+._crit_edge._crit_edge.i.i.i.i:                   ; preds = %61, %._crit_edge.i.i.i.i
+  %.1.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %.029.lcssa.i.i.i.i.sroa.phi, %61 ]
+  %64 = load i16, ptr %.1.i.i.i.i, align 2
+  %65 = icmp eq i16 %64, %.sroa.0.0.copyload.i
+  br i1 %65, label %_ZNK9Stockfish8MoveListILNS_7GenTypeE5EE8containsENS_4MoveE.exit, label %66
 
-._crit_edge._crit_edge.i.i.i.i:                   ; preds = %64, %._crit_edge.i.i.i.i
-  %.1.i.i.i.i = phi ptr [ %65, %64 ], [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
-  %66 = load i16, ptr %.1.i.i.i.i, align 2
-  %67 = icmp eq i16 %66, %.sroa.0.0.copyload.i
-  br i1 %67, label %_ZNK9Stockfish8MoveListILNS_7GenTypeE5EE8containsENS_4MoveE.exit, label %68
-
-68:                                               ; preds = %._crit_edge._crit_edge.i.i.i.i
-  %69 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i, i64 8
+66:                                               ; preds = %._crit_edge._crit_edge.i.i.i.i
+  %67 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i, i64 8
   br label %._crit_edge._crit_edge52.i.i.i.i
 
-._crit_edge._crit_edge52.i.i.i.i:                 ; preds = %68, %._crit_edge.i.i.i.i
-  %.2.i.i.i.i = phi ptr [ %69, %68 ], [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
-  %70 = load i16, ptr %.2.i.i.i.i, align 2
-  %71 = icmp eq i16 %70, %.sroa.0.0.copyload.i
-  br i1 %71, label %_ZNK9Stockfish8MoveListILNS_7GenTypeE5EE8containsENS_4MoveE.exit, label %_ZNSt6vectorIN9Stockfish4MoveESaIS1_EE9push_backERKS1_.exit
+._crit_edge._crit_edge52.i.i.i.i:                 ; preds = %66, %._crit_edge.i.i.i.i
+  %.2.i.i.i.i = phi ptr [ %67, %66 ], [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
+  %68 = load i16, ptr %.2.i.i.i.i, align 2
+  %69 = icmp eq i16 %68, %.sroa.0.0.copyload.i
+  br i1 %69, label %_ZNK9Stockfish8MoveListILNS_7GenTypeE5EE8containsENS_4MoveE.exit, label %_ZNSt6vectorIN9Stockfish4MoveESaIS1_EE9push_backERKS1_.exit
 
 _ZNK9Stockfish8MoveListILNS_7GenTypeE5EE8containsENS_4MoveE.exit.loopexit.split.loop.exit: ; preds = %44
-  %72 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 8
   br label %_ZNK9Stockfish8MoveListILNS_7GenTypeE5EE8containsENS_4MoveE.exit
 
-_ZNK9Stockfish8MoveListILNS_7GenTypeE5EE8containsENS_4MoveE.exit.loopexit.split.loop.exit32: ; preds = %48
-  %73 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 16
+_ZNK9Stockfish8MoveListILNS_7GenTypeE5EE8containsENS_4MoveE.exit.loopexit.split.loop.exit33: ; preds = %48
+  %71 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 16
   br label %_ZNK9Stockfish8MoveListILNS_7GenTypeE5EE8containsENS_4MoveE.exit
 
-_ZNK9Stockfish8MoveListILNS_7GenTypeE5EE8containsENS_4MoveE.exit.loopexit.split.loop.exit34: ; preds = %52
-  %74 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 24
+_ZNK9Stockfish8MoveListILNS_7GenTypeE5EE8containsENS_4MoveE.exit.loopexit.split.loop.exit35: ; preds = %52
+  %72 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 24
   br label %_ZNK9Stockfish8MoveListILNS_7GenTypeE5EE8containsENS_4MoveE.exit
 
-_ZNK9Stockfish8MoveListILNS_7GenTypeE5EE8containsENS_4MoveE.exit: ; preds = %41, %_ZNK9Stockfish8MoveListILNS_7GenTypeE5EE8containsENS_4MoveE.exit.loopexit.split.loop.exit, %_ZNK9Stockfish8MoveListILNS_7GenTypeE5EE8containsENS_4MoveE.exit.loopexit.split.loop.exit32, %_ZNK9Stockfish8MoveListILNS_7GenTypeE5EE8containsENS_4MoveE.exit.loopexit.split.loop.exit34, %61, %._crit_edge._crit_edge.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i
-  %.028.i.i.i.i = phi ptr [ %.1.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %.029.lcssa.i.i.i.i, %61 ], [ %.2.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ], [ %74, %_ZNK9Stockfish8MoveListILNS_7GenTypeE5EE8containsENS_4MoveE.exit.loopexit.split.loop.exit34 ], [ %73, %_ZNK9Stockfish8MoveListILNS_7GenTypeE5EE8containsENS_4MoveE.exit.loopexit.split.loop.exit32 ], [ %72, %_ZNK9Stockfish8MoveListILNS_7GenTypeE5EE8containsENS_4MoveE.exit.loopexit.split.loop.exit ], [ %.02946.i.i.i.i, %41 ]
+_ZNK9Stockfish8MoveListILNS_7GenTypeE5EE8containsENS_4MoveE.exit: ; preds = %41, %_ZNK9Stockfish8MoveListILNS_7GenTypeE5EE8containsENS_4MoveE.exit.loopexit.split.loop.exit, %_ZNK9Stockfish8MoveListILNS_7GenTypeE5EE8containsENS_4MoveE.exit.loopexit.split.loop.exit33, %_ZNK9Stockfish8MoveListILNS_7GenTypeE5EE8containsENS_4MoveE.exit.loopexit.split.loop.exit35, %61, %._crit_edge._crit_edge.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i
+  %.028.i.i.i.i = phi ptr [ %.1.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %.029.lcssa.i.i.i.i, %61 ], [ %.2.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ], [ %72, %_ZNK9Stockfish8MoveListILNS_7GenTypeE5EE8containsENS_4MoveE.exit.loopexit.split.loop.exit35 ], [ %71, %_ZNK9Stockfish8MoveListILNS_7GenTypeE5EE8containsENS_4MoveE.exit.loopexit.split.loop.exit33 ], [ %70, %_ZNK9Stockfish8MoveListILNS_7GenTypeE5EE8containsENS_4MoveE.exit.loopexit.split.loop.exit ], [ %.02946.i.i.i.i, %41 ]
   %.not = icmp eq ptr %.028.i.i.i.i, %34
-  br i1 %.not, label %_ZNSt6vectorIN9Stockfish4MoveESaIS1_EE9push_backERKS1_.exit, label %75
+  br i1 %.not, label %_ZNSt6vectorIN9Stockfish4MoveESaIS1_EE9push_backERKS1_.exit, label %73
 
-75:                                               ; preds = %_ZNK9Stockfish8MoveListILNS_7GenTypeE5EE8containsENS_4MoveE.exit
-  %76 = getelementptr inbounds nuw i8, ptr %0, i64 40
+73:                                               ; preds = %_ZNK9Stockfish8MoveListILNS_7GenTypeE5EE8containsENS_4MoveE.exit
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %75 = load ptr, ptr %74, align 8
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %77 = load ptr, ptr %76, align 8
-  %78 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %79 = load ptr, ptr %78, align 8
-  %.not.i = icmp eq ptr %77, %79
-  br i1 %.not.i, label %83, label %80
+  %.not.i = icmp eq ptr %75, %77
+  br i1 %.not.i, label %81, label %78
 
-80:                                               ; preds = %75
-  store i16 %.sroa.0.0.copyload.i, ptr %77, align 2
-  %81 = load ptr, ptr %76, align 8
-  %82 = getelementptr inbounds nuw i8, ptr %81, i64 2
-  store ptr %82, ptr %76, align 8
+78:                                               ; preds = %73
+  store i16 %.sroa.0.0.copyload.i, ptr %75, align 2
+  %79 = load ptr, ptr %74, align 8
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 2
+  store ptr %80, ptr %74, align 8
   br label %_ZNSt6vectorIN9Stockfish4MoveESaIS1_EE9push_backERKS1_.exit
 
-83:                                               ; preds = %75
-  %84 = load ptr, ptr %7, align 8
-  %85 = ptrtoint ptr %77 to i64
-  %86 = ptrtoint ptr %84 to i64
-  %87 = sub i64 %85, %86
-  %88 = icmp eq i64 %87, 9223372036854775806
-  br i1 %88, label %89, label %_ZNKSt6vectorIN9Stockfish4MoveESaIS1_EE12_M_check_lenEmPKc.exit.i.i
+81:                                               ; preds = %73
+  %82 = load ptr, ptr %7, align 8
+  %83 = ptrtoint ptr %75 to i64
+  %84 = ptrtoint ptr %82 to i64
+  %85 = sub i64 %83, %84
+  %86 = icmp eq i64 %85, 9223372036854775806
+  br i1 %86, label %87, label %_ZNKSt6vectorIN9Stockfish4MoveESaIS1_EE12_M_check_lenEmPKc.exit.i.i
 
-89:                                               ; preds = %83
+87:                                               ; preds = %81
   call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.26) #26
   unreachable
 
-_ZNKSt6vectorIN9Stockfish4MoveESaIS1_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %83
-  %90 = ashr exact i64 %87, 1
-  %.sroa.speculated.i.i.i = call i64 @llvm.umax.i64(i64 %90, i64 1)
-  %91 = add i64 %.sroa.speculated.i.i.i, %90
-  %92 = icmp ult i64 %91, %90
-  %93 = call i64 @llvm.umin.i64(i64 %91, i64 4611686018427387903)
-  %94 = select i1 %92, i64 4611686018427387903, i64 %93
-  %.not.i.i.i = icmp ne i64 %94, 0
+_ZNKSt6vectorIN9Stockfish4MoveESaIS1_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %81
+  %88 = ashr exact i64 %85, 1
+  %.sroa.speculated.i.i.i = call i64 @llvm.umax.i64(i64 %88, i64 1)
+  %89 = add i64 %.sroa.speculated.i.i.i, %88
+  %90 = icmp ult i64 %89, %88
+  %91 = call i64 @llvm.umin.i64(i64 %89, i64 4611686018427387903)
+  %92 = select i1 %90, i64 4611686018427387903, i64 %91
+  %.not.i.i.i = icmp ne i64 %92, 0
   call void @llvm.assume(i1 %.not.i.i.i)
-  %95 = shl nuw nsw i64 %94, 1
-  %96 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %95) #23
-  %97 = getelementptr inbounds i8, ptr %96, i64 %87
-  store i16 %.sroa.0.0.copyload.i, ptr %97, align 2
-  %98 = icmp sgt i64 %87, 0
-  br i1 %98, label %99, label %_ZNSt6vectorIN9Stockfish4MoveESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
+  %93 = shl nuw nsw i64 %92, 1
+  %94 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %93) #23
+  %95 = getelementptr inbounds i8, ptr %94, i64 %85
+  store i16 %.sroa.0.0.copyload.i, ptr %95, align 2
+  %96 = icmp sgt i64 %85, 0
+  br i1 %96, label %97, label %_ZNSt6vectorIN9Stockfish4MoveESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
 
-99:                                               ; preds = %_ZNKSt6vectorIN9Stockfish4MoveESaIS1_EE12_M_check_lenEmPKc.exit.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 2 %96, ptr align 2 %84, i64 %87, i1 false)
+97:                                               ; preds = %_ZNKSt6vectorIN9Stockfish4MoveESaIS1_EE12_M_check_lenEmPKc.exit.i.i
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 2 %94, ptr align 2 %82, i64 %85, i1 false)
   br label %_ZNSt6vectorIN9Stockfish4MoveESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
 
-_ZNSt6vectorIN9Stockfish4MoveESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i: ; preds = %99, %_ZNKSt6vectorIN9Stockfish4MoveESaIS1_EE12_M_check_lenEmPKc.exit.i.i
-  %100 = getelementptr inbounds nuw i8, ptr %97, i64 2
-  %.not.i17.i.i = icmp eq ptr %84, null
-  br i1 %.not.i17.i.i, label %_ZNSt6vectorIN9Stockfish4MoveESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, label %101
+_ZNSt6vectorIN9Stockfish4MoveESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i: ; preds = %97, %_ZNKSt6vectorIN9Stockfish4MoveESaIS1_EE12_M_check_lenEmPKc.exit.i.i
+  %98 = getelementptr inbounds nuw i8, ptr %95, i64 2
+  %.not.i17.i.i = icmp eq ptr %82, null
+  br i1 %.not.i17.i.i, label %_ZNSt6vectorIN9Stockfish4MoveESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, label %99
 
-101:                                              ; preds = %_ZNSt6vectorIN9Stockfish4MoveESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
-  call void @_ZdlPv(ptr noundef nonnull %84) #25
+99:                                               ; preds = %_ZNSt6vectorIN9Stockfish4MoveESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
+  call void @_ZdlPv(ptr noundef nonnull %82) #25
   br label %_ZNSt6vectorIN9Stockfish4MoveESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i
 
-_ZNSt6vectorIN9Stockfish4MoveESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %101, %_ZNSt6vectorIN9Stockfish4MoveESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
-  store ptr %96, ptr %7, align 8
+_ZNSt6vectorIN9Stockfish4MoveESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %99, %_ZNSt6vectorIN9Stockfish4MoveESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
+  store ptr %94, ptr %7, align 8
+  store ptr %98, ptr %74, align 8
+  %100 = getelementptr inbounds nuw %"class.Stockfish::Move", ptr %94, i64 %92
   store ptr %100, ptr %76, align 8
-  %102 = getelementptr inbounds nuw %"class.Stockfish::Move", ptr %96, i64 %94
-  store ptr %102, ptr %78, align 8
   br label %_ZNSt6vectorIN9Stockfish4MoveESaIS1_EE9push_backERKS1_.exit
 
-_ZNSt6vectorIN9Stockfish4MoveESaIS1_EE9push_backERKS1_.exit: ; preds = %._crit_edge._crit_edge52.i.i.i.i, %._crit_edge.i.i.i.i, %_ZNSt6vectorIN9Stockfish4MoveESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, %80, %_ZNK9Stockfish8MoveListILNS_7GenTypeE5EE8containsENS_4MoveE.exit, %_ZNK9Stockfish8Position3keyEv.exit
-  %103 = load ptr, ptr %7, align 8
-  %.sroa.0.0.copyload = load i16, ptr %103, align 2
+_ZNSt6vectorIN9Stockfish4MoveESaIS1_EE9push_backERKS1_.exit: ; preds = %._crit_edge._crit_edge52.i.i.i.i, %._crit_edge.i.i.i.i, %_ZNSt6vectorIN9Stockfish4MoveESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, %78, %_ZNK9Stockfish8MoveListILNS_7GenTypeE5EE8containsENS_4MoveE.exit, %_ZNK9Stockfish8Position3keyEv.exit
+  %101 = load ptr, ptr %7, align 8
+  %.sroa.0.0.copyload = load i16, ptr %101, align 2
   call void @_ZN9Stockfish8Position9undo_moveENS_4MoveE(ptr noundef nonnull align 8 dereferenceable(865) %2, i16 %.sroa.0.0.copyload) #22
-  %104 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %105 = load ptr, ptr %104, align 8
-  %106 = load ptr, ptr %7, align 8
-  %107 = ptrtoint ptr %105 to i64
-  %108 = ptrtoint ptr %106 to i64
-  %109 = sub i64 %107, %108
-  %110 = icmp ugt i64 %109, 2
-  br label %111
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %103 = load ptr, ptr %102, align 8
+  %104 = load ptr, ptr %7, align 8
+  %105 = ptrtoint ptr %103 to i64
+  %106 = ptrtoint ptr %104 to i64
+  %107 = sub i64 %105, %106
+  %108 = icmp ugt i64 %107, 2
+  br label %109
 
-111:                                              ; preds = %3, %_ZNSt6vectorIN9Stockfish4MoveESaIS1_EE9push_backERKS1_.exit
-  %.0 = phi i1 [ %110, %_ZNSt6vectorIN9Stockfish4MoveESaIS1_EE9push_backERKS1_.exit ], [ false, %3 ]
+109:                                              ; preds = %3, %_ZNSt6vectorIN9Stockfish4MoveESaIS1_EE9push_backERKS1_.exit
+  %.0 = phi i1 [ %108, %_ZNSt6vectorIN9Stockfish4MoveESaIS1_EE9push_backERKS1_.exit ], [ false, %3 ]
   ret i1 %.0
 }
 
