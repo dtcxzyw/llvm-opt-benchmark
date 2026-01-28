@@ -314,8 +314,8 @@ define internal fastcc range(i32 0, 2) i32 @ScalePlaneBilinearUp(i32 noundef %0,
   %14 = shl i32 %1, 16
   %15 = add i32 %14, -65536
   call void @ScaleSlope(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %8, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13) #9
-  %16 = call range(i32 0, -2147483648) i32 @llvm.abs.i32(i32 %0, i1 true)
-  %17 = icmp samesign ugt i32 %16, 32767
+  %16 = add i32 %0, -32768
+  %17 = icmp ult i32 %16, -65535
   %spec.select = select i1 %17, ptr @ScaleFilterCols64_C, ptr @ScaleFilterCols_C
   %18 = load i32, ptr %11, align 4
   %19 = icmp sgt i32 %18, %15
@@ -947,8 +947,8 @@ define internal fastcc range(i32 0, 2) i32 @ScalePlaneBilinearUp_16(i32 noundef 
   %14 = shl i32 %1, 16
   %15 = add i32 %14, -65536
   call void @ScaleSlope(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %8, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13) #9
-  %16 = call range(i32 0, -2147483648) i32 @llvm.abs.i32(i32 %0, i1 true)
-  %17 = icmp samesign ugt i32 %16, 32767
+  %16 = add i32 %0, -32768
+  %17 = icmp ult i32 %16, -65535
   %spec.select = select i1 %17, ptr @ScaleFilterCols64_16_C, ptr @ScaleFilterCols_16_C
   %18 = load i32, ptr %11, align 4
   %19 = icmp sgt i32 %18, %15

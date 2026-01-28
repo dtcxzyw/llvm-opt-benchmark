@@ -2154,8 +2154,8 @@ _ZNK5ZXing11PatternView3sumEi.exit.i.i63:         ; preds = %.lr.ph.i.i.i.i.i57
   br label %224
 
 221:                                              ; preds = %224
-  %222 = call i32 @llvm.abs.i32(i32 %235, i1 true)
-  %223 = icmp samesign ugt i32 %222, 1
+  %222 = add i32 %235, -2
+  %223 = icmp ult i32 %222, -3
   br i1 %223, label %236, label %237
 
 224:                                              ; preds = %224, %_ZNK5ZXing11PatternView3sumEi.exit.i.i63
@@ -2464,8 +2464,8 @@ _ZNK5ZXing11PatternView3sumEi.exit.i.i:           ; preds = %.lr.ph.i.i.i.i.i
   br label %356
 
 353:                                              ; preds = %356
-  %354 = call i32 @llvm.abs.i32(i32 %367, i1 true)
-  %355 = icmp samesign ugt i32 %354, 1
+  %354 = add i32 %367, -2
+  %355 = icmp ult i32 %354, -3
   br i1 %355, label %368, label %369
 
 356:                                              ; preds = %356, %_ZNK5ZXing11PatternView3sumEi.exit.i.i
@@ -3468,8 +3468,8 @@ _ZNK5ZXing11PatternView3sumEi.exit.i:             ; preds = %.lr.ph.i.i.i.i
   br label %19
 
 16:                                               ; preds = %19
-  %17 = tail call i32 @llvm.abs.i32(i32 %30, i1 true)
-  %18 = icmp samesign ugt i32 %17, 1
+  %17 = add i32 %30, -2
+  %18 = icmp ult i32 %17, -3
   br i1 %18, label %31, label %32
 
 19:                                               ; preds = %19, %_ZNK5ZXing11PatternView3sumEi.exit.i

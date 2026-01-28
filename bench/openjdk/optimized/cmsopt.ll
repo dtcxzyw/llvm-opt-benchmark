@@ -37,7 +37,7 @@ define hidden void @_cmsAllocOptimizationPluginChunk(ptr noundef captures(none) 
   %.0154.i = phi ptr [ null, %.lr.ph.i ], [ %10, %16 ]
   %8 = phi ptr [ null, %.lr.ph.i ], [ %spec.select.i, %16 ]
   %9 = load ptr, ptr %6, align 8
-  %10 = tail call ptr @_cmsSubAllocDup(ptr noundef %9, ptr noundef nonnull %.05.i, i32 noundef 16) #11
+  %10 = tail call ptr @_cmsSubAllocDup(ptr noundef %9, ptr noundef nonnull %.05.i, i32 noundef 16) #10
   %11 = icmp eq ptr %10, null
   br i1 %11, label %DupPluginOptimizationList.exit, label %12
 
@@ -65,7 +65,7 @@ define hidden void @_cmsAllocOptimizationPluginChunk(ptr noundef captures(none) 
   store ptr %.lcssa.i, ptr %3, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %20 = load ptr, ptr %19, align 8
-  %21 = call ptr @_cmsSubAllocDup(ptr noundef %20, ptr noundef nonnull %3, i32 noundef 8) #11
+  %21 = call ptr @_cmsSubAllocDup(ptr noundef %20, ptr noundef nonnull %3, i32 noundef 8) #10
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr %21, ptr %22, align 8
   br label %DupPluginOptimizationList.exit
@@ -77,7 +77,7 @@ DupPluginOptimizationList.exit:                   ; preds = %7, %._crit_edge.i
 23:                                               ; preds = %2
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %25 = load ptr, ptr %24, align 8
-  %26 = tail call ptr @_cmsSubAllocDup(ptr noundef %25, ptr noundef nonnull @_cmsAllocOptimizationPluginChunk.OptimizationPluginChunkType, i32 noundef 8) #11
+  %26 = tail call ptr @_cmsSubAllocDup(ptr noundef %25, ptr noundef nonnull @_cmsAllocOptimizationPluginChunk.OptimizationPluginChunkType, i32 noundef 8) #10
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr %26, ptr %27, align 8
   br label %28
@@ -90,7 +90,7 @@ declare ptr @_cmsSubAllocDup(ptr noundef, ptr noundef, i32 noundef) local_unname
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @_cmsRegisterOptimizationPlugin(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
-  %3 = tail call ptr @_cmsContextGetClientChunk(ptr noundef %0, i32 noundef 12) #11
+  %3 = tail call ptr @_cmsContextGetClientChunk(ptr noundef %0, i32 noundef 12) #10
   %4 = icmp eq ptr %1, null
   br i1 %4, label %.sink.split, label %5
 
@@ -101,7 +101,7 @@ define hidden range(i32 0, 2) i32 @_cmsRegisterOptimizationPlugin(ptr noundef %0
   br i1 %8, label %16, label %9
 
 9:                                                ; preds = %5
-  %10 = tail call ptr @_cmsPluginMalloc(ptr noundef %0, i32 noundef 16) #11
+  %10 = tail call ptr @_cmsPluginMalloc(ptr noundef %0, i32 noundef 16) #10
   %11 = icmp eq ptr %10, null
   br i1 %11, label %16, label %12
 
@@ -129,7 +129,7 @@ declare ptr @_cmsPluginMalloc(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @_cmsOptimizePipeline(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
-  %7 = tail call ptr @_cmsContextGetClientChunk(ptr noundef %0, i32 noundef 12) #11
+  %7 = tail call ptr @_cmsContextGetClientChunk(ptr noundef %0, i32 noundef 12) #10
   %8 = load i32, ptr %5, align 4
   %9 = and i32 %8, 2
   %.not = icmp eq i32 %9, 0
@@ -147,22 +147,22 @@ define hidden range(i32 0, 2) i32 @_cmsOptimizePipeline(ptr noundef %0, ptr noun
   br i1 %16, label %17, label %18
 
 17:                                               ; preds = %14
-  tail call void @_cmsPipelineSetOptimizationParameters(ptr noundef nonnull %10, ptr noundef nonnull @FastIdentity16, ptr noundef nonnull %10, ptr noundef null, ptr noundef null) #11
+  tail call void @_cmsPipelineSetOptimizationParameters(ptr noundef nonnull %10, ptr noundef nonnull @FastIdentity16, ptr noundef nonnull %10, ptr noundef null, ptr noundef null) #10
   br label %.loopexit
 
 18:                                               ; preds = %14
-  %19 = tail call ptr @cmsPipelineGetPtrToFirstStage(ptr noundef nonnull %10) #11
+  %19 = tail call ptr @cmsPipelineGetPtrToFirstStage(ptr noundef nonnull %10) #10
   %.not4049 = icmp eq ptr %19, null
   br i1 %.not4049, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %18, %22
   %.050 = phi ptr [ %23, %22 ], [ %19, %18 ]
-  %20 = tail call i32 @cmsStageType(ptr noundef nonnull %.050) #11
+  %20 = tail call i32 @cmsStageType(ptr noundef nonnull %.050) #10
   %21 = icmp eq i32 %20, 1852009504
   br i1 %21, label %.loopexit, label %22
 
 22:                                               ; preds = %.lr.ph
-  %23 = tail call ptr @cmsStageNext(ptr noundef nonnull %.050) #11
+  %23 = tail call ptr @cmsStageNext(ptr noundef nonnull %.050) #10
   %.not40 = icmp eq ptr %23, null
   br i1 %.not40, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
@@ -175,7 +175,7 @@ define hidden range(i32 0, 2) i32 @_cmsOptimizePipeline(ptr noundef %0, ptr noun
   br i1 %28, label %29, label %30
 
 29:                                               ; preds = %._crit_edge
-  tail call void @_cmsPipelineSetOptimizationParameters(ptr noundef nonnull %26, ptr noundef nonnull @FastIdentity16, ptr noundef nonnull %26, ptr noundef null, ptr noundef null) #11
+  tail call void @_cmsPipelineSetOptimizationParameters(ptr noundef nonnull %26, ptr noundef nonnull @FastIdentity16, ptr noundef nonnull %26, ptr noundef null, ptr noundef null) #10
   br label %.loopexit
 
 30:                                               ; preds = %._crit_edge
@@ -201,14 +201,14 @@ define hidden range(i32 0, 2) i32 @_cmsOptimizePipeline(ptr noundef %0, ptr noun
 .lr.ph54:                                         ; preds = %.preheader46, %33
   %.03853 = phi ptr [ %.038, %33 ], [ %.03851, %.preheader46 ]
   %35 = load ptr, ptr %.03853, align 8
-  %36 = tail call i32 %35(ptr noundef nonnull %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef nonnull %5) #11
+  %36 = tail call i32 %35(ptr noundef nonnull %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef nonnull %5) #10
   %.not45 = icmp eq i32 %36, 0
   br i1 %.not45, label %33, label %.loopexit
 
 .preheader:                                       ; preds = %.preheader.preheader, %39
   %.155 = phi ptr [ %41, %39 ], [ @DefaultOptimization, %.preheader.preheader ]
   %37 = load ptr, ptr %.155, align 8
-  %38 = tail call i32 %37(ptr noundef nonnull %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef nonnull %5) #11
+  %38 = tail call i32 %37(ptr noundef nonnull %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef nonnull %5) #10
   %.not44 = icmp eq i32 %38, 0
   br i1 %.not44, label %39, label %.loopexit
 
@@ -255,7 +255,7 @@ define internal fastcc range(i32 0, 2) i32 @PreOptimize(ptr noundef captures(non
 13:                                               ; preds = %.lr.ph.i
   %14 = load ptr, ptr %12, align 8
   store ptr %14, ptr %.0610.i, align 8
-  call void @cmsStageFree(ptr noundef nonnull %8) #11
+  call void @cmsStageFree(ptr noundef nonnull %8) #10
   br label %15
 
 15:                                               ; preds = %13, %.lr.ph.i
@@ -295,12 +295,12 @@ _Remove1Op.exit:                                  ; preds = %15
   %31 = getelementptr inbounds nuw i8, ptr %20, i64 56
   %32 = load ptr, ptr %31, align 8
   store ptr %32, ptr %19, align 8
-  call void @cmsStageFree(ptr noundef nonnull %20) #11
+  call void @cmsStageFree(ptr noundef nonnull %20) #10
   %33 = load ptr, ptr %.01620.i, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 56
   %35 = load ptr, ptr %34, align 8
   store ptr %35, ptr %.01620.i, align 8
-  call void @cmsStageFree(ptr noundef %33) #11
+  call void @cmsStageFree(ptr noundef %33) #10
   %.pr.pre.i = load ptr, ptr %.01620.i, align 8
   br label %36
 
@@ -343,12 +343,12 @@ _Remove2Op.exit:                                  ; preds = %.preheader.i, %36
   %52 = getelementptr inbounds nuw i8, ptr %41, i64 56
   %53 = load ptr, ptr %52, align 8
   store ptr %53, ptr %40, align 8
-  call void @cmsStageFree(ptr noundef nonnull %41) #11
+  call void @cmsStageFree(ptr noundef nonnull %41) #10
   %54 = load ptr, ptr %.01620.i22, align 8
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 56
   %56 = load ptr, ptr %55, align 8
   store ptr %56, ptr %.01620.i22, align 8
-  call void @cmsStageFree(ptr noundef %54) #11
+  call void @cmsStageFree(ptr noundef %54) #10
   %.pr.pre.i28 = load ptr, ptr %.01620.i22, align 8
   br label %57
 
@@ -391,12 +391,12 @@ _Remove2Op.exit29:                                ; preds = %.preheader.i20, %57
   %73 = getelementptr inbounds nuw i8, ptr %62, i64 56
   %74 = load ptr, ptr %73, align 8
   store ptr %74, ptr %61, align 8
-  call void @cmsStageFree(ptr noundef nonnull %62) #11
+  call void @cmsStageFree(ptr noundef nonnull %62) #10
   %75 = load ptr, ptr %.01620.i32, align 8
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 56
   %77 = load ptr, ptr %76, align 8
   store ptr %77, ptr %.01620.i32, align 8
-  call void @cmsStageFree(ptr noundef %75) #11
+  call void @cmsStageFree(ptr noundef %75) #10
   %.pr.pre.i38 = load ptr, ptr %.01620.i32, align 8
   br label %78
 
@@ -439,12 +439,12 @@ _Remove2Op.exit39:                                ; preds = %.preheader.i30, %78
   %94 = getelementptr inbounds nuw i8, ptr %83, i64 56
   %95 = load ptr, ptr %94, align 8
   store ptr %95, ptr %82, align 8
-  call void @cmsStageFree(ptr noundef nonnull %83) #11
+  call void @cmsStageFree(ptr noundef nonnull %83) #10
   %96 = load ptr, ptr %.01620.i42, align 8
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 56
   %98 = load ptr, ptr %97, align 8
   store ptr %98, ptr %.01620.i42, align 8
-  call void @cmsStageFree(ptr noundef %96) #11
+  call void @cmsStageFree(ptr noundef %96) #10
   %.pr.pre.i48 = load ptr, ptr %.01620.i42, align 8
   br label %99
 
@@ -487,12 +487,12 @@ _Remove2Op.exit49:                                ; preds = %.preheader.i40, %99
   %115 = getelementptr inbounds nuw i8, ptr %104, i64 56
   %116 = load ptr, ptr %115, align 8
   store ptr %116, ptr %103, align 8
-  call void @cmsStageFree(ptr noundef nonnull %104) #11
+  call void @cmsStageFree(ptr noundef nonnull %104) #10
   %117 = load ptr, ptr %.01620.i52, align 8
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 56
   %119 = load ptr, ptr %118, align 8
   store ptr %119, ptr %.01620.i52, align 8
-  call void @cmsStageFree(ptr noundef %117) #11
+  call void @cmsStageFree(ptr noundef %117) #10
   %.pr.pre.i58 = load ptr, ptr %.01620.i52, align 8
   br label %120
 
@@ -539,12 +539,12 @@ _Remove2Op.exit69.thread:                         ; preds = %_Remove2Op.exit59
   %136 = getelementptr inbounds nuw i8, ptr %125, i64 56
   %137 = load ptr, ptr %136, align 8
   store ptr %137, ptr %124, align 8
-  call void @cmsStageFree(ptr noundef nonnull %125) #11
+  call void @cmsStageFree(ptr noundef nonnull %125) #10
   %138 = load ptr, ptr %.01620.i62, align 8
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 56
   %140 = load ptr, ptr %139, align 8
   store ptr %140, ptr %.01620.i62, align 8
-  call void @cmsStageFree(ptr noundef %138) #11
+  call void @cmsStageFree(ptr noundef %138) #10
   %.pr.pre.i68 = load ptr, ptr %.01620.i62, align 8
   br label %141
 
@@ -595,9 +595,9 @@ _Remove2Op.exit69:                                ; preds = %.preheader.i60, %14
   br i1 %155, label %156, label %204
 
 156:                                              ; preds = %152
-  %157 = call ptr @cmsStageData(ptr noundef nonnull %144) #11
+  %157 = call ptr @cmsStageData(ptr noundef nonnull %144) #10
   %158 = load ptr, ptr %145, align 8
-  %159 = call ptr @cmsStageData(ptr noundef %158) #11
+  %159 = call ptr @cmsStageData(ptr noundef %158) #10
   %160 = getelementptr inbounds nuw i8, ptr %157, i64 8
   %161 = load ptr, ptr %160, align 8
   %.not36.i = icmp eq ptr %161, null
@@ -611,44 +611,44 @@ _Remove2Op.exit69:                                ; preds = %.preheader.i60, %14
 
 165:                                              ; preds = %162
   %166 = load ptr, ptr %.03046.i, align 8
-  %167 = call i32 @cmsStageInputChannels(ptr noundef %166) #11
+  %167 = call i32 @cmsStageInputChannels(ptr noundef %166) #10
   %.not38.i = icmp eq i32 %167, 3
   br i1 %.not38.i, label %168, label %_MultiplyMatrix.exit.loopexit
 
 168:                                              ; preds = %165
   %169 = load ptr, ptr %.03046.i, align 8
-  %170 = call i32 @cmsStageOutputChannels(ptr noundef %169) #11
+  %170 = call i32 @cmsStageOutputChannels(ptr noundef %169) #10
   %.not39.i = icmp eq i32 %170, 3
   br i1 %.not39.i, label %171, label %_MultiplyMatrix.exit.loopexit
 
 171:                                              ; preds = %168
   %172 = load ptr, ptr %145, align 8
-  %173 = call i32 @cmsStageInputChannels(ptr noundef %172) #11
+  %173 = call i32 @cmsStageInputChannels(ptr noundef %172) #10
   %.not40.i = icmp eq i32 %173, 3
   br i1 %.not40.i, label %174, label %_MultiplyMatrix.exit.loopexit
 
 174:                                              ; preds = %171
   %175 = load ptr, ptr %145, align 8
-  %176 = call i32 @cmsStageOutputChannels(ptr noundef %175) #11
+  %176 = call i32 @cmsStageOutputChannels(ptr noundef %175) #10
   %.not41.i = icmp eq i32 %176, 3
   br i1 %.not41.i, label %177, label %_MultiplyMatrix.exit.loopexit
 
 177:                                              ; preds = %174
   %178 = load ptr, ptr %159, align 8
   %179 = load ptr, ptr %157, align 8
-  call void @_cmsMAT3per(ptr noundef nonnull %3, ptr noundef %178, ptr noundef %179) #11
+  call void @_cmsMAT3per(ptr noundef nonnull %3, ptr noundef %178, ptr noundef %179) #10
   %180 = load ptr, ptr %145, align 8
   %181 = getelementptr inbounds nuw i8, ptr %180, i64 56
   %182 = load ptr, ptr %181, align 8
   store ptr %182, ptr %145, align 8
-  call void @cmsStageFree(ptr noundef %180) #11
+  call void @cmsStageFree(ptr noundef %180) #10
   %183 = load ptr, ptr %.03046.i, align 8
   %184 = getelementptr inbounds nuw i8, ptr %183, i64 56
   %185 = load ptr, ptr %184, align 8
   store ptr %185, ptr %.03046.i, align 8
-  call void @cmsStageFree(ptr noundef %183) #11
+  call void @cmsStageFree(ptr noundef %183) #10
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  call void @_cmsMAT3identity(ptr noundef nonnull %2) #11
+  call void @_cmsMAT3identity(ptr noundef nonnull %2) #10
   br label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %197, %177
@@ -686,7 +686,7 @@ isFloatMatrixIdentity.exit.i:                     ; preds = %197
 198:                                              ; preds = %189
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %199 = load ptr, ptr %4, align 8
-  %200 = call ptr @cmsStageAllocMatrix(ptr noundef %199, i32 noundef 3, i32 noundef 3, ptr noundef nonnull %3, ptr noundef null) #11
+  %200 = call ptr @cmsStageAllocMatrix(ptr noundef %199, i32 noundef 3, i32 noundef 3, ptr noundef nonnull %3, ptr noundef null) #10
   %201 = icmp eq ptr %200, null
   br i1 %201, label %_MultiplyMatrix.exit.loopexit, label %202
 
@@ -726,13 +726,13 @@ define internal range(i32 0, 2) i32 @OptimizeByResampling(ptr noundef captures(n
   store ptr null, ptr %6, align 8
   store ptr null, ptr %7, align 8
   %8 = load i32, ptr %2, align 4
-  %9 = tail call i32 @_cmsFormatterIsFloat(i32 noundef %8) #11
+  %9 = tail call i32 @_cmsFormatterIsFloat(i32 noundef %8) #10
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %10, label %136
 
 10:                                               ; preds = %5
   %11 = load i32, ptr %3, align 4
-  %12 = tail call i32 @_cmsFormatterIsFloat(i32 noundef %11) #11
+  %12 = tail call i32 @_cmsFormatterIsFloat(i32 noundef %11) #10
   %.not89 = icmp eq i32 %12, 0
   br i1 %.not89, label %13, label %136
 
@@ -740,11 +740,11 @@ define internal range(i32 0, 2) i32 @OptimizeByResampling(ptr noundef captures(n
   %14 = load i32, ptr %2, align 4
   %15 = lshr i32 %14, 16
   %16 = and i32 %15, 31
-  %17 = tail call i32 @_cmsICCcolorSpace(i32 noundef %16) #11
+  %17 = tail call i32 @_cmsICCcolorSpace(i32 noundef %16) #10
   %18 = load i32, ptr %3, align 4
   %19 = lshr i32 %18, 16
   %20 = and i32 %19, 31
-  %21 = tail call i32 @_cmsICCcolorSpace(i32 noundef %20) #11
+  %21 = tail call i32 @_cmsICCcolorSpace(i32 noundef %20) #10
   %22 = icmp eq i32 %17, 0
   %23 = icmp eq i32 %21, 0
   %or.cond = select i1 %22, i1 true, i1 %23
@@ -752,9 +752,9 @@ define internal range(i32 0, 2) i32 @OptimizeByResampling(ptr noundef captures(n
 
 24:                                               ; preds = %13
   %25 = load i32, ptr %4, align 4
-  %26 = tail call i32 @_cmsReasonableGridpointsByColorspace(i32 noundef %17, i32 noundef %25) #11
+  %26 = tail call i32 @_cmsReasonableGridpointsByColorspace(i32 noundef %17, i32 noundef %25) #10
   %27 = load ptr, ptr %0, align 8
-  %28 = tail call i32 @cmsPipelineStageCount(ptr noundef %27) #11
+  %28 = tail call i32 @cmsPipelineStageCount(ptr noundef %27) #10
   %29 = icmp eq i32 %28, 0
   %spec.select = select i1 %29, i32 2, i32 %26
   %30 = load ptr, ptr %0, align 8
@@ -764,7 +764,7 @@ define internal range(i32 0, 2) i32 @OptimizeByResampling(ptr noundef captures(n
   %34 = load i32, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %30, i64 12
   %36 = load i32, ptr %35, align 4
-  %37 = tail call ptr @cmsPipelineAlloc(ptr noundef %32, i32 noundef %34, i32 noundef %36) #11
+  %37 = tail call ptr @cmsPipelineAlloc(ptr noundef %32, i32 noundef %34, i32 noundef %36) #10
   %.not90 = icmp eq ptr %37, null
   br i1 %.not90, label %136, label %38
 
@@ -775,7 +775,7 @@ define internal range(i32 0, 2) i32 @OptimizeByResampling(ptr noundef captures(n
   br i1 %.not91, label %53, label %41
 
 41:                                               ; preds = %38
-  %42 = tail call ptr @cmsPipelineGetPtrToFirstStage(ptr noundef nonnull %30) #11
+  %42 = tail call ptr @cmsPipelineGetPtrToFirstStage(ptr noundef nonnull %30) #10
   %.not92 = icmp eq ptr %42, null
   br i1 %.not92, label %53, label %43
 
@@ -791,13 +791,13 @@ define internal range(i32 0, 2) i32 @OptimizeByResampling(ptr noundef captures(n
   br i1 %.not93, label %49, label %53
 
 49:                                               ; preds = %47
-  %50 = tail call ptr @cmsStageDup(ptr noundef nonnull %42) #11
-  %51 = tail call i32 @cmsPipelineInsertStage(ptr noundef nonnull %37, i32 noundef 0, ptr noundef %50) #11
+  %50 = tail call ptr @cmsStageDup(ptr noundef nonnull %42) #10
+  %51 = tail call i32 @cmsPipelineInsertStage(ptr noundef nonnull %37, i32 noundef 0, ptr noundef %50) #10
   %.not94 = icmp eq i32 %51, 0
   br i1 %.not94, label %77, label %52
 
 52:                                               ; preds = %49
-  call void @cmsPipelineUnlinkStage(ptr noundef nonnull %30, i32 noundef 0, ptr noundef nonnull %6) #11
+  call void @cmsPipelineUnlinkStage(ptr noundef nonnull %30, i32 noundef 0, ptr noundef nonnull %6) #10
   br label %53
 
 53:                                               ; preds = %41, %43, %52, %47, %38
@@ -805,12 +805,12 @@ define internal range(i32 0, 2) i32 @OptimizeByResampling(ptr noundef captures(n
   %54 = load ptr, ptr %31, align 8
   %55 = load i32, ptr %33, align 8
   %56 = load i32, ptr %35, align 4
-  %57 = call ptr @cmsStageAllocCLut16bit(ptr noundef %54, i32 noundef %spec.select, i32 noundef %55, i32 noundef %56, ptr noundef null) #11
+  %57 = call ptr @cmsStageAllocCLut16bit(ptr noundef %54, i32 noundef %spec.select, i32 noundef %55, i32 noundef %56, ptr noundef null) #10
   %58 = icmp eq ptr %57, null
   br i1 %58, label %77, label %59
 
 59:                                               ; preds = %53
-  %60 = call i32 @cmsPipelineInsertStage(ptr noundef nonnull %37, i32 noundef 1, ptr noundef nonnull %57) #11
+  %60 = call i32 @cmsPipelineInsertStage(ptr noundef nonnull %37, i32 noundef 1, ptr noundef nonnull %57) #10
   %.not95 = icmp eq i32 %60, 0
   br i1 %.not95, label %77, label %61
 
@@ -821,12 +821,12 @@ define internal range(i32 0, 2) i32 @OptimizeByResampling(ptr noundef captures(n
   br i1 %.not96, label %75, label %64
 
 64:                                               ; preds = %61
-  %65 = call ptr @cmsPipelineGetPtrToLastStage(ptr noundef nonnull %30) #11
+  %65 = call ptr @cmsPipelineGetPtrToLastStage(ptr noundef nonnull %30) #10
   %.not97 = icmp eq ptr %65, null
   br i1 %.not97, label %75, label %66
 
 66:                                               ; preds = %64
-  %67 = call i32 @cmsStageType(ptr noundef nonnull %65) #11
+  %67 = call i32 @cmsStageType(ptr noundef nonnull %65) #10
   %68 = icmp eq i32 %67, 1668707188
   br i1 %68, label %69, label %75
 
@@ -836,18 +836,18 @@ define internal range(i32 0, 2) i32 @OptimizeByResampling(ptr noundef captures(n
   br i1 %.not98, label %71, label %75
 
 71:                                               ; preds = %69
-  %72 = call ptr @cmsStageDup(ptr noundef nonnull %65) #11
-  %73 = call i32 @cmsPipelineInsertStage(ptr noundef nonnull %37, i32 noundef 1, ptr noundef %72) #11
+  %72 = call ptr @cmsStageDup(ptr noundef nonnull %65) #10
+  %73 = call i32 @cmsPipelineInsertStage(ptr noundef nonnull %37, i32 noundef 1, ptr noundef %72) #10
   %.not99 = icmp eq i32 %73, 0
   br i1 %.not99, label %77, label %74
 
 74:                                               ; preds = %71
-  call void @cmsPipelineUnlinkStage(ptr noundef nonnull %30, i32 noundef 1, ptr noundef nonnull %7) #11
+  call void @cmsPipelineUnlinkStage(ptr noundef nonnull %30, i32 noundef 1, ptr noundef nonnull %7) #10
   br label %75
 
 75:                                               ; preds = %64, %66, %74, %69, %61
   %.077 = phi ptr [ null, %69 ], [ %72, %74 ], [ null, %66 ], [ null, %64 ], [ null, %61 ]
-  %76 = call i32 @cmsStageSampleCLut16bit(ptr noundef nonnull %57, ptr noundef nonnull @XFormSampler16, ptr noundef nonnull %30, i32 noundef 0) #11
+  %76 = call i32 @cmsStageSampleCLut16bit(ptr noundef nonnull %57, ptr noundef nonnull @XFormSampler16, ptr noundef nonnull %30, i32 noundef 0) #10
   %.not100 = icmp eq i32 %76, 0
   br i1 %.not100, label %77, label %86
 
@@ -857,7 +857,7 @@ define internal range(i32 0, 2) i32 @OptimizeByResampling(ptr noundef captures(n
   br i1 %.not104, label %81, label %79
 
 79:                                               ; preds = %77
-  %80 = call i32 @cmsPipelineInsertStage(ptr noundef nonnull %30, i32 noundef 0, ptr noundef nonnull %78) #11
+  %80 = call i32 @cmsPipelineInsertStage(ptr noundef nonnull %30, i32 noundef 0, ptr noundef nonnull %78) #10
   br label %81
 
 81:                                               ; preds = %79, %77
@@ -866,11 +866,11 @@ define internal range(i32 0, 2) i32 @OptimizeByResampling(ptr noundef captures(n
   br i1 %.not105, label %85, label %83
 
 83:                                               ; preds = %81
-  %84 = call i32 @cmsPipelineInsertStage(ptr noundef nonnull %30, i32 noundef 1, ptr noundef nonnull %82) #11
+  %84 = call i32 @cmsPipelineInsertStage(ptr noundef nonnull %30, i32 noundef 1, ptr noundef nonnull %82) #10
   br label %85
 
 85:                                               ; preds = %83, %81
-  call void @cmsPipelineFree(ptr noundef nonnull %37) #11
+  call void @cmsPipelineFree(ptr noundef nonnull %37) #10
   br label %136
 
 86:                                               ; preds = %75
@@ -879,7 +879,7 @@ define internal range(i32 0, 2) i32 @OptimizeByResampling(ptr noundef captures(n
   br i1 %.not101, label %89, label %88
 
 88:                                               ; preds = %86
-  call void @cmsStageFree(ptr noundef nonnull %87) #11
+  call void @cmsStageFree(ptr noundef nonnull %87) #10
   br label %89
 
 89:                                               ; preds = %88, %86
@@ -888,11 +888,11 @@ define internal range(i32 0, 2) i32 @OptimizeByResampling(ptr noundef captures(n
   br i1 %.not102, label %92, label %91
 
 91:                                               ; preds = %89
-  call void @cmsStageFree(ptr noundef nonnull %90) #11
+  call void @cmsStageFree(ptr noundef nonnull %90) #10
   br label %92
 
 92:                                               ; preds = %91, %89
-  call void @cmsPipelineFree(ptr noundef nonnull %30) #11
+  call void @cmsPipelineFree(ptr noundef nonnull %30) #10
   %93 = getelementptr inbounds nuw i8, ptr %57, i64 48
   %94 = load ptr, ptr %93, align 8
   %95 = icmp eq ptr %.078, null
@@ -929,7 +929,7 @@ define internal range(i32 0, 2) i32 @OptimizeByResampling(ptr noundef captures(n
   %113 = load ptr, ptr %112, align 8
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 208
   %115 = load ptr, ptr %114, align 8
-  call void @_cmsPipelineSetOptimizationParameters(ptr noundef nonnull %37, ptr noundef %115, ptr noundef %113, ptr noundef null, ptr noundef null) #11
+  call void @_cmsPipelineSetOptimizationParameters(ptr noundef nonnull %37, ptr noundef %115, ptr noundef %113, ptr noundef null, ptr noundef null) #10
   br label %126
 
 116:                                              ; preds = %108
@@ -942,7 +942,7 @@ define internal range(i32 0, 2) i32 @OptimizeByResampling(ptr noundef captures(n
   %123 = getelementptr inbounds nuw i8, ptr %37, i64 12
   %124 = load i32, ptr %123, align 4
   %125 = call fastcc ptr @PrelinOpt16alloc(ptr noundef %118, ptr noundef %120, i32 noundef %122, ptr noundef %.075, i32 noundef %124, ptr noundef %.074)
-  call void @_cmsPipelineSetOptimizationParameters(ptr noundef nonnull %37, ptr noundef nonnull @PrelinEval16, ptr noundef %125, ptr noundef nonnull @PrelinOpt16free, ptr noundef nonnull @Prelin16dup) #11
+  call void @_cmsPipelineSetOptimizationParameters(ptr noundef nonnull %37, ptr noundef nonnull @PrelinEval16, ptr noundef %125, ptr noundef nonnull @PrelinOpt16free, ptr noundef nonnull @Prelin16dup) #10
   br label %126
 
 126:                                              ; preds = %116, %111
@@ -1037,12 +1037,12 @@ declare ptr @cmsPipelineAlloc(ptr noundef, i32 noundef, i32 noundef) local_unnam
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @AllCurvesAreLinear(ptr noundef nonnull %0) unnamed_addr #0 {
-  %2 = tail call ptr @_cmsStageGetPtrToCurveSet(ptr noundef nonnull %0) #11
+  %2 = tail call ptr @_cmsStageGetPtrToCurveSet(ptr noundef nonnull %0) #10
   %3 = icmp eq ptr %2, null
   br i1 %3, label %.loopexit, label %4
 
 4:                                                ; preds = %1
-  %5 = tail call i32 @cmsStageOutputChannels(ptr noundef nonnull %0) #11
+  %5 = tail call i32 @cmsStageOutputChannels(ptr noundef nonnull %0) #10
   %.not13 = icmp eq i32 %5, 0
   br i1 %.not13, label %.loopexit, label %.lr.ph.preheader
 
@@ -1059,7 +1059,7 @@ define internal fastcc range(i32 0, 2) i32 @AllCurvesAreLinear(ptr noundef nonnu
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %6 ]
   %7 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8
-  %9 = tail call i32 @cmsIsToneCurveLinear(ptr noundef %8) #11
+  %9 = tail call i32 @cmsIsToneCurveLinear(ptr noundef %8) #10
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %.loopexit, label %6
 
@@ -1107,7 +1107,7 @@ define internal noundef i32 @XFormSampler16(ptr noundef readonly captures(none) 
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
-  call void @cmsPipelineEvalFloat(ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %2) #11
+  call void @cmsPipelineEvalFloat(ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %2) #10
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %15 = load i32, ptr %14, align 4
   %.not18 = icmp eq i32 %15, 0
@@ -1153,7 +1153,7 @@ declare void @cmsPipelineFree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @PrelinOpt16alloc(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, i32 noundef %4, ptr noundef readonly captures(address_is_null) %5) unnamed_addr #0 {
-  %7 = tail call ptr @_cmsMallocZero(ptr noundef %0, i32 noundef 288) #11
+  %7 = tail call ptr @_cmsMallocZero(ptr noundef %0, i32 noundef 288) #10
   %8 = icmp eq ptr %7, null
   br i1 %8, label %.loopexit, label %9
 
@@ -1204,14 +1204,14 @@ define internal fastcc ptr @PrelinOpt16alloc(ptr noundef %0, ptr noundef %1, i32
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %7, i64 256
   store ptr %26, ptr %27, align 8
-  %28 = tail call ptr @_cmsCalloc(ptr noundef %0, i32 noundef %4, i32 noundef 8) #11
+  %28 = tail call ptr @_cmsCalloc(ptr noundef %0, i32 noundef %4, i32 noundef 8) #10
   %29 = getelementptr inbounds nuw i8, ptr %7, i64 272
   store ptr %28, ptr %29, align 8
   %30 = icmp eq ptr %28, null
   br i1 %30, label %.loopexit.sink.split, label %31
 
 31:                                               ; preds = %._crit_edge
-  %32 = tail call ptr @_cmsCalloc(ptr noundef %0, i32 noundef %4, i32 noundef 8) #11
+  %32 = tail call ptr @_cmsCalloc(ptr noundef %0, i32 noundef %4, i32 noundef 8) #10
   %33 = getelementptr inbounds nuw i8, ptr %7, i64 280
   store ptr %32, ptr %33, align 8
   %34 = icmp eq ptr %32, null
@@ -1240,7 +1240,7 @@ define internal fastcc ptr @PrelinOpt16alloc(ptr noundef %0, ptr noundef %1, i32
 
 40:                                               ; preds = %31
   %41 = load ptr, ptr %29, align 8
-  tail call void @_cmsFree(ptr noundef %0, ptr noundef %41) #11
+  tail call void @_cmsFree(ptr noundef %0, ptr noundef %41) #10
   br label %.loopexit.sink.split
 
 .lr.ph63.split:                                   ; preds = %.lr.ph63, %.lr.ph63.split
@@ -1264,7 +1264,7 @@ define internal fastcc ptr @PrelinOpt16alloc(ptr noundef %0, ptr noundef %1, i32
   br i1 %exitcond77.not, label %.loopexit, label %.lr.ph63.split, !llvm.loop !23
 
 .loopexit.sink.split:                             ; preds = %._crit_edge, %40
-  tail call void @_cmsFree(ptr noundef %0, ptr noundef nonnull %7) #11
+  tail call void @_cmsFree(ptr noundef %0, ptr noundef nonnull %7) #10
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph63.split, %.lr.ph63.split.us, %.loopexit.sink.split, %.preheader, %6
@@ -1294,7 +1294,7 @@ define internal void @PrelinEval16(ptr noundef %0, ptr noundef %1, ptr noundef r
   %14 = getelementptr inbounds nuw i16, ptr %4, i64 %indvars.iv
   %15 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
   %16 = load ptr, ptr %15, align 8
-  call void %12(ptr noundef %13, ptr noundef nonnull %14, ptr noundef %16) #11
+  call void %12(ptr noundef %13, ptr noundef nonnull %14, ptr noundef %16) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %17 = load i32, ptr %6, align 8
   %18 = zext i32 %17 to i64
@@ -1306,7 +1306,7 @@ define internal void @PrelinEval16(ptr noundef %0, ptr noundef %1, ptr noundef r
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 264
   %23 = load ptr, ptr %22, align 8
-  call void %21(ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef %23) #11
+  call void %21(ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef %23) #10
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %25 = load i32, ptr %24, align 4
   %.not27 = icmp eq i32 %25, 0
@@ -1327,7 +1327,7 @@ define internal void @PrelinEval16(ptr noundef %0, ptr noundef %1, ptr noundef r
   %34 = load ptr, ptr %27, align 8
   %35 = getelementptr inbounds nuw ptr, ptr %34, i64 %indvars.iv29
   %36 = load ptr, ptr %35, align 8
-  call void %31(ptr noundef nonnull %32, ptr noundef %33, ptr noundef %36) #11
+  call void %31(ptr noundef nonnull %32, ptr noundef %33, ptr noundef %36) #10
   %indvars.iv.next30 = add nuw nsw i64 %indvars.iv29, 1
   %37 = load i32, ptr %24, align 4
   %38 = zext i32 %37 to i64
@@ -1342,17 +1342,17 @@ define internal void @PrelinEval16(ptr noundef %0, ptr noundef %1, ptr noundef r
 define internal void @PrelinOpt16free(ptr noundef %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 272
   %4 = load ptr, ptr %3, align 8
-  tail call void @_cmsFree(ptr noundef %0, ptr noundef %4) #11
+  tail call void @_cmsFree(ptr noundef %0, ptr noundef %4) #10
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %6 = load ptr, ptr %5, align 8
-  tail call void @_cmsFree(ptr noundef %0, ptr noundef %6) #11
-  tail call void @_cmsFree(ptr noundef %0, ptr noundef %1) #11
+  tail call void @_cmsFree(ptr noundef %0, ptr noundef %6) #10
+  tail call void @_cmsFree(ptr noundef %0, ptr noundef %1) #10
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @Prelin16dup(ptr noundef %0, ptr noundef %1) #0 {
-  %3 = tail call ptr @_cmsDupMem(ptr noundef %0, ptr noundef %1, i32 noundef 288) #11
+  %3 = tail call ptr @_cmsDupMem(ptr noundef %0, ptr noundef %1, i32 noundef 288) #10
   %4 = icmp eq ptr %3, null
   br i1 %4, label %19, label %5
 
@@ -1362,14 +1362,14 @@ define internal ptr @Prelin16dup(ptr noundef %0, ptr noundef %1) #0 {
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %9 = load i32, ptr %8, align 4
   %10 = shl i32 %9, 3
-  %11 = tail call ptr @_cmsDupMem(ptr noundef %0, ptr noundef %7, i32 noundef %10) #11
+  %11 = tail call ptr @_cmsDupMem(ptr noundef %0, ptr noundef %7, i32 noundef %10) #10
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 272
   store ptr %11, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %14 = load ptr, ptr %13, align 8
   %15 = load i32, ptr %8, align 4
   %16 = shl i32 %15, 3
-  %17 = tail call ptr @_cmsDupMem(ptr noundef %0, ptr noundef %14, i32 noundef %16) #11
+  %17 = tail call ptr @_cmsDupMem(ptr noundef %0, ptr noundef %14, i32 noundef %16) #10
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 280
   store ptr %17, ptr %18, align 8
   br label %19
@@ -1393,12 +1393,12 @@ define internal fastcc range(i32 0, 2) i32 @FixWhiteMisalignment(ptr noundef non
   store ptr null, ptr %11, align 8
   store ptr null, ptr %12, align 8
   store ptr null, ptr %13, align 8
-  %14 = call i32 @_cmsEndPointsBySpace(i32 noundef %1, ptr noundef nonnull %4, ptr noundef null, ptr noundef nonnull %10) #11
+  %14 = call i32 @_cmsEndPointsBySpace(i32 noundef %1, ptr noundef nonnull %4, ptr noundef null, ptr noundef nonnull %10) #10
   %.not = icmp eq i32 %14, 0
   br i1 %.not, label %PatchLUT.exit, label %15
 
 15:                                               ; preds = %3
-  %16 = call i32 @_cmsEndPointsBySpace(i32 noundef %2, ptr noundef nonnull %5, ptr noundef null, ptr noundef nonnull %9) #11
+  %16 = call i32 @_cmsEndPointsBySpace(i32 noundef %2, ptr noundef nonnull %5, ptr noundef null, ptr noundef nonnull %9) #10
   %.not38 = icmp eq i32 %16, 0
   br i1 %.not38, label %PatchLUT.exit, label %17
 
@@ -1418,7 +1418,7 @@ define internal fastcc range(i32 0, 2) i32 @FixWhiteMisalignment(ptr noundef non
 
 25:                                               ; preds = %21
   %26 = load ptr, ptr %4, align 8
-  call void @cmsPipelineEval16(ptr noundef %26, ptr noundef nonnull %8, ptr noundef nonnull %0) #11
+  call void @cmsPipelineEval16(ptr noundef %26, ptr noundef nonnull %8, ptr noundef nonnull %0) #10
   %27 = load i32, ptr %9, align 4
   %28 = load ptr, ptr %5, align 8
   %.not17.i = icmp eq i32 %27, 0
@@ -1441,9 +1441,9 @@ define internal fastcc range(i32 0, 2) i32 @FixWhiteMisalignment(ptr noundef non
   %33 = getelementptr inbounds nuw i16, ptr %8, i64 %indvars.iv.i
   %34 = load i16, ptr %33, align 2
   %35 = zext i16 %34 to i32
-  %36 = sub nsw i32 %32, %35
-  %37 = call i32 @llvm.abs.i32(i32 %36, i1 true)
-  %38 = icmp samesign ugt i32 %37, 61440
+  %36 = add nsw i32 %32, -61441
+  %37 = sub nsw i32 %36, %35
+  %38 = icmp ult i32 %37, -122881
   br i1 %38, label %PatchLUT.exit, label %39
 
 39:                                               ; preds = %.lr.ph.i
@@ -1451,22 +1451,22 @@ define internal fastcc range(i32 0, 2) i32 @FixWhiteMisalignment(ptr noundef non
   br i1 %.not.i, label %29, label %WhitesAreEqual.exit
 
 WhitesAreEqual.exit:                              ; preds = %39
-  %40 = call i32 (ptr, i32, ...) @cmsPipelineCheckAndRetreiveStages(ptr noundef nonnull %0, i32 noundef 3, i32 noundef 1668707188, i32 noundef 1668052340, i32 noundef 1668707188, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13) #11
+  %40 = call i32 (ptr, i32, ...) @cmsPipelineCheckAndRetreiveStages(ptr noundef nonnull %0, i32 noundef 3, i32 noundef 1668707188, i32 noundef 1668052340, i32 noundef 1668707188, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13) #10
   %.not42 = icmp eq i32 %40, 0
   br i1 %.not42, label %41, label %47
 
 41:                                               ; preds = %WhitesAreEqual.exit
-  %42 = call i32 (ptr, i32, ...) @cmsPipelineCheckAndRetreiveStages(ptr noundef nonnull %0, i32 noundef 2, i32 noundef 1668707188, i32 noundef 1668052340, ptr noundef nonnull %11, ptr noundef nonnull %12) #11
+  %42 = call i32 (ptr, i32, ...) @cmsPipelineCheckAndRetreiveStages(ptr noundef nonnull %0, i32 noundef 2, i32 noundef 1668707188, i32 noundef 1668052340, ptr noundef nonnull %11, ptr noundef nonnull %12) #10
   %.not43 = icmp eq i32 %42, 0
   br i1 %.not43, label %43, label %47
 
 43:                                               ; preds = %41
-  %44 = call i32 (ptr, i32, ...) @cmsPipelineCheckAndRetreiveStages(ptr noundef nonnull %0, i32 noundef 2, i32 noundef 1668052340, i32 noundef 1668707188, ptr noundef nonnull %12, ptr noundef nonnull %13) #11
+  %44 = call i32 (ptr, i32, ...) @cmsPipelineCheckAndRetreiveStages(ptr noundef nonnull %0, i32 noundef 2, i32 noundef 1668052340, i32 noundef 1668707188, ptr noundef nonnull %12, ptr noundef nonnull %13) #10
   %.not44 = icmp eq i32 %44, 0
   br i1 %.not44, label %45, label %47
 
 45:                                               ; preds = %43
-  %46 = call i32 (ptr, i32, ...) @cmsPipelineCheckAndRetreiveStages(ptr noundef nonnull %0, i32 noundef 1, i32 noundef 1668052340, ptr noundef nonnull %12) #11
+  %46 = call i32 (ptr, i32, ...) @cmsPipelineCheckAndRetreiveStages(ptr noundef nonnull %0, i32 noundef 1, i32 noundef 1668052340, ptr noundef nonnull %12) #10
   %.not45 = icmp eq i32 %46, 0
   br i1 %.not45, label %PatchLUT.exit, label %47
 
@@ -1488,7 +1488,7 @@ WhitesAreEqual.exit:                              ; preds = %39
   br label %.loopexit59
 
 53:                                               ; preds = %47
-  %54 = call ptr @_cmsStageGetPtrToCurveSet(ptr noundef nonnull %48) #11
+  %54 = call ptr @_cmsStageGetPtrToCurveSet(ptr noundef nonnull %48) #10
   %55 = load i32, ptr %10, align 4
   %.not71 = icmp eq i32 %55, 0
   br i1 %.not71, label %.loopexit59, label %.lr.ph
@@ -1500,7 +1500,7 @@ WhitesAreEqual.exit:                              ; preds = %39
   %58 = load ptr, ptr %4, align 8
   %59 = getelementptr inbounds nuw i16, ptr %58, i64 %indvars.iv
   %60 = load i16, ptr %59, align 2
-  %61 = call zeroext i16 @cmsEvalToneCurve16(ptr noundef %57, i16 noundef zeroext %60) #11
+  %61 = call zeroext i16 @cmsEvalToneCurve16(ptr noundef %57, i16 noundef zeroext %60) #10
   %62 = getelementptr inbounds nuw i16, ptr %6, i64 %indvars.iv
   store i16 %61, ptr %62, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1527,7 +1527,7 @@ WhitesAreEqual.exit:                              ; preds = %39
   br label %.loopexit
 
 71:                                               ; preds = %.loopexit59
-  %72 = call ptr @_cmsStageGetPtrToCurveSet(ptr noundef nonnull %66) #11
+  %72 = call ptr @_cmsStageGetPtrToCurveSet(ptr noundef nonnull %66) #10
   %73 = load i32, ptr %9, align 4
   %.not73 = icmp eq i32 %73, 0
   br i1 %.not73, label %.loopexit, label %.lr.ph67
@@ -1536,7 +1536,7 @@ WhitesAreEqual.exit:                              ; preds = %39
   %indvars.iv82 = phi i64 [ %indvars.iv.next83, %83 ], [ 0, %71 ]
   %74 = getelementptr inbounds nuw ptr, ptr %72, i64 %indvars.iv82
   %75 = load ptr, ptr %74, align 8
-  %76 = call ptr @cmsReverseToneCurve(ptr noundef %75) #11
+  %76 = call ptr @cmsReverseToneCurve(ptr noundef %75) #10
   %77 = icmp eq ptr %76, null
   %78 = load ptr, ptr %5, align 8
   %79 = getelementptr inbounds nuw i16, ptr %78, i64 %indvars.iv82
@@ -1544,8 +1544,8 @@ WhitesAreEqual.exit:                              ; preds = %39
   br i1 %77, label %83, label %81
 
 81:                                               ; preds = %.lr.ph67
-  %82 = call zeroext i16 @cmsEvalToneCurve16(ptr noundef nonnull %76, i16 noundef zeroext %80) #11
-  call void @cmsFreeToneCurve(ptr noundef nonnull %76) #11
+  %82 = call zeroext i16 @cmsEvalToneCurve16(ptr noundef nonnull %76, i16 noundef zeroext %80) #10
+  call void @cmsFreeToneCurve(ptr noundef nonnull %76) #10
   br label %83
 
 83:                                               ; preds = %.lr.ph67, %81
@@ -1573,7 +1573,7 @@ WhitesAreEqual.exit:                              ; preds = %39
 
 97:                                               ; preds = %.loopexit
   %98 = load ptr, ptr %89, align 8
-  call void (ptr, i32, ptr, ...) @cmsSignalError(ptr noundef %98, i32 noundef 3, ptr noundef nonnull @.str) #11
+  call void (ptr, i32, ptr, ...) @cmsSignalError(ptr noundef %98, i32 noundef 3, ptr noundef nonnull @.str) #10
   br label %PatchLUT.exit
 
 99:                                               ; preds = %.loopexit
@@ -1730,7 +1730,7 @@ WhitesAreEqual.exit:                              ; preds = %39
 
 228:                                              ; preds = %99
   %229 = load ptr, ptr %89, align 8
-  call void (ptr, i32, ptr, ...) @cmsSignalError(ptr noundef %229, i32 noundef 3, ptr noundef nonnull @.str.1, i32 noundef %90) #11
+  call void (ptr, i32, ptr, ...) @cmsSignalError(ptr noundef %229, i32 noundef 3, ptr noundef nonnull @.str.1, i32 noundef %90) #10
   br label %PatchLUT.exit
 
 230:                                              ; preds = %224, %200, %148
@@ -1796,9 +1796,6 @@ declare ptr @cmsReverseToneCurve(ptr noundef) local_unnamed_addr #1
 
 declare void @cmsFreeToneCurve(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #6
-
 declare void @cmsSignalError(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
@@ -1807,29 +1804,29 @@ define internal range(i32 0, 2) i32 @OptimizeByJoiningCurves(ptr noundef capture
   %7 = alloca [16 x float], align 16
   %8 = load ptr, ptr %0, align 8
   %9 = load i32, ptr %2, align 4
-  %10 = tail call i32 @_cmsFormatterIsFloat(i32 noundef %9) #11
+  %10 = tail call i32 @_cmsFormatterIsFloat(i32 noundef %9) #10
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %11, label %.loopexit133
 
 11:                                               ; preds = %5
   %12 = load i32, ptr %3, align 4
-  %13 = tail call i32 @_cmsFormatterIsFloat(i32 noundef %12) #11
+  %13 = tail call i32 @_cmsFormatterIsFloat(i32 noundef %12) #10
   %.not109 = icmp eq i32 %13, 0
   br i1 %.not109, label %14, label %.loopexit133
 
 14:                                               ; preds = %11
-  %15 = tail call ptr @cmsPipelineGetPtrToFirstStage(ptr noundef %8) #11
+  %15 = tail call ptr @cmsPipelineGetPtrToFirstStage(ptr noundef %8) #10
   %.not110134 = icmp eq ptr %15, null
   br i1 %.not110134, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %14, %17
   %.098135 = phi ptr [ %18, %17 ], [ %15, %14 ]
-  %16 = tail call i32 @cmsStageType(ptr noundef nonnull %.098135) #11
+  %16 = tail call i32 @cmsStageType(ptr noundef nonnull %.098135) #10
   %.not118 = icmp eq i32 %16, 1668707188
   br i1 %.not118, label %17, label %.loopexit133
 
 17:                                               ; preds = %.lr.ph
-  %18 = tail call ptr @cmsStageNext(ptr noundef nonnull %.098135) #11
+  %18 = tail call ptr @cmsStageNext(ptr noundef nonnull %.098135) #10
   %.not110 = icmp eq ptr %18, null
   br i1 %.not110, label %._crit_edge, label %.lr.ph, !llvm.loop !30
 
@@ -1840,14 +1837,14 @@ define internal range(i32 0, 2) i32 @OptimizeByJoiningCurves(ptr noundef capture
   %22 = load i32, ptr %21, align 8
   %23 = getelementptr inbounds nuw i8, ptr %8, i64 12
   %24 = load i32, ptr %23, align 4
-  %25 = tail call ptr @cmsPipelineAlloc(ptr noundef %20, i32 noundef %22, i32 noundef %24) #11
+  %25 = tail call ptr @cmsPipelineAlloc(ptr noundef %20, i32 noundef %22, i32 noundef %24) #10
   %26 = icmp eq ptr %25, null
   br i1 %26, label %.loopexit133, label %27
 
 27:                                               ; preds = %._crit_edge
   %28 = load ptr, ptr %19, align 8
   %29 = load i32, ptr %21, align 8
-  %30 = tail call ptr @_cmsCalloc(ptr noundef %28, i32 noundef %29, i32 noundef 8) #11
+  %30 = tail call ptr @_cmsCalloc(ptr noundef %28, i32 noundef %29, i32 noundef 8) #10
   %31 = icmp eq ptr %30, null
   br i1 %31, label %.thread127, label %.preheader132
 
@@ -1870,7 +1867,7 @@ define internal range(i32 0, 2) i32 @OptimizeByJoiningCurves(ptr noundef capture
 .lr.ph137:                                        ; preds = %.preheader132, %33
   %indvars.iv = phi i64 [ %indvars.iv.next, %33 ], [ 0, %.preheader132 ]
   %37 = load ptr, ptr %19, align 8
-  %38 = tail call ptr @cmsBuildTabulatedToneCurve16(ptr noundef %37, i32 noundef 4096, ptr noundef null) #11
+  %38 = tail call ptr @cmsBuildTabulatedToneCurve16(ptr noundef %37, i32 noundef 4096, ptr noundef null) #10
   %39 = getelementptr inbounds nuw ptr, ptr %30, i64 %indvars.iv
   store ptr %38, ptr %39, align 8
   %40 = icmp eq ptr %38, null
@@ -1899,7 +1896,7 @@ define internal range(i32 0, 2) i32 @OptimizeByJoiningCurves(ptr noundef capture
   br i1 %49, label %47, label %._crit_edge140, !llvm.loop !32
 
 ._crit_edge140:                                   ; preds = %47, %.preheader130
-  call void @cmsPipelineEvalFloat(ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8) #11
+  call void @cmsPipelineEvalFloat(ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8) #10
   %50 = load i32, ptr %21, align 8
   %.not155 = icmp eq i32 %50, 0
   br i1 %.not155, label %._crit_edge144, label %.lr.ph143
@@ -1948,7 +1945,7 @@ _cmsQuickSaturateWord.exit:                       ; preds = %.lr.ph143, %57, %59
 
 74:                                               ; preds = %._crit_edge144
   %75 = load ptr, ptr %19, align 8
-  %76 = call ptr @cmsStageAllocToneCurves(ptr noundef %75, i32 noundef %73, ptr noundef nonnull %30) #11
+  %76 = call ptr @cmsStageAllocToneCurves(ptr noundef %75, i32 noundef %73, ptr noundef nonnull %30) #10
   %77 = icmp eq ptr %76, null
   br i1 %77, label %.loopexit, label %.preheader
 
@@ -1961,7 +1958,7 @@ _cmsQuickSaturateWord.exit:                       ; preds = %.lr.ph143, %57, %59
   %indvars.iv168 = phi i64 [ %indvars.iv.next169, %.lr.ph147 ], [ 0, %.preheader ]
   %79 = getelementptr inbounds nuw ptr, ptr %30, i64 %indvars.iv168
   %80 = load ptr, ptr %79, align 8
-  call void @cmsFreeToneCurve(ptr noundef %80) #11
+  call void @cmsFreeToneCurve(ptr noundef %80) #10
   store ptr null, ptr %79, align 8
   %indvars.iv.next169 = add nuw nsw i64 %indvars.iv168, 1
   %81 = load i32, ptr %21, align 8
@@ -1971,20 +1968,20 @@ _cmsQuickSaturateWord.exit:                       ; preds = %.lr.ph143, %57, %59
 
 ._crit_edge148:                                   ; preds = %.lr.ph147, %.preheader
   %84 = load ptr, ptr %19, align 8
-  call void @_cmsFree(ptr noundef %84, ptr noundef nonnull %30) #11
+  call void @_cmsFree(ptr noundef %84, ptr noundef nonnull %30) #10
   %85 = call fastcc i32 @AllCurvesAreLinear(ptr noundef %76)
   %.not111 = icmp eq i32 %85, 0
   br i1 %.not111, label %86, label %109
 
 86:                                               ; preds = %._crit_edge148
-  %87 = call i32 @cmsPipelineInsertStage(ptr noundef nonnull %25, i32 noundef 0, ptr noundef nonnull %76) #11
+  %87 = call i32 @cmsPipelineInsertStage(ptr noundef nonnull %25, i32 noundef 0, ptr noundef nonnull %76) #10
   %.not112 = icmp eq i32 %87, 0
   br i1 %.not112, label %.thread123, label %88
 
 88:                                               ; preds = %86
-  %89 = call ptr @cmsStageData(ptr noundef nonnull %76) #11
+  %89 = call ptr @cmsStageData(ptr noundef nonnull %76) #10
   %90 = load i32, ptr %2, align 4
-  %91 = call i32 @_cmsFormatterIs8bit(i32 noundef %90) #11
+  %91 = call i32 @_cmsFormatterIs8bit(i32 noundef %90) #10
   %.not113 = icmp eq i32 %91, 0
   %92 = getelementptr inbounds nuw i8, ptr %25, i64 56
   %93 = load ptr, ptr %92, align 8
@@ -2002,7 +1999,7 @@ _cmsQuickSaturateWord.exit:                       ; preds = %.lr.ph143, %57, %59
   %101 = load i32, ptr %4, align 4
   %102 = or i32 %101, 64
   store i32 %102, ptr %4, align 4
-  call void @_cmsPipelineSetOptimizationParameters(ptr noundef nonnull %25, ptr noundef nonnull @FastEvaluateCurves8, ptr noundef nonnull %98, ptr noundef nonnull @CurvesFree, ptr noundef nonnull @CurvesDup) #11
+  call void @_cmsPipelineSetOptimizationParameters(ptr noundef nonnull %25, ptr noundef nonnull @FastEvaluateCurves8, ptr noundef nonnull %98, ptr noundef nonnull @CurvesFree, ptr noundef nonnull @CurvesDup) #10
   br label %118
 
 103:                                              ; preds = %88
@@ -2014,16 +2011,16 @@ _cmsQuickSaturateWord.exit:                       ; preds = %.lr.ph143, %57, %59
   %107 = load i32, ptr %4, align 4
   %108 = or i32 %107, 64
   store i32 %108, ptr %4, align 4
-  call void @_cmsPipelineSetOptimizationParameters(ptr noundef nonnull %25, ptr noundef nonnull @FastEvaluateCurves16, ptr noundef nonnull %104, ptr noundef nonnull @CurvesFree, ptr noundef nonnull @CurvesDup) #11
+  call void @_cmsPipelineSetOptimizationParameters(ptr noundef nonnull %25, ptr noundef nonnull @FastEvaluateCurves16, ptr noundef nonnull %104, ptr noundef nonnull @CurvesFree, ptr noundef nonnull @CurvesDup) #10
   br label %118
 
 109:                                              ; preds = %._crit_edge148
-  call void @cmsStageFree(ptr noundef nonnull %76) #11
+  call void @cmsStageFree(ptr noundef nonnull %76) #10
   %110 = getelementptr inbounds nuw i8, ptr %25, i64 56
   %111 = load ptr, ptr %110, align 8
   %112 = load i32, ptr %21, align 8
-  %113 = call ptr @cmsStageAllocIdentity(ptr noundef %111, i32 noundef %112) #11
-  %114 = call i32 @cmsPipelineInsertStage(ptr noundef nonnull %25, i32 noundef 0, ptr noundef %113) #11
+  %113 = call ptr @cmsStageAllocIdentity(ptr noundef %111, i32 noundef %112) #10
+  %114 = call i32 @cmsPipelineInsertStage(ptr noundef nonnull %25, i32 noundef 0, ptr noundef %113) #10
   %.not114 = icmp eq i32 %114, 0
   br i1 %.not114, label %.thread127, label %115
 
@@ -2031,16 +2028,16 @@ _cmsQuickSaturateWord.exit:                       ; preds = %.lr.ph143, %57, %59
   %116 = load i32, ptr %4, align 4
   %117 = or i32 %116, 64
   store i32 %117, ptr %4, align 4
-  call void @_cmsPipelineSetOptimizationParameters(ptr noundef nonnull %25, ptr noundef nonnull @FastIdentity16, ptr noundef nonnull %25, ptr noundef null, ptr noundef null) #11
+  call void @_cmsPipelineSetOptimizationParameters(ptr noundef nonnull %25, ptr noundef nonnull @FastIdentity16, ptr noundef nonnull %25, ptr noundef null, ptr noundef null) #10
   br label %118
 
 118:                                              ; preds = %100, %106, %115
-  call void @cmsPipelineFree(ptr noundef nonnull %8) #11
+  call void @cmsPipelineFree(ptr noundef nonnull %8) #10
   store ptr %25, ptr %0, align 8
   br label %.loopexit133
 
 .thread123:                                       ; preds = %86
-  call void @cmsStageFree(ptr noundef nonnull %76) #11
+  call void @cmsStageFree(ptr noundef nonnull %76) #10
   br label %.thread127
 
 .loopexit:                                        ; preds = %.lr.ph137, %74
@@ -2057,7 +2054,7 @@ _cmsQuickSaturateWord.exit:                       ; preds = %.lr.ph143, %57, %59
   br i1 %.not117, label %124, label %123
 
 123:                                              ; preds = %.lr.ph151
-  call void @cmsFreeToneCurve(ptr noundef nonnull %122) #11
+  call void @cmsFreeToneCurve(ptr noundef nonnull %122) #10
   %.pre = load i32, ptr %21, align 8
   br label %124
 
@@ -2070,11 +2067,11 @@ _cmsQuickSaturateWord.exit:                       ; preds = %.lr.ph143, %57, %59
 
 ._crit_edge152:                                   ; preds = %124, %.loopexit
   %128 = load ptr, ptr %19, align 8
-  call void @_cmsFree(ptr noundef %128, ptr noundef nonnull %30) #11
+  call void @_cmsFree(ptr noundef %128, ptr noundef nonnull %30) #10
   br label %.thread127
 
 .thread127:                                       ; preds = %27, %109, %97, %103, %.thread123, %._crit_edge152
-  call void @cmsPipelineFree(ptr noundef nonnull %25) #11
+  call void @cmsPipelineFree(ptr noundef nonnull %25) #10
   br label %.loopexit133
 
 .loopexit133:                                     ; preds = %.lr.ph, %._crit_edge, %5, %11, %.thread127, %118
@@ -2102,21 +2099,21 @@ define internal range(i32 0, 2) i32 @OptimizeMatrixShaper(ptr noundef captures(n
   br i1 %.not39, label %17, label %103
 
 17:                                               ; preds = %14
-  %18 = tail call i32 @_cmsFormatterIs8bit(i32 noundef %12) #11
+  %18 = tail call i32 @_cmsFormatterIs8bit(i32 noundef %12) #10
   %.not40 = icmp eq i32 %18, 0
   br i1 %.not40, label %103, label %19
 
 19:                                               ; preds = %17
   %20 = load ptr, ptr %0, align 8
-  %21 = call i32 (ptr, i32, ...) @cmsPipelineCheckAndRetreiveStages(ptr noundef %20, i32 noundef 4, i32 noundef 1668707188, i32 noundef 1835103334, i32 noundef 1835103334, i32 noundef 1668707188, ptr noundef nonnull %6, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %7) #11
+  %21 = call i32 (ptr, i32, ...) @cmsPipelineCheckAndRetreiveStages(ptr noundef %20, i32 noundef 4, i32 noundef 1668707188, i32 noundef 1835103334, i32 noundef 1835103334, i32 noundef 1668707188, ptr noundef nonnull %6, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %7) #10
   %.not41 = icmp eq i32 %21, 0
   br i1 %.not41, label %46, label %22
 
 22:                                               ; preds = %19
   %23 = load ptr, ptr %8, align 8
-  %24 = call ptr @cmsStageData(ptr noundef %23) #11
+  %24 = call ptr @cmsStageData(ptr noundef %23) #10
   %25 = load ptr, ptr %9, align 8
-  %26 = call ptr @cmsStageData(ptr noundef %25) #11
+  %26 = call ptr @cmsStageData(ptr noundef %25) #10
   %27 = load ptr, ptr %8, align 8
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %29 = load i32, ptr %28, align 8
@@ -2151,17 +2148,17 @@ define internal range(i32 0, 2) i32 @OptimizeMatrixShaper(ptr noundef captures(n
 43:                                               ; preds = %40
   %44 = load ptr, ptr %26, align 8
   %45 = load ptr, ptr %24, align 8
-  call void @_cmsMAT3per(ptr noundef nonnull %10, ptr noundef %44, ptr noundef %45) #11
+  call void @_cmsMAT3per(ptr noundef nonnull %10, ptr noundef %44, ptr noundef %45) #10
   br label %59
 
 46:                                               ; preds = %19
-  %47 = call i32 (ptr, i32, ...) @cmsPipelineCheckAndRetreiveStages(ptr noundef %20, i32 noundef 3, i32 noundef 1668707188, i32 noundef 1835103334, i32 noundef 1668707188, ptr noundef nonnull %6, ptr noundef nonnull %8, ptr noundef nonnull %7) #11
+  %47 = call i32 (ptr, i32, ...) @cmsPipelineCheckAndRetreiveStages(ptr noundef %20, i32 noundef 3, i32 noundef 1668707188, i32 noundef 1835103334, i32 noundef 1668707188, ptr noundef nonnull %6, ptr noundef nonnull %8, ptr noundef nonnull %7) #10
   %.not42 = icmp eq i32 %47, 0
   br i1 %.not42, label %103, label %48
 
 48:                                               ; preds = %46
   %49 = load ptr, ptr %8, align 8
-  %50 = call ptr @cmsStageData(ptr noundef %49) #11
+  %50 = call ptr @cmsStageData(ptr noundef %49) #10
   %51 = load ptr, ptr %8, align 8
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 16
   %53 = load i32, ptr %52, align 8
@@ -2183,7 +2180,7 @@ define internal range(i32 0, 2) i32 @OptimizeMatrixShaper(ptr noundef captures(n
   %.sink66 = phi ptr [ %50, %57 ], [ %26, %43 ]
   %60 = getelementptr inbounds nuw i8, ptr %.sink66, i64 8
   %61 = load ptr, ptr %60, align 8
-  %62 = call i32 @_cmsMAT3isIdentity(ptr noundef nonnull %10) #11
+  %62 = call i32 @_cmsMAT3isIdentity(ptr noundef nonnull %10) #10
   %63 = icmp eq i32 %62, 0
   %64 = icmp ne ptr %61, null
   %or.cond3.not = select i1 %63, i1 true, i1 %64
@@ -2193,15 +2190,15 @@ define internal range(i32 0, 2) i32 @OptimizeMatrixShaper(ptr noundef captures(n
   %68 = load i32, ptr %67, align 8
   %69 = getelementptr inbounds nuw i8, ptr %20, i64 12
   %70 = load i32, ptr %69, align 4
-  %71 = call ptr @cmsPipelineAlloc(ptr noundef %66, i32 noundef %68, i32 noundef %70) #11
+  %71 = call ptr @cmsPipelineAlloc(ptr noundef %66, i32 noundef %68, i32 noundef %70) #10
   store ptr %71, ptr %11, align 8
   %.not50 = icmp eq ptr %71, null
   br i1 %.not50, label %103, label %72
 
 72:                                               ; preds = %59
   %73 = load ptr, ptr %6, align 8
-  %74 = call ptr @cmsStageDup(ptr noundef %73) #11
-  %75 = call i32 @cmsPipelineInsertStage(ptr noundef nonnull %71, i32 noundef 0, ptr noundef %74) #11
+  %74 = call ptr @cmsStageDup(ptr noundef %73) #10
+  %75 = call i32 @cmsPipelineInsertStage(ptr noundef nonnull %71, i32 noundef 0, ptr noundef %74) #10
   %.not51 = icmp eq i32 %75, 0
   br i1 %.not51, label %102, label %76
 
@@ -2211,15 +2208,15 @@ define internal range(i32 0, 2) i32 @OptimizeMatrixShaper(ptr noundef captures(n
 77:                                               ; preds = %76
   %78 = getelementptr inbounds nuw i8, ptr %71, i64 56
   %79 = load ptr, ptr %78, align 8
-  %80 = call ptr @cmsStageAllocMatrix(ptr noundef %79, i32 noundef 3, i32 noundef 3, ptr noundef nonnull %10, ptr noundef %61) #11
-  %81 = call i32 @cmsPipelineInsertStage(ptr noundef nonnull %71, i32 noundef 1, ptr noundef %80) #11
+  %80 = call ptr @cmsStageAllocMatrix(ptr noundef %79, i32 noundef 3, i32 noundef 3, ptr noundef nonnull %10, ptr noundef %61) #10
+  %81 = call i32 @cmsPipelineInsertStage(ptr noundef nonnull %71, i32 noundef 1, ptr noundef %80) #10
   %.not53 = icmp eq i32 %81, 0
   br i1 %.not53, label %102, label %82
 
 82:                                               ; preds = %77, %76
   %83 = load ptr, ptr %7, align 8
-  %84 = call ptr @cmsStageDup(ptr noundef %83) #11
-  %85 = call i32 @cmsPipelineInsertStage(ptr noundef nonnull %71, i32 noundef 1, ptr noundef %84) #11
+  %84 = call ptr @cmsStageDup(ptr noundef %83) #10
+  %85 = call i32 @cmsPipelineInsertStage(ptr noundef nonnull %71, i32 noundef 1, ptr noundef %84) #10
   %.not54 = icmp eq i32 %85, 0
   br i1 %.not54, label %102, label %86
 
@@ -2233,9 +2230,9 @@ define internal range(i32 0, 2) i32 @OptimizeMatrixShaper(ptr noundef captures(n
 
 89:                                               ; preds = %86
   %90 = load ptr, ptr %6, align 8
-  %91 = call ptr @cmsStageData(ptr noundef %90) #11
+  %91 = call ptr @cmsStageData(ptr noundef %90) #10
   %92 = load ptr, ptr %7, align 8
-  %93 = call ptr @cmsStageData(ptr noundef %92) #11
+  %93 = call ptr @cmsStageData(ptr noundef %92) #10
   %94 = load i32, ptr %4, align 4
   %95 = or i32 %94, 64
   store i32 %95, ptr %4, align 4
@@ -2248,12 +2245,12 @@ define internal range(i32 0, 2) i32 @OptimizeMatrixShaper(ptr noundef captures(n
 
 100:                                              ; preds = %89, %87
   %101 = phi ptr [ %71, %89 ], [ %.pre, %87 ]
-  call void @cmsPipelineFree(ptr noundef nonnull %20) #11
+  call void @cmsPipelineFree(ptr noundef nonnull %20) #10
   store ptr %101, ptr %0, align 8
   br label %103
 
 102:                                              ; preds = %82, %77, %72
-  call void @cmsPipelineFree(ptr noundef nonnull %71) #11
+  call void @cmsPipelineFree(ptr noundef nonnull %71) #10
   br label %103
 
 103:                                              ; preds = %59, %46, %48, %54, %40, %22, %30, %33, %37, %17, %5, %14, %102, %100
@@ -2268,13 +2265,13 @@ define internal range(i32 0, 2) i32 @OptimizeByComputingLinearization(ptr nounde
   %8 = alloca [16 x float], align 16
   %9 = alloca [16 x float], align 16
   %10 = load i32, ptr %2, align 4
-  %11 = tail call i32 @_cmsFormatterIsFloat(i32 noundef %10) #11
+  %11 = tail call i32 @_cmsFormatterIsFloat(i32 noundef %10) #10
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %12, label %309
 
 12:                                               ; preds = %5
   %13 = load i32, ptr %3, align 4
-  %14 = tail call i32 @_cmsFormatterIsFloat(i32 noundef %13) #11
+  %14 = tail call i32 @_cmsFormatterIsFloat(i32 noundef %13) #10
   %.not150 = icmp eq i32 %14, 0
   br i1 %.not150, label %15, label %309
 
@@ -2291,7 +2288,7 @@ define internal range(i32 0, 2) i32 @OptimizeByComputingLinearization(ptr nounde
   br i1 %or.cond178, label %21, label %309
 
 21:                                               ; preds = %18
-  %22 = tail call i32 @_cmsFormatterIs8bit(i32 noundef %16) #11
+  %22 = tail call i32 @_cmsFormatterIs8bit(i32 noundef %16) #10
   %.not155 = icmp eq i32 %22, 0
   br i1 %.not155, label %23, label %26
 
@@ -2306,11 +2303,11 @@ define internal range(i32 0, 2) i32 @OptimizeByComputingLinearization(ptr nounde
   %28 = load i32, ptr %2, align 4
   %29 = lshr i32 %28, 16
   %30 = and i32 %29, 31
-  %31 = tail call i32 @_cmsICCcolorSpace(i32 noundef %30) #11
+  %31 = tail call i32 @_cmsICCcolorSpace(i32 noundef %30) #10
   %32 = load i32, ptr %3, align 4
   %33 = lshr i32 %32, 16
   %34 = and i32 %33, 31
-  %35 = tail call i32 @_cmsICCcolorSpace(i32 noundef %34) #11
+  %35 = tail call i32 @_cmsICCcolorSpace(i32 noundef %34) #10
   %36 = icmp eq i32 %31, 0
   %37 = icmp eq i32 %35, 0
   %or.cond = select i1 %36, i1 true, i1 %37
@@ -2318,20 +2315,20 @@ define internal range(i32 0, 2) i32 @OptimizeByComputingLinearization(ptr nounde
 
 38:                                               ; preds = %26
   %39 = load i32, ptr %4, align 4
-  %40 = tail call i32 @_cmsReasonableGridpointsByColorspace(i32 noundef %31, i32 noundef %39) #11
+  %40 = tail call i32 @_cmsReasonableGridpointsByColorspace(i32 noundef %31, i32 noundef %39) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %6, i8 0, i64 128, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %7, i8 0, i64 128, i1 false)
-  %41 = tail call ptr @cmsPipelineGetPtrToLastStage(ptr noundef %27) #11
+  %41 = tail call ptr @cmsPipelineGetPtrToLastStage(ptr noundef %27) #10
   %42 = icmp eq ptr %41, null
   br i1 %42, label %.critedge176, label %43
 
 43:                                               ; preds = %38
-  %44 = tail call i32 @cmsStageType(ptr noundef nonnull %41) #11
+  %44 = tail call i32 @cmsStageType(ptr noundef nonnull %41) #10
   %45 = icmp eq i32 %44, 1668707188
   br i1 %45, label %46, label %.loopexit
 
 46:                                               ; preds = %43
-  %47 = tail call ptr @cmsStageData(ptr noundef nonnull %41) #11
+  %47 = tail call ptr @cmsStageData(ptr noundef nonnull %41) #10
   %48 = load i32, ptr %47, align 8
   %.not247 = icmp eq i32 %48, 0
   br i1 %.not247, label %.loopexit, label %.lr.ph
@@ -2415,7 +2412,7 @@ IsDegenerated.exit.thread210:                     ; preds = %67, %._crit_edge.i,
 77:                                               ; preds = %.lr.ph227, %73
   %indvars.iv259 = phi i64 [ 0, %.lr.ph227 ], [ %indvars.iv.next260, %73 ]
   %78 = load ptr, ptr %72, align 8
-  %79 = tail call ptr @cmsBuildTabulatedToneCurve16(ptr noundef %78, i32 noundef 4096, ptr noundef null) #11
+  %79 = tail call ptr @cmsBuildTabulatedToneCurve16(ptr noundef %78, i32 noundef 4096, ptr noundef null) #10
   %80 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv259
   store ptr %79, ptr %80, align 8
   %81 = icmp eq ptr %79, null
@@ -2446,7 +2443,7 @@ IsDegenerated.exit.thread210:                     ; preds = %67, %._crit_edge.i,
   br i1 %90, label %.lr.ph229, label %._crit_edge, !llvm.loop !40
 
 ._crit_edge:                                      ; preds = %.lr.ph229, %.preheader221
-  call void @cmsPipelineEvalFloat(ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %27) #11
+  call void @cmsPipelineEvalFloat(ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %27) #10
   %91 = load i32, ptr %70, align 8
   %.not250 = icmp eq i32 %91, 0
   br i1 %.not250, label %._crit_edge233.thread, label %.lr.ph232
@@ -2528,7 +2525,7 @@ _cmsQuickSaturateWord.exit:                       ; preds = %97, %104, %106
   %125 = fptosi double %124 to i32
   %126 = xor i32 %125, -1
   %127 = add i32 %121, %126
-  %128 = call i32 @cmsIsToneCurveDescending(ptr noundef %119) #11
+  %128 = call i32 @cmsIsToneCurveDescending(ptr noundef %119) #10
   %.not.i180 = icmp eq i32 %128, 0
   %..i181 = select i1 %.not.i180, double 6.553500e+04, double 0.000000e+00
   %.38.i = select i1 %.not.i180, double 0.000000e+00, double 6.553500e+04
@@ -2656,9 +2653,9 @@ SlopeLimiting.exit:                               ; preds = %_cmsQuickSaturateWo
   %indvars.iv275332 = phi i64 [ %indvars.iv275.be, %.backedge317 ], [ 0, %.preheader218 ]
   %193 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv275332
   %194 = load ptr, ptr %193, align 8
-  %195 = call i32 @cmsIsToneCurveLinear(ptr noundef %194) #11
+  %195 = call i32 @cmsIsToneCurveLinear(ptr noundef %194) #10
   %196 = load ptr, ptr %193, align 8
-  %197 = call i32 @cmsIsToneCurveMonotonic(ptr noundef %196) #11
+  %197 = call i32 @cmsIsToneCurveMonotonic(ptr noundef %196) #10
   %.not168 = icmp eq i32 %197, 0
   %198 = load ptr, ptr %193, align 8
   %199 = getelementptr inbounds nuw i8, ptr %198, i64 40
@@ -2717,14 +2714,14 @@ IsDegenerated.exit204:                            ; preds = %.lr.ph333, %212
   %indvars.iv278 = phi i64 [ %indvars.iv.next279, %.critedge ], [ 0, %..critedge.preheader_crit_edge ]
   %221 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv278
   %222 = load ptr, ptr %221, align 8
-  %223 = call ptr @cmsReverseToneCurveEx(i32 noundef 4096, ptr noundef %222) #11
+  %223 = call ptr @cmsReverseToneCurveEx(i32 noundef 4096, ptr noundef %222) #10
   %224 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv278
   store ptr %223, ptr %224, align 8
   %225 = icmp eq ptr %223, null
   br i1 %225, label %.critedge176, label %.critedge
 
 .critedge._crit_edge:                             ; preds = %.critedge, %.preheader218, %..critedge.preheader_crit_edge
-  %226 = call ptr @cmsPipelineDup(ptr noundef nonnull %27) #11
+  %226 = call ptr @cmsPipelineDup(ptr noundef nonnull %27) #10
   %227 = icmp eq ptr %226, null
   br i1 %227, label %.critedge176, label %228
 
@@ -2732,8 +2729,8 @@ IsDegenerated.exit204:                            ; preds = %.lr.ph333, %212
   %229 = getelementptr inbounds nuw i8, ptr %27, i64 56
   %230 = load ptr, ptr %229, align 8
   %231 = load i32, ptr %70, align 8
-  %232 = call ptr @cmsStageAllocToneCurves(ptr noundef %230, i32 noundef %231, ptr noundef nonnull %7) #11
-  %233 = call i32 @cmsPipelineInsertStage(ptr noundef nonnull %226, i32 noundef 0, ptr noundef %232) #11
+  %232 = call ptr @cmsStageAllocToneCurves(ptr noundef %230, i32 noundef %231, ptr noundef nonnull %7) #10
+  %233 = call i32 @cmsPipelineInsertStage(ptr noundef nonnull %226, i32 noundef 0, ptr noundef %232) #10
   %.not158 = icmp eq i32 %233, 0
   br i1 %.not158, label %.critedge176, label %234
 
@@ -2742,15 +2739,15 @@ IsDegenerated.exit204:                            ; preds = %.lr.ph333, %212
   %236 = load i32, ptr %70, align 8
   %237 = getelementptr inbounds nuw i8, ptr %27, i64 12
   %238 = load i32, ptr %237, align 4
-  %239 = call ptr @cmsPipelineAlloc(ptr noundef %235, i32 noundef %236, i32 noundef %238) #11
+  %239 = call ptr @cmsPipelineAlloc(ptr noundef %235, i32 noundef %236, i32 noundef %238) #10
   %240 = icmp eq ptr %239, null
   br i1 %240, label %.critedge176, label %241
 
 241:                                              ; preds = %234
   %242 = load ptr, ptr %229, align 8
   %243 = load i32, ptr %70, align 8
-  %244 = call ptr @cmsStageAllocToneCurves(ptr noundef %242, i32 noundef %243, ptr noundef nonnull %6) #11
-  %245 = call i32 @cmsPipelineInsertStage(ptr noundef nonnull %239, i32 noundef 0, ptr noundef %244) #11
+  %244 = call ptr @cmsStageAllocToneCurves(ptr noundef %242, i32 noundef %243, ptr noundef nonnull %6) #10
+  %245 = call i32 @cmsPipelineInsertStage(ptr noundef nonnull %239, i32 noundef 0, ptr noundef %244) #10
   %.not159 = icmp eq i32 %245, 0
   br i1 %.not159, label %.critedge176, label %246
 
@@ -2758,13 +2755,13 @@ IsDegenerated.exit204:                            ; preds = %.lr.ph333, %212
   %247 = load ptr, ptr %229, align 8
   %248 = load i32, ptr %70, align 8
   %249 = load i32, ptr %237, align 4
-  %250 = call ptr @cmsStageAllocCLut16bit(ptr noundef %247, i32 noundef %40, i32 noundef %248, i32 noundef %249, ptr noundef null) #11
-  %251 = call i32 @cmsPipelineInsertStage(ptr noundef nonnull %239, i32 noundef 1, ptr noundef %250) #11
+  %250 = call ptr @cmsStageAllocCLut16bit(ptr noundef %247, i32 noundef %40, i32 noundef %248, i32 noundef %249, ptr noundef null) #10
+  %251 = call i32 @cmsPipelineInsertStage(ptr noundef nonnull %239, i32 noundef 1, ptr noundef %250) #10
   %.not160 = icmp eq i32 %251, 0
   br i1 %.not160, label %.critedge176, label %252
 
 252:                                              ; preds = %246
-  %253 = call i32 @cmsStageSampleCLut16bit(ptr noundef %250, ptr noundef nonnull @XFormSampler16, ptr noundef nonnull %226, i32 noundef 0) #11
+  %253 = call i32 @cmsStageSampleCLut16bit(ptr noundef %250, ptr noundef nonnull @XFormSampler16, ptr noundef nonnull %226, i32 noundef 0) #10
   %.not161 = icmp eq i32 %253, 0
   br i1 %.not161, label %.critedge176, label %.preheader
 
@@ -2781,7 +2778,7 @@ IsDegenerated.exit204:                            ; preds = %.lr.ph333, %212
   br i1 %.not165, label %258, label %257
 
 257:                                              ; preds = %.lr.ph242
-  call void @cmsFreeToneCurve(ptr noundef nonnull %256) #11
+  call void @cmsFreeToneCurve(ptr noundef nonnull %256) #10
   br label %258
 
 258:                                              ; preds = %257, %.lr.ph242
@@ -2791,7 +2788,7 @@ IsDegenerated.exit204:                            ; preds = %.lr.ph333, %212
   br i1 %.not166, label %262, label %261
 
 261:                                              ; preds = %258
-  call void @cmsFreeToneCurve(ptr noundef nonnull %260) #11
+  call void @cmsFreeToneCurve(ptr noundef nonnull %260) #10
   br label %262
 
 262:                                              ; preds = %258, %261
@@ -2802,12 +2799,12 @@ IsDegenerated.exit204:                            ; preds = %.lr.ph333, %212
   br i1 %265, label %.lr.ph242, label %._crit_edge243, !llvm.loop !48
 
 ._crit_edge243:                                   ; preds = %262, %.preheader
-  call void @cmsPipelineFree(ptr noundef nonnull %226) #11
-  %266 = call ptr @_cmsStageGetPtrToCurveSet(ptr noundef %244) #11
+  call void @cmsPipelineFree(ptr noundef nonnull %226) #10
+  %266 = call ptr @_cmsStageGetPtrToCurveSet(ptr noundef %244) #10
   %267 = getelementptr inbounds nuw i8, ptr %250, i64 48
   %268 = load ptr, ptr %267, align 8
   %269 = load i32, ptr %2, align 4
-  %270 = call i32 @_cmsFormatterIs8bit(i32 noundef %269) #11
+  %270 = call i32 @_cmsFormatterIs8bit(i32 noundef %269) #10
   %.not162 = icmp eq i32 %270, 0
   %271 = getelementptr inbounds nuw i8, ptr %239, i64 56
   %272 = load ptr, ptr %271, align 8
@@ -2821,7 +2818,7 @@ IsDegenerated.exit204:                            ; preds = %.lr.ph333, %212
   br i1 %277, label %309, label %278
 
 278:                                              ; preds = %275
-  call void @_cmsPipelineSetOptimizationParameters(ptr noundef nonnull %239, ptr noundef nonnull @PrelinEval8, ptr noundef nonnull %276, ptr noundef nonnull @Prelin8free, ptr noundef nonnull @Prelin8dup) #11
+  call void @_cmsPipelineSetOptimizationParameters(ptr noundef nonnull %239, ptr noundef nonnull @PrelinEval8, ptr noundef nonnull %276, ptr noundef nonnull @Prelin8free, ptr noundef nonnull @Prelin8dup) #10
   br label %283
 
 279:                                              ; preds = %._crit_edge243
@@ -2830,7 +2827,7 @@ IsDegenerated.exit204:                            ; preds = %.lr.ph333, %212
   br i1 %281, label %309, label %282
 
 282:                                              ; preds = %279
-  call void @_cmsPipelineSetOptimizationParameters(ptr noundef nonnull %239, ptr noundef nonnull @PrelinEval16, ptr noundef nonnull %280, ptr noundef nonnull @PrelinOpt16free, ptr noundef nonnull @Prelin16dup) #11
+  call void @_cmsPipelineSetOptimizationParameters(ptr noundef nonnull %239, ptr noundef nonnull @PrelinEval16, ptr noundef nonnull %280, ptr noundef nonnull @PrelinOpt16free, ptr noundef nonnull @Prelin16dup) #10
   br label %283
 
 283:                                              ; preds = %282, %278
@@ -2855,7 +2852,7 @@ IsDegenerated.exit204:                            ; preds = %.lr.ph333, %212
   br i1 %.not164, label %309, label %292
 
 292:                                              ; preds = %290, %287
-  call void @cmsPipelineFree(ptr noundef nonnull %27) #11
+  call void @cmsPipelineFree(ptr noundef nonnull %27) #10
   store ptr %239, ptr %0, align 8
   br label %309
 
@@ -2875,7 +2872,7 @@ IsDegenerated.exit204:                            ; preds = %.lr.ph333, %212
   br i1 %.not174, label %298, label %297
 
 297:                                              ; preds = %.lr.ph245
-  call void @cmsFreeToneCurve(ptr noundef nonnull %296) #11
+  call void @cmsFreeToneCurve(ptr noundef nonnull %296) #10
   br label %298
 
 298:                                              ; preds = %297, %.lr.ph245
@@ -2885,7 +2882,7 @@ IsDegenerated.exit204:                            ; preds = %.lr.ph333, %212
   br i1 %.not175, label %302, label %301
 
 301:                                              ; preds = %298
-  call void @cmsFreeToneCurve(ptr noundef nonnull %300) #11
+  call void @cmsFreeToneCurve(ptr noundef nonnull %300) #10
   br label %302
 
 302:                                              ; preds = %298, %301
@@ -2900,7 +2897,7 @@ IsDegenerated.exit204:                            ; preds = %.lr.ph333, %212
   br i1 %.not172, label %307, label %306
 
 306:                                              ; preds = %._crit_edge246
-  call void @cmsPipelineFree(ptr noundef nonnull %.0136) #11
+  call void @cmsPipelineFree(ptr noundef nonnull %.0136) #10
   br label %307
 
 307:                                              ; preds = %306, %._crit_edge246
@@ -2908,7 +2905,7 @@ IsDegenerated.exit204:                            ; preds = %.lr.ph333, %212
   br i1 %.not173, label %309, label %308
 
 308:                                              ; preds = %307
-  call void @cmsPipelineFree(ptr noundef nonnull %.0135) #11
+  call void @cmsPipelineFree(ptr noundef nonnull %.0135) #10
   br label %309
 
 309:                                              ; preds = %307, %308, %290, %279, %275, %26, %23, %18, %15, %5, %12, %292
@@ -2924,7 +2921,7 @@ declare i32 @_cmsFormatterIs8bit(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @CurvesAlloc(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 256, 65537) %2, ptr noundef readonly captures(none) %3) unnamed_addr #0 {
-  %5 = tail call ptr @_cmsMallocZero(ptr noundef %0, i32 noundef 24) #11
+  %5 = tail call ptr @_cmsMallocZero(ptr noundef %0, i32 noundef 24) #10
   %6 = icmp eq ptr %5, null
   br i1 %6, label %.loopexit61, label %7
 
@@ -2933,7 +2930,7 @@ define internal fastcc ptr @CurvesAlloc(ptr noundef %0, i32 noundef %1, i32 noun
   store i32 %1, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 %2, ptr %9, align 4
-  %10 = tail call ptr @_cmsCalloc(ptr noundef %0, i32 noundef %1, i32 noundef 8) #11
+  %10 = tail call ptr @_cmsCalloc(ptr noundef %0, i32 noundef %1, i32 noundef 8) #10
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %10, ptr %11, align 8
   %12 = icmp eq ptr %10, null
@@ -2953,7 +2950,7 @@ define internal fastcc ptr @CurvesAlloc(ptr noundef %0, i32 noundef %1, i32 noun
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.loopexit.us
   %.05365.us = phi i32 [ %32, %.loopexit.us ], [ 0, %.lr.ph ]
-  %14 = tail call ptr @_cmsCalloc(ptr noundef %0, i32 noundef 256, i32 noundef 2) #11
+  %14 = tail call ptr @_cmsCalloc(ptr noundef %0, i32 noundef 256, i32 noundef 2) #10
   %15 = load ptr, ptr %11, align 8
   %16 = zext i32 %.05365.us to i64
   %17 = getelementptr inbounds nuw ptr, ptr %15, i64 %16
@@ -2973,7 +2970,7 @@ define internal fastcc ptr @CurvesAlloc(ptr noundef %0, i32 noundef %1, i32 noun
   %24 = load ptr, ptr %22, align 8
   %25 = trunc i64 %indvars.iv75 to i16
   %26 = mul i16 %25, 257
-  %27 = tail call zeroext i16 @cmsEvalToneCurve16(ptr noundef %24, i16 noundef zeroext %26) #11
+  %27 = tail call zeroext i16 @cmsEvalToneCurve16(ptr noundef %24, i16 noundef zeroext %26) #10
   %28 = load ptr, ptr %11, align 8
   %29 = getelementptr inbounds nuw ptr, ptr %28, i64 %16
   %30 = load ptr, ptr %29, align 8
@@ -2990,7 +2987,7 @@ define internal fastcc ptr @CurvesAlloc(ptr noundef %0, i32 noundef %1, i32 noun
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %.loopexit59
   %.05365 = phi i32 [ %55, %.loopexit59 ], [ 0, %.lr.ph.split.preheader ]
-  %33 = tail call ptr @_cmsCalloc(ptr noundef %0, i32 noundef %2, i32 noundef 2) #11
+  %33 = tail call ptr @_cmsCalloc(ptr noundef %0, i32 noundef %2, i32 noundef 2) #10
   %34 = load ptr, ptr %11, align 8
   %35 = zext i32 %.05365 to i64
   %36 = getelementptr inbounds nuw ptr, ptr %34, i64 %35
@@ -3016,7 +3013,7 @@ define internal fastcc ptr @CurvesAlloc(ptr noundef %0, i32 noundef %1, i32 noun
   %42 = load ptr, ptr %11, align 8
   %43 = getelementptr inbounds nuw ptr, ptr %42, i64 %indvars.iv80
   %44 = load ptr, ptr %43, align 8
-  tail call void @_cmsFree(ptr noundef %0, ptr noundef %44) #11
+  tail call void @_cmsFree(ptr noundef %0, ptr noundef %44) #10
   %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 1
   %exitcond84.not = icmp eq i64 %indvars.iv.next81, %wide.trip.count83
   br i1 %exitcond84.not, label %._crit_edge.loopexit, label %.lr.ph67, !llvm.loop !52
@@ -3027,7 +3024,7 @@ define internal fastcc ptr @CurvesAlloc(ptr noundef %0, i32 noundef %1, i32 noun
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
   %45 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %41, %.preheader ]
-  tail call void @_cmsFree(ptr noundef %0, ptr noundef %45) #11
+  tail call void @_cmsFree(ptr noundef %0, ptr noundef %45) #10
   br label %.loopexit61.sink.split
 
 .preheader58:                                     ; preds = %.lr.ph.split
@@ -3038,7 +3035,7 @@ define internal fastcc ptr @CurvesAlloc(ptr noundef %0, i32 noundef %1, i32 noun
   %indvars.iv = phi i64 [ 0, %.preheader58 ], [ %indvars.iv.next, %47 ]
   %48 = load ptr, ptr %46, align 8
   %49 = trunc i64 %indvars.iv to i16
-  %50 = tail call zeroext i16 @cmsEvalToneCurve16(ptr noundef %48, i16 noundef zeroext %49) #11
+  %50 = tail call zeroext i16 @cmsEvalToneCurve16(ptr noundef %48, i16 noundef zeroext %49) #10
   %51 = load ptr, ptr %11, align 8
   %52 = getelementptr inbounds nuw ptr, ptr %51, i64 %35
   %53 = load ptr, ptr %52, align 8
@@ -3054,7 +3051,7 @@ define internal fastcc ptr @CurvesAlloc(ptr noundef %0, i32 noundef %1, i32 noun
   br i1 %exitcond74.not, label %.loopexit61, label %.lr.ph.split, !llvm.loop !51
 
 .loopexit61.sink.split:                           ; preds = %7, %._crit_edge
-  tail call void @_cmsFree(ptr noundef %0, ptr noundef nonnull %5) #11
+  tail call void @_cmsFree(ptr noundef %0, ptr noundef nonnull %5) #10
   br label %.loopexit61
 
 .loopexit61:                                      ; preds = %.loopexit59, %.loopexit.us, %.loopexit61.sink.split, %.preheader60, %4
@@ -3063,7 +3060,7 @@ define internal fastcc ptr @CurvesAlloc(ptr noundef %0, i32 noundef %1, i32 noun
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
-define internal void @FastEvaluateCurves8(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #7 {
+define internal void @FastEvaluateCurves8(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #6 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load i32, ptr %4, align 8
   %.not = icmp eq i32 %5, 0
@@ -3112,7 +3109,7 @@ define internal void @CurvesFree(ptr noundef %0, ptr noundef %1) #0 {
   %7 = load ptr, ptr %5, align 8
   %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8
-  tail call void @_cmsFree(ptr noundef %0, ptr noundef %9) #11
+  tail call void @_cmsFree(ptr noundef %0, ptr noundef %9) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %10 = load i32, ptr %3, align 8
   %11 = zext i32 %10 to i64
@@ -3122,14 +3119,14 @@ define internal void @CurvesFree(ptr noundef %0, ptr noundef %1) #0 {
 ._crit_edge:                                      ; preds = %6, %2
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %14 = load ptr, ptr %13, align 8
-  tail call void @_cmsFree(ptr noundef %0, ptr noundef %14) #11
-  tail call void @_cmsFree(ptr noundef %0, ptr noundef nonnull %1) #11
+  tail call void @_cmsFree(ptr noundef %0, ptr noundef %14) #10
+  tail call void @_cmsFree(ptr noundef %0, ptr noundef nonnull %1) #10
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @CurvesDup(ptr noundef %0, ptr noundef %1) #0 {
-  %3 = tail call ptr @_cmsDupMem(ptr noundef %0, ptr noundef %1, i32 noundef 24) #11
+  %3 = tail call ptr @_cmsDupMem(ptr noundef %0, ptr noundef %1, i32 noundef 24) #10
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.loopexit, label %5
 
@@ -3139,7 +3136,7 @@ define internal ptr @CurvesDup(ptr noundef %0, ptr noundef %1) #0 {
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %9 = load i32, ptr %8, align 8
   %10 = shl i32 %9, 3
-  %11 = tail call ptr @_cmsDupMem(ptr noundef %0, ptr noundef %7, i32 noundef %10) #11
+  %11 = tail call ptr @_cmsDupMem(ptr noundef %0, ptr noundef %7, i32 noundef %10) #10
   store ptr %11, ptr %6, align 8
   %12 = load i32, ptr %8, align 8
   %.not = icmp eq i32 %12, 0
@@ -3156,7 +3153,7 @@ define internal ptr @CurvesDup(ptr noundef %0, ptr noundef %1) #0 {
   %17 = load ptr, ptr %16, align 8
   %18 = load i32, ptr %13, align 4
   %19 = shl i32 %18, 1
-  %20 = tail call ptr @_cmsDupMem(ptr noundef %0, ptr noundef %17, i32 noundef %19) #11
+  %20 = tail call ptr @_cmsDupMem(ptr noundef %0, ptr noundef %17, i32 noundef %19) #10
   %21 = load ptr, ptr %6, align 8
   %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv
   store ptr %20, ptr %22, align 8
@@ -3171,7 +3168,7 @@ define internal ptr @CurvesDup(ptr noundef %0, ptr noundef %1) #0 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
-define internal void @FastEvaluateCurves16(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #7 {
+define internal void @FastEvaluateCurves16(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #6 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load i32, ptr %4, align 8
   %.not = icmp eq i32 %5, 0
@@ -3208,15 +3205,15 @@ declare ptr @cmsStageAllocIdentity(ptr noundef, i32 noundef) local_unnamed_addr 
 declare i32 @_cmsMAT3isIdentity(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @SetMatShaper(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull readonly captures(none) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(none) %4, ptr noundef captures(none) %5) unnamed_addr #0 {
   %7 = load i32, ptr %5, align 4
-  %8 = tail call i32 @_cmsFormatterIs8bit(i32 noundef %7) #11
+  %8 = tail call i32 @_cmsFormatterIs8bit(i32 noundef %7) #10
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %10 = load ptr, ptr %9, align 8
-  %11 = tail call ptr @_cmsMalloc(ptr noundef %10, i32 noundef 101440) #11
+  %11 = tail call ptr @_cmsMalloc(ptr noundef %10, i32 noundef 101440) #10
   %12 = icmp eq ptr %11, null
   br i1 %12, label %96, label %13
 
@@ -3233,7 +3230,7 @@ define internal fastcc void @SetMatShaper(ptr noundef %0, ptr noundef readonly c
   %19 = uitofp nneg i32 %18 to double
   %20 = fdiv double %19, 2.550000e+02
   %21 = fptrunc double %20 to float
-  %22 = tail call float @cmsEvalToneCurveFloat(ptr noundef %16, float noundef %21) #11
+  %22 = tail call float @cmsEvalToneCurveFloat(ptr noundef %16, float noundef %21) #10
   %23 = fcmp olt float %22, 1.310720e+05
   br i1 %23, label %24, label %29
 
@@ -3264,7 +3261,7 @@ FillFirstShaper.exit:                             ; preds = %29
   %36 = uitofp nneg i32 %35 to double
   %37 = fdiv double %36, 2.550000e+02
   %38 = fptrunc double %37 to float
-  %39 = tail call float @cmsEvalToneCurveFloat(ptr noundef %33, float noundef %38) #11
+  %39 = tail call float @cmsEvalToneCurveFloat(ptr noundef %33, float noundef %38) #10
   %40 = fcmp olt float %39, 1.310720e+05
   br i1 %40, label %41, label %46
 
@@ -3295,7 +3292,7 @@ FillFirstShaper.exit51:                           ; preds = %46
   %53 = uitofp nneg i32 %52 to double
   %54 = fdiv double %53, 2.550000e+02
   %55 = fptrunc double %54 to float
-  %56 = tail call float @cmsEvalToneCurveFloat(ptr noundef %50, float noundef %55) #11
+  %56 = tail call float @cmsEvalToneCurveFloat(ptr noundef %50, float noundef %55) #10
   %57 = fcmp olt float %56, 1.310720e+05
   br i1 %57, label %58, label %63
 
@@ -3386,7 +3383,7 @@ FillFirstShaper.exit56:                           ; preds = %63
   br label %95
 
 95:                                               ; preds = %92, %.split.us
-  tail call void @_cmsPipelineSetOptimizationParameters(ptr noundef %0, ptr noundef nonnull @MatShaperEval16, ptr noundef nonnull %11, ptr noundef nonnull @FreeMatShaper, ptr noundef nonnull @DupMatShaper) #11
+  tail call void @_cmsPipelineSetOptimizationParameters(ptr noundef %0, ptr noundef nonnull @MatShaperEval16, ptr noundef nonnull %11, ptr noundef nonnull @FreeMatShaper, ptr noundef nonnull @DupMatShaper) #10
   br label %96
 
 96:                                               ; preds = %6, %95
@@ -3406,7 +3403,7 @@ define internal fastcc void @FillSecondShaper(ptr noundef nonnull writeonly capt
   %5 = uitofp nneg i32 %4 to double
   %6 = fmul double %5, 0x3F10000000000000
   %7 = fptrunc double %6 to float
-  %8 = tail call float @cmsEvalToneCurveFloat(ptr noundef %1, float noundef %7) #11
+  %8 = tail call float @cmsEvalToneCurveFloat(ptr noundef %1, float noundef %7) #10
   %9 = fcmp olt float %8, 0.000000e+00
   %.016.us = select i1 %9, float 0.000000e+00, float %8
   %10 = fcmp ogt float %.016.us, 1.000000e+00
@@ -3443,7 +3440,7 @@ _cmsQuickSaturateWord.exit19.us:                  ; preds = %17, %15, %.split.us
   %25 = uitofp nneg i32 %24 to double
   %26 = fmul double %25, 0x3F10000000000000
   %27 = fptrunc double %26 to float
-  %28 = tail call float @cmsEvalToneCurveFloat(ptr noundef %1, float noundef %27) #11
+  %28 = tail call float @cmsEvalToneCurveFloat(ptr noundef %1, float noundef %27) #10
   %29 = fcmp olt float %28, 0.000000e+00
   %.016 = select i1 %29, float 0.000000e+00, float %28
   %30 = fcmp ogt float %.016, 1.000000e+00
@@ -3588,7 +3585,7 @@ define internal void @FreeMatShaper(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %.not, label %4, label %3
 
 3:                                                ; preds = %2
-  tail call void @_cmsFree(ptr noundef %0, ptr noundef nonnull %1) #11
+  tail call void @_cmsFree(ptr noundef %0, ptr noundef nonnull %1) #10
   br label %4
 
 4:                                                ; preds = %3, %2
@@ -3597,7 +3594,7 @@ define internal void @FreeMatShaper(ptr noundef %0, ptr noundef %1) #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @DupMatShaper(ptr noundef %0, ptr noundef %1) #0 {
-  %3 = tail call ptr @_cmsDupMem(ptr noundef %0, ptr noundef %1, i32 noundef 101440) #11
+  %3 = tail call ptr @_cmsDupMem(ptr noundef %0, ptr noundef %1, i32 noundef 101440) #10
   ret ptr %3
 }
 
@@ -3611,7 +3608,7 @@ declare ptr @cmsPipelineDup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @PrelinOpt8alloc(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) unnamed_addr #0 {
-  %4 = tail call ptr @_cmsMallocZero(ptr noundef %0, i32 noundef 4624) #11
+  %4 = tail call ptr @_cmsMallocZero(ptr noundef %0, i32 noundef 4624) #10
   %5 = icmp eq ptr %4, null
   br i1 %5, label %72, label %.preheader
 
@@ -3641,11 +3638,11 @@ define internal fastcc ptr @PrelinOpt8alloc(ptr noundef %0, ptr noundef %1, ptr 
   %22 = load ptr, ptr %2, align 8
   %23 = trunc i64 %indvars.iv to i16
   %24 = mul i16 %23, 257
-  %25 = tail call zeroext i16 @cmsEvalToneCurve16(ptr noundef %22, i16 noundef zeroext %24) #11
+  %25 = tail call zeroext i16 @cmsEvalToneCurve16(ptr noundef %22, i16 noundef zeroext %24) #10
   %26 = load ptr, ptr %6, align 8
-  %27 = tail call zeroext i16 @cmsEvalToneCurve16(ptr noundef %26, i16 noundef zeroext %24) #11
+  %27 = tail call zeroext i16 @cmsEvalToneCurve16(ptr noundef %26, i16 noundef zeroext %24) #10
   %28 = load ptr, ptr %7, align 8
-  %29 = tail call zeroext i16 @cmsEvalToneCurve16(ptr noundef %28, i16 noundef zeroext %24) #11
+  %29 = tail call zeroext i16 @cmsEvalToneCurve16(ptr noundef %28, i16 noundef zeroext %24) #10
   br label %33
 
 30:                                               ; preds = %20
@@ -3714,7 +3711,7 @@ define internal fastcc ptr @PrelinOpt8alloc(ptr noundef %0, ptr noundef %1, ptr 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
-define internal void @PrelinEval8(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #7 {
+define internal void @PrelinEval8(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #6 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -4111,29 +4108,29 @@ define internal void @PrelinEval8(ptr noundef readonly captures(none) %0, ptr no
 
 ; Function Attrs: nounwind uwtable
 define internal void @Prelin8free(ptr noundef %0, ptr noundef %1) #0 {
-  tail call void @_cmsFree(ptr noundef %0, ptr noundef %1) #11
+  tail call void @_cmsFree(ptr noundef %0, ptr noundef %1) #10
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @Prelin8dup(ptr noundef %0, ptr noundef %1) #0 {
-  %3 = tail call ptr @_cmsDupMem(ptr noundef %0, ptr noundef %1, i32 noundef 4624) #11
+  %3 = tail call ptr @_cmsDupMem(ptr noundef %0, ptr noundef %1, i32 noundef 4624) #10
   ret ptr %3
 }
 
 declare i32 @cmsIsToneCurveDescending(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #9
+declare i32 @llvm.smax.i32(i32, i32) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #9
+declare i32 @llvm.umin.i32(i32, i32) #8
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -4141,12 +4138,11 @@ attributes #2 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwt
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #4 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #11 = { nounwind }
+attributes #6 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #8 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #10 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

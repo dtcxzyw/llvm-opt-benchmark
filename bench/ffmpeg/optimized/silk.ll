@@ -2421,16 +2421,16 @@ silk_lsp2poly.exit119:                            ; preds = %silk_lsp2poly.exit1
 
 .preheader.i:                                     ; preds = %190
   %192 = load i32, ptr %180, align 4, !tbaa !18
-  %193 = tail call i32 @llvm.abs.i32(i32 %192, i1 true)
-  %194 = icmp samesign ugt i32 %193, 16773022
+  %193 = add i32 %192, -16773023
+  %194 = icmp ult i32 %193, -33546045
   br i1 %194, label %silk_is_lpc_stable.exit.thread, label %.lr.ph90.i
 
 .loopexit.i.loopexit:                             ; preds = %258
   %indvars.iv.next102.i = add nsw i64 %indvars.iv101.i, -1
   %195 = getelementptr inbounds i32, ptr %211, i64 %indvars.iv.next102.i
   %196 = load i32, ptr %195, align 4, !tbaa !18
-  %197 = tail call i32 @llvm.abs.i32(i32 %196, i1 true)
-  %198 = icmp samesign ugt i32 %197, 16773022
+  %197 = add i32 %196, -16773023
+  %198 = icmp ult i32 %197, -33546045
   br i1 %198, label %silk_is_lpc_stable.exit.thread, label %.lr.ph90.i
 
 .lr.ph90.i:                                       ; preds = %.preheader.i, %.loopexit.i.loopexit

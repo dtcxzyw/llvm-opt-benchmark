@@ -326,18 +326,18 @@ define hidden void @aom_lpf_horizontal_6_c(ptr noundef captures(none) %0, i32 no
   br label %20
 
 20:                                               ; preds = %5, %20
-  %.045 = phi ptr [ %0, %5 ], [ %80, %20 ]
-  %.04344 = phi i32 [ 0, %5 ], [ %81, %20 ]
-  %21 = getelementptr inbounds i8, ptr %.045, i64 %7
+  %.046 = phi ptr [ %0, %5 ], [ %85, %20 ]
+  %.04345 = phi i32 [ 0, %5 ], [ %86, %20 ]
+  %21 = getelementptr inbounds i8, ptr %.046, i64 %7
   %22 = load i8, ptr %21, align 1
-  %23 = getelementptr inbounds i8, ptr %.045, i64 %9
+  %23 = getelementptr inbounds i8, ptr %.046, i64 %9
   %24 = load i8, ptr %23, align 1
-  %25 = getelementptr inbounds i8, ptr %.045, i64 %11
+  %25 = getelementptr inbounds i8, ptr %.046, i64 %11
   %26 = load i8, ptr %25, align 1
-  %27 = load i8, ptr %.045, align 1
-  %28 = getelementptr inbounds i8, ptr %.045, i64 %12
+  %27 = load i8, ptr %.046, align 1
+  %28 = getelementptr inbounds i8, ptr %.046, i64 %12
   %29 = load i8, ptr %28, align 1
-  %30 = getelementptr inbounds i8, ptr %.045, i64 %14
+  %30 = getelementptr inbounds i8, ptr %.046, i64 %14
   %31 = load i8, ptr %30, align 1
   %32 = load i8, ptr %3, align 1
   %33 = load i8, ptr %2, align 1
@@ -374,26 +374,32 @@ define hidden void @aom_lpf_horizontal_6_c(ptr noundef captures(none) %0, i32 no
   %64 = icmp samesign ule i32 %55, %56
   %65 = and i1 %64, %63
   %66 = sext i1 %65 to i8
-  %67 = sub nsw i32 %34, %39
-  %68 = tail call i32 @llvm.abs.i32(i32 %67, i1 true)
-  %69 = sub nsw i32 %46, %43
-  %70 = tail call i32 @llvm.abs.i32(i32 %69, i1 true)
-  %71 = or i32 %68, %70
-  %72 = or i32 %71, %41
-  %73 = or i32 %72, %45
-  %74 = icmp samesign ult i32 %73, 2
-  %75 = sext i1 %74 to i8
-  %76 = load i8, ptr %4, align 1
-  %77 = getelementptr inbounds i8, ptr %.045, i64 %17
-  %78 = getelementptr inbounds i8, ptr %.045, i64 %18
-  %79 = getelementptr inbounds i8, ptr %.045, i64 %19
-  tail call fastcc void @filter6(i8 noundef signext %66, i8 noundef zeroext %76, i8 noundef signext %75, ptr noundef nonnull %77, ptr noundef nonnull %78, ptr noundef nonnull %79, ptr noundef nonnull %.045, ptr noundef nonnull %28, ptr noundef nonnull %30)
-  %80 = getelementptr inbounds nuw i8, ptr %.045, i64 1
-  %81 = add nuw nsw i32 %.04344, 1
-  %exitcond.not = icmp eq i32 %81, 4
-  br i1 %exitcond.not, label %82, label %20, !llvm.loop !7
+  %67 = add nuw nsw i32 %35, 1
+  %68 = sub nsw i32 %67, %39
+  %69 = icmp ult i32 %68, 3
+  %70 = add nsw i32 %44, 1
+  %71 = icmp ult i32 %70, 3
+  %72 = and i1 %69, %71
+  %73 = add nuw nsw i32 %34, 1
+  %74 = sub nsw i32 %73, %39
+  %75 = icmp ult i32 %74, 3
+  %76 = and i1 %75, %72
+  %reass.sub = sub nsw i32 %46, %43
+  %77 = add nsw i32 %reass.sub, 1
+  %78 = icmp ult i32 %77, 3
+  %79 = and i1 %78, %76
+  %80 = sext i1 %79 to i8
+  %81 = load i8, ptr %4, align 1
+  %82 = getelementptr inbounds i8, ptr %.046, i64 %17
+  %83 = getelementptr inbounds i8, ptr %.046, i64 %18
+  %84 = getelementptr inbounds i8, ptr %.046, i64 %19
+  tail call fastcc void @filter6(i8 noundef signext %66, i8 noundef zeroext %81, i8 noundef signext %80, ptr noundef nonnull %82, ptr noundef nonnull %83, ptr noundef nonnull %84, ptr noundef nonnull %.046, ptr noundef nonnull %28, ptr noundef nonnull %30)
+  %85 = getelementptr inbounds nuw i8, ptr %.046, i64 1
+  %86 = add nuw nsw i32 %.04345, 1
+  %exitcond.not = icmp eq i32 %86, 4
+  br i1 %exitcond.not, label %87, label %20, !llvm.loop !7
 
-82:                                               ; preds = %20
+87:                                               ; preds = %20
   ret void
 }
 
@@ -547,22 +553,22 @@ define hidden void @aom_lpf_horizontal_8_c(ptr noundef captures(none) %0, i32 no
   br label %25
 
 25:                                               ; preds = %5, %25
-  %.057 = phi ptr [ %0, %5 ], [ %100, %25 ]
-  %.05556 = phi i32 [ 0, %5 ], [ %101, %25 ]
-  %26 = getelementptr inbounds i8, ptr %.057, i64 %7
+  %.058 = phi ptr [ %0, %5 ], [ %101, %25 ]
+  %.05557 = phi i32 [ 0, %5 ], [ %102, %25 ]
+  %26 = getelementptr inbounds i8, ptr %.058, i64 %7
   %27 = load i8, ptr %26, align 1
-  %28 = getelementptr inbounds i8, ptr %.057, i64 %9
+  %28 = getelementptr inbounds i8, ptr %.058, i64 %9
   %29 = load i8, ptr %28, align 1
-  %30 = getelementptr inbounds i8, ptr %.057, i64 %11
+  %30 = getelementptr inbounds i8, ptr %.058, i64 %11
   %31 = load i8, ptr %30, align 1
-  %32 = getelementptr inbounds i8, ptr %.057, i64 %13
+  %32 = getelementptr inbounds i8, ptr %.058, i64 %13
   %33 = load i8, ptr %32, align 1
-  %34 = load i8, ptr %.057, align 1
-  %35 = getelementptr inbounds i8, ptr %.057, i64 %14
+  %34 = load i8, ptr %.058, align 1
+  %35 = getelementptr inbounds i8, ptr %.058, i64 %14
   %36 = load i8, ptr %35, align 1
-  %37 = getelementptr inbounds i8, ptr %.057, i64 %16
+  %37 = getelementptr inbounds i8, ptr %.058, i64 %16
   %38 = load i8, ptr %37, align 1
-  %39 = getelementptr inbounds i8, ptr %.057, i64 %18
+  %39 = getelementptr inbounds i8, ptr %.058, i64 %18
   %40 = load i8, ptr %39, align 1
   %41 = load i8, ptr %3, align 1
   %42 = load i8, ptr %2, align 1
@@ -609,33 +615,41 @@ define hidden void @aom_lpf_horizontal_8_c(ptr noundef captures(none) %0, i32 no
   %78 = icmp samesign ule i32 %76, %77
   %.not32.i = and i1 %78, %.not35.i
   %79 = sext i1 %.not32.i to i8
-  %80 = sub nsw i32 %44, %53
-  %81 = tail call i32 @llvm.abs.i32(i32 %80, i1 true)
-  %82 = sub nsw i32 %62, %58
-  %83 = tail call i32 @llvm.abs.i32(i32 %82, i1 true)
-  %84 = sub nsw i32 %43, %53
-  %85 = tail call i32 @llvm.abs.i32(i32 %84, i1 true)
-  %86 = sub nsw i32 %66, %58
-  %87 = tail call i32 @llvm.abs.i32(i32 %86, i1 true)
-  %88 = or i32 %81, %85
-  %89 = or i32 %88, %83
-  %90 = or i32 %89, %87
-  %91 = or i32 %90, %55
-  %92 = or i32 %91, %60
-  %93 = icmp samesign ult i32 %92, 2
-  %94 = sext i1 %93 to i8
-  %95 = load i8, ptr %4, align 1
-  %96 = getelementptr inbounds i8, ptr %.057, i64 %21
-  %97 = getelementptr inbounds i8, ptr %.057, i64 %22
-  %98 = getelementptr inbounds i8, ptr %.057, i64 %23
-  %99 = getelementptr inbounds i8, ptr %.057, i64 %24
-  tail call fastcc void @filter8(i8 noundef signext %79, i8 noundef zeroext %95, i8 noundef signext %94, ptr noundef nonnull %96, ptr noundef nonnull %97, ptr noundef nonnull %98, ptr noundef nonnull %99, ptr noundef nonnull %.057, ptr noundef nonnull %35, ptr noundef nonnull %37, ptr noundef nonnull %39)
-  %100 = getelementptr inbounds nuw i8, ptr %.057, i64 1
-  %101 = add nuw nsw i32 %.05556, 1
-  %exitcond.not = icmp eq i32 %101, 4
-  br i1 %exitcond.not, label %102, label %25, !llvm.loop !8
+  %80 = add nuw nsw i32 %49, 1
+  %81 = sub nsw i32 %80, %53
+  %82 = icmp ult i32 %81, 3
+  %83 = add nsw i32 %59, 1
+  %84 = icmp ult i32 %83, 3
+  %.not36.i = and i1 %82, %84
+  %85 = add nuw nsw i32 %44, 1
+  %86 = sub nsw i32 %85, %53
+  %87 = icmp ult i32 %86, 3
+  %.not34.i = and i1 %87, %.not36.i
+  %reass.sub = sub nsw i32 %62, %58
+  %88 = add nsw i32 %reass.sub, 1
+  %89 = icmp ult i32 %88, 3
+  %.not31.i = and i1 %89, %.not34.i
+  %90 = add nuw nsw i32 %43, 1
+  %91 = sub nsw i32 %90, %53
+  %92 = icmp ult i32 %91, 3
+  %.not29.i = and i1 %92, %.not31.i
+  %reass.sub59 = sub nsw i32 %66, %58
+  %93 = add nsw i32 %reass.sub59, 1
+  %94 = icmp ult i32 %93, 3
+  %.not26.i = and i1 %94, %.not29.i
+  %95 = sext i1 %.not26.i to i8
+  %96 = load i8, ptr %4, align 1
+  %97 = getelementptr inbounds i8, ptr %.058, i64 %21
+  %98 = getelementptr inbounds i8, ptr %.058, i64 %22
+  %99 = getelementptr inbounds i8, ptr %.058, i64 %23
+  %100 = getelementptr inbounds i8, ptr %.058, i64 %24
+  tail call fastcc void @filter8(i8 noundef signext %79, i8 noundef zeroext %96, i8 noundef signext %95, ptr noundef nonnull %97, ptr noundef nonnull %98, ptr noundef nonnull %99, ptr noundef nonnull %100, ptr noundef nonnull %.058, ptr noundef nonnull %35, ptr noundef nonnull %37, ptr noundef nonnull %39)
+  %101 = getelementptr inbounds nuw i8, ptr %.058, i64 1
+  %102 = add nuw nsw i32 %.05557, 1
+  %exitcond.not = icmp eq i32 %102, 4
+  br i1 %exitcond.not, label %103, label %25, !llvm.loop !8
 
-102:                                              ; preds = %25
+103:                                              ; preds = %25
   ret void
 }
 
@@ -798,18 +812,18 @@ define hidden void @aom_lpf_vertical_6_c(ptr noundef captures(none) %0, i32 noun
   br label %7
 
 7:                                                ; preds = %5, %7
-  %.035 = phi ptr [ %0, %5 ], [ %64, %7 ]
-  %.03334 = phi i32 [ 0, %5 ], [ %65, %7 ]
-  %8 = getelementptr inbounds i8, ptr %.035, i64 -3
+  %.036 = phi ptr [ %0, %5 ], [ %69, %7 ]
+  %.03335 = phi i32 [ 0, %5 ], [ %70, %7 ]
+  %8 = getelementptr inbounds i8, ptr %.036, i64 -3
   %9 = load i8, ptr %8, align 1
-  %10 = getelementptr inbounds i8, ptr %.035, i64 -2
+  %10 = getelementptr inbounds i8, ptr %.036, i64 -2
   %11 = load i8, ptr %10, align 1
-  %12 = getelementptr inbounds i8, ptr %.035, i64 -1
+  %12 = getelementptr inbounds i8, ptr %.036, i64 -1
   %13 = load i8, ptr %12, align 1
-  %14 = load i8, ptr %.035, align 1
-  %15 = getelementptr inbounds nuw i8, ptr %.035, i64 1
+  %14 = load i8, ptr %.036, align 1
+  %15 = getelementptr inbounds nuw i8, ptr %.036, i64 1
   %16 = load i8, ptr %15, align 1
-  %17 = getelementptr inbounds nuw i8, ptr %.035, i64 2
+  %17 = getelementptr inbounds nuw i8, ptr %.036, i64 2
   %18 = load i8, ptr %17, align 1
   %19 = load i8, ptr %3, align 1
   %20 = load i8, ptr %2, align 1
@@ -846,23 +860,29 @@ define hidden void @aom_lpf_vertical_6_c(ptr noundef captures(none) %0, i32 noun
   %51 = icmp samesign ule i32 %42, %43
   %52 = and i1 %51, %50
   %53 = sext i1 %52 to i8
-  %54 = sub nsw i32 %21, %26
-  %55 = tail call i32 @llvm.abs.i32(i32 %54, i1 true)
-  %56 = sub nsw i32 %33, %30
-  %57 = tail call i32 @llvm.abs.i32(i32 %56, i1 true)
-  %58 = or i32 %55, %57
-  %59 = or i32 %58, %28
-  %60 = or i32 %59, %32
-  %61 = icmp samesign ult i32 %60, 2
-  %62 = sext i1 %61 to i8
-  %63 = load i8, ptr %4, align 1
-  tail call fastcc void @filter6(i8 noundef signext %53, i8 noundef zeroext %63, i8 noundef signext %62, ptr noundef nonnull %8, ptr noundef nonnull %10, ptr noundef nonnull %12, ptr noundef nonnull %.035, ptr noundef nonnull %15, ptr noundef nonnull %17)
-  %64 = getelementptr inbounds i8, ptr %.035, i64 %6
-  %65 = add nuw nsw i32 %.03334, 1
-  %exitcond.not = icmp eq i32 %65, 4
-  br i1 %exitcond.not, label %66, label %7, !llvm.loop !9
+  %54 = add nuw nsw i32 %22, 1
+  %55 = sub nsw i32 %54, %26
+  %56 = icmp ult i32 %55, 3
+  %57 = add nsw i32 %31, 1
+  %58 = icmp ult i32 %57, 3
+  %59 = and i1 %56, %58
+  %60 = add nuw nsw i32 %21, 1
+  %61 = sub nsw i32 %60, %26
+  %62 = icmp ult i32 %61, 3
+  %63 = and i1 %62, %59
+  %reass.sub = sub nsw i32 %33, %30
+  %64 = add nsw i32 %reass.sub, 1
+  %65 = icmp ult i32 %64, 3
+  %66 = and i1 %65, %63
+  %67 = sext i1 %66 to i8
+  %68 = load i8, ptr %4, align 1
+  tail call fastcc void @filter6(i8 noundef signext %53, i8 noundef zeroext %68, i8 noundef signext %67, ptr noundef nonnull %8, ptr noundef nonnull %10, ptr noundef nonnull %12, ptr noundef nonnull %.036, ptr noundef nonnull %15, ptr noundef nonnull %17)
+  %69 = getelementptr inbounds i8, ptr %.036, i64 %6
+  %70 = add nuw nsw i32 %.03335, 1
+  %exitcond.not = icmp eq i32 %70, 4
+  br i1 %exitcond.not, label %71, label %7, !llvm.loop !9
 
-66:                                               ; preds = %7
+71:                                               ; preds = %7
   ret void
 }
 
@@ -882,22 +902,22 @@ define hidden void @aom_lpf_vertical_8_c(ptr noundef captures(none) %0, i32 noun
   br label %7
 
 7:                                                ; preds = %5, %7
-  %.043 = phi ptr [ %0, %5 ], [ %78, %7 ]
-  %.04142 = phi i32 [ 0, %5 ], [ %79, %7 ]
-  %8 = getelementptr inbounds i8, ptr %.043, i64 -4
+  %.044 = phi ptr [ %0, %5 ], [ %79, %7 ]
+  %.04143 = phi i32 [ 0, %5 ], [ %80, %7 ]
+  %8 = getelementptr inbounds i8, ptr %.044, i64 -4
   %9 = load i8, ptr %8, align 1
-  %10 = getelementptr inbounds i8, ptr %.043, i64 -3
+  %10 = getelementptr inbounds i8, ptr %.044, i64 -3
   %11 = load i8, ptr %10, align 1
-  %12 = getelementptr inbounds i8, ptr %.043, i64 -2
+  %12 = getelementptr inbounds i8, ptr %.044, i64 -2
   %13 = load i8, ptr %12, align 1
-  %14 = getelementptr inbounds i8, ptr %.043, i64 -1
+  %14 = getelementptr inbounds i8, ptr %.044, i64 -1
   %15 = load i8, ptr %14, align 1
-  %16 = load i8, ptr %.043, align 1
-  %17 = getelementptr inbounds nuw i8, ptr %.043, i64 1
+  %16 = load i8, ptr %.044, align 1
+  %17 = getelementptr inbounds nuw i8, ptr %.044, i64 1
   %18 = load i8, ptr %17, align 1
-  %19 = getelementptr inbounds nuw i8, ptr %.043, i64 2
+  %19 = getelementptr inbounds nuw i8, ptr %.044, i64 2
   %20 = load i8, ptr %19, align 1
-  %21 = getelementptr inbounds nuw i8, ptr %.043, i64 3
+  %21 = getelementptr inbounds nuw i8, ptr %.044, i64 3
   %22 = load i8, ptr %21, align 1
   %23 = load i8, ptr %3, align 1
   %24 = load i8, ptr %2, align 1
@@ -944,29 +964,37 @@ define hidden void @aom_lpf_vertical_8_c(ptr noundef captures(none) %0, i32 noun
   %60 = icmp samesign ule i32 %58, %59
   %.not32.i = and i1 %60, %.not35.i
   %61 = sext i1 %.not32.i to i8
-  %62 = sub nsw i32 %26, %35
-  %63 = tail call i32 @llvm.abs.i32(i32 %62, i1 true)
-  %64 = sub nsw i32 %44, %40
-  %65 = tail call i32 @llvm.abs.i32(i32 %64, i1 true)
-  %66 = sub nsw i32 %25, %35
-  %67 = tail call i32 @llvm.abs.i32(i32 %66, i1 true)
-  %68 = sub nsw i32 %48, %40
-  %69 = tail call i32 @llvm.abs.i32(i32 %68, i1 true)
-  %70 = or i32 %63, %67
-  %71 = or i32 %70, %65
-  %72 = or i32 %71, %69
-  %73 = or i32 %72, %37
-  %74 = or i32 %73, %42
-  %75 = icmp samesign ult i32 %74, 2
-  %76 = sext i1 %75 to i8
-  %77 = load i8, ptr %4, align 1
-  tail call fastcc void @filter8(i8 noundef signext %61, i8 noundef zeroext %77, i8 noundef signext %76, ptr noundef nonnull %8, ptr noundef nonnull %10, ptr noundef nonnull %12, ptr noundef nonnull %14, ptr noundef nonnull %.043, ptr noundef nonnull %17, ptr noundef nonnull %19, ptr noundef nonnull %21)
-  %78 = getelementptr inbounds i8, ptr %.043, i64 %6
-  %79 = add nuw nsw i32 %.04142, 1
-  %exitcond.not = icmp eq i32 %79, 4
-  br i1 %exitcond.not, label %80, label %7, !llvm.loop !10
+  %62 = add nuw nsw i32 %31, 1
+  %63 = sub nsw i32 %62, %35
+  %64 = icmp ult i32 %63, 3
+  %65 = add nsw i32 %41, 1
+  %66 = icmp ult i32 %65, 3
+  %.not36.i = and i1 %64, %66
+  %67 = add nuw nsw i32 %26, 1
+  %68 = sub nsw i32 %67, %35
+  %69 = icmp ult i32 %68, 3
+  %.not34.i = and i1 %69, %.not36.i
+  %reass.sub = sub nsw i32 %44, %40
+  %70 = add nsw i32 %reass.sub, 1
+  %71 = icmp ult i32 %70, 3
+  %.not31.i = and i1 %71, %.not34.i
+  %72 = add nuw nsw i32 %25, 1
+  %73 = sub nsw i32 %72, %35
+  %74 = icmp ult i32 %73, 3
+  %.not29.i = and i1 %74, %.not31.i
+  %reass.sub45 = sub nsw i32 %48, %40
+  %75 = add nsw i32 %reass.sub45, 1
+  %76 = icmp ult i32 %75, 3
+  %.not26.i = and i1 %76, %.not29.i
+  %77 = sext i1 %.not26.i to i8
+  %78 = load i8, ptr %4, align 1
+  tail call fastcc void @filter8(i8 noundef signext %61, i8 noundef zeroext %78, i8 noundef signext %77, ptr noundef nonnull %8, ptr noundef nonnull %10, ptr noundef nonnull %12, ptr noundef nonnull %14, ptr noundef nonnull %.044, ptr noundef nonnull %17, ptr noundef nonnull %19, ptr noundef nonnull %21)
+  %79 = getelementptr inbounds i8, ptr %.044, i64 %6
+  %80 = add nuw nsw i32 %.04143, 1
+  %exitcond.not = icmp eq i32 %80, 4
+  br i1 %exitcond.not, label %81, label %7, !llvm.loop !10
 
-80:                                               ; preds = %7
+81:                                               ; preds = %7
   ret void
 }
 
@@ -1025,34 +1053,34 @@ define internal fastcc void @mb_lpf_horizontal_edge_w(ptr noundef captures(none)
   br label %40
 
 40:                                               ; preds = %5, %40
-  %.091 = phi ptr [ %0, %5 ], [ %155, %40 ]
-  %.08990 = phi i32 [ 0, %5 ], [ %156, %40 ]
-  %41 = getelementptr inbounds i8, ptr %.091, i64 %7
+  %.0100 = phi ptr [ %0, %5 ], [ %153, %40 ]
+  %.08999 = phi i32 [ 0, %5 ], [ %154, %40 ]
+  %41 = getelementptr inbounds i8, ptr %.0100, i64 %7
   %42 = load i8, ptr %41, align 1
-  %43 = getelementptr inbounds i8, ptr %.091, i64 %9
+  %43 = getelementptr inbounds i8, ptr %.0100, i64 %9
   %44 = load i8, ptr %43, align 1
-  %45 = getelementptr inbounds i8, ptr %.091, i64 %11
+  %45 = getelementptr inbounds i8, ptr %.0100, i64 %11
   %46 = load i8, ptr %45, align 1
-  %47 = getelementptr inbounds i8, ptr %.091, i64 %13
+  %47 = getelementptr inbounds i8, ptr %.0100, i64 %13
   %48 = load i8, ptr %47, align 1
-  %49 = getelementptr inbounds i8, ptr %.091, i64 %15
+  %49 = getelementptr inbounds i8, ptr %.0100, i64 %15
   %50 = load i8, ptr %49, align 1
-  %51 = getelementptr inbounds i8, ptr %.091, i64 %17
+  %51 = getelementptr inbounds i8, ptr %.0100, i64 %17
   %52 = load i8, ptr %51, align 1
-  %53 = getelementptr inbounds i8, ptr %.091, i64 %19
+  %53 = getelementptr inbounds i8, ptr %.0100, i64 %19
   %54 = load i8, ptr %53, align 1
-  %55 = load i8, ptr %.091, align 1
-  %56 = getelementptr inbounds i8, ptr %.091, i64 %20
+  %55 = load i8, ptr %.0100, align 1
+  %56 = getelementptr inbounds i8, ptr %.0100, i64 %20
   %57 = load i8, ptr %56, align 1
-  %58 = getelementptr inbounds i8, ptr %.091, i64 %22
+  %58 = getelementptr inbounds i8, ptr %.0100, i64 %22
   %59 = load i8, ptr %58, align 1
-  %60 = getelementptr inbounds i8, ptr %.091, i64 %24
+  %60 = getelementptr inbounds i8, ptr %.0100, i64 %24
   %61 = load i8, ptr %60, align 1
-  %62 = getelementptr inbounds i8, ptr %.091, i64 %26
+  %62 = getelementptr inbounds i8, ptr %.0100, i64 %26
   %63 = load i8, ptr %62, align 1
-  %64 = getelementptr inbounds i8, ptr %.091, i64 %28
+  %64 = getelementptr inbounds i8, ptr %.0100, i64 %28
   %65 = load i8, ptr %64, align 1
-  %66 = getelementptr inbounds i8, ptr %.091, i64 %30
+  %66 = getelementptr inbounds i8, ptr %.0100, i64 %30
   %67 = load i8, ptr %66, align 1
   %68 = load i8, ptr %3, align 1
   %69 = load i8, ptr %2, align 1
@@ -1099,61 +1127,74 @@ define internal fastcc void @mb_lpf_horizontal_edge_w(ptr noundef captures(none)
   %105 = icmp samesign ule i32 %103, %104
   %.not32.i = and i1 %105, %.not35.i
   %106 = sext i1 %.not32.i to i8
-  %107 = sub nsw i32 %71, %80
-  %108 = tail call i32 @llvm.abs.i32(i32 %107, i1 true)
-  %109 = sub nsw i32 %89, %85
-  %110 = tail call i32 @llvm.abs.i32(i32 %109, i1 true)
-  %111 = sub nsw i32 %70, %80
-  %112 = tail call i32 @llvm.abs.i32(i32 %111, i1 true)
-  %113 = sub nsw i32 %93, %85
-  %114 = tail call i32 @llvm.abs.i32(i32 %113, i1 true)
-  %115 = or i32 %108, %112
-  %116 = or i32 %115, %110
-  %117 = or i32 %116, %114
-  %118 = or i32 %117, %82
-  %119 = or i32 %118, %87
-  %120 = icmp samesign ult i32 %119, 2
-  %121 = sext i1 %120 to i8
-  %122 = zext i8 %46 to i32
-  %123 = sub nsw i32 %122, %80
-  %124 = tail call i32 @llvm.abs.i32(i32 %123, i1 true)
-  %125 = zext i8 %63 to i32
-  %126 = sub nsw i32 %125, %85
-  %127 = tail call i32 @llvm.abs.i32(i32 %126, i1 true)
-  %128 = zext i8 %44 to i32
-  %129 = sub nsw i32 %128, %80
-  %130 = tail call i32 @llvm.abs.i32(i32 %129, i1 true)
-  %131 = zext i8 %65 to i32
-  %132 = sub nsw i32 %131, %85
-  %133 = tail call i32 @llvm.abs.i32(i32 %132, i1 true)
-  %134 = zext i8 %42 to i32
-  %135 = sub nsw i32 %134, %80
-  %136 = tail call i32 @llvm.abs.i32(i32 %135, i1 true)
-  %137 = zext i8 %67 to i32
-  %138 = sub nsw i32 %137, %85
-  %139 = tail call i32 @llvm.abs.i32(i32 %138, i1 true)
-  %140 = or i32 %130, %124
-  %141 = or i32 %140, %136
-  %142 = or i32 %141, %127
-  %143 = or i32 %142, %133
-  %144 = or i32 %143, %139
-  %145 = icmp samesign ult i32 %144, 2
-  %146 = sext i1 %145 to i8
-  %147 = load i8, ptr %4, align 1
-  %148 = getelementptr inbounds i8, ptr %.091, i64 %33
-  %149 = getelementptr inbounds i8, ptr %.091, i64 %34
-  %150 = getelementptr inbounds i8, ptr %.091, i64 %35
-  %151 = getelementptr inbounds i8, ptr %.091, i64 %36
-  %152 = getelementptr inbounds i8, ptr %.091, i64 %37
-  %153 = getelementptr inbounds i8, ptr %.091, i64 %38
-  %154 = getelementptr inbounds i8, ptr %.091, i64 %39
-  tail call fastcc void @filter14(i8 noundef signext %106, i8 noundef zeroext %147, i8 noundef signext %121, i8 noundef signext %146, ptr noundef nonnull %148, ptr noundef nonnull %149, ptr noundef nonnull %150, ptr noundef nonnull %151, ptr noundef nonnull %152, ptr noundef nonnull %153, ptr noundef nonnull %154, ptr noundef nonnull %.091, ptr noundef nonnull %56, ptr noundef nonnull %58, ptr noundef nonnull %60, ptr noundef nonnull %62, ptr noundef nonnull %64, ptr noundef nonnull %66)
-  %155 = getelementptr inbounds nuw i8, ptr %.091, i64 1
-  %156 = add nuw nsw i32 %.08990, 1
-  %exitcond.not = icmp eq i32 %156, 4
-  br i1 %exitcond.not, label %157, label %40, !llvm.loop !11
+  %107 = add nuw nsw i32 %76, 1
+  %108 = sub nsw i32 %107, %80
+  %109 = icmp ult i32 %108, 3
+  %110 = add nsw i32 %86, 1
+  %111 = icmp ult i32 %110, 3
+  %.not36.i = and i1 %109, %111
+  %112 = add nuw nsw i32 %71, 1
+  %113 = sub nsw i32 %112, %80
+  %114 = icmp ult i32 %113, 3
+  %.not34.i = and i1 %114, %.not36.i
+  %reass.sub = sub nsw i32 %89, %85
+  %115 = add nsw i32 %reass.sub, 1
+  %116 = icmp ult i32 %115, 3
+  %.not31.i = and i1 %116, %.not34.i
+  %117 = add nuw nsw i32 %70, 1
+  %118 = sub nsw i32 %117, %80
+  %119 = icmp ult i32 %118, 3
+  %.not29.i = and i1 %119, %.not31.i
+  %reass.sub101 = sub nsw i32 %93, %85
+  %120 = add nsw i32 %reass.sub101, 1
+  %121 = icmp ult i32 %120, 3
+  %.not26.i = and i1 %121, %.not29.i
+  %122 = sext i1 %.not26.i to i8
+  %123 = zext i8 %46 to i32
+  %124 = add nuw nsw i32 %123, 1
+  %125 = sub nsw i32 %124, %80
+  %126 = icmp ult i32 %125, 3
+  %127 = zext i8 %63 to i32
+  %reass.sub102 = sub nsw i32 %127, %85
+  %128 = add nsw i32 %reass.sub102, 1
+  %129 = icmp ult i32 %128, 3
+  %.not36.i91 = and i1 %126, %129
+  %130 = zext i8 %44 to i32
+  %131 = add nuw nsw i32 %130, 1
+  %132 = sub nsw i32 %131, %80
+  %133 = icmp ult i32 %132, 3
+  %.not34.i92 = and i1 %133, %.not36.i91
+  %134 = zext i8 %65 to i32
+  %reass.sub103 = sub nsw i32 %134, %85
+  %135 = add nsw i32 %reass.sub103, 1
+  %136 = icmp ult i32 %135, 3
+  %.not31.i94 = and i1 %136, %.not34.i92
+  %137 = zext i8 %42 to i32
+  %138 = add nuw nsw i32 %137, 1
+  %139 = sub nsw i32 %138, %80
+  %140 = icmp ult i32 %139, 3
+  %.not29.i95 = and i1 %140, %.not31.i94
+  %141 = zext i8 %67 to i32
+  %reass.sub104 = sub nsw i32 %141, %85
+  %142 = add nsw i32 %reass.sub104, 1
+  %143 = icmp ult i32 %142, 3
+  %.not26.i97 = and i1 %143, %.not29.i95
+  %144 = sext i1 %.not26.i97 to i8
+  %145 = load i8, ptr %4, align 1
+  %146 = getelementptr inbounds i8, ptr %.0100, i64 %33
+  %147 = getelementptr inbounds i8, ptr %.0100, i64 %34
+  %148 = getelementptr inbounds i8, ptr %.0100, i64 %35
+  %149 = getelementptr inbounds i8, ptr %.0100, i64 %36
+  %150 = getelementptr inbounds i8, ptr %.0100, i64 %37
+  %151 = getelementptr inbounds i8, ptr %.0100, i64 %38
+  %152 = getelementptr inbounds i8, ptr %.0100, i64 %39
+  tail call fastcc void @filter14(i8 noundef signext %106, i8 noundef zeroext %145, i8 noundef signext %122, i8 noundef signext %144, ptr noundef nonnull %146, ptr noundef nonnull %147, ptr noundef nonnull %148, ptr noundef nonnull %149, ptr noundef nonnull %150, ptr noundef nonnull %151, ptr noundef nonnull %152, ptr noundef nonnull %.0100, ptr noundef nonnull %56, ptr noundef nonnull %58, ptr noundef nonnull %60, ptr noundef nonnull %62, ptr noundef nonnull %64, ptr noundef nonnull %66)
+  %153 = getelementptr inbounds nuw i8, ptr %.0100, i64 1
+  %154 = add nuw nsw i32 %.08999, 1
+  %exitcond.not = icmp eq i32 %154, 4
+  br i1 %exitcond.not, label %155, label %40, !llvm.loop !11
 
-157:                                              ; preds = %40
+155:                                              ; preds = %40
   ret void
 }
 
@@ -1177,34 +1218,34 @@ define internal fastcc void @mb_lpf_vertical_edge_w(ptr noundef captures(none) %
   br label %7
 
 7:                                                ; preds = %5, %7
-  %.064 = phi ptr [ %0, %5 ], [ %115, %7 ]
-  %.06263 = phi i32 [ 0, %5 ], [ %116, %7 ]
-  %8 = getelementptr inbounds i8, ptr %.064, i64 -7
+  %.073 = phi ptr [ %0, %5 ], [ %113, %7 ]
+  %.06272 = phi i32 [ 0, %5 ], [ %114, %7 ]
+  %8 = getelementptr inbounds i8, ptr %.073, i64 -7
   %9 = load i8, ptr %8, align 1
-  %10 = getelementptr inbounds i8, ptr %.064, i64 -6
+  %10 = getelementptr inbounds i8, ptr %.073, i64 -6
   %11 = load i8, ptr %10, align 1
-  %12 = getelementptr inbounds i8, ptr %.064, i64 -5
+  %12 = getelementptr inbounds i8, ptr %.073, i64 -5
   %13 = load i8, ptr %12, align 1
-  %14 = getelementptr inbounds i8, ptr %.064, i64 -4
+  %14 = getelementptr inbounds i8, ptr %.073, i64 -4
   %15 = load i8, ptr %14, align 1
-  %16 = getelementptr inbounds i8, ptr %.064, i64 -3
+  %16 = getelementptr inbounds i8, ptr %.073, i64 -3
   %17 = load i8, ptr %16, align 1
-  %18 = getelementptr inbounds i8, ptr %.064, i64 -2
+  %18 = getelementptr inbounds i8, ptr %.073, i64 -2
   %19 = load i8, ptr %18, align 1
-  %20 = getelementptr inbounds i8, ptr %.064, i64 -1
+  %20 = getelementptr inbounds i8, ptr %.073, i64 -1
   %21 = load i8, ptr %20, align 1
-  %22 = load i8, ptr %.064, align 1
-  %23 = getelementptr inbounds nuw i8, ptr %.064, i64 1
+  %22 = load i8, ptr %.073, align 1
+  %23 = getelementptr inbounds nuw i8, ptr %.073, i64 1
   %24 = load i8, ptr %23, align 1
-  %25 = getelementptr inbounds nuw i8, ptr %.064, i64 2
+  %25 = getelementptr inbounds nuw i8, ptr %.073, i64 2
   %26 = load i8, ptr %25, align 1
-  %27 = getelementptr inbounds nuw i8, ptr %.064, i64 3
+  %27 = getelementptr inbounds nuw i8, ptr %.073, i64 3
   %28 = load i8, ptr %27, align 1
-  %29 = getelementptr inbounds nuw i8, ptr %.064, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %.073, i64 4
   %30 = load i8, ptr %29, align 1
-  %31 = getelementptr inbounds nuw i8, ptr %.064, i64 5
+  %31 = getelementptr inbounds nuw i8, ptr %.073, i64 5
   %32 = load i8, ptr %31, align 1
-  %33 = getelementptr inbounds nuw i8, ptr %.064, i64 6
+  %33 = getelementptr inbounds nuw i8, ptr %.073, i64 6
   %34 = load i8, ptr %33, align 1
   %35 = load i8, ptr %3, align 1
   %36 = load i8, ptr %2, align 1
@@ -1251,54 +1292,67 @@ define internal fastcc void @mb_lpf_vertical_edge_w(ptr noundef captures(none) %
   %72 = icmp samesign ule i32 %70, %71
   %.not32.i = and i1 %72, %.not35.i
   %73 = sext i1 %.not32.i to i8
-  %74 = sub nsw i32 %38, %47
-  %75 = tail call i32 @llvm.abs.i32(i32 %74, i1 true)
-  %76 = sub nsw i32 %56, %52
-  %77 = tail call i32 @llvm.abs.i32(i32 %76, i1 true)
-  %78 = sub nsw i32 %37, %47
-  %79 = tail call i32 @llvm.abs.i32(i32 %78, i1 true)
-  %80 = sub nsw i32 %60, %52
-  %81 = tail call i32 @llvm.abs.i32(i32 %80, i1 true)
-  %82 = or i32 %75, %79
-  %83 = or i32 %82, %77
-  %84 = or i32 %83, %81
-  %85 = or i32 %84, %49
-  %86 = or i32 %85, %54
-  %87 = icmp samesign ult i32 %86, 2
-  %88 = sext i1 %87 to i8
-  %89 = zext i8 %13 to i32
-  %90 = sub nsw i32 %89, %47
-  %91 = tail call i32 @llvm.abs.i32(i32 %90, i1 true)
-  %92 = zext i8 %30 to i32
-  %93 = sub nsw i32 %92, %52
-  %94 = tail call i32 @llvm.abs.i32(i32 %93, i1 true)
-  %95 = zext i8 %11 to i32
-  %96 = sub nsw i32 %95, %47
-  %97 = tail call i32 @llvm.abs.i32(i32 %96, i1 true)
-  %98 = zext i8 %32 to i32
-  %99 = sub nsw i32 %98, %52
-  %100 = tail call i32 @llvm.abs.i32(i32 %99, i1 true)
-  %101 = zext i8 %9 to i32
-  %102 = sub nsw i32 %101, %47
-  %103 = tail call i32 @llvm.abs.i32(i32 %102, i1 true)
-  %104 = zext i8 %34 to i32
-  %105 = sub nsw i32 %104, %52
-  %106 = tail call i32 @llvm.abs.i32(i32 %105, i1 true)
-  %107 = or i32 %97, %91
-  %108 = or i32 %107, %103
-  %109 = or i32 %108, %94
-  %110 = or i32 %109, %100
-  %111 = or i32 %110, %106
-  %112 = icmp samesign ult i32 %111, 2
-  %113 = sext i1 %112 to i8
-  %114 = load i8, ptr %4, align 1
-  tail call fastcc void @filter14(i8 noundef signext %73, i8 noundef zeroext %114, i8 noundef signext %88, i8 noundef signext %113, ptr noundef nonnull %8, ptr noundef nonnull %10, ptr noundef nonnull %12, ptr noundef nonnull %14, ptr noundef nonnull %16, ptr noundef nonnull %18, ptr noundef nonnull %20, ptr noundef nonnull %.064, ptr noundef nonnull %23, ptr noundef nonnull %25, ptr noundef nonnull %27, ptr noundef nonnull %29, ptr noundef nonnull %31, ptr noundef nonnull %33)
-  %115 = getelementptr inbounds i8, ptr %.064, i64 %6
-  %116 = add nuw nsw i32 %.06263, 1
-  %exitcond.not = icmp eq i32 %116, 4
-  br i1 %exitcond.not, label %117, label %7, !llvm.loop !12
+  %74 = add nuw nsw i32 %43, 1
+  %75 = sub nsw i32 %74, %47
+  %76 = icmp ult i32 %75, 3
+  %77 = add nsw i32 %53, 1
+  %78 = icmp ult i32 %77, 3
+  %.not36.i = and i1 %76, %78
+  %79 = add nuw nsw i32 %38, 1
+  %80 = sub nsw i32 %79, %47
+  %81 = icmp ult i32 %80, 3
+  %.not34.i = and i1 %81, %.not36.i
+  %reass.sub = sub nsw i32 %56, %52
+  %82 = add nsw i32 %reass.sub, 1
+  %83 = icmp ult i32 %82, 3
+  %.not31.i = and i1 %83, %.not34.i
+  %84 = add nuw nsw i32 %37, 1
+  %85 = sub nsw i32 %84, %47
+  %86 = icmp ult i32 %85, 3
+  %.not29.i = and i1 %86, %.not31.i
+  %reass.sub74 = sub nsw i32 %60, %52
+  %87 = add nsw i32 %reass.sub74, 1
+  %88 = icmp ult i32 %87, 3
+  %.not26.i = and i1 %88, %.not29.i
+  %89 = sext i1 %.not26.i to i8
+  %90 = zext i8 %13 to i32
+  %91 = add nuw nsw i32 %90, 1
+  %92 = sub nsw i32 %91, %47
+  %93 = icmp ult i32 %92, 3
+  %94 = zext i8 %30 to i32
+  %reass.sub75 = sub nsw i32 %94, %52
+  %95 = add nsw i32 %reass.sub75, 1
+  %96 = icmp ult i32 %95, 3
+  %.not36.i64 = and i1 %93, %96
+  %97 = zext i8 %11 to i32
+  %98 = add nuw nsw i32 %97, 1
+  %99 = sub nsw i32 %98, %47
+  %100 = icmp ult i32 %99, 3
+  %.not34.i65 = and i1 %100, %.not36.i64
+  %101 = zext i8 %32 to i32
+  %reass.sub76 = sub nsw i32 %101, %52
+  %102 = add nsw i32 %reass.sub76, 1
+  %103 = icmp ult i32 %102, 3
+  %.not31.i67 = and i1 %103, %.not34.i65
+  %104 = zext i8 %9 to i32
+  %105 = add nuw nsw i32 %104, 1
+  %106 = sub nsw i32 %105, %47
+  %107 = icmp ult i32 %106, 3
+  %.not29.i68 = and i1 %107, %.not31.i67
+  %108 = zext i8 %34 to i32
+  %reass.sub77 = sub nsw i32 %108, %52
+  %109 = add nsw i32 %reass.sub77, 1
+  %110 = icmp ult i32 %109, 3
+  %.not26.i70 = and i1 %110, %.not29.i68
+  %111 = sext i1 %.not26.i70 to i8
+  %112 = load i8, ptr %4, align 1
+  tail call fastcc void @filter14(i8 noundef signext %73, i8 noundef zeroext %112, i8 noundef signext %89, i8 noundef signext %111, ptr noundef nonnull %8, ptr noundef nonnull %10, ptr noundef nonnull %12, ptr noundef nonnull %14, ptr noundef nonnull %16, ptr noundef nonnull %18, ptr noundef nonnull %20, ptr noundef nonnull %.073, ptr noundef nonnull %23, ptr noundef nonnull %25, ptr noundef nonnull %27, ptr noundef nonnull %29, ptr noundef nonnull %31, ptr noundef nonnull %33)
+  %113 = getelementptr inbounds i8, ptr %.073, i64 %6
+  %114 = add nuw nsw i32 %.06272, 1
+  %exitcond.not = icmp eq i32 %114, 4
+  br i1 %exitcond.not, label %115, label %7, !llvm.loop !12
 
-117:                                              ; preds = %7
+115:                                              ; preds = %7
   ret void
 }
 

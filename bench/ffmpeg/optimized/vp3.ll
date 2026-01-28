@@ -8659,8 +8659,8 @@ define internal fastcc void @reverse_dc_prediction(ptr noundef readonly captures
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph.split.us
-  %.088151.us = phi i32 [ 0, %.preheader.lr.ph.split.us ], [ %116, %._crit_edge.us ]
-  %.090150.us = phi i32 [ %1, %.preheader.lr.ph.split.us ], [ %115, %._crit_edge.us ]
+  %.088151.us = phi i32 [ 0, %.preheader.lr.ph.split.us ], [ %113, %._crit_edge.us ]
+  %.090150.us = phi i32 [ %1, %.preheader.lr.ph.split.us ], [ %112, %._crit_edge.us ]
   %.093149.us = phi i32 [ 0, %.preheader.lr.ph.split.us ], [ %.396.us, %._crit_edge.us ]
   %.097148.us = phi i32 [ 0, %.preheader.lr.ph.split.us ], [ %.4.us, %._crit_edge.us ]
   %.0101147.us = phi i32 [ 0, %.preheader.lr.ph.split.us ], [ %.3104.us, %._crit_edge.us ]
@@ -8669,18 +8669,18 @@ define internal fastcc void @reverse_dc_prediction(ptr noundef readonly captures
   %13 = sext i32 %.090150.us to i64
   br label %14
 
-14:                                               ; preds = %.preheader.us, %113
-  %indvars.iv = phi i64 [ %13, %.preheader.us ], [ %indvars.iv.next, %113 ]
-  %.0138.us = phi i32 [ 0, %.preheader.us ], [ %114, %113 ]
-  %.194136.us = phi i32 [ %.093149.us, %.preheader.us ], [ %.396.us, %113 ]
-  %.198135.us = phi i32 [ %.097148.us, %.preheader.us ], [ %.4.us, %113 ]
-  %.1102134.us = phi i32 [ %.0101147.us, %.preheader.us ], [ %.3104.us, %113 ]
-  %.1106133.us = phi i32 [ %.0105146.us, %.preheader.us ], [ %.3108.us, %113 ]
+14:                                               ; preds = %.preheader.us, %110
+  %indvars.iv = phi i64 [ %13, %.preheader.us ], [ %indvars.iv.next, %110 ]
+  %.0138.us = phi i32 [ 0, %.preheader.us ], [ %111, %110 ]
+  %.194136.us = phi i32 [ %.093149.us, %.preheader.us ], [ %.396.us, %110 ]
+  %.198135.us = phi i32 [ %.097148.us, %.preheader.us ], [ %.4.us, %110 ]
+  %.1102134.us = phi i32 [ %.0101147.us, %.preheader.us ], [ %.3104.us, %110 ]
+  %.1106133.us = phi i32 [ %.0105146.us, %.preheader.us ], [ %.3108.us, %110 ]
   %15 = getelementptr inbounds %struct.Vp3Fragment, ptr %11, i64 %indvars.iv
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 2
   %17 = load i8, ptr %16, align 2, !tbaa !109
   %.not.us = icmp eq i8 %17, 8
-  br i1 %.not.us, label %113, label %18
+  br i1 %.not.us, label %110, label %18
 
 18:                                               ; preds = %14
   %19 = zext i8 %17 to i64
@@ -8762,7 +8762,7 @@ define internal fastcc void @reverse_dc_prediction(ptr noundef readonly captures
   %.299.us = phi i32 [ %.198135.us, %32 ], [ %.3100.us, %59 ], [ %.3100.us, %56 ]
   %.1.us = phi i32 [ %.089.us, %32 ], [ %.3.us, %59 ], [ %.3.us, %56 ]
   %71 = icmp eq i32 %.1.us, 0
-  br i1 %71, label %102, label %.thread.us
+  br i1 %71, label %99, label %.thread.us
 
 .thread.us:                                       ; preds = %70, %59
   %.1132.us = phi i32 [ %.1.us, %70 ], [ %69, %59 ]
@@ -8788,63 +8788,63 @@ define internal fastcc void @reverse_dc_prediction(ptr noundef readonly captures
   %88 = sdiv i32 %87, 128
   %89 = and i32 %.1132.us, -3
   %or.cond.us = icmp eq i32 %89, 13
-  br i1 %or.cond.us, label %90, label %107
+  br i1 %or.cond.us, label %90, label %104
 
 90:                                               ; preds = %.thread.us
-  %91 = sub nsw i32 %88, %.2103129.us
-  %92 = tail call i32 @llvm.abs.i32(i32 %91, i1 true)
-  %93 = icmp samesign ugt i32 %92, 128
-  br i1 %93, label %107, label %94
+  %reass.sub = sub nsw i32 %88, %.2103129.us
+  %91 = add nsw i32 %reass.sub, -129
+  %92 = icmp ult i32 %91, -257
+  br i1 %92, label %104, label %93
 
-94:                                               ; preds = %90
-  %95 = sub nsw i32 %88, %.295.us
-  %96 = tail call i32 @llvm.abs.i32(i32 %95, i1 true)
-  %97 = icmp samesign ugt i32 %96, 128
-  br i1 %97, label %107, label %98
+93:                                               ; preds = %90
+  %reass.sub153 = sub nsw i32 %88, %.295.us
+  %94 = add nsw i32 %reass.sub153, -129
+  %95 = icmp ult i32 %94, -257
+  br i1 %95, label %104, label %96
 
-98:                                               ; preds = %94
-  %99 = sub nsw i32 %88, %.299131.us
-  %100 = tail call i32 @llvm.abs.i32(i32 %99, i1 true)
-  %101 = icmp samesign ugt i32 %100, 128
-  %spec.select121.us = select i1 %101, i32 %.299131.us, i32 %88
-  br label %107
+96:                                               ; preds = %93
+  %reass.sub154 = sub nsw i32 %88, %.299131.us
+  %97 = add nsw i32 %reass.sub154, -129
+  %98 = icmp ult i32 %97, -257
+  %spec.select121.us = select i1 %98, i32 %.299131.us, i32 %88
+  br label %104
 
-102:                                              ; preds = %70
-  %103 = zext i8 %21 to i64
-  %104 = getelementptr inbounds nuw i16, ptr %5, i64 %103
-  %105 = load i16, ptr %104, align 2, !tbaa !76
-  %106 = zext i16 %105 to i32
-  br label %107
+99:                                               ; preds = %70
+  %100 = zext i8 %21 to i64
+  %101 = getelementptr inbounds nuw i16, ptr %5, i64 %100
+  %102 = load i16, ptr %101, align 2, !tbaa !76
+  %103 = zext i16 %102 to i32
+  br label %104
 
-107:                                              ; preds = %102, %98, %94, %90, %.thread.us
-  %.299130.us = phi i32 [ %.299.us, %102 ], [ %.299131.us, %.thread.us ], [ %.299131.us, %90 ], [ %.299131.us, %94 ], [ %.299131.us, %98 ]
-  %.2103128.us = phi i32 [ %.2103.us, %102 ], [ %.2103129.us, %.thread.us ], [ %.2103129.us, %90 ], [ %.2103129.us, %94 ], [ %.2103129.us, %98 ]
-  %.2107126.us = phi i32 [ %.2107.us, %102 ], [ %.2107127.us, %.thread.us ], [ %.2107127.us, %90 ], [ %.2107127.us, %94 ], [ %.2107127.us, %98 ]
-  %.092.us = phi i32 [ %106, %102 ], [ %88, %.thread.us ], [ %.2103129.us, %90 ], [ %.295.us, %94 ], [ %spec.select121.us, %98 ]
-  %108 = load i16, ptr %15, align 2, !tbaa !159
-  %109 = trunc i32 %.092.us to i16
-  %110 = add i16 %108, %109
-  store i16 %110, ptr %15, align 2, !tbaa !159
-  %111 = zext i8 %21 to i64
-  %112 = getelementptr inbounds nuw i16, ptr %5, i64 %111
-  store i16 %110, ptr %112, align 2, !tbaa !76
-  br label %113
+104:                                              ; preds = %99, %96, %93, %90, %.thread.us
+  %.299130.us = phi i32 [ %.299.us, %99 ], [ %.299131.us, %.thread.us ], [ %.299131.us, %90 ], [ %.299131.us, %93 ], [ %.299131.us, %96 ]
+  %.2103128.us = phi i32 [ %.2103.us, %99 ], [ %.2103129.us, %.thread.us ], [ %.2103129.us, %90 ], [ %.2103129.us, %93 ], [ %.2103129.us, %96 ]
+  %.2107126.us = phi i32 [ %.2107.us, %99 ], [ %.2107127.us, %.thread.us ], [ %.2107127.us, %90 ], [ %.2107127.us, %93 ], [ %.2107127.us, %96 ]
+  %.092.us = phi i32 [ %103, %99 ], [ %88, %.thread.us ], [ %.2103129.us, %90 ], [ %.295.us, %93 ], [ %spec.select121.us, %96 ]
+  %105 = load i16, ptr %15, align 2, !tbaa !159
+  %106 = trunc i32 %.092.us to i16
+  %107 = add i16 %105, %106
+  store i16 %107, ptr %15, align 2, !tbaa !159
+  %108 = zext i8 %21 to i64
+  %109 = getelementptr inbounds nuw i16, ptr %5, i64 %108
+  store i16 %107, ptr %109, align 2, !tbaa !76
+  br label %110
 
-113:                                              ; preds = %107, %14
-  %.3108.us = phi i32 [ %.2107126.us, %107 ], [ %.1106133.us, %14 ]
-  %.3104.us = phi i32 [ %.2103128.us, %107 ], [ %.1102134.us, %14 ]
-  %.4.us = phi i32 [ %.299130.us, %107 ], [ %.198135.us, %14 ]
-  %.396.us = phi i32 [ %.295.us, %107 ], [ %.194136.us, %14 ]
-  %114 = add nuw nsw i32 %.0138.us, 1
+110:                                              ; preds = %104, %14
+  %.3108.us = phi i32 [ %.2107126.us, %104 ], [ %.1106133.us, %14 ]
+  %.3104.us = phi i32 [ %.2103128.us, %104 ], [ %.1102134.us, %14 ]
+  %.4.us = phi i32 [ %.299130.us, %104 ], [ %.198135.us, %14 ]
+  %.396.us = phi i32 [ %.295.us, %104 ], [ %.194136.us, %14 ]
+  %111 = add nuw nsw i32 %.0138.us, 1
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i32 %114, %2
+  %exitcond.not = icmp eq i32 %111, %2
   br i1 %exitcond.not, label %._crit_edge.us, label %14, !llvm.loop !261
 
-._crit_edge.us:                                   ; preds = %113
-  %115 = trunc nsw i64 %indvars.iv.next to i32
-  %116 = add nuw nsw i32 %.088151.us, 1
-  %exitcond155.not = icmp eq i32 %116, %3
-  br i1 %exitcond155.not, label %._crit_edge152, label %.preheader.us, !llvm.loop !262
+._crit_edge.us:                                   ; preds = %110
+  %112 = trunc nsw i64 %indvars.iv.next to i32
+  %113 = add nuw nsw i32 %.088151.us, 1
+  %exitcond157.not = icmp eq i32 %113, %3
+  br i1 %exitcond157.not, label %._crit_edge152, label %.preheader.us, !llvm.loop !262
 
 ._crit_edge152:                                   ; preds = %._crit_edge.us, %4
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

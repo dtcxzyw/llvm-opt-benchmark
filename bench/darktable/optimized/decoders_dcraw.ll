@@ -8751,15 +8751,15 @@ _ZN6LibRaw10getbithuffEiPt.exit155:               ; preds = %_ZN6LibRaw10getbith
   br i1 %or.cond107, label %329, label %343
 
 329:                                              ; preds = %326, %305
-  %330 = sub nsw i32 %312, %323
-  %331 = tail call i32 @llvm.abs.i32(i32 %330, i1 true)
-  %332 = icmp samesign ugt i32 %331, 32
+  %330 = add nsw i32 %312, -33
+  %331 = sub nsw i32 %330, %323
+  %332 = icmp ult i32 %331, -65
   br i1 %332, label %337, label %333
 
 333:                                              ; preds = %329
-  %334 = sub nsw i32 %318, %323
-  %335 = tail call i32 @llvm.abs.i32(i32 %334, i1 true)
-  %336 = icmp samesign ugt i32 %335, 32
+  %334 = add nsw i32 %318, -33
+  %335 = sub nsw i32 %334, %323
+  %336 = icmp ult i32 %335, -65
   br i1 %336, label %337, label %340
 
 337:                                              ; preds = %333, %329

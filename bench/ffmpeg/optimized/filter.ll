@@ -1232,7 +1232,7 @@ sao_get_edges.exit:                               ; preds = %91, %.thread4.i, %3
   %486 = getelementptr inbounds nuw i8, ptr %420, i64 %indvars.iv
   %487 = load i8, ptr %486, align 1, !tbaa !59
   %488 = zext i8 %487 to i32
-  call void %484(ptr noundef %448, ptr noundef %448, i64 noundef %427, i64 noundef %427, ptr noundef nonnull %485, i32 noundef %488, i32 noundef %464, i32 noundef %470) #9
+  call void %484(ptr noundef %448, ptr noundef %448, i64 noundef %427, i64 noundef %427, ptr noundef nonnull %485, i32 noundef %488, i32 noundef %464, i32 noundef %470) #8
   br label %641
 
 489:                                              ; preds = %422
@@ -1509,10 +1509,10 @@ sao_extends_edges.exit:                           ; preds = %610, %.preheader22.
   %616 = load ptr, ptr %615, align 8, !tbaa !113
   %617 = getelementptr inbounds nuw [5 x i16], ptr %412, i64 %indvars.iv
   %618 = load i32, ptr %477, align 4, !tbaa !82
-  call void %616(ptr noundef %448, ptr noundef nonnull %401, i64 noundef %427, ptr noundef nonnull %617, i32 noundef %618, i32 noundef %464, i32 noundef %470) #9
+  call void %616(ptr noundef %448, ptr noundef nonnull %401, i64 noundef %427, ptr noundef nonnull %617, i32 noundef %618, i32 noundef %464, i32 noundef %470) #8
   %619 = load ptr, ptr %414, align 8, !tbaa !113
   %620 = trunc nuw nsw i64 %indvars.iv to i32
-  call void %619(ptr noundef %448, ptr noundef nonnull %401, i64 noundef %427, i64 noundef 320, ptr noundef nonnull %41, ptr noundef nonnull %4, i32 noundef %464, i32 noundef %470, i32 noundef %620, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7) #9
+  call void %619(ptr noundef %448, ptr noundef nonnull %401, i64 noundef %427, i64 noundef 320, ptr noundef nonnull %41, ptr noundef nonnull %4, i32 noundef %464, i32 noundef %470, i32 noundef %620, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7) #8
   %621 = icmp ne i32 %478, 1
   %or.cond = select i1 %415, i1 %621, i1 false
   br i1 %or.cond, label %622, label %630
@@ -1525,7 +1525,7 @@ sao_extends_edges.exit:                           ; preds = %610, %.preheader22.
   %627 = getelementptr i8, ptr %448, i64 %626
   %628 = getelementptr i8, ptr %401, i64 %626
   %629 = shl i32 2, %456
-  call void @av_image_copy_plane(ptr noundef %627, i32 noundef %426, ptr noundef %628, i32 noundef 320, i32 noundef %629, i32 noundef %470) #9
+  call void @av_image_copy_plane(ptr noundef %627, i32 noundef %426, ptr noundef %628, i32 noundef 320, i32 noundef %629, i32 noundef %470) #8
   br label %630
 
 630:                                              ; preds = %622, %sao_extends_edges.exit
@@ -1542,7 +1542,7 @@ sao_extends_edges.exit:                           ; preds = %610, %.preheader22.
   %638 = mul nsw i64 %635, 320
   %639 = getelementptr i8, ptr %401, i64 %638
   %640 = shl i32 %464, %456
-  call void @av_image_copy_plane(ptr noundef %637, i32 noundef %426, ptr noundef %639, i32 noundef 320, i32 noundef %640, i32 noundef 2) #9
+  call void @av_image_copy_plane(ptr noundef %637, i32 noundef %426, ptr noundef %639, i32 noundef 320, i32 noundef %640, i32 noundef 2) #8
   br label %641
 
 641:                                              ; preds = %630, %632, %481, %422
@@ -1570,7 +1570,7 @@ define void @ff_vvc_deblock_bs(ptr noundef %0, i32 noundef %1, i32 noundef %2, i
   %11 = zext i8 %10 to i32
   %12 = shl i32 %1, %11
   %13 = shl i32 %2, %11
-  tail call void @ff_vvc_decode_neighbour(ptr noundef %0, i32 noundef %12, i32 noundef %13, i32 noundef %1, i32 noundef %2, i32 noundef %3) #9
+  tail call void @ff_vvc_decode_neighbour(ptr noundef %0, i32 noundef %12, i32 noundef %13, i32 noundef %1, i32 noundef %2, i32 noundef %3) #8
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 21904
   %15 = load ptr, ptr %14, align 8, !tbaa !116
   %16 = sext i32 %3 to i64
@@ -1824,7 +1824,7 @@ is_virtual_boundary.exit.i:                       ; preds = %140, %.lr.ph.i.i.i,
   %151 = sub nsw i32 %44, %150
   %152 = xor i32 %150, 1
   %153 = sub nsw i32 %45, %152
-  %154 = tail call ptr @ff_vvc_get_ref_list(ptr noundef nonnull %48, ptr noundef %149, i32 noundef %151, i32 noundef %153) #9
+  %154 = tail call ptr @ff_vvc_get_ref_list(ptr noundef nonnull %48, ptr noundef %149, i32 noundef %151, i32 noundef %153) #8
   br label %159
 
 155:                                              ; preds = %is_virtual_boundary.exit.i
@@ -2868,12 +2868,12 @@ define internal fastcc void @vvc_deblock(ptr %.4580552.val, i32 noundef %0, i32 
 
 136:                                              ; preds = %110
   %137 = load ptr, ptr %64, align 8, !tbaa !113
-  call void %137(ptr noundef %135, i64 noundef %97, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %7, ptr noundef nonnull %8, i32 noundef %108) #9
+  call void %137(ptr noundef %135, i64 noundef %97, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %7, ptr noundef nonnull %8, i32 noundef %108) #8
   br label %._crit_edge.us.us.thread
 
 138:                                              ; preds = %110
   %139 = load ptr, ptr %66, align 8, !tbaa !113
-  call void %139(ptr noundef %135, i64 noundef %97, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %7, ptr noundef nonnull %8, i32 noundef %74) #9
+  call void %139(ptr noundef %135, i64 noundef %97, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %7, ptr noundef nonnull %8, i32 noundef %74) #8
   br label %._crit_edge.us.us.thread
 
 ._crit_edge.us.us.thread:                         ; preds = %107, %138, %136, %._crit_edge.us.us
@@ -2969,8 +2969,8 @@ define internal fastcc void @vvc_deblock(ptr %.4580552.val, i32 noundef %0, i32 
   br label %get_qp.exit.us.us
 
 209:                                              ; preds = %160
-  %210 = call i32 @ff_vvc_get_qPy(ptr noundef nonnull %.4580552.val, i32 noundef %186, i32 noundef %187) #9
-  %211 = call i32 @ff_vvc_get_qPy(ptr noundef nonnull %.4580552.val, i32 noundef %spec.select.us.us, i32 noundef %spec.select192.us.us) #9
+  %210 = call i32 @ff_vvc_get_qPy(ptr noundef nonnull %.4580552.val, i32 noundef %186, i32 noundef %187) #8
+  %211 = call i32 @ff_vvc_get_qPy(ptr noundef nonnull %.4580552.val, i32 noundef %spec.select.us.us, i32 noundef %spec.select192.us.us) #8
   %212 = add i32 %210, 1
   %213 = add i32 %212, %211
   %214 = ashr i32 %213, 1
@@ -2986,7 +2986,7 @@ define internal fastcc void @vvc_deblock(ptr %.4580552.val, i32 noundef %0, i32 
   %221 = getelementptr inbounds nuw i8, ptr %220, i64 64
   %222 = load i32, ptr %221, align 8, !tbaa !82
   %223 = sext i32 %222 to i64
-  %224 = call i32 %219(ptr noundef %185, i64 noundef %223) #9
+  %224 = call i32 %219(ptr noundef %185, i64 noundef %223) #8
   %225 = load ptr, ptr %164, align 8, !tbaa !67
   %226 = getelementptr inbounds nuw i8, ptr %225, i64 38752
   %227 = getelementptr inbounds nuw i8, ptr %164, i64 44
@@ -4459,16 +4459,16 @@ alf_filter_luma.exit:                             ; preds = %539, %541
   %555 = sdiv i32 %554, 16
   %556 = getelementptr inbounds nuw i8, ptr %.pre186, i64 21256
   %557 = load ptr, ptr %556, align 8, !tbaa !199
-  call void %557(ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef %gep, i64 noundef range(i64 -2147483648, 2147483648) %289, i32 noundef %332, i32 noundef %335, i32 noundef %553, ptr noundef nonnull %303) #9
+  call void %557(ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef %gep, i64 noundef range(i64 -2147483648, 2147483648) %289, i32 noundef %332, i32 noundef %335, i32 noundef %553, ptr noundef nonnull %303) #8
   %558 = getelementptr inbounds nuw i8, ptr %.pre186, i64 21264
   %559 = load ptr, ptr %558, align 8, !tbaa !200
-  call void %559(ptr noundef nonnull %302, ptr noundef nonnull %301, ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef %555, ptr noundef nonnull %.0.i.i, ptr noundef nonnull %.025.i.i, ptr noundef nonnull %.026.i.i) #9
+  call void %559(ptr noundef nonnull %302, ptr noundef nonnull %301, ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef %555, ptr noundef nonnull %.0.i.i, ptr noundef nonnull %.025.i.i, ptr noundef nonnull %.026.i.i) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %560 = getelementptr inbounds nuw i8, ptr %.pre186, i64 21232
   %561 = load ptr, ptr %560, align 8, !tbaa !113
-  call void %561(ptr noundef %349, i64 noundef range(i64 -2147483648, 2147483648) %359, ptr noundef %gep, i64 noundef range(i64 -2147483648, 2147483648) %289, i32 noundef %332, i32 noundef %335, ptr noundef nonnull %302, ptr noundef nonnull %301, i32 noundef %553) #9
+  call void %561(ptr noundef %349, i64 noundef range(i64 -2147483648, 2147483648) %359, ptr noundef %gep, i64 noundef range(i64 -2147483648, 2147483648) %289, i32 noundef %332, i32 noundef %335, ptr noundef nonnull %302, ptr noundef nonnull %301, i32 noundef %553) #8
   br label %alf_filter_cc.exit
 
 562:                                              ; preds = %536
@@ -4515,7 +4515,7 @@ alf_filter_luma.exit:                             ; preds = %539, %541
   %590 = getelementptr inbounds nuw [6 x i16], ptr %589, i64 %570
   %591 = getelementptr inbounds nuw i8, ptr %.pre186, i64 21240
   %592 = load ptr, ptr %591, align 8, !tbaa !113
-  call void %592(ptr noundef %349, i64 noundef range(i64 -2147483648, 2147483648) %359, ptr noundef nonnull %gep, i64 noundef range(i64 -2147483648, 2147483648) %289, i32 noundef %332, i32 noundef %335, ptr noundef nonnull %590, ptr noundef nonnull %4, i32 noundef range(i32 -2147483648, 2147483646) %588) #9
+  call void %592(ptr noundef %349, i64 noundef range(i64 -2147483648, 2147483648) %359, ptr noundef nonnull %gep, i64 noundef range(i64 -2147483648, 2147483648) %289, i32 noundef %332, i32 noundef %335, ptr noundef nonnull %590, ptr noundef nonnull %4, i32 noundef range(i32 -2147483648, 2147483646) %588) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %593
 
@@ -4555,7 +4555,7 @@ alf_prepare_buffer.exit.thread:                   ; preds = %352, %alf_prepare_b
   %610 = getelementptr i8, ptr %609, i64 986
   %611 = getelementptr inbounds nuw i8, ptr %.val136, i64 21248
   %612 = load ptr, ptr %611, align 8, !tbaa !204
-  call void %612(ptr noundef %349, i64 noundef range(i64 -2147483648, 2147483648) %606, ptr noundef nonnull %298, i64 noundef range(i64 -2147483648, 2147483648) %289, i32 noundef %332, i32 noundef %335, i32 noundef range(i32 0, 256) %321, i32 noundef range(i32 0, 256) %325, ptr noundef %610, i32 noundef range(i32 -2147483648, 2147483644) %605) #9
+  call void %612(ptr noundef %349, i64 noundef range(i64 -2147483648, 2147483648) %606, ptr noundef nonnull %298, i64 noundef range(i64 -2147483648, 2147483648) %289, i32 noundef %332, i32 noundef %335, i32 noundef range(i32 0, 256) %321, i32 noundef range(i32 0, 256) %325, ptr noundef %610, i32 noundef range(i32 -2147483648, 2147483644) %605) #8
   br label %alf_filter_cc.exit
 
 alf_filter_cc.exit:                               ; preds = %356, %alf_filter_luma.exit, %603, %596, %593, %alf_prepare_buffer.exit.thread
@@ -4621,7 +4621,7 @@ define void @ff_vvc_lmcs_filter(ptr noundef readonly captures(none) %0, i32 noun
   %51 = load ptr, ptr %50, align 8, !tbaa !207
   %52 = sext i32 %37 to i64
   %53 = getelementptr inbounds nuw i8, ptr %12, i64 10666
-  tail call void %51(ptr noundef %49, i64 noundef %52, i32 noundef %., i32 noundef %24, ptr noundef nonnull %53) #9
+  tail call void %51(ptr noundef %49, i64 noundef %52, i32 noundef %., i32 noundef %24, ptr noundef nonnull %53) #8
   br label %54
 
 54:                                               ; preds = %10, %3
@@ -4639,7 +4639,7 @@ declare ptr @ff_vvc_get_ref_list(ptr noundef, ptr noundef, i32 noundef, i32 noun
 define internal fastcc range(i32 0, 2) i32 @boundary_strength(ptr readonly captures(none) %.4580544.val.16696.val, ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) unnamed_addr #5 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %5 = load i8, ptr %4, align 4, !tbaa !208
-  switch i8 %5, label %184 [
+  switch i8 %5, label %182 [
     i8 5, label %6
     i8 3, label %20
   ]
@@ -4647,9 +4647,9 @@ define internal fastcc range(i32 0, 2) i32 @boundary_strength(ptr readonly captu
 6:                                                ; preds = %3
   %7 = load i32, ptr %1, align 8, !tbaa !209
   %8 = load i32, ptr %0, align 8, !tbaa !209
-  %9 = sub nsw i32 %7, %8
-  %10 = tail call i32 @llvm.abs.i32(i32 %9, i1 true)
-  %11 = icmp samesign ugt i32 %10, 7
+  %9 = add i32 %7, -8
+  %10 = sub i32 %9, %8
+  %11 = icmp ult i32 %10, -15
   br i1 %11, label %.thread1, label %12
 
 12:                                               ; preds = %6
@@ -4657,9 +4657,9 @@ define internal fastcc range(i32 0, 2) i32 @boundary_strength(ptr readonly captu
   %14 = load i32, ptr %13, align 4, !tbaa !211
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %16 = load i32, ptr %15, align 4, !tbaa !211
-  %17 = sub nsw i32 %14, %16
-  %18 = tail call i32 @llvm.abs.i32(i32 %17, i1 true)
-  %19 = icmp samesign ugt i32 %18, 7
+  %17 = add i32 %14, -8
+  %18 = sub i32 %17, %16
+  %19 = icmp ult i32 %18, -15
   br label %.thread1
 
 20:                                               ; preds = %3
@@ -4682,16 +4682,16 @@ define internal fastcc range(i32 0, 2) i32 @boundary_strength(ptr readonly captu
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = load i32, ptr %35, align 8, !tbaa !212
   %37 = icmp eq i32 %30, %36
-  br i1 %37, label %38, label %._crit_edge7
+  br i1 %37, label %38, label %._crit_edge23
 
-._crit_edge7:                                     ; preds = %24
-  %.phi.trans.insert8 = getelementptr inbounds nuw i8, ptr %1, i64 17
-  %.pre9 = load i8, ptr %.phi.trans.insert8, align 1, !tbaa !59
-  %.phi.trans.insert10 = sext i8 %.pre9 to i64
-  %.phi.trans.insert11 = getelementptr %struct.VVCRefPic, ptr %2, i64 %.phi.trans.insert10
-  %.phi.trans.insert12 = getelementptr i8, ptr %.phi.trans.insert11, i64 944
-  %.pre13 = load i32, ptr %.phi.trans.insert12, align 8, !tbaa !212
-  br label %143
+._crit_edge23:                                    ; preds = %24
+  %.phi.trans.insert24 = getelementptr inbounds nuw i8, ptr %1, i64 17
+  %.pre25 = load i8, ptr %.phi.trans.insert24, align 1, !tbaa !59
+  %.phi.trans.insert26 = sext i8 %.pre25 to i64
+  %.phi.trans.insert27 = getelementptr %struct.VVCRefPic, ptr %2, i64 %.phi.trans.insert26
+  %.phi.trans.insert28 = getelementptr i8, ptr %.phi.trans.insert27, i64 944
+  %.pre29 = load i32, ptr %.phi.trans.insert28, align 8, !tbaa !212
+  br label %141
 
 38:                                               ; preds = %24
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 17
@@ -4714,9 +4714,9 @@ define internal fastcc range(i32 0, 2) i32 @boundary_strength(ptr readonly captu
 53:                                               ; preds = %38
   %54 = load i32, ptr %1, align 8, !tbaa !209
   %55 = load i32, ptr %0, align 8, !tbaa !209
-  %56 = sub nsw i32 %54, %55
-  %57 = tail call i32 @llvm.abs.i32(i32 %56, i1 true)
-  %58 = icmp samesign ugt i32 %57, 7
+  %56 = add i32 %54, -8
+  %57 = sub i32 %56, %55
+  %58 = icmp ult i32 %57, -15
   br i1 %58, label %83, label %59
 
 59:                                               ; preds = %53
@@ -4724,9 +4724,9 @@ define internal fastcc range(i32 0, 2) i32 @boundary_strength(ptr readonly captu
   %61 = load i32, ptr %60, align 4, !tbaa !211
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %63 = load i32, ptr %62, align 4, !tbaa !211
-  %64 = sub nsw i32 %61, %63
-  %65 = tail call i32 @llvm.abs.i32(i32 %64, i1 true)
-  %66 = icmp samesign ugt i32 %65, 7
+  %64 = add i32 %61, -8
+  %65 = sub i32 %64, %63
+  %66 = icmp ult i32 %65, -15
   br i1 %66, label %83, label %67
 
 67:                                               ; preds = %59
@@ -4734,9 +4734,9 @@ define internal fastcc range(i32 0, 2) i32 @boundary_strength(ptr readonly captu
   %69 = load i32, ptr %68, align 8, !tbaa !209
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %71 = load i32, ptr %70, align 8, !tbaa !209
-  %72 = sub nsw i32 %69, %71
-  %73 = tail call i32 @llvm.abs.i32(i32 %72, i1 true)
-  %74 = icmp samesign ugt i32 %73, 7
+  %72 = add i32 %69, -8
+  %73 = sub i32 %72, %71
+  %74 = icmp ult i32 %73, -15
   br i1 %74, label %83, label %75
 
 75:                                               ; preds = %67
@@ -4744,213 +4744,212 @@ define internal fastcc range(i32 0, 2) i32 @boundary_strength(ptr readonly captu
   %77 = load i32, ptr %76, align 4, !tbaa !211
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %79 = load i32, ptr %78, align 4, !tbaa !211
-  %80 = sub nsw i32 %77, %79
-  %81 = tail call i32 @llvm.abs.i32(i32 %80, i1 true)
-  %82 = icmp samesign ugt i32 %81, 7
-  br i1 %82, label %83, label %111
+  %80 = add i32 %77, -8
+  %81 = sub i32 %80, %79
+  %82 = icmp ult i32 %81, -15
+  br i1 %82, label %83, label %109
 
 83:                                               ; preds = %75, %67, %59, %53
   %84 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %85 = load i32, ptr %84, align 8, !tbaa !209
-  %86 = sub nsw i32 %85, %55
-  %87 = tail call i32 @llvm.abs.i32(i32 %86, i1 true)
-  %88 = icmp samesign ugt i32 %87, 7
-  br i1 %88, label %.thread1, label %89
+  %reass.sub = sub i32 %85, %55
+  %86 = add i32 %reass.sub, -8
+  %87 = icmp ult i32 %86, -15
+  br i1 %87, label %.thread1, label %88
 
-89:                                               ; preds = %83
-  %90 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %91 = load i32, ptr %90, align 4, !tbaa !211
-  %92 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %93 = load i32, ptr %92, align 4, !tbaa !211
-  %94 = sub nsw i32 %91, %93
-  %95 = tail call i32 @llvm.abs.i32(i32 %94, i1 true)
-  %96 = icmp samesign ugt i32 %95, 7
-  br i1 %96, label %.thread1, label %97
+88:                                               ; preds = %83
+  %89 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %90 = load i32, ptr %89, align 4, !tbaa !211
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %92 = load i32, ptr %91, align 4, !tbaa !211
+  %93 = add i32 %90, -8
+  %94 = sub i32 %93, %92
+  %95 = icmp ult i32 %94, -15
+  br i1 %95, label %.thread1, label %96
 
-97:                                               ; preds = %89
-  %98 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %99 = load i32, ptr %98, align 8, !tbaa !209
-  %100 = sub nsw i32 %54, %99
-  %101 = tail call i32 @llvm.abs.i32(i32 %100, i1 true)
-  %102 = icmp samesign ugt i32 %101, 7
-  br i1 %102, label %.thread1, label %103
+96:                                               ; preds = %88
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %98 = load i32, ptr %97, align 8, !tbaa !209
+  %99 = sub i32 %56, %98
+  %100 = icmp ult i32 %99, -15
+  br i1 %100, label %.thread1, label %101
 
-103:                                              ; preds = %97
-  %104 = getelementptr inbounds nuw i8, ptr %1, i64 4
+101:                                              ; preds = %96
+  %102 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %103 = load i32, ptr %102, align 4, !tbaa !211
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %105 = load i32, ptr %104, align 4, !tbaa !211
-  %106 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %107 = load i32, ptr %106, align 4, !tbaa !211
-  %108 = sub nsw i32 %105, %107
-  %109 = tail call i32 @llvm.abs.i32(i32 %108, i1 true)
-  %110 = icmp samesign ugt i32 %109, 7
-  br i1 %110, label %.thread1, label %111
+  %106 = add i32 %103, -8
+  %107 = sub i32 %106, %105
+  %108 = icmp ult i32 %107, -15
+  br i1 %108, label %.thread1, label %109
 
-111:                                              ; preds = %103, %75
+109:                                              ; preds = %101, %75
   br label %.thread1
 
 ._crit_edge:                                      ; preds = %38
-  %112 = icmp eq i32 %51, %44
-  br i1 %112, label %113, label %143
+  %110 = icmp eq i32 %51, %44
+  br i1 %110, label %111, label %141
 
-113:                                              ; preds = %._crit_edge
-  %114 = load i32, ptr %1, align 8, !tbaa !209
-  %115 = load i32, ptr %0, align 8, !tbaa !209
-  %116 = sub nsw i32 %114, %115
-  %117 = tail call i32 @llvm.abs.i32(i32 %116, i1 true)
-  %118 = icmp samesign ugt i32 %117, 7
-  br i1 %118, label %.thread1, label %119
+111:                                              ; preds = %._crit_edge
+  %112 = load i32, ptr %1, align 8, !tbaa !209
+  %113 = load i32, ptr %0, align 8, !tbaa !209
+  %114 = add i32 %112, -8
+  %115 = sub i32 %114, %113
+  %116 = icmp ult i32 %115, -15
+  br i1 %116, label %.thread1, label %117
 
-119:                                              ; preds = %113
-  %120 = getelementptr inbounds nuw i8, ptr %1, i64 4
+117:                                              ; preds = %111
+  %118 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %119 = load i32, ptr %118, align 4, !tbaa !211
+  %120 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %121 = load i32, ptr %120, align 4, !tbaa !211
-  %122 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %123 = load i32, ptr %122, align 4, !tbaa !211
-  %124 = sub nsw i32 %121, %123
-  %125 = tail call i32 @llvm.abs.i32(i32 %124, i1 true)
-  %126 = icmp samesign ugt i32 %125, 7
-  br i1 %126, label %.thread1, label %127
+  %122 = add i32 %119, -8
+  %123 = sub i32 %122, %121
+  %124 = icmp ult i32 %123, -15
+  br i1 %124, label %.thread1, label %125
 
-127:                                              ; preds = %119
-  %128 = getelementptr inbounds nuw i8, ptr %1, i64 8
+125:                                              ; preds = %117
+  %126 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %127 = load i32, ptr %126, align 8, !tbaa !209
+  %128 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %129 = load i32, ptr %128, align 8, !tbaa !209
-  %130 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %131 = load i32, ptr %130, align 8, !tbaa !209
-  %132 = sub nsw i32 %129, %131
-  %133 = tail call i32 @llvm.abs.i32(i32 %132, i1 true)
-  %134 = icmp samesign ugt i32 %133, 7
-  br i1 %134, label %.thread1, label %135
+  %130 = add i32 %127, -8
+  %131 = sub i32 %130, %129
+  %132 = icmp ult i32 %131, -15
+  br i1 %132, label %.thread1, label %133
 
-135:                                              ; preds = %127
-  %136 = getelementptr inbounds nuw i8, ptr %1, i64 12
+133:                                              ; preds = %125
+  %134 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %135 = load i32, ptr %134, align 4, !tbaa !211
+  %136 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %137 = load i32, ptr %136, align 4, !tbaa !211
-  %138 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %139 = load i32, ptr %138, align 4, !tbaa !211
-  %140 = sub nsw i32 %137, %139
-  %141 = tail call i32 @llvm.abs.i32(i32 %140, i1 true)
-  %142 = icmp samesign ugt i32 %141, 7
+  %138 = add i32 %135, -8
+  %139 = sub i32 %138, %137
+  %140 = icmp ult i32 %139, -15
   br label %.thread1
 
-143:                                              ; preds = %._crit_edge7, %._crit_edge
-  %144 = phi i32 [ %.pre13, %._crit_edge7 ], [ %51, %._crit_edge ]
-  %145 = icmp eq i32 %144, %30
-  br i1 %145, label %146, label %.thread1
+141:                                              ; preds = %._crit_edge23, %._crit_edge
+  %142 = phi i32 [ %.pre29, %._crit_edge23 ], [ %51, %._crit_edge ]
+  %143 = icmp eq i32 %142, %30
+  br i1 %143, label %144, label %.thread1
 
-146:                                              ; preds = %143
-  %147 = getelementptr inbounds nuw i8, ptr %0, i64 17
-  %148 = load i8, ptr %147, align 1, !tbaa !59
-  %149 = sext i8 %148 to i64
-  %150 = getelementptr %struct.VVCRefPic, ptr %.4580544.val.16696.val, i64 %149
-  %151 = getelementptr i8, ptr %150, i64 944
-  %152 = load i32, ptr %151, align 8, !tbaa !212
-  %153 = icmp eq i32 %36, %152
-  br i1 %153, label %154, label %.thread1
+144:                                              ; preds = %141
+  %145 = getelementptr inbounds nuw i8, ptr %0, i64 17
+  %146 = load i8, ptr %145, align 1, !tbaa !59
+  %147 = sext i8 %146 to i64
+  %148 = getelementptr %struct.VVCRefPic, ptr %.4580544.val.16696.val, i64 %147
+  %149 = getelementptr i8, ptr %148, i64 944
+  %150 = load i32, ptr %149, align 8, !tbaa !212
+  %151 = icmp eq i32 %36, %150
+  br i1 %151, label %152, label %.thread1
 
-154:                                              ; preds = %146
-  %155 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %156 = load i32, ptr %155, align 8, !tbaa !209
-  %157 = load i32, ptr %0, align 8, !tbaa !209
-  %158 = sub nsw i32 %156, %157
-  %159 = tail call i32 @llvm.abs.i32(i32 %158, i1 true)
-  %160 = icmp samesign ugt i32 %159, 7
-  br i1 %160, label %.thread1, label %161
+152:                                              ; preds = %144
+  %153 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %154 = load i32, ptr %153, align 8, !tbaa !209
+  %155 = load i32, ptr %0, align 8, !tbaa !209
+  %156 = add i32 %154, -8
+  %157 = sub i32 %156, %155
+  %158 = icmp ult i32 %157, -15
+  br i1 %158, label %.thread1, label %159
 
-161:                                              ; preds = %154
-  %162 = getelementptr inbounds nuw i8, ptr %1, i64 12
+159:                                              ; preds = %152
+  %160 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %161 = load i32, ptr %160, align 4, !tbaa !211
+  %162 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %163 = load i32, ptr %162, align 4, !tbaa !211
-  %164 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %165 = load i32, ptr %164, align 4, !tbaa !211
-  %166 = sub nsw i32 %163, %165
-  %167 = tail call i32 @llvm.abs.i32(i32 %166, i1 true)
-  %168 = icmp samesign ugt i32 %167, 7
-  br i1 %168, label %.thread1, label %169
+  %164 = add i32 %161, -8
+  %165 = sub i32 %164, %163
+  %166 = icmp ult i32 %165, -15
+  br i1 %166, label %.thread1, label %167
 
-169:                                              ; preds = %161
-  %170 = load i32, ptr %1, align 8, !tbaa !209
-  %171 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %172 = load i32, ptr %171, align 8, !tbaa !209
-  %173 = sub nsw i32 %170, %172
-  %174 = tail call i32 @llvm.abs.i32(i32 %173, i1 true)
-  %175 = icmp samesign ugt i32 %174, 7
-  br i1 %175, label %.thread1, label %176
+167:                                              ; preds = %159
+  %168 = load i32, ptr %1, align 8, !tbaa !209
+  %169 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %170 = load i32, ptr %169, align 8, !tbaa !209
+  %171 = add i32 %168, -8
+  %172 = sub i32 %171, %170
+  %173 = icmp ult i32 %172, -15
+  br i1 %173, label %.thread1, label %174
 
-176:                                              ; preds = %169
-  %177 = getelementptr inbounds nuw i8, ptr %1, i64 4
+174:                                              ; preds = %167
+  %175 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %176 = load i32, ptr %175, align 4, !tbaa !211
+  %177 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %178 = load i32, ptr %177, align 4, !tbaa !211
-  %179 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %180 = load i32, ptr %179, align 4, !tbaa !211
-  %181 = sub nsw i32 %178, %180
-  %182 = tail call i32 @llvm.abs.i32(i32 %181, i1 true)
-  %183 = icmp samesign ugt i32 %182, 7
+  %179 = add i32 %176, -8
+  %180 = sub i32 %179, %178
+  %181 = icmp ult i32 %180, -15
   br label %.thread1
 
-184:                                              ; preds = %3
-  %185 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %186 = load i8, ptr %185, align 4, !tbaa !208
-  %.not220 = icmp eq i8 %186, 3
-  br i1 %.not220, label %.thread1, label %187
+182:                                              ; preds = %3
+  %183 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %184 = load i8, ptr %183, align 4, !tbaa !208
+  %.not220 = icmp eq i8 %184, 3
+  br i1 %.not220, label %.thread1, label %185
 
-187:                                              ; preds = %184
-  %188 = and i8 %5, 1
-  %.not221 = icmp eq i8 %188, 0
-  br i1 %.not221, label %189, label %191
+185:                                              ; preds = %182
+  %186 = and i8 %5, 1
+  %.not221 = icmp eq i8 %186, 0
+  br i1 %.not221, label %187, label %189
 
-189:                                              ; preds = %187
-  %190 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br label %191
+187:                                              ; preds = %185
+  %188 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  br label %189
 
-191:                                              ; preds = %187, %189
-  %.sink26 = phi i64 [ 12, %189 ], [ 4, %187 ]
-  %.sink25 = phi i64 [ 17, %189 ], [ 16, %187 ]
-  %.sink19 = phi i64 [ 944, %189 ], [ 8, %187 ]
-  %.sroa.09.0.in = phi ptr [ %190, %189 ], [ %0, %187 ]
-  %.sroa.713.0..sroa_idx14 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink26
-  %192 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink25
-  %.sink = load i8, ptr %192, align 1, !tbaa !59
-  %193 = sext i8 %.sink to i64
-  %194 = getelementptr %struct.VVCRefPic, ptr %.4580544.val.16696.val, i64 %193
-  %195 = getelementptr i8, ptr %194, i64 %.sink19
-  %.0174 = load i32, ptr %195, align 8, !tbaa !212
+189:                                              ; preds = %185, %187
+  %.sink42 = phi i64 [ 12, %187 ], [ 4, %185 ]
+  %.sink41 = phi i64 [ 17, %187 ], [ 16, %185 ]
+  %.sink35 = phi i64 [ 944, %187 ], [ 8, %185 ]
+  %.sroa.09.0.in = phi ptr [ %188, %187 ], [ %0, %185 ]
+  %.sroa.713.0..sroa_idx14 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink42
+  %190 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink41
+  %.sink = load i8, ptr %190, align 1, !tbaa !59
+  %191 = sext i8 %.sink to i64
+  %192 = getelementptr %struct.VVCRefPic, ptr %.4580544.val.16696.val, i64 %191
+  %193 = getelementptr i8, ptr %192, i64 %.sink35
+  %.0174 = load i32, ptr %193, align 8, !tbaa !212
   %.sroa.09.0 = load i32, ptr %.sroa.09.0.in, align 8, !tbaa !82
   %.sroa.713.0 = load i32, ptr %.sroa.713.0..sroa_idx14, align 4, !tbaa !82
-  %196 = and i8 %186, 1
-  %.not222 = icmp eq i8 %196, 0
-  br i1 %.not222, label %197, label %199
+  %194 = and i8 %184, 1
+  %.not222 = icmp eq i8 %194, 0
+  br i1 %.not222, label %195, label %197
 
-197:                                              ; preds = %191
-  %198 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  br label %199
+195:                                              ; preds = %189
+  %196 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  br label %197
 
-199:                                              ; preds = %191, %197
-  %.sink28 = phi i64 [ 12, %197 ], [ 4, %191 ]
-  %.sink27 = phi i64 [ 17, %197 ], [ 16, %191 ]
-  %.sink22 = phi i64 [ 944, %197 ], [ 8, %191 ]
-  %.sroa.0.0.in = phi ptr [ %198, %197 ], [ %1, %191 ]
-  %.sroa.7.0..sroa_idx5 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink28
-  %200 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink27
-  %.sink24 = load i8, ptr %200, align 1, !tbaa !59
-  %201 = sext i8 %.sink24 to i64
-  %202 = getelementptr %struct.VVCRefPic, ptr %2, i64 %201
-  %203 = getelementptr i8, ptr %202, i64 %.sink22
-  %.0 = load i32, ptr %203, align 8, !tbaa !212
+197:                                              ; preds = %189, %195
+  %.sink44 = phi i64 [ 12, %195 ], [ 4, %189 ]
+  %.sink43 = phi i64 [ 17, %195 ], [ 16, %189 ]
+  %.sink38 = phi i64 [ 944, %195 ], [ 8, %189 ]
+  %.sroa.0.0.in = phi ptr [ %196, %195 ], [ %1, %189 ]
+  %.sroa.7.0..sroa_idx5 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink44
+  %198 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink43
+  %.sink40 = load i8, ptr %198, align 1, !tbaa !59
+  %199 = sext i8 %.sink40 to i64
+  %200 = getelementptr %struct.VVCRefPic, ptr %2, i64 %199
+  %201 = getelementptr i8, ptr %200, i64 %.sink38
+  %.0 = load i32, ptr %201, align 8, !tbaa !212
   %.sroa.7.0 = load i32, ptr %.sroa.7.0..sroa_idx5, align 4, !tbaa !82
-  %204 = icmp eq i32 %.0174, %.0
-  br i1 %204, label %205, label %.thread1
+  %202 = icmp eq i32 %.0174, %.0
+  br i1 %202, label %203, label %.thread1
 
-205:                                              ; preds = %199
+203:                                              ; preds = %197
   %.sroa.0.0 = load i32, ptr %.sroa.0.0.in, align 8, !tbaa !82
-  %206 = sub nsw i32 %.sroa.09.0, %.sroa.0.0
-  %207 = tail call i32 @llvm.abs.i32(i32 %206, i1 true)
-  %208 = icmp samesign ugt i32 %207, 7
-  br i1 %208, label %.thread1, label %209
+  %204 = add i32 %.sroa.09.0, -8
+  %205 = sub i32 %204, %.sroa.0.0
+  %206 = icmp ult i32 %205, -15
+  br i1 %206, label %.thread1, label %207
 
-209:                                              ; preds = %205
-  %210 = sub nsw i32 %.sroa.713.0, %.sroa.7.0
-  %211 = tail call i32 @llvm.abs.i32(i32 %210, i1 true)
-  %212 = icmp samesign ugt i32 %211, 7
+207:                                              ; preds = %203
+  %208 = add i32 %.sroa.713.0, -8
+  %209 = sub i32 %208, %.sroa.7.0
+  %210 = icmp ult i32 %209, -15
   br label %.thread1
 
-.thread1:                                         ; preds = %20, %209, %176, %135, %184, %205, %199, %143, %146, %154, %161, %169, %113, %119, %127, %83, %89, %97, %103, %6, %12, %111
-  %.0175.shrunk = phi i1 [ true, %199 ], [ %19, %12 ], [ false, %111 ], [ true, %83 ], [ true, %184 ], [ true, %113 ], [ %212, %209 ], [ true, %154 ], [ true, %143 ], [ true, %6 ], [ true, %103 ], [ true, %97 ], [ true, %89 ], [ %142, %135 ], [ true, %127 ], [ true, %119 ], [ %183, %176 ], [ true, %169 ], [ true, %161 ], [ true, %146 ], [ true, %205 ], [ true, %20 ]
+.thread1:                                         ; preds = %20, %207, %174, %133, %182, %203, %197, %141, %144, %152, %159, %167, %111, %117, %125, %83, %88, %96, %101, %6, %12, %109
+  %.0175.shrunk = phi i1 [ true, %197 ], [ %19, %12 ], [ false, %109 ], [ true, %83 ], [ true, %182 ], [ true, %111 ], [ %210, %207 ], [ true, %152 ], [ true, %141 ], [ true, %6 ], [ true, %101 ], [ true, %96 ], [ true, %88 ], [ %140, %133 ], [ true, %125 ], [ true, %117 ], [ %181, %174 ], [ true, %167 ], [ true, %159 ], [ true, %144 ], [ true, %203 ], [ true, %20 ]
   %.0175 = zext i1 %.0175.shrunk to i32
   ret i32 %.0175
 }
@@ -4965,9 +4964,6 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #7
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #8
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.umin.i8(i8, i8) #7
@@ -4989,8 +4985,7 @@ attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #9 = { nounwind }
+attributes #8 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

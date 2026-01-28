@@ -174,7 +174,7 @@ _ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit246: ; preds = %47
   br i1 %66, label %67, label %_ZN17double_conversion12_GLOBAL__N_17ToLowerEc.exit.i, !prof !21
 
 67:                                               ; preds = %64
-  %68 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN17double_conversion12_GLOBAL__N_17ToLowerEcE5cType) #8
+  %68 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN17double_conversion12_GLOBAL__N_17ToLowerEcE5cType) #7
   %.not.i.i = icmp eq i32 %68, 0
   br i1 %.not.i.i, label %_ZN17double_conversion12_GLOBAL__N_17ToLowerEc.exit.i, label %69
 
@@ -188,12 +188,12 @@ _ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit246: ; preds = %47
 
 73:                                               ; preds = %71
   store ptr %72, ptr @_ZZN17double_conversion12_GLOBAL__N_17ToLowerEcE5cType, align 8, !tbaa !22
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN17double_conversion12_GLOBAL__N_17ToLowerEcE5cType) #8
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN17double_conversion12_GLOBAL__N_17ToLowerEcE5cType) #7
   br label %_ZN17double_conversion12_GLOBAL__N_17ToLowerEc.exit.i
 
 common.resume:                                    ; preds = %127, %74
   %common.resume.op = phi { ptr, i32 } [ %75, %74 ], [ %128, %127 ]
-  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN17double_conversion12_GLOBAL__N_17ToLowerEcE5cType) #8
+  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN17double_conversion12_GLOBAL__N_17ToLowerEcE5cType) #7
   resume { ptr, i32 } %common.resume.op
 
 74:                                               ; preds = %71, %69
@@ -302,7 +302,7 @@ _ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit256.thread: ; preds 
   br i1 %119, label %120, label %_ZN17double_conversion12_GLOBAL__N_17ToLowerEc.exit.i258, !prof !21
 
 120:                                              ; preds = %117
-  %121 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN17double_conversion12_GLOBAL__N_17ToLowerEcE5cType) #8
+  %121 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN17double_conversion12_GLOBAL__N_17ToLowerEcE5cType) #7
   %.not.i.i259 = icmp eq i32 %121, 0
   br i1 %.not.i.i259, label %_ZN17double_conversion12_GLOBAL__N_17ToLowerEc.exit.i258, label %122
 
@@ -316,7 +316,7 @@ _ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit256.thread: ; preds 
 
 126:                                              ; preds = %124
   store ptr %125, ptr @_ZZN17double_conversion12_GLOBAL__N_17ToLowerEcE5cType, align 8, !tbaa !22
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN17double_conversion12_GLOBAL__N_17ToLowerEcE5cType) #8
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN17double_conversion12_GLOBAL__N_17ToLowerEcE5cType) #7
   br label %_ZN17double_conversion12_GLOBAL__N_17ToLowerEc.exit.i258
 
 127:                                              ; preds = %124, %122
@@ -1479,7 +1479,7 @@ _ZN17double_conversionL17AdvanceToNonspaceIPKtEEbPT_S3_.exit251: ; preds = %.loo
   br i1 %78, label %79, label %_ZN17double_conversion12_GLOBAL__N_17ToLowerEc.exit.i, !prof !21
 
 79:                                               ; preds = %76
-  %80 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN17double_conversion12_GLOBAL__N_17ToLowerEcE5cType) #8
+  %80 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN17double_conversion12_GLOBAL__N_17ToLowerEcE5cType) #7
   %.not.i.i = icmp eq i32 %80, 0
   br i1 %.not.i.i, label %_ZN17double_conversion12_GLOBAL__N_17ToLowerEc.exit.i, label %81
 
@@ -1493,12 +1493,12 @@ _ZN17double_conversionL17AdvanceToNonspaceIPKtEEbPT_S3_.exit251: ; preds = %.loo
 
 85:                                               ; preds = %83
   store ptr %84, ptr @_ZZN17double_conversion12_GLOBAL__N_17ToLowerEcE5cType, align 8, !tbaa !22
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN17double_conversion12_GLOBAL__N_17ToLowerEcE5cType) #8
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN17double_conversion12_GLOBAL__N_17ToLowerEcE5cType) #7
   br label %_ZN17double_conversion12_GLOBAL__N_17ToLowerEc.exit.i
 
 common.resume:                                    ; preds = %137, %86
   %common.resume.op = phi { ptr, i32 } [ %87, %86 ], [ %138, %137 ]
-  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN17double_conversion12_GLOBAL__N_17ToLowerEcE5cType) #8
+  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN17double_conversion12_GLOBAL__N_17ToLowerEcE5cType) #7
   resume { ptr, i32 } %common.resume.op
 
 86:                                               ; preds = %83, %81
@@ -1594,7 +1594,7 @@ _ZN17double_conversion12_GLOBAL__N_121ConsumeFirstCharacterEcPKcb.exit._crit_edg
   br i1 %129, label %130, label %_ZN17double_conversion12_GLOBAL__N_17ToLowerEc.exit.i253, !prof !21
 
 130:                                              ; preds = %127
-  %131 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN17double_conversion12_GLOBAL__N_17ToLowerEcE5cType) #8
+  %131 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN17double_conversion12_GLOBAL__N_17ToLowerEcE5cType) #7
   %.not.i.i254 = icmp eq i32 %131, 0
   br i1 %.not.i.i254, label %_ZN17double_conversion12_GLOBAL__N_17ToLowerEc.exit.i253, label %132
 
@@ -1608,7 +1608,7 @@ _ZN17double_conversion12_GLOBAL__N_121ConsumeFirstCharacterEcPKcb.exit._crit_edg
 
 136:                                              ; preds = %134
   store ptr %135, ptr @_ZZN17double_conversion12_GLOBAL__N_17ToLowerEcE5cType, align 8, !tbaa !22
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN17double_conversion12_GLOBAL__N_17ToLowerEcE5cType) #8
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN17double_conversion12_GLOBAL__N_17ToLowerEcE5cType) #7
   br label %_ZN17double_conversion12_GLOBAL__N_17ToLowerEc.exit.i253
 
 137:                                              ; preds = %134, %132
@@ -2536,7 +2536,7 @@ define internal fastcc noundef zeroext i1 @_ZN17double_conversion12_GLOBAL__N_11
   br i1 %12, label %13, label %_ZN17double_conversion12_GLOBAL__N_17ToLowerEc.exit, !prof !21
 
 13:                                               ; preds = %9
-  %14 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN17double_conversion12_GLOBAL__N_17ToLowerEcE5cType) #8
+  %14 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN17double_conversion12_GLOBAL__N_17ToLowerEcE5cType) #7
   %.not.i12 = icmp eq i32 %14, 0
   br i1 %.not.i12, label %_ZN17double_conversion12_GLOBAL__N_17ToLowerEc.exit, label %15
 
@@ -2550,13 +2550,13 @@ define internal fastcc noundef zeroext i1 @_ZN17double_conversion12_GLOBAL__N_11
 
 19:                                               ; preds = %17
   store ptr %18, ptr @_ZZN17double_conversion12_GLOBAL__N_17ToLowerEcE5cType, align 8, !tbaa !22
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN17double_conversion12_GLOBAL__N_17ToLowerEcE5cType) #8
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN17double_conversion12_GLOBAL__N_17ToLowerEcE5cType) #7
   br label %_ZN17double_conversion12_GLOBAL__N_17ToLowerEc.exit
 
 20:                                               ; preds = %17, %15
   %21 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN17double_conversion12_GLOBAL__N_17ToLowerEcE5cType) #8
+  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN17double_conversion12_GLOBAL__N_17ToLowerEcE5cType) #7
   resume { ptr, i32 } %21
 
 _ZN17double_conversion12_GLOBAL__N_17ToLowerEc.exit: ; preds = %9, %13, %19
@@ -3797,8 +3797,8 @@ _ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit252: ; preds = %_ZN17double_
   %223 = phi i32 [ %235, %.backedge ], [ %221, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit252 ]
   %.0111388 = phi i32 [ %.2113, %.backedge ], [ 0, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit252 ]
   %224 = phi ptr [ %233, %.backedge ], [ %.promoted386, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit252 ]
-  %225 = tail call i32 @llvm.abs.i32(i32 %.0111388, i1 true)
-  %226 = icmp samesign ult i32 %225, 97201
+  %225 = add i32 %.0111388, 97200
+  %226 = icmp ult i32 %225, 194401
   %227 = mul nsw i32 %.0111388, 10
   %228 = add i32 %227, -48
   %229 = add i32 %228, %223
@@ -4432,11 +4432,8 @@ declare void @__cxa_guard_abort(ptr) local_unnamed_addr #4
 ; Function Attrs: nofree nounwind
 declare void @__cxa_guard_release(ptr) local_unnamed_addr #4
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #5
-
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
-define internal fastcc noundef zeroext i1 @_ZN17double_conversionL17AdvanceToNonspaceIPKtEEbPT_S3_(ptr noundef nonnull captures(none) %0, ptr noundef readnone captures(address) %1) unnamed_addr #6 {
+define internal fastcc noundef zeroext i1 @_ZN17double_conversionL17AdvanceToNonspaceIPKtEEbPT_S3_(ptr noundef nonnull captures(none) %0, ptr noundef readnone captures(address) %1) unnamed_addr #5 {
   %.promoted = load ptr, ptr %0, align 8, !tbaa !38
   %.not13.not = icmp eq ptr %.promoted, %1
   br i1 %.not13.not, label %_ZN17double_conversionL12isWhitespaceEi.exit, label %.lr.ph
@@ -4512,7 +4509,7 @@ define internal fastcc noundef zeroext i1 @_ZN17double_conversion12_GLOBAL__N_11
   br i1 %13, label %14, label %_ZN17double_conversion12_GLOBAL__N_17ToLowerEc.exit, !prof !21
 
 14:                                               ; preds = %9
-  %15 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN17double_conversion12_GLOBAL__N_17ToLowerEcE5cType) #8
+  %15 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN17double_conversion12_GLOBAL__N_17ToLowerEcE5cType) #7
   %.not.i12 = icmp eq i32 %15, 0
   br i1 %.not.i12, label %_ZN17double_conversion12_GLOBAL__N_17ToLowerEc.exit, label %16
 
@@ -4526,13 +4523,13 @@ define internal fastcc noundef zeroext i1 @_ZN17double_conversion12_GLOBAL__N_11
 
 20:                                               ; preds = %18
   store ptr %19, ptr @_ZZN17double_conversion12_GLOBAL__N_17ToLowerEcE5cType, align 8, !tbaa !22
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN17double_conversion12_GLOBAL__N_17ToLowerEcE5cType) #8
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN17double_conversion12_GLOBAL__N_17ToLowerEcE5cType) #7
   br label %_ZN17double_conversion12_GLOBAL__N_17ToLowerEc.exit
 
 21:                                               ; preds = %18, %16
   %22 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN17double_conversion12_GLOBAL__N_17ToLowerEcE5cType) #8
+  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN17double_conversion12_GLOBAL__N_17ToLowerEcE5cType) #7
   resume { ptr, i32 } %22
 
 _ZN17double_conversion12_GLOBAL__N_17ToLowerEc.exit: ; preds = %9, %14, %20
@@ -5720,8 +5717,8 @@ _ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit259: ; preds = %_ZN17double_
   %.0111402 = phi i32 [ %.2113, %.backedge ], [ 0, %_ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit259 ]
   %191 = phi ptr [ %201, %.backedge ], [ %.promoted400, %_ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit259 ]
   %192 = zext nneg i16 %190 to i32
-  %193 = tail call i32 @llvm.abs.i32(i32 %.0111402, i1 true)
-  %194 = icmp samesign ult i32 %193, 97201
+  %193 = add i32 %.0111402, 97200
+  %194 = icmp ult i32 %193, 194401
   %195 = mul nsw i32 %.0111402, 10
   %196 = add i32 %195, -48
   %197 = add i32 %196, %192
@@ -5881,20 +5878,19 @@ _ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit177.thread315: ; preds = %57
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nofree nounwind }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #6 = { inlinehint mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { nounwind }
+attributes #5 = { inlinehint mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

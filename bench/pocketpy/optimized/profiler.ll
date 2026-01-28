@@ -303,8 +303,8 @@ define void @_ZN4pkpy12LineProfiler9_step_endEiPNS_5FrameEi(ptr noundef nonnull 
   %17 = load ptr, ptr %16, align 8
   %18 = load i32, ptr %15, align 8
   %19 = sub nsw i32 %1, %18
-  %20 = tail call i32 @llvm.abs.i32(i32 %19, i1 true)
-  %21 = icmp samesign ult i32 %20, 2
+  %20 = add i32 %19, 1
+  %21 = icmp ult i32 %20, 3
   br i1 %21, label %44, label %22
 
 22:                                               ; preds = %4

@@ -1022,8 +1022,8 @@ define void @ff_vvc_store_gpm_mvf(ptr noundef readonly captures(none) %0, ptr no
   %82 = add nsw i32 %81, 5
   %83 = mul nsw i32 %82, %18
   %84 = add nsw i32 %83, %74
-  %85 = tail call i32 @llvm.abs.i32(i32 %84, i1 true)
-  %86 = icmp samesign ult i32 %85, 32
+  %85 = add i32 %84, 31
+  %86 = icmp ult i32 %85, 63
   %87 = icmp slt i32 %84, 1
   %.v = xor i1 %26, %87
   %88 = zext i1 %.v to i32

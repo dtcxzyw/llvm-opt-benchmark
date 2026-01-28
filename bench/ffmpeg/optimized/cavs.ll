@@ -166,9 +166,9 @@ define void @ff_cavs_filter(ptr noundef initializes((1368, 1371)) %0, i32 nounde
   %110 = sext i16 %109 to i32
   %111 = load i16, ptr %99, align 2, !tbaa !41
   %112 = sext i16 %111 to i32
-  %113 = sub nsw i32 %110, %112
-  %114 = tail call i32 @llvm.abs.i32(i32 %113, i1 true)
-  %115 = icmp samesign ugt i32 %114, 3
+  %113 = add nsw i32 %110, -4
+  %114 = sub nsw i32 %113, %112
+  %115 = icmp ult i32 %114, -7
   br i1 %115, label %get_bs.exit, label %116
 
 116:                                              ; preds = %108
@@ -178,9 +178,9 @@ define void @ff_cavs_filter(ptr noundef initializes((1368, 1371)) %0, i32 nounde
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 946
   %121 = load i16, ptr %120, align 2, !tbaa !42
   %122 = sext i16 %121 to i32
-  %123 = sub nsw i32 %119, %122
-  %124 = tail call i32 @llvm.abs.i32(i32 %123, i1 true)
-  %125 = icmp samesign ult i32 %124, 4
+  %123 = add nsw i32 %119, 3
+  %124 = sub nsw i32 %123, %122
+  %125 = icmp ult i32 %124, 7
   %.not.i233 = icmp eq i16 %102, %106
   %or.cond.i = and i1 %.not.i233, %125
   br i1 %or.cond.i, label %126, label %get_bs.exit
@@ -195,9 +195,9 @@ define void @ff_cavs_filter(ptr noundef initializes((1368, 1371)) %0, i32 nounde
   %131 = sext i16 %130 to i32
   %132 = load i16, ptr %129, align 2, !tbaa !41
   %133 = sext i16 %132 to i32
-  %134 = sub nsw i32 %131, %133
-  %135 = tail call i32 @llvm.abs.i32(i32 %134, i1 true)
-  %136 = icmp samesign ugt i32 %135, 3
+  %134 = add nsw i32 %131, -4
+  %135 = sub nsw i32 %134, %133
+  %136 = icmp ult i32 %135, -7
   br i1 %136, label %get_bs.exit, label %137
 
 137:                                              ; preds = %127
@@ -207,9 +207,9 @@ define void @ff_cavs_filter(ptr noundef initializes((1368, 1371)) %0, i32 nounde
   %141 = getelementptr inbounds nuw i8, ptr %0, i64 1042
   %142 = load i16, ptr %141, align 2, !tbaa !42
   %143 = sext i16 %142 to i32
-  %144 = sub nsw i32 %140, %143
-  %145 = tail call i32 @llvm.abs.i32(i32 %144, i1 true)
-  %146 = icmp samesign ugt i32 %145, 3
+  %144 = add nsw i32 %140, -4
+  %145 = sub nsw i32 %144, %143
+  %146 = icmp ult i32 %145, -7
   br i1 %146, label %get_bs.exit, label %147
 
 147:                                              ; preds = %137
@@ -243,9 +243,9 @@ get_bs.exit:                                      ; preds = %97, %104, %108, %11
   %164 = sext i16 %163 to i32
   %165 = load i16, ptr %154, align 2, !tbaa !41
   %166 = sext i16 %165 to i32
-  %167 = sub nsw i32 %164, %166
-  %168 = tail call i32 @llvm.abs.i32(i32 %167, i1 true)
-  %169 = icmp samesign ugt i32 %168, 3
+  %167 = add nsw i32 %164, -4
+  %168 = sub nsw i32 %167, %166
+  %169 = icmp ult i32 %168, -7
   br i1 %169, label %get_bs.exit240, label %170
 
 170:                                              ; preds = %162
@@ -255,9 +255,9 @@ get_bs.exit:                                      ; preds = %97, %104, %108, %11
   %174 = getelementptr inbounds nuw i8, ptr %0, i64 978
   %175 = load i16, ptr %174, align 2, !tbaa !42
   %176 = sext i16 %175 to i32
-  %177 = sub nsw i32 %173, %176
-  %178 = tail call i32 @llvm.abs.i32(i32 %177, i1 true)
-  %179 = icmp samesign ult i32 %178, 4
+  %177 = add nsw i32 %173, 3
+  %178 = sub nsw i32 %177, %176
+  %179 = icmp ult i32 %178, 7
   %.not.i235 = icmp eq i16 %156, %160
   %or.cond.i236 = and i1 %.not.i235, %179
   br i1 %or.cond.i236, label %180, label %get_bs.exit240
@@ -272,9 +272,9 @@ get_bs.exit:                                      ; preds = %97, %104, %108, %11
   %185 = sext i16 %184 to i32
   %186 = load i16, ptr %183, align 2, !tbaa !41
   %187 = sext i16 %186 to i32
-  %188 = sub nsw i32 %185, %187
-  %189 = tail call i32 @llvm.abs.i32(i32 %188, i1 true)
-  %190 = icmp samesign ugt i32 %189, 3
+  %188 = add nsw i32 %185, -4
+  %189 = sub nsw i32 %188, %187
+  %190 = icmp ult i32 %189, -7
   br i1 %190, label %get_bs.exit240, label %191
 
 191:                                              ; preds = %181
@@ -284,9 +284,9 @@ get_bs.exit:                                      ; preds = %97, %104, %108, %11
   %195 = getelementptr inbounds nuw i8, ptr %0, i64 1074
   %196 = load i16, ptr %195, align 2, !tbaa !42
   %197 = sext i16 %196 to i32
-  %198 = sub nsw i32 %194, %197
-  %199 = tail call i32 @llvm.abs.i32(i32 %198, i1 true)
-  %200 = icmp samesign ugt i32 %199, 3
+  %198 = add nsw i32 %194, -4
+  %199 = sub nsw i32 %198, %197
+  %200 = icmp ult i32 %199, -7
   br i1 %200, label %get_bs.exit240, label %201
 
 201:                                              ; preds = %191
@@ -327,9 +327,9 @@ get_bs.exit240:                                   ; preds = %206, %201, %191, %1
   %221 = sext i16 %220 to i32
   %222 = load i16, ptr %210, align 2, !tbaa !41
   %223 = sext i16 %222 to i32
-  %224 = sub nsw i32 %221, %223
-  %225 = tail call i32 @llvm.abs.i32(i32 %224, i1 true)
-  %226 = icmp samesign ugt i32 %225, 3
+  %224 = add nsw i32 %221, -4
+  %225 = sub nsw i32 %224, %223
+  %226 = icmp ult i32 %225, -7
   br i1 %226, label %get_bs.exit246, label %227
 
 227:                                              ; preds = %219
@@ -339,9 +339,9 @@ get_bs.exit240:                                   ; preds = %206, %201, %191, %1
   %231 = getelementptr inbounds nuw i8, ptr %0, i64 970
   %232 = load i16, ptr %231, align 2, !tbaa !42
   %233 = sext i16 %232 to i32
-  %234 = sub nsw i32 %230, %233
-  %235 = tail call i32 @llvm.abs.i32(i32 %234, i1 true)
-  %236 = icmp samesign ult i32 %235, 4
+  %234 = add nsw i32 %230, 3
+  %235 = sub nsw i32 %234, %233
+  %236 = icmp ult i32 %235, 7
   %.not.i241 = icmp eq i16 %213, %217
   %or.cond.i242 = and i1 %.not.i241, %236
   br i1 %or.cond.i242, label %237, label %get_bs.exit246
@@ -356,9 +356,9 @@ get_bs.exit240:                                   ; preds = %206, %201, %191, %1
   %242 = sext i16 %241 to i32
   %243 = load i16, ptr %240, align 2, !tbaa !41
   %244 = sext i16 %243 to i32
-  %245 = sub nsw i32 %242, %244
-  %246 = tail call i32 @llvm.abs.i32(i32 %245, i1 true)
-  %247 = icmp samesign ugt i32 %246, 3
+  %245 = add nsw i32 %242, -4
+  %246 = sub nsw i32 %245, %244
+  %247 = icmp ult i32 %246, -7
   br i1 %247, label %get_bs.exit246, label %248
 
 248:                                              ; preds = %238
@@ -368,9 +368,9 @@ get_bs.exit240:                                   ; preds = %206, %201, %191, %1
   %252 = getelementptr inbounds nuw i8, ptr %0, i64 1066
   %253 = load i16, ptr %252, align 2, !tbaa !42
   %254 = sext i16 %253 to i32
-  %255 = sub nsw i32 %251, %254
-  %256 = tail call i32 @llvm.abs.i32(i32 %255, i1 true)
-  %257 = icmp samesign ugt i32 %256, 3
+  %255 = add nsw i32 %251, -4
+  %256 = sub nsw i32 %255, %254
+  %257 = icmp ult i32 %256, -7
   br i1 %257, label %get_bs.exit246, label %258
 
 258:                                              ; preds = %248
@@ -404,9 +404,9 @@ get_bs.exit246:                                   ; preds = %208, %215, %219, %2
   %275 = sext i16 %274 to i32
   %276 = load i16, ptr %265, align 2, !tbaa !41
   %277 = sext i16 %276 to i32
-  %278 = sub nsw i32 %275, %277
-  %279 = tail call i32 @llvm.abs.i32(i32 %278, i1 true)
-  %280 = icmp samesign ugt i32 %279, 3
+  %278 = add nsw i32 %275, -4
+  %279 = sub nsw i32 %278, %277
+  %280 = icmp ult i32 %279, -7
   br i1 %280, label %get_bs.exit252, label %281
 
 281:                                              ; preds = %273
@@ -416,9 +416,9 @@ get_bs.exit246:                                   ; preds = %208, %215, %219, %2
   %285 = getelementptr inbounds nuw i8, ptr %0, i64 978
   %286 = load i16, ptr %285, align 2, !tbaa !42
   %287 = sext i16 %286 to i32
-  %288 = sub nsw i32 %284, %287
-  %289 = tail call i32 @llvm.abs.i32(i32 %288, i1 true)
-  %290 = icmp samesign ult i32 %289, 4
+  %288 = add nsw i32 %284, 3
+  %289 = sub nsw i32 %288, %287
+  %290 = icmp ult i32 %289, 7
   %.not.i247 = icmp eq i16 %267, %271
   %or.cond.i248 = and i1 %.not.i247, %290
   br i1 %or.cond.i248, label %291, label %get_bs.exit252
@@ -433,9 +433,9 @@ get_bs.exit246:                                   ; preds = %208, %215, %219, %2
   %296 = sext i16 %295 to i32
   %297 = load i16, ptr %294, align 2, !tbaa !41
   %298 = sext i16 %297 to i32
-  %299 = sub nsw i32 %296, %298
-  %300 = tail call i32 @llvm.abs.i32(i32 %299, i1 true)
-  %301 = icmp samesign ugt i32 %300, 3
+  %299 = add nsw i32 %296, -4
+  %300 = sub nsw i32 %299, %298
+  %301 = icmp ult i32 %300, -7
   br i1 %301, label %get_bs.exit252, label %302
 
 302:                                              ; preds = %292
@@ -445,9 +445,9 @@ get_bs.exit246:                                   ; preds = %208, %215, %219, %2
   %306 = getelementptr inbounds nuw i8, ptr %0, i64 1074
   %307 = load i16, ptr %306, align 2, !tbaa !42
   %308 = sext i16 %307 to i32
-  %309 = sub nsw i32 %305, %308
-  %310 = tail call i32 @llvm.abs.i32(i32 %309, i1 true)
-  %311 = icmp samesign ugt i32 %310, 3
+  %309 = add nsw i32 %305, -4
+  %310 = sub nsw i32 %309, %308
+  %311 = icmp ult i32 %310, -7
   br i1 %311, label %get_bs.exit252, label %312
 
 312:                                              ; preds = %302
@@ -483,9 +483,9 @@ get_bs.exit252:                                   ; preds = %317, %312, %302, %2
   %330 = sext i16 %329 to i32
   %331 = load i16, ptr %319, align 2, !tbaa !41
   %332 = sext i16 %331 to i32
-  %333 = sub nsw i32 %330, %332
-  %334 = tail call i32 @llvm.abs.i32(i32 %333, i1 true)
-  %335 = icmp samesign ugt i32 %334, 3
+  %333 = add nsw i32 %330, -4
+  %334 = sub nsw i32 %333, %332
+  %335 = icmp ult i32 %334, -7
   br i1 %335, label %get_bs.exit258, label %336
 
 336:                                              ; preds = %328
@@ -495,9 +495,9 @@ get_bs.exit252:                                   ; preds = %317, %312, %302, %2
   %340 = getelementptr inbounds nuw i8, ptr %0, i64 938
   %341 = load i16, ptr %340, align 2, !tbaa !42
   %342 = sext i16 %341 to i32
-  %343 = sub nsw i32 %339, %342
-  %344 = tail call i32 @llvm.abs.i32(i32 %343, i1 true)
-  %345 = icmp samesign ult i32 %344, 4
+  %343 = add nsw i32 %339, 3
+  %344 = sub nsw i32 %343, %342
+  %345 = icmp ult i32 %344, 7
   %.not.i253 = icmp eq i16 %322, %326
   %or.cond.i254 = and i1 %.not.i253, %345
   br i1 %or.cond.i254, label %346, label %get_bs.exit258
@@ -512,9 +512,9 @@ get_bs.exit252:                                   ; preds = %317, %312, %302, %2
   %351 = sext i16 %350 to i32
   %352 = load i16, ptr %349, align 2, !tbaa !41
   %353 = sext i16 %352 to i32
-  %354 = sub nsw i32 %351, %353
-  %355 = tail call i32 @llvm.abs.i32(i32 %354, i1 true)
-  %356 = icmp samesign ugt i32 %355, 3
+  %354 = add nsw i32 %351, -4
+  %355 = sub nsw i32 %354, %353
+  %356 = icmp ult i32 %355, -7
   br i1 %356, label %get_bs.exit258, label %357
 
 357:                                              ; preds = %347
@@ -524,9 +524,9 @@ get_bs.exit252:                                   ; preds = %317, %312, %302, %2
   %361 = getelementptr inbounds nuw i8, ptr %0, i64 1034
   %362 = load i16, ptr %361, align 2, !tbaa !42
   %363 = sext i16 %362 to i32
-  %364 = sub nsw i32 %360, %363
-  %365 = tail call i32 @llvm.abs.i32(i32 %364, i1 true)
-  %366 = icmp samesign ugt i32 %365, 3
+  %364 = add nsw i32 %360, -4
+  %365 = sub nsw i32 %364, %363
+  %366 = icmp ult i32 %365, -7
   br i1 %366, label %get_bs.exit258, label %367
 
 367:                                              ; preds = %357
@@ -560,9 +560,9 @@ get_bs.exit258:                                   ; preds = %get_bs.exit252, %32
   %384 = sext i16 %383 to i32
   %385 = load i16, ptr %374, align 2, !tbaa !41
   %386 = sext i16 %385 to i32
-  %387 = sub nsw i32 %384, %386
-  %388 = tail call i32 @llvm.abs.i32(i32 %387, i1 true)
-  %389 = icmp samesign ugt i32 %388, 3
+  %387 = add nsw i32 %384, -4
+  %388 = sub nsw i32 %387, %386
+  %389 = icmp ult i32 %388, -7
   br i1 %389, label %get_bs.exit264, label %390
 
 390:                                              ; preds = %382
@@ -572,9 +572,9 @@ get_bs.exit258:                                   ; preds = %get_bs.exit252, %32
   %394 = getelementptr inbounds nuw i8, ptr %0, i64 970
   %395 = load i16, ptr %394, align 2, !tbaa !42
   %396 = sext i16 %395 to i32
-  %397 = sub nsw i32 %393, %396
-  %398 = tail call i32 @llvm.abs.i32(i32 %397, i1 true)
-  %399 = icmp samesign ult i32 %398, 4
+  %397 = add nsw i32 %393, 3
+  %398 = sub nsw i32 %397, %396
+  %399 = icmp ult i32 %398, 7
   %.not.i259 = icmp eq i16 %376, %380
   %or.cond.i260 = and i1 %.not.i259, %399
   br i1 %or.cond.i260, label %400, label %get_bs.exit264
@@ -589,9 +589,9 @@ get_bs.exit258:                                   ; preds = %get_bs.exit252, %32
   %405 = sext i16 %404 to i32
   %406 = load i16, ptr %403, align 2, !tbaa !41
   %407 = sext i16 %406 to i32
-  %408 = sub nsw i32 %405, %407
-  %409 = tail call i32 @llvm.abs.i32(i32 %408, i1 true)
-  %410 = icmp samesign ugt i32 %409, 3
+  %408 = add nsw i32 %405, -4
+  %409 = sub nsw i32 %408, %407
+  %410 = icmp ult i32 %409, -7
   br i1 %410, label %get_bs.exit264, label %411
 
 411:                                              ; preds = %401
@@ -601,9 +601,9 @@ get_bs.exit258:                                   ; preds = %get_bs.exit252, %32
   %415 = getelementptr inbounds nuw i8, ptr %0, i64 1066
   %416 = load i16, ptr %415, align 2, !tbaa !42
   %417 = sext i16 %416 to i32
-  %418 = sub nsw i32 %414, %417
-  %419 = tail call i32 @llvm.abs.i32(i32 %418, i1 true)
-  %420 = icmp samesign ugt i32 %419, 3
+  %418 = add nsw i32 %414, -4
+  %419 = sub nsw i32 %418, %417
+  %420 = icmp ult i32 %419, -7
   br i1 %420, label %get_bs.exit264, label %421
 
 421:                                              ; preds = %411
@@ -636,9 +636,9 @@ get_bs.exit264:                                   ; preds = %get_bs.exit258, %37
   %437 = sext i16 %436 to i32
   %438 = load i16, ptr %319, align 2, !tbaa !41
   %439 = sext i16 %438 to i32
-  %440 = sub nsw i32 %437, %439
-  %441 = tail call i32 @llvm.abs.i32(i32 %440, i1 true)
-  %442 = icmp samesign ugt i32 %441, 3
+  %440 = add nsw i32 %437, -4
+  %441 = sub nsw i32 %440, %439
+  %442 = icmp ult i32 %441, -7
   br i1 %442, label %get_bs.exit270, label %443
 
 443:                                              ; preds = %435
@@ -648,9 +648,9 @@ get_bs.exit264:                                   ; preds = %get_bs.exit258, %37
   %447 = getelementptr inbounds nuw i8, ptr %0, i64 938
   %448 = load i16, ptr %447, align 2, !tbaa !42
   %449 = sext i16 %448 to i32
-  %450 = sub nsw i32 %446, %449
-  %451 = tail call i32 @llvm.abs.i32(i32 %450, i1 true)
-  %452 = icmp samesign ult i32 %451, 4
+  %450 = add nsw i32 %446, 3
+  %451 = sub nsw i32 %450, %449
+  %452 = icmp ult i32 %451, 7
   %.not.i265 = icmp eq i16 %429, %433
   %or.cond.i266 = and i1 %.not.i265, %452
   br i1 %or.cond.i266, label %453, label %get_bs.exit270
@@ -665,9 +665,9 @@ get_bs.exit264:                                   ; preds = %get_bs.exit258, %37
   %458 = sext i16 %457 to i32
   %459 = load i16, ptr %456, align 2, !tbaa !41
   %460 = sext i16 %459 to i32
-  %461 = sub nsw i32 %458, %460
-  %462 = tail call i32 @llvm.abs.i32(i32 %461, i1 true)
-  %463 = icmp samesign ugt i32 %462, 3
+  %461 = add nsw i32 %458, -4
+  %462 = sub nsw i32 %461, %460
+  %463 = icmp ult i32 %462, -7
   br i1 %463, label %get_bs.exit270, label %464
 
 464:                                              ; preds = %454
@@ -677,9 +677,9 @@ get_bs.exit264:                                   ; preds = %get_bs.exit258, %37
   %468 = getelementptr inbounds nuw i8, ptr %0, i64 1034
   %469 = load i16, ptr %468, align 2, !tbaa !42
   %470 = sext i16 %469 to i32
-  %471 = sub nsw i32 %467, %470
-  %472 = tail call i32 @llvm.abs.i32(i32 %471, i1 true)
-  %473 = icmp samesign ugt i32 %472, 3
+  %471 = add nsw i32 %467, -4
+  %472 = sub nsw i32 %471, %470
+  %473 = icmp ult i32 %472, -7
   br i1 %473, label %get_bs.exit270, label %474
 
 474:                                              ; preds = %464
@@ -713,9 +713,9 @@ get_bs.exit270:                                   ; preds = %get_bs.exit264, %43
   %491 = sext i16 %490 to i32
   %492 = load i16, ptr %481, align 2, !tbaa !41
   %493 = sext i16 %492 to i32
-  %494 = sub nsw i32 %491, %493
-  %495 = tail call i32 @llvm.abs.i32(i32 %494, i1 true)
-  %496 = icmp samesign ugt i32 %495, 3
+  %494 = add nsw i32 %491, -4
+  %495 = sub nsw i32 %494, %493
+  %496 = icmp ult i32 %495, -7
   br i1 %496, label %get_bs.exit276, label %497
 
 497:                                              ; preds = %489
@@ -725,9 +725,9 @@ get_bs.exit270:                                   ; preds = %get_bs.exit264, %43
   %501 = getelementptr inbounds nuw i8, ptr %0, i64 946
   %502 = load i16, ptr %501, align 2, !tbaa !42
   %503 = sext i16 %502 to i32
-  %504 = sub nsw i32 %500, %503
-  %505 = tail call i32 @llvm.abs.i32(i32 %504, i1 true)
-  %506 = icmp samesign ult i32 %505, 4
+  %504 = add nsw i32 %500, 3
+  %505 = sub nsw i32 %504, %503
+  %506 = icmp ult i32 %505, 7
   %.not.i271 = icmp eq i16 %483, %487
   %or.cond.i272 = and i1 %.not.i271, %506
   br i1 %or.cond.i272, label %507, label %get_bs.exit276
@@ -742,9 +742,9 @@ get_bs.exit270:                                   ; preds = %get_bs.exit264, %43
   %512 = sext i16 %511 to i32
   %513 = load i16, ptr %510, align 2, !tbaa !41
   %514 = sext i16 %513 to i32
-  %515 = sub nsw i32 %512, %514
-  %516 = tail call i32 @llvm.abs.i32(i32 %515, i1 true)
-  %517 = icmp samesign ugt i32 %516, 3
+  %515 = add nsw i32 %512, -4
+  %516 = sub nsw i32 %515, %514
+  %517 = icmp ult i32 %516, -7
   br i1 %517, label %get_bs.exit276, label %518
 
 518:                                              ; preds = %508
@@ -754,9 +754,9 @@ get_bs.exit270:                                   ; preds = %get_bs.exit264, %43
   %522 = getelementptr inbounds nuw i8, ptr %0, i64 1042
   %523 = load i16, ptr %522, align 2, !tbaa !42
   %524 = sext i16 %523 to i32
-  %525 = sub nsw i32 %521, %524
-  %526 = tail call i32 @llvm.abs.i32(i32 %525, i1 true)
-  %527 = icmp samesign ugt i32 %526, 3
+  %525 = add nsw i32 %521, -4
+  %526 = sub nsw i32 %525, %524
+  %527 = icmp ult i32 %526, -7
   br i1 %527, label %get_bs.exit276, label %528
 
 528:                                              ; preds = %518
@@ -872,11 +872,11 @@ get_bs.exit276:                                   ; preds = %533, %528, %518, %5
   %617 = load i64, ptr %41, align 8, !tbaa !33
   tail call void %615(ptr noundef %616, i64 noundef %617, i32 noundef %599, i32 noundef %607, i32 noundef %610, i32 noundef %577, i32 noundef %578) #14
   %.pre = load ptr, ptr %27, align 8, !tbaa !30
-  %.pre279 = load i64, ptr %29, align 8, !tbaa !31
+  %.pre310 = load i64, ptr %29, align 8, !tbaa !31
   br label %618
 
 618:                                              ; preds = %546, %542
-  %619 = phi i64 [ %.pre279, %546 ], [ %60, %542 ]
+  %619 = phi i64 [ %.pre310, %546 ], [ %60, %542 ]
   %620 = phi ptr [ %.pre, %546 ], [ %58, %542 ]
   %621 = getelementptr inbounds nuw i8, ptr %0, i64 1192
   %622 = load i32, ptr %621, align 8, !tbaa !44

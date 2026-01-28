@@ -51,7 +51,7 @@ define noundef ptr @OSSL_PARAM_locate(ptr noundef readonly captures(address_is_n
 .lr.ph:                                           ; preds = %.preheader, %9
   %6 = phi ptr [ %11, %9 ], [ %5, %.preheader ]
   %.0913 = phi ptr [ %10, %9 ], [ %0, %.preheader ]
-  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %6) #13
+  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %6) #12
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %.loopexit, label %9
 
@@ -84,7 +84,7 @@ define noundef ptr @OSSL_PARAM_locate_const(ptr noundef readonly captures(addres
 .lr.ph.i:                                         ; preds = %.preheader.i, %9
   %6 = phi ptr [ %11, %9 ], [ %5, %.preheader.i ]
   %.0913.i = phi ptr [ %10, %9 ], [ %0, %.preheader.i ]
-  %7 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %6) #13
+  %7 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %6) #12
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %OSSL_PARAM_locate.exit, label %9
 
@@ -153,9 +153,9 @@ define range(i32 0, 2) i32 @OSSL_PARAM_get_int32(ptr noundef readonly captures(a
   br i1 %or.cond, label %5, label %6
 
 5:                                                ; preds = %2
-  tail call void @ERR_new() #14
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 395, ptr noundef nonnull @__func__.OSSL_PARAM_get_int32) #14
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 786690, ptr noundef null) #14
+  tail call void @ERR_new() #13
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 395, ptr noundef nonnull @__func__.OSSL_PARAM_get_int32) #13
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 786690, ptr noundef null) #13
   br label %58
 
 6:                                                ; preds = %2
@@ -165,9 +165,9 @@ define range(i32 0, 2) i32 @OSSL_PARAM_get_int32(ptr noundef readonly captures(a
   br i1 %9, label %10, label %11
 
 10:                                               ; preds = %6
-  tail call void @ERR_new() #14
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 400, ptr noundef nonnull @__func__.OSSL_PARAM_get_int32) #14
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 786690, ptr noundef null) #14
+  tail call void @ERR_new() #13
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 400, ptr noundef nonnull @__func__.OSSL_PARAM_get_int32) #13
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 786690, ptr noundef null) #13
   br label %58
 
 11:                                               ; preds = %6
@@ -204,9 +204,9 @@ define range(i32 0, 2) i32 @OSSL_PARAM_get_int32(ptr noundef readonly captures(a
   br label %58
 
 24:                                               ; preds = %19
-  tail call void @ERR_new() #14
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 418, ptr noundef nonnull @__func__.OSSL_PARAM_get_int32) #14
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 126, ptr noundef null) #14
+  tail call void @ERR_new() #13
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 418, ptr noundef nonnull @__func__.OSSL_PARAM_get_int32) #13
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 126, ptr noundef null) #13
   br label %58
 
 25:                                               ; preds = %14
@@ -231,9 +231,9 @@ define range(i32 0, 2) i32 @OSSL_PARAM_get_int32(ptr noundef readonly captures(a
   br label %58
 
 34:                                               ; preds = %30
-  tail call void @ERR_new() #14
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 436, ptr noundef nonnull @__func__.OSSL_PARAM_get_int32) #14
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 126, ptr noundef null) #14
+  tail call void @ERR_new() #13
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 436, ptr noundef nonnull @__func__.OSSL_PARAM_get_int32) #13
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 126, ptr noundef null) #13
   br label %58
 
 35:                                               ; preds = %27
@@ -247,9 +247,9 @@ define range(i32 0, 2) i32 @OSSL_PARAM_get_int32(ptr noundef readonly captures(a
   br label %58
 
 40:                                               ; preds = %35
-  tail call void @ERR_new() #14
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 444, ptr noundef nonnull @__func__.OSSL_PARAM_get_int32) #14
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 126, ptr noundef null) #14
+  tail call void @ERR_new() #13
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 444, ptr noundef nonnull @__func__.OSSL_PARAM_get_int32) #13
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 126, ptr noundef null) #13
   br label %58
 
 41:                                               ; preds = %27
@@ -280,21 +280,21 @@ define range(i32 0, 2) i32 @OSSL_PARAM_get_int32(ptr noundef readonly captures(a
   br label %58
 
 55:                                               ; preds = %50, %46
-  tail call void @ERR_new() #14
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 461, ptr noundef nonnull @__func__.OSSL_PARAM_get_int32) #14
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 126, ptr noundef null) #14
+  tail call void @ERR_new() #13
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 461, ptr noundef nonnull @__func__.OSSL_PARAM_get_int32) #13
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 126, ptr noundef null) #13
   br label %58
 
 56:                                               ; preds = %43
-  tail call void @ERR_new() #14
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 464, ptr noundef nonnull @__func__.OSSL_PARAM_get_int32) #14
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 130, ptr noundef null) #14
+  tail call void @ERR_new() #13
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 464, ptr noundef nonnull @__func__.OSSL_PARAM_get_int32) #13
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 130, ptr noundef null) #13
   br label %58
 
 57:                                               ; preds = %11
-  tail call void @ERR_new() #14
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 468, ptr noundef nonnull @__func__.OSSL_PARAM_get_int32) #14
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 129, ptr noundef null) #14
+  tail call void @ERR_new() #13
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 468, ptr noundef nonnull @__func__.OSSL_PARAM_get_int32) #13
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 129, ptr noundef null) #13
   br label %58
 
 58:                                               ; preds = %54, %55, %56, %33, %34, %38, %40, %41, %17, %22, %24, %25, %57, %10, %5
@@ -316,9 +316,9 @@ define range(i32 0, 2) i32 @OSSL_PARAM_set_int32(ptr noundef captures(address_is
   br i1 %4, label %5, label %6
 
 5:                                                ; preds = %2
-  tail call void @ERR_new() #14
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 475, ptr noundef nonnull @__func__.OSSL_PARAM_set_int32) #14
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 786690, ptr noundef null) #14
+  tail call void @ERR_new() #13
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 475, ptr noundef nonnull @__func__.OSSL_PARAM_set_int32) #13
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 786690, ptr noundef null) #13
   br label %51
 
 6:                                                ; preds = %2
@@ -416,15 +416,15 @@ define range(i32 0, 2) i32 @OSSL_PARAM_set_int32(ptr noundef captures(address_is
   br label %51
 
 49:                                               ; preds = %44
-  tail call void @ERR_new() #14
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 532, ptr noundef nonnull @__func__.OSSL_PARAM_set_int32) #14
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 130, ptr noundef null) #14
+  tail call void @ERR_new() #13
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 532, ptr noundef nonnull @__func__.OSSL_PARAM_set_int32) #13
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 130, ptr noundef null) #13
   br label %51
 
 50:                                               ; preds = %38
-  tail call void @ERR_new() #14
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 536, ptr noundef nonnull @__func__.OSSL_PARAM_set_int32) #14
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 129, ptr noundef null) #14
+  tail call void @ERR_new() #13
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 536, ptr noundef nonnull @__func__.OSSL_PARAM_set_int32) #13
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 129, ptr noundef null) #13
   br label %51
 
 51:                                               ; preds = %47, %49, %40, %26, %11, %50, %36, %34, %33, %21, %19, %18, %5
@@ -460,9 +460,9 @@ define range(i32 0, 2) i32 @OSSL_PARAM_get_uint32(ptr noundef readonly captures(
   br i1 %or.cond, label %5, label %6
 
 5:                                                ; preds = %2
-  tail call void @ERR_new() #14
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 549, ptr noundef nonnull @__func__.OSSL_PARAM_get_uint32) #14
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 786690, ptr noundef null) #14
+  tail call void @ERR_new() #13
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 549, ptr noundef nonnull @__func__.OSSL_PARAM_get_uint32) #13
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 786690, ptr noundef null) #13
   br label %60
 
 6:                                                ; preds = %2
@@ -472,9 +472,9 @@ define range(i32 0, 2) i32 @OSSL_PARAM_get_uint32(ptr noundef readonly captures(
   br i1 %9, label %10, label %11
 
 10:                                               ; preds = %6
-  tail call void @ERR_new() #14
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 554, ptr noundef nonnull @__func__.OSSL_PARAM_get_uint32) #14
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 786690, ptr noundef null) #14
+  tail call void @ERR_new() #13
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 554, ptr noundef nonnull @__func__.OSSL_PARAM_get_uint32) #13
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 786690, ptr noundef null) #13
   br label %60
 
 11:                                               ; preds = %6
@@ -510,9 +510,9 @@ define range(i32 0, 2) i32 @OSSL_PARAM_get_uint32(ptr noundef readonly captures(
   br label %60
 
 24:                                               ; preds = %19
-  tail call void @ERR_new() #14
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 572, ptr noundef nonnull @__func__.OSSL_PARAM_get_uint32) #14
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 126, ptr noundef null) #14
+  tail call void @ERR_new() #13
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 572, ptr noundef nonnull @__func__.OSSL_PARAM_get_uint32) #13
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 126, ptr noundef null) #13
   br label %60
 
 25:                                               ; preds = %14
@@ -537,9 +537,9 @@ define range(i32 0, 2) i32 @OSSL_PARAM_get_uint32(ptr noundef readonly captures(
   br label %60
 
 34:                                               ; preds = %30
-  tail call void @ERR_new() #14
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 589, ptr noundef nonnull @__func__.OSSL_PARAM_get_uint32) #14
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 125, ptr noundef null) #14
+  tail call void @ERR_new() #13
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 589, ptr noundef nonnull @__func__.OSSL_PARAM_get_uint32) #13
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 125, ptr noundef null) #13
   br label %60
 
 35:                                               ; preds = %27
@@ -554,17 +554,17 @@ define range(i32 0, 2) i32 @OSSL_PARAM_get_uint32(ptr noundef readonly captures(
 
 39:                                               ; preds = %35
   %40 = icmp slt i64 %36, 0
-  tail call void @ERR_new() #14
+  tail call void @ERR_new() #13
   br i1 %40, label %41, label %42
 
 41:                                               ; preds = %39
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 598, ptr noundef nonnull @__func__.OSSL_PARAM_get_uint32) #14
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 125, ptr noundef null) #14
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 598, ptr noundef nonnull @__func__.OSSL_PARAM_get_uint32) #13
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 125, ptr noundef null) #13
   br label %60
 
 42:                                               ; preds = %39
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 600, ptr noundef nonnull @__func__.OSSL_PARAM_get_uint32) #14
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 126, ptr noundef null) #14
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 600, ptr noundef nonnull @__func__.OSSL_PARAM_get_uint32) #13
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 126, ptr noundef null) #13
   br label %60
 
 43:                                               ; preds = %27
@@ -595,21 +595,21 @@ define range(i32 0, 2) i32 @OSSL_PARAM_get_uint32(ptr noundef readonly captures(
   br label %60
 
 57:                                               ; preds = %52, %48
-  tail call void @ERR_new() #14
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 616, ptr noundef nonnull @__func__.OSSL_PARAM_get_uint32) #14
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 123, ptr noundef null) #14
+  tail call void @ERR_new() #13
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 616, ptr noundef nonnull @__func__.OSSL_PARAM_get_uint32) #13
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 123, ptr noundef null) #13
   br label %60
 
 58:                                               ; preds = %45
-  tail call void @ERR_new() #14
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 619, ptr noundef nonnull @__func__.OSSL_PARAM_get_uint32) #14
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 130, ptr noundef null) #14
+  tail call void @ERR_new() #13
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 619, ptr noundef nonnull @__func__.OSSL_PARAM_get_uint32) #13
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 130, ptr noundef null) #13
   br label %60
 
 59:                                               ; preds = %11
-  tail call void @ERR_new() #14
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 623, ptr noundef nonnull @__func__.OSSL_PARAM_get_uint32) #14
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 129, ptr noundef null) #14
+  tail call void @ERR_new() #13
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 623, ptr noundef nonnull @__func__.OSSL_PARAM_get_uint32) #13
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 129, ptr noundef null) #13
   br label %60
 
 60:                                               ; preds = %56, %57, %58, %33, %34, %37, %43, %42, %41, %17, %22, %24, %25, %59, %10, %5
@@ -631,9 +631,9 @@ define range(i32 0, 2) i32 @OSSL_PARAM_set_uint32(ptr noundef captures(address_i
   br i1 %4, label %5, label %6
 
 5:                                                ; preds = %2
-  tail call void @ERR_new() #14
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 630, ptr noundef nonnull @__func__.OSSL_PARAM_set_uint32) #14
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 786690, ptr noundef null) #14
+  tail call void @ERR_new() #13
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 630, ptr noundef nonnull @__func__.OSSL_PARAM_set_uint32) #13
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 786690, ptr noundef null) #13
   br label %49
 
 6:                                                ; preds = %2
@@ -700,9 +700,9 @@ define range(i32 0, 2) i32 @OSSL_PARAM_set_uint32(ptr noundef captures(address_i
   br label %49
 
 32:                                               ; preds = %29
-  tail call void @ERR_new() #14
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 662, ptr noundef nonnull @__func__.OSSL_PARAM_set_uint32) #14
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 126, ptr noundef null) #14
+  tail call void @ERR_new() #13
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 662, ptr noundef nonnull @__func__.OSSL_PARAM_set_uint32) #13
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 126, ptr noundef null) #13
   br label %49
 
 33:                                               ; preds = %26
@@ -738,15 +738,15 @@ define range(i32 0, 2) i32 @OSSL_PARAM_set_uint32(ptr noundef captures(address_i
   br label %49
 
 47:                                               ; preds = %42
-  tail call void @ERR_new() #14
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 690, ptr noundef nonnull @__func__.OSSL_PARAM_set_uint32) #14
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 130, ptr noundef null) #14
+  tail call void @ERR_new() #13
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 690, ptr noundef nonnull @__func__.OSSL_PARAM_set_uint32) #13
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 130, ptr noundef null) #13
   br label %49
 
 48:                                               ; preds = %6
-  tail call void @ERR_new() #14
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 694, ptr noundef nonnull @__func__.OSSL_PARAM_set_uint32) #14
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 129, ptr noundef null) #14
+  tail call void @ERR_new() #13
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 694, ptr noundef nonnull @__func__.OSSL_PARAM_set_uint32) #13
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 129, ptr noundef null) #13
   br label %49
 
 49:                                               ; preds = %41, %45, %47, %22, %10, %48, %35, %33, %32, %31, %20, %18, %17, %5
@@ -782,9 +782,9 @@ define range(i32 0, 2) i32 @OSSL_PARAM_get_int64(ptr noundef readonly captures(a
   br i1 %or.cond, label %5, label %6
 
 5:                                                ; preds = %2
-  tail call void @ERR_new() #14
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 707, ptr noundef nonnull @__func__.OSSL_PARAM_get_int64) #14
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 786690, ptr noundef null) #14
+  tail call void @ERR_new() #13
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 707, ptr noundef nonnull @__func__.OSSL_PARAM_get_int64) #13
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 786690, ptr noundef null) #13
   br label %52
 
 6:                                                ; preds = %2
@@ -794,9 +794,9 @@ define range(i32 0, 2) i32 @OSSL_PARAM_get_int64(ptr noundef readonly captures(a
   br i1 %9, label %10, label %11
 
 10:                                               ; preds = %6
-  tail call void @ERR_new() #14
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 712, ptr noundef nonnull @__func__.OSSL_PARAM_get_int64) #14
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 786690, ptr noundef null) #14
+  tail call void @ERR_new() #13
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 712, ptr noundef nonnull @__func__.OSSL_PARAM_get_int64) #13
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 786690, ptr noundef null) #13
   br label %52
 
 11:                                               ; preds = %6
@@ -855,9 +855,9 @@ define range(i32 0, 2) i32 @OSSL_PARAM_get_int64(ptr noundef readonly captures(a
   br label %52
 
 34:                                               ; preds = %30
-  tail call void @ERR_new() #14
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 742, ptr noundef nonnull @__func__.OSSL_PARAM_get_int64) #14
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 126, ptr noundef null) #14
+  tail call void @ERR_new() #13
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 742, ptr noundef nonnull @__func__.OSSL_PARAM_get_int64) #13
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 126, ptr noundef null) #13
   br label %52
 
 35:                                               ; preds = %24
@@ -888,21 +888,21 @@ define range(i32 0, 2) i32 @OSSL_PARAM_get_int64(ptr noundef readonly captures(a
   br label %52
 
 49:                                               ; preds = %44, %40
-  tail call void @ERR_new() #14
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 765, ptr noundef nonnull @__func__.OSSL_PARAM_get_int64) #14
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 123, ptr noundef null) #14
+  tail call void @ERR_new() #13
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 765, ptr noundef nonnull @__func__.OSSL_PARAM_get_int64) #13
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 123, ptr noundef null) #13
   br label %52
 
 50:                                               ; preds = %37
-  tail call void @ERR_new() #14
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 768, ptr noundef nonnull @__func__.OSSL_PARAM_get_int64) #14
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 130, ptr noundef null) #14
+  tail call void @ERR_new() #13
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 768, ptr noundef nonnull @__func__.OSSL_PARAM_get_int64) #13
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 130, ptr noundef null) #13
   br label %52
 
 51:                                               ; preds = %11
-  tail call void @ERR_new() #14
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 772, ptr noundef nonnull @__func__.OSSL_PARAM_get_int64) #14
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 129, ptr noundef null) #14
+  tail call void @ERR_new() #13
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 772, ptr noundef nonnull @__func__.OSSL_PARAM_get_int64) #13
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 129, ptr noundef null) #13
   br label %52
 
 52:                                               ; preds = %48, %49, %50, %27, %33, %34, %35, %51, %22, %20, %17, %10, %5
@@ -924,9 +924,9 @@ define range(i32 0, 2) i32 @OSSL_PARAM_set_int64(ptr noundef captures(address_is
   br i1 %4, label %5, label %6
 
 5:                                                ; preds = %2
-  tail call void @ERR_new() #14
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 779, ptr noundef nonnull @__func__.OSSL_PARAM_set_int64) #14
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 786690, ptr noundef null) #14
+  tail call void @ERR_new() #13
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 779, ptr noundef nonnull @__func__.OSSL_PARAM_set_int64) #13
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 786690, ptr noundef null) #13
   br label %64
 
 6:                                                ; preds = %2
@@ -967,9 +967,9 @@ define range(i32 0, 2) i32 @OSSL_PARAM_set_int64(ptr noundef captures(address_is
   br label %64
 
 23:                                               ; preds = %19
-  tail call void @ERR_new() #14
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 796, ptr noundef nonnull @__func__.OSSL_PARAM_set_int64) #14
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 126, ptr noundef null) #14
+  tail call void @ERR_new() #13
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 796, ptr noundef nonnull @__func__.OSSL_PARAM_set_int64) #13
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 126, ptr noundef null) #13
   br label %64
 
 24:                                               ; preds = %16
@@ -1016,9 +1016,9 @@ define range(i32 0, 2) i32 @OSSL_PARAM_set_int64(ptr noundef captures(address_is
   br label %64
 
 42:                                               ; preds = %38
-  tail call void @ERR_new() #14
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 818, ptr noundef nonnull @__func__.OSSL_PARAM_set_int64) #14
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 126, ptr noundef null) #14
+  tail call void @ERR_new() #13
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 818, ptr noundef nonnull @__func__.OSSL_PARAM_set_int64) #13
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 126, ptr noundef null) #13
   br label %64
 
 43:                                               ; preds = %35
@@ -1051,8 +1051,8 @@ define range(i32 0, 2) i32 @OSSL_PARAM_set_int64(ptr noundef captures(address_is
   br i1 %cond, label %56, label %62
 
 56:                                               ; preds = %53
-  %57 = tail call i64 @llvm.abs.i64(i64 %1, i1 true)
-  %58 = icmp samesign ult i64 %57, 9007199254740992
+  %57 = add i64 %1, 9007199254740991
+  %58 = icmp ult i64 %57, 18014398509481983
   br i1 %58, label %59, label %61
 
 59:                                               ; preds = %56
@@ -1062,21 +1062,21 @@ define range(i32 0, 2) i32 @OSSL_PARAM_set_int64(ptr noundef captures(address_is
   br label %64
 
 61:                                               ; preds = %56
-  tail call void @ERR_new() #14
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 843, ptr noundef nonnull @__func__.OSSL_PARAM_set_int64) #14
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 123, ptr noundef null) #14
+  tail call void @ERR_new() #13
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 843, ptr noundef nonnull @__func__.OSSL_PARAM_set_int64) #13
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 123, ptr noundef null) #13
   br label %64
 
 62:                                               ; preds = %53
-  tail call void @ERR_new() #14
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 846, ptr noundef nonnull @__func__.OSSL_PARAM_set_int64) #14
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 130, ptr noundef null) #14
+  tail call void @ERR_new() #13
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 846, ptr noundef nonnull @__func__.OSSL_PARAM_set_int64) #13
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 130, ptr noundef null) #13
   br label %64
 
 63:                                               ; preds = %46
-  tail call void @ERR_new() #14
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 850, ptr noundef nonnull @__func__.OSSL_PARAM_set_int64) #14
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 129, ptr noundef null) #14
+  tail call void @ERR_new() #13
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 850, ptr noundef nonnull @__func__.OSSL_PARAM_set_int64) #13
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 129, ptr noundef null) #13
   br label %64
 
 64:                                               ; preds = %52, %59, %61, %62, %63, %44, %43, %42, %40, %34, %25, %24, %23, %21, %15, %5
@@ -1112,9 +1112,9 @@ define range(i32 0, 2) i32 @OSSL_PARAM_get_uint64(ptr noundef readonly captures(
   br i1 %or.cond, label %5, label %6
 
 5:                                                ; preds = %2
-  tail call void @ERR_new() #14
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 862, ptr noundef nonnull @__func__.OSSL_PARAM_get_uint64) #14
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 786690, ptr noundef null) #14
+  tail call void @ERR_new() #13
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 862, ptr noundef nonnull @__func__.OSSL_PARAM_get_uint64) #13
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 786690, ptr noundef null) #13
   br label %55
 
 6:                                                ; preds = %2
@@ -1124,9 +1124,9 @@ define range(i32 0, 2) i32 @OSSL_PARAM_get_uint64(ptr noundef readonly captures(
   br i1 %9, label %10, label %11
 
 10:                                               ; preds = %6
-  tail call void @ERR_new() #14
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 867, ptr noundef nonnull @__func__.OSSL_PARAM_get_uint64) #14
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 786690, ptr noundef null) #14
+  tail call void @ERR_new() #13
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 867, ptr noundef nonnull @__func__.OSSL_PARAM_get_uint64) #13
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 786690, ptr noundef null) #13
   br label %55
 
 11:                                               ; preds = %6
@@ -1180,9 +1180,9 @@ define range(i32 0, 2) i32 @OSSL_PARAM_get_uint64(ptr noundef readonly captures(
   br label %55
 
 32:                                               ; preds = %27
-  tail call void @ERR_new() #14
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 895, ptr noundef nonnull @__func__.OSSL_PARAM_get_uint64) #14
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 125, ptr noundef null) #14
+  tail call void @ERR_new() #13
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 895, ptr noundef nonnull @__func__.OSSL_PARAM_get_uint64) #13
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 125, ptr noundef null) #13
   br label %55
 
 33:                                               ; preds = %24
@@ -1195,9 +1195,9 @@ define range(i32 0, 2) i32 @OSSL_PARAM_get_uint64(ptr noundef readonly captures(
   br label %55
 
 37:                                               ; preds = %33
-  tail call void @ERR_new() #14
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 903, ptr noundef nonnull @__func__.OSSL_PARAM_get_uint64) #14
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 125, ptr noundef null) #14
+  tail call void @ERR_new() #13
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 903, ptr noundef nonnull @__func__.OSSL_PARAM_get_uint64) #13
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 125, ptr noundef null) #13
   br label %55
 
 38:                                               ; preds = %24
@@ -1228,21 +1228,21 @@ define range(i32 0, 2) i32 @OSSL_PARAM_get_uint64(ptr noundef readonly captures(
   br label %55
 
 52:                                               ; preds = %47, %43
-  tail call void @ERR_new() #14
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 926, ptr noundef nonnull @__func__.OSSL_PARAM_get_uint64) #14
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 123, ptr noundef null) #14
+  tail call void @ERR_new() #13
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 926, ptr noundef nonnull @__func__.OSSL_PARAM_get_uint64) #13
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 123, ptr noundef null) #13
   br label %55
 
 53:                                               ; preds = %40
-  tail call void @ERR_new() #14
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 929, ptr noundef nonnull @__func__.OSSL_PARAM_get_uint64) #14
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 130, ptr noundef null) #14
+  tail call void @ERR_new() #13
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 929, ptr noundef nonnull @__func__.OSSL_PARAM_get_uint64) #13
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 130, ptr noundef null) #13
   br label %55
 
 54:                                               ; preds = %11
-  tail call void @ERR_new() #14
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 933, ptr noundef nonnull @__func__.OSSL_PARAM_get_uint64) #14
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 129, ptr noundef null) #14
+  tail call void @ERR_new() #13
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 933, ptr noundef nonnull @__func__.OSSL_PARAM_get_uint64) #13
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 129, ptr noundef null) #13
   br label %55
 
 55:                                               ; preds = %51, %52, %53, %30, %32, %36, %37, %38, %54, %22, %20, %17, %10, %5
@@ -1264,9 +1264,9 @@ define range(i32 0, 2) i32 @OSSL_PARAM_set_uint64(ptr noundef captures(address_i
   br i1 %4, label %5, label %6
 
 5:                                                ; preds = %2
-  tail call void @ERR_new() #14
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 940, ptr noundef nonnull @__func__.OSSL_PARAM_set_uint64) #14
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 786690, ptr noundef null) #14
+  tail call void @ERR_new() #13
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 940, ptr noundef nonnull @__func__.OSSL_PARAM_set_uint64) #13
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 786690, ptr noundef null) #13
   br label %57
 
 6:                                                ; preds = %2
@@ -1309,9 +1309,9 @@ define range(i32 0, 2) i32 @OSSL_PARAM_set_uint64(ptr noundef captures(address_i
   br label %57
 
 22:                                               ; preds = %18
-  tail call void @ERR_new() #14
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 958, ptr noundef nonnull @__func__.OSSL_PARAM_set_uint64) #14
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 126, ptr noundef null) #14
+  tail call void @ERR_new() #13
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 958, ptr noundef nonnull @__func__.OSSL_PARAM_set_uint64) #13
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 126, ptr noundef null) #13
   br label %57
 
 23:                                               ; preds = %15
@@ -1352,9 +1352,9 @@ define range(i32 0, 2) i32 @OSSL_PARAM_set_uint64(ptr noundef captures(address_i
   br label %57
 
 38:                                               ; preds = %34
-  tail call void @ERR_new() #14
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 980, ptr noundef nonnull @__func__.OSSL_PARAM_set_uint64) #14
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 126, ptr noundef null) #14
+  tail call void @ERR_new() #13
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 980, ptr noundef nonnull @__func__.OSSL_PARAM_set_uint64) #13
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 126, ptr noundef null) #13
   br label %57
 
 39:                                               ; preds = %31
@@ -1367,9 +1367,9 @@ define range(i32 0, 2) i32 @OSSL_PARAM_set_uint64(ptr noundef captures(address_i
   br label %57
 
 42:                                               ; preds = %39
-  tail call void @ERR_new() #14
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 988, ptr noundef nonnull @__func__.OSSL_PARAM_set_uint64) #14
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 126, ptr noundef null) #14
+  tail call void @ERR_new() #13
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 988, ptr noundef nonnull @__func__.OSSL_PARAM_set_uint64) #13
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 126, ptr noundef null) #13
   br label %57
 
 43:                                               ; preds = %31
@@ -1395,21 +1395,21 @@ define range(i32 0, 2) i32 @OSSL_PARAM_set_uint64(ptr noundef captures(address_i
   br label %57
 
 54:                                               ; preds = %48
-  tail call void @ERR_new() #14
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1002, ptr noundef nonnull @__func__.OSSL_PARAM_set_uint64) #14
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 123, ptr noundef null) #14
+  tail call void @ERR_new() #13
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1002, ptr noundef nonnull @__func__.OSSL_PARAM_set_uint64) #13
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 123, ptr noundef null) #13
   br label %57
 
 55:                                               ; preds = %45
-  tail call void @ERR_new() #14
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1005, ptr noundef nonnull @__func__.OSSL_PARAM_set_uint64) #14
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 130, ptr noundef null) #14
+  tail call void @ERR_new() #13
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1005, ptr noundef nonnull @__func__.OSSL_PARAM_set_uint64) #13
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 130, ptr noundef null) #13
   br label %57
 
 56:                                               ; preds = %6
-  tail call void @ERR_new() #14
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1009, ptr noundef nonnull @__func__.OSSL_PARAM_set_uint64) #14
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 129, ptr noundef null) #14
+  tail call void @ERR_new() #13
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1009, ptr noundef nonnull @__func__.OSSL_PARAM_set_uint64) #13
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 129, ptr noundef null) #13
   br label %57
 
 57:                                               ; preds = %56, %55, %54, %50, %43, %42, %41, %38, %36, %30, %24, %23, %22, %20, %14, %5
@@ -1445,9 +1445,9 @@ define internal fastcc range(i32 0, 2) i32 @general_get_int(ptr noundef nonnull 
   br i1 %6, label %7, label %8
 
 7:                                                ; preds = %3
-  tail call void @ERR_new() #14
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 201, ptr noundef nonnull @__func__.general_get_int) #14
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 786690, ptr noundef null) #14
+  tail call void @ERR_new() #13
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 201, ptr noundef nonnull @__func__.general_get_int) #13
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 786690, ptr noundef null) #13
   br label %signed_from_signed.exit
 
 8:                                                ; preds = %3
@@ -1501,9 +1501,9 @@ define internal fastcc range(i32 0, 2) i32 @general_get_int(ptr noundef nonnull 
   br i1 %.not28.i.i, label %31, label %check_sign_bytes.exit.i.i
 
 check_sign_bytes.exit.i.i:                        ; preds = %.lr.ph.i.i.i, %.loopexit.i.i
-  tail call void @ERR_new() #14
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 155, ptr noundef nonnull @__func__.copy_integer) #14
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 126, ptr noundef null) #14
+  tail call void @ERR_new() #13
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 155, ptr noundef nonnull @__func__.copy_integer) #13
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 126, ptr noundef null) #13
   br label %signed_from_signed.exit
 
 31:                                               ; preds = %.loopexit.i.i
@@ -1548,9 +1548,9 @@ check_sign_bytes.exit.i.i:                        ; preds = %.lr.ph.i.i.i, %.loo
   br i1 %.not28.i.i21, label %48, label %check_sign_bytes.exit.i.i17
 
 check_sign_bytes.exit.i.i17:                      ; preds = %.lr.ph.i.i.i14, %.loopexit.i.i20
-  tail call void @ERR_new() #14
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 155, ptr noundef nonnull @__func__.copy_integer) #14
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 126, ptr noundef null) #14
+  tail call void @ERR_new() #13
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 155, ptr noundef nonnull @__func__.copy_integer) #13
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 126, ptr noundef null) #13
   br label %signed_from_signed.exit
 
 48:                                               ; preds = %.loopexit.i.i20
@@ -1558,9 +1558,9 @@ check_sign_bytes.exit.i.i17:                      ; preds = %.lr.ph.i.i.i14, %.l
   br label %signed_from_signed.exit
 
 49:                                               ; preds = %8
-  tail call void @ERR_new() #14
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 208, ptr noundef nonnull @__func__.general_get_int) #14
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 124, ptr noundef null) #14
+  tail call void @ERR_new() #13
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 208, ptr noundef nonnull @__func__.general_get_int) #13
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 124, ptr noundef null) #13
   br label %signed_from_signed.exit
 
 signed_from_signed.exit:                          ; preds = %48, %check_sign_bytes.exit.i.i17, %36, %31, %check_sign_bytes.exit.i.i, %18, %49, %7
@@ -1625,15 +1625,15 @@ define internal fastcc range(i32 0, 2) i32 @general_set_int(ptr noundef nonnull 
   br i1 %.not28.i.i, label %signed_from_signed.exit.thread25.sink.split, label %check_sign_bytes.exit.i.i
 
 check_sign_bytes.exit.i.i:                        ; preds = %.lr.ph.i.i.i, %.loopexit.i.i
-  tail call void @ERR_new() #14
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 155, ptr noundef nonnull @__func__.copy_integer) #14
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 126, ptr noundef null) #14
+  tail call void @ERR_new() #13
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 155, ptr noundef nonnull @__func__.copy_integer) #13
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 126, ptr noundef null) #13
   br label %signed_from_signed.exit.thread
 
 30:                                               ; preds = %7
-  tail call void @ERR_new() #14
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 226, ptr noundef nonnull @__func__.general_set_int) #14
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 124, ptr noundef null) #14
+  tail call void @ERR_new() #13
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 226, ptr noundef nonnull @__func__.general_set_int) #13
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 124, ptr noundef null) #13
   br label %signed_from_signed.exit.thread
 
 signed_from_signed.exit:                          ; preds = %7
@@ -1683,9 +1683,9 @@ define internal fastcc range(i32 0, 2) i32 @general_get_uint(ptr noundef nonnull
   br i1 %6, label %7, label %8
 
 7:                                                ; preds = %3
-  tail call void @ERR_new() #14
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 236, ptr noundef nonnull @__func__.general_get_uint) #14
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 786690, ptr noundef null) #14
+  tail call void @ERR_new() #13
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 236, ptr noundef nonnull @__func__.general_get_uint) #13
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 786690, ptr noundef null) #13
   br label %unsigned_from_unsigned.exit
 
 8:                                                ; preds = %3
@@ -1738,15 +1738,15 @@ define internal fastcc range(i32 0, 2) i32 @general_get_uint(ptr noundef nonnull
   br label %unsigned_from_unsigned.exit
 
 check_sign_bytes.exit.i.i:                        ; preds = %.lr.ph.i.i.i
-  tail call void @ERR_new() #14
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 155, ptr noundef nonnull @__func__.copy_integer) #14
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 126, ptr noundef null) #14
+  tail call void @ERR_new() #13
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 155, ptr noundef nonnull @__func__.copy_integer) #13
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 126, ptr noundef null) #13
   br label %unsigned_from_unsigned.exit
 
 29:                                               ; preds = %8
-  tail call void @ERR_new() #14
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 243, ptr noundef nonnull @__func__.general_get_uint) #14
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 124, ptr noundef null) #14
+  tail call void @ERR_new() #13
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 243, ptr noundef nonnull @__func__.general_get_uint) #13
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 124, ptr noundef null) #13
   br label %unsigned_from_unsigned.exit
 
 unsigned_from_unsigned.exit:                      ; preds = %check_sign_bytes.exit.i.i, %.loopexit.i.i, %19, %29, %11, %7
@@ -1800,9 +1800,9 @@ define internal fastcc range(i32 0, 2) i32 @general_set_uint(ptr noundef nonnull
   br i1 %.not28.i.i, label %.loopexit.i.i28, label %check_sign_bytes.exit.i.i
 
 check_sign_bytes.exit.i.i:                        ; preds = %.lr.ph.i.i.i, %.loopexit.i.i
-  tail call void @ERR_new() #14
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 155, ptr noundef nonnull @__func__.copy_integer) #14
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 126, ptr noundef null) #14
+  tail call void @ERR_new() #13
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 155, ptr noundef nonnull @__func__.copy_integer) #13
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 126, ptr noundef null) #13
   br label %signed_from_unsigned.exit
 
 23:                                               ; preds = %7
@@ -1830,15 +1830,15 @@ check_sign_bytes.exit.i.i:                        ; preds = %.lr.ph.i.i.i, %.loo
   br i1 %.not.i.i.i24, label %30, label %check_sign_bytes.exit.i.i25
 
 check_sign_bytes.exit.i.i25:                      ; preds = %.lr.ph.i.i.i22
-  tail call void @ERR_new() #14
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 155, ptr noundef nonnull @__func__.copy_integer) #14
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 126, ptr noundef null) #14
+  tail call void @ERR_new() #13
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 155, ptr noundef nonnull @__func__.copy_integer) #13
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 126, ptr noundef null) #13
   br label %signed_from_unsigned.exit
 
 34:                                               ; preds = %7
-  tail call void @ERR_new() #14
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 261, ptr noundef nonnull @__func__.general_set_uint) #14
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 124, ptr noundef null) #14
+  tail call void @ERR_new() #13
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 261, ptr noundef nonnull @__func__.general_set_uint) #13
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 124, ptr noundef null) #13
   br label %signed_from_unsigned.exit
 
 .loopexit.i.i28.sink.split:                       ; preds = %23, %10
@@ -1971,9 +1971,9 @@ define range(i32 0, 2) i32 @OSSL_PARAM_get_BN(ptr noundef readonly captures(addr
   br i1 %8, label %9, label %10
 
 9:                                                ; preds = %5, %2
-  tail call void @ERR_new() #14
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1087, ptr noundef nonnull @__func__.OSSL_PARAM_get_BN) #14
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 786690, ptr noundef null) #14
+  tail call void @ERR_new() #13
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1087, ptr noundef nonnull @__func__.OSSL_PARAM_get_BN) #13
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 786690, ptr noundef null) #13
   br label %29
 
 10:                                               ; preds = %5
@@ -1989,7 +1989,7 @@ define range(i32 0, 2) i32 @OSSL_PARAM_get_BN(ptr noundef readonly captures(addr
   %15 = load i64, ptr %14, align 8, !tbaa !17
   %16 = trunc i64 %15 to i32
   %17 = load ptr, ptr %1, align 8, !tbaa !54
-  %18 = tail call ptr @BN_native2bn(ptr noundef nonnull %7, i32 noundef %16, ptr noundef %17) #14
+  %18 = tail call ptr @BN_native2bn(ptr noundef nonnull %7, i32 noundef %16, ptr noundef %17) #13
   br label %25
 
 19:                                               ; preds = %10
@@ -1997,13 +1997,13 @@ define range(i32 0, 2) i32 @OSSL_PARAM_get_BN(ptr noundef readonly captures(addr
   %21 = load i64, ptr %20, align 8, !tbaa !17
   %22 = trunc i64 %21 to i32
   %23 = load ptr, ptr %1, align 8, !tbaa !54
-  %24 = tail call ptr @BN_signed_native2bn(ptr noundef nonnull %7, i32 noundef %22, ptr noundef %23) #14
+  %24 = tail call ptr @BN_signed_native2bn(ptr noundef nonnull %7, i32 noundef %22, ptr noundef %23) #13
   br label %25
 
 .thread:                                          ; preds = %10
-  tail call void @ERR_new() #14
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1099, ptr noundef nonnull @__func__.OSSL_PARAM_get_BN) #14
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 129, ptr noundef null) #14
+  tail call void @ERR_new() #13
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1099, ptr noundef nonnull @__func__.OSSL_PARAM_get_BN) #13
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 129, ptr noundef null) #13
   br label %27
 
 25:                                               ; preds = %19, %13
@@ -2012,9 +2012,9 @@ define range(i32 0, 2) i32 @OSSL_PARAM_get_BN(ptr noundef readonly captures(addr
   br i1 %26, label %27, label %28
 
 27:                                               ; preds = %.thread, %25
-  tail call void @ERR_new() #14
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1104, ptr noundef nonnull @__func__.OSSL_PARAM_get_BN) #14
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 524291, ptr noundef null) #14
+  tail call void @ERR_new() #13
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1104, ptr noundef nonnull @__func__.OSSL_PARAM_get_BN) #13
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 524291, ptr noundef null) #13
   br label %29
 
 28:                                               ; preds = %25
@@ -2036,9 +2036,9 @@ define range(i32 0, 2) i32 @OSSL_PARAM_set_BN(ptr noundef captures(address_is_nu
   br i1 %3, label %4, label %5
 
 4:                                                ; preds = %2
-  tail call void @ERR_new() #14
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1117, ptr noundef nonnull @__func__.OSSL_PARAM_set_BN) #14
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 786690, ptr noundef null) #14
+  tail call void @ERR_new() #13
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1117, ptr noundef nonnull @__func__.OSSL_PARAM_set_BN) #13
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 786690, ptr noundef null) #13
   br label %46
 
 5:                                                ; preds = %2
@@ -2048,9 +2048,9 @@ define range(i32 0, 2) i32 @OSSL_PARAM_set_BN(ptr noundef captures(address_is_nu
   br i1 %7, label %8, label %9
 
 8:                                                ; preds = %5
-  tail call void @ERR_new() #14
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1122, ptr noundef nonnull @__func__.OSSL_PARAM_set_BN) #14
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 786690, ptr noundef null) #14
+  tail call void @ERR_new() #13
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1122, ptr noundef nonnull @__func__.OSSL_PARAM_set_BN) #13
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 786690, ptr noundef null) #13
   br label %46
 
 9:                                                ; preds = %5
@@ -2060,18 +2060,18 @@ define range(i32 0, 2) i32 @OSSL_PARAM_set_BN(ptr noundef captures(address_is_nu
   br i1 %12, label %13, label %16
 
 13:                                               ; preds = %9
-  %14 = tail call i32 @BN_is_negative(ptr noundef nonnull %1) #14
+  %14 = tail call i32 @BN_is_negative(ptr noundef nonnull %1) #13
   %.not = icmp eq i32 %14, 0
   br i1 %.not, label %16, label %15
 
 15:                                               ; preds = %13
-  tail call void @ERR_new() #14
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1126, ptr noundef nonnull @__func__.OSSL_PARAM_set_BN) #14
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 129, ptr noundef null) #14
+  tail call void @ERR_new() #13
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1126, ptr noundef nonnull @__func__.OSSL_PARAM_set_BN) #13
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 129, ptr noundef null) #13
   br label %46
 
 16:                                               ; preds = %13, %9
-  %17 = tail call i32 @BN_num_bits(ptr noundef nonnull %1) #14
+  %17 = tail call i32 @BN_num_bits(ptr noundef nonnull %1) #13
   %18 = add nsw i32 %17, 7
   %19 = sdiv i32 %18, 8
   %20 = sext i32 %19 to i64
@@ -2103,32 +2103,32 @@ define range(i32 0, 2) i32 @OSSL_PARAM_set_BN(ptr noundef captures(address_is_nu
 
 32:                                               ; preds = %31
   %33 = trunc i64 %30 to i32
-  %34 = tail call i32 @BN_bn2nativepad(ptr noundef nonnull %1, ptr noundef nonnull %25, i32 noundef %33) #14
+  %34 = tail call i32 @BN_bn2nativepad(ptr noundef nonnull %1, ptr noundef nonnull %25, i32 noundef %33) #13
   %35 = icmp slt i32 %34, 0
   br i1 %35, label %36, label %43
 
 36:                                               ; preds = %32
-  tail call void @ERR_new() #14
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1147, ptr noundef nonnull @__func__.OSSL_PARAM_set_BN) #14
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 127, ptr noundef null) #14
+  tail call void @ERR_new() #13
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1147, ptr noundef nonnull @__func__.OSSL_PARAM_set_BN) #13
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 127, ptr noundef null) #13
   br label %46
 
 37:                                               ; preds = %31
   %38 = trunc i64 %30 to i32
-  %39 = tail call i32 @BN_signed_bn2native(ptr noundef nonnull %1, ptr noundef nonnull %25, i32 noundef %38) #14
+  %39 = tail call i32 @BN_signed_bn2native(ptr noundef nonnull %1, ptr noundef nonnull %25, i32 noundef %38) #13
   %40 = icmp slt i32 %39, 0
   br i1 %40, label %41, label %43
 
 41:                                               ; preds = %37
-  tail call void @ERR_new() #14
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1153, ptr noundef nonnull @__func__.OSSL_PARAM_set_BN) #14
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 127, ptr noundef null) #14
+  tail call void @ERR_new() #13
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1153, ptr noundef nonnull @__func__.OSSL_PARAM_set_BN) #13
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 127, ptr noundef null) #13
   br label %46
 
 42:                                               ; preds = %31
-  tail call void @ERR_new() #14
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1158, ptr noundef nonnull @__func__.OSSL_PARAM_set_BN) #14
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 129, ptr noundef null) #14
+  tail call void @ERR_new() #13
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1158, ptr noundef nonnull @__func__.OSSL_PARAM_set_BN) #13
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 129, ptr noundef null) #13
   br label %46
 
 43:                                               ; preds = %37, %32
@@ -2138,9 +2138,9 @@ define range(i32 0, 2) i32 @OSSL_PARAM_set_BN(ptr noundef captures(address_is_nu
 
 45:                                               ; preds = %28
   store i64 %.1, ptr %6, align 8, !tbaa !13
-  tail call void @ERR_new() #14
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1165, ptr noundef nonnull @__func__.OSSL_PARAM_set_BN) #14
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 116, ptr noundef null) #14
+  tail call void @ERR_new() #13
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1165, ptr noundef nonnull @__func__.OSSL_PARAM_set_BN) #13
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 116, ptr noundef null) #13
   br label %46
 
 46:                                               ; preds = %45, %43, %42, %41, %36, %27, %15, %8, %4
@@ -2184,9 +2184,9 @@ define range(i32 0, 2) i32 @OSSL_PARAM_get_double(ptr noundef readonly captures(
   br i1 %8, label %9, label %10
 
 9:                                                ; preds = %5, %2
-  tail call void @ERR_new() #14
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1183, ptr noundef nonnull @__func__.OSSL_PARAM_get_double) #14
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 786690, ptr noundef null) #14
+  tail call void @ERR_new() #13
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1183, ptr noundef nonnull @__func__.OSSL_PARAM_get_double) #13
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 786690, ptr noundef null) #13
   br label %45
 
 10:                                               ; preds = %5
@@ -2210,9 +2210,9 @@ define range(i32 0, 2) i32 @OSSL_PARAM_get_double(ptr noundef readonly captures(
   br label %45
 
 18:                                               ; preds = %13
-  tail call void @ERR_new() #14
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1193, ptr noundef nonnull @__func__.OSSL_PARAM_get_double) #14
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 130, ptr noundef null) #14
+  tail call void @ERR_new() #13
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1193, ptr noundef nonnull @__func__.OSSL_PARAM_get_double) #13
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 130, ptr noundef null) #13
   br label %45
 
 19:                                               ; preds = %10
@@ -2240,9 +2240,9 @@ define range(i32 0, 2) i32 @OSSL_PARAM_get_double(ptr noundef readonly captures(
   br label %45
 
 30:                                               ; preds = %25
-  tail call void @ERR_new() #14
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1206, ptr noundef nonnull @__func__.OSSL_PARAM_get_double) #14
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 123, ptr noundef null) #14
+  tail call void @ERR_new() #13
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1206, ptr noundef nonnull @__func__.OSSL_PARAM_get_double) #13
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 123, ptr noundef null) #13
   br label %45
 
 31:                                               ; preds = %10
@@ -2261,8 +2261,8 @@ define range(i32 0, 2) i32 @OSSL_PARAM_get_double(ptr noundef readonly captures(
 
 37:                                               ; preds = %31
   %38 = load i64, ptr %7, align 8, !tbaa !19
-  %39 = tail call i64 @llvm.abs.i64(i64 %38, i1 true)
-  %40 = icmp samesign ult i64 %39, 9007199254740992
+  %39 = add i64 %38, 9007199254740991
+  %40 = icmp ult i64 %39, 18014398509481983
   br i1 %40, label %41, label %43
 
 41:                                               ; preds = %37
@@ -2271,15 +2271,15 @@ define range(i32 0, 2) i32 @OSSL_PARAM_get_double(ptr noundef readonly captures(
   br label %45
 
 43:                                               ; preds = %37
-  tail call void @ERR_new() #14
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1221, ptr noundef nonnull @__func__.OSSL_PARAM_get_double) #14
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 123, ptr noundef null) #14
+  tail call void @ERR_new() #13
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1221, ptr noundef nonnull @__func__.OSSL_PARAM_get_double) #13
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 123, ptr noundef null) #13
   br label %45
 
 44:                                               ; preds = %10, %19, %31
-  tail call void @ERR_new() #14
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1225, ptr noundef nonnull @__func__.OSSL_PARAM_get_double) #14
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 129, ptr noundef null) #14
+  tail call void @ERR_new() #13
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1225, ptr noundef nonnull @__func__.OSSL_PARAM_get_double) #13
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 129, ptr noundef null) #13
   br label %45
 
 45:                                               ; preds = %44, %43, %41, %34, %30, %28, %22, %18, %16, %9
@@ -2293,9 +2293,9 @@ define range(i32 0, 2) i32 @OSSL_PARAM_set_double(ptr noundef captures(address_i
   br i1 %3, label %4, label %5
 
 4:                                                ; preds = %2
-  tail call void @ERR_new() #14
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1238, ptr noundef nonnull @__func__.OSSL_PARAM_set_double) #14
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 786690, ptr noundef null) #14
+  tail call void @ERR_new() #13
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1238, ptr noundef nonnull @__func__.OSSL_PARAM_set_double) #13
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 786690, ptr noundef null) #13
   br label %68
 
 5:                                                ; preds = %2
@@ -2331,9 +2331,9 @@ define range(i32 0, 2) i32 @OSSL_PARAM_set_double(ptr noundef captures(address_i
   br label %68
 
 18:                                               ; preds = %14
-  tail call void @ERR_new() #14
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1254, ptr noundef nonnull @__func__.OSSL_PARAM_set_double) #14
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 130, ptr noundef null) #14
+  tail call void @ERR_new() #13
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1254, ptr noundef nonnull @__func__.OSSL_PARAM_set_double) #13
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 130, ptr noundef null) #13
   br label %68
 
 19:                                               ; preds = %5
@@ -2353,9 +2353,9 @@ define range(i32 0, 2) i32 @OSSL_PARAM_set_double(ptr noundef captures(address_i
   br i1 %27, label %28, label %29
 
 28:                                               ; preds = %24
-  tail call void @ERR_new() #14
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1266, ptr noundef nonnull @__func__.OSSL_PARAM_set_double) #14
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 123, ptr noundef null) #14
+  tail call void @ERR_new() #13
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1266, ptr noundef nonnull @__func__.OSSL_PARAM_set_double) #13
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 123, ptr noundef null) #13
   br label %68
 
 29:                                               ; preds = %24
@@ -2379,9 +2379,9 @@ define range(i32 0, 2) i32 @OSSL_PARAM_set_double(ptr noundef captures(address_i
   br label %68
 
 37:                                               ; preds = %32
-  tail call void @ERR_new() #14
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1276, ptr noundef nonnull @__func__.OSSL_PARAM_set_double) #14
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 126, ptr noundef null) #14
+  tail call void @ERR_new() #13
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1276, ptr noundef nonnull @__func__.OSSL_PARAM_set_double) #13
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 126, ptr noundef null) #13
   br label %68
 
 38:                                               ; preds = %29
@@ -2396,9 +2396,9 @@ define range(i32 0, 2) i32 @OSSL_PARAM_set_double(ptr noundef captures(address_i
   br label %68
 
 42:                                               ; preds = %38
-  tail call void @ERR_new() #14
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1284, ptr noundef nonnull @__func__.OSSL_PARAM_set_double) #14
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 126, ptr noundef null) #14
+  tail call void @ERR_new() #13
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1284, ptr noundef nonnull @__func__.OSSL_PARAM_set_double) #13
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 126, ptr noundef null) #13
   br label %68
 
 43:                                               ; preds = %5
@@ -2418,9 +2418,9 @@ define range(i32 0, 2) i32 @OSSL_PARAM_set_double(ptr noundef captures(address_i
   br i1 %51, label %52, label %53
 
 52:                                               ; preds = %48
-  tail call void @ERR_new() #14
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1297, ptr noundef nonnull @__func__.OSSL_PARAM_set_double) #14
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 123, ptr noundef null) #14
+  tail call void @ERR_new() #13
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1297, ptr noundef nonnull @__func__.OSSL_PARAM_set_double) #13
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 123, ptr noundef null) #13
   br label %68
 
 53:                                               ; preds = %48
@@ -2444,9 +2444,9 @@ define range(i32 0, 2) i32 @OSSL_PARAM_set_double(ptr noundef captures(address_i
   br label %68
 
 61:                                               ; preds = %56
-  tail call void @ERR_new() #14
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1307, ptr noundef nonnull @__func__.OSSL_PARAM_set_double) #14
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 126, ptr noundef null) #14
+  tail call void @ERR_new() #13
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1307, ptr noundef nonnull @__func__.OSSL_PARAM_set_double) #13
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 126, ptr noundef null) #13
   br label %68
 
 62:                                               ; preds = %53
@@ -2461,15 +2461,15 @@ define range(i32 0, 2) i32 @OSSL_PARAM_set_double(ptr noundef captures(address_i
   br label %68
 
 66:                                               ; preds = %62
-  tail call void @ERR_new() #14
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1315, ptr noundef nonnull @__func__.OSSL_PARAM_set_double) #14
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 126, ptr noundef null) #14
+  tail call void @ERR_new() #13
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1315, ptr noundef nonnull @__func__.OSSL_PARAM_set_double) #13
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 126, ptr noundef null) #13
   br label %68
 
 67:                                               ; preds = %5, %29, %53
-  tail call void @ERR_new() #14
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1319, ptr noundef nonnull @__func__.OSSL_PARAM_set_double) #14
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 129, ptr noundef null) #14
+  tail call void @ERR_new() #13
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1319, ptr noundef nonnull @__func__.OSSL_PARAM_set_double) #13
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 129, ptr noundef null) #13
   br label %68
 
 68:                                               ; preds = %67, %66, %65, %61, %59, %52, %47, %42, %41, %37, %35, %28, %23, %18, %17, %13, %4
@@ -2509,7 +2509,7 @@ define range(i32 0, 2) i32 @OSSL_PARAM_get_utf8_string(ptr noundef readonly capt
 11:                                               ; preds = %9
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8, !tbaa !15
-  %14 = tail call i64 @OPENSSL_strnlen(ptr noundef %13, i64 noundef %7) #14
+  %14 = tail call i64 @OPENSSL_strnlen(ptr noundef %13, i64 noundef %7) #13
   br label %15
 
 15:                                               ; preds = %11, %9
@@ -2518,9 +2518,9 @@ define range(i32 0, 2) i32 @OSSL_PARAM_get_utf8_string(ptr noundef readonly capt
   br i1 %.not14, label %17, label %16
 
 16:                                               ; preds = %15
-  tail call void @ERR_new() #14
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1402, ptr noundef nonnull @__func__.OSSL_PARAM_get_utf8_string) #14
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 128, ptr noundef null) #14
+  tail call void @ERR_new() #13
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1402, ptr noundef nonnull @__func__.OSSL_PARAM_get_utf8_string) #13
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 128, ptr noundef null) #13
   br label %20
 
 17:                                               ; preds = %15
@@ -2544,9 +2544,9 @@ define internal fastcc range(i32 0, 2) i32 @get_string_internal(ptr noundef read
   br i1 %or.cond3, label %9, label %10
 
 9:                                                ; preds = %5
-  tail call void @ERR_new() #14
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1336, ptr noundef nonnull @__func__.get_string_internal) #14
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 786690, ptr noundef null) #14
+  tail call void @ERR_new() #13
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1336, ptr noundef nonnull @__func__.get_string_internal) #13
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 786690, ptr noundef null) #13
   br label %.critedge
 
 10:                                               ; preds = %5
@@ -2556,9 +2556,9 @@ define internal fastcc range(i32 0, 2) i32 @get_string_internal(ptr noundef read
   br i1 %.not, label %14, label %13
 
 13:                                               ; preds = %10
-  tail call void @ERR_new() #14
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1340, ptr noundef nonnull @__func__.get_string_internal) #14
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 129, ptr noundef null) #14
+  tail call void @ERR_new() #13
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1340, ptr noundef nonnull @__func__.get_string_internal) #13
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 129, ptr noundef null) #13
   br label %.critedge
 
 14:                                               ; preds = %10
@@ -2582,9 +2582,9 @@ define internal fastcc range(i32 0, 2) i32 @get_string_internal(ptr noundef read
   br i1 %26, label %27, label %28
 
 27:                                               ; preds = %23
-  tail call void @ERR_new() #14
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1355, ptr noundef nonnull @__func__.get_string_internal) #14
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 786690, ptr noundef null) #14
+  tail call void @ERR_new() #13
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1355, ptr noundef nonnull @__func__.get_string_internal) #13
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 786690, ptr noundef null) #13
   br label %.critedge
 
 28:                                               ; preds = %23
@@ -2600,7 +2600,7 @@ define internal fastcc range(i32 0, 2) i32 @get_string_internal(ptr noundef read
   br label %35
 
 32:                                               ; preds = %29
-  %33 = tail call noalias ptr @CRYPTO_malloc(i64 noundef %21, ptr noundef nonnull @.str, i32 noundef 1363) #14
+  %33 = tail call noalias ptr @CRYPTO_malloc(i64 noundef %21, ptr noundef nonnull @.str, i32 noundef 1363) #13
   %.not38 = icmp eq ptr %33, null
   br i1 %.not38, label %.critedge, label %34
 
@@ -2616,9 +2616,9 @@ define internal fastcc range(i32 0, 2) i32 @get_string_internal(ptr noundef read
   br i1 %38, label %39, label %40
 
 39:                                               ; preds = %35
-  tail call void @ERR_new() #14
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1372, ptr noundef nonnull @__func__.get_string_internal) #14
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 116, ptr noundef null) #14
+  tail call void @ERR_new() #13
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1372, ptr noundef nonnull @__func__.get_string_internal) #13
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 116, ptr noundef null) #13
   br label %.critedge
 
 40:                                               ; preds = %35
@@ -2649,15 +2649,15 @@ define range(i32 0, 2) i32 @OSSL_PARAM_set_utf8_string(ptr noundef captures(addr
   br i1 %or.cond, label %5, label %6
 
 5:                                                ; preds = %2
-  tail call void @ERR_new() #14
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1442, ptr noundef nonnull @__func__.OSSL_PARAM_set_utf8_string) #14
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 786690, ptr noundef null) #14
+  tail call void @ERR_new() #13
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1442, ptr noundef nonnull @__func__.OSSL_PARAM_set_utf8_string) #13
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 786690, ptr noundef null) #13
   br label %10
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 0, ptr %7, align 8, !tbaa !13
-  %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #13
+  %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #12
   %9 = tail call fastcc i32 @set_string_internal(ptr noundef %0, ptr noundef %1, i64 noundef %8, i32 noundef 4)
   br label %10
 
@@ -2674,9 +2674,9 @@ define internal fastcc range(i32 0, 2) i32 @set_string_internal(ptr noundef nonn
   br i1 %.not, label %8, label %7
 
 7:                                                ; preds = %4
-  tail call void @ERR_new() #14
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1421, ptr noundef nonnull @__func__.set_string_internal) #14
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 129, ptr noundef null) #14
+  tail call void @ERR_new() #13
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1421, ptr noundef nonnull @__func__.set_string_internal) #13
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 129, ptr noundef null) #13
   br label %26
 
 8:                                                ; preds = %4
@@ -2694,9 +2694,9 @@ define internal fastcc range(i32 0, 2) i32 @set_string_internal(ptr noundef nonn
   br i1 %16, label %17, label %18
 
 17:                                               ; preds = %13
-  tail call void @ERR_new() #14
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1428, ptr noundef nonnull @__func__.set_string_internal) #14
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 116, ptr noundef null) #14
+  tail call void @ERR_new() #13
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1428, ptr noundef nonnull @__func__.set_string_internal) #13
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 116, ptr noundef null) #13
   br label %26
 
 18:                                               ; preds = %13
@@ -2731,9 +2731,9 @@ define range(i32 0, 2) i32 @OSSL_PARAM_set_octet_string(ptr noundef captures(add
   br i1 %or.cond, label %6, label %7
 
 6:                                                ; preds = %3
-  tail call void @ERR_new() #14
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1453, ptr noundef nonnull @__func__.OSSL_PARAM_set_octet_string) #14
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 786690, ptr noundef null) #14
+  tail call void @ERR_new() #13
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1453, ptr noundef nonnull @__func__.OSSL_PARAM_set_octet_string) #13
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 786690, ptr noundef null) #13
   br label %set_string_internal.exit
 
 7:                                                ; preds = %3
@@ -2745,9 +2745,9 @@ define range(i32 0, 2) i32 @OSSL_PARAM_set_octet_string(ptr noundef captures(add
   br i1 %.not.i, label %12, label %11
 
 11:                                               ; preds = %7
-  tail call void @ERR_new() #14
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1421, ptr noundef nonnull @__func__.set_string_internal) #14
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 129, ptr noundef null) #14
+  tail call void @ERR_new() #13
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1421, ptr noundef nonnull @__func__.set_string_internal) #13
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 129, ptr noundef null) #13
   br label %set_string_internal.exit
 
 12:                                               ; preds = %7
@@ -2764,9 +2764,9 @@ define range(i32 0, 2) i32 @OSSL_PARAM_set_octet_string(ptr noundef captures(add
   br i1 %19, label %20, label %21
 
 20:                                               ; preds = %16
-  tail call void @ERR_new() #14
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1428, ptr noundef nonnull @__func__.set_string_internal) #14
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 116, ptr noundef null) #14
+  tail call void @ERR_new() #13
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1428, ptr noundef nonnull @__func__.set_string_internal) #13
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 116, ptr noundef null) #13
   br label %set_string_internal.exit
 
 21:                                               ; preds = %16
@@ -2786,7 +2786,7 @@ define void @OSSL_PARAM_construct_utf8_string(ptr dead_on_unwind noalias writabl
   br i1 %or.cond, label %7, label %9
 
 7:                                                ; preds = %4
-  %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #13
+  %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #12
   br label %9
 
 9:                                                ; preds = %7, %4
@@ -2825,9 +2825,9 @@ define range(i32 0, 2) i32 @OSSL_PARAM_get_utf8_ptr(ptr noundef readonly capture
   br i1 %or.cond.i, label %5, label %6
 
 5:                                                ; preds = %2
-  tail call void @ERR_new() #14
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1478, ptr noundef nonnull @__func__.get_ptr_internal) #14
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 786690, ptr noundef null) #14
+  tail call void @ERR_new() #13
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1478, ptr noundef nonnull @__func__.get_ptr_internal) #13
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 786690, ptr noundef null) #13
   br label %get_ptr_internal.exit
 
 6:                                                ; preds = %2
@@ -2837,9 +2837,9 @@ define range(i32 0, 2) i32 @OSSL_PARAM_get_utf8_ptr(ptr noundef readonly capture
   br i1 %.not.i, label %10, label %9
 
 9:                                                ; preds = %6
-  tail call void @ERR_new() #14
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1482, ptr noundef nonnull @__func__.get_ptr_internal) #14
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 129, ptr noundef null) #14
+  tail call void @ERR_new() #13
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1482, ptr noundef nonnull @__func__.get_ptr_internal) #13
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 129, ptr noundef null) #13
   br label %get_ptr_internal.exit
 
 10:                                               ; preds = %6
@@ -2862,9 +2862,9 @@ define range(i32 0, 2) i32 @OSSL_PARAM_get_octet_ptr(ptr noundef readonly captur
   br i1 %or.cond.i, label %6, label %7
 
 6:                                                ; preds = %3
-  tail call void @ERR_new() #14
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1478, ptr noundef nonnull @__func__.get_ptr_internal) #14
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 786690, ptr noundef null) #14
+  tail call void @ERR_new() #13
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1478, ptr noundef nonnull @__func__.get_ptr_internal) #13
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 786690, ptr noundef null) #13
   br label %get_ptr_internal.exit
 
 7:                                                ; preds = %3
@@ -2874,9 +2874,9 @@ define range(i32 0, 2) i32 @OSSL_PARAM_get_octet_ptr(ptr noundef readonly captur
   br i1 %.not.i, label %11, label %10
 
 10:                                               ; preds = %7
-  tail call void @ERR_new() #14
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1482, ptr noundef nonnull @__func__.get_ptr_internal) #14
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 129, ptr noundef null) #14
+  tail call void @ERR_new() #13
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1482, ptr noundef nonnull @__func__.get_ptr_internal) #13
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 129, ptr noundef null) #13
   br label %get_ptr_internal.exit
 
 11:                                               ; preds = %7
@@ -2907,9 +2907,9 @@ define range(i32 0, 2) i32 @OSSL_PARAM_set_utf8_ptr(ptr noundef captures(address
   br i1 %3, label %4, label %5
 
 4:                                                ; preds = %2
-  tail call void @ERR_new() #14
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1518, ptr noundef nonnull @__func__.OSSL_PARAM_set_utf8_ptr) #14
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 786690, ptr noundef null) #14
+  tail call void @ERR_new() #13
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1518, ptr noundef nonnull @__func__.OSSL_PARAM_set_utf8_ptr) #13
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 786690, ptr noundef null) #13
   br label %set_ptr_internal.exit
 
 5:                                                ; preds = %2
@@ -2925,9 +2925,9 @@ define range(i32 0, 2) i32 @OSSL_PARAM_set_utf8_ptr(ptr noundef captures(address
   br i1 %.not.i, label %11, label %10
 
 10:                                               ; preds = %.split6
-  tail call void @ERR_new() #14
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1506, ptr noundef nonnull @__func__.set_ptr_internal) #14
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 129, ptr noundef null) #14
+  tail call void @ERR_new() #13
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1506, ptr noundef nonnull @__func__.set_ptr_internal) #13
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 129, ptr noundef null) #13
   br label %set_ptr_internal.exit
 
 11:                                               ; preds = %.split6
@@ -2944,13 +2944,13 @@ define range(i32 0, 2) i32 @OSSL_PARAM_set_utf8_ptr(ptr noundef captures(address
   br i1 %.not.i, label %16, label %15
 
 15:                                               ; preds = %.split
-  tail call void @ERR_new() #14
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1506, ptr noundef nonnull @__func__.set_ptr_internal) #14
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 129, ptr noundef null) #14
+  tail call void @ERR_new() #13
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1506, ptr noundef nonnull @__func__.set_ptr_internal) #13
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 129, ptr noundef null) #13
   br label %set_ptr_internal.exit
 
 16:                                               ; preds = %.split
-  %17 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #13
+  %17 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #12
   store i64 %17, ptr %6, align 8, !tbaa !13
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load ptr, ptr %18, align 8, !tbaa !15
@@ -2972,9 +2972,9 @@ define range(i32 0, 2) i32 @OSSL_PARAM_set_octet_ptr(ptr noundef captures(addres
   br i1 %4, label %5, label %6
 
 5:                                                ; preds = %3
-  tail call void @ERR_new() #14
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1530, ptr noundef nonnull @__func__.OSSL_PARAM_set_octet_ptr) #14
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 786690, ptr noundef null) #14
+  tail call void @ERR_new() #13
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1530, ptr noundef nonnull @__func__.OSSL_PARAM_set_octet_ptr) #13
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 786690, ptr noundef null) #13
   br label %set_ptr_internal.exit
 
 6:                                                ; preds = %3
@@ -2986,9 +2986,9 @@ define range(i32 0, 2) i32 @OSSL_PARAM_set_octet_ptr(ptr noundef captures(addres
   br i1 %.not.i, label %11, label %10
 
 10:                                               ; preds = %6
-  tail call void @ERR_new() #14
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1506, ptr noundef nonnull @__func__.set_ptr_internal) #14
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 129, ptr noundef null) #14
+  tail call void @ERR_new() #13
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1506, ptr noundef nonnull @__func__.set_ptr_internal) #13
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 129, ptr noundef null) #13
   br label %set_ptr_internal.exit
 
 11:                                               ; preds = %6
@@ -3053,7 +3053,7 @@ define range(i32 -1, 2) i32 @ossl_param_get1_octet_string(ptr noundef readonly c
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %14
   %11 = phi ptr [ %16, %14 ], [ %10, %.preheader.i.i ]
   %.0913.i.i = phi ptr [ %15, %14 ], [ %0, %.preheader.i.i ]
-  %12 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %11) #13
+  %12 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %11) #12
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %17, label %14
 
@@ -3102,7 +3102,7 @@ OSSL_PARAM_locate_const.exit.thread:              ; preds = %14, %4, %.preheader
   %27 = phi ptr [ %.pre, %._crit_edge ], [ null, %20 ], [ null, %17 ]
   %28 = load ptr, ptr %2, align 8, !tbaa !62
   %29 = load i64, ptr %3, align 8, !tbaa !19
-  call void @CRYPTO_clear_free(ptr noundef %28, i64 noundef %29, ptr noundef nonnull @.str, i32 noundef 1573) #14
+  call void @CRYPTO_clear_free(ptr noundef %28, i64 noundef %29, ptr noundef nonnull @.str, i32 noundef 1573) #13
   store ptr %27, ptr %2, align 8, !tbaa !62
   store i64 %26, ptr %3, align 8, !tbaa !19
   br label %30
@@ -3132,7 +3132,7 @@ define range(i32 -1, 2) i32 @ossl_param_get1_concat_octet_string(ptr noundef rea
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %13
   %10 = phi ptr [ %15, %13 ], [ %9, %.preheader.i.i ]
   %.0913.i.i = phi ptr [ %14, %13 ], [ %0, %.preheader.i.i ]
-  %11 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %10) #13
+  %11 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %10) #12
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %16, label %13
 
@@ -3165,12 +3165,12 @@ OSSL_PARAM_locate_const.exit.thread:              ; preds = %13, %5, %.preheader
   br i1 %22, label %23, label %26
 
 23:                                               ; preds = %21
-  %24 = call noalias ptr @CRYPTO_zalloc(i64 noundef 1, ptr noundef nonnull @.str, i32 noundef 1631) #14
+  %24 = call noalias ptr @CRYPTO_zalloc(i64 noundef 1, ptr noundef nonnull @.str, i32 noundef 1631) #13
   %25 = icmp eq ptr %24, null
   br i1 %25, label %37, label %33
 
 26:                                               ; preds = %21
-  %27 = call noalias ptr @CRYPTO_malloc(i64 noundef %19, ptr noundef nonnull @.str, i32 noundef 1637) #14
+  %27 = call noalias ptr @CRYPTO_malloc(i64 noundef %19, ptr noundef nonnull @.str, i32 noundef 1637) #13
   %28 = icmp eq ptr %27, null
   br i1 %28, label %37, label %29
 
@@ -3181,14 +3181,14 @@ OSSL_PARAM_locate_const.exit.thread:              ; preds = %13, %5, %.preheader
 
 31:                                               ; preds = %29
   %32 = load i64, ptr %6, align 8, !tbaa !19
-  call void @CRYPTO_clear_free(ptr noundef nonnull %27, i64 noundef %32, ptr noundef nonnull @.str, i32 noundef 1643) #14
+  call void @CRYPTO_clear_free(ptr noundef nonnull %27, i64 noundef %32, ptr noundef nonnull @.str, i32 noundef 1643) #13
   br label %37
 
 33:                                               ; preds = %29, %23
   %.0 = phi ptr [ %24, %23 ], [ %27, %29 ]
   %34 = load ptr, ptr %2, align 8, !tbaa !62
   %35 = load i64, ptr %3, align 8, !tbaa !19
-  call void @CRYPTO_clear_free(ptr noundef %34, i64 noundef %35, ptr noundef nonnull @.str, i32 noundef 1648) #14
+  call void @CRYPTO_clear_free(ptr noundef %34, i64 noundef %35, ptr noundef nonnull @.str, i32 noundef 1648) #13
   store ptr %.0, ptr %2, align 8, !tbaa !62
   %36 = load i64, ptr %6, align 8, !tbaa !19
   store i64 %36, ptr %3, align 8, !tbaa !19
@@ -3208,13 +3208,13 @@ define internal fastcc range(i32 0, 2) i32 @setbuf_fromparams(ptr noundef nonnul
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %4
-  %8 = call i32 @WPACKET_init_null(ptr noundef nonnull %5, i64 noundef 0) #14
+  %8 = call i32 @WPACKET_init_null(ptr noundef nonnull %5, i64 noundef 0) #13
   %.not18 = icmp eq i32 %8, 0
   br i1 %.not18, label %43, label %12
 
 9:                                                ; preds = %4
   %10 = load i64, ptr %3, align 8, !tbaa !19
-  %11 = call i32 @WPACKET_init_static_len(ptr noundef nonnull %5, ptr noundef nonnull %2, i64 noundef %10, i64 noundef 0) #14
+  %11 = call i32 @WPACKET_init_static_len(ptr noundef nonnull %5, ptr noundef nonnull %2, i64 noundef %10, i64 noundef 0) #13
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %43, label %12
 
@@ -3244,7 +3244,7 @@ define internal fastcc range(i32 0, 2) i32 @setbuf_fromparams(ptr noundef nonnul
   br i1 %.not24.us, label %.split29.us, label %21
 
 21:                                               ; preds = %18
-  %22 = call i32 @WPACKET_memcpy(ptr noundef nonnull %5, ptr noundef nonnull %17, i64 noundef %20) #14
+  %22 = call i32 @WPACKET_memcpy(ptr noundef nonnull %5, ptr noundef nonnull %17, i64 noundef %20) #13
   %.not25.us = icmp eq i32 %22, 0
   br i1 %.not25.us, label %.loopexit, label %.split29.us
 
@@ -3268,7 +3268,7 @@ define internal fastcc range(i32 0, 2) i32 @setbuf_fromparams(ptr noundef nonnul
   br i1 %.not24, label %.preheader.i.i, label %30
 
 30:                                               ; preds = %27
-  %31 = call i32 @WPACKET_memcpy(ptr noundef nonnull %5, ptr noundef nonnull %26, i64 noundef %29) #14
+  %31 = call i32 @WPACKET_memcpy(ptr noundef nonnull %5, ptr noundef nonnull %26, i64 noundef %29) #13
   %.not25 = icmp eq i32 %31, 0
   br i1 %.not25, label %.loopexit, label %.preheader.i.i
 
@@ -3281,7 +3281,7 @@ define internal fastcc range(i32 0, 2) i32 @setbuf_fromparams(ptr noundef nonnul
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %37
   %34 = phi ptr [ %39, %37 ], [ %33, %.preheader.i.i ]
   %.0913.i.i = phi ptr [ %38, %37 ], [ %32, %.preheader.i.i ]
-  %35 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %34) #13
+  %35 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %34) #12
   %36 = icmp eq i32 %35, 0
   br i1 %36, label %.split.loopexit, label %37
 
@@ -3292,19 +3292,19 @@ define internal fastcc range(i32 0, 2) i32 @setbuf_fromparams(ptr noundef nonnul
   br i1 %.not.i.i, label %.split29.us, label %.lr.ph.i.i, !llvm.loop !11
 
 .split29.us:                                      ; preds = %.preheader.i.i, %37, %21, %18, %15
-  %40 = call i32 @WPACKET_get_total_written(ptr noundef nonnull %5, ptr noundef nonnull %3) #14
+  %40 = call i32 @WPACKET_get_total_written(ptr noundef nonnull %5, ptr noundef nonnull %3) #13
   %.not20 = icmp eq i32 %40, 0
   br i1 %.not20, label %.loopexit, label %41
 
 41:                                               ; preds = %.split29.us
-  %42 = call i32 @WPACKET_finish(ptr noundef nonnull %5) #14
+  %42 = call i32 @WPACKET_finish(ptr noundef nonnull %5) #13
   %.not21 = icmp ne i32 %42, 0
   %spec.select = zext i1 %.not21 to i32
   br label %.loopexit
 
 .loopexit:                                        ; preds = %30, %.split.loopexit, %.split.preheader, %21, %.split.us, %41, %.split29.us
   %.0 = phi i32 [ 0, %.split29.us ], [ %spec.select, %41 ], [ 0, %.split.us ], [ 0, %21 ], [ 0, %.split.preheader ], [ 0, %.split.loopexit ], [ 0, %30 ]
-  call void @WPACKET_cleanup(ptr noundef nonnull %5) #14
+  call void @WPACKET_cleanup(ptr noundef nonnull %5) #13
   br label %43
 
 43:                                               ; preds = %9, %7, %.loopexit
@@ -3328,9 +3328,9 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @OSSL_PARAM_get_utf8_string_ptr(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #4 {
-  %3 = tail call i32 @ERR_set_mark() #14
+  %3 = tail call i32 @ERR_set_mark() #13
   %4 = tail call i32 @OSSL_PARAM_get_utf8_ptr(ptr noundef %0, ptr noundef %1)
-  %5 = tail call i32 @ERR_pop_to_mark() #14
+  %5 = tail call i32 @ERR_pop_to_mark() #13
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %6, label %get_string_ptr_internal.exit
 
@@ -3341,9 +3341,9 @@ define range(i32 0, 2) i32 @OSSL_PARAM_get_utf8_string_ptr(ptr noundef readonly 
   br i1 %or.cond.i, label %9, label %10
 
 9:                                                ; preds = %6
-  tail call void @ERR_new() #14
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1665, ptr noundef nonnull @__func__.get_string_ptr_internal) #14
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 786690, ptr noundef null) #14
+  tail call void @ERR_new() #13
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1665, ptr noundef nonnull @__func__.get_string_ptr_internal) #13
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 786690, ptr noundef null) #13
   br label %get_string_ptr_internal.exit
 
 10:                                               ; preds = %6
@@ -3353,9 +3353,9 @@ define range(i32 0, 2) i32 @OSSL_PARAM_get_utf8_string_ptr(ptr noundef readonly 
   br i1 %.not.i, label %14, label %13
 
 13:                                               ; preds = %10
-  tail call void @ERR_new() #14
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1669, ptr noundef nonnull @__func__.get_string_ptr_internal) #14
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 129, ptr noundef null) #14
+  tail call void @ERR_new() #13
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1669, ptr noundef nonnull @__func__.get_string_ptr_internal) #13
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 129, ptr noundef null) #13
   br label %get_string_ptr_internal.exit
 
 14:                                               ; preds = %10
@@ -3375,9 +3375,9 @@ declare i32 @ERR_pop_to_mark() local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @OSSL_PARAM_get_octet_string_ptr(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #4 {
-  %4 = tail call i32 @ERR_set_mark() #14
+  %4 = tail call i32 @ERR_set_mark() #13
   %5 = tail call i32 @OSSL_PARAM_get_octet_ptr(ptr noundef %0, ptr noundef %1, ptr noundef %2)
-  %6 = tail call i32 @ERR_pop_to_mark() #14
+  %6 = tail call i32 @ERR_pop_to_mark() #13
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %7, label %get_string_ptr_internal.exit
 
@@ -3388,9 +3388,9 @@ define range(i32 0, 2) i32 @OSSL_PARAM_get_octet_string_ptr(ptr noundef readonly
   br i1 %or.cond.i, label %10, label %11
 
 10:                                               ; preds = %7
-  tail call void @ERR_new() #14
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1665, ptr noundef nonnull @__func__.get_string_ptr_internal) #14
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 786690, ptr noundef null) #14
+  tail call void @ERR_new() #13
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1665, ptr noundef nonnull @__func__.get_string_ptr_internal) #13
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 786690, ptr noundef null) #13
   br label %get_string_ptr_internal.exit
 
 11:                                               ; preds = %7
@@ -3400,9 +3400,9 @@ define range(i32 0, 2) i32 @OSSL_PARAM_get_octet_string_ptr(ptr noundef readonly
   br i1 %.not.i, label %15, label %14
 
 14:                                               ; preds = %11
-  tail call void @ERR_new() #14
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1669, ptr noundef nonnull @__func__.get_string_ptr_internal) #14
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 129, ptr noundef null) #14
+  tail call void @ERR_new() #13
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1669, ptr noundef nonnull @__func__.get_string_ptr_internal) #13
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 129, ptr noundef null) #13
   br label %get_string_ptr_internal.exit
 
 15:                                               ; preds = %11
@@ -3438,9 +3438,9 @@ define internal fastcc range(i32 0, 2) i32 @unsigned_from_signed(ptr noundef non
   br i1 %.not, label %9, label %8
 
 8:                                                ; preds = %4
-  tail call void @ERR_new() #14
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 184, ptr noundef nonnull @__func__.unsigned_from_signed) #14
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 125, ptr noundef null) #14
+  tail call void @ERR_new() #13
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 184, ptr noundef nonnull @__func__.unsigned_from_signed) #13
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 125, ptr noundef null) #13
   br label %copy_integer.exit
 
 9:                                                ; preds = %4
@@ -3477,9 +3477,9 @@ define internal fastcc range(i32 0, 2) i32 @unsigned_from_signed(ptr noundef non
   br label %copy_integer.exit
 
 check_sign_bytes.exit.i:                          ; preds = %.lr.ph.i.i
-  tail call void @ERR_new() #14
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 155, ptr noundef nonnull @__func__.copy_integer) #14
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 126, ptr noundef null) #14
+  tail call void @ERR_new() #13
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 155, ptr noundef nonnull @__func__.copy_integer) #13
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 126, ptr noundef null) #13
   br label %copy_integer.exit
 
 copy_integer.exit:                                ; preds = %.loopexit.i, %check_sign_bytes.exit.i, %11, %8
@@ -3505,11 +3505,8 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.abs.i64(i64, i1 immarg) #11
-
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #12
+declare i64 @llvm.umax.i64(i64, i64) #11
 
 attributes #0 = { nofree norecurse nounwind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -3522,10 +3519,9 @@ attributes #7 = { mustprogress nofree norecurse nounwind willreturn memory(argme
 attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #12 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #13 = { nounwind willreturn memory(read) }
-attributes #14 = { nounwind }
+attributes #11 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #12 = { nounwind willreturn memory(read) }
+attributes #13 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

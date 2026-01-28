@@ -260,7 +260,7 @@ define dso_local range(i32 0, 2) i32 @ACLAddCommandCategory(ptr noundef %0, i64 
   br i1 %4, label %14, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call noalias ptr @zstrdup(ptr noundef %0) #26
+  %6 = tail call noalias ptr @zstrdup(ptr noundef %0) #25
   %7 = load ptr, ptr @ACLCommandCategories, align 8, !tbaa !9
   %8 = load i64, ptr @nextCommandCategory, align 8, !tbaa !5
   %9 = getelementptr inbounds nuw %struct.ACLCategoryItem, ptr %7, i64 %8
@@ -283,7 +283,7 @@ declare noalias ptr @zstrdup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ACLInitCommandCategories() local_unnamed_addr #0 {
-  %1 = tail call noalias dereferenceable_or_null(1040) ptr @zcalloc(i64 noundef 1040) #27
+  %1 = tail call noalias dereferenceable_or_null(1040) ptr @zcalloc(i64 noundef 1040) #26
   store ptr %1, ptr @ACLCommandCategories, align 8, !tbaa !9
   %2 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ACLDefaultCommandCategories, i64 8), align 8, !tbaa !15
   %.not8 = icmp eq i64 %2, 0
@@ -304,14 +304,14 @@ define dso_local void @ACLInitCommandCategories() local_unnamed_addr #0 {
   br i1 %5, label %6, label %7
 
 6:                                                ; preds = %.lr.ph
-  tail call void @_serverAssert(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.22, i32 noundef 102) #26
-  tail call void @abort() #28
+  tail call void @_serverAssert(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.22, i32 noundef 102) #25
+  tail call void @abort() #27
   unreachable
 
 7:                                                ; preds = %.lr.ph
   %8 = getelementptr inbounds nuw %struct.ACLCategoryItem, ptr @ACLDefaultCommandCategories, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 16, !tbaa !12
-  %10 = tail call noalias ptr @zstrdup(ptr noundef %9) #26
+  %10 = tail call noalias ptr @zstrdup(ptr noundef %9) #25
   %11 = load ptr, ptr @ACLCommandCategories, align 8, !tbaa !9
   %12 = load i64, ptr @nextCommandCategory, align 8, !tbaa !5
   %13 = getelementptr inbounds nuw %struct.ACLCategoryItem, ptr %11, i64 %12
@@ -361,7 +361,7 @@ define dso_local void @ACLCleanupCategoriesOnFailure(i64 noundef %0) local_unnam
   %.08 = phi i64 [ %10, %.lr.ph ], [ %3, %.lr.ph.preheader ]
   %6 = getelementptr inbounds nuw %struct.ACLCategoryItem, ptr %5, i64 %.08
   %7 = load ptr, ptr %6, align 8, !tbaa !12
-  tail call void @zfree(ptr noundef %7) #26
+  tail call void @zfree(ptr noundef %7) #25
   %8 = load ptr, ptr @ACLCommandCategories, align 8, !tbaa !9
   %9 = getelementptr inbounds nuw %struct.ACLCategoryItem, ptr %8, i64 %.08
   %10 = add nuw i64 %.08, 1
@@ -409,13 +409,13 @@ define dso_local ptr @ACLHashPassword(ptr noundef %0, i64 noundef %1) local_unna
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  call void @sha256_init(ptr noundef nonnull %3) #26
-  call void @sha256_update(ptr noundef nonnull %3, ptr noundef %0, i64 noundef %1) #26
-  call void @sha256_final(ptr noundef nonnull %3, ptr noundef nonnull %4) #26
+  call void @sha256_init(ptr noundef nonnull %3) #25
+  call void @sha256_update(ptr noundef nonnull %3, ptr noundef %0, i64 noundef %1) #25
+  call void @sha256_final(ptr noundef nonnull %3, ptr noundef nonnull %4) #25
   br label %8
 
 6:                                                ; preds = %8
-  %7 = call ptr @sdsnewlen(ptr noundef nonnull %5, i64 noundef 64) #26
+  %7 = call ptr @sdsnewlen(ptr noundef nonnull %5, i64 noundef 64) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -483,7 +483,7 @@ define dso_local range(i32 0, 2) i32 @ACLStringHasSpaces(ptr noundef readonly ca
   br i1 %.not14, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %3 = tail call ptr @__ctype_b_loc() #29
+  %3 = tail call ptr @__ctype_b_loc() #28
   %4 = load ptr, ptr %3, align 8, !tbaa !23
   br label %7
 
@@ -523,7 +523,7 @@ define dso_local i64 @ACLGetCommandCategoryFlagByName(ptr noundef readonly captu
 
 .lr.ph.preheader:                                 ; preds = %1
   %5 = load ptr, ptr %2, align 8, !tbaa !12
-  %6 = tail call i32 @strcasecmp(ptr noundef %0, ptr noundef %5) #30
+  %6 = tail call i32 @strcasecmp(ptr noundef %0, ptr noundef %5) #29
   %.not816 = icmp eq i32 %6, 0
   br i1 %.not816, label %._crit_edge, label %.lr.ph18
 
@@ -539,7 +539,7 @@ define dso_local i64 @ACLGetCommandCategoryFlagByName(ptr noundef readonly captu
 .lr.ph:                                           ; preds = %.lr.ph18
   %10 = getelementptr inbounds nuw %struct.ACLCategoryItem, ptr %2, i64 %indvars.iv.next
   %11 = load ptr, ptr %10, align 8, !tbaa !12
-  %12 = tail call i32 @strcasecmp(ptr noundef %0, ptr noundef %11) #30
+  %12 = tail call i32 @strcasecmp(ptr noundef %0, ptr noundef %11) #29
   %.not8 = icmp eq i32 %12, 0
   br i1 %.not8, label %._crit_edge, label %.lr.ph18, !llvm.loop !28
 
@@ -557,7 +557,7 @@ declare i32 @strcasecmp(ptr noundef captures(none), ptr noundef captures(none)) 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 0, 2) i32 @ACLListMatchLoadedUser(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = load ptr, ptr %0, align 8, !tbaa !29
-  %4 = tail call i32 @sdscmp(ptr noundef %3, ptr noundef %1) #26
+  %4 = tail call i32 @sdscmp(ptr noundef %3, ptr noundef %1) #25
   %5 = icmp eq i32 %4, 0
   %6 = zext i1 %5 to i32
   ret i32 %6
@@ -567,7 +567,7 @@ declare i32 @sdscmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 0, 2) i32 @ACLListMatchSds(ptr noundef %0, ptr noundef %1) #0 {
-  %3 = tail call i32 @sdscmp(ptr noundef %0, ptr noundef %1) #26
+  %3 = tail call i32 @sdscmp(ptr noundef %0, ptr noundef %1) #25
   %4 = icmp eq i32 %3, 0
   %5 = zext i1 %4 to i32
   ret i32 %5
@@ -575,7 +575,7 @@ define dso_local range(i32 0, 2) i32 @ACLListMatchSds(ptr noundef %0, ptr nounde
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ACLListFreeSds(ptr noundef %0) #0 {
-  tail call void @sdsfreegeneric(ptr noundef %0) #26
+  tail call void @sdsfreegeneric(ptr noundef %0) #25
   ret void
 }
 
@@ -583,7 +583,7 @@ declare void @sdsfreegeneric(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @ACLListDupSds(ptr noundef %0) #0 {
-  %2 = tail call ptr @sdsdup(ptr noundef %0) #26
+  %2 = tail call ptr @sdsdup(ptr noundef %0) #25
   ret ptr %2
 }
 
@@ -591,7 +591,7 @@ declare ptr @sdsdup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local noalias noundef ptr @ACLKeyPatternCreate(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = tail call noalias dereferenceable_or_null(16) ptr @zmalloc(i64 noundef 16) #27
+  %3 = tail call noalias dereferenceable_or_null(16) ptr @zmalloc(i64 noundef 16) #26
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %0, ptr %4, align 8, !tbaa !30
   store i32 %1, ptr %3, align 8, !tbaa !33
@@ -605,8 +605,8 @@ declare noalias ptr @zmalloc(i64 noundef) local_unnamed_addr #2
 define dso_local void @ACLKeyPatternFree(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !30
-  tail call void @sdsfree(ptr noundef %3) #26
-  tail call void @zfree(ptr noundef %0) #26
+  tail call void @sdsfree(ptr noundef %3) #25
+  tail call void @zfree(ptr noundef %0) #25
   ret void
 }
 
@@ -618,7 +618,7 @@ define dso_local range(i32 0, 2) i32 @ACLListMatchKeyPattern(ptr noundef readonl
   %4 = load ptr, ptr %3, align 8, !tbaa !30
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !30
-  %7 = tail call i32 @sdscmp(ptr noundef %4, ptr noundef %6) #26
+  %7 = tail call i32 @sdscmp(ptr noundef %4, ptr noundef %6) #25
   %8 = icmp eq i32 %7, 0
   %9 = zext i1 %8 to i32
   ret i32 %9
@@ -628,8 +628,8 @@ define dso_local range(i32 0, 2) i32 @ACLListMatchKeyPattern(ptr noundef readonl
 define dso_local void @ACLListFreeKeyPattern(ptr noundef %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !30
-  tail call void @sdsfree(ptr noundef %3) #26
-  tail call void @zfree(ptr noundef %0) #26
+  tail call void @sdsfree(ptr noundef %3) #25
+  tail call void @zfree(ptr noundef %0) #25
   ret void
 }
 
@@ -637,9 +637,9 @@ define dso_local void @ACLListFreeKeyPattern(ptr noundef %0) #0 {
 define dso_local noalias noundef ptr @ACLListDupKeyPattern(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !30
-  %4 = tail call ptr @sdsdup(ptr noundef %3) #26
+  %4 = tail call ptr @sdsdup(ptr noundef %3) #25
   %5 = load i32, ptr %0, align 8, !tbaa !33
-  %6 = tail call noalias noundef dereferenceable_or_null(16) ptr @zmalloc(i64 noundef 16) #27
+  %6 = tail call noalias noundef dereferenceable_or_null(16) ptr @zmalloc(i64 noundef 16) #26
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %4, ptr %7, align 8, !tbaa !30
   store i32 %5, ptr %6, align 8, !tbaa !33
@@ -656,27 +656,27 @@ define dso_local ptr @sdsCatPatternString(ptr noundef %0, ptr noundef readonly c
   ]
 
 4:                                                ; preds = %2
-  %5 = tail call ptr @sdscatlen(ptr noundef %0, ptr noundef nonnull @.str.32, i64 noundef 1) #26
+  %5 = tail call ptr @sdscatlen(ptr noundef %0, ptr noundef nonnull @.str.32, i64 noundef 1) #25
   br label %11
 
 6:                                                ; preds = %2
-  %7 = tail call ptr @sdscatlen(ptr noundef %0, ptr noundef nonnull @.str.33, i64 noundef 3) #26
+  %7 = tail call ptr @sdscatlen(ptr noundef %0, ptr noundef nonnull @.str.33, i64 noundef 3) #25
   br label %11
 
 8:                                                ; preds = %2
-  %9 = tail call ptr @sdscatlen(ptr noundef %0, ptr noundef nonnull @.str.34, i64 noundef 3) #26
+  %9 = tail call ptr @sdscatlen(ptr noundef %0, ptr noundef nonnull @.str.34, i64 noundef 3) #25
   br label %11
 
 10:                                               ; preds = %2
-  tail call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.22, i32 noundef 337, ptr noundef nonnull @.str.35) #26
-  tail call void @abort() #28
+  tail call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.22, i32 noundef 337, ptr noundef nonnull @.str.35) #25
+  tail call void @abort() #27
   unreachable
 
 11:                                               ; preds = %6, %8, %4
   %.0 = phi ptr [ %5, %4 ], [ %7, %6 ], [ %9, %8 ]
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !30
-  %14 = tail call ptr @sdscatsds(ptr noundef %.0, ptr noundef %13) #26
+  %14 = tail call ptr @sdscatsds(ptr noundef %.0, ptr noundef %13) #25
   ret ptr %14
 }
 
@@ -688,19 +688,19 @@ declare ptr @sdscatsds(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local noalias noundef ptr @ACLCreateSelector(i32 noundef %0) local_unnamed_addr #0 {
-  %2 = tail call noalias dereferenceable_or_null(168) ptr @zmalloc(i64 noundef 168) #27
+  %2 = tail call noalias dereferenceable_or_null(168) ptr @zmalloc(i64 noundef 168) #26
   %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 8104), align 8, !tbaa !34
   %4 = or i32 %3, %0
   store i32 %4, ptr %2, align 8, !tbaa !61
-  %5 = tail call ptr @listCreate() #26
+  %5 = tail call ptr @listCreate() #25
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 144
   store ptr %5, ptr %6, align 8, !tbaa !64
-  %7 = tail call ptr @listCreate() #26
+  %7 = tail call ptr @listCreate() #25
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 152
   store ptr %7, ptr %8, align 8, !tbaa !65
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 136
   store ptr null, ptr %9, align 8, !tbaa !66
-  %10 = tail call ptr @sdsempty() #26
+  %10 = tail call ptr @sdsempty() #25
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 160
   store ptr %10, ptr %11, align 8, !tbaa !67
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 32
@@ -731,13 +731,13 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 define dso_local void @ACLFreeSelector(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %3 = load ptr, ptr %2, align 8, !tbaa !64
-  tail call void @listRelease(ptr noundef %3) #26
+  tail call void @listRelease(ptr noundef %3) #25
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %5 = load ptr, ptr %4, align 8, !tbaa !65
-  tail call void @listRelease(ptr noundef %5) #26
+  tail call void @listRelease(ptr noundef %5) #25
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %7 = load ptr, ptr %6, align 8, !tbaa !67
-  tail call void @sdsfree(ptr noundef %7) #26
+  tail call void @sdsfree(ptr noundef %7) #25
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %9 = load ptr, ptr %8, align 8, !tbaa !66
   %10 = icmp eq ptr %9, null
@@ -745,7 +745,7 @@ define dso_local void @ACLFreeSelector(ptr noundef %0) local_unnamed_addr #0 {
 
 11:                                               ; preds = %23
   %12 = load ptr, ptr %8, align 8, !tbaa !66
-  tail call void @zfree(ptr noundef %12) #26
+  tail call void @zfree(ptr noundef %12) #25
   store ptr null, ptr %8, align 8, !tbaa !66
   br label %ACLResetFirstArgs.exit
 
@@ -764,13 +764,13 @@ define dso_local void @ACLFreeSelector(ptr noundef %0) local_unnamed_addr #0 {
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader.i
   %.lcssa.i = phi ptr [ %15, %.preheader.i ], [ %20, %.lr.ph.i ]
-  tail call void @zfree(ptr noundef nonnull %.lcssa.i) #26
+  tail call void @zfree(ptr noundef nonnull %.lcssa.i) #25
   br label %23
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.preheader.i ]
   %17 = phi ptr [ %22, %.lr.ph.i ], [ %16, %.preheader.i ]
-  tail call void @sdsfree(ptr noundef nonnull %17) #26
+  tail call void @sdsfree(ptr noundef nonnull %17) #25
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %18 = load ptr, ptr %8, align 8, !tbaa !66
   %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv24.i
@@ -786,7 +786,7 @@ define dso_local void @ACLFreeSelector(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %exitcond.not.i, label %11, label %.preheader18.i, !llvm.loop !75
 
 ACLResetFirstArgs.exit:                           ; preds = %1, %11
-  tail call void @zfree(ptr noundef nonnull %0) #26
+  tail call void @zfree(ptr noundef nonnull %0) #25
   ret void
 }
 
@@ -801,7 +801,7 @@ define dso_local void @ACLResetFirstArgs(ptr noundef captures(none) %0) local_un
 
 5:                                                ; preds = %17
   %6 = load ptr, ptr %2, align 8, !tbaa !66
-  tail call void @zfree(ptr noundef %6) #26
+  tail call void @zfree(ptr noundef %6) #25
   store ptr null, ptr %2, align 8, !tbaa !66
   br label %18
 
@@ -820,13 +820,13 @@ define dso_local void @ACLResetFirstArgs(ptr noundef captures(none) %0) local_un
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %.lcssa = phi ptr [ %9, %.preheader ], [ %14, %.lr.ph ]
-  tail call void @zfree(ptr noundef nonnull %.lcssa) #26
+  tail call void @zfree(ptr noundef nonnull %.lcssa) #25
   br label %17
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
   %11 = phi ptr [ %16, %.lr.ph ], [ %10, %.preheader ]
-  tail call void @sdsfree(ptr noundef nonnull %11) #26
+  tail call void @sdsfree(ptr noundef nonnull %11) #25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %12 = load ptr, ptr %2, align 8, !tbaa !66
   %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv24
@@ -847,22 +847,22 @@ define dso_local void @ACLResetFirstArgs(ptr noundef captures(none) %0) local_un
 
 ; Function Attrs: nounwind uwtable
 define dso_local noalias noundef ptr @ACLCopySelector(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
-  %2 = tail call noalias dereferenceable_or_null(168) ptr @zmalloc(i64 noundef 168) #27
+  %2 = tail call noalias dereferenceable_or_null(168) ptr @zmalloc(i64 noundef 168) #26
   %3 = load i32, ptr %0, align 8, !tbaa !61
   store i32 %3, ptr %2, align 8, !tbaa !61
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %5 = load ptr, ptr %4, align 8, !tbaa !64
-  %6 = tail call ptr @listDup(ptr noundef %5) #26
+  %6 = tail call ptr @listDup(ptr noundef %5) #25
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 144
   store ptr %6, ptr %7, align 8, !tbaa !64
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %9 = load ptr, ptr %8, align 8, !tbaa !65
-  %10 = tail call ptr @listDup(ptr noundef %9) #26
+  %10 = tail call ptr @listDup(ptr noundef %9) #25
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 152
   store ptr %10, ptr %11, align 8, !tbaa !65
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %13 = load ptr, ptr %12, align 8, !tbaa !67
-  %14 = tail call ptr @sdsdup(ptr noundef %13) #26
+  %14 = tail call ptr @sdsdup(ptr noundef %13) #25
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 160
   store ptr %14, ptr %15, align 8, !tbaa !67
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -900,7 +900,7 @@ define dso_local noalias noundef ptr @ACLCopySelector(ptr noundef readonly captu
   br i1 %30, label %31, label %33
 
 31:                                               ; preds = %.lr.ph
-  %32 = tail call noalias dereferenceable_or_null(8192) ptr @zcalloc(i64 noundef 8192) #27
+  %32 = tail call noalias dereferenceable_or_null(8192) ptr @zcalloc(i64 noundef 8192) #26
   br label %33
 
 33:                                               ; preds = %31, %.lr.ph
@@ -918,7 +918,7 @@ define dso_local noalias noundef ptr @ACLCopySelector(ptr noundef readonly captu
 .lr.ph.i:                                         ; preds = %.preheader.i, %40
   %38 = phi ptr [ %43, %40 ], [ %37, %.preheader.i ]
   %.130.i = phi i64 [ %41, %40 ], [ 0, %.preheader.i ]
-  %39 = tail call i32 @strcasecmp(ptr noundef nonnull %38, ptr noundef nonnull %29) #30
+  %39 = tail call i32 @strcasecmp(ptr noundef nonnull %38, ptr noundef nonnull %29) #29
   %.not26.i = icmp eq i32 %39, 0
   br i1 %.not26.i, label %ACLAddAllowedFirstArg.exit, label %40
 
@@ -933,9 +933,9 @@ define dso_local noalias noundef ptr @ACLCopySelector(ptr noundef readonly captu
   %.0.i = phi i64 [ 0, %33 ], [ 0, %.preheader.i ], [ %41, %40 ]
   %44 = shl i64 %.0.i, 3
   %45 = add i64 %44, 16
-  %46 = tail call ptr @zrealloc(ptr noundef %36, i64 noundef %45) #31
+  %46 = tail call ptr @zrealloc(ptr noundef %36, i64 noundef %45) #30
   store ptr %46, ptr %35, align 8, !tbaa !73
-  %47 = tail call ptr @sdsnew(ptr noundef nonnull %29) #26
+  %47 = tail call ptr @sdsnew(ptr noundef nonnull %29) #25
   %48 = load ptr, ptr %35, align 8, !tbaa !73
   %49 = getelementptr inbounds nuw ptr, ptr %48, i64 %.0.i
   store ptr %47, ptr %49, align 8, !tbaa !29
@@ -982,7 +982,7 @@ define dso_local void @ACLAddAllowedFirstArg(ptr noundef captures(none) %0, i64 
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %3
-  %8 = tail call noalias dereferenceable_or_null(8192) ptr @zcalloc(i64 noundef 8192) #27
+  %8 = tail call noalias dereferenceable_or_null(8192) ptr @zcalloc(i64 noundef 8192) #26
   store ptr %8, ptr %4, align 8, !tbaa !66
   br label %9
 
@@ -1001,7 +1001,7 @@ define dso_local void @ACLAddAllowedFirstArg(ptr noundef captures(none) %0, i64 
 .lr.ph:                                           ; preds = %.preheader, %16
   %14 = phi ptr [ %19, %16 ], [ %13, %.preheader ]
   %.130 = phi i64 [ %17, %16 ], [ 0, %.preheader ]
-  %15 = tail call i32 @strcasecmp(ptr noundef nonnull %14, ptr noundef %2) #30
+  %15 = tail call i32 @strcasecmp(ptr noundef nonnull %14, ptr noundef %2) #29
   %.not26 = icmp eq i32 %15, 0
   br i1 %.not26, label %.loopexit27, label %16
 
@@ -1016,11 +1016,11 @@ define dso_local void @ACLAddAllowedFirstArg(ptr noundef captures(none) %0, i64 
   %.0 = phi i64 [ 0, %9 ], [ 0, %.preheader ], [ %17, %16 ]
   %20 = shl i64 %.0, 3
   %21 = add i64 %20, 16
-  %22 = tail call ptr @zrealloc(ptr noundef %12, i64 noundef %21) #31
+  %22 = tail call ptr @zrealloc(ptr noundef %12, i64 noundef %21) #30
   %23 = load ptr, ptr %4, align 8, !tbaa !66
   %24 = getelementptr inbounds nuw ptr, ptr %23, i64 %1
   store ptr %22, ptr %24, align 8, !tbaa !73
-  %25 = tail call ptr @sdsnew(ptr noundef %2) #26
+  %25 = tail call ptr @sdsnew(ptr noundef %2) #25
   %26 = load ptr, ptr %4, align 8, !tbaa !66
   %27 = getelementptr inbounds nuw ptr, ptr %26, i64 %1
   %28 = load ptr, ptr %27, align 8, !tbaa !73
@@ -1056,8 +1056,8 @@ define dso_local noundef ptr @ACLUserGetRootSelector(ptr noundef readonly captur
   br i1 %.not, label %6, label %7, !prof !83
 
 6:                                                ; preds = %1
-  tail call void @_serverAssert(ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.22, i32 noundef 408) #26
-  tail call void @abort() #28
+  tail call void @_serverAssert(ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.22, i32 noundef 408) #25
+  tail call void @abort() #27
   unreachable
 
 7:                                                ; preds = %1
@@ -1070,8 +1070,8 @@ define dso_local noundef ptr @ACLUserGetRootSelector(ptr noundef readonly captur
   br i1 %.not4, label %13, label %14, !prof !83
 
 13:                                               ; preds = %7
-  tail call void @_serverAssert(ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.22, i32 noundef 410) #26
-  tail call void @abort() #28
+  tail call void @_serverAssert(ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.22, i32 noundef 410) #25
+  tail call void @abort() #27
   unreachable
 
 14:                                               ; preds = %7
@@ -1081,17 +1081,17 @@ define dso_local noundef ptr @ACLUserGetRootSelector(ptr noundef readonly captur
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @ACLCreateUser(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @Users, align 8, !tbaa !87
-  %4 = tail call i32 @raxFind(ptr noundef %3, ptr noundef %0, i64 noundef %1, ptr noundef null) #26
+  %4 = tail call i32 @raxFind(ptr noundef %3, ptr noundef %0, i64 noundef %1, ptr noundef null) #25
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %5, label %39
 
 5:                                                ; preds = %2
-  %6 = tail call noalias dereferenceable_or_null(40) ptr @zmalloc(i64 noundef 40) #27
-  %7 = tail call ptr @sdsnewlen(ptr noundef %0, i64 noundef %1) #26
+  %6 = tail call noalias dereferenceable_or_null(40) ptr @zmalloc(i64 noundef 40) #26
+  %7 = tail call ptr @sdsnewlen(ptr noundef %0, i64 noundef %1) #25
   store ptr %7, ptr %6, align 8, !tbaa !88
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 10, ptr %8, align 8, !tbaa !89
-  %9 = tail call ptr @listCreate() #26
+  %9 = tail call ptr @listCreate() #25
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %9, ptr %10, align 8, !tbaa !90
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 32
@@ -1102,26 +1102,26 @@ define dso_local noundef ptr @ACLCreateUser(ptr noundef %0, i64 noundef %1) loca
   store ptr @ACLListFreeSds, ptr %13, align 8, !tbaa !71
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr @ACLListDupSds, ptr %14, align 8, !tbaa !72
-  %15 = tail call ptr @listCreate() #26
+  %15 = tail call ptr @listCreate() #25
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %15, ptr %16, align 8, !tbaa !79
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 24
   store ptr @ACLListFreeSelector, ptr %17, align 8, !tbaa !71
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store ptr @ACLListDuplicateSelector, ptr %18, align 8, !tbaa !72
-  %19 = tail call noalias dereferenceable_or_null(168) ptr @zmalloc(i64 noundef 168) #27
+  %19 = tail call noalias dereferenceable_or_null(168) ptr @zmalloc(i64 noundef 168) #26
   %20 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 8104), align 8, !tbaa !34
   %21 = or i32 %20, 1
   store i32 %21, ptr %19, align 8, !tbaa !61
-  %22 = tail call ptr @listCreate() #26
+  %22 = tail call ptr @listCreate() #25
   %23 = getelementptr inbounds nuw i8, ptr %19, i64 144
   store ptr %22, ptr %23, align 8, !tbaa !64
-  %24 = tail call ptr @listCreate() #26
+  %24 = tail call ptr @listCreate() #25
   %25 = getelementptr inbounds nuw i8, ptr %19, i64 152
   store ptr %24, ptr %25, align 8, !tbaa !65
   %26 = getelementptr inbounds nuw i8, ptr %19, i64 136
   store ptr null, ptr %26, align 8, !tbaa !66
-  %27 = tail call ptr @sdsempty() #26
+  %27 = tail call ptr @sdsempty() #25
   %28 = getelementptr inbounds nuw i8, ptr %19, i64 160
   store ptr %27, ptr %28, align 8, !tbaa !67
   %29 = getelementptr inbounds nuw i8, ptr %22, i64 32
@@ -1138,9 +1138,9 @@ define dso_local noundef ptr @ACLCreateUser(ptr noundef %0, i64 noundef %1) loca
   store ptr @ACLListDupSds, ptr %34, align 8, !tbaa !72
   %35 = getelementptr inbounds nuw i8, ptr %19, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %35, i8 0, i64 128, i1 false)
-  %36 = tail call ptr @listAddNodeHead(ptr noundef %15, ptr noundef nonnull %19) #26
+  %36 = tail call ptr @listAddNodeHead(ptr noundef %15, ptr noundef nonnull %19) #25
   %37 = load ptr, ptr @Users, align 8, !tbaa !87
-  %38 = tail call i32 @raxInsert(ptr noundef %37, ptr noundef %0, i64 noundef %1, ptr noundef nonnull %6, ptr noundef null) #26
+  %38 = tail call i32 @raxInsert(ptr noundef %37, ptr noundef %0, i64 noundef %1, ptr noundef nonnull %6, ptr noundef null) #25
   br label %39
 
 39:                                               ; preds = %2, %5
@@ -1162,8 +1162,8 @@ define dso_local nonnull ptr @ACLCreateUnlinkedUser() local_unnamed_addr #0 {
 
 2:                                                ; preds = %2, %0
   %.07 = phi i32 [ 0, %0 ], [ %7, %2 ]
-  %3 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %1, i64 noundef 64, ptr noundef nonnull @.str.38, i32 noundef %.07) #26
-  %4 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #30
+  %3 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %1, i64 noundef 64, ptr noundef nonnull @.str.38, i32 noundef %.07) #25
+  %4 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #29
   %5 = call ptr @ACLCreateUser(ptr noundef nonnull %1, i64 noundef %4)
   %6 = icmp eq ptr %5, null
   %7 = add nuw nsw i32 %.07, 1
@@ -1171,14 +1171,14 @@ define dso_local nonnull ptr @ACLCreateUnlinkedUser() local_unnamed_addr #0 {
 
 8:                                                ; preds = %2
   %9 = load ptr, ptr @Users, align 8, !tbaa !87
-  %10 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #30
-  %11 = call i32 @raxRemove(ptr noundef %9, ptr noundef nonnull %1, i64 noundef %10, ptr noundef null) #26
+  %10 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #29
+  %11 = call i32 @raxRemove(ptr noundef %9, ptr noundef nonnull %1, i64 noundef %10, ptr noundef null) #25
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %12, label %13, !prof !83
 
 12:                                               ; preds = %8
-  call void @_serverAssert(ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.22, i32 noundef 455) #26
-  call void @abort() #28
+  call void @_serverAssert(ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.22, i32 noundef 455) #25
+  call void @abort() #27
   unreachable
 
 13:                                               ; preds = %8
@@ -1197,25 +1197,25 @@ declare i32 @raxRemove(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local
 ; Function Attrs: nounwind uwtable
 define dso_local void @ACLFreeUser(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !88
-  tail call void @sdsfree(ptr noundef %2) #26
+  tail call void @sdsfree(ptr noundef %2) #25
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8, !tbaa !91
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %6, label %5
 
 5:                                                ; preds = %1
-  tail call void @decrRefCount(ptr noundef nonnull %4) #26
+  tail call void @decrRefCount(ptr noundef nonnull %4) #25
   store ptr null, ptr %3, align 8, !tbaa !91
   br label %6
 
 6:                                                ; preds = %5, %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !90
-  tail call void @listRelease(ptr noundef %8) #26
+  tail call void @listRelease(ptr noundef %8) #25
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8, !tbaa !79
-  tail call void @listRelease(ptr noundef %10) #26
-  tail call void @zfree(ptr noundef nonnull %0) #26
+  tail call void @listRelease(ptr noundef %10) #25
+  tail call void @zfree(ptr noundef nonnull %0) #25
   ret void
 }
 
@@ -1224,25 +1224,25 @@ declare void @decrRefCount(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local void @ACLFreeUserGeneric(ptr noundef %0) #0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !88
-  tail call void @sdsfree(ptr noundef %2) #26
+  tail call void @sdsfree(ptr noundef %2) #25
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8, !tbaa !91
   %.not.i = icmp eq ptr %4, null
   br i1 %.not.i, label %ACLFreeUser.exit, label %5
 
 5:                                                ; preds = %1
-  tail call void @decrRefCount(ptr noundef nonnull %4) #26
+  tail call void @decrRefCount(ptr noundef nonnull %4) #25
   store ptr null, ptr %3, align 8, !tbaa !91
   br label %ACLFreeUser.exit
 
 ACLFreeUser.exit:                                 ; preds = %1, %5
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8, !tbaa !90
-  tail call void @listRelease(ptr noundef %7) #26
+  tail call void @listRelease(ptr noundef %7) #25
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load ptr, ptr %8, align 8, !tbaa !79
-  tail call void @listRelease(ptr noundef %9) #26
-  tail call void @zfree(ptr noundef nonnull %0) #26
+  tail call void @listRelease(ptr noundef %9) #25
+  tail call void @zfree(ptr noundef nonnull %0) #25
   ret void
 }
 
@@ -1251,8 +1251,8 @@ define dso_local void @ACLFreeUserAndKillClients(ptr noundef %0) local_unnamed_a
   %2 = alloca %struct.listIter, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 1432), align 8, !tbaa !92
-  call void @listRewind(ptr noundef %3, ptr noundef nonnull %2) #26
-  %4 = call ptr @listNext(ptr noundef nonnull %2) #26
+  call void @listRewind(ptr noundef %3, ptr noundef nonnull %2) #25
+  %4 = call ptr @listNext(ptr noundef nonnull %2) #25
   %.not5 = icmp eq ptr %4, null
   br i1 %.not5, label %._crit_edge, label %.lr.ph
 
@@ -1266,35 +1266,35 @@ define dso_local void @ACLFreeUserAndKillClients(ptr noundef %0) local_unnamed_a
   br i1 %10, label %11, label %12
 
 11:                                               ; preds = %.lr.ph
-  call void @deauthenticateAndCloseClient(ptr noundef nonnull %7) #26
+  call void @deauthenticateAndCloseClient(ptr noundef nonnull %7) #25
   br label %12
 
 12:                                               ; preds = %11, %.lr.ph
-  %13 = call ptr @listNext(ptr noundef nonnull %2) #26
+  %13 = call ptr @listNext(ptr noundef nonnull %2) #25
   %.not = icmp eq ptr %13, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !101
 
 ._crit_edge:                                      ; preds = %12, %1
   %14 = load ptr, ptr %0, align 8, !tbaa !88
-  call void @sdsfree(ptr noundef %14) #26
+  call void @sdsfree(ptr noundef %14) #25
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %16 = load ptr, ptr %15, align 8, !tbaa !91
   %.not.i = icmp eq ptr %16, null
   br i1 %.not.i, label %ACLFreeUser.exit, label %17
 
 17:                                               ; preds = %._crit_edge
-  call void @decrRefCount(ptr noundef nonnull %16) #26
+  call void @decrRefCount(ptr noundef nonnull %16) #25
   store ptr null, ptr %15, align 8, !tbaa !91
   br label %ACLFreeUser.exit
 
 ACLFreeUser.exit:                                 ; preds = %._crit_edge, %17
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load ptr, ptr %18, align 8, !tbaa !90
-  call void @listRelease(ptr noundef %19) #26
+  call void @listRelease(ptr noundef %19) #25
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %21 = load ptr, ptr %20, align 8, !tbaa !79
-  call void @listRelease(ptr noundef %21) #26
-  call void @zfree(ptr noundef nonnull %0) #26
+  call void @listRelease(ptr noundef %21) #25
+  call void @zfree(ptr noundef nonnull %0) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
@@ -1309,17 +1309,17 @@ declare void @deauthenticateAndCloseClient(ptr noundef) local_unnamed_addr #1
 define dso_local void @ACLCopyUser(ptr noundef captures(none) initializes((8, 12)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !90
-  tail call void @listRelease(ptr noundef %4) #26
+  tail call void @listRelease(ptr noundef %4) #25
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8, !tbaa !79
-  tail call void @listRelease(ptr noundef %6) #26
+  tail call void @listRelease(ptr noundef %6) #25
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !90
-  %9 = tail call ptr @listDup(ptr noundef %8) #26
+  %9 = tail call ptr @listDup(ptr noundef %8) #25
   store ptr %9, ptr %3, align 8, !tbaa !90
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %11 = load ptr, ptr %10, align 8, !tbaa !79
-  %12 = tail call ptr @listDup(ptr noundef %11) #26
+  %12 = tail call ptr @listDup(ptr noundef %11) #25
   store ptr %12, ptr %5, align 8, !tbaa !79
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load i32, ptr %13, align 8, !tbaa !89
@@ -1331,7 +1331,7 @@ define dso_local void @ACLCopyUser(ptr noundef captures(none) initializes((8, 12
   br i1 %.not, label %19, label %18
 
 18:                                               ; preds = %2
-  tail call void @decrRefCount(ptr noundef nonnull %17) #26
+  tail call void @decrRefCount(ptr noundef nonnull %17) #25
   br label %19
 
 19:                                               ; preds = %18, %2
@@ -1342,7 +1342,7 @@ define dso_local void @ACLCopyUser(ptr noundef captures(none) initializes((8, 12
   br i1 %.not15, label %23, label %22
 
 22:                                               ; preds = %19
-  tail call void @incrRefCount(ptr noundef nonnull %21) #26
+  tail call void @incrRefCount(ptr noundef nonnull %21) #25
   br label %23
 
 23:                                               ; preds = %22, %19
@@ -1488,12 +1488,12 @@ sdslen.exit:                                      ; preds = %2, %7, %10, %14, %1
 .lr.ph:                                           ; preds = %sdslen.exit, %52
   %.045 = phi ptr [ %.1, %52 ], [ %26, %sdslen.exit ]
   %28 = getelementptr inbounds nuw i8, ptr %.045, i64 1
-  %29 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %28, i32 noundef 32) #30
+  %29 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %28, i32 noundef 32) #29
   %.not40 = icmp eq ptr %29, null
   br i1 %.not40, label %30, label %34
 
 30:                                               ; preds = %.lr.ph
-  %31 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %28) #30
+  %31 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %28) #29
   %32 = getelementptr inbounds nuw i8, ptr %28, i64 %31
   %33 = load ptr, ptr %25, align 8, !tbaa !67
   %.not41 = icmp ne ptr %.045, %33
@@ -1531,7 +1531,7 @@ sdslen.exit:                                      ; preds = %2, %7, %10, %14, %1
   br i1 %48, label %49, label %52
 
 49:                                               ; preds = %45, %41
-  %50 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.select43) #30
+  %50 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.select43) #29
   %51 = add i64 %50, 1
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %.036, ptr nonnull align 1 %spec.select43, i64 %51, i1 false)
   br label %52, !llvm.loop !103
@@ -1548,7 +1548,7 @@ sdslen.exit:                                      ; preds = %2, %7, %10, %14, %1
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %sdslen.exit
   %54 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %26, %sdslen.exit ]
-  tail call void @sdsupdatelen(ptr noundef %54) #26
+  tail call void @sdsupdatelen(ptr noundef %54) #25
   ret void
 }
 
@@ -1609,8 +1609,8 @@ declare void @sdsupdatelen(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ACLUpdateCommandRules(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
-  %4 = tail call ptr @sdsnew(ptr noundef %1) #26
-  tail call void @sdstolower(ptr noundef %4) #26
+  %4 = tail call ptr @sdsnew(ptr noundef %1) #25
+  tail call void @sdstolower(ptr noundef %4) #25
   tail call void @ACLSelectorRemoveCommandRule(ptr noundef %0, ptr noundef %4)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %6 = load ptr, ptr %5, align 8, !tbaa !67
@@ -1660,7 +1660,7 @@ sdslen.exit:                                      ; preds = %11, %14, %18, %22, 
   br i1 %.not, label %sdslen.exit.thread, label %29
 
 29:                                               ; preds = %sdslen.exit
-  %30 = tail call ptr @sdscat(ptr noundef nonnull %6, ptr noundef nonnull @.str.40) #26
+  %30 = tail call ptr @sdscat(ptr noundef nonnull %6, ptr noundef nonnull @.str.40) #25
   store ptr %30, ptr %5, align 8, !tbaa !67
   br label %sdslen.exit.thread
 
@@ -1668,9 +1668,9 @@ sdslen.exit.thread:                               ; preds = %3, %29, %sdslen.exi
   %31 = phi ptr [ %6, %3 ], [ %30, %29 ], [ %6, %sdslen.exit ]
   %.not11 = icmp eq i32 %2, 0
   %32 = select i1 %.not11, ptr @.str.42, ptr @.str.41
-  %33 = tail call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef %31, ptr noundef nonnull %32, ptr noundef %4) #26
+  %33 = tail call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef %31, ptr noundef nonnull %32, ptr noundef %4) #25
   store ptr %33, ptr %5, align 8, !tbaa !67
-  tail call void @sdsfree(ptr noundef %4) #26
+  tail call void @sdsfree(ptr noundef %4) #25
   ret void
 }
 
@@ -1736,7 +1736,7 @@ ACLSetSelectorCommandBit.exit:                    ; preds = %3, %12, %17
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader.i
   %.lcssa.i = phi ptr [ %29, %.preheader.i ], [ %36, %.lr.ph.i ]
-  tail call void @zfree(ptr noundef nonnull %.lcssa.i) #26
+  tail call void @zfree(ptr noundef nonnull %.lcssa.i) #25
   %31 = load ptr, ptr %25, align 8, !tbaa !66
   %32 = getelementptr inbounds nuw ptr, ptr %31, i64 %6
   store ptr null, ptr %32, align 8, !tbaa !73
@@ -1745,7 +1745,7 @@ ACLSetSelectorCommandBit.exit:                    ; preds = %3, %12, %17
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.preheader.i ]
   %33 = phi ptr [ %38, %.lr.ph.i ], [ %30, %.preheader.i ]
-  tail call void @sdsfree(ptr noundef nonnull %33) #26
+  tail call void @sdsfree(ptr noundef nonnull %33) #25
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %34 = load ptr, ptr %25, align 8, !tbaa !66
   %35 = getelementptr inbounds nuw ptr, ptr %34, i64 %6
@@ -1762,8 +1762,8 @@ ACLResetFirstArgsForCommand.exit:                 ; preds = %ACLSetSelectorComma
   br i1 %.not, label %76, label %41
 
 41:                                               ; preds = %ACLResetFirstArgsForCommand.exit
-  %42 = tail call ptr @dictGetSafeIterator(ptr noundef nonnull %40) #26
-  %43 = tail call ptr @dictNext(ptr noundef %42) #26
+  %42 = tail call ptr @dictGetSafeIterator(ptr noundef nonnull %40) #25
+  %43 = tail call ptr @dictNext(ptr noundef %42) #25
   %.not1418 = icmp eq ptr %43, null
   br i1 %.not1418, label %._crit_edge, label %.lr.ph
 
@@ -1774,7 +1774,7 @@ ACLResetFirstArgsForCommand.exit:                 ; preds = %ACLSetSelectorComma
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %ACLSetSelectorCommandBit.exit17.us
   %45 = phi ptr [ %61, %ACLSetSelectorCommandBit.exit17.us ], [ %43, %.lr.ph ]
-  %46 = tail call ptr @dictGetVal(ptr noundef nonnull %45) #26
+  %46 = tail call ptr @dictGetVal(ptr noundef nonnull %45) #25
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 208
   %48 = load i32, ptr %47, align 8, !tbaa !104
   %49 = icmp ugt i32 %48, 1023
@@ -1796,13 +1796,13 @@ ACLResetFirstArgsForCommand.exit:                 ; preds = %ACLSetSelectorComma
   br label %ACLSetSelectorCommandBit.exit17.us
 
 ACLSetSelectorCommandBit.exit17.us:               ; preds = %50, %.lr.ph.split.us
-  %61 = tail call ptr @dictNext(ptr noundef %42) #26
+  %61 = tail call ptr @dictNext(ptr noundef %42) #25
   %.not14.us = icmp eq ptr %61, null
   br i1 %.not14.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !112
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %ACLSetSelectorCommandBit.exit17
   %62 = phi ptr [ %75, %ACLSetSelectorCommandBit.exit17 ], [ %43, %.lr.ph ]
-  %63 = tail call ptr @dictGetVal(ptr noundef nonnull %62) #26
+  %63 = tail call ptr @dictGetVal(ptr noundef nonnull %62) #25
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 208
   %65 = load i32, ptr %64, align 8, !tbaa !104
   %66 = icmp ugt i32 %65, 1023
@@ -1820,12 +1820,12 @@ ACLSetSelectorCommandBit.exit17.us:               ; preds = %50, %.lr.ph.split.u
   br label %ACLSetSelectorCommandBit.exit17
 
 ACLSetSelectorCommandBit.exit17:                  ; preds = %.lr.ph.split, %67
-  %75 = tail call ptr @dictNext(ptr noundef %42) #26
+  %75 = tail call ptr @dictNext(ptr noundef %42) #25
   %.not14 = icmp eq ptr %75, null
   br i1 %.not14, label %._crit_edge, label %.lr.ph.split, !llvm.loop !112
 
 ._crit_edge:                                      ; preds = %ACLSetSelectorCommandBit.exit17, %ACLSetSelectorCommandBit.exit17.us, %41
-  tail call void @dictReleaseIterator(ptr noundef %42) #26
+  tail call void @dictReleaseIterator(ptr noundef %42) #25
   br label %76
 
 76:                                               ; preds = %._crit_edge, %ACLResetFirstArgsForCommand.exit
@@ -1852,7 +1852,7 @@ define dso_local void @ACLResetFirstArgsForCommand(ptr noundef readonly captures
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %.lcssa = phi ptr [ %7, %.preheader ], [ %14, %.lr.ph ]
-  tail call void @zfree(ptr noundef nonnull %.lcssa) #26
+  tail call void @zfree(ptr noundef nonnull %.lcssa) #25
   %9 = load ptr, ptr %3, align 8, !tbaa !66
   %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %1
   store ptr null, ptr %10, align 8, !tbaa !73
@@ -1861,7 +1861,7 @@ define dso_local void @ACLResetFirstArgsForCommand(ptr noundef readonly captures
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
   %11 = phi ptr [ %16, %.lr.ph ], [ %8, %.preheader ]
-  tail call void @sdsfree(ptr noundef nonnull %11) #26
+  tail call void @sdsfree(ptr noundef nonnull %11) #25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %12 = load ptr, ptr %3, align 8, !tbaa !66
   %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %1
@@ -1885,14 +1885,14 @@ declare void @dictReleaseIterator(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ACLSetSelectorCommandBitsForCategory(ptr noundef %0, ptr noundef captures(none) %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
-  %5 = tail call ptr @dictGetIterator(ptr noundef %0) #26
-  %6 = tail call ptr @dictNext(ptr noundef %5) #26
+  %5 = tail call ptr @dictGetIterator(ptr noundef %0) #25
+  %6 = tail call ptr @dictNext(ptr noundef %5) #25
   %.not16 = icmp eq ptr %6, null
   br i1 %.not16, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4, %17
   %7 = phi ptr [ %18, %17 ], [ %6, %4 ]
-  %8 = tail call ptr @dictGetVal(ptr noundef nonnull %7) #26
+  %8 = tail call ptr @dictGetVal(ptr noundef nonnull %7) #25
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 120
   %10 = load i64, ptr %9, align 8, !tbaa !113
   %11 = and i64 %10, %2
@@ -1914,12 +1914,12 @@ define dso_local void @ACLSetSelectorCommandBitsForCategory(ptr noundef %0, ptr 
   br label %17
 
 17:                                               ; preds = %16, %13
-  %18 = tail call ptr @dictNext(ptr noundef %5) #26
+  %18 = tail call ptr @dictNext(ptr noundef %5) #25
   %.not = icmp eq ptr %18, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !114
 
 ._crit_edge:                                      ; preds = %17, %4
-  tail call void @dictReleaseIterator(ptr noundef %5) #26
+  tail call void @dictReleaseIterator(ptr noundef %5) #25
   ret void
 }
 
@@ -1932,9 +1932,9 @@ define dso_local void @ACLRecomputeCommandBitsFromCommandRulesAllUsers() local_u
   %3 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %4 = load ptr, ptr @Users, align 8, !tbaa !87
-  call void @raxStart(ptr noundef nonnull %1, ptr noundef %4) #26
-  %5 = call i32 @raxSeek(ptr noundef nonnull %1, ptr noundef nonnull @.str.43, ptr noundef null, i64 noundef 0) #26
-  %6 = call i32 @raxNext(ptr noundef nonnull %1) #26
+  call void @raxStart(ptr noundef nonnull %1, ptr noundef %4) #25
+  %5 = call i32 @raxSeek(ptr noundef nonnull %1, ptr noundef nonnull @.str.43, ptr noundef null, i64 noundef 0) #25
+  %6 = call i32 @raxNext(ptr noundef nonnull %1) #25
   %.not29 = icmp eq i32 %6, 0
   br i1 %.not29, label %._crit_edge32, label %.lr.ph31
 
@@ -1947,8 +1947,8 @@ define dso_local void @ACLRecomputeCommandBitsFromCommandRulesAllUsers() local_u
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %11 = load ptr, ptr %10, align 8, !tbaa !79
-  call void @listRewind(ptr noundef %11, ptr noundef nonnull %2) #26
-  %12 = call ptr @listNext(ptr noundef nonnull %2) #26
+  call void @listRewind(ptr noundef %11, ptr noundef nonnull %2) #25
+  %12 = call ptr @listNext(ptr noundef nonnull %2) #25
   %.not2025 = icmp eq ptr %12, null
   br i1 %.not2025, label %._crit_edge28, label %.lr.ph27
 
@@ -1960,13 +1960,13 @@ define dso_local void @ACLRecomputeCommandBitsFromCommandRulesAllUsers() local_u
   store i32 0, ptr %3, align 4, !tbaa !102
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 160
   %17 = load ptr, ptr %16, align 8, !tbaa !67
-  %18 = call ptr @sdssplitargs(ptr noundef %17, ptr noundef nonnull %3) #26
+  %18 = call ptr @sdssplitargs(ptr noundef %17, ptr noundef nonnull %3) #25
   %.not21 = icmp eq ptr %18, null
   br i1 %.not21, label %19, label %20, !prof !83
 
 19:                                               ; preds = %.lr.ph27
-  call void @_serverAssert(ptr noundef nonnull @.str.44, ptr noundef nonnull @.str.22, i32 noundef 681) #26
-  call void @abort() #28
+  call void @_serverAssert(ptr noundef nonnull @.str.44, ptr noundef nonnull @.str.22, i32 noundef 681) #25
+  call void @abort() #27
   unreachable
 
 20:                                               ; preds = %.lr.ph27
@@ -1981,8 +1981,8 @@ define dso_local void @ACLRecomputeCommandBitsFromCommandRulesAllUsers() local_u
   br i1 %25, label %31, label %26, !prof !119
 
 26:                                               ; preds = %23
-  call void @_serverAssert(ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.22, i32 noundef 685) #26
-  call void @abort() #28
+  call void @_serverAssert(ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.22, i32 noundef 685) #25
+  call void @abort() #27
   unreachable
 
 27:                                               ; preds = %20
@@ -1991,8 +1991,8 @@ define dso_local void @ACLRecomputeCommandBitsFromCommandRulesAllUsers() local_u
   br i1 %29, label %31, label %30, !prof !119
 
 30:                                               ; preds = %27
-  call void @_serverAssert(ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.22, i32 noundef 688) #26
-  call void @abort() #28
+  call void @_serverAssert(ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.22, i32 noundef 688) #25
+  call void @abort() #27
   unreachable
 
 31:                                               ; preds = %27, %23
@@ -2009,9 +2009,9 @@ define dso_local void @ACLRecomputeCommandBitsFromCommandRulesAllUsers() local_u
 
 ._crit_edge:                                      ; preds = %34, %31
   %.lcssa = phi i32 [ %32, %31 ], [ %35, %34 ]
-  call void @sdsfreesplitres(ptr noundef nonnull %18, i32 noundef %.lcssa) #26
+  call void @sdsfreesplitres(ptr noundef nonnull %18, i32 noundef %.lcssa) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %38 = call ptr @listNext(ptr noundef nonnull %2) #26
+  %38 = call ptr @listNext(ptr noundef nonnull %2) #25
   %.not20 = icmp eq ptr %38, null
   br i1 %.not20, label %._crit_edge28, label %.lr.ph27, !llvm.loop !121
 
@@ -2066,18 +2066,18 @@ sdslen.exit:                                      ; preds = %.lr.ph, %45, %48, %
   br i1 %64, label %34, label %65, !prof !119
 
 65:                                               ; preds = %sdslen.exit
-  call void @_serverAssert(ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.22, i32 noundef 694) #26
-  call void @abort() #28
+  call void @_serverAssert(ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.22, i32 noundef 694) #25
+  call void @abort() #27
   unreachable
 
 ._crit_edge28:                                    ; preds = %._crit_edge, %8
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %66 = call i32 @raxNext(ptr noundef nonnull %1) #26
+  %66 = call i32 @raxNext(ptr noundef nonnull %1) #25
   %.not = icmp eq i32 %66, 0
   br i1 %.not, label %._crit_edge32, label %8, !llvm.loop !122
 
 ._crit_edge32:                                    ; preds = %._crit_edge28, %0
-  call void @raxStop(ptr noundef nonnull %1) #26
+  call void @raxStop(ptr noundef nonnull %1) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret void
 }
@@ -2092,12 +2092,12 @@ declare ptr @sdssplitargs(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -1, 1) i32 @ACLSetSelector(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
-  %4 = tail call i32 @strcasecmp(ptr noundef %1, ptr noundef nonnull @.str.28) #30
+  %4 = tail call i32 @strcasecmp(ptr noundef %1, ptr noundef nonnull @.str.28) #29
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %7, label %5
 
 5:                                                ; preds = %3
-  %6 = tail call i32 @strcasecmp(ptr noundef %1, ptr noundef nonnull @.str.61) #30
+  %6 = tail call i32 @strcasecmp(ptr noundef %1, ptr noundef nonnull @.str.61) #29
   %.not156 = icmp eq i32 %6, 0
   br i1 %.not156, label %7, label %12
 
@@ -2107,11 +2107,11 @@ define dso_local range(i32 -1, 1) i32 @ACLSetSelector(ptr noundef captures(none)
   store i32 %9, ptr %0, align 8, !tbaa !61
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %11 = load ptr, ptr %10, align 8, !tbaa !64
-  tail call void @listEmpty(ptr noundef %11) #26
+  tail call void @listEmpty(ptr noundef %11) #25
   br label %ACLResetFirstArgs.exit
 
 12:                                               ; preds = %5
-  %13 = tail call i32 @strcasecmp(ptr noundef %1, ptr noundef nonnull @.str.62) #30
+  %13 = tail call i32 @strcasecmp(ptr noundef %1, ptr noundef nonnull @.str.62) #29
   %.not157 = icmp eq i32 %13, 0
   br i1 %.not157, label %14, label %19
 
@@ -2121,16 +2121,16 @@ define dso_local range(i32 -1, 1) i32 @ACLSetSelector(ptr noundef captures(none)
   store i32 %16, ptr %0, align 8, !tbaa !61
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %18 = load ptr, ptr %17, align 8, !tbaa !64
-  tail call void @listEmpty(ptr noundef %18) #26
+  tail call void @listEmpty(ptr noundef %18) #25
   br label %ACLResetFirstArgs.exit
 
 19:                                               ; preds = %12
-  %20 = tail call i32 @strcasecmp(ptr noundef %1, ptr noundef nonnull @.str.29) #30
+  %20 = tail call i32 @strcasecmp(ptr noundef %1, ptr noundef nonnull @.str.29) #29
   %.not158 = icmp eq i32 %20, 0
   br i1 %.not158, label %23, label %21
 
 21:                                               ; preds = %19
-  %22 = tail call i32 @strcasecmp(ptr noundef %1, ptr noundef nonnull @.str.63) #30
+  %22 = tail call i32 @strcasecmp(ptr noundef %1, ptr noundef nonnull @.str.63) #29
   %.not159 = icmp eq i32 %22, 0
   br i1 %.not159, label %23, label %28
 
@@ -2140,11 +2140,11 @@ define dso_local range(i32 -1, 1) i32 @ACLSetSelector(ptr noundef captures(none)
   store i32 %25, ptr %0, align 8, !tbaa !61
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %27 = load ptr, ptr %26, align 8, !tbaa !65
-  tail call void @listEmpty(ptr noundef %27) #26
+  tail call void @listEmpty(ptr noundef %27) #25
   br label %ACLResetFirstArgs.exit
 
 28:                                               ; preds = %21
-  %29 = tail call i32 @strcasecmp(ptr noundef %1, ptr noundef nonnull @.str.64) #30
+  %29 = tail call i32 @strcasecmp(ptr noundef %1, ptr noundef nonnull @.str.64) #29
   %.not160 = icmp eq i32 %29, 0
   br i1 %.not160, label %30, label %35
 
@@ -2154,16 +2154,16 @@ define dso_local range(i32 -1, 1) i32 @ACLSetSelector(ptr noundef captures(none)
   store i32 %32, ptr %0, align 8, !tbaa !61
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %34 = load ptr, ptr %33, align 8, !tbaa !65
-  tail call void @listEmpty(ptr noundef %34) #26
+  tail call void @listEmpty(ptr noundef %34) #25
   br label %ACLResetFirstArgs.exit
 
 35:                                               ; preds = %28
-  %36 = tail call i32 @strcasecmp(ptr noundef %1, ptr noundef nonnull @.str.30) #30
+  %36 = tail call i32 @strcasecmp(ptr noundef %1, ptr noundef nonnull @.str.30) #29
   %.not161 = icmp eq i32 %36, 0
   br i1 %.not161, label %39, label %37
 
 37:                                               ; preds = %35
-  %38 = tail call i32 @strcasecmp(ptr noundef %1, ptr noundef nonnull @.str.45) #30
+  %38 = tail call i32 @strcasecmp(ptr noundef %1, ptr noundef nonnull @.str.45) #29
   %.not162 = icmp eq i32 %38, 0
   br i1 %.not162, label %39, label %61
 
@@ -2175,7 +2175,7 @@ define dso_local range(i32 -1, 1) i32 @ACLSetSelector(ptr noundef captures(none)
   store i32 %42, ptr %0, align 8, !tbaa !61
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %44 = load ptr, ptr %43, align 8, !tbaa !67
-  tail call void @sdsclear(ptr noundef %44) #26
+  tail call void @sdsclear(ptr noundef %44) #25
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %46 = load ptr, ptr %45, align 8, !tbaa !66
   %47 = icmp eq ptr %46, null
@@ -2183,7 +2183,7 @@ define dso_local range(i32 -1, 1) i32 @ACLSetSelector(ptr noundef captures(none)
 
 48:                                               ; preds = %60
   %49 = load ptr, ptr %45, align 8, !tbaa !66
-  tail call void @zfree(ptr noundef %49) #26
+  tail call void @zfree(ptr noundef %49) #25
   store ptr null, ptr %45, align 8, !tbaa !66
   br label %ACLResetFirstArgs.exit
 
@@ -2202,13 +2202,13 @@ define dso_local range(i32 -1, 1) i32 @ACLSetSelector(ptr noundef captures(none)
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader.i
   %.lcssa.i = phi ptr [ %52, %.preheader.i ], [ %57, %.lr.ph.i ]
-  tail call void @zfree(ptr noundef nonnull %.lcssa.i) #26
+  tail call void @zfree(ptr noundef nonnull %.lcssa.i) #25
   br label %60
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.preheader.i ]
   %54 = phi ptr [ %59, %.lr.ph.i ], [ %53, %.preheader.i ]
-  tail call void @sdsfree(ptr noundef nonnull %54) #26
+  tail call void @sdsfree(ptr noundef nonnull %54) #25
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %55 = load ptr, ptr %45, align 8, !tbaa !66
   %56 = getelementptr inbounds nuw ptr, ptr %55, i64 %indvars.iv24.i
@@ -2224,12 +2224,12 @@ define dso_local range(i32 -1, 1) i32 @ACLSetSelector(ptr noundef captures(none)
   br i1 %exitcond.not.i, label %48, label %.preheader18.i, !llvm.loop !75
 
 61:                                               ; preds = %37
-  %62 = tail call i32 @strcasecmp(ptr noundef %1, ptr noundef nonnull @.str.65) #30
+  %62 = tail call i32 @strcasecmp(ptr noundef %1, ptr noundef nonnull @.str.65) #29
   %.not163 = icmp eq i32 %62, 0
   br i1 %.not163, label %65, label %63
 
 63:                                               ; preds = %61
-  %64 = tail call i32 @strcasecmp(ptr noundef %1, ptr noundef nonnull @.str.47) #30
+  %64 = tail call i32 @strcasecmp(ptr noundef %1, ptr noundef nonnull @.str.47) #29
   %.not164 = icmp eq i32 %64, 0
   br i1 %.not164, label %65, label %71
 
@@ -2241,7 +2241,7 @@ define dso_local range(i32 -1, 1) i32 @ACLSetSelector(ptr noundef captures(none)
   store i32 %68, ptr %0, align 8, !tbaa !61
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %70 = load ptr, ptr %69, align 8, !tbaa !67
-  tail call void @sdsclear(ptr noundef %70) #26
+  tail call void @sdsclear(ptr noundef %70) #25
   tail call void @ACLResetFirstArgs(ptr noundef nonnull %0)
   br label %ACLResetFirstArgs.exit
 
@@ -2262,7 +2262,7 @@ define dso_local range(i32 -1, 1) i32 @ACLSetSelector(ptr noundef captures(none)
   br i1 %.not171, label %78, label %76
 
 76:                                               ; preds = %73
-  %77 = tail call ptr @__errno_location() #29
+  %77 = tail call ptr @__errno_location() #28
   store i32 17, ptr %77, align 4, !tbaa !102
   br label %ACLResetFirstArgs.exit
 
@@ -2275,7 +2275,7 @@ define dso_local range(i32 -1, 1) i32 @ACLSetSelector(ptr noundef captures(none)
   br i1 %80, label %.lr.ph, label %.loopexit.thread
 
 .lr.ph:                                           ; preds = %.preheader
-  %81 = tail call ptr @__ctype_toupper_loc() #29
+  %81 = tail call ptr @__ctype_toupper_loc() #28
   %82 = load ptr, ptr %81, align 8, !tbaa !123
   br label %83
 
@@ -2322,7 +2322,7 @@ define dso_local range(i32 -1, 1) i32 @ACLSetSelector(ptr noundef captures(none)
   br i1 %or.cond, label %.critedge, label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %.preheader, %.loopexit
-  %102 = tail call ptr @__errno_location() #29
+  %102 = tail call ptr @__errno_location() #28
   store i32 22, ptr %102, align 4, !tbaa !102
   br label %ACLResetFirstArgs.exit
 
@@ -2336,25 +2336,25 @@ define dso_local range(i32 -1, 1) i32 @ACLSetSelector(ptr noundef captures(none)
   br i1 %.not174, label %108, label %106
 
 106:                                              ; preds = %.critedge
-  %107 = tail call ptr @__errno_location() #29
+  %107 = tail call ptr @__errno_location() #28
   store i32 22, ptr %107, align 4, !tbaa !102
   br label %ACLResetFirstArgs.exit
 
 108:                                              ; preds = %.critedge
-  %109 = tail call ptr @sdsnewlen(ptr noundef nonnull %103, i64 noundef %104) #26
-  %110 = tail call noalias noundef dereferenceable_or_null(16) ptr @zmalloc(i64 noundef 16) #27
+  %109 = tail call ptr @sdsnewlen(ptr noundef nonnull %103, i64 noundef %104) #25
+  %110 = tail call noalias noundef dereferenceable_or_null(16) ptr @zmalloc(i64 noundef 16) #26
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 8
   store ptr %109, ptr %111, align 8, !tbaa !30
   store i32 %.2138, ptr %110, align 8, !tbaa !33
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %113 = load ptr, ptr %112, align 8, !tbaa !64
-  %114 = tail call ptr @listSearchKey(ptr noundef %113, ptr noundef nonnull %110) #26
+  %114 = tail call ptr @listSearchKey(ptr noundef %113, ptr noundef nonnull %110) #25
   %115 = icmp eq ptr %114, null
   br i1 %115, label %116, label %119
 
 116:                                              ; preds = %108
   %117 = load ptr, ptr %112, align 8, !tbaa !64
-  %118 = tail call ptr @listAddNodeTail(ptr noundef %117, ptr noundef nonnull %110) #26
+  %118 = tail call ptr @listAddNodeTail(ptr noundef %117, ptr noundef nonnull %110) #25
   br label %125
 
 119:                                              ; preds = %108
@@ -2364,8 +2364,8 @@ define dso_local range(i32 -1, 1) i32 @ACLSetSelector(ptr noundef captures(none)
   %123 = or i32 %122, %.2138
   store i32 %123, ptr %121, align 8, !tbaa !33
   %124 = load ptr, ptr %111, align 8, !tbaa !30
-  tail call void @sdsfree(ptr noundef %124) #26
-  tail call void @zfree(ptr noundef nonnull %110) #26
+  tail call void @sdsfree(ptr noundef %124) #25
+  tail call void @zfree(ptr noundef nonnull %110) #25
   br label %125
 
 125:                                              ; preds = %116, %119
@@ -2381,7 +2381,7 @@ define dso_local range(i32 -1, 1) i32 @ACLSetSelector(ptr noundef captures(none)
   br i1 %.not169, label %133, label %131
 
 131:                                              ; preds = %128
-  %132 = tail call ptr @__errno_location() #29
+  %132 = tail call ptr @__errno_location() #28
   store i32 21, ptr %132, align 4, !tbaa !102
   br label %ACLResetFirstArgs.exit
 
@@ -2393,25 +2393,25 @@ define dso_local range(i32 -1, 1) i32 @ACLSetSelector(ptr noundef captures(none)
   br i1 %.not170, label %139, label %137
 
 137:                                              ; preds = %133
-  %138 = tail call ptr @__errno_location() #29
+  %138 = tail call ptr @__errno_location() #28
   store i32 22, ptr %138, align 4, !tbaa !102
   br label %ACLResetFirstArgs.exit
 
 139:                                              ; preds = %133
-  %140 = tail call ptr @sdsnewlen(ptr noundef nonnull %134, i64 noundef %135) #26
+  %140 = tail call ptr @sdsnewlen(ptr noundef nonnull %134, i64 noundef %135) #25
   %141 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %142 = load ptr, ptr %141, align 8, !tbaa !65
-  %143 = tail call ptr @listSearchKey(ptr noundef %142, ptr noundef %140) #26
+  %143 = tail call ptr @listSearchKey(ptr noundef %142, ptr noundef %140) #25
   %144 = icmp eq ptr %143, null
   br i1 %144, label %145, label %148
 
 145:                                              ; preds = %139
   %146 = load ptr, ptr %141, align 8, !tbaa !65
-  %147 = tail call ptr @listAddNodeTail(ptr noundef %146, ptr noundef %140) #26
+  %147 = tail call ptr @listAddNodeTail(ptr noundef %146, ptr noundef %140) #25
   br label %149
 
 148:                                              ; preds = %139
-  tail call void @sdsfree(ptr noundef %140) #26
+  tail call void @sdsfree(ptr noundef %140) #25
   br label %149
 
 149:                                              ; preds = %148, %145
@@ -2427,7 +2427,7 @@ define dso_local range(i32 -1, 1) i32 @ACLSetSelector(ptr noundef captures(none)
   br i1 %.not165, label %.thread190, label %155
 
 155:                                              ; preds = %152
-  %156 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %1, i32 noundef 124) #30
+  %156 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %1, i32 noundef 124) #29
   %157 = icmp eq ptr %156, null
   br i1 %157, label %158, label %165
 
@@ -2444,13 +2444,13 @@ define dso_local range(i32 -1, 1) i32 @ACLSetSelector(ptr noundef captures(none)
   br label %ACLResetFirstArgs.exit
 
 163:                                              ; preds = %158
-  %164 = tail call ptr @__errno_location() #29
+  %164 = tail call ptr @__errno_location() #28
   store i32 2, ptr %164, align 4, !tbaa !102
   br label %ACLResetFirstArgs.exit
 
 165:                                              ; preds = %155
-  %166 = tail call noalias ptr @zstrdup(ptr noundef nonnull %153) #26
-  %167 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %166, i32 noundef 124) #30
+  %166 = tail call noalias ptr @zstrdup(ptr noundef nonnull %153) #25
+  %167 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %166, i32 noundef 124) #29
   store i8 0, ptr %167, align 1, !tbaa !19
   %168 = getelementptr inbounds nuw i8, ptr %167, i64 1
   %169 = tail call ptr @ACLLookupCommand(ptr noundef nonnull %166)
@@ -2458,8 +2458,8 @@ define dso_local range(i32 -1, 1) i32 @ACLSetSelector(ptr noundef captures(none)
   br i1 %170, label %171, label %173
 
 171:                                              ; preds = %165
-  tail call void @zfree(ptr noundef nonnull %166) #26
-  %172 = tail call ptr @__errno_location() #29
+  tail call void @zfree(ptr noundef nonnull %166) #25
+  %172 = tail call ptr @__errno_location() #28
   store i32 2, ptr %172, align 4, !tbaa !102
   br label %ACLResetFirstArgs.exit
 
@@ -2470,8 +2470,8 @@ define dso_local range(i32 -1, 1) i32 @ACLSetSelector(ptr noundef captures(none)
   br i1 %.not167, label %178, label %176
 
 176:                                              ; preds = %173
-  tail call void @zfree(ptr noundef nonnull %166) #26
-  %177 = tail call ptr @__errno_location() #29
+  tail call void @zfree(ptr noundef nonnull %166) #25
+  %177 = tail call ptr @__errno_location() #28
   store i32 10, ptr %177, align 4, !tbaa !102
   br label %ACLResetFirstArgs.exit
 
@@ -2481,8 +2481,8 @@ define dso_local range(i32 -1, 1) i32 @ACLSetSelector(ptr noundef captures(none)
   br i1 %179, label %180, label %182
 
 180:                                              ; preds = %178
-  tail call void @zfree(ptr noundef nonnull %166) #26
-  %181 = tail call ptr @__errno_location() #29
+  tail call void @zfree(ptr noundef nonnull %166) #25
+  %181 = tail call ptr @__errno_location() #28
   store i32 22, ptr %181, align 4, !tbaa !102
   br label %ACLResetFirstArgs.exit
 
@@ -2498,8 +2498,8 @@ define dso_local range(i32 -1, 1) i32 @ACLSetSelector(ptr noundef captures(none)
   br i1 %187, label %188, label %190
 
 188:                                              ; preds = %185
-  tail call void @zfree(ptr noundef nonnull %166) #26
-  %189 = tail call ptr @__errno_location() #29
+  tail call void @zfree(ptr noundef nonnull %166) #25
+  %189 = tail call ptr @__errno_location() #28
   store i32 2, ptr %189, align 4, !tbaa !102
   br label %ACLResetFirstArgs.exit
 
@@ -2513,7 +2513,7 @@ define dso_local range(i32 -1, 1) i32 @ACLSetSelector(ptr noundef captures(none)
   br i1 %193, label %195, label %194
 
 194:                                              ; preds = %191
-  tail call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef nonnull @.str.66, ptr noundef nonnull %153) #26
+  tail call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef nonnull @.str.66, ptr noundef nonnull %153) #25
   br label %195
 
 195:                                              ; preds = %191, %194
@@ -2525,7 +2525,7 @@ define dso_local range(i32 -1, 1) i32 @ACLSetSelector(ptr noundef captures(none)
 
 199:                                              ; preds = %190, %195
   tail call void @ACLUpdateCommandRules(ptr noundef %0, ptr noundef nonnull %153, i32 noundef 1)
-  tail call void @zfree(ptr noundef nonnull %166) #26
+  tail call void @zfree(ptr noundef nonnull %166) #25
   br label %ACLResetFirstArgs.exit
 
 200:                                              ; preds = %71
@@ -2547,7 +2547,7 @@ define dso_local range(i32 -1, 1) i32 @ACLSetSelector(ptr noundef captures(none)
   br label %ACLResetFirstArgs.exit
 
 208:                                              ; preds = %203
-  %209 = tail call ptr @__errno_location() #29
+  %209 = tail call ptr @__errno_location() #28
   store i32 2, ptr %209, align 4, !tbaa !102
   br label %ACLResetFirstArgs.exit
 
@@ -2560,12 +2560,12 @@ define dso_local range(i32 -1, 1) i32 @ACLSetSelector(ptr noundef captures(none)
   br i1 %214, label %215, label %ACLResetFirstArgs.exit
 
 215:                                              ; preds = %.thread190
-  %216 = tail call ptr @__errno_location() #29
+  %216 = tail call ptr @__errno_location() #28
   store i32 2, ptr %216, align 4, !tbaa !102
   br label %ACLResetFirstArgs.exit
 
 217:                                              ; preds = %71
-  %218 = tail call ptr @__errno_location() #29
+  %218 = tail call ptr @__errno_location() #28
   store i32 22, ptr %218, align 4, !tbaa !102
   br label %ACLResetFirstArgs.exit
 
@@ -2589,7 +2589,7 @@ define dso_local range(i32 -1, 1) i32 @ACLSetSelectorCategory(ptr noundef captur
 
 .lr.ph.i.preheader:                               ; preds = %3
   %8 = load ptr, ptr %5, align 8, !tbaa !12
-  %9 = tail call i32 @strcasecmp(ptr noundef nonnull readonly %4, ptr noundef %8) #30
+  %9 = tail call i32 @strcasecmp(ptr noundef nonnull readonly %4, ptr noundef %8) #29
   %.not8.i12 = icmp eq i32 %9, 0
   br i1 %.not8.i12, label %ACLGetCommandCategoryFlagByName.exit, label %.lr.ph
 
@@ -2604,7 +2604,7 @@ define dso_local range(i32 -1, 1) i32 @ACLSetSelectorCategory(ptr noundef captur
 
 .lr.ph.i:                                         ; preds = %.lr.ph
   %13 = load ptr, ptr %10, align 8, !tbaa !12
-  %14 = tail call i32 @strcasecmp(ptr noundef nonnull readonly %4, ptr noundef %13) #30
+  %14 = tail call i32 @strcasecmp(ptr noundef nonnull readonly %4, ptr noundef %13) #29
   %.not8.i = icmp eq i32 %14, 0
   br i1 %.not8.i, label %ACLGetCommandCategoryFlagByName.exit, label %.lr.ph, !llvm.loop !28
 
@@ -2622,8 +2622,8 @@ ACLGetCommandCategoryFlagByName.exit.thread:      ; preds = %.lr.ph, %3, %ACLGet
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ACLCountCategoryBitsForCommands(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3, i64 noundef %4) local_unnamed_addr #0 {
-  %6 = tail call ptr @dictGetIterator(ptr noundef %0) #26
-  %7 = tail call ptr @dictNext(ptr noundef %6) #26
+  %6 = tail call ptr @dictGetIterator(ptr noundef %0) #25
+  %7 = tail call ptr @dictNext(ptr noundef %6) #25
   %.not21 = icmp eq ptr %7, null
   br i1 %.not21, label %._crit_edge, label %.lr.ph
 
@@ -2633,7 +2633,7 @@ define dso_local void @ACLCountCategoryBitsForCommands(ptr noundef %0, ptr nound
 
 9:                                                ; preds = %.lr.ph, %32
   %10 = phi ptr [ %7, %.lr.ph ], [ %33, %32 ]
-  %11 = tail call ptr @dictGetVal(ptr noundef nonnull %10) #26
+  %11 = tail call ptr @dictGetVal(ptr noundef nonnull %10) #25
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 120
   %13 = load i64, ptr %12, align 8, !tbaa !113
   %14 = and i64 %13, %4
@@ -2678,12 +2678,12 @@ ACLGetSelectorCommandBit.exit.thread:             ; preds = %15, %ACLGetSelector
   br label %32
 
 32:                                               ; preds = %31, %28
-  %33 = tail call ptr @dictNext(ptr noundef %6) #26
+  %33 = tail call ptr @dictNext(ptr noundef %6) #25
   %.not = icmp eq ptr %33, null
   br i1 %.not, label %._crit_edge, label %9, !llvm.loop !130
 
 ._crit_edge:                                      ; preds = %32, %5
-  tail call void @dictReleaseIterator(ptr noundef %6) #26
+  tail call void @dictReleaseIterator(ptr noundef %6) #25
   ret void
 }
 
@@ -2697,7 +2697,7 @@ define dso_local range(i32 -1, 1) i32 @ACLCountCategoryBitsForSelector(ptr nound
 
 .lr.ph.i.preheader:                               ; preds = %4
   %8 = load ptr, ptr %5, align 8, !tbaa !12
-  %9 = tail call i32 @strcasecmp(ptr noundef readonly %3, ptr noundef %8) #30
+  %9 = tail call i32 @strcasecmp(ptr noundef readonly %3, ptr noundef %8) #29
   %.not8.i12 = icmp eq i32 %9, 0
   br i1 %.not8.i12, label %ACLGetCommandCategoryFlagByName.exit, label %.lr.ph
 
@@ -2712,7 +2712,7 @@ define dso_local range(i32 -1, 1) i32 @ACLCountCategoryBitsForSelector(ptr nound
 
 .lr.ph.i:                                         ; preds = %.lr.ph
   %13 = load ptr, ptr %10, align 8, !tbaa !12
-  %14 = tail call i32 @strcasecmp(ptr noundef readonly %3, ptr noundef %13) #30
+  %14 = tail call i32 @strcasecmp(ptr noundef readonly %3, ptr noundef %13) #29
   %.not8.i = icmp eq i32 %14, 0
   br i1 %.not8.i, label %ACLGetCommandCategoryFlagByName.exit, label %.lr.ph, !llvm.loop !28
 
@@ -2732,19 +2732,19 @@ ACLGetCommandCategoryFlagByName.exit.thread:      ; preds = %.lr.ph, %4, %ACLGet
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @ACLDescribeSelectorCommandRules(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
-  %3 = tail call ptr @sdsempty() #26
-  %4 = tail call noalias dereferenceable_or_null(168) ptr @zmalloc(i64 noundef 168) #27
+  %3 = tail call ptr @sdsempty() #25
+  %4 = tail call noalias dereferenceable_or_null(168) ptr @zmalloc(i64 noundef 168) #26
   %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 8104), align 8, !tbaa !34
   store i32 %5, ptr %4, align 8, !tbaa !61
-  %6 = tail call ptr @listCreate() #26
+  %6 = tail call ptr @listCreate() #25
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 144
   store ptr %6, ptr %7, align 8, !tbaa !64
-  %8 = tail call ptr @listCreate() #26
+  %8 = tail call ptr @listCreate() #25
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store ptr %8, ptr %9, align 8, !tbaa !65
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 136
   store ptr null, ptr %10, align 8, !tbaa !66
-  %11 = tail call ptr @sdsempty() #26
+  %11 = tail call ptr @sdsempty() #25
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 160
   store ptr %11, ptr %12, align 8, !tbaa !67
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 32
@@ -2766,13 +2766,13 @@ define dso_local ptr @ACLDescribeSelectorCommandRules(ptr noundef readonly captu
   %.not = icmp sgt i64 %21, -1
   %.str.49..str.48 = select i1 %.not, ptr @.str.49, ptr @.str.48
   %.str.47..str.45 = select i1 %.not, ptr @.str.47, ptr @.str.45
-  %22 = tail call ptr @sdscat(ptr noundef %3, ptr noundef nonnull %.str.49..str.48) #26
+  %22 = tail call ptr @sdscat(ptr noundef %3, ptr noundef nonnull %.str.49..str.48) #25
   %23 = tail call i32 @ACLSetSelector(ptr noundef nonnull %4, ptr noundef nonnull %.str.47..str.45, i64 noundef -1)
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 0, ptr %2, align 4, !tbaa !102
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %25 = load ptr, ptr %24, align 8, !tbaa !67
-  %26 = call ptr @sdssplitargs(ptr noundef %25, ptr noundef nonnull %2) #26
+  %26 = call ptr @sdssplitargs(ptr noundef %25, ptr noundef nonnull %2) #25
   %.not24 = icmp eq ptr %26, null
   br i1 %.not24, label %29, label %.preheader, !prof !83
 
@@ -2782,8 +2782,8 @@ define dso_local ptr @ACLDescribeSelectorCommandRules(ptr noundef readonly captu
   br i1 %28, label %.lr.ph, label %._crit_edge
 
 29:                                               ; preds = %1
-  call void @_serverAssert(ptr noundef nonnull @.str.44, ptr noundef nonnull @.str.22, i32 noundef 778) #26
-  call void @abort() #28
+  call void @_serverAssert(ptr noundef nonnull @.str.44, ptr noundef nonnull @.str.22, i32 noundef 778) #25
+  call void @abort() #27
   unreachable
 
 30:                                               ; preds = %.lr.ph
@@ -2850,20 +2850,20 @@ sdslen.exit:                                      ; preds = %40, %43, %47, %51, 
   br i1 %61, label %30, label %62, !prof !119
 
 62:                                               ; preds = %.lr.ph
-  call void @_serverAssert(ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.22, i32 noundef 782) #26
-  call void @abort() #28
+  call void @_serverAssert(ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.22, i32 noundef 782) #25
+  call void @abort() #27
   unreachable
 
 63:                                               ; preds = %sdslen.exit
-  %64 = call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef %22, ptr noundef nonnull @.str.50, ptr noundef nonnull %35) #26
+  %64 = call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef %22, ptr noundef nonnull @.str.50, ptr noundef nonnull %35) #25
   %.pre = load i32, ptr %2, align 4, !tbaa !102
   br label %sdslen.exit.thread
 
 sdslen.exit.thread:                               ; preds = %._crit_edge, %63, %sdslen.exit
   %65 = phi i32 [ %.pre, %63 ], [ %34, %sdslen.exit ], [ %34, %._crit_edge ]
   %.1 = phi ptr [ %64, %63 ], [ %22, %sdslen.exit ], [ %22, %._crit_edge ]
-  call void @sdsfreesplitres(ptr noundef nonnull %26, i32 noundef %65) #26
-  call void @sdsrange(ptr noundef %.1, i64 noundef 0, i64 noundef -2) #26
+  call void @sdsfreesplitres(ptr noundef nonnull %26, i32 noundef %65) #25
+  call void @sdsrange(ptr noundef %.1, i64 noundef 0, i64 noundef -2) #25
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(128) %19, ptr noundef nonnull dereferenceable(128) %66, i64 128)
   %.not26 = icmp eq i32 %bcmp, 0
@@ -2875,12 +2875,12 @@ sdslen.exit.thread:                               ; preds = %._crit_edge, %63, %
   br i1 %69, label %71, label %70
 
 70:                                               ; preds = %67
-  call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef nonnull @.str.51, ptr noundef %.1) #26
+  call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef nonnull @.str.51, ptr noundef %.1) #25
   br label %71
 
 71:                                               ; preds = %67, %70
-  call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.22, i32 noundef 803, ptr noundef nonnull @.str.52) #26
-  call void @abort() #28
+  call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.22, i32 noundef 803, ptr noundef nonnull @.str.52) #25
+  call void @abort() #27
   unreachable
 
 72:                                               ; preds = %sdslen.exit.thread
@@ -2897,21 +2897,21 @@ declare void @_serverLog(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 define dso_local ptr @ACLDescribeSelector(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.listIter, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %3 = tail call ptr @sdsempty() #26
+  %3 = tail call ptr @sdsempty() #25
   %4 = load i32, ptr %0, align 8, !tbaa !61
   %5 = and i32 %4, 2
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %8, label %6
 
 6:                                                ; preds = %1
-  %7 = tail call ptr @sdscatlen(ptr noundef %3, ptr noundef nonnull @.str.53, i64 noundef 3) #26
+  %7 = tail call ptr @sdscatlen(ptr noundef %3, ptr noundef nonnull @.str.53, i64 noundef 3) #25
   br label %.loopexit26
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %10 = load ptr, ptr %9, align 8, !tbaa !64
-  call void @listRewind(ptr noundef %10, ptr noundef nonnull %2) #26
-  %11 = call ptr @listNext(ptr noundef nonnull %2) #26
+  call void @listRewind(ptr noundef %10, ptr noundef nonnull %2) #25
+  %11 = call ptr @listNext(ptr noundef nonnull %2) #25
   %.not2327 = icmp eq ptr %11, null
   br i1 %.not2327, label %.loopexit26, label %.lr.ph
 
@@ -2921,8 +2921,8 @@ define dso_local ptr @ACLDescribeSelector(ptr noundef readonly captures(none) %0
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8, !tbaa !85
   %15 = call ptr @sdsCatPatternString(ptr noundef %.128, ptr noundef %14)
-  %16 = call ptr @sdscatlen(ptr noundef %15, ptr noundef nonnull @.str.40, i64 noundef 1) #26
-  %17 = call ptr @listNext(ptr noundef nonnull %2) #26
+  %16 = call ptr @sdscatlen(ptr noundef %15, ptr noundef nonnull @.str.40, i64 noundef 1) #25
+  %17 = call ptr @listNext(ptr noundef nonnull %2) #25
   %.not23 = icmp eq ptr %17, null
   br i1 %.not23, label %.loopexit26, label %.lr.ph, !llvm.loop !132
 
@@ -2934,15 +2934,15 @@ define dso_local ptr @ACLDescribeSelector(ptr noundef readonly captures(none) %0
   br i1 %.not24, label %22, label %20
 
 20:                                               ; preds = %.loopexit26
-  %21 = call ptr @sdscatlen(ptr noundef %.0, ptr noundef nonnull @.str.54, i64 noundef 3) #26
+  %21 = call ptr @sdscatlen(ptr noundef %.0, ptr noundef nonnull @.str.54, i64 noundef 3) #25
   br label %.loopexit
 
 22:                                               ; preds = %.loopexit26
-  %23 = call ptr @sdscatlen(ptr noundef %.0, ptr noundef nonnull @.str.55, i64 noundef 14) #26
+  %23 = call ptr @sdscatlen(ptr noundef %.0, ptr noundef nonnull @.str.55, i64 noundef 14) #25
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %25 = load ptr, ptr %24, align 8, !tbaa !65
-  call void @listRewind(ptr noundef %25, ptr noundef nonnull %2) #26
-  %26 = call ptr @listNext(ptr noundef nonnull %2) #26
+  call void @listRewind(ptr noundef %25, ptr noundef nonnull %2) #25
+  %26 = call ptr @listNext(ptr noundef nonnull %2) #25
   %.not2529 = icmp eq ptr %26, null
   br i1 %.not2529, label %.loopexit, label %.lr.ph31
 
@@ -2951,18 +2951,18 @@ define dso_local ptr @ACLDescribeSelector(ptr noundef readonly captures(none) %0
   %.330 = phi ptr [ %32, %.lr.ph31 ], [ %23, %22 ]
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %29 = load ptr, ptr %28, align 8, !tbaa !85
-  %30 = call ptr @sdscatlen(ptr noundef %.330, ptr noundef nonnull @.str.56, i64 noundef 1) #26
-  %31 = call ptr @sdscatsds(ptr noundef %30, ptr noundef %29) #26
-  %32 = call ptr @sdscatlen(ptr noundef %31, ptr noundef nonnull @.str.40, i64 noundef 1) #26
-  %33 = call ptr @listNext(ptr noundef nonnull %2) #26
+  %30 = call ptr @sdscatlen(ptr noundef %.330, ptr noundef nonnull @.str.56, i64 noundef 1) #25
+  %31 = call ptr @sdscatsds(ptr noundef %30, ptr noundef %29) #25
+  %32 = call ptr @sdscatlen(ptr noundef %31, ptr noundef nonnull @.str.40, i64 noundef 1) #25
+  %33 = call ptr @listNext(ptr noundef nonnull %2) #25
   %.not25 = icmp eq ptr %33, null
   br i1 %.not25, label %.loopexit, label %.lr.ph31, !llvm.loop !133
 
 .loopexit:                                        ; preds = %.lr.ph31, %22, %20
   %.2 = phi ptr [ %21, %20 ], [ %23, %22 ], [ %32, %.lr.ph31 ]
   %34 = call ptr @ACLDescribeSelectorCommandRules(ptr noundef nonnull %0)
-  %35 = call ptr @sdscatsds(ptr noundef %.2, ptr noundef %34) #26
-  call void @sdsfree(ptr noundef %34) #26
+  %35 = call ptr @sdscatsds(ptr noundef %.2, ptr noundef %34) #25
+  call void @sdsfree(ptr noundef %34) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %35
 }
@@ -2976,12 +2976,12 @@ define dso_local ptr @ACLDescribeUser(ptr noundef captures(none) %0) local_unnam
   br i1 %.not, label %7, label %5
 
 5:                                                ; preds = %1
-  tail call void @incrRefCount(ptr noundef nonnull %4) #26
+  tail call void @incrRefCount(ptr noundef nonnull %4) #25
   %6 = load ptr, ptr %3, align 8, !tbaa !91
   br label %48
 
 7:                                                ; preds = %1
-  %8 = tail call ptr @sdsempty() #26
+  %8 = tail call ptr @sdsempty() #25
   %9 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ACLUserFlags, i64 8), align 8, !tbaa !134
   %.not3540 = icmp eq i64 %9, 0
   br i1 %.not3540, label %._crit_edge, label %.lr.ph
@@ -2995,8 +2995,8 @@ define dso_local ptr @ACLDescribeUser(ptr noundef captures(none) %0) local_unnam
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8, !tbaa !90
-  call void @listRewind(ptr noundef %12, ptr noundef nonnull %2) #26
-  %13 = call ptr @listNext(ptr noundef nonnull %2) #26
+  call void @listRewind(ptr noundef %12, ptr noundef nonnull %2) #25
+  %13 = call ptr @listNext(ptr noundef nonnull %2) #25
   %.not3643 = icmp eq ptr %13, null
   br i1 %.not3643, label %._crit_edge47, label %.lr.ph46
 
@@ -3013,8 +3013,8 @@ define dso_local ptr @ACLDescribeUser(ptr noundef captures(none) %0) local_unnam
 19:                                               ; preds = %14
   %20 = getelementptr inbounds nuw %struct.ACLUserFlag, ptr @ACLUserFlags, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 16, !tbaa !136
-  %22 = tail call ptr @sdscat(ptr noundef %.02942, ptr noundef %21) #26
-  %23 = tail call ptr @sdscatlen(ptr noundef %22, ptr noundef nonnull @.str.40, i64 noundef 1) #26
+  %22 = tail call ptr @sdscat(ptr noundef %.02942, ptr noundef %21) #25
+  %23 = tail call ptr @sdscatlen(ptr noundef %22, ptr noundef nonnull @.str.40, i64 noundef 1) #25
   br label %24
 
 24:                                               ; preds = %14, %19
@@ -3031,10 +3031,10 @@ define dso_local ptr @ACLDescribeUser(ptr noundef captures(none) %0) local_unnam
   %.244 = phi ptr [ %33, %.lr.ph46 ], [ %.029.lcssa, %._crit_edge ]
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %30 = load ptr, ptr %29, align 8, !tbaa !85
-  %31 = call ptr @sdscatlen(ptr noundef %.244, ptr noundef nonnull @.str.57, i64 noundef 1) #26
-  %32 = call ptr @sdscatsds(ptr noundef %31, ptr noundef %30) #26
-  %33 = call ptr @sdscatlen(ptr noundef %32, ptr noundef nonnull @.str.40, i64 noundef 1) #26
-  %34 = call ptr @listNext(ptr noundef nonnull %2) #26
+  %31 = call ptr @sdscatlen(ptr noundef %.244, ptr noundef nonnull @.str.57, i64 noundef 1) #25
+  %32 = call ptr @sdscatsds(ptr noundef %31, ptr noundef %30) #25
+  %33 = call ptr @sdscatlen(ptr noundef %32, ptr noundef nonnull @.str.40, i64 noundef 1) #25
+  %34 = call ptr @listNext(ptr noundef nonnull %2) #25
   %.not36 = icmp eq ptr %34, null
   br i1 %.not36, label %._crit_edge47, label %.lr.ph46, !llvm.loop !138
 
@@ -3042,8 +3042,8 @@ define dso_local ptr @ACLDescribeUser(ptr noundef captures(none) %0) local_unnam
   %.2.lcssa = phi ptr [ %.029.lcssa, %._crit_edge ], [ %33, %.lr.ph46 ]
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %36 = load ptr, ptr %35, align 8, !tbaa !79
-  call void @listRewind(ptr noundef %36, ptr noundef nonnull %2) #26
-  %37 = call ptr @listNext(ptr noundef nonnull %2) #26
+  call void @listRewind(ptr noundef %36, ptr noundef nonnull %2) #25
+  %37 = call ptr @listNext(ptr noundef nonnull %2) #25
   %.not3749 = icmp eq ptr %37, null
   br i1 %.not3749, label %._crit_edge53, label %.lr.ph52
 
@@ -3057,17 +3057,17 @@ define dso_local ptr @ACLDescribeUser(ptr noundef captures(none) %0) local_unnam
   %43 = and i32 %42, 1
   %.not38 = icmp eq i32 %43, 0
   %.str.59..str.58 = select i1 %.not38, ptr @.str.59, ptr @.str.58
-  %44 = call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef %.350, ptr noundef nonnull %.str.59..str.58, ptr noundef %41) #26
-  call void @sdsfree(ptr noundef %41) #26
-  %45 = call ptr @listNext(ptr noundef nonnull %2) #26
+  %44 = call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef %.350, ptr noundef nonnull %.str.59..str.58, ptr noundef %41) #25
+  call void @sdsfree(ptr noundef %41) #25
+  %45 = call ptr @listNext(ptr noundef nonnull %2) #25
   %.not37 = icmp eq ptr %45, null
   br i1 %.not37, label %._crit_edge53, label %.lr.ph52, !llvm.loop !139
 
 ._crit_edge53:                                    ; preds = %.lr.ph52, %._crit_edge47
   %.3.lcssa = phi ptr [ %.2.lcssa, %._crit_edge47 ], [ %44, %.lr.ph52 ]
-  %46 = call ptr @createObject(i32 noundef 0, ptr noundef %.3.lcssa) #26
+  %46 = call ptr @createObject(i32 noundef 0, ptr noundef %.3.lcssa) #25
   store ptr %46, ptr %3, align 8, !tbaa !91
-  call void @incrRefCount(ptr noundef %46) #26
+  call void @incrRefCount(ptr noundef %46) #25
   %47 = load ptr, ptr %3, align 8, !tbaa !91
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %48
@@ -3081,10 +3081,10 @@ declare ptr @createObject(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @ACLLookupCommand(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = tail call ptr @sdsnew(ptr noundef %0) #26
+  %2 = tail call ptr @sdsnew(ptr noundef %0) #25
   %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 80), align 8, !tbaa !129
-  %4 = tail call ptr @lookupCommandBySdsLogic(ptr noundef %3, ptr noundef %2) #26
-  tail call void @sdsfree(ptr noundef %2) #26
+  %4 = tail call ptr @lookupCommandBySdsLogic(ptr noundef %3, ptr noundef %2) #25
+  tail call void @sdsfree(ptr noundef %2) #25
   ret ptr %4
 }
 
@@ -3108,23 +3108,23 @@ define dso_local noundef ptr @aclCreateSelectorFromOpSet(ptr noundef %0, i64 nou
   br i1 %10, label %11, label %.critedge, !prof !119
 
 .critedge:                                        ; preds = %2, %6
-  tail call void @_serverAssert(ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.22, i32 noundef 974) #26
-  tail call void @abort() #28
+  tail call void @_serverAssert(ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.22, i32 noundef 974) #25
+  tail call void @abort() #27
   unreachable
 
 11:                                               ; preds = %6
-  %12 = tail call noalias dereferenceable_or_null(168) ptr @zmalloc(i64 noundef 168) #27
+  %12 = tail call noalias dereferenceable_or_null(168) ptr @zmalloc(i64 noundef 168) #26
   %13 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 8104), align 8, !tbaa !34
   store i32 %13, ptr %12, align 8, !tbaa !61
-  %14 = tail call ptr @listCreate() #26
+  %14 = tail call ptr @listCreate() #25
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 144
   store ptr %14, ptr %15, align 8, !tbaa !64
-  %16 = tail call ptr @listCreate() #26
+  %16 = tail call ptr @listCreate() #25
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 152
   store ptr %16, ptr %17, align 8, !tbaa !65
   %18 = getelementptr inbounds nuw i8, ptr %12, i64 136
   store ptr null, ptr %18, align 8, !tbaa !66
-  %19 = tail call ptr @sdsempty() #26
+  %19 = tail call ptr @sdsempty() #25
   %20 = getelementptr inbounds nuw i8, ptr %12, i64 160
   store ptr %19, ptr %20, align 8, !tbaa !67
   %21 = getelementptr inbounds nuw i8, ptr %14, i64 32
@@ -3145,8 +3145,8 @@ define dso_local noundef ptr @aclCreateSelectorFromOpSet(ptr noundef %0, i64 nou
   store i32 0, ptr %3, align 4, !tbaa !102
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %29 = add i64 %1, -2
-  %30 = tail call ptr @sdsnewlen(ptr noundef nonnull %28, i64 noundef %29) #26
-  %31 = call ptr @sdssplitargs(ptr noundef %30, ptr noundef nonnull %3) #26
+  %30 = tail call ptr @sdsnewlen(ptr noundef nonnull %28, i64 noundef %29) #25
+  %31 = call ptr @sdssplitargs(ptr noundef %30, ptr noundef nonnull %3) #25
   %32 = load i32, ptr %3, align 4, !tbaa !102
   %33 = icmp sgt i32 %32, 0
   br i1 %33, label %.lr.ph, label %.loopexit
@@ -3216,8 +3216,8 @@ sdslen.exit:                                      ; preds = %.lr.ph, %44, %47, %
 .loopexit:                                        ; preds = %34, %11, %64
   %65 = phi i32 [ %.pre, %64 ], [ %32, %11 ], [ %35, %34 ]
   %.020 = phi ptr [ null, %64 ], [ %12, %11 ], [ %12, %34 ]
-  call void @sdsfreesplitres(ptr noundef %31, i32 noundef %65) #26
-  call void @sdsfree(ptr noundef %30) #26
+  call void @sdsfreesplitres(ptr noundef %31, i32 noundef %65) #25
+  call void @sdsfree(ptr noundef %30) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.020
 }
@@ -3248,7 +3248,7 @@ define dso_local range(i32 -1, 1) i32 @ACLSetUser(ptr noundef %0, ptr noundef %1
   br i1 %.not, label %8, label %7
 
 7:                                                ; preds = %3
-  tail call void @decrRefCount(ptr noundef nonnull %6) #26
+  tail call void @decrRefCount(ptr noundef nonnull %6) #25
   store ptr null, ptr %5, align 8, !tbaa !91
   br label %8
 
@@ -3257,7 +3257,7 @@ define dso_local range(i32 -1, 1) i32 @ACLSetUser(ptr noundef %0, ptr noundef %1
   br i1 %9, label %10, label %12
 
 10:                                               ; preds = %8
-  %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #30
+  %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #29
   br label %12
 
 12:                                               ; preds = %10, %8
@@ -3266,7 +3266,7 @@ define dso_local range(i32 -1, 1) i32 @ACLSetUser(ptr noundef %0, ptr noundef %1
   br i1 %13, label %.thread123, label %14
 
 14:                                               ; preds = %12
-  %15 = tail call i32 @strcasecmp(ptr noundef %1, ptr noundef nonnull @.str.23) #30
+  %15 = tail call i32 @strcasecmp(ptr noundef %1, ptr noundef nonnull @.str.23) #29
   %.not96 = icmp eq i32 %15, 0
   br i1 %.not96, label %16, label %21
 
@@ -3279,7 +3279,7 @@ define dso_local range(i32 -1, 1) i32 @ACLSetUser(ptr noundef %0, ptr noundef %1
   br label %172
 
 21:                                               ; preds = %14
-  %22 = tail call i32 @strcasecmp(ptr noundef %1, ptr noundef nonnull @.str.24) #30
+  %22 = tail call i32 @strcasecmp(ptr noundef %1, ptr noundef nonnull @.str.24) #29
   %.not97 = icmp eq i32 %22, 0
   br i1 %.not97, label %23, label %28
 
@@ -3292,7 +3292,7 @@ define dso_local range(i32 -1, 1) i32 @ACLSetUser(ptr noundef %0, ptr noundef %1
   br label %172
 
 28:                                               ; preds = %21
-  %29 = tail call i32 @strcasecmp(ptr noundef %1, ptr noundef nonnull @.str.26) #30
+  %29 = tail call i32 @strcasecmp(ptr noundef %1, ptr noundef nonnull @.str.26) #29
   %.not98 = icmp eq i32 %29, 0
   br i1 %.not98, label %30, label %35
 
@@ -3305,7 +3305,7 @@ define dso_local range(i32 -1, 1) i32 @ACLSetUser(ptr noundef %0, ptr noundef %1
   br label %172
 
 35:                                               ; preds = %28
-  %36 = tail call i32 @strcasecmp(ptr noundef %1, ptr noundef nonnull @.str.27) #30
+  %36 = tail call i32 @strcasecmp(ptr noundef %1, ptr noundef nonnull @.str.27) #29
   %.not99 = icmp eq i32 %36, 0
   br i1 %.not99, label %37, label %42
 
@@ -3318,7 +3318,7 @@ define dso_local range(i32 -1, 1) i32 @ACLSetUser(ptr noundef %0, ptr noundef %1
   br label %172
 
 42:                                               ; preds = %35
-  %43 = tail call i32 @strcasecmp(ptr noundef %1, ptr noundef nonnull @.str.25) #30
+  %43 = tail call i32 @strcasecmp(ptr noundef %1, ptr noundef nonnull @.str.25) #29
   %.not100 = icmp eq i32 %43, 0
   br i1 %.not100, label %44, label %50
 
@@ -3329,11 +3329,11 @@ define dso_local range(i32 -1, 1) i32 @ACLSetUser(ptr noundef %0, ptr noundef %1
   store i32 %47, ptr %45, align 8, !tbaa !89
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %49 = load ptr, ptr %48, align 8, !tbaa !90
-  tail call void @listEmpty(ptr noundef %49) #26
+  tail call void @listEmpty(ptr noundef %49) #25
   br label %172
 
 50:                                               ; preds = %42
-  %51 = tail call i32 @strcasecmp(ptr noundef %1, ptr noundef nonnull @.str.67) #30
+  %51 = tail call i32 @strcasecmp(ptr noundef %1, ptr noundef nonnull @.str.67) #29
   %.not101 = icmp eq i32 %51, 0
   br i1 %.not101, label %52, label %58
 
@@ -3344,7 +3344,7 @@ define dso_local range(i32 -1, 1) i32 @ACLSetUser(ptr noundef %0, ptr noundef %1
   store i32 %55, ptr %53, align 8, !tbaa !89
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %57 = load ptr, ptr %56, align 8, !tbaa !90
-  tail call void @listEmpty(ptr noundef %57) #26
+  tail call void @listEmpty(ptr noundef %57) #25
   br label %172
 
 58:                                               ; preds = %50
@@ -3387,24 +3387,24 @@ define dso_local range(i32 -1, 1) i32 @ACLSetUser(ptr noundef %0, ptr noundef %1
   br i1 %or.cond19.i, label %.loopexit, label %68
 
 ACLCheckPasswordHash.exit:                        ; preds = %68
-  %73 = tail call ptr @sdsnewlen(ptr noundef nonnull %65, i64 noundef %66) #26
+  %73 = tail call ptr @sdsnewlen(ptr noundef nonnull %65, i64 noundef %66) #25
   br label %74
 
 74:                                               ; preds = %ACLCheckPasswordHash.exit, %60
   %.084 = phi ptr [ %63, %60 ], [ %73, %ACLCheckPasswordHash.exit ]
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %76 = load ptr, ptr %75, align 8, !tbaa !90
-  %77 = tail call ptr @listSearchKey(ptr noundef %76, ptr noundef %.084) #26
+  %77 = tail call ptr @listSearchKey(ptr noundef %76, ptr noundef %.084) #25
   %78 = icmp eq ptr %77, null
   br i1 %78, label %79, label %82
 
 79:                                               ; preds = %74
   %80 = load ptr, ptr %75, align 8, !tbaa !90
-  %81 = tail call ptr @listAddNodeTail(ptr noundef %80, ptr noundef %.084) #26
+  %81 = tail call ptr @listAddNodeTail(ptr noundef %80, ptr noundef %.084) #25
   br label %.thread
 
 82:                                               ; preds = %74
-  tail call void @sdsfree(ptr noundef %.084) #26
+  tail call void @sdsfree(ptr noundef %.084) #25
   br label %.thread
 
 .thread:                                          ; preds = %79, %82
@@ -3415,7 +3415,7 @@ ACLCheckPasswordHash.exit:                        ; preds = %68
   br label %172
 
 .loopexit:                                        ; preds = %.critedge.i, %64
-  %86 = tail call ptr @__errno_location() #29
+  %86 = tail call ptr @__errno_location() #28
   store i32 74, ptr %86, align 4, !tbaa !102
   br label %.thread123
 
@@ -3449,31 +3449,31 @@ ACLCheckPasswordHash.exit:                        ; preds = %68
   br i1 %or.cond19.i116, label %.loopexit126, label %95
 
 .loopexit126:                                     ; preds = %.critedge.i112, %91
-  %100 = tail call ptr @__errno_location() #29
+  %100 = tail call ptr @__errno_location() #28
   store i32 74, ptr %100, align 4, !tbaa !102
   br label %.thread123
 
 ACLCheckPasswordHash.exit119:                     ; preds = %95
-  %101 = tail call ptr @sdsnewlen(ptr noundef nonnull %92, i64 noundef %93) #26
+  %101 = tail call ptr @sdsnewlen(ptr noundef nonnull %92, i64 noundef %93) #25
   br label %102
 
 102:                                              ; preds = %ACLCheckPasswordHash.exit119, %87
   %.089 = phi ptr [ %90, %87 ], [ %101, %ACLCheckPasswordHash.exit119 ]
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %104 = load ptr, ptr %103, align 8, !tbaa !90
-  %105 = tail call ptr @listSearchKey(ptr noundef %104, ptr noundef %.089) #26
-  tail call void @sdsfree(ptr noundef %.089) #26
+  %105 = tail call ptr @listSearchKey(ptr noundef %104, ptr noundef %.089) #25
+  tail call void @sdsfree(ptr noundef %.089) #25
   %.not108 = icmp eq ptr %105, null
   br i1 %.not108, label %106, label %108
 
 106:                                              ; preds = %102
-  %107 = tail call ptr @__errno_location() #29
+  %107 = tail call ptr @__errno_location() #28
   store i32 19, ptr %107, align 4, !tbaa !102
   br label %.thread123
 
 108:                                              ; preds = %102
   %109 = load ptr, ptr %103, align 8, !tbaa !90
-  tail call void @listDelNode(ptr noundef %109, ptr noundef nonnull %105) #26
+  tail call void @listDelNode(ptr noundef %109, ptr noundef nonnull %105) #25
   br label %172
 
 110:                                              ; preds = %58
@@ -3491,11 +3491,11 @@ ACLCheckPasswordHash.exit119:                     ; preds = %95
 117:                                              ; preds = %115
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %119 = load ptr, ptr %118, align 8, !tbaa !79
-  %120 = tail call ptr @listAddNodeTail(ptr noundef %119, ptr noundef nonnull %116) #26
+  %120 = tail call ptr @listAddNodeTail(ptr noundef %119, ptr noundef nonnull %116) #25
   br label %.thread123
 
 121:                                              ; preds = %58, %110
-  %122 = tail call i32 @strcasecmp(ptr noundef nonnull %1, ptr noundef nonnull @.str.68) #30
+  %122 = tail call i32 @strcasecmp(ptr noundef nonnull %1, ptr noundef nonnull @.str.68) #29
   %.not102 = icmp eq i32 %122, 0
   br i1 %.not102, label %123, label %132
 
@@ -3503,26 +3503,26 @@ ACLCheckPasswordHash.exit119:                     ; preds = %95
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %124 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %125 = load ptr, ptr %124, align 8, !tbaa !79
-  call void @listRewind(ptr noundef %125, ptr noundef nonnull %4) #26
-  %126 = call ptr @listNext(ptr noundef nonnull %4) #26
+  call void @listRewind(ptr noundef %125, ptr noundef nonnull %4) #25
+  %126 = call ptr @listNext(ptr noundef nonnull %4) #25
   %.not103 = icmp eq ptr %126, null
   br i1 %.not103, label %128, label %.preheader, !prof !83
 
 .preheader:                                       ; preds = %123
-  %127 = call ptr @listNext(ptr noundef nonnull %4) #26
+  %127 = call ptr @listNext(ptr noundef nonnull %4) #25
   %.not104127 = icmp eq ptr %127, null
   br i1 %.not104127, label %._crit_edge, label %.lr.ph
 
 128:                                              ; preds = %123
-  call void @_serverAssert(ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.22, i32 noundef 1356) #26
-  call void @abort() #28
+  call void @_serverAssert(ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.22, i32 noundef 1356) #25
+  call void @abort() #27
   unreachable
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %129 = phi ptr [ %131, %.lr.ph ], [ %127, %.preheader ]
   %130 = load ptr, ptr %124, align 8, !tbaa !79
-  call void @listDelNode(ptr noundef %130, ptr noundef nonnull %129) #26
-  %131 = call ptr @listNext(ptr noundef nonnull %4) #26
+  call void @listDelNode(ptr noundef %130, ptr noundef nonnull %129) #25
+  %131 = call ptr @listNext(ptr noundef nonnull %4) #25
   %.not104 = icmp eq ptr %131, null
   br i1 %.not104, label %._crit_edge, label %.lr.ph, !llvm.loop !141
 
@@ -3531,7 +3531,7 @@ ACLCheckPasswordHash.exit119:                     ; preds = %95
   br label %.thread123
 
 132:                                              ; preds = %121
-  %133 = tail call i32 @strcasecmp(ptr noundef nonnull %1, ptr noundef nonnull @.str.70) #30
+  %133 = tail call i32 @strcasecmp(ptr noundef nonnull %1, ptr noundef nonnull @.str.70) #29
   %.not105 = icmp eq i32 %133, 0
   br i1 %.not105, label %134, label %169
 
@@ -3541,8 +3541,8 @@ ACLCheckPasswordHash.exit119:                     ; preds = %95
   br i1 %136, label %138, label %137, !prof !119
 
 137:                                              ; preds = %134
-  tail call void @_serverAssert(ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.22, i32 noundef 1362) #26
-  tail call void @abort() #28
+  tail call void @_serverAssert(ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.22, i32 noundef 1362) #25
+  tail call void @abort() #27
   unreachable
 
 138:                                              ; preds = %134
@@ -3551,8 +3551,8 @@ ACLCheckPasswordHash.exit119:                     ; preds = %95
   br i1 %140, label %142, label %141, !prof !119
 
 141:                                              ; preds = %138
-  tail call void @_serverAssert(ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.22, i32 noundef 1363) #26
-  tail call void @abort() #28
+  tail call void @_serverAssert(ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.22, i32 noundef 1363) #25
+  tail call void @abort() #27
   unreachable
 
 142:                                              ; preds = %138
@@ -3561,8 +3561,8 @@ ACLCheckPasswordHash.exit119:                     ; preds = %95
   br i1 %144, label %146, label %145, !prof !119
 
 145:                                              ; preds = %142
-  tail call void @_serverAssert(ptr noundef nonnull @.str.73, ptr noundef nonnull @.str.22, i32 noundef 1364) #26
-  tail call void @abort() #28
+  tail call void @_serverAssert(ptr noundef nonnull @.str.73, ptr noundef nonnull @.str.22, i32 noundef 1364) #25
+  tail call void @abort() #27
   unreachable
 
 146:                                              ; preds = %142
@@ -3577,8 +3577,8 @@ ACLCheckPasswordHash.exit119:                     ; preds = %95
   br i1 %151, label %153, label %152, !prof !119
 
 152:                                              ; preds = %149
-  tail call void @_serverAssert(ptr noundef nonnull @.str.74, ptr noundef nonnull @.str.22, i32 noundef 1366) #26
-  tail call void @abort() #28
+  tail call void @_serverAssert(ptr noundef nonnull @.str.74, ptr noundef nonnull @.str.22, i32 noundef 1366) #25
+  tail call void @abort() #27
   unreachable
 
 153:                                              ; preds = %149, %146
@@ -3587,8 +3587,8 @@ ACLCheckPasswordHash.exit119:                     ; preds = %95
   br i1 %155, label %157, label %156, !prof !119
 
 156:                                              ; preds = %153
-  tail call void @_serverAssert(ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.22, i32 noundef 1367) #26
-  tail call void @abort() #28
+  tail call void @_serverAssert(ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.22, i32 noundef 1367) #25
+  tail call void @abort() #27
   unreachable
 
 157:                                              ; preds = %153
@@ -3597,8 +3597,8 @@ ACLCheckPasswordHash.exit119:                     ; preds = %95
   br i1 %159, label %161, label %160, !prof !119
 
 160:                                              ; preds = %157
-  tail call void @_serverAssert(ptr noundef nonnull @.str.76, ptr noundef nonnull @.str.22, i32 noundef 1368) #26
-  tail call void @abort() #28
+  tail call void @_serverAssert(ptr noundef nonnull @.str.76, ptr noundef nonnull @.str.22, i32 noundef 1368) #25
+  tail call void @abort() #27
   unreachable
 
 161:                                              ; preds = %157
@@ -3607,8 +3607,8 @@ ACLCheckPasswordHash.exit119:                     ; preds = %95
   br i1 %163, label %165, label %164, !prof !119
 
 164:                                              ; preds = %161
-  tail call void @_serverAssert(ptr noundef nonnull @.str.77, ptr noundef nonnull @.str.22, i32 noundef 1369) #26
-  tail call void @abort() #28
+  tail call void @_serverAssert(ptr noundef nonnull @.str.77, ptr noundef nonnull @.str.22, i32 noundef 1369) #25
+  tail call void @abort() #27
   unreachable
 
 165:                                              ; preds = %161
@@ -3617,8 +3617,8 @@ ACLCheckPasswordHash.exit119:                     ; preds = %95
   br i1 %167, label %172, label %168, !prof !119
 
 168:                                              ; preds = %165
-  tail call void @_serverAssert(ptr noundef nonnull @.str.78, ptr noundef nonnull @.str.22, i32 noundef 1370) #26
-  tail call void @abort() #28
+  tail call void @_serverAssert(ptr noundef nonnull @.str.78, ptr noundef nonnull @.str.22, i32 noundef 1370) #25
+  tail call void @abort() #27
   unreachable
 
 169:                                              ; preds = %132
@@ -3639,7 +3639,7 @@ declare void @listDelNode(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local noundef nonnull ptr @ACLSetUserStringError() local_unnamed_addr #18 {
-  %1 = tail call ptr @__errno_location() #29
+  %1 = tail call ptr @__errno_location() #28
   %2 = load i32, ptr %1, align 4, !tbaa !102
   switch i32 %2, label %.fold.split [
     i32 2, label %10
@@ -3694,11 +3694,11 @@ define dso_local noundef ptr @ACLCreateDefaultUser() local_unnamed_addr #0 {
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ACLInit() local_unnamed_addr #0 {
-  %1 = tail call ptr @raxNew() #26
+  %1 = tail call ptr @raxNew() #25
   store ptr %1, ptr @Users, align 8, !tbaa !87
-  %2 = tail call ptr @listCreate() #26
+  %2 = tail call ptr @listCreate() #25
   store ptr %2, ptr @UsersToLoad, align 8, !tbaa !142
-  %3 = tail call noalias dereferenceable_or_null(1040) ptr @zcalloc(i64 noundef 1040) #27
+  %3 = tail call noalias dereferenceable_or_null(1040) ptr @zcalloc(i64 noundef 1040) #26
   store ptr %3, ptr @ACLCommandCategories, align 8, !tbaa !9
   %4 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ACLDefaultCommandCategories, i64 8), align 8, !tbaa !15
   %.not8.i = icmp eq i64 %4, 0
@@ -3716,14 +3716,14 @@ define dso_local void @ACLInit() local_unnamed_addr #0 {
   br i1 %7, label %8, label %9
 
 8:                                                ; preds = %.lr.ph.i
-  tail call void @_serverAssert(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.22, i32 noundef 102) #26
-  tail call void @abort() #28
+  tail call void @_serverAssert(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.22, i32 noundef 102) #25
+  tail call void @abort() #27
   unreachable
 
 9:                                                ; preds = %.lr.ph.i
   %10 = getelementptr inbounds nuw %struct.ACLCategoryItem, ptr @ACLDefaultCommandCategories, i64 %indvars.iv.i
   %11 = load ptr, ptr %10, align 16, !tbaa !12
-  %12 = tail call noalias ptr @zstrdup(ptr noundef %11) #26
+  %12 = tail call noalias ptr @zstrdup(ptr noundef %11) #25
   %13 = load ptr, ptr @ACLCommandCategories, align 8, !tbaa !9
   %14 = load i64, ptr @nextCommandCategory, align 8, !tbaa !5
   %15 = getelementptr inbounds nuw %struct.ACLCategoryItem, ptr %13, i64 %14
@@ -3743,7 +3743,7 @@ ACLInitCommandCategories.exit:                    ; preds = %9, %0
   %21 = load ptr, ptr @UsersToLoad, align 8, !tbaa !142
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 32
   store ptr @ACLListMatchLoadedUser, ptr %22, align 8, !tbaa !68
-  %23 = tail call ptr @listCreate() #26
+  %23 = tail call ptr @listCreate() #25
   store ptr %23, ptr @ACLLog, align 8, !tbaa !142
   %24 = tail call ptr @ACLCreateUser(ptr noundef nonnull @.str.88, i64 noundef 7)
   %25 = tail call i32 @ACLSetUser(ptr noundef %24, ptr noundef nonnull @.str.45, i64 noundef -1)
@@ -3811,14 +3811,14 @@ sdslen.exit:                                      ; preds = %2, %14, %17, %21, %
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8, !tbaa !143
   %32 = load ptr, ptr @Users, align 8, !tbaa !87
-  %33 = call i32 @raxFind(ptr noundef %32, ptr noundef nonnull %9, i64 noundef %.0.i, ptr noundef nonnull %6) #26
+  %33 = call i32 @raxFind(ptr noundef %32, ptr noundef nonnull %9, i64 noundef %.0.i, ptr noundef nonnull %6) #25
   %34 = load ptr, ptr %6, align 8, !tbaa !143
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %35 = icmp eq ptr %34, null
   br i1 %35, label %36, label %38
 
 36:                                               ; preds = %sdslen.exit
-  %37 = tail call ptr @__errno_location() #29
+  %37 = tail call ptr @__errno_location() #28
   store i32 2, ptr %37, align 4, !tbaa !102
   br label %103
 
@@ -3830,7 +3830,7 @@ sdslen.exit:                                      ; preds = %2, %14, %17, %21, %
   br i1 %.not, label %44, label %42
 
 42:                                               ; preds = %38
-  %43 = tail call ptr @__errno_location() #29
+  %43 = tail call ptr @__errno_location() #28
   store i32 22, ptr %43, align 4, !tbaa !102
   br label %103
 
@@ -3843,7 +3843,7 @@ sdslen.exit:                                      ; preds = %2, %14, %17, %21, %
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %47 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %48 = load ptr, ptr %47, align 8, !tbaa !90
-  call void @listRewind(ptr noundef %48, ptr noundef nonnull %7) #26
+  call void @listRewind(ptr noundef %48, ptr noundef nonnull %7) #25
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %50 = load ptr, ptr %49, align 8, !tbaa !144
   %51 = getelementptr inbounds i8, ptr %50, i64 -1
@@ -3891,9 +3891,9 @@ sdslen.exit21:                                    ; preds = %46, %55, %58, %62, 
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  call void @sha256_init(ptr noundef nonnull %3) #26
-  call void @sha256_update(ptr noundef nonnull %3, ptr noundef nonnull %50, i64 noundef %.0.i20) #26
-  call void @sha256_final(ptr noundef nonnull %3, ptr noundef nonnull %4) #26
+  call void @sha256_init(ptr noundef nonnull %3) #25
+  call void @sha256_update(ptr noundef nonnull %3, ptr noundef nonnull %50, i64 noundef %.0.i20) #25
+  call void @sha256_final(ptr noundef nonnull %3, ptr noundef nonnull %4) #25
   br label %73
 
 73:                                               ; preds = %73, %sdslen.exit21
@@ -3918,14 +3918,14 @@ sdslen.exit21:                                    ; preds = %46, %55, %58, %62, 
   br i1 %exitcond.not.i, label %ACLHashPassword.exit, label %73, !llvm.loop !21
 
 ACLHashPassword.exit:                             ; preds = %73
-  %87 = call ptr @sdsnewlen(ptr noundef nonnull %5, i64 noundef 64) #26
+  %87 = call ptr @sdsnewlen(ptr noundef nonnull %5, i64 noundef 64) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.critedge
 
 .critedge:                                        ; preds = %time_independent_strcmp.exit, %ACLHashPassword.exit
-  %88 = call ptr @listNext(ptr noundef nonnull %7) #26
+  %88 = call ptr @listNext(ptr noundef nonnull %7) #25
   %.not18 = icmp eq ptr %88, null
   br i1 %.not18, label %100, label %89
 
@@ -3953,12 +3953,12 @@ time_independent_strcmp.exit:                     ; preds = %.lr.ph.i
   br i1 %.not19.not, label %99, label %.critedge
 
 99:                                               ; preds = %time_independent_strcmp.exit
-  call void @sdsfree(ptr noundef nonnull %87) #26
+  call void @sdsfree(ptr noundef nonnull %87) #25
   br label %102, !llvm.loop !146
 
 100:                                              ; preds = %.critedge
-  call void @sdsfree(ptr noundef %87) #26
-  %101 = tail call ptr @__errno_location() #29
+  call void @sdsfree(ptr noundef %87) #25
+  %101 = tail call ptr @__errno_location() #28
   store i32 22, ptr %101, align 4, !tbaa !102
   br label %102
 
@@ -3978,7 +3978,7 @@ define dso_local ptr @ACLGetUserByName(ptr noundef %0, i64 noundef %1) local_unn
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !143
   %4 = load ptr, ptr @Users, align 8, !tbaa !87
-  %5 = call i32 @raxFind(ptr noundef %4, ptr noundef %0, i64 noundef %1, ptr noundef nonnull %3) #26
+  %5 = call i32 @raxFind(ptr noundef %4, ptr noundef %0, i64 noundef %1, ptr noundef nonnull %3) #25
   %6 = load ptr, ptr %3, align 8, !tbaa !143
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %6
@@ -3986,7 +3986,7 @@ define dso_local ptr @ACLGetUserByName(ptr noundef %0, i64 noundef %1) local_unn
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @addAuthErrReply(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
-  %3 = tail call i32 @clientHasPendingReplies(ptr noundef %0) #26
+  %3 = tail call i32 @clientHasPendingReplies(ptr noundef %0) #25
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %8
 
@@ -4001,7 +4001,7 @@ define dso_local void @addAuthErrReply(ptr noundef %0, ptr noundef readonly capt
 
 .sink.split:                                      ; preds = %4, %5
   %.sink = phi ptr [ %7, %5 ], [ @.str.89, %4 ]
-  tail call void @addReplyError(ptr noundef %0, ptr noundef %.sink) #26
+  tail call void @addReplyError(ptr noundef %0, ptr noundef %.sink) #25
   br label %8
 
 8:                                                ; preds = %.sink.split, %2
@@ -4069,12 +4069,12 @@ sdslen.exit:                                      ; preds = %7, %15, %18, %22, %
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !tbaa !143
   %33 = load ptr, ptr @Users, align 8, !tbaa !87
-  %34 = call i32 @raxFind(ptr noundef %33, ptr noundef nonnull %10, i64 noundef %.0.i, ptr noundef nonnull %4) #26
+  %34 = call i32 @raxFind(ptr noundef %33, ptr noundef nonnull %10, i64 noundef %.0.i, ptr noundef nonnull %4) #25
   %35 = load ptr, ptr %4, align 8, !tbaa !143
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 160
   store ptr %35, ptr %36, align 8, !tbaa !93
-  call void @moduleNotifyUserChanged(ptr noundef nonnull %0) #26
+  call void @moduleNotifyUserChanged(ptr noundef nonnull %0) #25
   br label %45
 
 37:                                               ; preds = %3
@@ -4130,8 +4130,8 @@ define dso_local void @addACLLogEntry(ptr noundef %0, i32 noundef %1, i32 nounde
   br label %ACLUpdateInfoMetrics.exit
 
 20:                                               ; preds = %6
-  tail call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.22, i32 noundef 2647, ptr noundef nonnull @.str.123) #26
-  tail call void @abort() #28
+  tail call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.22, i32 noundef 2647, ptr noundef nonnull @.str.123) #25
+  tail call void @abort() #27
   unreachable
 
 ACLUpdateInfoMetrics.exit:                        ; preds = %8, %11, %14, %17
@@ -4154,16 +4154,16 @@ ACLUpdateInfoMetrics.exit:                        ; preds = %8, %11, %14, %17
   %31 = load ptr, ptr %30, align 8, !tbaa !85
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %33 = load ptr, ptr %32, align 8, !tbaa !155
-  tail call void @sdsfree(ptr noundef %33) #26
+  tail call void @sdsfree(ptr noundef %33) #25
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 24
   %35 = load ptr, ptr %34, align 8, !tbaa !157
-  tail call void @sdsfree(ptr noundef %35) #26
+  tail call void @sdsfree(ptr noundef %35) #25
   %36 = getelementptr inbounds nuw i8, ptr %31, i64 40
   %37 = load ptr, ptr %36, align 8, !tbaa !158
-  tail call void @sdsfree(ptr noundef %37) #26
-  tail call void @zfree(ptr noundef %31) #26
+  tail call void @sdsfree(ptr noundef %37) #25
+  tail call void @zfree(ptr noundef %31) #25
   %38 = load ptr, ptr @ACLLog, align 8, !tbaa !142
-  tail call void @listDelNode(ptr noundef %38, ptr noundef %29) #26
+  tail call void @listDelNode(ptr noundef %38, ptr noundef %29) #25
   %39 = load ptr, ptr @ACLLog, align 8, !tbaa !142
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 40
   %41 = load i64, ptr %40, align 8, !tbaa !82
@@ -4172,7 +4172,7 @@ ACLUpdateInfoMetrics.exit:                        ; preds = %8, %11, %14, %17
   br i1 %43, label %.lr.ph.i, label %trimACLLogEntriesToMaxLen.exit, !llvm.loop !159
 
 44:                                               ; preds = %ACLUpdateInfoMetrics.exit
-  %45 = tail call noalias dereferenceable_or_null(64) ptr @zmalloc(i64 noundef 64) #27
+  %45 = tail call noalias dereferenceable_or_null(64) ptr @zmalloc(i64 noundef 64) #26
   store i64 1, ptr %45, align 8, !tbaa !160
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   store i32 %1, ptr %46, align 8, !tbaa !161
@@ -4187,10 +4187,10 @@ ACLUpdateInfoMetrics.exit:                        ; preds = %8, %11, %14, %17
 
 51:                                               ; preds = %44, %47
   %52 = phi ptr [ %50, %47 ], [ %4, %44 ]
-  %53 = tail call ptr @sdsdup(ptr noundef %52) #26
+  %53 = tail call ptr @sdsdup(ptr noundef %52) #25
   %54 = getelementptr inbounds nuw i8, ptr %45, i64 24
   store ptr %53, ptr %54, align 8, !tbaa !157
-  %55 = tail call i64 @commandTimeSnapshot() #26
+  %55 = tail call i64 @commandTimeSnapshot() #25
   %56 = getelementptr inbounds nuw i8, ptr %45, i64 32
   store i64 %55, ptr %56, align 8, !tbaa !162
   %57 = load i64, ptr @ACLLogEntryCount, align 8, !tbaa !163
@@ -4246,7 +4246,7 @@ default.unreachable:                              ; preds = %60
 .sink.split:                                      ; preds = %79, %72, %65, %61
   %.sink80.in = phi ptr [ %64, %61 ], [ %71, %65 ], [ %78, %72 ], [ %83, %79 ]
   %.sink80 = load ptr, ptr %.sink80.in, align 8, !tbaa !143
-  %84 = tail call ptr @sdsdup(ptr noundef %.sink80) #26
+  %84 = tail call ptr @sdsdup(ptr noundef %.sink80) #25
   br label %85
 
 85:                                               ; preds = %.sink.split, %51
@@ -4256,21 +4256,21 @@ default.unreachable:                              ; preds = %60
   %87 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 1480), align 8, !tbaa !169
   %.not55 = icmp eq ptr %87, null
   %88 = select i1 %.not55, ptr %0, ptr %87
-  %89 = tail call ptr @sdsempty() #26
-  %90 = tail call ptr @catClientInfoString(ptr noundef %89, ptr noundef %88) #26
+  %89 = tail call ptr @sdsempty() #25
+  %90 = tail call ptr @catClientInfoString(ptr noundef %89, ptr noundef %88) #25
   %91 = getelementptr inbounds nuw i8, ptr %45, i64 40
   store ptr %90, ptr %91, align 8, !tbaa !158
   %92 = getelementptr inbounds nuw i8, ptr %45, i64 12
   store i32 %2, ptr %92, align 4, !tbaa !170
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %93 = load ptr, ptr @ACLLog, align 8, !tbaa !142
-  call void @listRewind(ptr noundef %93, ptr noundef nonnull %7) #26
+  call void @listRewind(ptr noundef %93, ptr noundef nonnull %7) #25
   %94 = getelementptr inbounds nuw i8, ptr %45, i64 16
   br label %95
 
 95:                                               ; preds = %85, %ACLLogMatchEntry.exit.thread
-  %96 = phi i64 [ 9, %85 ], [ %136, %ACLLogMatchEntry.exit.thread ]
-  %97 = call ptr @listNext(ptr noundef nonnull %7) #26
+  %96 = phi i64 [ 9, %85 ], [ %137, %ACLLogMatchEntry.exit.thread ]
+  %97 = call ptr @listNext(ptr noundef nonnull %7) #25
   %.not57 = icmp eq ptr %97, null
   br i1 %.not57, label %.critedge, label %98
 
@@ -4294,95 +4294,95 @@ default.unreachable:                              ; preds = %60
   %109 = getelementptr inbounds nuw i8, ptr %100, i64 32
   %110 = load i64, ptr %109, align 8, !tbaa !162
   %111 = load i64, ptr %56, align 8, !tbaa !162
-  %112 = sub nsw i64 %110, %111
-  %spec.select.i = call i64 @llvm.abs.i64(i64 %112, i1 true)
-  %113 = icmp samesign ugt i64 %spec.select.i, 60000
-  br i1 %113, label %ACLLogMatchEntry.exit.thread, label %114
+  %112 = add i64 %110, -60001
+  %113 = sub i64 %112, %111
+  %114 = icmp ult i64 %113, -120001
+  br i1 %114, label %ACLLogMatchEntry.exit.thread, label %115
 
-114:                                              ; preds = %108
-  %115 = getelementptr inbounds nuw i8, ptr %100, i64 16
-  %116 = load ptr, ptr %115, align 8, !tbaa !155
-  %117 = load ptr, ptr %94, align 8, !tbaa !155
-  %118 = call i32 @sdscmp(ptr noundef %116, ptr noundef %117) #26
-  %.not17.i = icmp eq i32 %118, 0
+115:                                              ; preds = %108
+  %116 = getelementptr inbounds nuw i8, ptr %100, i64 16
+  %117 = load ptr, ptr %116, align 8, !tbaa !155
+  %118 = load ptr, ptr %94, align 8, !tbaa !155
+  %119 = call i32 @sdscmp(ptr noundef %117, ptr noundef %118) #25
+  %.not17.i = icmp eq i32 %119, 0
   br i1 %.not17.i, label %ACLLogMatchEntry.exit, label %ACLLogMatchEntry.exit.thread
 
-ACLLogMatchEntry.exit:                            ; preds = %114
-  %119 = getelementptr inbounds nuw i8, ptr %100, i64 24
-  %120 = load ptr, ptr %119, align 8, !tbaa !157
-  %121 = load ptr, ptr %54, align 8, !tbaa !157
-  %122 = call i32 @sdscmp(ptr noundef %120, ptr noundef %121) #26
-  %.not18.i.not = icmp eq i32 %122, 0
+ACLLogMatchEntry.exit:                            ; preds = %115
+  %120 = getelementptr inbounds nuw i8, ptr %100, i64 24
+  %121 = load ptr, ptr %120, align 8, !tbaa !157
+  %122 = load ptr, ptr %54, align 8, !tbaa !157
+  %123 = call i32 @sdscmp(ptr noundef %121, ptr noundef %122) #25
+  %.not18.i.not = icmp eq i32 %123, 0
   br i1 %.not18.i.not, label %.critedge.thread, label %ACLLogMatchEntry.exit.thread
 
 .critedge.thread:                                 ; preds = %ACLLogMatchEntry.exit
-  %123 = getelementptr inbounds nuw i8, ptr %100, i64 32
-  %124 = load ptr, ptr @ACLLog, align 8, !tbaa !142
-  call void @listDelNode(ptr noundef %124, ptr noundef nonnull %97) #26
+  %124 = getelementptr inbounds nuw i8, ptr %100, i64 32
   %125 = load ptr, ptr @ACLLog, align 8, !tbaa !142
-  %126 = call ptr @listAddNodeHead(ptr noundef %125, ptr noundef nonnull %100) #26
-  %127 = getelementptr inbounds nuw i8, ptr %100, i64 40
-  %128 = load ptr, ptr %127, align 8, !tbaa !158
-  call void @sdsfree(ptr noundef %128) #26
-  %129 = load ptr, ptr %91, align 8, !tbaa !158
-  store ptr %129, ptr %127, align 8, !tbaa !158
-  %130 = load i64, ptr %56, align 8, !tbaa !162
-  store i64 %130, ptr %123, align 8, !tbaa !162
-  %131 = load i64, ptr %100, align 8, !tbaa !160
-  %132 = add i64 %131, 1
-  store i64 %132, ptr %100, align 8, !tbaa !160
+  call void @listDelNode(ptr noundef %125, ptr noundef nonnull %97) #25
+  %126 = load ptr, ptr @ACLLog, align 8, !tbaa !142
+  %127 = call ptr @listAddNodeHead(ptr noundef %126, ptr noundef nonnull %100) #25
+  %128 = getelementptr inbounds nuw i8, ptr %100, i64 40
+  %129 = load ptr, ptr %128, align 8, !tbaa !158
+  call void @sdsfree(ptr noundef %129) #25
+  %130 = load ptr, ptr %91, align 8, !tbaa !158
+  store ptr %130, ptr %128, align 8, !tbaa !158
+  %131 = load i64, ptr %56, align 8, !tbaa !162
+  store i64 %131, ptr %124, align 8, !tbaa !162
+  %132 = load i64, ptr %100, align 8, !tbaa !160
+  %133 = add i64 %132, 1
+  store i64 %133, ptr %100, align 8, !tbaa !160
   store ptr null, ptr %91, align 8, !tbaa !158
-  %133 = load ptr, ptr %94, align 8, !tbaa !155
-  call void @sdsfree(ptr noundef %133) #26
-  %134 = load ptr, ptr %54, align 8, !tbaa !157
-  call void @sdsfree(ptr noundef %134) #26
-  %135 = load ptr, ptr %91, align 8, !tbaa !158
-  call void @sdsfree(ptr noundef %135) #26
-  call void @zfree(ptr noundef nonnull %45) #26
+  %134 = load ptr, ptr %94, align 8, !tbaa !155
+  call void @sdsfree(ptr noundef %134) #25
+  %135 = load ptr, ptr %54, align 8, !tbaa !157
+  call void @sdsfree(ptr noundef %135) #25
+  %136 = load ptr, ptr %91, align 8, !tbaa !158
+  call void @sdsfree(ptr noundef %136) #25
+  call void @zfree(ptr noundef nonnull %45) #25
   br label %trimACLLogEntriesToMaxLen.exit61
 
-ACLLogMatchEntry.exit.thread:                     ; preds = %108, %114, %98, %104, %ACLLogMatchEntry.exit
-  %136 = add nsw i64 %96, -1
+ACLLogMatchEntry.exit.thread:                     ; preds = %108, %115, %98, %104, %ACLLogMatchEntry.exit
+  %137 = add nsw i64 %96, -1
   %.not56 = icmp eq i64 %96, 0
   br i1 %.not56, label %.critedge, label %95
 
 .critedge:                                        ; preds = %95, %ACLLogMatchEntry.exit.thread
-  %137 = load i64, ptr @ACLLogEntryCount, align 8, !tbaa !163
-  %138 = add nsw i64 %137, 1
-  store i64 %138, ptr @ACLLogEntryCount, align 8, !tbaa !163
-  %139 = load ptr, ptr @ACLLog, align 8, !tbaa !142
-  %140 = call ptr @listAddNodeHead(ptr noundef %139, ptr noundef nonnull %45) #26
-  %141 = load ptr, ptr @ACLLog, align 8, !tbaa !142
-  %142 = getelementptr inbounds nuw i8, ptr %141, i64 40
-  %143 = load i64, ptr %142, align 8, !tbaa !82
-  %144 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 8088), align 8, !tbaa !153
-  %145 = icmp ugt i64 %143, %144
-  br i1 %145, label %.lr.ph.i60, label %trimACLLogEntriesToMaxLen.exit61
+  %138 = load i64, ptr @ACLLogEntryCount, align 8, !tbaa !163
+  %139 = add nsw i64 %138, 1
+  store i64 %139, ptr @ACLLogEntryCount, align 8, !tbaa !163
+  %140 = load ptr, ptr @ACLLog, align 8, !tbaa !142
+  %141 = call ptr @listAddNodeHead(ptr noundef %140, ptr noundef nonnull %45) #25
+  %142 = load ptr, ptr @ACLLog, align 8, !tbaa !142
+  %143 = getelementptr inbounds nuw i8, ptr %142, i64 40
+  %144 = load i64, ptr %143, align 8, !tbaa !82
+  %145 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 8088), align 8, !tbaa !153
+  %146 = icmp ugt i64 %144, %145
+  br i1 %146, label %.lr.ph.i60, label %trimACLLogEntriesToMaxLen.exit61
 
 .lr.ph.i60:                                       ; preds = %.critedge, %.lr.ph.i60
-  %146 = phi ptr [ %158, %.lr.ph.i60 ], [ %141, %.critedge ]
-  %147 = getelementptr inbounds nuw i8, ptr %146, i64 8
-  %148 = load ptr, ptr %147, align 8, !tbaa !154
-  %149 = getelementptr inbounds nuw i8, ptr %148, i64 16
-  %150 = load ptr, ptr %149, align 8, !tbaa !85
-  %151 = getelementptr inbounds nuw i8, ptr %150, i64 16
-  %152 = load ptr, ptr %151, align 8, !tbaa !155
-  call void @sdsfree(ptr noundef %152) #26
-  %153 = getelementptr inbounds nuw i8, ptr %150, i64 24
-  %154 = load ptr, ptr %153, align 8, !tbaa !157
-  call void @sdsfree(ptr noundef %154) #26
-  %155 = getelementptr inbounds nuw i8, ptr %150, i64 40
-  %156 = load ptr, ptr %155, align 8, !tbaa !158
-  call void @sdsfree(ptr noundef %156) #26
-  call void @zfree(ptr noundef %150) #26
-  %157 = load ptr, ptr @ACLLog, align 8, !tbaa !142
-  call void @listDelNode(ptr noundef %157, ptr noundef %148) #26
+  %147 = phi ptr [ %159, %.lr.ph.i60 ], [ %142, %.critedge ]
+  %148 = getelementptr inbounds nuw i8, ptr %147, i64 8
+  %149 = load ptr, ptr %148, align 8, !tbaa !154
+  %150 = getelementptr inbounds nuw i8, ptr %149, i64 16
+  %151 = load ptr, ptr %150, align 8, !tbaa !85
+  %152 = getelementptr inbounds nuw i8, ptr %151, i64 16
+  %153 = load ptr, ptr %152, align 8, !tbaa !155
+  call void @sdsfree(ptr noundef %153) #25
+  %154 = getelementptr inbounds nuw i8, ptr %151, i64 24
+  %155 = load ptr, ptr %154, align 8, !tbaa !157
+  call void @sdsfree(ptr noundef %155) #25
+  %156 = getelementptr inbounds nuw i8, ptr %151, i64 40
+  %157 = load ptr, ptr %156, align 8, !tbaa !158
+  call void @sdsfree(ptr noundef %157) #25
+  call void @zfree(ptr noundef %151) #25
   %158 = load ptr, ptr @ACLLog, align 8, !tbaa !142
-  %159 = getelementptr inbounds nuw i8, ptr %158, i64 40
-  %160 = load i64, ptr %159, align 8, !tbaa !82
-  %161 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 8088), align 8, !tbaa !153
-  %162 = icmp ugt i64 %160, %161
-  br i1 %162, label %.lr.ph.i60, label %trimACLLogEntriesToMaxLen.exit61, !llvm.loop !159
+  call void @listDelNode(ptr noundef %158, ptr noundef %149) #25
+  %159 = load ptr, ptr @ACLLog, align 8, !tbaa !142
+  %160 = getelementptr inbounds nuw i8, ptr %159, i64 40
+  %161 = load i64, ptr %160, align 8, !tbaa !82
+  %162 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 8088), align 8, !tbaa !153
+  %163 = icmp ugt i64 %161, %162
+  br i1 %163, label %.lr.ph.i60, label %trimACLLogEntriesToMaxLen.exit61, !llvm.loop !159
 
 trimACLLogEntriesToMaxLen.exit61:                 ; preds = %.lr.ph.i60, %.critedge, %.critedge.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -4394,7 +4394,7 @@ trimACLLogEntriesToMaxLen.exit:                   ; preds = %.lr.ph.i, %23, %tri
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 3, 2) i32 @ACLAuthenticateUser(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
-  %5 = tail call i32 @checkModuleAuthentication(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #26
+  %5 = tail call i32 @checkModuleAuthentication(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #25
   %6 = icmp eq i32 %5, 2
   br i1 %6, label %7, label %9
 
@@ -4412,14 +4412,14 @@ declare i32 @checkModuleAuthentication(ptr noundef, ptr noundef, ptr noundef, pt
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @ACLGetCommandID(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
-  %3 = tail call ptr @sdsdup(ptr noundef %0) #26
-  tail call void @sdstolower(ptr noundef %3) #26
+  %3 = tail call ptr @sdsdup(ptr noundef %0) #25
+  tail call void @sdstolower(ptr noundef %3) #25
   %4 = load ptr, ptr @commandId, align 8, !tbaa !87
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %8
 
 6:                                                ; preds = %1
-  %7 = tail call ptr @raxNew() #26
+  %7 = tail call ptr @raxNew() #25
   store ptr %7, ptr @commandId, align 8, !tbaa !87
   br label %8
 
@@ -4468,23 +4468,23 @@ define dso_local i64 @ACLGetCommandID(ptr noundef %0) local_unnamed_addr #0 {
 
 sdslen.exit:                                      ; preds = %8, %14, %17, %21, %25, %29
   %.0.i = phi i64 [ %31, %29 ], [ %16, %14 ], [ %20, %17 ], [ %24, %21 ], [ %28, %25 ], [ 0, %8 ]
-  %32 = call i32 @raxFind(ptr noundef %9, ptr noundef nonnull %3, i64 noundef %.0.i, ptr noundef nonnull %2) #26
+  %32 = call i32 @raxFind(ptr noundef %9, ptr noundef nonnull %3, i64 noundef %.0.i, ptr noundef nonnull %2) #25
   %.not = icmp eq i32 %32, 0
   br i1 %.not, label %36, label %33
 
 33:                                               ; preds = %sdslen.exit
-  call void @sdsfree(ptr noundef nonnull %3) #26
+  call void @sdsfree(ptr noundef nonnull %3) #25
   %34 = load ptr, ptr %2, align 8, !tbaa !143
   %35 = ptrtoint ptr %34 to i64
   br label %45
 
 36:                                               ; preds = %sdslen.exit
   %37 = load ptr, ptr @commandId, align 8, !tbaa !87
-  %38 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #30
+  %38 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #29
   %39 = load i64, ptr @nextid, align 8, !tbaa !5
   %40 = inttoptr i64 %39 to ptr
-  %41 = call i32 @raxInsert(ptr noundef %37, ptr noundef nonnull %3, i64 noundef %38, ptr noundef %40, ptr noundef null) #26
-  call void @sdsfree(ptr noundef nonnull %3) #26
+  %41 = call i32 @raxInsert(ptr noundef %37, ptr noundef nonnull %3, i64 noundef %38, ptr noundef %40, ptr noundef null) #25
+  call void @sdsfree(ptr noundef nonnull %3) #25
   %42 = load i64, ptr @nextid, align 8, !tbaa !5
   %43 = add i64 %42, 1
   %44 = icmp eq i64 %43, 1023
@@ -4505,7 +4505,7 @@ define dso_local void @ACLClearCommandID() local_unnamed_addr #0 {
   br i1 %.not, label %3, label %2
 
 2:                                                ; preds = %0
-  tail call void @raxFree(ptr noundef nonnull %1) #26
+  tail call void @raxFree(ptr noundef nonnull %1) #25
   br label %3
 
 3:                                                ; preds = %2, %0
@@ -4530,7 +4530,7 @@ define dso_local void @cleanupACLKeyResultCache(ptr noundef %0) local_unnamed_ad
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @getKeysFreeResult(ptr noundef nonnull %4) #26
+  tail call void @getKeysFreeResult(ptr noundef nonnull %4) #25
   br label %5
 
 5:                                                ; preds = %3, %1
@@ -4549,11 +4549,11 @@ define dso_local range(i32 0, 3) i32 @ACLUserCheckKeyPerm(ptr noundef readonly c
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load ptr, ptr %8, align 8, !tbaa !79
-  call void @listRewind(ptr noundef %9, ptr noundef nonnull %5) #26
+  call void @listRewind(ptr noundef %9, ptr noundef nonnull %5) #25
   br label %10
 
 10:                                               ; preds = %12, %7
-  %11 = call ptr @listNext(ptr noundef nonnull %5) #26
+  %11 = call ptr @listNext(ptr noundef nonnull %5) #25
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %.loopexit, label %12
 
@@ -4582,7 +4582,7 @@ define internal fastcc range(i32 0, 3) i32 @ACLSelectorCheckKey(ptr noundef read
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %10 = load ptr, ptr %9, align 8, !tbaa !64
-  call void @listRewind(ptr noundef %10, ptr noundef nonnull %5) #26
+  call void @listRewind(ptr noundef %10, ptr noundef nonnull %5) #25
   %11 = lshr i32 %3, 4
   %.lobit = and i32 %11, 1
   %12 = lshr i32 %3, 5
@@ -4591,7 +4591,7 @@ define internal fastcc range(i32 0, 3) i32 @ACLSelectorCheckKey(ptr noundef read
   %15 = icmp eq i32 %14, 0
   %.331.v = select i1 %15, i32 %13, i32 2
   %.331 = or disjoint i32 %.331.v, %.lobit
-  %16 = call ptr @listNext(ptr noundef nonnull %5) #26
+  %16 = call ptr @listNext(ptr noundef nonnull %5) #25
   %.not3743 = icmp eq ptr %16, null
   br i1 %.not3743, label %.thread, label %.lr.ph
 
@@ -4655,12 +4655,12 @@ define internal fastcc range(i32 0, 3) i32 @ACLSelectorCheckKey(ptr noundef read
 sdslen.exit.us:                                   ; preds = %45, %41, %37, %33, %30, %23
   %.0.i.us = phi i64 [ %32, %30 ], [ %47, %45 ], [ %44, %41 ], [ %40, %37 ], [ %36, %33 ], [ 0, %23 ]
   %48 = trunc i64 %.0.i.us to i32
-  %49 = call i32 @stringmatchlen(ptr noundef nonnull %25, i32 noundef %48, ptr noundef %1, i32 noundef %2, i32 noundef 0) #26
+  %49 = call i32 @stringmatchlen(ptr noundef nonnull %25, i32 noundef %48, ptr noundef %1, i32 noundef %2, i32 noundef 0) #25
   %.not40.us = icmp eq i32 %49, 0
   br i1 %.not40.us, label %50, label %.thread
 
 50:                                               ; preds = %sdslen.exit.us, %.lr.ph.split.us
-  %51 = call ptr @listNext(ptr noundef nonnull %5) #26
+  %51 = call ptr @listNext(ptr noundef nonnull %5) #25
   %.not37.us = icmp eq ptr %51, null
   br i1 %.not37.us, label %.thread, label %.lr.ph.split.us
 
@@ -4719,12 +4719,12 @@ sdslen.exit.us:                                   ; preds = %45, %41, %37, %33, 
 sdslen.exit:                                      ; preds = %57, %64, %67, %71, %75, %79
   %.0.i = phi i64 [ %81, %79 ], [ %66, %64 ], [ %70, %67 ], [ %74, %71 ], [ %78, %75 ], [ 0, %57 ]
   %82 = trunc i64 %.0.i to i32
-  %83 = call i32 @prefixmatch(ptr noundef nonnull %59, i32 noundef %82, ptr noundef %1, i32 noundef %2, i32 noundef 0) #26
+  %83 = call i32 @prefixmatch(ptr noundef nonnull %59, i32 noundef %82, ptr noundef %1, i32 noundef %2, i32 noundef 0) #25
   %.not41 = icmp eq i32 %83, 0
   br i1 %.not41, label %84, label %.thread
 
 84:                                               ; preds = %sdslen.exit, %.lr.ph.split
-  %85 = call ptr @listNext(ptr noundef nonnull %5) #26
+  %85 = call ptr @listNext(ptr noundef nonnull %5) #25
   %.not37 = icmp eq ptr %85, null
   br i1 %.not37, label %.thread, label %.lr.ph.split
 
@@ -4754,8 +4754,8 @@ define dso_local range(i32 0, 2) i32 @ACLUserCheckCmdWithUnrestrictedKeyAccess(p
   store i32 0, ptr %9, align 8, !tbaa !171
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = load ptr, ptr %12, align 8, !tbaa !79
-  call void @listRewind(ptr noundef %13, ptr noundef nonnull %7) #26
-  %14 = call ptr @listNext(ptr noundef nonnull %7) #26
+  call void @listRewind(ptr noundef %13, ptr noundef nonnull %7) #25
+  %14 = call ptr @listNext(ptr noundef nonnull %7) #25
   %.not23 = icmp eq ptr %14, null
   br i1 %.not23, label %cleanupACLKeyResultCache.exit, label %.lr.ph
 
@@ -4788,8 +4788,8 @@ define dso_local range(i32 0, 2) i32 @ACLUserCheckCmdWithUnrestrictedKeyAccess(p
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %30 = getelementptr inbounds nuw i8, ptr %23, i64 144
   %31 = load ptr, ptr %30, align 8, !tbaa !64
-  call void @listRewind(ptr noundef %31, ptr noundef nonnull %6) #26
-  %32 = call ptr @listNext(ptr noundef nonnull %6) #26
+  call void @listRewind(ptr noundef %31, ptr noundef nonnull %6) #25
+  %32 = call ptr @listNext(ptr noundef nonnull %6) #25
   %.not2630.i = icmp eq ptr %32, null
   br i1 %.not2630.i, label %ACLSelectorHasUnrestrictedKeyAccess.exit.thread20, label %.lr.ph.i
 
@@ -4816,7 +4816,7 @@ sub_0.i:                                          ; preds = %.lr.ph.i
   br i1 %43, label %ACLSelectorHasUnrestrictedKeyAccess.exit, label %.tail.thread.i
 
 .tail.thread.i:                                   ; preds = %.tail.i, %sub_0.i, %.lr.ph.i
-  %44 = call ptr @listNext(ptr noundef nonnull %6) #26
+  %44 = call ptr @listNext(ptr noundef nonnull %6) #25
   %.not26.i = icmp eq ptr %44, null
   br i1 %.not26.i, label %ACLSelectorHasUnrestrictedKeyAccess.exit.thread20, label %.lr.ph.i
 
@@ -4834,7 +4834,7 @@ ACLSelectorHasUnrestrictedKeyAccess.exit:         ; preds = %.tail.i
   br i1 %.not.i15, label %cleanupACLKeyResultCache.exit, label %cleanupACLKeyResultCache.exit.sink.split
 
 46:                                               ; preds = %ACLSelectorHasUnrestrictedKeyAccess.exit.thread20, %20
-  %47 = call ptr @listNext(ptr noundef nonnull %7) #26
+  %47 = call ptr @listNext(ptr noundef nonnull %7) #25
   %.not = icmp eq ptr %47, null
   br i1 %.not, label %._crit_edge, label %20, !llvm.loop !177
 
@@ -4846,7 +4846,7 @@ ACLSelectorHasUnrestrictedKeyAccess.exit:         ; preds = %.tail.i
 cleanupACLKeyResultCache.exit.sink.split:         ; preds = %._crit_edge, %.critedge
   %.3.ph = phi i32 [ 1, %.critedge ], [ 0, %._crit_edge ]
   %49 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  call void @getKeysFreeResult(ptr noundef nonnull %49) #26
+  call void @getKeysFreeResult(ptr noundef nonnull %49) #25
   br label %cleanupACLKeyResultCache.exit
 
 cleanupACLKeyResultCache.exit:                    ; preds = %cleanupACLKeyResultCache.exit.sink.split, %11, %._crit_edge, %.critedge
@@ -4929,7 +4929,7 @@ ACLGetSelectorCommandBit.exit.thread:             ; preds = %17, %ACLGetSelector
   %44 = load ptr, ptr %43, align 8, !tbaa !168
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %46 = load ptr, ptr %45, align 8, !tbaa !144
-  %47 = tail call i32 @strcasecmp(ptr noundef %46, ptr noundef nonnull %39) #30
+  %47 = tail call i32 @strcasecmp(ptr noundef %46, ptr noundef nonnull %39) #29
   %.not105 = icmp eq i32 %47, 0
   %48 = add nuw nsw i64 %.094, 1
   br i1 %.not105, label %.loopexit138, label %37
@@ -4940,7 +4940,7 @@ ACLGetSelectorCommandBit.exit.thread:             ; preds = %17, %ACLGetSelector
   br i1 %.not107, label %50, label %.loopexit
 
 50:                                               ; preds = %.loopexit138
-  %51 = tail call i32 @doesCommandHaveKeys(ptr noundef nonnull %1) #26
+  %51 = tail call i32 @doesCommandHaveKeys(ptr noundef nonnull %1) #25
   %.not108 = icmp eq i32 %51, 0
   br i1 %.not108, label %.loopexit, label %52
 
@@ -4956,7 +4956,7 @@ ACLGetSelectorCommandBit.exit.thread:             ; preds = %17, %ACLGetSelector
   store i32 6, ptr %.sroa.2.0..sroa_idx, align 4, !tbaa !102
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.3.0..sroa_idx, i8 0, i64 56, i1 false)
-  %56 = tail call i32 @getKeysFromCommandWithSpecs(ptr noundef nonnull %1, ptr noundef %2, i32 noundef %3, i32 noundef 0, ptr noundef nonnull %55) #26
+  %56 = tail call i32 @getKeysFromCommandWithSpecs(ptr noundef nonnull %1, ptr noundef %2, i32 noundef %3, i32 noundef 0, ptr noundef nonnull %55) #25
   store i32 1, ptr %5, align 8, !tbaa !171
   br label %57
 
@@ -5045,7 +5045,7 @@ sdslen.exit:                                      ; preds = %.lr.ph, %76, %79, %
   br i1 %.not112, label %101, label %.critedge
 
 101:                                              ; preds = %.loopexit
-  %102 = tail call i32 @doesCommandHaveChannelsWithFlags(ptr noundef %1, i32 noundef 20480) #26
+  %102 = tail call i32 @doesCommandHaveChannelsWithFlags(ptr noundef %1, i32 noundef 20480) #25
   %.not113 = icmp eq i32 %102, 0
   br i1 %.not113, label %.critedge, label %103
 
@@ -5054,7 +5054,7 @@ sdslen.exit:                                      ; preds = %.lr.ph, %76, %79, %
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %7, i8 0, i64 64, i1 false)
   %104 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 6, ptr %104, align 4
-  %105 = call i32 @getChannelsFromCommand(ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %7) #26
+  %105 = call i32 @getChannelsFromCommand(ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %7) #25
   %106 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %107 = load ptr, ptr %106, align 8, !tbaa !179
   %108 = load i32, ptr %7, align 8, !tbaa !180
@@ -5143,14 +5143,14 @@ sdslen.exit118._crit_edge:                        ; preds = %sdslen.exit118
   br i1 %153, label %111, label %.thread134, !llvm.loop !185
 
 .thread134:                                       ; preds = %150, %103
-  call void @getKeysFreeResult(ptr noundef nonnull %7) #26
+  call void @getKeysFreeResult(ptr noundef nonnull %7) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.critedge
 
 154:                                              ; preds = %sdslen.exit118
   %155 = load i32, ptr %113, align 4, !tbaa !182
   store i32 %155, ptr %4, align 4, !tbaa !102
-  call void @getKeysFreeResult(ptr noundef nonnull %7) #26
+  call void @getKeysFreeResult(ptr noundef nonnull %7) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.critedge
 
@@ -5169,7 +5169,7 @@ define dso_local range(i32 0, 5) i32 @ACLUserCheckChannelPerm(ptr noundef readon
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8, !tbaa !79
-  call void @listRewind(ptr noundef %8, ptr noundef nonnull %4) #26
+  call void @listRewind(ptr noundef %8, ptr noundef nonnull %4) #25
   %9 = getelementptr inbounds i8, ptr %1, i64 -1
   %10 = getelementptr inbounds i8, ptr %1, i64 -17
   %11 = getelementptr inbounds i8, ptr %1, i64 -9
@@ -5178,7 +5178,7 @@ define dso_local range(i32 0, 5) i32 @ACLUserCheckChannelPerm(ptr noundef readon
   br label %14
 
 14:                                               ; preds = %sdslen.exit, %6
-  %15 = call ptr @listNext(ptr noundef nonnull %4) #26
+  %15 = call ptr @listNext(ptr noundef nonnull %4) #25
   %.not = icmp eq ptr %15, null
   br i1 %.not, label %.critedge, label %16
 
@@ -5245,8 +5245,8 @@ sdslen.exit:                                      ; preds = %21, %27, %30, %33, 
 define internal fastcc range(i32 0, 5) i32 @ACLCheckChannelAgainstList(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca %struct.listIter, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  call void @listRewind(ptr noundef %0, ptr noundef nonnull %5) #26
-  %6 = call ptr @listNext(ptr noundef nonnull %5) #26
+  call void @listRewind(ptr noundef %0, ptr noundef nonnull %5) #25
+  %6 = call ptr @listNext(ptr noundef nonnull %5) #25
   %.not19 = icmp eq ptr %6, null
   br i1 %.not19, label %._crit_edge, label %.lr.ph
 
@@ -5301,12 +5301,12 @@ define internal fastcc range(i32 0, 5) i32 @ACLCheckChannelAgainstList(ptr nound
 sdslen.exit.us:                                   ; preds = %29, %25, %21, %17, %14, %.lr.ph.split.us
   %.0.i.us = phi i64 [ %16, %14 ], [ %31, %29 ], [ %28, %25 ], [ %24, %21 ], [ %20, %17 ], [ 0, %.lr.ph.split.us ]
   %32 = trunc i64 %.0.i.us to i32
-  %33 = call i32 @stringmatchlen(ptr noundef nonnull %9, i32 noundef %32, ptr noundef %1, i32 noundef %2, i32 noundef 0) #26
+  %33 = call i32 @stringmatchlen(ptr noundef nonnull %9, i32 noundef %32, ptr noundef %1, i32 noundef %2, i32 noundef 0) #25
   %.not16.us = icmp eq i32 %33, 0
   br i1 %.not16.us, label %.critedge18.us, label %.critedge._crit_edge, !llvm.loop !187
 
 .critedge18.us:                                   ; preds = %sdslen.exit.us
-  %34 = call ptr @listNext(ptr noundef nonnull %5) #26
+  %34 = call ptr @listNext(ptr noundef nonnull %5) #25
   %.not.us = icmp eq ptr %34, null
   br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us
 
@@ -5314,12 +5314,12 @@ sdslen.exit.us:                                   ; preds = %29, %25, %21, %17, 
   %35 = phi ptr [ %39, %.critedge18 ], [ %6, %.lr.ph ]
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %37 = load ptr, ptr %36, align 8, !tbaa !85
-  %38 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(1) %1) #30
+  %38 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(1) %1) #29
   %.not15 = icmp eq i32 %38, 0
   br i1 %.not15, label %._crit_edge21, label %.critedge18, !llvm.loop !187
 
 .critedge18:                                      ; preds = %.lr.ph.split
-  %39 = call ptr @listNext(ptr noundef nonnull %5) #26
+  %39 = call ptr @listNext(ptr noundef nonnull %5) #25
   %.not = icmp eq ptr %39, null
   br i1 %.not, label %._crit_edge, label %.lr.ph.split
 
@@ -5351,8 +5351,8 @@ define dso_local i32 @ACLCheckAllUserCommandPerm(ptr noundef readonly captures(a
   store i32 0, ptr %8, align 8, !tbaa !171
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load ptr, ptr %11, align 8, !tbaa !79
-  call void @listRewind(ptr noundef %12, ptr noundef nonnull %6) #26
-  %13 = call ptr @listNext(ptr noundef nonnull %6) #26
+  call void @listRewind(ptr noundef %12, ptr noundef nonnull %6) #25
+  %13 = call ptr @listNext(ptr noundef nonnull %6) #25
   %.not36 = icmp eq ptr %13, null
   br i1 %.not36, label %._crit_edge.thread, label %.lr.ph
 
@@ -5377,7 +5377,7 @@ define dso_local i32 @ACLCheckAllUserCommandPerm(ptr noundef readonly captures(a
 
 20:                                               ; preds = %18
   %21 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  call void @getKeysFreeResult(ptr noundef nonnull %21) #26
+  call void @getKeysFreeResult(ptr noundef nonnull %21) #25
   br label %cleanupACLKeyResultCache.exit31
 
 22:                                               ; preds = %.lr.ph
@@ -5397,7 +5397,7 @@ define dso_local i32 @ACLCheckAllUserCommandPerm(ptr noundef readonly captures(a
 cleanupACLKeyResultCache.exit:                    ; preds = %24, %27
   %.123 = phi i32 [ %.02237, %24 ], [ %17, %27 ]
   %.120 = phi i32 [ %.01938, %24 ], [ %.pre, %27 ]
-  %28 = call ptr @listNext(ptr noundef nonnull %6) #26
+  %28 = call ptr @listNext(ptr noundef nonnull %6) #25
   %.not = icmp eq ptr %28, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !188
 
@@ -5409,7 +5409,7 @@ cleanupACLKeyResultCache.exit:                    ; preds = %24, %27
 
 30:                                               ; preds = %._crit_edge
   %31 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  call void @getKeysFreeResult(ptr noundef nonnull %31) #26
+  call void @getKeysFreeResult(ptr noundef nonnull %31) #25
   br label %cleanupACLKeyResultCache.exit31
 
 cleanupACLKeyResultCache.exit31:                  ; preds = %._crit_edge.thread, %18, %20, %30, %._crit_edge
@@ -5446,11 +5446,11 @@ define dso_local ptr @getUpcomingChannelList(ptr noundef readonly captures(none)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8, !tbaa !79
-  call void @listRewind(ptr noundef %6, ptr noundef nonnull %3) #26
+  call void @listRewind(ptr noundef %6, ptr noundef nonnull %3) #25
   br label %7
 
 7:                                                ; preds = %9, %2
-  %8 = call ptr @listNext(ptr noundef nonnull %3) #26
+  %8 = call ptr @listNext(ptr noundef nonnull %3) #25
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %14, label %9
 
@@ -5463,15 +5463,15 @@ define dso_local ptr @getUpcomingChannelList(ptr noundef readonly captures(none)
   br i1 %.not38, label %7, label %.thread41, !llvm.loop !190
 
 14:                                               ; preds = %7
-  %15 = call ptr @listCreate() #26
+  %15 = call ptr @listCreate() #25
   %16 = load ptr, ptr %5, align 8, !tbaa !79
-  call void @listRewind(ptr noundef %16, ptr noundef nonnull %3) #26
-  %17 = call ptr @listNext(ptr noundef nonnull %3) #26
+  call void @listRewind(ptr noundef %16, ptr noundef nonnull %3) #25
+  %17 = call ptr @listNext(ptr noundef nonnull %3) #25
   %.not3247 = icmp eq ptr %17, null
   br i1 %.not3247, label %._crit_edge, label %.lr.ph48
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph48
-  %18 = call ptr @listNext(ptr noundef nonnull %3) #26
+  %18 = call ptr @listNext(ptr noundef nonnull %3) #25
   %.not32 = icmp eq ptr %18, null
   br i1 %.not32, label %._crit_edge, label %.lr.ph48, !llvm.loop !191
 
@@ -5481,8 +5481,8 @@ define dso_local ptr @getUpcomingChannelList(ptr noundef readonly captures(none)
   %21 = load ptr, ptr %20, align 8, !tbaa !85
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 152
   %23 = load ptr, ptr %22, align 8, !tbaa !65
-  call void @listRewind(ptr noundef %23, ptr noundef nonnull %4) #26
-  %24 = call ptr @listNext(ptr noundef nonnull %4) #26
+  call void @listRewind(ptr noundef %23, ptr noundef nonnull %4) #25
+  %24 = call ptr @listNext(ptr noundef nonnull %4) #25
   %.not3746 = icmp eq ptr %24, null
   br i1 %.not3746, label %.loopexit, label %.lr.ph
 
@@ -5490,16 +5490,16 @@ define dso_local ptr @getUpcomingChannelList(ptr noundef readonly captures(none)
   %25 = phi ptr [ %29, %.lr.ph ], [ %24, %.lr.ph48 ]
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = load ptr, ptr %26, align 8, !tbaa !85
-  %28 = call ptr @listAddNodeTail(ptr noundef %15, ptr noundef %27) #26
-  %29 = call ptr @listNext(ptr noundef nonnull %4) #26
+  %28 = call ptr @listAddNodeTail(ptr noundef %15, ptr noundef %27) #25
+  %29 = call ptr @listNext(ptr noundef nonnull %4) #25
   %.not37 = icmp eq ptr %29, null
   br i1 %.not37, label %.loopexit, label %.lr.ph, !llvm.loop !192
 
 ._crit_edge:                                      ; preds = %.loopexit, %14
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %31 = load ptr, ptr %30, align 8, !tbaa !79
-  call void @listRewind(ptr noundef %31, ptr noundef nonnull %3) #26
-  %32 = call ptr @listNext(ptr noundef nonnull %3) #26
+  call void @listRewind(ptr noundef %31, ptr noundef nonnull %3) #25
+  %32 = call ptr @listNext(ptr noundef nonnull %3) #25
   %.not52 = icmp eq ptr %32, null
   br i1 %.not52, label %._crit_edge51, label %.lr.ph50
 
@@ -5515,32 +5515,32 @@ define dso_local ptr @getUpcomingChannelList(ptr noundef readonly captures(none)
 38:                                               ; preds = %.lr.ph50
   %39 = getelementptr inbounds nuw i8, ptr %35, i64 152
   %40 = load ptr, ptr %39, align 8, !tbaa !65
-  call void @listRewind(ptr noundef %40, ptr noundef nonnull %4) #26
+  call void @listRewind(ptr noundef %40, ptr noundef nonnull %4) #25
   br label %41
 
 41:                                               ; preds = %43, %38
-  %42 = call ptr @listNext(ptr noundef nonnull %4) #26
+  %42 = call ptr @listNext(ptr noundef nonnull %4) #25
   %.not34 = icmp eq ptr %42, null
   br i1 %.not34, label %48, label %43
 
 43:                                               ; preds = %41
   %44 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %45 = load ptr, ptr %44, align 8, !tbaa !85
-  %46 = call ptr @listSearchKey(ptr noundef %15, ptr noundef %45) #26
+  %46 = call ptr @listSearchKey(ptr noundef %15, ptr noundef %45) #25
   %.not35 = icmp eq ptr %46, null
   br i1 %.not35, label %._crit_edge51.thread61, label %41, !llvm.loop !193
 
 ._crit_edge51.thread61:                           ; preds = %43
-  %47 = call ptr @listNext(ptr noundef nonnull %3) #26
+  %47 = call ptr @listNext(ptr noundef nonnull %3) #25
   br label %.thread41
 
 48:                                               ; preds = %41
-  %49 = call ptr @listNext(ptr noundef nonnull %3) #26
+  %49 = call ptr @listNext(ptr noundef nonnull %3) #25
   %.not64 = icmp eq ptr %49, null
   br i1 %.not64, label %._crit_edge51, label %.lr.ph50
 
 ._crit_edge51:                                    ; preds = %48, %._crit_edge
-  call void @listRelease(ptr noundef %15) #26
+  call void @listRelease(ptr noundef %15) #25
   br label %.thread41
 
 .thread41:                                        ; preds = %9, %.lr.ph50, %._crit_edge51.thread61, %._crit_edge51
@@ -5555,26 +5555,26 @@ define dso_local range(i32 0, 2) i32 @ACLShouldKillPubsubClient(ptr noundef %0, 
   %3 = alloca %struct.listIter, align 8
   %4 = alloca %struct.listIter, align 8
   %5 = alloca %struct.listIter, align 8
-  %6 = tail call i32 @getClientType(ptr noundef %0) #26
+  %6 = tail call i32 @getClientType(ptr noundef %0) #25
   %7 = icmp eq i32 %6, 2
   br i1 %7, label %8, label %.critedge52
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 576
   %10 = load ptr, ptr %9, align 8, !tbaa !194
-  %11 = tail call ptr @dictGetIterator(ptr noundef %10) #26
-  %12 = tail call ptr @dictNext(ptr noundef %11) #26
+  %11 = tail call ptr @dictGetIterator(ptr noundef %10) #25
+  %12 = tail call ptr @dictNext(ptr noundef %11) #25
   %.not89 = icmp eq ptr %12, null
   br i1 %.not89, label %._crit_edge, label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %8, %._crit_edge21.i
   %13 = phi ptr [ %23, %._crit_edge21.i ], [ %12, %8 ]
-  %14 = call ptr @dictGetKey(ptr noundef nonnull %13) #26
+  %14 = call ptr @dictGetKey(ptr noundef nonnull %13) #25
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8, !tbaa !144
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  call void @listRewind(ptr noundef %1, ptr noundef nonnull %5) #26
-  %17 = call ptr @listNext(ptr noundef nonnull %5) #26
+  call void @listRewind(ptr noundef %1, ptr noundef nonnull %5) #25
+  %17 = call ptr @listNext(ptr noundef nonnull %5) #25
   %.not19.i = icmp eq ptr %17, null
   br i1 %.not19.i, label %.critedge48.critedge, label %.lr.ph.split.i
 
@@ -5582,33 +5582,33 @@ sdslen.exit:                                      ; preds = %8, %._crit_edge21.i
   %18 = phi ptr [ %22, %.critedge18.i ], [ %17, %sdslen.exit ]
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %20 = load ptr, ptr %19, align 8, !tbaa !85
-  %21 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %20, ptr noundef nonnull dereferenceable(1) %16) #30
+  %21 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %20, ptr noundef nonnull dereferenceable(1) %16) #29
   %.not15.i = icmp eq i32 %21, 0
   br i1 %.not15.i, label %._crit_edge21.i, label %.critedge18.i, !llvm.loop !187
 
 .critedge18.i:                                    ; preds = %.lr.ph.split.i
-  %22 = call ptr @listNext(ptr noundef nonnull %5) #26
+  %22 = call ptr @listNext(ptr noundef nonnull %5) #25
   %.not.i = icmp eq ptr %22, null
   br i1 %.not.i, label %.critedge48.critedge, label %.lr.ph.split.i
 
 ._crit_edge21.i:                                  ; preds = %.lr.ph.split.i
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %23 = call ptr @dictNext(ptr noundef %11) #26
+  %23 = call ptr @dictNext(ptr noundef %11) #25
   %.not = icmp eq ptr %23, null
   br i1 %.not, label %._crit_edge, label %sdslen.exit, !llvm.loop !195
 
 ._crit_edge:                                      ; preds = %._crit_edge21.i, %8
-  call void @dictReleaseIterator(ptr noundef %11) #26
+  call void @dictReleaseIterator(ptr noundef %11) #25
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 568
   %25 = load ptr, ptr %24, align 8, !tbaa !196
-  %26 = call ptr @dictGetIterator(ptr noundef %25) #26
-  %27 = call ptr @dictNext(ptr noundef %26) #26
+  %26 = call ptr @dictGetIterator(ptr noundef %25) #25
+  %27 = call ptr @dictNext(ptr noundef %26) #25
   %.not4390 = icmp eq ptr %27, null
   br i1 %.not4390, label %._crit_edge92, label %.lr.ph
 
 .lr.ph:                                           ; preds = %._crit_edge, %.critedge._crit_edge.i
   %28 = phi ptr [ %84, %.critedge._crit_edge.i ], [ %27, %._crit_edge ]
-  %29 = call ptr @dictGetKey(ptr noundef nonnull %28) #26
+  %29 = call ptr @dictGetKey(ptr noundef nonnull %28) #25
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load ptr, ptr %30, align 8, !tbaa !144
   %32 = getelementptr inbounds i8, ptr %31, i64 -1
@@ -5655,8 +5655,8 @@ sdslen.exit54:                                    ; preds = %.lr.ph, %36, %39, %
   %.0.i53 = phi i64 [ %53, %51 ], [ %38, %36 ], [ %42, %39 ], [ %46, %43 ], [ %50, %47 ], [ 0, %.lr.ph ]
   %54 = trunc i64 %.0.i53 to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  call void @listRewind(ptr noundef %1, ptr noundef nonnull %4) #26
-  %55 = call ptr @listNext(ptr noundef nonnull %4) #26
+  call void @listRewind(ptr noundef %1, ptr noundef nonnull %4) #25
+  %55 = call ptr @listNext(ptr noundef nonnull %4) #25
   %.not19.i55 = icmp eq ptr %55, null
   br i1 %.not19.i55, label %ACLCheckChannelAgainstList.exit58, label %.lr.ph.split.us.i
 
@@ -5707,18 +5707,18 @@ sdslen.exit54:                                    ; preds = %.lr.ph, %36, %39, %
 sdslen.exit.us.i:                                 ; preds = %78, %74, %70, %66, %63, %.lr.ph.split.us.i
   %.0.i.us.i = phi i64 [ %65, %63 ], [ %80, %78 ], [ %77, %74 ], [ %73, %70 ], [ %69, %66 ], [ 0, %.lr.ph.split.us.i ]
   %81 = trunc i64 %.0.i.us.i to i32
-  %82 = call i32 @stringmatchlen(ptr noundef nonnull %58, i32 noundef %81, ptr noundef %31, i32 noundef %54, i32 noundef 0) #26
+  %82 = call i32 @stringmatchlen(ptr noundef nonnull %58, i32 noundef %81, ptr noundef %31, i32 noundef %54, i32 noundef 0) #25
   %.not16.us.i = icmp eq i32 %82, 0
   br i1 %.not16.us.i, label %.critedge18.us.i, label %.critedge._crit_edge.i, !llvm.loop !187
 
 .critedge18.us.i:                                 ; preds = %sdslen.exit.us.i
-  %83 = call ptr @listNext(ptr noundef nonnull %4) #26
+  %83 = call ptr @listNext(ptr noundef nonnull %4) #25
   %.not.us.i = icmp eq ptr %83, null
   br i1 %.not.us.i, label %ACLCheckChannelAgainstList.exit58, label %.lr.ph.split.us.i
 
 .critedge._crit_edge.i:                           ; preds = %sdslen.exit.us.i
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %84 = call ptr @dictNext(ptr noundef %26) #26
+  %84 = call ptr @dictNext(ptr noundef %26) #25
   %.not43 = icmp eq ptr %84, null
   br i1 %.not43, label %._crit_edge92, label %.lr.ph
 
@@ -5731,17 +5731,17 @@ ACLCheckChannelAgainstList.exit58:                ; preds = %sdslen.exit54, %.cr
   br label %.critedge52.sink.split
 
 ._crit_edge92:                                    ; preds = %.critedge._crit_edge.i, %._crit_edge
-  call void @dictReleaseIterator(ptr noundef %26) #26
+  call void @dictReleaseIterator(ptr noundef %26) #25
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 584
   %86 = load ptr, ptr %85, align 8, !tbaa !197
-  %87 = call ptr @dictGetIterator(ptr noundef %86) #26
-  %88 = call ptr @dictNext(ptr noundef %87) #26
+  %87 = call ptr @dictGetIterator(ptr noundef %86) #25
+  %88 = call ptr @dictNext(ptr noundef %87) #25
   %.not4693 = icmp eq ptr %88, null
   br i1 %.not4693, label %.critedge52.sink.split, label %.lr.ph95
 
 .lr.ph95:                                         ; preds = %._crit_edge92, %.critedge._crit_edge.i67
   %89 = phi ptr [ %145, %.critedge._crit_edge.i67 ], [ %88, %._crit_edge92 ]
-  %90 = call ptr @dictGetKey(ptr noundef nonnull %89) #26
+  %90 = call ptr @dictGetKey(ptr noundef nonnull %89) #25
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 8
   %92 = load ptr, ptr %91, align 8, !tbaa !144
   %93 = getelementptr inbounds i8, ptr %92, i64 -1
@@ -5788,8 +5788,8 @@ sdslen.exit60:                                    ; preds = %.lr.ph95, %97, %100
   %.0.i59 = phi i64 [ %114, %112 ], [ %99, %97 ], [ %103, %100 ], [ %107, %104 ], [ %111, %108 ], [ 0, %.lr.ph95 ]
   %115 = trunc i64 %.0.i59 to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  call void @listRewind(ptr noundef %1, ptr noundef nonnull %3) #26
-  %116 = call ptr @listNext(ptr noundef nonnull %3) #26
+  call void @listRewind(ptr noundef %1, ptr noundef nonnull %3) #25
+  %116 = call ptr @listNext(ptr noundef nonnull %3) #25
   %.not19.i61 = icmp eq ptr %116, null
   br i1 %.not19.i61, label %ACLCheckChannelAgainstList.exit71, label %.lr.ph.split.us.i63
 
@@ -5840,18 +5840,18 @@ sdslen.exit60:                                    ; preds = %.lr.ph95, %97, %100
 sdslen.exit.us.i64:                               ; preds = %139, %135, %131, %127, %124, %.lr.ph.split.us.i63
   %.0.i.us.i65 = phi i64 [ %126, %124 ], [ %141, %139 ], [ %138, %135 ], [ %134, %131 ], [ %130, %127 ], [ 0, %.lr.ph.split.us.i63 ]
   %142 = trunc i64 %.0.i.us.i65 to i32
-  %143 = call i32 @stringmatchlen(ptr noundef nonnull %119, i32 noundef %142, ptr noundef %92, i32 noundef %115, i32 noundef 0) #26
+  %143 = call i32 @stringmatchlen(ptr noundef nonnull %119, i32 noundef %142, ptr noundef %92, i32 noundef %115, i32 noundef 0) #25
   %.not16.us.i66 = icmp eq i32 %143, 0
   br i1 %.not16.us.i66, label %.critedge18.us.i69, label %.critedge._crit_edge.i67, !llvm.loop !187
 
 .critedge18.us.i69:                               ; preds = %sdslen.exit.us.i64
-  %144 = call ptr @listNext(ptr noundef nonnull %3) #26
+  %144 = call ptr @listNext(ptr noundef nonnull %3) #25
   %.not.us.i70 = icmp eq ptr %144, null
   br i1 %.not.us.i70, label %ACLCheckChannelAgainstList.exit71, label %.lr.ph.split.us.i63
 
 .critedge._crit_edge.i67:                         ; preds = %sdslen.exit.us.i64
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %145 = call ptr @dictNext(ptr noundef %87) #26
+  %145 = call ptr @dictNext(ptr noundef %87) #25
   %.not46 = icmp eq ptr %145, null
   br i1 %.not46, label %.critedge52.sink.split, label %.lr.ph95
 
@@ -5862,7 +5862,7 @@ ACLCheckChannelAgainstList.exit71:                ; preds = %sdslen.exit60, %.cr
 .critedge52.sink.split:                           ; preds = %.critedge._crit_edge.i67, %._crit_edge92, %ACLCheckChannelAgainstList.exit58, %.critedge48.critedge, %ACLCheckChannelAgainstList.exit71
   %.sink = phi ptr [ %26, %ACLCheckChannelAgainstList.exit58 ], [ %87, %ACLCheckChannelAgainstList.exit71 ], [ %11, %.critedge48.critedge ], [ %87, %._crit_edge92 ], [ %87, %.critedge._crit_edge.i67 ]
   %.1.ph = phi i32 [ 1, %ACLCheckChannelAgainstList.exit58 ], [ 1, %ACLCheckChannelAgainstList.exit71 ], [ 1, %.critedge48.critedge ], [ 0, %._crit_edge92 ], [ 0, %.critedge._crit_edge.i67 ]
-  call void @dictReleaseIterator(ptr noundef %.sink) #26
+  call void @dictReleaseIterator(ptr noundef %.sink) #25
   br label %.critedge52
 
 .critedge52:                                      ; preds = %.critedge52.sink.split, %2
@@ -5877,7 +5877,7 @@ declare ptr @dictGetKey(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local void @ACLKillPubsubClientsIfNeeded(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.listIter, align 8
-  %4 = tail call i32 @pubsubTotalSubscriptions() #26
+  %4 = tail call i32 @pubsubTotalSubscriptions() #25
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %21, label %6
 
@@ -5889,8 +5889,8 @@ define dso_local void @ACLKillPubsubClientsIfNeeded(ptr noundef readonly capture
 8:                                                ; preds = %6
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 1432), align 8, !tbaa !92
-  call void @listRewind(ptr noundef %9, ptr noundef nonnull %3) #26
-  %10 = call ptr @listNext(ptr noundef nonnull %3) #26
+  call void @listRewind(ptr noundef %9, ptr noundef nonnull %3) #25
+  %10 = call ptr @listNext(ptr noundef nonnull %3) #25
   %.not1114 = icmp eq ptr %10, null
   br i1 %.not1114, label %._crit_edge, label %.lr.ph
 
@@ -5909,16 +5909,16 @@ define dso_local void @ACLKillPubsubClientsIfNeeded(ptr noundef readonly capture
   br i1 %.not13, label %19, label %18
 
 18:                                               ; preds = %16
-  call void @deauthenticateAndCloseClient(ptr noundef nonnull %13) #26
+  call void @deauthenticateAndCloseClient(ptr noundef nonnull %13) #25
   br label %19
 
 19:                                               ; preds = %16, %18, %.lr.ph
-  %20 = call ptr @listNext(ptr noundef nonnull %3) #26
+  %20 = call ptr @listNext(ptr noundef nonnull %3) #25
   %.not11 = icmp eq ptr %20, null
   br i1 %.not11, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %19, %8
-  call void @listRelease(ptr noundef nonnull %7) #26
+  call void @listRelease(ptr noundef nonnull %7) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %21
 
@@ -5933,7 +5933,7 @@ define dso_local ptr @ACLMergeSelectorArguments(ptr noundef readonly captures(no
   store i32 0, ptr %2, align 4, !tbaa !102
   %5 = sext i32 %1 to i64
   %6 = shl nsw i64 %5, 3
-  %7 = tail call noalias ptr @zmalloc(i64 noundef %6) #27
+  %7 = tail call noalias ptr @zmalloc(i64 noundef %6) #26
   %8 = icmp sgt i32 %1, 0
   br i1 %8, label %.lr.ph.preheader, label %._crit_edge.thread
 
@@ -6014,12 +6014,12 @@ sdslen.exit:                                      ; preds = %16, %21, %24, %28, 
   br i1 %.not47, label %78, label %42
 
 42:                                               ; preds = %sdslen.exit
-  %43 = tail call ptr @sdsdup(ptr noundef nonnull %12) #26
+  %43 = tail call ptr @sdsdup(ptr noundef nonnull %12) #25
   %44 = trunc nuw nsw i64 %indvars.iv to i32
   br label %84
 
 45:                                               ; preds = %.lr.ph
-  %46 = tail call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef %.04252, ptr noundef nonnull @.str.90, ptr noundef %12) #26
+  %46 = tail call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef %.04252, ptr noundef nonnull @.str.90, ptr noundef %12) #25
   %47 = getelementptr inbounds i8, ptr %12, i64 -1
   %48 = load i8, ptr %47, align 1, !tbaa !19
   %49 = zext i8 %48 to i32
@@ -6078,7 +6078,7 @@ sdslen.exit50:                                    ; preds = %45, %51, %54, %58, 
   br label %84
 
 78:                                               ; preds = %13, %sdslen.exit
-  %79 = tail call ptr @sdsdup(ptr noundef nonnull %12) #26
+  %79 = tail call ptr @sdsdup(ptr noundef nonnull %12) #25
   %80 = load i32, ptr %2, align 4, !tbaa !102
   %81 = sext i32 %80 to i64
   %82 = getelementptr inbounds ptr, ptr %7, i64 %81
@@ -6095,8 +6095,8 @@ sdslen.exit50:                                    ; preds = %45, %51, %54, %58, 
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !199
 
 ._crit_edge58:                                    ; preds = %.lr.ph57, %.preheader
-  tail call void @zfree(ptr noundef %7) #26
-  tail call void @sdsfree(ptr noundef %.1) #26
+  tail call void @zfree(ptr noundef %7) #25
+  tail call void @sdsfree(ptr noundef %.1) #25
   %.not46 = icmp eq ptr %3, null
   br i1 %.not46, label %._crit_edge.thread, label %90
 
@@ -6104,7 +6104,7 @@ sdslen.exit50:                                    ; preds = %45, %51, %54, %58, 
   %indvars.iv60 = phi i64 [ %indvars.iv.next61, %.lr.ph57 ], [ 0, %.preheader ]
   %85 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv60
   %86 = load ptr, ptr %85, align 8, !tbaa !29
-  tail call void @sdsfree(ptr noundef %86) #26
+  tail call void @sdsfree(ptr noundef %86) #25
   %indvars.iv.next61 = add nuw nsw i64 %indvars.iv60, 1
   %87 = load i32, ptr %2, align 4, !tbaa !102
   %88 = sext i32 %87 to i64
@@ -6130,8 +6130,8 @@ define dso_local ptr @ACLStringSetUser(ptr noundef captures(address) %0, ptr nou
   br i1 %9, label %11, label %10, !prof !119
 
 10:                                               ; preds = %4
-  tail call void @_serverAssert(ptr noundef nonnull @.str.91, ptr noundef nonnull @.str.22, i32 noundef 2094) #26
-  tail call void @abort() #28
+  tail call void @_serverAssert(ptr noundef nonnull @.str.91, ptr noundef nonnull @.str.22, i32 noundef 2094) #25
+  tail call void @abort() #27
   unreachable
 
 11:                                               ; preds = %4
@@ -6143,12 +6143,12 @@ define dso_local ptr @ACLStringSetUser(ptr noundef captures(address) %0, ptr nou
   br i1 %.not, label %13, label %20
 
 13:                                               ; preds = %11
-  %14 = call ptr @sdsempty() #26
+  %14 = call ptr @sdsempty() #25
   %15 = load i32, ptr %6, align 4, !tbaa !102
   %16 = sext i32 %15 to i64
   %17 = getelementptr inbounds ptr, ptr %2, i64 %16
   %18 = load ptr, ptr %17, align 8, !tbaa !29
-  %19 = call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef %14, ptr noundef nonnull @.str.92, ptr noundef %18) #26
+  %19 = call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef %14, ptr noundef nonnull @.str.92, ptr noundef %18) #25
   br label %142
 
 20:                                               ; preds = %11
@@ -6158,17 +6158,17 @@ define dso_local ptr @ACLStringSetUser(ptr noundef captures(address) %0, ptr nou
 22:                                               ; preds = %20
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %24 = load ptr, ptr %23, align 8, !tbaa !90
-  call void @listRelease(ptr noundef %24) #26
+  call void @listRelease(ptr noundef %24) #25
   %25 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %26 = load ptr, ptr %25, align 8, !tbaa !79
-  call void @listRelease(ptr noundef %26) #26
+  call void @listRelease(ptr noundef %26) #25
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %28 = load ptr, ptr %27, align 8, !tbaa !90
-  %29 = call ptr @listDup(ptr noundef %28) #26
+  %29 = call ptr @listDup(ptr noundef %28) #25
   store ptr %29, ptr %23, align 8, !tbaa !90
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %31 = load ptr, ptr %30, align 8, !tbaa !79
-  %32 = call ptr @listDup(ptr noundef %31) #26
+  %32 = call ptr @listDup(ptr noundef %31) #25
   store ptr %32, ptr %25, align 8, !tbaa !79
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %34 = load i32, ptr %33, align 8, !tbaa !89
@@ -6180,7 +6180,7 @@ define dso_local ptr @ACLStringSetUser(ptr noundef captures(address) %0, ptr nou
   br i1 %.not.i, label %39, label %38
 
 38:                                               ; preds = %22
-  call void @decrRefCount(ptr noundef nonnull %37) #26
+  call void @decrRefCount(ptr noundef nonnull %37) #25
   br label %39
 
 39:                                               ; preds = %38, %22
@@ -6191,7 +6191,7 @@ define dso_local ptr @ACLStringSetUser(ptr noundef captures(address) %0, ptr nou
   br i1 %.not15.i, label %ACLCopyUser.exit, label %42
 
 42:                                               ; preds = %39
-  call void @incrRefCount(ptr noundef nonnull %41) #26
+  call void @incrRefCount(ptr noundef nonnull %41) #25
   br label %ACLCopyUser.exit
 
 ACLCopyUser.exit:                                 ; preds = %42, %39, %20
@@ -6260,7 +6260,7 @@ sdslen.exit:                                      ; preds = %.lr.ph, %52, %55, %
 
 71:                                               ; preds = %sdslen.exit
   %72 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv
-  %73 = tail call ptr @__errno_location() #29
+  %73 = tail call ptr @__errno_location() #28
   %74 = load i32, ptr %73, align 4, !tbaa !102
   switch i32 %74, label %.fold.split.i [
     i32 2, label %82
@@ -6299,9 +6299,9 @@ sdslen.exit:                                      ; preds = %.lr.ph, %52, %55, %
 
 82:                                               ; preds = %.fold.split.i, %81, %80, %79, %78, %77, %76, %75, %71
   %.0.i47 = phi ptr [ @.str.80, %71 ], [ @.str.81, %75 ], [ @.str.82, %76 ], [ @.str.83, %77 ], [ @.str.84, %78 ], [ @.str.85, %79 ], [ @.str.86, %80 ], [ @.str.87, %81 ], [ @.str.79, %.fold.split.i ]
-  %83 = call ptr @sdsempty() #26
+  %83 = call ptr @sdsempty() #25
   %84 = load ptr, ptr %72, align 8, !tbaa !29
-  %85 = call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef %83, ptr noundef nonnull @.str.93, ptr noundef %84, ptr noundef nonnull %.0.i47) #26
+  %85 = call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef %83, ptr noundef nonnull @.str.93, ptr noundef %84, ptr noundef nonnull %.0.i47) #25
   br label %ACLCopyUser.exit52
 
 ._crit_edge:                                      ; preds = %45, %ACLCopyUser.exit
@@ -6359,25 +6359,25 @@ sdslen.exit:                                      ; preds = %.lr.ph, %52, %55, %
   br i1 %.not45, label %110, label %111, !prof !202
 
 110:                                              ; preds = %108
-  call void @_serverAssert(ptr noundef nonnull @.str.94, ptr noundef nonnull @.str.22, i32 noundef 2136) #26
-  call void @abort() #28
+  call void @_serverAssert(ptr noundef nonnull @.str.94, ptr noundef nonnull @.str.22, i32 noundef 2136) #25
+  call void @abort() #27
   unreachable
 
 111:                                              ; preds = %.thread, %108
   %.03860 = phi ptr [ %0, %.thread ], [ %109, %108 ]
   %112 = getelementptr inbounds nuw i8, ptr %.03860, i64 16
   %113 = load ptr, ptr %112, align 8, !tbaa !90
-  call void @listRelease(ptr noundef %113) #26
+  call void @listRelease(ptr noundef %113) #25
   %114 = getelementptr inbounds nuw i8, ptr %.03860, i64 24
   %115 = load ptr, ptr %114, align 8, !tbaa !79
-  call void @listRelease(ptr noundef %115) #26
+  call void @listRelease(ptr noundef %115) #25
   %116 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %117 = load ptr, ptr %116, align 8, !tbaa !90
-  %118 = call ptr @listDup(ptr noundef %117) #26
+  %118 = call ptr @listDup(ptr noundef %117) #25
   store ptr %118, ptr %112, align 8, !tbaa !90
   %119 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %120 = load ptr, ptr %119, align 8, !tbaa !79
-  %121 = call ptr @listDup(ptr noundef %120) #26
+  %121 = call ptr @listDup(ptr noundef %120) #25
   store ptr %121, ptr %114, align 8, !tbaa !79
   %122 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %123 = load i32, ptr %122, align 8, !tbaa !89
@@ -6389,7 +6389,7 @@ sdslen.exit:                                      ; preds = %.lr.ph, %52, %55, %
   br i1 %.not.i50, label %128, label %127
 
 127:                                              ; preds = %111
-  call void @decrRefCount(ptr noundef nonnull %126) #26
+  call void @decrRefCount(ptr noundef nonnull %126) #25
   br label %128
 
 128:                                              ; preds = %127, %111
@@ -6400,31 +6400,31 @@ sdslen.exit:                                      ; preds = %.lr.ph, %52, %55, %
   br i1 %.not15.i51, label %ACLCopyUser.exit52, label %131
 
 131:                                              ; preds = %128
-  call void @incrRefCount(ptr noundef nonnull %130) #26
+  call void @incrRefCount(ptr noundef nonnull %130) #25
   br label %ACLCopyUser.exit52
 
 ACLCopyUser.exit52:                               ; preds = %131, %128, %82
   %.04056 = phi ptr [ %85, %82 ], [ null, %128 ], [ null, %131 ]
   %132 = load ptr, ptr %21, align 8, !tbaa !88
-  call void @sdsfree(ptr noundef %132) #26
+  call void @sdsfree(ptr noundef %132) #25
   %133 = getelementptr inbounds nuw i8, ptr %21, i64 32
   %134 = load ptr, ptr %133, align 8, !tbaa !91
   %.not.i53 = icmp eq ptr %134, null
   br i1 %.not.i53, label %ACLFreeUser.exit, label %135
 
 135:                                              ; preds = %ACLCopyUser.exit52
-  call void @decrRefCount(ptr noundef nonnull %134) #26
+  call void @decrRefCount(ptr noundef nonnull %134) #25
   store ptr null, ptr %133, align 8, !tbaa !91
   br label %ACLFreeUser.exit
 
 ACLFreeUser.exit:                                 ; preds = %ACLCopyUser.exit52, %135
   %136 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %137 = load ptr, ptr %136, align 8, !tbaa !90
-  call void @listRelease(ptr noundef %137) #26
+  call void @listRelease(ptr noundef %137) #25
   %138 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %139 = load ptr, ptr %138, align 8, !tbaa !79
-  call void @listRelease(ptr noundef %139) #26
-  call void @zfree(ptr noundef nonnull %21) #26
+  call void @listRelease(ptr noundef %139) #25
+  call void @zfree(ptr noundef nonnull %21) #25
   br i1 %44, label %.lr.ph66.preheader, label %._crit_edge67
 
 .lr.ph66.preheader:                               ; preds = %ACLFreeUser.exit
@@ -6432,14 +6432,14 @@ ACLFreeUser.exit:                                 ; preds = %ACLCopyUser.exit52,
   br label %.lr.ph66
 
 ._crit_edge67:                                    ; preds = %.lr.ph66, %ACLFreeUser.exit
-  call void @zfree(ptr noundef nonnull %12) #26
+  call void @zfree(ptr noundef nonnull %12) #25
   br label %142
 
 .lr.ph66:                                         ; preds = %.lr.ph66.preheader, %.lr.ph66
   %indvars.iv70 = phi i64 [ 0, %.lr.ph66.preheader ], [ %indvars.iv.next71, %.lr.ph66 ]
   %140 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv70
   %141 = load ptr, ptr %140, align 8, !tbaa !29
-  call void @sdsfree(ptr noundef %141) #26
+  call void @sdsfree(ptr noundef %141) #25
   %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
   %exitcond74.not = icmp eq i64 %indvars.iv.next71, %wide.trip.count73
   br i1 %exitcond74.not, label %._crit_edge67, label %.lr.ph66, !llvm.loop !203
@@ -6459,7 +6459,7 @@ define dso_local range(i32 -1, 1) i32 @ACLAppendUserForLoading(ptr noundef reado
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr %0, align 8, !tbaa !29
-  %8 = tail call i32 @strcasecmp(ptr noundef %7, ptr noundef nonnull @.str.95) #30
+  %8 = tail call i32 @strcasecmp(ptr noundef %7, ptr noundef nonnull @.str.95) #29
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %11, label %9
 
@@ -6475,7 +6475,7 @@ define dso_local range(i32 -1, 1) i32 @ACLAppendUserForLoading(ptr noundef reado
   %12 = load ptr, ptr @UsersToLoad, align 8, !tbaa !142
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load ptr, ptr %13, align 8, !tbaa !29
-  %15 = tail call ptr @listSearchKey(ptr noundef %12, ptr noundef %14) #26
+  %15 = tail call ptr @listSearchKey(ptr noundef %12, ptr noundef %14) #25
   %.not54 = icmp eq ptr %15, null
   br i1 %.not54, label %20, label %16
 
@@ -6488,7 +6488,7 @@ define dso_local range(i32 -1, 1) i32 @ACLAppendUserForLoading(ptr noundef reado
   br label %18
 
 18:                                               ; preds = %17, %16
-  %19 = tail call ptr @__errno_location() #29
+  %19 = tail call ptr @__errno_location() #28
   store i32 114, ptr %19, align 4, !tbaa !102
   br label %88
 
@@ -6561,7 +6561,7 @@ sdslen.exit:                                      ; preds = %.lr.ph, %33, %36, %
   br i1 %52, label %53, label %61
 
 53:                                               ; preds = %sdslen.exit
-  %54 = tail call ptr @__errno_location() #29
+  %54 = tail call ptr @__errno_location() #28
   %55 = load i32, ptr %54, align 4, !tbaa !102
   %.not56 = icmp eq i32 %55, 2
   br i1 %.not56, label %61, label %56
@@ -6585,7 +6585,7 @@ sdslen.exit:                                      ; preds = %.lr.ph, %33, %36, %
   %indvars.iv76 = phi i64 [ 0, %.lr.ph72.preheader ], [ %indvars.iv.next77, %.lr.ph72 ]
   %59 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv76
   %60 = load ptr, ptr %59, align 8, !tbaa !29
-  tail call void @sdsfree(ptr noundef %60) #26
+  tail call void @sdsfree(ptr noundef %60) #25
   %indvars.iv.next77 = add nuw nsw i64 %indvars.iv76, 1
   %exitcond80.not = icmp eq i64 %indvars.iv.next77, %wide.trip.count79
   br i1 %exitcond80.not, label %.sink.split, label %.lr.ph72, !llvm.loop !204
@@ -6599,9 +6599,9 @@ sdslen.exit:                                      ; preds = %.lr.ph, %33, %36, %
   %62 = add nsw i32 %26, 2
   %63 = sext i32 %62 to i64
   %64 = shl nsw i64 %63, 3
-  %65 = tail call noalias ptr @zmalloc(i64 noundef %64) #27
+  %65 = tail call noalias ptr @zmalloc(i64 noundef %64) #26
   %66 = load ptr, ptr %13, align 8, !tbaa !29
-  %67 = tail call ptr @sdsdup(ptr noundef %66) #26
+  %67 = tail call ptr @sdsdup(ptr noundef %66) #25
   store ptr %67, ptr %65, align 8, !tbaa !29
   br i1 %.not5863, label %.lr.ph66.preheader, label %._crit_edge
 
@@ -6615,27 +6615,27 @@ sdslen.exit:                                      ; preds = %.lr.ph, %33, %36, %
   %70 = getelementptr i8, ptr %69, i64 8
   store ptr null, ptr %70, align 8, !tbaa !29
   %71 = load ptr, ptr @UsersToLoad, align 8, !tbaa !142
-  %72 = tail call ptr @listAddNodeTail(ptr noundef %71, ptr noundef nonnull %65) #26
+  %72 = tail call ptr @listAddNodeTail(ptr noundef %71, ptr noundef nonnull %65) #25
   %73 = load ptr, ptr %25, align 8, !tbaa !88
-  tail call void @sdsfree(ptr noundef %73) #26
+  tail call void @sdsfree(ptr noundef %73) #25
   %74 = getelementptr inbounds nuw i8, ptr %25, i64 32
   %75 = load ptr, ptr %74, align 8, !tbaa !91
   %.not.i = icmp eq ptr %75, null
   br i1 %.not.i, label %ACLFreeUser.exit, label %76
 
 76:                                               ; preds = %._crit_edge
-  tail call void @decrRefCount(ptr noundef nonnull %75) #26
+  tail call void @decrRefCount(ptr noundef nonnull %75) #25
   store ptr null, ptr %74, align 8, !tbaa !91
   br label %ACLFreeUser.exit
 
 ACLFreeUser.exit:                                 ; preds = %._crit_edge, %76
   %77 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %78 = load ptr, ptr %77, align 8, !tbaa !90
-  tail call void @listRelease(ptr noundef %78) #26
+  tail call void @listRelease(ptr noundef %78) #25
   %79 = getelementptr inbounds nuw i8, ptr %25, i64 24
   %80 = load ptr, ptr %79, align 8, !tbaa !79
-  tail call void @listRelease(ptr noundef %80) #26
-  tail call void @zfree(ptr noundef nonnull %25) #26
+  tail call void @listRelease(ptr noundef %80) #25
+  tail call void @zfree(ptr noundef nonnull %25) #25
   br i1 %.not5863, label %.lr.ph68.preheader, label %.sink.split
 
 .lr.ph68.preheader:                               ; preds = %ACLFreeUser.exit
@@ -6646,7 +6646,7 @@ ACLFreeUser.exit:                                 ; preds = %._crit_edge, %76
   %indvars.iv81 = phi i64 [ 0, %.lr.ph66.preheader ], [ %indvars.iv.next82, %.lr.ph66 ]
   %81 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv81
   %82 = load ptr, ptr %81, align 8, !tbaa !29
-  %83 = tail call ptr @sdsdup(ptr noundef %82) #26
+  %83 = tail call ptr @sdsdup(ptr noundef %82) #25
   %indvars.iv.next82 = add nuw nsw i64 %indvars.iv81, 1
   %84 = getelementptr inbounds nuw ptr, ptr %65, i64 %indvars.iv.next82
   store ptr %83, ptr %84, align 8, !tbaa !29
@@ -6657,14 +6657,14 @@ ACLFreeUser.exit:                                 ; preds = %._crit_edge, %76
   %indvars.iv86 = phi i64 [ 0, %.lr.ph68.preheader ], [ %indvars.iv.next87, %.lr.ph68 ]
   %85 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv86
   %86 = load ptr, ptr %85, align 8, !tbaa !29
-  tail call void @sdsfree(ptr noundef %86) #26
+  tail call void @sdsfree(ptr noundef %86) #25
   %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, 1
   %exitcond90.not = icmp eq i64 %indvars.iv.next87, %wide.trip.count89
   br i1 %exitcond90.not, label %.sink.split, label %.lr.ph68, !llvm.loop !207
 
 .sink.split:                                      ; preds = %.lr.ph72, %.lr.ph68, %ACLFreeUser.exit
   %.1.ph = phi i32 [ 0, %.lr.ph68 ], [ 0, %ACLFreeUser.exit ], [ -1, %.lr.ph72 ]
-  tail call void @zfree(ptr noundef nonnull %23) #26
+  tail call void @zfree(ptr noundef nonnull %23) #25
   br label %87
 
 87:                                               ; preds = %.sink.split, %20
@@ -6683,8 +6683,8 @@ define dso_local range(i32 -1, 1) i32 @ACLLoadConfiguredUsers() local_unnamed_ad
   %2 = alloca %struct.listIter, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = load ptr, ptr @UsersToLoad, align 8, !tbaa !142
-  call void @listRewind(ptr noundef %3, ptr noundef nonnull %2) #26
-  %4 = call ptr @listNext(ptr noundef nonnull %2) #26
+  call void @listRewind(ptr noundef %3, ptr noundef nonnull %2) #25
+  %4 = call ptr @listNext(ptr noundef nonnull %2) #25
   %.not58 = icmp eq ptr %4, null
   br i1 %.not58, label %.critedge41, label %.lr.ph59
 
@@ -6739,7 +6739,7 @@ sdslen.exit:                                      ; preds = %13, %16, %20, %24, 
   br i1 %.not14.i, label %sdslen.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %sdslen.exit
-  %31 = tail call ptr @__ctype_b_loc() #29
+  %31 = tail call ptr @__ctype_b_loc() #28
   %32 = load ptr, ptr %31, align 8, !tbaa !23
   br label %35
 
@@ -6767,7 +6767,7 @@ ACLStringHasSpaces.exit:                          ; preds = %35
   br i1 %44, label %.critedge41, label %45
 
 45:                                               ; preds = %ACLStringHasSpaces.exit
-  call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef nonnull @.str.96) #26
+  call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef nonnull @.str.96) #25
   br label %.critedge41
 
 sdslen.exit.thread:                               ; preds = %33, %sdslen.exit
@@ -6814,20 +6814,20 @@ sdslen.exit45:                                    ; preds = %.lr.ph59, %sdslen.e
   br i1 %.not36, label %65, label %73
 
 65:                                               ; preds = %sdslen.exit45
-  %66 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(8) @.str.88) #30
+  %66 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(8) @.str.88) #29
   %.not37 = icmp eq i32 %66, 0
   br i1 %.not37, label %68, label %67, !prof !119
 
 67:                                               ; preds = %65
-  call void @_serverAssert(ptr noundef nonnull @.str.97, ptr noundef nonnull @.str.22, i32 noundef 2235) #26
-  call void @abort() #28
+  call void @_serverAssert(ptr noundef nonnull @.str.97, ptr noundef nonnull @.str.22, i32 noundef 2235) #25
+  call void @abort() #27
   unreachable
 
 68:                                               ; preds = %65
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store ptr null, ptr %1, align 8, !tbaa !143
   %69 = load ptr, ptr @Users, align 8, !tbaa !87
-  %70 = call i32 @raxFind(ptr noundef %69, ptr noundef nonnull @.str.88, i64 noundef 7, ptr noundef nonnull %1) #26
+  %70 = call i32 @raxFind(ptr noundef %69, ptr noundef nonnull @.str.88, i64 noundef 7, ptr noundef nonnull %1) #25
   %71 = load ptr, ptr %1, align 8, !tbaa !143
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %72 = call i32 @ACLSetUser(ptr noundef %71, ptr noundef nonnull @.str.70, i64 noundef -1)
@@ -6898,7 +6898,7 @@ sdslen.exit47:                                    ; preds = %.lr.ph, %84, %87, %
 
 103:                                              ; preds = %sdslen.exit47
   %104 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
-  %105 = tail call ptr @__errno_location() #29
+  %105 = tail call ptr @__errno_location() #28
   %106 = load i32, ptr %105, align 4, !tbaa !102
   switch i32 %106, label %.fold.split.i [
     i32 2, label %ACLSetUserStringError.exit
@@ -6944,7 +6944,7 @@ ACLSetUserStringError.exit:                       ; preds = %103, %107, %108, %1
 116:                                              ; preds = %ACLSetUserStringError.exit
   %117 = load ptr, ptr %104, align 8, !tbaa !29
   %118 = load ptr, ptr %7, align 8, !tbaa !29
-  call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef nonnull @.str.98, ptr noundef %117, ptr noundef %118, ptr noundef nonnull %.0.i48) #26
+  call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef nonnull @.str.98, ptr noundef %117, ptr noundef %118, ptr noundef nonnull %.0.i48) #25
   br label %.critedge41
 
 .critedge:                                        ; preds = %76, %73
@@ -6959,11 +6959,11 @@ ACLSetUserStringError.exit:                       ; preds = %103, %107, %108, %1
 
 125:                                              ; preds = %.critedge
   %126 = load ptr, ptr %7, align 8, !tbaa !29
-  call void (i32, ptr, ...) @_serverLog(i32 noundef 2, ptr noundef nonnull @.str.99, ptr noundef %126) #26
+  call void (i32, ptr, ...) @_serverLog(i32 noundef 2, ptr noundef nonnull @.str.99, ptr noundef %126) #25
   br label %127
 
 127:                                              ; preds = %125, %.critedge
-  %128 = call ptr @listNext(ptr noundef nonnull %2) #26
+  %128 = call ptr @listNext(ptr noundef nonnull %2) #25
   %.not = icmp eq ptr %128, null
   br i1 %.not, label %.critedge41, label %.lr.ph59, !llvm.loop !209
 
@@ -6989,14 +6989,14 @@ define dso_local ptr @ACLLoadFromFile(ptr noundef %0) local_unnamed_addr #0 {
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %10 = tail call noalias ptr @fopen64(ptr noundef %0, ptr noundef nonnull @.str.100)
   %11 = icmp eq ptr %10, null
-  %12 = tail call ptr @sdsempty() #26
+  %12 = tail call ptr @sdsempty() #25
   br i1 %11, label %13, label %18
 
 13:                                               ; preds = %1
-  %14 = tail call ptr @__errno_location() #29
+  %14 = tail call ptr @__errno_location() #28
   %15 = load i32, ptr %14, align 4, !tbaa !102
-  %16 = tail call ptr @strerror(i32 noundef %15) #26
-  %17 = tail call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %12, ptr noundef nonnull @.str.101, ptr noundef %0, ptr noundef %16) #26
+  %16 = tail call ptr @strerror(i32 noundef %15) #25
+  %17 = tail call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %12, ptr noundef nonnull @.str.101, ptr noundef %0, ptr noundef %16) #25
   br label %386
 
 18:                                               ; preds = %1
@@ -7006,7 +7006,7 @@ define dso_local ptr @ACLLoadFromFile(ptr noundef %0) local_unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %18, %.lr.ph
   %.0111177 = phi ptr [ %20, %.lr.ph ], [ %12, %18 ]
-  %20 = call ptr @sdscat(ptr noundef %.0111177, ptr noundef nonnull %4) #26
+  %20 = call ptr @sdscat(ptr noundef %.0111177, ptr noundef nonnull %4) #25
   %21 = call ptr @fgets(ptr noundef nonnull %4, i32 noundef 1024, ptr noundef nonnull %10)
   %.not = icmp eq ptr %21, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !210
@@ -7015,12 +7015,12 @@ define dso_local ptr @ACLLoadFromFile(ptr noundef %0) local_unnamed_addr #0 {
   %.0111.lcssa = phi ptr [ %12, %18 ], [ %20, %.lr.ph ]
   %22 = call i32 @fclose(ptr noundef nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %23 = call ptr @sdsempty() #26
-  %24 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0111.lcssa) #30
-  %25 = call ptr @sdssplitlen(ptr noundef nonnull %.0111.lcssa, i64 noundef %24, ptr noundef nonnull @.str.102, i32 noundef 1, ptr noundef nonnull %5) #26
-  call void @sdsfree(ptr noundef nonnull %.0111.lcssa) #26
+  %23 = call ptr @sdsempty() #25
+  %24 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0111.lcssa) #29
+  %25 = call ptr @sdssplitlen(ptr noundef nonnull %.0111.lcssa, i64 noundef %24, ptr noundef nonnull @.str.102, i32 noundef 1, ptr noundef nonnull %5) #25
+  call void @sdsfree(ptr noundef nonnull %.0111.lcssa) #25
   %26 = load ptr, ptr @Users, align 8, !tbaa !87
-  %27 = call ptr @raxNew() #26
+  %27 = call ptr @raxNew() #25
   store ptr %27, ptr @Users, align 8, !tbaa !87
   %28 = load i32, ptr %5, align 4, !tbaa !102
   %29 = icmp sgt i32 %28, 0
@@ -7029,7 +7029,7 @@ define dso_local ptr @ACLLoadFromFile(ptr noundef %0) local_unnamed_addr #0 {
 ._crit_edge192:                                   ; preds = %230, %._crit_edge
   %.0112.lcssa = phi ptr [ %23, %._crit_edge ], [ %.1113, %230 ]
   %.lcssa175 = phi i32 [ %28, %._crit_edge ], [ %231, %230 ]
-  call void @sdsfreesplitres(ptr noundef %25, i32 noundef %.lcssa175) #26
+  call void @sdsfreesplitres(ptr noundef %25, i32 noundef %.lcssa175) #25
   %30 = getelementptr inbounds i8, ptr %.0112.lcssa, i64 -1
   %31 = load i8, ptr %30, align 1, !tbaa !19
   %32 = zext i8 %31 to i32
@@ -7082,7 +7082,7 @@ sdslen.exit:                                      ; preds = %34, %37, %41, %45, 
   %indvars.iv.next207 = add nuw nsw i64 %indvars.iv206, 1
   %53 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv206
   %54 = load ptr, ptr %53, align 8, !tbaa !29
-  %55 = call ptr @sdstrim(ptr noundef %54, ptr noundef nonnull @.str.103) #26
+  %55 = call ptr @sdstrim(ptr noundef %54, ptr noundef nonnull @.str.103) #25
   store ptr %55, ptr %53, align 8, !tbaa !29
   %56 = load i8, ptr %55, align 1, !tbaa !19
   %57 = icmp eq i8 %56, 0
@@ -7131,14 +7131,14 @@ sdslen.exit:                                      ; preds = %34, %37, %41, %45, 
 
 sdslen.exit146:                                   ; preds = %58, %63, %66, %70, %74, %78
   %.0.i145 = phi i64 [ %80, %78 ], [ %65, %63 ], [ %69, %66 ], [ %73, %70 ], [ %77, %74 ], [ 0, %58 ]
-  %81 = call ptr @sdssplitlen(ptr noundef nonnull %55, i64 noundef %.0.i145, ptr noundef nonnull @.str.40, i32 noundef 1, ptr noundef nonnull %6) #26
+  %81 = call ptr @sdssplitlen(ptr noundef nonnull %55, i64 noundef %.0.i145, ptr noundef nonnull @.str.40, i32 noundef 1, ptr noundef nonnull %6) #25
   %82 = icmp eq ptr %81, null
   br i1 %82, label %83, label %87
 
 83:                                               ; preds = %sdslen.exit146
   %84 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 8080), align 8, !tbaa !211
   %85 = trunc nuw nsw i64 %indvars.iv.next207 to i32
-  %86 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %.0112189, ptr noundef nonnull @.str.104, ptr noundef %84, i32 noundef %85) #26
+  %86 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %.0112189, ptr noundef nonnull @.str.104, ptr noundef %84, i32 noundef %85) #25
   br label %230
 
 87:                                               ; preds = %sdslen.exit146
@@ -7147,12 +7147,12 @@ sdslen.exit146:                                   ; preds = %58, %63, %66, %70, 
   br i1 %89, label %90, label %91
 
 90:                                               ; preds = %87
-  call void @sdsfreesplitres(ptr noundef nonnull %81, i32 noundef 0) #26
+  call void @sdsfreesplitres(ptr noundef nonnull %81, i32 noundef 0) #25
   br label %230
 
 91:                                               ; preds = %87
   %92 = load ptr, ptr %81, align 8, !tbaa !29
-  %93 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %92, ptr noundef nonnull dereferenceable(5) @.str.95) #30
+  %93 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %92, ptr noundef nonnull dereferenceable(5) @.str.95) #29
   %94 = icmp ne i32 %93, 0
   %95 = icmp slt i32 %88, 2
   %or.cond = or i1 %95, %94
@@ -7161,9 +7161,9 @@ sdslen.exit146:                                   ; preds = %58, %63, %66, %70, 
 96:                                               ; preds = %91
   %97 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 8080), align 8, !tbaa !211
   %98 = trunc nuw nsw i64 %indvars.iv.next207 to i32
-  %99 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %.0112189, ptr noundef nonnull @.str.105, ptr noundef %97, i32 noundef %98) #26
+  %99 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %.0112189, ptr noundef nonnull @.str.105, ptr noundef %97, i32 noundef %98) #25
   %100 = load i32, ptr %6, align 4, !tbaa !102
-  call void @sdsfreesplitres(ptr noundef nonnull %81, i32 noundef %100) #26
+  call void @sdsfreesplitres(ptr noundef nonnull %81, i32 noundef %100) #25
   br label %230
 
 101:                                              ; preds = %91
@@ -7215,7 +7215,7 @@ sdslen.exit148:                                   ; preds = %108, %111, %115, %1
   br i1 %.not14.i, label %sdslen.exit148.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %sdslen.exit148
-  %126 = tail call ptr @__ctype_b_loc() #29
+  %126 = tail call ptr @__ctype_b_loc() #28
   %127 = load ptr, ptr %126, align 8, !tbaa !23
   br label %130
 
@@ -7240,9 +7240,9 @@ sdslen.exit148:                                   ; preds = %108, %111, %115, %1
 ACLStringHasSpaces.exit:                          ; preds = %130
   %138 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 8080), align 8, !tbaa !211
   %139 = trunc nuw nsw i64 %indvars.iv.next207 to i32
-  %140 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %.0112189, ptr noundef nonnull @.str.106, ptr noundef %138, i32 noundef %139, ptr noundef nonnull %103) #26
+  %140 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %.0112189, ptr noundef nonnull @.str.106, ptr noundef %138, i32 noundef %139, ptr noundef nonnull %103) #25
   %141 = load i32, ptr %6, align 4, !tbaa !102
-  call void @sdsfreesplitres(ptr noundef nonnull %81, i32 noundef %141) #26
+  call void @sdsfreesplitres(ptr noundef nonnull %81, i32 noundef %141) #25
   br label %230
 
 sdslen.exit148.thread:                            ; preds = %128, %sdslen.exit148
@@ -7291,9 +7291,9 @@ sdslen.exit150:                                   ; preds = %101, %sdslen.exit14
 161:                                              ; preds = %sdslen.exit150
   %162 = load ptr, ptr %102, align 8, !tbaa !29
   %163 = trunc nuw nsw i64 %indvars.iv.next207 to i32
-  %164 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %.0112189, ptr noundef nonnull @.str.107, ptr noundef %162, i32 noundef %163) #26
+  %164 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %.0112189, ptr noundef nonnull @.str.107, ptr noundef %162, i32 noundef %163) #25
   %165 = load i32, ptr %6, align 4, !tbaa !102
-  call void @sdsfreesplitres(ptr noundef nonnull %81, i32 noundef %165) #26
+  call void @sdsfreesplitres(ptr noundef nonnull %81, i32 noundef %165) #25
   br label %230
 
 166:                                              ; preds = %sdslen.exit150
@@ -7308,7 +7308,7 @@ sdslen.exit150:                                   ; preds = %101, %sdslen.exit14
 171:                                              ; preds = %166
   %172 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 8080), align 8, !tbaa !211
   %173 = trunc nuw nsw i64 %indvars.iv.next207 to i32
-  %174 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %.0112189, ptr noundef nonnull @.str.108, ptr noundef %172, i32 noundef %173) #26
+  %174 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %.0112189, ptr noundef nonnull @.str.108, ptr noundef %172, i32 noundef %173) #25
   br label %175
 
 175:                                              ; preds = %171, %166
@@ -7336,7 +7336,7 @@ sdslen.exit150:                                   ; preds = %101, %sdslen.exit14
   %.0119178 = phi i32 [ 0, %.lr.ph182.preheader ], [ %.2121, %223 ]
   %181 = getelementptr inbounds nuw ptr, ptr %170, i64 %indvars.iv
   %182 = load ptr, ptr %181, align 8, !tbaa !29
-  %183 = call ptr @sdstrim(ptr noundef %182, ptr noundef nonnull @.str.109) #26
+  %183 = call ptr @sdstrim(ptr noundef %182, ptr noundef nonnull @.str.109) #25
   store ptr %183, ptr %181, align 8, !tbaa !29
   %184 = getelementptr inbounds i8, ptr %183, i64 -1
   %185 = load i8, ptr %184, align 1, !tbaa !19
@@ -7385,7 +7385,7 @@ sdslen.exit152:                                   ; preds = %.lr.ph182, %188, %1
   br i1 %.not144, label %223, label %207
 
 207:                                              ; preds = %sdslen.exit152
-  %208 = tail call ptr @__errno_location() #29
+  %208 = tail call ptr @__errno_location() #28
   %209 = load i32, ptr %208, align 4, !tbaa !102
   switch i32 %209, label %ACLSetUserStringError.exit [
     i32 2, label %ACLSetUserStringError.exit.thread170
@@ -7422,7 +7422,7 @@ ACLSetUserStringError.exit:                       ; preds = %207
 ACLSetUserStringError.exit.thread170:             ; preds = %207
   %216 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 8080), align 8, !tbaa !211
   %217 = load ptr, ptr %181, align 8, !tbaa !29
-  %218 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %.4180, ptr noundef nonnull @.str.110, ptr noundef %216, i32 noundef %178, ptr noundef %217, ptr noundef nonnull @.str.80) #26
+  %218 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %.4180, ptr noundef nonnull @.str.110, ptr noundef %216, i32 noundef %178, ptr noundef %217, ptr noundef nonnull @.str.80) #25
   br label %223
 
 ACLSetUserStringError.exit.thread:                ; preds = %ACLSetUserStringError.exit, %207, %215, %214, %213, %212, %211, %210
@@ -7432,7 +7432,7 @@ ACLSetUserStringError.exit.thread:                ; preds = %ACLSetUserStringErr
 
 220:                                              ; preds = %ACLSetUserStringError.exit.thread
   %221 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 8080), align 8, !tbaa !211
-  %222 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %.4180, ptr noundef nonnull @.str.111, ptr noundef %221, i32 noundef %179, ptr noundef nonnull %.0.i153169) #26
+  %222 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %.4180, ptr noundef nonnull @.str.111, ptr noundef %221, i32 noundef %179, ptr noundef nonnull %.0.i153169) #25
   br label %223
 
 223:                                              ; preds = %ACLSetUserStringError.exit.thread170, %220, %ACLSetUserStringError.exit.thread, %sdslen.exit152
@@ -7446,9 +7446,9 @@ ACLSetUserStringError.exit.thread:                ; preds = %ACLSetUserStringErr
 
 ._crit_edge187:                                   ; preds = %.lr.ph186, %175, %.preheader
   %.4.lcssa226 = phi ptr [ %.3, %175 ], [ %.6, %.preheader ], [ %.6, %.lr.ph186 ]
-  call void @zfree(ptr noundef %170) #26
+  call void @zfree(ptr noundef %170) #25
   %227 = load i32, ptr %6, align 4, !tbaa !102
-  call void @sdsfreesplitres(ptr noundef nonnull %81, i32 noundef %227) #26
+  call void @sdsfreesplitres(ptr noundef nonnull %81, i32 noundef %227) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %230
 
@@ -7456,7 +7456,7 @@ ACLSetUserStringError.exit.thread:                ; preds = %ACLSetUserStringErr
   %indvars.iv203 = phi i64 [ 0, %.lr.ph186.preheader ], [ %indvars.iv.next204, %.lr.ph186 ]
   %228 = getelementptr inbounds nuw ptr, ptr %170, i64 %indvars.iv203
   %229 = load ptr, ptr %228, align 8, !tbaa !29
-  call void @sdsfree(ptr noundef %229) #26
+  call void @sdsfree(ptr noundef %229) #25
   %indvars.iv.next204 = add nuw nsw i64 %indvars.iv203, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next204, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge187, label %.lr.ph186, !llvm.loop !213
@@ -7473,7 +7473,7 @@ sdslen.exit.thread:                               ; preds = %._crit_edge192, %sd
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !143
   %234 = load ptr, ptr @Users, align 8, !tbaa !87
-  %235 = call i32 @raxFind(ptr noundef %234, ptr noundef nonnull @.str.88, i64 noundef 7, ptr noundef nonnull %3) #26
+  %235 = call i32 @raxFind(ptr noundef %234, ptr noundef nonnull @.str.88, i64 noundef 7, ptr noundef nonnull %3) #25
   %236 = load ptr, ptr %3, align 8, !tbaa !143
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not133 = icmp eq ptr %236, null
@@ -7493,17 +7493,17 @@ sdslen.exit.thread:                               ; preds = %._crit_edge192, %sd
   %245 = load ptr, ptr @DefaultUser, align 8, !tbaa !143
   %246 = getelementptr inbounds nuw i8, ptr %245, i64 16
   %247 = load ptr, ptr %246, align 8, !tbaa !90
-  call void @listRelease(ptr noundef %247) #26
+  call void @listRelease(ptr noundef %247) #25
   %248 = getelementptr inbounds nuw i8, ptr %245, i64 24
   %249 = load ptr, ptr %248, align 8, !tbaa !79
-  call void @listRelease(ptr noundef %249) #26
+  call void @listRelease(ptr noundef %249) #25
   %250 = getelementptr inbounds nuw i8, ptr %.0115, i64 16
   %251 = load ptr, ptr %250, align 8, !tbaa !90
-  %252 = call ptr @listDup(ptr noundef %251) #26
+  %252 = call ptr @listDup(ptr noundef %251) #25
   store ptr %252, ptr %246, align 8, !tbaa !90
   %253 = getelementptr inbounds nuw i8, ptr %.0115, i64 24
   %254 = load ptr, ptr %253, align 8, !tbaa !79
-  %255 = call ptr @listDup(ptr noundef %254) #26
+  %255 = call ptr @listDup(ptr noundef %254) #25
   store ptr %255, ptr %248, align 8, !tbaa !79
   %256 = getelementptr inbounds nuw i8, ptr %.0115, i64 8
   %257 = load i32, ptr %256, align 8, !tbaa !89
@@ -7515,7 +7515,7 @@ sdslen.exit.thread:                               ; preds = %._crit_edge192, %sd
   br i1 %.not.i156, label %262, label %261
 
 261:                                              ; preds = %244
-  call void @decrRefCount(ptr noundef nonnull %260) #26
+  call void @decrRefCount(ptr noundef nonnull %260) #25
   br label %262
 
 262:                                              ; preds = %261, %244
@@ -7526,45 +7526,45 @@ sdslen.exit.thread:                               ; preds = %._crit_edge192, %sd
   br i1 %.not15.i, label %ACLCopyUser.exit, label %265
 
 265:                                              ; preds = %262
-  call void @incrRefCount(ptr noundef nonnull %264) #26
+  call void @incrRefCount(ptr noundef nonnull %264) #25
   br label %ACLCopyUser.exit
 
 ACLCopyUser.exit:                                 ; preds = %262, %265
   %266 = load ptr, ptr %.0115, align 8, !tbaa !88
-  call void @sdsfree(ptr noundef %266) #26
+  call void @sdsfree(ptr noundef %266) #25
   %267 = load ptr, ptr %263, align 8, !tbaa !91
   %.not.i157 = icmp eq ptr %267, null
   br i1 %.not.i157, label %ACLFreeUser.exit, label %268
 
 268:                                              ; preds = %ACLCopyUser.exit
-  call void @decrRefCount(ptr noundef nonnull %267) #26
+  call void @decrRefCount(ptr noundef nonnull %267) #25
   store ptr null, ptr %263, align 8, !tbaa !91
   br label %ACLFreeUser.exit
 
 ACLFreeUser.exit:                                 ; preds = %ACLCopyUser.exit, %268
   %269 = load ptr, ptr %250, align 8, !tbaa !90
-  call void @listRelease(ptr noundef %269) #26
+  call void @listRelease(ptr noundef %269) #25
   %270 = load ptr, ptr %253, align 8, !tbaa !79
-  call void @listRelease(ptr noundef %270) #26
-  call void @zfree(ptr noundef nonnull %.0115) #26
+  call void @listRelease(ptr noundef %270) #25
+  call void @zfree(ptr noundef nonnull %.0115) #25
   %271 = load ptr, ptr @Users, align 8, !tbaa !87
   %272 = load ptr, ptr @DefaultUser, align 8, !tbaa !143
-  %273 = call i32 @raxInsert(ptr noundef %271, ptr noundef nonnull @.str.88, i64 noundef 7, ptr noundef %272, ptr noundef null) #26
-  %274 = call i32 @raxRemove(ptr noundef %26, ptr noundef nonnull @.str.88, i64 noundef 7, ptr noundef null) #26
-  %275 = call i32 @pubsubTotalSubscriptions() #26
+  %273 = call i32 @raxInsert(ptr noundef %271, ptr noundef nonnull @.str.88, i64 noundef 7, ptr noundef %272, ptr noundef null) #25
+  %274 = call i32 @raxRemove(ptr noundef %26, ptr noundef nonnull @.str.88, i64 noundef 7, ptr noundef null) #25
+  %275 = call i32 @pubsubTotalSubscriptions() #25
   %276 = icmp sgt i32 %275, 0
   br i1 %276, label %277, label %279
 
 277:                                              ; preds = %ACLFreeUser.exit
-  %278 = call ptr @raxNew() #26
+  %278 = call ptr @raxNew() #25
   br label %279
 
 279:                                              ; preds = %277, %ACLFreeUser.exit
   %.0114 = phi ptr [ %278, %277 ], [ null, %ACLFreeUser.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %280 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 1432), align 8, !tbaa !92
-  call void @listRewind(ptr noundef %280, ptr noundef nonnull %8) #26
-  %281 = call ptr @listNext(ptr noundef nonnull %8) #26
+  call void @listRewind(ptr noundef %280, ptr noundef nonnull %8) #25
+  %281 = call ptr @listNext(ptr noundef nonnull %8) #25
   %.not134195 = icmp eq ptr %281, null
   br i1 %.not134195, label %._crit_edge198, label %.lr.ph197
 
@@ -7633,7 +7633,7 @@ sdslen.exit159:                                   ; preds = %290, %298, %301, %3
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8, !tbaa !143
   %316 = load ptr, ptr @Users, align 8, !tbaa !87
-  %317 = call i32 @raxFind(ptr noundef %316, ptr noundef nonnull %293, i64 noundef %.0.i158, ptr noundef nonnull %2) #26
+  %317 = call i32 @raxFind(ptr noundef %316, ptr noundef nonnull %293, i64 noundef %.0.i158, ptr noundef nonnull %2) #25
   %318 = load ptr, ptr %2, align 8, !tbaa !143
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %319 = icmp ne ptr %318, null
@@ -7684,7 +7684,7 @@ sdslen.exit159:                                   ; preds = %290, %298, %301, %3
 
 sdslen.exit161:                                   ; preds = %320, %326, %329, %333, %337, %341
   %.0.i160 = phi i64 [ %343, %341 ], [ %328, %326 ], [ %332, %329 ], [ %336, %333 ], [ %340, %337 ], [ 0, %320 ]
-  %344 = call i32 @raxFind(ptr noundef nonnull %.0114, ptr noundef nonnull %321, i64 noundef %.0.i160, ptr noundef nonnull %9) #26
+  %344 = call i32 @raxFind(ptr noundef nonnull %.0114, ptr noundef nonnull %321, i64 noundef %.0.i160, ptr noundef nonnull %9) #25
   %.not137 = icmp eq i32 %344, 0
   br i1 %.not137, label %345, label %.thread
 
@@ -7734,7 +7734,7 @@ sdslen.exit161:                                   ; preds = %320, %326, %329, %3
 
 sdslen.exit163:                                   ; preds = %345, %352, %355, %359, %363, %367
   %.0.i162 = phi i64 [ %369, %367 ], [ %354, %352 ], [ %358, %355 ], [ %362, %359 ], [ %366, %363 ], [ 0, %345 ]
-  %370 = call i32 @raxInsert(ptr noundef nonnull %.0114, ptr noundef nonnull %347, i64 noundef %.0.i162, ptr noundef %346, ptr noundef null) #26
+  %370 = call i32 @raxInsert(ptr noundef nonnull %.0114, ptr noundef nonnull %347, i64 noundef %.0.i162, ptr noundef %346, ptr noundef null) #25
   br label %.thread
 
 371:                                              ; preds = %sdslen.exit159
@@ -7751,7 +7751,7 @@ sdslen.exit163:                                   ; preds = %345, %352, %355, %3
   br i1 %.not139, label %376, label %375
 
 375:                                              ; preds = %373, %371
-  call void @deauthenticateAndCloseClient(ptr noundef nonnull %286) #26
+  call void @deauthenticateAndCloseClient(ptr noundef nonnull %286) #25
   br label %377, !llvm.loop !215
 
 376:                                              ; preds = %373, %.thread
@@ -7763,7 +7763,7 @@ sdslen.exit163:                                   ; preds = %345, %352, %355, %3
   br label %378
 
 378:                                              ; preds = %283, %377
-  %379 = call ptr @listNext(ptr noundef nonnull %8) #26
+  %379 = call ptr @listNext(ptr noundef nonnull %8) #25
   %.not134 = icmp eq ptr %379, null
   br i1 %.not134, label %._crit_edge198, label %283
 
@@ -7772,20 +7772,20 @@ sdslen.exit163:                                   ; preds = %345, %352, %355, %3
   br i1 %.not135, label %381, label %380
 
 380:                                              ; preds = %._crit_edge198
-  call void @raxFreeWithCallback(ptr noundef nonnull %.0114, ptr noundef nonnull @listReleaseGeneric) #26
+  call void @raxFreeWithCallback(ptr noundef nonnull %.0114, ptr noundef nonnull @listReleaseGeneric) #25
   br label %381
 
 381:                                              ; preds = %380, %._crit_edge198
-  call void @raxFreeWithCallback(ptr noundef %26, ptr noundef nonnull @ACLFreeUserGeneric) #26
-  call void @sdsfree(ptr noundef %.0112.lcssa) #26
+  call void @raxFreeWithCallback(ptr noundef %26, ptr noundef nonnull @ACLFreeUserGeneric) #25
+  call void @sdsfree(ptr noundef %.0112.lcssa) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %385
 
 382:                                              ; preds = %sdslen.exit
   %383 = load ptr, ptr @Users, align 8, !tbaa !87
-  call void @raxFreeWithCallback(ptr noundef %383, ptr noundef nonnull @ACLFreeUserGeneric) #26
+  call void @raxFreeWithCallback(ptr noundef %383, ptr noundef nonnull @ACLFreeUserGeneric) #25
   store ptr %26, ptr @Users, align 8, !tbaa !87
-  %384 = call ptr @sdscat(ptr noundef nonnull %.0112.lcssa, ptr noundef nonnull @.str.112) #26
+  %384 = call ptr @sdscat(ptr noundef nonnull %.0112.lcssa, ptr noundef nonnull @.str.112) #25
   br label %385
 
 385:                                              ; preds = %382, %381
@@ -7824,12 +7824,12 @@ declare void @listReleaseGeneric(ptr noundef) #1
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -1, 1) i32 @ACLSaveToFile(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.raxIterator, align 8
-  %3 = tail call ptr @sdsempty() #26
+  %3 = tail call ptr @sdsempty() #25
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %4 = load ptr, ptr @Users, align 8, !tbaa !87
-  call void @raxStart(ptr noundef nonnull %2, ptr noundef %4) #26
-  %5 = call i32 @raxSeek(ptr noundef nonnull %2, ptr noundef nonnull @.str.43, ptr noundef null, i64 noundef 0) #26
-  %6 = call i32 @raxNext(ptr noundef nonnull %2) #26
+  call void @raxStart(ptr noundef nonnull %2, ptr noundef %4) #25
+  %5 = call i32 @raxSeek(ptr noundef nonnull %2, ptr noundef nonnull @.str.43, ptr noundef null, i64 noundef 0) #25
+  %6 = call i32 @raxNext(ptr noundef nonnull %2) #25
   %.not68 = icmp eq i32 %6, 0
   br i1 %.not68, label %._crit_edge, label %.lr.ph
 
@@ -7840,30 +7840,30 @@ define dso_local range(i32 -1, 1) i32 @ACLSaveToFile(ptr noundef %0) local_unnam
 8:                                                ; preds = %.lr.ph, %8
   %.04069 = phi ptr [ %3, %.lr.ph ], [ %19, %8 ]
   %9 = load ptr, ptr %7, align 8, !tbaa !115
-  %10 = call ptr @sdsnew(ptr noundef nonnull @.str.113) #26
+  %10 = call ptr @sdsnew(ptr noundef nonnull @.str.113) #25
   %11 = load ptr, ptr %9, align 8, !tbaa !88
-  %12 = call ptr @sdscatsds(ptr noundef %10, ptr noundef %11) #26
-  %13 = call ptr @sdscatlen(ptr noundef %12, ptr noundef nonnull @.str.40, i64 noundef 1) #26
+  %12 = call ptr @sdscatsds(ptr noundef %10, ptr noundef %11) #25
+  %13 = call ptr @sdscatlen(ptr noundef %12, ptr noundef nonnull @.str.40, i64 noundef 1) #25
   %14 = call ptr @ACLDescribeUser(ptr noundef nonnull %9)
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8, !tbaa !144
-  %17 = call ptr @sdscatsds(ptr noundef %13, ptr noundef %16) #26
-  call void @decrRefCount(ptr noundef %14) #26
-  %18 = call ptr @sdscatsds(ptr noundef %.04069, ptr noundef %17) #26
-  %19 = call ptr @sdscatlen(ptr noundef %18, ptr noundef nonnull @.str.102, i64 noundef 1) #26
-  call void @sdsfree(ptr noundef %17) #26
-  %20 = call i32 @raxNext(ptr noundef nonnull %2) #26
+  %17 = call ptr @sdscatsds(ptr noundef %13, ptr noundef %16) #25
+  call void @decrRefCount(ptr noundef %14) #25
+  %18 = call ptr @sdscatsds(ptr noundef %.04069, ptr noundef %17) #25
+  %19 = call ptr @sdscatlen(ptr noundef %18, ptr noundef nonnull @.str.102, i64 noundef 1) #25
+  call void @sdsfree(ptr noundef %17) #25
+  %20 = call i32 @raxNext(ptr noundef nonnull %2) #25
   %.not = icmp eq i32 %20, 0
   br i1 %.not, label %._crit_edge, label %8, !llvm.loop !216
 
 ._crit_edge:                                      ; preds = %8, %1
   %.040.lcssa = phi ptr [ %3, %1 ], [ %19, %8 ]
-  call void @raxStop(ptr noundef nonnull %2) #26
-  %21 = call ptr @sdsnew(ptr noundef %0) #26
-  %22 = call i32 @getpid() #26
-  %23 = call i64 @commandTimeSnapshot() #26
-  %24 = call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef %21, ptr noundef nonnull @.str.114, i32 noundef %22, i64 noundef %23) #26
-  %25 = call i32 (ptr, i32, ...) @open64(ptr noundef %24, i32 noundef 65, i32 noundef 420) #26
+  call void @raxStop(ptr noundef nonnull %2) #25
+  %21 = call ptr @sdsnew(ptr noundef %0) #25
+  %22 = call i32 @getpid() #25
+  %23 = call i64 @commandTimeSnapshot() #25
+  %24 = call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef %21, ptr noundef nonnull @.str.114, i32 noundef %22, i64 noundef %23) #25
+  %25 = call i32 (ptr, i32, ...) @open64(ptr noundef %24, i32 noundef 65, i32 noundef 420) #25
   %26 = icmp eq i32 %25, -1
   br i1 %26, label %33, label %.preheader
 
@@ -7886,10 +7886,10 @@ define dso_local range(i32 -1, 1) i32 @ACLSaveToFile(ptr noundef %0) local_unnam
   br i1 %35, label %.thread56, label %36
 
 36:                                               ; preds = %33
-  %37 = tail call ptr @__errno_location() #29
+  %37 = tail call ptr @__errno_location() #28
   %38 = load i32, ptr %37, align 4, !tbaa !102
-  %39 = call ptr @strerror(i32 noundef %38) #26
-  call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef nonnull @.str.115, ptr noundef %39) #26
+  %39 = call ptr @strerror(i32 noundef %38) #25
+  call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef nonnull @.str.115, ptr noundef %39) #25
   br label %.thread56
 
 40:                                               ; preds = %.outer, %77
@@ -7969,12 +7969,12 @@ sdslen.exit:                                      ; preds = %40, %44, %47, %50, 
 sdslen.exit52:                                    ; preds = %59, %60, %63, %66, %69, %72
   %.0.i51 = phi i64 [ %73, %72 ], [ %62, %60 ], [ %65, %63 ], [ %68, %66 ], [ %71, %69 ], [ 0, %59 ]
   %74 = sub i64 %.0.i51, %.039.ph
-  %75 = call i64 @write(i32 noundef %25, ptr noundef %32, i64 noundef %74) #26
+  %75 = call i64 @write(i32 noundef %25, ptr noundef %32, i64 noundef %74) #25
   %76 = icmp slt i64 %75, 1
   br i1 %76, label %77, label %84
 
 77:                                               ; preds = %sdslen.exit52
-  %78 = tail call ptr @__errno_location() #29
+  %78 = tail call ptr @__errno_location() #28
   %79 = load i32, ptr %78, align 4, !tbaa !102
   %80 = icmp eq i32 %79, 4
   br i1 %80, label %40, label %81, !llvm.loop !217
@@ -7989,7 +7989,7 @@ sdslen.exit52:                                    ; preds = %59, %60, %63, %66, 
   br label %.outer
 
 86:                                               ; preds = %sdslen.exit
-  %87 = call i32 @fdatasync(i32 noundef %25) #26
+  %87 = call i32 @fdatasync(i32 noundef %25) #25
   %88 = icmp eq i32 %87, -1
   br i1 %88, label %89, label %95
 
@@ -7999,13 +7999,13 @@ sdslen.exit52:                                    ; preds = %59, %60, %63, %66, 
   br i1 %91, label %.thread, label %92
 
 92:                                               ; preds = %89
-  %93 = tail call ptr @__errno_location() #29
+  %93 = tail call ptr @__errno_location() #28
   %94 = load i32, ptr %93, align 4, !tbaa !102
   br label %.thread.sink.split
 
 95:                                               ; preds = %86
-  %96 = call i32 @close(i32 noundef %25) #26
-  %97 = call i32 @rename(ptr noundef %24, ptr noundef %0) #26
+  %96 = call i32 @close(i32 noundef %25) #25
+  %97 = call i32 @rename(ptr noundef %24, ptr noundef %0) #25
   %98 = icmp eq i32 %97, -1
   br i1 %98, label %99, label %106
 
@@ -8015,14 +8015,14 @@ sdslen.exit52:                                    ; preds = %59, %60, %63, %66, 
   br i1 %101, label %.thread56, label %102
 
 102:                                              ; preds = %99
-  %103 = tail call ptr @__errno_location() #29
+  %103 = tail call ptr @__errno_location() #28
   %104 = load i32, ptr %103, align 4, !tbaa !102
-  %105 = call ptr @strerror(i32 noundef %104) #26
-  call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef nonnull @.str.118, ptr noundef %105) #26
+  %105 = call ptr @strerror(i32 noundef %104) #25
+  call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef nonnull @.str.118, ptr noundef %105) #25
   br label %.thread56
 
 106:                                              ; preds = %95
-  %107 = call i32 @fsyncFileDir(ptr noundef %0) #26
+  %107 = call i32 @fsyncFileDir(ptr noundef %0) #25
   %108 = icmp eq i32 %107, -1
   br i1 %108, label %109, label %.thread56.thread
 
@@ -8032,25 +8032,25 @@ sdslen.exit52:                                    ; preds = %59, %60, %63, %66, 
   br i1 %111, label %.thread56, label %112
 
 112:                                              ; preds = %109
-  %113 = tail call ptr @__errno_location() #29
+  %113 = tail call ptr @__errno_location() #28
   %114 = load i32, ptr %113, align 4, !tbaa !102
-  %115 = call ptr @strerror(i32 noundef %114) #26
-  call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef nonnull @.str.119, ptr noundef %115) #26
+  %115 = call ptr @strerror(i32 noundef %114) #25
+  call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef nonnull @.str.119, ptr noundef %115) #25
   br label %.thread56
 
 .thread56.thread:                                 ; preds = %106
-  call void @sdsfree(ptr noundef %24) #26
+  call void @sdsfree(ptr noundef %24) #25
   br label %120
 
 .thread.sink.split:                               ; preds = %81, %92
   %.sink75 = phi i32 [ %94, %92 ], [ %79, %81 ]
   %.str.117.sink = phi ptr [ @.str.117, %92 ], [ @.str.116, %81 ]
-  %116 = call ptr @strerror(i32 noundef %.sink75) #26
-  call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef nonnull %.str.117.sink, ptr noundef %116) #26
+  %116 = call ptr @strerror(i32 noundef %.sink75) #25
+  call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef nonnull %.str.117.sink, ptr noundef %116) #25
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %89, %81
-  %117 = call i32 @close(i32 noundef %25) #26
+  %117 = call i32 @close(i32 noundef %25) #25
   br label %.thread56
 
 .thread56:                                        ; preds = %112, %109, %102, %99, %36, %33, %.thread
@@ -8058,14 +8058,14 @@ sdslen.exit52:                                    ; preds = %59, %60, %63, %66, 
   br i1 %.not49, label %120, label %118
 
 118:                                              ; preds = %.thread56
-  %119 = call i32 @unlink(ptr noundef nonnull %24) #26
+  %119 = call i32 @unlink(ptr noundef nonnull %24) #25
   br label %120
 
 120:                                              ; preds = %.thread56.thread, %118, %.thread56
   %.0436167 = phi i32 [ 0, %.thread56.thread ], [ -1, %118 ], [ -1, %.thread56 ]
   %.0426266 = phi ptr [ null, %.thread56.thread ], [ %24, %118 ], [ null, %.thread56 ]
-  call void @sdsfree(ptr noundef %.0426266) #26
-  call void @sdsfree(ptr noundef %.040.lcssa) #26
+  call void @sdsfree(ptr noundef %.0426266) #25
+  call void @sdsfree(ptr noundef %.040.lcssa) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0436167
 }
@@ -8113,11 +8113,11 @@ define dso_local void @ACLLoadUsersAtStartup() local_unnamed_addr #0 {
   br i1 %9, label %11, label %10
 
 10:                                               ; preds = %7
-  tail call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef nonnull @.str.120) #26
+  tail call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef nonnull @.str.120) #25
   br label %11
 
 11:                                               ; preds = %7, %10
-  tail call void @exit(i32 noundef 1) #32
+  tail call void @exit(i32 noundef 1) #31
   unreachable
 
 12:                                               ; preds = %3, %0
@@ -8131,11 +8131,11 @@ define dso_local void @ACLLoadUsersAtStartup() local_unnamed_addr #0 {
   br i1 %17, label %19, label %18
 
 18:                                               ; preds = %15
-  tail call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef nonnull @.str.121) #26
+  tail call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef nonnull @.str.121) #25
   br label %19
 
 19:                                               ; preds = %15, %18
-  tail call void @exit(i32 noundef 1) #32
+  tail call void @exit(i32 noundef 1) #31
   unreachable
 
 20:                                               ; preds = %12
@@ -8155,12 +8155,12 @@ define dso_local void @ACLLoadUsersAtStartup() local_unnamed_addr #0 {
   br i1 %27, label %29, label %28
 
 28:                                               ; preds = %25
-  tail call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef nonnull @.str.122, ptr noundef nonnull %24) #26
+  tail call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef nonnull @.str.122, ptr noundef nonnull %24) #25
   br label %29
 
 29:                                               ; preds = %25, %28
-  tail call void @sdsfree(ptr noundef nonnull %24) #26
-  tail call void @exit(i32 noundef 1) #32
+  tail call void @sdsfree(ptr noundef nonnull %24) #25
+  tail call void @exit(i32 noundef 1) #31
   unreachable
 
 30:                                               ; preds = %23, %20
@@ -8177,7 +8177,7 @@ define dso_local range(i32 0, 2) i32 @ACLLogMatchEntry(ptr noundef readonly capt
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i32, ptr %5, align 8, !tbaa !161
   %.not = icmp eq i32 %4, %6
-  br i1 %.not, label %7, label %31
+  br i1 %.not, label %7, label %32
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -8185,39 +8185,39 @@ define dso_local range(i32 0, 2) i32 @ACLLogMatchEntry(ptr noundef readonly capt
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %11 = load i32, ptr %10, align 4, !tbaa !170
   %.not16 = icmp eq i32 %9, %11
-  br i1 %.not16, label %12, label %31
+  br i1 %.not16, label %12, label %32
 
 12:                                               ; preds = %7
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = load i64, ptr %13, align 8, !tbaa !162
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %16 = load i64, ptr %15, align 8, !tbaa !162
-  %17 = sub nsw i64 %14, %16
-  %spec.select = tail call i64 @llvm.abs.i64(i64 %17, i1 true)
-  %18 = icmp samesign ugt i64 %spec.select, 60000
-  br i1 %18, label %31, label %19
+  %17 = add i64 %14, -60001
+  %18 = sub i64 %17, %16
+  %19 = icmp ult i64 %18, -120001
+  br i1 %19, label %32, label %20
 
-19:                                               ; preds = %12
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %21 = load ptr, ptr %20, align 8, !tbaa !155
-  %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %23 = load ptr, ptr %22, align 8, !tbaa !155
-  %24 = tail call i32 @sdscmp(ptr noundef %21, ptr noundef %23) #26
-  %.not17 = icmp eq i32 %24, 0
-  br i1 %.not17, label %25, label %31
+20:                                               ; preds = %12
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %22 = load ptr, ptr %21, align 8, !tbaa !155
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %24 = load ptr, ptr %23, align 8, !tbaa !155
+  %25 = tail call i32 @sdscmp(ptr noundef %22, ptr noundef %24) #25
+  %.not17 = icmp eq i32 %25, 0
+  br i1 %.not17, label %26, label %32
 
-25:                                               ; preds = %19
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %27 = load ptr, ptr %26, align 8, !tbaa !157
-  %28 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %29 = load ptr, ptr %28, align 8, !tbaa !157
-  %30 = tail call i32 @sdscmp(ptr noundef %27, ptr noundef %29) #26
-  %.not18 = icmp eq i32 %30, 0
+26:                                               ; preds = %20
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %28 = load ptr, ptr %27, align 8, !tbaa !157
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %30 = load ptr, ptr %29, align 8, !tbaa !157
+  %31 = tail call i32 @sdscmp(ptr noundef %28, ptr noundef %30) #25
+  %.not18 = icmp eq i32 %31, 0
   %. = zext i1 %.not18 to i32
-  br label %31
+  br label %32
 
-31:                                               ; preds = %12, %19, %25, %7, %2
-  %.013 = phi i32 [ 0, %7 ], [ 0, %2 ], [ 0, %19 ], [ 0, %12 ], [ %., %25 ]
+32:                                               ; preds = %12, %20, %26, %7, %2
+  %.013 = phi i32 [ 0, %7 ], [ 0, %2 ], [ 0, %20 ], [ 0, %12 ], [ %., %26 ]
   ret i32 %.013
 }
 
@@ -8225,14 +8225,14 @@ define dso_local range(i32 0, 2) i32 @ACLLogMatchEntry(ptr noundef readonly capt
 define dso_local void @ACLFreeLogEntry(ptr noundef %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !155
-  tail call void @sdsfree(ptr noundef %3) #26
+  tail call void @sdsfree(ptr noundef %3) #25
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8, !tbaa !157
-  tail call void @sdsfree(ptr noundef %5) #26
+  tail call void @sdsfree(ptr noundef %5) #25
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load ptr, ptr %6, align 8, !tbaa !158
-  tail call void @sdsfree(ptr noundef %7) #26
-  tail call void @zfree(ptr noundef %0) #26
+  tail call void @sdsfree(ptr noundef %7) #25
+  tail call void @zfree(ptr noundef %0) #25
   ret void
 }
 
@@ -8270,8 +8270,8 @@ define dso_local void @ACLUpdateInfoMetrics(i32 noundef %0) local_unnamed_addr #
   br label %15
 
 14:                                               ; preds = %1
-  tail call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.22, i32 noundef 2647, ptr noundef nonnull @.str.123) #26
-  tail call void @abort() #28
+  tail call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.22, i32 noundef 2647, ptr noundef nonnull @.str.123) #25
+  tail call void @abort() #27
   unreachable
 
 15:                                               ; preds = %5, %11, %8, %2
@@ -8289,11 +8289,11 @@ define dso_local ptr @getAclErrorMessage(i32 noundef %0, ptr noundef readonly ca
   ]
 
 6:                                                ; preds = %5
-  %7 = tail call ptr @sdsempty() #26
+  %7 = tail call ptr @sdsempty() #25
   %8 = load ptr, ptr %1, align 8, !tbaa !88
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 216
   %10 = load ptr, ptr %9, align 8, !tbaa !126
-  %11 = tail call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef %7, ptr noundef nonnull @.str.124, ptr noundef %8, ptr noundef %10) #26
+  %11 = tail call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef %7, ptr noundef nonnull @.str.124, ptr noundef %8, ptr noundef %10) #25
   br label %27
 
 12:                                               ; preds = %5
@@ -8301,13 +8301,13 @@ define dso_local ptr @getAclErrorMessage(i32 noundef %0, ptr noundef readonly ca
   br i1 %.not9, label %17, label %13
 
 13:                                               ; preds = %12
-  %14 = tail call ptr @sdsempty() #26
+  %14 = tail call ptr @sdsempty() #25
   %15 = load ptr, ptr %1, align 8, !tbaa !88
-  %16 = tail call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef %14, ptr noundef nonnull @.str.125, ptr noundef %15, ptr noundef %3) #26
+  %16 = tail call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef %14, ptr noundef nonnull @.str.125, ptr noundef %15, ptr noundef %3) #25
   br label %27
 
 17:                                               ; preds = %12
-  %18 = tail call ptr @sdsnew(ptr noundef nonnull @.str.126) #26
+  %18 = tail call ptr @sdsnew(ptr noundef nonnull @.str.126) #25
   br label %27
 
 19:                                               ; preds = %5
@@ -8315,18 +8315,18 @@ define dso_local ptr @getAclErrorMessage(i32 noundef %0, ptr noundef readonly ca
   br i1 %.not, label %24, label %20
 
 20:                                               ; preds = %19
-  %21 = tail call ptr @sdsempty() #26
+  %21 = tail call ptr @sdsempty() #25
   %22 = load ptr, ptr %1, align 8, !tbaa !88
-  %23 = tail call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef %21, ptr noundef nonnull @.str.127, ptr noundef %22, ptr noundef %3) #26
+  %23 = tail call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef %21, ptr noundef nonnull @.str.127, ptr noundef %22, ptr noundef %3) #25
   br label %27
 
 24:                                               ; preds = %19
-  %25 = tail call ptr @sdsnew(ptr noundef nonnull @.str.128) #26
+  %25 = tail call ptr @sdsnew(ptr noundef nonnull @.str.128) #25
   br label %27
 
 26:                                               ; preds = %5
-  tail call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.22, i32 noundef 2770, ptr noundef nonnull @.str.129) #26
-  tail call void @abort() #28
+  tail call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.22, i32 noundef 2770, ptr noundef nonnull @.str.129) #25
+  tail call void @abort() #27
   unreachable
 
 27:                                               ; preds = %24, %20, %17, %13, %6
@@ -8336,14 +8336,14 @@ define dso_local ptr @getAclErrorMessage(i32 noundef %0, ptr noundef readonly ca
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @aclCatWithFlags(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef captures(none) %3) local_unnamed_addr #0 {
-  %5 = tail call ptr @dictGetIterator(ptr noundef %1) #26
-  %6 = tail call ptr @dictNext(ptr noundef %5) #26
+  %5 = tail call ptr @dictGetIterator(ptr noundef %1) #25
+  %6 = tail call ptr @dictNext(ptr noundef %5) #25
   %.not17 = icmp eq ptr %6, null
   br i1 %.not17, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4, %43
   %7 = phi ptr [ %44, %43 ], [ %6, %4 ]
-  %8 = tail call ptr @dictGetVal(ptr noundef nonnull %7) #26
+  %8 = tail call ptr @dictGetVal(ptr noundef nonnull %7) #25
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 120
   %10 = load i64, ptr %9, align 8, !tbaa !113
   %11 = and i64 %10, %2
@@ -8395,7 +8395,7 @@ define dso_local void @aclCatWithFlags(ptr noundef %0, ptr noundef %1, i64 nound
 
 sdslen.exit:                                      ; preds = %12, %19, %22, %26, %30, %34
   %.0.i = phi i64 [ %36, %34 ], [ %21, %19 ], [ %25, %22 ], [ %29, %26 ], [ %33, %30 ], [ 0, %12 ]
-  tail call void @addReplyBulkCBuffer(ptr noundef %0, ptr noundef nonnull %14, i64 noundef %.0.i) #26
+  tail call void @addReplyBulkCBuffer(ptr noundef %0, ptr noundef nonnull %14, i64 noundef %.0.i) #25
   %37 = load i32, ptr %3, align 4, !tbaa !102
   %38 = add nsw i32 %37, 1
   store i32 %38, ptr %3, align 4, !tbaa !102
@@ -8412,12 +8412,12 @@ sdslen.exit:                                      ; preds = %12, %19, %22, %26, 
   br label %43
 
 43:                                               ; preds = %42, %39
-  %44 = tail call ptr @dictNext(ptr noundef %5) #26
+  %44 = tail call ptr @dictNext(ptr noundef %5) #25
   %.not = icmp eq ptr %44, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !218
 
 ._crit_edge:                                      ; preds = %43, %4
-  tail call void @dictReleaseIterator(ptr noundef %5) #26
+  tail call void @dictReleaseIterator(ptr noundef %5) #25
   ret void
 }
 
@@ -8427,25 +8427,25 @@ declare void @addReplyBulkCBuffer(ptr noundef, ptr noundef, i64 noundef) local_u
 define dso_local noundef i32 @aclAddReplySelectorDescription(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.listIter, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  tail call void @addReplyBulkCString(ptr noundef %0, ptr noundef nonnull @.str.130) #26
+  tail call void @addReplyBulkCString(ptr noundef %0, ptr noundef nonnull @.str.130) #25
   %4 = tail call ptr @ACLDescribeSelectorCommandRules(ptr noundef %1)
-  tail call void @addReplyBulkSds(ptr noundef %0, ptr noundef %4) #26
-  tail call void @addReplyBulkCString(ptr noundef %0, ptr noundef nonnull @.str.131) #26
+  tail call void @addReplyBulkSds(ptr noundef %0, ptr noundef %4) #25
+  tail call void @addReplyBulkCString(ptr noundef %0, ptr noundef nonnull @.str.131) #25
   %5 = load i32, ptr %1, align 8, !tbaa !61
   %6 = and i32 %5, 2
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %8, label %7
 
 7:                                                ; preds = %2
-  tail call void @addReplyBulkCBuffer(ptr noundef %0, ptr noundef nonnull @.str.61, i64 noundef 2) #26
+  tail call void @addReplyBulkCBuffer(ptr noundef %0, ptr noundef nonnull @.str.61, i64 noundef 2) #25
   br label %23
 
 8:                                                ; preds = %2
-  %9 = tail call ptr @sdsempty() #26
+  %9 = tail call ptr @sdsempty() #25
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %11 = load ptr, ptr %10, align 8, !tbaa !64
-  call void @listRewind(ptr noundef %11, ptr noundef nonnull %3) #26
-  %12 = call ptr @listNext(ptr noundef nonnull %3) #26
+  call void @listRewind(ptr noundef %11, ptr noundef nonnull %3) #25
+  %12 = call ptr @listNext(ptr noundef nonnull %3) #25
   %.not3237 = icmp eq ptr %12, null
   br i1 %.not3237, label %._crit_edge, label %.lr.ph
 
@@ -8460,38 +8460,38 @@ define dso_local noundef i32 @aclAddReplySelectorDescription(ptr noundef %0, ptr
   br i1 %.not33, label %20, label %18
 
 18:                                               ; preds = %.lr.ph
-  %19 = call ptr @sdscat(ptr noundef %.02838, ptr noundef nonnull @.str.40) #26
+  %19 = call ptr @sdscat(ptr noundef %.02838, ptr noundef nonnull @.str.40) #25
   br label %20
 
 20:                                               ; preds = %18, %.lr.ph
   %.129 = phi ptr [ %19, %18 ], [ %.02838, %.lr.ph ]
   %21 = call ptr @sdsCatPatternString(ptr noundef %.129, ptr noundef %15)
-  %22 = call ptr @listNext(ptr noundef nonnull %3) #26
+  %22 = call ptr @listNext(ptr noundef nonnull %3) #25
   %.not32 = icmp eq ptr %22, null
   br i1 %.not32, label %._crit_edge, label %.lr.ph, !llvm.loop !219
 
 ._crit_edge:                                      ; preds = %20, %8
   %.028.lcssa = phi ptr [ %9, %8 ], [ %21, %20 ]
-  call void @addReplyBulkSds(ptr noundef %0, ptr noundef %.028.lcssa) #26
+  call void @addReplyBulkSds(ptr noundef %0, ptr noundef %.028.lcssa) #25
   br label %23
 
 23:                                               ; preds = %._crit_edge, %7
-  call void @addReplyBulkCString(ptr noundef %0, ptr noundef nonnull @.str.132) #26
+  call void @addReplyBulkCString(ptr noundef %0, ptr noundef nonnull @.str.132) #25
   %24 = load i32, ptr %1, align 8, !tbaa !61
   %25 = and i32 %24, 8
   %.not34 = icmp eq i32 %25, 0
   br i1 %.not34, label %27, label %26
 
 26:                                               ; preds = %23
-  call void @addReplyBulkCBuffer(ptr noundef %0, ptr noundef nonnull @.str.63, i64 noundef 2) #26
+  call void @addReplyBulkCBuffer(ptr noundef %0, ptr noundef nonnull @.str.63, i64 noundef 2) #25
   br label %42
 
 27:                                               ; preds = %23
-  %28 = call ptr @sdsempty() #26
+  %28 = call ptr @sdsempty() #25
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %30 = load ptr, ptr %29, align 8, !tbaa !65
-  call void @listRewind(ptr noundef %30, ptr noundef nonnull %3) #26
-  %31 = call ptr @listNext(ptr noundef nonnull %3) #26
+  call void @listRewind(ptr noundef %30, ptr noundef nonnull %3) #25
+  %31 = call ptr @listNext(ptr noundef nonnull %3) #25
   %.not3539 = icmp eq ptr %31, null
   br i1 %.not3539, label %._crit_edge43, label %.lr.ph42
 
@@ -8506,19 +8506,19 @@ define dso_local noundef i32 @aclAddReplySelectorDescription(ptr noundef %0, ptr
   br i1 %.not36, label %39, label %37
 
 37:                                               ; preds = %.lr.ph42
-  %38 = call ptr @sdscat(ptr noundef %.040, ptr noundef nonnull @.str.40) #26
+  %38 = call ptr @sdscat(ptr noundef %.040, ptr noundef nonnull @.str.40) #25
   br label %39
 
 39:                                               ; preds = %37, %.lr.ph42
   %.1 = phi ptr [ %38, %37 ], [ %.040, %.lr.ph42 ]
-  %40 = call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef %.1, ptr noundef nonnull @.str.133, ptr noundef %34) #26
-  %41 = call ptr @listNext(ptr noundef nonnull %3) #26
+  %40 = call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef %.1, ptr noundef nonnull @.str.133, ptr noundef %34) #25
+  %41 = call ptr @listNext(ptr noundef nonnull %3) #25
   %.not35 = icmp eq ptr %41, null
   br i1 %.not35, label %._crit_edge43, label %.lr.ph42, !llvm.loop !220
 
 ._crit_edge43:                                    ; preds = %39, %27
   %.0.lcssa = phi ptr [ %28, %27 ], [ %40, %39 ]
-  call void @addReplyBulkSds(ptr noundef %0, ptr noundef %.0.lcssa) #26
+  call void @addReplyBulkSds(ptr noundef %0, ptr noundef %.0.lcssa) #25
   br label %42
 
 42:                                               ; preds = %._crit_edge43, %26
@@ -8551,7 +8551,7 @@ define dso_local void @aclCommand(ptr noundef %0) local_unnamed_addr #0 {
   %18 = load ptr, ptr %17, align 8, !tbaa !168
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load ptr, ptr %19, align 8, !tbaa !144
-  %21 = tail call i32 @strcasecmp(ptr noundef %20, ptr noundef nonnull @.str.134) #30
+  %21 = tail call i32 @strcasecmp(ptr noundef %20, ptr noundef nonnull @.str.134) #29
   %.not = icmp eq i32 %21, 0
   br i1 %.not, label %22, label %106
 
@@ -8613,7 +8613,7 @@ sdslen.exit:                                      ; preds = %32, %35, %39, %43, 
   br i1 %.not14.i, label %sdslen.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %sdslen.exit
-  %50 = tail call ptr @__ctype_b_loc() #29
+  %50 = tail call ptr @__ctype_b_loc() #28
   %51 = load ptr, ptr %50, align 8, !tbaa !23
   br label %54
 
@@ -8637,14 +8637,14 @@ sdslen.exit:                                      ; preds = %32, %35, %39, %43, 
 
 .lr.ph418:                                        ; preds = %22, %.lr.ph418
   %.0417 = phi i32 [ %62, %.lr.ph418 ], [ 2, %22 ]
-  tail call void @redactClientCommandArgument(ptr noundef nonnull %0, i32 noundef %.0417) #26
+  tail call void @redactClientCommandArgument(ptr noundef nonnull %0, i32 noundef %.0417) #25
   %62 = add nuw nsw i32 %.0417, 1
   %63 = load i32, ptr %23, align 8, !tbaa !189
   %64 = icmp slt i32 %62, %63
   br i1 %64, label %.lr.ph418, label %._crit_edge419, !llvm.loop !221
 
 ACLStringHasSpaces.exit:                          ; preds = %54
-  tail call void @addReplyError(ptr noundef nonnull %0, ptr noundef nonnull @.str.135) #26
+  tail call void @addReplyError(ptr noundef nonnull %0, ptr noundef nonnull @.str.135) #25
   br label %.critedge339
 
 sdslen.exit.thread:                               ; preds = %52, %sdslen.exit
@@ -8689,13 +8689,13 @@ sdslen.exit349:                                   ; preds = %._crit_edge419, %sd
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !tbaa !143
   %83 = load ptr, ptr @Users, align 8, !tbaa !87
-  %84 = call i32 @raxFind(ptr noundef %83, ptr noundef nonnull %27, i64 noundef %.0.i348, ptr noundef nonnull %4) #26
+  %84 = call i32 @raxFind(ptr noundef %83, ptr noundef nonnull %27, i64 noundef %.0.i348, ptr noundef nonnull %4) #25
   %85 = load ptr, ptr %4, align 8, !tbaa !143
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %86 = load i32, ptr %23, align 8, !tbaa !189
   %87 = sext i32 %86 to i64
   %88 = shl nsw i64 %87, 3
-  %89 = call noalias ptr @zmalloc(i64 noundef %88) #27
+  %89 = call noalias ptr @zmalloc(i64 noundef %88) #26
   %90 = load i32, ptr %23, align 8, !tbaa !189
   %91 = icmp sgt i32 %90, 3
   br i1 %91, label %.lr.ph421, label %._crit_edge422
@@ -8708,7 +8708,7 @@ sdslen.exit349:                                   ; preds = %._crit_edge419, %sd
 ._crit_edge422:                                   ; preds = %96, %sdslen.exit349
   %93 = add nsw i32 %90, -3
   %94 = call ptr @ACLStringSetUser(ptr noundef %85, ptr noundef nonnull %27, ptr noundef %89, i32 noundef %93)
-  call void @zfree(ptr noundef %89) #26
+  call void @zfree(ptr noundef %89) #25
   %95 = icmp eq ptr %94, null
   br i1 %95, label %103, label %105
 
@@ -8727,15 +8727,15 @@ sdslen.exit349:                                   ; preds = %._crit_edge419, %sd
 
 103:                                              ; preds = %._crit_edge422
   %104 = load ptr, ptr @shared, align 8, !tbaa !223
-  call void @addReply(ptr noundef nonnull %0, ptr noundef %104) #26
+  call void @addReply(ptr noundef nonnull %0, ptr noundef %104) #25
   br label %.critedge339
 
 105:                                              ; preds = %._crit_edge422
-  call void @addReplyErrorSdsSafe(ptr noundef nonnull %0, ptr noundef nonnull %94) #26
+  call void @addReplyErrorSdsSafe(ptr noundef nonnull %0, ptr noundef nonnull %94) #25
   br label %.critedge339
 
 106:                                              ; preds = %22, %1
-  %107 = tail call i32 @strcasecmp(ptr noundef %20, ptr noundef nonnull @.str.136) #30
+  %107 = tail call i32 @strcasecmp(ptr noundef %20, ptr noundef nonnull @.str.136) #29
   %.not298 = icmp eq i32 %107, 0
   br i1 %.not298, label %108, label %159
 
@@ -8756,7 +8756,7 @@ sdslen.exit349:                                   ; preds = %._crit_edge419, %sd
 
 .lr.ph409:                                        ; preds = %108, %.lr.ph409
   %.0268408 = phi i32 [ %113, %.lr.ph409 ], [ 2, %108 ]
-  tail call void @redactClientCommandArgument(ptr noundef nonnull %0, i32 noundef %.0268408) #26
+  tail call void @redactClientCommandArgument(ptr noundef nonnull %0, i32 noundef %.0268408) #25
   %113 = add nuw nsw i32 %.0268408, 1
   %114 = load i32, ptr %109, align 8, !tbaa !189
   %115 = icmp slt i32 %113, %114
@@ -8773,12 +8773,12 @@ sdslen.exit349:                                   ; preds = %._crit_edge419, %sd
   %118 = load ptr, ptr %117, align 8, !tbaa !168
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 8
   %120 = load ptr, ptr %119, align 8, !tbaa !144
-  %121 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %120, ptr noundef nonnull dereferenceable(8) @.str.88) #30
+  %121 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %120, ptr noundef nonnull dereferenceable(8) @.str.88) #29
   %.not299.not = icmp eq i32 %121, 0
   br i1 %.not299.not, label %122, label %116
 
 122:                                              ; preds = %.critedge335
-  tail call void @addReplyError(ptr noundef nonnull %0, ptr noundef nonnull @.str.137) #26
+  tail call void @addReplyError(ptr noundef nonnull %0, ptr noundef nonnull @.str.137) #25
   br label %.critedge339
 
 .critedge337._crit_edge.loopexit:                 ; preds = %.critedge337
@@ -8787,7 +8787,7 @@ sdslen.exit349:                                   ; preds = %._crit_edge419, %sd
 
 .critedge337._crit_edge:                          ; preds = %.preheader374, %.critedge337._crit_edge.loopexit
   %.0269.lcssa = phi i64 [ 0, %.preheader374 ], [ %123, %.critedge337._crit_edge.loopexit ]
-  call void @addReplyLongLong(ptr noundef nonnull %0, i64 noundef %.0269.lcssa) #26
+  call void @addReplyLongLong(ptr noundef nonnull %0, i64 noundef %.0269.lcssa) #25
   br label %.critedge339
 
 .lr.ph415:                                        ; preds = %116, %.critedge337
@@ -8842,7 +8842,7 @@ sdslen.exit349:                                   ; preds = %._crit_edge419, %sd
 
 sdslen.exit351:                                   ; preds = %.lr.ph415, %134, %137, %141, %145, %149
   %.0.i350 = phi i64 [ %151, %149 ], [ %136, %134 ], [ %140, %137 ], [ %144, %141 ], [ %148, %145 ], [ 0, %.lr.ph415 ]
-  %152 = call i32 @raxRemove(ptr noundef %129, ptr noundef nonnull %128, i64 noundef %.0.i350, ptr noundef nonnull %5) #26
+  %152 = call i32 @raxRemove(ptr noundef %129, ptr noundef nonnull %128, i64 noundef %.0.i350, ptr noundef nonnull %5) #25
   %.not301 = icmp eq i32 %152, 0
   br i1 %.not301, label %.critedge337, label %153
 
@@ -8862,7 +8862,7 @@ sdslen.exit351:                                   ; preds = %.lr.ph415, %134, %1
   br i1 %158, label %.lr.ph415, label %.critedge337._crit_edge.loopexit, !llvm.loop !227
 
 159:                                              ; preds = %108, %106
-  %160 = tail call i32 @strcasecmp(ptr noundef %20, ptr noundef nonnull @.str.138) #30
+  %160 = tail call i32 @strcasecmp(ptr noundef %20, ptr noundef nonnull @.str.138) #29
   %.not302 = icmp eq i32 %160, 0
   br i1 %.not302, label %161, label %275
 
@@ -8873,7 +8873,7 @@ sdslen.exit351:                                   ; preds = %.lr.ph415, %134, %1
   br i1 %164, label %165, label %275
 
 165:                                              ; preds = %161
-  tail call void @redactClientCommandArgument(ptr noundef nonnull %0, i32 noundef 2) #26
+  tail call void @redactClientCommandArgument(ptr noundef nonnull %0, i32 noundef 2) #25
   %166 = load ptr, ptr %15, align 8, !tbaa !167
   %167 = getelementptr inbounds nuw i8, ptr %166, i64 16
   %168 = load ptr, ptr %167, align 8, !tbaa !168
@@ -8924,20 +8924,20 @@ sdslen.exit353:                                   ; preds = %165, %175, %178, %1
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !143
   %193 = load ptr, ptr @Users, align 8, !tbaa !87
-  %194 = call i32 @raxFind(ptr noundef %193, ptr noundef nonnull %170, i64 noundef %.0.i352, ptr noundef nonnull %3) #26
+  %194 = call i32 @raxFind(ptr noundef %193, ptr noundef nonnull %170, i64 noundef %.0.i352, ptr noundef nonnull %3) #25
   %195 = load ptr, ptr %3, align 8, !tbaa !143
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not308 = icmp eq ptr %195, null
   br i1 %.not308, label %196, label %197
 
 196:                                              ; preds = %sdslen.exit353
-  call void @addReplyNull(ptr noundef nonnull %0) #26
+  call void @addReplyNull(ptr noundef nonnull %0) #25
   br label %.critedge339
 
 197:                                              ; preds = %sdslen.exit353
-  %198 = call ptr @addReplyDeferredLen(ptr noundef nonnull %0) #26
-  call void @addReplyBulkCString(ptr noundef nonnull %0, ptr noundef nonnull @.str.139) #26
-  %199 = call ptr @addReplyDeferredLen(ptr noundef nonnull %0) #26
+  %198 = call ptr @addReplyDeferredLen(ptr noundef nonnull %0) #25
+  call void @addReplyBulkCString(ptr noundef nonnull %0, ptr noundef nonnull @.str.139) #25
+  %199 = call ptr @addReplyDeferredLen(ptr noundef nonnull %0) #25
   %200 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ACLUserFlags, i64 8), align 8, !tbaa !134
   %.not303394 = icmp eq i64 %200, 0
   br i1 %.not303394, label %._crit_edge399, label %.lr.ph398
@@ -8952,17 +8952,17 @@ sdslen.exit353:                                   ; preds = %165, %175, %178, %1
 
 ._crit_edge399:                                   ; preds = %._crit_edge399.loopexit, %197
   %.0275.lcssa = phi i64 [ 0, %197 ], [ %202, %._crit_edge399.loopexit ]
-  call void @setDeferredSetLen(ptr noundef %0, ptr noundef %199, i64 noundef %.0275.lcssa) #26
-  call void @addReplyBulkCString(ptr noundef %0, ptr noundef nonnull @.str.140) #26
+  call void @setDeferredSetLen(ptr noundef %0, ptr noundef %199, i64 noundef %.0275.lcssa) #25
+  call void @addReplyBulkCString(ptr noundef %0, ptr noundef nonnull @.str.140) #25
   %203 = getelementptr inbounds nuw i8, ptr %195, i64 16
   %204 = load ptr, ptr %203, align 8, !tbaa !90
   %205 = getelementptr inbounds nuw i8, ptr %204, i64 40
   %206 = load i64, ptr %205, align 8, !tbaa !82
-  call void @addReplyArrayLen(ptr noundef %0, i64 noundef %206) #26
+  call void @addReplyArrayLen(ptr noundef %0, i64 noundef %206) #25
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %207 = load ptr, ptr %203, align 8, !tbaa !90
-  call void @listRewind(ptr noundef %207, ptr noundef nonnull %6) #26
-  %208 = call ptr @listNext(ptr noundef nonnull %6) #26
+  call void @listRewind(ptr noundef %207, ptr noundef nonnull %6) #25
+  %208 = call ptr @listNext(ptr noundef nonnull %6) #25
   %.not304401 = icmp eq ptr %208, null
   br i1 %.not304401, label %._crit_edge404, label %.lr.ph403
 
@@ -8979,7 +8979,7 @@ sdslen.exit353:                                   ; preds = %165, %175, %178, %1
 214:                                              ; preds = %209
   %215 = getelementptr inbounds nuw %struct.ACLUserFlag, ptr @ACLUserFlags, i64 %indvars.iv429
   %216 = load ptr, ptr %215, align 16, !tbaa !136
-  call void @addReplyBulkCString(ptr noundef %0, ptr noundef %216) #26
+  call void @addReplyBulkCString(ptr noundef %0, ptr noundef %216) #25
   %217 = add nsw i32 %.0275396, 1
   br label %218
 
@@ -9038,8 +9038,8 @@ sdslen.exit353:                                   ; preds = %165, %175, %178, %1
 
 sdslen.exit355:                                   ; preds = %.lr.ph403, %229, %232, %236, %240, %244
   %.0.i354 = phi i64 [ %246, %244 ], [ %231, %229 ], [ %235, %232 ], [ %239, %236 ], [ %243, %240 ], [ 0, %.lr.ph403 ]
-  call void @addReplyBulkCBuffer(ptr noundef %0, ptr noundef nonnull %224, i64 noundef %.0.i354) #26
-  %247 = call ptr @listNext(ptr noundef nonnull %6) #26
+  call void @addReplyBulkCBuffer(ptr noundef %0, ptr noundef nonnull %224, i64 noundef %.0.i354) #25
+  %247 = call ptr @listNext(ptr noundef nonnull %6) #25
   %.not304 = icmp eq ptr %247, null
   br i1 %.not304, label %._crit_edge404, label %.lr.ph403, !llvm.loop !229
 
@@ -9052,8 +9052,8 @@ sdslen.exit355:                                   ; preds = %.lr.ph403, %229, %2
   br i1 %.not.i356, label %252, label %253, !prof !83
 
 252:                                              ; preds = %._crit_edge404
-  call void @_serverAssert(ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.22, i32 noundef 408) #26
-  call void @abort() #28
+  call void @_serverAssert(ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.22, i32 noundef 408) #25
+  call void @abort() #27
   unreachable
 
 253:                                              ; preds = %._crit_edge404
@@ -9066,57 +9066,57 @@ sdslen.exit355:                                   ; preds = %.lr.ph403, %229, %2
   br i1 %.not4.i, label %259, label %ACLUserGetRootSelector.exit, !prof !83
 
 259:                                              ; preds = %253
-  call void @_serverAssert(ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.22, i32 noundef 410) #26
-  call void @abort() #28
+  call void @_serverAssert(ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.22, i32 noundef 410) #25
+  call void @abort() #27
   unreachable
 
 ACLUserGetRootSelector.exit:                      ; preds = %253
   %260 = call i32 @aclAddReplySelectorDescription(ptr noundef %0, ptr noundef nonnull %256)
-  call void @addReplyBulkCString(ptr noundef %0, ptr noundef nonnull @.str.141) #26
+  call void @addReplyBulkCString(ptr noundef %0, ptr noundef nonnull @.str.141) #25
   %261 = load ptr, ptr %248, align 8, !tbaa !79
   %262 = getelementptr inbounds nuw i8, ptr %261, i64 40
   %263 = load i64, ptr %262, align 8, !tbaa !82
   %264 = add i64 %263, -1
-  call void @addReplyArrayLen(ptr noundef %0, i64 noundef %264) #26
+  call void @addReplyArrayLen(ptr noundef %0, i64 noundef %264) #25
   %265 = load ptr, ptr %248, align 8, !tbaa !79
-  call void @listRewind(ptr noundef %265, ptr noundef nonnull %6) #26
-  %266 = call ptr @listNext(ptr noundef nonnull %6) #26
+  call void @listRewind(ptr noundef %265, ptr noundef nonnull %6) #25
+  %266 = call ptr @listNext(ptr noundef nonnull %6) #25
   %.not305 = icmp eq ptr %266, null
   br i1 %.not305, label %268, label %.preheader376, !prof !83
 
 .preheader376:                                    ; preds = %ACLUserGetRootSelector.exit
-  %267 = call ptr @listNext(ptr noundef nonnull %6) #26
+  %267 = call ptr @listNext(ptr noundef nonnull %6) #25
   %.not306405 = icmp eq ptr %267, null
   br i1 %.not306405, label %._crit_edge407, label %.lr.ph406
 
 268:                                              ; preds = %ACLUserGetRootSelector.exit
-  call void @_serverAssert(ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.22, i32 noundef 2954) #26
-  call void @abort() #28
+  call void @_serverAssert(ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.22, i32 noundef 2954) #25
+  call void @abort() #27
   unreachable
 
 .lr.ph406:                                        ; preds = %.preheader376, %.lr.ph406
   %269 = phi ptr [ %274, %.lr.ph406 ], [ %267, %.preheader376 ]
-  %270 = call ptr @addReplyDeferredLen(ptr noundef %0) #26
+  %270 = call ptr @addReplyDeferredLen(ptr noundef %0) #25
   %271 = getelementptr inbounds nuw i8, ptr %269, i64 16
   %272 = load ptr, ptr %271, align 8, !tbaa !85
   %273 = call i32 @aclAddReplySelectorDescription(ptr noundef %0, ptr noundef %272)
-  call void @setDeferredMapLen(ptr noundef %0, ptr noundef %270, i64 noundef 3) #26
-  %274 = call ptr @listNext(ptr noundef nonnull %6) #26
+  call void @setDeferredMapLen(ptr noundef %0, ptr noundef %270, i64 noundef 3) #25
+  %274 = call ptr @listNext(ptr noundef nonnull %6) #25
   %.not306 = icmp eq ptr %274, null
   br i1 %.not306, label %._crit_edge407, label %.lr.ph406, !llvm.loop !230
 
 ._crit_edge407:                                   ; preds = %.lr.ph406, %.preheader376
-  call void @setDeferredMapLen(ptr noundef %0, ptr noundef %198, i64 noundef 6) #26
+  call void @setDeferredMapLen(ptr noundef %0, ptr noundef %198, i64 noundef 6) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.critedge339
 
 275:                                              ; preds = %161, %159
-  %276 = tail call i32 @strcasecmp(ptr noundef %20, ptr noundef nonnull @.str.5) #30
+  %276 = tail call i32 @strcasecmp(ptr noundef %20, ptr noundef nonnull @.str.5) #29
   %.not309 = icmp eq i32 %276, 0
   br i1 %.not309, label %279, label %277
 
 277:                                              ; preds = %275
-  %278 = tail call i32 @strcasecmp(ptr noundef %20, ptr noundef nonnull @.str.142) #30
+  %278 = tail call i32 @strcasecmp(ptr noundef %20, ptr noundef nonnull @.str.142) #29
   %.not310 = icmp eq i32 %278, 0
   br i1 %.not310, label %279, label %326
 
@@ -9127,15 +9127,15 @@ ACLUserGetRootSelector.exit:                      ; preds = %253
   br i1 %282, label %283, label %326
 
 283:                                              ; preds = %279
-  %284 = tail call i32 @strcasecmp(ptr noundef %20, ptr noundef nonnull @.str.142) #30
+  %284 = tail call i32 @strcasecmp(ptr noundef %20, ptr noundef nonnull @.str.142) #29
   %285 = load ptr, ptr @Users, align 8, !tbaa !87
-  %286 = tail call i64 @raxSize(ptr noundef %285) #26
-  tail call void @addReplyArrayLen(ptr noundef nonnull %0, i64 noundef %286) #26
+  %286 = tail call i64 @raxSize(ptr noundef %285) #25
+  tail call void @addReplyArrayLen(ptr noundef nonnull %0, i64 noundef %286) #25
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %287 = load ptr, ptr @Users, align 8, !tbaa !87
-  call void @raxStart(ptr noundef nonnull %7, ptr noundef %287) #26
-  %288 = call i32 @raxSeek(ptr noundef nonnull %7, ptr noundef nonnull @.str.43, ptr noundef null, i64 noundef 0) #26
-  %289 = call i32 @raxNext(ptr noundef nonnull %7) #26
+  call void @raxStart(ptr noundef nonnull %7, ptr noundef %287) #25
+  %288 = call i32 @raxSeek(ptr noundef nonnull %7, ptr noundef nonnull @.str.43, ptr noundef null, i64 noundef 0) #25
+  %289 = call i32 @raxNext(ptr noundef nonnull %7) #25
   %.not312390 = icmp eq i32 %289, 0
   br i1 %.not312390, label %._crit_edge393, label %.lr.ph392
 
@@ -9189,34 +9189,34 @@ ACLUserGetRootSelector.exit:                      ; preds = %253
 
 sdslen.exit358.us:                                ; preds = %312, %308, %304, %300, %297, %.lr.ph392.split.us
   %.0.i357.us = phi i64 [ %299, %297 ], [ %314, %312 ], [ %311, %308 ], [ %307, %304 ], [ %303, %300 ], [ 0, %.lr.ph392.split.us ]
-  call void @addReplyBulkCBuffer(ptr noundef %0, ptr noundef nonnull %292, i64 noundef %.0.i357.us) #26
-  %315 = call i32 @raxNext(ptr noundef nonnull %7) #26
+  call void @addReplyBulkCBuffer(ptr noundef %0, ptr noundef nonnull %292, i64 noundef %.0.i357.us) #25
+  %315 = call i32 @raxNext(ptr noundef nonnull %7) #25
   %.not312.us = icmp eq i32 %315, 0
   br i1 %.not312.us, label %._crit_edge393, label %.lr.ph392.split.us, !llvm.loop !231
 
 .lr.ph392.split:                                  ; preds = %.lr.ph392, %.lr.ph392.split
   %316 = load ptr, ptr %290, align 8, !tbaa !115
-  %317 = call ptr @sdsnew(ptr noundef nonnull @.str.113) #26
+  %317 = call ptr @sdsnew(ptr noundef nonnull @.str.113) #25
   %318 = load ptr, ptr %316, align 8, !tbaa !88
-  %319 = call ptr @sdscatsds(ptr noundef %317, ptr noundef %318) #26
-  %320 = call ptr @sdscatlen(ptr noundef %319, ptr noundef nonnull @.str.40, i64 noundef 1) #26
+  %319 = call ptr @sdscatsds(ptr noundef %317, ptr noundef %318) #25
+  %320 = call ptr @sdscatlen(ptr noundef %319, ptr noundef nonnull @.str.40, i64 noundef 1) #25
   %321 = call ptr @ACLDescribeUser(ptr noundef nonnull %316)
   %322 = getelementptr inbounds nuw i8, ptr %321, i64 8
   %323 = load ptr, ptr %322, align 8, !tbaa !144
-  %324 = call ptr @sdscatsds(ptr noundef %320, ptr noundef %323) #26
-  call void @decrRefCount(ptr noundef %321) #26
-  call void @addReplyBulkSds(ptr noundef nonnull %0, ptr noundef %324) #26
-  %325 = call i32 @raxNext(ptr noundef nonnull %7) #26
+  %324 = call ptr @sdscatsds(ptr noundef %320, ptr noundef %323) #25
+  call void @decrRefCount(ptr noundef %321) #25
+  call void @addReplyBulkSds(ptr noundef nonnull %0, ptr noundef %324) #25
+  %325 = call i32 @raxNext(ptr noundef nonnull %7) #25
   %.not312 = icmp eq i32 %325, 0
   br i1 %.not312, label %._crit_edge393, label %.lr.ph392.split, !llvm.loop !231
 
 ._crit_edge393:                                   ; preds = %.lr.ph392.split, %sdslen.exit358.us, %283
-  call void @raxStop(ptr noundef nonnull %7) #26
+  call void @raxStop(ptr noundef nonnull %7) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.critedge339
 
 326:                                              ; preds = %279, %277
-  %327 = tail call i32 @strcasecmp(ptr noundef %20, ptr noundef nonnull @.str.143) #30
+  %327 = tail call i32 @strcasecmp(ptr noundef %20, ptr noundef nonnull @.str.143) #29
   %.not313 = icmp eq i32 %327, 0
   br i1 %.not313, label %328, label %360
 
@@ -9276,11 +9276,11 @@ sdslen.exit358.us:                                ; preds = %312, %308, %304, %3
 
 sdslen.exit360:                                   ; preds = %335, %341, %344, %348, %352, %356
   %.0.i359 = phi i64 [ %358, %356 ], [ %343, %341 ], [ %347, %344 ], [ %351, %348 ], [ %355, %352 ], [ 0, %335 ]
-  tail call void @addReplyBulkCBuffer(ptr noundef nonnull %0, ptr noundef nonnull %336, i64 noundef %.0.i359) #26
+  tail call void @addReplyBulkCBuffer(ptr noundef nonnull %0, ptr noundef nonnull %336, i64 noundef %.0.i359) #25
   br label %.critedge339
 
 359:                                              ; preds = %332
-  tail call void @addReplyNull(ptr noundef nonnull %0) #26
+  tail call void @addReplyNull(ptr noundef nonnull %0) #25
   br label %.critedge339
 
 360:                                              ; preds = %328, %326
@@ -9290,21 +9290,21 @@ sdslen.exit360:                                   ; preds = %335, %341, %344, %3
   br i1 %363, label %364, label %369
 
 364:                                              ; preds = %360
-  %365 = tail call i32 @strcasecmp(ptr noundef %20, ptr noundef nonnull @.str.144) #30
+  %365 = tail call i32 @strcasecmp(ptr noundef %20, ptr noundef nonnull @.str.144) #29
   %.not315 = icmp eq i32 %365, 0
   br i1 %.not315, label %368, label %366
 
 366:                                              ; preds = %364
-  %367 = tail call i32 @strcasecmp(ptr noundef %20, ptr noundef nonnull @.str.145) #30
+  %367 = tail call i32 @strcasecmp(ptr noundef %20, ptr noundef nonnull @.str.145) #29
   %.not316 = icmp eq i32 %367, 0
   br i1 %.not316, label %368, label %369
 
 368:                                              ; preds = %366, %364
-  tail call void @addReplyError(ptr noundef nonnull %0, ptr noundef nonnull @.str.146) #26
+  tail call void @addReplyError(ptr noundef nonnull %0, ptr noundef nonnull @.str.146) #25
   br label %.critedge339
 
 369:                                              ; preds = %366, %360
-  %370 = tail call i32 @strcasecmp(ptr noundef %20, ptr noundef nonnull @.str.144) #30
+  %370 = tail call i32 @strcasecmp(ptr noundef %20, ptr noundef nonnull @.str.144) #29
   %.not317 = icmp eq i32 %370, 0
   br i1 %.not317, label %371, label %381
 
@@ -9321,16 +9321,16 @@ sdslen.exit360:                                   ; preds = %335, %341, %344, %3
 
 378:                                              ; preds = %375
   %379 = load ptr, ptr @shared, align 8, !tbaa !223
-  tail call void @addReply(ptr noundef nonnull %0, ptr noundef %379) #26
+  tail call void @addReply(ptr noundef nonnull %0, ptr noundef %379) #25
   br label %.critedge339
 
 380:                                              ; preds = %375
-  tail call void @addReplyError(ptr noundef nonnull %0, ptr noundef nonnull %376) #26
-  tail call void @sdsfree(ptr noundef nonnull %376) #26
+  tail call void @addReplyError(ptr noundef nonnull %0, ptr noundef nonnull %376) #25
+  tail call void @sdsfree(ptr noundef nonnull %376) #25
   br label %.critedge339
 
 381:                                              ; preds = %371, %369
-  %382 = tail call i32 @strcasecmp(ptr noundef %20, ptr noundef nonnull @.str.145) #30
+  %382 = tail call i32 @strcasecmp(ptr noundef %20, ptr noundef nonnull @.str.145) #29
   %.not318 = icmp eq i32 %382, 0
   br i1 %.not318, label %383, label %393
 
@@ -9347,15 +9347,15 @@ sdslen.exit360:                                   ; preds = %335, %341, %344, %3
 
 390:                                              ; preds = %387
   %391 = load ptr, ptr @shared, align 8, !tbaa !223
-  tail call void @addReply(ptr noundef nonnull %0, ptr noundef %391) #26
+  tail call void @addReply(ptr noundef nonnull %0, ptr noundef %391) #25
   br label %.critedge339
 
 392:                                              ; preds = %387
-  tail call void @addReplyError(ptr noundef nonnull %0, ptr noundef nonnull @.str.147) #26
+  tail call void @addReplyError(ptr noundef nonnull %0, ptr noundef nonnull @.str.147) #25
   br label %.critedge339
 
 393:                                              ; preds = %383, %381
-  %394 = tail call i32 @strcasecmp(ptr noundef %20, ptr noundef nonnull @.str.148) #30
+  %394 = tail call i32 @strcasecmp(ptr noundef %20, ptr noundef nonnull @.str.148) #29
   %.not319 = icmp eq i32 %394, 0
   br i1 %.not319, label %395, label %428
 
@@ -9368,7 +9368,7 @@ sdslen.exit360:                                   ; preds = %335, %341, %344, %3
   ]
 
 398:                                              ; preds = %395
-  %399 = tail call ptr @addReplyDeferredLen(ptr noundef nonnull %0) #26
+  %399 = tail call ptr @addReplyDeferredLen(ptr noundef nonnull %0) #25
   %400 = load ptr, ptr @ACLCommandCategories, align 8, !tbaa !9
   %401 = getelementptr inbounds nuw i8, ptr %400, i64 8
   %402 = load i64, ptr %401, align 8, !tbaa !15
@@ -9379,7 +9379,7 @@ sdslen.exit360:                                   ; preds = %335, %341, %344, %3
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph388 ], [ 0, %398 ]
   %403 = phi ptr [ %406, %.lr.ph388 ], [ %400, %398 ]
   %404 = load ptr, ptr %403, align 8, !tbaa !12
-  tail call void @addReplyBulkCString(ptr noundef nonnull %0, ptr noundef %404) #26
+  tail call void @addReplyBulkCString(ptr noundef nonnull %0, ptr noundef %404) #25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %405 = load ptr, ptr @ACLCommandCategories, align 8, !tbaa !9
   %406 = getelementptr inbounds nuw %struct.ACLCategoryItem, ptr %405, i64 %indvars.iv.next
@@ -9390,7 +9390,7 @@ sdslen.exit360:                                   ; preds = %335, %341, %344, %3
 
 ._crit_edge:                                      ; preds = %.lr.ph388, %398
   %.lcssa378 = phi i64 [ 0, %398 ], [ %indvars.iv.next, %.lr.ph388 ]
-  tail call void @setDeferredArrayLen(ptr noundef nonnull %0, ptr noundef %399, i64 noundef %.lcssa378) #26
+  tail call void @setDeferredArrayLen(ptr noundef nonnull %0, ptr noundef %399, i64 noundef %.lcssa378) #25
   br label %.critedge339
 
 409:                                              ; preds = %395
@@ -9406,7 +9406,7 @@ sdslen.exit360:                                   ; preds = %335, %341, %344, %3
 
 .lr.ph.i361.preheader:                            ; preds = %409
   %417 = load ptr, ptr %414, align 8, !tbaa !12
-  %418 = tail call i32 @strcasecmp(ptr noundef readonly %413, ptr noundef %417) #30
+  %418 = tail call i32 @strcasecmp(ptr noundef readonly %413, ptr noundef %417) #29
   %.not8.i383 = icmp eq i32 %418, 0
   br i1 %.not8.i383, label %ACLGetCommandCategoryFlagByName.exit, label %.lr.ph385
 
@@ -9421,29 +9421,29 @@ sdslen.exit360:                                   ; preds = %335, %341, %344, %3
 
 .lr.ph.i361:                                      ; preds = %.lr.ph385
   %422 = load ptr, ptr %419, align 8, !tbaa !12
-  %423 = tail call i32 @strcasecmp(ptr noundef readonly %413, ptr noundef %422) #30
+  %423 = tail call i32 @strcasecmp(ptr noundef readonly %413, ptr noundef %422) #29
   %.not8.i = icmp eq i32 %423, 0
   br i1 %.not8.i, label %ACLGetCommandCategoryFlagByName.exit, label %.lr.ph385, !llvm.loop !28
 
 .loopexit:                                        ; preds = %.lr.ph385, %409
-  tail call void (ptr, ptr, ...) @addReplyErrorFormat(ptr noundef %0, ptr noundef nonnull @.str.149, ptr noundef %413) #26
+  tail call void (ptr, ptr, ...) @addReplyErrorFormat(ptr noundef %0, ptr noundef nonnull @.str.149, ptr noundef %413) #25
   br label %.critedge339
 
 ACLGetCommandCategoryFlagByName.exit:             ; preds = %.lr.ph.i361, %.lr.ph.i361.preheader
   %.lcssa379 = phi i64 [ %416, %.lr.ph.i361.preheader ], [ %421, %.lr.ph.i361 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 0, ptr %8, align 4, !tbaa !102
-  %424 = tail call ptr @addReplyDeferredLen(ptr noundef %0) #26
+  %424 = tail call ptr @addReplyDeferredLen(ptr noundef %0) #25
   %425 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 80), align 8, !tbaa !129
   call void @aclCatWithFlags(ptr noundef %0, ptr noundef %425, i64 noundef %.lcssa379, ptr noundef nonnull %8)
   %426 = load i32, ptr %8, align 4, !tbaa !102
   %427 = sext i32 %426 to i64
-  tail call void @setDeferredArrayLen(ptr noundef %0, ptr noundef %424, i64 noundef %427) #26
+  tail call void @setDeferredArrayLen(ptr noundef %0, ptr noundef %424, i64 noundef %427) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.critedge339
 
 428:                                              ; preds = %395, %393
-  %429 = tail call i32 @strcasecmp(ptr noundef %20, ptr noundef nonnull @.str.150) #30
+  %429 = tail call i32 @strcasecmp(ptr noundef %20, ptr noundef nonnull @.str.150) #29
   %.not323 = icmp eq i32 %429, 0
   br i1 %.not323, label %430, label %447
 
@@ -9464,7 +9464,7 @@ ACLGetCommandCategoryFlagByName.exit:             ; preds = %.lr.ph.i361, %.lr.p
 436:                                              ; preds = %434
   %437 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %438 = load ptr, ptr %437, align 8, !tbaa !168
-  %439 = call i32 @getLongFromObjectOrReply(ptr noundef nonnull %0, ptr noundef %438, ptr noundef nonnull %10, ptr noundef null) #26
+  %439 = call i32 @getLongFromObjectOrReply(ptr noundef nonnull %0, ptr noundef %438, ptr noundef nonnull %10, ptr noundef null) #25
   %.not324 = icmp eq i32 %439, 0
   br i1 %.not324, label %440, label %446
 
@@ -9475,15 +9475,15 @@ ACLGetCommandCategoryFlagByName.exit:             ; preds = %.lr.ph.i361, %.lr.p
   br i1 %or.cond, label %442, label %.critedge341
 
 442:                                              ; preds = %440
-  call void (ptr, ptr, ...) @addReplyErrorFormat(ptr noundef nonnull %0, ptr noundef nonnull @.str.151, i32 noundef 4096) #26
+  call void (ptr, ptr, ...) @addReplyErrorFormat(ptr noundef nonnull %0, ptr noundef nonnull @.str.151, i32 noundef 4096) #25
   br label %446
 
 .critedge341:                                     ; preds = %434, %440
   %443 = phi i64 [ %.pre446, %440 ], [ 256, %434 ]
   %444 = add nuw nsw i64 %443, 3
   %445 = lshr i64 %444, 2
-  call void @getRandomHexChars(ptr noundef nonnull %9, i64 noundef %445) #26
-  call void @addReplyBulkCBuffer(ptr noundef nonnull %0, ptr noundef nonnull %9, i64 noundef %445) #26
+  call void @getRandomHexChars(ptr noundef nonnull %9, i64 noundef %445) #25
+  call void @addReplyBulkCBuffer(ptr noundef nonnull %0, ptr noundef nonnull %9, i64 noundef %445) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.critedge339
@@ -9494,7 +9494,7 @@ ACLGetCommandCategoryFlagByName.exit:             ; preds = %.lr.ph.i361, %.lr.p
   br label %.critedge339
 
 447:                                              ; preds = %430, %428
-  %448 = tail call i32 @strcasecmp(ptr noundef %20, ptr noundef nonnull @.str.152) #30
+  %448 = tail call i32 @strcasecmp(ptr noundef %20, ptr noundef nonnull @.str.152) #29
   %.not325 = icmp eq i32 %448, 0
   br i1 %.not325, label %449, label %583
 
@@ -9516,7 +9516,7 @@ ACLGetCommandCategoryFlagByName.exit:             ; preds = %.lr.ph.i361, %.lr.p
   %457 = load ptr, ptr %456, align 8, !tbaa !168
   %458 = getelementptr inbounds nuw i8, ptr %457, i64 8
   %459 = load ptr, ptr %458, align 8, !tbaa !144
-  %460 = tail call i32 @strcasecmp(ptr noundef %459, ptr noundef nonnull @.str.70) #30
+  %460 = tail call i32 @strcasecmp(ptr noundef %459, ptr noundef nonnull @.str.70) #29
   %.not326 = icmp eq i32 %460, 0
   br i1 %.not326, label %461, label %467
 
@@ -9524,16 +9524,16 @@ ACLGetCommandCategoryFlagByName.exit:             ; preds = %.lr.ph.i361, %.lr.p
   %462 = load ptr, ptr @ACLLog, align 8, !tbaa !142
   %463 = getelementptr inbounds nuw i8, ptr %462, i64 24
   store ptr @ACLFreeLogEntry, ptr %463, align 8, !tbaa !71
-  tail call void @listEmpty(ptr noundef %462) #26
+  tail call void @listEmpty(ptr noundef %462) #25
   %464 = load ptr, ptr @ACLLog, align 8, !tbaa !142
   %465 = getelementptr inbounds nuw i8, ptr %464, i64 24
   store ptr null, ptr %465, align 8, !tbaa !71
   %466 = load ptr, ptr @shared, align 8, !tbaa !223
-  tail call void @addReply(ptr noundef nonnull %0, ptr noundef %466) #26
+  tail call void @addReply(ptr noundef nonnull %0, ptr noundef %466) #25
   br label %.critedge343
 
 467:                                              ; preds = %455
-  %468 = call i32 @getLongFromObjectOrReply(ptr noundef nonnull %0, ptr noundef nonnull %457, ptr noundef nonnull %11, ptr noundef null) #26
+  %468 = call i32 @getLongFromObjectOrReply(ptr noundef nonnull %0, ptr noundef nonnull %457, ptr noundef nonnull %11, ptr noundef null) #25
   %.not327 = icmp eq i32 %468, 0
   br i1 %.not327, label %469, label %.critedge343
 
@@ -9557,11 +9557,11 @@ ACLGetCommandCategoryFlagByName.exit:             ; preds = %.lr.ph.i361, %.lr.p
 
 478:                                              ; preds = %.sink.split, %472
   %479 = phi i64 [ %473, %472 ], [ %.sink, %.sink.split ]
-  call void @addReplyArrayLen(ptr noundef nonnull %0, i64 noundef %479) #26
+  call void @addReplyArrayLen(ptr noundef nonnull %0, i64 noundef %479) #25
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %480 = load ptr, ptr @ACLLog, align 8, !tbaa !142
-  call void @listRewind(ptr noundef %480, ptr noundef nonnull %12) #26
-  %481 = call i64 @commandTimeSnapshot() #26
+  call void @listRewind(ptr noundef %480, ptr noundef nonnull %12) #25
+  %481 = call i64 @commandTimeSnapshot() #25
   %482 = load i64, ptr %11, align 8, !tbaa !5
   %483 = add nsw i64 %482, -1
   store i64 %483, ptr %11, align 8, !tbaa !5
@@ -9569,18 +9569,18 @@ ACLGetCommandCategoryFlagByName.exit:             ; preds = %.lr.ph.i361, %.lr.p
   br i1 %.not328381, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %478, %sdslen.exit368
-  %484 = call ptr @listNext(ptr noundef nonnull %12) #26
+  %484 = call ptr @listNext(ptr noundef nonnull %12) #25
   %.not329 = icmp eq ptr %484, null
   br i1 %.not329, label %.critedge, label %485
 
 485:                                              ; preds = %.lr.ph
   %486 = getelementptr inbounds nuw i8, ptr %484, i64 16
   %487 = load ptr, ptr %486, align 8, !tbaa !85
-  call void @addReplyMapLen(ptr noundef %0, i64 noundef 10) #26
-  call void @addReplyBulkCString(ptr noundef %0, ptr noundef nonnull @.str.153) #26
+  call void @addReplyMapLen(ptr noundef %0, i64 noundef 10) #25
+  call void @addReplyBulkCString(ptr noundef %0, ptr noundef nonnull @.str.153) #25
   %488 = load i64, ptr %487, align 8, !tbaa !160
-  call void @addReplyLongLong(ptr noundef %0, i64 noundef %488) #26
-  call void @addReplyBulkCString(ptr noundef %0, ptr noundef nonnull @.str.154) #26
+  call void @addReplyLongLong(ptr noundef %0, i64 noundef %488) #25
+  call void @addReplyBulkCString(ptr noundef %0, ptr noundef nonnull @.str.154) #25
   %489 = getelementptr inbounds nuw i8, ptr %487, i64 8
   %490 = load i32, ptr %489, align 8, !tbaa !161
   %switch.tableidx = add i32 %490, -1
@@ -9595,8 +9595,8 @@ switch.lookup:                                    ; preds = %485
 
 493:                                              ; preds = %485, %switch.lookup
   %.0272 = phi ptr [ %switch.load, %switch.lookup ], [ @.str.159, %485 ]
-  call void @addReplyBulkCString(ptr noundef %0, ptr noundef nonnull %.0272) #26
-  call void @addReplyBulkCString(ptr noundef %0, ptr noundef nonnull @.str.160) #26
+  call void @addReplyBulkCString(ptr noundef %0, ptr noundef nonnull %.0272) #25
+  call void @addReplyBulkCString(ptr noundef %0, ptr noundef nonnull @.str.160) #25
   %494 = getelementptr inbounds nuw i8, ptr %487, i64 12
   %495 = load i32, ptr %494, align 4, !tbaa !170
   %496 = icmp ult i32 %495, 4
@@ -9610,8 +9610,8 @@ switch.lookup491:                                 ; preds = %493
 
 498:                                              ; preds = %493, %switch.lookup491
   %.0271 = phi ptr [ %switch.load493, %switch.lookup491 ], [ @.str.159, %493 ]
-  call void @addReplyBulkCString(ptr noundef %0, ptr noundef nonnull %.0271) #26
-  call void @addReplyBulkCString(ptr noundef %0, ptr noundef nonnull @.str.165) #26
+  call void @addReplyBulkCString(ptr noundef %0, ptr noundef nonnull %.0271) #25
+  call void @addReplyBulkCString(ptr noundef %0, ptr noundef nonnull @.str.165) #25
   %499 = getelementptr inbounds nuw i8, ptr %487, i64 16
   %500 = load ptr, ptr %499, align 8, !tbaa !155
   %501 = getelementptr inbounds i8, ptr %500, i64 -1
@@ -9656,8 +9656,8 @@ switch.lookup491:                                 ; preds = %493
 
 sdslen.exit364:                                   ; preds = %498, %505, %508, %512, %516, %520
   %.0.i363 = phi i64 [ %522, %520 ], [ %507, %505 ], [ %511, %508 ], [ %515, %512 ], [ %519, %516 ], [ 0, %498 ]
-  call void @addReplyBulkCBuffer(ptr noundef %0, ptr noundef nonnull %500, i64 noundef %.0.i363) #26
-  call void @addReplyBulkCString(ptr noundef %0, ptr noundef nonnull @.str.166) #26
+  call void @addReplyBulkCBuffer(ptr noundef %0, ptr noundef nonnull %500, i64 noundef %.0.i363) #25
+  call void @addReplyBulkCString(ptr noundef %0, ptr noundef nonnull @.str.166) #25
   %523 = getelementptr inbounds nuw i8, ptr %487, i64 24
   %524 = load ptr, ptr %523, align 8, !tbaa !157
   %525 = getelementptr inbounds i8, ptr %524, i64 -1
@@ -9702,15 +9702,15 @@ sdslen.exit364:                                   ; preds = %498, %505, %508, %5
 
 sdslen.exit366:                                   ; preds = %sdslen.exit364, %529, %532, %536, %540, %544
   %.0.i365 = phi i64 [ %546, %544 ], [ %531, %529 ], [ %535, %532 ], [ %539, %536 ], [ %543, %540 ], [ 0, %sdslen.exit364 ]
-  call void @addReplyBulkCBuffer(ptr noundef %0, ptr noundef nonnull %524, i64 noundef %.0.i365) #26
-  call void @addReplyBulkCString(ptr noundef %0, ptr noundef nonnull @.str.167) #26
+  call void @addReplyBulkCBuffer(ptr noundef %0, ptr noundef nonnull %524, i64 noundef %.0.i365) #25
+  call void @addReplyBulkCString(ptr noundef %0, ptr noundef nonnull @.str.167) #25
   %547 = getelementptr inbounds nuw i8, ptr %487, i64 32
   %548 = load i64, ptr %547, align 8, !tbaa !162
   %549 = sub nsw i64 %481, %548
   %550 = sitofp i64 %549 to double
   %551 = fdiv double %550, 1.000000e+03
-  call void @addReplyDouble(ptr noundef %0, double noundef %551) #26
-  call void @addReplyBulkCString(ptr noundef %0, ptr noundef nonnull @.str.168) #26
+  call void @addReplyDouble(ptr noundef %0, double noundef %551) #25
+  call void @addReplyBulkCString(ptr noundef %0, ptr noundef nonnull @.str.168) #25
   %552 = getelementptr inbounds nuw i8, ptr %487, i64 40
   %553 = load ptr, ptr %552, align 8, !tbaa !158
   %554 = getelementptr inbounds i8, ptr %553, i64 -1
@@ -9755,18 +9755,18 @@ sdslen.exit366:                                   ; preds = %sdslen.exit364, %52
 
 sdslen.exit368:                                   ; preds = %sdslen.exit366, %558, %561, %565, %569, %573
   %.0.i367 = phi i64 [ %575, %573 ], [ %560, %558 ], [ %564, %561 ], [ %568, %565 ], [ %572, %569 ], [ 0, %sdslen.exit366 ]
-  call void @addReplyBulkCBuffer(ptr noundef %0, ptr noundef nonnull %553, i64 noundef %.0.i367) #26
-  call void @addReplyBulkCString(ptr noundef %0, ptr noundef nonnull @.str.169) #26
+  call void @addReplyBulkCBuffer(ptr noundef %0, ptr noundef nonnull %553, i64 noundef %.0.i367) #25
+  call void @addReplyBulkCString(ptr noundef %0, ptr noundef nonnull @.str.169) #25
   %576 = getelementptr inbounds nuw i8, ptr %487, i64 48
   %577 = load i64, ptr %576, align 8, !tbaa !164
-  call void @addReplyLongLong(ptr noundef %0, i64 noundef %577) #26
-  call void @addReplyBulkCString(ptr noundef %0, ptr noundef nonnull @.str.170) #26
+  call void @addReplyLongLong(ptr noundef %0, i64 noundef %577) #25
+  call void @addReplyBulkCString(ptr noundef %0, ptr noundef nonnull @.str.170) #25
   %578 = getelementptr inbounds nuw i8, ptr %487, i64 56
   %579 = load i64, ptr %578, align 8, !tbaa !165
-  call void @addReplyLongLong(ptr noundef %0, i64 noundef %579) #26
-  call void @addReplyBulkCString(ptr noundef %0, ptr noundef nonnull @.str.171) #26
+  call void @addReplyLongLong(ptr noundef %0, i64 noundef %579) #25
+  call void @addReplyBulkCString(ptr noundef %0, ptr noundef nonnull @.str.171) #25
   %580 = load i64, ptr %547, align 8, !tbaa !162
-  call void @addReplyLongLong(ptr noundef %0, i64 noundef %580) #26
+  call void @addReplyLongLong(ptr noundef %0, i64 noundef %580) #25
   %581 = load i64, ptr %11, align 8, !tbaa !5
   %582 = add nsw i64 %581, -1
   store i64 %582, ptr %11, align 8, !tbaa !5
@@ -9779,7 +9779,7 @@ sdslen.exit368:                                   ; preds = %sdslen.exit366, %55
   br label %.critedge339
 
 583:                                              ; preds = %449, %447
-  %584 = tail call i32 @strcasecmp(ptr noundef %20, ptr noundef nonnull @.str.172) #30
+  %584 = tail call i32 @strcasecmp(ptr noundef %20, ptr noundef nonnull @.str.172) #29
   %.not330 = icmp eq i32 %584, 0
   %585 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %586 = load i32, ptr %585, align 8, !tbaa !189
@@ -9796,7 +9796,7 @@ sdslen.exit368:                                   ; preds = %sdslen.exit366, %55
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8, !tbaa !143
   %594 = load ptr, ptr @Users, align 8, !tbaa !87
-  %595 = call i32 @raxFind(ptr noundef %594, ptr noundef %592, i64 noundef %593, ptr noundef nonnull %2) #26
+  %595 = call i32 @raxFind(ptr noundef %594, ptr noundef %592, i64 noundef %593, ptr noundef nonnull %2) #25
   %596 = load ptr, ptr %2, align 8, !tbaa !143
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %597 = icmp eq ptr %596, null
@@ -9808,14 +9808,14 @@ sdslen.exit368:                                   ; preds = %sdslen.exit366, %55
   %601 = load ptr, ptr %600, align 8, !tbaa !168
   %602 = getelementptr inbounds nuw i8, ptr %601, i64 8
   %603 = load ptr, ptr %602, align 8, !tbaa !144
-  call void (ptr, ptr, ...) @addReplyErrorFormat(ptr noundef nonnull %0, ptr noundef nonnull @.str.173, ptr noundef %603) #26
+  call void (ptr, ptr, ...) @addReplyErrorFormat(ptr noundef nonnull %0, ptr noundef nonnull @.str.173, ptr noundef %603) #25
   br label %.critedge339
 
 604:                                              ; preds = %588
   %605 = getelementptr inbounds nuw i8, ptr %598, i64 24
   %606 = load i32, ptr %585, align 8, !tbaa !189
   %607 = add nsw i32 %606, -3
-  %608 = call ptr @lookupCommand(ptr noundef nonnull %605, i32 noundef %607) #26
+  %608 = call ptr @lookupCommand(ptr noundef nonnull %605, i32 noundef %607) #25
   %609 = icmp eq ptr %608, null
   br i1 %609, label %610, label %616
 
@@ -9825,7 +9825,7 @@ sdslen.exit368:                                   ; preds = %sdslen.exit366, %55
   %613 = load ptr, ptr %612, align 8, !tbaa !168
   %614 = getelementptr inbounds nuw i8, ptr %613, i64 8
   %615 = load ptr, ptr %614, align 8, !tbaa !144
-  call void (ptr, ptr, ...) @addReplyErrorFormat(ptr noundef nonnull %0, ptr noundef nonnull @.str.174, ptr noundef %615) #26
+  call void (ptr, ptr, ...) @addReplyErrorFormat(ptr noundef nonnull %0, ptr noundef nonnull @.str.174, ptr noundef %615) #25
   br label %.critedge339
 
 616:                                              ; preds = %604
@@ -9844,7 +9844,7 @@ sdslen.exit368:                                   ; preds = %sdslen.exit366, %55
 623:                                              ; preds = %616
   %624 = getelementptr inbounds nuw i8, ptr %608, i64 216
   %625 = load ptr, ptr %624, align 8, !tbaa !126
-  call void (ptr, ptr, ...) @addReplyErrorFormat(ptr noundef nonnull %0, ptr noundef nonnull @.str.175, ptr noundef %625) #26
+  call void (ptr, ptr, ...) @addReplyErrorFormat(ptr noundef nonnull %0, ptr noundef nonnull @.str.175, ptr noundef %625) #25
   br label %.critedge339
 
 626:                                              ; preds = %616
@@ -9865,12 +9865,12 @@ sdslen.exit368:                                   ; preds = %sdslen.exit366, %55
   %637 = getelementptr inbounds nuw i8, ptr %636, i64 8
   %638 = load ptr, ptr %637, align 8, !tbaa !144
   %639 = call ptr @getAclErrorMessage(i32 noundef %629, ptr noundef nonnull %596, ptr noundef nonnull %608, ptr noundef %638, i32 noundef 1)
-  call void @addReplyBulkSds(ptr noundef nonnull %0, ptr noundef %639) #26
+  call void @addReplyBulkSds(ptr noundef nonnull %0, ptr noundef %639) #25
   br label %642
 
 640:                                              ; preds = %626
   %641 = load ptr, ptr @shared, align 8, !tbaa !223
-  call void @addReply(ptr noundef nonnull %0, ptr noundef %641) #26
+  call void @addReply(ptr noundef nonnull %0, ptr noundef %641) #25
   br label %642
 
 642:                                              ; preds = %640, %630
@@ -9882,19 +9882,19 @@ sdslen.exit368:                                   ; preds = %sdslen.exit366, %55
   br i1 %643, label %644, label %647
 
 644:                                              ; preds = %._crit_edge443
-  %645 = tail call i32 @strcasecmp(ptr noundef %20, ptr noundef nonnull @.str.176) #30
+  %645 = tail call i32 @strcasecmp(ptr noundef %20, ptr noundef nonnull @.str.176) #29
   %.not333 = icmp eq i32 %645, 0
   br i1 %.not333, label %646, label %647
 
 646:                                              ; preds = %644
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(216) %14, ptr noundef nonnull align 16 dereferenceable(216) @__const.aclCommand.help, i64 216, i1 false)
-  call void @addReplyHelp(ptr noundef nonnull %0, ptr noundef nonnull %14) #26
+  call void @addReplyHelp(ptr noundef nonnull %0, ptr noundef nonnull %14) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %.critedge339
 
 647:                                              ; preds = %644, %._crit_edge443
-  tail call void @addReplySubcommandSyntaxError(ptr noundef nonnull %0) #26
+  tail call void @addReplySubcommandSyntaxError(ptr noundef nonnull %0) #25
   br label %.critedge339
 
 .critedge343:                                     ; preds = %467, %461
@@ -9945,7 +9945,7 @@ declare void @addReplySubcommandSyntaxError(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @addReplyCommandCategories(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
-  %3 = tail call ptr @addReplyDeferredLen(ptr noundef %0) #26
+  %3 = tail call ptr @addReplyDeferredLen(ptr noundef %0) #25
   %4 = load ptr, ptr @ACLCommandCategories, align 8, !tbaa !9
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i64, ptr %5, align 8, !tbaa !15
@@ -9962,7 +9962,7 @@ define dso_local void @addReplyCommandCategories(ptr noundef %0, ptr noundef rea
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %2
   %.010.lcssa = phi i64 [ 0, %2 ], [ %8, %._crit_edge.loopexit ]
-  tail call void @setDeferredSetLen(ptr noundef %0, ptr noundef %3, i64 noundef %.010.lcssa) #26
+  tail call void @setDeferredSetLen(ptr noundef %0, ptr noundef %3, i64 noundef %.010.lcssa) #25
   ret void
 
 9:                                                ; preds = %.lr.ph, %18
@@ -9978,7 +9978,7 @@ define dso_local void @addReplyCommandCategories(ptr noundef %0, ptr noundef rea
 
 15:                                               ; preds = %9
   %16 = load ptr, ptr %12, align 8, !tbaa !12
-  tail call void (ptr, ptr, ...) @addReplyStatusFormat(ptr noundef %0, ptr noundef nonnull @.str.203, ptr noundef %16) #26
+  tail call void (ptr, ptr, ...) @addReplyStatusFormat(ptr noundef %0, ptr noundef nonnull @.str.203, ptr noundef %16) #25
   %17 = add nsw i32 %.01014, 1
   %.pre = load ptr, ptr @ACLCommandCategories, align 8, !tbaa !9
   br label %18
@@ -10007,11 +10007,11 @@ define dso_local void @authCommand(ptr noundef %0) local_unnamed_addr #0 {
 
 7:                                                ; preds = %1
   %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 216), align 8, !tbaa !236
-  tail call void @addReplyErrorObject(ptr noundef nonnull %0, ptr noundef %8) #26
+  tail call void @addReplyErrorObject(ptr noundef nonnull %0, ptr noundef %8) #25
   br label %internalAuth.exit
 
 9:                                                ; preds = %1
-  tail call void @redactClientCommandArgument(ptr noundef nonnull %0, i32 noundef 1) #26
+  tail call void @redactClientCommandArgument(ptr noundef nonnull %0, i32 noundef 1) #25
   %10 = load i32, ptr %4, align 8, !tbaa !189
   %11 = icmp eq i32 %10, 2
   br i1 %11, label %12, label %24
@@ -10025,7 +10025,7 @@ define dso_local void @authCommand(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not20, label %18, label %17
 
 17:                                               ; preds = %12
-  tail call void @addReplyError(ptr noundef nonnull %0, ptr noundef nonnull @.str.204) #26
+  tail call void @addReplyError(ptr noundef nonnull %0, ptr noundef nonnull @.str.204) #25
   br label %internalAuth.exit
 
 18:                                               ; preds = %12
@@ -10043,10 +10043,10 @@ define dso_local void @authCommand(ptr noundef %0) local_unnamed_addr #0 {
   %28 = load ptr, ptr %27, align 8, !tbaa !168
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load ptr, ptr %29, align 8, !tbaa !168
-  tail call void @redactClientCommandArgument(ptr noundef nonnull %0, i32 noundef 2) #26
+  tail call void @redactClientCommandArgument(ptr noundef nonnull %0, i32 noundef 2) #25
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %32 = load ptr, ptr %31, align 8, !tbaa !144
-  %33 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %32, ptr noundef nonnull dereferenceable(20) @.str.205) #30
+  %33 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %32, ptr noundef nonnull dereferenceable(20) @.str.205) #29
   %.not = icmp eq i32 %33, 0
   br i1 %.not, label %34, label %90
 
@@ -10056,7 +10056,7 @@ define dso_local void @authCommand(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %36, label %37, label %38
 
 37:                                               ; preds = %34
-  tail call void @addReplyError(ptr noundef nonnull %0, ptr noundef nonnull @.str.208) #26
+  tail call void @addReplyError(ptr noundef nonnull %0, ptr noundef nonnull @.str.208) #25
   br label %internalAuth.exit
 
 38:                                               ; preds = %34
@@ -10067,7 +10067,7 @@ define dso_local void @authCommand(ptr noundef %0) local_unnamed_addr #0 {
   %43 = load ptr, ptr %42, align 8, !tbaa !144
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 -1, ptr %2, align 8, !tbaa !5
-  %44 = call ptr @clusterGetSecret(ptr noundef nonnull %2) #26
+  %44 = call ptr @clusterGetSecret(ptr noundef nonnull %2) #25
   %45 = getelementptr inbounds i8, ptr %43, i64 -1
   %46 = load i8, ptr %45, align 1, !tbaa !19
   %47 = zext i8 %46 to i32
@@ -10115,7 +10115,7 @@ sdslen.exit.i:                                    ; preds = %64, %60, %56, %52, 
   br i1 %.not.i, label %69, label %68
 
 68:                                               ; preds = %sdslen.exit.i
-  call void @addReplyError(ptr noundef nonnull %0, ptr noundef nonnull @.str.209) #26
+  call void @addReplyError(ptr noundef nonnull %0, ptr noundef nonnull @.str.209) #25
   br label %89
 
 69:                                               ; preds = %sdslen.exit.i
@@ -10159,16 +10159,16 @@ time_independent_strcmp.exit.thread.i:            ; preds = %time_independent_st
 
 85:                                               ; preds = %time_independent_strcmp.exit.thread.i
   store ptr null, ptr %83, align 8, !tbaa !93
-  call void @moduleNotifyUserChanged(ptr noundef nonnull %0) #26
+  call void @moduleNotifyUserChanged(ptr noundef nonnull %0) #25
   br label %86
 
 86:                                               ; preds = %85, %time_independent_strcmp.exit.thread.i
   %87 = load ptr, ptr @shared, align 8, !tbaa !223
-  call void @addReply(ptr noundef nonnull %0, ptr noundef %87) #26
+  call void @addReply(ptr noundef nonnull %0, ptr noundef %87) #25
   br label %89
 
 88:                                               ; preds = %time_independent_strcmp.exit.i
-  call void @addReplyError(ptr noundef nonnull %0, ptr noundef nonnull @.str.209) #26
+  call void @addReplyError(ptr noundef nonnull %0, ptr noundef nonnull @.str.209) #25
   br label %89
 
 89:                                               ; preds = %88, %86, %68
@@ -10180,7 +10180,7 @@ time_independent_strcmp.exit.thread.i:            ; preds = %time_independent_st
   %.0 = phi ptr [ %19, %18 ], [ %28, %24 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !168
-  %91 = call i32 @checkModuleAuthentication(ptr noundef nonnull %0, ptr noundef %.0, ptr noundef %.017, ptr noundef nonnull %3) #26
+  %91 = call i32 @checkModuleAuthentication(ptr noundef nonnull %0, ptr noundef %.0, ptr noundef %.017, ptr noundef nonnull %3) #25
   %92 = icmp eq i32 %91, 2
   br i1 %92, label %93, label %ACLAuthenticateUser.exit
 
@@ -10197,12 +10197,12 @@ ACLAuthenticateUser.exit:                         ; preds = %90, %93
 
 95:                                               ; preds = %ACLAuthenticateUser.exit
   %96 = load ptr, ptr @shared, align 8, !tbaa !223
-  call void @addReply(ptr noundef nonnull %0, ptr noundef %96) #26
+  call void @addReply(ptr noundef nonnull %0, ptr noundef %96) #25
   br label %addAuthErrReply.exit
 
 97:                                               ; preds = %ACLAuthenticateUser.exit
   %98 = load ptr, ptr %3, align 8, !tbaa !168
-  %99 = call i32 @clientHasPendingReplies(ptr noundef nonnull %0) #26
+  %99 = call i32 @clientHasPendingReplies(ptr noundef nonnull %0) #25
   %.not.i22 = icmp eq i32 %99, 0
   br i1 %.not.i22, label %100, label %addAuthErrReply.exit
 
@@ -10217,7 +10217,7 @@ ACLAuthenticateUser.exit:                         ; preds = %90, %93
 
 .sink.split.i:                                    ; preds = %101, %100
   %.sink.i = phi ptr [ %103, %101 ], [ @.str.89, %100 ]
-  call void @addReplyError(ptr noundef nonnull %0, ptr noundef %.sink.i) #26
+  call void @addReplyError(ptr noundef nonnull %0, ptr noundef %.sink.i) #25
   br label %addAuthErrReply.exit
 
 addAuthErrReply.exit:                             ; preds = %.sink.split.i, %97, %ACLAuthenticateUser.exit, %95
@@ -10226,7 +10226,7 @@ addAuthErrReply.exit:                             ; preds = %.sink.split.i, %97,
   br i1 %.not21, label %106, label %105
 
 105:                                              ; preds = %addAuthErrReply.exit
-  call void @decrRefCount(ptr noundef nonnull %104) #26
+  call void @decrRefCount(ptr noundef nonnull %104) #25
   br label %106
 
 106:                                              ; preds = %105, %addAuthErrReply.exit
@@ -10247,7 +10247,7 @@ define dso_local void @ACLUpdateDefaultUserPassword(ptr noundef %0) local_unname
   br i1 %.not, label %53, label %4
 
 4:                                                ; preds = %1
-  %5 = tail call ptr @sdsnew(ptr noundef nonnull @.str.206) #26
+  %5 = tail call ptr @sdsnew(ptr noundef nonnull @.str.206) #25
   %6 = getelementptr inbounds i8, ptr %0, i64 -1
   %7 = load i8, ptr %6, align 1, !tbaa !19
   %8 = zext i8 %7 to i32
@@ -10290,7 +10290,7 @@ define dso_local void @ACLUpdateDefaultUserPassword(ptr noundef %0) local_unname
 
 sdslen.exit:                                      ; preds = %4, %10, %13, %17, %21, %25
   %.0.i = phi i64 [ %27, %25 ], [ %12, %10 ], [ %16, %13 ], [ %20, %17 ], [ %24, %21 ], [ 0, %4 ]
-  %28 = tail call ptr @sdscatlen(ptr noundef %5, ptr noundef nonnull %0, i64 noundef %.0.i) #26
+  %28 = tail call ptr @sdscatlen(ptr noundef %5, ptr noundef nonnull %0, i64 noundef %.0.i) #25
   %29 = load ptr, ptr @DefaultUser, align 8, !tbaa !143
   %30 = getelementptr inbounds i8, ptr %28, i64 -1
   %31 = load i8, ptr %30, align 1, !tbaa !19
@@ -10335,7 +10335,7 @@ sdslen.exit:                                      ; preds = %4, %10, %13, %17, %
 sdslen.exit7:                                     ; preds = %sdslen.exit, %34, %37, %41, %45, %49
   %.0.i6 = phi i64 [ %51, %49 ], [ %36, %34 ], [ %40, %37 ], [ %44, %41 ], [ %48, %45 ], [ 0, %sdslen.exit ]
   %52 = tail call i32 @ACLSetUser(ptr noundef %29, ptr noundef nonnull %28, i64 noundef %.0.i6)
-  tail call void @sdsfree(ptr noundef nonnull %28) #26
+  tail call void @sdsfree(ptr noundef nonnull %28) #25
   br label %56
 
 53:                                               ; preds = %1
@@ -10373,9 +10373,6 @@ declare i64 @llvm.umin.i64(i64, i64) #23
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #24
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.abs.i64(i64, i1 immarg) #25
-
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #23
 
@@ -10404,14 +10401,13 @@ attributes #21 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-m
 attributes #22 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #23 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #24 = { nocallback nofree nounwind willreturn memory(argmem: read) }
-attributes #25 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #26 = { nounwind }
-attributes #27 = { nounwind allocsize(0) }
-attributes #28 = { noreturn nounwind }
-attributes #29 = { nounwind willreturn memory(none) }
-attributes #30 = { nounwind willreturn memory(read) }
-attributes #31 = { nounwind allocsize(1) }
-attributes #32 = { cold noreturn nounwind }
+attributes #25 = { nounwind }
+attributes #26 = { nounwind allocsize(0) }
+attributes #27 = { noreturn nounwind }
+attributes #28 = { nounwind willreturn memory(none) }
+attributes #29 = { nounwind willreturn memory(read) }
+attributes #30 = { nounwind allocsize(1) }
+attributes #31 = { cold noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

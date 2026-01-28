@@ -72,13 +72,13 @@ define ptr @dt_util_localize_string(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %8, label %2
 
 2:                                                ; preds = %1
-  %3 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(7) @dt_util_localize_string.prefix, i64 noundef 6) #28
+  %3 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(7) @dt_util_localize_string.prefix, i64 noundef 6) #27
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %5, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 6
-  %7 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull %6, i32 noundef 5) #29
+  %7 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull %6, i32 noundef 5) #28
   br label %8
 
 8:                                                ; preds = %1, %2, %5
@@ -94,7 +94,7 @@ declare ptr @dcgettext(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr
 
 ; Function Attrs: nounwind uwtable
 define ptr @dt_util_localize_segmented_name(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = tail call ptr @g_strsplit(ptr noundef %0, ptr noundef nonnull @.str, i32 noundef 0) #29
+  %2 = tail call ptr @g_strsplit(ptr noundef %0, ptr noundef nonnull @.str, i32 noundef 0) #28
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %.loopexit, label %3
 
@@ -104,18 +104,18 @@ define ptr @dt_util_localize_segmented_name(ptr noundef %0) local_unnamed_addr #
   br i1 %.not41, label %.loopexit, label %5
 
 5:                                                ; preds = %3
-  %6 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(7) @dt_util_localize_string.prefix, i64 noundef 6) #28
+  %6 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(7) @dt_util_localize_string.prefix, i64 noundef 6) #27
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %8, label %dt_util_localize_string.exit
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 6
-  %10 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull %9, i32 noundef 5) #29
+  %10 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull %9, i32 noundef 5) #28
   br label %dt_util_localize_string.exit
 
 dt_util_localize_string.exit:                     ; preds = %5, %8
   %.0.i = phi ptr [ %10, %8 ], [ %4, %5 ]
-  %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i) #28
+  %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i) #27
   %12 = add i64 %11, 1
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8, !tbaa !6
@@ -126,18 +126,18 @@ dt_util_localize_string.exit:                     ; preds = %5, %8
   %indvars.iv = phi i64 [ %indvars.iv.next, %dt_util_localize_string.exit46 ], [ 1, %dt_util_localize_string.exit ]
   %15 = phi ptr [ %25, %dt_util_localize_string.exit46 ], [ %14, %dt_util_localize_string.exit ]
   %.03655 = phi i64 [ %23, %dt_util_localize_string.exit46 ], [ %12, %dt_util_localize_string.exit ]
-  %16 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(7) @dt_util_localize_string.prefix, i64 noundef 6) #28
+  %16 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(7) @dt_util_localize_string.prefix, i64 noundef 6) #27
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %18, label %dt_util_localize_string.exit46
 
 18:                                               ; preds = %.lr.ph
   %19 = getelementptr inbounds nuw i8, ptr %15, i64 6
-  %20 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull %19, i32 noundef 5) #29
+  %20 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull %19, i32 noundef 5) #28
   br label %dt_util_localize_string.exit46
 
 dt_util_localize_string.exit46:                   ; preds = %.lr.ph, %18
   %.0.i45 = phi ptr [ %20, %18 ], [ %15, %.lr.ph ]
-  %21 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i45) #28
+  %21 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i45) #27
   %22 = add i64 %.03655, 3
   %23 = add i64 %22, %21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -148,24 +148,24 @@ dt_util_localize_string.exit46:                   ; preds = %.lr.ph, %18
 
 ._crit_edge:                                      ; preds = %dt_util_localize_string.exit46, %dt_util_localize_string.exit
   %.036.lcssa = phi i64 [ %12, %dt_util_localize_string.exit ], [ %23, %dt_util_localize_string.exit46 ]
-  %26 = tail call noalias ptr @g_malloc0(i64 noundef %.036.lcssa) #30
+  %26 = tail call noalias ptr @g_malloc0(i64 noundef %.036.lcssa) #29
   %27 = load ptr, ptr %2, align 8, !tbaa !6
   %.not.i47 = icmp eq ptr %27, null
   br i1 %.not.i47, label %dt_util_localize_string.exit49, label %28
 
 28:                                               ; preds = %._crit_edge
-  %29 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %27, ptr noundef nonnull dereferenceable(7) @dt_util_localize_string.prefix, i64 noundef 6) #28
+  %29 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %27, ptr noundef nonnull dereferenceable(7) @dt_util_localize_string.prefix, i64 noundef 6) #27
   %30 = icmp eq i32 %29, 0
   br i1 %30, label %31, label %dt_util_localize_string.exit49
 
 31:                                               ; preds = %28
   %32 = getelementptr inbounds nuw i8, ptr %27, i64 6
-  %33 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull %32, i32 noundef 5) #29
+  %33 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull %32, i32 noundef 5) #28
   br label %dt_util_localize_string.exit49
 
 dt_util_localize_string.exit49:                   ; preds = %._crit_edge, %28, %31
   %.0.i48 = phi ptr [ %33, %31 ], [ %27, %28 ], [ null, %._crit_edge ]
-  %34 = tail call ptr @g_stpcpy(ptr noundef %26, ptr noundef %.0.i48) #29
+  %34 = tail call ptr @g_stpcpy(ptr noundef %26, ptr noundef %.0.i48) #28
   %35 = load ptr, ptr %13, align 8, !tbaa !6
   %.not4356 = icmp eq ptr %35, null
   br i1 %.not4356, label %.loopexit, label %.lr.ph59
@@ -174,24 +174,24 @@ dt_util_localize_string.exit49:                   ; preds = %._crit_edge, %28, %
   %indvars.iv61 = phi i64 [ %indvars.iv.next62, %dt_util_localize_string.exit52 ], [ 1, %dt_util_localize_string.exit49 ]
   %36 = phi ptr [ %46, %dt_util_localize_string.exit52 ], [ %13, %dt_util_localize_string.exit49 ]
   %.03357 = phi ptr [ %45, %dt_util_localize_string.exit52 ], [ %34, %dt_util_localize_string.exit49 ]
-  %37 = tail call ptr @g_stpcpy(ptr noundef %.03357, ptr noundef nonnull @.str.1) #29
+  %37 = tail call ptr @g_stpcpy(ptr noundef %.03357, ptr noundef nonnull @.str.1) #28
   %38 = load ptr, ptr %36, align 8, !tbaa !6
   %.not.i50 = icmp eq ptr %38, null
   br i1 %.not.i50, label %dt_util_localize_string.exit52, label %39
 
 39:                                               ; preds = %.lr.ph59
-  %40 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %38, ptr noundef nonnull dereferenceable(7) @dt_util_localize_string.prefix, i64 noundef 6) #28
+  %40 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %38, ptr noundef nonnull dereferenceable(7) @dt_util_localize_string.prefix, i64 noundef 6) #27
   %41 = icmp eq i32 %40, 0
   br i1 %41, label %42, label %dt_util_localize_string.exit52
 
 42:                                               ; preds = %39
   %43 = getelementptr inbounds nuw i8, ptr %38, i64 6
-  %44 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull %43, i32 noundef 5) #29
+  %44 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull %43, i32 noundef 5) #28
   br label %dt_util_localize_string.exit52
 
 dt_util_localize_string.exit52:                   ; preds = %.lr.ph59, %39, %42
   %.0.i51 = phi ptr [ %44, %42 ], [ %38, %39 ], [ null, %.lr.ph59 ]
-  %45 = tail call ptr @g_stpcpy(ptr noundef %37, ptr noundef %.0.i51) #29
+  %45 = tail call ptr @g_stpcpy(ptr noundef %37, ptr noundef %.0.i51) #28
   %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
   %46 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv.next62
   %47 = load ptr, ptr %46, align 8, !tbaa !6
@@ -200,7 +200,7 @@ dt_util_localize_string.exit52:                   ; preds = %.lr.ph59, %39, %42
 
 .loopexit:                                        ; preds = %dt_util_localize_string.exit52, %dt_util_localize_string.exit49, %3, %1
   %.034 = phi ptr [ null, %1 ], [ null, %3 ], [ %26, %dt_util_localize_string.exit49 ], [ %26, %dt_util_localize_string.exit52 ]
-  tail call void @g_strfreev(ptr noundef %2) #29
+  tail call void @g_strfreev(ptr noundef %2) #28
   ret ptr %.034
 }
 
@@ -233,26 +233,26 @@ define void @dt_util_str_cat(ptr noundef captures(address_is_null) %0, ptr nound
   br i1 %.not15, label %8, label %6
 
 6:                                                ; preds = %4
-  %7 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #28
+  %7 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #27
   br label %8
 
 8:                                                ; preds = %4, %6
   %9 = phi i64 [ %7, %6 ], [ 0, %4 ]
-  %10 = call i32 @g_vsnprintf(ptr noundef null, i64 noundef 0, ptr noundef %1, ptr noundef nonnull %3) #29
+  %10 = call i32 @g_vsnprintf(ptr noundef null, i64 noundef 0, ptr noundef %1, ptr noundef nonnull %3) #28
   call void @llvm.va_end.p0(ptr nonnull %3)
   %11 = trunc i64 %9 to i32
   %12 = add i32 %10, %11
   %13 = add i32 %12, 1
   %14 = load ptr, ptr %0, align 8, !tbaa !6
   %15 = sext i32 %13 to i64
-  %16 = call ptr @g_realloc(ptr noundef %14, i64 noundef %15) #29
+  %16 = call ptr @g_realloc(ptr noundef %14, i64 noundef %15) #28
   store ptr %16, ptr %0, align 8, !tbaa !6
   call void @llvm.va_start.p0(ptr nonnull %3)
   %17 = load ptr, ptr %0, align 8, !tbaa !6
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 %9
   %19 = add nsw i32 %10, 1
   %20 = sext i32 %19 to i64
-  %21 = call i32 @g_vsnprintf(ptr noundef %18, i64 noundef %20, ptr noundef %1, ptr noundef nonnull %3) #29
+  %21 = call i32 @g_vsnprintf(ptr noundef %18, i64 noundef %20, ptr noundef %1, ptr noundef nonnull %3) #28
   call void @llvm.va_end.p0(ptr nonnull %3)
   %22 = load ptr, ptr %0, align 8, !tbaa !6
   %23 = sext i32 %12 to i64
@@ -283,8 +283,8 @@ define i32 @dt_util_str_occurence(ptr noundef %0, ptr noundef %1) local_unnamed_
   br i1 %or.cond, label %5, label %.loopexit
 
 5:                                                ; preds = %2
-  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #28
-  %7 = tail call ptr @g_strstr_len(ptr noundef nonnull %0, i64 noundef %6, ptr noundef nonnull %1) #29
+  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #27
+  %7 = tail call ptr @g_strstr_len(ptr noundef nonnull %0, i64 noundef %6, ptr noundef nonnull %1) #28
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.loopexit, label %.preheader
 
@@ -293,8 +293,8 @@ define i32 @dt_util_str_occurence(ptr noundef %0, ptr noundef %1) local_unnamed_
   %.0 = phi ptr [ %11, %.preheader ], [ %7, %5 ]
   %8 = add i32 %.2, 1
   %9 = getelementptr inbounds nuw i8, ptr %.0, i64 1
-  %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #28
-  %11 = tail call ptr @g_strstr_len(ptr noundef nonnull %9, i64 noundef %10, ptr noundef nonnull %1) #29
+  %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #27
+  %11 = tail call ptr @g_strstr_len(ptr noundef nonnull %9, i64 noundef %10, ptr noundef nonnull %1) #28
   %.not15 = icmp eq ptr %11, null
   br i1 %.not15, label %.loopexit, label %.preheader
 
@@ -307,11 +307,11 @@ declare ptr @g_strstr_len(ptr noundef, i64 noundef, ptr noundef) local_unnamed_a
 
 ; Function Attrs: nounwind uwtable
 define noalias ptr @dt_util_float_to_str(ptr noundef %0, double noundef %1) local_unnamed_addr #0 {
-  %3 = tail call ptr @newlocale(i32 noundef 2, ptr noundef nonnull @.str.2, ptr noundef null) #29
-  %4 = tail call ptr @uselocale(ptr noundef %3) #29
-  %5 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef %0, double noundef %1) #29
-  %6 = tail call ptr @uselocale(ptr noundef %4) #29
-  tail call void @freelocale(ptr noundef %3) #29
+  %3 = tail call ptr @newlocale(i32 noundef 2, ptr noundef nonnull @.str.2, ptr noundef null) #28
+  %4 = tail call ptr @uselocale(ptr noundef %3) #28
+  %5 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef %0, double noundef %1) #28
+  %6 = tail call ptr @uselocale(ptr noundef %4) #28
+  tail call void @freelocale(ptr noundef %3) #28
   ret ptr %5
 }
 
@@ -334,8 +334,8 @@ define noalias ptr @dt_util_str_replace(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %or.cond.i, label %6, label %dt_util_str_occurence.exit.thread
 
 6:                                                ; preds = %3
-  %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #28
-  %8 = tail call ptr @g_strstr_len(ptr noundef nonnull %0, i64 noundef %7, ptr noundef nonnull %1) #29
+  %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #27
+  %8 = tail call ptr @g_strstr_len(ptr noundef nonnull %0, i64 noundef %7, ptr noundef nonnull %1) #28
   %.not.i = icmp eq ptr %8, null
   br i1 %.not.i, label %dt_util_str_occurence.exit.thread, label %.preheader.i
 
@@ -344,8 +344,8 @@ define noalias ptr @dt_util_str_replace(ptr noundef %0, ptr noundef %1, ptr noun
   %.0.i = phi ptr [ %12, %.preheader.i ], [ %8, %6 ]
   %9 = add i32 %.2.i, 1
   %10 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
-  %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #28
-  %12 = tail call ptr @g_strstr_len(ptr noundef nonnull %10, i64 noundef %11, ptr noundef nonnull %1) #29
+  %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #27
+  %12 = tail call ptr @g_strstr_len(ptr noundef nonnull %10, i64 noundef %11, ptr noundef nonnull %1) #28
   %.not15.i = icmp eq ptr %12, null
   br i1 %.not15.i, label %dt_util_str_occurence.exit, label %.preheader.i
 
@@ -354,16 +354,16 @@ dt_util_str_occurence.exit:                       ; preds = %.preheader.i
   br i1 %.not, label %dt_util_str_occurence.exit.thread, label %13
 
 13:                                               ; preds = %dt_util_str_occurence.exit
-  %14 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #28
+  %14 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #27
   %15 = sext i32 %9 to i64
-  %16 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #28
+  %16 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #27
   %17 = mul i64 %16, %15
   %18 = add i64 %14, 1
   %19 = add i64 %18, %17
-  %20 = tail call noalias ptr @g_malloc_n(i64 noundef %19, i64 noundef 1) #31
-  %21 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #28
+  %20 = tail call noalias ptr @g_malloc_n(i64 noundef %19, i64 noundef 1) #30
+  %21 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #27
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 %21
-  %23 = tail call ptr @g_strstr_len(ptr noundef nonnull %0, i64 noundef %21, ptr noundef nonnull %1) #29
+  %23 = tail call ptr @g_strstr_len(ptr noundef nonnull %0, i64 noundef %21, ptr noundef nonnull %1) #28
   %.not45 = icmp eq ptr %23, null
   br i1 %.not45, label %.loopexit, label %.preheader
 
@@ -376,15 +376,15 @@ dt_util_str_occurence.exit:                       ; preds = %.preheader.i
   %26 = sub i64 %24, %25
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.1, ptr nonnull align 1 %.140, i64 %26, i1 false)
   %27 = getelementptr inbounds i8, ptr %.1, i64 %26
-  %28 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #28
+  %28 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #27
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %27, ptr nonnull align 1 %2, i64 %28, i1 false)
-  %29 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #28
+  %29 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #27
   %30 = getelementptr inbounds nuw i8, ptr %27, i64 %29
-  %31 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #28
+  %31 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #27
   %32 = getelementptr inbounds nuw i8, ptr %.041, i64 %31
   %33 = getelementptr inbounds nuw i8, ptr %.041, i64 1
-  %34 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %33) #28
-  %35 = tail call ptr @g_strstr_len(ptr noundef nonnull %33, i64 noundef %34, ptr noundef nonnull %1) #29
+  %34 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %33) #27
+  %35 = tail call ptr @g_strstr_len(ptr noundef nonnull %33, i64 noundef %34, ptr noundef nonnull %1) #28
   %.not46 = icmp eq ptr %35, null
   br i1 %.not46, label %.loopexit, label %.preheader
 
@@ -400,7 +400,7 @@ dt_util_str_occurence.exit:                       ; preds = %.preheader.i
   br label %41
 
 dt_util_str_occurence.exit.thread:                ; preds = %6, %3, %dt_util_str_occurence.exit
-  %40 = tail call noalias ptr @g_strdup(ptr noundef %0) #29
+  %40 = tail call noalias ptr @g_strdup(ptr noundef %0) #28
   br label %41
 
 41:                                               ; preds = %dt_util_str_occurence.exit.thread, %.loopexit
@@ -422,10 +422,10 @@ define noalias ptr @dt_util_glist_to_str(ptr noundef %0, ptr noundef %1) local_u
   br i1 %3, label %16, label %4
 
 4:                                                ; preds = %2
-  %5 = tail call i32 @g_list_length(ptr noundef nonnull %1) #29
+  %5 = tail call i32 @g_list_length(ptr noundef nonnull %1) #28
   %6 = add i32 %5, 1
   %7 = zext i32 %6 to i64
-  %8 = tail call noalias ptr @g_malloc0_n(i64 noundef %7, i64 noundef 8) #31
+  %8 = tail call noalias ptr @g_malloc0_n(i64 noundef %7, i64 noundef 8) #30
   br label %9
 
 9:                                                ; preds = %4, %9
@@ -441,8 +441,8 @@ define noalias ptr @dt_util_glist_to_str(ptr noundef %0, ptr noundef %1) local_u
   br i1 %.not, label %14, label %9
 
 14:                                               ; preds = %9
-  %15 = tail call noalias ptr @g_strjoinv(ptr noundef %0, ptr noundef nonnull %8) #29
-  tail call void @g_free(ptr noundef nonnull %8) #29
+  %15 = tail call noalias ptr @g_strjoinv(ptr noundef %0, ptr noundef nonnull %8) #28
+  tail call void @g_free(ptr noundef nonnull %8) #28
   br label %16
 
 16:                                               ; preds = %2, %14
@@ -462,7 +462,7 @@ define ptr @dt_util_glist_uniq(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %.loopexit, label %2
 
 2:                                                ; preds = %1
-  %3 = tail call ptr @g_list_sort(ptr noundef nonnull %0, ptr noundef nonnull @g_strcmp0) #29
+  %3 = tail call ptr @g_list_sort(ptr noundef nonnull %0, ptr noundef nonnull @g_strcmp0) #28
   %.not2538 = icmp eq ptr %3, null
   br i1 %.not2538, label %.loopexit, label %.lr.ph
 
@@ -472,13 +472,13 @@ define ptr @dt_util_glist_uniq(ptr noundef %0) local_unnamed_addr #0 {
   %.02040 = phi ptr [ %.12134, %8 ], [ null, %2 ]
   %.02239 = phi ptr [ %.12332, %8 ], [ %3, %2 ]
   %4 = load ptr, ptr %.01742, align 8, !tbaa !12
-  %5 = tail call i32 @g_strcmp0(ptr noundef %.02040, ptr noundef %4) #29
+  %5 = tail call i32 @g_strcmp0(ptr noundef %.02040, ptr noundef %4) #28
   %.not26 = icmp eq i32 %5, 0
   br i1 %.not26, label %6, label %8
 
 6:                                                ; preds = %.lr.ph
-  tail call void @g_free(ptr noundef %4) #29
-  %7 = tail call ptr @g_list_delete_link(ptr noundef %.02239, ptr noundef nonnull %.01742) #29
+  tail call void @g_free(ptr noundef %4) #28
+  %7 = tail call ptr @g_list_delete_link(ptr noundef %.02239, ptr noundef nonnull %.01742) #28
   %.not27 = icmp eq ptr %.01841, null
   br i1 %.not27, label %.loopexit, label %8
 
@@ -515,7 +515,7 @@ define noalias ptr @dt_util_fix_path(ptr noundef %0) local_unnamed_addr #0 {
   ]
 
 5:                                                ; preds = %3
-  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #28
+  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #27
   %7 = icmp ugt i64 %6, 1
   br i1 %7, label %8, label %16
 
@@ -543,29 +543,29 @@ define noalias ptr @dt_util_fix_path(ptr noundef %0) local_unnamed_addr #0 {
   %13 = shl i64 %indvars.iv, 32
   %sext = add i64 %13, -4294967296
   %14 = ashr exact i64 %sext, 32
-  %15 = tail call noalias ptr @g_strndup(ptr noundef nonnull %9, i64 noundef %14) #29
+  %15 = tail call noalias ptr @g_strndup(ptr noundef nonnull %9, i64 noundef %14) #28
   br label %16
 
 16:                                               ; preds = %.critedge, %8, %5
   %.027 = phi ptr [ %15, %.critedge ], [ null, %8 ], [ null, %5 ]
   %.025 = phi i64 [ %indvars.iv, %.critedge ], [ 1, %8 ], [ 1, %5 ]
-  %17 = tail call ptr @dt_loc_get_home_dir(ptr noundef %.027) #29
-  tail call void @g_free(ptr noundef %.027) #29
+  %17 = tail call ptr @dt_loc_get_home_dir(ptr noundef %.027) #28
+  tail call void @g_free(ptr noundef %.027) #28
   %.not36 = icmp eq ptr %17, null
   br i1 %.not36, label %18, label %20
 
 18:                                               ; preds = %16
-  %19 = tail call noalias ptr @g_strdup(ptr noundef nonnull %0) #29
+  %19 = tail call noalias ptr @g_strdup(ptr noundef nonnull %0) #28
   br label %25
 
 20:                                               ; preds = %16
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 %.025
-  %22 = tail call noalias ptr (ptr, ...) @g_build_filename(ptr noundef nonnull %17, ptr noundef nonnull %21, ptr noundef null) #29
-  tail call void @g_free(ptr noundef nonnull %17) #29
+  %22 = tail call noalias ptr (ptr, ...) @g_build_filename(ptr noundef nonnull %17, ptr noundef nonnull %21, ptr noundef null) #28
+  tail call void @g_free(ptr noundef nonnull %17) #28
   br label %25
 
 23:                                               ; preds = %3
-  %24 = tail call noalias ptr @g_strdup(ptr noundef nonnull %0) #29
+  %24 = tail call noalias ptr @g_strdup(ptr noundef nonnull %0) #28
   br label %25
 
 25:                                               ; preds = %18, %20, %23, %3, %1
@@ -611,10 +611,10 @@ define noundef i64 @dt_utf8_strlcpy(ptr noundef %0, ptr noundef %1, i64 noundef 
 
 .critedge:                                        ; preds = %.lr.ph61, %3
   %.0.lcssa = phi ptr [ %1, %3 ], [ %14, %.lr.ph61 ]
-  %18 = tail call ptr @g_utf8_prev_char(ptr noundef %.0.lcssa) #28
+  %18 = tail call ptr @g_utf8_prev_char(ptr noundef %.0.lcssa) #27
   %19 = ptrtoint ptr %18 to i64
   %20 = sub i64 %19, %4
-  %21 = tail call ptr @strncpy(ptr noundef %0, ptr noundef %1, i64 noundef %20) #29
+  %21 = tail call ptr @strncpy(ptr noundef %0, ptr noundef %1, i64 noundef %20) #28
   %22 = getelementptr inbounds i8, ptr %0, i64 %20
   store i8 0, ptr %22, align 1, !tbaa !11
   %23 = load i8, ptr %18, align 1, !tbaa !11
@@ -640,7 +640,7 @@ define noundef i64 @dt_utf8_strlcpy(ptr noundef %0, ptr noundef %1, i64 noundef 
 ._crit_edge:                                      ; preds = %7, %.lr.ph
   %.lcssa56 = phi i64 [ 0, %.lr.ph ], [ %16, %7 ]
   %.037.lcssa = phi ptr [ %1, %.lr.ph ], [ %14, %7 ]
-  %33 = tail call ptr @strncpy(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %.lcssa56) #29
+  %33 = tail call ptr @strncpy(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %.lcssa56) #28
   %34 = getelementptr inbounds i8, ptr %0, i64 %.lcssa56
   store i8 0, ptr %34, align 1, !tbaa !11
   br label %.loopexit
@@ -661,13 +661,13 @@ declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @dt_util_test_image_file(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.stat, align 8
-  %3 = tail call i32 @g_access(ptr noundef %0, i32 noundef 4) #29
+  %3 = tail call i32 @g_access(ptr noundef %0, i32 noundef 4) #28
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %17
 
 4:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %5 = call i32 @stat(ptr noundef %0, ptr noundef nonnull %2) #29
+  %5 = call i32 @stat(ptr noundef %0, ptr noundef nonnull %2) #28
   %.not4 = icmp eq i32 %5, 0
   br i1 %.not4, label %6, label %16
 
@@ -706,7 +706,7 @@ define range(i32 0, 2) i32 @dt_util_test_writable_dir(ptr noundef %0) local_unna
 
 4:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %5 = call i32 @stat(ptr noundef nonnull %0, ptr noundef nonnull %2) #29
+  %5 = call i32 @stat(ptr noundef nonnull %0, ptr noundef nonnull %2) #28
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %6, label %12
 
@@ -718,7 +718,7 @@ define range(i32 0, 2) i32 @dt_util_test_writable_dir(ptr noundef %0) local_unna
   br i1 %.not4, label %10, label %12
 
 10:                                               ; preds = %6
-  %11 = tail call i32 @g_access(ptr noundef nonnull %0, i32 noundef 3) #29
+  %11 = tail call i32 @g_access(ptr noundef nonnull %0, i32 noundef 3) #28
   %.not5 = icmp eq i32 %11, 0
   %. = zext i1 %.not5 to i32
   br label %12
@@ -735,20 +735,20 @@ define range(i32 0, 2) i32 @dt_util_test_writable_dir(ptr noundef %0) local_unna
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @dt_util_is_dir_empty(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = tail call ptr @g_dir_open(ptr noundef %0, i32 noundef 0, ptr noundef null) #29
+  %2 = tail call ptr @g_dir_open(ptr noundef %0, i32 noundef 0, ptr noundef null) #28
   %3 = icmp eq ptr %2, null
   br i1 %3, label %9, label %.preheader
 
 .preheader:                                       ; preds = %1, %.preheader
   %4 = phi i1 [ true, %.preheader ], [ false, %1 ]
   %5 = phi i1 [ false, %.preheader ], [ true, %1 ]
-  %6 = tail call ptr @g_dir_read_name(ptr noundef nonnull %2) #29
+  %6 = tail call ptr @g_dir_read_name(ptr noundef nonnull %2) #28
   %.not = icmp eq ptr %6, null
   %brmerge = or i1 %4, %.not
   br i1 %brmerge, label %7, label %.preheader
 
 7:                                                ; preds = %.preheader
-  tail call void @g_dir_close(ptr noundef nonnull %2) #29
+  tail call void @g_dir_close(ptr noundef nonnull %2) #28
   %8 = and i1 %5, %.not
   %. = zext i1 %8 to i32
   br label %9
@@ -766,16 +766,16 @@ declare void @g_dir_close(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define ptr @dt_util_foo_to_utf8(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = tail call i32 @g_utf8_validate(ptr noundef %0, i64 noundef -1, ptr noundef null) #29
+  %2 = tail call i32 @g_utf8_validate(ptr noundef %0, i64 noundef -1, ptr noundef null) #28
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %5, label %3
 
 3:                                                ; preds = %1
-  %4 = tail call noalias ptr @g_strdup(ptr noundef %0) #29
+  %4 = tail call noalias ptr @g_strdup(ptr noundef %0) #28
   br label %7
 
 5:                                                ; preds = %1
-  %6 = tail call noalias ptr @g_convert(ptr noundef %0, i64 noundef -1, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, ptr noundef null, ptr noundef null, ptr noundef null) #29
+  %6 = tail call noalias ptr @g_convert(ptr noundef %0, i64 noundef -1, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, ptr noundef null, ptr noundef null, ptr noundef null) #28
   br label %7
 
 7:                                                ; preds = %5, %3
@@ -784,7 +784,7 @@ define ptr @dt_util_foo_to_utf8(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not15, label %8, label %.loopexit
 
 8:                                                ; preds = %7
-  %9 = tail call noalias ptr @g_strdup(ptr noundef %0) #29
+  %9 = tail call noalias ptr @g_strdup(ptr noundef %0) #28
   %10 = load i8, ptr %9, align 1, !tbaa !11
   %.not1617 = icmp eq i8 %10, 0
   br i1 %.not1617, label %.loopexit, label %.lr.ph
@@ -821,9 +821,9 @@ define range(i32 0, 4) i32 @dt_util_get_logo_season() local_unnamed_addr #0 {
   %2 = alloca %struct.tm, align 8
   %3 = alloca %struct.tm, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
-  %4 = call i64 @time(ptr noundef nonnull %1) #29
+  %4 = call i64 @time(ptr noundef nonnull %1) #28
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %5 = call ptr @localtime_r(ptr noundef nonnull %1, ptr noundef nonnull %2) #29
+  %5 = call ptr @localtime_r(ptr noundef nonnull %1, ptr noundef nonnull %2) #28
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %7 = load i32, ptr %6, align 8, !tbaa !22
   %8 = icmp eq i32 %7, 9
@@ -909,11 +909,11 @@ define range(i32 0, 4) i32 @dt_util_get_logo_season() local_unnamed_addr #0 {
   store i32 0, ptr %58, align 8, !tbaa !30
   %59 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 -1, ptr %59, align 8, !tbaa !31
-  %60 = call i64 @mktime(ptr noundef nonnull %3) #29
+  %60 = call i64 @mktime(ptr noundef nonnull %3) #28
   %61 = load i64, ptr %1, align 8, !tbaa !26
-  %62 = sub nsw i64 %60, %61
-  %63 = call i64 @llvm.abs.i64(i64 %62, i1 true)
-  %64 = icmp samesign ugt i64 %63, 172800
+  %62 = add i64 %60, -172801
+  %63 = sub i64 %62, %61
+  %64 = icmp ult i64 %63, -345601
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %spec.select = select i1 %64, i32 0, i32 3
   br label %65
@@ -934,9 +934,6 @@ declare ptr @localtime_r(ptr noundef, ptr noundef) local_unnamed_addr #2
 ; Function Attrs: mustprogress nofree nounwind willreturn
 declare noundef i64 @mktime(ptr noundef captures(none)) local_unnamed_addr #12
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.abs.i64(i64, i1 immarg) #13
-
 ; Function Attrs: nounwind uwtable
 define ptr @dt_util_get_logo(float noundef %0) local_unnamed_addr #0 {
   %2 = tail call i32 @dt_util_get_logo_season()
@@ -944,11 +941,11 @@ define ptr @dt_util_get_logo(float noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %5, label %3
 
 3:                                                ; preds = %1
-  %4 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.5, i32 noundef %2) #29
+  %4 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.5, i32 noundef %2) #28
   br label %7
 
 5:                                                ; preds = %1
-  %6 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.6) #29
+  %6 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.6) #28
   br label %7
 
 7:                                                ; preds = %5, %3
@@ -970,16 +967,16 @@ define internal fastcc ptr @_util_get_svg_img(ptr noundef %0, float noundef %1) 
   store ptr null, ptr %8, align 8, !tbaa !32
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4096) %9, i8 0, i64 4096, i1 false)
-  call void @dt_loc_get_datadir(ptr noundef nonnull %9, i64 noundef 4096) #29
-  %10 = call noalias ptr (ptr, ...) @g_build_filename(ptr noundef nonnull %9, ptr noundef nonnull @.str.33, ptr noundef %0, ptr noundef null) #29
-  %11 = call ptr @rsvg_handle_new_from_file(ptr noundef %10, ptr noundef nonnull %8) #29
+  call void @dt_loc_get_datadir(ptr noundef nonnull %9, i64 noundef 4096) #28
+  %10 = call noalias ptr (ptr, ...) @g_build_filename(ptr noundef nonnull %9, ptr noundef nonnull @.str.33, ptr noundef %0, ptr noundef null) #28
+  %11 = call ptr @rsvg_handle_new_from_file(ptr noundef %10, ptr noundef nonnull %8) #28
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %75, label %12
 
 12:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !34
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !34
-  %13 = call i32 @rsvg_handle_get_intrinsic_size_in_pixels(ptr noundef nonnull %11, ptr noundef nonnull %4, ptr noundef nonnull %5) #29, !noalias !34
+  %13 = call i32 @rsvg_handle_get_intrinsic_size_in_pixels(ptr noundef nonnull %11, ptr noundef nonnull %4, ptr noundef nonnull %5) #28, !noalias !34
   %.not.i = icmp eq i32 %13, 0
   br i1 %.not.i, label %19, label %14
 
@@ -994,7 +991,7 @@ define internal fastcc ptr @_util_get_svg_img(ptr noundef %0, float noundef %1) 
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !34
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) @__const.dt_get_svg_dimension.viewport, i64 32, i1 false), !noalias !34
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !34
-  %20 = call i32 @rsvg_handle_get_geometry_for_layer(ptr noundef nonnull %11, ptr noundef null, ptr noundef nonnull %6, ptr noundef null, ptr noundef nonnull %7, ptr noundef null) #29, !noalias !34
+  %20 = call i32 @rsvg_handle_get_geometry_for_layer(ptr noundef nonnull %11, ptr noundef null, ptr noundef nonnull %6, ptr noundef null, ptr noundef nonnull %7, ptr noundef null) #28, !noalias !34
   %21 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %22 = load double, ptr %21, align 8, !tbaa !39, !noalias !34
   %23 = call i64 @llvm.lround.i64.f64(double %22)
@@ -1046,50 +1043,50 @@ dt_get_svg_dimension.exit:                        ; preds = %14, %19
   %47 = fmul reassoc nsz arcp contract afn float %33, %46
   %48 = fmul reassoc nsz arcp contract afn float %47, %42
   %49 = fptosi float %45 to i32
-  %50 = call i32 @cairo_format_stride_for_width(i32 noundef 0, i32 noundef %49) #29
+  %50 = call i32 @cairo_format_stride_for_width(i32 noundef 0, i32 noundef %49) #28
   %51 = sitofp i32 %50 to float
   %52 = fmul reassoc nsz arcp contract afn float %48, %51
   %53 = fptoui float %52 to i64
-  %54 = call noalias ptr @calloc(i64 noundef %53, i64 noundef 1) #31
+  %54 = call noalias ptr @calloc(i64 noundef %53, i64 noundef 1) #30
   %.not59.not = icmp eq ptr %54, null
   br i1 %.not59.not, label %.thread, label %55
 
 .thread:                                          ; preds = %41
-  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.34, ptr noundef %10) #29
-  call void @g_free(ptr noundef %0) #29
-  call void @g_free(ptr noundef %10) #29
-  call void @g_object_unref(ptr noundef nonnull %11) #29
+  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.34, ptr noundef %10) #28
+  call void @g_free(ptr noundef %0) #28
+  call void @g_free(ptr noundef %10) #28
+  call void @g_object_unref(ptr noundef nonnull %11) #28
   br label %81
 
 55:                                               ; preds = %41
   %56 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !42
   %.not60 = icmp eq ptr %56, null
   %57 = fptosi float %48 to i32
-  %58 = call ptr @cairo_image_surface_create_for_data(ptr noundef nonnull %54, i32 noundef 0, i32 noundef %49, i32 noundef %57, i32 noundef %50) #29
+  %58 = call ptr @cairo_image_surface_create_for_data(ptr noundef nonnull %54, i32 noundef 0, i32 noundef %49, i32 noundef %57, i32 noundef %50) #28
   br i1 %.not60, label %63, label %59
 
 59:                                               ; preds = %55
   %60 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !42
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 1432
   %62 = load double, ptr %61, align 8, !tbaa !76
-  call void @cairo_surface_set_device_scale(ptr noundef %58, double noundef %62, double noundef %62) #29
+  call void @cairo_surface_set_device_scale(ptr noundef %58, double noundef %62, double noundef %62) #28
   br label %63
 
 63:                                               ; preds = %55, %59
-  %64 = call i32 @cairo_surface_status(ptr noundef %58) #29
+  %64 = call i32 @cairo_surface_status(ptr noundef %58) #28
   %.not61 = icmp eq i32 %64, 0
   br i1 %.not61, label %66, label %65
 
 65:                                               ; preds = %63
-  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.35, ptr noundef %10) #29
-  call void @cairo_surface_destroy(ptr noundef %58) #29
-  call void @free(ptr noundef nonnull %54) #29
+  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.35, ptr noundef %10) #28
+  call void @cairo_surface_destroy(ptr noundef %58) #28
+  call void @free(ptr noundef nonnull %54) #28
   br label %74
 
 66:                                               ; preds = %63
-  %67 = call ptr @cairo_create(ptr noundef %58) #29
+  %67 = call ptr @cairo_create(ptr noundef %58) #28
   %68 = fpext reassoc nsz arcp contract afn float %42 to double
-  call void @cairo_scale(ptr noundef %67, double noundef %68, double noundef %68) #29
+  call void @cairo_scale(ptr noundef %67, double noundef %68, double noundef %68) #28
   %69 = sitofp i32 %.sink2.i to double
   %70 = sitofp i32 %.sink.i to double
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -1098,30 +1095,30 @@ dt_get_svg_dimension.exit:                        ; preds = %14, %19
   store double %69, ptr %71, align 8, !tbaa !39
   %72 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store double %70, ptr %72, align 8, !tbaa !41
-  %73 = call i32 @rsvg_handle_render_document(ptr noundef nonnull %11, ptr noundef %67, ptr noundef nonnull %3, ptr noundef null) #29
+  %73 = call i32 @rsvg_handle_render_document(ptr noundef nonnull %11, ptr noundef %67, ptr noundef nonnull %3, ptr noundef null) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  call void @cairo_destroy(ptr noundef %67) #29
-  call void @cairo_surface_flush(ptr noundef %58) #29
+  call void @cairo_destroy(ptr noundef %67) #28
+  call void @cairo_surface_flush(ptr noundef %58) #28
   br label %74
 
 74:                                               ; preds = %65, %66
   %.2 = phi ptr [ null, %65 ], [ %58, %66 ]
-  call void @g_object_unref(ptr noundef nonnull %11) #29
+  call void @g_object_unref(ptr noundef nonnull %11) #28
   br label %80
 
 75:                                               ; preds = %2
   %76 = load ptr, ptr %8, align 8, !tbaa !32
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 8
   %78 = load ptr, ptr %77, align 8, !tbaa !82
-  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.36, ptr noundef %10, ptr noundef %78) #29
+  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.36, ptr noundef %10, ptr noundef %78) #28
   %79 = load ptr, ptr %8, align 8, !tbaa !32
-  call void @g_error_free(ptr noundef %79) #29
+  call void @g_error_free(ptr noundef %79) #28
   br label %80
 
 80:                                               ; preds = %74, %75
   %.3 = phi ptr [ %.2, %74 ], [ null, %75 ]
-  call void @g_free(ptr noundef %0) #29
-  call void @g_free(ptr noundef %10) #29
+  call void @g_free(ptr noundef %0) #28
+  call void @g_free(ptr noundef %10) #28
   br label %81
 
 81:                                               ; preds = %.thread, %80
@@ -1133,7 +1130,7 @@ dt_get_svg_dimension.exit:                        ; preds = %14, %19
 
 ; Function Attrs: nounwind uwtable
 define ptr @dt_util_get_logo_text(float noundef %0) local_unnamed_addr #0 {
-  %2 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.7) #29
+  %2 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.7) #28
   %3 = tail call fastcc ptr @_util_get_svg_img(ptr noundef %2, float noundef %0)
   ret ptr %3
 }
@@ -1150,12 +1147,12 @@ define noalias ptr @dt_util_latitude_str(float noundef %0) local_unnamed_addr #0
   %6 = tail call reassoc nsz arcp contract afn float @llvm.fabs.f32(float %0)
   %.08 = select nsz i1 %5, float %6, float %0
   %.07 = select i1 %5, ptr @.str.9, ptr @.str.8
-  %7 = call reassoc nsz arcp contract afn float @modff(float noundef %.08, ptr noundef nonnull %2) #29
+  %7 = call reassoc nsz arcp contract afn float @modff(float noundef %.08, ptr noundef nonnull %2) #28
   %8 = load float, ptr %2, align 4, !tbaa !84
   %9 = fptosi float %8 to i32
   %10 = fpext reassoc nsz arcp contract afn float %7 to double
   %11 = fmul reassoc nsz arcp contract afn double %10, 6.000000e+01
-  %12 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.10, ptr noundef nonnull %.07, i32 noundef %9, double noundef %11) #29
+  %12 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.10, ptr noundef nonnull %.07, i32 noundef %9, double noundef %11) #28
   br label %13
 
 13:                                               ; preds = %1, %4
@@ -1165,10 +1162,10 @@ define noalias ptr @dt_util_latitude_str(float noundef %0) local_unnamed_addr #0
 }
 
 ; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fabs.f32(float) #14
+declare float @llvm.fabs.f32(float) #13
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare float @modff(float noundef, ptr noundef captures(none)) local_unnamed_addr #15
+declare float @modff(float noundef, ptr noundef captures(none)) local_unnamed_addr #14
 
 ; Function Attrs: nounwind uwtable
 define noalias ptr @dt_util_longitude_str(float noundef %0) local_unnamed_addr #0 {
@@ -1182,12 +1179,12 @@ define noalias ptr @dt_util_longitude_str(float noundef %0) local_unnamed_addr #
   %6 = tail call reassoc nsz arcp contract afn float @llvm.fabs.f32(float %0)
   %.08 = select nsz i1 %5, float %6, float %0
   %.07 = select i1 %5, ptr @.str.12, ptr @.str.11
-  %7 = call reassoc nsz arcp contract afn float @modff(float noundef %.08, ptr noundef nonnull %2) #29
+  %7 = call reassoc nsz arcp contract afn float @modff(float noundef %.08, ptr noundef nonnull %2) #28
   %8 = load float, ptr %2, align 4, !tbaa !84
   %9 = fptosi float %8 to i32
   %10 = fpext reassoc nsz arcp contract afn float %7 to double
   %11 = fmul reassoc nsz arcp contract afn double %10, 6.000000e+01
-  %12 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.13, ptr noundef nonnull %.07, i32 noundef %9, double noundef %11) #29
+  %12 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.13, ptr noundef nonnull %.07, i32 noundef %9, double noundef %11) #28
   br label %13
 
 13:                                               ; preds = %1, %4
@@ -1207,9 +1204,9 @@ define noalias ptr @dt_util_elevation_str(float noundef %0) local_unnamed_addr #
   %.06 = select nsz i1 %4, float %5, float %0
   %.0 = select i1 %4, ptr @.str.38, ptr @.str.37
   %6 = fpext reassoc nsz arcp contract afn float %.06 to double
-  %7 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.15, i32 noundef 5) #29
-  %8 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull %.0, i32 noundef 5) #29
-  %9 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.14, double noundef %6, ptr noundef %7, ptr noundef %8) #29
+  %7 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.15, i32 noundef 5) #28
+  %8 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull %.0, i32 noundef 5) #28
+  %9 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.14, double noundef %6, ptr noundef %7, ptr noundef %8) #28
   br label %10
 
 10:                                               ; preds = %1, %3
@@ -1219,16 +1216,16 @@ define noalias ptr @dt_util_elevation_str(float noundef %0) local_unnamed_addr #
 
 ; Function Attrs: nounwind uwtable
 define double @dt_util_gps_string_to_number(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = tail call ptr @__ctype_toupper_loc() #32
+  %2 = tail call ptr @__ctype_toupper_loc() #31
   %3 = load ptr, ptr %2, align 8, !tbaa !86
-  %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #28
+  %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #27
   %5 = getelementptr i8, ptr %0, i64 %4
   %6 = getelementptr i8, ptr %5, i64 -1
   %7 = load i8, ptr %6, align 1, !tbaa !11
   %8 = sext i8 %7 to i64
   %9 = getelementptr inbounds i32, ptr %3, i64 %8
   %10 = load i32, ptr %9, align 4, !tbaa !25
-  %11 = tail call ptr @g_strsplit(ptr noundef nonnull %0, ptr noundef nonnull @__const.dt_str_commasubstring.delimiter, i32 noundef 0) #29
+  %11 = tail call ptr @g_strsplit(ptr noundef nonnull %0, ptr noundef nonnull @__const.dt_str_commasubstring.delimiter, i32 noundef 0) #28
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %52, label %12
 
@@ -1240,7 +1237,7 @@ define double @dt_util_gps_string_to_number(ptr noundef %0) local_unnamed_addr #
 
 16:                                               ; preds = %12
   %17 = load ptr, ptr %11, align 8, !tbaa !6
-  %18 = tail call reassoc nsz arcp contract afn double @g_ascii_strtod(ptr noundef %17, ptr noundef null) #29
+  %18 = tail call reassoc nsz arcp contract afn double @g_ascii_strtod(ptr noundef %17, ptr noundef null) #28
   br label %49
 
 19:                                               ; preds = %12
@@ -1251,10 +1248,10 @@ define double @dt_util_gps_string_to_number(ptr noundef %0) local_unnamed_addr #
 
 23:                                               ; preds = %19
   %24 = load ptr, ptr %11, align 8, !tbaa !6
-  %25 = tail call i64 @g_ascii_strtoll(ptr noundef %24, ptr noundef null, i32 noundef 10) #29
+  %25 = tail call i64 @g_ascii_strtoll(ptr noundef %24, ptr noundef null, i32 noundef 10) #28
   %26 = sitofp i64 %25 to double
   %27 = load ptr, ptr %13, align 8, !tbaa !6
-  %28 = tail call reassoc nsz arcp contract afn double @g_ascii_strtod(ptr noundef %27, ptr noundef null) #29
+  %28 = tail call reassoc nsz arcp contract afn double @g_ascii_strtod(ptr noundef %27, ptr noundef null) #28
   %29 = fmul reassoc nsz arcp contract afn double %28, 0x3F91111111111111
   %30 = fadd reassoc nsz arcp contract afn double %29, %26
   br label %49
@@ -1267,15 +1264,15 @@ define double @dt_util_gps_string_to_number(ptr noundef %0) local_unnamed_addr #
 
 35:                                               ; preds = %31
   %36 = load ptr, ptr %11, align 8, !tbaa !6
-  %37 = tail call i64 @g_ascii_strtoll(ptr noundef %36, ptr noundef null, i32 noundef 10) #29
+  %37 = tail call i64 @g_ascii_strtoll(ptr noundef %36, ptr noundef null, i32 noundef 10) #28
   %38 = sitofp i64 %37 to double
   %39 = load ptr, ptr %13, align 8, !tbaa !6
-  %40 = tail call i64 @g_ascii_strtoll(ptr noundef %39, ptr noundef null, i32 noundef 10) #29
+  %40 = tail call i64 @g_ascii_strtoll(ptr noundef %39, ptr noundef null, i32 noundef 10) #28
   %41 = sitofp i64 %40 to double
   %42 = fmul reassoc nsz arcp contract afn double %41, 0x3F91111111111111
   %43 = fadd reassoc nsz arcp contract afn double %42, %38
   %44 = load ptr, ptr %20, align 8, !tbaa !6
-  %45 = tail call i64 @g_ascii_strtoll(ptr noundef %44, ptr noundef null, i32 noundef 10) #29
+  %45 = tail call i64 @g_ascii_strtoll(ptr noundef %44, ptr noundef null, i32 noundef 10) #28
   %46 = sitofp i64 %45 to double
   %47 = fmul reassoc nsz arcp contract afn double %46, 0x3F323456789ABCDF
   %48 = fadd reassoc nsz arcp contract afn double %43, %47
@@ -1291,19 +1288,19 @@ define double @dt_util_gps_string_to_number(ptr noundef %0) local_unnamed_addr #
 
 52:                                               ; preds = %49, %1
   %.0 = phi nsz double [ 0x7FF8000000000000, %1 ], [ %spec.select, %49 ]
-  tail call void @g_strfreev(ptr noundef %11) #29
+  tail call void @g_strfreev(ptr noundef %11) #28
   ret double %.0
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__ctype_toupper_loc() local_unnamed_addr #16
+declare ptr @__ctype_toupper_loc() local_unnamed_addr #15
 
 declare double @g_ascii_strtod(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 declare i64 @g_ascii_strtoll(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define range(i32 0, 2) i32 @dt_util_gps_rationale_to_number(double noundef %0, double noundef %1, double noundef %2, double noundef %3, double noundef %4, double noundef %5, i8 noundef signext %6, ptr noundef writeonly captures(address_is_null) %7) local_unnamed_addr #17 {
+define range(i32 0, 2) i32 @dt_util_gps_rationale_to_number(double noundef %0, double noundef %1, double noundef %2, double noundef %3, double noundef %4, double noundef %5, i8 noundef signext %6, ptr noundef writeonly captures(address_is_null) %7) local_unnamed_addr #16 {
   %.not = icmp eq ptr %7, null
   %9 = fcmp reassoc nsz arcp contract afn oeq double %1, 0.000000e+00
   %or.cond39 = or i1 %9, %.not
@@ -1345,7 +1342,7 @@ define range(i32 0, 2) i32 @dt_util_gps_rationale_to_number(double noundef %0, d
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define range(i32 0, 2) i32 @dt_util_gps_elevation_to_number(double noundef %0, double noundef %1, i8 noundef signext %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #17 {
+define range(i32 0, 2) i32 @dt_util_gps_elevation_to_number(double noundef %0, double noundef %1, i8 noundef signext %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #16 {
   %.not = icmp eq ptr %3, null
   %5 = fcmp reassoc nsz arcp contract afn oeq double %1, 0.000000e+00
   %or.cond = or i1 %5, %.not
@@ -1367,59 +1364,59 @@ define range(i32 0, 2) i32 @dt_util_gps_elevation_to_number(double noundef %0, d
 ; Function Attrs: nounwind uwtable
 define ptr @dt_util_normalize_path(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca [4096 x i8], align 16
-  %3 = tail call noalias ptr @g_filename_from_uri(ptr noundef %0, ptr noundef null, ptr noundef null) #29
+  %3 = tail call noalias ptr @g_filename_from_uri(ptr noundef %0, ptr noundef null, ptr noundef null) #28
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %11
 
 4:                                                ; preds = %1
-  %5 = tail call i32 @g_str_has_prefix(ptr noundef %0, ptr noundef nonnull @.str.17) #29
+  %5 = tail call i32 @g_str_has_prefix(ptr noundef %0, ptr noundef nonnull @.str.17) #28
   %.not25 = icmp eq i32 %5, 0
   br i1 %.not25, label %9, label %6
 
 6:                                                ; preds = %4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 7
-  %8 = tail call ptr @g_uri_unescape_string(ptr noundef nonnull %7, ptr noundef null) #29
+  %8 = tail call ptr @g_uri_unescape_string(ptr noundef nonnull %7, ptr noundef null) #28
   br label %11
 
 9:                                                ; preds = %4
-  %10 = tail call noalias ptr @g_strdup(ptr noundef %0) #29
+  %10 = tail call noalias ptr @g_strdup(ptr noundef %0) #28
   br label %11
 
 11:                                               ; preds = %6, %9, %1
   %.021 = phi ptr [ %3, %1 ], [ %8, %6 ], [ %10, %9 ]
-  %12 = tail call i32 @g_path_is_absolute(ptr noundef %.021) #29
+  %12 = tail call i32 @g_path_is_absolute(ptr noundef %.021) #28
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %14, label %26
 
 14:                                               ; preds = %11
-  %15 = tail call ptr @g_get_current_dir() #29
-  %16 = tail call noalias ptr (ptr, ...) @g_build_filename(ptr noundef %15, ptr noundef %.021, ptr noundef null) #29
-  tail call void @g_free(ptr noundef %.021) #29
+  %15 = tail call ptr @g_get_current_dir() #28
+  %16 = tail call noalias ptr (ptr, ...) @g_build_filename(ptr noundef %15, ptr noundef %.021, ptr noundef null) #28
+  tail call void @g_free(ptr noundef %.021) #28
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4096) %2, i8 0, i64 4096, i1 false)
-  %17 = call ptr @realpath(ptr noundef %16, ptr noundef nonnull %2) #29
+  %17 = call ptr @realpath(ptr noundef %16, ptr noundef nonnull %2) #28
   %.not.i = icmp eq ptr %17, null
   br i1 %.not.i, label %18, label %g_realpath.exit
 
 18:                                               ; preds = %14
   %19 = load ptr, ptr @stderr, align 8, !tbaa !87
-  %20 = tail call ptr @__errno_location() #32
+  %20 = tail call ptr @__errno_location() #31
   %21 = load i32, ptr %20, align 4, !tbaa !25
-  %22 = call ptr @strerror(i32 noundef %21) #29
-  %23 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %19, ptr noundef nonnull @.str.39, ptr noundef %16, ptr noundef %22) #33
-  call void @exit(i32 noundef 1) #34
+  %22 = call ptr @strerror(i32 noundef %21) #28
+  %23 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %19, ptr noundef nonnull @.str.39, ptr noundef %16, ptr noundef %22) #32
+  call void @exit(i32 noundef 1) #33
   unreachable
 
 g_realpath.exit:                                  ; preds = %14
-  %24 = call noalias ptr @g_strdup(ptr noundef nonnull %2) #29
+  %24 = call noalias ptr @g_strdup(ptr noundef nonnull %2) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %.not26 = icmp eq ptr %24, null
-  call void @g_free(ptr noundef %15) #29
-  call void @g_free(ptr noundef %16) #29
+  call void @g_free(ptr noundef %15) #28
+  call void @g_free(ptr noundef %16) #28
   br i1 %.not26, label %25, label %26
 
 25:                                               ; preds = %g_realpath.exit
-  call void @g_free(ptr noundef null) #29
+  call void @g_free(ptr noundef null) #28
   br label %26
 
 26:                                               ; preds = %g_realpath.exit, %25, %11
@@ -1439,13 +1436,13 @@ declare ptr @g_get_current_dir() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define noalias noundef ptr @dt_util_path_get_dirname(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = tail call noalias ptr @g_path_get_dirname(ptr noundef %0) #29
+  %2 = tail call noalias ptr @g_path_get_dirname(ptr noundef %0) #28
   %3 = load i8, ptr %2, align 1, !tbaa !11
   %.not = icmp eq i8 %3, 0
   br i1 %.not, label %11, label %4
 
 4:                                                ; preds = %1
-  %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #28
+  %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #27
   %6 = shl i64 %5, 32
   %sext = add i64 %6, -4294967296
   %7 = ashr exact i64 %sext, 32
@@ -1463,7 +1460,7 @@ define noalias noundef ptr @dt_util_path_get_dirname(ptr noundef %0) local_unnam
 declare noalias ptr @g_path_get_dirname(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i32 @dt_util_string_count_char(ptr noundef readonly captures(none) %0, i8 noundef signext %1) local_unnamed_addr #18 {
+define i32 @dt_util_string_count_char(ptr noundef readonly captures(none) %0, i8 noundef signext %1) local_unnamed_addr #17 {
   %3 = load i8, ptr %0, align 1, !tbaa !11
   %.not7 = icmp eq i8 %3, 0
   br i1 %.not7, label %._crit_edge, label %.lr.ph
@@ -1487,10 +1484,10 @@ define i32 @dt_util_string_count_char(ptr noundef readonly captures(none) %0, i8
 
 ; Function Attrs: nounwind uwtable
 define void @dt_util_str_to_loc_numbers_format(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = tail call ptr @localeconv() #29
+  %2 = tail call ptr @localeconv() #28
   %3 = load ptr, ptr %2, align 8, !tbaa !89
   %4 = load i8, ptr %3, align 1, !tbaa !11
-  %5 = tail call ptr @g_strdelimit(ptr noundef %0, ptr noundef nonnull @.str.18, i8 noundef signext %4) #29
+  %5 = tail call ptr @g_strdelimit(ptr noundef %0, ptr noundef nonnull @.str.18, i8 noundef signext %4) #28
   ret void
 }
 
@@ -1505,8 +1502,8 @@ define ptr @dt_util_str_to_glist(ptr noundef %0, ptr noundef %1) local_unnamed_a
   br i1 %3, label %20, label %4
 
 4:                                                ; preds = %2
-  %5 = tail call noalias ptr @g_strdup(ptr noundef nonnull %1) #29
-  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #28
+  %5 = tail call noalias ptr @g_strdup(ptr noundef nonnull %1) #28
+  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #27
   %7 = and i64 %6, 4294967295
   %.not35 = icmp eq i64 %7, 0
   br i1 %.not35, label %._crit_edge, label %.lr.ph
@@ -1514,19 +1511,19 @@ define ptr @dt_util_str_to_glist(ptr noundef %0, ptr noundef %1) local_unnamed_a
 .lr.ph:                                           ; preds = %4, %9
   %.02637 = phi ptr [ %15, %9 ], [ null, %4 ]
   %.02936 = phi ptr [ %13, %9 ], [ %5, %4 ]
-  %8 = tail call ptr @g_strstr_len(ptr noundef nonnull %.02936, i64 noundef -1, ptr noundef %0) #29
+  %8 = tail call ptr @g_strstr_len(ptr noundef nonnull %.02936, i64 noundef -1, ptr noundef %0) #28
   %.not33 = icmp eq ptr %8, null
   br i1 %.not33, label %._crit_edge.sink.split, label %9
 
 9:                                                ; preds = %.lr.ph
   %10 = load i8, ptr %8, align 1, !tbaa !11
   store i8 0, ptr %8, align 1, !tbaa !11
-  %11 = tail call noalias ptr @g_strdup(ptr noundef nonnull %.02936) #29
+  %11 = tail call noalias ptr @g_strdup(ptr noundef nonnull %.02936) #28
   store i8 %10, ptr %8, align 1, !tbaa !11
-  %12 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #28
+  %12 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #27
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 %12
-  %14 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %13) #28
-  %15 = tail call ptr @g_list_prepend(ptr noundef %.02637, ptr noundef %11) #29
+  %14 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %13) #27
+  %15 = tail call ptr @g_list_prepend(ptr noundef %.02637, ptr noundef %11) #28
   %16 = and i64 %14, 4294967295
   %.not34 = icmp eq i64 %16, 0
   br i1 %.not34, label %._crit_edge.sink.split, label %.lr.ph
@@ -1534,14 +1531,14 @@ define ptr @dt_util_str_to_glist(ptr noundef %0, ptr noundef %1) local_unnamed_a
 ._crit_edge.sink.split:                           ; preds = %.lr.ph, %9
   %.str.19.sink = phi ptr [ @.str.19, %9 ], [ %.02936, %.lr.ph ]
   %.lcssa.sink = phi ptr [ %15, %9 ], [ %.02637, %.lr.ph ]
-  %17 = tail call noalias ptr @g_strdup(ptr noundef nonnull %.str.19.sink) #29
-  %18 = tail call ptr @g_list_prepend(ptr noundef %.lcssa.sink, ptr noundef %17) #29
+  %17 = tail call noalias ptr @g_strdup(ptr noundef nonnull %.str.19.sink) #28
+  %18 = tail call ptr @g_list_prepend(ptr noundef %.lcssa.sink, ptr noundef %17) #28
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.sink.split, %4
   %.026.lcssa = phi ptr [ null, %4 ], [ %18, %._crit_edge.sink.split ]
-  %19 = tail call ptr @g_list_reverse(ptr noundef %.026.lcssa) #29
-  tail call void @g_free(ptr noundef nonnull %5) #29
+  %19 = tail call ptr @g_list_reverse(ptr noundef %.026.lcssa) #28
+  tail call void @g_free(ptr noundef nonnull %5) #28
   br label %20
 
 20:                                               ; preds = %2, %._crit_edge
@@ -1565,11 +1562,11 @@ define noalias ptr @dt_util_format_exposure(float noundef %0) local_unnamed_addr
   br i1 %5, label %7, label %9
 
 7:                                                ; preds = %3
-  %8 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.20, double noundef %6) #29
+  %8 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.20, double noundef %6) #28
   br label %38
 
 9:                                                ; preds = %3
-  %10 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.21, double noundef %6) #29
+  %10 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.21, double noundef %6) #28
   br label %38
 
 11:                                               ; preds = %1
@@ -1579,7 +1576,7 @@ define noalias ptr @dt_util_format_exposure(float noundef %0) local_unnamed_addr
 13:                                               ; preds = %11
   %14 = fpext reassoc nsz arcp contract afn float %0 to double
   %15 = fdiv reassoc nsz arcp contract afn double 1.000000e+00, %14
-  %16 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.22, double noundef %15) #29
+  %16 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.22, double noundef %15) #28
   br label %38
 
 17:                                               ; preds = %11
@@ -1591,7 +1588,7 @@ define noalias ptr @dt_util_format_exposure(float noundef %0) local_unnamed_addr
 21:                                               ; preds = %17
   %22 = fpext reassoc nsz arcp contract afn float %0 to double
   %23 = fdiv reassoc nsz arcp contract afn double 1.000000e+00, %22
-  %24 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.22, double noundef %23) #29
+  %24 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.22, double noundef %23) #28
   br label %38
 
 25:                                               ; preds = %17
@@ -1606,11 +1603,11 @@ define noalias ptr @dt_util_format_exposure(float noundef %0) local_unnamed_addr
 
 33:                                               ; preds = %25
   %34 = fdiv reassoc nsz arcp contract afn double 1.000000e+00, %32
-  %35 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.23, double noundef %34) #29
+  %35 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.23, double noundef %34) #28
   br label %38
 
 36:                                               ; preds = %25
-  %37 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.21, double noundef %32) #29
+  %37 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.21, double noundef %32) #28
   br label %38
 
 38:                                               ; preds = %13, %33, %36, %21, %7, %9
@@ -1619,7 +1616,7 @@ define noalias ptr @dt_util_format_exposure(float noundef %0) local_unnamed_addr
 }
 
 ; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.nearbyint.f32(float) #14
+declare float @llvm.nearbyint.f32(float) #13
 
 ; Function Attrs: nounwind uwtable
 define noalias noundef ptr @dt_read_file(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
@@ -1639,7 +1636,7 @@ define noalias noundef ptr @dt_read_file(ptr noundef readonly captures(none) %0,
   %7 = tail call i32 @fseek(ptr noundef nonnull %5, i64 noundef 0, i32 noundef 2)
   %8 = tail call i64 @ftell(ptr noundef nonnull %5)
   tail call void @rewind(ptr noundef nonnull %5)
-  %9 = tail call noalias ptr @malloc(i64 noundef %8) #30
+  %9 = tail call noalias ptr @malloc(i64 noundef %8) #29
   %.not26 = icmp eq ptr %9, null
   br i1 %.not26, label %17, label %10
 
@@ -1657,7 +1654,7 @@ define noalias noundef ptr @dt_read_file(ptr noundef readonly captures(none) %0,
   br label %17
 
 16:                                               ; preds = %10
-  tail call void @free(ptr noundef nonnull %9) #29
+  tail call void @free(ptr noundef nonnull %9) #28
   br label %17
 
 17:                                               ; preds = %6, %14, %15, %16, %4
@@ -1678,7 +1675,7 @@ declare noundef i64 @ftell(ptr noundef captures(none)) local_unnamed_addr #11
 declare void @rewind(ptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #19
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #18
 
 ; Function Attrs: nofree nounwind
 declare noundef i64 @fread(ptr noundef writeonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #11
@@ -1687,7 +1684,7 @@ declare noundef i64 @fread(ptr noundef writeonly captures(none), i64 noundef, i6
 declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #20
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #19
 
 ; Function Attrs: nounwind uwtable
 define void @dt_copy_file(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -1702,12 +1699,12 @@ define void @dt_copy_file(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 
   %8 = tail call i32 @fseek(ptr noundef nonnull %3, i64 noundef 0, i32 noundef 2)
   %9 = tail call i64 @ftell(ptr noundef nonnull %3)
   tail call void @rewind(ptr noundef nonnull %3)
-  %10 = tail call noalias ptr @g_try_malloc_n(i64 noundef %9, i64 noundef 1) #31
+  %10 = tail call noalias ptr @g_try_malloc_n(i64 noundef %9, i64 noundef 1) #30
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %13
 
 12:                                               ; preds = %7
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.26, ptr noundef %0) #29
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.26, ptr noundef %0) #28
   br label %.thread
 
 13:                                               ; preds = %7
@@ -1716,7 +1713,7 @@ define void @dt_copy_file(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 
   br i1 %.not, label %16, label %15
 
 15:                                               ; preds = %13
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.27, ptr noundef %0) #29
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.27, ptr noundef %0) #28
   br label %.thread
 
 16:                                               ; preds = %13
@@ -1725,7 +1722,7 @@ define void @dt_copy_file(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 
   br i1 %.not30, label %.thread, label %18
 
 18:                                               ; preds = %16
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.28, ptr noundef %1) #29
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.28, ptr noundef %1) #28
   br label %.thread
 
 19:                                               ; preds = %2
@@ -1745,7 +1742,7 @@ define void @dt_copy_file(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 
   br label %24
 
 24:                                               ; preds = %22, %21
-  tail call void @g_free(ptr noundef %.032) #29
+  tail call void @g_free(ptr noundef %.032) #28
   ret void
 }
 
@@ -1762,16 +1759,16 @@ define void @dt_copy_resource_file(ptr noundef %0, ptr noundef %1) local_unnamed
   %3 = alloca [4096 x i8], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4096) %3, i8 0, i64 4096, i1 false)
-  call void @dt_loc_get_datadir(ptr noundef nonnull %3, i64 noundef 4096) #29
-  %4 = call noalias ptr (ptr, ...) @g_build_filename(ptr noundef nonnull %3, ptr noundef %0, ptr noundef null) #29
+  call void @dt_loc_get_datadir(ptr noundef nonnull %3, i64 noundef 4096) #28
+  %4 = call noalias ptr (ptr, ...) @g_build_filename(ptr noundef nonnull %3, ptr noundef %0, ptr noundef null) #28
   call void @dt_copy_file(ptr noundef %4, ptr noundef %1)
-  call void @g_free(ptr noundef %4) #29
+  call void @g_free(ptr noundef %4) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #21
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #20
 
 declare void @dt_loc_get_datadir(ptr noundef, i64 noundef) local_unnamed_addr #3
 
@@ -1783,7 +1780,7 @@ define void @dt_get_svg_dimension(ptr dead_on_unwind noalias writable writeonly 
   %6 = alloca %struct._RsvgRectangle, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %7 = call i32 @rsvg_handle_get_intrinsic_size_in_pixels(ptr noundef %1, ptr noundef nonnull %3, ptr noundef nonnull %4) #29
+  %7 = call i32 @rsvg_handle_get_intrinsic_size_in_pixels(ptr noundef %1, ptr noundef nonnull %3, ptr noundef nonnull %4) #28
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %13, label %8
 
@@ -1798,7 +1795,7 @@ define void @dt_get_svg_dimension(ptr dead_on_unwind noalias writable writeonly 
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) @__const.dt_get_svg_dimension.viewport, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %14 = call i32 @rsvg_handle_get_geometry_for_layer(ptr noundef %1, ptr noundef null, ptr noundef nonnull %5, ptr noundef null, ptr noundef nonnull %6, ptr noundef null) #29
+  %14 = call i32 @rsvg_handle_get_geometry_for_layer(ptr noundef %1, ptr noundef null, ptr noundef nonnull %5, ptr noundef null, ptr noundef nonnull %6, ptr noundef null) #28
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %16 = load double, ptr %15, align 8, !tbaa !39
   %17 = call i64 @llvm.lround.i64.f64(double %16)
@@ -1825,7 +1822,7 @@ define void @dt_get_svg_dimension(ptr dead_on_unwind noalias writable writeonly 
 declare i32 @rsvg_handle_get_intrinsic_size_in_pixels(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.lround.i64.f64(double) #14
+declare i64 @llvm.lround.i64.f64(double) #13
 
 declare i32 @rsvg_handle_get_geometry_for_layer(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
@@ -1840,7 +1837,7 @@ define void @dt_render_svg(ptr noundef %0, ptr noundef %1, double noundef %2, do
   store double %2, ptr %9, align 8, !tbaa !39
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store double %3, ptr %10, align 8, !tbaa !41
-  %11 = call i32 @rsvg_handle_render_document(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %7, ptr noundef null) #29
+  %11 = call i32 @rsvg_handle_render_document(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %7, ptr noundef null) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 }
@@ -1848,19 +1845,19 @@ define void @dt_render_svg(ptr noundef %0, ptr noundef %1, double noundef %2, do
 declare i32 @rsvg_handle_render_document(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree norecurse nounwind memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @dt_has_same_path_basename(ptr noundef %0, ptr noundef %1) local_unnamed_addr #22 {
+define range(i32 0, 2) i32 @dt_has_same_path_basename(ptr noundef %0, ptr noundef %1) local_unnamed_addr #21 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %or.cond = and i1 %3, %4
   br i1 %or.cond, label %5, label %28
 
 5:                                                ; preds = %2
-  %6 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %0, i32 noundef 46) #28
+  %6 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %0, i32 noundef 46) #27
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %28, label %7
 
 7:                                                ; preds = %5
-  %8 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %1, i32 noundef 46) #28
+  %8 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %1, i32 noundef 46) #27
   %.not28 = icmp eq ptr %8, null
   br i1 %.not28, label %28, label %9
 
@@ -1913,7 +1910,7 @@ define noalias ptr @dt_copy_filename_extension(ptr noundef %0, ptr noundef reado
   br i1 %.not, label %dt_filename_change_extension.exit, label %3
 
 3:                                                ; preds = %2
-  %4 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %1, i32 noundef 46) #28
+  %4 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %1, i32 noundef 46) #27
   %.not8 = icmp eq ptr %4, null
   br i1 %.not8, label %dt_filename_change_extension.exit, label %5
 
@@ -1923,7 +1920,7 @@ define noalias ptr @dt_copy_filename_extension(ptr noundef %0, ptr noundef reado
   br i1 %.not9, label %dt_filename_change_extension.exit, label %7
 
 7:                                                ; preds = %5
-  %8 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %0, i32 noundef 46) #28
+  %8 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %0, i32 noundef 46) #27
   %.not.i = icmp eq ptr %8, null
   br i1 %.not.i, label %dt_filename_change_extension.exit, label %9
 
@@ -1931,12 +1928,12 @@ define noalias ptr @dt_copy_filename_extension(ptr noundef %0, ptr noundef reado
   %10 = ptrtoint ptr %8 to i64
   %11 = ptrtoint ptr %0 to i64
   %12 = sub i64 %10, %11
-  %13 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %6) #28
+  %13 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %6) #27
   %14 = add i64 %12, 2
   %15 = add i64 %14, %13
   %sext24.i = shl i64 %15, 32
   %16 = ashr exact i64 %sext24.i, 32
-  %17 = tail call noalias ptr @g_try_malloc(i64 noundef %16) #30
+  %17 = tail call noalias ptr @g_try_malloc(i64 noundef %16) #29
   %.not23.i = icmp eq ptr %17, null
   br i1 %.not23.i, label %dt_filename_change_extension.exit, label %18
 
@@ -1965,7 +1962,7 @@ define noalias ptr @dt_filename_change_extension(ptr noundef %0, ptr noundef rea
   br i1 %or.cond, label %5, label %22
 
 5:                                                ; preds = %2
-  %6 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %0, i32 noundef 46) #28
+  %6 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %0, i32 noundef 46) #27
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %22, label %7
 
@@ -1973,12 +1970,12 @@ define noalias ptr @dt_filename_change_extension(ptr noundef %0, ptr noundef rea
   %8 = ptrtoint ptr %6 to i64
   %9 = ptrtoint ptr %0 to i64
   %10 = sub i64 %8, %9
-  %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #28
+  %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #27
   %12 = add i64 %10, 2
   %13 = add i64 %12, %11
   %sext24 = shl i64 %13, 32
   %14 = ashr exact i64 %sext24, 32
-  %15 = tail call noalias ptr @g_try_malloc(i64 noundef %14) #30
+  %15 = tail call noalias ptr @g_try_malloc(i64 noundef %14) #29
   %.not23 = icmp eq ptr %15, null
   br i1 %.not23, label %22, label %16
 
@@ -2004,9 +2001,9 @@ declare noalias ptr @g_try_malloc(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define noalias ptr @dt_str_replace(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
-  %4 = tail call ptr @g_strsplit(ptr noundef %0, ptr noundef %1, i32 noundef -1) #29
-  %5 = tail call noalias ptr @g_strjoinv(ptr noundef %2, ptr noundef %4) #29
-  tail call void @g_strfreev(ptr noundef %4) #29
+  %4 = tail call ptr @g_strsplit(ptr noundef %0, ptr noundef %1, i32 noundef -1) #28
+  %5 = tail call noalias ptr @g_strjoinv(ptr noundef %2, ptr noundef %4) #28
+  tail call void @g_strfreev(ptr noundef %4) #28
   ret ptr %5
 }
 
@@ -2016,25 +2013,25 @@ define range(i32 0, 2) i32 @dt_str_commasubstring(ptr noundef %0, ptr noundef %1
   br i1 %3, label %11, label %4
 
 4:                                                ; preds = %2
-  %5 = tail call noalias ptr @g_strdup(ptr noundef %0) #29
-  %6 = tail call ptr @strtok(ptr noundef %5, ptr noundef nonnull @__const.dt_str_commasubstring.delimiter) #29
+  %5 = tail call noalias ptr @g_strdup(ptr noundef %0) #28
+  %6 = tail call ptr @strtok(ptr noundef %5, ptr noundef nonnull @__const.dt_str_commasubstring.delimiter) #28
   %.not10 = icmp eq ptr %6, null
   br i1 %.not10, label %.sink.split, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4, %9
   %.011 = phi ptr [ %10, %9 ], [ %6, %4 ]
-  %7 = tail call i32 @g_strcmp0(ptr noundef nonnull %1, ptr noundef nonnull %.011) #29
+  %7 = tail call i32 @g_strcmp0(ptr noundef nonnull %1, ptr noundef nonnull %.011) #28
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %.sink.split, label %9
 
 9:                                                ; preds = %.lr.ph
-  %10 = tail call ptr @strtok(ptr noundef null, ptr noundef nonnull @__const.dt_str_commasubstring.delimiter) #29
+  %10 = tail call ptr @strtok(ptr noundef null, ptr noundef nonnull @__const.dt_str_commasubstring.delimiter) #28
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %.sink.split, label %.lr.ph
 
 .sink.split:                                      ; preds = %9, %.lr.ph, %4
   %.08.ph = phi i32 [ 0, %4 ], [ 1, %.lr.ph ], [ 0, %9 ]
-  tail call void @g_free(ptr noundef %5) #29
+  tail call void @g_free(ptr noundef %5) #28
   br label %11
 
 11:                                               ; preds = %.sink.split, %2
@@ -2043,16 +2040,16 @@ define range(i32 0, 2) i32 @dt_str_commasubstring(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn
-declare ptr @strtok(ptr noundef, ptr noundef readonly captures(none)) local_unnamed_addr #23
+declare ptr @strtok(ptr noundef, ptr noundef readonly captures(none)) local_unnamed_addr #22
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @dt_is_scene_referred() local_unnamed_addr #0 {
-  %1 = tail call i32 @dt_conf_is_equal(ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.30) #29
+  %1 = tail call i32 @dt_conf_is_equal(ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.30) #28
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %2, label %6
 
 2:                                                ; preds = %0
-  %3 = tail call i32 @dt_conf_is_equal(ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.31) #29
+  %3 = tail call i32 @dt_conf_is_equal(ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.31) #28
   %4 = icmp ne i32 %3, 0
   %5 = zext i1 %4 to i32
   br label %6
@@ -2066,7 +2063,7 @@ declare i32 @dt_conf_is_equal(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define i32 @dt_is_display_referred() local_unnamed_addr #0 {
-  %1 = tail call i32 @dt_conf_is_equal(ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.32) #29
+  %1 = tail call i32 @dt_conf_is_equal(ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.32) #28
   ret i32 %1
 }
 
@@ -2075,7 +2072,7 @@ declare ptr @rsvg_handle_new_from_file(ptr noundef, ptr noundef) local_unnamed_a
 declare i32 @cairo_format_stride_for_width(i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #24
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #23
 
 declare void @g_object_unref(ptr noundef) local_unnamed_addr #3
 
@@ -2107,19 +2104,19 @@ declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly ca
 declare ptr @strerror(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #16
+declare ptr @__errno_location() local_unnamed_addr #15
 
 ; Function Attrs: nofree noreturn nounwind
-declare void @exit(i32 noundef) local_unnamed_addr #25
+declare void @exit(i32 noundef) local_unnamed_addr #24
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #26
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #25
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #26
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #25
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #27
+declare i32 @llvm.smax.i32(i32, i32) #26
 
 attributes #0 = { nounwind uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
@@ -2134,28 +2131,27 @@ attributes #9 = { mustprogress nofree nounwind willreturn memory(read) "approx-f
 attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
 attributes #11 = { nofree nounwind "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
 attributes #12 = { mustprogress nofree nounwind willreturn "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
-attributes #13 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #14 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #15 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
-attributes #16 = { mustprogress nofree nosync nounwind willreturn memory(none) "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
-attributes #17 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
-attributes #18 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
-attributes #19 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
-attributes #20 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
-attributes #21 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #22 = { nofree norecurse nounwind memory(argmem: read) uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
-attributes #23 = { mustprogress nocallback nofree nounwind willreturn "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
-attributes #24 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
-attributes #25 = { nofree noreturn nounwind "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
-attributes #26 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #27 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #28 = { nounwind willreturn memory(read) }
-attributes #29 = { nounwind }
-attributes #30 = { nounwind allocsize(0) }
-attributes #31 = { nounwind allocsize(0,1) }
-attributes #32 = { nounwind willreturn memory(none) }
-attributes #33 = { cold nounwind }
-attributes #34 = { cold noreturn nounwind }
+attributes #13 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #14 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
+attributes #15 = { mustprogress nofree nosync nounwind willreturn memory(none) "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
+attributes #16 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
+attributes #17 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
+attributes #18 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
+attributes #19 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
+attributes #20 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #21 = { nofree norecurse nounwind memory(argmem: read) uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
+attributes #22 = { mustprogress nocallback nofree nounwind willreturn "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
+attributes #23 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
+attributes #24 = { nofree noreturn nounwind "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
+attributes #25 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #26 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #27 = { nounwind willreturn memory(read) }
+attributes #28 = { nounwind }
+attributes #29 = { nounwind allocsize(0) }
+attributes #30 = { nounwind allocsize(0,1) }
+attributes #31 = { nounwind willreturn memory(none) }
+attributes #32 = { cold nounwind }
+attributes #33 = { cold noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

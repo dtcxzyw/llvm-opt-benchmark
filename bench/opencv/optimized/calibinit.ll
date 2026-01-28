@@ -3512,8 +3512,8 @@ _ZN2cvL21icvSmoothHistogram256ILi1ENS_10AutoBufferIiLm256EEEEEvRKT0_RS3_i.exit.i
   %199 = getelementptr inbounds nuw i32, ptr %161, i64 %indvars.iv.next.i126.i
   %200 = load i32, ptr %199, align 4, !tbaa !87
   %201 = sub nsw i32 %198, %200
-  %202 = call i32 @llvm.abs.i32(i32 %201, i1 true)
-  %203 = icmp samesign ult i32 %202, 100
+  %202 = add i32 %201, 99
+  %203 = icmp ult i32 %202, 199
   %204 = icmp eq i32 %.0153.i.i, 0
   %..015.i.i = select i1 %204, i32 -100, i32 %.0153.i.i
   %.0.i.i = select i1 %203, i32 %..015.i.i, i32 %201

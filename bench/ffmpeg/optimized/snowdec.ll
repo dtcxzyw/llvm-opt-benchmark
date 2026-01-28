@@ -1121,8 +1121,8 @@ get_rac.exit222.thread.i:                         ; preds = %._crit_edge.i571, %
 
 587:                                              ; preds = %582
   %588 = load i32, ptr %575, align 8, !tbaa !58
-  %589 = tail call i32 @llvm.abs.i32(i32 %588, i1 true)
-  %590 = icmp samesign ugt i32 %589, 127
+  %589 = add i32 %588, -128
+  %590 = icmp ult i32 %589, -255
   br i1 %590, label %591, label %decode_header.exit
 
 591:                                              ; preds = %587

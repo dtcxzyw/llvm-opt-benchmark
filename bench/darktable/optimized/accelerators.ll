@@ -6583,8 +6583,8 @@ _action_find_effect_combo.exit.thread:            ; preds = %_action_find_effect
 
 197:                                              ; preds = %195, %192
   %198 = phi i32 [ %.pre151, %195 ], [ %193, %192 ]
-  %199 = tail call i32 @llvm.abs.i32(i32 %198, i1 true)
-  %200 = icmp samesign ugt i32 %199, 1
+  %199 = add i32 %198, -2
+  %200 = icmp ult i32 %199, -3
   br i1 %200, label %201, label %203
 
 201:                                              ; preds = %197

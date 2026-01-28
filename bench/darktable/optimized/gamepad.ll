@@ -77,7 +77,7 @@ define noundef i32 @dt_module_mod_version() local_unnamed_addr #0 {
 
 ; Function Attrs: nounwind uwtable
 define ptr @name(ptr noundef readnone captures(none) %0) local_unnamed_addr #1 {
-  %2 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 5) #10
+  %2 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 5) #9
   ret ptr %2
 }
 
@@ -98,12 +98,12 @@ define noundef i32 @container(ptr noundef readnone captures(none) %0) local_unna
 define void @gui_init(ptr noundef initializes((280, 288)) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 280
   store ptr null, ptr %2, align 8, !tbaa !6
-  %3 = tail call i32 @SDL_Init(i32 noundef 8192) #10
+  %3 = tail call i32 @SDL_Init(i32 noundef 8192) #9
   %.not.i = icmp eq i32 %3, 0
   br i1 %.not.i, label %5, label %4
 
 4:                                                ; preds = %1
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.1) #10
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.1) #9
   br label %_gamepad_open_devices.exit
 
 5:                                                ; preds = %1
@@ -113,12 +113,12 @@ define void @gui_init(ptr noundef initializes((280, 288)) %0) local_unnamed_addr
   br i1 %.not20.i, label %9, label %8
 
 8:                                                ; preds = %5
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.2) #10
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.2) #9
   br label %9
 
 9:                                                ; preds = %8, %5
-  %10 = tail call zeroext i8 @dt_register_input_driver(ptr noundef nonnull %0, ptr noundef nonnull @_driver_definition) #10
-  %11 = tail call i32 @SDL_NumJoysticks() #10
+  %10 = tail call zeroext i8 @dt_register_input_driver(ptr noundef nonnull %0, ptr noundef nonnull @_driver_definition) #9
+  %11 = tail call i32 @SDL_NumJoysticks() #9
   %12 = icmp sgt i32 %11, 0
   br i1 %12, label %.lr.ph.i, label %._crit_edge.i
 
@@ -130,44 +130,44 @@ define void @gui_init(ptr noundef initializes((280, 288)) %0) local_unnamed_addr
 .lr.ph.i:                                         ; preds = %9, %25
   %.025.i = phi i8 [ %.2.i, %25 ], [ %10, %9 ]
   %.01824.i = phi i32 [ %26, %25 ], [ 0, %9 ]
-  %14 = tail call i32 @SDL_IsGameController(i32 noundef %.01824.i) #10
+  %14 = tail call i32 @SDL_IsGameController(i32 noundef %.01824.i) #9
   %.not22.i = icmp eq i32 %14, 0
   br i1 %.not22.i, label %25, label %15
 
 15:                                               ; preds = %.lr.ph.i
-  %16 = tail call ptr @SDL_GameControllerOpen(i32 noundef %.01824.i) #10
+  %16 = tail call ptr @SDL_GameControllerOpen(i32 noundef %.01824.i) #9
   %.not23.i = icmp eq ptr %16, null
-  %17 = tail call ptr @SDL_GameControllerNameForIndex(i32 noundef %.01824.i) #10
+  %17 = tail call ptr @SDL_GameControllerNameForIndex(i32 noundef %.01824.i) #9
   br i1 %.not23.i, label %18, label %19
 
 18:                                               ; preds = %15
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.3, ptr noundef %17) #10
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.3, ptr noundef %17) #9
   br label %25
 
 19:                                               ; preds = %15
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.4, ptr noundef %17) #10
-  %20 = tail call noalias dereferenceable_or_null(72) ptr @g_malloc0(i64 noundef 72) #11
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.4, ptr noundef %17) #9
+  %20 = tail call noalias dereferenceable_or_null(72) ptr @g_malloc0(i64 noundef 72) #10
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store ptr %16, ptr %21, align 8, !tbaa !54
   %22 = add i8 %.025.i, 1
   store i8 %.025.i, ptr %20, align 8, !tbaa !57
   %23 = load ptr, ptr %2, align 8, !tbaa !6
-  %24 = tail call ptr @g_slist_append(ptr noundef %23, ptr noundef nonnull %20) #10
+  %24 = tail call ptr @g_slist_append(ptr noundef %23, ptr noundef nonnull %20) #9
   store ptr %24, ptr %2, align 8, !tbaa !6
   br label %25
 
 25:                                               ; preds = %19, %18, %.lr.ph.i
   %.2.i = phi i8 [ %.025.i, %.lr.ph.i ], [ %22, %19 ], [ %.025.i, %18 ]
   %26 = add nuw nsw i32 %.01824.i, 1
-  %27 = tail call i32 @SDL_NumJoysticks() #10
+  %27 = tail call i32 @SDL_NumJoysticks() #9
   %28 = icmp slt i32 %26, %27
   %29 = icmp samesign ult i32 %.01824.i, 9
   %30 = select i1 %28, i1 %29, i1 false
   br i1 %30, label %.lr.ph.i, label %._crit_edge.i
 
 31:                                               ; preds = %._crit_edge.i
-  %32 = tail call i32 @g_timeout_add(i32 noundef 10, ptr noundef nonnull @_poll_devices, ptr noundef nonnull %0) #10
-  %33 = tail call i32 @g_timeout_add_full(i32 noundef -100, i32 noundef 5, ptr noundef nonnull @_pump_events, ptr noundef nonnull %0, ptr noundef null) #10
+  %32 = tail call i32 @g_timeout_add(i32 noundef 10, ptr noundef nonnull @_poll_devices, ptr noundef nonnull %0) #9
+  %33 = tail call i32 @g_timeout_add_full(i32 noundef -100, i32 noundef 5, ptr noundef nonnull @_pump_events, ptr noundef nonnull %0, ptr noundef null) #9
   br label %_gamepad_open_devices.exit
 
 _gamepad_open_devices.exit:                       ; preds = %4, %._crit_edge.i, %31
@@ -176,11 +176,11 @@ _gamepad_open_devices.exit:                       ; preds = %4, %._crit_edge.i, 
 
 ; Function Attrs: nounwind uwtable
 define void @gui_cleanup(ptr noundef %0) local_unnamed_addr #1 {
-  %2 = tail call i32 @g_source_remove_by_user_data(ptr noundef %0) #10
-  %3 = tail call i32 @g_source_remove_by_user_data(ptr noundef %0) #10
+  %2 = tail call i32 @g_source_remove_by_user_data(ptr noundef %0) #9
+  %3 = tail call i32 @g_source_remove_by_user_data(ptr noundef %0) #9
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %5 = load ptr, ptr %4, align 8, !tbaa !6
-  tail call void @g_slist_free_full(ptr noundef %5, ptr noundef nonnull @_gamepad_device_free) #10
+  tail call void @g_slist_free_full(ptr noundef %5, ptr noundef nonnull @_gamepad_device_free) #9
   store ptr null, ptr %4, align 8, !tbaa !6
   ret void
 }
@@ -210,7 +210,7 @@ declare i32 @g_timeout_add(i32 noundef, ptr noundef, ptr noundef) local_unnamed_
 define internal range(i32 0, 2) i32 @_poll_devices(ptr noundef readonly captures(none) %0) #1 {
   %2 = alloca %union.SDL_Event, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %3 = call i32 @SDL_PollEvent(ptr noundef nonnull %2) #10
+  %3 = call i32 @SDL_PollEvent(ptr noundef nonnull %2) #9
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %.lr.ph69, label %._crit_edge
 
@@ -233,7 +233,7 @@ define internal range(i32 0, 2) i32 @_poll_devices(ptr noundef readonly captures
   br i1 %.not51, label %.loopexit, label %14
 
 14:                                               ; preds = %11
-  %15 = call ptr @SDL_GameControllerFromInstanceID(i32 noundef %13) #10
+  %15 = call ptr @SDL_GameControllerFromInstanceID(i32 noundef %13) #9
   %.03962 = load ptr, ptr %6, align 8, !tbaa !59
   %.not5263 = icmp eq ptr %.03962, null
   br i1 %.not5263, label %.thread, label %.lr.ph
@@ -275,7 +275,7 @@ define internal range(i32 0, 2) i32 @_poll_devices(ptr noundef readonly captures
   %30 = zext i8 %29 to i32
   %31 = load i8, ptr %10, align 1, !tbaa !58
   %32 = zext i8 %31 to i32
-  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.39, i32 noundef %27, i32 noundef %28, i32 noundef %30, i32 noundef %32) #10
+  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.39, i32 noundef %27, i32 noundef %28, i32 noundef %30, i32 noundef %32) #9
   br label %33
 
 33:                                               ; preds = %26, %23
@@ -285,7 +285,7 @@ define internal range(i32 0, 2) i32 @_poll_devices(ptr noundef readonly captures
   %36 = load i32, ptr %7, align 4, !tbaa !58
   %37 = load i8, ptr %8, align 4, !tbaa !58
   %38 = zext i8 %37 to i32
-  call void @dt_shortcut_key_press(i8 noundef zeroext %35, i32 noundef %36, i32 noundef %38) #10
+  call void @dt_shortcut_key_press(i8 noundef zeroext %35, i32 noundef %36, i32 noundef %38) #9
   br label %128
 
 39:                                               ; preds = %.loopexit
@@ -301,7 +301,7 @@ define internal range(i32 0, 2) i32 @_poll_devices(ptr noundef readonly captures
   %46 = zext i8 %45 to i32
   %47 = load i8, ptr %10, align 1, !tbaa !58
   %48 = zext i8 %47 to i32
-  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.40, i32 noundef %43, i32 noundef %44, i32 noundef %46, i32 noundef %48) #10
+  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.40, i32 noundef %43, i32 noundef %44, i32 noundef %46, i32 noundef %48) #9
   br label %49
 
 49:                                               ; preds = %42, %39
@@ -311,7 +311,7 @@ define internal range(i32 0, 2) i32 @_poll_devices(ptr noundef readonly captures
   %52 = load i32, ptr %7, align 4, !tbaa !58
   %53 = load i8, ptr %8, align 4, !tbaa !58
   %54 = zext i8 %53 to i32
-  call void @dt_shortcut_key_release(i8 noundef zeroext %51, i32 noundef %52, i32 noundef %54) #10
+  call void @dt_shortcut_key_release(i8 noundef zeroext %51, i32 noundef %52, i32 noundef %54) #9
   br label %128
 
 55:                                               ; preds = %.loopexit
@@ -327,7 +327,7 @@ define internal range(i32 0, 2) i32 @_poll_devices(ptr noundef readonly captures
   %62 = zext i8 %61 to i32
   %63 = load i16, ptr %9, align 8, !tbaa !58
   %64 = sext i16 %63 to i32
-  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.41, i32 noundef 1616, i32 noundef %59, i32 noundef %60, i32 noundef %62, i32 noundef %64) #10
+  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.41, i32 noundef 1616, i32 noundef %59, i32 noundef %60, i32 noundef %62, i32 noundef %64) #9
   br label %65
 
 65:                                               ; preds = %58, %55
@@ -352,10 +352,10 @@ define internal range(i32 0, 2) i32 @_poll_devices(ptr noundef readonly captures
   %78 = load i8, ptr %.144, align 8, !tbaa !57
   %79 = load i32, ptr %7, align 4, !tbaa !58
   %80 = add nuw nsw i32 %69, 17
-  call void @dt_shortcut_key_release(i8 noundef zeroext %78, i32 noundef %79, i32 noundef %80) #10
+  call void @dt_shortcut_key_release(i8 noundef zeroext %78, i32 noundef %79, i32 noundef %80) #9
   %81 = load i8, ptr %.144, align 8, !tbaa !57
   %82 = load i32, ptr %7, align 4, !tbaa !58
-  call void @dt_shortcut_key_press(i8 noundef zeroext %81, i32 noundef %82, i32 noundef %80) #10
+  call void @dt_shortcut_key_press(i8 noundef zeroext %81, i32 noundef %82, i32 noundef %80) #9
   %83 = load i16, ptr %9, align 8, !tbaa !58
   %84 = sdiv i16 %83, 10500
   %85 = sext i16 %84 to i32
@@ -375,7 +375,7 @@ define internal range(i32 0, 2) i32 @_poll_devices(ptr noundef readonly captures
   %93 = load i8, ptr %.144, align 8, !tbaa !57
   %94 = load i32, ptr %7, align 4, !tbaa !58
   %95 = add nuw nsw i32 %69, 17
-  call void @dt_shortcut_key_release(i8 noundef zeroext %93, i32 noundef %94, i32 noundef %95) #10
+  call void @dt_shortcut_key_release(i8 noundef zeroext %93, i32 noundef %94, i32 noundef %95) #9
   %96 = load i16, ptr %9, align 8, !tbaa !58
   %97 = sdiv i16 %96, 9500
   %98 = sext i16 %97 to i32
@@ -402,8 +402,8 @@ define internal range(i32 0, 2) i32 @_poll_devices(ptr noundef readonly captures
   %indvars.iv.i = phi i64 [ 0, %107 ], [ %indvars.iv.next.i, %121 ]
   %112 = getelementptr inbounds nuw i32, ptr %109, i64 %indvars.iv.i
   %113 = load i32, ptr %112, align 4, !tbaa !63
-  %114 = call i32 @llvm.abs.i32(i32 %113, i1 true)
-  %115 = icmp samesign ugt i32 %114, 4000
+  %114 = add i32 %113, -4001
+  %115 = icmp ult i32 %114, -8001
   br i1 %115, label %116, label %121
 
 116:                                              ; preds = %111
@@ -435,7 +435,7 @@ _process_axis_timestep.exit:                      ; preds = %_process_axis_times
   br label %128
 
 128:                                              ; preds = %77, %92, %89, %_process_axis_timestep.exit, %49, %33, %.loopexit
-  %129 = call i32 @SDL_PollEvent(ptr noundef nonnull %2) #10
+  %129 = call i32 @SDL_PollEvent(ptr noundef nonnull %2) #9
   %130 = icmp sgt i32 %129, 0
   br i1 %130, label %11, label %._crit_edge
 
@@ -453,7 +453,7 @@ _process_axis_timestep.exit:                      ; preds = %_process_axis_times
 .lr.ph74:                                         ; preds = %._crit_edge, %.lr.ph74
   %.072 = phi ptr [ %.0, %.lr.ph74 ], [ %.070, %._crit_edge ]
   %132 = load ptr, ptr %.072, align 8, !tbaa !60
-  %133 = call i32 @SDL_GetTicks() #10
+  %133 = call i32 @SDL_GetTicks() #9
   call fastcc void @_process_axis_and_send(ptr noundef %132, i32 noundef %133)
   %134 = getelementptr inbounds nuw i8, ptr %.072, i64 8
   %.0 = load ptr, ptr %134, align 8, !tbaa !59
@@ -467,8 +467,8 @@ _process_axis_timestep.exit:                      ; preds = %_process_axis_times
   br i1 %.not50, label %.thread, label %138
 
 138:                                              ; preds = %135
-  %139 = call i32 @SDL_GetTicks() #10
-  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.42, i32 noundef %.040.lcssa, i32 noundef %139) #10
+  %139 = call i32 @SDL_GetTicks() #9
+  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.42, i32 noundef %.040.lcssa, i32 noundef %139) #9
   br label %.thread
 
 .thread:                                          ; preds = %14, %16, %._crit_edge75, %138, %135
@@ -481,7 +481,7 @@ declare i32 @g_timeout_add_full(i32 noundef, i32 noundef, ptr noundef, ptr nound
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @_pump_events(ptr readnone captures(none) %0) #1 {
-  tail call void @SDL_PumpEvents() #10
+  tail call void @SDL_PumpEvents() #9
   ret i32 1
 }
 
@@ -502,12 +502,12 @@ define internal noalias ptr @_key_to_string(i32 noundef %0, i32 noundef %1) #1 {
   br i1 %.not, label %12, label %10
 
 10:                                               ; preds = %8
-  %11 = tail call ptr @dcgettext(ptr noundef null, ptr noundef %9, i32 noundef 5) #10
+  %11 = tail call ptr @dcgettext(ptr noundef null, ptr noundef %9, i32 noundef 5) #9
   br label %12
 
 12:                                               ; preds = %8, %10
   %13 = phi ptr [ %11, %10 ], [ %9, %8 ]
-  %14 = tail call noalias ptr @g_strdup(ptr noundef %13) #10
+  %14 = tail call noalias ptr @g_strdup(ptr noundef %13) #9
   ret ptr %14
 }
 
@@ -527,7 +527,7 @@ define internal range(i32 0, 2) i32 @_string_to_key(ptr noundef readonly capture
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %3 ]
   %6 = getelementptr inbounds nuw ptr, ptr @_button_names, i64 %indvars.iv
   %7 = load ptr, ptr %6, align 8, !tbaa !65
-  %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) %0) #12
+  %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) %0) #11
   %.not6 = icmp eq i32 %8, 0
   br i1 %.not6, label %9, label %3
 
@@ -553,12 +553,12 @@ define internal noalias ptr @_move_to_string(i32 noundef %0, i32 noundef %1) #1 
   br i1 %.not, label %12, label %10
 
 10:                                               ; preds = %8
-  %11 = tail call ptr @dcgettext(ptr noundef null, ptr noundef %9, i32 noundef 5) #10
+  %11 = tail call ptr @dcgettext(ptr noundef null, ptr noundef %9, i32 noundef 5) #9
   br label %12
 
 12:                                               ; preds = %8, %10
   %13 = phi ptr [ %11, %10 ], [ %9, %8 ]
-  %14 = tail call noalias ptr @g_strdup(ptr noundef %13) #10
+  %14 = tail call noalias ptr @g_strdup(ptr noundef %13) #9
   ret ptr %14
 }
 
@@ -578,7 +578,7 @@ define internal range(i32 0, 2) i32 @_string_to_move(ptr noundef readonly captur
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %3 ]
   %6 = getelementptr inbounds nuw ptr, ptr @_move_names, i64 %indvars.iv
   %7 = load ptr, ptr %6, align 8, !tbaa !65
-  %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) %0) #12
+  %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) %0) #11
   %.not6 = icmp eq i32 %8, 0
   br i1 %.not6, label %9, label %3
 
@@ -613,8 +613,8 @@ define internal fastcc void @_process_axis_and_send(ptr noundef captures(none) %
   %indvars.iv.i = phi i64 [ 0, %6 ], [ %indvars.iv.next.i, %20 ]
   %11 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv.i
   %12 = load i32, ptr %11, align 4, !tbaa !63
-  %13 = tail call i32 @llvm.abs.i32(i32 %12, i1 true)
-  %14 = icmp samesign ugt i32 %13, 4000
+  %13 = add i32 %12, -4001
+  %14 = icmp ult i32 %13, -8001
   br i1 %14, label %15, label %20
 
 15:                                               ; preds = %10
@@ -667,7 +667,7 @@ _process_axis_timestep.exit:                      ; preds = %20, %2
   %43 = load i8, ptr %0, align 8, !tbaa !57
   %44 = fptrunc reassoc nsz arcp contract afn double %35 to float
   %45 = trunc nuw nsw i64 %indvars.iv to i32
-  %46 = tail call reassoc nsz arcp contract afn float @dt_shortcut_move(i8 noundef zeroext %43, i32 noundef %1, i32 noundef %45, float noundef %44) #10
+  %46 = tail call reassoc nsz arcp contract afn float @dt_shortcut_move(i8 noundef zeroext %43, i32 noundef %1, i32 noundef %45, float noundef %44) #9
   br label %73
 
 47:                                               ; preds = %23
@@ -690,7 +690,7 @@ _process_axis_timestep.exit:                      ; preds = %20, %2
   %58 = load i8, ptr %0, align 8, !tbaa !57
   %59 = fptrunc reassoc nsz arcp contract afn double %50 to float
   %60 = trunc nuw nsw i64 %28 to i32
-  %61 = tail call reassoc nsz arcp contract afn float @dt_shortcut_move(i8 noundef zeroext %58, i32 noundef %1, i32 noundef %60, float noundef %59) #10
+  %61 = tail call reassoc nsz arcp contract afn float @dt_shortcut_move(i8 noundef zeroext %58, i32 noundef %1, i32 noundef %60, float noundef %59) #9
   br label %73
 
 62:                                               ; preds = %52
@@ -704,7 +704,7 @@ _process_axis_timestep.exit:                      ; preds = %20, %2
   %69 = trunc nuw nsw i64 %indvars.iv to i32
   %70 = or disjoint i32 %68, %69
   %71 = fptrunc reassoc nsz arcp contract afn double %50 to float
-  %72 = tail call reassoc nsz arcp contract afn float @dt_shortcut_move(i8 noundef zeroext %66, i32 noundef %1, i32 noundef %70, float noundef %71) #10
+  %72 = tail call reassoc nsz arcp contract afn float @dt_shortcut_move(i8 noundef zeroext %66, i32 noundef %1, i32 noundef %70, float noundef %71) #9
   br label %73
 
 73:                                               ; preds = %47, %62, %57, %39
@@ -725,9 +725,6 @@ declare double @llvm.fabs.f64(double) #7
 
 declare float @dt_shortcut_move(i8 noundef zeroext, i32 noundef, i32 noundef, float noundef) local_unnamed_addr #3
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #8
-
 declare void @SDL_PumpEvents() local_unnamed_addr #3
 
 declare i32 @g_source_remove_by_user_data(ptr noundef) local_unnamed_addr #3
@@ -738,8 +735,8 @@ declare void @g_slist_free_full(ptr noundef, ptr noundef) local_unnamed_addr #3
 define internal void @_gamepad_device_free(ptr noundef %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !54
-  tail call void @SDL_GameControllerClose(ptr noundef %3) #10
-  tail call void @g_free(ptr noundef %0) #10
+  tail call void @SDL_GameControllerClose(ptr noundef %3) #9
+  tail call void @g_free(ptr noundef %0) #9
   ret void
 }
 
@@ -748,10 +745,10 @@ declare void @SDL_GameControllerClose(ptr noundef) local_unnamed_addr #3
 declare void @g_free(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
 attributes #1 = { nounwind uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
@@ -761,11 +758,10 @@ attributes #4 = { allocsize(0) "approx-func-fp-math"="true" "no-signed-zeros-fp-
 attributes #5 = { nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
 attributes #7 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #10 = { nounwind }
-attributes #11 = { nounwind allocsize(0) }
-attributes #12 = { nounwind willreturn memory(read) }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #9 = { nounwind }
+attributes #10 = { nounwind allocsize(0) }
+attributes #11 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

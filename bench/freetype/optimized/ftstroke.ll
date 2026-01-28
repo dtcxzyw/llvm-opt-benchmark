@@ -615,8 +615,8 @@ ft_stroker_inside.exit:                           ; preds = %.critedge.i, %53
   br i1 %.not84.i, label %101, label %.thread90.i
 
 101:                                              ; preds = %100
-  %102 = call range(i64 0, -9223372036854775808) i64 @llvm.abs.i64(i64 %spec.select.i14, i1 true)
-  %103 = icmp samesign ugt i64 %102, 57
+  %102 = add nsw i64 %spec.select.i14, -58
+  %103 = icmp ult i64 %102, -115
   br i1 %103, label %117, label %177
 
 .thread90.i:                                      ; preds = %100, %80
@@ -1054,8 +1054,8 @@ ft_conic_is_small_enough.exit:                    ; preds = %81, %78, %79, %83
   %.1173 = phi i64 [ %52, %78 ], [ %80, %79 ], [ %82, %83 ], [ %82, %81 ]
   %.1171 = phi i64 [ %52, %78 ], [ %80, %79 ], [ %84, %83 ], [ %82, %81 ]
   %85 = call i64 @FT_Angle_Diff(i64 noundef %.1173, i64 noundef %.1171) #11
-  %86 = call range(i64 0, -9223372036854775808) i64 @llvm.abs.i64(i64 %85, i1 true)
-  %87 = icmp samesign ugt i64 %86, 1966079
+  %86 = add i64 %85, -1966080
+  %87 = icmp ult i64 %86, -3932159
   br i1 %87, label %88, label %108
 
 88:                                               ; preds = %ft_conic_is_small_enough.exit
@@ -1117,8 +1117,8 @@ ft_conic_is_small_enough.exit:                    ; preds = %81, %78, %79, %83
 115:                                              ; preds = %108
   %116 = load i64, ptr %0, align 8, !tbaa !45
   %117 = call i64 @FT_Angle_Diff(i64 noundef %116, i64 noundef %.0172) #11
-  %118 = call range(i64 0, -9223372036854775808) i64 @llvm.abs.i64(i64 %117, i1 true)
-  %119 = icmp samesign ugt i64 %118, 491520
+  %118 = add i64 %117, -491521
+  %119 = icmp ult i64 %118, -983041
   br i1 %119, label %120, label %.thread222
 
 120:                                              ; preds = %115
@@ -1215,8 +1215,8 @@ ft_conic_is_small_enough.exit:                    ; preds = %81, %78, %79, %83
   %177 = sub nsw i64 %165, %176
   %178 = call i64 @FT_Atan2(i64 noundef %175, i64 noundef %177) #11
   %179 = call i64 @FT_Angle_Diff(i64 noundef %.0123, i64 noundef %178) #11
-  %180 = call range(i64 0, -9223372036854775808) i64 @llvm.abs.i64(i64 %179, i1 true)
-  %181 = icmp samesign ugt i64 %180, 5898240
+  %180 = add i64 %179, -5898241
+  %181 = icmp ult i64 %180, -11796481
   br i1 %181, label %182, label %.thread
 
 .thread:                                          ; preds = %167
@@ -1614,12 +1614,12 @@ ft_cubic_is_small_enough.exit:                    ; preds = %118, %112, %106, %1
   %.1205 = phi i64 [ %66, %103 ], [ %105, %104 ], [ %119, %120 ], [ %107, %108 ], [ %107, %106 ], [ %117, %113 ], [ %111, %112 ], [ %119, %118 ]
   %.1203 = phi i64 [ %66, %103 ], [ %105, %104 ], [ %121, %120 ], [ %109, %108 ], [ %107, %106 ], [ %114, %113 ], [ %111, %112 ], [ %119, %118 ]
   %122 = call i64 @FT_Angle_Diff(i64 noundef %.1207, i64 noundef %.1205) #11
-  %123 = call range(i64 0, -9223372036854775808) i64 @llvm.abs.i64(i64 %122, i1 true)
-  %124 = call i64 @FT_Angle_Diff(i64 noundef %.1205, i64 noundef %.1203) #11
-  %125 = call range(i64 0, -9223372036854775808) i64 @llvm.abs.i64(i64 %124, i1 true)
-  %126 = icmp samesign ugt i64 %123, 1474559
-  %127 = icmp samesign ugt i64 %125, 1474559
-  %.not237 = select i1 %126, i1 true, i1 %127
+  %123 = call i64 @FT_Angle_Diff(i64 noundef %.1205, i64 noundef %.1203) #11
+  %124 = add i64 %122, -1474560
+  %125 = icmp ult i64 %124, -2949119
+  %126 = add i64 %123, -1474560
+  %127 = icmp ult i64 %126, -2949119
+  %.not237 = select i1 %125, i1 true, i1 %127
   br i1 %.not237, label %128, label %160
 
 128:                                              ; preds = %ft_cubic_is_small_enough.exit
@@ -1698,8 +1698,8 @@ ft_cubic_is_small_enough.exit:                    ; preds = %118, %112, %106, %1
 167:                                              ; preds = %160
   %168 = load i64, ptr %0, align 8, !tbaa !45
   %169 = call i64 @FT_Angle_Diff(i64 noundef %168, i64 noundef %.0206) #11
-  %170 = call range(i64 0, -9223372036854775808) i64 @llvm.abs.i64(i64 %169, i1 true)
-  %171 = icmp samesign ugt i64 %170, 368640
+  %170 = add i64 %169, -368641
+  %171 = icmp ult i64 %170, -737281
   br i1 %171, label %172, label %.thread262
 
 172:                                              ; preds = %167
@@ -1819,8 +1819,8 @@ ft_cubic_is_small_enough.exit:                    ; preds = %118, %112, %106, %1
   %248 = sub nsw i64 %236, %247
   %249 = call i64 @FT_Atan2(i64 noundef %246, i64 noundef %248) #11
   %250 = call i64 @FT_Angle_Diff(i64 noundef %.0142, i64 noundef %249) #11
-  %251 = call range(i64 0, -9223372036854775808) i64 @llvm.abs.i64(i64 %250, i1 true)
-  %252 = icmp samesign ugt i64 %251, 5898240
+  %251 = add i64 %250, -5898241
+  %252 = icmp ult i64 %251, -11796481
   br i1 %252, label %253, label %.thread
 
 .thread:                                          ; preds = %238

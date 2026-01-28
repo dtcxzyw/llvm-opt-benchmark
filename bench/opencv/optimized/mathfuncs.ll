@@ -9129,8 +9129,8 @@ define internal void @_ZN2cvL7iPow32sEPKiPiii(ptr noundef readonly captures(none
   %indvars.iv55.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next56.i, %39 ]
   %30 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv55.i
   %31 = load i32, ptr %30, align 4, !tbaa !156
-  %32 = tail call noundef i32 @llvm.abs.i32(i32 %31, i1 true)
-  %33 = icmp samesign ult i32 %32, 3
+  %32 = add i32 %31, 2
+  %33 = icmp ult i32 %32, 5
   br i1 %33, label %34, label %39
 
 34:                                               ; preds = %.lr.ph.i

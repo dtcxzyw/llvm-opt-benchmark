@@ -11820,29 +11820,29 @@ define internal void @loop_filter_h_8_8_c(ptr noundef captures(none) %0, i64 nou
   br label %6
 
 6:                                                ; preds = %5, %.critedge.i
-  %.0.i17 = phi ptr [ %0, %5 ], [ %176, %.critedge.i ]
-  %.0551.i16 = phi i32 [ 0, %5 ], [ %175, %.critedge.i ]
-  %7 = getelementptr inbounds i8, ptr %.0.i17, i64 -4
+  %.0.i18 = phi ptr [ %0, %5 ], [ %174, %.critedge.i ]
+  %.0551.i17 = phi i32 [ 0, %5 ], [ %173, %.critedge.i ]
+  %7 = getelementptr inbounds i8, ptr %.0.i18, i64 -4
   %8 = load i8, ptr %7, align 1, !tbaa !8
   %9 = zext i8 %8 to i32
-  %10 = getelementptr inbounds i8, ptr %.0.i17, i64 -3
+  %10 = getelementptr inbounds i8, ptr %.0.i18, i64 -3
   %11 = load i8, ptr %10, align 1, !tbaa !8
   %12 = zext i8 %11 to i32
-  %13 = getelementptr inbounds i8, ptr %.0.i17, i64 -2
+  %13 = getelementptr inbounds i8, ptr %.0.i18, i64 -2
   %14 = load i8, ptr %13, align 1, !tbaa !8
   %15 = zext i8 %14 to i32
-  %16 = getelementptr inbounds i8, ptr %.0.i17, i64 -1
+  %16 = getelementptr inbounds i8, ptr %.0.i18, i64 -1
   %17 = load i8, ptr %16, align 1, !tbaa !8
   %18 = zext i8 %17 to i32
-  %19 = load i8, ptr %.0.i17, align 1, !tbaa !8
+  %19 = load i8, ptr %.0.i18, align 1, !tbaa !8
   %20 = zext i8 %19 to i32
-  %21 = getelementptr inbounds nuw i8, ptr %.0.i17, i64 1
+  %21 = getelementptr inbounds nuw i8, ptr %.0.i18, i64 1
   %22 = load i8, ptr %21, align 1, !tbaa !8
   %23 = zext i8 %22 to i32
-  %24 = getelementptr inbounds nuw i8, ptr %.0.i17, i64 2
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i18, i64 2
   %25 = load i8, ptr %24, align 1, !tbaa !8
   %26 = zext i8 %25 to i32
-  %27 = getelementptr inbounds nuw i8, ptr %.0.i17, i64 3
+  %27 = getelementptr inbounds nuw i8, ptr %.0.i18, i64 3
   %28 = load i8, ptr %27, align 1, !tbaa !8
   %29 = zext i8 %28 to i32
   %30 = sub nsw i32 %9, %12
@@ -11892,15 +11892,15 @@ define internal void @loop_filter_h_8_8_c(ptr noundef captures(none) %0, i64 nou
   br i1 %.not, label %.critedge.i, label %55
 
 55:                                               ; preds = %47
-  %56 = sub nsw i32 %9, %18
-  %57 = tail call i32 @llvm.abs.i32(i32 %56, i1 true)
-  %58 = icmp samesign ult i32 %57, 2
+  %56 = add nuw nsw i32 %9, 1
+  %57 = sub nsw i32 %56, %18
+  %58 = icmp ult i32 %57, 3
   br i1 %58, label %59, label %.thread
 
 59:                                               ; preds = %55
-  %60 = sub nsw i32 %12, %18
-  %61 = tail call i32 @llvm.abs.i32(i32 %60, i1 true)
-  %62 = icmp samesign ult i32 %61, 2
+  %60 = add nuw nsw i32 %12, 1
+  %61 = sub nsw i32 %60, %18
+  %62 = icmp ult i32 %61, 3
   %63 = icmp samesign ult i32 %37, 2
   %or.cond = select i1 %62, i1 %63, i1 false
   %64 = icmp samesign ult i32 %40, 2
@@ -11908,163 +11908,163 @@ define internal void @loop_filter_h_8_8_c(ptr noundef captures(none) %0, i64 nou
   br i1 %or.cond14, label %65, label %.thread
 
 65:                                               ; preds = %59
-  %66 = sub nsw i32 %26, %20
-  %67 = tail call i32 @llvm.abs.i32(i32 %66, i1 true)
-  %68 = icmp samesign ult i32 %67, 2
-  br i1 %68, label %69, label %.thread
+  %reass.sub = sub nsw i32 %26, %20
+  %66 = add nsw i32 %reass.sub, 1
+  %67 = icmp ult i32 %66, 3
+  br i1 %67, label %68, label %.thread
 
-69:                                               ; preds = %65
-  %70 = sub nsw i32 %29, %20
-  %71 = tail call i32 @llvm.abs.i32(i32 %70, i1 true)
-  %72 = icmp samesign ult i32 %71, 2
-  br i1 %72, label %73, label %.thread
+68:                                               ; preds = %65
+  %reass.sub19 = sub nsw i32 %29, %20
+  %69 = add nsw i32 %reass.sub19, 1
+  %70 = icmp ult i32 %69, 3
+  br i1 %70, label %71, label %.thread
 
-73:                                               ; preds = %69
-  %74 = mul nuw nsw i32 %9, 3
-  %75 = shl nuw nsw i32 %12, 1
-  %76 = add nuw nsw i32 %74, 4
-  %77 = add nuw nsw i32 %76, %75
-  %78 = add nuw nsw i32 %77, %15
-  %79 = add nuw nsw i32 %78, %18
-  %80 = add nuw nsw i32 %79, %20
-  %81 = lshr i32 %80, 3
-  %82 = trunc nuw i32 %81 to i8
-  store i8 %82, ptr %10, align 1, !tbaa !8
-  %83 = add nuw nsw i32 %15, %9
-  %84 = shl nuw nsw i32 %83, 1
-  %85 = add nuw nsw i32 %18, 4
-  %86 = add nuw nsw i32 %85, %12
-  %87 = add nuw nsw i32 %86, %84
-  %88 = add nuw nsw i32 %87, %20
-  %89 = add nuw nsw i32 %88, %23
-  %90 = lshr i32 %89, 3
-  %91 = trunc nuw i32 %90 to i8
-  store i8 %91, ptr %13, align 1, !tbaa !8
-  %92 = shl nuw nsw i32 %18, 1
-  %93 = add nuw nsw i32 %15, 4
-  %94 = add nuw nsw i32 %93, %9
-  %95 = add nuw nsw i32 %94, %12
-  %96 = add nuw nsw i32 %95, %92
-  %97 = add nuw nsw i32 %96, %20
-  %98 = add nuw nsw i32 %97, %23
-  %99 = add nuw nsw i32 %98, %26
-  %100 = lshr i32 %99, 3
-  %101 = trunc nuw i32 %100 to i8
-  store i8 %101, ptr %16, align 1, !tbaa !8
-  %102 = shl nuw nsw i32 %20, 1
-  %103 = add nuw nsw i32 %86, %15
-  %104 = add nuw nsw i32 %103, %102
-  %105 = add nuw nsw i32 %104, %23
-  %106 = add nuw nsw i32 %105, %26
-  %107 = add nuw nsw i32 %106, %29
-  %108 = lshr i32 %107, 3
-  %109 = trunc nuw i32 %108 to i8
-  store i8 %109, ptr %.0.i17, align 1, !tbaa !8
+71:                                               ; preds = %68
+  %72 = mul nuw nsw i32 %9, 3
+  %73 = shl nuw nsw i32 %12, 1
+  %74 = add nuw nsw i32 %72, 4
+  %75 = add nuw nsw i32 %74, %73
+  %76 = add nuw nsw i32 %75, %15
+  %77 = add nuw nsw i32 %76, %18
+  %78 = add nuw nsw i32 %77, %20
+  %79 = lshr i32 %78, 3
+  %80 = trunc nuw i32 %79 to i8
+  store i8 %80, ptr %10, align 1, !tbaa !8
+  %81 = add nuw nsw i32 %15, %9
+  %82 = shl nuw nsw i32 %81, 1
+  %83 = add nuw nsw i32 %18, 4
+  %84 = add nuw nsw i32 %83, %12
+  %85 = add nuw nsw i32 %84, %82
+  %86 = add nuw nsw i32 %85, %20
+  %87 = add nuw nsw i32 %86, %23
+  %88 = lshr i32 %87, 3
+  %89 = trunc nuw i32 %88 to i8
+  store i8 %89, ptr %13, align 1, !tbaa !8
+  %90 = shl nuw nsw i32 %18, 1
+  %91 = add nuw nsw i32 %15, 4
+  %92 = add nuw nsw i32 %91, %9
+  %93 = add nuw nsw i32 %92, %12
+  %94 = add nuw nsw i32 %93, %90
+  %95 = add nuw nsw i32 %94, %20
+  %96 = add nuw nsw i32 %95, %23
+  %97 = add nuw nsw i32 %96, %26
+  %98 = lshr i32 %97, 3
+  %99 = trunc nuw i32 %98 to i8
+  store i8 %99, ptr %16, align 1, !tbaa !8
+  %100 = shl nuw nsw i32 %20, 1
+  %101 = add nuw nsw i32 %84, %15
+  %102 = add nuw nsw i32 %101, %100
+  %103 = add nuw nsw i32 %102, %23
+  %104 = add nuw nsw i32 %103, %26
+  %105 = add nuw nsw i32 %104, %29
+  %106 = lshr i32 %105, 3
+  %107 = trunc nuw i32 %106 to i8
+  store i8 %107, ptr %.0.i18, align 1, !tbaa !8
   %reass.add = add nuw nsw i32 %29, %23
   %reass.mul = shl nuw nsw i32 %reass.add, 1
-  %110 = add nuw nsw i32 %85, %15
-  %111 = add nuw nsw i32 %110, %20
-  %112 = add nuw nsw i32 %111, %26
-  %113 = add nuw nsw i32 %112, %reass.mul
-  %114 = lshr i32 %113, 3
-  %115 = trunc nuw i32 %114 to i8
-  store i8 %115, ptr %21, align 1, !tbaa !8
-  %116 = add nuw nsw i32 %29, %26
-  %117 = shl nuw nsw i32 %116, 1
-  %118 = add nuw nsw i32 %85, %20
-  %119 = add nuw nsw i32 %118, %23
-  %120 = add nuw nsw i32 %119, %29
-  %121 = add nuw nsw i32 %120, %117
-  %122 = lshr i32 %121, 3
-  %123 = trunc nuw i32 %122 to i8
-  store i8 %123, ptr %24, align 1, !tbaa !8
+  %108 = add nuw nsw i32 %83, %15
+  %109 = add nuw nsw i32 %108, %20
+  %110 = add nuw nsw i32 %109, %26
+  %111 = add nuw nsw i32 %110, %reass.mul
+  %112 = lshr i32 %111, 3
+  %113 = trunc nuw i32 %112 to i8
+  store i8 %113, ptr %21, align 1, !tbaa !8
+  %114 = add nuw nsw i32 %29, %26
+  %115 = shl nuw nsw i32 %114, 1
+  %116 = add nuw nsw i32 %83, %20
+  %117 = add nuw nsw i32 %116, %23
+  %118 = add nuw nsw i32 %117, %29
+  %119 = add nuw nsw i32 %118, %115
+  %120 = lshr i32 %119, 3
+  %121 = trunc nuw i32 %120 to i8
+  store i8 %121, ptr %24, align 1, !tbaa !8
   br label %.critedge.i
 
-.thread:                                          ; preds = %55, %59, %65, %69
-  %124 = icmp sgt i32 %37, %4
-  %125 = icmp samesign ugt i32 %40, %4
-  %or.cond15 = select i1 %124, i1 true, i1 %125
-  br i1 %or.cond15, label %.critedge650.i, label %145
+.thread:                                          ; preds = %55, %59, %65, %68
+  %122 = icmp sgt i32 %37, %4
+  %123 = icmp samesign ugt i32 %40, %4
+  %or.cond15 = select i1 %122, i1 true, i1 %123
+  br i1 %or.cond15, label %.critedge650.i, label %143
 
 .critedge650.i:                                   ; preds = %.thread
-  %126 = tail call i32 @llvm.smax.i32(i32 %51, i32 -128)
-  %.0.i9 = tail call i32 @llvm.smin.i32(i32 %126, i32 127)
-  %127 = sub nsw i32 %20, %18
-  %128 = mul nsw i32 %127, 3
-  %129 = add nsw i32 %.0.i9, %128
-  %130 = tail call i32 @llvm.smax.i32(i32 %129, i32 -128)
-  %131 = tail call i32 @llvm.smin.i32(i32 %130, i32 123)
-  %132 = add nsw i32 %131, 4
-  %133 = ashr i32 %132, 3
-  %134 = tail call i32 @llvm.smin.i32(i32 %130, i32 124)
-  %135 = add nsw i32 %134, 3
-  %136 = ashr i32 %135, 3
-  %137 = add nsw i32 %136, %18
-  %138 = icmp ugt i32 %137, 255
-  %isnotneg.i659.i = icmp sgt i32 %137, -1
-  %139 = sext i1 %isnotneg.i659.i to i8
-  %140 = trunc nuw i32 %137 to i8
-  %.0.i660.i = select i1 %138, i8 %139, i8 %140
+  %124 = tail call i32 @llvm.smax.i32(i32 %51, i32 -128)
+  %.0.i9 = tail call i32 @llvm.smin.i32(i32 %124, i32 127)
+  %125 = sub nsw i32 %20, %18
+  %126 = mul nsw i32 %125, 3
+  %127 = add nsw i32 %.0.i9, %126
+  %128 = tail call i32 @llvm.smax.i32(i32 %127, i32 -128)
+  %129 = tail call i32 @llvm.smin.i32(i32 %128, i32 123)
+  %130 = add nsw i32 %129, 4
+  %131 = ashr i32 %130, 3
+  %132 = tail call i32 @llvm.smin.i32(i32 %128, i32 124)
+  %133 = add nsw i32 %132, 3
+  %134 = ashr i32 %133, 3
+  %135 = add nsw i32 %134, %18
+  %136 = icmp ugt i32 %135, 255
+  %isnotneg.i659.i = icmp sgt i32 %135, -1
+  %137 = sext i1 %isnotneg.i659.i to i8
+  %138 = trunc nuw i32 %135 to i8
+  %.0.i660.i = select i1 %136, i8 %137, i8 %138
   store i8 %.0.i660.i, ptr %16, align 1, !tbaa !8
-  %141 = sub nsw i32 %20, %133
-  %142 = icmp ugt i32 %141, 255
-  %isnotneg.i657.i = icmp sgt i32 %141, -1
-  %143 = sext i1 %isnotneg.i657.i to i8
-  %144 = trunc nuw i32 %141 to i8
-  %.0.i658.i = select i1 %142, i8 %143, i8 %144
-  store i8 %.0.i658.i, ptr %.0.i17, align 1, !tbaa !8
+  %139 = sub nsw i32 %20, %131
+  %140 = icmp ugt i32 %139, 255
+  %isnotneg.i657.i = icmp sgt i32 %139, -1
+  %141 = sext i1 %isnotneg.i657.i to i8
+  %142 = trunc nuw i32 %139 to i8
+  %.0.i658.i = select i1 %140, i8 %141, i8 %142
+  store i8 %.0.i658.i, ptr %.0.i18, align 1, !tbaa !8
   br label %.critedge.i
 
-145:                                              ; preds = %.thread
-  %146 = sub nsw i32 %20, %18
-  %147 = mul nsw i32 %146, 3
-  %148 = add nsw i32 %147, 128
-  %.not.i10 = icmp ult i32 %148, 256
-  %149 = icmp sgt i32 %146, -1
-  %150 = select i1 %149, i32 127, i32 -128
-  %.0.i11 = select i1 %.not.i10, i32 %147, i32 %150
-  %151 = tail call i32 @llvm.smin.i32(i32 %.0.i11, i32 123)
-  %152 = add nsw i32 %151, 4
-  %153 = ashr i32 %152, 3
-  %154 = tail call i32 @llvm.smin.i32(i32 %.0.i11, i32 124)
-  %155 = add nsw i32 %154, 3
-  %156 = ashr i32 %155, 3
-  %157 = add nsw i32 %156, %18
-  %158 = icmp ugt i32 %157, 255
-  %isnotneg.i655.i = icmp sgt i32 %157, -1
-  %159 = sext i1 %isnotneg.i655.i to i8
-  %160 = trunc nuw i32 %157 to i8
-  %.0.i656.i = select i1 %158, i8 %159, i8 %160
+143:                                              ; preds = %.thread
+  %144 = sub nsw i32 %20, %18
+  %145 = mul nsw i32 %144, 3
+  %146 = add nsw i32 %145, 128
+  %.not.i10 = icmp ult i32 %146, 256
+  %147 = icmp sgt i32 %144, -1
+  %148 = select i1 %147, i32 127, i32 -128
+  %.0.i11 = select i1 %.not.i10, i32 %145, i32 %148
+  %149 = tail call i32 @llvm.smin.i32(i32 %.0.i11, i32 123)
+  %150 = add nsw i32 %149, 4
+  %151 = ashr i32 %150, 3
+  %152 = tail call i32 @llvm.smin.i32(i32 %.0.i11, i32 124)
+  %153 = add nsw i32 %152, 3
+  %154 = ashr i32 %153, 3
+  %155 = add nsw i32 %154, %18
+  %156 = icmp ugt i32 %155, 255
+  %isnotneg.i655.i = icmp sgt i32 %155, -1
+  %157 = sext i1 %isnotneg.i655.i to i8
+  %158 = trunc nuw i32 %155 to i8
+  %.0.i656.i = select i1 %156, i8 %157, i8 %158
   store i8 %.0.i656.i, ptr %16, align 1, !tbaa !8
-  %161 = sub nsw i32 %20, %153
-  %162 = icmp ugt i32 %161, 255
-  %isnotneg.i653.i = icmp sgt i32 %161, -1
-  %163 = sext i1 %isnotneg.i653.i to i8
-  %164 = trunc nuw i32 %161 to i8
-  %.0.i654.i = select i1 %162, i8 %163, i8 %164
-  store i8 %.0.i654.i, ptr %.0.i17, align 1, !tbaa !8
-  %165 = add nsw i32 %153, 1
-  %166 = ashr i32 %165, 1
-  %167 = add nsw i32 %166, %15
-  %168 = icmp ugt i32 %167, 255
-  %isnotneg.i651.i = icmp sgt i32 %167, -1
-  %169 = sext i1 %isnotneg.i651.i to i8
-  %170 = trunc nuw i32 %167 to i8
-  %.0.i652.i = select i1 %168, i8 %169, i8 %170
+  %159 = sub nsw i32 %20, %151
+  %160 = icmp ugt i32 %159, 255
+  %isnotneg.i653.i = icmp sgt i32 %159, -1
+  %161 = sext i1 %isnotneg.i653.i to i8
+  %162 = trunc nuw i32 %159 to i8
+  %.0.i654.i = select i1 %160, i8 %161, i8 %162
+  store i8 %.0.i654.i, ptr %.0.i18, align 1, !tbaa !8
+  %163 = add nsw i32 %151, 1
+  %164 = ashr i32 %163, 1
+  %165 = add nsw i32 %164, %15
+  %166 = icmp ugt i32 %165, 255
+  %isnotneg.i651.i = icmp sgt i32 %165, -1
+  %167 = sext i1 %isnotneg.i651.i to i8
+  %168 = trunc nuw i32 %165 to i8
+  %.0.i652.i = select i1 %166, i8 %167, i8 %168
   store i8 %.0.i652.i, ptr %13, align 1, !tbaa !8
-  %171 = sub nsw i32 %23, %166
-  %172 = icmp ugt i32 %171, 255
-  %isnotneg.i.i = icmp sgt i32 %171, -1
-  %173 = sext i1 %isnotneg.i.i to i8
-  %174 = trunc nuw i32 %171 to i8
-  %.0.i.i = select i1 %172, i8 %173, i8 %174
+  %169 = sub nsw i32 %23, %164
+  %170 = icmp ugt i32 %169, 255
+  %isnotneg.i.i = icmp sgt i32 %169, -1
+  %171 = sext i1 %isnotneg.i.i to i8
+  %172 = trunc nuw i32 %169 to i8
+  %.0.i.i = select i1 %170, i8 %171, i8 %172
   store i8 %.0.i.i, ptr %21, align 1, !tbaa !8
   br label %.critedge.i
 
-.critedge.i:                                      ; preds = %145, %.critedge650.i, %73, %47, %44, %41, %38, %35, %32, %6
-  %175 = add nuw nsw i32 %.0551.i16, 1
-  %176 = getelementptr inbounds i8, ptr %.0.i17, i64 %1
-  %exitcond.not = icmp eq i32 %175, 8
+.critedge.i:                                      ; preds = %143, %.critedge650.i, %71, %47, %44, %41, %38, %35, %32, %6
+  %173 = add nuw nsw i32 %.0551.i17, 1
+  %174 = getelementptr inbounds i8, ptr %.0.i18, i64 %1
+  %exitcond.not = icmp eq i32 %173, 8
   br i1 %exitcond.not, label %loop_filter.exit, label %6, !llvm.loop !132
 
 loop_filter.exit:                                 ; preds = %.critedge.i
@@ -12082,29 +12082,29 @@ define internal void @loop_filter_v_8_8_c(ptr noundef captures(none) %0, i64 nou
   br label %12
 
 12:                                               ; preds = %5, %.critedge.i
-  %.0.i17 = phi ptr [ %0, %5 ], [ %182, %.critedge.i ]
-  %.0551.i16 = phi i32 [ 0, %5 ], [ %181, %.critedge.i ]
-  %13 = getelementptr inbounds i8, ptr %.0.i17, i64 %6
+  %.0.i18 = phi ptr [ %0, %5 ], [ %180, %.critedge.i ]
+  %.0551.i17 = phi i32 [ 0, %5 ], [ %179, %.critedge.i ]
+  %13 = getelementptr inbounds i8, ptr %.0.i18, i64 %6
   %14 = load i8, ptr %13, align 1, !tbaa !8
   %15 = zext i8 %14 to i32
-  %16 = getelementptr inbounds i8, ptr %.0.i17, i64 %7
+  %16 = getelementptr inbounds i8, ptr %.0.i18, i64 %7
   %17 = load i8, ptr %16, align 1, !tbaa !8
   %18 = zext i8 %17 to i32
-  %19 = getelementptr inbounds i8, ptr %.0.i17, i64 %8
+  %19 = getelementptr inbounds i8, ptr %.0.i18, i64 %8
   %20 = load i8, ptr %19, align 1, !tbaa !8
   %21 = zext i8 %20 to i32
-  %22 = getelementptr inbounds i8, ptr %.0.i17, i64 %9
+  %22 = getelementptr inbounds i8, ptr %.0.i18, i64 %9
   %23 = load i8, ptr %22, align 1, !tbaa !8
   %24 = zext i8 %23 to i32
-  %25 = load i8, ptr %.0.i17, align 1, !tbaa !8
+  %25 = load i8, ptr %.0.i18, align 1, !tbaa !8
   %26 = zext i8 %25 to i32
-  %27 = getelementptr inbounds i8, ptr %.0.i17, i64 %1
+  %27 = getelementptr inbounds i8, ptr %.0.i18, i64 %1
   %28 = load i8, ptr %27, align 1, !tbaa !8
   %29 = zext i8 %28 to i32
-  %30 = getelementptr inbounds i8, ptr %.0.i17, i64 %10
+  %30 = getelementptr inbounds i8, ptr %.0.i18, i64 %10
   %31 = load i8, ptr %30, align 1, !tbaa !8
   %32 = zext i8 %31 to i32
-  %33 = getelementptr inbounds i8, ptr %.0.i17, i64 %11
+  %33 = getelementptr inbounds i8, ptr %.0.i18, i64 %11
   %34 = load i8, ptr %33, align 1, !tbaa !8
   %35 = zext i8 %34 to i32
   %36 = sub nsw i32 %15, %18
@@ -12154,15 +12154,15 @@ define internal void @loop_filter_v_8_8_c(ptr noundef captures(none) %0, i64 nou
   br i1 %.not, label %.critedge.i, label %61
 
 61:                                               ; preds = %53
-  %62 = sub nsw i32 %15, %24
-  %63 = tail call i32 @llvm.abs.i32(i32 %62, i1 true)
-  %64 = icmp samesign ult i32 %63, 2
+  %62 = add nuw nsw i32 %15, 1
+  %63 = sub nsw i32 %62, %24
+  %64 = icmp ult i32 %63, 3
   br i1 %64, label %65, label %.thread
 
 65:                                               ; preds = %61
-  %66 = sub nsw i32 %18, %24
-  %67 = tail call i32 @llvm.abs.i32(i32 %66, i1 true)
-  %68 = icmp samesign ult i32 %67, 2
+  %66 = add nuw nsw i32 %18, 1
+  %67 = sub nsw i32 %66, %24
+  %68 = icmp ult i32 %67, 3
   %69 = icmp samesign ult i32 %43, 2
   %or.cond = select i1 %68, i1 %69, i1 false
   %70 = icmp samesign ult i32 %46, 2
@@ -12170,163 +12170,163 @@ define internal void @loop_filter_v_8_8_c(ptr noundef captures(none) %0, i64 nou
   br i1 %or.cond14, label %71, label %.thread
 
 71:                                               ; preds = %65
-  %72 = sub nsw i32 %32, %26
-  %73 = tail call i32 @llvm.abs.i32(i32 %72, i1 true)
-  %74 = icmp samesign ult i32 %73, 2
-  br i1 %74, label %75, label %.thread
+  %reass.sub = sub nsw i32 %32, %26
+  %72 = add nsw i32 %reass.sub, 1
+  %73 = icmp ult i32 %72, 3
+  br i1 %73, label %74, label %.thread
 
-75:                                               ; preds = %71
-  %76 = sub nsw i32 %35, %26
-  %77 = tail call i32 @llvm.abs.i32(i32 %76, i1 true)
-  %78 = icmp samesign ult i32 %77, 2
-  br i1 %78, label %79, label %.thread
+74:                                               ; preds = %71
+  %reass.sub19 = sub nsw i32 %35, %26
+  %75 = add nsw i32 %reass.sub19, 1
+  %76 = icmp ult i32 %75, 3
+  br i1 %76, label %77, label %.thread
 
-79:                                               ; preds = %75
-  %80 = mul nuw nsw i32 %15, 3
-  %81 = shl nuw nsw i32 %18, 1
-  %82 = add nuw nsw i32 %80, 4
-  %83 = add nuw nsw i32 %82, %81
-  %84 = add nuw nsw i32 %83, %21
-  %85 = add nuw nsw i32 %84, %24
-  %86 = add nuw nsw i32 %85, %26
-  %87 = lshr i32 %86, 3
-  %88 = trunc nuw i32 %87 to i8
-  store i8 %88, ptr %16, align 1, !tbaa !8
-  %89 = add nuw nsw i32 %21, %15
-  %90 = shl nuw nsw i32 %89, 1
-  %91 = add nuw nsw i32 %24, 4
-  %92 = add nuw nsw i32 %91, %18
-  %93 = add nuw nsw i32 %92, %90
-  %94 = add nuw nsw i32 %93, %26
-  %95 = add nuw nsw i32 %94, %29
-  %96 = lshr i32 %95, 3
-  %97 = trunc nuw i32 %96 to i8
-  store i8 %97, ptr %19, align 1, !tbaa !8
-  %98 = shl nuw nsw i32 %24, 1
-  %99 = add nuw nsw i32 %21, 4
-  %100 = add nuw nsw i32 %99, %15
-  %101 = add nuw nsw i32 %100, %18
-  %102 = add nuw nsw i32 %101, %98
-  %103 = add nuw nsw i32 %102, %26
-  %104 = add nuw nsw i32 %103, %29
-  %105 = add nuw nsw i32 %104, %32
-  %106 = lshr i32 %105, 3
-  %107 = trunc nuw i32 %106 to i8
-  store i8 %107, ptr %22, align 1, !tbaa !8
-  %108 = shl nuw nsw i32 %26, 1
-  %109 = add nuw nsw i32 %92, %21
-  %110 = add nuw nsw i32 %109, %108
-  %111 = add nuw nsw i32 %110, %29
-  %112 = add nuw nsw i32 %111, %32
-  %113 = add nuw nsw i32 %112, %35
-  %114 = lshr i32 %113, 3
-  %115 = trunc nuw i32 %114 to i8
-  store i8 %115, ptr %.0.i17, align 1, !tbaa !8
+77:                                               ; preds = %74
+  %78 = mul nuw nsw i32 %15, 3
+  %79 = shl nuw nsw i32 %18, 1
+  %80 = add nuw nsw i32 %78, 4
+  %81 = add nuw nsw i32 %80, %79
+  %82 = add nuw nsw i32 %81, %21
+  %83 = add nuw nsw i32 %82, %24
+  %84 = add nuw nsw i32 %83, %26
+  %85 = lshr i32 %84, 3
+  %86 = trunc nuw i32 %85 to i8
+  store i8 %86, ptr %16, align 1, !tbaa !8
+  %87 = add nuw nsw i32 %21, %15
+  %88 = shl nuw nsw i32 %87, 1
+  %89 = add nuw nsw i32 %24, 4
+  %90 = add nuw nsw i32 %89, %18
+  %91 = add nuw nsw i32 %90, %88
+  %92 = add nuw nsw i32 %91, %26
+  %93 = add nuw nsw i32 %92, %29
+  %94 = lshr i32 %93, 3
+  %95 = trunc nuw i32 %94 to i8
+  store i8 %95, ptr %19, align 1, !tbaa !8
+  %96 = shl nuw nsw i32 %24, 1
+  %97 = add nuw nsw i32 %21, 4
+  %98 = add nuw nsw i32 %97, %15
+  %99 = add nuw nsw i32 %98, %18
+  %100 = add nuw nsw i32 %99, %96
+  %101 = add nuw nsw i32 %100, %26
+  %102 = add nuw nsw i32 %101, %29
+  %103 = add nuw nsw i32 %102, %32
+  %104 = lshr i32 %103, 3
+  %105 = trunc nuw i32 %104 to i8
+  store i8 %105, ptr %22, align 1, !tbaa !8
+  %106 = shl nuw nsw i32 %26, 1
+  %107 = add nuw nsw i32 %90, %21
+  %108 = add nuw nsw i32 %107, %106
+  %109 = add nuw nsw i32 %108, %29
+  %110 = add nuw nsw i32 %109, %32
+  %111 = add nuw nsw i32 %110, %35
+  %112 = lshr i32 %111, 3
+  %113 = trunc nuw i32 %112 to i8
+  store i8 %113, ptr %.0.i18, align 1, !tbaa !8
   %reass.add = add nuw nsw i32 %35, %29
   %reass.mul = shl nuw nsw i32 %reass.add, 1
-  %116 = add nuw nsw i32 %91, %21
-  %117 = add nuw nsw i32 %116, %26
-  %118 = add nuw nsw i32 %117, %32
-  %119 = add nuw nsw i32 %118, %reass.mul
-  %120 = lshr i32 %119, 3
-  %121 = trunc nuw i32 %120 to i8
-  store i8 %121, ptr %27, align 1, !tbaa !8
-  %122 = add nuw nsw i32 %35, %32
-  %123 = shl nuw nsw i32 %122, 1
-  %124 = add nuw nsw i32 %91, %26
-  %125 = add nuw nsw i32 %124, %29
-  %126 = add nuw nsw i32 %125, %35
-  %127 = add nuw nsw i32 %126, %123
-  %128 = lshr i32 %127, 3
-  %129 = trunc nuw i32 %128 to i8
-  store i8 %129, ptr %30, align 1, !tbaa !8
+  %114 = add nuw nsw i32 %89, %21
+  %115 = add nuw nsw i32 %114, %26
+  %116 = add nuw nsw i32 %115, %32
+  %117 = add nuw nsw i32 %116, %reass.mul
+  %118 = lshr i32 %117, 3
+  %119 = trunc nuw i32 %118 to i8
+  store i8 %119, ptr %27, align 1, !tbaa !8
+  %120 = add nuw nsw i32 %35, %32
+  %121 = shl nuw nsw i32 %120, 1
+  %122 = add nuw nsw i32 %89, %26
+  %123 = add nuw nsw i32 %122, %29
+  %124 = add nuw nsw i32 %123, %35
+  %125 = add nuw nsw i32 %124, %121
+  %126 = lshr i32 %125, 3
+  %127 = trunc nuw i32 %126 to i8
+  store i8 %127, ptr %30, align 1, !tbaa !8
   br label %.critedge.i
 
-.thread:                                          ; preds = %61, %65, %71, %75
-  %130 = icmp sgt i32 %43, %4
-  %131 = icmp samesign ugt i32 %46, %4
-  %or.cond15 = select i1 %130, i1 true, i1 %131
-  br i1 %or.cond15, label %.critedge650.i, label %151
+.thread:                                          ; preds = %61, %65, %71, %74
+  %128 = icmp sgt i32 %43, %4
+  %129 = icmp samesign ugt i32 %46, %4
+  %or.cond15 = select i1 %128, i1 true, i1 %129
+  br i1 %or.cond15, label %.critedge650.i, label %149
 
 .critedge650.i:                                   ; preds = %.thread
-  %132 = tail call i32 @llvm.smax.i32(i32 %57, i32 -128)
-  %.0.i9 = tail call i32 @llvm.smin.i32(i32 %132, i32 127)
-  %133 = sub nsw i32 %26, %24
-  %134 = mul nsw i32 %133, 3
-  %135 = add nsw i32 %.0.i9, %134
-  %136 = tail call i32 @llvm.smax.i32(i32 %135, i32 -128)
-  %137 = tail call i32 @llvm.smin.i32(i32 %136, i32 123)
-  %138 = add nsw i32 %137, 4
-  %139 = ashr i32 %138, 3
-  %140 = tail call i32 @llvm.smin.i32(i32 %136, i32 124)
-  %141 = add nsw i32 %140, 3
-  %142 = ashr i32 %141, 3
-  %143 = add nsw i32 %142, %24
-  %144 = icmp ugt i32 %143, 255
-  %isnotneg.i659.i = icmp sgt i32 %143, -1
-  %145 = sext i1 %isnotneg.i659.i to i8
-  %146 = trunc nuw i32 %143 to i8
-  %.0.i660.i = select i1 %144, i8 %145, i8 %146
+  %130 = tail call i32 @llvm.smax.i32(i32 %57, i32 -128)
+  %.0.i9 = tail call i32 @llvm.smin.i32(i32 %130, i32 127)
+  %131 = sub nsw i32 %26, %24
+  %132 = mul nsw i32 %131, 3
+  %133 = add nsw i32 %.0.i9, %132
+  %134 = tail call i32 @llvm.smax.i32(i32 %133, i32 -128)
+  %135 = tail call i32 @llvm.smin.i32(i32 %134, i32 123)
+  %136 = add nsw i32 %135, 4
+  %137 = ashr i32 %136, 3
+  %138 = tail call i32 @llvm.smin.i32(i32 %134, i32 124)
+  %139 = add nsw i32 %138, 3
+  %140 = ashr i32 %139, 3
+  %141 = add nsw i32 %140, %24
+  %142 = icmp ugt i32 %141, 255
+  %isnotneg.i659.i = icmp sgt i32 %141, -1
+  %143 = sext i1 %isnotneg.i659.i to i8
+  %144 = trunc nuw i32 %141 to i8
+  %.0.i660.i = select i1 %142, i8 %143, i8 %144
   store i8 %.0.i660.i, ptr %22, align 1, !tbaa !8
-  %147 = sub nsw i32 %26, %139
-  %148 = icmp ugt i32 %147, 255
-  %isnotneg.i657.i = icmp sgt i32 %147, -1
-  %149 = sext i1 %isnotneg.i657.i to i8
-  %150 = trunc nuw i32 %147 to i8
-  %.0.i658.i = select i1 %148, i8 %149, i8 %150
-  store i8 %.0.i658.i, ptr %.0.i17, align 1, !tbaa !8
+  %145 = sub nsw i32 %26, %137
+  %146 = icmp ugt i32 %145, 255
+  %isnotneg.i657.i = icmp sgt i32 %145, -1
+  %147 = sext i1 %isnotneg.i657.i to i8
+  %148 = trunc nuw i32 %145 to i8
+  %.0.i658.i = select i1 %146, i8 %147, i8 %148
+  store i8 %.0.i658.i, ptr %.0.i18, align 1, !tbaa !8
   br label %.critedge.i
 
-151:                                              ; preds = %.thread
-  %152 = sub nsw i32 %26, %24
-  %153 = mul nsw i32 %152, 3
-  %154 = add nsw i32 %153, 128
-  %.not.i10 = icmp ult i32 %154, 256
-  %155 = icmp sgt i32 %152, -1
-  %156 = select i1 %155, i32 127, i32 -128
-  %.0.i11 = select i1 %.not.i10, i32 %153, i32 %156
-  %157 = tail call i32 @llvm.smin.i32(i32 %.0.i11, i32 123)
-  %158 = add nsw i32 %157, 4
-  %159 = ashr i32 %158, 3
-  %160 = tail call i32 @llvm.smin.i32(i32 %.0.i11, i32 124)
-  %161 = add nsw i32 %160, 3
-  %162 = ashr i32 %161, 3
-  %163 = add nsw i32 %162, %24
-  %164 = icmp ugt i32 %163, 255
-  %isnotneg.i655.i = icmp sgt i32 %163, -1
-  %165 = sext i1 %isnotneg.i655.i to i8
-  %166 = trunc nuw i32 %163 to i8
-  %.0.i656.i = select i1 %164, i8 %165, i8 %166
+149:                                              ; preds = %.thread
+  %150 = sub nsw i32 %26, %24
+  %151 = mul nsw i32 %150, 3
+  %152 = add nsw i32 %151, 128
+  %.not.i10 = icmp ult i32 %152, 256
+  %153 = icmp sgt i32 %150, -1
+  %154 = select i1 %153, i32 127, i32 -128
+  %.0.i11 = select i1 %.not.i10, i32 %151, i32 %154
+  %155 = tail call i32 @llvm.smin.i32(i32 %.0.i11, i32 123)
+  %156 = add nsw i32 %155, 4
+  %157 = ashr i32 %156, 3
+  %158 = tail call i32 @llvm.smin.i32(i32 %.0.i11, i32 124)
+  %159 = add nsw i32 %158, 3
+  %160 = ashr i32 %159, 3
+  %161 = add nsw i32 %160, %24
+  %162 = icmp ugt i32 %161, 255
+  %isnotneg.i655.i = icmp sgt i32 %161, -1
+  %163 = sext i1 %isnotneg.i655.i to i8
+  %164 = trunc nuw i32 %161 to i8
+  %.0.i656.i = select i1 %162, i8 %163, i8 %164
   store i8 %.0.i656.i, ptr %22, align 1, !tbaa !8
-  %167 = sub nsw i32 %26, %159
-  %168 = icmp ugt i32 %167, 255
-  %isnotneg.i653.i = icmp sgt i32 %167, -1
-  %169 = sext i1 %isnotneg.i653.i to i8
-  %170 = trunc nuw i32 %167 to i8
-  %.0.i654.i = select i1 %168, i8 %169, i8 %170
-  store i8 %.0.i654.i, ptr %.0.i17, align 1, !tbaa !8
-  %171 = add nsw i32 %159, 1
-  %172 = ashr i32 %171, 1
-  %173 = add nsw i32 %172, %21
-  %174 = icmp ugt i32 %173, 255
-  %isnotneg.i651.i = icmp sgt i32 %173, -1
-  %175 = sext i1 %isnotneg.i651.i to i8
-  %176 = trunc nuw i32 %173 to i8
-  %.0.i652.i = select i1 %174, i8 %175, i8 %176
+  %165 = sub nsw i32 %26, %157
+  %166 = icmp ugt i32 %165, 255
+  %isnotneg.i653.i = icmp sgt i32 %165, -1
+  %167 = sext i1 %isnotneg.i653.i to i8
+  %168 = trunc nuw i32 %165 to i8
+  %.0.i654.i = select i1 %166, i8 %167, i8 %168
+  store i8 %.0.i654.i, ptr %.0.i18, align 1, !tbaa !8
+  %169 = add nsw i32 %157, 1
+  %170 = ashr i32 %169, 1
+  %171 = add nsw i32 %170, %21
+  %172 = icmp ugt i32 %171, 255
+  %isnotneg.i651.i = icmp sgt i32 %171, -1
+  %173 = sext i1 %isnotneg.i651.i to i8
+  %174 = trunc nuw i32 %171 to i8
+  %.0.i652.i = select i1 %172, i8 %173, i8 %174
   store i8 %.0.i652.i, ptr %19, align 1, !tbaa !8
-  %177 = sub nsw i32 %29, %172
-  %178 = icmp ugt i32 %177, 255
-  %isnotneg.i.i = icmp sgt i32 %177, -1
-  %179 = sext i1 %isnotneg.i.i to i8
-  %180 = trunc nuw i32 %177 to i8
-  %.0.i.i = select i1 %178, i8 %179, i8 %180
+  %175 = sub nsw i32 %29, %170
+  %176 = icmp ugt i32 %175, 255
+  %isnotneg.i.i = icmp sgt i32 %175, -1
+  %177 = sext i1 %isnotneg.i.i to i8
+  %178 = trunc nuw i32 %175 to i8
+  %.0.i.i = select i1 %176, i8 %177, i8 %178
   store i8 %.0.i.i, ptr %27, align 1, !tbaa !8
   br label %.critedge.i
 
-.critedge.i:                                      ; preds = %151, %.critedge650.i, %79, %53, %50, %47, %44, %41, %38, %12
-  %181 = add nuw nsw i32 %.0551.i16, 1
-  %182 = getelementptr inbounds nuw i8, ptr %.0.i17, i64 1
-  %exitcond.not = icmp eq i32 %181, 8
+.critedge.i:                                      ; preds = %149, %.critedge650.i, %77, %53, %50, %47, %44, %41, %38, %12
+  %179 = add nuw nsw i32 %.0551.i17, 1
+  %180 = getelementptr inbounds nuw i8, ptr %.0.i18, i64 1
+  %exitcond.not = icmp eq i32 %179, 8
   br i1 %exitcond.not, label %loop_filter.exit, label %12, !llvm.loop !132
 
 loop_filter.exit:                                 ; preds = %.critedge.i
@@ -12338,29 +12338,29 @@ define internal void @loop_filter_h_16_8_c(ptr noundef captures(none) %0, i64 no
   br label %6
 
 6:                                                ; preds = %5, %.critedge.i
-  %.0.i23 = phi ptr [ %0, %5 ], [ %419, %.critedge.i ]
-  %.0551.i22 = phi i32 [ 0, %5 ], [ %418, %.critedge.i ]
-  %7 = getelementptr inbounds i8, ptr %.0.i23, i64 -4
+  %.0.i24 = phi ptr [ %0, %5 ], [ %409, %.critedge.i ]
+  %.0551.i23 = phi i32 [ 0, %5 ], [ %408, %.critedge.i ]
+  %7 = getelementptr inbounds i8, ptr %.0.i24, i64 -4
   %8 = load i8, ptr %7, align 1, !tbaa !8
   %9 = zext i8 %8 to i32
-  %10 = getelementptr inbounds i8, ptr %.0.i23, i64 -3
+  %10 = getelementptr inbounds i8, ptr %.0.i24, i64 -3
   %11 = load i8, ptr %10, align 1, !tbaa !8
   %12 = zext i8 %11 to i32
-  %13 = getelementptr inbounds i8, ptr %.0.i23, i64 -2
+  %13 = getelementptr inbounds i8, ptr %.0.i24, i64 -2
   %14 = load i8, ptr %13, align 1, !tbaa !8
   %15 = zext i8 %14 to i32
-  %16 = getelementptr inbounds i8, ptr %.0.i23, i64 -1
+  %16 = getelementptr inbounds i8, ptr %.0.i24, i64 -1
   %17 = load i8, ptr %16, align 1, !tbaa !8
   %18 = zext i8 %17 to i32
-  %19 = load i8, ptr %.0.i23, align 1, !tbaa !8
+  %19 = load i8, ptr %.0.i24, align 1, !tbaa !8
   %20 = zext i8 %19 to i32
-  %21 = getelementptr inbounds nuw i8, ptr %.0.i23, i64 1
+  %21 = getelementptr inbounds nuw i8, ptr %.0.i24, i64 1
   %22 = load i8, ptr %21, align 1, !tbaa !8
   %23 = zext i8 %22 to i32
-  %24 = getelementptr inbounds nuw i8, ptr %.0.i23, i64 2
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i24, i64 2
   %25 = load i8, ptr %24, align 1, !tbaa !8
   %26 = zext i8 %25 to i32
-  %27 = getelementptr inbounds nuw i8, ptr %.0.i23, i64 3
+  %27 = getelementptr inbounds nuw i8, ptr %.0.i24, i64 3
   %28 = load i8, ptr %27, align 1, !tbaa !8
   %29 = zext i8 %28 to i32
   %30 = sub nsw i32 %9, %12
@@ -12410,461 +12410,461 @@ define internal void @loop_filter_h_16_8_c(ptr noundef captures(none) %0, i64 no
   br i1 %.not, label %.critedge.i, label %55
 
 55:                                               ; preds = %47
-  %56 = getelementptr inbounds i8, ptr %.0.i23, i64 -8
+  %56 = getelementptr inbounds i8, ptr %.0.i24, i64 -8
   %57 = load i8, ptr %56, align 1, !tbaa !8
   %58 = zext i8 %57 to i32
-  %59 = getelementptr inbounds i8, ptr %.0.i23, i64 -7
+  %59 = getelementptr inbounds i8, ptr %.0.i24, i64 -7
   %60 = load i8, ptr %59, align 1, !tbaa !8
   %61 = zext i8 %60 to i32
-  %62 = getelementptr inbounds i8, ptr %.0.i23, i64 -6
+  %62 = getelementptr inbounds i8, ptr %.0.i24, i64 -6
   %63 = load i8, ptr %62, align 1, !tbaa !8
   %64 = zext i8 %63 to i32
-  %65 = getelementptr inbounds i8, ptr %.0.i23, i64 -5
+  %65 = getelementptr inbounds i8, ptr %.0.i24, i64 -5
   %66 = load i8, ptr %65, align 1, !tbaa !8
   %67 = zext i8 %66 to i32
-  %68 = getelementptr inbounds nuw i8, ptr %.0.i23, i64 4
+  %68 = getelementptr inbounds nuw i8, ptr %.0.i24, i64 4
   %69 = load i8, ptr %68, align 1, !tbaa !8
   %70 = zext i8 %69 to i32
-  %71 = getelementptr inbounds nuw i8, ptr %.0.i23, i64 5
+  %71 = getelementptr inbounds nuw i8, ptr %.0.i24, i64 5
   %72 = load i8, ptr %71, align 1, !tbaa !8
   %73 = zext i8 %72 to i32
-  %74 = getelementptr inbounds nuw i8, ptr %.0.i23, i64 6
+  %74 = getelementptr inbounds nuw i8, ptr %.0.i24, i64 6
   %75 = load i8, ptr %74, align 1, !tbaa !8
   %76 = zext i8 %75 to i32
-  %77 = getelementptr inbounds nuw i8, ptr %.0.i23, i64 7
+  %77 = getelementptr inbounds nuw i8, ptr %.0.i24, i64 7
   %78 = load i8, ptr %77, align 1, !tbaa !8
   %79 = zext i8 %78 to i32
-  %80 = sub nsw i32 %58, %18
-  %81 = tail call i32 @llvm.abs.i32(i32 %80, i1 true)
-  %82 = icmp samesign ult i32 %81, 2
-  br i1 %82, label %83, label %111
+  %reass.sub = sub nsw i32 %58, %18
+  %80 = add nsw i32 %reass.sub, 1
+  %81 = icmp ult i32 %80, 3
+  br i1 %81, label %82, label %103
 
-83:                                               ; preds = %55
-  %84 = sub nsw i32 %61, %18
-  %85 = tail call i32 @llvm.abs.i32(i32 %84, i1 true)
-  %86 = icmp samesign ult i32 %85, 2
-  br i1 %86, label %87, label %111
+82:                                               ; preds = %55
+  %reass.sub25 = sub nsw i32 %61, %18
+  %83 = add nsw i32 %reass.sub25, 1
+  %84 = icmp ult i32 %83, 3
+  br i1 %84, label %85, label %103
 
-87:                                               ; preds = %83
-  %88 = sub nsw i32 %64, %18
-  %89 = tail call i32 @llvm.abs.i32(i32 %88, i1 true)
-  %90 = icmp samesign ult i32 %89, 2
-  br i1 %90, label %91, label %111
+85:                                               ; preds = %82
+  %reass.sub26 = sub nsw i32 %64, %18
+  %86 = add nsw i32 %reass.sub26, 1
+  %87 = icmp ult i32 %86, 3
+  br i1 %87, label %88, label %103
 
-91:                                               ; preds = %87
-  %92 = sub nsw i32 %67, %18
-  %93 = tail call i32 @llvm.abs.i32(i32 %92, i1 true)
-  %94 = icmp samesign ult i32 %93, 2
-  br i1 %94, label %95, label %111
+88:                                               ; preds = %85
+  %reass.sub27 = sub nsw i32 %67, %18
+  %89 = add nsw i32 %reass.sub27, 1
+  %90 = icmp ult i32 %89, 3
+  br i1 %90, label %91, label %103
 
-95:                                               ; preds = %91
-  %96 = sub nsw i32 %70, %20
-  %97 = tail call i32 @llvm.abs.i32(i32 %96, i1 true)
-  %98 = icmp samesign ult i32 %97, 2
-  br i1 %98, label %99, label %111
+91:                                               ; preds = %88
+  %reass.sub28 = sub nsw i32 %70, %20
+  %92 = add nsw i32 %reass.sub28, 1
+  %93 = icmp ult i32 %92, 3
+  br i1 %93, label %94, label %103
 
-99:                                               ; preds = %95
-  %100 = sub nsw i32 %73, %20
-  %101 = tail call i32 @llvm.abs.i32(i32 %100, i1 true)
-  %102 = icmp samesign ult i32 %101, 2
-  br i1 %102, label %103, label %111
+94:                                               ; preds = %91
+  %reass.sub29 = sub nsw i32 %73, %20
+  %95 = add nsw i32 %reass.sub29, 1
+  %96 = icmp ult i32 %95, 3
+  br i1 %96, label %97, label %103
 
-103:                                              ; preds = %99
-  %104 = sub nsw i32 %76, %20
-  %105 = tail call i32 @llvm.abs.i32(i32 %104, i1 true)
-  %106 = icmp samesign ult i32 %105, 2
-  br i1 %106, label %107, label %111
+97:                                               ; preds = %94
+  %reass.sub30 = sub nsw i32 %76, %20
+  %98 = add nsw i32 %reass.sub30, 1
+  %99 = icmp ult i32 %98, 3
+  br i1 %99, label %100, label %103
+
+100:                                              ; preds = %97
+  %reass.sub31 = sub nsw i32 %79, %20
+  %101 = add nsw i32 %reass.sub31, 1
+  %102 = icmp ult i32 %101, 3
+  br label %103
+
+103:                                              ; preds = %100, %97, %94, %91, %88, %85, %82, %55
+  %.2561.i = phi i1 [ %102, %100 ], [ false, %97 ], [ false, %94 ], [ false, %91 ], [ false, %88 ], [ false, %85 ], [ false, %82 ], [ false, %55 ]
+  %104 = add nuw nsw i32 %9, 1
+  %105 = sub nsw i32 %104, %18
+  %106 = icmp ult i32 %105, 3
+  br i1 %106, label %107, label %.thread15
 
 107:                                              ; preds = %103
-  %108 = sub nsw i32 %79, %20
-  %109 = tail call i32 @llvm.abs.i32(i32 %108, i1 true)
-  %110 = icmp samesign ult i32 %109, 2
-  br label %111
+  %108 = add nuw nsw i32 %12, 1
+  %109 = sub nsw i32 %108, %18
+  %110 = icmp ult i32 %109, 3
+  %111 = icmp samesign ult i32 %37, 2
+  %or.cond = select i1 %110, i1 %111, i1 false
+  %112 = icmp samesign ult i32 %40, 2
+  %or.cond18 = select i1 %or.cond, i1 %112, i1 false
+  br i1 %or.cond18, label %113, label %.thread15
 
-111:                                              ; preds = %107, %103, %99, %95, %91, %87, %83, %55
-  %.2561.i = phi i1 [ %110, %107 ], [ false, %103 ], [ false, %99 ], [ false, %95 ], [ false, %91 ], [ false, %87 ], [ false, %83 ], [ false, %55 ]
-  %112 = sub nsw i32 %9, %18
-  %113 = tail call i32 @llvm.abs.i32(i32 %112, i1 true)
-  %114 = icmp samesign ult i32 %113, 2
-  br i1 %114, label %115, label %.thread15
+113:                                              ; preds = %107
+  %reass.sub32 = sub nsw i32 %26, %20
+  %114 = add nsw i32 %reass.sub32, 1
+  %115 = icmp ult i32 %114, 3
+  br i1 %115, label %116, label %.thread15
 
-115:                                              ; preds = %111
-  %116 = sub nsw i32 %12, %18
-  %117 = tail call i32 @llvm.abs.i32(i32 %116, i1 true)
-  %118 = icmp samesign ult i32 %117, 2
-  %119 = icmp samesign ult i32 %37, 2
-  %or.cond = select i1 %118, i1 %119, i1 false
-  %120 = icmp samesign ult i32 %40, 2
-  %or.cond18 = select i1 %or.cond, i1 %120, i1 false
-  br i1 %or.cond18, label %121, label %.thread15
+116:                                              ; preds = %113
+  %reass.sub33 = sub nsw i32 %29, %20
+  %117 = add nsw i32 %reass.sub33, 1
+  %118 = icmp ult i32 %117, 3
+  %or.cond3.i = select i1 %.2561.i, i1 %118, i1 false
+  br i1 %or.cond3.i, label %119, label %305
 
-121:                                              ; preds = %115
-  %122 = sub nsw i32 %26, %20
-  %123 = tail call i32 @llvm.abs.i32(i32 %122, i1 true)
-  %124 = icmp samesign ult i32 %123, 2
-  br i1 %124, label %125, label %.thread15
-
-125:                                              ; preds = %121
-  %126 = sub nsw i32 %29, %20
-  %127 = tail call i32 @llvm.abs.i32(i32 %126, i1 true)
-  %128 = icmp samesign ult i32 %127, 2
-  %or.cond3.i = select i1 %.2561.i, i1 %128, i1 false
-  br i1 %or.cond3.i, label %129, label %315
-
-129:                                              ; preds = %125
-  %130 = mul nuw nsw i32 %58, 3
-  %131 = shl nuw nsw i32 %58, 2
-  %132 = mul nuw nsw i32 %58, 5
-  %133 = mul nuw nsw i32 %58, 6
-  %134 = mul nuw nsw i32 %58, 7
-  %135 = shl nuw nsw i32 %61, 1
-  %136 = add nuw nsw i32 %20, %18
-  %137 = add nuw nsw i32 %136, 8
-  %138 = add nuw nsw i32 %137, %9
+119:                                              ; preds = %116
+  %120 = mul nuw nsw i32 %58, 3
+  %121 = shl nuw nsw i32 %58, 2
+  %122 = mul nuw nsw i32 %58, 5
+  %123 = mul nuw nsw i32 %58, 6
+  %124 = mul nuw nsw i32 %58, 7
+  %125 = shl nuw nsw i32 %61, 1
+  %126 = add nuw nsw i32 %20, %18
+  %127 = add nuw nsw i32 %126, 8
+  %128 = add nuw nsw i32 %127, %9
+  %129 = add nuw nsw i32 %128, %12
+  %130 = add nuw nsw i32 %129, %15
+  %131 = add nuw nsw i32 %130, %124
+  %132 = add nuw nsw i32 %131, %125
+  %133 = add nuw nsw i32 %132, %64
+  %134 = add nuw nsw i32 %133, %67
+  %135 = lshr i32 %134, 4
+  %136 = trunc nuw i32 %135 to i8
+  store i8 %136, ptr %59, align 1, !tbaa !8
+  %137 = shl nuw nsw i32 %64, 1
+  %138 = add nuw nsw i32 %9, 8
   %139 = add nuw nsw i32 %138, %12
   %140 = add nuw nsw i32 %139, %15
-  %141 = add nuw nsw i32 %140, %134
-  %142 = add nuw nsw i32 %141, %135
-  %143 = add nuw nsw i32 %142, %64
-  %144 = add nuw nsw i32 %143, %67
-  %145 = lshr i32 %144, 4
-  %146 = trunc nuw i32 %145 to i8
-  store i8 %146, ptr %59, align 1, !tbaa !8
-  %147 = shl nuw nsw i32 %64, 1
-  %148 = add nuw nsw i32 %9, 8
-  %149 = add nuw nsw i32 %148, %12
-  %150 = add nuw nsw i32 %149, %15
-  %151 = add nuw nsw i32 %150, %18
-  %152 = add nuw nsw i32 %151, %20
-  %153 = add nuw nsw i32 %152, %23
-  %154 = add nuw nsw i32 %153, %61
-  %155 = add nuw nsw i32 %154, %133
-  %156 = add nuw nsw i32 %155, %147
-  %157 = add nuw nsw i32 %156, %67
-  %158 = lshr i32 %157, 4
-  %159 = trunc nuw i32 %158 to i8
-  store i8 %159, ptr %62, align 1, !tbaa !8
-  %160 = shl nuw nsw i32 %67, 1
-  %161 = add nuw nsw i32 %153, %26
-  %162 = add nuw nsw i32 %161, %61
-  %163 = add nuw nsw i32 %162, %132
-  %164 = add nuw nsw i32 %163, %64
-  %165 = add nuw nsw i32 %164, %160
-  %166 = lshr i32 %165, 4
-  %167 = trunc nuw i32 %166 to i8
-  store i8 %167, ptr %65, align 1, !tbaa !8
-  %168 = shl nuw nsw i32 %9, 1
-  %169 = add nuw nsw i32 %168, 8
-  %170 = add nuw nsw i32 %169, %12
-  %171 = add nuw nsw i32 %170, %15
-  %172 = add nuw nsw i32 %171, %18
-  %173 = add nuw nsw i32 %172, %20
-  %174 = add nuw nsw i32 %173, %23
-  %175 = add nuw nsw i32 %174, %26
-  %176 = add nuw nsw i32 %175, %29
-  %177 = add nuw nsw i32 %176, %61
-  %178 = add nuw nsw i32 %177, %131
-  %179 = add nuw nsw i32 %178, %64
-  %180 = add nuw nsw i32 %179, %67
-  %181 = lshr i32 %180, 4
-  %182 = trunc nuw i32 %181 to i8
-  store i8 %182, ptr %7, align 1, !tbaa !8
-  %183 = shl nuw nsw i32 %12, 1
-  %184 = add nuw nsw i32 %148, %183
-  %185 = add nuw nsw i32 %184, %15
-  %186 = add nuw nsw i32 %185, %18
-  %187 = add nuw nsw i32 %186, %20
-  %188 = add nuw nsw i32 %187, %23
-  %189 = add nuw nsw i32 %188, %26
-  %190 = add nuw nsw i32 %189, %29
-  %191 = add nuw nsw i32 %190, %61
-  %192 = add nuw nsw i32 %191, %130
-  %193 = add nuw nsw i32 %192, %64
-  %194 = add nuw nsw i32 %193, %67
-  %195 = add nuw nsw i32 %194, %70
-  %196 = lshr i32 %195, 4
-  %197 = trunc nuw i32 %196 to i8
-  store i8 %197, ptr %10, align 1, !tbaa !8
-  %reass.add20 = add nuw nsw i32 %58, %15
-  %reass.mul21 = shl nuw nsw i32 %reass.add20, 1
-  %198 = add nuw nsw i32 %149, %18
-  %199 = add nuw nsw i32 %198, %20
-  %200 = add nuw nsw i32 %199, %23
-  %201 = add nuw nsw i32 %200, %26
-  %202 = add nuw nsw i32 %201, %29
-  %203 = add nuw nsw i32 %202, %61
-  %204 = add nuw nsw i32 %203, %64
-  %205 = add nuw nsw i32 %204, %reass.mul21
-  %206 = add nuw nsw i32 %205, %67
-  %207 = add nuw nsw i32 %206, %70
-  %208 = add nuw nsw i32 %207, %73
-  %209 = lshr i32 %208, 4
-  %210 = trunc nuw i32 %209 to i8
-  store i8 %210, ptr %13, align 1, !tbaa !8
-  %211 = shl nuw nsw i32 %18, 1
-  %212 = add nuw nsw i32 %150, %211
-  %213 = add nuw nsw i32 %212, %20
-  %214 = add nuw nsw i32 %213, %23
-  %215 = add nuw nsw i32 %214, %26
-  %216 = add nuw nsw i32 %215, %29
-  %217 = add nuw nsw i32 %216, %58
-  %218 = add nuw nsw i32 %217, %61
-  %219 = add nuw nsw i32 %218, %64
-  %220 = add nuw nsw i32 %219, %67
-  %221 = add nuw nsw i32 %220, %70
-  %222 = add nuw nsw i32 %221, %73
-  %223 = add nuw nsw i32 %222, %76
-  %224 = lshr i32 %223, 4
-  %225 = trunc nuw i32 %224 to i8
-  store i8 %225, ptr %16, align 1, !tbaa !8
-  %226 = shl nuw nsw i32 %20, 1
-  %227 = add nuw nsw i32 %151, %226
-  %228 = add nuw nsw i32 %227, %23
-  %229 = add nuw nsw i32 %228, %26
-  %230 = add nuw nsw i32 %229, %29
-  %231 = add nuw nsw i32 %230, %61
-  %232 = add nuw nsw i32 %231, %64
-  %233 = add nuw nsw i32 %232, %67
-  %234 = add nuw nsw i32 %233, %70
-  %235 = add nuw nsw i32 %234, %73
-  %236 = add nuw nsw i32 %235, %76
-  %237 = add nuw nsw i32 %236, %79
-  %238 = lshr i32 %237, 4
-  %239 = trunc nuw i32 %238 to i8
-  store i8 %239, ptr %.0.i23, align 1, !tbaa !8
-  %240 = shl nuw nsw i32 %23, 1
+  %141 = add nuw nsw i32 %140, %18
+  %142 = add nuw nsw i32 %141, %20
+  %143 = add nuw nsw i32 %142, %23
+  %144 = add nuw nsw i32 %143, %61
+  %145 = add nuw nsw i32 %144, %123
+  %146 = add nuw nsw i32 %145, %137
+  %147 = add nuw nsw i32 %146, %67
+  %148 = lshr i32 %147, 4
+  %149 = trunc nuw i32 %148 to i8
+  store i8 %149, ptr %62, align 1, !tbaa !8
+  %150 = shl nuw nsw i32 %67, 1
+  %151 = add nuw nsw i32 %143, %26
+  %152 = add nuw nsw i32 %151, %61
+  %153 = add nuw nsw i32 %152, %122
+  %154 = add nuw nsw i32 %153, %64
+  %155 = add nuw nsw i32 %154, %150
+  %156 = lshr i32 %155, 4
+  %157 = trunc nuw i32 %156 to i8
+  store i8 %157, ptr %65, align 1, !tbaa !8
+  %158 = shl nuw nsw i32 %9, 1
+  %159 = add nuw nsw i32 %158, 8
+  %160 = add nuw nsw i32 %159, %12
+  %161 = add nuw nsw i32 %160, %15
+  %162 = add nuw nsw i32 %161, %18
+  %163 = add nuw nsw i32 %162, %20
+  %164 = add nuw nsw i32 %163, %23
+  %165 = add nuw nsw i32 %164, %26
+  %166 = add nuw nsw i32 %165, %29
+  %167 = add nuw nsw i32 %166, %61
+  %168 = add nuw nsw i32 %167, %121
+  %169 = add nuw nsw i32 %168, %64
+  %170 = add nuw nsw i32 %169, %67
+  %171 = lshr i32 %170, 4
+  %172 = trunc nuw i32 %171 to i8
+  store i8 %172, ptr %7, align 1, !tbaa !8
+  %173 = shl nuw nsw i32 %12, 1
+  %174 = add nuw nsw i32 %138, %173
+  %175 = add nuw nsw i32 %174, %15
+  %176 = add nuw nsw i32 %175, %18
+  %177 = add nuw nsw i32 %176, %20
+  %178 = add nuw nsw i32 %177, %23
+  %179 = add nuw nsw i32 %178, %26
+  %180 = add nuw nsw i32 %179, %29
+  %181 = add nuw nsw i32 %180, %61
+  %182 = add nuw nsw i32 %181, %120
+  %183 = add nuw nsw i32 %182, %64
+  %184 = add nuw nsw i32 %183, %67
+  %185 = add nuw nsw i32 %184, %70
+  %186 = lshr i32 %185, 4
+  %187 = trunc nuw i32 %186 to i8
+  store i8 %187, ptr %10, align 1, !tbaa !8
+  %reass.add21 = add nuw nsw i32 %58, %15
+  %reass.mul22 = shl nuw nsw i32 %reass.add21, 1
+  %188 = add nuw nsw i32 %139, %18
+  %189 = add nuw nsw i32 %188, %20
+  %190 = add nuw nsw i32 %189, %23
+  %191 = add nuw nsw i32 %190, %26
+  %192 = add nuw nsw i32 %191, %29
+  %193 = add nuw nsw i32 %192, %61
+  %194 = add nuw nsw i32 %193, %64
+  %195 = add nuw nsw i32 %194, %reass.mul22
+  %196 = add nuw nsw i32 %195, %67
+  %197 = add nuw nsw i32 %196, %70
+  %198 = add nuw nsw i32 %197, %73
+  %199 = lshr i32 %198, 4
+  %200 = trunc nuw i32 %199 to i8
+  store i8 %200, ptr %13, align 1, !tbaa !8
+  %201 = shl nuw nsw i32 %18, 1
+  %202 = add nuw nsw i32 %140, %201
+  %203 = add nuw nsw i32 %202, %20
+  %204 = add nuw nsw i32 %203, %23
+  %205 = add nuw nsw i32 %204, %26
+  %206 = add nuw nsw i32 %205, %29
+  %207 = add nuw nsw i32 %206, %58
+  %208 = add nuw nsw i32 %207, %61
+  %209 = add nuw nsw i32 %208, %64
+  %210 = add nuw nsw i32 %209, %67
+  %211 = add nuw nsw i32 %210, %70
+  %212 = add nuw nsw i32 %211, %73
+  %213 = add nuw nsw i32 %212, %76
+  %214 = lshr i32 %213, 4
+  %215 = trunc nuw i32 %214 to i8
+  store i8 %215, ptr %16, align 1, !tbaa !8
+  %216 = shl nuw nsw i32 %20, 1
+  %217 = add nuw nsw i32 %141, %216
+  %218 = add nuw nsw i32 %217, %23
+  %219 = add nuw nsw i32 %218, %26
+  %220 = add nuw nsw i32 %219, %29
+  %221 = add nuw nsw i32 %220, %61
+  %222 = add nuw nsw i32 %221, %64
+  %223 = add nuw nsw i32 %222, %67
+  %224 = add nuw nsw i32 %223, %70
+  %225 = add nuw nsw i32 %224, %73
+  %226 = add nuw nsw i32 %225, %76
+  %227 = add nuw nsw i32 %226, %79
+  %228 = lshr i32 %227, 4
+  %229 = trunc nuw i32 %228 to i8
+  store i8 %229, ptr %.0.i24, align 1, !tbaa !8
+  %230 = shl nuw nsw i32 %23, 1
   %reass.add636.i = shl nuw nsw i32 %79, 1
-  %241 = add nuw nsw i32 %152, %240
-  %242 = add nuw nsw i32 %241, %26
-  %243 = add nuw nsw i32 %242, %29
-  %244 = add nuw nsw i32 %243, %64
+  %231 = add nuw nsw i32 %142, %230
+  %232 = add nuw nsw i32 %231, %26
+  %233 = add nuw nsw i32 %232, %29
+  %234 = add nuw nsw i32 %233, %64
+  %235 = add nuw nsw i32 %234, %67
+  %236 = add nuw nsw i32 %235, %70
+  %237 = add nuw nsw i32 %236, %73
+  %238 = add nuw nsw i32 %237, %76
+  %239 = add nuw nsw i32 %238, %reass.add636.i
+  %240 = lshr i32 %239, 4
+  %241 = trunc nuw i32 %240 to i8
+  store i8 %241, ptr %21, align 1, !tbaa !8
+  %242 = shl nuw nsw i32 %26, 1
+  %243 = add nuw nsw i32 %143, %242
+  %244 = add nuw nsw i32 %243, %29
   %245 = add nuw nsw i32 %244, %67
   %246 = add nuw nsw i32 %245, %70
   %247 = add nuw nsw i32 %246, %73
   %248 = add nuw nsw i32 %247, %76
-  %249 = add nuw nsw i32 %248, %reass.add636.i
-  %250 = lshr i32 %249, 4
-  %251 = trunc nuw i32 %250 to i8
-  store i8 %251, ptr %21, align 1, !tbaa !8
-  %252 = shl nuw nsw i32 %26, 1
-  %253 = add nuw nsw i32 %153, %252
-  %254 = add nuw nsw i32 %253, %29
-  %255 = add nuw nsw i32 %254, %67
+  %249 = add nuw nsw i32 %248, %79
+  %250 = add nuw nsw i32 %249, %reass.add636.i
+  %251 = lshr i32 %250, 4
+  %252 = trunc nuw i32 %251 to i8
+  store i8 %252, ptr %24, align 1, !tbaa !8
+  %253 = shl nuw nsw i32 %29, 1
+  %254 = shl nuw nsw i32 %79, 2
+  %255 = add nuw nsw i32 %151, %253
   %256 = add nuw nsw i32 %255, %70
   %257 = add nuw nsw i32 %256, %73
   %258 = add nuw nsw i32 %257, %76
-  %259 = add nuw nsw i32 %258, %79
-  %260 = add nuw nsw i32 %259, %reass.add636.i
-  %261 = lshr i32 %260, 4
-  %262 = trunc nuw i32 %261 to i8
-  store i8 %262, ptr %24, align 1, !tbaa !8
-  %263 = shl nuw nsw i32 %29, 1
-  %264 = shl nuw nsw i32 %79, 2
-  %265 = add nuw nsw i32 %161, %263
-  %266 = add nuw nsw i32 %265, %70
-  %267 = add nuw nsw i32 %266, %73
-  %268 = add nuw nsw i32 %267, %76
-  %269 = add nuw nsw i32 %268, %264
-  %270 = lshr i32 %269, 4
-  %271 = trunc nuw i32 %270 to i8
-  store i8 %271, ptr %27, align 1, !tbaa !8
-  %272 = shl nuw nsw i32 %70, 1
-  %273 = add nuw nsw i32 %12, 8
-  %274 = add nuw nsw i32 %273, %15
-  %275 = add nuw nsw i32 %274, %18
-  %276 = add nuw nsw i32 %275, %20
-  %277 = add nuw nsw i32 %276, %23
-  %278 = add nuw nsw i32 %277, %26
-  %279 = add nuw nsw i32 %278, %29
-  %280 = add nuw nsw i32 %279, %272
-  %281 = add nuw nsw i32 %280, %73
-  %282 = add nuw nsw i32 %281, %76
-  %283 = add nuw nsw i32 %282, %79
-  %284 = add nuw nsw i32 %283, %264
-  %285 = lshr i32 %284, 4
-  %286 = trunc nuw i32 %285 to i8
-  store i8 %286, ptr %68, align 1, !tbaa !8
-  %287 = shl nuw nsw i32 %73, 1
-  %288 = add nuw nsw i32 %15, 8
-  %289 = add nuw nsw i32 %288, %18
-  %290 = add nuw nsw i32 %289, %20
-  %291 = add nuw nsw i32 %290, %23
-  %292 = add nuw nsw i32 %291, %26
-  %293 = add nuw nsw i32 %292, %29
-  %294 = add nuw nsw i32 %293, %70
-  %295 = add nuw nsw i32 %294, %287
-  %296 = add nuw nsw i32 %295, %76
-  %297 = add nuw nsw i32 %296, %264
-  %298 = add nuw nsw i32 %297, %reass.add636.i
-  %299 = lshr i32 %298, 4
-  %300 = trunc nuw i32 %299 to i8
-  store i8 %300, ptr %71, align 1, !tbaa !8
-  %301 = shl nuw nsw i32 %76, 1
-  %302 = add nuw nsw i32 %18, 8
-  %303 = add nuw nsw i32 %302, %20
-  %304 = add nuw nsw i32 %303, %23
-  %305 = add nuw nsw i32 %304, %26
-  %306 = add nuw nsw i32 %305, %29
-  %307 = add nuw nsw i32 %306, %70
-  %308 = add nuw nsw i32 %307, %73
-  %309 = add nuw nsw i32 %308, %301
-  %310 = add nuw nsw i32 %309, %79
-  %311 = add nuw nsw i32 %310, %264
-  %312 = add nuw nsw i32 %311, %reass.add636.i
-  %313 = lshr i32 %312, 4
-  %314 = trunc nuw i32 %313 to i8
-  store i8 %314, ptr %74, align 1, !tbaa !8
+  %259 = add nuw nsw i32 %258, %254
+  %260 = lshr i32 %259, 4
+  %261 = trunc nuw i32 %260 to i8
+  store i8 %261, ptr %27, align 1, !tbaa !8
+  %262 = shl nuw nsw i32 %70, 1
+  %263 = add nuw nsw i32 %12, 8
+  %264 = add nuw nsw i32 %263, %15
+  %265 = add nuw nsw i32 %264, %18
+  %266 = add nuw nsw i32 %265, %20
+  %267 = add nuw nsw i32 %266, %23
+  %268 = add nuw nsw i32 %267, %26
+  %269 = add nuw nsw i32 %268, %29
+  %270 = add nuw nsw i32 %269, %262
+  %271 = add nuw nsw i32 %270, %73
+  %272 = add nuw nsw i32 %271, %76
+  %273 = add nuw nsw i32 %272, %79
+  %274 = add nuw nsw i32 %273, %254
+  %275 = lshr i32 %274, 4
+  %276 = trunc nuw i32 %275 to i8
+  store i8 %276, ptr %68, align 1, !tbaa !8
+  %277 = shl nuw nsw i32 %73, 1
+  %278 = add nuw nsw i32 %15, 8
+  %279 = add nuw nsw i32 %278, %18
+  %280 = add nuw nsw i32 %279, %20
+  %281 = add nuw nsw i32 %280, %23
+  %282 = add nuw nsw i32 %281, %26
+  %283 = add nuw nsw i32 %282, %29
+  %284 = add nuw nsw i32 %283, %70
+  %285 = add nuw nsw i32 %284, %277
+  %286 = add nuw nsw i32 %285, %76
+  %287 = add nuw nsw i32 %286, %254
+  %288 = add nuw nsw i32 %287, %reass.add636.i
+  %289 = lshr i32 %288, 4
+  %290 = trunc nuw i32 %289 to i8
+  store i8 %290, ptr %71, align 1, !tbaa !8
+  %291 = shl nuw nsw i32 %76, 1
+  %292 = add nuw nsw i32 %18, 8
+  %293 = add nuw nsw i32 %292, %20
+  %294 = add nuw nsw i32 %293, %23
+  %295 = add nuw nsw i32 %294, %26
+  %296 = add nuw nsw i32 %295, %29
+  %297 = add nuw nsw i32 %296, %70
+  %298 = add nuw nsw i32 %297, %73
+  %299 = add nuw nsw i32 %298, %291
+  %300 = add nuw nsw i32 %299, %79
+  %301 = add nuw nsw i32 %300, %254
+  %302 = add nuw nsw i32 %301, %reass.add636.i
+  %303 = lshr i32 %302, 4
+  %304 = trunc nuw i32 %303 to i8
+  store i8 %304, ptr %74, align 1, !tbaa !8
   br label %.critedge.i
 
-315:                                              ; preds = %125
-  br i1 %128, label %316, label %.thread15
+305:                                              ; preds = %116
+  br i1 %118, label %306, label %.thread15
 
-316:                                              ; preds = %315
-  %317 = mul nuw nsw i32 %9, 3
-  %318 = shl nuw nsw i32 %12, 1
-  %319 = add nuw nsw i32 %317, 4
-  %320 = add nuw nsw i32 %319, %318
-  %321 = add nuw nsw i32 %320, %15
-  %322 = add nuw nsw i32 %321, %18
-  %323 = add nuw nsw i32 %322, %20
-  %324 = lshr i32 %323, 3
-  %325 = trunc nuw i32 %324 to i8
-  store i8 %325, ptr %10, align 1, !tbaa !8
-  %326 = add nuw nsw i32 %15, %9
-  %327 = shl nuw nsw i32 %326, 1
-  %328 = add nuw nsw i32 %18, 4
-  %329 = add nuw nsw i32 %328, %12
-  %330 = add nuw nsw i32 %329, %327
-  %331 = add nuw nsw i32 %330, %20
-  %332 = add nuw nsw i32 %331, %23
+306:                                              ; preds = %305
+  %307 = mul nuw nsw i32 %9, 3
+  %308 = shl nuw nsw i32 %12, 1
+  %309 = add nuw nsw i32 %307, 4
+  %310 = add nuw nsw i32 %309, %308
+  %311 = add nuw nsw i32 %310, %15
+  %312 = add nuw nsw i32 %311, %18
+  %313 = add nuw nsw i32 %312, %20
+  %314 = lshr i32 %313, 3
+  %315 = trunc nuw i32 %314 to i8
+  store i8 %315, ptr %10, align 1, !tbaa !8
+  %316 = add nuw nsw i32 %15, %9
+  %317 = shl nuw nsw i32 %316, 1
+  %318 = add nuw nsw i32 %18, 4
+  %319 = add nuw nsw i32 %318, %12
+  %320 = add nuw nsw i32 %319, %317
+  %321 = add nuw nsw i32 %320, %20
+  %322 = add nuw nsw i32 %321, %23
+  %323 = lshr i32 %322, 3
+  %324 = trunc nuw i32 %323 to i8
+  store i8 %324, ptr %13, align 1, !tbaa !8
+  %325 = shl nuw nsw i32 %18, 1
+  %326 = add nuw nsw i32 %15, 4
+  %327 = add nuw nsw i32 %326, %9
+  %328 = add nuw nsw i32 %327, %12
+  %329 = add nuw nsw i32 %328, %325
+  %330 = add nuw nsw i32 %329, %20
+  %331 = add nuw nsw i32 %330, %23
+  %332 = add nuw nsw i32 %331, %26
   %333 = lshr i32 %332, 3
   %334 = trunc nuw i32 %333 to i8
-  store i8 %334, ptr %13, align 1, !tbaa !8
-  %335 = shl nuw nsw i32 %18, 1
-  %336 = add nuw nsw i32 %15, 4
-  %337 = add nuw nsw i32 %336, %9
-  %338 = add nuw nsw i32 %337, %12
-  %339 = add nuw nsw i32 %338, %335
-  %340 = add nuw nsw i32 %339, %20
-  %341 = add nuw nsw i32 %340, %23
-  %342 = add nuw nsw i32 %341, %26
-  %343 = lshr i32 %342, 3
-  %344 = trunc nuw i32 %343 to i8
-  store i8 %344, ptr %16, align 1, !tbaa !8
-  %345 = shl nuw nsw i32 %20, 1
-  %346 = add nuw nsw i32 %329, %15
-  %347 = add nuw nsw i32 %346, %345
-  %348 = add nuw nsw i32 %347, %23
-  %349 = add nuw nsw i32 %348, %26
-  %350 = add nuw nsw i32 %349, %29
-  %351 = lshr i32 %350, 3
-  %352 = trunc nuw i32 %351 to i8
-  store i8 %352, ptr %.0.i23, align 1, !tbaa !8
+  store i8 %334, ptr %16, align 1, !tbaa !8
+  %335 = shl nuw nsw i32 %20, 1
+  %336 = add nuw nsw i32 %319, %15
+  %337 = add nuw nsw i32 %336, %335
+  %338 = add nuw nsw i32 %337, %23
+  %339 = add nuw nsw i32 %338, %26
+  %340 = add nuw nsw i32 %339, %29
+  %341 = lshr i32 %340, 3
+  %342 = trunc nuw i32 %341 to i8
+  store i8 %342, ptr %.0.i24, align 1, !tbaa !8
   %reass.add = add nuw nsw i32 %29, %23
   %reass.mul = shl nuw nsw i32 %reass.add, 1
-  %353 = add nuw nsw i32 %328, %15
-  %354 = add nuw nsw i32 %353, %20
-  %355 = add nuw nsw i32 %354, %26
-  %356 = add nuw nsw i32 %355, %reass.mul
-  %357 = lshr i32 %356, 3
-  %358 = trunc nuw i32 %357 to i8
-  store i8 %358, ptr %21, align 1, !tbaa !8
-  %359 = add nuw nsw i32 %29, %26
-  %360 = shl nuw nsw i32 %359, 1
-  %361 = add nuw nsw i32 %328, %20
-  %362 = add nuw nsw i32 %361, %23
-  %363 = add nuw nsw i32 %362, %29
-  %364 = add nuw nsw i32 %363, %360
-  %365 = lshr i32 %364, 3
-  %366 = trunc nuw i32 %365 to i8
-  store i8 %366, ptr %24, align 1, !tbaa !8
+  %343 = add nuw nsw i32 %318, %15
+  %344 = add nuw nsw i32 %343, %20
+  %345 = add nuw nsw i32 %344, %26
+  %346 = add nuw nsw i32 %345, %reass.mul
+  %347 = lshr i32 %346, 3
+  %348 = trunc nuw i32 %347 to i8
+  store i8 %348, ptr %21, align 1, !tbaa !8
+  %349 = add nuw nsw i32 %29, %26
+  %350 = shl nuw nsw i32 %349, 1
+  %351 = add nuw nsw i32 %318, %20
+  %352 = add nuw nsw i32 %351, %23
+  %353 = add nuw nsw i32 %352, %29
+  %354 = add nuw nsw i32 %353, %350
+  %355 = lshr i32 %354, 3
+  %356 = trunc nuw i32 %355 to i8
+  store i8 %356, ptr %24, align 1, !tbaa !8
   br label %.critedge.i
 
-.thread15:                                        ; preds = %121, %115, %111, %315
-  %367 = icmp sgt i32 %37, %4
-  %368 = icmp samesign ugt i32 %40, %4
-  %or.cond19 = select i1 %367, i1 true, i1 %368
-  br i1 %or.cond19, label %.critedge650.i, label %388
+.thread15:                                        ; preds = %113, %107, %103, %305
+  %357 = icmp sgt i32 %37, %4
+  %358 = icmp samesign ugt i32 %40, %4
+  %or.cond19 = select i1 %357, i1 true, i1 %358
+  br i1 %or.cond19, label %.critedge650.i, label %378
 
 .critedge650.i:                                   ; preds = %.thread15
-  %369 = tail call i32 @llvm.smax.i32(i32 %51, i32 -128)
-  %.0.i9 = tail call i32 @llvm.smin.i32(i32 %369, i32 127)
-  %370 = sub nsw i32 %20, %18
-  %371 = mul nsw i32 %370, 3
-  %372 = add nsw i32 %.0.i9, %371
-  %373 = tail call i32 @llvm.smax.i32(i32 %372, i32 -128)
-  %374 = tail call i32 @llvm.smin.i32(i32 %373, i32 123)
-  %375 = add nsw i32 %374, 4
-  %376 = ashr i32 %375, 3
-  %377 = tail call i32 @llvm.smin.i32(i32 %373, i32 124)
-  %378 = add nsw i32 %377, 3
-  %379 = ashr i32 %378, 3
-  %380 = add nsw i32 %379, %18
-  %381 = icmp ugt i32 %380, 255
-  %isnotneg.i659.i = icmp sgt i32 %380, -1
-  %382 = sext i1 %isnotneg.i659.i to i8
-  %383 = trunc nuw i32 %380 to i8
-  %.0.i660.i = select i1 %381, i8 %382, i8 %383
+  %359 = tail call i32 @llvm.smax.i32(i32 %51, i32 -128)
+  %.0.i9 = tail call i32 @llvm.smin.i32(i32 %359, i32 127)
+  %360 = sub nsw i32 %20, %18
+  %361 = mul nsw i32 %360, 3
+  %362 = add nsw i32 %.0.i9, %361
+  %363 = tail call i32 @llvm.smax.i32(i32 %362, i32 -128)
+  %364 = tail call i32 @llvm.smin.i32(i32 %363, i32 123)
+  %365 = add nsw i32 %364, 4
+  %366 = ashr i32 %365, 3
+  %367 = tail call i32 @llvm.smin.i32(i32 %363, i32 124)
+  %368 = add nsw i32 %367, 3
+  %369 = ashr i32 %368, 3
+  %370 = add nsw i32 %369, %18
+  %371 = icmp ugt i32 %370, 255
+  %isnotneg.i659.i = icmp sgt i32 %370, -1
+  %372 = sext i1 %isnotneg.i659.i to i8
+  %373 = trunc nuw i32 %370 to i8
+  %.0.i660.i = select i1 %371, i8 %372, i8 %373
   store i8 %.0.i660.i, ptr %16, align 1, !tbaa !8
-  %384 = sub nsw i32 %20, %376
-  %385 = icmp ugt i32 %384, 255
-  %isnotneg.i657.i = icmp sgt i32 %384, -1
-  %386 = sext i1 %isnotneg.i657.i to i8
-  %387 = trunc nuw i32 %384 to i8
-  %.0.i658.i = select i1 %385, i8 %386, i8 %387
-  store i8 %.0.i658.i, ptr %.0.i23, align 1, !tbaa !8
+  %374 = sub nsw i32 %20, %366
+  %375 = icmp ugt i32 %374, 255
+  %isnotneg.i657.i = icmp sgt i32 %374, -1
+  %376 = sext i1 %isnotneg.i657.i to i8
+  %377 = trunc nuw i32 %374 to i8
+  %.0.i658.i = select i1 %375, i8 %376, i8 %377
+  store i8 %.0.i658.i, ptr %.0.i24, align 1, !tbaa !8
   br label %.critedge.i
 
-388:                                              ; preds = %.thread15
-  %389 = sub nsw i32 %20, %18
-  %390 = mul nsw i32 %389, 3
-  %391 = add nsw i32 %390, 128
-  %.not.i10 = icmp ult i32 %391, 256
-  %392 = icmp sgt i32 %389, -1
-  %393 = select i1 %392, i32 127, i32 -128
-  %.0.i11 = select i1 %.not.i10, i32 %390, i32 %393
-  %394 = tail call i32 @llvm.smin.i32(i32 %.0.i11, i32 123)
-  %395 = add nsw i32 %394, 4
-  %396 = ashr i32 %395, 3
-  %397 = tail call i32 @llvm.smin.i32(i32 %.0.i11, i32 124)
-  %398 = add nsw i32 %397, 3
-  %399 = ashr i32 %398, 3
-  %400 = add nsw i32 %399, %18
-  %401 = icmp ugt i32 %400, 255
-  %isnotneg.i655.i = icmp sgt i32 %400, -1
-  %402 = sext i1 %isnotneg.i655.i to i8
-  %403 = trunc nuw i32 %400 to i8
-  %.0.i656.i = select i1 %401, i8 %402, i8 %403
+378:                                              ; preds = %.thread15
+  %379 = sub nsw i32 %20, %18
+  %380 = mul nsw i32 %379, 3
+  %381 = add nsw i32 %380, 128
+  %.not.i10 = icmp ult i32 %381, 256
+  %382 = icmp sgt i32 %379, -1
+  %383 = select i1 %382, i32 127, i32 -128
+  %.0.i11 = select i1 %.not.i10, i32 %380, i32 %383
+  %384 = tail call i32 @llvm.smin.i32(i32 %.0.i11, i32 123)
+  %385 = add nsw i32 %384, 4
+  %386 = ashr i32 %385, 3
+  %387 = tail call i32 @llvm.smin.i32(i32 %.0.i11, i32 124)
+  %388 = add nsw i32 %387, 3
+  %389 = ashr i32 %388, 3
+  %390 = add nsw i32 %389, %18
+  %391 = icmp ugt i32 %390, 255
+  %isnotneg.i655.i = icmp sgt i32 %390, -1
+  %392 = sext i1 %isnotneg.i655.i to i8
+  %393 = trunc nuw i32 %390 to i8
+  %.0.i656.i = select i1 %391, i8 %392, i8 %393
   store i8 %.0.i656.i, ptr %16, align 1, !tbaa !8
-  %404 = sub nsw i32 %20, %396
-  %405 = icmp ugt i32 %404, 255
-  %isnotneg.i653.i = icmp sgt i32 %404, -1
-  %406 = sext i1 %isnotneg.i653.i to i8
-  %407 = trunc nuw i32 %404 to i8
-  %.0.i654.i = select i1 %405, i8 %406, i8 %407
-  store i8 %.0.i654.i, ptr %.0.i23, align 1, !tbaa !8
-  %408 = add nsw i32 %396, 1
-  %409 = ashr i32 %408, 1
-  %410 = add nsw i32 %409, %15
-  %411 = icmp ugt i32 %410, 255
-  %isnotneg.i651.i = icmp sgt i32 %410, -1
-  %412 = sext i1 %isnotneg.i651.i to i8
-  %413 = trunc nuw i32 %410 to i8
-  %.0.i652.i = select i1 %411, i8 %412, i8 %413
+  %394 = sub nsw i32 %20, %386
+  %395 = icmp ugt i32 %394, 255
+  %isnotneg.i653.i = icmp sgt i32 %394, -1
+  %396 = sext i1 %isnotneg.i653.i to i8
+  %397 = trunc nuw i32 %394 to i8
+  %.0.i654.i = select i1 %395, i8 %396, i8 %397
+  store i8 %.0.i654.i, ptr %.0.i24, align 1, !tbaa !8
+  %398 = add nsw i32 %386, 1
+  %399 = ashr i32 %398, 1
+  %400 = add nsw i32 %399, %15
+  %401 = icmp ugt i32 %400, 255
+  %isnotneg.i651.i = icmp sgt i32 %400, -1
+  %402 = sext i1 %isnotneg.i651.i to i8
+  %403 = trunc nuw i32 %400 to i8
+  %.0.i652.i = select i1 %401, i8 %402, i8 %403
   store i8 %.0.i652.i, ptr %13, align 1, !tbaa !8
-  %414 = sub nsw i32 %23, %409
-  %415 = icmp ugt i32 %414, 255
-  %isnotneg.i.i = icmp sgt i32 %414, -1
-  %416 = sext i1 %isnotneg.i.i to i8
-  %417 = trunc nuw i32 %414 to i8
-  %.0.i.i = select i1 %415, i8 %416, i8 %417
+  %404 = sub nsw i32 %23, %399
+  %405 = icmp ugt i32 %404, 255
+  %isnotneg.i.i = icmp sgt i32 %404, -1
+  %406 = sext i1 %isnotneg.i.i to i8
+  %407 = trunc nuw i32 %404 to i8
+  %.0.i.i = select i1 %405, i8 %406, i8 %407
   store i8 %.0.i.i, ptr %21, align 1, !tbaa !8
   br label %.critedge.i
 
-.critedge.i:                                      ; preds = %388, %.critedge650.i, %316, %129, %47, %44, %41, %38, %35, %32, %6
-  %418 = add nuw nsw i32 %.0551.i22, 1
-  %419 = getelementptr inbounds i8, ptr %.0.i23, i64 %1
-  %exitcond.not = icmp eq i32 %418, 8
+.critedge.i:                                      ; preds = %378, %.critedge650.i, %306, %119, %47, %44, %41, %38, %35, %32, %6
+  %408 = add nuw nsw i32 %.0551.i23, 1
+  %409 = getelementptr inbounds i8, ptr %.0.i24, i64 %1
+  %exitcond.not = icmp eq i32 %408, 8
   br i1 %exitcond.not, label %loop_filter.exit, label %6, !llvm.loop !132
 
 loop_filter.exit:                                 ; preds = %.critedge.i
@@ -12890,29 +12890,29 @@ define internal void @loop_filter_v_16_8_c(ptr noundef captures(none) %0, i64 no
   br label %20
 
 20:                                               ; preds = %5, %.critedge.i
-  %.0.i23 = phi ptr [ %0, %5 ], [ %433, %.critedge.i ]
-  %.0551.i22 = phi i32 [ 0, %5 ], [ %432, %.critedge.i ]
-  %21 = getelementptr inbounds i8, ptr %.0.i23, i64 %6
+  %.0.i24 = phi ptr [ %0, %5 ], [ %423, %.critedge.i ]
+  %.0551.i23 = phi i32 [ 0, %5 ], [ %422, %.critedge.i ]
+  %21 = getelementptr inbounds i8, ptr %.0.i24, i64 %6
   %22 = load i8, ptr %21, align 1, !tbaa !8
   %23 = zext i8 %22 to i32
-  %24 = getelementptr inbounds i8, ptr %.0.i23, i64 %7
+  %24 = getelementptr inbounds i8, ptr %.0.i24, i64 %7
   %25 = load i8, ptr %24, align 1, !tbaa !8
   %26 = zext i8 %25 to i32
-  %27 = getelementptr inbounds i8, ptr %.0.i23, i64 %8
+  %27 = getelementptr inbounds i8, ptr %.0.i24, i64 %8
   %28 = load i8, ptr %27, align 1, !tbaa !8
   %29 = zext i8 %28 to i32
-  %30 = getelementptr inbounds i8, ptr %.0.i23, i64 %9
+  %30 = getelementptr inbounds i8, ptr %.0.i24, i64 %9
   %31 = load i8, ptr %30, align 1, !tbaa !8
   %32 = zext i8 %31 to i32
-  %33 = load i8, ptr %.0.i23, align 1, !tbaa !8
+  %33 = load i8, ptr %.0.i24, align 1, !tbaa !8
   %34 = zext i8 %33 to i32
-  %35 = getelementptr inbounds i8, ptr %.0.i23, i64 %1
+  %35 = getelementptr inbounds i8, ptr %.0.i24, i64 %1
   %36 = load i8, ptr %35, align 1, !tbaa !8
   %37 = zext i8 %36 to i32
-  %38 = getelementptr inbounds i8, ptr %.0.i23, i64 %10
+  %38 = getelementptr inbounds i8, ptr %.0.i24, i64 %10
   %39 = load i8, ptr %38, align 1, !tbaa !8
   %40 = zext i8 %39 to i32
-  %41 = getelementptr inbounds i8, ptr %.0.i23, i64 %11
+  %41 = getelementptr inbounds i8, ptr %.0.i24, i64 %11
   %42 = load i8, ptr %41, align 1, !tbaa !8
   %43 = zext i8 %42 to i32
   %44 = sub nsw i32 %23, %26
@@ -12962,461 +12962,461 @@ define internal void @loop_filter_v_16_8_c(ptr noundef captures(none) %0, i64 no
   br i1 %.not, label %.critedge.i, label %69
 
 69:                                               ; preds = %61
-  %70 = getelementptr inbounds i8, ptr %.0.i23, i64 %12
+  %70 = getelementptr inbounds i8, ptr %.0.i24, i64 %12
   %71 = load i8, ptr %70, align 1, !tbaa !8
   %72 = zext i8 %71 to i32
-  %73 = getelementptr inbounds i8, ptr %.0.i23, i64 %13
+  %73 = getelementptr inbounds i8, ptr %.0.i24, i64 %13
   %74 = load i8, ptr %73, align 1, !tbaa !8
   %75 = zext i8 %74 to i32
-  %76 = getelementptr inbounds i8, ptr %.0.i23, i64 %14
+  %76 = getelementptr inbounds i8, ptr %.0.i24, i64 %14
   %77 = load i8, ptr %76, align 1, !tbaa !8
   %78 = zext i8 %77 to i32
-  %79 = getelementptr inbounds i8, ptr %.0.i23, i64 %15
+  %79 = getelementptr inbounds i8, ptr %.0.i24, i64 %15
   %80 = load i8, ptr %79, align 1, !tbaa !8
   %81 = zext i8 %80 to i32
-  %82 = getelementptr inbounds i8, ptr %.0.i23, i64 %16
+  %82 = getelementptr inbounds i8, ptr %.0.i24, i64 %16
   %83 = load i8, ptr %82, align 1, !tbaa !8
   %84 = zext i8 %83 to i32
-  %85 = getelementptr inbounds i8, ptr %.0.i23, i64 %17
+  %85 = getelementptr inbounds i8, ptr %.0.i24, i64 %17
   %86 = load i8, ptr %85, align 1, !tbaa !8
   %87 = zext i8 %86 to i32
-  %88 = getelementptr inbounds i8, ptr %.0.i23, i64 %18
+  %88 = getelementptr inbounds i8, ptr %.0.i24, i64 %18
   %89 = load i8, ptr %88, align 1, !tbaa !8
   %90 = zext i8 %89 to i32
-  %91 = getelementptr inbounds i8, ptr %.0.i23, i64 %19
+  %91 = getelementptr inbounds i8, ptr %.0.i24, i64 %19
   %92 = load i8, ptr %91, align 1, !tbaa !8
   %93 = zext i8 %92 to i32
-  %94 = sub nsw i32 %72, %32
-  %95 = tail call i32 @llvm.abs.i32(i32 %94, i1 true)
-  %96 = icmp samesign ult i32 %95, 2
-  br i1 %96, label %97, label %125
+  %reass.sub = sub nsw i32 %72, %32
+  %94 = add nsw i32 %reass.sub, 1
+  %95 = icmp ult i32 %94, 3
+  br i1 %95, label %96, label %117
 
-97:                                               ; preds = %69
-  %98 = sub nsw i32 %75, %32
-  %99 = tail call i32 @llvm.abs.i32(i32 %98, i1 true)
-  %100 = icmp samesign ult i32 %99, 2
-  br i1 %100, label %101, label %125
+96:                                               ; preds = %69
+  %reass.sub25 = sub nsw i32 %75, %32
+  %97 = add nsw i32 %reass.sub25, 1
+  %98 = icmp ult i32 %97, 3
+  br i1 %98, label %99, label %117
 
-101:                                              ; preds = %97
-  %102 = sub nsw i32 %78, %32
-  %103 = tail call i32 @llvm.abs.i32(i32 %102, i1 true)
-  %104 = icmp samesign ult i32 %103, 2
-  br i1 %104, label %105, label %125
+99:                                               ; preds = %96
+  %reass.sub26 = sub nsw i32 %78, %32
+  %100 = add nsw i32 %reass.sub26, 1
+  %101 = icmp ult i32 %100, 3
+  br i1 %101, label %102, label %117
 
-105:                                              ; preds = %101
-  %106 = sub nsw i32 %81, %32
-  %107 = tail call i32 @llvm.abs.i32(i32 %106, i1 true)
-  %108 = icmp samesign ult i32 %107, 2
-  br i1 %108, label %109, label %125
+102:                                              ; preds = %99
+  %reass.sub27 = sub nsw i32 %81, %32
+  %103 = add nsw i32 %reass.sub27, 1
+  %104 = icmp ult i32 %103, 3
+  br i1 %104, label %105, label %117
 
-109:                                              ; preds = %105
-  %110 = sub nsw i32 %84, %34
-  %111 = tail call i32 @llvm.abs.i32(i32 %110, i1 true)
-  %112 = icmp samesign ult i32 %111, 2
-  br i1 %112, label %113, label %125
+105:                                              ; preds = %102
+  %reass.sub28 = sub nsw i32 %84, %34
+  %106 = add nsw i32 %reass.sub28, 1
+  %107 = icmp ult i32 %106, 3
+  br i1 %107, label %108, label %117
 
-113:                                              ; preds = %109
-  %114 = sub nsw i32 %87, %34
-  %115 = tail call i32 @llvm.abs.i32(i32 %114, i1 true)
-  %116 = icmp samesign ult i32 %115, 2
-  br i1 %116, label %117, label %125
+108:                                              ; preds = %105
+  %reass.sub29 = sub nsw i32 %87, %34
+  %109 = add nsw i32 %reass.sub29, 1
+  %110 = icmp ult i32 %109, 3
+  br i1 %110, label %111, label %117
 
-117:                                              ; preds = %113
-  %118 = sub nsw i32 %90, %34
-  %119 = tail call i32 @llvm.abs.i32(i32 %118, i1 true)
-  %120 = icmp samesign ult i32 %119, 2
-  br i1 %120, label %121, label %125
+111:                                              ; preds = %108
+  %reass.sub30 = sub nsw i32 %90, %34
+  %112 = add nsw i32 %reass.sub30, 1
+  %113 = icmp ult i32 %112, 3
+  br i1 %113, label %114, label %117
+
+114:                                              ; preds = %111
+  %reass.sub31 = sub nsw i32 %93, %34
+  %115 = add nsw i32 %reass.sub31, 1
+  %116 = icmp ult i32 %115, 3
+  br label %117
+
+117:                                              ; preds = %114, %111, %108, %105, %102, %99, %96, %69
+  %.2561.i = phi i1 [ %116, %114 ], [ false, %111 ], [ false, %108 ], [ false, %105 ], [ false, %102 ], [ false, %99 ], [ false, %96 ], [ false, %69 ]
+  %118 = add nuw nsw i32 %23, 1
+  %119 = sub nsw i32 %118, %32
+  %120 = icmp ult i32 %119, 3
+  br i1 %120, label %121, label %.thread15
 
 121:                                              ; preds = %117
-  %122 = sub nsw i32 %93, %34
-  %123 = tail call i32 @llvm.abs.i32(i32 %122, i1 true)
-  %124 = icmp samesign ult i32 %123, 2
-  br label %125
+  %122 = add nuw nsw i32 %26, 1
+  %123 = sub nsw i32 %122, %32
+  %124 = icmp ult i32 %123, 3
+  %125 = icmp samesign ult i32 %51, 2
+  %or.cond = select i1 %124, i1 %125, i1 false
+  %126 = icmp samesign ult i32 %54, 2
+  %or.cond18 = select i1 %or.cond, i1 %126, i1 false
+  br i1 %or.cond18, label %127, label %.thread15
 
-125:                                              ; preds = %121, %117, %113, %109, %105, %101, %97, %69
-  %.2561.i = phi i1 [ %124, %121 ], [ false, %117 ], [ false, %113 ], [ false, %109 ], [ false, %105 ], [ false, %101 ], [ false, %97 ], [ false, %69 ]
-  %126 = sub nsw i32 %23, %32
-  %127 = tail call i32 @llvm.abs.i32(i32 %126, i1 true)
-  %128 = icmp samesign ult i32 %127, 2
-  br i1 %128, label %129, label %.thread15
+127:                                              ; preds = %121
+  %reass.sub32 = sub nsw i32 %40, %34
+  %128 = add nsw i32 %reass.sub32, 1
+  %129 = icmp ult i32 %128, 3
+  br i1 %129, label %130, label %.thread15
 
-129:                                              ; preds = %125
-  %130 = sub nsw i32 %26, %32
-  %131 = tail call i32 @llvm.abs.i32(i32 %130, i1 true)
-  %132 = icmp samesign ult i32 %131, 2
-  %133 = icmp samesign ult i32 %51, 2
-  %or.cond = select i1 %132, i1 %133, i1 false
-  %134 = icmp samesign ult i32 %54, 2
-  %or.cond18 = select i1 %or.cond, i1 %134, i1 false
-  br i1 %or.cond18, label %135, label %.thread15
+130:                                              ; preds = %127
+  %reass.sub33 = sub nsw i32 %43, %34
+  %131 = add nsw i32 %reass.sub33, 1
+  %132 = icmp ult i32 %131, 3
+  %or.cond3.i = select i1 %.2561.i, i1 %132, i1 false
+  br i1 %or.cond3.i, label %133, label %319
 
-135:                                              ; preds = %129
-  %136 = sub nsw i32 %40, %34
-  %137 = tail call i32 @llvm.abs.i32(i32 %136, i1 true)
-  %138 = icmp samesign ult i32 %137, 2
-  br i1 %138, label %139, label %.thread15
-
-139:                                              ; preds = %135
-  %140 = sub nsw i32 %43, %34
-  %141 = tail call i32 @llvm.abs.i32(i32 %140, i1 true)
-  %142 = icmp samesign ult i32 %141, 2
-  %or.cond3.i = select i1 %.2561.i, i1 %142, i1 false
-  br i1 %or.cond3.i, label %143, label %329
-
-143:                                              ; preds = %139
-  %144 = mul nuw nsw i32 %72, 3
-  %145 = shl nuw nsw i32 %72, 2
-  %146 = mul nuw nsw i32 %72, 5
-  %147 = mul nuw nsw i32 %72, 6
-  %148 = mul nuw nsw i32 %72, 7
-  %149 = shl nuw nsw i32 %75, 1
-  %150 = add nuw nsw i32 %34, %32
-  %151 = add nuw nsw i32 %150, 8
-  %152 = add nuw nsw i32 %151, %23
+133:                                              ; preds = %130
+  %134 = mul nuw nsw i32 %72, 3
+  %135 = shl nuw nsw i32 %72, 2
+  %136 = mul nuw nsw i32 %72, 5
+  %137 = mul nuw nsw i32 %72, 6
+  %138 = mul nuw nsw i32 %72, 7
+  %139 = shl nuw nsw i32 %75, 1
+  %140 = add nuw nsw i32 %34, %32
+  %141 = add nuw nsw i32 %140, 8
+  %142 = add nuw nsw i32 %141, %23
+  %143 = add nuw nsw i32 %142, %26
+  %144 = add nuw nsw i32 %143, %29
+  %145 = add nuw nsw i32 %144, %138
+  %146 = add nuw nsw i32 %145, %139
+  %147 = add nuw nsw i32 %146, %78
+  %148 = add nuw nsw i32 %147, %81
+  %149 = lshr i32 %148, 4
+  %150 = trunc nuw i32 %149 to i8
+  store i8 %150, ptr %73, align 1, !tbaa !8
+  %151 = shl nuw nsw i32 %78, 1
+  %152 = add nuw nsw i32 %23, 8
   %153 = add nuw nsw i32 %152, %26
   %154 = add nuw nsw i32 %153, %29
-  %155 = add nuw nsw i32 %154, %148
-  %156 = add nuw nsw i32 %155, %149
-  %157 = add nuw nsw i32 %156, %78
-  %158 = add nuw nsw i32 %157, %81
-  %159 = lshr i32 %158, 4
-  %160 = trunc nuw i32 %159 to i8
-  store i8 %160, ptr %73, align 1, !tbaa !8
-  %161 = shl nuw nsw i32 %78, 1
-  %162 = add nuw nsw i32 %23, 8
-  %163 = add nuw nsw i32 %162, %26
-  %164 = add nuw nsw i32 %163, %29
-  %165 = add nuw nsw i32 %164, %32
-  %166 = add nuw nsw i32 %165, %34
-  %167 = add nuw nsw i32 %166, %37
-  %168 = add nuw nsw i32 %167, %75
-  %169 = add nuw nsw i32 %168, %147
-  %170 = add nuw nsw i32 %169, %161
-  %171 = add nuw nsw i32 %170, %81
-  %172 = lshr i32 %171, 4
-  %173 = trunc nuw i32 %172 to i8
-  store i8 %173, ptr %76, align 1, !tbaa !8
-  %174 = shl nuw nsw i32 %81, 1
-  %175 = add nuw nsw i32 %167, %40
-  %176 = add nuw nsw i32 %175, %75
-  %177 = add nuw nsw i32 %176, %146
-  %178 = add nuw nsw i32 %177, %78
-  %179 = add nuw nsw i32 %178, %174
-  %180 = lshr i32 %179, 4
-  %181 = trunc nuw i32 %180 to i8
-  store i8 %181, ptr %79, align 1, !tbaa !8
-  %182 = shl nuw nsw i32 %23, 1
-  %183 = add nuw nsw i32 %182, 8
-  %184 = add nuw nsw i32 %183, %26
-  %185 = add nuw nsw i32 %184, %29
-  %186 = add nuw nsw i32 %185, %32
-  %187 = add nuw nsw i32 %186, %34
-  %188 = add nuw nsw i32 %187, %37
-  %189 = add nuw nsw i32 %188, %40
-  %190 = add nuw nsw i32 %189, %43
-  %191 = add nuw nsw i32 %190, %75
-  %192 = add nuw nsw i32 %191, %145
-  %193 = add nuw nsw i32 %192, %78
-  %194 = add nuw nsw i32 %193, %81
-  %195 = lshr i32 %194, 4
-  %196 = trunc nuw i32 %195 to i8
-  store i8 %196, ptr %21, align 1, !tbaa !8
-  %197 = shl nuw nsw i32 %26, 1
-  %198 = add nuw nsw i32 %162, %197
-  %199 = add nuw nsw i32 %198, %29
-  %200 = add nuw nsw i32 %199, %32
-  %201 = add nuw nsw i32 %200, %34
-  %202 = add nuw nsw i32 %201, %37
-  %203 = add nuw nsw i32 %202, %40
-  %204 = add nuw nsw i32 %203, %43
-  %205 = add nuw nsw i32 %204, %75
-  %206 = add nuw nsw i32 %205, %144
-  %207 = add nuw nsw i32 %206, %78
-  %208 = add nuw nsw i32 %207, %81
-  %209 = add nuw nsw i32 %208, %84
-  %210 = lshr i32 %209, 4
-  %211 = trunc nuw i32 %210 to i8
-  store i8 %211, ptr %24, align 1, !tbaa !8
-  %reass.add20 = add nuw nsw i32 %72, %29
-  %reass.mul21 = shl nuw nsw i32 %reass.add20, 1
-  %212 = add nuw nsw i32 %163, %32
-  %213 = add nuw nsw i32 %212, %34
-  %214 = add nuw nsw i32 %213, %37
-  %215 = add nuw nsw i32 %214, %40
-  %216 = add nuw nsw i32 %215, %43
-  %217 = add nuw nsw i32 %216, %75
-  %218 = add nuw nsw i32 %217, %78
-  %219 = add nuw nsw i32 %218, %reass.mul21
-  %220 = add nuw nsw i32 %219, %81
-  %221 = add nuw nsw i32 %220, %84
-  %222 = add nuw nsw i32 %221, %87
-  %223 = lshr i32 %222, 4
-  %224 = trunc nuw i32 %223 to i8
-  store i8 %224, ptr %27, align 1, !tbaa !8
-  %225 = shl nuw nsw i32 %32, 1
-  %226 = add nuw nsw i32 %164, %225
-  %227 = add nuw nsw i32 %226, %34
-  %228 = add nuw nsw i32 %227, %37
-  %229 = add nuw nsw i32 %228, %40
-  %230 = add nuw nsw i32 %229, %43
-  %231 = add nuw nsw i32 %230, %72
-  %232 = add nuw nsw i32 %231, %75
-  %233 = add nuw nsw i32 %232, %78
-  %234 = add nuw nsw i32 %233, %81
-  %235 = add nuw nsw i32 %234, %84
-  %236 = add nuw nsw i32 %235, %87
-  %237 = add nuw nsw i32 %236, %90
-  %238 = lshr i32 %237, 4
-  %239 = trunc nuw i32 %238 to i8
-  store i8 %239, ptr %30, align 1, !tbaa !8
-  %240 = shl nuw nsw i32 %34, 1
-  %241 = add nuw nsw i32 %165, %240
-  %242 = add nuw nsw i32 %241, %37
-  %243 = add nuw nsw i32 %242, %40
-  %244 = add nuw nsw i32 %243, %43
-  %245 = add nuw nsw i32 %244, %75
-  %246 = add nuw nsw i32 %245, %78
-  %247 = add nuw nsw i32 %246, %81
-  %248 = add nuw nsw i32 %247, %84
-  %249 = add nuw nsw i32 %248, %87
-  %250 = add nuw nsw i32 %249, %90
-  %251 = add nuw nsw i32 %250, %93
-  %252 = lshr i32 %251, 4
-  %253 = trunc nuw i32 %252 to i8
-  store i8 %253, ptr %.0.i23, align 1, !tbaa !8
-  %254 = shl nuw nsw i32 %37, 1
+  %155 = add nuw nsw i32 %154, %32
+  %156 = add nuw nsw i32 %155, %34
+  %157 = add nuw nsw i32 %156, %37
+  %158 = add nuw nsw i32 %157, %75
+  %159 = add nuw nsw i32 %158, %137
+  %160 = add nuw nsw i32 %159, %151
+  %161 = add nuw nsw i32 %160, %81
+  %162 = lshr i32 %161, 4
+  %163 = trunc nuw i32 %162 to i8
+  store i8 %163, ptr %76, align 1, !tbaa !8
+  %164 = shl nuw nsw i32 %81, 1
+  %165 = add nuw nsw i32 %157, %40
+  %166 = add nuw nsw i32 %165, %75
+  %167 = add nuw nsw i32 %166, %136
+  %168 = add nuw nsw i32 %167, %78
+  %169 = add nuw nsw i32 %168, %164
+  %170 = lshr i32 %169, 4
+  %171 = trunc nuw i32 %170 to i8
+  store i8 %171, ptr %79, align 1, !tbaa !8
+  %172 = shl nuw nsw i32 %23, 1
+  %173 = add nuw nsw i32 %172, 8
+  %174 = add nuw nsw i32 %173, %26
+  %175 = add nuw nsw i32 %174, %29
+  %176 = add nuw nsw i32 %175, %32
+  %177 = add nuw nsw i32 %176, %34
+  %178 = add nuw nsw i32 %177, %37
+  %179 = add nuw nsw i32 %178, %40
+  %180 = add nuw nsw i32 %179, %43
+  %181 = add nuw nsw i32 %180, %75
+  %182 = add nuw nsw i32 %181, %135
+  %183 = add nuw nsw i32 %182, %78
+  %184 = add nuw nsw i32 %183, %81
+  %185 = lshr i32 %184, 4
+  %186 = trunc nuw i32 %185 to i8
+  store i8 %186, ptr %21, align 1, !tbaa !8
+  %187 = shl nuw nsw i32 %26, 1
+  %188 = add nuw nsw i32 %152, %187
+  %189 = add nuw nsw i32 %188, %29
+  %190 = add nuw nsw i32 %189, %32
+  %191 = add nuw nsw i32 %190, %34
+  %192 = add nuw nsw i32 %191, %37
+  %193 = add nuw nsw i32 %192, %40
+  %194 = add nuw nsw i32 %193, %43
+  %195 = add nuw nsw i32 %194, %75
+  %196 = add nuw nsw i32 %195, %134
+  %197 = add nuw nsw i32 %196, %78
+  %198 = add nuw nsw i32 %197, %81
+  %199 = add nuw nsw i32 %198, %84
+  %200 = lshr i32 %199, 4
+  %201 = trunc nuw i32 %200 to i8
+  store i8 %201, ptr %24, align 1, !tbaa !8
+  %reass.add21 = add nuw nsw i32 %72, %29
+  %reass.mul22 = shl nuw nsw i32 %reass.add21, 1
+  %202 = add nuw nsw i32 %153, %32
+  %203 = add nuw nsw i32 %202, %34
+  %204 = add nuw nsw i32 %203, %37
+  %205 = add nuw nsw i32 %204, %40
+  %206 = add nuw nsw i32 %205, %43
+  %207 = add nuw nsw i32 %206, %75
+  %208 = add nuw nsw i32 %207, %78
+  %209 = add nuw nsw i32 %208, %reass.mul22
+  %210 = add nuw nsw i32 %209, %81
+  %211 = add nuw nsw i32 %210, %84
+  %212 = add nuw nsw i32 %211, %87
+  %213 = lshr i32 %212, 4
+  %214 = trunc nuw i32 %213 to i8
+  store i8 %214, ptr %27, align 1, !tbaa !8
+  %215 = shl nuw nsw i32 %32, 1
+  %216 = add nuw nsw i32 %154, %215
+  %217 = add nuw nsw i32 %216, %34
+  %218 = add nuw nsw i32 %217, %37
+  %219 = add nuw nsw i32 %218, %40
+  %220 = add nuw nsw i32 %219, %43
+  %221 = add nuw nsw i32 %220, %72
+  %222 = add nuw nsw i32 %221, %75
+  %223 = add nuw nsw i32 %222, %78
+  %224 = add nuw nsw i32 %223, %81
+  %225 = add nuw nsw i32 %224, %84
+  %226 = add nuw nsw i32 %225, %87
+  %227 = add nuw nsw i32 %226, %90
+  %228 = lshr i32 %227, 4
+  %229 = trunc nuw i32 %228 to i8
+  store i8 %229, ptr %30, align 1, !tbaa !8
+  %230 = shl nuw nsw i32 %34, 1
+  %231 = add nuw nsw i32 %155, %230
+  %232 = add nuw nsw i32 %231, %37
+  %233 = add nuw nsw i32 %232, %40
+  %234 = add nuw nsw i32 %233, %43
+  %235 = add nuw nsw i32 %234, %75
+  %236 = add nuw nsw i32 %235, %78
+  %237 = add nuw nsw i32 %236, %81
+  %238 = add nuw nsw i32 %237, %84
+  %239 = add nuw nsw i32 %238, %87
+  %240 = add nuw nsw i32 %239, %90
+  %241 = add nuw nsw i32 %240, %93
+  %242 = lshr i32 %241, 4
+  %243 = trunc nuw i32 %242 to i8
+  store i8 %243, ptr %.0.i24, align 1, !tbaa !8
+  %244 = shl nuw nsw i32 %37, 1
   %reass.add636.i = shl nuw nsw i32 %93, 1
-  %255 = add nuw nsw i32 %166, %254
-  %256 = add nuw nsw i32 %255, %40
-  %257 = add nuw nsw i32 %256, %43
-  %258 = add nuw nsw i32 %257, %78
+  %245 = add nuw nsw i32 %156, %244
+  %246 = add nuw nsw i32 %245, %40
+  %247 = add nuw nsw i32 %246, %43
+  %248 = add nuw nsw i32 %247, %78
+  %249 = add nuw nsw i32 %248, %81
+  %250 = add nuw nsw i32 %249, %84
+  %251 = add nuw nsw i32 %250, %87
+  %252 = add nuw nsw i32 %251, %90
+  %253 = add nuw nsw i32 %252, %reass.add636.i
+  %254 = lshr i32 %253, 4
+  %255 = trunc nuw i32 %254 to i8
+  store i8 %255, ptr %35, align 1, !tbaa !8
+  %256 = shl nuw nsw i32 %40, 1
+  %257 = add nuw nsw i32 %157, %256
+  %258 = add nuw nsw i32 %257, %43
   %259 = add nuw nsw i32 %258, %81
   %260 = add nuw nsw i32 %259, %84
   %261 = add nuw nsw i32 %260, %87
   %262 = add nuw nsw i32 %261, %90
-  %263 = add nuw nsw i32 %262, %reass.add636.i
-  %264 = lshr i32 %263, 4
-  %265 = trunc nuw i32 %264 to i8
-  store i8 %265, ptr %35, align 1, !tbaa !8
-  %266 = shl nuw nsw i32 %40, 1
-  %267 = add nuw nsw i32 %167, %266
-  %268 = add nuw nsw i32 %267, %43
-  %269 = add nuw nsw i32 %268, %81
+  %263 = add nuw nsw i32 %262, %93
+  %264 = add nuw nsw i32 %263, %reass.add636.i
+  %265 = lshr i32 %264, 4
+  %266 = trunc nuw i32 %265 to i8
+  store i8 %266, ptr %38, align 1, !tbaa !8
+  %267 = shl nuw nsw i32 %43, 1
+  %268 = shl nuw nsw i32 %93, 2
+  %269 = add nuw nsw i32 %165, %267
   %270 = add nuw nsw i32 %269, %84
   %271 = add nuw nsw i32 %270, %87
   %272 = add nuw nsw i32 %271, %90
-  %273 = add nuw nsw i32 %272, %93
-  %274 = add nuw nsw i32 %273, %reass.add636.i
-  %275 = lshr i32 %274, 4
-  %276 = trunc nuw i32 %275 to i8
-  store i8 %276, ptr %38, align 1, !tbaa !8
-  %277 = shl nuw nsw i32 %43, 1
-  %278 = shl nuw nsw i32 %93, 2
-  %279 = add nuw nsw i32 %175, %277
-  %280 = add nuw nsw i32 %279, %84
-  %281 = add nuw nsw i32 %280, %87
-  %282 = add nuw nsw i32 %281, %90
-  %283 = add nuw nsw i32 %282, %278
-  %284 = lshr i32 %283, 4
-  %285 = trunc nuw i32 %284 to i8
-  store i8 %285, ptr %41, align 1, !tbaa !8
-  %286 = shl nuw nsw i32 %84, 1
-  %287 = add nuw nsw i32 %26, 8
-  %288 = add nuw nsw i32 %287, %29
-  %289 = add nuw nsw i32 %288, %32
-  %290 = add nuw nsw i32 %289, %34
-  %291 = add nuw nsw i32 %290, %37
-  %292 = add nuw nsw i32 %291, %40
-  %293 = add nuw nsw i32 %292, %43
-  %294 = add nuw nsw i32 %293, %286
-  %295 = add nuw nsw i32 %294, %87
-  %296 = add nuw nsw i32 %295, %90
-  %297 = add nuw nsw i32 %296, %93
-  %298 = add nuw nsw i32 %297, %278
-  %299 = lshr i32 %298, 4
-  %300 = trunc nuw i32 %299 to i8
-  store i8 %300, ptr %82, align 1, !tbaa !8
-  %301 = shl nuw nsw i32 %87, 1
-  %302 = add nuw nsw i32 %29, 8
-  %303 = add nuw nsw i32 %302, %32
-  %304 = add nuw nsw i32 %303, %34
-  %305 = add nuw nsw i32 %304, %37
-  %306 = add nuw nsw i32 %305, %40
-  %307 = add nuw nsw i32 %306, %43
-  %308 = add nuw nsw i32 %307, %84
-  %309 = add nuw nsw i32 %308, %301
-  %310 = add nuw nsw i32 %309, %90
-  %311 = add nuw nsw i32 %310, %278
-  %312 = add nuw nsw i32 %311, %reass.add636.i
-  %313 = lshr i32 %312, 4
-  %314 = trunc nuw i32 %313 to i8
-  store i8 %314, ptr %85, align 1, !tbaa !8
-  %315 = shl nuw nsw i32 %90, 1
-  %316 = add nuw nsw i32 %32, 8
-  %317 = add nuw nsw i32 %316, %34
-  %318 = add nuw nsw i32 %317, %37
-  %319 = add nuw nsw i32 %318, %40
-  %320 = add nuw nsw i32 %319, %43
-  %321 = add nuw nsw i32 %320, %84
-  %322 = add nuw nsw i32 %321, %87
-  %323 = add nuw nsw i32 %322, %315
-  %324 = add nuw nsw i32 %323, %93
-  %325 = add nuw nsw i32 %324, %278
-  %326 = add nuw nsw i32 %325, %reass.add636.i
-  %327 = lshr i32 %326, 4
-  %328 = trunc nuw i32 %327 to i8
-  store i8 %328, ptr %88, align 1, !tbaa !8
+  %273 = add nuw nsw i32 %272, %268
+  %274 = lshr i32 %273, 4
+  %275 = trunc nuw i32 %274 to i8
+  store i8 %275, ptr %41, align 1, !tbaa !8
+  %276 = shl nuw nsw i32 %84, 1
+  %277 = add nuw nsw i32 %26, 8
+  %278 = add nuw nsw i32 %277, %29
+  %279 = add nuw nsw i32 %278, %32
+  %280 = add nuw nsw i32 %279, %34
+  %281 = add nuw nsw i32 %280, %37
+  %282 = add nuw nsw i32 %281, %40
+  %283 = add nuw nsw i32 %282, %43
+  %284 = add nuw nsw i32 %283, %276
+  %285 = add nuw nsw i32 %284, %87
+  %286 = add nuw nsw i32 %285, %90
+  %287 = add nuw nsw i32 %286, %93
+  %288 = add nuw nsw i32 %287, %268
+  %289 = lshr i32 %288, 4
+  %290 = trunc nuw i32 %289 to i8
+  store i8 %290, ptr %82, align 1, !tbaa !8
+  %291 = shl nuw nsw i32 %87, 1
+  %292 = add nuw nsw i32 %29, 8
+  %293 = add nuw nsw i32 %292, %32
+  %294 = add nuw nsw i32 %293, %34
+  %295 = add nuw nsw i32 %294, %37
+  %296 = add nuw nsw i32 %295, %40
+  %297 = add nuw nsw i32 %296, %43
+  %298 = add nuw nsw i32 %297, %84
+  %299 = add nuw nsw i32 %298, %291
+  %300 = add nuw nsw i32 %299, %90
+  %301 = add nuw nsw i32 %300, %268
+  %302 = add nuw nsw i32 %301, %reass.add636.i
+  %303 = lshr i32 %302, 4
+  %304 = trunc nuw i32 %303 to i8
+  store i8 %304, ptr %85, align 1, !tbaa !8
+  %305 = shl nuw nsw i32 %90, 1
+  %306 = add nuw nsw i32 %32, 8
+  %307 = add nuw nsw i32 %306, %34
+  %308 = add nuw nsw i32 %307, %37
+  %309 = add nuw nsw i32 %308, %40
+  %310 = add nuw nsw i32 %309, %43
+  %311 = add nuw nsw i32 %310, %84
+  %312 = add nuw nsw i32 %311, %87
+  %313 = add nuw nsw i32 %312, %305
+  %314 = add nuw nsw i32 %313, %93
+  %315 = add nuw nsw i32 %314, %268
+  %316 = add nuw nsw i32 %315, %reass.add636.i
+  %317 = lshr i32 %316, 4
+  %318 = trunc nuw i32 %317 to i8
+  store i8 %318, ptr %88, align 1, !tbaa !8
   br label %.critedge.i
 
-329:                                              ; preds = %139
-  br i1 %142, label %330, label %.thread15
+319:                                              ; preds = %130
+  br i1 %132, label %320, label %.thread15
 
-330:                                              ; preds = %329
-  %331 = mul nuw nsw i32 %23, 3
-  %332 = shl nuw nsw i32 %26, 1
-  %333 = add nuw nsw i32 %331, 4
-  %334 = add nuw nsw i32 %333, %332
-  %335 = add nuw nsw i32 %334, %29
-  %336 = add nuw nsw i32 %335, %32
-  %337 = add nuw nsw i32 %336, %34
-  %338 = lshr i32 %337, 3
-  %339 = trunc nuw i32 %338 to i8
-  store i8 %339, ptr %24, align 1, !tbaa !8
-  %340 = add nuw nsw i32 %29, %23
-  %341 = shl nuw nsw i32 %340, 1
-  %342 = add nuw nsw i32 %32, 4
-  %343 = add nuw nsw i32 %342, %26
-  %344 = add nuw nsw i32 %343, %341
-  %345 = add nuw nsw i32 %344, %34
-  %346 = add nuw nsw i32 %345, %37
+320:                                              ; preds = %319
+  %321 = mul nuw nsw i32 %23, 3
+  %322 = shl nuw nsw i32 %26, 1
+  %323 = add nuw nsw i32 %321, 4
+  %324 = add nuw nsw i32 %323, %322
+  %325 = add nuw nsw i32 %324, %29
+  %326 = add nuw nsw i32 %325, %32
+  %327 = add nuw nsw i32 %326, %34
+  %328 = lshr i32 %327, 3
+  %329 = trunc nuw i32 %328 to i8
+  store i8 %329, ptr %24, align 1, !tbaa !8
+  %330 = add nuw nsw i32 %29, %23
+  %331 = shl nuw nsw i32 %330, 1
+  %332 = add nuw nsw i32 %32, 4
+  %333 = add nuw nsw i32 %332, %26
+  %334 = add nuw nsw i32 %333, %331
+  %335 = add nuw nsw i32 %334, %34
+  %336 = add nuw nsw i32 %335, %37
+  %337 = lshr i32 %336, 3
+  %338 = trunc nuw i32 %337 to i8
+  store i8 %338, ptr %27, align 1, !tbaa !8
+  %339 = shl nuw nsw i32 %32, 1
+  %340 = add nuw nsw i32 %29, 4
+  %341 = add nuw nsw i32 %340, %23
+  %342 = add nuw nsw i32 %341, %26
+  %343 = add nuw nsw i32 %342, %339
+  %344 = add nuw nsw i32 %343, %34
+  %345 = add nuw nsw i32 %344, %37
+  %346 = add nuw nsw i32 %345, %40
   %347 = lshr i32 %346, 3
   %348 = trunc nuw i32 %347 to i8
-  store i8 %348, ptr %27, align 1, !tbaa !8
-  %349 = shl nuw nsw i32 %32, 1
-  %350 = add nuw nsw i32 %29, 4
-  %351 = add nuw nsw i32 %350, %23
-  %352 = add nuw nsw i32 %351, %26
-  %353 = add nuw nsw i32 %352, %349
-  %354 = add nuw nsw i32 %353, %34
-  %355 = add nuw nsw i32 %354, %37
-  %356 = add nuw nsw i32 %355, %40
-  %357 = lshr i32 %356, 3
-  %358 = trunc nuw i32 %357 to i8
-  store i8 %358, ptr %30, align 1, !tbaa !8
-  %359 = shl nuw nsw i32 %34, 1
-  %360 = add nuw nsw i32 %343, %29
-  %361 = add nuw nsw i32 %360, %359
-  %362 = add nuw nsw i32 %361, %37
-  %363 = add nuw nsw i32 %362, %40
-  %364 = add nuw nsw i32 %363, %43
-  %365 = lshr i32 %364, 3
-  %366 = trunc nuw i32 %365 to i8
-  store i8 %366, ptr %.0.i23, align 1, !tbaa !8
+  store i8 %348, ptr %30, align 1, !tbaa !8
+  %349 = shl nuw nsw i32 %34, 1
+  %350 = add nuw nsw i32 %333, %29
+  %351 = add nuw nsw i32 %350, %349
+  %352 = add nuw nsw i32 %351, %37
+  %353 = add nuw nsw i32 %352, %40
+  %354 = add nuw nsw i32 %353, %43
+  %355 = lshr i32 %354, 3
+  %356 = trunc nuw i32 %355 to i8
+  store i8 %356, ptr %.0.i24, align 1, !tbaa !8
   %reass.add = add nuw nsw i32 %43, %37
   %reass.mul = shl nuw nsw i32 %reass.add, 1
-  %367 = add nuw nsw i32 %342, %29
-  %368 = add nuw nsw i32 %367, %34
-  %369 = add nuw nsw i32 %368, %40
-  %370 = add nuw nsw i32 %369, %reass.mul
-  %371 = lshr i32 %370, 3
-  %372 = trunc nuw i32 %371 to i8
-  store i8 %372, ptr %35, align 1, !tbaa !8
-  %373 = add nuw nsw i32 %43, %40
-  %374 = shl nuw nsw i32 %373, 1
-  %375 = add nuw nsw i32 %342, %34
-  %376 = add nuw nsw i32 %375, %37
-  %377 = add nuw nsw i32 %376, %43
-  %378 = add nuw nsw i32 %377, %374
-  %379 = lshr i32 %378, 3
-  %380 = trunc nuw i32 %379 to i8
-  store i8 %380, ptr %38, align 1, !tbaa !8
+  %357 = add nuw nsw i32 %332, %29
+  %358 = add nuw nsw i32 %357, %34
+  %359 = add nuw nsw i32 %358, %40
+  %360 = add nuw nsw i32 %359, %reass.mul
+  %361 = lshr i32 %360, 3
+  %362 = trunc nuw i32 %361 to i8
+  store i8 %362, ptr %35, align 1, !tbaa !8
+  %363 = add nuw nsw i32 %43, %40
+  %364 = shl nuw nsw i32 %363, 1
+  %365 = add nuw nsw i32 %332, %34
+  %366 = add nuw nsw i32 %365, %37
+  %367 = add nuw nsw i32 %366, %43
+  %368 = add nuw nsw i32 %367, %364
+  %369 = lshr i32 %368, 3
+  %370 = trunc nuw i32 %369 to i8
+  store i8 %370, ptr %38, align 1, !tbaa !8
   br label %.critedge.i
 
-.thread15:                                        ; preds = %135, %129, %125, %329
-  %381 = icmp sgt i32 %51, %4
-  %382 = icmp samesign ugt i32 %54, %4
-  %or.cond19 = select i1 %381, i1 true, i1 %382
-  br i1 %or.cond19, label %.critedge650.i, label %402
+.thread15:                                        ; preds = %127, %121, %117, %319
+  %371 = icmp sgt i32 %51, %4
+  %372 = icmp samesign ugt i32 %54, %4
+  %or.cond19 = select i1 %371, i1 true, i1 %372
+  br i1 %or.cond19, label %.critedge650.i, label %392
 
 .critedge650.i:                                   ; preds = %.thread15
-  %383 = tail call i32 @llvm.smax.i32(i32 %65, i32 -128)
-  %.0.i9 = tail call i32 @llvm.smin.i32(i32 %383, i32 127)
-  %384 = sub nsw i32 %34, %32
-  %385 = mul nsw i32 %384, 3
-  %386 = add nsw i32 %.0.i9, %385
-  %387 = tail call i32 @llvm.smax.i32(i32 %386, i32 -128)
-  %388 = tail call i32 @llvm.smin.i32(i32 %387, i32 123)
-  %389 = add nsw i32 %388, 4
-  %390 = ashr i32 %389, 3
-  %391 = tail call i32 @llvm.smin.i32(i32 %387, i32 124)
-  %392 = add nsw i32 %391, 3
-  %393 = ashr i32 %392, 3
-  %394 = add nsw i32 %393, %32
-  %395 = icmp ugt i32 %394, 255
-  %isnotneg.i659.i = icmp sgt i32 %394, -1
-  %396 = sext i1 %isnotneg.i659.i to i8
-  %397 = trunc nuw i32 %394 to i8
-  %.0.i660.i = select i1 %395, i8 %396, i8 %397
+  %373 = tail call i32 @llvm.smax.i32(i32 %65, i32 -128)
+  %.0.i9 = tail call i32 @llvm.smin.i32(i32 %373, i32 127)
+  %374 = sub nsw i32 %34, %32
+  %375 = mul nsw i32 %374, 3
+  %376 = add nsw i32 %.0.i9, %375
+  %377 = tail call i32 @llvm.smax.i32(i32 %376, i32 -128)
+  %378 = tail call i32 @llvm.smin.i32(i32 %377, i32 123)
+  %379 = add nsw i32 %378, 4
+  %380 = ashr i32 %379, 3
+  %381 = tail call i32 @llvm.smin.i32(i32 %377, i32 124)
+  %382 = add nsw i32 %381, 3
+  %383 = ashr i32 %382, 3
+  %384 = add nsw i32 %383, %32
+  %385 = icmp ugt i32 %384, 255
+  %isnotneg.i659.i = icmp sgt i32 %384, -1
+  %386 = sext i1 %isnotneg.i659.i to i8
+  %387 = trunc nuw i32 %384 to i8
+  %.0.i660.i = select i1 %385, i8 %386, i8 %387
   store i8 %.0.i660.i, ptr %30, align 1, !tbaa !8
-  %398 = sub nsw i32 %34, %390
-  %399 = icmp ugt i32 %398, 255
-  %isnotneg.i657.i = icmp sgt i32 %398, -1
-  %400 = sext i1 %isnotneg.i657.i to i8
-  %401 = trunc nuw i32 %398 to i8
-  %.0.i658.i = select i1 %399, i8 %400, i8 %401
-  store i8 %.0.i658.i, ptr %.0.i23, align 1, !tbaa !8
+  %388 = sub nsw i32 %34, %380
+  %389 = icmp ugt i32 %388, 255
+  %isnotneg.i657.i = icmp sgt i32 %388, -1
+  %390 = sext i1 %isnotneg.i657.i to i8
+  %391 = trunc nuw i32 %388 to i8
+  %.0.i658.i = select i1 %389, i8 %390, i8 %391
+  store i8 %.0.i658.i, ptr %.0.i24, align 1, !tbaa !8
   br label %.critedge.i
 
-402:                                              ; preds = %.thread15
-  %403 = sub nsw i32 %34, %32
-  %404 = mul nsw i32 %403, 3
-  %405 = add nsw i32 %404, 128
-  %.not.i10 = icmp ult i32 %405, 256
-  %406 = icmp sgt i32 %403, -1
-  %407 = select i1 %406, i32 127, i32 -128
-  %.0.i11 = select i1 %.not.i10, i32 %404, i32 %407
-  %408 = tail call i32 @llvm.smin.i32(i32 %.0.i11, i32 123)
-  %409 = add nsw i32 %408, 4
-  %410 = ashr i32 %409, 3
-  %411 = tail call i32 @llvm.smin.i32(i32 %.0.i11, i32 124)
-  %412 = add nsw i32 %411, 3
-  %413 = ashr i32 %412, 3
-  %414 = add nsw i32 %413, %32
-  %415 = icmp ugt i32 %414, 255
-  %isnotneg.i655.i = icmp sgt i32 %414, -1
-  %416 = sext i1 %isnotneg.i655.i to i8
-  %417 = trunc nuw i32 %414 to i8
-  %.0.i656.i = select i1 %415, i8 %416, i8 %417
+392:                                              ; preds = %.thread15
+  %393 = sub nsw i32 %34, %32
+  %394 = mul nsw i32 %393, 3
+  %395 = add nsw i32 %394, 128
+  %.not.i10 = icmp ult i32 %395, 256
+  %396 = icmp sgt i32 %393, -1
+  %397 = select i1 %396, i32 127, i32 -128
+  %.0.i11 = select i1 %.not.i10, i32 %394, i32 %397
+  %398 = tail call i32 @llvm.smin.i32(i32 %.0.i11, i32 123)
+  %399 = add nsw i32 %398, 4
+  %400 = ashr i32 %399, 3
+  %401 = tail call i32 @llvm.smin.i32(i32 %.0.i11, i32 124)
+  %402 = add nsw i32 %401, 3
+  %403 = ashr i32 %402, 3
+  %404 = add nsw i32 %403, %32
+  %405 = icmp ugt i32 %404, 255
+  %isnotneg.i655.i = icmp sgt i32 %404, -1
+  %406 = sext i1 %isnotneg.i655.i to i8
+  %407 = trunc nuw i32 %404 to i8
+  %.0.i656.i = select i1 %405, i8 %406, i8 %407
   store i8 %.0.i656.i, ptr %30, align 1, !tbaa !8
-  %418 = sub nsw i32 %34, %410
-  %419 = icmp ugt i32 %418, 255
-  %isnotneg.i653.i = icmp sgt i32 %418, -1
-  %420 = sext i1 %isnotneg.i653.i to i8
-  %421 = trunc nuw i32 %418 to i8
-  %.0.i654.i = select i1 %419, i8 %420, i8 %421
-  store i8 %.0.i654.i, ptr %.0.i23, align 1, !tbaa !8
-  %422 = add nsw i32 %410, 1
-  %423 = ashr i32 %422, 1
-  %424 = add nsw i32 %423, %29
-  %425 = icmp ugt i32 %424, 255
-  %isnotneg.i651.i = icmp sgt i32 %424, -1
-  %426 = sext i1 %isnotneg.i651.i to i8
-  %427 = trunc nuw i32 %424 to i8
-  %.0.i652.i = select i1 %425, i8 %426, i8 %427
+  %408 = sub nsw i32 %34, %400
+  %409 = icmp ugt i32 %408, 255
+  %isnotneg.i653.i = icmp sgt i32 %408, -1
+  %410 = sext i1 %isnotneg.i653.i to i8
+  %411 = trunc nuw i32 %408 to i8
+  %.0.i654.i = select i1 %409, i8 %410, i8 %411
+  store i8 %.0.i654.i, ptr %.0.i24, align 1, !tbaa !8
+  %412 = add nsw i32 %400, 1
+  %413 = ashr i32 %412, 1
+  %414 = add nsw i32 %413, %29
+  %415 = icmp ugt i32 %414, 255
+  %isnotneg.i651.i = icmp sgt i32 %414, -1
+  %416 = sext i1 %isnotneg.i651.i to i8
+  %417 = trunc nuw i32 %414 to i8
+  %.0.i652.i = select i1 %415, i8 %416, i8 %417
   store i8 %.0.i652.i, ptr %27, align 1, !tbaa !8
-  %428 = sub nsw i32 %37, %423
-  %429 = icmp ugt i32 %428, 255
-  %isnotneg.i.i = icmp sgt i32 %428, -1
-  %430 = sext i1 %isnotneg.i.i to i8
-  %431 = trunc nuw i32 %428 to i8
-  %.0.i.i = select i1 %429, i8 %430, i8 %431
+  %418 = sub nsw i32 %37, %413
+  %419 = icmp ugt i32 %418, 255
+  %isnotneg.i.i = icmp sgt i32 %418, -1
+  %420 = sext i1 %isnotneg.i.i to i8
+  %421 = trunc nuw i32 %418 to i8
+  %.0.i.i = select i1 %419, i8 %420, i8 %421
   store i8 %.0.i.i, ptr %35, align 1, !tbaa !8
   br label %.critedge.i
 
-.critedge.i:                                      ; preds = %402, %.critedge650.i, %330, %143, %61, %58, %55, %52, %49, %46, %20
-  %432 = add nuw nsw i32 %.0551.i22, 1
-  %433 = getelementptr inbounds nuw i8, ptr %.0.i23, i64 1
-  %exitcond.not = icmp eq i32 %432, 8
+.critedge.i:                                      ; preds = %392, %.critedge650.i, %320, %133, %61, %58, %55, %52, %49, %46, %20
+  %422 = add nuw nsw i32 %.0551.i23, 1
+  %423 = getelementptr inbounds nuw i8, ptr %.0.i24, i64 1
+  %exitcond.not = icmp eq i32 %422, 8
   br i1 %exitcond.not, label %loop_filter.exit, label %20, !llvm.loop !132
 
 loop_filter.exit:                                 ; preds = %.critedge.i

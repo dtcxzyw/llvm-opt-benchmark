@@ -582,9 +582,9 @@ target triple = "x86_64-pc-linux-gnu"
 define dso_local ptr @slurm_option_table_create(ptr noundef readonly captures(none) %0, ptr noundef initializes((0, 8)) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %4 = tail call ptr @optz_create() #22
+  %4 = tail call ptr @optz_create() #21
   store ptr %4, ptr %3, align 8
-  %5 = tail call ptr @xstrdup(ptr noundef nonnull @.str) #22
+  %5 = tail call ptr @xstrdup(ptr noundef nonnull @.str) #21
   store ptr %5, ptr %1, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -593,9 +593,9 @@ define dso_local ptr @slurm_option_table_create(ptr noundef readonly captures(no
 
 9:                                                ; preds = %52
   %10 = load ptr, ptr %3, align 8
-  %11 = call ptr @spank_option_table_create(ptr noundef %10) #22
+  %11 = call ptr @spank_option_table_create(ptr noundef %10) #21
   %12 = load ptr, ptr %3, align 8
-  call void @optz_destroy(ptr noundef %12) #22
+  call void @optz_destroy(ptr noundef %12) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %11
 
@@ -657,21 +657,21 @@ define dso_local ptr @slurm_option_table_create(ptr noundef readonly captures(no
   br i1 %.not38, label %52, label %.critedge
 
 .critedge:                                        ; preds = %36, %31, %26, %21, %16
-  %39 = call i32 @optz_add(ptr noundef nonnull %3, ptr noundef nonnull %14) #22
+  %39 = call i32 @optz_add(ptr noundef nonnull %3, ptr noundef nonnull %14) #21
   %40 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %41 = load i32, ptr %40, align 8
   %42 = icmp slt i32 %41, 256
   br i1 %42, label %43, label %52
 
 43:                                               ; preds = %.critedge
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %1, ptr noundef nonnull @.str.1, i32 noundef %41) #22
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %1, ptr noundef nonnull @.str.1, i32 noundef %41) #21
   %44 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %45 = load i32, ptr %44, align 8
   %46 = icmp eq i32 %45, 1
   br i1 %46, label %47, label %48
 
 47:                                               ; preds = %43
-  call void @_xstrcat(ptr noundef nonnull %1, ptr noundef nonnull @.str.2) #22
+  call void @_xstrcat(ptr noundef nonnull %1, ptr noundef nonnull @.str.2) #21
   %.pr = load i32, ptr %44, align 8
   br label %48
 
@@ -681,7 +681,7 @@ define dso_local ptr @slurm_option_table_create(ptr noundef readonly captures(no
   br i1 %50, label %51, label %52
 
 51:                                               ; preds = %48
-  call void @_xstrcat(ptr noundef nonnull %1, ptr noundef nonnull @.str.3) #22
+  call void @_xstrcat(ptr noundef nonnull %1, ptr noundef nonnull @.str.3) #21
   br label %52
 
 52:                                               ; preds = %.critedge, %51, %48, %34, %36, %13
@@ -708,7 +708,7 @@ declare void @optz_destroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @slurm_option_table_destroy(ptr noundef %0) local_unnamed_addr #0 {
-  tail call void @optz_destroy(ptr noundef %0) #22
+  tail call void @optz_destroy(ptr noundef %0) #21
   ret void
 }
 
@@ -730,7 +730,7 @@ define dso_local void @slurm_free_options_members(ptr noundef %0) local_unnamed_
   br i1 %.not12.us.i, label %11, label %7
 
 7:                                                ; preds = %.split.us.i
-  tail call void %6(ptr noundef nonnull %0) #22
+  tail call void %6(ptr noundef nonnull %0) #21
   %8 = load ptr, ptr %3, align 8
   %.not13.us.i = icmp eq ptr %8, null
   br i1 %.not13.us.i, label %11, label %9
@@ -749,10 +749,10 @@ define dso_local void @slurm_free_options_members(ptr noundef %0) local_unnamed_
 
 slurm_reset_all_options.exit:                     ; preds = %11
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  tail call void @slurm_xfree(ptr noundef nonnull %14) #22
-  tail call void @slurm_xfree(ptr noundef nonnull %3) #22
+  tail call void @slurm_xfree(ptr noundef nonnull %14) #21
+  tail call void @slurm_xfree(ptr noundef nonnull %3) #21
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 720
-  tail call void @slurm_xfree(ptr noundef nonnull %15) #22
+  tail call void @slurm_xfree(ptr noundef nonnull %15) #21
   br label %16
 
 16:                                               ; preds = %1, %slurm_reset_all_options.exit
@@ -773,7 +773,7 @@ define dso_local void @slurm_reset_all_options(ptr noundef %0, i1 noundef zeroex
   br i1 %.not12.us, label %11, label %7
 
 7:                                                ; preds = %.split.us
-  tail call void %6(ptr noundef %0) #22
+  tail call void %6(ptr noundef %0) #21
   %8 = load ptr, ptr %3, align 8
   %.not13.us = icmp eq ptr %8, null
   br i1 %.not13.us, label %11, label %9
@@ -808,7 +808,7 @@ define dso_local void @slurm_reset_all_options(ptr noundef %0, i1 noundef zeroex
   br i1 %.not12, label %25, label %21
 
 21:                                               ; preds = %18
-  tail call void %20(ptr noundef %0) #22
+  tail call void %20(ptr noundef %0) #21
   %22 = load ptr, ptr %3, align 8
   %.not13 = icmp eq ptr %22, null
   br i1 %.not13, label %25, label %23
@@ -842,7 +842,7 @@ define dso_local range(i32 -1, 1) i32 @slurm_process_option(ptr noundef %0, i32 
   br label %12
 
 11:                                               ; preds = %5
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.4, ptr noundef nonnull @__func__.slurm_process_option) #23
+  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.4, ptr noundef nonnull @__func__.slurm_process_option) #22
   unreachable
 
 12:                                               ; preds = %.preheader, %39
@@ -914,7 +914,7 @@ define dso_local range(i32 -1, 1) i32 @slurm_process_option(ptr noundef %0, i32 
   br i1 %4, label %154, label %43
 
 43:                                               ; preds = %42
-  %44 = tail call i32 @spank_process_option(i32 noundef %1, ptr noundef %2) #22
+  %44 = tail call i32 @spank_process_option(i32 noundef %1, ptr noundef %2) #21
   %.not123 = icmp ne i32 %44, 0
   %. = sext i1 %.not123 to i32
   br label %154
@@ -976,12 +976,12 @@ define dso_local range(i32 -1, 1) i32 @slurm_process_option(ptr noundef %0, i32 
   br i1 %65, label %75, label %66
 
 66:                                               ; preds = %63
-  %67 = tail call i32 @xstrcasecmp(ptr noundef nonnull %2, ptr noundef nonnull @.str.5) #22
+  %67 = tail call i32 @xstrcasecmp(ptr noundef nonnull %2, ptr noundef nonnull @.str.5) #21
   %.not127 = icmp eq i32 %67, 0
   br i1 %.not127, label %75, label %68
 
 68:                                               ; preds = %66
-  %69 = call i64 @strtol(ptr noundef nonnull %2, ptr noundef nonnull %6, i32 noundef 10) #22
+  %69 = call i64 @strtol(ptr noundef nonnull %2, ptr noundef nonnull %6, i32 noundef 10) #21
   %.not128 = icmp eq i64 %69, 0
   br i1 %.not128, label %74, label %70
 
@@ -1014,7 +1014,7 @@ define dso_local range(i32 -1, 1) i32 @slurm_process_option(ptr noundef %0, i32 
   br i1 %.not.i, label %82, label %_init_state.exit
 
 82:                                               ; preds = %79
-  %83 = tail call ptr @slurm_xcalloc(i64 noundef 1312, i64 noundef 2, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.29, i32 noundef 4340, ptr noundef nonnull @__func__._init_state) #22
+  %83 = tail call ptr @slurm_xcalloc(i64 noundef 1312, i64 noundef 2, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.29, i32 noundef 4340, ptr noundef nonnull @__func__._init_state) #21
   store ptr %83, ptr %80, align 8
   br label %_init_state.exit
 
@@ -1024,7 +1024,7 @@ _init_state.exit:                                 ; preds = %79, %82
 84:                                               ; preds = %_init_state.exit
   %85 = getelementptr inbounds nuw i8, ptr %13, i64 80
   %86 = load ptr, ptr %85, align 8
-  tail call void %86(ptr noundef nonnull %0) #22
+  tail call void %86(ptr noundef nonnull %0) #21
   %87 = load ptr, ptr %80, align 8
   %88 = getelementptr inbounds nuw %struct.slurm_opt_state_t, ptr %87, i64 %indvars.iv
   store i8 0, ptr %88, align 1
@@ -1040,7 +1040,7 @@ _init_state.exit:                                 ; preds = %79, %82
   br i1 %.not129, label %102, label %94
 
 94:                                               ; preds = %92
-  %95 = tail call i32 %93(ptr noundef nonnull %0, ptr noundef %.098) #22
+  %95 = tail call i32 %93(ptr noundef nonnull %0, ptr noundef %.098) #21
   %.not142 = icmp eq i32 %95, 0
   br i1 %.not142, label %96, label %154
 
@@ -1066,7 +1066,7 @@ _init_state.exit:                                 ; preds = %79, %82
   br i1 %.not131, label %115, label %107
 
 107:                                              ; preds = %104
-  %108 = tail call i32 %106(ptr noundef nonnull %0, ptr noundef %.098) #22
+  %108 = tail call i32 %106(ptr noundef nonnull %0, ptr noundef %.098) #21
   %.not141 = icmp eq i32 %108, 0
   br i1 %.not141, label %109, label %154
 
@@ -1092,7 +1092,7 @@ _init_state.exit:                                 ; preds = %79, %82
   br i1 %.not133, label %128, label %120
 
 120:                                              ; preds = %117
-  %121 = tail call i32 %119(ptr noundef nonnull %0, ptr noundef %.098) #22
+  %121 = tail call i32 %119(ptr noundef nonnull %0, ptr noundef %.098) #21
   %.not140 = icmp eq i32 %121, 0
   br i1 %.not140, label %122, label %154
 
@@ -1118,7 +1118,7 @@ _init_state.exit:                                 ; preds = %79, %82
   br i1 %.not135, label %141, label %133
 
 133:                                              ; preds = %130
-  %134 = tail call i32 %132(ptr noundef nonnull %0, ptr noundef %.098) #22
+  %134 = tail call i32 %132(ptr noundef nonnull %0, ptr noundef %.098) #21
   %.not139 = icmp eq i32 %134, 0
   br i1 %.not139, label %135, label %154
 
@@ -1144,7 +1144,7 @@ _init_state.exit:                                 ; preds = %79, %82
   br i1 %.not137, label %154, label %146
 
 146:                                              ; preds = %143
-  %147 = tail call i32 %145(ptr noundef nonnull %0, ptr noundef %.098) #22
+  %147 = tail call i32 %145(ptr noundef nonnull %0, ptr noundef %.098) #21
   %.not138 = icmp eq i32 %147, 0
   br i1 %.not138, label %148, label %154
 
@@ -1180,7 +1180,7 @@ define dso_local void @slurm_process_option_or_exit(ptr noundef %0, i32 noundef 
   br i1 %.not, label %8, label %7
 
 7:                                                ; preds = %5
-  tail call void @exit(i32 noundef -1) #24
+  tail call void @exit(i32 noundef -1) #23
   unreachable
 
 8:                                                ; preds = %5
@@ -1197,25 +1197,25 @@ define dso_local void @slurm_print_set_options(ptr noundef %0) local_unnamed_add
   br i1 %.not, label %3, label %4
 
 3:                                                ; preds = %1
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.4, ptr noundef nonnull @__func__.slurm_print_set_options) #23
+  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.4, ptr noundef nonnull @__func__.slurm_print_set_options) #22
   unreachable
 
 4:                                                ; preds = %1
-  %5 = tail call i32 @get_log_level() #22
+  %5 = tail call i32 @get_log_level() #21
   %6 = icmp sgt i32 %5, 2
   br i1 %6, label %7, label %8
 
 7:                                                ; preds = %4
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.6) #22
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.6) #21
   br label %8
 
 8:                                                ; preds = %7, %4
-  %9 = tail call i32 @get_log_level() #22
+  %9 = tail call i32 @get_log_level() #21
   %10 = icmp sgt i32 %9, 2
   br i1 %10, label %11, label %12
 
 11:                                               ; preds = %8
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.7) #22
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.7) #21
   br label %12
 
 12:                                               ; preds = %11, %8
@@ -1225,7 +1225,7 @@ define dso_local void @slurm_print_set_options(ptr noundef %0) local_unnamed_add
   br i1 %15, label %.split17.us, label %.split
 
 .split17.us:                                      ; preds = %37, %12
-  %16 = call i32 @get_log_level() #22
+  %16 = call i32 @get_log_level() #21
   %17 = icmp sgt i32 %16, 2
   br i1 %17, label %38, label %39
 
@@ -1256,23 +1256,23 @@ define dso_local void @slurm_print_set_options(ptr noundef %0) local_unnamed_add
   br i1 %.not14, label %30, label %28
 
 28:                                               ; preds = %24
-  %29 = call ptr %27(ptr noundef nonnull %0) #22
+  %29 = call ptr %27(ptr noundef nonnull %0) #21
   store ptr %29, ptr %2, align 8
   br label %30
 
 30:                                               ; preds = %28, %24
-  %31 = call i32 @get_log_level() #22
+  %31 = call i32 @get_log_level() #21
   %32 = icmp sgt i32 %31, 2
   br i1 %32, label %33, label %36
 
 33:                                               ; preds = %30
   %34 = load ptr, ptr %25, align 8
   %35 = load ptr, ptr %2, align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.8, ptr noundef %34, ptr noundef %35) #22
+  call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.8, ptr noundef %34, ptr noundef %35) #21
   br label %36
 
 36:                                               ; preds = %33, %30
-  call void @slurm_xfree(ptr noundef nonnull %2) #22
+  call void @slurm_xfree(ptr noundef nonnull %2) #21
   br label %37
 
 37:                                               ; preds = %.split, %20, %36
@@ -1282,16 +1282,16 @@ define dso_local void @slurm_print_set_options(ptr noundef %0) local_unnamed_add
   br i1 %.not12, label %.split17.us, label %.splitthread-pre-split, !llvm.loop !15
 
 38:                                               ; preds = %.split17.us
-  call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.7) #22
+  call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.7) #21
   br label %39
 
 39:                                               ; preds = %38, %.split17.us
-  %40 = call i32 @get_log_level() #22
+  %40 = call i32 @get_log_level() #21
   %41 = icmp sgt i32 %40, 2
   br i1 %41, label %42, label %43
 
 42:                                               ; preds = %39
-  call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.9) #22
+  call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.9) #21
   br label %43
 
 43:                                               ; preds = %42, %39
@@ -1331,12 +1331,12 @@ _find_option_index_from_optval.exit:              ; preds = %9, %.split.loop.exi
   br i1 %.not.i2, label %11, label %15
 
 11:                                               ; preds = %_find_option_index_from_optval.exit
-  %12 = tail call i32 @get_log_level() #22
+  %12 = tail call i32 @get_log_level() #21
   %13 = icmp sgt i32 %12, 6
   br i1 %13, label %14, label %_option_index_set_by_cli.exit
 
 14:                                               ; preds = %11
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.479, ptr noundef nonnull @__func__._option_index_set_by_cli) #22
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.479, ptr noundef nonnull @__func__._option_index_set_by_cli) #21
   br label %_option_index_set_by_cli.exit
 
 15:                                               ; preds = %_find_option_index_from_optval.exit
@@ -1392,12 +1392,12 @@ _find_option_index_from_optval.exit:              ; preds = %9, %.split.loop.exi
   br i1 %.not.i2, label %11, label %15
 
 11:                                               ; preds = %_find_option_index_from_optval.exit
-  %12 = tail call i32 @get_log_level() #22
+  %12 = tail call i32 @get_log_level() #21
   %13 = icmp sgt i32 %12, 6
   br i1 %13, label %14, label %_option_index_set_by_env.exit
 
 14:                                               ; preds = %11
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.479, ptr noundef nonnull @__func__._option_index_set_by_env) #22
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.479, ptr noundef nonnull @__func__._option_index_set_by_env) #21
   br label %_option_index_set_by_env.exit
 
 15:                                               ; preds = %_find_option_index_from_optval.exit
@@ -1427,7 +1427,7 @@ define dso_local ptr @slurm_option_get(ptr noundef %0, ptr noundef %1) local_unn
   %4 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %indvars.iv.i
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
-  %7 = tail call i32 @xstrcmp(ptr noundef %1, ptr noundef %6) #22
+  %7 = tail call i32 @xstrcmp(ptr noundef %1, ptr noundef %6) #21
   %.not9.i = icmp eq i32 %7, 0
   br i1 %.not9.i, label %_find_option_idx.exit, label %8
 
@@ -1442,7 +1442,7 @@ _find_option_idx.exit:                            ; preds = %3
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 72
   %13 = load ptr, ptr %12, align 8
-  %14 = tail call ptr %13(ptr noundef %0) #22
+  %14 = tail call ptr %13(ptr noundef %0) #21
   br label %_find_option_idx.exit.thread
 
 _find_option_idx.exit.thread:                     ; preds = %8, %_find_option_idx.exit
@@ -1459,7 +1459,7 @@ define dso_local zeroext i1 @slurm_option_isset(ptr noundef readonly captures(no
   %4 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %indvars.iv.i
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
-  %7 = tail call i32 @xstrcmp(ptr noundef %1, ptr noundef %6) #22
+  %7 = tail call i32 @xstrcmp(ptr noundef %1, ptr noundef %6) #21
   %.not9.i = icmp eq i32 %7, 0
   br i1 %.not9.i, label %_find_option_idx.exit, label %8
 
@@ -1495,7 +1495,7 @@ define dso_local i32 @slurm_option_set(ptr noundef %0, ptr noundef %1, ptr nound
   %6 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %indvars.iv.i
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %7, align 8
-  %9 = tail call i32 @xstrcmp(ptr noundef %1, ptr noundef %8) #22
+  %9 = tail call i32 @xstrcmp(ptr noundef %1, ptr noundef %8) #21
   %.not9.i = icmp eq i32 %9, 0
   br i1 %.not9.i, label %_find_option_idx.exit, label %10
 
@@ -1585,7 +1585,7 @@ _find_option_idx.exit:                            ; preds = %5
 
 50:                                               ; preds = %47, %44, %38, %36, %._crit_edge
   %.sink = phi ptr [ %32, %._crit_edge ], [ %40, %38 ], [ %43, %44 ], [ %35, %36 ], [ %49, %47 ]
-  %51 = tail call i32 %.sink(ptr noundef nonnull %0, ptr noundef %2) #22
+  %51 = tail call i32 %.sink(ptr noundef nonnull %0, ptr noundef %2) #21
   %52 = icmp eq i32 %51, 0
   br i1 %52, label %53, label %_find_option_idx.exit.thread
 
@@ -1596,7 +1596,7 @@ _find_option_idx.exit:                            ; preds = %5
   br i1 %.not.i60, label %56, label %_init_state.exit
 
 56:                                               ; preds = %53
-  %57 = tail call ptr @slurm_xcalloc(i64 noundef 1312, i64 noundef 2, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.29, i32 noundef 4340, ptr noundef nonnull @__func__._init_state) #22
+  %57 = tail call ptr @slurm_xcalloc(i64 noundef 1312, i64 noundef 2, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.29, i32 noundef 4340, ptr noundef nonnull @__func__._init_state) #21
   store ptr %57, ptr %54, align 8
   br label %_init_state.exit
 
@@ -1620,7 +1620,7 @@ define dso_local noundef zeroext i1 @slurm_option_reset(ptr noundef %0, ptr noun
   %4 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %indvars.iv.i
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
-  %7 = tail call i32 @xstrcmp(ptr noundef %1, ptr noundef %6) #22
+  %7 = tail call i32 @xstrcmp(ptr noundef %1, ptr noundef %6) #21
   %.not9.i = icmp eq i32 %7, 0
   br i1 %.not9.i, label %_find_option_idx.exit, label %8
 
@@ -1635,7 +1635,7 @@ _find_option_idx.exit:                            ; preds = %3
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 80
   %13 = load ptr, ptr %12, align 8
-  tail call void %13(ptr noundef %0) #22
+  tail call void %13(ptr noundef %0) #21
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %15 = load ptr, ptr %14, align 8
   %.not = icmp eq ptr %15, null
@@ -1691,14 +1691,14 @@ define dso_local noundef zeroext i1 @slurm_option_get_next_set(ptr noundef %0, p
 
 19:                                               ; preds = %.critedge
   %20 = load ptr, ptr %9, align 8
-  %21 = tail call ptr @xstrdup(ptr noundef %20) #22
+  %21 = tail call ptr @xstrdup(ptr noundef %20) #21
   store ptr %21, ptr %1, align 8
   %22 = load i64, ptr %3, align 8
   %23 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %22
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 72
   %26 = load ptr, ptr %25, align 8
-  %27 = tail call ptr %26(ptr noundef nonnull %0) #22
+  %27 = tail call ptr %26(ptr noundef nonnull %0) #21
   store ptr %27, ptr %2, align 8
   %28 = load i64, ptr %3, align 8
   %29 = add i64 %28, 1
@@ -1751,12 +1751,12 @@ _find_option_index_from_optval.exit.i:            ; preds = %14, %.split.loop.ex
   br i1 %.not.i2.i, label %16, label %20
 
 16:                                               ; preds = %_find_option_index_from_optval.exit.i
-  %17 = tail call i32 @get_log_level() #22
+  %17 = tail call i32 @get_log_level() #21
   %18 = icmp sgt i32 %17, 6
   br i1 %18, label %19, label %slurm_option_set_by_cli.exit.thread.preheader
 
 19:                                               ; preds = %16
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.479, ptr noundef nonnull @__func__._option_index_set_by_cli) #22
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.479, ptr noundef nonnull @__func__._option_index_set_by_cli) #21
   br label %slurm_option_set_by_cli.exit.thread.preheader
 
 20:                                               ; preds = %_find_option_index_from_optval.exit.i
@@ -1926,12 +1926,12 @@ slurm_option_set_by_cli.exit94:                   ; preds = %_find_option_index_
   br i1 %.not45, label %.preheader300, label %85
 
 85:                                               ; preds = %82
-  %86 = tail call i32 @get_log_level() #22
+  %86 = tail call i32 @get_log_level() #21
   %87 = icmp sgt i32 %86, 2
   br i1 %87, label %88, label %.preheader300
 
 88:                                               ; preds = %85
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.10) #22
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.10) #21
   br label %.preheader300
 
 .preheader300:                                    ; preds = %85, %88, %82
@@ -1942,7 +1942,7 @@ slurm_option_set_by_cli.exit94:                   ; preds = %_find_option_index_
   %90 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %indvars.iv.i.i95
   %91 = load ptr, ptr %90, align 8
   %92 = load ptr, ptr %91, align 8
-  %93 = tail call i32 @xstrcmp(ptr noundef nonnull @.str.11, ptr noundef %92) #22
+  %93 = tail call i32 @xstrcmp(ptr noundef nonnull @.str.11, ptr noundef %92) #21
   %.not9.i.i = icmp eq i32 %93, 0
   br i1 %.not9.i.i, label %_find_option_idx.exit.i, label %94
 
@@ -1957,7 +1957,7 @@ _find_option_idx.exit.i:                          ; preds = %89
   %97 = load ptr, ptr %96, align 8
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 80
   %99 = load ptr, ptr %98, align 8
-  tail call void %99(ptr noundef nonnull %0) #22
+  tail call void %99(ptr noundef nonnull %0) #21
   %100 = load ptr, ptr %21, align 8
   %.not.i = icmp eq ptr %100, null
   br i1 %.not.i, label %slurm_option_reset.exit, label %101
@@ -1991,12 +1991,12 @@ _find_option_index_from_optval.exit.i101:         ; preds = %108, %.split.loop.e
   br i1 %.not.i2.i, label %110, label %114
 
 110:                                              ; preds = %_find_option_index_from_optval.exit.i101
-  %111 = tail call i32 @get_log_level() #22
+  %111 = tail call i32 @get_log_level() #21
   %112 = icmp sgt i32 %111, 6
   br i1 %112, label %113, label %slurm_option_set_by_cli.exit108.thread.preheader
 
 113:                                              ; preds = %110
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.479, ptr noundef nonnull @__func__._option_index_set_by_cli) #22
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.479, ptr noundef nonnull @__func__._option_index_set_by_cli) #21
   br label %slurm_option_set_by_cli.exit108.thread.preheader
 
 114:                                              ; preds = %_find_option_index_from_optval.exit.i101
@@ -2025,7 +2025,7 @@ slurm_option_set_by_cli.exit108.thread.preheader: ; preds = %117, %113, %110, %1
   %124 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %indvars.iv.i.i109
   %125 = load ptr, ptr %124, align 8
   %126 = load ptr, ptr %125, align 8
-  %127 = tail call i32 @xstrcmp(ptr noundef nonnull @.str.12, ptr noundef %126) #22
+  %127 = tail call i32 @xstrcmp(ptr noundef nonnull @.str.12, ptr noundef %126) #21
   %.not9.i.i110 = icmp eq i32 %127, 0
   br i1 %.not9.i.i110, label %_find_option_idx.exit.i113, label %128
 
@@ -2040,7 +2040,7 @@ _find_option_idx.exit.i113:                       ; preds = %.preheader
   %131 = load ptr, ptr %130, align 8
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 80
   %133 = load ptr, ptr %132, align 8
-  tail call void %133(ptr noundef nonnull %0) #22
+  tail call void %133(ptr noundef nonnull %0) #21
   %134 = load ptr, ptr %115, align 8
   %.not.i114 = icmp eq ptr %134, null
   br i1 %.not.i114, label %slurm_option_reset.exit115.preheader, label %135
@@ -2058,7 +2058,7 @@ slurm_option_reset.exit115:                       ; preds = %slurm_option_reset.
   %137 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %indvars.iv.i.i116
   %138 = load ptr, ptr %137, align 8
   %139 = load ptr, ptr %138, align 8
-  %140 = tail call i32 @xstrcmp(ptr noundef nonnull @.str.13, ptr noundef %139) #22
+  %140 = tail call i32 @xstrcmp(ptr noundef nonnull @.str.13, ptr noundef %139) #21
   %.not9.i.i117 = icmp eq i32 %140, 0
   br i1 %.not9.i.i117, label %_find_option_idx.exit.i120, label %141
 
@@ -2073,7 +2073,7 @@ _find_option_idx.exit.i120:                       ; preds = %slurm_option_reset.
   %144 = load ptr, ptr %143, align 8
   %145 = getelementptr inbounds nuw i8, ptr %144, i64 80
   %146 = load ptr, ptr %145, align 8
-  tail call void %146(ptr noundef nonnull %0) #22
+  tail call void %146(ptr noundef nonnull %0) #21
   %147 = load ptr, ptr %115, align 8
   %.not.i121 = icmp eq ptr %147, null
   br i1 %.not.i121, label %slurm_option_reset.exit122.preheader, label %148
@@ -2091,7 +2091,7 @@ slurm_option_reset.exit122:                       ; preds = %slurm_option_reset.
   %150 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %indvars.iv.i.i123
   %151 = load ptr, ptr %150, align 8
   %152 = load ptr, ptr %151, align 8
-  %153 = tail call i32 @xstrcmp(ptr noundef nonnull @.str.14, ptr noundef %152) #22
+  %153 = tail call i32 @xstrcmp(ptr noundef nonnull @.str.14, ptr noundef %152) #21
   %.not9.i.i124 = icmp eq i32 %153, 0
   br i1 %.not9.i.i124, label %_find_option_idx.exit.i127, label %154
 
@@ -2106,7 +2106,7 @@ _find_option_idx.exit.i127:                       ; preds = %slurm_option_reset.
   %157 = load ptr, ptr %156, align 8
   %158 = getelementptr inbounds nuw i8, ptr %157, i64 80
   %159 = load ptr, ptr %158, align 8
-  tail call void %159(ptr noundef nonnull %0) #22
+  tail call void %159(ptr noundef nonnull %0) #21
   %160 = load ptr, ptr %115, align 8
   %.not.i128 = icmp eq ptr %160, null
   br i1 %.not.i128, label %slurm_option_reset.exit129, label %161
@@ -2130,7 +2130,7 @@ slurm_option_reset.exit129:                       ; preds = %154, %_find_option_
   %166 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %indvars.iv.i.i130
   %167 = load ptr, ptr %166, align 8
   %168 = load ptr, ptr %167, align 8
-  %169 = tail call i32 @xstrcmp(ptr noundef nonnull @.str.15, ptr noundef %168) #22
+  %169 = tail call i32 @xstrcmp(ptr noundef nonnull @.str.15, ptr noundef %168) #21
   %.not9.i.i131 = icmp eq i32 %169, 0
   br i1 %.not9.i.i131, label %_find_option_idx.exit.i134, label %170
 
@@ -2145,7 +2145,7 @@ _find_option_idx.exit.i134:                       ; preds = %165
   %173 = load ptr, ptr %172, align 8
   %174 = getelementptr inbounds nuw i8, ptr %173, i64 80
   %175 = load ptr, ptr %174, align 8
-  tail call void %175(ptr noundef nonnull %0) #22
+  tail call void %175(ptr noundef nonnull %0) #21
   %176 = load ptr, ptr %115, align 8
   %.not.i135 = icmp eq ptr %176, null
   br i1 %.not.i135, label %slurm_option_reset.exit136, label %177
@@ -2166,7 +2166,7 @@ slurm_option_reset.exit136:                       ; preds = %170, %_find_option_
 181:                                              ; preds = %179
   %182 = getelementptr inbounds nuw i8, ptr %180, i64 64
   store i32 1, ptr %182, align 8
-  %183 = tail call ptr @xstrdup(ptr noundef nonnull @.str.16) #22
+  %183 = tail call ptr @xstrdup(ptr noundef nonnull @.str.16) #21
   %184 = load ptr, ptr %2, align 8
   %185 = getelementptr inbounds nuw i8, ptr %184, i64 56
   store ptr %183, ptr %185, align 8
@@ -2196,12 +2196,12 @@ _find_option_index_from_optval.exit.i140:         ; preds = %191, %.split.loop.e
   br i1 %.not.i2.i, label %193, label %197
 
 193:                                              ; preds = %_find_option_index_from_optval.exit.i140
-  %194 = tail call i32 @get_log_level() #22
+  %194 = tail call i32 @get_log_level() #21
   %195 = icmp sgt i32 %194, 6
   br i1 %195, label %196, label %slurm_option_set_by_cli.exit147.thread.preheader
 
 196:                                              ; preds = %193
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.479, ptr noundef nonnull @__func__._option_index_set_by_cli) #22
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.479, ptr noundef nonnull @__func__._option_index_set_by_cli) #21
   br label %slurm_option_set_by_cli.exit147.thread.preheader
 
 197:                                              ; preds = %_find_option_index_from_optval.exit.i140
@@ -2249,12 +2249,12 @@ _find_option_index_from_optval.exit.i151:         ; preds = %212, %.split.loop.e
   br i1 %.not.i2.i, label %214, label %218
 
 214:                                              ; preds = %_find_option_index_from_optval.exit.i151
-  %215 = tail call i32 @get_log_level() #22
+  %215 = tail call i32 @get_log_level() #21
   %216 = icmp sgt i32 %215, 6
   br i1 %216, label %217, label %slurm_option_set_by_cli.exit158.thread.preheader
 
 217:                                              ; preds = %214
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.479, ptr noundef nonnull @__func__._option_index_set_by_cli) #22
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.479, ptr noundef nonnull @__func__._option_index_set_by_cli) #21
   br label %slurm_option_set_by_cli.exit158.thread.preheader
 
 218:                                              ; preds = %_find_option_index_from_optval.exit.i151
@@ -2302,12 +2302,12 @@ _find_option_index_from_optval.exit.i162:         ; preds = %233, %.split.loop.e
   br i1 %.not.i2.i, label %235, label %239
 
 235:                                              ; preds = %_find_option_index_from_optval.exit.i162
-  %236 = tail call i32 @get_log_level() #22
+  %236 = tail call i32 @get_log_level() #21
   %237 = icmp sgt i32 %236, 6
   br i1 %237, label %238, label %slurm_option_set_by_cli.exit169.thread.preheader
 
 238:                                              ; preds = %235
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.479, ptr noundef nonnull @__func__._option_index_set_by_cli) #22
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.479, ptr noundef nonnull @__func__._option_index_set_by_cli) #21
   br label %slurm_option_set_by_cli.exit169.thread.preheader
 
 239:                                              ; preds = %_find_option_index_from_optval.exit.i162
@@ -2355,12 +2355,12 @@ _find_option_index_from_optval.exit.i173:         ; preds = %254, %.split.loop.e
   br i1 %.not.i2.i, label %256, label %260
 
 256:                                              ; preds = %_find_option_index_from_optval.exit.i173
-  %257 = tail call i32 @get_log_level() #22
+  %257 = tail call i32 @get_log_level() #21
   %258 = icmp sgt i32 %257, 6
   br i1 %258, label %259, label %slurm_option_set_by_cli.exit180.thread
 
 259:                                              ; preds = %256
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.479, ptr noundef nonnull @__func__._option_index_set_by_cli) #22
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.479, ptr noundef nonnull @__func__._option_index_set_by_cli) #21
   br label %slurm_option_set_by_cli.exit180.thread
 
 260:                                              ; preds = %_find_option_index_from_optval.exit.i173
@@ -2395,7 +2395,7 @@ slurm_option_set_by_cli.exit180:                  ; preds = %263
   %271 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %indvars.iv.i.i181
   %272 = load ptr, ptr %271, align 8
   %273 = load ptr, ptr %272, align 8
-  %274 = tail call i32 @xstrcmp(ptr noundef nonnull @.str.11, ptr noundef %273) #22
+  %274 = tail call i32 @xstrcmp(ptr noundef nonnull @.str.11, ptr noundef %273) #21
   %.not9.i.i182 = icmp eq i32 %274, 0
   br i1 %.not9.i.i182, label %_find_option_idx.exit.i185, label %275
 
@@ -2410,7 +2410,7 @@ _find_option_idx.exit.i185:                       ; preds = %270
   %278 = load ptr, ptr %277, align 8
   %279 = getelementptr inbounds nuw i8, ptr %278, i64 80
   %280 = load ptr, ptr %279, align 8
-  tail call void %280(ptr noundef %0) #22
+  tail call void %280(ptr noundef %0) #21
   %281 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %282 = load ptr, ptr %281, align 8
   %.not.i186 = icmp eq ptr %282, null
@@ -2451,12 +2451,12 @@ _find_option_idx.exit.i185:                       ; preds = %270
   br i1 %.not41, label %302, label %298
 
 298:                                              ; preds = %295
-  %299 = tail call i32 @get_log_level() #22
+  %299 = tail call i32 @get_log_level() #21
   %300 = icmp sgt i32 %299, 2
   br i1 %300, label %301, label %302
 
 301:                                              ; preds = %298
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.17) #22
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.17) #21
   br label %302
 
 302:                                              ; preds = %298, %301, %295
@@ -2482,21 +2482,21 @@ define dso_local zeroext i1 @slurm_option_get_tres_per_tres(ptr noundef %0, ptr 
   store ptr @.str.18, ptr %8, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i64 0, ptr %9, align 8
-  %10 = call i32 @slurm_get_next_tres(ptr noundef nonnull %8, ptr noundef %0, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %9, ptr noundef %3) #22
+  %10 = call i32 @slurm_get_next_tres(ptr noundef nonnull %8, ptr noundef %0, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %9, ptr noundef %3) #21
   store i32 %10, ptr %4, align 4
-  call void @slurm_xfree(ptr noundef nonnull %7) #22
+  call void @slurm_xfree(ptr noundef nonnull %7) #21
   %11 = load i32, ptr %4, align 4
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %13, label %12
 
 12:                                               ; preds = %5
   store ptr null, ptr %3, align 8
-  call void @slurm_xfree(ptr noundef nonnull %6) #22
+  call void @slurm_xfree(ptr noundef nonnull %6) #21
   br label %22
 
 13:                                               ; preds = %5
   %14 = load ptr, ptr %6, align 8
-  %15 = call i32 @xstrcasecmp(ptr noundef %14, ptr noundef %1) #22
+  %15 = call i32 @xstrcasecmp(ptr noundef %14, ptr noundef %1) #21
   %.not9 = icmp eq i32 %15, 0
   br i1 %.not9, label %16, label %20
 
@@ -2508,7 +2508,7 @@ define dso_local zeroext i1 @slurm_option_get_tres_per_tres(ptr noundef %0, ptr 
   br label %20
 
 20:                                               ; preds = %16, %13
-  call void @slurm_xfree(ptr noundef nonnull %6) #22
+  call void @slurm_xfree(ptr noundef nonnull %6) #21
   %21 = load ptr, ptr %3, align 8
   %.not10 = icmp ne ptr %21, null
   br label %22
@@ -2541,9 +2541,9 @@ define dso_local zeroext i16 @slurm_opt_get_tres_per_task_cpu_cnt(ptr noundef %0
   store ptr null, ptr %5, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 0, ptr %6, align 8
-  %7 = call i32 @slurm_get_next_tres(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %6, ptr noundef nonnull %5) #22
-  call void @slurm_xfree(ptr noundef nonnull %3) #22
-  call void @slurm_xfree(ptr noundef nonnull %4) #22
+  %7 = call i32 @slurm_get_next_tres(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %6, ptr noundef nonnull %5) #21
+  call void @slurm_xfree(ptr noundef nonnull %3) #21
+  call void @slurm_xfree(ptr noundef nonnull %4) #21
   %8 = load i64, ptr %6, align 8
   %9 = trunc i64 %8 to i16
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -2563,7 +2563,7 @@ define dso_local void @slurm_option_update_tres_per_task(i32 noundef %0, ptr nou
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = load ptr, ptr %2, align 8
   store ptr %6, ptr %5, align 8
-  %7 = tail call ptr @xstrcasestr(ptr noundef %6, ptr noundef %1) #22
+  %7 = tail call ptr @xstrcasestr(ptr noundef %6, ptr noundef %1) #21
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %8, label %12
 
@@ -2576,24 +2576,24 @@ define dso_local void @slurm_option_update_tres_per_task(i32 noundef %0, ptr nou
   br i1 %.not80, label %11, label %10
 
 10:                                               ; preds = %9
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %4, ptr noundef nonnull @.str.20, ptr noundef %1, i32 noundef %0, ptr noundef nonnull %6) #22
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %4, ptr noundef nonnull @.str.20, ptr noundef %1, i32 noundef %0, ptr noundef nonnull %6) #21
   br label %.sink.split.sink.split
 
 11:                                               ; preds = %9
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %4, ptr noundef nonnull @.str.21, ptr noundef %1, i32 noundef %0) #22
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %4, ptr noundef nonnull @.str.21, ptr noundef %1, i32 noundef %0) #21
   br label %.sink.split.sink.split
 
 12:                                               ; preds = %3
-  %13 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #25
+  %13 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #24
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 1
-  %16 = tail call i64 @strtol(ptr noundef nonnull captures(none) %15, ptr noundef null, i32 noundef 10) #22
+  %16 = tail call i64 @strtol(ptr noundef nonnull captures(none) %15, ptr noundef null, i32 noundef 10) #21
   %17 = trunc i64 %16 to i32
   %18 = icmp eq i32 %0, %17
   br i1 %18, label %49, label %19
 
 19:                                               ; preds = %12
-  %20 = tail call ptr @xstrstr(ptr noundef nonnull %7, ptr noundef nonnull @.str.22) #22
+  %20 = tail call ptr @xstrstr(ptr noundef nonnull %7, ptr noundef nonnull @.str.22) #21
   %.not81 = icmp eq ptr %20, null
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 1
   store i8 0, ptr %7, align 1
@@ -2601,7 +2601,7 @@ define dso_local void @slurm_option_update_tres_per_task(i32 noundef %0, ptr nou
   br i1 %.not82, label %.critedge, label %22
 
 22:                                               ; preds = %19
-  %23 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #25
+  %23 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #24
   %24 = getelementptr inbounds nuw i8, ptr %6, i64 %23
   %25 = getelementptr inbounds i8, ptr %24, i64 -1
   %26 = load i8, ptr %25, align 1
@@ -2640,7 +2640,7 @@ define dso_local void @slurm_option_update_tres_per_task(i32 noundef %0, ptr nou
   br i1 %or.cond, label %.thread101, label %37
 
 .thread101:                                       ; preds = %36
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %4, ptr noundef nonnull @.str.23, ptr noundef nonnull %.0, ptr noundef nonnull %.1) #22
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %4, ptr noundef nonnull @.str.23, ptr noundef nonnull %.0, ptr noundef nonnull %.1) #21
   br label %.sink.split.sink.split
 
 37:                                               ; preds = %36
@@ -2649,7 +2649,7 @@ define dso_local void @slurm_option_update_tres_per_task(i32 noundef %0, ptr nou
   br i1 %or.cond4, label %39, label %.thread88
 
 .thread88:                                        ; preds = %37
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %4, ptr noundef nonnull @.str.24, ptr noundef nonnull %.0) #22
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %4, ptr noundef nonnull @.str.24, ptr noundef nonnull %.0) #21
   br label %.sink.split.sink.split
 
 39:                                               ; preds = %37
@@ -2657,14 +2657,14 @@ define dso_local void @slurm_option_update_tres_per_task(i32 noundef %0, ptr nou
   br i1 %or.cond6, label %40, label %.sink.split.sink.split
 
 40:                                               ; preds = %39
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %4, ptr noundef nonnull @.str.24, ptr noundef nonnull %.1) #22
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %4, ptr noundef nonnull @.str.24, ptr noundef nonnull %.1) #21
   br label %.sink.split.sink.split
 
 41:                                               ; preds = %33
   br i1 %or.cond, label %.thread105, label %42
 
 .thread105:                                       ; preds = %41
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %4, ptr noundef nonnull @.str.25, ptr noundef nonnull %.0, ptr noundef nonnull %1, i32 noundef %0, ptr noundef nonnull %.1) #22
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %4, ptr noundef nonnull @.str.25, ptr noundef nonnull %.0, ptr noundef nonnull %1, i32 noundef %0, ptr noundef nonnull %.1) #21
   br label %.sink.split.sink.split
 
 42:                                               ; preds = %41
@@ -2673,7 +2673,7 @@ define dso_local void @slurm_option_update_tres_per_task(i32 noundef %0, ptr nou
   br i1 %or.cond10, label %44, label %.thread92
 
 .thread92:                                        ; preds = %42
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %4, ptr noundef nonnull @.str.26, ptr noundef nonnull %.0, ptr noundef nonnull %1, i32 noundef %0) #22
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %4, ptr noundef nonnull @.str.26, ptr noundef nonnull %.0, ptr noundef nonnull %1, i32 noundef %0) #21
   br label %.sink.split.sink.split
 
 44:                                               ; preds = %42
@@ -2681,7 +2681,7 @@ define dso_local void @slurm_option_update_tres_per_task(i32 noundef %0, ptr nou
   br i1 %or.cond12, label %45, label %46
 
 45:                                               ; preds = %44
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %4, ptr noundef nonnull @.str.20, ptr noundef nonnull %1, i32 noundef %0, ptr noundef nonnull %.1) #22
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %4, ptr noundef nonnull @.str.20, ptr noundef nonnull %1, i32 noundef %0, ptr noundef nonnull %.1) #21
   br label %.sink.split.sink.split
 
 46:                                               ; preds = %44
@@ -2689,11 +2689,11 @@ define dso_local void @slurm_option_update_tres_per_task(i32 noundef %0, ptr nou
   br i1 %or.cond14, label %.sink.split.sink.split, label %47
 
 47:                                               ; preds = %46
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %4, ptr noundef nonnull @.str.21, ptr noundef nonnull %1, i32 noundef %0) #22
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %4, ptr noundef nonnull @.str.21, ptr noundef nonnull %1, i32 noundef %0) #21
   br label %.sink.split.sink.split
 
 .sink.split.sink.split:                           ; preds = %40, %39, %47, %46, %.thread88, %.thread92, %45, %.thread101, %.thread105, %10, %11
-  call void @slurm_xfree(ptr noundef nonnull %5) #22
+  call void @slurm_xfree(ptr noundef nonnull %5) #21
   %48 = load ptr, ptr %4, align 8
   br label %.sink.split
 
@@ -2755,12 +2755,12 @@ _find_option_index_from_optval.exit.i.i:          ; preds = %19, %.split.loop.ex
   br i1 %.not.i2.i.i, label %21, label %25
 
 21:                                               ; preds = %_find_option_index_from_optval.exit.i.i
-  %22 = tail call i32 @get_log_level() #22
+  %22 = tail call i32 @get_log_level() #21
   %23 = icmp sgt i32 %22, 6
   br i1 %23, label %24, label %slurm_option_set_by_cli.exit.i
 
 24:                                               ; preds = %21
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.479, ptr noundef nonnull @__func__._option_index_set_by_cli) #22
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.479, ptr noundef nonnull @__func__._option_index_set_by_cli) #21
   br label %slurm_option_set_by_cli.exit.i
 
 25:                                               ; preds = %_find_option_index_from_optval.exit.i.i
@@ -2810,12 +2810,12 @@ _find_option_index_from_optval.exit.i56.i:        ; preds = %43, %.split.loop.ex
   br i1 %.not.i2.i.i, label %45, label %49
 
 45:                                               ; preds = %_find_option_index_from_optval.exit.i56.i
-  %46 = tail call i32 @get_log_level() #22
+  %46 = tail call i32 @get_log_level() #21
   %47 = icmp sgt i32 %46, 6
   br i1 %47, label %48, label %slurm_option_set_by_cli.exit63.i
 
 48:                                               ; preds = %45
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.479, ptr noundef nonnull @__func__._option_index_set_by_cli) #22
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.479, ptr noundef nonnull @__func__._option_index_set_by_cli) #21
   br label %slurm_option_set_by_cli.exit63.i
 
 49:                                               ; preds = %_find_option_index_from_optval.exit.i56.i
@@ -2865,12 +2865,12 @@ _find_option_index_from_optval.exit.i67.i:        ; preds = %67, %.split.loop.ex
   br i1 %.not.i2.i.i, label %69, label %73
 
 69:                                               ; preds = %_find_option_index_from_optval.exit.i67.i
-  %70 = tail call i32 @get_log_level() #22
+  %70 = tail call i32 @get_log_level() #21
   %71 = icmp sgt i32 %70, 6
   br i1 %71, label %72, label %slurm_option_set_by_env.exit.i
 
 72:                                               ; preds = %69
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.479, ptr noundef nonnull @__func__._option_index_set_by_env) #22
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.479, ptr noundef nonnull @__func__._option_index_set_by_env) #21
   br label %slurm_option_set_by_env.exit.i
 
 73:                                               ; preds = %_find_option_index_from_optval.exit.i67.i
@@ -2914,12 +2914,12 @@ _find_option_index_from_optval.exit.i76.i:        ; preds = %87, %.split.loop.ex
   br i1 %.not.i2.i.i, label %89, label %93
 
 89:                                               ; preds = %_find_option_index_from_optval.exit.i76.i
-  %90 = tail call i32 @get_log_level() #22
+  %90 = tail call i32 @get_log_level() #21
   %91 = icmp sgt i32 %90, 6
   br i1 %91, label %92, label %slurm_option_set_by_env.exit83.i
 
 92:                                               ; preds = %89
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.479, ptr noundef nonnull @__func__._option_index_set_by_env) #22
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.479, ptr noundef nonnull @__func__._option_index_set_by_env) #21
   br label %slurm_option_set_by_env.exit83.i
 
 93:                                               ; preds = %_find_option_index_from_optval.exit.i76.i
@@ -2958,7 +2958,7 @@ slurm_option_reset.exit.i.preheader:              ; preds = %144, %121, %155, %1
   br label %slurm_option_reset.exit.i
 
 107:                                              ; preds = %102
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.480, i32 noundef %104, i32 noundef %106) #23
+  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.480, i32 noundef %104, i32 noundef %106) #22
   unreachable
 
 108:                                              ; preds = %101
@@ -2972,12 +2972,12 @@ slurm_option_reset.exit.i.preheader:              ; preds = %144, %121, %155, %1
   br i1 %.not51.i, label %.preheader529, label %112
 
 112:                                              ; preds = %109
-  %113 = tail call i32 @get_log_level() #22
+  %113 = tail call i32 @get_log_level() #21
   %114 = icmp sgt i32 %113, 2
   br i1 %114, label %115, label %.preheader529
 
 115:                                              ; preds = %112
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.481) #22
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.481) #21
   br label %.preheader529
 
 .preheader529:                                    ; preds = %115, %112, %109
@@ -2988,7 +2988,7 @@ slurm_option_reset.exit.i.preheader:              ; preds = %144, %121, %155, %1
   %117 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %indvars.iv.i.i84.i
   %118 = load ptr, ptr %117, align 8
   %119 = load ptr, ptr %118, align 8
-  %120 = tail call i32 @xstrcmp(ptr noundef nonnull @.str.328, ptr noundef %119) #22
+  %120 = tail call i32 @xstrcmp(ptr noundef nonnull @.str.328, ptr noundef %119) #21
   %.not9.i.i.i = icmp eq i32 %120, 0
   br i1 %.not9.i.i.i, label %_find_option_idx.exit.i.i, label %121
 
@@ -3003,7 +3003,7 @@ _find_option_idx.exit.i.i:                        ; preds = %116
   %124 = load ptr, ptr %123, align 8
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 80
   %126 = load ptr, ptr %125, align 8
-  tail call void %126(ptr noundef %0) #22
+  tail call void %126(ptr noundef %0) #21
   %127 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %128 = load ptr, ptr %127, align 8
   %.not.i.i = icmp eq ptr %128, null
@@ -3025,12 +3025,12 @@ _find_option_idx.exit.i.i:                        ; preds = %116
   br i1 %.not50.i, label %.preheader531, label %135
 
 135:                                              ; preds = %132
-  %136 = tail call i32 @get_log_level() #22
+  %136 = tail call i32 @get_log_level() #21
   %137 = icmp sgt i32 %136, 2
   br i1 %137, label %138, label %.preheader531
 
 138:                                              ; preds = %135
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.482) #22
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.482) #21
   br label %.preheader531
 
 .preheader531:                                    ; preds = %138, %135, %132
@@ -3041,7 +3041,7 @@ _find_option_idx.exit.i.i:                        ; preds = %116
   %140 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %indvars.iv.i.i87.i
   %141 = load ptr, ptr %140, align 8
   %142 = load ptr, ptr %141, align 8
-  %143 = tail call i32 @xstrcmp(ptr noundef nonnull @.str.319, ptr noundef %142) #22
+  %143 = tail call i32 @xstrcmp(ptr noundef nonnull @.str.319, ptr noundef %142) #21
   %.not9.i.i88.i = icmp eq i32 %143, 0
   br i1 %.not9.i.i88.i, label %_find_option_idx.exit.i91.i, label %144
 
@@ -3056,7 +3056,7 @@ _find_option_idx.exit.i91.i:                      ; preds = %139
   %147 = load ptr, ptr %146, align 8
   %148 = getelementptr inbounds nuw i8, ptr %147, i64 80
   %149 = load ptr, ptr %148, align 8
-  tail call void %149(ptr noundef %0) #22
+  tail call void %149(ptr noundef %0) #21
   %150 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %151 = load ptr, ptr %150, align 8
   %.not.i92.i = icmp eq ptr %151, null
@@ -3080,7 +3080,7 @@ _find_option_idx.exit.i91.i:                      ; preds = %139
   br i1 %.not.i, label %slurm_option_reset.exit.i.preheader, label %160
 
 160:                                              ; preds = %155
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.483, i32 noundef %157, i32 noundef %159) #23
+  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.483, i32 noundef %157, i32 noundef %159) #22
   unreachable
 
 slurm_option_reset.exit.i:                        ; preds = %slurm_option_reset.exit.i.preheader, %166
@@ -3107,7 +3107,7 @@ _find_option_index_from_optval.exit.i97.i:        ; preds = %166, %.split.loop.e
   br i1 %.not.i2.i.i, label %168, label %172
 
 168:                                              ; preds = %_find_option_index_from_optval.exit.i97.i
-  %169 = tail call i32 @get_log_level() #22
+  %169 = tail call i32 @get_log_level() #21
   %170 = icmp sgt i32 %169, 6
   br i1 %170, label %171, label %slurm_option_set_by_cli.exit104.thread.i.preheader
 
@@ -3115,7 +3115,7 @@ slurm_option_set_by_cli.exit104.thread.i.preheader: ; preds = %slurm_option_set_
   br label %slurm_option_set_by_cli.exit104.thread.i
 
 171:                                              ; preds = %168
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.479, ptr noundef nonnull @__func__._option_index_set_by_cli) #22
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.479, ptr noundef nonnull @__func__._option_index_set_by_cli) #21
   br label %slurm_option_set_by_cli.exit104.thread.i.preheader
 
 172:                                              ; preds = %_find_option_index_from_optval.exit.i97.i
@@ -3137,7 +3137,7 @@ slurm_option_set_by_cli.exit104.i:                ; preds = %175
   br i1 %181, label %slurm_option_set_by_cli.exit104.thread.i.preheader, label %182
 
 182:                                              ; preds = %slurm_option_set_by_cli.exit104.i
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.484) #23
+  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.484) #22
   unreachable
 
 slurm_option_set_by_cli.exit104.thread.i:         ; preds = %slurm_option_set_by_cli.exit104.thread.i.preheader, %188
@@ -3164,7 +3164,7 @@ _find_option_index_from_optval.exit.i108.i:       ; preds = %188, %.split.loop.e
   br i1 %.not.i2.i.i, label %190, label %194
 
 190:                                              ; preds = %_find_option_index_from_optval.exit.i108.i
-  %191 = tail call i32 @get_log_level() #22
+  %191 = tail call i32 @get_log_level() #21
   %192 = icmp sgt i32 %191, 6
   br i1 %192, label %193, label %slurm_option_set_by_env.exit115.thread.i.preheader
 
@@ -3172,7 +3172,7 @@ slurm_option_set_by_env.exit115.thread.i.preheader: ; preds = %slurm_option_set_
   br label %slurm_option_set_by_env.exit115.thread.i
 
 193:                                              ; preds = %190
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.479, ptr noundef nonnull @__func__._option_index_set_by_env) #22
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.479, ptr noundef nonnull @__func__._option_index_set_by_env) #21
   br label %slurm_option_set_by_env.exit115.thread.i.preheader
 
 194:                                              ; preds = %_find_option_index_from_optval.exit.i108.i
@@ -3189,7 +3189,7 @@ slurm_option_set_by_env.exit115.i:                ; preds = %194
   br i1 %200, label %201, label %slurm_option_set_by_env.exit115.thread.i.preheader
 
 201:                                              ; preds = %slurm_option_set_by_env.exit115.i
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.485) #23
+  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.485) #22
   unreachable
 
 slurm_option_set_by_env.exit115.thread.i:         ; preds = %slurm_option_set_by_env.exit115.thread.i.preheader, %207
@@ -3216,7 +3216,7 @@ _find_option_index_from_optval.exit.i119.i:       ; preds = %207, %.split.loop.e
   br i1 %.not.i2.i.i, label %209, label %213
 
 209:                                              ; preds = %_find_option_index_from_optval.exit.i119.i
-  %210 = tail call i32 @get_log_level() #22
+  %210 = tail call i32 @get_log_level() #21
   %211 = icmp sgt i32 %210, 6
   br i1 %211, label %212, label %slurm_option_set_by_cli.exit126.thread.i.preheader
 
@@ -3224,7 +3224,7 @@ slurm_option_set_by_cli.exit126.thread.i.preheader: ; preds = %slurm_option_set_
   br label %slurm_option_set_by_cli.exit126.thread.i
 
 212:                                              ; preds = %209
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.479, ptr noundef nonnull @__func__._option_index_set_by_cli) #22
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.479, ptr noundef nonnull @__func__._option_index_set_by_cli) #21
   br label %slurm_option_set_by_cli.exit126.thread.i.preheader
 
 213:                                              ; preds = %_find_option_index_from_optval.exit.i119.i
@@ -3246,7 +3246,7 @@ slurm_option_set_by_cli.exit126.i:                ; preds = %216
   br i1 %222, label %slurm_option_set_by_cli.exit126.thread.i.preheader, label %223
 
 223:                                              ; preds = %slurm_option_set_by_cli.exit126.i
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.486) #23
+  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.486) #22
   unreachable
 
 slurm_option_set_by_cli.exit126.thread.i:         ; preds = %slurm_option_set_by_cli.exit126.thread.i.preheader, %229
@@ -3273,7 +3273,7 @@ _find_option_index_from_optval.exit.i130.i:       ; preds = %229, %.split.loop.e
   br i1 %.not.i2.i.i, label %231, label %235
 
 231:                                              ; preds = %_find_option_index_from_optval.exit.i130.i
-  %232 = tail call i32 @get_log_level() #22
+  %232 = tail call i32 @get_log_level() #21
   %233 = icmp sgt i32 %232, 6
   br i1 %233, label %234, label %slurm_option_set_by_env.exit137.thread.i.preheader
 
@@ -3281,7 +3281,7 @@ slurm_option_set_by_env.exit137.thread.i.preheader: ; preds = %slurm_option_set_
   br label %slurm_option_set_by_env.exit137.thread.i
 
 234:                                              ; preds = %231
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.479, ptr noundef nonnull @__func__._option_index_set_by_env) #22
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.479, ptr noundef nonnull @__func__._option_index_set_by_env) #21
   br label %slurm_option_set_by_env.exit137.thread.i.preheader
 
 235:                                              ; preds = %_find_option_index_from_optval.exit.i130.i
@@ -3298,7 +3298,7 @@ slurm_option_set_by_env.exit137.i:                ; preds = %235
   br i1 %241, label %242, label %slurm_option_set_by_env.exit137.thread.i.preheader
 
 242:                                              ; preds = %slurm_option_set_by_env.exit137.i
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.487) #23
+  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.487) #22
   unreachable
 
 slurm_option_set_by_env.exit137.thread.i:         ; preds = %slurm_option_set_by_env.exit137.thread.i.preheader, %248
@@ -3325,7 +3325,7 @@ _find_option_index_from_optval.exit.i141.i:       ; preds = %248, %.split.loop.e
   br i1 %.not.i2.i.i, label %250, label %254
 
 250:                                              ; preds = %_find_option_index_from_optval.exit.i141.i
-  %251 = tail call i32 @get_log_level() #22
+  %251 = tail call i32 @get_log_level() #21
   %252 = icmp sgt i32 %251, 6
   br i1 %252, label %253, label %slurm_option_set_by_cli.exit148.thread.i.preheader
 
@@ -3333,7 +3333,7 @@ slurm_option_set_by_cli.exit148.thread.i.preheader: ; preds = %slurm_option_set_
   br label %slurm_option_set_by_cli.exit148.thread.i
 
 253:                                              ; preds = %250
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.479, ptr noundef nonnull @__func__._option_index_set_by_cli) #22
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.479, ptr noundef nonnull @__func__._option_index_set_by_cli) #21
   br label %slurm_option_set_by_cli.exit148.thread.i.preheader
 
 254:                                              ; preds = %_find_option_index_from_optval.exit.i141.i
@@ -3355,7 +3355,7 @@ slurm_option_set_by_cli.exit148.i:                ; preds = %257
   br i1 %263, label %slurm_option_set_by_cli.exit148.thread.i.preheader, label %264
 
 264:                                              ; preds = %slurm_option_set_by_cli.exit148.i
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.488) #23
+  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.488) #22
   unreachable
 
 slurm_option_set_by_cli.exit148.thread.i:         ; preds = %slurm_option_set_by_cli.exit148.thread.i.preheader, %270
@@ -3382,7 +3382,7 @@ _find_option_index_from_optval.exit.i152.i:       ; preds = %270, %.split.loop.e
   br i1 %.not.i2.i.i, label %272, label %276
 
 272:                                              ; preds = %_find_option_index_from_optval.exit.i152.i
-  %273 = tail call i32 @get_log_level() #22
+  %273 = tail call i32 @get_log_level() #21
   %274 = icmp sgt i32 %273, 6
   br i1 %274, label %275, label %slurm_option_set_by_env.exit159.thread.i.preheader
 
@@ -3390,7 +3390,7 @@ slurm_option_set_by_env.exit159.thread.i.preheader: ; preds = %slurm_option_set_
   br label %slurm_option_set_by_env.exit159.thread.i
 
 275:                                              ; preds = %272
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.479, ptr noundef nonnull @__func__._option_index_set_by_env) #22
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.479, ptr noundef nonnull @__func__._option_index_set_by_env) #21
   br label %slurm_option_set_by_env.exit159.thread.i.preheader
 
 276:                                              ; preds = %_find_option_index_from_optval.exit.i152.i
@@ -3407,7 +3407,7 @@ slurm_option_set_by_env.exit159.i:                ; preds = %276
   br i1 %282, label %283, label %slurm_option_set_by_env.exit159.thread.i.preheader
 
 283:                                              ; preds = %slurm_option_set_by_env.exit159.i
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.489) #23
+  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.489) #22
   unreachable
 
 slurm_option_set_by_env.exit159.thread.i:         ; preds = %slurm_option_set_by_env.exit159.thread.i.preheader, %289
@@ -3434,7 +3434,7 @@ _find_option_index_from_optval.exit.i163.i:       ; preds = %289, %.split.loop.e
   br i1 %.not.i2.i.i, label %291, label %295
 
 291:                                              ; preds = %_find_option_index_from_optval.exit.i163.i
-  %292 = tail call i32 @get_log_level() #22
+  %292 = tail call i32 @get_log_level() #21
   %293 = icmp sgt i32 %292, 6
   br i1 %293, label %294, label %slurm_option_set_by_cli.exit170.thread.i.preheader
 
@@ -3442,7 +3442,7 @@ slurm_option_set_by_cli.exit170.thread.i.preheader: ; preds = %slurm_option_set_
   br label %slurm_option_set_by_cli.exit170.thread.i
 
 294:                                              ; preds = %291
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.479, ptr noundef nonnull @__func__._option_index_set_by_cli) #22
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.479, ptr noundef nonnull @__func__._option_index_set_by_cli) #21
   br label %slurm_option_set_by_cli.exit170.thread.i.preheader
 
 295:                                              ; preds = %_find_option_index_from_optval.exit.i163.i
@@ -3464,7 +3464,7 @@ slurm_option_set_by_cli.exit170.i:                ; preds = %298
   br i1 %304, label %slurm_option_set_by_cli.exit170.thread.i.preheader, label %305
 
 305:                                              ; preds = %slurm_option_set_by_cli.exit170.i
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.490) #23
+  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.490) #22
   unreachable
 
 slurm_option_set_by_cli.exit170.thread.i:         ; preds = %slurm_option_set_by_cli.exit170.thread.i.preheader, %311
@@ -3491,12 +3491,12 @@ _find_option_index_from_optval.exit.i174.i:       ; preds = %311, %.split.loop.e
   br i1 %.not.i2.i.i, label %313, label %317
 
 313:                                              ; preds = %_find_option_index_from_optval.exit.i174.i
-  %314 = tail call i32 @get_log_level() #22
+  %314 = tail call i32 @get_log_level() #21
   %315 = icmp sgt i32 %314, 6
   br i1 %315, label %316, label %_validate_ntasks_per_gpu.exit.preheader
 
 316:                                              ; preds = %313
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.479, ptr noundef nonnull @__func__._option_index_set_by_env) #22
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.479, ptr noundef nonnull @__func__._option_index_set_by_env) #21
   br label %_validate_ntasks_per_gpu.exit.preheader
 
 317:                                              ; preds = %_find_option_index_from_optval.exit.i174.i
@@ -3516,7 +3516,7 @@ _validate_ntasks_per_gpu.exit.preheader:          ; preds = %slurm_option_set_by
   br label %_validate_ntasks_per_gpu.exit
 
 324:                                              ; preds = %slurm_option_set_by_env.exit181.i
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.491) #23
+  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.491) #22
   unreachable
 
 _validate_ntasks_per_gpu.exit:                    ; preds = %_validate_ntasks_per_gpu.exit.preheader, %329
@@ -3524,7 +3524,7 @@ _validate_ntasks_per_gpu.exit:                    ; preds = %_validate_ntasks_pe
   %325 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %indvars.iv.i.i.i10
   %326 = load ptr, ptr %325, align 8
   %327 = load ptr, ptr %326, align 8
-  %328 = tail call i32 @xstrcmp(ptr noundef nonnull @.str.424, ptr noundef %327) #22
+  %328 = tail call i32 @xstrcmp(ptr noundef nonnull @.str.424, ptr noundef %327) #21
   %.not9.i.i.i11 = icmp eq i32 %328, 0
   br i1 %.not9.i.i.i11, label %_find_option_idx.exit.i.i26, label %329
 
@@ -3554,7 +3554,7 @@ slurm_option_isset.exit.thread.i:                 ; preds = %slurm_option_isset.
   %336 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %indvars.iv.i.i10.i
   %337 = load ptr, ptr %336, align 8
   %338 = load ptr, ptr %337, align 8
-  %339 = tail call i32 @xstrcmp(ptr noundef nonnull @.str.113, ptr noundef %338) #22
+  %339 = tail call i32 @xstrcmp(ptr noundef nonnull @.str.113, ptr noundef %338) #21
   %.not9.i.i11.i = icmp eq i32 %339, 0
   br i1 %.not9.i.i11.i, label %_find_option_idx.exit.i15.i, label %340
 
@@ -3604,12 +3604,12 @@ _find_option_index_from_optval.exit.i.i14:        ; preds = %355, %.split.loop.e
   br i1 %.not.i2.i.i, label %357, label %361
 
 357:                                              ; preds = %_find_option_index_from_optval.exit.i.i14
-  %358 = tail call i32 @get_log_level() #22
+  %358 = tail call i32 @get_log_level() #21
   %359 = icmp sgt i32 %358, 6
   br i1 %359, label %360, label %slurm_option_set_by_cli.exit.i17
 
 360:                                              ; preds = %357
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.479, ptr noundef nonnull @__func__._option_index_set_by_cli) #22
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.479, ptr noundef nonnull @__func__._option_index_set_by_cli) #21
   br label %slurm_option_set_by_cli.exit.i17
 
 361:                                              ; preds = %_find_option_index_from_optval.exit.i.i14
@@ -3652,7 +3652,7 @@ _find_option_index_from_optval.exit.i24.i:        ; preds = %375, %.split.loop.e
   br i1 %.not.i2.i.i, label %377, label %381
 
 377:                                              ; preds = %_find_option_index_from_optval.exit.i24.i
-  %378 = tail call i32 @get_log_level() #22
+  %378 = tail call i32 @get_log_level() #21
   %379 = icmp sgt i32 %378, 6
   br i1 %379, label %380, label %slurm_option_set_by_cli.exit31.thread.i.preheader
 
@@ -3660,7 +3660,7 @@ slurm_option_set_by_cli.exit31.thread.i.preheader: ; preds = %slurm_option_set_b
   br label %slurm_option_set_by_cli.exit31.thread.i
 
 380:                                              ; preds = %377
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.479, ptr noundef nonnull @__func__._option_index_set_by_cli) #22
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.479, ptr noundef nonnull @__func__._option_index_set_by_cli) #21
   br label %slurm_option_set_by_cli.exit31.thread.i.preheader
 
 381:                                              ; preds = %_find_option_index_from_optval.exit.i24.i
@@ -3683,7 +3683,7 @@ slurm_option_set_by_cli.exit31.i:                 ; preds = %384
   br i1 %.not78.i, label %slurm_option_set_by_cli.exit31.thread.i.preheader, label %391
 
 391:                                              ; preds = %slurm_option_set_by_cli.exit31.i
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.492) #23
+  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.492) #22
   unreachable
 
 slurm_option_set_by_cli.exit31.thread.i:          ; preds = %slurm_option_set_by_cli.exit31.thread.i.preheader, %397
@@ -3710,12 +3710,12 @@ _find_option_index_from_optval.exit.i35.i:        ; preds = %397, %.split.loop.e
   br i1 %.not.i2.i.i, label %399, label %403
 
 399:                                              ; preds = %_find_option_index_from_optval.exit.i35.i
-  %400 = tail call i32 @get_log_level() #22
+  %400 = tail call i32 @get_log_level() #21
   %401 = icmp sgt i32 %400, 6
   br i1 %401, label %402, label %slurm_option_set_by_env.exit.i19
 
 402:                                              ; preds = %399
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.479, ptr noundef nonnull @__func__._option_index_set_by_env) #22
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.479, ptr noundef nonnull @__func__._option_index_set_by_env) #21
   br label %slurm_option_set_by_env.exit.i19
 
 403:                                              ; preds = %_find_option_index_from_optval.exit.i35.i
@@ -3759,12 +3759,12 @@ _find_option_index_from_optval.exit.i44.i:        ; preds = %417, %.split.loop.e
   br i1 %.not.i2.i.i, label %419, label %423
 
 419:                                              ; preds = %_find_option_index_from_optval.exit.i44.i
-  %420 = tail call i32 @get_log_level() #22
+  %420 = tail call i32 @get_log_level() #21
   %421 = icmp sgt i32 %420, 6
   br i1 %421, label %422, label %slurm_option_set_by_env.exit51.thread.i
 
 422:                                              ; preds = %419
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.479, ptr noundef nonnull @__func__._option_index_set_by_env) #22
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.479, ptr noundef nonnull @__func__._option_index_set_by_env) #21
   br label %slurm_option_set_by_env.exit51.thread.i
 
 423:                                              ; preds = %_find_option_index_from_optval.exit.i44.i
@@ -3857,7 +3857,7 @@ slurm_option_set_by_cli.exit73.i:                 ; preds = %457, %_find_option_
   br i1 %462, label %slurm_option_set_by_env.exit51.thread.i, label %463
 
 463:                                              ; preds = %slurm_option_set_by_cli.exit73.i
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.493) #23
+  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.493) #22
   unreachable
 
 slurm_option_set_by_env.exit51.thread.i:          ; preds = %slurm_option_set_by_cli.exit73.i, %slurm_option_set_by_env.exit51.i, %423, %422, %419
@@ -3872,7 +3872,7 @@ slurm_option_set_by_env.exit51.thread.i:          ; preds = %slurm_option_set_by
   %469 = and i32 %468, 32768
   %.not9.i = icmp eq i32 %469, 0
   %470 = select i1 %.not9.i, ptr @.str.495, ptr @.str.426
-  %471 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.494, ptr noundef nonnull %470) #22
+  %471 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.494, ptr noundef nonnull %470) #21
   br label %_validate_spec_cores_options.exit.preheader
 
 _validate_spec_cores_options.exit.preheader:      ; preds = %340, %_find_option_idx.exit.i15.i, %slurm_option_isset.exit17.i, %slurm_option_set_by_env.exit51.thread.i, %466
@@ -3883,7 +3883,7 @@ _validate_spec_cores_options.exit:                ; preds = %_validate_spec_core
   %472 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %indvars.iv.i.i.i28
   %473 = load ptr, ptr %472, align 8
   %474 = load ptr, ptr %473, align 8
-  %475 = tail call i32 @xstrcmp(ptr noundef nonnull @.str.13, ptr noundef %474) #22
+  %475 = tail call i32 @xstrcmp(ptr noundef nonnull @.str.13, ptr noundef %474) #21
   %.not9.i.i.i29 = icmp eq i32 %475, 0
   br i1 %.not9.i.i.i29, label %_find_option_idx.exit.i.i33, label %476
 
@@ -3910,7 +3910,7 @@ slurm_option_isset.exit.i35:                      ; preds = %_find_option_idx.ex
   %483 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %indvars.iv.i.i22.i
   %484 = load ptr, ptr %483, align 8
   %485 = load ptr, ptr %484, align 8
-  %486 = tail call i32 @xstrcmp(ptr noundef nonnull @.str.15, ptr noundef %485) #22
+  %486 = tail call i32 @xstrcmp(ptr noundef nonnull @.str.15, ptr noundef %485) #21
   %.not9.i.i23.i = icmp eq i32 %486, 0
   br i1 %.not9.i.i23.i, label %_find_option_idx.exit.i27.i, label %487
 
@@ -3938,12 +3938,12 @@ slurm_option_isset.exit29.thread.i:               ; preds = %487, %slurm_option_
   br i1 %.not.i37, label %499, label %495
 
 495:                                              ; preds = %slurm_option_isset.exit29.thread.i
-  %496 = tail call i32 @get_log_level() #22
+  %496 = tail call i32 @get_log_level() #21
   %497 = icmp sgt i32 %496, 2
   br i1 %497, label %498, label %499
 
 498:                                              ; preds = %495
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.496) #22
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.496) #21
   br label %499
 
 499:                                              ; preds = %498, %495, %slurm_option_isset.exit29.thread.i
@@ -3955,7 +3955,7 @@ slurm_option_isset.exit29.thread.i:               ; preds = %487, %slurm_option_
 502:                                              ; preds = %499
   %503 = getelementptr inbounds nuw i8, ptr %501, i64 56
   %504 = getelementptr inbounds nuw i8, ptr %501, i64 64
-  %505 = tail call i32 @slurm_verify_cpu_bind(ptr noundef nonnull @.str.260, ptr noundef nonnull %503, ptr noundef nonnull %504) #22
+  %505 = tail call i32 @slurm_verify_cpu_bind(ptr noundef nonnull @.str.260, ptr noundef nonnull %503, ptr noundef nonnull %504) #21
   br label %_validate_threads_per_core_option.exit.preheader
 
 506:                                              ; preds = %slurm_option_isset.exit29.i
@@ -3967,7 +3967,7 @@ slurm_option_isset.exit29.thread.i:               ; preds = %487, %slurm_option_
 509:                                              ; preds = %506
   %510 = getelementptr inbounds nuw i8, ptr %508, i64 56
   %511 = load ptr, ptr %510, align 8
-  %512 = tail call i32 @xstrcasecmp(ptr noundef %511, ptr noundef nonnull @.str.16) #22
+  %512 = tail call i32 @xstrcasecmp(ptr noundef %511, ptr noundef nonnull @.str.16) #21
   %.not18.i = icmp eq i32 %512, 0
   br i1 %.not18.i, label %518, label %513
 
@@ -3975,7 +3975,7 @@ slurm_option_isset.exit29.thread.i:               ; preds = %487, %slurm_option_
   %514 = load ptr, ptr %507, align 8
   %515 = getelementptr inbounds nuw i8, ptr %514, i64 56
   %516 = load ptr, ptr %515, align 8
-  %517 = tail call i32 @xstrcasecmp(ptr noundef %516, ptr noundef nonnull @.str.56) #22
+  %517 = tail call i32 @xstrcasecmp(ptr noundef %516, ptr noundef nonnull @.str.56) #21
   %.not19.i = icmp eq i32 %517, 0
   br i1 %.not19.i, label %518, label %531
 
@@ -3986,12 +3986,12 @@ slurm_option_isset.exit29.thread.i:               ; preds = %487, %slurm_option_
   br i1 %.not20.i, label %525, label %521
 
 521:                                              ; preds = %518
-  %522 = tail call i32 @get_log_level() #22
+  %522 = tail call i32 @get_log_level() #21
   %523 = icmp sgt i32 %522, 2
   br i1 %523, label %524, label %525
 
 524:                                              ; preds = %521
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.497) #22
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.497) #21
   br label %525
 
 525:                                              ; preds = %524, %521, %518
@@ -4002,7 +4002,7 @@ slurm_option_isset.exit29.thread.i:               ; preds = %487, %slurm_option_
 527:                                              ; preds = %525
   %528 = getelementptr inbounds nuw i8, ptr %526, i64 56
   %529 = getelementptr inbounds nuw i8, ptr %526, i64 64
-  %530 = tail call i32 @slurm_verify_cpu_bind(ptr noundef nonnull @.str.498, ptr noundef nonnull %528, ptr noundef nonnull %529) #22
+  %530 = tail call i32 @slurm_verify_cpu_bind(ptr noundef nonnull @.str.498, ptr noundef nonnull %528, ptr noundef nonnull %529) #21
   br label %_validate_threads_per_core_option.exit.preheader
 
 531:                                              ; preds = %513, %506
@@ -4012,12 +4012,12 @@ slurm_option_isset.exit29.thread.i:               ; preds = %487, %slurm_option_
   br i1 %534, label %535, label %_validate_threads_per_core_option.exit.preheader
 
 535:                                              ; preds = %531
-  %536 = tail call i32 @get_log_level() #22
+  %536 = tail call i32 @get_log_level() #21
   %537 = icmp sgt i32 %536, 2
   br i1 %537, label %538, label %_validate_threads_per_core_option.exit.preheader
 
 538:                                              ; preds = %535
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.499) #22
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.499) #21
   br label %_validate_threads_per_core_option.exit.preheader
 
 _validate_threads_per_core_option.exit.preheader: ; preds = %476, %_find_option_idx.exit.i.i33, %slurm_option_isset.exit.i35, %499, %502, %525, %527, %531, %535, %538
@@ -4047,12 +4047,12 @@ _find_option_index_from_optval.exit.i.i41:        ; preds = %544, %.split.loop.e
   br i1 %.not.i2.i.i, label %546, label %550
 
 546:                                              ; preds = %_find_option_index_from_optval.exit.i.i41
-  %547 = tail call i32 @get_log_level() #22
+  %547 = tail call i32 @get_log_level() #21
   %548 = icmp sgt i32 %547, 6
   br i1 %548, label %549, label %slurm_option_set_by_cli.exit.i45
 
 549:                                              ; preds = %546
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.479, ptr noundef nonnull @__func__._option_index_set_by_cli) #22
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.479, ptr noundef nonnull @__func__._option_index_set_by_cli) #21
   br label %slurm_option_set_by_cli.exit.i45
 
 550:                                              ; preds = %_find_option_index_from_optval.exit.i.i41
@@ -4102,12 +4102,12 @@ _find_option_index_from_optval.exit.i22.i:        ; preds = %568, %.split.loop.e
   br i1 %.not.i2.i.i, label %570, label %574
 
 570:                                              ; preds = %_find_option_index_from_optval.exit.i22.i
-  %571 = tail call i32 @get_log_level() #22
+  %571 = tail call i32 @get_log_level() #21
   %572 = icmp sgt i32 %571, 6
   br i1 %572, label %573, label %slurm_option_set_by_cli.exit29.i
 
 573:                                              ; preds = %570
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.479, ptr noundef nonnull @__func__._option_index_set_by_cli) #22
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.479, ptr noundef nonnull @__func__._option_index_set_by_cli) #21
   br label %slurm_option_set_by_cli.exit29.i
 
 574:                                              ; preds = %_find_option_index_from_optval.exit.i22.i
@@ -4158,12 +4158,12 @@ _find_option_index_from_optval.exit.i33.i:        ; preds = %593, %.split.loop.e
   br i1 %.not.i2.i.i, label %595, label %599
 
 595:                                              ; preds = %_find_option_index_from_optval.exit.i33.i
-  %596 = tail call i32 @get_log_level() #22
+  %596 = tail call i32 @get_log_level() #21
   %597 = icmp sgt i32 %596, 6
   br i1 %597, label %598, label %slurm_option_set_by_cli.exit40.i
 
 598:                                              ; preds = %595
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.479, ptr noundef nonnull @__func__._option_index_set_by_cli) #22
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.479, ptr noundef nonnull @__func__._option_index_set_by_cli) #21
   br label %slurm_option_set_by_cli.exit40.i
 
 599:                                              ; preds = %_find_option_index_from_optval.exit.i33.i
@@ -4192,7 +4192,7 @@ slurm_option_set_by_cli.exit40.i:                 ; preds = %606, %602, %599, %5
   br i1 %612, label %613, label %.preheader167.i
 
 613:                                              ; preds = %slurm_option_set_by_cli.exit40.i
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.500) #23
+  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.500) #22
   unreachable
 
 .preheader167.i:                                  ; preds = %slurm_option_set_by_cli.exit40.i, %619
@@ -4219,7 +4219,7 @@ _find_option_index_from_optval.exit.i44.i50:      ; preds = %619, %.split.loop.e
   br i1 %.not.i2.i.i, label %621, label %625
 
 621:                                              ; preds = %_find_option_index_from_optval.exit.i44.i50
-  %622 = tail call i32 @get_log_level() #22
+  %622 = tail call i32 @get_log_level() #21
   %623 = icmp sgt i32 %622, 6
   br i1 %623, label %624, label %slurm_option_set_by_cli.exit51.thread.i.preheader
 
@@ -4227,7 +4227,7 @@ slurm_option_set_by_cli.exit51.thread.i.preheader: ; preds = %slurm_option_set_b
   br label %slurm_option_set_by_cli.exit51.thread.i
 
 624:                                              ; preds = %621
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.479, ptr noundef nonnull @__func__._option_index_set_by_cli) #22
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.479, ptr noundef nonnull @__func__._option_index_set_by_cli) #21
   br label %slurm_option_set_by_cli.exit51.thread.i.preheader
 
 625:                                              ; preds = %_find_option_index_from_optval.exit.i44.i50
@@ -4253,7 +4253,7 @@ slurm_option_set_by_cli.exit51.i:                 ; preds = %628
   %635 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %indvars.iv.i.i52.i63
   %636 = load ptr, ptr %635, align 8
   %637 = load ptr, ptr %636, align 8
-  %638 = tail call i32 @xstrcmp(ptr noundef nonnull @.str.273, ptr noundef %637) #22
+  %638 = tail call i32 @xstrcmp(ptr noundef nonnull @.str.273, ptr noundef %637) #21
   %.not9.i.i.i64 = icmp eq i32 %638, 0
   br i1 %.not9.i.i.i64, label %_find_option_idx.exit.i.i68, label %639
 
@@ -4268,7 +4268,7 @@ _find_option_idx.exit.i.i68:                      ; preds = %.preheader166.i
   %642 = load ptr, ptr %641, align 8
   %643 = getelementptr inbounds nuw i8, ptr %642, i64 80
   %644 = load ptr, ptr %643, align 8
-  tail call void %644(ptr noundef nonnull %0) #22
+  tail call void %644(ptr noundef nonnull %0) #21
   %645 = load ptr, ptr %626, align 8
   %.not.i.i69 = icmp eq ptr %645, null
   br i1 %.not.i.i69, label %slurm_option_reset.exit.i67.preheader, label %646
@@ -4286,7 +4286,7 @@ slurm_option_reset.exit.i67:                      ; preds = %slurm_option_reset.
   %648 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %indvars.iv.i.i55.i
   %649 = load ptr, ptr %648, align 8
   %650 = load ptr, ptr %649, align 8
-  %651 = tail call i32 @xstrcmp(ptr noundef nonnull @.str.276, ptr noundef %650) #22
+  %651 = tail call i32 @xstrcmp(ptr noundef nonnull @.str.276, ptr noundef %650) #21
   %.not9.i.i56.i = icmp eq i32 %651, 0
   br i1 %.not9.i.i56.i, label %_find_option_idx.exit.i59.i, label %652
 
@@ -4301,7 +4301,7 @@ _find_option_idx.exit.i59.i:                      ; preds = %slurm_option_reset.
   %655 = load ptr, ptr %654, align 8
   %656 = getelementptr inbounds nuw i8, ptr %655, i64 80
   %657 = load ptr, ptr %656, align 8
-  tail call void %657(ptr noundef nonnull %0) #22
+  tail call void %657(ptr noundef nonnull %0) #21
   %658 = load ptr, ptr %626, align 8
   %.not.i60.i = icmp eq ptr %658, null
   br i1 %.not.i60.i, label %slurm_option_reset.exit61.i, label %659
@@ -4335,7 +4335,7 @@ _find_option_index_from_optval.exit.i65.i:        ; preds = %666, %.split.loop.e
   br i1 %.not.i2.i.i, label %668, label %672
 
 668:                                              ; preds = %_find_option_index_from_optval.exit.i65.i
-  %669 = tail call i32 @get_log_level() #22
+  %669 = tail call i32 @get_log_level() #21
   %670 = icmp sgt i32 %669, 6
   br i1 %670, label %671, label %slurm_option_set_by_cli.exit72.thread.i.preheader
 
@@ -4343,7 +4343,7 @@ slurm_option_set_by_cli.exit72.thread.i.preheader: ; preds = %slurm_option_set_b
   br label %slurm_option_set_by_cli.exit72.thread.i
 
 671:                                              ; preds = %668
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.479, ptr noundef nonnull @__func__._option_index_set_by_cli) #22
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.479, ptr noundef nonnull @__func__._option_index_set_by_cli) #21
   br label %slurm_option_set_by_cli.exit72.thread.i.preheader
 
 672:                                              ; preds = %_find_option_index_from_optval.exit.i65.i
@@ -4369,7 +4369,7 @@ slurm_option_set_by_cli.exit72.i:                 ; preds = %675
   %682 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %indvars.iv.i.i73.i62
   %683 = load ptr, ptr %682, align 8
   %684 = load ptr, ptr %683, align 8
-  %685 = tail call i32 @xstrcmp(ptr noundef nonnull @.str.266, ptr noundef %684) #22
+  %685 = tail call i32 @xstrcmp(ptr noundef nonnull @.str.266, ptr noundef %684) #21
   %.not9.i.i74.i = icmp eq i32 %685, 0
   br i1 %.not9.i.i74.i, label %_find_option_idx.exit.i77.i, label %686
 
@@ -4384,7 +4384,7 @@ _find_option_idx.exit.i77.i:                      ; preds = %.preheader164.i
   %689 = load ptr, ptr %688, align 8
   %690 = getelementptr inbounds nuw i8, ptr %689, i64 80
   %691 = load ptr, ptr %690, align 8
-  tail call void %691(ptr noundef nonnull %0) #22
+  tail call void %691(ptr noundef nonnull %0) #21
   %692 = load ptr, ptr %673, align 8
   %.not.i78.i = icmp eq ptr %692, null
   br i1 %.not.i78.i, label %slurm_option_reset.exit79.i.preheader, label %693
@@ -4402,7 +4402,7 @@ slurm_option_reset.exit79.i:                      ; preds = %slurm_option_reset.
   %695 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %indvars.iv.i.i80.i
   %696 = load ptr, ptr %695, align 8
   %697 = load ptr, ptr %696, align 8
-  %698 = tail call i32 @xstrcmp(ptr noundef nonnull @.str.276, ptr noundef %697) #22
+  %698 = tail call i32 @xstrcmp(ptr noundef nonnull @.str.276, ptr noundef %697) #21
   %.not9.i.i81.i = icmp eq i32 %698, 0
   br i1 %.not9.i.i81.i, label %_find_option_idx.exit.i84.i, label %699
 
@@ -4417,7 +4417,7 @@ _find_option_idx.exit.i84.i:                      ; preds = %slurm_option_reset.
   %702 = load ptr, ptr %701, align 8
   %703 = getelementptr inbounds nuw i8, ptr %702, i64 80
   %704 = load ptr, ptr %703, align 8
-  tail call void %704(ptr noundef nonnull %0) #22
+  tail call void %704(ptr noundef nonnull %0) #21
   %705 = load ptr, ptr %673, align 8
   %.not.i85.i = icmp eq ptr %705, null
   br i1 %.not.i85.i, label %slurm_option_reset.exit61.i, label %706
@@ -4451,7 +4451,7 @@ _find_option_index_from_optval.exit.i90.i:        ; preds = %713, %.split.loop.e
   br i1 %.not.i2.i.i, label %715, label %719
 
 715:                                              ; preds = %_find_option_index_from_optval.exit.i90.i
-  %716 = tail call i32 @get_log_level() #22
+  %716 = tail call i32 @get_log_level() #21
   %717 = icmp sgt i32 %716, 6
   br i1 %717, label %718, label %slurm_option_set_by_cli.exit97.thread.i.preheader
 
@@ -4459,7 +4459,7 @@ slurm_option_set_by_cli.exit97.thread.i.preheader: ; preds = %slurm_option_set_b
   br label %slurm_option_set_by_cli.exit97.thread.i
 
 718:                                              ; preds = %715
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.479, ptr noundef nonnull @__func__._option_index_set_by_cli) #22
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.479, ptr noundef nonnull @__func__._option_index_set_by_cli) #21
   br label %slurm_option_set_by_cli.exit97.thread.i.preheader
 
 719:                                              ; preds = %_find_option_index_from_optval.exit.i90.i
@@ -4485,7 +4485,7 @@ slurm_option_set_by_cli.exit97.i:                 ; preds = %722
   %729 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %indvars.iv.i.i98.i
   %730 = load ptr, ptr %729, align 8
   %731 = load ptr, ptr %730, align 8
-  %732 = tail call i32 @xstrcmp(ptr noundef nonnull @.str.266, ptr noundef %731) #22
+  %732 = tail call i32 @xstrcmp(ptr noundef nonnull @.str.266, ptr noundef %731) #21
   %.not9.i.i99.i = icmp eq i32 %732, 0
   br i1 %.not9.i.i99.i, label %_find_option_idx.exit.i102.i, label %733
 
@@ -4500,7 +4500,7 @@ _find_option_idx.exit.i102.i:                     ; preds = %.preheader162.i
   %736 = load ptr, ptr %735, align 8
   %737 = getelementptr inbounds nuw i8, ptr %736, i64 80
   %738 = load ptr, ptr %737, align 8
-  tail call void %738(ptr noundef nonnull %0) #22
+  tail call void %738(ptr noundef nonnull %0) #21
   %739 = load ptr, ptr %720, align 8
   %.not.i103.i = icmp eq ptr %739, null
   br i1 %.not.i103.i, label %slurm_option_reset.exit104.i.preheader, label %740
@@ -4518,7 +4518,7 @@ slurm_option_reset.exit104.i:                     ; preds = %slurm_option_reset.
   %742 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %indvars.iv.i.i105.i61
   %743 = load ptr, ptr %742, align 8
   %744 = load ptr, ptr %743, align 8
-  %745 = tail call i32 @xstrcmp(ptr noundef nonnull @.str.273, ptr noundef %744) #22
+  %745 = tail call i32 @xstrcmp(ptr noundef nonnull @.str.273, ptr noundef %744) #21
   %.not9.i.i106.i = icmp eq i32 %745, 0
   br i1 %.not9.i.i106.i, label %_find_option_idx.exit.i109.i, label %746
 
@@ -4533,7 +4533,7 @@ _find_option_idx.exit.i109.i:                     ; preds = %slurm_option_reset.
   %749 = load ptr, ptr %748, align 8
   %750 = getelementptr inbounds nuw i8, ptr %749, i64 80
   %751 = load ptr, ptr %750, align 8
-  tail call void %751(ptr noundef nonnull %0) #22
+  tail call void %751(ptr noundef nonnull %0) #21
   %752 = load ptr, ptr %720, align 8
   %.not.i110.i = icmp eq ptr %752, null
   br i1 %.not.i110.i, label %slurm_option_reset.exit61.i, label %753
@@ -4567,12 +4567,12 @@ _find_option_index_from_optval.exit.i115.i:       ; preds = %760, %.split.loop.e
   br i1 %.not.i2.i.i, label %762, label %766
 
 762:                                              ; preds = %_find_option_index_from_optval.exit.i115.i
-  %763 = tail call i32 @get_log_level() #22
+  %763 = tail call i32 @get_log_level() #21
   %764 = icmp sgt i32 %763, 6
   br i1 %764, label %765, label %slurm_option_set_by_env.exit.i54
 
 765:                                              ; preds = %762
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.479, ptr noundef nonnull @__func__._option_index_set_by_env) #22
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.479, ptr noundef nonnull @__func__._option_index_set_by_env) #21
   br label %slurm_option_set_by_env.exit.i54
 
 766:                                              ; preds = %_find_option_index_from_optval.exit.i115.i
@@ -4616,12 +4616,12 @@ _find_option_index_from_optval.exit.i124.i:       ; preds = %780, %.split.loop.e
   br i1 %.not.i2.i.i, label %782, label %786
 
 782:                                              ; preds = %_find_option_index_from_optval.exit.i124.i
-  %783 = tail call i32 @get_log_level() #22
+  %783 = tail call i32 @get_log_level() #21
   %784 = icmp sgt i32 %783, 6
   br i1 %784, label %785, label %slurm_option_set_by_env.exit131.i
 
 785:                                              ; preds = %782
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.479, ptr noundef nonnull @__func__._option_index_set_by_env) #22
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.479, ptr noundef nonnull @__func__._option_index_set_by_env) #21
   br label %slurm_option_set_by_env.exit131.i
 
 786:                                              ; preds = %_find_option_index_from_optval.exit.i124.i
@@ -4666,12 +4666,12 @@ _find_option_index_from_optval.exit.i135.i:       ; preds = %801, %.split.loop.e
   br i1 %.not.i2.i.i, label %803, label %807
 
 803:                                              ; preds = %_find_option_index_from_optval.exit.i135.i
-  %804 = tail call i32 @get_log_level() #22
+  %804 = tail call i32 @get_log_level() #21
   %805 = icmp sgt i32 %804, 6
   br i1 %805, label %806, label %slurm_option_set_by_env.exit142.i
 
 806:                                              ; preds = %803
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.479, ptr noundef nonnull @__func__._option_index_set_by_env) #22
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.479, ptr noundef nonnull @__func__._option_index_set_by_env) #21
   br label %slurm_option_set_by_env.exit142.i
 
 807:                                              ; preds = %_find_option_index_from_optval.exit.i135.i
@@ -4694,7 +4694,7 @@ slurm_option_set_by_env.exit142.i:                ; preds = %810, %807, %806, %8
   br i1 %816, label %817, label %slurm_option_reset.exit61.i
 
 817:                                              ; preds = %slurm_option_set_by_env.exit142.i
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.501) #23
+  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.501) #22
   unreachable
 
 slurm_option_reset.exit61.i:                      ; preds = %652, %699, %746, %slurm_option_set_by_env.exit142.i, %753, %_find_option_idx.exit.i109.i, %706, %_find_option_idx.exit.i84.i, %659, %_find_option_idx.exit.i59.i
@@ -4714,7 +4714,7 @@ slurm_option_reset.exit61.i:                      ; preds = %652, %699, %746, %s
   %823 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %indvars.iv.i.i143.i
   %824 = load ptr, ptr %823, align 8
   %825 = load ptr, ptr %824, align 8
-  %826 = tail call i32 @xstrcmp(ptr noundef nonnull @.str.273, ptr noundef %825) #22
+  %826 = tail call i32 @xstrcmp(ptr noundef nonnull @.str.273, ptr noundef %825) #21
   %.not9.i.i144.i = icmp eq i32 %826, 0
   br i1 %.not9.i.i144.i, label %_find_option_idx.exit.i147.i, label %827
 
@@ -4740,7 +4740,7 @@ slurm_option_isset.exit.i60:                      ; preds = %_find_option_idx.ex
   br i1 %833, label %834, label %slurm_option_isset.exit.thread.i58.preheader
 
 834:                                              ; preds = %slurm_option_isset.exit.i60
-  %835 = tail call i32 @get_log_level() #22
+  %835 = tail call i32 @get_log_level() #21
   %836 = icmp sgt i32 %835, 2
   br i1 %836, label %slurm_option_isset.exit156.thread.sink.split.i, label %_validate_memory_options.exit.preheader
 
@@ -4749,7 +4749,7 @@ slurm_option_isset.exit.thread.i58:               ; preds = %slurm_option_isset.
   %837 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %indvars.iv.i.i149.i59
   %838 = load ptr, ptr %837, align 8
   %839 = load ptr, ptr %838, align 8
-  %840 = tail call i32 @xstrcmp(ptr noundef nonnull @.str.276, ptr noundef %839) #22
+  %840 = tail call i32 @xstrcmp(ptr noundef nonnull @.str.276, ptr noundef %839) #21
   %.not9.i.i150.i = icmp eq i32 %840, 0
   br i1 %.not9.i.i150.i, label %_find_option_idx.exit.i154.i, label %841
 
@@ -4772,13 +4772,13 @@ slurm_option_isset.exit156.i:                     ; preds = %_find_option_idx.ex
   br i1 %847, label %848, label %_validate_memory_options.exit.preheader
 
 848:                                              ; preds = %slurm_option_isset.exit156.i
-  %849 = tail call i32 @get_log_level() #22
+  %849 = tail call i32 @get_log_level() #21
   %850 = icmp sgt i32 %849, 2
   br i1 %850, label %slurm_option_isset.exit156.thread.sink.split.i, label %_validate_memory_options.exit.preheader
 
 slurm_option_isset.exit156.thread.sink.split.i:   ; preds = %848, %834
   %.str.502.sink.i = phi ptr [ @.str.502, %834 ], [ @.str.503, %848 ]
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull %.str.502.sink.i) #22
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull %.str.502.sink.i) #21
   br label %_validate_memory_options.exit.preheader
 
 _validate_memory_options.exit.preheader:          ; preds = %841, %slurm_option_reset.exit61.i, %820, %834, %_find_option_idx.exit.i154.i, %slurm_option_isset.exit156.i, %848, %slurm_option_isset.exit156.thread.sink.split.i
@@ -4808,12 +4808,12 @@ _find_option_index_from_optval.exit.i.i77:        ; preds = %856, %.split.loop.e
   br i1 %.not.i2.i.i, label %858, label %862
 
 858:                                              ; preds = %_find_option_index_from_optval.exit.i.i77
-  %859 = tail call i32 @get_log_level() #22
+  %859 = tail call i32 @get_log_level() #21
   %860 = icmp sgt i32 %859, 6
   br i1 %860, label %861, label %slurm_option_set_by_cli.exit.i81
 
 861:                                              ; preds = %858
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.479, ptr noundef nonnull @__func__._option_index_set_by_cli) #22
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.479, ptr noundef nonnull @__func__._option_index_set_by_cli) #21
   br label %slurm_option_set_by_cli.exit.i81
 
 862:                                              ; preds = %_find_option_index_from_optval.exit.i.i77
@@ -4862,12 +4862,12 @@ _find_option_index_from_optval.exit.i7.i:         ; preds = %879, %.split.loop.e
   br i1 %.not.i2.i.i, label %881, label %885
 
 881:                                              ; preds = %_find_option_index_from_optval.exit.i7.i
-  %882 = tail call i32 @get_log_level() #22
+  %882 = tail call i32 @get_log_level() #21
   %883 = icmp sgt i32 %882, 6
   br i1 %883, label %884, label %_validate_share_options.exit
 
 884:                                              ; preds = %881
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.479, ptr noundef nonnull @__func__._option_index_set_by_cli) #22
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.479, ptr noundef nonnull @__func__._option_index_set_by_cli) #21
   br label %_validate_share_options.exit
 
 885:                                              ; preds = %_find_option_index_from_optval.exit.i7.i
@@ -4890,141 +4890,141 @@ slurm_option_set_by_cli.exit14.i:                 ; preds = %888
   br i1 %or.cond.not.i, label %_validate_share_options.exit, label %895
 
 895:                                              ; preds = %slurm_option_set_by_cli.exit14.i
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.504) #23
+  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.504) #22
   unreachable
 
 _validate_share_options.exit:                     ; preds = %881, %884, %885, %888, %slurm_option_set_by_cli.exit14.i
   %896 = getelementptr inbounds nuw i8, ptr %0, i64 744
   %897 = load ptr, ptr %896, align 8
-  %898 = tail call i32 @xstrncasecmp(ptr noundef %897, ptr noundef nonnull @.str.266, i64 noundef 3) #22
+  %898 = tail call i32 @xstrncasecmp(ptr noundef %897, ptr noundef nonnull @.str.266, i64 noundef 3) #21
   %.not.i85 = icmp eq i32 %898, 0
   br i1 %.not.i85, label %902, label %899
 
 899:                                              ; preds = %_validate_share_options.exit
   %900 = load ptr, ptr %896, align 8
-  %901 = tail call ptr @xstrcasestr(ptr noundef %900, ptr noundef nonnull @.str.505) #22
+  %901 = tail call ptr @xstrcasestr(ptr noundef %900, ptr noundef nonnull @.str.505) #21
   %.not21.i86 = icmp eq ptr %901, null
   br i1 %.not21.i86, label %903, label %902
 
 902:                                              ; preds = %899, %_validate_share_options.exit
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.506) #23
+  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.506) #22
   unreachable
 
 903:                                              ; preds = %899
   %904 = load ptr, ptr %896, align 8
-  %905 = tail call i32 @xstrncasecmp(ptr noundef %904, ptr noundef nonnull @.str.507, i64 noundef 6) #22
+  %905 = tail call i32 @xstrncasecmp(ptr noundef %904, ptr noundef nonnull @.str.507, i64 noundef 6) #21
   %.not22.i = icmp eq i32 %905, 0
   br i1 %.not22.i, label %909, label %906
 
 906:                                              ; preds = %903
   %907 = load ptr, ptr %896, align 8
-  %908 = tail call ptr @xstrcasestr(ptr noundef %907, ptr noundef nonnull @.str.508) #22
+  %908 = tail call ptr @xstrcasestr(ptr noundef %907, ptr noundef nonnull @.str.508) #21
   %.not23.i = icmp eq ptr %908, null
   br i1 %.not23.i, label %910, label %909
 
 909:                                              ; preds = %906, %903
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.509) #23
+  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.509) #22
   unreachable
 
 910:                                              ; preds = %906
   %911 = load ptr, ptr %896, align 8
-  %912 = tail call i32 @xstrncasecmp(ptr noundef %911, ptr noundef nonnull @.str.510, i64 noundef 4) #22
+  %912 = tail call i32 @xstrncasecmp(ptr noundef %911, ptr noundef nonnull @.str.510, i64 noundef 4) #21
   %.not24.i = icmp eq i32 %912, 0
   br i1 %.not24.i, label %916, label %913
 
 913:                                              ; preds = %910
   %914 = load ptr, ptr %896, align 8
-  %915 = tail call ptr @xstrcasestr(ptr noundef %914, ptr noundef nonnull @.str.511) #22
+  %915 = tail call ptr @xstrcasestr(ptr noundef %914, ptr noundef nonnull @.str.511) #21
   %.not25.i = icmp eq ptr %915, null
   br i1 %.not25.i, label %917, label %916
 
 916:                                              ; preds = %913, %910
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.512) #23
+  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.512) #22
   unreachable
 
 917:                                              ; preds = %913
   %918 = load ptr, ptr %896, align 8
-  %919 = tail call i32 @xstrncasecmp(ptr noundef %918, ptr noundef nonnull @.str.513, i64 noundef 7) #22
+  %919 = tail call i32 @xstrncasecmp(ptr noundef %918, ptr noundef nonnull @.str.513, i64 noundef 7) #21
   %.not26.i = icmp eq i32 %919, 0
   br i1 %.not26.i, label %923, label %920
 
 920:                                              ; preds = %917
   %921 = load ptr, ptr %896, align 8
-  %922 = tail call ptr @xstrcasestr(ptr noundef %921, ptr noundef nonnull @.str.514) #22
+  %922 = tail call ptr @xstrcasestr(ptr noundef %921, ptr noundef nonnull @.str.514) #21
   %.not27.i = icmp eq ptr %922, null
   br i1 %.not27.i, label %924, label %923
 
 923:                                              ; preds = %920, %917
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.515) #23
+  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.515) #22
   unreachable
 
 924:                                              ; preds = %920
   %925 = load ptr, ptr %896, align 8
-  %926 = tail call i32 @xstrncasecmp(ptr noundef %925, ptr noundef nonnull @.str.516, i64 noundef 2) #22
+  %926 = tail call i32 @xstrncasecmp(ptr noundef %925, ptr noundef nonnull @.str.516, i64 noundef 2) #21
   %.not28.i = icmp eq i32 %926, 0
   br i1 %.not28.i, label %930, label %927
 
 927:                                              ; preds = %924
   %928 = load ptr, ptr %896, align 8
-  %929 = tail call ptr @xstrcasestr(ptr noundef %928, ptr noundef nonnull @.str.517) #22
+  %929 = tail call ptr @xstrcasestr(ptr noundef %928, ptr noundef nonnull @.str.517) #21
   %.not29.i = icmp eq ptr %929, null
   br i1 %.not29.i, label %931, label %930
 
 930:                                              ; preds = %927, %924
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.518) #23
+  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.518) #22
   unreachable
 
 931:                                              ; preds = %927
   %932 = load ptr, ptr %896, align 8
-  %933 = tail call i32 @xstrncasecmp(ptr noundef %932, ptr noundef nonnull @.str.519, i64 noundef 4) #22
+  %933 = tail call i32 @xstrncasecmp(ptr noundef %932, ptr noundef nonnull @.str.519, i64 noundef 4) #21
   %.not30.i = icmp eq i32 %933, 0
   br i1 %.not30.i, label %937, label %934
 
 934:                                              ; preds = %931
   %935 = load ptr, ptr %896, align 8
-  %936 = tail call ptr @xstrcasestr(ptr noundef %935, ptr noundef nonnull @.str.520) #22
+  %936 = tail call ptr @xstrcasestr(ptr noundef %935, ptr noundef nonnull @.str.520) #21
   %.not31.i = icmp eq ptr %936, null
   br i1 %.not31.i, label %938, label %937
 
 937:                                              ; preds = %934, %931
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.521) #23
+  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.521) #22
   unreachable
 
 938:                                              ; preds = %934
   %939 = load ptr, ptr %896, align 8
-  %940 = tail call i32 @xstrncasecmp(ptr noundef %939, ptr noundef nonnull @.str.522, i64 noundef 5) #22
+  %940 = tail call i32 @xstrncasecmp(ptr noundef %939, ptr noundef nonnull @.str.522, i64 noundef 5) #21
   %.not32.i = icmp eq i32 %940, 0
   br i1 %.not32.i, label %944, label %941
 
 941:                                              ; preds = %938
   %942 = load ptr, ptr %896, align 8
-  %943 = tail call ptr @xstrcasestr(ptr noundef %942, ptr noundef nonnull @.str.523) #22
+  %943 = tail call ptr @xstrcasestr(ptr noundef %942, ptr noundef nonnull @.str.523) #21
   %.not33.i = icmp eq ptr %943, null
   br i1 %.not33.i, label %945, label %944
 
 944:                                              ; preds = %941, %938
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.524) #23
+  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.524) #22
   unreachable
 
 945:                                              ; preds = %941
   %946 = load ptr, ptr %896, align 8
-  %947 = tail call i32 @xstrncasecmp(ptr noundef %946, ptr noundef nonnull @.str.85, i64 noundef 2) #22
+  %947 = tail call i32 @xstrncasecmp(ptr noundef %946, ptr noundef nonnull @.str.85, i64 noundef 2) #21
   %.not34.i = icmp eq i32 %947, 0
   br i1 %.not34.i, label %951, label %948
 
 948:                                              ; preds = %945
   %949 = load ptr, ptr %896, align 8
-  %950 = tail call ptr @xstrcasestr(ptr noundef %949, ptr noundef nonnull @.str.525) #22
+  %950 = tail call ptr @xstrcasestr(ptr noundef %949, ptr noundef nonnull @.str.525) #21
   %.not35.i = icmp eq ptr %950, null
   br i1 %.not35.i, label %952, label %951
 
 951:                                              ; preds = %948, %945
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.526) #23
+  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.526) #22
   unreachable
 
 952:                                              ; preds = %948
-  tail call void @slurm_format_tres_string(ptr noundef nonnull %896, ptr noundef nonnull @.str.527) #22
-  tail call void @slurm_format_tres_string(ptr noundef nonnull %896, ptr noundef nonnull @.str.18) #22
+  tail call void @slurm_format_tres_string(ptr noundef nonnull %896, ptr noundef nonnull @.str.527) #21
+  tail call void @slurm_format_tres_string(ptr noundef nonnull %896, ptr noundef nonnull @.str.18) #21
   tail call fastcc void @_set_tres_per_task_from_sibling_opt(ptr noundef nonnull %0, i32 noundef 300)
   tail call fastcc void @_set_tres_per_task_from_sibling_opt(ptr noundef nonnull %0, i32 noundef 99)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -5035,7 +5035,7 @@ _validate_share_options.exit:                     ; preds = %881, %884, %885, %8
   store ptr @.str.18, ptr %11, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %953 = load ptr, ptr %896, align 8
-  %954 = call i32 @slurm_get_next_tres(ptr noundef nonnull %11, ptr noundef %953, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %12, ptr noundef nonnull %10) #22
+  %954 = call i32 @slurm_get_next_tres(ptr noundef nonnull %11, ptr noundef %953, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %12, ptr noundef nonnull %10) #21
   %955 = icmp eq i32 %954, 0
   %956 = load ptr, ptr %10, align 8
   %957 = icmp ne ptr %956, null
@@ -5051,21 +5051,21 @@ _validate_share_options.exit:                     ; preds = %881, %884, %885, %8
   br label %960
 
 960:                                              ; preds = %.backedge.i.i, %.lr.ph.i.i
-  call void @slurm_xfree(ptr noundef nonnull %9) #22
+  call void @slurm_xfree(ptr noundef nonnull %9) #21
   %961 = load ptr, ptr %959, align 8
   %.not13.i.i = icmp eq ptr %961, null
   br i1 %.not13.i.i, label %971, label %962
 
 962:                                              ; preds = %960
   %963 = load ptr, ptr %8, align 8
-  %964 = call ptr @xstrstr(ptr noundef nonnull %961, ptr noundef %963) #22
+  %964 = call ptr @xstrstr(ptr noundef nonnull %961, ptr noundef %963) #21
   %.not14.i.i = icmp eq ptr %964, null
   br i1 %.not14.i.i, label %971, label %.backedge.i.i
 
 .backedge.i.i:                                    ; preds = %982, %962
-  call void @slurm_xfree(ptr noundef nonnull %8) #22
+  call void @slurm_xfree(ptr noundef nonnull %8) #21
   %965 = load ptr, ptr %896, align 8
-  %966 = call i32 @slurm_get_next_tres(ptr noundef nonnull %11, ptr noundef %965, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %12, ptr noundef nonnull %10) #22
+  %966 = call i32 @slurm_get_next_tres(ptr noundef nonnull %11, ptr noundef %965, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %12, ptr noundef nonnull %10) #21
   %967 = icmp eq i32 %966, 0
   %968 = load ptr, ptr %10, align 8
   %969 = icmp ne ptr %968, null
@@ -5074,16 +5074,16 @@ _validate_share_options.exit:                     ; preds = %881, %884, %885, %8
 
 971:                                              ; preds = %962, %960
   %972 = load ptr, ptr %8, align 8
-  %973 = call i32 @xstrcmp(ptr noundef nonnull @.str.538, ptr noundef %972) #22
+  %973 = call i32 @xstrcmp(ptr noundef nonnull @.str.538, ptr noundef %972) #21
   %.not15.i.i = icmp eq i32 %973, 0
   br i1 %.not15.i.i, label %.outer.i.i, label %982
 
 .outer.i.i:                                       ; preds = %971
   %974 = load i64, ptr %12, align 8
   %975 = add i64 %974, %.0.ph18.i.i
-  call void @slurm_xfree(ptr noundef nonnull %8) #22
+  call void @slurm_xfree(ptr noundef nonnull %8) #21
   %976 = load ptr, ptr %896, align 8
-  %977 = call i32 @slurm_get_next_tres(ptr noundef nonnull %11, ptr noundef %976, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %12, ptr noundef nonnull %10) #22
+  %977 = call i32 @slurm_get_next_tres(ptr noundef nonnull %11, ptr noundef %976, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %12, ptr noundef nonnull %10) #21
   %978 = icmp eq i32 %977, 0
   %979 = load ptr, ptr %10, align 8
   %980 = icmp ne ptr %979, null
@@ -5097,7 +5097,7 @@ _validate_share_options.exit:                     ; preds = %881, %884, %885, %8
   %985 = load ptr, ptr %11, align 8
   %986 = load ptr, ptr %8, align 8
   %987 = load i64, ptr %12, align 8
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %959, ptr noundef nonnull @.str.539, ptr noundef nonnull %984, ptr noundef %985, ptr noundef %986, i64 noundef %987) #22
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %959, ptr noundef nonnull @.str.539, ptr noundef nonnull %984, ptr noundef %985, ptr noundef %986, i64 noundef %987) #21
   br label %.backedge.i.i
 
 .outer._crit_edge.i.i:                            ; preds = %.outer.i.i, %.backedge.i.i
@@ -5110,7 +5110,7 @@ _validate_share_options.exit:                     ; preds = %881, %884, %885, %8
   %.not12.i.i = icmp eq ptr %989, null
   %990 = select i1 %.not12.i.i, ptr @.str.372, ptr @.str
   %991 = load ptr, ptr %11, align 8
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %959, ptr noundef nonnull @.str.539, ptr noundef nonnull %990, ptr noundef %991, ptr noundef nonnull @.str.538, i64 noundef %.0.ph.lcssa.i.i) #22
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %959, ptr noundef nonnull @.str.539, ptr noundef nonnull %990, ptr noundef %991, ptr noundef nonnull @.str.538, i64 noundef %.0.ph.lcssa.i.i) #21
   br label %_validate_tres_per_task.exit
 
 _validate_tres_per_task.exit:                     ; preds = %952, %.outer._crit_edge.i.i, %988
@@ -5120,7 +5120,7 @@ _validate_tres_per_task.exit:                     ; preds = %952, %.outer._crit_
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %992 = load ptr, ptr %896, align 8
-  %993 = call ptr @xstrcasestr(ptr noundef %992, ptr noundef nonnull @.str.19) #22
+  %993 = call ptr @xstrcasestr(ptr noundef %992, ptr noundef nonnull @.str.19) #21
   %.not.i88 = icmp eq ptr %993, null
   br i1 %.not.i88, label %.preheader.i143, label %.preheader159.i
 
@@ -5148,12 +5148,12 @@ _find_option_index_from_optval.exit.i.i92:        ; preds = %999, %.split.loop.e
   br i1 %.not.i2.i.i, label %1001, label %1005
 
 1001:                                             ; preds = %_find_option_index_from_optval.exit.i.i92
-  %1002 = call i32 @get_log_level() #22
+  %1002 = call i32 @get_log_level() #21
   %1003 = icmp sgt i32 %1002, 6
   br i1 %1003, label %1004, label %slurm_option_set_by_cli.exit.thread.i.preheader
 
 1004:                                             ; preds = %1001
-  call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.479, ptr noundef nonnull @__func__._option_index_set_by_cli) #22
+  call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.479, ptr noundef nonnull @__func__._option_index_set_by_cli) #21
   br label %slurm_option_set_by_cli.exit.thread.i.preheader
 
 1005:                                             ; preds = %_find_option_index_from_optval.exit.i.i92
@@ -5201,12 +5201,12 @@ _find_option_index_from_optval.exit.i33.i99:      ; preds = %1020, %.split.loop.
   br i1 %.not.i2.i.i, label %1022, label %1026
 
 1022:                                             ; preds = %_find_option_index_from_optval.exit.i33.i99
-  %1023 = call i32 @get_log_level() #22
+  %1023 = call i32 @get_log_level() #21
   %1024 = icmp sgt i32 %1023, 6
   br i1 %1024, label %1025, label %slurm_option_set_by_cli.exit40.i102
 
 1025:                                             ; preds = %1022
-  call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.479, ptr noundef nonnull @__func__._option_index_set_by_cli) #22
+  call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.479, ptr noundef nonnull @__func__._option_index_set_by_cli) #21
   br label %slurm_option_set_by_cli.exit40.i102
 
 1026:                                             ; preds = %_find_option_index_from_optval.exit.i33.i99
@@ -5256,12 +5256,12 @@ _find_option_index_from_optval.exit.i44.i106:     ; preds = %1045, %.split.loop.
   br i1 %.not.i2.i.i, label %1047, label %1051
 
 1047:                                             ; preds = %_find_option_index_from_optval.exit.i44.i106
-  %1048 = call i32 @get_log_level() #22
+  %1048 = call i32 @get_log_level() #21
   %1049 = icmp sgt i32 %1048, 6
   br i1 %1049, label %1050, label %slurm_option_set_by_env.exit.thread.i.preheader
 
 1050:                                             ; preds = %1047
-  call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.479, ptr noundef nonnull @__func__._option_index_set_by_env) #22
+  call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.479, ptr noundef nonnull @__func__._option_index_set_by_env) #21
   br label %slurm_option_set_by_env.exit.thread.i.preheader
 
 1051:                                             ; preds = %_find_option_index_from_optval.exit.i44.i106
@@ -5304,12 +5304,12 @@ _find_option_index_from_optval.exit.i53.i:        ; preds = %1063, %.split.loop.
   br i1 %.not.i2.i.i, label %1065, label %1069
 
 1065:                                             ; preds = %_find_option_index_from_optval.exit.i53.i
-  %1066 = call i32 @get_log_level() #22
+  %1066 = call i32 @get_log_level() #21
   %1067 = icmp sgt i32 %1066, 6
   br i1 %1067, label %1068, label %slurm_option_set_by_env.exit60.i
 
 1068:                                             ; preds = %1065
-  call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.479, ptr noundef nonnull @__func__._option_index_set_by_env) #22
+  call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.479, ptr noundef nonnull @__func__._option_index_set_by_env) #21
   br i1 %1038, label %1120, label %.thread151.i
 
 1069:                                             ; preds = %_find_option_index_from_optval.exit.i53.i
@@ -5349,12 +5349,12 @@ _find_option_index_from_optval.exit.i64.i:        ; preds = %1082, %.split.loop.
   br i1 %.not.i2.i.i, label %1084, label %1088
 
 1084:                                             ; preds = %_find_option_index_from_optval.exit.i64.i
-  %1085 = call i32 @get_log_level() #22
+  %1085 = call i32 @get_log_level() #21
   %1086 = icmp sgt i32 %1085, 6
   br i1 %1086, label %1087, label %slurm_option_set_by_cli.exit71.i
 
 1087:                                             ; preds = %1084
-  call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.479, ptr noundef nonnull @__func__._option_index_set_by_cli) #22
+  call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.479, ptr noundef nonnull @__func__._option_index_set_by_cli) #21
   br label %slurm_option_set_by_cli.exit71.i
 
 1088:                                             ; preds = %_find_option_index_from_optval.exit.i64.i
@@ -5404,12 +5404,12 @@ _find_option_index_from_optval.exit.i75.i:        ; preds = %1106, %.split.loop.
   br i1 %.not.i2.i.i, label %1108, label %1112
 
 1108:                                             ; preds = %_find_option_index_from_optval.exit.i75.i
-  %1109 = call i32 @get_log_level() #22
+  %1109 = call i32 @get_log_level() #21
   %1110 = icmp sgt i32 %1109, 6
   br i1 %1110, label %1111, label %slurm_option_set_by_env.exit60.i
 
 1111:                                             ; preds = %1108
-  call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.479, ptr noundef nonnull @__func__._option_index_set_by_env) #22
+  call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.479, ptr noundef nonnull @__func__._option_index_set_by_env) #21
   br i1 %.0.i.i68.i, label %1120, label %.thread151.i
 
 1112:                                             ; preds = %_find_option_index_from_optval.exit.i75.i
@@ -5458,12 +5458,12 @@ _find_option_index_from_optval.exit.i86.i:        ; preds = %1127, %.split.loop.
   br i1 %.not.i2.i.i, label %1129, label %1133
 
 1129:                                             ; preds = %_find_option_index_from_optval.exit.i86.i
-  %1130 = call i32 @get_log_level() #22
+  %1130 = call i32 @get_log_level() #21
   %1131 = icmp sgt i32 %1130, 6
   br i1 %1131, label %1132, label %slurm_option_set_by_cli.exit93.thread.i
 
 1132:                                             ; preds = %1129
-  call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.479, ptr noundef nonnull @__func__._option_index_set_by_cli) #22
+  call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.479, ptr noundef nonnull @__func__._option_index_set_by_cli) #21
   br label %slurm_option_set_by_cli.exit93.thread.i
 
 1133:                                             ; preds = %_find_option_index_from_optval.exit.i86.i
@@ -5520,12 +5520,12 @@ _find_option_index_from_optval.exit.i97.i134:     ; preds = %1151, %.split.loop.
   br i1 %.not.i2.i.i, label %1153, label %1157
 
 1153:                                             ; preds = %_find_option_index_from_optval.exit.i97.i134
-  %1154 = call i32 @get_log_level() #22
+  %1154 = call i32 @get_log_level() #21
   %1155 = icmp sgt i32 %1154, 6
   br i1 %1155, label %1156, label %slurm_option_set_by_env.exit104.thread.i
 
 1156:                                             ; preds = %1153
-  call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.479, ptr noundef nonnull @__func__._option_index_set_by_env) #22
+  call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.479, ptr noundef nonnull @__func__._option_index_set_by_env) #21
   br label %slurm_option_set_by_env.exit104.thread.i
 
 1157:                                             ; preds = %_find_option_index_from_optval.exit.i97.i134
@@ -5545,7 +5545,7 @@ slurm_option_set_by_env.exit104.i:                ; preds = %1157
   br i1 %1163, label %1164, label %1165
 
 1164:                                             ; preds = %slurm_option_set_by_env.exit104.i, %slurm_option_set_by_cli.exit93.i
-  call void (ptr, ...) @fatal(ptr noundef nonnull @.str.540) #23
+  call void (ptr, ...) @fatal(ptr noundef nonnull @.str.540) #22
   unreachable
 
 1165:                                             ; preds = %slurm_option_set_by_env.exit104.i, %1143
@@ -5581,12 +5581,12 @@ _find_option_index_from_optval.exit.i108.i116:    ; preds = %1172, %.split.loop.
   br i1 %.not.i2.i.i, label %1174, label %1178
 
 1174:                                             ; preds = %_find_option_index_from_optval.exit.i108.i116
-  %1175 = call i32 @get_log_level() #22
+  %1175 = call i32 @get_log_level() #21
   %1176 = icmp sgt i32 %1175, 6
   br i1 %1176, label %1177, label %.thread151.i
 
 1177:                                             ; preds = %1174
-  call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.479, ptr noundef nonnull @__func__._option_index_set_by_env) #22
+  call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.479, ptr noundef nonnull @__func__._option_index_set_by_env) #21
   br label %.thread151.i
 
 1178:                                             ; preds = %_find_option_index_from_optval.exit.i108.i116
@@ -5622,12 +5622,12 @@ slurm_option_set_by_env.exit115.i119:             ; preds = %1178
 
 1193:                                             ; preds = %1190, %1188
   %.0.i = phi ptr [ @.str.541, %1188 ], [ %.str.543..str.542.i, %1190 ]
-  %1194 = call i32 @get_log_level() #22
+  %1194 = call i32 @get_log_level() #21
   %1195 = icmp sgt i32 %1194, 2
   br i1 %1195, label %1196, label %.preheader477
 
 1196:                                             ; preds = %1193
-  call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.544, ptr noundef nonnull %.0.i) #22
+  call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.544, ptr noundef nonnull %.0.i) #21
   br label %.preheader477
 
 .preheader477:                                    ; preds = %1196, %1193, %1185
@@ -5638,7 +5638,7 @@ slurm_option_set_by_env.exit115.i119:             ; preds = %1178
   %1198 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %indvars.iv.i.i116.i122
   %1199 = load ptr, ptr %1198, align 8
   %1200 = load ptr, ptr %1199, align 8
-  %1201 = call i32 @xstrcmp(ptr noundef nonnull @.str.126, ptr noundef %1200) #22
+  %1201 = call i32 @xstrcmp(ptr noundef nonnull @.str.126, ptr noundef %1200) #21
   %.not9.i.i.i123 = icmp eq i32 %1201, 0
   br i1 %.not9.i.i.i123, label %_find_option_idx.exit.i.i126, label %1202
 
@@ -5653,7 +5653,7 @@ _find_option_idx.exit.i.i126:                     ; preds = %1197
   %1205 = load ptr, ptr %1204, align 8
   %1206 = getelementptr inbounds nuw i8, ptr %1205, i64 80
   %1207 = load ptr, ptr %1206, align 8
-  call void %1207(ptr noundef nonnull %0) #22
+  call void %1207(ptr noundef nonnull %0) #21
   %1208 = load ptr, ptr %1179, align 8
   %.not.i.i127 = icmp eq ptr %1208, null
   br i1 %.not.i.i127, label %_validate_cpus_per_tres.exit, label %1209
@@ -5691,12 +5691,12 @@ _find_option_index_from_optval.exit.i122.i:       ; preds = %1217, %.split.loop.
   br i1 %.not.i2.i.i, label %1219, label %1223
 
 1219:                                             ; preds = %_find_option_index_from_optval.exit.i122.i
-  %1220 = call i32 @get_log_level() #22
+  %1220 = call i32 @get_log_level() #21
   %1221 = icmp sgt i32 %1220, 6
   br i1 %1221, label %1222, label %_validate_cpus_per_tres.exit
 
 1222:                                             ; preds = %1219
-  call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.479, ptr noundef nonnull @__func__._option_index_set_by_cli) #22
+  call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.479, ptr noundef nonnull @__func__._option_index_set_by_cli) #21
   br label %_validate_cpus_per_tres.exit
 
 1223:                                             ; preds = %_find_option_index_from_optval.exit.i122.i
@@ -5726,12 +5726,12 @@ slurm_option_set_by_cli.exit129.i:                ; preds = %1226
   br i1 %.not26.i112, label %.preheader, label %1237
 
 1237:                                             ; preds = %1234
-  %1238 = call i32 @get_log_level() #22
+  %1238 = call i32 @get_log_level() #21
   %1239 = icmp sgt i32 %1238, 2
   br i1 %1239, label %1240, label %.preheader
 
 1240:                                             ; preds = %1237
-  call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.545) #22
+  call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.545) #21
   br label %.preheader
 
 .preheader:                                       ; preds = %1240, %1237, %1234
@@ -5742,7 +5742,7 @@ slurm_option_set_by_cli.exit129.i:                ; preds = %1226
   %1242 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %indvars.iv.i.i130.i
   %1243 = load ptr, ptr %1242, align 8
   %1244 = load ptr, ptr %1243, align 8
-  %1245 = call i32 @xstrcmp(ptr noundef nonnull @.str.129, ptr noundef %1244) #22
+  %1245 = call i32 @xstrcmp(ptr noundef nonnull @.str.129, ptr noundef %1244) #21
   %.not9.i.i131.i = icmp eq i32 %1245, 0
   br i1 %.not9.i.i131.i, label %_find_option_idx.exit.i134.i, label %1246
 
@@ -5757,7 +5757,7 @@ _find_option_idx.exit.i134.i:                     ; preds = %1241
   %1249 = load ptr, ptr %1248, align 8
   %1250 = getelementptr inbounds nuw i8, ptr %1249, i64 80
   %1251 = load ptr, ptr %1250, align 8
-  call void %1251(ptr noundef nonnull %0) #22
+  call void %1251(ptr noundef nonnull %0) #21
   %1252 = load ptr, ptr %1224, align 8
   %.not.i135.i = icmp eq ptr %1252, null
   br i1 %.not.i135.i, label %slurm_option_reset.exit136.i, label %1253
@@ -5781,21 +5781,21 @@ _validate_cpus_per_tres.exit:                     ; preds = %1202, %_find_option
 
 1259:                                             ; preds = %_validate_cpus_per_tres.exit
   %1260 = getelementptr inbounds nuw i8, ptr %0, i64 544
-  call void @slurm_xfree(ptr noundef nonnull %1260) #22
+  call void @slurm_xfree(ptr noundef nonnull %1260) #21
   %1261 = load ptr, ptr %1257, align 8
-  %1262 = call ptr @slurm_read_hostfile(ptr noundef %1261, i32 noundef 0) #22
+  %1262 = call ptr @slurm_read_hostfile(ptr noundef %1261, i32 noundef 0) #21
   %.not21.i145 = icmp eq ptr %1262, null
   br i1 %.not21.i145, label %1263, label %1265
 
 1263:                                             ; preds = %1259
-  %1264 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.546) #22
-  call void @exit(i32 noundef -1) #24
+  %1264 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.546) #21
+  call void @exit(i32 noundef -1) #23
   unreachable
 
 1265:                                             ; preds = %1259
-  %1266 = call ptr @xstrdup(ptr noundef nonnull %1262) #22
+  %1266 = call ptr @xstrdup(ptr noundef nonnull %1262) #21
   store ptr %1266, ptr %1260, align 8
-  call void @free(ptr noundef nonnull %1262) #22
+  call void @free(ptr noundef nonnull %1262) #21
   br label %1267
 
 1267:                                             ; preds = %1265, %_validate_cpus_per_tres.exit
@@ -5805,24 +5805,24 @@ _validate_cpus_per_tres.exit:                     ; preds = %1202, %_find_option
   br i1 %.not22.i146, label %1270, label %1308
 
 1270:                                             ; preds = %1267
-  %1271 = call ptr @getenv(ptr noundef nonnull @.str.547) #22
-  %1272 = call ptr @xstrdup(ptr noundef %1271) #22
+  %1271 = call ptr @getenv(ptr noundef nonnull @.str.547) #21
+  %1272 = call ptr @xstrdup(ptr noundef %1271) #21
   store ptr %1272, ptr %1268, align 8
   %.not23.i147 = icmp eq ptr %1272, null
   br i1 %.not23.i147, label %_validate_nodelist.exit, label %1273
 
 1273:                                             ; preds = %1270
-  %1274 = call ptr @xstrstr(ptr noundef nonnull %1272, ptr noundef nonnull @.str.548) #22
+  %1274 = call ptr @xstrstr(ptr noundef nonnull %1272, ptr noundef nonnull @.str.548) #21
   %.not24.i148 = icmp eq ptr %1274, null
   br i1 %.not24.i148, label %1275, label %1279
 
 1275:                                             ; preds = %1273
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %1276 = call ptr @xstrdup(ptr noundef nonnull @.str.549) #22
+  %1276 = call ptr @xstrdup(ptr noundef nonnull @.str.549) #21
   store ptr %1276, ptr %7, align 8
   %1277 = load ptr, ptr %1268, align 8
-  call void @_xstrcat(ptr noundef nonnull %7, ptr noundef %1277) #22
-  call void @slurm_xfree(ptr noundef nonnull %1268) #22
+  call void @_xstrcat(ptr noundef nonnull %7, ptr noundef %1277) #21
+  call void @slurm_xfree(ptr noundef nonnull %1268) #21
   %1278 = load ptr, ptr %7, align 8
   store ptr %1278, ptr %1268, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -5865,22 +5865,22 @@ _validate_cpus_per_tres.exit:                     ; preds = %1202, %_find_option
 
 _valid_node_list.exit.i:                          ; preds = %1297, %1294, %1290, %1287
   %.0.i.i = phi i32 [ %1289, %1287 ], [ -2, %1290 ], [ %1296, %1294 ], [ %spec.select.i.i, %1297 ]
-  %1300 = call zeroext i1 @verify_node_list(ptr noundef nonnull %1268, i32 noundef %1283, i32 noundef %.0.i.i) #22
+  %1300 = call zeroext i1 @verify_node_list(ptr noundef nonnull %1268, i32 noundef %1283, i32 noundef %.0.i.i) #21
   br i1 %1300, label %1303, label %1301
 
 1301:                                             ; preds = %_valid_node_list.exit.i
-  %1302 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.550) #22
-  call void @exit(i32 noundef 1) #24
+  %1302 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.550) #21
+  call void @exit(i32 noundef 1) #23
   unreachable
 
 1303:                                             ; preds = %_valid_node_list.exit.i
-  %1304 = call i32 @get_log_level() #22
+  %1304 = call i32 @get_log_level() #21
   %1305 = icmp sgt i32 %1304, 4
   br i1 %1305, label %1306, label %_validate_nodelist.exit
 
 1306:                                             ; preds = %1303
   %1307 = load ptr, ptr %1268, align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.551, ptr noundef %1307) #22
+  call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.551, ptr noundef %1307) #21
   br label %_validate_nodelist.exit
 
 1308:                                             ; preds = %1267
@@ -5917,11 +5917,11 @@ _valid_node_list.exit29.i:                        ; preds = %1322, %1319, %1315,
   %.0.i25.i = phi i32 [ %1314, %1312 ], [ -2, %1315 ], [ %1321, %1319 ], [ %spec.select.i28.i, %1322 ]
   %1325 = getelementptr inbounds nuw i8, ptr %0, i64 252
   %1326 = load i32, ptr %1325, align 4
-  %1327 = call zeroext i1 @verify_node_list(ptr noundef nonnull %1268, i32 noundef %1326, i32 noundef %.0.i25.i) #22
+  %1327 = call zeroext i1 @verify_node_list(ptr noundef nonnull %1268, i32 noundef %1326, i32 noundef %.0.i25.i) #21
   br i1 %1327, label %_validate_nodelist.exit, label %1328
 
 1328:                                             ; preds = %_valid_node_list.exit29.i
-  call void @exit(i32 noundef 1) #24
+  call void @exit(i32 noundef 1) #23
   unreachable
 
 _validate_nodelist.exit:                          ; preds = %1270, %1303, %1306, %_valid_node_list.exit29.i
@@ -5961,12 +5961,12 @@ _find_option_index_from_optval.exit.i.i155:       ; preds = %1341, %.split.loop.
   br i1 %.not.i2.i.i, label %1343, label %1347
 
 1343:                                             ; preds = %_find_option_index_from_optval.exit.i.i155
-  %1344 = call i32 @get_log_level() #22
+  %1344 = call i32 @get_log_level() #21
   %1345 = icmp sgt i32 %1344, 6
   br i1 %1345, label %1346, label %slurm_option_set_by_env.exit.thread.i160
 
 1346:                                             ; preds = %1343
-  call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.479, ptr noundef nonnull @__func__._option_index_set_by_env) #22
+  call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.479, ptr noundef nonnull @__func__._option_index_set_by_env) #21
   br label %slurm_option_set_by_env.exit.thread.i160
 
 1347:                                             ; preds = %_find_option_index_from_optval.exit.i.i155
@@ -5983,8 +5983,8 @@ slurm_option_set_by_env.exit.i159:                ; preds = %1347
   br i1 %1353, label %_validate_arbitrary.exit, label %slurm_option_set_by_env.exit.thread.i160
 
 slurm_option_set_by_env.exit.thread.i160:         ; preds = %slurm_option_set_by_env.exit.i159, %1347, %1346, %1343
-  %1354 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.552) #22
-  call void @exit(i32 noundef 1) #24
+  %1354 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.552) #21
+  call void @exit(i32 noundef 1) #23
   unreachable
 
 _validate_arbitrary.exit:                         ; preds = %_validate_nodelist.exit, %1332, %slurm_option_set_by_env.exit.i159
@@ -6023,7 +6023,7 @@ _validate_arbitrary.exit:                         ; preds = %_validate_nodelist.
 
 1367:                                             ; preds = %1374, %1366
   %1368 = load ptr, ptr %896, align 8
-  %1369 = call i32 @slurm_get_next_tres(ptr noundef nonnull %2, ptr noundef %1368, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %6, ptr noundef nonnull %5) #22
+  %1369 = call i32 @slurm_get_next_tres(ptr noundef nonnull %2, ptr noundef %1368, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %6, ptr noundef nonnull %5) #21
   %1370 = icmp eq i32 %1369, 0
   %1371 = load ptr, ptr %5, align 8
   %1372 = icmp ne ptr %1371, null
@@ -6032,11 +6032,11 @@ _validate_arbitrary.exit:                         ; preds = %_validate_nodelist.
 
 1374:                                             ; preds = %1367
   %1375 = load ptr, ptr %3, align 8
-  %1376 = call zeroext i1 @gres_is_shared_name(ptr noundef %1375) #22
+  %1376 = call zeroext i1 @gres_is_shared_name(ptr noundef %1375) #21
   br i1 %1376, label %1377, label %1367, !llvm.loop !21
 
 .critedge.i:                                      ; preds = %1367
-  call void (ptr, ...) @fatal(ptr noundef nonnull @.str.553) #23
+  call void (ptr, ...) @fatal(ptr noundef nonnull @.str.553) #22
   unreachable
 
 1377:                                             ; preds = %1374
@@ -6080,11 +6080,11 @@ define dso_local ptr @slurm_option_get_argv_str(i32 noundef %0, ptr noundef read
   br i1 %.not9, label %6, label %7
 
 6:                                                ; preds = %4, %2
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.27, ptr noundef nonnull @__func__.slurm_option_get_argv_str) #23
+  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.27, ptr noundef nonnull @__func__.slurm_option_get_argv_str) #22
   unreachable
 
 7:                                                ; preds = %4
-  %8 = tail call ptr @xstrdup(ptr noundef nonnull %5) #22
+  %8 = tail call ptr @xstrdup(ptr noundef nonnull %5) #21
   store ptr %8, ptr %3, align 8
   %9 = icmp sgt i32 %0, 1
   br i1 %9, label %.lr.ph.preheader, label %._crit_edge
@@ -6106,7 +6106,7 @@ define dso_local ptr @slurm_option_get_argv_str(i32 noundef %0, ptr noundef read
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %11 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.28, ptr noundef %12) #22
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.28, ptr noundef %12) #21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !22
@@ -6116,15 +6116,15 @@ define dso_local ptr @slurm_option_get_argv_str(i32 noundef %0, ptr noundef read
 define dso_local noundef ptr @slurm_opt_create_job_desc(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca %struct.gres_job_state_validate_t, align 8
-  %5 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 912, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull @.str.29, i32 noundef 5525, ptr noundef nonnull @__func__.slurm_opt_create_job_desc) #22
-  tail call void @slurm_init_job_desc_msg(ptr noundef %5) #22
+  %5 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 912, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull @.str.29, i32 noundef 5525, ptr noundef nonnull @__func__.slurm_opt_create_job_desc) #21
+  tail call void @slurm_init_job_desc_msg(ptr noundef %5) #21
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %7 = load ptr, ptr %6, align 8
-  %8 = tail call ptr @xstrdup(ptr noundef %7) #22
+  %8 = tail call ptr @xstrdup(ptr noundef %7) #21
   store ptr %8, ptr %5, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %10 = load ptr, ptr %9, align 8
-  %11 = tail call ptr @xstrdup(ptr noundef %10) #22
+  %11 = tail call ptr @xstrdup(ptr noundef %10) #21
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %11, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 576
@@ -6139,27 +6139,27 @@ define dso_local noundef ptr @slurm_opt_create_job_desc(ptr noundef %0, i1 nound
   store i64 %20, ptr %18, align 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %22 = load ptr, ptr %21, align 8
-  %23 = tail call ptr @xstrdup(ptr noundef %22) #22
+  %23 = tail call ptr @xstrdup(ptr noundef %22) #21
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 96
   store ptr %23, ptr %24, align 8
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %26 = load ptr, ptr %25, align 8
-  %27 = tail call ptr @xstrdup(ptr noundef %26) #22
+  %27 = tail call ptr @xstrdup(ptr noundef %26) #21
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 104
   store ptr %27, ptr %28, align 8
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %30 = load ptr, ptr %29, align 8
-  %31 = tail call ptr @xstrdup(ptr noundef %30) #22
+  %31 = tail call ptr @xstrdup(ptr noundef %30) #21
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 112
   store ptr %31, ptr %32, align 8
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %34 = load ptr, ptr %33, align 8
-  %35 = tail call ptr @xstrdup(ptr noundef %34) #22
+  %35 = tail call ptr @xstrdup(ptr noundef %34) #21
   %36 = getelementptr inbounds nuw i8, ptr %5, i64 120
   store ptr %35, ptr %36, align 8
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 520
   %38 = load ptr, ptr %37, align 8
-  %39 = tail call ptr @xstrdup(ptr noundef %38) #22
+  %39 = tail call ptr @xstrdup(ptr noundef %38) #21
   %40 = getelementptr inbounds nuw i8, ptr %5, i64 808
   store ptr %39, ptr %40, align 8
   br i1 %1, label %52, label %.preheader440
@@ -6169,7 +6169,7 @@ define dso_local noundef ptr @slurm_opt_create_job_desc(ptr noundef %0, i1 nound
   %41 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %indvars.iv.i.i
   %42 = load ptr, ptr %41, align 8
   %43 = load ptr, ptr %42, align 8
-  %44 = tail call i32 @xstrcmp(ptr noundef nonnull @.str.30, ptr noundef %43) #22
+  %44 = tail call i32 @xstrcmp(ptr noundef nonnull @.str.30, ptr noundef %43) #21
   %.not9.i.i = icmp eq i32 %44, 0
   br i1 %.not9.i.i, label %_find_option_idx.exit.i, label %45
 
@@ -6203,12 +6203,12 @@ slurm_option_isset.exit.thread:                   ; preds = %45, %slurm_option_i
   store i16 %.sink505, ptr %56, align 8
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 504
   %58 = load ptr, ptr %57, align 8
-  %59 = tail call ptr @xstrdup(ptr noundef %58) #22
+  %59 = tail call ptr @xstrdup(ptr noundef %58) #21
   %60 = getelementptr inbounds nuw i8, ptr %5, i64 136
   store ptr %59, ptr %60, align 8
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 512
   %62 = load ptr, ptr %61, align 8
-  %63 = tail call ptr @xstrdup(ptr noundef %62) #22
+  %63 = tail call ptr @xstrdup(ptr noundef %62) #21
   %64 = getelementptr inbounds nuw i8, ptr %5, i64 144
   store ptr %63, ptr %64, align 8
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 660
@@ -6242,7 +6242,7 @@ slurm_option_isset.exit.thread:                   ; preds = %45, %slurm_option_i
 
 82:                                               ; preds = %70
   %83 = getelementptr inbounds nuw i8, ptr %5, i64 184
-  tail call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %83, ptr noundef nonnull @.str.31, i32 noundef %81) #22
+  tail call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %83, ptr noundef nonnull @.str.31, i32 noundef %81) #21
   br label %84
 
 84:                                               ; preds = %82, %70
@@ -6263,27 +6263,27 @@ slurm_option_isset.exit.thread:                   ; preds = %45, %slurm_option_i
 92:                                               ; preds = %90, %84
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %94 = load ptr, ptr %93, align 8
-  %95 = tail call ptr @xstrdup(ptr noundef %94) #22
+  %95 = tail call ptr @xstrdup(ptr noundef %94) #21
   %96 = getelementptr inbounds nuw i8, ptr %5, i64 216
   store ptr %95, ptr %96, align 8
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 584
   %98 = load ptr, ptr %97, align 8
-  %99 = tail call ptr @xstrdup(ptr noundef %98) #22
+  %99 = tail call ptr @xstrdup(ptr noundef %98) #21
   %100 = getelementptr inbounds nuw i8, ptr %5, i64 288
   store ptr %99, ptr %100, align 8
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 560
   %102 = load ptr, ptr %101, align 8
-  %103 = tail call ptr @xstrdup(ptr noundef %102) #22
+  %103 = tail call ptr @xstrdup(ptr noundef %102) #21
   %104 = getelementptr inbounds nuw i8, ptr %5, i64 280
   store ptr %103, ptr %104, align 8
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 480
   %106 = load ptr, ptr %105, align 8
-  %107 = tail call ptr @xstrdup(ptr noundef %106) #22
+  %107 = tail call ptr @xstrdup(ptr noundef %106) #21
   %108 = getelementptr inbounds nuw i8, ptr %5, i64 296
   store ptr %107, ptr %108, align 8
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %110 = load ptr, ptr %109, align 8
-  %111 = tail call ptr @xstrdup(ptr noundef %110) #22
+  %111 = tail call ptr @xstrdup(ptr noundef %110) #21
   %112 = getelementptr inbounds nuw i8, ptr %5, i64 496
   store ptr %111, ptr %112, align 8
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 108
@@ -6314,7 +6314,7 @@ slurm_option_isset.exit.thread:                   ; preds = %45, %slurm_option_i
 127:                                              ; preds = %125, %121
   %128 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %129 = load ptr, ptr %128, align 8
-  %130 = tail call ptr @xstrdup(ptr noundef %129) #22
+  %130 = tail call ptr @xstrdup(ptr noundef %129) #21
   %131 = getelementptr inbounds nuw i8, ptr %5, i64 368
   store ptr %130, ptr %131, align 8
   br i1 %1, label %143, label %.preheader439
@@ -6324,7 +6324,7 @@ slurm_option_isset.exit.thread:                   ; preds = %45, %slurm_option_i
   %132 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %indvars.iv.i.i396
   %133 = load ptr, ptr %132, align 8
   %134 = load ptr, ptr %133, align 8
-  %135 = tail call i32 @xstrcmp(ptr noundef nonnull @.str.32, ptr noundef %134) #22
+  %135 = tail call i32 @xstrcmp(ptr noundef nonnull @.str.32, ptr noundef %134) #21
   %.not9.i.i397 = icmp eq i32 %135, 0
   br i1 %.not9.i.i397, label %_find_option_idx.exit.i401, label %136
 
@@ -6356,17 +6356,17 @@ slurm_option_isset.exit403:                       ; preds = %_find_option_idx.ex
 slurm_option_isset.exit403.thread:                ; preds = %136, %_find_option_idx.exit.i401, %143, %slurm_option_isset.exit403
   %147 = getelementptr inbounds nuw i8, ptr %0, i64 600
   %148 = load ptr, ptr %147, align 8
-  %149 = tail call ptr @xstrdup(ptr noundef %148) #22
+  %149 = tail call ptr @xstrdup(ptr noundef %148) #21
   %150 = getelementptr inbounds nuw i8, ptr %5, i64 392
   store ptr %149, ptr %150, align 8
   %151 = getelementptr inbounds nuw i8, ptr %0, i64 680
   %152 = load ptr, ptr %151, align 8
-  %153 = tail call ptr @xstrdup(ptr noundef %152) #22
+  %153 = tail call ptr @xstrdup(ptr noundef %152) #21
   %154 = getelementptr inbounds nuw i8, ptr %5, i64 400
   store ptr %153, ptr %154, align 8
   %155 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %156 = load ptr, ptr %155, align 8
-  %157 = tail call ptr @xstrdup(ptr noundef %156) #22
+  %157 = tail call ptr @xstrdup(ptr noundef %156) #21
   %158 = getelementptr inbounds nuw i8, ptr %5, i64 408
   store ptr %157, ptr %158, align 8
   %159 = getelementptr inbounds nuw i8, ptr %0, i64 208
@@ -6381,7 +6381,7 @@ slurm_option_isset.exit403.thread:                ; preds = %136, %_find_option_
 
 165:                                              ; preds = %slurm_option_isset.exit403.thread
   %166 = getelementptr inbounds nuw i8, ptr %5, i64 424
-  tail call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %166, ptr noundef nonnull @.str.33, i64 noundef %164) #22
+  tail call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %166, ptr noundef nonnull @.str.33, i64 noundef %164) #21
   br label %167
 
 167:                                              ; preds = %165, %slurm_option_isset.exit403.thread
@@ -6392,7 +6392,7 @@ slurm_option_isset.exit403.thread:                ; preds = %136, %_find_option_
   %168 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %indvars.iv.i.i404
   %169 = load ptr, ptr %168, align 8
   %170 = load ptr, ptr %169, align 8
-  %171 = tail call i32 @xstrcmp(ptr noundef nonnull @.str.34, ptr noundef %170) #22
+  %171 = tail call i32 @xstrcmp(ptr noundef nonnull @.str.34, ptr noundef %170) #21
   %.not9.i.i405 = icmp eq i32 %171, 0
   br i1 %.not9.i.i405, label %_find_option_idx.exit.i409, label %172
 
@@ -6417,7 +6417,7 @@ slurm_option_isset.exit411:                       ; preds = %_find_option_idx.ex
 179:                                              ; preds = %slurm_option_isset.exit411, %167
   %180 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %181 = load ptr, ptr %180, align 8
-  %182 = tail call ptr @xstrdup(ptr noundef %181) #22
+  %182 = tail call ptr @xstrdup(ptr noundef %181) #21
   %183 = getelementptr inbounds nuw i8, ptr %5, i64 432
   store ptr %182, ptr %183, align 8
   br label %slurm_option_isset.exit411.thread
@@ -6425,7 +6425,7 @@ slurm_option_isset.exit411:                       ; preds = %_find_option_idx.ex
 slurm_option_isset.exit411.thread:                ; preds = %172, %_find_option_idx.exit.i409, %179, %slurm_option_isset.exit411
   %184 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %185 = load ptr, ptr %184, align 8
-  %186 = tail call ptr @xstrdup(ptr noundef %185) #22
+  %186 = tail call ptr @xstrdup(ptr noundef %185) #21
   %187 = getelementptr inbounds nuw i8, ptr %5, i64 440
   store ptr %186, ptr %187, align 8
   %188 = getelementptr inbounds nuw i8, ptr %0, i64 280
@@ -6560,7 +6560,7 @@ slurm_option_isset.exit411.thread:                ; preds = %172, %_find_option_
 257:                                              ; preds = %239, %254, %255, %252, %232
   %258 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %259 = load ptr, ptr %258, align 8
-  %260 = tail call ptr @xstrdup(ptr noundef %259) #22
+  %260 = tail call ptr @xstrdup(ptr noundef %259) #21
   %261 = getelementptr inbounds nuw i8, ptr %5, i64 480
   store ptr %260, ptr %261, align 8
   %262 = getelementptr inbounds nuw i8, ptr %0, i64 256
@@ -6582,7 +6582,7 @@ slurm_option_isset.exit411.thread:                ; preds = %172, %_find_option_
   %268 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %indvars.iv.i.i412
   %269 = load ptr, ptr %268, align 8
   %270 = load ptr, ptr %269, align 8
-  %271 = tail call i32 @xstrcmp(ptr noundef nonnull @.str.35, ptr noundef %270) #22
+  %271 = tail call i32 @xstrcmp(ptr noundef nonnull @.str.35, ptr noundef %270) #21
   %.not9.i.i413 = icmp eq i32 %271, 0
   br i1 %.not9.i.i413, label %_find_option_idx.exit.i417, label %272
 
@@ -6637,7 +6637,7 @@ slurm_option_isset.exit419.thread:                ; preds = %272, %_find_option_
   store i32 %292, ptr %293, align 4
   %294 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %295 = load ptr, ptr %294, align 8
-  %296 = tail call ptr @xstrdup(ptr noundef %295) #22
+  %296 = tail call ptr @xstrdup(ptr noundef %295) #21
   %297 = getelementptr inbounds nuw i8, ptr %5, i64 512
   store ptr %296, ptr %297, align 8
   %298 = getelementptr inbounds nuw i8, ptr %0, i64 568
@@ -6657,17 +6657,17 @@ slurm_option_isset.exit419.thread:                ; preds = %272, %_find_option_
   br i1 %.not364, label %318, label %306
 
 306:                                              ; preds = %303
-  %307 = tail call ptr @hostlist_create(ptr noundef nonnull %305) #22
+  %307 = tail call ptr @hostlist_create(ptr noundef nonnull %305) #21
   %.not365.not = icmp eq ptr %307, null
   br i1 %.not365.not, label %.thread, label %309
 
 .thread:                                          ; preds = %306
-  %308 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.36) #22
+  %308 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.36) #21
   br label %.thread434
 
 309:                                              ; preds = %306
-  tail call void @slurm_xfree(ptr noundef nonnull %304) #22
-  %310 = tail call ptr @hostlist_ranged_string_xmalloc(ptr noundef nonnull %307) #22
+  tail call void @slurm_xfree(ptr noundef nonnull %304) #21
+  %310 = tail call ptr @hostlist_ranged_string_xmalloc(ptr noundef nonnull %307) #21
   store ptr %310, ptr %304, align 8
   %311 = getelementptr inbounds nuw i8, ptr %0, i64 252
   %312 = load i32, ptr %311, align 4
@@ -6676,14 +6676,14 @@ slurm_option_isset.exit419.thread:                ; preds = %272, %_find_option_
   br i1 %.not366, label %315, label %314
 
 314:                                              ; preds = %309
-  tail call void @hostlist_uniq(ptr noundef nonnull %307) #22
+  tail call void @hostlist_uniq(ptr noundef nonnull %307) #21
   br label %315
 
 315:                                              ; preds = %309, %314
-  %316 = tail call ptr @hostlist_ranged_string_xmalloc(ptr noundef nonnull %307) #22
+  %316 = tail call ptr @hostlist_ranged_string_xmalloc(ptr noundef nonnull %307) #21
   %317 = getelementptr inbounds nuw i8, ptr %5, i64 544
   store ptr %316, ptr %317, align 8
-  tail call void @hostlist_destroy(ptr noundef nonnull %307) #22
+  tail call void @hostlist_destroy(ptr noundef nonnull %307) #21
   br label %318
 
 318:                                              ; preds = %315, %303
@@ -6700,13 +6700,13 @@ slurm_option_isset.exit419.thread:                ; preds = %272, %_find_option_
   br i1 %.not367, label %326, label %328
 
 326:                                              ; preds = %323
-  %327 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.37) #22
+  %327 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.37) #21
   br label %.thread434
 
 328:                                              ; preds = %323, %318
   %329 = getelementptr inbounds nuw i8, ptr %0, i64 624
   %330 = load ptr, ptr %329, align 8
-  %331 = tail call ptr @xstrdup(ptr noundef %330) #22
+  %331 = tail call ptr @xstrdup(ptr noundef %330) #21
   %332 = getelementptr inbounds nuw i8, ptr %5, i64 560
   store ptr %331, ptr %332, align 8
   %333 = getelementptr inbounds nuw i8, ptr %0, i64 632
@@ -6743,7 +6743,7 @@ slurm_option_isset.exit419.thread:                ; preds = %272, %_find_option_
 
 349:                                              ; preds = %346
   %350 = sext i32 %348 to i64
-  %351 = tail call ptr @slurm_xcalloc(i64 noundef %350, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.29, i32 noundef 5736, ptr noundef nonnull @__func__.slurm_opt_create_job_desc) #22
+  %351 = tail call ptr @slurm_xcalloc(i64 noundef %350, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.29, i32 noundef 5736, ptr noundef nonnull @__func__.slurm_opt_create_job_desc) #21
   %352 = getelementptr inbounds nuw i8, ptr %5, i64 632
   store ptr %351, ptr %352, align 8
   %353 = load i32, ptr %347, align 8
@@ -6765,7 +6765,7 @@ slurm_option_isset.exit419.thread:                ; preds = %272, %_find_option_
   %358 = load ptr, ptr %355, align 8
   %359 = getelementptr inbounds nuw ptr, ptr %358, i64 %indvars.iv
   %360 = load ptr, ptr %359, align 8
-  %361 = tail call ptr @xstrdup(ptr noundef %360) #22
+  %361 = tail call ptr @xstrdup(ptr noundef %360) #21
   %362 = load ptr, ptr %352, align 8
   %363 = getelementptr inbounds nuw ptr, ptr %362, i64 %indvars.iv
   store ptr %361, ptr %363, align 8
@@ -6811,29 +6811,29 @@ slurm_option_isset.exit419.thread:                ; preds = %272, %_find_option_
 385:                                              ; preds = %383, %380
   %386 = getelementptr inbounds nuw i8, ptr %0, i64 728
   %387 = load ptr, ptr %386, align 8
-  %388 = tail call ptr @xstrdup(ptr noundef %387) #22
+  %388 = tail call ptr @xstrdup(ptr noundef %387) #21
   %389 = getelementptr inbounds nuw i8, ptr %5, i64 672
   store ptr %388, ptr %389, align 8
   %390 = getelementptr inbounds nuw i8, ptr %0, i64 736
   %391 = load ptr, ptr %390, align 8
-  %392 = tail call ptr @xstrdup(ptr noundef %391) #22
+  %392 = tail call ptr @xstrdup(ptr noundef %391) #21
   %393 = getelementptr inbounds nuw i8, ptr %5, i64 680
   store ptr %392, ptr %393, align 8
   %394 = getelementptr inbounds nuw i8, ptr %5, i64 688
   %395 = getelementptr inbounds nuw i8, ptr %0, i64 376
   %396 = load ptr, ptr %395, align 8
-  tail call void @xfmt_tres(ptr noundef nonnull %394, ptr noundef nonnull @.str.38, ptr noundef %396) #22
+  tail call void @xfmt_tres(ptr noundef nonnull %394, ptr noundef nonnull @.str.38, ptr noundef %396) #21
   %397 = getelementptr inbounds nuw i8, ptr %5, i64 696
   %398 = getelementptr inbounds nuw i8, ptr %0, i64 400
   %399 = load ptr, ptr %398, align 8
-  tail call void @xfmt_tres(ptr noundef nonnull %397, ptr noundef nonnull @.str.38, ptr noundef %399) #22
+  tail call void @xfmt_tres(ptr noundef nonnull %397, ptr noundef nonnull @.str.38, ptr noundef %399) #21
   %400 = getelementptr inbounds nuw i8, ptr %0, i64 496
   %401 = load ptr, ptr %400, align 8
   %.not374 = icmp eq ptr %401, null
   br i1 %.not374, label %410, label %402
 
 402:                                              ; preds = %385
-  %403 = tail call i32 @xstrcasecmp(ptr noundef nonnull %401, ptr noundef nonnull @.str.39) #22
+  %403 = tail call i32 @xstrcasecmp(ptr noundef nonnull %401, ptr noundef nonnull @.str.39) #21
   %.not375 = icmp eq i32 %403, 0
   br i1 %.not375, label %410, label %404
 
@@ -6844,11 +6844,11 @@ slurm_option_isset.exit419.thread:                ; preds = %272, %_find_option_
   br i1 %.not376, label %408, label %407
 
 407:                                              ; preds = %404
-  tail call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %397, ptr noundef nonnull @.str.40, ptr noundef %406) #22
+  tail call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %397, ptr noundef nonnull @.str.40, ptr noundef %406) #21
   br label %410
 
 408:                                              ; preds = %404
-  %409 = tail call ptr @xstrdup(ptr noundef %406) #22
+  %409 = tail call ptr @xstrdup(ptr noundef %406) #21
   store ptr %409, ptr %397, align 8
   br label %410
 
@@ -6856,10 +6856,10 @@ slurm_option_isset.exit419.thread:                ; preds = %272, %_find_option_
   %411 = getelementptr inbounds nuw i8, ptr %5, i64 704
   %412 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %413 = load ptr, ptr %412, align 8
-  tail call void @xfmt_tres(ptr noundef nonnull %411, ptr noundef nonnull @.str.38, ptr noundef %413) #22
+  tail call void @xfmt_tres(ptr noundef nonnull %411, ptr noundef nonnull @.str.38, ptr noundef %413) #21
   %414 = getelementptr inbounds nuw i8, ptr %0, i64 744
   %415 = load ptr, ptr %414, align 8
-  %416 = tail call ptr @xstrdup(ptr noundef %415) #22
+  %416 = tail call ptr @xstrdup(ptr noundef %415) #21
   %417 = getelementptr inbounds nuw i8, ptr %5, i64 712
   store ptr %416, ptr %417, align 8
   %418 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -6885,7 +6885,7 @@ slurm_option_isset.exit419.thread:                ; preds = %272, %_find_option_
   %430 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %indvars.iv.i.i420
   %431 = load ptr, ptr %430, align 8
   %432 = load ptr, ptr %431, align 8
-  %433 = tail call i32 @xstrcmp(ptr noundef nonnull @.str.41, ptr noundef %432) #22
+  %433 = tail call i32 @xstrcmp(ptr noundef nonnull @.str.41, ptr noundef %432) #21
   %.not9.i.i421 = icmp eq i32 %433, 0
   br i1 %.not9.i.i421, label %_find_option_idx.exit.i425, label %434
 
@@ -6910,7 +6910,7 @@ slurm_option_isset.exit427:                       ; preds = %_find_option_idx.ex
 441:                                              ; preds = %slurm_option_isset.exit427, %410
   %442 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %443 = load ptr, ptr %442, align 8
-  %444 = tail call ptr @xstrdup(ptr noundef %443) #22
+  %444 = tail call ptr @xstrdup(ptr noundef %443) #21
   %445 = getelementptr inbounds nuw i8, ptr %5, i64 736
   store ptr %444, ptr %445, align 8
   br label %slurm_option_isset.exit427.thread
@@ -6957,7 +6957,7 @@ slurm_option_isset.exit427.thread:                ; preds = %434, %_find_option_
   br i1 %.not380, label %473, label %470
 
 470:                                              ; preds = %466
-  %471 = tail call ptr @xstrdup(ptr noundef nonnull %469) #22
+  %471 = tail call ptr @xstrdup(ptr noundef nonnull %469) #21
   %472 = getelementptr inbounds nuw i8, ptr %5, i64 352
   store ptr %471, ptr %472, align 8
   br label %494
@@ -7162,7 +7162,7 @@ slurm_option_isset.exit427.thread:                ; preds = %434, %_find_option_
 571:                                              ; preds = %569, %565
   %572 = getelementptr inbounds nuw i8, ptr %0, i64 616
   %573 = load ptr, ptr %572, align 8
-  %574 = tail call ptr @xstrdup(ptr noundef %573) #22
+  %574 = tail call ptr @xstrdup(ptr noundef %573) #21
   %575 = getelementptr inbounds nuw i8, ptr %5, i64 872
   store ptr %574, ptr %575, align 8
   %576 = getelementptr inbounds nuw i8, ptr %0, i64 752
@@ -7175,12 +7175,12 @@ slurm_option_isset.exit427.thread:                ; preds = %434, %_find_option_
 579:                                              ; preds = %571
   %580 = getelementptr inbounds nuw i8, ptr %0, i64 760
   %581 = load ptr, ptr %580, align 8
-  %582 = tail call ptr @xstrdup(ptr noundef %581) #22
+  %582 = tail call ptr @xstrdup(ptr noundef %581) #21
   %583 = getelementptr inbounds nuw i8, ptr %5, i64 888
   store ptr %582, ptr %583, align 8
   %584 = getelementptr inbounds nuw i8, ptr %0, i64 768
   %585 = load ptr, ptr %584, align 8
-  %586 = tail call ptr @xstrdup(ptr noundef %585) #22
+  %586 = tail call ptr @xstrdup(ptr noundef %585) #21
   %587 = getelementptr inbounds nuw i8, ptr %5, i64 896
   store ptr %586, ptr %587, align 8
   %588 = getelementptr inbounds nuw i8, ptr %0, i64 776
@@ -7249,13 +7249,13 @@ slurm_option_isset.exit427.thread:                ; preds = %434, %_find_option_
   store ptr %626, ptr %625, align 8
   %627 = getelementptr inbounds nuw i8, ptr %4, i64 128
   store ptr %3, ptr %627, align 8
-  %628 = call i32 @gres_job_state_validate(ptr noundef nonnull %4) #22
+  %628 = call i32 @gres_job_state_validate(ptr noundef nonnull %4) #21
   %629 = load ptr, ptr %3, align 8
   %.not394 = icmp eq ptr %629, null
   br i1 %.not394, label %631, label %630
 
 630:                                              ; preds = %593
-  call void @list_destroy(ptr noundef nonnull %629) #22
+  call void @list_destroy(ptr noundef nonnull %629) #21
   br label %631
 
 631:                                              ; preds = %593, %630
@@ -7265,8 +7265,8 @@ slurm_option_isset.exit427.thread:                ; preds = %434, %_find_option_
   br i1 %.not395, label %.thread434, label %632
 
 632:                                              ; preds = %631
-  %633 = call ptr @slurm_strerror(i32 noundef %628) #22
-  %634 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.24, ptr noundef %633) #22
+  %633 = call ptr @slurm_strerror(i32 noundef %628) #21
+  %634 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.24, ptr noundef %633) #21
   br label %.thread434
 
 .thread434:                                       ; preds = %591, %.thread, %631, %632, %326
@@ -7317,7 +7317,7 @@ define dso_local void @suggest_completion(ptr noundef readonly captures(address_
   ]
 
 9:                                                ; preds = %7
-  %10 = tail call ptr @__ctype_b_loc() #26
+  %10 = tail call ptr @__ctype_b_loc() #25
   %11 = load ptr, ptr %10, align 8
   %12 = sext i8 %8 to i64
   %13 = getelementptr inbounds i16, ptr %11, i64 %12
@@ -7329,12 +7329,12 @@ define dso_local void @suggest_completion(ptr noundef readonly captures(address_
 
 17:                                               ; preds = %7, %9
   %.fr52 = phi i1 [ true, %7 ], [ %16, %9 ]
-  %18 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #25
+  %18 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #24
   %19 = icmp ugt i64 %18, 1
   br i1 %19, label %.split.preheader, label %20
 
 20:                                               ; preds = %17
-  %21 = tail call ptr @__ctype_b_loc() #26
+  %21 = tail call ptr @__ctype_b_loc() #25
   %22 = load ptr, ptr %21, align 8
   %23 = sext i8 %8 to i64
   %24 = getelementptr inbounds i16, ptr %22, i64 %23
@@ -7354,7 +7354,7 @@ define dso_local void @suggest_completion(ptr noundef readonly captures(address_
   br i1 %or.cond7584, label %.split51.us, label %.critedge.preheader
 
 .critedge.preheader:                              ; preds = %.split.preheader
-  %30 = tail call ptr @__ctype_b_loc() #26
+  %30 = tail call ptr @__ctype_b_loc() #25
   br label %.critedge
 
 .split.us:                                        ; preds = %20
@@ -7370,7 +7370,7 @@ define dso_local void @suggest_completion(ptr noundef readonly captures(address_
   br i1 %or.cond7480, label %.split51.us, label %.critedge.us.preheader
 
 .critedge.us.preheader:                           ; preds = %.split.us.split.preheader
-  %34 = tail call ptr @__ctype_b_loc() #26
+  %34 = tail call ptr @__ctype_b_loc() #25
   br label %.critedge.us
 
 .critedge.us:                                     ; preds = %.critedge.us.preheader, %.split.us.split
@@ -7387,19 +7387,19 @@ define dso_local void @suggest_completion(ptr noundef readonly captures(address_
 41:                                               ; preds = %.critedge.us
   %sext.us = shl i32 %35, 24
   %42 = ashr exact i32 %sext.us, 24
-  %43 = call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.42, i32 noundef %42) #22
+  %43 = call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.42, i32 noundef %42) #21
   store ptr %43, ptr %4, align 8
-  %44 = call ptr @xstrstr(ptr noundef %43, ptr noundef nonnull %1) #22
+  %44 = call ptr @xstrstr(ptr noundef %43, ptr noundef nonnull %1) #21
   %.not45.us = icmp eq ptr %44, null
   br i1 %.not45.us, label %47, label %45
 
 45:                                               ; preds = %41
   %46 = load ptr, ptr %4, align 8
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.43, ptr noundef %46, i32 noundef 10) #22
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.43, ptr noundef %46, i32 noundef 10) #21
   br label %47
 
 47:                                               ; preds = %45, %41
-  call void @slurm_xfree(ptr noundef nonnull %4) #22
+  call void @slurm_xfree(ptr noundef nonnull %4) #21
   br label %.split.us.split
 
 .split.us.split:                                  ; preds = %47, %.critedge.us
@@ -7430,19 +7430,19 @@ define dso_local void @suggest_completion(ptr noundef readonly captures(address_
 61:                                               ; preds = %.critedge
   %sext = shl i32 %52, 24
   %62 = ashr exact i32 %sext, 24
-  %63 = call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.42, i32 noundef %62) #22
+  %63 = call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.42, i32 noundef %62) #21
   store ptr %63, ptr %4, align 8
-  %64 = call ptr @xstrstr(ptr noundef %63, ptr noundef nonnull %1) #22
+  %64 = call ptr @xstrstr(ptr noundef %63, ptr noundef nonnull %1) #21
   %.not45 = icmp eq ptr %64, null
   br i1 %.not45, label %67, label %65
 
 65:                                               ; preds = %61
   %66 = load ptr, ptr %4, align 8
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.43, ptr noundef %66, i32 noundef 10) #22
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.43, ptr noundef %66, i32 noundef 10) #21
   br label %67
 
 67:                                               ; preds = %65, %61
-  call void @slurm_xfree(ptr noundef nonnull %4) #22
+  call void @slurm_xfree(ptr noundef nonnull %4) #21
   %.pre66 = load ptr, ptr %54, align 8
   br label %68
 
@@ -7452,9 +7452,9 @@ define dso_local void @suggest_completion(ptr noundef readonly captures(address_
   br i1 %.not56, label %.split, label %70
 
 70:                                               ; preds = %68
-  %71 = call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.44, ptr noundef nonnull %69) #22
+  %71 = call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.44, ptr noundef nonnull %69) #21
   store ptr %71, ptr %4, align 8
-  %72 = call ptr @xstrstr(ptr noundef %71, ptr noundef nonnull %1) #22
+  %72 = call ptr @xstrstr(ptr noundef %71, ptr noundef nonnull %1) #21
   %.not46 = icmp eq ptr %72, null
   br i1 %.not46, label %.sink.split, label %73
 
@@ -7466,14 +7466,14 @@ define dso_local void @suggest_completion(ptr noundef readonly captures(address_
 
 76:                                               ; preds = %73
   %77 = load ptr, ptr %4, align 8
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.45, ptr noundef %77, i32 noundef 10) #22
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.45, ptr noundef %77, i32 noundef 10) #21
   %.pr = load i32, ptr %74, align 8
   %78 = icmp eq i32 %.pr, 2
   br i1 %78, label %79, label %81
 
 79:                                               ; preds = %76
   %80 = load ptr, ptr %4, align 8
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.46, ptr noundef %80, i32 noundef 10) #22
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.46, ptr noundef %80, i32 noundef 10) #21
   %.pr48 = load i32, ptr %74, align 8
   br label %81
 
@@ -7484,11 +7484,11 @@ define dso_local void @suggest_completion(ptr noundef readonly captures(address_
 
 .thread49:                                        ; preds = %73, %81
   %84 = load ptr, ptr %4, align 8
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.43, ptr noundef %84, i32 noundef 10) #22
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.43, ptr noundef %84, i32 noundef 10) #21
   br label %.sink.split
 
 .sink.split:                                      ; preds = %81, %.thread49, %70
-  call void @slurm_xfree(ptr noundef nonnull %4) #22
+  call void @slurm_xfree(ptr noundef nonnull %4) #21
   br label %.split
 
 .split:                                           ; preds = %.sink.split, %68
@@ -7509,11 +7509,11 @@ define dso_local void @suggest_completion(ptr noundef readonly captures(address_
 
 90:                                               ; preds = %.split51.us
   %91 = load ptr, ptr @stdout, align 8
-  %92 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %91, ptr noundef nonnull @.str.47, ptr noundef nonnull %89) #22
+  %92 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %91, ptr noundef nonnull @.str.47, ptr noundef nonnull %89) #21
   br label %93
 
 93:                                               ; preds = %90, %.split51.us
-  call void @slurm_xfree(ptr noundef nonnull %3) #22
+  call void @slurm_xfree(ptr noundef nonnull %3) #21
   br label %94
 
 94:                                               ; preds = %7, %2, %93
@@ -7533,21 +7533,21 @@ declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly ca
 ; Function Attrs: cold nofree nounwind uwtable
 define internal noundef i32 @arg_set__unknown_salloc(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #8 {
   %3 = load ptr, ptr @stderr, align 8
-  %4 = tail call i64 @fwrite(ptr nonnull @.str.49, i64 41, i64 1, ptr %3) #27
+  %4 = tail call i64 @fwrite(ptr nonnull @.str.49, i64 41, i64 1, ptr %3) #26
   ret i32 -1
 }
 
 ; Function Attrs: cold nofree nounwind uwtable
 define internal noundef i32 @arg_set__unknown_sbatch(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #8 {
   %3 = load ptr, ptr @stderr, align 8
-  %4 = tail call i64 @fwrite(ptr nonnull @.str.50, i64 41, i64 1, ptr %3) #27
+  %4 = tail call i64 @fwrite(ptr nonnull @.str.50, i64 41, i64 1, ptr %3) #26
   ret i32 -1
 }
 
 ; Function Attrs: cold nofree nounwind uwtable
 define internal noundef i32 @arg_set__unknown_srun(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #8 {
   %3 = load ptr, ptr @stderr, align 8
-  %4 = tail call i64 @fwrite(ptr nonnull @.str.51, i64 39, i64 1, ptr %3) #27
+  %4 = tail call i64 @fwrite(ptr nonnull @.str.51, i64 39, i64 1, ptr %3) #26
   ret i32 -1
 }
 
@@ -7569,7 +7569,7 @@ define internal range(i32 -1, 1) i32 @arg_set_accel_bind_type(ptr noundef readon
   br i1 %.not, label %25, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %1, i32 noundef 118) #25
+  %6 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %1, i32 noundef 118) #24
   %.not9 = icmp eq ptr %6, null
   br i1 %.not9, label %10, label %7
 
@@ -7582,7 +7582,7 @@ define internal range(i32 -1, 1) i32 @arg_set_accel_bind_type(ptr noundef readon
 
 10:                                               ; preds = %7, %5
   %.pre13.pre14 = phi ptr [ %.pre13.pre14.pre, %7 ], [ %4, %5 ]
-  %11 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %1, i32 noundef 103) #25
+  %11 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %1, i32 noundef 103) #24
   %.not10 = icmp eq ptr %11, null
   br i1 %.not10, label %15, label %12
 
@@ -7595,7 +7595,7 @@ define internal range(i32 -1, 1) i32 @arg_set_accel_bind_type(ptr noundef readon
 
 15:                                               ; preds = %12, %10
   %.pre13 = phi ptr [ %.pre13.pre, %12 ], [ %.pre13.pre14, %10 ]
-  %16 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %1, i32 noundef 110) #25
+  %16 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %1, i32 noundef 110) #24
   %.not11 = icmp eq ptr %16, null
   br i1 %.not11, label %20, label %17
 
@@ -7613,7 +7613,7 @@ define internal range(i32 -1, 1) i32 @arg_set_accel_bind_type(ptr noundef readon
   br i1 %.not12, label %23, label %25
 
 23:                                               ; preds = %20
-  %24 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.54) #22
+  %24 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.54) #21
   br label %25
 
 25:                                               ; preds = %20, %2, %23
@@ -7632,7 +7632,7 @@ define internal ptr @arg_get_accel_bind_type(ptr noundef readonly captures(none)
   br i1 %.not, label %5, label %7
 
 5:                                                ; preds = %1
-  %6 = tail call ptr @xstrdup(ptr noundef nonnull @.str.55) #22
+  %6 = tail call ptr @xstrdup(ptr noundef nonnull @.str.55) #21
   br label %21
 
 7:                                                ; preds = %1
@@ -7642,7 +7642,7 @@ define internal ptr @arg_get_accel_bind_type(ptr noundef readonly captures(none)
   br i1 %.not6, label %11, label %10
 
 10:                                               ; preds = %7
-  call void @_xstrcat(ptr noundef nonnull %2, ptr noundef nonnull @.str.56) #22
+  call void @_xstrcat(ptr noundef nonnull %2, ptr noundef nonnull @.str.56) #21
   %.pre = load ptr, ptr %3, align 8
   %.pre9 = load i16, ptr %.pre, align 8
   br label %11
@@ -7654,7 +7654,7 @@ define internal ptr @arg_get_accel_bind_type(ptr noundef readonly captures(none)
   br i1 %.not7, label %15, label %14
 
 14:                                               ; preds = %11
-  call void @_xstrcat(ptr noundef nonnull %2, ptr noundef nonnull @.str.57) #22
+  call void @_xstrcat(ptr noundef nonnull %2, ptr noundef nonnull @.str.57) #21
   %.pre10 = load ptr, ptr %3, align 8
   %.pre11 = load i16, ptr %.pre10, align 8
   br label %15
@@ -7666,7 +7666,7 @@ define internal ptr @arg_get_accel_bind_type(ptr noundef readonly captures(none)
   br i1 %.not8, label %19, label %18
 
 18:                                               ; preds = %15
-  call void @_xstrcat(ptr noundef nonnull %2, ptr noundef nonnull @.str.58) #22
+  call void @_xstrcat(ptr noundef nonnull %2, ptr noundef nonnull @.str.58) #21
   br label %19
 
 19:                                               ; preds = %18, %15
@@ -7700,8 +7700,8 @@ declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #5
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @arg_set_account(ptr noundef nonnull %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 288
-  tail call void @slurm_xfree(ptr noundef nonnull %3) #22
-  %4 = tail call ptr @xstrdup(ptr noundef %1) #22
+  tail call void @slurm_xfree(ptr noundef nonnull %3) #21
+  %4 = tail call ptr @xstrdup(ptr noundef %1) #21
   store ptr %4, ptr %3, align 8
   ret i32 0
 }
@@ -7710,24 +7710,24 @@ define internal noundef i32 @arg_set_account(ptr noundef nonnull %0, ptr noundef
 define internal ptr @arg_get_account(ptr noundef nonnull readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %3 = load ptr, ptr %2, align 8
-  %4 = tail call ptr @xstrdup(ptr noundef %3) #22
+  %4 = tail call ptr @xstrdup(ptr noundef %3) #21
   ret ptr %4
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @arg_reset_account(ptr noundef nonnull %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 288
-  tail call void @slurm_xfree(ptr noundef nonnull %2) #22
+  tail call void @slurm_xfree(ptr noundef nonnull %2) #21
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @arg_set_acctg_freq(ptr noundef %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 328
-  tail call void @slurm_xfree(ptr noundef nonnull %3) #22
-  %4 = tail call ptr @xstrdup(ptr noundef %1) #22
+  tail call void @slurm_xfree(ptr noundef nonnull %3) #21
+  %4 = tail call ptr @xstrdup(ptr noundef %1) #21
   store ptr %4, ptr %3, align 8
-  %5 = tail call i32 @validate_acctg_freq(ptr noundef %4) #22
+  %5 = tail call i32 @validate_acctg_freq(ptr noundef %4) #21
   %.not = icmp ne i32 %5, 0
   %. = sext i1 %.not to i32
   ret i32 %.
@@ -7737,14 +7737,14 @@ define internal range(i32 -1, 1) i32 @arg_set_acctg_freq(ptr noundef %0, ptr nou
 define internal ptr @arg_get_acctg_freq(ptr noundef nonnull readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %3 = load ptr, ptr %2, align 8
-  %4 = tail call ptr @xstrdup(ptr noundef %3) #22
+  %4 = tail call ptr @xstrdup(ptr noundef %3) #21
   ret ptr %4
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @arg_reset_acctg_freq(ptr noundef nonnull %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 328
-  tail call void @slurm_xfree(ptr noundef nonnull %2) #22
+  tail call void @slurm_xfree(ptr noundef nonnull %2) #21
   ret void
 }
 
@@ -7759,8 +7759,8 @@ define internal range(i32 -1, 1) i32 @arg_set_alloc_nodelist(ptr noundef readonl
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  tail call void @slurm_xfree(ptr noundef nonnull %6) #22
-  %7 = tail call ptr @xstrdup(ptr noundef %1) #22
+  tail call void @slurm_xfree(ptr noundef nonnull %6) #21
+  %7 = tail call ptr @xstrdup(ptr noundef %1) #21
   %8 = load ptr, ptr %3, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %7, ptr %9, align 8
@@ -7785,7 +7785,7 @@ define internal ptr @arg_get_alloc_nodelist(ptr noundef readonly captures(none) 
 
 7:                                                ; preds = %1, %4
   %.sink = phi ptr [ %6, %4 ], [ @.str.55, %1 ]
-  %8 = tail call ptr @xstrdup(ptr noundef %.sink) #22
+  %8 = tail call ptr @xstrdup(ptr noundef %.sink) #21
   ret ptr %8
 }
 
@@ -7798,7 +7798,7 @@ define internal void @arg_reset_alloc_nodelist(ptr noundef readonly captures(non
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  tail call void @slurm_xfree(ptr noundef nonnull %5) #22
+  tail call void @slurm_xfree(ptr noundef nonnull %5) #21
   br label %6
 
 6:                                                ; preds = %4, %1
@@ -7813,8 +7813,8 @@ define internal range(i32 -1, 1) i32 @arg_set_array_inx(ptr noundef nonnull read
   br i1 %.not, label %8, label %5
 
 5:                                                ; preds = %2
-  tail call void @slurm_xfree(ptr noundef nonnull %4) #22
-  %6 = tail call ptr @xstrdup(ptr noundef %1) #22
+  tail call void @slurm_xfree(ptr noundef nonnull %4) #21
+  %6 = tail call ptr @xstrdup(ptr noundef %1) #21
   %7 = load ptr, ptr %3, align 8
   store ptr %6, ptr %7, align 8
   br label %8
@@ -7837,7 +7837,7 @@ define internal ptr @arg_get_array_inx(ptr noundef nonnull readonly captures(non
 
 6:                                                ; preds = %1, %4
   %.sink = phi ptr [ %5, %4 ], [ @.str.55, %1 ]
-  %7 = tail call ptr @xstrdup(ptr noundef %.sink) #22
+  %7 = tail call ptr @xstrdup(ptr noundef %.sink) #21
   ret ptr %7
 }
 
@@ -7849,7 +7849,7 @@ define internal void @arg_reset_array_inx(ptr noundef nonnull readonly captures(
   br i1 %.not, label %5, label %4
 
 4:                                                ; preds = %1
-  tail call void @slurm_xfree(ptr noundef nonnull %3) #22
+  tail call void @slurm_xfree(ptr noundef nonnull %3) #21
   br label %5
 
 5:                                                ; preds = %4, %1
@@ -7884,7 +7884,7 @@ define internal ptr @arg_get_argv(ptr noundef readonly captures(none) %0) #0 {
   %9 = load ptr, ptr %6, align 8
   %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %2, ptr noundef nonnull @.str.28, ptr noundef %11) #22
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %2, ptr noundef nonnull @.str.28, ptr noundef %11) #21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %12 = load i32, ptr %3, align 8
   %13 = sext i32 %12 to i64
@@ -7905,7 +7905,7 @@ define internal void @arg_reset_argv(ptr noundef %0) #0 {
 
 ._crit_edge:                                      ; preds = %7, %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  tail call void @slurm_xfree(ptr noundef nonnull %6) #22
+  tail call void @slurm_xfree(ptr noundef nonnull %6) #21
   store i32 0, ptr %2, align 8
   ret void
 
@@ -7913,7 +7913,7 @@ define internal void @arg_reset_argv(ptr noundef %0) #0 {
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %7 ]
   %8 = load ptr, ptr %5, align 8
   %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
-  tail call void @slurm_xfree(ptr noundef %9) #22
+  tail call void @slurm_xfree(ptr noundef %9) #21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %10 = load i32, ptr %2, align 8
   %11 = sext i32 %10 to i64
@@ -7929,11 +7929,11 @@ define internal noundef i32 @arg_set_autocomplete(ptr noundef readonly captures(
   br i1 %.not, label %6, label %5
 
 5:                                                ; preds = %2
-  tail call void %4(ptr noundef %1) #22
+  tail call void %4(ptr noundef %1) #21
   br label %6
 
 6:                                                ; preds = %5, %2
-  tail call void @exit(i32 noundef 0) #23
+  tail call void @exit(i32 noundef 0) #22
   unreachable
 }
 
@@ -7956,8 +7956,8 @@ define internal range(i32 -1, 1) i32 @arg_set_batch_features(ptr noundef nonnull
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  tail call void @slurm_xfree(ptr noundef nonnull %6) #22
-  %7 = tail call ptr @xstrdup(ptr noundef %1) #22
+  tail call void @slurm_xfree(ptr noundef nonnull %6) #21
+  %7 = tail call ptr @xstrdup(ptr noundef %1) #21
   %8 = load ptr, ptr %3, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %7, ptr %9, align 8
@@ -7982,7 +7982,7 @@ define internal ptr @arg_get_batch_features(ptr noundef nonnull readonly capture
 
 7:                                                ; preds = %1, %4
   %.sink = phi ptr [ %6, %4 ], [ @.str.55, %1 ]
-  %8 = tail call ptr @xstrdup(ptr noundef %.sink) #22
+  %8 = tail call ptr @xstrdup(ptr noundef %.sink) #21
   ret ptr %8
 }
 
@@ -7995,7 +7995,7 @@ define internal void @arg_reset_batch_features(ptr noundef nonnull readonly capt
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  tail call void @slurm_xfree(ptr noundef nonnull %5) #22
+  tail call void @slurm_xfree(ptr noundef nonnull %5) #21
   br label %6
 
 6:                                                ; preds = %4, %1
@@ -8012,7 +8012,7 @@ define internal range(i32 -1, 1) i32 @arg_set_bcast(ptr noundef readonly capture
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i8 1, ptr %6, align 8
-  %7 = tail call ptr @xstrdup(ptr noundef %1) #22
+  %7 = tail call ptr @xstrdup(ptr noundef %1) #21
   %8 = load ptr, ptr %3, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store ptr %7, ptr %9, align 8
@@ -8045,7 +8045,7 @@ define internal ptr @arg_get_bcast(ptr noundef readonly captures(none) %0) #0 {
 
 .sink.split:                                      ; preds = %8, %1
   %.sink = phi ptr [ @.str.55, %1 ], [ %.str.74., %8 ]
-  %11 = tail call ptr @xstrdup(ptr noundef nonnull %.sink) #22
+  %11 = tail call ptr @xstrdup(ptr noundef nonnull %.sink) #21
   br label %12
 
 12:                                               ; preds = %.sink.split, %4
@@ -8065,7 +8065,7 @@ define internal void @arg_reset_bcast(ptr noundef readonly captures(none) %0) #0
   store i8 0, ptr %5, align 8
   %6 = load ptr, ptr %2, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  tail call void @slurm_xfree(ptr noundef nonnull %7) #22
+  tail call void @slurm_xfree(ptr noundef nonnull %7) #21
   br label %8
 
 8:                                                ; preds = %4, %1
@@ -8081,8 +8081,8 @@ define internal range(i32 -1, 1) i32 @arg_set_bcast_exclude(ptr noundef readonly
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  tail call void @slurm_xfree(ptr noundef nonnull %6) #22
-  %7 = tail call ptr @xstrdup(ptr noundef %1) #22
+  tail call void @slurm_xfree(ptr noundef nonnull %6) #21
+  %7 = tail call ptr @xstrdup(ptr noundef %1) #21
   %8 = load ptr, ptr %3, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %7, ptr %9, align 8
@@ -8108,7 +8108,7 @@ define internal ptr @arg_get_bcast_exclude(ptr noundef readonly captures(none) %
 
 .sink.split:                                      ; preds = %4, %1
   %.sink = phi ptr [ @.str.55, %1 ], [ %6, %4 ]
-  %7 = tail call ptr @xstrdup(ptr noundef nonnull %.sink) #22
+  %7 = tail call ptr @xstrdup(ptr noundef nonnull %.sink) #21
   br label %8
 
 8:                                                ; preds = %.sink.split, %4
@@ -8125,9 +8125,9 @@ define internal void @arg_reset_bcast_exclude(ptr noundef readonly captures(none
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  tail call void @slurm_xfree(ptr noundef nonnull %5) #22
+  tail call void @slurm_xfree(ptr noundef nonnull %5) #21
   %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 184), align 8
-  %7 = tail call ptr @xstrdup(ptr noundef %6) #22
+  %7 = tail call ptr @xstrdup(ptr noundef %6) #21
   %8 = load ptr, ptr %2, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %7, ptr %9, align 8
@@ -8139,14 +8139,14 @@ define internal void @arg_reset_bcast_exclude(ptr noundef readonly captures(none
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @arg_set_begin(ptr noundef writeonly captures(none) initializes((576, 584)) %0, ptr noundef %1) #0 {
-  %3 = tail call i64 @parse_time(ptr noundef %1, i32 noundef 0) #22
+  %3 = tail call i64 @parse_time(ptr noundef %1, i32 noundef 0) #21
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 576
   store i64 %3, ptr %4, align 8
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %5, label %7
 
 5:                                                ; preds = %2
-  %6 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.79) #22
+  %6 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.79) #21
   br label %7
 
 7:                                                ; preds = %2, %5
@@ -8159,8 +8159,8 @@ define internal ptr @arg_get_begin(ptr noundef %0) #0 {
   %2 = alloca [256 x i8], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 576
-  call void @slurm_make_time_str(ptr noundef nonnull %3, ptr noundef nonnull %2, i32 noundef 256) #22
-  %4 = call ptr @xstrdup(ptr noundef nonnull %2) #22
+  call void @slurm_make_time_str(ptr noundef nonnull %3, ptr noundef nonnull %2, i32 noundef 256) #21
+  %4 = call ptr @xstrdup(ptr noundef nonnull %2) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %4
 }
@@ -8209,7 +8209,7 @@ switch.lookup:                                    ; preds = %3
 
 .sink.split:                                      ; preds = %switch.lookup, %1
   %.str.84.sink = phi ptr [ @.str.55, %1 ], [ %switch.load, %switch.lookup ]
-  %7 = tail call ptr @xstrdup(ptr noundef nonnull %.str.84.sink) #22
+  %7 = tail call ptr @xstrdup(ptr noundef nonnull %.str.84.sink) #21
   br label %8
 
 8:                                                ; preds = %3, %.sink.split
@@ -8234,8 +8234,8 @@ define internal void @arg_reset_bell(ptr noundef readonly captures(none) %0) #10
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @arg_set_burst_buffer(ptr noundef nonnull %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  tail call void @slurm_xfree(ptr noundef nonnull %3) #22
-  %4 = tail call ptr @xstrdup(ptr noundef %1) #22
+  tail call void @slurm_xfree(ptr noundef nonnull %3) #21
+  %4 = tail call ptr @xstrdup(ptr noundef %1) #21
   store ptr %4, ptr %3, align 8
   ret i32 0
 }
@@ -8244,22 +8244,22 @@ define internal noundef i32 @arg_set_burst_buffer(ptr noundef nonnull %0, ptr no
 define internal ptr @arg_get_burst_buffer(ptr noundef nonnull readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8
-  %4 = tail call ptr @xstrdup(ptr noundef %3) #22
+  %4 = tail call ptr @xstrdup(ptr noundef %3) #21
   ret ptr %4
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @arg_reset_burst_buffer(ptr noundef nonnull %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  tail call void @slurm_xfree(ptr noundef nonnull %2) #22
+  tail call void @slurm_xfree(ptr noundef nonnull %2) #21
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @arg_set_burst_buffer_file(ptr noundef nonnull %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  tail call void @slurm_xfree(ptr noundef nonnull %3) #22
-  %4 = tail call ptr @xstrdup(ptr noundef %1) #22
+  tail call void @slurm_xfree(ptr noundef nonnull %3) #21
+  %4 = tail call ptr @xstrdup(ptr noundef %1) #21
   store ptr %4, ptr %3, align 8
   ret i32 0
 }
@@ -8268,22 +8268,22 @@ define internal noundef i32 @arg_set_burst_buffer_file(ptr noundef nonnull %0, p
 define internal ptr @arg_get_burst_buffer_file(ptr noundef nonnull readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load ptr, ptr %2, align 8
-  %4 = tail call ptr @xstrdup(ptr noundef %3) #22
+  %4 = tail call ptr @xstrdup(ptr noundef %3) #21
   ret ptr %4
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @arg_reset_burst_buffer_file(ptr noundef nonnull %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  tail call void @slurm_xfree(ptr noundef nonnull %2) #22
+  tail call void @slurm_xfree(ptr noundef nonnull %2) #21
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @arg_set_c_constraint(ptr noundef nonnull %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 488
-  tail call void @slurm_xfree(ptr noundef nonnull %3) #22
-  %4 = tail call ptr @xstrdup(ptr noundef %1) #22
+  tail call void @slurm_xfree(ptr noundef nonnull %3) #21
+  %4 = tail call ptr @xstrdup(ptr noundef %1) #21
   store ptr %4, ptr %3, align 8
   ret i32 0
 }
@@ -8292,30 +8292,30 @@ define internal noundef i32 @arg_set_c_constraint(ptr noundef nonnull %0, ptr no
 define internal ptr @arg_get_c_constraint(ptr noundef nonnull readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %3 = load ptr, ptr %2, align 8
-  %4 = tail call ptr @xstrdup(ptr noundef %3) #22
+  %4 = tail call ptr @xstrdup(ptr noundef %3) #21
   ret ptr %4
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @arg_reset_c_constraint(ptr noundef nonnull %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 488
-  tail call void @slurm_xfree(ptr noundef nonnull %2) #22
+  tail call void @slurm_xfree(ptr noundef nonnull %2) #21
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @arg_set_chdir(ptr noundef %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  tail call void @slurm_xfree(ptr noundef nonnull %3) #22
-  %4 = tail call zeroext i1 @is_full_path(ptr noundef %1) #22
+  tail call void @slurm_xfree(ptr noundef nonnull %3) #21
+  %4 = tail call zeroext i1 @is_full_path(ptr noundef %1) #21
   br i1 %4, label %5, label %7
 
 5:                                                ; preds = %2
-  %6 = tail call ptr @xstrdup(ptr noundef %1) #22
+  %6 = tail call ptr @xstrdup(ptr noundef %1) #21
   br label %9
 
 7:                                                ; preds = %2
-  %8 = tail call ptr @make_full_path(ptr noundef %1) #22
+  %8 = tail call ptr @make_full_path(ptr noundef %1) #21
   br label %9
 
 9:                                                ; preds = %7, %5
@@ -8328,7 +8328,7 @@ define internal noundef i32 @arg_set_chdir(ptr noundef %0, ptr noundef %1) #0 {
 define internal ptr @arg_get_chdir(ptr noundef nonnull readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load ptr, ptr %2, align 8
-  %4 = tail call ptr @xstrdup(ptr noundef %3) #22
+  %4 = tail call ptr @xstrdup(ptr noundef %3) #21
   ret ptr %4
 }
 
@@ -8337,7 +8337,7 @@ define internal void @arg_reset_chdir(ptr noundef %0) #0 {
   %2 = alloca [4096 x i8], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  tail call void @slurm_xfree(ptr noundef nonnull %3) #22
+  tail call void @slurm_xfree(ptr noundef nonnull %3) #21
   %4 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %5, label %14
@@ -8349,17 +8349,17 @@ define internal void @arg_reset_chdir(ptr noundef %0) #0 {
   br i1 %.not4, label %8, label %14
 
 8:                                                ; preds = %5
-  %9 = call ptr @getcwd(ptr noundef nonnull %2, i64 noundef 4096) #22
+  %9 = call ptr @getcwd(ptr noundef nonnull %2, i64 noundef 4096) #21
   %.not5 = icmp eq ptr %9, null
   br i1 %.not5, label %10, label %12
 
 10:                                               ; preds = %8
-  %11 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.92) #22
-  call void @exit(i32 noundef -1) #24
+  %11 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.92) #21
+  call void @exit(i32 noundef -1) #23
   unreachable
 
 12:                                               ; preds = %8
-  %13 = call ptr @xstrdup(ptr noundef nonnull %2) #22
+  %13 = call ptr @xstrdup(ptr noundef nonnull %2) #21
   store ptr %13, ptr %3, align 8
   br label %14
 
@@ -8378,8 +8378,8 @@ declare ptr @getcwd(ptr noundef, i64 noundef) local_unnamed_addr #13
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @arg_set_clusters(ptr noundef nonnull %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  tail call void @slurm_xfree(ptr noundef nonnull %3) #22
-  %4 = tail call ptr @xstrdup(ptr noundef %1) #22
+  tail call void @slurm_xfree(ptr noundef nonnull %3) #21
+  %4 = tail call ptr @xstrdup(ptr noundef %1) #21
   store ptr %4, ptr %3, align 8
   ret i32 0
 }
@@ -8388,22 +8388,22 @@ define internal noundef i32 @arg_set_clusters(ptr noundef nonnull %0, ptr nounde
 define internal ptr @arg_get_clusters(ptr noundef nonnull readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8
-  %4 = tail call ptr @xstrdup(ptr noundef %3) #22
+  %4 = tail call ptr @xstrdup(ptr noundef %3) #21
   ret ptr %4
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @arg_reset_clusters(ptr noundef nonnull %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  tail call void @slurm_xfree(ptr noundef nonnull %2) #22
+  tail call void @slurm_xfree(ptr noundef nonnull %2) #21
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @arg_set_comment(ptr noundef nonnull %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  tail call void @slurm_xfree(ptr noundef nonnull %3) #22
-  %4 = tail call ptr @xstrdup(ptr noundef %1) #22
+  tail call void @slurm_xfree(ptr noundef nonnull %3) #21
+  %4 = tail call ptr @xstrdup(ptr noundef %1) #21
   store ptr %4, ptr %3, align 8
   ret i32 0
 }
@@ -8412,14 +8412,14 @@ define internal noundef i32 @arg_set_comment(ptr noundef nonnull %0, ptr noundef
 define internal ptr @arg_get_comment(ptr noundef nonnull readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %3 = load ptr, ptr %2, align 8
-  %4 = tail call ptr @xstrdup(ptr noundef %3) #22
+  %4 = tail call ptr @xstrdup(ptr noundef %3) #21
   ret ptr %4
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @arg_reset_comment(ptr noundef nonnull %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  tail call void @slurm_xfree(ptr noundef nonnull %2) #22
+  tail call void @slurm_xfree(ptr noundef nonnull %2) #21
   ret void
 }
 
@@ -8431,7 +8431,7 @@ define internal range(i32 -1, 1) i32 @arg_set_compress(ptr noundef readonly capt
   br i1 %.not, label %9, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call zeroext i16 @parse_compress_type(ptr noundef %1) #22
+  %6 = tail call zeroext i16 @parse_compress_type(ptr noundef %1) #21
   %7 = load ptr, ptr %3, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 48
   store i16 %6, ptr %8, align 8
@@ -8458,7 +8458,7 @@ define internal ptr @arg_get_compress(ptr noundef readonly captures(none) %0) #0
 
 8:                                                ; preds = %4, %1
   %.str.102.sink = phi ptr [ @.str.55, %1 ], [ %.str.101..str.102, %4 ]
-  %9 = tail call ptr @xstrdup(ptr noundef nonnull %.str.102.sink) #22
+  %9 = tail call ptr @xstrdup(ptr noundef nonnull %.str.102.sink) #21
   ret ptr %9
 }
 
@@ -8483,8 +8483,8 @@ declare zeroext i16 @parse_compress_type(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @arg_set_container(ptr noundef nonnull %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 504
-  tail call void @slurm_xfree(ptr noundef nonnull %3) #22
-  %4 = tail call ptr @xstrdup(ptr noundef %1) #22
+  tail call void @slurm_xfree(ptr noundef nonnull %3) #21
+  %4 = tail call ptr @xstrdup(ptr noundef %1) #21
   store ptr %4, ptr %3, align 8
   ret i32 0
 }
@@ -8493,22 +8493,22 @@ define internal noundef i32 @arg_set_container(ptr noundef nonnull %0, ptr nound
 define internal ptr @arg_get_container(ptr noundef nonnull readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 504
   %3 = load ptr, ptr %2, align 8
-  %4 = tail call ptr @xstrdup(ptr noundef %3) #22
+  %4 = tail call ptr @xstrdup(ptr noundef %3) #21
   ret ptr %4
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @arg_reset_container(ptr noundef nonnull %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 504
-  tail call void @slurm_xfree(ptr noundef nonnull %2) #22
+  tail call void @slurm_xfree(ptr noundef nonnull %2) #21
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @arg_set_container_id(ptr noundef nonnull %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 512
-  tail call void @slurm_xfree(ptr noundef nonnull %3) #22
-  %4 = tail call ptr @xstrdup(ptr noundef %1) #22
+  tail call void @slurm_xfree(ptr noundef nonnull %3) #21
+  %4 = tail call ptr @xstrdup(ptr noundef %1) #21
   store ptr %4, ptr %3, align 8
   ret i32 0
 }
@@ -8517,22 +8517,22 @@ define internal noundef i32 @arg_set_container_id(ptr noundef nonnull %0, ptr no
 define internal ptr @arg_get_container_id(ptr noundef nonnull readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 512
   %3 = load ptr, ptr %2, align 8
-  %4 = tail call ptr @xstrdup(ptr noundef %3) #22
+  %4 = tail call ptr @xstrdup(ptr noundef %3) #21
   ret ptr %4
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @arg_reset_container_id(ptr noundef nonnull %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 512
-  tail call void @slurm_xfree(ptr noundef nonnull %2) #22
+  tail call void @slurm_xfree(ptr noundef nonnull %2) #21
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @arg_set_context(ptr noundef nonnull %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 520
-  tail call void @slurm_xfree(ptr noundef nonnull %3) #22
-  %4 = tail call ptr @xstrdup(ptr noundef %1) #22
+  tail call void @slurm_xfree(ptr noundef nonnull %3) #21
+  %4 = tail call ptr @xstrdup(ptr noundef %1) #21
   store ptr %4, ptr %3, align 8
   ret i32 0
 }
@@ -8541,14 +8541,14 @@ define internal noundef i32 @arg_set_context(ptr noundef nonnull %0, ptr noundef
 define internal ptr @arg_get_context(ptr noundef nonnull readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 520
   %3 = load ptr, ptr %2, align 8
-  %4 = tail call ptr @xstrdup(ptr noundef %3) #22
+  %4 = tail call ptr @xstrdup(ptr noundef %3) #21
   ret ptr %4
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @arg_reset_context(ptr noundef %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 520
-  tail call void @slurm_xfree(ptr noundef nonnull %2) #22
+  tail call void @slurm_xfree(ptr noundef nonnull %2) #21
   ret void
 }
 
@@ -8565,7 +8565,7 @@ define internal ptr @arg_get_contiguous(ptr noundef nonnull readonly captures(no
   %3 = load i8, ptr %2, align 8, !range !12, !noundef !13
   %4 = trunc nuw i8 %3 to i1
   %5 = select i1 %4, ptr @.str.74, ptr @.str.110
-  %6 = tail call ptr @xstrdup(ptr noundef nonnull %5) #22
+  %6 = tail call ptr @xstrdup(ptr noundef nonnull %5) #21
   ret ptr %6
 }
 
@@ -8579,8 +8579,8 @@ define internal void @arg_reset_contiguous(ptr noundef nonnull writeonly capture
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @arg_set_constraint(ptr noundef nonnull %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 480
-  tail call void @slurm_xfree(ptr noundef nonnull %3) #22
-  %4 = tail call ptr @xstrdup(ptr noundef %1) #22
+  tail call void @slurm_xfree(ptr noundef nonnull %3) #21
+  %4 = tail call ptr @xstrdup(ptr noundef %1) #21
   store ptr %4, ptr %3, align 8
   ret i32 0
 }
@@ -8589,14 +8589,14 @@ define internal noundef i32 @arg_set_constraint(ptr noundef nonnull %0, ptr noun
 define internal ptr @arg_get_constraint(ptr noundef nonnull readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 480
   %3 = load ptr, ptr %2, align 8
-  %4 = tail call ptr @xstrdup(ptr noundef %3) #22
+  %4 = tail call ptr @xstrdup(ptr noundef %3) #21
   ret ptr %4
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @arg_reset_constraint(ptr noundef nonnull %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 480
-  tail call void @slurm_xfree(ptr noundef nonnull %2) #22
+  tail call void @slurm_xfree(ptr noundef nonnull %2) #21
   ret void
 }
 
@@ -8613,7 +8613,7 @@ define internal noundef i32 @arg_set_core_spec(ptr noundef captures(none) initia
   br label %7
 
 7:                                                ; preds = %5, %2
-  %8 = tail call i32 @parse_int(ptr noundef nonnull @.str.115, ptr noundef %1, i1 noundef zeroext false) #22
+  %8 = tail call i32 @parse_int(ptr noundef nonnull @.str.115, ptr noundef %1, i1 noundef zeroext false) #21
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 660
   store i32 %8, ptr %9, align 4
   ret i32 0
@@ -8628,11 +8628,11 @@ define internal ptr @arg_get_core_spec(ptr noundef readonly captures(none) %0) #
   br i1 %.not, label %7, label %5
 
 5:                                                ; preds = %1
-  %6 = tail call ptr @xstrdup(ptr noundef nonnull @.str.110) #22
+  %6 = tail call ptr @xstrdup(ptr noundef nonnull @.str.110) #21
   br label %9
 
 7:                                                ; preds = %1
-  %8 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.116, i32 noundef %3) #22
+  %8 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.116, i32 noundef %3) #21
   br label %9
 
 9:                                                ; preds = %7, %5
@@ -8662,7 +8662,7 @@ declare i32 @parse_int(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnam
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @arg_set_cores_per_socket(ptr noundef nonnull writeonly captures(none) initializes((160, 164)) %0, ptr noundef %1) #0 {
-  %3 = tail call i32 @parse_int(ptr noundef nonnull @.str.119, ptr noundef %1, i1 noundef zeroext true) #22
+  %3 = tail call i32 @parse_int(ptr noundef nonnull @.str.119, ptr noundef %1, i1 noundef zeroext true) #21
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 160
   store i32 %3, ptr %4, align 8
   ret i32 0
@@ -8672,7 +8672,7 @@ define internal noundef i32 @arg_set_cores_per_socket(ptr noundef nonnull writeo
 define internal ptr @arg_get_cores_per_socket(ptr noundef nonnull readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %3 = load i32, ptr %2, align 8
-  %4 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.116, i32 noundef %3) #22
+  %4 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.116, i32 noundef %3) #21
   ret ptr %4
 }
 
@@ -8692,8 +8692,8 @@ define internal range(i32 -1, 1) i32 @arg_set_cpu_bind(ptr noundef nonnull reado
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 56
-  tail call void @slurm_xfree(ptr noundef nonnull %6) #22
-  %7 = tail call ptr @xstrdup(ptr noundef %1) #22
+  tail call void @slurm_xfree(ptr noundef nonnull %6) #21
+  %7 = tail call ptr @xstrdup(ptr noundef %1) #21
   %8 = load ptr, ptr %3, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 56
   store ptr %7, ptr %9, align 8
@@ -8718,7 +8718,7 @@ define internal ptr @arg_get_cpu_bind(ptr noundef nonnull readonly captures(none
 
 7:                                                ; preds = %1, %4
   %.sink = phi ptr [ %6, %4 ], [ @.str.55, %1 ]
-  %8 = tail call ptr @xstrdup(ptr noundef %.sink) #22
+  %8 = tail call ptr @xstrdup(ptr noundef %.sink) #21
   ret ptr %8
 }
 
@@ -8731,7 +8731,7 @@ define internal void @arg_reset_cpu_bind(ptr noundef readonly captures(none) %0)
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  tail call void @slurm_xfree(ptr noundef nonnull %5) #22
+  tail call void @slurm_xfree(ptr noundef nonnull %5) #21
   %6 = load ptr, ptr %2, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 64
   store i32 0, ptr %7, align 8
@@ -8746,12 +8746,12 @@ define internal range(i32 -1, 1) i32 @arg_set_cpu_freq(ptr noundef %0, ptr nound
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 664
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 668
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 672
-  %6 = tail call i32 @cpu_freq_verify_cmdline(ptr noundef %1, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) #22
+  %6 = tail call i32 @cpu_freq_verify_cmdline(ptr noundef %1, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) #21
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %9, label %7
 
 7:                                                ; preds = %2
-  %8 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.125) #22
+  %8 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.125) #21
   br label %9
 
 9:                                                ; preds = %2, %7
@@ -8767,7 +8767,7 @@ define internal ptr @arg_get_cpu_freq(ptr noundef readonly captures(none) %0) #0
   %5 = load i32, ptr %4, align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 672
   %7 = load i32, ptr %6, align 8
-  %8 = tail call ptr @cpu_freq_to_cmdline(i32 noundef %3, i32 noundef %5, i32 noundef %7) #22
+  %8 = tail call ptr @cpu_freq_to_cmdline(i32 noundef %3, i32 noundef %5, i32 noundef %7) #21
   ret ptr %8
 }
 
@@ -8788,7 +8788,7 @@ declare ptr @cpu_freq_to_cmdline(i32 noundef, i32 noundef, i32 noundef) local_un
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @arg_set_cpus_per_gpu(ptr noundef nonnull writeonly captures(none) initializes((368, 372)) %0, ptr noundef %1) #0 {
-  %3 = tail call i32 @parse_int(ptr noundef nonnull @.str.128, ptr noundef %1, i1 noundef zeroext true) #22
+  %3 = tail call i32 @parse_int(ptr noundef nonnull @.str.128, ptr noundef %1, i1 noundef zeroext true) #21
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 368
   store i32 %3, ptr %4, align 8
   ret i32 0
@@ -8798,7 +8798,7 @@ define internal noundef i32 @arg_set_cpus_per_gpu(ptr noundef nonnull writeonly 
 define internal ptr @arg_get_cpus_per_gpu(ptr noundef nonnull readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %3 = load i32, ptr %2, align 8
-  %4 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.116, i32 noundef %3) #22
+  %4 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.116, i32 noundef %3) #21
   ret ptr %4
 }
 
@@ -8813,7 +8813,7 @@ define internal void @arg_reset_cpus_per_gpu(ptr noundef nonnull writeonly captu
 define internal noundef i32 @arg_set_cpus_per_task(ptr noundef captures(none) %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %4 = load i32, ptr %3, align 8
-  %5 = tail call i32 @parse_int(ptr noundef nonnull @.str.131, ptr noundef %1, i1 noundef zeroext true) #22
+  %5 = tail call i32 @parse_int(ptr noundef nonnull @.str.131, ptr noundef %1, i1 noundef zeroext true) #21
   store i32 %5, ptr %3, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 132
   %7 = load i8, ptr %6, align 4, !range !12, !noundef !13
@@ -8829,13 +8829,13 @@ define internal noundef i32 @arg_set_cpus_per_task(ptr noundef captures(none) %0
   br i1 %or.cond, label %13, label %18
 
 13:                                               ; preds = %9
-  %14 = tail call i32 @get_log_level() #22
+  %14 = tail call i32 @get_log_level() #21
   %15 = icmp sgt i32 %14, 2
   br i1 %15, label %16, label %18
 
 16:                                               ; preds = %13
   %17 = load i32, ptr %3, align 8
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.132, i32 noundef %17, i32 noundef %4) #22
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.132, i32 noundef %17, i32 noundef %4) #21
   br label %18
 
 18:                                               ; preds = %13, %16, %9, %2
@@ -8847,7 +8847,7 @@ define internal noundef i32 @arg_set_cpus_per_task(ptr noundef captures(none) %0
 define internal ptr @arg_get_cpus_per_task(ptr noundef nonnull readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %3 = load i32, ptr %2, align 8
-  %4 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.116, i32 noundef %3) #22
+  %4 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.116, i32 noundef %3) #21
   ret ptr %4
 }
 
@@ -8862,14 +8862,14 @@ define internal void @arg_reset_cpus_per_task(ptr noundef writeonly captures(non
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @arg_set_deadline(ptr noundef writeonly captures(none) initializes((688, 696)) %0, ptr noundef %1) #0 {
-  %3 = tail call i64 @parse_time(ptr noundef %1, i32 noundef 0) #22
+  %3 = tail call i64 @parse_time(ptr noundef %1, i32 noundef 0) #21
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 688
   store i64 %3, ptr %4, align 8
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %5, label %7
 
 5:                                                ; preds = %2
-  %6 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.135) #22
+  %6 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.135) #21
   br label %7
 
 7:                                                ; preds = %2, %5
@@ -8882,8 +8882,8 @@ define internal ptr @arg_get_deadline(ptr noundef %0) #0 {
   %2 = alloca [256 x i8], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 688
-  call void @slurm_make_time_str(ptr noundef nonnull %3, ptr noundef nonnull %2, i32 noundef 256) #22
-  %4 = call ptr @xstrdup(ptr noundef nonnull %2) #22
+  call void @slurm_make_time_str(ptr noundef nonnull %3, ptr noundef nonnull %2, i32 noundef 256) #21
+  %4 = call ptr @xstrdup(ptr noundef nonnull %2) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %4
 }
@@ -8924,7 +8924,7 @@ define internal ptr @arg_get_debugger_test(ptr noundef readonly captures(none) %
   %6 = load i8, ptr %5, align 4, !range !12, !noundef !13
   %7 = trunc nuw i8 %6 to i1
   %8 = select i1 %7, ptr @.str.74, ptr @.str.110
-  %9 = tail call ptr @xstrdup(ptr noundef nonnull %8) #22
+  %9 = tail call ptr @xstrdup(ptr noundef nonnull %8) #21
   br label %10
 
 10:                                               ; preds = %1, %4
@@ -8950,14 +8950,14 @@ define internal void @arg_reset_debugger_test(ptr noundef readonly captures(none
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @arg_set_delay_boot(ptr noundef writeonly captures(none) initializes((696, 700)) %0, ptr noundef %1) #0 {
-  %3 = tail call i32 @time_str2secs(ptr noundef %1) #22
+  %3 = tail call i32 @time_str2secs(ptr noundef %1) #21
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 696
   store i32 %3, ptr %4, align 8
   %5 = icmp eq i32 %3, -2
   br i1 %5, label %6, label %8
 
 6:                                                ; preds = %2
-  %7 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.140) #22
+  %7 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.140) #21
   br label %8
 
 8:                                                ; preds = %2, %6
@@ -8976,8 +8976,8 @@ define internal ptr @arg_get_delay_boot(ptr noundef readonly captures(none) %0) 
 
 6:                                                ; preds = %1
   %7 = zext i32 %4 to i64
-  call void @secs2time_str(i64 noundef %7, ptr noundef nonnull %2, i32 noundef 32) #22
-  %8 = call ptr @xstrdup(ptr noundef nonnull %2) #22
+  call void @secs2time_str(i64 noundef %7, ptr noundef nonnull %2, i32 noundef 32) #21
+  %8 = call ptr @xstrdup(ptr noundef nonnull %2) #21
   br label %9
 
 9:                                                ; preds = %1, %6
@@ -9006,7 +9006,7 @@ define internal noalias noundef ptr @arg_get_environment(ptr readnone captures(n
 define internal void @arg_reset_environment(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 552
   %3 = load ptr, ptr %2, align 8
-  tail call void @env_array_free(ptr noundef %3) #22
+  tail call void @env_array_free(ptr noundef %3) #21
   store ptr null, ptr %2, align 8
   ret void
 }
@@ -9016,8 +9016,8 @@ declare void @env_array_free(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @arg_set_dependency(ptr noundef nonnull %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 272
-  tail call void @slurm_xfree(ptr noundef nonnull %3) #22
-  %4 = tail call ptr @xstrdup(ptr noundef %1) #22
+  tail call void @slurm_xfree(ptr noundef nonnull %3) #21
+  %4 = tail call ptr @xstrdup(ptr noundef %1) #21
   store ptr %4, ptr %3, align 8
   ret i32 0
 }
@@ -9026,14 +9026,14 @@ define internal noundef i32 @arg_set_dependency(ptr noundef nonnull %0, ptr noun
 define internal ptr @arg_get_dependency(ptr noundef nonnull readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %3 = load ptr, ptr %2, align 8
-  %4 = tail call ptr @xstrdup(ptr noundef %3) #22
+  %4 = tail call ptr @xstrdup(ptr noundef %3) #21
   ret ptr %4
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @arg_reset_dependency(ptr noundef nonnull %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 272
-  tail call void @slurm_xfree(ptr noundef nonnull %2) #22
+  tail call void @slurm_xfree(ptr noundef nonnull %2) #21
   ret void
 }
 
@@ -9070,7 +9070,7 @@ define internal ptr @arg_get_disable_status(ptr noundef nonnull readonly capture
 
 9:                                                ; preds = %1, %4
   %.sink = phi ptr [ %8, %4 ], [ @.str.55, %1 ]
-  %10 = tail call ptr @xstrdup(ptr noundef nonnull %.sink) #22
+  %10 = tail call ptr @xstrdup(ptr noundef nonnull %.sink) #21
   ret ptr %10
 }
 
@@ -9093,14 +9093,14 @@ define internal void @arg_reset_disable_status(ptr noundef nonnull readonly capt
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @arg_set_distribution(ptr noundef %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %4 = tail call i32 @verify_dist_type(ptr noundef %1, ptr noundef nonnull %3) #22
+  %4 = tail call i32 @verify_dist_type(ptr noundef %1, ptr noundef nonnull %3) #21
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 252
   store i32 %4, ptr %5, align 4
   %6 = icmp eq i32 %4, -1
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %2
-  %8 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.149) #22
+  %8 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.149) #21
   br label %9
 
 9:                                                ; preds = %2, %7
@@ -9115,7 +9115,7 @@ define internal ptr @arg_get_distribution(ptr noundef readonly captures(none) %0
   store ptr null, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 252
   %4 = load i32, ptr %3, align 4
-  call void @set_distribution(i32 noundef %4, ptr noundef nonnull %2) #22
+  call void @set_distribution(i32 noundef %4, ptr noundef nonnull %2) #21
   %5 = load i32, ptr %3, align 4
   %6 = icmp eq i32 %5, 4
   br i1 %6, label %7, label %10
@@ -9123,7 +9123,7 @@ define internal ptr @arg_get_distribution(ptr noundef readonly captures(none) %0
 7:                                                ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %9 = load i32, ptr %8, align 8
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %2, ptr noundef nonnull @.str.150, i32 noundef %9) #22
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %2, ptr noundef nonnull @.str.150, i32 noundef %9) #21
   br label %10
 
 10:                                               ; preds = %7, %1
@@ -9154,8 +9154,8 @@ define internal range(i32 -1, 1) i32 @arg_set_epilog(ptr noundef nonnull readonl
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 72
-  tail call void @slurm_xfree(ptr noundef nonnull %6) #22
-  %7 = tail call ptr @xstrdup(ptr noundef %1) #22
+  tail call void @slurm_xfree(ptr noundef nonnull %6) #21
+  %7 = tail call ptr @xstrdup(ptr noundef %1) #21
   %8 = load ptr, ptr %3, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 72
   store ptr %7, ptr %9, align 8
@@ -9180,7 +9180,7 @@ define internal ptr @arg_get_epilog(ptr noundef nonnull readonly captures(none) 
 
 7:                                                ; preds = %1, %4
   %.sink = phi ptr [ %6, %4 ], [ @.str.55, %1 ]
-  %8 = tail call ptr @xstrdup(ptr noundef %.sink) #22
+  %8 = tail call ptr @xstrdup(ptr noundef %.sink) #21
   ret ptr %8
 }
 
@@ -9193,7 +9193,7 @@ define internal void @arg_reset_epilog(ptr noundef nonnull readonly captures(non
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 72
-  tail call void @slurm_xfree(ptr noundef nonnull %5) #22
+  tail call void @slurm_xfree(ptr noundef nonnull %5) #21
   br label %6
 
 6:                                                ; preds = %4, %1
@@ -9221,11 +9221,11 @@ define internal range(i32 -1, 1) i32 @arg_set_efname(ptr noundef %0, ptr noundef
 
 11:                                               ; preds = %8, %5, %2
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 792
-  tail call void @slurm_xfree(ptr noundef nonnull %12) #22
-  %13 = tail call i32 @xstrcasecmp(ptr noundef %1, ptr noundef nonnull @.str.102) #22
+  tail call void @slurm_xfree(ptr noundef nonnull %12) #21
+  %13 = tail call i32 @xstrcasecmp(ptr noundef %1, ptr noundef nonnull @.str.102) #21
   %.not10 = icmp eq i32 %13, 0
   %.str.155. = select i1 %.not10, ptr @.str.155, ptr %1
-  %14 = tail call ptr @xstrdup(ptr noundef %.str.155.) #22
+  %14 = tail call ptr @xstrdup(ptr noundef %.str.155.) #21
   store ptr %14, ptr %12, align 8
   br label %15
 
@@ -9238,14 +9238,14 @@ define internal range(i32 -1, 1) i32 @arg_set_efname(ptr noundef %0, ptr noundef
 define internal ptr @arg_get_efname(ptr noundef nonnull readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 792
   %3 = load ptr, ptr %2, align 8
-  %4 = tail call ptr @xstrdup(ptr noundef %3) #22
+  %4 = tail call ptr @xstrdup(ptr noundef %3) #21
   ret ptr %4
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @arg_reset_efname(ptr noundef nonnull %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 792
-  tail call void @slurm_xfree(ptr noundef nonnull %2) #22
+  tail call void @slurm_xfree(ptr noundef nonnull %2) #21
   ret void
 }
 
@@ -9282,7 +9282,7 @@ define internal ptr @arg_get_exact(ptr noundef nonnull readonly captures(none) %
 
 9:                                                ; preds = %1, %4
   %.sink = phi ptr [ %8, %4 ], [ @.str.55, %1 ]
-  %10 = tail call ptr @xstrdup(ptr noundef nonnull %.sink) #22
+  %10 = tail call ptr @xstrdup(ptr noundef nonnull %.sink) #21
   ret ptr %10
 }
 
@@ -9305,8 +9305,8 @@ define internal void @arg_reset_exact(ptr noundef nonnull readonly captures(none
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @arg_set_exclude(ptr noundef nonnull %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 560
-  tail call void @slurm_xfree(ptr noundef nonnull %3) #22
-  %4 = tail call ptr @xstrdup(ptr noundef %1) #22
+  tail call void @slurm_xfree(ptr noundef nonnull %3) #21
+  %4 = tail call ptr @xstrdup(ptr noundef %1) #21
   store ptr %4, ptr %3, align 8
   ret i32 0
 }
@@ -9315,14 +9315,14 @@ define internal noundef i32 @arg_set_exclude(ptr noundef nonnull %0, ptr noundef
 define internal ptr @arg_get_exclude(ptr noundef nonnull readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 560
   %3 = load ptr, ptr %2, align 8
-  %4 = tail call ptr @xstrdup(ptr noundef %3) #22
+  %4 = tail call ptr @xstrdup(ptr noundef %3) #21
   ret ptr %4
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @arg_reset_exclude(ptr noundef nonnull %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 560
-  tail call void @slurm_xfree(ptr noundef nonnull %2) #22
+  tail call void @slurm_xfree(ptr noundef nonnull %2) #21
   ret void
 }
 
@@ -9332,7 +9332,7 @@ define internal range(i32 -1, 1) i32 @arg_set_exclusive(ptr noundef captures(non
   br i1 %.not, label %5, label %3
 
 3:                                                ; preds = %2
-  %4 = tail call i32 @xstrcasecmp(ptr noundef nonnull %1, ptr noundef nonnull @.str.160) #22
+  %4 = tail call i32 @xstrcasecmp(ptr noundef nonnull %1, ptr noundef nonnull @.str.160) #21
   %.not16 = icmp eq i32 %4, 0
   br i1 %.not16, label %5, label %14
 
@@ -9356,7 +9356,7 @@ define internal range(i32 -1, 1) i32 @arg_set_exclusive(ptr noundef captures(non
   br label %32
 
 14:                                               ; preds = %3
-  %15 = tail call i32 @xstrcasecmp(ptr noundef nonnull %1, ptr noundef nonnull @.str.162) #22
+  %15 = tail call i32 @xstrcasecmp(ptr noundef nonnull %1, ptr noundef nonnull @.str.162) #21
   %.not18 = icmp eq i32 %15, 0
   br i1 %.not18, label %16, label %18
 
@@ -9366,7 +9366,7 @@ define internal range(i32 -1, 1) i32 @arg_set_exclusive(ptr noundef captures(non
   br label %32
 
 18:                                               ; preds = %14
-  %19 = tail call i32 @xstrcasecmp(ptr noundef nonnull %1, ptr noundef nonnull @.str.163) #22
+  %19 = tail call i32 @xstrcasecmp(ptr noundef nonnull %1, ptr noundef nonnull @.str.163) #21
   %.not19 = icmp eq i32 %19, 0
   br i1 %.not19, label %20, label %22
 
@@ -9376,7 +9376,7 @@ define internal range(i32 -1, 1) i32 @arg_set_exclusive(ptr noundef captures(non
   br label %32
 
 22:                                               ; preds = %18
-  %23 = tail call i32 @xstrcasecmp(ptr noundef nonnull %1, ptr noundef nonnull @.str.164) #22
+  %23 = tail call i32 @xstrcasecmp(ptr noundef nonnull %1, ptr noundef nonnull @.str.164) #21
   %.not20 = icmp eq i32 %23, 0
   br i1 %.not20, label %24, label %26
 
@@ -9386,7 +9386,7 @@ define internal range(i32 -1, 1) i32 @arg_set_exclusive(ptr noundef captures(non
   br label %32
 
 26:                                               ; preds = %22
-  %27 = tail call i32 @xstrcasecmp(ptr noundef nonnull %1, ptr noundef nonnull @.str.165) #22
+  %27 = tail call i32 @xstrcasecmp(ptr noundef nonnull %1, ptr noundef nonnull @.str.165) #21
   %.not21 = icmp eq i32 %27, 0
   br i1 %.not21, label %28, label %30
 
@@ -9396,7 +9396,7 @@ define internal range(i32 -1, 1) i32 @arg_set_exclusive(ptr noundef captures(non
   br label %32
 
 30:                                               ; preds = %26
-  %31 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.166) #22
+  %31 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.166) #21
   br label %32
 
 32:                                               ; preds = %12, %20, %28, %24, %16, %30
@@ -9420,7 +9420,7 @@ switch.lookup:                                    ; preds = %1
   %5 = zext nneg i16 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.arg_get_exclusive, i64 %5
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %6 = tail call ptr @xstrdup(ptr noundef nonnull %switch.load) #22
+  %6 = tail call ptr @xstrdup(ptr noundef nonnull %switch.load) #21
   br label %7
 
 7:                                                ; preds = %1, %switch.lookup
@@ -9466,7 +9466,7 @@ define internal range(i32 -1, 1) i32 @arg_set_export(ptr noundef captures(none) 
   br i1 %.not6, label %14, label %11
 
 11:                                               ; preds = %8, %5, %2
-  %12 = tail call ptr @xstrdup(ptr noundef %1) #22
+  %12 = tail call ptr @xstrdup(ptr noundef %1) #21
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 784
   store ptr %12, ptr %13, align 8
   br label %14
@@ -9502,14 +9502,14 @@ define internal ptr @arg_get_export(ptr noundef readonly captures(none) %0) #0 {
 
 13:                                               ; preds = %7, %10
   %.sink = phi ptr [ %12, %10 ], [ @.str.55, %7 ]
-  %14 = tail call ptr @xstrdup(ptr noundef %.sink) #22
+  %14 = tail call ptr @xstrdup(ptr noundef %.sink) #21
   ret ptr %14
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @arg_reset_export(ptr noundef %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 784
-  tail call void @slurm_xfree(ptr noundef nonnull %2) #22
+  tail call void @slurm_xfree(ptr noundef nonnull %2) #21
   ret void
 }
 
@@ -9522,8 +9522,8 @@ define internal range(i32 -1, 1) i32 @arg_set_export_file(ptr noundef nonnull re
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  tail call void @slurm_xfree(ptr noundef nonnull %6) #22
-  %7 = tail call ptr @xstrdup(ptr noundef %1) #22
+  tail call void @slurm_xfree(ptr noundef nonnull %6) #21
+  %7 = tail call ptr @xstrdup(ptr noundef %1) #21
   %8 = load ptr, ptr %3, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %7, ptr %9, align 8
@@ -9548,7 +9548,7 @@ define internal ptr @arg_get_export_file(ptr noundef nonnull readonly captures(n
 
 7:                                                ; preds = %1, %4
   %.sink = phi ptr [ %6, %4 ], [ @.str.55, %1 ]
-  %8 = tail call ptr @xstrdup(ptr noundef %.sink) #22
+  %8 = tail call ptr @xstrdup(ptr noundef %.sink) #21
   ret ptr %8
 }
 
@@ -9561,7 +9561,7 @@ define internal void @arg_reset_export_file(ptr noundef nonnull readonly capture
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  tail call void @slurm_xfree(ptr noundef nonnull %5) #22
+  tail call void @slurm_xfree(ptr noundef nonnull %5) #21
   br label %6
 
 6:                                                ; preds = %4, %1
@@ -9601,7 +9601,7 @@ define internal ptr @arg_get_external_launcher(ptr noundef nonnull readonly capt
 
 9:                                                ; preds = %1, %4
   %.sink = phi ptr [ %8, %4 ], [ @.str.55, %1 ]
-  %10 = tail call ptr @xstrdup(ptr noundef nonnull %.sink) #22
+  %10 = tail call ptr @xstrdup(ptr noundef nonnull %.sink) #21
   ret ptr %10
 }
 
@@ -9624,8 +9624,8 @@ define internal void @arg_reset_external_launcher(ptr noundef nonnull readonly c
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @arg_set_extra(ptr noundef nonnull %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 584
-  tail call void @slurm_xfree(ptr noundef nonnull %3) #22
-  %4 = tail call ptr @xstrdup(ptr noundef %1) #22
+  tail call void @slurm_xfree(ptr noundef nonnull %3) #21
+  %4 = tail call ptr @xstrdup(ptr noundef %1) #21
   store ptr %4, ptr %3, align 8
   ret i32 0
 }
@@ -9634,14 +9634,14 @@ define internal noundef i32 @arg_set_extra(ptr noundef nonnull %0, ptr noundef %
 define internal ptr @arg_get_extra(ptr noundef nonnull readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 584
   %3 = load ptr, ptr %2, align 8
-  %4 = tail call ptr @xstrdup(ptr noundef %3) #22
+  %4 = tail call ptr @xstrdup(ptr noundef %3) #21
   ret ptr %4
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @arg_reset_extra(ptr noundef nonnull %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 584
-  tail call void @slurm_xfree(ptr noundef nonnull %2) #22
+  tail call void @slurm_xfree(ptr noundef nonnull %2) #21
   ret void
 }
 
@@ -9655,14 +9655,14 @@ define internal range(i32 -1, 1) i32 @arg_set_extra_node_info(ptr noundef %0, pt
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 156
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %9 = tail call zeroext i1 @verify_socket_core_thread_count(ptr noundef %1, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef %spec.select) #22
+  %9 = tail call zeroext i1 @verify_socket_core_thread_count(ptr noundef %1, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef %spec.select) #21
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %11 = zext i1 %9 to i8
   store i8 %11, ptr %10, align 8
   br i1 %9, label %14, label %12
 
 12:                                               ; preds = %2
-  %13 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.176) #22
+  %13 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.176) #21
   br label %14
 
 14:                                               ; preds = %2, %12
@@ -9681,7 +9681,7 @@ define internal ptr @arg_get_extra_node_info(ptr noundef readonly captures(none)
   br i1 %.not, label %6, label %5
 
 5:                                                ; preds = %1
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %2, ptr noundef nonnull @.str.116, i32 noundef %4) #22
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %2, ptr noundef nonnull @.str.116, i32 noundef %4) #21
   br label %6
 
 6:                                                ; preds = %5, %1
@@ -9691,7 +9691,7 @@ define internal ptr @arg_get_extra_node_info(ptr noundef readonly captures(none)
   br i1 %.not11, label %10, label %9
 
 9:                                                ; preds = %6
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %2, ptr noundef nonnull @.str.177, i32 noundef %8) #22
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %2, ptr noundef nonnull @.str.177, i32 noundef %8) #21
   br label %10
 
 10:                                               ; preds = %9, %6
@@ -9701,7 +9701,7 @@ define internal ptr @arg_get_extra_node_info(ptr noundef readonly captures(none)
   br i1 %.not12, label %14, label %13
 
 13:                                               ; preds = %10
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %2, ptr noundef nonnull @.str.177, i32 noundef %12) #22
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %2, ptr noundef nonnull @.str.177, i32 noundef %12) #21
   br label %14
 
 14:                                               ; preds = %13, %10
@@ -9710,7 +9710,7 @@ define internal ptr @arg_get_extra_node_info(ptr noundef readonly captures(none)
   br i1 %.not13, label %16, label %18
 
 16:                                               ; preds = %14
-  %17 = call ptr @xstrdup(ptr noundef nonnull @.str.110) #22
+  %17 = call ptr @xstrdup(ptr noundef nonnull @.str.110) #21
   br label %18
 
 18:                                               ; preds = %14, %16
@@ -9747,7 +9747,7 @@ define internal range(i32 -1, 1) i32 @arg_set_get_user_env(ptr noundef writeonly
   br label %19
 
 6:                                                ; preds = %2
-  %7 = call i64 @strtol(ptr noundef nonnull %1, ptr noundef nonnull %3, i32 noundef 10) #22
+  %7 = call i64 @strtol(ptr noundef nonnull %1, ptr noundef nonnull %3, i32 noundef 10) #21
   %8 = trunc i64 %7 to i32
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 608
   store i32 %8, ptr %9, align 8
@@ -9776,7 +9776,7 @@ define internal range(i32 -1, 1) i32 @arg_set_get_user_env(ptr noundef writeonly
   br label %19
 
 17:                                               ; preds = %11
-  %18 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.180) #22
+  %18 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.180) #21
   br label %19
 
 19:                                               ; preds = %13, %15, %11, %6, %17, %4
@@ -9805,7 +9805,7 @@ define internal ptr @arg_get_get_user_env(ptr noundef readonly captures(none) %0
 
 .sink.split:                                      ; preds = %7, %1, %6
   %.str.116.sink = phi ptr [ @.str.181, %1 ], [ @.str.182, %6 ], [ @.str.116, %7 ]
-  %8 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull %.str.116.sink, i32 noundef %5) #22
+  %8 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull %.str.116.sink, i32 noundef %5) #21
   br label %9
 
 9:                                                ; preds = %.sink.split, %7
@@ -9824,19 +9824,19 @@ define internal void @arg_reset_get_user_env(ptr noundef writeonly captures(none
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @arg_set_gid(ptr noundef %0, ptr noundef %1) #0 {
-  %3 = tail call i32 @getuid() #22
+  %3 = tail call i32 @getuid() #21
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %.sink.split
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 108
-  %6 = tail call i32 @gid_from_string(ptr noundef %1, ptr noundef nonnull %5) #22
+  %6 = tail call i32 @gid_from_string(ptr noundef %1, ptr noundef nonnull %5) #21
   %7 = icmp slt i32 %6, 0
   br i1 %7, label %.sink.split, label %9
 
 .sink.split:                                      ; preds = %4, %2
   %.str.186.sink = phi ptr [ @.str.185, %2 ], [ @.str.186, %4 ]
-  %8 = tail call i32 (ptr, ...) @error(ptr noundef nonnull %.str.186.sink) #22
+  %8 = tail call i32 (ptr, ...) @error(ptr noundef nonnull %.str.186.sink) #21
   br label %9
 
 9:                                                ; preds = %.sink.split, %4
@@ -9848,7 +9848,7 @@ define internal range(i32 -1, 1) i32 @arg_set_gid(ptr noundef %0, ptr noundef %1
 define internal ptr @arg_get_gid(ptr noundef nonnull readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 108
   %3 = load i32, ptr %2, align 4
-  %4 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.116, i32 noundef %3) #22
+  %4 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.116, i32 noundef %3) #21
   ret ptr %4
 }
 
@@ -9867,20 +9867,20 @@ declare i32 @gid_from_string(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @arg_set_gpu_bind(ptr noundef %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 384
-  tail call void @slurm_xfree(ptr noundef nonnull %3) #22
+  tail call void @slurm_xfree(ptr noundef nonnull %3) #21
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 728
-  tail call void @slurm_xfree(ptr noundef nonnull %4) #22
-  %5 = tail call ptr @xstrdup(ptr noundef %1) #22
+  tail call void @slurm_xfree(ptr noundef nonnull %4) #21
+  %5 = tail call ptr @xstrdup(ptr noundef %1) #21
   store ptr %5, ptr %3, align 8
-  tail call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %4, ptr noundef nonnull @.str.189, ptr noundef %5) #22
+  tail call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %4, ptr noundef nonnull @.str.189, ptr noundef %5) #21
   %6 = load ptr, ptr %4, align 8
-  %7 = tail call i32 @tres_bind_verify_cmdline(ptr noundef %6) #22
+  %7 = tail call i32 @tres_bind_verify_cmdline(ptr noundef %6) #21
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %11, label %8
 
 8:                                                ; preds = %2
   %9 = load ptr, ptr %3, align 8
-  %10 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.190, ptr noundef %9) #22
+  %10 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.190, ptr noundef %9) #21
   br label %11
 
 11:                                               ; preds = %2, %8
@@ -9892,16 +9892,16 @@ define internal range(i32 -1, 1) i32 @arg_set_gpu_bind(ptr noundef %0, ptr nound
 define internal ptr @arg_get_gpu_bind(ptr noundef nonnull readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %3 = load ptr, ptr %2, align 8
-  %4 = tail call ptr @xstrdup(ptr noundef %3) #22
+  %4 = tail call ptr @xstrdup(ptr noundef %3) #21
   ret ptr %4
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @arg_reset_gpu_bind(ptr noundef %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 384
-  tail call void @slurm_xfree(ptr noundef nonnull %2) #22
+  tail call void @slurm_xfree(ptr noundef nonnull %2) #21
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 728
-  tail call void @slurm_xfree(ptr noundef nonnull %3) #22
+  tail call void @slurm_xfree(ptr noundef nonnull %3) #21
   ret void
 }
 
@@ -9910,20 +9910,20 @@ declare i32 @tres_bind_verify_cmdline(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @arg_set_gpu_freq(ptr noundef %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 392
-  tail call void @slurm_xfree(ptr noundef nonnull %3) #22
+  tail call void @slurm_xfree(ptr noundef nonnull %3) #21
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 736
-  tail call void @slurm_xfree(ptr noundef nonnull %4) #22
-  %5 = tail call ptr @xstrdup(ptr noundef %1) #22
+  tail call void @slurm_xfree(ptr noundef nonnull %4) #21
+  %5 = tail call ptr @xstrdup(ptr noundef %1) #21
   store ptr %5, ptr %3, align 8
-  tail call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %4, ptr noundef nonnull @.str.193, ptr noundef %5) #22
+  tail call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %4, ptr noundef nonnull @.str.193, ptr noundef %5) #21
   %6 = load ptr, ptr %4, align 8
-  %7 = tail call i32 @tres_freq_verify_cmdline(ptr noundef %6) #22
+  %7 = tail call i32 @tres_freq_verify_cmdline(ptr noundef %6) #21
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %11, label %8
 
 8:                                                ; preds = %2
   %9 = load ptr, ptr %4, align 8
-  %10 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.194, ptr noundef %9) #22
+  %10 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.194, ptr noundef %9) #21
   br label %11
 
 11:                                               ; preds = %2, %8
@@ -9935,16 +9935,16 @@ define internal range(i32 -1, 1) i32 @arg_set_gpu_freq(ptr noundef %0, ptr nound
 define internal ptr @arg_get_gpu_freq(ptr noundef nonnull readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %3 = load ptr, ptr %2, align 8
-  %4 = tail call ptr @xstrdup(ptr noundef %3) #22
+  %4 = tail call ptr @xstrdup(ptr noundef %3) #21
   ret ptr %4
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @arg_reset_gpu_freq(ptr noundef %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 392
-  tail call void @slurm_xfree(ptr noundef nonnull %2) #22
+  tail call void @slurm_xfree(ptr noundef nonnull %2) #21
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 736
-  tail call void @slurm_xfree(ptr noundef nonnull %3) #22
+  tail call void @slurm_xfree(ptr noundef nonnull %3) #21
   ret void
 }
 
@@ -9953,8 +9953,8 @@ declare i32 @tres_freq_verify_cmdline(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @arg_set_gpus(ptr noundef nonnull %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 376
-  tail call void @slurm_xfree(ptr noundef nonnull %3) #22
-  %4 = tail call ptr @xstrdup(ptr noundef %1) #22
+  tail call void @slurm_xfree(ptr noundef nonnull %3) #21
+  %4 = tail call ptr @xstrdup(ptr noundef %1) #21
   store ptr %4, ptr %3, align 8
   ret i32 0
 }
@@ -9963,22 +9963,22 @@ define internal noundef i32 @arg_set_gpus(ptr noundef nonnull %0, ptr noundef %1
 define internal ptr @arg_get_gpus(ptr noundef nonnull readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 376
   %3 = load ptr, ptr %2, align 8
-  %4 = tail call ptr @xstrdup(ptr noundef %3) #22
+  %4 = tail call ptr @xstrdup(ptr noundef %3) #21
   ret ptr %4
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @arg_reset_gpus(ptr noundef nonnull %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 376
-  tail call void @slurm_xfree(ptr noundef nonnull %2) #22
+  tail call void @slurm_xfree(ptr noundef nonnull %2) #21
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @arg_set_gpus_per_node(ptr noundef nonnull %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 400
-  tail call void @slurm_xfree(ptr noundef nonnull %3) #22
-  %4 = tail call ptr @xstrdup(ptr noundef %1) #22
+  tail call void @slurm_xfree(ptr noundef nonnull %3) #21
+  %4 = tail call ptr @xstrdup(ptr noundef %1) #21
   store ptr %4, ptr %3, align 8
   ret i32 0
 }
@@ -9987,22 +9987,22 @@ define internal noundef i32 @arg_set_gpus_per_node(ptr noundef nonnull %0, ptr n
 define internal ptr @arg_get_gpus_per_node(ptr noundef nonnull readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 400
   %3 = load ptr, ptr %2, align 8
-  %4 = tail call ptr @xstrdup(ptr noundef %3) #22
+  %4 = tail call ptr @xstrdup(ptr noundef %3) #21
   ret ptr %4
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @arg_reset_gpus_per_node(ptr noundef nonnull %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 400
-  tail call void @slurm_xfree(ptr noundef nonnull %2) #22
+  tail call void @slurm_xfree(ptr noundef nonnull %2) #21
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @arg_set_gpus_per_socket(ptr noundef nonnull %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 408
-  tail call void @slurm_xfree(ptr noundef nonnull %3) #22
-  %4 = tail call ptr @xstrdup(ptr noundef %1) #22
+  tail call void @slurm_xfree(ptr noundef nonnull %3) #21
+  %4 = tail call ptr @xstrdup(ptr noundef %1) #21
   store ptr %4, ptr %3, align 8
   ret i32 0
 }
@@ -10011,22 +10011,22 @@ define internal noundef i32 @arg_set_gpus_per_socket(ptr noundef nonnull %0, ptr
 define internal ptr @arg_get_gpus_per_socket(ptr noundef nonnull readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %3 = load ptr, ptr %2, align 8
-  %4 = tail call ptr @xstrdup(ptr noundef %3) #22
+  %4 = tail call ptr @xstrdup(ptr noundef %3) #21
   ret ptr %4
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @arg_reset_gpus_per_socket(ptr noundef nonnull %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 408
-  tail call void @slurm_xfree(ptr noundef nonnull %2) #22
+  tail call void @slurm_xfree(ptr noundef nonnull %2) #21
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @arg_set_gpus_per_task(ptr noundef nonnull %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 416
-  tail call void @slurm_xfree(ptr noundef nonnull %3) #22
-  %4 = tail call ptr @xstrdup(ptr noundef %1) #22
+  tail call void @slurm_xfree(ptr noundef nonnull %3) #21
+  %4 = tail call ptr @xstrdup(ptr noundef %1) #21
   store ptr %4, ptr %3, align 8
   ret i32 0
 }
@@ -10035,25 +10035,25 @@ define internal noundef i32 @arg_set_gpus_per_task(ptr noundef nonnull %0, ptr n
 define internal ptr @arg_get_gpus_per_task(ptr noundef nonnull readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 416
   %3 = load ptr, ptr %2, align 8
-  %4 = tail call ptr @xstrdup(ptr noundef %3) #22
+  %4 = tail call ptr @xstrdup(ptr noundef %3) #21
   ret ptr %4
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @arg_reset_gpus_per_task(ptr noundef nonnull %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 416
-  tail call void @slurm_xfree(ptr noundef nonnull %2) #22
+  tail call void @slurm_xfree(ptr noundef nonnull %2) #21
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @arg_set_gres(ptr noundef %0, ptr noundef %1) #0 {
-  %3 = tail call i32 @xstrcasecmp(ptr noundef %1, ptr noundef nonnull @.str.204) #22
+  %3 = tail call i32 @xstrcasecmp(ptr noundef %1, ptr noundef nonnull @.str.204) #21
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %6, label %4
 
 4:                                                ; preds = %2
-  %5 = tail call i32 @xstrcasecmp(ptr noundef %1, ptr noundef nonnull @.str.205) #22
+  %5 = tail call i32 @xstrcasecmp(ptr noundef %1, ptr noundef nonnull @.str.205) #21
   %.not9 = icmp eq i32 %5, 0
   br i1 %.not9, label %6, label %10
 
@@ -10064,23 +10064,23 @@ define internal range(i32 -1, 1) i32 @arg_set_gres(ptr noundef %0, ptr noundef %
   br i1 %.not10, label %9, label %18
 
 9:                                                ; preds = %6
-  tail call void @print_gres_help() #22
-  tail call void @exit(i32 noundef 0) #23
+  tail call void @print_gres_help() #21
+  tail call void @exit(i32 noundef 0) #22
   unreachable
 
 10:                                               ; preds = %4
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 496
-  tail call void @slurm_xfree(ptr noundef nonnull %11) #22
-  %12 = tail call i32 @xstrcasecmp(ptr noundef %1, ptr noundef nonnull @.str.102) #22
+  tail call void @slurm_xfree(ptr noundef nonnull %11) #21
+  %12 = tail call i32 @xstrcasecmp(ptr noundef %1, ptr noundef nonnull @.str.102) #21
   %.not11 = icmp eq i32 %12, 0
   br i1 %.not11, label %13, label %15
 
 13:                                               ; preds = %10
-  %14 = tail call ptr @xstrdup(ptr noundef %1) #22
+  %14 = tail call ptr @xstrdup(ptr noundef %1) #21
   br label %17
 
 15:                                               ; preds = %10
-  %16 = tail call ptr @gres_prepend_tres_type(ptr noundef %1) #22
+  %16 = tail call ptr @gres_prepend_tres_type(ptr noundef %1) #21
   br label %17
 
 17:                                               ; preds = %15, %13
@@ -10097,14 +10097,14 @@ define internal range(i32 -1, 1) i32 @arg_set_gres(ptr noundef %0, ptr noundef %
 define internal ptr @arg_get_gres(ptr noundef nonnull readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 496
   %3 = load ptr, ptr %2, align 8
-  %4 = tail call ptr @xstrdup(ptr noundef %3) #22
+  %4 = tail call ptr @xstrdup(ptr noundef %3) #21
   ret ptr %4
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @arg_reset_gres(ptr noundef nonnull %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 496
-  tail call void @slurm_xfree(ptr noundef nonnull %2) #22
+  tail call void @slurm_xfree(ptr noundef nonnull %2) #21
   ret void
 }
 
@@ -10127,9 +10127,9 @@ define internal range(i32 -1, 1) i32 @arg_set_gres_flags(ptr noundef captures(no
   br i1 %.not, label %45, label %8
 
 8:                                                ; preds = %2
-  %9 = tail call ptr @xstrdup(ptr noundef nonnull %1) #22
+  %9 = tail call ptr @xstrdup(ptr noundef nonnull %1) #21
   store ptr %9, ptr %3, align 8
-  %10 = call ptr @strtok_r(ptr noundef %9, ptr noundef nonnull @.str.22, ptr noundef nonnull %4) #22
+  %10 = call ptr @strtok_r(ptr noundef %9, ptr noundef nonnull @.str.22, ptr noundef nonnull %4) #21
   %.not2340 = icmp eq ptr %10, null
   br i1 %.not2340, label %._crit_edge, label %.lr.ph
 
@@ -10139,7 +10139,7 @@ define internal range(i32 -1, 1) i32 @arg_set_gres_flags(ptr noundef captures(no
 
 12:                                               ; preds = %.lr.ph, %28
   %.041 = phi ptr [ %10, %.lr.ph ], [ %31, %28 ]
-  %13 = call i32 @xstrcasecmp(ptr noundef nonnull %.041, ptr noundef nonnull @.str.208) #22
+  %13 = call i32 @xstrcasecmp(ptr noundef nonnull %.041, ptr noundef nonnull @.str.208) #21
   %.not30 = icmp eq i32 %13, 0
   br i1 %.not30, label %14, label %18
 
@@ -10149,33 +10149,33 @@ define internal range(i32 -1, 1) i32 @arg_set_gres_flags(ptr noundef captures(no
   br i1 %.not31, label %16, label %28
 
 16:                                               ; preds = %14
-  %17 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.209) #22
-  call void @slurm_xfree(ptr noundef nonnull %3) #22
+  %17 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.209) #21
+  call void @slurm_xfree(ptr noundef nonnull %3) #21
   br label %45
 
 18:                                               ; preds = %12
-  %19 = call i32 @xstrcasecmp(ptr noundef nonnull %.041, ptr noundef nonnull @.str.210) #22
+  %19 = call i32 @xstrcasecmp(ptr noundef nonnull %.041, ptr noundef nonnull @.str.210) #21
   %.not32 = icmp eq i32 %19, 0
   br i1 %.not32, label %28, label %20
 
 20:                                               ; preds = %18
-  %21 = call i32 @xstrcasecmp(ptr noundef nonnull %.041, ptr noundef nonnull @.str.211) #22
+  %21 = call i32 @xstrcasecmp(ptr noundef nonnull %.041, ptr noundef nonnull @.str.211) #21
   %.not33 = icmp eq i32 %21, 0
   br i1 %.not33, label %28, label %22
 
 22:                                               ; preds = %20
-  %23 = call i32 @xstrcasecmp(ptr noundef nonnull %.041, ptr noundef nonnull @.str.212) #22
+  %23 = call i32 @xstrcasecmp(ptr noundef nonnull %.041, ptr noundef nonnull @.str.212) #21
   %.not34 = icmp eq i32 %23, 0
   br i1 %.not34, label %28, label %24
 
 24:                                               ; preds = %22
-  %25 = call i32 @xstrcasecmp(ptr noundef nonnull %.041, ptr noundef nonnull @.str.213) #22
+  %25 = call i32 @xstrcasecmp(ptr noundef nonnull %.041, ptr noundef nonnull @.str.213) #21
   %.not35 = icmp eq i32 %25, 0
   br i1 %.not35, label %28, label %26
 
 26:                                               ; preds = %24
-  %27 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.214, ptr noundef nonnull %.041) #22
-  call void @slurm_xfree(ptr noundef nonnull %3) #22
+  %27 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.214, ptr noundef nonnull %.041) #21
+  call void @slurm_xfree(ptr noundef nonnull %3) #21
   br label %45
 
 28:                                               ; preds = %24, %22, %20, %18, %14
@@ -10183,19 +10183,19 @@ define internal range(i32 -1, 1) i32 @arg_set_gres_flags(ptr noundef captures(no
   %29 = load i64, ptr %5, align 8
   %30 = or i64 %29, %.sink49
   store i64 %30, ptr %5, align 8
-  %31 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.22, ptr noundef nonnull %4) #22
+  %31 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.22, ptr noundef nonnull %4) #21
   %.not23 = icmp eq ptr %31, null
   br i1 %.not23, label %._crit_edge, label %12, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %28, %8
-  call void @slurm_xfree(ptr noundef nonnull %3) #22
+  call void @slurm_xfree(ptr noundef nonnull %3) #21
   %32 = load i64, ptr %5, align 8
   %33 = and i64 %32, 524304
   %or.cond.not = icmp eq i64 %33, 524304
   br i1 %or.cond.not, label %34, label %36
 
 34:                                               ; preds = %._crit_edge
-  %35 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.215) #22
+  %35 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.215) #21
   br label %45
 
 36:                                               ; preds = %._crit_edge
@@ -10204,7 +10204,7 @@ define internal range(i32 -1, 1) i32 @arg_set_gres_flags(ptr noundef captures(no
   br i1 %or.cond36.not, label %38, label %40
 
 38:                                               ; preds = %36
-  %39 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.216) #22
+  %39 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.216) #21
   br label %45
 
 40:                                               ; preds = %36
@@ -10216,7 +10216,7 @@ define internal range(i32 -1, 1) i32 @arg_set_gres_flags(ptr noundef captures(no
   br i1 %or.cond37, label %43, label %45
 
 43:                                               ; preds = %40
-  %44 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.217) #22
+  %44 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.217) #21
   br label %45
 
 45:                                               ; preds = %40, %2, %43, %38, %34, %26, %16
@@ -10241,7 +10241,7 @@ define internal ptr @arg_get_gres_flags(ptr noundef readonly captures(none) %0) 
   br i1 %.not, label %8, label %7
 
 7:                                                ; preds = %1
-  call void @_xstrncatat(ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull @.str.218, i64 noundef -1) #22
+  call void @_xstrncatat(ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull @.str.218, i64 noundef -1) #21
   %.pre = load i64, ptr %4, align 8
   br label %8
 
@@ -10252,7 +10252,7 @@ define internal ptr @arg_get_gres_flags(ptr noundef readonly captures(none) %0) 
   br i1 %.not5, label %12, label %11
 
 11:                                               ; preds = %8
-  call void @_xstrncatat(ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull @.str.219, i64 noundef -1) #22
+  call void @_xstrncatat(ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull @.str.219, i64 noundef -1) #21
   %.pre10 = load i64, ptr %4, align 8
   br label %12
 
@@ -10263,7 +10263,7 @@ define internal ptr @arg_get_gres_flags(ptr noundef readonly captures(none) %0) 
   br i1 %.not6, label %16, label %15
 
 15:                                               ; preds = %12
-  call void @_xstrncatat(ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull @.str.220, i64 noundef -1) #22
+  call void @_xstrncatat(ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull @.str.220, i64 noundef -1) #21
   %.pre11 = load i64, ptr %4, align 8
   br label %16
 
@@ -10274,7 +10274,7 @@ define internal ptr @arg_get_gres_flags(ptr noundef readonly captures(none) %0) 
   br i1 %.not7, label %20, label %19
 
 19:                                               ; preds = %16
-  call void @_xstrncatat(ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull @.str.221, i64 noundef -1) #22
+  call void @_xstrncatat(ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull @.str.221, i64 noundef -1) #21
   %.pre12 = load i64, ptr %4, align 8
   br label %20
 
@@ -10285,7 +10285,7 @@ define internal ptr @arg_get_gres_flags(ptr noundef readonly captures(none) %0) 
   br i1 %.not8, label %24, label %23
 
 23:                                               ; preds = %20
-  call void @_xstrncatat(ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull @.str.222, i64 noundef -1) #22
+  call void @_xstrncatat(ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull @.str.222, i64 noundef -1) #21
   br label %24
 
 24:                                               ; preds = %23, %20
@@ -10294,7 +10294,7 @@ define internal ptr @arg_get_gres_flags(ptr noundef readonly captures(none) %0) 
   br i1 %.not9, label %26, label %27
 
 26:                                               ; preds = %24
-  call void @_xstrcat(ptr noundef nonnull %2, ptr noundef nonnull @.str.110) #22
+  call void @_xstrcat(ptr noundef nonnull %2, ptr noundef nonnull @.str.110) #21
   br label %29
 
 27:                                               ; preds = %24
@@ -10340,15 +10340,15 @@ define internal noundef i32 @arg_set_help(ptr noundef readonly captures(none) %0
   br i1 %.not3, label %10, label %9
 
 9:                                                ; preds = %6
-  tail call void %8() #22
+  tail call void %8() #21
   br label %12
 
 10:                                               ; preds = %6
-  %11 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.224) #22
+  %11 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.224) #21
   br label %12
 
 12:                                               ; preds = %10, %9
-  tail call void @exit(i32 noundef 0) #23
+  tail call void @exit(i32 noundef 0) #22
   unreachable
 }
 
@@ -10371,8 +10371,8 @@ define internal range(i32 -1, 1) i32 @arg_set_het_group(ptr noundef readonly cap
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 136
-  tail call void @slurm_xfree(ptr noundef nonnull %6) #22
-  %7 = tail call ptr @xstrdup(ptr noundef %1) #22
+  tail call void @slurm_xfree(ptr noundef nonnull %6) #21
+  %7 = tail call ptr @xstrdup(ptr noundef %1) #21
   %8 = load ptr, ptr %3, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 136
   store ptr %7, ptr %9, align 8
@@ -10397,7 +10397,7 @@ define internal ptr @arg_get_het_group(ptr noundef readonly captures(none) %0) #
 
 7:                                                ; preds = %1, %4
   %.sink = phi ptr [ %6, %4 ], [ @.str.55, %1 ]
-  %8 = tail call ptr @xstrdup(ptr noundef %.sink) #22
+  %8 = tail call ptr @xstrdup(ptr noundef %.sink) #21
   ret ptr %8
 }
 
@@ -10410,7 +10410,7 @@ define internal void @arg_reset_het_group(ptr noundef readonly captures(none) %0
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 136
-  tail call void @slurm_xfree(ptr noundef nonnull %5) #22
+  tail call void @slurm_xfree(ptr noundef nonnull %5) #21
   br label %6
 
 6:                                                ; preds = %4, %1
@@ -10420,8 +10420,8 @@ define internal void @arg_reset_het_group(ptr noundef readonly captures(none) %0
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @arg_set_hint(ptr noundef nonnull %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  tail call void @slurm_xfree(ptr noundef nonnull %3) #22
-  %4 = tail call ptr @xstrdup(ptr noundef %1) #22
+  tail call void @slurm_xfree(ptr noundef nonnull %3) #21
+  %4 = tail call ptr @xstrdup(ptr noundef %1) #21
   store ptr %4, ptr %3, align 8
   ret i32 0
 }
@@ -10430,14 +10430,14 @@ define internal noundef i32 @arg_set_hint(ptr noundef nonnull %0, ptr noundef %1
 define internal ptr @arg_get_hint(ptr noundef nonnull readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %3 = load ptr, ptr %2, align 8
-  %4 = tail call ptr @xstrdup(ptr noundef %3) #22
+  %4 = tail call ptr @xstrdup(ptr noundef %3) #21
   ret ptr %4
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @arg_reset_hint(ptr noundef nonnull %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  tail call void @slurm_xfree(ptr noundef nonnull %2) #22
+  tail call void @slurm_xfree(ptr noundef nonnull %2) #21
   ret void
 }
 
@@ -10454,7 +10454,7 @@ define internal ptr @arg_get_hold(ptr noundef nonnull readonly captures(none) %0
   %3 = load i8, ptr %2, align 2, !range !12, !noundef !13
   %4 = trunc nuw i8 %3 to i1
   %5 = select i1 %4, ptr @.str.74, ptr @.str.110
-  %6 = tail call ptr @xstrdup(ptr noundef nonnull %5) #22
+  %6 = tail call ptr @xstrdup(ptr noundef nonnull %5) #21
   ret ptr %6
 }
 
@@ -10498,7 +10498,7 @@ define internal ptr @arg_get_ignore_pbs(ptr noundef readonly captures(none) %0) 
 
 9:                                                ; preds = %1, %4
   %.sink = phi ptr [ %8, %4 ], [ @.str.55, %1 ]
-  %10 = tail call ptr @xstrdup(ptr noundef nonnull %.sink) #22
+  %10 = tail call ptr @xstrdup(ptr noundef nonnull %.sink) #21
   ret ptr %10
 }
 
@@ -10530,7 +10530,7 @@ define internal range(i32 -1, 1) i32 @arg_set_immediate(ptr noundef captures(non
   br i1 %.not6, label %.sink.split, label %6
 
 6:                                                ; preds = %5
-  %7 = tail call i32 @parse_int(ptr noundef nonnull @.str.231, ptr noundef nonnull %1, i1 noundef zeroext false) #22
+  %7 = tail call i32 @parse_int(ptr noundef nonnull @.str.231, ptr noundef nonnull %1, i1 noundef zeroext false) #21
   br label %.sink.split
 
 .sink.split:                                      ; preds = %5, %6
@@ -10548,7 +10548,7 @@ define internal range(i32 -1, 1) i32 @arg_set_immediate(ptr noundef captures(non
 define internal ptr @arg_get_immediate(ptr noundef nonnull readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %3 = load i32, ptr %2, align 8
-  %4 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.116, i32 noundef %3) #22
+  %4 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.116, i32 noundef %3) #21
   ret ptr %4
 }
 
@@ -10574,11 +10574,11 @@ define internal range(i32 -1, 1) i32 @arg_set_ifname(ptr noundef %0, ptr noundef
 
 8:                                                ; preds = %5, %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 800
-  tail call void @slurm_xfree(ptr noundef nonnull %9) #22
-  %10 = tail call i32 @xstrcasecmp(ptr noundef %1, ptr noundef nonnull @.str.102) #22
+  tail call void @slurm_xfree(ptr noundef nonnull %9) #21
+  %10 = tail call i32 @xstrcasecmp(ptr noundef %1, ptr noundef nonnull @.str.102) #21
   %.not8 = icmp eq i32 %10, 0
   %.str.155. = select i1 %.not8, ptr @.str.155, ptr %1
-  %11 = tail call ptr @xstrdup(ptr noundef %.str.155.) #22
+  %11 = tail call ptr @xstrdup(ptr noundef %.str.155.) #21
   store ptr %11, ptr %9, align 8
   br label %12
 
@@ -10591,14 +10591,14 @@ define internal range(i32 -1, 1) i32 @arg_set_ifname(ptr noundef %0, ptr noundef
 define internal ptr @arg_get_ifname(ptr noundef nonnull readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 800
   %3 = load ptr, ptr %2, align 8
-  %4 = tail call ptr @xstrdup(ptr noundef %3) #22
+  %4 = tail call ptr @xstrdup(ptr noundef %3) #21
   ret ptr %4
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @arg_reset_ifname(ptr noundef nonnull %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 800
-  tail call void @slurm_xfree(ptr noundef nonnull %2) #22
+  tail call void @slurm_xfree(ptr noundef nonnull %2) #21
   ret void
 }
 
@@ -10635,7 +10635,7 @@ define internal ptr @arg_get_interactive(ptr noundef nonnull readonly captures(n
 
 9:                                                ; preds = %1, %4
   %.sink = phi ptr [ %8, %4 ], [ @.str.55, %1 ]
-  %10 = tail call ptr @xstrdup(ptr noundef nonnull %.sink) #22
+  %10 = tail call ptr @xstrdup(ptr noundef nonnull %.sink) #21
   ret ptr %10
 }
 
@@ -10665,9 +10665,9 @@ define internal range(i32 -1, 1) i32 @arg_set_jobid(ptr noundef readonly capture
   br i1 %.not, label %17, label %6
 
 6:                                                ; preds = %2
-  %7 = tail call ptr @xstrdup(ptr noundef %1) #22
+  %7 = tail call ptr @xstrdup(ptr noundef %1) #21
   store ptr %7, ptr %3, align 8
-  %8 = tail call ptr @slurm_parse_step_str(ptr noundef %7) #22
+  %8 = tail call ptr @slurm_parse_step_str(ptr noundef %7) #21
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %10 = load i32, ptr %9, align 8
   %11 = load ptr, ptr %4, align 8
@@ -10678,8 +10678,8 @@ define internal range(i32 -1, 1) i32 @arg_set_jobid(ptr noundef readonly capture
   %15 = load ptr, ptr %4, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 88
   store i32 %14, ptr %16, align 8
-  call void @slurm_xfree(ptr noundef nonnull %3) #22
-  call void @slurm_destroy_selected_step(ptr noundef %8) #22
+  call void @slurm_xfree(ptr noundef nonnull %3) #21
+  call void @slurm_destroy_selected_step(ptr noundef %8) #21
   br label %17
 
 17:                                               ; preds = %2, %6
@@ -10702,11 +10702,11 @@ define internal ptr @arg_get_jobid(ptr noundef readonly captures(none) %0) #0 {
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %4
-  %9 = tail call ptr @xstrdup(ptr noundef nonnull @.str.110) #22
+  %9 = tail call ptr @xstrdup(ptr noundef nonnull @.str.110) #21
   br label %12
 
 10:                                               ; preds = %4
-  %11 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.116, i32 noundef %6) #22
+  %11 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.116, i32 noundef %6) #21
   br label %12
 
 12:                                               ; preds = %1, %10, %8
@@ -10740,8 +10740,8 @@ declare void @slurm_destroy_selected_step(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @arg_set_job_name(ptr noundef nonnull %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  tail call void @slurm_xfree(ptr noundef nonnull %3) #22
-  %4 = tail call ptr @xstrdup(ptr noundef %1) #22
+  tail call void @slurm_xfree(ptr noundef nonnull %3) #21
+  %4 = tail call ptr @xstrdup(ptr noundef %1) #21
   store ptr %4, ptr %3, align 8
   ret i32 0
 }
@@ -10750,14 +10750,14 @@ define internal noundef i32 @arg_set_job_name(ptr noundef nonnull %0, ptr nounde
 define internal ptr @arg_get_job_name(ptr noundef nonnull readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %3 = load ptr, ptr %2, align 8
-  %4 = tail call ptr @xstrdup(ptr noundef %3) #22
+  %4 = tail call ptr @xstrdup(ptr noundef %3) #21
   ret ptr %4
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @arg_reset_job_name(ptr noundef nonnull %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  tail call void @slurm_xfree(ptr noundef nonnull %2) #22
+  tail call void @slurm_xfree(ptr noundef nonnull %2) #21
   ret void
 }
 
@@ -10777,7 +10777,7 @@ define internal range(i32 -1, 1) i32 @arg_set_kill_command(ptr noundef readonly 
   br label %13
 
 7:                                                ; preds = %4
-  %8 = tail call i32 @sig_name2num(ptr noundef nonnull %1) #22
+  %8 = tail call i32 @sig_name2num(ptr noundef nonnull %1) #21
   %9 = load ptr, ptr %0, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 %8, ptr %10, align 4
@@ -10785,7 +10785,7 @@ define internal range(i32 -1, 1) i32 @arg_set_kill_command(ptr noundef readonly 
   br i1 %.not8, label %11, label %13
 
 11:                                               ; preds = %7
-  %12 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.243) #22
+  %12 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.243) #21
   br label %13
 
 13:                                               ; preds = %7, %2, %11, %5
@@ -10802,7 +10802,7 @@ define internal ptr @arg_get_kill_command(ptr noundef readonly captures(none) %0
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %5 = load i32, ptr %4, align 4
-  %6 = tail call ptr @sig_num2name(i32 noundef %5) #22
+  %6 = tail call ptr @sig_num2name(i32 noundef %5) #21
   br label %7
 
 7:                                                ; preds = %1, %3
@@ -10841,7 +10841,7 @@ define internal range(i32 -1, 1) i32 @arg_set_kill_on_bad_exit(ptr noundef reado
   br i1 %.not7, label %.sink.split, label %6
 
 6:                                                ; preds = %5
-  %7 = tail call i32 @parse_int(ptr noundef nonnull @.str.246, ptr noundef nonnull %1, i1 noundef zeroext false) #22
+  %7 = tail call i32 @parse_int(ptr noundef nonnull @.str.246, ptr noundef nonnull %1, i1 noundef zeroext false) #21
   %8 = load ptr, ptr %3, align 8
   br label %.sink.split
 
@@ -10867,7 +10867,7 @@ define internal ptr @arg_get_kill_on_bad_exit(ptr noundef readonly captures(none
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 92
   %6 = load i32, ptr %5, align 4
-  %7 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.116, i32 noundef %6) #22
+  %7 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.116, i32 noundef %6) #21
   br label %8
 
 8:                                                ; preds = %1, %4
@@ -10893,7 +10893,7 @@ define internal void @arg_reset_kill_on_bad_exit(ptr noundef readonly captures(n
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @arg_set_kill_on_invalid_dep(ptr noundef captures(none) %0, ptr noundef %1) #0 {
-  %3 = tail call i32 @xstrcasecmp(ptr noundef %1, ptr noundef nonnull @.str.5) #22
+  %3 = tail call i32 @xstrcasecmp(ptr noundef %1, ptr noundef nonnull @.str.5) #21
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %8
 
@@ -10905,7 +10905,7 @@ define internal range(i32 -1, 1) i32 @arg_set_kill_on_invalid_dep(ptr noundef ca
   br label %16
 
 8:                                                ; preds = %2
-  %9 = tail call i32 @xstrcasecmp(ptr noundef %1, ptr noundef nonnull @.str.249) #22
+  %9 = tail call i32 @xstrcasecmp(ptr noundef %1, ptr noundef nonnull @.str.249) #21
   %.not4 = icmp eq i32 %9, 0
   br i1 %.not4, label %10, label %14
 
@@ -10917,7 +10917,7 @@ define internal range(i32 -1, 1) i32 @arg_set_kill_on_invalid_dep(ptr noundef ca
   br label %16
 
 14:                                               ; preds = %8
-  %15 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.250) #22
+  %15 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.250) #21
   br label %16
 
 16:                                               ; preds = %4, %10, %14
@@ -10935,7 +10935,7 @@ define internal ptr @arg_get_kill_on_invalid_dep(ptr noundef readonly captures(n
   %.not3 = icmp eq i64 %5, 0
   %.str.110..str.249 = select i1 %.not3, ptr @.str.110, ptr @.str.249
   %.str.110.sink = select i1 %.not, ptr %.str.110..str.249, ptr @.str.5
-  %6 = tail call ptr @xstrdup(ptr noundef nonnull %.str.110.sink) #22
+  %6 = tail call ptr @xstrdup(ptr noundef nonnull %.str.110.sink) #21
   ret ptr %6
 }
 
@@ -10981,7 +10981,7 @@ define internal ptr @arg_get_labelio(ptr noundef nonnull readonly captures(none)
 
 9:                                                ; preds = %1, %4
   %.sink = phi ptr [ %8, %4 ], [ @.str.55, %1 ]
-  %10 = tail call ptr @xstrdup(ptr noundef nonnull %.sink) #22
+  %10 = tail call ptr @xstrdup(ptr noundef nonnull %.sink) #21
   ret ptr %10
 }
 
@@ -11004,8 +11004,8 @@ define internal void @arg_reset_labelio(ptr noundef nonnull readonly captures(no
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @arg_set_licenses(ptr noundef nonnull %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 344
-  tail call void @slurm_xfree(ptr noundef nonnull %3) #22
-  %4 = tail call ptr @xstrdup(ptr noundef %1) #22
+  tail call void @slurm_xfree(ptr noundef nonnull %3) #21
+  %4 = tail call ptr @xstrdup(ptr noundef %1) #21
   store ptr %4, ptr %3, align 8
   ret i32 0
 }
@@ -11014,20 +11014,20 @@ define internal noundef i32 @arg_set_licenses(ptr noundef nonnull %0, ptr nounde
 define internal ptr @arg_get_licenses(ptr noundef nonnull readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %3 = load ptr, ptr %2, align 8
-  %4 = tail call ptr @xstrdup(ptr noundef %3) #22
+  %4 = tail call ptr @xstrdup(ptr noundef %3) #21
   ret ptr %4
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @arg_reset_licenses(ptr noundef nonnull %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 344
-  tail call void @slurm_xfree(ptr noundef nonnull %2) #22
+  tail call void @slurm_xfree(ptr noundef nonnull %2) #21
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @arg_set_mail_type(ptr noundef captures(none) %0, ptr noundef %1) #0 {
-  %3 = tail call zeroext i16 @parse_mail_type(ptr noundef %1) #22
+  %3 = tail call zeroext i16 @parse_mail_type(ptr noundef %1) #21
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 592
   %5 = load i16, ptr %4, align 8
   %6 = or i16 %5, %3
@@ -11036,7 +11036,7 @@ define internal range(i32 -1, 1) i32 @arg_set_mail_type(ptr noundef captures(non
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %2
-  %9 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.257) #22
+  %9 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.257) #21
   br label %10
 
 10:                                               ; preds = %2, %8
@@ -11048,8 +11048,8 @@ define internal range(i32 -1, 1) i32 @arg_set_mail_type(ptr noundef captures(non
 define internal ptr @arg_get_mail_type(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 592
   %3 = load i16, ptr %2, align 8
-  %4 = tail call ptr @print_mail_type(i16 noundef zeroext %3) #22
-  %5 = tail call ptr @xstrdup(ptr noundef %4) #22
+  %4 = tail call ptr @print_mail_type(i16 noundef zeroext %3) #21
+  %5 = tail call ptr @xstrdup(ptr noundef %4) #21
   ret ptr %5
 }
 
@@ -11067,8 +11067,8 @@ declare ptr @print_mail_type(i16 noundef zeroext) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @arg_set_mail_user(ptr noundef nonnull %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 600
-  tail call void @slurm_xfree(ptr noundef nonnull %3) #22
-  %4 = tail call ptr @xstrdup(ptr noundef %1) #22
+  tail call void @slurm_xfree(ptr noundef nonnull %3) #21
+  %4 = tail call ptr @xstrdup(ptr noundef %1) #21
   store ptr %4, ptr %3, align 8
   ret i32 0
 }
@@ -11077,14 +11077,14 @@ define internal noundef i32 @arg_set_mail_user(ptr noundef nonnull %0, ptr nound
 define internal ptr @arg_get_mail_user(ptr noundef nonnull readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 600
   %3 = load ptr, ptr %2, align 8
-  %4 = tail call ptr @xstrdup(ptr noundef %3) #22
+  %4 = tail call ptr @xstrdup(ptr noundef %3) #21
   ret ptr %4
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @arg_reset_mail_user(ptr noundef nonnull %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 600
-  tail call void @slurm_xfree(ptr noundef nonnull %2) #22
+  tail call void @slurm_xfree(ptr noundef nonnull %2) #21
   ret void
 }
 
@@ -11096,7 +11096,7 @@ define internal range(i32 -1, 1) i32 @arg_set_max_threads(ptr noundef readonly c
   br i1 %.not, label %15, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call i32 @parse_int(ptr noundef nonnull @.str.262, ptr noundef %1, i1 noundef zeroext true) #22
+  %6 = tail call i32 @parse_int(ptr noundef nonnull @.str.262, ptr noundef %1, i1 noundef zeroext true) #21
   %7 = load ptr, ptr %3, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 100
   store i32 %6, ptr %8, align 4
@@ -11107,7 +11107,7 @@ define internal range(i32 -1, 1) i32 @arg_set_max_threads(ptr noundef readonly c
   br i1 %12, label %13, label %15
 
 13:                                               ; preds = %5
-  %14 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.263, i32 noundef %11, i32 noundef 60) #22
+  %14 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.263, i32 noundef %11, i32 noundef 60) #21
   br label %15
 
 15:                                               ; preds = %5, %13, %2
@@ -11123,13 +11123,13 @@ define internal ptr @arg_get_max_threads(ptr noundef readonly captures(none) %0)
   br i1 %.not, label %4, label %6
 
 4:                                                ; preds = %1
-  %5 = tail call ptr @xstrdup(ptr noundef nonnull @.str.55) #22
+  %5 = tail call ptr @xstrdup(ptr noundef nonnull @.str.55) #21
   br label %10
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 100
   %8 = load i32, ptr %7, align 4
-  %9 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.116, i32 noundef %8) #22
+  %9 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.116, i32 noundef %8) #21
   br label %10
 
 10:                                               ; preds = %6, %4
@@ -11156,8 +11156,8 @@ define internal void @arg_reset_max_threads(ptr noundef readonly captures(none) 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @arg_set_mcs_label(ptr noundef nonnull %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 680
-  tail call void @slurm_xfree(ptr noundef nonnull %3) #22
-  %4 = tail call ptr @xstrdup(ptr noundef %1) #22
+  tail call void @slurm_xfree(ptr noundef nonnull %3) #21
+  %4 = tail call ptr @xstrdup(ptr noundef %1) #21
   store ptr %4, ptr %3, align 8
   ret i32 0
 }
@@ -11166,27 +11166,27 @@ define internal noundef i32 @arg_set_mcs_label(ptr noundef nonnull %0, ptr nound
 define internal ptr @arg_get_mcs_label(ptr noundef nonnull readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 680
   %3 = load ptr, ptr %2, align 8
-  %4 = tail call ptr @xstrdup(ptr noundef %3) #22
+  %4 = tail call ptr @xstrdup(ptr noundef %3) #21
   ret ptr %4
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @arg_reset_mcs_label(ptr noundef nonnull %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 680
-  tail call void @slurm_xfree(ptr noundef nonnull %2) #22
+  tail call void @slurm_xfree(ptr noundef nonnull %2) #21
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @arg_set_mem(ptr noundef captures(none) initializes((448, 456)) %0, ptr noundef %1) #0 {
-  %3 = tail call i64 @str_to_mbytes(ptr noundef %1) #22
+  %3 = tail call i64 @str_to_mbytes(ptr noundef %1) #21
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 448
   store i64 %3, ptr %4, align 8
   %5 = icmp eq i64 %3, -2
   br i1 %5, label %6, label %8
 
 6:                                                ; preds = %2
-  %7 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.268) #22
+  %7 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.268) #21
   br label %13
 
 8:                                                ; preds = %2
@@ -11209,7 +11209,7 @@ define internal range(i32 -1, 1) i32 @arg_set_mem(ptr noundef captures(none) ini
 define internal ptr @arg_get_pn_min_memory(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %3 = load i64, ptr %2, align 8
-  %4 = tail call ptr @mbytes_to_str(i64 noundef %3) #22
+  %4 = tail call ptr @mbytes_to_str(i64 noundef %3) #21
   ret ptr %4
 }
 
@@ -11227,9 +11227,9 @@ declare ptr @mbytes_to_str(i64 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @arg_set_mem_bind(ptr noundef %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  tail call void @slurm_xfree(ptr noundef nonnull %3) #22
+  tail call void @slurm_xfree(ptr noundef nonnull %3) #21
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %5 = tail call i32 @slurm_verify_mem_bind(ptr noundef %1, ptr noundef nonnull %3, ptr noundef nonnull %4) #22
+  %5 = tail call i32 @slurm_verify_mem_bind(ptr noundef %1, ptr noundef nonnull %3, ptr noundef nonnull %4) #21
   %.not = icmp ne i32 %5, 0
   %. = sext i1 %.not to i32
   ret i32 %.
@@ -11245,11 +11245,11 @@ define internal ptr @arg_get_mem_bind(ptr noundef readonly captures(none) %0) #0
   br i1 %.not, label %5, label %7
 
 5:                                                ; preds = %1
-  %6 = tail call ptr @xstrdup(ptr noundef nonnull @.str.110) #22
+  %6 = tail call ptr @xstrdup(ptr noundef nonnull @.str.110) #21
   br label %12
 
 7:                                                ; preds = %1
-  %8 = tail call ptr @slurm_xstr_mem_bind_type(i32 noundef %4) #22
+  %8 = tail call ptr @slurm_xstr_mem_bind_type(i32 noundef %4) #21
   store ptr %8, ptr %2, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %10 = load ptr, ptr %9, align 8
@@ -11257,7 +11257,7 @@ define internal ptr @arg_get_mem_bind(ptr noundef readonly captures(none) %0) #0
   br i1 %.not7, label %12, label %11
 
 11:                                               ; preds = %7
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %2, ptr noundef nonnull @.str.271, ptr noundef nonnull %10) #22
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %2, ptr noundef nonnull @.str.271, ptr noundef nonnull %10) #21
   %.pre = load ptr, ptr %2, align 8
   br label %12
 
@@ -11270,7 +11270,7 @@ define internal ptr @arg_get_mem_bind(ptr noundef readonly captures(none) %0) #0
 ; Function Attrs: nounwind uwtable
 define internal void @arg_reset_mem_bind(ptr noundef %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  tail call void @slurm_xfree(ptr noundef nonnull %2) #22
+  tail call void @slurm_xfree(ptr noundef nonnull %2) #21
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 208
   store i32 0, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -11280,7 +11280,7 @@ define internal void @arg_reset_mem_bind(ptr noundef %0) #0 {
 
 6:                                                ; preds = %1
   %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 608), align 8
-  %8 = tail call ptr @xstrstr(ptr noundef %7, ptr noundef nonnull @.str.272) #22
+  %8 = tail call ptr @xstrstr(ptr noundef %7, ptr noundef nonnull @.str.272) #21
   %.not4 = icmp eq ptr %8, null
   br i1 %.not4, label %12, label %9
 
@@ -11300,14 +11300,14 @@ declare ptr @slurm_xstr_mem_bind_type(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @arg_set_mem_per_cpu(ptr noundef writeonly captures(none) initializes((432, 440)) %0, ptr noundef %1) #0 {
-  %3 = tail call i64 @str_to_mbytes(ptr noundef %1) #22
+  %3 = tail call i64 @str_to_mbytes(ptr noundef %1) #21
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 432
   store i64 %3, ptr %4, align 8
   %5 = icmp eq i64 %3, -2
   br i1 %5, label %6, label %8
 
 6:                                                ; preds = %2
-  %7 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.275) #22
+  %7 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.275) #21
   br label %8
 
 8:                                                ; preds = %2, %6
@@ -11319,7 +11319,7 @@ define internal range(i32 -1, 1) i32 @arg_set_mem_per_cpu(ptr noundef writeonly 
 define internal ptr @arg_get_mem_per_cpu(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %3 = load i64, ptr %2, align 8
-  %4 = tail call ptr @mbytes_to_str(i64 noundef %3) #22
+  %4 = tail call ptr @mbytes_to_str(i64 noundef %3) #21
   ret ptr %4
 }
 
@@ -11332,14 +11332,14 @@ define internal void @arg_reset_mem_per_cpu(ptr noundef nonnull writeonly captur
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @arg_set_mem_per_gpu(ptr noundef writeonly captures(none) initializes((440, 448)) %0, ptr noundef %1) #0 {
-  %3 = tail call i64 @str_to_mbytes(ptr noundef %1) #22
+  %3 = tail call i64 @str_to_mbytes(ptr noundef %1) #21
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 440
   store i64 %3, ptr %4, align 8
   %5 = icmp eq i64 %3, -2
   br i1 %5, label %6, label %8
 
 6:                                                ; preds = %2
-  %7 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.278) #22
+  %7 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.278) #21
   br label %8
 
 8:                                                ; preds = %2, %6
@@ -11351,7 +11351,7 @@ define internal range(i32 -1, 1) i32 @arg_set_mem_per_gpu(ptr noundef writeonly 
 define internal ptr @arg_get_mem_per_gpu(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %3 = load i64, ptr %2, align 8
-  %4 = tail call ptr @mbytes_to_str(i64 noundef %3) #22
+  %4 = tail call ptr @mbytes_to_str(i64 noundef %3) #21
   ret ptr %4
 }
 
@@ -11364,7 +11364,7 @@ define internal void @arg_reset_mem_per_gpu(ptr noundef nonnull writeonly captur
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @arg_set_pn_min_cpus(ptr noundef nonnull writeonly captures(none) initializes((424, 428)) %0, ptr noundef %1) #0 {
-  %3 = tail call i32 @parse_int(ptr noundef nonnull @.str.281, ptr noundef %1, i1 noundef zeroext true) #22
+  %3 = tail call i32 @parse_int(ptr noundef nonnull @.str.281, ptr noundef %1, i1 noundef zeroext true) #21
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 424
   store i32 %3, ptr %4, align 8
   ret i32 0
@@ -11374,7 +11374,7 @@ define internal noundef i32 @arg_set_pn_min_cpus(ptr noundef nonnull writeonly c
 define internal ptr @arg_get_pn_min_cpus(ptr noundef nonnull readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %3 = load i32, ptr %2, align 8
-  %4 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.116, i32 noundef %3) #22
+  %4 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.116, i32 noundef %3) #21
   ret ptr %4
 }
 
@@ -11394,8 +11394,8 @@ define internal range(i32 -1, 1) i32 @arg_set_mpi_type(ptr noundef nonnull reado
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 112
-  tail call void @slurm_xfree(ptr noundef nonnull %6) #22
-  %7 = tail call ptr @xstrdup(ptr noundef %1) #22
+  tail call void @slurm_xfree(ptr noundef nonnull %6) #21
+  %7 = tail call ptr @xstrdup(ptr noundef %1) #21
   %8 = load ptr, ptr %3, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 112
   store ptr %7, ptr %9, align 8
@@ -11420,7 +11420,7 @@ define internal ptr @arg_get_mpi_type(ptr noundef nonnull readonly captures(none
 
 7:                                                ; preds = %1, %4
   %.sink = phi ptr [ %6, %4 ], [ @.str.55, %1 ]
-  %8 = tail call ptr @xstrdup(ptr noundef %.sink) #22
+  %8 = tail call ptr @xstrdup(ptr noundef %.sink) #21
   ret ptr %8
 }
 
@@ -11433,7 +11433,7 @@ define internal void @arg_reset_mpi_type(ptr noundef nonnull readonly captures(n
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 112
-  tail call void @slurm_xfree(ptr noundef nonnull %5) #22
+  tail call void @slurm_xfree(ptr noundef nonnull %5) #21
   br label %6
 
 6:                                                ; preds = %4, %1
@@ -11448,7 +11448,7 @@ define internal range(i32 -1, 1) i32 @arg_set_msg_timeout(ptr noundef readonly c
   br i1 %.not, label %9, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call i32 @parse_int(ptr noundef nonnull @.str.286, ptr noundef %1, i1 noundef zeroext true) #22
+  %6 = tail call i32 @parse_int(ptr noundef nonnull @.str.286, ptr noundef %1, i1 noundef zeroext true) #21
   %7 = load ptr, ptr %3, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 108
   store i32 %6, ptr %8, align 4
@@ -11467,13 +11467,13 @@ define internal ptr @arg_get_msg_timeout(ptr noundef readonly captures(none) %0)
   br i1 %.not, label %4, label %6
 
 4:                                                ; preds = %1
-  %5 = tail call ptr @xstrdup(ptr noundef nonnull @.str.55) #22
+  %5 = tail call ptr @xstrdup(ptr noundef nonnull @.str.55) #21
   br label %10
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 108
   %8 = load i32, ptr %7, align 4
-  %9 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.116, i32 noundef %8) #22
+  %9 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.116, i32 noundef %8) #21
   br label %10
 
 10:                                               ; preds = %6, %4
@@ -11532,7 +11532,7 @@ define internal ptr @arg_get_multi_prog(ptr noundef nonnull readonly captures(no
 
 9:                                                ; preds = %1, %4
   %.sink = phi ptr [ %8, %4 ], [ @.str.55, %1 ]
-  %10 = tail call ptr @xstrdup(ptr noundef nonnull %.sink) #22
+  %10 = tail call ptr @xstrdup(ptr noundef nonnull %.sink) #21
   ret ptr %10
 }
 
@@ -11555,8 +11555,8 @@ define internal void @arg_reset_multi_prog(ptr noundef nonnull readonly captures
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @arg_set_network(ptr noundef nonnull %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 352
-  tail call void @slurm_xfree(ptr noundef nonnull %3) #22
-  %4 = tail call ptr @xstrdup(ptr noundef %1) #22
+  tail call void @slurm_xfree(ptr noundef nonnull %3) #21
+  %4 = tail call ptr @xstrdup(ptr noundef %1) #21
   store ptr %4, ptr %3, align 8
   ret i32 0
 }
@@ -11565,44 +11565,41 @@ define internal noundef i32 @arg_set_network(ptr noundef nonnull %0, ptr noundef
 define internal ptr @arg_get_network(ptr noundef nonnull readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %3 = load ptr, ptr %2, align 8
-  %4 = tail call ptr @xstrdup(ptr noundef %3) #22
+  %4 = tail call ptr @xstrdup(ptr noundef %3) #21
   ret ptr %4
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @arg_reset_network(ptr noundef nonnull %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 352
-  tail call void @slurm_xfree(ptr noundef nonnull %2) #22
+  tail call void @slurm_xfree(ptr noundef nonnull %2) #21
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @arg_set_nice(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1) #0 {
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %5, label %3
+  br i1 %.not, label %.thread, label %3
 
 3:                                                ; preds = %2
-  %4 = tail call i64 @strtoll(ptr noundef nonnull captures(none) %1, ptr noundef null, i32 noundef 10) #22
-  br label %5
+  %4 = tail call i64 @strtoll(ptr noundef nonnull captures(none) %1, ptr noundef null, i32 noundef 10) #21
+  %5 = add i64 %4, -2147483646
+  %6 = icmp ult i64 %5, -4294967291
+  br i1 %6, label %7, label %.thread
 
-5:                                                ; preds = %2, %3
-  %.0 = phi i64 [ %4, %3 ], [ 100, %2 ]
-  %6 = tail call i64 @llvm.abs.i64(i64 %.0, i1 true)
-  %7 = icmp samesign ugt i64 %6, 2147483645
-  br i1 %7, label %8, label %10
+7:                                                ; preds = %3
+  %8 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.293, i32 noundef 2147483645) #21
+  br label %11
 
-8:                                                ; preds = %5
-  %9 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.293, i32 noundef 2147483645) #22
-  br label %13
+.thread:                                          ; preds = %2, %3
+  %.08 = phi i64 [ %4, %3 ], [ 100, %2 ]
+  %9 = trunc nsw i64 %.08 to i32
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 280
+  store i32 %9, ptr %10, align 8
+  br label %11
 
-10:                                               ; preds = %5
-  %11 = trunc i64 %.0 to i32
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  store i32 %11, ptr %12, align 8
-  br label %13
-
-13:                                               ; preds = %10, %8
-  %.05 = phi i32 [ -1, %8 ], [ 0, %10 ]
+11:                                               ; preds = %.thread, %7
+  %.05 = phi i32 [ -1, %7 ], [ 0, %.thread ]
   ret i32 %.05
 }
 
@@ -11610,7 +11607,7 @@ define internal range(i32 -1, 1) i32 @arg_set_nice(ptr noundef writeonly capture
 define internal ptr @arg_get_nice(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %3 = load i32, ptr %2, align 8
-  %4 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.116, i32 noundef %3) #22
+  %4 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.116, i32 noundef %3) #21
   ret ptr %4
 }
 
@@ -11623,9 +11620,6 @@ define internal void @arg_reset_nice(ptr noundef nonnull writeonly captures(none
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn
 declare i64 @strtoll(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.abs.i64(i64, i1 immarg) #16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal range(i32 -1, 1) i32 @arg_set_no_alloc(ptr noundef nonnull readonly captures(none) %0, ptr readnone captures(none) %1) #10 {
@@ -11660,7 +11654,7 @@ define internal ptr @arg_get_no_alloc(ptr noundef nonnull readonly captures(none
 
 9:                                                ; preds = %1, %4
   %.sink = phi ptr [ %8, %4 ], [ @.str.55, %1 ]
-  %10 = tail call ptr @xstrdup(ptr noundef nonnull %.sink) #22
+  %10 = tail call ptr @xstrdup(ptr noundef nonnull %.sink) #21
   ret ptr %10
 }
 
@@ -11700,7 +11694,7 @@ define internal range(i32 -1, 1) i32 @arg_set_no_kill(ptr noundef writeonly capt
   br i1 %.not, label %5, label %3
 
 3:                                                ; preds = %2
-  %4 = tail call i32 @xstrcasecmp(ptr noundef nonnull %1, ptr noundef nonnull @.str.74) #22
+  %4 = tail call i32 @xstrcasecmp(ptr noundef nonnull %1, ptr noundef nonnull @.str.74) #21
   %.not7 = icmp eq i32 %4, 0
   br i1 %.not7, label %5, label %7
 
@@ -11710,12 +11704,12 @@ define internal range(i32 -1, 1) i32 @arg_set_no_kill(ptr noundef writeonly capt
   br label %15
 
 7:                                                ; preds = %3
-  %8 = tail call i32 @xstrcasecmp(ptr noundef nonnull %1, ptr noundef nonnull @.str.300) #22
+  %8 = tail call i32 @xstrcasecmp(ptr noundef nonnull %1, ptr noundef nonnull @.str.300) #21
   %.not8 = icmp eq i32 %8, 0
   br i1 %.not8, label %11, label %9
 
 9:                                                ; preds = %7
-  %10 = tail call i32 @xstrcasecmp(ptr noundef nonnull %1, ptr noundef nonnull @.str.249) #22
+  %10 = tail call i32 @xstrcasecmp(ptr noundef nonnull %1, ptr noundef nonnull @.str.249) #21
   %.not9 = icmp eq i32 %10, 0
   br i1 %.not9, label %11, label %13
 
@@ -11725,7 +11719,7 @@ define internal range(i32 -1, 1) i32 @arg_set_no_kill(ptr noundef writeonly capt
   br label %15
 
 13:                                               ; preds = %9
-  %14 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.301) #22
+  %14 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.301) #21
   br label %15
 
 15:                                               ; preds = %5, %11, %13
@@ -11739,7 +11733,7 @@ define internal ptr @arg_get_no_kill(ptr noundef readonly captures(none) %0) #0 
   %3 = load i8, ptr %2, align 1, !range !12, !noundef !13
   %4 = trunc nuw i8 %3 to i1
   %5 = select i1 %4, ptr @.str.74, ptr @.str.110
-  %6 = tail call ptr @xstrdup(ptr noundef nonnull %5) #22
+  %6 = tail call ptr @xstrdup(ptr noundef nonnull %5) #21
   ret ptr %6
 }
 
@@ -11780,7 +11774,7 @@ define internal ptr @arg_get_no_shell(ptr noundef readonly captures(none) %0) #0
 
 8:                                                ; preds = %1, %3
   %.sink = phi ptr [ %7, %3 ], [ @.str.55, %1 ]
-  %9 = tail call ptr @xstrdup(ptr noundef nonnull %.sink) #22
+  %9 = tail call ptr @xstrdup(ptr noundef nonnull %.sink) #21
   ret ptr %9
 }
 
@@ -11834,7 +11828,7 @@ define internal ptr @arg_get_requeue(ptr noundef readonly captures(none) %0) #0 
 
 7:                                                ; preds = %4, %1
   %.str.306.sink = phi ptr [ %switch.select8, %4 ], [ @.str.55, %1 ]
-  %8 = tail call ptr @xstrdup(ptr noundef nonnull %.str.306.sink) #22
+  %8 = tail call ptr @xstrdup(ptr noundef nonnull %.str.306.sink) #21
   ret ptr %8
 }
 
@@ -11857,10 +11851,10 @@ define internal void @arg_reset_requeue(ptr noundef readonly captures(none) %0) 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @arg_set_nodefile(ptr noundef %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 536
-  tail call void @slurm_xfree(ptr noundef nonnull %3) #22
+  tail call void @slurm_xfree(ptr noundef nonnull %3) #21
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 544
-  tail call void @slurm_xfree(ptr noundef nonnull %4) #22
-  %5 = tail call ptr @xstrdup(ptr noundef %1) #22
+  tail call void @slurm_xfree(ptr noundef nonnull %4) #21
+  %5 = tail call ptr @xstrdup(ptr noundef %1) #21
   store ptr %5, ptr %3, align 8
   ret i32 0
 }
@@ -11869,24 +11863,24 @@ define internal noundef i32 @arg_set_nodefile(ptr noundef %0, ptr noundef %1) #0
 define internal ptr @arg_get_nodefile(ptr noundef nonnull readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 536
   %3 = load ptr, ptr %2, align 8
-  %4 = tail call ptr @xstrdup(ptr noundef %3) #22
+  %4 = tail call ptr @xstrdup(ptr noundef %3) #21
   ret ptr %4
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @arg_reset_nodefile(ptr noundef nonnull %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 536
-  tail call void @slurm_xfree(ptr noundef nonnull %2) #22
+  tail call void @slurm_xfree(ptr noundef nonnull %2) #21
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @arg_set_nodelist(ptr noundef %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 536
-  tail call void @slurm_xfree(ptr noundef nonnull %3) #22
+  tail call void @slurm_xfree(ptr noundef nonnull %3) #21
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 544
-  tail call void @slurm_xfree(ptr noundef nonnull %4) #22
-  %5 = tail call ptr @xstrdup(ptr noundef %1) #22
+  tail call void @slurm_xfree(ptr noundef nonnull %4) #21
+  %5 = tail call ptr @xstrdup(ptr noundef %1) #21
   store ptr %5, ptr %4, align 8
   ret i32 0
 }
@@ -11895,14 +11889,14 @@ define internal noundef i32 @arg_set_nodelist(ptr noundef %0, ptr noundef %1) #0
 define internal ptr @arg_get_nodelist(ptr noundef nonnull readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 544
   %3 = load ptr, ptr %2, align 8
-  %4 = tail call ptr @xstrdup(ptr noundef %3) #22
+  %4 = tail call ptr @xstrdup(ptr noundef %3) #21
   ret ptr %4
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @arg_reset_nodelist(ptr noundef nonnull %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 544
-  tail call void @slurm_xfree(ptr noundef nonnull %2) #22
+  tail call void @slurm_xfree(ptr noundef nonnull %2) #21
   ret void
 }
 
@@ -11911,7 +11905,7 @@ define internal range(i32 -1, 1) i32 @arg_set_nodes(ptr noundef %0, ptr noundef 
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %6 = tail call zeroext i1 @verify_node_count(ptr noundef %1, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) #22
+  %6 = tail call zeroext i1 @verify_node_count(ptr noundef %1, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) #21
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %8 = zext i1 %6 to i8
   store i8 %8, ptr %7, align 8
@@ -11930,11 +11924,11 @@ define internal ptr @arg_get_nodes(ptr noundef readonly captures(none) %0) #0 {
   br i1 %.not, label %8, label %6
 
 6:                                                ; preds = %1
-  %7 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.313, i32 noundef %3, i32 noundef %5) #22
+  %7 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.313, i32 noundef %3, i32 noundef %5) #21
   br label %10
 
 8:                                                ; preds = %1
-  %9 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.116, i32 noundef %3) #22
+  %9 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.116, i32 noundef %3) #21
   br label %10
 
 10:                                               ; preds = %8, %6
@@ -11957,7 +11951,7 @@ declare zeroext i1 @verify_node_count(ptr noundef, ptr noundef, ptr noundef, ptr
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @arg_set_ntasks(ptr noundef writeonly captures(none) initializes((120, 126)) %0, ptr noundef %1) #0 {
-  %3 = tail call i32 @parse_int(ptr noundef nonnull @.str.316, ptr noundef %1, i1 noundef zeroext true) #22
+  %3 = tail call i32 @parse_int(ptr noundef nonnull @.str.316, ptr noundef %1, i1 noundef zeroext true) #21
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store i32 %3, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 124
@@ -11971,7 +11965,7 @@ define internal noundef i32 @arg_set_ntasks(ptr noundef writeonly captures(none)
 define internal ptr @arg_get_ntasks(ptr noundef nonnull readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %3 = load i32, ptr %2, align 8
-  %4 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.116, i32 noundef %3) #22
+  %4 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.116, i32 noundef %3) #21
   ret ptr %4
 }
 
@@ -11988,7 +11982,7 @@ define internal void @arg_reset_ntasks(ptr noundef writeonly captures(none) init
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @arg_set_ntasks_per_core(ptr noundef nonnull writeonly captures(none) initializes((192, 196)) %0, ptr noundef %1) #0 {
-  %3 = tail call i32 @parse_int(ptr noundef nonnull @.str.318, ptr noundef %1, i1 noundef zeroext true) #22
+  %3 = tail call i32 @parse_int(ptr noundef nonnull @.str.318, ptr noundef %1, i1 noundef zeroext true) #21
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 192
   store i32 %3, ptr %4, align 8
   ret i32 0
@@ -11998,7 +11992,7 @@ define internal noundef i32 @arg_set_ntasks_per_core(ptr noundef nonnull writeon
 define internal ptr @arg_get_ntasks_per_core(ptr noundef nonnull readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %3 = load i32, ptr %2, align 8
-  %4 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.116, i32 noundef %3) #22
+  %4 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.116, i32 noundef %3) #21
   ret ptr %4
 }
 
@@ -12011,7 +12005,7 @@ define internal void @arg_reset_ntasks_per_core(ptr noundef nonnull writeonly ca
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @arg_set_ntasks_per_gpu(ptr noundef nonnull writeonly captures(none) initializes((184, 188)) %0, ptr noundef %1) #0 {
-  %3 = tail call i32 @parse_int(ptr noundef nonnull @.str.321, ptr noundef %1, i1 noundef zeroext true) #22
+  %3 = tail call i32 @parse_int(ptr noundef nonnull @.str.321, ptr noundef %1, i1 noundef zeroext true) #21
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 184
   store i32 %3, ptr %4, align 8
   ret i32 0
@@ -12021,7 +12015,7 @@ define internal noundef i32 @arg_set_ntasks_per_gpu(ptr noundef nonnull writeonl
 define internal ptr @arg_get_ntasks_per_gpu(ptr noundef nonnull readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = load i32, ptr %2, align 8
-  %4 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.116, i32 noundef %3) #22
+  %4 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.116, i32 noundef %3) #21
   ret ptr %4
 }
 
@@ -12034,7 +12028,7 @@ define internal void @arg_reset_ntasks_per_gpu(ptr noundef nonnull writeonly cap
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @arg_set_ntasks_per_node(ptr noundef nonnull writeonly captures(none) initializes((180, 184)) %0, ptr noundef %1) #0 {
-  %3 = tail call i32 @parse_int(ptr noundef nonnull @.str.324, ptr noundef %1, i1 noundef zeroext true) #22
+  %3 = tail call i32 @parse_int(ptr noundef nonnull @.str.324, ptr noundef %1, i1 noundef zeroext true) #21
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 180
   store i32 %3, ptr %4, align 4
   ret i32 0
@@ -12044,7 +12038,7 @@ define internal noundef i32 @arg_set_ntasks_per_node(ptr noundef nonnull writeon
 define internal ptr @arg_get_ntasks_per_node(ptr noundef nonnull readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 180
   %3 = load i32, ptr %2, align 4
-  %4 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.116, i32 noundef %3) #22
+  %4 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.116, i32 noundef %3) #21
   ret ptr %4
 }
 
@@ -12057,7 +12051,7 @@ define internal void @arg_reset_ntasks_per_node(ptr noundef nonnull writeonly ca
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @arg_set_ntasks_per_socket(ptr noundef nonnull writeonly captures(none) initializes((188, 192)) %0, ptr noundef %1) #0 {
-  %3 = tail call i32 @parse_int(ptr noundef nonnull @.str.327, ptr noundef %1, i1 noundef zeroext true) #22
+  %3 = tail call i32 @parse_int(ptr noundef nonnull @.str.327, ptr noundef %1, i1 noundef zeroext true) #21
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 188
   store i32 %3, ptr %4, align 4
   ret i32 0
@@ -12067,7 +12061,7 @@ define internal noundef i32 @arg_set_ntasks_per_socket(ptr noundef nonnull write
 define internal ptr @arg_get_ntasks_per_socket(ptr noundef nonnull readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 188
   %3 = load i32, ptr %2, align 4
-  %4 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.116, i32 noundef %3) #22
+  %4 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.116, i32 noundef %3) #21
   ret ptr %4
 }
 
@@ -12080,7 +12074,7 @@ define internal void @arg_reset_ntasks_per_socket(ptr noundef nonnull writeonly 
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @arg_set_ntasks_per_tres(ptr noundef nonnull writeonly captures(none) initializes((196, 200)) %0, ptr noundef %1) #0 {
-  %3 = tail call i32 @parse_int(ptr noundef nonnull @.str.330, ptr noundef %1, i1 noundef zeroext true) #22
+  %3 = tail call i32 @parse_int(ptr noundef nonnull @.str.330, ptr noundef %1, i1 noundef zeroext true) #21
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 196
   store i32 %3, ptr %4, align 4
   ret i32 0
@@ -12090,7 +12084,7 @@ define internal noundef i32 @arg_set_ntasks_per_tres(ptr noundef nonnull writeon
 define internal ptr @arg_get_ntasks_per_tres(ptr noundef nonnull readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 196
   %3 = load i32, ptr %2, align 4
-  %4 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.116, i32 noundef %3) #22
+  %4 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.116, i32 noundef %3) #21
   ret ptr %4
 }
 
@@ -12114,7 +12108,7 @@ define internal range(i32 -1, 1) i32 @arg_set_oom_kill_step(ptr noundef writeonl
   br label %15
 
 6:                                                ; preds = %2
-  %7 = call i32 @parse_uint16(ptr noundef nonnull %1, ptr noundef nonnull %3) #22
+  %7 = call i32 @parse_uint16(ptr noundef nonnull %1, ptr noundef nonnull %3) #21
   %8 = icmp eq i32 %7, 0
   %9 = load i16, ptr %3, align 2
   %10 = icmp ult i16 %9, 2
@@ -12127,7 +12121,7 @@ define internal range(i32 -1, 1) i32 @arg_set_oom_kill_step(ptr noundef writeonl
   br label %15
 
 13:                                               ; preds = %6
-  %14 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.333) #22
+  %14 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.333) #21
   br label %15
 
 15:                                               ; preds = %13, %11, %4
@@ -12144,12 +12138,12 @@ define internal ptr @arg_get_oom_kill_step(ptr noundef readonly captures(none) %
   br i1 %4, label %5, label %7
 
 5:                                                ; preds = %1
-  %6 = tail call ptr @xstrdup(ptr noundef nonnull @.str.110) #22
+  %6 = tail call ptr @xstrdup(ptr noundef nonnull @.str.110) #21
   br label %10
 
 7:                                                ; preds = %1
   %8 = zext i16 %3 to i32
-  %9 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.334, i32 noundef %8) #22
+  %9 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.334, i32 noundef %8) #21
   br label %10
 
 10:                                               ; preds = %7, %5
@@ -12191,7 +12185,7 @@ define internal range(i32 -1, 1) i32 @arg_set_open_mode(ptr noundef writeonly ca
   br label %10
 
 .critedge:                                        ; preds = %3, %2
-  %9 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.337) #22
+  %9 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.337) #21
   br label %10
 
 10:                                               ; preds = %5, %7, %.critedge
@@ -12213,7 +12207,7 @@ define internal ptr @arg_get_open_mode(ptr noundef readonly captures(none) %0) #
 
 .sink.split:                                      ; preds = %1, %4
   %.str.339.sink = phi ptr [ @.str.339, %4 ], [ @.str.338, %1 ]
-  %5 = tail call ptr @xstrdup(ptr noundef nonnull %.str.339.sink) #22
+  %5 = tail call ptr @xstrdup(ptr noundef nonnull %.str.339.sink) #21
   br label %6
 
 6:                                                ; preds = %.sink.split, %1
@@ -12249,11 +12243,11 @@ define internal range(i32 -1, 1) i32 @arg_set_ofname(ptr noundef %0, ptr noundef
 
 11:                                               ; preds = %8, %5, %2
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  tail call void @slurm_xfree(ptr noundef nonnull %12) #22
-  %13 = tail call i32 @xstrcasecmp(ptr noundef %1, ptr noundef nonnull @.str.102) #22
+  tail call void @slurm_xfree(ptr noundef nonnull %12) #21
+  %13 = tail call i32 @xstrcasecmp(ptr noundef %1, ptr noundef nonnull @.str.102) #21
   %.not10 = icmp eq i32 %13, 0
   %.str.155. = select i1 %.not10, ptr @.str.155, ptr %1
-  %14 = tail call ptr @xstrdup(ptr noundef %.str.155.) #22
+  %14 = tail call ptr @xstrdup(ptr noundef %.str.155.) #21
   store ptr %14, ptr %12, align 8
   br label %15
 
@@ -12266,14 +12260,14 @@ define internal range(i32 -1, 1) i32 @arg_set_ofname(ptr noundef %0, ptr noundef
 define internal ptr @arg_get_ofname(ptr noundef nonnull readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %3 = load ptr, ptr %2, align 8
-  %4 = tail call ptr @xstrdup(ptr noundef %3) #22
+  %4 = tail call ptr @xstrdup(ptr noundef %3) #21
   ret ptr %4
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @arg_reset_ofname(ptr noundef nonnull %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  tail call void @slurm_xfree(ptr noundef nonnull %2) #22
+  tail call void @slurm_xfree(ptr noundef nonnull %2) #21
   ret void
 }
 
@@ -12290,7 +12284,7 @@ define internal ptr @arg_get_overcommit(ptr noundef nonnull readonly captures(no
   %3 = load i8, ptr %2, align 8, !range !12, !noundef !13
   %4 = trunc nuw i8 %3 to i1
   %5 = select i1 %4, ptr @.str.74, ptr @.str.110
-  %6 = tail call ptr @xstrdup(ptr noundef nonnull %5) #22
+  %6 = tail call ptr @xstrdup(ptr noundef nonnull %5) #21
   ret ptr %6
 }
 
@@ -12336,7 +12330,7 @@ define internal ptr @arg_get_overlap(ptr noundef readonly captures(none) %0) #0 
 
 9:                                                ; preds = %1, %4
   %.sink = phi ptr [ %8, %4 ], [ @.str.55, %1 ]
-  %10 = tail call ptr @xstrdup(ptr noundef nonnull %.sink) #22
+  %10 = tail call ptr @xstrdup(ptr noundef nonnull %.sink) #21
   ret ptr %10
 }
 
@@ -12407,7 +12401,7 @@ define internal ptr @arg_get_parsable(ptr noundef readonly captures(none) %0) #0
 
 9:                                                ; preds = %1, %4
   %.sink = phi ptr [ %8, %4 ], [ @.str.55, %1 ]
-  %10 = tail call ptr @xstrdup(ptr noundef nonnull %.sink) #22
+  %10 = tail call ptr @xstrdup(ptr noundef nonnull %.sink) #21
   ret ptr %10
 }
 
@@ -12430,8 +12424,8 @@ define internal void @arg_reset_parsable(ptr noundef readonly captures(none) %0)
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @arg_set_partition(ptr noundef nonnull %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  tail call void @slurm_xfree(ptr noundef nonnull %3) #22
-  %4 = tail call ptr @xstrdup(ptr noundef %1) #22
+  tail call void @slurm_xfree(ptr noundef nonnull %3) #21
+  %4 = tail call ptr @xstrdup(ptr noundef %1) #21
   store ptr %4, ptr %3, align 8
   ret i32 0
 }
@@ -12440,22 +12434,22 @@ define internal noundef i32 @arg_set_partition(ptr noundef nonnull %0, ptr nound
 define internal ptr @arg_get_partition(ptr noundef nonnull readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %3 = load ptr, ptr %2, align 8
-  %4 = tail call ptr @xstrdup(ptr noundef %3) #22
+  %4 = tail call ptr @xstrdup(ptr noundef %3) #21
   ret ptr %4
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @arg_reset_partition(ptr noundef nonnull %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  tail call void @slurm_xfree(ptr noundef nonnull %2) #22
+  tail call void @slurm_xfree(ptr noundef nonnull %2) #21
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @arg_set_prefer(ptr noundef nonnull %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 472
-  tail call void @slurm_xfree(ptr noundef nonnull %3) #22
-  %4 = tail call ptr @xstrdup(ptr noundef %1) #22
+  tail call void @slurm_xfree(ptr noundef nonnull %3) #21
+  %4 = tail call ptr @xstrdup(ptr noundef %1) #21
   store ptr %4, ptr %3, align 8
   ret i32 0
 }
@@ -12464,14 +12458,14 @@ define internal noundef i32 @arg_set_prefer(ptr noundef nonnull %0, ptr noundef 
 define internal ptr @arg_get_prefer(ptr noundef nonnull readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %3 = load ptr, ptr %2, align 8
-  %4 = tail call ptr @xstrdup(ptr noundef %3) #22
+  %4 = tail call ptr @xstrdup(ptr noundef %3) #21
   ret ptr %4
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @arg_reset_prefer(ptr noundef nonnull %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 472
-  tail call void @slurm_xfree(ptr noundef nonnull %2) #22
+  tail call void @slurm_xfree(ptr noundef nonnull %2) #21
   ret void
 }
 
@@ -12508,7 +12502,7 @@ define internal ptr @arg_get_preserve_env(ptr noundef nonnull readonly captures(
 
 9:                                                ; preds = %1, %4
   %.sink = phi ptr [ %8, %4 ], [ @.str.55, %1 ]
-  %10 = tail call ptr @xstrdup(ptr noundef nonnull %.sink) #22
+  %10 = tail call ptr @xstrdup(ptr noundef nonnull %.sink) #21
   ret ptr %10
 }
 
@@ -12530,7 +12524,7 @@ define internal void @arg_reset_preserve_env(ptr noundef nonnull readonly captur
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @arg_set_priority(ptr noundef writeonly captures(none) %0, ptr noundef %1) #0 {
-  %3 = tail call i32 @xstrcasecmp(ptr noundef %1, ptr noundef nonnull @.str.359) #22
+  %3 = tail call i32 @xstrcasecmp(ptr noundef %1, ptr noundef nonnull @.str.359) #21
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %6
 
@@ -12540,12 +12534,12 @@ define internal range(i32 -1, 1) i32 @arg_set_priority(ptr noundef writeonly cap
   br label %.thread
 
 6:                                                ; preds = %2
-  %7 = tail call i64 @strtoll(ptr noundef captures(none) %1, ptr noundef null, i32 noundef 10) #22
+  %7 = tail call i64 @strtoll(ptr noundef captures(none) %1, ptr noundef null, i32 noundef 10) #21
   %8 = icmp slt i64 %7, 0
   br i1 %8, label %9, label %11
 
 9:                                                ; preds = %6
-  %10 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.360) #22
+  %10 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.360) #21
   br label %.thread
 
 11:                                               ; preds = %6
@@ -12553,7 +12547,7 @@ define internal range(i32 -1, 1) i32 @arg_set_priority(ptr noundef writeonly cap
   br i1 %12, label %13, label %15
 
 13:                                               ; preds = %11
-  %14 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.361, i32 noundef -2) #22
+  %14 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.361, i32 noundef -2) #21
   br label %.thread
 
 15:                                               ; preds = %11
@@ -12571,7 +12565,7 @@ define internal range(i32 -1, 1) i32 @arg_set_priority(ptr noundef writeonly cap
 define internal ptr @arg_get_priority(ptr noundef nonnull readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 284
   %3 = load i32, ptr %2, align 4
-  %4 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.116, i32 noundef %3) #22
+  %4 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.116, i32 noundef %3) #21
   ret ptr %4
 }
 
@@ -12584,14 +12578,14 @@ define internal void @arg_reset_priority(ptr noundef nonnull writeonly captures(
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @arg_set_profile(ptr noundef writeonly captures(none) initializes((248, 252)) %0, ptr noundef %1) #0 {
-  %3 = tail call i32 @acct_gather_profile_from_string(ptr noundef %1) #22
+  %3 = tail call i32 @acct_gather_profile_from_string(ptr noundef %1) #21
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 248
   store i32 %3, ptr %4, align 8
   %5 = icmp eq i32 %3, 0
   br i1 %5, label %6, label %8
 
 6:                                                ; preds = %2
-  %7 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.364, ptr noundef %1) #22
+  %7 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.364, ptr noundef %1) #21
   br label %8
 
 8:                                                ; preds = %2, %6
@@ -12603,8 +12597,8 @@ define internal range(i32 -1, 1) i32 @arg_set_profile(ptr noundef writeonly capt
 define internal ptr @arg_get_profile(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %3 = load i32, ptr %2, align 8
-  %4 = tail call ptr @acct_gather_profile_to_string(i32 noundef %3) #22
-  %5 = tail call ptr @xstrdup(ptr noundef %4) #22
+  %4 = tail call ptr @acct_gather_profile_to_string(i32 noundef %3) #21
+  %5 = tail call ptr @xstrdup(ptr noundef %4) #21
   ret ptr %5
 }
 
@@ -12628,8 +12622,8 @@ define internal range(i32 -1, 1) i32 @arg_set_prolog(ptr noundef nonnull readonl
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 160
-  tail call void @slurm_xfree(ptr noundef nonnull %6) #22
-  %7 = tail call ptr @xstrdup(ptr noundef %1) #22
+  tail call void @slurm_xfree(ptr noundef nonnull %6) #21
+  %7 = tail call ptr @xstrdup(ptr noundef %1) #21
   %8 = load ptr, ptr %3, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 160
   store ptr %7, ptr %9, align 8
@@ -12654,7 +12648,7 @@ define internal ptr @arg_get_prolog(ptr noundef nonnull readonly captures(none) 
 
 7:                                                ; preds = %1, %4
   %.sink = phi ptr [ %6, %4 ], [ @.str.55, %1 ]
-  %8 = tail call ptr @xstrdup(ptr noundef %.sink) #22
+  %8 = tail call ptr @xstrdup(ptr noundef %.sink) #21
   ret ptr %8
 }
 
@@ -12667,7 +12661,7 @@ define internal void @arg_reset_prolog(ptr noundef nonnull readonly captures(non
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 160
-  tail call void @slurm_xfree(ptr noundef nonnull %5) #22
+  tail call void @slurm_xfree(ptr noundef nonnull %5) #21
   br label %6
 
 6:                                                ; preds = %4, %1
@@ -12695,7 +12689,7 @@ define internal range(i32 -1, 1) i32 @arg_set_propagate(ptr noundef readonly cap
 8:                                                ; preds = %2
   %.not11 = icmp eq ptr %1, null
   %spec.store.select = select i1 %.not11, ptr @.str.369, ptr %1
-  %9 = tail call ptr @xstrdup(ptr noundef nonnull %spec.store.select) #22
+  %9 = tail call ptr @xstrdup(ptr noundef nonnull %spec.store.select) #21
   %10 = load ptr, ptr %3, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 48
   store ptr %9, ptr %11, align 8
@@ -12707,7 +12701,7 @@ define internal range(i32 -1, 1) i32 @arg_set_propagate(ptr noundef readonly cap
 13:                                               ; preds = %.thread18, %8
   %spec.store.select1621 = phi ptr [ %spec.store.select15, %.thread18 ], [ %spec.store.select, %8 ]
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %15 = tail call ptr @xstrdup(ptr noundef nonnull %spec.store.select1621) #22
+  %15 = tail call ptr @xstrdup(ptr noundef nonnull %spec.store.select1621) #21
   %16 = load ptr, ptr %14, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 168
   store ptr %15, ptr %17, align 8
@@ -12743,7 +12737,7 @@ define internal ptr @arg_get_propagate(ptr noundef readonly captures(none) %0) #
 
 13:                                               ; preds = %4, %10, %7
   %.sink = phi ptr [ %12, %10 ], [ %9, %7 ], [ @.str.55, %4 ]
-  %14 = tail call ptr @xstrdup(ptr noundef %.sink) #22
+  %14 = tail call ptr @xstrdup(ptr noundef %.sink) #21
   ret ptr %14
 }
 
@@ -12756,7 +12750,7 @@ define internal void @arg_reset_propagate(ptr noundef readonly captures(none) %0
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  tail call void @slurm_xfree(ptr noundef nonnull %5) #22
+  tail call void @slurm_xfree(ptr noundef nonnull %5) #21
   br label %6
 
 6:                                                ; preds = %4, %1
@@ -12767,7 +12761,7 @@ define internal void @arg_reset_propagate(ptr noundef readonly captures(none) %0
 
 9:                                                ; preds = %6
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 168
-  tail call void @slurm_xfree(ptr noundef nonnull %10) #22
+  tail call void @slurm_xfree(ptr noundef nonnull %10) #21
   br label %11
 
 11:                                               ; preds = %9, %6
@@ -12783,10 +12777,10 @@ define internal range(i32 -1, 1) i32 @arg_set_pty(ptr noundef readonly captures(
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 176
-  tail call void @slurm_xfree(ptr noundef nonnull %6) #22
+  tail call void @slurm_xfree(ptr noundef nonnull %6) #21
   %.not6 = icmp eq ptr %1, null
   %7 = select i1 %.not6, ptr @.str.372, ptr %1
-  %8 = tail call ptr @xstrdup(ptr noundef nonnull %7) #22
+  %8 = tail call ptr @xstrdup(ptr noundef nonnull %7) #21
   %9 = load ptr, ptr %3, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 176
   store ptr %8, ptr %10, align 8
@@ -12811,7 +12805,7 @@ define internal ptr @arg_get_pty(ptr noundef nonnull readonly captures(none) %0)
 
 7:                                                ; preds = %1, %4
   %.sink = phi ptr [ %6, %4 ], [ @.str.55, %1 ]
-  %8 = tail call ptr @xstrdup(ptr noundef %.sink) #22
+  %8 = tail call ptr @xstrdup(ptr noundef %.sink) #21
   ret ptr %8
 }
 
@@ -12824,7 +12818,7 @@ define internal void @arg_reset_pty(ptr noundef nonnull readonly captures(none) 
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 176
-  tail call void @slurm_xfree(ptr noundef nonnull %5) #22
+  tail call void @slurm_xfree(ptr noundef nonnull %5) #21
   br label %6
 
 6:                                                ; preds = %4, %1
@@ -12834,8 +12828,8 @@ define internal void @arg_reset_pty(ptr noundef nonnull readonly captures(none) 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @arg_set_qos(ptr noundef nonnull %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  tail call void @slurm_xfree(ptr noundef nonnull %3) #22
-  %4 = tail call ptr @xstrdup(ptr noundef %1) #22
+  tail call void @slurm_xfree(ptr noundef nonnull %3) #21
+  %4 = tail call ptr @xstrdup(ptr noundef %1) #21
   store ptr %4, ptr %3, align 8
   ret i32 0
 }
@@ -12844,14 +12838,14 @@ define internal noundef i32 @arg_set_qos(ptr noundef nonnull %0, ptr noundef %1)
 define internal ptr @arg_get_qos(ptr noundef nonnull readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %3 = load ptr, ptr %2, align 8
-  %4 = tail call ptr @xstrdup(ptr noundef %3) #22
+  %4 = tail call ptr @xstrdup(ptr noundef %3) #21
   ret ptr %4
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @arg_reset_qos(ptr noundef nonnull %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  tail call void @slurm_xfree(ptr noundef nonnull %2) #22
+  tail call void @slurm_xfree(ptr noundef nonnull %2) #21
   ret void
 }
 
@@ -12868,7 +12862,7 @@ define internal noundef i32 @arg_set_quiet(ptr noundef captures(none) %0, ptr re
 define internal ptr @arg_get_quiet(ptr noundef nonnull readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %3 = load i32, ptr %2, align 8
-  %4 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.116, i32 noundef %3) #22
+  %4 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.116, i32 noundef %3) #21
   ret ptr %4
 }
 
@@ -12912,7 +12906,7 @@ define internal ptr @arg_get_quit_on_intr(ptr noundef nonnull readonly captures(
 
 9:                                                ; preds = %1, %4
   %.sink = phi ptr [ %8, %4 ], [ @.str.55, %1 ]
-  %10 = tail call ptr @xstrdup(ptr noundef nonnull %.sink) #22
+  %10 = tail call ptr @xstrdup(ptr noundef nonnull %.sink) #21
   ret ptr %10
 }
 
@@ -12945,7 +12939,7 @@ define internal ptr @arg_get_reboot(ptr noundef nonnull readonly captures(none) 
   %3 = load i8, ptr %2, align 8, !range !12, !noundef !13
   %4 = trunc nuw i8 %3 to i1
   %5 = select i1 %4, ptr @.str.74, ptr @.str.110
-  %6 = tail call ptr @xstrdup(ptr noundef nonnull %5) #22
+  %6 = tail call ptr @xstrdup(ptr noundef nonnull %5) #21
   ret ptr %6
 }
 
@@ -12964,7 +12958,7 @@ define internal range(i32 -1, 1) i32 @arg_set_relative(ptr noundef readonly capt
   br i1 %.not, label %9, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call i32 @parse_int(ptr noundef nonnull @.str.383, ptr noundef %1, i1 noundef zeroext false) #22
+  %6 = tail call i32 @parse_int(ptr noundef nonnull @.str.383, ptr noundef %1, i1 noundef zeroext false) #21
   %7 = load ptr, ptr %3, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 188
   store i32 %6, ptr %8, align 4
@@ -12983,13 +12977,13 @@ define internal ptr @arg_get_relative(ptr noundef readonly captures(none) %0) #0
   br i1 %.not, label %4, label %6
 
 4:                                                ; preds = %1
-  %5 = tail call ptr @xstrdup(ptr noundef nonnull @.str.55) #22
+  %5 = tail call ptr @xstrdup(ptr noundef nonnull @.str.55) #21
   br label %10
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 188
   %8 = load i32, ptr %7, align 4
-  %9 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.116, i32 noundef %8) #22
+  %9 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.116, i32 noundef %8) #21
   br label %10
 
 10:                                               ; preds = %6, %4
@@ -13033,8 +13027,8 @@ define internal range(i32 -1, 1) i32 @arg_set_requeue(ptr noundef readonly captu
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @arg_set_reservation(ptr noundef nonnull %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 624
-  tail call void @slurm_xfree(ptr noundef nonnull %3) #22
-  %4 = tail call ptr @xstrdup(ptr noundef %1) #22
+  tail call void @slurm_xfree(ptr noundef nonnull %3) #21
+  %4 = tail call ptr @xstrdup(ptr noundef %1) #21
   store ptr %4, ptr %3, align 8
   ret i32 0
 }
@@ -13043,14 +13037,14 @@ define internal noundef i32 @arg_set_reservation(ptr noundef nonnull %0, ptr nou
 define internal ptr @arg_get_reservation(ptr noundef nonnull readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 624
   %3 = load ptr, ptr %2, align 8
-  %4 = tail call ptr @xstrdup(ptr noundef %3) #22
+  %4 = tail call ptr @xstrdup(ptr noundef %3) #21
   ret ptr %4
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @arg_reset_reservation(ptr noundef nonnull %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 624
-  tail call void @slurm_xfree(ptr noundef nonnull %2) #22
+  tail call void @slurm_xfree(ptr noundef nonnull %2) #21
   ret void
 }
 
@@ -13060,7 +13054,7 @@ define internal noundef i32 @arg_set_resv_port_cnt(ptr noundef writeonly capture
   br i1 %.not, label %5, label %3
 
 3:                                                ; preds = %2
-  %4 = tail call i32 @parse_int(ptr noundef nonnull @.str.389, ptr noundef nonnull %1, i1 noundef zeroext false) #22
+  %4 = tail call i32 @parse_int(ptr noundef nonnull @.str.389, ptr noundef nonnull %1, i1 noundef zeroext false) #21
   br label %5
 
 5:                                                ; preds = %2, %3
@@ -13078,11 +13072,11 @@ define internal ptr @arg_get_resv_port_cnt(ptr noundef readonly captures(none) %
   br i1 %4, label %5, label %7
 
 5:                                                ; preds = %1
-  %6 = tail call ptr @xstrdup(ptr noundef nonnull @.str.110) #22
+  %6 = tail call ptr @xstrdup(ptr noundef nonnull @.str.110) #21
   br label %9
 
 7:                                                ; preds = %1
-  %8 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.116, i32 noundef %3) #22
+  %8 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.116, i32 noundef %3) #21
   br label %9
 
 9:                                                ; preds = %7, %5
@@ -13100,13 +13094,13 @@ define internal void @arg_reset_resv_port_cnt(ptr noundef writeonly captures(non
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @arg_set_segment_size(ptr noundef %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 700
-  %4 = tail call i32 @parse_uint16(ptr noundef %1, ptr noundef nonnull %3) #22
+  %4 = tail call i32 @parse_uint16(ptr noundef %1, ptr noundef nonnull %3) #21
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %7, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.392) #22
-  tail call void @exit(i32 noundef -1) #24
+  %6 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.392) #21
+  tail call void @exit(i32 noundef -1) #23
   unreachable
 
 7:                                                ; preds = %2
@@ -13122,11 +13116,11 @@ define internal ptr @arg_get_segment_size(ptr noundef readonly captures(none) %0
 
 4:                                                ; preds = %1
   %5 = zext i16 %3 to i32
-  %6 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.334, i32 noundef %5) #22
+  %6 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.334, i32 noundef %5) #21
   br label %9
 
 7:                                                ; preds = %1
-  %8 = tail call ptr @xstrdup(ptr noundef nonnull @.str.110) #22
+  %8 = tail call ptr @xstrdup(ptr noundef nonnull @.str.110) #21
   br label %9
 
 9:                                                ; preds = %7, %4
@@ -13149,13 +13143,13 @@ define internal range(i32 -1, 1) i32 @arg_set_send_libs(ptr noundef readonly cap
   br i1 %.not, label %15, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call i32 @parse_send_libs(ptr noundef %1) #22
+  %6 = tail call i32 @parse_send_libs(ptr noundef %1) #21
   %7 = icmp eq i32 %6, -1
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %5
-  %9 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.395) #22
-  tail call void @exit(i32 noundef -1) #24
+  %9 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.395) #21
+  tail call void @exit(i32 noundef -1) #23
   unreachable
 
 10:                                               ; preds = %5
@@ -13186,7 +13180,7 @@ define internal ptr @arg_get_send_libs(ptr noundef readonly captures(none) %0) #
 
 .sink.split:                                      ; preds = %4, %1
   %.str.74.sink = phi ptr [ @.str.55, %1 ], [ @.str.74, %4 ]
-  %8 = tail call ptr @xstrdup(ptr noundef nonnull %.str.74.sink) #22
+  %8 = tail call ptr @xstrdup(ptr noundef nonnull %.str.74.sink) #21
   br label %9
 
 9:                                                ; preds = %.sink.split, %4
@@ -13203,7 +13197,7 @@ define internal void @arg_reset_send_libs(ptr noundef readonly captures(none) %0
 
 4:                                                ; preds = %1
   %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 192), align 8
-  %6 = tail call ptr @xstrcasestr(ptr noundef %5, ptr noundef nonnull @.str.396) #22
+  %6 = tail call ptr @xstrcasestr(ptr noundef %5, ptr noundef nonnull @.str.396) #21
   %7 = icmp ne ptr %6, null
   %8 = load ptr, ptr %2, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 192
@@ -13222,12 +13216,12 @@ define internal range(i32 -1, 1) i32 @arg_set_signal(ptr noundef %0, ptr noundef
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 318
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 316
-  %6 = tail call i32 @get_signal_opts(ptr noundef %1, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) #22
+  %6 = tail call i32 @get_signal_opts(ptr noundef %1, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) #21
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %9, label %7
 
 7:                                                ; preds = %2
-  %8 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.399) #22
+  %8 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.399) #21
   br label %9
 
 9:                                                ; preds = %2, %7
@@ -13243,7 +13237,7 @@ define internal ptr @arg_get_signal(ptr noundef readonly captures(none) %0) #0 {
   %5 = load i16, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 316
   %7 = load i16, ptr %6, align 4
-  %8 = tail call ptr @signal_opts_to_cmdline(i16 noundef zeroext %3, i16 noundef zeroext %5, i16 noundef zeroext %7) #22
+  %8 = tail call ptr @signal_opts_to_cmdline(i16 noundef zeroext %3, i16 noundef zeroext %5, i16 noundef zeroext %7) #21
   ret ptr %8
 }
 
@@ -13264,7 +13258,7 @@ declare ptr @signal_opts_to_cmdline(i16 noundef zeroext, i16 noundef zeroext, i1
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @arg_set_slurmd_debug(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
-  %3 = tail call i32 @getuid() #22
+  %3 = tail call i32 @getuid() #21
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
@@ -13278,17 +13272,17 @@ define internal range(i32 -1, 1) i32 @arg_set_slurmd_debug(ptr noundef readonly 
   br i1 %or.cond, label %13, label %8
 
 8:                                                ; preds = %6
-  %9 = tail call zeroext i16 @log_string2num(ptr noundef %1) #22
+  %9 = tail call zeroext i16 @log_string2num(ptr noundef %1) #21
   %.not9 = icmp eq i16 %9, 2
   br i1 %.not9, label %13, label %10
 
 10:                                               ; preds = %8
   %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1160), align 8
-  %12 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.402, ptr noundef %11) #22
+  %12 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.402, ptr noundef %11) #21
   br label %18
 
 13:                                               ; preds = %8, %6
-  %14 = tail call zeroext i16 @log_string2num(ptr noundef %1) #22
+  %14 = tail call zeroext i16 @log_string2num(ptr noundef %1) #21
   %15 = zext i16 %14 to i32
   %16 = load ptr, ptr %4, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 196
@@ -13311,12 +13305,12 @@ define internal ptr @arg_get_slurmd_debug(ptr noundef readonly captures(none) %0
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 196
   %6 = load i32, ptr %5, align 4
   %7 = trunc i32 %6 to i16
-  %8 = tail call ptr @log_num2string(i16 noundef zeroext %7) #22
+  %8 = tail call ptr @log_num2string(i16 noundef zeroext %7) #21
   br label %9
 
 9:                                                ; preds = %1, %4
   %.sink = phi ptr [ %8, %4 ], [ @.str.55, %1 ]
-  %10 = tail call ptr @xstrdup(ptr noundef %.sink) #22
+  %10 = tail call ptr @xstrdup(ptr noundef %.sink) #21
   ret ptr %10
 }
 
@@ -13342,7 +13336,7 @@ declare ptr @log_num2string(i16 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @arg_set_sockets_per_node(ptr noundef nonnull writeonly captures(none) initializes((156, 160)) %0, ptr noundef %1) #0 {
-  %3 = tail call i32 @parse_int(ptr noundef nonnull @.str.405, ptr noundef %1, i1 noundef zeroext true) #22
+  %3 = tail call i32 @parse_int(ptr noundef nonnull @.str.405, ptr noundef %1, i1 noundef zeroext true) #21
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 156
   store i32 %3, ptr %4, align 4
   ret i32 0
@@ -13352,7 +13346,7 @@ define internal noundef i32 @arg_set_sockets_per_node(ptr noundef nonnull writeo
 define internal ptr @arg_get_sockets_per_node(ptr noundef nonnull readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 156
   %3 = load i32, ptr %2, align 4
-  %4 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.116, i32 noundef %3) #22
+  %4 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.116, i32 noundef %3) #21
   ret ptr %4
 }
 
@@ -13379,7 +13373,7 @@ define internal ptr @arg_get_spread_job(ptr noundef readonly captures(none) %0) 
   %4 = and i64 %3, 256
   %.not = icmp eq i64 %4, 0
   %.str.110..str.74 = select i1 %.not, ptr @.str.110, ptr @.str.74
-  %5 = tail call ptr @xstrdup(ptr noundef nonnull %.str.110..str.74) #22
+  %5 = tail call ptr @xstrdup(ptr noundef nonnull %.str.110..str.74) #21
   ret ptr %5
 }
 
@@ -13408,7 +13402,7 @@ define internal ptr @arg_get_stepmgr(ptr noundef readonly captures(none) %0) #0 
   %4 = and i64 %3, 2199023255552
   %.not = icmp eq i64 %4, 0
   %.str.110..str.74 = select i1 %.not, ptr @.str.110, ptr @.str.74
-  %5 = tail call ptr @xstrdup(ptr noundef nonnull %.str.110..str.74) #22
+  %5 = tail call ptr @xstrdup(ptr noundef nonnull %.str.110..str.74) #21
   ret ptr %5
 }
 
@@ -13423,7 +13417,7 @@ define internal void @arg_reset_stepmgr(ptr noundef captures(none) %0) #14 {
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @arg_set_switch_req(ptr noundef writeonly captures(none) initializes((636, 640)) %0, ptr noundef %1) #0 {
-  %3 = tail call i32 @parse_int(ptr noundef nonnull @.str.411, ptr noundef %1, i1 noundef zeroext true) #22
+  %3 = tail call i32 @parse_int(ptr noundef nonnull @.str.411, ptr noundef %1, i1 noundef zeroext true) #21
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 636
   store i32 %3, ptr %4, align 4
   ret i32 0
@@ -13437,11 +13431,11 @@ define internal ptr @arg_get_switch_req(ptr noundef readonly captures(none) %0) 
   br i1 %.not, label %6, label %4
 
 4:                                                ; preds = %1
-  %5 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.116, i32 noundef %3) #22
+  %5 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.116, i32 noundef %3) #21
   br label %8
 
 6:                                                ; preds = %1
-  %7 = tail call ptr @xstrdup(ptr noundef nonnull @.str.110) #22
+  %7 = tail call ptr @xstrdup(ptr noundef nonnull @.str.110) #21
   br label %8
 
 8:                                                ; preds = %6, %4
@@ -13458,7 +13452,7 @@ define internal void @arg_reset_switch_req(ptr noundef writeonly captures(none) 
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @arg_set_switch_wait(ptr noundef writeonly captures(none) initializes((640, 644)) %0, ptr noundef %1) #0 {
-  %3 = tail call i32 @time_str2secs(ptr noundef %1) #22
+  %3 = tail call i32 @time_str2secs(ptr noundef %1) #21
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 640
   store i32 %3, ptr %4, align 8
   ret i32 0
@@ -13475,8 +13469,8 @@ define internal ptr @arg_get_switch_wait(ptr noundef readonly captures(none) %0)
 
 6:                                                ; preds = %1
   %7 = sext i32 %4 to i64
-  call void @secs2time_str(i64 noundef %7, ptr noundef nonnull %2, i32 noundef 32) #22
-  %8 = call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.24, ptr noundef nonnull %2) #22
+  call void @secs2time_str(i64 noundef %7, ptr noundef nonnull %2, i32 noundef 32) #21
+  %8 = call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.24, ptr noundef nonnull %2) #21
   br label %9
 
 9:                                                ; preds = %1, %6
@@ -13498,25 +13492,25 @@ define internal void @arg_reset_switch_wait(ptr noundef writeonly captures(none)
 define internal noundef i32 @arg_set_switches(ptr noundef writeonly captures(none) initializes((636, 640)) %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %4 = tail call ptr @xstrdup(ptr noundef %1) #22
+  %4 = tail call ptr @xstrdup(ptr noundef %1) #21
   store ptr %4, ptr %3, align 8
-  %5 = tail call ptr @xstrchr(ptr noundef %4, i32 noundef 64) #22
+  %5 = tail call ptr @xstrchr(ptr noundef %4, i32 noundef 64) #21
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %10, label %6
 
 6:                                                ; preds = %2
   store i8 0, ptr %5, align 1
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 1
-  %8 = tail call i32 @time_str2secs(ptr noundef nonnull %7) #22
+  %8 = tail call i32 @time_str2secs(ptr noundef nonnull %7) #21
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 640
   store i32 %8, ptr %9, align 8
   br label %10
 
 10:                                               ; preds = %6, %2
-  %11 = tail call i32 @parse_int(ptr noundef nonnull @.str.411, ptr noundef %4, i1 noundef zeroext true) #22
+  %11 = tail call i32 @parse_int(ptr noundef nonnull @.str.411, ptr noundef %4, i1 noundef zeroext true) #21
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 636
   store i32 %11, ptr %12, align 4
-  call void @slurm_xfree(ptr noundef nonnull %3) #22
+  call void @slurm_xfree(ptr noundef nonnull %3) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 0
 }
@@ -13532,10 +13526,10 @@ define internal ptr @arg_get_switches(ptr noundef readonly captures(none) %0) #0
 5:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %6 = sext i32 %4 to i64
-  call void @secs2time_str(i64 noundef %6, ptr noundef nonnull %2, i32 noundef 32) #22
+  call void @secs2time_str(i64 noundef %6, ptr noundef nonnull %2, i32 noundef 32) #21
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 636
   %8 = load i32, ptr %7, align 4
-  %9 = call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.415, i32 noundef %8, ptr noundef nonnull %2) #22
+  %9 = call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.415, i32 noundef %8, ptr noundef nonnull %2) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %17
 
@@ -13546,11 +13540,11 @@ define internal ptr @arg_get_switches(ptr noundef readonly captures(none) %0) #0
   br i1 %.not7, label %15, label %13
 
 13:                                               ; preds = %10
-  %14 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.116, i32 noundef %12) #22
+  %14 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.116, i32 noundef %12) #21
   br label %17
 
 15:                                               ; preds = %10
-  %16 = tail call ptr @xstrdup(ptr noundef nonnull @.str.110) #22
+  %16 = tail call ptr @xstrdup(ptr noundef nonnull @.str.110) #21
   br label %17
 
 17:                                               ; preds = %15, %13, %5
@@ -13578,8 +13572,8 @@ define internal range(i32 -1, 1) i32 @arg_set_task_epilog(ptr noundef nonnull re
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 200
-  tail call void @slurm_xfree(ptr noundef nonnull %6) #22
-  %7 = tail call ptr @xstrdup(ptr noundef %1) #22
+  tail call void @slurm_xfree(ptr noundef nonnull %6) #21
+  %7 = tail call ptr @xstrdup(ptr noundef %1) #21
   %8 = load ptr, ptr %3, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 200
   store ptr %7, ptr %9, align 8
@@ -13604,7 +13598,7 @@ define internal ptr @arg_get_task_epilog(ptr noundef nonnull readonly captures(n
 
 7:                                                ; preds = %1, %4
   %.sink = phi ptr [ %6, %4 ], [ @.str.55, %1 ]
-  %8 = tail call ptr @xstrdup(ptr noundef %.sink) #22
+  %8 = tail call ptr @xstrdup(ptr noundef %.sink) #21
   ret ptr %8
 }
 
@@ -13617,7 +13611,7 @@ define internal void @arg_reset_task_epilog(ptr noundef nonnull readonly capture
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 200
-  tail call void @slurm_xfree(ptr noundef nonnull %5) #22
+  tail call void @slurm_xfree(ptr noundef nonnull %5) #21
   br label %6
 
 6:                                                ; preds = %4, %1
@@ -13633,8 +13627,8 @@ define internal range(i32 -1, 1) i32 @arg_set_task_prolog(ptr noundef nonnull re
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 208
-  tail call void @slurm_xfree(ptr noundef nonnull %6) #22
-  %7 = tail call ptr @xstrdup(ptr noundef %1) #22
+  tail call void @slurm_xfree(ptr noundef nonnull %6) #21
+  %7 = tail call ptr @xstrdup(ptr noundef %1) #21
   %8 = load ptr, ptr %3, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 208
   store ptr %7, ptr %9, align 8
@@ -13659,7 +13653,7 @@ define internal ptr @arg_get_task_prolog(ptr noundef nonnull readonly captures(n
 
 7:                                                ; preds = %1, %4
   %.sink = phi ptr [ %6, %4 ], [ @.str.55, %1 ]
-  %8 = tail call ptr @xstrdup(ptr noundef %.sink) #22
+  %8 = tail call ptr @xstrdup(ptr noundef %.sink) #21
   ret ptr %8
 }
 
@@ -13672,7 +13666,7 @@ define internal void @arg_reset_task_prolog(ptr noundef nonnull readonly capture
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 208
-  tail call void @slurm_xfree(ptr noundef nonnull %5) #22
+  tail call void @slurm_xfree(ptr noundef nonnull %5) #21
   br label %6
 
 6:                                                ; preds = %4, %1
@@ -13745,7 +13739,7 @@ define internal ptr @arg_get_test_only(ptr noundef readonly captures(none) %0) #
 
 13:                                               ; preds = %4, %10
   %.sink = phi ptr [ %12, %10 ], [ @.str.55, %4 ]
-  %14 = tail call ptr @xstrdup(ptr noundef nonnull %.sink) #22
+  %14 = tail call ptr @xstrdup(ptr noundef nonnull %.sink) #21
   ret ptr %14
 }
 
@@ -13778,7 +13772,7 @@ define internal void @arg_reset_test_only(ptr noundef readonly captures(none) %0
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @arg_set_thread_spec(ptr noundef writeonly captures(none) initializes((660, 664)) %0, ptr noundef %1) #0 {
-  %3 = tail call i32 @parse_int(ptr noundef nonnull @.str.426, ptr noundef %1, i1 noundef zeroext true) #22
+  %3 = tail call i32 @parse_int(ptr noundef nonnull @.str.426, ptr noundef %1, i1 noundef zeroext true) #21
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 660
   %5 = or i32 %3, 32768
   store i32 %5, ptr %4, align 4
@@ -13796,12 +13790,12 @@ define internal ptr @arg_get_thread_spec(ptr noundef readonly captures(none) %0)
   br i1 %or.cond, label %6, label %8
 
 6:                                                ; preds = %1
-  %7 = tail call ptr @xstrdup(ptr noundef nonnull @.str.110) #22
+  %7 = tail call ptr @xstrdup(ptr noundef nonnull @.str.110) #21
   br label %11
 
 8:                                                ; preds = %1
   %9 = and i32 %3, -32769
-  %10 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.116, i32 noundef %9) #22
+  %10 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.116, i32 noundef %9) #21
   br label %11
 
 11:                                               ; preds = %8, %6
@@ -13811,7 +13805,7 @@ define internal ptr @arg_get_thread_spec(ptr noundef readonly captures(none) %0)
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @arg_set_threads_per_core(ptr noundef writeonly captures(none) initializes((176, 180)) %0, ptr noundef %1) #0 {
-  %3 = tail call i32 @parse_int(ptr noundef nonnull @.str.428, ptr noundef %1, i1 noundef zeroext true) #22
+  %3 = tail call i32 @parse_int(ptr noundef nonnull @.str.428, ptr noundef %1, i1 noundef zeroext true) #21
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 176
   store i32 %3, ptr %4, align 8
   ret i32 0
@@ -13821,7 +13815,7 @@ define internal noundef i32 @arg_set_threads_per_core(ptr noundef writeonly capt
 define internal ptr @arg_get_threads_per_core(ptr noundef nonnull readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %3 = load i32, ptr %2, align 8
-  %4 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.116, i32 noundef %3) #22
+  %4 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.116, i32 noundef %3) #21
   ret ptr %4
 }
 
@@ -13834,12 +13828,12 @@ define internal void @arg_reset_threads_per_core(ptr noundef nonnull writeonly c
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @arg_set_time_limit(ptr noundef writeonly captures(none) %0, ptr noundef %1) #0 {
-  %3 = tail call i32 @time_str2mins(ptr noundef %1) #22
+  %3 = tail call i32 @time_str2mins(ptr noundef %1) #21
   %4 = icmp eq i32 %3, -2
   br i1 %4, label %5, label %7
 
 5:                                                ; preds = %2
-  %6 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.431) #22
+  %6 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.431) #21
   br label %10
 
 7:                                                ; preds = %2
@@ -13864,8 +13858,8 @@ define internal ptr @arg_get_time_limit(ptr noundef nonnull readonly captures(no
   br i1 %5, label %8, label %6
 
 6:                                                ; preds = %1
-  call void @mins2time_str(i32 noundef %4, ptr noundef nonnull %2, i32 noundef 32) #22
-  %7 = call ptr @xstrdup(ptr noundef nonnull %2) #22
+  call void @mins2time_str(i32 noundef %4, ptr noundef nonnull %2, i32 noundef 32) #21
+  %7 = call ptr @xstrdup(ptr noundef nonnull %2) #21
   br label %8
 
 8:                                                ; preds = %1, %6
@@ -13887,12 +13881,12 @@ declare void @mins2time_str(i32 noundef, ptr noundef, i32 noundef) local_unnamed
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @arg_set_time_min(ptr noundef writeonly captures(none) %0, ptr noundef %1) #0 {
-  %3 = tail call i32 @time_str2mins(ptr noundef %1) #22
+  %3 = tail call i32 @time_str2mins(ptr noundef %1) #21
   %4 = icmp eq i32 %3, -2
   br i1 %4, label %5, label %7
 
 5:                                                ; preds = %2
-  %6 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.434) #22
+  %6 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.434) #21
   br label %10
 
 7:                                                ; preds = %2
@@ -13917,8 +13911,8 @@ define internal ptr @arg_get_time_min(ptr noundef nonnull readonly captures(none
   br i1 %5, label %8, label %6
 
 6:                                                ; preds = %1
-  call void @mins2time_str(i32 noundef %4, ptr noundef nonnull %2, i32 noundef 32) #22
-  %7 = call ptr @xstrdup(ptr noundef nonnull %2) #22
+  call void @mins2time_str(i32 noundef %4, ptr noundef nonnull %2, i32 noundef 32) #21
+  %7 = call ptr @xstrdup(ptr noundef nonnull %2) #21
   br label %8
 
 8:                                                ; preds = %1, %6
@@ -13936,14 +13930,14 @@ define internal void @arg_reset_time_min(ptr noundef nonnull writeonly captures(
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @arg_set_pn_min_tmp_disk(ptr noundef writeonly captures(none) initializes((464, 472)) %0, ptr noundef %1) #0 {
-  %3 = tail call i64 @str_to_mbytes(ptr noundef %1) #22
+  %3 = tail call i64 @str_to_mbytes(ptr noundef %1) #21
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 464
   store i64 %3, ptr %4, align 8
   %5 = icmp eq i64 %3, -2
   br i1 %5, label %6, label %8
 
 6:                                                ; preds = %2
-  %7 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.437) #22
+  %7 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.437) #21
   br label %8
 
 8:                                                ; preds = %2, %6
@@ -13955,7 +13949,7 @@ define internal range(i32 -1, 1) i32 @arg_set_pn_min_tmp_disk(ptr noundef writeo
 define internal ptr @arg_get_pn_min_tmp_disk(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %3 = load i64, ptr %2, align 8
-  %4 = tail call ptr @mbytes_to_str(i64 noundef %3) #22
+  %4 = tail call ptr @mbytes_to_str(i64 noundef %3) #21
   ret ptr %4
 }
 
@@ -13974,7 +13968,7 @@ define internal range(i32 -1, 1) i32 @arg_set_tree_width(ptr noundef readonly ca
   br i1 %.not, label %14, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call i32 @xstrcasecmp(ptr noundef %1, ptr noundef nonnull @.str.300) #22
+  %6 = tail call i32 @xstrcasecmp(ptr noundef %1, ptr noundef nonnull @.str.300) #21
   %.not6 = icmp eq i32 %6, 0
   %7 = load ptr, ptr %3, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 218
@@ -13985,12 +13979,12 @@ define internal range(i32 -1, 1) i32 @arg_set_tree_width(ptr noundef readonly ca
   br label %14
 
 10:                                               ; preds = %5
-  %11 = tail call i32 @parse_uint16(ptr noundef %1, ptr noundef nonnull %8) #22
+  %11 = tail call i32 @parse_uint16(ptr noundef %1, ptr noundef nonnull %8) #21
   %.not7 = icmp eq i32 %11, 0
   br i1 %.not7, label %14, label %12
 
 12:                                               ; preds = %10
-  %13 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.440, ptr noundef %1) #22
+  %13 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.440, ptr noundef %1) #21
   br label %14
 
 14:                                               ; preds = %9, %10, %2, %12
@@ -14006,14 +14000,14 @@ define internal ptr @arg_get_tree_width(ptr noundef readonly captures(none) %0) 
   br i1 %.not, label %4, label %6
 
 4:                                                ; preds = %1
-  %5 = tail call ptr @xstrdup(ptr noundef nonnull @.str.55) #22
+  %5 = tail call ptr @xstrdup(ptr noundef nonnull @.str.55) #21
   br label %11
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 218
   %8 = load i16, ptr %7, align 2
   %9 = zext i16 %8 to i32
-  %10 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.334, i32 noundef %9) #22
+  %10 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.334, i32 noundef %9) #21
   br label %11
 
 11:                                               ; preds = %6, %4
@@ -14040,8 +14034,8 @@ define internal void @arg_reset_tree_width(ptr noundef readonly captures(none) %
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @arg_set_tres_bind(ptr noundef nonnull %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 728
-  tail call void @slurm_xfree(ptr noundef nonnull %3) #22
-  %4 = tail call ptr @xstrdup(ptr noundef %1) #22
+  tail call void @slurm_xfree(ptr noundef nonnull %3) #21
+  %4 = tail call ptr @xstrdup(ptr noundef %1) #21
   store ptr %4, ptr %3, align 8
   ret i32 0
 }
@@ -14050,22 +14044,22 @@ define internal noundef i32 @arg_set_tres_bind(ptr noundef nonnull %0, ptr nound
 define internal ptr @arg_get_tres_bind(ptr noundef nonnull readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 728
   %3 = load ptr, ptr %2, align 8
-  %4 = tail call ptr @xstrdup(ptr noundef %3) #22
+  %4 = tail call ptr @xstrdup(ptr noundef %3) #21
   ret ptr %4
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @arg_reset_tres_bind(ptr noundef nonnull %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 728
-  tail call void @slurm_xfree(ptr noundef nonnull %2) #22
+  tail call void @slurm_xfree(ptr noundef nonnull %2) #21
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @arg_set_tres_per_task(ptr noundef nonnull %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 744
-  tail call void @slurm_xfree(ptr noundef nonnull %3) #22
-  %4 = tail call ptr @xstrdup(ptr noundef %1) #22
+  tail call void @slurm_xfree(ptr noundef nonnull %3) #21
+  %4 = tail call ptr @xstrdup(ptr noundef %1) #21
   store ptr %4, ptr %3, align 8
   ret i32 0
 }
@@ -14074,32 +14068,32 @@ define internal noundef i32 @arg_set_tres_per_task(ptr noundef nonnull %0, ptr n
 define internal ptr @arg_get_tres_per_task(ptr noundef nonnull readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 744
   %3 = load ptr, ptr %2, align 8
-  %4 = tail call ptr @xstrdup(ptr noundef %3) #22
+  %4 = tail call ptr @xstrdup(ptr noundef %3) #21
   ret ptr %4
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @arg_reset_tres_per_task(ptr noundef nonnull %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 744
-  tail call void @slurm_xfree(ptr noundef nonnull %2) #22
+  tail call void @slurm_xfree(ptr noundef nonnull %2) #21
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @arg_set_uid(ptr noundef %0, ptr noundef %1) #0 {
-  %3 = tail call i32 @getuid() #22
+  %3 = tail call i32 @getuid() #21
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %.sink.split
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %6 = tail call i32 @uid_from_string(ptr noundef %1, ptr noundef nonnull %5) #22
+  %6 = tail call i32 @uid_from_string(ptr noundef %1, ptr noundef nonnull %5) #21
   %7 = icmp slt i32 %6, 0
   br i1 %7, label %.sink.split, label %9
 
 .sink.split:                                      ; preds = %4, %2
   %.str.448.sink = phi ptr [ @.str.447, %2 ], [ @.str.448, %4 ]
-  %8 = tail call i32 (ptr, ...) @error(ptr noundef nonnull %.str.448.sink) #22
+  %8 = tail call i32 (ptr, ...) @error(ptr noundef nonnull %.str.448.sink) #21
   br label %9
 
 9:                                                ; preds = %.sink.split, %4
@@ -14111,7 +14105,7 @@ define internal range(i32 -1, 1) i32 @arg_set_uid(ptr noundef %0, ptr noundef %1
 define internal ptr @arg_get_uid(ptr noundef nonnull readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load i32, ptr %2, align 8
-  %4 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.116, i32 noundef %3) #22
+  %4 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.116, i32 noundef %3) #21
   ret ptr %4
 }
 
@@ -14157,7 +14151,7 @@ define internal ptr @arg_get_unbuffered(ptr noundef nonnull readonly captures(no
 
 9:                                                ; preds = %1, %4
   %.sink = phi ptr [ %8, %4 ], [ @.str.55, %1 ]
-  %10 = tail call ptr @xstrdup(ptr noundef nonnull %.sink) #22
+  %10 = tail call ptr @xstrdup(ptr noundef nonnull %.sink) #21
   ret ptr %10
 }
 
@@ -14193,7 +14187,7 @@ define internal ptr @arg_get_use_min_nodes(ptr noundef readonly captures(none) %
   %4 = and i64 %3, 512
   %.not = icmp eq i64 %4, 0
   %.str.110..str.74 = select i1 %.not, ptr @.str.110, ptr @.str.74
-  %5 = tail call ptr @xstrdup(ptr noundef nonnull %.str.110..str.74) #22
+  %5 = tail call ptr @xstrdup(ptr noundef nonnull %.str.110..str.74) #21
   ret ptr %5
 }
 
@@ -14236,7 +14230,7 @@ define internal noundef i32 @arg_set_verbose(ptr noundef captures(none) %0, ptr 
 
 9:                                                ; preds = %8
   store i1 true, ptr @arg_set_verbose.set_by_env, align 1
-  %10 = tail call i32 @parse_int(ptr noundef nonnull @.str.454, ptr noundef nonnull %1, i1 noundef zeroext false) #22
+  %10 = tail call i32 @parse_int(ptr noundef nonnull @.str.454, ptr noundef nonnull %1, i1 noundef zeroext false) #21
   br label %.sink.split
 
 .sink.split:                                      ; preds = %6, %9
@@ -14253,7 +14247,7 @@ define internal noundef i32 @arg_set_verbose(ptr noundef captures(none) %0, ptr 
 define internal ptr @arg_get_verbose(ptr noundef nonnull readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 364
   %3 = load i32, ptr %2, align 4
-  %4 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.116, i32 noundef %3) #22
+  %4 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.116, i32 noundef %3) #21
   ret ptr %4
 }
 
@@ -14275,8 +14269,8 @@ define internal noundef i32 @arg_set_version(ptr noundef readonly captures(none)
   ret i32 -1
 
 6:                                                ; preds = %2
-  tail call void @print_slurm_version() #22
-  tail call void @exit(i32 noundef 0) #23
+  tail call void @print_slurm_version() #21
+  tail call void @exit(i32 noundef 0) #22
   unreachable
 }
 
@@ -14300,7 +14294,7 @@ define internal range(i32 -1, 1) i32 @arg_set_umask(ptr noundef readonly capture
   br i1 %.not, label %15, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call i64 @strtol(ptr noundef captures(none) %1, ptr noundef null, i32 noundef 0) #22
+  %6 = tail call i64 @strtol(ptr noundef captures(none) %1, ptr noundef null, i32 noundef 0) #21
   %7 = trunc i64 %6 to i32
   %8 = load ptr, ptr %3, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 64
@@ -14312,7 +14306,7 @@ define internal range(i32 -1, 1) i32 @arg_set_umask(ptr noundef readonly capture
   br i1 %or.cond, label %13, label %15
 
 13:                                               ; preds = %5
-  %14 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.458) #22
+  %14 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.458) #21
   br label %15
 
 15:                                               ; preds = %5, %2, %13
@@ -14328,13 +14322,13 @@ define internal ptr @arg_get_umask(ptr noundef readonly captures(none) %0) #0 {
   br i1 %.not, label %4, label %6
 
 4:                                                ; preds = %1
-  %5 = tail call ptr @xstrdup(ptr noundef nonnull @.str.55) #22
+  %5 = tail call ptr @xstrdup(ptr noundef nonnull @.str.55) #21
   br label %10
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %8 = load i32, ptr %7, align 8
-  %9 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.459, i32 noundef %8) #22
+  %9 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.459, i32 noundef %8) #21
   br label %10
 
 10:                                               ; preds = %6, %4
@@ -14375,15 +14369,15 @@ define internal noundef i32 @arg_set_usage(ptr noundef readonly captures(none) %
   br i1 %.not3, label %10, label %9
 
 9:                                                ; preds = %6
-  tail call void %8() #22
+  tail call void %8() #21
   br label %12
 
 10:                                               ; preds = %6
-  %11 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.462) #22
+  %11 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.462) #21
   br label %12
 
 12:                                               ; preds = %10, %9
-  tail call void @exit(i32 noundef 0) #23
+  tail call void @exit(i32 noundef 0) #22
   unreachable
 }
 
@@ -14430,7 +14424,7 @@ define internal ptr @arg_get_wait(ptr noundef readonly captures(none) %0) #0 {
 
 9:                                                ; preds = %1, %4
   %.sink = phi ptr [ %8, %4 ], [ @.str.55, %1 ]
-  %10 = tail call ptr @xstrdup(ptr noundef nonnull %.sink) #22
+  %10 = tail call ptr @xstrdup(ptr noundef nonnull %.sink) #21
   ret ptr %10
 }
 
@@ -14463,14 +14457,14 @@ define internal range(i32 -1, 1) i32 @arg_set_wait_all_nodes(ptr noundef readonl
   br i1 %.not12, label %22, label %7
 
 7:                                                ; preds = %4, %2
-  %8 = tail call i32 @parse_int(ptr noundef nonnull @.str.467, ptr noundef %1, i1 noundef zeroext false) #22
+  %8 = tail call i32 @parse_int(ptr noundef nonnull @.str.467, ptr noundef %1, i1 noundef zeroext false) #21
   %9 = trunc i32 %8 to i16
   %10 = and i32 %8, 65534
   %.not13 = icmp eq i32 %10, 0
   br i1 %.not13, label %13, label %11
 
 11:                                               ; preds = %7
-  %12 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.468) #22
+  %12 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.468) #21
   br label %22
 
 13:                                               ; preds = %7
@@ -14512,7 +14506,7 @@ define internal ptr @arg_get_wait_all_nodes(ptr noundef readonly captures(none) 
   br i1 %.not10, label %6, label %.thread.thread
 
 6:                                                ; preds = %3
-  %7 = tail call ptr @xstrdup(ptr noundef nonnull @.str.55) #22
+  %7 = tail call ptr @xstrdup(ptr noundef nonnull @.str.55) #21
   br label %14
 
 .thread:                                          ; preds = %1
@@ -14531,7 +14525,7 @@ define internal ptr @arg_get_wait_all_nodes(ptr noundef readonly captures(none) 
   %.1.in = phi ptr [ %10, %.thread.thread ], [ %8, %.thread ]
   %.1 = load i16, ptr %.1.in, align 2
   %12 = zext i16 %.1 to i32
-  %13 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.334, i32 noundef %12) #22
+  %13 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.334, i32 noundef %12) #21
   br label %14
 
 14:                                               ; preds = %11, %6
@@ -14573,7 +14567,7 @@ define internal range(i32 -1, 1) i32 @arg_set_wait_srun(ptr noundef readonly cap
   br i1 %.not, label %9, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call i32 @parse_int(ptr noundef nonnull @.str.470, ptr noundef %1, i1 noundef zeroext false) #22
+  %6 = tail call i32 @parse_int(ptr noundef nonnull @.str.470, ptr noundef %1, i1 noundef zeroext false) #21
   %7 = load ptr, ptr %3, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 104
   store i32 %6, ptr %8, align 8
@@ -14592,13 +14586,13 @@ define internal ptr @arg_get_wait_srun(ptr noundef readonly captures(none) %0) #
   br i1 %.not, label %4, label %6
 
 4:                                                ; preds = %1
-  %5 = tail call ptr @xstrdup(ptr noundef nonnull @.str.55) #22
+  %5 = tail call ptr @xstrdup(ptr noundef nonnull @.str.55) #21
   br label %10
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 104
   %8 = load i32, ptr %7, align 8
-  %9 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.116, i32 noundef %8) #22
+  %9 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.116, i32 noundef %8) #21
   br label %10
 
 10:                                               ; preds = %6, %4
@@ -14627,8 +14621,8 @@ define internal void @arg_reset_wait_srun(ptr noundef readonly captures(none) %0
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @arg_set_wckey(ptr noundef nonnull %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 616
-  tail call void @slurm_xfree(ptr noundef nonnull %3) #22
-  %4 = tail call ptr @xstrdup(ptr noundef %1) #22
+  tail call void @slurm_xfree(ptr noundef nonnull %3) #21
+  %4 = tail call ptr @xstrdup(ptr noundef %1) #21
   store ptr %4, ptr %3, align 8
   ret i32 0
 }
@@ -14637,14 +14631,14 @@ define internal noundef i32 @arg_set_wckey(ptr noundef nonnull %0, ptr noundef %
 define internal ptr @arg_get_wckey(ptr noundef nonnull readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 616
   %3 = load ptr, ptr %2, align 8
-  %4 = tail call ptr @xstrdup(ptr noundef %3) #22
+  %4 = tail call ptr @xstrdup(ptr noundef %3) #21
   ret ptr %4
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @arg_reset_wckey(ptr noundef nonnull %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 616
-  tail call void @slurm_xfree(ptr noundef nonnull %2) #22
+  tail call void @slurm_xfree(ptr noundef nonnull %2) #21
   ret void
 }
 
@@ -14681,7 +14675,7 @@ define internal ptr @arg_get_whole(ptr noundef nonnull readonly captures(none) %
 
 9:                                                ; preds = %1, %4
   %.sink = phi ptr [ %8, %4 ], [ @.str.55, %1 ]
-  %10 = tail call ptr @xstrdup(ptr noundef nonnull %.sink) #22
+  %10 = tail call ptr @xstrdup(ptr noundef nonnull %.sink) #21
   ret ptr %10
 }
 
@@ -14710,8 +14704,8 @@ define internal range(i32 -1, 1) i32 @arg_set_wrap(ptr noundef nonnull readonly 
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 72
-  tail call void @slurm_xfree(ptr noundef nonnull %6) #22
-  %7 = tail call ptr @xstrdup(ptr noundef %1) #22
+  tail call void @slurm_xfree(ptr noundef nonnull %6) #21
+  %7 = tail call ptr @xstrdup(ptr noundef %1) #21
   %8 = load ptr, ptr %3, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 72
   store ptr %7, ptr %9, align 8
@@ -14736,7 +14730,7 @@ define internal ptr @arg_get_wrap(ptr noundef nonnull readonly captures(none) %0
 
 7:                                                ; preds = %1, %4
   %.sink = phi ptr [ %6, %4 ], [ @.str.55, %1 ]
-  %8 = tail call ptr @xstrdup(ptr noundef %.sink) #22
+  %8 = tail call ptr @xstrdup(ptr noundef %.sink) #21
   ret ptr %8
 }
 
@@ -14749,7 +14743,7 @@ define internal void @arg_reset_wrap(ptr noundef nonnull readonly captures(none)
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 72
-  tail call void @slurm_xfree(ptr noundef nonnull %5) #22
+  tail call void @slurm_xfree(ptr noundef nonnull %5) #21
   br label %6
 
 6:                                                ; preds = %4, %1
@@ -14762,7 +14756,7 @@ define internal noundef i32 @arg_set_x11(ptr noundef writeonly captures(none) in
   br i1 %.not, label %5, label %3
 
 3:                                                ; preds = %2
-  %4 = tail call zeroext i16 @x11_str2flags(ptr noundef nonnull %1) #22
+  %4 = tail call zeroext i16 @x11_str2flags(ptr noundef nonnull %1) #21
   br label %5
 
 5:                                                ; preds = %2, %3
@@ -14776,8 +14770,8 @@ define internal noundef i32 @arg_set_x11(ptr noundef writeonly captures(none) in
 define internal ptr @arg_get_x11(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 752
   %3 = load i16, ptr %2, align 8
-  %4 = tail call ptr @x11_flags2str(i16 noundef zeroext %3) #22
-  %5 = tail call ptr @xstrdup(ptr noundef %4) #22
+  %4 = tail call ptr @x11_flags2str(i16 noundef zeroext %3) #21
+  %5 = tail call ptr @xstrdup(ptr noundef %4) #21
   ret ptr %5
 }
 
@@ -14839,15 +14833,15 @@ define internal fastcc void @_set_tres_per_task_from_sibling_opt(ptr noundef %0,
   br i1 %.not33, label %.critedge, label %14
 
 14:                                               ; preds = %.lr.ph
-  call void @_xstrcat(ptr noundef nonnull %8, ptr noundef nonnull @.str.38) #22
+  call void @_xstrcat(ptr noundef nonnull %8, ptr noundef nonnull @.str.38) #21
   %15 = load ptr, ptr %5, align 8
-  %16 = call ptr @xstrstr(ptr noundef %15, ptr noundef nonnull @.str.2) #22
+  %16 = call ptr @xstrstr(ptr noundef %15, ptr noundef nonnull @.str.2) #21
   %.not30.i = icmp eq ptr %16, null
   br i1 %.not30.i, label %17, label %.thread.i
 
 17:                                               ; preds = %14
   %18 = load ptr, ptr %5, align 8
-  %19 = call ptr @xstrstr(ptr noundef %18, ptr noundef nonnull @.str.532) #22
+  %19 = call ptr @xstrstr(ptr noundef %18, ptr noundef nonnull @.str.532) #21
   %.not32.i = icmp eq ptr %19, null
   br i1 %.not32.i, label %26, label %.thread.i
 
@@ -14856,11 +14850,11 @@ define internal fastcc void @_set_tres_per_task_from_sibling_opt(ptr noundef %0,
   %.02138.i = phi ptr [ %19, %17 ], [ %16, %14 ]
   store i8 0, ptr %.02138.i, align 1
   %20 = load ptr, ptr %5, align 8
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %8, ptr noundef nonnull @.str.271, ptr noundef %20) #22
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %8, ptr noundef nonnull @.str.271, ptr noundef %20) #21
   store i8 %.039.i, ptr %.02138.i, align 1
   %21 = getelementptr inbounds nuw i8, ptr %.02138.i, i64 1
   %22 = load ptr, ptr %5, align 8
-  %23 = call ptr @xstrchr(ptr noundef %22, i32 noundef 44) #22
+  %23 = call ptr @xstrchr(ptr noundef %22, i32 noundef 44) #21
   store ptr %23, ptr %5, align 8
   %.not33.i = icmp eq ptr %23, null
   br i1 %.not33.i, label %_get_gpu_cnt_and_str.exit, label %24
@@ -14881,18 +14875,18 @@ define internal fastcc void @_set_tres_per_task_from_sibling_opt(ptr noundef %0,
 
 _get_gpu_cnt_and_str.exit:                        ; preds = %.thread.i, %.sink.split.i
   %.1.i = phi ptr [ %21, %.thread.i ], [ %.1.ph.i, %.sink.split.i ]
-  %28 = call i64 @strtol(ptr noundef captures(none) %.1.i, ptr noundef null, i32 noundef 10) #22
+  %28 = call i64 @strtol(ptr noundef captures(none) %.1.i, ptr noundef null, i32 noundef 10) #21
   %29 = trunc i64 %28 to i32
   %30 = load ptr, ptr %8, align 8
   call fastcc void @_set_tres_per_task_from_sibling_opt_internal(ptr noundef %0, i1 noundef zeroext true, i32 noundef %29, ptr noundef nonnull @.str.528, i32 noundef 300, ptr noundef %30)
-  call void @slurm_xfree(ptr noundef nonnull %8) #22
+  call void @slurm_xfree(ptr noundef nonnull %8) #21
   %.pr = load ptr, ptr %5, align 8
   %.not32 = icmp eq ptr %.pr, null
   br i1 %.not32, label %.critedge, label %.lr.ph, !llvm.loop !28
 
 .critedge:                                        ; preds = %.lr.ph, %_get_gpu_cnt_and_str.exit, %9
   store ptr null, ptr %5, align 8
-  call void @slurm_xfree(ptr noundef nonnull %10) #22
+  call void @slurm_xfree(ptr noundef nonnull %10) #21
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 744
   %32 = load ptr, ptr %31, align 8
   %.not3439 = icmp eq ptr %32, null
@@ -14900,7 +14894,7 @@ _get_gpu_cnt_and_str.exit:                        ; preds = %.thread.i, %.sink.s
 
 .lr.ph40:                                         ; preds = %.critedge, %46
   %33 = phi ptr [ %47, %46 ], [ %32, %.critedge ]
-  %34 = call i32 @slurm_get_next_tres(ptr noundef nonnull %6, ptr noundef nonnull %33, ptr noundef nonnull %4, ptr noundef nonnull %7, ptr noundef nonnull %3, ptr noundef nonnull %5) #22
+  %34 = call i32 @slurm_get_next_tres(ptr noundef nonnull %6, ptr noundef nonnull %33, ptr noundef nonnull %4, ptr noundef nonnull %7, ptr noundef nonnull %3, ptr noundef nonnull %5) #21
   %35 = icmp eq i32 %34, 0
   %36 = load ptr, ptr %5, align 8
   %37 = icmp ne ptr %36, null
@@ -14913,7 +14907,7 @@ _get_gpu_cnt_and_str.exit:                        ; preds = %.thread.i, %.sink.s
   br i1 %.not35, label %41, label %40
 
 40:                                               ; preds = %38
-  call void @_xstrcatchar(ptr noundef nonnull %10, i8 noundef signext 44) #22
+  call void @_xstrcatchar(ptr noundef nonnull %10, i8 noundef signext 44) #21
   br label %41
 
 41:                                               ; preds = %40, %38
@@ -14923,16 +14917,16 @@ _get_gpu_cnt_and_str.exit:                        ; preds = %.thread.i, %.sink.s
   br i1 %.not36, label %45, label %44
 
 44:                                               ; preds = %41
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %10, ptr noundef nonnull @.str.529, ptr noundef nonnull %42, i64 noundef %43) #22
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %10, ptr noundef nonnull @.str.529, ptr noundef nonnull %42, i64 noundef %43) #21
   br label %46
 
 45:                                               ; preds = %41
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %10, ptr noundef nonnull @.str.530, i64 noundef %43) #22
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %10, ptr noundef nonnull @.str.530, i64 noundef %43) #21
   br label %46
 
 46:                                               ; preds = %45, %44
-  call void @slurm_xfree(ptr noundef nonnull %4) #22
-  call void @slurm_xfree(ptr noundef nonnull %7) #22
+  call void @slurm_xfree(ptr noundef nonnull %4) #21
+  call void @slurm_xfree(ptr noundef nonnull %7) #21
   %47 = load ptr, ptr %31, align 8
   %.not34 = icmp eq ptr %47, null
   br i1 %.not34, label %.critedge2, label %.lr.ph40, !llvm.loop !29
@@ -14955,7 +14949,7 @@ _get_gpu_cnt_and_str.exit:                        ; preds = %.thread.i, %.sink.s
   br i1 %.not, label %64, label %56
 
 56:                                               ; preds = %48
-  %57 = call i32 @slurm_get_next_tres(ptr noundef nonnull %6, ptr noundef nonnull %55, ptr noundef nonnull %4, ptr noundef nonnull %7, ptr noundef nonnull %3, ptr noundef nonnull %5) #22
+  %57 = call i32 @slurm_get_next_tres(ptr noundef nonnull %6, ptr noundef nonnull %55, ptr noundef nonnull %4, ptr noundef nonnull %7, ptr noundef nonnull %3, ptr noundef nonnull %5) #21
   %58 = icmp eq i32 %57, 0
   %59 = load ptr, ptr %5, align 8
   %60 = icmp ne ptr %59, null
@@ -14967,8 +14961,8 @@ _get_gpu_cnt_and_str.exit:                        ; preds = %.thread.i, %.sink.s
   %63 = trunc i64 %62 to i32
   store i32 %63, ptr %49, align 8
   store i8 1, ptr %51, align 4
-  call void @slurm_xfree(ptr noundef nonnull %4) #22
-  call void @slurm_xfree(ptr noundef nonnull %7) #22
+  call void @slurm_xfree(ptr noundef nonnull %4) #21
+  call void @slurm_xfree(ptr noundef nonnull %7) #21
   br label %64
 
 64:                                               ; preds = %2, %61, %56, %48, %.critedge2
@@ -14984,7 +14978,7 @@ _get_gpu_cnt_and_str.exit:                        ; preds = %.thread.i, %.sink.s
 define internal fastcc void @_set_tres_per_task_from_sibling_opt_internal(ptr noundef captures(address_is_null) %0, i1 noundef zeroext %1, i32 noundef %2, ptr noundef %3, i32 noundef range(i32 99, 301) %4, ptr noundef %5) unnamed_addr #0 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 744
   %8 = load ptr, ptr %7, align 8
-  %9 = tail call ptr @xstrcasestr(ptr noundef %8, ptr noundef %5) #22
+  %9 = tail call ptr @xstrcasestr(ptr noundef %8, ptr noundef %5) #21
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %10, label %.preheader
 
@@ -15043,12 +15037,12 @@ _find_option_index_from_optval.exit55:            ; preds = %25, %.split.loop.ex
   br i1 %.not.i56, label %27, label %31
 
 27:                                               ; preds = %_find_option_index_from_optval.exit55
-  %28 = tail call i32 @get_log_level() #22
+  %28 = tail call i32 @get_log_level() #21
   %29 = icmp sgt i32 %28, 6
   br i1 %29, label %30, label %52
 
 30:                                               ; preds = %27
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.479, ptr noundef nonnull @__func__._option_index_set_by_cli) #22
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.479, ptr noundef nonnull @__func__._option_index_set_by_cli) #21
   br label %52
 
 31:                                               ; preds = %_find_option_index_from_optval.exit55
@@ -15085,16 +15079,16 @@ _option_index_set_by_cli.exit60:                  ; preds = %41
   %49 = getelementptr inbounds ptr, ptr @common_options, i64 %.06.i
   %50 = load ptr, ptr %49, align 8
   %51 = load ptr, ptr %50, align 8
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.533, ptr noundef %5, ptr noundef %51) #23
+  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.533, ptr noundef %5, ptr noundef %51) #22
   unreachable
 
 52:                                               ; preds = %27, %30
-  %53 = tail call i32 @get_log_level() #22
+  %53 = tail call i32 @get_log_level() #21
   %54 = icmp sgt i32 %53, 6
   br i1 %54, label %55, label %_option_index_set_by_cli.exit64.thread
 
 55:                                               ; preds = %52
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.479, ptr noundef nonnull @__func__._option_index_set_by_cli) #22
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.479, ptr noundef nonnull @__func__._option_index_set_by_cli) #21
   br label %_option_index_set_by_cli.exit64.thread
 
 56:                                               ; preds = %41, %_option_index_set_by_cli.exit, %_option_index_set_by_cli.exit60, %34
@@ -15124,7 +15118,7 @@ _option_index_set_by_env.exit:                    ; preds = %_option_index_set_b
   br i1 %.not49, label %_option_index_set_by_env.exit78.thread, label %70
 
 70:                                               ; preds = %67
-  %71 = tail call i32 @get_log_level() #22
+  %71 = tail call i32 @get_log_level() #21
   %72 = icmp sgt i32 %71, 2
   br i1 %72, label %73, label %_option_index_set_by_env.exit78.thread
 
@@ -15133,32 +15127,32 @@ _option_index_set_by_env.exit:                    ; preds = %_option_index_set_b
   %75 = getelementptr inbounds ptr, ptr @common_options, i64 %.06.i
   %76 = load ptr, ptr %75, align 8
   %77 = load ptr, ptr %76, align 8
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.534, ptr noundef %74, ptr noundef %77) #22
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.534, ptr noundef %74, ptr noundef %77) #21
   br label %_option_index_set_by_env.exit78.thread
 
 _option_index_set_by_cli.exit64.thread:           ; preds = %31, %56, %55, %52, %_option_index_set_by_cli.exit64, %_option_index_set_by_env.exit
-  %78 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #25
+  %78 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #24
   %79 = getelementptr inbounds nuw i8, ptr %9, i64 %78
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 1
-  %81 = tail call i64 @strtol(ptr noundef nonnull captures(none) %80, ptr noundef null, i32 noundef 10) #22
+  %81 = tail call i64 @strtol(ptr noundef nonnull captures(none) %80, ptr noundef null, i32 noundef 10) #21
   %82 = trunc i64 %81 to i32
   %83 = icmp slt i32 %82, 1
   br i1 %83, label %84, label %85
 
 84:                                               ; preds = %_option_index_set_by_cli.exit64.thread
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.535, ptr noundef nonnull %5, i32 noundef %82) #23
+  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.535, ptr noundef nonnull %5, i32 noundef %82) #22
   unreachable
 
 85:                                               ; preds = %_option_index_set_by_cli.exit64.thread
   br i1 %.not.i56, label %86, label %90
 
 86:                                               ; preds = %85
-  %87 = tail call i32 @get_log_level() #22
+  %87 = tail call i32 @get_log_level() #21
   %88 = icmp sgt i32 %87, 6
   br i1 %88, label %89, label %_option_index_set_by_env.exit70.thread
 
 89:                                               ; preds = %86
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.479, ptr noundef nonnull @__func__._option_index_set_by_env) #22
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.479, ptr noundef nonnull @__func__._option_index_set_by_env) #21
   br label %_option_index_set_by_env.exit70.thread
 
 90:                                               ; preds = %85
@@ -15193,7 +15187,7 @@ _option_index_set_by_env.exit74:                  ; preds = %_option_index_set_b
   %107 = getelementptr inbounds ptr, ptr @common_options, i64 %.06.i
   %108 = load ptr, ptr %107, align 8
   %109 = load ptr, ptr %108, align 8
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.536, ptr noundef %109, ptr noundef %3, i32 noundef %2, i32 noundef %82) #23
+  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.536, ptr noundef %109, ptr noundef %3, i32 noundef %2, i32 noundef %82) #22
   unreachable
 
 _option_index_set_by_env.exit70.thread:           ; preds = %90, %89, %86, %101, %_option_index_set_by_env.exit74, %_option_index_set_by_env.exit70
@@ -15228,12 +15222,12 @@ _option_index_set_by_cli.exit82:                  ; preds = %119
   br i1 %125, label %_option_index_set_by_env.exit78.thread, label %126
 
 126:                                              ; preds = %_option_index_set_by_cli.exit82
-  %127 = tail call i32 @get_log_level() #22
+  %127 = tail call i32 @get_log_level() #21
   %128 = icmp sgt i32 %127, 2
   br i1 %128, label %129, label %_option_index_set_by_env.exit78.thread
 
 129:                                              ; preds = %126
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.537, ptr noundef %3, ptr noundef nonnull %5) #22
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.537, ptr noundef %3, ptr noundef nonnull %5) #21
   br label %_option_index_set_by_env.exit78.thread
 
 _option_index_set_by_env.exit78.thread:           ; preds = %119, %112, %_option_index_set_by_env.exit70.thread, %_option_index_set_by_env.exit78, %_option_index_set_by_cli.exit82, %129, %126, %67, %73, %70, %10, %11
@@ -15245,26 +15239,26 @@ declare void @_xstrcatchar(ptr noundef, i8 noundef signext) local_unnamed_addr #
 declare ptr @slurm_read_hostfile(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #17
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #16
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #18
+declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #17
 
 declare zeroext i1 @verify_node_list(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 declare zeroext i1 @gres_is_shared_name(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #19
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #18
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #19
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #18
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #20
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #19
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #21
+declare i32 @llvm.smax.i32(i32, i32) #20
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -15282,18 +15276,17 @@ attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memo
 attributes #13 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #17 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { nofree nounwind memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #20 = { nofree nounwind }
-attributes #21 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #22 = { nounwind }
-attributes #23 = { noreturn nounwind }
-attributes #24 = { cold noreturn nounwind }
-attributes #25 = { nounwind willreturn memory(read) }
-attributes #26 = { nounwind willreturn memory(none) }
-attributes #27 = { cold }
+attributes #16 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { nofree nounwind memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #19 = { nofree nounwind }
+attributes #20 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #21 = { nounwind }
+attributes #22 = { noreturn nounwind }
+attributes #23 = { cold noreturn nounwind }
+attributes #24 = { nounwind willreturn memory(read) }
+attributes #25 = { nounwind willreturn memory(none) }
+attributes #26 = { cold }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6, !7}
 

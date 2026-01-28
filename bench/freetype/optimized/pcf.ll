@@ -1854,8 +1854,8 @@ pcf_get_bitmaps.exit.thread:                      ; preds = %351, %.preheader.sp
   %449 = getelementptr inbounds nuw i8, ptr %1, i64 392
   %450 = load i64, ptr %449, align 8, !tbaa !95
   %451 = add nsw i64 %450, %448
-  %452 = call i64 @llvm.abs.i64(i64 %451, i1 true)
-  %453 = icmp samesign ugt i64 %452, 32767
+  %452 = add i64 %451, -32768
+  %453 = icmp ult i64 %452, -65535
   %454 = trunc i64 %451 to i16
   %455 = call i16 @llvm.abs.i16(i16 %454, i1 false)
   %storemerge = select i1 %453, i16 32767, i16 %455
@@ -1867,15 +1867,16 @@ pcf_get_bitmaps.exit.thread:                      ; preds = %351, %.preheader.sp
 457:                                              ; preds = %446
   %458 = getelementptr inbounds nuw i8, ptr %456, i64 16
   %459 = load i64, ptr %458, align 8, !tbaa !38
-  %460 = call i64 @llvm.abs.i64(i64 %459, i1 true)
-  %461 = icmp samesign ugt i64 %460, 327665
+  %460 = add i64 %459, -327666
+  %461 = icmp ult i64 %460, -655331
   br i1 %461, label %473, label %462
 
 462:                                              ; preds = %457
-  %463 = add nsw i64 %459, 5
-  %464 = sdiv i64 %463, 10
-  %465 = trunc i64 %464 to i16
-  %466 = call i16 @llvm.abs.i16(i16 %465, i1 false)
+  %463 = trunc i64 %459 to i32
+  %.lhs.trunc = add i32 %463, 5
+  %464 = sdiv i32 %.lhs.trunc, 10
+  %465 = trunc i32 %464 to i16
+  %466 = call i16 @llvm.abs.i16(i16 %465, i1 true)
   br label %473
 
 467:                                              ; preds = %446
@@ -1919,14 +1920,14 @@ pcf_get_bitmaps.exit.thread:                      ; preds = %351, %.preheader.sp
 486:                                              ; preds = %484
   %487 = getelementptr inbounds nuw i8, ptr %485, i64 16
   %488 = load i64, ptr %487, align 8, !tbaa !38
-  %489 = call i64 @llvm.abs.i64(i64 %488, i1 true)
-  %490 = icmp samesign ugt i64 %489, 32767
+  %489 = add i64 %488, -32768
+  %490 = icmp ult i64 %489, -65535
   br i1 %490, label %.sink.split412, label %491
 
 491:                                              ; preds = %486
-  %492 = trunc i64 %488 to i16
-  %493 = call i16 @llvm.abs.i16(i16 %492, i1 false)
-  %494 = zext i16 %493 to i64
+  %492 = trunc nsw i64 %488 to i16
+  %493 = call i16 @llvm.abs.i16(i16 %492, i1 true)
+  %494 = zext nneg i16 %493 to i64
   %495 = shl nuw nsw i64 %494, 6
   br label %.sink.split412
 
@@ -1944,13 +1945,13 @@ pcf_get_bitmaps.exit.thread:                      ; preds = %351, %.preheader.sp
 499:                                              ; preds = %497
   %500 = getelementptr inbounds nuw i8, ptr %498, i64 16
   %501 = load i64, ptr %500, align 8, !tbaa !38
-  %502 = call i64 @llvm.abs.i64(i64 %501, i1 true)
-  %503 = icmp samesign ugt i64 %502, 32767
+  %502 = add i64 %501, -32768
+  %503 = icmp ult i64 %502, -65535
   br i1 %503, label %507, label %504
 
 504:                                              ; preds = %499
-  %505 = trunc i64 %501 to i16
-  %506 = call i16 @llvm.abs.i16(i16 %505, i1 false)
+  %505 = trunc nsw i64 %501 to i16
+  %506 = call i16 @llvm.abs.i16(i16 %505, i1 true)
   br label %507
 
 507:                                              ; preds = %499, %504, %497
@@ -1962,13 +1963,13 @@ pcf_get_bitmaps.exit.thread:                      ; preds = %351, %.preheader.sp
 509:                                              ; preds = %507
   %510 = getelementptr inbounds nuw i8, ptr %508, i64 16
   %511 = load i64, ptr %510, align 8, !tbaa !38
-  %512 = call i64 @llvm.abs.i64(i64 %511, i1 true)
-  %513 = icmp samesign ugt i64 %512, 32767
+  %512 = add i64 %511, -32768
+  %513 = icmp ult i64 %512, -65535
   br i1 %513, label %.thread, label %514
 
 514:                                              ; preds = %509
-  %515 = trunc i64 %511 to i16
-  %516 = call i16 @llvm.abs.i16(i16 %515, i1 false)
+  %515 = trunc nsw i64 %511 to i16
+  %516 = call i16 @llvm.abs.i16(i16 %515, i1 true)
   %517 = getelementptr inbounds nuw i8, ptr %443, i64 24
   %518 = load i64, ptr %517, align 8, !tbaa !107
   %519 = icmp eq i64 %518, 0
@@ -2002,14 +2003,14 @@ pcf_get_bitmaps.exit.thread:                      ; preds = %351, %.preheader.sp
   %531 = getelementptr inbounds nuw i8, ptr %443, i64 8
   %532 = load i64, ptr %531, align 8, !tbaa !161
   store i64 %532, ptr %517, align 8, !tbaa !107
-  %.not188 = icmp eq i16 %515, 0
+  %.not188 = icmp eq i64 %511, 0
   br i1 %.not188, label %.thread259, label %533
 
 533:                                              ; preds = %.thread255, %530
   %534 = phi i64 [ %529, %.thread255 ], [ %532, %530 ]
   %.0136253258 = phi i16 [ 32767, %.thread255 ], [ %516, %530 ]
   %535 = phi ptr [ %525, %.thread255 ], [ %517, %530 ]
-  %536 = sext i16 %.0136253258 to i64
+  %536 = zext nneg i16 %.0136253258 to i64
   %537 = call i64 @FT_MulDiv(i64 noundef %534, i64 noundef %536, i64 noundef 72) #16
   store i64 %537, ptr %535, align 8, !tbaa !107
   br label %538
@@ -2023,8 +2024,8 @@ pcf_get_bitmaps.exit.thread:                      ; preds = %351, %.preheader.sp
   br i1 %or.cond, label %542, label %.thread259
 
 542:                                              ; preds = %538
-  %543 = sext i16 %.0137 to i64
-  %544 = sext i16 %.0136254 to i64
+  %543 = zext nneg i16 %.0137 to i64
+  %544 = zext nneg i16 %.0136254 to i64
   %545 = call i64 @FT_MulDiv(i64 noundef %539, i64 noundef %543, i64 noundef %544) #16
   br label %.thread259
 
@@ -2165,8 +2166,8 @@ define internal fastcc i32 @pcf_get_accel(ptr noundef %0, ptr noundef %1, i64 no
 36:                                               ; preds = %32, %34
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 384
   %38 = load i64, ptr %37, align 8, !tbaa !109
-  %39 = call i64 @llvm.abs.i64(i64 %38, i1 true)
-  %40 = icmp samesign ugt i64 %39, 32767
+  %39 = add i64 %38, -32768
+  %40 = icmp ult i64 %39, -65535
   br i1 %40, label %41, label %44
 
 41:                                               ; preds = %36
@@ -2178,8 +2179,8 @@ define internal fastcc i32 @pcf_get_accel(ptr noundef %0, ptr noundef %1, i64 no
 44:                                               ; preds = %41, %36
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 392
   %46 = load i64, ptr %45, align 8, !tbaa !111
-  %47 = call i64 @llvm.abs.i64(i64 %46, i1 true)
-  %48 = icmp samesign ugt i64 %47, 32767
+  %47 = add i64 %46, -32768
+  %48 = icmp ult i64 %47, -65535
   br i1 %48, label %49, label %52
 
 49:                                               ; preds = %44

@@ -1544,9 +1544,9 @@ define hidden range(i32 0, 2) i32 @cmsSmoothToneCurve(ptr noundef readonly captu
   %21 = uitofp nneg i32 %20 to double
   %22 = tail call zeroext i16 @_cmsQuantizeVal(double noundef %21, i32 noundef %15) #14
   %23 = zext i16 %22 to i32
-  %24 = sub nsw i32 %19, %23
-  %25 = tail call i32 @llvm.abs.i32(i32 %24, i1 true)
-  %26 = icmp samesign ugt i32 %25, 15
+  %24 = add nsw i32 %19, -16
+  %25 = sub nsw i32 %24, %23
+  %26 = icmp ult i32 %25, -31
   br i1 %26, label %cmsIsToneCurveLinear.exit, label %11
 
 cmsIsToneCurveLinear.exit:                        ; preds = %.lr.ph.i
@@ -2134,9 +2134,9 @@ define hidden range(i32 0, 2) i32 @cmsIsToneCurveLinear(ptr noundef readonly cap
   %16 = uitofp nneg i32 %15 to double
   %17 = tail call zeroext i16 @_cmsQuantizeVal(double noundef %16, i32 noundef %10) #14
   %18 = zext i16 %17 to i32
-  %19 = sub nsw i32 %14, %18
-  %20 = tail call i32 @llvm.abs.i32(i32 %19, i1 true)
-  %21 = icmp samesign ugt i32 %20, 15
+  %19 = add nsw i32 %14, -16
+  %20 = sub nsw i32 %19, %18
+  %21 = icmp ult i32 %20, -31
   br i1 %21, label %._crit_edge, label %6
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6, %1

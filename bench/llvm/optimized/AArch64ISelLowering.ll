@@ -111738,8 +111738,8 @@ define dso_local noundef zeroext i1 @_ZNK4llvm21AArch64TargetLowering27isLegalAd
 
 18:                                               ; preds = %15
   %19 = ashr exact i64 %1, 3
-  %20 = tail call noundef i64 @llvm.abs.i64(i64 %19, i1 true)
-  %21 = icmp samesign ult i64 %20, 17
+  %20 = add nsw i64 %19, 16
+  %21 = icmp ult i64 %20, 33
   br label %36
 
 22:                                               ; preds = %15
@@ -111749,8 +111749,8 @@ define dso_local noundef zeroext i1 @_ZNK4llvm21AArch64TargetLowering27isLegalAd
 
 25:                                               ; preds = %22
   %26 = ashr exact i64 %1, 2
-  %27 = tail call noundef i64 @llvm.abs.i64(i64 %26, i1 true)
-  %28 = icmp samesign ult i64 %27, 17
+  %27 = add nsw i64 %26, 16
+  %28 = icmp ult i64 %27, 33
   br label %36
 
 29:                                               ; preds = %22
@@ -111760,8 +111760,8 @@ define dso_local noundef zeroext i1 @_ZNK4llvm21AArch64TargetLowering27isLegalAd
 
 32:                                               ; preds = %29
   %33 = ashr exact i64 %1, 1
-  %34 = tail call noundef i64 @llvm.abs.i64(i64 %33, i1 true)
-  %35 = icmp samesign ult i64 %34, 17
+  %34 = add nsw i64 %33, 16
+  %35 = icmp ult i64 %34, 33
   br label %36
 
 36:                                               ; preds = %29, %2, %32, %25, %18, %11

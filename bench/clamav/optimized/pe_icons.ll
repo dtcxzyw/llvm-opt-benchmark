@@ -3642,9 +3642,9 @@ define internal fastcc range(i32 0, 715827883) i32 @matchbwpoint(i32 noundef ran
   %41 = load i32, ptr %26, align 4, !tbaa !60
   %42 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv
   %43 = load i32, ptr %42, align 4, !tbaa !60
-  %44 = sub nsw i32 %41, %43
-  %45 = tail call i32 @llvm.abs.i32(i32 %44, i1 true)
-  %46 = icmp samesign ugt i32 %45, 51
+  %44 = add i32 %41, -52
+  %45 = sub i32 %44, %43
+  %46 = icmp ult i32 %45, -103
   br i1 %46, label %51, label %47
 
 47:                                               ; preds = %40

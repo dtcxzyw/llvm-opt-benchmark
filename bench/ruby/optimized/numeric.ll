@@ -7029,8 +7029,8 @@ rb_integer_type_p.exit.thread25:                  ; preds = %16, %16, %6, %18, %
 
 24:                                               ; preds = %22
   %25 = ashr i64 %.017, 1
-  %26 = tail call i64 @llvm.abs.i64(i64 %25, i1 true)
-  %27 = icmp samesign ugt i64 %26, 9007199254740991
+  %26 = add nsw i64 %25, -9007199254740992
+  %27 = icmp ult i64 %26, -18014398509481983
   %28 = ashr i64 %.018, 1
   br i1 %27, label %29, label %33
 

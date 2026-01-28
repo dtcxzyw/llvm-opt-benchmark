@@ -3722,9 +3722,9 @@ define internal fastcc noundef i32 @checkmm(ptr noundef readonly captures(none) 
   br i1 %58, label %59, label %67
 
 59:                                               ; preds = %55, %47
-  %60 = sub nsw i32 %49, %48
-  %61 = tail call i32 @llvm.abs.i32(i32 %60, i1 true)
-  %62 = icmp samesign ugt i32 %61, 29
+  %60 = add nsw i32 %49, -30
+  %61 = sub i32 %60, %48
+  %62 = icmp ult i32 %61, -59
   br i1 %62, label %63, label %67
 
 63:                                               ; preds = %59
