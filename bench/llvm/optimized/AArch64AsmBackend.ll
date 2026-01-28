@@ -671,7 +671,7 @@ define linkonce_odr hidden void @_ZN4llvm12MCAsmBackend5resetEv(ptr noundef nonn
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNK12_GLOBAL__N_123DarwinAArch64AsmBackend24createObjectTargetWriterEv(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(80) %1) unnamed_addr #0 align 2 {
-_ZN4llvm8ExpectedIjED2Ev.exit5:
+_ZN4llvm8ExpectedIjED2Ev.exit:
   %2 = alloca %"class.llvm::Expected", align 8
   %3 = alloca %"class.llvm::Expected", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16

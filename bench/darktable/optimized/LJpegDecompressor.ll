@@ -1559,9 +1559,9 @@ _ZN8rawspeed19roundUpDivisionSafeEmm.exit:
   %36 = icmp sgt i32 %32, -1
   tail call void @llvm.assume(i1 %36)
   %37 = icmp ne i32 %32, 0
+  tail call void @llvm.assume(i1 %37)
   %38 = icmp ne i32 %30, 0
   tail call void @llvm.assume(i1 %38)
-  tail call void @llvm.assume(i1 %37)
   %39 = icmp samesign ult i32 %27, %16
   tail call void @llvm.assume(i1 %39)
   %40 = mul nuw nsw i32 %27, %19
@@ -2940,9 +2940,9 @@ _ZN8rawspeed19roundUpDivisionSafeEmm.exit:
   %37 = icmp sgt i32 %33, -1
   tail call void @llvm.assume(i1 %37)
   %38 = icmp ne i32 %33, 0
+  tail call void @llvm.assume(i1 %38)
   %39 = icmp ne i32 %31, 0
   tail call void @llvm.assume(i1 %39)
-  tail call void @llvm.assume(i1 %38)
   %40 = icmp samesign ult i32 %28, %17
   tail call void @llvm.assume(i1 %40)
   %41 = mul nuw nsw i32 %28, %20
@@ -4339,9 +4339,9 @@ _ZN8rawspeed19roundUpDivisionSafeEmm.exit:
   %37 = icmp sgt i32 %33, -1
   tail call void @llvm.assume(i1 %37)
   %38 = icmp ne i32 %33, 0
+  tail call void @llvm.assume(i1 %38)
   %39 = icmp ne i32 %31, 0
   tail call void @llvm.assume(i1 %39)
-  tail call void @llvm.assume(i1 %38)
   %40 = icmp samesign ult i32 %28, %17
   tail call void @llvm.assume(i1 %40)
   %41 = mul nuw nsw i32 %28, %20
@@ -5739,9 +5739,9 @@ _ZN8rawspeed19roundUpDivisionSafeEmm.exit:
   %37 = icmp sgt i32 %33, -1
   tail call void @llvm.assume(i1 %37)
   %38 = icmp ne i32 %33, 0
+  tail call void @llvm.assume(i1 %38)
   %39 = icmp ne i32 %31, 0
   tail call void @llvm.assume(i1 %39)
-  tail call void @llvm.assume(i1 %38)
   %40 = icmp samesign ult i32 %28, %17
   tail call void @llvm.assume(i1 %40)
   %41 = mul nuw nsw i32 %28, %20

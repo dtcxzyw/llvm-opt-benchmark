@@ -146,7 +146,7 @@ define dso_local zeroext i16 @core_bench_list(ptr noundef %0, i16 noundef signex
   %.0146 = phi i16 [ %46, %44 ], [ 0, %2 ]
   %.048145 = phi i16 [ %.149, %44 ], [ 0, %2 ]
   %.051144 = phi i16 [ %.152, %44 ], [ 0, %2 ]
-  %.053143 = phi ptr [ %.07.lcssa.i, %44 ], [ %4, %2 ]
+  %.053143 = phi ptr [ %.010.i, %44 ], [ %4, %2 ]
   %.055142 = phi i16 [ %.156, %44 ], [ 0, %2 ]
   %.sroa.6.0141 = phi i16 [ %spec.select, %44 ], [ %1, %2 ]
   %8 = icmp sgt i16 %.sroa.6.0141, -1
@@ -185,7 +185,7 @@ define dso_local zeroext i16 @core_bench_list(ptr noundef %0, i16 noundef signex
 
 core_list_find.exit:                              ; preds = %.lr.ph.i, %20, %.lr.ph27.i, %13
   %.0.i = phi ptr [ %.01426.i, %.lr.ph27.i ], [ null, %13 ], [ null, %20 ], [ %.122.i, %.lr.ph.i ]
-  br i1 %.not1625.i, label %.lr.ph.i65, label %core_list_reverse.exit
+  br label %.lr.ph.i65
 
 .lr.ph.i65:                                       ; preds = %core_list_find.exit, %.lr.ph.i65
   %.010.i = phi ptr [ %22, %.lr.ph.i65 ], [ %.053143, %core_list_find.exit ]
@@ -195,14 +195,13 @@ core_list_find.exit:                              ; preds = %.lr.ph.i, %20, %.lr
   %.not.i66 = icmp eq ptr %22, null
   br i1 %.not.i66, label %core_list_reverse.exit, label %.lr.ph.i65, !llvm.loop !35
 
-core_list_reverse.exit:                           ; preds = %.lr.ph.i65, %core_list_find.exit
-  %.07.lcssa.i = phi ptr [ null, %core_list_find.exit ], [ %.010.i, %.lr.ph.i65 ]
+core_list_reverse.exit:                           ; preds = %.lr.ph.i65
   %23 = icmp eq ptr %.0.i, null
   br i1 %23, label %core_list_reverse.exit.thread, label %31
 
 core_list_reverse.exit.thread:                    ; preds = %core_list_reverse.exit
   %24 = add i16 %.055142, 1
-  %25 = load ptr, ptr %.07.lcssa.i, align 8, !tbaa !31
+  %25 = load ptr, ptr %.010.i, align 8, !tbaa !31
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = load ptr, ptr %26, align 8, !tbaa !28
   %28 = load i16, ptr %27, align 2, !tbaa !23
@@ -227,9 +226,9 @@ core_list_reverse.exit.thread:                    ; preds = %core_list_reverse.e
 41:                                               ; preds = %31
   %42 = load ptr, ptr %40, align 8, !tbaa !31
   store ptr %42, ptr %.0.i, align 8, !tbaa !31
-  %43 = load ptr, ptr %.07.lcssa.i, align 8, !tbaa !31
+  %43 = load ptr, ptr %.010.i, align 8, !tbaa !31
   store ptr %43, ptr %40, align 8, !tbaa !31
-  store ptr %40, ptr %.07.lcssa.i, align 8, !tbaa !31
+  store ptr %40, ptr %.010.i, align 8, !tbaa !31
   br label %44
 
 44:                                               ; preds = %31, %41, %core_list_reverse.exit.thread
@@ -254,7 +253,7 @@ core_list_reverse.exit.thread:                    ; preds = %core_list_reverse.e
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %2
   %.sroa.6.0.lcssa = phi i16 [ %1, %2 ], [ %spec.select, %._crit_edge.loopexit ]
   %.sroa.0.0.lcssa = phi i16 [ 0, %2 ], [ %48, %._crit_edge.loopexit ]
-  %.053.lcssa = phi ptr [ %4, %2 ], [ %.07.lcssa.i, %._crit_edge.loopexit ]
+  %.053.lcssa = phi ptr [ %4, %2 ], [ %.010.i, %._crit_edge.loopexit ]
   %52 = phi i16 [ 0, %2 ], [ %51, %._crit_edge.loopexit ]
   %53 = icmp sgt i16 %1, 0
   br i1 %53, label %.lr.ph79.i.preheader, label %core_list_mergesort.exit

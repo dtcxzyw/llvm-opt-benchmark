@@ -5682,15 +5682,12 @@ invoke.cont295:                                   ; preds = %for.cond.cleanup276
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp291)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp288)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp285)
-  br i1 %cmp.not.i134, label %for.body303.lr.ph, label %for.cond317.preheader
-
-for.body303.lr.ph:                                ; preds = %invoke.cont295
   %impl_.i = getelementptr inbounds nuw i8, ptr %transform, i64 16
   %impl_.i606 = getelementptr inbounds nuw i8, ptr %odeSolution, i64 16
   %locations_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   br label %for.body303
 
-for.cond317.preheader:                            ; preds = %invoke.cont309, %invoke.cont295
+for.cond317.preheader:                            ; preds = %invoke.cont309
   %cmp3191323.not = icmp eq i64 %sub8515461557, 0
   br i1 %cmp3191323.not, label %for.cond317.preheader.invoke.cont336_crit_edge, label %for.body321.lr.ph
 
@@ -5716,8 +5713,8 @@ lpad294:                                          ; preds = %for.cond.cleanup276
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp285)
   br label %ehcleanup344
 
-for.body303:                                      ; preds = %for.body303.lr.ph, %invoke.cont309
-  %i299.01322 = phi i64 [ 0, %for.body303.lr.ph ], [ %inc313, %invoke.cont309 ]
+for.body303:                                      ; preds = %invoke.cont295, %invoke.cont309
+  %i299.01322 = phi i64 [ 0, %invoke.cont295 ], [ %inc313, %invoke.cont309 ]
   %conv304 = uitofp i64 %i299.01322 to double
   %mul305 = fmul double %div87, %conv304
   invoke void @_ZNK8QuantLib13Interpolation10checkRangeEdb(ptr noundef nonnull align 8 dereferenceable(32) %transform, double noundef %mul305, i1 noundef zeroext false)

@@ -24197,8 +24197,8 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 217:                                              ; preds = %.noexc354
   %218 = extractvalue { ptr, i64 } %195, 0
   %219 = icmp eq i64 %196, 4
-  %.sroa.03.0.copyload.i5.i.i.i.i352 = load float, ptr %218, align 1, !alias.scope !1561, !noalias !1558
   call void @llvm.assume(i1 %219)
+  %.sroa.03.0.copyload.i5.i.i.i.i352 = load float, ptr %218, align 1, !alias.scope !1561, !noalias !1558
   %220 = load i64, ptr %186, align 8, !alias.scope !1568, !noundef !6
   %221 = load i64, ptr %7, align 8, !range !907, !alias.scope !1568, !noundef !6
   %222 = icmp eq i64 %220, %221
@@ -24353,8 +24353,8 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 265:                                              ; preds = %.noexc362
   %266 = extractvalue { ptr, i64 } %252, 0
   %267 = icmp eq i64 %253, 4
-  %.sroa.03.0.copyload.i5.i.i.i.i360 = load float, ptr %266, align 1, !alias.scope !1584, !noalias !1576
   call void @llvm.assume(i1 %267)
+  %.sroa.03.0.copyload.i5.i.i.i.i360 = load float, ptr %266, align 1, !alias.scope !1584, !noalias !1576
   br label %257
 
 .invoke711:                                       ; preds = %.noexc354, %"_ZN4core6option15Option$LT$T$GT$6filter17h3442534abfe930d5E.exit", %275
@@ -24550,8 +24550,8 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 325:                                              ; preds = %.noexc373
   %326 = extractvalue { ptr, i64 } %312, 0
   %327 = icmp eq i64 %313, 4
-  %.sroa.03.0.copyload.i5.i.i.i.i371 = load float, ptr %326, align 1, !alias.scope !1597, !noalias !1591
   call void @llvm.assume(i1 %327)
+  %.sroa.03.0.copyload.i5.i.i.i.i371 = load float, ptr %326, align 1, !alias.scope !1597, !noalias !1591
   %328 = load i64, ptr %286, align 8, !alias.scope !1604, !noundef !6
   %329 = load i64, ptr %7, align 8, !range !907, !alias.scope !1604, !noundef !6
   %330 = icmp eq i64 %328, %329
@@ -37782,8 +37782,8 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 217:                                              ; preds = %.noexc354
   %218 = extractvalue { ptr, i64 } %195, 0
   %219 = icmp eq i64 %196, 8
-  %.sroa.02.0.copyload.i3.i.i.i.i352 = load double, ptr %218, align 1, !alias.scope !2433, !noalias !2440
   call void @llvm.assume(i1 %219)
+  %.sroa.02.0.copyload.i3.i.i.i.i352 = load double, ptr %218, align 1, !alias.scope !2433, !noalias !2440
   %220 = load i64, ptr %186, align 8, !alias.scope !2442, !noundef !6
   %221 = load i64, ptr %7, align 8, !range !907, !alias.scope !2442, !noundef !6
   %222 = icmp eq i64 %220, %221
@@ -37938,8 +37938,8 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 265:                                              ; preds = %.noexc362
   %266 = extractvalue { ptr, i64 } %252, 0
   %267 = icmp eq i64 %253, 8
-  %.sroa.02.0.copyload.i3.i.i.i.i360 = load double, ptr %266, align 1, !alias.scope !2458, !noalias !2465
   call void @llvm.assume(i1 %267)
+  %.sroa.02.0.copyload.i3.i.i.i.i360 = load double, ptr %266, align 1, !alias.scope !2458, !noalias !2465
   br label %257
 
 .invoke711:                                       ; preds = %.noexc354, %"_ZN4core6option15Option$LT$T$GT$6filter17h1796e1d6104e9b44E.exit", %275
@@ -38135,8 +38135,8 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 325:                                              ; preds = %.noexc373
   %326 = extractvalue { ptr, i64 } %312, 0
   %327 = icmp eq i64 %313, 8
-  %.sroa.02.0.copyload.i3.i.i.i.i371 = load double, ptr %326, align 1, !alias.scope !2473, !noalias !2480
   call void @llvm.assume(i1 %327)
+  %.sroa.02.0.copyload.i3.i.i.i.i371 = load double, ptr %326, align 1, !alias.scope !2473, !noalias !2480
   %328 = load i64, ptr %286, align 8, !alias.scope !2482, !noundef !6
   %329 = load i64, ptr %7, align 8, !range !907, !alias.scope !2482, !noundef !6
   %330 = icmp eq i64 %328, %329
@@ -73965,8 +73965,8 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize5utils2
 57:                                               ; preds = %44
   %58 = extractvalue { ptr, i64 } %45, 0
   %59 = icmp eq i64 %46, 8
-  %.sroa.02.0.copyload.i3.i.i.i.i72 = load double, ptr %58, align 1, !alias.scope !4805, !noalias !4808
   tail call void @llvm.assume(i1 %59)
+  %.sroa.02.0.copyload.i3.i.i.i.i72 = load double, ptr %58, align 1, !alias.scope !4805, !noalias !4808
   %60 = load i64, ptr %7, align 8, !alias.scope !4810, !noundef !6
   %61 = load i64, ptr %.8.val, align 8, !range !907, !alias.scope !4810, !noundef !6
   %62 = icmp eq i64 %60, %61
@@ -77185,8 +77185,8 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize5utils2
 57:                                               ; preds = %44
   %58 = extractvalue { ptr, i64 } %45, 0
   %59 = icmp eq i64 %46, 4
-  %.sroa.03.0.copyload.i5.i.i.i.i72 = load float, ptr %58, align 1, !alias.scope !5479, !noalias !5469
   tail call void @llvm.assume(i1 %59)
+  %.sroa.03.0.copyload.i5.i.i.i.i72 = load float, ptr %58, align 1, !alias.scope !5479, !noalias !5469
   %60 = load i64, ptr %7, align 8, !alias.scope !5482, !noundef !6
   %61 = load i64, ptr %.8.val, align 8, !range !907, !alias.scope !5482, !noundef !6
   %62 = icmp eq i64 %60, %61

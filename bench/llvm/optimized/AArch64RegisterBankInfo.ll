@@ -141,12 +141,12 @@ define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4llvm26AAr
   %15 = lshr i32 %12, %14
   %16 = and i32 %15, 3
   %.not = icmp ne i32 %16, 3
+  tail call void @llvm.assume(i1 %.not)
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load ptr, ptr %17, align 8, !tbaa !22
   %19 = zext nneg i32 %16 to i64
   %20 = getelementptr inbounds nuw ptr, ptr %18, i64 %19
   %21 = load ptr, ptr %20, align 8, !tbaa !35
-  tail call void @llvm.assume(i1 %.not)
   ret ptr %21
 }
 
@@ -730,11 +730,11 @@ define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4llvm23AAr
   %20 = lshr i32 %17, %19
   %21 = and i32 %20, 3
   %.not.i = icmp ne i32 %21, 3
+  tail call void @llvm.assume(i1 %.not.i)
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load ptr, ptr %22, align 8, !tbaa !22
   %24 = zext nneg i32 %21 to i64
   %25 = getelementptr inbounds nuw ptr, ptr %23, i64 %24
-  tail call void @llvm.assume(i1 %.not.i)
   br label %26
 
 26:                                               ; preds = %11, %7

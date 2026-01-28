@@ -992,7 +992,7 @@ zend_string_equals_cstr.exit32.thread:            ; preds = %111, %zend_string_e
   %123 = getelementptr inbounds i32, ptr %121, i64 %122
   %.014.i2549 = load i32, ptr %123, align 4, !tbaa !12
   %.not.i2650 = icmp eq i32 %.014.i2549, -1
-  br i1 %.not.i2650, label %.loopexit, label %.lr.ph53
+  br i1 %.not.i2650, label %._crit_edge54, label %.lr.ph53
 
 .lr.ph53:                                         ; preds = %._crit_edge48, %zend_string_equals_cstr.exit.thread
   %.014.i2551 = phi i32 [ %.014.i25, %zend_string_equals_cstr.exit.thread ], [ %.014.i2549, %._crit_edge48 ]
@@ -1021,9 +1021,9 @@ zend_string_equals_cstr.exit.thread:              ; preds = %129, %zend_string_e
   %136 = getelementptr inbounds nuw i8, ptr %125, i64 12
   %.014.i25 = load i32, ptr %136, align 4, !tbaa !12
   %.not.i26 = icmp eq i32 %.014.i25, -1
-  br i1 %.not.i26, label %.loopexit, label %.lr.ph53
+  br i1 %.not.i26, label %._crit_edge54, label %.lr.ph53
 
-.loopexit:                                        ; preds = %zend_string_equals_cstr.exit.thread, %._crit_edge48
+._crit_edge54:                                    ; preds = %zend_string_equals_cstr.exit.thread, %._crit_edge48
   %137 = and i64 %1, -8
   %138 = add i64 %137, 32
   %139 = tail call noalias ptr @_emalloc(i64 noundef %138) #18
@@ -1040,8 +1040,8 @@ zend_string_equals_cstr.exit.thread:              ; preds = %129, %zend_string_e
   store i64 %99, ptr %141, align 8, !tbaa !11
   br label %zend_interned_string_ht_lookup_ex.exit
 
-zend_interned_string_ht_lookup_ex.exit:           ; preds = %zend_string_equals_cstr.exit32, %zend_string_equals_cstr.exit, %.loopexit
-  %.0 = phi ptr [ %139, %.loopexit ], [ %131, %zend_string_equals_cstr.exit ], [ %113, %zend_string_equals_cstr.exit32 ]
+zend_interned_string_ht_lookup_ex.exit:           ; preds = %zend_string_equals_cstr.exit32, %zend_string_equals_cstr.exit, %._crit_edge54
+  %.0 = phi ptr [ %139, %._crit_edge54 ], [ %131, %zend_string_equals_cstr.exit ], [ %113, %zend_string_equals_cstr.exit32 ]
   ret ptr %.0
 }
 
