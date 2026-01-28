@@ -338,8 +338,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   tail call void @_ZdlPvm(ptr noundef %6, i64 noundef %24) #25
   resume { ptr, i32 } %23
 
-_ZN4abslL17CordRepFromStringEONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %13, %.noexc.i
-  %.0.i = phi ptr [ %14, %13 ], [ %15, %.noexc.i ]
+_ZN4abslL17CordRepFromStringEONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %12, %.noexc.i
+  %.0.i = phi ptr [ %14, %12 ], [ %15, %.noexc.i ]
   %25 = load i8, ptr %0, align 8, !tbaa !13
   %26 = and i8 %25, 1
   %.not.i = icmp eq i8 %26, 0
@@ -433,8 +433,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   tail call void @_ZdlPvm(ptr noundef %6, i64 noundef %24) #25
   resume { ptr, i32 } %23
 
-_ZN4abslL17CordRepFromStringEONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %13, %.noexc.i
-  %.0.i = phi ptr [ %14, %13 ], [ %15, %.noexc.i ]
+_ZN4abslL17CordRepFromStringEONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %12, %.noexc.i
+  %.0.i = phi ptr [ %14, %12 ], [ %15, %.noexc.i ]
   %25 = load i8, ptr %0, align 8, !tbaa !13
   %26 = and i8 %25, 1
   %.not.i = icmp eq i8 %26, 0
@@ -1327,7 +1327,7 @@ define dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl4Cord1
   %5 = load i64, ptr %4, align 8, !tbaa !4
   %6 = icmp ult i64 %5, 512
   %.pre.i = load ptr, ptr %1, align 8, !tbaa !12
-  br i1 %6, label %12, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i
+  br i1 %6, label %11, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i: ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -1338,8 +1338,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i: ; pred
   %11 = icmp ult i64 %5, %10
   br i1 %11, label %12, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
-12:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i, %2
-  %13 = tail call fastcc noundef ptr @_ZN4abslL7NewTreeEPKcmm(ptr noundef %.pre.i, i64 noundef %5)
+11:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i, %2
+  %12 = tail call fastcc noundef ptr @_ZN4abslL7NewTreeEPKcmm(ptr noundef %.pre.i, i64 noundef %5)
   br label %_ZN4abslL17CordRepFromStringEONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i
@@ -1378,8 +1378,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   tail call void @_ZdlPvm(ptr noundef %.pre.i, i64 noundef %23) #25
   br label %common.resume
 
-_ZN4abslL17CordRepFromStringEONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %12, %.noexc.i
-  %.0.i = phi ptr [ %13, %12 ], [ %14, %.noexc.i ]
+_ZN4abslL17CordRepFromStringEONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %11, %.noexc.i
+  %.0.i = phi ptr [ %12, %12 ], [ %14, %.noexc.i ]
   %24 = load i8, ptr %0, align 8, !tbaa !13
   %25 = and i8 %24, 1
   %.not.i = icmp eq i8 %25, 0

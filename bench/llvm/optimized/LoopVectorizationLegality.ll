@@ -9348,12 +9348,12 @@ define dso_local noundef zeroext i1 @_ZN4llvm25LoopVectorizationLegality25canVec
   br label %29
 
 ._crit_edge190:                                   ; preds = %.loopexit
-  %.pre205 = load ptr, ptr %0, align 8, !tbaa !234
-  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre205, i64 32
-  %.pre206 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !107
-  %.phi.trans.insert207 = getelementptr inbounds nuw i8, ptr %.pre205, i64 40
-  %.pre208 = load ptr, ptr %.phi.trans.insert207, align 8, !tbaa !318
-  %.not59191 = icmp eq ptr %.pre206, %.pre208
+  %.pre209 = load ptr, ptr %0, align 8, !tbaa !234
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre209, i64 32
+  %.pre210 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !107
+  %.phi.trans.insert211 = getelementptr inbounds nuw i8, ptr %.pre209, i64 40
+  %.pre212 = load ptr, ptr %.phi.trans.insert211, align 8, !tbaa !318
+  %.not59191 = icmp eq ptr %.pre210, %.pre212
   br i1 %.not59191, label %.critedge, label %_ZN4llvm10BasicBlock13getTerminatorEv.exit.thread.lr.ph
 
 _ZN4llvm10BasicBlock13getTerminatorEv.exit.thread.lr.ph: ; preds = %._crit_edge190
@@ -9463,12 +9463,12 @@ _ZN4llvm15SmallPtrSetImplIPNS_5ValueEE6insertES2_.exit: ; preds = %.lr.ph.i.i, %
   br i1 %.not163183, label %_ZN4llvm11SmallVectorIPKNS_13SCEVPredicateELj4EED2Ev.exit, label %.lr.ph185
 
 ._crit_edge:                                      ; preds = %_ZN4llvm15SmallPtrSetImplIPNS_5ValueEE6insertES2_.exit102
-  %.pre204 = load ptr, ptr %3, align 8, !tbaa !25
-  %68 = icmp eq ptr %.pre204, %23
+  %.pre208 = load ptr, ptr %3, align 8, !tbaa !25
+  %68 = icmp eq ptr %.pre208, %23
   br i1 %68, label %_ZN4llvm11SmallVectorIPKNS_13SCEVPredicateELj4EED2Ev.exit, label %69
 
 69:                                               ; preds = %._crit_edge
-  call void @free(ptr noundef %.pre204) #20
+  call void @free(ptr noundef %.pre208) #20
   br label %_ZN4llvm11SmallVectorIPKNS_13SCEVPredicateELj4EED2Ev.exit
 
 _ZN4llvm11SmallVectorIPKNS_13SCEVPredicateELj4EED2Ev.exit: ; preds = %62, %._crit_edge, %69
@@ -9558,7 +9558,7 @@ _ZN4llvm15SmallPtrSetImplIPNS_5ValueEE6insertES2_.exit102: ; preds = %.lr.ph.i.i
   br i1 %.not, label %._crit_edge190, label %29
 
 _ZN4llvm10BasicBlock13getTerminatorEv.exit.thread: ; preds = %_ZN4llvm10BasicBlock13getTerminatorEv.exit.thread.lr.ph, %153
-  %.054192 = phi ptr [ %.pre206, %_ZN4llvm10BasicBlock13getTerminatorEv.exit.thread.lr.ph ], [ %154, %153 ]
+  %.054192 = phi ptr [ %.pre210, %_ZN4llvm10BasicBlock13getTerminatorEv.exit.thread.lr.ph ], [ %154, %153 ]
   %105 = load ptr, ptr %.054192, align 8, !tbaa !110
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 48
   %107 = load ptr, ptr %106, align 8, !tbaa !319
@@ -9572,7 +9572,7 @@ _ZN4llvm10BasicBlock13getTerminatorEv.exit.thread: ; preds = %_ZN4llvm10BasicBlo
 112:                                              ; preds = %_ZN4llvm10BasicBlock13getTerminatorEv.exit.thread
   %113 = load ptr, ptr %0, align 8, !tbaa !234
   %114 = call noundef zeroext i1 @_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE13isLoopExitingEPKS1_(ptr noundef nonnull align 8 dereferenceable(144) %113, ptr noundef nonnull %105)
-  %.pre210 = load ptr, ptr %0, align 8, !tbaa !234
+  %.pre214 = load ptr, ptr %0, align 8, !tbaa !234
   br i1 %114, label %115, label %131
 
 115:                                              ; preds = %112
@@ -9592,12 +9592,12 @@ _ZN4llvm10BasicBlock13getTerminatorEv.exit.thread: ; preds = %_ZN4llvm10BasicBlo
 
 _ZN4llvm10BasicBlock13getTerminatorEv.exit106:    ; preds = %115, %120
   %.0.i.i105 = phi ptr [ null, %115 ], [ %spec.select.i.i104, %120 ]
-  call void @_ZN4llvm26reportVectorizationFailureENS_9StringRefES0_S0_PNS_25OptimizationRemarkEmitterEPNS_4LoopEPNS_11InstructionE(ptr nonnull @.str.77, i64 35, ptr nonnull @.str.77, i64 35, ptr nonnull @.str.78, i64 29, ptr noundef %117, ptr noundef %.pre210, ptr noundef %.0.i.i105) #20
+  call void @_ZN4llvm26reportVectorizationFailureENS_9StringRefES0_S0_PNS_25OptimizationRemarkEmitterEPNS_4LoopEPNS_11InstructionE(ptr nonnull @.str.77, i64 35, ptr nonnull @.str.77, i64 35, ptr nonnull @.str.78, i64 29, ptr noundef %117, ptr noundef %.pre214, ptr noundef %.0.i.i105) #20
   br label %.critedge
 
 _ZN4llvm10BasicBlock13getTerminatorEv.exit109:    ; preds = %_ZN4llvm10BasicBlock13getTerminatorEv.exit.thread
   %125 = icmp eq i8 %110, 31
-  %.pre209 = load ptr, ptr %0, align 8, !tbaa !234
+  %.pre213 = load ptr, ptr %0, align 8, !tbaa !234
   br i1 %125, label %131, label %_ZN4llvm10BasicBlock13getTerminatorEv.exit112
 
 _ZN4llvm10BasicBlock13getTerminatorEv.exit112:    ; preds = %_ZN4llvm10BasicBlock13getTerminatorEv.exit109
@@ -9607,11 +9607,11 @@ _ZN4llvm10BasicBlock13getTerminatorEv.exit112:    ; preds = %_ZN4llvm10BasicBloc
   %129 = add i8 %110, -30
   %130 = icmp ult i8 %129, 11
   %spec.select.i.i110 = select i1 %130, ptr %126, ptr null
-  call void @_ZN4llvm26reportVectorizationFailureENS_9StringRefES0_S0_PNS_25OptimizationRemarkEmitterEPNS_4LoopEPNS_11InstructionE(ptr nonnull @.str.79, i64 39, ptr nonnull @.str.79, i64 39, ptr nonnull @.str.80, i64 33, ptr noundef %128, ptr noundef %.pre209, ptr noundef %spec.select.i.i110) #20
+  call void @_ZN4llvm26reportVectorizationFailureENS_9StringRefES0_S0_PNS_25OptimizationRemarkEmitterEPNS_4LoopEPNS_11InstructionE(ptr nonnull @.str.79, i64 39, ptr nonnull @.str.79, i64 39, ptr nonnull @.str.80, i64 33, ptr noundef %128, ptr noundef %.pre213, ptr noundef %spec.select.i.i110) #20
   br label %.critedge
 
 131:                                              ; preds = %_ZN4llvm10BasicBlock13getTerminatorEv.exit109, %112
-  %132 = phi ptr [ %.pre209, %_ZN4llvm10BasicBlock13getTerminatorEv.exit109 ], [ %.pre210, %112 ]
+  %132 = phi ptr [ %.pre213, %_ZN4llvm10BasicBlock13getTerminatorEv.exit109 ], [ %.pre214, %112 ]
   %133 = call noundef ptr @_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE12getLoopLatchEv(ptr noundef nonnull align 8 dereferenceable(144) %132) #20
   %.sroa.3.0.copyload.i.i114 = load i8, ptr %.sroa.3.0..sroa_idx.i.i113, align 8
   %134 = trunc nuw i8 %.sroa.3.0.copyload.i.i114 to i1
@@ -9654,7 +9654,7 @@ _ZN4llvm10BasicBlock13getTerminatorEv.exit119:    ; preds = %142, %148
 
 153:                                              ; preds = %135, %140, %_ZNK4llvm25LoopVectorizationLegality21blockNeedsPredicationEPNS_10BasicBlockE.exit116
   %154 = getelementptr inbounds nuw i8, ptr %.054192, i64 8
-  %.not59 = icmp eq ptr %154, %.pre208
+  %.not59 = icmp eq ptr %154, %.pre212
   br i1 %.not59, label %.critedge, label %_ZN4llvm10BasicBlock13getTerminatorEv.exit.thread
 
 .critedge:                                        ; preds = %153, %10, %._crit_edge190, %_ZN4llvm10BasicBlock13getTerminatorEv.exit119, %_ZN4llvm10BasicBlock13getTerminatorEv.exit112, %_ZN4llvm10BasicBlock13getTerminatorEv.exit106

@@ -4572,13 +4572,13 @@ _ZNK4llvm14VarStreamArrayINS_8codeview8CVRecordINS1_10SymbolKindEEENS_23VarStrea
   %160 = load i32, ptr %157, align 4, !tbaa !106, !noalias !325
   %161 = add nsw i32 %160, 1
   store i32 %161, ptr %157, align 4, !tbaa !106, !noalias !325
-  %.sroa.11149.16.copyload191260 = load ptr, ptr %159, align 8
-  %.sroa.16.16.copyload193262 = load i64, ptr %.sroa.16.16..sroa_idx192, align 8
-  %.sroa.18.16.copyload195264 = load i64, ptr %.sroa.18.16..sroa_idx194, align 8
-  %.sroa.20.16.copyload197266 = load i8, ptr %.sroa.20.16..sroa_idx, align 8
+  %.sroa.11149.16.copyload191261 = load ptr, ptr %159, align 8
+  %.sroa.16.16.copyload193263 = load i64, ptr %.sroa.16.16..sroa_idx192, align 8
+  %.sroa.18.16.copyload195265 = load i64, ptr %.sroa.18.16..sroa_idx194, align 8
+  %.sroa.20.16.copyload197267 = load i8, ptr %.sroa.20.16..sroa_idx, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.22, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.22.16..sroa_idx198, i64 7, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.11.sroa.8)
-  br label %.thread276
+  br label %.thread277
 
 162:                                              ; preds = %156
   %163 = atomicrmw volatile add ptr %157, i32 1 acq_rel, align 4, !noalias !325
@@ -4590,13 +4590,13 @@ _ZNK4llvm14VarStreamArrayINS_8codeview8CVRecordINS1_10SymbolKindEEENS_23VarStrea
   %.sroa.20.16.copyload197 = load i8, ptr %.sroa.20.16..sroa_idx, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.22, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.22.16..sroa_idx198, i64 7, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.11.sroa.8)
-  br i1 %164, label %170, label %.thread276
+  br i1 %164, label %170, label %.thread277
 
-.thread276:                                       ; preds = %162, %.thread
-  %.sroa.20.16.copyload197275 = phi i8 [ %.sroa.20.16.copyload197266, %.thread ], [ %.sroa.20.16.copyload197, %162 ]
-  %.sroa.18.16.copyload195273 = phi i64 [ %.sroa.18.16.copyload195264, %.thread ], [ %.sroa.18.16.copyload195, %162 ]
-  %.sroa.16.16.copyload193271 = phi i64 [ %.sroa.16.16.copyload193262, %.thread ], [ %.sroa.16.16.copyload193, %162 ]
-  %.sroa.11149.16.copyload191269 = phi ptr [ %.sroa.11149.16.copyload191260, %.thread ], [ %.sroa.11149.16.copyload191, %162 ]
+.thread277:                                       ; preds = %162, %.thread
+  %.sroa.20.16.copyload197276 = phi i8 [ %.sroa.20.16.copyload197267, %.thread ], [ %.sroa.20.16.copyload197, %162 ]
+  %.sroa.18.16.copyload195274 = phi i64 [ %.sroa.18.16.copyload195265, %.thread ], [ %.sroa.18.16.copyload195, %162 ]
+  %.sroa.16.16.copyload193272 = phi i64 [ %.sroa.16.16.copyload193263, %.thread ], [ %.sroa.16.16.copyload193, %162 ]
+  %.sroa.11149.16.copyload191270 = phi ptr [ %.sroa.11149.16.copyload191261, %.thread ], [ %.sroa.11149.16.copyload191, %162 ]
   %165 = load i32, ptr %157, align 4, !tbaa !106, !noalias !328
   %166 = add nsw i32 %165, 1
   store i32 %166, ptr %157, align 4, !tbaa !106, !noalias !328
@@ -4637,12 +4637,12 @@ _ZNK4llvm16FixedStreamArrayINS_7support6detail31packed_endian_specific_integralI
   store ptr %155, ptr %173, align 8, !tbaa !148, !alias.scope !331
   br i1 %172, label %178, label %174
 
-174:                                              ; preds = %.thread276, %170
+174:                                              ; preds = %.thread277, %170
   %175 = phi ptr [ %167, %.thread276 ], [ %173, %170 ]
-  %.sroa.11149.16.copyload191268285 = phi ptr [ %.sroa.11149.16.copyload191269, %.thread276 ], [ %.sroa.11149.16.copyload191, %170 ]
-  %.sroa.16.16.copyload193270284 = phi i64 [ %.sroa.16.16.copyload193271, %.thread276 ], [ %.sroa.16.16.copyload193, %170 ]
-  %.sroa.18.16.copyload195272283 = phi i64 [ %.sroa.18.16.copyload195273, %.thread276 ], [ %.sroa.18.16.copyload195, %170 ]
-  %.sroa.20.16.copyload197274282 = phi i8 [ %.sroa.20.16.copyload197275, %.thread276 ], [ %.sroa.20.16.copyload197, %170 ]
+  %.sroa.11149.16.copyload191269286 = phi ptr [ %.sroa.11149.16.copyload191270, %.thread276 ], [ %.sroa.11149.16.copyload191, %170 ]
+  %.sroa.16.16.copyload193271285 = phi i64 [ %.sroa.16.16.copyload193272, %.thread276 ], [ %.sroa.16.16.copyload193, %170 ]
+  %.sroa.18.16.copyload195273284 = phi i64 [ %.sroa.18.16.copyload195274, %.thread276 ], [ %.sroa.18.16.copyload195, %170 ]
+  %.sroa.20.16.copyload197275283 = phi i8 [ %.sroa.20.16.copyload197276, %.thread276 ], [ %.sroa.20.16.copyload197, %170 ]
   %176 = load i32, ptr %157, align 4, !tbaa !106, !noalias !334
   %177 = add nsw i32 %176, 1
   store i32 %177, ptr %157, align 4, !tbaa !106, !noalias !334
@@ -4654,10 +4654,10 @@ _ZNK4llvm16FixedStreamArrayINS_7support6detail31packed_endian_specific_integralI
 
 _ZNK4llvm16FixedStreamArrayINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEE5beginEv.exit22: ; preds = %_ZNK4llvm16FixedStreamArrayINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEE5beginEv.exit, %174, %178
   %180 = phi ptr [ %169, %_ZNK4llvm16FixedStreamArrayINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEE5beginEv.exit ], [ %175, %174 ], [ %173, %178 ]
-  %.sroa.11149.16.copyload200218 = phi ptr [ %.sroa.11149.16.copyload, %_ZNK4llvm16FixedStreamArrayINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEE5beginEv.exit ], [ %.sroa.11149.16.copyload191268285, %174 ], [ %.sroa.11149.16.copyload191, %178 ]
-  %.sroa.16.16.copyload202216 = phi i64 [ %.sroa.16.16.copyload, %_ZNK4llvm16FixedStreamArrayINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEE5beginEv.exit ], [ %.sroa.16.16.copyload193270284, %174 ], [ %.sroa.16.16.copyload193, %178 ]
-  %.sroa.18.16.copyload204214 = phi i64 [ %.sroa.18.16.copyload, %_ZNK4llvm16FixedStreamArrayINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEE5beginEv.exit ], [ %.sroa.18.16.copyload195272283, %174 ], [ %.sroa.18.16.copyload195, %178 ]
-  %.sroa.20.16.copyload206212 = phi i8 [ %.sroa.20.16.copyload, %_ZNK4llvm16FixedStreamArrayINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEE5beginEv.exit ], [ %.sroa.20.16.copyload197274282, %174 ], [ %.sroa.20.16.copyload197, %178 ]
+  %.sroa.11149.16.copyload200218 = phi ptr [ %.sroa.11149.16.copyload, %_ZNK4llvm16FixedStreamArrayINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEE5beginEv.exit ], [ %.sroa.11149.16.copyload191269286, %174 ], [ %.sroa.11149.16.copyload191, %178 ]
+  %.sroa.16.16.copyload202216 = phi i64 [ %.sroa.16.16.copyload, %_ZNK4llvm16FixedStreamArrayINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEE5beginEv.exit ], [ %.sroa.16.16.copyload193271285, %174 ], [ %.sroa.16.16.copyload193, %178 ]
+  %.sroa.18.16.copyload204214 = phi i64 [ %.sroa.18.16.copyload, %_ZNK4llvm16FixedStreamArrayINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEE5beginEv.exit ], [ %.sroa.18.16.copyload195273284, %174 ], [ %.sroa.18.16.copyload195, %178 ]
+  %.sroa.20.16.copyload206212 = phi i8 [ %.sroa.20.16.copyload, %_ZNK4llvm16FixedStreamArrayINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEE5beginEv.exit ], [ %.sroa.20.16.copyload197275283, %174 ], [ %.sroa.20.16.copyload197, %178 ]
   %181 = getelementptr inbounds nuw i8, ptr %28, i64 16
   store ptr %.sroa.11149.16.copyload200218, ptr %181, align 8
   %.sroa.16.16..sroa_idx153 = getelementptr inbounds nuw i8, ptr %28, i64 24

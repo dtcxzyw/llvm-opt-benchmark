@@ -13166,11 +13166,11 @@ _ZNK3ade13TypedMetadataILb1EJN2cv5gimpl8NodeTypeENS2_5InputENS2_6OutputENS2_2OpE
 _ZNSt16allocator_traitsISaIN3ade6HandleINS0_4NodeEEEEE8allocateERS4_m.exit.i.i.i.i.i: ; preds = %109
   %111 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %108) #32
   %.pre = load ptr, ptr %102, align 8, !tbaa !484
-  %.pre664 = load ptr, ptr %103, align 8, !tbaa !484
+  %.pre678 = load ptr, ptr %103, align 8, !tbaa !484
   br label %112
 
 112:                                              ; preds = %_ZNSt16allocator_traitsISaIN3ade6HandleINS0_4NodeEEEEE8allocateERS4_m.exit.i.i.i.i.i, %_ZNK3ade13TypedMetadataILb1EJN2cv5gimpl8NodeTypeENS2_5InputENS2_6OutputENS2_2OpENS2_4DataENS2_10ConstValueENS2_6IslandENS2_8ProtocolENS2_17OriginalInputMetaENS2_10OutputMetaENS2_7JournalENS_6passes19TopologicalSortDataENS2_17DataObjectCounterENS2_11IslandModelENS2_14ActiveBackendsENS2_18CustomMetaFunctionENS2_9StreamingENS2_12DeserializedENS2_13HasIntrinsicsENS2_10DesyncPathENS2_10DesyncEdgeENS2_14DesynchronizedENS2_11CompileArgsEEE3getISF_EENSt11conditionalILb1ERKT_RSU_E4typeEv.exit
-  %113 = phi ptr [ %104, %_ZNK3ade13TypedMetadataILb1EJN2cv5gimpl8NodeTypeENS2_5InputENS2_6OutputENS2_2OpENS2_4DataENS2_10ConstValueENS2_6IslandENS2_8ProtocolENS2_17OriginalInputMetaENS2_10OutputMetaENS2_7JournalENS_6passes19TopologicalSortDataENS2_17DataObjectCounterENS2_11IslandModelENS2_14ActiveBackendsENS2_18CustomMetaFunctionENS2_9StreamingENS2_12DeserializedENS2_13HasIntrinsicsENS2_10DesyncPathENS2_10DesyncEdgeENS2_14DesynchronizedENS2_11CompileArgsEEE3getISF_EENSt11conditionalILb1ERKT_RSU_E4typeEv.exit ], [ %.pre664, %_ZNSt16allocator_traitsISaIN3ade6HandleINS0_4NodeEEEEE8allocateERS4_m.exit.i.i.i.i.i ]
+  %113 = phi ptr [ %104, %_ZNK3ade13TypedMetadataILb1EJN2cv5gimpl8NodeTypeENS2_5InputENS2_6OutputENS2_2OpENS2_4DataENS2_10ConstValueENS2_6IslandENS2_8ProtocolENS2_17OriginalInputMetaENS2_10OutputMetaENS2_7JournalENS_6passes19TopologicalSortDataENS2_17DataObjectCounterENS2_11IslandModelENS2_14ActiveBackendsENS2_18CustomMetaFunctionENS2_9StreamingENS2_12DeserializedENS2_13HasIntrinsicsENS2_10DesyncPathENS2_10DesyncEdgeENS2_14DesynchronizedENS2_11CompileArgsEEE3getISF_EENSt11conditionalILb1ERKT_RSU_E4typeEv.exit ], [ %.pre678, %_ZNSt16allocator_traitsISaIN3ade6HandleINS0_4NodeEEEEE8allocateERS4_m.exit.i.i.i.i.i ]
   %114 = phi ptr [ %105, %_ZNK3ade13TypedMetadataILb1EJN2cv5gimpl8NodeTypeENS2_5InputENS2_6OutputENS2_2OpENS2_4DataENS2_10ConstValueENS2_6IslandENS2_8ProtocolENS2_17OriginalInputMetaENS2_10OutputMetaENS2_7JournalENS_6passes19TopologicalSortDataENS2_17DataObjectCounterENS2_11IslandModelENS2_14ActiveBackendsENS2_18CustomMetaFunctionENS2_9StreamingENS2_12DeserializedENS2_13HasIntrinsicsENS2_10DesyncPathENS2_10DesyncEdgeENS2_14DesynchronizedENS2_11CompileArgsEEE3getISF_EENSt11conditionalILb1ERKT_RSU_E4typeEv.exit ], [ %.pre, %_ZNSt16allocator_traitsISaIN3ade6HandleINS0_4NodeEEEEE8allocateERS4_m.exit.i.i.i.i.i ]
   %115 = phi ptr [ null, %_ZNK3ade13TypedMetadataILb1EJN2cv5gimpl8NodeTypeENS2_5InputENS2_6OutputENS2_2OpENS2_4DataENS2_10ConstValueENS2_6IslandENS2_8ProtocolENS2_17OriginalInputMetaENS2_10OutputMetaENS2_7JournalENS_6passes19TopologicalSortDataENS2_17DataObjectCounterENS2_11IslandModelENS2_14ActiveBackendsENS2_18CustomMetaFunctionENS2_9StreamingENS2_12DeserializedENS2_13HasIntrinsicsENS2_10DesyncPathENS2_10DesyncEdgeENS2_14DesynchronizedENS2_11CompileArgsEEE3getISF_EENSt11conditionalILb1ERKT_RSU_E4typeEv.exit ], [ %111, %_ZNSt16allocator_traitsISaIN3ade6HandleINS0_4NodeEEEEE8allocateERS4_m.exit.i.i.i.i.i ]
   store ptr %115, ptr %29, align 8, !tbaa !483
@@ -13326,8 +13326,8 @@ _ZN3ade4util5Range13IterableRangeINS1_8MapRangeINS1_9IterRangeIN9__gnu_cxx17__no
 
 194:                                              ; preds = %187
   %195 = atomicrmw volatile add ptr %188, i32 1 acq_rel, align 4, !noalias !493
-  %.pre665 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !12, !noalias !503
-  %196 = icmp eq i8 %.pre665, 0
+  %.pre679 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !12, !noalias !503
+  %196 = icmp eq i8 %.pre679, 0
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %197 = load i64, ptr %0, align 8, !tbaa !126, !noalias !500
   store ptr %184, ptr %22, align 8, !tbaa !134, !noalias !500
@@ -14413,11 +14413,11 @@ _ZNKSt10_HashtableIN3ade7details10MetadataIdESt4pairIKS2_St10unique_ptrINS1_8Met
 
 644:                                              ; preds = %638
   %645 = atomicrmw volatile add ptr %639, i32 1 acq_rel, align 4
-  %.pre666 = load ptr, ptr %35, align 8, !tbaa !376
+  %.pre680 = load ptr, ptr %35, align 8, !tbaa !376
   br label %_ZNSt10shared_ptrIN2cv5gimpl7GIslandEEC2ERKS3_.exit
 
 _ZNSt10shared_ptrIN2cv5gimpl7GIslandEEC2ERKS3_.exit: ; preds = %.loopexit327, %641, %644
-  %646 = phi ptr [ %635, %.loopexit327 ], [ %635, %641 ], [ %.pre666, %644 ]
+  %646 = phi ptr [ %635, %.loopexit327 ], [ %635, %641 ], [ %.pre680, %644 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %36)
   %647 = getelementptr inbounds nuw i8, ptr %646, i64 16
   %648 = load i8, ptr %647, align 8
@@ -15596,7 +15596,7 @@ _ZN3ade6HandleINS_4NodeEED2Ev.exit:               ; preds = %1058, %_ZN9__gnu_cx
   br i1 %.not.i.i.i.i.i.i.i, label %1074, label %_ZN3ade6HandleINS_4NodeEED2Ev.exit270
 
 1074:                                             ; preds = %233, %.loopexit333, %.loopexit.split-lp334.loopexit, %.loopexit.split-lp334.loopexit.split-lp, %.body.thread, %.body
-  %.pn45.pn.pn.pn.pn.pn.pn.pn.pn.pn755 = phi { ptr, i32 } [ %.pn45.pn.pn.pn.pn.pn.pn.pn.pn, %.body.thread ], [ %222, %.body ], [ %lpad.loopexit.split-lp339, %.loopexit.split-lp334.loopexit.split-lp ], [ %lpad.loopexit338, %.loopexit.split-lp334.loopexit ], [ %lpad.loopexit335, %.loopexit333 ], [ %222, %233 ]
+  %.pn45.pn.pn.pn.pn.pn.pn.pn.pn.pn769 = phi { ptr, i32 } [ %.pn45.pn.pn.pn.pn.pn.pn.pn.pn, %.body.thread ], [ %222, %.body ], [ %lpad.loopexit.split-lp339, %.loopexit.split-lp334.loopexit.split-lp ], [ %lpad.loopexit338, %.loopexit.split-lp334.loopexit ], [ %lpad.loopexit335, %.loopexit333 ], [ %222, %233 ]
   %1075 = getelementptr inbounds nuw i8, ptr %186, i64 12
   %1076 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !12
   %.not.i.i.i.i267 = icmp eq i8 %1076, 0
@@ -15625,7 +15625,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i268: ; preds = %1080,
   br label %_ZN3ade6HandleINS_4NodeEED2Ev.exit270
 
 _ZN3ade6HandleINS_4NodeEED2Ev.exit270:            ; preds = %233, %.loopexit333, %.loopexit.split-lp334.loopexit, %.loopexit.split-lp334.loopexit.split-lp, %.body, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i268, %1083
-  %.pn45.pn.pn.pn.pn.pn.pn.pn.pn.pn754 = phi { ptr, i32 } [ %222, %.body ], [ %.pn45.pn.pn.pn.pn.pn.pn.pn.pn.pn755, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i268 ], [ %.pn45.pn.pn.pn.pn.pn.pn.pn.pn.pn755, %1083 ], [ %lpad.loopexit.split-lp339, %.loopexit.split-lp334.loopexit.split-lp ], [ %lpad.loopexit338, %.loopexit.split-lp334.loopexit ], [ %lpad.loopexit335, %.loopexit333 ], [ %222, %233 ]
+  %.pn45.pn.pn.pn.pn.pn.pn.pn.pn.pn768 = phi { ptr, i32 } [ %222, %.body ], [ %.pn45.pn.pn.pn.pn.pn.pn.pn.pn.pn769, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i268 ], [ %.pn45.pn.pn.pn.pn.pn.pn.pn.pn.pn769, %1083 ], [ %lpad.loopexit.split-lp339, %.loopexit.split-lp334.loopexit.split-lp ], [ %lpad.loopexit338, %.loopexit.split-lp334.loopexit ], [ %lpad.loopexit335, %.loopexit333 ], [ %222, %233 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
   br label %.body280
 
@@ -15756,7 +15756,7 @@ _ZN3ade6passes19TopologicalSortDataD2Ev.exit:     ; preds = %_ZSt8_DestroyIPN3ad
   br label %.body280
 
 .body280:                                         ; preds = %1122, %_ZNSt10unique_ptrIN3ade7details8Metadata18MetadataHolderBaseESt14default_deleteIS3_EED2Ev.exit7.i.i274, %1124, %181, %_ZN3ade6HandleINS_4NodeEED2Ev.exit270
-  %.pn57.pn.pn = phi { ptr, i32 } [ %182, %181 ], [ %.pn45.pn.pn.pn.pn.pn.pn.pn.pn.pn754, %_ZN3ade6HandleINS_4NodeEED2Ev.exit270 ], [ %1123, %1122 ], [ %1125, %1124 ], [ %1096, %_ZNSt10unique_ptrIN3ade7details8Metadata18MetadataHolderBaseESt14default_deleteIS3_EED2Ev.exit7.i.i274 ]
+  %.pn57.pn.pn = phi { ptr, i32 } [ %182, %181 ], [ %.pn45.pn.pn.pn.pn.pn.pn.pn.pn.pn768, %_ZN3ade6HandleINS_4NodeEED2Ev.exit270 ], [ %1123, %1122 ], [ %1125, %1124 ], [ %1096, %_ZNSt10unique_ptrIN3ade7details8Metadata18MetadataHolderBaseESt14default_deleteIS3_EED2Ev.exit7.i.i274 ]
   call void @_ZN3ade6passes19TopologicalSortDataD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %29) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
   br label %1126
