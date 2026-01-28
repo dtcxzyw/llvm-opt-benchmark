@@ -7914,8 +7914,8 @@ define hidden void @"_ZN15futures_channel7oneshot14Inner$LT$T$GT$4send17h0a093df
 
 21:                                               ; preds = %16
   %22 = atomicrmw xchg ptr %8, i8 1 seq_cst, align 1
-  %.not44 = icmp eq i8 %22, 0
-  br i1 %.not44, label %24, label %23
+  %.not42 = icmp eq i8 %22, 0
+  br i1 %.not42, label %24, label %23
 
 23:                                               ; preds = %26, %21, %16
   store i64 -9223372036854775806, ptr %0, align 8
@@ -7999,8 +7999,8 @@ define hidden { i64, i64 } @"_ZN15futures_channel7oneshot14Inner$LT$T$GT$4send17
 
 18:                                               ; preds = %13
   %19 = atomicrmw xchg ptr %7, i8 1 seq_cst, align 1
-  %.not23 = icmp eq i8 %19, 0
-  br i1 %.not23, label %20, label %24
+  %.not21 = icmp eq i8 %19, 0
+  br i1 %.not21, label %20, label %24
 
 20:                                               ; preds = %18
   %21 = load i64, ptr %0, align 8, !range !145, !noundef !22
@@ -8012,9 +8012,9 @@ define hidden { i64, i64 } @"_ZN15futures_channel7oneshot14Inner$LT$T$GT$4send17
   %. = select i1 %trunc13, i64 %22, i64 %1
   br label %24
 
-24:                                               ; preds = %20, %6, %13, %18, %2
-  %.sroa.5.0 = phi i64 [ %1, %2 ], [ %., %20 ], [ %1, %6 ], [ %1, %18 ], [ %1, %13 ]
-  %.sroa.0.0 = phi i64 [ 1, %2 ], [ %21, %20 ], [ 1, %6 ], [ 0, %18 ], [ 0, %13 ]
+24:                                               ; preds = %20, %13, %18, %6, %2
+  %.sroa.5.0 = phi i64 [ %1, %2 ], [ %., %20 ], [ %1, %6 ], [ %1, %13 ], [ %1, %18 ]
+  %.sroa.0.0 = phi i64 [ 1, %2 ], [ %21, %20 ], [ 1, %6 ], [ 0, %13 ], [ 0, %18 ]
   %25 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %26 = insertvalue { i64, i64 } %25, i64 %.sroa.5.0, 1
   ret { i64, i64 } %26
@@ -8070,8 +8070,8 @@ define hidden void @"_ZN15futures_channel7oneshot14Inner$LT$T$GT$4send17h7ea080a
 
 21:                                               ; preds = %17
   %22 = atomicrmw xchg ptr %8, i8 1 seq_cst, align 1
-  %.not40 = icmp eq i8 %22, 0
-  br i1 %.not40, label %24, label %23
+  %.not38 = icmp eq i8 %22, 0
+  br i1 %.not38, label %24, label %23
 
 23:                                               ; preds = %29, %21, %17
   store i64 -9223372036854775806, ptr %0, align 8
@@ -8146,8 +8146,8 @@ define hidden void @"_ZN15futures_channel7oneshot14Inner$LT$T$GT$7drop_rx17h0993
 "_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17ha8d21fcf1736a459E.exit": ; preds = %11, %5, %1
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %15 = atomicrmw xchg ptr %14, i8 1 seq_cst, align 1
-  %.not33 = icmp eq i8 %15, 0
-  br i1 %.not33, label %16, label %.critedge
+  %.not32 = icmp eq i8 %15, 0
+  br i1 %.not32, label %16, label %.critedge
 
 16:                                               ; preds = %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17ha8d21fcf1736a459E.exit"
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -8198,8 +8198,8 @@ define hidden void @"_ZN15futures_channel7oneshot14Inner$LT$T$GT$7drop_rx17h2532
 "_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17ha8d21fcf1736a459E.exit": ; preds = %11, %5, %1
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %15 = atomicrmw xchg ptr %14, i8 1 seq_cst, align 1
-  %.not33 = icmp eq i8 %15, 0
-  br i1 %.not33, label %16, label %.critedge
+  %.not32 = icmp eq i8 %15, 0
+  br i1 %.not32, label %16, label %.critedge
 
 16:                                               ; preds = %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17ha8d21fcf1736a459E.exit"
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -8250,8 +8250,8 @@ define hidden void @"_ZN15futures_channel7oneshot14Inner$LT$T$GT$7drop_rx17h4054
 "_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17ha8d21fcf1736a459E.exit": ; preds = %11, %5, %1
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %15 = atomicrmw xchg ptr %14, i8 1 seq_cst, align 1
-  %.not33 = icmp eq i8 %15, 0
-  br i1 %.not33, label %16, label %.critedge
+  %.not32 = icmp eq i8 %15, 0
+  br i1 %.not32, label %16, label %.critedge
 
 16:                                               ; preds = %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17ha8d21fcf1736a459E.exit"
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -8303,8 +8303,8 @@ define hidden void @"_ZN15futures_channel7oneshot14Inner$LT$T$GT$7drop_tx17h3f17
 .critedge:                                        ; preds = %5, %12, %1
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %16 = atomicrmw xchg ptr %15, i8 1 seq_cst, align 1
-  %.not27 = icmp eq i8 %16, 0
-  br i1 %.not27, label %17, label %30
+  %.not25 = icmp eq i8 %16, 0
+  br i1 %.not25, label %17, label %30
 
 17:                                               ; preds = %.critedge
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -8366,8 +8366,8 @@ define hidden void @"_ZN15futures_channel7oneshot14Inner$LT$T$GT$7drop_tx17hce3f
 .critedge:                                        ; preds = %5, %12, %1
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %16 = atomicrmw xchg ptr %15, i8 1 seq_cst, align 1
-  %.not27 = icmp eq i8 %16, 0
-  br i1 %.not27, label %17, label %30
+  %.not25 = icmp eq i8 %16, 0
+  br i1 %.not25, label %17, label %30
 
 17:                                               ; preds = %.critedge
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -8429,8 +8429,8 @@ define hidden void @"_ZN15futures_channel7oneshot14Inner$LT$T$GT$7drop_tx17hf4c0
 .critedge:                                        ; preds = %5, %12, %1
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %16 = atomicrmw xchg ptr %15, i8 1 seq_cst, align 1
-  %.not27 = icmp eq i8 %16, 0
-  br i1 %.not27, label %17, label %30
+  %.not25 = icmp eq i8 %16, 0
+  br i1 %.not25, label %17, label %30
 
 17:                                               ; preds = %.critedge
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -8510,8 +8510,8 @@ define hidden void @"_ZN15futures_channel7oneshot15Sender$LT$T$GT$4send17hb54535
 
 22:                                               ; preds = %18
   %23 = atomicrmw xchg ptr %10, i8 1 seq_cst, align 1, !noalias !1180
-  %.not44.i = icmp eq i8 %23, 0
-  br i1 %.not44.i, label %25, label %24
+  %.not42.i = icmp eq i8 %23, 0
+  br i1 %.not42.i, label %25, label %24
 
 24:                                               ; preds = %27, %22, %18
   store i64 -9223372036854775806, ptr %0, align 8, !alias.scope !1175, !noalias !1178
@@ -8613,8 +8613,8 @@ define hidden void @"_ZN15futures_channel7oneshot15Sender$LT$T$GT$4send17hdc915e
 
 22:                                               ; preds = %19
   %23 = atomicrmw xchg ptr %10, i8 1 seq_cst, align 1, !noalias !1206
-  %.not40.i = icmp eq i8 %23, 0
-  br i1 %.not40.i, label %25, label %24
+  %.not38.i = icmp eq i8 %23, 0
+  br i1 %.not38.i, label %25, label %24
 
 24:                                               ; preds = %28, %22, %19
   store i64 -9223372036854775806, ptr %0, align 8, !alias.scope !1201, !noalias !1204
@@ -8708,8 +8708,8 @@ define hidden { i64, i64 } @"_ZN15futures_channel7oneshot15Sender$LT$T$GT$4send1
 
 19:                                               ; preds = %15
   %20 = atomicrmw xchg ptr %9, i8 1 seq_cst, align 1
-  %.not23.i = icmp eq i8 %20, 0
-  br i1 %.not23.i, label %21, label %25
+  %.not21.i = icmp eq i8 %20, 0
+  br i1 %.not21.i, label %21, label %25
 
 21:                                               ; preds = %19
   %22 = load i64, ptr %4, align 8, !range !145, !noundef !22
@@ -8728,8 +8728,8 @@ define hidden { i64, i64 } @"_ZN15futures_channel7oneshot15Sender$LT$T$GT$4send1
           to label %30 unwind label %28
 
 25:                                               ; preds = %21, %19, %15, %8, %2
-  %.sroa.5.0.i = phi i64 [ %1, %2 ], [ %..i, %21 ], [ %1, %8 ], [ %1, %19 ], [ %1, %15 ]
-  %.sroa.0.0.i = phi i64 [ 1, %2 ], [ %22, %21 ], [ 1, %8 ], [ 0, %19 ], [ 0, %15 ]
+  %.sroa.5.0.i = phi i64 [ %1, %2 ], [ %..i, %21 ], [ %1, %8 ], [ %1, %15 ], [ %1, %19 ]
+  %.sroa.0.0.i = phi i64 [ 1, %2 ], [ %22, %21 ], [ 1, %8 ], [ 0, %15 ], [ 0, %19 ]
   %26 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
   %27 = insertvalue { i64, i64 } %26, i64 %.sroa.5.0.i, 1
   call void @"_ZN4core3ptr66drop_in_place$LT$futures_channel..oneshot..Sender$LT$usize$GT$$GT$17h4e46d4ab57451ccbE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %3)

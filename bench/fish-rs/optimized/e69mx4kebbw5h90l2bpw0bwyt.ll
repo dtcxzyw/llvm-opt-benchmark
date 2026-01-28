@@ -51420,10 +51420,10 @@ _ZN4fish7history11HistoryImpl27save_internal_via_appending17h0223cbd5f542602fE.e
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !5368
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %377, ptr noundef nonnull align 1 dereferenceable(16) @anon.eb71500b7c601d0c05b6c58f9f119b67.768, i64 16, i1 false), !noalias !5374
   store i64 %370, ptr %41, align 8
-  %.sroa.443.0..sroa_idx = getelementptr inbounds nuw i8, ptr %41, i64 8
-  store ptr %377, ptr %.sroa.443.0..sroa_idx, align 8
-  %.sroa.544.0..sroa_idx = getelementptr inbounds nuw i8, ptr %41, i64 16
-  store i64 16, ptr %.sroa.544.0..sroa_idx, align 8
+  %.sroa.442.0..sroa_idx = getelementptr inbounds nuw i8, ptr %41, i64 8
+  store ptr %377, ptr %.sroa.442.0..sroa_idx, align 8
+  %.sroa.543.0..sroa_idx = getelementptr inbounds nuw i8, ptr %41, i64 16
+  store i64 16, ptr %.sroa.543.0..sroa_idx, align 8
   %379 = load i64, ptr %366, align 8, !alias.scope !5375, !noalias !5378, !noundef !3
   %380 = load i64, ptr %44, align 8, !range !36, !alias.scope !5375, !noalias !5378, !noundef !3
   %381 = icmp eq i64 %379, %380

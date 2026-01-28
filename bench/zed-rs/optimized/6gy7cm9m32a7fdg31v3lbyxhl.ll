@@ -1429,25 +1429,25 @@ define hidden void @"_ZN15futures_channel7oneshot14Inner$LT$T$GT$4recv17h80bd22c
   br label %43
 
 39:                                               ; preds = %35
-  %.sroa.021.0.copyload = load i64, ptr %1, align 8
-  %.sroa.7.0..sroa.017.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.7.0.copyload = load i64, ptr %.sroa.7.0..sroa.017.0..sroa_idx, align 8
-  %.sroa.8.0..sroa.017.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.sroa.8.0.copyload = load ptr, ptr %.sroa.8.0..sroa.017.0..sroa_idx, align 8
-  %.sroa.9.0..sroa.017.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.sroa.9.0.copyload = load i64, ptr %.sroa.9.0..sroa.017.0..sroa_idx, align 8
+  %.sroa.020.0.copyload = load i64, ptr %1, align 8
+  %.sroa.7.0...sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.7.0.copyload = load i64, ptr %.sroa.7.0...sroa_idx, align 8
+  %.sroa.8.0...sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.sroa.8.0.copyload = load ptr, ptr %.sroa.8.0...sroa_idx, align 8
+  %.sroa.9.0...sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %.sroa.9.0.copyload = load i64, ptr %.sroa.9.0...sroa_idx, align 8
   store i64 2, ptr %1, align 8
-  %40 = icmp eq i64 %.sroa.021.0.copyload, 2
+  %40 = icmp eq i64 %.sroa.020.0.copyload, 2
   br i1 %40, label %44, label %41
 
 41:                                               ; preds = %39
-  store i64 %.sroa.021.0.copyload, ptr %0, align 8
-  %.sroa.429.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sroa.7.0.copyload, ptr %.sroa.429.0..sroa_idx, align 8
+  store i64 %.sroa.020.0.copyload, ptr %0, align 8
+  %.sroa.428.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %.sroa.7.0.copyload, ptr %.sroa.428.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %.sroa.8.0.copyload, ptr %.sroa.5.0..sroa_idx, align 8
-  %.sroa.630.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %.sroa.9.0.copyload, ptr %.sroa.630.0..sroa_idx, align 8
+  %.sroa.629.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i64 %.sroa.9.0.copyload, ptr %.sroa.629.0..sroa_idx, align 8
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store atomic i8 0, ptr %42 seq_cst, align 8, !noalias !363
   br label %43
@@ -1493,8 +1493,8 @@ define hidden void @"_ZN15futures_channel7oneshot14Inner$LT$T$GT$7drop_rx17h87c7
 "_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17h6f2a53a73288e8efE.exit": ; preds = %11, %5, %1
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %15 = atomicrmw xchg ptr %14, i8 1 seq_cst, align 1
-  %.not33 = icmp eq i8 %15, 0
-  br i1 %.not33, label %16, label %.critedge
+  %.not32 = icmp eq i8 %15, 0
+  br i1 %.not32, label %16, label %.critedge
 
 16:                                               ; preds = %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17h6f2a53a73288e8efE.exit"
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -1546,8 +1546,8 @@ define hidden void @"_ZN15futures_channel7oneshot14Inner$LT$T$GT$7drop_tx17h43a5
 .critedge:                                        ; preds = %5, %12, %1
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %16 = atomicrmw xchg ptr %15, i8 1 seq_cst, align 1
-  %.not27 = icmp eq i8 %16, 0
-  br i1 %.not27, label %17, label %30
+  %.not25 = icmp eq i8 %16, 0
+  br i1 %.not25, label %17, label %30
 
 17:                                               ; preds = %.critedge
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -1886,15 +1886,15 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
 
 20:                                               ; preds = %17
   %21 = atomicrmw xchg ptr %10, i8 1 seq_cst, align 1, !noalias !406
-  %.not48.i.i.i = icmp eq i8 %21, 0
-  br i1 %.not48.i.i.i, label %22, label %"_ZN15futures_channel7oneshot15Sender$LT$T$GT$4send17h7a8c0ee0f58f0258E.exit.thread.i"
+  %.not46.i.i.i = icmp eq i8 %21, 0
+  br i1 %.not46.i.i.i, label %22, label %"_ZN15futures_channel7oneshot15Sender$LT$T$GT$4send17h7a8c0ee0f58f0258E.exit.thread.i"
 
 22:                                               ; preds = %20
-  %.sroa.025.0.copyload.i.i.i = load i64, ptr %5, align 8, !noalias !406
+  %.sroa.023.0.copyload.i.i.i = load i64, ptr %5, align 8, !noalias !406
   %.sroa.7.0.copyload.i.i.i = load i64, ptr %.sroa.4.0..sroa_idx2, align 8, !noalias !406
   %.sroa.8.0.copyload.i.i.i = load ptr, ptr %.sroa.7.0..sroa_idx5, align 8, !noalias !406
   store i64 2, ptr %5, align 8, !noalias !406
-  %23 = icmp eq i64 %.sroa.025.0.copyload.i.i.i, 2
+  %23 = icmp eq i64 %.sroa.023.0.copyload.i.i.i, 2
   store atomic i8 0, ptr %10 seq_cst, align 8, !noalias !406
   br i1 %23, label %"_ZN15futures_channel7oneshot15Sender$LT$T$GT$4send17h7a8c0ee0f58f0258E.exit.thread.i", label %"_ZN15futures_channel7oneshot15Sender$LT$T$GT$4send17h7a8c0ee0f58f0258E.exit.thread11.i"
 
@@ -7101,25 +7101,25 @@ define hidden void @"_ZN92_$LT$futures_channel..oneshot..Receiver$LT$T$GT$$u20$a
   br label %"_ZN15futures_channel7oneshot14Inner$LT$T$GT$4recv17h80bd22cce56974daE.llvm.6018374997465442611.exit"
 
 41:                                               ; preds = %37
-  %.sroa.021.0.copyload.i = load i64, ptr %5, align 8, !noalias !1391
-  %.sroa.7.0..sroa.017.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %.sroa.7.0.copyload.i = load i64, ptr %.sroa.7.0..sroa.017.0..sroa_idx.i, align 8, !noalias !1391
-  %.sroa.8.0..sroa.017.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %.sroa.8.0.copyload.i = load ptr, ptr %.sroa.8.0..sroa.017.0..sroa_idx.i, align 8, !noalias !1391
-  %.sroa.9.0..sroa.017.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 40
-  %.sroa.9.0.copyload.i = load i64, ptr %.sroa.9.0..sroa.017.0..sroa_idx.i, align 8, !noalias !1391
+  %.sroa.020.0.copyload.i = load i64, ptr %5, align 8, !noalias !1391
+  %.sroa.7.0...sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %.sroa.7.0.copyload.i = load i64, ptr %.sroa.7.0...sroa_idx.i, align 8, !noalias !1391
+  %.sroa.8.0...sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %.sroa.8.0.copyload.i = load ptr, ptr %.sroa.8.0...sroa_idx.i, align 8, !noalias !1391
+  %.sroa.9.0...sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 40
+  %.sroa.9.0.copyload.i = load i64, ptr %.sroa.9.0...sroa_idx.i, align 8, !noalias !1391
   store i64 2, ptr %5, align 8, !noalias !1391
-  %42 = icmp eq i64 %.sroa.021.0.copyload.i, 2
+  %42 = icmp eq i64 %.sroa.020.0.copyload.i, 2
   br i1 %42, label %44, label %43
 
 43:                                               ; preds = %41
-  store i64 %.sroa.021.0.copyload.i, ptr %0, align 8, !alias.scope !1386, !noalias !1389
-  %.sroa.429.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sroa.7.0.copyload.i, ptr %.sroa.429.0..sroa_idx.i, align 8, !alias.scope !1386, !noalias !1389
+  store i64 %.sroa.020.0.copyload.i, ptr %0, align 8, !alias.scope !1386, !noalias !1389
+  %.sroa.428.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %.sroa.7.0.copyload.i, ptr %.sroa.428.0..sroa_idx.i, align 8, !alias.scope !1386, !noalias !1389
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %.sroa.8.0.copyload.i, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !1386, !noalias !1389
-  %.sroa.630.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %.sroa.9.0.copyload.i, ptr %.sroa.630.0..sroa_idx.i, align 8, !alias.scope !1386, !noalias !1389
+  %.sroa.629.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i64 %.sroa.9.0.copyload.i, ptr %.sroa.629.0..sroa_idx.i, align 8, !alias.scope !1386, !noalias !1389
   store atomic i8 0, ptr %38 seq_cst, align 1, !noalias !1402
   br label %"_ZN15futures_channel7oneshot14Inner$LT$T$GT$4recv17h80bd22cce56974daE.llvm.6018374997465442611.exit"
 

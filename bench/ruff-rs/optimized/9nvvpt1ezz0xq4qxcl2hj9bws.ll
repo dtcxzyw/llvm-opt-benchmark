@@ -1035,8 +1035,8 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17h42081de8d936
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !109
   call void @llvm.lifetime.start.p0(ptr nonnull %23), !noalias !112
   %27 = load i64, ptr %24, align 8, !noalias !112, !noundef !3
-  %.not60.i.i = icmp eq i64 %27, 0
-  br i1 %.not60.i.i, label %29, label %28
+  %.not59.i.i = icmp eq i64 %27, 0
+  br i1 %.not59.i.i, label %29, label %28
 
 28:                                               ; preds = %26
   call void @llvm.lifetime.start.p0(ptr nonnull %22), !noalias !112
@@ -1097,7 +1097,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17h42081de8d936
 
 49:                                               ; preds = %128, %85, %72, %50
   %.pn41.i.i = phi { ptr, i32 } [ %73, %72 ], [ %86, %85 ], [ %51, %50 ], [ %.pn.i.i, %128 ]
-  br i1 %.not60.i.i, label %162, label %161
+  br i1 %.not59.i.i, label %162, label %161
 
 50:                                               ; preds = %149, %98, %53, %33
   %51 = landingpad { ptr, i32 }
@@ -1198,7 +1198,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17h42081de8d936
   store i64 0, ptr %91, align 8, !noalias !112
   call void @llvm.lifetime.end.p0(ptr nonnull %19), !noalias !112
   call void @llvm.lifetime.end.p0(ptr nonnull %20), !noalias !112
-  br i1 %.not60.i.i, label %.thread52.i.i, label %153
+  br i1 %.not59.i.i, label %.thread51.i.i, label %153
 
 92:                                               ; preds = %163, %162, %161, %145, %128, %85
   %93 = landingpad { ptr, i32 }
@@ -1216,7 +1216,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17h42081de8d936
   store i64 0, ptr %97, align 8, !noalias !112
   call void @llvm.lifetime.end.p0(ptr nonnull %19), !noalias !112
   call void @llvm.lifetime.end.p0(ptr nonnull %20), !noalias !112
-  br i1 %.not60.i.i, label %.thread52.i.i, label %153
+  br i1 %.not59.i.i, label %.thread51.i.i, label %153
 
 98:                                               ; preds = %60
   call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !112
@@ -1366,7 +1366,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17h42081de8d936
   store i64 0, ptr %152, align 8, !noalias !112
   call void @llvm.lifetime.end.p0(ptr nonnull %19), !noalias !112
   call void @llvm.lifetime.end.p0(ptr nonnull %20), !noalias !112
-  br i1 %.not60.i.i, label %.thread52.i.i, label %153
+  br i1 %.not59.i.i, label %.thread51.i.i, label %153
 
 153:                                              ; preds = %150, %95, %89
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17heedfaf213fa349dbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %21)
@@ -1381,10 +1381,10 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17h42081de8d936
   call void @llvm.lifetime.end.p0(ptr nonnull %21), !noalias !112
   call void @llvm.lifetime.end.p0(ptr nonnull %22), !noalias !112
   %157 = load ptr, ptr %23, align 8, !noalias !112, !noundef !3
-  %.not61.i.i = icmp eq ptr %157, null
-  br i1 %.not61.i.i, label %165, label %160
+  %.not60.i.i = icmp eq ptr %157, null
+  br i1 %.not60.i.i, label %165, label %160
 
-.thread52.i.i:                                    ; preds = %150, %95, %89
+.thread51.i.i:                                    ; preds = %150, %95, %89
   call void @llvm.lifetime.end.p0(ptr nonnull %21), !noalias !112
   call void @"_ZN4core3ptr68drop_in_place$LT$core..cell..RefMut$LT$alloc..string..String$GT$$GT$17h3ba374987db9f3f0E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %22), !noalias !112
   call void @llvm.lifetime.end.p0(ptr nonnull %22), !noalias !112
@@ -1394,7 +1394,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17h42081de8d936
   %.pn43.ph.i.i = phi { ptr, i32 } [ %.pn41.i.i, %161 ], [ %155, %154 ]
   %159 = load ptr, ptr %23, align 8, !noalias !112, !noundef !3
   %.not.i.i = icmp eq ptr %159, null
-  br i1 %.not.i.i, label %.thread56.i.i, label %163
+  br i1 %.not.i.i, label %.thread55.i.i, label %163
 
 160:                                              ; preds = %156
   call void @"_ZN4core3ptr68drop_in_place$LT$core..cell..RefMut$LT$alloc..string..String$GT$$GT$17h3ba374987db9f3f0E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %23), !noalias !112
@@ -1406,21 +1406,21 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17h42081de8d936
 
 162:                                              ; preds = %49
   invoke void @"_ZN4core3ptr68drop_in_place$LT$core..cell..RefMut$LT$alloc..string..String$GT$$GT$17h3ba374987db9f3f0E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %22) #31
-          to label %.thread56.i.i unwind label %92, !noalias !112
+          to label %.thread55.i.i unwind label %92, !noalias !112
 
-.thread56.i.i:                                    ; preds = %163, %162, %158
-  %.pn4559.i.i = phi { ptr, i32 } [ %.pn43.ph.i.i, %158 ], [ %.pn43.ph.i.i, %163 ], [ %.pn41.i.i, %162 ]
-  resume { ptr, i32 } %.pn4559.i.i
+.thread55.i.i:                                    ; preds = %163, %162, %158
+  %.pn4558.i.i = phi { ptr, i32 } [ %.pn43.ph.i.i, %158 ], [ %.pn43.ph.i.i, %163 ], [ %.pn41.i.i, %162 ]
+  resume { ptr, i32 } %.pn4558.i.i
 
 163:                                              ; preds = %158
   invoke void @"_ZN4core3ptr68drop_in_place$LT$core..cell..RefMut$LT$alloc..string..String$GT$$GT$17h3ba374987db9f3f0E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %23) #31
-          to label %.thread56.i.i unwind label %92, !noalias !112
+          to label %.thread55.i.i unwind label %92, !noalias !112
 
 164:                                              ; preds = %2
   tail call void @_ZN3std6thread5local18panic_access_error17h25e55b3b4ffe10b5E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.8a55943aa68969fedd45da181c3c6084.39) #30
   unreachable
 
-165:                                              ; preds = %160, %.thread52.i.i, %156
+165:                                              ; preds = %160, %.thread51.i.i, %156
   call void @llvm.lifetime.end.p0(ptr nonnull %23), !noalias !112
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !109
   ret void

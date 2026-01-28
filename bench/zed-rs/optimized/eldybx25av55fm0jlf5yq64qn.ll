@@ -7108,7 +7108,7 @@ define hidden { i64, ptr } @"_ZN15futures_channel7oneshot14Inner$LT$T$GT$4send17
 
 21:                                               ; preds = %15
   invoke void @_ZN4core9panicking5panic17hec978767ec2d35ffE(ptr noalias noundef nonnull readonly align 1 @anon.879f5d28a4607fba0ebec5e8d3f3ee6e.33, i64 noundef 32, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.879f5d28a4607fba0ebec5e8d3f3ee6e.35) #69
-          to label %22 unwind label %.thread39
+          to label %22 unwind label %.thread37
 
 22:                                               ; preds = %21
   unreachable
@@ -7127,8 +7127,8 @@ define hidden { i64, ptr } @"_ZN15futures_channel7oneshot14Inner$LT$T$GT$4send17
 
 30:                                               ; preds = %23
   %31 = atomicrmw xchg ptr %10, i8 1 seq_cst, align 1
-  %.not42 = icmp eq i8 %31, 0
-  br i1 %.not42, label %32, label %37
+  %.not40 = icmp eq i8 %31, 0
+  br i1 %.not40, label %32, label %37
 
 32:                                               ; preds = %30
   %33 = load i64, ptr %0, align 8, !range !1161, !noundef !18
@@ -7140,20 +7140,20 @@ define hidden { i64, ptr } @"_ZN15futures_channel7oneshot14Inner$LT$T$GT$4send17
   %. = select i1 %35, ptr undef, ptr %34
   br label %37
 
-37:                                               ; preds = %32, %18, %23, %30, %12
+37:                                               ; preds = %32, %23, %30, %18, %12
   %.sroa.5.0 = phi ptr [ %14, %12 ], [ %., %32 ], [ %20, %18 ], [ undef, %23 ], [ undef, %30 ]
   %.sroa.0.0 = phi i64 [ %13, %12 ], [ %33, %32 ], [ %19, %18 ], [ 2, %23 ], [ 2, %30 ]
   %38 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
   %39 = insertvalue { i64, ptr } %38, ptr %.sroa.5.0, 1
   ret { i64, ptr } %39
 
-40:                                               ; preds = %.thread39
+40:                                               ; preds = %.thread37
   %41 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #70
   unreachable
 
-.thread39:                                        ; preds = %21
+.thread37:                                        ; preds = %21
   %42 = landingpad { ptr, i32 }
           cleanup
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -7161,7 +7161,7 @@ define hidden { i64, ptr } @"_ZN15futures_channel7oneshot14Inner$LT$T$GT$4send17
   invoke fastcc void @"_ZN4core3ptr107drop_in_place$LT$core..result..Result$LT$alloc..sync..Arc$LT$language..Language$GT$$C$anyhow..Error$GT$$GT$17h3674d535a3bec198E"(ptr noalias noundef align 8 dereferenceable(16) %4) #71
           to label %44 unwind label %40
 
-44:                                               ; preds = %.thread39
+44:                                               ; preds = %.thread37
   resume { ptr, i32 } %42
 }
 
@@ -7199,7 +7199,7 @@ define hidden { i64, ptr } @"_ZN15futures_channel7oneshot14Inner$LT$T$GT$4send17
 
 21:                                               ; preds = %15
   invoke void @_ZN4core9panicking5panic17hec978767ec2d35ffE(ptr noalias noundef nonnull readonly align 1 @anon.879f5d28a4607fba0ebec5e8d3f3ee6e.33, i64 noundef 32, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.879f5d28a4607fba0ebec5e8d3f3ee6e.35) #69
-          to label %22 unwind label %.thread39
+          to label %22 unwind label %.thread37
 
 22:                                               ; preds = %21
   unreachable
@@ -7218,8 +7218,8 @@ define hidden { i64, ptr } @"_ZN15futures_channel7oneshot14Inner$LT$T$GT$4send17
 
 30:                                               ; preds = %23
   %31 = atomicrmw xchg ptr %10, i8 1 seq_cst, align 1
-  %.not42 = icmp eq i8 %31, 0
-  br i1 %.not42, label %32, label %37
+  %.not40 = icmp eq i8 %31, 0
+  br i1 %.not40, label %32, label %37
 
 32:                                               ; preds = %30
   %33 = load i64, ptr %0, align 8, !range !1161, !noundef !18
@@ -7231,20 +7231,20 @@ define hidden { i64, ptr } @"_ZN15futures_channel7oneshot14Inner$LT$T$GT$4send17
   %. = select i1 %35, ptr undef, ptr %34
   br label %37
 
-37:                                               ; preds = %32, %18, %23, %30, %12
+37:                                               ; preds = %32, %23, %30, %18, %12
   %.sroa.5.0 = phi ptr [ %14, %12 ], [ %., %32 ], [ %20, %18 ], [ undef, %23 ], [ undef, %30 ]
   %.sroa.0.0 = phi i64 [ %13, %12 ], [ %33, %32 ], [ %19, %18 ], [ 2, %23 ], [ 2, %30 ]
   %38 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
   %39 = insertvalue { i64, ptr } %38, ptr %.sroa.5.0, 1
   ret { i64, ptr } %39
 
-40:                                               ; preds = %.thread39
+40:                                               ; preds = %.thread37
   %41 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #70
   unreachable
 
-.thread39:                                        ; preds = %21
+.thread37:                                        ; preds = %21
   %42 = landingpad { ptr, i32 }
           cleanup
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -7252,7 +7252,7 @@ define hidden { i64, ptr } @"_ZN15futures_channel7oneshot14Inner$LT$T$GT$4send17
   invoke fastcc void @"_ZN4core3ptr110drop_in_place$LT$core..result..Result$LT$tree_sitter..Language$C$alloc..sync..Arc$LT$anyhow..Error$GT$$GT$$GT$17h1aeecc879970a3f0E"(ptr noalias noundef align 8 dereferenceable(16) %4) #71
           to label %44 unwind label %40
 
-44:                                               ; preds = %.thread39
+44:                                               ; preds = %.thread37
   resume { ptr, i32 } %42
 }
 
@@ -7299,8 +7299,8 @@ define hidden void @"_ZN15futures_channel7oneshot14Inner$LT$T$GT$4send17ha7329c7
 
 21:                                               ; preds = %17
   %22 = atomicrmw xchg ptr %8, i8 1 seq_cst, align 1
-  %.not40 = icmp eq i8 %22, 0
-  br i1 %.not40, label %24, label %23
+  %.not38 = icmp eq i8 %22, 0
+  br i1 %.not38, label %24, label %23
 
 23:                                               ; preds = %29, %21, %17
   store i64 -9223372036854775807, ptr %0, align 8
@@ -7380,8 +7380,8 @@ define hidden void @"_ZN15futures_channel7oneshot14Inner$LT$T$GT$7drop_rx17h0503
 "_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17h3806f281f4945c3dE.exit": ; preds = %11, %5, %1
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %15 = atomicrmw xchg ptr %14, i8 1 seq_cst, align 1
-  %.not33 = icmp eq i8 %15, 0
-  br i1 %.not33, label %16, label %.critedge
+  %.not32 = icmp eq i8 %15, 0
+  br i1 %.not32, label %16, label %.critedge
 
 16:                                               ; preds = %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17h3806f281f4945c3dE.exit"
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -7432,8 +7432,8 @@ define hidden void @"_ZN15futures_channel7oneshot14Inner$LT$T$GT$7drop_rx17hb065
 "_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17h3806f281f4945c3dE.exit": ; preds = %11, %5, %1
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %15 = atomicrmw xchg ptr %14, i8 1 seq_cst, align 1
-  %.not33 = icmp eq i8 %15, 0
-  br i1 %.not33, label %16, label %.critedge
+  %.not32 = icmp eq i8 %15, 0
+  br i1 %.not32, label %16, label %.critedge
 
 16:                                               ; preds = %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17h3806f281f4945c3dE.exit"
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -7484,8 +7484,8 @@ define hidden void @"_ZN15futures_channel7oneshot14Inner$LT$T$GT$7drop_rx17hba59
 "_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17h3806f281f4945c3dE.exit": ; preds = %11, %5, %1
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %15 = atomicrmw xchg ptr %14, i8 1 seq_cst, align 1
-  %.not33 = icmp eq i8 %15, 0
-  br i1 %.not33, label %16, label %.critedge
+  %.not32 = icmp eq i8 %15, 0
+  br i1 %.not32, label %16, label %.critedge
 
 16:                                               ; preds = %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17h3806f281f4945c3dE.exit"
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -7537,8 +7537,8 @@ define hidden void @"_ZN15futures_channel7oneshot14Inner$LT$T$GT$7drop_tx17h5e07
 .critedge:                                        ; preds = %5, %12, %1
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %16 = atomicrmw xchg ptr %15, i8 1 seq_cst, align 1
-  %.not27 = icmp eq i8 %16, 0
-  br i1 %.not27, label %17, label %30
+  %.not25 = icmp eq i8 %16, 0
+  br i1 %.not25, label %17, label %30
 
 17:                                               ; preds = %.critedge
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -7600,8 +7600,8 @@ define hidden void @"_ZN15futures_channel7oneshot14Inner$LT$T$GT$7drop_tx17ha307
 .critedge:                                        ; preds = %5, %12, %1
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %16 = atomicrmw xchg ptr %15, i8 1 seq_cst, align 1
-  %.not27 = icmp eq i8 %16, 0
-  br i1 %.not27, label %17, label %30
+  %.not25 = icmp eq i8 %16, 0
+  br i1 %.not25, label %17, label %30
 
 17:                                               ; preds = %.critedge
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -7663,8 +7663,8 @@ define hidden void @"_ZN15futures_channel7oneshot14Inner$LT$T$GT$7drop_tx17ha75b
 .critedge:                                        ; preds = %5, %12, %1
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %16 = atomicrmw xchg ptr %15, i8 1 seq_cst, align 1
-  %.not27 = icmp eq i8 %16, 0
-  br i1 %.not27, label %17, label %30
+  %.not25 = icmp eq i8 %16, 0
+  br i1 %.not25, label %17, label %30
 
 17:                                               ; preds = %.critedge
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -7830,8 +7830,8 @@ define hidden void @"_ZN15futures_channel7oneshot15Sender$LT$T$GT$4send17hfaf4ac
 
 22:                                               ; preds = %19
   %23 = atomicrmw xchg ptr %10, i8 1 seq_cst, align 1, !noalias !1291
-  %.not40.i = icmp eq i8 %23, 0
-  br i1 %.not40.i, label %25, label %24
+  %.not38.i = icmp eq i8 %23, 0
+  br i1 %.not38.i, label %25, label %24
 
 24:                                               ; preds = %28, %22, %19
   store i64 -9223372036854775807, ptr %0, align 8, !alias.scope !1286, !noalias !1289
