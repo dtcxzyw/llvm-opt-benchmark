@@ -70,7 +70,7 @@
   "correlated-value-propagation.NumNonNull": 10860276,
   "correlated-value-propagation.NumOverflows": 4349,
   "correlated-value-propagation.NumPhiCommon": 52036,
-  "correlated-value-propagation.NumPhis": 1235591,
+  "correlated-value-propagation.NumPhis": 1235592,
   "correlated-value-propagation.NumReturns": 144,
   "correlated-value-propagation.NumSDivSRemsNarrowed": 2802,
   "correlated-value-propagation.NumSDivs": 16933,
