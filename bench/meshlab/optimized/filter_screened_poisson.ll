@@ -54947,7 +54947,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11centerValueEiib.ex
   br i1 %.not.i.i.i368, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i370, label %210
 
 210:                                              ; preds = %207
-  %211 = add i32 %notmask.i.i.i367, %65
+  %211 = add nsw i32 %notmask.i.i.i367, %65
   %212 = sext i32 %211 to i64
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i370
 
@@ -54984,7 +54984,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.ex
   br i1 %.not.i.i.i378, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i380, label %227
 
 227:                                              ; preds = %224
-  %228 = add i32 %notmask.i.i.i377, %103
+  %228 = add nsw i32 %notmask.i.i.i377, %103
   %229 = sext i32 %228 to i64
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i380
 
@@ -55012,7 +55012,7 @@ _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i380:
   br i1 %.not.i.i.i388, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i390, label %239
 
 239:                                              ; preds = %236
-  %240 = add i32 %notmask.i.i.i387, %181
+  %240 = add nsw i32 %notmask.i.i.i387, %181
   %241 = sext i32 %240 to i64
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i390
 
@@ -55047,7 +55047,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11centerValueEiib.ex
   br i1 %.not.i.i.i397, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i399, label %253
 
 253:                                              ; preds = %250
-  %254 = add i32 %notmask.i.i.i396, %66
+  %254 = add nsw i32 %notmask.i.i.i396, %66
   %255 = sext i32 %254 to i64
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i399
 
@@ -55080,7 +55080,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.ex
   br i1 %.not.i.i.i408, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i410, label %268
 
 268:                                              ; preds = %265
-  %269 = add i32 %notmask.i.i.i407, %104
+  %269 = add nsw i32 %notmask.i.i.i407, %104
   %270 = sext i32 %269 to i64
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i410
 
@@ -55108,7 +55108,7 @@ _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i410:
   br i1 %.not.i.i.i418, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i420, label %280
 
 280:                                              ; preds = %277
-  %281 = add i32 %notmask.i.i.i417, %182
+  %281 = add nsw i32 %notmask.i.i.i417, %182
   %282 = sext i32 %281 to i64
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i420
 
@@ -55142,7 +55142,7 @@ _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i420:
   br i1 %.not.i.i.i428, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i430, label %295
 
 295:                                              ; preds = %292
-  %296 = add i32 %notmask.i.i.i427, %62
+  %296 = add nsw i32 %notmask.i.i.i427, %62
   %297 = sext i32 %296 to i64
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i430
 
@@ -55184,7 +55184,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11centerValueEiib.ex
   br i1 %.not.i.i.i437, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i439, label %315
 
 315:                                              ; preds = %312
-  %316 = add i32 %notmask.i.i.i436, %101
+  %316 = add nsw i32 %notmask.i.i.i436, %101
   %317 = sext i32 %316 to i64
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i439
 
@@ -55217,7 +55217,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.ex
   br i1 %.not.i.i.i448, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i450, label %330
 
 330:                                              ; preds = %327
-  %331 = add i32 %notmask.i.i.i447, %179
+  %331 = add nsw i32 %notmask.i.i.i447, %179
   %332 = sext i32 %331 to i64
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i450
 
@@ -55245,7 +55245,7 @@ _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i450:
   br i1 %.not.i.i.i458, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i460, label %342
 
 342:                                              ; preds = %339
-  %343 = add i32 %notmask.i.i.i457, %63
+  %343 = add nsw i32 %notmask.i.i.i457, %63
   %344 = sext i32 %343 to i64
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i460
 
@@ -55280,7 +55280,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11centerValueEiib.ex
   br i1 %.not.i.i.i467, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i469, label %356
 
 356:                                              ; preds = %353
-  %357 = add i32 %notmask.i.i.i466, %102
+  %357 = add nsw i32 %notmask.i.i.i466, %102
   %358 = sext i32 %357 to i64
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i469
 
@@ -55312,7 +55312,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.ex
   br i1 %.not.i.i.i478, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i480, label %370
 
 370:                                              ; preds = %367
-  %371 = add i32 %notmask.i.i.i477, %180
+  %371 = add nsw i32 %notmask.i.i.i477, %180
   %372 = sext i32 %371 to i64
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i480
 
@@ -55347,7 +55347,7 @@ _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i480:
   br i1 %.not.i.i.i488, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i490, label %386
 
 386:                                              ; preds = %383
-  %387 = add i32 %notmask.i.i.i487, %60
+  %387 = add nsw i32 %notmask.i.i.i487, %60
   %388 = sext i32 %387 to i64
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i490
 
@@ -55375,7 +55375,7 @@ _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i490:
   br i1 %.not.i.i.i498, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i500, label %398
 
 398:                                              ; preds = %395
-  %399 = add i32 %notmask.i.i.i497, %98
+  %399 = add nsw i32 %notmask.i.i.i497, %98
   %400 = sext i32 %399 to i64
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i500
 
@@ -55418,7 +55418,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11centerValueEiib.ex
   br i1 %.not.i.i.i507, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i509, label %418
 
 418:                                              ; preds = %415
-  %419 = add i32 %notmask.i.i.i506, %177
+  %419 = add nsw i32 %notmask.i.i.i506, %177
   %420 = sext i32 %419 to i64
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i509
 
@@ -55451,7 +55451,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.ex
   br i1 %.not.i.i.i518, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i520, label %433
 
 433:                                              ; preds = %430
-  %434 = add i32 %notmask.i.i.i517, %61
+  %434 = add nsw i32 %notmask.i.i.i517, %61
   %435 = sext i32 %434 to i64
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i520
 
@@ -55479,7 +55479,7 @@ _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i520:
   br i1 %.not.i.i.i528, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i530, label %445
 
 445:                                              ; preds = %442
-  %446 = add i32 %notmask.i.i.i527, %99
+  %446 = add nsw i32 %notmask.i.i.i527, %99
   %447 = sext i32 %446 to i64
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i530
 
@@ -55514,7 +55514,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11centerValueEiib.ex
   br i1 %.not.i.i.i537, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i539, label %459
 
 459:                                              ; preds = %456
-  %460 = add i32 %notmask.i.i.i536, %178
+  %460 = add nsw i32 %notmask.i.i.i536, %178
   %461 = sext i32 %460 to i64
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i539
 
@@ -55596,7 +55596,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11centerValueEiib.ex
   br i1 %.not.i.i.i548, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i550, label %495
 
 495:                                              ; preds = %492
-  %496 = add i32 %notmask.i.i.i547, %73
+  %496 = add nsw i32 %notmask.i.i.i547, %73
   %497 = sext i32 %496 to i64
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i550
 
@@ -55638,7 +55638,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11centerValueEiib.ex
   br i1 %.not.i.i.i557, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i559, label %515
 
 515:                                              ; preds = %512
-  %516 = add i32 %notmask.i.i.i556, %111
+  %516 = add nsw i32 %notmask.i.i.i556, %111
   %517 = sext i32 %516 to i64
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i559
 
@@ -55679,7 +55679,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.ex
   br i1 %.not.i.i.i567, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i569, label %535
 
 535:                                              ; preds = %532
-  %536 = add i32 %notmask.i.i.i566, %189
+  %536 = add nsw i32 %notmask.i.i.i566, %189
   %537 = sext i32 %536 to i64
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i569
 
@@ -55711,7 +55711,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.ex
   br i1 %.not.i.i.i578, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i580, label %549
 
 549:                                              ; preds = %546
-  %550 = add i32 %notmask.i.i.i577, %74
+  %550 = add nsw i32 %notmask.i.i.i577, %74
   %551 = sext i32 %550 to i64
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i580
 
@@ -55745,7 +55745,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11centerValueEiib.ex
   br i1 %.not.i.i.i587, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i589, label %563
 
 563:                                              ; preds = %560
-  %564 = add i32 %notmask.i.i.i586, %112
+  %564 = add nsw i32 %notmask.i.i.i586, %112
   %565 = sext i32 %564 to i64
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i589
 
@@ -55780,7 +55780,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.ex
   br i1 %.not.i.i.i597, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i599, label %579
 
 579:                                              ; preds = %576
-  %580 = add i32 %notmask.i.i.i596, %190
+  %580 = add nsw i32 %notmask.i.i.i596, %190
   %581 = sext i32 %580 to i64
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i599
 
@@ -55822,7 +55822,7 @@ _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i599:
   br i1 %.not.i.i.i607, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i609, label %602
 
 602:                                              ; preds = %599
-  %603 = add i32 %notmask.i.i.i606, %71
+  %603 = add nsw i32 %notmask.i.i.i606, %71
   %604 = sext i32 %603 to i64
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i609
 
@@ -55858,7 +55858,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.ex
   br i1 %.not.i.i.i618, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i620, label %618
 
 618:                                              ; preds = %615
-  %619 = add i32 %notmask.i.i.i617, %108
+  %619 = add nsw i32 %notmask.i.i.i617, %108
   %620 = sext i32 %619 to i64
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i620
 
@@ -55898,7 +55898,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11centerValueEiib.ex
   br i1 %.not.i.i.i627, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i629, label %636
 
 636:                                              ; preds = %633
-  %637 = add i32 %notmask.i.i.i626, %186
+  %637 = add nsw i32 %notmask.i.i.i626, %186
   %638 = sext i32 %637 to i64
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i629
 
@@ -55933,7 +55933,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.ex
   br i1 %.not.i.i.i637, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i639, label %652
 
 652:                                              ; preds = %649
-  %653 = add i32 %notmask.i.i.i636, %72
+  %653 = add nsw i32 %notmask.i.i.i636, %72
   %654 = sext i32 %653 to i64
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i639
 
@@ -55965,7 +55965,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.ex
   br i1 %.not.i.i.i648, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i650, label %666
 
 666:                                              ; preds = %663
-  %667 = add i32 %notmask.i.i.i647, %109
+  %667 = add nsw i32 %notmask.i.i.i647, %109
   %668 = sext i32 %667 to i64
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i650
 
@@ -55999,7 +55999,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11centerValueEiib.ex
   br i1 %.not.i.i.i657, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i659, label %680
 
 680:                                              ; preds = %677
-  %681 = add i32 %notmask.i.i.i656, %187
+  %681 = add nsw i32 %notmask.i.i.i656, %187
   %682 = sext i32 %681 to i64
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i659
 
@@ -56041,7 +56041,7 @@ _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i659:
   br i1 %.not.i.i.i667, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i669, label %703
 
 703:                                              ; preds = %700
-  %704 = add i32 %notmask.i.i.i666, %68
+  %704 = add nsw i32 %notmask.i.i.i666, %68
   %705 = sext i32 %704 to i64
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i669
 
@@ -56082,7 +56082,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.ex
   br i1 %.not.i.i.i677, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i679, label %723
 
 723:                                              ; preds = %720
-  %724 = add i32 %notmask.i.i.i676, %106
+  %724 = add nsw i32 %notmask.i.i.i676, %106
   %725 = sext i32 %724 to i64
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i679
 
@@ -56118,7 +56118,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.ex
   br i1 %.not.i.i.i688, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i690, label %739
 
 739:                                              ; preds = %736
-  %740 = add i32 %notmask.i.i.i687, %183
+  %740 = add nsw i32 %notmask.i.i.i687, %183
   %741 = sext i32 %740 to i64
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i690
 
@@ -56152,7 +56152,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11centerValueEiib.ex
   br i1 %.not.i.i.i697, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i699, label %753
 
 753:                                              ; preds = %750
-  %754 = add i32 %notmask.i.i.i696, %69
+  %754 = add nsw i32 %notmask.i.i.i696, %69
   %755 = sext i32 %754 to i64
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i699
 
@@ -56187,7 +56187,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.ex
   br i1 %.not.i.i.i707, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i709, label %769
 
 769:                                              ; preds = %766
-  %770 = add i32 %notmask.i.i.i706, %107
+  %770 = add nsw i32 %notmask.i.i.i706, %107
   %771 = sext i32 %770 to i64
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i709
 
@@ -56219,7 +56219,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.ex
   br i1 %.not.i.i.i718, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i720, label %783
 
 783:                                              ; preds = %780
-  %784 = add i32 %notmask.i.i.i717, %184
+  %784 = add nsw i32 %notmask.i.i.i717, %184
   %785 = sext i32 %784 to i64
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i720
 
@@ -56293,7 +56293,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.ex
   br i1 %.not.i.i.i727, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i729, label %818
 
 818:                                              ; preds = %815
-  %819 = add i32 %notmask.i.i.i726, %76
+  %819 = add nsw i32 %notmask.i.i.i726, %76
   %820 = sext i32 %819 to i64
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i729
 
@@ -56334,7 +56334,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.ex
   br i1 %.not.i.i.i737, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i739, label %838
 
 838:                                              ; preds = %835
-  %839 = add i32 %notmask.i.i.i736, %114
+  %839 = add nsw i32 %notmask.i.i.i736, %114
   %840 = sext i32 %839 to i64
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i739
 
@@ -56375,7 +56375,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.ex
   br i1 %.not.i.i.i747, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i749, label %858
 
 858:                                              ; preds = %855
-  %859 = add i32 %notmask.i.i.i746, %480
+  %859 = add nsw i32 %notmask.i.i.i746, %480
   %860 = sext i32 %859 to i64
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i749
 
@@ -56410,7 +56410,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.ex
   br i1 %.not.i.i.i757, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i759, label %874
 
 874:                                              ; preds = %871
-  %875 = add i32 %notmask.i.i.i756, %77
+  %875 = add nsw i32 %notmask.i.i.i756, %77
   %876 = sext i32 %875 to i64
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i759
 
@@ -56445,7 +56445,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.ex
   br i1 %.not.i.i.i767, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i769, label %890
 
 890:                                              ; preds = %887
-  %891 = add i32 %notmask.i.i.i766, %115
+  %891 = add nsw i32 %notmask.i.i.i766, %115
   %892 = sext i32 %891 to i64
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i769
 
@@ -56480,7 +56480,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.ex
   br i1 %.not.i.i.i777, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i779, label %906
 
 906:                                              ; preds = %903
-  %907 = add i32 %notmask.i.i.i776, %481
+  %907 = add nsw i32 %notmask.i.i.i776, %481
   %908 = sext i32 %907 to i64
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i779
 
@@ -56641,7 +56641,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.ex
   br i1 %.not.i.i.i787, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i789, label %1005
 
 1005:                                             ; preds = %1002
-  %1006 = add i32 %notmask.i.i.i786, %945
+  %1006 = add nsw i32 %notmask.i.i.i786, %945
   %1007 = sext i32 %1006 to i64
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i789
 
@@ -56689,7 +56689,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueE
   br i1 %.not.i.i.i795, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i797, label %1031
 
 1031:                                             ; preds = %1028
-  %1032 = add i32 %notmask.i.i.i794, %968
+  %1032 = add nsw i32 %notmask.i.i.i794, %968
   %1033 = sext i32 %1032 to i64
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i797
 
@@ -56786,7 +56786,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueE
   br i1 %.not.i.i.i813, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i815, label %1083
 
 1083:                                             ; preds = %1080
-  %1084 = add i32 %notmask.i.i.i812, %946
+  %1084 = add nsw i32 %notmask.i.i.i812, %946
   %1085 = sext i32 %1084 to i64
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i815
 
@@ -56830,7 +56830,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueE
   br i1 %.not.i.i.i822, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i824, label %1105
 
 1105:                                             ; preds = %1102
-  %1106 = add i32 %notmask.i.i.i821, %969
+  %1106 = add nsw i32 %notmask.i.i.i821, %969
   %1107 = sext i32 %1106 to i64
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i824
 
@@ -56979,7 +56979,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueE
   br i1 %.not.i.i.i839, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i841, label %1190
 
 1190:                                             ; preds = %1187
-  %1191 = add i32 %notmask.i.i.i838, %951
+  %1191 = add nsw i32 %notmask.i.i.i838, %951
   %1192 = sext i32 %1191 to i64
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i841
 
@@ -57028,7 +57028,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueE
   br i1 %.not.i.i.i848, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i850, label %1217
 
 1217:                                             ; preds = %1214
-  %1218 = add i32 %notmask.i.i.i847, %974
+  %1218 = add nsw i32 %notmask.i.i.i847, %974
   %1219 = sext i32 %1218 to i64
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i850
 
@@ -57076,7 +57076,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueE
   br i1 %.not.i.i.i857, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i859, label %1243
 
 1243:                                             ; preds = %1240
-  %1244 = add i32 %notmask.i.i.i856, %1157
+  %1244 = add nsw i32 %notmask.i.i.i856, %1157
   %1245 = sext i32 %1244 to i64
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i859
 
@@ -57120,7 +57120,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueE
   br i1 %.not.i.i.i865, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i867, label %1265
 
 1265:                                             ; preds = %1262
-  %1266 = add i32 %notmask.i.i.i864, %952
+  %1266 = add nsw i32 %notmask.i.i.i864, %952
   %1267 = sext i32 %1266 to i64
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i867
 
@@ -57164,7 +57164,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueE
   br i1 %.not.i.i.i875, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i877, label %1287
 
 1287:                                             ; preds = %1284
-  %1288 = add i32 %notmask.i.i.i874, %975
+  %1288 = add nsw i32 %notmask.i.i.i874, %975
   %1289 = sext i32 %1288 to i64
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i877
 
@@ -57208,7 +57208,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueE
   br i1 %.not.i.i.i884, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i886, label %1309
 
 1309:                                             ; preds = %1306
-  %1310 = add i32 %notmask.i.i.i883, %1158
+  %1310 = add nsw i32 %notmask.i.i.i883, %1158
   %1311 = sext i32 %1310 to i64
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i886
 
@@ -57252,7 +57252,7 @@ _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i886:
   br i1 %.not.i.i.i893, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i895, label %1333
 
 1333:                                             ; preds = %1330
-  %1334 = add i32 %notmask.i.i.i892, %949
+  %1334 = add nsw i32 %notmask.i.i.i892, %949
   %1335 = sext i32 %1334 to i64
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i895
 
@@ -57303,7 +57303,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueE
   br i1 %.not.i.i.i901, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i903, label %1362
 
 1362:                                             ; preds = %1359
-  %1363 = add i32 %notmask.i.i.i900, %972
+  %1363 = add nsw i32 %notmask.i.i.i900, %972
   %1364 = sext i32 %1363 to i64
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i903
 
@@ -57351,7 +57351,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueE
   br i1 %.not.i.i.i911, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i913, label %1388
 
 1388:                                             ; preds = %1385
-  %1389 = add i32 %notmask.i.i.i910, %1155
+  %1389 = add nsw i32 %notmask.i.i.i910, %1155
   %1390 = sext i32 %1389 to i64
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i913
 
@@ -57395,7 +57395,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueE
   br i1 %.not.i.i.i920, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i922, label %1410
 
 1410:                                             ; preds = %1407
-  %1411 = add i32 %notmask.i.i.i919, %950
+  %1411 = add nsw i32 %notmask.i.i.i919, %950
   %1412 = sext i32 %1411 to i64
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i922
 
@@ -57439,7 +57439,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueE
   br i1 %.not.i.i.i928, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i930, label %1432
 
 1432:                                             ; preds = %1429
-  %1433 = add i32 %notmask.i.i.i927, %973
+  %1433 = add nsw i32 %notmask.i.i.i927, %973
   %1434 = sext i32 %1433 to i64
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i930
 
@@ -57483,7 +57483,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueE
   br i1 %.not.i.i.i938, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i940, label %1454
 
 1454:                                             ; preds = %1451
-  %1455 = add i32 %notmask.i.i.i937, %1156
+  %1455 = add nsw i32 %notmask.i.i.i937, %1156
   %1456 = sext i32 %1455 to i64
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i940
 
@@ -57527,7 +57527,7 @@ _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i940:
   br i1 %.not.i.i.i947, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i949, label %1478
 
 1478:                                             ; preds = %1475
-  %1479 = add i32 %notmask.i.i.i946, %947
+  %1479 = add nsw i32 %notmask.i.i.i946, %947
   %1480 = sext i32 %1479 to i64
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i949
 
@@ -57575,7 +57575,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueE
   br i1 %.not.i.i.i956, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i958, label %1504
 
 1504:                                             ; preds = %1501
-  %1505 = add i32 %notmask.i.i.i955, %970
+  %1505 = add nsw i32 %notmask.i.i.i955, %970
   %1506 = sext i32 %1505 to i64
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i958
 
@@ -57626,7 +57626,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueE
   br i1 %.not.i.i.i964, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i966, label %1533
 
 1533:                                             ; preds = %1530
-  %1534 = add i32 %notmask.i.i.i963, %1153
+  %1534 = add nsw i32 %notmask.i.i.i963, %1153
   %1535 = sext i32 %1534 to i64
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i966
 
@@ -57670,7 +57670,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueE
   br i1 %.not.i.i.i974, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i976, label %1555
 
 1555:                                             ; preds = %1552
-  %1556 = add i32 %notmask.i.i.i973, %948
+  %1556 = add nsw i32 %notmask.i.i.i973, %948
   %1557 = sext i32 %1556 to i64
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i976
 
@@ -57714,7 +57714,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueE
   br i1 %.not.i.i.i983, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i985, label %1577
 
 1577:                                             ; preds = %1574
-  %1578 = add i32 %notmask.i.i.i982, %971
+  %1578 = add nsw i32 %notmask.i.i.i982, %971
   %1579 = sext i32 %1578 to i64
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i985
 
@@ -57758,7 +57758,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueE
   br i1 %.not.i.i.i991, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i993, label %1599
 
 1599:                                             ; preds = %1596
-  %1600 = add i32 %notmask.i.i.i990, %1154
+  %1600 = add nsw i32 %notmask.i.i.i990, %1154
   %1601 = sext i32 %1600 to i64
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i993
 
@@ -57863,7 +57863,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueE
   br i1 %.not.i.i.i1001, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1003, label %1645
 
 1645:                                             ; preds = %1642
-  %1646 = add i32 %notmask.i.i.i1000, %957
+  %1646 = add nsw i32 %notmask.i.i.i1000, %957
   %1647 = sext i32 %1646 to i64
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1003
 
@@ -57914,7 +57914,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueE
   br i1 %.not.i.i.i1009, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1011, label %1674
 
 1674:                                             ; preds = %1671
-  %1675 = add i32 %notmask.i.i.i1008, %980
+  %1675 = add nsw i32 %notmask.i.i.i1008, %980
   %1676 = sext i32 %1675 to i64
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1011
 
@@ -57964,7 +57964,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueE
   br i1 %.not.i.i.i1018, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1020, label %1702
 
 1702:                                             ; preds = %1699
-  %1703 = add i32 %notmask.i.i.i1017, %1163
+  %1703 = add nsw i32 %notmask.i.i.i1017, %1163
   %1704 = sext i32 %1703 to i64
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1020
 
@@ -58008,7 +58008,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueE
   br i1 %.not.i.i.i1028, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1030, label %1724
 
 1724:                                             ; preds = %1721
-  %1725 = add i32 %notmask.i.i.i1027, %958
+  %1725 = add nsw i32 %notmask.i.i.i1027, %958
   %1726 = sext i32 %1725 to i64
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1030
 
@@ -58052,7 +58052,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueE
   br i1 %.not.i.i.i1036, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1038, label %1746
 
 1746:                                             ; preds = %1743
-  %1747 = add i32 %notmask.i.i.i1035, %981
+  %1747 = add nsw i32 %notmask.i.i.i1035, %981
   %1748 = sext i32 %1747 to i64
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1038
 
@@ -58096,7 +58096,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueE
   br i1 %.not.i.i.i1045, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1047, label %1768
 
 1768:                                             ; preds = %1765
-  %1769 = add i32 %notmask.i.i.i1044, %1164
+  %1769 = add nsw i32 %notmask.i.i.i1044, %1164
   %1770 = sext i32 %1769 to i64
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1047
 
@@ -58142,7 +58142,7 @@ _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1047
   br i1 %.not.i.i.i1054, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1056, label %1794
 
 1794:                                             ; preds = %1791
-  %1795 = add i32 %notmask.i.i.i1053, %955
+  %1795 = add nsw i32 %notmask.i.i.i1053, %955
   %1796 = sext i32 %1795 to i64
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1056
 
@@ -58191,7 +58191,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueE
   br i1 %.not.i.i.i1064, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1066, label %1821
 
 1821:                                             ; preds = %1818
-  %1822 = add i32 %notmask.i.i.i1063, %978
+  %1822 = add nsw i32 %notmask.i.i.i1063, %978
   %1823 = sext i32 %1822 to i64
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1066
 
@@ -58241,7 +58241,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueE
   br i1 %.not.i.i.i1072, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1074, label %1849
 
 1849:                                             ; preds = %1846
-  %1850 = add i32 %notmask.i.i.i1071, %1161
+  %1850 = add nsw i32 %notmask.i.i.i1071, %1161
   %1851 = sext i32 %1850 to i64
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1074
 
@@ -58285,7 +58285,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueE
   br i1 %.not.i.i.i1081, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1083, label %1871
 
 1871:                                             ; preds = %1868
-  %1872 = add i32 %notmask.i.i.i1080, %956
+  %1872 = add nsw i32 %notmask.i.i.i1080, %956
   %1873 = sext i32 %1872 to i64
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1083
 
@@ -58329,7 +58329,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueE
   br i1 %.not.i.i.i1091, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1093, label %1893
 
 1893:                                             ; preds = %1890
-  %1894 = add i32 %notmask.i.i.i1090, %979
+  %1894 = add nsw i32 %notmask.i.i.i1090, %979
   %1895 = sext i32 %1894 to i64
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1093
 
@@ -58373,7 +58373,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueE
   br i1 %.not.i.i.i1099, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1101, label %1915
 
 1915:                                             ; preds = %1912
-  %1916 = add i32 %notmask.i.i.i1098, %1162
+  %1916 = add nsw i32 %notmask.i.i.i1098, %1162
   %1917 = sext i32 %1916 to i64
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1101
 
@@ -58419,7 +58419,7 @@ _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1101
   br i1 %.not.i.i.i1108, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1110, label %1941
 
 1941:                                             ; preds = %1938
-  %1942 = add i32 %notmask.i.i.i1107, %953
+  %1942 = add nsw i32 %notmask.i.i.i1107, %953
   %1943 = sext i32 %1942 to i64
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1110
 
@@ -58469,7 +58469,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueE
   br i1 %.not.i.i.i1117, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1119, label %1969
 
 1969:                                             ; preds = %1966
-  %1970 = add i32 %notmask.i.i.i1116, %976
+  %1970 = add nsw i32 %notmask.i.i.i1116, %976
   %1971 = sext i32 %1970 to i64
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1119
 
@@ -58518,7 +58518,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueE
   br i1 %.not.i.i.i1127, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1129, label %1996
 
 1996:                                             ; preds = %1993
-  %1997 = add i32 %notmask.i.i.i1126, %1159
+  %1997 = add nsw i32 %notmask.i.i.i1126, %1159
   %1998 = sext i32 %1997 to i64
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1129
 
@@ -58562,7 +58562,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueE
   br i1 %.not.i.i.i1135, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1137, label %2018
 
 2018:                                             ; preds = %2015
-  %2019 = add i32 %notmask.i.i.i1134, %954
+  %2019 = add nsw i32 %notmask.i.i.i1134, %954
   %2020 = sext i32 %2019 to i64
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1137
 
@@ -58606,7 +58606,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueE
   br i1 %.not.i.i.i1144, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1146, label %2040
 
 2040:                                             ; preds = %2037
-  %2041 = add i32 %notmask.i.i.i1143, %977
+  %2041 = add nsw i32 %notmask.i.i.i1143, %977
   %2042 = sext i32 %2041 to i64
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1146
 
@@ -58650,7 +58650,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueE
   br i1 %.not.i.i.i1154, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1156, label %2062
 
 2062:                                             ; preds = %2059
-  %2063 = add i32 %notmask.i.i.i1153, %1160
+  %2063 = add nsw i32 %notmask.i.i.i1153, %1160
   %2064 = sext i32 %2063 to i64
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1156
 
@@ -58744,7 +58744,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueE
   br i1 %.not.i.i.i1162, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1164, label %2106
 
 2106:                                             ; preds = %2103
-  %2107 = add i32 %notmask.i.i.i1161, %959
+  %2107 = add nsw i32 %notmask.i.i.i1161, %959
   %2108 = sext i32 %2107 to i64
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1164
 
@@ -58794,7 +58794,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueE
   br i1 %.not.i.i.i1171, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1173, label %2134
 
 2134:                                             ; preds = %2131
-  %2135 = add i32 %notmask.i.i.i1170, %982
+  %2135 = add nsw i32 %notmask.i.i.i1170, %982
   %2136 = sext i32 %2135 to i64
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1173
 
@@ -58844,7 +58844,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueE
   br i1 %.not.i.i.i1180, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1182, label %2162
 
 2162:                                             ; preds = %2159
-  %2163 = add i32 %notmask.i.i.i1179, %1620
+  %2163 = add nsw i32 %notmask.i.i.i1179, %1620
   %2164 = sext i32 %2163 to i64
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1182
 
@@ -58888,7 +58888,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueE
   br i1 %.not.i.i.i1189, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1191, label %2184
 
 2184:                                             ; preds = %2181
-  %2185 = add i32 %notmask.i.i.i1188, %960
+  %2185 = add nsw i32 %notmask.i.i.i1188, %960
   %2186 = sext i32 %2185 to i64
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1191
 
@@ -58932,7 +58932,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueE
   br i1 %.not.i.i.i1198, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1200, label %2206
 
 2206:                                             ; preds = %2203
-  %2207 = add i32 %notmask.i.i.i1197, %983
+  %2207 = add nsw i32 %notmask.i.i.i1197, %983
   %2208 = sext i32 %2207 to i64
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1200
 
@@ -58976,7 +58976,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueE
   br i1 %.not.i.i.i1207, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1209, label %2228
 
 2228:                                             ; preds = %2225
-  %2229 = add i32 %notmask.i.i.i1206, %1621
+  %2229 = add nsw i32 %notmask.i.i.i1206, %1621
   %2230 = sext i32 %2229 to i64
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1209
 
