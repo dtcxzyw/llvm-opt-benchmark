@@ -27843,7 +27843,7 @@ define internal fastcc noundef i64 @printone(ptr noundef captures(none) %0, ptr 
   store i8 10, ptr %13, align 1, !tbaa !54
   br label %14
 
-14:                                               ; preds = %31, %._crit_edge
+14:                                               ; preds = %30, %._crit_edge
   %.030 = phi i32 [ 3, %._crit_edge ], [ %.131, %31 ]
   %.1 = phi i32 [ 20, %._crit_edge ], [ %.2, %31 ]
   %.0 = phi i64 [ %2, %._crit_edge ], [ %15, %31 ]
@@ -27860,35 +27860,35 @@ define internal fastcc noundef i64 @printone(ptr noundef captures(none) %0, ptr 
   %23 = icmp eq i32 %22, 0
   %24 = icmp ugt i64 %.0, 9
   %25 = icmp ne i32 %.1, 0
-  %26 = and i1 %23, %25
+  %or.cond3 = and i1 %23, %25
   %or.cond3 = and i1 %26, %24
   br i1 %or.cond3, label %27, label %31
 
-27:                                               ; preds = %14
+27:; preds = %14
   %28 = add nsw i32 %.1, -2
   %29 = zext nneg i32 %19 to i64
   %30 = getelementptr i8, ptr %4, i64 %29
   store i8 44, ptr %30, align 1, !tbaa !54
   br label %31
 
-31:                                               ; preds = %27, %14
+30:                                               ; preds = %27, %14
   %.131 = phi i32 [ 3, %27 ], [ %22, %14 ]
   %.2 = phi i32 [ %28, %27 ], [ %19, %14 ]
-  %32 = icmp sgt i32 %.2, -1
-  %33 = and i1 %24, %32
-  br i1 %33, label %14, label %.preheader, !llvm.loop !552
+  %31 = icmp sgt i32 %.2, -1
+  %32 = and i1 %24, %31
+  br i1 %32, label %14, label %.preheader, !llvm.loop !552
 
-.preheader:                                       ; preds = %31
-  br i1 %32, label %.lr.ph36.preheader, label %._crit_edge37
+.preheader:                                       ; preds = %30
+  br i1 %31, label %.lr.ph36.preheader, label %._crit_edge37
 
 .lr.ph36.preheader:                               ; preds = %.preheader
-  %34 = add nuw i32 %.2, 1
-  %35 = zext i32 %34 to i64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %4, i8 32, i64 %35, i1 false), !tbaa !54
+  %33 = add nuw i32 %.2, 1
+  %34 = zext i32 %33 to i64
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %4, i8 32, i64 %34, i1 false), !tbaa !54
   br label %._crit_edge37
 
 ._crit_edge37:                                    ; preds = %.lr.ph36.preheader, %.preheader
-  %36 = call i32 @fputs(ptr noundef nonnull %4, ptr noundef %0)
+  %35 = call i32 @fputs(ptr noundef nonnull %4, ptr noundef %0)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %2
 }

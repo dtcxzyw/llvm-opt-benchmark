@@ -3460,7 +3460,7 @@ unchoke_for_stream.exit:                          ; preds = %109, %97, %92, %88
   br i1 %exitcond.not, label %._crit_edge122.split, label %88, !llvm.loop !180
 
 .preheader104:                                    ; preds = %.preheader104.preheader, %.loopexit105
-  %.not90 = phi i1 [ false, %.loopexit105 ], [ true, %.preheader104.preheader ]
+  %.081136 = phi i1 [ false, %.loopexit105 ], [ true, %.preheader104.preheader ]
   %.in91.v = select i1 %.not90, i64 16, i64 232
   %.in91 = getelementptr inbounds nuw i8, ptr %0, i64 %.in91.v
   %116 = load i32, ptr %.in91, align 8, !tbaa !68
@@ -3533,75 +3533,75 @@ unchoke_for_stream.exit:                          ; preds = %109, %97, %92, %88
   %.not88 = phi i1 [ false, %._crit_edge139 ], [ true, %.preheader.preheader ]
   %.in.v = select i1 %.not88, i64 16, i64 232
   %.in = getelementptr inbounds nuw i8, ptr %0, i64 %.in.v
-  %136 = load i32, ptr %.in, align 8, !tbaa !68
-  %.not147 = icmp eq i32 %136, 0
+  %137 = load i32, ptr %.in, align 8, !tbaa !68
+  %.not147 = icmp eq i32 %137, 0
   br i1 %.not147, label %._crit_edge139, label %.lr.ph138
 
 .lr.ph138:                                        ; preds = %.preheader
   br i1 %.not88, label %.lr.ph138.split.us, label %.lr.ph138.split
 
-.lr.ph138.split.us:                               ; preds = %.lr.ph138, %151
-  %137 = phi i32 [ %152, %151 ], [ %136, %.lr.ph138 ]
+.lr.ph138.split.us:                               ; preds = %.lr.ph138, %152
+  %138 = phi i32 [ %153, %151 ], [ %137, %.lr.ph138 ]
   %indvars.iv199 = phi i64 [ %indvars.iv.next200, %151 ], [ 0, %.lr.ph138 ]
-  %138 = load ptr, ptr %29, align 8, !tbaa !21
-  %139 = getelementptr inbounds nuw %struct.SchDemux, ptr %138, i64 %indvars.iv199
-  %140 = getelementptr inbounds nuw i8, ptr %139, i64 172
-  %141 = load i32, ptr %140, align 4, !tbaa !173
-  %142 = getelementptr inbounds nuw i8, ptr %139, i64 176
-  %143 = load i32, ptr %142, align 8, !tbaa !174
-  %.not89.us = icmp eq i32 %141, %143
-  br i1 %.not89.us, label %151, label %144
+  %139 = load ptr, ptr %29, align 8, !tbaa !21
+  %140 = getelementptr inbounds nuw %struct.SchDemux, ptr %139, i64 %indvars.iv199
+  %141 = getelementptr inbounds nuw i8, ptr %140, i64 172
+  %142 = load i32, ptr %141, align 4, !tbaa !173
+  %143 = getelementptr inbounds nuw i8, ptr %140, i64 176
+  %144 = load i32, ptr %143, align 8, !tbaa !174
+  %.not89.us = icmp eq i32 %142, %144
+  br i1 %.not89.us, label %152, label %145
 
-144:                                              ; preds = %.lr.ph138.split.us
-  %145 = getelementptr inbounds nuw i8, ptr %139, i64 80
-  %146 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %145) #9
-  %147 = getelementptr inbounds nuw i8, ptr %139, i64 168
-  store atomic i32 %143, ptr %147 seq_cst, align 8
-  %148 = getelementptr inbounds nuw i8, ptr %139, i64 120
-  %149 = tail call i32 @pthread_cond_signal(ptr noundef nonnull %148) #9
-  %150 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %145) #9
+145:                                              ; preds = %.lr.ph138.split.us
+  %146 = getelementptr inbounds nuw i8, ptr %140, i64 80
+  %147 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %146) #9
+  %148 = getelementptr inbounds nuw i8, ptr %140, i64 168
+  store atomic i32 %144, ptr %148 seq_cst, align 8
+  %149 = getelementptr inbounds nuw i8, ptr %140, i64 120
+  %150 = tail call i32 @pthread_cond_signal(ptr noundef nonnull %149) #9
+  %151 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %146) #9
   %.pre202 = load i32, ptr %.in, align 8, !tbaa !68
-  br label %151
+  br label %152
 
-151:                                              ; preds = %144, %.lr.ph138.split.us
-  %152 = phi i32 [ %.pre202, %144 ], [ %137, %.lr.ph138.split.us ]
+152:                                              ; preds = %145, %.lr.ph138.split.us
+  %153 = phi i32 [ %.pre202, %144 ], [ %138, %.lr.ph138.split.us ]
   %indvars.iv.next200 = add nuw nsw i64 %indvars.iv199, 1
-  %153 = zext i32 %152 to i64
-  %154 = icmp samesign ult i64 %indvars.iv.next200, %153
-  br i1 %154, label %.lr.ph138.split.us, label %._crit_edge139, !llvm.loop !184
+  %154 = zext i32 %153 to i64
+  %155 = icmp samesign ult i64 %indvars.iv.next200, %154
+  br i1 %155, label %.lr.ph138.split.us, label %._crit_edge139, !llvm.loop !184
 
-._crit_edge139:                                   ; preds = %169, %151, %.preheader
+._crit_edge139:                                   ; preds = %170, %152, %.preheader
   br i1 %.not88, label %.preheader, label %.loopexit, !llvm.loop !185
 
-.lr.ph138.split:                                  ; preds = %.lr.ph138, %169
-  %155 = phi i32 [ %170, %169 ], [ %136, %.lr.ph138 ]
+.lr.ph138.split:                                  ; preds = %.lr.ph138, %170
+  %156 = phi i32 [ %171, %169 ], [ %137, %.lr.ph138 ]
   %indvars.iv196 = phi i64 [ %indvars.iv.next197, %169 ], [ 0, %.lr.ph138 ]
-  %156 = load ptr, ptr %28, align 8, !tbaa !65
-  %157 = getelementptr inbounds nuw %struct.SchFilterGraph, ptr %156, i64 %indvars.iv196
-  %158 = getelementptr inbounds nuw i8, ptr %157, i64 204
-  %159 = load i32, ptr %158, align 4, !tbaa !173
-  %160 = getelementptr inbounds nuw i8, ptr %157, i64 208
-  %161 = load i32, ptr %160, align 8, !tbaa !174
-  %.not89 = icmp eq i32 %159, %161
-  br i1 %.not89, label %169, label %162
+  %157 = load ptr, ptr %28, align 8, !tbaa !65
+  %158 = getelementptr inbounds nuw %struct.SchFilterGraph, ptr %157, i64 %indvars.iv196
+  %159 = getelementptr inbounds nuw i8, ptr %158, i64 204
+  %160 = load i32, ptr %159, align 4, !tbaa !173
+  %161 = getelementptr inbounds nuw i8, ptr %158, i64 208
+  %162 = load i32, ptr %161, align 8, !tbaa !174
+  %.not89 = icmp eq i32 %160, %162
+  br i1 %.not89, label %170, label %163
 
-162:                                              ; preds = %.lr.ph138.split
-  %163 = getelementptr inbounds nuw i8, ptr %157, i64 112
-  %164 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %163) #9
-  %165 = getelementptr inbounds nuw i8, ptr %157, i64 200
-  store atomic i32 %161, ptr %165 seq_cst, align 8
-  %166 = getelementptr inbounds nuw i8, ptr %157, i64 152
-  %167 = tail call i32 @pthread_cond_signal(ptr noundef nonnull %166) #9
-  %168 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %163) #9
+163:                                              ; preds = %.lr.ph138.split
+  %164 = getelementptr inbounds nuw i8, ptr %158, i64 112
+  %165 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %164) #9
+  %166 = getelementptr inbounds nuw i8, ptr %158, i64 200
+  store atomic i32 %162, ptr %166 seq_cst, align 8
+  %167 = getelementptr inbounds nuw i8, ptr %158, i64 152
+  %168 = tail call i32 @pthread_cond_signal(ptr noundef nonnull %167) #9
+  %169 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %164) #9
   %.pre = load i32, ptr %.in, align 8, !tbaa !68
-  br label %169
+  br label %170
 
-169:                                              ; preds = %162, %.lr.ph138.split
-  %170 = phi i32 [ %.pre, %162 ], [ %155, %.lr.ph138.split ]
+170:                                              ; preds = %163, %.lr.ph138.split
+  %171 = phi i32 [ %.pre, %162 ], [ %156, %.lr.ph138.split ]
   %indvars.iv.next197 = add nuw nsw i64 %indvars.iv196, 1
-  %171 = zext i32 %170 to i64
-  %172 = icmp samesign ult i64 %indvars.iv.next197, %171
-  br i1 %172, label %.lr.ph138.split, label %._crit_edge139, !llvm.loop !184
+  %172 = zext i32 %171 to i64
+  %173 = icmp samesign ult i64 %indvars.iv.next197, %172
+  br i1 %173, label %.lr.ph138.split, label %._crit_edge139, !llvm.loop !184
 
 .loopexit:                                        ; preds = %._crit_edge139, %1
   ret void

@@ -28873,9 +28873,9 @@ define hidden { i64, i64 } @_ZN4fish9wchar_ext4WExt9find_char17h2e44ee285d042e28
   %8 = icmp ne ptr %5, null
   tail call void @llvm.assume(i1 %8)
   %9 = icmp eq i64 %6, 0
-  br i1 %9, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17hc18481a2edad97fdE.exit", label %.lr.ph.i.preheader
+  br i1 %9, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17hc18481a2edad97fdE.exit", label %.lr.ph.i
 
-.lr.ph.i.preheader:                               ; preds = %3
+.lr.ph.i:                                         ; preds = %3
   %10 = add i64 %.idx, -4
   %11 = lshr exact i64 %10, 2
   %12 = add nuw nsw i64 %11, 1
@@ -28885,10 +28885,10 @@ define hidden { i64, i64 } @_ZN4fish9wchar_ext4WExt9find_char17h2e44ee285d042e28
   %.sroa.02.013.i = phi i64 [ %17, %15 ], [ 0, %.lr.ph.i.preheader ]
   %13 = phi ptr [ %16, %15 ], [ %5, %.lr.ph.i.preheader ]
   %.val8.i = load i32, ptr %13, align 4, !range !810, !noalias !4142, !noundef !23
-  %14 = icmp eq i32 %.val8.i, %2
-  br i1 %14, label %19, label %15
+  %15 = icmp eq i32 %.val8.i, %2
+  br i1 %15, label %19, label %15
 
-15:                                               ; preds = %.lr.ph.i
+16:                                               ; preds = %.lr.ph.i
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %17 = add nuw nsw i64 %.sroa.02.013.i, 1
   %18 = icmp eq ptr %16, %7
@@ -28900,11 +28900,11 @@ define hidden { i64, i64 } @_ZN4fish9wchar_ext4WExt9find_char17h2e44ee285d042e28
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17hc18481a2edad97fdE.exit"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17hc18481a2edad97fdE.exit": ; preds = %15, %3, %19
-  %.sroa.02.012.i = phi i64 [ %.sroa.02.013.i, %19 ], [ 0, %3 ], [ %12, %15 ]
+  %.sroa.3.0.i = phi i64 [ %.sroa.02.013.i, %19 ], [ 0, %3 ], [ %12, %15 ]
   %.sroa.0.0.i = phi i64 [ 1, %19 ], [ 0, %3 ], [ 0, %15 ]
-  %21 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
-  %22 = insertvalue { i64, i64 } %21, i64 %.sroa.02.012.i, 1
-  ret { i64, i64 } %22
+  %18 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
+  %19 = insertvalue { i64, i64 } %18, i64 %.sroa.3.0.i, 1
+  ret { i64, i64 } %19
 }
 
 ; Function Attrs: nonlazybind uwtable

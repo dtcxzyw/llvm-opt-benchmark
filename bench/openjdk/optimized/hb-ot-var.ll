@@ -2218,119 +2218,119 @@ define linkonce_odr hidden noundef float @_ZNK2OT7VarData9get_deltaEjPKijRKNS_13
   br label %.lr.ph.split
 
 .preheader54:                                     ; preds = %.lr.ph.split, %14
-  %.052.lcssa = phi ptr [ %45, %14 ], [ %61, %.lr.ph.split ]
+  %.052.lcssa = phi ptr [ %45, %14 ], [ %62, %.lr.ph.split ]
   %.049.lcssa = phi i32 [ 0, %14 ], [ %31, %.lr.ph.split ]
-  %.047.lcssa = phi float [ 0.000000e+00, %14 ], [ %80, %.lr.ph.split ]
-  %49 = icmp samesign ult i32 %.049.lcssa, %32
-  br i1 %49, label %.lr.ph65, label %.preheader
+  %.047.lcssa = phi float [ 0.000000e+00, %14 ], [ %81, %.lr.ph.split ]
+  %50 = icmp samesign ult i32 %.049.lcssa, %32
+  br i1 %50, label %.lr.ph65, label %.preheader
 
 .lr.ph65:                                         ; preds = %.preheader54
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 6
-  %51 = zext nneg i32 %.049.lcssa to i64
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 6
+  %52 = zext nneg i32 %.049.lcssa to i64
   %wide.trip.count85 = zext nneg i32 %32 to i64
-  br label %85
+  br label %86
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %.lr.ph.split
   %indvars.iv = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next, %.lr.ph.split ]
-  %.04757 = phi float [ 0.000000e+00, %.lr.ph.split.preheader ], [ %80, %.lr.ph.split ]
-  %.05255 = phi ptr [ %45, %.lr.ph.split.preheader ], [ %61, %.lr.ph.split ]
-  %52 = getelementptr inbounds nuw %"struct.OT::IntType", ptr %48, i64 %indvars.iv
-  %53 = load i8, ptr %52, align 1
-  %54 = zext i8 %53 to i32
-  %55 = shl nuw nsw i32 %54, 8
-  %56 = getelementptr inbounds nuw i8, ptr %52, i64 1
-  %57 = load i8, ptr %56, align 1
-  %58 = zext i8 %57 to i32
-  %59 = or disjoint i32 %55, %58
-  %60 = tail call noundef float @_ZNK2OT13VarRegionList8evaluateEjPKijPf(ptr noundef nonnull align 1 dereferenceable(10) %4, i32 noundef %59, ptr noundef %2, i32 noundef %3, ptr noundef %5)
-  %61 = getelementptr inbounds nuw i8, ptr %.05255, i64 4
-  %62 = load i8, ptr %.05255, align 1
-  %63 = zext i8 %62 to i32
-  %64 = shl nuw i32 %63, 24
-  %65 = getelementptr inbounds nuw i8, ptr %.05255, i64 1
-  %66 = load i8, ptr %65, align 1
-  %67 = zext i8 %66 to i32
-  %68 = shl nuw nsw i32 %67, 16
-  %69 = or disjoint i32 %68, %64
-  %70 = getelementptr inbounds nuw i8, ptr %.05255, i64 2
-  %71 = load i8, ptr %70, align 1
-  %72 = zext i8 %71 to i32
-  %73 = shl nuw nsw i32 %72, 8
-  %74 = or disjoint i32 %69, %73
-  %75 = getelementptr inbounds nuw i8, ptr %.05255, i64 3
-  %76 = load i8, ptr %75, align 1
-  %77 = zext i8 %76 to i32
-  %78 = or disjoint i32 %74, %77
-  %79 = sitofp i32 %78 to float
-  %80 = tail call float @llvm.fmuladd.f32(float %60, float %79, float %.04757)
+  %.04757 = phi float [ 0.000000e+00, %.lr.ph.split.preheader ], [ %81, %.lr.ph.split ]
+  %.05255 = phi ptr [ %45, %.lr.ph.split.preheader ], [ %62, %.lr.ph.split ]
+  %53 = getelementptr inbounds nuw %"struct.OT::IntType", ptr %48, i64 %indvars.iv
+  %54 = load i8, ptr %53, align 1
+  %55 = zext i8 %54 to i32
+  %56 = shl nuw nsw i32 %55, 8
+  %57 = getelementptr inbounds nuw i8, ptr %53, i64 1
+  %58 = load i8, ptr %57, align 1
+  %59 = zext i8 %58 to i32
+  %60 = or disjoint i32 %56, %59
+  %61 = tail call noundef float @_ZNK2OT13VarRegionList8evaluateEjPKijPf(ptr noundef nonnull align 1 dereferenceable(10) %4, i32 noundef %60, ptr noundef %2, i32 noundef %3, ptr noundef %5)
+  %62 = getelementptr inbounds nuw i8, ptr %.05255, i64 4
+  %63 = load i8, ptr %.05255, align 1
+  %64 = zext i8 %63 to i32
+  %65 = shl nuw i32 %64, 24
+  %66 = getelementptr inbounds nuw i8, ptr %.05255, i64 1
+  %67 = load i8, ptr %66, align 1
+  %68 = zext i8 %67 to i32
+  %69 = shl nuw nsw i32 %68, 16
+  %70 = or disjoint i32 %69, %65
+  %71 = getelementptr inbounds nuw i8, ptr %.05255, i64 2
+  %72 = load i8, ptr %71, align 1
+  %73 = zext i8 %72 to i32
+  %74 = shl nuw nsw i32 %73, 8
+  %75 = or disjoint i32 %70, %74
+  %76 = getelementptr inbounds nuw i8, ptr %.05255, i64 3
+  %77 = load i8, ptr %76, align 1
+  %78 = zext i8 %77 to i32
+  %79 = or disjoint i32 %75, %78
+  %80 = sitofp i32 %79 to float
+  %81 = tail call float @llvm.fmuladd.f32(float %61, float %80, float %.04757)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.preheader54, label %.lr.ph.split, !llvm.loop !23
 
-.preheader:                                       ; preds = %85, %.preheader54
+.preheader:                                       ; preds = %86, %.preheader54
   %.150.lcssa = phi i32 [ %.049.lcssa, %.preheader54 ], [ %32, %85 ]
-  %.048.lcssa = phi ptr [ %.052.lcssa, %.preheader54 ], [ %95, %85 ]
-  %.1.lcssa = phi float [ %.047.lcssa, %.preheader54 ], [ %104, %85 ]
-  %81 = icmp samesign ult i32 %.150.lcssa, %22
-  br i1 %81, label %.lr.ph72, label %.loopexit
+  %.048.lcssa = phi ptr [ %.052.lcssa, %.preheader54 ], [ %96, %85 ]
+  %.1.lcssa = phi float [ %.047.lcssa, %.preheader54 ], [ %105, %85 ]
+  %82 = icmp samesign ult i32 %.150.lcssa, %22
+  br i1 %82, label %.lr.ph72, label %.loopexit
 
 .lr.ph72:                                         ; preds = %.preheader
-  %82 = getelementptr inbounds nuw i8, ptr %0, i64 6
-  %83 = zext nneg i32 %.150.lcssa to i64
-  %84 = or disjoint i32 %18, %21
-  %wide.trip.count90 = zext nneg i32 %84 to i64
-  br label %105
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 6
+  %84 = zext nneg i32 %.150.lcssa to i64
+  %85 = or disjoint i32 %18, %21
+  %wide.trip.count90 = zext nneg i32 %85 to i64
+  br label %106
 
-85:                                               ; preds = %.lr.ph65, %85
-  %indvars.iv82 = phi i64 [ %51, %.lr.ph65 ], [ %indvars.iv.next83, %85 ]
-  %.164 = phi float [ %.047.lcssa, %.lr.ph65 ], [ %104, %85 ]
-  %.04863 = phi ptr [ %.052.lcssa, %.lr.ph65 ], [ %95, %85 ]
-  %86 = getelementptr inbounds nuw %"struct.OT::IntType", ptr %50, i64 %indvars.iv82
-  %87 = load i8, ptr %86, align 1
-  %88 = zext i8 %87 to i32
-  %89 = shl nuw nsw i32 %88, 8
-  %90 = getelementptr inbounds nuw i8, ptr %86, i64 1
-  %91 = load i8, ptr %90, align 1
-  %92 = zext i8 %91 to i32
-  %93 = or disjoint i32 %89, %92
-  %94 = tail call noundef float @_ZNK2OT13VarRegionList8evaluateEjPKijPf(ptr noundef nonnull align 1 dereferenceable(10) %4, i32 noundef %93, ptr noundef %2, i32 noundef %3, ptr noundef %5)
-  %95 = getelementptr inbounds nuw i8, ptr %.04863, i64 2
-  %96 = load i8, ptr %.04863, align 1
-  %97 = zext i8 %96 to i16
-  %98 = shl nuw i16 %97, 8
-  %99 = getelementptr inbounds nuw i8, ptr %.04863, i64 1
-  %100 = load i8, ptr %99, align 1
-  %101 = zext i8 %100 to i16
-  %102 = or disjoint i16 %98, %101
-  %103 = sitofp i16 %102 to float
-  %104 = tail call float @llvm.fmuladd.f32(float %94, float %103, float %.164)
+86:                                               ; preds = %.lr.ph65, %86
+  %indvars.iv82 = phi i64 [ %52, %.lr.ph65 ], [ %indvars.iv.next83, %85 ]
+  %.164 = phi float [ %.047.lcssa, %.lr.ph65 ], [ %105, %85 ]
+  %.04863 = phi ptr [ %.052.lcssa, %.lr.ph65 ], [ %96, %85 ]
+  %87 = getelementptr inbounds nuw %"struct.OT::IntType", ptr %51, i64 %indvars.iv82
+  %88 = load i8, ptr %87, align 1
+  %89 = zext i8 %88 to i32
+  %90 = shl nuw nsw i32 %89, 8
+  %91 = getelementptr inbounds nuw i8, ptr %87, i64 1
+  %92 = load i8, ptr %91, align 1
+  %93 = zext i8 %92 to i32
+  %94 = or disjoint i32 %90, %93
+  %95 = tail call noundef float @_ZNK2OT13VarRegionList8evaluateEjPKijPf(ptr noundef nonnull align 1 dereferenceable(10) %4, i32 noundef %94, ptr noundef %2, i32 noundef %3, ptr noundef %5)
+  %96 = getelementptr inbounds nuw i8, ptr %.04863, i64 2
+  %97 = load i8, ptr %.04863, align 1
+  %98 = zext i8 %97 to i16
+  %99 = shl nuw i16 %98, 8
+  %100 = getelementptr inbounds nuw i8, ptr %.04863, i64 1
+  %101 = load i8, ptr %100, align 1
+  %102 = zext i8 %101 to i16
+  %103 = or disjoint i16 %99, %102
+  %104 = sitofp i16 %103 to float
+  %105 = tail call float @llvm.fmuladd.f32(float %95, float %104, float %.164)
   %indvars.iv.next83 = add nuw nsw i64 %indvars.iv82, 1
   %exitcond86.not = icmp eq i64 %indvars.iv.next83, %wide.trip.count85
-  br i1 %exitcond86.not, label %.preheader, label %85, !llvm.loop !24
+  br i1 %exitcond86.not, label %.preheader, label %86, !llvm.loop !24
 
-105:                                              ; preds = %.lr.ph72, %105
-  %indvars.iv87 = phi i64 [ %83, %.lr.ph72 ], [ %indvars.iv.next88, %105 ]
-  %.04671 = phi ptr [ %.048.lcssa, %.lr.ph72 ], [ %115, %105 ]
-  %.270 = phi float [ %.1.lcssa, %.lr.ph72 ], [ %118, %105 ]
-  %106 = getelementptr inbounds nuw %"struct.OT::IntType", ptr %82, i64 %indvars.iv87
-  %107 = load i8, ptr %106, align 1
-  %108 = zext i8 %107 to i32
-  %109 = shl nuw nsw i32 %108, 8
-  %110 = getelementptr inbounds nuw i8, ptr %106, i64 1
-  %111 = load i8, ptr %110, align 1
-  %112 = zext i8 %111 to i32
-  %113 = or disjoint i32 %109, %112
-  %114 = tail call noundef float @_ZNK2OT13VarRegionList8evaluateEjPKijPf(ptr noundef nonnull align 1 dereferenceable(10) %4, i32 noundef %113, ptr noundef %2, i32 noundef %3, ptr noundef %5)
-  %115 = getelementptr inbounds nuw i8, ptr %.04671, i64 1
-  %116 = load i8, ptr %.04671, align 1
-  %117 = sitofp i8 %116 to float
-  %118 = tail call float @llvm.fmuladd.f32(float %114, float %117, float %.270)
+106:                                              ; preds = %.lr.ph72, %106
+  %indvars.iv87 = phi i64 [ %84, %.lr.ph72 ], [ %indvars.iv.next88, %105 ]
+  %.04671 = phi ptr [ %.048.lcssa, %.lr.ph72 ], [ %116, %105 ]
+  %.270 = phi float [ %.1.lcssa, %.lr.ph72 ], [ %119, %105 ]
+  %107 = getelementptr inbounds nuw %"struct.OT::IntType", ptr %83, i64 %indvars.iv87
+  %108 = load i8, ptr %107, align 1
+  %109 = zext i8 %108 to i32
+  %110 = shl nuw nsw i32 %109, 8
+  %111 = getelementptr inbounds nuw i8, ptr %107, i64 1
+  %112 = load i8, ptr %111, align 1
+  %113 = zext i8 %112 to i32
+  %114 = or disjoint i32 %110, %113
+  %115 = tail call noundef float @_ZNK2OT13VarRegionList8evaluateEjPKijPf(ptr noundef nonnull align 1 dereferenceable(10) %4, i32 noundef %114, ptr noundef %2, i32 noundef %3, ptr noundef %5)
+  %116 = getelementptr inbounds nuw i8, ptr %.04671, i64 1
+  %117 = load i8, ptr %.04671, align 1
+  %118 = sitofp i8 %117 to float
+  %119 = tail call float @llvm.fmuladd.f32(float %115, float %118, float %.270)
   %indvars.iv.next88 = add nuw nsw i64 %indvars.iv87, 1
   %exitcond91.not = icmp eq i64 %indvars.iv.next88, %wide.trip.count90
-  br i1 %exitcond91.not, label %.loopexit, label %105, !llvm.loop !25
+  br i1 %exitcond91.not, label %.loopexit, label %106, !llvm.loop !25
 
-.loopexit:                                        ; preds = %105, %.preheader, %6
-  %.0 = phi float [ 0.000000e+00, %6 ], [ %.1.lcssa, %.preheader ], [ %118, %105 ]
+.loopexit:                                        ; preds = %106, %.preheader, %6
+  %.0 = phi float [ 0.000000e+00, %6 ], [ %.1.lcssa, %.preheader ], [ %119, %105 ]
   ret float %.0
 }
 

@@ -7231,11 +7231,11 @@ define hidden { ptr, ptr } @"_ZN5alloc11collections5btree8navigate264_$LT$impl$u
   br i1 %15, label %._crit_edge.loopexit.i.i.i, label %.lr.ph.i.i.i
 
 16:                                               ; preds = %._crit_edge.loopexit.i.i.i, %1
-  %.sroa.59.024.ph.i.i = phi i64 [ %.sroa.26.0.copyload.i, %1 ], [ %10, %._crit_edge.loopexit.i.i.i ]
-  %.sroa.8.022.ph.i.i = phi i64 [ %.sroa.37.0.copyload.i, %1 ], [ %8, %._crit_edge.loopexit.i.i.i ]
+  %.sroa.6.sroa.0.0.ph.i.i = phi i64 [ %.sroa.26.0.copyload.i, %1 ], [ %10, %._crit_edge.loopexit.i.i.i ]
+  %.sroa.6.sroa.4.0.ph.i.i = phi i64 [ %.sroa.37.0.copyload.i, %1 ], [ %8, %._crit_edge.loopexit.i.i.i ]
   %.sroa.0.0.ph.i.i = phi ptr [ %.sroa.05.0.copyload.i, %1 ], [ %7, %._crit_edge.loopexit.i.i.i ]
-  %17 = icmp eq i64 %.sroa.59.024.ph.i.i, 0
-  %18 = add nuw nsw i64 %.sroa.8.022.ph.i.i, 1
+  %17 = icmp eq i64 %.sroa.6.sroa.0.0.ph.i.i, 0
+  %18 = add nuw nsw i64 %.sroa.6.sroa.4.0.ph.i.i, 1
   br i1 %17, label %_ZN5alloc11collections5btree3mem7replace17h305d0c6b8d7933e0E.exit, label %19
 
 19:                                               ; preds = %16
@@ -7245,7 +7245,7 @@ define hidden { ptr, ptr } @"_ZN5alloc11collections5btree8navigate264_$LT$impl$u
 
 22:                                               ; preds = %22, %19
   %.pn30.in.i.i.i = phi ptr [ %21, %19 ], [ %24, %22 ]
-  %.pn28.in.i.i.i = phi i64 [ %.sroa.59.024.ph.i.i, %19 ], [ %.pn28.i.i.i, %22 ]
+  %.pn28.in.i.i.i = phi i64 [ %.sroa.6.sroa.0.0.ph.i.i, %19 ], [ %.pn28.i.i.i, %22 ]
   %.pn28.i.i.i = add i64 %.pn28.in.i.i.i, -1
   %.pn30.i.i.i = load ptr, ptr %.pn30.in.i.i.i, align 8, !noalias !1123, !nonnull !3, !noundef !3
   %23 = icmp eq i64 %.pn28.i.i.i, 0
@@ -7282,10 +7282,10 @@ _ZN5alloc11collections5btree3mem7replace17h305d0c6b8d7933e0E.exit: ; preds = %22
   store i64 %.sroa.7.0.i.i, ptr %.sroa.37.0..sroa_idx.i, align 8, !alias.scope !1108, !noalias !1111
   %31 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.ph.i.i, i64 8
   %32 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.ph.i.i, i64 96
-  %33 = icmp samesign ult i64 %.sroa.8.022.ph.i.i, 11
+  %33 = icmp samesign ult i64 %.sroa.6.sroa.4.0.ph.i.i, 11
   tail call void @llvm.assume(i1 %33)
-  %34 = getelementptr inbounds nuw i64, ptr %31, i64 %.sroa.8.022.ph.i.i
-  %35 = getelementptr inbounds nuw { [11 x i64] }, ptr %32, i64 %.sroa.8.022.ph.i.i
+  %34 = getelementptr inbounds nuw i64, ptr %31, i64 %.sroa.6.sroa.4.0.ph.i.i
+  %35 = getelementptr inbounds nuw { [11 x i64] }, ptr %32, i64 %.sroa.6.sroa.4.0.ph.i.i
   %36 = insertvalue { ptr, ptr } poison, ptr %34, 0
   %37 = insertvalue { ptr, ptr } %36, ptr %35, 1
   ret { ptr, ptr } %37

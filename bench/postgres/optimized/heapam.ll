@@ -6048,8 +6048,8 @@ BufferGetPage.exit:                               ; preds = %58, %64
   %70 = getelementptr i8, ptr %.0.i.i, i64 10
   %.val350 = load i16, ptr %70, align 2
   %71 = and i16 %.val350, 4
-  %.not494 = icmp eq i16 %71, 0
-  br i1 %.not494, label %73, label %72
+  %.not493 = icmp eq i16 %71, 0
+  br i1 %.not493, label %73, label %72
 
 72:                                               ; preds = %BufferGetPage.exit
   call void @visibilitymap_pin(ptr noundef %0, i32 noundef %55, ptr noundef nonnull %24) #13
@@ -6249,7 +6249,7 @@ HeapDetermineColumnsInfo.exit:                    ; preds = %151, %87
 
 165:                                              ; preds = %.lr.ph, %.backedge
   %166 = phi i32 [ %159, %.lr.ph ], [ %311, %.backedge ]
-  %.0411518 = phi i8 [ 0, %.lr.ph ], [ %.0411.be, %.backedge ]
+  %.0411517 = phi i8 [ 0, %.lr.ph ], [ %.0411.be, %.backedge ]
   %167 = icmp eq i32 %166, 5
   %or.cond = and i1 %5, %167
   br i1 %or.cond, label %168, label %.thread441
@@ -6270,12 +6270,12 @@ HeapDetermineColumnsInfo.exit:                    ; preds = %151, %87
   store i8 0, ptr %31, align 1
   %175 = load i32, ptr %7, align 4
   %176 = call fastcc zeroext i1 @DoesMultiXactIdConflict(i32 noundef %.val357, i16 noundef zeroext %172, i32 noundef %175, ptr noundef nonnull %31)
-  br i1 %176, label %177, label %._crit_edge527
+  br i1 %176, label %177, label %._crit_edge526
 
-._crit_edge527:                                   ; preds = %174
+._crit_edge526:                                   ; preds = %174
   %.pre = load ptr, ptr %94, align 8
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 20
-  %.pre528 = load i16, ptr %.phi.trans.insert, align 4
+  %.pre527 = load i16, ptr %.phi.trans.insert, align 4
   br label %198
 
 177:                                              ; preds = %174
@@ -6285,7 +6285,7 @@ HeapDetermineColumnsInfo.exit:                    ; preds = %151, %87
   br i1 %179, label %heap_acquire_tuplock.exit, label %180
 
 180:                                              ; preds = %177
-  %181 = trunc nuw i8 %.0411518 to i1
+  %181 = trunc nuw i8 %.0411517 to i1
   br i1 %181, label %heap_acquire_tuplock.exit, label %182
 
 182:                                              ; preds = %180
@@ -6297,7 +6297,7 @@ HeapDetermineColumnsInfo.exit:                    ; preds = %151, %87
   br label %heap_acquire_tuplock.exit
 
 heap_acquire_tuplock.exit:                        ; preds = %182, %180, %177
-  %.3414 = phi i8 [ %.0411518, %177 ], [ 1, %180 ], [ 1, %182 ]
+  %.3414 = phi i8 [ %.0411517, %177 ], [ 1, %180 ], [ 1, %182 ]
   %187 = call fastcc zeroext i1 @Do_MultiXactIdWait(i32 noundef %.val357, i32 noundef range(i32 0, 6) %.0313, i16 noundef zeroext %172, i1 noundef zeroext false, ptr noundef %0, ptr noundef nonnull %97, i32 noundef 1, ptr noundef nonnull %30)
   %188 = load i32, ptr %30, align 4
   call void @LockBuffer(i32 noundef %56, i32 noundef 2) #13
@@ -6316,10 +6316,10 @@ heap_acquire_tuplock.exit:                        ; preds = %182, %180, %177
   %197 = icmp eq i32 %.val356, %.val357
   br i1 %197, label %198, label %224
 
-198:                                              ; preds = %._crit_edge527, %194
-  %199 = phi i16 [ %191, %194 ], [ %.pre528, %._crit_edge527 ]
+198:                                              ; preds = %._crit_edge526, %194
+  %199 = phi i16 [ %191, %194 ], [ %.pre527, %._crit_edge527 ]
   %200 = phi ptr [ %189, %194 ], [ %.pre, %._crit_edge527 ]
-  %.2413 = phi i8 [ %.3414, %194 ], [ %.0411518, %._crit_edge527 ]
+  %.2413 = phi i8 [ %.3414, %194 ], [ %.0411517, %._crit_edge527 ]
   %.1295 = phi i1 [ %195, %194 ], [ false, %._crit_edge527 ]
   %201 = zext i16 %199 to i32
   %202 = and i32 %201, 128
@@ -6384,7 +6384,7 @@ heap_acquire_tuplock.exit:                        ; preds = %182, %180, %177
 .thread424:                                       ; preds = %220
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
-  %.pre529 = load ptr, ptr %94, align 8
+  %.pre528 = load ptr, ptr %94, align 8
   br label %.thread485
 
 224:                                              ; preds = %heap_acquire_tuplock.exit, %194
@@ -6404,7 +6404,7 @@ heap_acquire_tuplock.exit:                        ; preds = %182, %180, %177
 
 230:                                              ; preds = %227
   call void @LockBuffer(i32 noundef %56, i32 noundef 0) #13
-  %231 = trunc nuw i8 %.0411518 to i1
+  %231 = trunc nuw i8 %.0411517 to i1
   br i1 %231, label %heap_acquire_tuplock.exit372, label %232
 
 232:                                              ; preds = %230
@@ -6467,7 +6467,7 @@ heap_acquire_tuplock.exit372:                     ; preds = %230, %232
   br i1 %.not327.not, label %.thread485, label %.thread441
 
 .thread485:                                       ; preds = %258, %.thread424
-  %263 = phi ptr [ %.pre529, %.thread424 ], [ %259, %258 ]
+  %263 = phi ptr [ %.pre528, %.thread424 ], [ %259, %258 ]
   %.6437 = phi i8 [ %.2413, %.thread424 ], [ 1, %258 ]
   %264 = getelementptr inbounds nuw i8, ptr %263, i64 12
   %265 = call zeroext i1 @ItemPointerEquals(ptr noundef nonnull %97, ptr noundef nonnull %264) #13
@@ -6475,7 +6475,7 @@ heap_acquire_tuplock.exit372:                     ; preds = %230, %232
   br label %.thread450
 
 .thread441:                                       ; preds = %227, %225, %.thread424.thread, %258, %165
-  %.1412 = phi i8 [ %.0411518, %165 ], [ %.2413, %.thread424.thread ], [ 1, %258 ], [ %.0411518, %227 ], [ %.0411518, %225 ]
+  %.1412 = phi i8 [ %.0411517, %165 ], [ %.2413, %.thread424.thread ], [ 1, %258 ], [ %.0411517, %227 ], [ %.0411517, %225 ]
   %.0298 = phi i1 [ true, %165 ], [ %223, %.thread424.thread ], [ false, %258 ], [ true, %227 ], [ true, %225 ]
   %.0283 = phi i32 [ %166, %165 ], [ 0, %.thread424.thread ], [ 0, %258 ], [ 0, %227 ], [ 0, %225 ]
   %266 = icmp eq i32 %.0283, 0
@@ -6591,8 +6591,8 @@ HeapTupleHeaderGetUpdateXid.exit:                 ; preds = %.thread450, %HeapTu
 307:                                              ; preds = %.thread447
   %.val349 = load i16, ptr %70, align 2
   %308 = and i16 %.val349, 4
-  %.not496 = icmp eq i16 %308, 0
-  br i1 %.not496, label %313, label %309
+  %.not495 = icmp eq i16 %308, 0
+  br i1 %.not495, label %313, label %309
 
 309:                                              ; preds = %307
   call void @LockBuffer(i32 noundef %56, i32 noundef 0) #13
@@ -6779,8 +6779,8 @@ GetMultiXactIdHintBits.exit:                      ; preds = %332, %350, %351, %3
   %392 = getelementptr i8, ptr %.val362, i64 20
   %.val362.val = load i16, ptr %392, align 4
   %393 = and i16 %.val362.val, 4
-  %.not497 = icmp eq i16 %393, 0
-  br i1 %.not497, label %394, label %397
+  %.not496 = icmp eq i16 %393, 0
+  br i1 %.not496, label %394, label %397
 
 394:                                              ; preds = %391
   %395 = load i32, ptr %2, align 8
@@ -6862,8 +6862,8 @@ GetMultiXactIdHintBits.exit:                      ; preds = %332, %350, %351, %3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %447, ptr noundef nonnull align 4 dereferenceable(6) %97, i64 6, i1 false)
   %.val348 = load i16, ptr %70, align 2
   %448 = and i16 %.val348, 4
-  %.not498 = icmp eq i16 %448, 0
-  br i1 %.not498, label %452, label %449
+  %.not497 = icmp eq i16 %448, 0
+  br i1 %.not497, label %452, label %449
 
 449:                                              ; preds = %404
   %450 = load i32, ptr %24, align 4
@@ -6960,30 +6960,30 @@ GetMultiXactIdHintBits.exit:                      ; preds = %332, %350, %351, %3
   %.0309 = phi i64 [ %505, %500 ], [ %402, %497 ]
   %.0289 = phi ptr [ %501, %500 ], [ %2, %497 ]
   %507 = icmp ugt i64 %.0309, %398
-  br i1 %507, label %._crit_edge521, label %.lr.ph520
+  br i1 %507, label %._crit_edge520, label %.lr.ph519
 
-._crit_edge521:                                   ; preds = %.thread, %506
+._crit_edge520:                                   ; preds = %.thread, %506
   %508 = load i32, ptr %.0289, align 8
   %509 = zext i32 %508 to i64
   %510 = call i32 @RelationGetBufferForTuple(ptr noundef %0, i64 noundef %509, i32 noundef %56, i32 noundef 0, ptr noundef null, ptr noundef nonnull %25, ptr noundef nonnull %24, i32 noundef 0) #13
   br label %.loopexit
 
-.lr.ph520:                                        ; preds = %506, %524
+.lr.ph519:                                        ; preds = %506, %524
   %511 = load i32, ptr %24, align 4
   %512 = icmp eq i32 %511, 0
   br i1 %512, label %513, label %516
 
-513:                                              ; preds = %.lr.ph520
+513:                                              ; preds = %.lr.ph519
   %.val347 = load i16, ptr %70, align 2
   %514 = and i16 %.val347, 4
-  %.not499 = icmp eq i16 %514, 0
-  br i1 %.not499, label %516, label %515
+  %.not498 = icmp eq i16 %514, 0
+  br i1 %.not498, label %516, label %515
 
 515:                                              ; preds = %513
   call void @visibilitymap_pin(ptr noundef %0, i32 noundef %55, ptr noundef nonnull %24) #13
   br label %516
 
-516:                                              ; preds = %515, %513, %.lr.ph520
+516:                                              ; preds = %515, %513, %.lr.ph519
   call void @LockBuffer(i32 noundef %56, i32 noundef 2) #13
   %517 = call i64 @PageGetHeapFreeSpace(ptr noundef nonnull %.0.i.i) #13
   %518 = icmp ugt i64 %.0309, %517
@@ -6991,7 +6991,7 @@ GetMultiXactIdHintBits.exit:                      ; preds = %332, %350, %351, %3
 
 .thread:                                          ; preds = %516
   call void @LockBuffer(i32 noundef %56, i32 noundef 0) #13
-  br label %._crit_edge521
+  br label %._crit_edge520
 
 519:                                              ; preds = %516
   %520 = load i32, ptr %24, align 4
@@ -7001,14 +7001,14 @@ GetMultiXactIdHintBits.exit:                      ; preds = %332, %350, %351, %3
 522:                                              ; preds = %519
   %.val346 = load i16, ptr %70, align 2
   %523 = and i16 %.val346, 4
-  %.not500 = icmp eq i16 %523, 0
-  br i1 %.not500, label %.loopexit, label %524
+  %.not499 = icmp eq i16 %523, 0
+  br i1 %.not499, label %.loopexit, label %524
 
 524:                                              ; preds = %522
   call void @LockBuffer(i32 noundef %56, i32 noundef 0) #13
-  br label %.lr.ph520
+  br label %.lr.ph519
 
-.loopexit:                                        ; preds = %519, %522, %._crit_edge521
+.loopexit:                                        ; preds = %519, %522, %._crit_edge520
   %.0311 = phi i32 [ %510, %._crit_edge521 ], [ %56, %522 ], [ %56, %519 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %34)
   call void @llvm.lifetime.end.p0(ptr nonnull %33)
@@ -7151,8 +7151,8 @@ BufferGetPage.exit380:                            ; preds = %566
   %604 = getelementptr i8, ptr %603, i64 10
   %.val345 = load i16, ptr %604, align 2
   %605 = and i16 %.val345, 4
-  %.not502 = icmp eq i16 %605, 0
-  br i1 %.not502, label %619, label %BufferGetPage.exit382
+  %.not501 = icmp eq i16 %605, 0
+  br i1 %.not501, label %619, label %BufferGetPage.exit382
 
 BufferGetPage.exit380.thread:                     ; preds = %566
   %606 = load ptr, ptr @BufferBlocks, align 8
@@ -7163,8 +7163,8 @@ BufferGetPage.exit380.thread:                     ; preds = %566
   %611 = getelementptr i8, ptr %610, i64 10
   %.val345461 = load i16, ptr %611, align 2
   %612 = and i16 %.val345461, 4
-  %.not501 = icmp eq i16 %612, 0
-  br i1 %.not501, label %619, label %BufferGetPage.exit382
+  %.not500 = icmp eq i16 %612, 0
+  br i1 %.not500, label %619, label %BufferGetPage.exit382
 
 BufferGetPage.exit382:                            ; preds = %BufferGetPage.exit380.thread, %BufferGetPage.exit380
   %613 = phi i16 [ %.val345, %BufferGetPage.exit380 ], [ %.val345461, %BufferGetPage.exit380.thread ]
@@ -7195,8 +7195,8 @@ BufferGetPage.exit384:                            ; preds = %621
   %628 = getelementptr i8, ptr %627, i64 10
   %.val = load i16, ptr %628, align 2
   %629 = and i16 %.val, 4
-  %.not504 = icmp eq i16 %629, 0
-  br i1 %.not504, label %643, label %BufferGetPage.exit386
+  %.not503 = icmp eq i16 %629, 0
+  br i1 %.not503, label %643, label %BufferGetPage.exit386
 
 BufferGetPage.exit384.thread:                     ; preds = %621
   %630 = load ptr, ptr @BufferBlocks, align 8
@@ -7207,8 +7207,8 @@ BufferGetPage.exit384.thread:                     ; preds = %621
   %635 = getelementptr i8, ptr %634, i64 10
   %.val464 = load i16, ptr %635, align 2
   %636 = and i16 %.val464, 4
-  %.not503 = icmp eq i16 %636, 0
-  br i1 %.not503, label %643, label %BufferGetPage.exit386
+  %.not502 = icmp eq i16 %636, 0
+  br i1 %.not502, label %643, label %BufferGetPage.exit386
 
 BufferGetPage.exit386:                            ; preds = %BufferGetPage.exit384.thread, %BufferGetPage.exit384
   %637 = phi i16 [ %.val, %BufferGetPage.exit384 ], [ %.val464, %BufferGetPage.exit384.thread ]
@@ -7253,8 +7253,8 @@ BufferGetPage.exit386:                            ; preds = %BufferGetPage.exit3
   br i1 %659, label %.thread471, label %925
 
 660:                                              ; preds = %649
-  %.not505 = icmp eq i32 %650, 1
-  br i1 %.not505, label %.thread471, label %661
+  %.not504 = icmp eq i32 %650, 1
+  br i1 %.not504, label %.thread471, label %661
 
 661:                                              ; preds = %660
   %662 = call zeroext i1 @IsCatalogRelation(ptr noundef nonnull %0) #13
@@ -7457,14 +7457,14 @@ BufferGetPage.exit.i:                             ; preds = %682, %676
   %spec.select153.i = select i1 %.not98.i, i8 %spec.select114.i, i8 %763
   %.not99.i = icmp eq i16 %760, 0
   %764 = or disjoint i8 %spec.select153.i, 64
-  %spec.select567 = select i1 %.not99.i, i8 %spec.select153.i, i8 %764
+  %spec.select492 = select i1 %.not99.i, i8 %spec.select153.i, i8 %764
   br label %765
 
 765:                                              ; preds = %759, %.thread150.i
   %766 = phi i16 [ 0, %.thread150.i ], [ %760, %759 ]
   %767 = phi i16 [ 0, %.thread150.i ], [ %738, %759 ]
   %768 = phi ptr [ %757, %.thread150.i ], [ %761, %759 ]
-  %769 = phi i8 [ %spec.select114148.i, %.thread150.i ], [ %spec.select567, %759 ]
+  %769 = phi i8 [ %spec.select114148.i, %.thread150.i ], [ %spec.select492, %759 ]
   store i8 %769, ptr %768, align 1
   br i1 %702, label %770, label %777
 
@@ -7767,8 +7767,8 @@ BufferGetPage.exit400:                            ; preds = %909, %915
 929:                                              ; preds = %.critedge, %928
   call void @ReleaseBuffer(i32 noundef %56) #13
   %930 = load i32, ptr %25, align 4
-  %.not506 = icmp eq i32 %930, 0
-  br i1 %.not506, label %932, label %931
+  %.not505 = icmp eq i32 %930, 0
+  br i1 %.not505, label %932, label %931
 
 931:                                              ; preds = %929
   call void @ReleaseBuffer(i32 noundef %930) #13
@@ -7776,8 +7776,8 @@ BufferGetPage.exit400:                            ; preds = %909, %915
 
 932:                                              ; preds = %931, %929
   %933 = load i32, ptr %24, align 4
-  %.not507 = icmp eq i32 %933, 0
-  br i1 %.not507, label %935, label %934
+  %.not506 = icmp eq i32 %933, 0
+  br i1 %.not506, label %935, label %934
 
 934:                                              ; preds = %932
   call void @ReleaseBuffer(i32 noundef %933) #13
@@ -7807,8 +7807,8 @@ BufferGetPage.exit400:                            ; preds = %909, %915
   br label %945
 
 945:                                              ; preds = %943, %942
-  %.sink568 = select i1 %.0307, i32 %.0306, i32 1
-  store i32 %.sink568, ptr %8, align 4
+  %.sink566 = select i1 %.0307, i32 %.0306, i32 1
+  store i32 %.sink566, ptr %8, align 4
   %946 = icmp ne ptr %539, null
   %947 = load i8, ptr %23, align 1, !range !6
   %948 = trunc nuw i8 %947 to i1
@@ -7824,9 +7824,9 @@ BufferGetPage.exit400:                            ; preds = %909, %915
   br label %951
 
 951:                                              ; preds = %950, %304, %84
-  %.sink571 = phi ptr [ %44, %950 ], [ %44, %304 ], [ %43, %84 ]
-  %.sink570 = phi ptr [ %45, %950 ], [ %45, %304 ], [ %44, %84 ]
-  %.sink569 = phi ptr [ %46, %950 ], [ %46, %304 ], [ %45, %84 ]
+  %.sink569 = phi ptr [ %44, %950 ], [ %44, %304 ], [ %43, %84 ]
+  %.sink568 = phi ptr [ %45, %950 ], [ %45, %304 ], [ %44, %84 ]
+  %.sink567 = phi ptr [ %46, %950 ], [ %46, %304 ], [ %45, %84 ]
   %.034.lcssa.i.sink = phi ptr [ %.034.lcssa.i, %950 ], [ %.034.lcssa.i, %304 ], [ %46, %84 ]
   %.0 = phi i32 [ 0, %950 ], [ %.3453, %304 ], [ 4, %84 ]
   call void @bms_free(ptr noundef %.sink571) #13

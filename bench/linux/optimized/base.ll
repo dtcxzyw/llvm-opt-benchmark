@@ -5929,8 +5929,8 @@ define internal i32 @proc_map_files_readdir(ptr noundef readonly captures(none) 
   store ptr null, ptr %58, align 8
   br label %59
 
-59:                                               ; preds = %83, %52
-  %60 = phi i64 [ %85, %83 ], [ 0, %52 ]
+59:                                               ; preds = %84, %52
+  %60 = phi i64 [ %86, %83 ], [ 0, %52 ]
   %61 = phi i64 [ %72, %83 ], [ 2, %52 ]
   br label %62
 
@@ -5941,7 +5941,7 @@ define internal i32 @proc_map_files_readdir(ptr noundef readonly captures(none) 
 64:                                               ; preds = %67, %62
   %65 = call ptr @mas_find(ptr noundef nonnull %4, i64 noundef -1) #18
   %66 = icmp eq ptr %65, null
-  br i1 %66, label %94, label %67
+  br i1 %66, label %95, label %67
 
 67:                                               ; preds = %64
   %68 = getelementptr inbounds nuw i8, ptr %65, i64 136
@@ -5969,41 +5969,41 @@ define internal i32 @proc_map_files_readdir(ptr noundef readonly captures(none) 
   call void @mmput(ptr noundef nonnull %40) #18
   br label %.loopexit
 
-83:                                               ; preds = %75
-  %84 = getelementptr inbounds nuw i8, ptr %65, i64 136
-  %85 = add i64 %60, 1
-  %86 = load i64, ptr %65, align 8
-  store i64 %86, ptr %80, align 8
-  %87 = getelementptr inbounds nuw i8, ptr %65, i64 8
-  %88 = load i64, ptr %87, align 8
-  %89 = getelementptr inbounds nuw i8, ptr %80, i64 8
-  store i64 %88, ptr %89, align 8
-  %90 = load ptr, ptr %84, align 8
-  %91 = getelementptr inbounds nuw i8, ptr %90, i64 20
-  %92 = load i32, ptr %91, align 4
-  %93 = getelementptr inbounds nuw i8, ptr %80, i64 16
-  store i32 %92, ptr %93, align 8
+84:                                               ; preds = %75
+  %85 = getelementptr inbounds nuw i8, ptr %65, i64 136
+  %86 = add i64 %60, 1
+  %87 = load i64, ptr %65, align 8
+  store i64 %87, ptr %80, align 8
+  %88 = getelementptr inbounds nuw i8, ptr %65, i64 8
+  %89 = load i64, ptr %88, align 8
+  %90 = getelementptr inbounds nuw i8, ptr %80, i64 8
+  store i64 %89, ptr %90, align 8
+  %91 = load ptr, ptr %85, align 8
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 20
+  %93 = load i32, ptr %92, align 4
+  %94 = getelementptr inbounds nuw i8, ptr %80, i64 16
+  store i32 %93, ptr %94, align 8
   br label %59, !llvm.loop !51
 
-94:                                               ; preds = %64
+95:                                               ; preds = %64
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_mmap_lock_released, i64 8), i32 2) #18
           to label %96 [label %95], !srcloc !34
 
-95:                                               ; preds = %94
+96:                                               ; preds = %95
   call void @__mmap_lock_do_trace_released(ptr noundef nonnull %40, i1 noundef zeroext false) #18
-  br label %96
+  br label %97
 
-96:                                               ; preds = %95, %94
+97:                                               ; preds = %96, %95
   call void @up_read(ptr noundef nonnull %45) #18
   call void @mmput(ptr noundef nonnull %40) #18
-  %97 = icmp eq i64 %60, 0
-  br i1 %97, label %.loopexit, label %.preheader
+  %98 = icmp eq i64 %60, 0
+  br i1 %98, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %96, %113
-  %98 = phi i64 [ %116, %113 ], [ 0, %96 ]
+.preheader:                                       ; preds = %97, %113
+  %99 = phi i64 [ %118, %113 ], [ 0, %96 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(34) %5, i8 0, i64 34, i1 false), !annotation !10
-  %99 = udiv i64 %98, 170
+  %100 = udiv i64 %99, 170
   %100 = mul i64 %98, 24
   %101 = shl nuw nsw i64 %99, 4
   %102 = add i64 %101, %100
@@ -6019,45 +6019,45 @@ define internal i32 @proc_map_files_readdir(ptr noundef readonly captures(none) 
   %112 = call zeroext i1 @proc_fill_cache(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %5, i32 noundef %107, ptr noundef nonnull @proc_map_files_instantiate, ptr noundef nonnull %10, ptr noundef %111)
   br i1 %112, label %113, label %118
 
-113:                                              ; preds = %.preheader
+113:; preds = %.preheader
   %114 = load i64, ptr %15, align 8
   %115 = add i64 %114, 1
   store i64 %115, ptr %15, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %116 = add nuw i64 %98, 1
-  %117 = icmp eq i64 %116, %60
-  br i1 %117, label %.loopexit, label %.preheader, !llvm.loop !52
+  %118 = add nuw i64 %99, 1
+  %119 = icmp eq i64 %118, %60
+  br i1 %119, label %.loopexit, label %.preheader, !llvm.loop !52
 
-118:                                              ; preds = %.preheader
+120:                                              ; preds = %.preheader
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %113, %118, %96, %82, %51, %39, %26, %17, %12
-  %119 = phi i32 [ %46, %51 ], [ -12, %82 ], [ 0, %39 ], [ -13, %12 ], [ 0, %26 ], [ 0, %17 ], [ 0, %118 ], [ 0, %96 ], [ 0, %113 ]
-  %120 = getelementptr inbounds nuw i8, ptr %10, i64 40
-  %121 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %120, i32 -1, ptr nonnull elementtype(i32) %120) #18, !srcloc !6
-  %122 = icmp eq i32 %121, 1
-  br i1 %122, label %126, label %123
+.loopexit:                                        ; preds = %113, %120, %97, %82, %51, %39, %26, %17, %12
+  %121 = phi i32 [ %46, %51 ], [ -12, %82 ], [ 0, %39 ], [ -13, %12 ], [ 0, %26 ], [ 0, %17 ], [ 0, %118 ], [ 0, %96 ], [ 0, %113 ]
+  %122 = getelementptr inbounds nuw i8, ptr %10, i64 40
+  %123 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %122, i32 -1, ptr nonnull elementtype(i32) %122) #18, !srcloc !6
+  %124 = icmp eq i32 %123, 1
+  br i1 %124, label %128, label %125
 
-123:                                              ; preds = %.loopexit
-  %124 = icmp sgt i32 %121, 0
-  br i1 %124, label %.thread10, label %125, !prof !7
+125:                                              ; preds = %.loopexit
+  %126 = icmp sgt i32 %123, 0
+  br i1 %126, label %.thread10, label %127, !prof !7
 
-125:                                              ; preds = %123
-  call void @refcount_warn_saturate(ptr noundef nonnull %120, i32 noundef 3) #18
+127:                                              ; preds = %125
+  call void @refcount_warn_saturate(ptr noundef nonnull %122, i32 noundef 3) #18
   br label %.thread10
 
-126:                                              ; preds = %.loopexit
+128:                                              ; preds = %.loopexit
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !8
   call void @__put_task_struct(ptr noundef nonnull %10) #18
   br label %.thread10
 
-.thread10:                                        ; preds = %123, %125, %126, %2
-  %127 = phi i32 [ -2, %2 ], [ %119, %126 ], [ %119, %125 ], [ %119, %123 ]
+.thread10:                                        ; preds = %125, %127, %128, %2
+  %129 = phi i32 [ -2, %2 ], [ %121, %126 ], [ %121, %125 ], [ %119, %123 ]
   call void @__genradix_free(ptr noundef nonnull %3) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  ret i32 %127
+  ret i32 %129
 }
 
 ; Function Attrs: null_pointer_is_valid

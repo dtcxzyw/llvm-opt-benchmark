@@ -1223,15 +1223,15 @@ _ZN20btAlignedObjectArrayI27btMultiBodySolverConstraintE21expandNonInitializingE
   %551 = load float, ptr %548, align 4, !tbaa !28
   %.sroa.0.0.vec.insert.i105 = insertelement <2 x float> poison, float %551, i64 0
   %552 = load float, ptr %549, align 4, !tbaa !28
-  %.sroa.0.4.vec.insert.i106 = insertelement <2 x float> %.sroa.0.0.vec.insert.i105, float %552, i64 1
+  %.sroa.0.0.vec.insert.i105 = insertelement <2 x float> %.sroa.0.0.vec.insert.i105, float %552, i64 1
   %553 = load float, ptr %550, align 4, !tbaa !28
-  %.sroa.3.12.vec.insert.i107 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %553, i64 0
+  %.sroa.0.4.vec.insert.i106 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %553, i64 0
   store <2 x float> %.sroa.0.4.vec.insert.i106, ptr %14, align 8
   store <2 x float> %.sroa.3.12.vec.insert.i107, ptr %471, align 8, !tbaa !24
   %554 = getelementptr inbounds nuw float, ptr %12, i64 %547
   %555 = load float, ptr %554, align 4, !tbaa !28
-  %556 = load float, ptr %472, align 4, !tbaa !102
-  %557 = fneg float %556
+  %557 = load float, ptr %472, align 4, !tbaa !102
+  %557 = fneg float %557
   %558 = call noundef float @_ZN21btMultiBodyConstraint23fillMultiBodyConstraintER27btMultiBodySolverConstraintR23btMultiBodyJacobianDataPfS4_RK9btVector3S7_S7_S7_fRK19btContactSolverInfoffbfbfff(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(220) %505, ptr noundef nonnull align 8 dereferenceable(204) %2, ptr noundef null, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(16) %14, ptr noundef nonnull align 4 dereferenceable(16) %13, ptr noundef nonnull align 4 dereferenceable(16) %5, ptr noundef nonnull align 4 dereferenceable(16) %8, float noundef %555, ptr noundef nonnull align 4 dereferenceable(128) %3, float noundef %557, float noundef %556, i1 noundef zeroext true, float noundef 1.000000e+00, i1 noundef zeroext false, float noundef 0.000000e+00, float noundef 0.000000e+00, float noundef 1.000000e+00)
   br label %559
 

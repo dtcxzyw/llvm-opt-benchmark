@@ -411,7 +411,7 @@ define internal noundef i32 @f(double noundef %0, ptr noundef %1, ptr noundef %2
   %26 = load double, ptr %25, align 8, !tbaa !17
   br label %27
 
-27:                                               ; preds = %18, %128
+27:                                               ; preds = %18, %127
   %indvars.iv127 = phi i64 [ 0, %18 ], [ %indvars.iv.next128, %128 ]
   %28 = trunc nuw nsw i64 %indvars.iv127 to i32
   %29 = uitofp nneg i32 %28 to double
@@ -530,14 +530,14 @@ define internal noundef i32 @f(double noundef %0, ptr noundef %1, ptr noundef %2
   store double %126, ptr %127, align 8, !tbaa !19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 10
-  br i1 %exitcond.not, label %128, label %51
+  br i1 %exitcond.not, label %127, label %51
 
-128:                                              ; preds = %51
+127:                                              ; preds = %51
   %indvars.iv.next128 = add nuw nsw i64 %indvars.iv127, 1
   %exitcond130.not = icmp eq i64 %indvars.iv.next128, 10
-  br i1 %exitcond130.not, label %129, label %27
+  br i1 %exitcond130.not, label %128, label %27
 
-129:                                              ; preds = %128
+128:                                              ; preds = %127
   ret i32 0
 }
 

@@ -4195,9 +4195,9 @@ _ZN6diesel2pg10connection6result8PgResult11column_name17h4e51df2a551f9a16E.exit.
   br i1 %exitcond.not.i, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h365a203532d88473E.exit, label %.lr.ph.i
 
 _ZN4core4iter6traits8iterator8Iterator8try_fold17h365a203532d88473E.exit: ; preds = %"_ZN91_$LT$diesel..pg..connection..row..PgRow$u20$as$u20$diesel..row..RowIndex$LT$$RF$str$GT$$GT$3idx28_$u7b$$u7b$closure$u7d$$u7d$17h288e6162732f0fecE.exit.i.i", %.backedge.i, %3
-  %.lcssa.i = phi i64 [ 0, %3 ], [ %9, %"_ZN91_$LT$diesel..pg..connection..row..PgRow$u20$as$u20$diesel..row..RowIndex$LT$$RF$str$GT$$GT$3idx28_$u7b$$u7b$closure$u7d$$u7d$17h288e6162732f0fecE.exit.i.i" ], [ %6, %.backedge.i ]
-  %.sroa.0.0.i = phi i64 [ 0, %3 ], [ 1, %"_ZN91_$LT$diesel..pg..connection..row..PgRow$u20$as$u20$diesel..row..RowIndex$LT$$RF$str$GT$$GT$3idx28_$u7b$$u7b$closure$u7d$$u7d$17h288e6162732f0fecE.exit.i.i" ], [ 0, %.backedge.i ]
-  %20 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
+  %.pn = phi i64 [ 0, %3 ], [ %9, %"_ZN91_$LT$diesel..pg..connection..row..PgRow$u20$as$u20$diesel..row..RowIndex$LT$$RF$str$GT$$GT$3idx28_$u7b$$u7b$closure$u7d$$u7d$17h288e6162732f0fecE.exit.i.i" ], [ %6, %.backedge.i ]
+  %20 = phi i64 [ 0, %3 ], [ 1, %"_ZN91_$LT$diesel..pg..connection..row..PgRow$u20$as$u20$diesel..row..RowIndex$LT$$RF$str$GT$$GT$3idx28_$u7b$$u7b$closure$u7d$$u7d$17h288e6162732f0fecE.exit.i.i" ], [ 0, %.backedge.i ]
+  %21 = insertvalue { i64, i64 } poison, i64 %20, 0
   %21 = insertvalue { i64, i64 } %20, i64 %.lcssa.i, 1
   ret { i64, i64 } %21
 }

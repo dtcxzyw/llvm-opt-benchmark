@@ -71,10 +71,10 @@ define internal range(i32 -22, 1) i32 @decode_init(ptr noundef %0) #0 {
   %27 = load i32, ptr %21, align 4, !tbaa !33
   %28 = add nsw i32 %27, 2
   %.rhs.trunc39 = trunc nuw nsw i32 %26 to i16
-  %29 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  br label %30
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  br label %31
 
-30:                                               ; preds = %14, %30
+31:                                               ; preds = %14, %31
   %indvars.iv = phi i64 [ 0, %14 ], [ %indvars.iv.next, %30 ]
   %.lhs.trunc = trunc i64 %indvars.iv to i16
   %31 = udiv i16 %.lhs.trunc, 3
@@ -100,9 +100,9 @@ define internal range(i32 -22, 1) i32 @decode_init(ptr noundef %0) #0 {
   store i16 %45, ptr %46, align 2, !tbaa !38
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 2000
-  br i1 %exitcond.not, label %.loopexit, label %30, !llvm.loop !40
+  br i1 %exitcond.not, label %.loopexit, label %31, !llvm.loop !40
 
-.loopexit:                                        ; preds = %30, %8
+.loopexit:                                        ; preds = %31, %8
   %.0 = phi i32 [ -22, %8 ], [ 0, %30 ]
   ret i32 %.0
 }

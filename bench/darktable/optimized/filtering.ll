@@ -4166,7 +4166,7 @@ define internal range(i32 0, 2) i32 @_colors_update(ptr noundef %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %3 = load ptr, ptr %2, align 8, !tbaa !124
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %84, label %4
+  br i1 %.not, label %80, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 360
@@ -4227,36 +4227,36 @@ _get_mask.exit.split.us:                          ; preds = %_get_mask.exit, %_g
 
 .split.us:                                        ; preds = %_get_mask.exit.split, %_get_mask.exit.split.us
   %.us-phi = phi i32 [ %.1.us, %_get_mask.exit.split.us ], [ %.1, %_get_mask.exit.split ]
-  %34 = icmp samesign ult i32 %.us-phi, 2
-  br i1 %34, label %56, label %64
+  %32 = icmp samesign ult i32 %.us-phi, 2
+  br i1 %32, label %52, label %60
 
 _get_mask.exit.split:                             ; preds = %_get_mask.exit, %_get_mask.exit.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %_get_mask.exit.split ], [ 0, %_get_mask.exit ]
   %.04760 = phi i32 [ %.1, %_get_mask.exit.split ], [ 0, %_get_mask.exit ]
   %.04859 = phi i32 [ %55, %_get_mask.exit.split ], [ 1, %_get_mask.exit ]
   %.04958 = phi i32 [ %54, %_get_mask.exit.split ], [ 4096, %_get_mask.exit ]
-  %35 = and i32 %.04958, %.0.i
-  %.not54 = icmp eq i32 %35, 0
-  %36 = and i32 %.04859, %.0.i
-  %.not55 = icmp eq i32 %36, 0
-  %37 = select i1 %.not55, i32 0, i32 4096
-  %38 = select i1 %.not54, i32 %37, i32 8192
-  %39 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv
-  %40 = load ptr, ptr %39, align 8, !tbaa !6
-  %41 = tail call i64 @dtgtk_button_get_type() #21
-  %42 = tail call ptr @g_type_check_instance_cast(ptr noundef %40, i64 noundef %41) #21
-  %43 = trunc nuw nsw i64 %indvars.iv to i32
-  %44 = or disjoint i32 %38, %43
-  tail call void @dtgtk_button_set_paint(ptr noundef %42, ptr noundef nonnull @dtgtk_cairo_paint_label_sel, i32 noundef %44, ptr noundef null) #21
-  %45 = load ptr, ptr %39, align 8, !tbaa !6
-  tail call void @gtk_widget_queue_draw(ptr noundef %45) #21
-  %46 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv
-  %47 = load ptr, ptr %46, align 8, !tbaa !6
-  %48 = tail call i64 @dtgtk_button_get_type() #21
-  %49 = tail call ptr @g_type_check_instance_cast(ptr noundef %47, i64 noundef %48) #21
-  tail call void @dtgtk_button_set_paint(ptr noundef %49, ptr noundef nonnull @dtgtk_cairo_paint_label_sel, i32 noundef %44, ptr noundef null) #21
-  %50 = load ptr, ptr %46, align 8, !tbaa !6
-  tail call void @gtk_widget_queue_draw(ptr noundef %50) #21
+  %33 = and i32 %.04958, %.0.i
+  %.not54 = icmp eq i32 %33, 0
+  %34 = and i32 %.04859, %.0.i
+  %.not55 = icmp eq i32 %34, 0
+  %35 = select i1 %.not55, i32 0, i32 4096
+  %36 = select i1 %.not54, i32 %37, i32 8192
+  %37 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv
+  %38 = load ptr, ptr %37, align 8, !tbaa !6
+  %39 = tail call i64 @dtgtk_button_get_type() #21
+  %40 = tail call ptr @g_type_check_instance_cast(ptr noundef %38, i64 noundef %39) #21
+  %41 = trunc nuw nsw i64 %indvars.iv to i32
+  %42 = or disjoint i32 %36, %41
+  tail call void @dtgtk_button_set_paint(ptr noundef %40, ptr noundef nonnull @dtgtk_cairo_paint_label_sel, i32 noundef %42, ptr noundef null) #21
+  %43 = load ptr, ptr %37, align 8, !tbaa !6
+  tail call void @gtk_widget_queue_draw(ptr noundef %43) #21
+  %44 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv
+  %45 = load ptr, ptr %44, align 8, !tbaa !6
+  %46 = tail call i64 @dtgtk_button_get_type() #21
+  %47 = tail call ptr @g_type_check_instance_cast(ptr noundef %45, i64 noundef %46) #21
+  tail call void @dtgtk_button_set_paint(ptr noundef %47, ptr noundef nonnull @dtgtk_cairo_paint_label_sel, i32 noundef %42, ptr noundef null) #21
+  %48 = load ptr, ptr %44, align 8, !tbaa !6
+  tail call void @gtk_widget_queue_draw(ptr noundef %48) #21
   %51 = or i32 %.04859, %.04958
   %52 = and i32 %51, %.0.i
   %or.cond = icmp ne i32 %52, 0
@@ -4268,52 +4268,52 @@ _get_mask.exit.split:                             ; preds = %_get_mask.exit, %_g
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
   br i1 %exitcond.not, label %.split.us, label %_get_mask.exit.split
 
-56:                                               ; preds = %.split.us
-  %57 = load ptr, ptr %3, align 8, !tbaa !11
-  %58 = or i32 %.0.i, -2147483648
-  %59 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.101, i32 noundef %58) #21
-  %60 = getelementptr inbounds nuw i8, ptr %57, i64 72
-  %61 = icmp eq ptr %59, null
-  %62 = select i1 %61, ptr @.str.13, ptr %59
-  %63 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %60, i64 noundef 256, ptr noundef nonnull @.str.102, ptr noundef nonnull %62) #21
-  tail call void @g_free(ptr noundef %59) #21
-  br label %64
+52:                                               ; preds = %.split.us
+  %53 = load ptr, ptr %3, align 8, !tbaa !11
+  %54 = or i32 %.0.i, -2147483648
+  %55 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.101, i32 noundef %54) #21
+  %56 = getelementptr inbounds nuw i8, ptr %53, i64 72
+  %57 = icmp eq ptr %55, null
+  %58 = select i1 %57, ptr @.str.13, ptr %55
+  %59 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %56, i64 noundef 256, ptr noundef nonnull @.str.102, ptr noundef nonnull %58) #21
+  tail call void @g_free(ptr noundef %55) #21
+  br label %60
 
-64:                                               ; preds = %56, %.split.us
-  %65 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  %66 = load ptr, ptr %65, align 8, !tbaa !200
-  %67 = tail call i64 @dtgtk_button_get_type() #21
-  %68 = tail call ptr @g_type_check_instance_cast(ptr noundef %66, i64 noundef %67) #21
+60:                                               ; preds = %52, %.split.us
+  %61 = getelementptr inbounds nuw i8, ptr %3, i64 56
+  %62 = load ptr, ptr %61, align 8, !tbaa !200
+  %63 = tail call i64 @dtgtk_button_get_type() #21
+  %64 = tail call ptr @g_type_check_instance_cast(ptr noundef %62, i64 noundef %63) #21
   %.not52 = icmp sgt i32 %.0.i, -1
-  %69 = select i1 %.not52, ptr @dtgtk_cairo_paint_union, ptr @dtgtk_cairo_paint_intersection
-  tail call void @dtgtk_button_set_paint(ptr noundef %68, ptr noundef nonnull %69, i32 noundef 0, ptr noundef null) #21
-  %70 = load ptr, ptr %65, align 8, !tbaa !200
-  %71 = icmp samesign ugt i32 %.us-phi, 1
-  %72 = zext i1 %71 to i32
-  tail call void @gtk_widget_set_sensitive(ptr noundef %70, i32 noundef %72) #21
-  %73 = load ptr, ptr %65, align 8, !tbaa !200
-  tail call void @gtk_widget_queue_draw(ptr noundef %73) #21
-  br i1 %.not56, label %81, label %74
+  %65 = select i1 %.not52, ptr @dtgtk_cairo_paint_union, ptr @dtgtk_cairo_paint_intersection
+  tail call void @dtgtk_button_set_paint(ptr noundef %64, ptr noundef nonnull %65, i32 noundef 0, ptr noundef null) #21
+  %66 = load ptr, ptr %61, align 8, !tbaa !200
+  %67 = icmp samesign ugt i32 %.us-phi, 1
+  %68 = zext i1 %67 to i32
+  tail call void @gtk_widget_set_sensitive(ptr noundef %66, i32 noundef %68) #21
+  %69 = load ptr, ptr %61, align 8, !tbaa !200
+  tail call void @gtk_widget_queue_draw(ptr noundef %69) #21
+  br i1 %.not56, label %77, label %70
 
-74:                                               ; preds = %64
-  %75 = getelementptr inbounds nuw i8, ptr %.fr, i64 56
-  %76 = load ptr, ptr %75, align 8, !tbaa !200
-  %77 = tail call i64 @dtgtk_button_get_type() #21
-  %78 = tail call ptr @g_type_check_instance_cast(ptr noundef %76, i64 noundef %77) #21
-  tail call void @dtgtk_button_set_paint(ptr noundef %78, ptr noundef nonnull %69, i32 noundef 0, ptr noundef null) #21
-  %79 = load ptr, ptr %75, align 8, !tbaa !200
-  tail call void @gtk_widget_set_sensitive(ptr noundef %79, i32 noundef %72) #21
-  %80 = load ptr, ptr %75, align 8, !tbaa !200
-  tail call void @gtk_widget_queue_draw(ptr noundef %80) #21
-  br label %81
+70:                                               ; preds = %60
+  %71 = getelementptr inbounds nuw i8, ptr %.fr, i64 56
+  %72 = load ptr, ptr %71, align 8, !tbaa !200
+  %73 = tail call i64 @dtgtk_button_get_type() #21
+  %74 = tail call ptr @g_type_check_instance_cast(ptr noundef %72, i64 noundef %73) #21
+  tail call void @dtgtk_button_set_paint(ptr noundef %74, ptr noundef nonnull %65, i32 noundef 0, ptr noundef null) #21
+  %75 = load ptr, ptr %71, align 8, !tbaa !200
+  tail call void @gtk_widget_set_sensitive(ptr noundef %75, i32 noundef %68) #21
+  %76 = load ptr, ptr %71, align 8, !tbaa !200
+  tail call void @gtk_widget_queue_draw(ptr noundef %76) #21
+  br label %77
 
-81:                                               ; preds = %74, %64
-  %82 = load i32, ptr %5, align 8, !tbaa !183
-  %83 = add nsw i32 %82, -1
-  store i32 %83, ptr %5, align 8, !tbaa !183
-  br label %84
+77:                                               ; preds = %70, %60
+  %78 = load i32, ptr %5, align 8, !tbaa !183
+  %79 = add nsw i32 %78, -1
+  store i32 %79, ptr %5, align 8, !tbaa !183
+  br label %80
 
-84:                                               ; preds = %1, %81
+80:                                               ; preds = %1, %77
   %.0 = phi i32 [ 1, %81 ], [ 0, %1 ]
   ret i32 %.0
 }

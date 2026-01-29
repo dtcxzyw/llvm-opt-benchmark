@@ -9409,7 +9409,7 @@ define internal void @statevec_multiRotateZ.omp_outlined(ptr noalias noundef rea
   %15 = load i64, ptr %2, align 8, !tbaa !16
   %16 = icmp sgt i64 %15, 0
   %.pre = load i32, ptr %0, align 4, !tbaa !18
-  br i1 %16, label %17, label %59
+  br i1 %16, label %17, label %58
 
 17:                                               ; preds = %10
   %18 = add nsw i64 %15, -1
@@ -9438,8 +9438,8 @@ define internal void @statevec_multiRotateZ.omp_outlined(ptr noalias noundef rea
   %27 = mul nsw i64 %26, %25
   br label %28
 
-28:                                               ; preds = %.lr.ph, %53
-  %.031 = phi i64 [ %21, %.lr.ph ], [ %58, %53 ]
+28:                                               ; preds = %.lr.ph, %52
+  %.031 = phi i64 [ %21, %.lr.ph ], [ %57, %53 ]
   %29 = getelementptr inbounds double, ptr %22, i64 %.031
   %30 = load double, ptr %29, align 8, !tbaa !4
   %31 = getelementptr inbounds double, ptr %23, i64 %.031
@@ -9447,12 +9447,12 @@ define internal void @statevec_multiRotateZ.omp_outlined(ptr noalias noundef rea
   %33 = add nsw i64 %27, %.031
   %34 = and i64 %33, %24
   %.not7.i = icmp eq i64 %34, 0
-  br i1 %.not7.i, label %getBitMaskParity.exit.thread, label %.lr.ph.i
+  br i1 %.not7.i, label %.thread, label %.lr.ph.i
 
-getBitMaskParity.exit.thread:                     ; preds = %28
+.thread:                                          ; preds = %28
   %35 = load double, ptr %8, align 8, !tbaa !4
   %36 = load double, ptr %9, align 8, !tbaa !4
-  br label %48
+  br label %.sink.split
 
 .lr.ph.i:                                         ; preds = %28, %.lr.ph.i
   %.09.i = phi i32 [ %37, %.lr.ph.i ], [ 0, %28 ]
@@ -9467,7 +9467,7 @@ getBitMaskParity.exit:                            ; preds = %.lr.ph.i
   %40 = icmp eq i32 %.09.i, 1
   %41 = load double, ptr %8, align 8, !tbaa !4
   %42 = load double, ptr %9, align 8, !tbaa !4
-  br i1 %40, label %48, label %43
+  br i1 %40, label %.sink.split, label %43
 
 43:                                               ; preds = %getBitMaskParity.exit
   %44 = fneg double %42
@@ -9475,37 +9475,37 @@ getBitMaskParity.exit:                            ; preds = %.lr.ph.i
   %46 = call double @llvm.fmuladd.f64(double %41, double %30, double %45)
   store double %46, ptr %29, align 8, !tbaa !4
   %47 = load double, ptr %9, align 8, !tbaa !4
-  br label %53
+  br label %52
 
-48:                                               ; preds = %getBitMaskParity.exit, %getBitMaskParity.exit.thread
-  %.ph = phi double [ %35, %getBitMaskParity.exit.thread ], [ %41, %getBitMaskParity.exit ]
-  %.ph39 = phi double [ %36, %getBitMaskParity.exit.thread ], [ %42, %getBitMaskParity.exit ]
-  %49 = fmul double %32, %.ph39
-  %50 = call double @llvm.fmuladd.f64(double %.ph, double %30, double %49)
-  store double %50, ptr %29, align 8, !tbaa !4
-  %51 = load double, ptr %9, align 8, !tbaa !4
-  %52 = fneg double %51
-  br label %53
+.sink.split:                                      ; preds = %getBitMaskParity.exit, %.thread
+  %.sink = phi double [ %35, %getBitMaskParity.exit.thread ], [ %41, %getBitMaskParity.exit ]
+  %.sink44 = phi double [ %36, %getBitMaskParity.exit.thread ], [ %42, %getBitMaskParity.exit ]
+  %48 = fmul double %32, %.sink44
+  %49 = call double @llvm.fmuladd.f64(double %.sink, double %30, double %48)
+  store double %49, ptr %29, align 8, !tbaa !4
+  %50 = load double, ptr %9, align 8, !tbaa !4
+  %51 = fneg double %50
+  br label %52
 
-53:                                               ; preds = %43, %48
-  %54 = phi double [ %52, %48 ], [ %47, %43 ]
-  %55 = load double, ptr %8, align 8, !tbaa !4
-  %56 = fmul double %32, %55
-  %57 = call double @llvm.fmuladd.f64(double %54, double %30, double %56)
-  store double %57, ptr %31, align 8, !tbaa !4
-  %58 = add i64 %.031, 1
+52:                                               ; preds = %43, %.sink.split
+  %53 = phi double [ %51, %48 ], [ %47, %43 ]
+  %54 = load double, ptr %8, align 8, !tbaa !4
+  %55 = fmul double %32, %54
+  %56 = call double @llvm.fmuladd.f64(double %53, double %30, double %55)
+  store double %56, ptr %31, align 8, !tbaa !4
+  %57 = add i64 %.031, 1
   %exitcond.not = icmp eq i64 %.031, %20
   br i1 %exitcond.not, label %._crit_edge, label %28
 
-._crit_edge:                                      ; preds = %53, %17
+._crit_edge:                                      ; preds = %52, %17
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %.pre)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br label %59
+  br label %58
 
-59:                                               ; preds = %._crit_edge, %10
+58:                                               ; preds = %._crit_edge, %10
   call void @__kmpc_barrier(ptr nonnull @2, i32 %.pre)
   ret void
 }

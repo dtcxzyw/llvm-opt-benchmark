@@ -3019,27 +3019,27 @@ define dso_local void @intel_link_compute_m_n(i16 noundef zeroext %0, i32 nounde
   %21 = lshr i32 %19, 1
   %22 = lshr i32 %20, 1
   %23 = or i32 %21, %22
-  %or.cond.not = icmp samesign ult i32 %23, 16777216
-  br i1 %or.cond.not, label %24, label %18, !llvm.loop !70
+  %24 = icmp samesign ult i32 %23, 16777216
+  br i1 %or.cond.not, label %25, label %18, !llvm.loop !70
 
-24:                                               ; preds = %18
+25:                                               ; preds = %18
   store i32 %21, ptr %11, align 4
   store i32 %22, ptr %12, align 4
-  %25 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  %26 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i32 524288, ptr %26, align 4
-  %27 = zext i32 %2 to i64
-  %28 = shl nuw nsw i64 %27, 19
-  %29 = zext i32 %7 to i64
-  %30 = udiv i64 %28, %29
-  %31 = trunc i64 %30 to i32
-  store i32 %31, ptr %25, align 4
-  %32 = icmp ugt i32 %31, 16777215
-  br i1 %32, label %.lr.ph, label %._crit_edge
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 12
+  %27 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store i32 524288, ptr %27, align 4
+  %28 = zext i32 %2 to i64
+  %29 = shl nuw nsw i64 %28, 19
+  %30 = zext i32 %7 to i64
+  %31 = udiv i64 %29, %30
+  %32 = trunc i64 %31 to i32
+  store i32 %32, ptr %26, align 4
+  %33 = icmp ugt i32 %32, 16777215
+  br i1 %33, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %24, %.lr.ph
-  %33 = phi i32 [ %35, %.lr.ph ], [ %31, %24 ]
-  %34 = phi i32 [ %36, %.lr.ph ], [ 524288, %24 ]
+.lr.ph:                                           ; preds = %25, %.lr.ph
+  %34 = phi i32 [ %35, %.lr.ph ], [ %32, %24 ]
+  %35 = phi i32 [ %36, %.lr.ph ], [ 524288, %24 ]
   %35 = lshr i32 %33, 1
   %36 = lshr i32 %34, 1
   %37 = icmp ugt i32 %33, 33554431
@@ -3050,7 +3050,7 @@ define dso_local void @intel_link_compute_m_n(i16 noundef zeroext %0, i32 nounde
   store i32 %36, ptr %26, align 4
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %24
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %25
   ret void
 }
 

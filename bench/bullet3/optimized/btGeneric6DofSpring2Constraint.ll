@@ -2486,7 +2486,7 @@ define dso_local noundef i32 @_ZN30btGeneric6DofSpring2Constraint15setLinearLimi
 
 64:                                               ; preds = %9, %184
   %indvars.iv = phi i64 [ 0, %9 ], [ %indvars.iv.next.pre-phi, %184 ]
-  %.091 = phi i32 [ %2, %9 ], [ %.1, %184 ]
+  %.092 = phi i32 [ %2, %9 ], [ %.1, %184 ]
   %65 = getelementptr inbounds nuw i32, ptr %30, i64 %indvars.iv
   %66 = load i32, ptr %65, align 4, !tbaa !54
   %.not = icmp eq i32 %66, 0
@@ -2502,10 +2502,10 @@ define dso_local noundef i32 @_ZN30btGeneric6DofSpring2Constraint15setLinearLimi
   %72 = getelementptr inbounds nuw i8, ptr %32, i64 %indvars.iv
   %73 = load i8, ptr %72, align 1, !tbaa !12, !range !100, !noundef !101
   %74 = trunc nuw i8 %73 to i1
-  br i1 %74, label %._crit_edge, label %._crit_edge94
+  br i1 %74, label %._crit_edge, label %._crit_edge95
 
-._crit_edge94:                                    ; preds = %71
-  %.pre95 = add nuw nsw i64 %indvars.iv, 1
+._crit_edge95:                                    ; preds = %71
+  %.pre96 = add nuw nsw i64 %indvars.iv, 1
   br label %184
 
 ._crit_edge:                                      ; preds = %64, %71, %69
@@ -2622,7 +2622,7 @@ define dso_local noundef i32 @_ZN30btGeneric6DofSpring2Constraint15setLinearLimi
   store float %136, ptr %16, align 4, !tbaa !21
   %137 = add nuw nsw i64 %indvars.iv, 1
   %.cmp.not = icmp eq i64 %indvars.iv, 2
-  %.cmp89 = icmp eq i64 %indvars.iv, 0
+  %.cmp90 = icmp eq i64 %indvars.iv, 0
   %138 = add i64 %indvars.iv, 4294967295
   %139 = and i64 %137, 4294967295
   %140 = select i1 %.cmp.not, i64 0, i64 %139
@@ -2664,7 +2664,7 @@ define dso_local noundef i32 @_ZN30btGeneric6DofSpring2Constraint15setLinearLimi
 .thread:                                          ; preds = %144, %132, %132, %.thread.fold.split, %154, %149
   %159 = phi i1 [ %158, %154 ], [ false, %.thread.fold.split ], [ true, %132 ], [ true, %132 ], [ %or.cond83, %144 ], [ true, %149 ]
   %160 = and i64 %138, 4294967295
-  %161 = select i1 %.cmp89, i64 2, i64 %160
+  %161 = select i1 %.cmp90, i64 2, i64 %160
   %162 = getelementptr inbounds nuw %class.btRotationalLimitMotor2, ptr %62, i64 %161
   %163 = getelementptr inbounds nuw i8, ptr %162, i64 84
   %164 = load i32, ptr %163, align 4, !tbaa !94
@@ -2706,14 +2706,14 @@ define dso_local noundef i32 @_ZN30btGeneric6DofSpring2Constraint15setLinearLimi
 
 .split71:                                         ; preds = %180, %165, %.thread
   %.sink = phi i32 [ %spec.select, %180 ], [ 1, %.thread ], [ 1, %165 ]
-  %182 = call noundef i32 @_ZN30btGeneric6DofSpring2Constraint21get_limit_motor_info2EP23btRotationalLimitMotor2RK11btTransformS4_RK9btVector3S7_S7_S7_PN17btTypedConstraint17btConstraintInfo2EiRS5_ii(ptr noundef nonnull align 8 dereferenceable(1484) %0, ptr noundef nonnull %10, ptr noundef nonnull align 4 dereferenceable(64) %3, ptr noundef nonnull align 4 dereferenceable(64) %4, ptr noundef nonnull align 4 dereferenceable(16) %5, ptr noundef nonnull align 4 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(16) %7, ptr noundef nonnull align 4 dereferenceable(16) %8, ptr noundef %1, i32 noundef %.091, ptr noundef nonnull align 4 dereferenceable(16) %11, i32 noundef 0, i32 noundef %.sink)
-  %183 = add nsw i32 %182, %.091
+  %182 = call noundef i32 @_ZN30btGeneric6DofSpring2Constraint21get_limit_motor_info2EP23btRotationalLimitMotor2RK11btTransformS4_RK9btVector3S7_S7_S7_PN17btTypedConstraint17btConstraintInfo2EiRS5_ii(ptr noundef nonnull align 8 dereferenceable(1484) %0, ptr noundef nonnull %10, ptr noundef nonnull align 4 dereferenceable(64) %3, ptr noundef nonnull align 4 dereferenceable(64) %4, ptr noundef nonnull align 4 dereferenceable(16) %5, ptr noundef nonnull align 4 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(16) %7, ptr noundef nonnull align 4 dereferenceable(16) %8, ptr noundef %1, i32 noundef %.092, ptr noundef nonnull align 4 dereferenceable(16) %11, i32 noundef 0, i32 noundef %.sink)
+  %183 = add nsw i32 %182, %.092
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %184
 
-184:                                              ; preds = %._crit_edge94, %.split71
-  %indvars.iv.next.pre-phi = phi i64 [ %.pre95, %._crit_edge94 ], [ %137, %.split71 ]
-  %.1 = phi i32 [ %.091, %._crit_edge94 ], [ %183, %.split71 ]
+184:                                              ; preds = %._crit_edge95, %.split71
+  %indvars.iv.next.pre-phi = phi i64 [ %.pre96, %._crit_edge94 ], [ %137, %.split71 ]
+  %.1 = phi i32 [ %.092, %._crit_edge94 ], [ %183, %.split71 ]
   %exitcond.not = icmp eq i64 %indvars.iv.next.pre-phi, 3
   br i1 %exitcond.not, label %63, label %64, !llvm.loop !110
 }

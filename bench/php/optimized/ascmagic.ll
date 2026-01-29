@@ -533,7 +533,7 @@ encode_utf8.exit:                                 ; preds = %128
   %or.cond5 = select i1 %or.cond3, i1 %208, i1 false
   %209 = icmp ne i64 %.0188.lcssa, 0
   %or.cond7 = select i1 %or.cond5, i1 true, i1 %209
-  %.not267 = icmp eq i64 %.0181.lcssa, 0
+  %210 = icmp eq i64 %.0181.lcssa, 0
   %210 = or i64 %.0181.lcssa, %.0183.lcssa
   %211 = icmp ne i64 %210, 0
   %or.cond11 = select i1 %or.cond7, i1 true, i1 %211
@@ -562,7 +562,7 @@ encode_utf8.exit:                                 ; preds = %128
 
 223:                                              ; preds = %220
   %224 = icmp ne i64 %.0185.lcssa, 0
-  %or.cond21 = select i1 %211, i1 true, i1 %224
+  %or.cond19 = select i1 %211, i1 true, i1 %224
   br i1 %or.cond21, label %225, label %.critedge
 
 225:                                              ; preds = %223
@@ -597,7 +597,7 @@ encode_utf8.exit:                                 ; preds = %128
   br i1 %240, label %encode_utf8.exit.thread, label %241
 
 241:                                              ; preds = %238
-  br i1 %.not267, label %.critedge, label %242
+  br i1 %210, label %.critedge, label %242
 
 242:                                              ; preds = %241
   %243 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef %0, ptr noundef nonnull @.str.12) #7
@@ -605,7 +605,7 @@ encode_utf8.exit:                                 ; preds = %128
   br i1 %244, label %encode_utf8.exit.thread, label %.thread231
 
 245:                                              ; preds = %237
-  br i1 %.not267, label %.critedge, label %.thread231
+  br i1 %210, label %.critedge, label %.thread231
 
 .thread231:                                       ; preds = %242, %245
   %246 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef %0, ptr noundef nonnull @.str.15) #7

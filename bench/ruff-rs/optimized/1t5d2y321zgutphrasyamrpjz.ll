@@ -27715,24 +27715,24 @@ define hidden { i64, ptr } @_ZN18ty_python_semantic5types10signatures10Parameter
   %7 = and i64 %5, 2305843009213693951
   br label %8
 
-8:                                                ; preds = %12, %1
-  %9 = phi i64 [ %15, %12 ], [ 0, %1 ]
-  %10 = phi ptr [ %13, %12 ], [ %3, %1 ]
-  %11 = icmp eq ptr %10, %6
-  br i1 %11, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h6bc96c3cb76c1a00E.exit, label %12
+7:                                                ; preds = %11, %1
+  %8 = phi i64 [ %14, %12 ], [ 0, %1 ]
+  %9 = phi ptr [ %12, %12 ], [ %3, %1 ]
+  %10 = icmp eq ptr %9, %6
+  br i1 %10, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h6bc96c3cb76c1a00E.exit, label %11
 
-12:                                               ; preds = %8
-  %13 = getelementptr inbounds nuw i8, ptr %10, i64 72
-  %14 = load i64, ptr %10, align 8, !range !425, !alias.scope !5074, !noalias !5081, !noundef !3
-  %.not.i = icmp eq i64 %14, 2
-  %15 = add nuw nsw i64 %9, 1
-  br i1 %.not.i, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h6bc96c3cb76c1a00E.exit, label %8
+11:                                               ; preds = %7
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 72
+  %13 = load i64, ptr %9, align 8, !range !425, !alias.scope !5074, !noalias !5081, !noundef !3
+  %.not.i = icmp eq i64 %13, 2
+  %14 = add nuw nsw i64 %8, 1
+  br i1 %.not.i, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h6bc96c3cb76c1a00E.exit, label %7
 
-_ZN4core4iter6traits8iterator8Iterator8try_fold17h6bc96c3cb76c1a00E.exit: ; preds = %8, %12
-  %.lcssa = phi i64 [ %7, %8 ], [ %9, %12 ]
-  %.sroa.3.0.i = phi ptr [ null, %8 ], [ %10, %12 ]
-  %16 = insertvalue { i64, ptr } poison, i64 %.lcssa, 0
-  %17 = insertvalue { i64, ptr } %16, ptr %.sroa.3.0.i, 1
+_ZN4core4iter6traits8iterator8Iterator8try_fold17h6bc96c3cb76c1a00E.exit: ; preds = %7, %11
+  %.sroa.3.0.i = phi i64 [ %7, %8 ], [ %9, %12 ]
+  %.sroa.0.0.i = phi ptr [ null, %8 ], [ %8, %12 ]
+  %16 = insertvalue { i64, ptr } poison, i64 %.sroa.3.0.i, 0
+  %17 = insertvalue { i64, ptr } %16, ptr %.sroa.0.0.i, 1
   ret { i64, ptr } %17
 }
 
