@@ -163,9 +163,9 @@ define hidden void @_ZN6Assimp19Discreet3DSImporter22ReplaceDefaultMaterialEv(pt
   br label %21
 
 ._crit_edge77:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %13 = icmp eq i32 %.127.fr, -842150451
+  %13 = icmp eq i32 %.127, -842150451
   %14 = trunc nuw i64 %98 to i32
-  %spec.select = select i1 %13, i32 %14, i32 %.127.fr
+  %spec.select = select i1 %13, i32 %14, i32 %.127
   br label %._crit_edge77.thread
 
 ._crit_edge77.thread:                             ; preds = %._crit_edge77, %1
@@ -181,7 +181,7 @@ define hidden void @_ZN6Assimp19Discreet3DSImporter22ReplaceDefaultMaterialEv(pt
 21:                                               ; preds = %.lr.ph76, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %22 = phi ptr [ %10, %.lr.ph76 ], [ %94, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   %23 = phi i64 [ 0, %.lr.ph76 ], [ %90, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
-  %.02674 = phi i32 [ -842150451, %.lr.ph76 ], [ %.127.fr, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
+  %.02674 = phi i32 [ -842150451, %.lr.ph76 ], [ %.127, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   %.02972 = phi i32 [ 0, %.lr.ph76 ], [ %89, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %24 = getelementptr inbounds nuw %"struct.Assimp::D3DS::Material", ptr %22, i64 %23
@@ -306,7 +306,6 @@ _ZNK6Assimp19Discreet3DSImporter16ContainsTexturesEj.exit.thread: ; preds = %62,
 
 84:                                               ; preds = %_ZNK6Assimp19Discreet3DSImporter16ContainsTexturesEj.exit.thread, %_ZNK6Assimp19Discreet3DSImporter16ContainsTexturesEj.exit, %49, %58, %._crit_edge
   %.127 = phi i32 [ %.02674, %49 ], [ %.02674, %._crit_edge ], [ %.02674, %58 ], [ %.02674, %_ZNK6Assimp19Discreet3DSImporter16ContainsTexturesEj.exit.thread ], [ %.02972, %_ZNK6Assimp19Discreet3DSImporter16ContainsTexturesEj.exit ]
-  %.127.fr = freeze i32 %.127
   %85 = load ptr, ptr %3, align 8
   %86 = icmp eq ptr %85, %11
   br i1 %86, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i

@@ -2209,8 +2209,8 @@ define dso_local void @_ZN5draco10ObjEncoder21FindOriginalFaceEdgesENS_9IndexTyp
   br label %31
 
 31:                                               ; preds = %16, %_ZNSt3mapIN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEENS1_IjNS0_20PointIndex_tag_type_EEESt4lessIS3_ESaISt4pairIKS3_S5_EEE6insertEOSA_.exit
-  %.076 = phi i64 [ 0, %16 ], [ %.pre-phi, %_ZNSt3mapIN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEENS1_IjNS0_20PointIndex_tag_type_EEESt4lessIS3_ESaISt4pairIKS3_S5_EEE6insertEOSA_.exit ]
-  %32 = trunc nuw nsw i64 %.076 to i32
+  %.075 = phi i64 [ 0, %16 ], [ %.pre-phi, %_ZNSt3mapIN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEENS1_IjNS0_20PointIndex_tag_type_EEESt4lessIS3_ESaISt4pairIKS3_S5_EEE6insertEOSA_.exit ]
+  %32 = trunc nuw nsw i64 %.075 to i32
   %33 = add i32 %spec.select.i, %32
   %34 = icmp eq i32 %33, -1
   br i1 %34, label %_ZNK5draco4Mesh15CornerToPointIdENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit.i, label %_ZNK5draco11CornerTable8OppositeENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit
@@ -2277,8 +2277,8 @@ _ZNK5draco10ObjEncoder9IsNewEdgeERKNS_11CornerTableENS_9IndexTypeIjNS_21CornerIn
   br i1 %70, label %104, label %_ZNK5draco10ObjEncoder9IsNewEdgeERKNS_11CornerTableENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit.thread
 
 _ZNK5draco10ObjEncoder9IsNewEdgeERKNS_11CornerTableENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit.thread: ; preds = %_ZNK5draco4Mesh15CornerToPointIdENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit.i, %_ZNK5draco10ObjEncoder9IsNewEdgeERKNS_11CornerTableENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit
-  %.not74 = icmp eq i32 %.sroa.0.0.in.sroa.speculated.i64, -1
-  br i1 %.not74, label %_ZNK5draco10ObjEncoder9IsNewEdgeERKNS_11CornerTableENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit45.thread, label %71
+  %.not73 = icmp eq i32 %.sroa.0.0.in.sroa.speculated.i64, -1
+  br i1 %.not73, label %_ZNK5draco10ObjEncoder9IsNewEdgeERKNS_11CornerTableENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit45.thread, label %71
 
 71:                                               ; preds = %_ZNK5draco10ObjEncoder9IsNewEdgeERKNS_11CornerTableENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit.thread
   %72 = icmp slt i32 %.sroa.0.0.in.sroa.speculated.i64, 0
@@ -2335,24 +2335,24 @@ _ZNK5draco10ObjEncoder9IsNewEdgeERKNS_11CornerTableENS_9IndexTypeIjNS_21CornerIn
   br i1 %103, label %.thread, label %_ZNK5draco10ObjEncoder9IsNewEdgeERKNS_11CornerTableENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit45.thread
 
 104:                                              ; preds = %_ZNK5draco10ObjEncoder9IsNewEdgeERKNS_11CornerTableENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit
-  %.not73 = icmp eq i32 %.sroa.0.0.in.sroa.speculated.i64, -1
-  br i1 %.not73, label %_ZNK5draco10ObjEncoder9IsNewEdgeERKNS_11CornerTableENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit45.thread, label %.thread
+  %.not72 = icmp eq i32 %.sroa.0.0.in.sroa.speculated.i64, -1
+  br i1 %.not72, label %_ZNK5draco10ObjEncoder9IsNewEdgeERKNS_11CornerTableENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit45.thread, label %.thread
 
 .thread:                                          ; preds = %_ZNK5draco10ObjEncoder9IsNewEdgeERKNS_11CornerTableENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit45, %104
   %105 = udiv i32 %.sroa.0.0.in.sroa.speculated.i64, 3
   tail call void @_ZN5draco10ObjEncoder21FindOriginalFaceEdgesENS_9IndexTypeIjNS_19FaceIndex_tag_type_EEERKNS_11CornerTableEPSt6vectorIbSaIbEEPSt3mapINS1_IjNS_29AttributeValueIndex_tag_type_EEENS1_IjNS_20PointIndex_tag_type_EEESt4lessISD_ESaISt4pairIKSD_SF_EEE(ptr noundef nonnull align 8 dereferenceable(256) %0, i32 %105, ptr noundef nonnull align 8 dereferenceable(168) %2, ptr noundef nonnull %3, ptr noundef %4)
-  %.pre = add nuw nsw i64 %.076, 1
+  %.pre = add nuw nsw i64 %.075, 1
   br label %_ZNSt3mapIN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEENS1_IjNS0_20PointIndex_tag_type_EEESt4lessIS3_ESaISt4pairIKS3_S5_EEE6insertEOSA_.exit
 
 _ZNK5draco10ObjEncoder9IsNewEdgeERKNS_11CornerTableENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit45.thread: ; preds = %_ZNK5draco4Mesh15CornerToPointIdENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit.i38, %_ZNK5draco10ObjEncoder9IsNewEdgeERKNS_11CornerTableENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit.thread, %104, %_ZNK5draco10ObjEncoder9IsNewEdgeERKNS_11CornerTableENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit45
-  %106 = add nuw nsw i64 %.076, 1
-  %.cmp.not = icmp eq i64 %.076, 2
+  %106 = add nuw nsw i64 %.075, 1
+  %.cmp.not = icmp eq i64 %.075, 2
   %107 = select i1 %.cmp.not, i64 0, i64 %106
   %108 = getelementptr inbounds nuw %"class.draco::IndexType.129", ptr %22, i64 %107
   %.sroa.02.0.copyload = load i32, ptr %108, align 4, !tbaa !73
-  %.urem71 = add nsw i64 %.076, -1
-  %.cmp72 = icmp eq i64 %.076, 0
-  %109 = select i1 %.cmp72, i64 2, i64 %.urem71
+  %.urem70 = add nsw i64 %.075, -1
+  %.cmp71 = icmp eq i64 %.075, 0
+  %109 = select i1 %.cmp71, i64 2, i64 %.urem70
   %110 = getelementptr inbounds nuw %"class.draco::IndexType.129", ptr %22, i64 %109
   %111 = load i32, ptr %110, align 4, !tbaa !73
   %112 = load ptr, ptr %0, align 8, !tbaa !126

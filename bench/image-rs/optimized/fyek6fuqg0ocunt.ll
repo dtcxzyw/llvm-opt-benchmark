@@ -18743,7 +18743,7 @@ define hidden void @"_ZN236_$LT$image..buffer_..ImageBuffer$LT$FromType$C$Contai
   %.sroa.426.037 = phi ptr [ %35, %33 ], [ %19, %"_ZN101_$LT$core..slice..iter..ChunksExactMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6257def3ddbaff24E.llvm.1814251078191383949.exit.i.preheader" ]
   %31 = icmp eq ptr %.sroa.426.037, null
   %32 = icmp eq i64 %.sroa.15.040, 0
-  %or.cond = select i1 %31, i1 true, i1 %32
+  %or.cond = or i1 %31, %32
   br i1 %or.cond, label %select.unfold, label %33
 
 select.unfold:                                    ; preds = %33, %"_ZN101_$LT$core..slice..iter..ChunksExactMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6257def3ddbaff24E.llvm.1814251078191383949.exit.i", %27
@@ -19682,7 +19682,7 @@ define hidden void @"_ZN236_$LT$image..buffer_..ImageBuffer$LT$FromType$C$Contai
   %.sroa.426.037 = phi ptr [ %35, %33 ], [ %19, %"_ZN101_$LT$core..slice..iter..ChunksExactMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6257def3ddbaff24E.llvm.1814251078191383949.exit.i.preheader" ]
   %31 = icmp eq ptr %.sroa.426.037, null
   %32 = icmp eq i64 %.sroa.15.040, 0
-  %or.cond = select i1 %31, i1 true, i1 %32
+  %or.cond = or i1 %31, %32
   br i1 %or.cond, label %select.unfold, label %33
 
 select.unfold:                                    ; preds = %33, %"_ZN101_$LT$core..slice..iter..ChunksExactMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6257def3ddbaff24E.llvm.1814251078191383949.exit.i", %27
@@ -20150,7 +20150,7 @@ define hidden void @"_ZN236_$LT$image..buffer_..ImageBuffer$LT$FromType$C$Contai
   %.sroa.426.037 = phi ptr [ %36, %34 ], [ %20, %"_ZN101_$LT$core..slice..iter..ChunksExactMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6b4e75c72afa10f1E.exit.i.preheader" ]
   %32 = icmp eq ptr %.sroa.426.037, null
   %33 = icmp eq i64 %.sroa.15.040, 0
-  %or.cond = select i1 %32, i1 true, i1 %33
+  %or.cond = or i1 %32, %33
   br i1 %or.cond, label %select.unfold, label %34
 
 select.unfold:                                    ; preds = %34, %"_ZN101_$LT$core..slice..iter..ChunksExactMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6b4e75c72afa10f1E.exit.i", %28
@@ -22325,7 +22325,7 @@ define hidden void @"_ZN236_$LT$image..buffer_..ImageBuffer$LT$FromType$C$Contai
   %.sroa.426.037 = phi ptr [ %36, %34 ], [ %20, %"_ZN101_$LT$core..slice..iter..ChunksExactMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6b4e75c72afa10f1E.exit.i.preheader" ]
   %32 = icmp eq ptr %.sroa.426.037, null
   %33 = icmp eq i64 %.sroa.15.040, 0
-  %or.cond = select i1 %32, i1 true, i1 %33
+  %or.cond = or i1 %32, %33
   br i1 %or.cond, label %select.unfold, label %34
 
 select.unfold:                                    ; preds = %34, %"_ZN101_$LT$core..slice..iter..ChunksExactMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6b4e75c72afa10f1E.exit.i", %28
@@ -22532,7 +22532,7 @@ define hidden void @"_ZN236_$LT$image..buffer_..ImageBuffer$LT$FromType$C$Contai
   %.sroa.426.037 = phi ptr [ %35, %33 ], [ %19, %"_ZN101_$LT$core..slice..iter..ChunksExactMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6257def3ddbaff24E.llvm.1814251078191383949.exit.i.preheader" ]
   %31 = icmp eq ptr %.sroa.426.037, null
   %32 = icmp eq i64 %.sroa.15.040, 0
-  %or.cond = select i1 %31, i1 true, i1 %32
+  %or.cond = or i1 %31, %32
   br i1 %or.cond, label %select.unfold, label %33
 
 select.unfold:                                    ; preds = %33, %"_ZN101_$LT$core..slice..iter..ChunksExactMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6257def3ddbaff24E.llvm.1814251078191383949.exit.i", %27
@@ -23619,7 +23619,7 @@ define hidden void @"_ZN236_$LT$image..buffer_..ImageBuffer$LT$FromType$C$Contai
   %32 = add i64 %.sroa.730.041, -4
   %33 = icmp eq ptr %.sroa.429.040, null
   %34 = icmp eq i64 %.sroa.15.043, 0
-  %or.cond = select i1 %33, i1 true, i1 %34
+  %or.cond = or i1 %33, %34
   br i1 %or.cond, label %select.unfold, label %35
 
 select.unfold:                                    ; preds = %"_ZN106_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Luma$LT$S$GT$$GT$$GT$10from_color17hcd16b3c88901ffebE.exit", %"_ZN101_$LT$core..slice..iter..ChunksExactMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h190e6d8993a134cbE.exit.i", %27
@@ -24317,7 +24317,7 @@ define hidden void @"_ZN236_$LT$image..buffer_..ImageBuffer$LT$FromType$C$Contai
   %.sroa.426.037 = phi ptr [ %37, %35 ], [ %19, %"_ZN101_$LT$core..slice..iter..ChunksExactMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6257def3ddbaff24E.llvm.1814251078191383949.exit.i.preheader" ]
   %33 = icmp eq ptr %.sroa.426.037, null
   %34 = icmp eq i64 %.sroa.15.040, 0
-  %or.cond = select i1 %33, i1 true, i1 %34
+  %or.cond = or i1 %33, %34
   br i1 %or.cond, label %select.unfold, label %35
 
 select.unfold:                                    ; preds = %35, %"_ZN101_$LT$core..slice..iter..ChunksExactMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6257def3ddbaff24E.llvm.1814251078191383949.exit.i", %27
@@ -24785,7 +24785,7 @@ define hidden void @"_ZN236_$LT$image..buffer_..ImageBuffer$LT$FromType$C$Contai
   %.sroa.426.037 = phi ptr [ %38, %36 ], [ %20, %"_ZN101_$LT$core..slice..iter..ChunksExactMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6b4e75c72afa10f1E.exit.i.preheader" ]
   %34 = icmp eq ptr %.sroa.426.037, null
   %35 = icmp eq i64 %.sroa.15.040, 0
-  %or.cond = select i1 %34, i1 true, i1 %35
+  %or.cond = or i1 %34, %35
   br i1 %or.cond, label %select.unfold, label %36
 
 select.unfold:                                    ; preds = %36, %"_ZN101_$LT$core..slice..iter..ChunksExactMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6b4e75c72afa10f1E.exit.i", %28
@@ -25959,7 +25959,7 @@ define hidden void @"_ZN236_$LT$image..buffer_..ImageBuffer$LT$FromType$C$Contai
   %.sroa.426.037 = phi ptr [ %38, %36 ], [ %20, %"_ZN101_$LT$core..slice..iter..ChunksExactMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6b4e75c72afa10f1E.exit.i.preheader" ]
   %34 = icmp eq ptr %.sroa.426.037, null
   %35 = icmp eq i64 %.sroa.15.040, 0
-  %or.cond = select i1 %34, i1 true, i1 %35
+  %or.cond = or i1 %34, %35
   br i1 %or.cond, label %select.unfold, label %36
 
 select.unfold:                                    ; preds = %36, %"_ZN101_$LT$core..slice..iter..ChunksExactMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6b4e75c72afa10f1E.exit.i", %28
@@ -26451,7 +26451,7 @@ define hidden void @"_ZN236_$LT$image..buffer_..ImageBuffer$LT$FromType$C$Contai
   %.sroa.426.037 = phi ptr [ %35, %33 ], [ %19, %"_ZN101_$LT$core..slice..iter..ChunksExactMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6257def3ddbaff24E.llvm.1814251078191383949.exit.i.preheader" ]
   %31 = icmp eq ptr %.sroa.426.037, null
   %32 = icmp eq i64 %.sroa.15.040, 0
-  %or.cond = select i1 %31, i1 true, i1 %32
+  %or.cond = or i1 %31, %32
   br i1 %or.cond, label %select.unfold, label %33
 
 select.unfold:                                    ; preds = %33, %"_ZN101_$LT$core..slice..iter..ChunksExactMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6257def3ddbaff24E.llvm.1814251078191383949.exit.i", %27
@@ -26801,7 +26801,7 @@ define hidden void @"_ZN236_$LT$image..buffer_..ImageBuffer$LT$FromType$C$Contai
   %.sroa.426.037 = phi ptr [ %37, %35 ], [ %19, %"_ZN101_$LT$core..slice..iter..ChunksExactMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6257def3ddbaff24E.llvm.1814251078191383949.exit.i.preheader" ]
   %33 = icmp eq ptr %.sroa.426.037, null
   %34 = icmp eq i64 %.sroa.15.040, 0
-  %or.cond = select i1 %33, i1 true, i1 %34
+  %or.cond = or i1 %33, %34
   br i1 %or.cond, label %select.unfold, label %35
 
 select.unfold:                                    ; preds = %35, %"_ZN101_$LT$core..slice..iter..ChunksExactMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6257def3ddbaff24E.llvm.1814251078191383949.exit.i", %27
@@ -27387,7 +27387,7 @@ define hidden void @"_ZN236_$LT$image..buffer_..ImageBuffer$LT$FromType$C$Contai
   %.sroa.426.037 = phi ptr [ %36, %34 ], [ %20, %"_ZN101_$LT$core..slice..iter..ChunksExactMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6b4e75c72afa10f1E.exit.i.preheader" ]
   %32 = icmp eq ptr %.sroa.426.037, null
   %33 = icmp eq i64 %.sroa.15.040, 0
-  %or.cond = select i1 %32, i1 true, i1 %33
+  %or.cond = or i1 %32, %33
   br i1 %or.cond, label %select.unfold, label %34
 
 select.unfold:                                    ; preds = %34, %"_ZN101_$LT$core..slice..iter..ChunksExactMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6b4e75c72afa10f1E.exit.i", %28
@@ -27833,7 +27833,7 @@ define hidden void @"_ZN236_$LT$image..buffer_..ImageBuffer$LT$FromType$C$Contai
   %32 = add i64 %.sroa.730.041, -4
   %33 = icmp eq ptr %.sroa.429.040, null
   %34 = icmp eq i64 %.sroa.15.043, 0
-  %or.cond = select i1 %33, i1 true, i1 %34
+  %or.cond = or i1 %33, %34
   br i1 %or.cond, label %select.unfold, label %35
 
 select.unfold:                                    ; preds = %"_ZN106_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Luma$LT$S$GT$$GT$$GT$10from_color17hbb0f3cc58eab5b6dE.exit", %"_ZN101_$LT$core..slice..iter..ChunksExactMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h190e6d8993a134cbE.exit.i", %27
@@ -28064,7 +28064,7 @@ define hidden void @"_ZN236_$LT$image..buffer_..ImageBuffer$LT$FromType$C$Contai
   %.sroa.426.037 = phi ptr [ %36, %34 ], [ %20, %"_ZN101_$LT$core..slice..iter..ChunksExactMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6b4e75c72afa10f1E.exit.i.preheader" ]
   %32 = icmp eq ptr %.sroa.426.037, null
   %33 = icmp eq i64 %.sroa.15.040, 0
-  %or.cond = select i1 %32, i1 true, i1 %33
+  %or.cond = or i1 %32, %33
   br i1 %or.cond, label %select.unfold, label %34
 
 select.unfold:                                    ; preds = %34, %"_ZN101_$LT$core..slice..iter..ChunksExactMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6b4e75c72afa10f1E.exit.i", %28
@@ -29261,7 +29261,7 @@ default.unreachable177:                           ; preds = %2
   %45 = add i64 %.sroa.730.041.i, -3
   %46 = icmp eq ptr %.sroa.429.040.i, null
   %47 = icmp eq i64 %.sroa.15.043.i, 0
-  %or.cond.i = select i1 %46, i1 true, i1 %47
+  %or.cond.i = or i1 %47, %46
   br i1 %or.cond.i, label %"_ZN236_$LT$image..buffer_..ImageBuffer$LT$FromType$C$Container$GT$$u20$as$u20$image..buffer_..ConvertBuffer$LT$image..buffer_..ImageBuffer$LT$ToType$C$alloc..vec..Vec$LT$$LT$ToType$u20$as$u20$image..traits..Pixel$GT$..Subpixel$GT$$GT$$GT$$GT$7convert17h78f5ffa84ab90cadE.exit", label %48
 
 48:                                               ; preds = %"_ZN101_$LT$core..slice..iter..ChunksExactMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h190e6d8993a134cbE.exit.i.i"
@@ -29786,7 +29786,7 @@ common.resume:                                    ; preds = %482, %439, %380, %3
   %252 = add i64 %.sroa.730.041.i52, -3
   %253 = icmp eq ptr %.sroa.429.040.i53, null
   %254 = icmp eq i64 %.sroa.15.043.i50, 0
-  %or.cond.i54 = select i1 %253, i1 true, i1 %254
+  %or.cond.i54 = or i1 %254, %253
   br i1 %or.cond.i54, label %"_ZN236_$LT$image..buffer_..ImageBuffer$LT$FromType$C$Container$GT$$u20$as$u20$image..buffer_..ConvertBuffer$LT$image..buffer_..ImageBuffer$LT$ToType$C$alloc..vec..Vec$LT$$LT$ToType$u20$as$u20$image..traits..Pixel$GT$..Subpixel$GT$$GT$$GT$$GT$7convert17h92f8ebc4b4beacd0E.exit", label %255
 
 255:                                              ; preds = %"_ZN101_$LT$core..slice..iter..ChunksExactMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h190e6d8993a134cbE.exit.i.i49"
@@ -32355,7 +32355,7 @@ default.unreachable177:                           ; preds = %2
   %43 = add i64 %.sroa.728.039.i, -2
   %44 = icmp eq ptr %.sroa.427.038.i, null
   %45 = icmp eq i64 %.sroa.15.041.i, 0
-  %or.cond.i = select i1 %44, i1 true, i1 %45
+  %or.cond.i = or i1 %45, %44
   br i1 %or.cond.i, label %"_ZN236_$LT$image..buffer_..ImageBuffer$LT$FromType$C$Container$GT$$u20$as$u20$image..buffer_..ConvertBuffer$LT$image..buffer_..ImageBuffer$LT$ToType$C$alloc..vec..Vec$LT$$LT$ToType$u20$as$u20$image..traits..Pixel$GT$..Subpixel$GT$$GT$$GT$$GT$7convert17hfe30c12017d0d8d3E.exit", label %46
 
 46:                                               ; preds = %"_ZN101_$LT$core..slice..iter..ChunksExactMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h190e6d8993a134cbE.exit.i.i"
@@ -32838,7 +32838,7 @@ common.resume:                                    ; preds = %436, %391, %340, %2
   %226 = add i64 %.sroa.728.039.i45, -2
   %227 = icmp eq ptr %.sroa.427.038.i46, null
   %228 = icmp eq i64 %.sroa.15.041.i43, 0
-  %or.cond.i47 = select i1 %227, i1 true, i1 %228
+  %or.cond.i47 = or i1 %228, %227
   br i1 %or.cond.i47, label %"_ZN236_$LT$image..buffer_..ImageBuffer$LT$FromType$C$Container$GT$$u20$as$u20$image..buffer_..ConvertBuffer$LT$image..buffer_..ImageBuffer$LT$ToType$C$alloc..vec..Vec$LT$$LT$ToType$u20$as$u20$image..traits..Pixel$GT$..Subpixel$GT$$GT$$GT$$GT$7convert17h25784ec0d892a2daE.exit", label %229
 
 229:                                              ; preds = %"_ZN101_$LT$core..slice..iter..ChunksExactMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h190e6d8993a134cbE.exit.i.i42"
@@ -38776,7 +38776,7 @@ define void @"_ZN170_$LT$image..dynimage..DynamicImage$u20$as$u20$core..convert.
   %.sroa.426.037.i = phi ptr [ %40, %38 ], [ %22, %"_ZN101_$LT$core..slice..iter..ChunksExactMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h190e6d8993a134cbE.exit.i.preheader.i" ]
   %36 = icmp eq ptr %.sroa.426.037.i, null
   %37 = icmp eq i64 %.sroa.15.040.i, 0
-  %or.cond.i = select i1 %36, i1 true, i1 %37
+  %or.cond.i = or i1 %37, %36
   br i1 %or.cond.i, label %.loopexit, label %38
 
 38:                                               ; preds = %"_ZN101_$LT$core..slice..iter..ChunksExactMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h190e6d8993a134cbE.exit.i.i"

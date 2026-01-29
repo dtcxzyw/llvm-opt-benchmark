@@ -79189,9 +79189,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17h582f2718b27e6cb7E.exit.loopexi
 _ZN4core4iter6traits8iterator8Iterator8try_fold17h582f2718b27e6cb7E.exit: ; preds = %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h9f78be0f01af85c4E.exit.i", %_ZN4core4iter6traits8iterator8Iterator8try_fold17h582f2718b27e6cb7E.exit.loopexit.split.loop.exit, %2
   %.sroa.3.0.i = phi ptr [ null, %2 ], [ %19, %_ZN4core4iter6traits8iterator8Iterator8try_fold17h582f2718b27e6cb7E.exit.loopexit.split.loop.exit ], [ null, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h9f78be0f01af85c4E.exit.i" ]
   %.sroa.0.0.i = phi i64 [ undef, %2 ], [ %9, %_ZN4core4iter6traits8iterator8Iterator8try_fold17h582f2718b27e6cb7E.exit.loopexit.split.loop.exit ], [ undef, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h9f78be0f01af85c4E.exit.i" ]
-  %.not = icmp eq ptr %.sroa.3.0.i, null
-  %.sroa.0.0 = select i1 %.not, i64 undef, i64 %.sroa.0.0.i
-  %20 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
+  %20 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0.i, 0
   %21 = insertvalue { i64, ptr } %20, ptr %.sroa.3.0.i, 1
   ret { i64, ptr } %21
 }

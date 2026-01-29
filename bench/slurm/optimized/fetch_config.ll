@@ -364,8 +364,8 @@ define dso_local ptr @fetch_config(ptr noundef %0, i32 noundef %1) local_unnamed
 
 .outer72._crit_edge.i:                            ; preds = %.split86.us.i
   %116 = load i32, ptr %3, align 4
-  %.fr.i = freeze i32 %116
-  %117 = icmp slt i32 %.fr.i, 1
+  %.fr181.i = freeze i32 %116
+  %117 = icmp slt i32 %.fr181.i, 1
   br i1 %117, label %118, label %124
 
 118:                                              ; preds = %.outer72._crit_edge.i
@@ -380,38 +380,38 @@ define dso_local ptr @fetch_config(ptr noundef %0, i32 noundef %1) local_unnamed
   br label %_fetch_parent.exit
 
 124:                                              ; preds = %.outer72._crit_edge.i
-  %125 = call ptr @init_buf(i32 noundef %.fr.i) #12
-  %126 = zext nneg i32 %.fr.i to i64
+  %125 = call ptr @init_buf(i32 noundef %.fr181.i) #12
+  %126 = zext nneg i32 %.fr181.i to i64
   %127 = getelementptr inbounds nuw i8, ptr %125, i64 8
   %128 = load ptr, ptr %127, align 8
   br label %.lr.ph130.i
 
 .lr.ph130.i:                                      ; preds = %.lr.ph130.i.backedge, %124
-  %.042.ph179.i = phi ptr [ %128, %124 ], [ %171, %.lr.ph130.i.backedge ]
-  %.043.ph177.i = phi i64 [ %126, %124 ], [ %172, %.lr.ph130.i.backedge ]
-  %129 = icmp eq i64 %.043.ph177.i, %126
+  %.042.ph178.i = phi ptr [ %128, %124 ], [ %171, %.lr.ph130.i.backedge ]
+  %.043.ph176.i = phi i64 [ %126, %124 ], [ %172, %.lr.ph130.i.backedge ]
+  %129 = icmp eq i64 %.043.ph176.i, %126
   %130 = load i32, ptr @to_parent, align 4
   br i1 %129, label %.lr.ph130.split.split.i, label %.lr.ph130.split.us.split.i
 
 .lr.ph130.split.us.split.i:                       ; preds = %.lr.ph130.i
-  %131 = call i64 @read(i32 noundef %130, ptr noundef %.042.ph179.i, i64 noundef %.043.ph177.i) #12
+  %131 = call i64 @read(i32 noundef %130, ptr noundef %.042.ph178.i, i64 noundef %.043.ph176.i) #12
   %132 = trunc i64 %131 to i32
   %133 = icmp eq i32 %132, 0
-  br i1 %133, label %.split133.us.i, label %.lr.ph174.i.preheader
+  br i1 %133, label %.split133.us.i, label %.lr.ph173.i.preheader
 
-.lr.ph174.i.preheader:                            ; preds = %.lr.ph130.split.us.split.i
+.lr.ph173.i.preheader:                            ; preds = %.lr.ph130.split.us.split.i
   %134 = icmp slt i32 %132, 0
   br i1 %134, label %.lr.ph83, label %.split136.us.i
 
-.lr.ph83:                                         ; preds = %.lr.ph174.i.preheader
+.lr.ph83:                                         ; preds = %.lr.ph173.i.preheader
   %135 = tail call ptr @__errno_location() #14
   br label %137
 
-.lr.ph174.i:                                      ; preds = %139
+.lr.ph173.i:                                      ; preds = %139
   %136 = icmp slt i32 %142, 0
   br i1 %136, label %137, label %.split136.us.i
 
-137:                                              ; preds = %.lr.ph83, %.lr.ph174.i
+137:                                              ; preds = %.lr.ph83, %.lr.ph173.i
   %138 = load i32, ptr %135, align 4
   switch i32 %138, label %.split139.us.i [
     i32 11, label %139
@@ -420,35 +420,35 @@ define dso_local ptr @fetch_config(ptr noundef %0, i32 noundef %1) local_unnamed
 
 139:                                              ; preds = %137, %137
   %140 = load i32, ptr @to_parent, align 4
-  %141 = call i64 @read(i32 noundef %140, ptr noundef %.042.ph179.i, i64 noundef %.043.ph177.i) #12
+  %141 = call i64 @read(i32 noundef %140, ptr noundef %.042.ph178.i, i64 noundef %.043.ph176.i) #12
   %142 = trunc i64 %141 to i32
   %143 = icmp eq i32 %142, 0
-  br i1 %143, label %.split133.us.i, label %.lr.ph174.i
+  br i1 %143, label %.split133.us.i, label %.lr.ph173.i
 
 .lr.ph130.split.split.i:                          ; preds = %.lr.ph130.i
-  %144 = call i64 @read(i32 noundef %130, ptr noundef %.042.ph179.i, i64 noundef %126) #12
+  %144 = call i64 @read(i32 noundef %130, ptr noundef %.042.ph178.i, i64 noundef %126) #12
   %145 = trunc i64 %144 to i32
   %146 = icmp eq i32 %145, 0
-  br i1 %146, label %.split143.us.i, label %.lr.ph159.preheader.i.preheader
+  br i1 %146, label %.split142.us.i, label %.lr.ph158.preheader.i.preheader
 
-.lr.ph159.preheader.i.preheader:                  ; preds = %.lr.ph130.split.split.i
+.lr.ph158.preheader.i.preheader:                  ; preds = %.lr.ph130.split.split.i
   %147 = icmp slt i32 %145, 0
   br i1 %147, label %.lr.ph85, label %.split136.us.i
 
-.lr.ph85:                                         ; preds = %.lr.ph159.preheader.i.preheader
+.lr.ph85:                                         ; preds = %.lr.ph158.preheader.i.preheader
   %148 = tail call ptr @__errno_location() #14
   br label %160
 
-.split143.us.i:                                   ; preds = %.lr.ph130.split.split.i, %162
+.split142.us.i:                                   ; preds = %.lr.ph130.split.split.i, %162
   %149 = call i32 @get_log_level() #12
   %150 = icmp sgt i32 %149, 4
   br i1 %150, label %151, label %152
 
-151:                                              ; preds = %.split143.us.i
+151:                                              ; preds = %.split142.us.i
   call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.2, i32 noundef 93, ptr noundef nonnull @__func__._fetch_parent) #12
   br label %152
 
-152:                                              ; preds = %151, %.split143.us.i
+152:                                              ; preds = %151, %.split142.us.i
   %153 = tail call ptr @__errno_location() #14
   store i32 5, ptr %153, align 4
   br label %.thread.i
@@ -459,7 +459,7 @@ define dso_local ptr @fetch_config(ptr noundef %0, i32 noundef %1) local_unnamed
   br i1 %155, label %156, label %157
 
 156:                                              ; preds = %.split133.us.i
-  call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.2, i32 noundef 93, ptr noundef nonnull @__func__._fetch_parent, i64 noundef %.043.ph177.i, i32 noundef %.fr.i) #12
+  call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.2, i32 noundef 93, ptr noundef nonnull @__func__._fetch_parent, i64 noundef %.043.ph176.i, i32 noundef %.fr181.i) #12
   br label %157
 
 157:                                              ; preds = %156, %.split133.us.i
@@ -467,11 +467,11 @@ define dso_local ptr @fetch_config(ptr noundef %0, i32 noundef %1) local_unnamed
   store i32 5, ptr %158, align 4
   br label %.thread.i
 
-.lr.ph159.preheader.i:                            ; preds = %162
+.lr.ph158.preheader.i:                            ; preds = %162
   %159 = icmp slt i32 %165, 0
   br i1 %159, label %160, label %.split136.us.i
 
-160:                                              ; preds = %.lr.ph85, %.lr.ph159.preheader.i
+160:                                              ; preds = %.lr.ph85, %.lr.ph158.preheader.i
   %161 = load i32, ptr %148, align 4
   switch i32 %161, label %.split139.us.i [
     i32 11, label %162
@@ -480,26 +480,26 @@ define dso_local ptr @fetch_config(ptr noundef %0, i32 noundef %1) local_unnamed
 
 162:                                              ; preds = %160, %160
   %163 = load i32, ptr @to_parent, align 4
-  %164 = call i64 @read(i32 noundef %163, ptr noundef %.042.ph179.i, i64 noundef %126) #12
+  %164 = call i64 @read(i32 noundef %163, ptr noundef %.042.ph178.i, i64 noundef %126) #12
   %165 = trunc i64 %164 to i32
   %166 = icmp eq i32 %165, 0
-  br i1 %166, label %.split143.us.i, label %.lr.ph159.preheader.i
+  br i1 %166, label %.split142.us.i, label %.lr.ph158.preheader.i
 
 .split139.us.i:                                   ; preds = %137, %160
-  %.043.ph177207.i = phi i64 [ %126, %160 ], [ %.043.ph177.i, %137 ]
+  %.043.ph176207.i = phi i64 [ %126, %160 ], [ %.043.ph176.i, %137 ]
   %167 = call i32 @get_log_level() #12
   %168 = icmp sgt i32 %167, 4
   br i1 %168, label %169, label %.thread.i
 
 169:                                              ; preds = %.split139.us.i
-  call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.2, i32 noundef 93, ptr noundef nonnull @__func__._fetch_parent, i64 noundef %.043.ph177207.i, i32 noundef %.fr.i) #12
+  call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.2, i32 noundef 93, ptr noundef nonnull @__func__._fetch_parent, i64 noundef %.043.ph176207.i, i32 noundef %.fr181.i) #12
   br label %.thread.i
 
-.split136.us.i:                                   ; preds = %.lr.ph174.i, %.lr.ph159.preheader.i, %.lr.ph174.i.preheader, %.lr.ph159.preheader.i.preheader
-  %.us-phi137.i = phi i64 [ %164, %.lr.ph159.preheader.i ], [ %144, %.lr.ph159.preheader.i.preheader ], [ %131, %.lr.ph174.i.preheader ], [ %141, %.lr.ph174.i ]
+.split136.us.i:                                   ; preds = %.lr.ph173.i, %.lr.ph158.preheader.i, %.lr.ph173.i.preheader, %.lr.ph158.preheader.i.preheader
+  %.us-phi137.i = phi i64 [ %164, %.lr.ph158.preheader.i ], [ %144, %.lr.ph158.preheader.i.preheader ], [ %131, %.lr.ph173.i.preheader ], [ %141, %.lr.ph173.i ]
   %170 = and i64 %.us-phi137.i, 2147483647
-  %171 = getelementptr inbounds nuw i8, ptr %.042.ph179.i, i64 %170
-  %172 = sub i64 %.043.ph177.i, %170
+  %171 = getelementptr inbounds nuw i8, ptr %.042.ph178.i, i64 %170
+  %172 = sub i64 %.043.ph176.i, %170
   %.not58.i = icmp eq i64 %172, 0
   br i1 %.not58.i, label %.outer._crit_edge.i, label %173
 
@@ -509,7 +509,7 @@ define dso_local ptr @fetch_config(ptr noundef %0, i32 noundef %1) local_unnamed
   br i1 %175, label %176, label %.lr.ph130.i.backedge
 
 176:                                              ; preds = %173
-  call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.2, i32 noundef 93, ptr noundef nonnull @__func__._fetch_parent, i64 noundef %172, i32 noundef %.fr.i) #12
+  call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.2, i32 noundef 93, ptr noundef nonnull @__func__._fetch_parent, i64 noundef %172, i32 noundef %.fr181.i) #12
   br label %.lr.ph130.i.backedge
 
 .lr.ph130.i.backedge:                             ; preds = %176, %173

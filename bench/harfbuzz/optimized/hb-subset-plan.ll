@@ -53515,7 +53515,7 @@ _ZN9hb_iter_tI13hb_map_iter_tI17hb_sorted_array_tIKN2OT6Layout6Common11RangeReco
   %163 = add i32 %.sroa.6.06.i, -1
   %164 = getelementptr inbounds nuw i8, ptr %.sroa.0.07.i, i64 6
   %.not.not.i = icmp eq i32 %163, 0
-  %or.cond = select i1 %162, i1 true, i1 %.not.not.i
+  %or.cond = or i1 %162, %.not.not.i
   br i1 %or.cond, label %"_ZNK4$_33clI13hb_map_iter_tI17hb_sorted_array_tIKN2OT6Layout6Common11RangeRecordINS4_10SmallTypesEEEEZNKS5_17CoverageFormat2_4IS7_E10intersectsEPK8hb_set_tEUlRS9_E_L24hb_function_sortedness_t0ELPv0EERK4$_19SN_TnPN12hb_enable_ifIXsr14hb_is_iterableIT_EE5valueEvE4typeELSJ_0EEEbOSP_OT0_OT1_.exit", label %139, !llvm.loop !1075
 
 "_ZNK4$_33clI13hb_map_iter_tI17hb_sorted_array_tIKN2OT6Layout6Common11RangeRecordINS4_10SmallTypesEEEEZNKS5_17CoverageFormat2_4IS7_E10intersectsEPK8hb_set_tEUlRS9_E_L24hb_function_sortedness_t0ELPv0EERK4$_19SN_TnPN12hb_enable_ifIXsr14hb_is_iterableIT_EE5valueEvE4typeELSJ_0EEEbOSP_OT0_OT1_.exit.sink.split": ; preds = %_ZNR9hb_iter_tIN23hb_bit_set_invertible_t6iter_tEjEppEv.exit, %_ZNK2OT6Layout6Common17CoverageFormat2_4INS0_10SmallTypesEE12get_coverageEj.exit, %64
@@ -53608,7 +53608,7 @@ _ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.prehead
   %42 = zext i16 %41 to i32
   %43 = icmp samesign ult i32 %.sroa.7.0.i.ph, %42
   %44 = icmp ne i16 %37, 0
-  %or.cond.i.i.i105 = select i1 %43, i1 %44, i1 false
+  %or.cond.i.i.i105 = and i1 %44, %43
   br i1 %or.cond.i.i.i105, label %.lr.ph, label %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i.i.lr.ph.i.i
 
 .lr.ph:                                           ; preds = %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.preheader
@@ -53807,7 +53807,7 @@ _ZN13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS0_8OffsetT
   %138 = zext i16 %137 to i32
   %139 = icmp ult i32 %.sroa.12.3, %138
   %140 = icmp ne i32 %134, 0
-  %or.cond.i.i.i = select i1 %139, i1 %140, i1 false
+  %or.cond.i.i.i = and i1 %140, %139
   br i1 %or.cond.i.i.i, label %51, label %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i.i.lr.ph.i.i, !llvm.loop !1084
 
 _ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i.i.lr.ph.i.i: ; preds = %_ZN13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS0_8OffsetToINS1_9GSUB_impl11LigatureSetINS1_10SmallTypesEEENS0_7IntTypeItLj2EEEvLb1EEEEE8__next__Ev.exit, %"_ZNK4$_23clIRK8hb_set_tjEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOS5_OS6_.exit.i.i.i._ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i.i.lr.ph.i.i.loopexit_crit_edge", %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.preheader
@@ -53826,7 +53826,7 @@ _ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i.i.l
   %145 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 4
   %146 = icmp ult i32 %.sroa.12.0.lcssa, %.pre-phi152
   %147 = icmp ne i32 %.sroa.35.sroa.0.0.lcssa, 0
-  %or.cond.i14.i = select i1 %146, i1 %147, i1 false
+  %or.cond.i14.i = and i1 %147, %146
   br i1 %or.cond.i14.i, label %.lr.ph.i, label %"_ZorI13hb_map_iter_tIS0_I16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS3_8OffsetToINS4_9GSUB_impl11LigatureSetINS4_10SmallTypesEEENS3_7IntTypeItLj2EEEvLb1EEEEERK8hb_set_tRK3$_6LPv0EERK3$_7L24hb_function_sortedness_t0ELSQ_0EEZNKSA_22LigatureSubstFormat1_2ISC_E10intersectsEPSL_EUlRSH_E_LSV_0ELSQ_0EERK4$_33TnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NS17_6item_tEEE5valueEvE4typeELSQ_0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardIS17_Efp_EEEOS17_OS1C_.exit"
 
 .lr.ph.i:                                         ; preds = %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i.i.lr.ph.i.i, %"_ZNR9hb_iter_tI13hb_map_iter_tIS0_I16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS3_8OffsetToINS4_9GSUB_impl11LigatureSetINS4_10SmallTypesEEENS3_7IntTypeItLj2EEEvLb1EEEEERK8hb_set_tRK3$_6LPv0EERK3$_7L24hb_function_sortedness_t0ELSQ_0EEZNKSA_22LigatureSubstFormat1_2ISC_E10intersectsEPSL_EUlRSH_E_LSV_0ELSQ_0EEbEppEv.exit.i.i"
@@ -59072,7 +59072,7 @@ _ZNK14hb_sparseset_tI23hb_bit_set_invertible_tE3hasEj.exit: ; preds = %43, %._cr
   %75 = tail call noundef zeroext i1 @_ZNK2OT9ChainRuleINS_6Layout10SmallTypesEE10intersectsEPK8hb_set_tRNS_32ChainContextClosureLookupContextE(ptr noundef nonnull align 1 dereferenceable(18) %.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr noundef %66, ptr noundef nonnull align 8 dereferenceable(80) %68)
   %76 = add i32 %.sroa.6.06.i.i.i, -1
   %.not.not.i.i.i = icmp eq i32 %76, 0
-  %or.cond = select i1 %75, i1 true, i1 %.not.not.i.i.i
+  %or.cond = or i1 %75, %.not.not.i.i.i
   br i1 %or.cond, label %_ZNK2OT12ChainRuleSetINS_6Layout10SmallTypesEE10intersectsEPK8hb_set_tRNS_32ChainContextClosureLookupContextE.exit, label %.lr.ph.i.i.i, !llvm.loop !1174
 
 _ZNK2OT12ChainRuleSetINS_6Layout10SmallTypesEE10intersectsEPK8hb_set_tRNS_32ChainContextClosureLookupContextE.exit: ; preds = %.lr.ph.i.i.i, %3, %64, %10, %_ZNK14hb_sparseset_tI23hb_bit_set_invertible_tE3hasEj.exit, %_ZNK2OT8ClassDef16intersects_classEPK8hb_set_tj.exit
@@ -69420,7 +69420,7 @@ _ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.prehead
   %243 = zext i16 %242 to i32
   %244 = icmp samesign ult i32 %.sroa.7.0.i, %243
   %245 = icmp ne i16 %237, 0
-  %or.cond.i.i.i129 = select i1 %244, i1 %245, i1 false
+  %or.cond.i.i.i129 = and i1 %245, %244
   br i1 %or.cond.i.i.i129, label %.lr.ph, label %"_ZorI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS1_8OffsetToINS2_9GPOS_impl7PairSetINS2_10SmallTypesEEENS1_7IntTypeItLj2EEEvLb1EEEEE24hb_filter_iter_factory_tIRK8hb_set_tRK3$_6ETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSR_6item_tEEE5valueEvE4typeELPv0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISR_Efp_EEEOSR_OSX_.exit"
 
 .lr.ph:                                           ; preds = %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.preheader
@@ -69614,7 +69614,7 @@ _ZN13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS0_8OffsetT
   %339 = zext i16 %338 to i32
   %340 = icmp ult i32 %.sroa.12.3, %339
   %341 = icmp ne i32 %334, 0
-  %or.cond.i.i.i = select i1 %340, i1 %341, i1 false
+  %or.cond.i.i.i = and i1 %341, %340
   br i1 %or.cond.i.i.i, label %251, label %"_ZorI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS1_8OffsetToINS2_9GPOS_impl7PairSetINS2_10SmallTypesEEENS1_7IntTypeItLj2EEEvLb1EEEEE24hb_filter_iter_factory_tIRK8hb_set_tRK3$_6ETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSR_6item_tEEE5valueEvE4typeELPv0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISR_Efp_EEEOSR_OSX_.exit.loopexit", !llvm.loop !1298
 
 "_ZorI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS1_8OffsetToINS2_9GPOS_impl7PairSetINS2_10SmallTypesEEENS1_7IntTypeItLj2EEEvLb1EEEEE24hb_filter_iter_factory_tIRK8hb_set_tRK3$_6ETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSR_6item_tEEE5valueEvE4typeELPv0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISR_Efp_EEEOSR_OSX_.exit.loopexit": ; preds = %_ZN13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS0_8OffsetToINS1_9GPOS_impl7PairSetINS1_10SmallTypesEEENS0_7IntTypeItLj2EEEvLb1EEEEE8__next__Ev.exit, %"_ZNK4$_23clIRK8hb_set_tjEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOS5_OS6_.exit.i.i.i"
@@ -69675,7 +69675,7 @@ _ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i.i.l
   %348 = zext i16 %347 to i32
   %349 = icmp ult i32 %.sroa.12.1, %348
   %350 = icmp ne i32 %.sroa.35.sroa.0.1, 0
-  %or.cond.i8.i = select i1 %349, i1 %350, i1 false
+  %or.cond.i8.i = and i1 %349, %350
   br i1 %or.cond.i8.i, label %.lr.ph.i34, label %"_ZorI13hb_map_iter_tIS0_I16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS3_8OffsetToINS4_9GPOS_impl7PairSetINS4_10SmallTypesEEENS3_7IntTypeItLj2EEEvLb1EEEEERK8hb_set_tRK3$_6LPv0EERK3$_7L24hb_function_sortedness_t0ELSQ_0EEZNKSA_16PairPosFormat1_3ISC_E10intersectsEPSL_EUlRSH_E_LSV_0ELSQ_0EERK4$_33TnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NS17_6item_tEEE5valueEvE4typeELSQ_0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardIS17_Efp_EEEOS17_OS1C_.exit"
 
 .lr.ph.i34:                                       ; preds = %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i.i.lr.ph.i.i, %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i.i.i.backedge.i
@@ -86343,7 +86343,7 @@ _ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.prehead
   %42 = zext i16 %41 to i32
   %43 = icmp samesign ult i32 %.sroa.7.0.i.ph, %42
   %44 = icmp ne i16 %36, 0
-  %or.cond.i.i.i117 = select i1 %43, i1 %44, i1 false
+  %or.cond.i.i.i117 = and i1 %44, %43
   br i1 %or.cond.i.i.i117, label %.lr.ph, label %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i.i.lr.ph.i.i
 
 .lr.ph:                                           ; preds = %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.preheader
@@ -86543,7 +86543,7 @@ _ZN13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS0_8OffsetT
   %139 = zext i16 %138 to i32
   %140 = icmp ult i32 %.sroa.12.3, %139
   %141 = icmp ne i32 %135, 0
-  %or.cond.i.i.i = select i1 %140, i1 %141, i1 false
+  %or.cond.i.i.i = and i1 %141, %140
   br i1 %or.cond.i.i.i, label %47, label %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i.i.lr.ph.i.i, !llvm.loop !1475
 
 _ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i.i.lr.ph.i.i: ; preds = %_ZN13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS0_8OffsetToINS0_8LigGlyphENS0_7IntTypeItLj2EEEvLb1EEEEE8__next__Ev.exit, %"_ZNK4$_23clIRPK8hb_set_tjEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOS6_OS7_.exit.i.i.i._ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i.i.lr.ph.i.i.loopexit_crit_edge", %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.preheader
@@ -86557,7 +86557,7 @@ _ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i.i.l
   %142 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 4
   %143 = icmp ult i32 %.sroa.12.0.lcssa, %.pre-phi166
   %144 = icmp ne i32 %.sroa.35.sroa.0.0.lcssa, 0
-  %or.cond.i28.i = select i1 %143, i1 %144, i1 false
+  %or.cond.i28.i = and i1 %144, %143
   br i1 %or.cond.i28.i, label %.lr.ph.i, label %"_ZorI13hb_map_iter_tIS0_I16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS3_8OffsetToINS3_8LigGlyphENS3_7IntTypeItLj2EEEvLb1EEEEERPK8hb_set_tRK3$_6LPv0EERK3$_7L24hb_function_sortedness_t0ELSO_0EE12hb_partial_tILj2EPK4$_38PKNS3_12LigCaretListEELST_0ELSO_0EE10hb_apply_tIZNKSZ_25collect_variation_indicesEPNS3_38hb_collect_variation_indices_context_tEEUlRKSA_E_ETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NS1C_6item_tEEE5valueEvE4typeELSO_0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardIS1C_Efp_EEEOS1C_OS1H_.exit"
 
 .lr.ph.i:                                         ; preds = %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i.i.lr.ph.i.i
@@ -88605,7 +88605,7 @@ _ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.prehead
   %50 = zext i16 %49 to i32
   %51 = icmp samesign ult i32 %.sroa.7.0.i.ph, %50
   %52 = icmp ne i16 %44, 0
-  %or.cond.i.i.i132 = select i1 %51, i1 %52, i1 false
+  %or.cond.i.i.i132 = and i1 %52, %51
   br i1 %or.cond.i.i.i132, label %.lr.ph, label %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i
 
 .lr.ph:                                           ; preds = %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.preheader
@@ -88805,7 +88805,7 @@ _ZN13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS0_8OffsetT
   %147 = zext i16 %146 to i32
   %148 = icmp ult i32 %.sroa.1269.3, %147
   %149 = icmp ne i32 %143, 0
-  %or.cond.i.i.i = select i1 %148, i1 %149, i1 false
+  %or.cond.i.i.i = and i1 %149, %148
   br i1 %or.cond.i.i.i, label %55, label %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i, !llvm.loop !1536
 
 _ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i: ; preds = %_ZN13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS0_8OffsetToINS1_9GPOS_impl7PairSetINS1_10SmallTypesEEENS0_7IntTypeItLj2EEEvLb1EEEEE8__next__Ev.exit, %"_ZNK4$_23clIRPK8hb_set_tjEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOS6_OS7_.exit.i.i.i._ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.loopexit_crit_edge", %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.preheader
@@ -88817,7 +88817,7 @@ _ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i: ; pr
   %.sroa.35.sroa.0.0.lcssa = phi i32 [ %.sroa.35.sroa.0.0.extract.trunc198, %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.preheader ], [ %.sroa.35.sroa.0.0137, %"_ZNK4$_23clIRPK8hb_set_tjEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOS6_OS7_.exit.i.i.i._ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.loopexit_crit_edge" ], [ %143, %_ZN13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS0_8OffsetToINS1_9GPOS_impl7PairSetINS1_10SmallTypesEEENS0_7IntTypeItLj2EEEvLb1EEEEE8__next__Ev.exit ]
   %150 = icmp ult i32 %.sroa.1269.0.lcssa, %.pre-phi171
   %151 = icmp ne i32 %.sroa.35.sroa.0.0.lcssa, 0
-  %or.cond110 = select i1 %150, i1 %151, i1 false
+  %or.cond110 = and i1 %151, %150
   br i1 %or.cond110, label %.lr.ph.i.preheader, label %"_ZorI13hb_map_iter_tIS0_I16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS3_8OffsetToINS4_9GPOS_impl7PairSetINS4_10SmallTypesEEENS3_7IntTypeItLj2EEEvLb1EEEEERPK8hb_set_tRK3$_6LPv0EERK3$_7L24hb_function_sortedness_t0ELSR_0EE12hb_partial_tILj2EPK4$_38PKNSA_16PairPosFormat1_3ISC_EEELSW_0ELSR_0EE10hb_apply_tIZNKS13_25collect_variation_indicesEPNS3_38hb_collect_variation_indices_context_tEEUlRKSD_E_ETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NS1G_6item_tEEE5valueEvE4typeELSR_0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardIS1G_Efp_EEEOS1G_OS1L_.exit"
 
 .lr.ph.i.preheader:                               ; preds = %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i
@@ -91124,7 +91124,7 @@ _ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.prehead
   %43 = zext i16 %42 to i32
   %44 = icmp samesign ult i32 %.sroa.7.0.i.ph, %43
   %45 = icmp ne i16 %37, 0
-  %or.cond.i.i.i84 = select i1 %44, i1 %45, i1 false
+  %or.cond.i.i.i84 = and i1 %45, %44
   br i1 %or.cond.i.i.i84, label %.lr.ph, label %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.lr.ph.i.i
 
 .lr.ph:                                           ; preds = %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.preheader
@@ -91324,7 +91324,7 @@ _ZN13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS1_9GPOS_im
   %140 = zext i16 %139 to i32
   %141 = icmp ult i32 %.sroa.12.3, %140
   %142 = icmp ne i32 %136, 0
-  %or.cond.i.i.i = select i1 %141, i1 %142, i1 false
+  %or.cond.i.i.i = and i1 %142, %141
   br i1 %or.cond.i.i.i, label %48, label %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.lr.ph.i.i, !llvm.loop !1585
 
 _ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.lr.ph.i.i: ; preds = %_ZN13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS1_9GPOS_impl15EntryExitRecordEEE8__next__Ev.exit, %"_ZNK4$_23clIRPK8hb_set_tjEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOS6_OS7_.exit.i.i.i._ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.lr.ph.i.i.loopexit_crit_edge", %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.preheader
@@ -91338,7 +91338,7 @@ _ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.lr.ph
   %143 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 4
   %144 = icmp ult i32 %.sroa.12.0.lcssa, %.pre-phi123
   %145 = icmp ne i32 %.sroa.35.sroa.0.0.lcssa, 0
-  %or.cond.i16.i = select i1 %144, i1 %145, i1 false
+  %or.cond.i16.i = and i1 %145, %144
   br i1 %or.cond.i16.i, label %.lr.ph.i, label %"_ZorI13hb_map_iter_tI16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS4_9GPOS_impl15EntryExitRecordEEERPK8hb_set_tRK3$_6LPv0EERK3$_7L24hb_function_sortedness_t0ELSL_0EE10hb_apply_tIZNKS9_17CursivePosFormat125collect_variation_indicesEPNS3_38hb_collect_variation_indices_context_tEEUlRSB_E_ETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NS10_6item_tEEE5valueEvE4typeELSL_0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardIS10_Efp_EEEOS10_OS15_.exit"
 
 .lr.ph.i:                                         ; preds = %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.lr.ph.i.i, %"_ZNR9hb_iter_tI13hb_map_iter_tI16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS4_9GPOS_impl15EntryExitRecordEEERPK8hb_set_tRK3$_6LPv0EERK3$_7L24hb_function_sortedness_t0ELSL_0EERSB_EppEv.exit.i.i"
@@ -92637,7 +92637,7 @@ _ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.prehead
   %50 = zext i16 %49 to i32
   %51 = icmp samesign ult i32 %.sroa.7.0.i.ph, %50
   %52 = icmp ne i16 %45, 0
-  %or.cond.i.i.i115 = select i1 %51, i1 %52, i1 false
+  %or.cond.i.i.i115 = and i1 %52, %51
   br i1 %or.cond.i.i.i115, label %.lr.ph, label %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i.i.lr.ph.i.i
 
 .lr.ph:                                           ; preds = %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.preheader
@@ -92836,7 +92836,7 @@ _ZN13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS1_9GPOS_im
   %146 = zext i16 %145 to i32
   %147 = icmp ult i32 %.sroa.12.3, %146
   %148 = icmp ne i32 %142, 0
-  %or.cond.i.i.i = select i1 %147, i1 %148, i1 false
+  %or.cond.i.i.i = and i1 %148, %147
   br i1 %or.cond.i.i.i, label %59, label %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i.i.lr.ph.i.i, !llvm.loop !1655
 
 _ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i.i.lr.ph.i.i: ; preds = %_ZN13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS1_9GPOS_impl10MarkRecordEEE8__next__Ev.exit, %"_ZNK4$_23clIRK8hb_set_tjEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOS5_OS6_.exit.i.i.i._ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i.i.lr.ph.i.i.loopexit_crit_edge", %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.preheader
@@ -92850,7 +92850,7 @@ _ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i.i.l
   %149 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %150 = icmp ult i32 %.sroa.12.0.lcssa, %.pre-phi158
   %151 = icmp ne i32 %.sroa.35.sroa.0.0.lcssa, 0
-  %or.cond.i18.i = select i1 %150, i1 %151, i1 false
+  %or.cond.i18.i = and i1 %150, %151
   br i1 %or.cond.i18.i, label %.lr.ph.i, label %"_ZorI13hb_map_iter_tIS0_I16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS4_9GPOS_impl10MarkRecordEEERK8hb_set_tRK3$_6LPv0EERK3$_7L24hb_function_sortedness_t0ELSK_0EEMSA_KFjvELSP_0ELSK_0EE9hb_sink_tIRSE_ETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSY_6item_tEEE5valueEvE4typeELSK_0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISY_Efp_EEEOSY_OS13_.exit"
 
 .lr.ph.i:                                         ; preds = %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i.i.lr.ph.i.i

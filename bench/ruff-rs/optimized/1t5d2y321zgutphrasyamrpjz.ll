@@ -27712,29 +27712,28 @@ define hidden { i64, ptr } @_ZN18ty_python_semantic5types10signatures10Parameter
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !alias.scope !5071, !noundef !3
   %6 = getelementptr inbounds nuw { { i64, [5 x i64] }, { i8, [15 x i8] }, i8, [7 x i8] }, ptr %3, i64 %5
-  br label %7
+  %7 = and i64 %5, 2305843009213693951
+  br label %8
 
-7:                                                ; preds = %11, %1
-  %8 = phi i64 [ %14, %11 ], [ 0, %1 ]
-  %9 = phi ptr [ %12, %11 ], [ %3, %1 ]
-  %10 = icmp eq ptr %9, %6
-  br i1 %10, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h6bc96c3cb76c1a00E.exit, label %11
+8:                                                ; preds = %12, %1
+  %9 = phi i64 [ %15, %12 ], [ 0, %1 ]
+  %10 = phi ptr [ %13, %12 ], [ %3, %1 ]
+  %11 = icmp eq ptr %10, %6
+  br i1 %11, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h6bc96c3cb76c1a00E.exit, label %12
 
-11:                                               ; preds = %7
-  %12 = getelementptr inbounds nuw i8, ptr %9, i64 72
-  %13 = load i64, ptr %9, align 8, !range !425, !alias.scope !5074, !noalias !5081, !noundef !3
-  %.not.i = icmp eq i64 %13, 2
-  %14 = add nuw nsw i64 %8, 1
-  br i1 %.not.i, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h6bc96c3cb76c1a00E.exit, label %7
+12:                                               ; preds = %8
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 72
+  %14 = load i64, ptr %10, align 8, !range !425, !alias.scope !5074, !noalias !5081, !noundef !3
+  %.not.i = icmp eq i64 %14, 2
+  %15 = add nuw nsw i64 %9, 1
+  br i1 %.not.i, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h6bc96c3cb76c1a00E.exit, label %8
 
-_ZN4core4iter6traits8iterator8Iterator8try_fold17h6bc96c3cb76c1a00E.exit: ; preds = %7, %11
-  %.sroa.3.0.i = phi ptr [ null, %7 ], [ %9, %11 ]
-  %.sroa.0.0.i = phi i64 [ undef, %7 ], [ %8, %11 ]
-  %.not = icmp eq ptr %.sroa.3.0.i, null
-  %.sroa.0.0 = select i1 %.not, i64 undef, i64 %.sroa.0.0.i
-  %15 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %16 = insertvalue { i64, ptr } %15, ptr %.sroa.3.0.i, 1
-  ret { i64, ptr } %16
+_ZN4core4iter6traits8iterator8Iterator8try_fold17h6bc96c3cb76c1a00E.exit: ; preds = %8, %12
+  %.lcssa = phi i64 [ %7, %8 ], [ %9, %12 ]
+  %.sroa.3.0.i = phi ptr [ null, %8 ], [ %10, %12 ]
+  %16 = insertvalue { i64, ptr } poison, i64 %.lcssa, 0
+  %17 = insertvalue { i64, ptr } %16, ptr %.sroa.3.0.i, 1
+  ret { i64, ptr } %17
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -27774,9 +27773,7 @@ define hidden { i64, ptr } @_ZN18ty_python_semantic5types10signatures10Parameter
 _ZN4core4iter6traits8iterator8Iterator8try_fold17hba526aaf3ec8e26aE.exit: ; preds = %"_ZN18ty_python_semantic5types10signatures10Parameters15keyword_by_name28_$u7b$$u7b$closure$u7d$$u7d$17hd874bbd1813b6682E.exit.i.i.i", %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17hea30be85059b47c1E.exit.i", %3
   %.sroa.3.0.i = phi ptr [ null, %3 ], [ %10, %"_ZN18ty_python_semantic5types10signatures10Parameters15keyword_by_name28_$u7b$$u7b$closure$u7d$$u7d$17hd874bbd1813b6682E.exit.i.i.i" ], [ null, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17hea30be85059b47c1E.exit.i" ]
   %.sroa.0.0.i = phi i64 [ undef, %3 ], [ %.sroa.7.0, %"_ZN18ty_python_semantic5types10signatures10Parameters15keyword_by_name28_$u7b$$u7b$closure$u7d$$u7d$17hd874bbd1813b6682E.exit.i.i.i" ], [ undef, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17hea30be85059b47c1E.exit.i" ]
-  %.not = icmp eq ptr %.sroa.3.0.i, null
-  %.sroa.0.0 = select i1 %.not, i64 undef, i64 %.sroa.0.0.i
-  %19 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
+  %19 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0.i, 0
   %20 = insertvalue { i64, ptr } %19, ptr %.sroa.3.0.i, 1
   ret { i64, ptr } %20
 }
@@ -27806,9 +27803,7 @@ define hidden { i64, ptr } @_ZN18ty_python_semantic5types10signatures10Parameter
 "_ZN125_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9try_rfold17hb22b42387f8aa717E.exit": ; preds = %7, %10
   %.sroa.3.0.i.i = phi ptr [ %11, %10 ], [ null, %7 ]
   %.sroa.0.0.i.i = phi i64 [ %12, %10 ], [ undef, %7 ]
-  %.not = icmp eq ptr %.sroa.3.0.i.i, null
-  %.sroa.0.0 = select i1 %.not, i64 undef, i64 %.sroa.0.0.i.i
-  %14 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
+  %14 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0.i.i, 0
   %15 = insertvalue { i64, ptr } %14, ptr %.sroa.3.0.i.i, 1
   ret { i64, ptr } %15
 }

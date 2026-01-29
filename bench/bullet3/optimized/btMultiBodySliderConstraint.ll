@@ -1068,7 +1068,7 @@ _ZNK9btVector38safeNormEv.exit:                   ; preds = %326
   %476 = getelementptr inbounds nuw i8, ptr %8, i64 8
   br label %478
 
-477:                                              ; preds = %561
+477:                                              ; preds = %559
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -1077,8 +1077,8 @@ _ZNK9btVector38safeNormEv.exit:                   ; preds = %326
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 
-478:                                              ; preds = %.loopexit, %561
-  %indvars.iv249 = phi i64 [ 0, %.loopexit ], [ %indvars.iv.next250, %561 ]
+478:                                              ; preds = %.loopexit, %559
+  %indvars.iv249 = phi i64 [ 0, %.loopexit ], [ %indvars.iv.next250, %559 ]
   %479 = load i32, ptr %464, align 4, !tbaa !81
   %480 = load i32, ptr %465, align 8, !tbaa !85
   %481 = icmp eq i32 %479, %480
@@ -1210,34 +1210,32 @@ _ZN20btAlignedObjectArrayI27btMultiBodySolverConstraintE21expandNonInitializingE
   %541 = load float, ptr %472, align 4, !tbaa !102
   %542 = fneg float %541
   %543 = call noundef float @_ZN21btMultiBodyConstraint23fillMultiBodyConstraintER27btMultiBodySolverConstraintR23btMultiBodyJacobianDataPfS4_RK9btVector3S7_S7_S7_fRK19btContactSolverInfoffbfbfff(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(220) %505, ptr noundef nonnull align 8 dereferenceable(204) %2, ptr noundef null, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(16) %14, ptr noundef nonnull align 4 dereferenceable(16) %13, ptr noundef nonnull align 4 dereferenceable(16) %5, ptr noundef nonnull align 4 dereferenceable(16) %8, float noundef %540, ptr noundef nonnull align 4 dereferenceable(128) %3, float noundef %542, float noundef %541, i1 noundef zeroext false, float noundef 1.000000e+00, i1 noundef zeroext false, float noundef 0.000000e+00, float noundef 0.000000e+00, float noundef 1.000000e+00)
-  br label %561
+  br label %559
 
 544:                                              ; preds = %522
   %.cmp = icmp eq i64 %indvars.iv249, 2
-  %545 = trunc i64 %indvars.iv249 to i32
-  %546 = add i32 %545, -3
-  %547 = select i1 %.cmp, i32 2, i32 %546
-  %548 = sext i32 %547 to i64
-  %549 = getelementptr inbounds float, ptr %6, i64 %548
-  %550 = getelementptr inbounds float, ptr %18, i64 %548
-  %551 = getelementptr inbounds float, ptr %20, i64 %548
+  %545 = add nuw i64 %indvars.iv249, 4294967293
+  %546 = and i64 %545, 4294967295
+  %547 = select i1 %.cmp, i64 2, i64 %546
+  %548 = getelementptr inbounds nuw float, ptr %6, i64 %547
+  %549 = getelementptr inbounds nuw float, ptr %18, i64 %547
+  %550 = getelementptr inbounds nuw float, ptr %20, i64 %547
+  %551 = load float, ptr %548, align 4, !tbaa !28
+  %.sroa.0.0.vec.insert.i105 = insertelement <2 x float> poison, float %551, i64 0
   %552 = load float, ptr %549, align 4, !tbaa !28
-  %.sroa.0.0.vec.insert.i105 = insertelement <2 x float> poison, float %552, i64 0
+  %.sroa.0.4.vec.insert.i106 = insertelement <2 x float> %.sroa.0.0.vec.insert.i105, float %552, i64 1
   %553 = load float, ptr %550, align 4, !tbaa !28
-  %.sroa.0.4.vec.insert.i106 = insertelement <2 x float> %.sroa.0.0.vec.insert.i105, float %553, i64 1
-  %554 = load float, ptr %551, align 4, !tbaa !28
-  %.sroa.3.12.vec.insert.i107 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %554, i64 0
+  %.sroa.3.12.vec.insert.i107 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %553, i64 0
   store <2 x float> %.sroa.0.4.vec.insert.i106, ptr %14, align 8
   store <2 x float> %.sroa.3.12.vec.insert.i107, ptr %471, align 8, !tbaa !24
-  %555 = zext nneg i32 %547 to i64
-  %556 = getelementptr inbounds nuw float, ptr %12, i64 %555
-  %557 = load float, ptr %556, align 4, !tbaa !28
-  %558 = load float, ptr %472, align 4, !tbaa !102
-  %559 = fneg float %558
-  %560 = call noundef float @_ZN21btMultiBodyConstraint23fillMultiBodyConstraintER27btMultiBodySolverConstraintR23btMultiBodyJacobianDataPfS4_RK9btVector3S7_S7_S7_fRK19btContactSolverInfoffbfbfff(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(220) %505, ptr noundef nonnull align 8 dereferenceable(204) %2, ptr noundef null, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(16) %14, ptr noundef nonnull align 4 dereferenceable(16) %13, ptr noundef nonnull align 4 dereferenceable(16) %5, ptr noundef nonnull align 4 dereferenceable(16) %8, float noundef %557, ptr noundef nonnull align 4 dereferenceable(128) %3, float noundef %559, float noundef %558, i1 noundef zeroext true, float noundef 1.000000e+00, i1 noundef zeroext false, float noundef 0.000000e+00, float noundef 0.000000e+00, float noundef 1.000000e+00)
-  br label %561
+  %554 = getelementptr inbounds nuw float, ptr %12, i64 %547
+  %555 = load float, ptr %554, align 4, !tbaa !28
+  %556 = load float, ptr %472, align 4, !tbaa !102
+  %557 = fneg float %556
+  %558 = call noundef float @_ZN21btMultiBodyConstraint23fillMultiBodyConstraintER27btMultiBodySolverConstraintR23btMultiBodyJacobianDataPfS4_RK9btVector3S7_S7_S7_fRK19btContactSolverInfoffbfbfff(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(220) %505, ptr noundef nonnull align 8 dereferenceable(204) %2, ptr noundef null, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(16) %14, ptr noundef nonnull align 4 dereferenceable(16) %13, ptr noundef nonnull align 4 dereferenceable(16) %5, ptr noundef nonnull align 4 dereferenceable(16) %8, float noundef %555, ptr noundef nonnull align 4 dereferenceable(128) %3, float noundef %557, float noundef %556, i1 noundef zeroext true, float noundef 1.000000e+00, i1 noundef zeroext false, float noundef 0.000000e+00, float noundef 0.000000e+00, float noundef 1.000000e+00)
+  br label %559
 
-561:                                              ; preds = %544, %524
+559:                                              ; preds = %544, %524
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %indvars.iv.next250 = add nuw nsw i64 %indvars.iv249, 1

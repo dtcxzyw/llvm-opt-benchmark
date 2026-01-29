@@ -30,13 +30,12 @@ define hidden noundef i64 @_ZN11DwarfParser8read_lebEb(ptr noundef nonnull align
 
 15:                                               ; preds = %4
   %16 = zext nneg i32 %13 to i64
-  %17 = icmp ugt i32 %13, 63
-  %not. = xor i1 %1, true
-  %or.cond = select i1 %not., i1 true, i1 %17
-  %.not = icmp samesign ult i8 %7, 64
-  %or.cond15 = or i1 %or.cond, %.not
+  %17 = icmp ult i32 %13, 64
+  %or.cond = and i1 %1, %17
+  %.not = icmp samesign ugt i8 %7, 63
+  %or.cond15.not = and i1 %or.cond, %.not
   %18 = shl nsw i64 -1, %16
-  %19 = select i1 %or.cond15, i64 0, i64 %18
+  %19 = select i1 %or.cond15.not, i64 %18, i64 0
   %.1 = or i64 %12, %19
   ret i64 %.1
 }
@@ -164,11 +163,11 @@ _ZN11DwarfParser8read_lebEb.exit:                 ; preds = %35
 
 _ZN11DwarfParser8read_lebEb.exit19:               ; preds = %48
   %59 = zext nneg i32 %57 to i64
-  %60 = icmp ugt i32 %57, 63
-  %.not.i18 = icmp samesign ult i8 %51, 64
-  %or.cond15.i = or i1 %60, %.not.i18
+  %60 = icmp ult i32 %57, 64
+  %.not.i18 = icmp samesign ugt i8 %51, 63
+  %or.cond15.not.i = and i1 %60, %.not.i18
   %61 = shl nsw i64 -1, %59
-  %62 = select i1 %or.cond15.i, i64 0, i64 %61
+  %62 = select i1 %or.cond15.not.i, i64 %61, i64 0
   %.1.i = or i64 %56, %62
   %63 = trunc i64 %.1.i to i32
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 32

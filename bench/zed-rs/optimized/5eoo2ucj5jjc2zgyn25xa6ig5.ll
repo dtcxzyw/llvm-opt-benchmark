@@ -701,7 +701,6 @@ define hidden { i64, i64 } @"_ZN100_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT
   br i1 %.not13.i.i, label %18, label %11
 
 18:                                               ; preds = %13, %11
-  %spec.select.i = phi i64 [ undef, %13 ], [ %.sroa.0.0.i.i, %11 ]
   %.lcssa.sink.i.i = phi i64 [ %16, %13 ], [ %.val10.i.i, %11 ]
   %19 = icmp ne ptr %.val.i, null
   tail call void @llvm.assume(i1 %19)
@@ -714,7 +713,7 @@ define hidden { i64, i64 } @"_ZN100_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT
   br label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17h98ec142f91540bbfE.llvm.16970626885041381125.exit"
 
 "_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17h98ec142f91540bbfE.llvm.16970626885041381125.exit": ; preds = %18, %20
-  %.sroa.4.0.i = phi i64 [ %1, %20 ], [ %spec.select.i, %18 ]
+  %.sroa.4.0.i = phi i64 [ %1, %20 ], [ %.sroa.0.0.i.i, %18 ]
   %.sroa.03.0.i = phi i64 [ 1, %20 ], [ %spec.select14.i, %18 ]
   %21 = insertvalue { i64, i64 } poison, i64 %.sroa.03.0.i, 0
   %22 = insertvalue { i64, i64 } %21, i64 %.sroa.4.0.i, 1
@@ -30327,7 +30326,6 @@ define hidden { i64, i64 } @"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT
   br i1 %.not13.i, label %18, label %11
 
 18:                                               ; preds = %11, %13
-  %spec.select = phi i64 [ %.sroa.0.0.i, %11 ], [ undef, %13 ]
   %.lcssa.sink.i = phi i64 [ %.val10.i, %11 ], [ %16, %13 ]
   %19 = icmp ne ptr %.val, null
   tail call void @llvm.assume(i1 %19)
@@ -30336,7 +30334,7 @@ define hidden { i64, i64 } @"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT
   br label %20
 
 20:                                               ; preds = %18, %23
-  %.sroa.4.0 = phi i64 [ %1, %23 ], [ %spec.select, %18 ]
+  %.sroa.4.0 = phi i64 [ %1, %23 ], [ %.sroa.0.0.i, %18 ]
   %.sroa.03.0 = phi i64 [ 1, %23 ], [ %spec.select14, %18 ]
   %21 = insertvalue { i64, i64 } poison, i64 %.sroa.03.0, 0
   %22 = insertvalue { i64, i64 } %21, i64 %.sroa.4.0, 1
@@ -80588,7 +80586,6 @@ define hidden { i64, i64 } @"_ZN72_$LT$$RF$mut$u20$I$u20$as$u20$core..iter..trai
   br i1 %.not13.i.i.i.i, label %19, label %12
 
 19:                                               ; preds = %14, %12
-  %spec.select.i.i.i = phi i64 [ undef, %14 ], [ %.sroa.0.0.i.i.i.i, %12 ]
   %.lcssa.sink.i.i.i.i = phi i64 [ %17, %14 ], [ %.val10.i.i.i.i, %12 ]
   %20 = icmp ne ptr %.val.i.i.i, null
   tail call void @llvm.assume(i1 %20)
@@ -80601,7 +80598,7 @@ define hidden { i64, i64 } @"_ZN72_$LT$$RF$mut$u20$I$u20$as$u20$core..iter..trai
   br label %"_ZN79_$LT$$RF$mut$u20$I$u20$as$u20$core..iter..traits..iterator..IteratorRefSpec$GT$13spec_try_fold17heee298d395d64da3E.llvm.16970626885041381125.exit"
 
 "_ZN79_$LT$$RF$mut$u20$I$u20$as$u20$core..iter..traits..iterator..IteratorRefSpec$GT$13spec_try_fold17heee298d395d64da3E.llvm.16970626885041381125.exit": ; preds = %19, %21
-  %.sroa.4.0.i.i.i = phi i64 [ %1, %21 ], [ %spec.select.i.i.i, %19 ]
+  %.sroa.4.0.i.i.i = phi i64 [ %1, %21 ], [ %.sroa.0.0.i.i.i.i, %19 ]
   %.sroa.03.0.i.i.i = phi i64 [ 1, %21 ], [ %spec.select14.i.i.i, %19 ]
   %22 = insertvalue { i64, i64 } poison, i64 %.sroa.03.0.i.i.i, 0
   %23 = insertvalue { i64, i64 } %22, i64 %.sroa.4.0.i.i.i, 1
@@ -81775,7 +81772,6 @@ define hidden { i64, i64 } @"_ZN79_$LT$$RF$mut$u20$I$u20$as$u20$core..iter..trai
   br i1 %.not13.i.i.i, label %19, label %12
 
 19:                                               ; preds = %14, %12
-  %spec.select.i.i = phi i64 [ undef, %14 ], [ %.sroa.0.0.i.i.i, %12 ]
   %.lcssa.sink.i.i.i = phi i64 [ %17, %14 ], [ %.val10.i.i.i, %12 ]
   %20 = icmp ne ptr %.val.i.i, null
   tail call void @llvm.assume(i1 %20)
@@ -81788,7 +81784,7 @@ define hidden { i64, i64 } @"_ZN79_$LT$$RF$mut$u20$I$u20$as$u20$core..iter..trai
   br label %"_ZN100_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h0ea5e81730e1e9efE.llvm.16970626885041381125.exit"
 
 "_ZN100_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h0ea5e81730e1e9efE.llvm.16970626885041381125.exit": ; preds = %19, %21
-  %.sroa.4.0.i.i = phi i64 [ %1, %21 ], [ %spec.select.i.i, %19 ]
+  %.sroa.4.0.i.i = phi i64 [ %1, %21 ], [ %.sroa.0.0.i.i.i, %19 ]
   %.sroa.03.0.i.i = phi i64 [ 1, %21 ], [ %spec.select14.i.i, %19 ]
   %22 = insertvalue { i64, i64 } poison, i64 %.sroa.03.0.i.i, 0
   %23 = insertvalue { i64, i64 } %22, i64 %.sroa.4.0.i.i, 1

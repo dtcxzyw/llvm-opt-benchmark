@@ -4919,25 +4919,25 @@ _ZN6evmone6crypto12_GLOBAL__N_14stepILm79EEEvPSt5arrayIjLm5EEPKSt4byte.exit: ; p
   ret void
 
 3200:                                             ; preds = %_ZN6evmone6crypto12_GLOBAL__N_14stepILm79EEEvPSt5arrayIjLm5EEPKSt4byte.exit, %3200
-  %.0410 = phi i64 [ 0, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm79EEEvPSt5arrayIjLm5EEPKSt4byte.exit ], [ %3201, %3200 ]
-  %3201 = add nuw nsw i64 %.0410, 1
+  %.0409 = phi i64 [ 0, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm79EEEvPSt5arrayIjLm5EEPKSt4byte.exit ], [ %3201, %3200 ]
+  %3201 = add nuw nsw i64 %.0409, 1
   %3202 = icmp eq i64 %3201, 5
   %3203 = select i1 %3202, i64 0, i64 %3201
   %3204 = getelementptr inbounds nuw i32, ptr %0, i64 %3203
   %3205 = load i32, ptr %3204, align 4, !tbaa !13
-  %.cmp.inv = icmp samesign ugt i64 %.0410, 2
-  %3206 = getelementptr i32, ptr %3, i64 %.0410
+  %.cmp.inv = icmp samesign ugt i64 %.0409, 2
+  %3206 = getelementptr i32, ptr %3, i64 %.0409
   %.v.sroa.sel.v.sroa.sel.v = select i1 %.cmp.inv, i64 -12, i64 8
   %.v.sroa.sel.v.sroa.sel = getelementptr i8, ptr %3206, i64 %.v.sroa.sel.v.sroa.sel.v
   %3207 = load i32, ptr %.v.sroa.sel.v.sroa.sel, align 4, !tbaa !13
   %3208 = add i32 %3207, %3205
-  %.cmp408 = icmp samesign ult i64 %.0410, 2
-  %3209 = getelementptr i32, ptr %5, i64 %.0410
-  %.v409.sroa.sel.v.sroa.sel.v = select i1 %.cmp408, i64 12, i64 -8
-  %.v409.sroa.sel.v.sroa.sel = getelementptr i8, ptr %3209, i64 %.v409.sroa.sel.v.sroa.sel.v
-  %3210 = load i32, ptr %.v409.sroa.sel.v.sroa.sel, align 4, !tbaa !13
+  %.cmp407 = icmp samesign ult i64 %.0409, 2
+  %3209 = getelementptr i32, ptr %5, i64 %.0409
+  %.v408.sroa.sel.v.sroa.sel.v = select i1 %.cmp407, i64 12, i64 -8
+  %.v408.sroa.sel.v.sroa.sel = getelementptr i8, ptr %3209, i64 %.v408.sroa.sel.v.sroa.sel.v
+  %3210 = load i32, ptr %.v408.sroa.sel.v.sroa.sel, align 4, !tbaa !13
   %3211 = add i32 %3208, %3210
-  %3212 = getelementptr inbounds nuw i32, ptr %4, i64 %.0410
+  %3212 = getelementptr inbounds nuw i32, ptr %4, i64 %.0409
   store i32 %3211, ptr %3212, align 4, !tbaa !13
   %exitcond.not = icmp eq i64 %3201, 5
   br i1 %exitcond.not, label %3199, label %3200, !llvm.loop !95

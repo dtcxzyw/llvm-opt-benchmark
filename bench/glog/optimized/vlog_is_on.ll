@@ -31,24 +31,24 @@ define hidden noundef zeroext i1 @_ZN6google24glog_internal_namespace_12SafeFNMa
 
 .lr.ph:                                           ; preds = %4, %22
   %7 = phi i1 [ %25, %22 ], [ %6, %4 ]
-  %.051 = phi i64 [ %23, %22 ], [ 0, %4 ]
+  %.052 = phi i64 [ %23, %22 ], [ 0, %4 ]
   br i1 %7, label %8, label %15
 
 8:                                                ; preds = %.lr.ph
-  %9 = add i64 %.051, 1
+  %9 = add i64 %.052, 1
   %10 = icmp eq i64 %9, %1
   br i1 %10, label %11, label %.loopexit
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 %.051
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 %.052
   %13 = load i8, ptr %12, align 1, !tbaa !3
   %14 = icmp eq i8 %13, 42
   br label %.loopexit
 
 15:                                               ; preds = %.lr.ph
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 %.051
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 %.052
   %17 = load i8, ptr %16, align 1, !tbaa !3
-  %18 = getelementptr inbounds nuw i8, ptr %2, i64 %.051
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 %.052
   %19 = load i8, ptr %18, align 1, !tbaa !3
   %20 = icmp eq i8 %17, %19
   %21 = icmp eq i8 %17, 63
@@ -56,7 +56,7 @@ define hidden noundef zeroext i1 @_ZN6google24glog_internal_namespace_12SafeFNMa
   br i1 %or.cond41, label %22, label %26
 
 22:                                               ; preds = %15
-  %23 = add nuw i64 %.051, 1
+  %23 = add nuw i64 %.052, 1
   %24 = icmp eq i64 %23, %1
   %25 = icmp eq i64 %23, %3
   br i1 %24, label %.loopexit, label %.lr.ph, !llvm.loop !6
@@ -66,7 +66,7 @@ define hidden noundef zeroext i1 @_ZN6google24glog_internal_namespace_12SafeFNMa
   br i1 %27, label %28, label %.loopexit
 
 28:                                               ; preds = %26
-  %29 = add i64 %.051, 1
+  %29 = add i64 %.052, 1
   %30 = icmp eq i64 %29, %1
   br i1 %30, label %.loopexit, label %.preheader
 
@@ -76,7 +76,7 @@ define hidden noundef zeroext i1 @_ZN6google24glog_internal_namespace_12SafeFNMa
   br label %33
 
 33:                                               ; preds = %33, %.preheader
-  %.1 = phi i64 [ %37, %33 ], [ %.051, %.preheader ]
+  %.1 = phi i64 [ %37, %33 ], [ %.052, %.preheader ]
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 %.1
   %35 = sub i64 %3, %.1
   %36 = tail call noundef zeroext i1 @_ZN6google24glog_internal_namespace_12SafeFNMatch_EPKcmS2_m(ptr noundef %31, i64 noundef %32, ptr noundef %34, i64 noundef %35)
@@ -86,7 +86,7 @@ define hidden noundef zeroext i1 @_ZN6google24glog_internal_namespace_12SafeFNMa
   br i1 %or.cond, label %.loopexit, label %33, !llvm.loop !8
 
 .loopexit:                                        ; preds = %22, %33, %4, %26, %28, %8, %11
-  %.036 = phi i1 [ false, %8 ], [ %6, %4 ], [ false, %26 ], [ %14, %11 ], [ true, %28 ], [ %36, %33 ], [ %25, %22 ]
+  %.036 = phi i1 [ false, %8 ], [ %36, %33 ], [ false, %26 ], [ %14, %11 ], [ true, %28 ], [ %6, %4 ], [ %25, %22 ]
   ret i1 %.036
 }
 

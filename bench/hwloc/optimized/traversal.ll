@@ -817,7 +817,7 @@ define range(i32 -1, 1) i32 @hwloc_type_sscanf(ptr noundef %0, ptr noundef write
   %44 = icmp eq i8 %35, 45
   %or.cond35.i = or i1 %44, %or.cond33.i
   %45 = icmp ult i32 %.042.i, 2
-  %or.cond185 = select i1 %or.cond35.i, i1 true, i1 %45
+  %or.cond185 = or i1 %45, %or.cond35.i
   br i1 %or.cond185, label %._crit_edge.i.thread, label %hwloc__type_match.exit
 
 46:                                               ; preds = %.lr.ph.i
@@ -867,7 +867,7 @@ define range(i32 -1, 1) i32 @hwloc_type_sscanf(ptr noundef %0, ptr noundef write
   %63 = icmp eq i8 %54, 45
   %or.cond35.i124 = or i1 %63, %or.cond33.i123
   %64 = icmp ult i32 %.042.i116, 2
-  %or.cond187 = select i1 %or.cond35.i124, i1 true, i1 %64
+  %or.cond187 = or i1 %64, %or.cond35.i124
   br i1 %or.cond187, label %.lr.ph.i135.preheader, label %hwloc__type_match.exit
 
 .lr.ph.i135.preheader:                            ; preds = %._crit_edge.i129, %59, %61
@@ -910,7 +910,7 @@ define range(i32 -1, 1) i32 @hwloc_type_sscanf(ptr noundef %0, ptr noundef write
   %80 = icmp eq i8 %71, 45
   %or.cond35.i144 = or i1 %80, %or.cond33.i143
   %81 = icmp ult i32 %.042.i136, 2
-  %or.cond190 = select i1 %or.cond35.i144, i1 true, i1 %81
+  %or.cond190 = or i1 %81, %or.cond35.i144
   br i1 %or.cond190, label %hwloc__type_match.exit153.thread, label %hwloc__type_match.exit
 
 82:                                               ; preds = %.lr.ph.i135
@@ -1237,7 +1237,7 @@ define internal fastcc range(i32 0, 2) i32 @hwloc__osdev_type_sscanf(ptr noundef
   %14 = icmp eq i8 %5, 45
   %or.cond35.i = or i1 %14, %or.cond33.i
   %15 = icmp ult i32 %.042.i, 4
-  %or.cond = select i1 %or.cond35.i, i1 true, i1 %15
+  %or.cond = or i1 %15, %or.cond35.i
   br i1 %or.cond, label %.lr.ph.i27.preheader, label %.sink.split
 
 16:                                               ; preds = %.lr.ph.i
@@ -1277,7 +1277,7 @@ define internal fastcc range(i32 0, 2) i32 @hwloc__osdev_type_sscanf(ptr noundef
   %31 = icmp eq i8 %22, 45
   %or.cond35.i36 = or i1 %31, %or.cond33.i35
   %32 = icmp ult i32 %.042.i28, 4
-  %or.cond123 = select i1 %or.cond35.i36, i1 true, i1 %32
+  %or.cond123 = or i1 %32, %or.cond35.i36
   br i1 %or.cond123, label %.lr.ph.i47.preheader, label %.sink.split
 
 .lr.ph.i47.preheader:                             ; preds = %._crit_edge.i41, %27, %29
@@ -1320,7 +1320,7 @@ define internal fastcc range(i32 0, 2) i32 @hwloc__osdev_type_sscanf(ptr noundef
   %48 = icmp eq i8 %39, 45
   %or.cond35.i56 = or i1 %48, %or.cond33.i55
   %49 = icmp ult i32 %.042.i48, 3
-  %or.cond126 = select i1 %or.cond35.i56, i1 true, i1 %49
+  %or.cond126 = or i1 %49, %or.cond35.i56
   br i1 %or.cond126, label %.lr.ph.i67.preheader, label %.sink.split
 
 .lr.ph.i67.preheader:                             ; preds = %._crit_edge.i61, %44, %46
@@ -1363,7 +1363,7 @@ define internal fastcc range(i32 0, 2) i32 @hwloc__osdev_type_sscanf(ptr noundef
   %65 = icmp eq i8 %56, 45
   %or.cond35.i76 = or i1 %65, %or.cond33.i75
   %66 = icmp ult i32 %.042.i68, 3
-  %or.cond129 = select i1 %or.cond35.i76, i1 true, i1 %66
+  %or.cond129 = or i1 %66, %or.cond35.i76
   br i1 %or.cond129, label %hwloc__type_match.exit85.thread, label %.sink.split
 
 67:                                               ; preds = %.lr.ph.i67

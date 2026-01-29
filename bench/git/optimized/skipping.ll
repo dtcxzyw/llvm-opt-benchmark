@@ -321,29 +321,25 @@ push_parent.exit.i:                               ; preds = %96, %86, %mark_comm
   %101 = getelementptr inbounds nuw i8, ptr %.02752.i, i64 8
   %.027.i = load ptr, ptr %101, align 8, !tbaa !29
   %.not34.i = icmp eq ptr %.027.i, null
-  br i1 %.not34.i, label %select.unfold.loopexit.i, label %35, !llvm.loop !41
+  br i1 %.not34.i, label %select.unfold.i, label %35, !llvm.loop !41
 
-select.unfold.loopexit.i:                         ; preds = %push_parent.exit.i
-  %102 = icmp ne i32 %100, 0
-  br label %select.unfold.i
-
-select.unfold.i:                                  ; preds = %select.unfold.loopexit.i, %29
-  %.026.lcssa.i = phi i1 [ false, %29 ], [ %102, %select.unfold.loopexit.i ]
-  %103 = load i32, ptr %16, align 8
-  %104 = and i32 %103, 64
-  %105 = icmp ne i32 %104, 0
-  %or.cond.i = select i1 %105, i1 true, i1 %.026.lcssa.i
+select.unfold.i:                                  ; preds = %push_parent.exit.i, %29
+  %.026.lcssa.i = phi i32 [ 0, %29 ], [ %100, %push_parent.exit.i ]
+  %102 = load i32, ptr %16, align 8
+  %103 = and i32 %102, 64
+  %104 = or i32 %103, %.026.lcssa.i
+  %or.cond.not.i = icmp eq i32 %104, 0
   call void @free(ptr noundef %15) #6
-  %spec.select41.i = select i1 %or.cond.i, ptr %.231.i, ptr %16
-  %106 = icmp eq ptr %spec.select41.i, null
-  br i1 %106, label %8, label %107
+  %spec.select41.i = select i1 %or.cond.not.i, ptr %16, ptr %.231.i
+  %105 = icmp eq ptr %spec.select41.i, null
+  br i1 %105, label %8, label %106
 
-107:                                              ; preds = %select.unfold.i
-  %108 = getelementptr inbounds nuw i8, ptr %spec.select41.i, i64 4
+106:                                              ; preds = %select.unfold.i
+  %107 = getelementptr inbounds nuw i8, ptr %spec.select41.i, i64 4
   br label %get_rev.exit
 
-get_rev.exit:                                     ; preds = %8, %11, %107
-  %.2.i = phi ptr [ %108, %107 ], [ null, %11 ], [ null, %8 ]
+get_rev.exit:                                     ; preds = %8, %11, %106
+  %.2.i = phi ptr [ %107, %106 ], [ null, %11 ], [ null, %8 ]
   ret ptr %.2.i
 }
 

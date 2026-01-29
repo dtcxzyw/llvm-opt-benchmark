@@ -6974,7 +6974,7 @@ define dso_local noundef i32 @e1000e_close(ptr noundef %0) #1 align 16 {
   %12 = and i64 %11, 2
   %13 = icmp eq i64 %12, 0
   %14 = icmp eq i32 %10, 0
-  %15 = select i1 %13, i1 true, i1 %14
+  %15 = or i1 %14, %13
   br i1 %15, label %._crit_edge, label %.lr.ph, !llvm.loop !47
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
@@ -9718,8 +9718,7 @@ define internal void @e1000e_set_rx_mode(ptr noundef %0) #1 align 16 {
   %268 = load ptr, ptr %14, align 8
   %269 = getelementptr i8, ptr %268, i64 8
   %270 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %269) #22, !srcloc !13
-  %.fr = freeze i32 %267
-  %271 = lshr i32 %.fr, 28
+  %271 = lshr i32 %267, 28
   %272 = and i32 %271, 8
   %spec.select = or i32 %272, %141
   br label %273
@@ -17603,7 +17602,7 @@ define internal noundef i32 @e1000e_pm_freeze(ptr noundef readonly captures(none
   %21 = and i64 %20, 2
   %22 = icmp eq i64 %21, 0
   %23 = icmp eq i32 %19, 0
-  %24 = select i1 %22, i1 true, i1 %23
+  %24 = or i1 %23, %22
   br i1 %24, label %._crit_edge, label %.lr.ph, !llvm.loop !119
 
 ._crit_edge:                                      ; preds = %.lr.ph, %13
@@ -20397,7 +20396,7 @@ define internal noundef range(i32 -16, 1) i32 @e1000e_pm_runtime_suspend(ptr nou
   %18 = and i64 %17, 2
   %19 = icmp eq i64 %18, 0
   %20 = icmp eq i32 %16, 0
-  %21 = select i1 %19, i1 true, i1 %20
+  %21 = or i1 %20, %19
   br i1 %21, label %._crit_edge, label %.lr.ph, !llvm.loop !132
 
 ._crit_edge:                                      ; preds = %.lr.ph, %10

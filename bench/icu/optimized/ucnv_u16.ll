@@ -315,14 +315,13 @@ define internal void @_ZL28_UTF16BEToUnicodeWithOffsetsP23UConverterToUnicodeArg
 
 .loopexit297.loopexit:                            ; preds = %126, %81
   %.lcssa365 = phi i32 [ %17, %126 ], [ %63, %81 ]
-  %.lcssa362 = phi i32 [ 0, %126 ], [ %64, %81 ]
   %.2180.ph = phi i16 [ 0, %126 ], [ %71, %81 ]
   %127 = trunc i32 %60 to i8
   br label %.loopexit297
 
 .loopexit297:                                     ; preds = %.loopexit297.loopexit, %109, %111, %79
   %128 = phi i32 [ %51, %109 ], [ %51, %111 ], [ %63, %79 ], [ %.lcssa365, %.loopexit297.loopexit ]
-  %129 = phi i32 [ %56, %109 ], [ %56, %111 ], [ %64, %79 ], [ %.lcssa362, %.loopexit297.loopexit ]
+  %129 = phi i32 [ %56, %109 ], [ %56, %111 ], [ %64, %79 ], [ %64, %.loopexit297.loopexit ]
   %.1221 = phi ptr [ %105, %109 ], [ %102, %111 ], [ %76, %79 ], [ %25, %.loopexit297.loopexit ]
   %.2210 = phi ptr [ %.3211, %109 ], [ %36, %111 ], [ %.1209, %79 ], [ %36, %.loopexit297.loopexit ]
   %.1204 = phi i32 [ %110, %109 ], [ 0, %111 ], [ %80, %79 ], [ %34, %.loopexit297.loopexit ]
@@ -1615,14 +1614,13 @@ define internal void @_ZL28_UTF16LEToUnicodeWithOffsetsP23UConverterToUnicodeArg
 
 .loopexit297.loopexit:                            ; preds = %115, %75
   %.lcssa365 = phi i32 [ %17, %115 ], [ %62, %75 ]
-  %.lcssa362 = phi i32 [ 0, %115 ], [ %63, %75 ]
   %.2180.ph = phi i16 [ 0, %115 ], [ %65, %75 ]
   %116 = trunc i32 %59 to i8
   br label %.loopexit297
 
 .loopexit297:                                     ; preds = %.loopexit297.loopexit, %98, %100, %73
   %117 = phi i32 [ %50, %98 ], [ %50, %100 ], [ %62, %73 ], [ %.lcssa365, %.loopexit297.loopexit ]
-  %118 = phi i32 [ %55, %98 ], [ %55, %100 ], [ %63, %73 ], [ %.lcssa362, %.loopexit297.loopexit ]
+  %118 = phi i32 [ %55, %98 ], [ %55, %100 ], [ %63, %73 ], [ %63, %.loopexit297.loopexit ]
   %.1221 = phi ptr [ %94, %98 ], [ %91, %100 ], [ %70, %73 ], [ %25, %.loopexit297.loopexit ]
   %.2210 = phi ptr [ %.3211, %98 ], [ %36, %100 ], [ %.1209, %73 ], [ %36, %.loopexit297.loopexit ]
   %.1204 = phi i32 [ %99, %98 ], [ 0, %100 ], [ %74, %73 ], [ %34, %.loopexit297.loopexit ]

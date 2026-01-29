@@ -66464,8 +66464,7 @@ _ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE
   store i64 %.sroa.2.0.extract.trunc.i1134, ptr %987, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %92)
   %.sroa.01.0.insert.insert.i1132.frozen = freeze i128 %.sroa.01.0.insert.insert.i1132
-  %.frozen = freeze i128 %1036
-  %1038 = sdiv i128 %.sroa.01.0.insert.insert.i1132.frozen, %.frozen
+  %1038 = sdiv i128 %.sroa.01.0.insert.insert.i1132.frozen, %1036
   %.sroa.2.0.extract.shift.i1146 = lshr i128 %1038, 64
   %.sroa.2.0.extract.trunc.i1147 = trunc nuw i128 %.sroa.2.0.extract.shift.i1146 to i64
   %.sroa.012.0.extract.trunc.i1148 = trunc i128 %1038 to i64
@@ -66915,7 +66914,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   store i64 %.sroa.0.0.insert.ext.i16.i, ptr %101, align 16
   store i64 %.sroa.2.0.extract.shift.i1246, ptr %996, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %102)
-  %1166 = mul i128 %1038, %.frozen
+  %1166 = mul i128 %1038, %1036
   %.decomposed1848 = sub i128 %.sroa.01.0.insert.insert.i1132.frozen, %1166
   %.sroa.2.0.extract.shift.i1257 = lshr i128 %.decomposed1848, 64
   %.sroa.2.0.extract.trunc.i1258 = trunc nuw i128 %.sroa.2.0.extract.shift.i1257 to i64

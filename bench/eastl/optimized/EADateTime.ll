@@ -2056,7 +2056,7 @@ while.cond.preheader.i:                           ; preds = %for.body.i200, %if.
   %p.0.lcssa.i = phi ptr [ %add.ptr.i186, %if.else ], [ %incdec.ptr.i201, %for.body.i200 ]
   %cmp419.i = icmp ugt ptr %p.0.lcssa.i, %buffer.i183
   %cmp720.i = icmp sgt i32 %digits.addr.0.lcssa.i, 0
-  %or.cond21.i = select i1 %cmp419.i, i1 %cmp720.i, i1 false
+  %or.cond21.i = and i1 %cmp720.i, %cmp419.i
   br i1 %or.cond21.i, label %while.body.preheader.i, label %while.end.i
 
 while.body.preheader.i:                           ; preds = %while.cond.preheader.i
@@ -2152,7 +2152,7 @@ while.cond.preheader.i211:                        ; preds = %for.body.i243, %sw.
   %p.0.lcssa.i213 = phi ptr [ %add.ptr.i209, %sw.bb92 ], [ %incdec.ptr.i249, %for.body.i243 ]
   %cmp419.i214 = icmp ugt ptr %p.0.lcssa.i213, %buffer.i206
   %cmp720.i215 = icmp sgt i32 %digits.addr.0.lcssa.i212, 0
-  %or.cond21.i216 = select i1 %cmp419.i214, i1 %cmp720.i215, i1 false
+  %or.cond21.i216 = and i1 %cmp720.i215, %cmp419.i214
   br i1 %or.cond21.i216, label %while.body.preheader.i238, label %while.end.i217
 
 while.body.preheader.i238:                        ; preds = %while.cond.preheader.i211
@@ -2258,7 +2258,7 @@ while.cond.preheader.i260:                        ; preds = %for.body.i292, %sw.
   %p.0.lcssa.i262 = phi ptr [ %add.ptr.i258, %sw.bb106 ], [ %incdec.ptr.i298, %for.body.i292 ]
   %cmp419.i263 = icmp ugt ptr %p.0.lcssa.i262, %buffer.i255
   %cmp720.i264 = icmp sgt i32 %digits.addr.0.lcssa.i261, 0
-  %or.cond21.i265 = select i1 %cmp419.i263, i1 %cmp720.i264, i1 false
+  %or.cond21.i265 = and i1 %cmp720.i264, %cmp419.i263
   br i1 %or.cond21.i265, label %while.body.preheader.i287, label %while.end.i266
 
 while.body.preheader.i287:                        ; preds = %while.cond.preheader.i260
@@ -2364,7 +2364,7 @@ while.cond.preheader.i309:                        ; preds = %for.body.i341, %sw.
   %p.0.lcssa.i311 = phi ptr [ %add.ptr.i307, %sw.bb123 ], [ %incdec.ptr.i347, %for.body.i341 ]
   %cmp419.i312 = icmp ugt ptr %p.0.lcssa.i311, %buffer.i304
   %cmp720.i313 = icmp sgt i32 %digits.addr.0.lcssa.i310, 0
-  %or.cond21.i314 = select i1 %cmp419.i312, i1 %cmp720.i313, i1 false
+  %or.cond21.i314 = and i1 %cmp720.i313, %cmp419.i312
   br i1 %or.cond21.i314, label %while.body.preheader.i336, label %while.end.i315
 
 while.body.preheader.i336:                        ; preds = %while.cond.preheader.i309
@@ -2463,7 +2463,7 @@ while.cond.preheader.i358:                        ; preds = %for.body.i390, %sw.
   %p.0.lcssa.i360 = phi ptr [ %add.ptr.i356, %sw.bb129 ], [ %incdec.ptr.i396, %for.body.i390 ]
   %cmp419.i361 = icmp ugt ptr %p.0.lcssa.i360, %buffer.i353
   %cmp720.i362 = icmp sgt i32 %digits.addr.0.lcssa.i359, 0
-  %or.cond21.i363 = select i1 %cmp419.i361, i1 %cmp720.i362, i1 false
+  %or.cond21.i363 = and i1 %cmp720.i362, %cmp419.i361
   br i1 %or.cond21.i363, label %while.body.preheader.i385, label %while.end.i364
 
 while.body.preheader.i385:                        ; preds = %while.cond.preheader.i358
@@ -2563,7 +2563,7 @@ while.cond.preheader.i407:                        ; preds = %for.body.i439, %sw.
   %p.0.lcssa.i409 = phi ptr [ %add.ptr.i405, %sw.bb139 ], [ %incdec.ptr.i445, %for.body.i439 ]
   %cmp419.i410 = icmp ugt ptr %p.0.lcssa.i409, %buffer.i402
   %cmp720.i411 = icmp sgt i32 %digits.addr.0.lcssa.i408, 0
-  %or.cond21.i412 = select i1 %cmp419.i410, i1 %cmp720.i411, i1 false
+  %or.cond21.i412 = and i1 %cmp720.i411, %cmp419.i410
   br i1 %or.cond21.i412, label %while.body.preheader.i434, label %while.end.i413
 
 while.body.preheader.i434:                        ; preds = %while.cond.preheader.i407
@@ -2659,7 +2659,7 @@ while.cond.preheader.i456:                        ; preds = %for.body.i488, %sw.
   %p.0.lcssa.i458 = phi ptr [ %add.ptr.i454, %sw.bb146 ], [ %incdec.ptr.i494, %for.body.i488 ]
   %cmp419.i459 = icmp ugt ptr %p.0.lcssa.i458, %buffer.i451
   %cmp720.i460 = icmp sgt i32 %digits.addr.0.lcssa.i457, 0
-  %or.cond21.i461 = select i1 %cmp419.i459, i1 %cmp720.i460, i1 false
+  %or.cond21.i461 = and i1 %cmp720.i460, %cmp419.i459
   br i1 %or.cond21.i461, label %while.body.preheader.i483, label %while.end.i462
 
 while.body.preheader.i483:                        ; preds = %while.cond.preheader.i456
@@ -2759,7 +2759,7 @@ while.cond.preheader.i505:                        ; preds = %for.body.i537, %sw.
   %p.0.lcssa.i507 = phi ptr [ %add.ptr.i503, %sw.bb152 ], [ %incdec.ptr.i543, %for.body.i537 ]
   %cmp419.i508 = icmp ugt ptr %p.0.lcssa.i507, %buffer.i500
   %cmp720.i509 = icmp sgt i32 %digits.addr.0.lcssa.i506, 0
-  %or.cond21.i510 = select i1 %cmp419.i508, i1 %cmp720.i509, i1 false
+  %or.cond21.i510 = and i1 %cmp720.i509, %cmp419.i508
   br i1 %or.cond21.i510, label %while.body.preheader.i532, label %while.end.i511
 
 while.body.preheader.i532:                        ; preds = %while.cond.preheader.i505
@@ -2929,7 +2929,7 @@ while.cond.preheader.i578:                        ; preds = %for.body.i610, %sw.
   %p.0.lcssa.i580 = phi ptr [ %add.ptr.i576, %sw.bb191 ], [ %incdec.ptr.i616, %for.body.i610 ]
   %cmp419.i581 = icmp ugt ptr %p.0.lcssa.i580, %buffer.i573
   %cmp720.i582 = icmp sgt i32 %digits.addr.0.lcssa.i579, 0
-  %or.cond21.i583 = select i1 %cmp419.i581, i1 %cmp720.i582, i1 false
+  %or.cond21.i583 = and i1 %cmp720.i582, %cmp419.i581
   br i1 %or.cond21.i583, label %while.body.preheader.i605, label %while.end.i584
 
 while.body.preheader.i605:                        ; preds = %while.cond.preheader.i578
@@ -3064,7 +3064,7 @@ while.cond.preheader.i639:                        ; preds = %for.body.i671, %sw.
   %p.0.lcssa.i641 = phi ptr [ %add.ptr.i637, %sw.bb212 ], [ %incdec.ptr.i677, %for.body.i671 ]
   %cmp419.i642 = icmp ugt ptr %p.0.lcssa.i641, %buffer.i634
   %cmp720.i643 = icmp sgt i32 %digits.addr.0.lcssa.i640, 0
-  %or.cond21.i644 = select i1 %cmp419.i642, i1 %cmp720.i643, i1 false
+  %or.cond21.i644 = and i1 %cmp720.i643, %cmp419.i642
   br i1 %or.cond21.i644, label %while.body.preheader.i666, label %while.end.i645
 
 while.body.preheader.i666:                        ; preds = %while.cond.preheader.i639
@@ -3205,7 +3205,7 @@ while.cond.preheader.i719:                        ; preds = %for.body.i751, %if.
   %p.0.lcssa.i721 = phi ptr [ %add.ptr.i717, %if.else239 ], [ %incdec.ptr.i757, %for.body.i751 ]
   %cmp419.i722 = icmp ugt ptr %p.0.lcssa.i721, %buffer.i714
   %cmp720.i723 = icmp sgt i32 %digits.addr.0.lcssa.i720, 0
-  %or.cond21.i724 = select i1 %cmp419.i722, i1 %cmp720.i723, i1 false
+  %or.cond21.i724 = and i1 %cmp720.i723, %cmp419.i722
   br i1 %or.cond21.i724, label %while.body.preheader.i746, label %while.end.i725
 
 while.body.preheader.i746:                        ; preds = %while.cond.preheader.i719
@@ -3315,7 +3315,7 @@ while.cond.preheader.i768:                        ; preds = %for.body.i800, %sw.
   %p.0.lcssa.i770 = phi ptr [ %add.ptr.i766, %sw.bb246 ], [ %incdec.ptr.i806, %for.body.i800 ]
   %cmp419.i771 = icmp ugt ptr %p.0.lcssa.i770, %buffer.i763
   %cmp720.i772 = icmp sgt i32 %digits.addr.0.lcssa.i769, 0
-  %or.cond21.i773 = select i1 %cmp419.i771, i1 %cmp720.i772, i1 false
+  %or.cond21.i773 = and i1 %cmp720.i772, %cmp419.i771
   br i1 %or.cond21.i773, label %while.body.preheader.i795, label %while.end.i774
 
 while.body.preheader.i795:                        ; preds = %while.cond.preheader.i768
@@ -3411,7 +3411,7 @@ while.cond.preheader.i817:                        ; preds = %for.body.i843, %sw.
   %p.0.lcssa.i819 = phi ptr [ %add.ptr.i815, %sw.bb283 ], [ %incdec.ptr.i849, %for.body.i843 ]
   %cmp419.i820 = icmp ugt ptr %p.0.lcssa.i819, %buffer.i812
   %cmp720.i821 = icmp sgt i32 %digits.addr.0.lcssa.i818, 0
-  %or.cond21.i822 = select i1 %cmp419.i820, i1 %cmp720.i821, i1 false
+  %or.cond21.i822 = and i1 %cmp720.i821, %cmp419.i820
   br i1 %or.cond21.i822, label %while.body.preheader.i838, label %while.end.i823
 
 while.body.preheader.i838:                        ; preds = %while.cond.preheader.i817
@@ -3534,7 +3534,7 @@ while.cond.preheader.i891:                        ; preds = %for.body.i923, %if.
   %p.0.lcssa.i893 = phi ptr [ %add.ptr.i889, %if.else310 ], [ %incdec.ptr.i929, %for.body.i923 ]
   %cmp419.i894 = icmp ugt ptr %p.0.lcssa.i893, %buffer.i886
   %cmp720.i895 = icmp sgt i32 %digits.addr.0.lcssa.i892, 0
-  %or.cond21.i896 = select i1 %cmp419.i894, i1 %cmp720.i895, i1 false
+  %or.cond21.i896 = and i1 %cmp720.i895, %cmp419.i894
   br i1 %or.cond21.i896, label %while.body.preheader.i918, label %while.end.i897
 
 while.body.preheader.i918:                        ; preds = %while.cond.preheader.i891
@@ -3785,7 +3785,7 @@ while.cond.preheader.i1015:                       ; preds = %for.body.i1047, %if
   %p.0.lcssa.i1017 = phi ptr [ %add.ptr.i1013, %if.else364 ], [ %incdec.ptr.i1053, %for.body.i1047 ]
   %cmp419.i1018 = icmp ugt ptr %p.0.lcssa.i1017, %buffer.i1010
   %cmp720.i1019 = icmp sgt i32 %digits.addr.0.lcssa.i1016, 0
-  %or.cond21.i1020 = select i1 %cmp419.i1018, i1 %cmp720.i1019, i1 false
+  %or.cond21.i1020 = and i1 %cmp720.i1019, %cmp419.i1018
   br i1 %or.cond21.i1020, label %while.body.preheader.i1042, label %while.end.i1021
 
 while.body.preheader.i1042:                       ; preds = %while.cond.preheader.i1015
@@ -3885,7 +3885,7 @@ while.cond.preheader.i1064:                       ; preds = %for.body.i1096, %sw
   %p.0.lcssa.i1066 = phi ptr [ %add.ptr.i1062, %sw.bb371 ], [ %incdec.ptr.i1102, %for.body.i1096 ]
   %cmp419.i1067 = icmp ugt ptr %p.0.lcssa.i1066, %buffer.i1059
   %cmp720.i1068 = icmp sgt i32 %digits.addr.0.lcssa.i1065, 0
-  %or.cond21.i1069 = select i1 %cmp419.i1067, i1 %cmp720.i1068, i1 false
+  %or.cond21.i1069 = and i1 %cmp720.i1068, %cmp419.i1067
   br i1 %or.cond21.i1069, label %while.body.preheader.i1091, label %while.end.i1070
 
 while.body.preheader.i1091:                       ; preds = %while.cond.preheader.i1064
