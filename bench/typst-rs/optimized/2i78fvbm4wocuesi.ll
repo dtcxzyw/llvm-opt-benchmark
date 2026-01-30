@@ -60877,7 +60877,7 @@ define internal fastcc void @"_ZN76_$LT$citationberg..Group$u20$as$u20$hayagriva
 16:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$citationberg..Affixes$GT$17h8097a4b109490bcaE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %5) #83
-          to label %63 unwind label %61
+          to label %63 unwind label %60
 
 17:                                               ; preds = %2
   call void @llvm.experimental.noalias.scope.decl(metadata !12440)
@@ -60926,9 +60926,9 @@ define internal fastcc void @"_ZN76_$LT$citationberg..Group$u20$as$u20$hayagriva
   %37 = select i1 %brmerge.not.i, i1 true, i1 %.not22.i.i
   %spec.select.i = select i1 %37, i8 1, i8 %34
   %38 = icmp eq ptr %23, %20
-  br i1 %38, label %.loopexit22.loopexit, label %.lr.ph.i
+  br i1 %38, label %.loopexit21.loopexit, label %.lr.ph.i
 
-.loopexit22.loopexit:                             ; preds = %.noexc
+.loopexit21.loopexit:                             ; preds = %.noexc
   %39 = zext nneg i8 %.sroa.539.0.extract.trunc.i to i32
   %40 = shl nuw nsw i32 %39, 16
   %41 = zext nneg i8 %.sroa.438.0.extract.trunc.i to i32
@@ -60937,7 +60937,7 @@ define internal fastcc void @"_ZN76_$LT$citationberg..Group$u20$as$u20$hayagriva
   %44 = trunc i8 %.sroa.037.0.extract.trunc.i to i1
   %45 = icmp eq i32 %43, 0
   %46 = and i1 %45, %44
-  %47 = icmp eq i8 %spec.select.i, 0
+  %45 = icmp eq i8 %spec.select.i, 0
   %48 = select i1 %46, i1 %47, i1 false
   br label %.loopexit22
 
@@ -60951,7 +60951,7 @@ define internal fastcc void @"_ZN76_$LT$citationberg..Group$u20$as$u20$hayagriva
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %..val2.i = load i64, ptr %53, align 8, !alias.scope !12445
   %.sroa.3.0.i = select i1 %51, i64 undef, i64 %..val2.i
-  %.sroa.0.0.i = select i1 %51, ptr null, ptr %..val.i
+  %.sroa.3.0.i = select i1 %51, ptr null, ptr %..val.i
   invoke fastcc void @_ZN9hayagriva3csl9rendering21render_with_delimiter17hf6cb2fd74de3fe4bE(ptr noalias noundef nonnull readonly align 8 %.val.i, i64 noundef %.val45.i, ptr noalias noundef readonly align 1 %.sroa.0.0.i, i64 %.sroa.3.0.i, ptr noalias noundef align 8 dereferenceable(664) %1)
           to label %54 unwind label %.loopexit.split-lp
 
@@ -60967,29 +60967,29 @@ define internal fastcc void @"_ZN76_$LT$citationberg..Group$u20$as$u20$hayagriva
           to label %59 unwind label %.loopexit.split-lp
 
 .critedge:                                        ; preds = %55
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 101
-  %58 = load i8, ptr %57, align 1, !range !553, !noundef !4
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 101
+  %57 = load i8, ptr %56, align 1, !range !553, !noundef !4
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 8, ptr %3, align 8
-  invoke void @_ZN9hayagriva3csl14WritingContext11commit_elem17h3b1fa942ea201ccfE(ptr noalias noundef nonnull align 8 dereferenceable(456) %12, i64 noundef %14, i64 noundef %15, i8 noundef %58, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %3)
+  invoke void @_ZN9hayagriva3csl14WritingContext11commit_elem17h3b1fa942ea201ccfE(ptr noalias noundef nonnull align 8 dereferenceable(456) %12, i64 noundef %14, i64 noundef %15, i8 noundef %57, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %3)
           to label %60 unwind label %.loopexit.split-lp
 
-59:                                               ; preds = %56, %60
+58:                                               ; preds = %56, %59
   call void @"_ZN4core3ptr42drop_in_place$LT$citationberg..Affixes$GT$17h8097a4b109490bcaE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 
-60:                                               ; preds = %.critedge
+59:                                               ; preds = %.critedge
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %59
+  br label %58
 
-61:                                               ; preds = %16
-  %62 = landingpad { ptr, i32 }
+60:                                               ; preds = %16
+  %61 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h76c6e1c84248d3ffE() #84
   unreachable
 
-63:                                               ; preds = %16
+62:                                               ; preds = %16
   resume { ptr, i32 } %lpad.phi
 }
 

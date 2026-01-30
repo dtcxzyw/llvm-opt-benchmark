@@ -60620,14 +60620,14 @@ define hidden i32 @_ZN4fish8terminal10best_color17hb6303a77aee8b32cE(ptr noalias
   %8 = icmp eq ptr %7, %6
   br i1 %8, label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3dd40a342025aa60E.exit.thread", label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3dd40a342025aa60E.exit"
 
-9:                                                ; preds = %22, %15
+9:                                                ; preds = %23, %16
   %10 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr78drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$fish..color..Color$GT$$GT$17h420239a9489c5596E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %3) #28
-          to label %27 unwind label %25
+          to label %27 unwind label %26
 
-"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3dd40a342025aa60E.exit": ; preds = %2, %18
-  %11 = phi ptr [ %20, %18 ], [ %7, %2 ]
+"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3dd40a342025aa60E.exit": ; preds = %2, %19
+  %11 = phi ptr [ %21, %18 ], [ %7, %2 ]
   %.sroa.0.067 = phi i8 [ %.sroa.0.3, %18 ], [ 4, %2 ]
   %.sroa.8.sroa.0.066 = phi i24 [ %.sroa.8.sroa.0.3, %18 ], [ undef, %2 ]
   %.sroa.011.065 = phi i8 [ %.sroa.011.1, %18 ], [ 4, %2 ]
@@ -60649,9 +60649,9 @@ define hidden i32 @_ZN4fish8terminal10best_color17hb6303a77aee8b32cE(ptr noalias
   %spec.select = select i1 %.not42, i8 %.sroa.030.0.extract.trunc, i8 %.sroa.025.062
   %spec.select45 = select i1 %.not42, i24 %.sroa.431.0.extract.trunc, i24 %.sroa.4.063
   %.not43 = icmp eq i8 %.sroa.0.067, 4
-  br i1 %.not43, label %15, label %14
+  br i1 %.not43, label %16, label %15
 
-"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3dd40a342025aa60E.exit.thread": ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3dd40a342025aa60E.exit", %18, %2
+"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3dd40a342025aa60E.exit.thread": ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3dd40a342025aa60E.exit", %19, %2
   %.sroa.025.0.lcssa = phi i8 [ 4, %2 ], [ %spec.select, %18 ], [ %.sroa.025.062, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3dd40a342025aa60E.exit" ]
   %.sroa.4.0.lcssa = phi i24 [ undef, %2 ], [ %spec.select45, %18 ], [ %.sroa.4.063, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3dd40a342025aa60E.exit" ]
   %.sroa.7.0.lcssa = phi i24 [ undef, %2 ], [ %.sroa.7.1, %18 ], [ %.sroa.7.064, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3dd40a342025aa60E.exit" ]
@@ -60676,45 +60676,45 @@ define hidden i32 @_ZN4fish8terminal10best_color17hb6303a77aee8b32cE(ptr noalias
   %.sroa.0.0.insert.insert = or disjoint i32 %.sroa.8.0.insert.shift, %.sroa.0.0.insert.ext
   ret i32 %.sroa.0.0.insert.insert
 
-14:                                               ; preds = %17, %13
+15:                                               ; preds = %18, %13
   %.sroa.8.sroa.0.3 = phi i24 [ %.sroa.8.sroa.0.066, %13 ], [ %spec.select46, %17 ]
   %.sroa.0.3 = phi i8 [ %.sroa.0.067, %13 ], [ %spec.select47, %17 ]
   %.not44 = icmp eq i8 %.sroa.011.065, 4
-  br i1 %.not44, label %22, label %18
+  br i1 %.not44, label %23, label %19
 
-15:                                               ; preds = %13
-  %16 = invoke noundef zeroext i1 @_ZN4fish5color5Color6is_rgb17h15803a01e03678e3E(i32 %.sroa.03.0.copyload.i)
+16:                                               ; preds = %13
+  %17 = invoke noundef zeroext i1 @_ZN4fish5color5Color6is_rgb17h15803a01e03678e3E(i32 %.sroa.03.0.copyload.i)
           to label %17 unwind label %9
 
-17:                                               ; preds = %15
-  %spec.select46 = select i1 %16, i24 %.sroa.431.0.extract.trunc, i24 %.sroa.8.sroa.0.066
-  %spec.select47 = select i1 %16, i8 %.sroa.030.0.extract.trunc, i8 4
-  br label %14
+18:                                               ; preds = %16
+  %spec.select46 = select i1 %17, i24 %.sroa.431.0.extract.trunc, i24 %.sroa.8.sroa.0.066
+  %spec.select47 = select i1 %17, i8 %.sroa.030.0.extract.trunc, i8 4
+  br label %15
 
-18:                                               ; preds = %24, %14
+19:                                               ; preds = %25, %15
   %.sroa.7.1 = phi i24 [ %.sroa.7.064, %14 ], [ %spec.select48, %24 ]
   %.sroa.011.1 = phi i8 [ %.sroa.011.065, %14 ], [ %spec.select49, %24 ]
-  %19 = load ptr, ptr %4, align 8, !alias.scope !5255, !nonnull !3, !noundef !3
-  %20 = load ptr, ptr %5, align 8, !alias.scope !5255, !nonnull !3, !noundef !3
-  %21 = icmp eq ptr %20, %19
-  br i1 %21, label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3dd40a342025aa60E.exit.thread", label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3dd40a342025aa60E.exit"
+  %20 = load ptr, ptr %4, align 8, !alias.scope !5255, !nonnull !3, !noundef !3
+  %21 = load ptr, ptr %5, align 8, !alias.scope !5255, !nonnull !3, !noundef !3
+  %22 = icmp eq ptr %21, %20
+  br i1 %22, label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3dd40a342025aa60E.exit.thread", label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3dd40a342025aa60E.exit"
 
-22:                                               ; preds = %14
-  %23 = invoke noundef zeroext i1 @_ZN4fish5color5Color8is_named17h5cb204b0c1abb9bcE(i32 %.sroa.03.0.copyload.i)
+23:                                               ; preds = %15
+  %24 = invoke noundef zeroext i1 @_ZN4fish5color5Color8is_named17h5cb204b0c1abb9bcE(i32 %.sroa.03.0.copyload.i)
           to label %24 unwind label %9
 
-24:                                               ; preds = %22
-  %spec.select48 = select i1 %23, i24 %.sroa.431.0.extract.trunc, i24 %.sroa.7.064
-  %spec.select49 = select i1 %23, i8 %.sroa.030.0.extract.trunc, i8 4
-  br label %18
+25:                                               ; preds = %23
+  %spec.select48 = select i1 %24, i24 %.sroa.431.0.extract.trunc, i24 %.sroa.7.064
+  %spec.select49 = select i1 %24, i8 %.sroa.030.0.extract.trunc, i8 4
+  br label %19
 
-25:                                               ; preds = %9
-  %26 = landingpad { ptr, i32 }
+26:                                               ; preds = %9
+  %27 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #29
   unreachable
 
-27:                                               ; preds = %9
+28:                                               ; preds = %9
   resume { ptr, i32 } %10
 }
 

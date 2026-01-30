@@ -24,7 +24,7 @@ define void @_ZN5arrow8internal12BitRunReaderC2EPKhll(ptr noundef nonnull align 
 12:                                               ; preds = %4
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 0, ptr %13, align 8, !tbaa !14
-  br label %54
+  br label %57
 
 14:                                               ; preds = %4
   %15 = lshr i64 %2, 3
@@ -40,19 +40,19 @@ define void @_ZN5arrow8internal12BitRunReaderC2EPKhll(ptr noundef nonnull align 
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 0, ptr %24, align 8, !tbaa !14
   %25 = icmp sgt i64 %10, 63
-  br i1 %25, label %_ZN5arrow8internal12BitRunReader8LoadWordEl.exit, label %26, !prof !17
+  br i1 %25, label %_ZN5arrow8internal12BitRunReader8LoadWordEl.exit, label %28, !prof !17
 
-26:                                               ; preds = %14
-  %27 = ashr i64 %10, 3
-  %28 = and i64 %10, 7
-  %29 = icmp ne i64 %28, 0
-  %30 = zext i1 %29 to i64
-  %31 = add nsw i64 %27, %30
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %24, ptr nonnull align 1 %6, i64 %31, i1 false)
-  %32 = add nsw i64 %10, -1
-  %33 = lshr i64 %32, 3
-  %34 = getelementptr inbounds nuw i8, ptr %24, i64 %33
-  %35 = load i8, ptr %34, align 1, !tbaa !15
+28:                                               ; preds = %14
+  %29 = ashr i64 %10, 3
+  %30 = and i64 %10, 7
+  %31 = icmp ne i64 %30, 0
+  %32 = zext i1 %31 to i64
+  %33 = add nsw i64 %29, %32
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %24, ptr nonnull align 1 %6, i64 %33, i1 false)
+  %34 = add nsw i64 %10, -1
+  %35 = lshr i64 %34, 3
+  %36 = getelementptr inbounds nuw i8, ptr %24, i64 %35
+  %37 = load i8, ptr %36, align 1, !tbaa !15
   %36 = trunc i64 %32 to i8
   %37 = and i8 %36, 7
   %38 = lshr i8 %35, %37
@@ -71,20 +71,20 @@ define void @_ZN5arrow8internal12BitRunReaderC2EPKhll(ptr noundef nonnull align 
   %.pre = load i8, ptr %21, align 8, !tbaa !16, !range !18
   br label %_ZN5arrow8internal12BitRunReader8LoadWordEl.exit
 
-_ZN5arrow8internal12BitRunReader8LoadWordEl.exit: ; preds = %14, %26
+_ZN5arrow8internal12BitRunReader8LoadWordEl.exit: ; preds = %14, %28
   %.pre9.in = phi ptr [ %24, %26 ], [ %6, %14 ]
-  %49 = phi i8 [ %.pre, %26 ], [ %23, %14 ]
+  %52 = phi i8 [ %.pre, %26 ], [ %23, %14 ]
   %.pre9 = load i64, ptr %.pre9.in, align 1
-  %50 = zext i8 %49 to i64
-  %51 = sub nsw i64 0, %50
-  %spec.select = xor i64 %.pre9, %51
-  %52 = load i64, ptr %7, align 8, !tbaa !11
-  %notmask.i = shl nsw i64 -1, %52
-  %53 = and i64 %notmask.i, %spec.select
-  store i64 %53, ptr %24, align 8, !tbaa !14
-  br label %54
+  %53 = zext i8 %52 to i64
+  %54 = sub nsw i64 0, %53
+  %spec.select = xor i64 %.pre9, %54
+  %55 = load i64, ptr %7, align 8, !tbaa !11
+  %notmask.i = shl nsw i64 -1, %55
+  %56 = and i64 %notmask.i, %spec.select
+  store i64 %56, ptr %24, align 8, !tbaa !14
+  br label %57
 
-54:                                               ; preds = %_ZN5arrow8internal12BitRunReader8LoadWordEl.exit, %12
+57:                                               ; preds = %_ZN5arrow8internal12BitRunReader8LoadWordEl.exit, %12
   ret void
 }
 

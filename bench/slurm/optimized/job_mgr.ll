@@ -18610,21 +18610,21 @@ _pack_init_job_info.exit:                         ; preds = %4, %10
   %31 = load ptr, ptr @job_list, align 8
   %32 = call i32 @list_for_each_ro(ptr noundef %31, ptr noundef nonnull @_pack_job, ptr noundef nonnull %5) #27
   call void @assoc_mgr_unlock(ptr noundef nonnull %6) #27
-  %33 = load ptr, ptr %5, align 8
-  %34 = getelementptr inbounds nuw i8, ptr %33, i64 20
-  %35 = load i32, ptr %34, align 4
-  store i32 0, ptr %34, align 4
-  %36 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %37 = load i32, ptr %36, align 8
-  call void @pack32(i32 noundef %37, ptr noundef %33) #27
-  %38 = load ptr, ptr %5, align 8
-  %39 = getelementptr inbounds nuw i8, ptr %38, i64 20
-  store i32 %35, ptr %39, align 4
+  %34 = load ptr, ptr %5, align 8
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 20
+  %36 = load i32, ptr %35, align 4
+  store i32 0, ptr %35, align 4
+  %37 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %38 = load i32, ptr %37, align 8
+  call void @pack32(i32 noundef %38, ptr noundef %34) #27
+  %39 = load ptr, ptr %5, align 8
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 20
+  store i32 %36, ptr %40, align 4
   call void @slurm_xfree(ptr noundef nonnull %30) #27
-  %40 = load ptr, ptr %5, align 8
+  %41 = load ptr, ptr %5, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  ret ptr %40
+  ret ptr %41
 }
 
 declare i32 @assoc_mgr_fill_in_user(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
@@ -18857,21 +18857,21 @@ _pack_init_job_info.exit:                         ; preds = %5, %11
   store ptr %30, ptr %31, align 8
   %32 = call i32 @list_for_each_ro(ptr noundef %0, ptr noundef nonnull @_foreach_pack_jobid, ptr noundef nonnull %6) #27
   call void @assoc_mgr_unlock(ptr noundef nonnull %7) #27
-  %33 = load ptr, ptr %6, align 8
-  %34 = getelementptr inbounds nuw i8, ptr %33, i64 20
-  %35 = load i32, ptr %34, align 4
-  store i32 0, ptr %34, align 4
-  %36 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %37 = load i32, ptr %36, align 8
-  call void @pack32(i32 noundef %37, ptr noundef %33) #27
-  %38 = load ptr, ptr %6, align 8
-  %39 = getelementptr inbounds nuw i8, ptr %38, i64 20
-  store i32 %35, ptr %39, align 4
+  %34 = load ptr, ptr %6, align 8
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 20
+  %36 = load i32, ptr %35, align 4
+  store i32 0, ptr %35, align 4
+  %37 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %38 = load i32, ptr %37, align 8
+  call void @pack32(i32 noundef %38, ptr noundef %34) #27
+  %39 = load ptr, ptr %6, align 8
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 20
+  store i32 %36, ptr %40, align 4
   call void @slurm_xfree(ptr noundef nonnull %31) #27
-  %40 = load ptr, ptr %6, align 8
+  %41 = load ptr, ptr %6, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  ret ptr %40
+  ret ptr %41
 }
 
 ; Function Attrs: nounwind uwtable

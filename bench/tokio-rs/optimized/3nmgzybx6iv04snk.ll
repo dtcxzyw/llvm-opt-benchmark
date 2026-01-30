@@ -5559,8 +5559,8 @@ define noundef zeroext i1 @"_ZN66_$LT$tokio..io..interest..Interest$u20$as$u20$c
 12:                                               ; preds = %14, %2
   %.040 = phi i8 [ 0, %2 ], [ 1, %14 ]
   %13 = and i64 %10, 2
-  %.not = icmp eq i64 %13, 0
-  br i1 %.not, label %22, label %20
+  %.not56 = icmp eq i64 %13, 0
+  br i1 %.not56, label %22, label %20
 
 14:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -5584,8 +5584,8 @@ define noundef zeroext i1 @"_ZN66_$LT$tokio..io..interest..Interest$u20$as$u20$c
 22:                                               ; preds = %24, %12
   %.1 = phi i8 [ %.040, %12 ], [ 1, %24 ]
   %23 = and i64 %10, 16
-  %.not56 = icmp eq i64 %23, 0
-  br i1 %.not56, label %38, label %36
+  %.not57 = icmp eq i64 %23, 0
+  br i1 %.not57, label %38, label %36
 
 24:                                               ; preds = %30, %20
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -5624,8 +5624,8 @@ define noundef zeroext i1 @"_ZN66_$LT$tokio..io..interest..Interest$u20$as$u20$c
 38:                                               ; preds = %40, %22
   %.2 = phi i8 [ %.1, %22 ], [ 1, %40 ]
   %39 = and i64 %10, 32
-  %.not57 = icmp eq i64 %39, 0
-  br i1 %.not57, label %66, label %52
+  %.not58 = icmp eq i64 %39, 0
+  br i1 %.not58, label %66, label %52
 
 40:                                               ; preds = %46, %36
   call void @llvm.lifetime.start.p0(ptr nonnull %5)

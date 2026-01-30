@@ -63427,7 +63427,7 @@ _ZN4rand3rng3Rng9gen_range17hbcdc2e928418a554E.exit: ; preds = %19
   %24 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN68_$LT$alloc..rc..Rc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hde5cddcec89804aaE.llvm.4057250340930679409"(ptr noalias noundef nonnull align 8 dereferenceable(8) %3)
-          to label %"_ZN4core3ptr50drop_in_place$LT$rand..rngs..thread..ThreadRng$GT$17h204f4927c0312ec6E.exit" unwind label %86
+          to label %"_ZN4core3ptr50drop_in_place$LT$rand..rngs..thread..ThreadRng$GT$17h204f4927c0312ec6E.exit" unwind label %88
 
 _ZN4rand3rng3Rng9gen_range17hec252c54d04ffee6E.exit: ; preds = %16
   call void @"_ZN68_$LT$alloc..rc..Rc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hde5cddcec89804aaE.llvm.4057250340930679409"(ptr noalias noundef nonnull align 8 dereferenceable(8) %3)
@@ -63442,7 +63442,7 @@ _ZN4rand3rng3Rng9gen_range17hec252c54d04ffee6E.exit: ; preds = %16
   %29 = call double @llvm.minnum.f64(double %28, double %.0)
   store double %29, ptr %6, align 8
   %30 = fcmp olt double %26, 0.000000e+00
-  br i1 %30, label %82, label %31
+  br i1 %30, label %84, label %31
 
 31:                                               ; preds = %25
   %32 = bitcast double %26 to i64
@@ -63461,7 +63461,7 @@ _ZN4rand3rng3Rng9gen_range17hec252c54d04ffee6E.exit: ; preds = %16
 
 42:                                               ; preds = %40
   %43 = icmp samesign ult i16 %37, 1075
-  br i1 %43, label %60, label %58
+  br i1 %43, label %61, label %59
 
 44:                                               ; preds = %40
   %45 = zext nneg i64 %34 to i128
@@ -63479,67 +63479,67 @@ _ZN4rand3rng3Rng9gen_range17hec252c54d04ffee6E.exit: ; preds = %16
   %narrow17.i.i = or i1 %53, %56
   %narrow18.i.i = select i1 %55, i1 %narrow17.i.i, i1 false
   %.0.i.i = zext i1 %narrow18.i.i to i32
-  %57 = add nuw nsw i32 %.0.i.i, %51
-  %.not11.i.i = icmp eq i32 %57, 1000000000
+  %58 = add nuw nsw i32 %.0.i.i, %51
+  %.not11.i.i = icmp eq i32 %58, 1000000000
   %spec.select.i = zext i1 %.not11.i.i to i64
-  %spec.select15.i = select i1 %.not11.i.i, i32 0, i32 %57
+  %spec.select15.i = select i1 %.not11.i.i, i32 0, i32 %58
   br label %_ZN4core4time8Duration13from_secs_f6417hec078614a5e3f74fE.exit
 
-58:                                               ; preds = %42
-  %59 = icmp samesign ult i16 %37, 1087
-  br i1 %59, label %78, label %82
+59:                                               ; preds = %42
+  %60 = icmp samesign ult i16 %37, 1087
+  br i1 %60, label %80, label %84
 
-60:                                               ; preds = %42
-  %61 = sub nuw nsw i16 1075, %37
-  %62 = zext nneg i16 %61 to i64
-  %63 = lshr i64 %34, %62
-  %64 = zext nneg i16 %38 to i64
-  %65 = shl i64 %32, %64
-  %66 = and i64 %65, 4503599627370495
-  %67 = zext nneg i64 %66 to i128
-  %68 = mul nuw nsw i128 %67, 1000000000
-  %69 = lshr i128 %68, 52
-  %70 = trunc nuw nsw i128 %69 to i32
-  %71 = and i128 %68, 4503599627369984
-  %72 = icmp ne i128 %71, 2251799813685248
-  %73 = and i128 %68, 2251799813685248
-  %74 = icmp ne i128 %73, 0
+61:                                               ; preds = %42
+  %62 = sub nuw nsw i16 1075, %37
+  %63 = zext nneg i16 %62 to i64
+  %64 = lshr i64 %34, %63
+  %65 = zext nneg i16 %38 to i64
+  %66 = shl i64 %32, %65
+  %67 = and i64 %66, 4503599627370495
+  %68 = zext nneg i64 %67 to i128
+  %69 = mul nuw nsw i128 %68, 1000000000
+  %70 = lshr i128 %69, 52
+  %71 = trunc nuw nsw i128 %70 to i32
+  %72 = and i128 %69, 4503599627369984
+  %73 = icmp ne i128 %72, 2251799813685248
+  %74 = and i128 %69, 2251799813685248
+  %75 = icmp ne i128 %74, 0
   %75 = trunc i128 %69 to i1
   %narrow.i.i = or i1 %72, %75
-  %narrow16.i.i = select i1 %74, i1 %narrow.i.i, i1 false
+  %narrow.i.i = select i1 %74, i1 %narrow.i.i, i1 false
   %.04.i.i = zext i1 %narrow16.i.i to i32
-  %76 = add nuw nsw i32 %.04.i.i, %70
-  %.not.i.i = icmp eq i32 %76, 1000000000
-  %77 = zext i1 %.not.i.i to i64
-  %spec.select14.i.i = add nuw nsw i64 %63, %77
-  %spec.select16.i = select i1 %.not.i.i, i32 0, i32 %76
+  %78 = add nuw nsw i32 %.04.i.i, %71
+  %.not.i.i = icmp eq i32 %78, 1000000000
+  %79 = zext i1 %.not.i.i to i64
+  %spec.select14.i.i = add nuw nsw i64 %64, %79
+  %spec.select16.i = select i1 %.not.i.i, i32 0, i32 %78
   br label %_ZN4core4time8Duration13from_secs_f6417hec078614a5e3f74fE.exit
 
-78:                                               ; preds = %58
-  %79 = add nsw i16 %37, -1075
-  %80 = zext nneg i16 %79 to i64
-  %81 = shl nuw i64 %34, %80
+80:                                               ; preds = %59
+  %81 = add nsw i16 %37, -1075
+  %82 = zext nneg i16 %81 to i64
+  %83 = shl nuw i64 %34, %82
   br label %_ZN4core4time8Duration13from_secs_f6417hec078614a5e3f74fE.exit
 
-82:                                               ; preds = %58, %25
+84:                                               ; preds = %59, %25
   %anon.ee42cc83d0486e413260d7ca4d417329.197.sink.i = phi ptr [ @anon.ee42cc83d0486e413260d7ca4d417329.196, %25 ], [ @anon.ee42cc83d0486e413260d7ca4d417329.197, %58 ]
   %.sink.i = phi i64 [ 60, %25 ], [ 73, %58 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %anon.ee42cc83d0486e413260d7ca4d417329.197.sink.i, ptr %2, align 8
-  %83 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i64 %.sink.i, ptr %83, align 8
+  %85 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store i64 %.sink.i, ptr %85, align 8
   call void @_ZN4core4time8Duration13from_secs_f6418panic_cold_display17h9fa2d8a63dc2d792E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ee42cc83d0486e413260d7ca4d417329.199) #68
   unreachable
 
-_ZN4core4time8Duration13from_secs_f6417hec078614a5e3f74fE.exit: ; preds = %31, %44, %60, %78
-  %.sroa.0.0.ph.i = phi i64 [ %spec.select14.i.i, %60 ], [ %81, %78 ], [ 0, %31 ], [ %spec.select.i, %44 ]
+_ZN4core4time8Duration13from_secs_f6417hec078614a5e3f74fE.exit: ; preds = %31, %44, %61, %80
+  %.sroa.0.0.ph.i = phi i64 [ %spec.select14.i.i, %60 ], [ %83, %78 ], [ 0, %31 ], [ %spec.select.i, %44 ]
   %.06.sink.i.ph.i = phi i32 [ %spec.select16.i, %60 ], [ 0, %78 ], [ 0, %31 ], [ %spec.select15.i, %44 ]
-  %84 = insertvalue { i64, i32 } poison, i64 %.sroa.0.0.ph.i, 0
-  %85 = insertvalue { i64, i32 } %84, i32 %.06.sink.i.ph.i, 1
-  ret { i64, i32 } %85
+  %86 = insertvalue { i64, i32 } poison, i64 %.sroa.0.0.ph.i, 0
+  %87 = insertvalue { i64, i32 } %86, i32 %.06.sink.i.ph.i, 1
+  ret { i64, i32 } %87
 
-86:                                               ; preds = %23
-  %87 = landingpad { ptr, i32 }
+88:                                               ; preds = %23
+  %89 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #67
   unreachable
@@ -165556,11 +165556,11 @@ define noundef i32 @_ZN14deltalake_core5table6config11TableConfig16num_indexed_c
   br i1 %trunc.i.i, label %.thread, label %14
 
 .thread:                                          ; preds = %5, %1, %8
-  br label %14
+  br label %15
 
-14:                                               ; preds = %8, %.thread
-  %15 = phi i32 [ 32, %.thread ], [ %.sroa.5.0.extract.trunc.i.i, %8 ]
-  ret i32 %15
+15:                                               ; preds = %8, %.thread
+  %16 = phi i32 [ 32, %.thread ], [ %.sroa.5.0.extract.trunc.i.i, %8 ]
+  ret i32 %16
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -165683,11 +165683,11 @@ define noundef i32 @_ZN14deltalake_core5table6config11TableConfig19checkpoint_in
   br i1 %trunc.i.i, label %.thread, label %14
 
 .thread:                                          ; preds = %5, %1, %8
-  br label %14
+  br label %15
 
-14:                                               ; preds = %8, %.thread
-  %15 = phi i32 [ 100, %.thread ], [ %.sroa.5.0.extract.trunc.i.i, %8 ]
-  ret i32 %15
+15:                                               ; preds = %8, %.thread
+  %16 = phi i32 [ 100, %.thread ], [ %.sroa.5.0.extract.trunc.i.i, %8 ]
+  ret i32 %16
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

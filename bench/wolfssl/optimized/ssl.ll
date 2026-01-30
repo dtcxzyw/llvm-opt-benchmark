@@ -2242,7 +2242,7 @@ wolfSSL_DupSession.exit:                          ; preds = %76, %82, %86
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 88
   %91 = load i8, ptr %90, align 8
   %.not53 = trunc i8 %91 to i1
-  %92 = icmp eq ptr %1, %89
+  %.not53 = icmp eq ptr %1, %89
   %or.cond54 = and i1 %92, %.not53
   br i1 %or.cond54, label %93, label %97
 

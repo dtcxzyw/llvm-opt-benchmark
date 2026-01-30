@@ -454,36 +454,36 @@ define internal void @conn_closed(ptr noundef %0, i32 noundef %1, i32 noundef %2
   %11 = and i64 %10, 1
   %.not = icmp eq i64 %11, 0
   %spec.select = select i1 %.not, i32 32, i32 16
-  br label %17
+  br label %18
 
-12:                                               ; preds = %4
+13:                                               ; preds = %4
   call void @mbedtls_strerror(i32 noundef %2, ptr noundef nonnull %5, i64 noundef 100) #5
   switch i32 %2, label %14 [
-    i32 -30848, label %15
-    i32 -26496, label %13
+    i32 -30848, label %16
+    i32 -26496, label %14
   ]
 
-13:                                               ; preds = %12
+14:                                               ; preds = %13
   call void (ptr, ...) @event_warnx(ptr noundef nonnull @.str, i32 noundef -26496, ptr noundef nonnull %5) #5
-  br label %15
+  br label %16
 
-14:                                               ; preds = %12
+15:                                               ; preds = %13
   call void (ptr, ...) @event_warnx(ptr noundef nonnull @.str.1, i32 noundef %2, ptr noundef nonnull %5) #5
-  br label %15
+  br label %16
 
-15:                                               ; preds = %12, %14, %13
+16:                                               ; preds = %13, %15, %14
   %.1 = phi i32 [ 32, %14 ], [ 32, %13 ], [ 16, %12 ]
-  %16 = sext i32 %2 to i64
-  call void @bufferevent_ssl_put_error(ptr noundef %0, i64 noundef %16) #5
-  br label %17
+  %17 = sext i32 %2 to i64
+  call void @bufferevent_ssl_put_error(ptr noundef %0, i64 noundef %17) #5
+  br label %18
 
-17:                                               ; preds = %8, %15
+18:                                               ; preds = %8, %16
   %.0 = phi i32 [ %.1, %15 ], [ %spec.select, %8 ]
   call void @bufferevent_ssl_stop_reading(ptr noundef %0) #5
   call void @bufferevent_ssl_stop_writing(ptr noundef %0) #5
-  %18 = or i32 %.0, %1
-  %19 = trunc i32 %18 to i16
-  call void @bufferevent_run_eventcb_(ptr noundef %0, i16 noundef signext %19, i32 noundef 0) #5
+  %19 = or i32 %.0, %1
+  %20 = trunc i32 %19 to i16
+  call void @bufferevent_run_eventcb_(ptr noundef %0, i16 noundef signext %20, i32 noundef 0) #5
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }

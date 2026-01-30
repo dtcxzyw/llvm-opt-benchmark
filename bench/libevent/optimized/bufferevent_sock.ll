@@ -96,7 +96,7 @@ define internal void @be_socket_destruct(ptr noundef %0) #0 {
   %or.cond = select i1 %6, i1 %7, i1 false
   br i1 %or.cond, label %8, label %10
 
-8:                                                ; preds = %1
+11:                                               ; preds = %1
   %9 = tail call i32 @evutil_closesocket(i32 noundef %3) #10
   br label %10
 

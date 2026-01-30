@@ -3766,22 +3766,22 @@ define internal range(i32 0, 2) i32 @zueci_ascii_inv_u(ptr noundef readonly capt
 switch.early.test:                                ; preds = %9
   switch i8 %.fr, label %11 [
     i8 64, label %16
-    i8 36, label %16
-    i8 35, label %16
+    i8 36, label %17
+    i8 35, label %17
   ]
 
-11:                                               ; preds = %switch.early.test
-  %12 = icmp eq i8 %.fr, 95
-  %13 = add nsw i8 %.fr, -97
-  %14 = icmp ult i8 %13, -6
-  %or.cond17 = or i1 %12, %14
-  br i1 %or.cond17, label %15, label %16
+12:                                               ; preds = %switch.early.test
+  %13 = icmp eq i8 %.fr, 95
+  %14 = add nsw i8 %.fr, -97
+  %15 = icmp ult i8 %14, -6
+  %or.cond17 = or i1 %13, %15
+  br i1 %or.cond17, label %16, label %17
 
-15:                                               ; preds = %11, %4
+16:                                               ; preds = %12, %4
   store i32 %7, ptr %3, align 4, !tbaa !12
-  br label %16
+  br label %17
 
-16:                                               ; preds = %11, %9, %switch.early.test, %switch.early.test, %switch.early.test, %15
+17:                                               ; preds = %12, %9, %switch.early.test, %switch.early.test, %switch.early.test, %16
   %.0 = phi i32 [ 1, %15 ], [ 0, %switch.early.test ], [ 0, %switch.early.test ], [ 0, %switch.early.test ], [ 0, %9 ], [ 0, %11 ]
   ret i32 %.0
 }

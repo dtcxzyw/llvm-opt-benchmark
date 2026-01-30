@@ -937,14 +937,14 @@ define i32 @WebPMuxGetFrame(ptr noundef %0, i32 noundef %1, ptr noundef writeonl
 
 MuxGetFrameInternal.exit.sink.split:              ; preds = %13, %32
   %.sink18 = phi i32 [ %23, %32 ], [ %21, %13 ]
-  %68 = call i32 @ChunkGetIdFromTag(i32 noundef %.sink18) #5
-  %69 = getelementptr inbounds nuw i8, ptr %2, i64 28
-  store i32 %68, ptr %69, align 4, !tbaa !56
-  %70 = call fastcc i32 @SynthesizeBitstream(ptr noundef nonnull readonly %10, ptr noundef nonnull %2)
+  %67 = call i32 @ChunkGetIdFromTag(i32 noundef %.sink18) #5
+  %68 = getelementptr inbounds nuw i8, ptr %2, i64 28
+  store i32 %67, ptr %68, align 4, !tbaa !56
+  %69 = call fastcc i32 @SynthesizeBitstream(ptr noundef nonnull readonly %10, ptr noundef nonnull %2)
   br label %MuxGetFrameInternal.exit
 
 MuxGetFrameInternal.exit:                         ; preds = %MuxGetFrameInternal.exit.sink.split, %26, %22, %7, %3
-  %.0 = phi i32 [ %8, %7 ], [ -1, %3 ], [ -2, %26 ], [ -1, %22 ], [ %70, %MuxGetFrameInternal.exit.sink.split ]
+  %.0 = phi i32 [ %8, %7 ], [ -1, %3 ], [ -2, %26 ], [ -1, %22 ], [ %69, %MuxGetFrameInternal.exit.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }

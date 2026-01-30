@@ -7479,8 +7479,8 @@ cleanup.thread:                                   ; preds = %if.end47, %do.end34
 cleanup.cont:                                     ; preds = %do.end120
   call void @_ZN2v811HandleScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %scope) #24
   %23 = load i32, ptr %snapshot_config_.i, align 4
-  %not.call139 = and i32 %23, 1
-  %cond140 = xor i32 %not.call139, 1
+  %and.i.i.i = and i32 %23, 1
+  %cond140 = xor i32 %and.i.i.i, 1
   %call142 = call { ptr, i32 } @_ZN2v815SnapshotCreator10CreateBlobENS0_20FunctionCodeHandlingE(ptr noundef nonnull align 8 dereferenceable(8) %call5, i32 noundef %cond140) #24
   %24 = extractvalue { ptr, i32 } %call142, 0
   %25 = extractvalue { ptr, i32 } %call142, 1

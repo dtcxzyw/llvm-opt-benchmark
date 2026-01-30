@@ -2470,8 +2470,8 @@ _ZN9rcContext8resetLogEv.exit661:                 ; preds = %.thread747, %843
 
 925:                                              ; preds = %923
   %spec.select602 = select i1 %924, i1 true, i1 %.10507
-  %.not575 = icmp eq ptr %.7421, null
-  br i1 %.not575, label %930, label %926
+  %.not = icmp eq ptr %.7421, null
+  br i1 %.not, label %930, label %926
 
 926:                                              ; preds = %925
   %927 = load ptr, ptr %.7421, align 8

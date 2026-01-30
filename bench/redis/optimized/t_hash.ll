@@ -3099,22 +3099,22 @@ hfieldPersist.exit:                               ; preds = %432, %421, %hfieldI
   %or.cond = and i1 %445, %444
   br i1 %or.cond, label %446, label %447
 
-446:                                              ; preds = %443
+447:                                              ; preds = %443
   call void @sdsfree(ptr noundef nonnull %2) #17
-  br label %447
+  br label %448
 
-447:                                              ; preds = %446, %443
-  %448 = and i32 %.0, 2
-  %449 = icmp ne i32 %448, 0
-  %450 = icmp ne ptr %3, null
-  %or.cond3 = and i1 %450, %449
-  br i1 %or.cond3, label %451, label %452
+448:                                              ; preds = %447, %443
+  %449 = and i32 %.0, 2
+  %450 = icmp ne i32 %449, 0
+  %451 = icmp ne ptr %3, null
+  %or.cond3 = and i1 %451, %450
+  br i1 %or.cond3, label %452, label %453
 
-451:                                              ; preds = %447
+452:                                              ; preds = %448
   call void @sdsfree(ptr noundef nonnull %3) #17
-  br label %452
+  br label %453
 
-452:                                              ; preds = %451, %447
+453:                                              ; preds = %452, %448
   ret i32 %.1106
 }
 

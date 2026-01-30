@@ -6160,7 +6160,7 @@ define internal fastcc void @_ZN6quiche5frame18parse_stream_frame17hb28089e58a33
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %14, ptr %16, align 8
   store i64 29, ptr %0, align 8
-  br label %69
+  br label %70
 
 17:                                               ; preds = %3
   %18 = and i8 %6, 4
@@ -6188,7 +6188,7 @@ define internal fastcc void @_ZN6quiche5frame18parse_stream_frame17hb28089e58a33
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %30, ptr %32, align 8
   store i64 29, ptr %0, align 8
-  br label %69
+  br label %70
 
 33:                                               ; preds = %20
   %34 = extractvalue { i64, i64 } %21, 1
@@ -6219,7 +6219,7 @@ define internal fastcc void @_ZN6quiche5frame18parse_stream_frame17hb28089e58a33
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %47, ptr %49, align 8
   store i64 29, ptr %0, align 8
-  br label %69
+  br label %70
 
 50:                                               ; preds = %37
   %51 = extractvalue { i64, i64 } %38, 1
@@ -6237,7 +6237,7 @@ define internal fastcc void @_ZN6quiche5frame18parse_stream_frame17hb28089e58a33
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 3, ptr %56, align 8
   store i64 29, ptr %0, align 8
-  br label %69
+  br label %70
 
 57:                                               ; preds = %52
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -6250,25 +6250,25 @@ define internal fastcc void @_ZN6quiche5frame18parse_stream_frame17hb28089e58a33
   store i64 %60, ptr %62, align 8
   store i64 29, ptr %0, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %69
+  br label %70
 
 63:                                               ; preds = %52
   %64 = trunc i64 %1 to i1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %65 = call { ptr, i64 } @"_ZN75_$LT$octets..Octets$u20$as$u20$core..convert..AsRef$LT$$u5b$u8$u5d$$GT$$GT$6as_ref17h11e69c0fd62bd4beE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %5)
-  %66 = extractvalue { ptr, i64 } %65, 0
-  %67 = extractvalue { ptr, i64 } %65, 1
-  %68 = call noundef nonnull ptr @"_ZN86_$LT$quiche..range_buf..DefaultBufFactory$u20$as$u20$quiche..range_buf..BufFactory$GT$14buf_from_slice17hea69b3839e710227E"(ptr noalias noundef nonnull readonly align 1 %66, i64 noundef %67)
+  %66 = call { ptr, i64 } @"_ZN75_$LT$octets..Octets$u20$as$u20$core..convert..AsRef$LT$$u5b$u8$u5d$$GT$$GT$6as_ref17h11e69c0fd62bd4beE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %5)
+  %67 = extractvalue { ptr, i64 } %66, 0
+  %68 = extractvalue { ptr, i64 } %66, 1
+  %69 = call noundef nonnull ptr @"_ZN86_$LT$quiche..range_buf..DefaultBufFactory$u20$as$u20$quiche..range_buf..BufFactory$GT$14buf_from_slice17hea69b3839e710227E"(ptr noalias noundef nonnull readonly align 1 %67, i64 noundef %68)
   %.sroa.516.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @"_ZN6quiche9range_buf17RangeBuf$LT$F$GT$8from_raw17h560a16966118cf28E"(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %.sroa.516.0..sroa_idx, ptr noundef nonnull %68, i64 noundef %.sroa.012.0, i1 noundef zeroext %64)
+  call void @"_ZN6quiche9range_buf17RangeBuf$LT$F$GT$8from_raw17h560a16966118cf28E"(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %.sroa.516.0..sroa_idx, ptr noundef nonnull %69, i64 noundef %.sroa.012.0, i1 noundef zeroext %64)
   store i64 10, ptr %0, align 8
   %.sroa.415.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %9, ptr %.sroa.415.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %69
+  br label %70
 
-69:                                               ; preds = %63, %57, %55, %44, %27, %11
+70:                                               ; preds = %63, %57, %55, %44, %27, %11
   ret void
 }
 

@@ -208,12 +208,12 @@ define internal i32 @uint32_i2c(ptr noundef readonly captures(none) %0, ptr noun
   %14 = sub i32 0, %.0.copyload
   %spec.select = select i1 %or.cond3, i32 %14, i32 %.0.copyload
   %spec.select15 = zext i1 %or.cond3 to i32
-  %15 = zext i32 %spec.select to i64
-  %16 = tail call i32 @ossl_i2c_uint64_int(ptr noundef %1, i64 noundef %15, i32 noundef %spec.select15) #5
-  br label %17
+  %16 = zext i32 %spec.select to i64
+  %17 = tail call i32 @ossl_i2c_uint64_int(ptr noundef %1, i64 noundef %16, i32 noundef %spec.select15) #5
+  br label %18
 
-17:                                               ; preds = %4, %10
-  %.0 = phi i32 [ %16, %10 ], [ -1, %4 ]
+18:                                               ; preds = %4, %10
+  %.0 = phi i32 [ %17, %10 ], [ -1, %4 ]
   ret i32 %.0
 }
 
@@ -366,11 +366,11 @@ define internal i32 @uint64_i2c(ptr noundef readonly captures(none) %0, ptr noun
   %14 = sub i64 0, %.0.copyload
   %spec.select = select i1 %or.cond3, i64 %14, i64 %.0.copyload
   %spec.select15 = zext i1 %or.cond3 to i32
-  %15 = tail call i32 @ossl_i2c_uint64_int(ptr noundef %1, i64 noundef %spec.select, i32 noundef %spec.select15) #5
-  br label %16
+  %16 = tail call i32 @ossl_i2c_uint64_int(ptr noundef %1, i64 noundef %spec.select, i32 noundef %spec.select15) #5
+  br label %17
 
-16:                                               ; preds = %4, %10
-  %.0 = phi i32 [ %15, %10 ], [ -1, %4 ]
+17:                                               ; preds = %4, %10
+  %.0 = phi i32 [ %16, %10 ], [ -1, %4 ]
   ret i32 %.0
 }
 

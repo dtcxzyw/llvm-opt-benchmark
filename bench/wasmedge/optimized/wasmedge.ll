@@ -2374,7 +2374,7 @@ _ZN8WasmEdge9Configure22removeHostRegistrationENS_16HostRegistrationE.exit: ; pr
 ; Function Attrs: mustprogress nounwind uwtable
 define zeroext i1 @WasmEdge_ConfigureHasHostRegistration(ptr noundef %0, i32 noundef %1) local_unnamed_addr #10 personality ptr @__gxx_personality_v0 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %15, label %.preheader
+  br i1 %.not, label %16, label %.preheader
 
 .preheader:                                       ; preds = %2, %.preheader
   %3 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull align 8 dereferenceable(160) %0) #39
@@ -2415,9 +2415,9 @@ _ZNK8WasmEdge9Configure19hasHostRegistrationENS_16HostRegistrationE.exit: ; pred
   %12 = load i64, ptr %11, align 8
   %13 = trunc i64 %12 to i1
   %14 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(160) %0) #39
-  br label %15
+  br label %16
 
-15:                                               ; preds = %2, %_ZNK8WasmEdge9Configure19hasHostRegistrationENS_16HostRegistrationE.exit
+16:                                               ; preds = %2, %_ZNK8WasmEdge9Configure19hasHostRegistrationENS_16HostRegistrationE.exit
   %.0 = phi i1 [ %13, %_ZNK8WasmEdge9Configure19hasHostRegistrationENS_16HostRegistrationE.exit ], [ false, %2 ]
   ret i1 %.0
 }

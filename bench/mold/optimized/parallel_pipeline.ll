@@ -165,23 +165,23 @@ define noundef zeroext i1 @_ZN3tbb6detail2r110stage_task14execute_filterERNS0_2d
   %19 = tail call noundef ptr %18(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef %16)
   store ptr %19, ptr %15, align 64, !tbaa !42
   %.not9 = icmp eq ptr %19, null
-  %.pre22 = load ptr, ptr %8, align 32, !tbaa !38
-  %20 = getelementptr inbounds nuw i8, ptr %.pre22, i64 24
+  %.pre = load ptr, ptr %8, align 32, !tbaa !38
+  %20 = getelementptr inbounds nuw i8, ptr %.pre, i64 24
   %21 = load i32, ptr %20, align 8, !tbaa !39
   br i1 %.not9, label %22, label %._crit_edge
 
 22:                                               ; preds = %14
   %23 = and i32 %21, 4
-  %.not21 = icmp eq i32 %23, 0
-  %.phi.trans.insert26 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %.pre27 = load ptr, ptr %.phi.trans.insert26, align 8, !tbaa !45
-  br i1 %.not21, label %._crit_edge25, label %24
+  %.not23 = icmp eq i32 %23, 0
+  %.phi.trans.insert27 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %.pre28 = load ptr, ptr %.phi.trans.insert27, align 8, !tbaa !45
+  br i1 %.not23, label %._crit_edge26, label %24
 
 24:                                               ; preds = %22
-  %25 = getelementptr inbounds nuw i8, ptr %.pre27, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %.pre28, i64 32
   %26 = load atomic i8, ptr %25 monotonic, align 1
   %27 = trunc i8 %26 to i1
-  br i1 %27, label %._crit_edge25, label %._crit_edge
+  br i1 %27, label %._crit_edge26, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %14, %24
   %28 = and i32 %21, 3
@@ -189,7 +189,7 @@ define noundef zeroext i1 @_ZN3tbb6detail2r110stage_task14execute_filterERNS0_2d
   br i1 %29, label %30, label %38
 
 30:                                               ; preds = %._crit_edge
-  %31 = getelementptr inbounds nuw i8, ptr %.pre22, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %.pre, i64 16
   %32 = load ptr, ptr %31, align 8, !tbaa !46
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 32
   %34 = load i64, ptr %33, align 8, !tbaa !47
@@ -202,7 +202,7 @@ define noundef zeroext i1 @_ZN3tbb6detail2r110stage_task14execute_filterERNS0_2d
   br label %38
 
 38:                                               ; preds = %30, %._crit_edge
-  %39 = getelementptr inbounds nuw i8, ptr %.pre22, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %.pre, i64 8
   %40 = load ptr, ptr %39, align 8, !tbaa !50
   %.not10 = icmp eq ptr %40, null
   br i1 %.not10, label %41, label %46
@@ -276,8 +276,8 @@ _ZN3tbb6detail2d122small_object_allocator10new_objectINS0_2r110stage_taskEJRNS4_
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN3tbb6detail2r110stage_task20try_spawn_stage_taskERNS0_2d114execution_dataE.exit
 
-._crit_edge25:                                    ; preds = %22, %24
-  %77 = getelementptr inbounds nuw i8, ptr %.pre27, i64 32
+._crit_edge26:                                    ; preds = %22, %24
+  %77 = getelementptr inbounds nuw i8, ptr %.pre28, i64 32
   store atomic i8 1, ptr %77 monotonic, align 1
   br label %.thread
 
@@ -297,11 +297,11 @@ _ZN3tbb6detail2d122small_object_allocator10new_objectINS0_2r110stage_taskEJRNS4_
 86:                                               ; preds = %84
   %87 = getelementptr inbounds nuw i8, ptr %80, i64 24
   tail call void %85(ptr noundef nonnull %87)
-  %.pre = load ptr, ptr %79, align 8, !tbaa !45
+  %.pre29 = load ptr, ptr %79, align 8, !tbaa !45
   br label %88
 
 88:                                               ; preds = %86, %84
-  %89 = phi ptr [ %.pre, %86 ], [ %80, %84 ]
+  %89 = phi ptr [ %.pre29, %86 ], [ %80, %84 ]
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 24
   %91 = atomicrmw sub ptr %90, i64 1 release, align 8
   %92 = icmp ugt i64 %91, 1
@@ -362,8 +362,8 @@ _ZN3tbb6detail2r110stage_task20try_spawn_stage_taskERNS0_2d114execution_dataE.ex
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 24
   %121 = load i32, ptr %120, align 8, !tbaa !39
   %122 = and i32 %121, 4
-  %.not19 = icmp eq i32 %122, 0
-  br i1 %.not19, label %129, label %123
+  %.not21 = icmp eq i32 %122, 0
+  br i1 %.not21, label %129, label %123
 
 123:                                              ; preds = %118
   %124 = getelementptr inbounds nuw i8, ptr %119, i64 16
@@ -371,8 +371,8 @@ _ZN3tbb6detail2r110stage_task20try_spawn_stage_taskERNS0_2d114execution_dataE.ex
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 44
   %127 = load i32, ptr %126, align 4, !tbaa !61
   %128 = call noundef ptr @pthread_getspecific(i32 noundef %127) #9
-  %.not20 = icmp eq ptr %128, null
-  br i1 %.not20, label %_ZN3tbb6detail2r110stage_task20try_spawn_stage_taskERNS0_2d114execution_dataE.exit, label %129
+  %.not22 = icmp eq ptr %128, null
+  br i1 %.not22, label %_ZN3tbb6detail2r110stage_task20try_spawn_stage_taskERNS0_2d114execution_dataE.exit, label %129
 
 129:                                              ; preds = %123, %118
   %130 = load ptr, ptr %79, align 8, !tbaa !45
@@ -452,11 +452,11 @@ _ZN3tbb6detail2r110stage_task20try_spawn_stage_taskERNS0_2d114execution_dataE.ex
 172:                                              ; preds = %170
   %173 = getelementptr inbounds nuw i8, ptr %166, i64 24
   call void %171(ptr noundef nonnull %173)
-  %.pre24 = load ptr, ptr %161, align 8, !tbaa !45
+  %.pre30 = load ptr, ptr %161, align 8, !tbaa !45
   br label %174
 
 174:                                              ; preds = %172, %170
-  %175 = phi ptr [ %.pre24, %172 ], [ %166, %170 ]
+  %175 = phi ptr [ %.pre30, %172 ], [ %166, %170 ]
   %176 = getelementptr inbounds nuw i8, ptr %0, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(18) %176, i8 0, i64 18, i1 false)
   %177 = getelementptr inbounds nuw i8, ptr %175, i64 8
@@ -465,7 +465,7 @@ _ZN3tbb6detail2r110stage_task20try_spawn_stage_taskERNS0_2d114execution_dataE.ex
   store i8 1, ptr %5, align 16, !tbaa !28
   br label %.thread
 
-.thread:                                          ; preds = %160, %165, %154, %150, %174, %78, %159, %129, %._crit_edge25, %41
+.thread:                                          ; preds = %160, %165, %154, %150, %174, %78, %159, %129, %._crit_edge26, %41
   %.06 = phi i1 [ false, %159 ], [ false, %78 ], [ true, %154 ], [ true, %41 ], [ false, %._crit_edge25 ], [ false, %129 ], [ true, %174 ], [ true, %150 ], [ false, %165 ], [ false, %160 ]
   ret i1 %.06
 }

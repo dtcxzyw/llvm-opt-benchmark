@@ -496,33 +496,33 @@ define internal fastcc noundef zeroext i1 @_ZN4core3ops8function5FnMut8call_mut1
   %234 = and i64 %229, -2
   %235 = inttoptr i64 %234 to ptr
   %236 = trunc i64 %229 to i1
-  br i1 %236, label %237, label %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217haa4b98ed148da900E.exit.i1.i.i.i"
+  br i1 %236, label %237, label %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217haa4b98ed148da900E.exit.i2.i.i.i"
 
 237:                                              ; preds = %233
   %238 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %239 = load i32, ptr %238, align 4, !noalias !89, !noundef !16
   %240 = zext i32 %239 to i64
-  br label %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217haa4b98ed148da900E.exit.i1.i.i.i"
+  br label %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217haa4b98ed148da900E.exit.i2.i.i.i"
 
-"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217haa4b98ed148da900E.exit.i1.i.i.i": ; preds = %237, %233
-  %.0.i17.i2.i.i.i = phi i64 [ %240, %237 ], [ 0, %233 ]
+"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217haa4b98ed148da900E.exit.i2.i.i.i": ; preds = %237, %233
+  %.0.i17.i3.i.i.i = phi i64 [ %240, %237 ], [ 0, %233 ]
   %241 = getelementptr inbounds nuw i8, ptr %235, i64 16
   %242 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %243 = load i32, ptr %242, align 8, !noundef !16
   %244 = zext i32 %243 to i64
-  %245 = getelementptr inbounds nuw i8, ptr %241, i64 %.0.i17.i2.i.i.i
+  %245 = getelementptr inbounds nuw i8, ptr %241, i64 %.0.i17.i3.i.i.i
   br label %"_ZN80_$LT$tendril..tendril..Tendril$LT$F$C$A$GT$$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h80866670b0c986e7E.exit.i.i"
 
 246:                                              ; preds = %231
   %247 = getelementptr inbounds nuw i8, ptr %1, i64 32
   br label %"_ZN80_$LT$tendril..tendril..Tendril$LT$F$C$A$GT$$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h80866670b0c986e7E.exit.i.i"
 
-"_ZN80_$LT$tendril..tendril..Tendril$LT$F$C$A$GT$$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h80866670b0c986e7E.exit.i.i": ; preds = %246, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217haa4b98ed148da900E.exit.i1.i.i.i", %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17h4d73af8b1cc9df89E.exit.i.i.i"
-  %.sroa.4.0.i3.i.i.i = phi i64 [ %244, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217haa4b98ed148da900E.exit.i1.i.i.i" ], [ %229, %246 ], [ 0, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17h4d73af8b1cc9df89E.exit.i.i.i" ]
-  %.sroa.0.0.i4.i.i.i = phi ptr [ %245, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217haa4b98ed148da900E.exit.i1.i.i.i" ], [ %247, %246 ], [ @anon.0d115dc60f596d307066d150daf4bb0b.2, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17h4d73af8b1cc9df89E.exit.i.i.i" ]
-  %248 = sub nsw i64 %.sroa.4.0.i.i.i.i, %.sroa.4.0.i3.i.i.i
-  %..i.i.i4.i.i = tail call i64 @llvm.umin.i64(i64 range(i64 0, 4294967296) %.sroa.4.0.i.i.i.i, i64 range(i64 0, 4294967296) %.sroa.4.0.i3.i.i.i)
-  %249 = tail call i32 @memcmp(ptr nonnull readonly align 1 %.sroa.0.0.i.i.i.i, ptr nonnull readonly align 1 %.sroa.0.0.i4.i.i.i, i64 %..i.i.i4.i.i), !alias.scope !92
+"_ZN80_$LT$tendril..tendril..Tendril$LT$F$C$A$GT$$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h80866670b0c986e7E.exit.i.i": ; preds = %246, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217haa4b98ed148da900E.exit.i2.i.i.i", %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17h4d73af8b1cc9df89E.exit.i.i.i"
+  %.sroa.4.0.i4.i.i.i = phi i64 [ %244, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217haa4b98ed148da900E.exit.i1.i.i.i" ], [ %229, %246 ], [ 0, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17h4d73af8b1cc9df89E.exit.i.i.i" ]
+  %.sroa.0.0.i5.i.i.i = phi ptr [ %245, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217haa4b98ed148da900E.exit.i1.i.i.i" ], [ %247, %246 ], [ @anon.0d115dc60f596d307066d150daf4bb0b.2, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17h4d73af8b1cc9df89E.exit.i.i.i" ]
+  %248 = sub nsw i64 %.sroa.4.0.i.i.i.i, %.sroa.4.0.i4.i.i.i
+  %..i.i.i4.i.i = tail call i64 @llvm.umin.i64(i64 range(i64 0, 4294967296) %.sroa.4.0.i.i.i.i, i64 range(i64 0, 4294967296) %.sroa.4.0.i4.i.i.i)
+  %249 = tail call i32 @memcmp(ptr nonnull readonly align 1 %.sroa.0.0.i.i.i.i, ptr nonnull readonly align 1 %.sroa.0.0.i5.i.i.i, i64 %..i.i.i4.i.i), !alias.scope !92
   %250 = sext i32 %249 to i64
   %251 = icmp eq i32 %249, 0
   %spec.store.select.i.i.i5.i.i = select i1 %251, i64 %248, i64 %250

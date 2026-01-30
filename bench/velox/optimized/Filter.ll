@@ -24823,7 +24823,7 @@ lpad22:                                           ; preds = %if.end112, %if.then
   br label %lpad22.body
 
 lpad22.body:                                      ; preds = %lpad.i45, %lpad22
-  %eh.lpad-body47 = phi { ptr, i32 } [ %12, %lpad22 ], [ %27, %lpad.i45 ]
+  %eh.lpad-body47 = phi { ptr, i32 } [ %12, %lpad22 ], [ %31, %lpad.i45 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %lower) #38
   br label %ehcleanup
 
@@ -24864,28 +24864,28 @@ invoke.cont44:                                    ; preds = %invoke.cont40
 
 if.end53:                                         ; preds = %invoke.cont44, %if.then27, %if.then
   %lowerUnbounded.0 = phi i8 [ %8, %if.then ], [ 0, %if.then27 ], [ 0, %invoke.cont44 ]
-  %lowerExclusive.0.in = phi i8 [ %9, %if.then ], [ %13, %if.then27 ], [ %cond9.i.in, %invoke.cont44 ]
+  %lowerExclusive.0 = phi i8 [ %9, %if.then ], [ %13, %if.then27 ], [ %cond9.i.in, %invoke.cont44 ]
   %upperUnbounded_ = getelementptr inbounds nuw i8, ptr %this, i64 18
-  %17 = load i8, ptr %upperUnbounded_, align 2
-  %tobool54 = trunc i8 %17 to i1
+  %19 = load i8, ptr %upperUnbounded_, align 2
+  %tobool54 = trunc i8 %19 to i1
   %upperUnbounded_56 = getelementptr inbounds nuw i8, ptr %other, i64 18
-  %18 = load i8, ptr %upperUnbounded_56, align 2
+  %20 = load i8, ptr %upperUnbounded_56, align 2
   br i1 %tobool54, label %if.then55, label %if.else63
 
 if.then55:                                        ; preds = %if.end53
   %upperExclusive_ = getelementptr inbounds nuw i8, ptr %other, i64 19
-  %19 = load i8, ptr %upperExclusive_, align 1
+  %21 = load i8, ptr %upperExclusive_, align 1
   %upper_ = getelementptr inbounds nuw i8, ptr %other, i64 56
   %call62 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %upper, ptr noundef nonnull align 8 dereferenceable(32) %upper_)
           to label %if.end99 unwind label %lpad22
 
 if.else63:                                        ; preds = %if.end53
-  %tobool65 = trunc i8 %18 to i1
+  %tobool65 = trunc i8 %20 to i1
   br i1 %tobool65, label %if.then66, label %if.else76
 
 if.then66:                                        ; preds = %if.else63
   %upperExclusive_70 = getelementptr inbounds nuw i8, ptr %this, i64 19
-  %20 = load i8, ptr %upperExclusive_70, align 1
+  %22 = load i8, ptr %upperExclusive_70, align 1
   %upper_73 = getelementptr inbounds nuw i8, ptr %this, i64 56
   %call75 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %upper, ptr noundef nonnull align 8 dereferenceable(32) %upper_73)
           to label %if.end99 unwind label %lpad22
@@ -24904,18 +24904,18 @@ invoke.cont80:                                    ; preds = %if.else76
 
 invoke.cont89:                                    ; preds = %invoke.cont80
   %upperExclusive_91 = getelementptr inbounds nuw i8, ptr %this, i64 19
-  %21 = load i8, ptr %upperExclusive_91, align 1
+  %23 = load i8, ptr %upperExclusive_91, align 1
   %upperExclusive_93 = getelementptr inbounds nuw i8, ptr %other, i64 19
-  %22 = load i8, ptr %upperExclusive_93, align 1
+  %24 = load i8, ptr %upperExclusive_93, align 1
   %cmp.i32 = icmp eq i32 %call81, 0
-  %23 = or i8 %22, %21
+  %25 = or i8 %24, %23
   %cond.i35.v = select i1 %cmp82, i8 %21, i8 %22
   %cond9.i36.in = select i1 %cmp.i32, i8 %23, i8 %cond.i35.v
   br label %if.end99
 
 if.end99:                                         ; preds = %invoke.cont89, %if.then66, %if.then55
-  %upperUnbounded.0 = phi i8 [ %18, %if.then55 ], [ 0, %if.then66 ], [ 0, %invoke.cont89 ]
-  %upperExclusive.0.in = phi i8 [ %19, %if.then55 ], [ %20, %if.then66 ], [ %cond9.i36.in, %invoke.cont89 ]
+  %upperUnbounded.0 = phi i8 [ %20, %if.then55 ], [ 0, %if.then66 ], [ 0, %invoke.cont89 ]
+  %upperExclusive.0 = phi i8 [ %21, %if.then55 ], [ %22, %if.then66 ], [ %cond9.i36.in, %invoke.cont89 ]
   %tobool100 = trunc i8 %lowerUnbounded.0 to i1
   %tobool101 = trunc i8 %upperUnbounded.0 to i1
   %or.cond = select i1 %tobool100, i1 true, i1 %tobool101
@@ -24926,10 +24926,10 @@ land.lhs.true102:                                 ; preds = %if.end99
           to label %_ZStgtIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %land.lhs.true102
-  %24 = landingpad { ptr, i32 }
+  %28 = landingpad { ptr, i32 }
           catch ptr null
-  %25 = extractvalue { ptr, i32 } %24, 0
-  call void @__clang_call_terminate(ptr %25) #39
+  %29 = extractvalue { ptr, i32 } %28, 0
+  call void @__clang_call_terminate(ptr %29) #39
   unreachable
 
 _ZStgtIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit: ; preds = %land.lhs.true102
@@ -24951,16 +24951,16 @@ land.rhs.i:                                       ; preds = %lor.lhs.false
 
 _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit: ; preds = %land.rhs.i
   %bcmp.i = call i32 @bcmp(ptr %call2.i, ptr %call3.i, i64 %call4.i)
-  %26 = icmp eq i32 %bcmp.i, 0
-  %tobool106 = trunc i8 %lowerExclusive.0.in to i1
-  %tobool108 = trunc i8 %upperExclusive.0.in to i1
+  %30 = icmp eq i32 %bcmp.i, 0
+  %tobool106 = trunc i8 %lowerExclusive.0 to i1
+  %tobool108 = trunc i8 %upperExclusive.0 to i1
   %or.cond1 = select i1 %tobool106, i1 true, i1 %tobool108
-  %or.cond55 = select i1 %26, i1 %or.cond1, i1 false
+  %or.cond55 = select i1 %30, i1 %or.cond1, i1 false
   br i1 %or.cond55, label %if.then109, label %if.end112
 
 land.lhs.true105:                                 ; preds = %land.rhs.i
-  %tobool106.old = trunc i8 %lowerExclusive.0.in to i1
-  %tobool108.old = trunc i8 %upperExclusive.0.in to i1
+  %tobool106.old = trunc i8 %lowerExclusive.0 to i1
+  %tobool108.old = trunc i8 %upperExclusive.0 to i1
   %or.cond1.old = select i1 %tobool106.old, i1 true, i1 %tobool108.old
   br i1 %or.cond1.old, label %if.then109, label %if.end112
 
@@ -24986,13 +24986,13 @@ if.end112:                                        ; preds = %lor.lhs.false, %lan
           to label %call.i44.noexc unwind label %lpad22
 
 call.i44.noexc:                                   ; preds = %if.end112
-  %tobool13.i = trunc i8 %lowerExclusive.0.in to i1
-  %tobool15.i = trunc i8 %upperExclusive.0.in to i1
+  %tobool13.i = trunc i8 %lowerExclusive.0 to i1
+  %tobool15.i = trunc i8 %upperExclusive.0 to i1
   invoke void @_ZN8facebook5velox6common10BytesRangeC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbSA_bbb(ptr noundef nonnull align 8 dereferenceable(96) %call.i4446, ptr noundef nonnull align 8 dereferenceable(32) %lower, i1 noundef zeroext %tobool100, i1 noundef zeroext %tobool13.i, ptr noundef nonnull align 8 dereferenceable(32) %upper, i1 noundef zeroext %tobool101, i1 noundef zeroext %tobool15.i, i1 noundef zeroext %frombool)
           to label %cleanup unwind label %lpad.i45, !noalias !532
 
 lpad.i45:                                         ; preds = %call.i44.noexc
-  %27 = landingpad { ptr, i32 }
+  %31 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPv(ptr noundef nonnull %call.i4446) #42, !noalias !532
   br label %lpad22.body

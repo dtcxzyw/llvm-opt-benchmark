@@ -67,14 +67,14 @@ define void @_ZNK8LightGBM4GBDT10PredictRawEPKdPdPKNS_27PredictionEarlyStopInsta
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %285
-  %.01856 = phi i32 [ %12, %.preheader.lr.ph ], [ %286, %285 ]
-  %.01955 = phi i32 [ 0, %.preheader.lr.ph ], [ %.1, %285 ]
+  %.01857 = phi i32 [ %12, %.preheader.lr.ph ], [ %286, %285 ]
+  %.01956 = phi i32 [ 0, %.preheader.lr.ph ], [ %.1, %285 ]
   %21 = load i32, ptr %7, align 8, !tbaa !4
   %22 = icmp sgt i32 %21, 0
   br i1 %22, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
-  %23 = mul nsw i32 %21, %.01856
+  %23 = mul nsw i32 %21, %.01857
   %24 = load ptr, ptr %17, align 8, !tbaa !121
   %25 = sext i32 %23 to i64
   %wide.trip.count = zext nneg i32 %21 to i64
@@ -82,7 +82,7 @@ define void @_ZNK8LightGBM4GBDT10PredictRawEPKdPdPKNS_27PredictionEarlyStopInsta
   br label %29
 
 ._crit_edge:                                      ; preds = %_ZNK8LightGBM4Tree7PredictEPKd.exit, %.preheader
-  %26 = add nsw i32 %.01955, 1
+  %26 = add nsw i32 %.01956, 1
   %27 = load i32, ptr %18, align 8, !tbaa !122
   %28 = icmp eq i32 %27, %26
   br i1 %28, label %280, label %285
@@ -177,46 +177,46 @@ _ZN8LightGBM6CommonL12FindInBitsetIiEEbPKjiT_.exit.thread.i.i.i39: ; preds = %_Z
   %88 = and i8 %87, 3
   %89 = fcmp uno double %58, 0.000000e+00
   %90 = icmp ne i8 %88, 2
-  %or.cond.i.i.i44 = and i1 %89, %90
-  %.017.i.i.i45 = select i1 %or.cond.i.i.i44, double 0.000000e+00, double %58
+  %or.cond.i.i.i45 = and i1 %89, %90
+  %.017.i.i.i46 = select i1 %or.cond.i.i.i45, double 0.000000e+00, double %58
   switch i8 %88, label %98 [
     i8 1, label %91
     i8 2, label %94
   ]
 
 91:                                               ; preds = %86
-  %92 = call double @llvm.fabs.f64(double %.017.i.i.i45)
+  %92 = call double @llvm.fabs.f64(double %.017.i.i.i46)
   %93 = fcmp ugt double %92, 0x38AA95A5C0000000
   br i1 %93, label %98, label %96
 
 94:                                               ; preds = %86
-  %95 = fcmp uno double %.017.i.i.i45, 0.000000e+00
+  %95 = fcmp uno double %.017.i.i.i46, 0.000000e+00
   br i1 %95, label %96, label %98
 
 96:                                               ; preds = %94, %91
   %97 = and i8 %60, 2
-  %.not.i.i.i49 = icmp eq i8 %97, 0
-  br label %_ZNK8LightGBM4Tree17NumericalDecisionEdi.exit.i.i46
+  %.not.i7.i.i50 = icmp eq i8 %97, 0
+  br label %_ZNK8LightGBM4Tree17NumericalDecisionEdi.exit.i.i47
 
 98:                                               ; preds = %94, %91, %86
   %99 = getelementptr inbounds nuw double, ptr %47, i64 %53
   %100 = load double, ptr %99, align 8, !tbaa !155
-  %101 = fcmp ugt double %.017.i.i.i45, %100
-  br label %_ZNK8LightGBM4Tree17NumericalDecisionEdi.exit.i.i46
+  %101 = fcmp ugt double %.017.i.i.i46, %100
+  br label %_ZNK8LightGBM4Tree17NumericalDecisionEdi.exit.i.i47
 
-_ZNK8LightGBM4Tree17NumericalDecisionEdi.exit.i.i46: ; preds = %98, %96
-  %.sink20.i.i.i47 = phi i1 [ %101, %98 ], [ %.not.i.i.i49, %96 ]
-  %.19.i.i.i48 = select i1 %.sink20.i.i.i47, i64 40, i64 16
+_ZNK8LightGBM4Tree17NumericalDecisionEdi.exit.i.i47: ; preds = %98, %96
+  %.sink20.i.i.i48 = phi i1 [ %101, %98 ], [ %.not.i7.i.i50, %96 ]
+  %.19.i.i.i49 = select i1 %.sink20.i.i.i48, i64 40, i64 16
   br label %_ZNK8LightGBM4Tree8DecisionEdi.exit.i40
 
-_ZNK8LightGBM4Tree8DecisionEdi.exit.i40:          ; preds = %_ZNK8LightGBM4Tree17NumericalDecisionEdi.exit.i.i46, %_ZN8LightGBM6CommonL12FindInBitsetIiEEbPKjiT_.exit.thread.i.i.i39, %_ZN8LightGBM6CommonL12FindInBitsetIiEEbPKjiT_.exit.i.i.i43, %64, %62
-  %.sink.i.i41 = phi i64 [ 40, %_ZN8LightGBM6CommonL12FindInBitsetIiEEbPKjiT_.exit.thread.i.i.i39 ], [ 40, %64 ], [ 40, %62 ], [ %.19.i.i.i48, %_ZNK8LightGBM4Tree17NumericalDecisionEdi.exit.i.i46 ], [ 16, %_ZN8LightGBM6CommonL12FindInBitsetIiEEbPKjiT_.exit.i.i.i43 ]
+_ZNK8LightGBM4Tree8DecisionEdi.exit.i40:          ; preds = %_ZNK8LightGBM4Tree17NumericalDecisionEdi.exit.i.i47, %_ZN8LightGBM6CommonL12FindInBitsetIiEEbPKjiT_.exit.thread.i.i.i39, %_ZN8LightGBM6CommonL12FindInBitsetIiEEbPKjiT_.exit.i.i.i43, %64, %62
+  %.sink.i.i41 = phi i64 [ 40, %_ZN8LightGBM6CommonL12FindInBitsetIiEEbPKjiT_.exit.thread.i.i.i39 ], [ 40, %64 ], [ 40, %62 ], [ %.19.i.i.i49, %_ZNK8LightGBM4Tree17NumericalDecisionEdi.exit.i.i46 ], [ 16, %_ZN8LightGBM6CommonL12FindInBitsetIiEEbPKjiT_.exit.i.i.i43 ]
   %102 = getelementptr inbounds nuw i8, ptr %30, i64 %.sink.i.i41
   %103 = load ptr, ptr %102, align 8, !tbaa !152
   %104 = getelementptr inbounds nuw i32, ptr %103, i64 %53
   %.0.i.i42 = load i32, ptr %104, align 4, !tbaa !154
   %105 = icmp sgt i32 %.0.i.i42, -1
-  br i1 %105, label %52, label %_ZNK8LightGBM4Tree7GetLeafEPKd.exit50, !llvm.loop !157
+  br i1 %105, label %52, label %_ZNK8LightGBM4Tree7GetLeafEPKd.exit51, !llvm.loop !157
 
 .preheader11.i25:                                 ; preds = %38, %_ZNK8LightGBM4Tree17NumericalDecisionEdi.exit.i29
   %.213.i26 = phi i32 [ %.0.i9.i32, %_ZNK8LightGBM4Tree17NumericalDecisionEdi.exit.i29 ], [ 0, %38 ]
@@ -267,15 +267,15 @@ _ZNK8LightGBM4Tree17NumericalDecisionEdi.exit.i29: ; preds = %125, %123
   %131 = getelementptr inbounds nuw i32, ptr %130, i64 %106
   %.0.i9.i32 = load i32, ptr %131, align 4, !tbaa !154
   %132 = icmp sgt i32 %.0.i9.i32, -1
-  br i1 %132, label %.preheader11.i25, label %_ZNK8LightGBM4Tree7GetLeafEPKd.exit50, !llvm.loop !159
+  br i1 %132, label %.preheader11.i25, label %_ZNK8LightGBM4Tree7GetLeafEPKd.exit51, !llvm.loop !159
 
-_ZNK8LightGBM4Tree7GetLeafEPKd.exit50:            ; preds = %_ZNK8LightGBM4Tree17NumericalDecisionEdi.exit.i29, %_ZNK8LightGBM4Tree8DecisionEdi.exit.i40
+_ZNK8LightGBM4Tree7GetLeafEPKd.exit51:            ; preds = %_ZNK8LightGBM4Tree17NumericalDecisionEdi.exit.i29, %_ZNK8LightGBM4Tree8DecisionEdi.exit.i40
   %.1.i33 = phi i32 [ %.0.i.i42, %_ZNK8LightGBM4Tree8DecisionEdi.exit.i40 ], [ %.0.i9.i32, %_ZNK8LightGBM4Tree17NumericalDecisionEdi.exit.i29 ]
   %133 = xor i32 %.1.i33, -1
   %134 = zext nneg i32 %133 to i64
   br label %135
 
-135:                                              ; preds = %_ZNK8LightGBM4Tree7GetLeafEPKd.exit50, %37
+135:                                              ; preds = %_ZNK8LightGBM4Tree7GetLeafEPKd.exit51, %37
   %136 = phi i64 [ %134, %_ZNK8LightGBM4Tree7GetLeafEPKd.exit50 ], [ 0, %37 ]
   %137 = getelementptr inbounds nuw i8, ptr %30, i64 576
   %138 = load ptr, ptr %137, align 8, !tbaa !160
@@ -423,7 +423,7 @@ _ZN8LightGBM6CommonL12FindInBitsetIiEEbPKjiT_.exit.thread.i.i.i: ; preds = %_ZN8
 
 230:                                              ; preds = %228, %225
   %231 = and i8 %194, 2
-  %.not.i.i.i = icmp eq i8 %231, 0
+  %.not.i7.i.i = icmp eq i8 %231, 0
   br label %_ZNK8LightGBM4Tree17NumericalDecisionEdi.exit.i.i
 
 232:                                              ; preds = %228, %225, %220
@@ -433,7 +433,7 @@ _ZN8LightGBM6CommonL12FindInBitsetIiEEbPKjiT_.exit.thread.i.i.i: ; preds = %_ZN8
   br label %_ZNK8LightGBM4Tree17NumericalDecisionEdi.exit.i.i
 
 _ZNK8LightGBM4Tree17NumericalDecisionEdi.exit.i.i: ; preds = %232, %230
-  %.sink20.i.i.i = phi i1 [ %235, %232 ], [ %.not.i.i.i, %230 ]
+  %.sink20.i.i.i = phi i1 [ %235, %232 ], [ %.not.i7.i.i, %230 ]
   %.19.i.i.i = select i1 %.sink20.i.i.i, i64 40, i64 16
   br label %_ZNK8LightGBM4Tree8DecisionEdi.exit.i
 
@@ -545,7 +545,7 @@ _ZNKSt8functionIFbPKdiEEclES1_i.exit:             ; preds = %280
 
 285:                                              ; preds = %_ZNKSt8functionIFbPKdiEEclES1_i.exit, %._crit_edge
   %.1 = phi i32 [ %26, %._crit_edge ], [ 0, %_ZNKSt8functionIFbPKdiEEclES1_i.exit ]
-  %286 = add nsw i32 %.01856, 1
+  %286 = add nsw i32 %.01857, 1
   %287 = icmp slt i32 %286, %15
   br i1 %287, label %.preheader, label %_ZNKSt8functionIFbPKdiEEclES1_i.exit._crit_edge, !llvm.loop !168
 
@@ -650,7 +650,7 @@ _ZN8LightGBM6CommonL12FindInBitsetIiEEbPKjiT_.exit.thread.i.i: ; preds = %_ZN8Li
 
 60:                                               ; preds = %58, %55
   %61 = and i8 %24, 2
-  %.not.i.i = icmp eq i8 %61, 0
+  %.not.i7.i = icmp eq i8 %61, 0
   br label %_ZNK8LightGBM4Tree17NumericalDecisionEdi.exit.i
 
 62:                                               ; preds = %58, %55, %50
@@ -660,7 +660,7 @@ _ZN8LightGBM6CommonL12FindInBitsetIiEEbPKjiT_.exit.thread.i.i: ; preds = %_ZN8Li
   br label %_ZNK8LightGBM4Tree17NumericalDecisionEdi.exit.i
 
 _ZNK8LightGBM4Tree17NumericalDecisionEdi.exit.i:  ; preds = %62, %60
-  %.sink20.i.i = phi i1 [ %65, %62 ], [ %.not.i.i, %60 ]
+  %.sink20.i.i = phi i1 [ %65, %62 ], [ %.not.i7.i, %60 ]
   %.19.i.i = select i1 %.sink20.i.i, i64 40, i64 16
   br label %_ZNK8LightGBM4Tree8DecisionEdi.exit
 
@@ -1218,7 +1218,7 @@ _ZN8LightGBM6CommonL12FindInBitsetIiEEbPKjiT_.exit.thread.i.i: ; preds = %_ZN8Li
 
 111:                                              ; preds = %109, %106
   %112 = and i8 %100, 2
-  %.not.i.i26 = icmp eq i8 %112, 0
+  %.not.i7.i = icmp eq i8 %112, 0
   br label %_ZNK8LightGBM4Tree17NumericalDecisionEdi.exit.i
 
 113:                                              ; preds = %109, %106, %99
@@ -1228,7 +1228,7 @@ _ZN8LightGBM6CommonL12FindInBitsetIiEEbPKjiT_.exit.thread.i.i: ; preds = %_ZN8Li
   br label %_ZNK8LightGBM4Tree17NumericalDecisionEdi.exit.i
 
 _ZNK8LightGBM4Tree17NumericalDecisionEdi.exit.i:  ; preds = %113, %111
-  %.sink20.i.i = phi i1 [ %116, %113 ], [ %.not.i.i26, %111 ]
+  %.sink20.i.i = phi i1 [ %116, %113 ], [ %.not.i7.i, %111 ]
   %.19.i.i = select i1 %.sink20.i.i, i64 40, i64 16
   br label %_ZNK8LightGBM4Tree8DecisionEdi.exit
 

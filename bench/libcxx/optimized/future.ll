@@ -202,9 +202,9 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED2Ev.exit: ; pred
   %23 = load i64, ptr %5, align 8
   %24 = and i64 %23, -2
   call void @_ZdlPvm(ptr noundef %22, i64 noundef %24) #22
-  br label %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED2Ev.exit2
+  br label %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED2Ev.exit3
 
-_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED2Ev.exit2: ; preds = %16, %20
+_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED2Ev.exit3: ; preds = %16, %20
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %17
 }
@@ -969,9 +969,9 @@ _ZNSt3__115make_error_codeB8ne210000ENS_11future_errcE.exit: ; preds = %2, %7, %
   %26 = load i64, ptr %4, align 8
   %27 = and i64 %26, -2
   call void @_ZdlPvm(ptr noundef %25, i64 noundef %27) #22
-  br label %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED2Ev.exit2.i
+  br label %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED2Ev.exit3.i
 
-_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED2Ev.exit2.i: ; preds = %23, %19
+_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED2Ev.exit3.i: ; preds = %23, %19
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %20
 

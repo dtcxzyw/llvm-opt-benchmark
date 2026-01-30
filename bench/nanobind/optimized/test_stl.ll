@@ -10958,43 +10958,43 @@ _ZN8nanobind6detail5tupleIJNS0_11type_casterISt8functionIFiiEEiEENS2_IiiEEEED2Ev
 define linkonce_odr hidden noundef zeroext i1 @_ZN8nanobind6detail11type_casterISt8functionIFiiEEiE11from_pythonENS_6handleEhPNS0_12cleanup_listE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr %1, i8 noundef zeroext %2, ptr noundef %3) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.nanobind::detail::type_caster<std::function<int (int)>>::pyfunc_wrapper_t", align 8
   %6 = icmp eq ptr %1, @_Py_NoneStruct
-  br i1 %6, label %7, label %9
+  br i1 %6, label %7, label %10
 
 7:                                                ; preds = %4
   %8 = trunc i8 %2 to i1
-  br label %17
+  br label %18
 
-9:                                                ; preds = %4
-  %10 = invoke i32 @PyCallable_Check(ptr noundef %1) #29
-          to label %11 unwind label %18
+10:                                               ; preds = %4
+  %11 = invoke i32 @PyCallable_Check(ptr noundef %1) #29
+          to label %11 unwind label %19
 
-11:                                               ; preds = %9
-  %.not = icmp eq i32 %10, 0
-  br i1 %.not, label %17, label %12
+12:                                               ; preds = %10
+  %.not = icmp eq i32 %11, 0
+  br i1 %.not, label %18, label %13
 
-12:                                               ; preds = %11
+13:                                               ; preds = %12
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %1, ptr %5, align 8, !tbaa !346
-  %13 = load i64, ptr %1, align 8, !tbaa !69
-  %14 = add nsw i64 %13, 1
-  store i64 %14, ptr %1, align 8, !tbaa !69
-  %15 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt8functionIFiiEEaSIN8nanobind6detail11type_casterIS1_iE16pyfunc_wrapper_tEEENSt9enable_ifIXsr9_CallableIT_EE5valueERS1_E4typeEOS9_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %5) #29
-          to label %16 unwind label %18
+  %14 = load i64, ptr %1, align 8, !tbaa !69
+  %15 = add nsw i64 %14, 1
+  store i64 %15, ptr %1, align 8, !tbaa !69
+  %16 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt8functionIFiiEEaSIN8nanobind6detail11type_casterIS1_iE16pyfunc_wrapper_tEEENSt9enable_ifIXsr9_CallableIT_EE5valueERS1_E4typeEOS9_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %5) #29
+          to label %16 unwind label %19
 
-16:                                               ; preds = %12
+17:                                               ; preds = %13
   call void @_ZN8nanobind6detail14pyfunc_wrapperD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #27
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %17
+  br label %18
 
-17:                                               ; preds = %11, %16, %7
+18:                                               ; preds = %12, %17, %7
   %.0 = phi i1 [ %8, %7 ], [ true, %16 ], [ false, %11 ]
   ret i1 %.0
 
-18:                                               ; preds = %12, %9
-  %19 = landingpad { ptr, i32 }
+19:                                               ; preds = %13, %10
+  %20 = landingpad { ptr, i32 }
           catch ptr null
-  %20 = extractvalue { ptr, i32 } %19, 0
-  call void @__clang_call_terminate(ptr %20) #32
+  %21 = extractvalue { ptr, i32 } %110, 0
+  call void @__clang_call_terminate(ptr %21) #32
   unreachable
 }
 
@@ -11301,43 +11301,43 @@ _ZN8nanobind6detail5tupleIJNS0_11type_casterISt8functionIFvvEEiEEEED2Ev.exit5: ;
 define linkonce_odr hidden noundef zeroext i1 @_ZN8nanobind6detail11type_casterISt8functionIFvvEEiE11from_pythonENS_6handleEhPNS0_12cleanup_listE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr %1, i8 noundef zeroext %2, ptr noundef %3) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.nanobind::detail::type_caster<std::function<void ()>>::pyfunc_wrapper_t", align 8
   %6 = icmp eq ptr %1, @_Py_NoneStruct
-  br i1 %6, label %7, label %9
+  br i1 %6, label %7, label %10
 
 7:                                                ; preds = %4
   %8 = trunc i8 %2 to i1
-  br label %17
+  br label %18
 
-9:                                                ; preds = %4
-  %10 = invoke i32 @PyCallable_Check(ptr noundef %1) #29
-          to label %11 unwind label %18
+10:                                               ; preds = %4
+  %11 = invoke i32 @PyCallable_Check(ptr noundef %1) #29
+          to label %11 unwind label %19
 
-11:                                               ; preds = %9
-  %.not = icmp eq i32 %10, 0
-  br i1 %.not, label %17, label %12
+12:                                               ; preds = %10
+  %.not = icmp eq i32 %11, 0
+  br i1 %.not, label %18, label %13
 
-12:                                               ; preds = %11
+13:                                               ; preds = %12
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %1, ptr %5, align 8, !tbaa !346
-  %13 = load i64, ptr %1, align 8, !tbaa !69
-  %14 = add nsw i64 %13, 1
-  store i64 %14, ptr %1, align 8, !tbaa !69
-  %15 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt8functionIFvvEEaSIN8nanobind6detail11type_casterIS1_iE16pyfunc_wrapper_tEEENSt9enable_ifIXsr9_CallableIT_EE5valueERS1_E4typeEOS9_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %5) #29
-          to label %16 unwind label %18
+  %14 = load i64, ptr %1, align 8, !tbaa !69
+  %15 = add nsw i64 %14, 1
+  store i64 %15, ptr %1, align 8, !tbaa !69
+  %16 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt8functionIFvvEEaSIN8nanobind6detail11type_casterIS1_iE16pyfunc_wrapper_tEEENSt9enable_ifIXsr9_CallableIT_EE5valueERS1_E4typeEOS9_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %5) #29
+          to label %16 unwind label %19
 
-16:                                               ; preds = %12
+17:                                               ; preds = %13
   call void @_ZN8nanobind6detail14pyfunc_wrapperD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #27
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %17
+  br label %18
 
-17:                                               ; preds = %11, %16, %7
+18:                                               ; preds = %12, %17, %7
   %.0 = phi i1 [ %8, %7 ], [ true, %16 ], [ false, %11 ]
   ret i1 %.0
 
-18:                                               ; preds = %12, %9
-  %19 = landingpad { ptr, i32 }
+19:                                               ; preds = %13, %10
+  %20 = landingpad { ptr, i32 }
           catch ptr null
-  %20 = extractvalue { ptr, i32 } %19, 0
-  call void @__clang_call_terminate(ptr %20) #32
+  %21 = extractvalue { ptr, i32 } %110, 0
+  call void @__clang_call_terminate(ptr %21) #32
   unreachable
 }
 

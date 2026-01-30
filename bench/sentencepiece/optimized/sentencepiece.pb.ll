@@ -340,8 +340,8 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit._crit_edge: ; preds = %_ZNK6go
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringE, ptr %51, align 8, !tbaa !11
   %52 = and i32 %50, 2
-  %.not21 = icmp eq i32 %52, 0
-  br i1 %.not21, label %66, label %53
+  %.not22 = icmp eq i32 %52, 0
+  br i1 %.not22, label %66, label %53
 
 53:                                               ; preds = %49
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 56
@@ -2061,12 +2061,12 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit: ; preds = %83, %74
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit:                      ; preds = %.lr.ph.i.i.i.i
-  %lpad.loopexit23 = landingpad { ptr, i32 }
+  %lpad.loopexit24 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %.noexc.i
-  %lpad.loopexit.split-lp24 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp25 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
@@ -2084,7 +2084,7 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit: ; preds = %83, %74
   ret void
 
 .loopexit.split-lp:                               ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %87
-  %.pn = phi { ptr, i32 } [ %88, %87 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit23, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp24, %.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %88, %87 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit24, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp25, %.loopexit.split-lp.loopexit.split-lp ]
   tail call void @_ZN6google8protobuf8internal12ExtensionSetD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #18
   resume { ptr, i32 } %.pn
 }

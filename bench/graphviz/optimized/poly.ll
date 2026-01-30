@@ -985,15 +985,15 @@ define range(i32 0, 2) i32 @polyOverlap(double %0, double %1, ptr noundef readon
 
 50:                                               ; preds = %47, %44
   %51 = and i32 %.val, 2
-  %.not = icmp eq i32 %51, 0
-  br i1 %.not, label %70, label %52
+  %.not68 = icmp eq i32 %51, 0
+  br i1 %.not68, label %70, label %52
 
 52:                                               ; preds = %50
   %53 = getelementptr i8, ptr %5, i64 48
   %.val44 = load i32, ptr %53, align 8, !tbaa !35
   %54 = and i32 %.val44, 2
-  %.not67 = icmp eq i32 %54, 0
-  br i1 %.not67, label %70, label %55
+  %.not69 = icmp eq i32 %54, 0
+  br i1 %.not69, label %70, label %55
 
 55:                                               ; preds = %52
   %56 = load double, ptr %17, align 8, !tbaa !60

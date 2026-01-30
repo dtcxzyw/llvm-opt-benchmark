@@ -197,14 +197,14 @@ define i32 @ff_dnxhd_find_cid(ptr noundef %0, i32 noundef %1) local_unnamed_addr
   %26 = icmp eq i32 %24, %25
   br i1 %26, label %27, label %.loopexit
 
-27:                                               ; preds = %16
+27:; preds = %16
   %28 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %29 = load i32, ptr %28, align 8, !tbaa !39
   %30 = load i32, ptr %13, align 4, !tbaa !40
   %31 = icmp eq i32 %29, %30
   br i1 %31, label %32, label %.loopexit
 
-32:                                               ; preds = %27
+32:; preds = %27
   %33 = load i32, ptr %14, align 8, !tbaa !41
   %34 = lshr i32 %33, 18
   %.lobit = and i32 %34, 1

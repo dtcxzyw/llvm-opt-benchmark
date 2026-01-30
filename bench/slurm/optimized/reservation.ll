@@ -10842,10 +10842,10 @@ define internal fastcc range(i32 0, 2054) i32 @_valid_job_access_resv(ptr nounde
   %117 = load i32, ptr %116, align 8
   %118 = and i32 %117, 2
   %.not97 = icmp eq i32 %118, 0
-  br i1 %.not97, label %119, label %147
+  br i1 %.not97, label %119, label %148
 
 ._crit_edge:                                      ; preds = %110, %105
-  br i1 %.067, label %119, label %147
+  br i1 %.067, label %119, label %148
 
 119:                                              ; preds = %115, %._crit_edge
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -10859,22 +10859,22 @@ define internal fastcc range(i32 0, 2054) i32 @_valid_job_access_resv(ptr nounde
   %123 = load i32, ptr %122, align 8
   %.fr159 = freeze i32 %123
   %.not99 = trunc i32 %.fr159 to i1
-  %124 = icmp sgt i32 %.pre134, 0
-  br i1 %124, label %.lr.ph124, label %.critedge
+  %.not99 = icmp sgt i32 %.pre134, 0
+  br i1 %.not99, label %.lr.ph124, label %.critedge
 
 .lr.ph124:                                        ; preds = %.thread144
-  %125 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %126 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %126 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %127 = getelementptr inbounds nuw i8, ptr %1, i64 24
   br label %127
 
-127:                                              ; preds = %.lr.ph124, %141
+135:                                              ; preds = %.lr.ph124, %141
   %128 = phi i32 [ %.pre134, %.lr.ph124 ], [ %142, %141 ]
   %indvars.iv128 = phi i64 [ 0, %.lr.ph124 ], [ %indvars.iv.next129, %141 ]
   %129 = load ptr, ptr %125, align 8
   %.not100 = icmp eq ptr %129, null
   br i1 %.not100, label %.critedge, label %130
 
-130:                                              ; preds = %127
+._crit_edge135:                                   ; preds = %135
   %131 = load ptr, ptr %126, align 8
   %132 = getelementptr inbounds nuw ptr, ptr %131, i64 %indvars.iv128
   %133 = load ptr, ptr %132, align 8
@@ -10888,60 +10888,60 @@ define internal fastcc range(i32 0, 2054) i32 @_valid_job_access_resv(ptr nounde
 
 ._crit_edge135:                                   ; preds = %134
   %.pre136 = load i32, ptr %121, align 8
-  br label %141
+  br label %142
 
-137:                                              ; preds = %134
-  %138 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %139 = load i32, ptr %138, align 8
-  %.fr = freeze i32 %139
-  %140 = and i32 %.fr, 1
-  %.not102 = icmp eq i32 %140, 0
+138:                                              ; preds = %134
+  %139 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %140 = load i32, ptr %139, align 8
+  %.fr = freeze i32 %140
+  %141 = and i32 %.fr, 1
+  %.not102 = icmp eq i32 %141, 0
   %.not105153 = xor i1 %2, true
   %brmerge154 = or i1 %.not102, %.not105153
-  br i1 %.not102, label %145, label %146
+  br i1 %.not102, label %146, label %147
 
-141:                                              ; preds = %._crit_edge135, %130
-  %142 = phi i32 [ %.pre136, %._crit_edge135 ], [ %128, %130 ]
+142:                                              ; preds = %._crit_edge135, %130
+  %143 = phi i32 [ %.pre136, %._crit_edge135 ], [ %128, %130 ]
   %indvars.iv.next129 = add nuw nsw i64 %indvars.iv128, 1
-  %143 = sext i32 %142 to i64
-  %144 = icmp slt i64 %indvars.iv.next129, %143
-  br i1 %144, label %127, label %.critedge, !llvm.loop !66
+  %144 = sext i32 %143 to i64
+  %145 = icmp slt i64 %indvars.iv.next129, %144
+  br i1 %145, label %127, label %.critedge, !llvm.loop !66
 
-.critedge:                                        ; preds = %127, %141, %.thread144
+.critedge:                                        ; preds = %127, %142, %.thread144
   %.not105 = xor i1 %2, true
   %brmerge = or i1 %.not99, %.not105
-  br i1 %.not99, label %145, label %146
+  br i1 %.not99, label %146, label %147
 
-145:                                              ; preds = %137, %.critedge
+146:                                              ; preds = %138, %.critedge
   %brmerge152 = phi i1 [ %brmerge154, %137 ], [ %brmerge, %.critedge ]
-  br i1 %brmerge152, label %.thread156, label %148
+  br i1 %brmerge152, label %.thread156, label %149
 
-146:                                              ; preds = %137, %.critedge
+147:                                              ; preds = %138, %.critedge
   %brmerge151 = phi i1 [ %brmerge154, %137 ], [ %brmerge, %.critedge ]
-  br i1 %brmerge151, label %.thread156, label %148
+  br i1 %brmerge151, label %.thread156, label %149
 
 .sink.split:                                      ; preds = %.lr.ph, %92, %38, %86
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %147
+  br label %148
 
-147:                                              ; preds = %.sink.split, %115, %._crit_edge
-  br i1 %2, label %148, label %.thread156
+148:                                              ; preds = %.sink.split, %115, %._crit_edge
+  br i1 %2, label %149, label %.thread156
 
-148:                                              ; preds = %145, %146, %147
-  %149 = call i32 @get_log_level() #19
-  %150 = icmp sgt i32 %149, 2
-  br i1 %150, label %151, label %.thread156
+149:                                              ; preds = %146, %147, %148
+  %150 = call i32 @get_log_level() #19
+  %151 = icmp sgt i32 %150, 2
+  br i1 %151, label %152, label %.thread156
 
-151:                                              ; preds = %148
-  %152 = load i32, ptr %23, align 8
-  %153 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %154 = load ptr, ptr %153, align 8
-  %155 = getelementptr inbounds nuw i8, ptr %1, i64 184
-  %156 = load ptr, ptr %155, align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.229, i32 noundef %152, ptr noundef %154, ptr noundef %156) #19
+152:                                              ; preds = %149
+  %153 = load i32, ptr %23, align 8
+  %154 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %155 = load ptr, ptr %154, align 8
+  %156 = getelementptr inbounds nuw i8, ptr %1, i64 184
+  %157 = load ptr, ptr %156, align 8
+  call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.229, i32 noundef %153, ptr noundef %155, ptr noundef %157) #19
   br label %.thread156
 
-.thread156:                                       ; preds = %119, %145, %.thread, %146, %147, %151, %148, %22, %16, %19, %6, %9
+.thread156:                                       ; preds = %119, %146, %.thread, %147, %148, %152, %149, %22, %16, %19, %6, %9
   %.071 = phi i32 [ 2053, %6 ], [ 2052, %16 ], [ 0, %.thread ], [ 0, %22 ], [ 0, %119 ], [ 2052, %146 ], [ 2053, %9 ], [ 2052, %19 ], [ 2052, %148 ], [ 2052, %151 ], [ 2052, %147 ], [ 0, %145 ]
   ret i32 %.071
 }

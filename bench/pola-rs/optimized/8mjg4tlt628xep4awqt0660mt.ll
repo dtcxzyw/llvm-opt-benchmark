@@ -1044,9 +1044,9 @@ define hidden { i64, i64 } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   %.not = trunc i64 %6 to i1
   %.sroa.3.0 = select i1 %.not, i64 %7, i64 undef
   %.sroa.0.0 = and i64 %6, 1
-  %8 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
-  %9 = insertvalue { i64, i64 } %8, i64 %.sroa.3.0, 1
-  ret { i64, i64 } %9
+  %9 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
+  %10 = insertvalue { i64, i64 } %9, i64 %.sroa.3.0, 1
+  ret { i64, i64 } %10
 }
 
 ; Function Attrs: nonlazybind uwtable

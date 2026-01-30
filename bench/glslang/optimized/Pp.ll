@@ -1650,7 +1650,7 @@ _ZN7glslang10TPpContext15extraTokenCheckEiPNS_8TPpTokenEi.exit: ; preds = %48, %
 
 .outer.backedge:                                  ; preds = %121, %121, %111, %111, %98, %68, %62, %124, %130, %33
   %.046.ph.be = phi i32 [ %22, %33 ], [ %63, %62 ], [ 0, %68 ], [ %.046.ph, %98 ], [ %.046.ph, %130 ], [ %.046.ph, %124 ], [ %.046.ph, %111 ], [ %.046.ph, %111 ], [ %.046.ph, %121 ], [ %.046.ph, %121 ]
-  %.045.ph.be = phi i32 [ 162, %33 ], [ %.016.i, %62 ], [ 162, %68 ], [ 162, %98 ], [ 162, %130 ], [ 162, %124 ], [ %112, %111 ], [ %112, %111 ], [ %.1.i58, %121 ], [ %.1.i58, %121 ]
+  %.045.ph.be = phi i32 [ 162, %33 ], [ %.016.i, %62 ], [ 162, %68 ], [ 162, %98 ], [ 162, %130 ], [ 162, %124 ], [ %112, %111 ], [ %112, %111 ], [ %.1.i59, %121 ], [ %.1.i59, %121 ]
   br label %.outer, !llvm.loop !15
 
 113:                                              ; preds = %111
@@ -1659,15 +1659,15 @@ _ZN7glslang10TPpContext15extraTokenCheckEiPNS_8TPpTokenEi.exit: ; preds = %48, %
   %116 = load i32, ptr %115, align 8
   %117 = trunc i32 %116 to i1
   %118 = load ptr, ptr %114, align 8
-  %..i57 = select i1 %117, i64 368, i64 360
-  %119 = getelementptr inbounds nuw i8, ptr %118, i64 %..i57
+  %..i58 = select i1 %117, i64 368, i64 360
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 %..i58
   %120 = load ptr, ptr %119, align 8
   tail call void (ptr, ptr, ptr, ptr, ptr, ...) %120(ptr noundef nonnull align 8 dereferenceable(1280) %114, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.2) #19
   br label %121
 
 121:                                              ; preds = %122, %113
-  %.1.i58 = phi i32 [ %112, %113 ], [ %123, %122 ]
-  switch i32 %.1.i58, label %122 [
+  %.1.i59 = phi i32 [ %112, %113 ], [ %123, %122 ]
+  switch i32 %.1.i59, label %122 [
     i32 -1, label %.outer.backedge
     i32 10, label %.outer.backedge
   ], !llvm.loop !15
@@ -1832,9 +1832,9 @@ define noundef i32 @_ZN7glslang10TPpContext4evalEiibRiRbPNS_8TPpTokenE(ptr nound
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %74, %7
-  %.tr134 = phi i32 [ %1, %7 ], [ %76, %74 ]
+  %.tr135 = phi i32 [ %1, %7 ], [ %76, %74 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
-  switch i32 %.tr134, label %.preheader141 [
+  switch i32 %.tr135, label %.preheader141 [
     i32 162, label %10
     i32 152, label %77
     i32 40, label %81
@@ -1878,10 +1878,10 @@ _ZN7glslang10TPpContext12isMacroInputEv.exit.thread.sink.split: ; preds = %_ZN7g
   %33 = trunc i32 %32 to i1
   %34 = load ptr, ptr %30, align 8
   %. = select i1 %33, i64 368, i64 360
-  %.str.24..str.25 = select i1 %33, ptr @.str.24, ptr @.str.25
+  %.str.25..str.24 = select i1 %33, ptr @.str.24, ptr @.str.25
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 %.
   %36 = load ptr, ptr %35, align 8
-  tail call void (ptr, ptr, ptr, ptr, ptr, ...) %36(ptr noundef nonnull align 8 dereferenceable(1280) %30, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull %.str.24..str.25, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.2) #19
+  tail call void (ptr, ptr, ptr, ptr, ptr, ...) %36(ptr noundef nonnull align 8 dereferenceable(1280) %30, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull %.str.25..str.24, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.2) #19
   br label %_ZN7glslang10TPpContext12isMacroInputEv.exit.thread
 
 _ZN7glslang10TPpContext12isMacroInputEv.exit.thread: ; preds = %_ZN7glslang10TPpContext12isMacroInputEv.exit.thread.sink.split, %19, %_ZN7glslang10TPpContext12isMacroInputEv.exit, %13
@@ -2004,20 +2004,20 @@ _ZN7glslang10TPpContext14lookupMacroDefEi.exit.thread: ; preds = %_ZNSt3mapIiN7g
   %94 = tail call noundef i32 @_ZN7glslang10TPpContext9scanTokenEPNS_8TPpTokenE(ptr noundef nonnull align 8 dereferenceable(969) %0, ptr noundef nonnull %6)
   br label %113
 
-95:                                               ; preds = %.preheader141
-  %96 = add nsw i32 %.0114152, -1
-  %.not175 = icmp eq i32 %.0114152, 0
-  br i1 %.not175, label %.critedge, label %.preheader141, !llvm.loop !17
+95:                                               ; preds = %.preheader142
+  %96 = add nsw i32 %.0114153, -1
+  %.not176 = icmp eq i32 %.0114153, 0
+  br i1 %.not176, label %.critedge, label %.preheader142, !llvm.loop !17
 
-.preheader141:                                    ; preds = %tailrecurse, %95
-  %.0114152 = phi i32 [ %96, %95 ], [ 3, %tailrecurse ]
-  %97 = zext nneg i32 %.0114152 to i64
+.preheader142:                                    ; preds = %tailrecurse, %95
+  %.0114153 = phi i32 [ %96, %95 ], [ 3, %tailrecurse ]
+  %97 = zext nneg i32 %.0114153 to i64
   %98 = getelementptr inbounds nuw %"struct.glslang::(anonymous namespace)::TUnop", ptr @_ZN7glslang12_GLOBAL__N_14unopE, i64 %97
   %99 = load i32, ptr %98, align 16
-  %100 = icmp eq i32 %99, %.tr134
+  %100 = icmp eq i32 %99, %.tr135
   br i1 %100, label %101, label %95
 
-101:                                              ; preds = %.preheader141
+101:                                              ; preds = %.preheader142
   %102 = tail call noundef i32 @_ZN7glslang10TPpContext9scanTokenEPNS_8TPpTokenE(ptr noundef nonnull align 8 dereferenceable(969) %0, ptr noundef nonnull %6)
   %103 = tail call noundef i32 @_ZN7glslang10TPpContext4evalEiibRiRbPNS_8TPpTokenE(ptr noundef nonnull align 8 dereferenceable(969) %0, i32 noundef %102, i32 noundef 12, i1 noundef zeroext %3, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull %6)
   %104 = getelementptr inbounds nuw i8, ptr %98, i64 8
@@ -2049,25 +2049,25 @@ _ZN7glslang10TPpContext14lookupMacroDefEi.exit.thread: ; preds = %_ZNSt3mapIiN7g
   br label %119
 
 119:                                              ; preds = %.lr.ph, %152
-  %.2155 = phi i32 [ %114, %.lr.ph ], [ %142, %152 ]
-  %.0117154 = phi i8 [ %117, %.lr.ph ], [ %.1118, %152 ]
-  switch i32 %.2155, label %.preheader [
+  %.2156 = phi i32 [ %114, %.lr.ph ], [ %142, %152 ]
+  %.0117155 = phi i8 [ %117, %.lr.ph ], [ %.1118, %152 ]
+  switch i32 %.2156, label %.preheader [
     i32 41, label %.thread
     i32 10, label %.thread
   ]
 
 .preheader:                                       ; preds = %119, %124
-  %.0113153 = phi i32 [ %125, %124 ], [ 17, %119 ]
-  %120 = zext nneg i32 %.0113153 to i64
+  %.0113154 = phi i32 [ %125, %124 ], [ 17, %119 ]
+  %120 = zext nneg i32 %.0113154 to i64
   %121 = getelementptr inbounds nuw %"struct.glslang::(anonymous namespace)::TBinop", ptr @_ZN7glslang12_GLOBAL__N_15binopE, i64 %120
   %122 = load i32, ptr %121, align 16
-  %123 = icmp eq i32 %122, %.2155
+  %123 = icmp eq i32 %122, %.2156
   br i1 %123, label %126, label %124
 
 124:                                              ; preds = %.preheader
-  %125 = add nsw i32 %.0113153, -1
-  %.not176 = icmp eq i32 %.0113153, 0
-  br i1 %.not176, label %.thread, label %.preheader, !llvm.loop !18
+  %125 = add nsw i32 %.0113154, -1
+  %.not177 = icmp eq i32 %.0113154, 0
+  br i1 %.not177, label %.thread, label %.preheader, !llvm.loop !18
 
 126:                                              ; preds = %.preheader
   %127 = getelementptr inbounds nuw i8, ptr %121, i64 4
@@ -2077,17 +2077,17 @@ _ZN7glslang10TPpContext14lookupMacroDefEi.exit.thread: ; preds = %_ZNSt3mapIiN7g
 
 129:                                              ; preds = %126
   %130 = load i32, ptr %4, align 4
-  %131 = trunc nuw i8 %.0117154 to i1
+  %131 = trunc nuw i8 %.0117155 to i1
   br i1 %131, label %139, label %132
 
 132:                                              ; preds = %129
-  %133 = icmp eq i32 %.2155, 142
+  %133 = icmp eq i32 %.2156, 142
   %134 = icmp eq i32 %130, 1
   %or.cond3 = select i1 %133, i1 %134, i1 false
   br i1 %or.cond3, label %138, label %135
 
 135:                                              ; preds = %132
-  %136 = icmp eq i32 %.2155, 141
+  %136 = icmp eq i32 %.2156, 141
   %137 = icmp eq i32 %130, 0
   %or.cond5 = select i1 %136, i1 %137, i1 false
   br i1 %or.cond5, label %138, label %139
@@ -2101,7 +2101,7 @@ _ZN7glslang10TPpContext14lookupMacroDefEi.exit.thread: ; preds = %_ZNSt3mapIiN7g
   %141 = trunc nuw i8 %.1118 to i1
   %142 = call noundef i32 @_ZN7glslang10TPpContext4evalEiibRiRbPNS_8TPpTokenE(ptr noundef nonnull align 8 dereferenceable(969) %0, i32 noundef %140, i32 noundef %128, i1 noundef zeroext %141, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull %6)
   %143 = getelementptr inbounds nuw i8, ptr %121, i64 8
-  %144 = and i32 %.0113153, 2147483646
+  %144 = and i32 %.0113154, 2147483646
   %switch = icmp eq i32 %144, 16
   %145 = load i32, ptr %4, align 4
   %146 = icmp eq i32 %145, 0
@@ -2127,13 +2127,13 @@ _ZN7glslang10TPpContext14lookupMacroDefEi.exit.thread: ; preds = %_ZNSt3mapIiN7g
   br i1 %157, label %.thread, label %119, !llvm.loop !19
 
 .thread.sink.split:                               ; preds = %42, %67, %87, %.critedge
-  %.0.ph = phi i32 [ %83, %87 ], [ %.tr134, %.critedge ], [ %65, %67 ], [ %.0115, %42 ]
+  %.0.ph = phi i32 [ %83, %87 ], [ %.tr135, %.critedge ], [ %65, %67 ], [ %.0115, %42 ]
   store i8 1, ptr %5, align 1
   store i32 0, ptr %4, align 4
   br label %.thread
 
 .thread:                                          ; preds = %119, %119, %126, %152, %124, %.thread.sink.split, %113
-  %.0 = phi i32 [ %.0.ph, %.thread.sink.split ], [ %.2155, %124 ], [ %114, %113 ], [ %.2155, %119 ], [ %.2155, %126 ], [ %142, %152 ], [ %.2155, %119 ]
+  %.0 = phi i32 [ %.0.ph, %.thread.sink.split ], [ %.2156, %124 ], [ %114, %113 ], [ %.2156, %119 ], [ %.2156, %126 ], [ %142, %152 ], [ %.2156, %119 ]
   ret i32 %.0
 }
 

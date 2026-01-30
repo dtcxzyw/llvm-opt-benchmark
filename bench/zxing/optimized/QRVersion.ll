@@ -4297,14 +4297,14 @@ define linkonce_odr noundef zeroext i1 @_ZN5ZXing6QRCode7Version11IsValidSizeENS
   %spec.select = and i1 %or.cond17, %25
   br label %42
 
-26:                                               ; preds = %2
+25:                                               ; preds = %2
   %.not = icmp eq i32 %4, %6
-  %27 = and i32 %4, 1
-  %.not35 = icmp eq i32 %27, 0
+  %29 = and i32 %4, 1
+  %.not35 = icmp eq i32 %29, 0
   %or.cond = or i1 %.not, %.not35
-  br i1 %or.cond, label %42, label %28
+  br i1 %or.cond, label %42, label %30
 
-28:                                               ; preds = %26
+30:                                               ; preds = %26
   %29 = trunc i64 %5 to i1
   %30 = add i32 %4, -27
   %31 = icmp ult i32 %30, 113

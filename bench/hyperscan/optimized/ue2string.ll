@@ -2723,9 +2723,9 @@ define hidden noundef zeroext i1 @_ZN3ue28is_floodERKNS_11ue2_literalE(ptr nound
   %19 = add i64 %.sroa.6.021, 1
   %.not = icmp eq i64 %19, %3
   %or.cond = or i1 %18, %.not
-  br i1 %or.cond, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !32
+  br i1 %or.cond, label %._crit_edge, label %.lr.ph, !llvm.loop !32
 
-._crit_edge.loopexit:                             ; preds = %.lr.ph
+._crit_edge:                                      ; preds = %.lr.ph
   %.not.lcssa.ph = xor i1 %18, true
   br label %._crit_edge
 

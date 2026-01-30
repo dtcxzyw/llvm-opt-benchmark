@@ -3074,14 +3074,14 @@ define void @validateTrotterParams(i32 noundef %0, i32 noundef %1, ptr noundef %
   br label %QuESTAssert.exit
 
 QuESTAssert.exit:                                 ; preds = %3, %.thread
-  %7 = icmp slt i32 %1, 1
-  br i1 %7, label %8, label %QuESTAssert.exit7
+  %9 = icmp slt i32 %1, 1
+  br i1 %9, label %10, label %QuESTAssert.exit7
 
-8:                                                ; preds = %QuESTAssert.exit
+10:                                               ; preds = %QuESTAssert.exit
   tail call void @invalidQuESTInputError(ptr noundef nonnull @.str.67, ptr noundef %2)
   br label %QuESTAssert.exit7
 
-QuESTAssert.exit7:                                ; preds = %QuESTAssert.exit, %8
+QuESTAssert.exit7:                                ; preds = %QuESTAssert.exit, %10
   ret void
 }
 

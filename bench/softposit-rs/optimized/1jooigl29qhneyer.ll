@@ -972,7 +972,7 @@ _ZN9softposit5p32e25P32E217separate_bits_tmp17hdc27d662c293f752E.llvm.1728913642
   %spec.select79 = select i1 %.not, i1 true, i1 %.058
   br label %97
 
-89:                                               ; preds = %74
+89:; preds = %74
   %90 = add nuw nsw i32 %.069, 1
   %91 = zext nneg i32 %90 to i64
   %92 = lshr i64 %75, %91
@@ -984,11 +984,11 @@ _ZN9softposit5p32e25P32E217separate_bits_tmp17hdc27d662c293f752E.llvm.1728913642
 
 97:                                               ; preds = %83, %89, %101
   %.067 = phi i32 [ %79, %101 ], [ %79, %89 ], [ 0, %83 ]
-  %.4 = phi i32 [ %96, %101 ], [ %96, %89 ], [ %.3, %83 ]
-  %.159 = phi i1 [ %104, %101 ], [ false, %89 ], [ %spec.select79, %83 ]
+  %106 = phi i32 [ %96, %101 ], [ %96, %89 ], [ %.3, %83 ]
+  %.15998 = phi i1 [ %104, %101 ], [ false, %89 ], [ %spec.select79, %83 ]
   %.1.in = phi i8 [ %94, %101 ], [ %94, %89 ], [ %.057.in, %83 ]
   %98 = add nuw i32 %.067, %.068
-  %99 = add i32 %98, %.4
+  %99 = add i32 %98, %106
   %100 = trunc i8 %.1.in to i1
   br i1 %100, label %105, label %81
 

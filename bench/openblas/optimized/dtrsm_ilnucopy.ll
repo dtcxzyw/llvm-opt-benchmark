@@ -491,38 +491,38 @@ define noundef i32 @dtrsm_ilnucopy(i64 noundef %0, i64 noundef %1, ptr noundef r
   %.6 = phi ptr [ %.7.lcssa, %._crit_edge465 ], [ %.4339, %187 ]
   %.3323 = phi i64 [ %211, %._crit_edge465 ], [ %.2322, %187 ]
   %.not361 = trunc i64 %1 to i1
-  %213 = icmp sgt i64 %0, 0
+  %.not361 = icmp sgt i64 %0, 0
   %or.cond = and i1 %213, %.not361
   br i1 %or.cond, label %.lr.ph471, label %.loopexit
 
-.lr.ph471:                                        ; preds = %212, %218
-  %.4470 = phi ptr [ %219, %218 ], [ %.3343, %212 ]
-  %.4329469 = phi i64 [ %221, %218 ], [ 0, %212 ]
-  %.8467 = phi ptr [ %220, %218 ], [ %.6, %212 ]
+.lr.ph471:                                        ; preds = %212, %219
+  %.4470 = phi ptr [ %220, %218 ], [ %.3343, %212 ]
+  %.4329469 = phi i64 [ %222, %218 ], [ 0, %212 ]
+  %.8467 = phi ptr [ %221, %218 ], [ %.6, %212 ]
   %.not363 = icmp sgt i64 %.4329469, %.3323
   %or.cond.not = icmp eq i64 %.4329469, %.3323
-  br i1 %or.cond.not, label %214, label %215
+  br i1 %or.cond.not, label %215, label %216
 
-214:                                              ; preds = %.lr.ph471
+215:                                              ; preds = %.lr.ph471
   store double 1.000000e+00, ptr %.8467, align 8, !tbaa !3
-  br label %215
+  br label %216
 
-215:                                              ; preds = %214, %.lr.ph471
-  br i1 %.not363, label %216, label %218
+216:                                              ; preds = %215, %.lr.ph471
+  br i1 %.not363, label %217, label %219
 
-216:                                              ; preds = %215
-  %217 = load double, ptr %.4470, align 8, !tbaa !3
-  store double %217, ptr %.8467, align 8, !tbaa !3
-  br label %218
+217:                                              ; preds = %216
+  %218 = load double, ptr %.4470, align 8, !tbaa !3
+  store double %218, ptr %.8467, align 8, !tbaa !3
+  br label %219
 
-218:                                              ; preds = %216, %215
-  %219 = getelementptr inbounds nuw i8, ptr %.4470, i64 8
-  %220 = getelementptr inbounds nuw i8, ptr %.8467, i64 8
-  %221 = add nuw nsw i64 %.4329469, 1
-  %exitcond492.not = icmp eq i64 %221, %0
+219:                                              ; preds = %217, %216
+  %220 = getelementptr inbounds nuw i8, ptr %.4470, i64 8
+  %221 = getelementptr inbounds nuw i8, ptr %.8467, i64 8
+  %222 = add nuw nsw i64 %.4329469, 1
+  %exitcond492.not = icmp eq i64 %222, %0
   br i1 %exitcond492.not, label %.loopexit, label %.lr.ph471, !llvm.loop !16
 
-.loopexit:                                        ; preds = %218, %212
+.loopexit:                                        ; preds = %219, %212
   ret i32 0
 }
 

@@ -360,9 +360,9 @@ callHandler.exit58:                               ; preds = %80
   br i1 %or.cond75, label %.critedge.sink.split, label %.critedge
 
 .critedge.sink.split:                             ; preds = %96, %84, %69, %37
-  %99 = load ptr, ptr %2, align 8, !tbaa !22
-  %100 = getelementptr inbounds nuw i8, ptr %99, i64 96
-  %101 = load ptr, ptr %100, align 8, !tbaa !23
+  %100 = load ptr, ptr %2, align 8, !tbaa !22
+  %101 = getelementptr inbounds nuw i8, ptr %100, i64 96
+  %102 = load ptr, ptr %101, align 8, !tbaa !23
   tail call void %101(ptr noundef nonnull %2) #11
   br label %.critedge
 

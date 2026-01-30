@@ -53913,13 +53913,13 @@ _ZN6yara_x8compiler8Compiler24check_for_duplicate_tags17h453fc39739a6a249E.exit:
   store ptr inttoptr (i64 4 to ptr), ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.524.0..sroa_idx = getelementptr inbounds nuw i8, ptr %191, i64 64
   store i64 0, ptr %.sroa.524.0..sroa_idx, align 8
-  %537 = getelementptr inbounds nuw i8, ptr %191, i64 88
-  store i64 0, ptr %537, align 8
-  %538 = getelementptr inbounds nuw i8, ptr %191, i64 108
-  %539 = lshr i8 %530, 1
-  %.lobit = and i8 %539, 1
-  store i8 %.lobit, ptr %538, align 4
-  %540 = getelementptr inbounds nuw i8, ptr %191, i64 109
+  %538 = getelementptr inbounds nuw i8, ptr %191, i64 88
+  store i64 0, ptr %538, align 8
+  %539 = getelementptr inbounds nuw i8, ptr %191, i64 108
+  %540 = lshr i8 %530, 1
+  %.lobit = and i8 %540, 1
+  store i8 %.lobit, ptr %539, align 4
+  %541 = getelementptr inbounds nuw i8, ptr %191, i64 109
   %541 = and i8 %530, 1
   store i8 %541, ptr %540, align 1
   call void @llvm.lifetime.end.p0(ptr nonnull %190)

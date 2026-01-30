@@ -14215,14 +14215,14 @@ define linkonce_odr hidden noundef i32 @_ZN4pugi4impl23load_stream_data_noseekIc
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre = load ptr, ptr %0, align 8
   %.phi.trans.insert = getelementptr i8, ptr %.pre, i64 -24
-  %.pre79 = load i64, ptr %.phi.trans.insert, align 8
-  %.phi.trans.insert80 = getelementptr inbounds i8, ptr %0, i64 %.pre79
-  %.phi.trans.insert81 = getelementptr inbounds nuw i8, ptr %.phi.trans.insert80, i64 32
-  %.pre82 = load i32, ptr %.phi.trans.insert81, align 8
+  %.pre80 = load i64, ptr %.phi.trans.insert, align 8
+  %.phi.trans.insert81 = getelementptr inbounds i8, ptr %0, i64 %.pre80
+  %.phi.trans.insert82 = getelementptr inbounds nuw i8, ptr %.phi.trans.insert81, i64 32
+  %.pre83 = load i32, ptr %.phi.trans.insert82, align 8
   br label %5
 
 5:                                                ; preds = %29, %3
-  %6 = phi i32 [ %.pre82, %3 ], [ %26, %29 ]
+  %6 = phi i32 [ %.pre83, %3 ], [ %26, %29 ]
   %.sroa.0.0 = phi ptr [ null, %3 ], [ %.sroa.0.4, %29 ]
   %.041 = phi ptr [ null, %3 ], [ %10, %29 ]
   %.038 = phi i64 [ 0, %3 ], [ %.038., %29 ]
@@ -14273,14 +14273,14 @@ define linkonce_odr hidden noundef i32 @_ZN4pugi4impl23load_stream_data_noseekIc
   %27 = trunc i32 %26 to i1
   %28 = and i32 %26, 6
   %or.cond = icmp eq i32 %28, 4
-  %or.cond67 = or i1 %or.cond, %27
-  br i1 %or.cond67, label %.thread, label %29
+  %or.cond68 = or i1 %or.cond, %27
+  br i1 %or.cond68, label %.thread, label %29
 
 29:                                               ; preds = %18
   %30 = add i64 %19, %.038
-  %.not66 = icmp ult i64 %30, %.038
+  %.not67 = icmp ult i64 %30, %.038
   %.038. = tail call i64 @llvm.umax.i64(i64 %30, i64 %.038)
-  br i1 %.not66, label %.thread, label %5, !llvm.loop !204
+  br i1 %.not67, label %.thread, label %5, !llvm.loop !204
 
 31:                                               ; preds = %5
   %32 = add i64 %.038, 1
@@ -14292,8 +14292,8 @@ define linkonce_odr hidden noundef i32 @_ZN4pugi4impl23load_stream_data_noseekIc
   br i1 %.not, label %.thread, label %.preheader
 
 .preheader:                                       ; preds = %34
-  %.not4972 = icmp eq ptr %.sroa.0.0, null
-  br i1 %.not4972, label %._crit_edge, label %.lr.ph
+  %.not4973 = icmp eq ptr %.sroa.0.0, null
+  br i1 %.not4973, label %._crit_edge, label %.lr.ph
 
 35:                                               ; preds = %31
   %36 = landingpad { ptr, i32 }
@@ -14306,15 +14306,15 @@ define linkonce_odr hidden noundef i32 @_ZN4pugi4impl23load_stream_data_noseekIc
   br label %.thread
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
-  %.0.in.sroa.speculated74 = phi ptr [ %.0.in.sroa.speculate.load., %.lr.ph ], [ %.sroa.0.0, %.preheader ]
-  %.03673 = phi ptr [ %41, %.lr.ph ], [ %33, %.preheader ]
-  %37 = getelementptr inbounds nuw i8, ptr %.0.in.sroa.speculated74, i64 16
-  %38 = getelementptr inbounds nuw i8, ptr %.0.in.sroa.speculated74, i64 8
+  %.0.in.sroa.speculated75 = phi ptr [ %.0.in.sroa.speculate.load., %.lr.ph ], [ %.sroa.0.0, %.preheader ]
+  %.03674 = phi ptr [ %41, %.lr.ph ], [ %33, %.preheader ]
+  %37 = getelementptr inbounds nuw i8, ptr %.0.in.sroa.speculated75, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %.0.in.sroa.speculated75, i64 8
   %39 = load i64, ptr %38, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.03673, ptr nonnull align 8 %37, i64 %39, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.03674, ptr nonnull align 8 %37, i64 %39, i1 false)
   %40 = load i64, ptr %38, align 8
-  %41 = getelementptr inbounds nuw i8, ptr %.03673, i64 %40
-  %.0.in.sroa.speculate.load. = load ptr, ptr %.0.in.sroa.speculated74, align 8
+  %41 = getelementptr inbounds nuw i8, ptr %.03674, i64 %40
+  %.0.in.sroa.speculate.load. = load ptr, ptr %.0.in.sroa.speculated75, align 8
   %.not49 = icmp eq ptr %.0.in.sroa.speculate.load., null
   br i1 %.not49, label %._crit_edge, label %.lr.ph, !llvm.loop !205
 
@@ -14324,16 +14324,16 @@ define linkonce_odr hidden noundef i32 @_ZN4pugi4impl23load_stream_data_noseekIc
   %.not.i53 = icmp eq ptr %.sroa.0.5, null
   br i1 %.not.i53, label %_ZN4pugi4impl12auto_deleterINS0_16xml_stream_chunkIcEEED2Ev.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.thread, %.noexc89
+.lr.ph.i:                                         ; preds = %.thread, %.noexc90
   %.05.i = phi ptr [ %42, %.noexc89 ], [ %.sroa.0.5, %.thread ]
   %42 = load ptr, ptr %.05.i, align 8
   %43 = load ptr, ptr @_ZN4pugi4impl38xml_memory_management_function_storageIiE10deallocateE, align 8
   invoke void %43(ptr noundef nonnull %.05.i)
           to label %.noexc89 unwind label %44
 
-.noexc89:                                         ; preds = %.lr.ph.i
-  %.not.i88 = icmp eq ptr %42, null
-  br i1 %.not.i88, label %_ZN4pugi4impl12auto_deleterINS0_16xml_stream_chunkIcEEED2Ev.exit, label %.lr.ph.i, !llvm.loop !206
+.noexc90:                                         ; preds = %.lr.ph.i
+  %.not.i89 = icmp eq ptr %42, null
+  br i1 %.not.i89, label %_ZN4pugi4impl12auto_deleterINS0_16xml_stream_chunkIcEEED2Ev.exit, label %.lr.ph.i, !llvm.loop !206
 
 44:                                               ; preds = %.lr.ph.i
   %45 = landingpad { ptr, i32 }
@@ -14342,34 +14342,34 @@ define linkonce_odr hidden noundef i32 @_ZN4pugi4impl23load_stream_data_noseekIc
   tail call void @__clang_call_terminate(ptr %46) #30
   unreachable
 
-_ZN4pugi4impl12auto_deleterINS0_16xml_stream_chunkIcEEED2Ev.exit: ; preds = %.noexc89, %.thread
+_ZN4pugi4impl12auto_deleterINS0_16xml_stream_chunkIcEEED2Ev.exit: ; preds = %.noexc90, %.thread
   ret i32 %.2
 
 47:                                               ; preds = %35, %11
   %.sroa.0.3 = phi ptr [ %.sroa.0.0, %35 ], [ %.sroa.0.1, %11 ]
   %.pn = phi { ptr, i32 } [ %36, %35 ], [ %12, %11 ]
   %.not.i54 = icmp eq ptr %.sroa.0.3, null
-  br i1 %.not.i54, label %_ZN4pugi4impl12auto_deleterINS0_16xml_stream_chunkIcEEED2Ev.exit55, label %.lr.ph.i91
+  br i1 %.not.i54, label %_ZN4pugi4impl12auto_deleterINS0_16xml_stream_chunkIcEEED2Ev.exit55, label %.lr.ph.i92
 
-.lr.ph.i91:                                       ; preds = %47, %.noexc94
-  %.05.i92 = phi ptr [ %48, %.noexc94 ], [ %.sroa.0.3, %47 ]
-  %48 = load ptr, ptr %.05.i92, align 8
+.lr.ph.i92:                                       ; preds = %47, %.noexc95
+  %.05.i93 = phi ptr [ %48, %.noexc94 ], [ %.sroa.0.3, %47 ]
+  %48 = load ptr, ptr %.05.i93, align 8
   %49 = load ptr, ptr @_ZN4pugi4impl38xml_memory_management_function_storageIiE10deallocateE, align 8
-  invoke void %49(ptr noundef nonnull %.05.i92)
+  invoke void %49(ptr noundef nonnull %.05.i93)
           to label %.noexc94 unwind label %50
 
-.noexc94:                                         ; preds = %.lr.ph.i91
-  %.not.i93 = icmp eq ptr %48, null
-  br i1 %.not.i93, label %_ZN4pugi4impl12auto_deleterINS0_16xml_stream_chunkIcEEED2Ev.exit55, label %.lr.ph.i91, !llvm.loop !206
+.noexc95:                                         ; preds = %.lr.ph.i92
+  %.not.i94 = icmp eq ptr %48, null
+  br i1 %.not.i94, label %_ZN4pugi4impl12auto_deleterINS0_16xml_stream_chunkIcEEED2Ev.exit55, label %.lr.ph.i92, !llvm.loop !206
 
-50:                                               ; preds = %.lr.ph.i91
+50:                                               ; preds = %.lr.ph.i92
   %51 = landingpad { ptr, i32 }
           catch ptr null
   %52 = extractvalue { ptr, i32 } %51, 0
   tail call void @__clang_call_terminate(ptr %52) #30
   unreachable
 
-_ZN4pugi4impl12auto_deleterINS0_16xml_stream_chunkIcEEED2Ev.exit55: ; preds = %.noexc94, %47
+_ZN4pugi4impl12auto_deleterINS0_16xml_stream_chunkIcEEED2Ev.exit55: ; preds = %.noexc95, %47
   resume { ptr, i32 } %.pn
 }
 
@@ -14421,8 +14421,8 @@ define linkonce_odr hidden noundef i32 @_ZN4pugi4impl21load_stream_data_seekIcEE
   %37 = trunc i32 %36 to i1
   %38 = and i32 %36, 6
   %or.cond40 = icmp eq i32 %38, 4
-  %or.cond41 = or i1 %or.cond40, %37
-  br i1 %or.cond41, label %47, label %44
+  %or.cond42 = or i1 %or.cond40, %37
+  br i1 %or.cond42, label %47, label %44
 
 39:                                               ; preds = %28
   %40 = landingpad { ptr, i32 }

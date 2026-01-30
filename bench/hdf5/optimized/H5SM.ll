@@ -1210,14 +1210,14 @@ define range(i32 -1, 2) i32 @H5SM_try_share(ptr noundef %0, ptr noundef %1, i32 
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 48
   %75 = load i64, ptr %74, align 8, !tbaa !51
   %76 = icmp eq i64 %75, -1
-  %.pre90 = load i8, ptr @H5SM_init_g, align 1, !tbaa !9, !range !11
-  %.pre92 = load i8, ptr @H5_libterm_g, align 1, !range !11
+  %.pre91 = load i8, ptr @H5SM_init_g, align 1, !tbaa !9, !range !11
+  %.pre93 = load i8, ptr @H5_libterm_g, align 1, !range !11
   br i1 %76, label %77, label %161
 
 77:                                               ; preds = %69
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
-  %78 = trunc nuw i8 %.pre90 to i1
-  %79 = trunc nuw i8 %.pre92 to i1
+  %78 = trunc nuw i8 %.pre91 to i1
+  %79 = trunc nuw i8 %.pre93 to i1
   %80 = xor i1 %79, true
   %81 = select i1 %78, i1 true, i1 %80
   br i1 %81, label %82, label %H5SM__create_index.exit.thread64, !prof !13
@@ -1387,9 +1387,9 @@ H5SM__create_index.exit:                          ; preds = %.thread51.i, %149
 
 H5SM__create_index.exit._crit_edge:               ; preds = %H5SM__create_index.exit
   %.pre = load ptr, ptr %70, align 8, !tbaa !28
-  %.pre88 = load i64, ptr %20, align 8, !tbaa !7
-  %.pre89 = load i8, ptr @H5SM_init_g, align 1, !tbaa !9, !range !11
-  %.pre91 = load i8, ptr @H5_libterm_g, align 1, !range !11
+  %.pre89 = load i64, ptr %20, align 8, !tbaa !7
+  %.pre90 = load i8, ptr @H5SM_init_g, align 1, !tbaa !9, !range !11
+  %.pre92 = load i8, ptr @H5_libterm_g, align 1, !range !11
   br label %161
 
 157:                                              ; preds = %H5SM__create_index.exit.thread, %H5SM__create_index.exit
@@ -1399,9 +1399,9 @@ H5SM__create_index.exit._crit_edge:               ; preds = %H5SM__create_index.
   br label %.thread76
 
 161:                                              ; preds = %H5SM__create_index.exit._crit_edge, %H5SM__create_index.exit.thread64, %69
-  %162 = phi i8 [ %.pre92, %69 ], [ 1, %H5SM__create_index.exit.thread64 ], [ %.pre91, %H5SM__create_index.exit._crit_edge ]
-  %163 = phi i8 [ %.pre90, %69 ], [ 0, %H5SM__create_index.exit.thread64 ], [ %.pre89, %H5SM__create_index.exit._crit_edge ]
-  %164 = phi i64 [ %72, %69 ], [ %72, %H5SM__create_index.exit.thread64 ], [ %.pre88, %H5SM__create_index.exit._crit_edge ]
+  %162 = phi i8 [ %.pre93, %69 ], [ 1, %H5SM__create_index.exit.thread64 ], [ %.pre92, %H5SM__create_index.exit._crit_edge ]
+  %163 = phi i8 [ %.pre91, %69 ], [ 0, %H5SM__create_index.exit.thread64 ], [ %.pre90, %H5SM__create_index.exit._crit_edge ]
+  %164 = phi i64 [ %72, %69 ], [ %72, %H5SM__create_index.exit.thread64 ], [ %.pre89, %H5SM__create_index.exit._crit_edge ]
   %165 = phi ptr [ %71, %69 ], [ %71, %H5SM__create_index.exit.thread64 ], [ %.pre, %H5SM__create_index.exit._crit_edge ]
   %.158 = phi i32 [ 0, %69 ], [ 2, %H5SM__create_index.exit.thread64 ], [ 2, %H5SM__create_index.exit._crit_edge ]
   %166 = getelementptr inbounds %struct.H5SM_index_header_t, ptr %165, i64 %164
@@ -1715,7 +1715,7 @@ H5SM__find_in_list.exit.thread.i:                 ; preds = %250, %244, %230, %2
   br label %.thread166.i
 
 .thread.i54:                                      ; preds = %.thread151.i, %310, %294, %265, %264, %263
-  %.pre.i94 = phi ptr [ null, %.thread151.i ], [ null, %310 ], [ %217, %265 ], [ %217, %294 ], [ %217, %263 ], [ %217, %264 ]
+  %.pre.i95 = phi ptr [ null, %.thread151.i ], [ null, %310 ], [ %217, %265 ], [ %217, %294 ], [ %217, %263 ], [ %217, %264 ]
   %.1108.i = phi ptr [ %303, %.thread151.i ], [ %303, %310 ], [ null, %265 ], [ null, %294 ], [ null, %263 ], [ null, %264 ]
   %332 = load i8, ptr %12, align 1, !tbaa !9, !range !11, !noundef !12
   %333 = trunc nuw i8 %332 to i1
@@ -1835,7 +1835,7 @@ H5SM__find_in_list.exit.thread.i:                 ; preds = %250, %244, %230, %2
   br label %.thread212.i
 
 .thread212.i:                                     ; preds = %..thread212.i_crit_edge, %379
-  %.pre.i = phi ptr [ %.pre.i.pre, %..thread212.i_crit_edge ], [ %.pre.i94, %379 ]
+  %.pre.i = phi ptr [ %.pre.i.pre, %..thread212.i_crit_edge ], [ %.pre.i95, %379 ]
   %393 = load i64, ptr %13, align 8, !tbaa !7
   %394 = icmp eq i64 %393, -1
   br i1 %394, label %395, label %412

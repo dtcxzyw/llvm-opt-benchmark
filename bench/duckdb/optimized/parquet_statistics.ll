@@ -4842,8 +4842,8 @@ _ZN6duckdb17ParquetBloomBlock4MaskEj.exit.i.i:    ; preds = %_ZN6duckdb17Parquet
 
 _ZN6duckdb18ParquetBloomFilter11FilterCheckEm.exit: ; preds = %_ZN6duckdb17ParquetBloomBlock4MaskEj.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %not. = xor i1 %93, true
-  %spec.select = select i1 %not., i1 %21, i1 false
+  %not..not.not.i.i = xor i1 %93, true
+  %spec.select = select i1 %not..not.not.i.i, i1 %21, i1 false
   br label %_ZN6duckdbL10ValueXXH64ERKNS_5ValueE.exit.thread
 
 95:                                               ; preds = %2

@@ -630,13 +630,13 @@ _ZN6google8protobuf8internal9ArenaImpl11CleanupListEv.exit: ; preds = %_ZN6googl
   br label %45
 
 .loopexit.i:                                      ; preds = %"_ZZN6google8protobuf8internal9ArenaImpl5ResetEvENK3$_0clEPNS1_11SerialArena5BlockE.exit.i", %45
-  %.218 = phi i64 [ %.016, %45 ], [ %55, %"_ZZN6google8protobuf8internal9ArenaImpl5ResetEvENK3$_0clEPNS1_11SerialArena5BlockE.exit.i" ]
+  %.219 = phi i64 [ %.017, %45 ], [ %55, %"_ZZN6google8protobuf8internal9ArenaImpl5ResetEvENK3$_0clEPNS1_11SerialArena5BlockE.exit.i" ]
   %.3 = phi ptr [ %.0, %45 ], [ %.2, %"_ZZN6google8protobuf8internal9ArenaImpl5ResetEvENK3$_0clEPNS1_11SerialArena5BlockE.exit.i" ]
-  %.not.i11 = icmp eq ptr %47, null
-  br i1 %.not.i11, label %"_ZN6google8protobuf8internal9ArenaImpl8PerBlockIZNS2_5ResetEvE3$_0EEvT_.exit", label %45, !llvm.loop !67
+  %.not.i12 = icmp eq ptr %47, null
+  br i1 %.not.i12, label %"_ZN6google8protobuf8internal9ArenaImpl8PerBlockIZNS2_5ResetEvE3$_0EEvT_.exit", label %45, !llvm.loop !67
 
 45:                                               ; preds = %.loopexit.i, %.lr.ph15.i
-  %.016 = phi i64 [ 0, %.lr.ph15.i ], [ %.218, %.loopexit.i ]
+  %.017 = phi i64 [ 0, %.lr.ph15.i ], [ %.219, %.loopexit.i ]
   %.0 = phi ptr [ null, %.lr.ph15.i ], [ %.3, %.loopexit.i ]
   %.014.i = phi ptr [ %.0.i.i.i9, %.lr.ph15.i ], [ %47, %.loopexit.i ]
   %46 = getelementptr inbounds nuw i8, ptr %.014.i, i64 32
@@ -647,7 +647,7 @@ _ZN6google8protobuf8internal9ArenaImpl11CleanupListEv.exit: ; preds = %_ZN6googl
   br i1 %.not1011.i, label %.loopexit.i, label %.lr.ph.i10
 
 .lr.ph.i10:                                       ; preds = %45, %"_ZZN6google8protobuf8internal9ArenaImpl5ResetEvENK3$_0clEPNS1_11SerialArena5BlockE.exit.i"
-  %.117 = phi i64 [ %55, %"_ZZN6google8protobuf8internal9ArenaImpl5ResetEvENK3$_0clEPNS1_11SerialArena5BlockE.exit.i" ], [ %.016, %45 ]
+  %.118 = phi i64 [ %55, %"_ZZN6google8protobuf8internal9ArenaImpl5ResetEvENK3$_0clEPNS1_11SerialArena5BlockE.exit.i" ], [ %.017, %45 ]
   %.1 = phi ptr [ %.2, %"_ZZN6google8protobuf8internal9ArenaImpl5ResetEvENK3$_0clEPNS1_11SerialArena5BlockE.exit.i" ], [ %.0, %45 ]
   %.0912.i = phi ptr [ %52, %"_ZZN6google8protobuf8internal9ArenaImpl5ResetEvENK3$_0clEPNS1_11SerialArena5BlockE.exit.i" ], [ %49, %45 ]
   %50 = load i64, ptr %.0912.i, align 8, !tbaa !23
@@ -655,7 +655,7 @@ _ZN6google8protobuf8internal9ArenaImpl11CleanupListEv.exit: ; preds = %_ZN6googl
   %52 = inttoptr i64 %51 to ptr
   %53 = getelementptr inbounds nuw i8, ptr %.0912.i, i64 16
   %54 = load i64, ptr %53, align 8, !tbaa !25
-  %55 = add i64 %54, %.117
+  %55 = add i64 %54, %.118
   %56 = trunc i64 %50 to i1
   br i1 %56, label %"_ZZN6google8protobuf8internal9ArenaImpl5ResetEvENK3$_0clEPNS1_11SerialArena5BlockE.exit.i", label %57
 
@@ -669,7 +669,7 @@ _ZN6google8protobuf8internal9ArenaImpl11CleanupListEv.exit: ; preds = %_ZN6googl
   br i1 %.not10.i, label %.loopexit.i, label %.lr.ph.i10, !llvm.loop !68
 
 "_ZN6google8protobuf8internal9ArenaImpl8PerBlockIZNS2_5ResetEvE3$_0EEvT_.exit": ; preds = %.loopexit.i, %42
-  %.319 = phi i64 [ 0, %42 ], [ %.218, %.loopexit.i ]
+  %.320 = phi i64 [ 0, %42 ], [ %.219, %.loopexit.i ]
   %.4 = phi ptr [ null, %42 ], [ %.3, %.loopexit.i ]
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %59 = load i64, ptr %58, align 8, !tbaa !40
@@ -685,8 +685,8 @@ _ZN6google8protobuf8internal9ArenaImpl11CleanupListEv.exit: ; preds = %_ZN6googl
 
 _ZN6google8protobuf8internal9ArenaImpl4InitEb.exit: ; preds = %"_ZN6google8protobuf8internal9ArenaImpl8PerBlockIZNS2_5ResetEvE3$_0EEvT_.exit", %64
   %.0.i = phi i64 [ %65, %64 ], [ %61, %"_ZN6google8protobuf8internal9ArenaImpl8PerBlockIZNS2_5ResetEvE3$_0EEvT_.exit" ]
-  %66 = add i64 %.0.i, 2
-  store i64 %66, ptr %60, align 64, !tbaa !37
+  %67 = add i64 %.0.i, 2
+  store i64 %67, ptr %60, align 64, !tbaa !37
   %67 = and i64 %59, 1
   %68 = or i64 %.0.i, %67
   store i64 %68, ptr %58, align 8, !tbaa !40
@@ -739,7 +739,7 @@ _ZN6google8protobuf8internal9ArenaImpl4InitEb.exit: ; preds = %"_ZN6google8proto
   br label %94
 
 94:                                               ; preds = %71, %_ZN6google8protobuf8internal9ArenaImpl4InitEb.exit
-  ret i64 %.319
+  ret i64 %.320
 }
 
 ; Function Attrs: mustprogress uwtable

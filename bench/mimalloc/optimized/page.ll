@@ -858,8 +858,8 @@ define hidden void @_mi_page_unfull(ptr noundef %0) local_unnamed_addr #4 {
   %9 = getelementptr i8, ptr %0, i64 1
   %.val6.i = load i8, ptr %9, align 1
   %10 = and i8 %.val6.i, 8
-  %.not.i = icmp eq i8 %10, 0
-  br i1 %.not.i, label %11, label %mi_heap_page_queue_of.exit
+  %.not7.i = icmp eq i8 %10, 0
+  br i1 %.not7.i, label %11, label %mi_heap_page_queue_of.exit
 
 11:                                               ; preds = %4
   %12 = getelementptr i8, ptr %0, i64 32
@@ -1209,8 +1209,8 @@ _mi_heap_delayed_free_all.exit:                   ; preds = %.critedge.i.i11, %_
   %43 = getelementptr i8, ptr %0, i64 1
   %.val6.i = load i8, ptr %43, align 1
   %44 = and i8 %.val6.i, 8
-  %.not.i = icmp eq i8 %44, 0
-  br i1 %.not.i, label %45, label %mi_heap_page_queue_of.exit
+  %.not7.i = icmp eq i8 %44, 0
+  br i1 %.not7.i, label %45, label %mi_heap_page_queue_of.exit
 
 45:                                               ; preds = %42
   %46 = getelementptr i8, ptr %0, i64 32
@@ -1312,8 +1312,8 @@ define hidden void @_mi_page_retire(ptr noundef %0) local_unnamed_addr #1 {
   %9 = getelementptr i8, ptr %0, i64 1
   %.val6.i.i = load i8, ptr %9, align 1
   %10 = and i8 %.val6.i.i, 8
-  %.not.i.i = icmp eq i8 %10, 0
-  br i1 %.not.i.i, label %11, label %mi_page_queue_of.exit
+  %.not7.i.i = icmp eq i8 %10, 0
+  br i1 %.not7.i.i, label %11, label %mi_page_queue_of.exit
 
 11:                                               ; preds = %8
   %12 = getelementptr i8, ptr %0, i64 32
@@ -1742,8 +1742,8 @@ _mi_heap_delayed_free_partial.exit:               ; preds = %.loopexit.i, %_mi_d
   %71 = getelementptr i8, ptr %.03238, i64 1
   %.val6.i.i = load i8, ptr %71, align 1
   %72 = and i8 %.val6.i.i, 8
-  %.not.i.i = icmp eq i8 %72, 0
-  br i1 %.not.i.i, label %73, label %mi_page_queue_of.exit
+  %.not7.i.i = icmp eq i8 %72, 0
+  br i1 %.not7.i.i, label %73, label %mi_page_queue_of.exit
 
 73:                                               ; preds = %70
   %74 = getelementptr i8, ptr %.03238, i64 32

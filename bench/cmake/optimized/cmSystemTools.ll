@@ -22017,7 +22017,7 @@ define dso_local noundef zeroext i1 @_ZN13cmSystemTools14VersionCompareENS_9Comp
   %5 = load ptr, ptr %2, align 8, !tbaa !13
   br label %6
 
-6:                                                ; preds = %43, %3
+6:                                                ; preds = %37, %3
   %.048.i = phi ptr [ %5, %3 ], [ %spec.select.i, %43 ]
   %.045.i = phi ptr [ %4, %3 ], [ %.4.i, %43 ]
   %7 = load i8, ptr %.045.i, align 1, !tbaa !26
@@ -22029,7 +22029,7 @@ define dso_local noundef zeroext i1 @_ZN13cmSystemTools14VersionCompareENS_9Comp
   %10 = load i8, ptr %.048.i, align 1, !tbaa !26
   %11 = add i8 %10, -48
   %or.cond58.i = icmp ult i8 %11, 10
-  br i1 %or.cond58.i, label %.critedge.i.preheader, label %.critedge2.i
+  br i1 %or.cond58.i, label %.critedge.i.preheader, label %_ZN12_GLOBAL__N_114VersionCompareEN13cmSystemTools9CompareOpEPKcS3_.exit
 
 .critedge.i.preheader:                            ; preds = %9, %6
   br label %.critedge.i
@@ -22083,7 +22083,7 @@ define dso_local noundef zeroext i1 @_ZN13cmSystemTools14VersionCompareENS_9Comp
 34:                                               ; preds = %31, %.critedge6.i
   %.043.i = phi i64 [ %33, %31 ], [ %29, %.critedge6.i ]
   %35 = icmp slt i64 %.043.i, 0
-  br i1 %35, label %36, label %39
+  br i1 %35, label %36, label %36
 
 36:                                               ; preds = %34
   %37 = and i32 %0, 2
@@ -22092,23 +22092,23 @@ define dso_local noundef zeroext i1 @_ZN13cmSystemTools14VersionCompareENS_9Comp
 
 39:                                               ; preds = %34
   %.not.i = icmp eq i64 %.043.i, 0
-  br i1 %.not.i, label %43, label %40
+  br i1 %.not.i, label %37, label %40
 
 40:                                               ; preds = %39
   %41 = and i32 %0, 4
   %42 = icmp ne i32 %41, 0
   br label %_ZN12_GLOBAL__N_114VersionCompareEN13cmSystemTools9CompareOpEPKcS3_.exit
 
-43:                                               ; preds = %39
-  %44 = icmp eq i8 %21, 46
-  %spec.select.idx.i = zext i1 %44 to i64
+37:                                               ; preds = %36
+  %38 = icmp eq i8 %21, 46
+  %spec.select.idx.i = zext i1 %38 to i64
   %spec.select.i = getelementptr inbounds nuw i8, ptr %.250.i, i64 %spec.select.idx.i
-  %45 = icmp eq i8 %18, 46
-  %.4.idx.i = zext i1 %45 to i64
+  %39 = icmp eq i8 %18, 46
+  %.4.idx.i = zext i1 %39 to i64
   %.4.i = getelementptr inbounds nuw i8, ptr %.247.i, i64 %.4.idx.i
   br label %6, !llvm.loop !720
 
-.critedge2.i:                                     ; preds = %9
+_ZN12_GLOBAL__N_114VersionCompareEN13cmSystemTools9CompareOpEPKcS3_.exit: ; preds = %9
   %46 = trunc i32 %0 to i1
   br label %_ZN12_GLOBAL__N_114VersionCompareEN13cmSystemTools9CompareOpEPKcS3_.exit
 
@@ -22134,7 +22134,7 @@ define dso_local noundef zeroext i1 @_ZN13cmSystemTools14VersionCompareENS_9Comp
   %9 = load i8, ptr %.048.i, align 1, !tbaa !26
   %10 = add i8 %9, -48
   %or.cond58.i = icmp ult i8 %10, 10
-  br i1 %or.cond58.i, label %.critedge.i.preheader, label %.critedge2.i
+  br i1 %or.cond58.i, label %.critedge.i.preheader, label %_ZN12_GLOBAL__N_114VersionCompareEN13cmSystemTools9CompareOpEPKcS3_.exit
 
 .critedge.i.preheader:                            ; preds = %8, %5
   br label %.critedge.i
@@ -22199,7 +22199,7 @@ define dso_local noundef zeroext i1 @_ZN13cmSystemTools14VersionCompareENS_9Comp
   %.not.i = icmp eq i64 %.043.i, 0
   br i1 %.not.i, label %42, label %39
 
-39:                                               ; preds = %38
+36:                                               ; preds = %38
   %40 = and i32 %0, 4
   %41 = icmp ne i32 %40, 0
   br label %_ZN12_GLOBAL__N_114VersionCompareEN13cmSystemTools9CompareOpEPKcS3_.exit
@@ -22208,12 +22208,12 @@ define dso_local noundef zeroext i1 @_ZN13cmSystemTools14VersionCompareENS_9Comp
   %43 = icmp eq i8 %20, 46
   %spec.select.idx.i = zext i1 %43 to i64
   %spec.select.i = getelementptr inbounds nuw i8, ptr %.250.i, i64 %spec.select.idx.i
-  %44 = icmp eq i8 %17, 46
-  %.4.idx.i = zext i1 %44 to i64
+  %38 = icmp eq i8 %17, 46
+  %.4.idx.i = zext i1 %38 to i64
   %.4.i = getelementptr inbounds nuw i8, ptr %.247.i, i64 %.4.idx.i
   br label %5, !llvm.loop !720
 
-.critedge2.i:                                     ; preds = %8
+_ZN12_GLOBAL__N_114VersionCompareEN13cmSystemTools9CompareOpEPKcS3_.exit: ; preds = %8
   %45 = trunc i32 %0 to i1
   br label %_ZN12_GLOBAL__N_114VersionCompareEN13cmSystemTools9CompareOpEPKcS3_.exit
 

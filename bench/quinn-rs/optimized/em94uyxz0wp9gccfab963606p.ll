@@ -6284,9 +6284,9 @@ _ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit:
   store i64 6, ptr %9, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %10 = and i64 %7, 2
-  %.not = icmp eq i64 %10, 0
-  %anon.dc71d0a5682d3db708e0e7797e95149f.216.sink = select i1 %.not, ptr @anon.dc71d0a5682d3db708e0e7797e95149f.215, ptr @anon.dc71d0a5682d3db708e0e7797e95149f.216
-  %.sink = select i1 %.not, i64 2, i64 3
+  %.not12 = icmp eq i64 %10, 0
+  %anon.dc71d0a5682d3db708e0e7797e95149f.216.sink = select i1 %.not12, ptr @anon.dc71d0a5682d3db708e0e7797e95149f.215, ptr @anon.dc71d0a5682d3db708e0e7797e95149f.216
+  %.sink = select i1 %.not12, i64 2, i64 3
   store ptr %anon.dc71d0a5682d3db708e0e7797e95149f.216.sink, ptr %5, align 8
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %.sink, ptr %11, align 8

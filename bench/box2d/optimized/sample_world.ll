@@ -592,72 +592,72 @@ define linkonce_odr dso_local void @_ZN10LargeWorld4StepER8Settings(ptr noundef 
   store float %53, ptr %54, align 4, !tbaa !68
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @b2DefaultExplosionDef(ptr dead_on_unwind nonnull writable sret(%struct.b2ExplosionDef) align 8 %3)
-  %55 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %56 = load i64, ptr %54, align 4
-  store i64 %56, ptr %55, align 8
-  %57 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store float 2.000000e+00, ptr %57, align 8, !tbaa !69
-  %58 = getelementptr inbounds nuw i8, ptr %3, i64 20
-  store float 0x3FB99999A0000000, ptr %58, align 4, !tbaa !71
-  %59 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store float 1.000000e+00, ptr %59, align 8, !tbaa !72
-  %60 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  %.sroa.01.0.copyload = load i32, ptr %60, align 4
+  %56 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %57 = load i64, ptr %54, align 4
+  store i64 %57, ptr %56, align 8
+  %58 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store float 2.000000e+00, ptr %58, align 8, !tbaa !69
+  %59 = getelementptr inbounds nuw i8, ptr %3, i64 20
+  store float 0x3FB99999A0000000, ptr %59, align 4, !tbaa !71
+  %60 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  store float 1.000000e+00, ptr %60, align 8, !tbaa !72
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  %.sroa.01.0.copyload = load i32, ptr %61, align 4
   call void @b2World_Explode(i32 %.sroa.01.0.copyload, ptr noundef nonnull %3)
-  %61 = load i32, ptr %47, align 4, !tbaa !59
-  %62 = add nsw i32 %61, 1
-  %63 = load i32, ptr %6, align 8, !tbaa !25
-  %64 = srem i32 %62, %63
-  store i32 %64, ptr %47, align 4, !tbaa !59
+  %62 = load i32, ptr %47, align 4, !tbaa !59
+  %63 = add nsw i32 %62, 1
+  %64 = load i32, ptr %6, align 8, !tbaa !25
+  %65 = srem i32 %63, %64
+  store i32 %65, ptr %47, align 4, !tbaa !59
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.pre = load i8, ptr %43, align 4, !tbaa !61, !range !31
-  br label %65
+  br label %66
 
-65:                                               ; preds = %46, %40
-  %66 = phi i8 [ %.pre, %46 ], [ %44, %40 ]
-  %67 = trunc nuw i8 %66 to i1
-  br i1 %67, label %68, label %70
+66:                                               ; preds = %46, %40
+  %67 = phi i8 [ %.pre, %46 ], [ %44, %40 ]
+  %68 = trunc nuw i8 %67 to i1
+  br i1 %68, label %69, label %71
 
-68:                                               ; preds = %65
-  %69 = getelementptr inbounds nuw i8, ptr %0, i64 324
-  %.sroa.0.0.copyload = load <2 x float>, ptr %69, align 4
+69:                                               ; preds = %66
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 324
+  %.sroa.0.0.copyload = load <2 x float>, ptr %70, align 4
   call void @_ZN4Draw10DrawCircleE6b2Vec2f10b2HexColor(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, <2 x float> %.sroa.0.0.copyload, float noundef 2.000000e+00, i32 noundef 15794175)
-  br label %70
+  br label %71
 
-70:                                               ; preds = %68, %65
-  %71 = load ptr, ptr @g_mainWindow, align 8, !tbaa !73
-  %72 = call i32 @glfwGetKey(ptr noundef %71, i32 noundef 65)
-  %73 = icmp eq i32 %72, 1
-  br i1 %73, label %74, label %76
+71:                                               ; preds = %69, %66
+  %72 = load ptr, ptr @g_mainWindow, align 8, !tbaa !73
+  %73 = call i32 @glfwGetKey(ptr noundef %72, i32 noundef 65)
+  %74 = icmp eq i32 %73, 1
+  br i1 %74, label %75, label %77
 
-74:                                               ; preds = %70
-  %75 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  call void @_ZN3Car8SetSpeedEf(ptr noundef nonnull align 4 dereferenceable(41) %75, float noundef 2.000000e+01)
-  br label %76
+75:                                               ; preds = %71
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 248
+  call void @_ZN3Car8SetSpeedEf(ptr noundef nonnull align 4 dereferenceable(41) %76, float noundef 2.000000e+01)
+  br label %77
 
-76:                                               ; preds = %74, %70
-  %77 = load ptr, ptr @g_mainWindow, align 8, !tbaa !73
-  %78 = call i32 @glfwGetKey(ptr noundef %77, i32 noundef 83)
-  %79 = icmp eq i32 %78, 1
-  br i1 %79, label %80, label %82
+77:                                               ; preds = %75, %71
+  %78 = load ptr, ptr @g_mainWindow, align 8, !tbaa !73
+  %79 = call i32 @glfwGetKey(ptr noundef %78, i32 noundef 83)
+  %80 = icmp eq i32 %79, 1
+  br i1 %80, label %81, label %83
 
-80:                                               ; preds = %76
-  %81 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  call void @_ZN3Car8SetSpeedEf(ptr noundef nonnull align 4 dereferenceable(41) %81, float noundef 0.000000e+00)
-  br label %82
+81:                                               ; preds = %77
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 248
+  call void @_ZN3Car8SetSpeedEf(ptr noundef nonnull align 4 dereferenceable(41) %82, float noundef 0.000000e+00)
+  br label %83
 
-82:                                               ; preds = %80, %76
-  %83 = load ptr, ptr @g_mainWindow, align 8, !tbaa !73
-  %84 = call i32 @glfwGetKey(ptr noundef %83, i32 noundef 68)
-  %85 = icmp eq i32 %84, 1
-  br i1 %85, label %86, label %88
+83:                                               ; preds = %81, %77
+  %84 = load ptr, ptr @g_mainWindow, align 8, !tbaa !73
+  %85 = call i32 @glfwGetKey(ptr noundef %84, i32 noundef 68)
+  %86 = icmp eq i32 %85, 1
+  br i1 %86, label %87, label %89
 
-86:                                               ; preds = %82
-  %87 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  call void @_ZN3Car8SetSpeedEf(ptr noundef nonnull align 4 dereferenceable(41) %87, float noundef -5.000000e+00)
-  br label %88
+87:                                               ; preds = %83
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 248
+  call void @_ZN3Car8SetSpeedEf(ptr noundef nonnull align 4 dereferenceable(41) %88, float noundef -5.000000e+00)
+  br label %89
 
-88:                                               ; preds = %86, %82
+89:                                               ; preds = %87, %83
   call void @_ZN6Sample4StepER8Settings(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull align 4 dereferenceable(44) %1)
   ret void
 }

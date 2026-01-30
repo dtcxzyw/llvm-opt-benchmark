@@ -167,14 +167,14 @@ define hidden noundef zeroext i1 @"_ZN111_$LT$crossbeam_channel..flavors..list..
   %5 = load atomic i64, ptr %4 seq_cst, align 128
   %.unshifted.i = xor i64 %5, %3
   %6 = icmp ult i64 %.unshifted.i, 2
-  br i1 %6, label %7, label %10
+  br i1 %6, label %7, label %11
 
 7:                                                ; preds = %1
   %8 = load atomic i64, ptr %4 seq_cst, align 128
   %9 = trunc i64 %8 to i1
-  br label %10
+  br label %11
 
-10:                                               ; preds = %1, %7
+11:                                               ; preds = %1, %7
   %.0 = phi i1 [ %9, %7 ], [ true, %1 ]
   ret i1 %.0
 }
@@ -187,14 +187,14 @@ define hidden noundef zeroext i1 @"_ZN111_$LT$crossbeam_channel..flavors..list..
   %5 = load atomic i64, ptr %4 seq_cst, align 128
   %.unshifted.i = xor i64 %5, %3
   %6 = icmp ult i64 %.unshifted.i, 2
-  br i1 %6, label %7, label %10
+  br i1 %6, label %7, label %11
 
 7:                                                ; preds = %1
   %8 = load atomic i64, ptr %4 seq_cst, align 128
   %9 = trunc i64 %8 to i1
-  br label %10
+  br label %11
 
-10:                                               ; preds = %1, %7
+11:                                               ; preds = %1, %7
   %.0 = phi i1 [ %9, %7 ], [ true, %1 ]
   ret i1 %.0
 }
