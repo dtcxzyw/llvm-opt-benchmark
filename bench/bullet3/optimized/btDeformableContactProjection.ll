@@ -3994,7 +3994,7 @@ declare void @_ZN38btDeformableFaceRigidContactConstraintC1ERKN10btSoftBody26Def
 ; Function Attrs: nounwind
 declare void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
-; Function Attrs: mustprogress nofree norecurse nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local void @_ZN29btDeformableContactProjection7projectER20btAlignedObjectArrayI9btVector3E(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(369) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %1) unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %4 = load i32, ptr %3, align 4, !tbaa !239
@@ -4007,11 +4007,11 @@ define dso_local void @_ZN29btDeformableContactProjection7projectER20btAlignedOb
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   br label %9
 
-._crit_edge:                                      ; preds = %96, %2
+._crit_edge:                                      ; preds = %97, %2
   ret void
 
-9:                                                ; preds = %.lr.ph, %96
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %96 ]
+9:                                                ; preds = %.lr.ph, %97
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %97 ]
   %10 = load ptr, ptr %6, align 8
   %11 = getelementptr inbounds nuw %class.btAlignedObjectArray.2, ptr %10, i64 %indvars.iv
   %12 = load ptr, ptr %7, align 8, !tbaa !240
@@ -4027,7 +4027,7 @@ define dso_local void @_ZN29btDeformableContactProjection7projectER20btAlignedOb
   %19 = sext i32 %.sroa.0.0.copyload.i to i64
   %20 = getelementptr inbounds %class.btVector3, ptr %18, i64 %19
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %20, i8 0, i64 16, i1 false)
-  br label %96
+  br label %97
 
 21:                                               ; preds = %9
   %22 = icmp eq i32 %15, 2
@@ -4038,7 +4038,7 @@ define dso_local void @_ZN29btDeformableContactProjection7projectER20btAlignedOb
   %.sroa.676.0.copyload = load float, ptr %.sroa.676.0..sroa_idx, align 4
   %.sroa.979.0..sroa_idx = getelementptr inbounds nuw i8, ptr %24, i64 8
   %.sroa.979.0.copyload = load float, ptr %.sroa.979.0..sroa_idx, align 4
-  br i1 %22, label %25, label %78
+  br i1 %22, label %25, label %79
 
 25:                                               ; preds = %21
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 16
@@ -4059,97 +4059,90 @@ define dso_local void @_ZN29btDeformableContactProjection7projectER20btAlignedOb
   %36 = fmul float %32, %32
   %37 = tail call float @llvm.fmuladd.f32(float %29, float %29, float %36)
   %38 = tail call noundef float @llvm.fmuladd.f32(float %35, float %35, float %37)
-  %39 = fcmp ogt float %38, 0x3E80000000000000
-  br i1 %39, label %_ZNK9btVector38safeNormEv.exit, label %._ZNK9btVector38safeNormEv.exit.thread_crit_edge
+  %39 = fcmp ule float %38, 0x3E80000000000000
+  %sqrt.i = tail call float @llvm.sqrt.f32(float %38)
+  %40 = fcmp olt float %sqrt.i, 0x3E80000000000000
+  %41 = or i1 %39, %40
+  br i1 %41, label %42, label %60
 
-._ZNK9btVector38safeNormEv.exit.thread_crit_edge: ; preds = %25
-  %.pre = load ptr, ptr %8, align 8, !tbaa !29
-  br label %_ZNK9btVector38safeNormEv.exit.thread
+42:                                               ; preds = %25
+  %43 = load ptr, ptr %8, align 8, !tbaa !29
+  %44 = sext i32 %.sroa.0.0.copyload.i to i64
+  %45 = getelementptr inbounds %class.btVector3, ptr %43, i64 %44
+  %46 = load float, ptr %45, align 4, !tbaa !45
+  %47 = getelementptr inbounds nuw i8, ptr %45, i64 4
+  %48 = load float, ptr %47, align 4, !tbaa !45
+  %49 = fmul float %.sroa.676.0.copyload, %48
+  %50 = tail call float @llvm.fmuladd.f32(float %46, float %.sroa.073.0.copyload, float %49)
+  %51 = getelementptr inbounds nuw i8, ptr %45, i64 8
+  %52 = load float, ptr %51, align 4, !tbaa !45
+  %53 = tail call noundef float @llvm.fmuladd.f32(float %52, float %.sroa.979.0.copyload, float %50)
+  %54 = fmul float %.sroa.073.0.copyload, %53
+  %55 = fmul float %.sroa.676.0.copyload, %53
+  %56 = fmul float %.sroa.979.0.copyload, %53
+  %57 = fsub float %46, %54
+  store float %57, ptr %45, align 4, !tbaa !45
+  %58 = fsub float %48, %55
+  store float %58, ptr %47, align 4, !tbaa !45
+  %59 = fsub float %52, %56
+  store float %59, ptr %51, align 4, !tbaa !45
+  br label %97
 
-_ZNK9btVector38safeNormEv.exit:                   ; preds = %25
-  %40 = tail call noundef float @sqrtf(float noundef %38) #23, !tbaa !37
-  %41 = fcmp olt float %40, 0x3E80000000000000
-  %.pre86 = load ptr, ptr %8, align 8, !tbaa !29
-  br i1 %41, label %_ZNK9btVector38safeNormEv.exit.thread, label %59
-
-_ZNK9btVector38safeNormEv.exit.thread:            ; preds = %._ZNK9btVector38safeNormEv.exit.thread_crit_edge, %_ZNK9btVector38safeNormEv.exit
-  %42 = phi ptr [ %.pre, %._ZNK9btVector38safeNormEv.exit.thread_crit_edge ], [ %.pre86, %_ZNK9btVector38safeNormEv.exit ]
-  %43 = sext i32 %.sroa.0.0.copyload.i to i64
-  %44 = getelementptr inbounds %class.btVector3, ptr %42, i64 %43
-  %45 = load float, ptr %44, align 4, !tbaa !45
-  %46 = getelementptr inbounds nuw i8, ptr %44, i64 4
-  %47 = load float, ptr %46, align 4, !tbaa !45
-  %48 = fmul float %.sroa.676.0.copyload, %47
-  %49 = tail call float @llvm.fmuladd.f32(float %45, float %.sroa.073.0.copyload, float %48)
-  %50 = getelementptr inbounds nuw i8, ptr %44, i64 8
-  %51 = load float, ptr %50, align 4, !tbaa !45
-  %52 = tail call noundef float @llvm.fmuladd.f32(float %51, float %.sroa.979.0.copyload, float %49)
-  %53 = fmul float %.sroa.073.0.copyload, %52
-  %54 = fmul float %.sroa.676.0.copyload, %52
-  %55 = fmul float %.sroa.979.0.copyload, %52
-  %56 = fsub float %45, %53
-  store float %56, ptr %44, align 4, !tbaa !45
-  %57 = fsub float %47, %54
-  store float %57, ptr %46, align 4, !tbaa !45
-  %58 = fsub float %51, %55
-  store float %58, ptr %50, align 4, !tbaa !45
-  br label %96
-
-59:                                               ; preds = %_ZNK9btVector38safeNormEv.exit
-  %60 = tail call noundef float @sqrtf(float noundef %38) #23, !tbaa !37
-  %61 = fdiv float 1.000000e+00, %60
+60:                                               ; preds = %25
+  %61 = fdiv float 1.000000e+00, %sqrt.i
   %62 = fmul float %29, %61
   %63 = fmul float %32, %61
   %64 = fmul float %35, %61
-  %65 = sext i32 %.sroa.0.0.copyload.i to i64
-  %66 = getelementptr inbounds %class.btVector3, ptr %.pre86, i64 %65
-  %67 = load float, ptr %66, align 4, !tbaa !45
-  %68 = getelementptr inbounds nuw i8, ptr %66, i64 4
-  %69 = load float, ptr %68, align 4, !tbaa !45
-  %70 = fmul float %63, %69
-  %71 = tail call float @llvm.fmuladd.f32(float %67, float %62, float %70)
-  %72 = getelementptr inbounds nuw i8, ptr %66, i64 8
-  %73 = load float, ptr %72, align 4, !tbaa !45
-  %74 = tail call noundef float @llvm.fmuladd.f32(float %73, float %64, float %71)
-  %75 = fmul float %62, %74
-  %76 = fmul float %63, %74
-  %77 = fmul float %64, %74
-  %.sroa.0.0.vec.insert.i.i29 = insertelement <2 x float> poison, float %75, i64 0
-  %.sroa.0.4.vec.insert.i.i30 = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i29, float %76, i64 1
-  %.sroa.3.12.vec.insert.i.i31 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %77, i64 0
-  store <2 x float> %.sroa.0.4.vec.insert.i.i30, ptr %66, align 4
-  store <2 x float> %.sroa.3.12.vec.insert.i.i31, ptr %72, align 4, !tbaa !41
-  br label %96
+  %65 = load ptr, ptr %8, align 8, !tbaa !29
+  %66 = sext i32 %.sroa.0.0.copyload.i to i64
+  %67 = getelementptr inbounds %class.btVector3, ptr %65, i64 %66
+  %68 = load float, ptr %67, align 4, !tbaa !45
+  %69 = getelementptr inbounds nuw i8, ptr %67, i64 4
+  %70 = load float, ptr %69, align 4, !tbaa !45
+  %71 = fmul float %63, %70
+  %72 = tail call float @llvm.fmuladd.f32(float %68, float %62, float %71)
+  %73 = getelementptr inbounds nuw i8, ptr %67, i64 8
+  %74 = load float, ptr %73, align 4, !tbaa !45
+  %75 = tail call noundef float @llvm.fmuladd.f32(float %74, float %64, float %72)
+  %76 = fmul float %62, %75
+  %77 = fmul float %63, %75
+  %78 = fmul float %64, %75
+  %.sroa.0.0.vec.insert.i.i29 = insertelement <2 x float> poison, float %76, i64 0
+  %.sroa.0.4.vec.insert.i.i30 = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i29, float %77, i64 1
+  %.sroa.3.12.vec.insert.i.i31 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %78, i64 0
+  store <2 x float> %.sroa.0.4.vec.insert.i.i30, ptr %67, align 4
+  store <2 x float> %.sroa.3.12.vec.insert.i.i31, ptr %73, align 4, !tbaa !41
+  br label %97
 
-78:                                               ; preds = %21
-  %79 = load ptr, ptr %8, align 8, !tbaa !29
-  %80 = sext i32 %.sroa.0.0.copyload.i to i64
-  %81 = getelementptr inbounds %class.btVector3, ptr %79, i64 %80
-  %82 = load float, ptr %81, align 4, !tbaa !45
-  %83 = getelementptr inbounds nuw i8, ptr %81, i64 4
-  %84 = load float, ptr %83, align 4, !tbaa !45
-  %85 = fmul float %.sroa.676.0.copyload, %84
-  %86 = tail call float @llvm.fmuladd.f32(float %82, float %.sroa.073.0.copyload, float %85)
-  %87 = getelementptr inbounds nuw i8, ptr %81, i64 8
-  %88 = load float, ptr %87, align 4, !tbaa !45
-  %89 = tail call noundef float @llvm.fmuladd.f32(float %88, float %.sroa.979.0.copyload, float %86)
-  %90 = fmul float %.sroa.073.0.copyload, %89
-  %91 = fmul float %.sroa.676.0.copyload, %89
-  %92 = fmul float %.sroa.979.0.copyload, %89
-  %93 = fsub float %82, %90
-  store float %93, ptr %81, align 4, !tbaa !45
-  %94 = fsub float %84, %91
-  store float %94, ptr %83, align 4, !tbaa !45
-  %95 = fsub float %88, %92
-  store float %95, ptr %87, align 4, !tbaa !45
-  br label %96
+79:                                               ; preds = %21
+  %80 = load ptr, ptr %8, align 8, !tbaa !29
+  %81 = sext i32 %.sroa.0.0.copyload.i to i64
+  %82 = getelementptr inbounds %class.btVector3, ptr %80, i64 %81
+  %83 = load float, ptr %82, align 4, !tbaa !45
+  %84 = getelementptr inbounds nuw i8, ptr %82, i64 4
+  %85 = load float, ptr %84, align 4, !tbaa !45
+  %86 = fmul float %.sroa.676.0.copyload, %85
+  %87 = tail call float @llvm.fmuladd.f32(float %83, float %.sroa.073.0.copyload, float %86)
+  %88 = getelementptr inbounds nuw i8, ptr %82, i64 8
+  %89 = load float, ptr %88, align 4, !tbaa !45
+  %90 = tail call noundef float @llvm.fmuladd.f32(float %89, float %.sroa.979.0.copyload, float %87)
+  %91 = fmul float %.sroa.073.0.copyload, %90
+  %92 = fmul float %.sroa.676.0.copyload, %90
+  %93 = fmul float %.sroa.979.0.copyload, %90
+  %94 = fsub float %83, %91
+  store float %94, ptr %82, align 4, !tbaa !45
+  %95 = fsub float %85, %92
+  store float %95, ptr %84, align 4, !tbaa !45
+  %96 = fsub float %89, %93
+  store float %96, ptr %88, align 4, !tbaa !45
+  br label %97
 
-96:                                               ; preds = %_ZNK9btVector38safeNormEv.exit.thread, %59, %78, %17
+97:                                               ; preds = %42, %60, %79, %17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %97 = load i32, ptr %3, align 4, !tbaa !239
-  %98 = sext i32 %97 to i64
-  %99 = icmp slt i64 %indvars.iv.next, %98
-  br i1 %99, label %9, label %._crit_edge, !llvm.loop !241
+  %98 = load i32, ptr %3, align 4, !tbaa !239
+  %99 = sext i32 %98 to i64
+  %100 = icmp slt i64 %indvars.iv.next, %99
+  br i1 %100, label %9, label %._crit_edge, !llvm.loop !241
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -9667,9 +9660,6 @@ declare void @llvm.trap() #15
 ; Function Attrs: nobuiltin nounwind
 declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #16
 
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare float @sqrtf(float noundef) local_unnamed_addr #17
-
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIS_I32btDeformableNodeAnchorConstraintEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %0) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -10559,7 +10549,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5flushEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: noreturn
-declare void @_ZSt16__throw_bad_castv() local_unnamed_addr #18
+declare void @_ZSt16__throw_bad_castv() local_unnamed_addr #17
 
 declare void @_ZNKSt5ctypeIcE13_M_widen_initEv(ptr noundef nonnull align 8 dereferenceable(570)) local_unnamed_addr #0
 
@@ -12547,17 +12537,17 @@ define linkonce_odr dso_local void @_ZN29btDeformableContactConstraintD2Ev(ptr n
 }
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_btDeformableContactProjection.cpp() #19 section ".text.startup" {
+define internal void @_GLOBAL__sub_I_btDeformableContactProjection.cpp() #18 section ".text.startup" {
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
   %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #20
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #19
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #20
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #19
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #2
@@ -12566,7 +12556,10 @@ declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_add
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #21
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #20
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.sqrt.f32(float) #21
 
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -12577,7 +12570,7 @@ attributes #5 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-wid
 attributes #6 = { mustprogress uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { mustprogress nofree norecurse nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
@@ -12585,11 +12578,11 @@ attributes #13 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" 
 attributes #14 = { cold nofree noreturn }
 attributes #15 = { cold noreturn nounwind memory(inaccessiblemem: write) }
 attributes #16 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #20 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #21 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #17 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #20 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #21 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #22 = { noreturn nounwind }
 attributes #23 = { nounwind }
 attributes #24 = { noreturn }

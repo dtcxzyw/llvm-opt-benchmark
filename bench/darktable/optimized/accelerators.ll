@@ -10774,8 +10774,8 @@ define range(i32 0, 2) i32 @dt_shortcut_dispatcher(ptr noundef %0, ptr noundef %
   %.not149 = icmp ne ptr %54, null
   %.pr = load i32, ptr %1, align 8, !tbaa !6
   %55 = icmp eq i32 %.pr, 4
-  %or.cond223 = select i1 %.not149, i1 %55, i1 false
-  br i1 %or.cond223, label %56, label %thread-pre-split
+  %or.cond224 = select i1 %.not149, i1 %55, i1 false
+  br i1 %or.cond224, label %56, label %thread-pre-split
 
 56:                                               ; preds = %.thread191
   tail call fastcc void @_ungrab_grab_widget()
@@ -10885,10 +10885,10 @@ thread-pre-split:                                 ; preds = %.thread191
     i32 12, label %156
     i32 31, label %171
     i32 3, label %198
-    i32 4, label %264
-    i32 5, label %295
-    i32 6, label %298
-    i32 7, label %301
+    i32 4, label %259
+    i32 5, label %290
+    i32 6, label %293
+    i32 7, label %296
   ]
 
 93:                                               ; preds = %91
@@ -11106,206 +11106,199 @@ thread-pre-split:                                 ; preds = %.thread191
   %207 = load i32, ptr @dt_shortcut_dispatcher.move_last_time, align 4, !tbaa !9
   %208 = load i32, ptr @_last_time, align 4, !tbaa !9
   %.not164 = icmp eq i32 %207, %208
-  br i1 %.not164, label %209, label %214
+  br i1 %.not164, label %210, label %209
 
 209:                                              ; preds = %198
-  %210 = fmul reassoc nsz arcp contract afn double %202, %202
-  %211 = fmul reassoc nsz arcp contract afn double %206, %206
-  %212 = fadd reassoc nsz arcp contract afn double %211, %210
-  %213 = fcmp reassoc nsz arcp contract afn olt double %212, 0.000000e+00
-  br i1 %213, label %214, label %215
-
-214:                                              ; preds = %209, %198
   store double %200, ptr @dt_shortcut_dispatcher.move_start_x, align 8, !tbaa !263
   store double %204, ptr @dt_shortcut_dispatcher.move_start_y, align 8, !tbaa !263
   store i32 %208, ptr @dt_shortcut_dispatcher.move_last_time, align 4, !tbaa !9
   br label %g_set_weak_pointer.exit
 
-215:                                              ; preds = %209
-  %216 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %217 = load i32, ptr %216, align 4, !tbaa !6
-  %218 = icmp ugt i32 %217, %207
-  br i1 %218, label %219, label %221
+210:                                              ; preds = %198
+  %211 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %212 = load i32, ptr %211, align 4, !tbaa !6
+  %213 = icmp ugt i32 %212, %207
+  br i1 %213, label %214, label %216
 
-219:                                              ; preds = %215
-  %220 = tail call i32 @dt_gui_long_click(i32 noundef %217, i32 noundef %207) #25
-  %.not165 = icmp eq i32 %220, 0
-  br i1 %.not165, label %g_set_weak_pointer.exit, label %221
+214:                                              ; preds = %210
+  %215 = tail call i32 @dt_gui_long_click(i32 noundef %212, i32 noundef %207) #25
+  %.not165 = icmp eq i32 %215, 0
+  br i1 %.not165, label %g_set_weak_pointer.exit, label %216
 
-221:                                              ; preds = %219, %215
-  %222 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %223 = load i32, ptr %222, align 8, !tbaa !6
-  %224 = tail call fastcc i32 @_key_modifiers_clean(i32 noundef %223)
-  store i32 %224, ptr getelementptr inbounds nuw (i8, ptr @_sc, i64 16), align 8, !tbaa !89
-  %225 = fadd reassoc nsz arcp contract afn double %206, 1.000000e-03
-  %226 = fdiv reassoc nsz arcp contract afn double %202, %225
-  %227 = fmul reassoc nsz arcp contract afn double %202, 1.000000e-01
-  %228 = tail call reassoc nsz arcp contract afn double @llvm.trunc.f64(double %227)
-  %229 = fmul reassoc nsz arcp contract afn double %206, 1.000000e-01
-  %230 = tail call reassoc nsz arcp contract afn double @llvm.trunc.f64(double %229)
-  %231 = fneg reassoc nsz arcp contract afn double %230
-  %232 = fcmp reassoc nsz arcp contract afn une double %228, 0.000000e+00
-  %233 = fcmp reassoc nsz arcp contract afn une double %230, 0.000000e+00
-  %or.cond = select i1 %232, i1 true, i1 %233
-  br i1 %or.cond, label %234, label %g_set_weak_pointer.exit
+216:                                              ; preds = %214, %210
+  %217 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %218 = load i32, ptr %217, align 8, !tbaa !6
+  %219 = tail call fastcc i32 @_key_modifiers_clean(i32 noundef %218)
+  store i32 %219, ptr getelementptr inbounds nuw (i8, ptr @_sc, i64 16), align 8, !tbaa !89
+  %220 = fadd reassoc nsz arcp contract afn double %206, 1.000000e-03
+  %221 = fdiv reassoc nsz arcp contract afn double %202, %220
+  %222 = fmul reassoc nsz arcp contract afn double %202, 1.000000e-01
+  %223 = tail call reassoc nsz arcp contract afn double @llvm.trunc.f64(double %222)
+  %224 = fmul reassoc nsz arcp contract afn double %206, 1.000000e-01
+  %225 = tail call reassoc nsz arcp contract afn double @llvm.trunc.f64(double %224)
+  %226 = fneg reassoc nsz arcp contract afn double %225
+  %227 = fcmp reassoc nsz arcp contract afn une double %223, 0.000000e+00
+  %228 = fcmp reassoc nsz arcp contract afn une double %225, 0.000000e+00
+  %or.cond = select i1 %227, i1 true, i1 %228
+  br i1 %or.cond, label %229, label %g_set_weak_pointer.exit
 
-234:                                              ; preds = %221
-  %235 = tail call reassoc nsz arcp contract afn double @llvm.fabs.f64(double %226)
-  %236 = fcmp reassoc nsz arcp contract afn ult double %235, 2.000000e+00
-  br i1 %236, label %242, label %237
+229:                                              ; preds = %216
+  %230 = tail call reassoc nsz arcp contract afn double @llvm.fabs.f64(double %221)
+  %231 = fcmp reassoc nsz arcp contract afn ult double %230, 2.000000e+00
+  br i1 %231, label %237, label %232
 
-237:                                              ; preds = %234
-  %238 = fmul reassoc nsz arcp contract afn double %228, 1.000000e+01
-  %239 = load double, ptr @dt_shortcut_dispatcher.move_start_x, align 8, !tbaa !263
-  %240 = fadd reassoc nsz arcp contract afn double %239, %238
-  store double %240, ptr @dt_shortcut_dispatcher.move_start_x, align 8, !tbaa !263
-  %241 = load double, ptr %203, align 8, !tbaa !6
-  store double %241, ptr @dt_shortcut_dispatcher.move_start_y, align 8, !tbaa !263
-  br label %255
+232:                                              ; preds = %229
+  %233 = fmul reassoc nsz arcp contract afn double %223, 1.000000e+01
+  %234 = load double, ptr @dt_shortcut_dispatcher.move_start_x, align 8, !tbaa !263
+  %235 = fadd reassoc nsz arcp contract afn double %234, %233
+  store double %235, ptr @dt_shortcut_dispatcher.move_start_x, align 8, !tbaa !263
+  %236 = load double, ptr %203, align 8, !tbaa !6
+  store double %236, ptr @dt_shortcut_dispatcher.move_start_y, align 8, !tbaa !263
+  br label %250
 
-242:                                              ; preds = %234
-  %243 = fmul reassoc nsz arcp contract afn double %230, -1.000000e+01
-  %244 = load double, ptr @dt_shortcut_dispatcher.move_start_y, align 8, !tbaa !263
-  %245 = fsub reassoc nsz arcp contract afn double %244, %243
-  store double %245, ptr @dt_shortcut_dispatcher.move_start_y, align 8, !tbaa !263
-  %246 = fcmp reassoc nsz arcp contract afn olt double %235, 5.000000e-01
-  br i1 %246, label %247, label %249
+237:                                              ; preds = %229
+  %238 = fmul reassoc nsz arcp contract afn double %225, -1.000000e+01
+  %239 = load double, ptr @dt_shortcut_dispatcher.move_start_y, align 8, !tbaa !263
+  %240 = fsub reassoc nsz arcp contract afn double %239, %238
+  store double %240, ptr @dt_shortcut_dispatcher.move_start_y, align 8, !tbaa !263
+  %241 = fcmp reassoc nsz arcp contract afn olt double %230, 5.000000e-01
+  br i1 %241, label %242, label %244
 
-247:                                              ; preds = %242
-  %248 = load double, ptr %199, align 8, !tbaa !6
-  store double %248, ptr @dt_shortcut_dispatcher.move_start_x, align 8, !tbaa !263
-  br label %255
+242:                                              ; preds = %237
+  %243 = load double, ptr %199, align 8, !tbaa !6
+  store double %243, ptr @dt_shortcut_dispatcher.move_start_x, align 8, !tbaa !263
+  br label %250
 
-249:                                              ; preds = %242
-  %250 = fmul reassoc nsz arcp contract afn double %243, %226
-  %251 = load double, ptr @dt_shortcut_dispatcher.move_start_x, align 8, !tbaa !263
-  %252 = fsub reassoc nsz arcp contract afn double %251, %250
-  store double %252, ptr @dt_shortcut_dispatcher.move_start_x, align 8, !tbaa !263
-  %253 = fcmp reassoc nsz arcp contract afn olt double %226, 0.000000e+00
-  %254 = select i1 %253, i32 6, i32 5
-  br label %255
+244:                                              ; preds = %237
+  %245 = fmul reassoc nsz arcp contract afn double %238, %221
+  %246 = load double, ptr @dt_shortcut_dispatcher.move_start_x, align 8, !tbaa !263
+  %247 = fsub reassoc nsz arcp contract afn double %246, %245
+  store double %247, ptr @dt_shortcut_dispatcher.move_start_x, align 8, !tbaa !263
+  %248 = fcmp reassoc nsz arcp contract afn olt double %221, 0.000000e+00
+  %249 = select i1 %248, i32 6, i32 5
+  br label %250
 
-255:                                              ; preds = %247, %249, %237
-  %.0125 = phi nsz double [ %228, %237 ], [ %231, %247 ], [ %231, %249 ]
-  %.0 = phi i32 [ 3, %237 ], [ 4, %247 ], [ %254, %249 ]
-  %256 = load i32, ptr @_previous_move, align 4, !tbaa !9
-  %257 = icmp eq i32 %256, %.0
-  %258 = icmp eq i32 %256, 0
-  %or.cond3 = or i1 %257, %258
-  br i1 %or.cond3, label %259, label %263
+250:                                              ; preds = %242, %244, %232
+  %.0125 = phi nsz double [ %223, %232 ], [ %226, %242 ], [ %226, %244 ]
+  %.0 = phi i32 [ 3, %232 ], [ 4, %242 ], [ %249, %244 ]
+  %251 = load i32, ptr @_previous_move, align 4, !tbaa !9
+  %252 = icmp eq i32 %251, %.0
+  %253 = icmp eq i32 %251, 0
+  %or.cond3 = or i1 %252, %253
+  br i1 %or.cond3, label %254, label %258
 
-259:                                              ; preds = %255
-  %260 = load i32, ptr %216, align 4, !tbaa !6
-  %261 = fptrunc reassoc nsz arcp contract afn double %.0125 to float
-  %262 = tail call reassoc nsz arcp contract afn float @dt_shortcut_move(i8 noundef zeroext 0, i32 noundef %260, i32 noundef %.0, float noundef %261)
+254:                                              ; preds = %250
+  %255 = load i32, ptr %211, align 4, !tbaa !6
+  %256 = fptrunc reassoc nsz arcp contract afn double %.0125 to float
+  %257 = tail call reassoc nsz arcp contract afn float @dt_shortcut_move(i8 noundef zeroext 0, i32 noundef %255, i32 noundef %.0, float noundef %256)
   br label %g_set_weak_pointer.exit
 
-263:                                              ; preds = %255
+258:                                              ; preds = %250
   store i32 %.0, ptr @_previous_move, align 4, !tbaa !9
   br label %g_set_weak_pointer.exit
 
-264:                                              ; preds = %91
-  %265 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %266 = load i32, ptr %265, align 8, !tbaa !6
-  %267 = tail call ptr @gdk_display_get_default() #25
-  %268 = tail call ptr @gdk_keymap_get_for_display(ptr noundef %267) #25
-  %269 = tail call i32 @gdk_keymap_get_modifier_mask(ptr noundef %268, i32 noundef 0) #25
-  %270 = or i32 %269, 141
-  %271 = and i32 %270, %266
-  %272 = load i32, ptr @dt_modifier_shortcuts, align 4, !tbaa !9
-  %273 = or i32 %271, %272
-  store i32 %273, ptr getelementptr inbounds nuw (i8, ptr @_sc, i64 16), align 8, !tbaa !89
-  %274 = getelementptr inbounds nuw i8, ptr %1, i64 52
-  %275 = load i32, ptr %274, align 4, !tbaa !6
-  %276 = add i32 %275, -1
-  %277 = shl nuw i32 1, %276
-  %278 = load i32, ptr @_pressed_button, align 4, !tbaa !9
-  %279 = or i32 %277, %278
-  store i32 %279, ptr @_pressed_button, align 4, !tbaa !9
-  %280 = load i32, ptr @_timeout_source, align 4, !tbaa !9
-  %.not.i188 = icmp eq i32 %280, 0
+259:                                              ; preds = %91
+  %260 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %261 = load i32, ptr %260, align 8, !tbaa !6
+  %262 = tail call ptr @gdk_display_get_default() #25
+  %263 = tail call ptr @gdk_keymap_get_for_display(ptr noundef %262) #25
+  %264 = tail call i32 @gdk_keymap_get_modifier_mask(ptr noundef %263, i32 noundef 0) #25
+  %265 = or i32 %264, 141
+  %266 = and i32 %265, %261
+  %267 = load i32, ptr @dt_modifier_shortcuts, align 4, !tbaa !9
+  %268 = or i32 %266, %267
+  store i32 %268, ptr getelementptr inbounds nuw (i8, ptr @_sc, i64 16), align 8, !tbaa !89
+  %269 = getelementptr inbounds nuw i8, ptr %1, i64 52
+  %270 = load i32, ptr %269, align 4, !tbaa !6
+  %271 = add i32 %270, -1
+  %272 = shl nuw i32 1, %271
+  %273 = load i32, ptr @_pressed_button, align 4, !tbaa !9
+  %274 = or i32 %272, %273
+  store i32 %274, ptr @_pressed_button, align 4, !tbaa !9
+  %275 = load i32, ptr @_timeout_source, align 4, !tbaa !9
+  %.not.i188 = icmp eq i32 %275, 0
   %.pre200 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_sc, i64 20), align 4
-  br i1 %.not.i188, label %_interrupt_delayed_release.exit, label %281
+  br i1 %.not.i188, label %_interrupt_delayed_release.exit, label %276
 
-281:                                              ; preds = %264
-  %282 = lshr i16 %.pre200, 3
-  %283 = and i16 %282, 7
-  %284 = zext nneg i16 %283 to i32
-  %.not199 = icmp eq i32 %279, %284
-  %285 = tail call i32 @g_source_remove(i32 noundef %280) #25
+276:                                              ; preds = %259
+  %277 = lshr i16 %.pre200, 3
+  %278 = and i16 %277, 7
+  %279 = zext nneg i16 %278 to i32
+  %.not199 = icmp eq i32 %274, %279
+  %280 = tail call i32 @g_source_remove(i32 noundef %275) #25
   store i32 0, ptr @_timeout_source, align 4, !tbaa !9
-  br i1 %.not199, label %288, label %286
+  br i1 %.not199, label %283, label %281
 
-286:                                              ; preds = %281
-  %287 = tail call reassoc nsz arcp contract afn float @dt_shortcut_move(i8 noundef zeroext 0, i32 noundef 0, i32 noundef 0, float noundef 1.000000e+00)
-  br label %288
+281:                                              ; preds = %276
+  %282 = tail call reassoc nsz arcp contract afn float @dt_shortcut_move(i8 noundef zeroext 0, i32 noundef 0, i32 noundef 0, float noundef 1.000000e+00)
+  br label %283
 
-288:                                              ; preds = %286, %281
-  %289 = load i32, ptr @_pressed_button, align 4, !tbaa !9
-  %290 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_sc, i64 20), align 4
+283:                                              ; preds = %281, %276
+  %284 = load i32, ptr @_pressed_button, align 4, !tbaa !9
+  %285 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_sc, i64 20), align 4
   br label %_interrupt_delayed_release.exit
 
-_interrupt_delayed_release.exit:                  ; preds = %264, %288
-  %.pre201.sink.in = phi i32 [ %289, %288 ], [ %279, %264 ]
-  %.pre200.sink = phi i16 [ %290, %288 ], [ %.pre200, %264 ]
+_interrupt_delayed_release.exit:                  ; preds = %259, %283
+  %.pre201.sink.in = phi i32 [ %284, %283 ], [ %274, %259 ]
+  %.pre200.sink = phi i16 [ %285, %283 ], [ %.pre200, %259 ]
   %.pre201.sink = trunc i32 %.pre201.sink.in to i16
   %.pre202 = shl i16 %.pre201.sink, 3
   %.pre204 = and i16 %.pre202, 56
-  %291 = and i16 %.pre200.sink, -505
-  %292 = or disjoint i16 %.pre204, %291
+  %286 = and i16 %.pre200.sink, -505
+  %287 = or disjoint i16 %.pre204, %286
+  store i16 %287, ptr getelementptr inbounds nuw (i8, ptr @_sc, i64 20), align 4
+  %288 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %289 = load i32, ptr %288, align 4, !tbaa !6
+  store i32 %289, ptr @_last_time, align 4, !tbaa !9
+  br label %g_set_weak_pointer.exit
+
+290:                                              ; preds = %91
+  %291 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_sc, i64 20), align 4
+  %292 = or i16 %291, 128
   store i16 %292, ptr getelementptr inbounds nuw (i8, ptr @_sc, i64 20), align 4
-  %293 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %294 = load i32, ptr %293, align 4, !tbaa !6
-  store i32 %294, ptr @_last_time, align 4, !tbaa !9
   br label %g_set_weak_pointer.exit
 
-295:                                              ; preds = %91
-  %296 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_sc, i64 20), align 4
-  %297 = or i16 %296, 128
-  store i16 %297, ptr getelementptr inbounds nuw (i8, ptr @_sc, i64 20), align 4
+293:                                              ; preds = %91
+  %294 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_sc, i64 20), align 4
+  %295 = or i16 %294, 256
+  store i16 %295, ptr getelementptr inbounds nuw (i8, ptr @_sc, i64 20), align 4
   br label %g_set_weak_pointer.exit
 
-298:                                              ; preds = %91
-  %299 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_sc, i64 20), align 4
-  %300 = or i16 %299, 256
-  store i16 %300, ptr getelementptr inbounds nuw (i8, ptr @_sc, i64 20), align 4
-  br label %g_set_weak_pointer.exit
+296:                                              ; preds = %91
+  %297 = getelementptr inbounds nuw i8, ptr %1, i64 52
+  %298 = load i32, ptr %297, align 4, !tbaa !6
+  %299 = add i32 %298, -1
+  %300 = shl nuw i32 1, %299
+  %301 = xor i32 %300, -1
+  %302 = load i32, ptr @_pressed_button, align 4, !tbaa !9
+  %303 = and i32 %302, %301
+  store i32 %303, ptr @_pressed_button, align 4, !tbaa !9
+  %304 = load i32, ptr @_timeout_source, align 4, !tbaa !9
+  %.not.i189 = icmp eq i32 %304, 0
+  br i1 %.not.i189, label %_interrupt_delayed_release.exit190, label %305
 
-301:                                              ; preds = %91
-  %302 = getelementptr inbounds nuw i8, ptr %1, i64 52
-  %303 = load i32, ptr %302, align 4, !tbaa !6
-  %304 = add i32 %303, -1
-  %305 = shl nuw i32 1, %304
-  %306 = xor i32 %305, -1
-  %307 = load i32, ptr @_pressed_button, align 4, !tbaa !9
-  %308 = and i32 %307, %306
-  store i32 %308, ptr @_pressed_button, align 4, !tbaa !9
-  %309 = load i32, ptr @_timeout_source, align 4, !tbaa !9
-  %.not.i189 = icmp eq i32 %309, 0
-  br i1 %.not.i189, label %_interrupt_delayed_release.exit190, label %310
-
-310:                                              ; preds = %301
-  %311 = tail call i32 @g_source_remove(i32 noundef %309) #25
+305:                                              ; preds = %296
+  %306 = tail call i32 @g_source_remove(i32 noundef %304) #25
   store i32 0, ptr @_timeout_source, align 4, !tbaa !9
-  %312 = load i32, ptr @_pressed_button, align 4, !tbaa !9
-  %313 = trunc i32 %312 to i16
-  %314 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_sc, i64 20), align 4
-  %315 = shl i16 %313, 3
-  %316 = and i16 %315, 56
-  %317 = and i16 %314, -505
-  %318 = or disjoint i16 %316, %317
-  store i16 %318, ptr getelementptr inbounds nuw (i8, ptr @_sc, i64 20), align 4
+  %307 = load i32, ptr @_pressed_button, align 4, !tbaa !9
+  %308 = trunc i32 %307 to i16
+  %309 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_sc, i64 20), align 4
+  %310 = shl i16 %308, 3
+  %311 = and i16 %310, 56
+  %312 = and i16 %309, -505
+  %313 = or disjoint i16 %311, %312
+  store i16 %313, ptr getelementptr inbounds nuw (i8, ptr @_sc, i64 20), align 4
   br label %_interrupt_delayed_release.exit190
 
-_interrupt_delayed_release.exit190:               ; preds = %301, %310
-  %319 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %320 = load i32, ptr %319, align 4, !tbaa !6
-  tail call fastcc void @_delay_for_double_triple(i32 noundef %320, i32 noundef 0)
+_interrupt_delayed_release.exit190:               ; preds = %296, %305
+  %314 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %315 = load i32, ptr %314, align 4, !tbaa !6
+  tail call fastcc void @_delay_for_double_triple(i32 noundef %315, i32 noundef 0)
   store i32 0, ptr @_last_time, align 4, !tbaa !9
   br label %g_set_weak_pointer.exit
 
-g_set_weak_pointer.exit:                          ; preds = %165, %164, %159, %.critedge179, %113, %135, %214, %_interrupt_delayed_release.exit, %295, %298, %_interrupt_delayed_release.exit190, %190, %192, %171, %219, %221, %263, %259, %91, %166, %147, %151, %139, %142, %125, %127, %130, %109, %93, %97, %97, %97, %97, %20, %21
-  %.0124 = phi i32 [ %.1, %.critedge179 ], [ 1, %113 ], [ 1, %20 ], [ 0, %91 ], [ 0, %93 ], [ 1, %109 ], [ 0, %125 ], [ 0, %139 ], [ 0, %147 ], [ 1, %21 ], [ 0, %97 ], [ 0, %97 ], [ 0, %97 ], [ 0, %97 ], [ 0, %130 ], [ 0, %127 ], [ 0, %142 ], [ 0, %151 ], [ 0, %166 ], [ 1, %259 ], [ 1, %263 ], [ 1, %221 ], [ 1, %219 ], [ 1, %171 ], [ 1, %192 ], [ 1, %190 ], [ 1, %_interrupt_delayed_release.exit190 ], [ 1, %298 ], [ 1, %295 ], [ 1, %_interrupt_delayed_release.exit ], [ 1, %214 ], [ 1, %135 ], [ 0, %159 ], [ 0, %164 ], [ 0, %165 ]
+g_set_weak_pointer.exit:                          ; preds = %165, %164, %159, %.critedge179, %113, %135, %209, %_interrupt_delayed_release.exit, %290, %293, %_interrupt_delayed_release.exit190, %190, %192, %171, %214, %216, %258, %254, %91, %166, %147, %151, %139, %142, %125, %127, %130, %109, %93, %97, %97, %97, %97, %20, %21
+  %.0124 = phi i32 [ %.1, %.critedge179 ], [ 1, %113 ], [ 1, %20 ], [ 0, %91 ], [ 0, %93 ], [ 1, %109 ], [ 0, %125 ], [ 0, %139 ], [ 0, %147 ], [ 1, %21 ], [ 0, %97 ], [ 0, %97 ], [ 0, %97 ], [ 0, %97 ], [ 0, %130 ], [ 0, %127 ], [ 0, %142 ], [ 0, %151 ], [ 0, %166 ], [ 1, %254 ], [ 1, %258 ], [ 1, %216 ], [ 1, %214 ], [ 1, %171 ], [ 1, %192 ], [ 1, %190 ], [ 1, %_interrupt_delayed_release.exit190 ], [ 1, %293 ], [ 1, %290 ], [ 1, %_interrupt_delayed_release.exit ], [ 1, %209 ], [ 1, %135 ], [ 0, %159 ], [ 0, %164 ], [ 0, %165 ]
   ret i32 %.0124
 }
 

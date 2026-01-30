@@ -69253,7 +69253,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZNS_1t8geometry6kernel5i
   %8 = alloca i32, align 4
   %9 = load i64, ptr %2, align 8, !tbaa !36
   %10 = icmp sgt i64 %9, 0
-  br i1 %10, label %11, label %133
+  br i1 %10, label %11, label %130
 
 11:                                               ; preds = %4
   %12 = add nsw i64 %9, -1
@@ -69296,7 +69296,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZNS_1t8geometry6kernel5i
   br label %35
 
 35:                                               ; preds = %.lr.ph, %"_ZZN6open3d1t8geometry6kernel5image18CreateNormalMapCPUERKNS_4core6TensorERS5_fENK3$_0clEl.exit"
-  %.014 = phi i64 [ %16, %.lr.ph ], [ %132, %"_ZZN6open3d1t8geometry6kernel5image18CreateNormalMapCPUERKNS_4core6TensorERS5_fENK3$_0clEl.exit" ]
+  %.014 = phi i64 [ %16, %.lr.ph ], [ %129, %"_ZZN6open3d1t8geometry6kernel5image18CreateNormalMapCPUERKNS_4core6TensorERS5_fENK3$_0clEl.exit" ]
   %36 = sdiv i64 %.014, %17
   %37 = srem i64 %.014, %17
   %38 = mul nsw i64 %20, %36
@@ -69306,7 +69306,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZNS_1t8geometry6kernel5i
   %42 = icmp slt i64 %36, %26
   %43 = icmp slt i64 %37, %27
   %or.cond.i = select i1 %42, i1 %43, i1 false
-  br i1 %or.cond.i, label %44, label %127
+  br i1 %or.cond.i, label %44, label %124
 
 44:                                               ; preds = %35
   %45 = mul nsw i64 %31, %36
@@ -69396,46 +69396,40 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZNS_1t8geometry6kernel5i
   %106 = fneg float %104
   %107 = fmul float %102, %106
   %108 = call float @llvm.fmuladd.f32(float %97, float %105, float %107)
-  store float %108, ptr %41, align 4, !tbaa !38
   %109 = fneg float %105
   %110 = fmul float %92, %109
   %111 = call float @llvm.fmuladd.f32(float %102, float %103, float %110)
   %112 = getelementptr inbounds nuw i8, ptr %41, i64 4
-  store float %111, ptr %112, align 4, !tbaa !38
   %113 = fneg float %103
   %114 = fmul float %97, %113
   %115 = call float @llvm.fmuladd.f32(float %92, float %104, float %114)
   %116 = getelementptr inbounds nuw i8, ptr %41, i64 8
-  store float %115, ptr %116, align 4, !tbaa !38
   %117 = fmul float %111, %111
   %118 = call float @llvm.fmuladd.f32(float %108, float %108, float %117)
   %119 = call float @llvm.fmuladd.f32(float %115, float %115, float %118)
-  %sqrtf.i = call float @sqrtf(float noundef %119) #38
-  %120 = fcmp olt float %sqrtf.i, 0x3EE4F8B580000000
-  %.sroa.speculated.i = select i1 %120, float 0x3EE4F8B580000000, float %sqrtf.i
-  %121 = load float, ptr %41, align 4, !tbaa !38
-  %122 = fdiv float %121, %.sroa.speculated.i
-  store float %122, ptr %41, align 4, !tbaa !38
-  %123 = load float, ptr %112, align 4, !tbaa !38
-  %124 = fdiv float %123, %.sroa.speculated.i
-  store float %124, ptr %112, align 4, !tbaa !38
-  %125 = load float, ptr %116, align 4, !tbaa !38
-  %126 = fdiv float %125, %.sroa.speculated.i
-  store float %126, ptr %116, align 4, !tbaa !38
+  %sqrt.i = call float @llvm.sqrt.f32(float %119)
+  %120 = fcmp olt float %sqrt.i, 0x3EE4F8B580000000
+  %.sroa.speculated.i = select i1 %120, float 0x3EE4F8B580000000, float %sqrt.i
+  %121 = fdiv float %108, %.sroa.speculated.i
+  store float %121, ptr %41, align 4, !tbaa !38
+  %122 = fdiv float %111, %.sroa.speculated.i
+  store float %122, ptr %112, align 4, !tbaa !38
+  %123 = fdiv float %115, %.sroa.speculated.i
+  store float %123, ptr %116, align 4, !tbaa !38
   br label %"_ZZN6open3d1t8geometry6kernel5image18CreateNormalMapCPUERKNS_4core6TensorERS5_fENK3$_0clEl.exit"
 
-127:                                              ; preds = %35
-  %128 = load float, ptr %28, align 8, !tbaa !1466
-  store float %128, ptr %41, align 4, !tbaa !38
-  %129 = getelementptr inbounds nuw i8, ptr %41, i64 4
-  store float %128, ptr %129, align 4, !tbaa !38
-  %130 = load float, ptr %28, align 8, !tbaa !1466
-  %131 = getelementptr inbounds nuw i8, ptr %41, i64 8
-  store float %130, ptr %131, align 4, !tbaa !38
+124:                                              ; preds = %35
+  %125 = load float, ptr %28, align 8, !tbaa !1466
+  store float %125, ptr %41, align 4, !tbaa !38
+  %126 = getelementptr inbounds nuw i8, ptr %41, i64 4
+  store float %125, ptr %126, align 4, !tbaa !38
+  %127 = load float, ptr %28, align 8, !tbaa !1466
+  %128 = getelementptr inbounds nuw i8, ptr %41, i64 8
+  store float %127, ptr %128, align 4, !tbaa !38
   br label %"_ZZN6open3d1t8geometry6kernel5image18CreateNormalMapCPUERKNS_4core6TensorERS5_fENK3$_0clEl.exit"
 
-"_ZZN6open3d1t8geometry6kernel5image18CreateNormalMapCPUERKNS_4core6TensorERS5_fENK3$_0clEl.exit": ; preds = %127, %._crit_edge.i, %.critedge.i
-  %132 = add i64 %.014, 1
+"_ZZN6open3d1t8geometry6kernel5image18CreateNormalMapCPUERKNS_4core6TensorERS5_fENK3$_0clEl.exit": ; preds = %124, %._crit_edge.i, %.critedge.i
+  %129 = add i64 %.014, 1
   %exitcond.not = icmp eq i64 %.014, %15
   br i1 %exitcond.not, label %._crit_edge, label %35
 
@@ -69445,9 +69439,9 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZNS_1t8geometry6kernel5i
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %133
+  br label %130
 
-133:                                              ; preds = %._crit_edge, %4
+130:                                              ; preds = %._crit_edge, %4
   ret void
 }
 
@@ -71664,8 +71658,6 @@ declare i32 @llvm.umax.i32(i32, i32) #29
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fabs.f64(double) #29
 
-declare float @sqrtf(float) local_unnamed_addr
-
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #31
 
@@ -71686,6 +71678,9 @@ declare i128 @llvm.ctlz.i128(i128, i1 immarg) #32
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #29
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.sqrt.f32(float) #29
 
 attributes #0 = { mustprogress ssp uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { inlinehint mustprogress nounwind ssp uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -71725,7 +71720,6 @@ attributes #34 = { builtin nounwind }
 attributes #35 = { noreturn }
 attributes #36 = { noreturn nounwind }
 attributes #37 = { nounwind willreturn memory(read) }
-attributes #38 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

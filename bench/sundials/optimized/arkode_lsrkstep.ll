@@ -1396,7 +1396,7 @@ define range(i32 -49, 1) i32 @lsrkStep_ComputeNewDomEig(ptr noundef %0, ptr noun
 
 25:                                               ; preds = %2
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -49, i32 noundef 2229, ptr noundef nonnull @__func__.lsrkStep_ComputeNewDomEig, ptr noundef nonnull @.str, ptr noundef nonnull @.str.40) #13
-  br label %64
+  br label %61
 
 26:                                               ; preds = %2
   %27 = load double, ptr %11, align 8, !tbaa !95
@@ -1408,18 +1408,18 @@ define range(i32 -49, 1) i32 @lsrkStep_ComputeNewDomEig(ptr noundef %0, ptr noun
 
 32:                                               ; preds = %26
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef null, i32 noundef -49, i32 noundef 2236, ptr noundef nonnull @__func__.lsrkStep_ComputeNewDomEig, ptr noundef nonnull @.str, ptr noundef nonnull @.str.41) #13
-  br label %64
+  br label %61
 
 33:                                               ; preds = %26
   %34 = fcmp une double %27, 0.000000e+00
   %.pre = load double, ptr %12, align 8, !tbaa !96
   %35 = fcmp ueq double %.pre, 0.000000e+00
-  %or.cond50 = select i1 %34, i1 true, i1 %35
-  br i1 %or.cond50, label %37, label %36
+  %or.cond49 = select i1 %34, i1 true, i1 %35
+  br i1 %or.cond49, label %37, label %36
 
 36:                                               ; preds = %33
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef null, i32 noundef -49, i32 noundef 2243, ptr noundef nonnull @__func__.lsrkStep_ComputeNewDomEig, ptr noundef nonnull @.str, ptr noundef nonnull @.str.42) #13
-  br label %64
+  br label %61
 
 37:                                               ; preds = %33
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 112
@@ -1431,45 +1431,39 @@ define range(i32 -49, 1) i32 @lsrkStep_ComputeNewDomEig(ptr noundef %0, ptr noun
   %42 = fmul double %41, %41
   %43 = tail call double @llvm.fmuladd.f64(double %40, double %40, double %42)
   %44 = fcmp ugt double %43, 0.000000e+00
-  br i1 %44, label %45, label %47
+  %sqrt = tail call double @llvm.sqrt.f64(double %43)
+  %45 = select i1 %44, double %sqrt, double 0.000000e+00
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  store double %45, ptr %46, align 8, !tbaa !69
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 136
+  store i32 1, ptr %47, align 8, !tbaa !55
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 816
+  %49 = load i64, ptr %48, align 8, !tbaa !80
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  store i64 %49, ptr %50, align 8, !tbaa !52
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 96
+  %52 = load double, ptr %51, align 8, !tbaa !97
+  %53 = fcmp ogt double %45, %52
+  %. = select i1 %53, double %45, double %52
+  store double %., ptr %51, align 8, !tbaa !97
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 104
+  %55 = load double, ptr %54, align 8, !tbaa !98
+  %56 = fcmp olt double %45, %55
+  %57 = icmp eq i64 %49, 0
+  %or.cond = select i1 %56, i1 true, i1 %57
+  br i1 %or.cond, label %58, label %59
 
-45:                                               ; preds = %37
-  %46 = tail call double @sqrt(double noundef %43) #13, !tbaa !66
-  br label %47
+58:                                               ; preds = %37
+  store double %45, ptr %54, align 8, !tbaa !98
+  br label %59
 
-47:                                               ; preds = %37, %45
-  %48 = phi double [ %46, %45 ], [ 0.000000e+00, %37 ]
-  %49 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  store double %48, ptr %49, align 8, !tbaa !69
-  %50 = getelementptr inbounds nuw i8, ptr %1, i64 136
-  store i32 1, ptr %50, align 8, !tbaa !55
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 816
-  %52 = load i64, ptr %51, align 8, !tbaa !80
-  %53 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  store i64 %52, ptr %53, align 8, !tbaa !52
-  %54 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  %55 = load double, ptr %54, align 8, !tbaa !97
-  %56 = fcmp ogt double %48, %55
-  %. = select i1 %56, double %48, double %55
-  store double %., ptr %54, align 8, !tbaa !97
-  %57 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %58 = load double, ptr %57, align 8, !tbaa !98
-  %59 = fcmp olt double %48, %58
-  %60 = icmp eq i64 %52, 0
-  %or.cond = select i1 %59, i1 true, i1 %60
-  br i1 %or.cond, label %61, label %62
+59:                                               ; preds = %37, %58
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 128
+  store i32 0, ptr %60, align 8, !tbaa !54
+  br label %61
 
-61:                                               ; preds = %47
-  store double %48, ptr %57, align 8, !tbaa !98
-  br label %62
-
-62:                                               ; preds = %47, %61
-  %63 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  store i32 0, ptr %63, align 8, !tbaa !54
-  br label %64
-
-64:                                               ; preds = %62, %36, %32, %25
-  %.0 = phi i32 [ -49, %25 ], [ -49, %32 ], [ -49, %36 ], [ 0, %62 ]
+61:                                               ; preds = %59, %36, %32, %25
+  %.0 = phi i32 [ -49, %25 ], [ -49, %32 ], [ -49, %36 ], [ 0, %59 ]
   ret i32 %.0
 }
 
@@ -3270,6 +3264,9 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 ; Function Attrs: nofree nounwind
 declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #10
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.sqrt.f64(double) #11
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #11

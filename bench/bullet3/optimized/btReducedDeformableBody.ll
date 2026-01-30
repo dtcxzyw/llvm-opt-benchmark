@@ -339,7 +339,7 @@ define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIfED2Ev(ptr noundef
   %12 = landingpad { ptr, i32 }
           catch ptr null
   %13 = extractvalue { ptr, i32 } %12, 0
-  tail call void @__clang_call_terminate(ptr %13) #25
+  tail call void @__clang_call_terminate(ptr %13) #26
   unreachable
 }
 
@@ -371,7 +371,7 @@ define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayI9btVector3ED2Ev(pt
   %12 = landingpad { ptr, i32 }
           catch ptr null
   %13 = extractvalue { ptr, i32 } %12, 0
-  tail call void @__clang_call_terminate(ptr %13) #25
+  tail call void @__clang_call_terminate(ptr %13) #26
   unreachable
 }
 
@@ -2369,7 +2369,7 @@ define dso_local void @_ZN23btReducedDeformableBody20updateLocalMomentArmEv(ptr 
   %41 = landingpad { ptr, i32 }
           catch ptr null
   %42 = extractvalue { ptr, i32 } %41, 0
-  tail call void @__clang_call_terminate(ptr %42) #25
+  tail call void @__clang_call_terminate(ptr %42) #26
   unreachable
 
 _ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit:   ; preds = %1, %._crit_edge, %._crit_edge.thread54
@@ -2379,7 +2379,7 @@ _ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit:   ; preds = %1, %._crit_edge, %.
 43:                                               ; preds = %10
   %44 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN20btAlignedObjectArrayI9btVector3ED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %2) #26
+  call void @_ZN20btAlignedObjectArrayI9btVector3ED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %2) #27
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %44
 
@@ -2470,7 +2470,7 @@ define dso_local void @_ZN23btReducedDeformableBody32updateExternalForceProjectM
   %20 = landingpad { ptr, i32 }
           catch ptr null
   %21 = extractvalue { ptr, i32 } %20, 0
-  call void @__clang_call_terminate(ptr %21) #25
+  call void @__clang_call_terminate(ptr %21) #26
   unreachable
 
 _ZN20btAlignedObjectArrayIfED2Ev.exit:            ; preds = %14, %18
@@ -2505,7 +2505,7 @@ _ZN20btAlignedObjectArrayIfED2Ev.exit:            ; preds = %14, %18
   %34 = landingpad { ptr, i32 }
           catch ptr null
   %35 = extractvalue { ptr, i32 } %34, 0
-  call void @__clang_call_terminate(ptr %35) #25
+  call void @__clang_call_terminate(ptr %35) #26
   unreachable
 
 _ZN20btAlignedObjectArrayIfED2Ev.exit50:          ; preds = %28, %32
@@ -2706,14 +2706,14 @@ _ZN20btAlignedObjectArrayIfE6resizeEiRKf.exit75:  ; preds = %.lr.ph.i52, %_ZN20b
 105:                                              ; preds = %6
   %106 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN20btAlignedObjectArrayIfED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %3) #26
+  call void @_ZN20btAlignedObjectArrayIfED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %3) #27
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %343
 
 107:                                              ; preds = %_ZN20btAlignedObjectArrayIfED2Ev.exit
   %108 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN20btAlignedObjectArrayIfED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %4) #26
+  call void @_ZN20btAlignedObjectArrayIfED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %4) #27
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %343
 
@@ -3177,7 +3177,7 @@ define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIS_IfEE6resizeEiRKS
   %19 = landingpad { ptr, i32 }
           catch ptr null
   %20 = extractvalue { ptr, i32 } %19, 0
-  tail call void @__clang_call_terminate(ptr %20) #25
+  tail call void @__clang_call_terminate(ptr %20) #26
   unreachable
 
 _ZN20btAlignedObjectArrayIfED2Ev.exit:            ; preds = %9, %17
@@ -3407,46 +3407,40 @@ define linkonce_odr dso_local void @_ZN15btTransformUtil18integrateTransformERK1
   %31 = load float, ptr %30, align 4, !tbaa !138
   %32 = tail call noundef float @llvm.fmuladd.f32(float %31, float %31, float %29)
   %33 = fcmp ogt float %32, 0x3E80000000000000
-  br i1 %33, label %34, label %36
+  %sqrt = tail call float @llvm.sqrt.f32(float %32)
+  %.0 = select i1 %33, float %sqrt, float 0.000000e+00
+  %34 = fmul float %3, %.0
+  %35 = fcmp ogt float %34, 0x3FE921FB60000000
+  %36 = fdiv float 0x3FE921FB60000000, %3
+  %.1 = select i1 %35, float %36, float %.0
+  %37 = fcmp olt float %.1, 0x3F50624DE0000000
+  br i1 %37, label %38, label %46
 
-34:                                               ; preds = %5
-  %35 = tail call noundef float @sqrtf(float noundef %32) #26, !tbaa !169
-  br label %36
+38:                                               ; preds = %5
+  %39 = fmul float %3, %3
+  %40 = fmul float %3, %39
+  %41 = fmul float %40, 0x3F95555560000000
+  %42 = fmul float %41, %.1
+  %43 = fneg float %.1
+  %44 = fmul float %42, %43
+  %45 = tail call float @llvm.fmuladd.f32(float %3, float 5.000000e-01, float %44)
+  br label %51
 
-36:                                               ; preds = %34, %5
-  %.0 = phi float [ %35, %34 ], [ 0.000000e+00, %5 ]
-  %37 = fmul float %3, %.0
-  %38 = fcmp ogt float %37, 0x3FE921FB60000000
-  %39 = fdiv float 0x3FE921FB60000000, %3
-  %.1 = select i1 %38, float %39, float %.0
-  %40 = fcmp olt float %.1, 0x3F50624DE0000000
-  br i1 %40, label %41, label %49
+46:                                               ; preds = %5
+  %47 = fmul float %.1, 5.000000e-01
+  %48 = fmul float %3, %47
+  %49 = tail call noundef float @sinf(float noundef %48) #27, !tbaa !169
+  %50 = fdiv float %49, %.1
+  br label %51
 
-41:                                               ; preds = %36
-  %42 = fmul float %3, %3
-  %43 = fmul float %3, %42
-  %44 = fmul float %43, 0x3F95555560000000
-  %45 = fmul float %44, %.1
-  %46 = fneg float %.1
-  %47 = fmul float %45, %46
-  %48 = tail call float @llvm.fmuladd.f32(float %3, float 5.000000e-01, float %47)
-  br label %54
-
-49:                                               ; preds = %36
-  %50 = fmul float %.1, 5.000000e-01
-  %51 = fmul float %3, %50
-  %52 = tail call noundef float @sinf(float noundef %51) #26, !tbaa !169
-  %53 = fdiv float %52, %.1
-  br label %54
-
-54:                                               ; preds = %49, %41
-  %.sink85 = phi float [ %53, %49 ], [ %48, %41 ]
-  %55 = fmul float %25, %.sink85
-  %56 = fmul float %27, %.sink85
-  %57 = fmul float %31, %.sink85
-  %58 = fmul float %3, %.1
-  %59 = fmul float %58, 5.000000e-01
-  %60 = tail call noundef float @cosf(float noundef %59) #26, !tbaa !169
+51:                                               ; preds = %46, %38
+  %.sink84 = phi float [ %50, %46 ], [ %45, %38 ]
+  %52 = fmul float %25, %.sink84
+  %53 = fmul float %27, %.sink84
+  %54 = fmul float %31, %.sink84
+  %55 = fmul float %3, %.1
+  %56 = fmul float %55, 5.000000e-01
+  %57 = tail call noundef float @cosf(float noundef %56) #27, !tbaa !169
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZNK11btMatrix3x311getRotationER12btQuaternion(ptr noundef nonnull align 4 dereferenceable(64) %0, ptr noundef nonnull align 4 dereferenceable(16) %6)
   %.fca.0.load.i = load <2 x float>, ptr %6, align 8
@@ -3455,128 +3449,128 @@ define linkonce_odr dso_local void @_ZN15btTransformUtil18integrateTransformERK1
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.sroa.064.0.vec.extract = extractelement <2 x float> %.fca.0.load.i, i64 0
   %.sroa.5.12.vec.extract = extractelement <2 x float> %.fca.1.load.i, i64 1
-  %61 = fmul float %55, %.sroa.5.12.vec.extract
-  %62 = call float @llvm.fmuladd.f32(float %60, float %.sroa.064.0.vec.extract, float %61)
+  %58 = fmul float %52, %.sroa.5.12.vec.extract
+  %59 = call float @llvm.fmuladd.f32(float %57, float %.sroa.064.0.vec.extract, float %58)
   %.sroa.5.8.vec.extract = extractelement <2 x float> %.fca.1.load.i, i64 0
-  %63 = call float @llvm.fmuladd.f32(float %56, float %.sroa.5.8.vec.extract, float %62)
+  %60 = call float @llvm.fmuladd.f32(float %53, float %.sroa.5.8.vec.extract, float %59)
   %.sroa.064.4.vec.extract = extractelement <2 x float> %.fca.0.load.i, i64 1
-  %64 = fneg float %57
-  %65 = call float @llvm.fmuladd.f32(float %64, float %.sroa.064.4.vec.extract, float %63)
-  %66 = fmul float %56, %.sroa.5.12.vec.extract
-  %67 = call float @llvm.fmuladd.f32(float %60, float %.sroa.064.4.vec.extract, float %66)
-  %68 = call float @llvm.fmuladd.f32(float %57, float %.sroa.064.0.vec.extract, float %67)
-  %69 = fneg float %55
-  %70 = call float @llvm.fmuladd.f32(float %69, float %.sroa.5.8.vec.extract, float %68)
-  %71 = fmul float %57, %.sroa.5.12.vec.extract
-  %72 = call float @llvm.fmuladd.f32(float %60, float %.sroa.5.8.vec.extract, float %71)
-  %73 = call float @llvm.fmuladd.f32(float %55, float %.sroa.064.4.vec.extract, float %72)
-  %74 = fneg float %56
-  %75 = call float @llvm.fmuladd.f32(float %74, float %.sroa.064.0.vec.extract, float %73)
-  %76 = fneg float %.sroa.064.0.vec.extract
-  %77 = fmul float %55, %76
-  %78 = call float @llvm.fmuladd.f32(float %60, float %.sroa.5.12.vec.extract, float %77)
-  %79 = call float @llvm.fmuladd.f32(float %74, float %.sroa.064.4.vec.extract, float %78)
-  %80 = call float @llvm.fmuladd.f32(float %64, float %.sroa.5.8.vec.extract, float %79)
-  %.sroa.0.0.vec.insert.i39 = insertelement <2 x float> poison, float %65, i64 0
-  %.sroa.0.4.vec.insert.i40 = insertelement <2 x float> %.sroa.0.0.vec.insert.i39, float %70, i64 1
-  %.sroa.3.8.vec.insert.i = insertelement <2 x float> poison, float %75, i64 0
-  %.sroa.3.12.vec.insert.i41 = insertelement <2 x float> %.sroa.3.8.vec.insert.i, float %80, i64 1
-  %81 = fmul float %70, %70
-  %82 = call float @llvm.fmuladd.f32(float %65, float %65, float %81)
-  %83 = call float @llvm.fmuladd.f32(float %75, float %75, float %82)
-  %84 = call noundef float @llvm.fmuladd.f32(float %80, float %80, float %83)
-  %85 = fcmp ogt float %84, 0x3E80000000000000
-  br i1 %85, label %86, label %_ZN12btQuaternion13safeNormalizeEv.exit
+  %61 = fneg float %54
+  %62 = call float @llvm.fmuladd.f32(float %61, float %.sroa.064.4.vec.extract, float %60)
+  %63 = fmul float %53, %.sroa.5.12.vec.extract
+  %64 = call float @llvm.fmuladd.f32(float %57, float %.sroa.064.4.vec.extract, float %63)
+  %65 = call float @llvm.fmuladd.f32(float %54, float %.sroa.064.0.vec.extract, float %64)
+  %66 = fneg float %52
+  %67 = call float @llvm.fmuladd.f32(float %66, float %.sroa.5.8.vec.extract, float %65)
+  %68 = fmul float %54, %.sroa.5.12.vec.extract
+  %69 = call float @llvm.fmuladd.f32(float %57, float %.sroa.5.8.vec.extract, float %68)
+  %70 = call float @llvm.fmuladd.f32(float %52, float %.sroa.064.4.vec.extract, float %69)
+  %71 = fneg float %53
+  %72 = call float @llvm.fmuladd.f32(float %71, float %.sroa.064.0.vec.extract, float %70)
+  %73 = fneg float %.sroa.064.0.vec.extract
+  %74 = fmul float %52, %73
+  %75 = call float @llvm.fmuladd.f32(float %57, float %.sroa.5.12.vec.extract, float %74)
+  %76 = call float @llvm.fmuladd.f32(float %71, float %.sroa.064.4.vec.extract, float %75)
+  %77 = call float @llvm.fmuladd.f32(float %61, float %.sroa.5.8.vec.extract, float %76)
+  %.sroa.0.0.vec.insert.i39 = insertelement <2 x float> poison, float %62, i64 0
+  %.sroa.0.4.vec.insert.i40 = insertelement <2 x float> %.sroa.0.0.vec.insert.i39, float %67, i64 1
+  %.sroa.3.8.vec.insert.i = insertelement <2 x float> poison, float %72, i64 0
+  %.sroa.3.12.vec.insert.i41 = insertelement <2 x float> %.sroa.3.8.vec.insert.i, float %77, i64 1
+  %78 = fmul float %67, %67
+  %79 = call float @llvm.fmuladd.f32(float %62, float %62, float %78)
+  %80 = call float @llvm.fmuladd.f32(float %72, float %72, float %79)
+  %81 = call noundef float @llvm.fmuladd.f32(float %77, float %77, float %80)
+  %82 = fcmp ogt float %81, 0x3E80000000000000
+  br i1 %82, label %83, label %_ZN12btQuaternion13safeNormalizeEv.exit
 
-86:                                               ; preds = %54
-  %87 = call noundef float @sqrtf(float noundef %84) #26, !tbaa !169
-  %88 = fdiv float 1.000000e+00, %87
-  %89 = fmul float %65, %88
-  %.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %89, i64 0
-  %90 = fmul float %70, %88
-  %.sroa.0.4.vec.insert = insertelement <2 x float> %.sroa.0.0.vec.insert, float %90, i64 1
-  %91 = fmul float %75, %88
-  %.sroa.11.8.vec.insert = insertelement <2 x float> poison, float %91, i64 0
-  %92 = fmul float %80, %88
-  %.sroa.11.12.vec.insert = insertelement <2 x float> %.sroa.11.8.vec.insert, float %92, i64 1
+83:                                               ; preds = %51
+  %sqrt.i.i.i = call noundef float @llvm.sqrt.f32(float %81)
+  %84 = fdiv float 1.000000e+00, %sqrt.i.i.i
+  %85 = fmul float %62, %84
+  %.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %85, i64 0
+  %86 = fmul float %67, %84
+  %.sroa.0.4.vec.insert = insertelement <2 x float> %.sroa.0.0.vec.insert, float %86, i64 1
+  %87 = fmul float %72, %84
+  %.sroa.11.8.vec.insert = insertelement <2 x float> poison, float %87, i64 0
+  %88 = fmul float %77, %84
+  %.sroa.11.12.vec.insert = insertelement <2 x float> %.sroa.11.8.vec.insert, float %88, i64 1
   br label %_ZN12btQuaternion13safeNormalizeEv.exit
 
-_ZN12btQuaternion13safeNormalizeEv.exit:          ; preds = %54, %86
-  %.sroa.11.0 = phi <2 x float> [ %.sroa.11.12.vec.insert, %86 ], [ %.sroa.3.12.vec.insert.i41, %54 ]
-  %.sroa.0.0 = phi <2 x float> [ %.sroa.0.4.vec.insert, %86 ], [ %.sroa.0.4.vec.insert.i40, %54 ]
+_ZN12btQuaternion13safeNormalizeEv.exit:          ; preds = %51, %83
+  %.sroa.11.0 = phi <2 x float> [ %.sroa.11.12.vec.insert, %83 ], [ %.sroa.3.12.vec.insert.i41, %51 ]
+  %.sroa.0.0 = phi <2 x float> [ %.sroa.0.4.vec.insert, %83 ], [ %.sroa.0.4.vec.insert.i40, %51 ]
   %.sroa.0.0.vec.extract46 = extractelement <2 x float> %.sroa.0.0, i64 0
   %.sroa.0.4.vec.extract51 = extractelement <2 x float> %.sroa.0.0, i64 1
-  %93 = fmul float %.sroa.0.4.vec.extract51, %.sroa.0.4.vec.extract51
-  %94 = call float @llvm.fmuladd.f32(float %.sroa.0.0.vec.extract46, float %.sroa.0.0.vec.extract46, float %93)
+  %89 = fmul float %.sroa.0.4.vec.extract51, %.sroa.0.4.vec.extract51
+  %90 = call float @llvm.fmuladd.f32(float %.sroa.0.0.vec.extract46, float %.sroa.0.0.vec.extract46, float %89)
   %.sroa.11.8.vec.extract56 = extractelement <2 x float> %.sroa.11.0, i64 0
-  %95 = call float @llvm.fmuladd.f32(float %.sroa.11.8.vec.extract56, float %.sroa.11.8.vec.extract56, float %94)
+  %91 = call float @llvm.fmuladd.f32(float %.sroa.11.8.vec.extract56, float %.sroa.11.8.vec.extract56, float %90)
   %.sroa.11.12.vec.extract61 = extractelement <2 x float> %.sroa.11.0, i64 1
-  %96 = call noundef float @llvm.fmuladd.f32(float %.sroa.11.12.vec.extract61, float %.sroa.11.12.vec.extract61, float %95)
-  %97 = fcmp ogt float %96, 0x3E80000000000000
-  br i1 %97, label %98, label %135
+  %92 = call noundef float @llvm.fmuladd.f32(float %.sroa.11.12.vec.extract61, float %.sroa.11.12.vec.extract61, float %91)
+  %93 = fcmp ogt float %92, 0x3E80000000000000
+  br i1 %93, label %94, label %131
 
-98:                                               ; preds = %_ZN12btQuaternion13safeNormalizeEv.exit
-  %99 = fdiv float 2.000000e+00, %96
-  %100 = fmul float %.sroa.0.0.vec.extract46, %99
-  %101 = fmul float %.sroa.0.4.vec.extract51, %99
-  %102 = fmul float %.sroa.11.8.vec.extract56, %99
-  %103 = fmul float %.sroa.11.12.vec.extract61, %100
-  %104 = fmul float %.sroa.11.12.vec.extract61, %101
-  %105 = fmul float %.sroa.11.12.vec.extract61, %102
-  %106 = fmul float %.sroa.0.0.vec.extract46, %100
-  %107 = fmul float %.sroa.0.0.vec.extract46, %101
-  %108 = fmul float %.sroa.0.0.vec.extract46, %102
-  %109 = fmul float %.sroa.0.4.vec.extract51, %101
-  %110 = fmul float %.sroa.0.4.vec.extract51, %102
-  %111 = fmul float %.sroa.11.8.vec.extract56, %102
-  %112 = fadd float %109, %111
-  %113 = fsub float 1.000000e+00, %112
-  %114 = fsub float %107, %105
-  %115 = fadd float %108, %104
-  %116 = fadd float %107, %105
-  %117 = fadd float %106, %111
-  %118 = fsub float 1.000000e+00, %117
-  %119 = fsub float %110, %103
-  %120 = fsub float %108, %104
-  %121 = fadd float %110, %103
-  %122 = fadd float %106, %109
-  %123 = fsub float 1.000000e+00, %122
-  store float %113, ptr %4, align 4, !tbaa !138
-  %124 = getelementptr inbounds nuw i8, ptr %4, i64 4
+94:                                               ; preds = %_ZN12btQuaternion13safeNormalizeEv.exit
+  %95 = fdiv float 2.000000e+00, %92
+  %96 = fmul float %.sroa.0.0.vec.extract46, %95
+  %97 = fmul float %.sroa.0.4.vec.extract51, %95
+  %98 = fmul float %.sroa.11.8.vec.extract56, %95
+  %99 = fmul float %.sroa.11.12.vec.extract61, %96
+  %100 = fmul float %.sroa.11.12.vec.extract61, %97
+  %101 = fmul float %.sroa.11.12.vec.extract61, %98
+  %102 = fmul float %.sroa.0.0.vec.extract46, %96
+  %103 = fmul float %.sroa.0.0.vec.extract46, %97
+  %104 = fmul float %.sroa.0.0.vec.extract46, %98
+  %105 = fmul float %.sroa.0.4.vec.extract51, %97
+  %106 = fmul float %.sroa.0.4.vec.extract51, %98
+  %107 = fmul float %.sroa.11.8.vec.extract56, %98
+  %108 = fadd float %105, %107
+  %109 = fsub float 1.000000e+00, %108
+  %110 = fsub float %103, %101
+  %111 = fadd float %104, %100
+  %112 = fadd float %103, %101
+  %113 = fadd float %102, %107
+  %114 = fsub float 1.000000e+00, %113
+  %115 = fsub float %106, %99
+  %116 = fsub float %104, %100
+  %117 = fadd float %106, %99
+  %118 = fadd float %102, %105
+  %119 = fsub float 1.000000e+00, %118
+  store float %109, ptr %4, align 4, !tbaa !138
+  %120 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  store float %110, ptr %120, align 4, !tbaa !138
+  %121 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store float %111, ptr %121, align 4, !tbaa !138
+  %122 = getelementptr inbounds nuw i8, ptr %4, i64 12
+  store float 0.000000e+00, ptr %122, align 4, !tbaa !138
+  %123 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store float %112, ptr %123, align 4, !tbaa !138
+  %124 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store float %114, ptr %124, align 4, !tbaa !138
-  %125 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %125 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store float %115, ptr %125, align 4, !tbaa !138
-  %126 = getelementptr inbounds nuw i8, ptr %4, i64 12
+  %126 = getelementptr inbounds nuw i8, ptr %4, i64 28
   store float 0.000000e+00, ptr %126, align 4, !tbaa !138
-  %127 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %127 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store float %116, ptr %127, align 4, !tbaa !138
-  %128 = getelementptr inbounds nuw i8, ptr %4, i64 20
-  store float %118, ptr %128, align 4, !tbaa !138
-  %129 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %128 = getelementptr inbounds nuw i8, ptr %4, i64 36
+  store float %117, ptr %128, align 4, !tbaa !138
+  %129 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store float %119, ptr %129, align 4, !tbaa !138
-  %130 = getelementptr inbounds nuw i8, ptr %4, i64 28
+  %130 = getelementptr inbounds nuw i8, ptr %4, i64 44
   store float 0.000000e+00, ptr %130, align 4, !tbaa !138
-  %131 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store float %120, ptr %131, align 4, !tbaa !138
-  %132 = getelementptr inbounds nuw i8, ptr %4, i64 36
-  store float %121, ptr %132, align 4, !tbaa !138
-  %133 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  store float %123, ptr %133, align 4, !tbaa !138
-  %134 = getelementptr inbounds nuw i8, ptr %4, i64 44
-  store float 0.000000e+00, ptr %134, align 4, !tbaa !138
-  br label %140
+  br label %136
 
-135:                                              ; preds = %_ZN12btQuaternion13safeNormalizeEv.exit
+131:                                              ; preds = %_ZN12btQuaternion13safeNormalizeEv.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %4, ptr noundef nonnull align 4 dereferenceable(48) %0, i64 16, i1 false), !tbaa.struct !149
-  %136 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %137 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %137, ptr noundef nonnull align 4 dereferenceable(16) %136, i64 16, i1 false), !tbaa.struct !149
-  %138 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %139 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %139, ptr noundef nonnull align 4 dereferenceable(16) %138, i64 16, i1 false), !tbaa.struct !149
-  br label %140
+  %132 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %133 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %133, ptr noundef nonnull align 4 dereferenceable(16) %132, i64 16, i1 false), !tbaa.struct !149
+  %134 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %135 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %135, ptr noundef nonnull align 4 dereferenceable(16) %134, i64 16, i1 false), !tbaa.struct !149
+  br label %136
 
-140:                                              ; preds = %135, %98
+136:                                              ; preds = %131, %94
   ret void
 }
 
@@ -5767,7 +5761,7 @@ define dso_local void @_ZN23btReducedDeformableBody16getImpulseFactorEi(ptr dead
 231:                                              ; preds = %222
   %232 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN20btAlignedObjectArrayI9btVector3ED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %5) #26
+  call void @_ZN20btAlignedObjectArrayI9btVector3ED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %5) #27
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %232
@@ -6166,7 +6160,7 @@ define dso_local void @_ZN23btReducedDeformableBody16getImpulseFactorEi(ptr dead
   %513 = landingpad { ptr, i32 }
           catch ptr null
   %514 = extractvalue { ptr, i32 } %513, 0
-  tail call void @__clang_call_terminate(ptr %514) #25
+  tail call void @__clang_call_terminate(ptr %514) #26
   unreachable
 
 _ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit:   ; preds = %506, %511
@@ -6278,7 +6272,7 @@ define dso_local void @_ZN23btReducedDeformableBody29internalApplyFullSpaceImpul
 62:                                               ; preds = %29
   %63 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN20btAlignedObjectArrayIfED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %7) #26
+  call void @_ZN20btAlignedObjectArrayIfED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %7) #27
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   resume { ptr, i32 } %63
 
@@ -6307,7 +6301,7 @@ define dso_local void @_ZN23btReducedDeformableBody29internalApplyFullSpaceImpul
   %72 = landingpad { ptr, i32 }
           catch ptr null
   %73 = extractvalue { ptr, i32 } %72, 0
-  tail call void @__clang_call_terminate(ptr %73) #25
+  tail call void @__clang_call_terminate(ptr %73) #26
   unreachable
 
 _ZN20btAlignedObjectArrayIfED2Ev.exit:            ; preds = %11, %._crit_edge31, %._crit_edge31.thread44
@@ -6427,7 +6421,7 @@ define dso_local void @_ZN23btReducedDeformableBody24applyFullSpaceNodalForceERK
   %60 = landingpad { ptr, i32 }
           catch ptr null
   %61 = extractvalue { ptr, i32 } %60, 0
-  tail call void @__clang_call_terminate(ptr %61) #25
+  tail call void @__clang_call_terminate(ptr %61) #26
   unreachable
 
 _ZN20btAlignedObjectArrayIfED2Ev.exit:            ; preds = %3, %._crit_edge, %._crit_edge.thread31
@@ -6438,7 +6432,7 @@ _ZN20btAlignedObjectArrayIfED2Ev.exit:            ; preds = %3, %._crit_edge, %.
 62:                                               ; preds = %46
   %63 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN20btAlignedObjectArrayIfED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %5) #26
+  call void @_ZN20btAlignedObjectArrayIfED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %5) #27
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %63
@@ -6644,7 +6638,7 @@ define linkonce_odr dso_local void @_ZN23btReducedDeformableBodyD2Ev(ptr noundef
   %9 = landingpad { ptr, i32 }
           catch ptr null
   %10 = extractvalue { ptr, i32 } %9, 0
-  tail call void @__clang_call_terminate(ptr %10) #25
+  tail call void @__clang_call_terminate(ptr %10) #26
   unreachable
 
 _ZN20btAlignedObjectArrayIiED2Ev.exit:            ; preds = %1, %7
@@ -6671,7 +6665,7 @@ _ZN20btAlignedObjectArrayIiED2Ev.exit:            ; preds = %1, %7
   %20 = landingpad { ptr, i32 }
           catch ptr null
   %21 = extractvalue { ptr, i32 } %20, 0
-  tail call void @__clang_call_terminate(ptr %21) #25
+  tail call void @__clang_call_terminate(ptr %21) #26
   unreachable
 
 _ZN20btAlignedObjectArrayIiED2Ev.exit3:           ; preds = %_ZN20btAlignedObjectArrayIiED2Ev.exit, %18
@@ -6698,7 +6692,7 @@ _ZN20btAlignedObjectArrayIiED2Ev.exit3:           ; preds = %_ZN20btAlignedObjec
   %31 = landingpad { ptr, i32 }
           catch ptr null
   %32 = extractvalue { ptr, i32 } %31, 0
-  tail call void @__clang_call_terminate(ptr %32) #25
+  tail call void @__clang_call_terminate(ptr %32) #26
   unreachable
 
 _ZN20btAlignedObjectArrayIfED2Ev.exit:            ; preds = %_ZN20btAlignedObjectArrayIiED2Ev.exit3, %29
@@ -6725,7 +6719,7 @@ _ZN20btAlignedObjectArrayIfED2Ev.exit:            ; preds = %_ZN20btAlignedObjec
   %42 = landingpad { ptr, i32 }
           catch ptr null
   %43 = extractvalue { ptr, i32 } %42, 0
-  tail call void @__clang_call_terminate(ptr %43) #25
+  tail call void @__clang_call_terminate(ptr %43) #26
   unreachable
 
 _ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit:   ; preds = %_ZN20btAlignedObjectArrayIfED2Ev.exit, %40
@@ -6752,7 +6746,7 @@ _ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit:   ; preds = %_ZN20btAlignedObjec
   %53 = landingpad { ptr, i32 }
           catch ptr null
   %54 = extractvalue { ptr, i32 } %53, 0
-  tail call void @__clang_call_terminate(ptr %54) #25
+  tail call void @__clang_call_terminate(ptr %54) #26
   unreachable
 
 _ZN20btAlignedObjectArrayIfED2Ev.exit10:          ; preds = %_ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit, %51
@@ -6779,7 +6773,7 @@ _ZN20btAlignedObjectArrayIfED2Ev.exit10:          ; preds = %_ZN20btAlignedObjec
   %64 = landingpad { ptr, i32 }
           catch ptr null
   %65 = extractvalue { ptr, i32 } %64, 0
-  tail call void @__clang_call_terminate(ptr %65) #25
+  tail call void @__clang_call_terminate(ptr %65) #26
   unreachable
 
 _ZN20btAlignedObjectArrayIfED2Ev.exit13:          ; preds = %_ZN20btAlignedObjectArrayIfED2Ev.exit10, %62
@@ -6806,7 +6800,7 @@ _ZN20btAlignedObjectArrayIfED2Ev.exit13:          ; preds = %_ZN20btAlignedObjec
   %75 = landingpad { ptr, i32 }
           catch ptr null
   %76 = extractvalue { ptr, i32 } %75, 0
-  tail call void @__clang_call_terminate(ptr %76) #25
+  tail call void @__clang_call_terminate(ptr %76) #26
   unreachable
 
 _ZN20btAlignedObjectArrayIfED2Ev.exit16:          ; preds = %_ZN20btAlignedObjectArrayIfED2Ev.exit13, %73
@@ -6833,7 +6827,7 @@ _ZN20btAlignedObjectArrayIfED2Ev.exit16:          ; preds = %_ZN20btAlignedObjec
   %86 = landingpad { ptr, i32 }
           catch ptr null
   %87 = extractvalue { ptr, i32 } %86, 0
-  tail call void @__clang_call_terminate(ptr %87) #25
+  tail call void @__clang_call_terminate(ptr %87) #26
   unreachable
 
 _ZN20btAlignedObjectArrayIfED2Ev.exit19:          ; preds = %_ZN20btAlignedObjectArrayIfED2Ev.exit16, %84
@@ -6860,7 +6854,7 @@ _ZN20btAlignedObjectArrayIfED2Ev.exit19:          ; preds = %_ZN20btAlignedObjec
   %97 = landingpad { ptr, i32 }
           catch ptr null
   %98 = extractvalue { ptr, i32 } %97, 0
-  tail call void @__clang_call_terminate(ptr %98) #25
+  tail call void @__clang_call_terminate(ptr %98) #26
   unreachable
 
 _ZN20btAlignedObjectArrayIfED2Ev.exit22:          ; preds = %_ZN20btAlignedObjectArrayIfED2Ev.exit19, %95
@@ -6887,7 +6881,7 @@ _ZN20btAlignedObjectArrayIfED2Ev.exit22:          ; preds = %_ZN20btAlignedObjec
   %108 = landingpad { ptr, i32 }
           catch ptr null
   %109 = extractvalue { ptr, i32 } %108, 0
-  tail call void @__clang_call_terminate(ptr %109) #25
+  tail call void @__clang_call_terminate(ptr %109) #26
   unreachable
 
 _ZN20btAlignedObjectArrayIfED2Ev.exit25:          ; preds = %_ZN20btAlignedObjectArrayIfED2Ev.exit22, %106
@@ -6914,7 +6908,7 @@ _ZN20btAlignedObjectArrayIfED2Ev.exit25:          ; preds = %_ZN20btAlignedObjec
   %119 = landingpad { ptr, i32 }
           catch ptr null
   %120 = extractvalue { ptr, i32 } %119, 0
-  tail call void @__clang_call_terminate(ptr %120) #25
+  tail call void @__clang_call_terminate(ptr %120) #26
   unreachable
 
 _ZN20btAlignedObjectArrayIfED2Ev.exit28:          ; preds = %_ZN20btAlignedObjectArrayIfED2Ev.exit25, %117
@@ -6941,7 +6935,7 @@ _ZN20btAlignedObjectArrayIfED2Ev.exit28:          ; preds = %_ZN20btAlignedObjec
   %130 = landingpad { ptr, i32 }
           catch ptr null
   %131 = extractvalue { ptr, i32 } %130, 0
-  tail call void @__clang_call_terminate(ptr %131) #25
+  tail call void @__clang_call_terminate(ptr %131) #26
   unreachable
 
 _ZN20btAlignedObjectArrayIfED2Ev.exit31:          ; preds = %_ZN20btAlignedObjectArrayIfED2Ev.exit28, %128
@@ -6968,7 +6962,7 @@ _ZN20btAlignedObjectArrayIfED2Ev.exit31:          ; preds = %_ZN20btAlignedObjec
   %141 = landingpad { ptr, i32 }
           catch ptr null
   %142 = extractvalue { ptr, i32 } %141, 0
-  tail call void @__clang_call_terminate(ptr %142) #25
+  tail call void @__clang_call_terminate(ptr %142) #26
   unreachable
 
 _ZN20btAlignedObjectArrayIfED2Ev.exit34:          ; preds = %_ZN20btAlignedObjectArrayIfED2Ev.exit31, %139
@@ -7009,7 +7003,7 @@ _ZN20btAlignedObjectArrayIfED2Ev.exit34:          ; preds = %_ZN20btAlignedObjec
   %159 = landingpad { ptr, i32 }
           catch ptr null
   %160 = extractvalue { ptr, i32 } %159, 0
-  tail call void @__clang_call_terminate(ptr %160) #25
+  tail call void @__clang_call_terminate(ptr %160) #26
   unreachable
 
 _ZN20btAlignedObjectArrayIfED2Ev.exit.i.i.i:      ; preds = %157, %149
@@ -7041,7 +7035,7 @@ _ZN20btAlignedObjectArrayIS_IfEE7destroyEii.exit.i.i: ; preds = %_ZN20btAlignedO
   %171 = landingpad { ptr, i32 }
           catch ptr null
   %172 = extractvalue { ptr, i32 } %171, 0
-  tail call void @__clang_call_terminate(ptr %172) #25
+  tail call void @__clang_call_terminate(ptr %172) #26
   unreachable
 
 _ZN20btAlignedObjectArrayIS_IfEED2Ev.exit:        ; preds = %_ZN20btAlignedObjectArrayIS_IfEE7destroyEii.exit.i.i, %169
@@ -7067,7 +7061,7 @@ _ZN20btAlignedObjectArrayIS_IfEED2Ev.exit:        ; preds = %_ZN20btAlignedObjec
   %181 = landingpad { ptr, i32 }
           catch ptr null
   %182 = extractvalue { ptr, i32 } %181, 0
-  tail call void @__clang_call_terminate(ptr %182) #25
+  tail call void @__clang_call_terminate(ptr %182) #26
   unreachable
 
 _ZN20btAlignedObjectArrayIfED2Ev.exit39:          ; preds = %_ZN20btAlignedObjectArrayIS_IfEED2Ev.exit, %179
@@ -7094,7 +7088,7 @@ _ZN20btAlignedObjectArrayIfED2Ev.exit39:          ; preds = %_ZN20btAlignedObjec
   %192 = landingpad { ptr, i32 }
           catch ptr null
   %193 = extractvalue { ptr, i32 } %192, 0
-  tail call void @__clang_call_terminate(ptr %193) #25
+  tail call void @__clang_call_terminate(ptr %193) #26
   unreachable
 
 _ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit42: ; preds = %_ZN20btAlignedObjectArrayIfED2Ev.exit39, %190
@@ -7121,7 +7115,7 @@ _ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit42: ; preds = %_ZN20btAlignedObjec
   %203 = landingpad { ptr, i32 }
           catch ptr null
   %204 = extractvalue { ptr, i32 } %203, 0
-  tail call void @__clang_call_terminate(ptr %204) #25
+  tail call void @__clang_call_terminate(ptr %204) #26
   unreachable
 
 _ZN20btAlignedObjectArrayIfED2Ev.exit45:          ; preds = %_ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit42, %201
@@ -7148,7 +7142,7 @@ _ZN20btAlignedObjectArrayIfED2Ev.exit45:          ; preds = %_ZN20btAlignedObjec
   %214 = landingpad { ptr, i32 }
           catch ptr null
   %215 = extractvalue { ptr, i32 } %214, 0
-  tail call void @__clang_call_terminate(ptr %215) #25
+  tail call void @__clang_call_terminate(ptr %215) #26
   unreachable
 
 _ZN20btAlignedObjectArrayIfED2Ev.exit48:          ; preds = %_ZN20btAlignedObjectArrayIfED2Ev.exit45, %212
@@ -7189,7 +7183,7 @@ _ZN20btAlignedObjectArrayIfED2Ev.exit48:          ; preds = %_ZN20btAlignedObjec
   %232 = landingpad { ptr, i32 }
           catch ptr null
   %233 = extractvalue { ptr, i32 } %232, 0
-  tail call void @__clang_call_terminate(ptr %233) #25
+  tail call void @__clang_call_terminate(ptr %233) #26
   unreachable
 
 _ZN20btAlignedObjectArrayIfED2Ev.exit.i.i.i57:    ; preds = %230, %222
@@ -7221,7 +7215,7 @@ _ZN20btAlignedObjectArrayIS_IfEE7destroyEii.exit.i.i49: ; preds = %_ZN20btAligne
   %244 = landingpad { ptr, i32 }
           catch ptr null
   %245 = extractvalue { ptr, i32 } %244, 0
-  tail call void @__clang_call_terminate(ptr %245) #25
+  tail call void @__clang_call_terminate(ptr %245) #26
   unreachable
 
 _ZN20btAlignedObjectArrayIS_IfEED2Ev.exit59:      ; preds = %_ZN20btAlignedObjectArrayIS_IfEE7destroyEii.exit.i.i49, %242
@@ -7261,7 +7255,7 @@ _ZN20btAlignedObjectArrayIS_IfEED2Ev.exit59:      ; preds = %_ZN20btAlignedObjec
   %261 = landingpad { ptr, i32 }
           catch ptr null
   %262 = extractvalue { ptr, i32 } %261, 0
-  tail call void @__clang_call_terminate(ptr %262) #25
+  tail call void @__clang_call_terminate(ptr %262) #26
   unreachable
 
 _ZN20btAlignedObjectArrayIfED2Ev.exit.i.i.i68:    ; preds = %259, %251
@@ -7293,7 +7287,7 @@ _ZN20btAlignedObjectArrayIS_IfEE7destroyEii.exit.i.i60: ; preds = %_ZN20btAligne
   %273 = landingpad { ptr, i32 }
           catch ptr null
   %274 = extractvalue { ptr, i32 } %273, 0
-  tail call void @__clang_call_terminate(ptr %274) #25
+  tail call void @__clang_call_terminate(ptr %274) #26
   unreachable
 
 _ZN20btAlignedObjectArrayIS_IfEED2Ev.exit70:      ; preds = %_ZN20btAlignedObjectArrayIS_IfEE7destroyEii.exit.i.i60, %271
@@ -7302,13 +7296,13 @@ _ZN20btAlignedObjectArrayIS_IfEED2Ev.exit70:      ; preds = %_ZN20btAlignedObjec
   store i32 0, ptr %247, align 4, !tbaa !117
   %275 = getelementptr inbounds nuw i8, ptr %0, i64 2088
   store i32 0, ptr %275, align 8, !tbaa !118
-  tail call void @_ZN10btSoftBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(2064) %0) #26
+  tail call void @_ZN10btSoftBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(2064) %0) #27
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN23btReducedDeformableBodyD0Ev(ptr noundef nonnull align 8 dereferenceable(3176) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  tail call void @_ZN23btReducedDeformableBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(3176) %0) #26
+  tail call void @_ZN23btReducedDeformableBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(3176) %0) #27
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %0)
           to label %_ZN17btCollisionObjectdlEPv.exit unwind label %2
 
@@ -7316,7 +7310,7 @@ define linkonce_odr dso_local void @_ZN23btReducedDeformableBodyD0Ev(ptr noundef
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #25
+  tail call void @__clang_call_terminate(ptr %4) #26
   unreachable
 
 _ZN17btCollisionObjectdlEPv.exit:                 ; preds = %1
@@ -7410,7 +7404,7 @@ define linkonce_odr dso_local void @_ZNK11btMatrix3x311getRotationER12btQuaterni
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = fadd float %10, 1.000000e+00
-  %16 = tail call noundef float @sqrtf(float noundef %15) #26, !tbaa !169
+  %16 = tail call noundef float @sqrtf(float noundef %15) #27, !tbaa !169
   %17 = fmul float %16, 5.000000e-01
   %18 = fdiv float 5.000000e-01, %16
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 36
@@ -7459,7 +7453,7 @@ define linkonce_odr dso_local void @_ZNK11btMatrix3x311getRotationER12btQuaterni
   %58 = load float, ptr %57, align 4, !tbaa !138
   %59 = fsub float %54, %58
   %60 = fadd float %59, 1.000000e+00
-  %61 = tail call noundef float @sqrtf(float noundef %60) #26, !tbaa !169
+  %61 = tail call noundef float @sqrtf(float noundef %60) #27, !tbaa !169
   %62 = fmul float %61, 5.000000e-01
   %63 = getelementptr inbounds nuw float, ptr %3, i64 %46
   store float %62, ptr %63, align 4, !tbaa !138
@@ -7516,8 +7510,8 @@ declare void @_Z21btAlignedFreeInternalPv(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: noinline noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #20 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #26
-  tail call void @_ZSt9terminatev() #25
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #27
+  tail call void @_ZSt9terminatev() #26
   unreachable
 }
 
@@ -7674,7 +7668,7 @@ _ZNK20btAlignedObjectArrayIS_IfEE4copyEiiPS0_.exit: ; preds = %_ZN20btAlignedObj
   %57 = landingpad { ptr, i32 }
           catch ptr null
   %58 = extractvalue { ptr, i32 } %57, 0
-  tail call void @__clang_call_terminate(ptr %58) #25
+  tail call void @__clang_call_terminate(ptr %58) #26
   unreachable
 
 _ZN20btAlignedObjectArrayIfED2Ev.exit.i:          ; preds = %55, %47
@@ -7718,7 +7712,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIc
 ; Function Attrs: uwtable
 define internal void @_GLOBAL__sub_I_btReducedDeformableBody.cpp() #22 section ".text.startup" {
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #26
+  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #27
   ret void
 }
 
@@ -7730,6 +7724,9 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #23
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #24
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.sqrt.f32(float) #25
 
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -7756,8 +7753,9 @@ attributes #21 = { cold nofree noreturn }
 attributes #22 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #23 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #24 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #25 = { noreturn nounwind }
-attributes #26 = { nounwind }
+attributes #25 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #26 = { noreturn nounwind }
+attributes #27 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

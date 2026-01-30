@@ -1443,7 +1443,7 @@ declare float @sinf(float noundef) local_unnamed_addr #6
 ; Function Attrs: mustprogress uwtable
 define void @_Z15appendArrowHeadP11duDebugDrawPKfS2_fj(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, float noundef %3, i32 noundef %4) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %92, label %6
+  br i1 %.not, label %77, label %6
 
 6:                                                ; preds = %5
   %7 = load float, ptr %1, align 4
@@ -1463,7 +1463,7 @@ define void @_Z15appendArrowHeadP11duDebugDrawPKfS2_fj(ptr noundef %0, ptr nound
   %21 = tail call float @llvm.fmuladd.f32(float %9, float %9, float %20)
   %22 = tail call noundef float @llvm.fmuladd.f32(float %19, float %19, float %21)
   %23 = fcmp olt float %22, 0x3EB0C6F7C0000000
-  br i1 %23, label %92, label %24
+  br i1 %23, label %77, label %24
 
 24:                                               ; preds = %6
   %25 = fsub float %8, %7
@@ -1472,88 +1472,65 @@ define void @_Z15appendArrowHeadP11duDebugDrawPKfS2_fj(ptr noundef %0, ptr nound
   %28 = fmul float %26, %26
   %29 = tail call float @llvm.fmuladd.f32(float %25, float %25, float %28)
   %30 = tail call float @llvm.fmuladd.f32(float %27, float %27, float %29)
-  %31 = tail call float @sqrtf(float noundef %30) #15
-  %32 = fdiv float 1.000000e+00, %31
-  %33 = fmul float %25, %32
-  %34 = fmul float %26, %32
-  %35 = fmul float %27, %32
-  %36 = fmul float %34, 0.000000e+00
-  %37 = fsub float %35, %36
-  %38 = fmul float %35, -0.000000e+00
-  %39 = tail call float @llvm.fmuladd.f32(float %33, float 0.000000e+00, float %38)
-  %40 = fneg float %33
-  %41 = tail call float @llvm.fmuladd.f32(float %34, float 0.000000e+00, float %40)
-  %42 = fneg float %39
-  %43 = fmul float %35, %42
-  %44 = tail call float @llvm.fmuladd.f32(float %34, float %41, float %43)
-  %45 = fneg float %41
-  %46 = fmul float %33, %45
-  %47 = tail call float @llvm.fmuladd.f32(float %35, float %37, float %46)
-  %48 = fneg float %37
-  %49 = fmul float %34, %48
-  %50 = tail call float @llvm.fmuladd.f32(float %33, float %39, float %49)
-  %51 = fmul float %47, %47
-  %52 = tail call float @llvm.fmuladd.f32(float %44, float %44, float %51)
-  %53 = tail call float @llvm.fmuladd.f32(float %50, float %50, float %52)
-  %54 = fcmp olt float %53, 0.000000e+00
-  br i1 %54, label %cdce.call, label %cdce.end, !prof !18
-
-cdce.call:                                        ; preds = %24
-  %55 = tail call float @sqrtf(float noundef %53) #15
-  br label %cdce.end
-
-cdce.end:                                         ; preds = %24, %cdce.call
-  %56 = load ptr, ptr %0, align 8
-  %57 = getelementptr inbounds nuw i8, ptr %56, i64 40
-  %58 = load ptr, ptr %57, align 8
-  tail call void %58(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %1, i32 noundef %4)
-  %59 = load float, ptr %1, align 4
-  %60 = tail call float @llvm.fmuladd.f32(float %33, float %3, float %59)
-  %61 = fmul float %3, %37
-  %62 = fdiv float %61, 3.000000e+00
-  %63 = fadd float %62, %60
-  %64 = load float, ptr %10, align 4
-  %65 = tail call float @llvm.fmuladd.f32(float %34, float %3, float %64)
-  %66 = fmul float %3, %39
-  %67 = fdiv float %66, 3.000000e+00
-  %68 = fadd float %67, %65
-  %69 = load float, ptr %15, align 4
-  %70 = tail call float @llvm.fmuladd.f32(float %35, float %3, float %69)
-  %71 = fmul float %3, %41
-  %72 = fdiv float %71, 3.000000e+00
-  %73 = fadd float %72, %70
+  %sqrt.i = tail call float @llvm.sqrt.f32(float %30)
+  %31 = fdiv float 1.000000e+00, %sqrt.i
+  %32 = fmul float %25, %31
+  %33 = fmul float %26, %31
+  %34 = fmul float %27, %31
+  %35 = fmul float %33, 0.000000e+00
+  %36 = fsub float %34, %35
+  %37 = fmul float %34, -0.000000e+00
+  %38 = tail call float @llvm.fmuladd.f32(float %32, float 0.000000e+00, float %37)
+  %39 = fneg float %32
+  %40 = tail call float @llvm.fmuladd.f32(float %33, float 0.000000e+00, float %39)
+  %41 = load ptr, ptr %0, align 8
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 40
+  %43 = load ptr, ptr %42, align 8
+  tail call void %43(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %1, i32 noundef %4)
+  %44 = load float, ptr %1, align 4
+  %45 = tail call float @llvm.fmuladd.f32(float %32, float %3, float %44)
+  %46 = fmul float %3, %36
+  %47 = fdiv float %46, 3.000000e+00
+  %48 = fadd float %47, %45
+  %49 = load float, ptr %10, align 4
+  %50 = tail call float @llvm.fmuladd.f32(float %33, float %3, float %49)
+  %51 = fmul float %3, %38
+  %52 = fdiv float %51, 3.000000e+00
+  %53 = fadd float %52, %50
+  %54 = load float, ptr %15, align 4
+  %55 = tail call float @llvm.fmuladd.f32(float %34, float %3, float %54)
+  %56 = fmul float %3, %40
+  %57 = fdiv float %56, 3.000000e+00
+  %58 = fadd float %57, %55
+  %59 = load ptr, ptr %0, align 8
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 48
+  %61 = load ptr, ptr %60, align 8
+  tail call void %61(ptr noundef nonnull align 8 dereferenceable(8) %0, float noundef %48, float noundef %53, float noundef %58, i32 noundef %4)
+  %62 = load ptr, ptr %0, align 8
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 40
+  %64 = load ptr, ptr %63, align 8
+  tail call void %64(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %1, i32 noundef %4)
+  %65 = load float, ptr %1, align 4
+  %66 = tail call float @llvm.fmuladd.f32(float %32, float %3, float %65)
+  %67 = fsub float %66, %47
+  %68 = load float, ptr %10, align 4
+  %69 = tail call float @llvm.fmuladd.f32(float %33, float %3, float %68)
+  %70 = fsub float %69, %52
+  %71 = load float, ptr %15, align 4
+  %72 = tail call float @llvm.fmuladd.f32(float %34, float %3, float %71)
+  %73 = fsub float %72, %57
   %74 = load ptr, ptr %0, align 8
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 48
   %76 = load ptr, ptr %75, align 8
-  tail call void %76(ptr noundef nonnull align 8 dereferenceable(8) %0, float noundef %63, float noundef %68, float noundef %73, i32 noundef %4)
-  %77 = load ptr, ptr %0, align 8
-  %78 = getelementptr inbounds nuw i8, ptr %77, i64 40
-  %79 = load ptr, ptr %78, align 8
-  tail call void %79(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %1, i32 noundef %4)
-  %80 = load float, ptr %1, align 4
-  %81 = tail call float @llvm.fmuladd.f32(float %33, float %3, float %80)
-  %82 = fsub float %81, %62
-  %83 = load float, ptr %10, align 4
-  %84 = tail call float @llvm.fmuladd.f32(float %34, float %3, float %83)
-  %85 = fsub float %84, %67
-  %86 = load float, ptr %15, align 4
-  %87 = tail call float @llvm.fmuladd.f32(float %35, float %3, float %86)
-  %88 = fsub float %87, %72
-  %89 = load ptr, ptr %0, align 8
-  %90 = getelementptr inbounds nuw i8, ptr %89, i64 48
-  %91 = load ptr, ptr %90, align 8
-  tail call void %91(ptr noundef nonnull align 8 dereferenceable(8) %0, float noundef %82, float noundef %85, float noundef %88, i32 noundef %4)
-  br label %92
+  tail call void %76(ptr noundef nonnull align 8 dereferenceable(8) %0, float noundef %67, float noundef %70, float noundef %73, i32 noundef %4)
+  br label %77
 
-92:                                               ; preds = %6, %5, %cdce.end
+77:                                               ; preds = %6, %5, %24
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
-
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare float @sqrtf(float noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN13duDisplayListC2Ei(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(41) initializes((0, 41)) %0, i32 noundef %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
@@ -1879,7 +1856,7 @@ define void @_ZN13duDisplayList4drawEP11duDebugDraw(ptr noundef nonnull readonly
   %33 = load i32, ptr %4, align 8
   %34 = sext i32 %33 to i64
   %35 = icmp slt i64 %indvars.iv.next, %34
-  br i1 %35, label %24, label %._crit_edge, !llvm.loop !19
+  br i1 %35, label %24, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %24, %6
   %36 = load ptr, ptr %1, align 8
@@ -1948,5 +1925,4 @@ attributes #17 = { builtin nounwind }
 !15 = distinct !{!15, !5}
 !16 = distinct !{!16, !5}
 !17 = distinct !{!17, !5}
-!18 = !{!"branch_weights", i32 1, i32 1048575}
-!19 = distinct !{!19, !5}
+!18 = distinct !{!18, !5}

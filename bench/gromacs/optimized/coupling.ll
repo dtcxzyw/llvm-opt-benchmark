@@ -4680,7 +4680,7 @@ _ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj64EEEEEfRT_.exit26: ; 
 
 44:                                               ; preds = %_ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj64EEEEEfRT_.exit26
   %45 = fpext float %40 to double
-  %46 = tail call noundef float @logf(float noundef %40) #21, !tbaa !134
+  %46 = tail call float @llvm.log.f32(float %40), !tbaa !134
   %47 = fpext float %46 to double
   %48 = fmul double %47, -2.000000e+00
   %49 = fdiv double %48, %45
@@ -8395,7 +8395,7 @@ _ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj64EEEEEfRT_.exit26.i: 
 
 255:                                              ; preds = %_ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj64EEEEEfRT_.exit26.i
   %256 = fpext float %251 to double
-  %257 = tail call noundef float @logf(float noundef %251) #21, !tbaa !134
+  %257 = tail call float @llvm.log.f32(float %251), !tbaa !134
   %258 = fpext float %257 to double
   %259 = fmul double %258, -2.000000e+00
   %260 = fdiv double %259, %256

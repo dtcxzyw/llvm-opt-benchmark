@@ -5,7 +5,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef zeroext i1 @b2IsValidFloat(float noundef %0) local_unnamed_addr #0 {
-  %2 = tail call float @llvm.fabs.f32(float %0) #6
+  %2 = tail call float @llvm.fabs.f32(float %0) #5
   %.0 = fcmp one float %2, 0x7FF0000000000000
   ret i1 %.0
 }
@@ -25,9 +25,9 @@ define zeroext i1 @b2IsValidVec2(<2 x float> %0) local_unnamed_addr #2 {
   br i1 %4, label %10, label %5
 
 5:                                                ; preds = %3
-  %6 = tail call float @llvm.fabs.f32(float %.sroa.0.0.vec.extract) #6
+  %6 = tail call float @llvm.fabs.f32(float %.sroa.0.0.vec.extract) #5
   %7 = fcmp une float %6, 0x7FF0000000000000
-  %8 = tail call float @llvm.fabs.f32(float %.sroa.0.4.vec.extract) #6
+  %8 = tail call float @llvm.fabs.f32(float %.sroa.0.4.vec.extract) #5
   %9 = fcmp une float %8, 0x7FF0000000000000
   %or.cond.not = and i1 %7, %9
   br label %10
@@ -49,9 +49,9 @@ define zeroext i1 @b2IsValidRotation(<2 x float> %0) local_unnamed_addr #2 {
   br i1 %4, label %17, label %5
 
 5:                                                ; preds = %3
-  %6 = tail call float @llvm.fabs.f32(float %.sroa.0.4.vec.extract) #6
+  %6 = tail call float @llvm.fabs.f32(float %.sroa.0.4.vec.extract) #5
   %7 = fcmp oeq float %6, 0x7FF0000000000000
-  %8 = tail call float @llvm.fabs.f32(float %.sroa.0.0.vec.extract) #6
+  %8 = tail call float @llvm.fabs.f32(float %.sroa.0.0.vec.extract) #5
   %9 = fcmp oeq float %8, 0x7FF0000000000000
   %or.cond = or i1 %7, %9
   br i1 %or.cond, label %17, label %10
@@ -114,7 +114,7 @@ define float @b2Atan2(float noundef %0, float noundef %1) local_unnamed_addr #0 
   ret float %.0
 }
 
-; Function Attrs: nofree norecurse nounwind memory(errnomem: write) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
 define <2 x float> @b2ComputeCosSin(float noundef %0) local_unnamed_addr #3 {
   %2 = fcmp ogt float %0, 0x400921FB60000000
   br i1 %2, label %.lr.ph.i, label %.preheader.i
@@ -187,22 +187,19 @@ b2UnwindLargeAngle.exit:                          ; preds = %.lr.ph7.i, %.prehea
   %40 = fmul float %39, %39
   %41 = fmul float %29, %29
   %42 = fadd float %41, %40
-  %43 = tail call float @sqrtf(float noundef %42) #7, !tbaa !6
-  %44 = fcmp ogt float %43, 0.000000e+00
-  %45 = fdiv float 1.000000e+00, %43
-  %46 = select i1 %44, float %45, float 0.000000e+00
-  %47 = fmul float %29, %46
-  %.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %47, i64 0
-  %48 = fmul float %39, %46
-  %.sroa.0.4.vec.insert = insertelement <2 x float> %.sroa.0.0.vec.insert, float %48, i64 1
+  %sqrt = tail call float @llvm.sqrt.f32(float %42)
+  %43 = fcmp ogt float %42, 0.000000e+00
+  %44 = fdiv float 1.000000e+00, %sqrt
+  %45 = select i1 %43, float %44, float 0.000000e+00
+  %46 = fmul float %29, %45
+  %.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %46, i64 0
+  %47 = fmul float %39, %45
+  %.sroa.0.4.vec.insert = insertelement <2 x float> %.sroa.0.0.vec.insert, float %47, i64 1
   ret <2 x float> %.sroa.0.4.vec.insert
 }
 
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare float @sqrtf(float noundef) local_unnamed_addr #4
-
-; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(errnomem: write) uwtable
-define <2 x float> @b2ComputeRotationBetweenUnitVectors(<2 x float> %0, <2 x float> %1) local_unnamed_addr #5 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
+define <2 x float> @b2ComputeRotationBetweenUnitVectors(<2 x float> %0, <2 x float> %1) local_unnamed_addr #2 {
   %.sroa.01.0.vec.extract.i = extractelement <2 x float> %0, i64 0
   %.sroa.0.0.vec.extract.i = extractelement <2 x float> %1, i64 0
   %foldExtExtBinop = fmul <2 x float> %0, %1
@@ -217,25 +214,26 @@ define <2 x float> @b2ComputeRotationBetweenUnitVectors(<2 x float> %0, <2 x flo
   %9 = fmul float %8, %8
   %10 = fmul float %5, %5
   %11 = fadd float %9, %10
-  %12 = tail call float @sqrtf(float noundef %11) #7, !tbaa !6
-  %13 = fcmp ogt float %12, 0.000000e+00
-  %14 = fdiv float 1.000000e+00, %12
-  %15 = select i1 %13, float %14, float 0.000000e+00
-  %16 = fmul float %5, %15
-  %.sroa.012.0.vec.insert.i = insertelement <2 x float> poison, float %16, i64 0
-  %17 = fmul float %8, %15
-  %.sroa.012.4.vec.insert.i = insertelement <2 x float> %.sroa.012.0.vec.insert.i, float %17, i64 1
+  %sqrt.i = tail call float @llvm.sqrt.f32(float %11)
+  %12 = fcmp ogt float %11, 0.000000e+00
+  %13 = fdiv float 1.000000e+00, %sqrt.i
+  %14 = select i1 %12, float %13, float 0.000000e+00
+  %15 = fmul float %5, %14
+  %.sroa.012.0.vec.insert.i = insertelement <2 x float> poison, float %15, i64 0
+  %16 = fmul float %8, %14
+  %.sroa.012.4.vec.insert.i = insertelement <2 x float> %.sroa.012.0.vec.insert.i, float %16, i64 1
   ret <2 x float> %.sroa.012.4.vec.insert.i
 }
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.sqrt.f32(float) #4
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree norecurse nounwind memory(errnomem: write) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nounwind willreturn memory(errnomem: write) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { memory(none) }
-attributes #7 = { nounwind }
+attributes #3 = { nofree norecurse nosync nounwind memory(none) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2}
 
@@ -245,7 +243,3 @@ attributes #7 = { nounwind }
 !3 = distinct !{!3, !4}
 !4 = !{!"llvm.loop.mustprogress"}
 !5 = distinct !{!5, !4}
-!6 = !{!7, !7, i64 0}
-!7 = !{!"int", !8, i64 0}
-!8 = !{!"omnipotent char", !9, i64 0}
-!9 = !{!"Simple C/C++ TBAA"}

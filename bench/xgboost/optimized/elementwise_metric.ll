@@ -16466,8 +16466,8 @@ define internal fastcc void @_ZZN7xgboost6metric12_GLOBAL__N_16ReduceIZNS0_15Pse
   br label %34
 
 ._crit_edge:                                      ; preds = %_ZZN7xgboost6metric15PseudoErrorLoss4EvalERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEENKUlmmmE_clEmmm.exit, %2
-  %.018.lcssa = phi double [ 0.000000e+00, %2 ], [ %90, %_ZZN7xgboost6metric15PseudoErrorLoss4EvalERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEENKUlmmmE_clEmmm.exit ]
-  %.0.lcssa = phi double [ 0.000000e+00, %2 ], [ %88, %_ZZN7xgboost6metric15PseudoErrorLoss4EvalERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEENKUlmmmE_clEmmm.exit ]
+  %.018.lcssa = phi double [ 0.000000e+00, %2 ], [ %89, %_ZZN7xgboost6metric15PseudoErrorLoss4EvalERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEENKUlmmmE_clEmmm.exit ]
+  %.0.lcssa = phi double [ 0.000000e+00, %2 ], [ %87, %_ZZN7xgboost6metric15PseudoErrorLoss4EvalERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEENKUlmmmE_clEmmm.exit ]
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %25 = load ptr, ptr %24, align 8, !tbaa !660
   %26 = load ptr, ptr %25, align 8, !tbaa !97
@@ -16483,9 +16483,9 @@ define internal fastcc void @_ZZN7xgboost6metric12_GLOBAL__N_16ReduceIZNS0_15Pse
   ret void
 
 34:                                               ; preds = %.lr.ph, %_ZZN7xgboost6metric15PseudoErrorLoss4EvalERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEENKUlmmmE_clEmmm.exit
-  %.029 = phi double [ 0.000000e+00, %.lr.ph ], [ %88, %_ZZN7xgboost6metric15PseudoErrorLoss4EvalERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEENKUlmmmE_clEmmm.exit ]
-  %.01828 = phi double [ 0.000000e+00, %.lr.ph ], [ %90, %_ZZN7xgboost6metric15PseudoErrorLoss4EvalERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEENKUlmmmE_clEmmm.exit ]
-  %.01927 = phi i64 [ %3, %.lr.ph ], [ %91, %_ZZN7xgboost6metric15PseudoErrorLoss4EvalERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEENKUlmmmE_clEmmm.exit ]
+  %.029 = phi double [ 0.000000e+00, %.lr.ph ], [ %87, %_ZZN7xgboost6metric15PseudoErrorLoss4EvalERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEENKUlmmmE_clEmmm.exit ]
+  %.01828 = phi double [ 0.000000e+00, %.lr.ph ], [ %89, %_ZZN7xgboost6metric15PseudoErrorLoss4EvalERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEENKUlmmmE_clEmmm.exit ]
+  %.01927 = phi i64 [ %3, %.lr.ph ], [ %90, %_ZZN7xgboost6metric15PseudoErrorLoss4EvalERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEENKUlmmmE_clEmmm.exit ]
   %35 = icmp ugt i64 %.01927, 4294967295
   br i1 %35, label %36, label %45
 
@@ -16583,21 +16583,18 @@ _ZZN7xgboost6metric15PseudoErrorLoss4EvalERKNS_16HostDeviceVectorIfEERKNS_8MetaI
   %80 = fdiv float %77, %78
   %81 = fmul float %80, %80
   %82 = fadd float %81, 1.000000e+00
-  %83 = tail call noundef float @sqrtf(float noundef %82) #19, !tbaa !84, !noalias !657
-  %84 = fadd float %83, -1.000000e+00
-  %85 = fmul float %79, %84
-  %86 = fmul float %73, %85
-  %87 = fpext float %86 to double
-  %88 = fadd double %.029, %87
-  %89 = fpext float %73 to double
-  %90 = fadd double %.01828, %89
-  %91 = add nuw i64 %.01927, 1
-  %exitcond.not = icmp eq i64 %91, %.sroa.speculated
+  %sqrt.i = tail call float @llvm.sqrt.f32(float %82)
+  %83 = fadd float %sqrt.i, -1.000000e+00
+  %84 = fmul float %79, %83
+  %85 = fmul float %73, %84
+  %86 = fpext float %85 to double
+  %87 = fadd double %.029, %86
+  %88 = fpext float %73 to double
+  %89 = fadd double %.01828, %88
+  %90 = add nuw i64 %.01927, 1
+  %exitcond.not = icmp eq i64 %90, %.sroa.speculated
   br i1 %exitcond.not, label %._crit_edge, label %34, !llvm.loop !670
 }
-
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare float @sqrtf(float noundef) local_unnamed_addr #29
 
 ; Function Attrs: mustprogress uwtable
 define internal noalias noundef nonnull ptr @"_ZNSt17_Function_handlerIFPN7xgboost6MetricEPKcENS0_6metric3$_6EE9_M_invokeERKSt9_Any_dataOS4_"(ptr nonnull readnone align 8 captures(none) %0, ptr nonnull readnone align 8 captures(none) %1) #12 align 2 {
@@ -27908,6 +27905,9 @@ declare i64 @llvm.umax.i64(i64, i64) #36
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.log.f32(float) #36
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.sqrt.f32(float) #36
 
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

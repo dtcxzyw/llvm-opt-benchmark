@@ -702,8 +702,8 @@ define void @_Z23rcMarkWalkableTrianglesP9rcContextfPKfiPKiiPh(ptr noundef readn
   %wide.trip.count = zext nneg i32 %5 to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %68
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %68 ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %67
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %67 ]
   %.idx = mul nuw nsw i64 %indvars.iv, 12
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %13 = load i32, ptr %12, align 4
@@ -755,23 +755,23 @@ define void @_Z23rcMarkWalkableTrianglesP9rcContextfPKfiPKiiPh(ptr noundef readn
   %59 = fadd float %57, %58
   %60 = fmul float %56, %56
   %61 = fadd float %60, %59
-  %62 = tail call noundef float @sqrtf(float noundef %61) #20
-  %63 = fdiv float 1.000000e+00, %62
-  %64 = fmul float %63, %53
-  %65 = fcmp ogt float %64, %10
-  br i1 %65, label %66, label %68
+  %sqrt.i.i = tail call float @llvm.sqrt.f32(float %61)
+  %62 = fdiv float 1.000000e+00, %sqrt.i.i
+  %63 = fmul float %53, %62
+  %64 = fcmp ogt float %63, %10
+  br i1 %64, label %65, label %67
 
-66:                                               ; preds = %.lr.ph
-  %67 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv
-  store i8 63, ptr %67, align 1
-  br label %68
+65:                                               ; preds = %.lr.ph
+  %66 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv
+  store i8 63, ptr %66, align 1
+  br label %67
 
-68:                                               ; preds = %.lr.ph, %66
+67:                                               ; preds = %.lr.ph, %65
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
-._crit_edge:                                      ; preds = %68, %7
+._crit_edge:                                      ; preds = %67, %7
   ret void
 }
 
@@ -790,8 +790,8 @@ define void @_Z26rcClearUnwalkableTrianglesP9rcContextfPKfiPKiiPh(ptr noundef re
   %wide.trip.count = zext nneg i32 %5 to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %68
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %68 ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %67
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %67 ]
   %.idx = mul nuw nsw i64 %indvars.iv, 12
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %13 = load i32, ptr %12, align 4
@@ -843,23 +843,23 @@ define void @_Z26rcClearUnwalkableTrianglesP9rcContextfPKfiPKiiPh(ptr noundef re
   %59 = fadd float %57, %58
   %60 = fmul float %56, %56
   %61 = fadd float %60, %59
-  %62 = tail call noundef float @sqrtf(float noundef %61) #20
-  %63 = fdiv float 1.000000e+00, %62
-  %64 = fmul float %63, %53
-  %65 = fcmp ugt float %64, %10
-  br i1 %65, label %68, label %66
+  %sqrt.i.i = tail call float @llvm.sqrt.f32(float %61)
+  %62 = fdiv float 1.000000e+00, %sqrt.i.i
+  %63 = fmul float %53, %62
+  %64 = fcmp ugt float %63, %10
+  br i1 %64, label %67, label %65
 
-66:                                               ; preds = %.lr.ph
-  %67 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv
-  store i8 0, ptr %67, align 1
-  br label %68
+65:                                               ; preds = %.lr.ph
+  %66 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv
+  store i8 0, ptr %66, align 1
+  br label %67
 
-68:                                               ; preds = %.lr.ph, %66
+67:                                               ; preds = %.lr.ph, %65
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
-._crit_edge:                                      ; preds = %68, %7
+._crit_edge:                                      ; preds = %67, %7
   ret void
 }
 
@@ -1437,6 +1437,9 @@ declare i32 @llvm.abs.i32(i32, i1 immarg) #19
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #18
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.sqrt.f32(float) #18
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #18

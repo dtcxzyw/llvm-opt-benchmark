@@ -631,7 +631,7 @@ define linkonce_odr noundef double @_ZNK5ZXing13QuadrilateralINS_6PointTIiEEE11o
   %10 = icmp eq i64 %9, 0
   %11 = icmp eq i32 %4, %6
   %12 = select i1 %10, i1 %11, i1 false
-  br i1 %12, label %23, label %13
+  br i1 %12, label %22, label %13
 
 13:                                               ; preds = %1
   %14 = sub nsw i32 %4, %6
@@ -640,14 +640,14 @@ define linkonce_odr noundef double @_ZNK5ZXing13QuadrilateralINS_6PointTIiEEE11o
   %16 = sitofp i32 %14 to double
   %17 = fmul double %16, %16
   %18 = tail call noundef double @llvm.fmuladd.f64(double %15, double %15, double %17)
-  %19 = tail call noundef double @sqrt(double noundef %18) #29, !tbaa !60
-  %20 = fdiv double %15, %19
-  %21 = fdiv double %16, %19
-  %22 = tail call double @atan2(double noundef %21, double noundef %20) #29, !tbaa !60
-  br label %23
+  %sqrt.i.i = tail call noundef double @llvm.sqrt.f64(double %18)
+  %19 = fdiv double %15, %sqrt.i.i
+  %20 = fdiv double %16, %sqrt.i.i
+  %21 = tail call double @atan2(double noundef %20, double noundef %19) #29, !tbaa !60
+  br label %22
 
-23:                                               ; preds = %1, %13
-  %.0 = phi double [ %22, %13 ], [ 0.000000e+00, %1 ]
+22:                                               ; preds = %1, %13
+  %.0 = phi double [ %21, %13 ], [ 0.000000e+00, %1 ]
   ret double %.0
 }
 
@@ -3435,9 +3435,6 @@ _ZSt10destroy_atISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt
 ; Function Attrs: mustprogress nocallback nofree nounwind optsize willreturn memory(errnomem: write)
 declare double @atan2(double noundef, double noundef) local_unnamed_addr #19
 
-; Function Attrs: mustprogress nocallback nofree nounwind optsize willreturn memory(errnomem: write)
-declare double @sqrt(double noundef) local_unnamed_addr #19
-
 ; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fmuladd.f64(double, double, double) #20
 
@@ -4032,6 +4029,9 @@ declare i64 @llvm.umin.i64(i64, i64) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #25
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.sqrt.f64(double) #24
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #26

@@ -33,21 +33,21 @@ define noalias noundef ptr @ARKodeSPRKTable_Create(i32 noundef %0, i32 noundef %
 9:                                                ; preds = %8
   %10 = zext nneg i32 %0 to i64
   %11 = shl nuw nsw i64 %10, 3
-  %12 = tail call noalias ptr @malloc(i64 noundef %11) #14
+  %12 = tail call noalias ptr @malloc(i64 noundef %11) #15
   %13 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 16
   store ptr %12, ptr %13, align 8, !tbaa !3
   %.not14.i = icmp eq ptr %12, null
   br i1 %.not14.i, label %ARKodeSPRKTable_Alloc.exit.thread.sink.split, label %14
 
 14:                                               ; preds = %9
-  %15 = tail call noalias ptr @malloc(i64 noundef %11) #14
+  %15 = tail call noalias ptr @malloc(i64 noundef %11) #15
   %16 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 8
   store ptr %15, ptr %16, align 8, !tbaa !10
   %.not15.i = icmp eq ptr %15, null
   br i1 %.not15.i, label %ARKodeSPRKTable_Free.exit19.i, label %.lr.ph
 
 ARKodeSPRKTable_Free.exit19.i:                    ; preds = %14
-  tail call void @free(ptr noundef nonnull %12) #15
+  tail call void @free(ptr noundef nonnull %12) #16
   br label %ARKodeSPRKTable_Alloc.exit.thread.sink.split
 
 .lr.ph:                                           ; preds = %14
@@ -71,7 +71,7 @@ ARKodeSPRKTable_Free.exit19.i:                    ; preds = %14
   br i1 %exitcond.not, label %ARKodeSPRKTable_Alloc.exit.thread, label %18
 
 ARKodeSPRKTable_Alloc.exit.thread.sink.split:     ; preds = %9, %ARKodeSPRKTable_Free.exit19.i
-  tail call void @free(ptr noundef nonnull %calloc.i) #15
+  tail call void @free(ptr noundef nonnull %calloc.i) #16
   br label %ARKodeSPRKTable_Alloc.exit.thread
 
 ARKodeSPRKTable_Alloc.exit.thread:                ; preds = %18, %ARKodeSPRKTable_Alloc.exit.thread.sink.split, %8, %4
@@ -88,26 +88,26 @@ define noalias noundef ptr @ARKodeSPRKTable_Alloc(i32 noundef %0) local_unnamed_
 2:                                                ; preds = %1
   %3 = sext i32 %0 to i64
   %4 = shl nsw i64 %3, 3
-  %5 = tail call noalias ptr @malloc(i64 noundef %4) #14
+  %5 = tail call noalias ptr @malloc(i64 noundef %4) #15
   %6 = getelementptr inbounds nuw i8, ptr %calloc, i64 16
   store ptr %5, ptr %6, align 8, !tbaa !3
   %.not14 = icmp eq ptr %5, null
   br i1 %.not14, label %ARKodeSPRKTable_Free.exit, label %7
 
 ARKodeSPRKTable_Free.exit:                        ; preds = %2
-  tail call void @free(ptr noundef nonnull %calloc) #15
+  tail call void @free(ptr noundef nonnull %calloc) #16
   br label %12
 
 7:                                                ; preds = %2
-  %8 = tail call noalias ptr @malloc(i64 noundef %4) #14
+  %8 = tail call noalias ptr @malloc(i64 noundef %4) #15
   %9 = getelementptr inbounds nuw i8, ptr %calloc, i64 8
   store ptr %8, ptr %9, align 8, !tbaa !10
   %.not15 = icmp eq ptr %8, null
   br i1 %.not15, label %ARKodeSPRKTable_Free.exit19, label %10
 
 ARKodeSPRKTable_Free.exit19:                      ; preds = %7
-  tail call void @free(ptr noundef nonnull %5) #15
-  tail call void @free(ptr noundef nonnull %calloc) #15
+  tail call void @free(ptr noundef nonnull %5) #16
+  tail call void @free(ptr noundef nonnull %calloc) #16
   br label %12
 
 10:                                               ; preds = %7
@@ -135,7 +135,7 @@ define void @ARKodeSPRKTable_Free(ptr noundef captures(address_is_null) %0) loca
   br i1 %.not8, label %6, label %5
 
 5:                                                ; preds = %2
-  tail call void @free(ptr noundef nonnull %4) #15
+  tail call void @free(ptr noundef nonnull %4) #16
   br label %6
 
 6:                                                ; preds = %5, %2
@@ -145,11 +145,11 @@ define void @ARKodeSPRKTable_Free(ptr noundef captures(address_is_null) %0) loca
   br i1 %.not9, label %10, label %9
 
 9:                                                ; preds = %6
-  tail call void @free(ptr noundef nonnull %8) #15
+  tail call void @free(ptr noundef nonnull %8) #16
   br label %10
 
 10:                                               ; preds = %9, %6
-  tail call void @free(ptr noundef nonnull %0) #15
+  tail call void @free(ptr noundef nonnull %0) #16
   br label %11
 
 11:                                               ; preds = %10, %1
@@ -179,26 +179,26 @@ define noalias noundef ptr @ARKodeSPRKTable_Load(i32 noundef %0) local_unnamed_a
   br i1 %.not.i.i, label %arkodeSymplecticEuler.exit, label %3
 
 3:                                                ; preds = %2
-  %4 = tail call noalias dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #14
+  %4 = tail call noalias dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #15
   %5 = getelementptr inbounds nuw i8, ptr %calloc.i.i, i64 16
   store ptr %4, ptr %5, align 8, !tbaa !3
   %.not14.i.i = icmp eq ptr %4, null
   br i1 %.not14.i.i, label %ARKodeSPRKTable_Free.exit.i.i, label %6
 
 ARKodeSPRKTable_Free.exit.i.i:                    ; preds = %3
-  tail call void @free(ptr noundef nonnull %calloc.i.i) #15
+  tail call void @free(ptr noundef nonnull %calloc.i.i) #16
   br label %arkodeSymplecticEuler.exit
 
 6:                                                ; preds = %3
-  %7 = tail call noalias dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #14
+  %7 = tail call noalias dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #15
   %8 = getelementptr inbounds nuw i8, ptr %calloc.i.i, i64 8
   store ptr %7, ptr %8, align 8, !tbaa !10
   %.not15.i.i = icmp eq ptr %7, null
   br i1 %.not15.i.i, label %ARKodeSPRKTable_Free.exit19.i.i, label %9
 
 ARKodeSPRKTable_Free.exit19.i.i:                  ; preds = %6
-  tail call void @free(ptr noundef nonnull %4) #15
-  tail call void @free(ptr noundef nonnull %calloc.i.i) #15
+  tail call void @free(ptr noundef nonnull %4) #16
+  tail call void @free(ptr noundef nonnull %calloc.i.i) #16
   br label %arkodeSymplecticEuler.exit
 
 9:                                                ; preds = %6
@@ -265,26 +265,26 @@ define internal fastcc noalias noundef ptr @arkodeSymplecticLeapfrog2() unnamed_
   br i1 %.not.i, label %ARKodeSPRKTable_Alloc.exit.thread, label %1
 
 1:                                                ; preds = %0
-  %2 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #14
+  %2 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #15
   %3 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 16
   store ptr %2, ptr %3, align 8, !tbaa !3
   %.not14.i = icmp eq ptr %2, null
   br i1 %.not14.i, label %ARKodeSPRKTable_Free.exit.i, label %4
 
 ARKodeSPRKTable_Free.exit.i:                      ; preds = %1
-  tail call void @free(ptr noundef nonnull %calloc.i) #15
+  tail call void @free(ptr noundef nonnull %calloc.i) #16
   br label %ARKodeSPRKTable_Alloc.exit.thread
 
 4:                                                ; preds = %1
-  %5 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #14
+  %5 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #15
   %6 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 8
   store ptr %5, ptr %6, align 8, !tbaa !10
   %.not15.i = icmp eq ptr %5, null
   br i1 %.not15.i, label %ARKodeSPRKTable_Free.exit19.i, label %7
 
 ARKodeSPRKTable_Free.exit19.i:                    ; preds = %4
-  tail call void @free(ptr noundef nonnull %2) #15
-  tail call void @free(ptr noundef nonnull %calloc.i) #15
+  tail call void @free(ptr noundef nonnull %2) #16
+  tail call void @free(ptr noundef nonnull %calloc.i) #16
   br label %ARKodeSPRKTable_Alloc.exit.thread
 
 7:                                                ; preds = %4
@@ -311,26 +311,26 @@ define internal fastcc noalias noundef ptr @arkodeSymplecticPseudoLeapfrog2() un
   br i1 %.not.i, label %ARKodeSPRKTable_Alloc.exit.thread, label %1
 
 1:                                                ; preds = %0
-  %2 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #14
+  %2 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #15
   %3 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 16
   store ptr %2, ptr %3, align 8, !tbaa !3
   %.not14.i = icmp eq ptr %2, null
   br i1 %.not14.i, label %ARKodeSPRKTable_Free.exit.i, label %4
 
 ARKodeSPRKTable_Free.exit.i:                      ; preds = %1
-  tail call void @free(ptr noundef nonnull %calloc.i) #15
+  tail call void @free(ptr noundef nonnull %calloc.i) #16
   br label %ARKodeSPRKTable_Alloc.exit.thread
 
 4:                                                ; preds = %1
-  %5 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #14
+  %5 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #15
   %6 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 8
   store ptr %5, ptr %6, align 8, !tbaa !10
   %.not15.i = icmp eq ptr %5, null
   br i1 %.not15.i, label %ARKodeSPRKTable_Free.exit19.i, label %7
 
 ARKodeSPRKTable_Free.exit19.i:                    ; preds = %4
-  tail call void @free(ptr noundef nonnull %2) #15
-  tail call void @free(ptr noundef nonnull %calloc.i) #15
+  tail call void @free(ptr noundef nonnull %2) #16
+  tail call void @free(ptr noundef nonnull %calloc.i) #16
   br label %ARKodeSPRKTable_Alloc.exit.thread
 
 7:                                                ; preds = %4
@@ -357,26 +357,26 @@ define internal fastcc noalias noundef ptr @arkodeSymplecticRuth3() unnamed_addr
   br i1 %.not.i, label %ARKodeSPRKTable_Alloc.exit.thread, label %1
 
 1:                                                ; preds = %0
-  %2 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #14
+  %2 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #15
   %3 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 16
   store ptr %2, ptr %3, align 8, !tbaa !3
   %.not14.i = icmp eq ptr %2, null
   br i1 %.not14.i, label %ARKodeSPRKTable_Free.exit.i, label %4
 
 ARKodeSPRKTable_Free.exit.i:                      ; preds = %1
-  tail call void @free(ptr noundef nonnull %calloc.i) #15
+  tail call void @free(ptr noundef nonnull %calloc.i) #16
   br label %ARKodeSPRKTable_Alloc.exit.thread
 
 4:                                                ; preds = %1
-  %5 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #14
+  %5 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #15
   %6 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 8
   store ptr %5, ptr %6, align 8, !tbaa !10
   %.not15.i = icmp eq ptr %5, null
   br i1 %.not15.i, label %ARKodeSPRKTable_Free.exit19.i, label %7
 
 ARKodeSPRKTable_Free.exit19.i:                    ; preds = %4
-  tail call void @free(ptr noundef nonnull %2) #15
-  tail call void @free(ptr noundef nonnull %calloc.i) #15
+  tail call void @free(ptr noundef nonnull %2) #16
+  tail call void @free(ptr noundef nonnull %calloc.i) #16
   br label %ARKodeSPRKTable_Alloc.exit.thread
 
 7:                                                ; preds = %4
@@ -407,26 +407,26 @@ define internal fastcc noalias noundef ptr @arkodeSymplecticMcLachlan2() unnamed
   br i1 %.not.i, label %ARKodeSPRKTable_Alloc.exit.thread, label %1
 
 1:                                                ; preds = %0
-  %2 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #14
+  %2 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #15
   %3 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 16
   store ptr %2, ptr %3, align 8, !tbaa !3
   %.not14.i = icmp eq ptr %2, null
   br i1 %.not14.i, label %ARKodeSPRKTable_Free.exit.i, label %4
 
 ARKodeSPRKTable_Free.exit.i:                      ; preds = %1
-  tail call void @free(ptr noundef nonnull %calloc.i) #15
+  tail call void @free(ptr noundef nonnull %calloc.i) #16
   br label %ARKodeSPRKTable_Alloc.exit.thread
 
 4:                                                ; preds = %1
-  %5 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #14
+  %5 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #15
   %6 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 8
   store ptr %5, ptr %6, align 8, !tbaa !10
   %.not15.i = icmp eq ptr %5, null
   br i1 %.not15.i, label %ARKodeSPRKTable_Free.exit19.i, label %7
 
 ARKodeSPRKTable_Free.exit19.i:                    ; preds = %4
-  tail call void @free(ptr noundef nonnull %2) #15
-  tail call void @free(ptr noundef nonnull %calloc.i) #15
+  tail call void @free(ptr noundef nonnull %2) #16
+  tail call void @free(ptr noundef nonnull %calloc.i) #16
   br label %ARKodeSPRKTable_Alloc.exit.thread
 
 7:                                                ; preds = %4
@@ -453,33 +453,33 @@ define internal fastcc noalias noundef ptr @arkodeSymplecticMcLachlan3() unnamed
   br i1 %.not.i, label %ARKodeSPRKTable_Alloc.exit.thread, label %1
 
 1:                                                ; preds = %0
-  %2 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #14
+  %2 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #15
   %3 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 16
   store ptr %2, ptr %3, align 8, !tbaa !3
   %.not14.i = icmp eq ptr %2, null
   br i1 %.not14.i, label %ARKodeSPRKTable_Free.exit.i, label %4
 
 ARKodeSPRKTable_Free.exit.i:                      ; preds = %1
-  tail call void @free(ptr noundef nonnull %calloc.i) #15
+  tail call void @free(ptr noundef nonnull %calloc.i) #16
   br label %ARKodeSPRKTable_Alloc.exit.thread
 
 4:                                                ; preds = %1
-  %5 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #14
+  %5 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #15
   %6 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 8
   store ptr %5, ptr %6, align 8, !tbaa !10
   %.not15.i = icmp eq ptr %5, null
   br i1 %.not15.i, label %ARKodeSPRKTable_Free.exit19.i, label %7
 
 ARKodeSPRKTable_Free.exit19.i:                    ; preds = %4
-  tail call void @free(ptr noundef nonnull %2) #15
-  tail call void @free(ptr noundef nonnull %calloc.i) #15
+  tail call void @free(ptr noundef nonnull %2) #16
+  tail call void @free(ptr noundef nonnull %calloc.i) #16
   br label %ARKodeSPRKTable_Alloc.exit.thread
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 4
   store i32 3, ptr %calloc.i, align 8, !tbaa !12
   store i32 3, ptr %8, align 4, !tbaa !11
-  %9 = tail call double @SUNRpowerR(double noundef 0x3F84530EA9080FC8, double noundef 0x3FD5555555555555) #15
+  %9 = tail call double @SUNRpowerR(double noundef 0x3F84530EA9080FC8, double noundef 0x3FD5555555555555) #16
   %10 = fmul double %9, 9.000000e+00
   %11 = fdiv double 1.000000e+00, %10
   %12 = fsub double 0xBFE5555555555555, %11
@@ -495,54 +495,54 @@ ARKodeSPRKTable_Free.exit19.i:                    ; preds = %4
 
 21:                                               ; preds = %7
   %22 = fcmp ugt double %19, 0.000000e+00
-  br i1 %22, label %.thread42, label %.thread41
+  br i1 %22, label %.thread44, label %.thread43
 
-.thread42:                                        ; preds = %21
-  %23 = tail call double @sqrt(double noundef %19) #15, !tbaa !15
-  br label %.thread41
+.thread44:                                        ; preds = %21
+  %23 = tail call double @sqrt(double noundef %19) #16, !tbaa !15
+  br label %.thread43
 
 .thread:                                          ; preds = %7
-  %24 = tail call double @sqrt(double noundef %15) #15, !tbaa !15
-  %25 = fadd double %19, %24
-  %26 = fcmp ugt double %25, 0.000000e+00
-  br i1 %26, label %27, label %.thread37
+  %sqrt = tail call double @llvm.sqrt.f64(double %15)
+  %24 = fadd double %sqrt, %19
+  %25 = fcmp ugt double %24, 0.000000e+00
+  br i1 %25, label %..thread37_crit_edge, label %.thread37
 
-27:                                               ; preds = %.thread
-  %28 = tail call double @sqrt(double noundef %15) #15, !tbaa !15
-  %29 = fadd double %19, %28
-  %30 = tail call double @sqrt(double noundef %29) #15, !tbaa !15
+..thread37_crit_edge:                             ; preds = %.thread
+  %26 = fadd double %19, %sqrt
+  %27 = tail call double @sqrt(double noundef %26) #16, !tbaa !15
+  %.pre = tail call double @llvm.sqrt.f64(double %15)
   br label %.thread37
 
-.thread37:                                        ; preds = %27, %.thread
-  %31 = phi double [ %30, %27 ], [ 0.000000e+00, %.thread ]
-  %32 = tail call double @sqrt(double noundef %15) #15, !tbaa !15
-  %33 = fmul double %32, 3.000000e+00
-  br label %.thread41
+.thread37:                                        ; preds = %..thread37_crit_edge, %.thread
+  %sqrt39.pre-phi = phi double [ %.pre, %..thread37_crit_edge ], [ %sqrt, %.thread ]
+  %28 = phi double [ %27, %..thread37_crit_edge ], [ 0.000000e+00, %.thread ]
+  %29 = fmul double %sqrt39.pre-phi, 3.000000e+00
+  br label %.thread43
 
-.thread41:                                        ; preds = %21, %.thread42, %.thread37
-  %34 = phi double [ %31, %.thread37 ], [ %23, %.thread42 ], [ 0.000000e+00, %21 ]
-  %35 = phi double [ %33, %.thread37 ], [ 0.000000e+00, %.thread42 ], [ 0.000000e+00, %21 ]
-  %36 = fdiv double 1.000000e+00, %35
-  %37 = fsub double %34, %36
-  store double %37, ptr %5, align 8, !tbaa !13
-  %38 = fdiv double 2.500000e-01, %37
-  %39 = fmul double %37, 5.000000e-01
-  %40 = fsub double %38, %39
-  %41 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store double %40, ptr %41, align 8, !tbaa !13
-  %42 = fsub double 1.000000e+00, %37
-  %43 = fsub double %42, %40
-  %44 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store double %43, ptr %44, align 8, !tbaa !13
-  store double %43, ptr %2, align 8, !tbaa !13
-  %45 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store double %40, ptr %45, align 8, !tbaa !13
-  %46 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store double %37, ptr %46, align 8, !tbaa !13
+.thread43:                                        ; preds = %21, %.thread44, %.thread37
+  %30 = phi double [ %28, %.thread37 ], [ %23, %.thread44 ], [ 0.000000e+00, %21 ]
+  %31 = phi double [ %29, %.thread37 ], [ 0.000000e+00, %.thread44 ], [ 0.000000e+00, %21 ]
+  %32 = fdiv double 1.000000e+00, %31
+  %33 = fsub double %30, %32
+  store double %33, ptr %5, align 8, !tbaa !13
+  %34 = fdiv double 2.500000e-01, %33
+  %35 = fmul double %33, 5.000000e-01
+  %36 = fsub double %34, %35
+  %37 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store double %36, ptr %37, align 8, !tbaa !13
+  %38 = fsub double 1.000000e+00, %33
+  %39 = fsub double %38, %36
+  %40 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store double %39, ptr %40, align 8, !tbaa !13
+  store double %39, ptr %2, align 8, !tbaa !13
+  %41 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store double %36, ptr %41, align 8, !tbaa !13
+  %42 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  store double %33, ptr %42, align 8, !tbaa !13
   br label %ARKodeSPRKTable_Alloc.exit.thread
 
-ARKodeSPRKTable_Alloc.exit.thread:                ; preds = %0, %ARKodeSPRKTable_Free.exit.i, %ARKodeSPRKTable_Free.exit19.i, %.thread41
-  %.0 = phi ptr [ %calloc.i, %.thread41 ], [ null, %ARKodeSPRKTable_Free.exit19.i ], [ null, %ARKodeSPRKTable_Free.exit.i ], [ null, %0 ]
+ARKodeSPRKTable_Alloc.exit.thread:                ; preds = %0, %ARKodeSPRKTable_Free.exit.i, %ARKodeSPRKTable_Free.exit19.i, %.thread43
+  %.0 = phi ptr [ %calloc.i, %.thread43 ], [ null, %ARKodeSPRKTable_Free.exit19.i ], [ null, %ARKodeSPRKTable_Free.exit.i ], [ null, %0 ]
   ret ptr %.0
 }
 
@@ -553,26 +553,26 @@ define internal fastcc noalias noundef ptr @arkodeSymplecticMcLachlan4() unnamed
   br i1 %.not.i, label %ARKodeSPRKTable_Alloc.exit.thread, label %1
 
 1:                                                ; preds = %0
-  %2 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #14
+  %2 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #15
   %3 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 16
   store ptr %2, ptr %3, align 8, !tbaa !3
   %.not14.i = icmp eq ptr %2, null
   br i1 %.not14.i, label %ARKodeSPRKTable_Free.exit.i, label %4
 
 ARKodeSPRKTable_Free.exit.i:                      ; preds = %1
-  tail call void @free(ptr noundef nonnull %calloc.i) #15
+  tail call void @free(ptr noundef nonnull %calloc.i) #16
   br label %ARKodeSPRKTable_Alloc.exit.thread
 
 4:                                                ; preds = %1
-  %5 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #14
+  %5 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #15
   %6 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 8
   store ptr %5, ptr %6, align 8, !tbaa !10
   %.not15.i = icmp eq ptr %5, null
   br i1 %.not15.i, label %ARKodeSPRKTable_Free.exit19.i, label %7
 
 ARKodeSPRKTable_Free.exit19.i:                    ; preds = %4
-  tail call void @free(ptr noundef nonnull %2) #15
-  tail call void @free(ptr noundef nonnull %calloc.i) #15
+  tail call void @free(ptr noundef nonnull %2) #16
+  tail call void @free(ptr noundef nonnull %calloc.i) #16
   br label %ARKodeSPRKTable_Alloc.exit.thread
 
 7:                                                ; preds = %4
@@ -607,41 +607,41 @@ define internal fastcc noalias noundef ptr @arkodeSymplecticCandyRozmus4() unnam
   br i1 %.not.i, label %ARKodeSPRKTable_Alloc.exit.thread, label %1
 
 1:                                                ; preds = %0
-  %2 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #14
+  %2 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #15
   %3 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 16
   store ptr %2, ptr %3, align 8, !tbaa !3
   %.not14.i = icmp eq ptr %2, null
   br i1 %.not14.i, label %ARKodeSPRKTable_Free.exit.i, label %4
 
 ARKodeSPRKTable_Free.exit.i:                      ; preds = %1
-  tail call void @free(ptr noundef nonnull %calloc.i) #15
+  tail call void @free(ptr noundef nonnull %calloc.i) #16
   br label %ARKodeSPRKTable_Alloc.exit.thread
 
 4:                                                ; preds = %1
-  %5 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #14
+  %5 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #15
   %6 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 8
   store ptr %5, ptr %6, align 8, !tbaa !10
   %.not15.i = icmp eq ptr %5, null
   br i1 %.not15.i, label %ARKodeSPRKTable_Free.exit19.i, label %7
 
 ARKodeSPRKTable_Free.exit19.i:                    ; preds = %4
-  tail call void @free(ptr noundef nonnull %2) #15
-  tail call void @free(ptr noundef nonnull %calloc.i) #15
+  tail call void @free(ptr noundef nonnull %2) #16
+  tail call void @free(ptr noundef nonnull %calloc.i) #16
   br label %ARKodeSPRKTable_Alloc.exit.thread
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 4
   store i32 4, ptr %calloc.i, align 8, !tbaa !12
   store i32 4, ptr %8, align 4, !tbaa !11
-  %9 = tail call double @SUNRpowerR(double noundef 2.000000e+00, double noundef 0x3FD5555555555555) #15
+  %9 = tail call double @SUNRpowerR(double noundef 2.000000e+00, double noundef 0x3FD5555555555555) #16
   %10 = fadd double %9, 2.000000e+00
-  %11 = tail call double @SUNRpowerR(double noundef 2.000000e+00, double noundef 0xBFD5555555555555) #15
+  %11 = tail call double @SUNRpowerR(double noundef 2.000000e+00, double noundef 0xBFD5555555555555) #16
   %12 = fadd double %10, %11
   %13 = fdiv double %12, 6.000000e+00
   store double %13, ptr %5, align 8, !tbaa !13
-  %14 = tail call double @SUNRpowerR(double noundef 2.000000e+00, double noundef 0x3FD5555555555555) #15
+  %14 = tail call double @SUNRpowerR(double noundef 2.000000e+00, double noundef 0x3FD5555555555555) #16
   %15 = fsub double 1.000000e+00, %14
-  %16 = tail call double @SUNRpowerR(double noundef 2.000000e+00, double noundef 0xBFD5555555555555) #15
+  %16 = tail call double @SUNRpowerR(double noundef 2.000000e+00, double noundef 0xBFD5555555555555) #16
   %17 = fsub double %15, %16
   %18 = fdiv double %17, 6.000000e+00
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -652,12 +652,12 @@ ARKodeSPRKTable_Free.exit19.i:                    ; preds = %4
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store double %21, ptr %22, align 8, !tbaa !13
   store double 0.000000e+00, ptr %2, align 8, !tbaa !13
-  %23 = tail call double @SUNRpowerR(double noundef 2.000000e+00, double noundef 0x3FD5555555555555) #15
+  %23 = tail call double @SUNRpowerR(double noundef 2.000000e+00, double noundef 0x3FD5555555555555) #16
   %24 = fsub double 2.000000e+00, %23
   %25 = fdiv double 1.000000e+00, %24
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store double %25, ptr %26, align 8, !tbaa !13
-  %27 = tail call double @SUNRpowerR(double noundef 2.000000e+00, double noundef 0x3FE5555555555555) #15
+  %27 = tail call double @SUNRpowerR(double noundef 2.000000e+00, double noundef 0x3FE5555555555555) #16
   %28 = fsub double 1.000000e+00, %27
   %29 = fdiv double 1.000000e+00, %28
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -679,26 +679,26 @@ define internal fastcc noalias noundef ptr @arkodeSymplecticMcLachlan5() unnamed
   br i1 %.not.i, label %ARKodeSPRKTable_Alloc.exit.thread, label %1
 
 1:                                                ; preds = %0
-  %2 = tail call noalias dereferenceable_or_null(48) ptr @malloc(i64 noundef 48) #14
+  %2 = tail call noalias dereferenceable_or_null(48) ptr @malloc(i64 noundef 48) #15
   %3 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 16
   store ptr %2, ptr %3, align 8, !tbaa !3
   %.not14.i = icmp eq ptr %2, null
   br i1 %.not14.i, label %ARKodeSPRKTable_Free.exit.i, label %4
 
 ARKodeSPRKTable_Free.exit.i:                      ; preds = %1
-  tail call void @free(ptr noundef nonnull %calloc.i) #15
+  tail call void @free(ptr noundef nonnull %calloc.i) #16
   br label %ARKodeSPRKTable_Alloc.exit.thread
 
 4:                                                ; preds = %1
-  %5 = tail call noalias dereferenceable_or_null(48) ptr @malloc(i64 noundef 48) #14
+  %5 = tail call noalias dereferenceable_or_null(48) ptr @malloc(i64 noundef 48) #15
   %6 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 8
   store ptr %5, ptr %6, align 8, !tbaa !10
   %.not15.i = icmp eq ptr %5, null
   br i1 %.not15.i, label %ARKodeSPRKTable_Free.exit19.i, label %7
 
 ARKodeSPRKTable_Free.exit19.i:                    ; preds = %4
-  tail call void @free(ptr noundef nonnull %2) #15
-  tail call void @free(ptr noundef nonnull %calloc.i) #15
+  tail call void @free(ptr noundef nonnull %2) #16
+  tail call void @free(ptr noundef nonnull %calloc.i) #16
   br label %ARKodeSPRKTable_Alloc.exit.thread
 
 7:                                                ; preds = %4
@@ -741,26 +741,26 @@ define internal fastcc noalias noundef ptr @arkodeSymplecticYoshida6() unnamed_a
   br i1 %.not.i, label %ARKodeSPRKTable_Alloc.exit.thread, label %1
 
 1:                                                ; preds = %0
-  %2 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #14
+  %2 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #15
   %3 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 16
   store ptr %2, ptr %3, align 8, !tbaa !3
   %.not14.i = icmp eq ptr %2, null
   br i1 %.not14.i, label %ARKodeSPRKTable_Free.exit.i, label %4
 
 ARKodeSPRKTable_Free.exit.i:                      ; preds = %1
-  tail call void @free(ptr noundef nonnull %calloc.i) #15
+  tail call void @free(ptr noundef nonnull %calloc.i) #16
   br label %ARKodeSPRKTable_Alloc.exit.thread
 
 4:                                                ; preds = %1
-  %5 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #14
+  %5 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #15
   %6 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 8
   store ptr %5, ptr %6, align 8, !tbaa !10
   %.not15.i = icmp eq ptr %5, null
   br i1 %.not15.i, label %ARKodeSPRKTable_Free.exit19.i, label %7
 
 ARKodeSPRKTable_Free.exit19.i:                    ; preds = %4
-  tail call void @free(ptr noundef nonnull %2) #15
-  tail call void @free(ptr noundef nonnull %calloc.i) #15
+  tail call void @free(ptr noundef nonnull %2) #16
+  tail call void @free(ptr noundef nonnull %calloc.i) #16
   br label %ARKodeSPRKTable_Alloc.exit.thread
 
 7:                                                ; preds = %4
@@ -811,26 +811,26 @@ define internal fastcc noalias noundef ptr @arkodeSymplecticSuzukiUmeno816() unn
   br i1 %.not.i, label %ARKodeSPRKTable_Alloc.exit.thread, label %1
 
 1:                                                ; preds = %0
-  %2 = tail call noalias dereferenceable_or_null(128) ptr @malloc(i64 noundef 128) #14
+  %2 = tail call noalias dereferenceable_or_null(128) ptr @malloc(i64 noundef 128) #15
   %3 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 16
   store ptr %2, ptr %3, align 8, !tbaa !3
   %.not14.i = icmp eq ptr %2, null
   br i1 %.not14.i, label %ARKodeSPRKTable_Free.exit.i, label %4
 
 ARKodeSPRKTable_Free.exit.i:                      ; preds = %1
-  tail call void @free(ptr noundef nonnull %calloc.i) #15
+  tail call void @free(ptr noundef nonnull %calloc.i) #16
   br label %ARKodeSPRKTable_Alloc.exit.thread
 
 4:                                                ; preds = %1
-  %5 = tail call noalias dereferenceable_or_null(128) ptr @malloc(i64 noundef 128) #14
+  %5 = tail call noalias dereferenceable_or_null(128) ptr @malloc(i64 noundef 128) #15
   %6 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 8
   store ptr %5, ptr %6, align 8, !tbaa !10
   %.not15.i = icmp eq ptr %5, null
   br i1 %.not15.i, label %ARKodeSPRKTable_Free.exit19.i, label %7
 
 ARKodeSPRKTable_Free.exit19.i:                    ; preds = %4
-  tail call void @free(ptr noundef nonnull %2) #15
-  tail call void @free(ptr noundef nonnull %calloc.i) #15
+  tail call void @free(ptr noundef nonnull %2) #16
+  tail call void @free(ptr noundef nonnull %calloc.i) #16
   br label %ARKodeSPRKTable_Alloc.exit.thread
 
 7:                                                ; preds = %4
@@ -913,26 +913,26 @@ define internal fastcc noalias noundef ptr @arkodeSymplecticSofroniou10() unname
   br i1 %.not.i, label %ARKodeSPRKTable_Alloc.exit.thread, label %1
 
 1:                                                ; preds = %0
-  %2 = tail call noalias dereferenceable_or_null(288) ptr @malloc(i64 noundef 288) #14
+  %2 = tail call noalias dereferenceable_or_null(288) ptr @malloc(i64 noundef 288) #15
   %3 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 16
   store ptr %2, ptr %3, align 8, !tbaa !3
   %.not14.i = icmp eq ptr %2, null
   br i1 %.not14.i, label %ARKodeSPRKTable_Free.exit.i, label %4
 
 ARKodeSPRKTable_Free.exit.i:                      ; preds = %1
-  tail call void @free(ptr noundef nonnull %calloc.i) #15
+  tail call void @free(ptr noundef nonnull %calloc.i) #16
   br label %ARKodeSPRKTable_Alloc.exit.thread
 
 4:                                                ; preds = %1
-  %5 = tail call noalias dereferenceable_or_null(288) ptr @malloc(i64 noundef 288) #14
+  %5 = tail call noalias dereferenceable_or_null(288) ptr @malloc(i64 noundef 288) #15
   %6 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 8
   store ptr %5, ptr %6, align 8, !tbaa !10
   %.not15.i = icmp eq ptr %5, null
   br i1 %.not15.i, label %ARKodeSPRKTable_Free.exit19.i, label %7
 
 ARKodeSPRKTable_Free.exit19.i:                    ; preds = %4
-  tail call void @free(ptr noundef nonnull %2) #15
-  tail call void @free(ptr noundef nonnull %calloc.i) #15
+  tail call void @free(ptr noundef nonnull %2) #16
+  tail call void @free(ptr noundef nonnull %calloc.i) #16
   br label %ARKodeSPRKTable_Alloc.exit.thread
 
 7:                                                ; preds = %4
@@ -1090,7 +1090,7 @@ ARKodeSPRKTable_Alloc.exit.thread:                ; preds = %0, %ARKodeSPRKTable
 
 ; Function Attrs: nounwind uwtable
 define noalias noundef ptr @ARKodeSPRKTable_LoadByName(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
-  %2 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(22) @.str) #16
+  %2 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(22) @.str) #17
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %3, label %12
 
@@ -1100,26 +1100,26 @@ define noalias noundef ptr @ARKodeSPRKTable_LoadByName(ptr noundef readonly capt
   br i1 %.not.i.i, label %arkodeSymplecticEuler.exit, label %4
 
 4:                                                ; preds = %3
-  %5 = tail call noalias dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #14
+  %5 = tail call noalias dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #15
   %6 = getelementptr inbounds nuw i8, ptr %calloc.i.i, i64 16
   store ptr %5, ptr %6, align 8, !tbaa !3
   %.not14.i.i = icmp eq ptr %5, null
   br i1 %.not14.i.i, label %ARKodeSPRKTable_Free.exit.i.i, label %7
 
 ARKodeSPRKTable_Free.exit.i.i:                    ; preds = %4
-  tail call void @free(ptr noundef nonnull %calloc.i.i) #15
+  tail call void @free(ptr noundef nonnull %calloc.i.i) #16
   br label %arkodeSymplecticEuler.exit
 
 7:                                                ; preds = %4
-  %8 = tail call noalias dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #14
+  %8 = tail call noalias dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #15
   %9 = getelementptr inbounds nuw i8, ptr %calloc.i.i, i64 8
   store ptr %8, ptr %9, align 8, !tbaa !10
   %.not15.i.i = icmp eq ptr %8, null
   br i1 %.not15.i.i, label %ARKodeSPRKTable_Free.exit19.i.i, label %10
 
 ARKodeSPRKTable_Free.exit19.i.i:                  ; preds = %7
-  tail call void @free(ptr noundef nonnull %5) #15
-  tail call void @free(ptr noundef nonnull %calloc.i.i) #15
+  tail call void @free(ptr noundef nonnull %5) #16
+  tail call void @free(ptr noundef nonnull %calloc.i.i) #16
   br label %arkodeSymplecticEuler.exit
 
 10:                                               ; preds = %7
@@ -1131,7 +1131,7 @@ ARKodeSPRKTable_Free.exit19.i.i:                  ; preds = %7
   br label %arkodeSymplecticEuler.exit
 
 12:                                               ; preds = %1
-  %13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(25) @.str.1) #16
+  %13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(25) @.str.1) #17
   %.not13 = icmp eq i32 %13, 0
   br i1 %.not13, label %14, label %16
 
@@ -1140,7 +1140,7 @@ ARKodeSPRKTable_Free.exit19.i.i:                  ; preds = %7
   br label %arkodeSymplecticEuler.exit
 
 16:                                               ; preds = %12
-  %17 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(32) @.str.2) #16
+  %17 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(32) @.str.2) #17
   %.not14 = icmp eq i32 %17, 0
   br i1 %.not14, label %18, label %20
 
@@ -1149,7 +1149,7 @@ ARKodeSPRKTable_Free.exit19.i.i:                  ; preds = %7
   br label %arkodeSymplecticEuler.exit
 
 20:                                               ; preds = %16
-  %21 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(21) @.str.3) #16
+  %21 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(21) @.str.3) #17
   %.not15 = icmp eq i32 %21, 0
   br i1 %.not15, label %22, label %24
 
@@ -1158,7 +1158,7 @@ ARKodeSPRKTable_Free.exit19.i.i:                  ; preds = %7
   br label %arkodeSymplecticEuler.exit
 
 24:                                               ; preds = %20
-  %25 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(26) @.str.4) #16
+  %25 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(26) @.str.4) #17
   %.not16 = icmp eq i32 %25, 0
   br i1 %.not16, label %26, label %28
 
@@ -1167,7 +1167,7 @@ ARKodeSPRKTable_Free.exit19.i.i:                  ; preds = %7
   br label %arkodeSymplecticEuler.exit
 
 28:                                               ; preds = %24
-  %29 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(26) @.str.5) #16
+  %29 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(26) @.str.5) #17
   %.not17 = icmp eq i32 %29, 0
   br i1 %.not17, label %30, label %32
 
@@ -1176,7 +1176,7 @@ ARKodeSPRKTable_Free.exit19.i.i:                  ; preds = %7
   br label %arkodeSymplecticEuler.exit
 
 32:                                               ; preds = %28
-  %33 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(26) @.str.6) #16
+  %33 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(26) @.str.6) #17
   %.not18 = icmp eq i32 %33, 0
   br i1 %.not18, label %34, label %36
 
@@ -1185,7 +1185,7 @@ ARKodeSPRKTable_Free.exit19.i.i:                  ; preds = %7
   br label %arkodeSymplecticEuler.exit
 
 36:                                               ; preds = %32
-  %37 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(29) @.str.7) #16
+  %37 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(29) @.str.7) #17
   %.not19 = icmp eq i32 %37, 0
   br i1 %.not19, label %38, label %40
 
@@ -1194,7 +1194,7 @@ ARKodeSPRKTable_Free.exit19.i.i:                  ; preds = %7
   br label %arkodeSymplecticEuler.exit
 
 40:                                               ; preds = %36
-  %41 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(26) @.str.8) #16
+  %41 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(26) @.str.8) #17
   %.not20 = icmp eq i32 %41, 0
   br i1 %.not20, label %42, label %44
 
@@ -1203,7 +1203,7 @@ ARKodeSPRKTable_Free.exit19.i.i:                  ; preds = %7
   br label %arkodeSymplecticEuler.exit
 
 44:                                               ; preds = %40
-  %45 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(24) @.str.9) #16
+  %45 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(24) @.str.9) #17
   %.not21 = icmp eq i32 %45, 0
   br i1 %.not21, label %46, label %48
 
@@ -1212,7 +1212,7 @@ ARKodeSPRKTable_Free.exit19.i.i:                  ; preds = %7
   br label %arkodeSymplecticEuler.exit
 
 48:                                               ; preds = %44
-  %49 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(30) @.str.10) #16
+  %49 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(30) @.str.10) #17
   %.not22 = icmp eq i32 %49, 0
   br i1 %.not22, label %50, label %52
 
@@ -1221,7 +1221,7 @@ ARKodeSPRKTable_Free.exit19.i.i:                  ; preds = %7
   br label %arkodeSymplecticEuler.exit
 
 52:                                               ; preds = %48
-  %53 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(28) @.str.11) #16
+  %53 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(28) @.str.11) #17
   %.not23 = icmp eq i32 %53, 0
   br i1 %.not23, label %54, label %arkodeSymplecticEuler.exit
 
@@ -1248,26 +1248,26 @@ define noalias noundef ptr @ARKodeSPRKTable_Copy(ptr noundef readonly captures(n
 4:                                                ; preds = %1
   %5 = sext i32 %3 to i64
   %6 = shl nsw i64 %5, 3
-  %7 = tail call noalias ptr @malloc(i64 noundef %6) #14
+  %7 = tail call noalias ptr @malloc(i64 noundef %6) #15
   %8 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 16
   store ptr %7, ptr %8, align 8, !tbaa !3
   %.not14.i = icmp eq ptr %7, null
   br i1 %.not14.i, label %ARKodeSPRKTable_Free.exit.i, label %9
 
 ARKodeSPRKTable_Free.exit.i:                      ; preds = %4
-  tail call void @free(ptr noundef nonnull %calloc.i) #15
+  tail call void @free(ptr noundef nonnull %calloc.i) #16
   br label %ARKodeSPRKTable_Alloc.exit
 
 9:                                                ; preds = %4
-  %10 = tail call noalias ptr @malloc(i64 noundef %6) #14
+  %10 = tail call noalias ptr @malloc(i64 noundef %6) #15
   %11 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 8
   store ptr %10, ptr %11, align 8, !tbaa !10
   %.not15.i = icmp eq ptr %10, null
   br i1 %.not15.i, label %ARKodeSPRKTable_Free.exit19.i, label %12
 
 ARKodeSPRKTable_Free.exit19.i:                    ; preds = %9
-  tail call void @free(ptr noundef nonnull %7) #15
-  tail call void @free(ptr noundef nonnull %calloc.i) #15
+  tail call void @free(ptr noundef nonnull %7) #16
+  tail call void @free(ptr noundef nonnull %calloc.i) #16
   br label %ARKodeSPRKTable_Alloc.exit
 
 12:                                               ; preds = %9
@@ -1338,11 +1338,11 @@ define void @ARKodeSPRKTable_Write(ptr noundef readonly captures(none) %0, ptr n
   store ptr null, ptr %4, align 8, !tbaa !18
   %5 = call i32 @ARKodeSPRKTable_ToButcher(ptr noundef %0, ptr noundef nonnull %3, ptr noundef nonnull %4)
   %6 = load ptr, ptr %3, align 8, !tbaa !18
-  tail call void @ARKodeButcherTable_Write(ptr noundef %6, ptr noundef %1) #15
+  tail call void @ARKodeButcherTable_Write(ptr noundef %6, ptr noundef %1) #16
   %7 = load ptr, ptr %4, align 8, !tbaa !18
-  tail call void @ARKodeButcherTable_Write(ptr noundef %7, ptr noundef %1) #15
-  tail call void @ARKodeButcherTable_Free(ptr noundef %6) #15
-  tail call void @ARKodeButcherTable_Free(ptr noundef %7) #15
+  tail call void @ARKodeButcherTable_Write(ptr noundef %7, ptr noundef %1) #16
+  tail call void @ARKodeButcherTable_Free(ptr noundef %6) #16
+  tail call void @ARKodeButcherTable_Free(ptr noundef %7) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
@@ -1352,13 +1352,13 @@ define void @ARKodeSPRKTable_Write(ptr noundef readonly captures(none) %0, ptr n
 define range(i32 -20, 1) i32 @ARKodeSPRKTable_ToButcher(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #4 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4, !tbaa !11
-  %6 = tail call ptr @ARKodeButcherTable_Alloc(i32 noundef %5, i32 noundef 0) #15
+  %6 = tail call ptr @ARKodeButcherTable_Alloc(i32 noundef %5, i32 noundef 0) #16
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %70, label %7
 
 7:                                                ; preds = %3
   %8 = load i32, ptr %4, align 4, !tbaa !11
-  %9 = tail call ptr @ARKodeButcherTable_Alloc(i32 noundef %8, i32 noundef 0) #15
+  %9 = tail call ptr @ARKodeButcherTable_Alloc(i32 noundef %8, i32 noundef 0) #16
   %.not73 = icmp eq ptr %9, null
   br i1 %.not73, label %28, label %.preheader80
 
@@ -1390,7 +1390,7 @@ define range(i32 -20, 1) i32 @ARKodeSPRKTable_ToButcher(ptr noundef readonly cap
   br label %29
 
 28:                                               ; preds = %7
-  tail call void @ARKodeButcherTable_Free(ptr noundef nonnull %6) #15
+  tail call void @ARKodeButcherTable_Free(ptr noundef nonnull %6) #16
   br label %70
 
 29:                                               ; preds = %.lr.ph98, %._crit_edge95
@@ -1553,6 +1553,9 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
 ; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #13
 
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.sqrt.f64(double) #14
+
 attributes #0 = { nounwind memory(readwrite, argmem: read, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind willreturn memory(readwrite, argmem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1567,9 +1570,10 @@ attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(err
 attributes #11 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #13 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
-attributes #14 = { nounwind allocsize(0) }
-attributes #15 = { nounwind }
-attributes #16 = { nounwind willreturn memory(read) }
+attributes #14 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #15 = { nounwind allocsize(0) }
+attributes #16 = { nounwind }
+attributes #17 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

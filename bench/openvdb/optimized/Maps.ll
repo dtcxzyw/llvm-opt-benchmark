@@ -19489,9 +19489,9 @@ _ZN7openvdb5v11_04math10isIdentityINS1_4Mat4IdEEEEbRKT_.exit: ; preds = %for.bod
   %mul8.i = fmul double %sub5.i.i, %sub5.i.i
   %65 = call double @llvm.fmuladd.f64(double %sub.i.i, double %sub.i.i, double %mul8.i)
   %66 = call double @llvm.fmuladd.f64(double %sub9.i.i, double %sub9.i.i, double %65)
-  %call.i = call noundef double @sqrt(double noundef %66) #27
+  %sqrt.i = call noundef double @llvm.sqrt.f64(double %66)
   %mVoxelSize = getelementptr inbounds nuw i8, ptr %this, i64 344
-  store double %call.i, ptr %mVoxelSize, align 8
+  store double %sqrt.i, ptr %mVoxelSize, align 8
   %67 = call double @llvm.fmuladd.f64(double %41, double 0.000000e+00, double %42)
   %68 = call double @llvm.fmuladd.f64(double %44, double 0.000000e+00, double %67)
   %add.i.i50 = fadd double %68, %46
@@ -19507,9 +19507,9 @@ _ZN7openvdb5v11_04math10isIdentityINS1_4Mat4IdEEEEbRKT_.exit: ; preds = %for.bod
   %mul8.i73 = fmul double %sub5.i.i68, %sub5.i.i68
   %73 = call double @llvm.fmuladd.f64(double %sub.i.i65, double %sub.i.i65, double %mul8.i73)
   %74 = call double @llvm.fmuladd.f64(double %sub9.i.i71, double %sub9.i.i71, double %73)
-  %call.i75 = call noundef double @sqrt(double noundef %74) #27
+  %sqrt.i75 = call noundef double @llvm.sqrt.f64(double %74)
   %arrayidx.i76 = getelementptr inbounds nuw i8, ptr %this, i64 352
-  store double %call.i75, ptr %arrayidx.i76, align 8
+  store double %sqrt.i75, ptr %arrayidx.i76, align 8
   %75 = fadd double %44, %43
   %add.i.i86 = fadd double %46, %75
   %76 = fadd double %50, %49
@@ -19522,9 +19522,9 @@ _ZN7openvdb5v11_04math10isIdentityINS1_4Mat4IdEEEEbRKT_.exit: ; preds = %for.bod
   %mul8.i109 = fmul double %sub5.i.i104, %sub5.i.i104
   %78 = call double @llvm.fmuladd.f64(double %sub.i.i101, double %sub.i.i101, double %mul8.i109)
   %79 = call double @llvm.fmuladd.f64(double %sub9.i.i107, double %sub9.i.i107, double %78)
-  %call.i111 = call noundef double @sqrt(double noundef %79) #27
+  %sqrt.i111 = call noundef double @llvm.sqrt.f64(double %79)
   %arrayidx.i112 = getelementptr inbounds nuw i8, ptr %this, i64 360
-  store double %call.i111, ptr %arrayidx.i112, align 8
+  store double %sqrt.i111, ptr %arrayidx.i112, align 8
   ret void
 
 unreachable:                                      ; preds = %try.cont
@@ -22806,24 +22806,24 @@ if.else:                                          ; preds = %entry
   %div6 = fdiv double %mul5, %0
   %cmp7 = fcmp olt double %div6, 0.000000e+00
   %5 = tail call double @llvm.fmuladd.f64(double %div6, double %div6, double 1.000000e+00)
-  %call10 = tail call double @sqrt(double noundef %5) #27
+  %sqrt = tail call double @llvm.sqrt.f64(double %5)
   br i1 %cmp7, label %if.then8, label %if.else13
 
 if.then8:                                         ; preds = %if.else
-  %sub11 = fsub double %call10, %div6
+  %sub11 = fsub double %sqrt, %div6
   %div12 = fdiv double -1.000000e+00, %sub11
   br label %if.end17
 
 if.else13:                                        ; preds = %if.else
-  %add = fadd double %div6, %call10
+  %add = fadd double %div6, %sqrt
   %div16 = fdiv double 1.000000e+00, %add
   br label %if.end17
 
 if.end17:                                         ; preds = %if.then8, %if.else13, %if.then
   %tan_of_theta.0 = phi double [ %div, %if.then ], [ %div12, %if.then8 ], [ %div16, %if.else13 ]
   %6 = tail call double @llvm.fmuladd.f64(double %tan_of_theta.0, double %tan_of_theta.0, double 1.000000e+00)
-  %call19 = tail call double @sqrt(double noundef %6) #27
-  %div20 = fdiv double 1.000000e+00, %call19
+  %sqrt208 = tail call double @llvm.sqrt.f64(double %6)
+  %div20 = fdiv double 1.000000e+00, %sqrt208
   %mul21 = fmul double %tan_of_theta.0, %div20
   %mul22 = fmul double %0, %tan_of_theta.0
   store double 0.000000e+00, ptr %arrayidx.i, align 8
@@ -22833,25 +22833,25 @@ if.end17:                                         ; preds = %if.then8, %if.else1
   %8 = load double, ptr %arrayidx.i.i, align 8
   %add27 = fadd double %mul22, %8
   store double %add27, ptr %arrayidx.i.i, align 8
-  %cmp28207 = icmp sgt i32 %i, 0
-  br i1 %cmp28207, label %for.body.preheader, label %for.cond40.preheader
+  %cmp28209 = icmp sgt i32 %i, 0
+  br i1 %cmp28209, label %for.body.preheader, label %for.cond40.preheader
 
 for.body.preheader:                               ; preds = %if.end17
   %wide.trip.count = zext nneg i32 %i to i64
   %invariant.gep = getelementptr double, ptr %S, i64 %idxprom.i.i117
-  %invariant.gep239 = getelementptr double, ptr %S, i64 %idxprom.i.i
+  %invariant.gep241 = getelementptr double, ptr %S, i64 %idxprom.i.i
   br label %for.body
 
 for.cond40.preheader:                             ; preds = %for.body, %if.end17
-  %k38.0209 = add nsw i32 %i, 1
-  %cmp41210 = icmp slt i32 %k38.0209, %j
-  br i1 %cmp41210, label %for.body42.preheader, label %for.cond58.preheader
+  %k38.0211 = add nsw i32 %i, 1
+  %cmp41212 = icmp slt i32 %k38.0211, %j
+  br i1 %cmp41212, label %for.body42.preheader, label %for.cond58.preheader
 
 for.body42.preheader:                             ; preds = %for.cond40.preheader
-  %9 = sext i32 %k38.0209 to i64
+  %9 = sext i32 %k38.0211 to i64
   %10 = sext i32 %mul.i to i64
-  %invariant.gep241 = getelementptr double, ptr %S, i64 %10
-  %invariant.gep243 = getelementptr double, ptr %S, i64 %idxprom.i.i
+  %invariant.gep243 = getelementptr double, ptr %S, i64 %10
+  %invariant.gep245 = getelementptr double, ptr %S, i64 %idxprom.i.i
   br label %for.body42
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
@@ -22859,93 +22859,93 @@ for.body:                                         ; preds = %for.body.preheader,
   %11 = mul nuw nsw i64 %indvars.iv, 3
   %gep = getelementptr double, ptr %invariant.gep, i64 %11
   %12 = load double, ptr %gep, align 8
-  %gep240 = getelementptr double, ptr %invariant.gep239, i64 %11
-  %13 = load double, ptr %gep240, align 8
+  %gep242 = getelementptr double, ptr %invariant.gep241, i64 %11
+  %13 = load double, ptr %gep242, align 8
   %14 = fneg double %13
   %neg = fmul double %mul21, %14
   %15 = tail call double @llvm.fmuladd.f64(double %div20, double %12, double %neg)
   store double %15, ptr %gep, align 8
-  %16 = load double, ptr %gep240, align 8
+  %16 = load double, ptr %gep242, align 8
   %mul36 = fmul double %div20, %16
   %17 = tail call double @llvm.fmuladd.f64(double %mul21, double %12, double %mul36)
-  store double %17, ptr %gep240, align 8
+  store double %17, ptr %gep242, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.cond40.preheader, label %for.body, !llvm.loop !553
 
 for.cond58.preheader:                             ; preds = %for.body42, %for.cond40.preheader
-  %cmp59212 = icmp slt i32 %j, 2
-  br i1 %cmp59212, label %for.body60.lr.ph, label %for.cond75.preheader
+  %cmp59214 = icmp slt i32 %j, 2
+  br i1 %cmp59214, label %for.body60.lr.ph, label %for.cond75.preheader
 
 for.body60.lr.ph:                                 ; preds = %for.cond58.preheader
   %mul.i171 = mul nsw i32 %j, 3
   %18 = sext i32 %mul.i to i64
   %19 = sext i32 %mul.i171 to i64
-  %invariant.gep245 = getelementptr double, ptr %S, i64 %18
-  %invariant.gep247 = getelementptr double, ptr %S, i64 %19
+  %invariant.gep247 = getelementptr double, ptr %S, i64 %18
+  %invariant.gep249 = getelementptr double, ptr %S, i64 %19
   br label %for.body60
 
 for.body42:                                       ; preds = %for.body42.preheader, %for.body42
-  %indvars.iv219 = phi i64 [ %9, %for.body42.preheader ], [ %indvars.iv.next220, %for.body42 ]
-  %gep242 = getelementptr double, ptr %invariant.gep241, i64 %indvars.iv219
-  %20 = load double, ptr %gep242, align 8
-  %.idx = mul i64 %indvars.iv219, 24
-  %gep244 = getelementptr i8, ptr %invariant.gep243, i64 %.idx
-  %21 = load double, ptr %gep244, align 8
+  %indvars.iv221 = phi i64 [ %9, %for.body42.preheader ], [ %indvars.iv.next222, %for.body42 ]
+  %gep244 = getelementptr double, ptr %invariant.gep243, i64 %indvars.iv221
+  %20 = load double, ptr %gep244, align 8
+  %.idx = mul i64 %indvars.iv221, 24
+  %gep246 = getelementptr i8, ptr %invariant.gep245, i64 %.idx
+  %21 = load double, ptr %gep246, align 8
   %22 = fneg double %21
   %neg47 = fmul double %mul21, %22
   %23 = tail call double @llvm.fmuladd.f64(double %div20, double %20, double %neg47)
-  store double %23, ptr %gep242, align 8
-  %24 = load double, ptr %gep244, align 8
+  store double %23, ptr %gep244, align 8
+  %24 = load double, ptr %gep246, align 8
   %mul51 = fmul double %div20, %24
   %25 = tail call double @llvm.fmuladd.f64(double %mul21, double %20, double %mul51)
-  store double %25, ptr %gep244, align 8
-  %indvars.iv.next220 = add nsw i64 %indvars.iv219, 1
-  %lftr.wideiv = trunc i64 %indvars.iv.next220 to i32
-  %exitcond225.not = icmp eq i32 %j, %lftr.wideiv
-  br i1 %exitcond225.not, label %for.cond58.preheader, label %for.body42, !llvm.loop !554
+  store double %25, ptr %gep246, align 8
+  %indvars.iv.next222 = add nsw i64 %indvars.iv221, 1
+  %lftr.wideiv = trunc i64 %indvars.iv.next222 to i32
+  %exitcond227.not = icmp eq i32 %j, %lftr.wideiv
+  br i1 %exitcond227.not, label %for.cond58.preheader, label %for.body42, !llvm.loop !554
 
 for.cond75.preheader:                             ; preds = %for.body60, %for.cond58.preheader
-  %invariant.gep249 = getelementptr double, ptr %Q, i64 %idxprom.i.i117
-  %invariant.gep251 = getelementptr double, ptr %Q, i64 %idxprom.i.i
+  %invariant.gep251 = getelementptr double, ptr %Q, i64 %idxprom.i.i117
+  %invariant.gep253 = getelementptr double, ptr %Q, i64 %idxprom.i.i
   br label %for.body77
 
 for.body60:                                       ; preds = %for.body60.lr.ph, %for.body60
-  %indvars.iv226 = phi i64 [ %idxprom.i.i, %for.body60.lr.ph ], [ %indvars.iv.next227, %for.body60 ]
-  %indvars.iv.next227 = add nsw i64 %indvars.iv226, 1
-  %gep246 = getelementptr double, ptr %invariant.gep245, i64 %indvars.iv.next227
-  %26 = load double, ptr %gep246, align 8
-  %gep248 = getelementptr double, ptr %invariant.gep247, i64 %indvars.iv.next227
-  %27 = load double, ptr %gep248, align 8
+  %indvars.iv228 = phi i64 [ %idxprom.i.i, %for.body60.lr.ph ], [ %indvars.iv.next229, %for.body60 ]
+  %indvars.iv.next229 = add nsw i64 %indvars.iv228, 1
+  %gep248 = getelementptr double, ptr %invariant.gep247, i64 %indvars.iv.next229
+  %26 = load double, ptr %gep248, align 8
+  %gep250 = getelementptr double, ptr %invariant.gep249, i64 %indvars.iv.next229
+  %27 = load double, ptr %gep250, align 8
   %28 = fneg double %27
   %neg65 = fmul double %mul21, %28
   %29 = tail call double @llvm.fmuladd.f64(double %div20, double %26, double %neg65)
-  store double %29, ptr %gep246, align 8
-  %30 = load double, ptr %gep248, align 8
+  store double %29, ptr %gep248, align 8
+  %30 = load double, ptr %gep250, align 8
   %mul69 = fmul double %div20, %30
   %31 = tail call double @llvm.fmuladd.f64(double %mul21, double %26, double %mul69)
-  store double %31, ptr %gep248, align 8
-  %exitcond231.not = icmp eq i64 %indvars.iv.next227, 2
-  br i1 %exitcond231.not, label %for.cond75.preheader, label %for.body60, !llvm.loop !555
+  store double %31, ptr %gep250, align 8
+  %exitcond233.not = icmp eq i64 %indvars.iv.next229, 2
+  br i1 %exitcond233.not, label %for.cond75.preheader, label %for.body60, !llvm.loop !555
 
 for.body77:                                       ; preds = %for.cond75.preheader, %for.body77
-  %indvars.iv232 = phi i64 [ 0, %for.cond75.preheader ], [ %indvars.iv.next233, %for.body77 ]
-  %32 = mul nuw nsw i64 %indvars.iv232, 3
-  %gep250 = getelementptr double, ptr %invariant.gep249, i64 %32
-  %33 = load double, ptr %gep250, align 8
+  %indvars.iv234 = phi i64 [ 0, %for.cond75.preheader ], [ %indvars.iv.next235, %for.body77 ]
+  %32 = mul nuw nsw i64 %indvars.iv234, 3
   %gep252 = getelementptr double, ptr %invariant.gep251, i64 %32
-  %34 = load double, ptr %gep252, align 8
+  %33 = load double, ptr %gep252, align 8
+  %gep254 = getelementptr double, ptr %invariant.gep253, i64 %32
+  %34 = load double, ptr %gep254, align 8
   %35 = fneg double %34
   %neg82 = fmul double %mul21, %35
   %36 = tail call double @llvm.fmuladd.f64(double %div20, double %33, double %neg82)
-  store double %36, ptr %gep250, align 8
-  %37 = load double, ptr %gep252, align 8
+  store double %36, ptr %gep252, align 8
+  %37 = load double, ptr %gep254, align 8
   %mul86 = fmul double %div20, %37
   %38 = tail call double @llvm.fmuladd.f64(double %mul21, double %33, double %mul86)
-  store double %38, ptr %gep252, align 8
-  %indvars.iv.next233 = add nuw nsw i64 %indvars.iv232, 1
-  %exitcond238.not = icmp eq i64 %indvars.iv.next233, 3
-  br i1 %exitcond238.not, label %for.end90, label %for.body77, !llvm.loop !556
+  store double %38, ptr %gep254, align 8
+  %indvars.iv.next235 = add nuw nsw i64 %indvars.iv234, 1
+  %exitcond240.not = icmp eq i64 %indvars.iv.next235, 3
+  br i1 %exitcond240.not, label %for.end90, label %for.body77, !llvm.loop !556
 
 for.end90:                                        ; preds = %for.body77
   ret void
@@ -24811,17 +24811,20 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #21
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #22
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #23
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.sqrt.f64(double) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #23
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #24
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #24
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #24
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #25
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #25
+declare i32 @llvm.umax.i32(i32, i32) #23
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -24846,9 +24849,9 @@ attributes #19 = { nofree nosync nounwind memory(none) }
 attributes #20 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #21 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #22 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #23 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #24 = { nocallback nofree nounwind willreturn memory(argmem: read) }
-attributes #25 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #23 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #24 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #25 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #26 = { builtin allocsize(0) }
 attributes #27 = { nounwind }
 attributes #28 = { noreturn }

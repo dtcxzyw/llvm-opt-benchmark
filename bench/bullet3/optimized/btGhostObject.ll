@@ -82,7 +82,7 @@ define dso_local void @_ZN13btGhostObjectD2Ev(ptr noundef nonnull align 8 derefe
   %9 = landingpad { ptr, i32 }
           catch ptr null
   %10 = extractvalue { ptr, i32 } %9, 0
-  tail call void @__clang_call_terminate(ptr %10) #16
+  tail call void @__clang_call_terminate(ptr %10) #17
   unreachable
 
 _ZN20btAlignedObjectArrayIP17btCollisionObjectED2Ev.exit: ; preds = %1, %7
@@ -92,7 +92,7 @@ _ZN20btAlignedObjectArrayIP17btCollisionObjectED2Ev.exit: ; preds = %1, %7
   store i32 0, ptr %11, align 4, !tbaa !16
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 384
   store i32 0, ptr %12, align 8, !tbaa !17
-  tail call void @_ZN17btCollisionObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(372) %0) #17
+  tail call void @_ZN17btCollisionObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(372) %0) #18
   ret void
 }
 
@@ -116,7 +116,7 @@ define dso_local void @_ZN13btGhostObjectD0Ev(ptr noundef nonnull align 8 derefe
   %9 = landingpad { ptr, i32 }
           catch ptr null
   %10 = extractvalue { ptr, i32 } %9, 0
-  tail call void @__clang_call_terminate(ptr %10) #16
+  tail call void @__clang_call_terminate(ptr %10) #17
   unreachable
 
 _ZN13btGhostObjectD2Ev.exit:                      ; preds = %1, %7
@@ -126,7 +126,7 @@ _ZN13btGhostObjectD2Ev.exit:                      ; preds = %1, %7
   store i32 0, ptr %11, align 4, !tbaa !16
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 384
   store i32 0, ptr %12, align 8, !tbaa !17
-  tail call void @_ZN17btCollisionObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(408) %0) #17
+  tail call void @_ZN17btCollisionObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(408) %0) #18
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %0)
           to label %_ZN17btCollisionObjectdlEPv.exit unwind label %13
 
@@ -134,7 +134,7 @@ _ZN13btGhostObjectD2Ev.exit:                      ; preds = %1, %7
   %14 = landingpad { ptr, i32 }
           catch ptr null
   %15 = extractvalue { ptr, i32 } %14, 0
-  tail call void @__clang_call_terminate(ptr %15) #16
+  tail call void @__clang_call_terminate(ptr %15) #17
   unreachable
 
 _ZN17btCollisionObjectdlEPv.exit:                 ; preds = %_ZN13btGhostObjectD2Ev.exit
@@ -345,7 +345,7 @@ define dso_local void @_ZN24btPairCachingGhostObjectC2Ev(ptr noundef nonnull ali
 
 15:                                               ; preds = %13, %11
   %.pn = phi { ptr, i32 } [ %14, %13 ], [ %12, %11 ]
-  tail call void @_ZN13btGhostObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(408) %0) #17
+  tail call void @_ZN13btGhostObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(408) %0) #18
   resume { ptr, i32 } %.pn
 }
 
@@ -360,7 +360,7 @@ define dso_local void @_ZN24btPairCachingGhostObjectD2Ev(ptr noundef nonnull ali
   %3 = load ptr, ptr %2, align 8, !tbaa !37
   %4 = load ptr, ptr %3, align 8, !tbaa !4
   %5 = load ptr, ptr %4, align 8
-  tail call void %5(ptr noundef nonnull align 8 dereferenceable(120) %3) #17
+  tail call void %5(ptr noundef nonnull align 8 dereferenceable(120) %3) #18
   %6 = load ptr, ptr %2, align 8, !tbaa !37
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %6)
           to label %7 unwind label %19
@@ -384,7 +384,7 @@ define dso_local void @_ZN24btPairCachingGhostObjectD2Ev(ptr noundef nonnull ali
   %15 = landingpad { ptr, i32 }
           catch ptr null
   %16 = extractvalue { ptr, i32 } %15, 0
-  tail call void @__clang_call_terminate(ptr %16) #16
+  tail call void @__clang_call_terminate(ptr %16) #17
   unreachable
 
 _ZN13btGhostObjectD2Ev.exit:                      ; preds = %7, %13
@@ -394,14 +394,14 @@ _ZN13btGhostObjectD2Ev.exit:                      ; preds = %7, %13
   store i32 0, ptr %17, align 4, !tbaa !16
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 384
   store i32 0, ptr %18, align 8, !tbaa !17
-  tail call void @_ZN17btCollisionObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(408) %0) #17
+  tail call void @_ZN17btCollisionObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(408) %0) #18
   ret void
 
 19:                                               ; preds = %1
   %20 = landingpad { ptr, i32 }
           catch ptr null
   %21 = extractvalue { ptr, i32 } %20, 0
-  tail call void @__clang_call_terminate(ptr %21) #16
+  tail call void @__clang_call_terminate(ptr %21) #17
   unreachable
 }
 
@@ -409,8 +409,8 @@ declare void @_Z21btAlignedFreeInternalPv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: noinline noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #5 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #17
-  tail call void @_ZSt9terminatev() #16
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #18
+  tail call void @_ZSt9terminatev() #17
   unreachable
 }
 
@@ -426,7 +426,7 @@ define dso_local void @_ZN24btPairCachingGhostObjectD0Ev(ptr noundef nonnull ali
   %3 = load ptr, ptr %2, align 8, !tbaa !37
   %4 = load ptr, ptr %3, align 8, !tbaa !4
   %5 = load ptr, ptr %4, align 8
-  tail call void %5(ptr noundef nonnull align 8 dereferenceable(120) %3) #17
+  tail call void %5(ptr noundef nonnull align 8 dereferenceable(120) %3) #18
   %6 = load ptr, ptr %2, align 8, !tbaa !37
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %6)
           to label %7 unwind label %17
@@ -450,14 +450,14 @@ define dso_local void @_ZN24btPairCachingGhostObjectD0Ev(ptr noundef nonnull ali
   %15 = landingpad { ptr, i32 }
           catch ptr null
   %16 = extractvalue { ptr, i32 } %15, 0
-  tail call void @__clang_call_terminate(ptr %16) #16
+  tail call void @__clang_call_terminate(ptr %16) #17
   unreachable
 
 17:                                               ; preds = %1
   %18 = landingpad { ptr, i32 }
           catch ptr null
   %19 = extractvalue { ptr, i32 } %18, 0
-  tail call void @__clang_call_terminate(ptr %19) #16
+  tail call void @__clang_call_terminate(ptr %19) #17
   unreachable
 
 _ZN24btPairCachingGhostObjectD2Ev.exit:           ; preds = %7, %13
@@ -467,7 +467,7 @@ _ZN24btPairCachingGhostObjectD2Ev.exit:           ; preds = %7, %13
   store i32 0, ptr %20, align 4, !tbaa !16
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 384
   store i32 0, ptr %21, align 8, !tbaa !17
-  tail call void @_ZN17btCollisionObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(416) %0) #17
+  tail call void @_ZN17btCollisionObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(416) %0) #18
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %0)
           to label %_ZN17btCollisionObjectdlEPv.exit unwind label %22
 
@@ -475,7 +475,7 @@ _ZN24btPairCachingGhostObjectD2Ev.exit:           ; preds = %7, %13
   %23 = landingpad { ptr, i32 }
           catch ptr null
   %24 = extractvalue { ptr, i32 } %23, 0
-  tail call void @__clang_call_terminate(ptr %24) #16
+  tail call void @__clang_call_terminate(ptr %24) #17
   unreachable
 
 _ZN17btCollisionObjectdlEPv.exit:                 ; preds = %_ZN24btPairCachingGhostObjectD2Ev.exit
@@ -1405,39 +1405,39 @@ define linkonce_odr dso_local void @_ZN15btTransformUtil22calculateDiffAxisAngle
   %124 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %125 = load float, ptr %124, align 4, !tbaa !43
   %126 = call noundef float @llvm.fmuladd.f32(float %125, float %125, float %123)
-  %127 = call noundef float @sqrtf(float noundef %126) #17, !tbaa !61
-  %128 = fdiv float 1.000000e+00, %127
-  %129 = fmul float %116, %128
-  %130 = fmul float %118, %128
-  %131 = fmul float %122, %128
-  %132 = fmul float %125, %128
-  %133 = fcmp olt float %132, -1.000000e+00
-  %.0.i.i = select i1 %133, float -1.000000e+00, float %132
-  %134 = fcmp ogt float %.0.i.i, 1.000000e+00
-  %.1.i.i = select i1 %134, float 1.000000e+00, float %.0.i.i
-  %135 = call noundef float @acosf(float noundef %.1.i.i) #17, !tbaa !61
-  %136 = fmul float %135, 2.000000e+00
-  store float %136, ptr %3, align 4, !tbaa !43
+  %sqrt.i.i = call noundef float @llvm.sqrt.f32(float %126)
+  %127 = fdiv float 1.000000e+00, %sqrt.i.i
+  %128 = fmul float %116, %127
+  %129 = fmul float %118, %127
+  %130 = fmul float %122, %127
+  %131 = fmul float %125, %127
+  %132 = fcmp olt float %131, -1.000000e+00
+  %.0.i.i = select i1 %132, float -1.000000e+00, float %131
+  %133 = fcmp ogt float %.0.i.i, 1.000000e+00
+  %.1.i.i = select i1 %133, float 1.000000e+00, float %.0.i.i
+  %134 = call noundef float @acosf(float noundef %.1.i.i) #18, !tbaa !61
+  %135 = fmul float %134, 2.000000e+00
+  store float %135, ptr %3, align 4, !tbaa !43
   %.sroa.616.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 12
   store float 0.000000e+00, ptr %.sroa.616.0..sroa_idx, align 4, !tbaa !43
-  %137 = fmul float %130, %130
-  %138 = call float @llvm.fmuladd.f32(float %129, float %129, float %137)
-  %139 = call noundef float @llvm.fmuladd.f32(float %131, float %131, float %138)
-  %140 = fcmp olt float %139, 0x3D10000000000000
-  br i1 %140, label %147, label %141
+  %136 = fmul float %129, %129
+  %137 = call float @llvm.fmuladd.f32(float %128, float %128, float %136)
+  %138 = call noundef float @llvm.fmuladd.f32(float %130, float %130, float %137)
+  %139 = fcmp olt float %138, 0x3D10000000000000
+  br i1 %139, label %145, label %140
 
-141:                                              ; preds = %4
-  %142 = call noundef float @sqrtf(float noundef %139) #17, !tbaa !61
-  %143 = fdiv float 1.000000e+00, %142
-  %144 = fmul float %129, %143
-  %145 = fmul float %130, %143
-  %146 = fmul float %131, %143
-  br label %147
+140:                                              ; preds = %4
+  %sqrt = call float @llvm.sqrt.f32(float %138)
+  %141 = fdiv float 1.000000e+00, %sqrt
+  %142 = fmul float %128, %141
+  %143 = fmul float %129, %141
+  %144 = fmul float %130, %141
+  br label %145
 
-147:                                              ; preds = %4, %141
-  %.sink21 = phi float [ %144, %141 ], [ 1.000000e+00, %4 ]
-  %.sink20 = phi float [ %145, %141 ], [ 0.000000e+00, %4 ]
-  %.sink = phi float [ %146, %141 ], [ 0.000000e+00, %4 ]
+145:                                              ; preds = %4, %140
+  %.sink21 = phi float [ %142, %140 ], [ 1.000000e+00, %4 ]
+  %.sink20 = phi float [ %143, %140 ], [ 0.000000e+00, %4 ]
+  %.sink = phi float [ %144, %140 ], [ 0.000000e+00, %4 ]
   %.sroa.515.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.414.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 4
   store float %.sink21, ptr %2, align 4
@@ -1469,7 +1469,7 @@ define linkonce_odr dso_local void @_ZNK11btMatrix3x311getRotationER12btQuaterni
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = fadd float %10, 1.000000e+00
-  %16 = tail call noundef float @sqrtf(float noundef %15) #17, !tbaa !61
+  %16 = tail call noundef float @sqrtf(float noundef %15) #18, !tbaa !61
   %17 = fmul float %16, 5.000000e-01
   %18 = fdiv float 5.000000e-01, %16
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 36
@@ -1518,7 +1518,7 @@ define linkonce_odr dso_local void @_ZNK11btMatrix3x311getRotationER12btQuaterni
   %58 = load float, ptr %57, align 4, !tbaa !43
   %59 = fsub float %54, %58
   %60 = fadd float %59, 1.000000e+00
-  %61 = tail call noundef float @sqrtf(float noundef %60) #17, !tbaa !61
+  %61 = tail call noundef float @sqrtf(float noundef %60) #18, !tbaa !61
   %62 = fmul float %61, 5.000000e-01
   %63 = getelementptr inbounds nuw float, ptr %3, i64 %46
   store float %62, ptr %63, align 4, !tbaa !43
@@ -1586,11 +1586,14 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #13
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
 
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.sqrt.f32(float) #14
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #14
+declare void @llvm.experimental.noalias.scope.decl(metadata) #15
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #15
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #16
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1606,10 +1609,11 @@ attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(arg
 attributes #11 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #14 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #15 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #16 = { noreturn nounwind }
-attributes #17 = { nounwind }
+attributes #14 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #15 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #16 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #17 = { noreturn nounwind }
+attributes #18 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

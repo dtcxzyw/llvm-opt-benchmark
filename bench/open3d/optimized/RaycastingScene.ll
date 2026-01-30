@@ -4566,7 +4566,7 @@ _ZNSt6vectorI9RTCRayHitSaIS0_EED2Ev.exit:         ; preds = %75
   %.not.i.i.i81 = icmp eq ptr %.sroa.083.0, null
   br i1 %.not.i.i.i81, label %_ZNSt6vectorI9RTCRayHitSaIS0_EED2Ev.exit82, label %._crit_edge100.thread
 
-._crit_edge100.thread:                            ; preds = %130, %._crit_edge100
+._crit_edge100.thread:                            ; preds = %129, %._crit_edge100
   %94 = ptrtoint ptr %.sroa.11.0 to i64
   %95 = ptrtoint ptr %.sroa.083.0 to i64
   %96 = sub i64 %94, %95
@@ -4576,8 +4576,8 @@ _ZNSt6vectorI9RTCRayHitSaIS0_EED2Ev.exit:         ; preds = %75
 _ZNSt6vectorI9RTCRayHitSaIS0_EED2Ev.exit82:       ; preds = %._crit_edge100, %._crit_edge100.thread
   ret void
 
-97:                                               ; preds = %.lr.ph99, %130
-  %.07897 = phi i64 [ %22, %.lr.ph99 ], [ %132, %130 ]
+97:                                               ; preds = %.lr.ph99, %129
+  %.07897 = phi i64 [ %22, %.lr.ph99 ], [ %131, %129 ]
   %98 = sub nuw i64 %.07897, %22
   %99 = getelementptr inbounds nuw %struct.RTCRayHit, ptr %.sroa.083.0, i64 %98
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %99, i64 32
@@ -4605,7 +4605,7 @@ _ZNSt6vectorI9RTCRayHitSaIS0_EED2Ev.exit82:       ; preds = %._crit_edge100, %._
   %.not = icmp eq i32 %.sroa.17.0.copyload, -1
   %103 = getelementptr inbounds nuw i32, ptr %35, i64 %101
   %.idx93 = shl i64 %101, 3
-  br i1 %.not, label %121, label %104
+  br i1 %.not, label %120, label %104
 
 104:                                              ; preds = %97
   store i32 %.sroa.17.0.copyload, ptr %103, align 4, !tbaa !28
@@ -4620,44 +4620,44 @@ _ZNSt6vectorI9RTCRayHitSaIS0_EED2Ev.exit82:       ; preds = %._crit_edge100, %._
   %110 = fmul float %.sroa.8.0.copyload, %.sroa.8.0.copyload
   %111 = tail call float @llvm.fmuladd.f32(float %.sroa.518.0.copyload, float %.sroa.518.0.copyload, float %110)
   %112 = tail call float @llvm.fmuladd.f32(float %.sroa.11.0.copyload, float %.sroa.11.0.copyload, float %111)
-  %113 = tail call noundef float @sqrtf(float noundef %112) #16, !tbaa !28
-  %114 = fdiv float 1.000000e+00, %113
-  %115 = fmul float %.sroa.518.0.copyload, %114
-  %116 = load ptr, ptr %34, align 8, !tbaa !124
+  %sqrt = tail call float @llvm.sqrt.f32(float %112)
+  %113 = fdiv float 1.000000e+00, %sqrt
+  %114 = fmul float %.sroa.518.0.copyload, %113
+  %115 = load ptr, ptr %34, align 8, !tbaa !124
   %.idx92 = mul i64 %101, 12
-  %117 = getelementptr inbounds nuw i8, ptr %116, i64 %.idx92
-  store float %115, ptr %117, align 4, !tbaa !53
-  %118 = fmul float %.sroa.8.0.copyload, %114
-  %119 = getelementptr i8, ptr %117, i64 4
-  store float %118, ptr %119, align 4, !tbaa !53
-  %120 = fmul float %.sroa.11.0.copyload, %114
-  br label %130
+  %116 = getelementptr inbounds nuw i8, ptr %115, i64 %.idx92
+  store float %114, ptr %116, align 4, !tbaa !53
+  %117 = fmul float %.sroa.8.0.copyload, %113
+  %118 = getelementptr i8, ptr %116, i64 4
+  store float %117, ptr %118, align 4, !tbaa !53
+  %119 = fmul float %.sroa.11.0.copyload, %113
+  br label %129
 
-121:                                              ; preds = %97
+120:                                              ; preds = %97
   store i32 -1, ptr %103, align 4, !tbaa !28
-  %122 = load ptr, ptr %30, align 8, !tbaa !126
-  %123 = getelementptr inbounds nuw i32, ptr %122, i64 %101
-  store i32 -1, ptr %123, align 4, !tbaa !28
-  %124 = load ptr, ptr %32, align 8, !tbaa !124
-  %125 = getelementptr inbounds nuw i8, ptr %124, i64 %.idx93
+  %121 = load ptr, ptr %30, align 8, !tbaa !126
+  %122 = getelementptr inbounds nuw i32, ptr %121, i64 %101
+  store i32 -1, ptr %122, align 4, !tbaa !28
+  %123 = load ptr, ptr %32, align 8, !tbaa !124
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 %.idx93
+  store float 0.000000e+00, ptr %124, align 4, !tbaa !53
+  %125 = getelementptr inbounds nuw i8, ptr %124, i64 4
   store float 0.000000e+00, ptr %125, align 4, !tbaa !53
-  %126 = getelementptr inbounds nuw i8, ptr %125, i64 4
-  store float 0.000000e+00, ptr %126, align 4, !tbaa !53
-  %127 = load ptr, ptr %34, align 8, !tbaa !124
+  %126 = load ptr, ptr %34, align 8, !tbaa !124
   %.idx94 = mul i64 %101, 12
-  %128 = getelementptr inbounds nuw i8, ptr %127, i64 %.idx94
+  %127 = getelementptr inbounds nuw i8, ptr %126, i64 %.idx94
+  store float 0.000000e+00, ptr %127, align 4, !tbaa !53
+  %128 = getelementptr i8, ptr %127, i64 4
   store float 0.000000e+00, ptr %128, align 4, !tbaa !53
-  %129 = getelementptr i8, ptr %128, i64 4
-  store float 0.000000e+00, ptr %129, align 4, !tbaa !53
-  br label %130
+  br label %129
 
-130:                                              ; preds = %121, %104
-  %.sink114 = phi ptr [ %128, %121 ], [ %117, %104 ]
-  %.sink112 = phi float [ 0.000000e+00, %121 ], [ %120, %104 ]
-  %131 = getelementptr i8, ptr %.sink114, i64 8
-  store float %.sink112, ptr %131, align 4, !tbaa !53
-  %132 = add nuw i64 %.07897, 1
-  %exitcond.not = icmp eq i64 %132, %.lcssa
+129:                                              ; preds = %120, %104
+  %.sink114 = phi ptr [ %127, %120 ], [ %116, %104 ]
+  %.sink112 = phi float [ 0.000000e+00, %120 ], [ %119, %104 ]
+  %130 = getelementptr i8, ptr %.sink114, i64 8
+  store float %.sink112, ptr %130, align 4, !tbaa !53
+  %131 = add nuw i64 %.07897, 1
+  %exitcond.not = icmp eq i64 %131, %.lcssa
   br i1 %exitcond.not, label %._crit_edge100.thread, label %97, !llvm.loop !295
 }
 
@@ -4668,9 +4668,6 @@ declare float @llvm.fmuladd.f32(float, float, float) #19
 
 ; Function Attrs: noreturn
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #7
-
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare float @sqrtf(float noundef) local_unnamed_addr #20
 
 declare noundef zeroext i1 @_ZN3tbb6detail2r128is_group_execution_cancelledERNS0_2d118task_group_contextE(ptr noundef nonnull align 8 dereferenceable(128)) local_unnamed_addr #5
 
@@ -7907,8 +7904,8 @@ _Z24rtcInitPointQueryContextP20RTCPointQueryContext.exit: ; preds = %.lr.ph, %_Z
 
 declare zeroext i1 @rtcPointQuery(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
-; Function Attrs: mustprogress nofree norecurse nounwind ssp willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
-define internal noundef zeroext i1 @_ZN12_GLOBAL__N_116ClosestPointFuncIN5Eigen6MatrixIfLi3ELi1ELi0ELi3ELi1EEENS1_14AlignedVector3IfEENS2_IfLi2ELi1ELi2ELi2ELi1EEEEEbP30RTCPointQueryFunctionArguments(ptr noundef readonly captures(none) %0) #21 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind ssp willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+define internal noundef zeroext i1 @_ZN12_GLOBAL__N_116ClosestPointFuncIN5Eigen6MatrixIfLi3ELi1ELi0ELi3ELi1EEENS1_14AlignedVector3IfEENS2_IfLi2ELi1ELi2ELi2ELi1EEEEEbP30RTCPointQueryFunctionArguments(ptr noundef readonly captures(none) %0) #20 personality ptr @__gxx_personality_v0 {
   %.sroa.0.i = alloca <4 x float>, align 16
   %2 = alloca %"class.Eigen::AlignedVector3", align 16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -8008,9 +8005,9 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_116ClosestPointFuncIN5Eigen6
   %89 = fmul <4 x float> %84, %83
   %90 = shufflevector <4 x float> %89, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %91 = fadd <4 x float> %89, %90
-  %shift96 = shufflevector <4 x float> %91, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop97 = fadd <4 x float> %91, %shift96
-  %92 = extractelement <4 x float> %foldExtExtBinop97, i64 0
+  %shift95 = shufflevector <4 x float> %91, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop96 = fadd <4 x float> %91, %shift95
+  %92 = extractelement <4 x float> %foldExtExtBinop96, i64 0
   %93 = fcmp ole float %88, 0.000000e+00
   %94 = fcmp ole float %92, 0.000000e+00
   %or.cond.i = and i1 %93, %94
@@ -8021,15 +8018,15 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_116ClosestPointFuncIN5Eigen6
   %97 = fmul <4 x float> %96, %82
   %98 = shufflevector <4 x float> %97, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %99 = fadd <4 x float> %97, %98
-  %shift99 = shufflevector <4 x float> %99, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop100 = fadd <4 x float> %99, %shift99
-  %100 = extractelement <4 x float> %foldExtExtBinop100, i64 0
+  %shift98 = shufflevector <4 x float> %99, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop99 = fadd <4 x float> %99, %shift98
+  %100 = extractelement <4 x float> %foldExtExtBinop99, i64 0
   %101 = fmul <4 x float> %96, %83
   %102 = shufflevector <4 x float> %101, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %103 = fadd <4 x float> %101, %102
-  %shift102 = shufflevector <4 x float> %103, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop103 = fadd <4 x float> %103, %shift102
-  %104 = extractelement <4 x float> %foldExtExtBinop103, i64 0
+  %shift101 = shufflevector <4 x float> %103, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop102 = fadd <4 x float> %103, %shift101
+  %104 = extractelement <4 x float> %foldExtExtBinop102, i64 0
   %105 = fcmp ult float %100, 0.000000e+00
   %106 = fcmp ugt float %104, %100
   %or.cond98.i = or i1 %105, %106
@@ -8040,15 +8037,15 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_116ClosestPointFuncIN5Eigen6
   %109 = fmul <4 x float> %82, %108
   %110 = shufflevector <4 x float> %109, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %111 = fadd <4 x float> %109, %110
-  %shift105 = shufflevector <4 x float> %111, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop106 = fadd <4 x float> %111, %shift105
-  %112 = extractelement <4 x float> %foldExtExtBinop106, i64 0
+  %shift104 = shufflevector <4 x float> %111, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop105 = fadd <4 x float> %111, %shift104
+  %112 = extractelement <4 x float> %foldExtExtBinop105, i64 0
   %113 = fmul <4 x float> %83, %108
   %114 = shufflevector <4 x float> %113, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %115 = fadd <4 x float> %113, %114
-  %shift108 = shufflevector <4 x float> %115, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop109 = fadd <4 x float> %115, %shift108
-  %116 = extractelement <4 x float> %foldExtExtBinop109, i64 0
+  %shift107 = shufflevector <4 x float> %115, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop108 = fadd <4 x float> %115, %shift107
+  %116 = extractelement <4 x float> %foldExtExtBinop108, i64 0
   %117 = fcmp ult float %116, 0.000000e+00
   %118 = fcmp ugt float %112, %116
   %or.cond99.i = or i1 %117, %118
@@ -8066,11 +8063,11 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_116ClosestPointFuncIN5Eigen6
   br i1 %or.cond5.i, label %126, label %132
 
 126:                                              ; preds = %119
-  %foldExtExtBinop111 = fsub <4 x float> %foldExtExtBinop, %foldExtExtBinop100
-  %127 = extractelement <4 x float> %foldExtExtBinop111, i64 0
+  %foldExtExtBinop110 = fsub <4 x float> %foldExtExtBinop, %foldExtExtBinop99
+  %127 = extractelement <4 x float> %foldExtExtBinop110, i64 0
   %128 = fdiv float %88, %127
-  %.cast130 = bitcast float %128 to <1 x float>
-  %129 = shufflevector <1 x float> %.cast130, <1 x float> poison, <4 x i32> zeroinitializer
+  %.cast129 = bitcast float %128 to <1 x float>
+  %129 = shufflevector <1 x float> %.cast129, <1 x float> poison, <4 x i32> zeroinitializer
   %130 = fmul <4 x float> %82, %129
   %131 = fadd <4 x float> %.sroa.076.12.vec.insert, %130
   br label %_ZN12_GLOBAL__N_120closestPointTriangleIN5Eigen14AlignedVector3IfEEEET_RKS4_S6_S6_S6_RfS7_.exit
@@ -8087,11 +8084,11 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_116ClosestPointFuncIN5Eigen6
   br i1 %or.cond9.i, label %139, label %145
 
 139:                                              ; preds = %132
-  %foldExtExtBinop113 = fsub <4 x float> %foldExtExtBinop97, %foldExtExtBinop109
-  %140 = extractelement <4 x float> %foldExtExtBinop113, i64 0
+  %foldExtExtBinop112 = fsub <4 x float> %foldExtExtBinop96, %foldExtExtBinop108
+  %140 = extractelement <4 x float> %foldExtExtBinop112, i64 0
   %141 = fdiv float %92, %140
-  %.cast129 = bitcast float %141 to <1 x float>
-  %142 = shufflevector <1 x float> %.cast129, <1 x float> poison, <4 x i32> zeroinitializer
+  %.cast128 = bitcast float %141 to <1 x float>
+  %142 = shufflevector <1 x float> %.cast128, <1 x float> poison, <4 x i32> zeroinitializer
   %143 = fmul <4 x float> %83, %142
   %144 = fadd <4 x float> %.sroa.076.12.vec.insert, %143
   br label %_ZN12_GLOBAL__N_120closestPointTriangleIN5Eigen14AlignedVector3IfEEEET_RKS4_S6_S6_S6_RfS7_.exit
@@ -8104,20 +8101,20 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_116ClosestPointFuncIN5Eigen6
   br i1 %149, label %164, label %150
 
 150:                                              ; preds = %145
-  %foldExtExtBinop115 = fsub <4 x float> %foldExtExtBinop103, %foldExtExtBinop100
-  %151 = extractelement <4 x float> %foldExtExtBinop115, i64 0
+  %foldExtExtBinop114 = fsub <4 x float> %foldExtExtBinop102, %foldExtExtBinop99
+  %151 = extractelement <4 x float> %foldExtExtBinop114, i64 0
   %152 = fcmp ult float %151, 0.000000e+00
   br i1 %152, label %164, label %153
 
 153:                                              ; preds = %150
-  %foldExtExtBinop117 = fsub <4 x float> %foldExtExtBinop106, %foldExtExtBinop109
-  %154 = extractelement <4 x float> %foldExtExtBinop117, i64 0
+  %foldExtExtBinop116 = fsub <4 x float> %foldExtExtBinop105, %foldExtExtBinop108
+  %154 = extractelement <4 x float> %foldExtExtBinop116, i64 0
   %155 = fcmp ult float %154, 0.000000e+00
   br i1 %155, label %164, label %156
 
 156:                                              ; preds = %153
-  %foldExtExtBinop119 = fadd <4 x float> %foldExtExtBinop115, %foldExtExtBinop117
-  %157 = extractelement <4 x float> %foldExtExtBinop119, i64 0
+  %foldExtExtBinop118 = fadd <4 x float> %foldExtExtBinop114, %foldExtExtBinop116
+  %157 = extractelement <4 x float> %foldExtExtBinop118, i64 0
   %158 = fdiv float %151, %157
   %159 = fsub float 1.000000e+00, %158
   %160 = fsub <4 x float> %.sroa.066.12.vec.insert, %.sroa.071.12.vec.insert
@@ -8133,12 +8130,12 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_116ClosestPointFuncIN5Eigen6
   %167 = fdiv float 1.000000e+00, %166
   %168 = fmul float %135, %167
   %169 = fmul float %122, %167
-  %.cast127 = bitcast float %168 to <1 x float>
-  %170 = shufflevector <1 x float> %.cast127, <1 x float> poison, <4 x i32> zeroinitializer
+  %.cast126 = bitcast float %168 to <1 x float>
+  %170 = shufflevector <1 x float> %.cast126, <1 x float> poison, <4 x i32> zeroinitializer
   %171 = fmul <4 x float> %82, %170
   %172 = fadd <4 x float> %.sroa.076.12.vec.insert, %171
-  %.cast128 = bitcast float %169 to <1 x float>
-  %173 = shufflevector <1 x float> %.cast128, <1 x float> poison, <4 x i32> zeroinitializer
+  %.cast127 = bitcast float %169 to <1 x float>
+  %173 = shufflevector <1 x float> %.cast127, <1 x float> poison, <4 x i32> zeroinitializer
   %174 = fmul <4 x float> %83, %173
   %175 = fadd <4 x float> %172, %174
   br label %_ZN12_GLOBAL__N_120closestPointTriangleIN5Eigen14AlignedVector3IfEEEET_RKS4_S6_S6_S6_RfS7_.exit
@@ -8151,31 +8148,31 @@ _ZN12_GLOBAL__N_120closestPointTriangleIN5Eigen14AlignedVector3IfEEEET_RKS4_S6_S
   %177 = fmul <4 x float> %176, %176
   %178 = shufflevector <4 x float> %177, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %179 = fadd <4 x float> %177, %178
-  %shift121 = shufflevector <4 x float> %179, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop122 = fadd <4 x float> %179, %shift121
-  %180 = extractelement <4 x float> %foldExtExtBinop122, i64 0
-  %181 = tail call noundef float @sqrtf(float noundef %180) #16, !tbaa !28
-  %182 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %183 = load float, ptr %182, align 16, !tbaa !362
-  %184 = fcmp uge float %181, %183
-  br i1 %184, label %.critedge, label %185
+  %shift120 = shufflevector <4 x float> %179, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop121 = fadd <4 x float> %179, %shift120
+  %180 = extractelement <4 x float> %foldExtExtBinop121, i64 0
+  %sqrt.i = tail call noundef float @llvm.sqrt.f32(float %180)
+  %181 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %182 = load float, ptr %181, align 16, !tbaa !362
+  %183 = fcmp uge float %sqrt.i, %182
+  br i1 %183, label %.critedge, label %184
 
-185:                                              ; preds = %_ZN12_GLOBAL__N_120closestPointTriangleIN5Eigen14AlignedVector3IfEEEET_RKS4_S6_S6_S6_RfS7_.exit
-  store float %181, ptr %182, align 16, !tbaa !362
+184:                                              ; preds = %_ZN12_GLOBAL__N_120closestPointTriangleIN5Eigen14AlignedVector3IfEEEET_RKS4_S6_S6_S6_RfS7_.exit
+  store float %sqrt.i, ptr %181, align 16, !tbaa !362
   %.sroa.061.0.vec.extract = extractelement <4 x float> %.sroa.061.0, i64 0
   store float %.sroa.061.0.vec.extract, ptr %16, align 4, !tbaa !53
-  %186 = getelementptr inbounds nuw i8, ptr %16, i64 4
+  %185 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %.sroa.061.4.vec.extract = extractelement <4 x float> %.sroa.061.0, i64 1
-  store float %.sroa.061.4.vec.extract, ptr %186, align 4, !tbaa !53
-  %187 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  store float %.sroa.061.4.vec.extract, ptr %185, align 4, !tbaa !53
+  %186 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %.sroa.061.8.vec.extract = extractelement <4 x float> %.sroa.061.0, i64 2
-  store float %.sroa.061.8.vec.extract, ptr %187, align 4, !tbaa !53
-  %188 = getelementptr inbounds nuw i8, ptr %16, i64 12
-  store i32 %6, ptr %188, align 4, !tbaa !364
-  %189 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  store i32 %4, ptr %189, align 8, !tbaa !374
-  %190 = getelementptr inbounds nuw i8, ptr %16, i64 20
-  store float %.0, ptr %190, align 4, !tbaa !113
+  store float %.sroa.061.8.vec.extract, ptr %186, align 4, !tbaa !53
+  %187 = getelementptr inbounds nuw i8, ptr %16, i64 12
+  store i32 %6, ptr %187, align 4, !tbaa !364
+  %188 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  store i32 %4, ptr %188, align 8, !tbaa !374
+  %189 = getelementptr inbounds nuw i8, ptr %16, i64 20
+  store float %.0, ptr %189, align 4, !tbaa !113
   %.sroa_idx56 = getelementptr inbounds nuw i8, ptr %16, i64 24
   store float %.087, ptr %.sroa_idx56, align 8, !tbaa !113
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -8183,56 +8180,56 @@ _ZN12_GLOBAL__N_120closestPointTriangleIN5Eigen14AlignedVector3IfEEEET_RKS4_S6_S
   %.sroa.058.8.vec.extract = extractelement <4 x float> %83, i64 2
   %.sroa.059.8.vec.extract = extractelement <4 x float> %82, i64 2
   %.sroa.058.4.vec.extract = extractelement <4 x float> %83, i64 1
-  %191 = fneg float %.sroa.058.4.vec.extract
-  %192 = fmul float %.sroa.059.8.vec.extract, %191
-  %193 = tail call float @llvm.fmuladd.f32(float %.sroa.059.4.vec.extract, float %.sroa.058.8.vec.extract, float %192)
+  %190 = fneg float %.sroa.058.4.vec.extract
+  %191 = fmul float %.sroa.059.8.vec.extract, %190
+  %192 = tail call float @llvm.fmuladd.f32(float %.sroa.059.4.vec.extract, float %.sroa.058.8.vec.extract, float %191)
   %.sroa.058.0.vec.extract = extractelement <4 x float> %83, i64 0
   %.sroa.059.0.vec.extract = extractelement <4 x float> %82, i64 0
-  %194 = fneg float %.sroa.058.8.vec.extract
-  %195 = fmul float %.sroa.059.0.vec.extract, %194
-  %196 = tail call float @llvm.fmuladd.f32(float %.sroa.059.8.vec.extract, float %.sroa.058.0.vec.extract, float %195)
-  %197 = fneg float %.sroa.058.0.vec.extract
-  %198 = fmul float %.sroa.059.4.vec.extract, %197
-  %199 = tail call float @llvm.fmuladd.f32(float %.sroa.059.0.vec.extract, float %.sroa.058.4.vec.extract, float %198)
-  %200 = insertelement <4 x float> <float poison, float poison, float poison, float 0.000000e+00>, float %193, i64 0
-  %201 = insertelement <4 x float> %200, float %196, i64 1
-  %.sroa.0.12.vec.insert.i = insertelement <4 x float> %201, float %199, i64 2
+  %193 = fneg float %.sroa.058.8.vec.extract
+  %194 = fmul float %.sroa.059.0.vec.extract, %193
+  %195 = tail call float @llvm.fmuladd.f32(float %.sroa.059.8.vec.extract, float %.sroa.058.0.vec.extract, float %194)
+  %196 = fneg float %.sroa.058.0.vec.extract
+  %197 = fmul float %.sroa.059.4.vec.extract, %196
+  %198 = tail call float @llvm.fmuladd.f32(float %.sroa.059.0.vec.extract, float %.sroa.058.4.vec.extract, float %197)
+  %199 = insertelement <4 x float> <float poison, float poison, float poison, float 0.000000e+00>, float %192, i64 0
+  %200 = insertelement <4 x float> %199, float %195, i64 1
+  %.sroa.0.12.vec.insert.i = insertelement <4 x float> %200, float %198, i64 2
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i)
-  %202 = fmul <4 x float> %.sroa.0.12.vec.insert.i, %.sroa.0.12.vec.insert.i
-  %203 = shufflevector <4 x float> %202, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
-  %204 = fadd <4 x float> %202, %203
-  %shift124 = shufflevector <4 x float> %204, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop125 = fadd <4 x float> %204, %shift124
-  %205 = extractelement <4 x float> %foldExtExtBinop125, i64 0
-  %206 = tail call noundef float @sqrtf(float noundef %205) #16, !tbaa !28, !noalias !397
-  store ptr %2, ptr %.sroa.0.i, align 16, !tbaa !400, !alias.scope !402, !noalias !397
+  %201 = fmul <4 x float> %.sroa.0.12.vec.insert.i, %.sroa.0.12.vec.insert.i
+  %202 = shufflevector <4 x float> %201, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
+  %203 = fadd <4 x float> %201, %202
+  %shift123 = shufflevector <4 x float> %203, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop124 = fadd <4 x float> %203, %shift123
+  %204 = extractelement <4 x float> %foldExtExtBinop124, i64 0
+  %sqrt.i.i = tail call noundef float @llvm.sqrt.f32(float %204)
+  store ptr %2, ptr %.sroa.0.i, align 16, !tbaa !397, !alias.scope !399, !noalias !402
   %.sroa.0.i.12.i.12.i.12..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 12
-  store float %206, ptr %.sroa.0.i.12.i.12.i.12..sroa_idx, align 4, !tbaa !405, !alias.scope !402, !noalias !397
-  %.sroa.0.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..sroa.0.0..i = load <4 x float>, ptr %.sroa.0.i, align 16, !noalias !397
-  %207 = shufflevector <4 x float> %.sroa.0.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..sroa.0.0..i, <4 x float> poison, <4 x i32> <i32 3, i32 3, i32 3, i32 poison>
-  %208 = fdiv <4 x float> %.sroa.0.12.vec.insert.i, %207
+  store float %sqrt.i.i, ptr %.sroa.0.i.12.i.12.i.12..sroa_idx, align 4, !tbaa !405, !alias.scope !399, !noalias !402
+  %.sroa.0.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..sroa.0.0..i = load <4 x float>, ptr %.sroa.0.i, align 16, !noalias !402
+  %205 = shufflevector <4 x float> %.sroa.0.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..sroa.0.0..i, <4 x float> poison, <4 x i32> <i32 3, i32 3, i32 3, i32 poison>
+  %206 = fdiv <4 x float> %.sroa.0.12.vec.insert.i, %205
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i)
-  %209 = getelementptr inbounds nuw i8, ptr %16, i64 28
-  %.sroa.0.0.vec.extract = extractelement <4 x float> %208, i64 0
-  store float %.sroa.0.0.vec.extract, ptr %209, align 4, !tbaa !53
-  %210 = getelementptr inbounds nuw i8, ptr %16, i64 32
-  %.sroa.0.4.vec.extract = extractelement <4 x float> %208, i64 1
-  store float %.sroa.0.4.vec.extract, ptr %210, align 8, !tbaa !53
-  %211 = getelementptr inbounds nuw i8, ptr %16, i64 36
-  %.sroa.0.8.vec.extract = extractelement <4 x float> %208, i64 2
-  store float %.sroa.0.8.vec.extract, ptr %211, align 4, !tbaa !53
+  %207 = getelementptr inbounds nuw i8, ptr %16, i64 28
+  %.sroa.0.0.vec.extract = extractelement <4 x float> %206, i64 0
+  store float %.sroa.0.0.vec.extract, ptr %207, align 4, !tbaa !53
+  %208 = getelementptr inbounds nuw i8, ptr %16, i64 32
+  %.sroa.0.4.vec.extract = extractelement <4 x float> %206, i64 1
+  store float %.sroa.0.4.vec.extract, ptr %208, align 8, !tbaa !53
+  %209 = getelementptr inbounds nuw i8, ptr %16, i64 36
+  %.sroa.0.8.vec.extract = extractelement <4 x float> %206, i64 2
+  store float %.sroa.0.8.vec.extract, ptr %209, align 4, !tbaa !53
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.critedge
 
-.critedge:                                        ; preds = %_ZN12_GLOBAL__N_120closestPointTriangleIN5Eigen14AlignedVector3IfEEEET_RKS4_S6_S6_S6_RfS7_.exit, %1, %185
-  %.1 = phi i1 [ true, %185 ], [ false, %1 ], [ false, %_ZN12_GLOBAL__N_120closestPointTriangleIN5Eigen14AlignedVector3IfEEEET_RKS4_S6_S6_S6_RfS7_.exit ]
+.critedge:                                        ; preds = %_ZN12_GLOBAL__N_120closestPointTriangleIN5Eigen14AlignedVector3IfEEEET_RKS4_S6_S6_S6_RfS7_.exit, %1, %184
+  %.1 = phi i1 [ true, %184 ], [ false, %1 ], [ false, %_ZN12_GLOBAL__N_120closestPointTriangleIN5Eigen14AlignedVector3IfEEEET_RKS4_S6_S6_S6_RfS7_.exit ]
   ret i1 %.1
 }
 
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #22
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #21
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructEmc(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i8 noundef signext) local_unnamed_addr #5
 
@@ -8794,13 +8791,13 @@ _ZSt20uninitialized_copy_nIPcmS0_ET1_T_T0_S1_.exit: ; preds = %22, %23, %25
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #23
+declare void @llvm.assume(i1 noundef) #22
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: inlinehint mustprogress noreturn ssp uwtable
-define linkonce_odr void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef %0) local_unnamed_addr #24 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef %0) local_unnamed_addr #23 comdat personality ptr @__gxx_personality_v0 {
   %2 = tail call ptr @__cxa_allocate_exception(i64 16) #16
   invoke void @_ZN3fmt3v1012format_errorCI2St13runtime_errorEPKc(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef %0)
           to label %3 unwind label %4
@@ -8831,7 +8828,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 declare void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #17
 
 ; Function Attrs: cold noreturn
-declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #25
+declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #24
 
 declare void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) unnamed_addr #5
 
@@ -9460,13 +9457,13 @@ _ZN3fmt3v106detail14format_decimalIcjNS0_8appenderETnNSt9enable_ifIXntsr3std10is
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctlz.i32(i32, i1 immarg) #26
+declare i32 @llvm.ctlz.i32(i32, i1 immarg) #25
 
 ; Function Attrs: nocallback nofree nounwind memory(argmem: readwrite)
-declare ptr @__memcpy_chk(ptr noalias noundef writeonly, ptr noalias noundef readonly captures(none), i64 noundef, i64 noundef) local_unnamed_addr #27
+declare ptr @__memcpy_chk(ptr noalias noundef writeonly, ptr noalias noundef readonly captures(none), i64 noundef, i64 noundef) local_unnamed_addr #26
 
 ; Function Attrs: mustprogress noinline ssp uwtable
-define linkonce_odr ptr @_ZN3fmt3v106detail17copy_str_noinlineIcPcNS0_8appenderEEET1_T0_S6_S5_(ptr noundef %0, ptr noundef %1, ptr %2) local_unnamed_addr #28 comdat {
+define linkonce_odr ptr @_ZN3fmt3v106detail17copy_str_noinlineIcPcNS0_8appenderEEET1_T0_S6_S5_(ptr noundef %0, ptr noundef %1, ptr %2) local_unnamed_addr #27 comdat {
   %.not17.i.i = icmp eq ptr %0, %1
   br i1 %.not17.i.i, label %_ZN3fmt3v106detail8copy_strIcPcEENS0_8appenderET0_S5_S4_.exit, label %.lr.ph.i.i
 
@@ -9692,7 +9689,7 @@ _ZN3fmt3v106detail14format_decimalIcmNS0_8appenderETnNSt9enable_ifIXntsr3std10is
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctlz.i64(i64, i1 immarg) #26
+declare i64 @llvm.ctlz.i64(i64, i1 immarg) #25
 
 ; Function Attrs: mustprogress ssp uwtable
 define linkonce_odr ptr @_ZN3fmt3v106detail5writeIcNS0_8appenderEnTnNSt9enable_ifIXaaaasr11is_integralIT1_EE5valuentsr3std7is_sameIS5_bEE5valuentsr3std7is_sameIS5_T_EE5valueEiE4typeELi0EEET0_S9_S5_(ptr %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #4 comdat {
@@ -10231,7 +10228,7 @@ _ZNK3fmt3v1012format_facetISt6localeE3putENS0_8appenderENS0_9loc_valueERKNS0_12f
 }
 
 ; Function Attrs: mustprogress noinline ssp uwtable
-define linkonce_odr ptr @_ZN3fmt3v106detail18write_int_noinlineIcNS0_8appenderEjEET0_S4_NS1_13write_int_argIT1_EERKNS0_12format_specsIT_EENS1_10locale_refE(ptr %0, i64 %1, ptr noundef nonnull align 4 dereferenceable(16) %2, ptr %3) local_unnamed_addr #28 comdat {
+define linkonce_odr ptr @_ZN3fmt3v106detail18write_int_noinlineIcNS0_8appenderEjEET0_S4_NS1_13write_int_argIT1_EERKNS0_12format_specsIT_EENS1_10locale_refE(ptr %0, i64 %1, ptr noundef nonnull align 4 dereferenceable(16) %2, ptr %3) local_unnamed_addr #27 comdat {
   %5 = alloca [11 x i8], align 1
   %6 = alloca [33 x i8], align 16
   %7 = alloca [9 x i8], align 1
@@ -11486,7 +11483,7 @@ declare void @_ZNSt6localeC1Ev(ptr noundef nonnull align 8 dereferenceable(8)) u
 declare noundef i64 @_ZNKSt6locale2id5_M_idEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #29
+declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #28
 
 ; Function Attrs: noreturn
 declare void @_ZSt16__throw_bad_castv() local_unnamed_addr #7
@@ -14049,7 +14046,7 @@ _ZZN3fmt3v106detail9write_intINS0_8appenderEmcEET_S4_T0_jRKNS0_12format_specsIT1
 }
 
 ; Function Attrs: mustprogress noinline ssp uwtable
-define linkonce_odr ptr @_ZN3fmt3v106detail4fillINS0_8appenderEcEET_S4_mRKNS1_6fill_tIT0_EE(ptr %0, i64 noundef %1, ptr noundef nonnull align 1 dereferenceable(5) %2) local_unnamed_addr #28 comdat {
+define linkonce_odr ptr @_ZN3fmt3v106detail4fillINS0_8appenderEcEET_S4_mRKNS1_6fill_tIT0_EE(ptr %0, i64 noundef %1, ptr noundef nonnull align 1 dereferenceable(5) %2) local_unnamed_addr #27 comdat {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %5 = load i8, ptr %4, align 1, !tbaa !442
   %6 = zext i8 %5 to i64
@@ -25029,7 +25026,7 @@ _ZN3fmt3v106detail6bigintD2Ev.exit404:            ; preds = %_ZN3fmt3v106detail6
 }
 
 ; Function Attrs: mustprogress noinline ssp uwtable
-define linkonce_odr noundef nonnull align 8 dereferenceable(172) ptr @_ZN3fmt3v106detail6bigintlSEi(ptr noundef nonnull align 8 dereferenceable(172) %0, i32 noundef %1) local_unnamed_addr #28 comdat align 2 {
+define linkonce_odr noundef nonnull align 8 dereferenceable(172) ptr @_ZN3fmt3v106detail6bigintlSEi(ptr noundef nonnull align 8 dereferenceable(172) %0, i32 noundef %1) local_unnamed_addr #27 comdat align 2 {
   %3 = sdiv i32 %1, 32
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %5 = load i32, ptr %4, align 8, !tbaa !669
@@ -26730,7 +26727,7 @@ _ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit14: ; preds = 
 }
 
 ; Function Attrs: mustprogress noinline ssp uwtable
-define linkonce_odr ptr @_ZN3fmt3v106detail17copy_str_noinlineIcPKcNS0_8appenderEEET1_T0_S7_S6_(ptr noundef %0, ptr noundef %1, ptr %2) local_unnamed_addr #28 comdat {
+define linkonce_odr ptr @_ZN3fmt3v106detail17copy_str_noinlineIcPKcNS0_8appenderEEET1_T0_S7_S6_(ptr noundef %0, ptr noundef %1, ptr %2) local_unnamed_addr #27 comdat {
   %.not17.i.i = icmp eq ptr %0, %1
   br i1 %.not17.i.i, label %_ZN3fmt3v106detail8copy_strIcPKcEENS0_8appenderET0_S6_S5_.exit, label %.lr.ph.i.i
 
@@ -31109,7 +31106,7 @@ _ZN3fmt3v1016visit_format_argINS0_6detail17precision_checkerENS0_20basic_format_
 }
 
 ; Function Attrs: mustprogress noinline ssp uwtable
-define linkonce_odr ptr @_ZN3fmt3v106detail18write_int_noinlineIcNS0_8appenderEmEET0_S4_NS1_13write_int_argIT1_EERKNS0_12format_specsIT_EENS1_10locale_refE(ptr %0, i64 %1, i32 %2, ptr noundef nonnull align 4 dereferenceable(16) %3, ptr %4) local_unnamed_addr #28 comdat {
+define linkonce_odr ptr @_ZN3fmt3v106detail18write_int_noinlineIcNS0_8appenderEmEET0_S4_NS1_13write_int_argIT1_EERKNS0_12format_specsIT_EENS1_10locale_refE(ptr %0, i64 %1, i32 %2, ptr noundef nonnull align 4 dereferenceable(16) %3, ptr %4) local_unnamed_addr #27 comdat {
   %6 = alloca [22 x i8], align 16
   %7 = alloca [65 x i8], align 16
   %8 = alloca [17 x i8], align 16
@@ -32610,7 +32607,7 @@ _ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit: ; preds = %5
 }
 
 ; Function Attrs: mustprogress noinline ssp uwtable
-define linkonce_odr ptr @_ZN3fmt3v106detail18write_int_noinlineIcNS0_8appenderEoEET0_S4_NS1_13write_int_argIT1_EERKNS0_12format_specsIT_EENS1_10locale_refE(ptr %0, ptr noundef byval(%"struct.fmt::v10::detail::write_int_arg.229") align 16 %1, ptr noundef nonnull align 4 dereferenceable(16) %2, ptr %3) local_unnamed_addr #28 comdat {
+define linkonce_odr ptr @_ZN3fmt3v106detail18write_int_noinlineIcNS0_8appenderEoEET0_S4_NS1_13write_int_argIT1_EERKNS0_12format_specsIT_EENS1_10locale_refE(ptr %0, ptr noundef byval(%"struct.fmt::v10::detail::write_int_arg.229") align 16 %1, ptr noundef nonnull align 4 dereferenceable(16) %2, ptr %3) local_unnamed_addr #27 comdat {
   %5 = alloca [43 x i8], align 16
   %6 = alloca [129 x i8], align 16
   %7 = alloca [33 x i8], align 16
@@ -37386,7 +37383,7 @@ _ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit18: ; preds = 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare noundef ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #22
+declare noundef ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #21
 
 ; Function Attrs: noreturn
 declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #7
@@ -37977,14 +37974,14 @@ declare i32 @rtcAttachGeometry(ptr noundef, ptr noundef) local_unnamed_addr #5
 declare void @rtcReleaseGeometry(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #30
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #29
 
 declare noundef i64 @_ZNK6open3d4core10SizeVector9GetLengthEv(ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #5
 
 declare void @_ZN6open3d4core10SizeVectorC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(48)) unnamed_addr #5
 
 ; Function Attrs: mustprogress noinline nounwind ssp uwtable
-define linkonce_odr void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #31 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #30 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !88
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load ptr, ptr %3, align 8
@@ -40278,7 +40275,7 @@ declare noundef ptr @_ZN6open3d4core13MemoryManager6MallocEmRKNS0_6DeviceE(i64 n
 declare void @_ZN6open3d4core13MemoryManager4FreeEPvRKNS0_6DeviceE(ptr noundef, ptr noundef nonnull align 4 dereferenceable(8)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #22
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #21
 
 ; Function Attrs: mustprogress ssp uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(160) ptr @_ZNSt8__detail9_Map_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_N6open3d4core6TensorEESaISC_ENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS6_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -45551,7 +45548,7 @@ _ZN6open3d4core11SmallVectorIlLj4EED2Ev.exit68:   ; preds = %149, %153
 }
 
 ; Function Attrs: inlinehint mustprogress ssp uwtable
-define linkonce_odr void @_ZN5Eigen8internal21dense_assignment_loopINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_9TransposeINS_3MapINS_6MatrixIfLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEEEENS3_INS_12CwiseUnaryOpINS0_14scalar_sqrt_opIfEEKNS_16PartialReduxExprIKNSD_INS0_14scalar_abs2_opIfEEKNS_13CwiseBinaryOpINS0_20scalar_difference_opIffEEKNS5_INS6_IfLin1ELin1ELi0ELin1ELin1EEELi0ES9_EESO_EEEENS0_10member_sumIffEELi0EEEEEEENS0_9assign_opIffEELi0EEELi1ELi0EE3runERS11_(ptr noundef nonnull align 8 dereferenceable(32) %0) local_unnamed_addr #32 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN5Eigen8internal21dense_assignment_loopINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_9TransposeINS_3MapINS_6MatrixIfLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEEEENS3_INS_12CwiseUnaryOpINS0_14scalar_sqrt_opIfEEKNS_16PartialReduxExprIKNSD_INS0_14scalar_abs2_opIfEEKNS_13CwiseBinaryOpINS0_20scalar_difference_opIffEEKNS5_INS6_IfLin1ELin1ELi0ELin1ELin1EEELi0ES9_EESO_EEEENS0_10member_sumIffEELi0EEEEEEENS0_9assign_opIffEELi0EEELi1ELi0EE3runERS11_(ptr noundef nonnull align 8 dereferenceable(32) %0) local_unnamed_addr #31 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !1091
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -47215,10 +47212,10 @@ declare void @_ZNK6open3d4core6Tensor7ReshapeERKNS0_10SizeVectorE(ptr dead_on_un
 declare void @_ZNSt9bad_allocD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #17
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #33
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #32
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare float @nextafterf(float noundef, float noundef) local_unnamed_addr #20
+declare float @nextafterf(float noundef, float noundef) local_unnamed_addr #33
 
 ; Function Attrs: mustprogress ssp uwtable
 define void @_ZN6open3d1t8geometry15RaycastingScene16ComputeOccupancyERKNS_4core6TensorEii(ptr dead_on_unwind noalias writable sret(%"class.open3d::core::Tensor") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(160) %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
@@ -48481,7 +48478,7 @@ _ZN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEaSINS_7InverseINS_12PartialPivLUINS0_IdLi
 }
 
 ; Function Attrs: inlinehint mustprogress ssp uwtable
-define linkonce_odr void @_ZNK5Eigen10MatrixBaseINS_9TransposeINS_3MapINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi0ENS_6StrideILi0ELi0EEEEEEEE12partialPivLuEv(ptr dead_on_unwind noalias writable sret(%"class.Eigen::PartialPivLU") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %1) local_unnamed_addr #32 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNK5Eigen10MatrixBaseINS_9TransposeINS_3MapINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi0ENS_6StrideILi0ELi0EEEEEEEE12partialPivLuEv(ptr dead_on_unwind noalias writable sret(%"class.Eigen::PartialPivLU") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %1) local_unnamed_addr #31 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.Eigen::Matrix.894", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1135)
@@ -51135,7 +51132,7 @@ define linkonce_odr void @_ZN5Eigen8internal27queryCacheSizes_intel_codesERiS1_S
 }
 
 ; Function Attrs: mustprogress noinline ssp uwtable
-define linkonce_odr void @_ZN5Eigen8internal23triangular_solve_matrixIdlLi2ELi6ELb0ELi0ELi0ELi1EE3runEllPKdlPdllRNS0_15level3_blockingIddEE(i64 noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, i64 noundef %6, ptr noundef nonnull align 8 dereferenceable(40) %7) local_unnamed_addr #28 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN5Eigen8internal23triangular_solve_matrixIdlLi2ELi6ELb0ELi0ELi0ELi1EE3runEllPKdlPdllRNS0_15level3_blockingIddEE(i64 noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, i64 noundef %6, ptr noundef nonnull align 8 dereferenceable(40) %7) local_unnamed_addr #27 comdat align 2 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"struct.Eigen::internal::gebp_kernel", align 1
   %10 = alloca %"struct.Eigen::internal::gemm_pack_rhs", align 1
   %11 = alloca %"struct.Eigen::internal::gemm_pack_rhs.1175", align 1
@@ -51598,7 +51595,7 @@ _ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit198: ; preds = %_ZN5
 }
 
 ; Function Attrs: mustprogress noinline ssp uwtable
-define linkonce_odr void @_ZN5Eigen8internal13gemm_pack_rhsIdlNS0_22const_blas_data_mapperIdlLi0EEELi4ELi0ELb0ELb0EEclEPdRKS3_llll(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6) local_unnamed_addr #28 comdat align 2 {
+define linkonce_odr void @_ZN5Eigen8internal13gemm_pack_rhsIdlNS0_22const_blas_data_mapperIdlLi0EEELi4ELi0ELb0ELb0EEclEPdRKS3_llll(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6) local_unnamed_addr #27 comdat align 2 {
   tail call void asm sideeffect "#EIGEN PRODUCT PACK RHS COLMAJOR", "~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !1262
   %8 = sdiv i64 %4, 4
   %9 = shl nsw i64 %8, 2
@@ -51698,7 +51695,7 @@ define linkonce_odr void @_ZN5Eigen8internal13gemm_pack_rhsIdlNS0_22const_blas_d
 }
 
 ; Function Attrs: mustprogress noinline ssp uwtable
-define linkonce_odr void @_ZN5Eigen8internal13gemm_pack_rhsIdlNS0_22const_blas_data_mapperIdlLi0EEELi4ELi0ELb0ELb1EEclEPdRKS3_llll(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6) local_unnamed_addr #28 comdat align 2 {
+define linkonce_odr void @_ZN5Eigen8internal13gemm_pack_rhsIdlNS0_22const_blas_data_mapperIdlLi0EEELi4ELi0ELb0ELb1EEclEPdRKS3_llll(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6) local_unnamed_addr #27 comdat align 2 {
   tail call void asm sideeffect "#EIGEN PRODUCT PACK RHS COLMAJOR", "~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !1262
   %8 = sdiv i64 %4, 4
   %9 = shl nsw i64 %8, 2
@@ -53031,7 +53028,7 @@ define linkonce_odr void @_ZN5Eigen8internal13gemm_pack_lhsIdlNS0_16blas_data_ma
 }
 
 ; Function Attrs: inlinehint mustprogress ssp uwtable
-define linkonce_odr void @_ZN5Eigen8internal22lhs_process_one_packetILi4ELl2ELl1EdddDv2_dS2_S2_S2_NS0_11gebp_traitsIddLb0ELb0ELi1ELi0EEENS0_16BlasLinearMapperIdlLi0ELi1EEENS0_16blas_data_mapperIdlLi0ELi0ELi1EEEEclERKS8_PKdSD_dllllllilllll(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef %2, ptr noundef %3, double noundef %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, i64 noundef %8, i64 noundef %9, i64 noundef %10, i32 noundef %11, i64 noundef %12, i64 noundef %13, i64 noundef %14, i64 noundef %15, i64 noundef %16) local_unnamed_addr #32 comdat align 2 {
+define linkonce_odr void @_ZN5Eigen8internal22lhs_process_one_packetILi4ELl2ELl1EdddDv2_dS2_S2_S2_NS0_11gebp_traitsIddLb0ELb0ELi1ELi0EEENS0_16BlasLinearMapperIdlLi0ELi1EEENS0_16blas_data_mapperIdlLi0ELi0ELi1EEEEclERKS8_PKdSD_dllllllilllll(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef %2, ptr noundef %3, double noundef %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, i64 noundef %8, i64 noundef %9, i64 noundef %10, i32 noundef %11, i64 noundef %12, i64 noundef %13, i64 noundef %14, i64 noundef %15, i64 noundef %16) local_unnamed_addr #31 comdat align 2 {
   %18 = icmp slt i64 %5, %6
   br i1 %18, label %.preheader419.lr.ph, label %._crit_edge478
 
@@ -53796,7 +53793,7 @@ _ZN5Eigen8internal20generic_product_implIKNS_5BlockIKNS_3RefINS_6MatrixIdLin1ELi
 }
 
 ; Function Attrs: inlinehint mustprogress ssp uwtable
-define linkonce_odr void @_ZN5Eigen8internal21dense_assignment_loopINS0_41restricted_packet_dense_assignment_kernelINS0_9evaluatorINS_3RefINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi0ENS_11OuterStrideILin1EEEEEEENS3_INS_7ProductIS9_S9_Li1EEEEENS0_13sub_assign_opIddEEEELi4ELi0EE3runERSG_(ptr noundef nonnull align 8 dereferenceable(32) %0) local_unnamed_addr #32 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN5Eigen8internal21dense_assignment_loopINS0_41restricted_packet_dense_assignment_kernelINS0_9evaluatorINS_3RefINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi0ENS_11OuterStrideILin1EEEEEEENS3_INS_7ProductIS9_S9_Li1EEEEENS0_13sub_assign_opIddEEEELi4ELi0EE3runERSG_(ptr noundef nonnull align 8 dereferenceable(32) %0) local_unnamed_addr #31 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !1424
   %4 = load ptr, ptr %3, align 8, !tbaa !1177
@@ -56829,7 +56826,7 @@ define linkonce_odr void @_ZN5Eigen8internal26triangular_solver_selectorIKNS_6Ma
 }
 
 ; Function Attrs: mustprogress noinline ssp uwtable
-define linkonce_odr void @_ZN5Eigen8internal23triangular_solve_matrixIdlLi1ELi5ELb0ELi1ELi0ELi1EE3runEllPKdlPdllRNS0_15level3_blockingIddEE(i64 noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, i64 noundef %6, ptr noundef nonnull align 8 dereferenceable(40) %7) local_unnamed_addr #28 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN5Eigen8internal23triangular_solve_matrixIdlLi1ELi5ELb0ELi1ELi0ELi1EE3runEllPKdlPdllRNS0_15level3_blockingIddEE(i64 noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, i64 noundef %6, ptr noundef nonnull align 8 dereferenceable(40) %7) local_unnamed_addr #27 comdat align 2 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"struct.Eigen::internal::gebp_kernel", align 1
   %10 = alloca %"struct.Eigen::internal::gemm_pack_lhs.1477", align 1
   %11 = alloca %"struct.Eigen::internal::gemm_pack_rhs.1478", align 1
@@ -57313,7 +57310,7 @@ _ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit205: ; preds = %_ZN5
 }
 
 ; Function Attrs: mustprogress noinline ssp uwtable
-define linkonce_odr void @_ZN5Eigen8internal13gemm_pack_rhsIdlNS0_16blas_data_mapperIdlLi0ELi0ELi1EEELi4ELi0ELb0ELb1EEclEPdRKS3_llll(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6) local_unnamed_addr #28 comdat align 2 {
+define linkonce_odr void @_ZN5Eigen8internal13gemm_pack_rhsIdlNS0_16blas_data_mapperIdlLi0ELi0ELi1EEELi4ELi0ELb0ELb1EEclEPdRKS3_llll(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6) local_unnamed_addr #27 comdat align 2 {
   tail call void asm sideeffect "#EIGEN PRODUCT PACK RHS COLMAJOR", "~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !1262
   %8 = sdiv i64 %4, 4
   %9 = shl nsw i64 %8, 2
@@ -57680,7 +57677,7 @@ define linkonce_odr void @_ZN5Eigen8internal26triangular_solver_selectorIKNS_6Ma
 }
 
 ; Function Attrs: mustprogress noinline ssp uwtable
-define linkonce_odr void @_ZN5Eigen8internal23triangular_solve_matrixIdlLi1ELi2ELb0ELi1ELi0ELi1EE3runEllPKdlPdllRNS0_15level3_blockingIddEE(i64 noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, i64 noundef %6, ptr noundef nonnull align 8 dereferenceable(40) %7) local_unnamed_addr #28 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN5Eigen8internal23triangular_solve_matrixIdlLi1ELi2ELb0ELi1ELi0ELi1EE3runEllPKdlPdllRNS0_15level3_blockingIddEE(i64 noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, i64 noundef %6, ptr noundef nonnull align 8 dereferenceable(40) %7) local_unnamed_addr #27 comdat align 2 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"struct.Eigen::internal::gebp_kernel", align 1
   %10 = alloca %"struct.Eigen::internal::gemm_pack_lhs.1477", align 1
   %11 = alloca %"struct.Eigen::internal::gemm_pack_rhs.1478", align 1
@@ -59296,7 +59293,7 @@ _ZN6open3d4core11SmallVectorINS_7utility8optionalIlEELj4EED2Ev.exit150: ; preds 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @tan(double noundef) local_unnamed_addr #20
+declare double @tan(double noundef) local_unnamed_addr #33
 
 declare void @_ZN6open3d4core6Tensor3EyeElNS0_5DtypeERKNS0_6DeviceE(ptr dead_on_unwind writable sret(%"class.open3d::core::Tensor") align 8, i64 noundef, ptr noundef byval(%"class.open3d::core::Dtype") align 8, ptr noundef nonnull align 4 dereferenceable(8)) local_unnamed_addr #5
 
@@ -59448,20 +59445,20 @@ attributes #16 = { nounwind }
 attributes #17 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #18 = { inlinehint mustprogress ssp uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #19 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #20 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #21 = { mustprogress nofree norecurse nounwind ssp willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #22 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #23 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #24 = { inlinehint mustprogress noreturn ssp uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #25 = { cold noreturn }
-attributes #26 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #27 = { nocallback nofree nounwind memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #28 = { mustprogress noinline ssp uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #29 = { mustprogress nofree nounwind willreturn memory(read) }
-attributes #30 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #31 = { mustprogress noinline nounwind ssp uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #32 = { inlinehint mustprogress ssp uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #33 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #20 = { mustprogress nofree norecurse nosync nounwind ssp willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #21 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #22 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #23 = { inlinehint mustprogress noreturn ssp uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #24 = { cold noreturn }
+attributes #25 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #26 = { nocallback nofree nounwind memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #27 = { mustprogress noinline ssp uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #28 = { mustprogress nofree nounwind willreturn memory(read) }
+attributes #29 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #30 = { mustprogress noinline nounwind ssp uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #31 = { inlinehint mustprogress ssp uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #32 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #33 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #34 = { mustprogress ssp uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #35 = { mustprogress noinline ssp uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #36 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) }
@@ -59880,14 +59877,14 @@ attributes #51 = { nounwind memory(none) }
 !394 = !{!"_ZTS15RTCGeometryType", !9, i64 0}
 !395 = !{!393, !8, i64 16}
 !396 = !{!393, !8, i64 8}
-!397 = !{!398}
-!398 = distinct !{!398, !399, !"_ZNK5Eigen14AlignedVector3IfE10normalizedEv: argument 0"}
-!399 = distinct !{!399, !"_ZNK5Eigen14AlignedVector3IfE10normalizedEv"}
-!400 = !{!401, !401, i64 0}
-!401 = !{!"p1 _ZTSN5Eigen6MatrixIfLi4ELi1ELi0ELi4ELi1EEE", !8, i64 0}
+!397 = !{!398, !398, i64 0}
+!398 = !{!"p1 _ZTSN5Eigen6MatrixIfLi4ELi1ELi0ELi4ELi1EEE", !8, i64 0}
+!399 = !{!400}
+!400 = distinct !{!400, !401, !"_ZNK5Eigen10MatrixBaseINS_6MatrixIfLi4ELi1ELi0ELi4ELi1EEEEdvIfEEKNS_13CwiseBinaryOpINS_8internal18scalar_quotient_opIfNS6_18promote_scalar_argIfT_Xsr5Eigen8internal14has_ReturnTypeINS_20ScalarBinaryOpTraitsIfS9_NS7_IfS9_EEEEEE5valueEE4typeEEEKS2_KNS6_19plain_constant_typeIS2_SE_E4typeEEERKS9_: argument 0"}
+!401 = distinct !{!401, !"_ZNK5Eigen10MatrixBaseINS_6MatrixIfLi4ELi1ELi0ELi4ELi1EEEEdvIfEEKNS_13CwiseBinaryOpINS_8internal18scalar_quotient_opIfNS6_18promote_scalar_argIfT_Xsr5Eigen8internal14has_ReturnTypeINS_20ScalarBinaryOpTraitsIfS9_NS7_IfS9_EEEEEE5valueEE4typeEEEKS2_KNS6_19plain_constant_typeIS2_SE_E4typeEEERKS9_"}
 !402 = !{!403}
-!403 = distinct !{!403, !404, !"_ZNK5Eigen10MatrixBaseINS_6MatrixIfLi4ELi1ELi0ELi4ELi1EEEEdvIfEEKNS_13CwiseBinaryOpINS_8internal18scalar_quotient_opIfNS6_18promote_scalar_argIfT_Xsr5Eigen8internal14has_ReturnTypeINS_20ScalarBinaryOpTraitsIfS9_NS7_IfS9_EEEEEE5valueEE4typeEEEKS2_KNS6_19plain_constant_typeIS2_SE_E4typeEEERKS9_: argument 0"}
-!404 = distinct !{!404, !"_ZNK5Eigen10MatrixBaseINS_6MatrixIfLi4ELi1ELi0ELi4ELi1EEEEdvIfEEKNS_13CwiseBinaryOpINS_8internal18scalar_quotient_opIfNS6_18promote_scalar_argIfT_Xsr5Eigen8internal14has_ReturnTypeINS_20ScalarBinaryOpTraitsIfS9_NS7_IfS9_EEEEEE5valueEE4typeEEEKS2_KNS6_19plain_constant_typeIS2_SE_E4typeEEERKS9_"}
+!403 = distinct !{!403, !404, !"_ZNK5Eigen14AlignedVector3IfE10normalizedEv: argument 0"}
+!404 = distinct !{!404, !"_ZNK5Eigen14AlignedVector3IfE10normalizedEv"}
 !405 = !{!406, !15, i64 0}
 !406 = !{!"_ZTSN5Eigen8internal18scalar_constant_opIfEE", !15, i64 0}
 !407 = !{!408}

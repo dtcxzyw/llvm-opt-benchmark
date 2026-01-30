@@ -6831,11 +6831,11 @@ _ZN2cvmlIdLi3ELi3ELi3EEENS_4MatxIT_XT0_EXT1_EEERKNS1_IS2_XT0_EXT2_EEERKNS1_IS2_X
   %92 = select i1 %89, double 1.000000e+00, double %91
   %93 = call double @acos(double noundef %92) #29, !tbaa !39
   %94 = fcmp olt double %79, 1.000000e-05
-  br i1 %94, label %95, label %136
+  br i1 %94, label %95, label %135
 
 95:                                               ; preds = %_ZN2cvmlIdLi3ELi3ELi3EEENS_4MatxIT_XT0_EXT1_EEERKNS1_IS2_XT0_EXT2_EEERKNS1_IS2_XT2_EXT1_EEE.exit
   %96 = fcmp ogt double %92, 0.000000e+00
-  br i1 %96, label %143, label %97
+  br i1 %96, label %142, label %97
 
 97:                                               ; preds = %95
   %98 = fadd double %80, 1.000000e+00
@@ -6883,48 +6883,48 @@ _ZN2cvmlIdLi3ELi3ELi3EEENS_4MatxIT_XT0_EXT1_EEERKNS1_IS2_XT0_EXT2_EEERKNS1_IS2_X
   %128 = fmul double %108, %108
   %129 = call double @llvm.fmuladd.f64(double %101, double %101, double %128)
   %130 = call double @llvm.fmuladd.f64(double %.049, double %.049, double %129)
-  %131 = call double @sqrt(double noundef %130) #29, !tbaa !39
-  %132 = fdiv double %93, %131
-  %133 = fmul double %101, %132
-  %134 = fmul double %108, %132
-  %135 = fmul double %.049, %132
-  br label %143
+  %sqrt = call double @llvm.sqrt.f64(double %130)
+  %131 = fdiv double %93, %sqrt
+  %132 = fmul double %101, %131
+  %133 = fmul double %108, %131
+  %134 = fmul double %.049, %131
+  br label %142
 
-136:                                              ; preds = %_ZN2cvmlIdLi3ELi3ELi3EEENS_4MatxIT_XT0_EXT1_EEERKNS1_IS2_XT0_EXT2_EEERKNS1_IS2_XT2_EXT1_EEE.exit
-  %137 = fmul double %79, 2.000000e+00
-  %138 = fdiv double 1.000000e+00, %137
-  %139 = fmul double %138, %93
-  %140 = fmul double %64, %139
-  %141 = fmul double %69, %139
-  %142 = fmul double %74, %139
-  br label %143
+135:                                              ; preds = %_ZN2cvmlIdLi3ELi3ELi3EEENS_4MatxIT_XT0_EXT1_EEERKNS1_IS2_XT0_EXT2_EEERKNS1_IS2_XT2_EXT1_EEE.exit
+  %136 = fmul double %79, 2.000000e+00
+  %137 = fdiv double 1.000000e+00, %136
+  %138 = fmul double %137, %93
+  %139 = fmul double %64, %138
+  %140 = fmul double %69, %138
+  %141 = fmul double %74, %138
+  br label %142
 
-143:                                              ; preds = %95, %127, %136
-  %.052 = phi double [ %140, %136 ], [ %133, %127 ], [ 0.000000e+00, %95 ]
-  %.051 = phi double [ %141, %136 ], [ %134, %127 ], [ 0.000000e+00, %95 ]
-  %.150 = phi double [ %142, %136 ], [ %135, %127 ], [ 0.000000e+00, %95 ]
+142:                                              ; preds = %95, %127, %135
+  %.052 = phi double [ %139, %135 ], [ %132, %127 ], [ 0.000000e+00, %95 ]
+  %.051 = phi double [ %140, %135 ], [ %133, %127 ], [ 0.000000e+00, %95 ]
+  %.150 = phi double [ %141, %135 ], [ %134, %127 ], [ 0.000000e+00, %95 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store double %.052, ptr %13, align 8, !tbaa !341
-  %144 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  store double %.051, ptr %144, align 8, !tbaa !341
-  %145 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  store double %.150, ptr %145, align 8, !tbaa !341
+  %143 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  store double %.051, ptr %143, align 8, !tbaa !341
+  %144 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  store double %.150, ptr %144, align 8, !tbaa !341
   call void @llvm.experimental.noalias.scope.decl(metadata !360)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %0, i8 0, i64 12, i1 false), !tbaa !3, !alias.scope !360
-  br label %146
+  br label %145
 
-146:                                              ; preds = %146, %143
-  %indvars.iv.i62 = phi i64 [ 0, %143 ], [ %indvars.iv.next.i63, %146 ]
-  %147 = getelementptr inbounds nuw double, ptr %13, i64 %indvars.iv.i62
-  %148 = load double, ptr %147, align 8, !tbaa !341, !noalias !360
-  %149 = fptrunc double %148 to float
-  %150 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv.i62
-  store float %149, ptr %150, align 4, !tbaa !3, !alias.scope !360
+145:                                              ; preds = %145, %142
+  %indvars.iv.i62 = phi i64 [ 0, %142 ], [ %indvars.iv.next.i63, %145 ]
+  %146 = getelementptr inbounds nuw double, ptr %13, i64 %indvars.iv.i62
+  %147 = load double, ptr %146, align 8, !tbaa !341, !noalias !360
+  %148 = fptrunc double %147 to float
+  %149 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv.i62
+  store float %148, ptr %149, align 4, !tbaa !3, !alias.scope !360
   %indvars.iv.next.i63 = add nuw nsw i64 %indvars.iv.i62, 1
   %exitcond.not.i64 = icmp eq i64 %indvars.iv.next.i63, 3
-  br i1 %exitcond.not.i64, label %_ZNK2cv3VecIdLi3EEcvNS0_IT_Li3EEEIfEEv.exit, label %146, !llvm.loop !363
+  br i1 %exitcond.not.i64, label %_ZNK2cv3VecIdLi3EEcvNS0_IT_Li3EEEIfEEv.exit, label %145, !llvm.loop !363
 
-_ZNK2cv3VecIdLi3EEcvNS0_IT_Li3EEEIfEEv.exit:      ; preds = %146
+_ZNK2cv3VecIdLi3EEcvNS0_IT_Li3EEEIfEEv.exit:      ; preds = %145
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -18215,6 +18215,9 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #25
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #26
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.sqrt.f64(double) #26
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #26

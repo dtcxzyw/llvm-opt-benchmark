@@ -430,100 +430,98 @@ filter_grey_edge.exit.i:                          ; preds = %46, %138, %.prehead
   %square20.i.i = fmul nsz double %148, %148
   %149 = fadd nsz double %147, %square20.i.i
   %sqrt.i.i = call nsz double @llvm.sqrt.f64(double %149)
-  %isinf.i.i = fcmp nsz oeq double %149, 0xFFF0000000000000
-  %150 = select nsz i1 %isinf.i.i, double 0x7FF0000000000000, double %sqrt.i.i
-  %151 = fcmp nsz une double %150, 0.000000e+00
-  br i1 %151, label %.preheader.i16.i, label %.preheader21.i.i
+  %150 = fcmp nsz une double %149, 0.000000e+00
+  br i1 %150, label %.preheader.i16.i, label %.preheader21.i.i
 
 .preheader21.i.i:                                 ; preds = %filter_grey_edge.exit.i, %.preheader21.i.i
   %indvars.iv.i12.i = phi i64 [ %indvars.iv.next.i13.i, %.preheader21.i.i ], [ 0, %filter_grey_edge.exit.i ]
-  %152 = getelementptr inbounds nuw double, ptr %17, i64 %indvars.iv.i12.i
-  store double 1.000000e+00, ptr %152, align 8, !tbaa !51
+  %151 = getelementptr inbounds nuw double, ptr %17, i64 %indvars.iv.i12.i
+  store double 1.000000e+00, ptr %151, align 8, !tbaa !51
   %indvars.iv.next.i13.i = add nuw nsw i64 %indvars.iv.i12.i, 1
   %exitcond.not.i14.i = icmp eq i64 %indvars.iv.next.i13.i, 3
   br i1 %exitcond.not.i14.i, label %illumination_estimation.exit, label %.preheader21.i.i, !llvm.loop !56
 
 .preheader.i16.i:                                 ; preds = %filter_grey_edge.exit.i, %.preheader.i16.i
   %indvars.iv27.i.i = phi i64 [ %indvars.iv.next28.i.i, %.preheader.i16.i ], [ 0, %filter_grey_edge.exit.i ]
-  %153 = getelementptr inbounds nuw double, ptr %17, i64 %indvars.iv27.i.i
-  %154 = load double, ptr %153, align 8, !tbaa !51
-  %155 = fdiv nsz double %154, %150
-  %156 = fcmp nsz une double %155, 0.000000e+00
-  %storemerge.i.i = select i1 %156, double %155, double 1.000000e+00
-  store double %storemerge.i.i, ptr %153, align 8, !tbaa !51
+  %152 = getelementptr inbounds nuw double, ptr %17, i64 %indvars.iv27.i.i
+  %153 = load double, ptr %152, align 8, !tbaa !51
+  %154 = fdiv nsz double %153, %sqrt.i.i
+  %155 = fcmp nsz une double %154, 0.000000e+00
+  %storemerge.i.i = select i1 %155, double %154, double 1.000000e+00
+  store double %storemerge.i.i, ptr %152, align 8, !tbaa !51
   %indvars.iv.next28.i.i = add nuw nsw i64 %indvars.iv27.i.i, 1
   %exitcond30.not.i.i = icmp eq i64 %indvars.iv.next28.i.i, 3
   br i1 %exitcond30.not.i.i, label %illumination_estimation.exit, label %.preheader.i16.i, !llvm.loop !57
 
 illumination_estimation.exit:                     ; preds = %.preheader21.i.i, %.preheader.i16.i
-  %157 = load double, ptr %17, align 8, !tbaa !51
-  %158 = load double, ptr %141, align 8, !tbaa !51
-  %159 = load double, ptr %143, align 8, !tbaa !51
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %7, i32 noundef 48, ptr noundef nonnull @.str.4, double noundef %157, double noundef %158, double noundef %159) #9
-  br i1 %.not, label %161, label %160
+  %156 = load double, ptr %17, align 8, !tbaa !51
+  %157 = load double, ptr %141, align 8, !tbaa !51
+  %158 = load double, ptr %143, align 8, !tbaa !51
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %7, i32 noundef 48, ptr noundef nonnull @.str.4, double noundef %156, double noundef %157, double noundef %158) #9
+  br i1 %.not, label %160, label %159
+
+159:                                              ; preds = %illumination_estimation.exit
+  call void @av_frame_free(ptr noundef nonnull %5) #9
+  br label %188
 
 160:                                              ; preds = %illumination_estimation.exit
+  %161 = call i32 @av_frame_is_writable(ptr noundef %1) #9
+  %.not19 = icmp eq i32 %161, 0
+  br i1 %.not19, label %164, label %162
+
+162:                                              ; preds = %160
+  %163 = load ptr, ptr %5, align 8, !tbaa !25
+  br label %174
+
+164:                                              ; preds = %160
+  %165 = getelementptr inbounds nuw i8, ptr %10, i64 40
+  %166 = load i32, ptr %165, align 8, !tbaa !58
+  %167 = getelementptr inbounds nuw i8, ptr %10, i64 44
+  %168 = load i32, ptr %167, align 4, !tbaa !59
+  %169 = call ptr @ff_get_video_buffer(ptr noundef %10, i32 noundef %166, i32 noundef %168) #9
+  %.not20 = icmp eq ptr %169, null
+  br i1 %.not20, label %170, label %171
+
+170:                                              ; preds = %164
   call void @av_frame_free(ptr noundef nonnull %5) #9
-  br label %189
+  br label %188
 
-161:                                              ; preds = %illumination_estimation.exit
-  %162 = call i32 @av_frame_is_writable(ptr noundef %1) #9
-  %.not19 = icmp eq i32 %162, 0
-  br i1 %.not19, label %165, label %163
-
-163:                                              ; preds = %161
-  %164 = load ptr, ptr %5, align 8, !tbaa !25
-  br label %175
-
-165:                                              ; preds = %161
-  %166 = getelementptr inbounds nuw i8, ptr %10, i64 40
-  %167 = load i32, ptr %166, align 8, !tbaa !58
-  %168 = getelementptr inbounds nuw i8, ptr %10, i64 44
-  %169 = load i32, ptr %168, align 4, !tbaa !59
-  %170 = call ptr @ff_get_video_buffer(ptr noundef %10, i32 noundef %167, i32 noundef %169) #9
-  %.not20 = icmp eq ptr %170, null
-  br i1 %.not20, label %171, label %172
-
-171:                                              ; preds = %165
-  call void @av_frame_free(ptr noundef nonnull %5) #9
-  br label %189
-
-172:                                              ; preds = %165
-  %173 = load ptr, ptr %5, align 8, !tbaa !25
-  %174 = call i32 @av_frame_copy_props(ptr noundef nonnull %170, ptr noundef %173) #9
+171:                                              ; preds = %164
+  %172 = load ptr, ptr %5, align 8, !tbaa !25
+  %173 = call i32 @av_frame_copy_props(ptr noundef nonnull %169, ptr noundef %172) #9
   %.pre = load ptr, ptr %5, align 8, !tbaa !25
-  br label %175
+  br label %174
 
-175:                                              ; preds = %172, %163
-  %176 = phi ptr [ %164, %163 ], [ %.pre, %172 ]
-  %.016 = phi ptr [ %164, %163 ], [ %170, %172 ]
-  %177 = load ptr, ptr %11, align 8, !tbaa !4
+174:                                              ; preds = %171, %162
+  %175 = phi ptr [ %163, %162 ], [ %.pre, %171 ]
+  %.016 = phi ptr [ %163, %162 ], [ %169, %171 ]
+  %176 = load ptr, ptr %11, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %178 = getelementptr inbounds nuw i8, ptr %177, i64 32
-  %179 = load i32, ptr %178, align 4, !tbaa !40
-  %180 = getelementptr inbounds nuw i8, ptr %177, i64 48
-  %181 = load i32, ptr %180, align 4, !tbaa !40
-  %..i = call i32 @llvm.smin.i32(i32 %179, i32 %181)
-  %182 = getelementptr inbounds nuw i8, ptr %177, i64 24
-  %183 = load i32, ptr %182, align 8, !tbaa !41
-  %spec.select.i = call i32 @llvm.smin.i32(i32 %..i, i32 %183)
-  store ptr %176, ptr %3, align 8, !tbaa !42
-  %184 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %.016, ptr %184, align 8, !tbaa !60
-  %185 = call i32 @ff_filter_execute(ptr noundef nonnull %7, ptr noundef nonnull @diagonal_transformation, ptr noundef nonnull %3, ptr noundef null, i32 noundef %spec.select.i) #9
+  %177 = getelementptr inbounds nuw i8, ptr %176, i64 32
+  %178 = load i32, ptr %177, align 4, !tbaa !40
+  %179 = getelementptr inbounds nuw i8, ptr %176, i64 48
+  %180 = load i32, ptr %179, align 4, !tbaa !40
+  %..i = call i32 @llvm.smin.i32(i32 %178, i32 %180)
+  %181 = getelementptr inbounds nuw i8, ptr %176, i64 24
+  %182 = load i32, ptr %181, align 8, !tbaa !41
+  %spec.select.i = call i32 @llvm.smin.i32(i32 %..i, i32 %182)
+  store ptr %175, ptr %3, align 8, !tbaa !42
+  %183 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr %.016, ptr %183, align 8, !tbaa !60
+  %184 = call i32 @ff_filter_execute(ptr noundef nonnull %7, ptr noundef nonnull @diagonal_transformation, ptr noundef nonnull %3, ptr noundef null, i32 noundef %spec.select.i) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br i1 %.not19, label %186, label %187
+  br i1 %.not19, label %185, label %186
 
-186:                                              ; preds = %175
+185:                                              ; preds = %174
   call void @av_frame_free(ptr noundef nonnull %5) #9
-  br label %187
+  br label %186
 
-187:                                              ; preds = %186, %175
-  %188 = call i32 @ff_filter_frame(ptr noundef %10, ptr noundef %.016) #9
-  br label %189
+186:                                              ; preds = %185, %174
+  %187 = call i32 @ff_filter_frame(ptr noundef %10, ptr noundef %.016) #9
+  br label %188
 
-189:                                              ; preds = %187, %171, %160
-  %.015 = phi i32 [ %.0.i.i, %160 ], [ %188, %187 ], [ -12, %171 ]
+188:                                              ; preds = %186, %170, %159
+  %.015 = phi i32 [ %.0.i.i, %159 ], [ %187, %186 ], [ -12, %170 ]
   ret i32 %.015
 }
 

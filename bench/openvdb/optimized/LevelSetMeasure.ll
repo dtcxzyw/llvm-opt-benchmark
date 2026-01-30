@@ -4585,8 +4585,8 @@ _ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12Intern
   %mul8.i = fmul float %mul4.i.i.i, %mul4.i.i.i
   %283 = call float @llvm.fmuladd.f32(float %mul.i.i.i, float %mul.i.i.i, float %mul8.i)
   %284 = call float @llvm.fmuladd.f32(float %mul7.i.i.i, float %mul7.i.i.i, float %283)
-  %sqrtf.i = call noundef float @sqrtf(float noundef %284) #16
-  %conv20 = fpext float %sqrtf.i to double
+  %sqrt.i = call noundef float @llvm.sqrt.f32(float %284)
+  %conv20 = fpext float %sqrt.i to double
   %285 = call double @llvm.fmuladd.f64(double %mul3.i, double %conv20, double %sumA.01029)
   %conv23 = fpext float %mul.i.i.i to double
   %286 = load i32, ptr %mCenter.i, align 8
@@ -4996,8 +4996,8 @@ _ZN7openvdb5v11_05tools15LevelSetMeasureINS0_4GridINS0_4tree4TreeINS4_8RootNodeI
   %mBegin.i = getelementptr inbounds nuw i8, ptr %range, i64 8
   %10 = load i64, ptr %mBegin.i, align 8
   %11 = load i64, ptr %range, align 8
-  %cmp.i.i51 = icmp ult i64 %10, %11
-  br i1 %cmp.i.i51, label %for.body.lr.ph, label %for.end35
+  %cmp.i.i52 = icmp ult i64 %10, %11
+  br i1 %cmp.i.i52, label %for.body.lr.ph, label %for.end35
 
 for.body.lr.ph:                                   ; preds = %_ZN7openvdb5v11_05tools15LevelSetMeasureINS0_4GridINS0_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEENS0_4util15NullInterrupterEE16checkInterrupterEv.exit
   %mLeafManager.i.i = getelementptr inbounds nuw i8, ptr %range, i64 24
@@ -5012,11 +5012,11 @@ for.body.lr.ph:                                   ; preds = %_ZN7openvdb5v11_05t
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.end
-  %leafIter.sroa.3.052 = phi i64 [ %10, %for.body.lr.ph ], [ %inc.i, %for.end ]
+  %leafIter.sroa.3.053 = phi i64 [ %10, %for.body.lr.ph ], [ %inc.i, %for.end ]
   %12 = load ptr, ptr %mLeafManager.i.i, align 8
   %mLeafs.i.i.i = getelementptr inbounds nuw i8, ptr %12, i64 40
   %13 = load ptr, ptr %mLeafs.i.i.i, align 8
-  %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %13, i64 %leafIter.sroa.3.052
+  %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %13, i64 %leafIter.sroa.3.053
   %14 = load ptr, ptr %arrayidx.i.i.i, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !47)
   %mValueMask.i = getelementptr inbounds nuw i8, ptr %14, i64 16
@@ -5049,12 +5049,12 @@ _ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE13cbeginValueOnEv.exit: ; preds = %land.r
   store ptr %14, ptr %voxelIter, align 8, !alias.scope !47
   store i32 %add.i.i.i, ptr %mMaskIter.i.i.i.i, align 8, !alias.scope !47
   store ptr %mValueMask.i, ptr %ref.tmp.sroa.21.0.mMaskIter.i.i.i.sroa_idx.i, align 8, !alias.scope !47
-  %cmp.i.i.i.not47 = icmp eq i32 %add.i.i.i, 512
-  br i1 %cmp.i.i.i.not47, label %for.end, label %for.body11
+  %cmp.i.i.i.not48 = icmp eq i32 %add.i.i.i, 512
+  br i1 %cmp.i.i.i.not48, label %for.end, label %for.body11
 
 for.body11:                                       ; preds = %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE13cbeginValueOnEv.exit, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeIfLj3EEEEppEv.exit
-  %sumM.049 = phi double [ %sumM.1, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeIfLj3EEEEppEv.exit ], [ 0.000000e+00, %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE13cbeginValueOnEv.exit ]
-  %sumG.048 = phi double [ %sumG.1, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeIfLj3EEEEppEv.exit ], [ 0.000000e+00, %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE13cbeginValueOnEv.exit ]
+  %sumM.050 = phi double [ %sumM.1, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeIfLj3EEEEppEv.exit ], [ 0.000000e+00, %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE13cbeginValueOnEv.exit ]
+  %sumG.049 = phi double [ %sumG.1, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeIfLj3EEEEppEv.exit ], [ 0.000000e+00, %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE13cbeginValueOnEv.exit ]
   %18 = phi i32 [ %retval.0.i.i.i.i23, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeIfLj3EEEEppEv.exit ], [ %add.i.i.i, %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE13cbeginValueOnEv.exit ]
   %call.i.i.i = call noundef nonnull align 8 dereferenceable(96) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeIfLj3EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %voxelIter)
   %mOutOfCore.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 8
@@ -5152,23 +5152,14 @@ _ZN7openvdb5v11_04math11BaseStencilINS1_16CurvatureStencilINS0_4GridINS0_4tree4T
   %mul8.i = fmul float %mul4.i.i.i, %mul4.i.i.i
   %39 = call float @llvm.fmuladd.f32(float %mul.i.i.i, float %mul.i.i.i, float %mul8.i)
   %40 = call float @llvm.fmuladd.f32(float %mul7.i.i.i, float %mul7.i.i.i, float %39)
-  %sqrtf.i = call noundef float @sqrtf(float noundef %40) #16
-  %conv19 = fpext float %sqrtf.i to double
+  %sqrt.i = call noundef float @llvm.sqrt.f32(float %40)
+  %conv19 = fpext float %sqrt.i to double
   %mul20 = fmul double %mul3.i, %conv19
-  %41 = load float, ptr %add.ptr.i.i, align 4
-  %42 = load float, ptr %add.ptr.i1.i, align 4
-  %sub.i.i = fsub float %41, %42
-  %conv.i.i = fpext float %sub.i.i to double
+  %conv.i.i = fpext float %sub.i to double
   %mul.i.i26 = fmul double %conv.i.i, 5.000000e-01
-  %43 = load float, ptr %add.ptr.i2.i, align 4
-  %44 = load float, ptr %add.ptr.i3.i, align 4
-  %sub.i55.i = fsub float %43, %44
-  %conv.i56.i = fpext float %sub.i55.i to double
+  %conv.i56.i = fpext float %sub8.i to double
   %mul.i57.i = fmul double %conv.i56.i, 5.000000e-01
-  %45 = load float, ptr %add.ptr.i4.i, align 4
-  %46 = load float, ptr %add.ptr.i5.i, align 4
-  %sub.i61.i = fsub float %45, %46
-  %conv.i62.i = fpext float %sub.i61.i to double
+  %conv.i62.i = fpext float %sub13.i to double
   %mul.i63.i = fmul double %conv.i62.i, 5.000000e-01
   %mul.i27 = fmul double %mul.i.i26, %mul.i.i26
   %mul4.i = fmul double %mul.i57.i, %mul.i57.i
@@ -5179,127 +5170,126 @@ _ZN7openvdb5v11_04math11BaseStencilINS1_16CurvatureStencilINS0_4GridINS0_4tree4T
   br i1 %cmp.i30, label %if.then.i16, label %_ZNK7openvdb5v11_04math16CurvatureStencilINS0_4GridINS0_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEELb0EE10curvaturesERfSG_.exit
 
 if.then.i16:                                      ; preds = %_ZN7openvdb5v11_04math11BaseStencilINS1_16CurvatureStencilINS0_4GridINS0_4tree4TreeINS5_8RootNodeINS5_12InternalNodeINS8_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEELb0EEESF_Lb0EE6moveToINSA_9ValueIterINS0_4util14OnMaskIteratorINSK_8NodeMaskILj3EEEEEKSA_KfNSA_7ValueOnEEEEEvRKT_.exit
-  %47 = load float, ptr %31, align 4
-  %48 = call float @llvm.fmuladd.f32(float %47, float -2.000000e+00, float %41)
-  %add.i.i = fadd float %42, %48
+  %41 = load float, ptr %31, align 4
+  %42 = call float @llvm.fmuladd.f32(float %41, float -2.000000e+00, float %32)
+  %add.i.i = fadd float %33, %42
   %conv.i66.i = fpext float %add.i.i to double
-  %49 = call float @llvm.fmuladd.f32(float %47, float -2.000000e+00, float %43)
-  %add.i70.i = fadd float %44, %49
+  %43 = call float @llvm.fmuladd.f32(float %41, float -2.000000e+00, float %34)
+  %add.i70.i = fadd float %35, %43
   %conv.i71.i = fpext float %add.i70.i to double
-  %50 = call float @llvm.fmuladd.f32(float %47, float -2.000000e+00, float %45)
-  %add.i75.i = fadd float %46, %50
+  %44 = call float @llvm.fmuladd.f32(float %41, float -2.000000e+00, float %36)
+  %add.i75.i = fadd float %37, %44
   %conv.i76.i = fpext float %add.i75.i to double
   %add.ptr.i.i78.i = getelementptr inbounds nuw i8, ptr %31, i64 40
-  %51 = load float, ptr %add.ptr.i.i78.i, align 4
+  %45 = load float, ptr %add.ptr.i.i78.i, align 4
   %add.ptr.i1.i79.i = getelementptr inbounds nuw i8, ptr %31, i64 32
-  %52 = load float, ptr %add.ptr.i1.i79.i, align 4
-  %sub.i80.i = fsub float %51, %52
+  %46 = load float, ptr %add.ptr.i1.i79.i, align 4
+  %sub.i80.i = fsub float %45, %46
   %add.ptr.i2.i81.i = getelementptr inbounds nuw i8, ptr %31, i64 28
-  %53 = load float, ptr %add.ptr.i2.i81.i, align 4
-  %add.i82.i = fadd float %sub.i80.i, %53
+  %47 = load float, ptr %add.ptr.i2.i81.i, align 4
+  %add.i82.i = fadd float %sub.i80.i, %47
   %add.ptr.i3.i.i = getelementptr inbounds nuw i8, ptr %31, i64 36
-  %54 = load float, ptr %add.ptr.i3.i.i, align 4
-  %sub8.i.i = fsub float %add.i82.i, %54
+  %48 = load float, ptr %add.ptr.i3.i.i, align 4
+  %sub8.i.i = fsub float %add.i82.i, %48
   %conv.i83.i = fpext float %sub8.i.i to double
   %mul.i84.i = fmul double %conv.i83.i, 2.500000e-01
   %add.ptr.i.i86.i = getelementptr inbounds nuw i8, ptr %31, i64 56
-  %55 = load float, ptr %add.ptr.i.i86.i, align 4
+  %49 = load float, ptr %add.ptr.i.i86.i, align 4
   %add.ptr.i1.i87.i = getelementptr inbounds nuw i8, ptr %31, i64 48
-  %56 = load float, ptr %add.ptr.i1.i87.i, align 4
-  %sub.i88.i = fsub float %55, %56
+  %50 = load float, ptr %add.ptr.i1.i87.i, align 4
+  %sub.i88.i = fsub float %49, %50
   %add.ptr.i2.i89.i = getelementptr inbounds nuw i8, ptr %31, i64 44
-  %57 = load float, ptr %add.ptr.i2.i89.i, align 4
-  %add.i90.i = fadd float %sub.i88.i, %57
+  %51 = load float, ptr %add.ptr.i2.i89.i, align 4
+  %add.i90.i = fadd float %sub.i88.i, %51
   %add.ptr.i3.i91.i = getelementptr inbounds nuw i8, ptr %31, i64 52
-  %58 = load float, ptr %add.ptr.i3.i91.i, align 4
-  %sub8.i92.i = fsub float %add.i90.i, %58
+  %52 = load float, ptr %add.ptr.i3.i91.i, align 4
+  %sub8.i92.i = fsub float %add.i90.i, %52
   %conv.i93.i = fpext float %sub8.i92.i to double
   %mul.i94.i = fmul double %conv.i93.i, 2.500000e-01
   %add.ptr.i.i96.i = getelementptr inbounds nuw i8, ptr %31, i64 72
-  %59 = load float, ptr %add.ptr.i.i96.i, align 4
+  %53 = load float, ptr %add.ptr.i.i96.i, align 4
   %add.ptr.i1.i97.i = getelementptr inbounds nuw i8, ptr %31, i64 64
-  %60 = load float, ptr %add.ptr.i1.i97.i, align 4
-  %sub.i98.i = fsub float %59, %60
+  %54 = load float, ptr %add.ptr.i1.i97.i, align 4
+  %sub.i98.i = fsub float %53, %54
   %add.ptr.i2.i99.i = getelementptr inbounds nuw i8, ptr %31, i64 60
-  %61 = load float, ptr %add.ptr.i2.i99.i, align 4
-  %add.i100.i = fadd float %sub.i98.i, %61
+  %55 = load float, ptr %add.ptr.i2.i99.i, align 4
+  %add.i100.i = fadd float %sub.i98.i, %55
   %add.ptr.i3.i101.i = getelementptr inbounds nuw i8, ptr %31, i64 68
-  %62 = load float, ptr %add.ptr.i3.i101.i, align 4
-  %sub8.i102.i = fsub float %add.i100.i, %62
+  %56 = load float, ptr %add.ptr.i3.i101.i, align 4
+  %sub8.i102.i = fsub float %add.i100.i, %56
   %conv.i103.i = fpext float %sub8.i102.i to double
   %mul.i104.i = fmul double %conv.i103.i, 2.500000e-01
   %add14.i = fadd double %conv.i71.i, %conv.i76.i
   %add16.i = fadd double %conv.i66.i, %conv.i76.i
   %mul17.i = fmul double %mul4.i, %add16.i
-  %63 = call double @llvm.fmuladd.f64(double %mul.i27, double %add14.i, double %mul17.i)
+  %57 = call double @llvm.fmuladd.f64(double %mul.i27, double %add14.i, double %mul17.i)
   %add18.i = fadd double %conv.i66.i, %conv.i71.i
-  %64 = call double @llvm.fmuladd.f64(double %mul5.i28, double %add18.i, double %63)
+  %58 = call double @llvm.fmuladd.f64(double %mul5.i28, double %add18.i, double %57)
   %mul21.i = fmul double %mul.i63.i, %mul.i94.i
-  %65 = call double @llvm.fmuladd.f64(double %mul.i57.i, double %mul.i84.i, double %mul21.i)
+  %59 = call double @llvm.fmuladd.f64(double %mul.i57.i, double %mul.i84.i, double %mul21.i)
   %mul23.i = fmul double %mul.i57.i, %mul.i63.i
   %mul24.i = fmul double %mul23.i, %mul.i104.i
-  %66 = call double @llvm.fmuladd.f64(double %mul.i.i26, double %65, double %mul24.i)
-  %67 = call double @llvm.fmuladd.f64(double %66, double -2.000000e+00, double %64)
-  %68 = fneg double %mul.i104.i
-  %neg.i = fmul double %mul.i104.i, %68
-  %69 = call double @llvm.fmuladd.f64(double %conv.i71.i, double %conv.i76.i, double %neg.i)
-  %70 = fneg double %mul.i94.i
-  %neg31.i = fmul double %mul.i94.i, %70
-  %71 = call double @llvm.fmuladd.f64(double %conv.i66.i, double %conv.i76.i, double %neg31.i)
-  %mul32.i = fmul double %mul4.i, %71
-  %72 = call double @llvm.fmuladd.f64(double %mul.i27, double %69, double %mul32.i)
-  %73 = fneg double %mul.i84.i
-  %neg35.i = fmul double %mul.i84.i, %73
-  %74 = call double @llvm.fmuladd.f64(double %conv.i66.i, double %conv.i71.i, double %neg35.i)
-  %75 = call double @llvm.fmuladd.f64(double %mul5.i28, double %74, double %72)
-  %76 = fneg double %conv.i66.i
-  %neg40.i = fmul double %mul.i104.i, %76
-  %77 = call double @llvm.fmuladd.f64(double %mul.i84.i, double %mul.i94.i, double %neg40.i)
+  %60 = call double @llvm.fmuladd.f64(double %mul.i.i26, double %59, double %mul24.i)
+  %61 = call double @llvm.fmuladd.f64(double %60, double -2.000000e+00, double %58)
+  %62 = fneg double %mul.i104.i
+  %neg.i = fmul double %mul.i104.i, %62
+  %63 = call double @llvm.fmuladd.f64(double %conv.i71.i, double %conv.i76.i, double %neg.i)
+  %64 = fneg double %mul.i94.i
+  %neg31.i = fmul double %mul.i94.i, %64
+  %65 = call double @llvm.fmuladd.f64(double %conv.i66.i, double %conv.i76.i, double %neg31.i)
+  %mul32.i = fmul double %mul4.i, %65
+  %66 = call double @llvm.fmuladd.f64(double %mul.i27, double %63, double %mul32.i)
+  %67 = fneg double %mul.i84.i
+  %neg35.i = fmul double %mul.i84.i, %67
+  %68 = call double @llvm.fmuladd.f64(double %conv.i66.i, double %conv.i71.i, double %neg35.i)
+  %69 = call double @llvm.fmuladd.f64(double %mul5.i28, double %68, double %66)
+  %70 = fneg double %conv.i66.i
+  %neg40.i = fmul double %mul.i104.i, %70
+  %71 = call double @llvm.fmuladd.f64(double %mul.i84.i, double %mul.i94.i, double %neg40.i)
   %mul42.i = fmul double %mul.i.i26, %mul.i63.i
-  %78 = fneg double %conv.i71.i
-  %neg45.i = fmul double %mul.i94.i, %78
-  %79 = call double @llvm.fmuladd.f64(double %mul.i84.i, double %mul.i104.i, double %neg45.i)
-  %mul46.i = fmul double %mul42.i, %79
-  %80 = call double @llvm.fmuladd.f64(double %mul23.i, double %77, double %mul46.i)
+  %72 = fneg double %conv.i71.i
+  %neg45.i = fmul double %mul.i94.i, %72
+  %73 = call double @llvm.fmuladd.f64(double %mul.i84.i, double %mul.i104.i, double %neg45.i)
+  %mul46.i = fmul double %mul42.i, %73
+  %74 = call double @llvm.fmuladd.f64(double %mul23.i, double %71, double %mul46.i)
   %mul47.i = fmul double %mul.i.i26, %mul.i57.i
-  %81 = fneg double %conv.i76.i
-  %neg50.i = fmul double %mul.i84.i, %81
-  %82 = call double @llvm.fmuladd.f64(double %mul.i94.i, double %mul.i104.i, double %neg50.i)
-  %83 = call double @llvm.fmuladd.f64(double %mul47.i, double %82, double %80)
-  %84 = call double @llvm.fmuladd.f64(double %83, double 2.000000e+00, double %75)
-  %call53.i = call double @sqrt(double noundef %add6.i) #19
-  %85 = load float, ptr %mInv2Dx.i, align 4
-  %conv.i = fpext float %85 to double
-  %mul.i18 = fmul double %67, %conv.i
-  %mul.i.i = fmul double %call53.i, %call53.i
-  %mul1.i.i = fmul double %call53.i, %mul.i.i
+  %75 = fneg double %conv.i76.i
+  %neg50.i = fmul double %mul.i84.i, %75
+  %76 = call double @llvm.fmuladd.f64(double %mul.i94.i, double %mul.i104.i, double %neg50.i)
+  %77 = call double @llvm.fmuladd.f64(double %mul47.i, double %76, double %74)
+  %78 = call double @llvm.fmuladd.f64(double %77, double 2.000000e+00, double %69)
+  %sqrt.i32 = call double @llvm.sqrt.f64(double %add6.i)
+  %conv.i = fpext float %38 to double
+  %mul.i18 = fmul double %61, %conv.i
+  %mul.i.i = fmul double %sqrt.i32, %sqrt.i32
+  %mul1.i.i = fmul double %sqrt.i32, %mul.i.i
   %div.i = fdiv double %mul.i18, %mul1.i.i
   %conv3.i = fptrunc double %div.i to float
-  %86 = load float, ptr %mInvDx2.i, align 8
-  %conv4.i = fpext float %86 to double
-  %mul5.i = fmul double %84, %conv4.i
+  %79 = load float, ptr %mInvDx2.i, align 8
+  %conv4.i = fpext float %79 to double
+  %mul5.i = fmul double %78, %conv4.i
   %mul.i1.i.i = fmul double %mul.i.i, %mul.i.i
   %div7.i = fdiv double %mul5.i, %mul.i1.i.i
   %conv8.i = fptrunc double %div7.i to float
-  %87 = fpext float %conv3.i to double
-  %88 = fpext float %conv8.i to double
+  %80 = fpext float %conv3.i to double
+  %81 = fpext float %conv8.i to double
   br label %_ZNK7openvdb5v11_04math16CurvatureStencilINS0_4GridINS0_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEELb0EE10curvaturesERfSG_.exit
 
 _ZNK7openvdb5v11_04math16CurvatureStencilINS0_4GridINS0_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEELb0EE10curvaturesERfSG_.exit: ; preds = %_ZN7openvdb5v11_04math11BaseStencilINS1_16CurvatureStencilINS0_4GridINS0_4tree4TreeINS5_8RootNodeINS5_12InternalNodeINS8_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEELb0EEESF_Lb0EE6moveToINSA_9ValueIterINS0_4util14OnMaskIteratorINSK_8NodeMaskILj3EEEEEKSA_KfNSA_7ValueOnEEEEEvRKT_.exit, %if.then.i16
-  %mean.0 = phi double [ %87, %if.then.i16 ], [ 0.000000e+00, %_ZN7openvdb5v11_04math11BaseStencilINS1_16CurvatureStencilINS0_4GridINS0_4tree4TreeINS5_8RootNodeINS5_12InternalNodeINS8_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEELb0EEESF_Lb0EE6moveToINSA_9ValueIterINS0_4util14OnMaskIteratorINSK_8NodeMaskILj3EEEEEKSA_KfNSA_7ValueOnEEEEEvRKT_.exit ]
-  %gauss.0 = phi double [ %88, %if.then.i16 ], [ 0.000000e+00, %_ZN7openvdb5v11_04math11BaseStencilINS1_16CurvatureStencilINS0_4GridINS0_4tree4TreeINS5_8RootNodeINS5_12InternalNodeINS8_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEELb0EEESF_Lb0EE6moveToINSA_9ValueIterINS0_4util14OnMaskIteratorINSK_8NodeMaskILj3EEEEEKSA_KfNSA_7ValueOnEEEEEvRKT_.exit ]
+  %mean.0 = phi double [ %80, %if.then.i16 ], [ 0.000000e+00, %_ZN7openvdb5v11_04math11BaseStencilINS1_16CurvatureStencilINS0_4GridINS0_4tree4TreeINS5_8RootNodeINS5_12InternalNodeINS8_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEELb0EEESF_Lb0EE6moveToINSA_9ValueIterINS0_4util14OnMaskIteratorINSK_8NodeMaskILj3EEEEEKSA_KfNSA_7ValueOnEEEEEvRKT_.exit ]
+  %gauss.0 = phi double [ %81, %if.then.i16 ], [ 0.000000e+00, %_ZN7openvdb5v11_04math11BaseStencilINS1_16CurvatureStencilINS0_4GridINS0_4tree4TreeINS5_8RootNodeINS5_12InternalNodeINS8_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEELb0EEESF_Lb0EE6moveToINSA_9ValueIterINS0_4util14OnMaskIteratorINSK_8NodeMaskILj3EEEEEKSA_KfNSA_7ValueOnEEEEEvRKT_.exit ]
   %mul23 = fmul double %mul20, %mean.0
-  %89 = call double @llvm.fmuladd.f64(double %mul23, double %7, double %sumM.049)
+  %82 = call double @llvm.fmuladd.f64(double %mul23, double %7, double %sumM.050)
   %mul26 = fmul double %mul20, %gauss.0
-  %90 = call double @llvm.fmuladd.f64(double %mul26, double %mul, double %sumG.048)
+  %83 = call double @llvm.fmuladd.f64(double %mul26, double %mul, double %sumG.049)
   br label %for.inc
 
 for.inc:                                          ; preds = %_ZNK7openvdb5v11_04tree18SparseIteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEENS1_8LeafNodeIfLj3EE9ValueIterIS7_KS9_KfNS9_7ValueOnEEESB_SC_EdeEv.exit, %_ZNK7openvdb5v11_05tools10DiracDeltaIdEclEd.exit, %_ZNK7openvdb5v11_04math16CurvatureStencilINS0_4GridINS0_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEELb0EE10curvaturesERfSG_.exit
-  %sumG.1 = phi double [ %90, %_ZNK7openvdb5v11_04math16CurvatureStencilINS0_4GridINS0_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEELb0EE10curvaturesERfSG_.exit ], [ %sumG.048, %_ZNK7openvdb5v11_05tools10DiracDeltaIdEclEd.exit ], [ %sumG.048, %_ZNK7openvdb5v11_04tree18SparseIteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEENS1_8LeafNodeIfLj3EE9ValueIterIS7_KS9_KfNS9_7ValueOnEEESB_SC_EdeEv.exit ]
-  %sumM.1 = phi double [ %89, %_ZNK7openvdb5v11_04math16CurvatureStencilINS0_4GridINS0_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEELb0EE10curvaturesERfSG_.exit ], [ %sumM.049, %_ZNK7openvdb5v11_05tools10DiracDeltaIdEclEd.exit ], [ %sumM.049, %_ZNK7openvdb5v11_04tree18SparseIteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEENS1_8LeafNodeIfLj3EE9ValueIterIS7_KS9_KfNS9_7ValueOnEEESB_SC_EdeEv.exit ]
-  %91 = load ptr, ptr %ref.tmp.sroa.21.0.mMaskIter.i.i.i.sroa_idx.i, align 8
-  %92 = load i32, ptr %mMaskIter.i.i.i.i, align 8
-  %add.i.i.i20 = add i32 %92, 1
+  %sumG.1 = phi double [ %83, %_ZNK7openvdb5v11_04math16CurvatureStencilINS0_4GridINS0_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEELb0EE10curvaturesERfSG_.exit ], [ %sumG.049, %_ZNK7openvdb5v11_05tools10DiracDeltaIdEclEd.exit ], [ %sumG.049, %_ZNK7openvdb5v11_04tree18SparseIteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEENS1_8LeafNodeIfLj3EE9ValueIterIS7_KS9_KfNS9_7ValueOnEEESB_SC_EdeEv.exit ]
+  %sumM.1 = phi double [ %82, %_ZNK7openvdb5v11_04math16CurvatureStencilINS0_4GridINS0_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEELb0EE10curvaturesERfSG_.exit ], [ %sumM.050, %_ZNK7openvdb5v11_05tools10DiracDeltaIdEclEd.exit ], [ %sumM.050, %_ZNK7openvdb5v11_04tree18SparseIteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEENS1_8LeafNodeIfLj3EE9ValueIterIS7_KS9_KfNS9_7ValueOnEEESB_SC_EdeEv.exit ]
+  %84 = load ptr, ptr %ref.tmp.sroa.21.0.mMaskIter.i.i.i.sroa_idx.i, align 8
+  %85 = load i32, ptr %mMaskIter.i.i.i.i, align 8
+  %add.i.i.i20 = add i32 %85, 1
   %shr.i.i.i.i21 = lshr i32 %add.i.i.i20, 6
   %cmp.i.i.i.i = icmp ugt i32 %add.i.i.i20, 511
   br i1 %cmp.i.i.i.i, label %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeIfLj3EEEEppEv.exit.thread, label %if.end.i.i.i.i
@@ -5307,17 +5297,17 @@ for.inc:                                          ; preds = %_ZNK7openvdb5v11_04
 if.end.i.i.i.i:                                   ; preds = %for.inc
   %and.i.i.i.i22 = and i32 %add.i.i.i20, 63
   %idxprom.i.i.i.i = zext nneg i32 %shr.i.i.i.i21 to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw i64, ptr %91, i64 %idxprom.i.i.i.i
-  %93 = load i64, ptr %arrayidx.i.i.i.i, align 8
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw i64, ptr %84, i64 %idxprom.i.i.i.i
+  %86 = load i64, ptr %arrayidx.i.i.i.i, align 8
   %sh_prom.i.i.i.i = zext nneg i32 %and.i.i.i.i22 to i64
   %shl.i.i.i.i = shl nuw i64 1, %sh_prom.i.i.i.i
-  %and2.i.i.i.i = and i64 %93, %shl.i.i.i.i
+  %and2.i.i.i.i = and i64 %86, %shl.i.i.i.i
   %tobool.not.i.i.i.i = icmp eq i64 %and2.i.i.i.i, 0
   br i1 %tobool.not.i.i.i.i, label %if.end4.i.i.i.i, label %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeIfLj3EEEEppEv.exit
 
 if.end4.i.i.i.i:                                  ; preds = %if.end.i.i.i.i
   %shl6.i.i.i.i = shl nsw i64 -1, %sh_prom.i.i.i.i
-  %and7.i.i.i.i = and i64 %93, %shl6.i.i.i.i
+  %and7.i.i.i.i = and i64 %86, %shl6.i.i.i.i
   %tobool8.not15.i.i.i.i = icmp eq i64 %and7.i.i.i.i, 0
   br i1 %tobool8.not15.i.i.i.i, label %land.rhs.i.i.i.i, label %cond.false.i.i.i.i
 
@@ -5328,22 +5318,22 @@ land.rhs.i.i.i.i:                                 ; preds = %if.end4.i.i.i.i, %w
 
 while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
-  %arrayidx12.i.i.i.i = getelementptr inbounds nuw i64, ptr %91, i64 %indvars.iv.next.i.i.i.i
-  %94 = load i64, ptr %arrayidx12.i.i.i.i, align 8
-  %tobool8.not.i.i.i.i = icmp eq i64 %94, 0
+  %arrayidx12.i.i.i.i = getelementptr inbounds nuw i64, ptr %84, i64 %indvars.iv.next.i.i.i.i
+  %87 = load i64, ptr %arrayidx12.i.i.i.i, align 8
+  %tobool8.not.i.i.i.i = icmp eq i64 %87, 0
   br i1 %tobool8.not.i.i.i.i, label %land.rhs.i.i.i.i, label %cond.false.loopexit.i.i.i.i, !llvm.loop !32
 
 cond.false.loopexit.i.i.i.i:                      ; preds = %while.body.i.i.i.i
-  %95 = trunc nuw nsw i64 %indvars.iv.next.i.i.i.i to i32
+  %88 = trunc nuw nsw i64 %indvars.iv.next.i.i.i.i to i32
   br label %cond.false.i.i.i.i
 
 cond.false.i.i.i.i:                               ; preds = %cond.false.loopexit.i.i.i.i, %if.end4.i.i.i.i
-  %n.0.lcssa.i.i.i.i = phi i32 [ %shr.i.i.i.i21, %if.end4.i.i.i.i ], [ %95, %cond.false.loopexit.i.i.i.i ]
-  %b.0.lcssa.i.i.i.i = phi i64 [ %and7.i.i.i.i, %if.end4.i.i.i.i ], [ %94, %cond.false.loopexit.i.i.i.i ]
+  %n.0.lcssa.i.i.i.i = phi i32 [ %shr.i.i.i.i21, %if.end4.i.i.i.i ], [ %88, %cond.false.loopexit.i.i.i.i ]
+  %b.0.lcssa.i.i.i.i = phi i64 [ %and7.i.i.i.i, %if.end4.i.i.i.i ], [ %87, %cond.false.loopexit.i.i.i.i ]
   %shl14.i.i.i.i = shl nuw nsw i32 %n.0.lcssa.i.i.i.i, 6
-  %96 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i, i1 true)
-  %97 = trunc nuw nsw i64 %96 to i32
-  %add.i.i.i.i24 = or disjoint i32 %shl14.i.i.i.i, %97
+  %89 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i, i1 true)
+  %90 = trunc nuw nsw i64 %89 to i32
+  %add.i.i.i.i24 = or disjoint i32 %shl14.i.i.i.i, %90
   br label %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeIfLj3EEEEppEv.exit
 
 _ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeIfLj3EEEEppEv.exit.thread: ; preds = %for.inc, %land.rhs.i.i.i.i
@@ -5359,16 +5349,16 @@ _ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3
 for.end:                                          ; preds = %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeIfLj3EEEEppEv.exit, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeIfLj3EEEEppEv.exit.thread, %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE13cbeginValueOnEv.exit.thread, %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE13cbeginValueOnEv.exit
   %sumG.0.lcssa = phi double [ 0.000000e+00, %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE13cbeginValueOnEv.exit ], [ 0.000000e+00, %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE13cbeginValueOnEv.exit.thread ], [ %sumG.1, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeIfLj3EEEEppEv.exit.thread ], [ %sumG.1, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeIfLj3EEEEppEv.exit ]
   %sumM.0.lcssa = phi double [ 0.000000e+00, %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE13cbeginValueOnEv.exit ], [ 0.000000e+00, %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE13cbeginValueOnEv.exit.thread ], [ %sumM.1, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeIfLj3EEEEppEv.exit.thread ], [ %sumM.1, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeIfLj3EEEEppEv.exit ]
-  %98 = load ptr, ptr %this, align 8
-  %mBuffer = getelementptr inbounds nuw i8, ptr %98, i64 24
-  %99 = load ptr, ptr %mBuffer, align 8
-  %add.ptr = getelementptr inbounds double, ptr %99, i64 %leafIter.sroa.3.052
+  %91 = load ptr, ptr %this, align 8
+  %mBuffer = getelementptr inbounds nuw i8, ptr %91, i64 24
+  %92 = load ptr, ptr %mBuffer, align 8
+  %add.ptr = getelementptr inbounds double, ptr %92, i64 %leafIter.sroa.3.053
   store double %sumM.0.lcssa, ptr %add.ptr, align 8
   %add.ptr32 = getelementptr inbounds double, ptr %add.ptr, i64 %9
   store double %sumG.0.lcssa, ptr %add.ptr32, align 8
-  %inc.i = add nuw i64 %leafIter.sroa.3.052, 1
-  %100 = load i64, ptr %range, align 8
-  %cmp.i.i = icmp ult i64 %inc.i, %100
+  %inc.i = add nuw i64 %leafIter.sroa.3.053, 1
+  %93 = load i64, ptr %range, align 8
+  %cmp.i.i = icmp ult i64 %inc.i, %93
   br i1 %cmp.i.i, label %for.body, label %for.end35, !llvm.loop !51
 
 for.end35:                                        ; preds = %for.end, %_ZN7openvdb5v11_05tools15LevelSetMeasureINS0_4GridINS0_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEENS0_4util15NullInterrupterEE16checkInterrupterEv.exit
@@ -8422,8 +8412,8 @@ _ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12Intern
   %mul8.i = fmul double %mul4.i.i.i, %mul4.i.i.i
   %283 = call double @llvm.fmuladd.f64(double %mul.i.i.i, double %mul.i.i.i, double %mul8.i)
   %284 = call double @llvm.fmuladd.f64(double %mul7.i.i.i, double %mul7.i.i.i, double %283)
-  %call.i = call noundef double @sqrt(double noundef %284) #19
-  %285 = call double @llvm.fmuladd.f64(double %mul3.i, double %call.i, double %sumA.01027)
+  %sqrt.i = call noundef double @llvm.sqrt.f64(double %284)
+  %285 = call double @llvm.fmuladd.f64(double %mul3.i, double %sqrt.i, double %sumA.01027)
   %286 = load i32, ptr %mCenter.i, align 8
   %conv = sitofp i32 %286 to double
   %287 = load i32, ptr %arrayidx.i.i.i.i27, align 4
@@ -8955,7 +8945,7 @@ _ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE13cbeginValueOnEv.exit: ; preds = %land.r
 for.body11:                                       ; preds = %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE13cbeginValueOnEv.exit, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeIdLj3EEEEppEv.exit
   %sumM.050 = phi double [ %sumM.1, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeIdLj3EEEEppEv.exit ], [ 0.000000e+00, %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE13cbeginValueOnEv.exit ]
   %sumG.049 = phi double [ %sumG.1, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeIdLj3EEEEppEv.exit ], [ 0.000000e+00, %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE13cbeginValueOnEv.exit ]
-  %18 = phi i32 [ %retval.0.i.i.i.i25, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeIdLj3EEEEppEv.exit ], [ %add.i.i.i, %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE13cbeginValueOnEv.exit ]
+  %18 = phi i32 [ %retval.0.i.i.i.i24, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeIdLj3EEEEppEv.exit ], [ %add.i.i.i, %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE13cbeginValueOnEv.exit ]
   %call.i.i.i = call noundef nonnull align 8 dereferenceable(96) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeIdLj3EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %voxelIter)
   %mOutOfCore.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 8
   %19 = load atomic i32, ptr %mOutOfCore.i.i.i.i.i.i.i.i seq_cst, align 8
@@ -9051,20 +9041,20 @@ _ZN7openvdb5v11_04math11BaseStencilINS1_16CurvatureStencilINS0_4GridINS0_4tree4T
   %mul8.i = fmul double %mul4.i.i.i, %mul4.i.i.i
   %39 = call double @llvm.fmuladd.f64(double %mul.i.i.i, double %mul.i.i.i, double %mul8.i)
   %40 = call double @llvm.fmuladd.f64(double %mul7.i.i.i, double %mul7.i.i.i, double %39)
-  %call.i = call noundef double @sqrt(double noundef %40) #19
-  %mul17 = fmul double %mul3.i, %call.i
-  %mul.i.i28 = fmul double %sub.i, 5.000000e-01
+  %sqrt.i = call noundef double @llvm.sqrt.f64(double %40)
+  %mul17 = fmul double %mul3.i, %sqrt.i
+  %mul.i.i27 = fmul double %sub.i, 5.000000e-01
   %mul.i56.i = fmul double %sub8.i, 5.000000e-01
   %mul.i61.i = fmul double %sub13.i, 5.000000e-01
-  %mul.i29 = fmul double %mul.i.i28, %mul.i.i28
+  %mul.i28 = fmul double %mul.i.i27, %mul.i.i27
   %mul4.i = fmul double %mul.i56.i, %mul.i56.i
   %mul5.i = fmul double %mul.i61.i, %mul.i61.i
-  %add.i30 = fadd double %mul.i29, %mul4.i
-  %add6.i = fadd double %add.i30, %mul5.i
-  %cmp.i31 = fcmp ugt double %add6.i, 1.000000e-15
-  br i1 %cmp.i31, label %if.then.i17, label %_ZNK7openvdb5v11_04math16CurvatureStencilINS0_4GridINS0_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEELb0EE10curvaturesERdSG_.exit
+  %add.i29 = fadd double %mul.i28, %mul4.i
+  %add6.i = fadd double %add.i29, %mul5.i
+  %cmp.i30 = fcmp ugt double %add6.i, 1.000000e-15
+  br i1 %cmp.i30, label %if.then.i16, label %_ZNK7openvdb5v11_04math16CurvatureStencilINS0_4GridINS0_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEELb0EE10curvaturesERdSG_.exit
 
-if.then.i17:                                      ; preds = %_ZN7openvdb5v11_04math11BaseStencilINS1_16CurvatureStencilINS0_4GridINS0_4tree4TreeINS5_8RootNodeINS5_12InternalNodeINS8_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEELb0EEESF_Lb0EE6moveToINSA_9ValueIterINS0_4util14OnMaskIteratorINSK_8NodeMaskILj3EEEEEKSA_KdNSA_7ValueOnEEEEEvRKT_.exit
+if.then.i16:                                      ; preds = %_ZN7openvdb5v11_04math11BaseStencilINS1_16CurvatureStencilINS0_4GridINS0_4tree4TreeINS5_8RootNodeINS5_12InternalNodeINS8_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEELb0EEESF_Lb0EE6moveToINSA_9ValueIterINS0_4util14OnMaskIteratorINSK_8NodeMaskILj3EEEEEKSA_KdNSA_7ValueOnEEEEEvRKT_.exit
   %41 = load double, ptr %31, align 8
   %42 = call double @llvm.fmuladd.f64(double %41, double -2.000000e+00, double %32)
   %add.i.i = fadd double %33, %42
@@ -9111,14 +9101,14 @@ if.then.i17:                                      ; preds = %_ZN7openvdb5v11_04m
   %add14.i = fadd double %add.i67.i, %add.i71.i
   %add16.i = fadd double %add.i.i, %add.i71.i
   %mul17.i = fmul double %mul4.i, %add16.i
-  %57 = call double @llvm.fmuladd.f64(double %mul.i29, double %add14.i, double %mul17.i)
+  %57 = call double @llvm.fmuladd.f64(double %mul.i28, double %add14.i, double %mul17.i)
   %add18.i = fadd double %add.i.i, %add.i67.i
   %58 = call double @llvm.fmuladd.f64(double %mul5.i, double %add18.i, double %57)
   %mul21.i = fmul double %mul.i61.i, %mul.i87.i
   %59 = call double @llvm.fmuladd.f64(double %mul.i56.i, double %mul.i78.i, double %mul21.i)
   %mul23.i = fmul double %mul.i56.i, %mul.i61.i
   %mul24.i = fmul double %mul23.i, %mul.i96.i
-  %60 = call double @llvm.fmuladd.f64(double %mul.i.i28, double %59, double %mul24.i)
+  %60 = call double @llvm.fmuladd.f64(double %mul.i.i27, double %59, double %mul24.i)
   %61 = call double @llvm.fmuladd.f64(double %60, double -2.000000e+00, double %58)
   %62 = fneg double %mul.i96.i
   %neg.i = fmul double %mul.i96.i, %62
@@ -9127,7 +9117,7 @@ if.then.i17:                                      ; preds = %_ZN7openvdb5v11_04m
   %neg31.i = fmul double %mul.i87.i, %64
   %65 = call double @llvm.fmuladd.f64(double %add.i.i, double %add.i71.i, double %neg31.i)
   %mul32.i = fmul double %mul4.i, %65
-  %66 = call double @llvm.fmuladd.f64(double %mul.i29, double %63, double %mul32.i)
+  %66 = call double @llvm.fmuladd.f64(double %mul.i28, double %63, double %mul32.i)
   %67 = fneg double %mul.i78.i
   %neg35.i = fmul double %mul.i78.i, %67
   %68 = call double @llvm.fmuladd.f64(double %add.i.i, double %add.i67.i, double %neg35.i)
@@ -9135,32 +9125,32 @@ if.then.i17:                                      ; preds = %_ZN7openvdb5v11_04m
   %70 = fneg double %add.i.i
   %neg40.i = fmul double %mul.i96.i, %70
   %71 = call double @llvm.fmuladd.f64(double %mul.i78.i, double %mul.i87.i, double %neg40.i)
-  %mul42.i = fmul double %mul.i.i28, %mul.i61.i
+  %mul42.i = fmul double %mul.i.i27, %mul.i61.i
   %72 = fneg double %add.i67.i
   %neg45.i = fmul double %mul.i87.i, %72
   %73 = call double @llvm.fmuladd.f64(double %mul.i78.i, double %mul.i96.i, double %neg45.i)
   %mul46.i = fmul double %mul42.i, %73
   %74 = call double @llvm.fmuladd.f64(double %mul23.i, double %71, double %mul46.i)
-  %mul47.i = fmul double %mul.i.i28, %mul.i56.i
+  %mul47.i = fmul double %mul.i.i27, %mul.i56.i
   %75 = fneg double %add.i71.i
   %neg50.i = fmul double %mul.i78.i, %75
   %76 = call double @llvm.fmuladd.f64(double %mul.i87.i, double %mul.i96.i, double %neg50.i)
   %77 = call double @llvm.fmuladd.f64(double %mul47.i, double %76, double %74)
   %78 = call double @llvm.fmuladd.f64(double %77, double 2.000000e+00, double %69)
-  %call53.i = call double @sqrt(double noundef %add6.i) #19
-  %mul.i19 = fmul double %38, %61
-  %mul.i.i = fmul double %call53.i, %call53.i
-  %mul1.i.i = fmul double %call53.i, %mul.i.i
-  %div.i = fdiv double %mul.i19, %mul1.i.i
+  %sqrt.i32 = call double @llvm.sqrt.f64(double %add6.i)
+  %mul.i18 = fmul double %38, %61
+  %mul.i.i = fmul double %sqrt.i32, %sqrt.i32
+  %mul1.i.i = fmul double %sqrt.i32, %mul.i.i
+  %div.i = fdiv double %mul.i18, %mul1.i.i
   %79 = load double, ptr %mInvDx2.i, align 8
-  %mul3.i20 = fmul double %79, %78
+  %mul3.i19 = fmul double %79, %78
   %mul.i1.i.i = fmul double %mul.i.i, %mul.i.i
-  %div5.i = fdiv double %mul3.i20, %mul.i1.i.i
+  %div5.i = fdiv double %mul3.i19, %mul.i1.i.i
   br label %_ZNK7openvdb5v11_04math16CurvatureStencilINS0_4GridINS0_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEELb0EE10curvaturesERdSG_.exit
 
-_ZNK7openvdb5v11_04math16CurvatureStencilINS0_4GridINS0_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEELb0EE10curvaturesERdSG_.exit: ; preds = %_ZN7openvdb5v11_04math11BaseStencilINS1_16CurvatureStencilINS0_4GridINS0_4tree4TreeINS5_8RootNodeINS5_12InternalNodeINS8_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEELb0EEESF_Lb0EE6moveToINSA_9ValueIterINS0_4util14OnMaskIteratorINSK_8NodeMaskILj3EEEEEKSA_KdNSA_7ValueOnEEEEEvRKT_.exit, %if.then.i17
-  %gauss.0 = phi double [ %div5.i, %if.then.i17 ], [ 0.000000e+00, %_ZN7openvdb5v11_04math11BaseStencilINS1_16CurvatureStencilINS0_4GridINS0_4tree4TreeINS5_8RootNodeINS5_12InternalNodeINS8_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEELb0EEESF_Lb0EE6moveToINSA_9ValueIterINS0_4util14OnMaskIteratorINSK_8NodeMaskILj3EEEEEKSA_KdNSA_7ValueOnEEEEEvRKT_.exit ]
-  %mean.0 = phi double [ %div.i, %if.then.i17 ], [ 0.000000e+00, %_ZN7openvdb5v11_04math11BaseStencilINS1_16CurvatureStencilINS0_4GridINS0_4tree4TreeINS5_8RootNodeINS5_12InternalNodeINS8_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEELb0EEESF_Lb0EE6moveToINSA_9ValueIterINS0_4util14OnMaskIteratorINSK_8NodeMaskILj3EEEEEKSA_KdNSA_7ValueOnEEEEEvRKT_.exit ]
+_ZNK7openvdb5v11_04math16CurvatureStencilINS0_4GridINS0_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEELb0EE10curvaturesERdSG_.exit: ; preds = %_ZN7openvdb5v11_04math11BaseStencilINS1_16CurvatureStencilINS0_4GridINS0_4tree4TreeINS5_8RootNodeINS5_12InternalNodeINS8_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEELb0EEESF_Lb0EE6moveToINSA_9ValueIterINS0_4util14OnMaskIteratorINSK_8NodeMaskILj3EEEEEKSA_KdNSA_7ValueOnEEEEEvRKT_.exit, %if.then.i16
+  %gauss.0 = phi double [ %div5.i, %if.then.i16 ], [ 0.000000e+00, %_ZN7openvdb5v11_04math11BaseStencilINS1_16CurvatureStencilINS0_4GridINS0_4tree4TreeINS5_8RootNodeINS5_12InternalNodeINS8_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEELb0EEESF_Lb0EE6moveToINSA_9ValueIterINS0_4util14OnMaskIteratorINSK_8NodeMaskILj3EEEEEKSA_KdNSA_7ValueOnEEEEEvRKT_.exit ]
+  %mean.0 = phi double [ %div.i, %if.then.i16 ], [ 0.000000e+00, %_ZN7openvdb5v11_04math11BaseStencilINS1_16CurvatureStencilINS0_4GridINS0_4tree4TreeINS5_8RootNodeINS5_12InternalNodeINS8_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEELb0EEESF_Lb0EE6moveToINSA_9ValueIterINS0_4util14OnMaskIteratorINSK_8NodeMaskILj3EEEEEKSA_KdNSA_7ValueOnEEEEEvRKT_.exit ]
   %mul19 = fmul double %mul17, %mean.0
   %80 = call double @llvm.fmuladd.f64(double %mul19, double %7, double %sumM.050)
   %mul21 = fmul double %mul17, %gauss.0
@@ -9172,17 +9162,17 @@ for.inc:                                          ; preds = %_ZNK7openvdb5v11_04
   %sumM.1 = phi double [ %80, %_ZNK7openvdb5v11_04math16CurvatureStencilINS0_4GridINS0_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEELb0EE10curvaturesERdSG_.exit ], [ %sumM.050, %_ZNK7openvdb5v11_05tools10DiracDeltaIdEclEd.exit ], [ %sumM.050, %_ZNK7openvdb5v11_04tree18SparseIteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEENS1_8LeafNodeIdLj3EE9ValueIterIS7_KS9_KdNS9_7ValueOnEEESB_SC_EdeEv.exit ]
   %82 = load ptr, ptr %ref.tmp.sroa.21.0.mMaskIter.i.i.i.sroa_idx.i, align 8
   %83 = load i32, ptr %mMaskIter.i.i.i.i, align 8
-  %add.i.i.i22 = add i32 %83, 1
-  %shr.i.i.i.i23 = lshr i32 %add.i.i.i22, 6
-  %cmp.i.i.i.i = icmp ugt i32 %add.i.i.i22, 511
+  %add.i.i.i21 = add i32 %83, 1
+  %shr.i.i.i.i22 = lshr i32 %add.i.i.i21, 6
+  %cmp.i.i.i.i = icmp ugt i32 %add.i.i.i21, 511
   br i1 %cmp.i.i.i.i, label %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeIdLj3EEEEppEv.exit.thread, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %for.inc
-  %and.i.i.i.i24 = and i32 %add.i.i.i22, 63
-  %idxprom.i.i.i.i = zext nneg i32 %shr.i.i.i.i23 to i64
+  %and.i.i.i.i23 = and i32 %add.i.i.i21, 63
+  %idxprom.i.i.i.i = zext nneg i32 %shr.i.i.i.i22 to i64
   %arrayidx.i.i.i.i = getelementptr inbounds nuw i64, ptr %82, i64 %idxprom.i.i.i.i
   %84 = load i64, ptr %arrayidx.i.i.i.i, align 8
-  %sh_prom.i.i.i.i = zext nneg i32 %and.i.i.i.i24 to i64
+  %sh_prom.i.i.i.i = zext nneg i32 %and.i.i.i.i23 to i64
   %shl.i.i.i.i = shl nuw i64 1, %sh_prom.i.i.i.i
   %and2.i.i.i.i = and i64 %84, %shl.i.i.i.i
   %tobool.not.i.i.i.i = icmp eq i64 %and2.i.i.i.i, 0
@@ -9211,12 +9201,12 @@ cond.false.loopexit.i.i.i.i:                      ; preds = %while.body.i.i.i.i
   br label %cond.false.i.i.i.i
 
 cond.false.i.i.i.i:                               ; preds = %cond.false.loopexit.i.i.i.i, %if.end4.i.i.i.i
-  %n.0.lcssa.i.i.i.i = phi i32 [ %shr.i.i.i.i23, %if.end4.i.i.i.i ], [ %86, %cond.false.loopexit.i.i.i.i ]
+  %n.0.lcssa.i.i.i.i = phi i32 [ %shr.i.i.i.i22, %if.end4.i.i.i.i ], [ %86, %cond.false.loopexit.i.i.i.i ]
   %b.0.lcssa.i.i.i.i = phi i64 [ %and7.i.i.i.i, %if.end4.i.i.i.i ], [ %85, %cond.false.loopexit.i.i.i.i ]
   %shl14.i.i.i.i = shl nuw nsw i32 %n.0.lcssa.i.i.i.i, 6
   %87 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i, i1 true)
   %88 = trunc nuw nsw i64 %87 to i32
-  %add.i.i.i.i26 = or disjoint i32 %shl14.i.i.i.i, %88
+  %add.i.i.i.i25 = or disjoint i32 %shl14.i.i.i.i, %88
   br label %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeIdLj3EEEEppEv.exit
 
 _ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeIdLj3EEEEppEv.exit.thread: ; preds = %for.inc, %land.rhs.i.i.i.i
@@ -9224,9 +9214,9 @@ _ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3
   br label %for.end
 
 _ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeIdLj3EEEEppEv.exit: ; preds = %if.end.i.i.i.i, %cond.false.i.i.i.i
-  %retval.0.i.i.i.i25 = phi i32 [ %add.i.i.i22, %if.end.i.i.i.i ], [ %add.i.i.i.i26, %cond.false.i.i.i.i ]
-  store i32 %retval.0.i.i.i.i25, ptr %mMaskIter.i.i.i.i, align 8
-  %cmp.i.i.i.not = icmp eq i32 %retval.0.i.i.i.i25, 512
+  %retval.0.i.i.i.i24 = phi i32 [ %add.i.i.i21, %if.end.i.i.i.i ], [ %add.i.i.i.i25, %cond.false.i.i.i.i ]
+  store i32 %retval.0.i.i.i.i24, ptr %mMaskIter.i.i.i.i, align 8
+  %cmp.i.i.i.not = icmp eq i32 %retval.0.i.i.i.i24, 512
   br i1 %cmp.i.i.i.not, label %for.end, label %for.body11, !llvm.loop !107
 
 for.end:                                          ; preds = %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeIdLj3EEEEppEv.exit, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeIdLj3EEEEppEv.exit.thread, %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE13cbeginValueOnEv.exit.thread, %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE13cbeginValueOnEv.exit
@@ -10502,9 +10492,6 @@ declare void @__cxa_rethrow() local_unnamed_addr
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
 declare double @cos(double noundef) local_unnamed_addr #16
-
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @sqrt(double noundef) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN7openvdb5v11_04tree11LeafManagerIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE13initLeafArrayEb(ptr noundef nonnull align 8 dereferenceable(96) %this, i1 noundef zeroext %serial) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -30360,34 +30347,38 @@ entry:
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #22
 
-declare float @sqrtf(float) local_unnamed_addr
-
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #23
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #24
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.sqrt.f64(double) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #24
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #25
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #25
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #25
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #26
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.umax.i8(i8, i8) #26
+declare i8 @llvm.umax.i8(i8, i8) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.cttz.i64(i64, i1 immarg) #27
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctpop.i64(i64) #26
+declare i64 @llvm.ctpop.i64(i64) #24
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #26
+declare float @llvm.sqrt.f32(float) #24
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #26
+declare i64 @llvm.umax.i64(i64, i64) #24
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #24
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -30413,9 +30404,9 @@ attributes #20 = { mustprogress nocallback nofree nosync nounwind speculatable w
 attributes #21 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #22 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #23 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #24 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #25 = { nocallback nofree nounwind willreturn memory(argmem: read) }
-attributes #26 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #24 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #25 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #26 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #27 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #28 = { builtin nounwind }
 attributes #29 = { noreturn }

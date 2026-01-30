@@ -228,7 +228,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__16Hd_SmoothNormals20ComputeSmo
 16:                                               ; preds = %10, %4
   %17 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #16
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #15
   resume { ptr, i32 } %17
 
 _ZN32pxrInternal_v0_24__pxrReserved__21_ComputeSmoothNormalsINS_7GfVec3fES1_EENS_7VtArrayIT0_EEiPKT_RKNS2_IiEEi.exit: ; preds = %10
@@ -269,7 +269,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__16Hd_SmoothNormals20ComputeSmo
 16:                                               ; preds = %10, %4
   %17 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #16
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #15
   resume { ptr, i32 } %17
 
 _ZN32pxrInternal_v0_24__pxrReserved__21_ComputeSmoothNormalsINS_7GfVec3dES1_EENS_7VtArrayIT0_EEiPKT_RKNS2_IiEEi.exit: ; preds = %10
@@ -300,7 +300,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__16Hd_SmoothNormals26ComputeSmo
 
 common.resume.i:                                  ; preds = %21, %12
   %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %22, %21 ]
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_22HdVec4f_2_10_10_10_REVEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #16
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_22HdVec4f_2_10_10_10_REVEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #15
   resume { ptr, i32 } %common.resume.op.i
 
 12:                                               ; preds = %4
@@ -364,7 +364,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__16Hd_SmoothNormals26ComputeSmo
 
 common.resume.i:                                  ; preds = %21, %12
   %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %22, %21 ]
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_22HdVec4f_2_10_10_10_REVEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #16
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_22HdVec4f_2_10_10_10_REVEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #15
   resume { ptr, i32 } %common.resume.op.i
 
 12:                                               ; preds = %4
@@ -415,16 +415,16 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__20_SmoothNormalsWorkerINS_7GfVec3fES1_E7ComputeEmm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1, i64 noundef %2) #2 comdat align 2 {
   %4 = icmp ult i64 %1, %2
-  br i1 %4, label %.lr.ph62, label %._crit_edge63
+  br i1 %4, label %.lr.ph59, label %._crit_edge60
 
-.lr.ph62:                                         ; preds = %3
+.lr.ph59:                                         ; preds = %3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %7
 
-7:                                                ; preds = %.lr.ph62, %._crit_edge
-  %.060 = phi i64 [ %1, %.lr.ph62 ], [ %76, %._crit_edge ]
-  %.0.tr = trunc i64 %.060 to i32
+7:                                                ; preds = %.lr.ph59, %._crit_edge
+  %.057 = phi i64 [ %1, %.lr.ph59 ], [ %75, %._crit_edge ]
+  %.0.tr = trunc i64 %.057 to i32
   %8 = shl i32 %.0.tr, 1
   %9 = load ptr, ptr %5, align 8
   %10 = sext i32 %8 to i64
@@ -443,7 +443,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__20_SmoothNormalsW
   br i1 %22, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %7
-  %23 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec3f", ptr %21, i64 %.060
+  %23 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec3f", ptr %21, i64 %.057
   %24 = load float, ptr %23, align 4
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 4
   %26 = load float, ptr %25, align 4
@@ -452,16 +452,16 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__20_SmoothNormalsW
   br label %29
 
 29:                                               ; preds = %.lr.ph, %29
-  %.02757 = phi ptr [ %20, %.lr.ph ], [ %34, %29 ]
-  %.02856 = phi i32 [ 0, %.lr.ph ], [ %56, %29 ]
-  %.sroa.046.155 = phi float [ 0.000000e+00, %.lr.ph ], [ %53, %29 ]
-  %.sroa.7.154 = phi float [ 0.000000e+00, %.lr.ph ], [ %54, %29 ]
-  %.sroa.12.153 = phi float [ 0.000000e+00, %.lr.ph ], [ %55, %29 ]
-  %30 = getelementptr inbounds nuw i8, ptr %.02757, i64 4
-  %31 = load i32, ptr %.02757, align 4
+  %.02754 = phi ptr [ %20, %.lr.ph ], [ %34, %29 ]
+  %.02853 = phi i32 [ 0, %.lr.ph ], [ %56, %29 ]
+  %.sroa.046.152 = phi float [ 0.000000e+00, %.lr.ph ], [ %53, %29 ]
+  %.sroa.6.151 = phi float [ 0.000000e+00, %.lr.ph ], [ %54, %29 ]
+  %.sroa.10.150 = phi float [ 0.000000e+00, %.lr.ph ], [ %55, %29 ]
+  %30 = getelementptr inbounds nuw i8, ptr %.02754, i64 4
+  %31 = load i32, ptr %.02754, align 4
   %32 = sext i32 %31 to i64
   %33 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec3f", ptr %21, i64 %32
-  %34 = getelementptr inbounds nuw i8, ptr %.02757, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %.02754, i64 8
   %35 = load i32, ptr %30, align 4
   %36 = sext i32 %35 to i64
   %37 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec3f", ptr %21, i64 %36
@@ -490,46 +490,46 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__20_SmoothNormalsW
   %50 = fneg float %41
   %51 = fmul float %39, %50
   %52 = tail call float @llvm.fmuladd.f32(float %38, float %42, float %51)
-  %53 = fadd float %.sroa.046.155, %46
-  %54 = fadd float %.sroa.7.154, %49
-  %55 = fadd float %.sroa.12.153, %52
-  %56 = add nuw nsw i32 %.02856, 1
+  %53 = fadd float %.sroa.046.152, %46
+  %54 = fadd float %.sroa.6.151, %49
+  %55 = fadd float %.sroa.10.150, %52
+  %56 = add nuw nsw i32 %.02853, 1
   %exitcond.not = icmp eq i32 %56, %17
   br i1 %exitcond.not, label %._crit_edge, label %29, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %29, %7
-  %.sroa.12.1.lcssa = phi float [ 0.000000e+00, %7 ], [ %55, %29 ]
-  %.sroa.7.1.lcssa = phi float [ 0.000000e+00, %7 ], [ %54, %29 ]
+  %.sroa.10.1.lcssa = phi float [ 0.000000e+00, %7 ], [ %55, %29 ]
+  %.sroa.6.1.lcssa = phi float [ 0.000000e+00, %7 ], [ %54, %29 ]
   %.sroa.046.1.lcssa = phi float [ 0.000000e+00, %7 ], [ %53, %29 ]
-  %57 = fmul float %.sroa.7.1.lcssa, %.sroa.7.1.lcssa
+  %57 = fmul float %.sroa.6.1.lcssa, %.sroa.6.1.lcssa
   %58 = tail call float @llvm.fmuladd.f32(float %.sroa.046.1.lcssa, float %.sroa.046.1.lcssa, float %57)
-  %59 = tail call noundef float @llvm.fmuladd.f32(float %.sroa.12.1.lcssa, float %.sroa.12.1.lcssa, float %58)
-  %60 = tail call noundef float @sqrtf(float noundef %59) #16
-  %61 = fcmp ogt float %60, 0x3DDB7CDFE0000000
-  %62 = select i1 %61, float %60, float 0x3DDB7CDFE0000000
-  %63 = fpext float %62 to double
-  %64 = fdiv double 1.000000e+00, %63
-  %65 = fpext float %.sroa.046.1.lcssa to double
-  %66 = fmul double %64, %65
-  %67 = fptrunc double %66 to float
-  %68 = fpext float %.sroa.7.1.lcssa to double
-  %69 = fmul double %64, %68
-  %70 = fptrunc double %69 to float
-  %71 = fpext float %.sroa.12.1.lcssa to double
-  %72 = fmul double %64, %71
-  %73 = fptrunc double %72 to float
-  %74 = load ptr, ptr %6, align 8
-  %75 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec3f", ptr %74, i64 %.060
-  store float %67, ptr %75, align 4
-  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %75, i64 4
-  store float %70, ptr %.sroa.7.0..sroa_idx, align 4
-  %.sroa.12.0..sroa_idx = getelementptr inbounds nuw i8, ptr %75, i64 8
-  store float %73, ptr %.sroa.12.0..sroa_idx, align 4
-  %76 = add nuw i64 %.060, 1
-  %exitcond66.not = icmp eq i64 %76, %2
-  br i1 %exitcond66.not, label %._crit_edge63, label %7, !llvm.loop !30
+  %59 = tail call noundef float @llvm.fmuladd.f32(float %.sroa.10.1.lcssa, float %.sroa.10.1.lcssa, float %58)
+  %sqrt.i.i = tail call noundef float @llvm.sqrt.f32(float %59)
+  %60 = fcmp ogt float %sqrt.i.i, 0x3DDB7CDFE0000000
+  %61 = select i1 %60, float %sqrt.i.i, float 0x3DDB7CDFE0000000
+  %62 = fpext float %61 to double
+  %63 = fdiv double 1.000000e+00, %62
+  %64 = fpext float %.sroa.046.1.lcssa to double
+  %65 = fmul double %63, %64
+  %66 = fptrunc double %65 to float
+  %67 = fpext float %.sroa.6.1.lcssa to double
+  %68 = fmul double %63, %67
+  %69 = fptrunc double %68 to float
+  %70 = fpext float %.sroa.10.1.lcssa to double
+  %71 = fmul double %63, %70
+  %72 = fptrunc double %71 to float
+  %73 = load ptr, ptr %6, align 8
+  %74 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec3f", ptr %73, i64 %.057
+  store float %66, ptr %74, align 4
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %74, i64 4
+  store float %69, ptr %.sroa.6.0..sroa_idx, align 4
+  %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %74, i64 8
+  store float %72, ptr %.sroa.10.0..sroa_idx, align 4
+  %75 = add nuw i64 %.057, 1
+  %exitcond63.not = icmp eq i64 %75, %2
+  br i1 %exitcond63.not, label %._crit_edge60, label %7, !llvm.loop !30
 
-._crit_edge63:                                    ; preds = %._crit_edge, %3
+._crit_edge60:                                    ; preds = %._crit_edge, %3
   ret void
 }
 
@@ -621,13 +621,13 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__16WorkParallelFor
   %39 = landingpad { ptr, i32 }
           catch ptr null
   %40 = extractvalue { ptr, i32 } %39, 0
-  call void @__clang_call_terminate(ptr %40) #17
+  call void @__clang_call_terminate(ptr %40) #16
   unreachable
 
 41:                                               ; preds = %.noexc7, %.noexc, %10
   %42 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3tbb6detail2d118task_group_contextD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %6) #16
+  call void @_ZN3tbb6detail2d118task_group_contextD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %6) #15
   resume { ptr, i32 } %42
 
 43:                                               ; preds = %8
@@ -681,7 +681,7 @@ define linkonce_odr void @_ZN3tbb6detail2d118task_group_contextD2Ev(ptr noundef 
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  tail call void @__clang_call_terminate(ptr %9) #17
+  tail call void @__clang_call_terminate(ptr %9) #16
   unreachable
 }
 
@@ -702,7 +702,7 @@ define linkonce_odr void @_ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN32pxrInternal_v0_24__pxrReserved__16WorkParallelForNISt5_BindIFMNS5_20_SmoothNormalsWorkerINS5_7GfVec3fES9_EEFvmmESt17reference_wrapperISA_ESt12_PlaceholderILi1EESF_ILi2EEEEEEvmOT_mE21Work_ParallelForN_TBBKNS1_16auto_partitionerEED0Ev(ptr noundef nonnull align 64 dereferenceable(128) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZdlPvmSt11align_val_t(ptr noundef nonnull %0, i64 noundef 128, i64 noundef 64) #18
+  tail call void @_ZdlPvmSt11align_val_t(ptr noundef nonnull %0, i64 noundef 128, i64 noundef 64) #17
   ret void
 }
 
@@ -764,7 +764,7 @@ _ZN3tbb6detail2d122dynamic_grainsize_modeINS1_13adaptive_modeINS1_19auto_partiti
   %32 = load i64, ptr %31, align 8
   %33 = load ptr, ptr %0, align 64
   %34 = load ptr, ptr %33, align 8
-  tail call void %34(ptr noundef nonnull align 64 dereferenceable(128) %0) #16
+  tail call void %34(ptr noundef nonnull align 64 dereferenceable(128) %0) #15
   %35 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %36 = atomicrmw sub ptr %35, i32 1 seq_cst, align 4
   %37 = add i32 %36, -1
@@ -814,7 +814,7 @@ define linkonce_odr noundef ptr @_ZN3tbb6detail2d19start_forINS1_13blocked_range
   %6 = load i64, ptr %5, align 8
   %7 = load ptr, ptr %0, align 64
   %8 = load ptr, ptr %7, align 8
-  tail call void %8(ptr noundef nonnull align 64 dereferenceable(128) %0) #16
+  tail call void %8(ptr noundef nonnull align 64 dereferenceable(128) %0) #15
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = atomicrmw sub ptr %9, i32 1 seq_cst, align 4
   %11 = add i32 %10, -1
@@ -996,8 +996,8 @@ declare noundef zeroext i16 @_ZN3tbb6detail2r114execution_slotEPKNS0_2d114execut
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #8 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #16
-  tail call void @_ZSt9terminatev() #17
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #15
+  tail call void @_ZSt9terminatev() #16
   unreachable
 }
 
@@ -1319,9 +1319,6 @@ declare noundef nonnull align 4 dereferenceable(4) ptr @_ZNK32pxrInternal_v0_24_
 ; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fmuladd.f32(float, float, float) #10
 
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare float @sqrtf(float noundef) local_unnamed_addr #11
-
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEEC1Em(ptr noundef nonnull align 8 dereferenceable(40), i64 noundef) unnamed_addr #1
 
 declare noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE4dataEv(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #1
@@ -1337,7 +1334,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__20_SmoothNormalsW
   br label %7
 
 7:                                                ; preds = %.lr.ph47, %._crit_edge
-  %.045 = phi i64 [ %1, %.lr.ph47 ], [ %69, %._crit_edge ]
+  %.045 = phi i64 [ %1, %.lr.ph47 ], [ %68, %._crit_edge ]
   %.0.tr = trunc i64 %.045 to i32
   %8 = shl i32 %.0.tr, 1
   %9 = load ptr, ptr %5, align 8
@@ -1418,22 +1415,22 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__20_SmoothNormalsW
   %57 = fmul double %.sroa.6.1.lcssa, %.sroa.6.1.lcssa
   %58 = tail call double @llvm.fmuladd.f64(double %.sroa.034.1.lcssa, double %.sroa.034.1.lcssa, double %57)
   %59 = tail call noundef double @llvm.fmuladd.f64(double %.sroa.10.1.lcssa, double %.sroa.10.1.lcssa, double %58)
-  %60 = tail call noundef double @sqrt(double noundef %59) #16
-  %61 = fcmp ogt double %60, 1.000000e-10
-  %62 = select i1 %61, double %60, double 1.000000e-10
-  %63 = fdiv double 1.000000e+00, %62
-  %64 = fmul double %.sroa.034.1.lcssa, %63
-  %65 = fmul double %.sroa.6.1.lcssa, %63
-  %66 = fmul double %.sroa.10.1.lcssa, %63
-  %67 = load ptr, ptr %6, align 8
-  %68 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec3d", ptr %67, i64 %.045
-  store double %64, ptr %68, align 8
-  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %68, i64 8
-  store double %65, ptr %.sroa.6.0..sroa_idx, align 8
-  %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %68, i64 16
-  store double %66, ptr %.sroa.10.0..sroa_idx, align 8
-  %69 = add nuw i64 %.045, 1
-  %exitcond51.not = icmp eq i64 %69, %2
+  %sqrt.i.i = tail call noundef double @llvm.sqrt.f64(double %59)
+  %60 = fcmp ogt double %sqrt.i.i, 1.000000e-10
+  %61 = select i1 %60, double %sqrt.i.i, double 1.000000e-10
+  %62 = fdiv double 1.000000e+00, %61
+  %63 = fmul double %.sroa.034.1.lcssa, %62
+  %64 = fmul double %.sroa.6.1.lcssa, %62
+  %65 = fmul double %.sroa.10.1.lcssa, %62
+  %66 = load ptr, ptr %6, align 8
+  %67 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec3d", ptr %66, i64 %.045
+  store double %63, ptr %67, align 8
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %67, i64 8
+  store double %64, ptr %.sroa.6.0..sroa_idx, align 8
+  %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %67, i64 16
+  store double %65, ptr %.sroa.10.0..sroa_idx, align 8
+  %68 = add nuw i64 %.045, 1
+  %exitcond51.not = icmp eq i64 %68, %2
   br i1 %exitcond51.not, label %._crit_edge48, label %7, !llvm.loop !43
 
 ._crit_edge48:                                    ; preds = %._crit_edge, %3
@@ -1528,13 +1525,13 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__16WorkParallelFor
   %39 = landingpad { ptr, i32 }
           catch ptr null
   %40 = extractvalue { ptr, i32 } %39, 0
-  call void @__clang_call_terminate(ptr %40) #17
+  call void @__clang_call_terminate(ptr %40) #16
   unreachable
 
 41:                                               ; preds = %.noexc7, %.noexc, %10
   %42 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3tbb6detail2d118task_group_contextD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %6) #16
+  call void @_ZN3tbb6detail2d118task_group_contextD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %6) #15
   resume { ptr, i32 } %42
 
 43:                                               ; preds = %8
@@ -1575,7 +1572,7 @@ define linkonce_odr void @_ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN32pxrInternal_v0_24__pxrReserved__16WorkParallelForNISt5_BindIFMNS5_20_SmoothNormalsWorkerINS5_7GfVec3dES9_EEFvmmESt17reference_wrapperISA_ESt12_PlaceholderILi1EESF_ILi2EEEEEEvmOT_mE21Work_ParallelForN_TBBKNS1_16auto_partitionerEED0Ev(ptr noundef nonnull align 64 dereferenceable(128) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZdlPvmSt11align_val_t(ptr noundef nonnull %0, i64 noundef 128, i64 noundef 64) #18
+  tail call void @_ZdlPvmSt11align_val_t(ptr noundef nonnull %0, i64 noundef 128, i64 noundef 64) #17
   ret void
 }
 
@@ -1637,7 +1634,7 @@ _ZN3tbb6detail2d122dynamic_grainsize_modeINS1_13adaptive_modeINS1_19auto_partiti
   %32 = load i64, ptr %31, align 8
   %33 = load ptr, ptr %0, align 64
   %34 = load ptr, ptr %33, align 8
-  tail call void %34(ptr noundef nonnull align 64 dereferenceable(128) %0) #16
+  tail call void %34(ptr noundef nonnull align 64 dereferenceable(128) %0) #15
   %35 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %36 = atomicrmw sub ptr %35, i32 1 seq_cst, align 4
   %37 = add i32 %36, -1
@@ -1687,7 +1684,7 @@ define linkonce_odr noundef ptr @_ZN3tbb6detail2d19start_forINS1_13blocked_range
   %6 = load i64, ptr %5, align 8
   %7 = load ptr, ptr %0, align 64
   %8 = load ptr, ptr %7, align 8
-  tail call void %8(ptr noundef nonnull align 64 dereferenceable(128) %0) #16
+  tail call void %8(ptr noundef nonnull align 64 dereferenceable(128) %0) #15
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = atomicrmw sub ptr %9, i32 1 seq_cst, align 4
   %11 = add i32 %10, -1
@@ -2157,22 +2154,19 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EED2Ev.exit27: ; preds
 ; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fmuladd.f64(double, double, double) #10
 
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @sqrt(double noundef) local_unnamed_addr #11
-
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__20_SmoothNormalsWorkerINS_7GfVec3fENS_22HdVec4f_2_10_10_10_REVEE7ComputeEmm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1, i64 noundef %2) #2 comdat align 2 {
   %4 = icmp ult i64 %1, %2
-  br i1 %4, label %.lr.ph67, label %._crit_edge68
+  br i1 %4, label %.lr.ph64, label %._crit_edge65
 
-.lr.ph67:                                         ; preds = %3
+.lr.ph64:                                         ; preds = %3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %7
 
-7:                                                ; preds = %.lr.ph67, %._crit_edge
-  %.065 = phi i64 [ %1, %.lr.ph67 ], [ %97, %._crit_edge ]
-  %.0.tr = trunc i64 %.065 to i32
+7:                                                ; preds = %.lr.ph64, %._crit_edge
+  %.062 = phi i64 [ %1, %.lr.ph64 ], [ %96, %._crit_edge ]
+  %.0.tr = trunc i64 %.062 to i32
   %8 = shl i32 %.0.tr, 1
   %9 = load ptr, ptr %5, align 8
   %10 = sext i32 %8 to i64
@@ -2191,7 +2185,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__20_SmoothNormalsW
   br i1 %22, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %7
-  %23 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec3f", ptr %21, i64 %.065
+  %23 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec3f", ptr %21, i64 %.062
   %24 = load float, ptr %23, align 4
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 4
   %26 = load float, ptr %25, align 4
@@ -2200,16 +2194,16 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__20_SmoothNormalsW
   br label %29
 
 29:                                               ; preds = %.lr.ph, %29
-  %.02762 = phi ptr [ %20, %.lr.ph ], [ %34, %29 ]
-  %.02861 = phi i32 [ 0, %.lr.ph ], [ %56, %29 ]
-  %.sroa.048.160 = phi float [ 0.000000e+00, %.lr.ph ], [ %53, %29 ]
-  %.sroa.7.159 = phi float [ 0.000000e+00, %.lr.ph ], [ %54, %29 ]
-  %.sroa.13.158 = phi float [ 0.000000e+00, %.lr.ph ], [ %55, %29 ]
-  %30 = getelementptr inbounds nuw i8, ptr %.02762, i64 4
-  %31 = load i32, ptr %.02762, align 4
+  %.02759 = phi ptr [ %20, %.lr.ph ], [ %34, %29 ]
+  %.02858 = phi i32 [ 0, %.lr.ph ], [ %56, %29 ]
+  %.sroa.048.157 = phi float [ 0.000000e+00, %.lr.ph ], [ %53, %29 ]
+  %.sroa.6.156 = phi float [ 0.000000e+00, %.lr.ph ], [ %54, %29 ]
+  %.sroa.11.155 = phi float [ 0.000000e+00, %.lr.ph ], [ %55, %29 ]
+  %30 = getelementptr inbounds nuw i8, ptr %.02759, i64 4
+  %31 = load i32, ptr %.02759, align 4
   %32 = sext i32 %31 to i64
   %33 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec3f", ptr %21, i64 %32
-  %34 = getelementptr inbounds nuw i8, ptr %.02762, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %.02759, i64 8
   %35 = load i32, ptr %30, align 4
   %36 = sext i32 %35 to i64
   %37 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec3f", ptr %21, i64 %36
@@ -2238,70 +2232,70 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__20_SmoothNormalsW
   %50 = fneg float %41
   %51 = fmul float %39, %50
   %52 = tail call float @llvm.fmuladd.f32(float %38, float %42, float %51)
-  %53 = fadd float %.sroa.048.160, %46
-  %54 = fadd float %.sroa.7.159, %49
-  %55 = fadd float %.sroa.13.158, %52
-  %56 = add nuw nsw i32 %.02861, 1
+  %53 = fadd float %.sroa.048.157, %46
+  %54 = fadd float %.sroa.6.156, %49
+  %55 = fadd float %.sroa.11.155, %52
+  %56 = add nuw nsw i32 %.02858, 1
   %exitcond.not = icmp eq i32 %56, %17
   br i1 %exitcond.not, label %._crit_edge, label %29, !llvm.loop !46
 
 ._crit_edge:                                      ; preds = %29, %7
-  %.sroa.13.1.lcssa = phi float [ 0.000000e+00, %7 ], [ %55, %29 ]
-  %.sroa.7.1.lcssa = phi float [ 0.000000e+00, %7 ], [ %54, %29 ]
+  %.sroa.11.1.lcssa = phi float [ 0.000000e+00, %7 ], [ %55, %29 ]
+  %.sroa.6.1.lcssa = phi float [ 0.000000e+00, %7 ], [ %54, %29 ]
   %.sroa.048.1.lcssa = phi float [ 0.000000e+00, %7 ], [ %53, %29 ]
-  %57 = fmul float %.sroa.7.1.lcssa, %.sroa.7.1.lcssa
+  %57 = fmul float %.sroa.6.1.lcssa, %.sroa.6.1.lcssa
   %58 = tail call float @llvm.fmuladd.f32(float %.sroa.048.1.lcssa, float %.sroa.048.1.lcssa, float %57)
-  %59 = tail call noundef float @llvm.fmuladd.f32(float %.sroa.13.1.lcssa, float %.sroa.13.1.lcssa, float %58)
-  %60 = tail call noundef float @sqrtf(float noundef %59) #16
-  %61 = fcmp ogt float %60, 0x3DDB7CDFE0000000
-  %62 = select i1 %61, float %60, float 0x3DDB7CDFE0000000
-  %63 = fpext float %62 to double
-  %64 = fdiv double 1.000000e+00, %63
-  %65 = fpext float %.sroa.048.1.lcssa to double
-  %66 = fmul double %64, %65
-  %67 = fptrunc double %66 to float
-  %68 = fpext float %.sroa.7.1.lcssa to double
-  %69 = fmul double %64, %68
-  %70 = fptrunc double %69 to float
-  %71 = fpext float %.sroa.13.1.lcssa to double
-  %72 = fmul double %64, %71
-  %73 = fptrunc double %72 to float
-  %74 = fcmp olt float %67, -1.000000e+00
-  %.sroa.speculated2.i.i = select i1 %74, float -1.000000e+00, float %67
-  %75 = fcmp ogt float %.sroa.speculated2.i.i, 1.000000e+00
-  %.sroa.speculated.i.i = select i1 %75, float 1.000000e+00, float %.sroa.speculated2.i.i
-  %76 = fmul float %.sroa.speculated.i.i, 5.110000e+02
-  %77 = tail call noundef float @llvm.round.f32(float %76)
-  %78 = fptosi float %77 to i32
-  %79 = and i32 %78, 1023
-  %80 = fcmp olt float %70, -1.000000e+00
-  %.sroa.speculated2.i4.i = select i1 %80, float -1.000000e+00, float %70
-  %81 = fcmp ogt float %.sroa.speculated2.i4.i, 1.000000e+00
-  %.sroa.speculated.i5.i = select i1 %81, float 1.000000e+00, float %.sroa.speculated2.i4.i
-  %82 = fmul float %.sroa.speculated.i5.i, 5.110000e+02
-  %83 = tail call noundef float @llvm.round.f32(float %82)
-  %84 = fptosi float %83 to i32
-  %85 = shl i32 %84, 10
-  %86 = and i32 %85, 1047552
-  %87 = fcmp olt float %73, -1.000000e+00
-  %.sroa.speculated2.i6.i = select i1 %87, float -1.000000e+00, float %73
-  %88 = fcmp ogt float %.sroa.speculated2.i6.i, 1.000000e+00
-  %.sroa.speculated.i7.i = select i1 %88, float 1.000000e+00, float %.sroa.speculated2.i6.i
-  %89 = fmul float %.sroa.speculated.i7.i, 5.110000e+02
-  %90 = tail call noundef float @llvm.round.f32(float %89)
-  %91 = fptosi float %90 to i32
-  %92 = shl i32 %91, 20
-  %.masked.i = and i32 %92, 1072693248
-  %93 = or disjoint i32 %.masked.i, %79
-  %94 = or disjoint i32 %93, %86
-  %95 = load ptr, ptr %6, align 8
-  %96 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::HdVec4f_2_10_10_10_REV", ptr %95, i64 %.065
-  store i32 %94, ptr %96, align 4
-  %97 = add nuw i64 %.065, 1
-  %exitcond71.not = icmp eq i64 %97, %2
-  br i1 %exitcond71.not, label %._crit_edge68, label %7, !llvm.loop !47
+  %59 = tail call noundef float @llvm.fmuladd.f32(float %.sroa.11.1.lcssa, float %.sroa.11.1.lcssa, float %58)
+  %sqrt.i.i = tail call noundef float @llvm.sqrt.f32(float %59)
+  %60 = fcmp ogt float %sqrt.i.i, 0x3DDB7CDFE0000000
+  %61 = select i1 %60, float %sqrt.i.i, float 0x3DDB7CDFE0000000
+  %62 = fpext float %61 to double
+  %63 = fdiv double 1.000000e+00, %62
+  %64 = fpext float %.sroa.048.1.lcssa to double
+  %65 = fmul double %63, %64
+  %66 = fptrunc double %65 to float
+  %67 = fpext float %.sroa.6.1.lcssa to double
+  %68 = fmul double %63, %67
+  %69 = fptrunc double %68 to float
+  %70 = fpext float %.sroa.11.1.lcssa to double
+  %71 = fmul double %63, %70
+  %72 = fptrunc double %71 to float
+  %73 = fcmp olt float %66, -1.000000e+00
+  %.sroa.speculated2.i.i = select i1 %73, float -1.000000e+00, float %66
+  %74 = fcmp ogt float %.sroa.speculated2.i.i, 1.000000e+00
+  %.sroa.speculated.i.i = select i1 %74, float 1.000000e+00, float %.sroa.speculated2.i.i
+  %75 = fmul float %.sroa.speculated.i.i, 5.110000e+02
+  %76 = tail call noundef float @llvm.round.f32(float %75)
+  %77 = fptosi float %76 to i32
+  %78 = and i32 %77, 1023
+  %79 = fcmp olt float %69, -1.000000e+00
+  %.sroa.speculated2.i4.i = select i1 %79, float -1.000000e+00, float %69
+  %80 = fcmp ogt float %.sroa.speculated2.i4.i, 1.000000e+00
+  %.sroa.speculated.i5.i = select i1 %80, float 1.000000e+00, float %.sroa.speculated2.i4.i
+  %81 = fmul float %.sroa.speculated.i5.i, 5.110000e+02
+  %82 = tail call noundef float @llvm.round.f32(float %81)
+  %83 = fptosi float %82 to i32
+  %84 = shl i32 %83, 10
+  %85 = and i32 %84, 1047552
+  %86 = fcmp olt float %72, -1.000000e+00
+  %.sroa.speculated2.i6.i = select i1 %86, float -1.000000e+00, float %72
+  %87 = fcmp ogt float %.sroa.speculated2.i6.i, 1.000000e+00
+  %.sroa.speculated.i7.i = select i1 %87, float 1.000000e+00, float %.sroa.speculated2.i6.i
+  %88 = fmul float %.sroa.speculated.i7.i, 5.110000e+02
+  %89 = tail call noundef float @llvm.round.f32(float %88)
+  %90 = fptosi float %89 to i32
+  %91 = shl i32 %90, 20
+  %.masked.i = and i32 %91, 1072693248
+  %92 = or disjoint i32 %.masked.i, %78
+  %93 = or disjoint i32 %92, %85
+  %94 = load ptr, ptr %6, align 8
+  %95 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::HdVec4f_2_10_10_10_REV", ptr %94, i64 %.062
+  store i32 %93, ptr %95, align 4
+  %96 = add nuw i64 %.062, 1
+  %exitcond68.not = icmp eq i64 %96, %2
+  br i1 %exitcond68.not, label %._crit_edge65, label %7, !llvm.loop !47
 
-._crit_edge68:                                    ; preds = %._crit_edge, %3
+._crit_edge65:                                    ; preds = %._crit_edge, %3
   ret void
 }
 
@@ -2328,7 +2322,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_22HdV
   fence acquire
   %12 = load ptr, ptr %2, align 8
   %13 = getelementptr inbounds i8, ptr %12, i64 -16
-  tail call void @_ZdlPv(ptr noundef nonnull %13) #16
+  tail call void @_ZdlPv(ptr noundef nonnull %13) #15
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 14:                                               ; preds = %4
@@ -2359,7 +2353,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_22HdVec4f_2_10_10_10_REVEE7_Dec
   %23 = landingpad { ptr, i32 }
           catch ptr null
   %24 = extractvalue { ptr, i32 } %23, 0
-  tail call void @__clang_call_terminate(ptr %24) #17
+  tail call void @__clang_call_terminate(ptr %24) #16
   unreachable
 }
 
@@ -2411,7 +2405,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_22HdVec4f_2_10_10_10_REVEE9_Is
   fence acquire
   %23 = load ptr, ptr %9, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 -16
-  tail call void @_ZdlPv(ptr noundef nonnull %24) #16
+  tail call void @_ZdlPv(ptr noundef nonnull %24) #15
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 .thread.i:                                        ; preds = %17, %11
@@ -2578,7 +2572,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_22HdVec4f_2_10_10_10_REVEE6ass
   fence acquire
   %84 = load ptr, ptr %35, align 8
   %85 = getelementptr inbounds i8, ptr %84, i64 -16
-  tail call void @_ZdlPv(ptr noundef nonnull %85) #16
+  tail call void @_ZdlPv(ptr noundef nonnull %85) #15
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 86:                                               ; preds = %76
@@ -2651,7 +2645,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__11TfMallocTag4AutoC2IRA22_KcJRA197_S3_EEEOT
   %14 = shl nuw i64 %1, 2
   %15 = add nuw i64 %14, 16
   %16 = select i1 %.not, i64 -1, i64 %15
-  %17 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %16) #19
+  %17 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %16) #18
           to label %18 unwind label %25
 
 18:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__11TfMallocTag4AutoC2IRA22_KcJRA197_S3_EEEOT_DpOT0_.exit
@@ -2669,7 +2663,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__11TfMallocTag4AutoC2IRA22_KcJRA197_S3_EEEOT
   %22 = landingpad { ptr, i32 }
           catch ptr null
   %23 = extractvalue { ptr, i32 } %22, 0
-  tail call void @__clang_call_terminate(ptr %23) #17
+  tail call void @__clang_call_terminate(ptr %23) #16
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__11TfMallocTag4AutoD2Ev.exit: ; preds = %20, %18
@@ -2679,12 +2673,12 @@ _ZN32pxrInternal_v0_24__pxrReserved__11TfMallocTag4AutoD2Ev.exit: ; preds = %20,
 25:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__11TfMallocTag4AutoC2IRA22_KcJRA197_S3_EEEOT_DpOT0_.exit
   %26 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__11TfMallocTag4AutoD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %3) #16
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__11TfMallocTag4AutoD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %3) #15
   resume { ptr, i32 } %26
 }
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #12
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__11TfMallocTag4AutoD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -2709,7 +2703,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__11TfMallocTag4Auto7ReleaseEv.exit: ; preds 
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  tail call void @__clang_call_terminate(ptr %8) #17
+  tail call void @__clang_call_terminate(ptr %8) #16
   unreachable
 }
 
@@ -2776,7 +2770,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_22HdVec4f_2_10_10_10_REVEE13_Al
   fence acquire
   %25 = load ptr, ptr %2, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 -16
-  tail call void @_ZdlPv(ptr noundef nonnull %26) #16
+  tail call void @_ZdlPv(ptr noundef nonnull %26) #15
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 27:                                               ; preds = %18
@@ -2895,13 +2889,13 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__16WorkParallelFor
   %39 = landingpad { ptr, i32 }
           catch ptr null
   %40 = extractvalue { ptr, i32 } %39, 0
-  call void @__clang_call_terminate(ptr %40) #17
+  call void @__clang_call_terminate(ptr %40) #16
   unreachable
 
 41:                                               ; preds = %.noexc7, %.noexc, %10
   %42 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3tbb6detail2d118task_group_contextD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %6) #16
+  call void @_ZN3tbb6detail2d118task_group_contextD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %6) #15
   resume { ptr, i32 } %42
 
 43:                                               ; preds = %8
@@ -2942,7 +2936,7 @@ define linkonce_odr void @_ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN32pxrInternal_v0_24__pxrReserved__16WorkParallelForNISt5_BindIFMNS5_20_SmoothNormalsWorkerINS5_7GfVec3fENS5_22HdVec4f_2_10_10_10_REVEEEFvmmESt17reference_wrapperISB_ESt12_PlaceholderILi1EESG_ILi2EEEEEEvmOT_mE21Work_ParallelForN_TBBKNS1_16auto_partitionerEED0Ev(ptr noundef nonnull align 64 dereferenceable(128) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZdlPvmSt11align_val_t(ptr noundef nonnull %0, i64 noundef 128, i64 noundef 64) #18
+  tail call void @_ZdlPvmSt11align_val_t(ptr noundef nonnull %0, i64 noundef 128, i64 noundef 64) #17
   ret void
 }
 
@@ -3004,7 +2998,7 @@ _ZN3tbb6detail2d122dynamic_grainsize_modeINS1_13adaptive_modeINS1_19auto_partiti
   %32 = load i64, ptr %31, align 8
   %33 = load ptr, ptr %0, align 64
   %34 = load ptr, ptr %33, align 8
-  tail call void %34(ptr noundef nonnull align 64 dereferenceable(128) %0) #16
+  tail call void %34(ptr noundef nonnull align 64 dereferenceable(128) %0) #15
   %35 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %36 = atomicrmw sub ptr %35, i32 1 seq_cst, align 4
   %37 = add i32 %36, -1
@@ -3054,7 +3048,7 @@ define linkonce_odr noundef ptr @_ZN3tbb6detail2d19start_forINS1_13blocked_range
   %6 = load i64, ptr %5, align 8
   %7 = load ptr, ptr %0, align 64
   %8 = load ptr, ptr %7, align 8
-  tail call void %8(ptr noundef nonnull align 64 dereferenceable(128) %0) #16
+  tail call void %8(ptr noundef nonnull align 64 dereferenceable(128) %0) #15
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = atomicrmw sub ptr %9, i32 1 seq_cst, align 4
   %11 = add i32 %10, -1
@@ -3535,7 +3529,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__20_SmoothNormalsW
   br label %7
 
 7:                                                ; preds = %.lr.ph52, %._crit_edge
-  %.050 = phi i64 [ %1, %.lr.ph52 ], [ %93, %._crit_edge ]
+  %.050 = phi i64 [ %1, %.lr.ph52 ], [ %92, %._crit_edge ]
   %.0.tr = trunc i64 %.050 to i32
   %8 = shl i32 %.0.tr, 1
   %9 = load ptr, ptr %5, align 8
@@ -3616,49 +3610,49 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__20_SmoothNormalsW
   %57 = fmul double %.sroa.6.1.lcssa, %.sroa.6.1.lcssa
   %58 = tail call double @llvm.fmuladd.f64(double %.sroa.036.1.lcssa, double %.sroa.036.1.lcssa, double %57)
   %59 = tail call noundef double @llvm.fmuladd.f64(double %.sroa.11.1.lcssa, double %.sroa.11.1.lcssa, double %58)
-  %60 = tail call noundef double @sqrt(double noundef %59) #16
-  %61 = fcmp ogt double %60, 1.000000e-10
-  %62 = select i1 %61, double %60, double 1.000000e-10
-  %63 = fdiv double 1.000000e+00, %62
-  %64 = fmul double %.sroa.036.1.lcssa, %63
-  %65 = fmul double %.sroa.6.1.lcssa, %63
-  %66 = fmul double %.sroa.11.1.lcssa, %63
-  %67 = fptrunc double %64 to float
-  %68 = fcmp olt float %67, -1.000000e+00
-  %.sroa.speculated2.i.i = select i1 %68, float -1.000000e+00, float %67
-  %69 = fcmp ogt float %.sroa.speculated2.i.i, 1.000000e+00
-  %.sroa.speculated.i.i = select i1 %69, float 1.000000e+00, float %.sroa.speculated2.i.i
-  %70 = fmul float %.sroa.speculated.i.i, 5.110000e+02
-  %71 = tail call noundef float @llvm.round.f32(float %70)
-  %72 = fptosi float %71 to i32
-  %73 = and i32 %72, 1023
-  %74 = fptrunc double %65 to float
-  %75 = fcmp olt float %74, -1.000000e+00
-  %.sroa.speculated2.i4.i = select i1 %75, float -1.000000e+00, float %74
-  %76 = fcmp ogt float %.sroa.speculated2.i4.i, 1.000000e+00
-  %.sroa.speculated.i5.i = select i1 %76, float 1.000000e+00, float %.sroa.speculated2.i4.i
-  %77 = fmul float %.sroa.speculated.i5.i, 5.110000e+02
-  %78 = tail call noundef float @llvm.round.f32(float %77)
-  %79 = fptosi float %78 to i32
-  %80 = shl i32 %79, 10
-  %81 = and i32 %80, 1047552
-  %82 = fptrunc double %66 to float
-  %83 = fcmp olt float %82, -1.000000e+00
-  %.sroa.speculated2.i6.i = select i1 %83, float -1.000000e+00, float %82
-  %84 = fcmp ogt float %.sroa.speculated2.i6.i, 1.000000e+00
-  %.sroa.speculated.i7.i = select i1 %84, float 1.000000e+00, float %.sroa.speculated2.i6.i
-  %85 = fmul float %.sroa.speculated.i7.i, 5.110000e+02
-  %86 = tail call noundef float @llvm.round.f32(float %85)
-  %87 = fptosi float %86 to i32
-  %88 = shl i32 %87, 20
-  %.masked.i = and i32 %88, 1072693248
-  %89 = or disjoint i32 %.masked.i, %73
-  %90 = or disjoint i32 %89, %81
-  %91 = load ptr, ptr %6, align 8
-  %92 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::HdVec4f_2_10_10_10_REV", ptr %91, i64 %.050
-  store i32 %90, ptr %92, align 4
-  %93 = add nuw i64 %.050, 1
-  %exitcond56.not = icmp eq i64 %93, %2
+  %sqrt.i.i = tail call noundef double @llvm.sqrt.f64(double %59)
+  %60 = fcmp ogt double %sqrt.i.i, 1.000000e-10
+  %61 = select i1 %60, double %sqrt.i.i, double 1.000000e-10
+  %62 = fdiv double 1.000000e+00, %61
+  %63 = fmul double %.sroa.036.1.lcssa, %62
+  %64 = fmul double %.sroa.6.1.lcssa, %62
+  %65 = fmul double %.sroa.11.1.lcssa, %62
+  %66 = fptrunc double %63 to float
+  %67 = fcmp olt float %66, -1.000000e+00
+  %.sroa.speculated2.i.i = select i1 %67, float -1.000000e+00, float %66
+  %68 = fcmp ogt float %.sroa.speculated2.i.i, 1.000000e+00
+  %.sroa.speculated.i.i = select i1 %68, float 1.000000e+00, float %.sroa.speculated2.i.i
+  %69 = fmul float %.sroa.speculated.i.i, 5.110000e+02
+  %70 = tail call noundef float @llvm.round.f32(float %69)
+  %71 = fptosi float %70 to i32
+  %72 = and i32 %71, 1023
+  %73 = fptrunc double %64 to float
+  %74 = fcmp olt float %73, -1.000000e+00
+  %.sroa.speculated2.i4.i = select i1 %74, float -1.000000e+00, float %73
+  %75 = fcmp ogt float %.sroa.speculated2.i4.i, 1.000000e+00
+  %.sroa.speculated.i5.i = select i1 %75, float 1.000000e+00, float %.sroa.speculated2.i4.i
+  %76 = fmul float %.sroa.speculated.i5.i, 5.110000e+02
+  %77 = tail call noundef float @llvm.round.f32(float %76)
+  %78 = fptosi float %77 to i32
+  %79 = shl i32 %78, 10
+  %80 = and i32 %79, 1047552
+  %81 = fptrunc double %65 to float
+  %82 = fcmp olt float %81, -1.000000e+00
+  %.sroa.speculated2.i6.i = select i1 %82, float -1.000000e+00, float %81
+  %83 = fcmp ogt float %.sroa.speculated2.i6.i, 1.000000e+00
+  %.sroa.speculated.i7.i = select i1 %83, float 1.000000e+00, float %.sroa.speculated2.i6.i
+  %84 = fmul float %.sroa.speculated.i7.i, 5.110000e+02
+  %85 = tail call noundef float @llvm.round.f32(float %84)
+  %86 = fptosi float %85 to i32
+  %87 = shl i32 %86, 20
+  %.masked.i = and i32 %87, 1072693248
+  %88 = or disjoint i32 %.masked.i, %72
+  %89 = or disjoint i32 %88, %80
+  %90 = load ptr, ptr %6, align 8
+  %91 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::HdVec4f_2_10_10_10_REV", ptr %90, i64 %.050
+  store i32 %89, ptr %91, align 4
+  %92 = add nuw i64 %.050, 1
+  %exitcond56.not = icmp eq i64 %92, %2
   br i1 %exitcond56.not, label %._crit_edge53, label %7, !llvm.loop !59
 
 ._crit_edge53:                                    ; preds = %._crit_edge, %3
@@ -3750,13 +3744,13 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__16WorkParallelFor
   %39 = landingpad { ptr, i32 }
           catch ptr null
   %40 = extractvalue { ptr, i32 } %39, 0
-  call void @__clang_call_terminate(ptr %40) #17
+  call void @__clang_call_terminate(ptr %40) #16
   unreachable
 
 41:                                               ; preds = %.noexc7, %.noexc, %10
   %42 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3tbb6detail2d118task_group_contextD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %6) #16
+  call void @_ZN3tbb6detail2d118task_group_contextD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %6) #15
   resume { ptr, i32 } %42
 
 43:                                               ; preds = %8
@@ -3797,7 +3791,7 @@ define linkonce_odr void @_ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN32pxrInternal_v0_24__pxrReserved__16WorkParallelForNISt5_BindIFMNS5_20_SmoothNormalsWorkerINS5_7GfVec3dENS5_22HdVec4f_2_10_10_10_REVEEEFvmmESt17reference_wrapperISB_ESt12_PlaceholderILi1EESG_ILi2EEEEEEvmOT_mE21Work_ParallelForN_TBBKNS1_16auto_partitionerEED0Ev(ptr noundef nonnull align 64 dereferenceable(128) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZdlPvmSt11align_val_t(ptr noundef nonnull %0, i64 noundef 128, i64 noundef 64) #18
+  tail call void @_ZdlPvmSt11align_val_t(ptr noundef nonnull %0, i64 noundef 128, i64 noundef 64) #17
   ret void
 }
 
@@ -3859,7 +3853,7 @@ _ZN3tbb6detail2d122dynamic_grainsize_modeINS1_13adaptive_modeINS1_19auto_partiti
   %32 = load i64, ptr %31, align 8
   %33 = load ptr, ptr %0, align 64
   %34 = load ptr, ptr %33, align 8
-  tail call void %34(ptr noundef nonnull align 64 dereferenceable(128) %0) #16
+  tail call void %34(ptr noundef nonnull align 64 dereferenceable(128) %0) #15
   %35 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %36 = atomicrmw sub ptr %35, i32 1 seq_cst, align 4
   %37 = add i32 %36, -1
@@ -3909,7 +3903,7 @@ define linkonce_odr noundef ptr @_ZN3tbb6detail2d19start_forINS1_13blocked_range
   %6 = load i64, ptr %5, align 8
   %7 = load ptr, ptr %0, align 64
   %8 = load ptr, ptr %7, align 8
-  tail call void %8(ptr noundef nonnull align 64 dereferenceable(128) %0) #16
+  tail call void %8(ptr noundef nonnull align 64 dereferenceable(128) %0) #15
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = atomicrmw sub ptr %9, i32 1 seq_cst, align 4
   %11 = add i32 %10, -1
@@ -4377,22 +4371,28 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EED2Ev.exit27: ; preds
 }
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #13
+declare i64 @llvm.umin.i64(i64, i64) #12
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.umax.i8(i8, i8) #13
+declare i8 @llvm.umax.i8(i8, i8) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #14
+declare void @llvm.experimental.noalias.scope.decl(metadata) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #15
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #15
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #14
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #13
+declare float @llvm.sqrt.f32(float) #12
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smin.i32(i32, i32) #12
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.sqrt.f64(double) #12
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -4405,15 +4405,14 @@ attributes #7 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="t
 attributes #8 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { cold nofree noreturn }
 attributes #10 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #14 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #15 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #16 = { nounwind }
-attributes #17 = { noreturn nounwind }
-attributes #18 = { builtin nounwind }
-attributes #19 = { allocsize(0) }
+attributes #11 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #13 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #14 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #15 = { nounwind }
+attributes #16 = { noreturn nounwind }
+attributes #17 = { builtin nounwind }
+attributes #18 = { allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

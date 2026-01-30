@@ -18,7 +18,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define void @b2MouseJoint_SetTarget(i64 %0, <2 x float> %1) local_unnamed_addr #0 {
-  %3 = tail call ptr @b2GetJointSimCheckType(i64 %0, i32 noundef 2) #9
+  %3 = tail call ptr @b2GetJointSimCheckType(i64 %0, i32 noundef 2) #8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store <2 x float> %1, ptr %4, align 4
   ret void
@@ -28,7 +28,7 @@ declare ptr @b2GetJointSimCheckType(i64, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define <2 x float> @b2MouseJoint_GetTarget(i64 %0) local_unnamed_addr #0 {
-  %2 = tail call ptr @b2GetJointSimCheckType(i64 %0, i32 noundef 2) #9
+  %2 = tail call ptr @b2GetJointSimCheckType(i64 %0, i32 noundef 2) #8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %.sroa.01.0.copyload = load <2 x float>, ptr %3, align 4
   ret <2 x float> %.sroa.01.0.copyload
@@ -36,7 +36,7 @@ define <2 x float> @b2MouseJoint_GetTarget(i64 %0) local_unnamed_addr #0 {
 
 ; Function Attrs: nounwind uwtable
 define void @b2MouseJoint_SetSpringHertz(i64 %0, float noundef %1) local_unnamed_addr #2 {
-  %3 = tail call ptr @b2GetJointSimCheckType(i64 %0, i32 noundef 2) #9
+  %3 = tail call ptr @b2GetJointSimCheckType(i64 %0, i32 noundef 2) #8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 56
   store float %1, ptr %4, align 4, !tbaa !3
   ret void
@@ -44,7 +44,7 @@ define void @b2MouseJoint_SetSpringHertz(i64 %0, float noundef %1) local_unnamed
 
 ; Function Attrs: nounwind uwtable
 define float @b2MouseJoint_GetSpringHertz(i64 %0) local_unnamed_addr #2 {
-  %2 = tail call ptr @b2GetJointSimCheckType(i64 %0, i32 noundef 2) #9
+  %2 = tail call ptr @b2GetJointSimCheckType(i64 %0, i32 noundef 2) #8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %4 = load float, ptr %3, align 4, !tbaa !3
   ret float %4
@@ -52,7 +52,7 @@ define float @b2MouseJoint_GetSpringHertz(i64 %0) local_unnamed_addr #2 {
 
 ; Function Attrs: nounwind uwtable
 define void @b2MouseJoint_SetSpringDampingRatio(i64 %0, float noundef %1) local_unnamed_addr #2 {
-  %3 = tail call ptr @b2GetJointSimCheckType(i64 %0, i32 noundef 2) #9
+  %3 = tail call ptr @b2GetJointSimCheckType(i64 %0, i32 noundef 2) #8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 60
   store float %1, ptr %4, align 4, !tbaa !3
   ret void
@@ -60,7 +60,7 @@ define void @b2MouseJoint_SetSpringDampingRatio(i64 %0, float noundef %1) local_
 
 ; Function Attrs: nounwind uwtable
 define float @b2MouseJoint_GetSpringDampingRatio(i64 %0) local_unnamed_addr #2 {
-  %2 = tail call ptr @b2GetJointSimCheckType(i64 %0, i32 noundef 2) #9
+  %2 = tail call ptr @b2GetJointSimCheckType(i64 %0, i32 noundef 2) #8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 60
   %4 = load float, ptr %3, align 4, !tbaa !3
   ret float %4
@@ -68,7 +68,7 @@ define float @b2MouseJoint_GetSpringDampingRatio(i64 %0) local_unnamed_addr #2 {
 
 ; Function Attrs: nounwind uwtable
 define void @b2MouseJoint_SetMaxForce(i64 %0, float noundef %1) local_unnamed_addr #2 {
-  %3 = tail call ptr @b2GetJointSimCheckType(i64 %0, i32 noundef 2) #9
+  %3 = tail call ptr @b2GetJointSimCheckType(i64 %0, i32 noundef 2) #8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 64
   store float %1, ptr %4, align 4, !tbaa !3
   ret void
@@ -76,7 +76,7 @@ define void @b2MouseJoint_SetMaxForce(i64 %0, float noundef %1) local_unnamed_ad
 
 ; Function Attrs: nounwind uwtable
 define float @b2MouseJoint_GetMaxForce(i64 %0) local_unnamed_addr #2 {
-  %2 = tail call ptr @b2GetJointSimCheckType(i64 %0, i32 noundef 2) #9
+  %2 = tail call ptr @b2GetJointSimCheckType(i64 %0, i32 noundef 2) #8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %4 = load float, ptr %3, align 4, !tbaa !3
   ret float %4
@@ -314,8 +314,8 @@ define hidden void @b2WarmStartMouseJoint(ptr noundef readonly captures(none) %0
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
-define hidden void @b2SolveMouseJoint(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #7 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+define hidden void @b2SolveMouseJoint(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %4 = load float, ptr %3, align 4, !tbaa !85
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -430,58 +430,58 @@ define hidden void @b2SolveMouseJoint(ptr noundef captures(none) %0, ptr noundef
   %.sroa.0.4.vec.extract.i114 = extractelement <2 x float> %90, i64 1
   %92 = fmul float %.sroa.0.4.vec.extract.i114, %.sroa.0.4.vec.extract.i114
   %93 = fadd float %91, %92
-  %94 = tail call float @sqrtf(float noundef %93) #9, !tbaa !110
-  %95 = fcmp ogt float %94, %35
-  %96 = extractelement <2 x float> %90, i64 0
-  %97 = extractelement <2 x float> %90, i64 1
-  br i1 %95, label %98, label %106
+  %sqrt.i = tail call float @llvm.sqrt.f32(float %93)
+  %94 = fcmp ogt float %sqrt.i, %35
+  %95 = extractelement <2 x float> %90, i64 0
+  %96 = extractelement <2 x float> %90, i64 1
+  br i1 %94, label %97, label %105
 
-98:                                               ; preds = %2
-  %99 = fcmp olt float %94, 0x3E80000000000000
-  br i1 %99, label %b2Normalize.exit, label %100
+97:                                               ; preds = %2
+  %98 = fcmp olt float %sqrt.i, 0x3E80000000000000
+  br i1 %98, label %b2Normalize.exit, label %99
 
-100:                                              ; preds = %98
-  %101 = fdiv float 1.000000e+00, %94
-  %102 = fmul float %.sroa.0.0.vec.extract.i113, %101
-  %.sroa.012.0.vec.insert.i = insertelement <2 x float> poison, float %102, i64 0
-  %103 = fmul float %.sroa.0.4.vec.extract.i114, %101
-  %.sroa.012.4.vec.insert.i = insertelement <2 x float> %.sroa.012.0.vec.insert.i, float %103, i64 1
+99:                                               ; preds = %97
+  %100 = fdiv float 1.000000e+00, %sqrt.i
+  %101 = fmul float %.sroa.0.0.vec.extract.i113, %100
+  %.sroa.012.0.vec.insert.i = insertelement <2 x float> poison, float %101, i64 0
+  %102 = fmul float %.sroa.0.4.vec.extract.i114, %100
+  %.sroa.012.4.vec.insert.i = insertelement <2 x float> %.sroa.012.0.vec.insert.i, float %102, i64 1
   br label %b2Normalize.exit
 
-b2Normalize.exit:                                 ; preds = %98, %100
-  %.sroa.012.0.i = phi <2 x float> [ %.sroa.012.4.vec.insert.i, %100 ], [ zeroinitializer, %98 ]
-  %.sroa.0.0.vec.extract.i117 = extractelement <2 x float> %.sroa.012.0.i, i64 0
-  %104 = fmul float %35, %.sroa.0.0.vec.extract.i117
-  %.sroa.02.0.vec.insert.i118 = insertelement <2 x float> poison, float %104, i64 0
-  %.sroa.0.4.vec.extract.i119 = extractelement <2 x float> %.sroa.012.0.i, i64 1
-  %105 = fmul float %35, %.sroa.0.4.vec.extract.i119
-  %.sroa.02.4.vec.insert.i120 = insertelement <2 x float> %.sroa.02.0.vec.insert.i118, float %105, i64 1
-  store <2 x float> %.sroa.02.4.vec.insert.i120, ptr %79, align 4
-  br label %106
+b2Normalize.exit:                                 ; preds = %97, %99
+  %.sroa.012.0.i = phi <2 x float> [ %.sroa.012.4.vec.insert.i, %99 ], [ zeroinitializer, %97 ]
+  %.sroa.0.0.vec.extract.i118 = extractelement <2 x float> %.sroa.012.0.i, i64 0
+  %103 = fmul float %35, %.sroa.0.0.vec.extract.i118
+  %.sroa.02.0.vec.insert.i119 = insertelement <2 x float> poison, float %103, i64 0
+  %.sroa.0.4.vec.extract.i120 = extractelement <2 x float> %.sroa.012.0.i, i64 1
+  %104 = fmul float %35, %.sroa.0.4.vec.extract.i120
+  %.sroa.02.4.vec.insert.i121 = insertelement <2 x float> %.sroa.02.0.vec.insert.i119, float %104, i64 1
+  store <2 x float> %.sroa.02.4.vec.insert.i121, ptr %79, align 4
+  br label %105
 
-106:                                              ; preds = %b2Normalize.exit, %2
-  %107 = phi float [ %105, %b2Normalize.exit ], [ %97, %2 ]
-  %108 = phi float [ %104, %b2Normalize.exit ], [ %96, %2 ]
-  %109 = fsub float %108, %80
-  %110 = fsub float %107, %85
-  %111 = fmul float %4, %109
-  %112 = fadd float %.sroa.01.0.vec.extract.i, %111
-  %.sroa.03.0.vec.insert.i = insertelement <2 x float> poison, float %112, i64 0
-  %113 = fmul float %4, %110
-  %114 = fadd float %.sroa.01.4.vec.extract.i, %113
-  %.sroa.03.4.vec.insert.i = insertelement <2 x float> %.sroa.03.0.vec.insert.i, float %114, i64 1
-  %115 = fmul float %41, %110
-  %116 = fmul float %44, %109
-  %117 = fsub float %115, %116
-  %118 = fmul float %6, %117
-  %119 = fadd float %30, %118
+105:                                              ; preds = %b2Normalize.exit, %2
+  %106 = phi float [ %104, %b2Normalize.exit ], [ %96, %2 ]
+  %107 = phi float [ %103, %b2Normalize.exit ], [ %95, %2 ]
+  %108 = fsub float %107, %80
+  %109 = fsub float %106, %85
+  %110 = fmul float %4, %108
+  %111 = fadd float %.sroa.01.0.vec.extract.i, %110
+  %.sroa.03.0.vec.insert.i = insertelement <2 x float> poison, float %111, i64 0
+  %112 = fmul float %4, %109
+  %113 = fadd float %.sroa.01.4.vec.extract.i, %112
+  %.sroa.03.4.vec.insert.i = insertelement <2 x float> %.sroa.03.0.vec.insert.i, float %113, i64 1
+  %114 = fmul float %41, %109
+  %115 = fmul float %44, %108
+  %116 = fsub float %114, %115
+  %117 = fmul float %6, %116
+  %118 = fadd float %30, %117
   store <2 x float> %.sroa.03.4.vec.insert.i, ptr %12, align 4
-  store float %119, ptr %13, align 4, !tbaa !100
+  store float %118, ptr %13, align 4, !tbaa !100
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare float @sqrtf(float noundef) local_unnamed_addr #8
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.sqrt.f32(float) #7
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -490,9 +490,8 @@ attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nounwind }
+attributes #7 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 
@@ -606,4 +605,3 @@ attributes #9 = { nounwind }
 !107 = !{!89, !56, i64 40}
 !108 = !{!89, !56, i64 20}
 !109 = !{!89, !56, i64 24}
-!110 = !{!11, !11, i64 0}

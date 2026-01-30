@@ -37,48 +37,48 @@ define weak_odr dso_local void @_ZN3igl9trackballIdEEvddT_PKS1_ddddPS1_(double n
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %22 = load double, ptr %21, align 8, !tbaa !4
   %23 = call double @llvm.fmuladd.f64(double %22, double %22, double %20)
-  %24 = call double @sqrt(double noundef %23) #5, !tbaa !8
-  %25 = call double @llvm.fabs.f64(double %24)
-  %26 = fcmp ogt double %25, 1.000000e-28
+  %sqrt = call double @llvm.sqrt.f64(double %23)
+  %24 = call double @llvm.fabs.f64(double %sqrt)
+  %25 = fcmp ogt double %24, 1.000000e-28
   %.sink39.sroa.gep40 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %.sink39.sroa.gep43 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %.sink39.sroa.gep46 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  br i1 %26, label %27, label %35
+  br i1 %25, label %26, label %34
 
-27:                                               ; preds = %9
+26:                                               ; preds = %9
   %.sink39.sroa.gep45 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %.sink39.sroa.gep42 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %.sink39.sroa.gep = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %28 = fdiv double %13, %24
-  store double %28, ptr %12, align 16, !tbaa !4
-  %29 = fdiv double %15, %24
-  %30 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store double %29, ptr %30, align 8, !tbaa !4
-  %31 = fdiv double %19, %24
-  %32 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store double %31, ptr %32, align 16, !tbaa !4
-  %33 = fdiv double %22, %24
-  %34 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  store double %33, ptr %34, align 8, !tbaa !4
+  %27 = fdiv double %13, %sqrt
+  store double %27, ptr %12, align 16, !tbaa !4
+  %28 = fdiv double %15, %sqrt
+  %29 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store double %28, ptr %29, align 8, !tbaa !4
+  %30 = fdiv double %19, %sqrt
+  %31 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  store double %30, ptr %31, align 16, !tbaa !4
+  %32 = fdiv double %22, %sqrt
+  %33 = getelementptr inbounds nuw i8, ptr %12, i64 24
+  store double %32, ptr %33, align 8, !tbaa !4
   call void @_ZN3igl9quat_multIdEEvPKT_S3_PS1_(ptr noundef nonnull %10, ptr noundef nonnull %12, ptr noundef nonnull %11)
-  br label %35
+  br label %34
 
-35:                                               ; preds = %9, %27
-  %.sink39.sroa.phi = phi ptr [ %.sink39.sroa.gep, %27 ], [ %.sink39.sroa.gep40, %9 ]
-  %.sink39.sroa.phi41 = phi ptr [ %.sink39.sroa.gep42, %27 ], [ %.sink39.sroa.gep43, %9 ]
-  %.sink39.sroa.phi44 = phi ptr [ %.sink39.sroa.gep45, %27 ], [ %.sink39.sroa.gep46, %9 ]
-  %.sink39 = phi ptr [ %11, %27 ], [ %10, %9 ]
-  %36 = load double, ptr %.sink39.sroa.phi, align 8, !tbaa !4
-  %37 = load double, ptr %.sink39.sroa.phi41, align 16, !tbaa !4
-  %38 = load double, ptr %.sink39.sroa.phi44, align 8, !tbaa !4
+34:                                               ; preds = %9, %26
+  %.sink39.sroa.phi = phi ptr [ %.sink39.sroa.gep, %26 ], [ %.sink39.sroa.gep40, %9 ]
+  %.sink39.sroa.phi41 = phi ptr [ %.sink39.sroa.gep42, %26 ], [ %.sink39.sroa.gep43, %9 ]
+  %.sink39.sroa.phi44 = phi ptr [ %.sink39.sroa.gep45, %26 ], [ %.sink39.sroa.gep46, %9 ]
+  %.sink39 = phi ptr [ %11, %26 ], [ %10, %9 ]
+  %35 = load double, ptr %.sink39.sroa.phi, align 8, !tbaa !4
+  %36 = load double, ptr %.sink39.sroa.phi41, align 16, !tbaa !4
+  %37 = load double, ptr %.sink39.sroa.phi44, align 8, !tbaa !4
   %.sink34 = load double, ptr %.sink39, align 16, !tbaa !4
   store double %.sink34, ptr %8, align 8, !tbaa !4
-  %39 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store double %35, ptr %38, align 8, !tbaa !4
+  %39 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store double %36, ptr %39, align 8, !tbaa !4
-  %40 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store double %37, ptr %40, align 8, !tbaa !4
-  %41 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store double %38, ptr %41, align 8, !tbaa !4
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -122,76 +122,76 @@ define linkonce_odr dso_local void @_ZN3igl9trackballIdEEvddT_ddddPS1_(double no
   %41 = fmul double %30, %30
   %42 = tail call double @llvm.fmuladd.f64(double %24, double %24, double %41)
   %43 = fadd double %42, 1.000000e+00
-  %44 = tail call double @sqrt(double noundef %43) #5, !tbaa !8
-  %45 = fmul double %40, %40
-  %46 = tail call double @llvm.fmuladd.f64(double %35, double %35, double %45)
-  %47 = fadd double %46, 1.000000e+00
-  %48 = tail call double @sqrt(double noundef %47) #5, !tbaa !8
-  %49 = fcmp ogt double %44, 0x3D06849B86A12B9B
-  %50 = fcmp ogt double %48, 0x3D06849B86A12B9B
-  %or.cond = select i1 %49, i1 %50, i1 false
-  br i1 %or.cond, label %51, label %83
+  %sqrt70 = tail call double @llvm.sqrt.f64(double %43)
+  %44 = fmul double %40, %40
+  %45 = tail call double @llvm.fmuladd.f64(double %35, double %35, double %44)
+  %46 = fadd double %45, 1.000000e+00
+  %sqrt = tail call double @llvm.sqrt.f64(double %46)
+  %47 = fcmp ogt double %sqrt70, 0x3D06849B86A12B9B
+  %48 = fcmp ogt double %sqrt, 0x3D06849B86A12B9B
+  %or.cond = select i1 %47, i1 %48, i1 false
+  br i1 %or.cond, label %49, label %80
 
-51:                                               ; preds = %8
+49:                                               ; preds = %8
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %52 = fdiv double %24, %44
-  store double %52, ptr %9, align 16, !tbaa !4
-  %53 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %54 = fdiv double %30, %44
-  store double %54, ptr %53, align 8, !tbaa !4
-  %55 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %56 = fdiv double 1.000000e+00, %44
-  store double %56, ptr %55, align 16, !tbaa !4
+  %50 = fdiv double %24, %sqrt70
+  store double %50, ptr %9, align 16, !tbaa !4
+  %51 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %52 = fdiv double %30, %sqrt70
+  store double %52, ptr %51, align 8, !tbaa !4
+  %53 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %54 = fdiv double 1.000000e+00, %sqrt70
+  store double %54, ptr %53, align 16, !tbaa !4
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %57 = fdiv double %35, %48
-  store double %57, ptr %10, align 16, !tbaa !4
-  %58 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %59 = fdiv double %40, %48
-  store double %59, ptr %58, align 8, !tbaa !4
-  %60 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %61 = fdiv double 1.000000e+00, %48
-  store double %61, ptr %60, align 16, !tbaa !4
+  %55 = fdiv double %35, %sqrt
+  store double %55, ptr %10, align 16, !tbaa !4
+  %56 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %57 = fdiv double %40, %sqrt
+  store double %57, ptr %56, align 8, !tbaa !4
+  %58 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %59 = fdiv double 1.000000e+00, %sqrt
+  store double %59, ptr %58, align 16, !tbaa !4
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @_ZN3igl5crossEPKdS1_Pd(ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11)
-  %62 = call noundef double @_ZN3igl3dotEPKdS1_(ptr noundef nonnull %11, ptr noundef nonnull %11)
-  %63 = call double @sqrt(double noundef %62) #5, !tbaa !8
-  %64 = call noundef double @_ZN3igl3dotEPKdS1_(ptr noundef nonnull %9, ptr noundef nonnull %10)
-  %65 = call double @atan2(double noundef %63, double noundef %64) #5, !tbaa !8
-  %66 = fcmp ogt double %46, 1.000000e+00
-  br i1 %66, label %67, label %72
+  %60 = call noundef double @_ZN3igl3dotEPKdS1_(ptr noundef nonnull %11, ptr noundef nonnull %11)
+  %61 = call double @sqrt(double noundef %60) #6, !tbaa !8
+  %62 = call noundef double @_ZN3igl3dotEPKdS1_(ptr noundef nonnull %9, ptr noundef nonnull %10)
+  %63 = call double @atan2(double noundef %61, double noundef %62) #6, !tbaa !8
+  %64 = fcmp ogt double %45, 1.000000e+00
+  br i1 %64, label %65, label %69
 
-67:                                               ; preds = %51
-  %68 = call double @sqrt(double noundef %46) #5, !tbaa !8
-  %69 = fadd double %68, -1.000000e+00
-  %70 = call double @llvm.fmuladd.f64(double %69, double 0x3FC99999A0000000, double 1.000000e+00)
-  %71 = fmul double %65, %70
-  br label %72
+65:                                               ; preds = %49
+  %sqrt71 = call double @llvm.sqrt.f64(double %45)
+  %66 = fadd double %sqrt71, -1.000000e+00
+  %67 = call double @llvm.fmuladd.f64(double %66, double 0x3FC99999A0000000, double 1.000000e+00)
+  %68 = fmul double %67, %63
+  br label %69
 
-72:                                               ; preds = %67, %51
-  %.0 = phi double [ %71, %67 ], [ %65, %51 ]
+69:                                               ; preds = %65, %49
+  %.0 = phi double [ %68, %65 ], [ %63, %49 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @_ZN3igl18axis_angle_to_quatIdEEvPKT_S1_PS1_(ptr noundef nonnull %11, double noundef %.0, ptr noundef nonnull %12)
-  %73 = load double, ptr %12, align 16, !tbaa !4
-  store double %73, ptr %7, align 8, !tbaa !4
-  %74 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %75 = load double, ptr %74, align 8, !tbaa !4
-  %76 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %70 = load double, ptr %12, align 16, !tbaa !4
+  store double %70, ptr %7, align 8, !tbaa !4
+  %71 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %72 = load double, ptr %71, align 8, !tbaa !4
+  %73 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store double %72, ptr %73, align 8, !tbaa !4
+  %74 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %75 = load double, ptr %74, align 16, !tbaa !4
+  %76 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store double %75, ptr %76, align 8, !tbaa !4
-  %77 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %78 = load double, ptr %77, align 16, !tbaa !4
-  %79 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %77 = getelementptr inbounds nuw i8, ptr %12, i64 24
+  %78 = load double, ptr %77, align 8, !tbaa !4
+  %79 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store double %78, ptr %79, align 8, !tbaa !4
-  %80 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  %81 = load double, ptr %80, align 8, !tbaa !4
-  %82 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store double %81, ptr %82, align 8, !tbaa !4
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %83
+  br label %80
 
-83:                                               ; preds = %72, %8
+80:                                               ; preds = %69, %8
   ret void
 }
 
@@ -228,56 +228,56 @@ define weak_odr dso_local void @_ZN3igl9trackballIfEEvddT_PKS1_ddddPS1_(double n
   %23 = load float, ptr %22, align 4, !tbaa !10
   %24 = call float @llvm.fmuladd.f32(float %23, float %23, float %21)
   %25 = fpext float %24 to double
-  %26 = call double @sqrt(double noundef %25) #5, !tbaa !8
-  %27 = call double @llvm.fabs.f64(double %26)
-  %28 = fcmp ogt double %27, 1.000000e-28
+  %sqrt = call double @llvm.sqrt.f64(double %25)
+  %26 = call double @llvm.fabs.f64(double %sqrt)
+  %27 = fcmp ogt double %26, 1.000000e-28
   %.sink40.sroa.gep41 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %.sink40.sroa.gep44 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %.sink40.sroa.gep47 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  br i1 %28, label %29, label %41
+  br i1 %27, label %28, label %40
 
-29:                                               ; preds = %9
+28:                                               ; preds = %9
   %.sink40.sroa.gep46 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %.sink40.sroa.gep43 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %.sink40.sroa.gep = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %30 = fpext float %14 to double
-  %31 = fdiv double %30, %26
-  store double %31, ptr %12, align 16, !tbaa !4
-  %32 = fpext float %16 to double
-  %33 = fdiv double %32, %26
-  %34 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store double %33, ptr %34, align 8, !tbaa !4
-  %35 = fpext float %20 to double
-  %36 = fdiv double %35, %26
-  %37 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store double %36, ptr %37, align 16, !tbaa !4
-  %38 = fpext float %23 to double
-  %39 = fdiv double %38, %26
-  %40 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  store double %39, ptr %40, align 8, !tbaa !4
+  %29 = fpext float %14 to double
+  %30 = fdiv double %29, %sqrt
+  store double %30, ptr %12, align 16, !tbaa !4
+  %31 = fpext float %16 to double
+  %32 = fdiv double %31, %sqrt
+  %33 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store double %32, ptr %33, align 8, !tbaa !4
+  %34 = fpext float %20 to double
+  %35 = fdiv double %34, %sqrt
+  %36 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  store double %35, ptr %36, align 16, !tbaa !4
+  %37 = fpext float %23 to double
+  %38 = fdiv double %37, %sqrt
+  %39 = getelementptr inbounds nuw i8, ptr %12, i64 24
+  store double %38, ptr %39, align 8, !tbaa !4
   call void @_ZN3igl9quat_multIdEEvPKT_S3_PS1_(ptr noundef nonnull %10, ptr noundef nonnull %12, ptr noundef nonnull %11)
-  br label %41
+  br label %40
 
-41:                                               ; preds = %9, %29
-  %.sink40.sroa.phi = phi ptr [ %.sink40.sroa.gep, %29 ], [ %.sink40.sroa.gep41, %9 ]
-  %.sink40.sroa.phi42 = phi ptr [ %.sink40.sroa.gep43, %29 ], [ %.sink40.sroa.gep44, %9 ]
-  %.sink40.sroa.phi45 = phi ptr [ %.sink40.sroa.gep46, %29 ], [ %.sink40.sroa.gep47, %9 ]
-  %.sink40 = phi ptr [ %11, %29 ], [ %10, %9 ]
-  %42 = load double, ptr %.sink40.sroa.phi, align 8, !tbaa !4
-  %43 = load double, ptr %.sink40.sroa.phi42, align 16, !tbaa !4
-  %44 = load double, ptr %.sink40.sroa.phi45, align 8, !tbaa !4
-  %.sink = fptrunc double %44 to float
-  %.sink32 = fptrunc double %43 to float
-  %.sink33 = fptrunc double %42 to float
+40:                                               ; preds = %9, %28
+  %.sink40.sroa.phi = phi ptr [ %.sink40.sroa.gep, %28 ], [ %.sink40.sroa.gep41, %9 ]
+  %.sink40.sroa.phi42 = phi ptr [ %.sink40.sroa.gep43, %28 ], [ %.sink40.sroa.gep44, %9 ]
+  %.sink40.sroa.phi45 = phi ptr [ %.sink40.sroa.gep46, %28 ], [ %.sink40.sroa.gep47, %9 ]
+  %.sink40 = phi ptr [ %11, %28 ], [ %10, %9 ]
+  %41 = load double, ptr %.sink40.sroa.phi, align 8, !tbaa !4
+  %42 = load double, ptr %.sink40.sroa.phi42, align 16, !tbaa !4
+  %43 = load double, ptr %.sink40.sroa.phi45, align 8, !tbaa !4
+  %.sink = fptrunc double %43 to float
+  %.sink32 = fptrunc double %42 to float
+  %.sink33 = fptrunc double %41 to float
   %.sink34.in = load double, ptr %.sink40, align 16, !tbaa !4
   %.sink34 = fptrunc double %.sink34.in to float
   store float %.sink34, ptr %8, align 4, !tbaa !10
-  %45 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  store float %.sink33, ptr %45, align 4, !tbaa !10
-  %46 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store float %.sink32, ptr %46, align 4, !tbaa !10
-  %47 = getelementptr inbounds nuw i8, ptr %8, i64 12
-  store float %.sink, ptr %47, align 4, !tbaa !10
+  %44 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  store float %.sink33, ptr %44, align 4, !tbaa !10
+  %45 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store float %.sink32, ptr %45, align 4, !tbaa !10
+  %46 = getelementptr inbounds nuw i8, ptr %8, i64 12
+  store float %.sink, ptr %46, align 4, !tbaa !10
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -310,56 +310,56 @@ define weak_odr dso_local void @_ZN3igl9trackballIffEEvdddRKN5Eigen10QuaternionI
   %24 = load float, ptr %23, align 4, !tbaa !10
   %25 = call float @llvm.fmuladd.f32(float %24, float %24, float %22)
   %26 = fpext float %25 to double
-  %27 = call double @sqrt(double noundef %26) #5, !tbaa !8
-  %28 = call double @llvm.fabs.f64(double %27)
-  %29 = fcmp ogt double %28, 1.000000e-28
+  %sqrt.i = call double @llvm.sqrt.f64(double %26)
+  %27 = call double @llvm.fabs.f64(double %sqrt.i)
+  %28 = fcmp ogt double %27, 1.000000e-28
   %.sink40.i.sroa.gep9 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %.sink40.i.sroa.gep12 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %.sink40.i.sroa.gep15 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  br i1 %29, label %30, label %_ZN3igl9trackballIfEEvddT_PKS1_ddddPS1_.exit
+  br i1 %28, label %29, label %_ZN3igl9trackballIfEEvddT_PKS1_ddddPS1_.exit
 
-30:                                               ; preds = %9
+29:                                               ; preds = %9
   %.sink40.i.sroa.gep14 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %.sink40.i.sroa.gep11 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %.sink40.i.sroa.gep = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %31 = fpext float %15 to double
-  %32 = fdiv double %31, %27
-  store double %32, ptr %12, align 16, !tbaa !4
-  %33 = fpext float %17 to double
-  %34 = fdiv double %33, %27
-  %35 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store double %34, ptr %35, align 8, !tbaa !4
-  %36 = fpext float %21 to double
-  %37 = fdiv double %36, %27
-  %38 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store double %37, ptr %38, align 16, !tbaa !4
-  %39 = fpext float %24 to double
-  %40 = fdiv double %39, %27
-  %41 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  store double %40, ptr %41, align 8, !tbaa !4
+  %30 = fpext float %15 to double
+  %31 = fdiv double %30, %sqrt.i
+  store double %31, ptr %12, align 16, !tbaa !4
+  %32 = fpext float %17 to double
+  %33 = fdiv double %32, %sqrt.i
+  %34 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store double %33, ptr %34, align 8, !tbaa !4
+  %35 = fpext float %21 to double
+  %36 = fdiv double %35, %sqrt.i
+  %37 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  store double %36, ptr %37, align 16, !tbaa !4
+  %38 = fpext float %24 to double
+  %39 = fdiv double %38, %sqrt.i
+  %40 = getelementptr inbounds nuw i8, ptr %12, i64 24
+  store double %39, ptr %40, align 8, !tbaa !4
   call void @_ZN3igl9quat_multIdEEvPKT_S3_PS1_(ptr noundef nonnull %10, ptr noundef nonnull %12, ptr noundef nonnull %11)
   br label %_ZN3igl9trackballIfEEvddT_PKS1_ddddPS1_.exit
 
-_ZN3igl9trackballIfEEvddT_PKS1_ddddPS1_.exit:     ; preds = %9, %30
-  %.sink40.i.sroa.phi = phi ptr [ %.sink40.i.sroa.gep, %30 ], [ %.sink40.i.sroa.gep9, %9 ]
-  %.sink40.i.sroa.phi10 = phi ptr [ %.sink40.i.sroa.gep11, %30 ], [ %.sink40.i.sroa.gep12, %9 ]
-  %.sink40.i.sroa.phi13 = phi ptr [ %.sink40.i.sroa.gep14, %30 ], [ %.sink40.i.sroa.gep15, %9 ]
-  %.sink40.i = phi ptr [ %11, %30 ], [ %10, %9 ]
-  %42 = load double, ptr %.sink40.i.sroa.phi, align 8, !tbaa !4
-  %43 = load double, ptr %.sink40.i.sroa.phi10, align 16, !tbaa !4
-  %44 = load double, ptr %.sink40.i.sroa.phi13, align 8, !tbaa !4
-  %.sink.i = fptrunc double %44 to float
-  %.sink32.i = fptrunc double %43 to float
-  %.sink33.i = fptrunc double %42 to float
+_ZN3igl9trackballIfEEvddT_PKS1_ddddPS1_.exit:     ; preds = %9, %29
+  %.sink40.i.sroa.phi = phi ptr [ %.sink40.i.sroa.gep, %29 ], [ %.sink40.i.sroa.gep9, %9 ]
+  %.sink40.i.sroa.phi10 = phi ptr [ %.sink40.i.sroa.gep11, %29 ], [ %.sink40.i.sroa.gep12, %9 ]
+  %.sink40.i.sroa.phi13 = phi ptr [ %.sink40.i.sroa.gep14, %29 ], [ %.sink40.i.sroa.gep15, %9 ]
+  %.sink40.i = phi ptr [ %11, %29 ], [ %10, %9 ]
+  %41 = load double, ptr %.sink40.i.sroa.phi, align 8, !tbaa !4
+  %42 = load double, ptr %.sink40.i.sroa.phi10, align 16, !tbaa !4
+  %43 = load double, ptr %.sink40.i.sroa.phi13, align 8, !tbaa !4
+  %.sink.i = fptrunc double %43 to float
+  %.sink32.i = fptrunc double %42 to float
+  %.sink33.i = fptrunc double %41 to float
   %.sink34.in.i = load double, ptr %.sink40.i, align 16, !tbaa !4
   %.sink34.i = fptrunc double %.sink34.in.i to float
   store float %.sink34.i, ptr %8, align 16, !tbaa !10
-  %45 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  store float %.sink33.i, ptr %45, align 4, !tbaa !10
-  %46 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store float %.sink32.i, ptr %46, align 8, !tbaa !10
-  %47 = getelementptr inbounds nuw i8, ptr %8, i64 12
-  store float %.sink.i, ptr %47, align 4, !tbaa !10
+  %44 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  store float %.sink33.i, ptr %44, align 4, !tbaa !10
+  %45 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store float %.sink32.i, ptr %45, align 8, !tbaa !10
+  %46 = getelementptr inbounds nuw i8, ptr %8, i64 12
+  store float %.sink.i, ptr %46, align 4, !tbaa !10
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -386,48 +386,48 @@ define weak_odr dso_local void @_ZN3igl9trackballIddEEvdddRKN5Eigen10QuaternionI
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %22 = load double, ptr %21, align 8, !tbaa !4
   %23 = call double @llvm.fmuladd.f64(double %22, double %22, double %20)
-  %24 = call double @sqrt(double noundef %23) #5, !tbaa !8
-  %25 = call double @llvm.fabs.f64(double %24)
-  %26 = fcmp ogt double %25, 1.000000e-28
+  %sqrt.i = call double @llvm.sqrt.f64(double %23)
+  %24 = call double @llvm.fabs.f64(double %sqrt.i)
+  %25 = fcmp ogt double %24, 1.000000e-28
   %.sink39.i.sroa.gep9 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %.sink39.i.sroa.gep12 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %.sink39.i.sroa.gep15 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  br i1 %26, label %27, label %_ZN3igl9trackballIdEEvddT_PKS1_ddddPS1_.exit
+  br i1 %25, label %26, label %_ZN3igl9trackballIdEEvddT_PKS1_ddddPS1_.exit
 
-27:                                               ; preds = %9
+26:                                               ; preds = %9
   %.sink39.i.sroa.gep14 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %.sink39.i.sroa.gep11 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %.sink39.i.sroa.gep = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %28 = fdiv double %13, %24
-  store double %28, ptr %12, align 16, !tbaa !4
-  %29 = fdiv double %15, %24
-  %30 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store double %29, ptr %30, align 8, !tbaa !4
-  %31 = fdiv double %19, %24
-  %32 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store double %31, ptr %32, align 16, !tbaa !4
-  %33 = fdiv double %22, %24
-  %34 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  store double %33, ptr %34, align 8, !tbaa !4
+  %27 = fdiv double %13, %sqrt.i
+  store double %27, ptr %12, align 16, !tbaa !4
+  %28 = fdiv double %15, %sqrt.i
+  %29 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store double %28, ptr %29, align 8, !tbaa !4
+  %30 = fdiv double %19, %sqrt.i
+  %31 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  store double %30, ptr %31, align 16, !tbaa !4
+  %32 = fdiv double %22, %sqrt.i
+  %33 = getelementptr inbounds nuw i8, ptr %12, i64 24
+  store double %32, ptr %33, align 8, !tbaa !4
   call void @_ZN3igl9quat_multIdEEvPKT_S3_PS1_(ptr noundef nonnull %10, ptr noundef nonnull %12, ptr noundef nonnull %11)
   br label %_ZN3igl9trackballIdEEvddT_PKS1_ddddPS1_.exit
 
-_ZN3igl9trackballIdEEvddT_PKS1_ddddPS1_.exit:     ; preds = %9, %27
-  %.sink39.i.sroa.phi = phi ptr [ %.sink39.i.sroa.gep, %27 ], [ %.sink39.i.sroa.gep9, %9 ]
-  %.sink39.i.sroa.phi10 = phi ptr [ %.sink39.i.sroa.gep11, %27 ], [ %.sink39.i.sroa.gep12, %9 ]
-  %.sink39.i.sroa.phi13 = phi ptr [ %.sink39.i.sroa.gep14, %27 ], [ %.sink39.i.sroa.gep15, %9 ]
-  %.sink39.i = phi ptr [ %11, %27 ], [ %10, %9 ]
-  %35 = load double, ptr %.sink39.i.sroa.phi, align 8, !tbaa !4
-  %36 = load double, ptr %.sink39.i.sroa.phi10, align 16, !tbaa !4
-  %37 = load double, ptr %.sink39.i.sroa.phi13, align 8, !tbaa !4
+_ZN3igl9trackballIdEEvddT_PKS1_ddddPS1_.exit:     ; preds = %9, %26
+  %.sink39.i.sroa.phi = phi ptr [ %.sink39.i.sroa.gep, %26 ], [ %.sink39.i.sroa.gep9, %9 ]
+  %.sink39.i.sroa.phi10 = phi ptr [ %.sink39.i.sroa.gep11, %26 ], [ %.sink39.i.sroa.gep12, %9 ]
+  %.sink39.i.sroa.phi13 = phi ptr [ %.sink39.i.sroa.gep14, %26 ], [ %.sink39.i.sroa.gep15, %9 ]
+  %.sink39.i = phi ptr [ %11, %26 ], [ %10, %9 ]
+  %34 = load double, ptr %.sink39.i.sroa.phi, align 8, !tbaa !4
+  %35 = load double, ptr %.sink39.i.sroa.phi10, align 16, !tbaa !4
+  %36 = load double, ptr %.sink39.i.sroa.phi13, align 8, !tbaa !4
   %.sink34.i = load double, ptr %.sink39.i, align 16, !tbaa !4
   store double %.sink34.i, ptr %8, align 16, !tbaa !4
-  %38 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store double %35, ptr %38, align 8, !tbaa !4
-  %39 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store double %36, ptr %39, align 16, !tbaa !4
-  %40 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store double %37, ptr %40, align 8, !tbaa !4
+  %37 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store double %34, ptr %37, align 8, !tbaa !4
+  %38 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  store double %35, ptr %38, align 16, !tbaa !4
+  %39 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  store double %36, ptr %39, align 8, !tbaa !4
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -449,12 +449,16 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.sqrt.f64(double) #5
+
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { nounwind }
+attributes #5 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

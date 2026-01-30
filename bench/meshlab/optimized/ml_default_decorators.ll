@@ -9786,9 +9786,9 @@ define void @_ZN23MLDefaultMeshDecorators7chooseXERN3vcg4Box3IfEEPdS4_PiRNS0_6Po
   %40 = getelementptr inbounds nuw i8, ptr %5, i64 16
   br label %41
 
-41:                                               ; preds = %6, %85
-  %.086 = phi float [ 0xC7EFFFFFE0000000, %6 ], [ %.1, %85 ]
-  %.04285 = phi i32 [ 0, %6 ], [ %86, %85 ]
+41:                                               ; preds = %6, %84
+  %.086 = phi float [ 0xC7EFFFFFE0000000, %6 ], [ %.1, %84 ]
+  %.04285 = phi i32 [ 0, %6 ], [ %85, %84 ]
   %42 = load float, ptr %0, align 4
   %43 = load float, ptr %10, align 4
   %44 = fsub float %43, %42
@@ -9833,27 +9833,27 @@ define void @_ZN23MLDefaultMeshDecorators7chooseXERN3vcg4Box3IfEEPdS4_PiRNS0_6Po
   %78 = fmul double %76, %76
   %79 = call double @llvm.fmuladd.f64(double %74, double %74, double %78)
   %80 = call double @llvm.fmuladd.f64(double %77, double %77, double %79)
-  %81 = call noundef double @sqrt(double noundef %80) #26
-  %82 = fptrunc double %81 to float
-  %83 = fcmp olt float %.086, %82
-  br i1 %83, label %84, label %85
+  %sqrt.i.i = call noundef double @llvm.sqrt.f64(double %80)
+  %81 = fptrunc double %sqrt.i.i to float
+  %82 = fcmp olt float %.086, %81
+  br i1 %82, label %83, label %84
 
-84:                                               ; preds = %41
+83:                                               ; preds = %41
   store double %59, ptr %4, align 8
   store double %60, ptr %37, align 8
   store double %61, ptr %38, align 8
   store double %63, ptr %5, align 8
   store double %60, ptr %39, align 8
   store double %61, ptr %40, align 8
-  br label %85
+  br label %84
 
-85:                                               ; preds = %41, %84
-  %.1 = phi float [ %82, %84 ], [ %.086, %41 ]
-  %86 = add nuw nsw i32 %.04285, 2
-  %87 = icmp samesign ult i32 %.04285, 6
-  br i1 %87, label %41, label %88, !llvm.loop !146
+84:                                               ; preds = %41, %83
+  %.1 = phi float [ %81, %83 ], [ %.086, %41 ]
+  %85 = add nuw nsw i32 %.04285, 2
+  %86 = icmp samesign ult i32 %.04285, 6
+  br i1 %86, label %41, label %87, !llvm.loop !146
 
-88:                                               ; preds = %85
+87:                                               ; preds = %84
   ret void
 }
 
@@ -10456,9 +10456,9 @@ define void @_ZN23MLDefaultMeshDecorators7chooseYERN3vcg4Box3IfEEPdS4_PiRNS0_6Po
   %40 = getelementptr inbounds nuw i8, ptr %5, i64 16
   br label %41
 
-41:                                               ; preds = %6, %101
-  %.079 = phi float [ 0xC7EFFFFFE0000000, %6 ], [ %.1, %101 ]
-  %.04378 = phi i32 [ 0, %6 ], [ %102, %101 ]
+41:                                               ; preds = %6, %100
+  %.079 = phi float [ 0xC7EFFFFFE0000000, %6 ], [ %.1, %100 ]
+  %.04378 = phi i32 [ 0, %6 ], [ %101, %100 ]
   %42 = icmp eq i32 %.04378, 2
   %spec.store.select = select i1 %42, i32 4, i32 %.04378
   %43 = load float, ptr %0, align 4
@@ -10517,27 +10517,27 @@ define void @_ZN23MLDefaultMeshDecorators7chooseYERN3vcg4Box3IfEEPdS4_PiRNS0_6Po
   %94 = fmul double %92, %92
   %95 = call double @llvm.fmuladd.f64(double %90, double %90, double %94)
   %96 = call double @llvm.fmuladd.f64(double %93, double %93, double %95)
-  %97 = call noundef double @sqrt(double noundef %96) #26
-  %98 = fptrunc double %97 to float
-  %99 = fcmp olt float %.079, %98
-  br i1 %99, label %100, label %101
+  %sqrt.i.i = call noundef double @llvm.sqrt.f64(double %96)
+  %97 = fptrunc double %sqrt.i.i to float
+  %98 = fcmp olt float %.079, %97
+  br i1 %98, label %99, label %100
 
-100:                                              ; preds = %41
+99:                                               ; preds = %41
   store double %73, ptr %4, align 8
   store double %74, ptr %37, align 8
   store double %75, ptr %38, align 8
   store double %77, ptr %5, align 8
   store double %78, ptr %39, align 8
   store double %79, ptr %40, align 8
-  br label %101
+  br label %100
 
-101:                                              ; preds = %41, %100
-  %.1 = phi float [ %98, %100 ], [ %.079, %41 ]
-  %102 = add nsw i32 %spec.store.select, 1
-  %103 = icmp slt i32 %spec.store.select, 5
-  br i1 %103, label %41, label %104, !llvm.loop !171
+100:                                              ; preds = %41, %99
+  %.1 = phi float [ %97, %99 ], [ %.079, %41 ]
+  %101 = add nsw i32 %spec.store.select, 1
+  %102 = icmp slt i32 %spec.store.select, 5
+  br i1 %102, label %41, label %103, !llvm.loop !171
 
-104:                                              ; preds = %101
+103:                                              ; preds = %100
   ret void
 }
 
@@ -10580,9 +10580,9 @@ define void @_ZN23MLDefaultMeshDecorators7chooseZERN3vcg4Box3IfEEPdS4_PiRNS0_6Po
   %40 = getelementptr inbounds nuw i8, ptr %5, i64 16
   br label %41
 
-41:                                               ; preds = %6, %90
-  %.081 = phi float [ 0xC7EFFFFFE0000000, %6 ], [ %.1, %90 ]
-  %.04280 = phi i32 [ 0, %6 ], [ %91, %90 ]
+41:                                               ; preds = %6, %89
+  %.081 = phi float [ 0xC7EFFFFFE0000000, %6 ], [ %.1, %89 ]
+  %.04280 = phi i32 [ 0, %6 ], [ %90, %89 ]
   %42 = load float, ptr %0, align 4
   %.urem = add nsw i32 %.04280, -2
   %.cmp = icmp samesign ult i32 %.04280, 2
@@ -10634,27 +10634,27 @@ define void @_ZN23MLDefaultMeshDecorators7chooseZERN3vcg4Box3IfEEPdS4_PiRNS0_6Po
   %83 = fmul double %81, %81
   %84 = call double @llvm.fmuladd.f64(double %79, double %79, double %83)
   %85 = call double @llvm.fmuladd.f64(double %82, double %82, double %84)
-  %86 = call noundef double @sqrt(double noundef %85) #26
-  %87 = fptrunc double %86 to float
-  %88 = fcmp olt float %.081, %87
-  br i1 %88, label %89, label %90
+  %sqrt.i.i = call noundef double @llvm.sqrt.f64(double %85)
+  %86 = fptrunc double %sqrt.i.i to float
+  %87 = fcmp olt float %.081, %86
+  br i1 %87, label %88, label %89
 
-89:                                               ; preds = %41
+88:                                               ; preds = %41
   store double %62, ptr %4, align 8
   store double %63, ptr %37, align 8
   store double %64, ptr %38, align 8
   store double %66, ptr %5, align 8
   store double %67, ptr %39, align 8
   store double %68, ptr %40, align 8
-  br label %90
+  br label %89
 
-90:                                               ; preds = %41, %89
-  %.1 = phi float [ %87, %89 ], [ %.081, %41 ]
-  %91 = add nuw nsw i32 %.04280, 1
-  %exitcond.not = icmp eq i32 %91, 4
-  br i1 %exitcond.not, label %92, label %41, !llvm.loop !178
+89:                                               ; preds = %41, %88
+  %.1 = phi float [ %86, %88 ], [ %.081, %41 ]
+  %90 = add nuw nsw i32 %.04280, 1
+  %exitcond.not = icmp eq i32 %90, 4
+  br i1 %exitcond.not, label %91, label %41, !llvm.loop !178
 
-92:                                               ; preds = %90
+91:                                               ; preds = %89
   ret void
 }
 
@@ -10943,9 +10943,6 @@ declare float @llvm.fmuladd.f32(float, float, float) #16
 
 ; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fmuladd.f64(double, double, double) #16
-
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @sqrt(double noundef) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN23MLDefaultMeshDecorators23cleanMeshDecorationDataER9MeshModelRK15MLRenderingData(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(1288) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %2) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
@@ -18745,6 +18742,9 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #24
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #22
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.sqrt.f64(double) #22
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

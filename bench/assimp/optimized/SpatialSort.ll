@@ -25,12 +25,12 @@ define void @_ZN6Assimp11SpatialSortC2EPK10aiVector3tIfEjj(ptr noundef nonnull a
 _ZNSt6vectorIN6Assimp11SpatialSort5EntryESaIS2_EE5clearEv.exit.i:
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %4, i8 0, i64 36, i1 false)
   store float 0x3FE92E0560000000, ptr %0, align 8
-  store float 0x3FD44774C0000000, ptr %6, align 4
-  store float 0x3FE0F23020000000, ptr %7, align 8
+  store float 0x3FD44774C0000000, ptr %7, align 4
+  store float 0x3FE0F23020000000, ptr %6, align 8
   store i8 0, ptr %5, align 8
   invoke void @_ZN6Assimp11SpatialSort6AppendEPK10aiVector3tIfEjjb(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef readonly %1, i32 noundef %2, i32 noundef %3, i1 noundef zeroext true)
           to label %8 unwind label %9
@@ -91,12 +91,12 @@ _ZNSt6vectorIN6Assimp11SpatialSort5EntryESaIS2_EE5clearEv.exit: ; preds = %5, %1
 define void @_ZN6Assimp11SpatialSortC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(49) initializes((0, 49)) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 _ZN10aiVector3tIfE9NormalizeEv.exit:
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(37) %1, i8 0, i64 37, i1 false)
   store float 0x3FE92E0560000000, ptr %0, align 8
-  store float 0x3FD44774C0000000, ptr %2, align 4
-  store float 0x3FE0F23020000000, ptr %3, align 8
+  store float 0x3FD44774C0000000, ptr %3, align 4
+  store float 0x3FE0F23020000000, ptr %2, align 8
   ret void
 }
 

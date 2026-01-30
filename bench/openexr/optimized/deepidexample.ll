@@ -5775,7 +5775,7 @@ _ZN9Imath_3_24halfaSEf.exit:                      ; preds = %22, %25, %35, %37, 
 
 .preheader.us:                                    ; preds = %.preheader.lr.ph, %._crit_edge.us
   %.080.us = phi i64 [ %indvars.iv.next, %._crit_edge.us ], [ 0, %.preheader.lr.ph ]
-  %.03579.us = phi i32 [ %350, %._crit_edge.us ], [ 0, %.preheader.lr.ph ]
+  %.03579.us = phi i32 [ %349, %._crit_edge.us ], [ 0, %.preheader.lr.ph ]
   %80 = uitofp nneg i32 %.03579.us to float
   %81 = fsub float %80, %4
   %82 = fmul float %81, %81
@@ -5785,460 +5785,460 @@ _ZN9Imath_3_24halfaSEf.exit:                      ; preds = %22, %25, %35, %37, 
 
 84:                                               ; preds = %.preheader.us, %_ZNSt6vectorI5RgbazSaIS0_EE9push_backERKS0_.exit.us
   %indvars.iv = phi i64 [ %83, %.preheader.us ], [ %indvars.iv.next, %_ZNSt6vectorI5RgbazSaIS0_EE9push_backERKS0_.exit.us ]
-  %.03677.us = phi i32 [ 0, %.preheader.us ], [ %349, %_ZNSt6vectorI5RgbazSaIS0_EE9push_backERKS0_.exit.us ]
+  %.03677.us = phi i32 [ 0, %.preheader.us ], [ %348, %_ZNSt6vectorI5RgbazSaIS0_EE9push_backERKS0_.exit.us ]
   %85 = uitofp nneg i32 %.03677.us to float
   %86 = fsub float %3, %85
   %87 = tail call float @llvm.fmuladd.f32(float %86, float %86, float %82)
   %88 = fneg float %87
   %89 = fdiv float %88, %12
   %90 = tail call noundef float @expf(float noundef %89) #26, !tbaa !59
-  %91 = tail call noundef float @sqrtf(float noundef %87) #26, !tbaa !59
-  %92 = fdiv float %91, %12
-  %93 = fsub float 1.000000e+00, %92
-  %94 = fmul float %90, %93
-  %95 = fpext float %94 to double
-  %96 = fcmp ogt double %95, 1.000000e-03
-  br i1 %96, label %97, label %_ZNSt6vectorI5RgbazSaIS0_EE9push_backERKS0_.exit.us
+  %sqrt.us = tail call float @llvm.sqrt.f32(float %87)
+  %91 = fdiv float %sqrt.us, %12
+  %92 = fsub float 1.000000e+00, %91
+  %93 = fmul float %92, %90
+  %94 = fpext float %93 to double
+  %95 = fcmp ogt double %94, 1.000000e-03
+  br i1 %95, label %96, label %_ZNSt6vectorI5RgbazSaIS0_EE9push_backERKS0_.exit.us
 
-97:                                               ; preds = %84
-  %98 = load i16, ptr %77, align 16, !tbaa !117
-  %99 = load ptr, ptr @imath_half_to_float_table, align 8, !tbaa !120
-  %100 = zext i16 %98 to i64
-  %101 = getelementptr inbounds nuw %union.imath_half_uif, ptr %99, i64 %100
-  %102 = load float, ptr %101, align 4, !tbaa !25
-  %103 = fmul float %94, %102
-  %104 = bitcast float %103 to i32
-  %105 = tail call float @llvm.fabs.f32(float %103)
-  %106 = bitcast float %105 to i32
-  %107 = lshr i32 %104, 16
-  %108 = trunc nuw i32 %107 to i16
-  %109 = and i16 %108, -32768
-  %110 = icmp samesign ugt i32 %106, 947912703
-  br i1 %110, label %130, label %111
+96:                                               ; preds = %84
+  %97 = load i16, ptr %77, align 16, !tbaa !117
+  %98 = load ptr, ptr @imath_half_to_float_table, align 8, !tbaa !120
+  %99 = zext i16 %97 to i64
+  %100 = getelementptr inbounds nuw %union.imath_half_uif, ptr %98, i64 %99
+  %101 = load float, ptr %100, align 4, !tbaa !25
+  %102 = fmul float %93, %101
+  %103 = bitcast float %102 to i32
+  %104 = tail call float @llvm.fabs.f32(float %102)
+  %105 = bitcast float %104 to i32
+  %106 = lshr i32 %103, 16
+  %107 = trunc nuw i32 %106 to i16
+  %108 = and i16 %107, -32768
+  %109 = icmp samesign ugt i32 %105, 947912703
+  br i1 %109, label %129, label %110
 
-111:                                              ; preds = %97
-  %112 = icmp samesign ult i32 %106, 855638017
-  br i1 %112, label %_ZN9Imath_3_24halfaSEf.exit40.us, label %113
+110:                                              ; preds = %96
+  %111 = icmp samesign ult i32 %105, 855638017
+  br i1 %111, label %_ZN9Imath_3_24halfaSEf.exit40.us, label %112
 
-113:                                              ; preds = %111
-  %114 = lshr i32 %106, 23
-  %115 = sub nuw nsw i32 126, %114
-  %116 = and i32 %106, 8388607
-  %117 = or disjoint i32 %116, 8388608
-  %118 = add nsw i32 %114, -94
-  %119 = shl i32 %117, %118
-  %120 = lshr i32 %117, %115
-  %121 = and i32 %107, 32768
-  %122 = or i32 %120, %121
-  %123 = trunc nuw i32 %122 to i16
-  %124 = icmp ugt i32 %119, -2147483648
-  br i1 %124, label %128, label %125
+112:                                              ; preds = %110
+  %113 = lshr i32 %105, 23
+  %114 = sub nuw nsw i32 126, %113
+  %115 = and i32 %105, 8388607
+  %116 = or disjoint i32 %115, 8388608
+  %117 = add nsw i32 %113, -94
+  %118 = shl i32 %116, %117
+  %119 = lshr i32 %116, %114
+  %120 = and i32 %106, 32768
+  %121 = or i32 %119, %120
+  %122 = trunc nuw i32 %121 to i16
+  %123 = icmp ugt i32 %118, -2147483648
+  br i1 %123, label %127, label %124
 
-125:                                              ; preds = %113
-  %126 = icmp ne i32 %119, -2147483648
-  %127 = and i32 %120, 1
-  %.not.i.i.i37.us = icmp eq i32 %127, 0
-  %or.cond.i.i.i38.us = select i1 %126, i1 true, i1 %.not.i.i.i37.us
-  br i1 %or.cond.i.i.i38.us, label %_ZN9Imath_3_24halfaSEf.exit40.us, label %128
+124:                                              ; preds = %112
+  %125 = icmp ne i32 %118, -2147483648
+  %126 = and i32 %119, 1
+  %.not.i.i.i37.us = icmp eq i32 %126, 0
+  %or.cond.i.i.i38.us = select i1 %125, i1 true, i1 %.not.i.i.i37.us
+  br i1 %or.cond.i.i.i38.us, label %_ZN9Imath_3_24halfaSEf.exit40.us, label %127
 
-128:                                              ; preds = %125, %113
-  %129 = add nuw i16 %123, 1
+127:                                              ; preds = %124, %112
+  %128 = add nuw i16 %122, 1
   br label %_ZN9Imath_3_24halfaSEf.exit40.us
 
-130:                                              ; preds = %97
-  %131 = icmp samesign ugt i32 %106, 2139095039
-  br i1 %131, label %145, label %132, !prof !71
+129:                                              ; preds = %96
+  %130 = icmp samesign ugt i32 %105, 2139095039
+  br i1 %130, label %144, label %131, !prof !71
 
-132:                                              ; preds = %130
-  %133 = icmp samesign ugt i32 %106, 1199566847
-  br i1 %133, label %143, label %134, !prof !71
+131:                                              ; preds = %129
+  %132 = icmp samesign ugt i32 %105, 1199566847
+  br i1 %132, label %142, label %133, !prof !71
 
-134:                                              ; preds = %132
-  %135 = add nuw nsw i32 %106, 134221823
-  %136 = lshr i32 %106, 13
-  %137 = and i32 %136, 1
-  %138 = add nuw nsw i32 %135, %137
-  %139 = lshr i32 %138, 13
-  %140 = and i32 %107, 32768
-  %141 = or i32 %139, %140
-  %142 = trunc i32 %141 to i16
+133:                                              ; preds = %131
+  %134 = add nuw nsw i32 %105, 134221823
+  %135 = lshr i32 %105, 13
+  %136 = and i32 %135, 1
+  %137 = add nuw nsw i32 %134, %136
+  %138 = lshr i32 %137, 13
+  %139 = and i32 %106, 32768
+  %140 = or i32 %138, %139
+  %141 = trunc i32 %140 to i16
   br label %_ZN9Imath_3_24halfaSEf.exit40.us
 
-143:                                              ; preds = %132
-  %144 = or disjoint i16 %109, 31744
+142:                                              ; preds = %131
+  %143 = or disjoint i16 %108, 31744
   br label %_ZN9Imath_3_24halfaSEf.exit40.us
 
-145:                                              ; preds = %130
-  %146 = or disjoint i16 %109, 31744
-  %147 = icmp eq i32 %106, 2139095040
-  br i1 %147, label %_ZN9Imath_3_24halfaSEf.exit40.us, label %148
+144:                                              ; preds = %129
+  %145 = or disjoint i16 %108, 31744
+  %146 = icmp eq i32 %105, 2139095040
+  br i1 %146, label %_ZN9Imath_3_24halfaSEf.exit40.us, label %147
 
-148:                                              ; preds = %145
-  %149 = lshr i32 %106, 13
-  %150 = and i32 %149, 1023
-  %151 = icmp eq i32 %150, 0
-  %152 = zext i1 %151 to i16
-  %153 = trunc nuw nsw i32 %150 to i16
-  %154 = or i16 %153, %152
-  %155 = or disjoint i16 %154, %146
+147:                                              ; preds = %144
+  %148 = lshr i32 %105, 13
+  %149 = and i32 %148, 1023
+  %150 = icmp eq i32 %149, 0
+  %151 = zext i1 %150 to i16
+  %152 = trunc nuw nsw i32 %149 to i16
+  %153 = or i16 %152, %151
+  %154 = or disjoint i16 %153, %145
   br label %_ZN9Imath_3_24halfaSEf.exit40.us
 
-_ZN9Imath_3_24halfaSEf.exit40.us:                 ; preds = %148, %145, %143, %134, %128, %125, %111
-  %.0.i.i.i39.us = phi i16 [ %109, %111 ], [ %155, %148 ], [ %144, %143 ], [ %142, %134 ], [ %146, %145 ], [ %129, %128 ], [ %123, %125 ]
-  %156 = load i16, ptr %78, align 2, !tbaa !117
-  %157 = zext i16 %156 to i64
-  %158 = getelementptr inbounds nuw %union.imath_half_uif, ptr %99, i64 %157
-  %159 = load float, ptr %158, align 4, !tbaa !25
-  %160 = fmul float %94, %159
-  %161 = bitcast float %160 to i32
-  %162 = tail call float @llvm.fabs.f32(float %160)
-  %163 = bitcast float %162 to i32
-  %164 = lshr i32 %161, 16
-  %165 = trunc nuw i32 %164 to i16
-  %166 = and i16 %165, -32768
-  %167 = icmp samesign ugt i32 %163, 947912703
-  br i1 %167, label %187, label %168
+_ZN9Imath_3_24halfaSEf.exit40.us:                 ; preds = %147, %144, %142, %133, %127, %124, %110
+  %.0.i.i.i39.us = phi i16 [ %108, %110 ], [ %154, %147 ], [ %143, %142 ], [ %141, %133 ], [ %145, %144 ], [ %128, %127 ], [ %122, %124 ]
+  %155 = load i16, ptr %78, align 2, !tbaa !117
+  %156 = zext i16 %155 to i64
+  %157 = getelementptr inbounds nuw %union.imath_half_uif, ptr %98, i64 %156
+  %158 = load float, ptr %157, align 4, !tbaa !25
+  %159 = fmul float %93, %158
+  %160 = bitcast float %159 to i32
+  %161 = tail call float @llvm.fabs.f32(float %159)
+  %162 = bitcast float %161 to i32
+  %163 = lshr i32 %160, 16
+  %164 = trunc nuw i32 %163 to i16
+  %165 = and i16 %164, -32768
+  %166 = icmp samesign ugt i32 %162, 947912703
+  br i1 %166, label %186, label %167
 
-168:                                              ; preds = %_ZN9Imath_3_24halfaSEf.exit40.us
-  %169 = icmp samesign ult i32 %163, 855638017
-  br i1 %169, label %_ZN9Imath_3_24halfaSEf.exit44.us, label %170
+167:                                              ; preds = %_ZN9Imath_3_24halfaSEf.exit40.us
+  %168 = icmp samesign ult i32 %162, 855638017
+  br i1 %168, label %_ZN9Imath_3_24halfaSEf.exit44.us, label %169
 
-170:                                              ; preds = %168
-  %171 = lshr i32 %163, 23
-  %172 = sub nuw nsw i32 126, %171
-  %173 = and i32 %163, 8388607
-  %174 = or disjoint i32 %173, 8388608
-  %175 = add nsw i32 %171, -94
-  %176 = shl i32 %174, %175
-  %177 = lshr i32 %174, %172
-  %178 = and i32 %164, 32768
-  %179 = or i32 %177, %178
-  %180 = trunc nuw i32 %179 to i16
-  %181 = icmp ugt i32 %176, -2147483648
-  br i1 %181, label %185, label %182
+169:                                              ; preds = %167
+  %170 = lshr i32 %162, 23
+  %171 = sub nuw nsw i32 126, %170
+  %172 = and i32 %162, 8388607
+  %173 = or disjoint i32 %172, 8388608
+  %174 = add nsw i32 %170, -94
+  %175 = shl i32 %173, %174
+  %176 = lshr i32 %173, %171
+  %177 = and i32 %163, 32768
+  %178 = or i32 %176, %177
+  %179 = trunc nuw i32 %178 to i16
+  %180 = icmp ugt i32 %175, -2147483648
+  br i1 %180, label %184, label %181
 
-182:                                              ; preds = %170
-  %183 = icmp ne i32 %176, -2147483648
-  %184 = and i32 %177, 1
-  %.not.i.i.i41.us = icmp eq i32 %184, 0
-  %or.cond.i.i.i42.us = select i1 %183, i1 true, i1 %.not.i.i.i41.us
-  br i1 %or.cond.i.i.i42.us, label %_ZN9Imath_3_24halfaSEf.exit44.us, label %185
+181:                                              ; preds = %169
+  %182 = icmp ne i32 %175, -2147483648
+  %183 = and i32 %176, 1
+  %.not.i.i.i41.us = icmp eq i32 %183, 0
+  %or.cond.i.i.i42.us = select i1 %182, i1 true, i1 %.not.i.i.i41.us
+  br i1 %or.cond.i.i.i42.us, label %_ZN9Imath_3_24halfaSEf.exit44.us, label %184
 
-185:                                              ; preds = %182, %170
-  %186 = add nuw i16 %180, 1
+184:                                              ; preds = %181, %169
+  %185 = add nuw i16 %179, 1
   br label %_ZN9Imath_3_24halfaSEf.exit44.us
 
-187:                                              ; preds = %_ZN9Imath_3_24halfaSEf.exit40.us
-  %188 = icmp samesign ugt i32 %163, 2139095039
-  br i1 %188, label %202, label %189, !prof !71
+186:                                              ; preds = %_ZN9Imath_3_24halfaSEf.exit40.us
+  %187 = icmp samesign ugt i32 %162, 2139095039
+  br i1 %187, label %201, label %188, !prof !71
 
-189:                                              ; preds = %187
-  %190 = icmp samesign ugt i32 %163, 1199566847
-  br i1 %190, label %200, label %191, !prof !71
+188:                                              ; preds = %186
+  %189 = icmp samesign ugt i32 %162, 1199566847
+  br i1 %189, label %199, label %190, !prof !71
 
-191:                                              ; preds = %189
-  %192 = add nuw nsw i32 %163, 134221823
-  %193 = lshr i32 %163, 13
-  %194 = and i32 %193, 1
-  %195 = add nuw nsw i32 %192, %194
-  %196 = lshr i32 %195, 13
-  %197 = and i32 %164, 32768
-  %198 = or i32 %196, %197
-  %199 = trunc i32 %198 to i16
+190:                                              ; preds = %188
+  %191 = add nuw nsw i32 %162, 134221823
+  %192 = lshr i32 %162, 13
+  %193 = and i32 %192, 1
+  %194 = add nuw nsw i32 %191, %193
+  %195 = lshr i32 %194, 13
+  %196 = and i32 %163, 32768
+  %197 = or i32 %195, %196
+  %198 = trunc i32 %197 to i16
   br label %_ZN9Imath_3_24halfaSEf.exit44.us
 
-200:                                              ; preds = %189
-  %201 = or disjoint i16 %166, 31744
+199:                                              ; preds = %188
+  %200 = or disjoint i16 %165, 31744
   br label %_ZN9Imath_3_24halfaSEf.exit44.us
 
-202:                                              ; preds = %187
-  %203 = or disjoint i16 %166, 31744
-  %204 = icmp eq i32 %163, 2139095040
-  br i1 %204, label %_ZN9Imath_3_24halfaSEf.exit44.us, label %205
+201:                                              ; preds = %186
+  %202 = or disjoint i16 %165, 31744
+  %203 = icmp eq i32 %162, 2139095040
+  br i1 %203, label %_ZN9Imath_3_24halfaSEf.exit44.us, label %204
 
-205:                                              ; preds = %202
-  %206 = lshr i32 %163, 13
-  %207 = and i32 %206, 1023
-  %208 = icmp eq i32 %207, 0
-  %209 = zext i1 %208 to i16
-  %210 = trunc nuw nsw i32 %207 to i16
-  %211 = or i16 %210, %209
-  %212 = or disjoint i16 %211, %203
+204:                                              ; preds = %201
+  %205 = lshr i32 %162, 13
+  %206 = and i32 %205, 1023
+  %207 = icmp eq i32 %206, 0
+  %208 = zext i1 %207 to i16
+  %209 = trunc nuw nsw i32 %206 to i16
+  %210 = or i16 %209, %208
+  %211 = or disjoint i16 %210, %202
   br label %_ZN9Imath_3_24halfaSEf.exit44.us
 
-_ZN9Imath_3_24halfaSEf.exit44.us:                 ; preds = %205, %202, %200, %191, %185, %182, %168
-  %.0.i.i.i43.us = phi i16 [ %166, %168 ], [ %212, %205 ], [ %201, %200 ], [ %199, %191 ], [ %203, %202 ], [ %186, %185 ], [ %180, %182 ]
-  %213 = load i16, ptr %79, align 4, !tbaa !117
-  %214 = zext i16 %213 to i64
-  %215 = getelementptr inbounds nuw %union.imath_half_uif, ptr %99, i64 %214
-  %216 = load float, ptr %215, align 4, !tbaa !25
-  %217 = fmul float %94, %216
-  %218 = bitcast float %217 to i32
-  %219 = tail call float @llvm.fabs.f32(float %217)
-  %220 = bitcast float %219 to i32
-  %221 = lshr i32 %218, 16
-  %222 = trunc nuw i32 %221 to i16
-  %223 = and i16 %222, -32768
-  %224 = icmp samesign ugt i32 %220, 947912703
-  br i1 %224, label %244, label %225
+_ZN9Imath_3_24halfaSEf.exit44.us:                 ; preds = %204, %201, %199, %190, %184, %181, %167
+  %.0.i.i.i43.us = phi i16 [ %165, %167 ], [ %211, %204 ], [ %200, %199 ], [ %198, %190 ], [ %202, %201 ], [ %185, %184 ], [ %179, %181 ]
+  %212 = load i16, ptr %79, align 4, !tbaa !117
+  %213 = zext i16 %212 to i64
+  %214 = getelementptr inbounds nuw %union.imath_half_uif, ptr %98, i64 %213
+  %215 = load float, ptr %214, align 4, !tbaa !25
+  %216 = fmul float %93, %215
+  %217 = bitcast float %216 to i32
+  %218 = tail call float @llvm.fabs.f32(float %216)
+  %219 = bitcast float %218 to i32
+  %220 = lshr i32 %217, 16
+  %221 = trunc nuw i32 %220 to i16
+  %222 = and i16 %221, -32768
+  %223 = icmp samesign ugt i32 %219, 947912703
+  br i1 %223, label %243, label %224
 
-225:                                              ; preds = %_ZN9Imath_3_24halfaSEf.exit44.us
-  %226 = icmp samesign ult i32 %220, 855638017
-  br i1 %226, label %_ZN9Imath_3_24halfaSEf.exit48.us, label %227
+224:                                              ; preds = %_ZN9Imath_3_24halfaSEf.exit44.us
+  %225 = icmp samesign ult i32 %219, 855638017
+  br i1 %225, label %_ZN9Imath_3_24halfaSEf.exit48.us, label %226
 
-227:                                              ; preds = %225
-  %228 = lshr i32 %220, 23
-  %229 = sub nuw nsw i32 126, %228
-  %230 = and i32 %220, 8388607
-  %231 = or disjoint i32 %230, 8388608
-  %232 = add nsw i32 %228, -94
-  %233 = shl i32 %231, %232
-  %234 = lshr i32 %231, %229
-  %235 = and i32 %221, 32768
-  %236 = or i32 %234, %235
-  %237 = trunc nuw i32 %236 to i16
-  %238 = icmp ugt i32 %233, -2147483648
-  br i1 %238, label %242, label %239
+226:                                              ; preds = %224
+  %227 = lshr i32 %219, 23
+  %228 = sub nuw nsw i32 126, %227
+  %229 = and i32 %219, 8388607
+  %230 = or disjoint i32 %229, 8388608
+  %231 = add nsw i32 %227, -94
+  %232 = shl i32 %230, %231
+  %233 = lshr i32 %230, %228
+  %234 = and i32 %220, 32768
+  %235 = or i32 %233, %234
+  %236 = trunc nuw i32 %235 to i16
+  %237 = icmp ugt i32 %232, -2147483648
+  br i1 %237, label %241, label %238
 
-239:                                              ; preds = %227
-  %240 = icmp ne i32 %233, -2147483648
-  %241 = and i32 %234, 1
-  %.not.i.i.i45.us = icmp eq i32 %241, 0
-  %or.cond.i.i.i46.us = select i1 %240, i1 true, i1 %.not.i.i.i45.us
-  br i1 %or.cond.i.i.i46.us, label %_ZN9Imath_3_24halfaSEf.exit48.us, label %242
+238:                                              ; preds = %226
+  %239 = icmp ne i32 %232, -2147483648
+  %240 = and i32 %233, 1
+  %.not.i.i.i45.us = icmp eq i32 %240, 0
+  %or.cond.i.i.i46.us = select i1 %239, i1 true, i1 %.not.i.i.i45.us
+  br i1 %or.cond.i.i.i46.us, label %_ZN9Imath_3_24halfaSEf.exit48.us, label %241
 
-242:                                              ; preds = %239, %227
-  %243 = add nuw i16 %237, 1
+241:                                              ; preds = %238, %226
+  %242 = add nuw i16 %236, 1
   br label %_ZN9Imath_3_24halfaSEf.exit48.us
 
-244:                                              ; preds = %_ZN9Imath_3_24halfaSEf.exit44.us
-  %245 = icmp samesign ugt i32 %220, 2139095039
-  br i1 %245, label %259, label %246, !prof !71
+243:                                              ; preds = %_ZN9Imath_3_24halfaSEf.exit44.us
+  %244 = icmp samesign ugt i32 %219, 2139095039
+  br i1 %244, label %258, label %245, !prof !71
 
-246:                                              ; preds = %244
-  %247 = icmp samesign ugt i32 %220, 1199566847
-  br i1 %247, label %257, label %248, !prof !71
+245:                                              ; preds = %243
+  %246 = icmp samesign ugt i32 %219, 1199566847
+  br i1 %246, label %256, label %247, !prof !71
 
-248:                                              ; preds = %246
-  %249 = add nuw nsw i32 %220, 134221823
-  %250 = lshr i32 %220, 13
-  %251 = and i32 %250, 1
-  %252 = add nuw nsw i32 %249, %251
-  %253 = lshr i32 %252, 13
-  %254 = and i32 %221, 32768
-  %255 = or i32 %253, %254
-  %256 = trunc i32 %255 to i16
+247:                                              ; preds = %245
+  %248 = add nuw nsw i32 %219, 134221823
+  %249 = lshr i32 %219, 13
+  %250 = and i32 %249, 1
+  %251 = add nuw nsw i32 %248, %250
+  %252 = lshr i32 %251, 13
+  %253 = and i32 %220, 32768
+  %254 = or i32 %252, %253
+  %255 = trunc i32 %254 to i16
   br label %_ZN9Imath_3_24halfaSEf.exit48.us
 
-257:                                              ; preds = %246
-  %258 = or disjoint i16 %223, 31744
+256:                                              ; preds = %245
+  %257 = or disjoint i16 %222, 31744
   br label %_ZN9Imath_3_24halfaSEf.exit48.us
 
-259:                                              ; preds = %244
-  %260 = or disjoint i16 %223, 31744
-  %261 = icmp eq i32 %220, 2139095040
-  br i1 %261, label %_ZN9Imath_3_24halfaSEf.exit48.us, label %262
+258:                                              ; preds = %243
+  %259 = or disjoint i16 %222, 31744
+  %260 = icmp eq i32 %219, 2139095040
+  br i1 %260, label %_ZN9Imath_3_24halfaSEf.exit48.us, label %261
 
-262:                                              ; preds = %259
-  %263 = lshr i32 %220, 13
-  %264 = and i32 %263, 1023
-  %265 = icmp eq i32 %264, 0
-  %266 = zext i1 %265 to i16
-  %267 = trunc nuw nsw i32 %264 to i16
-  %268 = or i16 %267, %266
-  %269 = or disjoint i16 %268, %260
+261:                                              ; preds = %258
+  %262 = lshr i32 %219, 13
+  %263 = and i32 %262, 1023
+  %264 = icmp eq i32 %263, 0
+  %265 = zext i1 %264 to i16
+  %266 = trunc nuw nsw i32 %263 to i16
+  %267 = or i16 %266, %265
+  %268 = or disjoint i16 %267, %259
   br label %_ZN9Imath_3_24halfaSEf.exit48.us
 
-_ZN9Imath_3_24halfaSEf.exit48.us:                 ; preds = %262, %259, %257, %248, %242, %239, %225
-  %.0.i.i.i47.us = phi i16 [ %223, %225 ], [ %269, %262 ], [ %258, %257 ], [ %256, %248 ], [ %260, %259 ], [ %243, %242 ], [ %237, %239 ]
-  %270 = bitcast float %94 to i32
-  %271 = tail call float @llvm.fabs.f32(float %94)
-  %272 = bitcast float %271 to i32
-  %273 = lshr i32 %270, 16
-  %274 = trunc nuw i32 %273 to i16
-  %275 = and i16 %274, -32768
-  %276 = icmp samesign ugt i32 %272, 947912703
-  br i1 %276, label %296, label %277
+_ZN9Imath_3_24halfaSEf.exit48.us:                 ; preds = %261, %258, %256, %247, %241, %238, %224
+  %.0.i.i.i47.us = phi i16 [ %222, %224 ], [ %268, %261 ], [ %257, %256 ], [ %255, %247 ], [ %259, %258 ], [ %242, %241 ], [ %236, %238 ]
+  %269 = bitcast float %93 to i32
+  %270 = tail call float @llvm.fabs.f32(float %93)
+  %271 = bitcast float %270 to i32
+  %272 = lshr i32 %269, 16
+  %273 = trunc nuw i32 %272 to i16
+  %274 = and i16 %273, -32768
+  %275 = icmp samesign ugt i32 %271, 947912703
+  br i1 %275, label %295, label %276
 
-277:                                              ; preds = %_ZN9Imath_3_24halfaSEf.exit48.us
-  %278 = icmp samesign ult i32 %272, 855638017
-  br i1 %278, label %_ZN9Imath_3_24halfaSEf.exit52.us, label %279
+276:                                              ; preds = %_ZN9Imath_3_24halfaSEf.exit48.us
+  %277 = icmp samesign ult i32 %271, 855638017
+  br i1 %277, label %_ZN9Imath_3_24halfaSEf.exit52.us, label %278
 
-279:                                              ; preds = %277
-  %280 = lshr i32 %272, 23
-  %281 = sub nuw nsw i32 126, %280
-  %282 = and i32 %272, 8388607
-  %283 = or disjoint i32 %282, 8388608
-  %284 = add nsw i32 %280, -94
-  %285 = shl i32 %283, %284
-  %286 = lshr i32 %283, %281
-  %287 = and i32 %273, 32768
-  %288 = or i32 %286, %287
-  %289 = trunc nuw i32 %288 to i16
-  %290 = icmp ugt i32 %285, -2147483648
-  br i1 %290, label %294, label %291
+278:                                              ; preds = %276
+  %279 = lshr i32 %271, 23
+  %280 = sub nuw nsw i32 126, %279
+  %281 = and i32 %271, 8388607
+  %282 = or disjoint i32 %281, 8388608
+  %283 = add nsw i32 %279, -94
+  %284 = shl i32 %282, %283
+  %285 = lshr i32 %282, %280
+  %286 = and i32 %272, 32768
+  %287 = or i32 %285, %286
+  %288 = trunc nuw i32 %287 to i16
+  %289 = icmp ugt i32 %284, -2147483648
+  br i1 %289, label %293, label %290
 
-291:                                              ; preds = %279
-  %292 = icmp ne i32 %285, -2147483648
-  %293 = and i32 %286, 1
-  %.not.i.i.i49.us = icmp eq i32 %293, 0
-  %or.cond.i.i.i50.us = select i1 %292, i1 true, i1 %.not.i.i.i49.us
-  br i1 %or.cond.i.i.i50.us, label %_ZN9Imath_3_24halfaSEf.exit52.us, label %294
+290:                                              ; preds = %278
+  %291 = icmp ne i32 %284, -2147483648
+  %292 = and i32 %285, 1
+  %.not.i.i.i49.us = icmp eq i32 %292, 0
+  %or.cond.i.i.i50.us = select i1 %291, i1 true, i1 %.not.i.i.i49.us
+  br i1 %or.cond.i.i.i50.us, label %_ZN9Imath_3_24halfaSEf.exit52.us, label %293
 
-294:                                              ; preds = %291, %279
-  %295 = add nuw i16 %289, 1
+293:                                              ; preds = %290, %278
+  %294 = add nuw i16 %288, 1
   br label %_ZN9Imath_3_24halfaSEf.exit52.us
 
-296:                                              ; preds = %_ZN9Imath_3_24halfaSEf.exit48.us
-  %297 = icmp samesign ugt i32 %272, 2139095039
-  br i1 %297, label %311, label %298, !prof !71
+295:                                              ; preds = %_ZN9Imath_3_24halfaSEf.exit48.us
+  %296 = icmp samesign ugt i32 %271, 2139095039
+  br i1 %296, label %310, label %297, !prof !71
 
-298:                                              ; preds = %296
-  %299 = icmp samesign ugt i32 %272, 1199566847
-  br i1 %299, label %309, label %300, !prof !71
+297:                                              ; preds = %295
+  %298 = icmp samesign ugt i32 %271, 1199566847
+  br i1 %298, label %308, label %299, !prof !71
 
-300:                                              ; preds = %298
-  %301 = add nuw nsw i32 %272, 134221823
-  %302 = lshr i32 %272, 13
-  %303 = and i32 %302, 1
-  %304 = add nuw nsw i32 %301, %303
-  %305 = lshr i32 %304, 13
-  %306 = and i32 %273, 32768
-  %307 = or i32 %305, %306
-  %308 = trunc i32 %307 to i16
+299:                                              ; preds = %297
+  %300 = add nuw nsw i32 %271, 134221823
+  %301 = lshr i32 %271, 13
+  %302 = and i32 %301, 1
+  %303 = add nuw nsw i32 %300, %302
+  %304 = lshr i32 %303, 13
+  %305 = and i32 %272, 32768
+  %306 = or i32 %304, %305
+  %307 = trunc i32 %306 to i16
   br label %_ZN9Imath_3_24halfaSEf.exit52.us
 
-309:                                              ; preds = %298
-  %310 = or disjoint i16 %275, 31744
+308:                                              ; preds = %297
+  %309 = or disjoint i16 %274, 31744
   br label %_ZN9Imath_3_24halfaSEf.exit52.us
 
-311:                                              ; preds = %296
-  %312 = or disjoint i16 %275, 31744
-  %313 = icmp eq i32 %272, 2139095040
-  br i1 %313, label %_ZN9Imath_3_24halfaSEf.exit52.us, label %314
+310:                                              ; preds = %295
+  %311 = or disjoint i16 %274, 31744
+  %312 = icmp eq i32 %271, 2139095040
+  br i1 %312, label %_ZN9Imath_3_24halfaSEf.exit52.us, label %313
 
-314:                                              ; preds = %311
-  %315 = lshr i32 %272, 13
-  %316 = and i32 %315, 1023
-  %317 = icmp eq i32 %316, 0
-  %318 = zext i1 %317 to i16
-  %319 = trunc nuw nsw i32 %316 to i16
-  %320 = or i16 %319, %318
-  %321 = or disjoint i16 %320, %312
+313:                                              ; preds = %310
+  %314 = lshr i32 %271, 13
+  %315 = and i32 %314, 1023
+  %316 = icmp eq i32 %315, 0
+  %317 = zext i1 %316 to i16
+  %318 = trunc nuw nsw i32 %315 to i16
+  %319 = or i16 %318, %317
+  %320 = or disjoint i16 %319, %311
   br label %_ZN9Imath_3_24halfaSEf.exit52.us
 
-_ZN9Imath_3_24halfaSEf.exit52.us:                 ; preds = %314, %311, %309, %300, %294, %291, %277
-  %.0.i.i.i51.us = phi i16 [ %275, %277 ], [ %321, %314 ], [ %310, %309 ], [ %308, %300 ], [ %312, %311 ], [ %295, %294 ], [ %289, %291 ]
-  %322 = load ptr, ptr %0, align 8, !tbaa !52
-  %323 = getelementptr inbounds nuw %"class.std::vector.26", ptr %322, i64 %indvars.iv
-  %324 = getelementptr inbounds nuw i8, ptr %323, i64 8
-  %325 = load ptr, ptr %324, align 8, !tbaa !100
-  %326 = getelementptr inbounds nuw i8, ptr %323, i64 16
-  %327 = load ptr, ptr %326, align 8, !tbaa !115
-  %.not.i.us = icmp eq ptr %325, %327
-  br i1 %.not.i.us, label %330, label %328
+_ZN9Imath_3_24halfaSEf.exit52.us:                 ; preds = %313, %310, %308, %299, %293, %290, %276
+  %.0.i.i.i51.us = phi i16 [ %274, %276 ], [ %320, %313 ], [ %309, %308 ], [ %307, %299 ], [ %311, %310 ], [ %294, %293 ], [ %288, %290 ]
+  %321 = load ptr, ptr %0, align 8, !tbaa !52
+  %322 = getelementptr inbounds nuw %"class.std::vector.26", ptr %321, i64 %indvars.iv
+  %323 = getelementptr inbounds nuw i8, ptr %322, i64 8
+  %324 = load ptr, ptr %323, align 8, !tbaa !100
+  %325 = getelementptr inbounds nuw i8, ptr %322, i64 16
+  %326 = load ptr, ptr %325, align 8, !tbaa !115
+  %.not.i.us = icmp eq ptr %324, %326
+  br i1 %.not.i.us, label %329, label %327
 
-328:                                              ; preds = %_ZN9Imath_3_24halfaSEf.exit52.us
-  store i16 %.0.i.i.i39.us, ptr %325, align 4, !tbaa !122
-  %.sroa.5.0..sroa_idx.us = getelementptr inbounds nuw i8, ptr %325, i64 2
+327:                                              ; preds = %_ZN9Imath_3_24halfaSEf.exit52.us
+  store i16 %.0.i.i.i39.us, ptr %324, align 4, !tbaa !122
+  %.sroa.5.0..sroa_idx.us = getelementptr inbounds nuw i8, ptr %324, i64 2
   store i16 %.0.i.i.i43.us, ptr %.sroa.5.0..sroa_idx.us, align 2, !tbaa !122
-  %.sroa.6.0..sroa_idx.us = getelementptr inbounds nuw i8, ptr %325, i64 4
+  %.sroa.6.0..sroa_idx.us = getelementptr inbounds nuw i8, ptr %324, i64 4
   store i16 %.0.i.i.i47.us, ptr %.sroa.6.0..sroa_idx.us, align 4, !tbaa !122
-  %.sroa.7.0..sroa_idx.us = getelementptr inbounds nuw i8, ptr %325, i64 6
+  %.sroa.7.0..sroa_idx.us = getelementptr inbounds nuw i8, ptr %324, i64 6
   store i16 %.0.i.i.i51.us, ptr %.sroa.7.0..sroa_idx.us, align 2, !tbaa !122
-  %.sroa.8.0..sroa_idx.us = getelementptr inbounds nuw i8, ptr %325, i64 8
+  %.sroa.8.0..sroa_idx.us = getelementptr inbounds nuw i8, ptr %324, i64 8
   store i16 %.0.i.i.i, ptr %.sroa.8.0..sroa_idx.us, align 4, !tbaa !122
-  %.sroa.965.0..sroa_idx.us = getelementptr inbounds nuw i8, ptr %325, i64 12
+  %.sroa.965.0..sroa_idx.us = getelementptr inbounds nuw i8, ptr %324, i64 12
   store i32 %65, ptr %.sroa.965.0..sroa_idx.us, align 4, !tbaa !59
-  %.sroa.10.0..sroa_idx.us = getelementptr inbounds nuw i8, ptr %325, i64 16
+  %.sroa.10.0..sroa_idx.us = getelementptr inbounds nuw i8, ptr %324, i64 16
   store i32 %67, ptr %.sroa.10.0..sroa_idx.us, align 4, !tbaa !59
-  %.sroa.11.0..sroa_idx.us = getelementptr inbounds nuw i8, ptr %325, i64 20
+  %.sroa.11.0..sroa_idx.us = getelementptr inbounds nuw i8, ptr %324, i64 20
   store i32 %69, ptr %.sroa.11.0..sroa_idx.us, align 4, !tbaa !59
-  %.sroa.12.0..sroa_idx.us = getelementptr inbounds nuw i8, ptr %325, i64 24
+  %.sroa.12.0..sroa_idx.us = getelementptr inbounds nuw i8, ptr %324, i64 24
   store i32 %71, ptr %.sroa.12.0..sroa_idx.us, align 4, !tbaa !59
-  %.sroa.13.0..sroa_idx.us = getelementptr inbounds nuw i8, ptr %325, i64 28
+  %.sroa.13.0..sroa_idx.us = getelementptr inbounds nuw i8, ptr %324, i64 28
   store i32 %73, ptr %.sroa.13.0..sroa_idx.us, align 4, !tbaa !59
-  %329 = getelementptr inbounds nuw i8, ptr %325, i64 32
-  store ptr %329, ptr %324, align 8, !tbaa !100
+  %328 = getelementptr inbounds nuw i8, ptr %324, i64 32
+  store ptr %328, ptr %323, align 8, !tbaa !100
   br label %_ZNSt6vectorI5RgbazSaIS0_EE9push_backERKS0_.exit.us
 
-330:                                              ; preds = %_ZN9Imath_3_24halfaSEf.exit52.us
-  %331 = load ptr, ptr %323, align 8, !tbaa !103
-  %332 = ptrtoint ptr %325 to i64
-  %333 = ptrtoint ptr %331 to i64
-  %334 = sub i64 %332, %333
-  %335 = icmp eq i64 %334, 9223372036854775776
-  br i1 %335, label %.split.us, label %_ZNKSt6vectorI5RgbazSaIS0_EE12_M_check_lenEmPKc.exit.i.i.us
+329:                                              ; preds = %_ZN9Imath_3_24halfaSEf.exit52.us
+  %330 = load ptr, ptr %322, align 8, !tbaa !103
+  %331 = ptrtoint ptr %324 to i64
+  %332 = ptrtoint ptr %330 to i64
+  %333 = sub i64 %331, %332
+  %334 = icmp eq i64 %333, 9223372036854775776
+  br i1 %334, label %.split.us, label %_ZNKSt6vectorI5RgbazSaIS0_EE12_M_check_lenEmPKc.exit.i.i.us
 
-_ZNKSt6vectorI5RgbazSaIS0_EE12_M_check_lenEmPKc.exit.i.i.us: ; preds = %330
-  %336 = ashr exact i64 %334, 5
-  %.sroa.speculated.i.i.i.us = tail call i64 @llvm.umax.i64(i64 %336, i64 1)
-  %337 = add nsw i64 %.sroa.speculated.i.i.i.us, %336
-  %338 = icmp ult i64 %337, %336
-  %339 = tail call i64 @llvm.umin.i64(i64 %337, i64 288230376151711743)
-  %340 = select i1 %338, i64 288230376151711743, i64 %339
-  %.not.i.i.i53.us = icmp ne i64 %340, 0
+_ZNKSt6vectorI5RgbazSaIS0_EE12_M_check_lenEmPKc.exit.i.i.us: ; preds = %329
+  %335 = ashr exact i64 %333, 5
+  %.sroa.speculated.i.i.i.us = tail call i64 @llvm.umax.i64(i64 %335, i64 1)
+  %336 = add nsw i64 %.sroa.speculated.i.i.i.us, %335
+  %337 = icmp ult i64 %336, %335
+  %338 = tail call i64 @llvm.umin.i64(i64 %336, i64 288230376151711743)
+  %339 = select i1 %337, i64 288230376151711743, i64 %338
+  %.not.i.i.i53.us = icmp ne i64 %339, 0
   tail call void @llvm.assume(i1 %.not.i.i.i53.us)
-  %341 = shl nuw nsw i64 %340, 5
-  %342 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %341) #27
-  %343 = getelementptr inbounds i8, ptr %342, i64 %334
-  store i16 %.0.i.i.i39.us, ptr %343, align 4, !tbaa !122
-  %.sroa.5.0..sroa_idx55.us = getelementptr inbounds nuw i8, ptr %343, i64 2
+  %340 = shl nuw nsw i64 %339, 5
+  %341 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %340) #27
+  %342 = getelementptr inbounds i8, ptr %341, i64 %333
+  store i16 %.0.i.i.i39.us, ptr %342, align 4, !tbaa !122
+  %.sroa.5.0..sroa_idx55.us = getelementptr inbounds nuw i8, ptr %342, i64 2
   store i16 %.0.i.i.i43.us, ptr %.sroa.5.0..sroa_idx55.us, align 2, !tbaa !122
-  %.sroa.6.0..sroa_idx57.us = getelementptr inbounds nuw i8, ptr %343, i64 4
+  %.sroa.6.0..sroa_idx57.us = getelementptr inbounds nuw i8, ptr %342, i64 4
   store i16 %.0.i.i.i47.us, ptr %.sroa.6.0..sroa_idx57.us, align 4, !tbaa !122
-  %.sroa.7.0..sroa_idx59.us = getelementptr inbounds nuw i8, ptr %343, i64 6
+  %.sroa.7.0..sroa_idx59.us = getelementptr inbounds nuw i8, ptr %342, i64 6
   store i16 %.0.i.i.i51.us, ptr %.sroa.7.0..sroa_idx59.us, align 2, !tbaa !122
-  %.sroa.8.0..sroa_idx61.us = getelementptr inbounds nuw i8, ptr %343, i64 8
+  %.sroa.8.0..sroa_idx61.us = getelementptr inbounds nuw i8, ptr %342, i64 8
   store i16 %.0.i.i.i, ptr %.sroa.8.0..sroa_idx61.us, align 4, !tbaa !122
-  %.sroa.965.0..sroa_idx66.us = getelementptr inbounds nuw i8, ptr %343, i64 12
+  %.sroa.965.0..sroa_idx66.us = getelementptr inbounds nuw i8, ptr %342, i64 12
   store i32 %65, ptr %.sroa.965.0..sroa_idx66.us, align 4, !tbaa !59
-  %.sroa.10.0..sroa_idx68.us = getelementptr inbounds nuw i8, ptr %343, i64 16
+  %.sroa.10.0..sroa_idx68.us = getelementptr inbounds nuw i8, ptr %342, i64 16
   store i32 %67, ptr %.sroa.10.0..sroa_idx68.us, align 4, !tbaa !59
-  %.sroa.11.0..sroa_idx70.us = getelementptr inbounds nuw i8, ptr %343, i64 20
+  %.sroa.11.0..sroa_idx70.us = getelementptr inbounds nuw i8, ptr %342, i64 20
   store i32 %69, ptr %.sroa.11.0..sroa_idx70.us, align 4, !tbaa !59
-  %.sroa.12.0..sroa_idx72.us = getelementptr inbounds nuw i8, ptr %343, i64 24
+  %.sroa.12.0..sroa_idx72.us = getelementptr inbounds nuw i8, ptr %342, i64 24
   store i32 %71, ptr %.sroa.12.0..sroa_idx72.us, align 4, !tbaa !59
-  %.sroa.13.0..sroa_idx74.us = getelementptr inbounds nuw i8, ptr %343, i64 28
+  %.sroa.13.0..sroa_idx74.us = getelementptr inbounds nuw i8, ptr %342, i64 28
   store i32 %73, ptr %.sroa.13.0..sroa_idx74.us, align 4, !tbaa !59
-  %344 = icmp sgt i64 %334, 0
-  br i1 %344, label %345, label %_ZNSt6vectorI5RgbazSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.us
+  %343 = icmp sgt i64 %333, 0
+  br i1 %343, label %344, label %_ZNSt6vectorI5RgbazSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.us
 
-345:                                              ; preds = %_ZNKSt6vectorI5RgbazSaIS0_EE12_M_check_lenEmPKc.exit.i.i.us
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %342, ptr align 4 %331, i64 %334, i1 false)
+344:                                              ; preds = %_ZNKSt6vectorI5RgbazSaIS0_EE12_M_check_lenEmPKc.exit.i.i.us
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %341, ptr align 4 %330, i64 %333, i1 false)
   br label %_ZNSt6vectorI5RgbazSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.us
 
-_ZNSt6vectorI5RgbazSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.us: ; preds = %345, %_ZNKSt6vectorI5RgbazSaIS0_EE12_M_check_lenEmPKc.exit.i.i.us
-  %346 = getelementptr inbounds nuw i8, ptr %343, i64 32
-  %.not.i17.i.i.us = icmp eq ptr %331, null
-  br i1 %.not.i17.i.i.us, label %_ZNSt6vectorI5RgbazSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.us, label %347
+_ZNSt6vectorI5RgbazSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.us: ; preds = %344, %_ZNKSt6vectorI5RgbazSaIS0_EE12_M_check_lenEmPKc.exit.i.i.us
+  %345 = getelementptr inbounds nuw i8, ptr %342, i64 32
+  %.not.i17.i.i.us = icmp eq ptr %330, null
+  br i1 %.not.i17.i.i.us, label %_ZNSt6vectorI5RgbazSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.us, label %346
 
-347:                                              ; preds = %_ZNSt6vectorI5RgbazSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.us
-  tail call void @_ZdlPvm(ptr noundef nonnull %331, i64 noundef %334) #28
+346:                                              ; preds = %_ZNSt6vectorI5RgbazSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.us
+  tail call void @_ZdlPvm(ptr noundef nonnull %330, i64 noundef %333) #28
   br label %_ZNSt6vectorI5RgbazSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.us
 
-_ZNSt6vectorI5RgbazSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.us: ; preds = %347, %_ZNSt6vectorI5RgbazSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.us
-  store ptr %342, ptr %323, align 8, !tbaa !103
-  store ptr %346, ptr %324, align 8, !tbaa !100
-  %348 = getelementptr inbounds nuw %struct.Rgbaz, ptr %342, i64 %340
-  store ptr %348, ptr %326, align 8, !tbaa !115
+_ZNSt6vectorI5RgbazSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.us: ; preds = %346, %_ZNSt6vectorI5RgbazSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.us
+  store ptr %341, ptr %322, align 8, !tbaa !103
+  store ptr %345, ptr %323, align 8, !tbaa !100
+  %347 = getelementptr inbounds nuw %struct.Rgbaz, ptr %341, i64 %339
+  store ptr %347, ptr %325, align 8, !tbaa !115
   br label %_ZNSt6vectorI5RgbazSaIS0_EE9push_backERKS0_.exit.us
 
-_ZNSt6vectorI5RgbazSaIS0_EE9push_backERKS0_.exit.us: ; preds = %_ZNSt6vectorI5RgbazSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.us, %328, %84
+_ZNSt6vectorI5RgbazSaIS0_EE9push_backERKS0_.exit.us: ; preds = %_ZNSt6vectorI5RgbazSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.us, %327, %84
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %349 = add nuw nsw i32 %.03677.us, 1
-  %exitcond.not = icmp eq i32 %349, %1
+  %348 = add nuw nsw i32 %.03677.us, 1
+  %exitcond.not = icmp eq i32 %348, %1
   br i1 %exitcond.not, label %._crit_edge.us, label %84, !llvm.loop !123
 
 ._crit_edge.us:                                   ; preds = %_ZNSt6vectorI5RgbazSaIS0_EE9push_backERKS0_.exit.us
-  %350 = add nuw nsw i32 %.03579.us, 1
-  %exitcond84.not = icmp eq i32 %350, %2
+  %349 = add nuw nsw i32 %.03579.us, 1
+  %exitcond84.not = icmp eq i32 %349, %2
   br i1 %exitcond84.not, label %._crit_edge81, label %.preheader.us, !llvm.loop !124
 
 ._crit_edge81:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %_ZN9Imath_3_24halfaSEf.exit
   ret void
 
-.split.us:                                        ; preds = %330
+.split.us:                                        ; preds = %329
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.56) #30
   unreachable
 }
@@ -7278,9 +7278,6 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
 declare float @expf(float noundef) local_unnamed_addr #7
-
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare float @sqrtf(float noundef) local_unnamed_addr #7
 
 declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #0
 
@@ -8631,6 +8628,9 @@ declare i64 @llvm.umax.i64(i64, i64) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #25
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.sqrt.f32(float) #24
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #24

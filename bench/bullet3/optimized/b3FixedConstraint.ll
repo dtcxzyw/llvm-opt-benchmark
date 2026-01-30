@@ -128,7 +128,7 @@ define dso_local void @_ZN17b3FixedConstraintD0Ev(ptr noundef nonnull align 16 d
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #13
+  tail call void @__clang_call_terminate(ptr %4) #14
   unreachable
 
 _ZN17b3TypedConstraintdlEPv.exit:                 ; preds = %1
@@ -517,7 +517,7 @@ _ZNK12b3Quaternion7nearestERKS_.exit.i:           ; preds = %206, %259
   %.0.i.i.i = select i1 %283, float -1.000000e+00, float %282
   %284 = fcmp ogt float %.0.i.i.i, 1.000000e+00
   %.1.i.i.i = select i1 %284, float 1.000000e+00, float %.0.i.i.i
-  %285 = tail call noundef float @acosf(float noundef %.1.i.i.i) #14, !tbaa !36
+  %285 = tail call noundef float @acosf(float noundef %.1.i.i.i) #15, !tbaa !36
   %.sroa.43.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   %286 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store float 0.000000e+00, ptr %286, align 4, !tbaa !26
@@ -532,43 +532,43 @@ _ZNK12b3Quaternion7nearestERKS_.exit.i:           ; preds = %206, %259
   br label %_ZN15b3TransformUtil32calculateDiffAxisAngleQuaternionERK12b3QuaternionS2_R9b3Vector3Rf.exit
 
 292:                                              ; preds = %_ZNK12b3Quaternion7nearestERKS_.exit.i
-  %293 = tail call noundef float @sqrtf(float noundef %289) #14, !tbaa !36
-  %294 = fdiv float 1.000000e+00, %293
-  %295 = fmul float %294, %270
-  %296 = fmul float %294, %274
-  %297 = fmul float %294, %278
+  %sqrt.i = tail call float @llvm.sqrt.f32(float %289)
+  %293 = fdiv float 1.000000e+00, %sqrt.i
+  %294 = fmul float %270, %293
+  %295 = fmul float %274, %293
+  %296 = fmul float %278, %293
   br label %_ZN15b3TransformUtil32calculateDiffAxisAngleQuaternionERK12b3QuaternionS2_R9b3Vector3Rf.exit
 
 _ZN15b3TransformUtil32calculateDiffAxisAngleQuaternionERK12b3QuaternionS2_R9b3Vector3Rf.exit: ; preds = %291, %292
-  %298 = phi float [ 0.000000e+00, %291 ], [ %297, %292 ]
-  %299 = phi float [ 0.000000e+00, %291 ], [ %296, %292 ]
-  %300 = phi float [ 1.000000e+00, %291 ], [ %295, %292 ]
-  %301 = fmul float %285, -2.000000e+00
-  %302 = fmul float %301, %300
-  store float %302, ptr %5, align 16, !tbaa !8
-  %303 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %304 = fmul float %301, %299
-  store float %304, ptr %303, align 4, !tbaa !8
-  %305 = fmul float %301, %298
-  store float %305, ptr %.sroa.43.0..sroa_idx.i, align 8, !tbaa !8
-  %306 = load i32, ptr %18, align 8, !tbaa !27
-  %307 = sext i32 %306 to i64
-  br label %308
+  %297 = phi float [ 0.000000e+00, %291 ], [ %296, %292 ]
+  %298 = phi float [ 0.000000e+00, %291 ], [ %295, %292 ]
+  %299 = phi float [ 1.000000e+00, %291 ], [ %294, %292 ]
+  %300 = fmul float %285, -2.000000e+00
+  %301 = fmul float %300, %299
+  store float %301, ptr %5, align 16, !tbaa !8
+  %302 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %303 = fmul float %300, %298
+  store float %303, ptr %302, align 4, !tbaa !8
+  %304 = fmul float %300, %297
+  store float %304, ptr %.sroa.43.0..sroa_idx.i, align 8, !tbaa !8
+  %305 = load i32, ptr %18, align 8, !tbaa !27
+  %306 = sext i32 %305 to i64
+  br label %307
 
-308:                                              ; preds = %_ZN15b3TransformUtil32calculateDiffAxisAngleQuaternionERK12b3QuaternionS2_R9b3Vector3Rf.exit, %308
-  %indvars.iv145 = phi i64 [ 0, %_ZN15b3TransformUtil32calculateDiffAxisAngleQuaternionERK12b3QuaternionS2_R9b3Vector3Rf.exit ], [ %indvars.iv.next146, %308 ]
-  %309 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv145
-  %310 = load float, ptr %309, align 4, !tbaa !26
-  %311 = fmul float %155, %310
-  %312 = add nuw nsw i64 %indvars.iv145, 3
-  %313 = mul nsw i64 %312, %307
-  %314 = getelementptr inbounds float, ptr %180, i64 %313
-  store float %311, ptr %314, align 4, !tbaa !26
+307:                                              ; preds = %_ZN15b3TransformUtil32calculateDiffAxisAngleQuaternionERK12b3QuaternionS2_R9b3Vector3Rf.exit, %307
+  %indvars.iv145 = phi i64 [ 0, %_ZN15b3TransformUtil32calculateDiffAxisAngleQuaternionERK12b3QuaternionS2_R9b3Vector3Rf.exit ], [ %indvars.iv.next146, %307 ]
+  %308 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv145
+  %309 = load float, ptr %308, align 4, !tbaa !26
+  %310 = fmul float %155, %309
+  %311 = add nuw nsw i64 %indvars.iv145, 3
+  %312 = mul nsw i64 %311, %306
+  %313 = getelementptr inbounds float, ptr %180, i64 %312
+  store float %310, ptr %313, align 4, !tbaa !26
   %indvars.iv.next146 = add nuw nsw i64 %indvars.iv145, 1
   %exitcond148.not = icmp eq i64 %indvars.iv.next146, 3
-  br i1 %exitcond148.not, label %315, label %308, !llvm.loop !37
+  br i1 %exitcond148.not, label %314, label %307, !llvm.loop !37
 
-315:                                              ; preds = %308
+314:                                              ; preds = %307
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
@@ -618,7 +618,7 @@ define linkonce_odr dso_local void @_ZNK11b3Matrix3x311getRotationER12b3Quaterni
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = fadd float %10, 1.000000e+00
-  %16 = tail call noundef float @sqrtf(float noundef %15) #14, !tbaa !36
+  %16 = tail call noundef float @sqrtf(float noundef %15) #15, !tbaa !36
   %17 = fmul float %16, 5.000000e-01
   %18 = fdiv float 5.000000e-01, %16
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 36
@@ -667,7 +667,7 @@ define linkonce_odr dso_local void @_ZNK11b3Matrix3x311getRotationER12b3Quaterni
   %58 = load float, ptr %57, align 4, !tbaa !26
   %59 = fsub float %54, %58
   %60 = fadd float %59, 1.000000e+00
-  %61 = tail call noundef float @sqrtf(float noundef %60) #14, !tbaa !36
+  %61 = tail call noundef float @sqrtf(float noundef %60) #15, !tbaa !36
   %62 = fmul float %61, 5.000000e-01
   %63 = getelementptr inbounds nuw float, ptr %3, i64 %46
   store float %62, ptr %63, align 4, !tbaa !26
@@ -727,8 +727,8 @@ declare void @_Z21b3AlignedFreeInternalPv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: noinline noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #10 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #14
-  tail call void @_ZSt9terminatev() #13
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #15
+  tail call void @_ZSt9terminatev() #14
   unreachable
 }
 
@@ -746,6 +746,9 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
 
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.sqrt.f32(float) #13
+
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
@@ -759,8 +762,9 @@ attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(errn
 attributes #10 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { cold nofree noreturn }
 attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #13 = { noreturn nounwind }
-attributes #14 = { nounwind }
+attributes #13 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #14 = { noreturn nounwind }
+attributes #15 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

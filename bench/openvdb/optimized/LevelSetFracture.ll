@@ -5603,8 +5603,8 @@ if.else29.i:                                      ; preds = %if.else.i
   %mul60.i = fmul float %sub50.i.i.i.i, %sub50.i.i.i.i
   %41 = call float @llvm.fmuladd.f32(float %sub46.i.i.i.i, float %sub46.i.i.i.i, float %mul60.i)
   %conv61.i = fpext float %41 to double
-  %call62.i = call double @sqrt(double noundef %conv61.i) #20
-  %call63.i = call double @atan2(double noundef %conv50.i, double noundef %call62.i) #20
+  %sqrt.i = call double @llvm.sqrt.f64(double %conv61.i)
+  %call63.i = call double @atan2(double noundef %conv50.i, double noundef %sqrt.i) #20
   %42 = fptrunc double %call63.i to float
   %43 = fpext float %42 to double
   br label %invoke.cont37
@@ -10179,8 +10179,8 @@ if.else29.i:                                      ; preds = %if.else.i
   %mul60.i = fmul float %sub50.i.i.i.i, %sub50.i.i.i.i
   %41 = call float @llvm.fmuladd.f32(float %sub46.i.i.i.i, float %sub46.i.i.i.i, float %mul60.i)
   %conv61.i = fpext float %41 to double
-  %call62.i = call double @sqrt(double noundef %conv61.i) #20
-  %call63.i = call double @atan2(double noundef %conv50.i, double noundef %call62.i) #20
+  %sqrt.i = call double @llvm.sqrt.f64(double %conv61.i)
+  %call63.i = call double @atan2(double noundef %conv50.i, double noundef %sqrt.i) #20
   %42 = fptrunc double %call63.i to float
   %43 = fpext float %42 to double
   br label %invoke.cont37
@@ -15342,9 +15342,6 @@ declare void @__cxa_guard_abort(ptr) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
 declare void @__cxa_guard_release(ptr) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @sqrt(double noundef) local_unnamed_addr #16
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i64 noundef) local_unnamed_addr #0
 
@@ -87571,7 +87568,7 @@ _ZNK7openvdb5v11_04math4Mat4IdE7getMat3Ev.exit:   ; preds = %for.cond2.preheader
   %mul8.i = fmul double %18, %18
   %24 = tail call double @llvm.fmuladd.f64(double %13, double %13, double %mul8.i)
   %25 = tail call double @llvm.fmuladd.f64(double %23, double %23, double %24)
-  %call.i = tail call noundef double @sqrt(double noundef %25) #20
+  %sqrt.i = tail call noundef double @llvm.sqrt.f64(double %25)
   %26 = tail call double @llvm.fmuladd.f64(double %9, double 0.000000e+00, double %10)
   %27 = tail call double @llvm.fmuladd.f64(double %12, double 0.000000e+00, double %26)
   %28 = tail call double @llvm.fmuladd.f64(double %14, double 0.000000e+00, double %15)
@@ -87581,7 +87578,7 @@ _ZNK7openvdb5v11_04math4Mat4IdE7getMat3Ev.exit:   ; preds = %for.cond2.preheader
   %mul8.i38 = fmul double %29, %29
   %32 = tail call double @llvm.fmuladd.f64(double %27, double %27, double %mul8.i38)
   %33 = tail call double @llvm.fmuladd.f64(double %31, double %31, double %32)
-  %call.i40 = tail call noundef double @sqrt(double noundef %33) #20
+  %sqrt.i40 = tail call noundef double @llvm.sqrt.f64(double %33)
   %34 = tail call double @llvm.fmuladd.f64(double %9, double 0.000000e+00, double %mul4.i)
   %35 = fadd double %12, %34
   %36 = tail call double @llvm.fmuladd.f64(double %14, double 0.000000e+00, double %mul11.i)
@@ -87591,45 +87588,45 @@ _ZNK7openvdb5v11_04math4Mat4IdE7getMat3Ev.exit:   ; preds = %for.cond2.preheader
   %mul8.i59 = fmul double %37, %37
   %40 = tail call double @llvm.fmuladd.f64(double %35, double %35, double %mul8.i59)
   %41 = tail call double @llvm.fmuladd.f64(double %39, double %39, double %40)
-  %call.i61 = tail call noundef double @sqrt(double noundef %41) #20
-  %sub.i.i = fsub double %call.i, %call.i
+  %sqrt.i61 = tail call noundef double @llvm.sqrt.f64(double %41)
+  %sub.i.i = fsub double %sqrt.i, %sqrt.i
   %42 = tail call noundef double @llvm.fabs.f64(double %sub.i.i)
   %cmp.i.i = fcmp ogt double %42, 0x3E7AD7F29ABCAF48
   br i1 %cmp.i.i, label %_ZN7openvdb5v11_04math18isRelOrApproxEqualIdEEbRKT_S5_S5_S5_.exit.i, label %land.lhs.true.i
 
 _ZN7openvdb5v11_04math18isRelOrApproxEqualIdEEbRKT_S5_S5_S5_.exit.i: ; preds = %_ZNK7openvdb5v11_04math4Mat4IdE7getMat3Ev.exit
-  %div8.i.i = fdiv double %sub.i.i, %call.i
+  %div8.i.i = fdiv double %sub.i.i, %sqrt.i
   %43 = tail call noundef double @llvm.fabs.f64(double %div8.i.i)
   %cmp11.i.i = fcmp ugt double %43, 0x3E7AD7F29ABCAF48
   br i1 %cmp11.i.i, label %_ZNK7openvdb5v11_04math4Vec3IdE2eqERKS3_d.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %_ZN7openvdb5v11_04math18isRelOrApproxEqualIdEEbRKT_S5_S5_S5_.exit.i, %_ZNK7openvdb5v11_04math4Mat4IdE7getMat3Ev.exit
-  %sub.i3.i = fsub double %call.i40, %call.i
+  %sub.i3.i = fsub double %sqrt.i40, %sqrt.i
   %44 = tail call noundef double @llvm.fabs.f64(double %sub.i3.i)
   %cmp.i4.i = fcmp ogt double %44, 0x3E7AD7F29ABCAF48
   br i1 %cmp.i4.i, label %_ZN7openvdb5v11_04math18isRelOrApproxEqualIdEEbRKT_S5_S5_S5_.exit11.i, label %land.rhs.i
 
 _ZN7openvdb5v11_04math18isRelOrApproxEqualIdEEbRKT_S5_S5_S5_.exit11.i: ; preds = %land.lhs.true.i
-  %45 = tail call noundef double @llvm.fabs.f64(double %call.i)
-  %46 = tail call noundef double @llvm.fabs.f64(double %call.i40)
+  %45 = tail call noundef double @llvm.fabs.f64(double %sqrt.i)
+  %46 = tail call noundef double @llvm.fabs.f64(double %sqrt.i40)
   %cmp3.i7.i = fcmp ogt double %45, %46
-  %..i8.i = select i1 %cmp3.i7.i, double %call.i, double %call.i40
+  %..i8.i = select i1 %cmp3.i7.i, double %sqrt.i, double %sqrt.i40
   %div8.i9.i = fdiv double %sub.i3.i, %..i8.i
   %47 = tail call noundef double @llvm.fabs.f64(double %div8.i9.i)
   %cmp11.i10.i = fcmp ugt double %47, 0x3E7AD7F29ABCAF48
   br i1 %cmp11.i10.i, label %_ZNK7openvdb5v11_04math4Vec3IdE2eqERKS3_d.exit, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %_ZN7openvdb5v11_04math18isRelOrApproxEqualIdEEbRKT_S5_S5_S5_.exit11.i, %land.lhs.true.i
-  %sub.i12.i = fsub double %call.i61, %call.i
+  %sub.i12.i = fsub double %sqrt.i61, %sqrt.i
   %48 = tail call noundef double @llvm.fabs.f64(double %sub.i12.i)
   %cmp.i13.i = fcmp ogt double %48, 0x3E7AD7F29ABCAF48
   br i1 %cmp.i13.i, label %if.end.i15.i, label %_ZNK7openvdb5v11_04math4Vec3IdE2eqERKS3_d.exit
 
 if.end.i15.i:                                     ; preds = %land.rhs.i
-  %49 = tail call noundef double @llvm.fabs.f64(double %call.i)
-  %50 = tail call noundef double @llvm.fabs.f64(double %call.i61)
+  %49 = tail call noundef double @llvm.fabs.f64(double %sqrt.i)
+  %50 = tail call noundef double @llvm.fabs.f64(double %sqrt.i61)
   %cmp3.i16.i = fcmp ogt double %49, %50
-  %..i17.i = select i1 %cmp3.i16.i, double %call.i, double %call.i61
+  %..i17.i = select i1 %cmp3.i16.i, double %sqrt.i, double %sqrt.i61
   %div8.i18.i = fdiv double %sub.i12.i, %..i17.i
   %51 = tail call noundef double @llvm.fabs.f64(double %div8.i18.i)
   %cmp11.i19.i = fcmp ole double %51, 0x3E7AD7F29ABCAF48
@@ -87637,9 +87634,9 @@ if.end.i15.i:                                     ; preds = %land.rhs.i
 
 _ZNK7openvdb5v11_04math4Vec3IdE2eqERKS3_d.exit:   ; preds = %_ZN7openvdb5v11_04math18isRelOrApproxEqualIdEEbRKT_S5_S5_S5_.exit.i, %_ZN7openvdb5v11_04math18isRelOrApproxEqualIdEEbRKT_S5_S5_S5_.exit11.i, %land.rhs.i, %if.end.i15.i
   %52 = phi i1 [ false, %_ZN7openvdb5v11_04math18isRelOrApproxEqualIdEEbRKT_S5_S5_S5_.exit11.i ], [ false, %_ZN7openvdb5v11_04math18isRelOrApproxEqualIdEEbRKT_S5_S5_S5_.exit.i ], [ %cmp11.i19.i, %if.end.i15.i ], [ true, %land.rhs.i ]
-  %fneg = fneg double %call.i
-  %fneg20 = fneg double %call.i40
-  %fneg29 = fneg double %call.i61
+  %fneg = fneg double %sqrt.i
+  %fneg20 = fneg double %sqrt.i40
+  %fneg29 = fneg double %sqrt.i61
   %arrayidx3.i.i74 = getelementptr inbounds nuw i8, ptr %ref.tmp35, i64 8
   %arrayidx9.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp35, i64 32
   %arrayidx11.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp35, i64 40
@@ -87652,7 +87649,7 @@ _ZNK7openvdb5v11_04math4Vec3IdE2eqERKS3_d.exit:   ; preds = %_ZN7openvdb5v11_04m
   %arrayidx20.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp34, i64 16
   %arrayidx22.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp34, i64 40
   %arrayidx25.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp34, i64 64
-  %arrayidx5.i87 = getelementptr inbounds nuw i8, ptr %ref.tmp43, i64 16
+  %arrayidx5.i88 = getelementptr inbounds nuw i8, ptr %ref.tmp43, i64 16
   %arrayidx.i.i.i91 = getelementptr inbounds nuw i8, ptr %axis.i, i64 8
   %arrayidx.i.i19.i = getelementptr inbounds nuw i8, ptr %axis.i, i64 16
   %arrayidx3.i95 = getelementptr inbounds nuw i8, ptr %ref.tmp46, i64 8
@@ -87679,12 +87676,12 @@ for.body:                                         ; preds = %for.body.outer, %fo
   %n.0350 = phi i64 [ %inc, %for.inc ], [ %n.0350.ph, %for.body.outer ]
   %and = and i64 %n.0350, 1
   %tobool.not = icmp eq i64 %and, 0
-  %cond = select i1 %tobool.not, double %call.i, double %fneg
+  %cond = select i1 %tobool.not, double %sqrt.i, double %fneg
   %and16 = and i64 %n.0350, 2
   %tobool17.not = icmp eq i64 %and16, 0
-  %cond24 = select i1 %tobool17.not, double %call.i40, double %fneg20
+  %cond24 = select i1 %tobool17.not, double %sqrt.i40, double %fneg20
   %tobool26.not = icmp samesign ult i64 %n.0350, 4
-  %cond33 = select i1 %tobool26.not, double %call.i61, double %fneg29
+  %cond33 = select i1 %tobool26.not, double %sqrt.i61, double %fneg29
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %arrayidx3.i.i74, i8 0, i64 24, i1 false), !alias.scope !1100
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %arrayidx11.i.i, i8 0, i64 24, i1 false), !alias.scope !1100
   store double %cond, ptr %ref.tmp35, align 8, !alias.scope !1100
@@ -87771,8 +87768,8 @@ if.else22.i:                                      ; preds = %if.else.i
   %call34.i = call double @atan2(double noundef %80, double noundef %79) #20, !noalias !1106
   %mul46.i = fmul double %79, %79
   %90 = call double @llvm.fmuladd.f64(double %77, double %77, double %mul46.i)
-  %call47.i = call double @sqrt(double noundef %90) #20, !noalias !1106
-  %call48.i = call double @atan2(double noundef %75, double noundef %call47.i) #20, !noalias !1106
+  %sqrt.i85 = call double @llvm.sqrt.f64(double %90)
+  %call48.i = call double @atan2(double noundef %75, double noundef %sqrt.i85) #20, !noalias !1106
   br label %_ZN7openvdb5v11_04math11eulerAnglesINS1_4Mat3IdEEEENS1_4Vec3INT_10value_typeEEERKS6_NS1_13RotationOrderES7_.exit
 
 _ZN7openvdb5v11_04math11eulerAnglesINS1_4Mat3IdEEEENS1_4Vec3INT_10value_typeEEERKS6_NS1_13RotationOrderES7_.exit: ; preds = %if.then.i, %if.then12.i, %if.else22.i
@@ -87780,23 +87777,23 @@ _ZN7openvdb5v11_04math11eulerAnglesINS1_4Mat3IdEEEENS1_4Vec3INT_10value_typeEEER
   %psi.7.sink.i = phi double [ %call48.i, %if.else22.i ], [ 0x3FF921FB54442D18, %if.then.i ], [ 0xBFF921FB54442D18, %if.then12.i ]
   %theta.7.sink.i = phi double [ %call28.i, %if.else22.i ], [ %mul.i, %if.then.i ], [ %fneg21.i, %if.then12.i ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp43, i8 0, i64 16, i1 false)
-  store double 1.000000e+00, ptr %arrayidx5.i87, align 8
+  store double 1.000000e+00, ptr %arrayidx5.i88, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %axis.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %d.i.i), !noalias !1109
   call void @_ZNK7openvdb5v11_04math4Vec3IdE4unitEdRd(ptr nonnull sret(%"class.openvdb::v11_0::math::Vec3") align 8 %axis.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp43, double noundef 0.000000e+00, ptr noundef nonnull align 8 dereferenceable(8) %d.i.i), !noalias !1109
   call void @llvm.lifetime.end.p0(ptr nonnull %d.i.i), !noalias !1109
-  %call.i89 = call double @cos(double noundef %theta.7.sink.i) #20, !noalias !1109
+  %call.i = call double @cos(double noundef %theta.7.sink.i) #20, !noalias !1109
   %call1.i = call double @sin(double noundef %theta.7.sink.i) #20, !noalias !1109
-  %sub.i = fsub double 1.000000e+00, %call.i89
+  %sub.i = fsub double 1.000000e+00, %call.i
   %91 = load double, ptr %axis.i, align 8, !noalias !1109
   %mul.i90 = fmul double %91, %91
-  %92 = call double @llvm.fmuladd.f64(double %mul.i90, double %sub.i, double %call.i89)
+  %92 = call double @llvm.fmuladd.f64(double %mul.i90, double %sub.i, double %call.i)
   %93 = load double, ptr %arrayidx.i.i.i91, align 8, !noalias !1109
   %mul8.i92 = fmul double %93, %93
-  %94 = call double @llvm.fmuladd.f64(double %mul8.i92, double %sub.i, double %call.i89)
+  %94 = call double @llvm.fmuladd.f64(double %mul8.i92, double %sub.i, double %call.i)
   %95 = load double, ptr %arrayidx.i.i19.i, align 8, !noalias !1109
   %mul14.i = fmul double %95, %95
-  %96 = call double @llvm.fmuladd.f64(double %mul14.i, double %sub.i, double %call.i89)
+  %96 = call double @llvm.fmuladd.f64(double %mul14.i, double %sub.i, double %call.i)
   %mul20.i93 = fmul double %91, %93
   %mul21.i = fmul double %sub.i, %mul20.i93
   %mul23.i = fmul double %call1.i, %95
@@ -89086,9 +89083,9 @@ entry:
   %arrayidx10.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %3 = load double, ptr %arrayidx10.i, align 8
   %4 = tail call double @llvm.fmuladd.f64(double %3, double %3, double %2)
-  %call.i = tail call noundef double @sqrt(double noundef %4) #20
-  store double %call.i, ptr %len, align 8
-  %5 = tail call noundef double @llvm.fabs.f64(double %call.i)
+  %sqrt.i = tail call noundef double @llvm.sqrt.f64(double %4)
+  store double %sqrt.i, ptr %len, align 8
+  %5 = tail call noundef double @llvm.fabs.f64(double %sqrt.i)
   %cmp.i.i = fcmp ule double %5, %eps
   br i1 %cmp.i.i, label %if.then, label %if.end
 
@@ -89145,15 +89142,15 @@ lpad9:                                            ; preds = %try.cont, %catch
 if.end:                                           ; preds = %entry
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, i64 24, i1 false)
   %10 = load double, ptr %agg.result, align 8, !alias.scope !1134
-  %div.i.i = fdiv double %10, %call.i
+  %div.i.i = fdiv double %10, %sqrt.i
   store double %div.i.i, ptr %agg.result, align 8, !alias.scope !1134
   %arrayidx3.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   %11 = load double, ptr %arrayidx3.i.i, align 8, !alias.scope !1134
-  %div4.i.i = fdiv double %11, %call.i
+  %div4.i.i = fdiv double %11, %sqrt.i
   store double %div4.i.i, ptr %arrayidx3.i.i, align 8, !alias.scope !1134
   %arrayidx6.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   %12 = load double, ptr %arrayidx6.i.i, align 8, !alias.scope !1134
-  %div7.i.i = fdiv double %12, %call.i
+  %div7.i.i = fdiv double %12, %sqrt.i
   store double %div7.i.i, ptr %arrayidx6.i.i, align 8, !alias.scope !1134
   ret void
 
@@ -257202,6 +257199,9 @@ declare i64 @llvm.umax.i64(i64, i64) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #24
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.sqrt.f64(double) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(ptr captures(none)) #25

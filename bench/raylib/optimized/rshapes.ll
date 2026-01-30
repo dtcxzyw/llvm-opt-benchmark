@@ -253,26 +253,26 @@ define void @DrawLineBezier(<2 x float> %0, <2 x float> %1, float noundef %2, i3
   %11 = fmul float %7, 5.000000e-01
   br label %16
 
-12:                                               ; preds = %49
+12:                                               ; preds = %48
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  store float %52, ptr %15, align 4
-  store float %51, ptr %14, align 8
-  store float %50, ptr %13, align 4
-  store float %53, ptr %5, align 16
+  store float %51, ptr %15, align 4
+  store float %50, ptr %14, align 8
+  store float %49, ptr %13, align 4
+  store float %52, ptr %5, align 16
   call void @DrawTriangleStrip(ptr noundef nonnull %5, i32 noundef 50, i32 %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 
-16:                                               ; preds = %4, %49
-  %indvars.iv = phi i64 [ 1, %4 ], [ %indvars.iv.next, %49 ]
-  %17 = phi float [ 0.000000e+00, %4 ], [ %50, %49 ]
-  %18 = phi float [ 0.000000e+00, %4 ], [ %51, %49 ]
-  %19 = phi float [ 0.000000e+00, %4 ], [ %52, %49 ]
-  %.sroa.835.050 = phi float [ %.sroa.041.4.vec.extract47, %4 ], [ %.0.i, %49 ]
-  %.sroa.031.049 = phi float [ %.sroa.041.0.vec.extract43, %4 ], [ %34, %49 ]
-  %20 = phi float [ 0.000000e+00, %4 ], [ %53, %49 ]
+16:                                               ; preds = %4, %48
+  %indvars.iv = phi i64 [ 1, %4 ], [ %indvars.iv.next, %48 ]
+  %17 = phi float [ 0.000000e+00, %4 ], [ %49, %48 ]
+  %18 = phi float [ 0.000000e+00, %4 ], [ %50, %48 ]
+  %19 = phi float [ 0.000000e+00, %4 ], [ %51, %48 ]
+  %.sroa.835.050 = phi float [ %.sroa.041.4.vec.extract47, %4 ], [ %.0.i, %48 ]
+  %.sroa.031.049 = phi float [ %.sroa.041.0.vec.extract43, %4 ], [ %34, %48 ]
+  %20 = phi float [ 0.000000e+00, %4 ], [ %52, %48 ]
   %21 = trunc nuw nsw i64 %indvars.iv to i32
   %22 = uitofp nneg i32 %21 to float
   %23 = fdiv float %22, 1.200000e+01
@@ -299,43 +299,43 @@ EaseCubicInOut.exit:                              ; preds = %25, %29
   %36 = fsub float %34, %.sroa.031.049
   %37 = fmul float %35, %35
   %38 = tail call float @llvm.fmuladd.f32(float %36, float %36, float %37)
-  %39 = tail call float @sqrtf(float noundef %38) #16
-  %40 = fdiv float %10, %39
-  %41 = icmp eq i64 %indvars.iv, 1
-  %42 = fneg float %36
-  br i1 %41, label %43, label %EaseCubicInOut.exit._crit_edge
+  %sqrt = tail call float @llvm.sqrt.f32(float %38)
+  %39 = fdiv float %10, %sqrt
+  %40 = icmp eq i64 %indvars.iv, 1
+  %41 = fneg float %36
+  br i1 %40, label %42, label %EaseCubicInOut.exit._crit_edge
 
 EaseCubicInOut.exit._crit_edge:                   ; preds = %EaseCubicInOut.exit
   %.pre = fneg float %35
-  br label %49
+  br label %48
 
-43:                                               ; preds = %EaseCubicInOut.exit
-  %44 = tail call float @llvm.fmuladd.f32(float %35, float %40, float %.sroa.031.049)
-  %45 = tail call float @llvm.fmuladd.f32(float %42, float %40, float %.sroa.835.050)
-  %46 = fneg float %35
-  %47 = tail call float @llvm.fmuladd.f32(float %46, float %40, float %.sroa.031.049)
-  %48 = tail call float @llvm.fmuladd.f32(float %36, float %40, float %.sroa.835.050)
-  br label %49
+42:                                               ; preds = %EaseCubicInOut.exit
+  %43 = tail call float @llvm.fmuladd.f32(float %35, float %39, float %.sroa.031.049)
+  %44 = tail call float @llvm.fmuladd.f32(float %41, float %39, float %.sroa.835.050)
+  %45 = fneg float %35
+  %46 = tail call float @llvm.fmuladd.f32(float %45, float %39, float %.sroa.031.049)
+  %47 = tail call float @llvm.fmuladd.f32(float %36, float %39, float %.sroa.835.050)
+  br label %48
 
-49:                                               ; preds = %EaseCubicInOut.exit._crit_edge, %43
-  %.pre-phi = phi float [ %.pre, %EaseCubicInOut.exit._crit_edge ], [ %46, %43 ]
-  %50 = phi float [ %17, %EaseCubicInOut.exit._crit_edge ], [ %48, %43 ]
-  %51 = phi float [ %18, %EaseCubicInOut.exit._crit_edge ], [ %47, %43 ]
-  %52 = phi float [ %19, %EaseCubicInOut.exit._crit_edge ], [ %45, %43 ]
-  %53 = phi float [ %20, %EaseCubicInOut.exit._crit_edge ], [ %44, %43 ]
-  %54 = tail call float @llvm.fmuladd.f32(float %.pre-phi, float %40, float %34)
+48:                                               ; preds = %EaseCubicInOut.exit._crit_edge, %42
+  %.pre-phi = phi float [ %.pre, %EaseCubicInOut.exit._crit_edge ], [ %45, %42 ]
+  %49 = phi float [ %17, %EaseCubicInOut.exit._crit_edge ], [ %47, %42 ]
+  %50 = phi float [ %18, %EaseCubicInOut.exit._crit_edge ], [ %46, %42 ]
+  %51 = phi float [ %19, %EaseCubicInOut.exit._crit_edge ], [ %44, %42 ]
+  %52 = phi float [ %20, %EaseCubicInOut.exit._crit_edge ], [ %43, %42 ]
+  %53 = tail call float @llvm.fmuladd.f32(float %.pre-phi, float %39, float %34)
   %.idx = shl nuw nsw i64 %indvars.iv, 4
-  %55 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx
-  %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
-  store float %54, ptr %56, align 8
-  %57 = tail call float @llvm.fmuladd.f32(float %36, float %40, float %.0.i)
-  %58 = getelementptr inbounds nuw i8, ptr %55, i64 12
-  store float %57, ptr %58, align 4
-  %59 = tail call float @llvm.fmuladd.f32(float %35, float %40, float %34)
-  store float %59, ptr %55, align 16
-  %60 = tail call float @llvm.fmuladd.f32(float %42, float %40, float %.0.i)
-  %61 = getelementptr inbounds nuw i8, ptr %55, i64 4
-  store float %60, ptr %61, align 4
+  %54 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
+  store float %53, ptr %55, align 8
+  %56 = tail call float @llvm.fmuladd.f32(float %36, float %39, float %.0.i)
+  %57 = getelementptr inbounds nuw i8, ptr %54, i64 12
+  store float %56, ptr %57, align 4
+  %58 = tail call float @llvm.fmuladd.f32(float %35, float %39, float %34)
+  store float %58, ptr %54, align 16
+  %59 = tail call float @llvm.fmuladd.f32(float %41, float %39, float %.0.i)
+  %60 = getelementptr inbounds nuw i8, ptr %54, i64 4
+  store float %59, ptr %60, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 25
   br i1 %exitcond.not, label %12, label %16
@@ -344,11 +344,8 @@ EaseCubicInOut.exit._crit_edge:                   ; preds = %EaseCubicInOut.exit
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare float @sqrtf(float noundef) local_unnamed_addr #8
-
 ; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fmuladd.f32(float, float, float) #9
+declare float @llvm.fmuladd.f32(float, float, float) #8
 
 ; Function Attrs: nounwind uwtable
 define void @DrawTriangleStrip(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 %2) local_unnamed_addr #6 {
@@ -413,49 +410,49 @@ define void @DrawLineEx(<2 x float> %0, <2 x float> %1, float noundef %2, i32 %3
   %7 = fsub float %.sroa.019.4.vec.extract, %.sroa.028.4.vec.extract
   %8 = fmul float %7, %7
   %9 = tail call float @llvm.fmuladd.f32(float %6, float %6, float %8)
-  %10 = tail call float @sqrtf(float noundef %9) #16
-  %11 = fcmp ogt float %10, 0.000000e+00
-  %12 = fcmp ogt float %2, 0.000000e+00
-  %or.cond = and i1 %12, %11
-  br i1 %or.cond, label %13, label %34
+  %10 = fcmp ogt float %9, 0.000000e+00
+  %11 = fcmp ogt float %2, 0.000000e+00
+  %or.cond = and i1 %11, %10
+  br i1 %or.cond, label %12, label %33
 
-13:                                               ; preds = %4
+12:                                               ; preds = %4
   %.sroa.028.0.vec.extract = extractelement <2 x float> %0, i64 0
   %.sroa.019.0.vec.extract = extractelement <2 x float> %1, i64 0
-  %14 = fmul float %10, 2.000000e+00
-  %15 = fdiv float %2, %14
-  %16 = fneg float %15
-  %17 = fmul float %7, %16
-  %18 = fmul float %6, %15
+  %sqrt = tail call float @llvm.sqrt.f32(float %9)
+  %13 = fmul float %sqrt, 2.000000e+00
+  %14 = fdiv float %2, %13
+  %15 = fneg float %14
+  %16 = fmul float %7, %15
+  %17 = fmul float %6, %14
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %19 = fsub float %.sroa.028.0.vec.extract, %17
-  store float %19, ptr %5, align 16
-  %20 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %21 = fsub float %.sroa.028.4.vec.extract, %18
-  store float %21, ptr %20, align 4
-  %22 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %23 = fadd float %.sroa.028.0.vec.extract, %17
-  store float %23, ptr %22, align 8
-  %24 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  %25 = fadd float %.sroa.028.4.vec.extract, %18
-  store float %25, ptr %24, align 4
-  %26 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %27 = fsub float %.sroa.019.0.vec.extract, %17
-  store float %27, ptr %26, align 16
-  %28 = getelementptr inbounds nuw i8, ptr %5, i64 20
-  %29 = fsub float %.sroa.019.4.vec.extract, %18
-  store float %29, ptr %28, align 4
-  %30 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %31 = fadd float %.sroa.019.0.vec.extract, %17
-  store float %31, ptr %30, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %5, i64 28
-  %33 = fadd float %.sroa.019.4.vec.extract, %18
-  store float %33, ptr %32, align 4
+  %18 = fsub float %.sroa.028.0.vec.extract, %16
+  store float %18, ptr %5, align 16
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %20 = fsub float %.sroa.028.4.vec.extract, %17
+  store float %20, ptr %19, align 4
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %22 = fadd float %.sroa.028.0.vec.extract, %16
+  store float %22, ptr %21, align 8
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 12
+  %24 = fadd float %.sroa.028.4.vec.extract, %17
+  store float %24, ptr %23, align 4
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %26 = fsub float %.sroa.019.0.vec.extract, %16
+  store float %26, ptr %25, align 16
+  %27 = getelementptr inbounds nuw i8, ptr %5, i64 20
+  %28 = fsub float %.sroa.019.4.vec.extract, %17
+  store float %28, ptr %27, align 4
+  %29 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %30 = fadd float %.sroa.019.0.vec.extract, %16
+  store float %30, ptr %29, align 8
+  %31 = getelementptr inbounds nuw i8, ptr %5, i64 28
+  %32 = fadd float %.sroa.019.4.vec.extract, %17
+  store float %32, ptr %31, align 4
   call void @DrawTriangleStrip(ptr noundef nonnull %5, i32 noundef 4, i32 %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %34
+  br label %33
 
-34:                                               ; preds = %13, %4
+33:                                               ; preds = %12, %4
   ret void
 }
 
@@ -660,19 +657,19 @@ define void @DrawCircleSector(<2 x float> %0, float noundef %1, float noundef %2
 }
 
 ; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.ceil.f32(float) #9
+declare float @llvm.ceil.f32(float) #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare float @acosf(float noundef) local_unnamed_addr #8
+declare float @acosf(float noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare float @powf(float noundef, float noundef) local_unnamed_addr #8
+declare float @powf(float noundef, float noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare float @cosf(float noundef) local_unnamed_addr #8
+declare float @cosf(float noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare float @sinf(float noundef) local_unnamed_addr #8
+declare float @sinf(float noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
 define void @DrawCircleSectorLines(<2 x float> %0, float noundef %1, float noundef %2, float noundef %3, i32 noundef %4, i32 %5) local_unnamed_addr #4 {
@@ -2942,35 +2939,31 @@ define void @DrawSplineLinear(ptr noundef readonly captures(none) %0, i32 nounde
   %25 = fsub float %22, %24
   %26 = fmul float %25, %25
   %27 = tail call float @llvm.fmuladd.f32(float %20, float %20, float %26)
-  %28 = tail call float @sqrtf(float noundef %27) #16
-  %29 = fcmp ogt float %28, 0.000000e+00
-  %30 = fmul float %28, 2.000000e+00
-  %31 = fdiv float %2, %30
-  %.1 = select i1 %29, float %31, float %.050
-  %32 = fneg float %.1
-  %33 = fmul float %25, %32
-  %34 = fmul float %20, %.1
+  %sqrt = tail call float @llvm.sqrt.f32(float %27)
+  %28 = fcmp ogt float %27, 0.000000e+00
+  %29 = fmul float %sqrt, 2.000000e+00
+  %30 = fdiv float %2, %29
+  %.1 = select i1 %28, float %30, float %.050
+  %31 = fneg float %.1
+  %32 = fmul float %25, %31
+  %33 = fmul float %20, %.1
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %35 = load float, ptr %18, align 4
-  %36 = fsub float %35, %33
-  store float %36, ptr %5, align 16
-  %37 = load float, ptr %23, align 4
-  %38 = fsub float %37, %34
-  store float %38, ptr %8, align 4
-  %39 = fadd float %35, %33
-  store float %39, ptr %9, align 8
-  %40 = fadd float %37, %34
-  store float %40, ptr %10, align 4
-  %41 = load float, ptr %16, align 4
-  %42 = fsub float %41, %33
-  store float %42, ptr %11, align 16
-  %43 = load float, ptr %21, align 4
-  %44 = fsub float %43, %34
-  store float %44, ptr %12, align 4
-  %45 = fadd float %33, %41
-  store float %45, ptr %13, align 8
-  %46 = fadd float %34, %43
-  store float %46, ptr %14, align 4
+  %34 = fsub float %19, %32
+  store float %34, ptr %5, align 16
+  %35 = fsub float %24, %33
+  store float %35, ptr %8, align 4
+  %36 = fadd float %19, %32
+  store float %36, ptr %9, align 8
+  %37 = fadd float %24, %33
+  store float %37, ptr %10, align 4
+  %38 = fsub float %17, %32
+  store float %38, ptr %11, align 16
+  %39 = fsub float %22, %33
+  store float %39, ptr %12, align 4
+  %40 = fadd float %17, %32
+  store float %40, ptr %13, align 8
+  %41 = fadd float %33, %22
+  store float %41, ptr %14, align 4
   call void @DrawTriangleStrip(ptr noundef nonnull %5, i32 noundef 4, i32 %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -2984,222 +2977,223 @@ define void @DrawSplineLinear(ptr noundef readonly captures(none) %0, i32 nounde
 define void @DrawSplineBasis(ptr noundef readonly captures(none) %0, i32 noundef %1, float noundef %2, i32 %3) local_unnamed_addr #4 {
   %5 = alloca [50 x %struct.Vector2], align 16
   %6 = icmp slt i32 %1, 4
-  br i1 %6, label %122, label %.lr.ph
+  br i1 %6, label %121, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(400) %5, i8 0, i64 400, i1 false)
-  %7 = add nsw i32 %1, -3
-  %8 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %10 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  %11 = fmul float %2, 5.000000e-01
-  %wide.trip.count = zext nneg i32 %7 to i64
-  br label %12
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(384) %7, i8 0, i64 384, i1 false)
+  %8 = add nsw i32 %1, -3
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 12
+  %12 = fmul float %2, 5.000000e-01
+  %wide.trip.count = zext nneg i32 %8 to i64
+  br label %13
 
 ._crit_edge:                                      ; preds = %.split137.us
-  tail call void @DrawCircleSector(<2 x float> %.us-phi144, float noundef %11, float noundef 0.000000e+00, float noundef 3.600000e+02, i32 noundef 36, i32 %3)
+  tail call void @DrawCircleSector(<2 x float> %.us-phi144, float noundef %12, float noundef 0.000000e+00, float noundef 3.600000e+02, i32 noundef 36, i32 %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %122
+  br label %121
 
-12:                                               ; preds = %.lr.ph, %.split137.us
+13:                                               ; preds = %.lr.ph, %.split137.us
   %indvars.iv170 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next171, %.split137.us ]
-  %13 = phi float [ 0.000000e+00, %.lr.ph ], [ %.us-phi, %.split137.us ]
-  %14 = phi float [ 0.000000e+00, %.lr.ph ], [ %.us-phi138, %.split137.us ]
-  %15 = phi float [ 0.000000e+00, %.lr.ph ], [ %.us-phi139, %.split137.us ]
+  %14 = phi float [ 0.000000e+00, %.lr.ph ], [ %.us-phi, %.split137.us ]
+  %15 = phi float [ 0.000000e+00, %.lr.ph ], [ %.us-phi138, %.split137.us ]
+  %16 = phi float [ 0.000000e+00, %.lr.ph ], [ %.us-phi139, %.split137.us ]
   %.0122151 = phi float [ 0.000000e+00, %.lr.ph ], [ %.us-phi143, %.split137.us ]
   %.0123150 = phi float [ 0.000000e+00, %.lr.ph ], [ %.us-phi142, %.split137.us ]
   %.0125149 = phi float [ 0.000000e+00, %.lr.ph ], [ %.us-phi141, %.split137.us ]
   %.us-phi140147148 = phi float [ 0.000000e+00, %.lr.ph ], [ %.us-phi140, %.split137.us ]
-  %16 = getelementptr inbounds nuw %struct.Vector2, ptr %0, i64 %indvars.iv170
-  %.sroa.021.0.copyload = load float, ptr %16, align 4
-  %.sroa.725.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 4
+  %17 = getelementptr inbounds nuw %struct.Vector2, ptr %0, i64 %indvars.iv170
+  %.sroa.021.0.copyload = load float, ptr %17, align 4
+  %.sroa.725.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 4
   %.sroa.725.0.copyload = load float, ptr %.sroa.725.0..sroa_idx, align 4
   %indvars.iv.next171 = add nuw nsw i64 %indvars.iv170, 1
-  %17 = getelementptr inbounds nuw %struct.Vector2, ptr %0, i64 %indvars.iv.next171
-  %.sroa.016.0.copyload = load float, ptr %17, align 4
-  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 4
+  %18 = getelementptr inbounds nuw %struct.Vector2, ptr %0, i64 %indvars.iv.next171
+  %.sroa.016.0.copyload = load float, ptr %18, align 4
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 4
   %.sroa.6.0.copyload = load float, ptr %.sroa.6.0..sroa_idx, align 4
-  %18 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %.sroa.09.0.copyload = load float, ptr %18, align 4
-  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 20
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  %.sroa.09.0.copyload = load float, ptr %19, align 4
+  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 20
   %.sroa.7.0.copyload = load float, ptr %.sroa.7.0..sroa_idx, align 4
-  %19 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  %.sroa.0.0.copyload = load float, ptr %19, align 4
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 28
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 24
+  %.sroa.0.0.copyload = load float, ptr %20, align 4
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 28
   %.sroa.4.0.copyload = load float, ptr %.sroa.4.0..sroa_idx, align 4
-  %20 = fneg float %.sroa.021.0.copyload
-  %21 = tail call float @llvm.fmuladd.f32(float %.sroa.016.0.copyload, float 3.000000e+00, float %20)
-  %22 = tail call float @llvm.fmuladd.f32(float %.sroa.09.0.copyload, float -3.000000e+00, float %21)
-  %23 = fadd float %22, %.sroa.0.0.copyload
-  %24 = fdiv float %23, 6.000000e+00
-  %25 = fmul float %.sroa.016.0.copyload, -6.000000e+00
-  %26 = tail call float @llvm.fmuladd.f32(float %.sroa.021.0.copyload, float 3.000000e+00, float %25)
-  %27 = tail call float @llvm.fmuladd.f32(float %.sroa.09.0.copyload, float 3.000000e+00, float %26)
-  %28 = fdiv float %27, 6.000000e+00
-  %29 = fmul float %.sroa.09.0.copyload, 3.000000e+00
-  %30 = tail call float @llvm.fmuladd.f32(float %.sroa.021.0.copyload, float -3.000000e+00, float %29)
-  %31 = fdiv float %30, 6.000000e+00
-  %32 = tail call float @llvm.fmuladd.f32(float %.sroa.016.0.copyload, float 4.000000e+00, float %.sroa.021.0.copyload)
-  %33 = fadd float %32, %.sroa.09.0.copyload
-  %34 = fdiv float %33, 6.000000e+00
-  %35 = fneg float %.sroa.725.0.copyload
-  %36 = tail call float @llvm.fmuladd.f32(float %.sroa.6.0.copyload, float 3.000000e+00, float %35)
-  %37 = tail call float @llvm.fmuladd.f32(float %.sroa.7.0.copyload, float -3.000000e+00, float %36)
-  %38 = fadd float %37, %.sroa.4.0.copyload
-  %39 = fdiv float %38, 6.000000e+00
-  %40 = fmul float %.sroa.6.0.copyload, -6.000000e+00
-  %41 = tail call float @llvm.fmuladd.f32(float %.sroa.725.0.copyload, float 3.000000e+00, float %40)
-  %42 = tail call float @llvm.fmuladd.f32(float %.sroa.7.0.copyload, float 3.000000e+00, float %41)
-  %43 = fdiv float %42, 6.000000e+00
-  %44 = fmul float %.sroa.7.0.copyload, 3.000000e+00
-  %45 = tail call float @llvm.fmuladd.f32(float %.sroa.725.0.copyload, float -3.000000e+00, float %44)
-  %46 = fdiv float %45, 6.000000e+00
-  %47 = tail call float @llvm.fmuladd.f32(float %.sroa.6.0.copyload, float 4.000000e+00, float %.sroa.725.0.copyload)
-  %48 = fadd float %47, %.sroa.7.0.copyload
-  %49 = fdiv float %48, 6.000000e+00
-  %.sroa.048.0.vec.insert = insertelement <2 x float> poison, float %34, i64 0
-  %.sroa.048.4.vec.insert = insertelement <2 x float> %.sroa.048.0.vec.insert, float %49, i64 1
-  %50 = icmp eq i64 %indvars.iv170, 0
-  br i1 %50, label %.split.preheader, label %.split.us.preheader
+  %21 = fneg float %.sroa.021.0.copyload
+  %22 = tail call float @llvm.fmuladd.f32(float %.sroa.016.0.copyload, float 3.000000e+00, float %21)
+  %23 = tail call float @llvm.fmuladd.f32(float %.sroa.09.0.copyload, float -3.000000e+00, float %22)
+  %24 = fadd float %23, %.sroa.0.0.copyload
+  %25 = fdiv float %24, 6.000000e+00
+  %26 = fmul float %.sroa.016.0.copyload, -6.000000e+00
+  %27 = tail call float @llvm.fmuladd.f32(float %.sroa.021.0.copyload, float 3.000000e+00, float %26)
+  %28 = tail call float @llvm.fmuladd.f32(float %.sroa.09.0.copyload, float 3.000000e+00, float %27)
+  %29 = fdiv float %28, 6.000000e+00
+  %30 = fmul float %.sroa.09.0.copyload, 3.000000e+00
+  %31 = tail call float @llvm.fmuladd.f32(float %.sroa.021.0.copyload, float -3.000000e+00, float %30)
+  %32 = fdiv float %31, 6.000000e+00
+  %33 = tail call float @llvm.fmuladd.f32(float %.sroa.016.0.copyload, float 4.000000e+00, float %.sroa.021.0.copyload)
+  %34 = fadd float %33, %.sroa.09.0.copyload
+  %35 = fdiv float %34, 6.000000e+00
+  %36 = fneg float %.sroa.725.0.copyload
+  %37 = tail call float @llvm.fmuladd.f32(float %.sroa.6.0.copyload, float 3.000000e+00, float %36)
+  %38 = tail call float @llvm.fmuladd.f32(float %.sroa.7.0.copyload, float -3.000000e+00, float %37)
+  %39 = fadd float %38, %.sroa.4.0.copyload
+  %40 = fdiv float %39, 6.000000e+00
+  %41 = fmul float %.sroa.6.0.copyload, -6.000000e+00
+  %42 = tail call float @llvm.fmuladd.f32(float %.sroa.725.0.copyload, float 3.000000e+00, float %41)
+  %43 = tail call float @llvm.fmuladd.f32(float %.sroa.7.0.copyload, float 3.000000e+00, float %42)
+  %44 = fdiv float %43, 6.000000e+00
+  %45 = fmul float %.sroa.7.0.copyload, 3.000000e+00
+  %46 = tail call float @llvm.fmuladd.f32(float %.sroa.725.0.copyload, float -3.000000e+00, float %45)
+  %47 = fdiv float %46, 6.000000e+00
+  %48 = tail call float @llvm.fmuladd.f32(float %.sroa.6.0.copyload, float 4.000000e+00, float %.sroa.725.0.copyload)
+  %49 = fadd float %48, %.sroa.7.0.copyload
+  %50 = fdiv float %49, 6.000000e+00
+  %.sroa.048.0.vec.insert = insertelement <2 x float> poison, float %35, i64 0
+  %.sroa.048.4.vec.insert = insertelement <2 x float> %.sroa.048.0.vec.insert, float %50, i64 1
+  %51 = icmp eq i64 %indvars.iv170, 0
+  br i1 %51, label %.split.preheader, label %.split.us.preheader
 
-.split.us.preheader:                              ; preds = %12
-  %51 = tail call float @llvm.fmuladd.f32(float %.0125149, float %.0122151, float %34)
-  %52 = fneg float %.0123150
-  %53 = tail call float @llvm.fmuladd.f32(float %52, float %.0122151, float %49)
-  %54 = fneg float %.0125149
-  %55 = tail call float @llvm.fmuladd.f32(float %54, float %.0122151, float %34)
-  %56 = tail call float @llvm.fmuladd.f32(float %.0123150, float %.0122151, float %49)
+.split.us.preheader:                              ; preds = %13
+  %52 = tail call float @llvm.fmuladd.f32(float %.0125149, float %.0122151, float %35)
+  %53 = fneg float %.0123150
+  %54 = tail call float @llvm.fmuladd.f32(float %53, float %.0122151, float %50)
+  %55 = fneg float %.0125149
+  %56 = tail call float @llvm.fmuladd.f32(float %55, float %.0122151, float %35)
+  %57 = tail call float @llvm.fmuladd.f32(float %.0123150, float %.0122151, float %50)
   br label %.split.us
 
-.split.preheader:                                 ; preds = %12
-  tail call void @DrawCircleSector(<2 x float> %.sroa.048.4.vec.insert, float noundef %11, float noundef 0.000000e+00, float noundef 3.600000e+02, i32 noundef 36, i32 %3)
+.split.preheader:                                 ; preds = %13
+  tail call void @DrawCircleSector(<2 x float> %.sroa.048.4.vec.insert, float noundef %12, float noundef 0.000000e+00, float noundef 3.600000e+02, i32 noundef 36, i32 %3)
   br label %.split
 
 .split.us:                                        ; preds = %.split.us.preheader, %.split.us
   %indvars.iv = phi i64 [ 1, %.split.us.preheader ], [ %indvars.iv.next, %.split.us ]
   %.sroa.048.1128.us = phi <2 x float> [ %.sroa.048.4.vec.insert, %.split.us.preheader ], [ %.sroa.048.4.vec.insert72.us, %.split.us ]
-  %57 = trunc nuw nsw i64 %indvars.iv to i32
-  %58 = uitofp nneg i32 %57 to float
-  %59 = fdiv float %58, 2.400000e+01
-  %60 = tail call float @llvm.fmuladd.f32(float %59, float %24, float %28)
-  %61 = tail call float @llvm.fmuladd.f32(float %59, float %60, float %31)
-  %62 = tail call float @llvm.fmuladd.f32(float %59, float %61, float %34)
-  %63 = tail call float @llvm.fmuladd.f32(float %59, float %39, float %43)
-  %64 = tail call float @llvm.fmuladd.f32(float %59, float %63, float %46)
-  %65 = tail call float @llvm.fmuladd.f32(float %59, float %64, float %49)
+  %58 = trunc nuw nsw i64 %indvars.iv to i32
+  %59 = uitofp nneg i32 %58 to float
+  %60 = fdiv float %59, 2.400000e+01
+  %61 = tail call float @llvm.fmuladd.f32(float %60, float %25, float %29)
+  %62 = tail call float @llvm.fmuladd.f32(float %60, float %61, float %32)
+  %63 = tail call float @llvm.fmuladd.f32(float %60, float %62, float %35)
+  %64 = tail call float @llvm.fmuladd.f32(float %60, float %40, float %44)
+  %65 = tail call float @llvm.fmuladd.f32(float %60, float %64, float %47)
+  %66 = tail call float @llvm.fmuladd.f32(float %60, float %65, float %50)
   %.sroa.048.4.vec.extract66.us = extractelement <2 x float> %.sroa.048.1128.us, i64 1
-  %66 = fsub float %65, %.sroa.048.4.vec.extract66.us
+  %67 = fsub float %66, %.sroa.048.4.vec.extract66.us
   %.sroa.048.0.vec.extract55.us = extractelement <2 x float> %.sroa.048.1128.us, i64 0
-  %67 = fsub float %62, %.sroa.048.0.vec.extract55.us
-  %68 = fmul float %66, %66
-  %69 = tail call float @llvm.fmuladd.f32(float %67, float %67, float %68)
-  %70 = tail call float @sqrtf(float noundef %69) #16
-  %71 = fdiv float %11, %70
-  %72 = fneg float %66
-  %73 = tail call float @llvm.fmuladd.f32(float %72, float %71, float %62)
+  %68 = fsub float %63, %.sroa.048.0.vec.extract55.us
+  %69 = fmul float %67, %67
+  %70 = tail call float @llvm.fmuladd.f32(float %68, float %68, float %69)
+  %sqrt.us = tail call float @llvm.sqrt.f32(float %70)
+  %71 = fdiv float %12, %sqrt.us
+  %72 = fneg float %67
+  %73 = tail call float @llvm.fmuladd.f32(float %72, float %71, float %63)
   %.idx = shl nuw nsw i64 %indvars.iv, 4
   %74 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 8
   store float %73, ptr %75, align 8
-  %76 = tail call float @llvm.fmuladd.f32(float %67, float %71, float %65)
+  %76 = tail call float @llvm.fmuladd.f32(float %68, float %71, float %66)
   %77 = getelementptr inbounds nuw i8, ptr %74, i64 12
   store float %76, ptr %77, align 4
-  %78 = tail call float @llvm.fmuladd.f32(float %66, float %71, float %62)
+  %78 = tail call float @llvm.fmuladd.f32(float %67, float %71, float %63)
   store float %78, ptr %74, align 16
-  %79 = fneg float %67
-  %80 = tail call float @llvm.fmuladd.f32(float %79, float %71, float %65)
+  %79 = fneg float %68
+  %80 = tail call float @llvm.fmuladd.f32(float %79, float %71, float %66)
   %81 = getelementptr inbounds nuw i8, ptr %74, i64 4
   store float %80, ptr %81, align 4
-  %.sroa.048.0.vec.insert61.us = insertelement <2 x float> poison, float %62, i64 0
-  %.sroa.048.4.vec.insert72.us = insertelement <2 x float> %.sroa.048.0.vec.insert61.us, float %65, i64 1
+  %.sroa.048.0.vec.insert61.us = insertelement <2 x float> poison, float %63, i64 0
+  %.sroa.048.4.vec.insert72.us = insertelement <2 x float> %.sroa.048.0.vec.insert61.us, float %66, i64 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 25
   br i1 %exitcond.not, label %.split137.us, label %.split.us
 
-.split137.us:                                     ; preds = %.split.us, %109
-  %.us-phi = phi float [ %110, %109 ], [ %56, %.split.us ]
-  %.us-phi138 = phi float [ %111, %109 ], [ %55, %.split.us ]
-  %.us-phi139 = phi float [ %112, %109 ], [ %53, %.split.us ]
-  %.us-phi140 = phi float [ %113, %109 ], [ %51, %.split.us ]
-  %.us-phi141 = phi float [ %95, %109 ], [ %66, %.split.us ]
-  %.us-phi142 = phi float [ %96, %109 ], [ %67, %.split.us ]
-  %.us-phi143 = phi float [ %100, %109 ], [ %71, %.split.us ]
-  %.us-phi144 = phi <2 x float> [ %.sroa.048.4.vec.insert72, %109 ], [ %.sroa.048.4.vec.insert72.us, %.split.us ]
-  store float %.us-phi139, ptr %8, align 4
-  store float %.us-phi138, ptr %9, align 8
-  store float %.us-phi, ptr %10, align 4
+.split137.us:                                     ; preds = %.split.us, %108
+  %.us-phi = phi float [ %109, %108 ], [ %57, %.split.us ]
+  %.us-phi138 = phi float [ %110, %108 ], [ %56, %.split.us ]
+  %.us-phi139 = phi float [ %111, %108 ], [ %54, %.split.us ]
+  %.us-phi140 = phi float [ %112, %108 ], [ %52, %.split.us ]
+  %.us-phi141 = phi float [ %95, %108 ], [ %67, %.split.us ]
+  %.us-phi142 = phi float [ %96, %108 ], [ %68, %.split.us ]
+  %.us-phi143 = phi float [ %99, %108 ], [ %71, %.split.us ]
+  %.us-phi144 = phi <2 x float> [ %.sroa.048.4.vec.insert72, %108 ], [ %.sroa.048.4.vec.insert72.us, %.split.us ]
+  store float %.us-phi139, ptr %9, align 4
+  store float %.us-phi138, ptr %10, align 8
+  store float %.us-phi, ptr %11, align 4
   store float %.us-phi140, ptr %5, align 16
   call void @DrawTriangleStrip(ptr noundef nonnull %5, i32 noundef 50, i32 %3)
   %exitcond173.not = icmp eq i64 %indvars.iv.next171, %wide.trip.count
-  br i1 %exitcond173.not, label %._crit_edge, label %12
+  br i1 %exitcond173.not, label %._crit_edge, label %13
 
-.split:                                           ; preds = %.split.preheader, %109
-  %indvars.iv166 = phi i64 [ 1, %.split.preheader ], [ %indvars.iv.next167, %109 ]
-  %82 = phi float [ %13, %.split.preheader ], [ %110, %109 ]
-  %83 = phi float [ %14, %.split.preheader ], [ %111, %109 ]
-  %84 = phi float [ %15, %.split.preheader ], [ %112, %109 ]
-  %.sroa.048.1128 = phi <2 x float> [ %.sroa.048.4.vec.insert, %.split.preheader ], [ %.sroa.048.4.vec.insert72, %109 ]
-  %85 = phi float [ %.us-phi140147148, %.split.preheader ], [ %113, %109 ]
+.split:                                           ; preds = %.split.preheader, %108
+  %indvars.iv166 = phi i64 [ 1, %.split.preheader ], [ %indvars.iv.next167, %108 ]
+  %82 = phi float [ %14, %.split.preheader ], [ %109, %108 ]
+  %83 = phi float [ %15, %.split.preheader ], [ %110, %108 ]
+  %84 = phi float [ %16, %.split.preheader ], [ %111, %108 ]
+  %.sroa.048.1128 = phi <2 x float> [ %.sroa.048.4.vec.insert, %.split.preheader ], [ %.sroa.048.4.vec.insert72, %108 ]
+  %85 = phi float [ %.us-phi140147148, %.split.preheader ], [ %112, %108 ]
   %86 = trunc nuw nsw i64 %indvars.iv166 to i32
   %87 = uitofp nneg i32 %86 to float
   %88 = fdiv float %87, 2.400000e+01
-  %89 = tail call float @llvm.fmuladd.f32(float %88, float %24, float %28)
-  %90 = tail call float @llvm.fmuladd.f32(float %88, float %89, float %31)
-  %91 = tail call float @llvm.fmuladd.f32(float %88, float %90, float %34)
-  %92 = tail call float @llvm.fmuladd.f32(float %88, float %39, float %43)
-  %93 = tail call float @llvm.fmuladd.f32(float %88, float %92, float %46)
-  %94 = tail call float @llvm.fmuladd.f32(float %88, float %93, float %49)
+  %89 = tail call float @llvm.fmuladd.f32(float %88, float %25, float %29)
+  %90 = tail call float @llvm.fmuladd.f32(float %88, float %89, float %32)
+  %91 = tail call float @llvm.fmuladd.f32(float %88, float %90, float %35)
+  %92 = tail call float @llvm.fmuladd.f32(float %88, float %40, float %44)
+  %93 = tail call float @llvm.fmuladd.f32(float %88, float %92, float %47)
+  %94 = tail call float @llvm.fmuladd.f32(float %88, float %93, float %50)
   %.sroa.048.4.vec.extract66 = extractelement <2 x float> %.sroa.048.1128, i64 1
   %95 = fsub float %94, %.sroa.048.4.vec.extract66
   %.sroa.048.0.vec.extract55 = extractelement <2 x float> %.sroa.048.1128, i64 0
   %96 = fsub float %91, %.sroa.048.0.vec.extract55
   %97 = fmul float %95, %95
   %98 = tail call float @llvm.fmuladd.f32(float %96, float %96, float %97)
-  %99 = tail call float @sqrtf(float noundef %98) #16
-  %100 = fdiv float %11, %99
-  %101 = icmp eq i64 %indvars.iv166, 1
-  %102 = fneg float %96
-  br i1 %101, label %103, label %.split._crit_edge
+  %sqrt = tail call float @llvm.sqrt.f32(float %98)
+  %99 = fdiv float %12, %sqrt
+  %100 = icmp eq i64 %indvars.iv166, 1
+  %101 = fneg float %96
+  br i1 %100, label %102, label %.split._crit_edge
 
 .split._crit_edge:                                ; preds = %.split
   %.pre174 = fneg float %95
-  br label %109
+  br label %108
 
-103:                                              ; preds = %.split
-  %104 = tail call float @llvm.fmuladd.f32(float %95, float %100, float %.sroa.048.0.vec.extract55)
-  %105 = tail call float @llvm.fmuladd.f32(float %102, float %100, float %.sroa.048.4.vec.extract66)
-  %106 = fneg float %95
-  %107 = tail call float @llvm.fmuladd.f32(float %106, float %100, float %.sroa.048.0.vec.extract55)
-  %108 = tail call float @llvm.fmuladd.f32(float %96, float %100, float %.sroa.048.4.vec.extract66)
-  br label %109
+102:                                              ; preds = %.split
+  %103 = tail call float @llvm.fmuladd.f32(float %95, float %99, float %.sroa.048.0.vec.extract55)
+  %104 = tail call float @llvm.fmuladd.f32(float %101, float %99, float %.sroa.048.4.vec.extract66)
+  %105 = fneg float %95
+  %106 = tail call float @llvm.fmuladd.f32(float %105, float %99, float %.sroa.048.0.vec.extract55)
+  %107 = tail call float @llvm.fmuladd.f32(float %96, float %99, float %.sroa.048.4.vec.extract66)
+  br label %108
 
-109:                                              ; preds = %.split._crit_edge, %103
-  %.pre-phi175 = phi float [ %.pre174, %.split._crit_edge ], [ %106, %103 ]
-  %110 = phi float [ %82, %.split._crit_edge ], [ %108, %103 ]
-  %111 = phi float [ %83, %.split._crit_edge ], [ %107, %103 ]
-  %112 = phi float [ %84, %.split._crit_edge ], [ %105, %103 ]
-  %113 = phi float [ %85, %.split._crit_edge ], [ %104, %103 ]
-  %114 = tail call float @llvm.fmuladd.f32(float %.pre-phi175, float %100, float %91)
+108:                                              ; preds = %.split._crit_edge, %102
+  %.pre-phi175 = phi float [ %.pre174, %.split._crit_edge ], [ %105, %102 ]
+  %109 = phi float [ %82, %.split._crit_edge ], [ %107, %102 ]
+  %110 = phi float [ %83, %.split._crit_edge ], [ %106, %102 ]
+  %111 = phi float [ %84, %.split._crit_edge ], [ %104, %102 ]
+  %112 = phi float [ %85, %.split._crit_edge ], [ %103, %102 ]
+  %113 = tail call float @llvm.fmuladd.f32(float %.pre-phi175, float %99, float %91)
   %.idx178 = shl nuw nsw i64 %indvars.iv166, 4
-  %115 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx178
-  %116 = getelementptr inbounds nuw i8, ptr %115, i64 8
-  store float %114, ptr %116, align 8
-  %117 = tail call float @llvm.fmuladd.f32(float %96, float %100, float %94)
-  %118 = getelementptr inbounds nuw i8, ptr %115, i64 12
-  store float %117, ptr %118, align 4
-  %119 = tail call float @llvm.fmuladd.f32(float %95, float %100, float %91)
-  store float %119, ptr %115, align 16
-  %120 = tail call float @llvm.fmuladd.f32(float %102, float %100, float %94)
-  %121 = getelementptr inbounds nuw i8, ptr %115, i64 4
-  store float %120, ptr %121, align 4
+  %114 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx178
+  %115 = getelementptr inbounds nuw i8, ptr %114, i64 8
+  store float %113, ptr %115, align 8
+  %116 = tail call float @llvm.fmuladd.f32(float %96, float %99, float %94)
+  %117 = getelementptr inbounds nuw i8, ptr %114, i64 12
+  store float %116, ptr %117, align 4
+  %118 = tail call float @llvm.fmuladd.f32(float %95, float %99, float %91)
+  store float %118, ptr %114, align 16
+  %119 = tail call float @llvm.fmuladd.f32(float %101, float %99, float %94)
+  %120 = getelementptr inbounds nuw i8, ptr %114, i64 4
+  store float %119, ptr %120, align 4
   %.sroa.048.0.vec.insert61 = insertelement <2 x float> poison, float %91, i64 0
   %.sroa.048.4.vec.insert72 = insertelement <2 x float> %.sroa.048.0.vec.insert61, float %94, i64 1
   %indvars.iv.next167 = add nuw nsw i64 %indvars.iv166, 1
   %exitcond169.not = icmp eq i64 %indvars.iv.next167, 25
   br i1 %exitcond169.not, label %.split137.us, label %.split
 
-122:                                              ; preds = %4, %._crit_edge
+121:                                              ; preds = %4, %._crit_edge
   ret void
 }
 
@@ -3207,7 +3201,7 @@ define void @DrawSplineBasis(ptr noundef readonly captures(none) %0, i32 noundef
 define void @DrawSplineCatmullRom(ptr noundef readonly captures(none) %0, i32 noundef %1, float noundef %2, i32 %3) local_unnamed_addr #4 {
   %5 = alloca [50 x %struct.Vector2], align 16
   %6 = icmp slt i32 %1, 4
-  br i1 %6, label %96, label %.lr.ph
+  br i1 %6, label %95, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3227,18 +3221,18 @@ define void @DrawSplineCatmullRom(ptr noundef readonly captures(none) %0, i32 no
 ._crit_edge:                                      ; preds = %29
   tail call void @DrawCircleSector(<2 x float> %.sroa.057.4.vec.insert, float noundef %9, float noundef 0.000000e+00, float noundef 3.600000e+02, i32 noundef 36, i32 %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %96
+  br label %95
 
 14:                                               ; preds = %.lr.ph, %29
   %indvars.iv152 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next153, %29 ]
-  %15 = phi float [ 0.000000e+00, %.lr.ph ], [ %84, %29 ]
-  %16 = phi float [ 0.000000e+00, %.lr.ph ], [ %85, %29 ]
-  %17 = phi float [ 0.000000e+00, %.lr.ph ], [ %86, %29 ]
+  %15 = phi float [ 0.000000e+00, %.lr.ph ], [ %83, %29 ]
+  %16 = phi float [ 0.000000e+00, %.lr.ph ], [ %84, %29 ]
+  %17 = phi float [ 0.000000e+00, %.lr.ph ], [ %85, %29 ]
   %.0142 = phi float [ 0.000000e+00, %.lr.ph ], [ %69, %29 ]
   %.0119141 = phi float [ 0.000000e+00, %.lr.ph ], [ %70, %29 ]
-  %.0121140 = phi float [ 0.000000e+00, %.lr.ph ], [ %74, %29 ]
+  %.0121140 = phi float [ 0.000000e+00, %.lr.ph ], [ %73, %29 ]
   %.sroa.057.0139 = phi <2 x float> [ %.sroa.057.0.copyload, %.lr.ph ], [ %.sroa.057.4.vec.insert, %29 ]
-  %.lcssa136137 = phi float [ 0.000000e+00, %.lr.ph ], [ %87, %29 ]
+  %.lcssa136137 = phi float [ 0.000000e+00, %.lr.ph ], [ %86, %29 ]
   %18 = getelementptr inbounds nuw %struct.Vector2, ptr %0, i64 %indvars.iv152
   %.sroa.020.0.copyload = load float, ptr %18, align 4
   %.sroa.421.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 4
@@ -3277,22 +3271,22 @@ define void @DrawSplineCatmullRom(ptr noundef readonly captures(none) %0, i32 no
   %28 = tail call float @llvm.fmuladd.f32(float %.0119141, float %.0121140, float %.sroa.057.4.vec.extract)
   br label %.preheader
 
-29:                                               ; preds = %83
-  store float %86, ptr %11, align 4
-  store float %85, ptr %12, align 8
-  store float %84, ptr %13, align 4
-  store float %87, ptr %5, align 16
+29:                                               ; preds = %82
+  store float %85, ptr %11, align 4
+  store float %84, ptr %12, align 8
+  store float %83, ptr %13, align 4
+  store float %86, ptr %5, align 16
   call void @DrawTriangleStrip(ptr noundef nonnull %5, i32 noundef 50, i32 %3)
   %exitcond155.not = icmp eq i64 %indvars.iv.next153, %wide.trip.count
   br i1 %exitcond155.not, label %._crit_edge, label %14
 
-30:                                               ; preds = %.preheader, %83
-  %indvars.iv = phi i64 [ %indvars.iv.next, %83 ], [ 1, %.preheader ]
-  %31 = phi float [ %84, %83 ], [ %.ph, %.preheader ]
-  %32 = phi float [ %85, %83 ], [ %.ph171, %.preheader ]
-  %33 = phi float [ %86, %83 ], [ %.ph172, %.preheader ]
-  %.sroa.057.1127 = phi <2 x float> [ %.sroa.057.4.vec.insert, %83 ], [ %.sroa.057.0139, %.preheader ]
-  %34 = phi float [ %87, %83 ], [ %.ph173, %.preheader ]
+30:                                               ; preds = %.preheader, %82
+  %indvars.iv = phi i64 [ %indvars.iv.next, %82 ], [ 1, %.preheader ]
+  %31 = phi float [ %83, %82 ], [ %.ph, %.preheader ]
+  %32 = phi float [ %84, %82 ], [ %.ph171, %.preheader ]
+  %33 = phi float [ %85, %82 ], [ %.ph172, %.preheader ]
+  %.sroa.057.1127 = phi <2 x float> [ %.sroa.057.4.vec.insert, %82 ], [ %.sroa.057.0139, %.preheader ]
+  %34 = phi float [ %86, %82 ], [ %.ph173, %.preheader ]
   %35 = trunc nuw nsw i64 %indvars.iv to i32
   %36 = uitofp nneg i32 %35 to float
   %37 = fdiv float %36, 2.400000e+01
@@ -3333,51 +3327,51 @@ define void @DrawSplineCatmullRom(ptr noundef readonly captures(none) %0, i32 no
   %70 = fsub float %63, %.sroa.057.0.vec.extract63
   %71 = fmul float %69, %69
   %72 = tail call float @llvm.fmuladd.f32(float %70, float %70, float %71)
-  %73 = tail call float @sqrtf(float noundef %72) #16
-  %74 = fdiv float %9, %73
-  %75 = icmp eq i64 %indvars.iv, 1
-  %or.cond = and i1 %.not, %75
-  %76 = fneg float %70
-  br i1 %or.cond, label %77, label %._crit_edge156
+  %sqrt = tail call float @llvm.sqrt.f32(float %72)
+  %73 = fdiv float %9, %sqrt
+  %74 = icmp eq i64 %indvars.iv, 1
+  %or.cond = and i1 %.not, %74
+  %75 = fneg float %70
+  br i1 %or.cond, label %76, label %._crit_edge156
 
 ._crit_edge156:                                   ; preds = %30
   %.pre = fneg float %69
-  br label %83
+  br label %82
 
-77:                                               ; preds = %30
-  %78 = tail call float @llvm.fmuladd.f32(float %69, float %74, float %.sroa.057.0.vec.extract63)
-  %79 = tail call float @llvm.fmuladd.f32(float %76, float %74, float %.sroa.057.4.vec.extract72)
-  %80 = fneg float %69
-  %81 = tail call float @llvm.fmuladd.f32(float %80, float %74, float %.sroa.057.0.vec.extract63)
-  %82 = tail call float @llvm.fmuladd.f32(float %70, float %74, float %.sroa.057.4.vec.extract72)
-  br label %83
+76:                                               ; preds = %30
+  %77 = tail call float @llvm.fmuladd.f32(float %69, float %73, float %.sroa.057.0.vec.extract63)
+  %78 = tail call float @llvm.fmuladd.f32(float %75, float %73, float %.sroa.057.4.vec.extract72)
+  %79 = fneg float %69
+  %80 = tail call float @llvm.fmuladd.f32(float %79, float %73, float %.sroa.057.0.vec.extract63)
+  %81 = tail call float @llvm.fmuladd.f32(float %70, float %73, float %.sroa.057.4.vec.extract72)
+  br label %82
 
-83:                                               ; preds = %._crit_edge156, %77
-  %.pre-phi = phi float [ %.pre, %._crit_edge156 ], [ %80, %77 ]
-  %84 = phi float [ %31, %._crit_edge156 ], [ %82, %77 ]
-  %85 = phi float [ %32, %._crit_edge156 ], [ %81, %77 ]
-  %86 = phi float [ %33, %._crit_edge156 ], [ %79, %77 ]
-  %87 = phi float [ %34, %._crit_edge156 ], [ %78, %77 ]
-  %88 = tail call float @llvm.fmuladd.f32(float %.pre-phi, float %74, float %63)
+82:                                               ; preds = %._crit_edge156, %76
+  %.pre-phi = phi float [ %.pre, %._crit_edge156 ], [ %79, %76 ]
+  %83 = phi float [ %31, %._crit_edge156 ], [ %81, %76 ]
+  %84 = phi float [ %32, %._crit_edge156 ], [ %80, %76 ]
+  %85 = phi float [ %33, %._crit_edge156 ], [ %78, %76 ]
+  %86 = phi float [ %34, %._crit_edge156 ], [ %77, %76 ]
+  %87 = tail call float @llvm.fmuladd.f32(float %.pre-phi, float %73, float %63)
   %.idx = shl nuw nsw i64 %indvars.iv, 4
-  %89 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx
-  %90 = getelementptr inbounds nuw i8, ptr %89, i64 8
-  store float %88, ptr %90, align 8
-  %91 = tail call float @llvm.fmuladd.f32(float %70, float %74, float %68)
-  %92 = getelementptr inbounds nuw i8, ptr %89, i64 12
-  store float %91, ptr %92, align 4
-  %93 = tail call float @llvm.fmuladd.f32(float %69, float %74, float %63)
-  store float %93, ptr %89, align 16
-  %94 = tail call float @llvm.fmuladd.f32(float %76, float %74, float %68)
-  %95 = getelementptr inbounds nuw i8, ptr %89, i64 4
-  store float %94, ptr %95, align 4
+  %88 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 8
+  store float %87, ptr %89, align 8
+  %90 = tail call float @llvm.fmuladd.f32(float %70, float %73, float %68)
+  %91 = getelementptr inbounds nuw i8, ptr %88, i64 12
+  store float %90, ptr %91, align 4
+  %92 = tail call float @llvm.fmuladd.f32(float %69, float %73, float %63)
+  store float %92, ptr %88, align 16
+  %93 = tail call float @llvm.fmuladd.f32(float %75, float %73, float %68)
+  %94 = getelementptr inbounds nuw i8, ptr %88, i64 4
+  store float %93, ptr %94, align 4
   %.sroa.057.0.vec.insert = insertelement <2 x float> poison, float %63, i64 0
   %.sroa.057.4.vec.insert = insertelement <2 x float> %.sroa.057.0.vec.insert, float %68, i64 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 25
   br i1 %exitcond.not, label %29, label %30
 
-96:                                               ; preds = %4, %._crit_edge
+95:                                               ; preds = %4, %._crit_edge
   ret void
 }
 
@@ -3416,14 +3410,14 @@ define void @DrawSplineBezierQuadratic(ptr noundef readonly captures(none) %0, i
   %.sroa.048.0.vec.extract.i = extractelement <2 x float> %20, i64 0
   br label %21
 
-21:                                               ; preds = %52, %14
-  %indvars.iv.i = phi i64 [ 1, %14 ], [ %indvars.iv.next.i, %52 ]
-  %22 = phi float [ 0.000000e+00, %14 ], [ %53, %52 ]
-  %23 = phi float [ 0.000000e+00, %14 ], [ %54, %52 ]
-  %24 = phi float [ 0.000000e+00, %14 ], [ %55, %52 ]
-  %.sroa.7.058.i = phi float [ %.sroa.050.4.vec.extract54.i, %14 ], [ %34, %52 ]
-  %.sroa.041.057.i = phi float [ %.sroa.050.0.vec.extract52.i, %14 ], [ %37, %52 ]
-  %25 = phi float [ 0.000000e+00, %14 ], [ %56, %52 ]
+21:                                               ; preds = %51, %14
+  %indvars.iv.i = phi i64 [ 1, %14 ], [ %indvars.iv.next.i, %51 ]
+  %22 = phi float [ 0.000000e+00, %14 ], [ %52, %51 ]
+  %23 = phi float [ 0.000000e+00, %14 ], [ %53, %51 ]
+  %24 = phi float [ 0.000000e+00, %14 ], [ %54, %51 ]
+  %.sroa.7.058.i = phi float [ %.sroa.050.4.vec.extract54.i, %14 ], [ %34, %51 ]
+  %.sroa.041.057.i = phi float [ %.sroa.050.0.vec.extract52.i, %14 ], [ %37, %51 ]
+  %25 = phi float [ 0.000000e+00, %14 ], [ %55, %51 ]
   %26 = trunc nuw nsw i64 %indvars.iv.i to i32
   %27 = uitofp nneg i32 %26 to float
   %28 = fmul float %27, 0x3FA5555560000000
@@ -3442,56 +3436,56 @@ define void @DrawSplineBezierQuadratic(ptr noundef readonly captures(none) %0, i
   %39 = fsub float %37, %.sroa.041.057.i
   %40 = fmul float %38, %38
   %41 = tail call float @llvm.fmuladd.f32(float %39, float %39, float %40)
-  %42 = tail call float @sqrtf(float noundef %41) #16
-  %43 = fdiv float %9, %42
-  %44 = icmp eq i64 %indvars.iv.i, 1
-  %45 = fneg float %39
-  br i1 %44, label %46, label %._crit_edge.i
+  %sqrt.i = tail call float @llvm.sqrt.f32(float %41)
+  %42 = fdiv float %9, %sqrt.i
+  %43 = icmp eq i64 %indvars.iv.i, 1
+  %44 = fneg float %39
+  br i1 %43, label %45, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %21
   %.pre.i = fneg float %38
-  br label %52
+  br label %51
 
-46:                                               ; preds = %21
-  %47 = tail call float @llvm.fmuladd.f32(float %38, float %43, float %.sroa.041.057.i)
-  %48 = tail call float @llvm.fmuladd.f32(float %45, float %43, float %.sroa.7.058.i)
-  %49 = fneg float %38
-  %50 = tail call float @llvm.fmuladd.f32(float %49, float %43, float %.sroa.041.057.i)
-  %51 = tail call float @llvm.fmuladd.f32(float %39, float %43, float %.sroa.7.058.i)
-  br label %52
+45:                                               ; preds = %21
+  %46 = tail call float @llvm.fmuladd.f32(float %38, float %42, float %.sroa.041.057.i)
+  %47 = tail call float @llvm.fmuladd.f32(float %44, float %42, float %.sroa.7.058.i)
+  %48 = fneg float %38
+  %49 = tail call float @llvm.fmuladd.f32(float %48, float %42, float %.sroa.041.057.i)
+  %50 = tail call float @llvm.fmuladd.f32(float %39, float %42, float %.sroa.7.058.i)
+  br label %51
 
-52:                                               ; preds = %46, %._crit_edge.i
-  %.pre-phi.i = phi float [ %.pre.i, %._crit_edge.i ], [ %49, %46 ]
-  %53 = phi float [ %22, %._crit_edge.i ], [ %51, %46 ]
-  %54 = phi float [ %23, %._crit_edge.i ], [ %50, %46 ]
-  %55 = phi float [ %24, %._crit_edge.i ], [ %48, %46 ]
-  %56 = phi float [ %25, %._crit_edge.i ], [ %47, %46 ]
-  %57 = tail call float @llvm.fmuladd.f32(float %.pre-phi.i, float %43, float %37)
+51:                                               ; preds = %45, %._crit_edge.i
+  %.pre-phi.i = phi float [ %.pre.i, %._crit_edge.i ], [ %48, %45 ]
+  %52 = phi float [ %22, %._crit_edge.i ], [ %50, %45 ]
+  %53 = phi float [ %23, %._crit_edge.i ], [ %49, %45 ]
+  %54 = phi float [ %24, %._crit_edge.i ], [ %47, %45 ]
+  %55 = phi float [ %25, %._crit_edge.i ], [ %46, %45 ]
+  %56 = tail call float @llvm.fmuladd.f32(float %.pre-phi.i, float %42, float %37)
   %.idx.i = shl nuw nsw i64 %indvars.iv.i, 4
-  %58 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx.i
-  %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
-  store float %57, ptr %59, align 8
-  %60 = tail call float @llvm.fmuladd.f32(float %39, float %43, float %34)
-  %61 = getelementptr inbounds nuw i8, ptr %58, i64 12
-  store float %60, ptr %61, align 4
-  %62 = tail call float @llvm.fmuladd.f32(float %38, float %43, float %37)
-  store float %62, ptr %58, align 16
-  %63 = tail call float @llvm.fmuladd.f32(float %45, float %43, float %34)
-  %64 = getelementptr inbounds nuw i8, ptr %58, i64 4
-  store float %63, ptr %64, align 4
+  %57 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx.i
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
+  store float %56, ptr %58, align 8
+  %59 = tail call float @llvm.fmuladd.f32(float %39, float %42, float %34)
+  %60 = getelementptr inbounds nuw i8, ptr %57, i64 12
+  store float %59, ptr %60, align 4
+  %61 = tail call float @llvm.fmuladd.f32(float %38, float %42, float %37)
+  store float %61, ptr %57, align 16
+  %62 = tail call float @llvm.fmuladd.f32(float %44, float %42, float %34)
+  %63 = getelementptr inbounds nuw i8, ptr %57, i64 4
+  store float %62, ptr %63, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 25
   br i1 %exitcond.not.i, label %DrawSplineSegmentBezierQuadratic.exit, label %21
 
-DrawSplineSegmentBezierQuadratic.exit:            ; preds = %52
-  store float %55, ptr %12, align 4
-  store float %54, ptr %11, align 8
-  store float %53, ptr %10, align 4
-  store float %56, ptr %5, align 16
+DrawSplineSegmentBezierQuadratic.exit:            ; preds = %51
+  store float %54, ptr %12, align 4
+  store float %53, ptr %11, align 8
+  store float %52, ptr %10, align 4
+  store float %55, ptr %5, align 16
   call void @DrawTriangleStrip(ptr noundef nonnull %5, i32 noundef 50, i32 %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %65 = icmp samesign ult i64 %indvars.iv.next, %13
-  br i1 %65, label %14, label %.loopexit
+  %64 = icmp samesign ult i64 %indvars.iv.next, %13
+  br i1 %64, label %14, label %.loopexit
 
 .loopexit:                                        ; preds = %DrawSplineSegmentBezierQuadratic.exit, %4
   ret void
@@ -3512,26 +3506,26 @@ define void @DrawSplineSegmentBezierQuadratic(<2 x float> %0, <2 x float> %1, <2
   %8 = fmul float %3, 5.000000e-01
   br label %13
 
-9:                                                ; preds = %44
+9:                                                ; preds = %43
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  store float %47, ptr %12, align 4
-  store float %46, ptr %11, align 8
-  store float %45, ptr %10, align 4
-  store float %48, ptr %6, align 16
+  store float %46, ptr %12, align 4
+  store float %45, ptr %11, align 8
+  store float %44, ptr %10, align 4
+  store float %47, ptr %6, align 16
   call void @DrawTriangleStrip(ptr noundef nonnull %6, i32 noundef 50, i32 %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 
-13:                                               ; preds = %5, %44
-  %indvars.iv = phi i64 [ 1, %5 ], [ %indvars.iv.next, %44 ]
-  %14 = phi float [ 0.000000e+00, %5 ], [ %45, %44 ]
-  %15 = phi float [ 0.000000e+00, %5 ], [ %46, %44 ]
-  %16 = phi float [ 0.000000e+00, %5 ], [ %47, %44 ]
-  %.sroa.7.058 = phi float [ %.sroa.050.4.vec.extract54, %5 ], [ %26, %44 ]
-  %.sroa.041.057 = phi float [ %.sroa.050.0.vec.extract52, %5 ], [ %29, %44 ]
-  %17 = phi float [ 0.000000e+00, %5 ], [ %48, %44 ]
+13:                                               ; preds = %5, %43
+  %indvars.iv = phi i64 [ 1, %5 ], [ %indvars.iv.next, %43 ]
+  %14 = phi float [ 0.000000e+00, %5 ], [ %44, %43 ]
+  %15 = phi float [ 0.000000e+00, %5 ], [ %45, %43 ]
+  %16 = phi float [ 0.000000e+00, %5 ], [ %46, %43 ]
+  %.sroa.7.058 = phi float [ %.sroa.050.4.vec.extract54, %5 ], [ %26, %43 ]
+  %.sroa.041.057 = phi float [ %.sroa.050.0.vec.extract52, %5 ], [ %29, %43 ]
+  %17 = phi float [ 0.000000e+00, %5 ], [ %47, %43 ]
   %18 = trunc nuw nsw i64 %indvars.iv to i32
   %19 = uitofp nneg i32 %18 to float
   %20 = fmul float %19, 0x3FA5555560000000
@@ -3550,43 +3544,43 @@ define void @DrawSplineSegmentBezierQuadratic(<2 x float> %0, <2 x float> %1, <2
   %31 = fsub float %29, %.sroa.041.057
   %32 = fmul float %30, %30
   %33 = tail call float @llvm.fmuladd.f32(float %31, float %31, float %32)
-  %34 = tail call float @sqrtf(float noundef %33) #16
-  %35 = fdiv float %8, %34
-  %36 = icmp eq i64 %indvars.iv, 1
-  %37 = fneg float %31
-  br i1 %36, label %38, label %._crit_edge
+  %sqrt = tail call float @llvm.sqrt.f32(float %33)
+  %34 = fdiv float %8, %sqrt
+  %35 = icmp eq i64 %indvars.iv, 1
+  %36 = fneg float %31
+  br i1 %35, label %37, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %13
   %.pre = fneg float %30
-  br label %44
+  br label %43
 
-38:                                               ; preds = %13
-  %39 = tail call float @llvm.fmuladd.f32(float %30, float %35, float %.sroa.041.057)
-  %40 = tail call float @llvm.fmuladd.f32(float %37, float %35, float %.sroa.7.058)
-  %41 = fneg float %30
-  %42 = tail call float @llvm.fmuladd.f32(float %41, float %35, float %.sroa.041.057)
-  %43 = tail call float @llvm.fmuladd.f32(float %31, float %35, float %.sroa.7.058)
-  br label %44
+37:                                               ; preds = %13
+  %38 = tail call float @llvm.fmuladd.f32(float %30, float %34, float %.sroa.041.057)
+  %39 = tail call float @llvm.fmuladd.f32(float %36, float %34, float %.sroa.7.058)
+  %40 = fneg float %30
+  %41 = tail call float @llvm.fmuladd.f32(float %40, float %34, float %.sroa.041.057)
+  %42 = tail call float @llvm.fmuladd.f32(float %31, float %34, float %.sroa.7.058)
+  br label %43
 
-44:                                               ; preds = %._crit_edge, %38
-  %.pre-phi = phi float [ %.pre, %._crit_edge ], [ %41, %38 ]
-  %45 = phi float [ %14, %._crit_edge ], [ %43, %38 ]
-  %46 = phi float [ %15, %._crit_edge ], [ %42, %38 ]
-  %47 = phi float [ %16, %._crit_edge ], [ %40, %38 ]
-  %48 = phi float [ %17, %._crit_edge ], [ %39, %38 ]
-  %49 = tail call float @llvm.fmuladd.f32(float %.pre-phi, float %35, float %29)
+43:                                               ; preds = %._crit_edge, %37
+  %.pre-phi = phi float [ %.pre, %._crit_edge ], [ %40, %37 ]
+  %44 = phi float [ %14, %._crit_edge ], [ %42, %37 ]
+  %45 = phi float [ %15, %._crit_edge ], [ %41, %37 ]
+  %46 = phi float [ %16, %._crit_edge ], [ %39, %37 ]
+  %47 = phi float [ %17, %._crit_edge ], [ %38, %37 ]
+  %48 = tail call float @llvm.fmuladd.f32(float %.pre-phi, float %34, float %29)
   %.idx = shl nuw nsw i64 %indvars.iv, 4
-  %50 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx
-  %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
-  store float %49, ptr %51, align 8
-  %52 = tail call float @llvm.fmuladd.f32(float %31, float %35, float %26)
-  %53 = getelementptr inbounds nuw i8, ptr %50, i64 12
-  store float %52, ptr %53, align 4
-  %54 = tail call float @llvm.fmuladd.f32(float %30, float %35, float %29)
-  store float %54, ptr %50, align 16
-  %55 = tail call float @llvm.fmuladd.f32(float %37, float %35, float %26)
-  %56 = getelementptr inbounds nuw i8, ptr %50, i64 4
-  store float %55, ptr %56, align 4
+  %49 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
+  store float %48, ptr %50, align 8
+  %51 = tail call float @llvm.fmuladd.f32(float %31, float %34, float %26)
+  %52 = getelementptr inbounds nuw i8, ptr %49, i64 12
+  store float %51, ptr %52, align 4
+  %53 = tail call float @llvm.fmuladd.f32(float %30, float %34, float %29)
+  store float %53, ptr %49, align 16
+  %54 = tail call float @llvm.fmuladd.f32(float %36, float %34, float %26)
+  %55 = getelementptr inbounds nuw i8, ptr %49, i64 4
+  store float %54, ptr %55, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 25
   br i1 %exitcond.not, label %9, label %13
@@ -3638,26 +3632,26 @@ define void @DrawSplineSegmentBezierCubic(<2 x float> %0, <2 x float> %1, <2 x f
   %9 = fmul float %4, 5.000000e-01
   br label %14
 
-10:                                               ; preds = %51
+10:                                               ; preds = %50
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 12
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  store float %54, ptr %13, align 4
-  store float %53, ptr %12, align 8
-  store float %52, ptr %11, align 4
-  store float %55, ptr %7, align 16
+  store float %53, ptr %13, align 4
+  store float %52, ptr %12, align 8
+  store float %51, ptr %11, align 4
+  store float %54, ptr %7, align 16
   call void @DrawTriangleStrip(ptr noundef nonnull %7, i32 noundef 50, i32 %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 
-14:                                               ; preds = %6, %51
-  %indvars.iv = phi i64 [ 1, %6 ], [ %indvars.iv.next, %51 ]
-  %15 = phi float [ 0.000000e+00, %6 ], [ %52, %51 ]
-  %16 = phi float [ 0.000000e+00, %6 ], [ %53, %51 ]
-  %17 = phi float [ 0.000000e+00, %6 ], [ %54, %51 ]
-  %.sroa.7.063 = phi float [ %.sroa.055.4.vec.extract59, %6 ], [ %32, %51 ]
-  %.sroa.045.062 = phi float [ %.sroa.055.0.vec.extract57, %6 ], [ %36, %51 ]
-  %18 = phi float [ 0.000000e+00, %6 ], [ %55, %51 ]
+14:                                               ; preds = %6, %50
+  %indvars.iv = phi i64 [ 1, %6 ], [ %indvars.iv.next, %50 ]
+  %15 = phi float [ 0.000000e+00, %6 ], [ %51, %50 ]
+  %16 = phi float [ 0.000000e+00, %6 ], [ %52, %50 ]
+  %17 = phi float [ 0.000000e+00, %6 ], [ %53, %50 ]
+  %.sroa.7.063 = phi float [ %.sroa.055.4.vec.extract59, %6 ], [ %32, %50 ]
+  %.sroa.045.062 = phi float [ %.sroa.055.0.vec.extract57, %6 ], [ %36, %50 ]
+  %18 = phi float [ 0.000000e+00, %6 ], [ %54, %50 ]
   %19 = trunc nuw nsw i64 %indvars.iv to i32
   %20 = uitofp nneg i32 %19 to float
   %21 = fmul float %20, 0x3FA5555560000000
@@ -3682,43 +3676,43 @@ define void @DrawSplineSegmentBezierCubic(<2 x float> %0, <2 x float> %1, <2 x f
   %38 = fsub float %36, %.sroa.045.062
   %39 = fmul float %37, %37
   %40 = tail call float @llvm.fmuladd.f32(float %38, float %38, float %39)
-  %41 = tail call float @sqrtf(float noundef %40) #16
-  %42 = fdiv float %9, %41
-  %43 = icmp eq i64 %indvars.iv, 1
-  %44 = fneg float %38
-  br i1 %43, label %45, label %._crit_edge
+  %sqrt = tail call float @llvm.sqrt.f32(float %40)
+  %41 = fdiv float %9, %sqrt
+  %42 = icmp eq i64 %indvars.iv, 1
+  %43 = fneg float %38
+  br i1 %42, label %44, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %14
   %.pre = fneg float %37
-  br label %51
+  br label %50
 
-45:                                               ; preds = %14
-  %46 = tail call float @llvm.fmuladd.f32(float %37, float %42, float %.sroa.045.062)
-  %47 = tail call float @llvm.fmuladd.f32(float %44, float %42, float %.sroa.7.063)
-  %48 = fneg float %37
-  %49 = tail call float @llvm.fmuladd.f32(float %48, float %42, float %.sroa.045.062)
-  %50 = tail call float @llvm.fmuladd.f32(float %38, float %42, float %.sroa.7.063)
-  br label %51
+44:                                               ; preds = %14
+  %45 = tail call float @llvm.fmuladd.f32(float %37, float %41, float %.sroa.045.062)
+  %46 = tail call float @llvm.fmuladd.f32(float %43, float %41, float %.sroa.7.063)
+  %47 = fneg float %37
+  %48 = tail call float @llvm.fmuladd.f32(float %47, float %41, float %.sroa.045.062)
+  %49 = tail call float @llvm.fmuladd.f32(float %38, float %41, float %.sroa.7.063)
+  br label %50
 
-51:                                               ; preds = %._crit_edge, %45
-  %.pre-phi = phi float [ %.pre, %._crit_edge ], [ %48, %45 ]
-  %52 = phi float [ %15, %._crit_edge ], [ %50, %45 ]
-  %53 = phi float [ %16, %._crit_edge ], [ %49, %45 ]
-  %54 = phi float [ %17, %._crit_edge ], [ %47, %45 ]
-  %55 = phi float [ %18, %._crit_edge ], [ %46, %45 ]
-  %56 = tail call float @llvm.fmuladd.f32(float %.pre-phi, float %42, float %36)
+50:                                               ; preds = %._crit_edge, %44
+  %.pre-phi = phi float [ %.pre, %._crit_edge ], [ %47, %44 ]
+  %51 = phi float [ %15, %._crit_edge ], [ %49, %44 ]
+  %52 = phi float [ %16, %._crit_edge ], [ %48, %44 ]
+  %53 = phi float [ %17, %._crit_edge ], [ %46, %44 ]
+  %54 = phi float [ %18, %._crit_edge ], [ %45, %44 ]
+  %55 = tail call float @llvm.fmuladd.f32(float %.pre-phi, float %41, float %36)
   %.idx = shl nuw nsw i64 %indvars.iv, 4
-  %57 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx
-  %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
-  store float %56, ptr %58, align 8
-  %59 = tail call float @llvm.fmuladd.f32(float %38, float %42, float %32)
-  %60 = getelementptr inbounds nuw i8, ptr %57, i64 12
-  store float %59, ptr %60, align 4
-  %61 = tail call float @llvm.fmuladd.f32(float %37, float %42, float %36)
-  store float %61, ptr %57, align 16
-  %62 = tail call float @llvm.fmuladd.f32(float %44, float %42, float %32)
-  %63 = getelementptr inbounds nuw i8, ptr %57, i64 4
-  store float %62, ptr %63, align 4
+  %56 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
+  store float %55, ptr %57, align 8
+  %58 = tail call float @llvm.fmuladd.f32(float %38, float %41, float %32)
+  %59 = getelementptr inbounds nuw i8, ptr %56, i64 12
+  store float %58, ptr %59, align 4
+  %60 = tail call float @llvm.fmuladd.f32(float %37, float %41, float %36)
+  store float %60, ptr %56, align 16
+  %61 = tail call float @llvm.fmuladd.f32(float %43, float %41, float %32)
+  %62 = getelementptr inbounds nuw i8, ptr %56, i64 4
+  store float %61, ptr %62, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 25
   br i1 %exitcond.not, label %10, label %14
@@ -3734,49 +3728,49 @@ define void @DrawSplineSegmentLinear(<2 x float> %0, <2 x float> %1, float nound
   %7 = fsub float %.sroa.019.4.vec.extract, %.sroa.028.4.vec.extract
   %8 = fmul float %7, %7
   %9 = tail call float @llvm.fmuladd.f32(float %6, float %6, float %8)
-  %10 = tail call float @sqrtf(float noundef %9) #16
-  %11 = fcmp ogt float %10, 0.000000e+00
-  %12 = fcmp ogt float %2, 0.000000e+00
-  %or.cond = and i1 %12, %11
-  br i1 %or.cond, label %13, label %34
+  %10 = fcmp ogt float %9, 0.000000e+00
+  %11 = fcmp ogt float %2, 0.000000e+00
+  %or.cond = and i1 %11, %10
+  br i1 %or.cond, label %12, label %33
 
-13:                                               ; preds = %4
+12:                                               ; preds = %4
   %.sroa.028.0.vec.extract = extractelement <2 x float> %0, i64 0
   %.sroa.019.0.vec.extract = extractelement <2 x float> %1, i64 0
-  %14 = fmul float %10, 2.000000e+00
-  %15 = fdiv float %2, %14
-  %16 = fneg float %15
-  %17 = fmul float %7, %16
-  %18 = fmul float %6, %15
+  %sqrt = tail call float @llvm.sqrt.f32(float %9)
+  %13 = fmul float %sqrt, 2.000000e+00
+  %14 = fdiv float %2, %13
+  %15 = fneg float %14
+  %16 = fmul float %7, %15
+  %17 = fmul float %6, %14
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %19 = fsub float %.sroa.028.0.vec.extract, %17
-  store float %19, ptr %5, align 16
-  %20 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %21 = fsub float %.sroa.028.4.vec.extract, %18
-  store float %21, ptr %20, align 4
-  %22 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %23 = fadd float %.sroa.028.0.vec.extract, %17
-  store float %23, ptr %22, align 8
-  %24 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  %25 = fadd float %.sroa.028.4.vec.extract, %18
-  store float %25, ptr %24, align 4
-  %26 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %27 = fsub float %.sroa.019.0.vec.extract, %17
-  store float %27, ptr %26, align 16
-  %28 = getelementptr inbounds nuw i8, ptr %5, i64 20
-  %29 = fsub float %.sroa.019.4.vec.extract, %18
-  store float %29, ptr %28, align 4
-  %30 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %31 = fadd float %.sroa.019.0.vec.extract, %17
-  store float %31, ptr %30, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %5, i64 28
-  %33 = fadd float %.sroa.019.4.vec.extract, %18
-  store float %33, ptr %32, align 4
+  %18 = fsub float %.sroa.028.0.vec.extract, %16
+  store float %18, ptr %5, align 16
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %20 = fsub float %.sroa.028.4.vec.extract, %17
+  store float %20, ptr %19, align 4
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %22 = fadd float %.sroa.028.0.vec.extract, %16
+  store float %22, ptr %21, align 8
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 12
+  %24 = fadd float %.sroa.028.4.vec.extract, %17
+  store float %24, ptr %23, align 4
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %26 = fsub float %.sroa.019.0.vec.extract, %16
+  store float %26, ptr %25, align 16
+  %27 = getelementptr inbounds nuw i8, ptr %5, i64 20
+  %28 = fsub float %.sroa.019.4.vec.extract, %17
+  store float %28, ptr %27, align 4
+  %29 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %30 = fadd float %.sroa.019.0.vec.extract, %16
+  store float %30, ptr %29, align 8
+  %31 = getelementptr inbounds nuw i8, ptr %5, i64 28
+  %32 = fadd float %.sroa.019.4.vec.extract, %17
+  store float %32, ptr %31, align 4
   call void @DrawTriangleStrip(ptr noundef nonnull %5, i32 noundef 4, i32 %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %34
+  br label %33
 
-34:                                               ; preds = %13, %4
+33:                                               ; preds = %12, %4
   ret void
 }
 
@@ -3829,15 +3823,15 @@ define void @DrawSplineSegmentBasis(<2 x float> %0, <2 x float> %1, <2 x float> 
   %41 = getelementptr inbounds nuw i8, ptr %7, i64 12
   br label %43
 
-42:                                               ; preds = %67
+42:                                               ; preds = %66
   call void @DrawTriangleStrip(ptr noundef nonnull %7, i32 noundef 50, i32 %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 
-43:                                               ; preds = %6, %67
-  %indvars.iv = phi i64 [ 0, %6 ], [ %indvars.iv.next, %67 ]
-  %.sroa.044.090 = phi float [ %22, %6 ], [ %49, %67 ]
-  %.sroa.847.089 = phi float [ %37, %6 ], [ %52, %67 ]
+43:                                               ; preds = %6, %66
+  %indvars.iv = phi i64 [ 0, %6 ], [ %indvars.iv.next, %66 ]
+  %.sroa.044.090 = phi float [ %22, %6 ], [ %49, %66 ]
+  %.sroa.847.089 = phi float [ %37, %6 ], [ %52, %66 ]
   %44 = trunc nuw nsw i64 %indvars.iv to i32
   %45 = uitofp nneg i32 %44 to float
   %46 = fmul float %45, 0x3FA5555560000000
@@ -3851,45 +3845,45 @@ define void @DrawSplineSegmentBasis(<2 x float> %0, <2 x float> %1, <2 x float> 
   %54 = fsub float %49, %.sroa.044.090
   %55 = fmul float %53, %53
   %56 = tail call float @llvm.fmuladd.f32(float %54, float %54, float %55)
-  %57 = tail call float @sqrtf(float noundef %56) #16
-  %58 = fdiv float %38, %57
-  %59 = icmp eq i64 %indvars.iv, 1
-  br i1 %59, label %60, label %._crit_edge
+  %sqrt = tail call float @llvm.sqrt.f32(float %56)
+  %57 = fdiv float %38, %sqrt
+  %58 = icmp eq i64 %indvars.iv, 1
+  br i1 %58, label %59, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %43
   %.pre = fneg float %53
   %.pre92 = fneg float %54
-  br label %67
+  br label %66
 
-60:                                               ; preds = %43
-  %61 = tail call float @llvm.fmuladd.f32(float %53, float %58, float %.sroa.044.090)
-  store float %61, ptr %7, align 16
-  %62 = fneg float %54
-  %63 = tail call float @llvm.fmuladd.f32(float %62, float %58, float %.sroa.847.089)
-  store float %63, ptr %39, align 4
-  %64 = fneg float %53
-  %65 = tail call float @llvm.fmuladd.f32(float %64, float %58, float %.sroa.044.090)
-  store float %65, ptr %40, align 8
-  %66 = tail call float @llvm.fmuladd.f32(float %54, float %58, float %.sroa.847.089)
-  store float %66, ptr %41, align 4
-  br label %67
+59:                                               ; preds = %43
+  %60 = tail call float @llvm.fmuladd.f32(float %53, float %57, float %.sroa.044.090)
+  store float %60, ptr %7, align 16
+  %61 = fneg float %54
+  %62 = tail call float @llvm.fmuladd.f32(float %61, float %57, float %.sroa.847.089)
+  store float %62, ptr %39, align 4
+  %63 = fneg float %53
+  %64 = tail call float @llvm.fmuladd.f32(float %63, float %57, float %.sroa.044.090)
+  store float %64, ptr %40, align 8
+  %65 = tail call float @llvm.fmuladd.f32(float %54, float %57, float %.sroa.847.089)
+  store float %65, ptr %41, align 4
+  br label %66
 
-67:                                               ; preds = %._crit_edge, %60
-  %.pre-phi93 = phi float [ %.pre92, %._crit_edge ], [ %62, %60 ]
-  %.pre-phi = phi float [ %.pre, %._crit_edge ], [ %64, %60 ]
-  %68 = tail call float @llvm.fmuladd.f32(float %.pre-phi, float %58, float %49)
+66:                                               ; preds = %._crit_edge, %59
+  %.pre-phi93 = phi float [ %.pre92, %._crit_edge ], [ %61, %59 ]
+  %.pre-phi = phi float [ %.pre, %._crit_edge ], [ %63, %59 ]
+  %67 = tail call float @llvm.fmuladd.f32(float %.pre-phi, float %57, float %49)
   %.idx = shl nuw nsw i64 %indvars.iv, 4
-  %69 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx
-  %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
-  store float %68, ptr %70, align 8
-  %71 = tail call float @llvm.fmuladd.f32(float %54, float %58, float %52)
-  %72 = getelementptr inbounds nuw i8, ptr %69, i64 12
-  store float %71, ptr %72, align 4
-  %73 = tail call float @llvm.fmuladd.f32(float %53, float %58, float %49)
-  store float %73, ptr %69, align 16
-  %74 = tail call float @llvm.fmuladd.f32(float %.pre-phi93, float %58, float %52)
-  %75 = getelementptr inbounds nuw i8, ptr %69, i64 4
-  store float %74, ptr %75, align 4
+  %68 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 8
+  store float %67, ptr %69, align 8
+  %70 = tail call float @llvm.fmuladd.f32(float %54, float %57, float %52)
+  %71 = getelementptr inbounds nuw i8, ptr %68, i64 12
+  store float %70, ptr %71, align 4
+  %72 = tail call float @llvm.fmuladd.f32(float %53, float %57, float %49)
+  store float %72, ptr %68, align 16
+  %73 = tail call float @llvm.fmuladd.f32(float %.pre-phi93, float %57, float %52)
+  %74 = getelementptr inbounds nuw i8, ptr %68, i64 4
+  store float %73, ptr %74, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 25
   br i1 %exitcond.not, label %42, label %43
@@ -3914,15 +3908,15 @@ define void @DrawSplineSegmentCatmullRom(<2 x float> %0, <2 x float> %1, <2 x fl
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 12
   br label %13
 
-12:                                               ; preds = %62
+12:                                               ; preds = %61
   call void @DrawTriangleStrip(ptr noundef nonnull %7, i32 noundef 50, i32 %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 
-13:                                               ; preds = %6, %62
-  %indvars.iv = phi i64 [ 0, %6 ], [ %indvars.iv.next, %62 ]
-  %.sroa.7.078 = phi float [ %.sroa.071.4.vec.extract75, %6 ], [ %47, %62 ]
-  %.sroa.061.077 = phi float [ %.sroa.071.0.vec.extract73, %6 ], [ %42, %62 ]
+13:                                               ; preds = %6, %61
+  %indvars.iv = phi i64 [ 0, %6 ], [ %indvars.iv.next, %61 ]
+  %.sroa.7.078 = phi float [ %.sroa.071.4.vec.extract75, %6 ], [ %47, %61 ]
+  %.sroa.061.077 = phi float [ %.sroa.071.0.vec.extract73, %6 ], [ %42, %61 ]
   %14 = trunc nuw nsw i64 %indvars.iv to i32
   %15 = uitofp nneg i32 %14 to float
   %16 = fmul float %15, 0x3FA5555560000000
@@ -3961,45 +3955,45 @@ define void @DrawSplineSegmentCatmullRom(<2 x float> %0, <2 x float> %1, <2 x fl
   %49 = fsub float %42, %.sroa.061.077
   %50 = fmul float %48, %48
   %51 = tail call float @llvm.fmuladd.f32(float %49, float %49, float %50)
-  %52 = tail call float @sqrtf(float noundef %51) #16
-  %53 = fdiv float %8, %52
-  %54 = icmp eq i64 %indvars.iv, 1
-  br i1 %54, label %55, label %._crit_edge
+  %sqrt = tail call float @llvm.sqrt.f32(float %51)
+  %52 = fdiv float %8, %sqrt
+  %53 = icmp eq i64 %indvars.iv, 1
+  br i1 %53, label %54, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %13
   %.pre = fneg float %48
   %.pre80 = fneg float %49
-  br label %62
+  br label %61
 
-55:                                               ; preds = %13
-  %56 = tail call float @llvm.fmuladd.f32(float %48, float %53, float %.sroa.061.077)
-  store float %56, ptr %7, align 16
-  %57 = fneg float %49
-  %58 = tail call float @llvm.fmuladd.f32(float %57, float %53, float %.sroa.7.078)
-  store float %58, ptr %9, align 4
-  %59 = fneg float %48
-  %60 = tail call float @llvm.fmuladd.f32(float %59, float %53, float %.sroa.061.077)
-  store float %60, ptr %10, align 8
-  %61 = tail call float @llvm.fmuladd.f32(float %49, float %53, float %.sroa.7.078)
-  store float %61, ptr %11, align 4
-  br label %62
+54:                                               ; preds = %13
+  %55 = tail call float @llvm.fmuladd.f32(float %48, float %52, float %.sroa.061.077)
+  store float %55, ptr %7, align 16
+  %56 = fneg float %49
+  %57 = tail call float @llvm.fmuladd.f32(float %56, float %52, float %.sroa.7.078)
+  store float %57, ptr %9, align 4
+  %58 = fneg float %48
+  %59 = tail call float @llvm.fmuladd.f32(float %58, float %52, float %.sroa.061.077)
+  store float %59, ptr %10, align 8
+  %60 = tail call float @llvm.fmuladd.f32(float %49, float %52, float %.sroa.7.078)
+  store float %60, ptr %11, align 4
+  br label %61
 
-62:                                               ; preds = %._crit_edge, %55
-  %.pre-phi81 = phi float [ %.pre80, %._crit_edge ], [ %57, %55 ]
-  %.pre-phi = phi float [ %.pre, %._crit_edge ], [ %59, %55 ]
-  %63 = tail call float @llvm.fmuladd.f32(float %.pre-phi, float %53, float %42)
+61:                                               ; preds = %._crit_edge, %54
+  %.pre-phi81 = phi float [ %.pre80, %._crit_edge ], [ %56, %54 ]
+  %.pre-phi = phi float [ %.pre, %._crit_edge ], [ %58, %54 ]
+  %62 = tail call float @llvm.fmuladd.f32(float %.pre-phi, float %52, float %42)
   %.idx = shl nuw nsw i64 %indvars.iv, 4
-  %64 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx
-  %65 = getelementptr inbounds nuw i8, ptr %64, i64 8
-  store float %63, ptr %65, align 8
-  %66 = tail call float @llvm.fmuladd.f32(float %49, float %53, float %47)
-  %67 = getelementptr inbounds nuw i8, ptr %64, i64 12
-  store float %66, ptr %67, align 4
-  %68 = tail call float @llvm.fmuladd.f32(float %48, float %53, float %42)
-  store float %68, ptr %64, align 16
-  %69 = tail call float @llvm.fmuladd.f32(float %.pre-phi81, float %53, float %47)
-  %70 = getelementptr inbounds nuw i8, ptr %64, i64 4
-  store float %69, ptr %70, align 4
+  %63 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 8
+  store float %62, ptr %64, align 8
+  %65 = tail call float @llvm.fmuladd.f32(float %49, float %52, float %47)
+  %66 = getelementptr inbounds nuw i8, ptr %63, i64 12
+  store float %65, ptr %66, align 4
+  %67 = tail call float @llvm.fmuladd.f32(float %48, float %52, float %42)
+  store float %67, ptr %63, align 16
+  %68 = tail call float @llvm.fmuladd.f32(float %.pre-phi81, float %52, float %47)
+  %69 = getelementptr inbounds nuw i8, ptr %63, i64 4
+  store float %68, ptr %69, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 25
   br i1 %exitcond.not, label %12, label %13
@@ -4388,7 +4382,7 @@ define zeroext i1 @CheckCollisionCircleRec(<2 x float> %0, float noundef %1, <2 
 }
 
 ; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fabs.f32(float) #9
+declare float @llvm.fabs.f32(float) #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define noundef zeroext i1 @CheckCollisionLines(<2 x float> %0, <2 x float> %1, <2 x float> %2, <2 x float> %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #13 {
@@ -4500,10 +4494,10 @@ define noundef zeroext i1 @CheckCollisionLines(<2 x float> %0, <2 x float> %1, <
 }
 
 ; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.minnum.f32(float, float) #9
+declare float @llvm.minnum.f32(float, float) #8
 
 ; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.maxnum.f32(float, float) #9
+declare float @llvm.maxnum.f32(float, float) #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define zeroext i1 @CheckCollisionPointLine(<2 x float> %0, <2 x float> %1, <2 x float> %2, i32 noundef %3) local_unnamed_addr #10 {
@@ -4693,6 +4687,9 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #14
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #15
 
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.sqrt.f32(float) #15
+
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -4701,8 +4698,8 @@ attributes #4 = { nounwind uwtable "min-legal-vector-width"="64" "no-trapping-ma
 attributes #5 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nofree norecurse nounwind willreturn memory(errnomem: write) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

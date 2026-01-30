@@ -1094,14 +1094,14 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit:          ; preds = %_ZSt8_DestroyIPN2cv
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %95
+  br label %94
 
 71:                                               ; preds = %18
   %72 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %94
+  br label %93
 
 73:                                               ; preds = %48, %29, %26, %24
   %74 = landingpad { ptr, i32 }
@@ -1136,10 +1136,10 @@ _ZNSt6vectorIdSaIdEED2Ev.exit35:                  ; preds = %_ZNSt6vectorIdSaIdE
 
 _ZNSt6vectorIdSaIdEED2Ev.exit37:                  ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit35, %80
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %94
+  br label %93
 
 81:                                               ; preds = %.lr.ph, %81
-  %.01240 = phi i64 [ 0, %.lr.ph ], [ %93, %81 ]
+  %.01240 = phi i64 [ 0, %.lr.ph ], [ %92, %81 ]
   %82 = getelementptr inbounds nuw double, ptr %55, i64 %.01240
   %83 = load double, ptr %82, align 8, !tbaa !13
   %square = fmul double %83, %83
@@ -1151,22 +1151,22 @@ _ZNSt6vectorIdSaIdEED2Ev.exit37:                  ; preds = %_ZNSt6vectorIdSaIdE
   %88 = load double, ptr %87, align 8, !tbaa !13
   %square39 = fmul double %88, %88
   %89 = fadd double %86, %square39
-  %90 = call double @sqrt(double noundef %89) #23, !tbaa !31
-  %91 = fdiv double %90, 1.000000e+02
-  %92 = getelementptr inbounds nuw double, ptr %58, i64 %.01240
-  store double %91, ptr %92, align 8, !tbaa !13
-  %93 = add nuw i64 %.01240, 1
-  %exitcond.not = icmp eq i64 %93, %umax
+  %sqrt = call double @llvm.sqrt.f64(double %89)
+  %90 = fdiv double %sqrt, 1.000000e+02
+  %91 = getelementptr inbounds nuw double, ptr %58, i64 %.01240
+  store double %90, ptr %91, align 8, !tbaa !13
+  %92 = add nuw i64 %.01240, 1
+  %exitcond.not = icmp eq i64 %92, %umax
   br i1 %exitcond.not, label %._crit_edge.thread, label %81, !llvm.loop !90
 
-94:                                               ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit37, %71
+93:                                               ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit37, %71
   %.pn24 = phi { ptr, i32 } [ %74, %_ZNSt6vectorIdSaIdEED2Ev.exit37 ], [ %72, %71 ]
   call void @_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %95
+  br label %94
 
-95:                                               ; preds = %94, %69
-  %.pn24.pn = phi { ptr, i32 } [ %.pn24, %94 ], [ %70, %69 ]
+94:                                               ; preds = %93, %69
+  %.pn24.pn = phi { ptr, i32 } [ %.pn24, %93 ], [ %70, %69 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn24.pn
@@ -1175,9 +1175,6 @@ _ZNSt6vectorIdSaIdEED2Ev.exit37:                  ; preds = %_ZNSt6vectorIdSaIdE
 declare void @_ZN2cv8cvtColorERKNS_11_InputArrayERKNS_12_OutputArrayEiiNS_13AlgorithmHintE(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24), i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
 declare void @_ZN2cv5splitERKNS_11_InputArrayERKNS_12_OutputArrayE(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #4
-
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @sqrt(double noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {

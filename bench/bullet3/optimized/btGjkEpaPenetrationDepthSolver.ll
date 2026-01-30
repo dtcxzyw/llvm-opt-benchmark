@@ -49,165 +49,165 @@ define dso_local noundef zeroext i1 @_ZN30btGjkEpaPenetrationDepthSolver12calcPe
   %30 = tail call float @llvm.fmuladd.f32(float %18, float %18, float %29)
   %31 = tail call noundef float @llvm.fmuladd.f32(float %28, float %28, float %30)
   %32 = fcmp ult float %31, 0x3D10000000000000
-  br i1 %32, label %39, label %33
+  br i1 %32, label %38, label %33
 
 33:                                               ; preds = %10
-  %34 = tail call noundef float @sqrtf(float noundef %31) #10, !tbaa !8
-  %35 = fdiv float 1.000000e+00, %34
-  %36 = fmul float %18, %35
-  %37 = fmul float %23, %35
-  %38 = fmul float %28, %35
+  %sqrt.i = tail call float @llvm.sqrt.f32(float %31)
+  %34 = fdiv float 1.000000e+00, %sqrt.i
+  %35 = fmul float %18, %34
+  %36 = fmul float %23, %34
+  %37 = fmul float %28, %34
   br label %_ZN9btVector313safeNormalizeEv.exit
 
-39:                                               ; preds = %10
-  %.sroa.876.12.vec.insert = insertelement <2 x float> %.sroa.3.12.vec.insert.i, float 0.000000e+00, i64 1
+38:                                               ; preds = %10
+  %.sroa.877.12.vec.insert = insertelement <2 x float> %.sroa.3.12.vec.insert.i, float 0.000000e+00, i64 1
   br label %_ZN9btVector313safeNormalizeEv.exit
 
-_ZN9btVector313safeNormalizeEv.exit:              ; preds = %33, %39
-  %.sroa.876.0 = phi <2 x float> [ %.sroa.876.12.vec.insert, %39 ], [ %.sroa.3.12.vec.insert.i, %33 ]
-  %.sink7.i = phi float [ 1.000000e+00, %39 ], [ %36, %33 ]
-  %.sink6.i = phi float [ 0.000000e+00, %39 ], [ %37, %33 ]
-  %.sink.i = phi float [ 0.000000e+00, %39 ], [ %38, %33 ]
-  %40 = insertelement <2 x float> poison, float %.sink7.i, i64 0
-  %.sroa.073.4.vec.insert = insertelement <2 x float> %40, float %.sink6.i, i64 1
-  %.sroa.876.8.vec.insert = insertelement <2 x float> %.sroa.876.0, float %.sink.i, i64 0
-  store <2 x float> %.sroa.073.4.vec.insert, ptr %11, align 16
-  %.sroa.876.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store <2 x float> %.sroa.876.8.vec.insert, ptr %.sroa.876.0..sroa_idx, align 8, !tbaa !10
-  %41 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %42 = fsub float %17, %16
-  %43 = fsub float %22, %20
-  %44 = fsub float %27, %25
-  %.sroa.3.12.vec.insert.i34 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %44, i64 0
-  %45 = fmul float %43, %43
-  %46 = tail call float @llvm.fmuladd.f32(float %42, float %42, float %45)
-  %47 = tail call noundef float @llvm.fmuladd.f32(float %44, float %44, float %46)
-  %48 = fcmp ult float %47, 0x3D10000000000000
-  br i1 %48, label %55, label %49
+_ZN9btVector313safeNormalizeEv.exit:              ; preds = %33, %38
+  %.sroa.877.0 = phi <2 x float> [ %.sroa.877.12.vec.insert, %38 ], [ %.sroa.3.12.vec.insert.i, %33 ]
+  %.sink7.i = phi float [ 1.000000e+00, %38 ], [ %35, %33 ]
+  %.sink6.i = phi float [ 0.000000e+00, %38 ], [ %36, %33 ]
+  %.sink.i = phi float [ 0.000000e+00, %38 ], [ %37, %33 ]
+  %39 = insertelement <2 x float> poison, float %.sink7.i, i64 0
+  %.sroa.074.4.vec.insert = insertelement <2 x float> %39, float %.sink6.i, i64 1
+  %.sroa.877.8.vec.insert = insertelement <2 x float> %.sroa.877.0, float %.sink.i, i64 0
+  store <2 x float> %.sroa.074.4.vec.insert, ptr %11, align 16
+  %.sroa.877.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 8
+  store <2 x float> %.sroa.877.8.vec.insert, ptr %.sroa.877.0..sroa_idx, align 8, !tbaa !8
+  %40 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %41 = fsub float %17, %16
+  %42 = fsub float %22, %20
+  %43 = fsub float %27, %25
+  %.sroa.3.12.vec.insert.i34 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %43, i64 0
+  %44 = fmul float %42, %42
+  %45 = tail call float @llvm.fmuladd.f32(float %41, float %41, float %44)
+  %46 = tail call noundef float @llvm.fmuladd.f32(float %43, float %43, float %45)
+  %47 = fcmp ult float %46, 0x3D10000000000000
+  br i1 %47, label %53, label %48
 
-49:                                               ; preds = %_ZN9btVector313safeNormalizeEv.exit
-  %50 = tail call noundef float @sqrtf(float noundef %47) #10, !tbaa !8
-  %51 = fdiv float 1.000000e+00, %50
-  %52 = fmul float %42, %51
-  %53 = fmul float %43, %51
-  %54 = fmul float %44, %51
-  br label %_ZN9btVector313safeNormalizeEv.exit40
+48:                                               ; preds = %_ZN9btVector313safeNormalizeEv.exit
+  %sqrt.i37 = tail call float @llvm.sqrt.f32(float %46)
+  %49 = fdiv float 1.000000e+00, %sqrt.i37
+  %50 = fmul float %41, %49
+  %51 = fmul float %42, %49
+  %52 = fmul float %43, %49
+  br label %_ZN9btVector313safeNormalizeEv.exit41
 
-55:                                               ; preds = %_ZN9btVector313safeNormalizeEv.exit
+53:                                               ; preds = %_ZN9btVector313safeNormalizeEv.exit
   %.sroa.8.12.vec.insert = insertelement <2 x float> %.sroa.3.12.vec.insert.i34, float 0.000000e+00, i64 1
-  br label %_ZN9btVector313safeNormalizeEv.exit40
+  br label %_ZN9btVector313safeNormalizeEv.exit41
 
-_ZN9btVector313safeNormalizeEv.exit40:            ; preds = %49, %55
-  %.sroa.8.0 = phi <2 x float> [ %.sroa.8.12.vec.insert, %55 ], [ %.sroa.3.12.vec.insert.i34, %49 ]
-  %.sink7.i37 = phi float [ 1.000000e+00, %55 ], [ %52, %49 ]
-  %.sink6.i38 = phi float [ 0.000000e+00, %55 ], [ %53, %49 ]
-  %.sink.i39 = phi float [ 0.000000e+00, %55 ], [ %54, %49 ]
-  %56 = insertelement <2 x float> poison, float %.sink7.i37, i64 0
-  %.sroa.0.4.vec.insert = insertelement <2 x float> %56, float %.sink6.i38, i64 1
-  %.sroa.8.8.vec.insert = insertelement <2 x float> %.sroa.8.0, float %.sink.i39, i64 0
-  store <2 x float> %.sroa.0.4.vec.insert, ptr %41, align 16
+_ZN9btVector313safeNormalizeEv.exit41:            ; preds = %48, %53
+  %.sroa.8.0 = phi <2 x float> [ %.sroa.8.12.vec.insert, %53 ], [ %.sroa.3.12.vec.insert.i34, %48 ]
+  %.sink7.i38 = phi float [ 1.000000e+00, %53 ], [ %50, %48 ]
+  %.sink6.i39 = phi float [ 0.000000e+00, %53 ], [ %51, %48 ]
+  %.sink.i40 = phi float [ 0.000000e+00, %53 ], [ %52, %48 ]
+  %54 = insertelement <2 x float> poison, float %.sink7.i38, i64 0
+  %.sroa.0.4.vec.insert = insertelement <2 x float> %54, float %.sink6.i39, i64 1
+  %.sroa.8.8.vec.insert = insertelement <2 x float> %.sroa.8.0, float %.sink.i40, i64 0
+  store <2 x float> %.sroa.0.4.vec.insert, ptr %40, align 16
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 24
-  store <2 x float> %.sroa.8.8.vec.insert, ptr %.sroa.8.0..sroa_idx, align 8, !tbaa !10
-  %57 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  store float 0.000000e+00, ptr %57, align 16, !tbaa !4
-  %58 = getelementptr inbounds nuw i8, ptr %11, i64 36
+  store <2 x float> %.sroa.8.8.vec.insert, ptr %.sroa.8.0..sroa_idx, align 8, !tbaa !8
+  %55 = getelementptr inbounds nuw i8, ptr %11, i64 32
+  store float 0.000000e+00, ptr %55, align 16, !tbaa !4
+  %56 = getelementptr inbounds nuw i8, ptr %11, i64 36
+  store float 0.000000e+00, ptr %56, align 4, !tbaa !4
+  %57 = getelementptr inbounds nuw i8, ptr %11, i64 40
+  store float 1.000000e+00, ptr %57, align 8, !tbaa !4
+  %58 = getelementptr inbounds nuw i8, ptr %11, i64 44
   store float 0.000000e+00, ptr %58, align 4, !tbaa !4
-  %59 = getelementptr inbounds nuw i8, ptr %11, i64 40
-  store float 1.000000e+00, ptr %59, align 8, !tbaa !4
-  %60 = getelementptr inbounds nuw i8, ptr %11, i64 44
-  store float 0.000000e+00, ptr %60, align 4, !tbaa !4
-  %61 = getelementptr inbounds nuw i8, ptr %11, i64 48
-  store float 0.000000e+00, ptr %61, align 16, !tbaa !4
-  %62 = getelementptr inbounds nuw i8, ptr %11, i64 52
-  store float 1.000000e+00, ptr %62, align 4, !tbaa !4
-  %63 = getelementptr inbounds nuw i8, ptr %11, i64 56
-  store float 0.000000e+00, ptr %63, align 8, !tbaa !4
-  %64 = getelementptr inbounds nuw i8, ptr %11, i64 60
+  %59 = getelementptr inbounds nuw i8, ptr %11, i64 48
+  store float 0.000000e+00, ptr %59, align 16, !tbaa !4
+  %60 = getelementptr inbounds nuw i8, ptr %11, i64 52
+  store float 1.000000e+00, ptr %60, align 4, !tbaa !4
+  %61 = getelementptr inbounds nuw i8, ptr %11, i64 56
+  store float 0.000000e+00, ptr %61, align 8, !tbaa !4
+  %62 = getelementptr inbounds nuw i8, ptr %11, i64 60
+  store float 0.000000e+00, ptr %62, align 4, !tbaa !4
+  %63 = getelementptr inbounds nuw i8, ptr %11, i64 64
+  store float 1.000000e+00, ptr %63, align 16, !tbaa !4
+  %64 = getelementptr inbounds nuw i8, ptr %11, i64 68
   store float 0.000000e+00, ptr %64, align 4, !tbaa !4
-  %65 = getelementptr inbounds nuw i8, ptr %11, i64 64
-  store float 1.000000e+00, ptr %65, align 16, !tbaa !4
-  %66 = getelementptr inbounds nuw i8, ptr %11, i64 68
+  %65 = getelementptr inbounds nuw i8, ptr %11, i64 72
+  store float 0.000000e+00, ptr %65, align 8, !tbaa !4
+  %66 = getelementptr inbounds nuw i8, ptr %11, i64 76
   store float 0.000000e+00, ptr %66, align 4, !tbaa !4
-  %67 = getelementptr inbounds nuw i8, ptr %11, i64 72
-  store float 0.000000e+00, ptr %67, align 8, !tbaa !4
-  %68 = getelementptr inbounds nuw i8, ptr %11, i64 76
-  store float 0.000000e+00, ptr %68, align 4, !tbaa !4
-  %69 = getelementptr inbounds nuw i8, ptr %11, i64 80
-  store float 1.000000e+00, ptr %69, align 16, !tbaa !4
-  %70 = getelementptr inbounds nuw i8, ptr %11, i64 84
-  store float 1.000000e+00, ptr %70, align 4, !tbaa !4
-  %71 = getelementptr inbounds nuw i8, ptr %11, i64 88
-  store float 0.000000e+00, ptr %71, align 8, !tbaa !4
-  %72 = getelementptr inbounds nuw i8, ptr %11, i64 92
-  store float 0.000000e+00, ptr %72, align 4, !tbaa !4
-  %73 = getelementptr inbounds nuw i8, ptr %11, i64 96
-  store float 1.000000e+00, ptr %73, align 16, !tbaa !4
-  %74 = getelementptr inbounds nuw i8, ptr %11, i64 100
-  store float 1.000000e+00, ptr %74, align 4, !tbaa !4
-  %75 = getelementptr inbounds nuw i8, ptr %11, i64 104
-  store float 1.000000e+00, ptr %75, align 8, !tbaa !4
-  %76 = getelementptr inbounds nuw i8, ptr %11, i64 108
-  store float 0.000000e+00, ptr %76, align 4, !tbaa !4
-  %77 = getelementptr inbounds nuw i8, ptr %11, i64 112
-  store float 0.000000e+00, ptr %77, align 16, !tbaa !4
-  %78 = getelementptr inbounds nuw i8, ptr %11, i64 116
-  store float 1.000000e+00, ptr %78, align 4, !tbaa !4
-  %79 = getelementptr inbounds nuw i8, ptr %11, i64 120
-  store float 1.000000e+00, ptr %79, align 8, !tbaa !4
-  %80 = getelementptr inbounds nuw i8, ptr %11, i64 124
+  %67 = getelementptr inbounds nuw i8, ptr %11, i64 80
+  store float 1.000000e+00, ptr %67, align 16, !tbaa !4
+  %68 = getelementptr inbounds nuw i8, ptr %11, i64 84
+  store float 1.000000e+00, ptr %68, align 4, !tbaa !4
+  %69 = getelementptr inbounds nuw i8, ptr %11, i64 88
+  store float 0.000000e+00, ptr %69, align 8, !tbaa !4
+  %70 = getelementptr inbounds nuw i8, ptr %11, i64 92
+  store float 0.000000e+00, ptr %70, align 4, !tbaa !4
+  %71 = getelementptr inbounds nuw i8, ptr %11, i64 96
+  store float 1.000000e+00, ptr %71, align 16, !tbaa !4
+  %72 = getelementptr inbounds nuw i8, ptr %11, i64 100
+  store float 1.000000e+00, ptr %72, align 4, !tbaa !4
+  %73 = getelementptr inbounds nuw i8, ptr %11, i64 104
+  store float 1.000000e+00, ptr %73, align 8, !tbaa !4
+  %74 = getelementptr inbounds nuw i8, ptr %11, i64 108
+  store float 0.000000e+00, ptr %74, align 4, !tbaa !4
+  %75 = getelementptr inbounds nuw i8, ptr %11, i64 112
+  store float 0.000000e+00, ptr %75, align 16, !tbaa !4
+  %76 = getelementptr inbounds nuw i8, ptr %11, i64 116
+  store float 1.000000e+00, ptr %76, align 4, !tbaa !4
+  %77 = getelementptr inbounds nuw i8, ptr %11, i64 120
+  store float 1.000000e+00, ptr %77, align 8, !tbaa !4
+  %78 = getelementptr inbounds nuw i8, ptr %11, i64 124
+  store float 0.000000e+00, ptr %78, align 4, !tbaa !4
+  %79 = getelementptr inbounds nuw i8, ptr %11, i64 128
+  store float 1.000000e+00, ptr %79, align 16, !tbaa !4
+  %80 = getelementptr inbounds nuw i8, ptr %11, i64 132
   store float 0.000000e+00, ptr %80, align 4, !tbaa !4
-  %81 = getelementptr inbounds nuw i8, ptr %11, i64 128
-  store float 1.000000e+00, ptr %81, align 16, !tbaa !4
-  %82 = getelementptr inbounds nuw i8, ptr %11, i64 132
+  %81 = getelementptr inbounds nuw i8, ptr %11, i64 136
+  store float 1.000000e+00, ptr %81, align 8, !tbaa !4
+  %82 = getelementptr inbounds nuw i8, ptr %11, i64 140
   store float 0.000000e+00, ptr %82, align 4, !tbaa !4
-  %83 = getelementptr inbounds nuw i8, ptr %11, i64 136
-  store float 1.000000e+00, ptr %83, align 8, !tbaa !4
-  %84 = getelementptr inbounds nuw i8, ptr %11, i64 140
-  store float 0.000000e+00, ptr %84, align 4, !tbaa !4
-  br label %85
+  br label %83
 
-85:                                               ; preds = %_ZN9btVector313safeNormalizeEv.exit40, %90
-  %indvars.iv = phi i64 [ 0, %_ZN9btVector313safeNormalizeEv.exit40 ], [ %indvars.iv.next, %90 ]
+83:                                               ; preds = %_ZN9btVector313safeNormalizeEv.exit41, %88
+  %indvars.iv = phi i64 [ 0, %_ZN9btVector313safeNormalizeEv.exit41 ], [ %indvars.iv.next, %88 ]
   call void @_ZN22btVoronoiSimplexSolver5resetEv(ptr noundef nonnull align 4 dereferenceable(357) %1)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  %86 = getelementptr inbounds nuw %class.btVector3, ptr %11, i64 %indvars.iv
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %12, ptr noundef nonnull align 16 dereferenceable(16) %86, i64 16, i1 false), !tbaa.struct !11
+  %84 = getelementptr inbounds nuw %class.btVector3, ptr %11, i64 %indvars.iv
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %12, ptr noundef nonnull align 16 dereferenceable(16) %84, i64 16, i1 false), !tbaa.struct !9
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  %87 = call noundef zeroext i1 @_ZN15btGjkEpaSolver211PenetrationEPK13btConvexShapeRK11btTransformS2_S5_RK9btVector3RNS_8sResultsEb(ptr noundef %2, ptr noundef nonnull align 4 dereferenceable(64) %4, ptr noundef %3, ptr noundef nonnull align 4 dereferenceable(64) %5, ptr noundef nonnull align 4 dereferenceable(16) %12, ptr noundef nonnull align 4 dereferenceable(56) %13, i1 noundef zeroext true)
-  br i1 %87, label %91, label %88
+  %85 = call noundef zeroext i1 @_ZN15btGjkEpaSolver211PenetrationEPK13btConvexShapeRK11btTransformS2_S5_RK9btVector3RNS_8sResultsEb(ptr noundef %2, ptr noundef nonnull align 4 dereferenceable(64) %4, ptr noundef %3, ptr noundef nonnull align 4 dereferenceable(64) %5, ptr noundef nonnull align 4 dereferenceable(16) %12, ptr noundef nonnull align 4 dereferenceable(56) %13, i1 noundef zeroext true)
+  br i1 %85, label %89, label %86
 
-88:                                               ; preds = %85
-  %89 = call noundef zeroext i1 @_ZN15btGjkEpaSolver28DistanceEPK13btConvexShapeRK11btTransformS2_S5_RK9btVector3RNS_8sResultsE(ptr noundef %2, ptr noundef nonnull align 4 dereferenceable(64) %4, ptr noundef %3, ptr noundef nonnull align 4 dereferenceable(64) %5, ptr noundef nonnull align 4 dereferenceable(16) %12, ptr noundef nonnull align 4 dereferenceable(56) %13)
-  br i1 %89, label %91, label %90
+86:                                               ; preds = %83
+  %87 = call noundef zeroext i1 @_ZN15btGjkEpaSolver28DistanceEPK13btConvexShapeRK11btTransformS2_S5_RK9btVector3RNS_8sResultsE(ptr noundef %2, ptr noundef nonnull align 4 dereferenceable(64) %4, ptr noundef %3, ptr noundef nonnull align 4 dereferenceable(64) %5, ptr noundef nonnull align 4 dereferenceable(16) %12, ptr noundef nonnull align 4 dereferenceable(56) %13)
+  br i1 %87, label %89, label %88
 
-90:                                               ; preds = %88
+88:                                               ; preds = %86
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond = icmp eq i64 %indvars.iv.next, 9
-  br i1 %exitcond, label %95, label %85, !llvm.loop !12
+  br i1 %exitcond, label %93, label %83, !llvm.loop !10
 
-91:                                               ; preds = %88, %85
-  %92 = getelementptr inbounds nuw i8, ptr %13, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %7, ptr noundef nonnull align 4 dereferenceable(16) %92, i64 16, i1 false)
-  %93 = getelementptr inbounds nuw i8, ptr %13, i64 20
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %8, ptr noundef nonnull align 4 dereferenceable(16) %93, i64 16, i1 false)
-  %94 = getelementptr inbounds nuw i8, ptr %13, i64 36
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(16) %94, i64 16, i1 false)
+89:                                               ; preds = %86, %83
+  %90 = getelementptr inbounds nuw i8, ptr %13, i64 4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %7, ptr noundef nonnull align 4 dereferenceable(16) %90, i64 16, i1 false)
+  %91 = getelementptr inbounds nuw i8, ptr %13, i64 20
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %8, ptr noundef nonnull align 4 dereferenceable(16) %91, i64 16, i1 false)
+  %92 = getelementptr inbounds nuw i8, ptr %13, i64 36
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(16) %92, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  br label %96
+  br label %94
 
-95:                                               ; preds = %90
+93:                                               ; preds = %88
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %7, i8 0, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %6, i8 0, i64 16, i1 false)
-  br label %96
+  br label %94
 
-96:                                               ; preds = %91, %95
-  %97 = phi i1 [ %87, %91 ], [ false, %95 ]
+94:                                               ; preds = %89, %93
+  %95 = phi i1 [ %85, %89 ], [ false, %93 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  ret i1 %97
+  ret i1 %95
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
@@ -226,24 +226,24 @@ define linkonce_odr dso_local void @_ZN30btConvexPenetrationDepthSolverD2Ev(ptr 
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN30btGjkEpaPenetrationDepthSolverD0Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 8) #11
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 8) #10
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fmuladd.f32(float, float, float) #5
 
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare float @sqrtf(float noundef) local_unnamed_addr #6
-
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #7
+declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.sqrt.f32(float) #8
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
@@ -254,12 +254,11 @@ attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "t
 attributes #3 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #8 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #10 = { nounwind }
-attributes #11 = { builtin nounwind }
+attributes #10 = { builtin nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 
@@ -271,9 +270,7 @@ attributes #11 = { builtin nounwind }
 !5 = !{!"float", !6, i64 0}
 !6 = !{!"omnipotent char", !7, i64 0}
 !7 = !{!"Simple C++ TBAA"}
-!8 = !{!9, !9, i64 0}
-!9 = !{!"int", !6, i64 0}
-!10 = !{!6, !6, i64 0}
-!11 = !{i64 0, i64 16, !10}
-!12 = distinct !{!12, !13}
-!13 = !{!"llvm.loop.mustprogress"}
+!8 = !{!6, !6, i64 0}
+!9 = !{i64 0, i64 16, !8}
+!10 = distinct !{!10, !11}
+!11 = !{!"llvm.loop.mustprogress"}

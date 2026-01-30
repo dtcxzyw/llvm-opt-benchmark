@@ -325,7 +325,7 @@ define void @_ZN14dtPathCorridorD2Ev(ptr noundef nonnull readonly align 8 captur
   %6 = landingpad { ptr, i32 }
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
-  tail call void @__clang_call_terminate(ptr %7) #12
+  tail call void @__clang_call_terminate(ptr %7) #11
   unreachable
 }
 
@@ -335,8 +335,8 @@ declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #6 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #13
-  tail call void @_ZSt9terminatev() #12
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #12
+  tail call void @_ZSt9terminatev() #11
   unreachable
 }
 
@@ -560,148 +560,144 @@ define void @_ZN14dtPathCorridor22optimizePathVisibilityEPKffP14dtNavMeshQueryPK
 
 16:                                               ; preds = %15, %5
   %17 = load float, ptr %1, align 4
-  %18 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %19 = load float, ptr %18, align 4
-  %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %21 = load float, ptr %20, align 4
-  %22 = load float, ptr %0, align 8
-  %23 = fsub float %17, %22
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %25 = load float, ptr %24, align 8
-  %26 = fsub float %21, %25
-  %27 = fmul float %26, %26
-  %28 = tail call float @llvm.fmuladd.f32(float %23, float %23, float %27)
-  %29 = tail call noundef float @sqrtf(float noundef %28) #13
-  %30 = fcmp olt float %29, 0x3F847AE140000000
-  br i1 %30, label %91, label %31
+  %20 = load float, ptr %0, align 8
+  %21 = fsub float %17, %20
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %23 = load float, ptr %22, align 8
+  %24 = fsub float %19, %23
+  %25 = fmul float %24, %24
+  %26 = tail call float @llvm.fmuladd.f32(float %21, float %21, float %25)
+  %sqrt.i = tail call noundef float @llvm.sqrt.f32(float %26)
+  %27 = fcmp olt float %sqrt.i, 0x3F847AE140000000
+  br i1 %27, label %86, label %28
 
-31:                                               ; preds = %16
-  %32 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %33 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %34 = fadd float %29, 0x3F847AE140000000
-  %35 = fcmp olt float %34, %2
-  %36 = select i1 %35, float %34, float %2
-  %37 = load float, ptr %0, align 8
-  %38 = fsub float %17, %37
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %40 = load float, ptr %39, align 4
-  %41 = fsub float %19, %40
-  %42 = load float, ptr %24, align 8
-  %43 = fsub float %21, %42
-  %44 = fdiv float %2, %36
-  %45 = tail call float @llvm.fmuladd.f32(float %38, float %44, float %37)
-  store float %45, ptr %6, align 4
-  %46 = tail call float @llvm.fmuladd.f32(float %41, float %44, float %40)
-  store float %46, ptr %33, align 4
-  %47 = tail call float @llvm.fmuladd.f32(float %43, float %44, float %42)
-  store float %47, ptr %32, align 4
+28:                                               ; preds = %16
+  %29 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %32 = load float, ptr %31, align 4
+  %33 = fadd float %sqrt.i, 0x3F847AE140000000
+  %34 = fcmp olt float %33, %2
+  %35 = select i1 %34, float %33, float %2
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %37 = load float, ptr %36, align 4
+  %38 = fsub float %32, %37
+  %39 = fdiv float %2, %35
+  %40 = tail call float @llvm.fmuladd.f32(float %21, float %39, float %20)
+  store float %40, ptr %6, align 4
+  %41 = tail call float @llvm.fmuladd.f32(float %38, float %39, float %37)
+  store float %41, ptr %30, align 4
+  %42 = tail call float @llvm.fmuladd.f32(float %24, float %39, float %23)
+  store float %42, ptr %29, align 4
   store i32 0, ptr %10, align 4
-  %48 = load ptr, ptr %13, align 8
-  %49 = load i32, ptr %48, align 4
-  %50 = call noundef i32 @_ZNK14dtNavMeshQuery7raycastEjPKfS1_PK13dtQueryFilterPfS5_PjPii(ptr noundef nonnull align 8 dereferenceable(104) %3, i32 noundef %49, ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef %4, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %7, ptr noundef nonnull %10, i32 noundef 32)
-  %51 = load i32, ptr %10, align 4
-  %52 = icmp sgt i32 %51, 1
-  %53 = load float, ptr %8, align 4
-  %54 = fcmp ogt float %53, 0x3FEFAE1480000000
-  %or.cond = select i1 %52, i1 %54, i1 false
-  br i1 %or.cond, label %.split.us.preheader.i, label %91
+  %43 = load ptr, ptr %13, align 8
+  %44 = load i32, ptr %43, align 4
+  %45 = call noundef i32 @_ZNK14dtNavMeshQuery7raycastEjPKfS1_PK13dtQueryFilterPfS5_PjPii(ptr noundef nonnull align 8 dereferenceable(104) %3, i32 noundef %44, ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef %4, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %7, ptr noundef nonnull %10, i32 noundef 32)
+  %46 = load i32, ptr %10, align 4
+  %47 = icmp sgt i32 %46, 1
+  %48 = load float, ptr %8, align 4
+  %49 = fcmp ogt float %48, 0x3FEFAE1480000000
+  %or.cond = select i1 %47, i1 %49, i1 false
+  br i1 %or.cond, label %.split.us.preheader.i, label %86
 
-.split.us.preheader.i:                            ; preds = %31
-  %55 = load ptr, ptr %13, align 8
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %57 = load i32, ptr %56, align 8
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %59 = load i32, ptr %58, align 4
-  %60 = zext nneg i32 %51 to i64
-  %61 = zext i32 %57 to i64
+.split.us.preheader.i:                            ; preds = %28
+  %50 = load ptr, ptr %13, align 8
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %52 = load i32, ptr %51, align 8
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  %54 = load i32, ptr %53, align 4
+  %55 = zext nneg i32 %46 to i64
+  %56 = zext i32 %52 to i64
   br label %.split.us.i
 
 .split.us.i:                                      ; preds = %._crit_edge.us.i, %.split.us.preheader.i
-  %indvars.iv67.i = phi i64 [ %61, %.split.us.preheader.i ], [ %indvars.iv.next68.i, %._crit_edge.us.i ]
+  %indvars.iv67.i = phi i64 [ %56, %.split.us.preheader.i ], [ %indvars.iv.next68.i, %._crit_edge.us.i ]
   %.050.us.i = phi i32 [ -1, %.split.us.preheader.i ], [ %.353.us.i, %._crit_edge.us.i ]
   %.045.us.i = phi i32 [ -1, %.split.us.preheader.i ], [ %.3.us.i, %._crit_edge.us.i ]
   %indvars.iv.next68.i = add nsw i64 %indvars.iv67.i, -1
   %indvars.i = trunc i64 %indvars.iv.next68.i to i32
-  %62 = trunc nuw i64 %indvars.iv67.i to i32
-  %63 = icmp sgt i32 %62, 0
-  br i1 %63, label %.preheader.us.i, label %.split63.us.i
+  %57 = trunc nuw i64 %indvars.iv67.i to i32
+  %58 = icmp sgt i32 %57, 0
+  br i1 %58, label %.preheader.us.i, label %.split63.us.i
 
-64:                                               ; preds = %.preheader.us.i, %64
-  %indvars.iv.i = phi i64 [ %60, %.preheader.us.i ], [ %indvars.iv.next.i, %64 ]
-  %.259.us.i = phi i32 [ %.045.us.i, %.preheader.us.i ], [ %.3.us.i, %64 ]
-  %.04757.us.i = phi i1 [ false, %.preheader.us.i ], [ %.148.us.i, %64 ]
-  %.25256.us.i = phi i32 [ %.050.us.i, %.preheader.us.i ], [ %.353.us.i, %64 ]
+59:                                               ; preds = %.preheader.us.i, %59
+  %indvars.iv.i = phi i64 [ %55, %.preheader.us.i ], [ %indvars.iv.next.i, %59 ]
+  %.259.us.i = phi i32 [ %.045.us.i, %.preheader.us.i ], [ %.3.us.i, %59 ]
+  %.04757.us.i = phi i1 [ false, %.preheader.us.i ], [ %.148.us.i, %59 ]
+  %.25256.us.i = phi i32 [ %.050.us.i, %.preheader.us.i ], [ %.353.us.i, %59 ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %65 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv.next.i
-  %66 = load i32, ptr %65, align 4
-  %67 = icmp eq i32 %72, %66
-  %68 = trunc nuw nsw i64 %indvars.iv.next.i to i32
-  %.353.us.i = select i1 %67, i32 %68, i32 %.25256.us.i
-  %.148.us.i = select i1 %67, i1 true, i1 %.04757.us.i
-  %.3.us.i = select i1 %67, i32 %indvars.i, i32 %.259.us.i
-  %69 = icmp sgt i64 %indvars.iv.i, 1
-  br i1 %69, label %64, label %._crit_edge.us.i, !llvm.loop !10
+  %60 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv.next.i
+  %61 = load i32, ptr %60, align 4
+  %62 = icmp eq i32 %67, %61
+  %63 = trunc nuw nsw i64 %indvars.iv.next.i to i32
+  %.353.us.i = select i1 %62, i32 %63, i32 %.25256.us.i
+  %.148.us.i = select i1 %62, i1 true, i1 %.04757.us.i
+  %.3.us.i = select i1 %62, i32 %indvars.i, i32 %.259.us.i
+  %64 = icmp sgt i64 %indvars.iv.i, 1
+  br i1 %64, label %59, label %._crit_edge.us.i, !llvm.loop !10
 
 .preheader.us.i:                                  ; preds = %.split.us.i
-  %70 = and i64 %indvars.iv.next68.i, 4294967295
-  %71 = getelementptr inbounds nuw i32, ptr %55, i64 %70
-  %72 = load i32, ptr %71, align 4
-  br label %64
+  %65 = and i64 %indvars.iv.next68.i, 4294967295
+  %66 = getelementptr inbounds nuw i32, ptr %50, i64 %65
+  %67 = load i32, ptr %66, align 4
+  br label %59
 
-._crit_edge.us.i:                                 ; preds = %64
+._crit_edge.us.i:                                 ; preds = %59
   br i1 %.148.us.i, label %.split63.us.i, label %.split.us.i, !llvm.loop !11
 
 .split63.us.i:                                    ; preds = %._crit_edge.us.i, %.split.us.i
   %.us-phi.i = phi i32 [ %.050.us.i, %.split.us.i ], [ %.353.us.i, %._crit_edge.us.i ]
   %.us-phi64.i = phi i32 [ %.045.us.i, %.split.us.i ], [ %.3.us.i, %._crit_edge.us.i ]
-  %73 = icmp eq i32 %.us-phi64.i, -1
-  %74 = icmp slt i32 %.us-phi.i, 1
-  %or.cond55.i = select i1 %73, i1 true, i1 %74
-  br i1 %or.cond55.i, label %_Z28dtMergeCorridorStartShortcutPjiiPKji.exit, label %75
+  %68 = icmp eq i32 %.us-phi64.i, -1
+  %69 = icmp slt i32 %.us-phi.i, 1
+  %or.cond55.i = select i1 %68, i1 true, i1 %69
+  br i1 %or.cond55.i, label %_Z28dtMergeCorridorStartShortcutPjiiPKji.exit, label %70
 
-75:                                               ; preds = %.split63.us.i
-  %76 = sub nsw i32 %57, %.us-phi64.i
-  %77 = call noundef i32 @llvm.smax.i32(i32 %76, i32 0)
-  %78 = add nuw nsw i32 %77, %.us-phi.i
-  %79 = icmp sgt i32 %78, %59
-  %80 = sub nsw i32 %59, %.us-phi.i
-  %spec.select.i = select i1 %79, i32 %80, i32 %77
+70:                                               ; preds = %.split63.us.i
+  %71 = sub nsw i32 %52, %.us-phi64.i
+  %72 = call noundef i32 @llvm.smax.i32(i32 %71, i32 0)
+  %73 = add nuw nsw i32 %72, %.us-phi.i
+  %74 = icmp sgt i32 %73, %54
+  %75 = sub nsw i32 %54, %.us-phi.i
+  %spec.select.i = select i1 %74, i32 %75, i32 %72
   %.not.i = icmp eq i32 %spec.select.i, 0
   %.pre = zext nneg i32 %.us-phi.i to i64
-  br i1 %.not.i, label %.lr.ph.i.preheader, label %81
+  br i1 %.not.i, label %.lr.ph.i.preheader, label %76
 
-81:                                               ; preds = %75
-  %82 = getelementptr inbounds nuw i32, ptr %55, i64 %.pre
-  %83 = zext nneg i32 %.us-phi64.i to i64
-  %84 = getelementptr inbounds nuw i32, ptr %55, i64 %83
-  %85 = sext i32 %spec.select.i to i64
-  %86 = shl nsw i64 %85, 2
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %82, ptr align 4 %84, i64 %86, i1 false)
+76:                                               ; preds = %70
+  %77 = getelementptr inbounds nuw i32, ptr %50, i64 %.pre
+  %78 = zext nneg i32 %.us-phi64.i to i64
+  %79 = getelementptr inbounds nuw i32, ptr %50, i64 %78
+  %80 = sext i32 %spec.select.i to i64
+  %81 = shl nsw i64 %80, 2
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %77, ptr align 4 %79, i64 %81, i1 false)
   br label %.lr.ph.i.preheader
 
-.lr.ph.i.preheader:                               ; preds = %75, %81
+.lr.ph.i.preheader:                               ; preds = %70, %76
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %indvars.iv70.i = phi i64 [ %indvars.iv.next71.i, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
-  %87 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv70.i
-  %88 = load i32, ptr %87, align 4
-  %89 = getelementptr inbounds nuw i32, ptr %55, i64 %indvars.iv70.i
-  store i32 %88, ptr %89, align 4
+  %82 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv70.i
+  %83 = load i32, ptr %82, align 4
+  %84 = getelementptr inbounds nuw i32, ptr %50, i64 %indvars.iv70.i
+  store i32 %83, ptr %84, align 4
   %indvars.iv.next71.i = add nuw nsw i64 %indvars.iv70.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next71.i, %.pre
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !12
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
-  %90 = add nsw i32 %spec.select.i, %.us-phi.i
+  %85 = add nsw i32 %spec.select.i, %.us-phi.i
   br label %_Z28dtMergeCorridorStartShortcutPjiiPKji.exit
 
 _Z28dtMergeCorridorStartShortcutPjiiPKji.exit:    ; preds = %.split63.us.i, %._crit_edge.i
-  %.044.i = phi i32 [ %90, %._crit_edge.i ], [ %57, %.split63.us.i ]
-  store i32 %.044.i, ptr %56, align 8
-  br label %91
+  %.044.i = phi i32 [ %85, %._crit_edge.i ], [ %52, %.split63.us.i ]
+  store i32 %.044.i, ptr %51, align 8
+  br label %86
 
-91:                                               ; preds = %16, %_Z28dtMergeCorridorStartShortcutPjiiPKji.exit, %31
+86:                                               ; preds = %16, %_Z28dtMergeCorridorStartShortcutPjiiPKji.exit, %28
   ret void
 }
 
@@ -1604,17 +1600,17 @@ define noundef zeroext i1 @_ZN14dtPathCorridor7isValidEiP14dtNavMeshQueryPK13dtQ
 ; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fmuladd.f32(float, float, float) #8
 
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare float @sqrtf(float noundef) local_unnamed_addr #9
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smin.i32(i32, i32) #9
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #10
-
-; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #10
+declare i32 @llvm.smax.i32(i32, i32) #9
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.sqrt.f32(float) #9
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
@@ -1625,11 +1621,10 @@ attributes #5 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal
 attributes #6 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { cold nofree noreturn }
 attributes #8 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #12 = { noreturn nounwind }
-attributes #13 = { nounwind }
+attributes #9 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #11 = { noreturn nounwind }
+attributes #12 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

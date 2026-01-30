@@ -1591,7 +1591,7 @@ proto_item_set_generated.exit:                    ; preds = %50, %54, %57
 
 .lr.ph126:                                        ; preds = %proto_item_set_generated.exit, %dissect_DIGITAL.exit
   %.098125 = phi i32 [ %.0.i116, %dissect_DIGITAL.exit ], [ 0, %proto_item_set_generated.exit ]
-  %.1100124 = phi i32 [ %340, %dissect_DIGITAL.exit ], [ 0, %proto_item_set_generated.exit ]
+  %.1100124 = phi i32 [ %339, %dissect_DIGITAL.exit ], [ 0, %proto_item_set_generated.exit ]
   %63 = load ptr, ptr %9, align 8
   %64 = tail call ptr @wmem_array_index(ptr noundef %63, i32 noundef %.1100124)
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 288
@@ -1691,9 +1691,9 @@ proto_item_set_generated.exit:                    ; preds = %50, %54, %57
   %142 = getelementptr inbounds nuw i8, ptr %64, i64 258
   br label %143
 
-143:                                              ; preds = %246, %.lr.ph.i
-  %.03675.i = phi i32 [ %124, %.lr.ph.i ], [ %236, %246 ]
-  %.03774.i = phi i32 [ 0, %.lr.ph.i ], [ %150, %246 ]
+143:                                              ; preds = %245, %.lr.ph.i
+  %.03675.i = phi i32 [ %124, %.lr.ph.i ], [ %235, %245 ]
+  %.03774.i = phi i32 [ 0, %.lr.ph.i ], [ %150, %245 ]
   %144 = load ptr, ptr %65, align 8
   %145 = tail call ptr @wmem_array_index(ptr noundef %144, i32 noundef %.03774.i)
   %146 = load i32, ptr @hf_synphasor_phasor, align 4
@@ -1706,7 +1706,7 @@ proto_item_set_generated.exit:                    ; preds = %50, %54, %57
   %153 = icmp eq i32 %152, 1
   %154 = load i32, ptr %136, align 8
   %155 = icmp eq i32 %154, 1
-  br i1 %153, label %156, label %171
+  br i1 %153, label %156, label %170
 
 156:                                              ; preds = %143
   %157 = tail call float @tvb_get_ntohieee_float(ptr noundef %0, i32 noundef %.03675.i)
@@ -1727,285 +1727,285 @@ proto_item_set_generated.exit:                    ; preds = %50, %54, %57
   %square87.i.i = fmul double %158, %158
   %square88.i.i = fmul double %161, %161
   %168 = fadd double %square87.i.i, %square88.i.i
-  %169 = tail call double @sqrt(double noundef %168) #8
-  %170 = tail call double @atan2(double noundef %161, double noundef %158) #8
+  %sqrt.i.i = tail call double @llvm.sqrt.f64(double %168)
+  %169 = tail call double @atan2(double noundef %161, double noundef %158) #8
   br label %dissect_single_phasor.exit.i
 
-171:                                              ; preds = %143
-  %172 = add i32 %.03675.i, 2
-  br i1 %155, label %173, label %202
+170:                                              ; preds = %143
+  %171 = add i32 %.03675.i, 2
+  br i1 %155, label %172, label %201
 
-173:                                              ; preds = %171
-  %174 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.03675.i)
-  %175 = uitofp i16 %174 to double
-  %176 = tail call signext i16 @tvb_get_ntohis(ptr noundef %0, i32 noundef %172)
-  %177 = sitofp i16 %176 to double
-  %178 = icmp eq i16 %176, -32768
-  %.164.i = select i1 %178, double 0x7FF8000000000000, double %175
-  %.1.i = select i1 %178, double 0x7FF8000000000000, double %177
-  %179 = fdiv double %.1.i, 1.000000e+04
-  %180 = load i8, ptr %142, align 2
-  %181 = icmp eq i8 %180, 3
-  br i1 %181, label %182, label %191
+172:                                              ; preds = %170
+  %173 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.03675.i)
+  %174 = uitofp i16 %173 to double
+  %175 = tail call signext i16 @tvb_get_ntohis(ptr noundef %0, i32 noundef %171)
+  %176 = sitofp i16 %175 to double
+  %177 = icmp eq i16 %175, -32768
+  %.164.i = select i1 %177, double 0x7FF8000000000000, double %174
+  %.1.i = select i1 %177, double 0x7FF8000000000000, double %176
+  %178 = fdiv double %.1.i, 1.000000e+04
+  %179 = load i8, ptr %142, align 2
+  %180 = icmp eq i8 %179, 3
+  br i1 %180, label %181, label %190
 
-182:                                              ; preds = %173
-  %183 = getelementptr inbounds nuw i8, ptr %145, i64 264
-  %184 = load float, ptr %183, align 4
-  %185 = fpext float %184 to double
-  %186 = fmul double %.164.i, %185
-  %187 = getelementptr inbounds nuw i8, ptr %145, i64 268
-  %188 = load float, ptr %187, align 4
-  %189 = fpext float %188 to double
-  %190 = fsub double %179, %189
-  br label %197
+181:                                              ; preds = %172
+  %182 = getelementptr inbounds nuw i8, ptr %145, i64 264
+  %183 = load float, ptr %182, align 4
+  %184 = fpext float %183 to double
+  %185 = fmul double %.164.i, %184
+  %186 = getelementptr inbounds nuw i8, ptr %145, i64 268
+  %187 = load float, ptr %186, align 4
+  %188 = fpext float %187 to double
+  %189 = fsub double %178, %188
+  br label %196
 
-191:                                              ; preds = %173
-  %192 = getelementptr inbounds nuw i8, ptr %145, i64 260
-  %193 = load i32, ptr %192, align 4
-  %194 = uitofp i32 %193 to double
-  %195 = fmul double %.164.i, %194
-  %196 = fmul double %195, 1.000000e-05
-  br label %197
+190:                                              ; preds = %172
+  %191 = getelementptr inbounds nuw i8, ptr %145, i64 260
+  %192 = load i32, ptr %191, align 4
+  %193 = uitofp i32 %192 to double
+  %194 = fmul double %.164.i, %193
+  %195 = fmul double %194, 1.000000e-05
+  br label %196
 
-197:                                              ; preds = %191, %182
-  %.172.i = phi double [ %186, %182 ], [ %196, %191 ]
-  %.169.i = phi double [ %190, %182 ], [ %179, %191 ]
-  %198 = tail call double @cos(double noundef %.169.i) #8
-  %199 = fmul double %.172.i, %198
-  %200 = tail call double @sin(double noundef %.169.i) #8
-  %201 = fmul double %.172.i, %200
+196:                                              ; preds = %190, %181
+  %.172.i = phi double [ %185, %181 ], [ %195, %190 ]
+  %.169.i = phi double [ %189, %181 ], [ %178, %190 ]
+  %197 = tail call double @cos(double noundef %.169.i) #8
+  %198 = fmul double %.172.i, %197
+  %199 = tail call double @sin(double noundef %.169.i) #8
+  %200 = fmul double %.172.i, %199
   br label %dissect_single_phasor.exit.i
 
-202:                                              ; preds = %171
-  %203 = tail call signext i16 @tvb_get_ntohis(ptr noundef %0, i32 noundef %.03675.i)
-  %204 = sitofp i16 %203 to double
-  %205 = tail call signext i16 @tvb_get_ntohis(ptr noundef %0, i32 noundef %172)
-  %206 = sitofp i16 %205 to double
-  %207 = icmp eq i16 %203, -32768
-  %.063.i = select i1 %207, double 0x7FF8000000000000, double %204
-  %208 = icmp eq i16 %205, -32768
-  %.062.i = select i1 %208, double 0x7FF8000000000000, double %206
+201:                                              ; preds = %170
+  %202 = tail call signext i16 @tvb_get_ntohis(ptr noundef %0, i32 noundef %.03675.i)
+  %203 = sitofp i16 %202 to double
+  %204 = tail call signext i16 @tvb_get_ntohis(ptr noundef %0, i32 noundef %171)
+  %205 = sitofp i16 %204 to double
+  %206 = icmp eq i16 %202, -32768
+  %.063.i = select i1 %206, double 0x7FF8000000000000, double %203
+  %207 = icmp eq i16 %204, -32768
+  %.062.i = select i1 %207, double 0x7FF8000000000000, double %205
   %square.i.i = fmul double %.063.i, %.063.i
   %square86.i.i = fmul double %.062.i, %.062.i
-  %209 = fadd double %square.i.i, %square86.i.i
-  %sqrt.i = tail call double @llvm.sqrt.f64(double %209)
-  %210 = tail call double @atan2(double noundef %.062.i, double noundef %.063.i) #8
-  %211 = load i8, ptr %142, align 2
-  %212 = icmp eq i8 %211, 3
-  br i1 %212, label %213, label %222
+  %208 = fadd double %square.i.i, %square86.i.i
+  %sqrt89.i.i = tail call double @llvm.sqrt.f64(double %208)
+  %209 = tail call double @atan2(double noundef %.062.i, double noundef %.063.i) #8
+  %210 = load i8, ptr %142, align 2
+  %211 = icmp eq i8 %210, 3
+  br i1 %211, label %212, label %221
 
-213:                                              ; preds = %202
-  %214 = getelementptr inbounds nuw i8, ptr %145, i64 264
-  %215 = load float, ptr %214, align 4
-  %216 = fpext float %215 to double
-  %217 = fmul double %sqrt.i, %216
-  %218 = getelementptr inbounds nuw i8, ptr %145, i64 268
-  %219 = load float, ptr %218, align 4
-  %220 = fpext float %219 to double
-  %221 = fsub double %210, %220
-  br label %228
+212:                                              ; preds = %201
+  %213 = getelementptr inbounds nuw i8, ptr %145, i64 264
+  %214 = load float, ptr %213, align 4
+  %215 = fpext float %214 to double
+  %216 = fmul double %sqrt89.i.i, %215
+  %217 = getelementptr inbounds nuw i8, ptr %145, i64 268
+  %218 = load float, ptr %217, align 4
+  %219 = fpext float %218 to double
+  %220 = fsub double %209, %219
+  br label %227
 
-222:                                              ; preds = %202
-  %223 = getelementptr inbounds nuw i8, ptr %145, i64 260
-  %224 = load i32, ptr %223, align 4
-  %225 = uitofp i32 %224 to double
-  %226 = fmul double %sqrt.i, %225
-  %227 = fmul double %226, 1.000000e-05
-  br label %228
+221:                                              ; preds = %201
+  %222 = getelementptr inbounds nuw i8, ptr %145, i64 260
+  %223 = load i32, ptr %222, align 4
+  %224 = uitofp i32 %223 to double
+  %225 = fmul double %sqrt89.i.i, %224
+  %226 = fmul double %225, 1.000000e-05
+  br label %227
 
-228:                                              ; preds = %222, %213
-  %.071.i = phi double [ %217, %213 ], [ %227, %222 ]
-  %.068.i = phi double [ %221, %213 ], [ %210, %222 ]
-  %229 = tail call double @cos(double noundef %.068.i) #8
-  %230 = fmul double %.071.i, %229
-  %231 = tail call double @sin(double noundef %.068.i) #8
-  %232 = fmul double %.071.i, %231
+227:                                              ; preds = %221, %212
+  %.071.i = phi double [ %216, %212 ], [ %226, %221 ]
+  %.068.i = phi double [ %220, %212 ], [ %209, %221 ]
+  %228 = tail call double @cos(double noundef %.068.i) #8
+  %229 = fmul double %.071.i, %228
+  %230 = tail call double @sin(double noundef %.068.i) #8
+  %231 = fmul double %.071.i, %230
   br label %dissect_single_phasor.exit.i
 
-dissect_single_phasor.exit.i:                     ; preds = %228, %197, %167, %162
-  %.273.i = phi double [ %158, %162 ], [ %169, %167 ], [ %.172.i, %197 ], [ %.071.i, %228 ]
-  %.270.i = phi double [ %161, %162 ], [ %170, %167 ], [ %.169.i, %197 ], [ %.068.i, %228 ]
-  %.067.i = phi double [ %164, %162 ], [ %158, %167 ], [ %199, %197 ], [ %230, %228 ]
-  %.066.i = phi double [ %166, %162 ], [ %161, %167 ], [ %201, %197 ], [ %232, %228 ]
-  %.265.i = phi double [ 0x7FF8000000000000, %162 ], [ 0x7FF8000000000000, %167 ], [ %.164.i, %197 ], [ %.063.i, %228 ]
-  %.2.i = phi double [ 0x7FF8000000000000, %162 ], [ 0x7FF8000000000000, %167 ], [ %.1.i, %197 ], [ %.062.i, %228 ]
-  %233 = load i32, ptr %68, align 8
-  %234 = icmp eq i32 %233, 1
-  %235 = select i1 %234, i32 8, i32 4
-  %236 = add i32 %235, %.03675.i
-  %237 = getelementptr inbounds nuw i8, ptr %145, i64 256
-  %238 = load i32, ptr %237, align 4
-  %239 = icmp eq i32 %238, 0
-  %240 = select i1 %239, i32 86, i32 65
-  %241 = fmul double %.270.i, 1.800000e+02
-  %242 = fdiv double %241, 0x400921FB54442D18
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %151, ptr noundef nonnull @.str.286, double noundef %.273.i, i32 noundef %240, double noundef %242, double noundef %.067.i, double noundef %.066.i, i32 noundef %240)
-  %243 = load i32, ptr %68, align 8
-  %244 = icmp eq i32 %243, 0
-  br i1 %244, label %245, label %246
+dissect_single_phasor.exit.i:                     ; preds = %227, %196, %167, %162
+  %.273.i = phi double [ %158, %162 ], [ %sqrt.i.i, %167 ], [ %.172.i, %196 ], [ %.071.i, %227 ]
+  %.270.i = phi double [ %161, %162 ], [ %169, %167 ], [ %.169.i, %196 ], [ %.068.i, %227 ]
+  %.067.i = phi double [ %164, %162 ], [ %158, %167 ], [ %198, %196 ], [ %229, %227 ]
+  %.066.i = phi double [ %166, %162 ], [ %161, %167 ], [ %200, %196 ], [ %231, %227 ]
+  %.265.i = phi double [ 0x7FF8000000000000, %162 ], [ 0x7FF8000000000000, %167 ], [ %.164.i, %196 ], [ %.063.i, %227 ]
+  %.2.i = phi double [ 0x7FF8000000000000, %162 ], [ 0x7FF8000000000000, %167 ], [ %.1.i, %196 ], [ %.062.i, %227 ]
+  %232 = load i32, ptr %68, align 8
+  %233 = icmp eq i32 %232, 1
+  %234 = select i1 %233, i32 8, i32 4
+  %235 = add i32 %234, %.03675.i
+  %236 = getelementptr inbounds nuw i8, ptr %145, i64 256
+  %237 = load i32, ptr %236, align 4
+  %238 = icmp eq i32 %237, 0
+  %239 = select i1 %238, i32 86, i32 65
+  %240 = fmul double %.270.i, 1.800000e+02
+  %241 = fdiv double %240, 0x400921FB54442D18
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %151, ptr noundef nonnull @.str.286, double noundef %.273.i, i32 noundef %239, double noundef %241, double noundef %.067.i, double noundef %.066.i, i32 noundef %239)
+  %242 = load i32, ptr %68, align 8
+  %243 = icmp eq i32 %242, 0
+  br i1 %243, label %244, label %245
 
-245:                                              ; preds = %dissect_single_phasor.exit.i
+244:                                              ; preds = %dissect_single_phasor.exit.i
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %151, ptr noundef nonnull @.str.287, double noundef %.265.i, double noundef %.2.i)
-  br label %246
+  br label %245
 
-246:                                              ; preds = %245, %dissect_single_phasor.exit.i
+245:                                              ; preds = %244, %dissect_single_phasor.exit.i
   %exitcond.not.i = icmp eq i32 %150, %126
   br i1 %exitcond.not.i, label %dissect_PHASORS.exit, label %143, !llvm.loop !21
 
-dissect_PHASORS.exit:                             ; preds = %246, %109, %128
-  %.0.i = phi i32 [ %124, %109 ], [ %124, %128 ], [ %236, %246 ]
-  %247 = load i32, ptr %74, align 4
-  %248 = icmp eq i32 %247, 1
-  br i1 %248, label %249, label %255
+dissect_PHASORS.exit:                             ; preds = %245, %109, %128
+  %.0.i = phi i32 [ %124, %109 ], [ %124, %128 ], [ %235, %245 ]
+  %246 = load i32, ptr %74, align 4
+  %247 = icmp eq i32 %246, 1
+  br i1 %247, label %248, label %254
 
-249:                                              ; preds = %dissect_PHASORS.exit
-  %250 = load i32, ptr @hf_synphasor_actual_frequency_value, align 4
-  %251 = tail call ptr @proto_tree_add_item(ptr noundef %94, i32 noundef %250, ptr noundef %0, i32 noundef %.0.i, i32 noundef 4, i32 noundef 0)
-  %252 = add i32 %.0.i, 4
-  %253 = load i32, ptr @hf_synphasor_rate_change_frequency, align 4
-  %254 = tail call ptr @proto_tree_add_item(ptr noundef %94, i32 noundef %253, ptr noundef %0, i32 noundef %252, i32 noundef 4, i32 noundef 0)
+248:                                              ; preds = %dissect_PHASORS.exit
+  %249 = load i32, ptr @hf_synphasor_actual_frequency_value, align 4
+  %250 = tail call ptr @proto_tree_add_item(ptr noundef %94, i32 noundef %249, ptr noundef %0, i32 noundef %.0.i, i32 noundef 4, i32 noundef 0)
+  %251 = add i32 %.0.i, 4
+  %252 = load i32, ptr @hf_synphasor_rate_change_frequency, align 4
+  %253 = tail call ptr @proto_tree_add_item(ptr noundef %94, i32 noundef %252, ptr noundef %0, i32 noundef %251, i32 noundef 4, i32 noundef 0)
   br label %dissect_DFREQ.exit
 
-255:                                              ; preds = %dissect_PHASORS.exit
-  %256 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.0.i)
-  %257 = load i32, ptr @hf_synphasor_frequency_deviation_from_nominal, align 4
-  %258 = sext i16 %256 to i32
-  %259 = getelementptr inbounds nuw i8, ptr %64, i64 276
-  %260 = load i32, ptr %259, align 4
-  %261 = uitofp i32 %260 to double
-  %262 = sitofp i16 %256 to double
-  %263 = fdiv double %262, 1.000000e+03
-  %264 = fadd double %263, %261
-  %265 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_int_format_value(ptr noundef %94, i32 noundef %257, ptr noundef %0, i32 noundef %.0.i, i32 noundef 2, i32 noundef %258, ptr noundef nonnull @.str.288, i32 noundef %258, double noundef %264)
-  %266 = add i32 %.0.i, 2
-  %267 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %266)
-  %268 = load i32, ptr @hf_synphasor_rate_change_frequency, align 4
-  %269 = sitofp i16 %267 to double
-  %270 = fdiv double %269, 1.000000e+02
-  %271 = fptrunc double %270 to float
-  %272 = tail call ptr (ptr, i32, ptr, i32, i32, float, ptr, ...) @proto_tree_add_float_format_value(ptr noundef %94, i32 noundef %268, ptr noundef %0, i32 noundef %266, i32 noundef 2, float noundef %271, ptr noundef nonnull @.str.289, double noundef %270)
+254:                                              ; preds = %dissect_PHASORS.exit
+  %255 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.0.i)
+  %256 = load i32, ptr @hf_synphasor_frequency_deviation_from_nominal, align 4
+  %257 = sext i16 %255 to i32
+  %258 = getelementptr inbounds nuw i8, ptr %64, i64 276
+  %259 = load i32, ptr %258, align 4
+  %260 = uitofp i32 %259 to double
+  %261 = sitofp i16 %255 to double
+  %262 = fdiv double %261, 1.000000e+03
+  %263 = fadd double %262, %260
+  %264 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_int_format_value(ptr noundef %94, i32 noundef %256, ptr noundef %0, i32 noundef %.0.i, i32 noundef 2, i32 noundef %257, ptr noundef nonnull @.str.288, i32 noundef %257, double noundef %263)
+  %265 = add i32 %.0.i, 2
+  %266 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %265)
+  %267 = load i32, ptr @hf_synphasor_rate_change_frequency, align 4
+  %268 = sitofp i16 %266 to double
+  %269 = fdiv double %268, 1.000000e+02
+  %270 = fptrunc double %269 to float
+  %271 = tail call ptr (ptr, i32, ptr, i32, i32, float, ptr, ...) @proto_tree_add_float_format_value(ptr noundef %94, i32 noundef %267, ptr noundef %0, i32 noundef %265, i32 noundef 2, float noundef %270, ptr noundef nonnull @.str.289, double noundef %269)
   br label %dissect_DFREQ.exit
 
-dissect_DFREQ.exit:                               ; preds = %249, %255
-  %.sink.i = phi i32 [ 4, %255 ], [ 8, %249 ]
-  %273 = add i32 %.sink.i, %.0.i
-  %274 = load ptr, ptr %79, align 8
-  %275 = tail call i32 @wmem_array_get_count(ptr noundef %274)
-  %276 = icmp eq i32 %275, 0
-  br i1 %276, label %dissect_ANALOG.exit, label %277
+dissect_DFREQ.exit:                               ; preds = %248, %254
+  %.sink.i = phi i32 [ 4, %254 ], [ 8, %248 ]
+  %272 = add i32 %.sink.i, %.0.i
+  %273 = load ptr, ptr %79, align 8
+  %274 = tail call i32 @wmem_array_get_count(ptr noundef %273)
+  %275 = icmp eq i32 %274, 0
+  br i1 %275, label %dissect_ANALOG.exit, label %276
 
-277:                                              ; preds = %dissect_DFREQ.exit
-  %278 = load ptr, ptr %79, align 8
-  %279 = tail call i32 @wmem_array_get_count(ptr noundef %278)
-  %280 = load i32, ptr %82, align 4
-  %281 = icmp eq i32 %280, 1
-  %282 = select i1 %281, i32 2, i32 1
-  %283 = shl i32 %279, %282
-  %284 = load i32, ptr @ett_data_analog, align 4
-  %285 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %94, ptr noundef %0, i32 noundef %273, i32 noundef %283, i32 noundef %284, ptr noundef null, ptr noundef nonnull @.str.290, i32 noundef %275)
-  %286 = icmp sgt i32 %275, 0
-  br i1 %286, label %.lr.ph.i113, label %dissect_ANALOG.exit
+276:                                              ; preds = %dissect_DFREQ.exit
+  %277 = load ptr, ptr %79, align 8
+  %278 = tail call i32 @wmem_array_get_count(ptr noundef %277)
+  %279 = load i32, ptr %82, align 4
+  %280 = icmp eq i32 %279, 1
+  %281 = select i1 %280, i32 2, i32 1
+  %282 = shl i32 %278, %281
+  %283 = load i32, ptr @ett_data_analog, align 4
+  %284 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %94, ptr noundef %0, i32 noundef %272, i32 noundef %282, i32 noundef %283, ptr noundef null, ptr noundef nonnull @.str.290, i32 noundef %274)
+  %285 = icmp sgt i32 %274, 0
+  br i1 %285, label %.lr.ph.i113, label %dissect_ANALOG.exit
 
-.lr.ph.i113:                                      ; preds = %277
-  %287 = getelementptr inbounds nuw i8, ptr %64, i64 258
-  br label %288
+.lr.ph.i113:                                      ; preds = %276
+  %286 = getelementptr inbounds nuw i8, ptr %64, i64 258
+  br label %287
 
-288:                                              ; preds = %327, %.lr.ph.i113
-  %.05054.i = phi i32 [ %273, %.lr.ph.i113 ], [ %.1.i114, %327 ]
-  %.05153.i = phi i32 [ 0, %.lr.ph.i113 ], [ %295, %327 ]
-  %289 = load ptr, ptr %79, align 8
-  %290 = tail call ptr @wmem_array_index(ptr noundef %289, i32 noundef %.05153.i)
-  %291 = load i32, ptr @hf_synphasor_analog_value, align 4
-  %292 = load i32, ptr %82, align 4
-  %293 = icmp eq i32 %292, 1
-  %294 = select i1 %293, i32 4, i32 2
-  %295 = add nuw nsw i32 %.05153.i, 1
-  %296 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %285, i32 noundef %291, ptr noundef %0, i32 noundef %.05054.i, i32 noundef %294, ptr noundef %290, ptr noundef nonnull @.str.291, i32 noundef %295, ptr noundef %290)
-  %297 = load i8, ptr %287, align 2
-  %298 = icmp eq i8 %297, 3
-  %299 = load i32, ptr %82, align 4
-  %300 = icmp eq i32 %299, 1
-  br i1 %298, label %301, label %316
+287:                                              ; preds = %326, %.lr.ph.i113
+  %.05054.i = phi i32 [ %272, %.lr.ph.i113 ], [ %.1.i114, %326 ]
+  %.05153.i = phi i32 [ 0, %.lr.ph.i113 ], [ %294, %326 ]
+  %288 = load ptr, ptr %79, align 8
+  %289 = tail call ptr @wmem_array_index(ptr noundef %288, i32 noundef %.05153.i)
+  %290 = load i32, ptr @hf_synphasor_analog_value, align 4
+  %291 = load i32, ptr %82, align 4
+  %292 = icmp eq i32 %291, 1
+  %293 = select i1 %292, i32 4, i32 2
+  %294 = add nuw nsw i32 %.05153.i, 1
+  %295 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %284, i32 noundef %290, ptr noundef %0, i32 noundef %.05054.i, i32 noundef %293, ptr noundef %289, ptr noundef nonnull @.str.291, i32 noundef %294, ptr noundef %289)
+  %296 = load i8, ptr %286, align 2
+  %297 = icmp eq i8 %296, 3
+  %298 = load i32, ptr %82, align 4
+  %299 = icmp eq i32 %298, 1
+  br i1 %297, label %300, label %315
 
-301:                                              ; preds = %288
-  br i1 %300, label %302, label %306
+300:                                              ; preds = %287
+  br i1 %299, label %301, label %305
 
-302:                                              ; preds = %301
-  %303 = tail call float @tvb_get_ntohieee_float(ptr noundef %0, i32 noundef %.05054.i)
-  %304 = add i32 %.05054.i, 4
-  %305 = fpext float %303 to double
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %296, ptr noundef nonnull @.str.292, double noundef %305)
-  br label %327
+301:                                              ; preds = %300
+  %302 = tail call float @tvb_get_ntohieee_float(ptr noundef %0, i32 noundef %.05054.i)
+  %303 = add i32 %.05054.i, 4
+  %304 = fpext float %302 to double
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %295, ptr noundef nonnull @.str.292, double noundef %304)
+  br label %326
 
-306:                                              ; preds = %301
-  %307 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.05054.i)
-  %308 = add i32 %.05054.i, 2
-  %309 = sitofp i16 %307 to float
-  %310 = getelementptr inbounds nuw i8, ptr %290, i64 260
-  %311 = load float, ptr %310, align 4
-  %312 = getelementptr inbounds nuw i8, ptr %290, i64 264
-  %313 = load float, ptr %312, align 4
-  %314 = tail call float @llvm.fmuladd.f32(float %309, float %311, float %313)
-  %315 = fpext float %314 to double
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %296, ptr noundef nonnull @.str.292, double noundef %315)
-  br label %327
+305:                                              ; preds = %300
+  %306 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.05054.i)
+  %307 = add i32 %.05054.i, 2
+  %308 = sitofp i16 %306 to float
+  %309 = getelementptr inbounds nuw i8, ptr %289, i64 260
+  %310 = load float, ptr %309, align 4
+  %311 = getelementptr inbounds nuw i8, ptr %289, i64 264
+  %312 = load float, ptr %311, align 4
+  %313 = tail call float @llvm.fmuladd.f32(float %308, float %310, float %312)
+  %314 = fpext float %313 to double
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %295, ptr noundef nonnull @.str.292, double noundef %314)
+  br label %326
 
-316:                                              ; preds = %288
-  br i1 %300, label %317, label %321
+315:                                              ; preds = %287
+  br i1 %299, label %316, label %320
 
-317:                                              ; preds = %316
-  %318 = tail call float @tvb_get_ntohieee_float(ptr noundef %0, i32 noundef %.05054.i)
-  %319 = add i32 %.05054.i, 4
-  %320 = fpext float %318 to double
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %296, ptr noundef nonnull @.str.292, double noundef %320)
-  br label %327
+316:                                              ; preds = %315
+  %317 = tail call float @tvb_get_ntohieee_float(ptr noundef %0, i32 noundef %.05054.i)
+  %318 = add i32 %.05054.i, 4
+  %319 = fpext float %317 to double
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %295, ptr noundef nonnull @.str.292, double noundef %319)
+  br label %326
 
-321:                                              ; preds = %316
-  %322 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.05054.i)
-  %323 = add i32 %.05054.i, 2
-  %324 = sext i16 %322 to i32
-  %325 = getelementptr inbounds nuw i8, ptr %290, i64 256
-  %326 = load i32, ptr %325, align 4
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %296, ptr noundef nonnull @.str.293, i32 noundef %324, i32 noundef %326)
-  br label %327
+320:                                              ; preds = %315
+  %321 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.05054.i)
+  %322 = add i32 %.05054.i, 2
+  %323 = sext i16 %321 to i32
+  %324 = getelementptr inbounds nuw i8, ptr %289, i64 256
+  %325 = load i32, ptr %324, align 4
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %295, ptr noundef nonnull @.str.293, i32 noundef %323, i32 noundef %325)
+  br label %326
 
-327:                                              ; preds = %321, %317, %306, %302
-  %.1.i114 = phi i32 [ %304, %302 ], [ %308, %306 ], [ %319, %317 ], [ %323, %321 ]
-  %exitcond.not.i115 = icmp eq i32 %295, %275
-  br i1 %exitcond.not.i115, label %dissect_ANALOG.exit, label %288, !llvm.loop !22
+326:                                              ; preds = %320, %316, %305, %301
+  %.1.i114 = phi i32 [ %303, %301 ], [ %307, %305 ], [ %318, %316 ], [ %322, %320 ]
+  %exitcond.not.i115 = icmp eq i32 %294, %274
+  br i1 %exitcond.not.i115, label %dissect_ANALOG.exit, label %287, !llvm.loop !22
 
-dissect_ANALOG.exit:                              ; preds = %327, %dissect_DFREQ.exit, %277
-  %.0.i112 = phi i32 [ %273, %dissect_DFREQ.exit ], [ %273, %277 ], [ %.1.i114, %327 ]
+dissect_ANALOG.exit:                              ; preds = %326, %dissect_DFREQ.exit, %276
+  %.0.i112 = phi i32 [ %272, %dissect_DFREQ.exit ], [ %272, %276 ], [ %.1.i114, %326 ]
   %.val = load i32, ptr %87, align 8
-  %328 = icmp eq i32 %.val, 0
-  br i1 %328, label %dissect_DIGITAL.exit, label %329
+  %327 = icmp eq i32 %.val, 0
+  br i1 %327, label %dissect_DIGITAL.exit, label %328
 
-329:                                              ; preds = %dissect_ANALOG.exit
-  %330 = shl i32 %.val, 1
-  %331 = load i32, ptr @ett_data_digital, align 4
-  %332 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %94, ptr noundef %0, i32 noundef %.0.i112, i32 noundef %330, i32 noundef %331, ptr noundef null, ptr noundef nonnull @.str.294, i32 noundef %.val)
-  %333 = icmp sgt i32 %.val, 0
-  br i1 %333, label %.lr.ph.i117, label %dissect_DIGITAL.exit
+328:                                              ; preds = %dissect_ANALOG.exit
+  %329 = shl i32 %.val, 1
+  %330 = load i32, ptr @ett_data_digital, align 4
+  %331 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %94, ptr noundef %0, i32 noundef %.0.i112, i32 noundef %329, i32 noundef %330, ptr noundef null, ptr noundef nonnull @.str.294, i32 noundef %.val)
+  %332 = icmp sgt i32 %.val, 0
+  br i1 %332, label %.lr.ph.i117, label %dissect_DIGITAL.exit
 
-.lr.ph.i117:                                      ; preds = %329, %.lr.ph.i117
-  %.0212.i = phi i32 [ %337, %.lr.ph.i117 ], [ 0, %329 ]
-  %.0221.i = phi i32 [ %339, %.lr.ph.i117 ], [ %.0.i112, %329 ]
-  %334 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.0221.i)
-  %335 = load i32, ptr @hf_synphasor_digital_status_word, align 4
-  %336 = zext i16 %334 to i32
-  %337 = add nuw nsw i32 %.0212.i, 1
-  %338 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %332, i32 noundef %335, ptr noundef %0, i32 noundef %.0221.i, i32 noundef 2, i32 noundef %336, ptr noundef nonnull @.str.295, i32 noundef %337, i32 noundef %336)
-  %339 = add i32 %.0221.i, 2
-  %exitcond.not.i118 = icmp eq i32 %337, %.val
+.lr.ph.i117:                                      ; preds = %328, %.lr.ph.i117
+  %.0212.i = phi i32 [ %336, %.lr.ph.i117 ], [ 0, %328 ]
+  %.0221.i = phi i32 [ %338, %.lr.ph.i117 ], [ %.0.i112, %328 ]
+  %333 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.0221.i)
+  %334 = load i32, ptr @hf_synphasor_digital_status_word, align 4
+  %335 = zext i16 %333 to i32
+  %336 = add nuw nsw i32 %.0212.i, 1
+  %337 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %331, i32 noundef %334, ptr noundef %0, i32 noundef %.0221.i, i32 noundef 2, i32 noundef %335, ptr noundef nonnull @.str.295, i32 noundef %336, i32 noundef %335)
+  %338 = add i32 %.0221.i, 2
+  %exitcond.not.i118 = icmp eq i32 %336, %.val
   br i1 %exitcond.not.i118, label %dissect_DIGITAL.exit, label %.lr.ph.i117, !llvm.loop !23
 
-dissect_DIGITAL.exit:                             ; preds = %.lr.ph.i117, %dissect_ANALOG.exit, %329
-  %.0.i116 = phi i32 [ %.0.i112, %dissect_ANALOG.exit ], [ %.0.i112, %329 ], [ %339, %.lr.ph.i117 ]
-  %340 = add nuw i32 %.1100124, 1
-  %341 = load ptr, ptr %9, align 8
-  %342 = tail call i32 @wmem_array_get_count(ptr noundef %341)
-  %343 = icmp ult i32 %340, %342
-  br i1 %343, label %.lr.ph126, label %.loopexit, !llvm.loop !24
+dissect_DIGITAL.exit:                             ; preds = %.lr.ph.i117, %dissect_ANALOG.exit, %328
+  %.0.i116 = phi i32 [ %.0.i112, %dissect_ANALOG.exit ], [ %.0.i112, %328 ], [ %338, %.lr.ph.i117 ]
+  %339 = add nuw i32 %.1100124, 1
+  %340 = load ptr, ptr %9, align 8
+  %341 = tail call i32 @wmem_array_get_count(ptr noundef %340)
+  %342 = icmp ult i32 %339, %341
+  br i1 %342, label %.lr.ph126, label %.loopexit, !llvm.loop !24
 
 .loopexit:                                        ; preds = %dissect_DIGITAL.exit, %proto_item_set_generated.exit, %.critedge108
   ret void
@@ -2487,9 +2487,6 @@ declare double @cos(double noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(errnomem: write)
 declare double @sin(double noundef) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(errnomem: write)
-declare double @sqrt(double noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(errnomem: write)
 declare double @atan2(double noundef, double noundef) local_unnamed_addr #3

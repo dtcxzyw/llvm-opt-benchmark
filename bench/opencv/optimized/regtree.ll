@@ -135,113 +135,94 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 ; Function Attrs: nofree nounwind
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none, errnomem: readwrite, target_mem0: none, target_mem1: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: write, errnomem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN2cv4face18FacemarkKazemiImpl13getTestSplitsESt6vectorINS_6Point_IfEESaIS4_EEi(ptr dead_on_unwind noalias writable writeonly sret(%"struct.cv::face::splitr") align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(216) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #3 align 2 {
-  %5 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %6 = load i64, ptr %5, align 8, !tbaa !3
-  %7 = trunc i64 %6 to i32
-  %8 = icmp eq i32 %7, 0
-  %9 = load ptr, ptr %2, align 8, !tbaa !32
-  %10 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %11 = load float, ptr %10, align 8, !tbaa !33
-  %12 = fpext float %11 to double
-  br i1 %8, label %.split.us.split, label %_ZN2cv3RNG7uniformEii.exit11.preheader
-
-_ZN2cv3RNG7uniformEii.exit11.preheader:           ; preds = %4
+_ZN2cv3RNG7uniformEii.exit11.preheader:
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %5 = load i64, ptr %4, align 8, !tbaa !3
+  %6 = trunc i64 %5 to i32
+  %7 = icmp ne i32 %6, 0
+  %8 = load ptr, ptr %2, align 8, !tbaa !32
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %10 = load float, ptr %9, align 8, !tbaa !33
+  %11 = fpext float %10 to double
+  tail call void @llvm.assume(i1 %7)
   %.not.i = icmp eq i32 %3, 0
-  %13 = sext i32 %3 to i64
-  %14 = select i1 %.not.i, i64 4294967295, i64 %13
+  %12 = sext i32 %3 to i64
+  %13 = select i1 %.not.i, i64 4294967295, i64 %12
   br label %_ZN2cv3RNG7uniformEii.exit11
 
-.split.us.split:                                  ; preds = %4
-  %.val.us = load float, ptr %9, align 4, !tbaa !34
-  %15 = getelementptr i8, ptr %9, i64 4
-  %.val8.us = load float, ptr %15, align 4, !tbaa !36
-  %16 = fsub float %.val.us, %.val.us
-  %17 = fsub float %.val8.us, %.val8.us
-  %18 = fmul float %17, %17
-  %19 = tail call float @llvm.fmuladd.f32(float %16, float %16, float %18)
-  br label %_ZN2cv3RNG7uniformEii.exit.thread.us
-
-_ZN2cv3RNG7uniformEii.exit.thread.us:             ; preds = %_ZN2cv3RNG7uniformEii.exit.thread.us, %.split.us.split
-  %20 = tail call noundef float @sqrtf(float noundef %19) #22, !tbaa !37
-  %21 = fpext float %20 to double
-  %22 = fneg double %21
-  %23 = fdiv double %22, %12
-  %24 = tail call double @exp(double noundef %23) #22, !tbaa !37
-  br label %_ZN2cv3RNG7uniformEii.exit.thread.us
-
 _ZN2cv3RNG7uniformEii.exit11:                     ; preds = %_ZN2cv3RNG7uniformEii.exit11.preheader, %_ZN2cv3RNG7uniformEii.exit11
-  %.sroa.0.0 = phi i64 [ %60, %_ZN2cv3RNG7uniformEii.exit11 ], [ %14, %_ZN2cv3RNG7uniformEii.exit11.preheader ]
-  %25 = and i64 %.sroa.0.0, 4294967295
-  %26 = mul nuw i64 %25, 4164903690
-  %27 = lshr i64 %.sroa.0.0, 32
-  %28 = add nuw i64 %26, %27
-  %29 = trunc i64 %28 to i32
-  %30 = urem i32 %29, %7
-  %31 = sext i32 %30 to i64
-  %32 = and i64 %28, 4294967295
-  %33 = mul nuw i64 %32, 4164903690
-  %34 = lshr i64 %28, 32
-  %35 = add nuw i64 %33, %34
-  %36 = trunc i64 %35 to i32
-  %37 = urem i32 %36, %7
-  %38 = sext i32 %37 to i64
-  %39 = getelementptr inbounds nuw %"class.cv::Point_", ptr %9, i64 %31
-  %40 = getelementptr inbounds nuw %"class.cv::Point_", ptr %9, i64 %38
-  %.val = load float, ptr %39, align 4, !tbaa !34
-  %41 = getelementptr i8, ptr %39, i64 4
-  %.val8 = load float, ptr %41, align 4, !tbaa !36
-  %.val9 = load float, ptr %40, align 4, !tbaa !34
-  %42 = getelementptr i8, ptr %40, i64 4
-  %.val10 = load float, ptr %42, align 4, !tbaa !36
-  %43 = fsub float %.val, %.val9
-  %44 = fsub float %.val8, %.val10
-  %45 = fmul float %44, %44
-  %46 = tail call float @llvm.fmuladd.f32(float %43, float %43, float %45)
-  %47 = tail call noundef float @sqrtf(float noundef %46) #22, !tbaa !37
-  %48 = fpext float %47 to double
-  %49 = fneg double %48
-  %50 = fdiv double %49, %12
-  %51 = tail call double @exp(double noundef %50) #22, !tbaa !37
-  %52 = and i64 %35, 4294967295
-  %53 = mul nuw i64 %52, 4164903690
-  %54 = lshr i64 %35, 32
-  %55 = add nuw i64 %53, %54
-  %56 = shl i64 %55, 32
-  %57 = and i64 %55, 4294967295
-  %58 = mul nuw i64 %57, 4164903690
-  %59 = lshr i64 %55, 32
-  %60 = add nuw i64 %58, %59
-  %61 = and i64 %60, 4294967295
-  %62 = or disjoint i64 %61, %56
-  %63 = uitofp i64 %62 to double
-  %64 = fmul double %63, 0x3BF0000000000000
-  %65 = fcmp ogt double %64, %51
-  %66 = icmp eq i32 %30, %37
-  %67 = or i1 %66, %65
-  br i1 %67, label %_ZN2cv3RNG7uniformEii.exit11, label %.split20, !llvm.loop !39
+  %.sroa.0.0 = phi i64 [ %48, %_ZN2cv3RNG7uniformEii.exit11 ], [ %13, %_ZN2cv3RNG7uniformEii.exit11.preheader ]
+  %14 = and i64 %.sroa.0.0, 4294967295
+  %15 = mul nuw i64 %14, 4164903690
+  %16 = lshr i64 %.sroa.0.0, 32
+  %17 = add nuw i64 %15, %16
+  %18 = trunc i64 %17 to i32
+  %19 = urem i32 %18, %6
+  %20 = sext i32 %19 to i64
+  %21 = and i64 %17, 4294967295
+  %22 = mul nuw i64 %21, 4164903690
+  %23 = lshr i64 %17, 32
+  %24 = add nuw i64 %22, %23
+  %25 = trunc i64 %24 to i32
+  %26 = urem i32 %25, %6
+  %27 = sext i32 %26 to i64
+  %28 = getelementptr inbounds nuw %"class.cv::Point_", ptr %8, i64 %20
+  %29 = getelementptr inbounds nuw %"class.cv::Point_", ptr %8, i64 %27
+  %.val = load float, ptr %28, align 4, !tbaa !34
+  %30 = getelementptr i8, ptr %28, i64 4
+  %.val8 = load float, ptr %30, align 4, !tbaa !36
+  %.val9 = load float, ptr %29, align 4, !tbaa !34
+  %31 = getelementptr i8, ptr %29, i64 4
+  %.val10 = load float, ptr %31, align 4, !tbaa !36
+  %32 = fsub float %.val, %.val9
+  %33 = fsub float %.val8, %.val10
+  %34 = fmul float %33, %33
+  %35 = tail call float @llvm.fmuladd.f32(float %32, float %32, float %34)
+  %sqrt = tail call float @llvm.sqrt.f32(float %35)
+  %36 = fpext float %sqrt to double
+  %37 = fneg double %36
+  %38 = fdiv double %37, %11
+  %39 = tail call double @exp(double noundef %38) #22, !tbaa !37
+  %40 = and i64 %24, 4294967295
+  %41 = mul nuw i64 %40, 4164903690
+  %42 = lshr i64 %24, 32
+  %43 = add nuw i64 %41, %42
+  %44 = shl i64 %43, 32
+  %45 = and i64 %43, 4294967295
+  %46 = mul nuw i64 %45, 4164903690
+  %47 = lshr i64 %43, 32
+  %48 = add nuw i64 %46, %47
+  %49 = and i64 %48, 4294967295
+  %50 = or disjoint i64 %49, %44
+  %51 = uitofp i64 %50 to double
+  %52 = fmul double %51, 0x3BF0000000000000
+  %53 = fcmp ogt double %52, %39
+  %54 = icmp eq i32 %19, %26
+  %55 = or i1 %54, %53
+  br i1 %55, label %_ZN2cv3RNG7uniformEii.exit11, label %.split20, !llvm.loop !39
 
 .split20:                                         ; preds = %_ZN2cv3RNG7uniformEii.exit11
-  %68 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %31, ptr %0, align 8
-  store i64 %38, ptr %68, align 8, !tbaa !41
-  %69 = mul nuw i64 %61, 4164903690
-  %70 = lshr i64 %60, 32
-  %71 = add nuw i64 %69, %70
-  %72 = shl i64 %71, 32
-  %73 = mul i64 %71, 4164903690
-  %74 = lshr i64 %71, 32
-  %75 = add i64 %73, %74
-  %76 = and i64 %75, 4294967295
-  %77 = or disjoint i64 %76, %72
-  %78 = uitofp i64 %77 to double
-  %79 = fmul double %78, 0x3BF0000000000000
-  %80 = tail call double @llvm.fmuladd.f64(double %79, double 2.560000e+02, double -1.280000e+02)
-  %81 = fmul double %80, 5.000000e-01
-  %82 = fptrunc double %81 to float
-  %83 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store float %82, ptr %83, align 8, !tbaa !43
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %20, ptr %0, align 8
+  store i64 %27, ptr %56, align 8, !tbaa !41
+  %57 = mul nuw i64 %49, 4164903690
+  %58 = lshr i64 %48, 32
+  %59 = add nuw i64 %57, %58
+  %60 = shl i64 %59, 32
+  %61 = mul i64 %59, 4164903690
+  %62 = lshr i64 %59, 32
+  %63 = add i64 %61, %62
+  %64 = and i64 %63, 4294967295
+  %65 = or disjoint i64 %64, %60
+  %66 = uitofp i64 %65 to double
+  %67 = fmul double %66, 0x3BF0000000000000
+  %68 = tail call double @llvm.fmuladd.f64(double %67, double 2.560000e+02, double -1.280000e+02)
+  %69 = fmul double %68, 5.000000e-01
+  %70 = fptrunc double %69 to float
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store float %70, ptr %71, align 8, !tbaa !43
   ret void
 }
 
@@ -4100,6 +4081,9 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #18
 declare void @llvm.assume(i1 noundef) #19
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.sqrt.f32(float) #20
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #20
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
@@ -4113,7 +4097,7 @@ declare double @exp2(double) local_unnamed_addr
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree nounwind }
-attributes #3 = { mustprogress nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none, errnomem: readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: write, errnomem: readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }

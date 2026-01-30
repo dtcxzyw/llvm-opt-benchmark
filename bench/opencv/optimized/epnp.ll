@@ -3192,13 +3192,14 @@ _ZN2cv4epnp14solve_for_signEv.exit:               ; preds = %.lr.ph.i16, %_ZN2cv
   %106 = load double, ptr %105, align 8, !tbaa !33
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %108 = load ptr, ptr %107, align 8, !tbaa !36
+  %wide.trip.count.i19 = zext nneg i32 %74 to i64
   br label %109
 
 109:                                              ; preds = %109, %.lr.ph.i18
-  %indvars.iv.i19 = phi i64 [ 0, %.lr.ph.i18 ], [ %indvars.iv.next.i21, %109 ]
-  %.031.i = phi double [ 0.000000e+00, %.lr.ph.i18 ], [ %142, %109 ]
-  %.idx.i20 = mul nuw nsw i64 %indvars.iv.i19, 24
-  %110 = getelementptr inbounds nuw i8, ptr %77, i64 %.idx.i20
+  %indvars.iv.i20 = phi i64 [ 0, %.lr.ph.i18 ], [ %indvars.iv.next.i22, %109 ]
+  %.031.i = phi double [ 0.000000e+00, %.lr.ph.i18 ], [ %141, %109 ]
+  %.idx.i21 = mul nuw nsw i64 %indvars.iv.i20, 24
+  %110 = getelementptr inbounds nuw i8, ptr %77, i64 %.idx.i21
   %111 = load double, ptr %110, align 8, !tbaa !32
   %112 = getelementptr inbounds nuw i8, ptr %110, i64 8
   %113 = load double, ptr %112, align 8, !tbaa !32
@@ -3221,8 +3222,8 @@ _ZN2cv4epnp14solve_for_signEv.exit:               ; preds = %.lr.ph.i16, %_ZN2cv
   %130 = tail call double @llvm.fmuladd.f64(double %129, double %128, double %100)
   %131 = fmul double %106, %123
   %132 = tail call double @llvm.fmuladd.f64(double %131, double %128, double %104)
-  %.idx36.i = shl nuw nsw i64 %indvars.iv.i19, 4
-  %133 = getelementptr inbounds nuw i8, ptr %108, i64 %.idx36.i
+  %.idx34.i = shl nuw nsw i64 %indvars.iv.i20, 4
+  %133 = getelementptr inbounds nuw i8, ptr %108, i64 %.idx34.i
   %134 = load double, ptr %133, align 8, !tbaa !32
   %135 = getelementptr inbounds nuw i8, ptr %133, i64 8
   %136 = load double, ptr %135, align 8, !tbaa !32
@@ -3230,20 +3231,17 @@ _ZN2cv4epnp14solve_for_signEv.exit:               ; preds = %.lr.ph.i16, %_ZN2cv
   %138 = fsub double %136, %132
   %139 = fmul double %138, %138
   %140 = tail call double @llvm.fmuladd.f64(double %137, double %137, double %139)
-  %141 = tail call double @sqrt(double noundef %140) #24, !tbaa !38
-  %142 = fadd double %.031.i, %141
-  %indvars.iv.next.i21 = add nuw nsw i64 %indvars.iv.i19, 1
-  %143 = load i32, ptr %20, align 8, !tbaa !34
-  %144 = sext i32 %143 to i64
-  %145 = icmp slt i64 %indvars.iv.next.i21, %144
-  br i1 %145, label %109, label %_ZN2cv4epnp18reprojection_errorEPA3_KdPS1_.exit, !llvm.loop !145
+  %sqrt.i = tail call double @llvm.sqrt.f64(double %140)
+  %141 = fadd double %.031.i, %sqrt.i
+  %indvars.iv.next.i22 = add nuw nsw i64 %indvars.iv.i20, 1
+  %exitcond.not.i23 = icmp eq i64 %indvars.iv.next.i22, %wide.trip.count.i19
+  br i1 %exitcond.not.i23, label %_ZN2cv4epnp18reprojection_errorEPA3_KdPS1_.exit, label %109, !llvm.loop !145
 
 _ZN2cv4epnp18reprojection_errorEPA3_KdPS1_.exit:  ; preds = %109, %_ZN2cv4epnp14solve_for_signEv.exit
-  %.0.lcssa.i = phi double [ 0.000000e+00, %_ZN2cv4epnp14solve_for_signEv.exit ], [ %142, %109 ]
-  %.lcssa.i = phi i32 [ %74, %_ZN2cv4epnp14solve_for_signEv.exit ], [ %143, %109 ]
-  %146 = sitofp i32 %.lcssa.i to double
-  %147 = fdiv double %.0.lcssa.i, %146
-  ret double %147
+  %.0.lcssa.i = phi double [ 0.000000e+00, %_ZN2cv4epnp14solve_for_signEv.exit ], [ %141, %109 ]
+  %142 = sitofp i32 %74 to double
+  %143 = fdiv double %.0.lcssa.i, %142
+  ret double %143
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -4072,7 +4070,7 @@ define hidden void @_ZN2cv4epnp14solve_for_signEv(ptr noundef nonnull align 8 ca
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nounwind memory(read, inaccessiblemem: none, errnomem: readwrite, target_mem0: none, target_mem1: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef double @_ZN2cv4epnp18reprojection_errorEPA3_KdPS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(352) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #15 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %5 = load i32, ptr %4, align 8, !tbaa !34
@@ -4113,18 +4111,18 @@ define hidden noundef double @_ZN2cv4epnp18reprojection_errorEPA3_KdPS1_(ptr nou
   %37 = load double, ptr %36, align 8, !tbaa !33
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %39 = load ptr, ptr %38, align 8, !tbaa !36
+  %wide.trip.count = zext nneg i32 %5 to i64
   br label %42
 
 ._crit_edge:                                      ; preds = %42, %3
-  %.0.lcssa = phi double [ 0.000000e+00, %3 ], [ %75, %42 ]
-  %.lcssa = phi i32 [ %5, %3 ], [ %76, %42 ]
-  %40 = sitofp i32 %.lcssa to double
+  %.0.lcssa = phi double [ 0.000000e+00, %3 ], [ %74, %42 ]
+  %40 = sitofp i32 %5 to double
   %41 = fdiv double %.0.lcssa, %40
   ret double %41
 
 42:                                               ; preds = %.lr.ph, %42
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %42 ]
-  %.031 = phi double [ 0.000000e+00, %.lr.ph ], [ %75, %42 ]
+  %.031 = phi double [ 0.000000e+00, %.lr.ph ], [ %74, %42 ]
   %.idx = mul nuw nsw i64 %indvars.iv, 24
   %43 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx
   %44 = load double, ptr %43, align 8, !tbaa !32
@@ -4149,8 +4147,8 @@ define hidden noundef double @_ZN2cv4epnp18reprojection_errorEPA3_KdPS1_(ptr nou
   %63 = tail call double @llvm.fmuladd.f64(double %62, double %61, double %31)
   %64 = fmul double %56, %37
   %65 = tail call double @llvm.fmuladd.f64(double %64, double %61, double %35)
-  %.idx36 = shl nuw nsw i64 %indvars.iv, 4
-  %66 = getelementptr inbounds nuw i8, ptr %39, i64 %.idx36
+  %.idx34 = shl nuw nsw i64 %indvars.iv, 4
+  %66 = getelementptr inbounds nuw i8, ptr %39, i64 %.idx34
   %67 = load double, ptr %66, align 8, !tbaa !32
   %68 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %69 = load double, ptr %68, align 8, !tbaa !32
@@ -4158,13 +4156,11 @@ define hidden noundef double @_ZN2cv4epnp18reprojection_errorEPA3_KdPS1_(ptr nou
   %71 = fsub double %69, %65
   %72 = fmul double %71, %71
   %73 = tail call double @llvm.fmuladd.f64(double %70, double %70, double %72)
-  %74 = tail call double @sqrt(double noundef %73) #24, !tbaa !38
-  %75 = fadd double %.031, %74
+  %sqrt = tail call double @llvm.sqrt.f64(double %73)
+  %74 = fadd double %.031, %sqrt
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %76 = load i32, ptr %4, align 8, !tbaa !34
-  %77 = sext i32 %76 to i64
-  %78 = icmp slt i64 %indvars.iv.next, %77
-  br i1 %78, label %42, label %._crit_edge, !llvm.loop !145
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond.not, label %._crit_edge, label %42, !llvm.loop !145
 }
 
 declare i32 @cvSolve(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #0
@@ -4802,6 +4798,9 @@ declare i64 @llvm.umin.i64(i64, i64) #22
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #22
 
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.sqrt.f64(double) #22
+
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree nounwind }
@@ -4817,7 +4816,7 @@ attributes #11 = { mustprogress nofree norecurse nosync nounwind memory(readwrit
 attributes #12 = { mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #14 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nofree norecurse nounwind memory(read, inaccessiblemem: none, errnomem: readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #16 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #17 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #18 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }

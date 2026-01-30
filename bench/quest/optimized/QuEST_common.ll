@@ -100,7 +100,7 @@ define void @ensureIndsIncrease(ptr noundef captures(none) %0, ptr noundef captu
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: read, errnomem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define double @getVectorMagnitude(ptr noundef readonly byval(%struct.Vector) align 8 captures(none) %0) local_unnamed_addr #2 {
   %2 = load double, ptr %0, align 8, !tbaa !8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -110,8 +110,8 @@ define double @getVectorMagnitude(ptr noundef readonly byval(%struct.Vector) ali
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load double, ptr %7, align 8, !tbaa !12
   %9 = tail call double @llvm.fmuladd.f64(double %8, double %8, double %6)
-  %10 = tail call double @sqrt(double noundef %9) #22, !tbaa !4
-  ret double %10
+  %sqrt = tail call double @llvm.sqrt.f64(double %9)
+  ret double %sqrt
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
@@ -120,30 +120,30 @@ declare double @sqrt(double noundef) local_unnamed_addr #3
 ; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fmuladd.f64(double, double, double) #4
 
-; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite, errnomem: write) uwtable
-define void @getUnitVector(ptr dead_on_unwind noalias writable writeonly sret(%struct.Vector) align 8 captures(none) initializes((0, 24)) %0, ptr noundef readonly byval(%struct.Vector) align 8 captures(none) %1) local_unnamed_addr #5 {
-  %.sroa.0.0.copyload = load double, ptr %1, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.4.0.copyload = load double, ptr %.sroa.4.0..sroa_idx, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.sroa.5.0.copyload = load double, ptr %.sroa.5.0..sroa_idx, align 8
-  %3 = fmul double %.sroa.4.0.copyload, %.sroa.4.0.copyload
-  %4 = tail call double @llvm.fmuladd.f64(double %.sroa.0.0.copyload, double %.sroa.0.0.copyload, double %3)
-  %5 = tail call double @llvm.fmuladd.f64(double %.sroa.5.0.copyload, double %.sroa.5.0.copyload, double %4)
-  %6 = tail call double @sqrt(double noundef %5) #22, !tbaa !4
-  %7 = fdiv double %.sroa.0.0.copyload, %6
-  store double %7, ptr %0, align 8, !tbaa !8
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %9 = fdiv double %.sroa.4.0.copyload, %6
-  store double %9, ptr %8, align 8, !tbaa !11
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %11 = fdiv double %.sroa.5.0.copyload, %6
-  store double %11, ptr %10, align 8, !tbaa !12
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
+define void @getUnitVector(ptr dead_on_unwind noalias writable writeonly sret(%struct.Vector) align 8 captures(none) initializes((0, 24)) %0, ptr noundef readonly byval(%struct.Vector) align 8 captures(none) %1) local_unnamed_addr #1 {
+  %3 = load double, ptr %1, align 8, !tbaa !8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %5 = load double, ptr %4, align 8, !tbaa !11
+  %6 = fmul double %5, %5
+  %7 = tail call double @llvm.fmuladd.f64(double %3, double %3, double %6)
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %9 = load double, ptr %8, align 8, !tbaa !12
+  %10 = tail call double @llvm.fmuladd.f64(double %9, double %9, double %7)
+  %sqrt.i = tail call double @llvm.sqrt.f64(double %10)
+  %11 = fdiv double %3, %sqrt.i
+  store double %11, ptr %0, align 8, !tbaa !8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %13 = fdiv double %5, %sqrt.i
+  store double %13, ptr %12, align 8, !tbaa !11
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %15 = fdiv double %9, %sqrt.i
+  store double %15, ptr %14, align 8, !tbaa !12
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define { double, double } @getConjugateScalar(double %0, double %1) local_unnamed_addr #6 {
+define { double, double } @getConjugateScalar(double %0, double %1) local_unnamed_addr #5 {
   %3 = fneg double %1
   %.fca.0.insert = insertvalue { double, double } poison, double %0, 0
   %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %3, 1
@@ -151,7 +151,7 @@ define { double, double } @getConjugateScalar(double %0, double %1) local_unname
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @getConjugateMatrix2(ptr dead_on_unwind noalias writable writeonly sret(%struct.ComplexMatrix2) align 8 captures(none) %0, ptr noundef readonly byval(%struct.ComplexMatrix2) align 8 captures(none) %1) local_unnamed_addr #7 {
+define void @getConjugateMatrix2(ptr dead_on_unwind noalias writable writeonly sret(%struct.ComplexMatrix2) align 8 captures(none) %0, ptr noundef readonly byval(%struct.ComplexMatrix2) align 8 captures(none) %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %.preheader
@@ -184,7 +184,7 @@ define void @getConjugateMatrix2(ptr dead_on_unwind noalias writable writeonly s
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @getConjugateMatrix4(ptr dead_on_unwind noalias writable writeonly sret(%struct.ComplexMatrix4) align 8 captures(none) %0, ptr noundef readonly byval(%struct.ComplexMatrix4) align 8 captures(none) %1) local_unnamed_addr #7 {
+define void @getConjugateMatrix4(ptr dead_on_unwind noalias writable writeonly sret(%struct.ComplexMatrix4) align 8 captures(none) %0, ptr noundef readonly byval(%struct.ComplexMatrix4) align 8 captures(none) %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 128
   br label %.preheader
@@ -222,7 +222,7 @@ define void @getConjugateMatrix4(ptr dead_on_unwind noalias writable writeonly s
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
-define void @setConjugateMatrixN(ptr noundef readonly byval(%struct.ComplexMatrixN) align 8 captures(none) %0) local_unnamed_addr #8 {
+define void @setConjugateMatrixN(ptr noundef readonly byval(%struct.ComplexMatrixN) align 8 captures(none) %0) local_unnamed_addr #7 {
   %2 = load i32, ptr %0, align 8, !tbaa !14
   %.not = icmp eq i32 %2, 31
   br i1 %.not, label %._crit_edge18, label %.preheader.lr.ph
@@ -260,7 +260,7 @@ define void @setConjugateMatrixN(ptr noundef readonly byval(%struct.ComplexMatri
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite, errnomem: write) uwtable
-define void @getComplexPairFromRotation(double noundef %0, ptr noundef readonly byval(%struct.Vector) align 8 captures(none) %1, ptr noundef writeonly captures(none) initializes((0, 16)) %2, ptr noundef writeonly captures(none) initializes((0, 16)) %3) local_unnamed_addr #5 {
+define void @getComplexPairFromRotation(double noundef %0, ptr noundef readonly byval(%struct.Vector) align 8 captures(none) %1, ptr noundef writeonly captures(none) initializes((0, 16)) %2, ptr noundef writeonly captures(none) initializes((0, 16)) %3) local_unnamed_addr #8 {
   %.sroa.08.0.copyload = load double, ptr %1, align 8
   %.sroa.49.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.49.0.copyload = load double, ptr %.sroa.49.0..sroa_idx, align 8
@@ -269,23 +269,23 @@ define void @getComplexPairFromRotation(double noundef %0, ptr noundef readonly 
   %5 = fmul double %.sroa.49.0.copyload, %.sroa.49.0.copyload
   %6 = tail call double @llvm.fmuladd.f64(double %.sroa.08.0.copyload, double %.sroa.08.0.copyload, double %5)
   %7 = tail call double @llvm.fmuladd.f64(double %.sroa.5.0.copyload, double %.sroa.5.0.copyload, double %6)
-  %8 = tail call double @sqrt(double noundef %7) #22, !tbaa !4, !noalias !21
-  %9 = fdiv double %.sroa.08.0.copyload, %8
-  %10 = fdiv double %.sroa.49.0.copyload, %8
-  %11 = fdiv double %.sroa.5.0.copyload, %8
-  %12 = fmul double %0, 5.000000e-01
-  %13 = tail call double @cos(double noundef %12) #22, !tbaa !4
-  store double %13, ptr %2, align 8, !tbaa !24
-  %14 = tail call double @sin(double noundef %12) #22, !tbaa !4
-  %15 = fneg double %14
-  %16 = fmul double %11, %15
-  %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store double %16, ptr %17, align 8, !tbaa !26
-  %18 = fmul double %10, %14
-  store double %18, ptr %3, align 8, !tbaa !24
-  %19 = fmul double %9, %15
-  %20 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store double %19, ptr %20, align 8, !tbaa !26
+  %sqrt.i.i = tail call double @llvm.sqrt.f64(double %7)
+  %8 = fdiv double %.sroa.08.0.copyload, %sqrt.i.i
+  %9 = fdiv double %.sroa.49.0.copyload, %sqrt.i.i
+  %10 = fdiv double %.sroa.5.0.copyload, %sqrt.i.i
+  %11 = fmul double %0, 5.000000e-01
+  %12 = tail call double @cos(double noundef %11) #22, !tbaa !4
+  store double %12, ptr %2, align 8, !tbaa !21
+  %13 = tail call double @sin(double noundef %11) #22, !tbaa !4
+  %14 = fneg double %13
+  %15 = fmul double %10, %14
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store double %15, ptr %16, align 8, !tbaa !23
+  %17 = fmul double %13, %9
+  store double %17, ptr %3, align 8, !tbaa !21
+  %18 = fmul double %8, %14
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store double %18, ptr %19, align 8, !tbaa !23
   ret void
 }
 
@@ -320,7 +320,7 @@ declare double @acos(double noundef) local_unnamed_addr #3
 declare double @atan2(double noundef, double noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite, errnomem: write) uwtable
-define void @getComplexPairAndPhaseFromUnitary(ptr noundef readonly byval(%struct.ComplexMatrix2) align 8 captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 16)) %1, ptr noundef writeonly captures(none) initializes((0, 16)) %2, ptr noundef writeonly captures(none) initializes((0, 8)) %3) local_unnamed_addr #5 {
+define void @getComplexPairAndPhaseFromUnitary(ptr noundef readonly byval(%struct.ComplexMatrix2) align 8 captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 16)) %1, ptr noundef writeonly captures(none) initializes((0, 16)) %2, ptr noundef writeonly captures(none) initializes((0, 8)) %3) local_unnamed_addr #8 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load double, ptr %5, align 8, !tbaa !13
   %7 = load double, ptr %0, align 8, !tbaa !13
@@ -339,26 +339,26 @@ define void @getComplexPairAndPhaseFromUnitary(ptr noundef readonly byval(%struc
   %19 = tail call double @sin(double noundef %17) #22, !tbaa !4
   %20 = fmul double %6, %19
   %21 = tail call double @llvm.fmuladd.f64(double %7, double %18, double %20)
-  store double %21, ptr %1, align 8, !tbaa !24
+  store double %21, ptr %1, align 8, !tbaa !21
   %22 = fneg double %19
   %23 = fmul double %7, %22
   %24 = tail call double @llvm.fmuladd.f64(double %6, double %18, double %23)
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store double %24, ptr %25, align 8, !tbaa !26
+  store double %24, ptr %25, align 8, !tbaa !23
   %26 = load double, ptr %12, align 8, !tbaa !13
   %27 = load double, ptr %9, align 8, !tbaa !13
   %28 = fmul double %19, %27
   %29 = tail call double @llvm.fmuladd.f64(double %26, double %18, double %28)
-  store double %29, ptr %2, align 8, !tbaa !24
+  store double %29, ptr %2, align 8, !tbaa !21
   %30 = fmul double %26, %22
   %31 = tail call double @llvm.fmuladd.f64(double %27, double %18, double %30)
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store double %31, ptr %32, align 8, !tbaa !26
+  store double %31, ptr %32, align 8, !tbaa !23
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @shiftIndices(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #7 {
+define void @shiftIndices(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #6 {
   %4 = icmp sgt i32 %1, 0
   br i1 %4, label %.lr.ph.preheader, label %._crit_edge
 
@@ -381,7 +381,7 @@ define void @shiftIndices(ptr noundef captures(none) %0, i32 noundef %1, i32 nou
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @shiftSubregIndices(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #7 {
+define void @shiftSubregIndices(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #6 {
   %5 = icmp sgt i32 %2, 0
   br i1 %5, label %.preheader.preheader, label %._crit_edge15
 
@@ -457,7 +457,7 @@ declare double @genrand_real1() local_unnamed_addr #11
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define i64 @hashString(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
-  %2 = load i8, ptr %0, align 1, !tbaa !27
+  %2 = load i8, ptr %0, align 1, !tbaa !24
   %.not6 = icmp eq i8 %2, 0
   br i1 %.not6, label %._crit_edge, label %.lr.ph
 
@@ -469,7 +469,7 @@ define i64 @hashString(ptr noundef readonly captures(none) %0) local_unnamed_add
   %5 = mul i64 %.047, 33
   %6 = sext i8 %3 to i64
   %7 = add i64 %5, %6
-  %8 = load i8, ptr %4, align 1, !tbaa !27
+  %8 = load i8, ptr %4, align 1, !tbaa !24
   %.not = icmp eq i8 %8, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -483,19 +483,19 @@ define void @getQuESTDefaultSeedKey(ptr noundef writeonly captures(none) initial
   %2 = alloca %struct.timeval, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = call i32 @gettimeofday(ptr noundef nonnull %2, ptr noundef null) #22
-  %4 = load i64, ptr %2, align 8, !tbaa !28
+  %4 = load i64, ptr %2, align 8, !tbaa !25
   %5 = mul nsw i64 %4, 1000
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %7 = load i64, ptr %6, align 8, !tbaa !31
+  %7 = load i64, ptr %6, align 8, !tbaa !28
   %8 = sdiv i64 %7, 1000
   %9 = add nsw i64 %8, %5
   %10 = sitofp i64 %9 to double
   %11 = tail call i32 @getpid() #22
   %12 = sext i32 %11 to i64
   %13 = fptoui double %10 to i64
-  store i64 %13, ptr %0, align 8, !tbaa !32
+  store i64 %13, ptr %0, align 8, !tbaa !29
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %12, ptr %14, align 8, !tbaa !32
+  store i64 %12, ptr %14, align 8, !tbaa !29
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
@@ -511,7 +511,7 @@ define void @reportState(ptr noundef readonly byval(%struct.Qureg) align 8 captu
   %2 = alloca [100 x i8], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %4 = load i32, ptr %3, align 8, !tbaa !33
+  %4 = load i32, ptr %3, align 8, !tbaa !30
   %5 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %4) #22
   %6 = call noalias ptr @fopen(ptr noundef nonnull %2, ptr noundef nonnull @.str.1)
   %7 = icmp eq i32 %4, 0
@@ -523,15 +523,15 @@ define void @reportState(ptr noundef readonly byval(%struct.Qureg) align 8 captu
 
 10:                                               ; preds = %8, %1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %12 = load i64, ptr %11, align 8, !tbaa !37
+  %12 = load i64, ptr %11, align 8, !tbaa !34
   %13 = icmp sgt i64 %12, 0
   br i1 %13, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %10
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %15 = load ptr, ptr %14, align 8, !tbaa !38
+  %15 = load ptr, ptr %14, align 8, !tbaa !35
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %17 = load ptr, ptr %16, align 8, !tbaa !39
+  %17 = load ptr, ptr %16, align 8, !tbaa !36
   br label %18
 
 18:                                               ; preds = %.lr.ph, %18
@@ -566,17 +566,17 @@ declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #12
 ; Function Attrs: nofree nounwind uwtable
 define void @reportQuregParams(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0) local_unnamed_addr #14 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %3 = load i32, ptr %2, align 8, !tbaa !33
+  %3 = load i32, ptr %2, align 8, !tbaa !30
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %5, label %17
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load i32, ptr %6, align 8, !tbaa !40
+  %7 = load i32, ptr %6, align 8, !tbaa !37
   %8 = zext nneg i32 %7 to i64
   %9 = shl nuw i64 1, %8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %11 = load i32, ptr %10, align 4, !tbaa !41
+  %11 = load i32, ptr %10, align 4, !tbaa !38
   %12 = sext i32 %11 to i64
   %13 = sdiv i64 %9, %12
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
@@ -670,18 +670,18 @@ define void @statevec_rotateAroundAxis(ptr noundef readonly byval(%struct.Qureg)
   %5 = fmul double %.sroa.44.0.copyload, %.sroa.44.0.copyload
   %6 = tail call double @llvm.fmuladd.f64(double %.sroa.03.0.copyload, double %.sroa.03.0.copyload, double %5)
   %7 = tail call double @llvm.fmuladd.f64(double %.sroa.5.0.copyload, double %.sroa.5.0.copyload, double %6)
-  %8 = tail call double @sqrt(double noundef %7) #22, !tbaa !4, !noalias !42
-  %9 = fdiv double %.sroa.03.0.copyload, %8
-  %10 = fdiv double %.sroa.44.0.copyload, %8
-  %11 = fdiv double %.sroa.5.0.copyload, %8
-  %12 = fmul double %2, 5.000000e-01
-  %13 = tail call double @cos(double noundef %12) #22, !tbaa !4
-  %14 = tail call double @sin(double noundef %12) #22, !tbaa !4
-  %15 = fneg double %14
-  %16 = fmul double %11, %15
-  %17 = fmul double %10, %14
-  %18 = fmul double %9, %15
-  tail call void @statevec_compactUnitary(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %1, double %13, double %16, double %17, double %18) #22
+  %sqrt.i.i.i = tail call double @llvm.sqrt.f64(double %7)
+  %8 = fdiv double %.sroa.03.0.copyload, %sqrt.i.i.i
+  %9 = fdiv double %.sroa.44.0.copyload, %sqrt.i.i.i
+  %10 = fdiv double %.sroa.5.0.copyload, %sqrt.i.i.i
+  %11 = fmul double %2, 5.000000e-01
+  %12 = tail call double @cos(double noundef %11) #22, !tbaa !4
+  %13 = tail call double @sin(double noundef %11) #22, !tbaa !4
+  %14 = fneg double %13
+  %15 = fmul double %10, %14
+  %16 = fmul double %13, %9
+  %17 = fmul double %8, %14
+  tail call void @statevec_compactUnitary(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %1, double %12, double %15, double %16, double %17) #22
   ret void
 }
 
@@ -719,17 +719,17 @@ define void @statevec_rotateAroundAxisConj(ptr noundef readonly byval(%struct.Qu
   %5 = fmul double %.sroa.44.0.copyload, %.sroa.44.0.copyload
   %6 = tail call double @llvm.fmuladd.f64(double %.sroa.03.0.copyload, double %.sroa.03.0.copyload, double %5)
   %7 = tail call double @llvm.fmuladd.f64(double %.sroa.5.0.copyload, double %.sroa.5.0.copyload, double %6)
-  %8 = tail call double @sqrt(double noundef %7) #22, !tbaa !4, !noalias !45
-  %9 = fdiv double %.sroa.03.0.copyload, %8
-  %10 = fdiv double %.sroa.44.0.copyload, %8
-  %11 = fdiv double %.sroa.5.0.copyload, %8
-  %12 = fmul double %2, 5.000000e-01
-  %13 = tail call double @cos(double noundef %12) #22, !tbaa !4
-  %14 = tail call double @sin(double noundef %12) #22, !tbaa !4
-  %15 = fmul double %10, %14
-  %16 = fmul double %11, %14
-  %17 = fmul double %9, %14
-  tail call void @statevec_compactUnitary(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %1, double %13, double %16, double %15, double %17) #22
+  %sqrt.i.i.i = tail call double @llvm.sqrt.f64(double %7)
+  %8 = fdiv double %.sroa.03.0.copyload, %sqrt.i.i.i
+  %9 = fdiv double %.sroa.44.0.copyload, %sqrt.i.i.i
+  %10 = fdiv double %.sroa.5.0.copyload, %sqrt.i.i.i
+  %11 = fmul double %2, 5.000000e-01
+  %12 = tail call double @cos(double noundef %11) #22, !tbaa !4
+  %13 = tail call double @sin(double noundef %11) #22, !tbaa !4
+  %14 = fmul double %13, %9
+  %15 = fmul double %13, %10
+  %16 = fmul double %13, %8
+  tail call void @statevec_compactUnitary(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %1, double %12, double %15, double %14, double %16) #22
   ret void
 }
 
@@ -743,18 +743,18 @@ define void @statevec_controlledRotateAroundAxis(ptr noundef readonly byval(%str
   %6 = fmul double %.sroa.45.0.copyload, %.sroa.45.0.copyload
   %7 = tail call double @llvm.fmuladd.f64(double %.sroa.04.0.copyload, double %.sroa.04.0.copyload, double %6)
   %8 = tail call double @llvm.fmuladd.f64(double %.sroa.5.0.copyload, double %.sroa.5.0.copyload, double %7)
-  %9 = tail call double @sqrt(double noundef %8) #22, !tbaa !4, !noalias !48
-  %10 = fdiv double %.sroa.04.0.copyload, %9
-  %11 = fdiv double %.sroa.45.0.copyload, %9
-  %12 = fdiv double %.sroa.5.0.copyload, %9
-  %13 = fmul double %3, 5.000000e-01
-  %14 = tail call double @cos(double noundef %13) #22, !tbaa !4
-  %15 = tail call double @sin(double noundef %13) #22, !tbaa !4
-  %16 = fneg double %15
-  %17 = fmul double %12, %16
-  %18 = fmul double %11, %15
-  %19 = fmul double %10, %16
-  tail call void @statevec_controlledCompactUnitary(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %1, i32 noundef %2, double %14, double %17, double %18, double %19) #22
+  %sqrt.i.i.i = tail call double @llvm.sqrt.f64(double %8)
+  %9 = fdiv double %.sroa.04.0.copyload, %sqrt.i.i.i
+  %10 = fdiv double %.sroa.45.0.copyload, %sqrt.i.i.i
+  %11 = fdiv double %.sroa.5.0.copyload, %sqrt.i.i.i
+  %12 = fmul double %3, 5.000000e-01
+  %13 = tail call double @cos(double noundef %12) #22, !tbaa !4
+  %14 = tail call double @sin(double noundef %12) #22, !tbaa !4
+  %15 = fneg double %14
+  %16 = fmul double %11, %15
+  %17 = fmul double %14, %10
+  %18 = fmul double %9, %15
+  tail call void @statevec_controlledCompactUnitary(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %1, i32 noundef %2, double %13, double %16, double %17, double %18) #22
   ret void
 }
 
@@ -770,17 +770,17 @@ define void @statevec_controlledRotateAroundAxisConj(ptr noundef readonly byval(
   %6 = fmul double %.sroa.45.0.copyload, %.sroa.45.0.copyload
   %7 = tail call double @llvm.fmuladd.f64(double %.sroa.04.0.copyload, double %.sroa.04.0.copyload, double %6)
   %8 = tail call double @llvm.fmuladd.f64(double %.sroa.5.0.copyload, double %.sroa.5.0.copyload, double %7)
-  %9 = tail call double @sqrt(double noundef %8) #22, !tbaa !4, !noalias !51
-  %10 = fdiv double %.sroa.04.0.copyload, %9
-  %11 = fdiv double %.sroa.45.0.copyload, %9
-  %12 = fdiv double %.sroa.5.0.copyload, %9
-  %13 = fmul double %3, 5.000000e-01
-  %14 = tail call double @cos(double noundef %13) #22, !tbaa !4
-  %15 = tail call double @sin(double noundef %13) #22, !tbaa !4
-  %16 = fmul double %11, %15
-  %17 = fmul double %12, %15
-  %18 = fmul double %10, %15
-  tail call void @statevec_controlledCompactUnitary(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %1, i32 noundef %2, double %14, double %17, double %16, double %18) #22
+  %sqrt.i.i.i = tail call double @llvm.sqrt.f64(double %8)
+  %9 = fdiv double %.sroa.04.0.copyload, %sqrt.i.i.i
+  %10 = fdiv double %.sroa.45.0.copyload, %sqrt.i.i.i
+  %11 = fdiv double %.sroa.5.0.copyload, %sqrt.i.i.i
+  %12 = fmul double %3, 5.000000e-01
+  %13 = tail call double @cos(double noundef %12) #22, !tbaa !4
+  %14 = tail call double @sin(double noundef %12) #22, !tbaa !4
+  %15 = fmul double %14, %10
+  %16 = fmul double %14, %11
+  %17 = fmul double %14, %9
+  tail call void @statevec_controlledCompactUnitary(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %1, i32 noundef %2, double %13, double %16, double %15, double %17) #22
   ret void
 }
 
@@ -1369,7 +1369,7 @@ define double @statevec_calcExpecPauliProd(ptr noundef readonly byval(%struct.Qu
   br i1 %exitcond.not.i, label %statevec_applyPauliProd.exit, label %.lr.ph.i
 
 statevec_applyPauliProd.exit:                     ; preds = %25, %5
-  %26 = load i32, ptr %0, align 8, !tbaa !54
+  %26 = load i32, ptr %0, align 8, !tbaa !39
   %.not = icmp eq i32 %26, 0
   br i1 %.not, label %29, label %27
 
@@ -1395,7 +1395,7 @@ declare double @densmatr_calcTotalProb(ptr noundef byval(%struct.Qureg) align 8)
 define double @statevec_calcExpecPauliSum(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %4) local_unnamed_addr #10 {
   %6 = alloca [100 x i32], align 16
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %8 = load i32, ptr %7, align 4, !tbaa !55
+  %8 = load i32, ptr %7, align 4, !tbaa !40
   %.fr22 = freeze i32 %8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %9 = icmp sgt i32 %.fr22, 0
@@ -1540,7 +1540,7 @@ statevec_calcExpecPauliProd.exit:                 ; preds = %45, %47
 define void @statevec_applyPauliSum(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %4) local_unnamed_addr #10 {
   %6 = alloca [100 x i32], align 16
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %8 = load i32, ptr %7, align 4, !tbaa !55
+  %8 = load i32, ptr %7, align 4, !tbaa !40
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %9 = icmp sgt i32 %8, 0
   br i1 %9, label %.lr.ph.preheader, label %._crit_edge.thread
@@ -1723,7 +1723,7 @@ define void @statevec_controlledMultiQubitUnitary(ptr noundef readonly byval(%st
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @populateKrausSuperOperator2(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #7 {
+define void @populateKrausSuperOperator2(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #6 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 128
   br label %.preheader84
 
@@ -1836,11 +1836,11 @@ define void @populateKrausSuperOperator2(ptr noundef captures(none) %0, ptr noun
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
-define void @populateKrausSuperOperator4(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #8 {
+define void @populateKrausSuperOperator4(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #7 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !56
+  %5 = load ptr, ptr %4, align 8, !tbaa !41
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %7 = load ptr, ptr %6, align 8, !tbaa !57
+  %7 = load ptr, ptr %6, align 8, !tbaa !42
   br label %.preheader84
 
 .preheader84:                                     ; preds = %3, %13
@@ -1960,7 +1960,7 @@ define void @populateKrausSuperOperator4(ptr noundef readonly captures(none) %0,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
-define void @populateKrausSuperOperatorN(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #8 {
+define void @populateKrausSuperOperatorN(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #7 {
   %4 = load i32, ptr %1, align 8, !tbaa !14
   %5 = shl nuw i32 1, %4
   %6 = shl i32 %5, %4
@@ -1970,8 +1970,8 @@ define void @populateKrausSuperOperatorN(ptr noundef readonly captures(none) %0,
 .preheader87.lr.ph:                               ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %10 = load ptr, ptr %8, align 8, !tbaa !56
-  %11 = load ptr, ptr %9, align 8, !tbaa !57
+  %10 = load ptr, ptr %8, align 8, !tbaa !41
+  %11 = load ptr, ptr %9, align 8, !tbaa !42
   %wide.trip.count103 = zext nneg i32 %6 to i64
   br label %.preheader87.us
 
@@ -2007,8 +2007,8 @@ define void @populateKrausSuperOperatorN(ptr noundef readonly captures(none) %0,
 .preheader85.lr.ph.split.us:                      ; preds = %.preheader86
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %22 = load ptr, ptr %21, align 8, !tbaa !56
-  %23 = load ptr, ptr %20, align 8, !tbaa !57
+  %22 = load ptr, ptr %21, align 8, !tbaa !41
+  %23 = load ptr, ptr %20, align 8, !tbaa !42
   %smax = tail call i32 @llvm.smax.i32(i32 %5, i32 1)
   %wide.trip.count128 = zext nneg i32 %2 to i64
   %wide.trip.count123 = zext nneg i32 %smax to i64
@@ -2019,8 +2019,8 @@ define void @populateKrausSuperOperatorN(ptr noundef readonly captures(none) %0,
   %24 = getelementptr inbounds nuw %struct.ComplexMatrixN, ptr %1, i64 %indvars.iv125
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 16
-  %27 = load ptr, ptr %25, align 8, !tbaa !56
-  %28 = load ptr, ptr %26, align 8, !tbaa !57
+  %27 = load ptr, ptr %25, align 8, !tbaa !41
+  %28 = load ptr, ptr %26, align 8, !tbaa !42
   br label %.preheader84.us.us
 
 .preheader84.us.us:                               ; preds = %._crit_edge.split.us.us.us, %.preheader85.us
@@ -2113,7 +2113,7 @@ define void @populateKrausSuperOperatorN(ptr noundef readonly captures(none) %0,
 ; Function Attrs: nounwind uwtable
 define void @densmatr_applyKrausSuperoperator(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, i32 noundef %1, ptr noundef readonly byval(%struct.ComplexMatrix4) align 8 captures(none) %2) local_unnamed_addr #10 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %5 = load i32, ptr %4, align 4, !tbaa !55
+  %5 = load i32, ptr %4, align 4, !tbaa !40
   %6 = add nsw i32 %5, %1
   tail call void @statevec_multiControlledTwoQubitUnitary(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i64 noundef 0, i32 noundef %1, i32 noundef %6, ptr noundef nonnull byval(%struct.ComplexMatrix4) align 8 %2) #22
   ret void
@@ -2123,7 +2123,7 @@ define void @densmatr_applyKrausSuperoperator(ptr noundef readonly byval(%struct
 define void @densmatr_applyTwoQubitKrausSuperoperator(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly byval(%struct.ComplexMatrixN) align 8 captures(none) %3) local_unnamed_addr #10 {
   %5 = alloca [4 x i32], align 16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %7 = load i32, ptr %6, align 4, !tbaa !55
+  %7 = load i32, ptr %6, align 4, !tbaa !40
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 %1, ptr %5, align 16, !tbaa !4
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 4
@@ -2148,7 +2148,7 @@ define void @densmatr_applyMultiQubitKrausSuperoperator(ptr noundef readonly byv
 
 .lr.ph:                                           ; preds = %4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %8 = load i32, ptr %7, align 4, !tbaa !55
+  %8 = load i32, ptr %7, align 4, !tbaa !40
   %9 = zext nneg i32 %2 to i64
   %invariant.gep = getelementptr inbounds nuw i32, ptr %5, i64 %9
   br label %11
@@ -2282,9 +2282,9 @@ populateKrausSuperOperator2.exit:                 ; preds = %16, %.preheader83.i
 define void @bindArraysToStackComplexMatrixN(ptr dead_on_unwind noalias writable writeonly sret(%struct.ComplexMatrixN) align 8 captures(none) initializes((0, 4), (8, 24)) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #17 {
   store i32 %1, ptr %0, align 8, !tbaa !14
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %4, ptr %7, align 8, !tbaa !56
+  store ptr %4, ptr %7, align 8, !tbaa !41
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %5, ptr %8, align 8, !tbaa !57
+  store ptr %5, ptr %8, align 8, !tbaa !42
   %.not = icmp eq i32 %1, 31
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -2330,10 +2330,10 @@ define void @densmatr_mixTwoQubitKrausMap(ptr noundef readonly byval(%struct.Qur
   %13 = shl i64 %indvars.iv.i, 4
   %14 = getelementptr inbounds double, ptr %8, i64 %13
   %15 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv.i
-  store ptr %14, ptr %15, align 8, !tbaa !19, !noalias !58
+  store ptr %14, ptr %15, align 8, !tbaa !19, !noalias !43
   %16 = getelementptr inbounds double, ptr %9, i64 %13
   %17 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv.i
-  store ptr %16, ptr %17, align 8, !tbaa !19, !noalias !58
+  store ptr %16, ptr %17, align 8, !tbaa !19, !noalias !43
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
   br i1 %exitcond.not.i, label %.preheader84.i, label %12
@@ -2506,10 +2506,10 @@ define void @densmatr_mixMultiQubitKrausMap(ptr noundef readonly byval(%struct.Q
   %22 = shl i64 %indvars.iv.i, %15
   %23 = getelementptr inbounds double, ptr %17, i64 %22
   %24 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv.i
-  store ptr %23, ptr %24, align 8, !tbaa !19, !noalias !61
+  store ptr %23, ptr %24, align 8, !tbaa !19, !noalias !46
   %25 = getelementptr inbounds double, ptr %18, i64 %22
   %26 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv.i
-  store ptr %25, ptr %26, align 8, !tbaa !19, !noalias !61
+  store ptr %25, ptr %26, align 8, !tbaa !19, !noalias !46
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %13
   br i1 %exitcond.not.i, label %bindArraysToStackComplexMatrixN.exit, label %21
@@ -2517,9 +2517,9 @@ define void @densmatr_mixMultiQubitKrausMap(ptr noundef readonly byval(%struct.Q
 bindArraysToStackComplexMatrixN.exit:             ; preds = %21
   store i32 %10, ptr %8, align 8, !tbaa !4
   %.sroa.427.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr %19, ptr %.sroa.427.0..sroa_idx, align 8, !tbaa !64
+  store ptr %19, ptr %.sroa.427.0..sroa_idx, align 8, !tbaa !49
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store ptr %20, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !64
+  store ptr %20, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !49
   call void @populateKrausSuperOperatorN(ptr noundef nonnull %8, ptr noundef %3, i32 noundef %4)
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   %.sroa.3.0.copyload = load i32, ptr %.sroa.3.0..sroa_idx, align 4
@@ -2729,7 +2729,7 @@ define void @applyExponentiatedPauliHamil(ptr noundef readonly byval(%struct.Qur
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %9 = load i32, ptr %8, align 4, !tbaa !65
+  %9 = load i32, ptr %8, align 4, !tbaa !50
   %.fr47 = freeze i32 %9
   %10 = icmp sgt i32 %.fr47, 0
   br i1 %10, label %.lr.ph.preheader, label %.preheader
@@ -2740,7 +2740,7 @@ define void @applyExponentiatedPauliHamil(ptr noundef readonly byval(%struct.Qur
 
 .preheader:                                       ; preds = %.lr.ph, %4
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %13 = load i32, ptr %12, align 8, !tbaa !67
+  %13 = load i32, ptr %12, align 8, !tbaa !52
   %14 = icmp sgt i32 %13, 0
   br i1 %14, label %.lr.ph43, label %._crit_edge44
 
@@ -2748,8 +2748,8 @@ define void @applyExponentiatedPauliHamil(ptr noundef readonly byval(%struct.Qur
   %.not = icmp eq i32 %3, 0
   %15 = fmul double %2, 2.000000e+00
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %17 = load ptr, ptr %16, align 8, !tbaa !68
-  %18 = load ptr, ptr %1, align 8, !tbaa !69
+  %17 = load ptr, ptr %16, align 8, !tbaa !53
+  %18 = load ptr, ptr %1, align 8, !tbaa !54
   %19 = load i32, ptr %0, align 8
   %.fr = freeze i32 %19
   %.not36 = icmp eq i32 %.fr, 0
@@ -2795,10 +2795,10 @@ define void @applyExponentiatedPauliHamil(ptr noundef readonly byval(%struct.Qur
   %34 = icmp eq i32 %31, 3
   %spec.store.select2.us = select i1 %34, i8 90, i8 %spec.store.select1.us
   %35 = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv65
-  store i8 %spec.store.select2.us, ptr %35, align 2, !tbaa !27
+  store i8 %spec.store.select2.us, ptr %35, align 2, !tbaa !24
   %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 2
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 1
-  store i8 32, ptr %36, align 1, !tbaa !27
+  store i8 32, ptr %36, align 1, !tbaa !24
   %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
   %exitcond71.not = icmp eq i64 %indvars.iv.next64, %wide.trip.count70
   br i1 %exitcond71.not, label %._crit_edge.us, label %30
@@ -2806,7 +2806,7 @@ define void @applyExponentiatedPauliHamil(ptr noundef readonly byval(%struct.Qur
 ._crit_edge.us:                                   ; preds = %30
   %37 = and i64 %indvars.iv.next66, 4294967294
   %38 = getelementptr inbounds nuw i8, ptr %7, i64 %37
-  store i8 0, ptr %38, align 2, !tbaa !27
+  store i8 0, ptr %38, align 2, !tbaa !24
   call void (ptr, ptr, ...) @qasm_recordComment(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef nonnull @.str.8, double noundef %25, ptr noundef nonnull %7) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %39 = add nuw nsw i32 %.03042.us, 1
@@ -2839,7 +2839,7 @@ define void @applyExponentiatedPauliHamil(ptr noundef readonly byval(%struct.Qur
   %47 = getelementptr inbounds i32, ptr %18, i64 %46
   call void @statevec_multiRotatePauli(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef nonnull %5, ptr noundef %47, i32 noundef %.fr47, double noundef %45, i32 noundef 0)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  store i8 0, ptr %7, align 16, !tbaa !27
+  store i8 0, ptr %7, align 16, !tbaa !24
   call void (ptr, ptr, ...) @qasm_recordComment(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef nonnull @.str.8, double noundef %45, ptr noundef nonnull %7) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
@@ -2857,7 +2857,7 @@ define void @applyExponentiatedPauliHamil(ptr noundef readonly byval(%struct.Qur
   %54 = getelementptr inbounds i32, ptr %18, i64 %53
   call void @statevec_multiRotatePauli(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef nonnull %5, ptr noundef %54, i32 noundef %.fr47, double noundef %52, i32 noundef 0)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  store i8 0, ptr %7, align 16, !tbaa !27
+  store i8 0, ptr %7, align 16, !tbaa !24
   call void (ptr, ptr, ...) @qasm_recordComment(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef nonnull @.str.8, double noundef %52, ptr noundef nonnull %7) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
@@ -2897,7 +2897,7 @@ define void @applyExponentiatedPauliHamil(ptr noundef readonly byval(%struct.Qur
   call void @statevec_multiRotatePauli(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef nonnull %5, ptr noundef %68, i32 noundef %.fr47, double noundef %65, i32 noundef 0)
   call void @statevec_multiRotatePauli(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef nonnull %6, ptr noundef %68, i32 noundef %.fr47, double noundef %65, i32 noundef 1)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  store i8 0, ptr %7, align 16, !tbaa !27
+  store i8 0, ptr %7, align 16, !tbaa !24
   call void (ptr, ptr, ...) @qasm_recordComment(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef nonnull @.str.8, double noundef %65, ptr noundef nonnull %7) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %69 = add nuw nsw i32 %.03042, 1
@@ -2980,7 +2980,7 @@ define void @agnostic_applyQFT(ptr noundef readonly byval(%struct.Qureg) align 8
   %5 = alloca [100 x i32], align 16
   %6 = alloca [1 x double], align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %8 = load i32, ptr %7, align 4, !tbaa !55
+  %8 = load i32, ptr %7, align 4, !tbaa !40
   %9 = icmp sgt i32 %2, 0
   %indvars.iv17.i.sroa.gep = getelementptr inbounds nuw i8, ptr %4, i64 4
   %indvars.iv17.i51.sroa.gep96 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -3185,20 +3185,20 @@ declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_add
 declare double @exp2(double) local_unnamed_addr
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #21
+declare double @llvm.sqrt.f64(double) #21
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.sqrt.f64(double) #21
+declare i32 @llvm.smax.i32(i32, i32) #21
 
 attributes #0 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: read, errnomem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite, errnomem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #7 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #8 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #6 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #7 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite, errnomem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: write, errnomem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #10 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #11 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
@@ -3237,52 +3237,37 @@ attributes #22 = { nounwind }
 !18 = !{!"any pointer", !6, i64 0}
 !19 = !{!20, !20, i64 0}
 !20 = !{!"p1 double", !18, i64 0}
-!21 = !{!22}
-!22 = distinct !{!22, !23, !"getUnitVector: argument 0"}
-!23 = distinct !{!23, !"getUnitVector"}
-!24 = !{!25, !10, i64 0}
-!25 = !{!"Complex", !10, i64 0, !10, i64 8}
-!26 = !{!25, !10, i64 8}
-!27 = !{!6, !6, i64 0}
-!28 = !{!29, !30, i64 0}
-!29 = !{!"timeval", !30, i64 0, !30, i64 8}
-!30 = !{!"long", !6, i64 0}
-!31 = !{!29, !30, i64 8}
-!32 = !{!30, !30, i64 0}
-!33 = !{!34, !5, i64 32}
-!34 = !{!"Qureg", !5, i64 0, !5, i64 4, !5, i64 8, !35, i64 16, !35, i64 24, !5, i64 32, !5, i64 36, !36, i64 40, !36, i64 56, !36, i64 72, !20, i64 88, !20, i64 96, !18, i64 104, !18, i64 112, !17, i64 120, !18, i64 128}
-!35 = !{!"long long", !6, i64 0}
-!36 = !{!"ComplexArray", !20, i64 0, !20, i64 8}
-!37 = !{!34, !35, i64 16}
-!38 = !{!34, !20, i64 40}
-!39 = !{!34, !20, i64 48}
-!40 = !{!34, !5, i64 8}
-!41 = !{!34, !5, i64 36}
-!42 = !{!43}
-!43 = distinct !{!43, !44, !"getUnitVector: argument 0"}
-!44 = distinct !{!44, !"getUnitVector"}
-!45 = !{!46}
-!46 = distinct !{!46, !47, !"getUnitVector: argument 0"}
-!47 = distinct !{!47, !"getUnitVector"}
-!48 = !{!49}
-!49 = distinct !{!49, !50, !"getUnitVector: argument 0"}
-!50 = distinct !{!50, !"getUnitVector"}
-!51 = !{!52}
-!52 = distinct !{!52, !53, !"getUnitVector: argument 0"}
-!53 = distinct !{!53, !"getUnitVector"}
-!54 = !{!34, !5, i64 0}
-!55 = !{!34, !5, i64 4}
-!56 = !{!15, !16, i64 8}
-!57 = !{!15, !16, i64 16}
-!58 = !{!59}
-!59 = distinct !{!59, !60, !"bindArraysToStackComplexMatrixN: argument 0"}
-!60 = distinct !{!60, !"bindArraysToStackComplexMatrixN"}
-!61 = !{!62}
-!62 = distinct !{!62, !63, !"bindArraysToStackComplexMatrixN: argument 0"}
-!63 = distinct !{!63, !"bindArraysToStackComplexMatrixN"}
-!64 = !{!16, !16, i64 0}
-!65 = !{!66, !5, i64 20}
-!66 = !{!"PauliHamil", !18, i64 0, !20, i64 8, !5, i64 16, !5, i64 20}
-!67 = !{!66, !5, i64 16}
-!68 = !{!66, !20, i64 8}
-!69 = !{!66, !18, i64 0}
+!21 = !{!22, !10, i64 0}
+!22 = !{!"Complex", !10, i64 0, !10, i64 8}
+!23 = !{!22, !10, i64 8}
+!24 = !{!6, !6, i64 0}
+!25 = !{!26, !27, i64 0}
+!26 = !{!"timeval", !27, i64 0, !27, i64 8}
+!27 = !{!"long", !6, i64 0}
+!28 = !{!26, !27, i64 8}
+!29 = !{!27, !27, i64 0}
+!30 = !{!31, !5, i64 32}
+!31 = !{!"Qureg", !5, i64 0, !5, i64 4, !5, i64 8, !32, i64 16, !32, i64 24, !5, i64 32, !5, i64 36, !33, i64 40, !33, i64 56, !33, i64 72, !20, i64 88, !20, i64 96, !18, i64 104, !18, i64 112, !17, i64 120, !18, i64 128}
+!32 = !{!"long long", !6, i64 0}
+!33 = !{!"ComplexArray", !20, i64 0, !20, i64 8}
+!34 = !{!31, !32, i64 16}
+!35 = !{!31, !20, i64 40}
+!36 = !{!31, !20, i64 48}
+!37 = !{!31, !5, i64 8}
+!38 = !{!31, !5, i64 36}
+!39 = !{!31, !5, i64 0}
+!40 = !{!31, !5, i64 4}
+!41 = !{!15, !16, i64 8}
+!42 = !{!15, !16, i64 16}
+!43 = !{!44}
+!44 = distinct !{!44, !45, !"bindArraysToStackComplexMatrixN: argument 0"}
+!45 = distinct !{!45, !"bindArraysToStackComplexMatrixN"}
+!46 = !{!47}
+!47 = distinct !{!47, !48, !"bindArraysToStackComplexMatrixN: argument 0"}
+!48 = distinct !{!48, !"bindArraysToStackComplexMatrixN"}
+!49 = !{!16, !16, i64 0}
+!50 = !{!51, !5, i64 20}
+!51 = !{!"PauliHamil", !18, i64 0, !20, i64 8, !5, i64 16, !5, i64 20}
+!52 = !{!51, !5, i64 16}
+!53 = !{!51, !20, i64 8}
+!54 = !{!51, !18, i64 0}

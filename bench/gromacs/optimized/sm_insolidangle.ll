@@ -571,385 +571,385 @@ _ZL20clear_surface_pointsP23methoddata_insolidangle.exit: ; preds = %67, %_ZL19f
   %109 = fmul float %107, %107
   %110 = call float @llvm.fmuladd.f32(float %108, float %108, float %109)
   %111 = call noundef float @llvm.fmuladd.f32(float %106, float %106, float %110)
-  %112 = call noundef float @sqrtf(float noundef %111) #19, !tbaa !25
-  %113 = fdiv float 1.000000e+00, %112
-  %114 = fmul float %108, %113
-  store float %114, ptr %3, align 4, !tbaa !61
-  %115 = fmul float %107, %113
-  store float %115, ptr %79, align 4, !tbaa !61
-  %116 = fmul float %106, %113
-  store float %116, ptr %80, align 4, !tbaa !61
-  %117 = call noundef float @acosf(float noundef %116) #19, !tbaa !25
-  %118 = call noundef float @atan2f(float noundef %115, float noundef %114) #19, !tbaa !25
-  %119 = load float, ptr %81, align 8, !tbaa !4
-  %120 = fcmp ugt float %117, %119
-  br i1 %120, label %121, label %135
+  %sqrt.i = call float @llvm.sqrt.f32(float %111)
+  %112 = fdiv float 1.000000e+00, %sqrt.i
+  %113 = fmul float %108, %112
+  store float %113, ptr %3, align 4, !tbaa !61
+  %114 = fmul float %107, %112
+  store float %114, ptr %79, align 4, !tbaa !61
+  %115 = fmul float %106, %112
+  store float %115, ptr %80, align 4, !tbaa !61
+  %116 = call noundef float @acosf(float noundef %115) #19, !tbaa !25
+  %117 = call noundef float @atan2f(float noundef %114, float noundef %113) #19, !tbaa !25
+  %118 = load float, ptr %81, align 8, !tbaa !4
+  %119 = fcmp ugt float %116, %118
+  br i1 %119, label %120, label %134
 
-121:                                              ; preds = %105
-  %122 = fpext float %117 to double
-  %123 = fpext float %119 to double
-  %124 = fsub double 0x400921FB54442D18, %123
-  %125 = fcmp ugt double %124, %122
-  br i1 %125, label %126, label %135
+120:                                              ; preds = %105
+  %121 = fpext float %116 to double
+  %122 = fpext float %118 to double
+  %123 = fsub double 0x400921FB54442D18, %122
+  %124 = fcmp ugt double %123, %121
+  br i1 %124, label %125, label %134
 
-126:                                              ; preds = %121
-  %127 = call noundef float @sinf(float noundef %119) #19, !tbaa !25
-  %128 = call noundef float @sinf(float noundef %117) #19, !tbaa !25
-  %129 = fdiv float %127, %128
-  %130 = call noundef float @asinf(float noundef %129) #19, !tbaa !25
-  %131 = call noundef float @cosf(float noundef %117) #19, !tbaa !25
-  %132 = call noundef float @cosf(float noundef %119) #19, !tbaa !25
-  %133 = fdiv float %131, %132
-  %134 = call noundef float @acosf(float noundef %133) #19, !tbaa !25
-  br label %135
+125:                                              ; preds = %120
+  %126 = call noundef float @sinf(float noundef %118) #19, !tbaa !25
+  %127 = call noundef float @sinf(float noundef %116) #19, !tbaa !25
+  %128 = fdiv float %126, %127
+  %129 = call noundef float @asinf(float noundef %128) #19, !tbaa !25
+  %130 = call noundef float @cosf(float noundef %116) #19, !tbaa !25
+  %131 = call noundef float @cosf(float noundef %118) #19, !tbaa !25
+  %132 = fdiv float %130, %131
+  %133 = call noundef float @acosf(float noundef %132) #19, !tbaa !25
+  br label %134
 
-135:                                              ; preds = %126, %121, %105
-  %.066.i = phi float [ %134, %126 ], [ 0.000000e+00, %105 ], [ 0x400921FB60000000, %121 ]
-  %.064.i = phi float [ %130, %126 ], [ 0x400921FB60000000, %105 ], [ 0x400921FB60000000, %121 ]
-  %136 = fsub float %117, %119
-  %137 = load float, ptr %82, align 4, !tbaa !29
-  %138 = fdiv float %136, %137
-  %139 = call noundef float @llvm.floor.f32(float %138)
-  %140 = fptosi float %139 to i32
-  %.sroa.speculated.i20 = call i32 @llvm.smax.i32(i32 %140, i32 0)
-  %141 = uitofp nneg i32 %.sroa.speculated.i20 to float
-  %142 = fadd float %117, %119
-  %143 = fdiv float %142, %137
-  %144 = call noundef float @llvm.ceil.f32(float %143)
-  %145 = fcmp ogt float %144, %141
-  br i1 %145, label %.lr.ph.preheader.i, label %_ZL19store_surface_pointP23methoddata_insolidanglePf.exit
+134:                                              ; preds = %125, %120, %105
+  %.066.i = phi float [ %133, %125 ], [ 0.000000e+00, %105 ], [ 0x400921FB60000000, %120 ]
+  %.064.i = phi float [ %129, %125 ], [ 0x400921FB60000000, %105 ], [ 0x400921FB60000000, %120 ]
+  %135 = fsub float %116, %118
+  %136 = load float, ptr %82, align 4, !tbaa !29
+  %137 = fdiv float %135, %136
+  %138 = call noundef float @llvm.floor.f32(float %137)
+  %139 = fptosi float %138 to i32
+  %.sroa.speculated.i20 = call i32 @llvm.smax.i32(i32 %139, i32 0)
+  %140 = uitofp nneg i32 %.sroa.speculated.i20 to float
+  %141 = fadd float %116, %118
+  %142 = fdiv float %141, %136
+  %143 = call noundef float @llvm.ceil.f32(float %142)
+  %144 = fcmp ogt float %143, %140
+  br i1 %144, label %.lr.ph.preheader.i, label %_ZL19store_surface_pointP23methoddata_insolidanglePf.exit
 
-.lr.ph.preheader.i:                               ; preds = %135
-  %146 = fmul float %137, %141
-  %147 = fcmp olt float %146, %136
-  %..i = select i1 %147, float 0.000000e+00, float 0x400921FB60000000
-  %148 = zext nneg i32 %.sroa.speculated.i20 to i64
+.lr.ph.preheader.i:                               ; preds = %134
+  %145 = fmul float %136, %140
+  %146 = fcmp olt float %145, %135
+  %..i = select i1 %146, float 0.000000e+00, float 0x400921FB60000000
+  %147 = zext nneg i32 %.sroa.speculated.i20 to i64
   br label %.lr.ph.i21
 
 .lr.ph.i21:                                       ; preds = %_ZL18update_surface_binP23methoddata_insolidangleiffffPf.exit, %.lr.ph.preheader.i
-  %149 = phi float [ %339, %_ZL18update_surface_binP23methoddata_insolidangleiffffPf.exit ], [ %137, %.lr.ph.preheader.i ]
-  %150 = phi float [ %340, %_ZL18update_surface_binP23methoddata_insolidangleiffffPf.exit ], [ %119, %.lr.ph.preheader.i ]
-  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZL18update_surface_binP23methoddata_insolidangleiffffPf.exit ], [ %148, %.lr.ph.preheader.i ]
-  %151 = phi float [ %341, %_ZL18update_surface_binP23methoddata_insolidangleiffffPf.exit ], [ %142, %.lr.ph.preheader.i ]
+  %148 = phi float [ %338, %_ZL18update_surface_binP23methoddata_insolidangleiffffPf.exit ], [ %136, %.lr.ph.preheader.i ]
+  %149 = phi float [ %339, %_ZL18update_surface_binP23methoddata_insolidangleiffffPf.exit ], [ %118, %.lr.ph.preheader.i ]
+  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZL18update_surface_binP23methoddata_insolidangleiffffPf.exit ], [ %147, %.lr.ph.preheader.i ]
+  %150 = phi float [ %340, %_ZL18update_surface_binP23methoddata_insolidangleiffffPf.exit ], [ %141, %.lr.ph.preheader.i ]
   %.178.i = phi float [ %.062.i, %_ZL18update_surface_binP23methoddata_insolidangleiffffPf.exit ], [ %..i, %.lr.ph.preheader.i ]
-  %.06577.i = phi float [ %158, %_ZL18update_surface_binP23methoddata_insolidangleiffffPf.exit ], [ %146, %.lr.ph.preheader.i ]
-  %152 = load i32, ptr %23, align 8, !tbaa !28
-  %153 = sext i32 %152 to i64
-  %154 = icmp slt i64 %indvars.iv, %153
-  br i1 %154, label %155, label %_ZL19store_surface_pointP23methoddata_insolidanglePf.exit
+  %.06577.i = phi float [ %157, %_ZL18update_surface_binP23methoddata_insolidangleiffffPf.exit ], [ %145, %.lr.ph.preheader.i ]
+  %151 = load i32, ptr %23, align 8, !tbaa !28
+  %152 = sext i32 %151 to i64
+  %153 = icmp slt i64 %indvars.iv, %152
+  br i1 %153, label %154, label %_ZL19store_surface_pointP23methoddata_insolidanglePf.exit
 
-155:                                              ; preds = %.lr.ph.i21
+154:                                              ; preds = %.lr.ph.i21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %156 = trunc nuw nsw i64 %indvars.iv.next to i32
-  %157 = uitofp nneg i32 %156 to float
-  %158 = fmul float %149, %157
-  %159 = fcmp ogt float %158, %151
-  br i1 %159, label %188, label %160
+  %155 = trunc nuw nsw i64 %indvars.iv.next to i32
+  %156 = uitofp nneg i32 %155 to float
+  %157 = fmul float %148, %156
+  %158 = fcmp ogt float %157, %150
+  br i1 %158, label %187, label %159
 
-160:                                              ; preds = %155
-  %161 = fsub float %117, %150
-  %162 = fneg float %161
-  %163 = fcmp ugt float %158, %162
-  br i1 %163, label %164, label %188
+159:                                              ; preds = %154
+  %160 = fsub float %116, %149
+  %161 = fneg float %160
+  %162 = fcmp ugt float %157, %161
+  br i1 %162, label %163, label %187
 
-164:                                              ; preds = %160
-  %165 = fpext float %158 to double
-  %166 = fpext float %151 to double
-  %167 = fsub double 0x401921FB54442D18, %166
-  %168 = fcmp ole double %167, %165
-  %169 = add nsw i32 %152, -1
-  %170 = zext i32 %169 to i64
-  %171 = icmp eq i64 %indvars.iv, %170
-  %or.cond.i = select i1 %168, i1 true, i1 %171
-  br i1 %or.cond.i, label %188, label %172
+163:                                              ; preds = %159
+  %164 = fpext float %157 to double
+  %165 = fpext float %150 to double
+  %166 = fsub double 0x401921FB54442D18, %165
+  %167 = fcmp ole double %166, %164
+  %168 = add nsw i32 %151, -1
+  %169 = zext i32 %168 to i64
+  %170 = icmp eq i64 %indvars.iv, %169
+  %or.cond.i = select i1 %167, i1 true, i1 %170
+  br i1 %or.cond.i, label %187, label %171
 
-172:                                              ; preds = %164
-  %173 = fmul float %150, 5.000000e-01
-  %174 = call noundef float @sinf(float noundef %173) #19, !tbaa !25
-  %175 = fmul float %174, %174
-  %176 = fsub float %158, %117
-  %177 = fmul float %176, 5.000000e-01
-  %178 = call noundef float @sinf(float noundef %177) #19, !tbaa !25
-  %179 = fmul float %178, %178
-  %180 = fsub float %175, %179
-  %181 = call noundef float @sinf(float noundef %117) #19, !tbaa !25
-  %182 = call noundef float @sinf(float noundef %158) #19, !tbaa !25
-  %183 = fmul float %181, %182
-  %184 = fdiv float %180, %183
-  %185 = call noundef float @sqrtf(float noundef %184) #19, !tbaa !25
-  %186 = call noundef float @asinf(float noundef %185) #19, !tbaa !25
-  %187 = fmul float %186, 2.000000e+00
-  br label %188
+171:                                              ; preds = %163
+  %172 = fmul float %149, 5.000000e-01
+  %173 = call noundef float @sinf(float noundef %172) #19, !tbaa !25
+  %174 = fmul float %173, %173
+  %175 = fsub float %157, %116
+  %176 = fmul float %175, 5.000000e-01
+  %177 = call noundef float @sinf(float noundef %176) #19, !tbaa !25
+  %178 = fmul float %177, %177
+  %179 = fsub float %174, %178
+  %180 = call noundef float @sinf(float noundef %116) #19, !tbaa !25
+  %181 = call noundef float @sinf(float noundef %157) #19, !tbaa !25
+  %182 = fmul float %180, %181
+  %183 = fdiv float %179, %182
+  %184 = call noundef float @sqrtf(float noundef %183) #19, !tbaa !25
+  %185 = call noundef float @asinf(float noundef %184) #19, !tbaa !25
+  %186 = fmul float %185, 2.000000e+00
+  br label %187
 
-188:                                              ; preds = %172, %164, %160, %155
-  %.062.i = phi float [ %187, %172 ], [ 0.000000e+00, %155 ], [ 0x400921FB60000000, %164 ], [ 0x400921FB60000000, %160 ]
-  %189 = fcmp ult float %.066.i, %.06577.i
-  %190 = fcmp ugt float %.066.i, %158
-  %or.cond73.i = or i1 %189, %190
+187:                                              ; preds = %171, %163, %159, %154
+  %.062.i = phi float [ %186, %171 ], [ 0.000000e+00, %154 ], [ 0x400921FB60000000, %163 ], [ 0x400921FB60000000, %159 ]
+  %188 = fcmp ult float %.066.i, %.06577.i
+  %189 = fcmp ugt float %.066.i, %157
+  %or.cond73.i = or i1 %188, %189
   %..064.i = select i1 %or.cond73.i, float 0.000000e+00, float %.064.i
-  %191 = fcmp olt float %.178.i, %.062.i
-  %.sroa.speculated104.i = select i1 %191, float %.062.i, float %.178.i
-  %192 = fcmp olt float %.sroa.speculated104.i, %..064.i
-  %.sroa.speculated.i22 = select i1 %192, float %..064.i, float %.sroa.speculated104.i
-  %193 = fsub float %118, %.sroa.speculated.i22
-  %194 = fpext float %193 to double
-  %195 = fcmp ult double %194, 0xC00921FB54442D18
-  %196 = load ptr, ptr %83, align 8, !tbaa !32
-  %197 = getelementptr inbounds nuw %struct.partition, ptr %196, i64 %indvars.iv
-  br i1 %195, label %213, label %198
+  %190 = fcmp olt float %.178.i, %.062.i
+  %.sroa.speculated104.i = select i1 %190, float %.062.i, float %.178.i
+  %191 = fcmp olt float %.sroa.speculated104.i, %..064.i
+  %.sroa.speculated.i22 = select i1 %191, float %..064.i, float %.sroa.speculated104.i
+  %192 = fsub float %117, %.sroa.speculated.i22
+  %193 = fpext float %192 to double
+  %194 = fcmp ult double %193, 0xC00921FB54442D18
+  %195 = load ptr, ptr %83, align 8, !tbaa !32
+  %196 = getelementptr inbounds nuw %struct.partition, ptr %195, i64 %indvars.iv
+  br i1 %194, label %212, label %197
 
-198:                                              ; preds = %188
-  %199 = load i32, ptr %197, align 8, !tbaa !46
-  %200 = icmp sgt i32 %199, 1
-  br i1 %200, label %.lr.ph.i.i, label %_ZL18find_partition_binP9partitionf.exit.i
+197:                                              ; preds = %187
+  %198 = load i32, ptr %196, align 8, !tbaa !46
+  %199 = icmp sgt i32 %198, 1
+  br i1 %199, label %.lr.ph.i.i, label %_ZL18find_partition_binP9partitionf.exit.i
 
-.lr.ph.i.i:                                       ; preds = %198
-  %201 = getelementptr inbounds nuw i8, ptr %197, i64 8
-  %202 = load ptr, ptr %201, align 8, !tbaa !38
-  br label %203
+.lr.ph.i.i:                                       ; preds = %197
+  %200 = getelementptr inbounds nuw i8, ptr %196, i64 8
+  %201 = load ptr, ptr %200, align 8, !tbaa !38
+  br label %202
 
-203:                                              ; preds = %203, %.lr.ph.i.i
-  %.015.i.i = phi i32 [ %199, %.lr.ph.i.i ], [ %..0.i.i, %203 ]
-  %.01214.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %.012..i.i, %203 ]
-  %204 = sub nsw i32 %.015.i.i, %.01214.i.i
-  %205 = sdiv i32 %204, 2
-  %206 = add nsw i32 %205, %.01214.i.i
-  %207 = sext i32 %206 to i64
-  %208 = getelementptr inbounds %struct.t_partition_item, ptr %202, i64 %207
-  %209 = load float, ptr %208, align 4, !tbaa !47
-  %210 = fcmp ugt float %209, %193
-  %.012..i.i = select i1 %210, i32 %.01214.i.i, i32 %206
-  %..0.i.i = select i1 %210, i32 %206, i32 %.015.i.i
-  %211 = add nsw i32 %.012..i.i, 1
-  %212 = icmp sgt i32 %..0.i.i, %211
-  br i1 %212, label %203, label %_ZL18find_partition_binP9partitionf.exit.i, !llvm.loop !62
+202:                                              ; preds = %202, %.lr.ph.i.i
+  %.015.i.i = phi i32 [ %198, %.lr.ph.i.i ], [ %..0.i.i, %202 ]
+  %.01214.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %.012..i.i, %202 ]
+  %203 = sub nsw i32 %.015.i.i, %.01214.i.i
+  %204 = sdiv i32 %203, 2
+  %205 = add nsw i32 %204, %.01214.i.i
+  %206 = sext i32 %205 to i64
+  %207 = getelementptr inbounds %struct.t_partition_item, ptr %201, i64 %206
+  %208 = load float, ptr %207, align 4, !tbaa !47
+  %209 = fcmp ugt float %208, %192
+  %.012..i.i = select i1 %209, i32 %.01214.i.i, i32 %205
+  %..0.i.i = select i1 %209, i32 %205, i32 %.015.i.i
+  %210 = add nsw i32 %.012..i.i, 1
+  %211 = icmp sgt i32 %..0.i.i, %210
+  br i1 %211, label %202, label %_ZL18find_partition_binP9partitionf.exit.i, !llvm.loop !62
 
-213:                                              ; preds = %188
-  %214 = fadd double %194, 0x401921FB54442D18
-  %215 = fptrunc double %214 to float
-  %216 = load i32, ptr %197, align 8, !tbaa !46
-  %217 = icmp sgt i32 %216, 1
-  br i1 %217, label %.lr.ph.i79.i, label %_ZL18find_partition_binP9partitionf.exit84.i
+212:                                              ; preds = %187
+  %213 = fadd double %193, 0x401921FB54442D18
+  %214 = fptrunc double %213 to float
+  %215 = load i32, ptr %196, align 8, !tbaa !46
+  %216 = icmp sgt i32 %215, 1
+  br i1 %216, label %.lr.ph.i79.i, label %_ZL18find_partition_binP9partitionf.exit84.i
 
-.lr.ph.i79.i:                                     ; preds = %213
-  %218 = getelementptr inbounds nuw i8, ptr %197, i64 8
-  %219 = load ptr, ptr %218, align 8, !tbaa !38
-  br label %220
+.lr.ph.i79.i:                                     ; preds = %212
+  %217 = getelementptr inbounds nuw i8, ptr %196, i64 8
+  %218 = load ptr, ptr %217, align 8, !tbaa !38
+  br label %219
 
-220:                                              ; preds = %220, %.lr.ph.i79.i
-  %.015.i80.i = phi i32 [ %216, %.lr.ph.i79.i ], [ %..0.i83.i, %220 ]
-  %.01214.i81.i = phi i32 [ 0, %.lr.ph.i79.i ], [ %.012..i82.i, %220 ]
-  %221 = sub nsw i32 %.015.i80.i, %.01214.i81.i
-  %222 = sdiv i32 %221, 2
-  %223 = add nsw i32 %222, %.01214.i81.i
-  %224 = sext i32 %223 to i64
-  %225 = getelementptr inbounds %struct.t_partition_item, ptr %219, i64 %224
-  %226 = load float, ptr %225, align 4, !tbaa !47
-  %227 = fcmp ugt float %226, %215
-  %.012..i82.i = select i1 %227, i32 %.01214.i81.i, i32 %223
-  %..0.i83.i = select i1 %227, i32 %223, i32 %.015.i80.i
-  %228 = add nsw i32 %.012..i82.i, 1
-  %229 = icmp sgt i32 %..0.i83.i, %228
-  br i1 %229, label %220, label %_ZL18find_partition_binP9partitionf.exit84.i, !llvm.loop !62
+219:                                              ; preds = %219, %.lr.ph.i79.i
+  %.015.i80.i = phi i32 [ %215, %.lr.ph.i79.i ], [ %..0.i83.i, %219 ]
+  %.01214.i81.i = phi i32 [ 0, %.lr.ph.i79.i ], [ %.012..i82.i, %219 ]
+  %220 = sub nsw i32 %.015.i80.i, %.01214.i81.i
+  %221 = sdiv i32 %220, 2
+  %222 = add nsw i32 %221, %.01214.i81.i
+  %223 = sext i32 %222 to i64
+  %224 = getelementptr inbounds %struct.t_partition_item, ptr %218, i64 %223
+  %225 = load float, ptr %224, align 4, !tbaa !47
+  %226 = fcmp ugt float %225, %214
+  %.012..i82.i = select i1 %226, i32 %.01214.i81.i, i32 %222
+  %..0.i83.i = select i1 %226, i32 %222, i32 %.015.i80.i
+  %227 = add nsw i32 %.012..i82.i, 1
+  %228 = icmp sgt i32 %..0.i83.i, %227
+  br i1 %228, label %219, label %_ZL18find_partition_binP9partitionf.exit84.i, !llvm.loop !62
 
-_ZL18find_partition_binP9partitionf.exit84.i:     ; preds = %220, %213
-  %.012.lcssa.i78.i = phi i32 [ 0, %213 ], [ %.012..i82.i, %220 ]
-  %230 = sub nsw i32 %.012.lcssa.i78.i, %216
+_ZL18find_partition_binP9partitionf.exit84.i:     ; preds = %219, %212
+  %.012.lcssa.i78.i = phi i32 [ 0, %212 ], [ %.012..i82.i, %219 ]
+  %229 = sub nsw i32 %.012.lcssa.i78.i, %215
   br label %_ZL18find_partition_binP9partitionf.exit.i
 
-_ZL18find_partition_binP9partitionf.exit.i:       ; preds = %203, %_ZL18find_partition_binP9partitionf.exit84.i, %198
-  %231 = phi i32 [ %216, %_ZL18find_partition_binP9partitionf.exit84.i ], [ %199, %198 ], [ %199, %203 ]
-  %.066.i23 = phi i32 [ %230, %_ZL18find_partition_binP9partitionf.exit84.i ], [ 0, %198 ], [ %.012..i.i, %203 ]
-  %.0.i = phi i32 [ %.012.lcssa.i78.i, %_ZL18find_partition_binP9partitionf.exit84.i ], [ 0, %198 ], [ %.012..i.i, %203 ]
-  %232 = fadd float %118, %.sroa.speculated.i22
-  %233 = fpext float %232 to double
-  %234 = fcmp ugt double %233, 0x400921FB54442D18
-  br i1 %234, label %249, label %235
+_ZL18find_partition_binP9partitionf.exit.i:       ; preds = %202, %_ZL18find_partition_binP9partitionf.exit84.i, %197
+  %230 = phi i32 [ %215, %_ZL18find_partition_binP9partitionf.exit84.i ], [ %198, %197 ], [ %198, %202 ]
+  %.066.i23 = phi i32 [ %229, %_ZL18find_partition_binP9partitionf.exit84.i ], [ 0, %197 ], [ %.012..i.i, %202 ]
+  %.0.i = phi i32 [ %.012.lcssa.i78.i, %_ZL18find_partition_binP9partitionf.exit84.i ], [ 0, %197 ], [ %.012..i.i, %202 ]
+  %231 = fadd float %117, %.sroa.speculated.i22
+  %232 = fpext float %231 to double
+  %233 = fcmp ugt double %232, 0x400921FB54442D18
+  br i1 %233, label %248, label %234
 
-235:                                              ; preds = %_ZL18find_partition_binP9partitionf.exit.i
-  %236 = icmp sgt i32 %231, 1
-  br i1 %236, label %.lr.ph.i86.i, label %_ZL18find_partition_binP9partitionf.exit91.i
+234:                                              ; preds = %_ZL18find_partition_binP9partitionf.exit.i
+  %235 = icmp sgt i32 %230, 1
+  br i1 %235, label %.lr.ph.i86.i, label %_ZL18find_partition_binP9partitionf.exit91.i
 
-.lr.ph.i86.i:                                     ; preds = %235
-  %237 = getelementptr inbounds nuw i8, ptr %197, i64 8
-  %238 = load ptr, ptr %237, align 8, !tbaa !38
-  br label %239
+.lr.ph.i86.i:                                     ; preds = %234
+  %236 = getelementptr inbounds nuw i8, ptr %196, i64 8
+  %237 = load ptr, ptr %236, align 8, !tbaa !38
+  br label %238
 
-239:                                              ; preds = %239, %.lr.ph.i86.i
-  %.015.i87.i = phi i32 [ %231, %.lr.ph.i86.i ], [ %..0.i90.i, %239 ]
-  %.01214.i88.i = phi i32 [ 0, %.lr.ph.i86.i ], [ %.012..i89.i, %239 ]
-  %240 = sub nsw i32 %.015.i87.i, %.01214.i88.i
-  %241 = sdiv i32 %240, 2
-  %242 = add nsw i32 %241, %.01214.i88.i
-  %243 = sext i32 %242 to i64
-  %244 = getelementptr inbounds %struct.t_partition_item, ptr %238, i64 %243
-  %245 = load float, ptr %244, align 4, !tbaa !47
-  %246 = fcmp ugt float %245, %232
-  %.012..i89.i = select i1 %246, i32 %.01214.i88.i, i32 %242
-  %..0.i90.i = select i1 %246, i32 %242, i32 %.015.i87.i
-  %247 = add nsw i32 %.012..i89.i, 1
-  %248 = icmp sgt i32 %..0.i90.i, %247
-  br i1 %248, label %239, label %_ZL18find_partition_binP9partitionf.exit91.i, !llvm.loop !62
+238:                                              ; preds = %238, %.lr.ph.i86.i
+  %.015.i87.i = phi i32 [ %230, %.lr.ph.i86.i ], [ %..0.i90.i, %238 ]
+  %.01214.i88.i = phi i32 [ 0, %.lr.ph.i86.i ], [ %.012..i89.i, %238 ]
+  %239 = sub nsw i32 %.015.i87.i, %.01214.i88.i
+  %240 = sdiv i32 %239, 2
+  %241 = add nsw i32 %240, %.01214.i88.i
+  %242 = sext i32 %241 to i64
+  %243 = getelementptr inbounds %struct.t_partition_item, ptr %237, i64 %242
+  %244 = load float, ptr %243, align 4, !tbaa !47
+  %245 = fcmp ugt float %244, %231
+  %.012..i89.i = select i1 %245, i32 %.01214.i88.i, i32 %241
+  %..0.i90.i = select i1 %245, i32 %241, i32 %.015.i87.i
+  %246 = add nsw i32 %.012..i89.i, 1
+  %247 = icmp sgt i32 %..0.i90.i, %246
+  br i1 %247, label %238, label %_ZL18find_partition_binP9partitionf.exit91.i, !llvm.loop !62
 
-249:                                              ; preds = %_ZL18find_partition_binP9partitionf.exit.i
-  %250 = fadd double %233, 0xC01921FB54442D18
-  %251 = fptrunc double %250 to float
-  %252 = icmp sgt i32 %231, 1
-  br i1 %252, label %.lr.ph.i93.i, label %_ZL18find_partition_binP9partitionf.exit98.i
+248:                                              ; preds = %_ZL18find_partition_binP9partitionf.exit.i
+  %249 = fadd double %232, 0xC01921FB54442D18
+  %250 = fptrunc double %249 to float
+  %251 = icmp sgt i32 %230, 1
+  br i1 %251, label %.lr.ph.i93.i, label %_ZL18find_partition_binP9partitionf.exit98.i
 
-.lr.ph.i93.i:                                     ; preds = %249
-  %253 = getelementptr inbounds nuw i8, ptr %197, i64 8
-  %254 = load ptr, ptr %253, align 8, !tbaa !38
-  br label %255
+.lr.ph.i93.i:                                     ; preds = %248
+  %252 = getelementptr inbounds nuw i8, ptr %196, i64 8
+  %253 = load ptr, ptr %252, align 8, !tbaa !38
+  br label %254
 
-255:                                              ; preds = %255, %.lr.ph.i93.i
-  %.015.i94.i = phi i32 [ %231, %.lr.ph.i93.i ], [ %..0.i97.i, %255 ]
-  %.01214.i95.i = phi i32 [ 0, %.lr.ph.i93.i ], [ %.012..i96.i, %255 ]
-  %256 = sub nsw i32 %.015.i94.i, %.01214.i95.i
-  %257 = sdiv i32 %256, 2
-  %258 = add nsw i32 %257, %.01214.i95.i
-  %259 = sext i32 %258 to i64
-  %260 = getelementptr inbounds %struct.t_partition_item, ptr %254, i64 %259
-  %261 = load float, ptr %260, align 4, !tbaa !47
-  %262 = fcmp ugt float %261, %251
-  %.012..i96.i = select i1 %262, i32 %.01214.i95.i, i32 %258
-  %..0.i97.i = select i1 %262, i32 %258, i32 %.015.i94.i
-  %263 = add nsw i32 %.012..i96.i, 1
-  %264 = icmp sgt i32 %..0.i97.i, %263
-  br i1 %264, label %255, label %_ZL18find_partition_binP9partitionf.exit98.i, !llvm.loop !62
+254:                                              ; preds = %254, %.lr.ph.i93.i
+  %.015.i94.i = phi i32 [ %230, %.lr.ph.i93.i ], [ %..0.i97.i, %254 ]
+  %.01214.i95.i = phi i32 [ 0, %.lr.ph.i93.i ], [ %.012..i96.i, %254 ]
+  %255 = sub nsw i32 %.015.i94.i, %.01214.i95.i
+  %256 = sdiv i32 %255, 2
+  %257 = add nsw i32 %256, %.01214.i95.i
+  %258 = sext i32 %257 to i64
+  %259 = getelementptr inbounds %struct.t_partition_item, ptr %253, i64 %258
+  %260 = load float, ptr %259, align 4, !tbaa !47
+  %261 = fcmp ugt float %260, %250
+  %.012..i96.i = select i1 %261, i32 %.01214.i95.i, i32 %257
+  %..0.i97.i = select i1 %261, i32 %257, i32 %.015.i94.i
+  %262 = add nsw i32 %.012..i96.i, 1
+  %263 = icmp sgt i32 %..0.i97.i, %262
+  br i1 %263, label %254, label %_ZL18find_partition_binP9partitionf.exit98.i, !llvm.loop !62
 
-_ZL18find_partition_binP9partitionf.exit98.i:     ; preds = %255, %249
-  %.012.lcssa.i92.i = phi i32 [ 0, %249 ], [ %.012..i96.i, %255 ]
-  %265 = add nsw i32 %.012.lcssa.i92.i, %231
+_ZL18find_partition_binP9partitionf.exit98.i:     ; preds = %254, %248
+  %.012.lcssa.i92.i = phi i32 [ 0, %248 ], [ %.012..i96.i, %254 ]
+  %264 = add nsw i32 %.012.lcssa.i92.i, %230
   br label %_ZL18find_partition_binP9partitionf.exit91.i
 
-_ZL18find_partition_binP9partitionf.exit91.i:     ; preds = %239, %_ZL18find_partition_binP9partitionf.exit98.i, %235
-  %.064.i24 = phi i32 [ %265, %_ZL18find_partition_binP9partitionf.exit98.i ], [ 0, %235 ], [ %.012..i89.i, %239 ]
-  %266 = add nsw i32 %.064.i24, 1
-  %267 = sub nsw i32 %266, %.066.i23
-  %268 = icmp sgt i32 %267, %231
-  %269 = add nsw i32 %231, %.066.i23
-  %spec.select.i = select i1 %268, i32 %269, i32 %266
+_ZL18find_partition_binP9partitionf.exit91.i:     ; preds = %238, %_ZL18find_partition_binP9partitionf.exit98.i, %234
+  %.064.i24 = phi i32 [ %264, %_ZL18find_partition_binP9partitionf.exit98.i ], [ 0, %234 ], [ %.012..i89.i, %238 ]
+  %265 = add nsw i32 %.064.i24, 1
+  %266 = sub nsw i32 %265, %.066.i23
+  %267 = icmp sgt i32 %266, %230
+  %268 = add nsw i32 %230, %.066.i23
+  %spec.select.i = select i1 %267, i32 %268, i32 %265
   %.not108.i = icmp eq i32 %.066.i23, %spec.select.i
   br i1 %.not108.i, label %_ZL18update_surface_binP23methoddata_insolidangleiffffPf.exit, label %.lr.ph.i25
 
 .lr.ph.i25:                                       ; preds = %_ZL18find_partition_binP9partitionf.exit91.i
-  %270 = fcmp olt float %.062.i, %.178.i
-  %.sroa.speculated102.i = select i1 %270, float %.062.i, float %.178.i
-  %271 = fadd float %118, %.sroa.speculated102.i
-  %272 = fsub float %118, %.sroa.speculated102.i
-  %273 = fpext float %272 to double
-  %274 = fcmp olt double %273, 0xC00921FB54442D18
-  %275 = fadd double %273, 0x401921FB54442D18
-  %276 = fptrunc double %275 to float
-  %.069.i = select i1 %274, float %276, float %272
-  br label %277
+  %269 = fcmp olt float %.062.i, %.178.i
+  %.sroa.speculated102.i = select i1 %269, float %.062.i, float %.178.i
+  %270 = fadd float %117, %.sroa.speculated102.i
+  %271 = fsub float %117, %.sroa.speculated102.i
+  %272 = fpext float %271 to double
+  %273 = fcmp olt double %272, 0xC00921FB54442D18
+  %274 = fadd double %272, 0x401921FB54442D18
+  %275 = fptrunc double %274 to float
+  %.069.i = select i1 %273, float %275, float %271
+  br label %276
 
-277:                                              ; preds = %_ZL17add_surface_pointP23methoddata_insolidangleiiPf.exit.i, %.lr.ph.i25
-  %.1112.i = phi i32 [ %.0.i, %.lr.ph.i25 ], [ %338, %_ZL17add_surface_pointP23methoddata_insolidangleiiPf.exit.i ]
-  %.063111.i = phi i32 [ %.066.i23, %.lr.ph.i25 ], [ %337, %_ZL17add_surface_pointP23methoddata_insolidangleiiPf.exit.i ]
-  %.067110.i = phi float [ %271, %.lr.ph.i25 ], [ %.168.i, %_ZL17add_surface_pointP23methoddata_insolidangleiiPf.exit.i ]
+276:                                              ; preds = %_ZL17add_surface_pointP23methoddata_insolidangleiiPf.exit.i, %.lr.ph.i25
+  %.1112.i = phi i32 [ %.0.i, %.lr.ph.i25 ], [ %337, %_ZL17add_surface_pointP23methoddata_insolidangleiiPf.exit.i ]
+  %.063111.i = phi i32 [ %.066.i23, %.lr.ph.i25 ], [ %336, %_ZL17add_surface_pointP23methoddata_insolidangleiiPf.exit.i ]
+  %.067110.i = phi float [ %270, %.lr.ph.i25 ], [ %.168.i, %_ZL17add_surface_pointP23methoddata_insolidangleiiPf.exit.i ]
   %.170109.i = phi float [ %.069.i, %.lr.ph.i25 ], [ %.271.i, %_ZL17add_surface_pointP23methoddata_insolidangleiiPf.exit.i ]
-  %278 = load ptr, ptr %83, align 8, !tbaa !32
-  %279 = getelementptr inbounds nuw %struct.partition, ptr %278, i64 %indvars.iv
-  %280 = load i32, ptr %279, align 8, !tbaa !46
-  %281 = icmp eq i32 %.1112.i, %280
-  br i1 %281, label %282, label %289
+  %277 = load ptr, ptr %83, align 8, !tbaa !32
+  %278 = getelementptr inbounds nuw %struct.partition, ptr %277, i64 %indvars.iv
+  %279 = load i32, ptr %278, align 8, !tbaa !46
+  %280 = icmp eq i32 %.1112.i, %279
+  br i1 %280, label %281, label %288
 
-282:                                              ; preds = %277
-  %283 = fpext float %.170109.i to double
-  %284 = fadd double %283, 0xC01921FB54442D18
-  %285 = fptrunc double %284 to float
-  %286 = fpext float %.067110.i to double
-  %287 = fadd double %286, 0xC01921FB54442D18
-  %288 = fptrunc double %287 to float
-  br label %289
+281:                                              ; preds = %276
+  %282 = fpext float %.170109.i to double
+  %283 = fadd double %282, 0xC01921FB54442D18
+  %284 = fptrunc double %283 to float
+  %285 = fpext float %.067110.i to double
+  %286 = fadd double %285, 0xC01921FB54442D18
+  %287 = fptrunc double %286 to float
+  br label %288
 
-289:                                              ; preds = %282, %277
-  %.271.i = phi float [ %285, %282 ], [ %.170109.i, %277 ]
-  %.168.i = phi float [ %288, %282 ], [ %.067110.i, %277 ]
-  %.2.i = phi i32 [ 0, %282 ], [ %.1112.i, %277 ]
-  %290 = getelementptr inbounds nuw i8, ptr %279, i64 8
-  %291 = load ptr, ptr %290, align 8, !tbaa !38
-  %292 = sext i32 %.2.i to i64
-  %293 = getelementptr inbounds %struct.t_partition_item, ptr %291, i64 %292
-  %294 = load float, ptr %293, align 4, !tbaa !47
-  %295 = fcmp ult float %294, %.271.i
-  br i1 %295, label %._crit_edge113.i, label %296
+288:                                              ; preds = %281, %276
+  %.271.i = phi float [ %284, %281 ], [ %.170109.i, %276 ]
+  %.168.i = phi float [ %287, %281 ], [ %.067110.i, %276 ]
+  %.2.i = phi i32 [ 0, %281 ], [ %.1112.i, %276 ]
+  %289 = getelementptr inbounds nuw i8, ptr %278, i64 8
+  %290 = load ptr, ptr %289, align 8, !tbaa !38
+  %291 = sext i32 %.2.i to i64
+  %292 = getelementptr inbounds %struct.t_partition_item, ptr %290, i64 %291
+  %293 = load float, ptr %292, align 4, !tbaa !47
+  %294 = fcmp ult float %293, %.271.i
+  br i1 %294, label %._crit_edge113.i, label %295
 
-._crit_edge113.i:                                 ; preds = %289
+._crit_edge113.i:                                 ; preds = %288
   %.pre.i27 = load ptr, ptr %84, align 8, !tbaa !41
-  br label %305
+  br label %304
 
-296:                                              ; preds = %289
-  %297 = getelementptr i8, ptr %293, i64 8
-  %298 = load float, ptr %297, align 4, !tbaa !47
-  %299 = fcmp ugt float %298, %.168.i
+295:                                              ; preds = %288
+  %296 = getelementptr i8, ptr %292, i64 8
+  %297 = load float, ptr %296, align 4, !tbaa !47
+  %298 = fcmp ugt float %297, %.168.i
   %.pre114.i = load ptr, ptr %84, align 8, !tbaa !41
-  br i1 %299, label %305, label %300
+  br i1 %298, label %304, label %299
 
-300:                                              ; preds = %296
-  %301 = getelementptr inbounds nuw i8, ptr %293, i64 4
-  %302 = load i32, ptr %301, align 4, !tbaa !49
-  %303 = sext i32 %302 to i64
-  %304 = getelementptr inbounds %struct.spheresurfacebin, ptr %.pre114.i, i64 %303
-  store i32 -1, ptr %304, align 8, !tbaa !50
+299:                                              ; preds = %295
+  %300 = getelementptr inbounds nuw i8, ptr %292, i64 4
+  %301 = load i32, ptr %300, align 4, !tbaa !49
+  %302 = sext i32 %301 to i64
+  %303 = getelementptr inbounds %struct.spheresurfacebin, ptr %.pre114.i, i64 %302
+  store i32 -1, ptr %303, align 8, !tbaa !50
   br label %_ZL17add_surface_pointP23methoddata_insolidangleiiPf.exit.i
 
-305:                                              ; preds = %296, %._crit_edge113.i
-  %306 = phi ptr [ %.pre.i27, %._crit_edge113.i ], [ %.pre114.i, %296 ]
-  %307 = getelementptr inbounds nuw i8, ptr %293, i64 4
-  %308 = load i32, ptr %307, align 4, !tbaa !49
-  %309 = sext i32 %308 to i64
-  %310 = getelementptr inbounds %struct.spheresurfacebin, ptr %306, i64 %309
-  %311 = load i32, ptr %310, align 8, !tbaa !50
-  %312 = icmp eq i32 %311, -1
-  br i1 %312, label %_ZL17add_surface_pointP23methoddata_insolidangleiiPf.exit.i, label %313
+304:                                              ; preds = %295, %._crit_edge113.i
+  %305 = phi ptr [ %.pre.i27, %._crit_edge113.i ], [ %.pre114.i, %295 ]
+  %306 = getelementptr inbounds nuw i8, ptr %292, i64 4
+  %307 = load i32, ptr %306, align 4, !tbaa !49
+  %308 = sext i32 %307 to i64
+  %309 = getelementptr inbounds %struct.spheresurfacebin, ptr %305, i64 %308
+  %310 = load i32, ptr %309, align 8, !tbaa !50
+  %311 = icmp eq i32 %310, -1
+  br i1 %311, label %_ZL17add_surface_pointP23methoddata_insolidangleiiPf.exit.i, label %312
 
-313:                                              ; preds = %305
-  %314 = getelementptr inbounds nuw i8, ptr %310, i64 4
-  %315 = load i32, ptr %314, align 4, !tbaa !44
-  %316 = icmp eq i32 %311, %315
-  br i1 %316, label %317, label %323
+312:                                              ; preds = %304
+  %313 = getelementptr inbounds nuw i8, ptr %309, i64 4
+  %314 = load i32, ptr %313, align 4, !tbaa !44
+  %315 = icmp eq i32 %310, %314
+  br i1 %315, label %316, label %322
 
-317:                                              ; preds = %313
-  %318 = add nsw i32 %311, 10
-  store i32 %318, ptr %314, align 4, !tbaa !44
-  %319 = getelementptr inbounds nuw i8, ptr %310, i64 8
-  %320 = sext i32 %318 to i64
-  %321 = load ptr, ptr %319, align 8, !tbaa !63
-  %322 = call noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.7, i32 noundef 752, ptr noundef %321, i64 noundef range(i64 -2147483648, 2147483648) %320, i64 noundef 12)
-  store ptr %322, ptr %319, align 8, !tbaa !63
+316:                                              ; preds = %312
+  %317 = add nsw i32 %310, 10
+  store i32 %317, ptr %313, align 4, !tbaa !44
+  %318 = getelementptr inbounds nuw i8, ptr %309, i64 8
+  %319 = sext i32 %317 to i64
+  %320 = load ptr, ptr %318, align 8, !tbaa !63
+  %321 = call noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.7, i32 noundef 752, ptr noundef %320, i64 noundef range(i64 -2147483648, 2147483648) %319, i64 noundef 12)
+  store ptr %321, ptr %318, align 8, !tbaa !63
   %.pre.i.i = load ptr, ptr %84, align 8, !tbaa !41
-  %.phi.trans.insert.i.i = getelementptr inbounds %struct.spheresurfacebin, ptr %.pre.i.i, i64 %309
+  %.phi.trans.insert.i.i = getelementptr inbounds %struct.spheresurfacebin, ptr %.pre.i.i, i64 %308
   %.pre22.i.i = load i32, ptr %.phi.trans.insert.i.i, align 8, !tbaa !50
-  br label %323
+  br label %322
 
-323:                                              ; preds = %317, %313
-  %324 = phi i32 [ %.pre22.i.i, %317 ], [ %311, %313 ]
-  %325 = phi ptr [ %.pre.i.i, %317 ], [ %306, %313 ]
-  %326 = getelementptr inbounds %struct.spheresurfacebin, ptr %325, i64 %309
-  %327 = getelementptr inbounds nuw i8, ptr %326, i64 8
-  %328 = load ptr, ptr %327, align 8, !tbaa !42
-  %329 = sext i32 %324 to i64
-  %330 = getelementptr inbounds [3 x float], ptr %328, i64 %329
-  %331 = load float, ptr %3, align 4, !tbaa !61
-  store float %331, ptr %330, align 4, !tbaa !61
-  %332 = load float, ptr %79, align 4, !tbaa !61
-  %333 = getelementptr inbounds nuw i8, ptr %330, i64 4
-  store float %332, ptr %333, align 4, !tbaa !61
-  %334 = load float, ptr %80, align 4, !tbaa !61
-  %335 = getelementptr inbounds nuw i8, ptr %330, i64 8
-  store float %334, ptr %335, align 4, !tbaa !61
-  %336 = add nsw i32 %324, 1
-  store i32 %336, ptr %326, align 8, !tbaa !50
+322:                                              ; preds = %316, %312
+  %323 = phi i32 [ %.pre22.i.i, %316 ], [ %310, %312 ]
+  %324 = phi ptr [ %.pre.i.i, %316 ], [ %305, %312 ]
+  %325 = getelementptr inbounds %struct.spheresurfacebin, ptr %324, i64 %308
+  %326 = getelementptr inbounds nuw i8, ptr %325, i64 8
+  %327 = load ptr, ptr %326, align 8, !tbaa !42
+  %328 = sext i32 %323 to i64
+  %329 = getelementptr inbounds [3 x float], ptr %327, i64 %328
+  %330 = load float, ptr %3, align 4, !tbaa !61
+  store float %330, ptr %329, align 4, !tbaa !61
+  %331 = load float, ptr %79, align 4, !tbaa !61
+  %332 = getelementptr inbounds nuw i8, ptr %329, i64 4
+  store float %331, ptr %332, align 4, !tbaa !61
+  %333 = load float, ptr %80, align 4, !tbaa !61
+  %334 = getelementptr inbounds nuw i8, ptr %329, i64 8
+  store float %333, ptr %334, align 4, !tbaa !61
+  %335 = add nsw i32 %323, 1
+  store i32 %335, ptr %325, align 8, !tbaa !50
   br label %_ZL17add_surface_pointP23methoddata_insolidangleiiPf.exit.i
 
-_ZL17add_surface_pointP23methoddata_insolidangleiiPf.exit.i: ; preds = %323, %305, %300
-  %337 = add nsw i32 %.063111.i, 1
-  %338 = add nsw i32 %.2.i, 1
-  %.not.i26 = icmp eq i32 %337, %spec.select.i
-  br i1 %.not.i26, label %_ZL18update_surface_binP23methoddata_insolidangleiffffPf.exit.loopexit, label %277, !llvm.loop !64
+_ZL17add_surface_pointP23methoddata_insolidangleiiPf.exit.i: ; preds = %322, %304, %299
+  %336 = add nsw i32 %.063111.i, 1
+  %337 = add nsw i32 %.2.i, 1
+  %.not.i26 = icmp eq i32 %336, %spec.select.i
+  br i1 %.not.i26, label %_ZL18update_surface_binP23methoddata_insolidangleiffffPf.exit.loopexit, label %276, !llvm.loop !64
 
 _ZL18update_surface_binP23methoddata_insolidangleiffffPf.exit.loopexit: ; preds = %_ZL17add_surface_pointP23methoddata_insolidangleiiPf.exit.i
   %.pre35 = load float, ptr %81, align 8, !tbaa !4
@@ -957,24 +957,24 @@ _ZL18update_surface_binP23methoddata_insolidangleiffffPf.exit.loopexit: ; preds 
   br label %_ZL18update_surface_binP23methoddata_insolidangleiffffPf.exit
 
 _ZL18update_surface_binP23methoddata_insolidangleiffffPf.exit: ; preds = %_ZL18update_surface_binP23methoddata_insolidangleiffffPf.exit.loopexit, %_ZL18find_partition_binP9partitionf.exit91.i
-  %339 = phi float [ %.pre36, %_ZL18update_surface_binP23methoddata_insolidangleiffffPf.exit.loopexit ], [ %149, %_ZL18find_partition_binP9partitionf.exit91.i ]
-  %340 = phi float [ %.pre35, %_ZL18update_surface_binP23methoddata_insolidangleiffffPf.exit.loopexit ], [ %150, %_ZL18find_partition_binP9partitionf.exit91.i ]
-  %341 = fadd float %117, %340
-  %342 = fdiv float %341, %339
-  %343 = call noundef float @llvm.ceil.f32(float %342)
-  %344 = fcmp ogt float %343, %157
-  br i1 %344, label %.lr.ph.i21, label %_ZL19store_surface_pointP23methoddata_insolidanglePf.exit, !llvm.loop !65
+  %338 = phi float [ %.pre36, %_ZL18update_surface_binP23methoddata_insolidangleiffffPf.exit.loopexit ], [ %148, %_ZL18find_partition_binP9partitionf.exit91.i ]
+  %339 = phi float [ %.pre35, %_ZL18update_surface_binP23methoddata_insolidangleiffffPf.exit.loopexit ], [ %149, %_ZL18find_partition_binP9partitionf.exit91.i ]
+  %340 = fadd float %116, %339
+  %341 = fdiv float %340, %338
+  %342 = call noundef float @llvm.ceil.f32(float %341)
+  %343 = fcmp ogt float %342, %156
+  br i1 %343, label %.lr.ph.i21, label %_ZL19store_surface_pointP23methoddata_insolidanglePf.exit, !llvm.loop !65
 
-_ZL19store_surface_pointP23methoddata_insolidanglePf.exit: ; preds = %.lr.ph.i21, %_ZL18update_surface_binP23methoddata_insolidangleiffffPf.exit, %135
+_ZL19store_surface_pointP23methoddata_insolidanglePf.exit: ; preds = %.lr.ph.i21, %_ZL18update_surface_binP23methoddata_insolidangleiffffPf.exit, %134
   %indvars.iv.next31 = add nuw nsw i64 %indvars.iv30, 1
-  %345 = load i32, ptr %75, align 8, !tbaa !53
-  %346 = sext i32 %345 to i64
-  %347 = icmp slt i64 %indvars.iv.next31, %346
-  br i1 %347, label %85, label %._crit_edge, !llvm.loop !66
+  %344 = load i32, ptr %75, align 8, !tbaa !53
+  %345 = sext i32 %344 to i64
+  %346 = icmp slt i64 %indvars.iv.next31, %345
+  br i1 %346, label %85, label %._crit_edge, !llvm.loop !66
 
 ._crit_edge:                                      ; preds = %_ZL19store_surface_pointP23methoddata_insolidanglePf.exit, %_ZL20clear_surface_pointsP23methoddata_insolidangle.exit
-  %348 = getelementptr inbounds nuw i8, ptr %1, i64 308
-  store float -1.000000e+00, ptr %348, align 4, !tbaa !67
+  %347 = getelementptr inbounds nuw i8, ptr %1, i64 308
+  store float -1.000000e+00, ptr %347, align 4, !tbaa !67
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
@@ -1001,11 +1001,11 @@ define internal void @_ZL21evaluate_insolidangleRKN3gmx20SelMethodEvalContextEP1
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 312
   br label %17
 
-._crit_edge:                                      ; preds = %101, %4
+._crit_edge:                                      ; preds = %100, %4
   ret void
 
-17:                                               ; preds = %.lr.ph, %101
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %101 ]
+17:                                               ; preds = %.lr.ph, %100
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %100 ]
   %18 = load ptr, ptr %1, align 8, !tbaa !70
   %19 = getelementptr inbounds nuw [3 x float], ptr %18, i64 %indvars.iv
   %20 = load ptr, ptr %11, align 8, !tbaa !54
@@ -1044,112 +1044,112 @@ define internal void @_ZL21evaluate_insolidangleRKN3gmx20SelMethodEvalContextEP1
   %41 = fmul float %39, %39
   %42 = call float @llvm.fmuladd.f32(float %40, float %40, float %41)
   %43 = call noundef float @llvm.fmuladd.f32(float %38, float %38, float %42)
-  %44 = call noundef float @sqrtf(float noundef %43) #19, !tbaa !25
-  %45 = fdiv float 1.000000e+00, %44
-  %46 = fmul float %40, %45
-  store float %46, ptr %5, align 4, !tbaa !61
-  %47 = fmul float %39, %45
-  store float %47, ptr %.phi.trans.insert.i, align 4, !tbaa !61
-  %48 = fmul float %38, %45
-  store float %48, ptr %.phi.trans.insert9.i, align 4, !tbaa !61
-  %49 = call noundef float @acosf(float noundef %48) #19, !tbaa !25
-  %50 = call noundef float @atan2f(float noundef %47, float noundef %46) #19, !tbaa !25
-  %51 = load float, ptr %12, align 4, !tbaa !29
-  %52 = fdiv float %49, %51
-  %53 = call noundef float @llvm.floor.f32(float %52)
-  %54 = fptosi float %53 to i32
-  %55 = load i32, ptr %13, align 8, !tbaa !28
-  %56 = add nsw i32 %55, -1
-  %spec.select.i.i.i = call i32 @llvm.smin.i32(i32 %54, i32 %56)
-  %57 = load ptr, ptr %14, align 8, !tbaa !32
-  %58 = sext i32 %spec.select.i.i.i to i64
-  %59 = getelementptr inbounds %struct.partition, ptr %57, i64 %58
-  %60 = load i32, ptr %59, align 8, !tbaa !46
-  %61 = icmp sgt i32 %60, 1
-  %62 = getelementptr inbounds nuw i8, ptr %59, i64 8
-  %63 = load ptr, ptr %62, align 8, !tbaa !38
-  br i1 %61, label %.lr.ph.i.i.i.i, label %_ZL16find_surface_binP23methoddata_insolidanglePf.exit.i.i
+  %sqrt.i.i = call float @llvm.sqrt.f32(float %43)
+  %44 = fdiv float 1.000000e+00, %sqrt.i.i
+  %45 = fmul float %40, %44
+  store float %45, ptr %5, align 4, !tbaa !61
+  %46 = fmul float %39, %44
+  store float %46, ptr %.phi.trans.insert.i, align 4, !tbaa !61
+  %47 = fmul float %38, %44
+  store float %47, ptr %.phi.trans.insert9.i, align 4, !tbaa !61
+  %48 = call noundef float @acosf(float noundef %47) #19, !tbaa !25
+  %49 = call noundef float @atan2f(float noundef %46, float noundef %45) #19, !tbaa !25
+  %50 = load float, ptr %12, align 4, !tbaa !29
+  %51 = fdiv float %48, %50
+  %52 = call noundef float @llvm.floor.f32(float %51)
+  %53 = fptosi float %52 to i32
+  %54 = load i32, ptr %13, align 8, !tbaa !28
+  %55 = add nsw i32 %54, -1
+  %spec.select.i.i.i = call i32 @llvm.smin.i32(i32 %53, i32 %55)
+  %56 = load ptr, ptr %14, align 8, !tbaa !32
+  %57 = sext i32 %spec.select.i.i.i to i64
+  %58 = getelementptr inbounds %struct.partition, ptr %56, i64 %57
+  %59 = load i32, ptr %58, align 8, !tbaa !46
+  %60 = icmp sgt i32 %59, 1
+  %61 = getelementptr inbounds nuw i8, ptr %58, i64 8
+  %62 = load ptr, ptr %61, align 8, !tbaa !38
+  br i1 %60, label %.lr.ph.i.i.i.i, label %_ZL16find_surface_binP23methoddata_insolidanglePf.exit.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %37, %.lr.ph.i.i.i.i
-  %.015.i.i.i.i = phi i32 [ %..0.i.i.i.i, %.lr.ph.i.i.i.i ], [ %60, %37 ]
+  %.015.i.i.i.i = phi i32 [ %..0.i.i.i.i, %.lr.ph.i.i.i.i ], [ %59, %37 ]
   %.01214.i.i.i.i = phi i32 [ %.012..i.i.i.i, %.lr.ph.i.i.i.i ], [ 0, %37 ]
-  %64 = sub nsw i32 %.015.i.i.i.i, %.01214.i.i.i.i
-  %65 = sdiv i32 %64, 2
-  %66 = add nsw i32 %65, %.01214.i.i.i.i
-  %67 = sext i32 %66 to i64
-  %68 = getelementptr inbounds %struct.t_partition_item, ptr %63, i64 %67
-  %69 = load float, ptr %68, align 4, !tbaa !47
-  %70 = fcmp ugt float %69, %50
-  %.012..i.i.i.i = select i1 %70, i32 %.01214.i.i.i.i, i32 %66
-  %..0.i.i.i.i = select i1 %70, i32 %66, i32 %.015.i.i.i.i
-  %71 = add nsw i32 %.012..i.i.i.i, 1
-  %72 = icmp sgt i32 %..0.i.i.i.i, %71
-  br i1 %72, label %.lr.ph.i.i.i.i, label %_ZL18find_partition_binP9partitionf.exit.loopexit.i.i.i, !llvm.loop !62
+  %63 = sub nsw i32 %.015.i.i.i.i, %.01214.i.i.i.i
+  %64 = sdiv i32 %63, 2
+  %65 = add nsw i32 %64, %.01214.i.i.i.i
+  %66 = sext i32 %65 to i64
+  %67 = getelementptr inbounds %struct.t_partition_item, ptr %62, i64 %66
+  %68 = load float, ptr %67, align 4, !tbaa !47
+  %69 = fcmp ugt float %68, %49
+  %.012..i.i.i.i = select i1 %69, i32 %.01214.i.i.i.i, i32 %65
+  %..0.i.i.i.i = select i1 %69, i32 %65, i32 %.015.i.i.i.i
+  %70 = add nsw i32 %.012..i.i.i.i, 1
+  %71 = icmp sgt i32 %..0.i.i.i.i, %70
+  br i1 %71, label %.lr.ph.i.i.i.i, label %_ZL18find_partition_binP9partitionf.exit.loopexit.i.i.i, !llvm.loop !62
 
 _ZL18find_partition_binP9partitionf.exit.loopexit.i.i.i: ; preds = %.lr.ph.i.i.i.i
-  %73 = sext i32 %.012..i.i.i.i to i64
+  %72 = sext i32 %.012..i.i.i.i to i64
   br label %_ZL16find_surface_binP23methoddata_insolidanglePf.exit.i.i
 
 _ZL16find_surface_binP23methoddata_insolidanglePf.exit.i.i: ; preds = %_ZL18find_partition_binP9partitionf.exit.loopexit.i.i.i, %37
-  %.012.lcssa.i.i.i.i = phi i64 [ %73, %_ZL18find_partition_binP9partitionf.exit.loopexit.i.i.i ], [ 0, %37 ]
-  %74 = getelementptr inbounds %struct.t_partition_item, ptr %63, i64 %.012.lcssa.i.i.i.i
-  %75 = getelementptr inbounds nuw i8, ptr %74, i64 4
-  %76 = load i32, ptr %75, align 4, !tbaa !49
-  %77 = load ptr, ptr %15, align 8, !tbaa !41
-  %78 = sext i32 %76 to i64
-  %79 = getelementptr inbounds %struct.spheresurfacebin, ptr %77, i64 %78
-  %80 = load i32, ptr %79, align 8, !tbaa !50
-  %81 = icmp eq i32 %80, -1
-  br i1 %81, label %.loopexit, label %.preheader.i.i
+  %.012.lcssa.i.i.i.i = phi i64 [ %72, %_ZL18find_partition_binP9partitionf.exit.loopexit.i.i.i ], [ 0, %37 ]
+  %73 = getelementptr inbounds %struct.t_partition_item, ptr %62, i64 %.012.lcssa.i.i.i.i
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 4
+  %75 = load i32, ptr %74, align 4, !tbaa !49
+  %76 = load ptr, ptr %15, align 8, !tbaa !41
+  %77 = sext i32 %75 to i64
+  %78 = getelementptr inbounds %struct.spheresurfacebin, ptr %76, i64 %77
+  %79 = load i32, ptr %78, align 8, !tbaa !50
+  %80 = icmp eq i32 %79, -1
+  br i1 %80, label %.loopexit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %_ZL16find_surface_binP23methoddata_insolidanglePf.exit.i.i
-  %82 = icmp sgt i32 %80, 0
-  br i1 %82, label %.lr.ph.i.i, label %_ZL19accept_insolidanglePfPK5t_pbcPv.exit
+  %81 = icmp sgt i32 %79, 0
+  br i1 %81, label %.lr.ph.i.i, label %_ZL19accept_insolidanglePfPK5t_pbcPv.exit
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i
-  %83 = getelementptr inbounds nuw i8, ptr %79, i64 8
-  %84 = load ptr, ptr %83, align 8, !tbaa !42
-  %85 = load float, ptr %16, align 8, !tbaa !26
-  %wide.trip.count.i.i = zext nneg i32 %80 to i64
-  br label %87
+  %82 = getelementptr inbounds nuw i8, ptr %78, i64 8
+  %83 = load ptr, ptr %82, align 8, !tbaa !42
+  %84 = load float, ptr %16, align 8, !tbaa !26
+  %wide.trip.count.i.i = zext nneg i32 %79 to i64
+  br label %86
 
-86:                                               ; preds = %87
+85:                                               ; preds = %86
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %_ZL19accept_insolidanglePfPK5t_pbcPv.exit, label %87, !llvm.loop !71
+  br i1 %exitcond.not.i.i, label %_ZL19accept_insolidanglePfPK5t_pbcPv.exit, label %86, !llvm.loop !71
 
-87:                                               ; preds = %86, %.lr.ph.i.i
-  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %86 ]
-  %88 = getelementptr inbounds nuw [3 x float], ptr %84, i64 %indvars.iv.i.i
-  %89 = load float, ptr %88, align 4, !tbaa !61
-  %90 = getelementptr inbounds nuw i8, ptr %88, i64 4
-  %91 = load float, ptr %90, align 4, !tbaa !61
-  %92 = fmul float %47, %91
-  %93 = call float @llvm.fmuladd.f32(float %46, float %89, float %92)
-  %94 = getelementptr inbounds nuw i8, ptr %88, i64 8
-  %95 = load float, ptr %94, align 4, !tbaa !61
-  %96 = call noundef float @llvm.fmuladd.f32(float %48, float %95, float %93)
-  %97 = fneg float %96
-  %98 = fcmp ogt float %85, %97
-  br i1 %98, label %.loopexit, label %86
+86:                                               ; preds = %85, %.lr.ph.i.i
+  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %85 ]
+  %87 = getelementptr inbounds nuw [3 x float], ptr %83, i64 %indvars.iv.i.i
+  %88 = load float, ptr %87, align 4, !tbaa !61
+  %89 = getelementptr inbounds nuw i8, ptr %87, i64 4
+  %90 = load float, ptr %89, align 4, !tbaa !61
+  %91 = fmul float %46, %90
+  %92 = call float @llvm.fmuladd.f32(float %45, float %88, float %91)
+  %93 = getelementptr inbounds nuw i8, ptr %87, i64 8
+  %94 = load float, ptr %93, align 4, !tbaa !61
+  %95 = call noundef float @llvm.fmuladd.f32(float %47, float %94, float %92)
+  %96 = fneg float %95
+  %97 = fcmp ogt float %84, %96
+  br i1 %97, label %.loopexit, label %85
 
-_ZL19accept_insolidanglePfPK5t_pbcPv.exit:        ; preds = %86, %.preheader.i.i
+_ZL19accept_insolidanglePfPK5t_pbcPv.exit:        ; preds = %85, %.preheader.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %101
+  br label %100
 
-.loopexit:                                        ; preds = %87, %_ZL16find_surface_binP23methoddata_insolidanglePf.exit.i.i
+.loopexit:                                        ; preds = %86, %_ZL16find_surface_binP23methoddata_insolidanglePf.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %99 = load ptr, ptr %6, align 8, !tbaa !20
-  %100 = trunc nuw nsw i64 %indvars.iv to i32
-  call void @_Z24gmx_ana_pos_add_to_groupP15gmx_ana_index_tP13gmx_ana_pos_ti(ptr noundef %99, ptr noundef nonnull %1, i32 noundef %100)
-  br label %101
+  %98 = load ptr, ptr %6, align 8, !tbaa !20
+  %99 = trunc nuw nsw i64 %indvars.iv to i32
+  call void @_Z24gmx_ana_pos_add_to_groupP15gmx_ana_index_tP13gmx_ana_pos_ti(ptr noundef %98, ptr noundef nonnull %1, i32 noundef %99)
+  br label %100
 
-101:                                              ; preds = %_ZL19accept_insolidanglePfPK5t_pbcPv.exit, %.loopexit
+100:                                              ; preds = %_ZL19accept_insolidanglePfPK5t_pbcPv.exit, %.loopexit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %102 = load i32, ptr %8, align 8, !tbaa !53
-  %103 = sext i32 %102 to i64
-  %104 = icmp slt i64 %indvars.iv.next, %103
-  br i1 %104, label %17, label %._crit_edge, !llvm.loop !72
+  %101 = load i32, ptr %8, align 8, !tbaa !53
+  %102 = sext i32 %101 to i64
+  %103 = icmp slt i64 %indvars.iv.next, %102
+  br i1 %103, label %17, label %._crit_edge, !llvm.loop !72
 }
 
 ; Function Attrs: nobuiltin allocsize(0)
@@ -2154,6 +2154,9 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #16
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #17
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.sqrt.f32(float) #17
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #17

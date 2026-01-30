@@ -9179,7 +9179,7 @@ load_rgb_float32_frame.exit:                      ; preds = %1693, %1795
   %1842 = sitofp i32 %1838 to float
   %1843 = fmul nsz float %1842, %1842
   %1844 = bitcast float %1843 to i32
-  %1845 = uitofp i32 %1844 to float
+  %1845 = uitofp nneg i32 %1844 to float
   %storemerge.i = select i1 %.not162.i, float %1840, float %1845
   store float %storemerge.i, ptr %1841, align 4, !tbaa !248
   br i1 %1816, label %.lr.ph7.split.preheader.i, label %.preheader.i582

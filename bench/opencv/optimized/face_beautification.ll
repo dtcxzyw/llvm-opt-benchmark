@@ -41264,33 +41264,33 @@ define linkonce_odr hidden void @_ZN6custom13getEyeEllipseERKN2cv6Point_IiEES4_(
   %26 = sitofp i32 %24 to double
   %27 = fmul double %26, %26
   %28 = tail call double @llvm.fmuladd.f64(double %25, double %25, double %27)
-  %29 = tail call noundef double @sqrt(double noundef %28) #32, !tbaa !56
-  %30 = fmul double %29, 5.000000e-01
-  %31 = tail call i64 @lround(double noundef %30) #32, !tbaa !56
-  %32 = trunc i64 %31 to i32
-  %33 = sdiv i32 %32, 3
-  %.sroa.2.0.insert.ext = zext i32 %33 to i64
+  %sqrt.i = tail call noundef double @llvm.sqrt.f64(double %28)
+  %29 = fmul double %sqrt.i, 5.000000e-01
+  %30 = tail call i64 @lround(double noundef %29) #32, !tbaa !56
+  %31 = trunc i64 %30 to i32
+  %32 = sdiv i32 %31, 3
+  %.sroa.2.0.insert.ext = zext i32 %32 to i64
   %.sroa.2.0.insert.shift = shl nuw i64 %.sroa.2.0.insert.ext, 32
-  %.sroa.0.0.insert.ext = and i64 %31, 4294967295
+  %.sroa.0.0.insert.ext = and i64 %30, 4294967295
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.2.0.insert.shift, %.sroa.0.0.insert.ext
   invoke void @_ZN2cv12ellipse2PolyENS_6Point_IiEENS_5Size_IiEEiiiiRSt6vectorIS1_SaIS1_EE(i64 %.sroa.0.0.insert.insert.i30, i64 %.sroa.0.0.insert.insert, i32 noundef %.0.i, i32 noundef 0, i32 noundef 180, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(24) %0)
-          to label %38 unwind label %34
+          to label %37 unwind label %33
 
-34:                                               ; preds = %22
-  %35 = landingpad { ptr, i32 }
+33:                                               ; preds = %22
+  %34 = landingpad { ptr, i32 }
           cleanup
-  %36 = load ptr, ptr %0, align 8, !tbaa !104
-  %.not.i.i.i = icmp eq ptr %36, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit, label %37
+  %35 = load ptr, ptr %0, align 8, !tbaa !104
+  %.not.i.i.i = icmp eq ptr %35, null
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit, label %36
 
-37:                                               ; preds = %34
-  tail call void @_ZdlPv(ptr noundef nonnull %36) #30
+36:                                               ; preds = %33
+  tail call void @_ZdlPv(ptr noundef nonnull %35) #30
   br label %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit
 
-_ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit:    ; preds = %34, %37
-  resume { ptr, i32 } %35
+_ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit:    ; preds = %33, %36
+  resume { ptr, i32 } %34
 
-38:                                               ; preds = %22
+37:                                               ; preds = %22
   ret void
 }
 
@@ -41342,95 +41342,95 @@ define linkonce_odr hidden void @_ZN6custom17getPatchedEllipseERKN2cv6Point_IiEE
   %29 = sitofp i32 %27 to double
   %30 = fmul double %29, %29
   %31 = tail call double @llvm.fmuladd.f64(double %28, double %28, double %30)
-  %32 = tail call noundef double @sqrt(double noundef %31) #32, !tbaa !56
-  %33 = fmul double %32, 5.000000e-01
-  %34 = tail call i64 @lround(double noundef %33) #32, !tbaa !56
+  %sqrt.i = tail call noundef double @llvm.sqrt.f64(double %31)
+  %32 = fmul double %sqrt.i, 5.000000e-01
+  %33 = tail call i64 @lround(double noundef %32) #32, !tbaa !56
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   %.val35 = load i32, ptr %3, align 4, !tbaa !848
-  %35 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %.val36 = load i32, ptr %35, align 4, !tbaa !850
-  %36 = sub nsw i32 %11, %.val35
-  %37 = sub nsw i32 %12, %.val36
+  %34 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %.val36 = load i32, ptr %34, align 4, !tbaa !850
+  %35 = sub nsw i32 %11, %.val35
+  %36 = sub nsw i32 %12, %.val36
+  %37 = sitofp i32 %35 to double
   %38 = sitofp i32 %36 to double
-  %39 = sitofp i32 %37 to double
-  %40 = fmul double %39, %39
-  %41 = tail call double @llvm.fmuladd.f64(double %38, double %38, double %40)
-  %42 = tail call noundef double @sqrt(double noundef %41) #32, !tbaa !56
-  %43 = tail call i64 @lround(double noundef %42) #32, !tbaa !56
-  %.sroa.072.0.insert.ext73 = zext i32 %11 to i64
-  %.sroa.072.0.insert.insert75 = or disjoint i64 %.sroa.4.0.insert.shift.i, %.sroa.072.0.insert.ext73
-  %.sroa.267.0.insert.ext = shl i64 %43, 32
-  %.sroa.066.0.insert.ext = and i64 %34, 4294967295
-  %.sroa.066.0.insert.insert = or disjoint i64 %.sroa.267.0.insert.ext, %.sroa.066.0.insert.ext
-  invoke void @_ZN2cv12ellipse2PolyENS_6Point_IiEENS_5Size_IiEEiiiiRSt6vectorIS1_SaIS1_EE(i64 %.sroa.072.0.insert.insert75, i64 %.sroa.066.0.insert.insert, i32 noundef %.0.i, i32 noundef 180, i32 noundef 360, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(24) %6)
-          to label %44 unwind label %59
+  %39 = fmul double %38, %38
+  %40 = tail call double @llvm.fmuladd.f64(double %37, double %37, double %39)
+  %sqrt.i57 = tail call noundef double @llvm.sqrt.f64(double %40)
+  %41 = tail call i64 @lround(double noundef %sqrt.i57) #32, !tbaa !56
+  %.sroa.074.0.insert.ext75 = zext i32 %11 to i64
+  %.sroa.074.0.insert.insert77 = or disjoint i64 %.sroa.4.0.insert.shift.i, %.sroa.074.0.insert.ext75
+  %.sroa.269.0.insert.ext = shl i64 %41, 32
+  %.sroa.068.0.insert.ext = and i64 %33, 4294967295
+  %.sroa.068.0.insert.insert = or disjoint i64 %.sroa.269.0.insert.ext, %.sroa.068.0.insert.ext
+  invoke void @_ZN2cv12ellipse2PolyENS_6Point_IiEENS_5Size_IiEEiiiiRSt6vectorIS1_SaIS1_EE(i64 %.sroa.074.0.insert.insert77, i64 %.sroa.068.0.insert.insert, i32 noundef %.0.i, i32 noundef 180, i32 noundef 360, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(24) %6)
+          to label %42 unwind label %56
 
-44:                                               ; preds = %25
+42:                                               ; preds = %25
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %.val39 = load i32, ptr %4, align 4, !tbaa !848
-  %45 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %.val40 = load i32, ptr %45, align 4, !tbaa !850
-  %46 = sub nsw i32 %11, %.val39
-  %47 = sub nsw i32 %12, %.val40
-  %48 = sitofp i32 %46 to double
-  %49 = sitofp i32 %47 to double
-  %50 = fmul double %49, %49
-  %51 = call double @llvm.fmuladd.f64(double %48, double %48, double %50)
-  %52 = call noundef double @sqrt(double noundef %51) #32, !tbaa !56
-  %53 = call i64 @lround(double noundef %52) #32, !tbaa !56
-  %.sroa.2.0.insert.ext = shl i64 %53, 32
-  %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.2.0.insert.ext, %.sroa.066.0.insert.ext
-  invoke void @_ZN2cv12ellipse2PolyENS_6Point_IiEENS_5Size_IiEEiiiiRSt6vectorIS1_SaIS1_EE(i64 %.sroa.072.0.insert.insert75, i64 %.sroa.0.0.insert.insert, i32 noundef %.0.i, i32 noundef 0, i32 noundef 180, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(24) %0)
-          to label %54 unwind label %61
+  %43 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %.val40 = load i32, ptr %43, align 4, !tbaa !850
+  %44 = sub nsw i32 %11, %.val39
+  %45 = sub nsw i32 %12, %.val40
+  %46 = sitofp i32 %44 to double
+  %47 = sitofp i32 %45 to double
+  %48 = fmul double %47, %47
+  %49 = call double @llvm.fmuladd.f64(double %46, double %46, double %48)
+  %sqrt.i62 = call noundef double @llvm.sqrt.f64(double %49)
+  %50 = call i64 @lround(double noundef %sqrt.i62) #32, !tbaa !56
+  %.sroa.2.0.insert.ext = shl i64 %50, 32
+  %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.2.0.insert.ext, %.sroa.068.0.insert.ext
+  invoke void @_ZN2cv12ellipse2PolyENS_6Point_IiEENS_5Size_IiEEiiiiRSt6vectorIS1_SaIS1_EE(i64 %.sroa.074.0.insert.insert77, i64 %.sroa.0.0.insert.insert, i32 noundef %.0.i, i32 noundef 0, i32 noundef 180, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(24) %0)
+          to label %51 unwind label %58
 
-54:                                               ; preds = %44
-  %55 = load ptr, ptr %6, align 8, !tbaa !800
-  %56 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %57 = load ptr, ptr %56, align 8, !tbaa !800
-  %58 = invoke ptr @_ZNSt11__copy_moveILb0ELb0ESt26random_access_iterator_tagE8__copy_mIPKN2cv6Point_IiEESt20back_insert_iteratorISt6vectorIS5_SaIS5_EEEEET0_T_SE_SD_(ptr noundef %55, ptr noundef %57, ptr nonnull %0)
-          to label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN2cv6Point_IiEESt6vectorIS4_SaIS4_EEEESt20back_insert_iteratorIS9_EET0_T_SE_SD_.exit unwind label %61
+51:                                               ; preds = %42
+  %52 = load ptr, ptr %6, align 8, !tbaa !800
+  %53 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %54 = load ptr, ptr %53, align 8, !tbaa !800
+  %55 = invoke ptr @_ZNSt11__copy_moveILb0ELb0ESt26random_access_iterator_tagE8__copy_mIPKN2cv6Point_IiEESt20back_insert_iteratorISt6vectorIS5_SaIS5_EEEEET0_T_SE_SD_(ptr noundef %52, ptr noundef %54, ptr nonnull %0)
+          to label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN2cv6Point_IiEESt6vectorIS4_SaIS4_EEEESt20back_insert_iteratorIS9_EET0_T_SE_SD_.exit unwind label %58
 
-59:                                               ; preds = %25
-  %60 = landingpad { ptr, i32 }
+56:                                               ; preds = %25
+  %57 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit
 
-61:                                               ; preds = %54, %44
-  %62 = landingpad { ptr, i32 }
+58:                                               ; preds = %51, %42
+  %59 = landingpad { ptr, i32 }
           cleanup
-  %63 = load ptr, ptr %0, align 8, !tbaa !104
-  %.not.i.i.i = icmp eq ptr %63, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit, label %64
+  %60 = load ptr, ptr %0, align 8, !tbaa !104
+  %.not.i.i.i = icmp eq ptr %60, null
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit, label %61
 
-64:                                               ; preds = %61
-  call void @_ZdlPv(ptr noundef nonnull %63) #30
+61:                                               ; preds = %58
+  call void @_ZdlPv(ptr noundef nonnull %60) #30
   br label %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit
 
-_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN2cv6Point_IiEESt6vectorIS4_SaIS4_EEEESt20back_insert_iteratorIS9_EET0_T_SE_SD_.exit: ; preds = %54
-  %65 = load ptr, ptr %6, align 8, !tbaa !104
-  %.not.i.i.i61 = icmp eq ptr %65, null
-  br i1 %.not.i.i.i61, label %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit62, label %66
+_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN2cv6Point_IiEESt6vectorIS4_SaIS4_EEEESt20back_insert_iteratorIS9_EET0_T_SE_SD_.exit: ; preds = %51
+  %62 = load ptr, ptr %6, align 8, !tbaa !104
+  %.not.i.i.i63 = icmp eq ptr %62, null
+  br i1 %.not.i.i.i63, label %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit64, label %63
 
-66:                                               ; preds = %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN2cv6Point_IiEESt6vectorIS4_SaIS4_EEEESt20back_insert_iteratorIS9_EET0_T_SE_SD_.exit
-  call void @_ZdlPv(ptr noundef nonnull %65) #30
-  br label %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit62
+63:                                               ; preds = %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN2cv6Point_IiEESt6vectorIS4_SaIS4_EEEESt20back_insert_iteratorIS9_EET0_T_SE_SD_.exit
+  call void @_ZdlPv(ptr noundef nonnull %62) #30
+  br label %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit64
 
-_ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit62:  ; preds = %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN2cv6Point_IiEESt6vectorIS4_SaIS4_EEEESt20back_insert_iteratorIS9_EET0_T_SE_SD_.exit, %66
+_ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit64:  ; preds = %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN2cv6Point_IiEESt6vectorIS4_SaIS4_EEEESt20back_insert_iteratorIS9_EET0_T_SE_SD_.exit, %63
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 
-_ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit:    ; preds = %64, %61, %59
-  %.pn.pn = phi { ptr, i32 } [ %62, %64 ], [ %60, %59 ], [ %62, %61 ]
-  %67 = load ptr, ptr %6, align 8, !tbaa !104
-  %.not.i.i.i63 = icmp eq ptr %67, null
-  br i1 %.not.i.i.i63, label %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit64, label %68
+_ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit:    ; preds = %61, %58, %56
+  %.pn.pn = phi { ptr, i32 } [ %59, %61 ], [ %57, %56 ], [ %59, %58 ]
+  %64 = load ptr, ptr %6, align 8, !tbaa !104
+  %.not.i.i.i65 = icmp eq ptr %64, null
+  br i1 %.not.i.i.i65, label %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit66, label %65
 
-68:                                               ; preds = %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit
-  call void @_ZdlPv(ptr noundef nonnull %67) #30
-  br label %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit64
+65:                                               ; preds = %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit
+  call void @_ZdlPv(ptr noundef nonnull %64) #30
+  br label %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit66
 
-_ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit64:  ; preds = %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit, %68
+_ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit66:  ; preds = %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit, %65
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %.pn.pn
 }
@@ -41483,55 +41483,52 @@ define linkonce_odr hidden void @_ZN6custom18getForeheadEllipseERKN2cv6Point_IiE
   %27 = sitofp i32 %25 to double
   %28 = fmul double %27, %27
   %29 = tail call double @llvm.fmuladd.f64(double %26, double %26, double %28)
-  %30 = tail call noundef double @sqrt(double noundef %29) #32, !tbaa !56
-  %31 = fmul double %30, 5.000000e-01
-  %32 = tail call i64 @lround(double noundef %31) #32, !tbaa !56
+  %sqrt.i = tail call noundef double @llvm.sqrt.f64(double %29)
+  %30 = fmul double %sqrt.i, 5.000000e-01
+  %31 = tail call i64 @lround(double noundef %30) #32, !tbaa !56
   %.val32 = load i32, ptr %3, align 4, !tbaa !848
-  %33 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %.val33 = load i32, ptr %33, align 4, !tbaa !850
-  %34 = sub nsw i32 %9, %.val32
-  %35 = sub nsw i32 %10, %.val33
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %.val33 = load i32, ptr %32, align 4, !tbaa !850
+  %33 = sub nsw i32 %9, %.val32
+  %34 = sub nsw i32 %10, %.val33
+  %35 = sitofp i32 %33 to double
   %36 = sitofp i32 %34 to double
-  %37 = sitofp i32 %35 to double
-  %38 = fmul double %37, %37
-  %39 = tail call double @llvm.fmuladd.f64(double %36, double %36, double %38)
-  %40 = tail call noundef double @sqrt(double noundef %39) #32, !tbaa !56
-  %41 = fmul double %40, 2.000000e+00
-  %42 = fdiv double %41, 3.000000e+00
-  %43 = tail call i64 @lround(double noundef %42) #32, !tbaa !56
-  %.sroa.052.0.insert.ext = zext i32 %9 to i64
-  %.sroa.052.0.insert.insert = or disjoint i64 %.sroa.4.0.insert.shift.i, %.sroa.052.0.insert.ext
-  %.sroa.2.0.insert.ext = shl i64 %43, 32
-  %.sroa.0.0.insert.ext = and i64 %32, 4294967295
+  %37 = fmul double %36, %36
+  %38 = tail call double @llvm.fmuladd.f64(double %35, double %35, double %37)
+  %sqrt.i48 = tail call noundef double @llvm.sqrt.f64(double %38)
+  %39 = fmul double %sqrt.i48, 2.000000e+00
+  %40 = fdiv double %39, 3.000000e+00
+  %41 = tail call i64 @lround(double noundef %40) #32, !tbaa !56
+  %.sroa.053.0.insert.ext = zext i32 %9 to i64
+  %.sroa.053.0.insert.insert = or disjoint i64 %.sroa.4.0.insert.shift.i, %.sroa.053.0.insert.ext
+  %.sroa.2.0.insert.ext = shl i64 %41, 32
+  %.sroa.0.0.insert.ext = and i64 %31, 4294967295
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.2.0.insert.ext, %.sroa.0.0.insert.ext
-  invoke void @_ZN2cv12ellipse2PolyENS_6Point_IiEENS_5Size_IiEEiiiiRSt6vectorIS1_SaIS1_EE(i64 %.sroa.052.0.insert.insert, i64 %.sroa.0.0.insert.insert, i32 noundef %.0.i, i32 noundef 180, i32 noundef 360, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(24) %0)
-          to label %44 unwind label %45
+  invoke void @_ZN2cv12ellipse2PolyENS_6Point_IiEENS_5Size_IiEEiiiiRSt6vectorIS1_SaIS1_EE(i64 %.sroa.053.0.insert.insert, i64 %.sroa.0.0.insert.insert, i32 noundef %.0.i, i32 noundef 180, i32 noundef 360, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(24) %0)
+          to label %42 unwind label %43
 
-44:                                               ; preds = %23
+42:                                               ; preds = %23
   ret void
 
-45:                                               ; preds = %23
-  %46 = landingpad { ptr, i32 }
+43:                                               ; preds = %23
+  %44 = landingpad { ptr, i32 }
           cleanup
-  %47 = load ptr, ptr %0, align 8, !tbaa !104
-  %.not.i.i.i = icmp eq ptr %47, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit, label %48
+  %45 = load ptr, ptr %0, align 8, !tbaa !104
+  %.not.i.i.i = icmp eq ptr %45, null
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit, label %46
 
-48:                                               ; preds = %45
-  tail call void @_ZdlPv(ptr noundef nonnull %47) #30
+46:                                               ; preds = %43
+  tail call void @_ZdlPv(ptr noundef nonnull %45) #30
   br label %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit
 
-_ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit:    ; preds = %45, %48
-  resume { ptr, i32 } %46
+_ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit:    ; preds = %43, %46
+  resume { ptr, i32 } %44
 }
 
 declare void @_ZN2cv12ellipse2PolyENS_6Point_IiEENS_5Size_IiEEiiiiRSt6vectorIS1_SaIS1_EE(i64, i64, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
 declare double @atan2(double noundef, double noundef) local_unnamed_addr #21
-
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @sqrt(double noundef) local_unnamed_addr #21
 
 ; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fmuladd.f64(double, double, double) #22
@@ -46504,6 +46501,9 @@ declare i32 @llvm.smax.i32(i32, i32) #27
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #27
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.sqrt.f64(double) #27
 
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }

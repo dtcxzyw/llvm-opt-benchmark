@@ -18,7 +18,7 @@ define noundef float @_ZN3gmx33nbnxmPairlistVolumeRadiusIncreaseEbf(i1 noundef z
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
 declare float @cbrtf(float noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: read, errnomem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef float @_ZN3gmx29nbnxn_get_rlist_effective_incEiRKNS_11BasicVectorIfEE(i32 noundef %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %1) local_unnamed_addr #2 {
   %.sroa.01.0.copyload = load <2 x float>, ptr %1, align 4
   %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -28,30 +28,29 @@ define noundef float @_ZN3gmx29nbnxn_get_rlist_effective_incEiRKNS_11BasicVector
   %3 = extractelement <2 x float> %foldExtExtBinop, i64 1
   %4 = tail call float @llvm.fmuladd.f32(float %.sroa.0.0.vec.extract.i, float %.sroa.0.0.vec.extract.i, float %3)
   %5 = tail call noundef float @llvm.fmuladd.f32(float %.sroa.22.0.copyload, float %.sroa.22.0.copyload, float %4)
-  %6 = tail call noundef float @sqrtf(float noundef %5) #6, !tbaa !7
-  %7 = sitofp i32 %0 to float
-  %8 = fadd float %7, -1.000000e+00
-  %9 = fdiv float %8, %7
-  %10 = fmul float %9, %9
-  %11 = fmul float %10, 0x3FE3333340000000
-  %12 = fmul float %11, 5.000000e-01
-  %13 = fmul float %12, %6
-  ret float %13
+  %sqrt = tail call float @llvm.sqrt.f32(float %5)
+  %6 = sitofp i32 %0 to float
+  %7 = fadd float %6, -1.000000e+00
+  %8 = fdiv float %7, %6
+  %9 = fmul float %8, %8
+  %10 = fmul float %9, 0x3FE3333340000000
+  %11 = fmul float %10, 5.000000e-01
+  %12 = fmul float %11, %sqrt
+  ret float %12
 }
 
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare float @sqrtf(float noundef) local_unnamed_addr #3
-
 ; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fmuladd.f32(float, float, float) #4
+declare float @llvm.fmuladd.f32(float, float, float) #3
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.sqrt.f32(float) #4
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: read, errnomem: write) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #4 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #5 = { nounwind willreturn memory(none) }
-attributes #6 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 
@@ -62,5 +61,3 @@ attributes #6 = { nounwind }
 !4 = !{!5, !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C++ TBAA"}
-!7 = !{!8, !8, i64 0}
-!8 = !{!"int", !5, i64 0}

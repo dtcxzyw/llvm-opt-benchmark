@@ -92,10 +92,15 @@ define internal fastcc ptr @GetPoint(ptr noundef readonly captures(ret: address,
   %16 = fmul double %13, %13
   %17 = call double @llvm.fmuladd.f64(double %11, double %11, double %16)
   %18 = call double @llvm.fmuladd.f64(double %15, double %15, double %17)
-  %19 = call double @sqrt(double noundef %18) #8
-  store double %19, ptr %2, align 8
-  %20 = fcmp oeq double %19, 0.000000e+00
-  br i1 %20, label %.thread33, label %21
+  %sqrt.i = call double @llvm.sqrt.f64(double %18)
+  store double %sqrt.i, ptr %2, align 8
+  %19 = fcmp oeq double %18, 0.000000e+00
+  br i1 %19, label %.thread, label %21
+
+.thread:                                          ; preds = %3
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %20, i8 0, i64 16, i1 false)
+  br label %QuantizeToSector.exit
 
 21:                                               ; preds = %3
   %22 = fcmp oeq double %15, 0.000000e+00
@@ -122,79 +127,72 @@ _cmsAtan2.exit.i:                                 ; preds = %.lr.ph.i.i, %24, %2
   store double %.09.i.i, ptr %31, align 8
   %32 = fmul double %15, %15
   %33 = call double @llvm.fmuladd.f64(double %13, double %13, double %32)
-  %34 = call double @sqrt(double noundef %33) #8
-  %35 = fcmp oeq double %11, 0.000000e+00
-  %36 = fcmp oeq double %34, 0.000000e+00
-  %or.cond.i22.i = and i1 %35, %36
-  br i1 %or.cond.i22.i, label %ToSpherical.exit, label %37
+  %34 = fcmp oeq double %11, 0.000000e+00
+  %35 = fcmp oeq double %33, 0.000000e+00
+  %or.cond.i22.i = and i1 %34, %35
+  br i1 %or.cond.i22.i, label %ToSpherical.exit, label %36
 
-37:                                               ; preds = %_cmsAtan2.exit.i
-  %38 = call double @atan2(double noundef %34, double noundef %11) #8
-  %39 = fmul double %38, 1.800000e+02
-  %40 = fdiv double %39, 0x400921FB54442D18
-  %41 = fcmp olt double %40, 0.000000e+00
-  br i1 %41, label %.lr.ph.i24.i, label %ToSpherical.exit
+36:                                               ; preds = %_cmsAtan2.exit.i
+  %sqrt27.i = call double @llvm.sqrt.f64(double %33)
+  %37 = call double @atan2(double noundef %sqrt27.i, double noundef %11) #8
+  %38 = fmul double %37, 1.800000e+02
+  %39 = fdiv double %38, 0x400921FB54442D18
+  %40 = fcmp olt double %39, 0.000000e+00
+  br i1 %40, label %.lr.ph.i24.i, label %ToSpherical.exit
 
-.lr.ph.i24.i:                                     ; preds = %37, %.lr.ph.i24.i
-  %.010.i25.i = phi double [ %42, %.lr.ph.i24.i ], [ %40, %37 ]
-  %42 = fadd double %.010.i25.i, 3.600000e+02
-  %43 = fcmp olt double %42, 0.000000e+00
-  br i1 %43, label %.lr.ph.i24.i, label %ToSpherical.exit, !llvm.loop !6
+.lr.ph.i24.i:                                     ; preds = %36, %.lr.ph.i24.i
+  %.010.i25.i = phi double [ %41, %.lr.ph.i24.i ], [ %39, %36 ]
+  %41 = fadd double %.010.i25.i, 3.600000e+02
+  %42 = fcmp olt double %41, 0.000000e+00
+  br i1 %42, label %.lr.ph.i24.i, label %ToSpherical.exit, !llvm.loop !6
 
-ToSpherical.exit:                                 ; preds = %.lr.ph.i24.i, %_cmsAtan2.exit.i, %37
-  %.09.i23.i = phi double [ 0.000000e+00, %_cmsAtan2.exit.i ], [ %40, %37 ], [ %42, %.lr.ph.i24.i ]
-  %44 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store double %.09.i23.i, ptr %44, align 8
-  %45 = fcmp olt double %19, 0.000000e+00
-  %46 = fcmp olt double %.09.i.i, 0.000000e+00
-  %or.cond = or i1 %45, %46
-  %47 = fcmp olt double %.09.i23.i, 0.000000e+00
-  %or.cond35 = or i1 %or.cond, %47
-  br i1 %or.cond35, label %49, label %QuantizeToSector.exit
+ToSpherical.exit:                                 ; preds = %.lr.ph.i24.i, %_cmsAtan2.exit.i, %36
+  %.09.i23.i = phi double [ 0.000000e+00, %_cmsAtan2.exit.i ], [ %39, %36 ], [ %41, %.lr.ph.i24.i ]
+  %43 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  store double %.09.i23.i, ptr %43, align 8
+  %44 = fcmp olt double %.09.i.i, 0.000000e+00
+  %45 = fcmp olt double %.09.i23.i, 0.000000e+00
+  %or.cond = or i1 %44, %45
+  br i1 %or.cond, label %46, label %QuantizeToSector.exit
 
-.thread33:                                        ; preds = %3
-  %48 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %48, i8 0, i64 16, i1 false)
-  br label %QuantizeToSector.exit
+46:                                               ; preds = %ToSpherical.exit
+  %47 = load ptr, ptr %0, align 8
+  call void (ptr, i32, ptr, ...) @cmsSignalError(ptr noundef %47, i32 noundef 2, ptr noundef nonnull @.str) #8
+  br label %68
 
-49:                                               ; preds = %ToSpherical.exit
-  %50 = load ptr, ptr %0, align 8
-  call void (ptr, i32, ptr, ...) @cmsSignalError(ptr noundef %50, i32 noundef 2, ptr noundef nonnull @.str) #8
-  br label %71
+QuantizeToSector.exit:                            ; preds = %ToSpherical.exit, %.thread
+  %48 = phi double [ 0.000000e+00, %.thread ], [ %.09.i23.i, %ToSpherical.exit ]
+  %49 = phi double [ 0.000000e+00, %.thread ], [ %.09.i.i, %ToSpherical.exit ]
+  %50 = fmul double %49, 1.600000e+01
+  %51 = fdiv double %50, 3.600000e+02
+  %52 = call double @llvm.floor.f64(double %51)
+  %53 = fptosi double %52 to i32
+  %54 = fmul double %48, 1.600000e+01
+  %55 = fdiv double %54, 1.800000e+02
+  %56 = call double @llvm.floor.f64(double %55)
+  %57 = fptosi double %56 to i32
+  %spec.select = call i32 @llvm.smin.i32(i32 %53, i32 15)
+  %.022 = call i32 @llvm.smin.i32(i32 %57, i32 15)
+  %58 = icmp ugt i32 %spec.select, 15
+  %59 = icmp ugt i32 %.022, 15
+  %or.cond5 = select i1 %58, i1 true, i1 %59
+  br i1 %or.cond5, label %60, label %62
 
-QuantizeToSector.exit:                            ; preds = %ToSpherical.exit, %.thread33
-  %51 = phi double [ 0.000000e+00, %.thread33 ], [ %.09.i.i, %ToSpherical.exit ]
-  %52 = phi double [ 0.000000e+00, %.thread33 ], [ %.09.i23.i, %ToSpherical.exit ]
-  %53 = fmul double %51, 1.600000e+01
-  %54 = fdiv double %53, 3.600000e+02
-  %55 = call double @llvm.floor.f64(double %54)
-  %56 = fptosi double %55 to i32
-  %57 = fmul double %52, 1.600000e+01
-  %58 = fdiv double %57, 1.800000e+02
-  %59 = call double @llvm.floor.f64(double %58)
-  %60 = fptosi double %59 to i32
-  %spec.select = call i32 @llvm.smin.i32(i32 %56, i32 15)
-  %.022 = call i32 @llvm.smin.i32(i32 %60, i32 15)
-  %61 = icmp ugt i32 %spec.select, 15
-  %62 = icmp ugt i32 %.022, 15
-  %or.cond5 = select i1 %61, i1 true, i1 %62
-  br i1 %or.cond5, label %63, label %65
+60:                                               ; preds = %QuantizeToSector.exit
+  %61 = load ptr, ptr %0, align 8
+  call void (ptr, i32, ptr, ...) @cmsSignalError(ptr noundef %61, i32 noundef 2, ptr noundef nonnull @.str.1) #8
+  br label %68
 
-63:                                               ; preds = %QuantizeToSector.exit
-  %64 = load ptr, ptr %0, align 8
-  call void (ptr, i32, ptr, ...) @cmsSignalError(ptr noundef %64, i32 noundef 2, ptr noundef nonnull @.str.1) #8
-  br label %71
+62:                                               ; preds = %QuantizeToSector.exit
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %64 = zext nneg i32 %.022 to i64
+  %65 = getelementptr inbounds nuw [16 x %struct.cmsGDBPoint], ptr %63, i64 %64
+  %66 = zext nneg i32 %spec.select to i64
+  %67 = getelementptr inbounds nuw %struct.cmsGDBPoint, ptr %65, i64 %66
+  br label %68
 
-65:                                               ; preds = %QuantizeToSector.exit
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %67 = zext nneg i32 %.022 to i64
-  %68 = getelementptr inbounds nuw [16 x %struct.cmsGDBPoint], ptr %66, i64 %67
-  %69 = zext nneg i32 %spec.select to i64
-  %70 = getelementptr inbounds nuw %struct.cmsGDBPoint, ptr %68, i64 %69
-  br label %71
-
-71:                                               ; preds = %65, %63, %49
-  %.0 = phi ptr [ null, %49 ], [ null, %63 ], [ %70, %65 ]
+68:                                               ; preds = %62, %60, %46
+  %.0 = phi ptr [ null, %46 ], [ null, %60 ], [ %67, %62 ]
   ret ptr %.0
 }
 
@@ -278,7 +276,7 @@ define internal fastcc void @InterpolateMissingSector(ptr noundef %0, i32 nounde
   %13 = getelementptr inbounds %struct.cmsGDBPoint, ptr %11, i64 %12
   %14 = load i32, ptr %13, align 8
   %.not = icmp eq i32 %14, 0
-  br i1 %.not, label %.preheader, label %205
+  br i1 %.not, label %.preheader, label %203
 
 .preheader:                                       ; preds = %3, %30
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %30 ], [ 0, %3 ]
@@ -525,67 +523,67 @@ ClosestLineToLine.exit:                           ; preds = %147, %149, %152, %1
   %172 = fmul double %168, %168
   %173 = call double @llvm.fmuladd.f64(double %165, double %165, double %172)
   %174 = call double @llvm.fmuladd.f64(double %171, double %171, double %173)
-  %175 = call double @sqrt(double noundef %174) #8
-  %176 = fcmp oeq double %175, 0.000000e+00
-  br i1 %176, label %ToSpherical.exit, label %177
+  %sqrt.i = call double @llvm.sqrt.f64(double %174)
+  %175 = fcmp oeq double %174, 0.000000e+00
+  br i1 %175, label %ToSpherical.exit, label %176
 
-177:                                              ; preds = %ClosestLineToLine.exit
-  %178 = fcmp oeq double %171, 0.000000e+00
-  %179 = fcmp oeq double %168, 0.000000e+00
-  %or.cond.i.i = and i1 %179, %178
-  br i1 %or.cond.i.i, label %_cmsAtan2.exit.i, label %180
+176:                                              ; preds = %ClosestLineToLine.exit
+  %177 = fcmp oeq double %171, 0.000000e+00
+  %178 = fcmp oeq double %168, 0.000000e+00
+  %or.cond.i.i = and i1 %178, %177
+  br i1 %or.cond.i.i, label %_cmsAtan2.exit.i, label %179
 
-180:                                              ; preds = %177
-  %181 = call double @atan2(double noundef %168, double noundef %171) #8
-  %182 = fmul double %181, 1.800000e+02
-  %183 = fdiv double %182, 0x400921FB54442D18
-  %184 = fcmp olt double %183, 0.000000e+00
-  br i1 %184, label %.lr.ph.i.i, label %_cmsAtan2.exit.i
+179:                                              ; preds = %176
+  %180 = call double @atan2(double noundef %168, double noundef %171) #8
+  %181 = fmul double %180, 1.800000e+02
+  %182 = fdiv double %181, 0x400921FB54442D18
+  %183 = fcmp olt double %182, 0.000000e+00
+  br i1 %183, label %.lr.ph.i.i, label %_cmsAtan2.exit.i
 
-.lr.ph.i.i:                                       ; preds = %180, %.lr.ph.i.i
-  %.010.i.i = phi double [ %185, %.lr.ph.i.i ], [ %183, %180 ]
-  %185 = fadd double %.010.i.i, 3.600000e+02
-  %186 = fcmp olt double %185, 0.000000e+00
-  br i1 %186, label %.lr.ph.i.i, label %_cmsAtan2.exit.i, !llvm.loop !6
+.lr.ph.i.i:                                       ; preds = %179, %.lr.ph.i.i
+  %.010.i.i = phi double [ %184, %.lr.ph.i.i ], [ %182, %179 ]
+  %184 = fadd double %.010.i.i, 3.600000e+02
+  %185 = fcmp olt double %184, 0.000000e+00
+  br i1 %185, label %.lr.ph.i.i, label %_cmsAtan2.exit.i, !llvm.loop !6
 
-_cmsAtan2.exit.i:                                 ; preds = %.lr.ph.i.i, %180, %177
-  %.09.i.i = phi double [ 0.000000e+00, %177 ], [ %183, %180 ], [ %185, %.lr.ph.i.i ]
-  %187 = fmul double %171, %171
-  %188 = call double @llvm.fmuladd.f64(double %168, double %168, double %187)
-  %189 = call double @sqrt(double noundef %188) #8
-  %190 = fcmp oeq double %165, 0.000000e+00
-  %191 = fcmp oeq double %189, 0.000000e+00
-  %or.cond.i22.i = and i1 %190, %191
-  br i1 %or.cond.i22.i, label %ToSpherical.exit, label %192
+_cmsAtan2.exit.i:                                 ; preds = %.lr.ph.i.i, %179, %176
+  %.09.i.i = phi double [ 0.000000e+00, %176 ], [ %182, %179 ], [ %184, %.lr.ph.i.i ]
+  %186 = fmul double %171, %171
+  %187 = call double @llvm.fmuladd.f64(double %168, double %168, double %186)
+  %188 = fcmp oeq double %165, 0.000000e+00
+  %189 = fcmp oeq double %187, 0.000000e+00
+  %or.cond.i22.i = and i1 %188, %189
+  br i1 %or.cond.i22.i, label %ToSpherical.exit, label %190
 
-192:                                              ; preds = %_cmsAtan2.exit.i
-  %193 = call double @atan2(double noundef %189, double noundef %165) #8
-  %194 = fmul double %193, 1.800000e+02
-  %195 = fdiv double %194, 0x400921FB54442D18
+190:                                              ; preds = %_cmsAtan2.exit.i
+  %sqrt27.i = call double @llvm.sqrt.f64(double %187)
+  %191 = call double @atan2(double noundef %sqrt27.i, double noundef %165) #8
+  %192 = fmul double %191, 1.800000e+02
+  %193 = fdiv double %192, 0x400921FB54442D18
+  %194 = fcmp olt double %193, 0.000000e+00
+  br i1 %194, label %.lr.ph.i24.i, label %ToSpherical.exit
+
+.lr.ph.i24.i:                                     ; preds = %190, %.lr.ph.i24.i
+  %.010.i25.i = phi double [ %195, %.lr.ph.i24.i ], [ %193, %190 ]
+  %195 = fadd double %.010.i25.i, 3.600000e+02
   %196 = fcmp olt double %195, 0.000000e+00
-  br i1 %196, label %.lr.ph.i24.i, label %ToSpherical.exit
+  br i1 %196, label %.lr.ph.i24.i, label %ToSpherical.exit, !llvm.loop !6
 
-.lr.ph.i24.i:                                     ; preds = %192, %.lr.ph.i24.i
-  %.010.i25.i = phi double [ %197, %.lr.ph.i24.i ], [ %195, %192 ]
-  %197 = fadd double %.010.i25.i, 3.600000e+02
-  %198 = fcmp olt double %197, 0.000000e+00
-  br i1 %198, label %.lr.ph.i24.i, label %ToSpherical.exit, !llvm.loop !6
-
-ToSpherical.exit:                                 ; preds = %.lr.ph.i24.i, %_cmsAtan2.exit.i, %192, %ClosestLineToLine.exit
-  %.sroa.5.259 = phi double [ 0.000000e+00, %ClosestLineToLine.exit ], [ 0.000000e+00, %_cmsAtan2.exit.i ], [ %195, %192 ], [ %197, %.lr.ph.i24.i ]
-  %.sroa.247.2 = phi double [ 0.000000e+00, %ClosestLineToLine.exit ], [ %.09.i.i, %_cmsAtan2.exit.i ], [ %.09.i.i, %192 ], [ %.09.i.i, %.lr.ph.i24.i ]
-  %199 = fcmp ule double %175, %.sroa.0.163
-  %200 = fcmp ult double %.sroa.5.259, %67
-  %or.cond = or i1 %199, %200
-  %201 = fcmp ugt double %.sroa.5.259, %71
-  %or.cond75 = select i1 %or.cond, i1 true, i1 %201
-  %202 = fcmp ult double %.sroa.247.2, %73
-  %or.cond76 = or i1 %or.cond75, %202
-  %203 = fcmp ugt double %.sroa.247.2, %77
-  %or.cond77 = select i1 %or.cond76, i1 true, i1 %203
+ToSpherical.exit:                                 ; preds = %.lr.ph.i24.i, %_cmsAtan2.exit.i, %190, %ClosestLineToLine.exit
+  %.sroa.5.259 = phi double [ 0.000000e+00, %ClosestLineToLine.exit ], [ 0.000000e+00, %_cmsAtan2.exit.i ], [ %193, %190 ], [ %195, %.lr.ph.i24.i ]
+  %.sroa.247.2 = phi double [ 0.000000e+00, %ClosestLineToLine.exit ], [ %.09.i.i, %_cmsAtan2.exit.i ], [ %.09.i.i, %190 ], [ %.09.i.i, %.lr.ph.i24.i ]
+  %197 = fcmp ule double %sqrt.i, %.sroa.0.163
+  %198 = fcmp ult double %.sroa.5.259, %67
+  %or.cond = or i1 %197, %198
+  %199 = fcmp ugt double %.sroa.5.259, %71
+  %or.cond75 = select i1 %or.cond, i1 true, i1 %199
+  %200 = fcmp ult double %.sroa.247.2, %73
+  %or.cond76 = or i1 %or.cond75, %200
+  %201 = fcmp ugt double %.sroa.247.2, %77
+  %or.cond77 = select i1 %or.cond76, i1 true, i1 %201
   %.sroa.5.2 = select i1 %or.cond77, double %.sroa.5.161, double %.sroa.5.259
   %.sroa.4.2 = select i1 %or.cond77, double %.sroa.4.162, double %.sroa.247.2
-  %.sroa.0.2 = select i1 %or.cond77, double %.sroa.0.163, double %175
+  %.sroa.0.2 = select i1 %or.cond77, double %.sroa.0.163, double %sqrt.i
   %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next80, %wide.trip.count87
   br i1 %exitcond.not, label %.loopexit, label %86, !llvm.loop !14
@@ -594,16 +592,16 @@ ToSpherical.exit:                                 ; preds = %.lr.ph.i24.i, %_cms
   %.sroa.5.0.lcssa = phi double [ 0.000000e+00, %FindNearSectors.exit ], [ %.sroa.5.1.lcssa, %.loopexit ]
   %.sroa.4.0.lcssa = phi double [ 0.000000e+00, %FindNearSectors.exit ], [ %.sroa.4.1.lcssa, %.loopexit ]
   %.sroa.0.0.lcssa = phi double [ 0.000000e+00, %FindNearSectors.exit ], [ %.sroa.0.1.lcssa, %.loopexit ]
-  %204 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  store double %.sroa.0.0.lcssa, ptr %204, align 8
+  %202 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  store double %.sroa.0.0.lcssa, ptr %202, align 8
   %.sroa.4.0..sroa_idx8 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store double %.sroa.4.0.lcssa, ptr %.sroa.4.0..sroa_idx8, align 8
   %.sroa.5.0..sroa_idx10 = getelementptr inbounds nuw i8, ptr %13, i64 24
   store double %.sroa.5.0.lcssa, ptr %.sroa.5.0..sroa_idx10, align 8
   store i32 2, ptr %13, align 8
-  br label %205
+  br label %203
 
-205:                                              ; preds = %3, %._crit_edge
+203:                                              ; preds = %3, %._crit_edge
   ret void
 }
 
@@ -611,36 +609,36 @@ declare void @_cmsVEC3init(ptr noundef, double noundef, double noundef, double n
 
 declare void @cmsSignalError(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.fmuladd.f64(double, double, double) #3
+
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @sqrt(double noundef) local_unnamed_addr #3
+declare double @atan2(double noundef, double noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #4
+declare double @llvm.floor.f64(double) #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @atan2(double noundef, double noundef) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.floor.f64(double) #4
+declare double @sin(double noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @sin(double noundef) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @cos(double noundef) local_unnamed_addr #3
+declare double @cos(double noundef) local_unnamed_addr #4
 
 declare void @_cmsVEC3minus(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare double @_cmsVEC3dot(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fabs.f64(double) #4
-
-; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
+declare double @llvm.fabs.f64(double) #3
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #6
+declare double @llvm.sqrt.f64(double) #5
+
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smin.i32(i32, i32) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
@@ -651,10 +649,10 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #6 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #3 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #7 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nounwind }
 

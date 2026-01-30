@@ -2629,8 +2629,8 @@ define { <2 x float>, float } @_ZN32pxrInternal_v0_24__pxrReserved__21UsdPhysics
   %.sroa.282.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %24
 
-24:                                               ; preds = %2, %104
-  %.085 = phi i32 [ 0, %2 ], [ %107, %104 ]
+24:                                               ; preds = %2, %103
+  %.086 = phi i32 [ 0, %2 ], [ %106, %103 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix3fC1ERKNS_7GfQuatfE(ptr noundef nonnull align 4 dereferenceable(36) %9, ptr noundef nonnull align 4 dereferenceable(16) %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %11, ptr noundef nonnull align 4 dereferenceable(36) %9, i64 36, i1 false)
   %25 = call noundef nonnull align 4 dereferenceable(36) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix3fmLERKS0_(ptr noundef nonnull align 4 dereferenceable(36) %11, ptr noundef nonnull align 4 dereferenceable(36) %0)
@@ -2665,7 +2665,7 @@ define { <2 x float>, float } @_ZN32pxrInternal_v0_24__pxrReserved__21UsdPhysics
   %50 = getelementptr inbounds nuw float, ptr %48, i64 %49
   %51 = load float, ptr %50, align 4
   %52 = fcmp oeq float %51, 0.000000e+00
-  br i1 %52, label %108, label %53
+  br i1 %52, label %107, label %53
 
 53:                                               ; preds = %24
   %54 = zext nneg i32 %41 to i64
@@ -2684,7 +2684,7 @@ define { <2 x float>, float } @_ZN32pxrInternal_v0_24__pxrReserved__21UsdPhysics
   %67 = call double @llvm.fabs.f64(double %66)
   %68 = fmul double %67, 2.000000e+06
   %69 = fcmp olt double %68, %64
-  br i1 %69, label %108, label %70
+  br i1 %69, label %107, label %70
 
 70:                                               ; preds = %53
   %71 = fmul float %51, 2.000000e+00
@@ -2708,75 +2708,75 @@ define { <2 x float>, float } @_ZN32pxrInternal_v0_24__pxrReserved__21UsdPhysics
   %.sroa.0.4.vec.insert.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i, float %81, i64 1
   %.sroa.3.12.vec.insert.i = insertelement <2 x float> <float poison, float 1.000000e+00>, float %82, i64 0
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %104
+  br label %103
 
 83:                                               ; preds = %70
   %84 = call float @llvm.fmuladd.f32(float %72, float %72, float 1.000000e+00)
-  %85 = call noundef float @sqrtf(float noundef %84) #21
-  %86 = fadd float %73, %85
-  %87 = fdiv float 1.000000e+00, %86
-  %88 = call float @llvm.fmuladd.f32(float %87, float %87, float 1.000000e+00)
-  %sqrt = call float @llvm.sqrt.f32(float %88)
-  %89 = fdiv float 1.000000e+00, %sqrt
-  %90 = fsub float 1.000000e+00, %89
-  %91 = fmul float %90, 5.000000e-01
-  %92 = call noundef float @sqrtf(float noundef %91) #21
-  %93 = fcmp oge float %72, 0.000000e+00
-  %94 = fneg float %92
-  %95 = select i1 %93, float %92, float %94
-  %96 = fadd float %89, 1.000000e+00
-  %97 = fmul float %96, 5.000000e-01
-  %98 = call noundef float @sqrtf(float noundef %97) #21
+  %sqrt85 = call float @llvm.sqrt.f32(float %84)
+  %85 = fadd float %73, %sqrt85
+  %86 = fdiv float 1.000000e+00, %85
+  %87 = call float @llvm.fmuladd.f32(float %86, float %86, float 1.000000e+00)
+  %sqrt = call float @llvm.sqrt.f32(float %87)
+  %88 = fdiv float 1.000000e+00, %sqrt
+  %89 = fsub float 1.000000e+00, %88
+  %90 = fmul float %89, 5.000000e-01
+  %91 = call noundef float @sqrtf(float noundef %90) #21
+  %92 = fcmp oge float %72, 0.000000e+00
+  %93 = fneg float %91
+  %94 = select i1 %92, float %91, float %93
+  %95 = fadd float %88, 1.000000e+00
+  %96 = fmul float %95, 5.000000e-01
+  %97 = call noundef float @sqrtf(float noundef %96) #21
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %5, i8 0, i64 12, i1 false)
-  %99 = zext nneg i32 %37 to i64
-  %100 = getelementptr inbounds nuw float, ptr %5, i64 %99
-  store float %95, ptr %100, align 4
-  %101 = load float, ptr %5, align 4
-  %102 = load float, ptr %20, align 4
-  %103 = load float, ptr %21, align 4
-  %.sroa.0.0.vec.insert.i56 = insertelement <2 x float> poison, float %101, i64 0
-  %.sroa.0.4.vec.insert.i57 = insertelement <2 x float> %.sroa.0.0.vec.insert.i56, float %102, i64 1
-  %.sroa.3.8.vec.insert.i58 = insertelement <2 x float> poison, float %103, i64 0
-  %.sroa.3.12.vec.insert.i59 = insertelement <2 x float> %.sroa.3.8.vec.insert.i58, float %98, i64 1
+  %98 = zext nneg i32 %37 to i64
+  %99 = getelementptr inbounds nuw float, ptr %5, i64 %98
+  store float %94, ptr %99, align 4
+  %100 = load float, ptr %5, align 4
+  %101 = load float, ptr %20, align 4
+  %102 = load float, ptr %21, align 4
+  %.sroa.0.0.vec.insert.i56 = insertelement <2 x float> poison, float %100, i64 0
+  %.sroa.0.4.vec.insert.i57 = insertelement <2 x float> %.sroa.0.0.vec.insert.i56, float %101, i64 1
+  %.sroa.3.8.vec.insert.i58 = insertelement <2 x float> poison, float %102, i64 0
+  %.sroa.3.12.vec.insert.i59 = insertelement <2 x float> %.sroa.3.8.vec.insert.i58, float %97, i64 1
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %104
+  br label %103
 
-104:                                              ; preds = %83, %75
-  %storemerge88 = phi <2 x float> [ %.sroa.0.4.vec.insert.i57, %83 ], [ %.sroa.0.4.vec.insert.i, %75 ]
+103:                                              ; preds = %83, %75
+  %storemerge89 = phi <2 x float> [ %.sroa.0.4.vec.insert.i57, %83 ], [ %.sroa.0.4.vec.insert.i, %75 ]
   %storemerge = phi <2 x float> [ %.sroa.3.12.vec.insert.i59, %83 ], [ %.sroa.3.12.vec.insert.i, %75 ]
-  store <2 x float> %storemerge88, ptr %13, align 8
+  store <2 x float> %storemerge89, ptr %13, align 8
   store <2 x float> %storemerge, ptr %.sroa.214.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false)
-  %105 = call noundef nonnull align 4 dereferenceable(16) ptr @_ZN32pxrInternal_v0_24__pxrReserved__7GfQuatfmLERKS0_(ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(16) %13)
-  %.sroa.0.0.copyload.i = load <2 x float>, ptr %105, align 4
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %105, i64 8
+  %104 = call noundef nonnull align 4 dereferenceable(16) ptr @_ZN32pxrInternal_v0_24__pxrReserved__7GfQuatfmLERKS0_(ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(16) %13)
+  %.sroa.0.0.copyload.i = load <2 x float>, ptr %104, align 4
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %104, i64 8
   %.sroa.2.0.copyload.i = load <2 x float>, ptr %.sroa.2.0..sroa_idx.i, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store <2 x float> %.sroa.0.0.copyload.i, ptr %3, align 8
   store <2 x float> %.sroa.2.0.copyload.i, ptr %.sroa.282.0..sroa_idx, align 8
-  %106 = call noundef float @_ZN32pxrInternal_v0_24__pxrReserved__7GfQuatf9NormalizeEf(ptr noundef nonnull align 4 dereferenceable(16) %3, float noundef 0x3DDB7CDFE0000000)
+  %105 = call noundef float @_ZN32pxrInternal_v0_24__pxrReserved__7GfQuatf9NormalizeEf(ptr noundef nonnull align 4 dereferenceable(16) %3, float noundef 0x3DDB7CDFE0000000)
   %.fca.0.load.i = load <2 x float>, ptr %3, align 8
   %.fca.1.load.i = load <2 x float>, ptr %.sroa.282.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store <2 x float> %.fca.0.load.i, ptr %7, align 8
   store <2 x float> %.fca.1.load.i, ptr %15, align 8
-  %107 = add nuw nsw i32 %.085, 1
-  %exitcond.not = icmp eq i32 %107, 24
-  br i1 %exitcond.not, label %108, label %24, !llvm.loop !8
+  %106 = add nuw nsw i32 %.086, 1
+  %exitcond.not = icmp eq i32 %106, 24
+  br i1 %exitcond.not, label %107, label %24, !llvm.loop !8
 
-108:                                              ; preds = %24, %53, %104
+107:                                              ; preds = %24, %53, %103
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false)
   %.sroa.083.0.vec.insert = load <2 x float>, ptr %8, align 16
-  %109 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %110 = load float, ptr %109, align 16
-  %111 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %112 = load float, ptr %111, align 16
-  %.sroa.083.4.vec.insert = insertelement <2 x float> %.sroa.083.0.vec.insert, float %110, i64 1
+  %108 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %109 = load float, ptr %108, align 16
+  %110 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  %111 = load float, ptr %110, align 16
+  %.sroa.083.4.vec.insert = insertelement <2 x float> %.sroa.083.0.vec.insert, float %109, i64 1
   %.fca.0.insert = insertvalue { <2 x float>, float } poison, <2 x float> %.sroa.083.4.vec.insert, 0
-  %.fca.1.insert = insertvalue { <2 x float>, float } %.fca.0.insert, float %112, 1
+  %.fca.1.insert = insertvalue { <2 x float>, float } %.fca.0.insert, float %111, 1
   ret { <2 x float>, float } %.fca.1.insert
 }
 

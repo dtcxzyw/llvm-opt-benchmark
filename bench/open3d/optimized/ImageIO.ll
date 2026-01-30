@@ -35945,7 +35945,7 @@ _ZNSt8__detail8_AdaptorISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm256
   br i1 %165, label %select.unfold.i.i.backedge, label %166
 
 166:                                              ; preds = %_ZNSt8__detail8_AdaptorISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEfEclEv.exit25
-  %167 = tail call noundef float @logf(float noundef %162) #29, !tbaa !16
+  %167 = tail call float @llvm.log.f32(float %162), !tbaa !16
   %168 = fmul float %167, -2.000000e+00
   %169 = fdiv float %168, %162
   %170 = tail call noundef float @sqrtf(float noundef %169) #29, !tbaa !16
@@ -35970,9 +35970,6 @@ declare float @nextafterf(float noundef, float noundef) local_unnamed_addr #30
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
 declare float @sqrtf(float noundef) local_unnamed_addr #30
-
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare float @logf(float noundef) local_unnamed_addr #30
 
 ; Function Attrs: nounwind
 declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #16
@@ -36203,6 +36200,9 @@ declare i32 @llvm.umin.i32(i32, i32) #33
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare x86_fp80 @llvm.log.f80(x86_fp80) #33
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.log.f32(float) #33
 
 attributes #0 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

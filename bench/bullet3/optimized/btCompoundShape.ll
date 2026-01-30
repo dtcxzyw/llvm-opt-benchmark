@@ -1391,8 +1391,8 @@ define linkonce_odr dso_local void @_ZN11btMatrix3x311diagonalizeERS_fi(ptr noun
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %16
 
-16:                                               ; preds = %.lr.ph, %103
-  %.0113 = phi i32 [ %3, %.lr.ph ], [ %104, %103 ]
+16:                                               ; preds = %.lr.ph, %101
+  %.0115 = phi i32 [ %3, %.lr.ph ], [ %102, %101 ]
   %17 = load float, ptr %11, align 4, !tbaa !22
   %18 = tail call noundef float @llvm.fabs.f32(float %17)
   %19 = load float, ptr %12, align 4, !tbaa !22
@@ -1432,7 +1432,7 @@ define linkonce_odr dso_local void @_ZN11btMatrix3x311diagonalizeERS_fi(ptr noun
   br i1 %39, label %40, label %.critedge
 
 40:                                               ; preds = %37, %26
-  %.1 = phi i32 [ %.0113, %26 ], [ 1, %37 ]
+  %.1 = phi i32 [ %.0115, %26 ], [ 1, %37 ]
   %41 = getelementptr inbounds nuw %class.btVector3, ptr %0, i64 %.098
   %42 = getelementptr inbounds nuw float, ptr %41, i64 %.1100
   %43 = load float, ptr %42, align 4, !tbaa !22
@@ -1447,88 +1447,88 @@ define linkonce_odr dso_local void @_ZN11btMatrix3x311diagonalizeERS_fi(ptr noun
   %52 = fmul float %51, %51
   %53 = fmul float %52, %52
   %54 = fcmp olt float %53, 0x4194000000000000
-  br i1 %54, label %55, label %65
+  br i1 %54, label %55, label %63
 
 55:                                               ; preds = %40
   %56 = fcmp ult float %51, 0.000000e+00
   %57 = fadd float %52, 1.000000e+00
-  %58 = tail call noundef float @sqrtf(float noundef %57) #13, !tbaa !55
-  %59 = fneg float %58
-  %.pn.p = select i1 %56, float %59, float %58
+  %sqrt112 = tail call float @llvm.sqrt.f32(float %57)
+  %58 = fneg float %sqrt112
+  %.pn.p = select i1 %56, float %58, float %sqrt112
   %.pn = fadd float %51, %.pn.p
-  %60 = fdiv float 1.000000e+00, %.pn
-  %61 = tail call float @llvm.fmuladd.f32(float %60, float %60, float 1.000000e+00)
-  %62 = tail call noundef float @sqrtf(float noundef %61) #13, !tbaa !55
-  %63 = fdiv float 1.000000e+00, %62
-  %64 = fmul float %60, %63
-  br label %73
+  %59 = fdiv float 1.000000e+00, %.pn
+  %60 = tail call float @llvm.fmuladd.f32(float %59, float %59, float 1.000000e+00)
+  %sqrt113 = tail call float @llvm.sqrt.f32(float %60)
+  %61 = fdiv float 1.000000e+00, %sqrt113
+  %62 = fmul float %59, %61
+  br label %71
 
-65:                                               ; preds = %40
-  %66 = fdiv float 5.000000e-01, %52
-  %67 = fadd float %66, 2.000000e+00
-  %68 = fmul float %51, %67
-  %69 = fdiv float 1.000000e+00, %68
-  %70 = fmul float %69, -5.000000e-01
-  %71 = tail call float @llvm.fmuladd.f32(float %70, float %69, float 1.000000e+00)
-  %72 = fmul float %69, %71
-  br label %73
+63:                                               ; preds = %40
+  %64 = fdiv float 5.000000e-01, %52
+  %65 = fadd float %64, 2.000000e+00
+  %66 = fmul float %51, %65
+  %67 = fdiv float 1.000000e+00, %66
+  %68 = fmul float %67, -5.000000e-01
+  %69 = tail call float @llvm.fmuladd.f32(float %68, float %67, float 1.000000e+00)
+  %70 = fmul float %67, %69
+  br label %71
 
-73:                                               ; preds = %65, %55
-  %.0101 = phi float [ %60, %55 ], [ %69, %65 ]
-  %.096 = phi float [ %63, %55 ], [ %71, %65 ]
-  %.095 = phi float [ %64, %55 ], [ %72, %65 ]
-  %74 = getelementptr inbounds nuw float, ptr %44, i64 %.098
-  store float 0.000000e+00, ptr %74, align 4, !tbaa !22
+71:                                               ; preds = %63, %55
+  %.0101 = phi float [ %59, %55 ], [ %67, %63 ]
+  %.096 = phi float [ %61, %55 ], [ %69, %63 ]
+  %.095 = phi float [ %62, %55 ], [ %70, %63 ]
+  %72 = getelementptr inbounds nuw float, ptr %44, i64 %.098
+  store float 0.000000e+00, ptr %72, align 4, !tbaa !22
   store float 0.000000e+00, ptr %42, align 4, !tbaa !22
-  %75 = load float, ptr %47, align 4, !tbaa !22
-  %76 = fneg float %.0101
-  %77 = tail call float @llvm.fmuladd.f32(float %76, float %43, float %75)
-  store float %77, ptr %47, align 4, !tbaa !22
-  %78 = load float, ptr %45, align 4, !tbaa !22
-  %79 = tail call float @llvm.fmuladd.f32(float %.0101, float %43, float %78)
-  store float %79, ptr %45, align 4, !tbaa !22
-  %80 = getelementptr inbounds nuw %class.btVector3, ptr %0, i64 %.1105
-  %81 = getelementptr inbounds nuw float, ptr %80, i64 %.098
+  %73 = load float, ptr %47, align 4, !tbaa !22
+  %74 = fneg float %.0101
+  %75 = tail call float @llvm.fmuladd.f32(float %74, float %43, float %73)
+  store float %75, ptr %47, align 4, !tbaa !22
+  %76 = load float, ptr %45, align 4, !tbaa !22
+  %77 = tail call float @llvm.fmuladd.f32(float %.0101, float %43, float %76)
+  store float %77, ptr %45, align 4, !tbaa !22
+  %78 = getelementptr inbounds nuw %class.btVector3, ptr %0, i64 %.1105
+  %79 = getelementptr inbounds nuw float, ptr %78, i64 %.098
+  %80 = load float, ptr %79, align 4, !tbaa !22
+  %81 = getelementptr inbounds nuw float, ptr %78, i64 %.1100
   %82 = load float, ptr %81, align 4, !tbaa !22
-  %83 = getelementptr inbounds nuw float, ptr %80, i64 %.1100
-  %84 = load float, ptr %83, align 4, !tbaa !22
-  %85 = fneg float %84
-  %86 = fmul float %.095, %85
-  %87 = tail call float @llvm.fmuladd.f32(float %.096, float %82, float %86)
-  %88 = getelementptr inbounds nuw float, ptr %41, i64 %.1105
-  store float %87, ptr %88, align 4, !tbaa !22
-  store float %87, ptr %81, align 4, !tbaa !22
-  %89 = fmul float %.095, %82
-  %90 = tail call float @llvm.fmuladd.f32(float %.096, float %84, float %89)
-  %91 = getelementptr inbounds nuw float, ptr %44, i64 %.1105
-  store float %90, ptr %91, align 4, !tbaa !22
-  store float %90, ptr %83, align 4, !tbaa !22
-  br label %92
+  %83 = fneg float %82
+  %84 = fmul float %.095, %83
+  %85 = tail call float @llvm.fmuladd.f32(float %.096, float %80, float %84)
+  %86 = getelementptr inbounds nuw float, ptr %41, i64 %.1105
+  store float %85, ptr %86, align 4, !tbaa !22
+  store float %85, ptr %79, align 4, !tbaa !22
+  %87 = fmul float %.095, %80
+  %88 = tail call float @llvm.fmuladd.f32(float %.096, float %82, float %87)
+  %89 = getelementptr inbounds nuw float, ptr %44, i64 %.1105
+  store float %88, ptr %89, align 4, !tbaa !22
+  store float %88, ptr %81, align 4, !tbaa !22
+  br label %90
 
-92:                                               ; preds = %73, %92
-  %indvars.iv = phi i64 [ 0, %73 ], [ %indvars.iv.next, %92 ]
-  %93 = getelementptr inbounds nuw %class.btVector3, ptr %1, i64 %indvars.iv
-  %94 = getelementptr inbounds nuw float, ptr %93, i64 %.098
+90:                                               ; preds = %71, %90
+  %indvars.iv = phi i64 [ 0, %71 ], [ %indvars.iv.next, %90 ]
+  %91 = getelementptr inbounds nuw %class.btVector3, ptr %1, i64 %indvars.iv
+  %92 = getelementptr inbounds nuw float, ptr %91, i64 %.098
+  %93 = load float, ptr %92, align 4, !tbaa !22
+  %94 = getelementptr inbounds nuw float, ptr %91, i64 %.1100
   %95 = load float, ptr %94, align 4, !tbaa !22
-  %96 = getelementptr inbounds nuw float, ptr %93, i64 %.1100
-  %97 = load float, ptr %96, align 4, !tbaa !22
-  %98 = fneg float %97
-  %99 = fmul float %.095, %98
+  %96 = fneg float %95
+  %97 = fmul float %.095, %96
+  %98 = tail call float @llvm.fmuladd.f32(float %.096, float %93, float %97)
+  store float %98, ptr %92, align 4, !tbaa !22
+  %99 = fmul float %.095, %93
   %100 = tail call float @llvm.fmuladd.f32(float %.096, float %95, float %99)
   store float %100, ptr %94, align 4, !tbaa !22
-  %101 = fmul float %.095, %95
-  %102 = tail call float @llvm.fmuladd.f32(float %.096, float %97, float %101)
-  store float %102, ptr %96, align 4, !tbaa !22
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %103, label %92, !llvm.loop !56
+  br i1 %exitcond.not, label %101, label %90, !llvm.loop !55
 
-103:                                              ; preds = %92
-  %104 = add nsw i32 %.1, -1
-  %105 = icmp sgt i32 %.1, 1
-  br i1 %105, label %16, label %.critedge, !llvm.loop !57
+101:                                              ; preds = %90
+  %102 = add nsw i32 %.1, -1
+  %103 = icmp sgt i32 %.1, 1
+  br i1 %103, label %16, label %.critedge, !llvm.loop !56
 
-.critedge:                                        ; preds = %103, %37, %4
+.critedge:                                        ; preds = %101, %37, %4
   ret void
 }
 
@@ -1684,7 +1684,7 @@ _ZN15btCompoundShape20updateChildTransformEiRK11btTransformb.exit: ; preds = %30
   %98 = load i32, ptr %8, align 4, !tbaa !20
   %99 = sext i32 %98 to i64
   %100 = icmp slt i64 %indvars.iv.next, %99
-  br i1 %100, label %30, label %._crit_edge, !llvm.loop !58
+  br i1 %100, label %30, label %._crit_edge, !llvm.loop !57
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1738,7 +1738,7 @@ define dso_local void @_ZN15btCompoundShape26createAabbTreeFromChildrenEv(ptr no
   %26 = load i32, ptr %9, align 4, !tbaa !20
   %27 = sext i32 %26 to i64
   %28 = icmp slt i64 %indvars.iv.next, %27
-  br i1 %28, label %14, label %.loopexit, !llvm.loop !59
+  br i1 %28, label %14, label %.loopexit, !llvm.loop !58
 
 .loopexit:                                        ; preds = %14, %7, %1
   ret void
@@ -1750,13 +1750,13 @@ define dso_local noundef nonnull ptr @_ZNK15btCompoundShape9serializeEPvP12btSer
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 108
   %6 = load float, ptr %5, align 4, !tbaa !29
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  store float %6, ptr %7, align 4, !tbaa !60
+  store float %6, ptr %7, align 4, !tbaa !59
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %9 = load i32, ptr %8, align 4, !tbaa !20
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store i32 %9, ptr %10, align 8, !tbaa !65
+  store i32 %9, ptr %10, align 8, !tbaa !64
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store ptr null, ptr %11, align 8, !tbaa !66
+  store ptr null, ptr %11, align 8, !tbaa !65
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %105, label %12
 
@@ -1766,13 +1766,13 @@ define dso_local noundef nonnull ptr @_ZNK15btCompoundShape9serializeEPvP12btSer
   %15 = load ptr, ptr %14, align 8
   %16 = tail call noundef ptr %15(ptr noundef nonnull align 8 dereferenceable(8) %2, i64 noundef 80, i32 noundef %9)
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %18 = load ptr, ptr %17, align 8, !tbaa !67
+  %18 = load ptr, ptr %17, align 8, !tbaa !66
   %19 = load ptr, ptr %2, align 8, !tbaa !12
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 56
   %21 = load ptr, ptr %20, align 8
   %22 = tail call noundef ptr %21(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %18)
-  store ptr %22, ptr %11, align 8, !tbaa !66
-  %23 = load i32, ptr %10, align 8, !tbaa !65
+  store ptr %22, ptr %11, align 8, !tbaa !65
+  %23 = load i32, ptr %10, align 8, !tbaa !64
   %24 = icmp sgt i32 %23, 0
   br i1 %24, label %.lr.ph, label %._crit_edge
 
@@ -1782,7 +1782,7 @@ define dso_local noundef nonnull ptr @_ZNK15btCompoundShape9serializeEPvP12btSer
   br label %30
 
 ._crit_edge:                                      ; preds = %_ZNK11btTransform14serializeFloatER20btTransformFloatData.exit, %12
-  %26 = load ptr, ptr %17, align 8, !tbaa !67
+  %26 = load ptr, ptr %17, align 8, !tbaa !66
   %27 = load ptr, ptr %2, align 8, !tbaa !12
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 40
   %29 = load ptr, ptr %28, align 8
@@ -1795,9 +1795,9 @@ define dso_local noundef nonnull ptr @_ZNK15btCompoundShape9serializeEPvP12btSer
   %.044 = phi ptr [ %18, %.lr.ph ], [ %101, %_ZNK11btTransform14serializeFloatER20btTransformFloatData.exit ]
   %32 = getelementptr inbounds nuw %struct.btCompoundShapeChild, ptr %31, i64 %indvars.iv
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 76
-  %34 = load float, ptr %33, align 4, !tbaa !69
+  %34 = load float, ptr %33, align 4, !tbaa !68
   %35 = getelementptr inbounds nuw i8, ptr %.044, i64 76
-  store float %34, ptr %35, align 4, !tbaa !70
+  store float %34, ptr %35, align 4, !tbaa !69
   %36 = getelementptr inbounds nuw i8, ptr %32, i64 64
   %37 = load ptr, ptr %36, align 8, !tbaa !37
   %38 = load ptr, ptr %2, align 8, !tbaa !12
@@ -1805,7 +1805,7 @@ define dso_local noundef nonnull ptr @_ZNK15btCompoundShape9serializeEPvP12btSer
   %40 = load ptr, ptr %39, align 8
   %41 = tail call noundef ptr %40(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %37)
   %42 = getelementptr inbounds nuw i8, ptr %.044, i64 64
-  store ptr %41, ptr %42, align 8, !tbaa !76
+  store ptr %41, ptr %42, align 8, !tbaa !75
   %43 = load ptr, ptr %25, align 8, !tbaa !19
   %44 = getelementptr inbounds nuw %struct.btCompoundShapeChild, ptr %43, i64 %indvars.iv
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 64
@@ -1836,7 +1836,7 @@ define dso_local noundef nonnull ptr @_ZNK15btCompoundShape9serializeEPvP12btSer
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 64
   %68 = load ptr, ptr %67, align 8, !tbaa !37
   %69 = getelementptr inbounds nuw i8, ptr %64, i64 8
-  %70 = load ptr, ptr %69, align 8, !tbaa !67
+  %70 = load ptr, ptr %69, align 8, !tbaa !66
   %71 = load ptr, ptr %68, align 8, !tbaa !12
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 112
   %73 = load ptr, ptr %72, align 8
@@ -1855,9 +1855,9 @@ define dso_local noundef nonnull ptr @_ZNK15btCompoundShape9serializeEPvP12btSer
   %83 = load ptr, ptr %25, align 8, !tbaa !19
   %84 = getelementptr inbounds nuw %struct.btCompoundShapeChild, ptr %83, i64 %indvars.iv
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 72
-  %86 = load i32, ptr %85, align 8, !tbaa !77
+  %86 = load i32, ptr %85, align 8, !tbaa !76
   %87 = getelementptr inbounds nuw i8, ptr %.044, i64 72
-  store i32 %86, ptr %87, align 8, !tbaa !78
+  store i32 %86, ptr %87, align 8, !tbaa !77
   br label %88
 
 88:                                               ; preds = %_ZNK9btVector314serializeFloatER18btVector3FloatData.exit.i.i, %82
@@ -1874,12 +1874,12 @@ define dso_local noundef nonnull ptr @_ZNK15btCompoundShape9serializeEPvP12btSer
   store float %93, ptr %94, align 4, !tbaa !22
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 4
-  br i1 %exitcond.not.i.i.i, label %_ZNK9btVector314serializeFloatER18btVector3FloatData.exit.i.i, label %91, !llvm.loop !79
+  br i1 %exitcond.not.i.i.i, label %_ZNK9btVector314serializeFloatER18btVector3FloatData.exit.i.i, label %91, !llvm.loop !78
 
 _ZNK9btVector314serializeFloatER18btVector3FloatData.exit.i.i: ; preds = %91
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 3
-  br i1 %exitcond.not.i.i, label %_ZNK11btMatrix3x314serializeFloatER20btMatrix3x3FloatData.exit.i, label %88, !llvm.loop !80
+  br i1 %exitcond.not.i.i, label %_ZNK11btMatrix3x314serializeFloatER20btMatrix3x3FloatData.exit.i, label %88, !llvm.loop !79
 
 _ZNK11btMatrix3x314serializeFloatER20btMatrix3x3FloatData.exit.i: ; preds = %_ZNK9btVector314serializeFloatER18btVector3FloatData.exit.i.i
   %95 = getelementptr inbounds nuw i8, ptr %84, i64 48
@@ -1894,15 +1894,15 @@ _ZNK11btMatrix3x314serializeFloatER20btMatrix3x3FloatData.exit.i: ; preds = %_ZN
   store float %99, ptr %100, align 4, !tbaa !22
   %indvars.iv.next.i4.i = add nuw nsw i64 %indvars.iv.i3.i, 1
   %exitcond.not.i5.i = icmp eq i64 %indvars.iv.next.i4.i, 4
-  br i1 %exitcond.not.i5.i, label %_ZNK11btTransform14serializeFloatER20btTransformFloatData.exit, label %97, !llvm.loop !79
+  br i1 %exitcond.not.i5.i, label %_ZNK11btTransform14serializeFloatER20btTransformFloatData.exit, label %97, !llvm.loop !78
 
 _ZNK11btTransform14serializeFloatER20btTransformFloatData.exit: ; preds = %97
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %101 = getelementptr inbounds nuw i8, ptr %.044, i64 80
-  %102 = load i32, ptr %10, align 8, !tbaa !65
+  %102 = load i32, ptr %10, align 8, !tbaa !64
   %103 = sext i32 %102 to i64
   %104 = icmp slt i64 %indvars.iv.next, %103
-  br i1 %104, label %30, label %._crit_edge, !llvm.loop !81
+  br i1 %104, label %30, label %._crit_edge, !llvm.loop !80
 
 105:                                              ; preds = %._crit_edge, %3
   ret ptr @.str.1
@@ -1956,17 +1956,17 @@ declare void @_ZNK16btCollisionShape20serializeSingleShapeEP12btSerializer(ptr n
 ; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fabs.f32(float) #8
 
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare float @sqrtf(float noundef) local_unnamed_addr #10
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.sqrt.f32(float) #12
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1978,9 +1978,9 @@ attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #7 = { mustprogress uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #9 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #12 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #12 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #13 = { nounwind }
 attributes #14 = { noreturn nounwind }
 
@@ -2041,30 +2041,29 @@ attributes #14 = { noreturn nounwind }
 !52 = distinct !{!52, !53, !"_ZNK11btMatrix3x39transposeEv: argument 0"}
 !53 = distinct !{!53, !"_ZNK11btMatrix3x39transposeEv"}
 !54 = distinct !{!54, !34}
-!55 = !{!6, !6, i64 0}
+!55 = distinct !{!55, !34}
 !56 = distinct !{!56, !34}
 !57 = distinct !{!57, !34}
 !58 = distinct !{!58, !34}
-!59 = distinct !{!59, !34}
-!60 = !{!61, !23, i64 28}
-!61 = !{!"_ZTS19btCompoundShapeData", !62, i64 0, !64, i64 16, !6, i64 24, !23, i64 28}
-!62 = !{!"_ZTS20btCollisionShapeData", !63, i64 0, !6, i64 8, !7, i64 12}
-!63 = !{!"p1 omnipotent char", !9, i64 0}
-!64 = !{!"p1 _ZTS24btCompoundShapeChildData", !9, i64 0}
-!65 = !{!61, !6, i64 24}
-!66 = !{!61, !64, i64 16}
-!67 = !{!68, !9, i64 8}
-!68 = !{!"_ZTS7btChunk", !6, i64 0, !6, i64 4, !9, i64 8, !6, i64 16, !6, i64 20}
-!69 = !{!38, !23, i64 76}
-!70 = !{!71, !23, i64 76}
-!71 = !{!"_ZTS24btCompoundShapeChildData", !72, i64 0, !75, i64 64, !6, i64 72, !23, i64 76}
-!72 = !{!"_ZTS20btTransformFloatData", !73, i64 0, !74, i64 48}
-!73 = !{!"_ZTS20btMatrix3x3FloatData", !7, i64 0}
-!74 = !{!"_ZTS18btVector3FloatData", !7, i64 0}
-!75 = !{!"p1 _ZTS20btCollisionShapeData", !9, i64 0}
-!76 = !{!71, !75, i64 64}
-!77 = !{!38, !6, i64 72}
-!78 = !{!71, !6, i64 72}
+!59 = !{!60, !23, i64 28}
+!60 = !{!"_ZTS19btCompoundShapeData", !61, i64 0, !63, i64 16, !6, i64 24, !23, i64 28}
+!61 = !{!"_ZTS20btCollisionShapeData", !62, i64 0, !6, i64 8, !7, i64 12}
+!62 = !{!"p1 omnipotent char", !9, i64 0}
+!63 = !{!"p1 _ZTS24btCompoundShapeChildData", !9, i64 0}
+!64 = !{!60, !6, i64 24}
+!65 = !{!60, !63, i64 16}
+!66 = !{!67, !9, i64 8}
+!67 = !{!"_ZTS7btChunk", !6, i64 0, !6, i64 4, !9, i64 8, !6, i64 16, !6, i64 20}
+!68 = !{!38, !23, i64 76}
+!69 = !{!70, !23, i64 76}
+!70 = !{!"_ZTS24btCompoundShapeChildData", !71, i64 0, !74, i64 64, !6, i64 72, !23, i64 76}
+!71 = !{!"_ZTS20btTransformFloatData", !72, i64 0, !73, i64 48}
+!72 = !{!"_ZTS20btMatrix3x3FloatData", !7, i64 0}
+!73 = !{!"_ZTS18btVector3FloatData", !7, i64 0}
+!74 = !{!"p1 _ZTS20btCollisionShapeData", !9, i64 0}
+!75 = !{!70, !74, i64 64}
+!76 = !{!38, !6, i64 72}
+!77 = !{!70, !6, i64 72}
+!78 = distinct !{!78, !34}
 !79 = distinct !{!79, !34}
 !80 = distinct !{!80, !34}
-!81 = distinct !{!81, !34}

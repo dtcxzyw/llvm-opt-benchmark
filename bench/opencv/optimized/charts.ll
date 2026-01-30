@@ -115,14 +115,14 @@ define hidden void @_ZN2cv3mcc6CChart10setCornersESt6vectorINS_6Point_IfEESaIS4_
   %41 = sitofp i32 %29 to double
   %42 = fmul double %41, %41
   %43 = call double @llvm.fmuladd.f64(double %40, double %40, double %42)
-  %sqrt25 = call double @llvm.sqrt.f64(double %43)
+  %sqrt.i = call noundef double @llvm.sqrt.f64(double %43)
   %44 = sitofp i32 %37 to double
   %45 = sitofp i32 %39 to double
   %46 = fmul double %45, %45
   %47 = call double @llvm.fmuladd.f64(double %44, double %44, double %46)
-  %sqrt = call double @llvm.sqrt.f64(double %47)
-  %48 = fcmp olt double %sqrt25, %sqrt
-  %.sroa.speculated = select i1 %48, double %sqrt, double %sqrt25
+  %sqrt.i21 = call noundef double @llvm.sqrt.f64(double %47)
+  %48 = fcmp olt double %sqrt.i, %sqrt.i21
+  %.sroa.speculated = select i1 %48, double %sqrt.i21, double %sqrt.i
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store double %.sroa.speculated, ptr %49, align 8, !tbaa !28
   br label %50

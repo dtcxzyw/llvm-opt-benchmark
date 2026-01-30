@@ -108,9 +108,9 @@ define void @dorbdb1_(ptr noundef readonly captures(none) %0, ptr noundef readon
   %69 = zext nneg i32 %41 to i64
   br label %70
 
-70:                                               ; preds = %.lr.ph, %174
-  %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %174 ]
-  %.0.neg288 = phi i32 [ -1, %.lr.ph ], [ %.pre-phi292, %174 ]
+70:                                               ; preds = %.lr.ph, %173
+  %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %173 ]
+  %.0.neg288 = phi i32 [ -1, %.lr.ph ], [ %.pre-phi292, %173 ]
   %indvars290 = trunc nuw i64 %indvars.iv to i32
   %71 = load i32, ptr %1, align 4, !tbaa !3
   %72 = add nsw i32 %.0.neg288, 1
@@ -184,7 +184,7 @@ define void @dorbdb1_(ptr noundef readonly captures(none) %0, ptr noundef readon
 ._crit_edge:                                      ; preds = %70
   %121 = trunc nuw i64 %indvars.iv to i32
   %.pre291 = xor i32 %121, -1
-  br label %174
+  br label %173
 
 122:                                              ; preds = %70
   %123 = sub nsw i32 %118, %indvars290
@@ -237,38 +237,38 @@ define void @dorbdb1_(ptr noundef readonly captures(none) %0, ptr noundef readon
   %154 = call double @dnrm2_(ptr noundef nonnull %18, ptr noundef %147, ptr noundef nonnull @c__1) #6
   %155 = fmul double %154, %154
   %156 = call double @llvm.fmuladd.f64(double %150, double %150, double %155)
-  %157 = call double @sqrt(double noundef %156) #6, !tbaa !3
-  store double %157, ptr %20, align 8, !tbaa !7
-  %158 = load double, ptr %21, align 8, !tbaa !7
-  %159 = call double @atan2(double noundef %158, double noundef %157) #6, !tbaa !3
-  %160 = getelementptr inbounds nuw double, ptr %31, i64 %indvars.iv
-  store double %159, ptr %160, align 8, !tbaa !7
-  %161 = load i32, ptr %1, align 4, !tbaa !3
-  %162 = sub nsw i32 %161, %indvars290
-  store i32 %162, ptr %17, align 4, !tbaa !3
-  %163 = load i32, ptr %0, align 4, !tbaa !3
-  %.neg285 = sub i32 %.0.neg288, %161
-  %164 = add i32 %.neg285, %163
-  store i32 %164, ptr %18, align 4, !tbaa !3
-  %165 = load i32, ptr %2, align 4, !tbaa !3
-  %166 = trunc nuw nsw i64 %indvars.iv to i32
-  %167 = xor i32 %166, -1
-  %168 = add i32 %165, %167
-  store i32 %168, ptr %19, align 4, !tbaa !3
-  %169 = mul nsw i64 %126, %68
-  %170 = getelementptr double, ptr %26, i64 %169
-  %171 = getelementptr double, ptr %170, i64 %indvars.iv.next
-  %172 = getelementptr double, ptr %29, i64 %128
-  %173 = getelementptr double, ptr %172, i64 %indvars.iv.next
-  call void @dorbdb5_(ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %19, ptr noundef %140, ptr noundef nonnull @c__1, ptr noundef %147, ptr noundef nonnull @c__1, ptr noundef %171, ptr noundef nonnull %4, ptr noundef %173, ptr noundef nonnull %6, ptr noundef nonnull %66, ptr noundef nonnull %23, ptr noundef nonnull %22) #6
-  br label %174
+  %sqrt = call double @llvm.sqrt.f64(double %156)
+  store double %sqrt, ptr %20, align 8, !tbaa !7
+  %157 = load double, ptr %21, align 8, !tbaa !7
+  %158 = call double @atan2(double noundef %157, double noundef %sqrt) #6, !tbaa !3
+  %159 = getelementptr inbounds nuw double, ptr %31, i64 %indvars.iv
+  store double %158, ptr %159, align 8, !tbaa !7
+  %160 = load i32, ptr %1, align 4, !tbaa !3
+  %161 = sub nsw i32 %160, %indvars290
+  store i32 %161, ptr %17, align 4, !tbaa !3
+  %162 = load i32, ptr %0, align 4, !tbaa !3
+  %.neg285 = sub i32 %.0.neg288, %160
+  %163 = add i32 %.neg285, %162
+  store i32 %163, ptr %18, align 4, !tbaa !3
+  %164 = load i32, ptr %2, align 4, !tbaa !3
+  %165 = trunc nuw nsw i64 %indvars.iv to i32
+  %166 = xor i32 %165, -1
+  %167 = add i32 %164, %166
+  store i32 %167, ptr %19, align 4, !tbaa !3
+  %168 = mul nsw i64 %126, %68
+  %169 = getelementptr double, ptr %26, i64 %168
+  %170 = getelementptr double, ptr %169, i64 %indvars.iv.next
+  %171 = getelementptr double, ptr %29, i64 %128
+  %172 = getelementptr double, ptr %171, i64 %indvars.iv.next
+  call void @dorbdb5_(ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %19, ptr noundef %140, ptr noundef nonnull @c__1, ptr noundef %147, ptr noundef nonnull @c__1, ptr noundef %170, ptr noundef nonnull %4, ptr noundef %172, ptr noundef nonnull %6, ptr noundef nonnull %66, ptr noundef nonnull %23, ptr noundef nonnull %22) #6
+  br label %173
 
-174:                                              ; preds = %._crit_edge, %122
-  %.pre-phi292 = phi i32 [ %.pre291, %._crit_edge ], [ %167, %122 ]
+173:                                              ; preds = %._crit_edge, %122
+  %.pre-phi292 = phi i32 [ %.pre291, %._crit_edge ], [ %166, %122 ]
   %.not265.not = icmp samesign ult i64 %indvars.iv, %69
   br i1 %.not265.not, label %70, label %.loopexit, !llvm.loop !9
 
-.loopexit:                                        ; preds = %174, %.thread, %.thread273
+.loopexit:                                        ; preds = %173, %.thread, %.thread273
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
@@ -299,9 +299,6 @@ declare void @drot_(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noun
 
 declare double @dnrm2_(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @sqrt(double noundef) local_unnamed_addr #2
-
 ; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fmuladd.f64(double, double, double) #3
 
@@ -315,6 +312,9 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #5
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.sqrt.f64(double) #5
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="skylake-avx512" "target-features"="+adx,+aes,+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vl,+bmi,+bmi2,+clflushopt,+clwb,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdrnd,+rdseed,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsavec,+xsaveopt,+xsaves" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="skylake-avx512" "target-features"="+adx,+aes,+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vl,+bmi,+bmi2,+clflushopt,+clwb,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdrnd,+rdseed,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsavec,+xsaveopt,+xsaves" }

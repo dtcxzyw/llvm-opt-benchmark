@@ -1544,15 +1544,15 @@ for.cond.cleanup171:                              ; preds = %for.body172, %_ZN8Q
   %124 = load double, ptr %arrayidx.i404, align 8, !tbaa !29
   %mul.i405 = fmul double %124, %124
   %add222 = fadd double %mul.i, %mul.i405
-  %call223 = call double @sqrt(double noundef %add222) #21, !tbaa !30
-  %div227 = fdiv double %122, %call223
+  %sqrt = call double @llvm.sqrt.f64(double %add222)
+  %div227 = fdiv double %122, %sqrt
   %add.ptr.i408 = getelementptr inbounds nuw double, ptr %c.sroa.0.0730736, i64 %j.0829
   store double %div227, ptr %add.ptr.i408, align 8, !tbaa !29
   %125 = load double, ptr %arrayidx.i404, align 8, !tbaa !29
-  %div233 = fdiv double %125, %call223
+  %div233 = fdiv double %125, %sqrt
   %add.ptr.i411 = getelementptr inbounds nuw double, ptr %s.sroa.0.0766, i64 %j.0829
   store double %div233, ptr %add.ptr.i411, align 8, !tbaa !29
-  store double %call223, ptr %arrayidx.i402, align 8, !tbaa !29
+  store double %sqrt, ptr %arrayidx.i402, align 8, !tbaa !29
   store double 0.000000e+00, ptr %arrayidx.i404, align 8, !tbaa !29
   %126 = load double, ptr %add.ptr.i411, align 8, !tbaa !29
   %fneg243 = fneg double %126
@@ -4322,6 +4322,9 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #20
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #19
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.sqrt.f64(double) #19
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

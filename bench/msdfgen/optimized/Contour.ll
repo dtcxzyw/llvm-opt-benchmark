@@ -143,21 +143,21 @@ if.end:                                           ; preds = %entry
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 48
   %2 = load ptr, ptr %vfn, align 8
   %call5 = tail call { double, double } %2(ptr noundef nonnull align 8 dereferenceable(12) %call4, double noundef 1.000000e+00)
-  %3 = extractvalue { double, double } %call5, 0
-  %4 = extractvalue { double, double } %call5, 1
-  %mul4.i.i = fmul double %4, %4
-  %5 = tail call double @llvm.fmuladd.f64(double %3, double %3, double %mul4.i.i)
-  %call.i.i = tail call noundef double @sqrt(double noundef %5) #13
-  %6 = load ptr, ptr %this, align 8
-  %7 = load ptr, ptr %_M_finish.i.i, align 8
-  %cmp.i.not51 = icmp eq ptr %6, %7
+  %3 = load ptr, ptr %this, align 8
+  %4 = load ptr, ptr %_M_finish.i.i, align 8
+  %cmp.i.not51 = icmp eq ptr %3, %4
   br i1 %cmp.i.not51, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end
-  %tobool.i = fcmp une double %call.i.i, 0.000000e+00
-  %div.i = fdiv double %3, %call.i.i
+  %5 = extractvalue { double, double } %call5, 0
+  %6 = extractvalue { double, double } %call5, 1
+  %mul4.i.i = fmul double %6, %6
+  %7 = tail call double @llvm.fmuladd.f64(double %5, double %5, double %mul4.i.i)
+  %tobool.i = fcmp une double %7, 0.000000e+00
+  %sqrt.i.i = tail call noundef double @llvm.sqrt.f64(double %7)
+  %div.i = fdiv double %5, %sqrt.i.i
   %retval.sroa.0.0.i = select i1 %tobool.i, double %div.i, double 0.000000e+00
-  %div2.i = fdiv double %4, %call.i.i
+  %div2.i = fdiv double %6, %sqrt.i.i
   %retval.sroa.3.0.i = select i1 %tobool.i, double %div2.i, double 0.000000e+00
   %conv = sitofp i32 %polarity to double
   br label %for.body
@@ -165,7 +165,7 @@ for.body.lr.ph:                                   ; preds = %if.end
 for.body:                                         ; preds = %for.body.lr.ph, %if.end52
   %retval.sroa.3.0.i.pn54 = phi double [ %retval.sroa.3.0.i, %for.body.lr.ph ], [ %retval.sroa.3.0.i43, %if.end52 ]
   %retval.sroa.0.0.i.pn53 = phi double [ %retval.sroa.0.0.i, %for.body.lr.ph ], [ %retval.sroa.0.0.i44, %if.end52 ]
-  %edge.sroa.0.052 = phi ptr [ %6, %for.body.lr.ph ], [ %incdec.ptr.i, %if.end52 ]
+  %edge.sroa.0.052 = phi ptr [ %3, %for.body.lr.ph ], [ %incdec.ptr.i, %if.end52 ]
   %call16 = tail call noundef ptr @_ZNK7msdfgen10EdgeHolderptEv(ptr noundef nonnull align 8 dereferenceable(8) %edge.sroa.0.052)
   %vtable17 = load ptr, ptr %call16, align 8
   %vfn18 = getelementptr inbounds nuw i8, ptr %vtable17, i64 48
@@ -175,12 +175,12 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
   %10 = extractvalue { double, double } %call19, 1
   %mul4.i.i6 = fmul double %10, %10
   %11 = tail call double @llvm.fmuladd.f64(double %9, double %9, double %mul4.i.i6)
-  %call.i.i7 = tail call noundef double @sqrt(double noundef %11) #13
-  %tobool.i8 = fcmp une double %call.i.i7, 0.000000e+00
-  %div.i9 = fdiv double %9, %call.i.i7
+  %sqrt.i.i7 = tail call noundef double @llvm.sqrt.f64(double %11)
+  %tobool.i8 = fcmp une double %11, 0.000000e+00
+  %div.i9 = fdiv double %9, %sqrt.i.i7
   %retval.sroa.0.0.i12 = select i1 %tobool.i8, double %div.i9, double 0.000000e+00
   %12 = fneg double %10
-  %div2.i10.neg = fdiv double %12, %call.i.i7
+  %div2.i10.neg = fdiv double %12, %sqrt.i.i7
   %fneg1.i = select i1 %tobool.i8, double %div2.i10.neg, double -0.000000e+00
   %neg.i = fmul double %retval.sroa.3.0.i.pn54, %retval.sroa.0.0.i12
   %13 = tail call noundef double @llvm.fmuladd.f64(double %retval.sroa.0.0.i.pn53, double %fneg1.i, double %neg.i)
@@ -218,16 +218,16 @@ if.end34:                                         ; preds = %if.then31, %if.then
   %add3.i = fadd double %retval.sroa.3.0.i.pn54, %fneg1.i
   %mul4.i.i21 = fmul double %add3.i, %add3.i
   %18 = tail call double @llvm.fmuladd.f64(double %add.i, double %add.i, double %mul4.i.i21)
-  %call.i.i22 = tail call noundef double @sqrt(double noundef %18) #13
-  %tobool.i23 = fcmp une double %call.i.i22, 0.000000e+00
-  %div.i24 = fdiv double %add.i, %call.i.i22
-  %div2.i25 = fdiv double %add3.i, %call.i.i22
+  %sqrt.i.i22 = tail call noundef double @llvm.sqrt.f64(double %18)
+  %tobool.i23 = fcmp une double %18, 0.000000e+00
+  %div.i24 = fdiv double %add.i, %sqrt.i.i22
+  %div2.i25 = fdiv double %add3.i, %sqrt.i.i22
   %retval.sroa.3.0.i26 = select i1 %tobool.i23, double %div2.i25, double 0.000000e+00
   %retval.sroa.0.0.i27 = select i1 %tobool.i23, double %div.i24, double 0.000000e+00
-  %mul.i = fmul double %mul42, %retval.sroa.0.0.i27
-  %mul1.i = fmul double %mul42, %retval.sroa.3.0.i26
-  %add.i32 = fadd double %16, %mul.i
-  %add3.i33 = fadd double %17, %mul1.i
+  %mul.i = fmul double %retval.sroa.0.0.i27, %mul42
+  %mul1.i = fmul double %retval.sroa.3.0.i26, %mul42
+  %add.i32 = fadd double %mul.i, %16
+  %add3.i33 = fadd double %mul1.i, %17
   %19 = load double, ptr %l, align 8
   %cmp.i36 = fcmp olt double %add.i32, %19
   br i1 %cmp.i36, label %if.then.i, label %if.end.i
@@ -273,10 +273,10 @@ if.end52:                                         ; preds = %if.then13.i, %if.en
   %25 = extractvalue { double, double } %call59, 1
   %mul4.i.i38 = fmul double %25, %25
   %26 = tail call double @llvm.fmuladd.f64(double %24, double %24, double %mul4.i.i38)
-  %call.i.i39 = tail call noundef double @sqrt(double noundef %26) #13
-  %tobool.i40 = fcmp une double %call.i.i39, 0.000000e+00
-  %div.i41 = fdiv double %24, %call.i.i39
-  %div2.i42 = fdiv double %25, %call.i.i39
+  %sqrt.i.i39 = tail call noundef double @llvm.sqrt.f64(double %26)
+  %tobool.i40 = fcmp une double %26, 0.000000e+00
+  %div.i41 = fdiv double %24, %sqrt.i.i39
+  %div2.i42 = fdiv double %25, %sqrt.i.i39
   %retval.sroa.3.0.i43 = select i1 %tobool.i40, double %div2.i42, double 0.000000e+00
   %retval.sroa.0.0.i44 = select i1 %tobool.i40, double %div.i41, double 0.000000e+00
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %edge.sroa.0.052, i64 8
@@ -1173,6 +1173,9 @@ declare i64 @llvm.umin.i64(i64, i64) #11
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.sqrt.f64(double) #11
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

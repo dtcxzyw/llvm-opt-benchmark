@@ -160,7 +160,7 @@ define void @_Z17gmx_write_pdb_boxP8_IO_FILE7PbcTypePA3_Kf(ptr noundef captures(
 7:                                                ; preds = %5, %3
   %.032 = phi i32 [ %6, %5 ], [ %1, %3 ]
   %8 = icmp eq i32 %.032, 1
-  br i1 %8, label %139, label %9
+  br i1 %8, label %133, label %9
 
 9:                                                ; preds = %7
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 12
@@ -183,7 +183,7 @@ define void @_Z17gmx_write_pdb_boxP8_IO_FILE7PbcTypePA3_Kf(ptr noundef captures(
   %27 = tail call noundef float @llvm.fmuladd.f32(float %26, float %26, float %24)
   %28 = fmul float %18, %27
   %29 = fcmp une float %28, 0.000000e+00
-  br i1 %29, label %30, label %52
+  br i1 %29, label %30, label %51
 
 30:                                               ; preds = %9
   %31 = fneg float %22
@@ -198,122 +198,122 @@ define void @_Z17gmx_write_pdb_boxP8_IO_FILE7PbcTypePA3_Kf(ptr noundef captures(
   %40 = fmul float %36, %36
   %41 = tail call float @llvm.fmuladd.f32(float %33, float %33, float %40)
   %42 = tail call noundef float @llvm.fmuladd.f32(float %39, float %39, float %41)
-  %43 = tail call noundef float @sqrtf(float noundef %42) #28, !tbaa !11
-  %44 = fmul float %13, %22
-  %45 = tail call float @llvm.fmuladd.f32(float %11, float %20, float %44)
-  %46 = tail call noundef float @llvm.fmuladd.f32(float %17, float %26, float %45)
-  %47 = tail call noundef float @atan2f(float noundef %43, float noundef %46) #28, !tbaa !11
-  %48 = fpext float %47 to double
-  %49 = fmul double %48, 0x404CA5DC1A63C1F8
-  %50 = fptrunc double %49 to float
-  %51 = fpext float %50 to double
-  br label %52
+  %sqrt.i.i = tail call noundef float @llvm.sqrt.f32(float %42)
+  %43 = fmul float %13, %22
+  %44 = tail call float @llvm.fmuladd.f32(float %11, float %20, float %43)
+  %45 = tail call noundef float @llvm.fmuladd.f32(float %17, float %26, float %44)
+  %46 = tail call noundef float @atan2f(float noundef %sqrt.i.i, float noundef %45) #28, !tbaa !11
+  %47 = fpext float %46 to double
+  %48 = fmul double %47, 0x404CA5DC1A63C1F8
+  %49 = fptrunc double %48 to float
+  %50 = fpext float %49 to double
+  br label %51
 
-52:                                               ; preds = %9, %30
-  %.031 = phi double [ %51, %30 ], [ 9.000000e+01, %9 ]
-  %53 = load float, ptr %2, align 4, !tbaa !9
-  %54 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %55 = load float, ptr %54, align 4, !tbaa !9
-  %56 = fmul float %55, %55
-  %57 = tail call float @llvm.fmuladd.f32(float %53, float %53, float %56)
-  %58 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %59 = load float, ptr %58, align 4, !tbaa !9
-  %60 = tail call noundef float @llvm.fmuladd.f32(float %59, float %59, float %57)
-  %61 = fmul float %27, %60
-  %62 = fcmp une float %61, 0.000000e+00
-  br i1 %62, label %63, label %85
+51:                                               ; preds = %9, %30
+  %.031 = phi double [ %50, %30 ], [ 9.000000e+01, %9 ]
+  %52 = load float, ptr %2, align 4, !tbaa !9
+  %53 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %54 = load float, ptr %53, align 4, !tbaa !9
+  %55 = fmul float %54, %54
+  %56 = tail call float @llvm.fmuladd.f32(float %52, float %52, float %55)
+  %57 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %58 = load float, ptr %57, align 4, !tbaa !9
+  %59 = tail call noundef float @llvm.fmuladd.f32(float %58, float %58, float %56)
+  %60 = fmul float %27, %59
+  %61 = fcmp une float %60, 0.000000e+00
+  br i1 %61, label %62, label %83
 
-63:                                               ; preds = %52
-  %64 = fneg float %22
-  %65 = fmul float %59, %64
-  %66 = tail call float @llvm.fmuladd.f32(float %55, float %26, float %65)
-  %67 = fneg float %26
-  %68 = fmul float %53, %67
-  %69 = tail call float @llvm.fmuladd.f32(float %59, float %20, float %68)
-  %70 = fneg float %20
-  %71 = fmul float %55, %70
-  %72 = tail call float @llvm.fmuladd.f32(float %53, float %22, float %71)
-  %73 = fmul float %69, %69
-  %74 = tail call float @llvm.fmuladd.f32(float %66, float %66, float %73)
-  %75 = tail call noundef float @llvm.fmuladd.f32(float %72, float %72, float %74)
-  %76 = tail call noundef float @sqrtf(float noundef %75) #28, !tbaa !11
-  %77 = fmul float %22, %55
-  %78 = tail call float @llvm.fmuladd.f32(float %53, float %20, float %77)
-  %79 = tail call noundef float @llvm.fmuladd.f32(float %59, float %26, float %78)
-  %80 = tail call noundef float @atan2f(float noundef %76, float noundef %79) #28, !tbaa !11
-  %81 = fpext float %80 to double
-  %82 = fmul double %81, 0x404CA5DC1A63C1F8
-  %83 = fptrunc double %82 to float
-  %84 = fpext float %83 to double
-  br label %85
+62:                                               ; preds = %51
+  %63 = fneg float %22
+  %64 = fmul float %58, %63
+  %65 = tail call float @llvm.fmuladd.f32(float %54, float %26, float %64)
+  %66 = fneg float %26
+  %67 = fmul float %52, %66
+  %68 = tail call float @llvm.fmuladd.f32(float %58, float %20, float %67)
+  %69 = fneg float %20
+  %70 = fmul float %54, %69
+  %71 = tail call float @llvm.fmuladd.f32(float %52, float %22, float %70)
+  %72 = fmul float %68, %68
+  %73 = tail call float @llvm.fmuladd.f32(float %65, float %65, float %72)
+  %74 = tail call noundef float @llvm.fmuladd.f32(float %71, float %71, float %73)
+  %sqrt.i.i34 = tail call noundef float @llvm.sqrt.f32(float %74)
+  %75 = fmul float %22, %54
+  %76 = tail call float @llvm.fmuladd.f32(float %52, float %20, float %75)
+  %77 = tail call noundef float @llvm.fmuladd.f32(float %58, float %26, float %76)
+  %78 = tail call noundef float @atan2f(float noundef %sqrt.i.i34, float noundef %77) #28, !tbaa !11
+  %79 = fpext float %78 to double
+  %80 = fmul double %79, 0x404CA5DC1A63C1F8
+  %81 = fptrunc double %80 to float
+  %82 = fpext float %81 to double
+  br label %83
 
-85:                                               ; preds = %52, %63
-  %.030 = phi double [ %84, %63 ], [ 9.000000e+01, %52 ]
-  %86 = fmul float %18, %60
-  %87 = fcmp une float %86, 0.000000e+00
-  br i1 %87, label %88, label %.sink.split
+83:                                               ; preds = %51, %62
+  %.030 = phi double [ %82, %62 ], [ 9.000000e+01, %51 ]
+  %84 = fmul float %18, %59
+  %85 = fcmp une float %84, 0.000000e+00
+  br i1 %85, label %86, label %.sink.split
 
-88:                                               ; preds = %85
-  %89 = fneg float %13
-  %90 = fmul float %59, %89
-  %91 = tail call float @llvm.fmuladd.f32(float %55, float %17, float %90)
-  %92 = fneg float %17
-  %93 = fmul float %53, %92
-  %94 = tail call float @llvm.fmuladd.f32(float %59, float %11, float %93)
-  %95 = fneg float %11
-  %96 = fmul float %55, %95
-  %97 = tail call float @llvm.fmuladd.f32(float %53, float %13, float %96)
-  %98 = fmul float %94, %94
-  %99 = tail call float @llvm.fmuladd.f32(float %91, float %91, float %98)
-  %100 = tail call noundef float @llvm.fmuladd.f32(float %97, float %97, float %99)
-  %101 = tail call noundef float @sqrtf(float noundef %100) #28, !tbaa !11
-  %102 = fmul float %13, %55
-  %103 = tail call float @llvm.fmuladd.f32(float %53, float %11, float %102)
-  %104 = tail call noundef float @llvm.fmuladd.f32(float %59, float %17, float %103)
-  %105 = tail call noundef float @atan2f(float noundef %101, float noundef %104) #28, !tbaa !11
+86:                                               ; preds = %83
+  %87 = fneg float %13
+  %88 = fmul float %58, %87
+  %89 = tail call float @llvm.fmuladd.f32(float %54, float %17, float %88)
+  %90 = fneg float %17
+  %91 = fmul float %52, %90
+  %92 = tail call float @llvm.fmuladd.f32(float %58, float %11, float %91)
+  %93 = fneg float %11
+  %94 = fmul float %54, %93
+  %95 = tail call float @llvm.fmuladd.f32(float %52, float %13, float %94)
+  %96 = fmul float %92, %92
+  %97 = tail call float @llvm.fmuladd.f32(float %89, float %89, float %96)
+  %98 = tail call noundef float @llvm.fmuladd.f32(float %95, float %95, float %97)
+  %sqrt.i.i35 = tail call noundef float @llvm.sqrt.f32(float %98)
+  %99 = fmul float %13, %54
+  %100 = tail call float @llvm.fmuladd.f32(float %52, float %11, float %99)
+  %101 = tail call noundef float @llvm.fmuladd.f32(float %58, float %17, float %100)
+  %102 = tail call noundef float @atan2f(float noundef %sqrt.i.i35, float noundef %101) #28, !tbaa !11
+  %103 = fpext float %102 to double
+  %104 = fmul double %103, 0x404CA5DC1A63C1F8
+  %105 = fptrunc double %104 to float
   %106 = fpext float %105 to double
-  %107 = fmul double %106, 0x404CA5DC1A63C1F8
-  %108 = fptrunc double %107 to float
-  %109 = fpext float %108 to double
   br label %.sink.split
 
-.sink.split:                                      ; preds = %85, %88
-  %.0 = phi double [ %109, %88 ], [ 9.000000e+01, %85 ]
-  %110 = tail call i64 @fwrite(ptr nonnull @.str.12, i64 35, i64 1, ptr %0)
+.sink.split:                                      ; preds = %83, %86
+  %.0 = phi double [ %106, %86 ], [ 9.000000e+01, %83 ]
+  %107 = tail call i64 @fwrite(ptr nonnull @.str.12, i64 35, i64 1, ptr %0)
   %.not = icmp eq i32 %.032, 3
-  %111 = load float, ptr %2, align 4, !tbaa !9
-  %112 = load float, ptr %54, align 4, !tbaa !9
-  %113 = fmul float %112, %112
-  %114 = tail call float @llvm.fmuladd.f32(float %111, float %111, float %113)
-  %115 = load float, ptr %58, align 4, !tbaa !9
-  %116 = tail call noundef float @llvm.fmuladd.f32(float %115, float %115, float %114)
-  %117 = tail call noundef float @sqrtf(float noundef %116) #28, !tbaa !11
-  %118 = load float, ptr %10, align 4, !tbaa !9
-  %119 = load float, ptr %12, align 4, !tbaa !9
-  %120 = fmul float %119, %119
-  %121 = tail call float @llvm.fmuladd.f32(float %118, float %118, float %120)
-  %122 = load float, ptr %16, align 4, !tbaa !9
-  %123 = tail call noundef float @llvm.fmuladd.f32(float %122, float %122, float %121)
-  %124 = tail call noundef float @sqrtf(float noundef %123) #28, !tbaa !11
-  %125 = fmul float %124, 1.000000e+01
-  %126 = fpext float %125 to double
-  %127 = load float, ptr %19, align 4, !tbaa !9
-  %128 = load float, ptr %21, align 4, !tbaa !9
-  %129 = fmul float %128, %128
-  %130 = tail call float @llvm.fmuladd.f32(float %127, float %127, float %129)
-  %131 = load float, ptr %25, align 4, !tbaa !9
-  %132 = tail call noundef float @llvm.fmuladd.f32(float %131, float %131, float %130)
-  %133 = tail call noundef float @sqrtf(float noundef %132) #28, !tbaa !11
-  %134 = fmul float %133, 1.000000e+01
-  %135 = fpext float %134 to double
+  %108 = load float, ptr %2, align 4, !tbaa !9
+  %109 = load float, ptr %53, align 4, !tbaa !9
+  %110 = fmul float %109, %109
+  %111 = tail call float @llvm.fmuladd.f32(float %108, float %108, float %110)
+  %112 = load float, ptr %57, align 4, !tbaa !9
+  %113 = tail call noundef float @llvm.fmuladd.f32(float %112, float %112, float %111)
+  %sqrt.i38 = tail call noundef float @llvm.sqrt.f32(float %113)
+  %114 = load float, ptr %10, align 4, !tbaa !9
+  %115 = load float, ptr %12, align 4, !tbaa !9
+  %116 = fmul float %115, %115
+  %117 = tail call float @llvm.fmuladd.f32(float %114, float %114, float %116)
+  %118 = load float, ptr %16, align 4, !tbaa !9
+  %119 = tail call noundef float @llvm.fmuladd.f32(float %118, float %118, float %117)
+  %sqrt.i39 = tail call noundef float @llvm.sqrt.f32(float %119)
+  %120 = fmul float %sqrt.i39, 1.000000e+01
+  %121 = fpext float %120 to double
+  %122 = load float, ptr %19, align 4, !tbaa !9
+  %123 = load float, ptr %21, align 4, !tbaa !9
+  %124 = fmul float %123, %123
+  %125 = tail call float @llvm.fmuladd.f32(float %122, float %122, float %124)
+  %126 = load float, ptr %25, align 4, !tbaa !9
+  %127 = tail call noundef float @llvm.fmuladd.f32(float %126, float %126, float %125)
+  %sqrt.i40 = tail call noundef float @llvm.sqrt.f32(float %127)
+  %128 = fmul float %sqrt.i40, 1.000000e+01
+  %129 = fpext float %128 to double
   %. = select i1 %.not, float 2.000000e+01, float 1.000000e+01
   %.str.15..str.14 = select i1 %.not, ptr @.str.15, ptr @.str.14
-  %136 = fmul float %117, %.
-  %137 = fpext float %136 to double
-  %138 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.13, double noundef %137, double noundef %126, double noundef %135, double noundef %.031, double noundef %.030, double noundef %.0, ptr noundef nonnull %.str.15..str.14, i32 noundef 1) #28
-  br label %139
+  %130 = fmul float %sqrt.i38, %.
+  %131 = fpext float %130 to double
+  %132 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.13, double noundef %131, double noundef %121, double noundef %129, double noundef %.031, double noundef %.030, double noundef %.0, ptr noundef nonnull %.str.15..str.14, i32 noundef 1) #28
+  br label %133
 
-139:                                              ; preds = %.sink.split, %7
+133:                                              ; preds = %.sink.split, %7
   ret void
 }
 
@@ -327,9 +327,6 @@ declare float @llvm.fmuladd.f32(float, float, float) #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
 declare float @atan2f(float noundef, float noundef) local_unnamed_addr #5
-
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare float @sqrtf(float noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
 define void @_Z21write_pdbfile_indexedP8_IO_FILEPKcPK7t_atomsPA3_Kf7PbcTypeS8_ciiPKiP12gmx_conect_tbb(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4, ptr noundef %5, i8 noundef signext %6, i32 noundef %7, i32 noundef %8, ptr noundef readonly captures(none) %9, ptr noundef readonly captures(address_is_null) %10, i1 noundef zeroext %11, i1 noundef zeroext %12) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
@@ -4752,6 +4749,9 @@ declare i32 @llvm.smax.i32(i32, i32) #25
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #26
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.sqrt.f32(float) #25
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #25

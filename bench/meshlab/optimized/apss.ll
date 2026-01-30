@@ -232,11 +232,11 @@ _ZNK3vcg6Point3IfEneERKS1_.exit.thread._crit_edge: ; preds = %_ZNK3vcg6Point3IfE
 
 24:                                               ; preds = %_ZNK3vcg6Point3IfEneERKS1_.exit.thread
   %.not = icmp eq ptr %2, null
-  br i1 %.not, label %91, label %25
+  br i1 %.not, label %90, label %25
 
 25:                                               ; preds = %24
   store i32 1, ptr %2, align 4
-  br label %91
+  br label %90
 
 26:                                               ; preds = %_ZNK3vcg6Point3IfEneERKS1_.exit.thread._crit_edge, %_ZNK3vcg6Point3IfEneERKS1_.exit
   %27 = phi float [ %.pre26, %_ZNK3vcg6Point3IfEneERKS1_.exit.thread._crit_edge ], [ %21, %_ZNK3vcg6Point3IfEneERKS1_.exit ]
@@ -247,9 +247,9 @@ _ZNK3vcg6Point3IfEneERKS1_.exit.thread._crit_edge: ; preds = %_ZNK3vcg6Point3IfE
   %32 = fpext float %27 to double
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %34 = load i32, ptr %33, align 8
-  switch i32 %34, label %71 [
+  switch i32 %34, label %70 [
     i32 0, label %35
-    i32 1, label %57
+    i32 1, label %56
   ]
 
 35:                                               ; preds = %26
@@ -265,58 +265,58 @@ _ZNK3vcg6Point3IfEneERKS1_.exit.thread._crit_edge: ; preds = %_ZNK3vcg6Point3IfE
   %45 = fmul double %41, %41
   %46 = tail call double @llvm.fmuladd.f64(double %38, double %38, double %45)
   %47 = tail call double @llvm.fmuladd.f64(double %44, double %44, double %46)
-  %48 = tail call noundef double @sqrt(double noundef %47) #22
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 320
-  %50 = load double, ptr %49, align 8
-  %51 = fsub double %48, %50
-  %52 = fptrunc double %51 to float
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 288
-  %54 = load double, ptr %53, align 8
-  %55 = fcmp olt double %54, 0.000000e+00
-  %56 = fneg float %52
-  %.0 = select i1 %55, float %56, float %52
-  br label %91
+  %sqrt.i.i = tail call noundef double @llvm.sqrt.f64(double %47)
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 320
+  %49 = load double, ptr %48, align 8
+  %50 = fsub double %sqrt.i.i, %49
+  %51 = fptrunc double %50 to float
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 288
+  %53 = load double, ptr %52, align 8
+  %54 = fcmp olt double %53, 0.000000e+00
+  %55 = fneg float %51
+  %.0 = select i1 %54, float %55, float %51
+  br label %90
 
-57:                                               ; preds = %26
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %59 = load double, ptr %58, align 8
-  %60 = getelementptr inbounds nuw i8, ptr %0, i64 272
-  %61 = load double, ptr %60, align 8
-  %62 = fmul double %61, %31
-  %63 = tail call double @llvm.fmuladd.f64(double %30, double %59, double %62)
-  %64 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  %65 = load double, ptr %64, align 8
-  %66 = tail call noundef double @llvm.fmuladd.f64(double %32, double %65, double %63)
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %68 = load double, ptr %67, align 8
-  %69 = fadd double %68, %66
-  %70 = fptrunc double %69 to float
-  br label %91
+56:                                               ; preds = %26
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  %58 = load double, ptr %57, align 8
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 272
+  %60 = load double, ptr %59, align 8
+  %61 = fmul double %60, %31
+  %62 = tail call double @llvm.fmuladd.f64(double %30, double %58, double %61)
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 280
+  %64 = load double, ptr %63, align 8
+  %65 = tail call noundef double @llvm.fmuladd.f64(double %32, double %64, double %62)
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  %67 = load double, ptr %66, align 8
+  %68 = fadd double %67, %65
+  %69 = fptrunc double %68 to float
+  br label %90
 
-71:                                               ; preds = %26
-  %72 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %73 = load double, ptr %72, align 8
-  %74 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %75 = load double, ptr %74, align 8
-  %76 = getelementptr inbounds nuw i8, ptr %0, i64 272
-  %77 = load double, ptr %76, align 8
-  %78 = fmul double %77, %31
-  %79 = tail call double @llvm.fmuladd.f64(double %30, double %75, double %78)
-  %80 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  %81 = load double, ptr %80, align 8
-  %82 = tail call noundef double @llvm.fmuladd.f64(double %32, double %81, double %79)
-  %83 = fadd double %73, %82
-  %84 = getelementptr inbounds nuw i8, ptr %0, i64 288
-  %85 = load double, ptr %84, align 8
-  %86 = fmul double %31, %31
-  %87 = tail call double @llvm.fmuladd.f64(double %30, double %30, double %86)
-  %88 = tail call noundef double @llvm.fmuladd.f64(double %32, double %32, double %87)
-  %89 = tail call double @llvm.fmuladd.f64(double %85, double %88, double %83)
-  %90 = fptrunc double %89 to float
-  br label %91
+70:                                               ; preds = %26
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  %72 = load double, ptr %71, align 8
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  %74 = load double, ptr %73, align 8
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 272
+  %76 = load double, ptr %75, align 8
+  %77 = fmul double %76, %31
+  %78 = tail call double @llvm.fmuladd.f64(double %30, double %74, double %77)
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 280
+  %80 = load double, ptr %79, align 8
+  %81 = tail call noundef double @llvm.fmuladd.f64(double %32, double %80, double %78)
+  %82 = fadd double %72, %81
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 288
+  %84 = load double, ptr %83, align 8
+  %85 = fmul double %31, %31
+  %86 = tail call double @llvm.fmuladd.f64(double %30, double %30, double %85)
+  %87 = tail call noundef double @llvm.fmuladd.f64(double %32, double %32, double %86)
+  %88 = tail call double @llvm.fmuladd.f64(double %84, double %87, double %82)
+  %89 = fptrunc double %88 to float
+  br label %90
 
-91:                                               ; preds = %24, %25, %71, %57, %35
-  %.011 = phi float [ %.0, %35 ], [ %70, %57 ], [ %90, %71 ], [ 0x4206FEE100000000, %25 ], [ 0x4206FEE100000000, %24 ]
+90:                                               ; preds = %24, %25, %70, %56, %35
+  %.011 = phi float [ %.0, %35 ], [ %69, %56 ], [ %89, %70 ], [ 0x4206FEE100000000, %25 ], [ 0x4206FEE100000000, %24 ]
   ret float %.011
 }
 
@@ -574,8 +574,8 @@ define weak_odr { <2 x float>, float } @_ZNK7GaelMls4APSSI6CMeshOE7projectERKN3v
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  %.sroa.2111.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %.sroa.3112.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %.sroa.2115.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %.sroa.3116.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %36 = fmul double %13, %13
@@ -584,12 +584,12 @@ define weak_odr { <2 x float>, float } @_ZNK7GaelMls4APSSI6CMeshOE7projectERKN3v
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 56
   br label %40
 
-40:                                               ; preds = %201, %4
-  %.sroa.0116.0 = phi double [ %10, %4 ], [ %.sroa.0116.1, %201 ]
-  %.sroa.11.0 = phi double [ %13, %4 ], [ %.sroa.11.1, %201 ]
-  %.sroa.21.0 = phi double [ %16, %4 ], [ %.sroa.21.1, %201 ]
-  %.0 = phi i32 [ 0, %4 ], [ %202, %201 ]
-  %41 = fptrunc double %.sroa.0116.0 to float
+40:                                               ; preds = %196, %4
+  %.sroa.0120.0 = phi double [ %10, %4 ], [ %.sroa.0120.1, %196 ]
+  %.sroa.11.0 = phi double [ %13, %4 ], [ %.sroa.11.1, %196 ]
+  %.sroa.21.0 = phi double [ %16, %4 ], [ %.sroa.21.1, %196 ]
+  %.0 = phi i32 [ 0, %4 ], [ %197, %196 ]
+  %41 = fptrunc double %.sroa.0120.0 to float
   %42 = fptrunc double %.sroa.11.0 to float
   %43 = fptrunc double %.sroa.21.0 to float
   store float %41, ptr %6, align 4
@@ -607,15 +607,15 @@ define weak_odr { <2 x float>, float } @_ZNK7GaelMls4APSSI6CMeshOE7projectERKN3v
   br label %47
 
 47:                                               ; preds = %46, %45
-  %.sroa.0151.0.copyload = load <2 x float>, ptr %1, align 4
-  %.sroa.4153.0.copyload = load float, ptr %14, align 4
-  br label %240
+  %.sroa.0155.0.copyload = load <2 x float>, ptr %1, align 4
+  %.sroa.4157.0.copyload = load float, ptr %14, align 4
+  br label %234
 
 48:                                               ; preds = %40
   %49 = load i32, ptr %26, align 8
-  switch i32 %49, label %109 [
+  switch i32 %49, label %107 [
     i32 0, label %_ZN3vcg6Point3IdE9NormalizeEv.exit
-    i32 1, label %94
+    i32 1, label %92
   ]
 
 _ZN3vcg6Point3IdE9NormalizeEv.exit:               ; preds = %48
@@ -628,273 +628,273 @@ _ZN3vcg6Point3IdE9NormalizeEv.exit:               ; preds = %48
   %56 = fmul double %53, %53
   %57 = call double @llvm.fmuladd.f64(double %51, double %51, double %56)
   %58 = call double @llvm.fmuladd.f64(double %55, double %55, double %57)
-  %59 = call noundef double @sqrt(double noundef %58) #22
-  %60 = fcmp ogt double %59, 0.000000e+00
-  %61 = fdiv double %51, %59
-  %62 = fdiv double %53, %59
-  %63 = fdiv double %55, %59
-  %64 = select i1 %60, double %63, double %55
-  %65 = select i1 %60, double %62, double %53
-  %66 = select i1 %60, double %61, double %51
-  %67 = load double, ptr %34, align 8
-  %68 = fmul double %67, %66
-  %69 = fmul double %67, %65
-  %70 = fmul double %67, %64
-  %71 = fadd double %50, %68
-  %72 = fadd double %69, %52
-  %73 = fadd double %70, %54
-  %74 = load double, ptr %35, align 8
-  %75 = fmul double %74, 2.000000e+00
-  %76 = fmul double %71, %75
-  %77 = fmul double %72, %75
-  %78 = fmul double %73, %75
-  %79 = load double, ptr %27, align 8, !noalias !17
-  %80 = fadd double %79, %76
-  %81 = load double, ptr %28, align 8, !noalias !17
-  %82 = fadd double %81, %77
-  %83 = load double, ptr %29, align 8, !noalias !17
-  %84 = fadd double %78, %83
-  store double %80, ptr %5, align 8
-  store double %82, ptr %.sroa.2111.0..sroa_idx, align 8
-  store double %84, ptr %.sroa.3112.0..sroa_idx, align 8
-  %85 = fmul double %82, %82
-  %86 = call double @llvm.fmuladd.f64(double %80, double %80, double %85)
-  %87 = call double @llvm.fmuladd.f64(double %84, double %84, double %86)
-  %88 = call noundef double @sqrt(double noundef %87) #22
-  %89 = fcmp ogt double %88, 0.000000e+00
-  br i1 %89, label %90, label %_ZN3vcg6Point3IdE9NormalizeEv.exit41
+  %59 = fcmp ogt double %58, 0.000000e+00
+  %sqrt.i = call double @llvm.sqrt.f64(double %58)
+  %60 = fdiv double %51, %sqrt.i
+  %61 = fdiv double %53, %sqrt.i
+  %62 = fdiv double %55, %sqrt.i
+  %63 = select i1 %59, double %62, double %55
+  %64 = select i1 %59, double %61, double %53
+  %65 = select i1 %59, double %60, double %51
+  %66 = load double, ptr %34, align 8
+  %67 = fmul double %66, %65
+  %68 = fmul double %66, %64
+  %69 = fmul double %66, %63
+  %70 = fadd double %50, %67
+  %71 = fadd double %52, %68
+  %72 = fadd double %54, %69
+  %73 = load double, ptr %35, align 8
+  %74 = fmul double %73, 2.000000e+00
+  %75 = fmul double %70, %74
+  %76 = fmul double %71, %74
+  %77 = fmul double %74, %72
+  %78 = load double, ptr %27, align 8, !noalias !17
+  %79 = fadd double %78, %75
+  %80 = load double, ptr %28, align 8, !noalias !17
+  %81 = fadd double %80, %76
+  %82 = load double, ptr %29, align 8, !noalias !17
+  %83 = fadd double %77, %82
+  store double %79, ptr %5, align 8
+  store double %81, ptr %.sroa.2115.0..sroa_idx, align 8
+  store double %83, ptr %.sroa.3116.0..sroa_idx, align 8
+  %84 = fmul double %81, %81
+  %85 = call double @llvm.fmuladd.f64(double %79, double %79, double %84)
+  %86 = call double @llvm.fmuladd.f64(double %83, double %83, double %85)
+  %87 = fcmp ogt double %86, 0.000000e+00
+  br i1 %87, label %88, label %_ZN3vcg6Point3IdE9NormalizeEv.exit42
 
-90:                                               ; preds = %_ZN3vcg6Point3IdE9NormalizeEv.exit
-  %91 = fdiv double %80, %88
-  store double %91, ptr %5, align 8
-  %92 = fdiv double %82, %88
-  store double %92, ptr %.sroa.2111.0..sroa_idx, align 8
-  %93 = fdiv double %84, %88
-  store double %93, ptr %.sroa.3112.0..sroa_idx, align 8
-  br label %_ZN3vcg6Point3IdE9NormalizeEv.exit41
+88:                                               ; preds = %_ZN3vcg6Point3IdE9NormalizeEv.exit
+  %sqrt.i41 = call double @llvm.sqrt.f64(double %86)
+  %89 = fdiv double %79, %sqrt.i41
+  store double %89, ptr %5, align 8
+  %90 = fdiv double %81, %sqrt.i41
+  store double %90, ptr %.sroa.2115.0..sroa_idx, align 8
+  %91 = fdiv double %83, %sqrt.i41
+  store double %91, ptr %.sroa.3116.0..sroa_idx, align 8
+  br label %_ZN3vcg6Point3IdE9NormalizeEv.exit42
 
-94:                                               ; preds = %48
+92:                                               ; preds = %48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %27, i64 24, i1 false)
-  %95 = load double, ptr %27, align 8
-  %96 = load double, ptr %28, align 8
-  %97 = fmul double %96, %13
-  %98 = call double @llvm.fmuladd.f64(double %10, double %95, double %97)
-  %99 = load double, ptr %29, align 8
-  %100 = call noundef double @llvm.fmuladd.f64(double %16, double %99, double %98)
-  %101 = load double, ptr %30, align 8
-  %102 = fadd double %101, %100
-  %103 = fmul double %95, %102
-  %104 = fmul double %96, %102
-  %105 = fmul double %99, %102
-  %106 = fsub double %10, %103
-  %107 = fsub double %13, %104
-  %108 = fsub double %16, %105
-  br label %_ZN3vcg6Point3IdE9NormalizeEv.exit41
+  %93 = load double, ptr %27, align 8
+  %94 = load double, ptr %28, align 8
+  %95 = fmul double %94, %13
+  %96 = call double @llvm.fmuladd.f64(double %10, double %93, double %95)
+  %97 = load double, ptr %29, align 8
+  %98 = call noundef double @llvm.fmuladd.f64(double %16, double %97, double %96)
+  %99 = load double, ptr %30, align 8
+  %100 = fadd double %99, %98
+  %101 = fmul double %93, %100
+  %102 = fmul double %94, %100
+  %103 = fmul double %97, %100
+  %104 = fsub double %10, %101
+  %105 = fsub double %13, %102
+  %106 = fsub double %16, %103
+  br label %_ZN3vcg6Point3IdE9NormalizeEv.exit42
 
-109:                                              ; preds = %48
-  %110 = load double, ptr %35, align 8
-  %111 = fmul double %110, 2.000000e+00
-  %112 = fmul double %111, %10
-  %113 = fmul double %111, %13
-  %114 = fmul double %111, %16
-  %115 = load double, ptr %27, align 8, !noalias !20
-  %116 = fadd double %115, %112
-  %117 = load double, ptr %28, align 8, !noalias !20
-  %118 = fadd double %117, %113
-  %119 = load double, ptr %29, align 8, !noalias !20
-  %120 = fadd double %114, %119
-  %121 = fmul double %118, %118
-  %122 = call double @llvm.fmuladd.f64(double %116, double %116, double %121)
-  %123 = call double @llvm.fmuladd.f64(double %120, double %120, double %122)
-  %124 = call noundef double @sqrt(double noundef %123) #22
-  %125 = fdiv double 1.000000e+00, %124
-  %126 = fmul double %116, %125
-  %127 = fmul double %118, %125
-  %128 = fmul double %120, %125
-  %129 = load double, ptr %30, align 8
-  %130 = fmul double %117, %13
-  %131 = call double @llvm.fmuladd.f64(double %115, double %10, double %130)
-  %132 = call noundef double @llvm.fmuladd.f64(double %119, double %16, double %131)
-  %133 = fadd double %129, %132
-  %134 = call double @llvm.fmuladd.f64(double %110, double %38, double %133)
-  %135 = fneg double %134
-  %136 = fptrunc double %125 to float
-  %137 = fcmp ogt float %136, 1.000000e+00
-  %.sroa.speculated72 = select i1 %137, float 1.000000e+00, float %136
-  %138 = fpext float %.sroa.speculated72 to double
-  %139 = fmul double %135, %138
-  %140 = fmul double %126, %139
-  %141 = fmul double %127, %139
-  %142 = fmul double %128, %139
-  %143 = fadd double %140, %10
-  %144 = fadd double %141, %13
-  %145 = fadd double %142, %16
-  br label %146
+107:                                              ; preds = %48
+  %108 = load double, ptr %35, align 8
+  %109 = fmul double %108, 2.000000e+00
+  %110 = fmul double %109, %10
+  %111 = fmul double %109, %13
+  %112 = fmul double %109, %16
+  %113 = load double, ptr %27, align 8, !noalias !20
+  %114 = fadd double %113, %110
+  %115 = load double, ptr %28, align 8, !noalias !20
+  %116 = fadd double %115, %111
+  %117 = load double, ptr %29, align 8, !noalias !20
+  %118 = fadd double %112, %117
+  %119 = fmul double %116, %116
+  %120 = call double @llvm.fmuladd.f64(double %114, double %114, double %119)
+  %121 = call double @llvm.fmuladd.f64(double %118, double %118, double %120)
+  %sqrt.i.i = call noundef double @llvm.sqrt.f64(double %121)
+  %122 = fdiv double 1.000000e+00, %sqrt.i.i
+  %123 = fmul double %114, %122
+  %124 = fmul double %116, %122
+  %125 = fmul double %118, %122
+  %126 = load double, ptr %30, align 8
+  %127 = fmul double %115, %13
+  %128 = call double @llvm.fmuladd.f64(double %113, double %10, double %127)
+  %129 = call noundef double @llvm.fmuladd.f64(double %117, double %16, double %128)
+  %130 = fadd double %126, %129
+  %131 = call double @llvm.fmuladd.f64(double %108, double %38, double %130)
+  %132 = fneg double %131
+  %133 = fptrunc double %122 to float
+  %134 = fcmp ogt float %133, 1.000000e+00
+  %.sroa.speculated76 = select i1 %134, float 1.000000e+00, float %133
+  %135 = fpext float %.sroa.speculated76 to double
+  %136 = fmul double %132, %135
+  %137 = fmul double %123, %136
+  %138 = fmul double %124, %136
+  %139 = fmul double %125, %136
+  %140 = fadd double %137, %10
+  %141 = fadd double %138, %13
+  %142 = fadd double %139, %16
+  br label %143
 
-146:                                              ; preds = %109, %146
-  %147 = phi i1 [ true, %109 ], [ false, %146 ]
-  %.sroa.13.0156 = phi double [ %145, %109 ], [ %177, %146 ]
-  %.sroa.7.0155 = phi double [ %144, %109 ], [ %176, %146 ]
-  %.sroa.061.0154 = phi double [ %143, %109 ], [ %175, %146 ]
-  %148 = fmul double %111, %.sroa.061.0154
-  %149 = fmul double %111, %.sroa.7.0155
-  %150 = fmul double %111, %.sroa.13.0156
-  %151 = fadd double %115, %148
-  %152 = fadd double %149, %117
-  %153 = fadd double %150, %119
-  %154 = fmul double %152, %152
-  %155 = call double @llvm.fmuladd.f64(double %151, double %151, double %154)
-  %156 = call double @llvm.fmuladd.f64(double %153, double %153, double %155)
-  %157 = call noundef double @sqrt(double noundef %156) #22
-  %158 = fdiv double 1.000000e+00, %157
-  %159 = fmul double %.sroa.7.0155, %117
-  %160 = call double @llvm.fmuladd.f64(double %115, double %.sroa.061.0154, double %159)
-  %161 = call noundef double @llvm.fmuladd.f64(double %119, double %.sroa.13.0156, double %160)
-  %162 = fadd double %129, %161
-  %163 = fmul double %.sroa.7.0155, %.sroa.7.0155
-  %164 = call double @llvm.fmuladd.f64(double %.sroa.061.0154, double %.sroa.061.0154, double %163)
-  %165 = call noundef double @llvm.fmuladd.f64(double %.sroa.13.0156, double %.sroa.13.0156, double %164)
-  %166 = call double @llvm.fmuladd.f64(double %110, double %165, double %162)
-  %167 = fneg double %166
-  %168 = fptrunc double %158 to float
-  %169 = fcmp ogt float %168, 1.000000e+00
-  %.sroa.speculated = select i1 %169, float 1.000000e+00, float %168
-  %170 = fpext float %.sroa.speculated to double
-  %171 = fmul double %167, %170
-  %172 = fmul double %126, %171
-  %173 = fmul double %127, %171
-  %174 = fmul double %128, %171
-  %175 = fadd double %.sroa.061.0154, %172
-  %176 = fadd double %.sroa.7.0155, %173
-  %177 = fadd double %.sroa.13.0156, %174
-  br i1 %147, label %146, label %178, !llvm.loop !23
+143:                                              ; preds = %107, %143
+  %144 = phi i1 [ true, %107 ], [ false, %143 ]
+  %.sroa.13.0160 = phi double [ %142, %107 ], [ %173, %143 ]
+  %.sroa.7.0159 = phi double [ %141, %107 ], [ %172, %143 ]
+  %.sroa.065.0158 = phi double [ %140, %107 ], [ %171, %143 ]
+  %145 = fmul double %109, %.sroa.065.0158
+  %146 = fmul double %109, %.sroa.7.0159
+  %147 = fmul double %109, %.sroa.13.0160
+  %148 = fadd double %113, %145
+  %149 = fadd double %115, %146
+  %150 = fadd double %117, %147
+  %151 = fmul double %149, %149
+  %152 = call double @llvm.fmuladd.f64(double %148, double %148, double %151)
+  %153 = call double @llvm.fmuladd.f64(double %150, double %150, double %152)
+  %sqrt.i.i43 = call noundef double @llvm.sqrt.f64(double %153)
+  %154 = fdiv double 1.000000e+00, %sqrt.i.i43
+  %155 = fmul double %115, %.sroa.7.0159
+  %156 = call double @llvm.fmuladd.f64(double %113, double %.sroa.065.0158, double %155)
+  %157 = call noundef double @llvm.fmuladd.f64(double %117, double %.sroa.13.0160, double %156)
+  %158 = fadd double %126, %157
+  %159 = fmul double %.sroa.7.0159, %.sroa.7.0159
+  %160 = call double @llvm.fmuladd.f64(double %.sroa.065.0158, double %.sroa.065.0158, double %159)
+  %161 = call noundef double @llvm.fmuladd.f64(double %.sroa.13.0160, double %.sroa.13.0160, double %160)
+  %162 = call double @llvm.fmuladd.f64(double %108, double %161, double %158)
+  %163 = fneg double %162
+  %164 = fptrunc double %154 to float
+  %165 = fcmp ogt float %164, 1.000000e+00
+  %.sroa.speculated = select i1 %165, float 1.000000e+00, float %164
+  %166 = fpext float %.sroa.speculated to double
+  %167 = fmul double %163, %166
+  %168 = fmul double %123, %167
+  %169 = fmul double %124, %167
+  %170 = fmul double %125, %167
+  %171 = fadd double %.sroa.065.0158, %168
+  %172 = fadd double %.sroa.7.0159, %169
+  %173 = fadd double %.sroa.13.0160, %170
+  br i1 %144, label %143, label %174, !llvm.loop !23
 
-178:                                              ; preds = %146
-  %179 = fmul double %111, %175
-  %180 = fmul double %111, %176
-  %181 = fmul double %111, %177
-  %182 = fadd double %115, %179
-  %183 = fadd double %180, %117
-  %184 = fadd double %181, %119
-  store double %182, ptr %5, align 8
-  store double %183, ptr %.sroa.2111.0..sroa_idx, align 8
-  store double %184, ptr %.sroa.3112.0..sroa_idx, align 8
-  %185 = fmul double %183, %183
-  %186 = call double @llvm.fmuladd.f64(double %182, double %182, double %185)
-  %187 = call double @llvm.fmuladd.f64(double %184, double %184, double %186)
-  %188 = call noundef double @sqrt(double noundef %187) #22
-  %189 = fcmp ogt double %188, 0.000000e+00
-  br i1 %189, label %190, label %_ZN3vcg6Point3IdE9NormalizeEv.exit41
+174:                                              ; preds = %143
+  %175 = fmul double %109, %171
+  %176 = fmul double %109, %172
+  %177 = fmul double %109, %173
+  %178 = fadd double %113, %175
+  %179 = fadd double %115, %176
+  %180 = fadd double %117, %177
+  store double %178, ptr %5, align 8
+  store double %179, ptr %.sroa.2115.0..sroa_idx, align 8
+  store double %180, ptr %.sroa.3116.0..sroa_idx, align 8
+  %181 = fmul double %179, %179
+  %182 = call double @llvm.fmuladd.f64(double %178, double %178, double %181)
+  %183 = call double @llvm.fmuladd.f64(double %180, double %180, double %182)
+  %184 = fcmp ogt double %183, 0.000000e+00
+  br i1 %184, label %185, label %_ZN3vcg6Point3IdE9NormalizeEv.exit42
 
-190:                                              ; preds = %178
-  %191 = fdiv double %182, %188
-  store double %191, ptr %5, align 8
-  %192 = fdiv double %183, %188
-  store double %192, ptr %.sroa.2111.0..sroa_idx, align 8
-  %193 = fdiv double %184, %188
-  store double %193, ptr %.sroa.3112.0..sroa_idx, align 8
-  br label %_ZN3vcg6Point3IdE9NormalizeEv.exit41
+185:                                              ; preds = %174
+  %sqrt.i45 = call double @llvm.sqrt.f64(double %183)
+  %186 = fdiv double %178, %sqrt.i45
+  store double %186, ptr %5, align 8
+  %187 = fdiv double %179, %sqrt.i45
+  store double %187, ptr %.sroa.2115.0..sroa_idx, align 8
+  %188 = fdiv double %180, %sqrt.i45
+  store double %188, ptr %.sroa.3116.0..sroa_idx, align 8
+  br label %_ZN3vcg6Point3IdE9NormalizeEv.exit42
 
-_ZN3vcg6Point3IdE9NormalizeEv.exit41:             ; preds = %190, %178, %90, %_ZN3vcg6Point3IdE9NormalizeEv.exit, %94
-  %.sroa.0116.1 = phi double [ %71, %90 ], [ %106, %94 ], [ %71, %_ZN3vcg6Point3IdE9NormalizeEv.exit ], [ %175, %178 ], [ %175, %190 ]
-  %.sroa.11.1 = phi double [ %72, %90 ], [ %107, %94 ], [ %72, %_ZN3vcg6Point3IdE9NormalizeEv.exit ], [ %176, %178 ], [ %176, %190 ]
-  %.sroa.21.1 = phi double [ %73, %90 ], [ %108, %94 ], [ %73, %_ZN3vcg6Point3IdE9NormalizeEv.exit ], [ %177, %178 ], [ %177, %190 ]
-  %194 = fsub double %.sroa.0116.0, %.sroa.0116.1
-  %195 = fsub double %.sroa.11.0, %.sroa.11.1
-  %196 = fsub double %.sroa.21.0, %.sroa.21.1
-  %197 = fmul double %195, %195
-  %198 = call double @llvm.fmuladd.f64(double %194, double %194, double %197)
-  %199 = call noundef double @llvm.fmuladd.f64(double %196, double %196, double %198)
-  %200 = fcmp ogt double %199, %23
-  br i1 %200, label %201, label %.critedge
+_ZN3vcg6Point3IdE9NormalizeEv.exit42:             ; preds = %185, %174, %88, %_ZN3vcg6Point3IdE9NormalizeEv.exit, %92
+  %.sroa.0120.1 = phi double [ %70, %88 ], [ %104, %92 ], [ %70, %_ZN3vcg6Point3IdE9NormalizeEv.exit ], [ %171, %174 ], [ %171, %185 ]
+  %.sroa.11.1 = phi double [ %71, %88 ], [ %105, %92 ], [ %71, %_ZN3vcg6Point3IdE9NormalizeEv.exit ], [ %172, %174 ], [ %172, %185 ]
+  %.sroa.21.1 = phi double [ %72, %88 ], [ %106, %92 ], [ %72, %_ZN3vcg6Point3IdE9NormalizeEv.exit ], [ %173, %174 ], [ %173, %185 ]
+  %189 = fsub double %.sroa.0120.0, %.sroa.0120.1
+  %190 = fsub double %.sroa.11.0, %.sroa.11.1
+  %191 = fsub double %.sroa.21.0, %.sroa.21.1
+  %192 = fmul double %190, %190
+  %193 = call double @llvm.fmuladd.f64(double %189, double %189, double %192)
+  %194 = call noundef double @llvm.fmuladd.f64(double %191, double %191, double %193)
+  %195 = fcmp ogt double %194, %23
+  br i1 %195, label %196, label %.critedge
 
-201:                                              ; preds = %_ZN3vcg6Point3IdE9NormalizeEv.exit41
-  %202 = add nuw nsw i32 %.0, 1
-  %203 = load i32, ptr %39, align 8
-  %204 = icmp slt i32 %202, %203
-  br i1 %204, label %40, label %.critedge, !llvm.loop !24
+196:                                              ; preds = %_ZN3vcg6Point3IdE9NormalizeEv.exit42
+  %197 = add nuw nsw i32 %.0, 1
+  %198 = load i32, ptr %39, align 8
+  %199 = icmp slt i32 %197, %198
+  br i1 %199, label %40, label %.critedge, !llvm.loop !24
 
-.critedge:                                        ; preds = %_ZN3vcg6Point3IdE9NormalizeEv.exit41, %201
-  %.1 = phi i32 [ %202, %201 ], [ %.0, %_ZN3vcg6Point3IdE9NormalizeEv.exit41 ]
+.critedge:                                        ; preds = %_ZN3vcg6Point3IdE9NormalizeEv.exit42, %196
+  %.1 = phi i32 [ %197, %196 ], [ %.0, %_ZN3vcg6Point3IdE9NormalizeEv.exit42 ]
   %.not = icmp eq ptr %2, null
-  br i1 %.not, label %.loopexit, label %205
+  br i1 %.not, label %.loopexit, label %200
 
-205:                                              ; preds = %.critedge
-  %206 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %207 = load i32, ptr %206, align 8
-  %208 = icmp eq i32 %207, 4
-  br i1 %208, label %209, label %.preheader
+200:                                              ; preds = %.critedge
+  %201 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %202 = load i32, ptr %201, align 8
+  %203 = icmp eq i32 %202, 4
+  br i1 %203, label %204, label %.preheader
 
-209:                                              ; preds = %205
-  %210 = fptrunc double %.sroa.0116.1 to float
-  %211 = fptrunc double %.sroa.11.1 to float
-  %212 = fptrunc double %.sroa.21.1 to float
-  %.sroa.0.0.vec.insert.i = insertelement <2 x float> poison, float %210, i64 0
-  %.sroa.0.4.vec.insert.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i, float %211, i64 1
+204:                                              ; preds = %200
+  %205 = fptrunc double %.sroa.0120.1 to float
+  %206 = fptrunc double %.sroa.11.1 to float
+  %207 = fptrunc double %.sroa.21.1 to float
+  %.sroa.0.0.vec.insert.i = insertelement <2 x float> poison, float %205, i64 0
+  %.sroa.0.4.vec.insert.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i, float %206, i64 1
   store <2 x float> %.sroa.0.4.vec.insert.i, ptr %8, align 8
   %.sroa.26.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store float %212, ptr %.sroa.26.0..sroa_idx, align 8
-  %213 = call noundef zeroext i1 @_ZNK7GaelMls4APSSI6CMeshOE11mlsGradientERKN3vcg6Point3IfEERS5_(ptr noundef nonnull align 8 dereferenceable(792) %0, ptr noundef nonnull align 4 dereferenceable(12) %8, ptr noundef nonnull align 4 dereferenceable(12) %7)
-  %214 = load float, ptr %7, align 4
-  %215 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %216 = load float, ptr %215, align 4
-  %217 = fmul float %216, %216
-  %218 = call float @llvm.fmuladd.f32(float %214, float %214, float %217)
-  %219 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %220 = load float, ptr %219, align 4
-  %221 = call float @llvm.fmuladd.f32(float %220, float %220, float %218)
-  %222 = call noundef float @sqrtf(float noundef %221) #22
-  %223 = fcmp ogt float %222, 0.000000e+00
-  br i1 %223, label %224, label %_ZN3vcg6Point3IfE9NormalizeEv.exit
+  store float %207, ptr %.sroa.26.0..sroa_idx, align 8
+  %208 = call noundef zeroext i1 @_ZNK7GaelMls4APSSI6CMeshOE11mlsGradientERKN3vcg6Point3IfEERS5_(ptr noundef nonnull align 8 dereferenceable(792) %0, ptr noundef nonnull align 4 dereferenceable(12) %8, ptr noundef nonnull align 4 dereferenceable(12) %7)
+  %209 = load float, ptr %7, align 4
+  %210 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  %211 = load float, ptr %210, align 4
+  %212 = fmul float %211, %211
+  %213 = call float @llvm.fmuladd.f32(float %209, float %209, float %212)
+  %214 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %215 = load float, ptr %214, align 4
+  %216 = call float @llvm.fmuladd.f32(float %215, float %215, float %213)
+  %217 = fcmp ogt float %216, 0.000000e+00
+  br i1 %217, label %218, label %_ZN3vcg6Point3IfE9NormalizeEv.exit
 
-224:                                              ; preds = %209
-  %225 = fdiv float %214, %222
-  store float %225, ptr %7, align 4
-  %226 = fdiv float %216, %222
-  store float %226, ptr %215, align 4
-  %227 = fdiv float %220, %222
-  store float %227, ptr %219, align 4
+218:                                              ; preds = %204
+  %sqrt.i47 = call float @llvm.sqrt.f32(float %216)
+  %219 = fdiv float %209, %sqrt.i47
+  store float %219, ptr %7, align 4
+  %220 = fdiv float %211, %sqrt.i47
+  store float %220, ptr %210, align 4
+  %221 = fdiv float %215, %sqrt.i47
+  store float %221, ptr %214, align 4
   br label %_ZN3vcg6Point3IfE9NormalizeEv.exit
 
-_ZN3vcg6Point3IfE9NormalizeEv.exit:               ; preds = %209, %224
+_ZN3vcg6Point3IfE9NormalizeEv.exit:               ; preds = %204, %218
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %2, ptr noundef nonnull align 4 dereferenceable(12) %7, i64 12, i1 false)
   br label %.loopexit
 
-.preheader:                                       ; preds = %205, %.preheader
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %205 ]
-  %228 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv
-  %229 = load double, ptr %228, align 8
-  %230 = fptrunc double %229 to float
-  %231 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
-  store float %230, ptr %231, align 4
+.preheader:                                       ; preds = %200, %.preheader
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %200 ]
+  %222 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv
+  %223 = load double, ptr %222, align 8
+  %224 = fptrunc double %223 to float
+  %225 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
+  store float %224, ptr %225, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !25
 
 .loopexit:                                        ; preds = %.preheader, %_ZN3vcg6Point3IfE9NormalizeEv.exit, %.critedge
-  %232 = load i32, ptr %39, align 8
-  %233 = icmp sge i32 %.1, %232
-  %234 = icmp ne ptr %3, null
-  %or.cond = and i1 %234, %233
-  br i1 %or.cond, label %235, label %236
+  %226 = load i32, ptr %39, align 8
+  %227 = icmp sge i32 %.1, %226
+  %228 = icmp ne ptr %3, null
+  %or.cond = and i1 %228, %227
+  br i1 %or.cond, label %229, label %230
 
-235:                                              ; preds = %.loopexit
+229:                                              ; preds = %.loopexit
   store i32 2, ptr %3, align 4
-  br label %236
+  br label %230
 
-236:                                              ; preds = %235, %.loopexit
-  %237 = fptrunc double %.sroa.0116.1 to float
-  %238 = fptrunc double %.sroa.11.1 to float
-  %239 = fptrunc double %.sroa.21.1 to float
-  %.sroa.0151.0.vec.insert = insertelement <2 x float> poison, float %237, i64 0
-  %.sroa.0151.4.vec.insert = insertelement <2 x float> %.sroa.0151.0.vec.insert, float %238, i64 1
-  br label %240
+230:                                              ; preds = %229, %.loopexit
+  %231 = fptrunc double %.sroa.0120.1 to float
+  %232 = fptrunc double %.sroa.11.1 to float
+  %233 = fptrunc double %.sroa.21.1 to float
+  %.sroa.0155.0.vec.insert = insertelement <2 x float> poison, float %231, i64 0
+  %.sroa.0155.4.vec.insert = insertelement <2 x float> %.sroa.0155.0.vec.insert, float %232, i64 1
+  br label %234
 
-240:                                              ; preds = %236, %47
-  %.sroa.0151.0 = phi <2 x float> [ %.sroa.0151.4.vec.insert, %236 ], [ %.sroa.0151.0.copyload, %47 ]
-  %.sroa.4153.0 = phi float [ %239, %236 ], [ %.sroa.4153.0.copyload, %47 ]
-  %.fca.0.insert = insertvalue { <2 x float>, float } poison, <2 x float> %.sroa.0151.0, 0
-  %.fca.1.insert = insertvalue { <2 x float>, float } %.fca.0.insert, float %.sroa.4153.0, 1
+234:                                              ; preds = %230, %47
+  %.sroa.0155.0 = phi <2 x float> [ %.sroa.0155.4.vec.insert, %230 ], [ %.sroa.0155.0.copyload, %47 ]
+  %.sroa.4157.0 = phi float [ %233, %230 ], [ %.sroa.4157.0.copyload, %47 ]
+  %.fca.0.insert = insertvalue { <2 x float>, float } poison, <2 x float> %.sroa.0155.0, 0
+  %.fca.1.insert = insertvalue { <2 x float>, float } %.fca.0.insert, float %.sroa.4157.0, 1
   ret { <2 x float>, float } %.fca.1.insert
 }
 
@@ -2007,7 +2007,7 @@ define weak_odr noundef zeroext i1 @_ZNK7GaelMls4APSSI6CMeshOE3fitERKN3vcg6Point
 13:                                               ; preds = %2
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 84
   store i8 0, ptr %14, align 4
-  br label %200
+  br label %199
 
 15:                                               ; preds = %2
   %16 = icmp eq i32 %11, 1
@@ -2078,7 +2078,7 @@ _ZNK7GaelMls12NeighborhoodIfE5indexEi.exit:       ; preds = %29
   store double 0.000000e+00, ptr %62, align 8
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 328
   store i32 1, ptr %63, align 8
-  br label %200
+  br label %199
 
 64:                                               ; preds = %.preheader, %_ZNSt6vectorIfSaIfEE2atEm.exit
   %.043137 = phi double [ 0.000000e+00, %.preheader ], [ %110, %_ZNSt6vectorIfSaIfEE2atEm.exit ]
@@ -2228,7 +2228,7 @@ _ZNSt6vectorIfSaIfEE2atEm.exit:                   ; preds = %_ZNK7GaelMls12Neigh
   %167 = tail call double @sqrt(double noundef %166) #22
   %168 = getelementptr inbounds nuw i8, ptr %0, i64 320
   store double %167, ptr %168, align 8
-  br label %192
+  br label %191
 
 169:                                              ; preds = %117
   %170 = fcmp oeq double %133, 0.000000e+00
@@ -2236,66 +2236,66 @@ _ZNSt6vectorIfSaIfEE2atEm.exit:                   ; preds = %_ZNK7GaelMls12Neigh
   %172 = fmul double %142, %142
   %173 = tail call double @llvm.fmuladd.f64(double %141, double %141, double %172)
   %174 = tail call double @llvm.fmuladd.f64(double %143, double %143, double %173)
-  br i1 %170, label %175, label %182
+  br i1 %170, label %175, label %181
 
 175:                                              ; preds = %169
   store i32 1, ptr %171, align 8
-  %176 = tail call noundef double @sqrt(double noundef %174) #22
-  %177 = fdiv double 1.000000e+00, %176
-  %178 = fmul double %141, %177
-  store double %178, ptr %144, align 8
-  %179 = fmul double %142, %177
-  store double %179, ptr %.sroa.256.0..sroa_idx, align 8
-  %180 = fmul double %143, %177
-  store double %180, ptr %.sroa.357.0..sroa_idx, align 8
-  %181 = fmul double %149, %177
-  store double %181, ptr %150, align 8
-  br label %192
+  %sqrt.i.i = tail call noundef double @llvm.sqrt.f64(double %174)
+  %176 = fdiv double 1.000000e+00, %sqrt.i.i
+  %177 = fmul double %141, %176
+  store double %177, ptr %144, align 8
+  %178 = fmul double %142, %176
+  store double %178, ptr %.sroa.256.0..sroa_idx, align 8
+  %179 = fmul double %143, %176
+  store double %179, ptr %.sroa.357.0..sroa_idx, align 8
+  %180 = fmul double %149, %176
+  store double %180, ptr %150, align 8
+  br label %191
 
-182:                                              ; preds = %169
+181:                                              ; preds = %169
   store i32 2, ptr %171, align 8
-  %183 = fmul double %149, -4.000000e+00
-  %184 = tail call double @llvm.fmuladd.f64(double %183, double %133, double %174)
-  %185 = tail call double @sqrt(double noundef %184) #22
-  %186 = fdiv double 1.000000e+00, %185
-  %187 = fmul double %149, %186
-  store double %187, ptr %150, align 8
-  %188 = fmul double %141, %186
-  store double %188, ptr %144, align 8
-  %189 = fmul double %142, %186
-  store double %189, ptr %.sroa.256.0..sroa_idx, align 8
-  %190 = fmul double %143, %186
-  store double %190, ptr %.sroa.357.0..sroa_idx, align 8
-  %191 = fmul double %133, %186
-  store double %191, ptr %151, align 8
-  br label %192
+  %182 = fmul double %149, -4.000000e+00
+  %183 = tail call double @llvm.fmuladd.f64(double %182, double %133, double %174)
+  %184 = tail call double @sqrt(double noundef %183) #22
+  %185 = fdiv double 1.000000e+00, %184
+  %186 = fmul double %149, %185
+  store double %186, ptr %150, align 8
+  %187 = fmul double %141, %185
+  store double %187, ptr %144, align 8
+  %188 = fmul double %142, %185
+  store double %188, ptr %.sroa.256.0..sroa_idx, align 8
+  %189 = fmul double %143, %185
+  store double %189, ptr %.sroa.357.0..sroa_idx, align 8
+  %190 = fmul double %133, %185
+  store double %190, ptr %151, align 8
+  br label %191
 
-192:                                              ; preds = %175, %182, %154
-  %193 = getelementptr inbounds nuw i8, ptr %0, i64 336
-  store double %98, ptr %193, align 8
+191:                                              ; preds = %175, %181, %154
+  %192 = getelementptr inbounds nuw i8, ptr %0, i64 336
+  store double %98, ptr %192, align 8
   %.sroa.890.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 344
   store double %99, ptr %.sroa.890.0..sroa_idx, align 8
   %.sroa.14.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 352
   store double %100, ptr %.sroa.14.0..sroa_idx, align 8
-  %194 = getelementptr inbounds nuw i8, ptr %0, i64 360
-  store double %104, ptr %194, align 8
+  %193 = getelementptr inbounds nuw i8, ptr %0, i64 360
+  store double %104, ptr %193, align 8
   %.sroa.680.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 368
   store double %105, ptr %.sroa.680.0..sroa_idx, align 8
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 376
   store double %106, ptr %.sroa.10.0..sroa_idx, align 8
-  %195 = getelementptr inbounds nuw i8, ptr %0, i64 400
-  store double %115, ptr %195, align 8
-  %196 = getelementptr inbounds nuw i8, ptr %0, i64 384
-  store double %114, ptr %196, align 8
-  %197 = getelementptr inbounds nuw i8, ptr %0, i64 392
-  store double %110, ptr %197, align 8
-  %198 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %198, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 12, i1 false)
-  %199 = getelementptr inbounds nuw i8, ptr %0, i64 84
-  store i8 1, ptr %199, align 4
-  br label %200
+  %194 = getelementptr inbounds nuw i8, ptr %0, i64 400
+  store double %115, ptr %194, align 8
+  %195 = getelementptr inbounds nuw i8, ptr %0, i64 384
+  store double %114, ptr %195, align 8
+  %196 = getelementptr inbounds nuw i8, ptr %0, i64 392
+  store double %110, ptr %196, align 8
+  %197 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %197, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 12, i1 false)
+  %198 = getelementptr inbounds nuw i8, ptr %0, i64 84
+  store i8 1, ptr %198, align 4
+  br label %199
 
-200:                                              ; preds = %192, %_ZNK7GaelMls12NeighborhoodIfE5indexEi.exit, %13
+199:                                              ; preds = %191, %_ZNK7GaelMls12NeighborhoodIfE5indexEi.exit, %13
   ret i1 %12
 }
 
@@ -3921,9 +3921,6 @@ _ZNK7GaelMls12NeighborhoodIfE15squaredDistanceEi.exit: ; preds = %_ZNK7GaelMls12
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare float @sqrtf(float noundef) local_unnamed_addr #15
-
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN7GaelMls4APSSI6CMeshOE21setSphericalParameterEf(ptr noundef nonnull align 8 dereferenceable(792) %0, float noundef %1) local_unnamed_addr #0 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 248
@@ -5496,6 +5493,12 @@ declare i64 @llvm.umin.i64(i64, i64) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #21
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.sqrt.f64(double) #20
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.sqrt.f32(float) #20
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

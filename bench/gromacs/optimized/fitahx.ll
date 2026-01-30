@@ -102,7 +102,7 @@ define noundef float @_Z7fit_ahxiP4t_bbiiPiPA3_fiS1_b(i32 noundef %0, ptr nounde
           cleanup
   call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %11) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br label %200
+  br label %199
 
 32:                                               ; preds = %26
   %33 = load ptr, ptr @_ZZ7fit_ahxiP4t_bbiiPiPA3_fiS1_bE4xref, align 8, !tbaa !5
@@ -356,7 +356,7 @@ _ZL10my_sub_xcmiPKiPA3_fPf.exit91:                ; preds = %131, %_ZL11my_calc_
           cleanup
   call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %12) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  br label %200
+  br label %199
 
 155:                                              ; preds = %._crit_edge105
   br i1 %8, label %156, label %158
@@ -376,9 +376,9 @@ _ZL10my_sub_xcmiPKiPA3_fPf.exit91:                ; preds = %131, %_ZL11my_calc_
   %wide.trip.count126 = zext nneg i32 %0 to i64
   br label %162
 
-162:                                              ; preds = %.lr.ph109, %197
-  %indvars.iv123 = phi i64 [ 0, %.lr.ph109 ], [ %indvars.iv.next124, %197 ]
-  %.065106 = phi float [ 0.000000e+00, %.lr.ph109 ], [ %.166, %197 ]
+162:                                              ; preds = %.lr.ph109, %196
+  %indvars.iv123 = phi i64 [ 0, %.lr.ph109 ], [ %indvars.iv.next124, %196 ]
+  %.065106 = phi float [ 0.000000e+00, %.lr.ph109 ], [ %.166, %196 ]
   %163 = getelementptr inbounds nuw %struct.t_bb, ptr %1, i64 %indvars.iv123
   %164 = getelementptr inbounds nuw i8, ptr %163, i64 60
   %165 = load i32, ptr %164, align 4, !tbaa !26
@@ -386,7 +386,7 @@ _ZL10my_sub_xcmiPKiPA3_fPf.exit91:                ; preds = %131, %_ZL11my_calc_
   %167 = getelementptr inbounds nuw float, ptr %160, i64 %166
   %168 = load float, ptr %167, align 4, !tbaa !18
   %169 = fcmp ogt float %168, 0.000000e+00
-  br i1 %169, label %170, label %197
+  br i1 %169, label %170, label %196
 
 170:                                              ; preds = %162
   %171 = getelementptr inbounds [3 x float], ptr %5, i64 %166
@@ -407,33 +407,33 @@ _ZL10my_sub_xcmiPKiPA3_fPf.exit91:                ; preds = %131, %_ZL11my_calc_
   %186 = fmul float %180, %180
   %187 = tail call float @llvm.fmuladd.f32(float %175, float %175, float %186)
   %188 = tail call noundef float @llvm.fmuladd.f32(float %185, float %185, float %187)
-  %189 = tail call noundef float @sqrtf(float noundef %188) #16, !tbaa !16
-  %190 = getelementptr inbounds nuw i8, ptr %163, i64 28
-  %191 = load float, ptr %190, align 4, !tbaa !29
-  %192 = fadd float %189, %191
-  store float %192, ptr %190, align 4, !tbaa !29
-  %193 = getelementptr inbounds nuw i8, ptr %163, i64 40
-  %194 = load i32, ptr %193, align 4, !tbaa !30
-  %195 = add nsw i32 %194, 1
-  store i32 %195, ptr %193, align 4, !tbaa !30
-  %196 = fadd float %.065106, %188
+  %sqrt = tail call float @llvm.sqrt.f32(float %188)
+  %189 = getelementptr inbounds nuw i8, ptr %163, i64 28
+  %190 = load float, ptr %189, align 4, !tbaa !29
+  %191 = fadd float %190, %sqrt
+  store float %191, ptr %189, align 4, !tbaa !29
+  %192 = getelementptr inbounds nuw i8, ptr %163, i64 40
+  %193 = load i32, ptr %192, align 4, !tbaa !30
+  %194 = add nsw i32 %193, 1
+  store i32 %194, ptr %192, align 4, !tbaa !30
+  %195 = fadd float %.065106, %188
   store float 0.000000e+00, ptr %167, align 4, !tbaa !18
-  br label %197
+  br label %196
 
-197:                                              ; preds = %162, %170
-  %.166 = phi float [ %196, %170 ], [ %.065106, %162 ]
+196:                                              ; preds = %162, %170
+  %.166 = phi float [ %195, %170 ], [ %.065106, %162 ]
   %indvars.iv.next124 = add nuw nsw i64 %indvars.iv123, 1
   %exitcond127.not = icmp eq i64 %indvars.iv.next124, %wide.trip.count126
   br i1 %exitcond127.not, label %._crit_edge110, label %162, !llvm.loop !31
 
-._crit_edge110:                                   ; preds = %197, %158
-  %.065.lcssa = phi float [ 0.000000e+00, %158 ], [ %.166, %197 ]
-  %198 = fdiv float %.065.lcssa, %73
-  %199 = tail call noundef float @sqrtf(float noundef %198) #16, !tbaa !16
+._crit_edge110:                                   ; preds = %196, %158
+  %.065.lcssa = phi float [ 0.000000e+00, %158 ], [ %.166, %196 ]
+  %197 = fdiv float %.065.lcssa, %73
+  %198 = tail call noundef float @sqrtf(float noundef %197) #16, !tbaa !16
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  ret float %199
+  ret float %198
 
-200:                                              ; preds = %153, %30
+199:                                              ; preds = %153, %30
   %.pn = phi { ptr, i32 } [ %31, %30 ], [ %154, %153 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   resume { ptr, i32 } %.pn
@@ -859,6 +859,9 @@ declare i64 @llvm.umax.i64(i64, i64) #15
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #15
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.sqrt.f32(float) #15
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind }

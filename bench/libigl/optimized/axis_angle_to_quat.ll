@@ -20,37 +20,37 @@ define weak_odr dso_local void @_ZN3igl18axis_angle_to_quatIdEEvPKT_S1_PS1_(ptr 
   %12 = tail call double @llvm.fabs.f64(double %11)
   %13 = tail call noundef double @_ZN3igl3EPSIdEET_v()
   %14 = fcmp ogt double %12, %13
-  br i1 %14, label %15, label %29
+  br i1 %14, label %15, label %28
 
 15:                                               ; preds = %3
   %16 = fmul double %1, 5.000000e-01
-  %17 = tail call double @cos(double noundef %16) #5, !tbaa !8
+  %17 = tail call double @cos(double noundef %16) #6, !tbaa !8
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store double %17, ptr %18, align 8, !tbaa !4
-  %19 = tail call double @sin(double noundef %16) #5, !tbaa !8
-  %20 = tail call double @sqrt(double noundef %11) #5, !tbaa !8
-  %21 = fdiv double %19, %20
-  %22 = load double, ptr %0, align 8, !tbaa !4
-  %23 = fmul double %22, %21
-  store double %23, ptr %2, align 8, !tbaa !4
-  %24 = load double, ptr %5, align 8, !tbaa !4
-  %25 = fmul double %21, %24
-  %26 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store double %25, ptr %26, align 8, !tbaa !4
-  %27 = load double, ptr %9, align 8, !tbaa !4
-  %28 = fmul double %21, %27
-  br label %31
+  %19 = tail call double @sin(double noundef %16) #6, !tbaa !8
+  %sqrt = tail call double @llvm.sqrt.f64(double %11)
+  %20 = fdiv double %19, %sqrt
+  %21 = load double, ptr %0, align 8, !tbaa !4
+  %22 = fmul double %21, %20
+  store double %22, ptr %2, align 8, !tbaa !4
+  %23 = load double, ptr %5, align 8, !tbaa !4
+  %24 = fmul double %20, %23
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store double %24, ptr %25, align 8, !tbaa !4
+  %26 = load double, ptr %9, align 8, !tbaa !4
+  %27 = fmul double %20, %26
+  br label %30
 
-29:                                               ; preds = %3
-  %30 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store double 1.000000e+00, ptr %30, align 8, !tbaa !4
+28:                                               ; preds = %3
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  store double 1.000000e+00, ptr %29, align 8, !tbaa !4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
-  br label %31
+  br label %30
 
-31:                                               ; preds = %29, %15
-  %.sink = phi double [ %28, %15 ], [ 0.000000e+00, %29 ]
-  %32 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store double %.sink, ptr %32, align 8, !tbaa !4
+30:                                               ; preds = %28, %15
+  %.sink = phi double [ %27, %15 ], [ 0.000000e+00, %28 ]
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  store double %.sink, ptr %31, align 8, !tbaa !4
   ret void
 }
 
@@ -68,9 +68,6 @@ declare double @cos(double noundef) local_unnamed_addr #3
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
 declare double @sin(double noundef) local_unnamed_addr #3
 
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @sqrt(double noundef) local_unnamed_addr #3
-
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN3igl18axis_angle_to_quatIfEEvPKT_S1_PS1_(ptr noundef %0, float noundef %1, ptr noundef %2) local_unnamed_addr #0 comdat {
   %4 = load float, ptr %0, align 4, !tbaa !10
@@ -86,42 +83,42 @@ define weak_odr dso_local void @_ZN3igl18axis_angle_to_quatIfEEvPKT_S1_PS1_(ptr 
   %14 = tail call noundef float @_ZN3igl3EPSIfEET_v()
   %15 = fpext float %14 to double
   %16 = fcmp ogt double %13, %15
-  br i1 %16, label %17, label %34
+  br i1 %16, label %17, label %33
 
 17:                                               ; preds = %3
   %18 = fmul float %1, 5.000000e-01
   %19 = fpext float %18 to double
-  %20 = tail call double @cos(double noundef %19) #5, !tbaa !8
+  %20 = tail call double @cos(double noundef %19) #6, !tbaa !8
   %21 = fptrunc double %20 to float
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store float %21, ptr %22, align 4, !tbaa !10
-  %23 = tail call double @sin(double noundef %19) #5, !tbaa !8
-  %24 = tail call double @sqrt(double noundef %12) #5, !tbaa !8
-  %25 = fdiv double %23, %24
-  %26 = fptrunc double %25 to float
-  %27 = load float, ptr %0, align 4, !tbaa !10
-  %28 = fmul float %27, %26
-  store float %28, ptr %2, align 4, !tbaa !10
-  %29 = load float, ptr %5, align 4, !tbaa !10
-  %30 = fmul float %29, %26
-  %31 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  store float %30, ptr %31, align 4, !tbaa !10
-  %32 = load float, ptr %9, align 4, !tbaa !10
-  %33 = fmul float %32, %26
-  br label %37
+  %23 = tail call double @sin(double noundef %19) #6, !tbaa !8
+  %sqrt = tail call double @llvm.sqrt.f64(double %12)
+  %24 = fdiv double %23, %sqrt
+  %25 = fptrunc double %24 to float
+  %26 = load float, ptr %0, align 4, !tbaa !10
+  %27 = fmul float %26, %25
+  store float %27, ptr %2, align 4, !tbaa !10
+  %28 = load float, ptr %5, align 4, !tbaa !10
+  %29 = fmul float %28, %25
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  store float %29, ptr %30, align 4, !tbaa !10
+  %31 = load float, ptr %9, align 4, !tbaa !10
+  %32 = fmul float %31, %25
+  br label %36
 
-34:                                               ; preds = %3
-  %35 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  store float 1.000000e+00, ptr %35, align 4, !tbaa !10
-  %36 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  store float 0.000000e+00, ptr %36, align 4, !tbaa !10
+33:                                               ; preds = %3
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  store float 1.000000e+00, ptr %34, align 4, !tbaa !10
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  store float 0.000000e+00, ptr %35, align 4, !tbaa !10
   store float 0.000000e+00, ptr %2, align 4, !tbaa !10
-  br label %37
+  br label %36
 
-37:                                               ; preds = %34, %17
-  %.sink = phi float [ %33, %17 ], [ 0.000000e+00, %34 ]
-  %38 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store float %.sink, ptr %38, align 4, !tbaa !10
+36:                                               ; preds = %33, %17
+  %.sink = phi float [ %32, %17 ], [ 0.000000e+00, %33 ]
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store float %.sink, ptr %37, align 4, !tbaa !10
   ret void
 }
 
@@ -130,15 +127,19 @@ declare float @llvm.fmuladd.f32(float, float, float) #1
 
 declare noundef float @_ZN3igl3EPSIfEET_v() local_unnamed_addr #2
 
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.sqrt.f64(double) #4
+
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { nounwind }
+attributes #4 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #6 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

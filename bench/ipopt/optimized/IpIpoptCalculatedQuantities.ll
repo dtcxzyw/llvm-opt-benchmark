@@ -34133,10 +34133,10 @@ _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit27:      ; preds = %137, %132, %_ZNSt6v
 
 ; Function Attrs: mustprogress uwtable
 define noundef double @_ZN5Ipopt25IpoptCalculatedQuantities14CalcNormOfTypeENS_9ENormTypeERKNS_6VectorES4_(ptr nonnull readnone align 8 captures(none) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(205) %2, ptr noundef nonnull align 8 dereferenceable(205) %3) local_unnamed_addr #6 align 2 {
-  switch i32 %1, label %84 [
+  switch i32 %1, label %83 [
     i32 0, label %5
     i32 1, label %31
-    i32 2, label %58
+    i32 2, label %57
   ]
 
 5:                                                ; preds = %4
@@ -34191,7 +34191,7 @@ _ZNK5Ipopt6Vector4AsumEv.exit:                    ; preds = %._crit_edge.i, %10
 _ZNK5Ipopt6Vector4AsumEv.exit11:                  ; preds = %._crit_edge.i8, %22
   %29 = phi double [ %.pre.i10, %._crit_edge.i8 ], [ %26, %22 ]
   %30 = fadd double %17, %29
-  br label %84
+  br label %83
 
 31:                                               ; preds = %4
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 88
@@ -34247,66 +34247,66 @@ _ZNK5Ipopt6Vector4Nrm2Ev.exit20:                  ; preds = %._crit_edge.i17, %4
   %55 = phi double [ %.pre.i19, %._crit_edge.i17 ], [ %52, %48 ]
   %square30 = fmul double %55, %55
   %56 = fadd double %square, %square30
-  %57 = tail call double @sqrt(double noundef %56) #26, !tbaa !95
-  br label %84
+  %sqrt = tail call double @llvm.sqrt.f64(double %56)
+  br label %83
 
-58:                                               ; preds = %4
-  %59 = getelementptr inbounds nuw i8, ptr %2, i64 120
-  %60 = load i32, ptr %59, align 8, !tbaa !122
-  %61 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %62 = load i32, ptr %61, align 8, !tbaa !108
-  %.not.i21 = icmp eq i32 %60, %62
-  br i1 %.not.i21, label %._crit_edge.i22, label %63
+57:                                               ; preds = %4
+  %58 = getelementptr inbounds nuw i8, ptr %2, i64 120
+  %59 = load i32, ptr %58, align 8, !tbaa !122
+  %60 = getelementptr inbounds nuw i8, ptr %2, i64 48
+  %61 = load i32, ptr %60, align 8, !tbaa !108
+  %.not.i21 = icmp eq i32 %59, %61
+  br i1 %.not.i21, label %._crit_edge.i22, label %62
 
-._crit_edge.i22:                                  ; preds = %58
+._crit_edge.i22:                                  ; preds = %57
   %.phi.trans.insert.i23 = getelementptr inbounds nuw i8, ptr %2, i64 128
   %.pre.i24 = load double, ptr %.phi.trans.insert.i23, align 8, !tbaa !123
   br label %_ZNK5Ipopt6Vector4AmaxEv.exit
 
-63:                                               ; preds = %58
-  %64 = load ptr, ptr %2, align 8, !tbaa !16
-  %65 = getelementptr inbounds nuw i8, ptr %64, i64 64
-  %66 = load ptr, ptr %65, align 8
-  %67 = tail call noundef double %66(ptr noundef nonnull align 8 dereferenceable(205) %2)
-  %68 = getelementptr inbounds nuw i8, ptr %2, i64 128
-  store double %67, ptr %68, align 8, !tbaa !123
-  %69 = load i32, ptr %61, align 8, !tbaa !108
-  store i32 %69, ptr %59, align 8, !tbaa !122
+62:                                               ; preds = %57
+  %63 = load ptr, ptr %2, align 8, !tbaa !16
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 64
+  %65 = load ptr, ptr %64, align 8
+  %66 = tail call noundef double %65(ptr noundef nonnull align 8 dereferenceable(205) %2)
+  %67 = getelementptr inbounds nuw i8, ptr %2, i64 128
+  store double %66, ptr %67, align 8, !tbaa !123
+  %68 = load i32, ptr %60, align 8, !tbaa !108
+  store i32 %68, ptr %58, align 8, !tbaa !122
   br label %_ZNK5Ipopt6Vector4AmaxEv.exit
 
-_ZNK5Ipopt6Vector4AmaxEv.exit:                    ; preds = %._crit_edge.i22, %63
-  %70 = phi double [ %.pre.i24, %._crit_edge.i22 ], [ %67, %63 ]
-  %71 = getelementptr inbounds nuw i8, ptr %3, i64 120
-  %72 = load i32, ptr %71, align 8, !tbaa !122
-  %73 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  %74 = load i32, ptr %73, align 8, !tbaa !108
-  %.not.i25 = icmp eq i32 %72, %74
-  br i1 %.not.i25, label %._crit_edge.i26, label %75
+_ZNK5Ipopt6Vector4AmaxEv.exit:                    ; preds = %._crit_edge.i22, %62
+  %69 = phi double [ %.pre.i24, %._crit_edge.i22 ], [ %66, %62 ]
+  %70 = getelementptr inbounds nuw i8, ptr %3, i64 120
+  %71 = load i32, ptr %70, align 8, !tbaa !122
+  %72 = getelementptr inbounds nuw i8, ptr %3, i64 48
+  %73 = load i32, ptr %72, align 8, !tbaa !108
+  %.not.i25 = icmp eq i32 %71, %73
+  br i1 %.not.i25, label %._crit_edge.i26, label %74
 
 ._crit_edge.i26:                                  ; preds = %_ZNK5Ipopt6Vector4AmaxEv.exit
   %.phi.trans.insert.i27 = getelementptr inbounds nuw i8, ptr %3, i64 128
   %.pre.i28 = load double, ptr %.phi.trans.insert.i27, align 8, !tbaa !123
   br label %_ZNK5Ipopt6Vector4AmaxEv.exit29
 
-75:                                               ; preds = %_ZNK5Ipopt6Vector4AmaxEv.exit
-  %76 = load ptr, ptr %3, align 8, !tbaa !16
-  %77 = getelementptr inbounds nuw i8, ptr %76, i64 64
-  %78 = load ptr, ptr %77, align 8
-  %79 = tail call noundef double %78(ptr noundef nonnull align 8 dereferenceable(205) %3)
-  %80 = getelementptr inbounds nuw i8, ptr %3, i64 128
-  store double %79, ptr %80, align 8, !tbaa !123
-  %81 = load i32, ptr %73, align 8, !tbaa !108
-  store i32 %81, ptr %71, align 8, !tbaa !122
+74:                                               ; preds = %_ZNK5Ipopt6Vector4AmaxEv.exit
+  %75 = load ptr, ptr %3, align 8, !tbaa !16
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 64
+  %77 = load ptr, ptr %76, align 8
+  %78 = tail call noundef double %77(ptr noundef nonnull align 8 dereferenceable(205) %3)
+  %79 = getelementptr inbounds nuw i8, ptr %3, i64 128
+  store double %78, ptr %79, align 8, !tbaa !123
+  %80 = load i32, ptr %72, align 8, !tbaa !108
+  store i32 %80, ptr %70, align 8, !tbaa !122
   br label %_ZNK5Ipopt6Vector4AmaxEv.exit29
 
-_ZNK5Ipopt6Vector4AmaxEv.exit29:                  ; preds = %._crit_edge.i26, %75
-  %82 = phi double [ %.pre.i28, %._crit_edge.i26 ], [ %79, %75 ]
-  %83 = fcmp olt double %70, %82
-  %.sroa.speculated.i = select i1 %83, double %82, double %70
-  br label %84
+_ZNK5Ipopt6Vector4AmaxEv.exit29:                  ; preds = %._crit_edge.i26, %74
+  %81 = phi double [ %.pre.i28, %._crit_edge.i26 ], [ %78, %74 ]
+  %82 = fcmp olt double %69, %81
+  %.sroa.speculated.i = select i1 %82, double %81, double %69
+  br label %83
 
-84:                                               ; preds = %4, %_ZNK5Ipopt6Vector4AmaxEv.exit29, %_ZNK5Ipopt6Vector4Nrm2Ev.exit20, %_ZNK5Ipopt6Vector4AsumEv.exit11
-  %.0 = phi double [ %.sroa.speculated.i, %_ZNK5Ipopt6Vector4AmaxEv.exit29 ], [ %30, %_ZNK5Ipopt6Vector4AsumEv.exit11 ], [ %57, %_ZNK5Ipopt6Vector4Nrm2Ev.exit20 ], [ 0.000000e+00, %4 ]
+83:                                               ; preds = %4, %_ZNK5Ipopt6Vector4AmaxEv.exit29, %_ZNK5Ipopt6Vector4Nrm2Ev.exit20, %_ZNK5Ipopt6Vector4AsumEv.exit11
+  %.0 = phi double [ %.sroa.speculated.i, %_ZNK5Ipopt6Vector4AmaxEv.exit29 ], [ %30, %_ZNK5Ipopt6Vector4AsumEv.exit11 ], [ %sqrt, %_ZNK5Ipopt6Vector4Nrm2Ev.exit20 ], [ 0.000000e+00, %4 ]
   ret double %.0
 }
 
@@ -80044,6 +80044,9 @@ declare i64 @llvm.umax.i64(i64, i64) #25
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #25
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.sqrt.f64(double) #25
 
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

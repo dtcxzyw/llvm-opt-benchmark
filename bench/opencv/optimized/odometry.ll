@@ -8866,7 +8866,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %28, %
   %.pn48 = phi { ptr, i32 } [ %27, %26 ], [ %29, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i ], [ %29, %28 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %138
+  br label %128
 
 33:                                               ; preds = %60
   %34 = add nuw i64 %.0424, 1
@@ -8926,7 +8926,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit62: ; preds = %55,
   %.pn = phi { ptr, i32 } [ %54, %53 ], [ %56, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i60 ], [ %56, %55 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %138
+  br label %128
 
 60:                                               ; preds = %.lr.ph
   %61 = load i32, ptr %35, align 8, !tbaa !111
@@ -8968,7 +8968,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit65: ; preds = %69,
   %.pn45 = phi { ptr, i32 } [ %68, %67 ], [ %70, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i63 ], [ %70, %69 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %138
+  br label %128
 
 74:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -9001,17 +9001,17 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit65: ; preds = %69,
   %90 = sub i64 %88, %89
   %91 = sdiv exact i64 %90, 96
   %92 = icmp ugt i64 %91, 1
-  br i1 %92, label %.lr.ph13, label %.loopexit
+  br i1 %92, label %.lr.ph12, label %.loopexit
 
-.lr.ph13:                                         ; preds = %74, %._crit_edge10
-  %.04311 = phi i64 [ %105, %._crit_edge10 ], [ 1, %74 ]
+.lr.ph12:                                         ; preds = %74, %._crit_edge10
+  %.04311 = phi i64 [ %127, %._crit_edge10 ], [ 1, %74 ]
   %93 = getelementptr inbounds nuw %"class.cv::Mat", ptr %87, i64 %.04311
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 8
   %95 = load i32, ptr %94, align 8, !tbaa !113
   %96 = icmp sgt i32 %95, 0
   br i1 %96, label %.lr.ph9, label %._crit_edge10
 
-.lr.ph9:                                          ; preds = %.lr.ph13
+.lr.ph9:                                          ; preds = %.lr.ph12
   %97 = getelementptr inbounds nuw i8, ptr %93, i64 16
   %98 = load ptr, ptr %97, align 8, !tbaa !127
   %99 = getelementptr inbounds nuw i8, ptr %93, i64 72
@@ -9020,69 +9020,62 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit65: ; preds = %69,
   %102 = getelementptr inbounds nuw i8, ptr %93, i64 12
   %103 = load i32, ptr %102, align 4, !tbaa !114
   %104 = icmp sgt i32 %103, 0
-  br i1 %104, label %.lr.ph9.split, label %._crit_edge10
+  br i1 %104, label %.lr.ph6.us.preheader, label %._crit_edge10
 
-._crit_edge10:                                    ; preds = %._crit_edge, %.lr.ph9, %.lr.ph13
-  %105 = add nuw i64 %.04311, 1
-  %exitcond20.not = icmp eq i64 %105, %91
-  br i1 %exitcond20.not, label %.loopexit, label %.lr.ph13, !llvm.loop !282
+.lr.ph6.us.preheader:                             ; preds = %.lr.ph9
+  %wide.trip.count20 = zext nneg i32 %95 to i64
+  %wide.trip.count = zext nneg i32 %103 to i64
+  br label %.lr.ph6.us
 
-.lr.ph9.split:                                    ; preds = %.lr.ph9, %._crit_edge
-  %106 = phi i32 [ %111, %._crit_edge ], [ %95, %.lr.ph9 ]
-  %107 = phi i32 [ %112, %._crit_edge ], [ %103, %.lr.ph9 ]
-  %indvars.iv17 = phi i64 [ %indvars.iv.next18, %._crit_edge ], [ 0, %.lr.ph9 ]
-  %108 = mul i64 %101, %indvars.iv17
-  %109 = getelementptr inbounds nuw i8, ptr %98, i64 %108
-  %110 = icmp sgt i32 %107, 0
-  br i1 %110, label %.lr.ph6, label %._crit_edge
+.lr.ph6.us:                                       ; preds = %.lr.ph6.us.preheader, %._crit_edge.us
+  %indvars.iv17 = phi i64 [ 0, %.lr.ph6.us.preheader ], [ %indvars.iv.next18, %._crit_edge.us ]
+  %105 = mul i64 %101, %indvars.iv17
+  %106 = getelementptr inbounds nuw i8, ptr %98, i64 %105
+  br label %107
 
-._crit_edge.loopexit:                             ; preds = %.lr.ph6
-  %.pre = load i32, ptr %94, align 8, !tbaa !113
-  br label %._crit_edge
-
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph9.split
-  %111 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ %106, %.lr.ph9.split ]
-  %112 = phi i32 [ %135, %._crit_edge.loopexit ], [ %107, %.lr.ph9.split ]
-  %indvars.iv.next18 = add nuw nsw i64 %indvars.iv17, 1
-  %113 = sext i32 %111 to i64
-  %114 = icmp slt i64 %indvars.iv.next18, %113
-  br i1 %114, label %.lr.ph9.split, label %._crit_edge10, !llvm.loop !283
-
-.lr.ph6:                                          ; preds = %.lr.ph9.split, %.lr.ph6
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph6 ], [ 0, %.lr.ph9.split ]
-  %115 = getelementptr inbounds nuw %"class.cv::Point3_", ptr %109, i64 %indvars.iv
-  %116 = load float, ptr %115, align 4, !tbaa !205
-  %117 = fpext float %116 to double
-  %118 = getelementptr inbounds nuw i8, ptr %115, i64 4
-  %119 = load float, ptr %118, align 4, !tbaa !207
-  %120 = fpext float %119 to double
-  %121 = fmul double %120, %120
-  %122 = call double @llvm.fmuladd.f64(double %117, double %117, double %121)
-  %123 = getelementptr inbounds nuw i8, ptr %115, i64 8
-  %124 = load float, ptr %123, align 4, !tbaa !208
-  %125 = fpext float %124 to double
-  %126 = call double @llvm.fmuladd.f64(double %125, double %125, double %122)
-  %127 = call noundef double @sqrt(double noundef %126) #31, !tbaa !74
-  %128 = fdiv double 1.000000e+00, %127
-  %129 = fmul double %128, %117
-  %130 = fptrunc double %129 to float
-  store float %130, ptr %115, align 4, !tbaa !205
-  %131 = fmul double %128, %120
-  %132 = fptrunc double %131 to float
-  store float %132, ptr %118, align 4, !tbaa !207
-  %133 = fmul double %128, %125
-  %134 = fptrunc double %133 to float
-  store float %134, ptr %123, align 4, !tbaa !208
+107:                                              ; preds = %.lr.ph6.us, %107
+  %indvars.iv = phi i64 [ 0, %.lr.ph6.us ], [ %indvars.iv.next, %107 ]
+  %108 = getelementptr inbounds nuw %"class.cv::Point3_", ptr %106, i64 %indvars.iv
+  %109 = load float, ptr %108, align 4, !tbaa !205
+  %110 = fpext float %109 to double
+  %111 = getelementptr inbounds nuw i8, ptr %108, i64 4
+  %112 = load float, ptr %111, align 4, !tbaa !207
+  %113 = fpext float %112 to double
+  %114 = fmul double %113, %113
+  %115 = call double @llvm.fmuladd.f64(double %110, double %110, double %114)
+  %116 = getelementptr inbounds nuw i8, ptr %108, i64 8
+  %117 = load float, ptr %116, align 4, !tbaa !208
+  %118 = fpext float %117 to double
+  %119 = call double @llvm.fmuladd.f64(double %118, double %118, double %115)
+  %sqrt.i.us = call noundef double @llvm.sqrt.f64(double %119)
+  %120 = fdiv double 1.000000e+00, %sqrt.i.us
+  %121 = fmul double %120, %110
+  %122 = fptrunc double %121 to float
+  store float %122, ptr %108, align 4, !tbaa !205
+  %123 = fmul double %120, %113
+  %124 = fptrunc double %123 to float
+  store float %124, ptr %111, align 4, !tbaa !207
+  %125 = fmul double %120, %118
+  %126 = fptrunc double %125 to float
+  store float %126, ptr %116, align 4, !tbaa !208
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %135 = load i32, ptr %102, align 4, !tbaa !114
-  %136 = sext i32 %135 to i64
-  %137 = icmp slt i64 %indvars.iv.next, %136
-  br i1 %137, label %.lr.ph6, label %._crit_edge.loopexit, !llvm.loop !284
+  %exitcond16.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond16.not, label %._crit_edge.us, label %107, !llvm.loop !282
+
+._crit_edge.us:                                   ; preds = %107
+  %indvars.iv.next18 = add nuw nsw i64 %indvars.iv17, 1
+  %exitcond21.not = icmp eq i64 %indvars.iv.next18, %wide.trip.count20
+  br i1 %exitcond21.not, label %._crit_edge10, label %.lr.ph6.us, !llvm.loop !283
+
+._crit_edge10:                                    ; preds = %._crit_edge.us, %.lr.ph9, %.lr.ph12
+  %127 = add nuw i64 %.04311, 1
+  %exitcond22.not = icmp eq i64 %127, %91
+  br i1 %exitcond22.not, label %.loopexit, label %.lr.ph12, !llvm.loop !284
 
 .loopexit:                                        ; preds = %33, %._crit_edge10, %74
   ret void
 
-138:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit62, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit65, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+128:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit62, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit65, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %.pn50.pn = phi { ptr, i32 } [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit62 ], [ %.pn48, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.pn45, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit65 ]
   resume { ptr, i32 } %.pn50.pn
 }
@@ -16625,6 +16618,9 @@ declare i64 @llvm.umin.i64(i64, i64) #28
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #28
 
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.sqrt.f64(double) #28
+
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree nounwind }
@@ -16945,7 +16941,7 @@ attributes #33 = { noreturn nounwind }
 !280 = distinct !{!280, !"_ZN2cvL7makePtrINS_4rgbd11RgbdNormalsEJiiiNS_3MatEiiEEENS_3PtrIT_EEDpRKT0_"}
 !281 = distinct !{!281, !66}
 !282 = distinct !{!282, !66}
-!283 = distinct !{!283, !66, !183}
+!283 = distinct !{!283, !66}
 !284 = distinct !{!284, !66}
 !285 = distinct !{!285, !66}
 !286 = distinct !{!286, !66}

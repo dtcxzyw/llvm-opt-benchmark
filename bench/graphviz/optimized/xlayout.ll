@@ -239,8 +239,8 @@ cntOverlaps.exit.i:                               ; preds = %._crit_edge.i.i
   br label %123
 
 123:                                              ; preds = %.thread.i, %.lr.ph68.i
-  %.03266.i = phi i32 [ 0, %.lr.ph68.i ], [ %420, %.thread.i ]
-  %.sroa.5.065.i = phi double [ %.sroa.5.0.copyload.i, %.lr.ph68.i ], [ %419, %.thread.i ]
+  %.03266.i = phi i32 [ 0, %.lr.ph68.i ], [ %419, %.thread.i ]
+  %.sroa.5.065.i = phi double [ %.sroa.5.0.copyload.i, %.lr.ph68.i ], [ %418, %.thread.i ]
   store double %.sroa.5.065.i, ptr @xParams.2, align 8, !tbaa !46
   store i32 %.sroa.0.0.copyload.i, ptr @xParams.0, align 8, !tbaa !48
   store double %.sroa.442.0.copyload.i, ptr @xParams.1, align 8, !tbaa !49
@@ -285,7 +285,7 @@ xinit_params.exit.i:                              ; preds = %126, %125
 .lr.ph.i:                                         ; preds = %adjust.exit.thread50.i
   %144 = load double, ptr @xParams.1, align 8, !tbaa !49
   %145 = load i32, ptr @xParams.0, align 8, !tbaa !48
-  %146 = sub nsw i32 %145, %416
+  %146 = sub nsw i32 %145, %415
   %147 = sitofp i32 %146 to double
   %148 = fmul double %144, %147
   %149 = sitofp i32 %145 to double
@@ -295,7 +295,7 @@ xinit_params.exit.i:                              ; preds = %126, %125
 
 .lr.ph:                                           ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %152 = phi double [ %150, %.lr.ph.i ], [ %142, %.lr.ph.i.preheader ]
-  %.02960.i34 = phi i32 [ %416, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
+  %.02960.i34 = phi i32 [ %415, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
   %153 = call ptr @agfstnode(ptr noundef %0) #13
   %.not74.i.i = icmp eq ptr %153, null
   br i1 %.not74.i.i, label %._crit_edge.i40.i, label %.lr.ph.i38.i
@@ -686,14 +686,14 @@ applyAttr.exit.i.i:                               ; preds = %RAD.exit31.i.i.i, %
   %.not6694.i.i = icmp eq ptr %380, null
   br i1 %.not6694.i.i, label %adjust.exit.thread50.i, label %.lr.ph97.i.i
 
-.lr.ph97.i.i:                                     ; preds = %378, %414
-  %.06195.i.i = phi ptr [ %415, %414 ], [ %380, %378 ]
+.lr.ph97.i.i:                                     ; preds = %378, %413
+  %.06195.i.i = phi ptr [ %414, %413 ], [ %380, %378 ]
   %381 = getelementptr inbounds nuw i8, ptr %.06195.i.i, i64 16
   %382 = load ptr, ptr %381, align 8, !tbaa !22
   %383 = getelementptr inbounds nuw i8, ptr %382, i64 163
   %384 = load i8, ptr %383, align 1, !tbaa !63
   %385 = icmp eq i8 %384, 3
-  br i1 %385, label %414, label %386
+  br i1 %385, label %413, label %386
 
 386:                                              ; preds = %.lr.ph97.i.i
   %387 = getelementptr inbounds nuw i8, ptr %382, i64 152
@@ -716,49 +716,49 @@ applyAttr.exit.i.i:                               ; preds = %RAD.exit31.i.i.i, %
   br label %.sink.split.i.i
 
 401:                                              ; preds = %386
-  %402 = call double @sqrt(double noundef %394) #13, !tbaa !45
-  %403 = fmul double %152, %390
-  %404 = fdiv double %403, %402
-  %405 = getelementptr inbounds nuw i8, ptr %382, i64 176
-  %406 = load ptr, ptr %405, align 8, !tbaa !28
-  %407 = load double, ptr %406, align 8, !tbaa !10
-  %408 = fadd double %404, %407
-  store double %408, ptr %406, align 8, !tbaa !10
-  %409 = fmul double %152, %392
-  %410 = fdiv double %409, %402
+  %sqrt.i.i = call double @llvm.sqrt.f64(double %394)
+  %402 = fmul double %152, %390
+  %403 = fdiv double %402, %sqrt.i.i
+  %404 = getelementptr inbounds nuw i8, ptr %382, i64 176
+  %405 = load ptr, ptr %404, align 8, !tbaa !28
+  %406 = load double, ptr %405, align 8, !tbaa !10
+  %407 = fadd double %403, %406
+  store double %407, ptr %405, align 8, !tbaa !10
+  %408 = fmul double %152, %392
+  %409 = fdiv double %408, %sqrt.i.i
   br label %.sink.split.i.i
 
 .sink.split.i.i:                                  ; preds = %401, %396
-  %.sink134.i.i = phi ptr [ %398, %396 ], [ %406, %401 ]
-  %.sink132.i.i = phi double [ %392, %396 ], [ %410, %401 ]
-  %411 = getelementptr inbounds nuw i8, ptr %.sink134.i.i, i64 8
-  %412 = load double, ptr %411, align 8, !tbaa !10
-  %413 = fadd double %.sink132.i.i, %412
-  store double %413, ptr %411, align 8, !tbaa !10
-  br label %414
+  %.sink134.i.i = phi ptr [ %398, %396 ], [ %405, %401 ]
+  %.sink132.i.i = phi double [ %392, %396 ], [ %409, %401 ]
+  %410 = getelementptr inbounds nuw i8, ptr %.sink134.i.i, i64 8
+  %411 = load double, ptr %410, align 8, !tbaa !10
+  %412 = fadd double %.sink132.i.i, %411
+  store double %412, ptr %410, align 8, !tbaa !10
+  br label %413
 
-414:                                              ; preds = %.sink.split.i.i, %.lr.ph97.i.i
-  %415 = call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.06195.i.i) #13
-  %.not66.i.i = icmp eq ptr %415, null
+413:                                              ; preds = %.sink.split.i.i, %.lr.ph97.i.i
+  %414 = call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.06195.i.i) #13
+  %.not66.i.i = icmp eq ptr %414, null
   br i1 %.not66.i.i, label %adjust.exit.thread50.i, label %.lr.ph97.i.i, !llvm.loop !64
 
-adjust.exit.thread50.i:                           ; preds = %414, %378
-  %416 = add nuw nsw i32 %.02960.i34, 1
-  %417 = load i32, ptr @xParams.4, align 8, !tbaa !50
-  %418 = icmp slt i32 %416, %417
-  br i1 %418, label %.lr.ph.i, label %adjust.exit.thread50.i..thread.i.loopexit_crit_edge, !llvm.loop !52
+adjust.exit.thread50.i:                           ; preds = %413, %378
+  %415 = add nuw nsw i32 %.02960.i34, 1
+  %416 = load i32, ptr @xParams.4, align 8, !tbaa !50
+  %417 = icmp slt i32 %415, %416
+  br i1 %417, label %.lr.ph.i, label %adjust.exit.thread50.i..thread.i.loopexit_crit_edge, !llvm.loop !52
 
 adjust.exit.thread50.i..thread.i.loopexit_crit_edge: ; preds = %adjust.exit.thread50.i
   br label %.thread.i, !llvm.loop !52
 
 .thread.i:                                        ; preds = %.lr.ph.i, %.lr.ph.i.preheader, %adjust.exit.thread50.i..thread.i.loopexit_crit_edge, %xinit_params.exit.i
-  %419 = fadd double %.sroa.5.0.copyload.i, %.sroa.5.065.i
-  %420 = add nuw nsw i32 %.03266.i, 1
-  %421 = icmp samesign ult i32 %420, %.020
-  br i1 %421, label %123, label %x_layout.exit, !llvm.loop !65
+  %418 = fadd double %.sroa.5.0.copyload.i, %.sroa.5.065.i
+  %419 = add nuw nsw i32 %.03266.i, 1
+  %420 = icmp samesign ult i32 %419, %.020
+  br i1 %420, label %123, label %x_layout.exit, !llvm.loop !65
 
 x_layout.exit:                                    ; preds = %.thread.i, %32
-  %422 = call i32 @removeOverlapAs(ptr noundef %0, ptr noundef nonnull %.0) #13
+  %421 = call i32 @removeOverlapAs(ptr noundef %0, ptr noundef nonnull %.0) #13
   br label %x_layout.exit.thread
 
 x_layout.exit.thread:                             ; preds = %._crit_edge92.i.i, %._crit_edge.i40.i, %cntOverlaps.exit.i, %43, %x_layout.exit
@@ -821,6 +821,9 @@ declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i6
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #11
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.sqrt.f64(double) #11
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12

@@ -2814,7 +2814,7 @@ define internal void @_ZNK11opencv_test12_GLOBAL__N_113RenderInvokerINS0_15Semis
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %52 = load i8, ptr %51, align 4, !range !133
   %53 = trunc nuw i8 %52 to i1
-  %.ptr36.i = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %.ptr37.i = getelementptr inbounds nuw i8, ptr %3, i64 4
   %54 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %56 = load i32, ptr %20, align 4, !tbaa !218
@@ -2848,7 +2848,7 @@ define internal void @_ZNK11opencv_test12_GLOBAL__N_113RenderInvokerINS0_15Semis
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph90.split
   %66 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ %59, %.lr.ph90.split ]
-  %67 = phi i32 [ %175, %._crit_edge.loopexit ], [ %60, %.lr.ph90.split ]
+  %67 = phi i32 [ %172, %._crit_edge.loopexit ], [ %60, %.lr.ph90.split ]
   %indvars.iv.next97 = add nsw i64 %indvars.iv96, 1
   %68 = sext i32 %66 to i64
   %69 = icmp slt i64 %indvars.iv.next97, %68
@@ -2981,9 +2981,9 @@ _ZN2cv9normalizeIfLi3EEENS_3VecIT_XT0_EEERKS3_.exit: ; preds = %109
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %123
 
-123:                                              ; preds = %_ZN2cv9normalizeIfLi3EEENS_3VecIT_XT0_EEERKS3_.exit, %168
-  %.04686 = phi float [ 0.000000e+00, %_ZN2cv9normalizeIfLi3EEENS_3VecIT_XT0_EEERKS3_.exit ], [ %169, %168 ]
-  %.04885 = phi i32 [ 0, %_ZN2cv9normalizeIfLi3EEENS_3VecIT_XT0_EEERKS3_.exit ], [ %170, %168 ]
+123:                                              ; preds = %_ZN2cv9normalizeIfLi3EEENS_3VecIT_XT0_EEERKS3_.exit, %165
+  %.04686 = phi float [ 0.000000e+00, %_ZN2cv9normalizeIfLi3EEENS_3VecIT_XT0_EEERKS3_.exit ], [ %166, %165 ]
+  %.04885 = phi i32 [ 0, %_ZN2cv9normalizeIfLi3EEENS_3VecIT_XT0_EEERKS3_.exit ], [ %167, %165 ]
   %124 = fmul float %120, %.04686
   %125 = fmul float %122, %.04686
   %126 = fadd float %71, %124
@@ -2999,86 +2999,83 @@ _ZN2cv9normalizeIfLi3EEENS_3VecIT_XT0_EEERKS3_.exit: ; preds = %109
   %136 = tail call double @llvm.fmuladd.f64(double %133, double %133, double %135)
   %137 = fpext float %132 to double
   %138 = tail call double @llvm.fmuladd.f64(double %137, double %137, double %136)
-  %139 = tail call noundef double @sqrt(double noundef %138) #30, !tbaa !94
-  %140 = fptrunc double %139 to float
-  %141 = fadd float %140, -5.000000e-01
-  %142 = fadd float %126, 0xBFD3333340000000
-  %143 = fadd float %128, 0x3FB99999A0000000
-  %144 = fadd float %129, 0x3FD3333340000000
-  %145 = fpext float %142 to double
-  %146 = fpext float %143 to double
-  %147 = fmul double %146, %146
-  %148 = tail call double @llvm.fmuladd.f64(double %145, double %145, double %147)
-  %149 = fpext float %144 to double
-  %150 = tail call double @llvm.fmuladd.f64(double %149, double %149, double %148)
-  %151 = tail call noundef double @sqrt(double noundef %150) #30, !tbaa !94
-  br i1 %53, label %_ZN11opencv_test12_GLOBAL__N_115SemisphereScene3mapEN2cv7Point3_IfEEb.exit, label %152
+  %sqrt.i.i = tail call noundef double @llvm.sqrt.f64(double %138)
+  %139 = fptrunc double %sqrt.i.i to float
+  %140 = fadd float %139, -5.000000e-01
+  br i1 %53, label %_ZN11opencv_test12_GLOBAL__N_115SemisphereScene3mapEN2cv7Point3_IfEEb.exit, label %141
 
-152:                                              ; preds = %123
-  %153 = fptrunc double %151 to float
-  %154 = fadd float %153, 0xBFA99999A0000000
-  %155 = fadd float %128, 5.000000e-01
+141:                                              ; preds = %123
+  %142 = fadd float %129, 0x3FD3333340000000
+  %143 = fpext float %142 to double
+  %144 = fadd float %126, 0xBFD3333340000000
+  %145 = fpext float %144 to double
+  %146 = fadd float %128, 0x3FB99999A0000000
+  %147 = fpext float %146 to double
+  %148 = fmul double %147, %147
+  %149 = tail call double @llvm.fmuladd.f64(double %145, double %145, double %148)
+  %150 = tail call double @llvm.fmuladd.f64(double %143, double %143, double %149)
+  %sqrt.i20.i = tail call noundef double @llvm.sqrt.f64(double %150)
+  %151 = fptrunc double %sqrt.i20.i to float
+  %152 = fadd float %151, 0xBFA99999A0000000
+  %153 = fadd float %128, 5.000000e-01
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  store float %141, ptr %3, align 4, !tbaa !117
-  store float %154, ptr %.ptr36.i, align 4, !tbaa !117
-  store float %155, ptr %54, align 4, !tbaa !117
+  store float %140, ptr %3, align 4, !tbaa !117
+  store float %152, ptr %.ptr37.i, align 4, !tbaa !117
+  store float %153, ptr %54, align 4, !tbaa !117
   br label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %152
-  %156 = phi float [ %159, %.lr.ph.i.i.i ], [ %141, %152 ]
-  %.idx.i = phi i64 [ %.add.i, %.lr.ph.i.i.i ], [ 4, %152 ]
-  %.018.i.i.i = phi ptr [ %spec.select.i.i.i, %.lr.ph.i.i.i ], [ %3, %152 ]
+.lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %141
+  %154 = phi float [ %157, %.lr.ph.i.i.i ], [ %140, %141 ]
+  %.idx.i = phi i64 [ %.add.i, %.lr.ph.i.i.i ], [ 4, %141 ]
+  %.018.i.i.i = phi ptr [ %spec.select.i.i.i, %.lr.ph.i.i.i ], [ %3, %141 ]
   %.ptr.i = getelementptr inbounds nuw i8, ptr %3, i64 %.idx.i
-  %157 = load float, ptr %.ptr.i, align 4, !tbaa !117
-  %158 = fcmp olt float %157, %156
-  %159 = select i1 %158, float %157, float %156
-  %spec.select.i.i.i = select i1 %158, ptr %.ptr.i, ptr %.018.i.i.i
+  %155 = load float, ptr %.ptr.i, align 4, !tbaa !117
+  %156 = fcmp olt float %155, %154
+  %157 = select i1 %156, float %155, float %154
+  %spec.select.i.i.i = select i1 %156, ptr %.ptr.i, ptr %.018.i.i.i
   %.add.i = add nuw nsw i64 %.idx.i, 4
   %.not.i.i.i = icmp eq i64 %.add.i, 12
   br i1 %.not.i.i.i, label %_ZSt3minIfET_St16initializer_listIS0_E.exit.i, label %.lr.ph.i.i.i, !llvm.loop !250
 
 _ZSt3minIfET_St16initializer_listIS0_E.exit.i:    ; preds = %.lr.ph.i.i.i
-  %160 = load float, ptr %spec.select.i.i.i, align 4, !tbaa !117
+  %158 = load float, ptr %spec.select.i.i.i, align 4, !tbaa !117
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN11opencv_test12_GLOBAL__N_115SemisphereScene3mapEN2cv7Point3_IfEEb.exit
 
 _ZN11opencv_test12_GLOBAL__N_115SemisphereScene3mapEN2cv7Point3_IfEEb.exit: ; preds = %123, %_ZSt3minIfET_St16initializer_listIS0_E.exit.i
-  %.0.i = phi float [ %160, %_ZSt3minIfET_St16initializer_listIS0_E.exit.i ], [ %141, %123 ]
-  %161 = fcmp uge float %.0.i, 0x3EB0C6F7A0000000
-  br i1 %161, label %168, label %162
+  %.0.i = phi float [ %158, %_ZSt3minIfET_St16initializer_listIS0_E.exit.i ], [ %140, %123 ]
+  %159 = fcmp uge float %.0.i, 0x3EB0C6F7A0000000
+  br i1 %159, label %165, label %160
 
-162:                                              ; preds = %_ZN11opencv_test12_GLOBAL__N_115SemisphereScene3mapEN2cv7Point3_IfEEb.exit
-  %163 = fmul float %.04686, %.04686
-  %164 = fmul float %119, %163
-  %165 = tail call noundef float @sqrtf(float noundef %164) #30, !tbaa !94
-  %166 = load float, ptr %55, align 8, !tbaa !137
-  %167 = fmul float %165, %166
+160:                                              ; preds = %_ZN11opencv_test12_GLOBAL__N_115SemisphereScene3mapEN2cv7Point3_IfEEb.exit
+  %161 = fmul float %.04686, %.04686
+  %162 = fmul float %119, %161
+  %sqrt = tail call float @llvm.sqrt.f32(float %162)
+  %163 = load float, ptr %55, align 8, !tbaa !137
+  %164 = fmul float %sqrt, %163
   br label %.loopexit
 
-168:                                              ; preds = %_ZN11opencv_test12_GLOBAL__N_115SemisphereScene3mapEN2cv7Point3_IfEEb.exit
-  %169 = fadd float %.04686, %.0.i
-  %170 = add nuw nsw i32 %.04885, 1
-  %171 = icmp samesign ult i32 %.04885, 255
-  %172 = fcmp olt float %169, 2.000000e+01
-  %173 = select i1 %171, i1 %172, i1 false
-  br i1 %173, label %123, label %.loopexit, !llvm.loop !251
+165:                                              ; preds = %_ZN11opencv_test12_GLOBAL__N_115SemisphereScene3mapEN2cv7Point3_IfEEb.exit
+  %166 = fadd float %.04686, %.0.i
+  %167 = add nuw nsw i32 %.04885, 1
+  %168 = icmp samesign ult i32 %.04885, 255
+  %169 = fcmp olt float %166, 2.000000e+01
+  %170 = select i1 %168, i1 %169, i1 false
+  br i1 %170, label %123, label %.loopexit, !llvm.loop !251
 
-.loopexit:                                        ; preds = %168, %162
-  %.1 = phi float [ %167, %162 ], [ 0.000000e+00, %168 ]
-  %174 = getelementptr inbounds nuw float, ptr %62, i64 %indvars.iv
-  store float %.1, ptr %174, align 4, !tbaa !117
+.loopexit:                                        ; preds = %165, %160
+  %.1 = phi float [ %164, %160 ], [ 0.000000e+00, %165 ]
+  %171 = getelementptr inbounds nuw float, ptr %62, i64 %indvars.iv
+  store float %.1, ptr %171, align 4, !tbaa !117
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %175 = load i32, ptr %20, align 4, !tbaa !218
-  %176 = sext i32 %175 to i64
-  %177 = icmp slt i64 %indvars.iv.next, %176
-  br i1 %177, label %70, label %._crit_edge.loopexit, !llvm.loop !252
+  %172 = load i32, ptr %20, align 4, !tbaa !218
+  %173 = sext i32 %172 to i64
+  %174 = icmp slt i64 %indvars.iv.next, %173
+  br i1 %174, label %70, label %._crit_edge.loopexit, !llvm.loop !252
 }
 
 ; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fmuladd.f32(float, float, float) #20
-
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare float @sqrtf(float noundef) local_unnamed_addr #19
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr hidden void @_ZNK2cv7Affine3IfE6rotateERKNS_3VecIfLi3EEE(ptr dead_on_unwind noalias writable sret(%"class.cv::Affine3") align 4 %0, ptr noundef nonnull align 4 dereferenceable(64) %1, ptr noundef nonnull align 4 dereferenceable(12) %2) local_unnamed_addr #23 comdat align 2 {
@@ -5356,6 +5353,12 @@ declare i64 @llvm.umax.i64(i64, i64) #29
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #29
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.sqrt.f64(double) #29
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.sqrt.f32(float) #29
 
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }

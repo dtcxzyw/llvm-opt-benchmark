@@ -2585,14 +2585,14 @@ invoke.cont.i:                                    ; preds = %.noexc.i
   %48 = call double @llvm.fmuladd.f64(double %46, double %46, double %mul8.i.i.i)
   %49 = load double, ptr %arrayidx10.i.i.i312, align 8, !noalias !28
   %50 = call double @llvm.fmuladd.f64(double %49, double %49, double %48)
-  %call.i.i.i = call noundef double @sqrt(double noundef %50) #15, !noalias !28
-  %div.i.i.i.i = fdiv double %46, %call.i.i.i
-  %div4.i.i.i.i = fdiv double %47, %call.i.i.i
-  %div7.i.i.i.i = fdiv double %49, %call.i.i.i
+  %sqrt.i.i.i = call noundef double @llvm.sqrt.f64(double %50)
+  %div.i.i.i.i = fdiv double %46, %sqrt.i.i.i
+  %div4.i.i.i.i = fdiv double %47, %sqrt.i.i.i
+  %div7.i.i.i.i = fdiv double %49, %sqrt.i.i.i
   %51 = load double, ptr %mTimeSpan.i.i, align 8, !noalias !28
-  %mul.i.i313 = fmul double %call.i.i.i, %51
+  %mul.i.i313 = fmul double %51, %sqrt.i.i.i
   %52 = load double, ptr %t1.i.i314, align 8, !noalias !28
-  %mul5.i.i = fmul double %call.i.i.i, %52
+  %mul5.i.i = fmul double %52, %sqrt.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.sroa.0, ptr noundef nonnull align 8 dereferenceable(24) %eye.i.i, i64 24, i1 false)
   %div.i.i4.i.i = fdiv double 1.000000e+00, %div.i.i.i.i
   %div3.i.i.i.i = fdiv double 1.000000e+00, %div4.i.i.i.i
@@ -3111,14 +3111,14 @@ invoke.cont.i345:                                 ; preds = %.noexc.i341
   %127 = call double @llvm.fmuladd.f64(double %125, double %125, double %mul8.i.i.i347)
   %128 = load double, ptr %arrayidx10.i.i.i348, align 8, !noalias !66
   %129 = call double @llvm.fmuladd.f64(double %128, double %128, double %127)
-  %call.i.i.i349 = call noundef double @sqrt(double noundef %129) #15, !noalias !66
-  %div.i.i.i.i350 = fdiv double %125, %call.i.i.i349
-  %div4.i.i.i.i351 = fdiv double %126, %call.i.i.i349
-  %div7.i.i.i.i352 = fdiv double %128, %call.i.i.i349
+  %sqrt.i.i.i349 = call noundef double @llvm.sqrt.f64(double %129)
+  %div.i.i.i.i350 = fdiv double %125, %sqrt.i.i.i349
+  %div4.i.i.i.i351 = fdiv double %126, %sqrt.i.i.i349
+  %div7.i.i.i.i352 = fdiv double %128, %sqrt.i.i.i349
   %130 = load double, ptr %mTimeSpan.i, align 8, !noalias !66
-  %mul.i.i354 = fmul double %call.i.i.i349, %130
+  %mul.i.i354 = fmul double %130, %sqrt.i.i.i349
   %131 = load double, ptr %t1.i.i, align 8, !noalias !66
-  %mul5.i.i356 = fmul double %call.i.i.i349, %131
+  %mul5.i.i356 = fmul double %131, %sqrt.i.i.i349
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i91.sroa.0, ptr noundef nonnull align 8 dereferenceable(24) %eye.i.i325, i64 24, i1 false)
   %div.i.i4.i.i361 = fdiv double 1.000000e+00, %div.i.i.i.i350
   %div3.i.i.i.i362 = fdiv double 1.000000e+00, %div4.i.i.i.i351
@@ -5025,14 +5025,14 @@ invoke.cont.i:                                    ; preds = %.noexc.i
   %48 = call double @llvm.fmuladd.f64(double %46, double %46, double %mul8.i.i.i)
   %49 = load double, ptr %arrayidx10.i.i.i298, align 8, !noalias !124
   %50 = call double @llvm.fmuladd.f64(double %49, double %49, double %48)
-  %call.i.i.i = call noundef double @sqrt(double noundef %50) #15, !noalias !124
-  %div.i.i.i.i = fdiv double %46, %call.i.i.i
-  %div4.i.i.i.i = fdiv double %47, %call.i.i.i
-  %div7.i.i.i.i = fdiv double %49, %call.i.i.i
+  %sqrt.i.i.i = call noundef double @llvm.sqrt.f64(double %50)
+  %div.i.i.i.i = fdiv double %46, %sqrt.i.i.i
+  %div4.i.i.i.i = fdiv double %47, %sqrt.i.i.i
+  %div7.i.i.i.i = fdiv double %49, %sqrt.i.i.i
   %51 = load double, ptr %mTimeSpan.i.i, align 8, !noalias !124
-  %mul.i.i299 = fmul double %call.i.i.i, %51
+  %mul.i.i299 = fmul double %51, %sqrt.i.i.i
   %52 = load double, ptr %t1.i.i300, align 8, !noalias !124
-  %mul5.i.i = fmul double %call.i.i.i, %52
+  %mul5.i.i = fmul double %52, %sqrt.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.sroa.0, ptr noundef nonnull align 8 dereferenceable(24) %eye.i.i, i64 24, i1 false)
   %div.i.i4.i.i = fdiv double 1.000000e+00, %div.i.i.i.i
   %div3.i.i.i.i = fdiv double 1.000000e+00, %div4.i.i.i.i
@@ -5536,14 +5536,14 @@ invoke.cont.i331:                                 ; preds = %.noexc.i327
   %127 = call double @llvm.fmuladd.f64(double %125, double %125, double %mul8.i.i.i333)
   %128 = load double, ptr %arrayidx10.i.i.i334, align 8, !noalias !160
   %129 = call double @llvm.fmuladd.f64(double %128, double %128, double %127)
-  %call.i.i.i335 = call noundef double @sqrt(double noundef %129) #15, !noalias !160
-  %div.i.i.i.i336 = fdiv double %125, %call.i.i.i335
-  %div4.i.i.i.i337 = fdiv double %126, %call.i.i.i335
-  %div7.i.i.i.i338 = fdiv double %128, %call.i.i.i335
+  %sqrt.i.i.i335 = call noundef double @llvm.sqrt.f64(double %129)
+  %div.i.i.i.i336 = fdiv double %125, %sqrt.i.i.i335
+  %div4.i.i.i.i337 = fdiv double %126, %sqrt.i.i.i335
+  %div7.i.i.i.i338 = fdiv double %128, %sqrt.i.i.i335
   %130 = load double, ptr %mTimeSpan.i, align 8, !noalias !160
-  %mul.i.i340 = fmul double %call.i.i.i335, %130
+  %mul.i.i340 = fmul double %130, %sqrt.i.i.i335
   %131 = load double, ptr %t1.i.i, align 8, !noalias !160
-  %mul5.i.i342 = fmul double %call.i.i.i335, %131
+  %mul5.i.i342 = fmul double %131, %sqrt.i.i.i335
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i91.sroa.0, ptr noundef nonnull align 8 dereferenceable(24) %eye.i.i311, i64 24, i1 false)
   %div.i.i4.i.i347 = fdiv double 1.000000e+00, %div.i.i.i.i336
   %div3.i.i.i.i348 = fdiv double 1.000000e+00, %div4.i.i.i.i337
@@ -9775,9 +9775,6 @@ entry:
   ret ptr %call.i.i.i
 }
 
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @sqrt(double noundef) local_unnamed_addr #16
-
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
@@ -10836,13 +10833,13 @@ lpad:                                             ; preds = %if.then.i.i.i.i.i, 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #17
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #16
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #18
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #17
 
 ; Function Attrs: noreturn
-declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #18
+declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #17
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7openvdb5v11_010ValueErrorD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #6 comdat align 2 {
@@ -11704,7 +11701,7 @@ unreachable:                                      ; preds = %try.cont
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #19
+declare noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7openvdb5v11_012RuntimeErrorD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #6 comdat align 2 {
@@ -11724,7 +11721,7 @@ declare void @_ZdaPv(ptr noundef) local_unnamed_addr #4
 declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @nextafter(double noundef, double noundef) local_unnamed_addr #16
+declare double @nextafter(double noundef, double noundef) local_unnamed_addr #19
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNK7openvdb5v11_05tools17LevelSetRayTracerINS0_4GridINS0_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEENS1_22LevelSetRayIntersectorISE_NS1_16LinearSearchImplISE_Li0EdEELi2ENS0_4math3RayIdEEEEEclERKN3tbb6detail2d113blocked_rangeImEE(ptr noundef nonnull align 8 dereferenceable(344) %this, ptr noundef nonnull align 8 dereferenceable(24) %range) local_unnamed_addr #20 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -12036,14 +12033,14 @@ invoke.cont.i:                                    ; preds = %.noexc.i
   %37 = call double @llvm.fmuladd.f64(double %35, double %35, double %mul8.i.i.i63)
   %38 = load double, ptr %arrayidx10.i.i.i, align 8, !noalias !286
   %39 = call double @llvm.fmuladd.f64(double %38, double %38, double %37)
-  %call.i.i.i64 = call noundef double @sqrt(double noundef %39) #15, !noalias !286
-  %div.i.i.i.i = fdiv double %35, %call.i.i.i64
-  %div4.i.i.i.i = fdiv double %36, %call.i.i.i64
-  %div7.i.i.i.i = fdiv double %38, %call.i.i.i64
+  %sqrt.i.i.i64 = call noundef double @llvm.sqrt.f64(double %39)
+  %div.i.i.i.i = fdiv double %35, %sqrt.i.i.i64
+  %div4.i.i.i.i = fdiv double %36, %sqrt.i.i.i64
+  %div7.i.i.i.i = fdiv double %38, %sqrt.i.i.i64
   %40 = load double, ptr %mTimeSpan.i.i, align 8, !noalias !286
-  %mul.i.i65 = fmul double %call.i.i.i64, %40
+  %mul.i.i65 = fmul double %40, %sqrt.i.i.i64
   %41 = load double, ptr %t1.i.i, align 8, !noalias !286
-  %mul5.i.i = fmul double %call.i.i.i64, %41
+  %mul5.i.i = fmul double %41, %sqrt.i.i.i64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i.sroa.0, ptr noundef nonnull align 8 dereferenceable(24) %eye.i.i, i64 24, i1 false)
   %div.i.i4.i.i = fdiv double 1.000000e+00, %div.i.i.i.i
   %div3.i.i.i.i = fdiv double 1.000000e+00, %div4.i.i.i.i
@@ -26868,13 +26865,13 @@ _ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12Intern
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp33.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp40.i)
   %.pre.i = load double, ptr %xyz, align 8
-  %.pre15.i = load double, ptr %ref.tmp.sroa.4.0.xyz.sroa_idx.i.i, align 8
-  %.pre16.i = load double, ptr %ref.tmp.sroa.6.0.xyz.sroa_idx.i.i, align 8
+  %.pre14.i = load double, ptr %ref.tmp.sroa.4.0.xyz.sroa_idx.i.i, align 8
+  %.pre15.i = load double, ptr %ref.tmp.sroa.6.0.xyz.sroa_idx.i.i, align 8
   br label %_ZN7openvdb5v11_04math11BaseStencilINS1_10BoxStencilINS0_4GridINS0_4tree4TreeINS5_8RootNodeINS5_12InternalNodeINS8_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEELb1EEESF_Lb1EE6moveToIdEEvRKNS1_4Vec3IT_EE.exit.i
 
 _ZN7openvdb5v11_04math11BaseStencilINS1_10BoxStencilINS0_4GridINS0_4tree4TreeINS5_8RootNodeINS5_12InternalNodeINS8_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEELb1EEESF_Lb1EE6moveToIdEEvRKNS1_4Vec3IT_EE.exit.i: ; preds = %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit779, %land.lhs.true.i.i.i.i
-  %2032 = phi double [ %add9.i.i.i.i.i, %land.lhs.true.i.i.i.i ], [ %.pre16.i, %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit779 ]
-  %2033 = phi double [ %add5.i.i.i.i.i, %land.lhs.true.i.i.i.i ], [ %.pre15.i, %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit779 ]
+  %2032 = phi double [ %add9.i.i.i.i.i, %land.lhs.true.i.i.i.i ], [ %.pre15.i, %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit779 ]
+  %2033 = phi double [ %add5.i.i.i.i.i, %land.lhs.true.i.i.i.i ], [ %.pre14.i, %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit779 ]
   %2034 = phi double [ %add.i.i.i.i.i, %land.lhs.true.i.i.i.i ], [ %.pre.i, %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit779 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %ijk.i.i)
   %conv.i.i = fptrunc double %2034 to float
@@ -26897,13 +26894,13 @@ _ZN7openvdb5v11_04math11BaseStencilINS1_10BoxStencilINS0_4GridINS0_4tree4TreeINS
   %mul8.i.i.i = fmul double %conv3.i8.i, %conv3.i8.i
   %2035 = call double @llvm.fmuladd.f64(double %conv.i6.i, double %conv.i6.i, double %mul8.i.i.i)
   %2036 = call double @llvm.fmuladd.f64(double %conv7.i11.i, double %conv7.i11.i, double %2035)
-  %call.i.i13.i = call noundef double @sqrt(double noundef %2036) #15
-  %2037 = call noundef double @llvm.fabs.f64(double %call.i.i13.i)
-  %cmp.i.i.i14.i = fcmp ogt double %2037, 0x3E7AD7F29ABCAF48
-  br i1 %cmp.i.i.i14.i, label %if.end.i.i, label %cond.true
+  %sqrt.i.i.i = call noundef double @llvm.sqrt.f64(double %2036)
+  %2037 = call noundef double @llvm.fabs.f64(double %sqrt.i.i.i)
+  %cmp.i.i.i13.i = fcmp ogt double %2037, 0x3E7AD7F29ABCAF48
+  br i1 %cmp.i.i.i13.i, label %if.end.i.i, label %cond.true
 
 if.end.i.i:                                       ; preds = %_ZN7openvdb5v11_04math11BaseStencilINS1_10BoxStencilINS0_4GridINS0_4tree4TreeINS5_8RootNodeINS5_12InternalNodeINS8_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEELb1EEESF_Lb1EE6moveToIdEEvRKNS1_4Vec3IT_EE.exit.i
-  %div.i.i = fdiv double 1.000000e+00, %call.i.i13.i
+  %div.i.i = fdiv double 1.000000e+00, %sqrt.i.i.i
   %mul.i.i.i = fmul double %div.i.i, %conv.i6.i
   %mul4.i.i.i = fmul double %div.i.i, %conv3.i8.i
   %mul7.i.i.i = fmul double %div.i.i, %conv7.i11.i
@@ -27017,14 +27014,14 @@ invoke.cont.i205:                                 ; preds = %.noexc.i201
   %2062 = call double @llvm.fmuladd.f64(double %2060, double %2060, double %mul8.i.i.i207)
   %2063 = load double, ptr %arrayidx10.i.i.i208, align 8, !noalias !341
   %2064 = call double @llvm.fmuladd.f64(double %2063, double %2063, double %2062)
-  %call.i.i.i209 = call noundef double @sqrt(double noundef %2064) #15, !noalias !341
-  %div.i.i.i.i210 = fdiv double %2060, %call.i.i.i209
-  %div4.i.i.i.i211 = fdiv double %2061, %call.i.i.i209
-  %div7.i.i.i.i212 = fdiv double %2063, %call.i.i.i209
+  %sqrt.i.i.i209 = call noundef double @llvm.sqrt.f64(double %2064)
+  %div.i.i.i.i210 = fdiv double %2060, %sqrt.i.i.i209
+  %div4.i.i.i.i211 = fdiv double %2061, %sqrt.i.i.i209
+  %div7.i.i.i.i212 = fdiv double %2063, %sqrt.i.i.i209
   %2065 = load double, ptr %mTimeSpan.i.i, align 8, !noalias !341
-  %mul.i.i214 = fmul double %call.i.i.i209, %2065
+  %mul.i.i214 = fmul double %2065, %sqrt.i.i.i209
   %2066 = load double, ptr %t1.i.i, align 8, !noalias !341
-  %mul5.i.i216 = fmul double %call.i.i.i209, %2066
+  %mul5.i.i216 = fmul double %2066, %sqrt.i.i.i209
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i17.sroa.0, ptr noundef nonnull align 8 dereferenceable(24) %eye.i.i185, i64 24, i1 false)
   %div.i.i4.i.i221 = fdiv double 1.000000e+00, %div.i.i.i.i210
   %div3.i.i.i.i222 = fdiv double 1.000000e+00, %div4.i.i.i.i211
@@ -45015,13 +45012,13 @@ _ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12Intern
   %add.ptr.i.i80.i408 = getelementptr inbounds nuw i8, ptr %4422, i64 28
   store float %4421, ptr %add.ptr.i.i80.i408, align 4
   %.pre.i107 = load double, ptr %xyz, align 8
-  %.pre15.i108 = load double, ptr %ref.tmp.sroa.4.0.xyz.sroa_idx.i.i, align 8
-  %.pre16.i109 = load double, ptr %ref.tmp.sroa.6.0.xyz.sroa_idx.i.i, align 8
+  %.pre14.i108 = load double, ptr %ref.tmp.sroa.4.0.xyz.sroa_idx.i.i, align 8
+  %.pre15.i109 = load double, ptr %ref.tmp.sroa.6.0.xyz.sroa_idx.i.i, align 8
   br label %_ZN7openvdb5v11_04math11BaseStencilINS1_10BoxStencilINS0_4GridINS0_4tree4TreeINS5_8RootNodeINS5_12InternalNodeINS8_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEELb1EEESF_Lb1EE6moveToIdEEvRKNS1_4Vec3IT_EE.exit.i110
 
 _ZN7openvdb5v11_04math11BaseStencilINS1_10BoxStencilINS0_4GridINS0_4tree4TreeINS5_8RootNodeINS5_12InternalNodeINS8_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEELb1EEESF_Lb1EE6moveToIdEEvRKNS1_4Vec3IT_EE.exit.i110: ; preds = %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit1581, %land.lhs.true.i.i.i.i137
-  %4423 = phi double [ %add9.i.i.i.i.i89, %land.lhs.true.i.i.i.i137 ], [ %.pre16.i109, %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit1581 ]
-  %4424 = phi double [ %add5.i.i.i.i.i88, %land.lhs.true.i.i.i.i137 ], [ %.pre15.i108, %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit1581 ]
+  %4423 = phi double [ %add9.i.i.i.i.i89, %land.lhs.true.i.i.i.i137 ], [ %.pre15.i109, %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit1581 ]
+  %4424 = phi double [ %add5.i.i.i.i.i88, %land.lhs.true.i.i.i.i137 ], [ %.pre14.i108, %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit1581 ]
   %4425 = phi double [ %add.i.i.i.i.i87, %land.lhs.true.i.i.i.i137 ], [ %.pre.i107, %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit1581 ]
   %conv.i.i111 = fptrunc double %4425 to float
   store float %conv.i.i111, ptr %ref.tmp3.i70, align 4
@@ -45043,13 +45040,13 @@ _ZN7openvdb5v11_04math11BaseStencilINS1_10BoxStencilINS0_4GridINS0_4tree4TreeINS
   %mul8.i.i.i126 = fmul double %conv3.i8.i122, %conv3.i8.i122
   %4426 = call double @llvm.fmuladd.f64(double %conv.i6.i120, double %conv.i6.i120, double %mul8.i.i.i126)
   %4427 = call double @llvm.fmuladd.f64(double %conv7.i11.i124, double %conv7.i11.i124, double %4426)
-  %call.i.i13.i127 = call noundef double @sqrt(double noundef %4427) #15
-  %4428 = call noundef double @llvm.fabs.f64(double %call.i.i13.i127)
-  %cmp.i.i.i14.i128 = fcmp ogt double %4428, 0x3E7AD7F29ABCAF48
-  br i1 %cmp.i.i.i14.i128, label %if.end.i.i132, label %cond.true30
+  %sqrt.i.i.i127 = call noundef double @llvm.sqrt.f64(double %4427)
+  %4428 = call noundef double @llvm.fabs.f64(double %sqrt.i.i.i127)
+  %cmp.i.i.i13.i128 = fcmp ogt double %4428, 0x3E7AD7F29ABCAF48
+  br i1 %cmp.i.i.i13.i128, label %if.end.i.i132, label %cond.true30
 
 if.end.i.i132:                                    ; preds = %_ZN7openvdb5v11_04math11BaseStencilINS1_10BoxStencilINS0_4GridINS0_4tree4TreeINS5_8RootNodeINS5_12InternalNodeINS8_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEELb1EEESF_Lb1EE6moveToIdEEvRKNS1_4Vec3IT_EE.exit.i110
-  %div.i.i133 = fdiv double 1.000000e+00, %call.i.i13.i127
+  %div.i.i133 = fdiv double 1.000000e+00, %sqrt.i.i.i127
   %mul.i.i.i134 = fmul double %div.i.i133, %conv.i6.i120
   %mul4.i.i.i135 = fmul double %div.i.i133, %conv3.i8.i122
   %mul7.i.i.i136 = fmul double %div.i.i133, %conv7.i11.i124
@@ -51356,14 +51353,14 @@ invoke.cont.i:                                    ; preds = %.noexc.i
   %37 = call double @llvm.fmuladd.f64(double %35, double %35, double %mul8.i.i.i65)
   %38 = load double, ptr %arrayidx10.i.i.i66, align 8, !noalias !477
   %39 = call double @llvm.fmuladd.f64(double %38, double %38, double %37)
-  %call.i.i.i67 = call noundef double @sqrt(double noundef %39) #15, !noalias !477
-  %div.i.i.i.i = fdiv double %35, %call.i.i.i67
-  %div4.i.i.i.i = fdiv double %36, %call.i.i.i67
-  %div7.i.i.i.i = fdiv double %38, %call.i.i.i67
+  %sqrt.i.i.i67 = call noundef double @llvm.sqrt.f64(double %39)
+  %div.i.i.i.i = fdiv double %35, %sqrt.i.i.i67
+  %div4.i.i.i.i = fdiv double %36, %sqrt.i.i.i67
+  %div7.i.i.i.i = fdiv double %38, %sqrt.i.i.i67
   %40 = load double, ptr %mTimeSpan.i.i, align 8, !noalias !477
-  %mul.i.i68 = fmul double %call.i.i.i67, %40
+  %mul.i.i68 = fmul double %40, %sqrt.i.i.i67
   %41 = load double, ptr %t1.i.i, align 8, !noalias !477
-  %mul5.i.i = fmul double %call.i.i.i67, %41
+  %mul5.i.i = fmul double %41, %sqrt.i.i.i67
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i.sroa.0, ptr noundef nonnull align 8 dereferenceable(24) %eye.i.i, i64 24, i1 false)
   %div.i.i4.i.i = fdiv double 1.000000e+00, %div.i.i.i.i
   %div3.i.i.i.i = fdiv double 1.000000e+00, %div4.i.i.i.i
@@ -66190,13 +66187,13 @@ _ZN7openvdb5v11_04math11BaseStencilINS1_10BoxStencilINS0_4GridINS0_4tree4TreeINS
   %2034 = call double @llvm.fmuladd.f64(double %2032, double %2032, double %mul8.i.i.i)
   %2035 = load double, ptr %arrayidx10.i.i.i, align 8
   %2036 = call double @llvm.fmuladd.f64(double %2035, double %2035, double %2034)
-  %call.i.i6.i = call noundef double @sqrt(double noundef %2036) #15
-  %2037 = call noundef double @llvm.fabs.f64(double %call.i.i6.i)
-  %cmp.i.i.i7.i = fcmp ogt double %2037, 0x3E7AD7F29ABCAF48
-  br i1 %cmp.i.i.i7.i, label %if.end.i.i, label %cond.true
+  %sqrt.i.i.i = call noundef double @llvm.sqrt.f64(double %2036)
+  %2037 = call noundef double @llvm.fabs.f64(double %sqrt.i.i.i)
+  %cmp.i.i.i6.i = fcmp ogt double %2037, 0x3E7AD7F29ABCAF48
+  br i1 %cmp.i.i.i6.i, label %if.end.i.i, label %cond.true
 
 if.end.i.i:                                       ; preds = %_ZN7openvdb5v11_04math11BaseStencilINS1_10BoxStencilINS0_4GridINS0_4tree4TreeINS5_8RootNodeINS5_12InternalNodeINS8_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEELb1EEESF_Lb1EE6moveToIdEEvRKNS1_4Vec3IT_EE.exit.i
-  %div.i.i = fdiv double 1.000000e+00, %call.i.i6.i
+  %div.i.i = fdiv double 1.000000e+00, %sqrt.i.i.i
   %mul.i.i.i = fmul double %2032, %div.i.i
   %mul4.i.i.i = fmul double %2033, %div.i.i
   %mul7.i.i.i = fmul double %2035, %div.i.i
@@ -66310,14 +66307,14 @@ invoke.cont.i191:                                 ; preds = %.noexc.i187
   %2062 = call double @llvm.fmuladd.f64(double %2060, double %2060, double %mul8.i.i.i193)
   %2063 = load double, ptr %arrayidx10.i.i.i194, align 8, !noalias !526
   %2064 = call double @llvm.fmuladd.f64(double %2063, double %2063, double %2062)
-  %call.i.i.i195 = call noundef double @sqrt(double noundef %2064) #15, !noalias !526
-  %div.i.i.i.i196 = fdiv double %2060, %call.i.i.i195
-  %div4.i.i.i.i197 = fdiv double %2061, %call.i.i.i195
-  %div7.i.i.i.i198 = fdiv double %2063, %call.i.i.i195
+  %sqrt.i.i.i195 = call noundef double @llvm.sqrt.f64(double %2064)
+  %div.i.i.i.i196 = fdiv double %2060, %sqrt.i.i.i195
+  %div4.i.i.i.i197 = fdiv double %2061, %sqrt.i.i.i195
+  %div7.i.i.i.i198 = fdiv double %2063, %sqrt.i.i.i195
   %2065 = load double, ptr %mTimeSpan.i.i, align 8, !noalias !526
-  %mul.i.i200 = fmul double %call.i.i.i195, %2065
+  %mul.i.i200 = fmul double %2065, %sqrt.i.i.i195
   %2066 = load double, ptr %t1.i.i, align 8, !noalias !526
-  %mul5.i.i202 = fmul double %call.i.i.i195, %2066
+  %mul5.i.i202 = fmul double %2066, %sqrt.i.i.i195
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i17.sroa.0, ptr noundef nonnull align 8 dereferenceable(24) %eye.i.i171, i64 24, i1 false)
   %div.i.i4.i.i207 = fdiv double 1.000000e+00, %div.i.i.i.i196
   %div3.i.i.i.i208 = fdiv double 1.000000e+00, %div4.i.i.i.i197
@@ -84309,13 +84306,13 @@ _ZN7openvdb5v11_04math11BaseStencilINS1_10BoxStencilINS0_4GridINS0_4tree4TreeINS
   %4425 = call double @llvm.fmuladd.f64(double %4423, double %4423, double %mul8.i.i.i111)
   %4426 = load double, ptr %arrayidx10.i.i.i, align 8
   %4427 = call double @llvm.fmuladd.f64(double %4426, double %4426, double %4425)
-  %call.i.i6.i113 = call noundef double @sqrt(double noundef %4427) #15
-  %4428 = call noundef double @llvm.fabs.f64(double %call.i.i6.i113)
-  %cmp.i.i.i7.i114 = fcmp ogt double %4428, 0x3E7AD7F29ABCAF48
-  br i1 %cmp.i.i.i7.i114, label %if.end.i.i118, label %cond.true30
+  %sqrt.i.i.i113 = call noundef double @llvm.sqrt.f64(double %4427)
+  %4428 = call noundef double @llvm.fabs.f64(double %sqrt.i.i.i113)
+  %cmp.i.i.i6.i114 = fcmp ogt double %4428, 0x3E7AD7F29ABCAF48
+  br i1 %cmp.i.i.i6.i114, label %if.end.i.i118, label %cond.true30
 
 if.end.i.i118:                                    ; preds = %_ZN7openvdb5v11_04math11BaseStencilINS1_10BoxStencilINS0_4GridINS0_4tree4TreeINS5_8RootNodeINS5_12InternalNodeINS8_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEELb1EEESF_Lb1EE6moveToIdEEvRKNS1_4Vec3IT_EE.exit.i109
-  %div.i.i119 = fdiv double 1.000000e+00, %call.i.i6.i113
+  %div.i.i119 = fdiv double 1.000000e+00, %sqrt.i.i.i113
   %mul.i.i.i120 = fmul double %4423, %div.i.i119
   %mul4.i.i.i121 = fmul double %4424, %div.i.i119
   %mul7.i.i.i122 = fmul double %4426, %div.i.i119
@@ -87629,9 +87626,9 @@ entry:
   %arrayidx10.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %3 = load double, ptr %arrayidx10.i, align 8
   %4 = tail call double @llvm.fmuladd.f64(double %3, double %3, double %2)
-  %call.i = tail call noundef double @sqrt(double noundef %4) #15
-  store double %call.i, ptr %len, align 8
-  %5 = tail call noundef double @llvm.fabs.f64(double %call.i)
+  %sqrt.i = tail call noundef double @llvm.sqrt.f64(double %4)
+  store double %sqrt.i, ptr %len, align 8
+  %5 = tail call noundef double @llvm.fabs.f64(double %sqrt.i)
   %cmp.i.i = fcmp ule double %5, %eps
   br i1 %cmp.i.i, label %if.then, label %if.end
 
@@ -87688,15 +87685,15 @@ lpad9:                                            ; preds = %try.cont, %catch
 if.end:                                           ; preds = %entry
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, i64 24, i1 false)
   %10 = load double, ptr %agg.result, align 8, !alias.scope !574
-  %div.i.i = fdiv double %10, %call.i
+  %div.i.i = fdiv double %10, %sqrt.i
   store double %div.i.i, ptr %agg.result, align 8, !alias.scope !574
   %arrayidx3.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   %11 = load double, ptr %arrayidx3.i.i, align 8, !alias.scope !574
-  %div4.i.i = fdiv double %11, %call.i
+  %div4.i.i = fdiv double %11, %sqrt.i
   store double %div4.i.i, ptr %arrayidx3.i.i, align 8, !alias.scope !574
   %arrayidx6.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   %12 = load double, ptr %arrayidx6.i.i, align 8, !alias.scope !574
-  %div7.i.i = fdiv double %12, %call.i
+  %div7.i.i = fdiv double %12, %sqrt.i
   store double %div7.i.i, ptr %arrayidx6.i.i, align 8, !alias.scope !574
   ret void
 
@@ -90340,7 +90337,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @exp(double noundef) local_unnamed_addr #16
+declare double @exp(double noundef) local_unnamed_addr #19
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7openvdb5v11_05tools12VolumeRenderINS1_20VolumeRayIntersectorINS0_4GridINS0_4tree4TreeINS5_8RootNodeINS5_12InternalNodeINS8_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEELi2ENS0_4math3RayIdEEEENS1_10BoxSamplerEED2Ev(ptr noundef nonnull align 8 dereferenceable(248) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -91048,38 +91045,41 @@ entry:
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #22
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #23
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.sqrt.f64(double) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #23
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #24
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #24
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #24
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #25
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.cttz.i64(i64, i1 immarg) #25
+declare i64 @llvm.cttz.i64(i64, i1 immarg) #26
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #26
+declare i32 @llvm.smin.i32(i32, i32) #23
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #26
+declare i32 @llvm.smax.i32(i32, i32) #23
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare x86_fp80 @llvm.log.f80(x86_fp80) #26
+declare x86_fp80 @llvm.log.f80(x86_fp80) #23
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #26
+declare i64 @llvm.umax.i64(i64, i64) #23
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.umax.i8(i8, i8) #26
+declare i8 @llvm.umax.i8(i8, i8) #23
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctpop.i64(i64) #26
+declare i64 @llvm.ctpop.i64(i64) #23
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #26
+declare i64 @llvm.umin.i64(i64, i64) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #27
@@ -91100,17 +91100,17 @@ attributes #12 = { cold nofree noreturn }
 attributes #13 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #15 = { nounwind }
-attributes #16 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #18 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #17 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #20 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #21 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #22 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #23 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #24 = { nocallback nofree nounwind willreturn memory(argmem: read) }
-attributes #25 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #26 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #23 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #24 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #25 = { nocallback nofree nounwind willreturn memory(argmem: read) }
+attributes #26 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #27 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #28 = { builtin nounwind }
 attributes #29 = { noreturn nounwind }

@@ -435,8 +435,8 @@ _ZL16FindIncidentEdgeP10ClipVertexPK12btBox2dShapeRK11btTransformiS3_S6_.exit: ;
   %122 = fmul float %118, %118
   %123 = tail call float @llvm.fmuladd.f32(float %115, float %115, float %122)
   %124 = tail call noundef float @llvm.fmuladd.f32(float %121, float %121, float %123)
-  %sqrt = tail call float @llvm.sqrt.f32(float %124)
-  %125 = fdiv float 1.000000e+00, %sqrt
+  %sqrt.i.i = tail call noundef float @llvm.sqrt.f32(float %124)
+  %125 = fdiv float 1.000000e+00, %sqrt.i.i
   %126 = fmul float %115, %125
   %127 = fmul float %118, %125
   %128 = fmul float %121, %125

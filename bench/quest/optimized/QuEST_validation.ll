@@ -118,7 +118,7 @@ define void @default_invalidQuESTInputError(ptr noundef %0, ptr noundef %1) loca
   %3 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef %1, ptr noundef %0)
   %puts2 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
   %puts3 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.2)
-  tail call void @exit(i32 noundef 1) #16
+  tail call void @exit(i32 noundef 1) #14
   unreachable
 }
 
@@ -150,29 +150,26 @@ define void @QuESTAssert(i32 noundef %0, i32 noundef %1, ptr noundef %2) local_u
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(errnomem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define range(i32 0, 2) i32 @isComplexUnit(double %0, double %1) local_unnamed_addr #4 {
   %3 = fmul double %1, %1
   %4 = tail call double @llvm.fmuladd.f64(double %0, double %0, double %3)
-  %5 = tail call double @sqrt(double noundef %4) #17, !tbaa !9
-  %6 = fsub double 1.000000e+00, %5
-  %7 = tail call double @llvm.fabs.f64(double %6)
-  %8 = fcmp olt double %7, 1.000000e-13
-  %9 = zext i1 %8 to i32
-  ret i32 %9
+  %sqrt = tail call double @llvm.sqrt.f64(double %4)
+  %5 = fsub double 1.000000e+00, %sqrt
+  %6 = tail call double @llvm.fabs.f64(double %5)
+  %7 = fcmp olt double %6, 1.000000e-13
+  %8 = zext i1 %7 to i32
+  ret i32 %8
 }
 
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @sqrt(double noundef) local_unnamed_addr #5
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.fmuladd.f64(double, double, double) #5
 
 ; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #6
-
-; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fabs.f64(double) #6
+declare double @llvm.fabs.f64(double) #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define range(i32 0, 2) i32 @isVectorUnit(double noundef %0, double noundef %1, double noundef %2) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @isVectorUnit(double noundef %0, double noundef %1, double noundef %2) local_unnamed_addr #4 {
   %4 = fmul double %1, %1
   %5 = tail call double @llvm.fmuladd.f64(double %0, double %0, double %4)
   %6 = tail call double @llvm.fmuladd.f64(double %2, double %2, double %5)
@@ -185,7 +182,7 @@ define range(i32 0, 2) i32 @isVectorUnit(double noundef %0, double noundef %1, d
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define range(i32 0, 2) i32 @isComplexPairUnitary(double %0, double %1, double %2, double %3) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @isComplexPairUnitary(double %0, double %1, double %2, double %3) local_unnamed_addr #4 {
   %5 = tail call double @llvm.fmuladd.f64(double %0, double %0, double -1.000000e+00)
   %6 = tail call double @llvm.fmuladd.f64(double %1, double %1, double %5)
   %7 = tail call double @llvm.fmuladd.f64(double %2, double %2, double %6)
@@ -197,7 +194,7 @@ define range(i32 0, 2) i32 @isComplexPairUnitary(double %0, double %1, double %2
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @isMatrix2Unitary(ptr noundef readonly byval(%struct.ComplexMatrix2) align 8 captures(none) %0) local_unnamed_addr #8 {
+define range(i32 0, 2) i32 @isMatrix2Unitary(ptr noundef readonly byval(%struct.ComplexMatrix2) align 8 captures(none) %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %.preheader46
 
@@ -233,13 +230,13 @@ define range(i32 0, 2) i32 @isMatrix2Unitary(ptr noundef readonly byval(%struct.
   %.03851 = phi double [ 0.000000e+00, %.preheader ], [ %27, %15 ]
   %.04549 = phi double [ 0.000000e+00, %.preheader ], [ %31, %15 ]
   %17 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv
-  %18 = load double, ptr %17, align 8, !tbaa !11
+  %18 = load double, ptr %17, align 8, !tbaa !9
   %19 = getelementptr inbounds nuw double, ptr %6, i64 %indvars.iv
-  %20 = load double, ptr %19, align 8, !tbaa !11
+  %20 = load double, ptr %19, align 8, !tbaa !9
   %21 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv
-  %22 = load double, ptr %21, align 8, !tbaa !11
+  %22 = load double, ptr %21, align 8, !tbaa !9
   %23 = getelementptr inbounds nuw double, ptr %7, i64 %indvars.iv
-  %24 = load double, ptr %23, align 8, !tbaa !11
+  %24 = load double, ptr %23, align 8, !tbaa !9
   %25 = fmul double %22, %24
   %26 = tail call double @llvm.fmuladd.f64(double %18, double %20, double %25)
   %27 = fadd double %.03851, %26
@@ -258,7 +255,7 @@ define range(i32 0, 2) i32 @isMatrix2Unitary(ptr noundef readonly byval(%struct.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @isMatrix4Unitary(ptr noundef readonly byval(%struct.ComplexMatrix4) align 8 captures(none) %0) local_unnamed_addr #8 {
+define range(i32 0, 2) i32 @isMatrix4Unitary(ptr noundef readonly byval(%struct.ComplexMatrix4) align 8 captures(none) %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   br label %.preheader46
 
@@ -293,13 +290,13 @@ define range(i32 0, 2) i32 @isMatrix4Unitary(ptr noundef readonly byval(%struct.
   %.03851 = phi double [ 0.000000e+00, %.preheader ], [ %26, %15 ]
   %.04549 = phi double [ 0.000000e+00, %.preheader ], [ %30, %15 ]
   %16 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv
-  %17 = load double, ptr %16, align 8, !tbaa !11
+  %17 = load double, ptr %16, align 8, !tbaa !9
   %18 = getelementptr inbounds nuw double, ptr %6, i64 %indvars.iv
-  %19 = load double, ptr %18, align 8, !tbaa !11
+  %19 = load double, ptr %18, align 8, !tbaa !9
   %20 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv
-  %21 = load double, ptr %20, align 8, !tbaa !11
+  %21 = load double, ptr %20, align 8, !tbaa !9
   %22 = getelementptr inbounds nuw double, ptr %7, i64 %indvars.iv
-  %23 = load double, ptr %22, align 8, !tbaa !11
+  %23 = load double, ptr %22, align 8, !tbaa !9
   %24 = fmul double %21, %23
   %25 = tail call double @llvm.fmuladd.f64(double %17, double %19, double %24)
   %26 = fadd double %.03851, %25
@@ -322,9 +319,9 @@ define range(i32 0, 2) i32 @isMatrix4Unitary(ptr noundef readonly byval(%struct.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
-define range(i32 0, 2) i32 @isMatrixNUnitary(ptr noundef readonly byval(%struct.ComplexMatrixN) align 8 captures(none) %0) local_unnamed_addr #9 {
+define range(i32 0, 2) i32 @isMatrixNUnitary(ptr noundef readonly byval(%struct.ComplexMatrixN) align 8 captures(none) %0) local_unnamed_addr #7 {
 .split:
-  %1 = load i32, ptr %0, align 8, !tbaa !13
+  %1 = load i32, ptr %0, align 8, !tbaa !11
   %.not5061 = icmp eq i32 %1, 31
   br i1 %.not5061, label %.loopexit, label %.preheader51.lr.ph
 
@@ -341,16 +338,16 @@ define range(i32 0, 2) i32 @isMatrixNUnitary(ptr noundef readonly byval(%struct.
   %indvars.iv75 = phi i64 [ %indvars.iv.next76, %..critedge_crit_edge.split.us.us ], [ 0, %.preheader51.lr.ph ]
   %7 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv75
   %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv75
-  %9 = load ptr, ptr %7, align 8, !tbaa !17
-  %10 = load ptr, ptr %8, align 8, !tbaa !17
+  %9 = load ptr, ptr %7, align 8, !tbaa !16
+  %10 = load ptr, ptr %8, align 8, !tbaa !16
   br label %.preheader.us.us
 
 .preheader.us.us:                                 ; preds = %31, %.preheader51.us
   %indvars.iv70 = phi i64 [ %indvars.iv.next71, %31 ], [ 0, %.preheader51.us ]
   %11 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv70
-  %12 = load ptr, ptr %11, align 8, !tbaa !17
+  %12 = load ptr, ptr %11, align 8, !tbaa !16
   %13 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv70
-  %14 = load ptr, ptr %13, align 8, !tbaa !17
+  %14 = load ptr, ptr %13, align 8, !tbaa !16
   br label %15
 
 15:                                               ; preds = %15, %.preheader.us.us
@@ -358,13 +355,13 @@ define range(i32 0, 2) i32 @isMatrixNUnitary(ptr noundef readonly byval(%struct.
   %.04157.us.us = phi double [ %26, %15 ], [ 0.000000e+00, %.preheader.us.us ]
   %.04855.us.us = phi double [ %30, %15 ], [ 0.000000e+00, %.preheader.us.us ]
   %16 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv
-  %17 = load double, ptr %16, align 8, !tbaa !11
+  %17 = load double, ptr %16, align 8, !tbaa !9
   %18 = getelementptr inbounds nuw double, ptr %12, i64 %indvars.iv
-  %19 = load double, ptr %18, align 8, !tbaa !11
+  %19 = load double, ptr %18, align 8, !tbaa !9
   %20 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv
-  %21 = load double, ptr %20, align 8, !tbaa !11
+  %21 = load double, ptr %20, align 8, !tbaa !9
   %22 = getelementptr inbounds nuw double, ptr %14, i64 %indvars.iv
-  %23 = load double, ptr %22, align 8, !tbaa !11
+  %23 = load double, ptr %22, align 8, !tbaa !9
   %24 = fmul double %21, %23
   %25 = tail call double @llvm.fmuladd.f64(double %17, double %19, double %24)
   %26 = fadd double %.04157.us.us, %25
@@ -401,7 +398,7 @@ define range(i32 0, 2) i32 @isMatrixNUnitary(ptr noundef readonly byval(%struct.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @isCompletelyPositiveMap2(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #8 {
+define range(i32 0, 2) i32 @isCompletelyPositiveMap2(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #6 {
   %3 = icmp sgt i32 %1, 0
   br i1 %3, label %.preheader69.us.preheader, label %.loopexit
 
@@ -431,14 +428,14 @@ define range(i32 0, 2) i32 @isCompletelyPositiveMap2(ptr noundef readonly captur
   %.16372.us.us = phi double [ %.06275.us.us, %.preheader.us.us ], [ %19, %5 ]
   %7 = getelementptr inbounds nuw [2 x double], ptr %24, i64 %indvars.iv
   %8 = getelementptr inbounds nuw double, ptr %7, i64 %indvars.iv97
-  %9 = load double, ptr %8, align 8, !tbaa !11
+  %9 = load double, ptr %8, align 8, !tbaa !9
   %10 = getelementptr inbounds nuw double, ptr %7, i64 %indvars.iv94
-  %11 = load double, ptr %10, align 8, !tbaa !11
+  %11 = load double, ptr %10, align 8, !tbaa !9
   %12 = getelementptr inbounds nuw [2 x double], ptr %25, i64 %indvars.iv
   %13 = getelementptr inbounds nuw double, ptr %12, i64 %indvars.iv97
-  %14 = load double, ptr %13, align 8, !tbaa !11
+  %14 = load double, ptr %13, align 8, !tbaa !9
   %15 = getelementptr inbounds nuw double, ptr %12, i64 %indvars.iv94
-  %16 = load double, ptr %15, align 8, !tbaa !11
+  %16 = load double, ptr %15, align 8, !tbaa !9
   %17 = fmul double %14, %16
   %18 = tail call double @llvm.fmuladd.f64(double %9, double %11, double %17)
   %19 = fadd double %.16372.us.us, %18
@@ -477,7 +474,7 @@ define range(i32 0, 2) i32 @isCompletelyPositiveMap2(ptr noundef readonly captur
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @isCompletelyPositiveMap4(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #8 {
+define range(i32 0, 2) i32 @isCompletelyPositiveMap4(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #6 {
   %3 = icmp sgt i32 %1, 0
   br i1 %3, label %.preheader69.us.preheader, label %.loopexit
 
@@ -504,14 +501,14 @@ define range(i32 0, 2) i32 @isCompletelyPositiveMap4(ptr noundef readonly captur
   %.16372.us.us = phi double [ %.06275.us.us, %.preheader.us.us ], [ %18, %5 ]
   %6 = getelementptr inbounds nuw [4 x double], ptr %23, i64 %indvars.iv
   %7 = getelementptr inbounds nuw double, ptr %6, i64 %indvars.iv98
-  %8 = load double, ptr %7, align 8, !tbaa !11
+  %8 = load double, ptr %7, align 8, !tbaa !9
   %9 = getelementptr inbounds nuw double, ptr %6, i64 %indvars.iv94
-  %10 = load double, ptr %9, align 8, !tbaa !11
+  %10 = load double, ptr %9, align 8, !tbaa !9
   %11 = getelementptr inbounds nuw [4 x double], ptr %24, i64 %indvars.iv
   %12 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv98
-  %13 = load double, ptr %12, align 8, !tbaa !11
+  %13 = load double, ptr %12, align 8, !tbaa !9
   %14 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv94
-  %15 = load double, ptr %14, align 8, !tbaa !11
+  %15 = load double, ptr %14, align 8, !tbaa !9
   %16 = fmul double %13, %15
   %17 = tail call double @llvm.fmuladd.f64(double %8, double %10, double %16)
   %18 = fadd double %.16372.us.us, %17
@@ -556,9 +553,9 @@ define range(i32 0, 2) i32 @isCompletelyPositiveMap4(ptr noundef readonly captur
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
-define range(i32 0, 2) i32 @isCompletelyPositiveMapN(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #9 {
+define range(i32 0, 2) i32 @isCompletelyPositiveMapN(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #7 {
 .split:
-  %2 = load i32, ptr %0, align 8, !tbaa !13
+  %2 = load i32, ptr %0, align 8, !tbaa !11
   %3 = shl nuw i32 1, %2
   %.not7397 = icmp eq i32 %2, 31
   br i1 %.not7397, label %.loopexit, label %.preheader75.lr.ph
@@ -592,9 +589,9 @@ define range(i32 0, 2) i32 @isCompletelyPositiveMapN(ptr noundef readonly captur
   %.06683.us.us.us.us.us = phi double [ %26, %._crit_edge.us.us.us.us.us ], [ 0.000000e+00, %.preheader74.us.us.us.us ]
   %6 = getelementptr inbounds nuw %struct.ComplexMatrixN, ptr %0, i64 %indvars.iv115
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %8 = load ptr, ptr %7, align 8, !tbaa !19
+  %8 = load ptr, ptr %7, align 8, !tbaa !18
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %10 = load ptr, ptr %9, align 8, !tbaa !20
+  %10 = load ptr, ptr %9, align 8, !tbaa !19
   br label %11
 
 11:                                               ; preds = %11, %.preheader.us.us.us.us.us
@@ -602,17 +599,17 @@ define range(i32 0, 2) i32 @isCompletelyPositiveMapN(ptr noundef readonly captur
   %.16580.us.us.us.us.us = phi double [ %30, %11 ], [ %.06484.us.us.us.us.us, %.preheader.us.us.us.us.us ]
   %.16779.us.us.us.us.us = phi double [ %26, %11 ], [ %.06683.us.us.us.us.us, %.preheader.us.us.us.us.us ]
   %12 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
-  %13 = load ptr, ptr %12, align 8, !tbaa !17
+  %13 = load ptr, ptr %12, align 8, !tbaa !16
   %14 = getelementptr inbounds nuw double, ptr %13, i64 %indvars.iv125
-  %15 = load double, ptr %14, align 8, !tbaa !11
+  %15 = load double, ptr %14, align 8, !tbaa !9
   %16 = getelementptr inbounds nuw double, ptr %13, i64 %indvars.iv120
-  %17 = load double, ptr %16, align 8, !tbaa !11
+  %17 = load double, ptr %16, align 8, !tbaa !9
   %18 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
-  %19 = load ptr, ptr %18, align 8, !tbaa !17
+  %19 = load ptr, ptr %18, align 8, !tbaa !16
   %20 = getelementptr inbounds nuw double, ptr %19, i64 %indvars.iv125
-  %21 = load double, ptr %20, align 8, !tbaa !11
+  %21 = load double, ptr %20, align 8, !tbaa !9
   %22 = getelementptr inbounds nuw double, ptr %19, i64 %indvars.iv120
-  %23 = load double, ptr %22, align 8, !tbaa !11
+  %23 = load double, ptr %22, align 8, !tbaa !9
   %24 = fmul double %21, %23
   %25 = tail call double @llvm.fmuladd.f64(double %15, double %17, double %24)
   %26 = fadd double %.16779.us.us.us.us.us, %25
@@ -649,14 +646,14 @@ define range(i32 0, 2) i32 @isCompletelyPositiveMapN(ptr noundef readonly captur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define range(i32 0, 2) i32 @isValidPauliCode(i32 noundef %0) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @isValidPauliCode(i32 noundef %0) local_unnamed_addr #4 {
   %narrow = icmp ult i32 %0, 4
   %2 = zext i1 %narrow to i32
   ret i32 %2
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @areUniqueQubits(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #8 {
+define range(i32 0, 2) i32 @areUniqueQubits(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #6 {
   %.not1314 = icmp slt i32 %1, 1
   br i1 %.not1314, label %._crit_edge, label %.lr.ph.preheader
 
@@ -668,7 +665,7 @@ define range(i32 0, 2) i32 @areUniqueQubits(ptr noundef readonly captures(none) 
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %8 ]
   %.01215 = phi i64 [ 0, %.lr.ph.preheader ], [ %9, %8 ]
   %3 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
-  %4 = load i32, ptr %3, align 4, !tbaa !9
+  %4 = load i32, ptr %3, align 4, !tbaa !20
   %5 = zext nneg i32 %4 to i64
   %6 = shl nuw i64 1, %5
   %7 = and i64 %6, %.01215
@@ -687,7 +684,7 @@ define range(i32 0, 2) i32 @areUniqueQubits(ptr noundef readonly captures(none) 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define range(i32 0, 64) i32 @calcLog2(i64 noundef %0) local_unnamed_addr #7 {
+define range(i32 0, 64) i32 @calcLog2(i64 noundef %0) local_unnamed_addr #4 {
   %2 = lshr i64 %0, 1
   %3 = tail call range(i64 1, 65) i64 @llvm.ctlz.i64(i64 %2, i1 false)
   %4 = trunc nuw nsw i64 %3 to i32
@@ -841,9 +838,9 @@ define void @validateUnitarySubDiagOp(ptr noundef readonly byval(%struct.SubDiag
 10:                                               ; preds = %.lr.ph, %QuESTAssert.exit
   %.08 = phi i64 [ 0, %.lr.ph ], [ %21, %QuESTAssert.exit ]
   %11 = getelementptr inbounds nuw double, ptr %7, i64 %.08
-  %12 = load double, ptr %11, align 8, !tbaa !11
+  %12 = load double, ptr %11, align 8, !tbaa !9
   %13 = getelementptr inbounds nuw double, ptr %9, i64 %.08
-  %14 = load double, ptr %13, align 8, !tbaa !11
+  %14 = load double, ptr %13, align 8, !tbaa !9
   %15 = fmul double %14, %14
   %16 = tail call double @llvm.fmuladd.f64(double %12, double %12, double %15)
   %17 = fsub double 1.000000e+00, %16
@@ -895,7 +892,7 @@ validateNumTargets.exit.i:                        ; preds = %QuESTAssert.exit
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %16 ], [ 0, %._crit_edge.i ]
   %.01215.i.i = phi i64 [ %17, %16 ], [ 0, %._crit_edge.i ]
   %11 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.i.i
-  %12 = load i32, ptr %11, align 4, !tbaa !9
+  %12 = load i32, ptr %11, align 4, !tbaa !20
   %13 = zext nneg i32 %12 to i64
   %14 = shl nuw i64 1, %13
   %15 = and i64 %14, %.01215.i.i
@@ -915,7 +912,7 @@ areUniqueQubits.exit.i:                           ; preds = %.lr.ph.i.i
 .lr.ph.i:                                         ; preds = %validateTarget.exit.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %validateTarget.exit.i ]
   %18 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.i
-  %19 = load i32, ptr %18, align 4, !tbaa !9
+  %19 = load i32, ptr %18, align 4, !tbaa !20
   %20 = icmp slt i32 %19, 0
   %21 = icmp sge i32 %19, %.sroa.3.0.copyload
   %.not3.i12.i = select i1 %20, i1 true, i1 %21
@@ -963,7 +960,7 @@ validateNumTargets.exit:                          ; preds = %4
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %13 ]
   %.01215.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %14, %13 ]
   %8 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.i
-  %9 = load i32, ptr %8, align 4, !tbaa !9
+  %9 = load i32, ptr %8, align 4, !tbaa !20
   %10 = zext nneg i32 %9 to i64
   %11 = shl nuw i64 1, %10
   %12 = and i64 %11, %.01215.i
@@ -986,7 +983,7 @@ QuESTAssert.exit:                                 ; preds = %13, %validateNumTar
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %validateTarget.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %validateTarget.exit ]
   %15 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
-  %16 = load i32, ptr %15, align 4, !tbaa !9
+  %16 = load i32, ptr %15, align 4, !tbaa !20
   %17 = icmp slt i32 %16, 0
   %18 = icmp sge i32 %16, %.sroa.3.0.copyload
   %.not3.i12 = select i1 %17, i1 true, i1 %18
@@ -1338,7 +1335,7 @@ validateNumControls.exit:                         ; preds = %4
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %13 ]
   %.01215.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %14, %13 ]
   %8 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.i
-  %9 = load i32, ptr %8, align 4, !tbaa !9
+  %9 = load i32, ptr %8, align 4, !tbaa !20
   %10 = zext nneg i32 %9 to i64
   %11 = shl nuw i64 1, %10
   %12 = and i64 %11, %.01215.i
@@ -1361,7 +1358,7 @@ QuESTAssert.exit:                                 ; preds = %13, %validateNumCon
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %validateControl.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %validateControl.exit ]
   %15 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
-  %16 = load i32, ptr %15, align 4, !tbaa !9
+  %16 = load i32, ptr %15, align 4, !tbaa !20
   %17 = icmp slt i32 %16, 0
   %18 = icmp sge i32 %16, %.sroa.3.0.copyload
   %.not3.i12 = select i1 %17, i1 true, i1 %18
@@ -1406,7 +1403,7 @@ QuESTAssert.exit:                                 ; preds = %4
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %15 ]
   %.01215.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %16, %15 ]
   %10 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.i
-  %11 = load i32, ptr %10, align 4, !tbaa !9
+  %11 = load i32, ptr %10, align 4, !tbaa !20
   %12 = zext nneg i32 %11 to i64
   %13 = shl nuw i64 1, %12
   %14 = and i64 %13, %.01215.i
@@ -1429,7 +1426,7 @@ QuESTAssert.exit17:                               ; preds = %15, %QuESTAssert.ex
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %QuESTAssert.exit19
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %QuESTAssert.exit19 ]
   %17 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
-  %18 = load i32, ptr %17, align 4, !tbaa !9
+  %18 = load i32, ptr %17, align 4, !tbaa !20
   %19 = icmp sge i32 %18, %7
   %.inv = icmp slt i32 %18, 0
   %narrow.not = select i1 %.inv, i1 true, i1 %19
@@ -1480,7 +1477,7 @@ validateNumControls.exit.i:                       ; preds = %validateTarget.exit
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %17 ], [ 0, %._crit_edge.i ]
   %.01215.i.i = phi i64 [ %18, %17 ], [ 0, %._crit_edge.i ]
   %12 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.i.i
-  %13 = load i32, ptr %12, align 4, !tbaa !9
+  %13 = load i32, ptr %12, align 4, !tbaa !20
   %14 = zext nneg i32 %13 to i64
   %15 = shl nuw i64 1, %14
   %16 = and i64 %15, %.01215.i.i
@@ -1500,7 +1497,7 @@ areUniqueQubits.exit.i:                           ; preds = %.lr.ph.i.i
 .lr.ph.i:                                         ; preds = %validateControl.exit.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %validateControl.exit.i ]
   %19 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.i
-  %20 = load i32, ptr %19, align 4, !tbaa !9
+  %20 = load i32, ptr %19, align 4, !tbaa !20
   %21 = icmp slt i32 %20, 0
   %22 = icmp sge i32 %20, %.sroa.3.0.copyload
   %.not3.i12.i = select i1 %21, i1 true, i1 %22
@@ -1525,7 +1522,7 @@ validateControl.exit.i:                           ; preds = %23, %.lr.ph.i
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %QuESTAssert.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %QuESTAssert.exit ]
   %24 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
-  %25 = load i32, ptr %24, align 4, !tbaa !9
+  %25 = load i32, ptr %24, align 4, !tbaa !20
   %.not = icmp eq i32 %25, %3
   br i1 %.not, label %26, label %QuESTAssert.exit
 
@@ -1564,7 +1561,7 @@ validateNumControls.exit.i:                       ; preds = %6
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %15 ], [ 0, %._crit_edge.i ]
   %.01215.i.i = phi i64 [ %16, %15 ], [ 0, %._crit_edge.i ]
   %10 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.i.i
-  %11 = load i32, ptr %10, align 4, !tbaa !9
+  %11 = load i32, ptr %10, align 4, !tbaa !20
   %12 = zext nneg i32 %11 to i64
   %13 = shl nuw i64 1, %12
   %14 = and i64 %13, %.01215.i.i
@@ -1584,7 +1581,7 @@ areUniqueQubits.exit.i:                           ; preds = %.lr.ph.i.i
 .lr.ph.i:                                         ; preds = %validateControl.exit.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %validateControl.exit.i ]
   %17 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.i
-  %18 = load i32, ptr %17, align 4, !tbaa !9
+  %18 = load i32, ptr %17, align 4, !tbaa !20
   %19 = icmp slt i32 %18, 0
   %20 = icmp sge i32 %18, %.sroa.3.0.copyload
   %.not3.i12.i = select i1 %19, i1 true, i1 %20
@@ -1621,7 +1618,7 @@ validateNumTargets.exit.i:                        ; preds = %validateMultiContro
   %indvars.iv.i.i27 = phi i64 [ %indvars.iv.next.i.i31, %30 ], [ 0, %._crit_edge.i23 ]
   %.01215.i.i28 = phi i64 [ %31, %30 ], [ 0, %._crit_edge.i23 ]
   %25 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.i.i27
-  %26 = load i32, ptr %25, align 4, !tbaa !9
+  %26 = load i32, ptr %25, align 4, !tbaa !20
   %27 = zext nneg i32 %26 to i64
   %28 = shl nuw i64 1, %27
   %29 = and i64 %28, %.01215.i.i28
@@ -1641,7 +1638,7 @@ areUniqueQubits.exit.i30:                         ; preds = %.lr.ph.i.i26
 .lr.ph.i18:                                       ; preds = %validateTarget.exit.i, %.lr.ph.preheader.i16
   %indvars.iv.i19 = phi i64 [ 0, %.lr.ph.preheader.i16 ], [ %indvars.iv.next.i21, %validateTarget.exit.i ]
   %32 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.i19
-  %33 = load i32, ptr %32, align 4, !tbaa !9
+  %33 = load i32, ptr %32, align 4, !tbaa !20
   %34 = icmp slt i32 %33, 0
   %35 = icmp sge i32 %33, %.sroa.3.0.copyload
   %.not3.i12.i20 = select i1 %34, i1 true, i1 %35
@@ -1657,8 +1654,8 @@ validateTarget.exit.i:                            ; preds = %36, %.lr.ph.i18
   br i1 %exitcond.not.i22, label %._crit_edge.i23, label %.lr.ph.i18
 
 validateMultiTargets.exit:                        ; preds = %30, %validateNumTargets.exit.i, %._crit_edge.i23, %areUniqueQubits.exit.i30
-  %37 = tail call i64 @getQubitBitMask(ptr noundef %1, i32 noundef %2) #17
-  %38 = tail call i64 @getQubitBitMask(ptr noundef %3, i32 noundef %4) #17
+  %37 = tail call i64 @getQubitBitMask(ptr noundef %1, i32 noundef %2) #15
+  %38 = tail call i64 @getQubitBitMask(ptr noundef %3, i32 noundef %4) #15
   %39 = and i64 %37, 4294967295
   %40 = and i64 %39, %38
   %.not.not = icmp eq i64 %40, 0
@@ -1672,7 +1669,7 @@ QuESTAssert.exit:                                 ; preds = %validateMultiTarget
   ret void
 }
 
-declare i64 @getQubitBitMask(ptr noundef, i32 noundef) local_unnamed_addr #10
+declare i64 @getQubitBitMask(ptr noundef, i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
 define void @validateControlState(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #3 {
@@ -1689,7 +1686,7 @@ define void @validateControlState(ptr noundef readonly captures(none) %0, i32 no
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %QuESTAssert.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %QuESTAssert.exit ]
   %5 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
-  %6 = load i32, ptr %5, align 4, !tbaa !9
+  %6 = load i32, ptr %5, align 4, !tbaa !20
   %narrow = icmp ugt i32 %6, 1
   br i1 %narrow, label %7, label %QuESTAssert.exit
 
@@ -1757,13 +1754,13 @@ define void @validateOneQubitUnitaryMatrix(ptr noundef readonly byval(%struct.Co
   %.03851.i = phi double [ 0.000000e+00, %.preheader.i ], [ %28, %16 ]
   %.04549.i = phi double [ 0.000000e+00, %.preheader.i ], [ %32, %16 ]
   %18 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv.i
-  %19 = load double, ptr %18, align 8, !tbaa !11
+  %19 = load double, ptr %18, align 8, !tbaa !9
   %20 = getelementptr inbounds nuw double, ptr %7, i64 %indvars.iv.i
-  %21 = load double, ptr %20, align 8, !tbaa !11
+  %21 = load double, ptr %20, align 8, !tbaa !9
   %22 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv.i
-  %23 = load double, ptr %22, align 8, !tbaa !11
+  %23 = load double, ptr %22, align 8, !tbaa !9
   %24 = getelementptr inbounds nuw double, ptr %8, i64 %indvars.iv.i
-  %25 = load double, ptr %24, align 8, !tbaa !11
+  %25 = load double, ptr %24, align 8, !tbaa !9
   %26 = fmul double %23, %25
   %27 = tail call double @llvm.fmuladd.f64(double %19, double %21, double %26)
   %28 = fadd double %.03851.i, %27
@@ -1830,13 +1827,13 @@ validateMultiQubitMatrixFitsInNode.exit:          ; preds = %3, %4
   %.03851.i = phi double [ 0.000000e+00, %.preheader.i ], [ %29, %18 ]
   %.04549.i = phi double [ 0.000000e+00, %.preheader.i ], [ %33, %18 ]
   %19 = getelementptr inbounds nuw double, ptr %6, i64 %indvars.iv.i
-  %20 = load double, ptr %19, align 8, !tbaa !11
+  %20 = load double, ptr %19, align 8, !tbaa !9
   %21 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv.i
-  %22 = load double, ptr %21, align 8, !tbaa !11
+  %22 = load double, ptr %21, align 8, !tbaa !9
   %23 = getelementptr inbounds nuw double, ptr %7, i64 %indvars.iv.i
-  %24 = load double, ptr %23, align 8, !tbaa !11
+  %24 = load double, ptr %23, align 8, !tbaa !9
   %25 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv.i
-  %26 = load double, ptr %25, align 8, !tbaa !11
+  %26 = load double, ptr %25, align 8, !tbaa !9
   %27 = fmul double %24, %26
   %28 = tail call double @llvm.fmuladd.f64(double %20, double %22, double %27)
   %29 = fadd double %.03851.i, %28
@@ -1864,7 +1861,7 @@ QuESTAssert.exit:                                 ; preds = %.critedge.i, %34
 ; Function Attrs: nounwind uwtable
 define void @validateMatrixInit(ptr noundef readonly byval(%struct.ComplexMatrixN) align 8 captures(none) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !19
+  %4 = load ptr, ptr %3, align 8, !tbaa !18
   %5 = icmp eq ptr %4, null
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
@@ -1908,7 +1905,7 @@ validateMatrixInit.exit:                          ; preds = %4, %7
   br label %validateMultiQubitMatrixFitsInNode.exit
 
 validateMultiQubitMatrixFitsInNode.exit:          ; preds = %validateMatrixInit.exit, %10
-  %11 = load i32, ptr %1, align 8, !tbaa !13
+  %11 = load i32, ptr %1, align 8, !tbaa !11
   %.not = icmp eq i32 %2, %11
   br i1 %.not, label %QuESTAssert.exit, label %12
 
@@ -1969,16 +1966,16 @@ validateMultiQubitMatrix.exit:                    ; preds = %validateMultiQubitM
   %indvars.iv75.i = phi i64 [ %indvars.iv.next76.i, %..critedge_crit_edge.split.us.us.i ], [ 0, %.preheader51.lr.ph.i ]
   %13 = getelementptr inbounds nuw ptr, ptr %.sroa.45.0.copyload, i64 %indvars.iv75.i
   %14 = getelementptr inbounds nuw ptr, ptr %.sroa.5.0.copyload, i64 %indvars.iv75.i
-  %15 = load ptr, ptr %13, align 8, !tbaa !17
-  %16 = load ptr, ptr %14, align 8, !tbaa !17
+  %15 = load ptr, ptr %13, align 8, !tbaa !16
+  %16 = load ptr, ptr %14, align 8, !tbaa !16
   br label %.preheader.us.us.i
 
 .preheader.us.us.i:                               ; preds = %37, %.preheader51.us.i
   %indvars.iv70.i = phi i64 [ %indvars.iv.next71.i, %37 ], [ 0, %.preheader51.us.i ]
   %17 = getelementptr inbounds nuw ptr, ptr %.sroa.45.0.copyload, i64 %indvars.iv70.i
-  %18 = load ptr, ptr %17, align 8, !tbaa !17
+  %18 = load ptr, ptr %17, align 8, !tbaa !16
   %19 = getelementptr inbounds nuw ptr, ptr %.sroa.5.0.copyload, i64 %indvars.iv70.i
-  %20 = load ptr, ptr %19, align 8, !tbaa !17
+  %20 = load ptr, ptr %19, align 8, !tbaa !16
   br label %21
 
 21:                                               ; preds = %21, %.preheader.us.us.i
@@ -1986,13 +1983,13 @@ validateMultiQubitMatrix.exit:                    ; preds = %validateMultiQubitM
   %.04157.us.us.i = phi double [ %32, %21 ], [ 0.000000e+00, %.preheader.us.us.i ]
   %.04855.us.us.i = phi double [ %36, %21 ], [ 0.000000e+00, %.preheader.us.us.i ]
   %22 = getelementptr inbounds nuw double, ptr %15, i64 %indvars.iv.i
-  %23 = load double, ptr %22, align 8, !tbaa !11
+  %23 = load double, ptr %22, align 8, !tbaa !9
   %24 = getelementptr inbounds nuw double, ptr %18, i64 %indvars.iv.i
-  %25 = load double, ptr %24, align 8, !tbaa !11
+  %25 = load double, ptr %24, align 8, !tbaa !9
   %26 = getelementptr inbounds nuw double, ptr %16, i64 %indvars.iv.i
-  %27 = load double, ptr %26, align 8, !tbaa !11
+  %27 = load double, ptr %26, align 8, !tbaa !9
   %28 = getelementptr inbounds nuw double, ptr %20, i64 %indvars.iv.i
-  %29 = load double, ptr %28, align 8, !tbaa !11
+  %29 = load double, ptr %28, align 8, !tbaa !9
   %30 = fmul double %27, %29
   %31 = tail call double @llvm.fmuladd.f64(double %23, double %25, double %30)
   %32 = fadd double %.04157.us.us.i, %31
@@ -2051,7 +2048,7 @@ QuESTAssert.exit:                                 ; preds = %5, %12
 
 ; Function Attrs: nounwind uwtable
 define void @validateVector(ptr noundef readonly byval(%struct.Vector) align 8 captures(none) %0, ptr noundef %1) local_unnamed_addr #3 {
-  %3 = tail call double @getVectorMagnitude(ptr noundef nonnull byval(%struct.Vector) align 8 %0) #17
+  %3 = tail call double @getVectorMagnitude(ptr noundef nonnull byval(%struct.Vector) align 8 %0) #15
   %4 = fcmp ule double %3, 1.000000e-13
   br i1 %4, label %5, label %QuESTAssert.exit
 
@@ -2063,7 +2060,7 @@ QuESTAssert.exit:                                 ; preds = %2, %5
   ret void
 }
 
-declare double @getVectorMagnitude(ptr noundef byval(%struct.Vector) align 8) local_unnamed_addr #10
+declare double @getVectorMagnitude(ptr noundef byval(%struct.Vector) align 8) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
 define void @validateStateVecQureg(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, ptr noundef %1) local_unnamed_addr #3 {
@@ -2171,7 +2168,7 @@ define void @validateFileOpened(i32 noundef %0, ptr noundef %1, ptr noundef %2) 
   br i1 %.not, label %4, label %6
 
 4:                                                ; preds = %3
-  %5 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @errMsgBuffer, ptr noundef nonnull dereferenceable(1) @.str.31, ptr noundef %1) #17
+  %5 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @errMsgBuffer, ptr noundef nonnull dereferenceable(1) @.str.31, ptr noundef %1) #15
   tail call void @invalidQuESTInputError(ptr noundef nonnull @errMsgBuffer, ptr noundef %2)
   br label %6
 
@@ -2424,7 +2421,7 @@ define void @validatePauliCodes(ptr noundef readonly captures(none) %0, i32 noun
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %QuESTAssert.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %QuESTAssert.exit ]
   %5 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
-  %6 = load i32, ptr %5, align 4, !tbaa !9
+  %6 = load i32, ptr %5, align 4, !tbaa !20
   %narrow.i = icmp ugt i32 %6, 3
   br i1 %narrow.i, label %7, label %QuESTAssert.exit
 
@@ -2525,14 +2522,14 @@ validateOneQubitKrausMapDimensions.exit:          ; preds = %QuESTAssert.exit.i,
   %.16372.us.us.i = phi double [ %.06275.us.us.i, %.preheader.us.us.i ], [ %25, %11 ]
   %13 = getelementptr inbounds nuw [2 x double], ptr %30, i64 %indvars.iv.i
   %14 = getelementptr inbounds nuw double, ptr %13, i64 %indvars.iv97.i
-  %15 = load double, ptr %14, align 8, !tbaa !11
+  %15 = load double, ptr %14, align 8, !tbaa !9
   %16 = getelementptr inbounds nuw double, ptr %13, i64 %indvars.iv94.i
-  %17 = load double, ptr %16, align 8, !tbaa !11
+  %17 = load double, ptr %16, align 8, !tbaa !9
   %18 = getelementptr inbounds nuw [2 x double], ptr %31, i64 %indvars.iv.i
   %19 = getelementptr inbounds nuw double, ptr %18, i64 %indvars.iv97.i
-  %20 = load double, ptr %19, align 8, !tbaa !11
+  %20 = load double, ptr %19, align 8, !tbaa !9
   %21 = getelementptr inbounds nuw double, ptr %18, i64 %indvars.iv94.i
-  %22 = load double, ptr %21, align 8, !tbaa !11
+  %22 = load double, ptr %21, align 8, !tbaa !9
   %23 = fmul double %20, %22
   %24 = tail call double @llvm.fmuladd.f64(double %15, double %17, double %23)
   %25 = fadd double %.16372.us.us.i, %24
@@ -2644,14 +2641,14 @@ validateTwoQubitKrausMapDimensions.exit:          ; preds = %QuESTAssert.exit.i,
   %.16372.us.us.i = phi double [ %.06275.us.us.i, %.preheader.us.us.i ], [ %24, %11 ]
   %12 = getelementptr inbounds nuw [4 x double], ptr %29, i64 %indvars.iv.i
   %13 = getelementptr inbounds nuw double, ptr %12, i64 %indvars.iv98.i
-  %14 = load double, ptr %13, align 8, !tbaa !11
+  %14 = load double, ptr %13, align 8, !tbaa !9
   %15 = getelementptr inbounds nuw double, ptr %12, i64 %indvars.iv94.i
-  %16 = load double, ptr %15, align 8, !tbaa !11
+  %16 = load double, ptr %15, align 8, !tbaa !9
   %17 = getelementptr inbounds nuw [4 x double], ptr %30, i64 %indvars.iv.i
   %18 = getelementptr inbounds nuw double, ptr %17, i64 %indvars.iv98.i
-  %19 = load double, ptr %18, align 8, !tbaa !11
+  %19 = load double, ptr %18, align 8, !tbaa !9
   %20 = getelementptr inbounds nuw double, ptr %17, i64 %indvars.iv94.i
-  %21 = load double, ptr %20, align 8, !tbaa !11
+  %21 = load double, ptr %20, align 8, !tbaa !9
   %22 = fmul double %19, %21
   %23 = tail call double @llvm.fmuladd.f64(double %14, double %16, double %22)
   %24 = fadd double %.16372.us.us.i, %23
@@ -2748,7 +2745,7 @@ validateMultiQubitMatrixFitsInNode.exit:          ; preds = %._crit_edge, %13
   br label %validateMatrixInit.exit
 
 validateMatrixInit.exit:                          ; preds = %.lr.ph, %17
-  %18 = load i32, ptr %14, align 8, !tbaa !13
+  %18 = load i32, ptr %14, align 8, !tbaa !11
   %.not = icmp eq i32 %18, %1
   br i1 %.not, label %QuESTAssert.exit20, label %19
 
@@ -2809,7 +2806,7 @@ QuESTAssert.exit.i:                               ; preds = %5
   br label %validateMatrixInit.exit.i
 
 validateMatrixInit.exit.i:                        ; preds = %17, %.lr.ph.i
-  %18 = load i32, ptr %14, align 8, !tbaa !13
+  %18 = load i32, ptr %14, align 8, !tbaa !11
   %.not.i = icmp eq i32 %18, %1
   br i1 %.not.i, label %QuESTAssert.exit20.i, label %19
 
@@ -2823,7 +2820,7 @@ QuESTAssert.exit20.i:                             ; preds = %19, %validateMatrix
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i
 
 validateMultiQubitKrausMapDimensions.exit:        ; preds = %._crit_edge.i, %13
-  %20 = load i32, ptr %2, align 8, !tbaa !13
+  %20 = load i32, ptr %2, align 8, !tbaa !11
   %21 = shl nuw i32 1, %20
   %.not7397.i = icmp eq i32 %20, 31
   br i1 %.not7397.i, label %QuESTAssert.exit, label %.preheader75.lr.ph.i
@@ -2857,9 +2854,9 @@ validateMultiQubitKrausMapDimensions.exit:        ; preds = %._crit_edge.i, %13
   %.06683.us.us.us.us.us.i = phi double [ %44, %._crit_edge.us.us.us.us.us.i ], [ 0.000000e+00, %.preheader74.us.us.us.us.i ]
   %24 = getelementptr inbounds nuw %struct.ComplexMatrixN, ptr %2, i64 %indvars.iv115.i
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %26 = load ptr, ptr %25, align 8, !tbaa !19
+  %26 = load ptr, ptr %25, align 8, !tbaa !18
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 16
-  %28 = load ptr, ptr %27, align 8, !tbaa !20
+  %28 = load ptr, ptr %27, align 8, !tbaa !19
   br label %29
 
 29:                                               ; preds = %29, %.preheader.us.us.us.us.us.i
@@ -2867,17 +2864,17 @@ validateMultiQubitKrausMapDimensions.exit:        ; preds = %._crit_edge.i, %13
   %.16580.us.us.us.us.us.i = phi double [ %48, %29 ], [ %.06484.us.us.us.us.us.i, %.preheader.us.us.us.us.us.i ]
   %.16779.us.us.us.us.us.i = phi double [ %44, %29 ], [ %.06683.us.us.us.us.us.i, %.preheader.us.us.us.us.us.i ]
   %30 = getelementptr inbounds nuw ptr, ptr %26, i64 %indvars.iv.i6
-  %31 = load ptr, ptr %30, align 8, !tbaa !17
+  %31 = load ptr, ptr %30, align 8, !tbaa !16
   %32 = getelementptr inbounds nuw double, ptr %31, i64 %indvars.iv125.i
-  %33 = load double, ptr %32, align 8, !tbaa !11
+  %33 = load double, ptr %32, align 8, !tbaa !9
   %34 = getelementptr inbounds nuw double, ptr %31, i64 %indvars.iv120.i
-  %35 = load double, ptr %34, align 8, !tbaa !11
+  %35 = load double, ptr %34, align 8, !tbaa !9
   %36 = getelementptr inbounds nuw ptr, ptr %28, i64 %indvars.iv.i6
-  %37 = load ptr, ptr %36, align 8, !tbaa !17
+  %37 = load ptr, ptr %36, align 8, !tbaa !16
   %38 = getelementptr inbounds nuw double, ptr %37, i64 %indvars.iv125.i
-  %39 = load double, ptr %38, align 8, !tbaa !11
+  %39 = load double, ptr %38, align 8, !tbaa !9
   %40 = getelementptr inbounds nuw double, ptr %37, i64 %indvars.iv120.i
-  %41 = load double, ptr %40, align 8, !tbaa !11
+  %41 = load double, ptr %40, align 8, !tbaa !9
   %42 = fmul double %39, %41
   %43 = tail call double @llvm.fmuladd.f64(double %33, double %35, double %42)
   %44 = fadd double %.16779.us.us.us.us.us.i, %43
@@ -2959,7 +2956,7 @@ validateHamilParams.exit:                         ; preds = %2, %9
 .lr.ph.i:                                         ; preds = %QuESTAssert.exit.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %QuESTAssert.exit.i ]
   %13 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv.i
-  %14 = load i32, ptr %13, align 4, !tbaa !9
+  %14 = load i32, ptr %13, align 4, !tbaa !20
   %narrow.i.i = icmp ugt i32 %14, 3
   br i1 %narrow.i.i, label %15, label %QuESTAssert.exit.i
 
@@ -3002,7 +2999,7 @@ define void @validateHamilFileParams(i32 noundef %0, i32 noundef %1, ptr noundef
 
 8:                                                ; preds = %5
   %9 = tail call i32 @fclose(ptr noundef %2)
-  %10 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @errMsgBuffer, ptr noundef nonnull dereferenceable(1) @.str.61, ptr noundef %3) #17
+  %10 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @errMsgBuffer, ptr noundef nonnull dereferenceable(1) @.str.61, ptr noundef %3) #15
   tail call void @invalidQuESTInputError(ptr noundef nonnull @errMsgBuffer, ptr noundef %4)
   br label %11
 
@@ -3019,9 +3016,9 @@ define void @validateHamilFileCoeffParsed(i32 noundef %0, ptr noundef readonly b
   br i1 %.not, label %6, label %9
 
 6:                                                ; preds = %5
-  tail call void @destroyPauliHamil(ptr noundef nonnull byval(%struct.PauliHamil) align 8 %1) #17
+  tail call void @destroyPauliHamil(ptr noundef nonnull byval(%struct.PauliHamil) align 8 %1) #15
   %7 = tail call i32 @fclose(ptr noundef %2)
-  %8 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @errMsgBuffer, ptr noundef nonnull dereferenceable(1) @.str.62, ptr noundef %3) #17
+  %8 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @errMsgBuffer, ptr noundef nonnull dereferenceable(1) @.str.62, ptr noundef %3) #15
   tail call void @invalidQuESTInputError(ptr noundef nonnull @errMsgBuffer, ptr noundef %4)
   br label %9
 
@@ -3029,7 +3026,7 @@ define void @validateHamilFileCoeffParsed(i32 noundef %0, ptr noundef readonly b
   ret void
 }
 
-declare void @destroyPauliHamil(ptr noundef byval(%struct.PauliHamil) align 8) local_unnamed_addr #10
+declare void @destroyPauliHamil(ptr noundef byval(%struct.PauliHamil) align 8) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
 define void @validateHamilFilePauliParsed(i32 noundef %0, ptr noundef readonly byval(%struct.PauliHamil) align 8 captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #3 {
@@ -3037,9 +3034,9 @@ define void @validateHamilFilePauliParsed(i32 noundef %0, ptr noundef readonly b
   br i1 %.not, label %6, label %9
 
 6:                                                ; preds = %5
-  tail call void @destroyPauliHamil(ptr noundef nonnull byval(%struct.PauliHamil) align 8 %1) #17
+  tail call void @destroyPauliHamil(ptr noundef nonnull byval(%struct.PauliHamil) align 8 %1) #15
   %7 = tail call i32 @fclose(ptr noundef %2)
-  %8 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @errMsgBuffer, ptr noundef nonnull dereferenceable(1) @.str.63, ptr noundef %3) #17
+  %8 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @errMsgBuffer, ptr noundef nonnull dereferenceable(1) @.str.63, ptr noundef %3) #15
   tail call void @invalidQuESTInputError(ptr noundef nonnull @errMsgBuffer, ptr noundef %4)
   br label %9
 
@@ -3053,9 +3050,9 @@ define void @validateHamilFilePauliCode(i32 noundef %0, ptr noundef readonly byv
   br i1 %narrow.i, label %6, label %9
 
 6:                                                ; preds = %5
-  tail call void @destroyPauliHamil(ptr noundef nonnull byval(%struct.PauliHamil) align 8 %1) #17
+  tail call void @destroyPauliHamil(ptr noundef nonnull byval(%struct.PauliHamil) align 8 %1) #15
   %7 = tail call i32 @fclose(ptr noundef %2)
-  %8 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @errMsgBuffer, ptr noundef nonnull dereferenceable(1) @.str.64, ptr noundef %3, i32 noundef %0) #17
+  %8 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @errMsgBuffer, ptr noundef nonnull dereferenceable(1) @.str.64, ptr noundef %3, i32 noundef %0) #15
   tail call void @invalidQuESTInputError(ptr noundef nonnull @errMsgBuffer, ptr noundef %4)
   br label %9
 
@@ -3170,7 +3167,7 @@ QuESTAssert.exit:                                 ; preds = %3, %7
 13:                                               ; preds = %.lr.ph, %QuESTAssert.exit7
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %QuESTAssert.exit7 ]
   %14 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv
-  %15 = load i32, ptr %14, align 4, !tbaa !9
+  %15 = load i32, ptr %14, align 4, !tbaa !20
   switch i32 %15, label %16 [
     i32 3, label %QuESTAssert.exit7
     i32 0, label %QuESTAssert.exit7
@@ -3194,7 +3191,7 @@ define void @validateDiagPauliHamilFromFile(ptr noundef readonly byval(%struct.P
   br i1 %6, label %QuESTAssert.exit, label %7
 
 7:                                                ; preds = %3
-  tail call void @destroyPauliHamil(ptr noundef nonnull byval(%struct.PauliHamil) align 8 %0) #17
+  tail call void @destroyPauliHamil(ptr noundef nonnull byval(%struct.PauliHamil) align 8 %0) #15
   tail call void @invalidQuESTInputError(ptr noundef nonnull @.str.58, ptr noundef %2)
   br label %QuESTAssert.exit
 
@@ -3206,7 +3203,7 @@ QuESTAssert.exit:                                 ; preds = %3, %7
   br i1 %.not, label %11, label %QuESTAssert.exit17
 
 11:                                               ; preds = %QuESTAssert.exit
-  tail call void @destroyPauliHamil(ptr noundef nonnull byval(%struct.PauliHamil) align 8 %0) #17
+  tail call void @destroyPauliHamil(ptr noundef nonnull byval(%struct.PauliHamil) align 8 %0) #15
   tail call void @invalidQuESTInputError(ptr noundef nonnull @.str.57, ptr noundef %2)
   br label %QuESTAssert.exit17
 
@@ -3228,14 +3225,14 @@ QuESTAssert.exit17:                               ; preds = %QuESTAssert.exit, %
 17:                                               ; preds = %.lr.ph, %QuESTAssert.exit19
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %QuESTAssert.exit19 ]
   %18 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv
-  %19 = load i32, ptr %18, align 4, !tbaa !9
+  %19 = load i32, ptr %18, align 4, !tbaa !20
   switch i32 %19, label %20 [
     i32 3, label %QuESTAssert.exit19
     i32 0, label %QuESTAssert.exit19
   ]
 
 20:                                               ; preds = %17
-  tail call void @destroyPauliHamil(ptr noundef nonnull byval(%struct.PauliHamil) align 8 %0) #17
+  tail call void @destroyPauliHamil(ptr noundef nonnull byval(%struct.PauliHamil) align 8 %0) #15
   tail call void @invalidQuESTInputError(ptr noundef nonnull @.str.70, ptr noundef %2)
   br label %QuESTAssert.exit19
 
@@ -3274,7 +3271,7 @@ QuESTAssert.exit:                                 ; preds = %5
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %16 ]
   %.01215.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %17, %16 ]
   %11 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.i
-  %12 = load i32, ptr %11, align 4, !tbaa !9
+  %12 = load i32, ptr %11, align 4, !tbaa !20
   %13 = zext nneg i32 %12 to i64
   %14 = shl nuw i64 1, %13
   %15 = and i64 %14, %.01215.i
@@ -3298,7 +3295,7 @@ QuESTAssert.exit29:                               ; preds = %16, %QuESTAssert.ex
   %indvars.iv46 = phi i64 [ 0, %.lr.ph42 ], [ %indvars.iv.next47, %._crit_edge ]
   %.02440 = phi i32 [ 0, %.lr.ph42 ], [ %.1.lcssa, %._crit_edge ]
   %19 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv46
-  %20 = load i32, ptr %19, align 4, !tbaa !9
+  %20 = load i32, ptr %19, align 4, !tbaa !20
   %21 = icmp slt i32 %20, 1
   %22 = icmp sgt i32 %20, %10
   %narrow.not = select i1 %21, i1 true, i1 %22
@@ -3306,7 +3303,7 @@ QuESTAssert.exit29:                               ; preds = %16, %QuESTAssert.ex
 
 QuESTAssert.exit31:                               ; preds = %18
   tail call void @invalidQuESTInputError(ptr noundef nonnull @.str.21, ptr noundef %4)
-  %.pre = load i32, ptr %19, align 4, !tbaa !9
+  %.pre = load i32, ptr %19, align 4, !tbaa !20
   %23 = icmp sgt i32 %.pre, 0
   br i1 %23, label %.lr.ph.preheader, label %._crit_edge
 
@@ -3330,7 +3327,7 @@ QuESTAssert.exit31:                               ; preds = %18
   %indvars.iv = phi i64 [ %25, %.lr.ph.preheader ], [ %indvars.iv.next, %QuESTAssert.exit33 ]
   %.039 = phi i32 [ 0, %.lr.ph.preheader ], [ %33, %QuESTAssert.exit33 ]
   %28 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
-  %29 = load i32, ptr %28, align 4, !tbaa !9
+  %29 = load i32, ptr %28, align 4, !tbaa !20
   %30 = icmp sge i32 %29, %10
   %.inv = icmp slt i32 %29, 0
   %narrow.not37 = select i1 %.inv, i1 true, i1 %30
@@ -3338,7 +3335,7 @@ QuESTAssert.exit31:                               ; preds = %18
 
 31:                                               ; preds = %.lr.ph
   tail call void @invalidQuESTInputError(ptr noundef nonnull @.str.5, ptr noundef %4)
-  %.pre49 = load i32, ptr %19, align 4, !tbaa !9
+  %.pre49 = load i32, ptr %19, align 4, !tbaa !20
   br label %QuESTAssert.exit33
 
 QuESTAssert.exit33:                               ; preds = %.lr.ph, %31
@@ -3381,7 +3378,7 @@ define void @validatePhaseFuncTerms(i32 noundef %0, i32 noundef %1, ptr noundef 
   %.04674 = phi i32 [ 0, %.lr.ph.preheader ], [ %.147, %.lr.ph ]
   %.05172 = phi i32 [ 0, %.lr.ph.preheader ], [ %.152, %.lr.ph ]
   %14 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv
-  %15 = load double, ptr %14, align 8, !tbaa !11
+  %15 = load double, ptr %14, align 8, !tbaa !9
   %16 = tail call double @llvm.floor.f64(double %15)
   %17 = fcmp une double %16, %15
   %.147 = select i1 %17, i32 1, i32 %.04674
@@ -3488,7 +3485,7 @@ QuESTAssert.exit63:                               ; preds = %.split.thread, %QuE
 }
 
 ; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.floor.f64(double) #6
+declare double @llvm.floor.f64(double) #5
 
 ; Function Attrs: nounwind uwtable
 define void @validateMultiVarPhaseFuncTerms(ptr noundef readnone captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef %5) local_unnamed_addr #3 {
@@ -3512,7 +3509,7 @@ QuESTAssert.exit:                                 ; preds = %6
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %QuESTAssert.exit36
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %QuESTAssert.exit36 ]
   %10 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
-  %11 = load i32, ptr %10, align 4, !tbaa !9
+  %11 = load i32, ptr %10, align 4, !tbaa !20
   %12 = icmp slt i32 %11, 1
   br i1 %12, label %13, label %QuESTAssert.exit36
 
@@ -3537,7 +3534,7 @@ QuESTAssert.exit36:                               ; preds = %.lr.ph, %13
   %indvars.iv53 = phi i64 [ 0, %.lr.ph45.preheader ], [ %indvars.iv.next54, %.lr.ph45 ]
   %.03243 = phi i32 [ 0, %.lr.ph45.preheader ], [ %17, %.lr.ph45 ]
   %15 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv53
-  %16 = load i32, ptr %15, align 4, !tbaa !9
+  %16 = load i32, ptr %15, align 4, !tbaa !20
   %17 = add nsw i32 %16, %.03243
   %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
   %exitcond57.not = icmp eq i64 %indvars.iv.next54, %wide.trip.count56
@@ -3562,7 +3559,7 @@ QuESTAssert.exit38:                               ; preds = %._crit_edge, %20
   %.02847 = phi i32 [ 0, %.lr.ph49.preheader ], [ %.1, %.lr.ph49 ]
   %.02946 = phi i32 [ 0, %.lr.ph49.preheader ], [ %.130, %.lr.ph49 ]
   %22 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv58
-  %23 = load double, ptr %22, align 8, !tbaa !11
+  %23 = load double, ptr %22, align 8, !tbaa !9
   %24 = tail call double @llvm.floor.f64(double %23)
   %25 = fcmp une double %24, %23
   %.130 = select i1 %25, i32 1, i32 %.02946
@@ -3704,7 +3701,7 @@ QuESTAssert.exit:                                 ; preds = %6, %8
   %indvars.iv70 = phi i64 [ %12, %.preheader53.us ], [ %indvars.iv.next71, %QuESTAssert.exit48.us ]
   %indvars.iv = phi i64 [ 0, %.preheader53.us ], [ %indvars.iv.next, %QuESTAssert.exit48.us ]
   %14 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
-  %15 = load i32, ptr %14, align 4, !tbaa !9
+  %15 = load i32, ptr %14, align 4, !tbaa !20
   %16 = add nsw i32 %15, -1
   %17 = zext nneg i32 %16 to i64
   %18 = shl nuw i64 1, %17
@@ -3760,7 +3757,7 @@ QuESTAssert.exit48.us:                            ; preds = %23, %13
 
 34:                                               ; preds = %30
   %35 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv78
-  %36 = load i32, ptr %35, align 4, !tbaa !9
+  %36 = load i32, ptr %35, align 4, !tbaa !20
   %37 = zext nneg i32 %36 to i64
   %.highbits.us = lshr i64 %32, %37
   %.not51.us = icmp eq i64 %.highbits.us, 0
@@ -3956,7 +3953,7 @@ QuESTAssert.exit:                                 ; preds = %4
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %QuESTAssert.exit10
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %QuESTAssert.exit10 ]
   %8 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
-  %9 = load i32, ptr %8, align 4, !tbaa !9
+  %9 = load i32, ptr %8, align 4, !tbaa !20
   %10 = icmp slt i32 %9, 2
   br i1 %10, label %11, label %QuESTAssert.exit10
 
@@ -3974,7 +3971,7 @@ QuESTAssert.exit10:                               ; preds = %.lr.ph, %11
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @validateMemoryAllocationSize(i64 noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #7 {
+define void @validateMemoryAllocationSize(i64 noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #4 {
   ret void
 }
 
@@ -4021,7 +4018,7 @@ define void @validateQuregAllocation(ptr noundef captures(none) %0, ptr noundef 
   br i1 %.not19, label %.split16, label %.split
 
 .split16:                                         ; preds = %19, %16, %22
-  tail call void @destroyQureg(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef nonnull byval(%struct.QuESTEnv) align 8 %1) #17
+  tail call void @destroyQureg(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef nonnull byval(%struct.QuESTEnv) align 8 %1) #15
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 32, i1 false)
   tail call void @invalidQuESTInputError(ptr noundef nonnull @.str.87, ptr noundef %2)
   br label %.split
@@ -4030,7 +4027,7 @@ define void @validateQuregAllocation(ptr noundef captures(none) %0, ptr noundef 
   ret void
 }
 
-declare void @destroyQureg(ptr noundef byval(%struct.Qureg) align 8, ptr noundef byval(%struct.QuESTEnv) align 8) local_unnamed_addr #10
+declare void @destroyQureg(ptr noundef byval(%struct.Qureg) align 8, ptr noundef byval(%struct.QuESTEnv) align 8) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
 define void @validateQuregGPUAllocation(ptr noundef captures(none) %0, ptr noundef readonly byval(%struct.QuESTEnv) align 8 captures(none) %1, ptr noundef %2) local_unnamed_addr #3 {
@@ -4058,7 +4055,7 @@ define void @validateQuregGPUAllocation(ptr noundef captures(none) %0, ptr nound
   br i1 %.not19, label %.thread, label %QuESTAssert.exit
 
 .thread:                                          ; preds = %3, %6, %9, %12
-  tail call void @destroyQureg(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef nonnull byval(%struct.QuESTEnv) align 8 %1) #17
+  tail call void @destroyQureg(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef nonnull byval(%struct.QuESTEnv) align 8 %1) #15
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %15, i8 0, i64 64, i1 false)
   tail call void @invalidQuESTInputError(ptr noundef nonnull @.str.88, ptr noundef %2)
@@ -4082,7 +4079,7 @@ define void @validateDiagonalOpAllocation(ptr noundef captures(none) %0, ptr nou
   br i1 %.not9, label %.thread, label %QuESTAssert.exit
 
 .thread:                                          ; preds = %3, %6
-  tail call void @destroyDiagonalOp(ptr noundef nonnull byval(%struct.DiagonalOp) align 8 %0, ptr noundef nonnull byval(%struct.QuESTEnv) align 8 %1) #17
+  tail call void @destroyDiagonalOp(ptr noundef nonnull byval(%struct.DiagonalOp) align 8 %0, ptr noundef nonnull byval(%struct.QuESTEnv) align 8 %1) #15
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   tail call void @invalidQuESTInputError(ptr noundef nonnull @.str.89, ptr noundef %2)
   br label %QuESTAssert.exit
@@ -4091,7 +4088,7 @@ QuESTAssert.exit:                                 ; preds = %6, %.thread
   ret void
 }
 
-declare void @destroyDiagonalOp(ptr noundef byval(%struct.DiagonalOp) align 8, ptr noundef byval(%struct.QuESTEnv) align 8) local_unnamed_addr #10
+declare void @destroyDiagonalOp(ptr noundef byval(%struct.DiagonalOp) align 8, ptr noundef byval(%struct.QuESTEnv) align 8) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
 define void @validateDiagonalOpGPUAllocation(ptr noundef captures(none) %0, ptr noundef readonly byval(%struct.QuESTEnv) align 8 captures(none) %1, ptr noundef %2) local_unnamed_addr #3 {
@@ -4107,7 +4104,7 @@ define void @validateDiagonalOpGPUAllocation(ptr noundef captures(none) %0, ptr 
   br i1 %.not11, label %.thread, label %QuESTAssert.exit
 
 .thread:                                          ; preds = %3, %6
-  tail call void @destroyDiagonalOp(ptr noundef nonnull byval(%struct.DiagonalOp) align 8 %0, ptr noundef nonnull byval(%struct.QuESTEnv) align 8 %1) #17
+  tail call void @destroyDiagonalOp(ptr noundef nonnull byval(%struct.DiagonalOp) align 8 %0, ptr noundef nonnull byval(%struct.QuESTEnv) align 8 %1) #15
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, i8 0, i64 32, i1 false)
   tail call void @invalidQuESTInputError(ptr noundef nonnull @.str.90, ptr noundef %2)
@@ -4150,47 +4147,45 @@ QuESTAssert.exit:                                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #12
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.sqrt.f64(double) #13
+declare double @llvm.sqrt.f64(double) #11
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #13
+declare i32 @llvm.smax.i32(i32, i32) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctlz.i64(i64, i1 immarg) #14
+declare i64 @llvm.ctlz.i64(i64, i1 immarg) #12
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smax.i64(i64, i64) #13
+declare i64 @llvm.smax.i64(i64, i64) #11
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #15
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
 
 attributes #0 = { cold nofree noreturn nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #2 = { nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #3 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nounwind willreturn memory(errnomem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #8 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #9 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #10 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #12 = { nofree nounwind }
-attributes #13 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #15 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #16 = { cold noreturn nounwind }
-attributes #17 = { nounwind }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #7 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #8 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #10 = { nofree nounwind }
+attributes #11 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #13 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #14 = { cold noreturn nounwind }
+attributes #15 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 
@@ -4204,44 +4199,44 @@ attributes #17 = { nounwind }
 !7 = !{!"omnipotent char", !8, i64 0}
 !8 = !{!"Simple C/C++ TBAA"}
 !9 = !{!10, !10, i64 0}
-!10 = !{!"int", !7, i64 0}
-!11 = !{!12, !12, i64 0}
-!12 = !{!"double", !7, i64 0}
-!13 = !{!14, !10, i64 0}
-!14 = !{!"ComplexMatrixN", !10, i64 0, !15, i64 8, !15, i64 16}
-!15 = !{!"p2 double", !16, i64 0}
-!16 = !{!"any p2 pointer", !6, i64 0}
-!17 = !{!18, !18, i64 0}
-!18 = !{!"p1 double", !6, i64 0}
-!19 = !{!14, !15, i64 8}
-!20 = !{!14, !15, i64 16}
-!21 = !{!22, !10, i64 0}
-!22 = !{!"SubDiagonalOp", !10, i64 0, !23, i64 8, !18, i64 16, !18, i64 24}
+!10 = !{!"double", !7, i64 0}
+!11 = !{!12, !13, i64 0}
+!12 = !{!"ComplexMatrixN", !13, i64 0, !14, i64 8, !14, i64 16}
+!13 = !{!"int", !7, i64 0}
+!14 = !{!"p2 double", !15, i64 0}
+!15 = !{!"any p2 pointer", !6, i64 0}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"p1 double", !6, i64 0}
+!18 = !{!12, !14, i64 8}
+!19 = !{!12, !14, i64 16}
+!20 = !{!13, !13, i64 0}
+!21 = !{!22, !13, i64 0}
+!22 = !{!"SubDiagonalOp", !13, i64 0, !23, i64 8, !17, i64 16, !17, i64 24}
 !23 = !{!"long long", !7, i64 0}
-!24 = !{!22, !18, i64 16}
-!25 = !{!22, !18, i64 24}
-!26 = !{!27, !10, i64 4}
-!27 = !{!"Qureg", !10, i64 0, !10, i64 4, !10, i64 8, !23, i64 16, !23, i64 24, !10, i64 32, !10, i64 36, !28, i64 40, !28, i64 56, !28, i64 72, !18, i64 88, !18, i64 96, !6, i64 104, !6, i64 112, !16, i64 120, !6, i64 128}
-!28 = !{!"ComplexArray", !18, i64 0, !18, i64 8}
-!29 = !{!30, !10, i64 0}
-!30 = !{!"DiagonalOp", !10, i64 0, !23, i64 8, !10, i64 16, !10, i64 20, !18, i64 24, !18, i64 32, !28, i64 40}
+!24 = !{!22, !17, i64 16}
+!25 = !{!22, !17, i64 24}
+!26 = !{!27, !13, i64 4}
+!27 = !{!"Qureg", !13, i64 0, !13, i64 4, !13, i64 8, !23, i64 16, !23, i64 24, !13, i64 32, !13, i64 36, !28, i64 40, !28, i64 56, !28, i64 72, !17, i64 88, !17, i64 96, !6, i64 104, !6, i64 112, !15, i64 120, !6, i64 128}
+!28 = !{!"ComplexArray", !17, i64 0, !17, i64 8}
+!29 = !{!30, !13, i64 0}
+!30 = !{!"DiagonalOp", !13, i64 0, !23, i64 8, !13, i64 16, !13, i64 20, !17, i64 24, !17, i64 32, !28, i64 40}
 !31 = !{!27, !23, i64 16}
-!32 = !{!27, !10, i64 0}
-!33 = !{!34, !10, i64 20}
-!34 = !{!"PauliHamil", !6, i64 0, !18, i64 8, !10, i64 16, !10, i64 20}
-!35 = !{!34, !10, i64 16}
+!32 = !{!27, !13, i64 0}
+!33 = !{!34, !13, i64 20}
+!34 = !{!"PauliHamil", !6, i64 0, !17, i64 8, !13, i64 16, !13, i64 20}
+!35 = !{!34, !13, i64 16}
 !36 = !{!34, !6, i64 0}
-!37 = !{!30, !18, i64 24}
+!37 = !{!30, !17, i64 24}
 !38 = !{!23, !23, i64 0}
-!39 = !{!27, !18, i64 40}
-!40 = !{!27, !18, i64 48}
-!41 = !{!27, !10, i64 36}
-!42 = !{!27, !18, i64 56}
-!43 = !{!27, !18, i64 64}
-!44 = !{!27, !18, i64 72}
-!45 = !{!27, !18, i64 80}
-!46 = !{!27, !18, i64 88}
-!47 = !{!27, !18, i64 96}
-!48 = !{!30, !18, i64 32}
-!49 = !{!30, !18, i64 40}
-!50 = !{!30, !18, i64 48}
+!39 = !{!27, !17, i64 40}
+!40 = !{!27, !17, i64 48}
+!41 = !{!27, !13, i64 36}
+!42 = !{!27, !17, i64 56}
+!43 = !{!27, !17, i64 64}
+!44 = !{!27, !17, i64 72}
+!45 = !{!27, !17, i64 80}
+!46 = !{!27, !17, i64 88}
+!47 = !{!27, !17, i64 96}
+!48 = !{!30, !17, i64 32}
+!49 = !{!30, !17, i64 40}
+!50 = !{!30, !17, i64 48}

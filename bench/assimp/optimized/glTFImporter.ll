@@ -71664,7 +71664,7 @@ define linkonce_odr hidden noundef i32 @_ZN5o3dgc13SC3DMCDecoderItE14ProcessNorm
   ret i32 0
 
 28:                                               ; preds = %.lr.ph121, %_ZN5o3dgc12SphereToCubeIlEEvT_S1_S1_RS1_S2_Rc.exit
-  %.055120 = phi i64 [ 0, %.lr.ph121 ], [ %134, %_ZN5o3dgc12SphereToCubeIlEEvT_S1_S1_RS1_S2_Rc.exit ]
+  %.055120 = phi i64 [ 0, %.lr.ph121 ], [ %133, %_ZN5o3dgc12SphereToCubeIlEEvT_S1_S1_RS1_S2_Rc.exit ]
   %.0119 = phi i64 [ 0, %.lr.ph121 ], [ %.2, %_ZN5o3dgc12SphereToCubeIlEEvT_S1_S1_RS1_S2_Rc.exit ]
   %.096118 = phi i64 [ 0, %.lr.ph121 ], [ %.197, %_ZN5o3dgc12SphereToCubeIlEEvT_S1_S1_RS1_S2_Rc.exit ]
   %.098117 = phi i8 [ 0, %.lr.ph121 ], [ %.2100, %_ZN5o3dgc12SphereToCubeIlEEvT_S1_S1_RS1_S2_Rc.exit ]
@@ -71768,84 +71768,84 @@ _ZNK5o3dgc13AdjacencyInfo5BeginEl.exit:           ; preds = %28, %29
   %94 = fmul double %92, %92
   %95 = tail call double @llvm.fmuladd.f64(double %91, double %91, double %94)
   %96 = tail call double @llvm.fmuladd.f64(double %93, double %93, double %95)
-  %97 = tail call noundef double @sqrt(double noundef %96) #32
-  %98 = fptrunc double %97 to float
-  %99 = fcmp oeq float %98, 0.000000e+00
-  %.057 = select i1 %99, float 1.000000e+00, float %98
-  %100 = tail call noundef i64 @llvm.abs.i64(i64 %.sroa.079.0.lcssa, i1 true)
-  %101 = tail call noundef i64 @llvm.abs.i64(i64 %.sroa.8.0.lcssa, i1 true)
-  %102 = tail call noundef i64 @llvm.abs.i64(i64 %.sroa.13.0.lcssa, i1 true)
-  %.not.i = icmp samesign ult i64 %102, %100
-  %.not31.i = icmp samesign ult i64 %102, %101
+  %sqrt.i = tail call noundef double @llvm.sqrt.f64(double %96)
+  %97 = fptrunc double %sqrt.i to float
+  %98 = fcmp oeq float %97, 0.000000e+00
+  %.057 = select i1 %98, float 1.000000e+00, float %97
+  %99 = tail call noundef i64 @llvm.abs.i64(i64 %.sroa.079.0.lcssa, i1 true)
+  %100 = tail call noundef i64 @llvm.abs.i64(i64 %.sroa.8.0.lcssa, i1 true)
+  %101 = tail call noundef i64 @llvm.abs.i64(i64 %.sroa.13.0.lcssa, i1 true)
+  %.not.i = icmp samesign ult i64 %101, %99
+  %.not31.i = icmp samesign ult i64 %101, %100
   %or.cond.i = or i1 %.not.i, %.not31.i
-  br i1 %or.cond.i, label %108, label %103
+  br i1 %or.cond.i, label %107, label %102
 
-103:                                              ; preds = %.critedge
-  %104 = icmp sgt i64 %.sroa.13.0.lcssa, -1
-  br i1 %104, label %_ZN5o3dgc12SphereToCubeIlEEvT_S1_S1_RS1_S2_Rc.exit, label %105
+102:                                              ; preds = %.critedge
+  %103 = icmp sgt i64 %.sroa.13.0.lcssa, -1
+  br i1 %103, label %_ZN5o3dgc12SphereToCubeIlEEvT_S1_S1_RS1_S2_Rc.exit, label %104
 
-105:                                              ; preds = %103
-  %106 = sub nsw i64 0, %.sroa.079.0.lcssa
-  %107 = sub nsw i64 0, %.sroa.8.0.lcssa
+104:                                              ; preds = %102
+  %105 = sub nsw i64 0, %.sroa.079.0.lcssa
+  %106 = sub nsw i64 0, %.sroa.8.0.lcssa
   br label %_ZN5o3dgc12SphereToCubeIlEEvT_S1_S1_RS1_S2_Rc.exit
 
-108:                                              ; preds = %.critedge
-  %.not32.i = icmp samesign ult i64 %101, %100
-  %.not33.i = icmp samesign ult i64 %101, %102
+107:                                              ; preds = %.critedge
+  %.not32.i = icmp samesign ult i64 %100, %99
+  %.not33.i = icmp samesign ult i64 %100, %101
   %or.cond36.i = or i1 %.not32.i, %.not33.i
-  br i1 %or.cond36.i, label %114, label %109
+  br i1 %or.cond36.i, label %113, label %108
 
-109:                                              ; preds = %108
-  %110 = icmp sgt i64 %.sroa.8.0.lcssa, -1
-  br i1 %110, label %_ZN5o3dgc12SphereToCubeIlEEvT_S1_S1_RS1_S2_Rc.exit, label %111
+108:                                              ; preds = %107
+  %109 = icmp sgt i64 %.sroa.8.0.lcssa, -1
+  br i1 %109, label %_ZN5o3dgc12SphereToCubeIlEEvT_S1_S1_RS1_S2_Rc.exit, label %110
 
-111:                                              ; preds = %109
-  %112 = sub nsw i64 0, %.sroa.13.0.lcssa
-  %113 = sub nsw i64 0, %.sroa.079.0.lcssa
+110:                                              ; preds = %108
+  %111 = sub nsw i64 0, %.sroa.13.0.lcssa
+  %112 = sub nsw i64 0, %.sroa.079.0.lcssa
   br label %_ZN5o3dgc12SphereToCubeIlEEvT_S1_S1_RS1_S2_Rc.exit
 
-114:                                              ; preds = %108
-  %.not34.i = icmp samesign ult i64 %100, %101
-  %.not35.i = icmp samesign ult i64 %100, %102
+113:                                              ; preds = %107
+  %.not34.i = icmp samesign ult i64 %99, %100
+  %.not35.i = icmp samesign ult i64 %99, %101
   %or.cond37.i = or i1 %.not34.i, %.not35.i
-  br i1 %or.cond37.i, label %_ZN5o3dgc12SphereToCubeIlEEvT_S1_S1_RS1_S2_Rc.exit, label %115
+  br i1 %or.cond37.i, label %_ZN5o3dgc12SphereToCubeIlEEvT_S1_S1_RS1_S2_Rc.exit, label %114
 
-115:                                              ; preds = %114
-  %116 = icmp sgt i64 %.sroa.079.0.lcssa, -1
-  br i1 %116, label %_ZN5o3dgc12SphereToCubeIlEEvT_S1_S1_RS1_S2_Rc.exit, label %117
+114:                                              ; preds = %113
+  %115 = icmp sgt i64 %.sroa.079.0.lcssa, -1
+  br i1 %115, label %_ZN5o3dgc12SphereToCubeIlEEvT_S1_S1_RS1_S2_Rc.exit, label %116
 
-117:                                              ; preds = %115
-  %118 = sub nsw i64 0, %.sroa.8.0.lcssa
-  %119 = sub nsw i64 0, %.sroa.13.0.lcssa
+116:                                              ; preds = %114
+  %117 = sub nsw i64 0, %.sroa.8.0.lcssa
+  %118 = sub nsw i64 0, %.sroa.13.0.lcssa
   br label %_ZN5o3dgc12SphereToCubeIlEEvT_S1_S1_RS1_S2_Rc.exit
 
-_ZN5o3dgc12SphereToCubeIlEEvT_S1_S1_RS1_S2_Rc.exit: ; preds = %114, %115, %109, %103, %117, %111, %105
-  %.2100 = phi i8 [ %.098117, %114 ], [ 2, %109 ], [ 5, %117 ], [ 0, %103 ], [ 3, %111 ], [ 1, %105 ], [ 4, %115 ]
-  %.197 = phi i64 [ %.096118, %114 ], [ %.sroa.079.0.lcssa, %109 ], [ %119, %117 ], [ %.sroa.8.0.lcssa, %103 ], [ %113, %111 ], [ %107, %105 ], [ %.sroa.13.0.lcssa, %115 ]
-  %.2 = phi i64 [ %.0119, %114 ], [ %.sroa.13.0.lcssa, %109 ], [ %118, %117 ], [ %.sroa.079.0.lcssa, %103 ], [ %112, %111 ], [ %106, %105 ], [ %.sroa.8.0.lcssa, %115 ]
-  %120 = sitofp i64 %.2 to float
-  %121 = fdiv float %120, %.057
-  %122 = sitofp i64 %.197 to float
-  %123 = fdiv float %122, %.057
-  %124 = load ptr, ptr %26, align 8
-  %125 = getelementptr inbounds nuw i8, ptr %124, i64 %.055120
-  %126 = load i8, ptr %125, align 1
-  %127 = add i8 %126, %.2100
-  store i8 %127, ptr %125, align 1
-  %.not66.unshifted = xor i8 %127, %.2100
+_ZN5o3dgc12SphereToCubeIlEEvT_S1_S1_RS1_S2_Rc.exit: ; preds = %113, %114, %108, %102, %116, %110, %104
+  %.2100 = phi i8 [ %.098117, %113 ], [ 2, %108 ], [ 5, %116 ], [ 0, %102 ], [ 3, %110 ], [ 1, %104 ], [ 4, %114 ]
+  %.197 = phi i64 [ %.096118, %113 ], [ %.sroa.079.0.lcssa, %108 ], [ %118, %116 ], [ %.sroa.8.0.lcssa, %102 ], [ %112, %110 ], [ %106, %104 ], [ %.sroa.13.0.lcssa, %114 ]
+  %.2 = phi i64 [ %.0119, %113 ], [ %.sroa.13.0.lcssa, %108 ], [ %117, %116 ], [ %.sroa.079.0.lcssa, %102 ], [ %111, %110 ], [ %105, %104 ], [ %.sroa.8.0.lcssa, %114 ]
+  %119 = sitofp i64 %.2 to float
+  %120 = fdiv float %119, %.057
+  %121 = sitofp i64 %.197 to float
+  %122 = fdiv float %121, %.057
+  %123 = load ptr, ptr %26, align 8
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 %.055120
+  %125 = load i8, ptr %124, align 1
+  %126 = add i8 %125, %.2100
+  store i8 %126, ptr %124, align 1
+  %.not66.unshifted = xor i8 %126, %.2100
   %.not66 = icmp ult i8 %.not66.unshifted, 2
-  %.056 = select i1 %.not66, float %123, float 0.000000e+00
-  %.053 = select i1 %.not66, float %121, float 0.000000e+00
-  %128 = load ptr, ptr %27, align 8
-  %129 = shl nuw nsw i64 %.055120, 1
-  %130 = getelementptr inbounds nuw float, ptr %128, i64 %129
-  store float %.053, ptr %130, align 4
-  %131 = load ptr, ptr %27, align 8
-  %132 = getelementptr inbounds nuw float, ptr %131, i64 %129
-  %133 = getelementptr inbounds nuw i8, ptr %132, i64 4
-  store float %.056, ptr %133, align 4
-  %134 = add nuw nsw i64 %.055120, 1
-  %exitcond122.not = icmp eq i64 %134, %4
+  %.056 = select i1 %.not66, float %122, float 0.000000e+00
+  %.053 = select i1 %.not66, float %120, float 0.000000e+00
+  %127 = load ptr, ptr %27, align 8
+  %128 = shl nuw nsw i64 %.055120, 1
+  %129 = getelementptr inbounds nuw float, ptr %127, i64 %128
+  store float %.053, ptr %129, align 4
+  %130 = load ptr, ptr %27, align 8
+  %131 = getelementptr inbounds nuw float, ptr %130, i64 %128
+  %132 = getelementptr inbounds nuw i8, ptr %131, i64 4
+  store float %.056, ptr %132, align 4
+  %133 = add nuw nsw i64 %.055120, 1
+  %exitcond122.not = icmp eq i64 %133, %4
   br i1 %exitcond122.not, label %._crit_edge, label %28, !llvm.loop !800
 }
 
@@ -74155,6 +74155,9 @@ declare i64 @llvm.smax.i64(i64, i64) #28
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #28
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.sqrt.f64(double) #28
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.abs.i64(i64, i1 immarg) #30

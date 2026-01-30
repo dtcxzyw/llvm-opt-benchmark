@@ -52928,51 +52928,51 @@ _ZN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEC2INS_5BlockIKNS0_IdLi4ELi4ELi0ELi4ELi4EE
   %15 = load double, ptr %14, align 8, !tbaa !8
   %16 = fmul double %15, %15
   %17 = tail call double @llvm.fmuladd.f64(double %13, double %13, double %16)
-  %18 = tail call double @sqrt(double noundef %17) #4, !tbaa !4
-  %19 = fcmp olt double %18, 0x3EB0C6F7A0B5ED8D
-  br i1 %19, label %30, label %20
+  %sqrt = tail call double @llvm.sqrt.f64(double %17)
+  %18 = fcmp olt double %sqrt, 0x3EB0C6F7A0B5ED8D
+  br i1 %18, label %29, label %19
 
-20:                                               ; preds = %_ZN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEC2INS_5BlockIKNS0_IdLi4ELi4ELi0ELi4ELi4EEELi3ELi3ELb0EEEEERKNS_9EigenBaseIT_EE.exit
-  %21 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %22 = load double, ptr %21, align 8, !tbaa !8
-  %23 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  %24 = load double, ptr %23, align 8, !tbaa !8
-  %25 = tail call double @atan2(double noundef %22, double noundef %24) #4, !tbaa !4
-  %26 = load double, ptr %4, align 8, !tbaa !8
-  %27 = fneg double %26
-  %28 = tail call double @atan2(double noundef %27, double noundef %18) #4, !tbaa !4
-  %29 = tail call double @atan2(double noundef %15, double noundef %13) #4, !tbaa !4
-  br label %40
+19:                                               ; preds = %_ZN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEC2INS_5BlockIKNS0_IdLi4ELi4ELi0ELi4ELi4EEELi3ELi3ELb0EEEEERKNS_9EigenBaseIT_EE.exit
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %21 = load double, ptr %20, align 8, !tbaa !8
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 64
+  %23 = load double, ptr %22, align 8, !tbaa !8
+  %24 = tail call double @atan2(double noundef %21, double noundef %23) #4, !tbaa !4
+  %25 = load double, ptr %4, align 8, !tbaa !8
+  %26 = fneg double %25
+  %27 = tail call double @atan2(double noundef %26, double noundef %sqrt) #4, !tbaa !4
+  %28 = tail call double @atan2(double noundef %15, double noundef %13) #4, !tbaa !4
+  br label %39
 
-30:                                               ; preds = %_ZN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEC2INS_5BlockIKNS0_IdLi4ELi4ELi0ELi4ELi4EEELi3ELi3ELb0EEEEERKNS_9EigenBaseIT_EE.exit
-  %31 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  %32 = load double, ptr %31, align 8, !tbaa !8
-  %33 = fneg double %32
-  %34 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %35 = load double, ptr %34, align 8, !tbaa !8
-  %36 = tail call double @atan2(double noundef %33, double noundef %35) #4, !tbaa !4
-  %37 = load double, ptr %4, align 8, !tbaa !8
-  %38 = fneg double %37
-  %39 = tail call double @atan2(double noundef %38, double noundef %18) #4, !tbaa !4
-  br label %40
+29:                                               ; preds = %_ZN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEC2INS_5BlockIKNS0_IdLi4ELi4ELi0ELi4ELi4EEELi3ELi3ELb0EEEEERKNS_9EigenBaseIT_EE.exit
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 56
+  %31 = load double, ptr %30, align 8, !tbaa !8
+  %32 = fneg double %31
+  %33 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %34 = load double, ptr %33, align 8, !tbaa !8
+  %35 = tail call double @atan2(double noundef %32, double noundef %34) #4, !tbaa !4
+  %36 = load double, ptr %4, align 8, !tbaa !8
+  %37 = fneg double %36
+  %38 = tail call double @atan2(double noundef %37, double noundef %sqrt) #4, !tbaa !4
+  br label %39
 
-40:                                               ; preds = %30, %20
-  %.sink19 = phi double [ %36, %30 ], [ %25, %20 ]
-  %.sink18 = phi double [ %39, %30 ], [ %28, %20 ]
-  %.sink = phi double [ 0.000000e+00, %30 ], [ %29, %20 ]
+39:                                               ; preds = %29, %19
+  %.sink19 = phi double [ %35, %29 ], [ %24, %19 ]
+  %.sink18 = phi double [ %38, %29 ], [ %27, %19 ]
+  %.sink = phi double [ 0.000000e+00, %29 ], [ %28, %19 ]
   store double %.sink19, ptr %0, align 16, !tbaa !8
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store double %.sink18, ptr %41, align 8, !tbaa !8
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store double %.sink, ptr %42, align 16, !tbaa !8
-  %43 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %45 = load <2 x double>, ptr %43, align 16, !tbaa !16
-  store <2 x double> %45, ptr %44, align 8, !tbaa !16
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %47 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  %48 = load double, ptr %47, align 16, !tbaa !8
-  store double %48, ptr %46, align 8, !tbaa !8
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store double %.sink18, ptr %40, align 8, !tbaa !8
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store double %.sink, ptr %41, align 16, !tbaa !8
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 96
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %44 = load <2 x double>, ptr %42, align 16, !tbaa !16
+  store <2 x double> %44, ptr %43, align 8, !tbaa !16
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 112
+  %47 = load double, ptr %46, align 16, !tbaa !8
+  store double %47, ptr %45, align 8, !tbaa !8
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
@@ -53680,6 +53680,9 @@ declare i64 @llvm.smax.i64(i64, i64) #44
 
 ; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #48
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.sqrt.f64(double) #44
 
 attributes #0 = { mustprogress ssp uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { alwaysinline norecurse nounwind ssp uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

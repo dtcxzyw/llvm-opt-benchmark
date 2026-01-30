@@ -264,7 +264,7 @@ _ZN5draco17OctahedronToolBox19SetQuantizationBitsEi.exit: ; preds = %_ZNK5draco1
   ret i1 %or.cond.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef zeroext i1 @_ZN5draco28AttributeOctahedronTransform25InverseTransformAttributeERKNS_14PointAttributeEPS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %1, ptr noundef readonly captures(none) %2) unnamed_addr #5 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 28
   %5 = load i32, ptr %4, align 4, !tbaa !73
@@ -308,8 +308,8 @@ _ZN5draco17OctahedronToolBox19SetQuantizationBitsEi.exit: ; preds = %11
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZNK5draco17OctahedronToolBox37QuantizedOctahedralCoordsToUnitVectorEiiPf.exit
-  %.01627 = phi i32 [ %62, %_ZNK5draco17OctahedronToolBox37QuantizedOctahedralCoordsToUnitVectorEiiPf.exit ], [ 0, %.lr.ph.preheader ]
-  %.01726 = phi ptr [ %61, %_ZNK5draco17OctahedronToolBox37QuantizedOctahedralCoordsToUnitVectorEiiPf.exit ], [ %27, %.lr.ph.preheader ]
+  %.01627 = phi i32 [ %61, %_ZNK5draco17OctahedronToolBox37QuantizedOctahedralCoordsToUnitVectorEiiPf.exit ], [ 0, %.lr.ph.preheader ]
+  %.01726 = phi ptr [ %60, %_ZNK5draco17OctahedronToolBox37QuantizedOctahedralCoordsToUnitVectorEiiPf.exit ], [ %27, %.lr.ph.preheader ]
   %.01825 = phi ptr [ %30, %_ZNK5draco17OctahedronToolBox37QuantizedOctahedralCoordsToUnitVectorEiiPf.exit ], [ %22, %.lr.ph.preheader ]
   %28 = getelementptr inbounds nuw i8, ptr %.01825, i64 4
   %29 = load i32, ptr %.01825, align 4, !tbaa !61
@@ -341,25 +341,25 @@ _ZN5draco17OctahedronToolBox19SetQuantizationBitsEi.exit: ; preds = %11
   br i1 %54, label %_ZNK5draco17OctahedronToolBox37QuantizedOctahedralCoordsToUnitVectorEiiPf.exit, label %55
 
 55:                                               ; preds = %.lr.ph
-  %56 = tail call noundef float @sqrtf(float noundef %52) #19, !tbaa !61
-  %57 = fdiv float 1.000000e+00, %56
-  %58 = fmul float %39, %57
-  %59 = fmul float %46, %57
-  %60 = fmul float %49, %57
+  %sqrt.i.i = tail call float @llvm.sqrt.f32(float %52)
+  %56 = fdiv float 1.000000e+00, %sqrt.i.i
+  %57 = fmul float %39, %56
+  %58 = fmul float %46, %56
+  %59 = fmul float %49, %56
   br label %_ZNK5draco17OctahedronToolBox37QuantizedOctahedralCoordsToUnitVectorEiiPf.exit
 
 _ZNK5draco17OctahedronToolBox37QuantizedOctahedralCoordsToUnitVectorEiiPf.exit: ; preds = %.lr.ph, %55
-  %.sink36.i.i = phi float [ %58, %55 ], [ 0.000000e+00, %.lr.ph ]
-  %.sink35.i.i = phi float [ %59, %55 ], [ 0.000000e+00, %.lr.ph ]
-  %.sink.i.i = phi float [ %60, %55 ], [ 0.000000e+00, %.lr.ph ]
+  %.sink36.i.i = phi float [ %57, %55 ], [ 0.000000e+00, %.lr.ph ]
+  %.sink35.i.i = phi float [ %58, %55 ], [ 0.000000e+00, %.lr.ph ]
+  %.sink.i.i = phi float [ %59, %55 ], [ 0.000000e+00, %.lr.ph ]
   store float %.sink36.i.i, ptr %.01726, align 1
   %.sroa.423.0..017.sroa_idx = getelementptr inbounds nuw i8, ptr %.01726, i64 4
   store float %.sink35.i.i, ptr %.sroa.423.0..017.sroa_idx, align 1
   %.sroa.5.0..017.sroa_idx = getelementptr inbounds nuw i8, ptr %.01726, i64 8
   store float %.sink.i.i, ptr %.sroa.5.0..017.sroa_idx, align 1
-  %61 = getelementptr inbounds nuw i8, ptr %.01726, i64 12
-  %62 = add nuw i32 %.01627, 1
-  %exitcond.not = icmp eq i32 %62, %8
+  %60 = getelementptr inbounds nuw i8, ptr %.01726, i64 12
+  %61 = add nuw i32 %.01627, 1
+  %exitcond.not = icmp eq i32 %61, %8
   br i1 %exitcond.not, label %_ZN5draco17OctahedronToolBox19SetQuantizationBitsEi.exit.thread, label %.lr.ph, !llvm.loop !75
 
 _ZN5draco17OctahedronToolBox19SetQuantizationBitsEi.exit.thread: ; preds = %_ZNK5draco17OctahedronToolBox37QuantizedOctahedralCoordsToUnitVectorEiiPf.exit, %_ZN5draco17OctahedronToolBox19SetQuantizationBitsEi.exit, %11, %6, %3
@@ -590,7 +590,7 @@ define linkonce_odr void @_ZN5draco18AttributeTransformD2Ev(ptr noundef nonnull 
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5draco28AttributeOctahedronTransformD0Ev(ptr noundef nonnull align 8 dereferenceable(12) %0) unnamed_addr #9 comdat align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 16) #20
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 16) #18
   ret void
 }
 
@@ -617,11 +617,8 @@ declare float @llvm.fmuladd.f32(float, float, float) #10
 ; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fabs.f32(float) #10
 
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare float @sqrtf(float noundef) local_unnamed_addr #11
-
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #12
+declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #11
 
 declare void @_ZN5draco10DataBuffer6ResizeEl(ptr noundef nonnull align 8 dereferenceable(40), i64 noundef) local_unnamed_addr #0
 
@@ -748,7 +745,7 @@ _ZSt22__uninitialized_move_aIPcS0_SaIcEET0_T_S3_S2_RT1_.exit56: ; preds = %_ZSt2
   br i1 %61, label %62, label %_ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit
 
 62:                                               ; preds = %56
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #21
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #19
   unreachable
 
 _ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit:    ; preds = %56
@@ -761,7 +758,7 @@ _ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit:    ; preds = %56
   br i1 %.not.i, label %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit, label %67
 
 67:                                               ; preds = %_ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit
-  %68 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %66) #22
+  %68 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %66) #20
   br label %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit
 
 _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit:  ; preds = %_ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit, %67
@@ -805,7 +802,7 @@ _ZSt22__uninitialized_copy_aIPKhPccET0_T_S4_S3_RSaIT1_E.exit69: ; preds = %.lr.p
 
 83:                                               ; preds = %81
   %84 = sub i64 %13, %58
-  tail call void @_ZdlPvm(ptr noundef nonnull %57, i64 noundef %84) #20
+  tail call void @_ZdlPvm(ptr noundef nonnull %57, i64 noundef %84) #18
   br label %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit
 
 _ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit: ; preds = %81, %83
@@ -825,10 +822,10 @@ declare i32 @__gxx_personality_v0(...)
 declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #13
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #14
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fmuladd.f64(double, double, double) #10
@@ -837,56 +834,58 @@ declare double @llvm.fmuladd.f64(double, double, double) #10
 declare double @llvm.floor.f64(double) #10
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #15
+declare i32 @llvm.abs.i32(i32, i1 immarg) #14
 
 ; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fabs.f64(double) #10
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_attribute_octahedron_transform.cc() #16 section ".text.startup" {
+define internal void @_GLOBAL__sub_I_attribute_octahedron_transform.cc() #15 section ".text.startup" {
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #19
+  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #21
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #17
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #16
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #17
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #16
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #18
+declare i32 @llvm.smax.i32(i32, i32) #17
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #18
+declare float @llvm.sqrt.f32(float) #17
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #18
+declare i64 @llvm.umax.i64(i64, i64) #17
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #17
 
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree nounwind }
 attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #16 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #18 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #19 = { nounwind }
-attributes #20 = { builtin nounwind }
-attributes #21 = { noreturn }
-attributes #22 = { builtin allocsize(0) }
+attributes #11 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #15 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #17 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #18 = { builtin nounwind }
+attributes #19 = { noreturn }
+attributes #20 = { builtin allocsize(0) }
+attributes #21 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

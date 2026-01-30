@@ -429,9 +429,6 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 ; Function Attrs: nounwind
 declare noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #15
 
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @sqrt(double noundef) local_unnamed_addr #1
-
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i64, align 8
@@ -565,9 +562,9 @@ define linkonce_odr dso_local noundef double @_ZNSt17_Function_handlerIFdRKdS1_S
   %24 = fadd double %22, %23
   %25 = fmul double %21, %21
   %26 = fadd double %24, %25
-  %27 = call noundef double @sqrt(double noundef %26) #27, !tbaa !14
+  %sqrt.i.i.i = call noundef double @llvm.sqrt.f64(double %26)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  ret double %27
+  ret double %sqrt.i.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -10015,6 +10012,9 @@ declare i64 @llvm.umin.i64(i64, i64) #25
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #25
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.sqrt.f64(double) #25
 
 attributes #0 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

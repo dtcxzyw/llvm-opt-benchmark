@@ -733,52 +733,52 @@ _ZN2cv3VecIdLi3EEC2ERKS1_.exit:                   ; preds = %8
   %15 = call double @llvm.fmuladd.f64(double %.sroa.01.0.copyload.i.i, double %.sroa.01.0.copyload.i.i, double %14)
   %16 = call double @llvm.fmuladd.f64(double %.sroa.3.0.copyload.i.i, double %.sroa.3.0.copyload.i.i, double %15)
   %17 = call noundef double @llvm.fmuladd.f64(double %.sroa.42.0.copyload.i.i, double %.sroa.42.0.copyload.i.i, double %16)
-  %18 = call noundef double @sqrt(double noundef %17) #28, !tbaa !100, !noalias !111
-  %19 = fcmp olt double %18, 0x3EB0C6F7A0B5ED8D
-  br i1 %19, label %.noexc, label %26
+  %sqrt.i.i = call noundef double @llvm.sqrt.f64(double %17)
+  %18 = fcmp olt double %sqrt.i.i, 0x3EB0C6F7A0B5ED8D
+  br i1 %18, label %.noexc, label %25
 
 .noexc:                                           ; preds = %_ZN2cv3VecIdLi3EEC2ERKS1_.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !111
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !111
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.12, ptr noundef nonnull align 1 dereferenceable(1) %5)
   invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -5, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @__func__._ZNK2cv4QuatIdE9normalizeEv, ptr noundef nonnull @.str.7, i32 noundef 458) #26
-          to label %20 unwind label %21, !noalias !111
+          to label %19 unwind label %20, !noalias !111
 
-20:                                               ; preds = %.noexc
+19:                                               ; preds = %.noexc
   unreachable
 
-21:                                               ; preds = %.noexc
-  %22 = landingpad { ptr, i32 }
+20:                                               ; preds = %.noexc
+  %21 = landingpad { ptr, i32 }
           cleanup
-  %23 = load ptr, ptr %4, align 8, !tbaa !114, !noalias !111
-  %24 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %25 = icmp eq ptr %23, %24
-  br i1 %25, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
+  %22 = load ptr, ptr %4, align 8, !tbaa !114, !noalias !111
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %24 = icmp eq ptr %22, %23
+  br i1 %24, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %21
-  call void @_ZdlPv(ptr noundef %23) #30, !noalias !111
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %20
+  call void @_ZdlPv(ptr noundef %22) #30, !noalias !111
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %21, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %20, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !111
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !111
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  resume { ptr, i32 } %22
+  resume { ptr, i32 } %21
 
-26:                                               ; preds = %_ZN2cv3VecIdLi3EEC2ERKS1_.exit
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %28 = fdiv double %.sroa.01.0.copyload.i.i, %18
-  %29 = fdiv double %.sroa.2.0.copyload.i.i, %18
-  %30 = fdiv double %.sroa.3.0.copyload.i.i, %18
-  %31 = fdiv double %.sroa.42.0.copyload.i.i, %18
-  store double %28, ptr %27, align 8, !tbaa !118, !alias.scope !111
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store double %29, ptr %32, align 8, !tbaa !119, !alias.scope !111
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store double %30, ptr %33, align 8, !tbaa !120, !alias.scope !111
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store double %31, ptr %34, align 8, !tbaa !121, !alias.scope !111
+25:                                               ; preds = %_ZN2cv3VecIdLi3EEC2ERKS1_.exit
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %27 = fdiv double %.sroa.01.0.copyload.i.i, %sqrt.i.i
+  %28 = fdiv double %.sroa.2.0.copyload.i.i, %sqrt.i.i
+  %29 = fdiv double %.sroa.3.0.copyload.i.i, %sqrt.i.i
+  %30 = fdiv double %.sroa.42.0.copyload.i.i, %sqrt.i.i
+  store double %27, ptr %26, align 8, !tbaa !118, !alias.scope !111
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store double %28, ptr %31, align 8, !tbaa !119, !alias.scope !111
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store double %29, ptr %32, align 8, !tbaa !120, !alias.scope !111
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store double %30, ptr %33, align 8, !tbaa !121, !alias.scope !111
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
@@ -3510,6 +3510,9 @@ declare void @llvm.assume(i1 noundef) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #24
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.sqrt.f64(double) #25
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #25

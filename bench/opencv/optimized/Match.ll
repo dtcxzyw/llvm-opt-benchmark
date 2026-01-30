@@ -220,71 +220,71 @@ define hidden void @_ZN5logos5Match24interOrientationAndScaleEv(ptr noundef nonn
   %12 = tail call float @llvm.fmuladd.f32(float %3, float %5, float %11)
   %13 = fmul float %7, %7
   %14 = tail call float @llvm.fmuladd.f32(float %3, float %3, float %13)
-  %15 = tail call noundef float @sqrtf(float noundef %14) #12, !tbaa !36
-  %16 = fmul float %5, %5
-  %17 = tail call float @llvm.fmuladd.f32(float %9, float %9, float %16)
-  %18 = tail call noundef float @sqrtf(float noundef %17) #12, !tbaa !36
-  %19 = fmul float %5, %7
-  %20 = tail call float @llvm.fmuladd.f32(float %3, float %9, float %19)
-  %21 = fmul float %15, %18
-  %22 = fdiv float %20, %21
-  %23 = fcmp olt float %22, -1.000000e+00
-  %.sroa.speculated7 = select i1 %23, float -1.000000e+00, float %22
-  %24 = fcmp ogt float %.sroa.speculated7, 1.000000e+00
-  %.sroa.speculated = select i1 %24, float 1.000000e+00, float %.sroa.speculated7
-  %25 = tail call noundef float @acosf(float noundef %.sroa.speculated) #12, !tbaa !36
-  %26 = fcmp ogt float %12, 0.000000e+00
-  %27 = zext i1 %26 to i32
-  %28 = fcmp olt float %12, 0.000000e+00
-  %.neg.i = sext i1 %28 to i32
-  %29 = add nsw i32 %.neg.i, %27
-  %30 = sitofp i32 %29 to float
-  %31 = fmul float %25, %30
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store float %31, ptr %32, align 8, !tbaa !37
-  %33 = tail call noundef float @logf(float noundef %15) #12, !tbaa !36
-  %34 = tail call noundef float @logf(float noundef %18) #12, !tbaa !36
-  %35 = fsub float %33, %34
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  store float %35, ptr %36, align 4, !tbaa !38
-  %37 = load ptr, ptr %0, align 8, !tbaa !3
-  %38 = getelementptr inbounds nuw i8, ptr %37, i64 20
-  %39 = load float, ptr %38, align 4, !tbaa !30
-  %40 = fsub float %39, %31
-  %41 = tail call noundef float @llvm.fabs.f32(float %40)
-  %42 = fpext float %41 to double
-  %43 = fcmp ogt double %42, 0x401921FB54442D18
-  br i1 %43, label %.lr.ph.i, label %_ZN5logos5Match12angleAbsDiffEff.exit
+  %sqrt10 = tail call float @llvm.sqrt.f32(float %14)
+  %15 = fmul float %5, %5
+  %16 = tail call float @llvm.fmuladd.f32(float %9, float %9, float %15)
+  %sqrt = tail call float @llvm.sqrt.f32(float %16)
+  %17 = fmul float %5, %7
+  %18 = tail call float @llvm.fmuladd.f32(float %3, float %9, float %17)
+  %19 = fmul float %sqrt10, %sqrt
+  %20 = fdiv float %18, %19
+  %21 = fcmp olt float %20, -1.000000e+00
+  %.sroa.speculated7 = select i1 %21, float -1.000000e+00, float %20
+  %22 = fcmp ogt float %.sroa.speculated7, 1.000000e+00
+  %.sroa.speculated = select i1 %22, float 1.000000e+00, float %.sroa.speculated7
+  %23 = tail call noundef float @acosf(float noundef %.sroa.speculated) #13, !tbaa !36
+  %24 = fcmp ogt float %12, 0.000000e+00
+  %25 = zext i1 %24 to i32
+  %26 = fcmp olt float %12, 0.000000e+00
+  %.neg.i = sext i1 %26 to i32
+  %27 = add nsw i32 %.neg.i, %25
+  %28 = sitofp i32 %27 to float
+  %29 = fmul float %23, %28
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store float %29, ptr %30, align 8, !tbaa !37
+  %31 = tail call noundef float @logf(float noundef %sqrt10) #13, !tbaa !36
+  %32 = tail call noundef float @logf(float noundef %sqrt) #13, !tbaa !36
+  %33 = fsub float %31, %32
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  store float %33, ptr %34, align 4, !tbaa !38
+  %35 = load ptr, ptr %0, align 8, !tbaa !3
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 20
+  %37 = load float, ptr %36, align 4, !tbaa !30
+  %38 = fsub float %37, %29
+  %39 = tail call noundef float @llvm.fabs.f32(float %38)
+  %40 = fpext float %39 to double
+  %41 = fcmp ogt double %40, 0x401921FB54442D18
+  br i1 %41, label %.lr.ph.i, label %_ZN5logos5Match12angleAbsDiffEff.exit
 
 .lr.ph.i:                                         ; preds = %1, %.lr.ph.i
-  %44 = phi double [ %47, %.lr.ph.i ], [ %42, %1 ]
-  %45 = fadd double %44, 0xC01921FB54442D18
-  %46 = fptrunc double %45 to float
-  %47 = fpext float %46 to double
-  %48 = fcmp ogt double %47, 0x401921FB54442D18
-  br i1 %48, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !31
+  %42 = phi double [ %45, %.lr.ph.i ], [ %40, %1 ]
+  %43 = fadd double %42, 0xC01921FB54442D18
+  %44 = fptrunc double %43 to float
+  %45 = fpext float %44 to double
+  %46 = fcmp ogt double %45, 0x401921FB54442D18
+  br i1 %46, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !31
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
-  %49 = tail call float @llvm.fabs.f32(float %46)
-  %.pre = fpext float %49 to double
+  %47 = tail call float @llvm.fabs.f32(float %44)
+  %.pre = fpext float %47 to double
   br label %_ZN5logos5Match12angleAbsDiffEff.exit
 
 _ZN5logos5Match12angleAbsDiffEff.exit:            ; preds = %1, %._crit_edge.loopexit.i
-  %.pre-phi = phi double [ %42, %1 ], [ %.pre, %._crit_edge.loopexit.i ]
-  %.0.lcssa.i = phi float [ %41, %1 ], [ %49, %._crit_edge.loopexit.i ]
-  %50 = fsub double 0x401921FB54442D18, %.pre-phi
-  %51 = fptrunc double %50 to float
-  %52 = tail call noundef float @llvm.fabs.f32(float %51)
-  %53 = fcmp olt float %52, %.0.lcssa.i
-  %.sroa.speculated.i = select i1 %53, float %52, float %.0.lcssa.i
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store float %.sroa.speculated.i, ptr %54, align 8, !tbaa !39
-  %55 = getelementptr inbounds nuw i8, ptr %37, i64 24
-  %56 = load float, ptr %55, align 8, !tbaa !34
-  %57 = fsub float %56, %35
-  %58 = tail call noundef float @llvm.fabs.f32(float %57)
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store float %58, ptr %59, align 4, !tbaa !40
+  %.pre-phi = phi double [ %40, %1 ], [ %.pre, %._crit_edge.loopexit.i ]
+  %.0.lcssa.i = phi float [ %39, %1 ], [ %47, %._crit_edge.loopexit.i ]
+  %48 = fsub double 0x401921FB54442D18, %.pre-phi
+  %49 = fptrunc double %48 to float
+  %50 = tail call noundef float @llvm.fabs.f32(float %49)
+  %51 = fcmp olt float %50, %.0.lcssa.i
+  %.sroa.speculated.i = select i1 %51, float %50, float %.0.lcssa.i
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store float %.sroa.speculated.i, ptr %52, align 8, !tbaa !39
+  %53 = getelementptr inbounds nuw i8, ptr %35, i64 24
+  %54 = load float, ptr %53, align 8, !tbaa !34
+  %55 = fsub float %54, %33
+  %56 = tail call noundef float @llvm.fabs.f32(float %55)
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  store float %56, ptr %57, align 4, !tbaa !40
   ret void
 }
 
@@ -349,7 +349,7 @@ define hidden void @_ZNK5logos5Match10printMatchEv(ptr noundef nonnull readonly 
   br i1 %.not.i.i.i, label %13, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZSt16__throw_bad_castv() #13
+  tail call void @_ZSt16__throw_bad_castv() #14
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i: ; preds = %1
@@ -390,7 +390,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit: ; preds = %16, 
   br i1 %.not.i.i.i1, label %37, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i2
 
 37:                                               ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit
-  tail call void @_ZSt16__throw_bad_castv() #13
+  tail call void @_ZSt16__throw_bad_castv() #14
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i2: ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit
@@ -431,7 +431,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit5: ; preds = %40,
   br i1 %.not.i.i.i6, label %61, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i7
 
 61:                                               ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit5
-  tail call void @_ZSt16__throw_bad_castv() #13
+  tail call void @_ZSt16__throw_bad_castv() #14
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i7: ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit5
@@ -472,7 +472,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit10: ; preds = %64
   br i1 %.not.i.i.i11, label %85, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i12
 
 85:                                               ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit10
-  tail call void @_ZSt16__throw_bad_castv() #13
+  tail call void @_ZSt16__throw_bad_castv() #14
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i12: ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit10
@@ -514,7 +514,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit15: ; preds = %88
   br i1 %.not.i.i.i16, label %110, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i17
 
 110:                                              ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit15
-  tail call void @_ZSt16__throw_bad_castv() #13
+  tail call void @_ZSt16__throw_bad_castv() #14
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i17: ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit15
@@ -547,9 +547,6 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit20: ; preds = %11
 declare float @llvm.fabs.f32(float) #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare float @sqrtf(float noundef) local_unnamed_addr #9
-
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
 declare float @acosf(float noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
@@ -571,9 +568,12 @@ declare void @_ZNKSt5ctypeIcE13_M_widen_initEv(ptr noundef nonnull align 8 deref
 ; Function Attrs: uwtable
 define internal void @_GLOBAL__sub_I_Match.cpp() #11 section ".text.startup" {
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #12
+  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #13
   ret void
 }
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.sqrt.f32(float) #12
 
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
@@ -587,8 +587,9 @@ attributes #8 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping
 attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #10 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #11 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #12 = { nounwind }
-attributes #13 = { noreturn }
+attributes #12 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #13 = { nounwind }
+attributes #14 = { noreturn }
 
 !llvm.module.flags = !{!0, !1, !2}
 

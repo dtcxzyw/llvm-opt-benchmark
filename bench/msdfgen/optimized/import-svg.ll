@@ -1254,9 +1254,9 @@ if.end7.i:                                        ; preds = %if.end.i
   br i1 %cmp35.i, label %if.then36.i, label %if.end43.i
 
 if.then36.i:                                      ; preds = %if.end7.i
-  %call37.i = call double @sqrt(double noundef %add.i363) #17
-  %mul.i48.i = fmul double %74, %call37.i
-  %mul2.i.i = fmul double %75, %call37.i
+  %sqrt.i = call double @llvm.sqrt.f64(double %add.i363)
+  %mul.i48.i = fmul double %74, %sqrt.i
+  %mul2.i.i = fmul double %75, %sqrt.i
   %mul.i49.i = fmul double %mul.i48.i, %mul.i48.i
   %mul3.i50.i = fmul double %mul2.i.i, %mul2.i.i
   br label %if.end43.i
@@ -1305,8 +1305,8 @@ if.end43.i:                                       ; preds = %if.then36.i, %if.en
   %84 = fadd double %div.i.i, %mul3.i.i.i
   %mul4.i2.i.i = fmul double %div3.i.i, %div3.i.i
   %85 = call double @llvm.fmuladd.f64(double %div.i.i, double %div.i.i, double %mul4.i2.i.i)
-  %call.i3.i.i = call noundef double @sqrt(double noundef %85) #17
-  %div.i77.i = fdiv double %84, %call.i3.i.i
+  %sqrt.i3.i.i = call noundef double @llvm.sqrt.f64(double %85)
+  %div.i77.i = fdiv double %84, %sqrt.i3.i.i
   %86 = call double @llvm.fabs.f64(double %div.i77.i)
   %or.cond.i.i.i = fcmp ugt double %86, 1.000000e+00
   %cmp2.i.i.i = fcmp olt double %div.i77.i, -1.000000e+00
@@ -1327,11 +1327,10 @@ if.end43.i:                                       ; preds = %if.then36.i, %if.en
   %cmp.i.i97.i = fcmp ogt double %89, 0.000000e+00
   %mul3.i.i98.i = fmul double %div3.i.i, %div3.i93.i
   %90 = call noundef double @llvm.fmuladd.f64(double %div.i.i, double %div.i92.i, double %mul3.i.i98.i)
-  %call.i.i100.i = call noundef double @sqrt(double noundef %85) #17
   %mul4.i2.i101.i = fmul double %div3.i93.i, %div3.i93.i
   %91 = call double @llvm.fmuladd.f64(double %div.i92.i, double %div.i92.i, double %mul4.i2.i101.i)
-  %call.i3.i102.i = call noundef double @sqrt(double noundef %91) #17
-  %mul.i103.i = fmul double %call.i.i100.i, %call.i3.i102.i
+  %sqrt.i3.i102.i = call noundef double @llvm.sqrt.f64(double %91)
+  %mul.i103.i = fmul double %sqrt.i3.i.i, %sqrt.i3.i102.i
   %div.i104.i = fdiv double %90, %mul.i103.i
   %92 = call double @llvm.fabs.f64(double %div.i104.i)
   %or.cond.i.i105.i = fcmp ugt double %92, 1.000000e+00
@@ -1549,8 +1548,8 @@ if.then247:                                       ; preds = %land.lhs.true
   %sub3.i382 = fsub double %120, %124
   %mul4.i = fmul double %sub3.i382, %sub3.i382
   %125 = call double @llvm.fmuladd.f64(double %sub.i381, double %sub.i381, double %mul4.i)
-  %call.i386 = call noundef double @sqrt(double noundef %125) #17
-  %cmp263 = fcmp olt double %call.i386, %endpointSnapRange
+  %sqrt.i386 = call noundef double @llvm.sqrt.f64(double %125)
+  %cmp263 = fcmp olt double %sqrt.i386, %endpointSnapRange
   br i1 %cmp263, label %if.then264, label %if.else277
 
 if.then264:                                       ; preds = %if.then247
@@ -1737,8 +1736,8 @@ if.then27:                                        ; preds = %invoke.cont24
   br label %while.cond.i.i
 
 while.cond.i.i:                                   ; preds = %while.body.i.i, %if.then27
-  %incdec.ptr.i.i25 = phi ptr [ %incdec.ptr.i.i, %while.body.i.i ], [ %call25, %if.then27 ]
-  %3 = load i8, ptr %incdec.ptr.i.i25, align 1
+  %incdec.ptr.i.i24 = phi ptr [ %incdec.ptr.i.i, %while.body.i.i ], [ %call25, %if.then27 ]
+  %3 = load i8, ptr %incdec.ptr.i.i24, align 1
   switch i8 %3, label %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i [
     i8 44, label %while.body.i.i
     i8 32, label %while.body.i.i
@@ -1748,14 +1747,14 @@ while.cond.i.i:                                   ; preds = %while.body.i.i, %if
   ]
 
 while.body.i.i:                                   ; preds = %while.cond.i.i, %while.cond.i.i, %while.cond.i.i, %while.cond.i.i, %while.cond.i.i
-  %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i25, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i24, i64 1
   br label %while.cond.i.i, !llvm.loop !5
 
 _ZN7msdfgenL14skipExtraCharsERPKc.exit.i:         ; preds = %while.cond.i.i
   store ptr null, ptr %end.i, align 8
-  %call.i = call double @strtod(ptr noundef nonnull %incdec.ptr.i.i25, ptr noundef nonnull %end.i) #17
+  %call.i = call double @strtod(ptr noundef nonnull %incdec.ptr.i.i24, ptr noundef nonnull %end.i) #17
   %4 = load ptr, ptr %end.i, align 8
-  %cmp.i = icmp ugt ptr %4, %incdec.ptr.i.i25
+  %cmp.i = icmp ugt ptr %4, %incdec.ptr.i.i24
   call void @llvm.lifetime.end.p0(ptr nonnull %end.i)
   br i1 %cmp.i, label %land.lhs.true, label %if.end37
 
@@ -1858,8 +1857,8 @@ _ZNSt6vectorIN7msdfgen7ContourESaIS1_EE5clearEv.exit: ; preds = %if.end40, %invo
   %14 = load double, ptr %y3.i, align 8
   %mul4.i = fmul double %14, %14
   %15 = call double @llvm.fmuladd.f64(double %13, double %13, double %mul4.i)
-  %call.i23 = call noundef double @sqrt(double noundef %15) #17
-  %mul = fmul double %call.i23, 0x3F10000000000000
+  %sqrt.i = call noundef double @llvm.sqrt.f64(double %15)
+  %mul = fmul double %sqrt.i, 0x3F10000000000000
   %call44 = invoke noundef zeroext i1 @_ZN7msdfgen21buildShapeFromSvgPathERNS_5ShapeEPKcd(ptr noundef nonnull align 8 dereferenceable(25) %output, ptr noundef nonnull %call15, double noundef %mul)
           to label %cleanup unwind label %lpad
 
@@ -3600,6 +3599,9 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #14
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.sqrt.f64(double) #12
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #15

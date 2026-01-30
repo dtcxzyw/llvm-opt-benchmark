@@ -43,7 +43,7 @@ $_ZN7msdfgen12CubicSegmentD0Ev = comdat any
 ; Function Attrs: mustprogress uwtable
 define dso_local noalias noundef nonnull ptr @_ZN7msdfgen11EdgeSegment6createENS_7Vector2ES1_NS_9EdgeColorE(double %p0.coerce0, double %p0.coerce1, double %p1.coerce0, double %p1.coerce1, i32 noundef %edgeColor) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
-  %call = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #16
+  %call = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #15
   %color.i.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   store i32 %edgeColor, ptr %color.i.i, align 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7msdfgen13LinearSegmentE, i64 16), ptr %call, align 8
@@ -83,7 +83,7 @@ entry:
   br i1 %tobool, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %call8 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #16
+  %call8 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #15
   %color.i.i = getelementptr inbounds nuw i8, ptr %call8, i64 8
   store i32 %edgeColor, ptr %color.i.i, align 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7msdfgen13LinearSegmentE, i64 16), ptr %call8, align 8
@@ -98,7 +98,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %call11 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #16
+  %call11 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #15
   %color.i.i7 = getelementptr inbounds nuw i8, ptr %call11, i64 8
   store i32 %edgeColor, ptr %color.i.i7, align 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7msdfgen16QuadraticSegmentE, i64 16), ptr %call11, align 8
@@ -144,7 +144,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %tobool14, label %if.end, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
-  %call15 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #16
+  %call15 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #15
   %color.i.i = getelementptr inbounds nuw i8, ptr %call15, i64 8
   store i32 %edgeColor, ptr %color.i.i, align 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7msdfgen13LinearSegmentE, i64 16), ptr %call15, align 8
@@ -177,7 +177,7 @@ if.end:                                           ; preds = %land.lhs.true, %ent
   br i1 %4, label %if.then35, label %if.end42
 
 if.then35:                                        ; preds = %if.end
-  %call36 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #16
+  %call36 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #15
   %color.i.i35 = getelementptr inbounds nuw i8, ptr %call36, i64 8
   store i32 %edgeColor, ptr %color.i.i35, align 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7msdfgen16QuadraticSegmentE, i64 16), ptr %call36, align 8
@@ -196,7 +196,7 @@ if.then35:                                        ; preds = %if.end
   br label %return
 
 if.end42:                                         ; preds = %if.end
-  %call43 = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #16
+  %call43 = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #15
   %color.i.i38 = getelementptr inbounds nuw i8, ptr %call43, i64 8
   store i32 %edgeColor, ptr %color.i.i38, align 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7msdfgen12CubicSegmentE, i64 16), ptr %call43, align 8
@@ -238,10 +238,10 @@ if.then:                                          ; preds = %entry
   %2 = extractvalue { double, double } %call, 1
   %mul4.i.i = fmul double %2, %2
   %3 = tail call double @llvm.fmuladd.f64(double %1, double %1, double %mul4.i.i)
-  %call.i.i = tail call noundef double @sqrt(double noundef %3) #17
-  %tobool.i = fcmp une double %call.i.i, 0.000000e+00
-  %div.i = fdiv double %1, %call.i.i
-  %div2.i = fdiv double %2, %call.i.i
+  %sqrt.i.i = tail call noundef double @llvm.sqrt.f64(double %3)
+  %tobool.i = fcmp une double %3, 0.000000e+00
+  %div.i = fdiv double %1, %sqrt.i.i
+  %div2.i = fdiv double %2, %sqrt.i.i
   %retval.sroa.3.0.i = select i1 %tobool.i, double %div2.i, double 1.000000e+00
   %retval.sroa.0.0.i = select i1 %tobool.i, double %div.i, double 0.000000e+00
   %vtable4 = load ptr, ptr %this, align 8
@@ -252,7 +252,7 @@ if.then:                                          ; preds = %entry
   %6 = extractvalue { double, double } %call6, 1
   %sub.i = fsub double %origin.coerce0, %5
   %sub3.i = fsub double %origin.coerce1, %6
-  %mul3.i = fmul double %retval.sroa.3.0.i, %sub3.i
+  %mul3.i = fmul double %sub3.i, %retval.sroa.3.0.i
   %7 = tail call noundef double @llvm.fmuladd.f64(double %sub.i, double %retval.sroa.0.0.i, double %mul3.i)
   %cmp11 = fcmp olt double %7, 0.000000e+00
   br i1 %cmp11, label %if.then12, label %if.end53
@@ -280,10 +280,10 @@ if.then22:                                        ; preds = %if.else
   %15 = extractvalue { double, double } %call27, 1
   %mul4.i.i12 = fmul double %15, %15
   %16 = tail call double @llvm.fmuladd.f64(double %14, double %14, double %mul4.i.i12)
-  %call.i.i13 = tail call noundef double @sqrt(double noundef %16) #17
-  %tobool.i14 = fcmp une double %call.i.i13, 0.000000e+00
-  %div.i15 = fdiv double %14, %call.i.i13
-  %div2.i16 = fdiv double %15, %call.i.i13
+  %sqrt.i.i13 = tail call noundef double @llvm.sqrt.f64(double %16)
+  %tobool.i14 = fcmp une double %16, 0.000000e+00
+  %div.i15 = fdiv double %14, %sqrt.i.i13
+  %div2.i16 = fdiv double %15, %sqrt.i.i13
   %retval.sroa.3.0.i17 = select i1 %tobool.i14, double %div2.i16, double 1.000000e+00
   %retval.sroa.0.0.i18 = select i1 %tobool.i14, double %div.i15, double 0.000000e+00
   %vtable31 = load ptr, ptr %this, align 8
@@ -294,7 +294,7 @@ if.then22:                                        ; preds = %if.else
   %19 = extractvalue { double, double } %call33, 1
   %sub.i21 = fsub double %origin.coerce0, %18
   %sub3.i22 = fsub double %origin.coerce1, %19
-  %mul3.i25 = fmul double %retval.sroa.3.0.i17, %sub3.i22
+  %mul3.i25 = fmul double %sub3.i22, %retval.sroa.3.0.i17
   %20 = tail call noundef double @llvm.fmuladd.f64(double %sub.i21, double %retval.sroa.0.0.i18, double %mul3.i25)
   %cmp39 = fcmp ogt double %20, 0.000000e+00
   br i1 %cmp39, label %if.then40, label %if.end53
@@ -389,7 +389,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define dso_local noalias noundef nonnull ptr @_ZNK7msdfgen13LinearSegment5cloneEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
-  %call = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #16
+  %call = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #15
   %p = getelementptr inbounds nuw i8, ptr %this, i64 16
   %agg.tmp.sroa.0.0.copyload = load double, ptr %p, align 8
   %agg.tmp.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -417,7 +417,7 @@ invoke.cont:
 ; Function Attrs: mustprogress uwtable
 define dso_local noalias noundef nonnull ptr @_ZNK7msdfgen16QuadraticSegment5cloneEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
-  %call = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #16
+  %call = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #15
   %p = getelementptr inbounds nuw i8, ptr %this, i64 16
   %agg.tmp.sroa.0.0.copyload = load double, ptr %p, align 8
   %agg.tmp.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -453,7 +453,7 @@ invoke.cont:
 ; Function Attrs: mustprogress uwtable
 define dso_local noalias noundef nonnull ptr @_ZNK7msdfgen12CubicSegment5cloneEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
-  %call = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #16
+  %call = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #15
   %p = getelementptr inbounds nuw i8, ptr %this, i64 16
   %agg.tmp.sroa.0.0.copyload = load double, ptr %p, align 8
   %agg.tmp.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -861,8 +861,8 @@ entry:
   ret { double, double } %.fca.1.insert.i7.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: read, errnomem: write) uwtable
-define dso_local noundef double @_ZNK7msdfgen13LinearSegment6lengthEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this) local_unnamed_addr #8 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
+define dso_local noundef double @_ZNK7msdfgen13LinearSegment6lengthEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this) local_unnamed_addr #7 align 2 {
 entry:
   %p = getelementptr inbounds nuw i8, ptr %this, i64 16
   %arrayidx = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -876,8 +876,8 @@ entry:
   %sub3.i = fsub double %agg.tmp.sroa.2.0.copyload, %agg.tmp2.sroa.2.0.copyload
   %mul4.i = fmul double %sub3.i, %sub3.i
   %0 = tail call double @llvm.fmuladd.f64(double %sub.i, double %sub.i, double %mul4.i)
-  %call.i = tail call noundef double @sqrt(double noundef %0) #17
-  ret double %call.i
+  %sqrt.i = tail call noundef double @llvm.sqrt.f64(double %0)
+  ret double %sqrt.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: read, errnomem: write) uwtable
@@ -907,28 +907,28 @@ entry:
   %1 = tail call noundef double @llvm.fmuladd.f64(double %sub.i, double %sub.i21, double %mul3.i25)
   %mul3.i26 = fmul double %sub3.i22, %sub3.i22
   %2 = tail call noundef double @llvm.fmuladd.f64(double %sub.i21, double %sub.i21, double %mul3.i26)
-  %call24 = tail call double @sqrt(double noundef %0) #17
-  %call25 = tail call double @sqrt(double noundef %2) #17
+  %sqrt27 = tail call double @llvm.sqrt.f64(double %0)
+  %sqrt = tail call double @llvm.sqrt.f64(double %2)
   %3 = fneg double %sub.i21
   %neg.i = fmul double %sub3.i, %3
   %4 = tail call noundef double @llvm.fmuladd.f64(double %sub.i, double %sub3.i22, double %neg.i)
   %add = fadd double %0, %1
   %add29 = fadd double %1, %add
   %add30 = fadd double %2, %add29
-  %call31 = tail call double @sqrt(double noundef %add30) #17
+  %call31 = tail call double @sqrt(double noundef %add30) #16
   %add32 = fadd double %1, %2
-  %5 = fneg double %call24
+  %5 = fneg double %sqrt27
   %neg = fmul double %1, %5
   %6 = tail call double @llvm.fmuladd.f64(double %add32, double %call31, double %neg)
   %mul34 = fmul double %4, %4
-  %7 = tail call double @llvm.fmuladd.f64(double %call25, double %call31, double %1)
+  %7 = tail call double @llvm.fmuladd.f64(double %sqrt, double %call31, double %1)
   %add36 = fadd double %2, %7
-  %8 = tail call double @llvm.fmuladd.f64(double %call25, double %call24, double %1)
+  %8 = tail call double @llvm.fmuladd.f64(double %sqrt, double %sqrt27, double %1)
   %div = fdiv double %add36, %8
-  %call38 = tail call double @log(double noundef %div) #17
-  %mul39 = fmul double %mul34, %call38
-  %9 = tail call double @llvm.fmuladd.f64(double %call25, double %6, double %mul39)
-  %mul = fmul double %call25, %2
+  %call38 = tail call double @log(double noundef %div) #16
+  %mul39 = fmul double %call38, %mul34
+  %9 = tail call double @llvm.fmuladd.f64(double %sqrt, double %6, double %mul39)
+  %mul = fmul double %2, %sqrt
   %div40 = fdiv double %9, %mul
   ret double %div40
 }
@@ -942,7 +942,7 @@ declare double @llvm.fmuladd.f64(double, double, double) #4
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
 declare double @log(double noundef) local_unnamed_addr #9
 
-; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite, errnomem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local { double, double } @_ZNK7msdfgen13LinearSegment14signedDistanceENS_7Vector2ERd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this, double %origin.coerce0, double %origin.coerce1, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %param) unnamed_addr #10 align 2 {
 entry:
   %p = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -973,7 +973,7 @@ entry:
   %sub3.i12 = fsub double %agg.tmp16.sroa.2.0.copyload, %origin.coerce1
   %mul4.i = fmul double %sub3.i12, %sub3.i12
   %2 = tail call double @llvm.fmuladd.f64(double %sub.i11, double %sub.i11, double %mul4.i)
-  %call.i = tail call noundef double @sqrt(double noundef %2) #17
+  %sqrt.i = tail call noundef double @llvm.sqrt.f64(double %2)
   %cmp22 = fcmp ogt double %div, 0.000000e+00
   %cmp23 = fcmp olt double %div, 1.000000e+00
   %or.cond = and i1 %cmp22, %cmp23
@@ -981,39 +981,40 @@ entry:
 
 entry.if.end30_crit_edge:                         ; preds = %entry
   %.pre = fneg double %sub.i6
+  %.pre42 = tail call noundef double @llvm.sqrt.f64(double %1)
+  %.pre43 = fdiv double %sub3.i7, %.pre42
   br label %if.end30
 
 if.then:                                          ; preds = %entry
-  %call.i.i = tail call noundef double @sqrt(double noundef %1) #17
-  %tobool.i = fcmp une double %call.i.i, 0.000000e+00
-  %div6.i = fdiv double %sub3.i7, %call.i.i
+  %sqrt.i.i = tail call noundef double @llvm.sqrt.f64(double %1)
+  %tobool.i = fcmp une double %1, 0.000000e+00
+  %div6.i = fdiv double %sub3.i7, %sqrt.i.i
   %fneg8.i = fneg double %sub.i6
-  %div9.i = fdiv double %fneg8.i, %call.i.i
+  %div9.i = fdiv double %fneg8.i, %sqrt.i.i
   %retval.sroa.5.0.i = select i1 %tobool.i, double %div9.i, double -1.000000e+00
   %retval.sroa.0.0.i = select i1 %tobool.i, double %div6.i, double 0.000000e+00
   %mul3.i17 = fmul double %sub3.i, %retval.sroa.5.0.i
   %3 = tail call noundef double @llvm.fmuladd.f64(double %retval.sroa.0.0.i, double %sub.i, double %mul3.i17)
   %4 = tail call double @llvm.fabs.f64(double %3)
-  %cmp28 = fcmp olt double %4, %call.i
+  %cmp28 = fcmp olt double %4, %sqrt.i
   br i1 %cmp28, label %return, label %if.end30
 
 if.end30:                                         ; preds = %entry.if.end30_crit_edge, %if.then
+  %div2.i.pre-phi = phi double [ %.pre43, %entry.if.end30_crit_edge ], [ %div6.i, %if.then ]
+  %sqrt.i.i21.pre-phi = phi double [ %.pre42, %entry.if.end30_crit_edge ], [ %sqrt.i.i, %if.then ]
   %.pre-phi = phi double [ %.pre, %entry.if.end30_crit_edge ], [ %fneg8.i, %if.then ]
   %neg.i = fmul double %sub3.i, %.pre-phi
   %5 = tail call noundef double @llvm.fmuladd.f64(double %sub.i, double %sub3.i7, double %neg.i)
   %cmp.i = fcmp ogt double %5, 0.000000e+00
-  %6 = fneg double %call.i
-  %mul = select i1 %cmp.i, double %call.i, double %6
-  %call.i.i21 = tail call noundef double @sqrt(double noundef %1) #17
-  %tobool.i22 = fcmp une double %call.i.i21, 0.000000e+00
-  %div.i = fdiv double %sub.i6, %call.i.i21
-  %div2.i = fdiv double %sub3.i7, %call.i.i21
-  %retval.sroa.3.0.i = select i1 %tobool.i22, double %div2.i, double 1.000000e+00
+  %6 = fneg double %sqrt.i
+  %mul = select i1 %cmp.i, double %sqrt.i, double %6
+  %tobool.i22 = fcmp une double %1, 0.000000e+00
+  %div.i = fdiv double %sub.i6, %sqrt.i.i21.pre-phi
+  %retval.sroa.3.0.i = select i1 %tobool.i22, double %div2.i.pre-phi, double 1.000000e+00
   %retval.sroa.0.0.i23 = select i1 %tobool.i22, double %div.i, double 0.000000e+00
-  %call.i.i28 = tail call noundef double @sqrt(double noundef %2) #17
-  %tobool.i29 = fcmp une double %call.i.i28, 0.000000e+00
-  %div.i30 = fdiv double %sub.i11, %call.i.i28
-  %div2.i31 = fdiv double %sub3.i12, %call.i.i28
+  %tobool.i29 = fcmp une double %2, 0.000000e+00
+  %div.i30 = fdiv double %sub.i11, %sqrt.i
+  %div2.i31 = fdiv double %sub3.i12, %sqrt.i
   %retval.sroa.3.0.i32 = select i1 %tobool.i29, double %div2.i31, double 1.000000e+00
   %retval.sroa.0.0.i33 = select i1 %tobool.i29, double %div.i30, double 0.000000e+00
   %mul3.i36 = fmul double %retval.sroa.3.0.i, %retval.sroa.3.0.i32
@@ -1078,9 +1079,9 @@ entry:
   %cmp.i = fcmp ogt double %10, 0.000000e+00
   %mul4.i = fmul double %sub3.i, %sub3.i
   %11 = call double @llvm.fmuladd.f64(double %sub.i, double %sub.i, double %mul4.i)
-  %call.i = call noundef double @sqrt(double noundef %11) #17
-  %12 = fneg double %call.i
-  %mul43 = select i1 %cmp.i, double %call.i, double %12
+  %sqrt.i = call noundef double @llvm.sqrt.f64(double %11)
+  %12 = fneg double %sqrt.i
+  %mul43 = select i1 %cmp.i, double %sqrt.i, double %12
   %mul3.i39 = fmul double %sub3.i, %8
   %13 = call noundef double @llvm.fmuladd.f64(double %sub.i, double %7, double %mul3.i39)
   %fneg = fneg double %13
@@ -1098,9 +1099,9 @@ entry:
   %sub3.i42 = fsub double %agg.tmp54.sroa.2.0.copyload, %origin.coerce1
   %mul4.i46 = fmul double %sub3.i42, %sub3.i42
   %16 = call double @llvm.fmuladd.f64(double %sub.i41, double %sub.i41, double %mul4.i46)
-  %call.i47 = call noundef double @sqrt(double noundef %16) #17
-  %17 = call double @llvm.fabs.f64(double %call.i)
-  %cmp = fcmp olt double %call.i47, %17
+  %sqrt.i47 = call noundef double @llvm.sqrt.f64(double %16)
+  %17 = call double @llvm.fabs.f64(double %sqrt.i)
+  %cmp = fcmp olt double %sqrt.i47, %17
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -1110,8 +1111,8 @@ if.then:                                          ; preds = %entry
   %neg.i52 = fmul double %18, %20
   %21 = call noundef double @llvm.fmuladd.f64(double %19, double %sub3.i42, double %neg.i52)
   %cmp.i53 = fcmp ogt double %21, 0.000000e+00
-  %22 = fneg double %call.i47
-  %mul70 = select i1 %cmp.i53, double %call.i47, double %22
+  %22 = fneg double %sqrt.i47
+  %mul70 = select i1 %cmp.i53, double %sqrt.i47, double %22
   %agg.tmp73.sroa.0.0.copyload = load double, ptr %arrayidx5, align 8
   %agg.tmp73.sroa.2.0.copyload = load double, ptr %agg.tmp3.sroa.2.0.arrayidx5.sroa_idx, align 8
   %sub.i55 = fsub double %origin.coerce0, %agg.tmp73.sroa.0.0.copyload
@@ -1156,9 +1157,9 @@ if.then89:                                        ; preds = %for.body
   %add3.i70 = fadd double %mul1.i66, %add3.i
   %mul4.i74 = fmul double %add3.i70, %add3.i70
   %26 = call double @llvm.fmuladd.f64(double %add.i69, double %add.i69, double %mul4.i74)
-  %call.i75 = call noundef double @sqrt(double noundef %26) #17
+  %sqrt.i75 = call noundef double @llvm.sqrt.f64(double %26)
   %27 = call double @llvm.fabs.f64(double %minDistance.1131)
-  %cmp110 = fcmp ugt double %call.i75, %27
+  %cmp110 = fcmp ugt double %sqrt.i75, %27
   br i1 %cmp110, label %for.inc, label %if.then111
 
 if.then111:                                       ; preds = %if.then89
@@ -1170,8 +1171,8 @@ if.then111:                                       ; preds = %if.then89
   %neg.i84 = fmul double %add3.i81, %28
   %29 = call noundef double @llvm.fmuladd.f64(double %add.i80, double %add3.i70, double %neg.i84)
   %cmp.i85 = fcmp ogt double %29, 0.000000e+00
-  %30 = fneg double %call.i75
-  %mul124 = select i1 %cmp.i85, double %call.i75, double %30
+  %30 = fneg double %sqrt.i75
+  %mul124 = select i1 %cmp.i85, double %sqrt.i75, double %30
   store double %25, ptr %param, align 8
   br label %for.inc
 
@@ -1202,24 +1203,32 @@ if.then135:                                       ; preds = %if.end133
   %34 = extractvalue { double, double } %call140, 1
   %mul4.i.i = fmul double %34, %34
   %35 = call double @llvm.fmuladd.f64(double %33, double %33, double %mul4.i.i)
-  %call.i.i = call noundef double @sqrt(double noundef %35) #17
-  %tobool.i = fcmp une double %call.i.i, 0.000000e+00
-  %div.i = fdiv double %33, %call.i.i
-  %div2.i = fdiv double %34, %call.i.i
+  %sqrt.i.i = call noundef double @llvm.sqrt.f64(double %35)
+  %tobool.i = fcmp une double %35, 0.000000e+00
+  %div.i = fdiv double %33, %sqrt.i.i
+  %div2.i = fdiv double %34, %sqrt.i.i
   %retval.sroa.3.0.i = select i1 %tobool.i, double %div2.i, double 1.000000e+00
   %retval.sroa.0.0.i = select i1 %tobool.i, double %div.i, double 0.000000e+00
-  br label %return.sink.split
+  %tobool.i92 = fcmp une double %11, 0.000000e+00
+  %div.i93 = fdiv double %sub.i, %sqrt.i
+  %div2.i94 = fdiv double %sub3.i, %sqrt.i
+  %retval.sroa.3.0.i95 = select i1 %tobool.i92, double %div2.i94, double 1.000000e+00
+  %retval.sroa.0.0.i96 = select i1 %tobool.i92, double %div.i93, double 0.000000e+00
+  %mul3.i99 = fmul double %retval.sroa.3.0.i95, %retval.sroa.3.0.i
+  %36 = call noundef double @llvm.fmuladd.f64(double %retval.sroa.0.0.i, double %retval.sroa.0.0.i96, double %mul3.i99)
+  %37 = call double @llvm.fabs.f64(double %36)
+  br label %return
 
 if.else:                                          ; preds = %if.end133
   %call149 = call { double, double } %32(ptr noundef nonnull align 8 dereferenceable(64) %this, double noundef 1.000000e+00)
-  %36 = extractvalue { double, double } %call149, 0
-  %37 = extractvalue { double, double } %call149, 1
-  %mul4.i.i102 = fmul double %37, %37
-  %38 = call double @llvm.fmuladd.f64(double %36, double %36, double %mul4.i.i102)
-  %call.i.i103 = call noundef double @sqrt(double noundef %38) #17
-  %tobool.i104 = fcmp une double %call.i.i103, 0.000000e+00
-  %div.i105 = fdiv double %36, %call.i.i103
-  %div2.i106 = fdiv double %37, %call.i.i103
+  %38 = extractvalue { double, double } %call149, 0
+  %39 = extractvalue { double, double } %call149, 1
+  %mul4.i.i102 = fmul double %39, %39
+  %40 = call double @llvm.fmuladd.f64(double %38, double %38, double %mul4.i.i102)
+  %sqrt.i.i103 = call noundef double @llvm.sqrt.f64(double %40)
+  %tobool.i104 = fcmp une double %40, 0.000000e+00
+  %div.i105 = fdiv double %38, %sqrt.i.i103
+  %div2.i106 = fdiv double %39, %sqrt.i.i103
   %retval.sroa.3.0.i107 = select i1 %tobool.i104, double %div2.i106, double 1.000000e+00
   %retval.sroa.0.0.i108 = select i1 %tobool.i104, double %div.i105, double 0.000000e+00
   %agg.tmp153.sroa.0.0.copyload = load double, ptr %arrayidx13, align 8
@@ -1227,28 +1236,20 @@ if.else:                                          ; preds = %if.end133
   %sub.i111 = fsub double %agg.tmp153.sroa.0.0.copyload, %origin.coerce0
   %sub3.i112 = fsub double %agg.tmp153.sroa.2.0.copyload, %origin.coerce1
   %mul4.i.i116 = fmul double %sub3.i112, %sub3.i112
-  %39 = call double @llvm.fmuladd.f64(double %sub.i111, double %sub.i111, double %mul4.i.i116)
-  br label %return.sink.split
-
-return.sink.split:                                ; preds = %if.then135, %if.else
-  %.sink = phi double [ %39, %if.else ], [ %11, %if.then135 ]
-  %sub.i111.sink = phi double [ %sub.i111, %if.else ], [ %sub.i, %if.then135 ]
-  %sub3.i112.sink = phi double [ %sub3.i112, %if.else ], [ %sub3.i, %if.then135 ]
-  %retval.sroa.3.0.i107.sink = phi double [ %retval.sroa.3.0.i107, %if.else ], [ %retval.sroa.3.0.i, %if.then135 ]
-  %retval.sroa.0.0.i108.sink = phi double [ %retval.sroa.0.0.i108, %if.else ], [ %retval.sroa.0.0.i, %if.then135 ]
-  %call.i.i117 = call noundef double @sqrt(double noundef %.sink) #17
-  %tobool.i118 = fcmp une double %call.i.i117, 0.000000e+00
-  %div.i119 = fdiv double %sub.i111.sink, %call.i.i117
-  %div2.i120 = fdiv double %sub3.i112.sink, %call.i.i117
+  %41 = call double @llvm.fmuladd.f64(double %sub.i111, double %sub.i111, double %mul4.i.i116)
+  %sqrt.i.i117 = call noundef double @llvm.sqrt.f64(double %41)
+  %tobool.i118 = fcmp une double %41, 0.000000e+00
+  %div.i119 = fdiv double %sub.i111, %sqrt.i.i117
+  %div2.i120 = fdiv double %sub3.i112, %sqrt.i.i117
   %retval.sroa.3.0.i121 = select i1 %tobool.i118, double %div2.i120, double 1.000000e+00
   %retval.sroa.0.0.i122 = select i1 %tobool.i118, double %div.i119, double 0.000000e+00
-  %mul3.i125 = fmul double %retval.sroa.3.0.i107.sink, %retval.sroa.3.0.i121
-  %40 = call noundef double @llvm.fmuladd.f64(double %retval.sroa.0.0.i108.sink, double %retval.sroa.0.0.i122, double %mul3.i125)
-  %41 = call double @llvm.fabs.f64(double %40)
+  %mul3.i125 = fmul double %retval.sroa.3.0.i107, %retval.sroa.3.0.i121
+  %42 = call noundef double @llvm.fmuladd.f64(double %retval.sroa.0.0.i108, double %retval.sroa.0.0.i122, double %mul3.i125)
+  %43 = call double @llvm.fabs.f64(double %42)
   br label %return
 
-return:                                           ; preds = %return.sink.split, %for.end
-  %retval.sroa.4.0 = phi double [ 0.000000e+00, %for.end ], [ %41, %return.sink.split ]
+return:                                           ; preds = %for.end, %if.else, %if.then135
+  %retval.sroa.4.0 = phi double [ %37, %if.then135 ], [ %43, %if.else ], [ 0.000000e+00, %for.end ]
   %.fca.0.insert = insertvalue { double, double } poison, double %minDistance.1.lcssa, 0
   %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %retval.sroa.4.0, 1
   ret { double, double } %.fca.1.insert
@@ -1301,9 +1302,9 @@ entry:
   %cmp.i = fcmp ogt double %4, 0.000000e+00
   %mul4.i = fmul double %sub3.i, %sub3.i
   %5 = tail call double @llvm.fmuladd.f64(double %sub.i, double %sub.i, double %mul4.i)
-  %call.i = tail call noundef double @sqrt(double noundef %5) #17
-  %6 = fneg double %call.i
-  %mul = select i1 %cmp.i, double %call.i, double %6
+  %sqrt.i = tail call noundef double @llvm.sqrt.f64(double %5)
+  %6 = fneg double %sqrt.i
+  %mul = select i1 %cmp.i, double %sqrt.i, double %6
   %mul3.i = fmul double %sub3.i, %2
   %7 = tail call noundef double @llvm.fmuladd.f64(double %sub.i, double %1, double %mul3.i)
   %fneg = fneg double %7
@@ -1321,9 +1322,9 @@ entry:
   %sub3.i66 = fsub double %agg.tmp56.sroa.2.0.copyload, %origin.coerce1
   %mul4.i70 = fmul double %sub3.i66, %sub3.i66
   %10 = tail call double @llvm.fmuladd.f64(double %sub.i65, double %sub.i65, double %mul4.i70)
-  %call.i71 = tail call noundef double @sqrt(double noundef %10) #17
-  %11 = tail call double @llvm.fabs.f64(double %call.i)
-  %cmp = fcmp olt double %call.i71, %11
+  %sqrt.i71 = tail call noundef double @llvm.sqrt.f64(double %10)
+  %11 = tail call double @llvm.fabs.f64(double %sqrt.i)
+  %cmp = fcmp olt double %sqrt.i71, %11
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -1333,8 +1334,8 @@ if.then:                                          ; preds = %entry
   %neg.i76 = fmul double %12, %14
   %15 = tail call noundef double @llvm.fmuladd.f64(double %13, double %sub3.i66, double %neg.i76)
   %cmp.i77 = fcmp ogt double %15, 0.000000e+00
-  %16 = fneg double %call.i71
-  %mul72 = select i1 %cmp.i77, double %call.i71, double %16
+  %16 = fneg double %sqrt.i71
+  %mul72 = select i1 %cmp.i77, double %sqrt.i71, double %16
   %sub.i83 = fsub double %13, %sub.i65
   %sub3.i84 = fsub double %12, %sub3.i66
   %mul3.i87 = fmul double %12, %sub3.i84
@@ -1430,9 +1431,9 @@ if.end150:                                        ; preds = %for.body113
   %add3.i165 = fadd double %mul1.i161, %add3.i157
   %mul4.i169 = fmul double %add3.i165, %add3.i165
   %22 = tail call double @llvm.fmuladd.f64(double %add.i164, double %add.i164, double %mul4.i169)
-  %call.i170 = tail call noundef double @sqrt(double noundef %22) #17
+  %sqrt.i170 = tail call noundef double @llvm.sqrt.f64(double %22)
   %23 = tail call double @llvm.fabs.f64(double %minDistance.2220)
-  %cmp174 = fcmp olt double %call.i170, %23
+  %cmp174 = fcmp olt double %sqrt.i170, %23
   br i1 %cmp174, label %if.then175, label %for.inc
 
 if.then175:                                       ; preds = %if.end150
@@ -1440,8 +1441,8 @@ if.then175:                                       ; preds = %if.end150
   %neg.i171 = fmul double %add3.i126, %24
   %25 = tail call noundef double @llvm.fmuladd.f64(double %add.i125, double %add3.i165, double %neg.i171)
   %cmp.i172 = fcmp ogt double %25, 0.000000e+00
-  %26 = fneg double %call.i170
-  %mul181 = select i1 %cmp.i172, double %call.i170, double %26
+  %26 = fneg double %sqrt.i170
+  %mul181 = select i1 %cmp.i172, double %sqrt.i170, double %26
   store double %sub, ptr %param, align 8
   br label %for.inc
 
@@ -1477,24 +1478,32 @@ if.then191:                                       ; preds = %if.end189
   %30 = extractvalue { double, double } %call196, 1
   %mul4.i.i = fmul double %30, %30
   %31 = tail call double @llvm.fmuladd.f64(double %29, double %29, double %mul4.i.i)
-  %call.i.i = tail call noundef double @sqrt(double noundef %31) #17
-  %tobool.i = fcmp une double %call.i.i, 0.000000e+00
-  %div.i = fdiv double %29, %call.i.i
-  %div2.i = fdiv double %30, %call.i.i
+  %sqrt.i.i = tail call noundef double @llvm.sqrt.f64(double %31)
+  %tobool.i = fcmp une double %31, 0.000000e+00
+  %div.i = fdiv double %29, %sqrt.i.i
+  %div2.i = fdiv double %30, %sqrt.i.i
   %retval.sroa.3.0.i = select i1 %tobool.i, double %div2.i, double 1.000000e+00
   %retval.sroa.0.0.i = select i1 %tobool.i, double %div.i, double 0.000000e+00
-  br label %return.sink.split
+  %tobool.i179 = fcmp une double %5, 0.000000e+00
+  %div.i180 = fdiv double %sub.i, %sqrt.i
+  %div2.i181 = fdiv double %sub3.i, %sqrt.i
+  %retval.sroa.3.0.i182 = select i1 %tobool.i179, double %div2.i181, double 1.000000e+00
+  %retval.sroa.0.0.i183 = select i1 %tobool.i179, double %div.i180, double 0.000000e+00
+  %mul3.i186 = fmul double %retval.sroa.3.0.i182, %retval.sroa.3.0.i
+  %32 = tail call noundef double @llvm.fmuladd.f64(double %retval.sroa.0.0.i, double %retval.sroa.0.0.i183, double %mul3.i186)
+  %33 = tail call double @llvm.fabs.f64(double %32)
+  br label %return
 
 if.else:                                          ; preds = %if.end189
   %call205 = tail call { double, double } %28(ptr noundef nonnull align 8 dereferenceable(80) %this, double noundef 1.000000e+00)
-  %32 = extractvalue { double, double } %call205, 0
-  %33 = extractvalue { double, double } %call205, 1
-  %mul4.i.i189 = fmul double %33, %33
-  %34 = tail call double @llvm.fmuladd.f64(double %32, double %32, double %mul4.i.i189)
-  %call.i.i190 = tail call noundef double @sqrt(double noundef %34) #17
-  %tobool.i191 = fcmp une double %call.i.i190, 0.000000e+00
-  %div.i192 = fdiv double %32, %call.i.i190
-  %div2.i193 = fdiv double %33, %call.i.i190
+  %34 = extractvalue { double, double } %call205, 0
+  %35 = extractvalue { double, double } %call205, 1
+  %mul4.i.i189 = fmul double %35, %35
+  %36 = tail call double @llvm.fmuladd.f64(double %34, double %34, double %mul4.i.i189)
+  %sqrt.i.i190 = tail call noundef double @llvm.sqrt.f64(double %36)
+  %tobool.i191 = fcmp une double %36, 0.000000e+00
+  %div.i192 = fdiv double %34, %sqrt.i.i190
+  %div2.i193 = fdiv double %35, %sqrt.i.i190
   %retval.sroa.3.0.i194 = select i1 %tobool.i191, double %div2.i193, double 1.000000e+00
   %retval.sroa.0.0.i195 = select i1 %tobool.i191, double %div.i192, double 0.000000e+00
   %agg.tmp209.sroa.0.0.copyload = load double, ptr %arrayidx24, align 8
@@ -1502,35 +1511,27 @@ if.else:                                          ; preds = %if.end189
   %sub.i198 = fsub double %agg.tmp209.sroa.0.0.copyload, %origin.coerce0
   %sub3.i199 = fsub double %agg.tmp209.sroa.2.0.copyload, %origin.coerce1
   %mul4.i.i203 = fmul double %sub3.i199, %sub3.i199
-  %35 = tail call double @llvm.fmuladd.f64(double %sub.i198, double %sub.i198, double %mul4.i.i203)
-  br label %return.sink.split
-
-return.sink.split:                                ; preds = %if.then191, %if.else
-  %.sink = phi double [ %35, %if.else ], [ %5, %if.then191 ]
-  %sub.i198.sink = phi double [ %sub.i198, %if.else ], [ %sub.i, %if.then191 ]
-  %sub3.i199.sink = phi double [ %sub3.i199, %if.else ], [ %sub3.i, %if.then191 ]
-  %retval.sroa.3.0.i194.sink = phi double [ %retval.sroa.3.0.i194, %if.else ], [ %retval.sroa.3.0.i, %if.then191 ]
-  %retval.sroa.0.0.i195.sink = phi double [ %retval.sroa.0.0.i195, %if.else ], [ %retval.sroa.0.0.i, %if.then191 ]
-  %call.i.i204 = tail call noundef double @sqrt(double noundef %.sink) #17
-  %tobool.i205 = fcmp une double %call.i.i204, 0.000000e+00
-  %div.i206 = fdiv double %sub.i198.sink, %call.i.i204
-  %div2.i207 = fdiv double %sub3.i199.sink, %call.i.i204
+  %37 = tail call double @llvm.fmuladd.f64(double %sub.i198, double %sub.i198, double %mul4.i.i203)
+  %sqrt.i.i204 = tail call noundef double @llvm.sqrt.f64(double %37)
+  %tobool.i205 = fcmp une double %37, 0.000000e+00
+  %div.i206 = fdiv double %sub.i198, %sqrt.i.i204
+  %div2.i207 = fdiv double %sub3.i199, %sqrt.i.i204
   %retval.sroa.3.0.i208 = select i1 %tobool.i205, double %div2.i207, double 1.000000e+00
   %retval.sroa.0.0.i209 = select i1 %tobool.i205, double %div.i206, double 0.000000e+00
-  %mul3.i212 = fmul double %retval.sroa.3.0.i194.sink, %retval.sroa.3.0.i208
-  %36 = tail call noundef double @llvm.fmuladd.f64(double %retval.sroa.0.0.i195.sink, double %retval.sroa.0.0.i209, double %mul3.i212)
-  %37 = tail call double @llvm.fabs.f64(double %36)
+  %mul3.i212 = fmul double %retval.sroa.3.0.i194, %retval.sroa.3.0.i208
+  %38 = tail call noundef double @llvm.fmuladd.f64(double %retval.sroa.0.0.i195, double %retval.sroa.0.0.i209, double %mul3.i212)
+  %39 = tail call double @llvm.fabs.f64(double %38)
   br label %return
 
-return:                                           ; preds = %return.sink.split, %for.end185
-  %retval.sroa.4.0 = phi double [ 0.000000e+00, %for.end185 ], [ %37, %return.sink.split ]
+return:                                           ; preds = %for.end185, %if.else, %if.then191
+  %retval.sroa.4.0 = phi double [ %33, %if.then191 ], [ %39, %if.else ], [ 0.000000e+00, %for.end185 ]
   %.fca.0.insert = insertvalue { double, double } poison, double %minDistance.2.lcssa, 0
   %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %retval.sroa.4.0, 1
   ret { double, double } %.fca.1.insert
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef range(i32 0, 2) i32 @_ZNK7msdfgen13LinearSegment21scanlineIntersectionsEPdPid(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this, ptr noundef writeonly captures(none) %x, ptr noundef writeonly captures(none) %dy, double noundef %y) unnamed_addr #12 align 2 {
+define dso_local noundef range(i32 0, 2) i32 @_ZNK7msdfgen13LinearSegment21scanlineIntersectionsEPdPid(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this, ptr noundef writeonly captures(none) %x, ptr noundef writeonly captures(none) %dy, double noundef %y) unnamed_addr #10 align 2 {
 entry:
   %p = getelementptr inbounds nuw i8, ptr %this, i64 16
   %y2 = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -2088,7 +2089,7 @@ if.end284:                                        ; preds = %if.end252.thread, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK7msdfgen13LinearSegment5boundERdS1_S1_S1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %l, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %b, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %r, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %t) unnamed_addr #12 align 2 {
+define dso_local void @_ZNK7msdfgen13LinearSegment5boundERdS1_S1_S1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %l, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %b, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %r, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %t) unnamed_addr #10 align 2 {
 entry:
   %p = getelementptr inbounds nuw i8, ptr %this, i64 16
   %agg.tmp.sroa.0.0.copyload = load double, ptr %p, align 8
@@ -2630,7 +2631,7 @@ for.end81:                                        ; preds = %for.inc79, %for.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN7msdfgen13LinearSegment7reverseEv(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %this) unnamed_addr #12 align 2 {
+define dso_local void @_ZN7msdfgen13LinearSegment7reverseEv(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %this) unnamed_addr #10 align 2 {
 entry:
   %tmp = alloca %"struct.msdfgen::Vector2", align 8
   %p = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -2642,7 +2643,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN7msdfgen16QuadraticSegment7reverseEv(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %this) unnamed_addr #12 align 2 {
+define dso_local void @_ZN7msdfgen16QuadraticSegment7reverseEv(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %this) unnamed_addr #10 align 2 {
 entry:
   %tmp = alloca %"struct.msdfgen::Vector2", align 8
   %p = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -2654,7 +2655,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN7msdfgen12CubicSegment7reverseEv(ptr noundef nonnull align 8 captures(none) dereferenceable(80) %this) unnamed_addr #12 align 2 {
+define dso_local void @_ZN7msdfgen12CubicSegment7reverseEv(ptr noundef nonnull align 8 captures(none) dereferenceable(80) %this) unnamed_addr #10 align 2 {
 entry:
   %tmp = alloca %"struct.msdfgen::Vector2", align 8
   %p = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -2681,7 +2682,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN7msdfgen16QuadraticSegment14moveStartPointENS_7Vector2E(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %this, double %to.coerce0, double %to.coerce1) unnamed_addr #12 align 2 {
+define dso_local void @_ZN7msdfgen16QuadraticSegment14moveStartPointENS_7Vector2E(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %this, double %to.coerce0, double %to.coerce1) unnamed_addr #10 align 2 {
 entry:
   %origP1 = alloca %"struct.msdfgen::Vector2", align 8
   %p = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -2734,7 +2735,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN7msdfgen12CubicSegment14moveStartPointENS_7Vector2E(ptr noundef nonnull align 8 captures(none) dereferenceable(80) %this, double %to.coerce0, double %to.coerce1) unnamed_addr #12 align 2 {
+define dso_local void @_ZN7msdfgen12CubicSegment14moveStartPointENS_7Vector2E(ptr noundef nonnull align 8 captures(none) dereferenceable(80) %this, double %to.coerce0, double %to.coerce1) unnamed_addr #10 align 2 {
 entry:
   %p = getelementptr inbounds nuw i8, ptr %this, i64 16
   %agg.tmp3.sroa.0.0.copyload = load double, ptr %p, align 8
@@ -2766,7 +2767,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN7msdfgen16QuadraticSegment12moveEndPointENS_7Vector2E(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %this, double %to.coerce0, double %to.coerce1) unnamed_addr #12 align 2 {
+define dso_local void @_ZN7msdfgen16QuadraticSegment12moveEndPointENS_7Vector2E(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %this, double %to.coerce0, double %to.coerce1) unnamed_addr #10 align 2 {
 entry:
   %origP1 = alloca %"struct.msdfgen::Vector2", align 8
   %p = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -2819,7 +2820,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN7msdfgen12CubicSegment12moveEndPointENS_7Vector2E(ptr noundef nonnull align 8 captures(none) dereferenceable(80) %this, double %to.coerce0, double %to.coerce1) unnamed_addr #12 align 2 {
+define dso_local void @_ZN7msdfgen12CubicSegment12moveEndPointENS_7Vector2E(ptr noundef nonnull align 8 captures(none) dereferenceable(80) %this, double %to.coerce0, double %to.coerce1) unnamed_addr #10 align 2 {
 entry:
   %arrayidx = getelementptr inbounds nuw i8, ptr %this, i64 64
   %agg.tmp3.sroa.0.0.copyload = load double, ptr %arrayidx, align 8
@@ -2843,7 +2844,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZNK7msdfgen13LinearSegment13splitInThirdsERPNS_11EdgeSegmentES3_S3_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %part0, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %part1, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %part2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %call = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #16
+  %call = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #15
   %p = getelementptr inbounds nuw i8, ptr %this, i64 16
   %agg.tmp.sroa.0.0.copyload = load double, ptr %p, align 8
   %agg.tmp.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -2871,7 +2872,7 @@ invoke.cont4:                                     ; preds = %entry
   %p1.sroa.2.0.arrayidx4.sroa_idx.i = getelementptr inbounds nuw i8, ptr %call, i64 40
   store double %2, ptr %p1.sroa.2.0.arrayidx4.sroa_idx.i, align 8
   store ptr %call, ptr %part0, align 8
-  %call5 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #16
+  %call5 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #15
   %vtable7 = load ptr, ptr %this, align 8
   %vfn8 = getelementptr inbounds nuw i8, ptr %vtable7, i64 40
   %4 = load ptr, ptr %vfn8, align 8
@@ -2903,7 +2904,7 @@ invoke.cont18:                                    ; preds = %invoke.cont10
   %p1.sroa.2.0.arrayidx4.sroa_idx.i6 = getelementptr inbounds nuw i8, ptr %call5, i64 40
   store double %9, ptr %p1.sroa.2.0.arrayidx4.sroa_idx.i6, align 8
   store ptr %call5, ptr %part1, align 8
-  %call19 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #16
+  %call19 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #15
   %vtable21 = load ptr, ptr %this, align 8
   %vfn22 = getelementptr inbounds nuw i8, ptr %vtable21, i64 40
   %11 = load ptr, ptr %vfn22, align 8
@@ -2950,14 +2951,14 @@ lpad23:                                           ; preds = %invoke.cont18
 eh.resume:                                        ; preds = %lpad23, %lpad9, %lpad
   %call19.sink = phi ptr [ %call19, %lpad23 ], [ %call5, %lpad9 ], [ %call, %lpad ]
   %.pn = phi { ptr, i32 } [ %17, %lpad23 ], [ %16, %lpad9 ], [ %15, %lpad ]
-  tail call void @_ZdlPv(ptr noundef nonnull %call19.sink) #18
+  tail call void @_ZdlPv(ptr noundef nonnull %call19.sink) #17
   resume { ptr, i32 } %.pn
 }
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZNK7msdfgen16QuadraticSegment13splitInThirdsERPNS_11EdgeSegmentES3_S3_(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %part0, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %part1, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %part2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
-  %call = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #16
+  %call = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #15
   %p = getelementptr inbounds nuw i8, ptr %this, i64 16
   %agg.tmp.sroa.0.0.copyload = load double, ptr %p, align 8
   %agg.tmp.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -2999,7 +3000,7 @@ invoke.cont13:                                    ; preds = %invoke.cont
   %p2.sroa.2.0.arrayidx7.sroa_idx.i = getelementptr inbounds nuw i8, ptr %call, i64 56
   store double %2, ptr %p2.sroa.2.0.arrayidx7.sroa_idx.i, align 8
   store ptr %call, ptr %part0, align 8
-  %call14 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #16
+  %call14 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #15
   %vtable16 = load ptr, ptr %this, align 8
   %vfn17 = getelementptr inbounds nuw i8, ptr %vtable16, i64 40
   %4 = load ptr, ptr %vfn17, align 8
@@ -3059,7 +3060,7 @@ invoke.cont48:                                    ; preds = %invoke.cont40
   %p2.sroa.2.0.arrayidx7.sroa_idx.i32 = getelementptr inbounds nuw i8, ptr %call14, i64 56
   store double %9, ptr %p2.sroa.2.0.arrayidx7.sroa_idx.i32, align 8
   store ptr %call14, ptr %part1, align 8
-  %call49 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #16
+  %call49 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #15
   %vtable51 = load ptr, ptr %this, align 8
   %vfn52 = getelementptr inbounds nuw i8, ptr %vtable51, i64 40
   %11 = load ptr, ptr %vfn52, align 8
@@ -3116,14 +3117,14 @@ lpad53:                                           ; preds = %invoke.cont48
 eh.resume:                                        ; preds = %lpad53, %lpad18, %lpad
   %call49.sink = phi ptr [ %call49, %lpad53 ], [ %call14, %lpad18 ], [ %call, %lpad ]
   %.pn = phi { ptr, i32 } [ %17, %lpad53 ], [ %16, %lpad18 ], [ %15, %lpad ]
-  tail call void @_ZdlPv(ptr noundef nonnull %call49.sink) #18
+  tail call void @_ZdlPv(ptr noundef nonnull %call49.sink) #17
   resume { ptr, i32 } %.pn
 }
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZNK7msdfgen12CubicSegment13splitInThirdsERPNS_11EdgeSegmentES3_S3_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %part0, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %part1, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %part2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %call = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #16
+  %call = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #15
   %p = getelementptr inbounds nuw i8, ptr %this, i64 16
   %agg.tmp.sroa.0.0.copyload = load double, ptr %p, align 8
   %agg.tmp.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -3202,7 +3203,7 @@ invoke.cont44:                                    ; preds = %invoke.cont39
   %p3.sroa.2.0.arrayidx10.sroa_idx.i = getelementptr inbounds nuw i8, ptr %call, i64 72
   store double %3, ptr %p3.sroa.2.0.arrayidx10.sroa_idx.i, align 8
   store ptr %call, ptr %part0, align 8
-  %call45 = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #16
+  %call45 = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #15
   %vtable47 = load ptr, ptr %this, align 8
   %vfn48 = getelementptr inbounds nuw i8, ptr %vtable47, i64 40
   %5 = load ptr, ptr %vfn48, align 8
@@ -3324,7 +3325,7 @@ invoke.cont148:                                   ; preds = %invoke.cont140
   %p3.sroa.2.0.arrayidx10.sroa_idx.i146 = getelementptr inbounds nuw i8, ptr %call45, i64 72
   store double %10, ptr %p3.sroa.2.0.arrayidx10.sroa_idx.i146, align 8
   store ptr %call45, ptr %part1, align 8
-  %call149 = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #16
+  %call149 = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #15
   %vtable151 = load ptr, ptr %this, align 8
   %vfn152 = getelementptr inbounds nuw i8, ptr %vtable151, i64 40
   %12 = load ptr, ptr %vfn152, align 8
@@ -3404,14 +3405,14 @@ lpad153:                                          ; preds = %invoke.cont148
 eh.resume:                                        ; preds = %lpad153, %lpad49, %lpad
   %call149.sink = phi ptr [ %call149, %lpad153 ], [ %call45, %lpad49 ], [ %call, %lpad ]
   %.pn = phi { ptr, i32 } [ %19, %lpad153 ], [ %18, %lpad49 ], [ %17, %lpad ]
-  tail call void @_ZdlPv(ptr noundef nonnull %call149.sink) #18
+  tail call void @_ZdlPv(ptr noundef nonnull %call149.sink) #17
   resume { ptr, i32 } %.pn
 }
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noalias noundef nonnull ptr @_ZNK7msdfgen16QuadraticSegment14convertToCubicEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont22:
-  %call = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #16
+  %call = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #15
   %p = getelementptr inbounds nuw i8, ptr %this, i64 16
   %agg.tmp.sroa.0.0.copyload = load double, ptr %p, align 8
   %agg.tmp.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -3472,11 +3473,11 @@ entry:
   %2 = extractvalue { double, double } %call, 1
   %mul4.i.i = fmul double %2, %2
   %3 = tail call double @llvm.fmuladd.f64(double %1, double %1, double %mul4.i.i)
-  %call.i.i = tail call noundef double @sqrt(double noundef %3) #17
-  %tobool.i = fcmp une double %call.i.i, 0.000000e+00
+  %sqrt.i.i = tail call noundef double @llvm.sqrt.f64(double %3)
+  %tobool.i = fcmp une double %3, 0.000000e+00
   %fneg.i = fneg double %2
-  %div.i = fdiv double %fneg.i, %call.i.i
-  %div4.i = fdiv double %1, %call.i.i
+  %div.i = fdiv double %fneg.i, %sqrt.i.i
+  %div4.i = fdiv double %1, %sqrt.i.i
   %retval.sroa.5.0.i = select i1 %tobool.i, double %div4.i, double 1.000000e+00
   %retval.sroa.0.0.i = select i1 %tobool.i, double %div.i, double 0.000000e+00
   %vtable5 = load ptr, ptr %this, align 8
@@ -3487,7 +3488,7 @@ entry:
   %6 = extractvalue { double, double } %call7, 1
   %sub.i = fsub double %5, %1
   %sub3.i = fsub double %6, %2
-  %mul3.i = fmul double %retval.sroa.5.0.i, %sub3.i
+  %mul3.i = fmul double %sub3.i, %retval.sroa.5.0.i
   %7 = tail call noundef double @llvm.fmuladd.f64(double %sub.i, double %retval.sroa.0.0.i, double %mul3.i)
   switch i32 %param, label %sw.epilog [
     i32 0, label %sw.bb
@@ -3551,64 +3552,64 @@ sw.epilog:                                        ; preds = %sw.bb24, %sw.bb, %e
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN7msdfgen11EdgeSegmentD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %this) unnamed_addr #13 comdat align 2 {
+define linkonce_odr dso_local void @_ZN7msdfgen11EdgeSegmentD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %this) unnamed_addr #12 comdat align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN7msdfgen11EdgeSegmentD0Ev(ptr noundef nonnull align 8 dereferenceable(12) %this) unnamed_addr #13 comdat align 2 {
+define linkonce_odr dso_local void @_ZN7msdfgen11EdgeSegmentD0Ev(ptr noundef nonnull align 8 dereferenceable(12) %this) unnamed_addr #12 comdat align 2 {
 entry:
-  tail call void @llvm.trap() #19
+  tail call void @llvm.trap() #18
   unreachable
 }
 
 declare void @__cxa_pure_virtual() unnamed_addr
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN7msdfgen13LinearSegmentD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #13 comdat align 2 {
+define linkonce_odr dso_local void @_ZN7msdfgen13LinearSegmentD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #12 comdat align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN7msdfgen13LinearSegmentD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #13 comdat align 2 {
+define linkonce_odr dso_local void @_ZN7msdfgen13LinearSegmentD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #12 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #18
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #17
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN7msdfgen16QuadraticSegmentD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #13 comdat align 2 {
-entry:
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN7msdfgen16QuadraticSegmentD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #13 comdat align 2 {
-entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #18
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN7msdfgen12CubicSegmentD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #13 comdat align 2 {
+define linkonce_odr dso_local void @_ZN7msdfgen16QuadraticSegmentD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #12 comdat align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN7msdfgen12CubicSegmentD0Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #13 comdat align 2 {
+define linkonce_odr dso_local void @_ZN7msdfgen16QuadraticSegmentD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #12 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #18
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #17
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN7msdfgen12CubicSegmentD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #12 comdat align 2 {
+entry:
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN7msdfgen12CubicSegmentD0Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #12 comdat align 2 {
+entry:
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #17
   ret void
 }
 
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write)
-declare void @llvm.trap() #14
+declare void @llvm.trap() #13
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.sqrt.f64(double) #15
+declare double @llvm.sqrt.f64(double) #14
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -3620,16 +3621,15 @@ attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: read, errnomem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite, errnomem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { cold noreturn nounwind memory(inaccessiblemem: write) }
-attributes #15 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #16 = { builtin allocsize(0) }
-attributes #17 = { nounwind }
-attributes #18 = { builtin nounwind }
-attributes #19 = { noreturn nounwind }
+attributes #12 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { cold noreturn nounwind memory(inaccessiblemem: write) }
+attributes #14 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #15 = { builtin allocsize(0) }
+attributes #16 = { nounwind }
+attributes #17 = { builtin nounwind }
+attributes #18 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

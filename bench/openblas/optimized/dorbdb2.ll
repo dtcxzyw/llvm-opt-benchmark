@@ -111,9 +111,9 @@ define void @dorbdb2_(ptr noundef readonly captures(none) %0, ptr noundef readon
   %70 = zext nneg i32 %40 to i64
   br label %71
 
-71:                                               ; preds = %.lr.ph, %168
-  %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %168 ]
-  %.0.neg341 = phi i32 [ -1, %.lr.ph ], [ %176, %168 ]
+71:                                               ; preds = %.lr.ph, %167
+  %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %167 ]
+  %.0.neg341 = phi i32 [ -1, %.lr.ph ], [ %175, %167 ]
   %indvars349 = trunc nuw i64 %indvars.iv to i32
   %72 = icmp samesign ugt i64 %indvars.iv, 1
   %.pre354 = load i32, ptr %2, align 4, !tbaa !3
@@ -193,148 +193,148 @@ define void @dorbdb2_(ptr noundef readonly captures(none) %0, ptr noundef readon
   %120 = call double @dnrm2_(ptr noundef nonnull %18, ptr noundef %112, ptr noundef nonnull @c__1) #6
   %121 = fmul double %120, %120
   %122 = call double @llvm.fmuladd.f64(double %115, double %115, double %121)
-  %123 = call double @sqrt(double noundef %122) #6, !tbaa !3
-  store double %123, ptr %21, align 8, !tbaa !7
-  %124 = load double, ptr %20, align 8, !tbaa !7
-  %125 = call double @atan2(double noundef %123, double noundef %124) #6, !tbaa !3
-  %126 = getelementptr inbounds nuw double, ptr %30, i64 %indvars.iv
-  store double %125, ptr %126, align 8, !tbaa !7
-  %127 = load i32, ptr %1, align 4, !tbaa !3
-  %128 = sub nsw i32 %127, %indvars349
-  store i32 %128, ptr %17, align 4, !tbaa !3
-  %129 = load i32, ptr %0, align 4, !tbaa !3
-  %130 = sub i32 %73, %127
-  %131 = add i32 %130, %129
-  store i32 %131, ptr %18, align 4, !tbaa !3
-  %132 = load i32, ptr %2, align 4, !tbaa !3
-  %133 = sub nsw i32 %132, %indvars349
-  store i32 %133, ptr %19, align 4, !tbaa !3
-  %134 = getelementptr double, ptr %26, i64 %indvars.iv.next
-  %135 = getelementptr double, ptr %134, i64 %92
-  %136 = mul nsw i32 %27, %indvars
-  %137 = sext i32 %136 to i64
-  %138 = getelementptr double, ptr %29, i64 %indvars.iv
-  %139 = getelementptr double, ptr %138, i64 %137
-  call void @dorbdb5_(ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %19, ptr noundef %102, ptr noundef nonnull @c__1, ptr noundef %112, ptr noundef nonnull @c__1, ptr noundef %135, ptr noundef nonnull %4, ptr noundef %139, ptr noundef nonnull %6, ptr noundef nonnull %67, ptr noundef nonnull %23, ptr noundef nonnull %22) #6
-  %140 = load i32, ptr %1, align 4, !tbaa !3
-  %141 = sub nsw i32 %140, %indvars349
-  store i32 %141, ptr %17, align 4, !tbaa !3
+  %sqrt = call double @llvm.sqrt.f64(double %122)
+  store double %sqrt, ptr %21, align 8, !tbaa !7
+  %123 = load double, ptr %20, align 8, !tbaa !7
+  %124 = call double @atan2(double noundef %sqrt, double noundef %123) #6, !tbaa !3
+  %125 = getelementptr inbounds nuw double, ptr %30, i64 %indvars.iv
+  store double %124, ptr %125, align 8, !tbaa !7
+  %126 = load i32, ptr %1, align 4, !tbaa !3
+  %127 = sub nsw i32 %126, %indvars349
+  store i32 %127, ptr %17, align 4, !tbaa !3
+  %128 = load i32, ptr %0, align 4, !tbaa !3
+  %129 = sub i32 %73, %126
+  %130 = add i32 %129, %128
+  store i32 %130, ptr %18, align 4, !tbaa !3
+  %131 = load i32, ptr %2, align 4, !tbaa !3
+  %132 = sub nsw i32 %131, %indvars349
+  store i32 %132, ptr %19, align 4, !tbaa !3
+  %133 = getelementptr double, ptr %26, i64 %indvars.iv.next
+  %134 = getelementptr double, ptr %133, i64 %92
+  %135 = mul nsw i32 %27, %indvars
+  %136 = sext i32 %135 to i64
+  %137 = getelementptr double, ptr %29, i64 %indvars.iv
+  %138 = getelementptr double, ptr %137, i64 %136
+  call void @dorbdb5_(ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %19, ptr noundef %102, ptr noundef nonnull @c__1, ptr noundef %112, ptr noundef nonnull @c__1, ptr noundef %134, ptr noundef nonnull %4, ptr noundef %138, ptr noundef nonnull %6, ptr noundef nonnull %67, ptr noundef nonnull %23, ptr noundef nonnull %22) #6
+  %139 = load i32, ptr %1, align 4, !tbaa !3
+  %140 = sub nsw i32 %139, %indvars349
+  store i32 %140, ptr %17, align 4, !tbaa !3
   call void @dscal_(ptr noundef nonnull %17, ptr noundef nonnull @c_b9, ptr noundef %102, ptr noundef nonnull @c__1) #6
-  %142 = load i32, ptr %0, align 4, !tbaa !3
-  %143 = load i32, ptr %1, align 4, !tbaa !3
-  %144 = add i32 %73, %142
-  %145 = sub i32 %144, %143
-  store i32 %145, ptr %17, align 4, !tbaa !3
-  %146 = getelementptr double, ptr %29, i64 %indvars.iv.next
-  %147 = getelementptr double, ptr %146, i64 %.pre-phi361
-  %148 = getelementptr inbounds nuw double, ptr %33, i64 %indvars.iv
-  call void @dlarfgp_(ptr noundef nonnull %17, ptr noundef %112, ptr noundef %147, ptr noundef nonnull @c__1, ptr noundef nonnull %148) #6
-  %149 = load i32, ptr %1, align 4, !tbaa !3
-  %150 = sext i32 %149 to i64
-  %151 = icmp slt i64 %indvars.iv, %150
-  br i1 %151, label %152, label %168
+  %141 = load i32, ptr %0, align 4, !tbaa !3
+  %142 = load i32, ptr %1, align 4, !tbaa !3
+  %143 = add i32 %73, %141
+  %144 = sub i32 %143, %142
+  store i32 %144, ptr %17, align 4, !tbaa !3
+  %145 = getelementptr double, ptr %29, i64 %indvars.iv.next
+  %146 = getelementptr double, ptr %145, i64 %.pre-phi361
+  %147 = getelementptr inbounds nuw double, ptr %33, i64 %indvars.iv
+  call void @dlarfgp_(ptr noundef nonnull %17, ptr noundef %112, ptr noundef %146, ptr noundef nonnull @c__1, ptr noundef nonnull %147) #6
+  %148 = load i32, ptr %1, align 4, !tbaa !3
+  %149 = sext i32 %148 to i64
+  %150 = icmp slt i64 %indvars.iv, %149
+  br i1 %150, label %151, label %167
 
-152:                                              ; preds = %83
-  %153 = sub nsw i32 %149, %indvars349
-  store i32 %153, ptr %17, align 4, !tbaa !3
-  %154 = getelementptr double, ptr %26, i64 %indvars.iv
-  %155 = getelementptr i8, ptr %154, i64 16
-  %156 = getelementptr double, ptr %155, i64 %86
-  %157 = getelementptr inbounds nuw double, ptr %32, i64 %indvars.iv
-  call void @dlarfgp_(ptr noundef nonnull %17, ptr noundef nonnull %102, ptr noundef %156, ptr noundef nonnull @c__1, ptr noundef nonnull %157) #6
-  %158 = load double, ptr %102, align 8, !tbaa !7
-  %159 = load double, ptr %112, align 8, !tbaa !7
-  %160 = call double @atan2(double noundef %158, double noundef %159) #6, !tbaa !3
-  %161 = getelementptr inbounds nuw double, ptr %31, i64 %indvars.iv
-  store double %160, ptr %161, align 8, !tbaa !7
-  %162 = call double @cos(double noundef %160) #6, !tbaa !3
-  store double %162, ptr %20, align 8, !tbaa !7
-  %163 = call double @sin(double noundef %160) #6, !tbaa !3
-  store double %163, ptr %21, align 8, !tbaa !7
+151:                                              ; preds = %83
+  %152 = sub nsw i32 %148, %indvars349
+  store i32 %152, ptr %17, align 4, !tbaa !3
+  %153 = getelementptr double, ptr %26, i64 %indvars.iv
+  %154 = getelementptr i8, ptr %153, i64 16
+  %155 = getelementptr double, ptr %154, i64 %86
+  %156 = getelementptr inbounds nuw double, ptr %32, i64 %indvars.iv
+  call void @dlarfgp_(ptr noundef nonnull %17, ptr noundef nonnull %102, ptr noundef %155, ptr noundef nonnull @c__1, ptr noundef nonnull %156) #6
+  %157 = load double, ptr %102, align 8, !tbaa !7
+  %158 = load double, ptr %112, align 8, !tbaa !7
+  %159 = call double @atan2(double noundef %157, double noundef %158) #6, !tbaa !3
+  %160 = getelementptr inbounds nuw double, ptr %31, i64 %indvars.iv
+  store double %159, ptr %160, align 8, !tbaa !7
+  %161 = call double @cos(double noundef %159) #6, !tbaa !3
+  store double %161, ptr %20, align 8, !tbaa !7
+  %162 = call double @sin(double noundef %159) #6, !tbaa !3
+  store double %162, ptr %21, align 8, !tbaa !7
   store double 1.000000e+00, ptr %102, align 8, !tbaa !7
-  %164 = load i32, ptr %1, align 4, !tbaa !3
-  %165 = sub nsw i32 %164, %indvars349
-  store i32 %165, ptr %17, align 4, !tbaa !3
-  %166 = load i32, ptr %2, align 4, !tbaa !3
-  %167 = sub nsw i32 %166, %indvars349
-  store i32 %167, ptr %18, align 4, !tbaa !3
-  call void @dlarf_(ptr noundef nonnull @.str.2, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %102, ptr noundef nonnull @c__1, ptr noundef nonnull %157, ptr noundef nonnull %135, ptr noundef nonnull %4, ptr noundef nonnull %67) #6
+  %163 = load i32, ptr %1, align 4, !tbaa !3
+  %164 = sub nsw i32 %163, %indvars349
+  store i32 %164, ptr %17, align 4, !tbaa !3
+  %165 = load i32, ptr %2, align 4, !tbaa !3
+  %166 = sub nsw i32 %165, %indvars349
+  store i32 %166, ptr %18, align 4, !tbaa !3
+  call void @dlarf_(ptr noundef nonnull @.str.2, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %102, ptr noundef nonnull @c__1, ptr noundef nonnull %156, ptr noundef nonnull %134, ptr noundef nonnull %4, ptr noundef nonnull %67) #6
   %.pre355 = load i32, ptr %1, align 4, !tbaa !3
-  br label %168
+  br label %167
 
-168:                                              ; preds = %152, %83
-  %169 = phi i32 [ %.pre355, %152 ], [ %149, %83 ]
+167:                                              ; preds = %151, %83
+  %168 = phi i32 [ %.pre355, %151 ], [ %148, %83 ]
   store double 1.000000e+00, ptr %112, align 8, !tbaa !7
-  %170 = load i32, ptr %0, align 4, !tbaa !3
-  %171 = add i32 %73, %170
-  %172 = sub i32 %171, %169
-  store i32 %172, ptr %17, align 4, !tbaa !3
-  %173 = load i32, ptr %2, align 4, !tbaa !3
-  %174 = sub nsw i32 %173, %indvars349
-  store i32 %174, ptr %18, align 4, !tbaa !3
-  call void @dlarf_(ptr noundef nonnull @.str.2, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %112, ptr noundef nonnull @c__1, ptr noundef nonnull %148, ptr noundef %139, ptr noundef nonnull %6, ptr noundef nonnull %67) #6
+  %169 = load i32, ptr %0, align 4, !tbaa !3
+  %170 = add i32 %73, %169
+  %171 = sub i32 %170, %168
+  store i32 %171, ptr %17, align 4, !tbaa !3
+  %172 = load i32, ptr %2, align 4, !tbaa !3
+  %173 = sub nsw i32 %172, %indvars349
+  store i32 %173, ptr %18, align 4, !tbaa !3
+  call void @dlarf_(ptr noundef nonnull @.str.2, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %112, ptr noundef nonnull @c__1, ptr noundef nonnull %147, ptr noundef %138, ptr noundef nonnull %6, ptr noundef nonnull %67) #6
   %.not312.not = icmp samesign ult i64 %indvars.iv, %70
-  %175 = trunc nuw i64 %indvars.iv to i32
-  %176 = xor i32 %175, -1
+  %174 = trunc nuw i64 %indvars.iv to i32
+  %175 = xor i32 %174, -1
   br i1 %.not312.not, label %71, label %._crit_edge.loopexit, !llvm.loop !9
 
-._crit_edge.loopexit:                             ; preds = %168
+._crit_edge.loopexit:                             ; preds = %167
   %.pre356 = load i32, ptr %2, align 4, !tbaa !3
   %.pre357 = load i32, ptr %1, align 4, !tbaa !3
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %65
-  %177 = phi i32 [ %.pre357, %._crit_edge.loopexit ], [ 0, %65 ]
-  %178 = phi i32 [ %.pre356, %._crit_edge.loopexit ], [ %45, %65 ]
-  %.not313343.not = icmp slt i32 %177, %178
+  %176 = phi i32 [ %.pre357, %._crit_edge.loopexit ], [ 0, %65 ]
+  %177 = phi i32 [ %.pre356, %._crit_edge.loopexit ], [ %45, %65 ]
+  %.not313343.not = icmp slt i32 %176, %177
   br i1 %.not313343.not, label %.lr.ph347, label %.loopexit
 
 .lr.ph347:                                        ; preds = %._crit_edge
-  %179 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %180 = sext i32 %177 to i64
-  %181 = add nsw i64 %180, 1
-  %182 = sext i32 %27 to i64
-  %183 = sext i32 %178 to i64
-  br label %184
+  %178 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %179 = sext i32 %176 to i64
+  %180 = add nsw i64 %179, 1
+  %181 = sext i32 %27 to i64
+  %182 = sext i32 %177 to i64
+  br label %183
 
-184:                                              ; preds = %.lr.ph347, %184
-  %indvars.iv350 = phi i64 [ %181, %.lr.ph347 ], [ %indvars.iv.next351, %184 ]
-  %.1.neg345.in = phi i32 [ %177, %.lr.ph347 ], [ %indvars353, %184 ]
+183:                                              ; preds = %.lr.ph347, %183
+  %indvars.iv350 = phi i64 [ %180, %.lr.ph347 ], [ %indvars.iv.next351, %183 ]
+  %.1.neg345.in = phi i32 [ %176, %.lr.ph347 ], [ %indvars353, %183 ]
   %indvars353 = trunc i64 %indvars.iv350 to i32
-  %185 = load i32, ptr %0, align 4, !tbaa !3
-  %186 = load i32, ptr %1, align 4, !tbaa !3
-  %187 = add i32 %.1.neg345.in, %186
-  %188 = sub i32 %185, %187
-  store i32 %188, ptr %17, align 4, !tbaa !3
-  %189 = mul nsw i64 %indvars.iv350, %182
-  %190 = mul nsw i32 %27, %indvars353
-  %191 = sext i32 %190 to i64
-  %192 = getelementptr double, ptr %29, i64 %indvars.iv350
-  %193 = getelementptr double, ptr %192, i64 %191
+  %184 = load i32, ptr %0, align 4, !tbaa !3
+  %185 = load i32, ptr %1, align 4, !tbaa !3
+  %186 = add i32 %.1.neg345.in, %185
+  %187 = sub i32 %184, %186
+  store i32 %187, ptr %17, align 4, !tbaa !3
+  %188 = mul nsw i64 %indvars.iv350, %181
+  %189 = mul nsw i32 %27, %indvars353
+  %190 = sext i32 %189 to i64
+  %191 = getelementptr double, ptr %29, i64 %indvars.iv350
+  %192 = getelementptr double, ptr %191, i64 %190
   %indvars.iv.next351 = add nsw i64 %indvars.iv350, 1
   %indvars352 = trunc i64 %indvars.iv.next351 to i32
-  %194 = getelementptr double, ptr %29, i64 %indvars.iv.next351
-  %195 = getelementptr double, ptr %194, i64 %189
-  %196 = getelementptr inbounds double, ptr %33, i64 %indvars.iv350
-  call void @dlarfgp_(ptr noundef nonnull %17, ptr noundef %193, ptr noundef %195, ptr noundef nonnull @c__1, ptr noundef nonnull %196) #6
-  store double 1.000000e+00, ptr %193, align 8, !tbaa !7
-  %197 = load i32, ptr %0, align 4, !tbaa !3
-  %198 = load i32, ptr %1, align 4, !tbaa !3
-  %199 = add i32 %.1.neg345.in, %198
-  %200 = sub i32 %197, %199
-  store i32 %200, ptr %17, align 4, !tbaa !3
-  %201 = load i32, ptr %2, align 4, !tbaa !3
-  %202 = sub nsw i32 %201, %indvars353
-  store i32 %202, ptr %18, align 4, !tbaa !3
-  %203 = mul nsw i32 %27, %indvars352
-  %204 = sext i32 %203 to i64
-  %205 = getelementptr double, ptr %29, i64 %indvars.iv350
-  %206 = getelementptr double, ptr %205, i64 %204
-  call void @dlarf_(ptr noundef nonnull @.str.2, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %193, ptr noundef nonnull @c__1, ptr noundef nonnull %196, ptr noundef %206, ptr noundef nonnull %6, ptr noundef nonnull %179) #6
-  %.not313.not = icmp slt i64 %indvars.iv350, %183
-  br i1 %.not313.not, label %184, label %.loopexit, !llvm.loop !11
+  %193 = getelementptr double, ptr %29, i64 %indvars.iv.next351
+  %194 = getelementptr double, ptr %193, i64 %188
+  %195 = getelementptr inbounds double, ptr %33, i64 %indvars.iv350
+  call void @dlarfgp_(ptr noundef nonnull %17, ptr noundef %192, ptr noundef %194, ptr noundef nonnull @c__1, ptr noundef nonnull %195) #6
+  store double 1.000000e+00, ptr %192, align 8, !tbaa !7
+  %196 = load i32, ptr %0, align 4, !tbaa !3
+  %197 = load i32, ptr %1, align 4, !tbaa !3
+  %198 = add i32 %.1.neg345.in, %197
+  %199 = sub i32 %196, %198
+  store i32 %199, ptr %17, align 4, !tbaa !3
+  %200 = load i32, ptr %2, align 4, !tbaa !3
+  %201 = sub nsw i32 %200, %indvars353
+  store i32 %201, ptr %18, align 4, !tbaa !3
+  %202 = mul nsw i32 %27, %indvars352
+  %203 = sext i32 %202 to i64
+  %204 = getelementptr double, ptr %29, i64 %indvars.iv350
+  %205 = getelementptr double, ptr %204, i64 %203
+  call void @dlarf_(ptr noundef nonnull @.str.2, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %192, ptr noundef nonnull @c__1, ptr noundef nonnull %195, ptr noundef %205, ptr noundef nonnull %6, ptr noundef nonnull %178) #6
+  %.not313.not = icmp slt i64 %indvars.iv350, %182
+  br i1 %.not313.not, label %183, label %.loopexit, !llvm.loop !11
 
-.loopexit:                                        ; preds = %184, %._crit_edge, %.thread, %.thread322
+.loopexit:                                        ; preds = %183, %._crit_edge, %.thread, %.thread322
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
@@ -356,24 +356,21 @@ declare void @dlarf_(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr nou
 
 declare double @dnrm2_(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @sqrt(double noundef) local_unnamed_addr #2
-
 ; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #3
+declare double @llvm.fmuladd.f64(double, double, double) #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @atan2(double noundef, double noundef) local_unnamed_addr #2
+declare double @atan2(double noundef, double noundef) local_unnamed_addr #3
 
 declare void @dorbdb5_(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare void @dscal_(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @cos(double noundef) local_unnamed_addr #2
+declare double @cos(double noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @sin(double noundef) local_unnamed_addr #2
+declare double @sin(double noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
@@ -387,10 +384,13 @@ declare i32 @llvm.smax.i32(i32, i32) #5
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #5
 
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.sqrt.f64(double) #5
+
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="skylake-avx512" "target-features"="+adx,+aes,+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vl,+bmi,+bmi2,+clflushopt,+clwb,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdrnd,+rdseed,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsavec,+xsaveopt,+xsaves" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="skylake-avx512" "target-features"="+adx,+aes,+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vl,+bmi,+bmi2,+clflushopt,+clwb,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdrnd,+rdseed,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsavec,+xsaveopt,+xsaves" }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="skylake-avx512" "target-features"="+adx,+aes,+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vl,+bmi,+bmi2,+clflushopt,+clwb,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdrnd,+rdseed,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsavec,+xsaveopt,+xsaves" }
-attributes #3 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #2 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="skylake-avx512" "target-features"="+adx,+aes,+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vl,+bmi,+bmi2,+clflushopt,+clwb,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdrnd,+rdseed,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsavec,+xsaveopt,+xsaves" }
 attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #6 = { nounwind }

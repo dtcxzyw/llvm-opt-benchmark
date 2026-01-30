@@ -130,7 +130,7 @@ define dso_local void @_ZN14CrowdToolStateC2Ev(ptr noundef nonnull align 8 deref
 24:                                               ; preds = %17, %7, %5, %1
   %25 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN15SampleToolStateD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #18
+  tail call void @_ZN15SampleToolStateD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #17
   resume { ptr, i32 } %25
 }
 
@@ -157,14 +157,14 @@ define dso_local void @_ZN14CrowdToolStateD2Ev(ptr noundef nonnull align 8 deref
           to label %4 unwind label %5
 
 4:                                                ; preds = %1
-  tail call void @_ZN15SampleToolStateD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #18
+  tail call void @_ZN15SampleToolStateD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #17
   ret void
 
 5:                                                ; preds = %1
   %6 = landingpad { ptr, i32 }
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
-  tail call void @__clang_call_terminate(ptr %7) #19
+  tail call void @__clang_call_terminate(ptr %7) #18
   unreachable
 }
 
@@ -172,8 +172,8 @@ declare void @_Z32dtFreeObstacleAvoidanceDebugDataP28dtObstacleAvoidanceDebugDat
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #5 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #18
-  tail call void @_ZSt9terminatev() #19
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #17
+  tail call void @_ZSt9terminatev() #18
   unreachable
 }
 
@@ -194,12 +194,12 @@ define dso_local void @_ZN14CrowdToolStateD0Ev(ptr noundef nonnull align 8 deref
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  tail call void @__clang_call_terminate(ptr %6) #19
+  tail call void @__clang_call_terminate(ptr %6) #18
   unreachable
 
 _ZN14CrowdToolStateD2Ev.exit:                     ; preds = %1
-  tail call void @_ZN15SampleToolStateD2Ev(ptr noundef nonnull align 8 dereferenceable(101001) %0) #18
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #20
+  tail call void @_ZN15SampleToolStateD2Ev(ptr noundef nonnull align 8 dereferenceable(101001) %0) #17
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #19
   ret void
 }
 
@@ -1468,7 +1468,7 @@ define dso_local void @_ZN14CrowdToolState19handleRenderOverlayEPdS0_Pi(ptr noun
   %71 = getelementptr inbounds nuw i8, ptr %58, i64 16
   %72 = load float, ptr %71, align 4
   %73 = fpext float %72 to double
-  %74 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 32, ptr noundef nonnull @.str.1, double noundef %73) #18
+  %74 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 32, ptr noundef nonnull @.str.1, double noundef %73) #17
   %75 = load double, ptr %5, align 8
   %76 = fptosi double %75 to i32
   %77 = load double, ptr %6, align 8
@@ -1542,7 +1542,7 @@ define dso_local void @_ZN14CrowdToolState19handleRenderOverlayEPdS0_Pi(ptr noun
   br i1 %.not88, label %123, label %116
 
 116:                                              ; preds = %101
-  %117 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 32, ptr noundef nonnull @.str.2, i32 noundef %.071103) #18
+  %117 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 32, ptr noundef nonnull @.str.2, i32 noundef %.071103) #17
   %118 = load double, ptr %5, align 8
   %119 = fptosi double %118 to i32
   %120 = load double, ptr %6, align 8
@@ -1645,7 +1645,7 @@ define dso_local void @_ZN14CrowdToolState19handleRenderOverlayEPdS0_Pi(ptr noun
   %178 = getelementptr inbounds nuw i8, ptr %160, i64 4
   %179 = load float, ptr %178, align 4
   %180 = fpext float %179 to double
-  %181 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 32, ptr noundef nonnull @.str.3, double noundef %180) #18
+  %181 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 32, ptr noundef nonnull @.str.3, double noundef %180) #17
   %182 = load double, ptr %5, align 8
   %183 = fptosi double %182 to i32
   %184 = load double, ptr %6, align 8
@@ -2031,7 +2031,7 @@ define dso_local void @_ZN14CrowdToolState13setMoveTargetEPKfb(ptr noundef nonnu
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 136
   %15 = load ptr, ptr %14, align 8
   %16 = tail call noundef ptr %15(ptr noundef nonnull align 8 dereferenceable(200) %12)
-  br i1 %2, label %17, label %90
+  br i1 %2, label %17, label %86
 
 17:                                               ; preds = %7
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -2042,13 +2042,13 @@ define dso_local void @_ZN14CrowdToolState13setMoveTargetEPKfb(ptr noundef nonnu
 .preheader:                                       ; preds = %17
   %20 = tail call noundef i32 @_ZNK7dtCrowd13getAgentCountEv(ptr noundef nonnull align 8 dereferenceable(5072) %16)
   %21 = icmp sgt i32 %20, 0
-  br i1 %21, label %.lr.ph51, label %.loopexit
+  br i1 %21, label %.lr.ph52, label %.loopexit
 
-.lr.ph51:                                         ; preds = %.preheader
+.lr.ph52:                                         ; preds = %.preheader
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  br label %58
+  br label %56
 
 25:                                               ; preds = %17
   %26 = tail call noundef ptr @_ZN7dtCrowd8getAgentEi(ptr noundef nonnull align 8 dereferenceable(5072) %16, i32 noundef %19)
@@ -2075,117 +2075,115 @@ define dso_local void @_ZN14CrowdToolState13setMoveTargetEPKfb(ptr noundef nonnu
   %42 = fsub float %39, %41
   %43 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %44 = fmul float %36, %36
-  %45 = fadd float %44, 0.000000e+00
-  %46 = fmul float %42, %42
-  %47 = fadd float %45, %46
-  %48 = tail call noundef float @sqrtf(float noundef %47) #18
-  %49 = fdiv float 1.000000e+00, %48
-  %50 = fmul float %36, %49
-  %51 = fmul float %49, 0.000000e+00
-  %52 = fmul float %42, %49
+  %45 = fmul float %42, %42
+  %46 = fadd float %44, %45
+  %sqrt.i.i = tail call float @llvm.sqrt.f32(float %46)
+  %47 = fdiv float 1.000000e+00, %sqrt.i.i
+  %48 = fmul float %36, %47
+  %49 = fmul float %47, 0.000000e+00
+  %50 = fmul float %42, %47
+  %51 = fmul float %33, %48
+  store float %51, ptr %4, align 4
+  %52 = fmul float %33, %49
+  store float %52, ptr %37, align 4
   %53 = fmul float %33, %50
-  store float %53, ptr %4, align 4
-  %54 = fmul float %33, %51
-  store float %54, ptr %37, align 4
-  %55 = fmul float %33, %52
-  store float %55, ptr %43, align 4
-  %56 = load i32, ptr %18, align 8
-  %57 = call noundef zeroext i1 @_ZN7dtCrowd19requestMoveVelocityEiPKf(ptr noundef nonnull align 8 dereferenceable(5072) %16, i32 noundef %56, ptr noundef nonnull %4)
+  store float %53, ptr %43, align 4
+  %54 = load i32, ptr %18, align 8
+  %55 = call noundef zeroext i1 @_ZN7dtCrowd19requestMoveVelocityEiPKf(ptr noundef nonnull align 8 dereferenceable(5072) %16, i32 noundef %54, ptr noundef nonnull %4)
   br label %.loopexit
 
-58:                                               ; preds = %.lr.ph51, %86
-  %.050 = phi i32 [ 0, %.lr.ph51 ], [ %87, %86 ]
-  %59 = call noundef ptr @_ZN7dtCrowd8getAgentEi(ptr noundef nonnull align 8 dereferenceable(5072) %16, i32 noundef %.050)
-  %60 = load i8, ptr %59, align 8
-  %61 = trunc i8 %60 to i1
-  br i1 %61, label %62, label %86
+56:                                               ; preds = %.lr.ph52, %82
+  %.051 = phi i32 [ 0, %.lr.ph52 ], [ %83, %82 ]
+  %57 = call noundef ptr @_ZN7dtCrowd8getAgentEi(ptr noundef nonnull align 8 dereferenceable(5072) %16, i32 noundef %.051)
+  %58 = load i8, ptr %57, align 8
+  %59 = trunc i8 %58 to i1
+  br i1 %59, label %60, label %82
 
-62:                                               ; preds = %58
-  %63 = getelementptr inbounds nuw i8, ptr %59, i64 416
-  %64 = getelementptr inbounds nuw i8, ptr %59, i64 492
-  %65 = load float, ptr %64, align 4
-  %66 = load float, ptr %1, align 4
-  %67 = load float, ptr %63, align 4
-  %68 = fsub float %66, %67
-  %69 = load float, ptr %23, align 4
-  %70 = getelementptr inbounds nuw i8, ptr %59, i64 424
-  %71 = load float, ptr %70, align 4
-  %72 = fsub float %69, %71
-  %73 = fmul float %68, %68
-  %74 = fadd float %73, 0.000000e+00
-  %75 = fmul float %72, %72
-  %76 = fadd float %74, %75
-  %77 = call noundef float @sqrtf(float noundef %76) #18
-  %78 = fdiv float 1.000000e+00, %77
-  %79 = fmul float %68, %78
-  %80 = fmul float %78, 0.000000e+00
-  %81 = fmul float %72, %78
-  %82 = fmul float %65, %79
-  store float %82, ptr %4, align 4
-  %83 = fmul float %65, %80
-  store float %83, ptr %22, align 4
-  %84 = fmul float %65, %81
-  store float %84, ptr %24, align 4
-  %85 = call noundef zeroext i1 @_ZN7dtCrowd19requestMoveVelocityEiPKf(ptr noundef nonnull align 8 dereferenceable(5072) %16, i32 noundef %.050, ptr noundef nonnull %4)
-  br label %86
+60:                                               ; preds = %56
+  %61 = getelementptr inbounds nuw i8, ptr %57, i64 416
+  %62 = getelementptr inbounds nuw i8, ptr %57, i64 492
+  %63 = load float, ptr %62, align 4
+  %64 = load float, ptr %1, align 4
+  %65 = load float, ptr %61, align 4
+  %66 = fsub float %64, %65
+  %67 = load float, ptr %23, align 4
+  %68 = getelementptr inbounds nuw i8, ptr %57, i64 424
+  %69 = load float, ptr %68, align 4
+  %70 = fsub float %67, %69
+  %71 = fmul float %66, %66
+  %72 = fmul float %70, %70
+  %73 = fadd float %71, %72
+  %sqrt.i.i47 = call float @llvm.sqrt.f32(float %73)
+  %74 = fdiv float 1.000000e+00, %sqrt.i.i47
+  %75 = fmul float %66, %74
+  %76 = fmul float %74, 0.000000e+00
+  %77 = fmul float %70, %74
+  %78 = fmul float %63, %75
+  store float %78, ptr %4, align 4
+  %79 = fmul float %63, %76
+  store float %79, ptr %22, align 4
+  %80 = fmul float %63, %77
+  store float %80, ptr %24, align 4
+  %81 = call noundef zeroext i1 @_ZN7dtCrowd19requestMoveVelocityEiPKf(ptr noundef nonnull align 8 dereferenceable(5072) %16, i32 noundef %.051, ptr noundef nonnull %4)
+  br label %82
 
-86:                                               ; preds = %58, %62
-  %87 = add nuw nsw i32 %.050, 1
-  %88 = call noundef i32 @_ZNK7dtCrowd13getAgentCountEv(ptr noundef nonnull align 8 dereferenceable(5072) %16)
-  %89 = icmp slt i32 %87, %88
-  br i1 %89, label %58, label %.loopexit, !llvm.loop !30
+82:                                               ; preds = %56, %60
+  %83 = add nuw nsw i32 %.051, 1
+  %84 = call noundef i32 @_ZNK7dtCrowd13getAgentCountEv(ptr noundef nonnull align 8 dereferenceable(5072) %16)
+  %85 = icmp slt i32 %83, %84
+  br i1 %85, label %56, label %.loopexit, !llvm.loop !30
 
-90:                                               ; preds = %7
-  %91 = getelementptr inbounds nuw i8, ptr %16, i64 884
-  %92 = getelementptr inbounds nuw i8, ptr %16, i64 896
-  %93 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %94 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %95 = tail call noundef i32 @_ZNK14dtNavMeshQuery15findNearestPolyEPKfS1_PK13dtQueryFilterPjPf(ptr noundef nonnull align 8 dereferenceable(104) %11, ptr noundef %1, ptr noundef nonnull %91, ptr noundef nonnull %92, ptr noundef nonnull %93, ptr noundef nonnull %94)
-  %96 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %97 = load i32, ptr %96, align 8
-  %.not43 = icmp eq i32 %97, -1
-  br i1 %.not43, label %.preheader47, label %100
+86:                                               ; preds = %7
+  %87 = getelementptr inbounds nuw i8, ptr %16, i64 884
+  %88 = getelementptr inbounds nuw i8, ptr %16, i64 896
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %91 = tail call noundef i32 @_ZNK14dtNavMeshQuery15findNearestPolyEPKfS1_PK13dtQueryFilterPjPf(ptr noundef nonnull align 8 dereferenceable(104) %11, ptr noundef %1, ptr noundef nonnull %87, ptr noundef nonnull %88, ptr noundef nonnull %89, ptr noundef nonnull %90)
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %93 = load i32, ptr %92, align 8
+  %.not43 = icmp eq i32 %93, -1
+  br i1 %.not43, label %.preheader48, label %96
 
-.preheader47:                                     ; preds = %90
-  %98 = tail call noundef i32 @_ZNK7dtCrowd13getAgentCountEv(ptr noundef nonnull align 8 dereferenceable(5072) %16)
-  %99 = icmp sgt i32 %98, 0
-  br i1 %99, label %.lr.ph, label %.loopexit
+.preheader48:                                     ; preds = %86
+  %94 = tail call noundef i32 @_ZNK7dtCrowd13getAgentCountEv(ptr noundef nonnull align 8 dereferenceable(5072) %16)
+  %95 = icmp sgt i32 %94, 0
+  br i1 %95, label %.lr.ph, label %.loopexit
 
-100:                                              ; preds = %90
-  %101 = tail call noundef ptr @_ZN7dtCrowd8getAgentEi(ptr noundef nonnull align 8 dereferenceable(5072) %16, i32 noundef %97)
-  %.not44 = icmp eq ptr %101, null
-  br i1 %.not44, label %.loopexit, label %102
+96:                                               ; preds = %86
+  %97 = tail call noundef ptr @_ZN7dtCrowd8getAgentEi(ptr noundef nonnull align 8 dereferenceable(5072) %16, i32 noundef %93)
+  %.not44 = icmp eq ptr %97, null
+  br i1 %.not44, label %.loopexit, label %98
 
-102:                                              ; preds = %100
-  %103 = load i8, ptr %101, align 8
-  %104 = trunc i8 %103 to i1
-  br i1 %104, label %105, label %.loopexit
+98:                                               ; preds = %96
+  %99 = load i8, ptr %97, align 8
+  %100 = trunc i8 %99 to i1
+  br i1 %100, label %101, label %.loopexit
 
-105:                                              ; preds = %102
-  %106 = load i32, ptr %96, align 8
-  %107 = load i32, ptr %93, align 4
-  %108 = tail call noundef zeroext i1 @_ZN7dtCrowd17requestMoveTargetEijPKf(ptr noundef nonnull align 8 dereferenceable(5072) %16, i32 noundef %106, i32 noundef %107, ptr noundef nonnull %94)
+101:                                              ; preds = %98
+  %102 = load i32, ptr %92, align 8
+  %103 = load i32, ptr %89, align 4
+  %104 = tail call noundef zeroext i1 @_ZN7dtCrowd17requestMoveTargetEijPKf(ptr noundef nonnull align 8 dereferenceable(5072) %16, i32 noundef %102, i32 noundef %103, ptr noundef nonnull %90)
   br label %.loopexit
 
-.lr.ph:                                           ; preds = %.preheader47, %115
-  %.03749 = phi i32 [ %116, %115 ], [ 0, %.preheader47 ]
-  %109 = tail call noundef ptr @_ZN7dtCrowd8getAgentEi(ptr noundef nonnull align 8 dereferenceable(5072) %16, i32 noundef %.03749)
-  %110 = load i8, ptr %109, align 8
-  %111 = trunc i8 %110 to i1
-  br i1 %111, label %112, label %115
+.lr.ph:                                           ; preds = %.preheader48, %111
+  %.03750 = phi i32 [ %112, %111 ], [ 0, %.preheader48 ]
+  %105 = tail call noundef ptr @_ZN7dtCrowd8getAgentEi(ptr noundef nonnull align 8 dereferenceable(5072) %16, i32 noundef %.03750)
+  %106 = load i8, ptr %105, align 8
+  %107 = trunc i8 %106 to i1
+  br i1 %107, label %108, label %111
 
-112:                                              ; preds = %.lr.ph
-  %113 = load i32, ptr %93, align 4
-  %114 = tail call noundef zeroext i1 @_ZN7dtCrowd17requestMoveTargetEijPKf(ptr noundef nonnull align 8 dereferenceable(5072) %16, i32 noundef %.03749, i32 noundef %113, ptr noundef nonnull %94)
-  br label %115
+108:                                              ; preds = %.lr.ph
+  %109 = load i32, ptr %89, align 4
+  %110 = tail call noundef zeroext i1 @_ZN7dtCrowd17requestMoveTargetEijPKf(ptr noundef nonnull align 8 dereferenceable(5072) %16, i32 noundef %.03750, i32 noundef %109, ptr noundef nonnull %90)
+  br label %111
 
-115:                                              ; preds = %.lr.ph, %112
-  %116 = add nuw nsw i32 %.03749, 1
-  %117 = tail call noundef i32 @_ZNK7dtCrowd13getAgentCountEv(ptr noundef nonnull align 8 dereferenceable(5072) %16)
-  %118 = icmp slt i32 %116, %117
-  br i1 %118, label %.lr.ph, label %.loopexit, !llvm.loop !31
+111:                                              ; preds = %.lr.ph, %108
+  %112 = add nuw nsw i32 %.03750, 1
+  %113 = tail call noundef i32 @_ZNK7dtCrowd13getAgentCountEv(ptr noundef nonnull align 8 dereferenceable(5072) %16)
+  %114 = icmp slt i32 %112, %113
+  br i1 %114, label %.lr.ph, label %.loopexit, !llvm.loop !31
 
-.loopexit:                                        ; preds = %115, %86, %.preheader47, %.preheader, %105, %102, %100, %30, %27, %25, %3
+.loopexit:                                        ; preds = %111, %82, %.preheader48, %.preheader, %101, %98, %96, %30, %27, %25, %3
   ret void
 }
 
@@ -2487,7 +2485,7 @@ define dso_local void @_ZN9CrowdTool4initEP6Sample(ptr noundef nonnull align 8 d
   br i1 %.not9, label %17, label %49
 
 17:                                               ; preds = %7
-  %18 = tail call noalias noundef nonnull dereferenceable(101008) ptr @_Znwm(i64 noundef 101008) #21
+  %18 = tail call noalias noundef nonnull dereferenceable(101008) ptr @_Znwm(i64 noundef 101008) #20
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV14CrowdToolState, i64 16), ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 44
@@ -2531,8 +2529,8 @@ define dso_local void @_ZN9CrowdTool4initEP6Sample(ptr noundef nonnull align 8 d
 .body:                                            ; preds = %34, %24, %22, %17
   %37 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN15SampleToolStateD2Ev(ptr noundef nonnull align 8 dereferenceable(101001) %18) #18
-  tail call void @_ZdlPv(ptr noundef nonnull %18) #20
+  tail call void @_ZN15SampleToolStateD2Ev(ptr noundef nonnull align 8 dereferenceable(101001) %18) #17
+  tail call void @_ZdlPv(ptr noundef nonnull %18) #19
   resume { ptr, i32 } %37
 
 38:                                               ; preds = %34
@@ -3204,14 +3202,14 @@ define dso_local void @_ZN9CrowdTool19handleRenderOverlayEPdS0_Pi(ptr noundef no
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN9CrowdToolD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN10SampleToolD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #18
+  tail call void @_ZN10SampleToolD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #17
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN9CrowdToolD0Ev(ptr noundef nonnull align 8 dereferenceable(28) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN10SampleToolD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %0) #18
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #20
+  tail call void @_ZN10SampleToolD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %0) #17
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #19
   ret void
 }
 
@@ -3220,9 +3218,6 @@ define linkonce_odr dso_local noundef i32 @_ZN9CrowdTool4typeEv(ptr noundef nonn
   ret i32 8
 }
 
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare float @sqrtf(float noundef) local_unnamed_addr #15
-
 ; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fabs.f32(float) #10
 
@@ -3230,13 +3225,16 @@ declare float @llvm.fabs.f32(float) #10
 declare void @_ZN10SampleToolD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #3
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #16
+declare i32 @llvm.smin.i32(i32, i32) #15
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.sqrt.f32(float) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #17
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #17
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #16
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -3253,13 +3251,12 @@ attributes #11 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="tru
 attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #17 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #18 = { nounwind }
-attributes #19 = { noreturn nounwind }
-attributes #20 = { builtin nounwind }
-attributes #21 = { builtin allocsize(0) }
+attributes #15 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #16 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #17 = { nounwind }
+attributes #18 = { noreturn nounwind }
+attributes #19 = { builtin nounwind }
+attributes #20 = { builtin allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

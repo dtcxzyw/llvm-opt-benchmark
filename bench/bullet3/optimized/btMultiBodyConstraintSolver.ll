@@ -6900,8 +6900,8 @@ define dso_local void @_ZN27btMultiBodyConstraintSolver23convertMultiBodyContact
   %13 = load i32, ptr %12, align 8, !tbaa !98
   %14 = and i32 %13, 64
   %.not.i155 = icmp eq i32 %14, 0
-  %.not157 = icmp eq ptr %6, null
-  %.not = or i1 %.not157, %.not.i
+  %.not158 = icmp eq ptr %6, null
+  %.not = or i1 %.not158, %.not.i
   br i1 %.not, label %18, label %15
 
 15:                                               ; preds = %3
@@ -6960,19 +6960,19 @@ define dso_local void @_ZN27btMultiBodyConstraintSolver23convertMultiBodyContact
   %49 = getelementptr inbounds nuw i8, ptr %2, i64 88
   br label %50
 
-._crit_edge:                                      ; preds = %213, %35
+._crit_edge:                                      ; preds = %209, %35
   ret void
 
-50:                                               ; preds = %.lr.ph, %213
-  %51 = phi i32 [ %38, %.lr.ph ], [ %214, %213 ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %213 ]
-  %.0160 = phi i32 [ 4, %.lr.ph ], [ %.2, %213 ]
+50:                                               ; preds = %.lr.ph, %209
+  %51 = phi i32 [ %38, %.lr.ph ], [ %210, %209 ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %209 ]
+  %.0161 = phi i32 [ 4, %.lr.ph ], [ %.2, %209 ]
   %52 = getelementptr inbounds nuw %class.btManifoldPoint, ptr %40, i64 %indvars.iv
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 80
   %54 = load float, ptr %53, align 8, !tbaa !132
   %55 = load float, ptr %41, align 8, !tbaa !158
   %56 = fcmp ugt float %54, %55
-  br i1 %56, label %210, label %57
+  br i1 %56, label %206, label %57
 
 57:                                               ; preds = %50
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -7089,196 +7089,196 @@ _ZN20btAlignedObjectArrayI27btMultiBodySolverConstraintE21expandNonInitializingE
   %107 = tail call noundef float @llvm.fabs.f32(float %106)
   %108 = fcmp ogt float %107, 0x3FE6A09E60000000
   %109 = getelementptr inbounds nuw i8, ptr %52, i64 180
-  br i1 %108, label %110, label %125
+  br i1 %108, label %110, label %124
 
 110:                                              ; preds = %98
   %111 = getelementptr inbounds nuw i8, ptr %52, i64 68
   %112 = load float, ptr %111, align 4, !tbaa !64
   %113 = fmul float %106, %106
   %114 = tail call float @llvm.fmuladd.f32(float %112, float %112, float %113)
-  %115 = tail call noundef float @sqrtf(float noundef %114) #18, !tbaa !86
-  %116 = fdiv float 1.000000e+00, %115
-  %117 = fneg float %106
-  %118 = fmul float %116, %117
-  %119 = fmul float %112, %116
-  %120 = fmul float %114, %116
-  %121 = load float, ptr %100, align 4, !tbaa !64
-  %122 = fneg float %121
-  %123 = fmul float %119, %122
-  %124 = fmul float %118, %121
+  %sqrt.i = tail call float @llvm.sqrt.f32(float %114)
+  %115 = fdiv float 1.000000e+00, %sqrt.i
+  %116 = fneg float %106
+  %117 = fmul float %115, %116
+  %118 = fmul float %112, %115
+  %119 = fmul float %114, %115
+  %120 = load float, ptr %100, align 4, !tbaa !64
+  %121 = fneg float %120
+  %122 = fmul float %118, %121
+  %123 = fmul float %117, %120
   br label %_Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit
 
-125:                                              ; preds = %98
-  %126 = load float, ptr %100, align 4, !tbaa !64
-  %127 = getelementptr inbounds nuw i8, ptr %52, i64 68
-  %128 = load float, ptr %127, align 4, !tbaa !64
-  %129 = fmul float %128, %128
-  %130 = tail call float @llvm.fmuladd.f32(float %126, float %126, float %129)
-  %131 = tail call noundef float @sqrtf(float noundef %130) #18, !tbaa !86
-  %132 = fdiv float 1.000000e+00, %131
-  %133 = fneg float %128
-  %134 = fmul float %132, %133
-  %135 = fmul float %126, %132
-  %136 = fneg float %106
-  %137 = fmul float %135, %136
-  %138 = fmul float %106, %134
-  %139 = fmul float %130, %132
+124:                                              ; preds = %98
+  %125 = load float, ptr %100, align 4, !tbaa !64
+  %126 = getelementptr inbounds nuw i8, ptr %52, i64 68
+  %127 = load float, ptr %126, align 4, !tbaa !64
+  %128 = fmul float %127, %127
+  %129 = tail call float @llvm.fmuladd.f32(float %125, float %125, float %128)
+  %sqrt43.i = tail call float @llvm.sqrt.f32(float %129)
+  %130 = fdiv float 1.000000e+00, %sqrt43.i
+  %131 = fneg float %127
+  %132 = fmul float %130, %131
+  %133 = fmul float %125, %130
+  %134 = fneg float %106
+  %135 = fmul float %133, %134
+  %136 = fmul float %106, %132
+  %137 = fmul float %129, %130
   br label %_Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit
 
-_Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit:   ; preds = %110, %125
-  %.sink165 = phi float [ 0.000000e+00, %110 ], [ %134, %125 ]
-  %.sink164 = phi float [ %118, %110 ], [ %135, %125 ]
-  %.sink163 = phi float [ %119, %110 ], [ 0.000000e+00, %125 ]
-  %.sink162 = phi float [ %120, %110 ], [ %137, %125 ]
-  %.sink = phi float [ %123, %110 ], [ %138, %125 ]
-  %.sink.i = phi float [ %124, %110 ], [ %139, %125 ]
-  %140 = getelementptr inbounds nuw i8, ptr %52, i64 176
-  %141 = getelementptr inbounds nuw i8, ptr %52, i64 192
-  %142 = getelementptr inbounds nuw i8, ptr %52, i64 196
-  %143 = fmul float %.sink164, %.sink164
-  %144 = tail call float @llvm.fmuladd.f32(float %.sink165, float %.sink165, float %143)
-  %145 = tail call noundef float @llvm.fmuladd.f32(float %.sink163, float %.sink163, float %144)
-  %146 = tail call noundef float @sqrtf(float noundef %145) #18, !tbaa !86
-  %147 = fdiv float 1.000000e+00, %146
-  %148 = fmul float %.sink165, %147
-  store float %148, ptr %103, align 4, !tbaa !64
-  %149 = fmul float %.sink164, %147
-  store float %149, ptr %140, align 4, !tbaa !64
-  %150 = fmul float %.sink163, %147
-  store float %150, ptr %109, align 4, !tbaa !64
-  %151 = fmul float %.sink, %.sink
-  %152 = tail call float @llvm.fmuladd.f32(float %.sink162, float %.sink162, float %151)
-  %153 = tail call noundef float @llvm.fmuladd.f32(float %.sink.i, float %.sink.i, float %152)
-  %154 = tail call noundef float @sqrtf(float noundef %153) #18, !tbaa !86
-  %155 = fdiv float 1.000000e+00, %154
-  %156 = fmul float %.sink162, %155
-  store float %156, ptr %104, align 4, !tbaa !64
-  %157 = fmul float %.sink, %155
-  store float %157, ptr %141, align 4, !tbaa !64
-  %158 = fmul float %.sink.i, %155
-  store float %158, ptr %142, align 4, !tbaa !64
-  %159 = icmp sgt i32 %.0160, 0
-  br i1 %159, label %160, label %179
+_Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit:   ; preds = %110, %124
+  %.sink166 = phi float [ 0.000000e+00, %110 ], [ %132, %124 ]
+  %.sink165 = phi float [ %117, %110 ], [ %133, %124 ]
+  %.sink164 = phi float [ %118, %110 ], [ 0.000000e+00, %124 ]
+  %.sink163 = phi float [ %119, %110 ], [ %135, %124 ]
+  %.sink = phi float [ %122, %110 ], [ %136, %124 ]
+  %.sink.i = phi float [ %123, %110 ], [ %137, %124 ]
+  %138 = getelementptr inbounds nuw i8, ptr %52, i64 176
+  %139 = getelementptr inbounds nuw i8, ptr %52, i64 192
+  %140 = getelementptr inbounds nuw i8, ptr %52, i64 196
+  %141 = fmul float %.sink165, %.sink165
+  %142 = tail call float @llvm.fmuladd.f32(float %.sink166, float %.sink166, float %141)
+  %143 = tail call noundef float @llvm.fmuladd.f32(float %.sink164, float %.sink164, float %142)
+  %sqrt.i.i = tail call noundef float @llvm.sqrt.f32(float %143)
+  %144 = fdiv float 1.000000e+00, %sqrt.i.i
+  %145 = fmul float %.sink166, %144
+  store float %145, ptr %103, align 4, !tbaa !64
+  %146 = fmul float %.sink165, %144
+  store float %146, ptr %138, align 4, !tbaa !64
+  %147 = fmul float %.sink164, %144
+  store float %147, ptr %109, align 4, !tbaa !64
+  %148 = fmul float %.sink, %.sink
+  %149 = tail call float @llvm.fmuladd.f32(float %.sink163, float %.sink163, float %148)
+  %150 = tail call noundef float @llvm.fmuladd.f32(float %.sink.i, float %.sink.i, float %149)
+  %sqrt.i.i157 = tail call noundef float @llvm.sqrt.f32(float %150)
+  %151 = fdiv float 1.000000e+00, %sqrt.i.i157
+  %152 = fmul float %.sink163, %151
+  store float %152, ptr %104, align 4, !tbaa !64
+  %153 = fmul float %.sink, %151
+  store float %153, ptr %139, align 4, !tbaa !64
+  %154 = fmul float %.sink.i, %151
+  store float %154, ptr %140, align 4, !tbaa !64
+  %155 = icmp sgt i32 %.0161, 0
+  br i1 %155, label %156, label %175
 
-160:                                              ; preds = %_Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit
-  %161 = getelementptr inbounds nuw i8, ptr %52, i64 92
-  %162 = load float, ptr %161, align 4, !tbaa !159
-  %163 = fcmp ogt float %162, 0.000000e+00
-  br i1 %163, label %164, label %167
+156:                                              ; preds = %_Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit
+  %157 = getelementptr inbounds nuw i8, ptr %52, i64 92
+  %158 = load float, ptr %157, align 4, !tbaa !159
+  %159 = fcmp ogt float %158, 0.000000e+00
+  br i1 %159, label %160, label %163
 
-164:                                              ; preds = %160
-  %165 = load float, ptr %4, align 4, !tbaa !64
-  %166 = tail call noundef nonnull align 8 dereferenceable(220) ptr @_ZN27btMultiBodyConstraintSolver38addMultiBodySpinningFrictionConstraintERK9btVector3P20btPersistentManifoldiR15btManifoldPointfP17btCollisionObjectS8_fRK19btContactSolverInfoff(ptr noundef nonnull align 8 dereferenceable(788) %0, ptr noundef nonnull align 4 dereferenceable(16) %100, ptr noundef nonnull %1, i32 noundef %58, ptr noundef nonnull align 8 dereferenceable(204) %52, float noundef %162, ptr noundef %6, ptr noundef %11, float noundef %165, ptr noundef nonnull align 4 dereferenceable(128) %2, float poison, float poison)
-  br label %167
+160:                                              ; preds = %156
+  %161 = load float, ptr %4, align 4, !tbaa !64
+  %162 = tail call noundef nonnull align 8 dereferenceable(220) ptr @_ZN27btMultiBodyConstraintSolver38addMultiBodySpinningFrictionConstraintERK9btVector3P20btPersistentManifoldiR15btManifoldPointfP17btCollisionObjectS8_fRK19btContactSolverInfoff(ptr noundef nonnull align 8 dereferenceable(788) %0, ptr noundef nonnull align 4 dereferenceable(16) %100, ptr noundef nonnull %1, i32 noundef %58, ptr noundef nonnull align 8 dereferenceable(204) %52, float noundef %158, ptr noundef %6, ptr noundef %11, float noundef %161, ptr noundef nonnull align 4 dereferenceable(128) %2, float poison, float poison)
+  br label %163
 
-167:                                              ; preds = %164, %160
-  %168 = getelementptr inbounds nuw i8, ptr %52, i64 88
-  %169 = load float, ptr %168, align 8, !tbaa !160
-  %170 = fcmp ogt float %169, 0.000000e+00
-  br i1 %170, label %171, label %177
+163:                                              ; preds = %160, %156
+  %164 = getelementptr inbounds nuw i8, ptr %52, i64 88
+  %165 = load float, ptr %164, align 8, !tbaa !160
+  %166 = fcmp ogt float %165, 0.000000e+00
+  br i1 %166, label %167, label %173
 
-171:                                              ; preds = %167
+167:                                              ; preds = %163
   tail call void @_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i(ptr noundef %6, ptr noundef nonnull align 4 dereferenceable(16) %103, i32 noundef 2)
   tail call void @_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i(ptr noundef %11, ptr noundef nonnull align 4 dereferenceable(16) %103, i32 noundef 2)
   tail call void @_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i(ptr noundef %6, ptr noundef nonnull align 4 dereferenceable(16) %104, i32 noundef 2)
   tail call void @_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i(ptr noundef %11, ptr noundef nonnull align 4 dereferenceable(16) %104, i32 noundef 2)
-  %172 = load float, ptr %168, align 8, !tbaa !160
-  %173 = load float, ptr %4, align 4, !tbaa !64
-  %174 = tail call noundef nonnull align 8 dereferenceable(220) ptr @_ZN27btMultiBodyConstraintSolver39addMultiBodyTorsionalFrictionConstraintERK9btVector3P20btPersistentManifoldiR15btManifoldPointfP17btCollisionObjectS8_fRK19btContactSolverInfoff(ptr noundef nonnull align 8 dereferenceable(788) %0, ptr noundef nonnull align 4 dereferenceable(16) %103, ptr noundef nonnull %1, i32 noundef %58, ptr noundef nonnull align 8 dereferenceable(204) %52, float noundef %172, ptr noundef %6, ptr noundef %11, float noundef %173, ptr noundef nonnull align 4 dereferenceable(128) %2, float poison, float poison)
-  %175 = load float, ptr %168, align 8, !tbaa !160
-  %176 = tail call noundef nonnull align 8 dereferenceable(220) ptr @_ZN27btMultiBodyConstraintSolver39addMultiBodyTorsionalFrictionConstraintERK9btVector3P20btPersistentManifoldiR15btManifoldPointfP17btCollisionObjectS8_fRK19btContactSolverInfoff(ptr noundef nonnull align 8 dereferenceable(788) %0, ptr noundef nonnull align 4 dereferenceable(16) %104, ptr noundef nonnull %1, i32 noundef %58, ptr noundef nonnull align 8 dereferenceable(204) %52, float noundef %175, ptr noundef %6, ptr noundef %11, float noundef %173, ptr noundef nonnull align 4 dereferenceable(128) %2, float poison, float poison)
-  br label %177
+  %168 = load float, ptr %164, align 8, !tbaa !160
+  %169 = load float, ptr %4, align 4, !tbaa !64
+  %170 = tail call noundef nonnull align 8 dereferenceable(220) ptr @_ZN27btMultiBodyConstraintSolver39addMultiBodyTorsionalFrictionConstraintERK9btVector3P20btPersistentManifoldiR15btManifoldPointfP17btCollisionObjectS8_fRK19btContactSolverInfoff(ptr noundef nonnull align 8 dereferenceable(788) %0, ptr noundef nonnull align 4 dereferenceable(16) %103, ptr noundef nonnull %1, i32 noundef %58, ptr noundef nonnull align 8 dereferenceable(204) %52, float noundef %168, ptr noundef %6, ptr noundef %11, float noundef %169, ptr noundef nonnull align 4 dereferenceable(128) %2, float poison, float poison)
+  %171 = load float, ptr %164, align 8, !tbaa !160
+  %172 = tail call noundef nonnull align 8 dereferenceable(220) ptr @_ZN27btMultiBodyConstraintSolver39addMultiBodyTorsionalFrictionConstraintERK9btVector3P20btPersistentManifoldiR15btManifoldPointfP17btCollisionObjectS8_fRK19btContactSolverInfoff(ptr noundef nonnull align 8 dereferenceable(788) %0, ptr noundef nonnull align 4 dereferenceable(16) %104, ptr noundef nonnull %1, i32 noundef %58, ptr noundef nonnull align 8 dereferenceable(204) %52, float noundef %171, ptr noundef %6, ptr noundef %11, float noundef %169, ptr noundef nonnull align 4 dereferenceable(128) %2, float poison, float poison)
+  br label %173
 
-177:                                              ; preds = %171, %167
-  %178 = add nsw i32 %.0160, -1
-  br label %179
+173:                                              ; preds = %167, %163
+  %174 = add nsw i32 %.0161, -1
+  br label %175
 
-179:                                              ; preds = %177, %_Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit
-  %.1 = phi i32 [ %178, %177 ], [ %.0160, %_Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit ]
-  %180 = load i32, ptr %49, align 4, !tbaa !46
-  %181 = and i32 %180, 32
-  %.not149 = icmp eq i32 %181, 0
-  br i1 %.not149, label %._crit_edge166, label %182
+175:                                              ; preds = %173, %_Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit
+  %.1 = phi i32 [ %174, %173 ], [ %.0161, %_Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit ]
+  %176 = load i32, ptr %49, align 4, !tbaa !46
+  %177 = and i32 %176, 32
+  %.not149 = icmp eq i32 %177, 0
+  br i1 %.not149, label %._crit_edge167, label %178
 
-._crit_edge166:                                   ; preds = %179
+._crit_edge167:                                   ; preds = %175
   %.pre = load float, ptr %4, align 4, !tbaa !64
-  br label %186
+  br label %182
 
-182:                                              ; preds = %179
-  %183 = getelementptr inbounds nuw i8, ptr %52, i64 128
-  %184 = load i32, ptr %183, align 8, !tbaa !115
-  %185 = and i32 %184, 1
-  %.not150 = icmp eq i32 %185, 0
-  %.pre167 = load float, ptr %4, align 4, !tbaa !64
-  br i1 %.not150, label %186, label %200
+178:                                              ; preds = %175
+  %179 = getelementptr inbounds nuw i8, ptr %52, i64 128
+  %180 = load i32, ptr %179, align 8, !tbaa !115
+  %181 = and i32 %180, 1
+  %.not150 = icmp eq i32 %181, 0
+  %.pre168 = load float, ptr %4, align 4, !tbaa !64
+  br i1 %.not150, label %182, label %196
 
-186:                                              ; preds = %._crit_edge166, %182
-  %187 = phi float [ %.pre, %._crit_edge166 ], [ %.pre167, %182 ]
+182:                                              ; preds = %._crit_edge167, %178
+  %183 = phi float [ %.pre, %._crit_edge167 ], [ %.pre168, %178 ]
   tail call void @_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i(ptr noundef %6, ptr noundef nonnull align 4 dereferenceable(16) %103, i32 noundef 1)
   tail call void @_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i(ptr noundef %11, ptr noundef nonnull align 4 dereferenceable(16) %103, i32 noundef 1)
-  %188 = tail call noundef nonnull align 8 dereferenceable(220) ptr @_ZN27btMultiBodyConstraintSolver30addMultiBodyFrictionConstraintERK9btVector3RKfP20btPersistentManifoldiR15btManifoldPointP17btCollisionObjectSA_fRK19btContactSolverInfoff(ptr noundef nonnull align 8 dereferenceable(788) %0, ptr noundef nonnull align 4 dereferenceable(16) %103, ptr nonnull align 4 poison, ptr noundef nonnull %1, i32 noundef %58, ptr noundef nonnull align 8 dereferenceable(204) %52, ptr noundef %6, ptr noundef %11, float noundef %187, ptr noundef nonnull align 4 dereferenceable(128) %2, float poison, float poison)
-  %189 = load i32, ptr %49, align 4, !tbaa !46
-  %190 = and i32 %189, 16
-  %.not151 = icmp eq i32 %190, 0
-  br i1 %.not151, label %193, label %191
+  %184 = tail call noundef nonnull align 8 dereferenceable(220) ptr @_ZN27btMultiBodyConstraintSolver30addMultiBodyFrictionConstraintERK9btVector3RKfP20btPersistentManifoldiR15btManifoldPointP17btCollisionObjectSA_fRK19btContactSolverInfoff(ptr noundef nonnull align 8 dereferenceable(788) %0, ptr noundef nonnull align 4 dereferenceable(16) %103, ptr nonnull align 4 poison, ptr noundef nonnull %1, i32 noundef %58, ptr noundef nonnull align 8 dereferenceable(204) %52, ptr noundef %6, ptr noundef %11, float noundef %183, ptr noundef nonnull align 4 dereferenceable(128) %2, float poison, float poison)
+  %185 = load i32, ptr %49, align 4, !tbaa !46
+  %186 = and i32 %185, 16
+  %.not151 = icmp eq i32 %186, 0
+  br i1 %.not151, label %189, label %187
 
-191:                                              ; preds = %186
+187:                                              ; preds = %182
   tail call void @_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i(ptr noundef %6, ptr noundef nonnull align 4 dereferenceable(16) %104, i32 noundef 1)
   tail call void @_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i(ptr noundef %11, ptr noundef nonnull align 4 dereferenceable(16) %104, i32 noundef 1)
-  %192 = tail call noundef nonnull align 8 dereferenceable(220) ptr @_ZN27btMultiBodyConstraintSolver30addMultiBodyFrictionConstraintERK9btVector3RKfP20btPersistentManifoldiR15btManifoldPointP17btCollisionObjectSA_fRK19btContactSolverInfoff(ptr noundef nonnull align 8 dereferenceable(788) %0, ptr noundef nonnull align 4 dereferenceable(16) %104, ptr nonnull align 4 poison, ptr noundef nonnull %1, i32 noundef %58, ptr noundef nonnull align 8 dereferenceable(204) %52, ptr noundef %6, ptr noundef %11, float noundef %187, ptr noundef nonnull align 4 dereferenceable(128) %2, float poison, float poison)
-  %.pre168 = load i32, ptr %49, align 4, !tbaa !46
-  br label %193
+  %188 = tail call noundef nonnull align 8 dereferenceable(220) ptr @_ZN27btMultiBodyConstraintSolver30addMultiBodyFrictionConstraintERK9btVector3RKfP20btPersistentManifoldiR15btManifoldPointP17btCollisionObjectSA_fRK19btContactSolverInfoff(ptr noundef nonnull align 8 dereferenceable(788) %0, ptr noundef nonnull align 4 dereferenceable(16) %104, ptr nonnull align 4 poison, ptr noundef nonnull %1, i32 noundef %58, ptr noundef nonnull align 8 dereferenceable(204) %52, ptr noundef %6, ptr noundef %11, float noundef %183, ptr noundef nonnull align 4 dereferenceable(128) %2, float poison, float poison)
+  %.pre169 = load i32, ptr %49, align 4, !tbaa !46
+  br label %189
 
-193:                                              ; preds = %191, %186
-  %194 = phi i32 [ %.pre168, %191 ], [ %189, %186 ]
-  %195 = and i32 %194, 80
-  %or.cond.not = icmp eq i32 %195, 80
-  br i1 %or.cond.not, label %196, label %209
+189:                                              ; preds = %187, %182
+  %190 = phi i32 [ %.pre169, %187 ], [ %185, %182 ]
+  %191 = and i32 %190, 80
+  %or.cond.not = icmp eq i32 %191, 80
+  br i1 %or.cond.not, label %192, label %205
 
-196:                                              ; preds = %193
-  %197 = getelementptr inbounds nuw i8, ptr %52, i64 128
-  %198 = load i32, ptr %197, align 8, !tbaa !115
-  %199 = or i32 %198, 1
-  store i32 %199, ptr %197, align 8, !tbaa !115
-  br label %209
+192:                                              ; preds = %189
+  %193 = getelementptr inbounds nuw i8, ptr %52, i64 128
+  %194 = load i32, ptr %193, align 8, !tbaa !115
+  %195 = or i32 %194, 1
+  store i32 %195, ptr %193, align 8, !tbaa !115
+  br label %205
 
-200:                                              ; preds = %182
-  %201 = tail call noundef nonnull align 8 dereferenceable(220) ptr @_ZN27btMultiBodyConstraintSolver30addMultiBodyFrictionConstraintERK9btVector3RKfP20btPersistentManifoldiR15btManifoldPointP17btCollisionObjectSA_fRK19btContactSolverInfoff(ptr noundef nonnull align 8 dereferenceable(788) %0, ptr noundef nonnull align 4 dereferenceable(16) %103, ptr nonnull align 4 poison, ptr noundef nonnull %1, i32 noundef %58, ptr noundef nonnull align 8 dereferenceable(204) %52, ptr noundef %6, ptr noundef %11, float noundef %.pre167, ptr noundef nonnull align 4 dereferenceable(128) %2, float poison, float poison)
-  %202 = load i32, ptr %49, align 4, !tbaa !46
-  %203 = and i32 %202, 16
-  %.not154 = icmp eq i32 %203, 0
-  br i1 %.not154, label %206, label %204
+196:                                              ; preds = %178
+  %197 = tail call noundef nonnull align 8 dereferenceable(220) ptr @_ZN27btMultiBodyConstraintSolver30addMultiBodyFrictionConstraintERK9btVector3RKfP20btPersistentManifoldiR15btManifoldPointP17btCollisionObjectSA_fRK19btContactSolverInfoff(ptr noundef nonnull align 8 dereferenceable(788) %0, ptr noundef nonnull align 4 dereferenceable(16) %103, ptr nonnull align 4 poison, ptr noundef nonnull %1, i32 noundef %58, ptr noundef nonnull align 8 dereferenceable(204) %52, ptr noundef %6, ptr noundef %11, float noundef %.pre168, ptr noundef nonnull align 4 dereferenceable(128) %2, float poison, float poison)
+  %198 = load i32, ptr %49, align 4, !tbaa !46
+  %199 = and i32 %198, 16
+  %.not154 = icmp eq i32 %199, 0
+  br i1 %.not154, label %202, label %200
 
-204:                                              ; preds = %200
-  %205 = tail call noundef nonnull align 8 dereferenceable(220) ptr @_ZN27btMultiBodyConstraintSolver30addMultiBodyFrictionConstraintERK9btVector3RKfP20btPersistentManifoldiR15btManifoldPointP17btCollisionObjectSA_fRK19btContactSolverInfoff(ptr noundef nonnull align 8 dereferenceable(788) %0, ptr noundef nonnull align 4 dereferenceable(16) %104, ptr nonnull align 4 poison, ptr noundef nonnull %1, i32 noundef %58, ptr noundef nonnull align 8 dereferenceable(204) %52, ptr noundef %6, ptr noundef %11, float noundef %.pre167, ptr noundef nonnull align 4 dereferenceable(128) %2, float poison, float poison)
-  br label %206
+200:                                              ; preds = %196
+  %201 = tail call noundef nonnull align 8 dereferenceable(220) ptr @_ZN27btMultiBodyConstraintSolver30addMultiBodyFrictionConstraintERK9btVector3RKfP20btPersistentManifoldiR15btManifoldPointP17btCollisionObjectSA_fRK19btContactSolverInfoff(ptr noundef nonnull align 8 dereferenceable(788) %0, ptr noundef nonnull align 4 dereferenceable(16) %104, ptr nonnull align 4 poison, ptr noundef nonnull %1, i32 noundef %58, ptr noundef nonnull align 8 dereferenceable(204) %52, ptr noundef %6, ptr noundef %11, float noundef %.pre168, ptr noundef nonnull align 4 dereferenceable(128) %2, float poison, float poison)
+  br label %202
 
-206:                                              ; preds = %204, %200
-  %207 = getelementptr inbounds nuw i8, ptr %84, i64 116
-  store float 0.000000e+00, ptr %207, align 4, !tbaa !50
-  %208 = getelementptr inbounds nuw i8, ptr %84, i64 112
-  store float 0.000000e+00, ptr %208, align 8, !tbaa !143
-  br label %209
+202:                                              ; preds = %200, %196
+  %203 = getelementptr inbounds nuw i8, ptr %84, i64 116
+  store float 0.000000e+00, ptr %203, align 4, !tbaa !50
+  %204 = getelementptr inbounds nuw i8, ptr %84, i64 112
+  store float 0.000000e+00, ptr %204, align 8, !tbaa !143
+  br label %205
 
-209:                                              ; preds = %193, %196, %206
+205:                                              ; preds = %189, %192, %202
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %.pre169 = load i32, ptr %37, align 8, !tbaa !157
-  br label %213
+  %.pre170 = load i32, ptr %37, align 8, !tbaa !157
+  br label %209
 
-210:                                              ; preds = %50
-  %211 = getelementptr inbounds nuw i8, ptr %52, i64 132
-  store float 0.000000e+00, ptr %211, align 4, !tbaa !141
-  %212 = getelementptr inbounds nuw i8, ptr %52, i64 136
-  store float 0.000000e+00, ptr %212, align 8, !tbaa !140
-  br label %213
+206:                                              ; preds = %50
+  %207 = getelementptr inbounds nuw i8, ptr %52, i64 132
+  store float 0.000000e+00, ptr %207, align 4, !tbaa !141
+  %208 = getelementptr inbounds nuw i8, ptr %52, i64 136
+  store float 0.000000e+00, ptr %208, align 8, !tbaa !140
+  br label %209
 
-213:                                              ; preds = %210, %209
-  %214 = phi i32 [ %.pre169, %209 ], [ %51, %210 ]
-  %.2 = phi i32 [ %.1, %209 ], [ %.0160, %210 ]
+209:                                              ; preds = %206, %205
+  %210 = phi i32 [ %.pre170, %205 ], [ %51, %206 ]
+  %.2 = phi i32 [ %.1, %205 ], [ %.0161, %206 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %215 = sext i32 %214 to i64
-  %216 = icmp slt i64 %indvars.iv.next, %215
-  br i1 %216, label %50, label %._crit_edge, !llvm.loop !161
+  %211 = sext i32 %210 to i64
+  %212 = icmp slt i64 %indvars.iv.next, %211
+  br i1 %212, label %50, label %._crit_edge, !llvm.loop !161
 }
 
 declare void @_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i(ptr noundef, ptr noundef nonnull align 4 dereferenceable(16), i32 noundef) local_unnamed_addr #1
@@ -8176,9 +8176,6 @@ declare float @sinf(float noundef) local_unnamed_addr #11
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
 declare float @cosf(float noundef) local_unnamed_addr #11
 
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare float @sqrtf(float noundef) local_unnamed_addr #11
-
 declare void @_Z21btAlignedFreeInternalPv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: noinline noreturn nounwind uwtable
@@ -8379,6 +8376,9 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #17
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.sqrt.f32(float) #15
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

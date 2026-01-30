@@ -1262,29 +1262,29 @@ define dso_local void @_ZN27btGImpactCollisionAlgorithm21collide_sat_trianglesEP
   %10 = alloca %struct.GIM_TRIANGLE_CONTACT, align 4
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %12 = load ptr, ptr %11, align 8, !tbaa !37
-  %.sroa.056.0.copyload = load float, ptr %12, align 4
-  %.sroa.659.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 4
-  %.sroa.659.0.copyload = load float, ptr %.sroa.659.0..sroa_idx, align 4
-  %.sroa.962.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %.sroa.962.0.copyload = load float, ptr %.sroa.962.0..sroa_idx, align 4
+  %.sroa.057.0.copyload = load float, ptr %12, align 4
+  %.sroa.660.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 4
+  %.sroa.660.0.copyload = load float, ptr %.sroa.660.0..sroa_idx, align 4
+  %.sroa.963.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %.sroa.963.0.copyload = load float, ptr %.sroa.963.0..sroa_idx, align 4
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %.sroa.1266.16.copyload = load float, ptr %13, align 4
-  %.sroa.1669.16..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 20
-  %.sroa.1669.16.copyload = load float, ptr %.sroa.1669.16..sroa_idx, align 4
-  %.sroa.1972.16..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 24
-  %.sroa.1972.16.copyload = load float, ptr %.sroa.1972.16..sroa_idx, align 4
+  %.sroa.1267.16.copyload = load float, ptr %13, align 4
+  %.sroa.1670.16..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 20
+  %.sroa.1670.16.copyload = load float, ptr %.sroa.1670.16..sroa_idx, align 4
+  %.sroa.1973.16..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 24
+  %.sroa.1973.16.copyload = load float, ptr %.sroa.1973.16..sroa_idx, align 4
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  %.sroa.2276.32.copyload = load float, ptr %14, align 4
-  %.sroa.2679.32..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 36
-  %.sroa.2679.32.copyload = load float, ptr %.sroa.2679.32..sroa_idx, align 4
-  %.sroa.2982.32..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 40
-  %.sroa.2982.32.copyload = load float, ptr %.sroa.2982.32..sroa_idx, align 4
+  %.sroa.2277.32.copyload = load float, ptr %14, align 4
+  %.sroa.2680.32..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 36
+  %.sroa.2680.32.copyload = load float, ptr %.sroa.2680.32..sroa_idx, align 4
+  %.sroa.2983.32..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 40
+  %.sroa.2983.32.copyload = load float, ptr %.sroa.2983.32..sroa_idx, align 4
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 48
-  %.sroa.3286.48.copyload = load float, ptr %15, align 4
-  %.sroa.3689.48..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 52
-  %.sroa.3689.48.copyload = load float, ptr %.sroa.3689.48..sroa_idx, align 4
-  %.sroa.3992.48..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 56
-  %.sroa.3992.48.copyload = load float, ptr %.sroa.3992.48..sroa_idx, align 4
+  %.sroa.3287.48.copyload = load float, ptr %15, align 4
+  %.sroa.3690.48..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 52
+  %.sroa.3690.48.copyload = load float, ptr %.sroa.3690.48..sroa_idx, align 4
+  %.sroa.3993.48..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 56
+  %.sroa.3993.48.copyload = load float, ptr %.sroa.3993.48..sroa_idx, align 4
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %17 = load ptr, ptr %16, align 8, !tbaa !37
   %.sroa.0.0.copyload = load float, ptr %17, align 4
@@ -1293,19 +1293,19 @@ define dso_local void @_ZN27btGImpactCollisionAlgorithm21collide_sat_trianglesEP
   %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 8
   %.sroa.9.0.copyload = load float, ptr %.sroa.9.0..sroa_idx, align 4
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  %.sroa.1235.16.copyload = load float, ptr %18, align 4
+  %.sroa.1236.16.copyload = load float, ptr %18, align 4
   %.sroa.16.16..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 20
   %.sroa.16.16.copyload = load float, ptr %.sroa.16.16..sroa_idx, align 4
   %.sroa.19.16..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 24
   %.sroa.19.16.copyload = load float, ptr %.sroa.19.16..sroa_idx, align 4
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 32
-  %.sroa.2242.32.copyload = load float, ptr %19, align 4
+  %.sroa.2243.32.copyload = load float, ptr %19, align 4
   %.sroa.26.32..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 36
   %.sroa.26.32.copyload = load float, ptr %.sroa.26.32..sroa_idx, align 4
   %.sroa.29.32..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 40
   %.sroa.29.32.copyload = load float, ptr %.sroa.29.32..sroa_idx, align 4
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 48
-  %.sroa.3249.48.copyload = load float, ptr %20, align 4
+  %.sroa.3250.48.copyload = load float, ptr %20, align 4
   %.sroa.36.48..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 52
   %.sroa.36.48.copyload = load float, ptr %.sroa.36.48..sroa_idx, align 4
   %.sroa.39.48..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 56
@@ -1325,10 +1325,10 @@ define dso_local void @_ZN27btGImpactCollisionAlgorithm21collide_sat_trianglesEP
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 224
   %28 = load ptr, ptr %27, align 8
   tail call void %28(ptr noundef nonnull align 8 dereferenceable(280) %4)
-  %.not98 = icmp eq i32 %6, 0
-  br i1 %.not98, label %._crit_edge, label %.lr.ph100
+  %.not99 = icmp eq i32 %6, 0
+  br i1 %.not99, label %._crit_edge, label %.lr.ph101
 
-.lr.ph100:                                        ; preds = %7
+.lr.ph101:                                        ; preds = %7
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %31 = getelementptr inbounds nuw i8, ptr %8, i64 4
@@ -1367,16 +1367,16 @@ define dso_local void @_ZN27btGImpactCollisionAlgorithm21collide_sat_trianglesEP
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %65
 
-65:                                               ; preds = %.lr.ph100, %.loopexit
-  %.in = phi i32 [ %6, %.lr.ph100 ], [ %66, %.loopexit ]
-  %.01799 = phi ptr [ %5, %.lr.ph100 ], [ %70, %.loopexit ]
+65:                                               ; preds = %.lr.ph101, %.loopexit
+  %.in = phi i32 [ %6, %.lr.ph101 ], [ %66, %.loopexit ]
+  %.017100 = phi ptr [ %5, %.lr.ph101 ], [ %70, %.loopexit ]
   %66 = add nsw i32 %.in, -1
-  %67 = load i32, ptr %.01799, align 4, !tbaa !83
+  %67 = load i32, ptr %.017100, align 4, !tbaa !83
   store i32 %67, ptr %29, align 8, !tbaa !23
-  %68 = getelementptr inbounds nuw i8, ptr %.01799, i64 4
+  %68 = getelementptr inbounds nuw i8, ptr %.017100, i64 4
   %69 = load i32, ptr %68, align 4, !tbaa !83
   store i32 %69, ptr %30, align 8, !tbaa !25
-  %70 = getelementptr inbounds nuw i8, ptr %.01799, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %.017100, i64 8
   %71 = load ptr, ptr %3, align 8, !tbaa !4
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 168
   %73 = load ptr, ptr %72, align 8
@@ -1396,19 +1396,19 @@ define dso_local void @_ZN27btGImpactCollisionAlgorithm21collide_sat_trianglesEP
   call void %85(ptr noundef nonnull align 8 dereferenceable(8) %82, i32 noundef %78, ptr noundef nonnull align 4 dereferenceable(72) %9)
   %86 = load float, ptr %8, align 8, !tbaa !55
   %87 = load float, ptr %31, align 4, !tbaa !55
-  %88 = fmul float %.sroa.659.0.copyload, %87
-  %89 = call float @llvm.fmuladd.f32(float %86, float %.sroa.056.0.copyload, float %88)
+  %88 = fmul float %.sroa.660.0.copyload, %87
+  %89 = call float @llvm.fmuladd.f32(float %86, float %.sroa.057.0.copyload, float %88)
   %90 = load float, ptr %32, align 8, !tbaa !55
-  %91 = call noundef float @llvm.fmuladd.f32(float %90, float %.sroa.962.0.copyload, float %89)
-  %92 = fmul float %.sroa.1669.16.copyload, %87
-  %93 = call float @llvm.fmuladd.f32(float %86, float %.sroa.1266.16.copyload, float %92)
-  %94 = call noundef float @llvm.fmuladd.f32(float %90, float %.sroa.1972.16.copyload, float %93)
-  %95 = fmul float %.sroa.2679.32.copyload, %87
-  %96 = call float @llvm.fmuladd.f32(float %86, float %.sroa.2276.32.copyload, float %95)
-  %97 = call noundef float @llvm.fmuladd.f32(float %90, float %.sroa.2982.32.copyload, float %96)
-  %98 = fadd float %.sroa.3286.48.copyload, %91
-  %99 = fadd float %.sroa.3689.48.copyload, %94
-  %100 = fadd float %.sroa.3992.48.copyload, %97
+  %91 = call noundef float @llvm.fmuladd.f32(float %90, float %.sroa.963.0.copyload, float %89)
+  %92 = fmul float %.sroa.1670.16.copyload, %87
+  %93 = call float @llvm.fmuladd.f32(float %86, float %.sroa.1267.16.copyload, float %92)
+  %94 = call noundef float @llvm.fmuladd.f32(float %90, float %.sroa.1973.16.copyload, float %93)
+  %95 = fmul float %.sroa.2680.32.copyload, %87
+  %96 = call float @llvm.fmuladd.f32(float %86, float %.sroa.2277.32.copyload, float %95)
+  %97 = call noundef float @llvm.fmuladd.f32(float %90, float %.sroa.2983.32.copyload, float %96)
+  %98 = fadd float %.sroa.3287.48.copyload, %91
+  %99 = fadd float %.sroa.3690.48.copyload, %94
+  %100 = fadd float %.sroa.3993.48.copyload, %97
   %.sroa.0.0.vec.insert.i2.i.i = insertelement <2 x float> poison, float %98, i64 0
   %.sroa.0.4.vec.insert.i3.i.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i2.i.i, float %99, i64 1
   %.sroa.3.12.vec.insert.i4.i.i = insertelement <2 x float> <float poison, float 0.000000e+00>, float %100, i64 0
@@ -1416,19 +1416,19 @@ define dso_local void @_ZN27btGImpactCollisionAlgorithm21collide_sat_trianglesEP
   store <2 x float> %.sroa.3.12.vec.insert.i4.i.i, ptr %32, align 8, !tbaa !76
   %101 = load float, ptr %33, align 8, !tbaa !55
   %102 = load float, ptr %34, align 4, !tbaa !55
-  %103 = fmul float %.sroa.659.0.copyload, %102
-  %104 = call float @llvm.fmuladd.f32(float %101, float %.sroa.056.0.copyload, float %103)
+  %103 = fmul float %.sroa.660.0.copyload, %102
+  %104 = call float @llvm.fmuladd.f32(float %101, float %.sroa.057.0.copyload, float %103)
   %105 = load float, ptr %35, align 8, !tbaa !55
-  %106 = call noundef float @llvm.fmuladd.f32(float %105, float %.sroa.962.0.copyload, float %104)
-  %107 = fmul float %.sroa.1669.16.copyload, %102
-  %108 = call float @llvm.fmuladd.f32(float %101, float %.sroa.1266.16.copyload, float %107)
-  %109 = call noundef float @llvm.fmuladd.f32(float %105, float %.sroa.1972.16.copyload, float %108)
-  %110 = fmul float %.sroa.2679.32.copyload, %102
-  %111 = call float @llvm.fmuladd.f32(float %101, float %.sroa.2276.32.copyload, float %110)
-  %112 = call noundef float @llvm.fmuladd.f32(float %105, float %.sroa.2982.32.copyload, float %111)
-  %113 = fadd float %.sroa.3286.48.copyload, %106
-  %114 = fadd float %.sroa.3689.48.copyload, %109
-  %115 = fadd float %.sroa.3992.48.copyload, %112
+  %106 = call noundef float @llvm.fmuladd.f32(float %105, float %.sroa.963.0.copyload, float %104)
+  %107 = fmul float %.sroa.1670.16.copyload, %102
+  %108 = call float @llvm.fmuladd.f32(float %101, float %.sroa.1267.16.copyload, float %107)
+  %109 = call noundef float @llvm.fmuladd.f32(float %105, float %.sroa.1973.16.copyload, float %108)
+  %110 = fmul float %.sroa.2680.32.copyload, %102
+  %111 = call float @llvm.fmuladd.f32(float %101, float %.sroa.2277.32.copyload, float %110)
+  %112 = call noundef float @llvm.fmuladd.f32(float %105, float %.sroa.2983.32.copyload, float %111)
+  %113 = fadd float %.sroa.3287.48.copyload, %106
+  %114 = fadd float %.sroa.3690.48.copyload, %109
+  %115 = fadd float %.sroa.3993.48.copyload, %112
   %.sroa.0.0.vec.insert.i2.i8.i = insertelement <2 x float> poison, float %113, i64 0
   %.sroa.0.4.vec.insert.i3.i9.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i2.i8.i, float %114, i64 1
   %.sroa.3.12.vec.insert.i4.i10.i = insertelement <2 x float> <float poison, float 0.000000e+00>, float %115, i64 0
@@ -1436,19 +1436,19 @@ define dso_local void @_ZN27btGImpactCollisionAlgorithm21collide_sat_trianglesEP
   store <2 x float> %.sroa.3.12.vec.insert.i4.i10.i, ptr %35, align 8, !tbaa !76
   %116 = load float, ptr %36, align 8, !tbaa !55
   %117 = load float, ptr %37, align 4, !tbaa !55
-  %118 = fmul float %.sroa.659.0.copyload, %117
-  %119 = call float @llvm.fmuladd.f32(float %116, float %.sroa.056.0.copyload, float %118)
+  %118 = fmul float %.sroa.660.0.copyload, %117
+  %119 = call float @llvm.fmuladd.f32(float %116, float %.sroa.057.0.copyload, float %118)
   %120 = load float, ptr %38, align 8, !tbaa !55
-  %121 = call noundef float @llvm.fmuladd.f32(float %120, float %.sroa.962.0.copyload, float %119)
-  %122 = fmul float %.sroa.1669.16.copyload, %117
-  %123 = call float @llvm.fmuladd.f32(float %116, float %.sroa.1266.16.copyload, float %122)
-  %124 = call noundef float @llvm.fmuladd.f32(float %120, float %.sroa.1972.16.copyload, float %123)
-  %125 = fmul float %.sroa.2679.32.copyload, %117
-  %126 = call float @llvm.fmuladd.f32(float %116, float %.sroa.2276.32.copyload, float %125)
-  %127 = call noundef float @llvm.fmuladd.f32(float %120, float %.sroa.2982.32.copyload, float %126)
-  %128 = fadd float %.sroa.3286.48.copyload, %121
-  %129 = fadd float %.sroa.3689.48.copyload, %124
-  %130 = fadd float %.sroa.3992.48.copyload, %127
+  %121 = call noundef float @llvm.fmuladd.f32(float %120, float %.sroa.963.0.copyload, float %119)
+  %122 = fmul float %.sroa.1670.16.copyload, %117
+  %123 = call float @llvm.fmuladd.f32(float %116, float %.sroa.1267.16.copyload, float %122)
+  %124 = call noundef float @llvm.fmuladd.f32(float %120, float %.sroa.1973.16.copyload, float %123)
+  %125 = fmul float %.sroa.2680.32.copyload, %117
+  %126 = call float @llvm.fmuladd.f32(float %116, float %.sroa.2277.32.copyload, float %125)
+  %127 = call noundef float @llvm.fmuladd.f32(float %120, float %.sroa.2983.32.copyload, float %126)
+  %128 = fadd float %.sroa.3287.48.copyload, %121
+  %129 = fadd float %.sroa.3690.48.copyload, %124
+  %130 = fadd float %.sroa.3993.48.copyload, %127
   %.sroa.0.0.vec.insert.i2.i13.i = insertelement <2 x float> poison, float %128, i64 0
   %.sroa.0.4.vec.insert.i3.i14.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i2.i13.i, float %129, i64 1
   %.sroa.3.12.vec.insert.i4.i15.i = insertelement <2 x float> <float poison, float 0.000000e+00>, float %130, i64 0
@@ -1461,12 +1461,12 @@ define dso_local void @_ZN27btGImpactCollisionAlgorithm21collide_sat_trianglesEP
   %135 = load float, ptr %40, align 8, !tbaa !55
   %136 = call noundef float @llvm.fmuladd.f32(float %135, float %.sroa.9.0.copyload, float %134)
   %137 = fmul float %.sroa.16.16.copyload, %132
-  %138 = call float @llvm.fmuladd.f32(float %131, float %.sroa.1235.16.copyload, float %137)
+  %138 = call float @llvm.fmuladd.f32(float %131, float %.sroa.1236.16.copyload, float %137)
   %139 = call noundef float @llvm.fmuladd.f32(float %135, float %.sroa.19.16.copyload, float %138)
   %140 = fmul float %.sroa.26.32.copyload, %132
-  %141 = call float @llvm.fmuladd.f32(float %131, float %.sroa.2242.32.copyload, float %140)
+  %141 = call float @llvm.fmuladd.f32(float %131, float %.sroa.2243.32.copyload, float %140)
   %142 = call noundef float @llvm.fmuladd.f32(float %135, float %.sroa.29.32.copyload, float %141)
-  %143 = fadd float %.sroa.3249.48.copyload, %136
+  %143 = fadd float %.sroa.3250.48.copyload, %136
   %144 = fadd float %.sroa.36.48.copyload, %139
   %145 = fadd float %.sroa.39.48.copyload, %142
   %.sroa.0.0.vec.insert.i2.i.i20 = insertelement <2 x float> poison, float %143, i64 0
@@ -1481,12 +1481,12 @@ define dso_local void @_ZN27btGImpactCollisionAlgorithm21collide_sat_trianglesEP
   %150 = load float, ptr %43, align 8, !tbaa !55
   %151 = call noundef float @llvm.fmuladd.f32(float %150, float %.sroa.9.0.copyload, float %149)
   %152 = fmul float %.sroa.16.16.copyload, %147
-  %153 = call float @llvm.fmuladd.f32(float %146, float %.sroa.1235.16.copyload, float %152)
+  %153 = call float @llvm.fmuladd.f32(float %146, float %.sroa.1236.16.copyload, float %152)
   %154 = call noundef float @llvm.fmuladd.f32(float %150, float %.sroa.19.16.copyload, float %153)
   %155 = fmul float %.sroa.26.32.copyload, %147
-  %156 = call float @llvm.fmuladd.f32(float %146, float %.sroa.2242.32.copyload, float %155)
+  %156 = call float @llvm.fmuladd.f32(float %146, float %.sroa.2243.32.copyload, float %155)
   %157 = call noundef float @llvm.fmuladd.f32(float %150, float %.sroa.29.32.copyload, float %156)
-  %158 = fadd float %.sroa.3249.48.copyload, %151
+  %158 = fadd float %.sroa.3250.48.copyload, %151
   %159 = fadd float %.sroa.36.48.copyload, %154
   %160 = fadd float %.sroa.39.48.copyload, %157
   %.sroa.0.0.vec.insert.i2.i8.i23 = insertelement <2 x float> poison, float %158, i64 0
@@ -1501,12 +1501,12 @@ define dso_local void @_ZN27btGImpactCollisionAlgorithm21collide_sat_trianglesEP
   %165 = load float, ptr %46, align 8, !tbaa !55
   %166 = call noundef float @llvm.fmuladd.f32(float %165, float %.sroa.9.0.copyload, float %164)
   %167 = fmul float %.sroa.16.16.copyload, %162
-  %168 = call float @llvm.fmuladd.f32(float %161, float %.sroa.1235.16.copyload, float %167)
+  %168 = call float @llvm.fmuladd.f32(float %161, float %.sroa.1236.16.copyload, float %167)
   %169 = call noundef float @llvm.fmuladd.f32(float %165, float %.sroa.19.16.copyload, float %168)
   %170 = fmul float %.sroa.26.32.copyload, %162
-  %171 = call float @llvm.fmuladd.f32(float %161, float %.sroa.2242.32.copyload, float %170)
+  %171 = call float @llvm.fmuladd.f32(float %161, float %.sroa.2243.32.copyload, float %170)
   %172 = call noundef float @llvm.fmuladd.f32(float %165, float %.sroa.29.32.copyload, float %171)
-  %173 = fadd float %.sroa.3249.48.copyload, %166
+  %173 = fadd float %.sroa.3250.48.copyload, %166
   %174 = fadd float %.sroa.36.48.copyload, %169
   %175 = fadd float %.sroa.39.48.copyload, %172
   %.sroa.0.0.vec.insert.i2.i13.i26 = insertelement <2 x float> poison, float %173, i64 0
@@ -1535,124 +1535,124 @@ define dso_local void @_ZN27btGImpactCollisionAlgorithm21collide_sat_trianglesEP
   %194 = fmul float %190, %190
   %195 = call float @llvm.fmuladd.f32(float %187, float %187, float %194)
   %196 = call noundef float @llvm.fmuladd.f32(float %193, float %193, float %195)
-  %197 = call noundef float @sqrtf(float noundef %196) #18, !tbaa !83
-  %198 = fdiv float 1.000000e+00, %197
-  %199 = fmul float %187, %198
-  %200 = fmul float %198, %190
-  %201 = fmul float %193, %198
-  %202 = fmul float %178, %200
-  %203 = call float @llvm.fmuladd.f32(float %176, float %199, float %202)
-  %204 = call noundef float @llvm.fmuladd.f32(float %180, float %201, float %203)
-  store float %199, ptr %47, align 8, !tbaa !55
-  store float %200, ptr %48, align 4, !tbaa !55
-  store float %201, ptr %49, align 8, !tbaa !55
-  store float %204, ptr %50, align 4, !tbaa !55
-  %205 = fsub float %158, %143
-  %206 = load float, ptr %39, align 4, !tbaa !55
-  %207 = fsub float %159, %206
-  %208 = load float, ptr %40, align 8, !tbaa !55
-  %209 = fsub float %160, %208
-  %210 = fsub float %173, %143
-  %211 = fsub float %174, %206
-  %212 = fsub float %175, %208
-  %213 = fneg float %211
-  %214 = fmul float %209, %213
-  %215 = call float @llvm.fmuladd.f32(float %207, float %212, float %214)
-  %216 = fneg float %212
-  %217 = fmul float %205, %216
-  %218 = call float @llvm.fmuladd.f32(float %209, float %210, float %217)
-  %219 = fneg float %210
-  %220 = fmul float %207, %219
-  %221 = call float @llvm.fmuladd.f32(float %205, float %211, float %220)
-  %222 = fmul float %218, %218
-  %223 = call float @llvm.fmuladd.f32(float %215, float %215, float %222)
-  %224 = call noundef float @llvm.fmuladd.f32(float %221, float %221, float %223)
-  %225 = call noundef float @sqrtf(float noundef %224) #18, !tbaa !83
-  %226 = fdiv float 1.000000e+00, %225
-  %227 = fmul float %215, %226
-  %228 = fmul float %226, %218
-  %229 = fmul float %221, %226
-  %230 = fmul float %206, %228
-  %231 = call float @llvm.fmuladd.f32(float %143, float %227, float %230)
-  %232 = call noundef float @llvm.fmuladd.f32(float %208, float %229, float %231)
-  store float %227, ptr %51, align 8, !tbaa !55
-  store float %228, ptr %52, align 4, !tbaa !55
-  store float %229, ptr %53, align 8, !tbaa !55
-  store float %232, ptr %54, align 4, !tbaa !55
-  %233 = call noundef zeroext i1 @_ZN19btPrimitiveTriangle25overlap_test_conservativeERKS_(ptr noundef nonnull align 4 dereferenceable(72) %8, ptr noundef nonnull align 4 dereferenceable(72) %9)
-  br i1 %233, label %234, label %.loopexit
+  %sqrt.i.i.i = call noundef float @llvm.sqrt.f32(float %196)
+  %197 = fdiv float 1.000000e+00, %sqrt.i.i.i
+  %198 = fmul float %187, %197
+  %199 = fmul float %190, %197
+  %200 = fmul float %193, %197
+  %201 = fmul float %178, %199
+  %202 = call float @llvm.fmuladd.f32(float %176, float %198, float %201)
+  %203 = call noundef float @llvm.fmuladd.f32(float %180, float %200, float %202)
+  store float %198, ptr %47, align 8, !tbaa !55
+  store float %199, ptr %48, align 4, !tbaa !55
+  store float %200, ptr %49, align 8, !tbaa !55
+  store float %203, ptr %50, align 4, !tbaa !55
+  %204 = fsub float %158, %143
+  %205 = load float, ptr %39, align 4, !tbaa !55
+  %206 = fsub float %159, %205
+  %207 = load float, ptr %40, align 8, !tbaa !55
+  %208 = fsub float %160, %207
+  %209 = fsub float %173, %143
+  %210 = fsub float %174, %205
+  %211 = fsub float %175, %207
+  %212 = fneg float %210
+  %213 = fmul float %208, %212
+  %214 = call float @llvm.fmuladd.f32(float %206, float %211, float %213)
+  %215 = fneg float %211
+  %216 = fmul float %204, %215
+  %217 = call float @llvm.fmuladd.f32(float %208, float %209, float %216)
+  %218 = fneg float %209
+  %219 = fmul float %206, %218
+  %220 = call float @llvm.fmuladd.f32(float %204, float %210, float %219)
+  %221 = fmul float %217, %217
+  %222 = call float @llvm.fmuladd.f32(float %214, float %214, float %221)
+  %223 = call noundef float @llvm.fmuladd.f32(float %220, float %220, float %222)
+  %sqrt.i.i.i29 = call noundef float @llvm.sqrt.f32(float %223)
+  %224 = fdiv float 1.000000e+00, %sqrt.i.i.i29
+  %225 = fmul float %214, %224
+  %226 = fmul float %217, %224
+  %227 = fmul float %220, %224
+  %228 = fmul float %205, %226
+  %229 = call float @llvm.fmuladd.f32(float %143, float %225, float %228)
+  %230 = call noundef float @llvm.fmuladd.f32(float %207, float %227, float %229)
+  store float %225, ptr %51, align 8, !tbaa !55
+  store float %226, ptr %52, align 4, !tbaa !55
+  store float %227, ptr %53, align 8, !tbaa !55
+  store float %230, ptr %54, align 4, !tbaa !55
+  %231 = call noundef zeroext i1 @_ZN19btPrimitiveTriangle25overlap_test_conservativeERKS_(ptr noundef nonnull align 4 dereferenceable(72) %8, ptr noundef nonnull align 4 dereferenceable(72) %9)
+  br i1 %231, label %232, label %.loopexit
 
-234:                                              ; preds = %65
-  %235 = call noundef zeroext i1 @_ZN19btPrimitiveTriangle35find_triangle_collision_clip_methodERS_R20GIM_TRIANGLE_CONTACT(ptr noundef nonnull align 4 dereferenceable(72) %8, ptr noundef nonnull align 4 dereferenceable(72) %9, ptr noundef nonnull align 4 dereferenceable(280) %10)
-  %236 = load i32, ptr %55, align 4
-  %.not1996 = icmp ne i32 %236, 0
-  %or.cond.not = select i1 %235, i1 %.not1996, i1 false
+232:                                              ; preds = %65
+  %233 = call noundef zeroext i1 @_ZN19btPrimitiveTriangle35find_triangle_collision_clip_methodERS_R20GIM_TRIANGLE_CONTACT(ptr noundef nonnull align 4 dereferenceable(72) %8, ptr noundef nonnull align 4 dereferenceable(72) %9, ptr noundef nonnull align 4 dereferenceable(280) %10)
+  %234 = load i32, ptr %55, align 4
+  %.not1997 = icmp ne i32 %234, 0
+  %or.cond.not = select i1 %233, i1 %.not1997, i1 false
   br i1 %or.cond.not, label %.lr.ph.preheader, label %.loopexit
 
-.lr.ph.preheader:                                 ; preds = %234
-  %237 = sext i32 %236 to i64
+.lr.ph.preheader:                                 ; preds = %232
+  %235 = sext i32 %234 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN27btGImpactCollisionAlgorithm15addContactPointEPK24btCollisionObjectWrapperS2_RK9btVector3S5_f.exit
-  %indvars.iv = phi i64 [ %237, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZN27btGImpactCollisionAlgorithm15addContactPointEPK24btCollisionObjectWrapperS2_RK9btVector3S5_f.exit ]
+  %indvars.iv = phi i64 [ %235, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZN27btGImpactCollisionAlgorithm15addContactPointEPK24btCollisionObjectWrapperS2_RK9btVector3S5_f.exit ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %238 = getelementptr inbounds %class.btVector3, ptr %56, i64 %indvars.iv.next
-  %239 = load float, ptr %10, align 4, !tbaa !93
-  %240 = fneg float %239
-  %241 = load ptr, ptr %58, align 8, !tbaa !21
-  %242 = load i32, ptr %59, align 4, !tbaa !22
-  %243 = load i32, ptr %29, align 8, !tbaa !23
-  %244 = load ptr, ptr %241, align 8, !tbaa !4
-  %245 = getelementptr inbounds nuw i8, ptr %244, i64 16
-  %246 = load ptr, ptr %245, align 8
-  call void %246(ptr noundef nonnull align 8 dereferenceable(52) %241, i32 noundef %242, i32 noundef %243)
-  %247 = load ptr, ptr %58, align 8, !tbaa !21
-  %248 = load i32, ptr %60, align 4, !tbaa !24
-  %249 = load i32, ptr %30, align 8, !tbaa !25
-  %250 = load ptr, ptr %247, align 8, !tbaa !4
-  %251 = getelementptr inbounds nuw i8, ptr %250, i64 24
-  %252 = load ptr, ptr %251, align 8
-  call void %252(ptr noundef nonnull align 8 dereferenceable(52) %247, i32 noundef %248, i32 noundef %249)
-  %253 = load ptr, ptr %61, align 8, !tbaa !7
-  %254 = icmp eq ptr %253, null
-  br i1 %254, label %255, label %_ZN27btGImpactCollisionAlgorithm15addContactPointEPK24btCollisionObjectWrapperS2_RK9btVector3S5_f.exit
+  %236 = getelementptr inbounds %class.btVector3, ptr %56, i64 %indvars.iv.next
+  %237 = load float, ptr %10, align 4, !tbaa !93
+  %238 = fneg float %237
+  %239 = load ptr, ptr %58, align 8, !tbaa !21
+  %240 = load i32, ptr %59, align 4, !tbaa !22
+  %241 = load i32, ptr %29, align 8, !tbaa !23
+  %242 = load ptr, ptr %239, align 8, !tbaa !4
+  %243 = getelementptr inbounds nuw i8, ptr %242, i64 16
+  %244 = load ptr, ptr %243, align 8
+  call void %244(ptr noundef nonnull align 8 dereferenceable(52) %239, i32 noundef %240, i32 noundef %241)
+  %245 = load ptr, ptr %58, align 8, !tbaa !21
+  %246 = load i32, ptr %60, align 4, !tbaa !24
+  %247 = load i32, ptr %30, align 8, !tbaa !25
+  %248 = load ptr, ptr %245, align 8, !tbaa !4
+  %249 = getelementptr inbounds nuw i8, ptr %248, i64 24
+  %250 = load ptr, ptr %249, align 8
+  call void %250(ptr noundef nonnull align 8 dereferenceable(52) %245, i32 noundef %246, i32 noundef %247)
+  %251 = load ptr, ptr %61, align 8, !tbaa !7
+  %252 = icmp eq ptr %251, null
+  br i1 %252, label %253, label %_ZN27btGImpactCollisionAlgorithm15addContactPointEPK24btCollisionObjectWrapperS2_RK9btVector3S5_f.exit
 
-255:                                              ; preds = %.lr.ph
-  %256 = load ptr, ptr %62, align 8, !tbaa !26
-  %257 = load ptr, ptr %63, align 8, !tbaa !26
-  %258 = load ptr, ptr %64, align 8, !tbaa !19
-  %259 = load ptr, ptr %258, align 8, !tbaa !4
-  %260 = getelementptr inbounds nuw i8, ptr %259, i64 24
-  %261 = load ptr, ptr %260, align 8
-  %262 = call noundef ptr %261(ptr noundef nonnull align 8 dereferenceable(8) %258, ptr noundef %256, ptr noundef %257)
-  store ptr %262, ptr %61, align 8, !tbaa !7
+253:                                              ; preds = %.lr.ph
+  %254 = load ptr, ptr %62, align 8, !tbaa !26
+  %255 = load ptr, ptr %63, align 8, !tbaa !26
+  %256 = load ptr, ptr %64, align 8, !tbaa !19
+  %257 = load ptr, ptr %256, align 8, !tbaa !4
+  %258 = getelementptr inbounds nuw i8, ptr %257, i64 24
+  %259 = load ptr, ptr %258, align 8
+  %260 = call noundef ptr %259(ptr noundef nonnull align 8 dereferenceable(8) %256, ptr noundef %254, ptr noundef %255)
+  store ptr %260, ptr %61, align 8, !tbaa !7
   br label %_ZN27btGImpactCollisionAlgorithm15addContactPointEPK24btCollisionObjectWrapperS2_RK9btVector3S5_f.exit
 
-_ZN27btGImpactCollisionAlgorithm15addContactPointEPK24btCollisionObjectWrapperS2_RK9btVector3S5_f.exit: ; preds = %.lr.ph, %255
-  %263 = phi ptr [ %262, %255 ], [ %253, %.lr.ph ]
-  %264 = load ptr, ptr %58, align 8, !tbaa !21
-  %265 = getelementptr inbounds nuw i8, ptr %264, i64 8
-  store ptr %263, ptr %265, align 8, !tbaa !32
-  %266 = load ptr, ptr %264, align 8, !tbaa !4
-  %267 = getelementptr inbounds nuw i8, ptr %266, i64 32
-  %268 = load ptr, ptr %267, align 8
-  call void %268(ptr noundef nonnull align 8 dereferenceable(52) %264, ptr noundef nonnull align 4 dereferenceable(16) %57, ptr noundef nonnull align 4 dereferenceable(16) %238, float noundef %240)
+_ZN27btGImpactCollisionAlgorithm15addContactPointEPK24btCollisionObjectWrapperS2_RK9btVector3S5_f.exit: ; preds = %.lr.ph, %253
+  %261 = phi ptr [ %260, %253 ], [ %251, %.lr.ph ]
+  %262 = load ptr, ptr %58, align 8, !tbaa !21
+  %263 = getelementptr inbounds nuw i8, ptr %262, i64 8
+  store ptr %261, ptr %263, align 8, !tbaa !32
+  %264 = load ptr, ptr %262, align 8, !tbaa !4
+  %265 = getelementptr inbounds nuw i8, ptr %264, i64 32
+  %266 = load ptr, ptr %265, align 8
+  call void %266(ptr noundef nonnull align 8 dereferenceable(52) %262, ptr noundef nonnull align 4 dereferenceable(16) %57, ptr noundef nonnull align 4 dereferenceable(16) %236, float noundef %238)
   %.not19 = icmp eq i64 %indvars.iv.next, 0
   br i1 %.not19, label %.loopexit, label %.lr.ph, !llvm.loop !95
 
-.loopexit:                                        ; preds = %_ZN27btGImpactCollisionAlgorithm15addContactPointEPK24btCollisionObjectWrapperS2_RK9btVector3S5_f.exit, %234, %65
+.loopexit:                                        ; preds = %_ZN27btGImpactCollisionAlgorithm15addContactPointEPK24btCollisionObjectWrapperS2_RK9btVector3S5_f.exit, %232, %65
   %.not = icmp eq i32 %66, 0
   br i1 %.not, label %._crit_edge, label %65, !llvm.loop !96
 
 ._crit_edge:                                      ; preds = %.loopexit, %7
-  %269 = load ptr, ptr %3, align 8, !tbaa !4
-  %270 = getelementptr inbounds nuw i8, ptr %269, i64 232
-  %271 = load ptr, ptr %270, align 8
-  call void %271(ptr noundef nonnull align 8 dereferenceable(280) %3)
-  %272 = load ptr, ptr %4, align 8, !tbaa !4
-  %273 = getelementptr inbounds nuw i8, ptr %272, i64 232
-  %274 = load ptr, ptr %273, align 8
-  call void %274(ptr noundef nonnull align 8 dereferenceable(280) %4)
+  %267 = load ptr, ptr %3, align 8, !tbaa !4
+  %268 = getelementptr inbounds nuw i8, ptr %267, i64 232
+  %269 = load ptr, ptr %268, align 8
+  call void %269(ptr noundef nonnull align 8 dereferenceable(280) %3)
+  %270 = load ptr, ptr %4, align 8, !tbaa !4
+  %271 = getelementptr inbounds nuw i8, ptr %270, i64 232
+  %272 = load ptr, ptr %271, align 8
+  call void %272(ptr noundef nonnull align 8 dereferenceable(280) %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -4628,27 +4628,27 @@ define linkonce_odr dso_local void @_ZNK15btTriangleShape32getPreferredPenetrati
   %38 = fmul float %33, %33
   %39 = tail call float @llvm.fmuladd.f32(float %30, float %30, float %38)
   %40 = tail call noundef float @llvm.fmuladd.f32(float %36, float %36, float %39)
-  %41 = tail call noundef float @sqrtf(float noundef %40) #18, !tbaa !83
-  %42 = fdiv float 1.000000e+00, %41
-  %43 = fmul float %30, %42
-  store float %43, ptr %2, align 4, !tbaa !55
-  %44 = fmul float %33, %42
-  store float %44, ptr %37, align 4, !tbaa !55
-  %45 = fmul float %36, %42
-  store float %45, ptr %.sroa.4.0..sroa_idx.i, align 4, !tbaa !55
+  %sqrt.i.i.i = tail call noundef float @llvm.sqrt.f32(float %40)
+  %41 = fdiv float 1.000000e+00, %sqrt.i.i.i
+  %42 = fmul float %30, %41
+  store float %42, ptr %2, align 4, !tbaa !55
+  %43 = fmul float %33, %41
+  store float %43, ptr %37, align 4, !tbaa !55
+  %44 = fmul float %36, %41
+  store float %44, ptr %.sroa.4.0..sroa_idx.i, align 4, !tbaa !55
   %.not = icmp eq i32 %1, 0
-  br i1 %.not, label %50, label %46
+  br i1 %.not, label %49, label %45
 
-46:                                               ; preds = %3
+45:                                               ; preds = %3
+  %46 = fneg float %42
+  store float %46, ptr %2, align 4, !tbaa !55
   %47 = fneg float %43
-  store float %47, ptr %2, align 4, !tbaa !55
+  store float %47, ptr %37, align 4, !tbaa !55
   %48 = fneg float %44
-  store float %48, ptr %37, align 4, !tbaa !55
-  %49 = fneg float %45
-  store float %49, ptr %.sroa.4.0..sroa_idx.i, align 4, !tbaa !55
-  br label %50
+  store float %48, ptr %.sroa.4.0..sroa_idx.i, align 4, !tbaa !55
+  br label %49
 
-50:                                               ; preds = %46, %3
+49:                                               ; preds = %45, %3
   ret void
 }
 
@@ -4744,90 +4744,90 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK15btTriangleShape8isInside
   %39 = fmul float %35, %35
   %40 = tail call float @llvm.fmuladd.f32(float %32, float %32, float %39)
   %41 = tail call noundef float @llvm.fmuladd.f32(float %38, float %38, float %40)
-  %42 = tail call noundef float @sqrtf(float noundef %41) #18, !tbaa !83
-  %43 = fdiv float 1.000000e+00, %42
-  %44 = fmul float %32, %43
-  %45 = fmul float %43, %35
-  %46 = fmul float %38, %43
-  %47 = load float, ptr %1, align 4, !tbaa !55
-  %48 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %49 = load float, ptr %48, align 4, !tbaa !55
-  %50 = fmul float %49, %45
-  %51 = tail call float @llvm.fmuladd.f32(float %47, float %44, float %50)
-  %52 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %53 = load float, ptr %52, align 4, !tbaa !55
-  %54 = tail call noundef float @llvm.fmuladd.f32(float %53, float %46, float %51)
-  %55 = fmul float %45, %14
-  %56 = tail call float @llvm.fmuladd.f32(float %9, float %44, float %55)
-  %57 = tail call noundef float @llvm.fmuladd.f32(float %19, float %46, float %56)
-  %58 = fsub float %54, %57
-  %59 = fneg float %2
-  %60 = fcmp ult float %58, %59
-  %61 = fcmp ugt float %58, %2
-  %or.cond = or i1 %60, %61
+  %sqrt.i.i.i = tail call noundef float @llvm.sqrt.f32(float %41)
+  %42 = fdiv float 1.000000e+00, %sqrt.i.i.i
+  %43 = fmul float %32, %42
+  %44 = fmul float %35, %42
+  %45 = fmul float %38, %42
+  %46 = load float, ptr %1, align 4, !tbaa !55
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %48 = load float, ptr %47, align 4, !tbaa !55
+  %49 = fmul float %48, %44
+  %50 = tail call float @llvm.fmuladd.f32(float %46, float %43, float %49)
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %52 = load float, ptr %51, align 4, !tbaa !55
+  %53 = tail call noundef float @llvm.fmuladd.f32(float %52, float %45, float %50)
+  %54 = fmul float %14, %44
+  %55 = tail call float @llvm.fmuladd.f32(float %9, float %43, float %54)
+  %56 = tail call noundef float @llvm.fmuladd.f32(float %19, float %45, float %55)
+  %57 = fsub float %53, %56
+  %58 = fneg float %2
+  %59 = fcmp ult float %57, %58
+  %60 = fcmp ugt float %57, %2
+  %or.cond = or i1 %59, %60
   br i1 %or.cond, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %3
-  %62 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %63 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %64 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %65 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %62 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %63 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %65 = fneg float %44
   %66 = fneg float %45
-  %67 = fneg float %46
-  %68 = fneg float %44
-  br label %69
+  %67 = fneg float %43
+  br label %68
 
-69:                                               ; preds = %69, %.preheader
-  %.01852 = phi i32 [ 0, %.preheader ], [ %107, %69 ]
+68:                                               ; preds = %68, %.preheader
+  %.01852 = phi i32 [ 0, %.preheader ], [ %105, %68 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %70 = load ptr, ptr %0, align 8, !tbaa !4
-  %71 = getelementptr inbounds nuw i8, ptr %70, i64 216
-  %72 = load ptr, ptr %71, align 8
-  call void %72(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %.01852, ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(16) %5)
-  %73 = load float, ptr %5, align 4, !tbaa !55
-  %74 = load float, ptr %4, align 4, !tbaa !55
-  %75 = fsub float %73, %74
+  %69 = load ptr, ptr %0, align 8, !tbaa !4
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 216
+  %71 = load ptr, ptr %70, align 8
+  call void %71(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %.01852, ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(16) %5)
+  %72 = load float, ptr %5, align 4, !tbaa !55
+  %73 = load float, ptr %4, align 4, !tbaa !55
+  %74 = fsub float %72, %73
+  %75 = load float, ptr %61, align 4, !tbaa !55
   %76 = load float, ptr %62, align 4, !tbaa !55
-  %77 = load float, ptr %63, align 4, !tbaa !55
-  %78 = fsub float %76, %77
+  %77 = fsub float %75, %76
+  %78 = load float, ptr %63, align 4, !tbaa !55
   %79 = load float, ptr %64, align 4, !tbaa !55
-  %80 = load float, ptr %65, align 4, !tbaa !55
-  %81 = fsub float %79, %80
-  %82 = fmul float %81, %66
-  %83 = call float @llvm.fmuladd.f32(float %78, float %46, float %82)
-  %84 = fmul float %75, %67
-  %85 = call float @llvm.fmuladd.f32(float %81, float %44, float %84)
-  %86 = fmul float %78, %68
-  %87 = call float @llvm.fmuladd.f32(float %75, float %45, float %86)
-  %88 = fmul float %85, %85
-  %89 = call float @llvm.fmuladd.f32(float %83, float %83, float %88)
-  %90 = call noundef float @llvm.fmuladd.f32(float %87, float %87, float %89)
-  %91 = call noundef float @sqrtf(float noundef %90) #18, !tbaa !83
-  %92 = fdiv float 1.000000e+00, %91
-  %93 = fmul float %92, %83
-  %94 = fmul float %85, %92
-  %95 = fmul float %87, %92
-  %96 = load float, ptr %1, align 4, !tbaa !55
-  %97 = load float, ptr %48, align 4, !tbaa !55
-  %98 = fmul float %97, %94
-  %99 = call float @llvm.fmuladd.f32(float %96, float %93, float %98)
-  %100 = load float, ptr %52, align 4, !tbaa !55
-  %101 = call noundef float @llvm.fmuladd.f32(float %100, float %95, float %99)
-  %102 = fmul float %77, %94
-  %103 = call float @llvm.fmuladd.f32(float %74, float %93, float %102)
-  %104 = call noundef float @llvm.fmuladd.f32(float %80, float %95, float %103)
-  %105 = fsub float %101, %104
-  %106 = fcmp uge float %105, %59
+  %80 = fsub float %78, %79
+  %81 = fmul float %80, %65
+  %82 = call float @llvm.fmuladd.f32(float %77, float %45, float %81)
+  %83 = fmul float %74, %66
+  %84 = call float @llvm.fmuladd.f32(float %80, float %43, float %83)
+  %85 = fmul float %77, %67
+  %86 = call float @llvm.fmuladd.f32(float %74, float %44, float %85)
+  %87 = fmul float %84, %84
+  %88 = call float @llvm.fmuladd.f32(float %82, float %82, float %87)
+  %89 = call noundef float @llvm.fmuladd.f32(float %86, float %86, float %88)
+  %sqrt.i.i = call noundef float @llvm.sqrt.f32(float %89)
+  %90 = fdiv float 1.000000e+00, %sqrt.i.i
+  %91 = fmul float %82, %90
+  %92 = fmul float %84, %90
+  %93 = fmul float %86, %90
+  %94 = load float, ptr %1, align 4, !tbaa !55
+  %95 = load float, ptr %47, align 4, !tbaa !55
+  %96 = fmul float %95, %92
+  %97 = call float @llvm.fmuladd.f32(float %94, float %91, float %96)
+  %98 = load float, ptr %51, align 4, !tbaa !55
+  %99 = call noundef float @llvm.fmuladd.f32(float %98, float %93, float %97)
+  %100 = fmul float %76, %92
+  %101 = call float @llvm.fmuladd.f32(float %73, float %91, float %100)
+  %102 = call noundef float @llvm.fmuladd.f32(float %79, float %93, float %101)
+  %103 = fsub float %99, %102
+  %104 = fcmp uge float %103, %58
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %107 = add nuw nsw i32 %.01852, 1
-  %exitcond = icmp ne i32 %107, 3
-  %or.cond54.not = select i1 %106, i1 %exitcond, i1 false
-  br i1 %or.cond54.not, label %69, label %.loopexit, !llvm.loop !220
+  %105 = add nuw nsw i32 %.01852, 1
+  %exitcond = icmp ne i32 %105, 3
+  %or.cond54.not = select i1 %104, i1 %exitcond, i1 false
+  br i1 %or.cond54.not, label %68, label %.loopexit, !llvm.loop !220
 
-.loopexit:                                        ; preds = %69, %3
-  %.3 = phi i1 [ false, %3 ], [ %106, %69 ]
+.loopexit:                                        ; preds = %68, %3
+  %.3 = phi i1 [ false, %3 ], [ %104, %68 ]
   ret i1 %.3
 }
 
@@ -4873,14 +4873,14 @@ define linkonce_odr dso_local void @_ZNK15btTriangleShape16getPlaneEquationEiR9b
   %39 = fmul float %34, %34
   %40 = tail call float @llvm.fmuladd.f32(float %31, float %31, float %39)
   %41 = tail call noundef float @llvm.fmuladd.f32(float %37, float %37, float %40)
-  %42 = tail call noundef float @sqrtf(float noundef %41) #18, !tbaa !83
-  %43 = fdiv float 1.000000e+00, %42
-  %44 = fmul float %31, %43
-  store float %44, ptr %2, align 4, !tbaa !55
-  %45 = fmul float %34, %43
-  store float %45, ptr %38, align 4, !tbaa !55
-  %46 = fmul float %37, %43
-  store float %46, ptr %.sroa.4.0..sroa_idx.i, align 4, !tbaa !55
+  %sqrt.i.i.i = tail call noundef float @llvm.sqrt.f32(float %41)
+  %42 = fdiv float 1.000000e+00, %sqrt.i.i.i
+  %43 = fmul float %31, %42
+  store float %43, ptr %2, align 4, !tbaa !55
+  %44 = fmul float %34, %42
+  store float %44, ptr %38, align 4, !tbaa !55
+  %45 = fmul float %37, %42
+  store float %45, ptr %.sroa.4.0..sroa_idx.i, align 4, !tbaa !55
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false), !tbaa.struct !106
   ret void
 }
@@ -4888,9 +4888,6 @@ define linkonce_odr dso_local void @_ZNK15btTriangleShape16getPlaneEquationEiR9b
 declare void @_ZN23btPolyhedralConvexShapeC2Ev(ptr noundef nonnull align 8 dereferenceable(80)) unnamed_addr #1
 
 declare noundef ptr @_ZNK16btCollisionShape9serializeEPvP12btSerializer(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, ptr noundef) unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare float @sqrtf(float noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN18GIM_ShapeRetriever19ChildShapeRetrieverD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #2 comdat align 2 {
@@ -5170,13 +5167,16 @@ define linkonce_odr dso_local noundef ptr @_ZN27btGImpactCollisionAlgorithm10Cre
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #15
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #14
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #15
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #16
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #15
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.sqrt.f32(float) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #17
@@ -5195,9 +5195,9 @@ attributes #10 = { nofree nounwind }
 attributes #11 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #12 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #16 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #14 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #15 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #16 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #17 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #18 = { nounwind }
 attributes #19 = { noreturn nounwind }

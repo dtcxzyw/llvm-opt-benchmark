@@ -4381,7 +4381,7 @@ define linkonce_odr hidden { <2 x float>, float } @_ZNK2cv5kinfu13TSDFVolumeCPU1
   %44 = load float, ptr getelementptr inbounds nuw (i8, ptr @_ZN2cv5kinfuL4nan3E, i64 4), align 4, !tbaa !33
   %.sroa.0.4.vec.insert = insertelement <2 x float> %.sroa.0.0.vec.insert, float %44, i64 1
   %45 = load float, ptr getelementptr inbounds nuw (i8, ptr @_ZN2cv5kinfuL4nan3E, i64 8), align 4, !tbaa !33
-  br label %140
+  br label %139
 
 46:                                               ; preds = %36
   %47 = tail call float @llvm.floor.f32(float %14)
@@ -4411,9 +4411,9 @@ define linkonce_odr hidden { <2 x float>, float } @_ZNK2cv5kinfu13TSDFVolumeCPU1
   %69 = getelementptr inbounds nuw i8, ptr %4, i64 20
   %70 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %71 = getelementptr inbounds nuw i8, ptr %4, i64 28
-  br label %83
+  br label %82
 
-72:                                               ; preds = %86
+72:                                               ; preds = %85
   %73 = load float, ptr %3, align 4, !tbaa !33
   %74 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %75 = load float, ptr %74, align 4, !tbaa !33
@@ -4422,106 +4422,106 @@ define linkonce_odr hidden { <2 x float>, float } @_ZNK2cv5kinfu13TSDFVolumeCPU1
   %78 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %79 = load float, ptr %78, align 4, !tbaa !33
   %80 = tail call float @llvm.fmuladd.f32(float %79, float %79, float %77)
-  %81 = tail call noundef float @sqrtf(float noundef %80) #30, !tbaa !14
+  %sqrt = tail call float @llvm.sqrt.f32(float %80)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %82 = fcmp olt float %81, 0x3F1A36E2E0000000
-  br i1 %82, label %.preheader.preheader, label %128
+  %81 = fcmp olt float %sqrt, 0x3F1A36E2E0000000
+  br i1 %81, label %.preheader.preheader, label %127
 
 .preheader.preheader:                             ; preds = %72
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %5, ptr noundef nonnull align 4 dereferenceable(12) @_ZN2cv5kinfuL4nan3E, i64 12, i1 false), !tbaa !33
   br label %_ZN2cv3VecIfLi3EEC2ERKS1_.exit
 
-83:                                               ; preds = %46, %86
-  %indvars.iv70 = phi i64 [ 0, %46 ], [ %indvars.iv.next71, %86 ]
-  %84 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv70
-  %85 = load i32, ptr %84, align 4, !tbaa !14
+82:                                               ; preds = %46, %85
+  %indvars.iv70 = phi i64 [ 0, %46 ], [ %indvars.iv.next71, %85 ]
+  %83 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv70
+  %84 = load i32, ptr %83, align 4, !tbaa !14
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  br label %110
+  br label %109
 
-86:                                               ; preds = %110
-  %87 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv70
-  %88 = load float, ptr %4, align 16, !tbaa !33
-  %89 = load float, ptr %65, align 4, !tbaa !33
-  %90 = fsub float %89, %88
-  %91 = tail call float @llvm.fmuladd.f32(float %58, float %90, float %88)
-  %92 = load float, ptr %66, align 8, !tbaa !33
-  %93 = load float, ptr %67, align 4, !tbaa !33
-  %94 = fsub float %93, %92
-  %95 = tail call float @llvm.fmuladd.f32(float %58, float %94, float %92)
-  %96 = load float, ptr %68, align 16, !tbaa !33
-  %97 = load float, ptr %69, align 4, !tbaa !33
-  %98 = fsub float %97, %96
-  %99 = tail call float @llvm.fmuladd.f32(float %58, float %98, float %96)
-  %100 = load float, ptr %70, align 8, !tbaa !33
-  %101 = load float, ptr %71, align 4, !tbaa !33
-  %102 = fsub float %101, %100
-  %103 = tail call float @llvm.fmuladd.f32(float %58, float %102, float %100)
-  %104 = fsub float %95, %91
-  %105 = tail call float @llvm.fmuladd.f32(float %56, float %104, float %91)
-  %106 = fsub float %103, %99
-  %107 = tail call float @llvm.fmuladd.f32(float %56, float %106, float %99)
-  %108 = fsub float %107, %105
-  %109 = tail call float @llvm.fmuladd.f32(float %54, float %108, float %105)
-  store float %109, ptr %87, align 4, !tbaa !33
+85:                                               ; preds = %109
+  %86 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv70
+  %87 = load float, ptr %4, align 16, !tbaa !33
+  %88 = load float, ptr %65, align 4, !tbaa !33
+  %89 = fsub float %88, %87
+  %90 = tail call float @llvm.fmuladd.f32(float %58, float %89, float %87)
+  %91 = load float, ptr %66, align 8, !tbaa !33
+  %92 = load float, ptr %67, align 4, !tbaa !33
+  %93 = fsub float %92, %91
+  %94 = tail call float @llvm.fmuladd.f32(float %58, float %93, float %91)
+  %95 = load float, ptr %68, align 16, !tbaa !33
+  %96 = load float, ptr %69, align 4, !tbaa !33
+  %97 = fsub float %96, %95
+  %98 = tail call float @llvm.fmuladd.f32(float %58, float %97, float %95)
+  %99 = load float, ptr %70, align 8, !tbaa !33
+  %100 = load float, ptr %71, align 4, !tbaa !33
+  %101 = fsub float %100, %99
+  %102 = tail call float @llvm.fmuladd.f32(float %58, float %101, float %99)
+  %103 = fsub float %94, %90
+  %104 = tail call float @llvm.fmuladd.f32(float %56, float %103, float %90)
+  %105 = fsub float %102, %98
+  %106 = tail call float @llvm.fmuladd.f32(float %56, float %105, float %98)
+  %107 = fsub float %106, %104
+  %108 = tail call float @llvm.fmuladd.f32(float %54, float %107, float %104)
+  store float %108, ptr %86, align 4, !tbaa !33
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
   %exitcond73.not = icmp eq i64 %indvars.iv.next71, 3
-  br i1 %exitcond73.not, label %72, label %83, !llvm.loop !284
+  br i1 %exitcond73.not, label %72, label %82, !llvm.loop !284
 
-110:                                              ; preds = %83, %110
-  %indvars.iv = phi i64 [ 0, %83 ], [ %indvars.iv.next, %110 ]
-  %111 = getelementptr inbounds nuw i32, ptr %64, i64 %indvars.iv
-  %112 = load i32, ptr %111, align 4, !tbaa !14
-  %113 = add nsw i32 %63, %112
-  %114 = add nsw i32 %113, %85
-  %115 = sext i32 %114 to i64
-  %116 = getelementptr inbounds %"struct.cv::kinfu::TsdfVoxel", ptr %13, i64 %115
-  %117 = load i8, ptr %116, align 1, !tbaa !252
-  %118 = sitofp i8 %117 to float
-  %119 = fmul float %118, -7.812500e-03
-  %120 = sub nsw i32 %113, %85
-  %121 = sext i32 %120 to i64
-  %122 = getelementptr inbounds %"struct.cv::kinfu::TsdfVoxel", ptr %13, i64 %121
-  %123 = load i8, ptr %122, align 1, !tbaa !252
-  %124 = sitofp i8 %123 to float
-  %125 = fmul float %124, 7.812500e-03
-  %126 = fadd float %119, %125
-  %127 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv
-  store float %126, ptr %127, align 4, !tbaa !33
+109:                                              ; preds = %82, %109
+  %indvars.iv = phi i64 [ 0, %82 ], [ %indvars.iv.next, %109 ]
+  %110 = getelementptr inbounds nuw i32, ptr %64, i64 %indvars.iv
+  %111 = load i32, ptr %110, align 4, !tbaa !14
+  %112 = add nsw i32 %63, %111
+  %113 = add nsw i32 %112, %84
+  %114 = sext i32 %113 to i64
+  %115 = getelementptr inbounds %"struct.cv::kinfu::TsdfVoxel", ptr %13, i64 %114
+  %116 = load i8, ptr %115, align 1, !tbaa !252
+  %117 = sitofp i8 %116 to float
+  %118 = fmul float %117, -7.812500e-03
+  %119 = sub nsw i32 %112, %84
+  %120 = sext i32 %119 to i64
+  %121 = getelementptr inbounds %"struct.cv::kinfu::TsdfVoxel", ptr %13, i64 %120
+  %122 = load i8, ptr %121, align 1, !tbaa !252
+  %123 = sitofp i8 %122 to float
+  %124 = fmul float %123, 7.812500e-03
+  %125 = fadd float %118, %124
+  %126 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv
+  store float %125, ptr %126, align 4, !tbaa !33
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %86, label %110, !llvm.loop !285
+  br i1 %exitcond.not, label %85, label %109, !llvm.loop !285
 
-128:                                              ; preds = %72
+127:                                              ; preds = %72
   tail call void @llvm.experimental.noalias.scope.decl(metadata !286)
-  %129 = fdiv float 1.000000e+00, %81
-  br label %130
+  %128 = fdiv float 1.000000e+00, %sqrt
+  br label %129
 
-130:                                              ; preds = %130, %128
-  %indvars.iv.i.i.i = phi i64 [ 0, %128 ], [ %indvars.iv.next.i.i.i, %130 ]
-  %131 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv.i.i.i
-  %132 = load float, ptr %131, align 4, !tbaa !33, !noalias !286
-  %133 = fmul float %129, %132
-  %134 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv.i.i.i
-  store float %133, ptr %134, align 4, !tbaa !33, !alias.scope !286
+129:                                              ; preds = %129, %127
+  %indvars.iv.i.i.i = phi i64 [ 0, %127 ], [ %indvars.iv.next.i.i.i, %129 ]
+  %130 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv.i.i.i
+  %131 = load float, ptr %130, align 4, !tbaa !33, !noalias !286
+  %132 = fmul float %128, %131
+  %133 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv.i.i.i
+  store float %132, ptr %133, align 4, !tbaa !33, !alias.scope !286
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZN2cv3VecIfLi3EEC2ERKS1_.exit, label %130, !llvm.loop !289
+  br i1 %exitcond.not.i.i.i, label %_ZN2cv3VecIfLi3EEC2ERKS1_.exit, label %129, !llvm.loop !289
 
-_ZN2cv3VecIfLi3EEC2ERKS1_.exit:                   ; preds = %130, %.preheader.preheader
-  %135 = load float, ptr %5, align 4, !tbaa !33
-  %.sroa.0.0.vec.insert62 = insertelement <2 x float> poison, float %135, i64 0
-  %136 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %137 = load float, ptr %136, align 4, !tbaa !33
-  %.sroa.0.4.vec.insert64 = insertelement <2 x float> %.sroa.0.0.vec.insert62, float %137, i64 1
-  %138 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %139 = load float, ptr %138, align 4, !tbaa !33
+_ZN2cv3VecIfLi3EEC2ERKS1_.exit:                   ; preds = %129, %.preheader.preheader
+  %134 = load float, ptr %5, align 4, !tbaa !33
+  %.sroa.0.0.vec.insert62 = insertelement <2 x float> poison, float %134, i64 0
+  %135 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %136 = load float, ptr %135, align 4, !tbaa !33
+  %.sroa.0.4.vec.insert64 = insertelement <2 x float> %.sroa.0.0.vec.insert62, float %136, i64 1
+  %137 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %138 = load float, ptr %137, align 4, !tbaa !33
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %140
+  br label %139
 
-140:                                              ; preds = %_ZN2cv3VecIfLi3EEC2ERKS1_.exit, %42
-  %.sroa.5.0 = phi float [ %45, %42 ], [ %139, %_ZN2cv3VecIfLi3EEC2ERKS1_.exit ]
+139:                                              ; preds = %_ZN2cv3VecIfLi3EEC2ERKS1_.exit, %42
+  %.sroa.5.0 = phi float [ %45, %42 ], [ %138, %_ZN2cv3VecIfLi3EEC2ERKS1_.exit ]
   %.sroa.0.0 = phi <2 x float> [ %.sroa.0.4.vec.insert, %42 ], [ %.sroa.0.4.vec.insert64, %_ZN2cv3VecIfLi3EEC2ERKS1_.exit ]
   %.fca.0.insert = insertvalue { <2 x float>, float } poison, <2 x float> %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { <2 x float>, float } %.fca.0.insert, float %.sroa.5.0, 1
@@ -4539,9 +4539,6 @@ declare float @llvm.floor.f32(float) #17
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
 declare i32 @llvm.x86.sse.cvtss2si(<4 x float>) #21
-
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare float @sqrtf(float noundef) local_unnamed_addr #20
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv5kinfu25FetchPointsNormalsInvokerD0Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #8 comdat align 2 {
@@ -6772,6 +6769,9 @@ declare i64 @llvm.umin.i64(i64, i64) #26
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #27
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.sqrt.f32(float) #26
 
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }

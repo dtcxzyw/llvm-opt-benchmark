@@ -3112,7 +3112,7 @@ define void @_ZNK3gmx24AbstractAverageHistogram22resampleDoubleBinWidthEb(ptr de
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZdlPvm(ptr noundef nonnull %11, i64 noundef 128) #33
-  br label %145
+  br label %143
 
 45:                                               ; preds = %39, %38, %36
   %46 = landingpad { ptr, i32 }
@@ -3120,7 +3120,7 @@ define void @_ZNK3gmx24AbstractAverageHistogram22resampleDoubleBinWidthEb(ptr de
   br label %_ZNSt10unique_ptrIN3gmx24AbstractAverageHistogramESt14default_deleteIS1_EED2Ev.exit
 
 47:                                               ; preds = %.lr.ph, %.split72.us
-  %.04683 = phi i32 [ 0, %.lr.ph ], [ %84, %.split72.us ]
+  %.04683 = phi i32 [ 0, %.lr.ph ], [ %83, %.split72.us ]
   %.04782 = phi i32 [ 0, %.lr.ph ], [ %.148, %.split72.us ]
   %48 = icmp eq i32 %.04683, 0
   %49 = and i1 %2, %48
@@ -3161,157 +3161,157 @@ define void @_ZNK3gmx24AbstractAverageHistogram22resampleDoubleBinWidthEb(ptr de
   %69 = getelementptr inbounds nuw %"class.gmx::AnalysisDataValue", ptr %68, i64 %indvars.iv
   %70 = fadd float %60, 0.000000e+00
   %71 = call float @llvm.fmuladd.f32(float %65, float %65, float 0.000000e+00)
-  %72 = call noundef float @sqrtf(float noundef %71) #32, !tbaa !60
+  %sqrt.us = call float @llvm.sqrt.f32(float %71)
   store float %70, ptr %69, align 8, !tbaa !61
-  %73 = getelementptr inbounds nuw i8, ptr %69, i64 4
-  store float %72, ptr %73, align 4, !tbaa !65
-  %74 = getelementptr inbounds nuw i8, ptr %69, i64 8
-  %75 = load i64, ptr %74, align 8, !tbaa !66
-  %76 = or i64 %75, 7
-  store i64 %76, ptr %74, align 8, !tbaa !66
+  %72 = getelementptr inbounds nuw i8, ptr %69, i64 4
+  store float %sqrt.us, ptr %72, align 4, !tbaa !65
+  %73 = getelementptr inbounds nuw i8, ptr %69, i64 8
+  %74 = load i64, ptr %73, align 8, !tbaa !66
+  %75 = or i64 %74, 7
+  store i64 %75, ptr %73, align 8, !tbaa !66
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   br label %.split.us, !llvm.loop !158
 
 .split70.us:                                      ; preds = %.split.us
-  %77 = landingpad { ptr, i32 }
+  %76 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt10unique_ptrIN3gmx24AbstractAverageHistogramESt14default_deleteIS1_EED2Ev.exit
 
 .split74.us:                                      ; preds = %55
-  %78 = landingpad { ptr, i32 }
+  %77 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt10unique_ptrIN3gmx24AbstractAverageHistogramESt14default_deleteIS1_EED2Ev.exit
 
 .split77.us:                                      ; preds = %57
-  %79 = landingpad { ptr, i32 }
+  %78 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt10unique_ptrIN3gmx24AbstractAverageHistogramESt14default_deleteIS1_EED2Ev.exit
 
 .split80.us:                                      ; preds = %.thread68.us
-  %80 = landingpad { ptr, i32 }
+  %79 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt10unique_ptrIN3gmx24AbstractAverageHistogramESt14default_deleteIS1_EED2Ev.exit
 
-.split:                                           ; preds = %47, %122
-  %.045 = phi i32 [ %136, %122 ], [ 0, %47 ]
-  %81 = invoke noundef i32 @_ZNK3gmx20AbstractAnalysisData11columnCountEv(ptr noundef nonnull align 8 dereferenceable(16) %1)
-          to label %82 unwind label %.split70
+.split:                                           ; preds = %47, %121
+  %.045 = phi i32 [ %134, %121 ], [ 0, %47 ]
+  %80 = invoke noundef i32 @_ZNK3gmx20AbstractAnalysisData11columnCountEv(ptr noundef nonnull align 8 dereferenceable(16) %1)
+          to label %81 unwind label %.split70
 
-82:                                               ; preds = %.split
-  %83 = icmp slt i32 %.045, %81
-  br i1 %83, label %86, label %.split72.us
+81:                                               ; preds = %.split
+  %82 = icmp slt i32 %.045, %80
+  br i1 %82, label %85, label %.split72.us
 
-.split72.us:                                      ; preds = %82, %52
-  %.148.v = phi i32 [ 1, %52 ], [ 2, %82 ]
+.split72.us:                                      ; preds = %81, %52
+  %.148.v = phi i32 [ 1, %52 ], [ 2, %81 ]
   %.148 = add nuw nsw i32 %.148.v, %.04782
-  %84 = add nuw nsw i32 %.04683, 1
-  %exitcond.not = icmp eq i32 %84, %10
+  %83 = add nuw nsw i32 %.04683, 1
+  %exitcond.not = icmp eq i32 %83, %10
   br i1 %exitcond.not, label %._crit_edge, label %47, !llvm.loop !159
 
 .split70:                                         ; preds = %.split
-  %85 = landingpad { ptr, i32 }
+  %84 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt10unique_ptrIN3gmx24AbstractAverageHistogramESt14default_deleteIS1_EED2Ev.exit
 
-86:                                               ; preds = %82
-  %87 = invoke noundef i32 @_ZNK3gmx20AbstractAnalysisData11columnCountEv(ptr noundef nonnull align 8 dereferenceable(98) %1)
-          to label %88 unwind label %.split74
+85:                                               ; preds = %81
+  %86 = invoke noundef i32 @_ZNK3gmx20AbstractAnalysisData11columnCountEv(ptr noundef nonnull align 8 dereferenceable(98) %1)
+          to label %87 unwind label %.split74
 
-88:                                               ; preds = %86
-  %89 = mul nsw i32 %87, %.04782
-  %90 = add nsw i32 %89, %.045
-  %91 = sext i32 %90 to i64
-  %92 = load ptr, ptr %41, align 8, !tbaa !54
-  %93 = getelementptr inbounds nuw %"class.gmx::AnalysisDataValue", ptr %92, i64 %91
-  %94 = load float, ptr %93, align 8, !tbaa !61
-  %95 = invoke noundef i32 @_ZNK3gmx20AbstractAnalysisData11columnCountEv(ptr noundef nonnull align 8 dereferenceable(98) %1)
-          to label %96 unwind label %138
+87:                                               ; preds = %85
+  %88 = mul nsw i32 %86, %.04782
+  %89 = add nsw i32 %88, %.045
+  %90 = sext i32 %89 to i64
+  %91 = load ptr, ptr %41, align 8, !tbaa !54
+  %92 = getelementptr inbounds nuw %"class.gmx::AnalysisDataValue", ptr %91, i64 %90
+  %93 = load float, ptr %92, align 8, !tbaa !61
+  %94 = invoke noundef i32 @_ZNK3gmx20AbstractAnalysisData11columnCountEv(ptr noundef nonnull align 8 dereferenceable(98) %1)
+          to label %95 unwind label %136
 
-96:                                               ; preds = %88
-  %97 = mul nsw i32 %95, %50
-  %98 = add nsw i32 %97, %.045
-  %99 = sext i32 %98 to i64
-  %100 = load ptr, ptr %41, align 8, !tbaa !54
-  %101 = getelementptr inbounds nuw %"class.gmx::AnalysisDataValue", ptr %100, i64 %99
-  %102 = load float, ptr %101, align 8, !tbaa !61
-  %103 = invoke noundef i32 @_ZNK3gmx20AbstractAnalysisData11columnCountEv(ptr noundef nonnull align 8 dereferenceable(98) %1)
-          to label %104 unwind label %.split77
+95:                                               ; preds = %87
+  %96 = mul nsw i32 %94, %50
+  %97 = add nsw i32 %96, %.045
+  %98 = sext i32 %97 to i64
+  %99 = load ptr, ptr %41, align 8, !tbaa !54
+  %100 = getelementptr inbounds nuw %"class.gmx::AnalysisDataValue", ptr %99, i64 %98
+  %101 = load float, ptr %100, align 8, !tbaa !61
+  %102 = invoke noundef i32 @_ZNK3gmx20AbstractAnalysisData11columnCountEv(ptr noundef nonnull align 8 dereferenceable(98) %1)
+          to label %103 unwind label %.split77
 
-104:                                              ; preds = %96
-  %105 = mul nsw i32 %103, %.04782
-  %106 = add nsw i32 %105, %.045
-  %107 = sext i32 %106 to i64
-  %108 = load ptr, ptr %41, align 8, !tbaa !54
-  %109 = getelementptr inbounds nuw %"class.gmx::AnalysisDataValue", ptr %108, i64 %107
-  %110 = getelementptr inbounds nuw i8, ptr %109, i64 4
-  %111 = load float, ptr %110, align 4, !tbaa !65
-  %112 = invoke noundef i32 @_ZNK3gmx20AbstractAnalysisData11columnCountEv(ptr noundef nonnull align 8 dereferenceable(98) %1)
-          to label %113 unwind label %.split80
+103:                                              ; preds = %95
+  %104 = mul nsw i32 %102, %.04782
+  %105 = add nsw i32 %104, %.045
+  %106 = sext i32 %105 to i64
+  %107 = load ptr, ptr %41, align 8, !tbaa !54
+  %108 = getelementptr inbounds nuw %"class.gmx::AnalysisDataValue", ptr %107, i64 %106
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 4
+  %110 = load float, ptr %109, align 4, !tbaa !65
+  %111 = invoke noundef i32 @_ZNK3gmx20AbstractAnalysisData11columnCountEv(ptr noundef nonnull align 8 dereferenceable(98) %1)
+          to label %112 unwind label %.split80
 
-113:                                              ; preds = %104
-  %114 = mul nsw i32 %112, %50
-  %115 = add nsw i32 %114, %.045
-  %116 = sext i32 %115 to i64
-  %117 = load ptr, ptr %41, align 8, !tbaa !54
-  %118 = getelementptr inbounds nuw %"class.gmx::AnalysisDataValue", ptr %117, i64 %116
-  %119 = getelementptr inbounds nuw i8, ptr %118, i64 4
-  %120 = load float, ptr %119, align 4, !tbaa !65
-  %121 = invoke noundef i32 @_ZNK3gmx20AbstractAnalysisData11columnCountEv(ptr noundef nonnull align 8 dereferenceable(98) %11)
-          to label %122 unwind label %.split80
+112:                                              ; preds = %103
+  %113 = mul nsw i32 %111, %50
+  %114 = add nsw i32 %113, %.045
+  %115 = sext i32 %114 to i64
+  %116 = load ptr, ptr %41, align 8, !tbaa !54
+  %117 = getelementptr inbounds nuw %"class.gmx::AnalysisDataValue", ptr %116, i64 %115
+  %118 = getelementptr inbounds nuw i8, ptr %117, i64 4
+  %119 = load float, ptr %118, align 4, !tbaa !65
+  %120 = invoke noundef i32 @_ZNK3gmx20AbstractAnalysisData11columnCountEv(ptr noundef nonnull align 8 dereferenceable(98) %11)
+          to label %121 unwind label %.split80
 
-122:                                              ; preds = %113
-  %123 = fmul float %120, %120
-  %124 = mul nsw i32 %121, %.04683
-  %125 = add nsw i32 %124, %.045
-  %126 = sext i32 %125 to i64
-  %127 = load ptr, ptr %42, align 8, !tbaa !54
-  %128 = getelementptr inbounds nuw %"class.gmx::AnalysisDataValue", ptr %127, i64 %126
-  %129 = fadd float %94, %102
-  %130 = call float @llvm.fmuladd.f32(float %111, float %111, float %123)
-  %131 = call noundef float @sqrtf(float noundef %130) #32, !tbaa !60
-  store float %129, ptr %128, align 8, !tbaa !61
-  %132 = getelementptr inbounds nuw i8, ptr %128, i64 4
-  store float %131, ptr %132, align 4, !tbaa !65
-  %133 = getelementptr inbounds nuw i8, ptr %128, i64 8
-  %134 = load i64, ptr %133, align 8, !tbaa !66
-  %135 = or i64 %134, 7
-  store i64 %135, ptr %133, align 8, !tbaa !66
-  %136 = add nuw nsw i32 %.045, 1
+121:                                              ; preds = %112
+  %122 = fmul float %119, %119
+  %123 = mul nsw i32 %120, %.04683
+  %124 = add nsw i32 %123, %.045
+  %125 = sext i32 %124 to i64
+  %126 = load ptr, ptr %42, align 8, !tbaa !54
+  %127 = getelementptr inbounds nuw %"class.gmx::AnalysisDataValue", ptr %126, i64 %125
+  %128 = fadd float %93, %101
+  %129 = call float @llvm.fmuladd.f32(float %110, float %110, float %122)
+  %sqrt = call float @llvm.sqrt.f32(float %129)
+  store float %128, ptr %127, align 8, !tbaa !61
+  %130 = getelementptr inbounds nuw i8, ptr %127, i64 4
+  store float %sqrt, ptr %130, align 4, !tbaa !65
+  %131 = getelementptr inbounds nuw i8, ptr %127, i64 8
+  %132 = load i64, ptr %131, align 8, !tbaa !66
+  %133 = or i64 %132, 7
+  store i64 %133, ptr %131, align 8, !tbaa !66
+  %134 = add nuw nsw i32 %.045, 1
   br label %.split, !llvm.loop !158
 
-.split74:                                         ; preds = %86
+.split74:                                         ; preds = %85
+  %135 = landingpad { ptr, i32 }
+          cleanup
+  br label %_ZNSt10unique_ptrIN3gmx24AbstractAverageHistogramESt14default_deleteIS1_EED2Ev.exit
+
+136:                                              ; preds = %87
   %137 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt10unique_ptrIN3gmx24AbstractAverageHistogramESt14default_deleteIS1_EED2Ev.exit
 
-138:                                              ; preds = %88
+.split77:                                         ; preds = %95
+  %138 = landingpad { ptr, i32 }
+          cleanup
+  br label %_ZNSt10unique_ptrIN3gmx24AbstractAverageHistogramESt14default_deleteIS1_EED2Ev.exit
+
+.split80:                                         ; preds = %112, %103
   %139 = landingpad { ptr, i32 }
-          cleanup
-  br label %_ZNSt10unique_ptrIN3gmx24AbstractAverageHistogramESt14default_deleteIS1_EED2Ev.exit
-
-.split77:                                         ; preds = %96
-  %140 = landingpad { ptr, i32 }
-          cleanup
-  br label %_ZNSt10unique_ptrIN3gmx24AbstractAverageHistogramESt14default_deleteIS1_EED2Ev.exit
-
-.split80:                                         ; preds = %113, %104
-  %141 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt10unique_ptrIN3gmx24AbstractAverageHistogramESt14default_deleteIS1_EED2Ev.exit
 
 ._crit_edge:                                      ; preds = %.split72.us, %.preheader
   ret void
 
-_ZNSt10unique_ptrIN3gmx24AbstractAverageHistogramESt14default_deleteIS1_EED2Ev.exit: ; preds = %.split80, %.split80.us, %.split77, %.split77.us, %.split74, %.split74.us, %.split70, %.split70.us, %138, %45
-  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %46, %45 ], [ %78, %.split74.us ], [ %77, %.split70.us ], [ %139, %138 ], [ %79, %.split77.us ], [ %85, %.split70 ], [ %137, %.split74 ], [ %140, %.split77 ], [ %141, %.split80 ], [ %80, %.split80.us ]
-  %142 = load ptr, ptr %11, align 8, !tbaa !33
-  %143 = getelementptr inbounds nuw i8, ptr %142, i64 8
-  %144 = load ptr, ptr %143, align 8
-  call void %144(ptr noundef nonnull align 8 dereferenceable(124) %11) #32
+_ZNSt10unique_ptrIN3gmx24AbstractAverageHistogramESt14default_deleteIS1_EED2Ev.exit: ; preds = %.split80, %.split80.us, %.split77, %.split77.us, %.split74, %.split74.us, %.split70, %.split70.us, %136, %45
+  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %46, %45 ], [ %77, %.split74.us ], [ %76, %.split70.us ], [ %137, %136 ], [ %78, %.split77.us ], [ %84, %.split70 ], [ %135, %.split74 ], [ %138, %.split77 ], [ %139, %.split80 ], [ %79, %.split80.us ]
+  %140 = load ptr, ptr %11, align 8, !tbaa !33
+  %141 = getelementptr inbounds nuw i8, ptr %140, i64 8
+  %142 = load ptr, ptr %141, align 8
+  call void %142(ptr noundef nonnull align 8 dereferenceable(124) %11) #32
   store ptr null, ptr %0, align 8, !tbaa !156
-  br label %145
+  br label %143
 
-145:                                              ; preds = %.body, %_ZNSt10unique_ptrIN3gmx24AbstractAverageHistogramESt14default_deleteIS1_EED2Ev.exit
+143:                                              ; preds = %.body, %_ZNSt10unique_ptrIN3gmx24AbstractAverageHistogramESt14default_deleteIS1_EED2Ev.exit
   %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn, %_ZNSt10unique_ptrIN3gmx24AbstractAverageHistogramESt14default_deleteIS1_EED2Ev.exit ], [ %eh.lpad-body, %.body ]
   resume { ptr, i32 } %.pn.pn.pn.pn.pn.pn
 }
@@ -6343,6 +6343,9 @@ declare i64 @llvm.umin.i64(i64, i64) #30
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #31
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.sqrt.f32(float) #30
 
 attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }

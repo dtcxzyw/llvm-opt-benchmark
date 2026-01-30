@@ -471,47 +471,47 @@ _ZNSt8valarrayIfE6resizeEmf.exit38:               ; preds = %.lr.ph.i.i.i33.preh
   br i1 %36, label %.preheader.us, label %._crit_edge43
 
 .preheader.us:                                    ; preds = %.preheader.lr.ph, %._crit_edge.us
-  %.042.us = phi i32 [ %58, %._crit_edge.us ], [ 0, %.preheader.lr.ph ]
+  %.042.us = phi i32 [ %57, %._crit_edge.us ], [ 0, %.preheader.lr.ph ]
   %.02641.us = phi ptr [ %.2.us, %._crit_edge.us ], [ %23, %.preheader.lr.ph ]
   %38 = sub nsw i32 %.042.us, %27
   %39 = sitofp i32 %38 to float
   br label %40
 
-40:                                               ; preds = %.preheader.us, %55
-  %.02540.us = phi i32 [ 0, %.preheader.us ], [ %57, %55 ]
-  %.139.us = phi ptr [ %.02641.us, %.preheader.us ], [ %.2.us, %55 ]
+40:                                               ; preds = %.preheader.us, %54
+  %.02540.us = phi i32 [ 0, %.preheader.us ], [ %56, %54 ]
+  %.139.us = phi ptr [ %.02641.us, %.preheader.us ], [ %.2.us, %54 ]
   %41 = sub nsw i32 %.02540.us, %31
   %42 = mul nsw i32 %41, %41
   %43 = uitofp nneg i32 %42 to float
   %44 = tail call float @llvm.fmuladd.f32(float %39, float %39, float %43)
-  %45 = tail call noundef float @sqrtf(float noundef %44) #21, !tbaa !71
-  %46 = fcmp olt float %45, %34
-  br i1 %46, label %47, label %55
+  %sqrt.us = tail call float @llvm.sqrt.f32(float %44)
+  %45 = fcmp olt float %sqrt.us, %34
+  br i1 %45, label %46, label %54
 
-47:                                               ; preds = %40
-  %48 = fpext float %45 to double
-  %49 = fmul double %48, 0x400921FB54442D18
-  %50 = fdiv double %49, %37
-  %51 = tail call double @cos(double noundef %50) #21, !tbaa !71
-  %52 = fptrunc double %51 to float
-  %53 = tail call float @llvm.fmuladd.f32(float %52, float 5.000000e-01, float 5.000000e-01)
-  %54 = fsub float 1.000000e+00, %53
-  br label %55
+46:                                               ; preds = %40
+  %47 = fpext float %sqrt.us to double
+  %48 = fmul double %47, 0x400921FB54442D18
+  %49 = fdiv double %48, %37
+  %50 = tail call double @cos(double noundef %49) #21, !tbaa !71
+  %51 = fptrunc double %50 to float
+  %52 = tail call float @llvm.fmuladd.f32(float %51, float 5.000000e-01, float 5.000000e-01)
+  %53 = fsub float 1.000000e+00, %52
+  br label %54
 
-55:                                               ; preds = %40, %47
-  %.sink46 = phi float [ %53, %47 ], [ 0.000000e+00, %40 ]
-  %.sink = phi float [ %54, %47 ], [ 1.000000e+00, %40 ]
+54:                                               ; preds = %40, %46
+  %.sink46 = phi float [ %52, %46 ], [ 0.000000e+00, %40 ]
+  %.sink = phi float [ %53, %46 ], [ 1.000000e+00, %40 ]
   store float %.sink46, ptr %.139.us, align 4, !tbaa !61
-  %56 = getelementptr inbounds nuw i8, ptr %.139.us, i64 4
-  store float %.sink, ptr %56, align 4, !tbaa !61
+  %55 = getelementptr inbounds nuw i8, ptr %.139.us, i64 4
+  store float %.sink, ptr %55, align 4, !tbaa !61
   %.2.us = getelementptr inbounds nuw i8, ptr %.139.us, i64 8
-  %57 = add nuw nsw i32 %.02540.us, 1
-  %exitcond.not = icmp eq i32 %57, %30
+  %56 = add nuw nsw i32 %.02540.us, 1
+  %exitcond.not = icmp eq i32 %56, %30
   br i1 %exitcond.not, label %._crit_edge.us, label %40, !llvm.loop !72
 
-._crit_edge.us:                                   ; preds = %55
-  %58 = add nuw nsw i32 %.042.us, 1
-  %exitcond45.not = icmp eq i32 %58, %26
+._crit_edge.us:                                   ; preds = %54
+  %57 = add nuw nsw i32 %.042.us, 1
+  %exitcond45.not = icmp eq i32 %57, %26
   br i1 %exitcond45.not, label %._crit_edge43, label %.preheader.us, !llvm.loop !74
 
 ._crit_edge43:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %_ZNSt8valarrayIfE6resizeEmf.exit38
@@ -1942,6 +1942,9 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #16
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #17
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.sqrt.f32(float) #17
 
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }

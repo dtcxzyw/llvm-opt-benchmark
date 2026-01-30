@@ -30856,13 +30856,13 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %26 = fmul float %25, %25
   %27 = call float @llvm.fmuladd.f32(float %19, float %19, float %26)
   %28 = call float @llvm.fmuladd.f32(float %23, float %23, float %27)
-  %sqrtf.i = call float @sqrtf(float noundef %28) #28
-  %29 = fcmp ogt float %sqrtf.i, 0.000000e+00
-  %30 = fdiv float %25, %sqrtf.i
-  %31 = fdiv float %23, %sqrtf.i
+  %sqrt.i = call float @llvm.sqrt.f32(float %28)
+  %29 = fcmp ogt float %28, 0.000000e+00
+  %30 = fdiv float %25, %sqrt.i
+  %31 = fdiv float %23, %sqrt.i
   %.025.i = select i1 %29, float %30, float %25
   %.024.i = select i1 %29, float %31, float %23
-  %32 = select i1 %29, float %sqrtf.i, float 1.000000e+00
+  %32 = select i1 %29, float %sqrt.i, float 1.000000e+00
   %.0.i = fdiv float %19, %32
   store float %.0.i, ptr %18, align 4, !tbaa !667
   store float %.025.i, ptr %24, align 4, !tbaa !667
@@ -30902,9 +30902,6 @@ declare void @__kmpc_push_num_threads(ptr, i32, i32) local_unnamed_addr #27
 
 ; Function Attrs: nounwind
 declare !callback !668 void @__kmpc_fork_call(ptr, i32, ptr, ...) local_unnamed_addr #27
-
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @sqrt(double noundef) local_unnamed_addr #28
 
 ; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fmuladd.f32(float, float, float) #24
@@ -30999,7 +30996,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %8 = alloca i32, align 4
   %9 = load i64, ptr %2, align 8, !tbaa !41
   %10 = icmp sgt i64 %9, 0
-  br i1 %10, label %11, label %35
+  br i1 %10, label %11, label %34
 
 11:                                               ; preds = %4
   %12 = add nsw i64 %9, -1
@@ -31025,7 +31022,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   br label %17
 
 17:                                               ; preds = %.lr.ph, %"_ZZZZN6open3d1t8geometry6kernel12trianglemesh19NormalizeNormalsCPUERNS_4core6TensorEENK3$_0clEvENKUlvE0_clEvENKUllE_clEl.exit"
-  %.014 = phi i64 [ %16, %.lr.ph ], [ %34, %"_ZZZZN6open3d1t8geometry6kernel12trianglemesh19NormalizeNormalsCPUERNS_4core6TensorEENK3$_0clEvENKUlvE0_clEvENKUllE_clEl.exit" ]
+  %.014 = phi i64 [ %16, %.lr.ph ], [ %33, %"_ZZZZN6open3d1t8geometry6kernel12trianglemesh19NormalizeNormalsCPUERNS_4core6TensorEENK3$_0clEvENKUlvE0_clEvENKUllE_clEl.exit" ]
   %.idx.i = mul i64 %.014, 24
   %18 = getelementptr i8, ptr %.val, i64 %.idx.i
   %19 = load double, ptr %18, align 8, !tbaa !670
@@ -31040,21 +31037,21 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %26 = fmul double %25, %25
   %27 = call double @llvm.fmuladd.f64(double %19, double %19, double %26)
   %28 = call double @llvm.fmuladd.f64(double %23, double %23, double %27)
-  %29 = call double @sqrt(double noundef %28) #27, !tbaa !28
-  %30 = fcmp ogt double %29, 0.000000e+00
-  %31 = fdiv double %25, %29
-  %32 = fdiv double %23, %29
-  %.025.i = select i1 %30, double %31, double %25
-  %.024.i = select i1 %30, double %32, double %23
-  %33 = select i1 %30, double %29, double 1.000000e+00
-  %.0.i = fdiv double %19, %33
+  %sqrt.i = call double @llvm.sqrt.f64(double %28)
+  %29 = fcmp ogt double %28, 0.000000e+00
+  %30 = fdiv double %25, %sqrt.i
+  %31 = fdiv double %23, %sqrt.i
+  %.025.i = select i1 %29, double %30, double %25
+  %.024.i = select i1 %29, double %31, double %23
+  %32 = select i1 %29, double %sqrt.i, double 1.000000e+00
+  %.0.i = fdiv double %19, %32
   store double %.0.i, ptr %18, align 8, !tbaa !670
   store double %.025.i, ptr %24, align 8, !tbaa !670
   store double %.024.i, ptr %22, align 8, !tbaa !670
   br label %"_ZZZZN6open3d1t8geometry6kernel12trianglemesh19NormalizeNormalsCPUERNS_4core6TensorEENK3$_0clEvENKUlvE0_clEvENKUllE_clEl.exit"
 
 "_ZZZZN6open3d1t8geometry6kernel12trianglemesh19NormalizeNormalsCPUERNS_4core6TensorEENK3$_0clEvENKUlvE0_clEvENKUllE_clEl.exit": ; preds = %17, %21
-  %34 = add i64 %.014, 1
+  %33 = add i64 %.014, 1
   %exitcond.not = icmp eq i64 %.014, %15
   br i1 %exitcond.not, label %._crit_edge, label %17
 
@@ -31064,9 +31061,9 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %35
+  br label %34
 
-35:                                               ; preds = %._crit_edge, %4
+34:                                               ; preds = %._crit_edge, %4
   ret void
 }
 
@@ -31775,7 +31772,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
 }
 
 ; Function Attrs: mustprogress noinline nounwind ssp uwtable
-define linkonce_odr hidden void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #29 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #28 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !45
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load ptr, ptr %3, align 8
@@ -32230,8 +32227,8 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %62 = fmul float %58, %58
   %63 = call float @llvm.fmuladd.f32(float %55, float %55, float %62)
   %64 = call float @llvm.fmuladd.f32(float %61, float %61, float %63)
-  %sqrtf.i.i = call noundef float @sqrtf(float noundef %64) #28
-  %65 = fmul float %sqrtf.i.i, 5.000000e-01
+  %sqrt.i.i = call noundef float @llvm.sqrt.f32(float %64)
+  %65 = fmul float %sqrt.i.i, 5.000000e-01
   %66 = getelementptr inbounds float, ptr %21, i64 %.014
   store float %65, ptr %66, align 4, !tbaa !667
   %67 = add i64 %.014, 1
@@ -32258,7 +32255,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %8 = alloca i32, align 4
   %9 = load i64, ptr %2, align 8, !tbaa !41
   %10 = icmp sgt i64 %9, 0
-  br i1 %10, label %11, label %69
+  br i1 %10, label %11, label %68
 
 11:                                               ; preds = %4
   %12 = add nsw i64 %9, -1
@@ -32288,7 +32285,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   br label %22
 
 22:                                               ; preds = %.lr.ph, %22
-  %.014 = phi i64 [ %16, %.lr.ph ], [ %68, %22 ]
+  %.014 = phi i64 [ %16, %.lr.ph ], [ %67, %22 ]
   %.idx.i = mul nsw i64 %.014, 24
   %23 = getelementptr inbounds i8, ptr %17, i64 %.idx.i
   %24 = load i64, ptr %23, align 8, !tbaa !41
@@ -32335,11 +32332,11 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %62 = fmul double %58, %58
   %63 = call double @llvm.fmuladd.f64(double %55, double %55, double %62)
   %64 = call double @llvm.fmuladd.f64(double %61, double %61, double %63)
-  %65 = call noundef double @sqrt(double noundef %64) #27, !tbaa !28
-  %66 = fmul double %65, 5.000000e-01
-  %67 = getelementptr inbounds double, ptr %21, i64 %.014
-  store double %66, ptr %67, align 8, !tbaa !670
-  %68 = add i64 %.014, 1
+  %sqrt.i.i = call noundef double @llvm.sqrt.f64(double %64)
+  %65 = fmul double %sqrt.i.i, 5.000000e-01
+  %66 = getelementptr inbounds double, ptr %21, i64 %.014
+  store double %65, ptr %66, align 8, !tbaa !670
+  %67 = add i64 %.014, 1
   %exitcond.not = icmp eq i64 %.014, %15
   br i1 %exitcond.not, label %._crit_edge, label %22
 
@@ -32349,9 +32346,9 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %69
+  br label %68
 
-69:                                               ; preds = %._crit_edge, %4
+68:                                               ; preds = %._crit_edge, %4
   ret void
 }
 
@@ -37654,16 +37651,16 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare float @nextafterf(float noundef, float noundef) local_unnamed_addr #28
+declare float @nextafterf(float noundef, float noundef) local_unnamed_addr #29
 
 ; Function Attrs: nounwind
 declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare float @sqrtf(float noundef) local_unnamed_addr #28
+declare float @sqrtf(float noundef) local_unnamed_addr #29
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @nextafter(double noundef, double noundef) local_unnamed_addr #28
+declare double @nextafter(double noundef, double noundef) local_unnamed_addr #29
 
 ; Function Attrs: mustprogress ssp uwtable
 define linkonce_odr hidden void @_ZNSt21discrete_distributionImE10param_typeC2IPKdEET_S5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -37884,6 +37881,12 @@ declare i128 @llvm.ctlz.i128(i128, i1 immarg) #35
 declare i32 @llvm.umin.i32(i32, i32) #32
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.sqrt.f32(float) #32
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.sqrt.f64(double) #32
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare x86_fp80 @llvm.log.f80(x86_fp80) #32
 
 attributes #0 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
@@ -37914,8 +37917,8 @@ attributes #24 = { mustprogress nocallback nocreateundeforpoison nofree nosync n
 attributes #25 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #26 = { alwaysinline norecurse nounwind ssp uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #27 = { nounwind }
-attributes #28 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #29 = { mustprogress noinline nounwind ssp uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #28 = { mustprogress noinline nounwind ssp uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #29 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #30 = { mustprogress nofree norecurse nosync nounwind ssp willreturn memory(readwrite, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #31 = { ssp uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #32 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }

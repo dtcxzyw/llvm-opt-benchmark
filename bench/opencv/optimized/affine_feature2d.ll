@@ -2847,7 +2847,7 @@ _ZNSt6vectorIN2cv11xfeatures2d17Elliptic_KeyPointESaIS2_EE9push_backERKS2_.exit:
   %1029 = icmp ult i64 %1024, %1028
   br i1 %1029, label %.lr.ph120, label %._crit_edge121
 
-._crit_edge121:                                   ; preds = %1097, %1018
+._crit_edge121:                                   ; preds = %1096, %1018
   call void @_ZN2cv11xfeatures2d17Elliptic_KeyPointD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %109) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %109)
   %1030 = load ptr, ptr %298, align 8, !tbaa !37
@@ -2859,11 +2859,11 @@ _ZNSt6vectorIN2cv11xfeatures2d17Elliptic_KeyPointESaIS2_EE9push_backERKS2_.exit:
   %1036 = icmp ult i64 %1024, %1035
   br i1 %1036, label %1018, label %._crit_edge125, !llvm.loop !128
 
-.lr.ph120:                                        ; preds = %1018, %1097
-  %1037 = phi i64 [ %1101, %1097 ], [ %1025, %1018 ]
-  %1038 = phi ptr [ %1100, %1097 ], [ %1020, %1018 ]
-  %1039 = phi ptr [ %1099, %1097 ], [ %1019, %1018 ]
-  %.039118 = phi i64 [ %1098, %1097 ], [ %1024, %1018 ]
+.lr.ph120:                                        ; preds = %1018, %1096
+  %1037 = phi i64 [ %1100, %1096 ], [ %1025, %1018 ]
+  %1038 = phi ptr [ %1099, %1096 ], [ %1020, %1018 ]
+  %1039 = phi ptr [ %1098, %1096 ], [ %1019, %1018 ]
+  %.039118 = phi i64 [ %1097, %1096 ], [ %1024, %1018 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %110)
   %1040 = getelementptr inbounds nuw %"class.cv::xfeatures2d::Elliptic_KeyPoint", ptr %1038, i64 %.039118
   %1041 = getelementptr inbounds nuw i8, ptr %1040, i64 8
@@ -2881,101 +2881,101 @@ _ZNSt6vectorIN2cv11xfeatures2d17Elliptic_KeyPointESaIS2_EE9push_backERKS2_.exit:
   %1046 = fpext float %1044 to double
   %1047 = fmul double %1046, %1046
   %1048 = call double @llvm.fmuladd.f64(double %1045, double %1045, double %1047)
-  %1049 = call noundef double @sqrt(double noundef %1048) #24, !tbaa !64
-  %1050 = fcmp ugt double %1049, 4.000000e+00
-  br i1 %1050, label %1097, label %1051
+  %sqrt.i = call noundef double @llvm.sqrt.f64(double %1048)
+  %1049 = fcmp ugt double %sqrt.i, 4.000000e+00
+  br i1 %1049, label %1096, label %1050
 
-1051:                                             ; preds = %.lr.ph120
-  %1052 = load float, ptr %307, align 4, !tbaa !124
-  %1053 = load float, ptr %308, align 4, !tbaa !124
-  %1054 = fsub float %1052, %1053
-  %1055 = call noundef float @llvm.fabs.f32(float %1054)
-  %1056 = fcmp olt float %1055, 1.500000e+01
-  br i1 %1056, label %1057, label %1097
+1050:                                             ; preds = %.lr.ph120
+  %1051 = load float, ptr %307, align 4, !tbaa !124
+  %1052 = load float, ptr %308, align 4, !tbaa !124
+  %1053 = fsub float %1051, %1052
+  %1054 = call noundef float @llvm.fabs.f32(float %1053)
+  %1055 = fcmp olt float %1054, 1.500000e+01
+  br i1 %1055, label %1056, label %1096
 
-1057:                                             ; preds = %1051
-  %1058 = load float, ptr %309, align 4, !tbaa !43
-  %1059 = load float, ptr %310, align 4, !tbaa !43
-  %1060 = load <4 x float>, ptr %304, align 4
-  %1061 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %1060)
-  %1062 = load <4 x float>, ptr %311, align 8
-  %1063 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %1062)
-  %1064 = load <4 x float>, ptr %302, align 4
-  %1065 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %1064)
-  %1066 = load <4 x float>, ptr %312, align 8
-  %1067 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %1066)
-  %1068 = fcmp olt float %1059, %1058
-  %.sroa.speculated99 = select i1 %1068, float %1058, float %1059
-  %1069 = fcmp olt float %1058, %1059
-  %.sroa.speculated = select i1 %1069, float %1058, float %1059
-  %1070 = fdiv float %.sroa.speculated99, %.sroa.speculated
-  %1071 = fcmp olt float %1070, 0x3FF6666660000000
-  %1072 = sub nsw i32 %1065, %1061
-  %1073 = icmp slt i32 %1072, 5
-  %or.cond = select i1 %1071, i1 %1073, i1 false
-  %1074 = sub nsw i32 %1067, %1063
-  %1075 = icmp slt i32 %1074, 5
-  %or.cond112 = select i1 %or.cond, i1 %1075, i1 false
-  br i1 %or.cond112, label %1076, label %1097
+1056:                                             ; preds = %1050
+  %1057 = load float, ptr %309, align 4, !tbaa !43
+  %1058 = load float, ptr %310, align 4, !tbaa !43
+  %1059 = load <4 x float>, ptr %304, align 4
+  %1060 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %1059)
+  %1061 = load <4 x float>, ptr %311, align 8
+  %1062 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %1061)
+  %1063 = load <4 x float>, ptr %302, align 4
+  %1064 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %1063)
+  %1065 = load <4 x float>, ptr %312, align 8
+  %1066 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %1065)
+  %1067 = fcmp olt float %1058, %1057
+  %.sroa.speculated99 = select i1 %1067, float %1057, float %1058
+  %1068 = fcmp olt float %1057, %1058
+  %.sroa.speculated = select i1 %1068, float %1057, float %1058
+  %1069 = fdiv float %.sroa.speculated99, %.sroa.speculated
+  %1070 = fcmp olt float %1069, 0x3FF6666660000000
+  %1071 = sub nsw i32 %1064, %1060
+  %1072 = icmp slt i32 %1071, 5
+  %or.cond = select i1 %1070, i1 %1072, i1 false
+  %1073 = sub nsw i32 %1066, %1062
+  %1074 = icmp slt i32 %1073, 5
+  %or.cond112 = select i1 %or.cond, i1 %1074, i1 false
+  br i1 %or.cond112, label %1075, label %1096
 
-1076:                                             ; preds = %1057
-  %1077 = getelementptr inbounds nuw i8, ptr %1040, i64 72
-  %.not.i.i = icmp eq ptr %1077, %1039
-  br i1 %.not.i.i, label %1091, label %1078
+1075:                                             ; preds = %1056
+  %1076 = getelementptr inbounds nuw i8, ptr %1040, i64 72
+  %.not.i.i = icmp eq ptr %1076, %1039
+  br i1 %.not.i.i, label %1090, label %1077
 
-1078:                                             ; preds = %1076
-  %1079 = ptrtoint ptr %1077 to i64
-  %1080 = sub i64 %1037, %1079
-  %1081 = icmp sgt i64 %1080, 0
-  br i1 %1081, label %.lr.ph.preheader.i.i.i.i.i.i.i, label %1091
+1077:                                             ; preds = %1075
+  %1078 = ptrtoint ptr %1076 to i64
+  %1079 = sub i64 %1037, %1078
+  %1080 = icmp sgt i64 %1079, 0
+  br i1 %1080, label %.lr.ph.preheader.i.i.i.i.i.i.i, label %1090
 
-.lr.ph.preheader.i.i.i.i.i.i.i:                   ; preds = %1078
-  %1082 = udiv exact i64 %1080, 72
+.lr.ph.preheader.i.i.i.i.i.i.i:                   ; preds = %1077
+  %1081 = udiv exact i64 %1079, 72
   br label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %.lr.ph.i.i.i.i.i.i.i, %.lr.ph.preheader.i.i.i.i.i.i.i
-  %.012.i.i.i.i.i.i.i = phi i64 [ %1089, %.lr.ph.i.i.i.i.i.i.i ], [ %1082, %.lr.ph.preheader.i.i.i.i.i.i.i ]
-  %.0811.i.i.i.i.i.i.i = phi ptr [ %1088, %.lr.ph.i.i.i.i.i.i.i ], [ %1040, %.lr.ph.preheader.i.i.i.i.i.i.i ]
-  %.0910.i.i.i.i.i.i.i = phi ptr [ %1087, %.lr.ph.i.i.i.i.i.i.i ], [ %1077, %.lr.ph.preheader.i.i.i.i.i.i.i ]
-  %1083 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i.i, i64 8
-  %1084 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i.i, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %1083, ptr noundef nonnull align 8 dereferenceable(28) %1084, i64 28, i1 false), !tbaa.struct !126
-  %1085 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i.i, i64 36
-  %1086 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i.i, i64 36
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %1085, ptr noundef nonnull align 4 dereferenceable(36) %1086, i64 36, i1 false)
-  %1087 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i.i, i64 72
-  %1088 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i.i, i64 72
-  %1089 = add nsw i64 %.012.i.i.i.i.i.i.i, -1
-  %1090 = icmp samesign ugt i64 %.012.i.i.i.i.i.i.i, 1
-  br i1 %1090, label %.lr.ph.i.i.i.i.i.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN2cv11xfeatures2d17Elliptic_KeyPointESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.loopexit.i.i, !llvm.loop !131
+  %.012.i.i.i.i.i.i.i = phi i64 [ %1088, %.lr.ph.i.i.i.i.i.i.i ], [ %1081, %.lr.ph.preheader.i.i.i.i.i.i.i ]
+  %.0811.i.i.i.i.i.i.i = phi ptr [ %1087, %.lr.ph.i.i.i.i.i.i.i ], [ %1040, %.lr.ph.preheader.i.i.i.i.i.i.i ]
+  %.0910.i.i.i.i.i.i.i = phi ptr [ %1086, %.lr.ph.i.i.i.i.i.i.i ], [ %1076, %.lr.ph.preheader.i.i.i.i.i.i.i ]
+  %1082 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i.i, i64 8
+  %1083 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i.i, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %1082, ptr noundef nonnull align 8 dereferenceable(28) %1083, i64 28, i1 false), !tbaa.struct !126
+  %1084 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i.i, i64 36
+  %1085 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i.i, i64 36
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %1084, ptr noundef nonnull align 4 dereferenceable(36) %1085, i64 36, i1 false)
+  %1086 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i.i, i64 72
+  %1087 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i.i, i64 72
+  %1088 = add nsw i64 %.012.i.i.i.i.i.i.i, -1
+  %1089 = icmp samesign ugt i64 %.012.i.i.i.i.i.i.i, 1
+  br i1 %1089, label %.lr.ph.i.i.i.i.i.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN2cv11xfeatures2d17Elliptic_KeyPointESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.loopexit.i.i, !llvm.loop !131
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN2cv11xfeatures2d17Elliptic_KeyPointESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.loopexit.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i
   %.pre.i.i = load ptr, ptr %298, align 8, !tbaa !37
-  br label %1091
+  br label %1090
 
-1091:                                             ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN2cv11xfeatures2d17Elliptic_KeyPointESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.loopexit.i.i, %1078, %1076
-  %1092 = phi ptr [ %.pre.i.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN2cv11xfeatures2d17Elliptic_KeyPointESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.loopexit.i.i ], [ %1039, %1078 ], [ %1039, %1076 ]
-  %1093 = getelementptr inbounds i8, ptr %1092, i64 -72
-  store ptr %1093, ptr %298, align 8, !tbaa !37
-  %1094 = load ptr, ptr %1093, align 8, !tbaa !14
-  %1095 = load ptr, ptr %1094, align 8
-  call void %1095(ptr noundef nonnull align 8 dereferenceable(72) %1093) #24
-  %1096 = add i64 %.039118, -1
-  br label %1097
+1090:                                             ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN2cv11xfeatures2d17Elliptic_KeyPointESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.loopexit.i.i, %1077, %1075
+  %1091 = phi ptr [ %.pre.i.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN2cv11xfeatures2d17Elliptic_KeyPointESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.loopexit.i.i ], [ %1039, %1077 ], [ %1039, %1075 ]
+  %1092 = getelementptr inbounds i8, ptr %1091, i64 -72
+  store ptr %1092, ptr %298, align 8, !tbaa !37
+  %1093 = load ptr, ptr %1092, align 8, !tbaa !14
+  %1094 = load ptr, ptr %1093, align 8
+  call void %1094(ptr noundef nonnull align 8 dereferenceable(72) %1092) #24
+  %1095 = add i64 %.039118, -1
+  br label %1096
 
-1097:                                             ; preds = %1051, %1057, %1091, %.lr.ph120
-  %.140 = phi i64 [ %.039118, %.lr.ph120 ], [ %1096, %1091 ], [ %.039118, %1057 ], [ %.039118, %1051 ]
+1096:                                             ; preds = %1050, %1056, %1090, %.lr.ph120
+  %.140 = phi i64 [ %.039118, %.lr.ph120 ], [ %1095, %1090 ], [ %.039118, %1056 ], [ %.039118, %1050 ]
   call void @_ZN2cv11xfeatures2d17Elliptic_KeyPointD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %110) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %110)
-  %1098 = add i64 %.140, 1
-  %1099 = load ptr, ptr %298, align 8, !tbaa !37
-  %1100 = load ptr, ptr %2, align 8, !tbaa !40
+  %1097 = add i64 %.140, 1
+  %1098 = load ptr, ptr %298, align 8, !tbaa !37
+  %1099 = load ptr, ptr %2, align 8, !tbaa !40
+  %1100 = ptrtoint ptr %1098 to i64
   %1101 = ptrtoint ptr %1099 to i64
-  %1102 = ptrtoint ptr %1100 to i64
-  %1103 = sub i64 %1101, %1102
-  %1104 = sdiv exact i64 %1103, 72
-  %1105 = icmp ult i64 %1098, %1104
-  br i1 %1105, label %.lr.ph120, label %._crit_edge121, !llvm.loop !132
+  %1102 = sub i64 %1100, %1101
+  %1103 = sdiv exact i64 %1102, 72
+  %1104 = icmp ult i64 %1097, %1103
+  br i1 %1104, label %.lr.ph120, label %._crit_edge121, !llvm.loop !132
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -4343,9 +4343,6 @@ declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #11
 ; Function Attrs: nobuiltin allocsize(0)
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #13
 
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @sqrt(double noundef) local_unnamed_addr #10
-
 ; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fabs.f32(float) #9
 
@@ -4728,6 +4725,9 @@ declare i64 @llvm.umax.i64(i64, i64) #19
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #19
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.sqrt.f64(double) #19
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }

@@ -116,7 +116,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__p
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__pxrReserved__lsERSoRKNS_7GfVec4fE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 4 dereferenceable(16)) local_unnamed_addr #3
 
-; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite, errnomem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define noundef float @_ZN32pxrInternal_v0_24__pxrReserved__7GfQuatf9NormalizeEf(ptr noundef nonnull align 4 captures(none) dereferenceable(16) %0, float noundef %1) local_unnamed_addr #4 align 2 {
   %3 = load float, ptr %0, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -129,40 +129,36 @@ define noundef float @_ZN32pxrInternal_v0_24__pxrReserved__7GfQuatf9NormalizeEf(
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %12 = load float, ptr %11, align 4
   %13 = tail call noundef float @llvm.fmuladd.f32(float %12, float %12, float %10)
-  %14 = tail call noundef float @sqrtf(float noundef %13) #15
-  %15 = fcmp olt float %14, %1
-  br i1 %15, label %16, label %17
+  %sqrt.i = tail call noundef float @llvm.sqrt.f32(float %13)
+  %14 = fcmp olt float %sqrt.i, %1
+  br i1 %14, label %15, label %16
 
-16:                                               ; preds = %2
+15:                                               ; preds = %2
   store <2 x float> zeroinitializer, ptr %0, align 4
   store <2 x float> <float 0.000000e+00, float 1.000000e+00>, ptr %8, align 4
-  br label %34
+  br label %29
 
-17:                                               ; preds = %2
-  %18 = load float, ptr %11, align 4
-  %19 = fdiv float %18, %14
-  store float %19, ptr %11, align 4
-  %20 = fpext float %14 to double
-  %21 = fdiv double 1.000000e+00, %20
-  %22 = load float, ptr %0, align 4
-  %23 = fpext float %22 to double
-  %24 = fmul double %21, %23
+16:                                               ; preds = %2
+  %17 = fdiv float %12, %sqrt.i
+  store float %17, ptr %11, align 4
+  %18 = fpext float %sqrt.i to double
+  %19 = fdiv double 1.000000e+00, %18
+  %20 = fpext float %3 to double
+  %21 = fmul double %19, %20
+  %22 = fptrunc double %21 to float
+  store float %22, ptr %0, align 4
+  %23 = fpext float %5 to double
+  %24 = fmul double %19, %23
   %25 = fptrunc double %24 to float
-  store float %25, ptr %0, align 4
-  %26 = load float, ptr %4, align 4
-  %27 = fpext float %26 to double
-  %28 = fmul double %21, %27
-  %29 = fptrunc double %28 to float
-  store float %29, ptr %4, align 4
-  %30 = load float, ptr %8, align 4
-  %31 = fpext float %30 to double
-  %32 = fmul double %21, %31
-  %33 = fptrunc double %32 to float
-  store float %33, ptr %8, align 4
-  br label %34
+  store float %25, ptr %4, align 4
+  %26 = fpext float %9 to double
+  %27 = fmul double %19, %26
+  %28 = fptrunc double %27 to float
+  store float %28, ptr %8, align 4
+  br label %29
 
-34:                                               ; preds = %17, %16
-  ret float %14
+29:                                               ; preds = %16, %15
+  ret float %sqrt.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
@@ -318,17 +314,17 @@ define { <2 x float>, <2 x float> } @_ZN32pxrInternal_v0_24__pxrReserved__7GfSle
   br i1 %26, label %27, label %40
 
 27:                                               ; preds = %3
-  %28 = tail call double @acos(double noundef %.0.i) #15
+  %28 = tail call double @acos(double noundef %.0.i) #16
   %29 = fptrunc double %28 to float
-  %30 = tail call noundef float @sinf(float noundef %29) #15
+  %30 = tail call noundef float @sinf(float noundef %29) #16
   %31 = fsub double 1.000000e+00, %2
   %32 = fpext float %29 to double
   %33 = fmul double %31, %32
-  %34 = tail call double @sin(double noundef %33) #15
+  %34 = tail call double @sin(double noundef %33) #16
   %35 = fpext float %30 to double
   %36 = fdiv double %34, %35
   %37 = fmul double %2, %32
-  %38 = tail call double @sin(double noundef %37) #15
+  %38 = tail call double @sin(double noundef %37) #16
   %39 = fdiv double %38, %35
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7GfSlerpEdRKNS_7GfQuatfES2_.exit
 
@@ -405,17 +401,17 @@ define { <2 x float>, <2 x float> } @_ZN32pxrInternal_v0_24__pxrReserved__7GfSle
   br i1 %26, label %27, label %40
 
 27:                                               ; preds = %3
-  %28 = tail call double @acos(double noundef %.0) #15
+  %28 = tail call double @acos(double noundef %.0) #16
   %29 = fptrunc double %28 to float
-  %30 = tail call noundef float @sinf(float noundef %29) #15
+  %30 = tail call noundef float @sinf(float noundef %29) #16
   %31 = fsub double 1.000000e+00, %0
   %32 = fpext float %29 to double
   %33 = fmul double %31, %32
-  %34 = tail call double @sin(double noundef %33) #15
+  %34 = tail call double @sin(double noundef %33) #16
   %35 = fpext float %30 to double
   %36 = fdiv double %34, %35
   %37 = fmul double %0, %32
-  %38 = tail call double @sin(double noundef %37) #15
+  %38 = tail call double @sin(double noundef %37) #16
   %39 = fdiv double %38, %35
   br label %42
 
@@ -472,7 +468,7 @@ declare double @sin(double noundef) local_unnamed_addr #8
 ; Function Attrs: uwtable
 define internal void @__cxx_global_var_init.2() #9 section ".text.startup" {
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__19Tf_RegistryInitCtorEPKc(ptr noundef nonnull @.str)
-  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121Tf_RegistryStaticInitD2Ev, ptr nonnull @_ZN32pxrInternal_v0_24__pxrReserved__15Arch_PerLibInitINS_12_GLOBAL__N_121Tf_RegistryStaticInitEE4initE, ptr nonnull @__dso_handle) #15
+  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121Tf_RegistryStaticInitD2Ev, ptr nonnull @_ZN32pxrInternal_v0_24__pxrReserved__15Arch_PerLibInitINS_12_GLOBAL__N_121Tf_RegistryStaticInitEE4initE, ptr nonnull @__dso_handle) #16
   ret void
 }
 
@@ -488,7 +484,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121Tf_Re
   %4 = landingpad { ptr, i32 }
           catch ptr null
   %5 = extractvalue { ptr, i32 } %4, 0
-  tail call void @__clang_call_terminate(ptr %5) #16
+  tail call void @__clang_call_terminate(ptr %5) #17
   unreachable
 }
 
@@ -496,9 +492,6 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121Tf_Re
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #11
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__pxrReserved__6TfType11_DefineImplERKSt9type_infoPPS2_PPFPvS6_bEmmbb(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, ptr noundef, i64 noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare float @sqrtf(float noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
 declare float @sinf(float noundef) local_unnamed_addr #8
@@ -513,8 +506,8 @@ declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #12 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #15
-  tail call void @_ZSt9terminatev() #16
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #16
+  tail call void @_ZSt9terminatev() #17
   unreachable
 }
 
@@ -528,11 +521,14 @@ define internal void @_GLOBAL__sub_I_quatf.cpp() #14 section ".text.startup" {
   ret void
 }
 
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.sqrt.f32(float) #15
+
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite, errnomem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #7 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: read, errnomem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -543,8 +539,9 @@ attributes #11 = { nofree nounwind }
 attributes #12 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { cold nofree noreturn }
 attributes #14 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { nounwind }
-attributes #16 = { noreturn nounwind }
+attributes #15 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #16 = { nounwind }
+attributes #17 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

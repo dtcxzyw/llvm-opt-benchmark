@@ -2563,31 +2563,31 @@ define void @pcp_rotate(i32 noundef %0, i32 noundef %1, ptr noundef captures(non
 61:                                               ; preds = %._crit_edge, %45
   %.sroa.0.0 = phi double [ %60, %45 ], [ 0.000000e+00, %._crit_edge ]
   %62 = tail call double @llvm.fmuladd.f64(double %.sroa.0.0, double %.sroa.0.0, double 1.000000e+00)
-  %63 = tail call double @sqrt(double noundef %62) #25, !tbaa !36
-  %64 = fdiv double %.sroa.0.0, %63
-  %65 = fdiv double 1.000000e+00, %63
+  %sqrt = tail call double @llvm.sqrt.f64(double %62)
+  %63 = fdiv double %.sroa.0.0, %sqrt
+  %64 = fdiv double 1.000000e+00, %sqrt
   br i1 %41, label %.lr.ph125.lver.check, label %._crit_edge126
 
 .lr.ph125.lver.check:                             ; preds = %61
-  %66 = sext i32 %1 to i64
+  %65 = sext i32 %1 to i64
   %wide.trip.count171 = zext nneg i32 %0 to i64
   %ident.check.not = icmp eq i32 %1, 1
   br i1 %ident.check.not, label %.lr.ph125.ph, label %.lr.ph125.lver.orig
 
 .lr.ph125.lver.orig:                              ; preds = %.lr.ph125.lver.check, %.lr.ph125.lver.orig
   %indvars.iv168.lver.orig = phi i64 [ %indvars.iv.next169.lver.orig, %.lr.ph125.lver.orig ], [ 0, %.lr.ph125.lver.check ]
-  %67 = mul nsw i64 %indvars.iv168.lver.orig, %66
-  %68 = getelementptr inbounds double, ptr %2, i64 %67
-  %69 = load double, ptr %68, align 8, !tbaa !39
-  %70 = getelementptr i8, ptr %68, i64 8
-  %71 = load double, ptr %70, align 8, !tbaa !39
-  %72 = fmul double %65, %71
-  %73 = tail call double @llvm.fmuladd.f64(double %69, double %64, double %72)
-  %74 = fneg double %69
-  %75 = fmul double %64, %71
-  %76 = tail call double @llvm.fmuladd.f64(double %74, double %65, double %75)
-  store double %73, ptr %68, align 8, !tbaa !39
-  store double %76, ptr %70, align 8, !tbaa !39
+  %66 = mul nsw i64 %indvars.iv168.lver.orig, %65
+  %67 = getelementptr inbounds double, ptr %2, i64 %66
+  %68 = load double, ptr %67, align 8, !tbaa !39
+  %69 = getelementptr i8, ptr %67, i64 8
+  %70 = load double, ptr %69, align 8, !tbaa !39
+  %71 = fmul double %64, %70
+  %72 = tail call double @llvm.fmuladd.f64(double %68, double %63, double %71)
+  %73 = fneg double %68
+  %74 = fmul double %63, %70
+  %75 = tail call double @llvm.fmuladd.f64(double %73, double %64, double %74)
+  store double %72, ptr %67, align 8, !tbaa !39
+  store double %75, ptr %69, align 8, !tbaa !39
   %indvars.iv.next169.lver.orig = add nuw nsw i64 %indvars.iv168.lver.orig, 1
   %exitcond172.not.lver.orig = icmp eq i64 %indvars.iv.next169.lver.orig, %wide.trip.count171
   br i1 %exitcond172.not.lver.orig, label %._crit_edge126, label %.lr.ph125.lver.orig, !llvm.loop !99
@@ -2597,19 +2597,19 @@ define void @pcp_rotate(i32 noundef %0, i32 noundef %1, ptr noundef captures(non
   br label %.lr.ph125
 
 .lr.ph125:                                        ; preds = %.lr.ph125.ph, %.lr.ph125
-  %store_forwarded = phi double [ %load_initial, %.lr.ph125.ph ], [ %85, %.lr.ph125 ]
+  %store_forwarded = phi double [ %load_initial, %.lr.ph125.ph ], [ %84, %.lr.ph125 ]
   %indvars.iv168 = phi i64 [ 0, %.lr.ph125.ph ], [ %indvars.iv.next169, %.lr.ph125 ]
-  %77 = mul nuw nsw i64 %indvars.iv168, %66
-  %78 = getelementptr inbounds nuw double, ptr %2, i64 %77
-  %79 = getelementptr i8, ptr %78, i64 8
-  %80 = load double, ptr %79, align 8, !tbaa !39
-  %81 = fmul double %65, %80
-  %82 = tail call double @llvm.fmuladd.f64(double %store_forwarded, double %64, double %81)
-  %83 = fneg double %store_forwarded
-  %84 = fmul double %64, %80
-  %85 = tail call double @llvm.fmuladd.f64(double %83, double %65, double %84)
-  store double %82, ptr %78, align 8, !tbaa !39
-  store double %85, ptr %79, align 8, !tbaa !39
+  %76 = mul nuw nsw i64 %indvars.iv168, %65
+  %77 = getelementptr inbounds nuw double, ptr %2, i64 %76
+  %78 = getelementptr i8, ptr %77, i64 8
+  %79 = load double, ptr %78, align 8, !tbaa !39
+  %80 = fmul double %64, %79
+  %81 = tail call double @llvm.fmuladd.f64(double %store_forwarded, double %63, double %80)
+  %82 = fneg double %store_forwarded
+  %83 = fmul double %63, %79
+  %84 = tail call double @llvm.fmuladd.f64(double %82, double %64, double %83)
+  store double %81, ptr %77, align 8, !tbaa !39
+  store double %84, ptr %78, align 8, !tbaa !39
   %indvars.iv.next169 = add nuw nsw i64 %indvars.iv168, 1
   %exitcond172.not = icmp eq i64 %indvars.iv.next169, %wide.trip.count171
   br i1 %exitcond172.not, label %._crit_edge126, label %.lr.ph125, !llvm.loop !99
@@ -4437,6 +4437,9 @@ declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i6
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #21
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.sqrt.f64(double) #21
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #21

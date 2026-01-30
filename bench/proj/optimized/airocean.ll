@@ -56,7 +56,7 @@ define hidden noundef ptr @pj_airocean(ptr noundef %0) local_unnamed_addr #0 {
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_Z37pj_projection_specific_setup_airoceanP8PJconsts(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = tail call noalias dereferenceable_or_null(10304) ptr @calloc(i64 noundef 1, i64 noundef 10304) #8
+  %2 = tail call noalias dereferenceable_or_null(10304) ptr @calloc(i64 noundef 1, i64 noundef 10304) #9
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %6
 
@@ -87,7 +87,7 @@ define hidden noundef ptr @_Z37pj_projection_specific_setup_airoceanP8PJconsts(p
   br i1 %.not, label %_ZN12_GLOBAL__N_116pj_airocean_data9transformEPA4_KdS3_.exit, label %18
 
 18:                                               ; preds = %6
-  %19 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(11) @.str.2) #9
+  %19 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(11) @.str.2) #10
   %.not19 = icmp eq i32 %19, 0
   br i1 %.not19, label %.preheader, label %115
 
@@ -244,7 +244,7 @@ _ZN12_GLOBAL__N_116pj_airocean_data8mat_multEPA4_KdS3_PA4_d.exit22.i: ; preds = 
   br i1 %exitcond.not.i, label %_ZN12_GLOBAL__N_116pj_airocean_data9transformEPA4_KdS3_.exit, label %.preheader, !llvm.loop !59
 
 115:                                              ; preds = %18
-  %116 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(9) @.str.3) #9
+  %116 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(9) @.str.3) #10
   %.not20 = icmp eq i32 %116, 0
   br i1 %.not20, label %_ZN12_GLOBAL__N_116pj_airocean_data9transformEPA4_KdS3_.exit, label %117
 
@@ -356,7 +356,7 @@ _Z18get_dym_face_indexPKN12_GLOBAL__N_116pj_airocean_dataEPK5PJ_XY.exit: ; preds
 
 _Z18get_dym_face_indexPKN12_GLOBAL__N_116pj_airocean_dataEPK5PJ_XY.exit.thread: ; preds = %_Z16is_point_in_facePK6PJ_XYZPKN12_GLOBAL__N_17pj_faceE.exit.thread.i, %_Z18get_dym_face_indexPKN12_GLOBAL__N_116pj_airocean_dataEPK5PJ_XY.exit
   %59 = tail call i32 @proj_errno_set(ptr noundef %2, i32 noundef 2050)
-  br label %126
+  br label %125
 
 60:                                               ; preds = %_Z18get_dym_face_indexPKN12_GLOBAL__N_116pj_airocean_dataEPK5PJ_XY.exit
   %61 = getelementptr inbounds nuw i8, ptr %7, i64 7360
@@ -391,58 +391,58 @@ _Z18get_dym_face_indexPKN12_GLOBAL__N_116pj_airocean_dataEPK5PJ_XY.exit.thread: 
   %90 = fmul double %80, %80
   %91 = tail call double @llvm.fmuladd.f64(double %71, double %71, double %90)
   %92 = tail call double @llvm.fmuladd.f64(double %89, double %89, double %91)
-  %93 = tail call double @sqrt(double noundef %92) #10, !tbaa !67
-  %94 = fdiv double %71, %93
-  %95 = fdiv double %80, %93
-  %96 = fneg double %89
-  %97 = fdiv double %96, %93
-  %98 = tail call double @acos(double noundef %97) #10, !tbaa !67
-  %99 = fadd double %98, 0xBFF921FB54442D18
-  %100 = tail call double @atan2(double noundef %95, double noundef %94) #10, !tbaa !67
-  %101 = getelementptr inbounds nuw i8, ptr %2, i64 216
-  %102 = load double, ptr %101, align 8, !tbaa !68
-  %103 = fcmp une double %102, 0.000000e+00
-  br i1 %103, label %104, label %126
+  %sqrt = tail call double @llvm.sqrt.f64(double %92)
+  %93 = fdiv double %71, %sqrt
+  %94 = fdiv double %80, %sqrt
+  %95 = fneg double %89
+  %96 = fdiv double %95, %sqrt
+  %97 = tail call double @acos(double noundef %96) #11, !tbaa !67
+  %98 = fadd double %97, 0xBFF921FB54442D18
+  %99 = tail call double @atan2(double noundef %94, double noundef %93) #11, !tbaa !67
+  %100 = getelementptr inbounds nuw i8, ptr %2, i64 216
+  %101 = load double, ptr %100, align 8, !tbaa !68
+  %102 = fcmp une double %101, 0.000000e+00
+  br i1 %102, label %103, label %125
 
-104:                                              ; preds = %60
+103:                                              ; preds = %60
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %105 = fcmp olt double %99, 0.000000e+00
-  %106 = tail call double @tan(double noundef %99) #10, !tbaa !67
-  store volatile double %106, ptr %4, align 8, !tbaa !43
-  %107 = getelementptr inbounds nuw i8, ptr %2, i64 168
-  %108 = load double, ptr %107, align 8, !tbaa !69
-  %109 = getelementptr inbounds nuw i8, ptr %2, i64 176
-  %110 = load double, ptr %109, align 8, !tbaa !70
-  %111 = fsub double %108, %110
-  %112 = fdiv double %111, %108
-  %113 = fsub double 1.000000e+00, %112
-  %114 = fmul double %108, %108
+  %104 = fcmp olt double %98, 0.000000e+00
+  %105 = tail call double @tan(double noundef %98) #11, !tbaa !67
+  store volatile double %105, ptr %4, align 8, !tbaa !43
+  %106 = getelementptr inbounds nuw i8, ptr %2, i64 168
+  %107 = load double, ptr %106, align 8, !tbaa !69
+  %108 = getelementptr inbounds nuw i8, ptr %2, i64 176
+  %109 = load double, ptr %108, align 8, !tbaa !70
+  %110 = fsub double %107, %109
+  %111 = fdiv double %110, %107
+  %112 = fsub double 1.000000e+00, %111
+  %113 = fmul double %107, %107
   %.0..0..0..0.7 = load volatile double, ptr %4, align 8, !tbaa !43
   %.0..0..0..0.8 = load volatile double, ptr %4, align 8, !tbaa !43
-  %115 = fmul double %113, %113
-  %116 = tail call double @llvm.fmuladd.f64(double %.0..0..0..0.7, double %.0..0..0..0.8, double %115)
-  %117 = tail call double @sqrt(double noundef %116) #10, !tbaa !67
-  %118 = fdiv double %110, %117
-  store volatile double %118, ptr %5, align 8, !tbaa !43
+  %114 = fmul double %112, %112
+  %115 = tail call double @llvm.fmuladd.f64(double %.0..0..0..0.7, double %.0..0..0..0.8, double %114)
+  %116 = tail call double @sqrt(double noundef %115) #11, !tbaa !67
+  %117 = fdiv double %109, %116
+  store volatile double %117, ptr %5, align 8, !tbaa !43
   %.0..0..0..0.4 = load volatile double, ptr %5, align 8, !tbaa !43
   %.0..0..0..0.5 = load volatile double, ptr %5, align 8, !tbaa !43
-  %119 = fneg double %.0..0..0..0.4
-  %120 = tail call double @llvm.fmuladd.f64(double %119, double %.0..0..0..0.5, double %114)
-  %121 = tail call double @sqrt(double noundef %120) #10, !tbaa !67
+  %118 = fneg double %.0..0..0..0.4
+  %119 = tail call double @llvm.fmuladd.f64(double %118, double %.0..0..0..0.5, double %113)
+  %120 = tail call double @sqrt(double noundef %119) #11, !tbaa !67
   %.0..0..0..0.6 = load volatile double, ptr %5, align 8, !tbaa !43
-  %122 = fmul double %113, %.0..0..0..0.6
-  %123 = fdiv double %121, %122
-  %124 = tail call double @atan(double noundef %123) #10, !tbaa !67
-  %125 = fneg double %124
-  %.sroa.4.2 = select i1 %105, double %125, double %124
+  %121 = fmul double %112, %.0..0..0..0.6
+  %122 = fdiv double %120, %121
+  %123 = tail call double @atan(double noundef %122) #11, !tbaa !67
+  %124 = fneg double %123
+  %.sroa.4.2 = select i1 %104, double %124, double %123
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %126
+  br label %125
 
-126:                                              ; preds = %60, %104, %_Z18get_dym_face_indexPKN12_GLOBAL__N_116pj_airocean_dataEPK5PJ_XY.exit.thread
-  %.sroa.4.0 = phi double [ 0x7FF0000000000000, %_Z18get_dym_face_indexPKN12_GLOBAL__N_116pj_airocean_dataEPK5PJ_XY.exit.thread ], [ %.sroa.4.2, %104 ], [ %99, %60 ]
-  %.sroa.0.0 = phi double [ 0x7FF0000000000000, %_Z18get_dym_face_indexPKN12_GLOBAL__N_116pj_airocean_dataEPK5PJ_XY.exit.thread ], [ %100, %104 ], [ %100, %60 ]
+125:                                              ; preds = %60, %103, %_Z18get_dym_face_indexPKN12_GLOBAL__N_116pj_airocean_dataEPK5PJ_XY.exit.thread
+  %.sroa.4.0 = phi double [ 0x7FF0000000000000, %_Z18get_dym_face_indexPKN12_GLOBAL__N_116pj_airocean_dataEPK5PJ_XY.exit.thread ], [ %.sroa.4.2, %103 ], [ %98, %60 ]
+  %.sroa.0.0 = phi double [ 0x7FF0000000000000, %_Z18get_dym_face_indexPKN12_GLOBAL__N_116pj_airocean_dataEPK5PJ_XY.exit.thread ], [ %99, %103 ], [ %99, %60 ]
   %.fca.0.insert = insertvalue { double, double } poison, double %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.sroa.4.0, 1
   ret { double, double } %.fca.1.insert
@@ -466,17 +466,17 @@ define internal { double, double } @_ZL16airocean_forward5PJ_LPP8PJconsts(double
   %15 = fdiv double %14, %11
   %16 = fsub double 1.000000e+00, %15
   %17 = fmul double %16, %16
-  %18 = tail call double @tan(double noundef %1) #10, !tbaa !67
+  %18 = tail call double @tan(double noundef %1) #11, !tbaa !67
   %19 = fmul double %18, %17
-  %20 = tail call double @atan(double noundef %19) #10, !tbaa !67
+  %20 = tail call double @atan(double noundef %19) #11, !tbaa !67
   br label %21
 
 21:                                               ; preds = %3, %9
   %.0 = phi double [ %20, %9 ], [ %1, %3 ]
-  %22 = tail call double @sin(double noundef %.0) #10, !tbaa !67
-  %23 = tail call double @cos(double noundef %.0) #10, !tbaa !67
-  %24 = tail call double @sin(double noundef %0) #10, !tbaa !67
-  %25 = tail call double @cos(double noundef %0) #10, !tbaa !67
+  %22 = tail call double @sin(double noundef %.0) #11, !tbaa !67
+  %23 = tail call double @cos(double noundef %.0) #11, !tbaa !67
+  %24 = tail call double @sin(double noundef %0) #11, !tbaa !67
+  %25 = tail call double @cos(double noundef %0) #11, !tbaa !67
   %26 = fmul double %23, %25
   %27 = fmul double %23, %24
   %28 = fneg double %27
@@ -652,6 +652,9 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.sqrt.f64(double) #8
+
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -660,9 +663,10 @@ attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #5 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { nounwind allocsize(0,1) }
-attributes #9 = { nounwind willreturn memory(read) }
-attributes #10 = { nounwind }
+attributes #8 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { nounwind allocsize(0,1) }
+attributes #10 = { nounwind willreturn memory(read) }
+attributes #11 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

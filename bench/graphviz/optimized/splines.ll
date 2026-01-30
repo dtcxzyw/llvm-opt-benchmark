@@ -57,10 +57,10 @@ define void @bezier_clip(ptr noundef %0, ptr noundef readonly captures(none) %1,
   %.sroa.8.1 = phi double [ %.sroa.8.0, %11 ], [ %16, %.critedge.backedge ]
   %12 = phi double [ 1.000000e+00, %11 ], [ %26, %.critedge.backedge ]
   %13 = fmul double %12, 5.000000e-01
-  %14 = call { double, double } @Bezier(ptr noundef %2, double noundef %13, ptr noundef %.039, ptr noundef %.040) #16
+  %14 = call { double, double } @Bezier(ptr noundef %2, double noundef %13, ptr noundef %.039, ptr noundef %.040) #17
   %15 = extractvalue { double, double } %14, 0
   %16 = extractvalue { double, double } %14, 1
-  %17 = call zeroext i1 %1(ptr noundef %0, double %15, double %16) #16
+  %17 = call zeroext i1 %1(ptr noundef %0, double %15, double %16) #17
   br i1 %17, label %.loopexit44.loopexit, label %18
 
 .loopexit44.loopexit:                             ; preds = %.critedge
@@ -143,7 +143,7 @@ define void @shape_clip(ptr noundef %0, ptr noundef captures(none) %1) local_unn
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %26 = load double, ptr %25, align 8, !tbaa !43
   %27 = fsub double %24, %26
-  %28 = call zeroext i1 %13(ptr noundef nonnull %3, double %22, double %27) #16
+  %28 = call zeroext i1 %13(ptr noundef nonnull %3, double %22, double %27) #17
   %29 = load ptr, ptr %4, align 8, !tbaa !9
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 112
   store double %18, ptr %30, align 8, !tbaa !39
@@ -230,10 +230,10 @@ define internal fastcc void @shape_clip0(ptr noundef nonnull %0, ptr noundef rea
   %.sroa.8.1.i = phi double [ %.sroa.8.0.i, %34 ], [ %39, %.critedge.backedge.i ]
   %35 = phi double [ 1.000000e+00, %34 ], [ %49, %.critedge.backedge.i ]
   %36 = fmul double %35, 5.000000e-01
-  %37 = call { double, double } @Bezier(ptr noundef nonnull %9, double noundef %36, ptr noundef %.039.i, ptr noundef %.040.i) #16
+  %37 = call { double, double } @Bezier(ptr noundef nonnull %9, double noundef %36, ptr noundef %.039.i, ptr noundef %.040.i) #17
   %38 = extractvalue { double, double } %37, 0
   %39 = extractvalue { double, double } %37, 1
-  %40 = call zeroext i1 %31(ptr noundef nonnull %0, double %38, double %39) #16
+  %40 = call zeroext i1 %31(ptr noundef nonnull %0, double %38, double %39) #17
   br i1 %40, label %.loopexit44.loopexit.i, label %41
 
 .loopexit44.loopexit.i:                           ; preds = %.critedge.i
@@ -332,14 +332,14 @@ define noundef ptr @new_spline(ptr noundef readonly captures(none) %0, i64 nound
   br label %21
 
 15:                                               ; preds = %.critedge
-  %16 = tail call noalias dereferenceable_or_null(48) ptr @calloc(i64 noundef 1, i64 noundef 48) #17
+  %16 = tail call noalias dereferenceable_or_null(48) ptr @calloc(i64 noundef 1, i64 noundef 48) #18
   %17 = icmp eq ptr %16, null
   br i1 %17, label %18, label %gv_alloc.exit
 
 18:                                               ; preds = %15
   %19 = load ptr, ptr @stderr, align 8, !tbaa !59
-  %20 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %19, ptr noundef nonnull @.str.2, i64 noundef 48) #18
-  tail call fastcc void @graphviz_exit() #19
+  %20 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %19, ptr noundef nonnull @.str.2, i64 noundef 48) #19
+  tail call fastcc void @graphviz_exit() #20
   unreachable
 
 gv_alloc.exit:                                    ; preds = %15
@@ -357,8 +357,8 @@ gv_alloc.exit:                                    ; preds = %15
 
 28:                                               ; preds = %21
   %29 = load ptr, ptr @stderr, align 8, !tbaa !59
-  %30 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %29, ptr noundef nonnull @.str.1, i64 noundef %26, i64 noundef 56) #18
-  tail call fastcc void @graphviz_exit() #19
+  %30 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %29, ptr noundef nonnull @.str.1, i64 noundef %26, i64 noundef 56) #19
+  tail call fastcc void @graphviz_exit() #20
   unreachable
 
 31:                                               ; preds = %21
@@ -368,18 +368,18 @@ gv_alloc.exit:                                    ; preds = %15
   br i1 %34, label %35, label %36
 
 35:                                               ; preds = %31
-  tail call void @free(ptr noundef %22) #16
+  tail call void @free(ptr noundef %22) #17
   br label %gv_recalloc.exit
 
 36:                                               ; preds = %31
-  %37 = tail call ptr @realloc(ptr noundef %22, i64 noundef range(i64 0, -15) %33) #20
+  %37 = tail call ptr @realloc(ptr noundef %22, i64 noundef range(i64 0, -15) %33) #21
   %38 = icmp eq ptr %37, null
   br i1 %38, label %39, label %42
 
 39:                                               ; preds = %36
   %40 = load ptr, ptr @stderr, align 8, !tbaa !59
-  %41 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %40, ptr noundef nonnull @.str.2, i64 noundef range(i64 0, -15) %33) #18
-  tail call fastcc void @graphviz_exit() #19
+  %41 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %40, ptr noundef nonnull @.str.2, i64 noundef range(i64 0, -15) %33) #19
+  tail call fastcc void @graphviz_exit() #20
   unreachable
 
 42:                                               ; preds = %36
@@ -405,7 +405,7 @@ gv_recalloc.exit:                                 ; preds = %35, %42, %44
   br i1 %.not.i, label %.thread.i, label %53
 
 .thread.i:                                        ; preds = %gv_recalloc.exit
-  %52 = tail call noalias ptr @calloc(i64 noundef 0, i64 noundef 16) #17
+  %52 = tail call noalias ptr @calloc(i64 noundef 0, i64 noundef 16) #18
   br label %gv_calloc.exit
 
 53:                                               ; preds = %gv_recalloc.exit
@@ -414,20 +414,20 @@ gv_recalloc.exit:                                 ; preds = %35, %42, %44
 
 54:                                               ; preds = %53
   %55 = load ptr, ptr @stderr, align 8, !tbaa !59
-  %56 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %55, ptr noundef nonnull @.str.1, i64 noundef %1, i64 noundef 16) #18
-  tail call fastcc void @graphviz_exit() #19
+  %56 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %55, ptr noundef nonnull @.str.1, i64 noundef %1, i64 noundef 16) #19
+  tail call fastcc void @graphviz_exit() #20
   unreachable
 
 57:                                               ; preds = %53
-  %58 = tail call noalias ptr @calloc(i64 noundef %1, i64 noundef 16) #17
+  %58 = tail call noalias ptr @calloc(i64 noundef %1, i64 noundef 16) #18
   %59 = icmp eq ptr %58, null
   br i1 %59, label %60, label %gv_calloc.exit
 
 60:                                               ; preds = %57
   %61 = load ptr, ptr @stderr, align 8, !tbaa !59
   %62 = shl nuw i64 %1, 4
-  %63 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %61, ptr noundef nonnull @.str.2, i64 noundef %62) #18
-  tail call fastcc void @graphviz_exit() #19
+  %63 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %61, ptr noundef nonnull @.str.2, i64 noundef %62) #19
+  tail call fastcc void @graphviz_exit() #20
   unreachable
 
 gv_calloc.exit:                                   ; preds = %.thread.i, %57
@@ -454,7 +454,7 @@ define void @clip_and_install(ptr noundef %0, ptr noundef %1, ptr noundef %2, i6
   %14 = select i1 %13, i64 56, i64 120
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 %14
   %16 = load ptr, ptr %15, align 8, !tbaa !65
-  %17 = tail call ptr @agraphof(ptr noundef %16) #16
+  %17 = tail call ptr @agraphof(ptr noundef %16) #17
   %18 = tail call ptr @new_spline(ptr noundef nonnull %0, i64 noundef %3)
   br label %19
 
@@ -573,7 +573,7 @@ define void @clip_and_install(ptr noundef %0, ptr noundef %1, ptr noundef %2, i6
   %87 = load ptr, ptr %86, align 8, !tbaa !31
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 24
   %89 = load ptr, ptr %88, align 8, !tbaa !35
-  %90 = call zeroext i1 %89(ptr noundef nonnull %8, double %78, double %83) #16
+  %90 = call zeroext i1 %89(ptr noundef nonnull %8, double %78, double %83) #17
   br i1 %90, label %91, label %._crit_edge
 
 91:                                               ; preds = %.lr.ph
@@ -639,7 +639,7 @@ define void @clip_and_install(ptr noundef %0, ptr noundef %1, ptr noundef %2, i6
   %124 = load ptr, ptr %123, align 8, !tbaa !31
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 24
   %126 = load ptr, ptr %125, align 8, !tbaa !35
-  %127 = call zeroext i1 %126(ptr noundef nonnull %9, double %115, double %120) #16
+  %127 = call zeroext i1 %126(ptr noundef nonnull %9, double %115, double %120) #17
   br i1 %127, label %128, label %._crit_edge169
 
 128:                                              ; preds = %.lr.ph168
@@ -731,17 +731,17 @@ define void @clip_and_install(ptr noundef %0, ptr noundef %1, ptr noundef %2, i6
 
 175:                                              ; preds = %172
   %176 = load ptr, ptr %4, align 8, !tbaa !84
-  %177 = call zeroext i1 %176(ptr noundef nonnull %.0.i) #16
+  %177 = call zeroext i1 %176(ptr noundef nonnull %.0.i) #17
   br label %178
 
 178:                                              ; preds = %175, %172
   %.033.i = phi i1 [ %177, %175 ], [ false, %172 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  call void @arrow_flags(ptr noundef nonnull %.0.i, ptr noundef nonnull %6, ptr noundef nonnull %7) #16
+  call void @arrow_flags(ptr noundef nonnull %.0.i, ptr noundef nonnull %6, ptr noundef nonnull %7) #17
   %179 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %180 = load ptr, ptr %179, align 8, !tbaa !85
-  %181 = call zeroext i1 %180(ptr noundef %.0110) #16
+  %181 = call zeroext i1 %180(ptr noundef %.0110) #17
   br i1 %181, label %182, label %183
 
 182:                                              ; preds = %178
@@ -756,7 +756,7 @@ define void @clip_and_install(ptr noundef %0, ptr noundef %1, ptr noundef %2, i6
   %188 = select i1 %187, i64 56, i64 120
   %189 = getelementptr inbounds nuw i8, ptr %0, i64 %188
   %190 = load ptr, ptr %189, align 8, !tbaa !65
-  %191 = call zeroext i1 %184(ptr noundef %190) #16
+  %191 = call zeroext i1 %184(ptr noundef %190) #17
   br i1 %191, label %192, label %193
 
 192:                                              ; preds = %183
@@ -788,7 +788,7 @@ define void @clip_and_install(ptr noundef %0, ptr noundef %1, ptr noundef %2, i6
   br i1 %or.cond.i, label %206, label %arrow_clip.exit
 
 206:                                              ; preds = %201
-  call void @arrowOrthoClip(ptr noundef nonnull %.0.i, ptr noundef %2, i64 noundef %.1159, i64 noundef %.1157.lcssa, ptr noundef %18, i32 noundef %204, i32 noundef %202) #16
+  call void @arrowOrthoClip(ptr noundef nonnull %.0.i, ptr noundef %2, i64 noundef %.1159, i64 noundef %.1157.lcssa, ptr noundef %18, i32 noundef %204, i32 noundef %202) #17
   br label %arrow_clip.exit
 
 207:                                              ; preds = %197
@@ -797,7 +797,7 @@ define void @clip_and_install(ptr noundef %0, ptr noundef %1, ptr noundef %2, i6
   br i1 %.not37.i, label %211, label %209
 
 209:                                              ; preds = %207
-  %210 = call i64 @arrowStartClip(ptr noundef nonnull %.0.i, ptr noundef %2, i64 noundef %.1159, i64 noundef %.1157.lcssa, ptr noundef %18, i32 noundef %208) #16
+  %210 = call i64 @arrowStartClip(ptr noundef nonnull %.0.i, ptr noundef %2, i64 noundef %.1159, i64 noundef %.1157.lcssa, ptr noundef %18, i32 noundef %208) #17
   br label %211
 
 211:                                              ; preds = %209, %207
@@ -807,7 +807,7 @@ define void @clip_and_install(ptr noundef %0, ptr noundef %1, ptr noundef %2, i6
   br i1 %.not38.i, label %arrow_clip.exit, label %213
 
 213:                                              ; preds = %211
-  %214 = call i64 @arrowEndClip(ptr noundef nonnull %.0.i, ptr noundef %2, i64 noundef %.2160, i64 noundef %.1157.lcssa, ptr noundef %18, i32 noundef %212) #16
+  %214 = call i64 @arrowEndClip(ptr noundef nonnull %.0.i, ptr noundef %2, i64 noundef %.2160, i64 noundef %.1157.lcssa, ptr noundef %18, i32 noundef %212) #17
   br label %arrow_clip.exit
 
 arrow_clip.exit:                                  ; preds = %201, %206, %211, %213
@@ -862,7 +862,7 @@ arrow_clip.exit:                                  ; preds = %201, %206, %211, %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %219, ptr noundef nonnull align 8 dereferenceable(16) %238, i64 16, i1 false), !tbaa.struct !88
   %239 = load ptr, ptr %220, align 8, !tbaa !9
   %240 = getelementptr inbounds nuw i8, ptr %239, i64 32
-  call void @update_bb_bz(ptr noundef nonnull %240, ptr noundef nonnull %10) #16
+  call void @update_bb_bz(ptr noundef nonnull %240, ptr noundef nonnull %10) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %241 = icmp ult i64 %237, %215
   br i1 %241, label %221, label %.loopexit
@@ -937,7 +937,7 @@ define void @beginpath(ptr noundef captures(none) initializes((0, 16), (33, 34),
   %22 = select i1 %21, i64 56, i64 -8
   %23 = getelementptr inbounds i8, ptr %1, i64 %22
   %24 = load ptr, ptr %23, align 8, !tbaa !65
-  call void @resolvePort(ptr dead_on_unwind nonnull writable sret(%struct.port) align 8 %6, ptr noundef %13, ptr noundef %24, ptr noundef nonnull %20) #16
+  call void @resolvePort(ptr dead_on_unwind nonnull writable sret(%struct.port) align 8 %6, ptr noundef %13, ptr noundef %24, ptr noundef nonnull %20) #17
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %20, ptr noundef nonnull align 8 dereferenceable(48) %6, i64 48, i1 false), !tbaa.struct !98
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %25
@@ -1062,7 +1062,7 @@ define void @beginpath(ptr noundef captures(none) initializes((0, 16), (33, 34),
 92:                                               ; preds = %80
   %93 = fadd double %.sroa.050.0.copyload, -1.000000e+00
   %94 = load double, ptr %.sroa.4112.0..sroa_idx, align 8, !tbaa !113
-  %95 = call ptr @agraphof(ptr noundef nonnull %13) #16
+  %95 = call ptr @agraphof(ptr noundef nonnull %13) #17
   %96 = load ptr, ptr %26, align 8, !tbaa !9
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 32
   %98 = load double, ptr %97, align 8, !tbaa !41
@@ -1074,7 +1074,7 @@ define void @beginpath(ptr noundef captures(none) initializes((0, 16), (33, 34),
 102:                                              ; preds = %80
   %103 = load double, ptr %.sroa.4112.0..sroa_idx, align 8, !tbaa !113
   %104 = fadd double %.sroa.1868.0.copyload, 1.000000e+00
-  %105 = call ptr @agraphof(ptr noundef nonnull %13) #16
+  %105 = call ptr @agraphof(ptr noundef nonnull %13) #17
   %106 = load ptr, ptr %26, align 8, !tbaa !9
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 32
   %108 = load double, ptr %107, align 8, !tbaa !41
@@ -1300,7 +1300,7 @@ define void @beginpath(ptr noundef captures(none) initializes((0, 16), (33, 34),
   %209 = fsub double %205, %208
   %210 = fadd double %.sroa.18.0.copyload, 1.000000e+00
   %211 = load double, ptr %0, align 8, !tbaa !111
-  %212 = call ptr @agraphof(ptr noundef nonnull %13) #16
+  %212 = call ptr @agraphof(ptr noundef nonnull %13) #17
   %213 = getelementptr inbounds nuw i8, ptr %212, i64 16
   %214 = load ptr, ptr %213, align 8, !tbaa !9
   %215 = getelementptr inbounds nuw i8, ptr %214, i64 356
@@ -1477,7 +1477,7 @@ define void @beginpath(ptr noundef captures(none) initializes((0, 16), (33, 34),
   %310 = getelementptr inbounds nuw i8, ptr %309, i64 24
   %311 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %312 = getelementptr inbounds nuw i8, ptr %3, i64 52
-  %313 = call i32 %.0283(ptr noundef nonnull %13, ptr noundef nonnull %310, i32 noundef %.0282, ptr noundef nonnull %311, ptr noundef nonnull %312) #16
+  %313 = call i32 %.0283(ptr noundef nonnull %13, ptr noundef nonnull %310, i32 noundef %.0282, ptr noundef nonnull %311, ptr noundef nonnull %312) #17
   %.not297 = icmp eq i32 %313, 0
   br i1 %.not297, label %316, label %314
 
@@ -1630,7 +1630,7 @@ define internal fastcc double @conc_slope(ptr noundef readonly captures(none) %0
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 40
   %59 = load double, ptr %58, align 8, !tbaa !43
   %60 = fsub double %49, %59
-  %61 = tail call double @atan2(double noundef %60, double noundef %47) #16, !tbaa !86
+  %61 = tail call double @atan2(double noundef %60, double noundef %47) #17, !tbaa !86
   %62 = load i32, ptr %11, align 8
   %63 = and i32 %62, 3
   %64 = icmp eq i32 %63, 2
@@ -1643,7 +1643,7 @@ define internal fastcc double @conc_slope(ptr noundef readonly captures(none) %0
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 40
   %72 = load double, ptr %71, align 8, !tbaa !43
   %73 = fsub double %72, %49
-  %74 = tail call double @atan2(double noundef %73, double noundef %65) #16, !tbaa !86
+  %74 = tail call double @atan2(double noundef %73, double noundef %65) #17, !tbaa !86
   %75 = fadd double %61, %74
   %76 = fmul double %75, 5.000000e-01
   ret double %76
@@ -1673,7 +1673,7 @@ define void @endpath(ptr noundef captures(none) initializes((48, 64), (81, 82)) 
   %22 = select i1 %21, i64 56, i64 120
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 %22
   %24 = load ptr, ptr %23, align 8, !tbaa !65
-  call void @resolvePort(ptr dead_on_unwind nonnull writable sret(%struct.port) align 8 %6, ptr noundef %13, ptr noundef %24, ptr noundef nonnull %20) #16
+  call void @resolvePort(ptr dead_on_unwind nonnull writable sret(%struct.port) align 8 %6, ptr noundef %13, ptr noundef %24, ptr noundef nonnull %20) #17
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %20, ptr noundef nonnull align 8 dereferenceable(48) %6, i64 48, i1 false), !tbaa.struct !98
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %25
@@ -1822,7 +1822,7 @@ define void @endpath(ptr noundef captures(none) initializes((48, 64), (81, 82)) 
 102:                                              ; preds = %90
   %103 = fadd double %.sroa.050.0.copyload, -1.000000e+00
   %104 = load double, ptr %.sroa.4110.0..sroa_idx, align 8, !tbaa !141
-  %105 = call ptr @agraphof(ptr noundef nonnull %13) #16
+  %105 = call ptr @agraphof(ptr noundef nonnull %13) #17
   %106 = load ptr, ptr %26, align 8, !tbaa !9
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 32
   %108 = load double, ptr %107, align 8, !tbaa !41
@@ -1834,7 +1834,7 @@ define void @endpath(ptr noundef captures(none) initializes((48, 64), (81, 82)) 
 112:                                              ; preds = %90
   %113 = load double, ptr %.sroa.4110.0..sroa_idx, align 8, !tbaa !141
   %114 = fadd double %.sroa.21.0.copyload, 1.000000e+00
-  %115 = call ptr @agraphof(ptr noundef nonnull %13) #16
+  %115 = call ptr @agraphof(ptr noundef nonnull %13) #17
   %116 = load ptr, ptr %26, align 8, !tbaa !9
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 32
   %118 = load double, ptr %117, align 8, !tbaa !41
@@ -2030,7 +2030,7 @@ define void @endpath(ptr noundef captures(none) initializes((48, 64), (81, 82)) 
   %208 = fmul double %207, 5.000000e-01
   %209 = fsub double %205, %208
   %210 = load double, ptr %36, align 8, !tbaa !142
-  %211 = call ptr @agraphof(ptr noundef nonnull %13) #16
+  %211 = call ptr @agraphof(ptr noundef nonnull %13) #17
   %212 = getelementptr inbounds nuw i8, ptr %211, i64 16
   %213 = load ptr, ptr %212, align 8, !tbaa !9
   %214 = getelementptr inbounds nuw i8, ptr %213, i64 356
@@ -2196,7 +2196,7 @@ define void @endpath(ptr noundef captures(none) initializes((48, 64), (81, 82)) 
   %298 = getelementptr inbounds nuw i8, ptr %297, i64 72
   %299 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %300 = getelementptr inbounds nuw i8, ptr %3, i64 52
-  %301 = call i32 %.0280(ptr noundef nonnull %13, ptr noundef nonnull %298, i32 noundef %.0279, ptr noundef nonnull %299, ptr noundef nonnull %300) #16
+  %301 = call i32 %.0280(ptr noundef nonnull %13, ptr noundef nonnull %298, i32 noundef %.0279, ptr noundef nonnull %299, ptr noundef nonnull %300) #17
   %.not294 = icmp eq i32 %301, 0
   br i1 %.not294, label %304, label %302
 
@@ -2306,7 +2306,7 @@ define double @selfRightSpace(ptr noundef readonly captures(none) %0) local_unna
   %29 = select i1 %28, i64 56, i64 -8
   %30 = getelementptr inbounds i8, ptr %0, i64 %29
   %31 = load ptr, ptr %30, align 8, !tbaa !65
-  %32 = tail call ptr @agraphof(ptr noundef %31) #16
+  %32 = tail call ptr @agraphof(ptr noundef %31) #17
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %34 = load ptr, ptr %33, align 8, !tbaa !9
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 132
@@ -2554,7 +2554,7 @@ convert_sides_to_points.exit.thread.i:            ; preds = %77, %75, %convert_s
   %117 = select i1 %116, i64 56, i64 120
   %118 = getelementptr inbounds nuw i8, ptr %97, i64 %117
   %119 = load ptr, ptr %118, align 8, !tbaa !65
-  %120 = call ptr @agraphof(ptr noundef %119) #16
+  %120 = call ptr @agraphof(ptr noundef %119) #17
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 16
   %122 = load ptr, ptr %121, align 8, !tbaa !9
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 132
@@ -2801,7 +2801,7 @@ convert_sides_to_points.exit.thread.i75:          ; preds = %204, %202, %convert
   %245 = select i1 %244, i64 56, i64 120
   %246 = getelementptr inbounds nuw i8, ptr %225, i64 %245
   %247 = load ptr, ptr %246, align 8, !tbaa !65
-  %248 = call ptr @agraphof(ptr noundef %247) #16
+  %248 = call ptr @agraphof(ptr noundef %247) #17
   %249 = getelementptr inbounds nuw i8, ptr %248, i64 16
   %250 = load ptr, ptr %249, align 8, !tbaa !9
   %251 = getelementptr inbounds nuw i8, ptr %250, i64 132
@@ -3040,7 +3040,7 @@ convert_sides_to_points.exit.thread.i115:         ; preds = %convert_sides_to_po
   %371 = select i1 %370, i64 56, i64 120
   %372 = getelementptr inbounds nuw i8, ptr %351, i64 %371
   %373 = load ptr, ptr %372, align 8, !tbaa !65
-  %374 = call ptr @agraphof(ptr noundef %373) #16
+  %374 = call ptr @agraphof(ptr noundef %373) #17
   %375 = getelementptr inbounds nuw i8, ptr %374, i64 16
   %376 = load ptr, ptr %375, align 8, !tbaa !9
   %377 = getelementptr inbounds nuw i8, ptr %376, i64 132
@@ -3392,7 +3392,7 @@ convert_sides_to_points.exit.thread:              ; preds = %.split.loop.exit29.
   %176 = select i1 %175, i64 56, i64 120
   %177 = getelementptr inbounds nuw i8, ptr %156, i64 %176
   %178 = load ptr, ptr %177, align 8, !tbaa !65
-  %179 = call ptr @agraphof(ptr noundef %178) #16
+  %179 = call ptr @agraphof(ptr noundef %178) #17
   %180 = getelementptr inbounds nuw i8, ptr %179, i64 16
   %181 = load ptr, ptr %180, align 8, !tbaa !9
   %182 = getelementptr inbounds nuw i8, ptr %181, i64 132
@@ -3476,11 +3476,11 @@ define void @makePortLabels(ptr noundef %0) local_unnamed_addr #0 {
   %21 = select i1 %20, i64 56, i64 120
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 %21
   %23 = load ptr, ptr %22, align 8, !tbaa !65
-  %24 = tail call ptr @agraphof(ptr noundef %23) #16
+  %24 = tail call ptr @agraphof(ptr noundef %23) #17
   %25 = load ptr, ptr %7, align 8, !tbaa !9
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 128
   %27 = load ptr, ptr %26, align 8, !tbaa !161
-  tail call void @updateBB(ptr noundef %24, ptr noundef %27) #16
+  tail call void @updateBB(ptr noundef %24, ptr noundef %27) #17
   br label %28
 
 28:                                               ; preds = %15, %17, %11, %6
@@ -3508,11 +3508,11 @@ define void @makePortLabels(ptr noundef %0) local_unnamed_addr #0 {
   %42 = select i1 %41, i64 56, i64 120
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 %42
   %44 = load ptr, ptr %43, align 8, !tbaa !65
-  %45 = tail call ptr @agraphof(ptr noundef %44) #16
+  %45 = tail call ptr @agraphof(ptr noundef %44) #17
   %46 = load ptr, ptr %7, align 8, !tbaa !9
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 136
   %48 = load ptr, ptr %47, align 8, !tbaa !162
-  tail call void @updateBB(ptr noundef %45, ptr noundef %48) #16
+  tail call void @updateBB(ptr noundef %45, ptr noundef %48) #17
   br label %49
 
 49:                                               ; preds = %36, %38, %1, %32, %28
@@ -3536,7 +3536,7 @@ define range(i32 0, 2) i32 @place_portlabel(ptr noundef %0, i1 noundef zeroext %
   br i1 %.not, label %15, label %11
 
 11:                                               ; preds = %9
-  %12 = tail call ptr @agxget(ptr noundef nonnull %0, ptr noundef nonnull %10) #16
+  %12 = tail call ptr @agxget(ptr noundef nonnull %0, ptr noundef nonnull %10) #17
   %13 = load i8, ptr %12, align 1, !tbaa !99
   %14 = icmp eq i8 %13, 0
   br i1 %14, label %15, label %21
@@ -3547,7 +3547,7 @@ define range(i32 0, 2) i32 @place_portlabel(ptr noundef %0, i1 noundef zeroext %
   br i1 %.not64, label %119, label %17
 
 17:                                               ; preds = %15
-  %18 = tail call ptr @agxget(ptr noundef nonnull %0, ptr noundef nonnull %16) #16
+  %18 = tail call ptr @agxget(ptr noundef nonnull %0, ptr noundef nonnull %16) #17
   %19 = load i8, ptr %18, align 1, !tbaa !99
   %20 = icmp eq i8 %19, 0
   br i1 %20, label %119, label %21
@@ -3586,15 +3586,15 @@ getsplinepoints.exit:                             ; preds = %.lr.ph.i
   %40 = select i1 %39, i64 56, i64 120
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 %40
   %42 = load ptr, ptr %41, align 8, !tbaa !65
-  %43 = tail call ptr @agnameof(ptr noundef %42) #16
+  %43 = tail call ptr @agnameof(ptr noundef %42) #17
   %44 = load i32, ptr %0, align 8
   %45 = and i32 %44, 3
   %46 = icmp eq i32 %45, 2
   %47 = select i1 %46, i64 56, i64 -8
   %48 = getelementptr inbounds i8, ptr %0, i64 %47
   %49 = load ptr, ptr %48, align 8, !tbaa !65
-  %50 = tail call ptr @agnameof(ptr noundef %49) #16
-  tail call void (ptr, ...) @agerrorf(ptr noundef nonnull @.str, ptr noundef %43, ptr noundef %50) #16
+  %50 = tail call ptr @agnameof(ptr noundef %49) #17
+  tail call void (ptr, ...) @agerrorf(ptr noundef nonnull @.str, ptr noundef %43, ptr noundef %50) #17
   br label %119
 
 .loopexit:                                        ; preds = %30, %21
@@ -3627,7 +3627,7 @@ getsplinepoints.exit:                             ; preds = %.lr.ph.i
   br label %64
 
 60:                                               ; preds = %64
-  %61 = call { double, double } @Bezier(ptr noundef nonnull %3, double noundef 1.000000e-01, ptr noundef null, ptr noundef null) #16
+  %61 = call { double, double } @Bezier(ptr noundef nonnull %3, double noundef 1.000000e-01, ptr noundef null, ptr noundef null) #17
   %62 = extractvalue { double, double } %61, 0
   %63 = extractvalue { double, double } %61, 1
   br label %101
@@ -3679,7 +3679,7 @@ getsplinepoints.exit:                             ; preds = %.lr.ph.i
   br label %93
 
 89:                                               ; preds = %93
-  %90 = call { double, double } @Bezier(ptr noundef nonnull %3, double noundef 9.000000e-01, ptr noundef null, ptr noundef null) #16
+  %90 = call { double, double } @Bezier(ptr noundef nonnull %3, double noundef 9.000000e-01, ptr noundef null, ptr noundef null) #17
   %91 = extractvalue { double, double } %90, 0
   %92 = extractvalue { double, double } %90, 1
   br label %101
@@ -3704,19 +3704,19 @@ getsplinepoints.exit:                             ; preds = %.lr.ph.i
   %.sroa.8.0 = phi double [ %.sroa.8.0.copyload22, %76 ], [ %.sroa.8.0.copyload24, %89 ], [ %.sroa.8.0.copyload, %55 ], [ %.sroa.8.0.copyload20, %60 ]
   %102 = fsub double %.sroa.7.0, %.sroa.8.0
   %103 = fsub double %.sroa.010.0, %.sroa.014.0
-  %104 = call double @atan2(double noundef %102, double noundef %103) #16, !tbaa !86
+  %104 = call double @atan2(double noundef %102, double noundef %103) #17, !tbaa !86
   %105 = load ptr, ptr @E_labelangle, align 8, !tbaa !159
-  %106 = call double @late_double(ptr noundef %0, ptr noundef %105, double noundef -2.500000e+01, double noundef -1.800000e+02) #16
+  %106 = call double @late_double(ptr noundef %0, ptr noundef %105, double noundef -2.500000e+01, double noundef -1.800000e+02) #17
   %107 = fdiv double %106, 1.800000e+02
   %108 = call double @llvm.fmuladd.f64(double %107, double 0x400921FB54442D18, double %104)
   %109 = load ptr, ptr @E_labeldistance, align 8, !tbaa !159
-  %110 = call double @late_double(ptr noundef %0, ptr noundef %109, double noundef 1.000000e+00, double noundef 0.000000e+00) #16
+  %110 = call double @late_double(ptr noundef %0, ptr noundef %109, double noundef 1.000000e+00, double noundef 0.000000e+00) #17
   %111 = fmul double %110, 1.000000e+01
-  %112 = call double @cos(double noundef %108) #16, !tbaa !86
+  %112 = call double @cos(double noundef %108) #17, !tbaa !86
   %113 = call double @llvm.fmuladd.f64(double %111, double %112, double %.sroa.014.0)
   %114 = getelementptr inbounds nuw i8, ptr %24, i64 72
   store double %113, ptr %114, align 8, !tbaa !151
-  %115 = call double @sin(double noundef %108) #16, !tbaa !86
+  %115 = call double @sin(double noundef %108) #17, !tbaa !86
   %116 = call double @llvm.fmuladd.f64(double %111, double %115, double %.sroa.8.0)
   %117 = getelementptr inbounds nuw i8, ptr %24, i64 80
   store double %116, ptr %117, align 8, !tbaa !153
@@ -3795,7 +3795,7 @@ endPoints.exit:                                   ; preds = %14, %18
 26:                                               ; preds = %endPoints.exit
   %27 = insertvalue { double, double } poison, double %.sroa.016.0, 0
   %28 = insertvalue { double, double } %27, double %.sroa.618.0, 1
-  br label %77
+  br label %75
 
 29:                                               ; preds = %endPoints.exit
   %30 = and i16 %6, 14
@@ -3809,8 +3809,8 @@ endPoints.exit:                                   ; preds = %14, %18
   %33 = fmul double %32, 5.000000e-01
   %34 = fadd double %.sroa.618.0, %.sroa.6.0
   %35 = fmul double %34, 5.000000e-01
-  %36 = tail call { double, double } @dotneato_closest(ptr noundef nonnull %10, double %33, double %35) #16
-  br label %77
+  %36 = tail call { double, double } @dotneato_closest(ptr noundef nonnull %10, double %33, double %35) #17
+  br label %75
 
 37:                                               ; preds = %29
   %.not119.i = icmp eq i64 %16, 0
@@ -3818,7 +3818,7 @@ endPoints.exit:                                   ; preds = %14, %18
 
 .lr.ph118.i:                                      ; preds = %._crit_edge.i
   %38 = fmul double %.186.lcssa.i, 5.000000e-01
-  br label %53
+  br label %52
 
 .lr.ph102.i:                                      ; preds = %37, %._crit_edge.i
   %.084100.i = phi i64 [ %41, %._crit_edge.i ], [ 0, %37 ]
@@ -3831,15 +3831,15 @@ endPoints.exit:                                   ; preds = %14, %18
   br i1 %40, label %.lr.ph.i, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.lr.ph102.i
-  %.186.lcssa.i = phi double [ %.08599.i, %.lr.ph102.i ], [ %49, %.lr.ph.i ]
+  %.186.lcssa.i = phi double [ %.08599.i, %.lr.ph102.i ], [ %48, %.lr.ph.i ]
   %41 = add nuw i64 %.084100.i, 1
   %exitcond.not.i = icmp eq i64 %41, %16
   br i1 %exitcond.not.i, label %.lr.ph118.i, label %.lr.ph102.i, !llvm.loop !172
 
 .lr.ph.i:                                         ; preds = %.lr.ph102.i, %.lr.ph.i
-  %.08198.i = phi i64 [ %51, %.lr.ph.i ], [ 3, %.lr.ph102.i ]
-  %.08297.i = phi i64 [ %50, %.lr.ph.i ], [ 0, %.lr.ph102.i ]
-  %.18696.i = phi double [ %49, %.lr.ph.i ], [ %.08599.i, %.lr.ph102.i ]
+  %.08198.i = phi i64 [ %50, %.lr.ph.i ], [ 3, %.lr.ph102.i ]
+  %.08297.i = phi i64 [ %49, %.lr.ph.i ], [ 0, %.lr.ph102.i ]
+  %.18696.i = phi double [ %48, %.lr.ph.i ], [ %.08599.i, %.lr.ph102.i ]
   %42 = getelementptr inbounds nuw %struct.pointf_s, ptr %.sroa.062.0.copyload.i, i64 %.08297.i
   %.sroa.033.0.copyload.i = load double, ptr %42, align 8, !tbaa !3
   %.sroa.1040.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %42, i64 8
@@ -3852,75 +3852,75 @@ endPoints.exit:                                   ; preds = %14, %18
   %45 = fsub double %.sroa.1040.0.copyload.i, %.sroa.10.0.copyload.i
   %46 = fmul double %45, %45
   %47 = tail call double @llvm.fmuladd.f64(double %44, double %44, double %46)
-  %48 = tail call double @sqrt(double noundef %47) #16, !tbaa !86
-  %49 = fadd double %.18696.i, %48
-  %50 = add i64 %.08297.i, 3
-  %51 = add i64 %.08198.i, 3
-  %52 = icmp ult i64 %51, %.sroa.8.0.copyload.i
-  br i1 %52, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !173
+  %sqrt.i = tail call double @llvm.sqrt.f64(double %47)
+  %48 = fadd double %.18696.i, %sqrt.i
+  %49 = add i64 %.08297.i, 3
+  %50 = add i64 %.08198.i, 3
+  %51 = icmp ult i64 %50, %.sroa.8.0.copyload.i
+  br i1 %51, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !173
 
-53:                                               ; preds = %._crit_edge112.i, %.lr.ph118.i
-  %.080116.i = phi i64 [ 0, %.lr.ph118.i ], [ %67, %._crit_edge112.i ]
+52:                                               ; preds = %._crit_edge112.i, %.lr.ph118.i
+  %.080116.i = phi i64 [ 0, %.lr.ph118.i ], [ %65, %._crit_edge112.i ]
   %.2115.i = phi double [ %38, %.lr.ph118.i ], [ %.3.lcssa.i, %._crit_edge112.i ]
-  %54 = getelementptr inbounds nuw %struct.bezier, ptr %11, i64 %.080116.i
-  %.sroa.062.0.copyload66.i = load ptr, ptr %54, align 8, !tbaa !170
-  %.sroa.8.0..sroa_idx67.i = getelementptr inbounds nuw i8, ptr %54, i64 8
+  %53 = getelementptr inbounds nuw %struct.bezier, ptr %11, i64 %.080116.i
+  %.sroa.062.0.copyload66.i = load ptr, ptr %53, align 8, !tbaa !170
+  %.sroa.8.0..sroa_idx67.i = getelementptr inbounds nuw i8, ptr %53, i64 8
   %.sroa.8.0.copyload68.i = load i64, ptr %.sroa.8.0..sroa_idx67.i, align 8, !tbaa !171
   %.not106.i = icmp ugt i64 %.sroa.8.0.copyload68.i, 3
   br i1 %.not106.i, label %.lr.ph111.i, label %._crit_edge112.i
 
-.lr.ph111.i:                                      ; preds = %53, %63
-  %.0109.i = phi i64 [ %66, %63 ], [ 3, %53 ]
-  %.079108.i = phi i64 [ %65, %63 ], [ 0, %53 ]
-  %.3107.i = phi double [ %64, %63 ], [ %.2115.i, %53 ]
-  %55 = getelementptr inbounds nuw %struct.pointf_s, ptr %.sroa.062.0.copyload66.i, i64 %.079108.i
-  %.sroa.033.0.copyload38.i = load double, ptr %55, align 8, !tbaa !3
-  %.sroa.1040.0..sroa_idx41.i = getelementptr inbounds nuw i8, ptr %55, i64 8
+.lr.ph111.i:                                      ; preds = %52, %61
+  %.0109.i = phi i64 [ %64, %61 ], [ 3, %52 ]
+  %.079108.i = phi i64 [ %63, %61 ], [ 0, %52 ]
+  %.3107.i = phi double [ %62, %61 ], [ %.2115.i, %52 ]
+  %54 = getelementptr inbounds nuw %struct.pointf_s, ptr %.sroa.062.0.copyload66.i, i64 %.079108.i
+  %.sroa.033.0.copyload38.i = load double, ptr %54, align 8, !tbaa !3
+  %.sroa.1040.0..sroa_idx41.i = getelementptr inbounds nuw i8, ptr %54, i64 8
   %.sroa.1040.0.copyload42.i = load double, ptr %.sroa.1040.0..sroa_idx41.i, align 8, !tbaa !3
-  %56 = getelementptr inbounds nuw %struct.pointf_s, ptr %.sroa.062.0.copyload66.i, i64 %.0109.i
-  %.sroa.0.0.copyload23.i = load double, ptr %56, align 8, !tbaa !3
-  %.sroa.10.0..sroa_idx25.i = getelementptr inbounds nuw i8, ptr %56, i64 8
+  %55 = getelementptr inbounds nuw %struct.pointf_s, ptr %.sroa.062.0.copyload66.i, i64 %.0109.i
+  %.sroa.0.0.copyload23.i = load double, ptr %55, align 8, !tbaa !3
+  %.sroa.10.0..sroa_idx25.i = getelementptr inbounds nuw i8, ptr %55, i64 8
   %.sroa.10.0.copyload26.i = load double, ptr %.sroa.10.0..sroa_idx25.i, align 8, !tbaa !3
-  %57 = fsub double %.sroa.033.0.copyload38.i, %.sroa.0.0.copyload23.i
-  %58 = fsub double %.sroa.1040.0.copyload42.i, %.sroa.10.0.copyload26.i
-  %59 = fmul double %58, %58
-  %60 = tail call double @llvm.fmuladd.f64(double %57, double %57, double %59)
-  %61 = tail call double @sqrt(double noundef %60) #16, !tbaa !86
-  %62 = fcmp ult double %61, %.3107.i
-  br i1 %62, label %63, label %polylineMidpoint.exit
+  %56 = fsub double %.sroa.033.0.copyload38.i, %.sroa.0.0.copyload23.i
+  %57 = fsub double %.sroa.1040.0.copyload42.i, %.sroa.10.0.copyload26.i
+  %58 = fmul double %57, %57
+  %59 = tail call double @llvm.fmuladd.f64(double %56, double %56, double %58)
+  %sqrt94.i = tail call double @llvm.sqrt.f64(double %59)
+  %60 = fcmp ult double %sqrt94.i, %.3107.i
+  br i1 %60, label %61, label %polylineMidpoint.exit
 
-63:                                               ; preds = %.lr.ph111.i
-  %64 = fsub double %.3107.i, %61
-  %65 = add i64 %.079108.i, 3
-  %66 = add i64 %.0109.i, 3
-  %.not.i12 = icmp ult i64 %66, %.sroa.8.0.copyload68.i
+61:                                               ; preds = %.lr.ph111.i
+  %62 = fsub double %.3107.i, %sqrt94.i
+  %63 = add i64 %.079108.i, 3
+  %64 = add i64 %.0109.i, 3
+  %.not.i12 = icmp ult i64 %64, %.sroa.8.0.copyload68.i
   br i1 %.not.i12, label %.lr.ph111.i, label %._crit_edge112.i, !llvm.loop !174
 
-._crit_edge112.i:                                 ; preds = %63, %53
-  %.3.lcssa.i = phi double [ %.2115.i, %53 ], [ %64, %63 ]
-  %67 = add nuw i64 %.080116.i, 1
-  %exitcond128.not.i = icmp eq i64 %67, %16
-  br i1 %exitcond128.not.i, label %.critedge.i, label %53, !llvm.loop !175
+._crit_edge112.i:                                 ; preds = %61, %52
+  %.3.lcssa.i = phi double [ %.2115.i, %52 ], [ %62, %61 ]
+  %65 = add nuw i64 %.080116.i, 1
+  %exitcond127.not.i = icmp eq i64 %65, %16
+  br i1 %exitcond127.not.i, label %.critedge.i, label %52, !llvm.loop !175
 
 .critedge.i:                                      ; preds = %._crit_edge112.i, %37
-  %68 = load ptr, ptr @stderr, align 8, !tbaa !59
-  %69 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %68, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 1293) #18
-  tail call void @abort() #21
+  %66 = load ptr, ptr @stderr, align 8, !tbaa !59
+  %67 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %66, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 1293) #19
+  tail call void @abort() #22
   unreachable
 
 polylineMidpoint.exit:                            ; preds = %.lr.ph111.i
-  %70 = fsub double %61, %.3107.i
-  %71 = fmul double %.sroa.033.0.copyload38.i, %70
-  %72 = tail call double @llvm.fmuladd.f64(double %.sroa.0.0.copyload23.i, double %.3107.i, double %71)
-  %73 = fdiv double %72, %61
-  %74 = fmul double %.sroa.1040.0.copyload42.i, %70
-  %75 = tail call double @llvm.fmuladd.f64(double %.sroa.10.0.copyload26.i, double %.3107.i, double %74)
-  %76 = fdiv double %75, %61
-  %.fca.0.insert.i = insertvalue { double, double } poison, double %73, 0
-  %.fca.1.insert.i = insertvalue { double, double } %.fca.0.insert.i, double %76, 1
-  br label %77
+  %68 = fsub double %sqrt94.i, %.3107.i
+  %69 = fmul double %.sroa.033.0.copyload38.i, %68
+  %70 = tail call double @llvm.fmuladd.f64(double %.sroa.0.0.copyload23.i, double %.3107.i, double %69)
+  %71 = fdiv double %70, %sqrt94.i
+  %72 = fmul double %.sroa.1040.0.copyload42.i, %68
+  %73 = tail call double @llvm.fmuladd.f64(double %.sroa.10.0.copyload26.i, double %.3107.i, double %72)
+  %74 = fdiv double %73, %sqrt94.i
+  %.fca.0.insert.i = insertvalue { double, double } poison, double %71, 0
+  %.fca.1.insert.i = insertvalue { double, double } %.fca.0.insert.i, double %74, 1
+  br label %75
 
-77:                                               ; preds = %31, %polylineMidpoint.exit, %26
+75:                                               ; preds = %31, %polylineMidpoint.exit, %26
   %.fca.1.insert.merged = phi { double, double } [ %28, %26 ], [ %36, %31 ], [ %.fca.1.insert.i, %polylineMidpoint.exit ]
   ret { double, double } %.fca.1.insert.merged
 }
@@ -3968,15 +3968,15 @@ define ptr @getsplinepoints(ptr noundef readonly captures(none) %0) local_unname
   %19 = select i1 %18, i64 56, i64 120
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 %19
   %21 = load ptr, ptr %20, align 8, !tbaa !65
-  %22 = tail call ptr @agnameof(ptr noundef %21) #16
+  %22 = tail call ptr @agnameof(ptr noundef %21) #17
   %23 = load i32, ptr %0, align 8
   %24 = and i32 %23, 3
   %25 = icmp eq i32 %24, 2
   %26 = select i1 %25, i64 56, i64 -8
   %27 = getelementptr inbounds i8, ptr %0, i64 %26
   %28 = load ptr, ptr %27, align 8, !tbaa !65
-  %29 = tail call ptr @agnameof(ptr noundef %28) #16
-  tail call void (ptr, ...) @agerrorf(ptr noundef nonnull @.str, ptr noundef %22, ptr noundef %29) #16
+  %29 = tail call ptr @agnameof(ptr noundef %28) #17
+  tail call void (ptr, ...) @agerrorf(ptr noundef nonnull @.str, ptr noundef %22, ptr noundef %29) #17
   br label %.loopexit
 
 .loopexit:                                        ; preds = %9, %1, %.critedge
@@ -4004,7 +4004,7 @@ declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly ca
 
 ; Function Attrs: cold inlinehint nofree noreturn nounwind uwtable
 define internal fastcc void @graphviz_exit() unnamed_addr #9 {
-  tail call void @exit(i32 noundef 1) #22
+  tail call void @exit(i32 noundef 1) #23
   unreachable
 }
 
@@ -4034,9 +4034,6 @@ declare double @llvm.maxnum.f64(double, double) #3
 ; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.minnum.f64(double, double) #3
 
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @sqrt(double noundef) local_unnamed_addr #7
-
 ; Function Attrs: cold nofree noreturn nounwind
 declare void @abort() local_unnamed_addr #14
 
@@ -4045,6 +4042,9 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #15
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #15
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.sqrt.f64(double) #16
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
@@ -4062,13 +4062,14 @@ attributes #12 = { mustprogress nounwind willreturn allockind("realloc") allocsi
 attributes #13 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { cold nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #16 = { nounwind }
-attributes #17 = { nounwind allocsize(0,1) }
-attributes #18 = { cold nounwind }
-attributes #19 = { noreturn }
-attributes #20 = { nounwind allocsize(1) }
-attributes #21 = { noreturn nounwind }
-attributes #22 = { cold noreturn nounwind }
+attributes #16 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #17 = { nounwind }
+attributes #18 = { nounwind allocsize(0,1) }
+attributes #19 = { cold nounwind }
+attributes #20 = { noreturn }
+attributes #21 = { nounwind allocsize(1) }
+attributes #22 = { noreturn nounwind }
+attributes #23 = { cold noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

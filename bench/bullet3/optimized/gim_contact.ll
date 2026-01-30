@@ -455,7 +455,7 @@ _ZN9gim_arrayI15GIM_RSORT_TOKENE11clear_rangeEj.exit.i.i.i: ; preds = %._crit_ed
   %202 = landingpad { ptr, i32 }
           catch ptr null
   %203 = extractvalue { ptr, i32 } %202, 0
-  tail call void @__clang_call_terminate(ptr %203) #11
+  tail call void @__clang_call_terminate(ptr %203) #10
   unreachable
 
 _ZN9gim_arrayI15GIM_RSORT_TOKENED2Ev.exit:        ; preds = %200
@@ -472,7 +472,7 @@ _ZN9gim_arrayI15GIM_RSORT_TOKENED2Ev.exit:        ; preds = %200
 
 206:                                              ; preds = %62, %205, %60
   %.pn56.pn = phi { ptr, i32 } [ %61, %60 ], [ %63, %62 ], [ %.pn, %205 ]
-  call void @_ZN9gim_arrayI15GIM_RSORT_TOKENED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #12
+  call void @_ZN9gim_arrayI15GIM_RSORT_TOKENED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn56.pn
 }
@@ -657,7 +657,7 @@ _ZN9gim_arrayI15GIM_RSORT_TOKENE12clear_memoryEv.exit: ; preds = %.noexc, %_ZN9g
   %10 = landingpad { ptr, i32 }
           catch ptr null
   %11 = extractvalue { ptr, i32 } %10, 0
-  tail call void @__clang_call_terminate(ptr %11) #11
+  tail call void @__clang_call_terminate(ptr %11) #10
   unreachable
 }
 
@@ -676,20 +676,20 @@ _ZN9gim_arrayI11GIM_CONTACTE5clearEv.exit:        ; preds = %2, %_ZN9gim_arrayI1
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i32, ptr %6, align 8, !tbaa !4
   %8 = icmp eq i32 %7, 1
-  %9 = load ptr, ptr %1, align 8, !tbaa !11
-  br i1 %8, label %10, label %21
+  br i1 %8, label %9, label %.loopexit
 
-10:                                               ; preds = %_ZN9gim_arrayI11GIM_CONTACTE5clearEv.exit
+9:                                                ; preds = %_ZN9gim_arrayI11GIM_CONTACTE5clearEv.exit
+  %10 = load ptr, ptr %1, align 8, !tbaa !11
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %12 = load i32, ptr %11, align 4, !tbaa !12
   %.not.i.i.not = icmp eq i32 %12, 0
   br i1 %.not.i.i.not, label %13, label %._ZN9gim_arrayI11GIM_CONTACTE12growingCheckEv.exit_crit_edge.i
 
-._ZN9gim_arrayI11GIM_CONTACTE12growingCheckEv.exit_crit_edge.i: ; preds = %10
+._ZN9gim_arrayI11GIM_CONTACTE12growingCheckEv.exit_crit_edge.i: ; preds = %9
   %.pre.i = load ptr, ptr %0, align 8, !tbaa !11
   br label %_ZN9gim_arrayI11GIM_CONTACTE9push_backERKS0_.exit
 
-13:                                               ; preds = %10
+13:                                               ; preds = %9
   store i32 0, ptr %3, align 8, !tbaa !4
   %14 = tail call noundef ptr @_Z9gim_allocm(i64 noundef 192)
   store ptr %14, ptr %0, align 8, !tbaa !11
@@ -702,73 +702,13 @@ _ZN9gim_arrayI11GIM_CONTACTE9push_backERKS0_.exit: ; preds = %._ZN9gim_arrayI11G
   %16 = phi i64 [ 0, %._ZN9gim_arrayI11GIM_CONTACTE12growingCheckEv.exit_crit_edge.i ], [ %15, %13 ]
   %17 = phi ptr [ %.pre.i, %._ZN9gim_arrayI11GIM_CONTACTE12growingCheckEv.exit_crit_edge.i ], [ %14, %13 ]
   %18 = getelementptr inbounds nuw %class.GIM_CONTACT, ptr %17, i64 %16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %18, ptr noundef nonnull align 4 dereferenceable(48) %9, i64 48, i1 false), !tbaa.struct !13
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %18, ptr noundef nonnull align 4 dereferenceable(48) %10, i64 48, i1 false), !tbaa.struct !13
   %19 = load i32, ptr %3, align 8, !tbaa !4
   %20 = add i32 %19, 1
   store i32 %20, ptr %3, align 8, !tbaa !4
-  br label %cdce.end
+  br label %.loopexit
 
-21:                                               ; preds = %_ZN9gim_arrayI11GIM_CONTACTE5clearEv.exit
-  %22 = add i32 %7, -1
-  %23 = zext i32 %22 to i64
-  %24 = getelementptr inbounds nuw %class.GIM_CONTACT, ptr %9, i64 %23
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
-  %.sroa.25.16..sroa_idx = getelementptr inbounds nuw i8, ptr %24, i64 20
-  %.sroa.32.16..sroa_idx = getelementptr inbounds nuw i8, ptr %24, i64 24
-  %.sroa.1629.16.copyload33 = load float, ptr %25, align 4
-  %.sroa.25.16.copyload35 = load float, ptr %.sroa.25.16..sroa_idx, align 4
-  %.sroa.32.16.copyload40 = load float, ptr %.sroa.32.16..sroa_idx, align 4
-  %.not = icmp eq i32 %7, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %21
-  %wide.trip.count = zext i32 %7 to i64
-  br label %.lr.ph
-
-._crit_edge:                                      ; preds = %.lr.ph, %21
-  %.sroa.1629.0.lcssa = phi float [ %.sroa.1629.16.copyload33, %21 ], [ %48, %.lr.ph ]
-  %.sroa.25.0.lcssa = phi float [ %.sroa.25.16.copyload35, %21 ], [ %49, %.lr.ph ]
-  %.sroa.32.0.lcssa = phi float [ %.sroa.32.16.copyload40, %21 ], [ %50, %.lr.ph ]
-  %26 = uitofp i32 %7 to float
-  %27 = fdiv float 1.000000e+00, %26
-  %28 = fmul float %27, %.sroa.1629.0.lcssa
-  %29 = fmul float %27, %.sroa.25.0.lcssa
-  %30 = fmul float %27, %.sroa.32.0.lcssa
-  %31 = fmul float %29, %29
-  %32 = tail call float @llvm.fmuladd.f32(float %28, float %28, float %31)
-  %33 = tail call noundef float @llvm.fmuladd.f32(float %30, float %30, float %32)
-  %34 = fcmp olt float %33, 0.000000e+00
-  br i1 %34, label %cdce.call, label %cdce.end, !prof !37
-
-cdce.call:                                        ; preds = %._crit_edge
-  %35 = tail call noundef float @sqrtf(float noundef %33) #12, !tbaa !17
-  br label %cdce.end
-
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.sroa.32.050 = phi float [ %.sroa.32.16.copyload40, %.lr.ph.preheader ], [ %50, %.lr.ph ]
-  %.sroa.25.049 = phi float [ %.sroa.25.16.copyload35, %.lr.ph.preheader ], [ %49, %.lr.ph ]
-  %.sroa.1629.048 = phi float [ %.sroa.1629.16.copyload33, %.lr.ph.preheader ], [ %48, %.lr.ph ]
-  %36 = getelementptr inbounds nuw %class.GIM_CONTACT, ptr %9, i64 %indvars.iv
-  %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
-  %38 = getelementptr inbounds nuw i8, ptr %36, i64 32
-  %39 = load float, ptr %37, align 4, !tbaa !15
-  %40 = load float, ptr %38, align 4, !tbaa !15
-  %41 = fmul float %39, %40
-  %42 = getelementptr inbounds nuw i8, ptr %36, i64 20
-  %43 = load float, ptr %42, align 4, !tbaa !15
-  %44 = fmul float %40, %43
-  %45 = getelementptr inbounds nuw i8, ptr %36, i64 24
-  %46 = load float, ptr %45, align 4, !tbaa !15
-  %47 = fmul float %40, %46
-  %48 = fadd float %.sroa.1629.048, %41
-  %49 = fadd float %.sroa.25.049, %44
-  %50 = fadd float %.sroa.32.050, %47
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !38
-
-cdce.end:                                         ; preds = %cdce.call, %._crit_edge, %_ZN9gim_arrayI11GIM_CONTACTE9push_backERKS0_.exit
+.loopexit:                                        ; preds = %_ZN9gim_arrayI11GIM_CONTACTE5clearEv.exit, %_ZN9gim_arrayI11GIM_CONTACTE9push_backERKS0_.exit
   ret void
 }
 
@@ -778,49 +718,45 @@ declare float @llvm.fmuladd.f32(float, float, float) #4
 ; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fabs.f32(float) #4
 
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare float @sqrtf(float noundef) local_unnamed_addr #5
+declare noundef ptr @_Z11gim_reallocPvmm(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #5
 
-declare noundef ptr @_Z11gim_reallocPvmm(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #6
+declare noundef ptr @_Z9gim_allocm(i64 noundef) local_unnamed_addr #5
 
-declare noundef ptr @_Z9gim_allocm(i64 noundef) local_unnamed_addr #6
-
-declare void @_Z8gim_freePv(ptr noundef) local_unnamed_addr #6
+declare void @_Z8gim_freePv(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: noinline noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #7 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #12
-  tail call void @_ZSt9terminatev() #11
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #6 comdat {
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #11
+  tail call void @_ZSt9terminatev() #10
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
 ; Function Attrs: cold nofree noreturn
-declare void @_ZSt9terminatev() local_unnamed_addr #8
+declare void @_ZSt9terminatev() local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { cold nofree noreturn }
-attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #11 = { noreturn nounwind }
-attributes #12 = { nounwind }
+attributes #5 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { cold nofree noreturn }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #10 = { noreturn nounwind }
+attributes #11 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 
@@ -861,5 +797,3 @@ attributes #12 = { nounwind }
 !34 = distinct !{!34, !27}
 !35 = distinct !{!35, !27}
 !36 = distinct !{!36, !27}
-!37 = !{!"branch_weights", i32 1, i32 1048575}
-!38 = distinct !{!38, !27}

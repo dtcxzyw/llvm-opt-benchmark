@@ -316,16 +316,16 @@ define hidden void @_ZN7nanogui10ColorWheel4drawEP10NVGcontext(ptr noundef nonnu
   call void @nvgArc(ptr noundef %1, float noundef %27, float noundef %28, float noundef %32, float noundef %40, float noundef %44, i32 noundef 2)
   call void @nvgArc(ptr noundef %1, float noundef %27, float noundef %28, float noundef %31, float noundef %44, float noundef %40, i32 noundef 1)
   call void @nvgClosePath(ptr noundef %1)
-  %45 = call float @cosf(float noundef %40) #16
+  %45 = call float @cosf(float noundef %40) #17
   %46 = fmul float %35, %45
   %47 = call float @llvm.fmuladd.f32(float %46, float 5.000000e-01, float %27)
-  %48 = call float @sinf(float noundef %40) #16
+  %48 = call float @sinf(float noundef %40) #17
   %49 = fmul float %35, %48
   %50 = call float @llvm.fmuladd.f32(float %49, float 5.000000e-01, float %28)
-  %51 = call float @cosf(float noundef %44) #16
+  %51 = call float @cosf(float noundef %44) #17
   %52 = fmul float %35, %51
   %53 = call float @llvm.fmuladd.f32(float %52, float 5.000000e-01, float %27)
-  %54 = call float @sinf(float noundef %44) #16
+  %54 = call float @sinf(float noundef %44) #17
   %55 = fmul float %35, %54
   %56 = call float @llvm.fmuladd.f32(float %55, float 5.000000e-01, float %28)
   %57 = fdiv float %40, 0x401921FB60000000
@@ -584,128 +584,128 @@ define hidden noundef range(i32 0, 3) i32 @_ZN7nanogui10ColorWheel15adjust_posit
   %30 = fsub float %16, %24
   %31 = fmul float %30, %30
   %32 = tail call float @llvm.fmuladd.f32(float %29, float %29, float %31)
-  %33 = tail call noundef float @sqrtf(float noundef %32) #16
-  %34 = and i32 %2, 2
-  %.not = icmp eq i32 %34, 0
-  %.sink118.sroa.gep = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %.sink118.sroa.gep120 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  br i1 %.not, label %50, label %35
+  %sqrt = tail call float @llvm.sqrt.f32(float %32)
+  %33 = and i32 %2, 2
+  %.not = icmp eq i32 %33, 0
+  %.sink117.sroa.gep = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %.sink117.sroa.gep119 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  br i1 %.not, label %49, label %34
 
-35:                                               ; preds = %3
-  %36 = fcmp ult float %33, %28
-  br i1 %36, label %40, label %37
+34:                                               ; preds = %3
+  %35 = fcmp ult float %sqrt, %28
+  br i1 %35, label %39, label %36
 
-37:                                               ; preds = %35
-  %38 = fcmp ole float %33, %27
-  %39 = icmp eq i32 %2, 2
-  %or.cond = or i1 %39, %38
-  br i1 %or.cond, label %41, label %50
+36:                                               ; preds = %34
+  %37 = fcmp ole float %sqrt, %27
+  %38 = icmp eq i32 %2, 2
+  %or.cond = or i1 %38, %37
+  br i1 %or.cond, label %40, label %49
 
-40:                                               ; preds = %35
+39:                                               ; preds = %34
   %.old1 = icmp eq i32 %2, 2
-  br i1 %.old1, label %41, label %50
+  br i1 %.old1, label %40, label %49
 
-41:                                               ; preds = %37, %40
-  %42 = fdiv float %30, %29
-  %43 = tail call noundef float @atanf(float noundef %42) #16
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 140
-  %45 = fcmp olt float %29, 0.000000e+00
-  %46 = fadd float %43, 0x400921FB60000000
-  %storemerge = select i1 %45, float %46, float %43
-  %47 = fdiv float %storemerge, 0x401921FB60000000
-  store float %47, ptr %44, align 4
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %49 = load ptr, ptr %48, align 8
-  %.not.i.i.not = icmp eq ptr %49, null
-  br i1 %.not.i.i.not, label %107, label %.sink.split
+40:                                               ; preds = %36, %39
+  %41 = fdiv float %30, %29
+  %42 = tail call noundef float @atanf(float noundef %41) #17
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 140
+  %44 = fcmp olt float %29, 0.000000e+00
+  %45 = fadd float %42, 0x400921FB60000000
+  %storemerge = select i1 %44, float %45, float %42
+  %46 = fdiv float %storemerge, 0x401921FB60000000
+  store float %46, ptr %43, align 4
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %48 = load ptr, ptr %47, align 8
+  %.not.i.i.not = icmp eq ptr %48, null
+  br i1 %.not.i.i.not, label %106, label %.sink.split
 
-50:                                               ; preds = %37, %40, %3
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 140
-  %52 = load float, ptr %51, align 4
-  %53 = fmul float %52, -2.000000e+00
-  %54 = fmul float %53, 0x400921FB60000000
-  %55 = tail call noundef float @sinf(float noundef %54) #16
-  %56 = tail call noundef float @cosf(float noundef %54) #16
-  %57 = fneg float %30
-  %58 = fmul float %55, %57
-  %59 = tail call float @llvm.fmuladd.f32(float %56, float %29, float %58)
-  %60 = fmul float %30, %56
-  %61 = tail call float @llvm.fmuladd.f32(float %55, float %29, float %60)
-  %62 = fadd float %28, -6.000000e+00
-  %63 = fsub float %62, %59
-  %64 = fpext float %63 to double
-  %65 = fpext float %61 to double
-  %66 = tail call double @llvm.fmuladd.f64(double %65, double 0x3FFBB67AE8584CAA, double %64)
-  %67 = fmul float %62, 3.000000e+00
-  %68 = fpext float %67 to double
-  %69 = fdiv double %66, %68
-  %70 = fptrunc double %69 to float
-  %71 = tail call double @llvm.fmuladd.f64(double %65, double 0xBFFBB67AE8584CAA, double %64)
-  %72 = fdiv double %71, %68
-  %73 = fptrunc double %72 to float
-  %74 = fsub float 1.000000e+00, %70
-  %75 = fsub float %74, %73
-  %76 = fcmp oge double %69, 0xB690000000000000
-  %77 = fcmp ole double %69, 0x3FF0000010000000
-  %or.cond4 = and i1 %76, %77
-  %78 = fcmp oge double %72, 0xB690000000000000
-  %79 = fcmp ole double %72, 0x3FF0000010000000
-  %80 = and i1 %78, %79
-  %or.cond10 = select i1 %or.cond4, i1 %80, i1 false
-  %81 = fcmp oge float %75, 0.000000e+00
-  %82 = fcmp ole float %75, 1.000000e+00
-  %83 = and i1 %81, %82
-  %spec.select = select i1 %or.cond10, i1 %83, i1 false
-  %84 = and i32 %2, 1
-  %.not67 = icmp ne i32 %84, 0
-  %85 = icmp eq i32 %2, 1
-  %or.cond16 = or i1 %85, %spec.select
+49:                                               ; preds = %36, %39, %3
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 140
+  %51 = load float, ptr %50, align 4
+  %52 = fmul float %51, -2.000000e+00
+  %53 = fmul float %52, 0x400921FB60000000
+  %54 = tail call noundef float @sinf(float noundef %53) #17
+  %55 = tail call noundef float @cosf(float noundef %53) #17
+  %56 = fneg float %30
+  %57 = fmul float %54, %56
+  %58 = tail call float @llvm.fmuladd.f32(float %55, float %29, float %57)
+  %59 = fmul float %30, %55
+  %60 = tail call float @llvm.fmuladd.f32(float %54, float %29, float %59)
+  %61 = fadd float %28, -6.000000e+00
+  %62 = fsub float %61, %58
+  %63 = fpext float %62 to double
+  %64 = fpext float %60 to double
+  %65 = tail call double @llvm.fmuladd.f64(double %64, double 0x3FFBB67AE8584CAA, double %63)
+  %66 = fmul float %61, 3.000000e+00
+  %67 = fpext float %66 to double
+  %68 = fdiv double %65, %67
+  %69 = fptrunc double %68 to float
+  %70 = tail call double @llvm.fmuladd.f64(double %64, double 0xBFFBB67AE8584CAA, double %63)
+  %71 = fdiv double %70, %67
+  %72 = fptrunc double %71 to float
+  %73 = fsub float 1.000000e+00, %69
+  %74 = fsub float %73, %72
+  %75 = fcmp oge double %68, 0xB690000000000000
+  %76 = fcmp ole double %68, 0x3FF0000010000000
+  %or.cond4 = and i1 %75, %76
+  %77 = fcmp oge double %71, 0xB690000000000000
+  %78 = fcmp ole double %71, 0x3FF0000010000000
+  %79 = and i1 %77, %78
+  %or.cond10 = select i1 %or.cond4, i1 %79, i1 false
+  %80 = fcmp oge float %74, 0.000000e+00
+  %81 = fcmp ole float %74, 1.000000e+00
+  %82 = and i1 %80, %81
+  %spec.select = select i1 %or.cond10, i1 %82, i1 false
+  %83 = and i32 %2, 1
+  %.not67 = icmp ne i32 %83, 0
+  %84 = icmp eq i32 %2, 1
+  %or.cond16 = or i1 %84, %spec.select
   %or.cond68 = select i1 %.not67, i1 %or.cond16, i1 false
-  br i1 %or.cond68, label %86, label %107
+  br i1 %or.cond68, label %85, label %106
 
-86:                                               ; preds = %50
-  %87 = fcmp ogt float %70, 0.000000e+00
-  %.sroa.speculated96 = select i1 %87, float %70, float 0.000000e+00
-  %88 = fcmp ogt float %.sroa.speculated96, 1.000000e+00
-  %.sroa.speculated91 = select i1 %88, float 1.000000e+00, float %.sroa.speculated96
-  %89 = fcmp ogt float %73, 0.000000e+00
-  %.sroa.speculated86 = select i1 %89, float %73, float 0.000000e+00
-  %90 = fcmp ogt float %.sroa.speculated86, 1.000000e+00
-  %.sroa.speculated81 = select i1 %90, float 1.000000e+00, float %.sroa.speculated86
-  %91 = fcmp ogt float %75, 0.000000e+00
-  %.sroa.speculated78 = select i1 %91, float %75, float 0.000000e+00
-  %92 = fcmp ogt float %.sroa.speculated78, 1.000000e+00
-  %.sroa.speculated = select i1 %92, float 1.000000e+00, float %.sroa.speculated78
-  %93 = fadd float %.sroa.speculated91, %.sroa.speculated81
-  %94 = fadd float %93, %.sroa.speculated
-  %95 = fdiv float %.sroa.speculated91, %94
-  %96 = fdiv float %.sroa.speculated81, %94
-  %97 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store float %95, ptr %97, align 8
-  %98 = getelementptr inbounds nuw i8, ptr %0, i64 148
-  store float %96, ptr %98, align 4
-  %99 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %100 = load ptr, ptr %99, align 8
-  %.not.i.i75.not = icmp eq ptr %100, null
-  br i1 %.not.i.i75.not, label %107, label %.sink.split
+85:                                               ; preds = %49
+  %86 = fcmp ogt float %69, 0.000000e+00
+  %.sroa.speculated96 = select i1 %86, float %69, float 0.000000e+00
+  %87 = fcmp ogt float %.sroa.speculated96, 1.000000e+00
+  %.sroa.speculated91 = select i1 %87, float 1.000000e+00, float %.sroa.speculated96
+  %88 = fcmp ogt float %72, 0.000000e+00
+  %.sroa.speculated86 = select i1 %88, float %72, float 0.000000e+00
+  %89 = fcmp ogt float %.sroa.speculated86, 1.000000e+00
+  %.sroa.speculated81 = select i1 %89, float 1.000000e+00, float %.sroa.speculated86
+  %90 = fcmp ogt float %74, 0.000000e+00
+  %.sroa.speculated78 = select i1 %90, float %74, float 0.000000e+00
+  %91 = fcmp ogt float %.sroa.speculated78, 1.000000e+00
+  %.sroa.speculated = select i1 %91, float 1.000000e+00, float %.sroa.speculated78
+  %92 = fadd float %.sroa.speculated91, %.sroa.speculated81
+  %93 = fadd float %92, %.sroa.speculated
+  %94 = fdiv float %.sroa.speculated91, %93
+  %95 = fdiv float %.sroa.speculated81, %93
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  store float %94, ptr %96, align 8
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 148
+  store float %95, ptr %97, align 4
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %99 = load ptr, ptr %98, align 8
+  %.not.i.i75.not = icmp eq ptr %99, null
+  br i1 %.not.i.i75.not, label %106, label %.sink.split
 
-.sink.split:                                      ; preds = %86, %41
-  %.sink118.sroa.phi = phi ptr [ %.sink118.sroa.gep, %41 ], [ %.sink118.sroa.gep120, %86 ]
-  %.sink118 = phi ptr [ %4, %41 ], [ %5, %86 ]
-  %.0.ph = phi i32 [ 2, %41 ], [ 1, %86 ]
-  %101 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %102 = tail call { <2 x float>, <2 x float> } @_ZNK7nanogui10ColorWheel5colorEv(ptr noundef nonnull align 8 dereferenceable(192) %0)
-  %103 = extractvalue { <2 x float>, <2 x float> } %102, 0
-  store <2 x float> %103, ptr %.sink118, align 4
-  %104 = extractvalue { <2 x float>, <2 x float> } %102, 1
-  store <2 x float> %104, ptr %.sink118.sroa.phi, align 4
-  %105 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %106 = load ptr, ptr %105, align 8
-  call void %106(ptr noundef nonnull align 8 dereferenceable(32) %101, ptr noundef nonnull align 4 dereferenceable(16) %.sink118)
-  br label %107
+.sink.split:                                      ; preds = %85, %40
+  %.sink117.sroa.phi = phi ptr [ %.sink117.sroa.gep, %40 ], [ %.sink117.sroa.gep119, %85 ]
+  %.sink117 = phi ptr [ %4, %40 ], [ %5, %85 ]
+  %.0.ph = phi i32 [ 2, %40 ], [ 1, %85 ]
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %101 = tail call { <2 x float>, <2 x float> } @_ZNK7nanogui10ColorWheel5colorEv(ptr noundef nonnull align 8 dereferenceable(192) %0)
+  %102 = extractvalue { <2 x float>, <2 x float> } %101, 0
+  store <2 x float> %102, ptr %.sink117, align 4
+  %103 = extractvalue { <2 x float>, <2 x float> } %101, 1
+  store <2 x float> %103, ptr %.sink117.sroa.phi, align 4
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %105 = load ptr, ptr %104, align 8
+  call void %105(ptr noundef nonnull align 8 dereferenceable(32) %100, ptr noundef nonnull align 4 dereferenceable(16) %.sink117)
+  br label %106
 
-107:                                              ; preds = %.sink.split, %50, %86, %41
-  %.0 = phi i32 [ 2, %41 ], [ 1, %86 ], [ 0, %50 ], [ %.0.ph, %.sink.split ]
+106:                                              ; preds = %.sink.split, %49, %85, %40
+  %.0 = phi i32 [ 2, %40 ], [ 1, %85 ], [ 0, %49 ], [ %.0.ph, %.sink.split ]
   ret i32 %.0
 }
 
@@ -1034,11 +1034,11 @@ define linkonce_odr hidden void @_ZN7nanogui10ColorWheelD2Ev(ptr noundef nonnull
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  tail call void @__clang_call_terminate(ptr %9) #17
+  tail call void @__clang_call_terminate(ptr %9) #18
   unreachable
 
 _ZNSt8functionIFvRKN7nanogui5ColorEEED2Ev.exit:   ; preds = %1, %4
-  tail call void @_ZN7nanogui6WidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(140) %0) #16
+  tail call void @_ZN7nanogui6WidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(140) %0) #17
   ret void
 }
 
@@ -1059,12 +1059,12 @@ define linkonce_odr hidden void @_ZN7nanogui10ColorWheelD0Ev(ptr noundef nonnull
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  tail call void @__clang_call_terminate(ptr %9) #17
+  tail call void @__clang_call_terminate(ptr %9) #18
   unreachable
 
 _ZN7nanogui10ColorWheelD2Ev.exit:                 ; preds = %1, %4
-  tail call void @_ZN7nanogui6WidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(192) %0) #16
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #18
+  tail call void @_ZN7nanogui6WidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(192) %0) #17
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #19
   ret void
 }
 
@@ -1088,8 +1088,8 @@ declare void @_ZN7nanogui6Widget14perform_layoutEP10NVGcontext(ptr noundef nonnu
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #11 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #16
-  tail call void @_ZSt9terminatev() #17
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #17
+  tail call void @_ZSt9terminatev() #18
   unreachable
 }
 
@@ -1097,9 +1097,6 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
 ; Function Attrs: cold nofree noreturn
 declare void @_ZSt9terminatev() local_unnamed_addr #12
-
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare float @sqrtf(float noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
 declare float @atanf(float noundef) local_unnamed_addr #7
@@ -1115,6 +1112,9 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #15
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.sqrt.f32(float) #16
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
@@ -1132,9 +1132,10 @@ attributes #12 = { cold nofree noreturn }
 attributes #13 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
 attributes #14 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #15 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #16 = { nounwind }
-attributes #17 = { noreturn nounwind }
-attributes #18 = { builtin nounwind }
+attributes #16 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #17 = { nounwind }
+attributes #18 = { noreturn nounwind }
+attributes #19 = { builtin nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

@@ -48,7 +48,7 @@ define hidden { ptr, i64 } @b2ChainShapeArray_Create(i32 noundef %0) local_unnam
 
 3:                                                ; preds = %1
   %4 = mul i32 %0, 48
-  %5 = tail call ptr @b2Alloc(i32 noundef %4) #12
+  %5 = tail call ptr @b2Alloc(i32 noundef %4) #10
   %.sroa.3.12.insert.ext = zext nneg i32 %0 to i64
   %.sroa.3.12.insert.shift = shl nuw nsw i64 %.sroa.3.12.insert.ext, 32
   br label %6
@@ -77,7 +77,7 @@ define hidden void @b2ChainShapeArray_Reserve(ptr noundef captures(none) %0, i32
   %6 = load ptr, ptr %0, align 8, !tbaa !10
   %7 = mul i32 %4, 48
   %8 = mul i32 %1, 48
-  %9 = tail call ptr @b2GrowAlloc(ptr noundef %6, i32 noundef %7, i32 noundef %8) #12
+  %9 = tail call ptr @b2GrowAlloc(ptr noundef %6, i32 noundef %7, i32 noundef %8) #10
   store ptr %9, ptr %0, align 8, !tbaa !10
   store i32 %1, ptr %3, align 4, !tbaa !3
   br label %10
@@ -94,7 +94,7 @@ define hidden void @b2ChainShapeArray_Destroy(ptr noundef captures(none) initial
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %4 = load i32, ptr %3, align 4, !tbaa !3
   %5 = mul i32 %4, 48
-  tail call void @b2Free(ptr noundef %2, i32 noundef %5) #12
+  tail call void @b2Free(ptr noundef %2, i32 noundef %5) #10
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   ret void
 }
@@ -108,7 +108,7 @@ define hidden { ptr, i64 } @b2ShapeArray_Create(i32 noundef %0) local_unnamed_ad
 
 3:                                                ; preds = %1
   %4 = mul i32 %0, 288
-  %5 = tail call ptr @b2Alloc(i32 noundef %4) #12
+  %5 = tail call ptr @b2Alloc(i32 noundef %4) #10
   %.sroa.3.12.insert.ext = zext nneg i32 %0 to i64
   %.sroa.3.12.insert.shift = shl nuw nsw i64 %.sroa.3.12.insert.ext, 32
   br label %6
@@ -132,7 +132,7 @@ define hidden void @b2ShapeArray_Reserve(ptr noundef captures(none) %0, i32 noun
   %6 = load ptr, ptr %0, align 8, !tbaa !14
   %7 = mul i32 %4, 288
   %8 = mul i32 %1, 288
-  %9 = tail call ptr @b2GrowAlloc(ptr noundef %6, i32 noundef %7, i32 noundef %8) #12
+  %9 = tail call ptr @b2GrowAlloc(ptr noundef %6, i32 noundef %7, i32 noundef %8) #10
   store ptr %9, ptr %0, align 8, !tbaa !14
   store i32 %1, ptr %3, align 4, !tbaa !11
   br label %10
@@ -147,7 +147,7 @@ define hidden void @b2ShapeArray_Destroy(ptr noundef captures(none) initializes(
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %4 = load i32, ptr %3, align 4, !tbaa !11
   %5 = mul i32 %4, 288
-  tail call void @b2Free(ptr noundef %2, i32 noundef %5) #12
+  tail call void @b2Free(ptr noundef %2, i32 noundef %5) #10
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   ret void
 }
@@ -163,13 +163,13 @@ define internal fastcc i64 @b2CreateShape(i64 %0, ptr noundef readonly captures(
   %.sroa.2.0.extract.shift = lshr i64 %0, 32
   %5 = trunc nuw i64 %.sroa.2.0.extract.shift to i32
   %6 = and i32 %5, 65535
-  %7 = tail call ptr @b2GetWorldLocked(i32 noundef %6) #12
+  %7 = tail call ptr @b2GetWorldLocked(i32 noundef %6) #10
   %8 = icmp eq ptr %7, null
   br i1 %8, label %30, label %9
 
 9:                                                ; preds = %4
-  %10 = tail call ptr @b2GetBodyFullId(ptr noundef nonnull %7, i64 %0) #12
-  %11 = tail call { <2 x float>, <2 x float> } @b2GetBodyTransformQuick(ptr noundef nonnull %7, ptr noundef %10) #12
+  %10 = tail call ptr @b2GetBodyFullId(ptr noundef nonnull %7, i64 %0) #10
+  %11 = tail call { <2 x float>, <2 x float> } @b2GetBodyTransformQuick(ptr noundef nonnull %7, ptr noundef %10) #10
   %12 = extractvalue { <2 x float>, <2 x float> } %11, 0
   %13 = extractvalue { <2 x float>, <2 x float> } %11, 1
   %14 = tail call fastcc ptr @b2CreateShapeInternal(ptr noundef %7, ptr noundef %10, <2 x float> %12, <2 x float> %13, ptr noundef %1, ptr noundef %2, i32 noundef %3)
@@ -179,11 +179,11 @@ define internal fastcc i64 @b2CreateShape(i64 %0, ptr noundef readonly captures(
   br i1 %17, label %18, label %19
 
 18:                                               ; preds = %9
-  tail call void @b2UpdateBodyMassData(ptr noundef nonnull %7, ptr noundef %10) #12
+  tail call void @b2UpdateBodyMassData(ptr noundef nonnull %7, ptr noundef %10) #10
   br label %19
 
 19:                                               ; preds = %18, %9
-  tail call void @b2ValidateSolverSets(ptr noundef nonnull %7) #12
+  tail call void @b2ValidateSolverSets(ptr noundef nonnull %7) #10
   %20 = load i32, ptr %14, align 8, !tbaa !23
   %21 = add nsw i32 %20, 1
   %22 = getelementptr inbounds nuw i8, ptr %14, i64 276
@@ -292,7 +292,7 @@ define void @b2DestroyShape(i64 %0, i1 noundef zeroext %1) local_unnamed_addr #0
   %.sroa.2.0.extract.shift = lshr i64 %0, 32
   %3 = trunc nuw i64 %.sroa.2.0.extract.shift to i32
   %4 = and i32 %3, 65535
-  %5 = tail call ptr @b2GetWorldLocked(i32 noundef %4) #12
+  %5 = tail call ptr @b2GetWorldLocked(i32 noundef %4) #10
   %6 = icmp eq ptr %5, null
   br i1 %6, label %18, label %7
 
@@ -313,7 +313,7 @@ define void @b2DestroyShape(i64 %0, i1 noundef zeroext %1) local_unnamed_addr #0
   br i1 %1, label %17, label %18
 
 17:                                               ; preds = %7
-  tail call void @b2UpdateBodyMassData(ptr noundef nonnull %5, ptr noundef %16) #12
+  tail call void @b2UpdateBodyMassData(ptr noundef nonnull %5, ptr noundef %16) #10
   br label %18
 
 18:                                               ; preds = %7, %17, %2
@@ -382,7 +382,7 @@ define internal fastcc void @b2DestroyShapeInternal(ptr noundef nonnull %0, ptr 
 
 32:                                               ; preds = %26
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  tail call void @b2BroadPhase_DestroyProxy(ptr noundef nonnull %33, i32 noundef %31) #12
+  tail call void @b2BroadPhase_DestroyProxy(ptr noundef nonnull %33, i32 noundef %31) #10
   store i32 -1, ptr %30, align 8, !tbaa !43
   br label %b2DestroyShapeProxy.exit
 
@@ -419,7 +419,7 @@ b2DestroyShapeProxy.exit:                         ; preds = %26, %32
   br i1 %52, label %53, label %54
 
 53:                                               ; preds = %49, %37
-  tail call void @b2DestroyContact(ptr noundef nonnull %0, ptr noundef nonnull %41, i1 noundef zeroext true) #12
+  tail call void @b2DestroyContact(ptr noundef nonnull %0, ptr noundef nonnull %41, i1 noundef zeroext true) #10
   br label %54
 
 54:                                               ; preds = %53, %49
@@ -453,8 +453,8 @@ b2DestroyShapeProxy.exit:                         ; preds = %26, %32
   br label %79
 
 ._crit_edge87:                                    ; preds = %b2SensorEndTouchEventArray_Push.exit, %57
-  tail call void @b2ShapeRefArray_Destroy(ptr noundef nonnull %60) #12
-  tail call void @b2ShapeRefArray_Destroy(ptr noundef nonnull %61) #12
+  tail call void @b2ShapeRefArray_Destroy(ptr noundef nonnull %60) #10
+  tail call void @b2ShapeRefArray_Destroy(ptr noundef nonnull %61) #10
   %70 = load i32, ptr %55, align 8, !tbaa !55
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 1296
   %72 = load i32, ptr %71, align 8, !tbaa !63
@@ -515,7 +515,7 @@ b2SensorArray_RemoveSwap.exit:                    ; preds = %._crit_edge87
   %100 = lshr i32 %94, 1
   %101 = add nuw nsw i32 %100, %94
   %102 = select i1 %99, i32 2, i32 %101
-  tail call void @b2SensorEndTouchEventArray_Reserve(ptr noundef nonnull %92, i32 noundef %102) #12
+  tail call void @b2SensorEndTouchEventArray_Reserve(ptr noundef nonnull %92, i32 noundef %102) #10
   %.pre.i78 = load i32, ptr %93, align 8, !tbaa !109
   br label %b2SensorEndTouchEventArray_Push.exit
 
@@ -553,9 +553,9 @@ b2SensorEndTouchEventArray_Push.exit:             ; preds = %79, %98
 
 122:                                              ; preds = %b2SensorArray_RemoveSwap.exit.thread, %b2SensorArray_RemoveSwap.exit, %112, %._crit_edge
   %123 = getelementptr inbounds nuw i8, ptr %0, i64 1208
-  tail call void @b2FreeId(ptr noundef nonnull %123, i32 noundef %4) #12
+  tail call void @b2FreeId(ptr noundef nonnull %123, i32 noundef %4) #10
   store i32 -1, ptr %1, align 8, !tbaa !23
-  tail call void @b2ValidateSolverSets(ptr noundef nonnull %0) #12
+  tail call void @b2ValidateSolverSets(ptr noundef nonnull %0) #10
   ret void
 }
 
@@ -569,17 +569,17 @@ define i64 @b2CreateChain(i64 %0, ptr noundef readonly captures(none) %1) local_
   %.sroa.2.0.extract.shift = lshr i64 %0, 32
   %6 = trunc nuw i64 %.sroa.2.0.extract.shift to i32
   %7 = and i32 %6, 65535
-  %8 = tail call ptr @b2GetWorldLocked(i32 noundef %7) #12
+  %8 = tail call ptr @b2GetWorldLocked(i32 noundef %7) #10
   %9 = icmp eq ptr %8, null
   br i1 %9, label %273, label %10
 
 10:                                               ; preds = %2
-  %11 = tail call ptr @b2GetBodyFullId(ptr noundef nonnull %8, i64 %0) #12
-  %12 = tail call { <2 x float>, <2 x float> } @b2GetBodyTransformQuick(ptr noundef nonnull %8, ptr noundef %11) #12
+  %11 = tail call ptr @b2GetBodyFullId(ptr noundef nonnull %8, i64 %0) #10
+  %12 = tail call { <2 x float>, <2 x float> } @b2GetBodyTransformQuick(ptr noundef nonnull %8, ptr noundef %11) #10
   %13 = extractvalue { <2 x float>, <2 x float> } %12, 0
   %14 = extractvalue { <2 x float>, <2 x float> } %12, 1
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 1232
-  %16 = tail call i32 @b2AllocId(ptr noundef nonnull %15) #12
+  %16 = tail call i32 @b2AllocId(ptr noundef nonnull %15) #10
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 1272
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 1280
   %19 = load i32, ptr %18, align 8, !tbaa !116
@@ -608,7 +608,7 @@ define i64 @b2CreateChain(i64 %0, ptr noundef readonly captures(none) %1) local_
 30:                                               ; preds = %25
   %31 = mul i32 %16, 48
   %32 = mul i32 %29, 48
-  %33 = tail call ptr @b2GrowAlloc(ptr noundef %.pre9.i, i32 noundef %31, i32 noundef %32) #12
+  %33 = tail call ptr @b2GrowAlloc(ptr noundef %.pre9.i, i32 noundef %31, i32 noundef %32) #10
   store ptr %33, ptr %17, align 8, !tbaa !10
   store i32 %29, ptr %22, align 4, !tbaa !3
   %.pre10.i = load i32, ptr %18, align 8, !tbaa !117
@@ -648,7 +648,7 @@ b2ChainShapeArray_Push.exit:                      ; preds = %.b2ChainShapeArray_
   %54 = getelementptr inbounds nuw i8, ptr %42, i64 16
   store i32 %.fr173, ptr %54, align 8, !tbaa !129
   %55 = mul i32 %.fr173, 24
-  %56 = tail call ptr @b2Alloc(i32 noundef %55) #12
+  %56 = tail call ptr @b2Alloc(i32 noundef %55) #10
   %57 = getelementptr inbounds nuw i8, ptr %42, i64 32
   store ptr %56, ptr %57, align 8, !tbaa !130
   %58 = icmp sgt i32 %.fr173, 0
@@ -662,7 +662,7 @@ b2ChainShapeArray_Push.exit:                      ; preds = %.b2ChainShapeArray_
 ._crit_edge:                                      ; preds = %72, %40
   store i32 %16, ptr %46, align 8, !tbaa !123
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  call void @b2DefaultShapeDef(ptr dead_on_unwind nonnull writable sret(%struct.b2ShapeDef) align 8 %3) #12
+  call void @b2DefaultShapeDef(ptr dead_on_unwind nonnull writable sret(%struct.b2ShapeDef) align 8 %3) #10
   %60 = load ptr, ptr %1, align 8, !tbaa !131
   store ptr %60, ptr %3, align 8, !tbaa !132
   %61 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -696,7 +696,7 @@ b2ChainShapeArray_Push.exit:                      ; preds = %.b2ChainShapeArray_
   %78 = getelementptr inbounds nuw i8, ptr %42, i64 12
   store i32 %68, ptr %78, align 4, !tbaa !143
   %79 = shl i32 %68, 2
-  %80 = call ptr @b2Alloc(i32 noundef %79) #12
+  %80 = call ptr @b2Alloc(i32 noundef %79) #10
   %81 = getelementptr inbounds nuw i8, ptr %42, i64 24
   store ptr %80, ptr %81, align 8, !tbaa !144
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -868,7 +868,7 @@ b2ChainShapeArray_Push.exit:                      ; preds = %.b2ChainShapeArray_
   %195 = getelementptr inbounds nuw i8, ptr %42, i64 12
   store i32 %194, ptr %195, align 4, !tbaa !143
   %196 = shl i32 %194, 2
-  %197 = call ptr @b2Alloc(i32 noundef %196) #12
+  %197 = call ptr @b2Alloc(i32 noundef %196) #10
   %198 = getelementptr inbounds nuw i8, ptr %42, i64 24
   store ptr %197, ptr %198, align 8, !tbaa !144
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -1011,7 +1011,7 @@ declare void @b2DefaultShapeDef(ptr dead_on_unwind writable sret(%struct.b2Shape
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @b2CreateShapeInternal(ptr noundef nonnull %0, ptr noundef captures(none) %1, <2 x float> %2, <2 x float> %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, i32 noundef range(i32 0, 5) %6) unnamed_addr #3 {
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 1208
-  %9 = tail call i32 @b2AllocId(ptr noundef nonnull %8) #12
+  %9 = tail call i32 @b2AllocId(ptr noundef nonnull %8) #10
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 1256
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 1264
   %12 = load i32, ptr %11, align 8, !tbaa !163
@@ -1040,7 +1040,7 @@ define internal fastcc ptr @b2CreateShapeInternal(ptr noundef nonnull %0, ptr no
 23:                                               ; preds = %18
   %24 = mul i32 %9, 288
   %25 = mul i32 %22, 288
-  %26 = tail call ptr @b2GrowAlloc(ptr noundef %.pre9.i, i32 noundef %24, i32 noundef %25) #12
+  %26 = tail call ptr @b2GrowAlloc(ptr noundef %.pre9.i, i32 noundef %24, i32 noundef %25) #10
   store ptr %26, ptr %10, align 8, !tbaa !14
   store i32 %22, ptr %15, align 4, !tbaa !11
   %.pre10.i = load i32, ptr %11, align 8, !tbaa !164
@@ -1296,10 +1296,10 @@ b2GetShapeCentroid.exit:                          ; preds = %84, %95, %97, %99, 
   %159 = load i32, ptr %158, align 8, !tbaa !190
   %160 = getelementptr inbounds nuw i8, ptr %35, i64 16
   store i32 %159, ptr %160, align 8, !tbaa !55
-  %161 = tail call { ptr, i64 } @b2ShapeRefArray_Create(i32 noundef 16) #12
+  %161 = tail call { ptr, i64 } @b2ShapeRefArray_Create(i32 noundef 16) #10
   %162 = extractvalue { ptr, i64 } %161, 0
   %163 = extractvalue { ptr, i64 } %161, 1
-  %164 = tail call { ptr, i64 } @b2ShapeRefArray_Create(i32 noundef 16) #12
+  %164 = tail call { ptr, i64 } @b2ShapeRefArray_Create(i32 noundef 16) #10
   %165 = extractvalue { ptr, i64 } %164, 0
   %166 = extractvalue { ptr, i64 } %164, 1
   %167 = load i32, ptr %158, align 8, !tbaa !63
@@ -1313,7 +1313,7 @@ b2GetShapeCentroid.exit:                          ; preds = %84, %95, %97, %99, 
   %173 = lshr i32 %167, 1
   %174 = add nuw nsw i32 %173, %167
   %175 = select i1 %172, i32 2, i32 %174
-  tail call void @b2SensorArray_Reserve(ptr noundef nonnull %157, i32 noundef %175) #12
+  tail call void @b2SensorArray_Reserve(ptr noundef nonnull %157, i32 noundef %175) #10
   %.pre.i82 = load i32, ptr %158, align 8, !tbaa !63
   br label %b2SensorArray_Push.exit
 
@@ -1344,7 +1344,7 @@ b2SensorArray_Push.exit:                          ; preds = %156, %171
   br label %184
 
 184:                                              ; preds = %182, %b2SensorArray_Push.exit
-  tail call void @b2ValidateSolverSets(ptr noundef nonnull %0) #12
+  tail call void @b2ValidateSolverSets(ptr noundef nonnull %0) #10
   ret ptr %35
 }
 
@@ -1355,14 +1355,14 @@ define hidden void @b2FreeChainData(ptr noundef captures(none) %0) local_unnamed
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %5 = load i32, ptr %4, align 4, !tbaa !143
   %6 = shl i32 %5, 2
-  tail call void @b2Free(ptr noundef %3, i32 noundef %6) #12
+  tail call void @b2Free(ptr noundef %3, i32 noundef %6) #10
   store ptr null, ptr %2, align 8, !tbaa !144
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load ptr, ptr %7, align 8, !tbaa !130
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load i32, ptr %9, align 8, !tbaa !129
   %11 = mul i32 %10, 24
-  tail call void @b2Free(ptr noundef %8, i32 noundef %11) #12
+  tail call void @b2Free(ptr noundef %8, i32 noundef %11) #10
   store ptr null, ptr %7, align 8, !tbaa !130
   ret void
 }
@@ -1372,7 +1372,7 @@ define void @b2DestroyChain(i64 %0) local_unnamed_addr #0 {
   %.sroa.2.0.extract.shift = lshr i64 %0, 32
   %2 = trunc nuw i64 %.sroa.2.0.extract.shift to i32
   %3 = and i32 %2, 65535
-  %4 = tail call ptr @b2GetWorldLocked(i32 noundef %3) #12
+  %4 = tail call ptr @b2GetWorldLocked(i32 noundef %3) #10
   %5 = icmp eq ptr %4, null
   br i1 %5, label %.critedge, label %6
 
@@ -1441,20 +1441,20 @@ define void @b2DestroyChain(i64 %0) local_unnamed_addr #0 {
   %36 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %37 = load ptr, ptr %36, align 8, !tbaa !144
   %38 = shl i32 %35, 2
-  tail call void @b2Free(ptr noundef %37, i32 noundef %38) #12
+  tail call void @b2Free(ptr noundef %37, i32 noundef %38) #10
   store ptr null, ptr %36, align 8, !tbaa !144
   %39 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %40 = load ptr, ptr %39, align 8, !tbaa !130
   %41 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %42 = load i32, ptr %41, align 8, !tbaa !129
   %43 = mul i32 %42, 24
-  tail call void @b2Free(ptr noundef %40, i32 noundef %43) #12
+  tail call void @b2Free(ptr noundef %40, i32 noundef %43) #10
   store ptr null, ptr %39, align 8, !tbaa !130
   %44 = getelementptr inbounds nuw i8, ptr %4, i64 1232
   %45 = load i32, ptr %10, align 8, !tbaa !118
-  tail call void @b2FreeId(ptr noundef nonnull %44, i32 noundef %45) #12
+  tail call void @b2FreeId(ptr noundef nonnull %44, i32 noundef %45) #10
   store i32 -1, ptr %10, align 8, !tbaa !118
-  tail call void @b2ValidateSolverSets(ptr noundef nonnull %4) #12
+  tail call void @b2ValidateSolverSets(ptr noundef nonnull %4) #10
   br label %.critedge
 
 46:                                               ; preds = %.lr.ph39, %46
@@ -1483,7 +1483,7 @@ define i32 @b2Chain_GetWorld(i64 %0) local_unnamed_addr #0 {
   %.sroa.1.0.extract.shift = lshr i64 %0, 32
   %.sroa.1.0.extract.trunc = trunc nuw i64 %.sroa.1.0.extract.shift to i32
   %2 = and i32 %.sroa.1.0.extract.trunc, 65535
-  %3 = tail call ptr @b2GetWorld(i32 noundef %2) #12
+  %3 = tail call ptr @b2GetWorld(i32 noundef %2) #10
   %4 = add i32 %.sroa.1.0.extract.trunc, 1
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 1592
   %6 = load i16, ptr %5, align 8, !tbaa !194
@@ -1501,7 +1501,7 @@ define i32 @b2Chain_GetSegmentCount(i64 %0) local_unnamed_addr #0 {
   %.sroa.2.0.extract.shift = lshr i64 %0, 32
   %2 = trunc nuw i64 %.sroa.2.0.extract.shift to i32
   %3 = and i32 %2, 65535
-  %4 = tail call ptr @b2GetWorldLocked(i32 noundef %3) #12
+  %4 = tail call ptr @b2GetWorldLocked(i32 noundef %3) #10
   %5 = icmp eq ptr %4, null
   br i1 %5, label %13, label %6
 
@@ -1527,7 +1527,7 @@ define noundef i32 @b2Chain_GetSegments(i64 %0, ptr noundef writeonly captures(n
   %.sroa.216.0.extract.trunc = trunc i64 %.sroa.216.0.extract.shift to i16
   %4 = trunc nuw i64 %.sroa.216.0.extract.shift to i32
   %5 = and i32 %4, 65535
-  %6 = tail call ptr @b2GetWorldLocked(i32 noundef %5) #12
+  %6 = tail call ptr @b2GetWorldLocked(i32 noundef %5) #10
   %7 = icmp eq ptr %6, null
   br i1 %7, label %.loopexit, label %8
 
@@ -1590,27 +1590,27 @@ define hidden { <2 x float>, <2 x float> } @b2ComputeShapeAABB(ptr noundef %0, <
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 132
-  %8 = tail call { <2 x float>, <2 x float> } @b2ComputeCapsuleAABB(ptr noundef nonnull %7, <2 x float> %1, <2 x float> %2) #12
+  %8 = tail call { <2 x float>, <2 x float> } @b2ComputeCapsuleAABB(ptr noundef nonnull %7, <2 x float> %1, <2 x float> %2) #10
   br label %24
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 132
-  %11 = tail call { <2 x float>, <2 x float> } @b2ComputeCircleAABB(ptr noundef nonnull %10, <2 x float> %1, <2 x float> %2) #12
+  %11 = tail call { <2 x float>, <2 x float> } @b2ComputeCircleAABB(ptr noundef nonnull %10, <2 x float> %1, <2 x float> %2) #10
   br label %24
 
 12:                                               ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 132
-  %14 = tail call { <2 x float>, <2 x float> } @b2ComputePolygonAABB(ptr noundef nonnull %13, <2 x float> %1, <2 x float> %2) #12
+  %14 = tail call { <2 x float>, <2 x float> } @b2ComputePolygonAABB(ptr noundef nonnull %13, <2 x float> %1, <2 x float> %2) #10
   br label %24
 
 15:                                               ; preds = %3
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 132
-  %17 = tail call { <2 x float>, <2 x float> } @b2ComputeSegmentAABB(ptr noundef nonnull %16, <2 x float> %1, <2 x float> %2) #12
+  %17 = tail call { <2 x float>, <2 x float> } @b2ComputeSegmentAABB(ptr noundef nonnull %16, <2 x float> %1, <2 x float> %2) #10
   br label %24
 
 18:                                               ; preds = %3
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 140
-  %20 = tail call { <2 x float>, <2 x float> } @b2ComputeSegmentAABB(ptr noundef nonnull %19, <2 x float> %1, <2 x float> %2) #12
+  %20 = tail call { <2 x float>, <2 x float> } @b2ComputeSegmentAABB(ptr noundef nonnull %19, <2 x float> %1, <2 x float> %2) #10
   br label %24
 
 21:                                               ; preds = %3
@@ -1715,16 +1715,16 @@ define hidden <2 x float> @b2GetShapeCentroid(ptr noundef readonly captures(none
   ret <2 x float> %.sroa.0.0
 }
 
-; Function Attrs: nofree norecurse nounwind memory(argmem: read, errnomem: write) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define hidden float @b2GetShapePerimeter(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %3 = load i32, ptr %2, align 4, !tbaa !171
   switch i32 %3, label %.loopexit [
     i32 1, label %4
-    i32 0, label %16
-    i32 3, label %20
-    i32 2, label %35
-    i32 4, label %43
+    i32 0, label %15
+    i32 3, label %19
+    i32 2, label %33
+    i32 4, label %40
   ]
 
 4:                                                ; preds = %1
@@ -1733,102 +1733,102 @@ define hidden float @b2GetShapePerimeter(ptr noundef readonly captures(none) %0)
   %7 = load <2 x float>, ptr %5, align 4
   %8 = load <2 x float>, ptr %6, align 4
   %foldExtExtBinop = fsub <2 x float> %7, %8
-  %foldExtExtBinop61 = fsub <2 x float> %7, %8
-  %foldExtExtBinop63 = fmul <2 x float> %foldExtExtBinop, %foldExtExtBinop
-  %foldExtExtBinop65 = fmul <2 x float> %foldExtExtBinop61, %foldExtExtBinop61
-  %shift = shufflevector <2 x float> %foldExtExtBinop65, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop67 = fadd <2 x float> %foldExtExtBinop63, %shift
-  %9 = extractelement <2 x float> %foldExtExtBinop67, i64 0
-  %10 = tail call float @sqrtf(float noundef %9) #12, !tbaa !66
-  %11 = fmul float %10, 2.000000e+00
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 148
-  %13 = load float, ptr %12, align 4, !tbaa !168
-  %14 = fmul float %13, 0x401921FB60000000
-  %15 = fadd float %11, %14
+  %foldExtExtBinop64 = fsub <2 x float> %7, %8
+  %foldExtExtBinop66 = fmul <2 x float> %foldExtExtBinop, %foldExtExtBinop
+  %foldExtExtBinop68 = fmul <2 x float> %foldExtExtBinop64, %foldExtExtBinop64
+  %shift = shufflevector <2 x float> %foldExtExtBinop68, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop70 = fadd <2 x float> %foldExtExtBinop66, %shift
+  %9 = extractelement <2 x float> %foldExtExtBinop70, i64 0
+  %sqrt.i = tail call float @llvm.sqrt.f32(float %9)
+  %10 = fmul float %sqrt.i, 2.000000e+00
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 148
+  %12 = load float, ptr %11, align 4, !tbaa !168
+  %13 = fmul float %12, 0x401921FB60000000
+  %14 = fadd float %13, %10
   br label %.loopexit
 
-16:                                               ; preds = %1
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 140
-  %18 = load float, ptr %17, align 4, !tbaa !168
-  %19 = fmul float %18, 0x401921FB60000000
+15:                                               ; preds = %1
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 140
+  %17 = load float, ptr %16, align 4, !tbaa !168
+  %18 = fmul float %17, 0x401921FB60000000
   br label %.loopexit
 
-20:                                               ; preds = %1
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 132
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 272
-  %23 = load i32, ptr %22, align 4, !tbaa !168
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 268
-  %25 = load float, ptr %24, align 4, !tbaa !168
-  %26 = fmul float %25, 0x401921FB60000000
-  %27 = icmp sgt i32 %23, 0
-  br i1 %27, label %.lr.ph.preheader, label %.loopexit
+19:                                               ; preds = %1
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 132
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 272
+  %22 = load i32, ptr %21, align 4, !tbaa !168
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 268
+  %24 = load float, ptr %23, align 4, !tbaa !168
+  %25 = fmul float %24, 0x401921FB60000000
+  %26 = icmp sgt i32 %22, 0
+  br i1 %26, label %.lr.ph.preheader, label %.loopexit
 
-.lr.ph.preheader:                                 ; preds = %20
-  %28 = zext nneg i32 %23 to i64
-  %29 = getelementptr %struct.b2Vec2, ptr %21, i64 %28
-  %30 = getelementptr i8, ptr %29, i64 -8
-  %.sroa.07.0.copyload = load <2 x float>, ptr %30, align 4
-  %wide.trip.count = zext nneg i32 %23 to i64
+.lr.ph.preheader:                                 ; preds = %19
+  %27 = zext nneg i32 %22 to i64
+  %28 = getelementptr %struct.b2Vec2, ptr %20, i64 %27
+  %29 = getelementptr i8, ptr %28, i64 -8
+  %.sroa.07.0.copyload = load <2 x float>, ptr %29, align 4
+  %wide.trip.count = zext nneg i32 %22 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.02757 = phi float [ %26, %.lr.ph.preheader ], [ %34, %.lr.ph ]
-  %.sroa.07.056 = phi <2 x float> [ %.sroa.07.0.copyload, %.lr.ph.preheader ], [ %.sroa.03.0.copyload, %.lr.ph ]
-  %31 = getelementptr inbounds nuw %struct.b2Vec2, ptr %21, i64 %indvars.iv
-  %.sroa.03.0.copyload = load <2 x float>, ptr %31, align 4
-  %foldExtExtBinop69 = fsub <2 x float> %.sroa.03.0.copyload, %.sroa.07.056
-  %foldExtExtBinop71 = fsub <2 x float> %.sroa.03.0.copyload, %.sroa.07.056
-  %foldExtExtBinop73 = fmul <2 x float> %foldExtExtBinop69, %foldExtExtBinop69
-  %foldExtExtBinop75 = fmul <2 x float> %foldExtExtBinop71, %foldExtExtBinop71
-  %shift77 = shufflevector <2 x float> %foldExtExtBinop75, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop78 = fadd <2 x float> %foldExtExtBinop73, %shift77
-  %32 = extractelement <2 x float> %foldExtExtBinop78, i64 0
-  %33 = tail call float @sqrtf(float noundef %32) #12, !tbaa !66
-  %34 = fadd float %.02757, %33
+  %.02760 = phi float [ %25, %.lr.ph.preheader ], [ %32, %.lr.ph ]
+  %.sroa.07.059 = phi <2 x float> [ %.sroa.07.0.copyload, %.lr.ph.preheader ], [ %.sroa.03.0.copyload, %.lr.ph ]
+  %30 = getelementptr inbounds nuw %struct.b2Vec2, ptr %20, i64 %indvars.iv
+  %.sroa.03.0.copyload = load <2 x float>, ptr %30, align 4
+  %foldExtExtBinop72 = fsub <2 x float> %.sroa.03.0.copyload, %.sroa.07.059
+  %foldExtExtBinop74 = fsub <2 x float> %.sroa.03.0.copyload, %.sroa.07.059
+  %foldExtExtBinop76 = fmul <2 x float> %foldExtExtBinop72, %foldExtExtBinop72
+  %foldExtExtBinop78 = fmul <2 x float> %foldExtExtBinop74, %foldExtExtBinop74
+  %shift80 = shufflevector <2 x float> %foldExtExtBinop78, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop81 = fadd <2 x float> %foldExtExtBinop76, %shift80
+  %31 = extractelement <2 x float> %foldExtExtBinop81, i64 0
+  %sqrt.i39 = tail call float @llvm.sqrt.f32(float %31)
+  %32 = fadd float %.02760, %sqrt.i39
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !197
 
-35:                                               ; preds = %1
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 132
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 140
-  %38 = load <2 x float>, ptr %36, align 4
-  %39 = load <2 x float>, ptr %37, align 4
-  %foldExtExtBinop80 = fsub <2 x float> %38, %39
-  %foldExtExtBinop82 = fsub <2 x float> %38, %39
-  %foldExtExtBinop84 = fmul <2 x float> %foldExtExtBinop80, %foldExtExtBinop80
-  %foldExtExtBinop86 = fmul <2 x float> %foldExtExtBinop82, %foldExtExtBinop82
-  %shift88 = shufflevector <2 x float> %foldExtExtBinop86, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop89 = fadd <2 x float> %foldExtExtBinop84, %shift88
-  %40 = extractelement <2 x float> %foldExtExtBinop89, i64 0
-  %41 = tail call float @sqrtf(float noundef %40) #12, !tbaa !66
-  %42 = fmul float %41, 2.000000e+00
+33:                                               ; preds = %1
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 132
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 140
+  %36 = load <2 x float>, ptr %34, align 4
+  %37 = load <2 x float>, ptr %35, align 4
+  %foldExtExtBinop83 = fsub <2 x float> %36, %37
+  %foldExtExtBinop85 = fsub <2 x float> %36, %37
+  %foldExtExtBinop87 = fmul <2 x float> %foldExtExtBinop83, %foldExtExtBinop83
+  %foldExtExtBinop89 = fmul <2 x float> %foldExtExtBinop85, %foldExtExtBinop85
+  %shift91 = shufflevector <2 x float> %foldExtExtBinop89, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop92 = fadd <2 x float> %foldExtExtBinop87, %shift91
+  %38 = extractelement <2 x float> %foldExtExtBinop92, i64 0
+  %sqrt.i48 = tail call float @llvm.sqrt.f32(float %38)
+  %39 = fmul float %sqrt.i48, 2.000000e+00
   br label %.loopexit
 
-43:                                               ; preds = %1
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 140
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 148
-  %46 = load <2 x float>, ptr %44, align 4
-  %47 = load <2 x float>, ptr %45, align 4
-  %foldExtExtBinop91 = fsub <2 x float> %46, %47
-  %foldExtExtBinop93 = fsub <2 x float> %46, %47
-  %foldExtExtBinop95 = fmul <2 x float> %foldExtExtBinop91, %foldExtExtBinop91
-  %foldExtExtBinop97 = fmul <2 x float> %foldExtExtBinop93, %foldExtExtBinop93
-  %shift99 = shufflevector <2 x float> %foldExtExtBinop97, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop100 = fadd <2 x float> %foldExtExtBinop95, %shift99
-  %48 = extractelement <2 x float> %foldExtExtBinop100, i64 0
-  %49 = tail call float @sqrtf(float noundef %48) #12, !tbaa !66
-  %50 = fmul float %49, 2.000000e+00
+40:                                               ; preds = %1
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 140
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 148
+  %43 = load <2 x float>, ptr %41, align 4
+  %44 = load <2 x float>, ptr %42, align 4
+  %foldExtExtBinop94 = fsub <2 x float> %43, %44
+  %foldExtExtBinop96 = fsub <2 x float> %43, %44
+  %foldExtExtBinop98 = fmul <2 x float> %foldExtExtBinop94, %foldExtExtBinop94
+  %foldExtExtBinop100 = fmul <2 x float> %foldExtExtBinop96, %foldExtExtBinop96
+  %shift102 = shufflevector <2 x float> %foldExtExtBinop100, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop103 = fadd <2 x float> %foldExtExtBinop98, %shift102
+  %45 = extractelement <2 x float> %foldExtExtBinop103, i64 0
+  %sqrt.i57 = tail call float @llvm.sqrt.f32(float %45)
+  %46 = fmul float %sqrt.i57, 2.000000e+00
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph, %20, %1, %43, %35, %16, %4
-  %.0 = phi float [ 0.000000e+00, %1 ], [ %15, %4 ], [ %19, %16 ], [ %50, %43 ], [ %42, %35 ], [ %26, %20 ], [ %34, %.lr.ph ]
+.loopexit:                                        ; preds = %.lr.ph, %19, %1, %40, %33, %15, %4
+  %.0 = phi float [ 0.000000e+00, %1 ], [ %14, %4 ], [ %18, %15 ], [ %46, %40 ], [ %39, %33 ], [ %25, %19 ], [ %32, %.lr.ph ]
   ret float %.0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define hidden float @b2GetShapeProjectedPerimeter(ptr noundef readonly captures(none) %0, <2 x float> %1) local_unnamed_addr #7 {
+define hidden float @b2GetShapeProjectedPerimeter(ptr noundef readonly captures(none) %0, <2 x float> %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %4 = load i32, ptr %3, align 4, !tbaa !171
   switch i32 %4, label %59 [
@@ -1971,7 +1971,7 @@ define hidden { <2 x float>, <2 x float> } @b2ComputeShapeMass(ptr noundef %0) l
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 132
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load float, ptr %6, align 8, !tbaa !173
-  %8 = tail call { <2 x float>, <2 x float> } @b2ComputeCapsuleMass(ptr noundef nonnull %5, float noundef %7) #12
+  %8 = tail call { <2 x float>, <2 x float> } @b2ComputeCapsuleMass(ptr noundef nonnull %5, float noundef %7) #10
   %9 = extractvalue { <2 x float>, <2 x float> } %8, 0
   %10 = extractvalue { <2 x float>, <2 x float> } %8, 1
   br label %25
@@ -1980,7 +1980,7 @@ define hidden { <2 x float>, <2 x float> } @b2ComputeShapeMass(ptr noundef %0) l
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 132
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = load float, ptr %13, align 8, !tbaa !173
-  %15 = tail call { <2 x float>, <2 x float> } @b2ComputeCircleMass(ptr noundef nonnull %12, float noundef %14) #12
+  %15 = tail call { <2 x float>, <2 x float> } @b2ComputeCircleMass(ptr noundef nonnull %12, float noundef %14) #10
   %16 = extractvalue { <2 x float>, <2 x float> } %15, 0
   %17 = extractvalue { <2 x float>, <2 x float> } %15, 1
   br label %25
@@ -1989,7 +1989,7 @@ define hidden { <2 x float>, <2 x float> } @b2ComputeShapeMass(ptr noundef %0) l
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 132
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %21 = load float, ptr %20, align 8, !tbaa !173
-  %22 = tail call { <2 x float>, <2 x float> } @b2ComputePolygonMass(ptr noundef nonnull %19, float noundef %21) #12
+  %22 = tail call { <2 x float>, <2 x float> } @b2ComputePolygonMass(ptr noundef nonnull %19, float noundef %21) #10
   %23 = extractvalue { <2 x float>, <2 x float> } %22, 0
   %24 = extractvalue { <2 x float>, <2 x float> } %22, 1
   br label %25
@@ -2008,16 +2008,16 @@ declare { <2 x float>, <2 x float> } @b2ComputeCircleMass(ptr noundef, float nou
 
 declare { <2 x float>, <2 x float> } @b2ComputePolygonMass(ptr noundef, float noundef) local_unnamed_addr #2
 
-; Function Attrs: nofree norecurse nounwind memory(read, inaccessiblemem: none, errnomem: readwrite, target_mem0: none, target_mem1: none) uwtable
-define hidden <2 x float> @b2ComputeShapeExtent(ptr noundef readonly captures(none) %0, <2 x float> %1) local_unnamed_addr #8 {
+; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+define hidden <2 x float> @b2ComputeShapeExtent(ptr noundef readonly captures(none) %0, <2 x float> %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %4 = load i32, ptr %3, align 4, !tbaa !171
-  switch i32 %4, label %71 [
+  switch i32 %4, label %67 [
     i32 1, label %5
-    i32 0, label %18
-    i32 3, label %26
-    i32 2, label %51
-    i32 4, label %61
+    i32 0, label %17
+    i32 3, label %24
+    i32 2, label %49
+    i32 4, label %58
   ]
 
 5:                                                ; preds = %2
@@ -2027,161 +2027,161 @@ define hidden <2 x float> @b2ComputeShapeExtent(ptr noundef readonly captures(no
   %.sroa.049.0.vec.insert = insertelement <2 x float> poison, float %8, i64 0
   %9 = load <2 x float>, ptr %6, align 4
   %foldExtExtBinop = fsub <2 x float> %9, %1
-  %foldExtExtBinop146 = fsub <2 x float> %9, %1
+  %foldExtExtBinop149 = fsub <2 x float> %9, %1
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %11 = load <2 x float>, ptr %10, align 4
-  %foldExtExtBinop148 = fsub <2 x float> %11, %1
-  %foldExtExtBinop150 = fsub <2 x float> %11, %1
-  %foldExtExtBinop152 = fmul <2 x float> %foldExtExtBinop, %foldExtExtBinop
-  %foldExtExtBinop154 = fmul <2 x float> %foldExtExtBinop146, %foldExtExtBinop146
-  %shift = shufflevector <2 x float> %foldExtExtBinop154, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop156 = fadd <2 x float> %foldExtExtBinop152, %shift
-  %12 = extractelement <2 x float> %foldExtExtBinop156, i64 0
-  %foldExtExtBinop158 = fmul <2 x float> %foldExtExtBinop148, %foldExtExtBinop148
-  %foldExtExtBinop160 = fmul <2 x float> %foldExtExtBinop150, %foldExtExtBinop150
-  %shift162 = shufflevector <2 x float> %foldExtExtBinop160, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop163 = fadd <2 x float> %foldExtExtBinop158, %shift162
-  %13 = extractelement <2 x float> %foldExtExtBinop163, i64 0
+  %foldExtExtBinop151 = fsub <2 x float> %11, %1
+  %foldExtExtBinop153 = fsub <2 x float> %11, %1
+  %foldExtExtBinop155 = fmul <2 x float> %foldExtExtBinop, %foldExtExtBinop
+  %foldExtExtBinop157 = fmul <2 x float> %foldExtExtBinop149, %foldExtExtBinop149
+  %shift = shufflevector <2 x float> %foldExtExtBinop157, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop159 = fadd <2 x float> %foldExtExtBinop155, %shift
+  %12 = extractelement <2 x float> %foldExtExtBinop159, i64 0
+  %foldExtExtBinop161 = fmul <2 x float> %foldExtExtBinop151, %foldExtExtBinop151
+  %foldExtExtBinop163 = fmul <2 x float> %foldExtExtBinop153, %foldExtExtBinop153
+  %shift165 = shufflevector <2 x float> %foldExtExtBinop163, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop166 = fadd <2 x float> %foldExtExtBinop161, %shift165
+  %13 = extractelement <2 x float> %foldExtExtBinop166, i64 0
   %14 = fcmp ogt float %12, %13
   %15 = select i1 %14, float %12, float %13
-  %16 = tail call float @sqrtf(float noundef %15) #12, !tbaa !66
-  %17 = fadd float %8, %16
-  %.sroa.049.4.vec.insert = insertelement <2 x float> %.sroa.049.0.vec.insert, float %17, i64 1
-  br label %71
+  %sqrt = tail call float @llvm.sqrt.f32(float %15)
+  %16 = fadd float %8, %sqrt
+  %.sroa.049.4.vec.insert = insertelement <2 x float> %.sroa.049.0.vec.insert, float %16, i64 1
+  br label %67
 
-18:                                               ; preds = %2
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 132
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 140
-  %21 = load float, ptr %20, align 4, !tbaa !168
-  %.sroa.049.0.vec.insert52 = insertelement <2 x float> poison, float %21, i64 0
-  %22 = load <2 x float>, ptr %19, align 4
-  %foldExtExtBinop165 = fsub <2 x float> %22, %1
-  %foldExtExtBinop167 = fsub <2 x float> %22, %1
-  %foldExtExtBinop169 = fmul <2 x float> %foldExtExtBinop165, %foldExtExtBinop165
-  %foldExtExtBinop171 = fmul <2 x float> %foldExtExtBinop167, %foldExtExtBinop167
-  %shift173 = shufflevector <2 x float> %foldExtExtBinop171, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop174 = fadd <2 x float> %foldExtExtBinop169, %shift173
-  %23 = extractelement <2 x float> %foldExtExtBinop174, i64 0
-  %24 = tail call float @sqrtf(float noundef %23) #12, !tbaa !66
-  %25 = fadd float %21, %24
-  %.sroa.049.4.vec.insert60 = insertelement <2 x float> %.sroa.049.0.vec.insert52, float %25, i64 1
-  br label %71
+17:                                               ; preds = %2
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 132
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 140
+  %20 = load float, ptr %19, align 4, !tbaa !168
+  %.sroa.049.0.vec.insert52 = insertelement <2 x float> poison, float %20, i64 0
+  %21 = load <2 x float>, ptr %18, align 4
+  %foldExtExtBinop168 = fsub <2 x float> %21, %1
+  %foldExtExtBinop170 = fsub <2 x float> %21, %1
+  %foldExtExtBinop172 = fmul <2 x float> %foldExtExtBinop168, %foldExtExtBinop168
+  %foldExtExtBinop174 = fmul <2 x float> %foldExtExtBinop170, %foldExtExtBinop170
+  %shift176 = shufflevector <2 x float> %foldExtExtBinop174, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop177 = fadd <2 x float> %foldExtExtBinop172, %shift176
+  %22 = extractelement <2 x float> %foldExtExtBinop177, i64 0
+  %sqrt.i = tail call float @llvm.sqrt.f32(float %22)
+  %23 = fadd float %20, %sqrt.i
+  %.sroa.049.4.vec.insert60 = insertelement <2 x float> %.sroa.049.0.vec.insert52, float %23, i64 1
+  br label %67
 
-26:                                               ; preds = %2
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 132
-  %28 = load float, ptr @b2_lengthUnitsPerMeter, align 4, !tbaa !29
-  %29 = fmul float %28, 1.000000e+05
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 272
-  %31 = load i32, ptr %30, align 4, !tbaa !199
-  %32 = icmp sgt i32 %31, 0
-  br i1 %32, label %.lr.ph, label %._crit_edge
+24:                                               ; preds = %2
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 132
+  %26 = load float, ptr @b2_lengthUnitsPerMeter, align 4, !tbaa !29
+  %27 = fmul float %26, 1.000000e+05
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 272
+  %29 = load i32, ptr %28, align 4, !tbaa !199
+  %30 = icmp sgt i32 %29, 0
+  br i1 %30, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %26
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 196
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 260
-  %35 = load <2 x float>, ptr %34, align 4
-  %wide.trip.count = zext nneg i32 %31 to i64
-  br label %41
+.lr.ph:                                           ; preds = %24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 196
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 260
+  %33 = load <2 x float>, ptr %32, align 4
+  %wide.trip.count = zext nneg i32 %29 to i64
+  br label %39
 
-._crit_edge:                                      ; preds = %41, %26
-  %.067.lcssa = phi float [ 0.000000e+00, %26 ], [ %50, %41 ]
-  %.0.lcssa = phi float [ %29, %26 ], [ %47, %41 ]
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 268
-  %37 = load float, ptr %36, align 4, !tbaa !201
-  %38 = fadd float %.0.lcssa, %37
-  %.sroa.049.0.vec.insert54 = insertelement <2 x float> poison, float %38, i64 0
-  %39 = tail call float @sqrtf(float noundef %.067.lcssa) #12, !tbaa !66
-  %40 = fadd float %37, %39
-  %.sroa.049.4.vec.insert62 = insertelement <2 x float> %.sroa.049.0.vec.insert54, float %40, i64 1
-  br label %71
+._crit_edge.loopexit:                             ; preds = %39
+  %34 = tail call float @llvm.sqrt.f32(float %48)
+  br label %._crit_edge
 
-41:                                               ; preds = %.lr.ph, %41
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %41 ]
-  %.0139 = phi float [ %29, %.lr.ph ], [ %47, %41 ]
-  %.067138 = phi float [ 0.000000e+00, %.lr.ph ], [ %50, %41 ]
-  %42 = getelementptr inbounds nuw %struct.b2Vec2, ptr %27, i64 %indvars.iv
-  %.sroa.07.0.copyload = load <2 x float>, ptr %42, align 4
-  %43 = getelementptr inbounds nuw %struct.b2Vec2, ptr %33, i64 %indvars.iv
-  %foldExtExtBinop176 = fsub <2 x float> %.sroa.07.0.copyload, %35
-  %foldExtExtBinop178 = fsub <2 x float> %.sroa.07.0.copyload, %35
-  %44 = load <2 x float>, ptr %43, align 4
-  %foldExtExtBinop180 = fmul <2 x float> %44, %foldExtExtBinop176
-  %foldExtExtBinop182 = fmul <2 x float> %44, %foldExtExtBinop178
-  %shift184 = shufflevector <2 x float> %foldExtExtBinop182, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop185 = fadd <2 x float> %foldExtExtBinop180, %shift184
-  %45 = extractelement <2 x float> %foldExtExtBinop185, i64 0
-  %46 = fcmp olt float %.0139, %45
-  %47 = select i1 %46, float %.0139, float %45
-  %foldExtExtBinop187 = fsub <2 x float> %.sroa.07.0.copyload, %1
-  %foldExtExtBinop189 = fsub <2 x float> %.sroa.07.0.copyload, %1
-  %foldExtExtBinop191 = fmul <2 x float> %foldExtExtBinop187, %foldExtExtBinop187
-  %foldExtExtBinop193 = fmul <2 x float> %foldExtExtBinop189, %foldExtExtBinop189
-  %shift195 = shufflevector <2 x float> %foldExtExtBinop193, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop196 = fadd <2 x float> %foldExtExtBinop191, %shift195
-  %48 = extractelement <2 x float> %foldExtExtBinop196, i64 0
-  %49 = fcmp ogt float %.067138, %48
-  %50 = select i1 %49, float %.067138, float %48
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %24
+  %.067.lcssa = phi float [ 0.000000e+00, %24 ], [ %34, %._crit_edge.loopexit ]
+  %.0.lcssa = phi float [ %27, %24 ], [ %45, %._crit_edge.loopexit ]
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 268
+  %36 = load float, ptr %35, align 4, !tbaa !201
+  %37 = fadd float %.0.lcssa, %36
+  %.sroa.049.0.vec.insert54 = insertelement <2 x float> poison, float %37, i64 0
+  %38 = fadd float %.067.lcssa, %36
+  %.sroa.049.4.vec.insert62 = insertelement <2 x float> %.sroa.049.0.vec.insert54, float %38, i64 1
+  br label %67
+
+39:                                               ; preds = %.lr.ph, %39
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %39 ]
+  %.0142 = phi float [ %27, %.lr.ph ], [ %45, %39 ]
+  %.067141 = phi float [ 0.000000e+00, %.lr.ph ], [ %48, %39 ]
+  %40 = getelementptr inbounds nuw %struct.b2Vec2, ptr %25, i64 %indvars.iv
+  %.sroa.07.0.copyload = load <2 x float>, ptr %40, align 4
+  %41 = getelementptr inbounds nuw %struct.b2Vec2, ptr %31, i64 %indvars.iv
+  %foldExtExtBinop179 = fsub <2 x float> %.sroa.07.0.copyload, %33
+  %foldExtExtBinop181 = fsub <2 x float> %.sroa.07.0.copyload, %33
+  %42 = load <2 x float>, ptr %41, align 4
+  %foldExtExtBinop183 = fmul <2 x float> %42, %foldExtExtBinop179
+  %foldExtExtBinop185 = fmul <2 x float> %42, %foldExtExtBinop181
+  %shift187 = shufflevector <2 x float> %foldExtExtBinop185, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop188 = fadd <2 x float> %foldExtExtBinop183, %shift187
+  %43 = extractelement <2 x float> %foldExtExtBinop188, i64 0
+  %44 = fcmp olt float %.0142, %43
+  %45 = select i1 %44, float %.0142, float %43
+  %foldExtExtBinop190 = fsub <2 x float> %.sroa.07.0.copyload, %1
+  %foldExtExtBinop192 = fsub <2 x float> %.sroa.07.0.copyload, %1
+  %foldExtExtBinop194 = fmul <2 x float> %foldExtExtBinop190, %foldExtExtBinop190
+  %foldExtExtBinop196 = fmul <2 x float> %foldExtExtBinop192, %foldExtExtBinop192
+  %shift198 = shufflevector <2 x float> %foldExtExtBinop196, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop199 = fadd <2 x float> %foldExtExtBinop194, %shift198
+  %46 = extractelement <2 x float> %foldExtExtBinop199, i64 0
+  %47 = fcmp ogt float %.067141, %46
+  %48 = select i1 %47, float %.067141, float %46
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %41, !llvm.loop !202
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %39, !llvm.loop !202
 
-51:                                               ; preds = %2
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 132
+49:                                               ; preds = %2
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 132
+  %51 = load <2 x float>, ptr %50, align 4
+  %foldExtExtBinop201 = fsub <2 x float> %51, %1
+  %foldExtExtBinop203 = fsub <2 x float> %51, %1
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %53 = load <2 x float>, ptr %52, align 4
-  %foldExtExtBinop198 = fsub <2 x float> %53, %1
-  %foldExtExtBinop200 = fsub <2 x float> %53, %1
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 140
-  %55 = load <2 x float>, ptr %54, align 4
-  %foldExtExtBinop202 = fsub <2 x float> %55, %1
-  %foldExtExtBinop204 = fsub <2 x float> %55, %1
-  %foldExtExtBinop206 = fmul <2 x float> %foldExtExtBinop198, %foldExtExtBinop198
-  %foldExtExtBinop208 = fmul <2 x float> %foldExtExtBinop200, %foldExtExtBinop200
-  %shift210 = shufflevector <2 x float> %foldExtExtBinop208, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop211 = fadd <2 x float> %foldExtExtBinop206, %shift210
-  %56 = extractelement <2 x float> %foldExtExtBinop211, i64 0
-  %foldExtExtBinop213 = fmul <2 x float> %foldExtExtBinop202, %foldExtExtBinop202
-  %foldExtExtBinop215 = fmul <2 x float> %foldExtExtBinop204, %foldExtExtBinop204
-  %shift217 = shufflevector <2 x float> %foldExtExtBinop215, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop218 = fadd <2 x float> %foldExtExtBinop213, %shift217
-  %57 = extractelement <2 x float> %foldExtExtBinop218, i64 0
-  %58 = fcmp ogt float %56, %57
-  %59 = select i1 %58, float %56, float %57
-  %60 = tail call float @sqrtf(float noundef %59) #12, !tbaa !66
-  %.sroa.049.4.vec.insert64 = insertelement <2 x float> <float 0.000000e+00, float poison>, float %60, i64 1
-  br label %71
+  %foldExtExtBinop205 = fsub <2 x float> %53, %1
+  %foldExtExtBinop207 = fsub <2 x float> %53, %1
+  %foldExtExtBinop209 = fmul <2 x float> %foldExtExtBinop201, %foldExtExtBinop201
+  %foldExtExtBinop211 = fmul <2 x float> %foldExtExtBinop203, %foldExtExtBinop203
+  %shift213 = shufflevector <2 x float> %foldExtExtBinop211, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop214 = fadd <2 x float> %foldExtExtBinop209, %shift213
+  %54 = extractelement <2 x float> %foldExtExtBinop214, i64 0
+  %foldExtExtBinop216 = fmul <2 x float> %foldExtExtBinop205, %foldExtExtBinop205
+  %foldExtExtBinop218 = fmul <2 x float> %foldExtExtBinop207, %foldExtExtBinop207
+  %shift220 = shufflevector <2 x float> %foldExtExtBinop218, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop221 = fadd <2 x float> %foldExtExtBinop216, %shift220
+  %55 = extractelement <2 x float> %foldExtExtBinop221, i64 0
+  %56 = fcmp ogt float %54, %55
+  %57 = select i1 %56, float %54, float %55
+  %sqrt138 = tail call float @llvm.sqrt.f32(float %57)
+  %.sroa.049.4.vec.insert64 = insertelement <2 x float> <float 0.000000e+00, float poison>, float %sqrt138, i64 1
+  br label %67
 
-61:                                               ; preds = %2
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 140
-  %63 = load <2 x float>, ptr %62, align 4
-  %foldExtExtBinop220 = fsub <2 x float> %63, %1
-  %foldExtExtBinop222 = fsub <2 x float> %63, %1
-  %64 = getelementptr inbounds nuw i8, ptr %0, i64 148
-  %65 = load <2 x float>, ptr %64, align 4
-  %foldExtExtBinop224 = fsub <2 x float> %65, %1
-  %foldExtExtBinop226 = fsub <2 x float> %65, %1
-  %foldExtExtBinop228 = fmul <2 x float> %foldExtExtBinop220, %foldExtExtBinop220
-  %foldExtExtBinop230 = fmul <2 x float> %foldExtExtBinop222, %foldExtExtBinop222
-  %shift232 = shufflevector <2 x float> %foldExtExtBinop230, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop233 = fadd <2 x float> %foldExtExtBinop228, %shift232
-  %66 = extractelement <2 x float> %foldExtExtBinop233, i64 0
-  %foldExtExtBinop235 = fmul <2 x float> %foldExtExtBinop224, %foldExtExtBinop224
-  %foldExtExtBinop237 = fmul <2 x float> %foldExtExtBinop226, %foldExtExtBinop226
-  %shift239 = shufflevector <2 x float> %foldExtExtBinop237, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop240 = fadd <2 x float> %foldExtExtBinop235, %shift239
-  %67 = extractelement <2 x float> %foldExtExtBinop240, i64 0
-  %68 = fcmp ogt float %66, %67
-  %69 = select i1 %68, float %66, float %67
-  %70 = tail call float @sqrtf(float noundef %69) #12, !tbaa !66
-  %.sroa.049.4.vec.insert66 = insertelement <2 x float> <float 0.000000e+00, float poison>, float %70, i64 1
-  br label %71
+58:                                               ; preds = %2
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 140
+  %60 = load <2 x float>, ptr %59, align 4
+  %foldExtExtBinop223 = fsub <2 x float> %60, %1
+  %foldExtExtBinop225 = fsub <2 x float> %60, %1
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 148
+  %62 = load <2 x float>, ptr %61, align 4
+  %foldExtExtBinop227 = fsub <2 x float> %62, %1
+  %foldExtExtBinop229 = fsub <2 x float> %62, %1
+  %foldExtExtBinop231 = fmul <2 x float> %foldExtExtBinop223, %foldExtExtBinop223
+  %foldExtExtBinop233 = fmul <2 x float> %foldExtExtBinop225, %foldExtExtBinop225
+  %shift235 = shufflevector <2 x float> %foldExtExtBinop233, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop236 = fadd <2 x float> %foldExtExtBinop231, %shift235
+  %63 = extractelement <2 x float> %foldExtExtBinop236, i64 0
+  %foldExtExtBinop238 = fmul <2 x float> %foldExtExtBinop227, %foldExtExtBinop227
+  %foldExtExtBinop240 = fmul <2 x float> %foldExtExtBinop229, %foldExtExtBinop229
+  %shift242 = shufflevector <2 x float> %foldExtExtBinop240, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop243 = fadd <2 x float> %foldExtExtBinop238, %shift242
+  %64 = extractelement <2 x float> %foldExtExtBinop243, i64 0
+  %65 = fcmp ogt float %63, %64
+  %66 = select i1 %65, float %63, float %64
+  %sqrt139 = tail call float @llvm.sqrt.f32(float %66)
+  %.sroa.049.4.vec.insert66 = insertelement <2 x float> <float 0.000000e+00, float poison>, float %sqrt139, i64 1
+  br label %67
 
-71:                                               ; preds = %2, %61, %51, %._crit_edge, %18, %5
-  %.sroa.049.0 = phi <2 x float> [ zeroinitializer, %2 ], [ %.sroa.049.4.vec.insert, %5 ], [ %.sroa.049.4.vec.insert60, %18 ], [ %.sroa.049.4.vec.insert62, %._crit_edge ], [ %.sroa.049.4.vec.insert64, %51 ], [ %.sroa.049.4.vec.insert66, %61 ]
+67:                                               ; preds = %2, %58, %49, %._crit_edge, %17, %5
+  %.sroa.049.0 = phi <2 x float> [ zeroinitializer, %2 ], [ %.sroa.049.4.vec.insert, %5 ], [ %.sroa.049.4.vec.insert60, %17 ], [ %.sroa.049.4.vec.insert62, %._crit_edge ], [ %.sroa.049.4.vec.insert64, %49 ], [ %.sroa.049.4.vec.insert66, %58 ]
   ret <2 x float> %.sroa.049.0
 }
-
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare float @sqrtf(float noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
 define hidden void @b2RayCastShape(ptr dead_on_unwind noalias writable sret(%struct.b2CastOutput) align 4 captures(none) initializes((0, 28)) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, <2 x float> %3, <2 x float> %4) local_unnamed_addr #3 {
@@ -2235,27 +2235,27 @@ define hidden void @b2RayCastShape(ptr dead_on_unwind noalias writable sret(%str
 
 27:                                               ; preds = %5
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 132
-  call void @b2RayCastCapsule(ptr dead_on_unwind nonnull writable sret(%struct.b2CastOutput) align 4 %0, ptr noundef nonnull %6, ptr noundef nonnull %28) #12
+  call void @b2RayCastCapsule(ptr dead_on_unwind nonnull writable sret(%struct.b2CastOutput) align 4 %0, ptr noundef nonnull %6, ptr noundef nonnull %28) #10
   br label %37
 
 29:                                               ; preds = %5
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 132
-  call void @b2RayCastCircle(ptr dead_on_unwind nonnull writable sret(%struct.b2CastOutput) align 4 %0, ptr noundef nonnull %6, ptr noundef nonnull %30) #12
+  call void @b2RayCastCircle(ptr dead_on_unwind nonnull writable sret(%struct.b2CastOutput) align 4 %0, ptr noundef nonnull %6, ptr noundef nonnull %30) #10
   br label %37
 
 31:                                               ; preds = %5
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 132
-  call void @b2RayCastPolygon(ptr dead_on_unwind nonnull writable sret(%struct.b2CastOutput) align 4 %0, ptr noundef nonnull %6, ptr noundef nonnull %32) #12
+  call void @b2RayCastPolygon(ptr dead_on_unwind nonnull writable sret(%struct.b2CastOutput) align 4 %0, ptr noundef nonnull %6, ptr noundef nonnull %32) #10
   br label %37
 
 33:                                               ; preds = %5
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 132
-  call void @b2RayCastSegment(ptr dead_on_unwind nonnull writable sret(%struct.b2CastOutput) align 4 %0, ptr noundef nonnull %6, ptr noundef nonnull %34, i1 noundef zeroext false) #12
+  call void @b2RayCastSegment(ptr dead_on_unwind nonnull writable sret(%struct.b2CastOutput) align 4 %0, ptr noundef nonnull %6, ptr noundef nonnull %34, i1 noundef zeroext false) #10
   br label %37
 
 35:                                               ; preds = %5
   %36 = getelementptr inbounds nuw i8, ptr %2, i64 140
-  call void @b2RayCastSegment(ptr dead_on_unwind nonnull writable sret(%struct.b2CastOutput) align 4 %0, ptr noundef nonnull %6, ptr noundef nonnull %36, i1 noundef zeroext true) #12
+  call void @b2RayCastSegment(ptr dead_on_unwind nonnull writable sret(%struct.b2CastOutput) align 4 %0, ptr noundef nonnull %6, ptr noundef nonnull %36, i1 noundef zeroext true) #10
   br label %37
 
 37:                                               ; preds = %35, %33, %31, %29, %27
@@ -2378,27 +2378,27 @@ define hidden void @b2ShapeCastShape(ptr dead_on_unwind noalias writable sret(%s
 
 36:                                               ; preds = %._crit_edge
   %37 = getelementptr inbounds nuw i8, ptr %2, i64 132
-  call void @b2ShapeCastCapsule(ptr dead_on_unwind nonnull writable sret(%struct.b2CastOutput) align 4 %0, ptr noundef nonnull %6, ptr noundef nonnull %37) #12
+  call void @b2ShapeCastCapsule(ptr dead_on_unwind nonnull writable sret(%struct.b2CastOutput) align 4 %0, ptr noundef nonnull %6, ptr noundef nonnull %37) #10
   br label %46
 
 38:                                               ; preds = %._crit_edge
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 132
-  call void @b2ShapeCastCircle(ptr dead_on_unwind nonnull writable sret(%struct.b2CastOutput) align 4 %0, ptr noundef nonnull %6, ptr noundef nonnull %39) #12
+  call void @b2ShapeCastCircle(ptr dead_on_unwind nonnull writable sret(%struct.b2CastOutput) align 4 %0, ptr noundef nonnull %6, ptr noundef nonnull %39) #10
   br label %46
 
 40:                                               ; preds = %._crit_edge
   %41 = getelementptr inbounds nuw i8, ptr %2, i64 132
-  call void @b2ShapeCastPolygon(ptr dead_on_unwind nonnull writable sret(%struct.b2CastOutput) align 4 %0, ptr noundef nonnull %6, ptr noundef nonnull %41) #12
+  call void @b2ShapeCastPolygon(ptr dead_on_unwind nonnull writable sret(%struct.b2CastOutput) align 4 %0, ptr noundef nonnull %6, ptr noundef nonnull %41) #10
   br label %46
 
 42:                                               ; preds = %._crit_edge
   %43 = getelementptr inbounds nuw i8, ptr %2, i64 132
-  call void @b2ShapeCastSegment(ptr dead_on_unwind nonnull writable sret(%struct.b2CastOutput) align 4 %0, ptr noundef nonnull %6, ptr noundef nonnull %43) #12
+  call void @b2ShapeCastSegment(ptr dead_on_unwind nonnull writable sret(%struct.b2CastOutput) align 4 %0, ptr noundef nonnull %6, ptr noundef nonnull %43) #10
   br label %46
 
 44:                                               ; preds = %._crit_edge
   %45 = getelementptr inbounds nuw i8, ptr %2, i64 140
-  call void @b2ShapeCastSegment(ptr dead_on_unwind nonnull writable sret(%struct.b2CastOutput) align 4 %0, ptr noundef nonnull %6, ptr noundef nonnull %45) #12
+  call void @b2ShapeCastSegment(ptr dead_on_unwind nonnull writable sret(%struct.b2CastOutput) align 4 %0, ptr noundef nonnull %6, ptr noundef nonnull %45) #10
   br label %46
 
 46:                                               ; preds = %44, %42, %40, %38, %36
@@ -2461,27 +2461,27 @@ define hidden void @b2CreateShapeProxy(ptr noundef %0, ptr noundef %1, i32 nound
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 132
-  %12 = tail call { <2 x float>, <2 x float> } @b2ComputeCapsuleAABB(ptr noundef nonnull %11, <2 x float> %3, <2 x float> %4) #12
+  %12 = tail call { <2 x float>, <2 x float> } @b2ComputeCapsuleAABB(ptr noundef nonnull %11, <2 x float> %3, <2 x float> %4) #10
   br label %b2UpdateShapeAABBs.exit
 
 13:                                               ; preds = %6
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 132
-  %15 = tail call { <2 x float>, <2 x float> } @b2ComputeCircleAABB(ptr noundef nonnull %14, <2 x float> %3, <2 x float> %4) #12
+  %15 = tail call { <2 x float>, <2 x float> } @b2ComputeCircleAABB(ptr noundef nonnull %14, <2 x float> %3, <2 x float> %4) #10
   br label %b2UpdateShapeAABBs.exit
 
 16:                                               ; preds = %6
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 132
-  %18 = tail call { <2 x float>, <2 x float> } @b2ComputePolygonAABB(ptr noundef nonnull %17, <2 x float> %3, <2 x float> %4) #12
+  %18 = tail call { <2 x float>, <2 x float> } @b2ComputePolygonAABB(ptr noundef nonnull %17, <2 x float> %3, <2 x float> %4) #10
   br label %b2UpdateShapeAABBs.exit
 
 19:                                               ; preds = %6
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 132
-  %21 = tail call { <2 x float>, <2 x float> } @b2ComputeSegmentAABB(ptr noundef nonnull %20, <2 x float> %3, <2 x float> %4) #12
+  %21 = tail call { <2 x float>, <2 x float> } @b2ComputeSegmentAABB(ptr noundef nonnull %20, <2 x float> %3, <2 x float> %4) #10
   br label %b2UpdateShapeAABBs.exit
 
 22:                                               ; preds = %6
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 140
-  %24 = tail call { <2 x float>, <2 x float> } @b2ComputeSegmentAABB(ptr noundef nonnull %23, <2 x float> %3, <2 x float> %4) #12
+  %24 = tail call { <2 x float>, <2 x float> } @b2ComputeSegmentAABB(ptr noundef nonnull %23, <2 x float> %3, <2 x float> %4) #10
   br label %b2UpdateShapeAABBs.exit
 
 25:                                               ; preds = %6
@@ -2531,7 +2531,7 @@ b2UpdateShapeAABBs.exit:                          ; preds = %10, %13, %16, %19, 
   %47 = load i32, ptr %0, align 8, !tbaa !23
   %48 = load <2 x float>, ptr %44, align 8
   %49 = load <2 x float>, ptr %.sroa.5.0..sroa_idx.i, align 8
-  %50 = tail call i32 @b2BroadPhase_CreateProxy(ptr noundef %1, i32 noundef %2, <2 x float> %48, <2 x float> %49, i64 noundef %46, i32 noundef %47, i1 noundef zeroext %5) #12
+  %50 = tail call i32 @b2BroadPhase_CreateProxy(ptr noundef %1, i32 noundef %2, <2 x float> %48, <2 x float> %49, i64 noundef %46, i32 noundef %47, i1 noundef zeroext %5) #10
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store i32 %50, ptr %51, align 8, !tbaa !43
   ret void
@@ -2547,7 +2547,7 @@ define hidden void @b2DestroyShapeProxy(ptr noundef captures(none) %0, ptr nound
   br i1 %.not, label %6, label %5
 
 5:                                                ; preds = %2
-  tail call void @b2BroadPhase_DestroyProxy(ptr noundef %1, i32 noundef %4) #12
+  tail call void @b2BroadPhase_DestroyProxy(ptr noundef %1, i32 noundef %4) #10
   store i32 -1, ptr %3, align 8, !tbaa !43
   br label %6
 
@@ -2573,14 +2573,14 @@ define hidden void @b2MakeShapeDistanceProxy(ptr dead_on_unwind noalias writable
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 132
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 148
   %8 = load float, ptr %7, align 4, !tbaa !168
-  tail call void @b2MakeProxy(ptr dead_on_unwind writable sret(%struct.b2ShapeProxy) align 4 %0, ptr noundef nonnull %6, i32 noundef 2, float noundef %8) #12
+  tail call void @b2MakeProxy(ptr dead_on_unwind writable sret(%struct.b2ShapeProxy) align 4 %0, ptr noundef nonnull %6, i32 noundef 2, float noundef %8) #10
   br label %24
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 132
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 140
   %12 = load float, ptr %11, align 4, !tbaa !168
-  tail call void @b2MakeProxy(ptr dead_on_unwind writable sret(%struct.b2ShapeProxy) align 4 %0, ptr noundef nonnull %10, i32 noundef 1, float noundef %12) #12
+  tail call void @b2MakeProxy(ptr dead_on_unwind writable sret(%struct.b2ShapeProxy) align 4 %0, ptr noundef nonnull %10, i32 noundef 1, float noundef %12) #10
   br label %24
 
 13:                                               ; preds = %2
@@ -2589,17 +2589,17 @@ define hidden void @b2MakeShapeDistanceProxy(ptr dead_on_unwind noalias writable
   %16 = load i32, ptr %15, align 4, !tbaa !168
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 268
   %18 = load float, ptr %17, align 4, !tbaa !168
-  tail call void @b2MakeProxy(ptr dead_on_unwind writable sret(%struct.b2ShapeProxy) align 4 %0, ptr noundef nonnull %14, i32 noundef %16, float noundef %18) #12
+  tail call void @b2MakeProxy(ptr dead_on_unwind writable sret(%struct.b2ShapeProxy) align 4 %0, ptr noundef nonnull %14, i32 noundef %16, float noundef %18) #10
   br label %24
 
 19:                                               ; preds = %2
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 132
-  tail call void @b2MakeProxy(ptr dead_on_unwind writable sret(%struct.b2ShapeProxy) align 4 %0, ptr noundef nonnull %20, i32 noundef 2, float noundef 0.000000e+00) #12
+  tail call void @b2MakeProxy(ptr dead_on_unwind writable sret(%struct.b2ShapeProxy) align 4 %0, ptr noundef nonnull %20, i32 noundef 2, float noundef 0.000000e+00) #10
   br label %24
 
 21:                                               ; preds = %2
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 140
-  tail call void @b2MakeProxy(ptr dead_on_unwind writable sret(%struct.b2ShapeProxy) align 4 %0, ptr noundef nonnull %22, i32 noundef 2, float noundef 0.000000e+00) #12
+  tail call void @b2MakeProxy(ptr dead_on_unwind writable sret(%struct.b2ShapeProxy) align 4 %0, ptr noundef nonnull %22, i32 noundef 2, float noundef 0.000000e+00) #10
   br label %24
 
 23:                                               ; preds = %2
@@ -2617,7 +2617,7 @@ define i64 @b2Shape_GetBody(i64 %0) local_unnamed_addr #0 {
   %.sroa.2.0.extract.shift = lshr i64 %0, 32
   %2 = trunc nuw i64 %.sroa.2.0.extract.shift to i32
   %3 = and i32 %2, 65535
-  %4 = tail call ptr @b2GetWorld(i32 noundef %3) #12
+  %4 = tail call ptr @b2GetWorld(i32 noundef %3) #10
   %5 = getelementptr i8, ptr %4, i64 1256
   %.val = load ptr, ptr %5, align 8, !tbaa !14
   %6 = shl i64 %0, 32
@@ -2626,7 +2626,7 @@ define i64 @b2Shape_GetBody(i64 %0) local_unnamed_addr #0 {
   %8 = getelementptr inbounds %struct.b2Shape, ptr %.val, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %10 = load i32, ptr %9, align 4, !tbaa !34
-  %11 = tail call i64 @b2MakeBodyId(ptr noundef %4, i32 noundef %10) #12
+  %11 = tail call i64 @b2MakeBodyId(ptr noundef %4, i32 noundef %10) #10
   ret i64 %11
 }
 
@@ -2637,7 +2637,7 @@ define i32 @b2Shape_GetWorld(i64 %0) local_unnamed_addr #0 {
   %.sroa.1.0.extract.shift = lshr i64 %0, 32
   %.sroa.1.0.extract.trunc = trunc nuw i64 %.sroa.1.0.extract.shift to i32
   %2 = and i32 %.sroa.1.0.extract.trunc, 65535
-  %3 = tail call ptr @b2GetWorld(i32 noundef %2) #12
+  %3 = tail call ptr @b2GetWorld(i32 noundef %2) #10
   %4 = add i32 %.sroa.1.0.extract.trunc, 1
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 1592
   %6 = load i16, ptr %5, align 8, !tbaa !194
@@ -2653,7 +2653,7 @@ define void @b2Shape_SetUserData(i64 %0, ptr noundef %1) local_unnamed_addr #0 {
   %.sroa.2.0.extract.shift = lshr i64 %0, 32
   %3 = trunc nuw i64 %.sroa.2.0.extract.shift to i32
   %4 = and i32 %3, 65535
-  %5 = tail call ptr @b2GetWorld(i32 noundef %4) #12
+  %5 = tail call ptr @b2GetWorld(i32 noundef %4) #10
   %6 = getelementptr i8, ptr %5, i64 1256
   %.val = load ptr, ptr %6, align 8, !tbaa !14
   %7 = shl i64 %0, 32
@@ -2670,7 +2670,7 @@ define ptr @b2Shape_GetUserData(i64 %0) local_unnamed_addr #0 {
   %.sroa.2.0.extract.shift = lshr i64 %0, 32
   %2 = trunc nuw i64 %.sroa.2.0.extract.shift to i32
   %3 = and i32 %2, 65535
-  %4 = tail call ptr @b2GetWorld(i32 noundef %3) #12
+  %4 = tail call ptr @b2GetWorld(i32 noundef %3) #10
   %5 = getelementptr i8, ptr %4, i64 1256
   %.val = load ptr, ptr %5, align 8, !tbaa !14
   %6 = shl i64 %0, 32
@@ -2687,7 +2687,7 @@ define zeroext i1 @b2Shape_IsSensor(i64 %0) local_unnamed_addr #0 {
   %.sroa.2.0.extract.shift = lshr i64 %0, 32
   %2 = trunc nuw i64 %.sroa.2.0.extract.shift to i32
   %3 = and i32 %2, 65535
-  %4 = tail call ptr @b2GetWorld(i32 noundef %3) #12
+  %4 = tail call ptr @b2GetWorld(i32 noundef %3) #10
   %5 = getelementptr i8, ptr %4, i64 1256
   %.val = load ptr, ptr %5, align 8, !tbaa !14
   %6 = shl i64 %0, 32
@@ -2705,7 +2705,7 @@ define zeroext i1 @b2Shape_TestPoint(i64 %0, <2 x float> %1) local_unnamed_addr 
   %.sroa.2.0.extract.shift = lshr i64 %0, 32
   %3 = trunc nuw i64 %.sroa.2.0.extract.shift to i32
   %4 = and i32 %3, 65535
-  %5 = tail call ptr @b2GetWorld(i32 noundef %4) #12
+  %5 = tail call ptr @b2GetWorld(i32 noundef %4) #10
   %6 = getelementptr i8, ptr %5, i64 1256
   %.val = load ptr, ptr %6, align 8, !tbaa !14
   %7 = shl i64 %0, 32
@@ -2714,7 +2714,7 @@ define zeroext i1 @b2Shape_TestPoint(i64 %0, <2 x float> %1) local_unnamed_addr 
   %9 = getelementptr inbounds %struct.b2Shape, ptr %.val, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %11 = load i32, ptr %10, align 4, !tbaa !34
-  %12 = tail call { <2 x float>, <2 x float> } @b2GetBodyTransform(ptr noundef %5, i32 noundef %11) #12
+  %12 = tail call { <2 x float>, <2 x float> } @b2GetBodyTransform(ptr noundef %5, i32 noundef %11) #10
   %13 = extractvalue { <2 x float>, <2 x float> } %12, 0
   %14 = extractvalue { <2 x float>, <2 x float> } %12, 1
   %foldExtExtBinop = fsub <2 x float> %1, %13
@@ -2742,17 +2742,17 @@ define zeroext i1 @b2Shape_TestPoint(i64 %0, <2 x float> %1) local_unnamed_addr 
 
 25:                                               ; preds = %2
   %26 = getelementptr inbounds nuw i8, ptr %9, i64 132
-  %27 = tail call zeroext i1 @b2PointInCapsule(<2 x float> %.sroa.09.4.vec.insert.i, ptr noundef nonnull %26) #12
+  %27 = tail call zeroext i1 @b2PointInCapsule(<2 x float> %.sroa.09.4.vec.insert.i, ptr noundef nonnull %26) #10
   br label %34
 
 28:                                               ; preds = %2
   %29 = getelementptr inbounds nuw i8, ptr %9, i64 132
-  %30 = tail call zeroext i1 @b2PointInCircle(<2 x float> %.sroa.09.4.vec.insert.i, ptr noundef nonnull %29) #12
+  %30 = tail call zeroext i1 @b2PointInCircle(<2 x float> %.sroa.09.4.vec.insert.i, ptr noundef nonnull %29) #10
   br label %34
 
 31:                                               ; preds = %2
   %32 = getelementptr inbounds nuw i8, ptr %9, i64 132
-  %33 = tail call zeroext i1 @b2PointInPolygon(<2 x float> %.sroa.09.4.vec.insert.i, ptr noundef nonnull %32) #12
+  %33 = tail call zeroext i1 @b2PointInPolygon(<2 x float> %.sroa.09.4.vec.insert.i, ptr noundef nonnull %32) #10
   br label %34
 
 34:                                               ; preds = %2, %31, %28, %25
@@ -2774,7 +2774,7 @@ define void @b2Shape_RayCast(ptr dead_on_unwind noalias writable sret(%struct.b2
   %.sroa.2.0.extract.shift = lshr i64 %1, 32
   %5 = trunc nuw i64 %.sroa.2.0.extract.shift to i32
   %6 = and i32 %5, 65535
-  %7 = tail call ptr @b2GetWorld(i32 noundef %6) #12
+  %7 = tail call ptr @b2GetWorld(i32 noundef %6) #10
   %8 = getelementptr i8, ptr %7, i64 1256
   %.val = load ptr, ptr %8, align 8, !tbaa !14
   %9 = shl i64 %1, 32
@@ -2783,7 +2783,7 @@ define void @b2Shape_RayCast(ptr dead_on_unwind noalias writable sret(%struct.b2
   %11 = getelementptr inbounds %struct.b2Shape, ptr %.val, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %13 = load i32, ptr %12, align 4, !tbaa !34
-  %14 = tail call { <2 x float>, <2 x float> } @b2GetBodyTransform(ptr noundef %7, i32 noundef %13) #12
+  %14 = tail call { <2 x float>, <2 x float> } @b2GetBodyTransform(ptr noundef %7, i32 noundef %13) #10
   %15 = extractvalue { <2 x float>, <2 x float> } %14, 0
   %16 = extractvalue { <2 x float>, <2 x float> } %14, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -2838,27 +2838,27 @@ define void @b2Shape_RayCast(ptr dead_on_unwind noalias writable sret(%struct.b2
 
 40:                                               ; preds = %3
   %41 = getelementptr inbounds nuw i8, ptr %11, i64 132
-  call void @b2RayCastCapsule(ptr dead_on_unwind nonnull writable sret(%struct.b2CastOutput) align 4 %0, ptr noundef nonnull %4, ptr noundef nonnull %41) #12
+  call void @b2RayCastCapsule(ptr dead_on_unwind nonnull writable sret(%struct.b2CastOutput) align 4 %0, ptr noundef nonnull %4, ptr noundef nonnull %41) #10
   br label %50
 
 42:                                               ; preds = %3
   %43 = getelementptr inbounds nuw i8, ptr %11, i64 132
-  call void @b2RayCastCircle(ptr dead_on_unwind nonnull writable sret(%struct.b2CastOutput) align 4 %0, ptr noundef nonnull %4, ptr noundef nonnull %43) #12
+  call void @b2RayCastCircle(ptr dead_on_unwind nonnull writable sret(%struct.b2CastOutput) align 4 %0, ptr noundef nonnull %4, ptr noundef nonnull %43) #10
   br label %50
 
 44:                                               ; preds = %3
   %45 = getelementptr inbounds nuw i8, ptr %11, i64 132
-  call void @b2RayCastSegment(ptr dead_on_unwind nonnull writable sret(%struct.b2CastOutput) align 4 %0, ptr noundef nonnull %4, ptr noundef nonnull %45, i1 noundef zeroext false) #12
+  call void @b2RayCastSegment(ptr dead_on_unwind nonnull writable sret(%struct.b2CastOutput) align 4 %0, ptr noundef nonnull %4, ptr noundef nonnull %45, i1 noundef zeroext false) #10
   br label %50
 
 46:                                               ; preds = %3
   %47 = getelementptr inbounds nuw i8, ptr %11, i64 132
-  call void @b2RayCastPolygon(ptr dead_on_unwind nonnull writable sret(%struct.b2CastOutput) align 4 %0, ptr noundef nonnull %4, ptr noundef nonnull %47) #12
+  call void @b2RayCastPolygon(ptr dead_on_unwind nonnull writable sret(%struct.b2CastOutput) align 4 %0, ptr noundef nonnull %4, ptr noundef nonnull %47) #10
   br label %50
 
 48:                                               ; preds = %3
   %49 = getelementptr inbounds nuw i8, ptr %11, i64 140
-  call void @b2RayCastSegment(ptr dead_on_unwind nonnull writable sret(%struct.b2CastOutput) align 4 %0, ptr noundef nonnull %4, ptr noundef nonnull %49, i1 noundef zeroext true) #12
+  call void @b2RayCastSegment(ptr dead_on_unwind nonnull writable sret(%struct.b2CastOutput) align 4 %0, ptr noundef nonnull %4, ptr noundef nonnull %49, i1 noundef zeroext true) #10
   br label %50
 
 50:                                               ; preds = %48, %46, %44, %42, %40
@@ -2909,7 +2909,7 @@ define void @b2Shape_SetDensity(i64 %0, float noundef %1, i1 noundef zeroext %2)
   %.sroa.2.0.extract.shift = lshr i64 %0, 32
   %4 = trunc nuw i64 %.sroa.2.0.extract.shift to i32
   %5 = and i32 %4, 65535
-  %6 = tail call ptr @b2GetWorldLocked(i32 noundef %5) #12
+  %6 = tail call ptr @b2GetWorldLocked(i32 noundef %5) #10
   %7 = icmp eq ptr %6, null
   br i1 %7, label %23, label %8
 
@@ -2936,7 +2936,7 @@ define void @b2Shape_SetDensity(i64 %0, float noundef %1, i1 noundef zeroext %2)
   %.val11 = load ptr, ptr %18, align 8, !tbaa !35
   %21 = sext i32 %20 to i64
   %22 = getelementptr inbounds %struct.b2Body, ptr %.val11, i64 %21
-  tail call void @b2UpdateBodyMassData(ptr noundef nonnull %6, ptr noundef %22) #12
+  tail call void @b2UpdateBodyMassData(ptr noundef nonnull %6, ptr noundef %22) #10
   br label %23
 
 23:                                               ; preds = %8, %17, %16, %3
@@ -2948,7 +2948,7 @@ define float @b2Shape_GetDensity(i64 %0) local_unnamed_addr #0 {
   %.sroa.2.0.extract.shift = lshr i64 %0, 32
   %2 = trunc nuw i64 %.sroa.2.0.extract.shift to i32
   %3 = and i32 %2, 65535
-  %4 = tail call ptr @b2GetWorld(i32 noundef %3) #12
+  %4 = tail call ptr @b2GetWorld(i32 noundef %3) #10
   %5 = getelementptr i8, ptr %4, i64 1256
   %.val = load ptr, ptr %5, align 8, !tbaa !14
   %6 = shl i64 %0, 32
@@ -2965,7 +2965,7 @@ define void @b2Shape_SetFriction(i64 %0, float noundef %1) local_unnamed_addr #0
   %.sroa.2.0.extract.shift = lshr i64 %0, 32
   %3 = trunc nuw i64 %.sroa.2.0.extract.shift to i32
   %4 = and i32 %3, 65535
-  %5 = tail call ptr @b2GetWorld(i32 noundef %4) #12
+  %5 = tail call ptr @b2GetWorld(i32 noundef %4) #10
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 1783
   %7 = load i8, ptr %6, align 1, !tbaa !212, !range !21, !noundef !22
   %8 = trunc nuw i8 %7 to i1
@@ -2991,7 +2991,7 @@ define float @b2Shape_GetFriction(i64 %0) local_unnamed_addr #0 {
   %.sroa.2.0.extract.shift = lshr i64 %0, 32
   %2 = trunc nuw i64 %.sroa.2.0.extract.shift to i32
   %3 = and i32 %2, 65535
-  %4 = tail call ptr @b2GetWorld(i32 noundef %3) #12
+  %4 = tail call ptr @b2GetWorld(i32 noundef %3) #10
   %5 = getelementptr i8, ptr %4, i64 1256
   %.val = load ptr, ptr %5, align 8, !tbaa !14
   %6 = shl i64 %0, 32
@@ -3008,7 +3008,7 @@ define void @b2Shape_SetRestitution(i64 %0, float noundef %1) local_unnamed_addr
   %.sroa.2.0.extract.shift = lshr i64 %0, 32
   %3 = trunc nuw i64 %.sroa.2.0.extract.shift to i32
   %4 = and i32 %3, 65535
-  %5 = tail call ptr @b2GetWorld(i32 noundef %4) #12
+  %5 = tail call ptr @b2GetWorld(i32 noundef %4) #10
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 1783
   %7 = load i8, ptr %6, align 1, !tbaa !212, !range !21, !noundef !22
   %8 = trunc nuw i8 %7 to i1
@@ -3034,7 +3034,7 @@ define float @b2Shape_GetRestitution(i64 %0) local_unnamed_addr #0 {
   %.sroa.2.0.extract.shift = lshr i64 %0, 32
   %2 = trunc nuw i64 %.sroa.2.0.extract.shift to i32
   %3 = and i32 %2, 65535
-  %4 = tail call ptr @b2GetWorld(i32 noundef %3) #12
+  %4 = tail call ptr @b2GetWorld(i32 noundef %3) #10
   %5 = getelementptr i8, ptr %4, i64 1256
   %.val = load ptr, ptr %5, align 8, !tbaa !14
   %6 = shl i64 %0, 32
@@ -3051,7 +3051,7 @@ define void @b2Shape_SetMaterial(i64 %0, i32 noundef %1) local_unnamed_addr #0 {
   %.sroa.2.0.extract.shift = lshr i64 %0, 32
   %3 = trunc nuw i64 %.sroa.2.0.extract.shift to i32
   %4 = and i32 %3, 65535
-  %5 = tail call ptr @b2GetWorld(i32 noundef %4) #12
+  %5 = tail call ptr @b2GetWorld(i32 noundef %4) #10
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 1783
   %7 = load i8, ptr %6, align 1, !tbaa !212, !range !21, !noundef !22
   %8 = trunc nuw i8 %7 to i1
@@ -3077,7 +3077,7 @@ define i32 @b2Shape_GetMaterial(i64 %0) local_unnamed_addr #0 {
   %.sroa.2.0.extract.shift = lshr i64 %0, 32
   %2 = trunc nuw i64 %.sroa.2.0.extract.shift to i32
   %3 = and i32 %2, 65535
-  %4 = tail call ptr @b2GetWorld(i32 noundef %3) #12
+  %4 = tail call ptr @b2GetWorld(i32 noundef %3) #10
   %5 = getelementptr i8, ptr %4, i64 1256
   %.val = load ptr, ptr %5, align 8, !tbaa !14
   %6 = shl i64 %0, 32
@@ -3094,7 +3094,7 @@ define void @b2Shape_GetFilter(ptr dead_on_unwind noalias writable writeonly sre
   %.sroa.2.0.extract.shift = lshr i64 %1, 32
   %3 = trunc nuw i64 %.sroa.2.0.extract.shift to i32
   %4 = and i32 %3, 65535
-  %5 = tail call ptr @b2GetWorld(i32 noundef %4) #12
+  %5 = tail call ptr @b2GetWorld(i32 noundef %4) #10
   %6 = getelementptr i8, ptr %5, i64 1256
   %.val = load ptr, ptr %6, align 8, !tbaa !14
   %7 = shl i64 %1, 32
@@ -3111,7 +3111,7 @@ define void @b2Shape_SetFilter(i64 %0, ptr noundef readonly byval(%struct.b2Filt
   %.sroa.2.0.extract.shift = lshr i64 %0, 32
   %3 = trunc nuw i64 %.sroa.2.0.extract.shift to i32
   %4 = and i32 %3, 65535
-  %5 = tail call ptr @b2GetWorldLocked(i32 noundef %4) #12
+  %5 = tail call ptr @b2GetWorldLocked(i32 noundef %4) #10
   %6 = icmp eq ptr %5, null
   br i1 %6, label %27, label %7
 
@@ -3193,7 +3193,7 @@ define internal fastcc void @b2ResetProxy(ptr noundef nonnull %0, ptr noundef %1
   br i1 %28, label %29, label %30
 
 29:                                               ; preds = %25, %13
-  tail call void @b2DestroyContact(ptr noundef nonnull %0, ptr noundef nonnull %17, i1 noundef zeroext true) #12
+  tail call void @b2DestroyContact(ptr noundef nonnull %0, ptr noundef nonnull %17, i1 noundef zeroext true) #10
   br label %30
 
 30:                                               ; preds = %29, %25
@@ -3201,7 +3201,7 @@ define internal fastcc void @b2ResetProxy(ptr noundef nonnull %0, ptr noundef %1
   br i1 %.not, label %._crit_edge, label %13, !llvm.loop !218
 
 ._crit_edge:                                      ; preds = %30, %3
-  %31 = tail call { <2 x float>, <2 x float> } @b2GetBodyTransformQuick(ptr noundef nonnull %0, ptr noundef %8) #12
+  %31 = tail call { <2 x float>, <2 x float> } @b2GetBodyTransformQuick(ptr noundef nonnull %0, ptr noundef %8) #10
   %32 = extractvalue { <2 x float>, <2 x float> } %31, 0
   %33 = extractvalue { <2 x float>, <2 x float> } %31, 1
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 88
@@ -3224,27 +3224,27 @@ define internal fastcc void @b2ResetProxy(ptr noundef nonnull %0, ptr noundef %1
 
 41:                                               ; preds = %36
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 132
-  %43 = tail call { <2 x float>, <2 x float> } @b2ComputeCapsuleAABB(ptr noundef nonnull %42, <2 x float> %32, <2 x float> %33) #12
+  %43 = tail call { <2 x float>, <2 x float> } @b2ComputeCapsuleAABB(ptr noundef nonnull %42, <2 x float> %32, <2 x float> %33) #10
   br label %b2UpdateShapeAABBs.exit
 
 44:                                               ; preds = %36
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 132
-  %46 = tail call { <2 x float>, <2 x float> } @b2ComputeCircleAABB(ptr noundef nonnull %45, <2 x float> %32, <2 x float> %33) #12
+  %46 = tail call { <2 x float>, <2 x float> } @b2ComputeCircleAABB(ptr noundef nonnull %45, <2 x float> %32, <2 x float> %33) #10
   br label %b2UpdateShapeAABBs.exit
 
 47:                                               ; preds = %36
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 132
-  %49 = tail call { <2 x float>, <2 x float> } @b2ComputePolygonAABB(ptr noundef nonnull %48, <2 x float> %32, <2 x float> %33) #12
+  %49 = tail call { <2 x float>, <2 x float> } @b2ComputePolygonAABB(ptr noundef nonnull %48, <2 x float> %32, <2 x float> %33) #10
   br label %b2UpdateShapeAABBs.exit
 
 50:                                               ; preds = %36
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 132
-  %52 = tail call { <2 x float>, <2 x float> } @b2ComputeSegmentAABB(ptr noundef nonnull %51, <2 x float> %32, <2 x float> %33) #12
+  %52 = tail call { <2 x float>, <2 x float> } @b2ComputeSegmentAABB(ptr noundef nonnull %51, <2 x float> %32, <2 x float> %33) #10
   br label %b2UpdateShapeAABBs.exit
 
 53:                                               ; preds = %36
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 140
-  %55 = tail call { <2 x float>, <2 x float> } @b2ComputeSegmentAABB(ptr noundef nonnull %54, <2 x float> %32, <2 x float> %33) #12
+  %55 = tail call { <2 x float>, <2 x float> } @b2ComputeSegmentAABB(ptr noundef nonnull %54, <2 x float> %32, <2 x float> %33) #10
   br label %b2UpdateShapeAABBs.exit
 
 56:                                               ; preds = %36
@@ -3293,19 +3293,19 @@ b2UpdateShapeAABBs.exit:                          ; preds = %41, %44, %47, %50, 
   br i1 %2, label %77, label %83
 
 77:                                               ; preds = %b2UpdateShapeAABBs.exit
-  tail call void @b2BroadPhase_DestroyProxy(ptr noundef nonnull %75, i32 noundef %76) #12
+  tail call void @b2BroadPhase_DestroyProxy(ptr noundef nonnull %75, i32 noundef %76) #10
   %78 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %79 = load i64, ptr %78, align 8, !tbaa !207
   %80 = load <2 x float>, ptr %74, align 8
   %81 = load <2 x float>, ptr %.sroa.5.0..sroa_idx.i, align 8
-  %82 = tail call i32 @b2BroadPhase_CreateProxy(ptr noundef nonnull %75, i32 noundef %37, <2 x float> %80, <2 x float> %81, i64 noundef %79, i32 noundef %9, i1 noundef zeroext true) #12
+  %82 = tail call i32 @b2BroadPhase_CreateProxy(ptr noundef nonnull %75, i32 noundef %37, <2 x float> %80, <2 x float> %81, i64 noundef %79, i32 noundef %9, i1 noundef zeroext true) #10
   store i32 %82, ptr %34, align 8, !tbaa !43
   br label %126
 
 83:                                               ; preds = %b2UpdateShapeAABBs.exit
   %84 = load <2 x float>, ptr %74, align 8
   %85 = load <2 x float>, ptr %.sroa.5.0..sroa_idx.i, align 8
-  tail call void @b2BroadPhase_MoveProxy(ptr noundef nonnull %75, i32 noundef %76, <2 x float> %84, <2 x float> %85) #12
+  tail call void @b2BroadPhase_MoveProxy(ptr noundef nonnull %75, i32 noundef %76, <2 x float> %84, <2 x float> %85) #10
   br label %126
 
 86:                                               ; preds = %._crit_edge
@@ -3324,27 +3324,27 @@ b2UpdateShapeAABBs.exit:                          ; preds = %41, %44, %47, %50, 
 
 92:                                               ; preds = %86
   %93 = getelementptr inbounds nuw i8, ptr %1, i64 132
-  %94 = tail call { <2 x float>, <2 x float> } @b2ComputeCapsuleAABB(ptr noundef nonnull %93, <2 x float> %32, <2 x float> %33) #12
+  %94 = tail call { <2 x float>, <2 x float> } @b2ComputeCapsuleAABB(ptr noundef nonnull %93, <2 x float> %32, <2 x float> %33) #10
   br label %b2UpdateShapeAABBs.exit59
 
 95:                                               ; preds = %86
   %96 = getelementptr inbounds nuw i8, ptr %1, i64 132
-  %97 = tail call { <2 x float>, <2 x float> } @b2ComputeCircleAABB(ptr noundef nonnull %96, <2 x float> %32, <2 x float> %33) #12
+  %97 = tail call { <2 x float>, <2 x float> } @b2ComputeCircleAABB(ptr noundef nonnull %96, <2 x float> %32, <2 x float> %33) #10
   br label %b2UpdateShapeAABBs.exit59
 
 98:                                               ; preds = %86
   %99 = getelementptr inbounds nuw i8, ptr %1, i64 132
-  %100 = tail call { <2 x float>, <2 x float> } @b2ComputePolygonAABB(ptr noundef nonnull %99, <2 x float> %32, <2 x float> %33) #12
+  %100 = tail call { <2 x float>, <2 x float> } @b2ComputePolygonAABB(ptr noundef nonnull %99, <2 x float> %32, <2 x float> %33) #10
   br label %b2UpdateShapeAABBs.exit59
 
 101:                                              ; preds = %86
   %102 = getelementptr inbounds nuw i8, ptr %1, i64 132
-  %103 = tail call { <2 x float>, <2 x float> } @b2ComputeSegmentAABB(ptr noundef nonnull %102, <2 x float> %32, <2 x float> %33) #12
+  %103 = tail call { <2 x float>, <2 x float> } @b2ComputeSegmentAABB(ptr noundef nonnull %102, <2 x float> %32, <2 x float> %33) #10
   br label %b2UpdateShapeAABBs.exit59
 
 104:                                              ; preds = %86
   %105 = getelementptr inbounds nuw i8, ptr %1, i64 140
-  %106 = tail call { <2 x float>, <2 x float> } @b2ComputeSegmentAABB(ptr noundef nonnull %105, <2 x float> %32, <2 x float> %33) #12
+  %106 = tail call { <2 x float>, <2 x float> } @b2ComputeSegmentAABB(ptr noundef nonnull %105, <2 x float> %32, <2 x float> %33) #10
   br label %b2UpdateShapeAABBs.exit59
 
 107:                                              ; preds = %86
@@ -3391,7 +3391,7 @@ b2UpdateShapeAABBs.exit59:                        ; preds = %92, %95, %98, %101,
   br label %126
 
 126:                                              ; preds = %77, %83, %b2UpdateShapeAABBs.exit59
-  tail call void @b2ValidateSolverSets(ptr noundef nonnull %0) #12
+  tail call void @b2ValidateSolverSets(ptr noundef nonnull %0) #10
   ret void
 }
 
@@ -3400,7 +3400,7 @@ define void @b2Shape_EnableContactEvents(i64 %0, i1 noundef zeroext %1) local_un
   %.sroa.2.0.extract.shift = lshr i64 %0, 32
   %3 = trunc nuw i64 %.sroa.2.0.extract.shift to i32
   %4 = and i32 %3, 65535
-  %5 = tail call ptr @b2GetWorldLocked(i32 noundef %4) #12
+  %5 = tail call ptr @b2GetWorldLocked(i32 noundef %4) #10
   %6 = icmp eq ptr %5, null
   br i1 %6, label %14, label %7
 
@@ -3425,7 +3425,7 @@ define zeroext i1 @b2Shape_AreContactEventsEnabled(i64 %0) local_unnamed_addr #0
   %.sroa.2.0.extract.shift = lshr i64 %0, 32
   %2 = trunc nuw i64 %.sroa.2.0.extract.shift to i32
   %3 = and i32 %2, 65535
-  %4 = tail call ptr @b2GetWorld(i32 noundef %3) #12
+  %4 = tail call ptr @b2GetWorld(i32 noundef %3) #10
   %5 = getelementptr i8, ptr %4, i64 1256
   %.val = load ptr, ptr %5, align 8, !tbaa !14
   %6 = shl i64 %0, 32
@@ -3443,7 +3443,7 @@ define void @b2Shape_EnablePreSolveEvents(i64 %0, i1 noundef zeroext %1) local_u
   %.sroa.2.0.extract.shift = lshr i64 %0, 32
   %3 = trunc nuw i64 %.sroa.2.0.extract.shift to i32
   %4 = and i32 %3, 65535
-  %5 = tail call ptr @b2GetWorldLocked(i32 noundef %4) #12
+  %5 = tail call ptr @b2GetWorldLocked(i32 noundef %4) #10
   %6 = icmp eq ptr %5, null
   br i1 %6, label %14, label %7
 
@@ -3468,7 +3468,7 @@ define zeroext i1 @b2Shape_ArePreSolveEventsEnabled(i64 %0) local_unnamed_addr #
   %.sroa.2.0.extract.shift = lshr i64 %0, 32
   %2 = trunc nuw i64 %.sroa.2.0.extract.shift to i32
   %3 = and i32 %2, 65535
-  %4 = tail call ptr @b2GetWorld(i32 noundef %3) #12
+  %4 = tail call ptr @b2GetWorld(i32 noundef %3) #10
   %5 = getelementptr i8, ptr %4, i64 1256
   %.val = load ptr, ptr %5, align 8, !tbaa !14
   %6 = shl i64 %0, 32
@@ -3486,7 +3486,7 @@ define void @b2Shape_EnableHitEvents(i64 %0, i1 noundef zeroext %1) local_unname
   %.sroa.2.0.extract.shift = lshr i64 %0, 32
   %3 = trunc nuw i64 %.sroa.2.0.extract.shift to i32
   %4 = and i32 %3, 65535
-  %5 = tail call ptr @b2GetWorldLocked(i32 noundef %4) #12
+  %5 = tail call ptr @b2GetWorldLocked(i32 noundef %4) #10
   %6 = icmp eq ptr %5, null
   br i1 %6, label %14, label %7
 
@@ -3511,7 +3511,7 @@ define zeroext i1 @b2Shape_AreHitEventsEnabled(i64 %0) local_unnamed_addr #0 {
   %.sroa.2.0.extract.shift = lshr i64 %0, 32
   %2 = trunc nuw i64 %.sroa.2.0.extract.shift to i32
   %3 = and i32 %2, 65535
-  %4 = tail call ptr @b2GetWorld(i32 noundef %3) #12
+  %4 = tail call ptr @b2GetWorld(i32 noundef %3) #10
   %5 = getelementptr i8, ptr %4, i64 1256
   %.val = load ptr, ptr %5, align 8, !tbaa !14
   %6 = shl i64 %0, 32
@@ -3529,7 +3529,7 @@ define i32 @b2Shape_GetType(i64 %0) local_unnamed_addr #0 {
   %.sroa.2.0.extract.shift = lshr i64 %0, 32
   %2 = trunc nuw i64 %.sroa.2.0.extract.shift to i32
   %3 = and i32 %2, 65535
-  %4 = tail call ptr @b2GetWorld(i32 noundef %3) #12
+  %4 = tail call ptr @b2GetWorld(i32 noundef %3) #10
   %5 = getelementptr i8, ptr %4, i64 1256
   %.val = load ptr, ptr %5, align 8, !tbaa !14
   %6 = shl i64 %0, 32
@@ -3546,7 +3546,7 @@ define { <2 x float>, float } @b2Shape_GetCircle(i64 %0) local_unnamed_addr #0 {
   %.sroa.23.0.extract.shift = lshr i64 %0, 32
   %2 = trunc nuw i64 %.sroa.23.0.extract.shift to i32
   %3 = and i32 %2, 65535
-  %4 = tail call ptr @b2GetWorld(i32 noundef %3) #12
+  %4 = tail call ptr @b2GetWorld(i32 noundef %3) #10
   %5 = getelementptr i8, ptr %4, i64 1256
   %.val = load ptr, ptr %5, align 8, !tbaa !14
   %6 = shl i64 %0, 32
@@ -3567,7 +3567,7 @@ define { <2 x float>, <2 x float> } @b2Shape_GetSegment(i64 %0) local_unnamed_ad
   %.sroa.2.0.extract.shift = lshr i64 %0, 32
   %2 = trunc nuw i64 %.sroa.2.0.extract.shift to i32
   %3 = and i32 %2, 65535
-  %4 = tail call ptr @b2GetWorld(i32 noundef %3) #12
+  %4 = tail call ptr @b2GetWorld(i32 noundef %3) #10
   %5 = getelementptr i8, ptr %4, i64 1256
   %.val = load ptr, ptr %5, align 8, !tbaa !14
   %6 = shl i64 %0, 32
@@ -3588,7 +3588,7 @@ define void @b2Shape_GetChainSegment(ptr dead_on_unwind noalias writable writeon
   %.sroa.2.0.extract.shift = lshr i64 %1, 32
   %3 = trunc nuw i64 %.sroa.2.0.extract.shift to i32
   %4 = and i32 %3, 65535
-  %5 = tail call ptr @b2GetWorld(i32 noundef %4) #12
+  %5 = tail call ptr @b2GetWorld(i32 noundef %4) #10
   %6 = getelementptr i8, ptr %5, i64 1256
   %.val = load ptr, ptr %6, align 8, !tbaa !14
   %7 = shl i64 %1, 32
@@ -3605,7 +3605,7 @@ define void @b2Shape_GetCapsule(ptr dead_on_unwind noalias writable writeonly sr
   %.sroa.2.0.extract.shift = lshr i64 %1, 32
   %3 = trunc nuw i64 %.sroa.2.0.extract.shift to i32
   %4 = and i32 %3, 65535
-  %5 = tail call ptr @b2GetWorld(i32 noundef %4) #12
+  %5 = tail call ptr @b2GetWorld(i32 noundef %4) #10
   %6 = getelementptr i8, ptr %5, i64 1256
   %.val = load ptr, ptr %6, align 8, !tbaa !14
   %7 = shl i64 %1, 32
@@ -3622,7 +3622,7 @@ define void @b2Shape_GetPolygon(ptr dead_on_unwind noalias writable writeonly sr
   %.sroa.2.0.extract.shift = lshr i64 %1, 32
   %3 = trunc nuw i64 %.sroa.2.0.extract.shift to i32
   %4 = and i32 %3, 65535
-  %5 = tail call ptr @b2GetWorld(i32 noundef %4) #12
+  %5 = tail call ptr @b2GetWorld(i32 noundef %4) #10
   %6 = getelementptr i8, ptr %5, i64 1256
   %.val = load ptr, ptr %6, align 8, !tbaa !14
   %7 = shl i64 %1, 32
@@ -3639,7 +3639,7 @@ define void @b2Shape_SetCircle(i64 %0, ptr noundef readonly captures(none) %1) l
   %.sroa.2.0.extract.shift = lshr i64 %0, 32
   %3 = trunc nuw i64 %.sroa.2.0.extract.shift to i32
   %4 = and i32 %3, 65535
-  %5 = tail call ptr @b2GetWorldLocked(i32 noundef %4) #12
+  %5 = tail call ptr @b2GetWorldLocked(i32 noundef %4) #10
   %6 = icmp eq ptr %5, null
   br i1 %6, label %14, label %7
 
@@ -3666,7 +3666,7 @@ define void @b2Shape_SetCapsule(i64 %0, ptr noundef readonly captures(none) %1) 
   %.sroa.2.0.extract.shift = lshr i64 %0, 32
   %3 = trunc nuw i64 %.sroa.2.0.extract.shift to i32
   %4 = and i32 %3, 65535
-  %5 = tail call ptr @b2GetWorldLocked(i32 noundef %4) #12
+  %5 = tail call ptr @b2GetWorldLocked(i32 noundef %4) #10
   %6 = icmp eq ptr %5, null
   br i1 %6, label %14, label %7
 
@@ -3693,7 +3693,7 @@ define void @b2Shape_SetSegment(i64 %0, ptr noundef readonly captures(none) %1) 
   %.sroa.2.0.extract.shift = lshr i64 %0, 32
   %3 = trunc nuw i64 %.sroa.2.0.extract.shift to i32
   %4 = and i32 %3, 65535
-  %5 = tail call ptr @b2GetWorldLocked(i32 noundef %4) #12
+  %5 = tail call ptr @b2GetWorldLocked(i32 noundef %4) #10
   %6 = icmp eq ptr %5, null
   br i1 %6, label %14, label %7
 
@@ -3720,7 +3720,7 @@ define void @b2Shape_SetPolygon(i64 %0, ptr noundef readonly captures(none) %1) 
   %.sroa.2.0.extract.shift = lshr i64 %0, 32
   %3 = trunc nuw i64 %.sroa.2.0.extract.shift to i32
   %4 = and i32 %3, 65535
-  %5 = tail call ptr @b2GetWorldLocked(i32 noundef %4) #12
+  %5 = tail call ptr @b2GetWorldLocked(i32 noundef %4) #10
   %6 = icmp eq ptr %5, null
   br i1 %6, label %14, label %7
 
@@ -3747,7 +3747,7 @@ define i64 @b2Shape_GetParentChain(i64 %0) local_unnamed_addr #0 {
   %.sroa.2.0.extract.shift = lshr i64 %0, 32
   %2 = trunc nuw i64 %.sroa.2.0.extract.shift to i32
   %3 = and i32 %2, 65535
-  %4 = tail call ptr @b2GetWorld(i32 noundef %3) #12
+  %4 = tail call ptr @b2GetWorld(i32 noundef %3) #10
   %5 = getelementptr i8, ptr %4, i64 1256
   %.val = load ptr, ptr %5, align 8, !tbaa !14
   %6 = shl i64 %0, 32
@@ -3791,7 +3791,7 @@ define void @b2Chain_SetFriction(i64 %0, float noundef %1) local_unnamed_addr #0
   %.sroa.2.0.extract.shift = lshr i64 %0, 32
   %3 = trunc nuw i64 %.sroa.2.0.extract.shift to i32
   %4 = and i32 %3, 65535
-  %5 = tail call ptr @b2GetWorldLocked(i32 noundef %4) #12
+  %5 = tail call ptr @b2GetWorldLocked(i32 noundef %4) #10
   %6 = icmp eq ptr %5, null
   br i1 %6, label %.loopexit, label %7
 
@@ -3856,7 +3856,7 @@ define float @b2Chain_GetFriction(i64 %0) local_unnamed_addr #0 {
   %.sroa.2.0.extract.shift = lshr i64 %0, 32
   %2 = trunc nuw i64 %.sroa.2.0.extract.shift to i32
   %3 = and i32 %2, 65535
-  %4 = tail call ptr @b2GetWorld(i32 noundef %3) #12
+  %4 = tail call ptr @b2GetWorld(i32 noundef %3) #10
   %5 = getelementptr i8, ptr %4, i64 1272
   %.val = load ptr, ptr %5, align 8, !tbaa !10
   %6 = shl i64 %0, 32
@@ -3874,7 +3874,7 @@ define void @b2Chain_SetRestitution(i64 %0, float noundef %1) local_unnamed_addr
   %.sroa.2.0.extract.shift = lshr i64 %0, 32
   %3 = trunc nuw i64 %.sroa.2.0.extract.shift to i32
   %4 = and i32 %3, 65535
-  %5 = tail call ptr @b2GetWorldLocked(i32 noundef %4) #12
+  %5 = tail call ptr @b2GetWorldLocked(i32 noundef %4) #10
   %6 = icmp eq ptr %5, null
   br i1 %6, label %.loopexit, label %7
 
@@ -3940,7 +3940,7 @@ define float @b2Chain_GetRestitution(i64 %0) local_unnamed_addr #0 {
   %.sroa.2.0.extract.shift = lshr i64 %0, 32
   %2 = trunc nuw i64 %.sroa.2.0.extract.shift to i32
   %3 = and i32 %2, 65535
-  %4 = tail call ptr @b2GetWorld(i32 noundef %3) #12
+  %4 = tail call ptr @b2GetWorld(i32 noundef %3) #10
   %5 = getelementptr i8, ptr %4, i64 1272
   %.val = load ptr, ptr %5, align 8, !tbaa !10
   %6 = shl i64 %0, 32
@@ -3959,7 +3959,7 @@ define void @b2Chain_SetMaterial(i64 %0, i32 noundef %1) local_unnamed_addr #0 {
   %.sroa.2.0.extract.shift = lshr i64 %0, 32
   %3 = trunc nuw i64 %.sroa.2.0.extract.shift to i32
   %4 = and i32 %3, 65535
-  %5 = tail call ptr @b2GetWorldLocked(i32 noundef %4) #12
+  %5 = tail call ptr @b2GetWorldLocked(i32 noundef %4) #10
   %6 = icmp eq ptr %5, null
   br i1 %6, label %.loopexit, label %7
 
@@ -4025,7 +4025,7 @@ define i32 @b2Chain_GetMaterial(i64 %0) local_unnamed_addr #0 {
   %.sroa.2.0.extract.shift = lshr i64 %0, 32
   %2 = trunc nuw i64 %.sroa.2.0.extract.shift to i32
   %3 = and i32 %2, 65535
-  %4 = tail call ptr @b2GetWorld(i32 noundef %3) #12
+  %4 = tail call ptr @b2GetWorld(i32 noundef %3) #10
   %5 = getelementptr i8, ptr %4, i64 1272
   %.val = load ptr, ptr %5, align 8, !tbaa !10
   %6 = shl i64 %0, 32
@@ -4044,7 +4044,7 @@ define i32 @b2Shape_GetContactCapacity(i64 %0) local_unnamed_addr #0 {
   %.sroa.2.0.extract.shift = lshr i64 %0, 32
   %2 = trunc nuw i64 %.sroa.2.0.extract.shift to i32
   %3 = and i32 %2, 65535
-  %4 = tail call ptr @b2GetWorldLocked(i32 noundef %3) #12
+  %4 = tail call ptr @b2GetWorldLocked(i32 noundef %3) #10
   %5 = icmp eq ptr %4, null
   br i1 %5, label %21, label %6
 
@@ -4083,7 +4083,7 @@ define i32 @b2Shape_GetContactData(i64 %0, ptr noundef writeonly captures(none) 
   %.sroa.4.0.extract.trunc = trunc i64 %.sroa.4.0.extract.shift to i16
   %4 = trunc nuw i64 %.sroa.4.0.extract.shift to i32
   %5 = and i32 %4, 65535
-  %6 = tail call ptr @b2GetWorldLocked(i32 noundef %5) #12
+  %6 = tail call ptr @b2GetWorldLocked(i32 noundef %5) #10
   %7 = icmp eq ptr %6, null
   br i1 %7, label %.loopexit, label %8
 
@@ -4173,7 +4173,7 @@ define i32 @b2Shape_GetContactData(i64 %0, ptr noundef writeonly captures(none) 
   store i16 %.sroa.4.0.extract.trunc, ptr %.sroa.2.0..sroa_idx, align 4, !tbaa !195
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %52, i64 14
   store i16 %61, ptr %.sroa.3.0..sroa_idx, align 2, !tbaa !195
-  %62 = tail call ptr @b2GetContactSim(ptr noundef nonnull %6, ptr noundef nonnull %31) #12
+  %62 = tail call ptr @b2GetContactSim(ptr noundef nonnull %6, ptr noundef nonnull %31) #10
   %63 = getelementptr inbounds nuw i8, ptr %52, i64 16
   %64 = getelementptr inbounds nuw i8, ptr %62, i64 36
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(112) %63, ptr noundef nonnull align 4 dereferenceable(112) %64, i64 112, i1 false), !tbaa.struct !228
@@ -4203,7 +4203,7 @@ define i32 @b2Shape_GetSensorCapacity(i64 %0) local_unnamed_addr #0 {
   %.sroa.2.0.extract.shift = lshr i64 %0, 32
   %2 = trunc nuw i64 %.sroa.2.0.extract.shift to i32
   %3 = and i32 %2, 65535
-  %4 = tail call ptr @b2GetWorldLocked(i32 noundef %3) #12
+  %4 = tail call ptr @b2GetWorldLocked(i32 noundef %3) #10
   %5 = icmp eq ptr %4, null
   br i1 %5, label %20, label %6
 
@@ -4239,7 +4239,7 @@ define noundef i32 @b2Shape_GetSensorOverlaps(i64 %0, ptr noundef writeonly capt
   %.sroa.218.0.extract.trunc = trunc i64 %.sroa.218.0.extract.shift to i16
   %4 = trunc nuw i64 %.sroa.218.0.extract.shift to i32
   %5 = and i32 %4, 65535
-  %6 = tail call ptr @b2GetWorldLocked(i32 noundef %5) #12
+  %6 = tail call ptr @b2GetWorldLocked(i32 noundef %5) #10
   %7 = icmp eq ptr %6, null
   br i1 %7, label %.loopexit, label %8
 
@@ -4299,7 +4299,7 @@ define { <2 x float>, <2 x float> } @b2Shape_GetAABB(i64 %0) local_unnamed_addr 
   %.sroa.2.0.extract.shift = lshr i64 %0, 32
   %2 = trunc nuw i64 %.sroa.2.0.extract.shift to i32
   %3 = and i32 %2, 65535
-  %4 = tail call ptr @b2GetWorld(i32 noundef %3) #12
+  %4 = tail call ptr @b2GetWorld(i32 noundef %3) #10
   %5 = icmp eq ptr %4, null
   br i1 %5, label %12, label %6
 
@@ -4329,7 +4329,7 @@ define { <2 x float>, <2 x float> } @b2Shape_GetMassData(i64 %0) local_unnamed_a
   %.sroa.2.0.extract.shift = lshr i64 %0, 32
   %2 = trunc nuw i64 %.sroa.2.0.extract.shift to i32
   %3 = and i32 %2, 65535
-  %4 = tail call ptr @b2GetWorld(i32 noundef %3) #12
+  %4 = tail call ptr @b2GetWorld(i32 noundef %3) #10
   %5 = icmp eq ptr %4, null
   br i1 %5, label %b2ComputeShapeMass.exit, label %6
 
@@ -4352,7 +4352,7 @@ define { <2 x float>, <2 x float> } @b2Shape_GetMassData(i64 %0) local_unnamed_a
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 132
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %16 = load float, ptr %15, align 8, !tbaa !173
-  %17 = tail call { <2 x float>, <2 x float> } @b2ComputeCapsuleMass(ptr noundef nonnull %14, float noundef %16) #12
+  %17 = tail call { <2 x float>, <2 x float> } @b2ComputeCapsuleMass(ptr noundef nonnull %14, float noundef %16) #10
   %18 = extractvalue { <2 x float>, <2 x float> } %17, 0
   %19 = extractvalue { <2 x float>, <2 x float> } %17, 1
   br label %b2ComputeShapeMass.exit
@@ -4361,7 +4361,7 @@ define { <2 x float>, <2 x float> } @b2Shape_GetMassData(i64 %0) local_unnamed_a
   %21 = getelementptr inbounds nuw i8, ptr %10, i64 132
   %22 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %23 = load float, ptr %22, align 8, !tbaa !173
-  %24 = tail call { <2 x float>, <2 x float> } @b2ComputeCircleMass(ptr noundef nonnull %21, float noundef %23) #12
+  %24 = tail call { <2 x float>, <2 x float> } @b2ComputeCircleMass(ptr noundef nonnull %21, float noundef %23) #10
   %25 = extractvalue { <2 x float>, <2 x float> } %24, 0
   %26 = extractvalue { <2 x float>, <2 x float> } %24, 1
   br label %b2ComputeShapeMass.exit
@@ -4370,7 +4370,7 @@ define { <2 x float>, <2 x float> } @b2Shape_GetMassData(i64 %0) local_unnamed_a
   %28 = getelementptr inbounds nuw i8, ptr %10, i64 132
   %29 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %30 = load float, ptr %29, align 8, !tbaa !173
-  %31 = tail call { <2 x float>, <2 x float> } @b2ComputePolygonMass(ptr noundef nonnull %28, float noundef %30) #12
+  %31 = tail call { <2 x float>, <2 x float> } @b2ComputePolygonMass(ptr noundef nonnull %28, float noundef %30) #10
   %32 = extractvalue { <2 x float>, <2 x float> } %31, 0
   %33 = extractvalue { <2 x float>, <2 x float> } %31, 1
   br label %b2ComputeShapeMass.exit
@@ -4394,7 +4394,7 @@ define <2 x float> @b2Shape_GetClosestPoint(i64 %0, <2 x float> %1) local_unname
   store <2 x float> %1, ptr %3, align 8
   %8 = trunc nuw i64 %.sroa.2.0.extract.shift to i32
   %9 = and i32 %8, 65535
-  %10 = tail call ptr @b2GetWorld(i32 noundef %9) #12
+  %10 = tail call ptr @b2GetWorld(i32 noundef %9) #10
   %11 = icmp eq ptr %10, null
   br i1 %11, label %29, label %12
 
@@ -4411,14 +4411,14 @@ define <2 x float> @b2Shape_GetClosestPoint(i64 %0, <2 x float> %1) local_unname
   %.val10 = load ptr, ptr %17, align 8, !tbaa !35
   %20 = sext i32 %19 to i64
   %21 = getelementptr inbounds %struct.b2Body, ptr %.val10, i64 %20
-  %22 = tail call { <2 x float>, <2 x float> } @b2GetBodyTransformQuick(ptr noundef nonnull %10, ptr noundef %21) #12
+  %22 = tail call { <2 x float>, <2 x float> } @b2GetBodyTransformQuick(ptr noundef nonnull %10, ptr noundef %21) #10
   %23 = extractvalue { <2 x float>, <2 x float> } %22, 0
   %24 = extractvalue { <2 x float>, <2 x float> } %22, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @b2MakeShapeDistanceProxy(ptr dead_on_unwind nonnull writable sret(%struct.b2ShapeProxy) align 4 %4, ptr noundef %16)
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 72
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  call void @b2MakeProxy(ptr dead_on_unwind nonnull writable sret(%struct.b2ShapeProxy) align 4 %5, ptr noundef nonnull %3, i32 noundef 1, float noundef 0.000000e+00) #12
+  call void @b2MakeProxy(ptr dead_on_unwind nonnull writable sret(%struct.b2ShapeProxy) align 4 %5, ptr noundef nonnull %3, i32 noundef 1, float noundef 0.000000e+00) #10
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(72) %25, ptr noundef nonnull align 4 dereferenceable(72) %5, i64 72, i1 false), !tbaa.struct !231
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 144
@@ -4432,7 +4432,7 @@ define <2 x float> @b2Shape_GetClosestPoint(i64 %0, <2 x float> %1) local_unname
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 0, ptr %6, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  call void @b2ShapeDistance(ptr dead_on_unwind nonnull writable sret(%struct.b2DistanceOutput) align 4 %7, ptr noundef nonnull %6, ptr noundef nonnull %4, ptr noundef null, i32 noundef 0) #12
+  call void @b2ShapeDistance(ptr dead_on_unwind nonnull writable sret(%struct.b2DistanceOutput) align 4 %7, ptr noundef nonnull %6, ptr noundef nonnull %4, ptr noundef null, i32 noundef 0) #10
   %.sroa.08.0.copyload = load <2 x float>, ptr %7, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -4459,13 +4459,16 @@ declare void @b2SensorArray_Reserve(ptr noundef, i32 noundef) local_unnamed_addr
 declare void @b2BroadPhase_MoveProxy(ptr noundef, i32 noundef, <2 x float>, <2 x float>) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #11
+declare i32 @llvm.smin.i32(i32, i32) #9
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.sqrt.f32(float) #9
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
@@ -4473,13 +4476,11 @@ attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "t
 attributes #3 = { nounwind uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nofree norecurse nounwind memory(argmem: read, errnomem: write) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nofree norecurse nounwind memory(read, inaccessiblemem: none, errnomem: readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #11 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #12 = { nounwind }
+attributes #6 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #9 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

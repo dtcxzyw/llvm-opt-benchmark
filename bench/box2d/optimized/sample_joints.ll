@@ -441,7 +441,7 @@ declare noundef i32 @_Z14RegisterSamplePKcS0_PFP6SampleR8SettingsE(ptr noundef, 
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef ptr @_ZN13DistanceJoint6CreateER8Settings(ptr noundef nonnull align 4 dereferenceable(44) %0) #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(448) ptr @_Znwm(i64 noundef 448) #13
+  %2 = tail call noalias noundef nonnull dereferenceable(448) ptr @_Znwm(i64 noundef 448) #14
   invoke void @_ZN13DistanceJointC2ER8Settings(ptr noundef nonnull align 8 dereferenceable(442) %2, ptr noundef nonnull align 4 dereferenceable(44) %0)
           to label %3 unwind label %4
 
@@ -451,13 +451,13 @@ define linkonce_odr dso_local noundef ptr @_ZN13DistanceJoint6CreateER8Settings(
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 448) #14
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 448) #15
   resume { ptr, i32 } %5
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef ptr @_ZN10MotorJoint6CreateER8Settings(ptr noundef nonnull align 4 dereferenceable(44) %0) #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(280) ptr @_Znwm(i64 noundef 280) #13
+  %2 = tail call noalias noundef nonnull dereferenceable(280) ptr @_Znwm(i64 noundef 280) #14
   invoke void @_ZN10MotorJointC2ER8Settings(ptr noundef nonnull align 8 dereferenceable(273) %2, ptr noundef nonnull align 4 dereferenceable(44) %0)
           to label %3 unwind label %4
 
@@ -467,13 +467,13 @@ define linkonce_odr dso_local noundef ptr @_ZN10MotorJoint6CreateER8Settings(ptr
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 280) #14
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 280) #15
   resume { ptr, i32 } %5
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef ptr @_ZN9NullJoint6CreateER8Settings(ptr noundef nonnull align 4 dereferenceable(44) %0) #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(248) ptr @_Znwm(i64 noundef 248) #13
+  %2 = tail call noalias noundef nonnull dereferenceable(248) ptr @_Znwm(i64 noundef 248) #14
   invoke void @_ZN9NullJointC2ER8Settings(ptr noundef nonnull align 8 dereferenceable(248) %2, ptr noundef nonnull align 4 dereferenceable(44) %0)
           to label %3 unwind label %4
 
@@ -483,13 +483,13 @@ define linkonce_odr dso_local noundef ptr @_ZN9NullJoint6CreateER8Settings(ptr n
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 248) #14
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 248) #15
   resume { ptr, i32 } %5
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef ptr @_ZN13RevoluteJoint6CreateER8Settings(ptr noundef nonnull align 4 dereferenceable(44) %0) #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(296) ptr @_Znwm(i64 noundef 296) #13
+  %2 = tail call noalias noundef nonnull dereferenceable(296) ptr @_Znwm(i64 noundef 296) #14
   invoke void @_ZN13RevoluteJointC2ER8Settings(ptr noundef nonnull align 8 dereferenceable(291) %2, ptr noundef nonnull align 4 dereferenceable(44) %0)
           to label %3 unwind label %4
 
@@ -499,13 +499,13 @@ define linkonce_odr dso_local noundef ptr @_ZN13RevoluteJoint6CreateER8Settings(
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 296) #14
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 296) #15
   resume { ptr, i32 } %5
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef ptr @_ZN14PrismaticJoint6CreateER8Settings(ptr noundef nonnull align 4 dereferenceable(44) %0) #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(280) ptr @_Znwm(i64 noundef 280) #13
+  %2 = tail call noalias noundef nonnull dereferenceable(280) ptr @_Znwm(i64 noundef 280) #14
   invoke void @_ZN14PrismaticJointC2ER8Settings(ptr noundef nonnull align 8 dereferenceable(275) %2, ptr noundef nonnull align 4 dereferenceable(44) %0)
           to label %3 unwind label %4
 
@@ -515,13 +515,13 @@ define linkonce_odr dso_local noundef ptr @_ZN14PrismaticJoint6CreateER8Settings
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 280) #14
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 280) #15
   resume { ptr, i32 } %5
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef ptr @_ZN10WheelJoint6CreateER8Settings(ptr noundef nonnull align 4 dereferenceable(44) %0) #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(280) ptr @_Znwm(i64 noundef 280) #13
+  %2 = tail call noalias noundef nonnull dereferenceable(280) ptr @_Znwm(i64 noundef 280) #14
   invoke void @_ZN10WheelJointC2ER8Settings(ptr noundef nonnull align 8 dereferenceable(275) %2, ptr noundef nonnull align 4 dereferenceable(44) %0)
           to label %3 unwind label %4
 
@@ -531,13 +531,13 @@ define linkonce_odr dso_local noundef ptr @_ZN10WheelJoint6CreateER8Settings(ptr
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 280) #14
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 280) #15
   resume { ptr, i32 } %5
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef ptr @_ZN6Bridge6CreateER8Settings(ptr noundef nonnull align 4 dereferenceable(44) %0) #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(2824) ptr @_Znwm(i64 noundef 2824) #13
+  %2 = tail call noalias noundef nonnull dereferenceable(2824) ptr @_Znwm(i64 noundef 2824) #14
   invoke void @_ZN6BridgeC2ER8Settings(ptr noundef nonnull align 8 dereferenceable(2824) %2, ptr noundef nonnull align 4 dereferenceable(44) %0)
           to label %3 unwind label %4
 
@@ -547,13 +547,13 @@ define linkonce_odr dso_local noundef ptr @_ZN6Bridge6CreateER8Settings(ptr noun
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 2824) #14
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 2824) #15
   resume { ptr, i32 } %5
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef ptr @_ZN12BallAndChain6CreateER8Settings(ptr noundef nonnull align 4 dereferenceable(44) %0) #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(504) ptr @_Znwm(i64 noundef 504) #13
+  %2 = tail call noalias noundef nonnull dereferenceable(504) ptr @_Znwm(i64 noundef 504) #14
   invoke void @_ZN12BallAndChainC2ER8Settings(ptr noundef nonnull align 8 dereferenceable(500) %2, ptr noundef nonnull align 4 dereferenceable(44) %0)
           to label %3 unwind label %4
 
@@ -563,13 +563,13 @@ define linkonce_odr dso_local noundef ptr @_ZN12BallAndChain6CreateER8Settings(p
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 504) #14
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 504) #15
   resume { ptr, i32 } %5
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef ptr @_ZN10Cantilever6CreateER8Settings(ptr noundef nonnull align 4 dereferenceable(44) %0) #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(408) ptr @_Znwm(i64 noundef 408) #13
+  %2 = tail call noalias noundef nonnull dereferenceable(408) ptr @_Znwm(i64 noundef 408) #14
   invoke void @_ZN10CantileverC2ER8Settings(ptr noundef nonnull align 8 dereferenceable(405) %2, ptr noundef nonnull align 4 dereferenceable(44) %0)
           to label %3 unwind label %4
 
@@ -579,14 +579,14 @@ define linkonce_odr dso_local noundef ptr @_ZN10Cantilever6CreateER8Settings(ptr
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 408) #14
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 408) #15
   resume { ptr, i32 } %5
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef ptr @_ZN13FixedRotation6CreateER8Settings(ptr noundef nonnull align 4 dereferenceable(44) %0) #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %struct.b2BodyDef, align 8
-  %3 = tail call noalias noundef nonnull dereferenceable(360) ptr @_Znwm(i64 noundef 360) #13
+  %3 = tail call noalias noundef nonnull dereferenceable(360) ptr @_Znwm(i64 noundef 360) #14
   invoke void @_ZN6SampleC2ER8Settings(ptr noundef nonnull align 8 dereferenceable(353) %3, ptr noundef nonnull align 4 dereferenceable(44) %0)
           to label %.noexc unwind label %22
 
@@ -637,7 +637,7 @@ define linkonce_odr dso_local noundef ptr @_ZN13FixedRotation6CreateER8Settings(
 20:                                               ; preds = %18, %16
   %.pn.i = phi { ptr, i32 } [ %17, %16 ], [ %19, %18 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  call void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceable(353) %3) #15
+  call void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceable(353) %3) #16
   br label %.body
 
 21:                                               ; preds = %12
@@ -651,13 +651,13 @@ define linkonce_odr dso_local noundef ptr @_ZN13FixedRotation6CreateER8Settings(
 
 .body:                                            ; preds = %20, %22
   %eh.lpad-body = phi { ptr, i32 } [ %23, %22 ], [ %.pn.i, %20 ]
-  call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 360) #14
+  call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 360) #15
   resume { ptr, i32 } %eh.lpad-body
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef ptr @_ZN14BreakableJoint6CreateER8Settings(ptr noundef nonnull align 4 dereferenceable(44) %0) #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(304) ptr @_Znwm(i64 noundef 304) #13
+  %2 = tail call noalias noundef nonnull dereferenceable(304) ptr @_Znwm(i64 noundef 304) #14
   invoke void @_ZN14BreakableJointC2ER8Settings(ptr noundef nonnull align 8 dereferenceable(300) %2, ptr noundef nonnull align 4 dereferenceable(44) %0)
           to label %3 unwind label %4
 
@@ -667,13 +667,13 @@ define linkonce_odr dso_local noundef ptr @_ZN14BreakableJoint6CreateER8Settings
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 304) #14
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 304) #15
   resume { ptr, i32 } %5
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef ptr @_ZN14UserConstraint6CreateER8Settings(ptr noundef nonnull align 4 dereferenceable(44) %0) #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(264) ptr @_Znwm(i64 noundef 264) #13
+  %2 = tail call noalias noundef nonnull dereferenceable(264) ptr @_Znwm(i64 noundef 264) #14
   invoke void @_ZN14UserConstraintC2ER8Settings(ptr noundef nonnull align 8 dereferenceable(264) %2, ptr noundef nonnull align 4 dereferenceable(44) %0)
           to label %3 unwind label %4
 
@@ -683,13 +683,13 @@ define linkonce_odr dso_local noundef ptr @_ZN14UserConstraint6CreateER8Settings
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 264) #14
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 264) #15
   resume { ptr, i32 } %5
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef ptr @_ZN7Driving6CreateER8Settings(ptr noundef nonnull align 4 dereferenceable(44) %0) #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(312) ptr @_Znwm(i64 noundef 312) #13
+  %2 = tail call noalias noundef nonnull dereferenceable(312) ptr @_Znwm(i64 noundef 312) #14
   invoke void @_ZN7DrivingC2ER8Settings(ptr noundef nonnull align 8 dereferenceable(312) %2, ptr noundef nonnull align 4 dereferenceable(44) %0)
           to label %3 unwind label %4
 
@@ -699,13 +699,13 @@ define linkonce_odr dso_local noundef ptr @_ZN7Driving6CreateER8Settings(ptr nou
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 312) #14
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 312) #15
   resume { ptr, i32 } %5
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef ptr @_ZN7Ragdoll6CreateER8Settings(ptr noundef nonnull align 4 dereferenceable(44) %0) #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(536) ptr @_Znwm(i64 noundef 536) #13
+  %2 = tail call noalias noundef nonnull dereferenceable(536) ptr @_Znwm(i64 noundef 536) #14
   invoke void @_ZN7RagdollC2ER8Settings(ptr noundef nonnull align 8 dereferenceable(532) %2, ptr noundef nonnull align 4 dereferenceable(44) %0)
           to label %3 unwind label %4
 
@@ -715,13 +715,13 @@ define linkonce_odr dso_local noundef ptr @_ZN7Ragdoll6CreateER8Settings(ptr nou
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 536) #14
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 536) #15
   resume { ptr, i32 } %5
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef ptr @_ZN8SoftBody6CreateER8Settings(ptr noundef nonnull align 4 dereferenceable(44) %0) #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(368) ptr @_Znwm(i64 noundef 368) #13
+  %2 = tail call noalias noundef nonnull dereferenceable(368) ptr @_Znwm(i64 noundef 368) #14
   invoke void @_ZN8SoftBodyC2ER8Settings(ptr noundef nonnull align 8 dereferenceable(364) %2, ptr noundef nonnull align 4 dereferenceable(44) %0)
           to label %3 unwind label %4
 
@@ -731,13 +731,13 @@ define linkonce_odr dso_local noundef ptr @_ZN8SoftBody6CreateER8Settings(ptr no
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 368) #14
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 368) #15
   resume { ptr, i32 } %5
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef ptr @_ZN13DoohickeyFarm6CreateER8Settings(ptr noundef nonnull align 4 dereferenceable(44) %0) #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(248) ptr @_Znwm(i64 noundef 248) #13
+  %2 = tail call noalias noundef nonnull dereferenceable(248) ptr @_Znwm(i64 noundef 248) #14
   invoke void @_ZN13DoohickeyFarmC2ER8Settings(ptr noundef nonnull align 8 dereferenceable(248) %2, ptr noundef nonnull align 4 dereferenceable(44) %0)
           to label %3 unwind label %4
 
@@ -747,13 +747,13 @@ define linkonce_odr dso_local noundef ptr @_ZN13DoohickeyFarm6CreateER8Settings(
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 248) #14
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 248) #15
   resume { ptr, i32 } %5
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef ptr @_ZN11ScissorLift6CreateER8Settings(ptr noundef nonnull align 4 dereferenceable(44) %0) #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(272) ptr @_Znwm(i64 noundef 272) #13
+  %2 = tail call noalias noundef nonnull dereferenceable(272) ptr @_Znwm(i64 noundef 272) #14
   invoke void @_ZN11ScissorLiftC2ER8Settings(ptr noundef nonnull align 8 dereferenceable(265) %2, ptr noundef nonnull align 4 dereferenceable(44) %0)
           to label %3 unwind label %4
 
@@ -763,7 +763,7 @@ define linkonce_odr dso_local noundef ptr @_ZN11ScissorLift6CreateER8Settings(pt
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 272) #14
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 272) #15
   resume { ptr, i32 } %5
 }
 
@@ -847,7 +847,7 @@ define linkonce_odr dso_local void @_ZN13DistanceJointC2ER8Settings(ptr noundef 
 
 31:                                               ; preds = %29, %27
   %.pn14 = phi { ptr, i32 } [ %30, %29 ], [ %.pn, %27 ]
-  call void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceable(248) %0) #15
+  call void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceable(248) %0) #16
   resume { ptr, i32 } %.pn14
 }
 
@@ -1025,8 +1025,8 @@ define linkonce_odr dso_local void @_ZN13DistanceJoint11CreateSceneEi(ptr nounde
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN13DistanceJointD0Ev(ptr noundef nonnull align 8 dereferenceable(442) %0) unnamed_addr #6 comdat align 2 {
-  tail call void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceable(442) %0) #15
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 448) #14
+  tail call void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceable(442) %0) #16
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 448) #15
   ret void
 }
 
@@ -1557,7 +1557,7 @@ define linkonce_odr dso_local void @_ZN10MotorJointC2ER8Settings(ptr noundef non
 
 73:                                               ; preds = %72, %56
   %.pn27.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn27.pn.pn.pn.pn, %72 ], [ %.pn.pn, %56 ]
-  call void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceable(248) %0) #15
+  call void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceable(248) %0) #16
   resume { ptr, i32 } %.pn27.pn.pn.pn.pn.pn
 }
 
@@ -1573,8 +1573,8 @@ declare i64 @b2CreateMotorJoint(i32, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN10MotorJointD0Ev(ptr noundef nonnull align 8 dereferenceable(273) %0) unnamed_addr #6 comdat align 2 {
-  tail call void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceable(273) %0) #15
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 280) #14
+  tail call void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceable(273) %0) #16
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 280) #15
   ret void
 }
 
@@ -1603,15 +1603,15 @@ define linkonce_odr dso_local void @_ZN10MotorJoint4StepER8Settings(ptr noundef 
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %17 = load float, ptr %16, align 8, !tbaa !87
   %18 = fmul float %17, 2.000000e+00
-  %19 = tail call float @sinf(float noundef %18) #15, !tbaa !77
+  %19 = tail call float @sinf(float noundef %18) #16, !tbaa !77
   %20 = fmul float %19, 6.000000e+00
   %.sroa.010.0.vec.insert = insertelement <2 x float> poison, float %20, i64 0
-  %21 = tail call float @sinf(float noundef %17) #15, !tbaa !77
+  %21 = tail call float @sinf(float noundef %17) #16, !tbaa !77
   %22 = fmul float %21, 4.000000e+00
   %23 = fadd float %22, 8.000000e+00
   %.sroa.010.4.vec.insert = insertelement <2 x float> %.sroa.010.0.vec.insert, float %23, i64 1
   %24 = fmul float %17, -5.000000e-01
-  %25 = tail call float @sinf(float noundef %24) #15, !tbaa !77
+  %25 = tail call float @sinf(float noundef %24) #16, !tbaa !77
   %26 = fmul float %25, 0x400921FB60000000
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %.sroa.07.0.copyload = load i64, ptr %27, align 8
@@ -1917,7 +1917,7 @@ define linkonce_odr dso_local void @_ZN9NullJointC2ER8Settings(ptr noundef nonnu
 
 63:                                               ; preds = %62, %47
   %.pn33.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn33.pn.pn.pn.pn, %62 ], [ %.pn.pn, %47 ]
-  call void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceable(248) %0) #15
+  call void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceable(248) %0) #16
   resume { ptr, i32 } %.pn33.pn.pn.pn.pn.pn
 }
 
@@ -1929,8 +1929,8 @@ declare i64 @b2CreateNullJoint(i32, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN9NullJointD0Ev(ptr noundef nonnull align 8 dereferenceable(248) %0) unnamed_addr #6 comdat align 2 {
-  tail call void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceable(248) %0) #15
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 248) #14
+  tail call void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceable(248) %0) #16
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 248) #15
   ret void
 }
 
@@ -2391,7 +2391,7 @@ define linkonce_odr dso_local void @_ZN13RevoluteJointC2ER8Settings(ptr noundef 
 
 168:                                              ; preds = %167, %147, %140, %120
   %.pn77.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn77.pn.pn.pn.pn, %167 ], [ %.pn75, %147 ], [ %.pn69.pn.pn.pn.pn, %140 ], [ %.pn.pn, %120 ]
-  call void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceable(248) %0) #15
+  call void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceable(248) %0) #16
   resume { ptr, i32 } %.pn77.pn.pn.pn.pn.pn
 }
 
@@ -2408,8 +2408,8 @@ declare void @b2MakeOffsetBox(ptr dead_on_unwind writable sret(%struct.b2Polygon
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN13RevoluteJointD0Ev(ptr noundef nonnull align 8 dereferenceable(291) %0) unnamed_addr #6 comdat align 2 {
-  tail call void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceable(291) %0) #15
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 296) #14
+  tail call void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceable(291) %0) #16
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 296) #15
   ret void
 }
 
@@ -2633,13 +2633,13 @@ define linkonce_odr dso_local void @_ZN14PrismaticJointC2ER8Settings(ptr noundef
 12:                                               ; preds = %11, %2
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   invoke void @b2DefaultBodyDef(ptr dead_on_unwind nonnull writable sret(%struct.b2BodyDef) align 8 %3)
-          to label %13 unwind label %61
+          to label %13 unwind label %62
 
 13:                                               ; preds = %12
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %.sroa.021.0.copyload = load i32, ptr %14, align 4
   %15 = invoke i64 @b2CreateBody(i32 %.sroa.021.0.copyload, ptr noundef nonnull %3)
-          to label %16 unwind label %63
+          to label %16 unwind label %64
 
 16:                                               ; preds = %13
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -2659,7 +2659,7 @@ define linkonce_odr dso_local void @_ZN14PrismaticJointC2ER8Settings(ptr noundef
   store float 5.000000e-01, ptr %23, align 4, !tbaa !117
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   invoke void @b2DefaultBodyDef(ptr dead_on_unwind nonnull writable sret(%struct.b2BodyDef) align 8 %4)
-          to label %24 unwind label %66
+          to label %24 unwind label %67
 
 24:                                               ; preds = %16
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -2669,172 +2669,172 @@ define linkonce_odr dso_local void @_ZN14PrismaticJointC2ER8Settings(ptr noundef
   store i32 2, ptr %4, align 8, !tbaa !59
   %.sroa.018.0.copyload = load i32, ptr %14, align 4
   %26 = invoke i64 @b2CreateBody(i32 %.sroa.018.0.copyload, ptr noundef nonnull %4)
-          to label %27 unwind label %68
+          to label %27 unwind label %69
 
 27:                                               ; preds = %24
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   invoke void @b2DefaultShapeDef(ptr dead_on_unwind nonnull writable sret(%struct.b2ShapeDef) align 8 %5)
-          to label %28 unwind label %70
+          to label %28 unwind label %71
 
 28:                                               ; preds = %27
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   invoke void @b2MakeBox(ptr dead_on_unwind nonnull writable sret(%struct.b2Polygon) align 4 %6, float noundef 5.000000e-01, float noundef 2.000000e+00)
-          to label %29 unwind label %72
+          to label %29 unwind label %73
 
 29:                                               ; preds = %28
   %30 = invoke i64 @b2CreatePolygonShape(i64 %26, ptr noundef nonnull %5, ptr noundef nonnull %6)
-          to label %_Z11b2Normalize6b2Vec2.exit unwind label %72
+          to label %31 unwind label %73
 
-_Z11b2Normalize6b2Vec2.exit:                      ; preds = %29
+31:                                               ; preds = %29
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   invoke void @b2DefaultPrismaticJointDef(ptr dead_on_unwind nonnull writable sret(%struct.b2PrismaticJointDef) align 8 %7)
-          to label %31 unwind label %74
+          to label %32 unwind label %75
 
-31:                                               ; preds = %_Z11b2Normalize6b2Vec2.exit
+32:                                               ; preds = %31
   store i64 %15, ptr %7, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i64 %26, ptr %32, align 8
-  %33 = invoke <2 x float> @b2Body_GetLocalVector(i64 %15, <2 x float> splat (float 0x3FE6A09E60000000))
-          to label %34 unwind label %76
+  %33 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store i64 %26, ptr %33, align 8
+  %34 = invoke <2 x float> @b2Body_GetLocalVector(i64 %15, <2 x float> splat (float 0x3FE6A09E60000000))
+          to label %35 unwind label %77
 
-34:                                               ; preds = %31
-  %35 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  store <2 x float> %33, ptr %35, align 8
+35:                                               ; preds = %32
+  %36 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  store <2 x float> %34, ptr %36, align 8
   %.sroa.06.0.copyload = load i64, ptr %7, align 8
-  %36 = invoke <2 x float> @b2Body_GetLocalPoint(i64 %.sroa.06.0.copyload, <2 x float> <float 0.000000e+00, float 9.000000e+00>)
-          to label %37 unwind label %78
+  %37 = invoke <2 x float> @b2Body_GetLocalPoint(i64 %.sroa.06.0.copyload, <2 x float> <float 0.000000e+00, float 9.000000e+00>)
+          to label %38 unwind label %79
 
-37:                                               ; preds = %34
-  %38 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store <2 x float> %36, ptr %38, align 8
-  %.sroa.03.0.copyload = load i64, ptr %32, align 8
-  %39 = invoke <2 x float> @b2Body_GetLocalPoint(i64 %.sroa.03.0.copyload, <2 x float> <float 0.000000e+00, float 9.000000e+00>)
-          to label %40 unwind label %80
+38:                                               ; preds = %35
+  %39 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  store <2 x float> %37, ptr %39, align 8
+  %.sroa.03.0.copyload = load i64, ptr %33, align 8
+  %40 = invoke <2 x float> @b2Body_GetLocalPoint(i64 %.sroa.03.0.copyload, <2 x float> <float 0.000000e+00, float 9.000000e+00>)
+          to label %41 unwind label %81
 
-40:                                               ; preds = %37
-  %41 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store <2 x float> %39, ptr %41, align 8
-  %42 = load float, ptr %20, align 8, !tbaa !114
-  %43 = getelementptr inbounds nuw i8, ptr %7, i64 76
-  store float %42, ptr %43, align 4, !tbaa !118
-  %44 = load float, ptr %21, align 4, !tbaa !115
-  %45 = getelementptr inbounds nuw i8, ptr %7, i64 72
-  store float %44, ptr %45, align 8, !tbaa !120
-  %46 = load i8, ptr %19, align 1, !tbaa !113, !range !13, !noundef !14
-  %47 = getelementptr inbounds nuw i8, ptr %7, i64 68
-  store i8 %46, ptr %47, align 4, !tbaa !121
-  %48 = getelementptr inbounds nuw i8, ptr %7, i64 60
-  store float -1.000000e+01, ptr %48, align 4, !tbaa !122
-  %49 = getelementptr inbounds nuw i8, ptr %7, i64 64
-  store float 1.000000e+01, ptr %49, align 8, !tbaa !123
-  %50 = load i8, ptr %18, align 2, !tbaa !112, !range !13, !noundef !14
-  %51 = getelementptr inbounds nuw i8, ptr %7, i64 56
-  store i8 %50, ptr %51, align 8, !tbaa !124
-  %52 = load i8, ptr %17, align 8, !tbaa !110, !range !13, !noundef !14
-  %53 = getelementptr inbounds nuw i8, ptr %7, i64 44
-  store i8 %52, ptr %53, align 4, !tbaa !125
-  %54 = load float, ptr %22, align 8, !tbaa !116
-  %55 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  store float %54, ptr %55, align 8, !tbaa !126
-  %56 = load float, ptr %23, align 4, !tbaa !117
-  %57 = getelementptr inbounds nuw i8, ptr %7, i64 52
-  store float %56, ptr %57, align 4, !tbaa !127
+41:                                               ; preds = %38
+  %42 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  store <2 x float> %40, ptr %42, align 8
+  %43 = load float, ptr %20, align 8, !tbaa !114
+  %44 = getelementptr inbounds nuw i8, ptr %7, i64 76
+  store float %43, ptr %44, align 4, !tbaa !118
+  %45 = load float, ptr %21, align 4, !tbaa !115
+  %46 = getelementptr inbounds nuw i8, ptr %7, i64 72
+  store float %45, ptr %46, align 8, !tbaa !120
+  %47 = load i8, ptr %19, align 1, !tbaa !113, !range !13, !noundef !14
+  %48 = getelementptr inbounds nuw i8, ptr %7, i64 68
+  store i8 %47, ptr %48, align 4, !tbaa !121
+  %49 = getelementptr inbounds nuw i8, ptr %7, i64 60
+  store float -1.000000e+01, ptr %49, align 4, !tbaa !122
+  %50 = getelementptr inbounds nuw i8, ptr %7, i64 64
+  store float 1.000000e+01, ptr %50, align 8, !tbaa !123
+  %51 = load i8, ptr %18, align 2, !tbaa !112, !range !13, !noundef !14
+  %52 = getelementptr inbounds nuw i8, ptr %7, i64 56
+  store i8 %51, ptr %52, align 8, !tbaa !124
+  %53 = load i8, ptr %17, align 8, !tbaa !110, !range !13, !noundef !14
+  %54 = getelementptr inbounds nuw i8, ptr %7, i64 44
+  store i8 %53, ptr %54, align 4, !tbaa !125
+  %55 = load float, ptr %22, align 8, !tbaa !116
+  %56 = getelementptr inbounds nuw i8, ptr %7, i64 48
+  store float %55, ptr %56, align 8, !tbaa !126
+  %57 = load float, ptr %23, align 4, !tbaa !117
+  %58 = getelementptr inbounds nuw i8, ptr %7, i64 52
+  store float %57, ptr %58, align 4, !tbaa !127
   %.sroa.0.0.copyload = load i32, ptr %14, align 4
-  %58 = invoke i64 @b2CreatePrismaticJoint(i32 %.sroa.0.0.copyload, ptr noundef nonnull %7)
-          to label %59 unwind label %82
+  %59 = invoke i64 @b2CreatePrismaticJoint(i32 %.sroa.0.0.copyload, ptr noundef nonnull %7)
+          to label %60 unwind label %83
 
-59:                                               ; preds = %40
-  %60 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  store i64 %58, ptr %60, align 8
+60:                                               ; preds = %41
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 248
+  store i64 %59, ptr %61, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
-61:                                               ; preds = %12
-  %62 = landingpad { ptr, i32 }
+62:                                               ; preds = %12
+  %63 = landingpad { ptr, i32 }
           cleanup
-  br label %65
+  br label %66
 
-63:                                               ; preds = %13
-  %64 = landingpad { ptr, i32 }
+64:                                               ; preds = %13
+  %65 = landingpad { ptr, i32 }
           cleanup
-  br label %65
+  br label %66
 
-65:                                               ; preds = %63, %61
-  %.pn = phi { ptr, i32 } [ %64, %63 ], [ %62, %61 ]
+66:                                               ; preds = %64, %62
+  %.pn = phi { ptr, i32 } [ %65, %64 ], [ %63, %62 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  br label %89
+
+67:                                               ; preds = %16
+  %68 = landingpad { ptr, i32 }
+          cleanup
   br label %88
 
-66:                                               ; preds = %16
-  %67 = landingpad { ptr, i32 }
+69:                                               ; preds = %24
+  %70 = landingpad { ptr, i32 }
+          cleanup
+  br label %88
+
+71:                                               ; preds = %27
+  %72 = landingpad { ptr, i32 }
           cleanup
   br label %87
 
-68:                                               ; preds = %24
-  %69 = landingpad { ptr, i32 }
-          cleanup
-  br label %87
-
-70:                                               ; preds = %27
-  %71 = landingpad { ptr, i32 }
+73:                                               ; preds = %29, %28
+  %74 = landingpad { ptr, i32 }
           cleanup
   br label %86
 
-72:                                               ; preds = %29, %28
-  %73 = landingpad { ptr, i32 }
+75:                                               ; preds = %31
+  %76 = landingpad { ptr, i32 }
           cleanup
   br label %85
 
-74:                                               ; preds = %_Z11b2Normalize6b2Vec2.exit
-  %75 = landingpad { ptr, i32 }
+77:                                               ; preds = %32
+  %78 = landingpad { ptr, i32 }
           cleanup
-  br label %84
+  br label %85
 
-76:                                               ; preds = %31
-  %77 = landingpad { ptr, i32 }
+79:                                               ; preds = %35
+  %80 = landingpad { ptr, i32 }
           cleanup
-  br label %84
+  br label %85
 
-78:                                               ; preds = %34
-  %79 = landingpad { ptr, i32 }
+81:                                               ; preds = %38
+  %82 = landingpad { ptr, i32 }
           cleanup
-  br label %84
+  br label %85
 
-80:                                               ; preds = %37
-  %81 = landingpad { ptr, i32 }
+83:                                               ; preds = %41
+  %84 = landingpad { ptr, i32 }
           cleanup
-  br label %84
+  br label %85
 
-82:                                               ; preds = %40
-  %83 = landingpad { ptr, i32 }
-          cleanup
-  br label %84
-
-84:                                               ; preds = %82, %80, %78, %76, %74
-  %.pn37 = phi { ptr, i32 } [ %83, %82 ], [ %81, %80 ], [ %79, %78 ], [ %77, %76 ], [ %75, %74 ]
+85:                                               ; preds = %83, %81, %79, %77, %75
+  %.pn37 = phi { ptr, i32 } [ %84, %83 ], [ %82, %81 ], [ %80, %79 ], [ %78, %77 ], [ %76, %75 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %85
-
-85:                                               ; preds = %84, %72
-  %.pn37.pn = phi { ptr, i32 } [ %.pn37, %84 ], [ %73, %72 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %86
 
-86:                                               ; preds = %85, %70
-  %.pn37.pn.pn = phi { ptr, i32 } [ %.pn37.pn, %85 ], [ %71, %70 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+86:                                               ; preds = %85, %73
+  %.pn37.pn = phi { ptr, i32 } [ %.pn37, %85 ], [ %74, %73 ]
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %87
 
-87:                                               ; preds = %68, %86, %66
-  %.pn37.pn.pn.pn.pn = phi { ptr, i32 } [ %67, %66 ], [ %.pn37.pn.pn, %86 ], [ %69, %68 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+87:                                               ; preds = %86, %71
+  %.pn37.pn.pn = phi { ptr, i32 } [ %.pn37.pn, %86 ], [ %72, %71 ]
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %88
 
-88:                                               ; preds = %87, %65
-  %.pn37.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn37.pn.pn.pn.pn, %87 ], [ %.pn, %65 ]
-  call void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceable(248) %0) #15
+88:                                               ; preds = %69, %87, %67
+  %.pn37.pn.pn.pn.pn = phi { ptr, i32 } [ %68, %67 ], [ %.pn37.pn.pn, %87 ], [ %70, %69 ]
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  br label %89
+
+89:                                               ; preds = %88, %66
+  %.pn37.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn37.pn.pn.pn.pn, %88 ], [ %.pn, %66 ]
+  call void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceable(248) %0) #16
   resume { ptr, i32 } %.pn37.pn.pn.pn.pn.pn
 }
 
@@ -2846,8 +2846,8 @@ declare i64 @b2CreatePrismaticJoint(i32, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN14PrismaticJointD0Ev(ptr noundef nonnull align 8 dereferenceable(275) %0) unnamed_addr #6 comdat align 2 {
-  tail call void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceable(275) %0) #15
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 280) #14
+  tail call void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceable(275) %0) #16
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 280) #15
   ret void
 }
 
@@ -3029,9 +3029,6 @@ define linkonce_odr dso_local void @_ZN14PrismaticJoint8UpdateUIEv(ptr noundef n
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare float @sqrtf(float noundef) local_unnamed_addr #8
-
 declare float @b2PrismaticJoint_GetMotorForce(i64) local_unnamed_addr #0
 
 declare float @b2PrismaticJoint_GetTranslation(i64) local_unnamed_addr #0
@@ -3075,13 +3072,13 @@ define linkonce_odr dso_local void @_ZN10WheelJointC2ER8Settings(ptr noundef non
 12:                                               ; preds = %11, %2
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   invoke void @b2DefaultBodyDef(ptr dead_on_unwind nonnull writable sret(%struct.b2BodyDef) align 8 %3)
-          to label %13 unwind label %58
+          to label %13 unwind label %59
 
 13:                                               ; preds = %12
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %.sroa.021.0.copyload = load i32, ptr %14, align 4
   %15 = invoke i64 @b2CreateBody(i32 %.sroa.021.0.copyload, ptr noundef nonnull %3)
-          to label %16 unwind label %60
+          to label %16 unwind label %61
 
 16:                                               ; preds = %13
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -3101,7 +3098,7 @@ define linkonce_odr dso_local void @_ZN10WheelJointC2ER8Settings(ptr noundef non
   store float 0x3FE6666660000000, ptr %23, align 4, !tbaa !135
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   invoke void @b2DefaultBodyDef(ptr dead_on_unwind nonnull writable sret(%struct.b2BodyDef) align 8 %4)
-          to label %24 unwind label %63
+          to label %24 unwind label %64
 
 24:                                               ; preds = %16
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -3111,166 +3108,166 @@ define linkonce_odr dso_local void @_ZN10WheelJointC2ER8Settings(ptr noundef non
   store i32 2, ptr %4, align 8, !tbaa !59
   %.sroa.018.0.copyload = load i32, ptr %14, align 4
   %26 = invoke i64 @b2CreateBody(i32 %.sroa.018.0.copyload, ptr noundef nonnull %4)
-          to label %27 unwind label %65
+          to label %27 unwind label %66
 
 27:                                               ; preds = %24
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   invoke void @b2DefaultShapeDef(ptr dead_on_unwind nonnull writable sret(%struct.b2ShapeDef) align 8 %5)
-          to label %28 unwind label %67
+          to label %28 unwind label %68
 
 28:                                               ; preds = %27
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %6, ptr noundef nonnull align 4 dereferenceable(20) @__const.WheelJoint.capsule, i64 20, i1 false)
   %29 = invoke i64 @b2CreateCapsuleShape(i64 %26, ptr noundef nonnull %5, ptr noundef nonnull %6)
-          to label %_Z11b2Normalize6b2Vec2.exit unwind label %69
+          to label %30 unwind label %70
 
-_Z11b2Normalize6b2Vec2.exit:                      ; preds = %28
+30:                                               ; preds = %28
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   invoke void @b2DefaultWheelJointDef(ptr dead_on_unwind nonnull writable sret(%struct.b2WheelJointDef) align 8 %7)
-          to label %30 unwind label %71
+          to label %31 unwind label %72
 
-30:                                               ; preds = %_Z11b2Normalize6b2Vec2.exit
+31:                                               ; preds = %30
   store i64 %15, ptr %7, align 8
-  %31 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i64 %26, ptr %31, align 8
-  %32 = invoke <2 x float> @b2Body_GetLocalVector(i64 %15, <2 x float> splat (float 0x3FE6A09E60000000))
-          to label %33 unwind label %73
+  %32 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store i64 %26, ptr %32, align 8
+  %33 = invoke <2 x float> @b2Body_GetLocalVector(i64 %15, <2 x float> splat (float 0x3FE6A09E60000000))
+          to label %34 unwind label %74
 
-33:                                               ; preds = %30
-  %34 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  store <2 x float> %32, ptr %34, align 8
+34:                                               ; preds = %31
+  %35 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  store <2 x float> %33, ptr %35, align 8
   %.sroa.06.0.copyload = load i64, ptr %7, align 8
-  %35 = invoke <2 x float> @b2Body_GetLocalPoint(i64 %.sroa.06.0.copyload, <2 x float> <float 0.000000e+00, float 1.000000e+01>)
-          to label %36 unwind label %75
+  %36 = invoke <2 x float> @b2Body_GetLocalPoint(i64 %.sroa.06.0.copyload, <2 x float> <float 0.000000e+00, float 1.000000e+01>)
+          to label %37 unwind label %76
 
-36:                                               ; preds = %33
-  %37 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store <2 x float> %35, ptr %37, align 8
-  %.sroa.03.0.copyload = load i64, ptr %31, align 8
-  %38 = invoke <2 x float> @b2Body_GetLocalPoint(i64 %.sroa.03.0.copyload, <2 x float> <float 0.000000e+00, float 1.000000e+01>)
-          to label %39 unwind label %77
+37:                                               ; preds = %34
+  %38 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  store <2 x float> %36, ptr %38, align 8
+  %.sroa.03.0.copyload = load i64, ptr %32, align 8
+  %39 = invoke <2 x float> @b2Body_GetLocalPoint(i64 %.sroa.03.0.copyload, <2 x float> <float 0.000000e+00, float 1.000000e+01>)
+          to label %40 unwind label %78
 
-39:                                               ; preds = %36
-  %40 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store <2 x float> %38, ptr %40, align 8
-  %41 = load float, ptr %20, align 8, !tbaa !132
-  %42 = getelementptr inbounds nuw i8, ptr %7, i64 72
-  store float %41, ptr %42, align 8, !tbaa !136
-  %43 = load float, ptr %21, align 4, !tbaa !133
-  %44 = getelementptr inbounds nuw i8, ptr %7, i64 68
-  store float %43, ptr %44, align 4, !tbaa !138
-  %45 = load i8, ptr %19, align 1, !tbaa !131, !range !13, !noundef !14
-  %46 = getelementptr inbounds nuw i8, ptr %7, i64 64
-  store i8 %45, ptr %46, align 8, !tbaa !139
-  %47 = getelementptr inbounds nuw i8, ptr %7, i64 56
-  store float -3.000000e+00, ptr %47, align 8, !tbaa !140
-  %48 = getelementptr inbounds nuw i8, ptr %7, i64 60
-  store float 3.000000e+00, ptr %48, align 4, !tbaa !141
-  %49 = load i8, ptr %18, align 2, !tbaa !130, !range !13, !noundef !14
-  %50 = getelementptr inbounds nuw i8, ptr %7, i64 52
-  store i8 %49, ptr %50, align 4, !tbaa !142
-  %51 = load float, ptr %22, align 8, !tbaa !134
-  %52 = getelementptr inbounds nuw i8, ptr %7, i64 44
-  store float %51, ptr %52, align 4, !tbaa !143
-  %53 = load float, ptr %23, align 4, !tbaa !135
-  %54 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  store float %53, ptr %54, align 8, !tbaa !144
+40:                                               ; preds = %37
+  %41 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  store <2 x float> %39, ptr %41, align 8
+  %42 = load float, ptr %20, align 8, !tbaa !132
+  %43 = getelementptr inbounds nuw i8, ptr %7, i64 72
+  store float %42, ptr %43, align 8, !tbaa !136
+  %44 = load float, ptr %21, align 4, !tbaa !133
+  %45 = getelementptr inbounds nuw i8, ptr %7, i64 68
+  store float %44, ptr %45, align 4, !tbaa !138
+  %46 = load i8, ptr %19, align 1, !tbaa !131, !range !13, !noundef !14
+  %47 = getelementptr inbounds nuw i8, ptr %7, i64 64
+  store i8 %46, ptr %47, align 8, !tbaa !139
+  %48 = getelementptr inbounds nuw i8, ptr %7, i64 56
+  store float -3.000000e+00, ptr %48, align 8, !tbaa !140
+  %49 = getelementptr inbounds nuw i8, ptr %7, i64 60
+  store float 3.000000e+00, ptr %49, align 4, !tbaa !141
+  %50 = load i8, ptr %18, align 2, !tbaa !130, !range !13, !noundef !14
+  %51 = getelementptr inbounds nuw i8, ptr %7, i64 52
+  store i8 %50, ptr %51, align 4, !tbaa !142
+  %52 = load float, ptr %22, align 8, !tbaa !134
+  %53 = getelementptr inbounds nuw i8, ptr %7, i64 44
+  store float %52, ptr %53, align 4, !tbaa !143
+  %54 = load float, ptr %23, align 4, !tbaa !135
+  %55 = getelementptr inbounds nuw i8, ptr %7, i64 48
+  store float %54, ptr %55, align 8, !tbaa !144
   %.sroa.0.0.copyload = load i32, ptr %14, align 4
-  %55 = invoke i64 @b2CreateWheelJoint(i32 %.sroa.0.0.copyload, ptr noundef nonnull %7)
-          to label %56 unwind label %79
+  %56 = invoke i64 @b2CreateWheelJoint(i32 %.sroa.0.0.copyload, ptr noundef nonnull %7)
+          to label %57 unwind label %80
 
-56:                                               ; preds = %39
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  store i64 %55, ptr %57, align 8
+57:                                               ; preds = %40
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 248
+  store i64 %56, ptr %58, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
-58:                                               ; preds = %12
-  %59 = landingpad { ptr, i32 }
+59:                                               ; preds = %12
+  %60 = landingpad { ptr, i32 }
           cleanup
-  br label %62
+  br label %63
 
-60:                                               ; preds = %13
-  %61 = landingpad { ptr, i32 }
+61:                                               ; preds = %13
+  %62 = landingpad { ptr, i32 }
           cleanup
-  br label %62
+  br label %63
 
-62:                                               ; preds = %60, %58
-  %.pn = phi { ptr, i32 } [ %61, %60 ], [ %59, %58 ]
+63:                                               ; preds = %61, %59
+  %.pn = phi { ptr, i32 } [ %62, %61 ], [ %60, %59 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  br label %86
+
+64:                                               ; preds = %16
+  %65 = landingpad { ptr, i32 }
+          cleanup
   br label %85
 
-63:                                               ; preds = %16
-  %64 = landingpad { ptr, i32 }
+66:                                               ; preds = %24
+  %67 = landingpad { ptr, i32 }
+          cleanup
+  br label %85
+
+68:                                               ; preds = %27
+  %69 = landingpad { ptr, i32 }
           cleanup
   br label %84
 
-65:                                               ; preds = %24
-  %66 = landingpad { ptr, i32 }
-          cleanup
-  br label %84
-
-67:                                               ; preds = %27
-  %68 = landingpad { ptr, i32 }
+70:                                               ; preds = %28
+  %71 = landingpad { ptr, i32 }
           cleanup
   br label %83
 
-69:                                               ; preds = %28
-  %70 = landingpad { ptr, i32 }
+72:                                               ; preds = %30
+  %73 = landingpad { ptr, i32 }
           cleanup
   br label %82
 
-71:                                               ; preds = %_Z11b2Normalize6b2Vec2.exit
-  %72 = landingpad { ptr, i32 }
+74:                                               ; preds = %31
+  %75 = landingpad { ptr, i32 }
           cleanup
-  br label %81
+  br label %82
 
-73:                                               ; preds = %30
-  %74 = landingpad { ptr, i32 }
+76:                                               ; preds = %34
+  %77 = landingpad { ptr, i32 }
           cleanup
-  br label %81
+  br label %82
 
-75:                                               ; preds = %33
-  %76 = landingpad { ptr, i32 }
+78:                                               ; preds = %37
+  %79 = landingpad { ptr, i32 }
           cleanup
-  br label %81
+  br label %82
 
-77:                                               ; preds = %36
-  %78 = landingpad { ptr, i32 }
+80:                                               ; preds = %40
+  %81 = landingpad { ptr, i32 }
           cleanup
-  br label %81
+  br label %82
 
-79:                                               ; preds = %39
-  %80 = landingpad { ptr, i32 }
-          cleanup
-  br label %81
-
-81:                                               ; preds = %79, %77, %75, %73, %71
-  %.pn37 = phi { ptr, i32 } [ %80, %79 ], [ %78, %77 ], [ %76, %75 ], [ %74, %73 ], [ %72, %71 ]
+82:                                               ; preds = %80, %78, %76, %74, %72
+  %.pn37 = phi { ptr, i32 } [ %81, %80 ], [ %79, %78 ], [ %77, %76 ], [ %75, %74 ], [ %73, %72 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %82
-
-82:                                               ; preds = %81, %69
-  %.pn37.pn = phi { ptr, i32 } [ %.pn37, %81 ], [ %70, %69 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %83
 
-83:                                               ; preds = %82, %67
-  %.pn37.pn.pn = phi { ptr, i32 } [ %.pn37.pn, %82 ], [ %68, %67 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+83:                                               ; preds = %82, %70
+  %.pn37.pn = phi { ptr, i32 } [ %.pn37, %82 ], [ %71, %70 ]
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %84
 
-84:                                               ; preds = %65, %83, %63
-  %.pn37.pn.pn.pn.pn = phi { ptr, i32 } [ %64, %63 ], [ %.pn37.pn.pn, %83 ], [ %66, %65 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+84:                                               ; preds = %83, %68
+  %.pn37.pn.pn = phi { ptr, i32 } [ %.pn37.pn, %83 ], [ %69, %68 ]
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %85
 
-85:                                               ; preds = %84, %62
-  %.pn37.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn37.pn.pn.pn.pn, %84 ], [ %.pn, %62 ]
-  call void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceable(248) %0) #15
+85:                                               ; preds = %66, %84, %64
+  %.pn37.pn.pn.pn.pn = phi { ptr, i32 } [ %65, %64 ], [ %.pn37.pn.pn, %84 ], [ %67, %66 ]
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  br label %86
+
+86:                                               ; preds = %85, %63
+  %.pn37.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn37.pn.pn.pn.pn, %85 ], [ %.pn, %63 ]
+  call void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceable(248) %0) #16
   resume { ptr, i32 } %.pn37.pn.pn.pn.pn.pn
 }
 
@@ -3280,8 +3277,8 @@ declare i64 @b2CreateWheelJoint(i32, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN10WheelJointD0Ev(ptr noundef nonnull align 8 dereferenceable(275) %0) unnamed_addr #6 comdat align 2 {
-  tail call void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceable(275) %0) #15
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 280) #14
+  tail call void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceable(275) %0) #16
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 280) #15
   ret void
 }
 
@@ -3868,7 +3865,7 @@ define linkonce_odr dso_local void @_ZN6BridgeC2ER8Settings(ptr noundef nonnull 
 
 151:                                              ; preds = %150, %130, %106, %47
   %.pn98.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn98.pn.pn.pn.pn.pn, %106 ], [ %.pn93.pn.pn.pn, %130 ], [ %.pn90.pn, %150 ], [ %.pn, %47 ]
-  call void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceable(248) %0) #15
+  call void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceable(248) %0) #16
   resume { ptr, i32 } %.pn98.pn.pn.pn.pn.pn.pn
 }
 
@@ -3878,8 +3875,8 @@ declare void @b2MakePolygon(ptr dead_on_unwind writable sret(%struct.b2Polygon) 
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6BridgeD0Ev(ptr noundef nonnull align 8 dereferenceable(2824) %0) unnamed_addr #6 comdat align 2 {
-  tail call void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceable(2824) %0) #15
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 2824) #14
+  tail call void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceable(2824) %0) #16
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 2824) #15
   ret void
 }
 
@@ -4233,14 +4230,14 @@ define linkonce_odr dso_local void @_ZN12BallAndChainC2ER8Settings(ptr noundef n
 
 100:                                              ; preds = %99, %37
   %.pn80.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn80.pn.pn.pn.pn.pn, %99 ], [ %.pn, %37 ]
-  call void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceable(248) %0) #15
+  call void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceable(248) %0) #16
   resume { ptr, i32 } %.pn80.pn.pn.pn.pn.pn.pn
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN12BallAndChainD0Ev(ptr noundef nonnull align 8 dereferenceable(500) %0) unnamed_addr #6 comdat align 2 {
-  tail call void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceable(500) %0) #15
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 504) #14
+  tail call void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceable(500) %0) #16
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 504) #15
   ret void
 }
 
@@ -4524,7 +4521,7 @@ define linkonce_odr dso_local void @_ZN10CantileverC2ER8Settings(ptr noundef non
 
 94:                                               ; preds = %93, %49
   %.pn49.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn49.pn.pn.pn.pn, %93 ], [ %.pn, %49 ]
-  call void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceable(248) %0) #15
+  call void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceable(248) %0) #16
   resume { ptr, i32 } %.pn49.pn.pn.pn.pn.pn
 }
 
@@ -4534,8 +4531,8 @@ declare i64 @b2CreateWeldJoint(i32, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN10CantileverD0Ev(ptr noundef nonnull align 8 dereferenceable(405) %0) unnamed_addr #6 comdat align 2 {
-  tail call void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceable(405) %0) #15
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 408) #14
+  tail call void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceable(405) %0) #16
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 408) #15
   ret void
 }
 
@@ -5002,8 +4999,8 @@ define linkonce_odr dso_local void @_ZN13FixedRotation11CreateSceneEv(ptr nounde
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN13FixedRotationD0Ev(ptr noundef nonnull align 8 dereferenceable(353) %0) unnamed_addr #6 comdat align 2 {
-  tail call void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceable(353) %0) #15
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 360) #14
+  tail call void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceable(353) %0) #16
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 360) #15
   ret void
 }
 
@@ -5637,14 +5634,14 @@ define linkonce_odr dso_local void @_ZN14BreakableJointC2ER8Settings(ptr noundef
 219:                                              ; preds = %28, %218, %26
   %.pn190.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %27, %26 ], [ %.pn190.pn.pn.pn.pn.pn, %218 ], [ %29, %28 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  call void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceable(248) %0) #15
+  call void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceable(248) %0) #16
   resume { ptr, i32 } %.pn190.pn.pn.pn.pn.pn.pn.pn
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN14BreakableJointD0Ev(ptr noundef nonnull align 8 dereferenceable(300) %0) unnamed_addr #6 comdat align 2 {
-  tail call void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceable(300) %0) #15
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 304) #14
+  tail call void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceable(300) %0) #16
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 304) #15
   ret void
 }
 
@@ -5854,14 +5851,14 @@ define linkonce_odr dso_local void @_ZN14UserConstraintC2ER8Settings(ptr noundef
 36:                                               ; preds = %35, %26
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %35 ], [ %27, %26 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  call void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceable(248) %0) #15
+  call void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceable(248) %0) #16
   resume { ptr, i32 } %.pn.pn.pn
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN14UserConstraintD0Ev(ptr noundef nonnull align 8 dereferenceable(264) %0) unnamed_addr #6 comdat align 2 {
-  tail call void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %0) #15
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 264) #14
+  tail call void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %0) #16
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 264) #15
   ret void
 }
 
@@ -5872,7 +5869,7 @@ define linkonce_odr dso_local void @_ZN14UserConstraint4StepER8Settings(ptr noun
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 41
   %4 = load i8, ptr %3, align 1, !tbaa !196, !range !13, !noundef !14
   %5 = trunc nuw i8 %4 to i1
-  br i1 %5, label %108, label %6
+  br i1 %5, label %104, label %6
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 12
@@ -5881,7 +5878,7 @@ define linkonce_odr dso_local void @_ZN14UserConstraint4StepER8Settings(ptr noun
   %10 = fdiv float 1.000000e+00, %8
   %11 = select i1 %9, float %10, float 0.000000e+00
   %12 = fcmp oeq float %11, 0.000000e+00
-  br i1 %12, label %108, label %13
+  br i1 %12, label %104, label %13
 
 13:                                               ; preds = %6
   %14 = load float, ptr @_ZZN14UserConstraint4StepER8SettingsE5hertz, align 4, !tbaa !15
@@ -5915,7 +5912,7 @@ define linkonce_odr dso_local void @_ZN14UserConstraint4StepER8Settings(ptr noun
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 256
   br label %52
 
-38:                                               ; preds = %106
+38:                                               ; preds = %102
   %.sroa.03.0.copyload = load i64, ptr %23, align 8
   tail call void @b2Body_SetLinearVelocity(i64 %.sroa.03.0.copyload, <2 x float> %.sroa.063.1)
   %.sroa.0.0.copyload = load i64, ptr %23, align 8
@@ -5935,13 +5932,13 @@ define linkonce_odr dso_local void @_ZN14UserConstraint4StepER8Settings(ptr noun
   %50 = load i32, ptr %39, align 8, !tbaa !89
   %51 = add nsw i32 %50, %49
   store i32 %51, ptr %39, align 8, !tbaa !89
-  br label %108
+  br label %104
 
-52:                                               ; preds = %13, %106
-  %53 = phi i1 [ true, %13 ], [ false, %106 ]
-  %indvars.iv = phi i64 [ 0, %13 ], [ 1, %106 ]
-  %.sroa.063.0120 = phi <2 x float> [ %32, %13 ], [ %.sroa.063.1, %106 ]
-  %.0119 = phi float [ %33, %13 ], [ %.1, %106 ]
+52:                                               ; preds = %13, %102
+  %53 = phi i1 [ true, %13 ], [ false, %102 ]
+  %indvars.iv = phi i64 [ 0, %13 ], [ 1, %102 ]
+  %.sroa.063.0121 = phi <2 x float> [ %32, %13 ], [ %.sroa.063.1, %102 ]
+  %.0120 = phi float [ %33, %13 ], [ %.1, %102 ]
   %.sroa.044.0.copyload = load i64, ptr %23, align 8
   %54 = getelementptr inbounds nuw %struct.b2Vec2, ptr @__const._ZN14UserConstraint4StepER8Settings.localAnchors, i64 %indvars.iv
   %.sroa.043.0.copyload = load <2 x float>, ptr %54, align 8
@@ -5952,89 +5949,74 @@ define linkonce_odr dso_local void @_ZN14UserConstraint4StepER8Settings(ptr noun
   %57 = fmul float %56, %56
   %58 = fmul float %.sroa.01.4.vec.extract.i, %.sroa.01.4.vec.extract.i
   %59 = fadd float %58, %57
-  %60 = tail call noundef float @sqrtf(float noundef %59) #15, !tbaa !77
-  %61 = fadd float %60, -1.000000e+00
-  %62 = fcmp olt float %61, 0.000000e+00
-  %63 = fcmp olt float %60, 0x3F50624DE0000000
-  %or.cond = or i1 %63, %62
-  br i1 %or.cond, label %64, label %65
+  %sqrt.i = tail call float @llvm.sqrt.f32(float %59)
+  %60 = fadd float %sqrt.i, -1.000000e+00
+  %61 = fcmp olt float %60, 0.000000e+00
+  %62 = fcmp olt float %sqrt.i, 0x3F50624DE0000000
+  %or.cond = or i1 %62, %61
+  br i1 %or.cond, label %63, label %_Z11b2Normalize6b2Vec2.exit
 
-64:                                               ; preds = %52
+63:                                               ; preds = %52
   tail call void @_ZN4Draw11DrawSegmentE6b2Vec2S0_10b2HexColor(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, <2 x float> <float 3.000000e+00, float 0.000000e+00>, <2 x float> %55, i32 noundef 14745599)
-  br label %106
+  br label %102
 
-65:                                               ; preds = %52
+_Z11b2Normalize6b2Vec2.exit:                      ; preds = %52
   tail call void @_ZN4Draw11DrawSegmentE6b2Vec2S0_10b2HexColor(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, <2 x float> <float 3.000000e+00, float 0.000000e+00>, <2 x float> %55, i32 noundef 15631086)
-  %66 = tail call float @sqrtf(float noundef %59) #15, !tbaa !77
-  %67 = fcmp olt float %66, 0x3E80000000000000
-  br i1 %67, label %_Z11b2Normalize6b2Vec2.exit, label %68
-
-68:                                               ; preds = %65
-  %69 = fdiv float 1.000000e+00, %66
-  %70 = fmul float %56, %69
-  %.sroa.012.0.vec.insert.i = insertelement <2 x float> poison, float %70, i64 0
-  %71 = fmul float %.sroa.01.4.vec.extract.i, %69
-  %.sroa.012.4.vec.insert.i = insertelement <2 x float> %.sroa.012.0.vec.insert.i, float %71, i64 1
-  br label %_Z11b2Normalize6b2Vec2.exit
-
-_Z11b2Normalize6b2Vec2.exit:                      ; preds = %65, %68
-  %.sroa.012.0.i = phi <2 x float> [ %.sroa.012.4.vec.insert.i, %68 ], [ zeroinitializer, %65 ]
+  %64 = fdiv float 1.000000e+00, %sqrt.i
+  %65 = fmul float %56, %64
+  %66 = fmul float %.sroa.01.4.vec.extract.i, %64
   %foldExtExtBinop = fsub <2 x float> %55, %34
-  %72 = extractelement <2 x float> %foldExtExtBinop, i64 0
+  %67 = extractelement <2 x float> %foldExtExtBinop, i64 0
   %foldExtExtBinop126 = fsub <2 x float> %55, %34
-  %.sroa.0.4.vec.extract.i109 = extractelement <2 x float> %.sroa.012.0.i, i64 1
-  %73 = fmul float %72, %.sroa.0.4.vec.extract.i109
-  %.sroa.0.0.vec.extract.i111 = extractelement <2 x float> %.sroa.012.0.i, i64 0
-  %shift = shufflevector <2 x float> %foldExtExtBinop126, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop128 = fmul <2 x float> %shift, %.sroa.012.0.i
-  %74 = extractelement <2 x float> %foldExtExtBinop128, i64 0
-  %75 = fsub float %73, %74
-  %76 = fmul float %31, %75
-  %77 = fmul float %75, %76
-  %78 = fadd float %27, %77
-  %79 = fcmp olt float %78, 0x3F1A36E2E0000000
-  %80 = fdiv float 1.000000e+00, %78
-  %81 = select i1 %79, float 0.000000e+00, float %80
-  %.sroa.01.0.vec.extract.i112 = extractelement <2 x float> %.sroa.063.0120, i64 0
-  %foldExtExtBinop130 = fmul <2 x float> %.sroa.063.0120, %.sroa.012.0.i
-  %82 = extractelement <2 x float> %foldExtExtBinop130, i64 0
-  %.sroa.01.4.vec.extract.i114 = extractelement <2 x float> %.sroa.063.0120, i64 1
-  %83 = fmul float %.sroa.01.4.vec.extract.i114, %.sroa.0.4.vec.extract.i109
-  %84 = fadd float %82, %83
-  %85 = fmul float %.0119, %75
-  %86 = fadd float %84, %85
-  %87 = fmul float %36, %81
-  %88 = fmul float %22, %61
-  %89 = fadd float %88, %86
-  %90 = fmul float %89, %87
-  %91 = load float, ptr @_ZZN14UserConstraint4StepER8SettingsE8maxForce, align 4, !tbaa !15
-  %92 = fneg float %91
-  %93 = fmul float %11, %92
-  %94 = fcmp olt float %90, %93
-  %95 = fcmp ogt float %90, 0.000000e+00
-  %96 = select i1 %95, float 0.000000e+00, float %90
-  %97 = select i1 %94, float %93, float %96
-  %98 = fmul float %27, %97
-  %99 = fmul float %.sroa.0.0.vec.extract.i111, %98
-  %100 = fadd float %.sroa.01.0.vec.extract.i112, %99
-  %.sroa.03.0.vec.insert.i = insertelement <2 x float> poison, float %100, i64 0
-  %101 = fmul float %.sroa.0.4.vec.extract.i109, %98
-  %102 = fadd float %.sroa.01.4.vec.extract.i114, %101
-  %.sroa.03.4.vec.insert.i = insertelement <2 x float> %.sroa.03.0.vec.insert.i, float %102, i64 1
-  %103 = fmul float %31, %97
-  %104 = fmul float %75, %103
-  %105 = fadd float %.0119, %104
-  br label %106
+  %68 = extractelement <2 x float> %foldExtExtBinop126, i64 1
+  %69 = fmul float %67, %66
+  %70 = fmul float %68, %65
+  %71 = fsub float %69, %70
+  %72 = fmul float %31, %71
+  %73 = fmul float %71, %72
+  %74 = fadd float %27, %73
+  %75 = fcmp olt float %74, 0x3F1A36E2E0000000
+  %76 = fdiv float 1.000000e+00, %74
+  %77 = select i1 %75, float 0.000000e+00, float %76
+  %.sroa.01.0.vec.extract.i113 = extractelement <2 x float> %.sroa.063.0121, i64 0
+  %78 = fmul float %.sroa.01.0.vec.extract.i113, %65
+  %.sroa.01.4.vec.extract.i115 = extractelement <2 x float> %.sroa.063.0121, i64 1
+  %79 = fmul float %.sroa.01.4.vec.extract.i115, %66
+  %80 = fadd float %78, %79
+  %81 = fmul float %.0120, %71
+  %82 = fadd float %80, %81
+  %83 = fmul float %36, %77
+  %84 = fmul float %22, %60
+  %85 = fadd float %84, %82
+  %86 = fmul float %85, %83
+  %87 = load float, ptr @_ZZN14UserConstraint4StepER8SettingsE8maxForce, align 4, !tbaa !15
+  %88 = fneg float %87
+  %89 = fmul float %11, %88
+  %90 = fcmp olt float %86, %89
+  %91 = fcmp ogt float %86, 0.000000e+00
+  %92 = select i1 %91, float 0.000000e+00, float %86
+  %93 = select i1 %90, float %89, float %92
+  %94 = fmul float %27, %93
+  %95 = fmul float %65, %94
+  %96 = fadd float %.sroa.01.0.vec.extract.i113, %95
+  %.sroa.03.0.vec.insert.i = insertelement <2 x float> poison, float %96, i64 0
+  %97 = fmul float %66, %94
+  %98 = fadd float %.sroa.01.4.vec.extract.i115, %97
+  %.sroa.03.4.vec.insert.i = insertelement <2 x float> %.sroa.03.0.vec.insert.i, float %98, i64 1
+  %99 = fmul float %31, %93
+  %100 = fmul float %71, %99
+  %101 = fadd float %.0120, %100
+  br label %102
 
-106:                                              ; preds = %_Z11b2Normalize6b2Vec2.exit, %64
-  %.sink = phi float [ %97, %_Z11b2Normalize6b2Vec2.exit ], [ 0.000000e+00, %64 ]
-  %.1 = phi float [ %105, %_Z11b2Normalize6b2Vec2.exit ], [ %.0119, %64 ]
-  %.sroa.063.1 = phi <2 x float> [ %.sroa.03.4.vec.insert.i, %_Z11b2Normalize6b2Vec2.exit ], [ %.sroa.063.0120, %64 ]
-  %107 = getelementptr inbounds nuw float, ptr %37, i64 %indvars.iv
-  store float %.sink, ptr %107, align 4, !tbaa !15
+102:                                              ; preds = %_Z11b2Normalize6b2Vec2.exit, %63
+  %.sink = phi float [ %93, %_Z11b2Normalize6b2Vec2.exit ], [ 0.000000e+00, %63 ]
+  %.1 = phi float [ %101, %_Z11b2Normalize6b2Vec2.exit ], [ %.0120, %63 ]
+  %.sroa.063.1 = phi <2 x float> [ %.sroa.03.4.vec.insert.i, %_Z11b2Normalize6b2Vec2.exit ], [ %.sroa.063.0121, %63 ]
+  %103 = getelementptr inbounds nuw float, ptr %37, i64 %indvars.iv
+  store float %.sink, ptr %103, align 4, !tbaa !15
   br i1 %53, label %52, label %38, !llvm.loop !197
 
-108:                                              ; preds = %38, %6, %2
+104:                                              ; preds = %38, %6, %2
   ret void
 }
 
@@ -6715,7 +6697,7 @@ define linkonce_odr dso_local void @_ZN7DrivingC2ER8Settings(ptr noundef nonnull
 
 233:                                              ; preds = %113, %131, %211, %230, %231, %26
   %.pn208.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %27, %26 ], [ %.pn208.pn.pn.pn.pn.pn, %211 ], [ %232, %231 ], [ %.pn204.pn.pn, %230 ], [ %.pn196.pn.pn.pn.pn, %131 ], [ %.pn.pn.pn, %113 ]
-  call void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceable(248) %0) #15
+  call void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceable(248) %0) #16
   resume { ptr, i32 } %.pn208.pn.pn.pn.pn.pn.pn.pn
 }
 
@@ -6729,8 +6711,8 @@ declare void @_ZN3Car5SpawnE9b2WorldId6b2Vec2ffffPv(ptr noundef nonnull align 4 
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7DrivingD0Ev(ptr noundef nonnull align 8 dereferenceable(312) %0) unnamed_addr #6 comdat align 2 {
-  tail call void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceable(312) %0) #15
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 312) #14
+  tail call void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceable(312) %0) #16
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 312) #15
   ret void
 }
 
@@ -6999,14 +6981,14 @@ _ZN7Ragdoll5SpawnEv.exit:                         ; preds = %.noexc
 
 34:                                               ; preds = %32, %31
   %.pn16 = phi { ptr, i32 } [ %33, %32 ], [ %.pn.pn.pn, %31 ]
-  call void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceable(248) %0) #15
+  call void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceable(248) %0) #16
   resume { ptr, i32 } %.pn16
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7RagdollD0Ev(ptr noundef nonnull align 8 dereferenceable(532) %0) unnamed_addr #6 comdat align 2 {
-  tail call void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceable(532) %0) #15
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 536) #14
+  tail call void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceable(532) %0) #16
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 536) #15
   ret void
 }
 
@@ -7206,7 +7188,7 @@ define linkonce_odr dso_local void @_ZN8SoftBodyC2ER8Settings(ptr noundef nonnul
 
 33:                                               ; preds = %32, %12
   %.pn18 = phi { ptr, i32 } [ %13, %12 ], [ %.pn.pn.pn, %32 ]
-  call void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceable(248) %0) #15
+  call void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceable(248) %0) #16
   resume { ptr, i32 } %.pn18
 }
 
@@ -7216,8 +7198,8 @@ declare void @_ZN5Donut5SpawnE9b2WorldId6b2Vec2fiPv(ptr noundef nonnull align 4 
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN8SoftBodyD0Ev(ptr noundef nonnull align 8 dereferenceable(364) %0) unnamed_addr #6 comdat align 2 {
-  tail call void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceable(364) %0) #15
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 368) #14
+  tail call void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceable(364) %0) #16
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 368) #15
   ret void
 }
 
@@ -7351,7 +7333,7 @@ define linkonce_odr dso_local void @_ZN13DoohickeyFarmC2ER8Settings(ptr noundef 
 
 44:                                               ; preds = %42, %36
   %.pn32 = phi { ptr, i32 } [ %43, %42 ], [ %.pn.pn.pn.pn, %36 ]
-  call void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceable(248) %0) #15
+  call void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceable(248) %0) #16
   resume { ptr, i32 } %.pn32
 }
 
@@ -7361,8 +7343,8 @@ declare void @_ZN9Doohickey5SpawnE9b2WorldId6b2Vec2f(ptr noundef nonnull align 4
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN13DoohickeyFarmD0Ev(ptr noundef nonnull align 8 dereferenceable(248) %0) unnamed_addr #6 comdat align 2 {
-  tail call void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceable(248) %0) #15
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 248) #14
+  tail call void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceable(248) %0) #16
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 248) #15
   ret void
 }
 
@@ -7877,7 +7859,7 @@ _Z9b2MakeRotf.exit150:                            ; preds = %67
 
 169:                                              ; preds = %168, %57
   %.pn141.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn141.pn.pn.pn.pn.pn.pn, %168 ], [ %.pn.pn, %57 ]
-  call void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceable(248) %0) #15
+  call void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceable(248) %0) #16
   resume { ptr, i32 } %.pn141.pn.pn.pn.pn.pn.pn.pn
 }
 
@@ -7886,8 +7868,8 @@ declare void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceable(248)) u
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN11ScissorLiftD0Ev(ptr noundef nonnull align 8 dereferenceable(265) %0) unnamed_addr #6 comdat align 2 {
-  tail call void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceable(265) %0) #15
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 272) #14
+  tail call void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceable(265) %0) #16
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 272) #15
   ret void
 }
 
@@ -8005,6 +7987,9 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
 
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.sqrt.f32(float) #13
+
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -8018,9 +8003,10 @@ attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #10 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #13 = { builtin allocsize(0) }
-attributes #14 = { builtin nounwind }
-attributes #15 = { nounwind }
+attributes #13 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #14 = { builtin allocsize(0) }
+attributes #15 = { builtin nounwind }
+attributes #16 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

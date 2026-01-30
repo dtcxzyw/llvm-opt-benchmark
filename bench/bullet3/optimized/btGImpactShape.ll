@@ -888,129 +888,129 @@ define dso_local void @_ZNK22btGImpactMeshShapePart22processAllTrianglesRayEP18b
   %30 = fmul float %22, %22
   %31 = tail call float @llvm.fmuladd.f32(float %17, float %17, float %30)
   %32 = tail call noundef float @llvm.fmuladd.f32(float %27, float %27, float %31)
-  %33 = tail call noundef float @sqrtf(float noundef %32) #20, !tbaa !89
-  %34 = fdiv float 1.000000e+00, %33
-  %35 = fmul float %17, %34
-  store float %35, ptr %6, align 4, !tbaa !23
-  %36 = fmul float %22, %34
-  store float %36, ptr %29, align 4, !tbaa !23
-  %37 = fmul float %27, %34
-  store float %37, ptr %28, align 4, !tbaa !23
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %39 = invoke noundef zeroext i1 @_ZNK21btGImpactQuantizedBvh8rayQueryERK9btVector3S2_R20btAlignedObjectArrayIiE(ptr noundef nonnull align 8 dereferenceable(96) %38, ptr noundef nonnull align 4 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(25) %5)
-          to label %40 unwind label %47
+  %sqrt.i.i = tail call noundef float @llvm.sqrt.f32(float %32)
+  %33 = fdiv float 1.000000e+00, %sqrt.i.i
+  %34 = fmul float %17, %33
+  store float %34, ptr %6, align 4, !tbaa !23
+  %35 = fmul float %22, %33
+  store float %35, ptr %29, align 4, !tbaa !23
+  %36 = fmul float %27, %33
+  store float %36, ptr %28, align 4, !tbaa !23
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %38 = invoke noundef zeroext i1 @_ZNK21btGImpactQuantizedBvh8rayQueryERK9btVector3S2_R20btAlignedObjectArrayIiE(ptr noundef nonnull align 8 dereferenceable(96) %37, ptr noundef nonnull align 4 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(25) %5)
+          to label %39 unwind label %46
 
-40:                                               ; preds = %4
-  %41 = load i32, ptr %13, align 4, !tbaa !87
-  %42 = icmp eq i32 %41, 0
-  br i1 %42, label %43, label %49
+39:                                               ; preds = %4
+  %40 = load i32, ptr %13, align 4, !tbaa !87
+  %41 = icmp eq i32 %40, 0
+  br i1 %41, label %42, label %48
 
-43:                                               ; preds = %40
-  %44 = load ptr, ptr %0, align 8, !tbaa !30
-  %45 = getelementptr inbounds nuw i8, ptr %44, i64 232
-  %46 = load ptr, ptr %45, align 8
-  invoke void %46(ptr noundef nonnull align 8 dereferenceable(280) %0)
-          to label %79 unwind label %47
+42:                                               ; preds = %39
+  %43 = load ptr, ptr %0, align 8, !tbaa !30
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 232
+  %45 = load ptr, ptr %44, align 8
+  invoke void %45(ptr noundef nonnull align 8 dereferenceable(280) %0)
+          to label %78 unwind label %46
 
-47:                                               ; preds = %43, %4
-  %48 = landingpad { ptr, i32 }
+46:                                               ; preds = %42, %4
+  %47 = landingpad { ptr, i32 }
           cleanup
-  br label %87
+  br label %86
 
-49:                                               ; preds = %40
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  %51 = load i32, ptr %50, align 8, !tbaa !42
+48:                                               ; preds = %39
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 224
+  %50 = load i32, ptr %49, align 8, !tbaa !42
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %52 = getelementptr inbounds nuw i8, ptr %7, i64 64
-  store float 0x3F847AE140000000, ptr %52, align 4, !tbaa !90
-  %53 = sext i32 %41 to i64
-  br label %54
+  %51 = getelementptr inbounds nuw i8, ptr %7, i64 64
+  store float 0x3F847AE140000000, ptr %51, align 4, !tbaa !89
+  %52 = sext i32 %40 to i64
+  br label %53
 
-54:                                               ; preds = %_ZNK23btGImpactShapeInterface20getPrimitiveTriangleEiR19btPrimitiveTriangle.exit, %49
-  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZNK23btGImpactShapeInterface20getPrimitiveTriangleEiR19btPrimitiveTriangle.exit ], [ %53, %49 ]
+53:                                               ; preds = %_ZNK23btGImpactShapeInterface20getPrimitiveTriangleEiR19btPrimitiveTriangle.exit, %48
+  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZNK23btGImpactShapeInterface20getPrimitiveTriangleEiR19btPrimitiveTriangle.exit ], [ %52, %48 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %55 = icmp eq i64 %indvars.iv, 0
-  br i1 %55, label %74, label %56
+  %54 = icmp eq i64 %indvars.iv, 0
+  br i1 %54, label %73, label %55
 
-56:                                               ; preds = %54
-  %57 = load ptr, ptr %12, align 8, !tbaa !86
-  %58 = getelementptr inbounds i32, ptr %57, i64 %indvars.iv.next
-  %59 = load i32, ptr %58, align 4, !tbaa !89
-  %60 = load ptr, ptr %0, align 8, !tbaa !30
-  %61 = getelementptr inbounds nuw i8, ptr %60, i64 168
-  %62 = load ptr, ptr %61, align 8
-  %63 = invoke noundef ptr %62(ptr noundef nonnull align 8 dereferenceable(184) %0)
+55:                                               ; preds = %53
+  %56 = load ptr, ptr %12, align 8, !tbaa !86
+  %57 = getelementptr inbounds i32, ptr %56, i64 %indvars.iv.next
+  %58 = load i32, ptr %57, align 4, !tbaa !92
+  %59 = load ptr, ptr %0, align 8, !tbaa !30
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 168
+  %61 = load ptr, ptr %60, align 8
+  %62 = invoke noundef ptr %61(ptr noundef nonnull align 8 dereferenceable(184) %0)
           to label %.noexc unwind label %.loopexit
 
-.noexc:                                           ; preds = %56
-  %64 = load ptr, ptr %63, align 8, !tbaa !30
-  %65 = getelementptr inbounds nuw i8, ptr %64, i64 40
-  %66 = load ptr, ptr %65, align 8
-  invoke void %66(ptr noundef nonnull align 8 dereferenceable(8) %63, i32 noundef %59, ptr noundef nonnull align 4 dereferenceable(72) %7)
+.noexc:                                           ; preds = %55
+  %63 = load ptr, ptr %62, align 8, !tbaa !30
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 40
+  %65 = load ptr, ptr %64, align 8
+  invoke void %65(ptr noundef nonnull align 8 dereferenceable(8) %62, i32 noundef %58, ptr noundef nonnull align 4 dereferenceable(72) %7)
           to label %_ZNK23btGImpactShapeInterface20getPrimitiveTriangleEiR19btPrimitiveTriangle.exit unwind label %.loopexit
 
 _ZNK23btGImpactShapeInterface20getPrimitiveTriangleEiR19btPrimitiveTriangle.exit: ; preds = %.noexc
-  %67 = load ptr, ptr %12, align 8, !tbaa !86
-  %68 = getelementptr inbounds i32, ptr %67, i64 %indvars.iv.next
-  %69 = load i32, ptr %68, align 4, !tbaa !89
-  %70 = load ptr, ptr %1, align 8, !tbaa !30
-  %71 = getelementptr inbounds nuw i8, ptr %70, i64 16
-  %72 = load ptr, ptr %71, align 8
-  invoke void %72(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %7, i32 noundef %51, i32 noundef %69)
-          to label %54 unwind label %.loopexit, !llvm.loop !93
+  %66 = load ptr, ptr %12, align 8, !tbaa !86
+  %67 = getelementptr inbounds i32, ptr %66, i64 %indvars.iv.next
+  %68 = load i32, ptr %67, align 4, !tbaa !92
+  %69 = load ptr, ptr %1, align 8, !tbaa !30
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 16
+  %71 = load ptr, ptr %70, align 8
+  invoke void %71(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %7, i32 noundef %50, i32 noundef %68)
+          to label %53 unwind label %.loopexit, !llvm.loop !93
 
-.loopexit:                                        ; preds = %_ZNK23btGImpactShapeInterface20getPrimitiveTriangleEiR19btPrimitiveTriangle.exit, %56, %.noexc
+.loopexit:                                        ; preds = %_ZNK23btGImpactShapeInterface20getPrimitiveTriangleEiR19btPrimitiveTriangle.exit, %55, %.noexc
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %73
+  br label %72
 
-.loopexit.split-lp:                               ; preds = %74
+.loopexit.split-lp:                               ; preds = %73
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %73
+  br label %72
 
-73:                                               ; preds = %.loopexit.split-lp, %.loopexit
+72:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %87
+  br label %86
 
-74:                                               ; preds = %54
-  %75 = load ptr, ptr %0, align 8, !tbaa !30
-  %76 = getelementptr inbounds nuw i8, ptr %75, i64 232
-  %77 = load ptr, ptr %76, align 8
-  invoke void %77(ptr noundef nonnull align 8 dereferenceable(280) %0)
-          to label %78 unwind label %.loopexit.split-lp
+73:                                               ; preds = %53
+  %74 = load ptr, ptr %0, align 8, !tbaa !30
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 232
+  %76 = load ptr, ptr %75, align 8
+  invoke void %76(ptr noundef nonnull align 8 dereferenceable(280) %0)
+          to label %77 unwind label %.loopexit.split-lp
 
-78:                                               ; preds = %74
+77:                                               ; preds = %73
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %79
+  br label %78
 
-79:                                               ; preds = %43, %78
+78:                                               ; preds = %42, %77
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %80 = load ptr, ptr %12, align 8, !tbaa !86
-  %.not.i.i.i = icmp ne ptr %80, null
-  %81 = load i8, ptr %11, align 8, !range !44
-  %82 = trunc nuw i8 %81 to i1
-  %or.cond.i.i = select i1 %.not.i.i.i, i1 %82, i1 false
-  br i1 %or.cond.i.i, label %83, label %_ZN20btAlignedObjectArrayIiED2Ev.exit
+  %79 = load ptr, ptr %12, align 8, !tbaa !86
+  %.not.i.i.i = icmp ne ptr %79, null
+  %80 = load i8, ptr %11, align 8, !range !44
+  %81 = trunc nuw i8 %80 to i1
+  %or.cond.i.i = select i1 %.not.i.i.i, i1 %81, i1 false
+  br i1 %or.cond.i.i, label %82, label %_ZN20btAlignedObjectArrayIiED2Ev.exit
 
-83:                                               ; preds = %79
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %80)
-          to label %_ZN20btAlignedObjectArrayIiED2Ev.exit unwind label %84
+82:                                               ; preds = %78
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %79)
+          to label %_ZN20btAlignedObjectArrayIiED2Ev.exit unwind label %83
 
-84:                                               ; preds = %83
-  %85 = landingpad { ptr, i32 }
+83:                                               ; preds = %82
+  %84 = landingpad { ptr, i32 }
           catch ptr null
-  %86 = extractvalue { ptr, i32 } %85, 0
-  call void @__clang_call_terminate(ptr %86) #19
+  %85 = extractvalue { ptr, i32 } %84, 0
+  call void @__clang_call_terminate(ptr %85) #19
   unreachable
 
-_ZN20btAlignedObjectArrayIiED2Ev.exit:            ; preds = %79, %83
+_ZN20btAlignedObjectArrayIiED2Ev.exit:            ; preds = %78, %82
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 
-87:                                               ; preds = %73, %47
-  %.pn14 = phi { ptr, i32 } [ %48, %47 ], [ %lpad.phi, %73 ]
+86:                                               ; preds = %72, %46
+  %.pn14 = phi { ptr, i32 } [ %47, %46 ], [ %lpad.phi, %72 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @_ZN20btAlignedObjectArrayIiED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %5) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -1099,7 +1099,7 @@ define dso_local void @_ZNK22btGImpactMeshShapePart19processAllTrianglesEP18btTr
   %29 = load i32, ptr %28, align 8, !tbaa !42
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %30 = getelementptr inbounds nuw i8, ptr %7, i64 64
-  store float 0x3F847AE140000000, ptr %30, align 4, !tbaa !90
+  store float 0x3F847AE140000000, ptr %30, align 4, !tbaa !89
   %31 = sext i32 %19 to i64
   br label %32
 
@@ -1112,7 +1112,7 @@ define dso_local void @_ZNK22btGImpactMeshShapePart19processAllTrianglesEP18btTr
 34:                                               ; preds = %32
   %35 = load ptr, ptr %13, align 8, !tbaa !86
   %36 = getelementptr inbounds i32, ptr %35, i64 %indvars.iv.next
-  %37 = load i32, ptr %36, align 4, !tbaa !89
+  %37 = load i32, ptr %36, align 4, !tbaa !92
   %38 = load ptr, ptr %0, align 8, !tbaa !30
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 168
   %40 = load ptr, ptr %39, align 8
@@ -1129,7 +1129,7 @@ define dso_local void @_ZNK22btGImpactMeshShapePart19processAllTrianglesEP18btTr
 _ZNK23btGImpactShapeInterface20getPrimitiveTriangleEiR19btPrimitiveTriangle.exit: ; preds = %.noexc
   %45 = load ptr, ptr %13, align 8, !tbaa !86
   %46 = getelementptr inbounds i32, ptr %45, i64 %indvars.iv.next
-  %47 = load i32, ptr %46, align 4, !tbaa !89
+  %47 = load i32, ptr %46, align 4, !tbaa !92
   %48 = load ptr, ptr %1, align 8, !tbaa !30
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 16
   %50 = load ptr, ptr %49, align 8
@@ -2667,14 +2667,14 @@ define linkonce_odr dso_local void @_ZNK22btGImpactMeshShapePart23TrimeshPrimiti
   %4 = alloca %class.btPrimitiveTriangle, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 64
-  store float 0x3F847AE140000000, ptr %5, align 4, !tbaa !90
+  store float 0x3F847AE140000000, ptr %5, align 4, !tbaa !89
   %6 = load ptr, ptr %0, align 8, !tbaa !30
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %8 = load ptr, ptr %7, align 8
   call void %8(ptr noundef nonnull align 8 dereferenceable(92) %0, i32 noundef %1, ptr noundef nonnull align 4 dereferenceable(72) %4)
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %11 = load float, ptr %5, align 4, !tbaa !90
+  %11 = load float, ptr %5, align 4, !tbaa !89
   %12 = load float, ptr %4, align 4, !tbaa !23
   %13 = load float, ptr %9, align 4, !tbaa !23
   %14 = load float, ptr %10, align 4, !tbaa !23
@@ -2845,11 +2845,11 @@ define linkonce_odr dso_local void @_ZNK22btGImpactMeshShapePart23TrimeshPrimiti
   br label %_ZNK22btGImpactMeshShapePart23TrimeshPrimitiveManager11get_indicesEiRjS1_S1_.exit
 
 22:                                               ; preds = %3
-  %23 = load i32, ptr %12, align 4, !tbaa !89
+  %23 = load i32, ptr %12, align 4, !tbaa !92
   %24 = getelementptr inbounds nuw i8, ptr %12, i64 4
-  %25 = load i32, ptr %24, align 4, !tbaa !89
+  %25 = load i32, ptr %24, align 4, !tbaa !92
   %26 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %27 = load i32, ptr %26, align 4, !tbaa !89
+  %27 = load i32, ptr %26, align 4, !tbaa !92
   br label %_ZNK22btGImpactMeshShapePart23TrimeshPrimitiveManager11get_indicesEiRjS1_S1_.exit
 
 28:                                               ; preds = %3
@@ -3022,7 +3022,7 @@ _ZNK22btGImpactMeshShapePart23TrimeshPrimitiveManager10get_vertexEjR9btVector3.e
   %164 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %165 = load float, ptr %164, align 8, !tbaa !32
   %166 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  store float %165, ptr %166, align 4, !tbaa !90
+  store float %165, ptr %166, align 4, !tbaa !89
   ret void
 }
 
@@ -3070,9 +3070,6 @@ declare void @__cxa_guard_abort(ptr) local_unnamed_addr #14
 ; Function Attrs: nofree nounwind
 declare void @__cxa_guard_release(ptr) local_unnamed_addr #14
 
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare float @sqrtf(float noundef) local_unnamed_addr #16
-
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN22btPrimitiveManagerBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #1 comdat align 2 {
   ret void
@@ -3113,11 +3110,11 @@ define linkonce_odr dso_local void @_ZNK22btGImpactMeshShapePart23TrimeshPrimiti
   br label %_ZNK22btGImpactMeshShapePart23TrimeshPrimitiveManager11get_indicesEiRjS1_S1_.exit
 
 22:                                               ; preds = %3
-  %23 = load i32, ptr %12, align 4, !tbaa !89
+  %23 = load i32, ptr %12, align 4, !tbaa !92
   %24 = getelementptr inbounds nuw i8, ptr %12, i64 4
-  %25 = load i32, ptr %24, align 4, !tbaa !89
+  %25 = load i32, ptr %24, align 4, !tbaa !92
   %26 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %27 = load i32, ptr %26, align 4, !tbaa !89
+  %27 = load i32, ptr %26, align 4, !tbaa !92
   br label %_ZNK22btGImpactMeshShapePart23TrimeshPrimitiveManager11get_indicesEiRjS1_S1_.exit
 
 28:                                               ; preds = %3
@@ -3304,10 +3301,13 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #15
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #17
+declare void @llvm.experimental.noalias.scope.decl(metadata) #16
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #18
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #17
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.sqrt.f32(float) #18
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -3325,9 +3325,9 @@ attributes #12 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector
 attributes #13 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #14 = { nofree nounwind }
 attributes #15 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #16 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #18 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #16 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #17 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #18 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #19 = { noreturn nounwind }
 attributes #20 = { nounwind }
 attributes #21 = { builtin nounwind }
@@ -3423,10 +3423,10 @@ attributes #21 = { builtin nounwind }
 !86 = !{!83, !85, i64 16}
 !87 = !{!83, !7, i64 4}
 !88 = !{!83, !7, i64 8}
-!89 = !{!7, !7, i64 0}
-!90 = !{!91, !24, i64 64}
-!91 = !{!"_ZTS19btPrimitiveTriangle", !8, i64 0, !92, i64 48, !24, i64 64, !24, i64 68}
-!92 = !{!"_ZTS9btVector4", !20, i64 0}
+!89 = !{!90, !24, i64 64}
+!90 = !{!"_ZTS19btPrimitiveTriangle", !8, i64 0, !91, i64 48, !24, i64 64, !24, i64 68}
+!91 = !{!"_ZTS9btVector4", !20, i64 0}
+!92 = !{!7, !7, i64 0}
 !93 = distinct !{!93, !68}
 !94 = distinct !{!94, !68}
 !95 = distinct !{!95, !68}

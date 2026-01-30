@@ -227,7 +227,7 @@ define dso_local noundef zeroext i1 @_ZN15rcMeshLoaderObj4loadERKNSt7__cxx1112ba
   %10 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #12
   %11 = tail call noalias ptr @fopen(ptr noundef %10, ptr noundef nonnull @.str)
   %.not = icmp eq ptr %11, null
-  br i1 %.not, label %231, label %12
+  br i1 %.not, label %227, label %12
 
 12:                                               ; preds = %2
   %13 = tail call i32 @fseek(ptr noundef nonnull %11, i64 noundef 0, i32 noundef 2)
@@ -236,7 +236,7 @@ define dso_local noundef zeroext i1 @_ZN15rcMeshLoaderObj4loadERKNSt7__cxx1112ba
 
 14:                                               ; preds = %12
   %15 = tail call i32 @fclose(ptr noundef nonnull %11)
-  br label %231
+  br label %227
 
 16:                                               ; preds = %12
   %17 = tail call i64 @ftell(ptr noundef nonnull %11)
@@ -245,7 +245,7 @@ define dso_local noundef zeroext i1 @_ZN15rcMeshLoaderObj4loadERKNSt7__cxx1112ba
 
 19:                                               ; preds = %16
   %20 = tail call i32 @fclose(ptr noundef nonnull %11)
-  br label %231
+  br label %227
 
 21:                                               ; preds = %16
   %22 = tail call i32 @fseek(ptr noundef nonnull %11, i64 noundef 0, i32 noundef 0)
@@ -254,7 +254,7 @@ define dso_local noundef zeroext i1 @_ZN15rcMeshLoaderObj4loadERKNSt7__cxx1112ba
 
 23:                                               ; preds = %21
   %24 = tail call i32 @fclose(ptr noundef nonnull %11)
-  br label %231
+  br label %227
 
 25:                                               ; preds = %21
   %26 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %17) #14
@@ -265,7 +265,7 @@ define dso_local noundef zeroext i1 @_ZN15rcMeshLoaderObj4loadERKNSt7__cxx1112ba
 
 29:                                               ; preds = %25
   tail call void @_ZdaPv(ptr noundef nonnull %26) #13
-  br label %231
+  br label %227
 
 30:                                               ; preds = %25
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 %17
@@ -613,8 +613,8 @@ _ZN15rcMeshLoaderObj11addTriangleEiiiRi.exit:     ; preds = %._crit_edge17.i, %1
   %162 = getelementptr inbounds nuw i8, ptr %9, i64 4
   br label %163
 
-163:                                              ; preds = %.lr.ph131, %225
-  %indvars.iv141 = phi i64 [ 0, %.lr.ph131 ], [ %indvars.iv.next142, %225 ]
+163:                                              ; preds = %.lr.ph131, %221
+  %indvars.iv141 = phi i64 [ 0, %.lr.ph131 ], [ %indvars.iv.next142, %221 ]
   %164 = load ptr, ptr %.phi.trans.insert.i, align 8
   %165 = load ptr, ptr %.phi.trans.insert.i112, align 8
   %166 = getelementptr inbounds nuw i32, ptr %165, i64 %indvars.iv141
@@ -678,36 +678,33 @@ _ZN15rcMeshLoaderObj11addTriangleEiiiRi.exit:     ; preds = %._crit_edge17.i, %1
   %212 = fmul float %206, %206
   %213 = call float @llvm.fmuladd.f32(float %201, float %201, float %212)
   %214 = call float @llvm.fmuladd.f32(float %210, float %210, float %213)
-  %215 = call float @sqrtf(float noundef %214) #12
-  %216 = fcmp ogt float %215, 0.000000e+00
-  br i1 %216, label %217, label %225
+  %215 = fcmp ogt float %214, 0.000000e+00
+  br i1 %215, label %216, label %221
 
-217:                                              ; preds = %192
-  %218 = fdiv float 1.000000e+00, %215
-  %219 = load float, ptr %194, align 4
-  %220 = fmul float %218, %219
-  store float %220, ptr %194, align 4
-  %221 = load float, ptr %207, align 4
-  %222 = fmul float %218, %221
-  store float %222, ptr %207, align 4
-  %223 = load float, ptr %211, align 4
-  %224 = fmul float %218, %223
-  store float %224, ptr %211, align 4
-  br label %225
+216:                                              ; preds = %192
+  %sqrt = call float @llvm.sqrt.f32(float %214)
+  %217 = fdiv float 1.000000e+00, %sqrt
+  %218 = fmul float %217, %201
+  store float %218, ptr %194, align 4
+  %219 = fmul float %217, %206
+  store float %219, ptr %207, align 4
+  %220 = fmul float %217, %210
+  store float %220, ptr %211, align 4
+  br label %221
 
-225:                                              ; preds = %192, %217
+221:                                              ; preds = %192, %216
   %indvars.iv.next142 = add nuw nsw i64 %indvars.iv141, 3
-  %226 = load i32, ptr %35, align 4
-  %227 = mul nsw i32 %226, 3
-  %228 = sext i32 %227 to i64
-  %229 = icmp slt i64 %indvars.iv.next142, %228
-  br i1 %229, label %163, label %._crit_edge, !llvm.loop !13
+  %222 = load i32, ptr %35, align 4
+  %223 = mul nsw i32 %222, 3
+  %224 = sext i32 %223 to i64
+  %225 = icmp slt i64 %indvars.iv.next142, %224
+  br i1 %225, label %163, label %._crit_edge, !llvm.loop !13
 
-._crit_edge:                                      ; preds = %225, %149
-  %230 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1)
-  br label %231
+._crit_edge:                                      ; preds = %221, %149
+  %226 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1)
+  br label %227
 
-231:                                              ; preds = %2, %._crit_edge, %29, %23, %19, %14
+227:                                              ; preds = %2, %._crit_edge, %29, %23, %19, %14
   %.0 = phi i1 [ false, %14 ], [ false, %19 ], [ false, %23 ], [ false, %29 ], [ true, %._crit_edge ], [ false, %2 ]
   ret i1 %.0
 }
@@ -736,16 +733,16 @@ declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr no
 ; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fmuladd.f32(float, float, float) #7
 
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare float @sqrtf(float noundef) local_unnamed_addr #8
-
-declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #9
+declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #10
+declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.sqrt.f32(float) #11
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -755,10 +752,10 @@ attributes #4 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #8 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #11 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #12 = { nounwind }
 attributes #13 = { builtin nounwind }
 attributes #14 = { builtin allocsize(0) }

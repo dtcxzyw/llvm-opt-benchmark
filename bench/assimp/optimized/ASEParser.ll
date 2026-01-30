@@ -9712,11 +9712,11 @@ define hidden void @_ZN6Assimp3ASE6Parser25ParseLV3RotAnimationBlockERNS0_9Anima
   br label %15
 
 15:                                               ; preds = %_ZN6Assimp9IsLineEndIcEEbT_.exit, %2
-  %16 = phi ptr [ %.pre, %2 ], [ %124, %_ZN6Assimp9IsLineEndIcEEbT_.exit ]
+  %16 = phi ptr [ %.pre, %2 ], [ %123, %_ZN6Assimp9IsLineEndIcEEbT_.exit ]
   %.0 = phi i32 [ 0, %2 ], [ %.13336, %_ZN6Assimp9IsLineEndIcEEbT_.exit ]
   %17 = load i8, ptr %16, align 1
   %18 = icmp eq i8 %17, 42
-  br i1 %18, label %19, label %92
+  br i1 %18, label %19, label %91
 
 19:                                               ; preds = %15
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 1
@@ -9904,138 +9904,144 @@ _ZN6Assimp3ASE6Parser16ParseLV4MeshRealERf.exit:  ; preds = %_ZN6Assimp10SkipSpa
   %.sroa.01.0.copyload = load <2 x float>, ptr %5, align 8
   %.sroa.22.0.copyload = load float, ptr %11, align 8
   %.sroa.0.0.vec.extract8.i = extractelement <2 x float> %.sroa.01.0.copyload, i64 0
-  %.sroa.0.4.vec.extract15.i = extractelement <2 x float> %.sroa.01.0.copyload, i64 1
-  %77 = fmul float %.sroa.0.4.vec.extract15.i, %.sroa.0.4.vec.extract15.i
+  %.sroa.0.4.vec.extract11.i = extractelement <2 x float> %.sroa.01.0.copyload, i64 1
+  %77 = fmul float %.sroa.0.4.vec.extract11.i, %.sroa.0.4.vec.extract11.i
   %78 = call float @llvm.fmuladd.f32(float %.sroa.0.0.vec.extract8.i, float %.sroa.0.0.vec.extract8.i, float %77)
   %79 = call noundef float @llvm.fmuladd.f32(float %.sroa.22.0.copyload, float %.sroa.22.0.copyload, float %78)
-  %80 = call noundef float @sqrtf(float noundef %79) #29
-  %81 = fcmp oeq float %80, 0.000000e+00
-  %82 = fdiv float 1.000000e+00, %80
-  %83 = fmul float %.sroa.0.0.vec.extract8.i, %82
-  %84 = fmul float %.sroa.0.4.vec.extract15.i, %82
-  %85 = fmul float %.sroa.22.0.copyload, %82
-  %.sroa.0.4.vec.extract.pre-phi.i = select i1 %81, float %.sroa.0.4.vec.extract15.i, float %84
-  %.sroa.0.0.vec.extract.pre-phi.i = select i1 %81, float %.sroa.0.0.vec.extract8.i, float %83
-  %.sroa.11.0.i = select i1 %81, float %.sroa.22.0.copyload, float %85
-  %86 = call noundef float @sinf(float noundef %74) #29
-  %87 = call noundef float @cosf(float noundef %74) #29
-  %88 = fmul float %86, %.sroa.0.0.vec.extract.pre-phi.i
-  %89 = fmul float %86, %.sroa.0.4.vec.extract.pre-phi.i
-  %90 = fmul float %86, %.sroa.11.0.i
-  %91 = getelementptr inbounds i8, ptr %53, i64 -24
-  store float %87, ptr %91, align 8
+  %80 = fcmp oeq float %79, 0.000000e+00
+  br i1 %80, label %_ZN13aiQuaterniontIfEC2E10aiVector3tIfEf.exit, label %_ZN10aiVector3tIfEdVEf.exit.i.i
+
+_ZN10aiVector3tIfEdVEf.exit.i.i:                  ; preds = %_ZN6Assimp3ASE6Parser16ParseLV4MeshRealERf.exit
+  %sqrt.i.i.i = call noundef float @llvm.sqrt.f32(float %79)
+  %81 = fdiv float 1.000000e+00, %sqrt.i.i.i
+  %82 = fmul float %.sroa.0.0.vec.extract8.i, %81
+  %83 = fmul float %.sroa.0.4.vec.extract11.i, %81
+  %84 = fmul float %.sroa.22.0.copyload, %81
+  br label %_ZN13aiQuaterniontIfEC2E10aiVector3tIfEf.exit
+
+_ZN13aiQuaterniontIfEC2E10aiVector3tIfEf.exit:    ; preds = %_ZN6Assimp3ASE6Parser16ParseLV4MeshRealERf.exit, %_ZN10aiVector3tIfEdVEf.exit.i.i
+  %.sroa.0.4.vec.extract.pre-phi.i = phi float [ %.sroa.0.4.vec.extract11.i, %_ZN6Assimp3ASE6Parser16ParseLV4MeshRealERf.exit ], [ %83, %_ZN10aiVector3tIfEdVEf.exit.i.i ]
+  %.sroa.0.0.vec.extract.pre-phi.i = phi float [ %.sroa.0.0.vec.extract8.i, %_ZN6Assimp3ASE6Parser16ParseLV4MeshRealERf.exit ], [ %82, %_ZN10aiVector3tIfEdVEf.exit.i.i ]
+  %.sroa.7.0.i = phi float [ %.sroa.22.0.copyload, %_ZN6Assimp3ASE6Parser16ParseLV4MeshRealERf.exit ], [ %84, %_ZN10aiVector3tIfEdVEf.exit.i.i ]
+  %85 = call noundef float @sinf(float noundef %74) #29
+  %86 = call noundef float @cosf(float noundef %74) #29
+  %87 = fmul float %.sroa.0.0.vec.extract.pre-phi.i, %85
+  %88 = fmul float %.sroa.0.4.vec.extract.pre-phi.i, %85
+  %89 = fmul float %.sroa.7.0.i, %85
+  %90 = getelementptr inbounds i8, ptr %53, i64 -24
+  store float %86, ptr %90, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %53, i64 -20
-  store float %88, ptr %.sroa.4.0..sroa_idx, align 4
+  store float %87, ptr %.sroa.4.0..sroa_idx, align 4
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %53, i64 -16
-  store float %89, ptr %.sroa.5.0..sroa_idx, align 8
+  store float %88, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %53, i64 -12
-  store float %90, ptr %.sroa.6.0..sroa_idx, align 4
+  store float %89, ptr %.sroa.6.0..sroa_idx, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.pre45 = load ptr, ptr %0, align 8
   br label %thread-pre-split
 
-thread-pre-split:                                 ; preds = %_ZN6Assimp3ASE6Parser16ParseLV4MeshRealERf.exit, %40
-  %.ph = phi ptr [ %.pre45, %_ZN6Assimp3ASE6Parser16ParseLV4MeshRealERf.exit ], [ %34, %40 ]
+thread-pre-split:                                 ; preds = %_ZN13aiQuaterniontIfEC2E10aiVector3tIfEf.exit, %40
+  %.ph = phi ptr [ %.pre45, %_ZN13aiQuaterniontIfEC2E10aiVector3tIfEf.exit ], [ %34, %40 ]
   %.pr = load i8, ptr %.ph, align 1
-  br label %92
+  br label %91
 
-92:                                               ; preds = %thread-pre-split, %15
-  %93 = phi i8 [ %.pr, %thread-pre-split ], [ %17, %15 ]
-  %94 = phi ptr [ %.ph, %thread-pre-split ], [ %16, %15 ]
-  switch i8 %93, label %_ZN6Assimp9IsLineEndIcEEbT_.exit [
-    i8 123, label %95
-    i8 125, label %97
-    i8 0, label %117
-    i8 13, label %118
-    i8 10, label %118
-    i8 12, label %118
+91:                                               ; preds = %thread-pre-split, %15
+  %92 = phi i8 [ %.pr, %thread-pre-split ], [ %17, %15 ]
+  %93 = phi ptr [ %.ph, %thread-pre-split ], [ %16, %15 ]
+  switch i8 %92, label %_ZN6Assimp9IsLineEndIcEEbT_.exit [
+    i8 123, label %94
+    i8 125, label %96
+    i8 0, label %116
+    i8 13, label %117
+    i8 10, label %117
+    i8 12, label %117
   ]
 
-95:                                               ; preds = %92
-  %96 = add nsw i32 %.0, 1
+94:                                               ; preds = %91
+  %95 = add nsw i32 %.0, 1
   br label %_ZN6Assimp9IsLineEndIcEEbT_.exit
 
-97:                                               ; preds = %92
-  %98 = add nsw i32 %.0, -1
-  %99 = icmp eq i32 %98, 0
-  br i1 %99, label %100, label %_ZN6Assimp9IsLineEndIcEEbT_.exit
+96:                                               ; preds = %91
+  %97 = add nsw i32 %.0, -1
+  %98 = icmp eq i32 %97, 0
+  br i1 %98, label %99, label %_ZN6Assimp9IsLineEndIcEEbT_.exit
 
-100:                                              ; preds = %97
-  %101 = getelementptr inbounds nuw i8, ptr %94, i64 1
-  store ptr %101, ptr %0, align 8
-  %102 = load ptr, ptr %12, align 8
-  %103 = icmp eq ptr %101, %102
-  br i1 %103, label %_ZN6Assimp3ASE6Parser15SkipToNextTokenEv.exit, label %.lr.ph.i
+99:                                               ; preds = %96
+  %100 = getelementptr inbounds nuw i8, ptr %93, i64 1
+  store ptr %100, ptr %0, align 8
+  %101 = load ptr, ptr %12, align 8
+  %102 = icmp eq ptr %100, %101
+  br i1 %102, label %_ZN6Assimp3ASE6Parser15SkipToNextTokenEv.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %100
+.lr.ph.i:                                         ; preds = %99
   %.promoted23.i = load i8, ptr %14, align 4
   %.promoted24.i = load i32, ptr %13, align 8
-  br label %104
+  br label %103
 
-104:                                              ; preds = %114, %.lr.ph.i
-  %105 = phi i32 [ %.promoted24.i, %.lr.ph.i ], [ %113, %114 ]
-  %106 = phi i8 [ %.promoted23.i, %.lr.ph.i ], [ %storemerge.i27, %114 ]
-  %107 = phi ptr [ %101, %.lr.ph.i ], [ %115, %114 ]
-  %108 = load i8, ptr %107, align 1
-  switch i8 %108, label %_ZN6Assimp9IsLineEndIcEEbT_.exit.i [
-    i8 13, label %109
-    i8 10, label %109
-    i8 0, label %109
-    i8 12, label %109
+103:                                              ; preds = %113, %.lr.ph.i
+  %104 = phi i32 [ %.promoted24.i, %.lr.ph.i ], [ %112, %113 ]
+  %105 = phi i8 [ %.promoted23.i, %.lr.ph.i ], [ %storemerge.i27, %113 ]
+  %106 = phi ptr [ %100, %.lr.ph.i ], [ %114, %113 ]
+  %107 = load i8, ptr %106, align 1
+  switch i8 %107, label %_ZN6Assimp9IsLineEndIcEEbT_.exit.i [
+    i8 13, label %108
+    i8 10, label %108
+    i8 0, label %108
+    i8 12, label %108
   ]
 
-109:                                              ; preds = %104, %104, %104, %104
-  %110 = trunc nuw i8 %106 to i1
-  br i1 %110, label %_ZN6Assimp9IsLineEndIcEEbT_.exit.i, label %111
+108:                                              ; preds = %103, %103, %103, %103
+  %109 = trunc nuw i8 %105 to i1
+  br i1 %109, label %_ZN6Assimp9IsLineEndIcEEbT_.exit.i, label %110
 
-111:                                              ; preds = %109
-  %112 = add i32 %105, 1
-  store i32 %112, ptr %13, align 8
+110:                                              ; preds = %108
+  %111 = add i32 %104, 1
+  store i32 %111, ptr %13, align 8
   br label %_ZN6Assimp9IsLineEndIcEEbT_.exit.i
 
-_ZN6Assimp9IsLineEndIcEEbT_.exit.i:               ; preds = %111, %109, %104
-  %storemerge.i27 = phi i8 [ 1, %111 ], [ 0, %104 ], [ 0, %109 ]
-  %113 = phi i32 [ %112, %111 ], [ %105, %104 ], [ %105, %109 ]
+_ZN6Assimp9IsLineEndIcEEbT_.exit.i:               ; preds = %110, %108, %103
+  %storemerge.i27 = phi i8 [ 1, %110 ], [ 0, %103 ], [ 0, %108 ]
+  %112 = phi i32 [ %111, %110 ], [ %104, %103 ], [ %104, %108 ]
   store i8 %storemerge.i27, ptr %14, align 4
-  switch i8 %108, label %114 [
+  switch i8 %107, label %113 [
     i8 125, label %_ZN6Assimp3ASE6Parser15SkipToNextTokenEv.exit
     i8 123, label %_ZN6Assimp3ASE6Parser15SkipToNextTokenEv.exit
     i8 42, label %_ZN6Assimp3ASE6Parser15SkipToNextTokenEv.exit
     i8 0, label %_ZN6Assimp3ASE6Parser15SkipToNextTokenEv.exit
   ]
 
-114:                                              ; preds = %_ZN6Assimp9IsLineEndIcEEbT_.exit.i
-  %115 = getelementptr inbounds nuw i8, ptr %107, i64 1
-  store ptr %115, ptr %0, align 8
-  %116 = icmp eq ptr %115, %102
-  br i1 %116, label %_ZN6Assimp3ASE6Parser15SkipToNextTokenEv.exit, label %104
+113:                                              ; preds = %_ZN6Assimp9IsLineEndIcEEbT_.exit.i
+  %114 = getelementptr inbounds nuw i8, ptr %106, i64 1
+  store ptr %114, ptr %0, align 8
+  %115 = icmp eq ptr %114, %101
+  br i1 %115, label %_ZN6Assimp3ASE6Parser15SkipToNextTokenEv.exit, label %103
 
-_ZN6Assimp3ASE6Parser15SkipToNextTokenEv.exit:    ; preds = %_ZN6Assimp9IsLineEndIcEEbT_.exit.i, %_ZN6Assimp9IsLineEndIcEEbT_.exit.i, %_ZN6Assimp9IsLineEndIcEEbT_.exit.i, %_ZN6Assimp9IsLineEndIcEEbT_.exit.i, %114, %100
+_ZN6Assimp3ASE6Parser15SkipToNextTokenEv.exit:    ; preds = %_ZN6Assimp9IsLineEndIcEEbT_.exit.i, %_ZN6Assimp9IsLineEndIcEEbT_.exit.i, %_ZN6Assimp9IsLineEndIcEEbT_.exit.i, %_ZN6Assimp9IsLineEndIcEEbT_.exit.i, %113, %99
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
-117:                                              ; preds = %92
+116:                                              ; preds = %91
   call void @_ZN6Assimp3ASE6Parser8LogErrorEPKc(ptr noundef nonnull align 8 dereferenceable(188) %0, ptr noundef nonnull @.str.130) #31
   unreachable
 
-118:                                              ; preds = %92, %92, %92
-  %119 = load i8, ptr %14, align 4, !range !32, !noundef !33
-  %120 = trunc nuw i8 %119 to i1
-  br i1 %120, label %_ZN6Assimp9IsLineEndIcEEbT_.exit, label %121
+117:                                              ; preds = %91, %91, %91
+  %118 = load i8, ptr %14, align 4, !range !32, !noundef !33
+  %119 = trunc nuw i8 %118 to i1
+  br i1 %119, label %_ZN6Assimp9IsLineEndIcEEbT_.exit, label %120
 
-121:                                              ; preds = %118
-  %122 = load i32, ptr %13, align 8
-  %123 = add i32 %122, 1
-  store i32 %123, ptr %13, align 8
+120:                                              ; preds = %117
+  %121 = load i32, ptr %13, align 8
+  %122 = add i32 %121, 1
+  store i32 %122, ptr %13, align 8
   br label %_ZN6Assimp9IsLineEndIcEEbT_.exit
 
-_ZN6Assimp9IsLineEndIcEEbT_.exit:                 ; preds = %118, %97, %95, %92, %121
-  %storemerge = phi i8 [ 1, %121 ], [ 0, %92 ], [ 0, %95 ], [ 0, %97 ], [ 0, %118 ]
-  %.13336 = phi i32 [ %.0, %121 ], [ %.0, %92 ], [ %96, %95 ], [ %98, %97 ], [ %.0, %118 ]
+_ZN6Assimp9IsLineEndIcEEbT_.exit:                 ; preds = %117, %96, %94, %91, %120
+  %storemerge = phi i8 [ 1, %120 ], [ 0, %91 ], [ 0, %94 ], [ 0, %96 ], [ 0, %117 ]
+  %.13336 = phi i32 [ %.0, %120 ], [ %.0, %91 ], [ %95, %94 ], [ %97, %96 ], [ %.0, %117 ]
   store i8 %storemerge, ptr %14, align 4
-  %124 = getelementptr inbounds nuw i8, ptr %94, i64 1
-  store ptr %124, ptr %0, align 8
+  %123 = getelementptr inbounds nuw i8, ptr %93, i64 1
+  store ptr %123, ptr %0, align 8
   br label %15, !llvm.loop !94
 }
 
@@ -20341,17 +20347,14 @@ _ZNSt12_Vector_baseI9aiQuatKeySaIS0_EE13_M_deallocateEPS0_m.exit: ; preds = %_ZN
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare float @sqrtf(float noundef) local_unnamed_addr #21
-
 ; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fmuladd.f32(float, float, float) #22
+declare float @llvm.fmuladd.f32(float, float, float) #21
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare float @sinf(float noundef) local_unnamed_addr #21
+declare float @sinf(float noundef) local_unnamed_addr #22
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare float @cosf(float noundef) local_unnamed_addr #21
+declare float @cosf(float noundef) local_unnamed_addr #22
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNSt6vectorIN6Assimp3ASE4BoneESaIS2_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS2_S4_EEmRKS2_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(32) %3) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -22084,7 +22087,7 @@ _ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEED2Ev.exit: ; pred
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare float @powf(float noundef, float noundef) local_unnamed_addr #21
+declare float @powf(float noundef, float noundef) local_unnamed_addr #22
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNSt6vectorI10aiVector3tIfESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -22611,6 +22614,9 @@ declare i64 @llvm.umax.i64(i64, i64) #26
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #28
 
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.sqrt.f32(float) #26
+
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -22632,8 +22638,8 @@ attributes #17 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-si
 attributes #18 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #19 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #20 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #21 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #22 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #21 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #22 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #23 = { mustprogress nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #24 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #25 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }

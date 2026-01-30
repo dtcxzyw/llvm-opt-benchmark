@@ -189,13 +189,13 @@ define dso_local noundef float @_ZN4pbrt15BeamDiffusionMSEfffff(float noundef %0
   br label %36
 
 34:                                               ; preds = %_ZN4pbrt7FastExpEf.exit68
-  %35 = fdiv float %157, 1.000000e+02
+  %35 = fdiv float %156, 1.000000e+02
   ret float %35
 
 36:                                               ; preds = %5, %_ZN4pbrt7FastExpEf.exit68
-  %.070 = phi float [ 0.000000e+00, %5 ], [ %157, %_ZN4pbrt7FastExpEf.exit68 ]
-  %.06069 = phi i32 [ 0, %5 ], [ %158, %_ZN4pbrt7FastExpEf.exit68 ]
-  %37 = uitofp nneg i32 %.06069 to float
+  %.071 = phi float [ 0.000000e+00, %5 ], [ %156, %_ZN4pbrt7FastExpEf.exit68 ]
+  %.06070 = phi i32 [ 0, %5 ], [ %157, %_ZN4pbrt7FastExpEf.exit68 ]
+  %37 = uitofp nneg i32 %.06070 to float
   %38 = fadd float %37, 5.000000e-01
   %39 = fdiv float %38, 1.000000e+02
   %40 = fsub float 1.000000e+00, %39
@@ -205,160 +205,160 @@ define dso_local noundef float @_ZN4pbrt15BeamDiffusionMSEfffff(float noundef %0
   %44 = fsub float %29, %43
   %45 = fmul float %43, %43
   %46 = fadd float %30, %45
-  %sqrt = tail call float @llvm.sqrt.f32(float %46)
+  %sqrt69 = tail call float @llvm.sqrt.f32(float %46)
   %47 = fmul float %44, %44
   %48 = fadd float %30, %47
-  %49 = tail call noundef float @sqrtf(float noundef %48) #24, !tbaa !30
-  %50 = fmul float %sqrt, %32
-  %51 = fmul float %50, 0x3FF7154760000000
-  %52 = tail call noundef float @llvm.floor.f32(float %51)
-  %53 = fsub float %51, %52
-  %54 = fptosi float %52 to i32
-  %55 = tail call noundef float @llvm.fma.f32(float %53, float 0x3FB4015920000000, float 0x3FCCF34160000000)
-  %56 = tail call noundef float @llvm.fma.f32(float %53, float %55, float 0x3FE6420080000000)
-  %57 = tail call noundef float @llvm.fma.f32(float %53, float %56, float 1.000000e+00)
-  %58 = bitcast float %57 to i32
-  %59 = lshr i32 %58, 23
-  %60 = add i32 %54, -127
-  %61 = add i32 %60, %59
-  %62 = icmp slt i32 %61, -126
-  br i1 %62, label %_ZN4pbrt7FastExpEf.exit, label %63
+  %sqrt = tail call float @llvm.sqrt.f32(float %48)
+  %49 = fmul float %sqrt69, %32
+  %50 = fmul float %49, 0x3FF7154760000000
+  %51 = tail call noundef float @llvm.floor.f32(float %50)
+  %52 = fsub float %50, %51
+  %53 = fptosi float %51 to i32
+  %54 = tail call noundef float @llvm.fma.f32(float %52, float 0x3FB4015920000000, float 0x3FCCF34160000000)
+  %55 = tail call noundef float @llvm.fma.f32(float %52, float %54, float 0x3FE6420080000000)
+  %56 = tail call noundef float @llvm.fma.f32(float %52, float %55, float 1.000000e+00)
+  %57 = bitcast float %56 to i32
+  %58 = lshr i32 %57, 23
+  %59 = add i32 %53, -127
+  %60 = add i32 %59, %58
+  %61 = icmp slt i32 %60, -126
+  br i1 %61, label %_ZN4pbrt7FastExpEf.exit, label %62
 
-63:                                               ; preds = %36
-  %64 = icmp sgt i32 %61, 127
-  br i1 %64, label %_ZN4pbrt7FastExpEf.exit, label %65
+62:                                               ; preds = %36
+  %63 = icmp sgt i32 %60, 127
+  br i1 %63, label %_ZN4pbrt7FastExpEf.exit, label %64
 
-65:                                               ; preds = %63
-  %66 = and i32 %58, -2139095041
-  %67 = shl nsw i32 %61, 23
-  %68 = add nsw i32 %67, 1065353216
-  %69 = or i32 %68, %66
-  %70 = bitcast i32 %69 to float
+64:                                               ; preds = %62
+  %65 = and i32 %57, -2139095041
+  %66 = shl nsw i32 %60, 23
+  %67 = add nsw i32 %66, 1065353216
+  %68 = or i32 %67, %65
+  %69 = bitcast i32 %68 to float
   br label %_ZN4pbrt7FastExpEf.exit
 
-_ZN4pbrt7FastExpEf.exit:                          ; preds = %36, %63, %65
-  %.0.i = phi float [ %70, %65 ], [ 0.000000e+00, %36 ], [ 0x7FF0000000000000, %63 ]
-  %71 = fdiv float %.0.i, %sqrt
-  %72 = fmul float %49, %32
-  %73 = fmul float %72, 0x3FF7154760000000
-  %74 = tail call noundef float @llvm.floor.f32(float %73)
-  %75 = fsub float %73, %74
-  %76 = fptosi float %74 to i32
-  %77 = tail call noundef float @llvm.fma.f32(float %75, float 0x3FB4015920000000, float 0x3FCCF34160000000)
-  %78 = tail call noundef float @llvm.fma.f32(float %75, float %77, float 0x3FE6420080000000)
-  %79 = tail call noundef float @llvm.fma.f32(float %75, float %78, float 1.000000e+00)
-  %80 = bitcast float %79 to i32
-  %81 = lshr i32 %80, 23
-  %82 = add i32 %76, -127
-  %83 = add i32 %82, %81
-  %84 = icmp slt i32 %83, -126
-  br i1 %84, label %_ZN4pbrt7FastExpEf.exit62, label %85
+_ZN4pbrt7FastExpEf.exit:                          ; preds = %36, %62, %64
+  %.0.i = phi float [ %69, %64 ], [ 0.000000e+00, %36 ], [ 0x7FF0000000000000, %62 ]
+  %70 = fdiv float %.0.i, %sqrt69
+  %71 = fmul float %sqrt, %32
+  %72 = fmul float %71, 0x3FF7154760000000
+  %73 = tail call noundef float @llvm.floor.f32(float %72)
+  %74 = fsub float %72, %73
+  %75 = fptosi float %73 to i32
+  %76 = tail call noundef float @llvm.fma.f32(float %74, float 0x3FB4015920000000, float 0x3FCCF34160000000)
+  %77 = tail call noundef float @llvm.fma.f32(float %74, float %76, float 0x3FE6420080000000)
+  %78 = tail call noundef float @llvm.fma.f32(float %74, float %77, float 1.000000e+00)
+  %79 = bitcast float %78 to i32
+  %80 = lshr i32 %79, 23
+  %81 = add i32 %75, -127
+  %82 = add i32 %81, %80
+  %83 = icmp slt i32 %82, -126
+  br i1 %83, label %_ZN4pbrt7FastExpEf.exit62, label %84
 
-85:                                               ; preds = %_ZN4pbrt7FastExpEf.exit
-  %86 = icmp sgt i32 %83, 127
-  br i1 %86, label %_ZN4pbrt7FastExpEf.exit62, label %87
+84:                                               ; preds = %_ZN4pbrt7FastExpEf.exit
+  %85 = icmp sgt i32 %82, 127
+  br i1 %85, label %_ZN4pbrt7FastExpEf.exit62, label %86
 
-87:                                               ; preds = %85
-  %88 = and i32 %80, -2139095041
-  %89 = shl nsw i32 %83, 23
-  %90 = add nsw i32 %89, 1065353216
-  %91 = or i32 %90, %88
-  %92 = bitcast i32 %91 to float
+86:                                               ; preds = %84
+  %87 = and i32 %79, -2139095041
+  %88 = shl nsw i32 %82, 23
+  %89 = add nsw i32 %88, 1065353216
+  %90 = or i32 %89, %87
+  %91 = bitcast i32 %90 to float
   br label %_ZN4pbrt7FastExpEf.exit62
 
-_ZN4pbrt7FastExpEf.exit62:                        ; preds = %_ZN4pbrt7FastExpEf.exit, %85, %87
-  %.0.i61 = phi float [ %92, %87 ], [ 0.000000e+00, %_ZN4pbrt7FastExpEf.exit ], [ 0x7FF0000000000000, %85 ]
-  %93 = fdiv float %.0.i61, %49
-  %94 = fsub float %71, %93
-  %95 = fmul float %31, %94
-  %96 = fmul float %sqrt.i, %sqrt
-  %97 = fadd float %96, 1.000000e+00
-  %98 = fmul float %43, %97
-  br i1 %62, label %_ZN4pbrt7FastExpEf.exit64, label %99
+_ZN4pbrt7FastExpEf.exit62:                        ; preds = %_ZN4pbrt7FastExpEf.exit, %84, %86
+  %.0.i61 = phi float [ %91, %86 ], [ 0.000000e+00, %_ZN4pbrt7FastExpEf.exit ], [ 0x7FF0000000000000, %84 ]
+  %92 = fdiv float %.0.i61, %sqrt
+  %93 = fsub float %70, %92
+  %94 = fmul float %31, %93
+  %95 = fmul float %sqrt.i, %sqrt69
+  %96 = fadd float %95, 1.000000e+00
+  %97 = fmul float %43, %96
+  br i1 %61, label %_ZN4pbrt7FastExpEf.exit64, label %98
 
-99:                                               ; preds = %_ZN4pbrt7FastExpEf.exit62
-  %100 = icmp sgt i32 %61, 127
-  br i1 %100, label %_ZN4pbrt7FastExpEf.exit64, label %101
+98:                                               ; preds = %_ZN4pbrt7FastExpEf.exit62
+  %99 = icmp sgt i32 %60, 127
+  br i1 %99, label %_ZN4pbrt7FastExpEf.exit64, label %100
 
-101:                                              ; preds = %99
-  %102 = and i32 %58, -2139095041
-  %103 = shl nsw i32 %61, 23
-  %104 = add nsw i32 %103, 1065353216
-  %105 = or i32 %104, %102
-  %106 = bitcast i32 %105 to float
+100:                                              ; preds = %98
+  %101 = and i32 %57, -2139095041
+  %102 = shl nsw i32 %60, 23
+  %103 = add nsw i32 %102, 1065353216
+  %104 = or i32 %103, %101
+  %105 = bitcast i32 %104 to float
   br label %_ZN4pbrt7FastExpEf.exit64
 
-_ZN4pbrt7FastExpEf.exit64:                        ; preds = %_ZN4pbrt7FastExpEf.exit62, %99, %101
-  %.0.i63 = phi float [ %106, %101 ], [ 0.000000e+00, %_ZN4pbrt7FastExpEf.exit62 ], [ 0x7FF0000000000000, %99 ]
-  %107 = fmul float %98, %.0.i63
-  %108 = fmul float %sqrt, %sqrt
-  %109 = fmul float %sqrt, %108
-  %110 = fdiv float %107, %109
-  %111 = fmul float %sqrt.i, %49
-  %112 = fadd float %111, 1.000000e+00
-  %113 = fmul float %44, %112
-  br i1 %84, label %_ZN4pbrt7FastExpEf.exit66, label %114
+_ZN4pbrt7FastExpEf.exit64:                        ; preds = %_ZN4pbrt7FastExpEf.exit62, %98, %100
+  %.0.i63 = phi float [ %105, %100 ], [ 0.000000e+00, %_ZN4pbrt7FastExpEf.exit62 ], [ 0x7FF0000000000000, %98 ]
+  %106 = fmul float %97, %.0.i63
+  %107 = fmul float %sqrt69, %sqrt69
+  %108 = fmul float %sqrt69, %107
+  %109 = fdiv float %106, %108
+  %110 = fmul float %sqrt.i, %sqrt
+  %111 = fadd float %110, 1.000000e+00
+  %112 = fmul float %44, %111
+  br i1 %83, label %_ZN4pbrt7FastExpEf.exit66, label %113
 
-114:                                              ; preds = %_ZN4pbrt7FastExpEf.exit64
-  %115 = icmp sgt i32 %83, 127
-  br i1 %115, label %_ZN4pbrt7FastExpEf.exit66, label %116
+113:                                              ; preds = %_ZN4pbrt7FastExpEf.exit64
+  %114 = icmp sgt i32 %82, 127
+  br i1 %114, label %_ZN4pbrt7FastExpEf.exit66, label %115
 
-116:                                              ; preds = %114
-  %117 = and i32 %80, -2139095041
-  %118 = shl nsw i32 %83, 23
-  %119 = add nsw i32 %118, 1065353216
-  %120 = or i32 %119, %117
-  %121 = bitcast i32 %120 to float
+115:                                              ; preds = %113
+  %116 = and i32 %79, -2139095041
+  %117 = shl nsw i32 %82, 23
+  %118 = add nsw i32 %117, 1065353216
+  %119 = or i32 %118, %116
+  %120 = bitcast i32 %119 to float
   br label %_ZN4pbrt7FastExpEf.exit66
 
-_ZN4pbrt7FastExpEf.exit66:                        ; preds = %_ZN4pbrt7FastExpEf.exit64, %114, %116
-  %.0.i65 = phi float [ %121, %116 ], [ 0.000000e+00, %_ZN4pbrt7FastExpEf.exit64 ], [ 0x7FF0000000000000, %114 ]
-  %122 = fmul float %113, %.0.i65
-  %123 = fmul float %49, %49
-  %124 = fmul float %49, %123
-  %125 = fdiv float %122, %124
-  %126 = fsub float %110, %125
-  %127 = fmul float %126, 0x3FB45F3060000000
-  %128 = fmul float %26, %95
-  %129 = fmul float %28, %127
-  %130 = fadd float %128, %129
-  %131 = fadd float %43, %sqrt
-  %132 = fmul float %33, %131
-  %133 = fmul float %132, 0x3FF7154760000000
-  %134 = tail call noundef float @llvm.floor.f32(float %133)
-  %135 = fsub float %133, %134
-  %136 = fptosi float %134 to i32
-  %137 = tail call noundef float @llvm.fma.f32(float %135, float 0x3FB4015920000000, float 0x3FCCF34160000000)
-  %138 = tail call noundef float @llvm.fma.f32(float %135, float %137, float 0x3FE6420080000000)
-  %139 = tail call noundef float @llvm.fma.f32(float %135, float %138, float 1.000000e+00)
-  %140 = bitcast float %139 to i32
-  %141 = lshr i32 %140, 23
-  %142 = add i32 %136, -127
-  %143 = add i32 %142, %141
-  %144 = icmp slt i32 %143, -126
-  br i1 %144, label %_ZN4pbrt7FastExpEf.exit68, label %145
+_ZN4pbrt7FastExpEf.exit66:                        ; preds = %_ZN4pbrt7FastExpEf.exit64, %113, %115
+  %.0.i65 = phi float [ %120, %115 ], [ 0.000000e+00, %_ZN4pbrt7FastExpEf.exit64 ], [ 0x7FF0000000000000, %113 ]
+  %121 = fmul float %112, %.0.i65
+  %122 = fmul float %sqrt, %sqrt
+  %123 = fmul float %sqrt, %122
+  %124 = fdiv float %121, %123
+  %125 = fsub float %109, %124
+  %126 = fmul float %125, 0x3FB45F3060000000
+  %127 = fmul float %26, %94
+  %128 = fmul float %28, %126
+  %129 = fadd float %127, %128
+  %130 = fadd float %43, %sqrt69
+  %131 = fmul float %33, %130
+  %132 = fmul float %131, 0x3FF7154760000000
+  %133 = tail call noundef float @llvm.floor.f32(float %132)
+  %134 = fsub float %132, %133
+  %135 = fptosi float %133 to i32
+  %136 = tail call noundef float @llvm.fma.f32(float %134, float 0x3FB4015920000000, float 0x3FCCF34160000000)
+  %137 = tail call noundef float @llvm.fma.f32(float %134, float %136, float 0x3FE6420080000000)
+  %138 = tail call noundef float @llvm.fma.f32(float %134, float %137, float 1.000000e+00)
+  %139 = bitcast float %138 to i32
+  %140 = lshr i32 %139, 23
+  %141 = add i32 %135, -127
+  %142 = add i32 %141, %140
+  %143 = icmp slt i32 %142, -126
+  br i1 %143, label %_ZN4pbrt7FastExpEf.exit68, label %144
 
-145:                                              ; preds = %_ZN4pbrt7FastExpEf.exit66
-  %146 = icmp sgt i32 %143, 127
-  br i1 %146, label %_ZN4pbrt7FastExpEf.exit68, label %147
+144:                                              ; preds = %_ZN4pbrt7FastExpEf.exit66
+  %145 = icmp sgt i32 %142, 127
+  br i1 %145, label %_ZN4pbrt7FastExpEf.exit68, label %146
 
-147:                                              ; preds = %145
-  %148 = and i32 %140, -2139095041
-  %149 = shl nsw i32 %143, 23
-  %150 = add nsw i32 %149, 1065353216
-  %151 = or i32 %150, %148
-  %152 = bitcast i32 %151 to float
+146:                                              ; preds = %144
+  %147 = and i32 %139, -2139095041
+  %148 = shl nsw i32 %142, 23
+  %149 = add nsw i32 %148, 1065353216
+  %150 = or i32 %149, %147
+  %151 = bitcast i32 %150 to float
   br label %_ZN4pbrt7FastExpEf.exit68
 
-_ZN4pbrt7FastExpEf.exit68:                        ; preds = %_ZN4pbrt7FastExpEf.exit66, %145, %147
-  %.0.i67 = phi float [ %152, %147 ], [ 0.000000e+00, %_ZN4pbrt7FastExpEf.exit66 ], [ 0x7FF0000000000000, %145 ]
-  %153 = fsub float 1.000000e+00, %.0.i67
+_ZN4pbrt7FastExpEf.exit68:                        ; preds = %_ZN4pbrt7FastExpEf.exit66, %144, %146
+  %.0.i67 = phi float [ %151, %146 ], [ 0.000000e+00, %_ZN4pbrt7FastExpEf.exit66 ], [ 0x7FF0000000000000, %144 ]
+  %152 = fsub float 1.000000e+00, %.0.i67
+  %153 = fmul float %9, %152
   %154 = fmul float %9, %153
-  %155 = fmul float %9, %154
-  %156 = fmul float %130, %155
-  %157 = fadd float %.070, %156
-  %158 = add nuw nsw i32 %.06069, 1
-  %exitcond.not = icmp eq i32 %158, 100
+  %155 = fmul float %129, %154
+  %156 = fadd float %.071, %155
+  %157 = add nuw nsw i32 %.06070, 1
+  %exitcond.not = icmp eq i32 %157, 100
   br i1 %exitcond.not, label %34, label %36, !llvm.loop !32
 }
 
@@ -1106,9 +1106,6 @@ declare void @_ZN4pbrt16StatsAccumulator16ReportPercentageEPKcll(ptr noundef non
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
 declare float @logf(float noundef) local_unnamed_addr #7
-
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare float @sqrtf(float noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.floor.f32(float) #8

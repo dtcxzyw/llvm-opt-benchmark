@@ -496,14 +496,14 @@ define internal fastcc noundef zeroext i1 @_ZN5ZXingL22GetBlackPointOnSegmentERK
   %19 = fsub double %8, %10
   %20 = fmul double %19, %19
   %21 = tail call noundef double @llvm.fmuladd.f64(double %18, double %18, double %20)
-  %sqrt30 = tail call double @llvm.sqrt.f64(double %21)
+  %sqrt.i.i = tail call noundef double @llvm.sqrt.f64(double %21)
   %22 = fmul double %17, %17
   %23 = tail call noundef double @llvm.fmuladd.f64(double %16, double %16, double %22)
-  %sqrt = tail call double @llvm.sqrt.f64(double %23)
-  %24 = fdiv double %sqrt30, %sqrt
+  %sqrt.i = tail call noundef double @llvm.sqrt.f64(double %23)
+  %24 = fdiv double %sqrt.i.i, %sqrt.i
   %25 = tail call i64 @lround(double noundef %24) #12, !tbaa !32
-  %.not41 = icmp sgt i64 %25, 0
-  br i1 %.not41, label %.lr.ph, label %.critedge
+  %.not40 = icmp sgt i64 %25, 0
+  br i1 %.not40, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %6
   %26 = load i32, ptr %0, align 8
@@ -522,22 +522,22 @@ define internal fastcc noundef zeroext i1 @_ZN5ZXingL22GetBlackPointOnSegmentERK
 
 38:                                               ; preds = %.lr.ph, %_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7isBlackEv.exit.thread
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7isBlackEv.exit.thread ]
-  %.sroa.10.043 = phi double [ %8, %.lr.ph ], [ %58, %_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7isBlackEv.exit.thread ]
-  %.sroa.5.042 = phi double [ %7, %.lr.ph ], [ %57, %_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7isBlackEv.exit.thread ]
-  %39 = fcmp ult double %.sroa.5.042, 0.000000e+00
+  %.sroa.10.042 = phi double [ %8, %.lr.ph ], [ %58, %_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7isBlackEv.exit.thread ]
+  %.sroa.5.041 = phi double [ %7, %.lr.ph ], [ %57, %_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7isBlackEv.exit.thread ]
+  %39 = fcmp ult double %.sroa.5.041, 0.000000e+00
   br i1 %39, label %_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7isBlackEv.exit.thread, label %40
 
 40:                                               ; preds = %38
-  %41 = fcmp olt double %.sroa.5.042, %27
-  %42 = fcmp oge double %.sroa.10.043, 0.000000e+00
-  %or.cond.i.i.i.i.not48 = select i1 %41, i1 %42, i1 false
-  %43 = fcmp olt double %.sroa.10.043, %30
-  %or.cond = select i1 %or.cond.i.i.i.i.not48, i1 %43, i1 false
+  %41 = fcmp olt double %.sroa.5.041, %27
+  %42 = fcmp oge double %.sroa.10.042, 0.000000e+00
+  %or.cond.i.i.i.i.not47 = select i1 %41, i1 %42, i1 false
+  %43 = fcmp olt double %.sroa.10.042, %30
+  %or.cond = select i1 %or.cond.i.i.i.i.not47, i1 %43, i1 false
   br i1 %or.cond, label %44, label %_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7isBlackEv.exit.thread
 
 44:                                               ; preds = %40
-  %45 = fptosi double %.sroa.5.042 to i32
-  %46 = fptosi double %.sroa.10.043 to i32
+  %45 = fptosi double %.sroa.5.041 to i32
+  %46 = fptosi double %.sroa.10.042 to i32
   %47 = mul nsw i32 %26, %46
   %48 = add nsw i32 %47, %45
   %49 = sext i32 %48 to i64
@@ -565,21 +565,21 @@ _ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7isBlackEv.exit: ; preds = %44
   br i1 %.not29, label %_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7isBlackEv.exit.thread, label %56
 
 56:                                               ; preds = %_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7isBlackEv.exit
-  store double %.sroa.5.042, ptr %5, align 8
+  store double %.sroa.5.041, ptr %5, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store double %.sroa.10.043, ptr %.sroa.4.0..sroa_idx, align 8
+  store double %.sroa.10.042, ptr %.sroa.4.0..sroa_idx, align 8
   br label %.critedge
 
 _ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7isBlackEv.exit.thread: ; preds = %38, %40, %_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7isBlackEv.exit
-  %57 = fadd double %16, %.sroa.5.042
-  %58 = fadd double %17, %.sroa.10.043
+  %57 = fadd double %16, %.sroa.5.041
+  %58 = fadd double %17, %.sroa.10.042
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %25
   br i1 %exitcond.not, label %.critedge, label %38, !llvm.loop !33
 
 .critedge:                                        ; preds = %_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7isBlackEv.exit.thread, %6, %56
-  %.not33 = phi i1 [ true, %56 ], [ false, %6 ], [ false, %_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7isBlackEv.exit.thread ]
-  ret i1 %.not33
+  %.not32 = phi i1 [ true, %56 ], [ false, %6 ], [ false, %_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7isBlackEv.exit.thread ]
+  ret i1 %.not32
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable

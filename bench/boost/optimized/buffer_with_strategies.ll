@@ -146505,120 +146505,117 @@ define linkonce_odr hidden noundef i32 @_ZN5boost8geometry8strategy6buffer13side
   %13 = fsub double %10, %12
   %14 = fmul double %13, %13
   %15 = tail call double @llvm.fmuladd.f64(double %8, double %8, double %14)
-  %16 = tail call noundef double @sqrt(double noundef %15) #57, !tbaa !263
-  %17 = tail call double @llvm.fabs.f64(double %16)
-  %18 = fcmp ueq double %17, 0x7FF0000000000000
-  br i1 %18, label %_ZN5boost8geometry4math6equalsIdiEEbRKT_RKT0_.exit.thread, label %19
+  %sqrt = tail call double @llvm.sqrt.f64(double %15)
+  %16 = tail call double @llvm.fabs.f64(double %sqrt)
+  %17 = fcmp ueq double %16, 0x7FF0000000000000
+  br i1 %17, label %_ZN5boost8geometry4math6equalsIdiEEbRKT_RKT0_.exit.thread, label %18
 
-19:                                               ; preds = %5
-  %20 = fcmp oeq double %16, 0.000000e+00
-  br i1 %20, label %_ZN5boost8geometry4math6equalsIdiEEbRKT_RKT0_.exit.thread, label %_ZN5boost8geometry4math6equalsIdiEEbRKT_RKT0_.exit
+18:                                               ; preds = %5
+  %19 = fcmp oeq double %15, 0.000000e+00
+  br i1 %19, label %_ZN5boost8geometry4math6equalsIdiEEbRKT_RKT0_.exit.thread, label %_ZN5boost8geometry4math6equalsIdiEEbRKT_RKT0_.exit
 
-_ZN5boost8geometry4math6equalsIdiEEbRKT_RKT0_.exit: ; preds = %19
-  %21 = fcmp olt double %17, 1.000000e+00
-  %.sroa.speculated.i.i.i = select i1 %21, double 1.000000e+00, double %17
-  %22 = fmul double %.sroa.speculated.i.i.i, 0x3CB0000000000000
-  %23 = fcmp ugt double %17, %22
-  br i1 %23, label %24, label %_ZN5boost8geometry4math6equalsIdiEEbRKT_RKT0_.exit.thread
+_ZN5boost8geometry4math6equalsIdiEEbRKT_RKT0_.exit: ; preds = %18
+  %20 = fcmp olt double %16, 1.000000e+00
+  %.sroa.speculated.i.i.i = select i1 %20, double 1.000000e+00, double %16
+  %21 = fmul double %.sroa.speculated.i.i.i, 0x3CB0000000000000
+  %22 = fcmp ugt double %16, %21
+  br i1 %22, label %23, label %_ZN5boost8geometry4math6equalsIdiEEbRKT_RKT0_.exit.thread
 
-24:                                               ; preds = %_ZN5boost8geometry4math6equalsIdiEEbRKT_RKT0_.exit
-  %25 = load double, ptr %3, align 8, !tbaa !1482
-  %26 = fcmp olt double %25, 0.000000e+00
-  %27 = tail call double @llvm.fabs.f64(double %25)
-  %28 = select i1 %26, double %27, double %25
-  %29 = fneg double %13
-  %30 = fdiv double %29, %16
-  %31 = fdiv double %8, %16
-  %32 = fcmp oeq double %30, 0.000000e+00
-  br i1 %32, label %_ZN5boost8geometry4math6equalsIdiEEbRKT_RKT0_.exit29.thread, label %33
+23:                                               ; preds = %_ZN5boost8geometry4math6equalsIdiEEbRKT_RKT0_.exit
+  %24 = load double, ptr %3, align 8, !tbaa !1482
+  %25 = fcmp olt double %24, 0.000000e+00
+  %26 = tail call double @llvm.fabs.f64(double %24)
+  %27 = select i1 %25, double %26, double %24
+  %28 = fneg double %13
+  %29 = fdiv double %28, %sqrt
+  %30 = fdiv double %8, %sqrt
+  %31 = fcmp oeq double %29, 0.000000e+00
+  br i1 %31, label %_ZN5boost8geometry4math6equalsIdiEEbRKT_RKT0_.exit29.thread, label %32
 
-33:                                               ; preds = %24
-  %34 = tail call double @llvm.fabs.f64(double %30)
-  %35 = fcmp ueq double %34, 0x7FF0000000000000
-  br i1 %35, label %.critedge, label %_ZN5boost8geometry4math6equalsIdiEEbRKT_RKT0_.exit29
+32:                                               ; preds = %23
+  %33 = tail call double @llvm.fabs.f64(double %29)
+  %34 = fcmp ueq double %33, 0x7FF0000000000000
+  br i1 %34, label %.critedge, label %_ZN5boost8geometry4math6equalsIdiEEbRKT_RKT0_.exit29
 
-_ZN5boost8geometry4math6equalsIdiEEbRKT_RKT0_.exit29: ; preds = %33
-  %36 = fcmp olt double %34, 1.000000e+00
-  %.sroa.speculated.i.i.i27 = select i1 %36, double 1.000000e+00, double %34
-  %37 = fmul double %.sroa.speculated.i.i.i27, 0x3CB0000000000000
-  %38 = fcmp ugt double %34, %37
-  br i1 %38, label %.critedge, label %_ZN5boost8geometry4math6equalsIdiEEbRKT_RKT0_.exit29.thread
+_ZN5boost8geometry4math6equalsIdiEEbRKT_RKT0_.exit29: ; preds = %32
+  %35 = fcmp olt double %33, 1.000000e+00
+  %.sroa.speculated.i.i.i27 = select i1 %35, double 1.000000e+00, double %33
+  %36 = fmul double %.sroa.speculated.i.i.i27, 0x3CB0000000000000
+  %37 = fcmp ugt double %33, %36
+  br i1 %37, label %.critedge, label %_ZN5boost8geometry4math6equalsIdiEEbRKT_RKT0_.exit29.thread
 
-_ZN5boost8geometry4math6equalsIdiEEbRKT_RKT0_.exit29.thread: ; preds = %24, %_ZN5boost8geometry4math6equalsIdiEEbRKT_RKT0_.exit29
-  %39 = fcmp oeq double %31, 0.000000e+00
-  br i1 %39, label %_ZN5boost8geometry4math6equalsIdiEEbRKT_RKT0_.exit.thread, label %40
+_ZN5boost8geometry4math6equalsIdiEEbRKT_RKT0_.exit29.thread: ; preds = %23, %_ZN5boost8geometry4math6equalsIdiEEbRKT_RKT0_.exit29
+  %38 = fcmp oeq double %30, 0.000000e+00
+  br i1 %38, label %_ZN5boost8geometry4math6equalsIdiEEbRKT_RKT0_.exit.thread, label %39
 
-40:                                               ; preds = %_ZN5boost8geometry4math6equalsIdiEEbRKT_RKT0_.exit29.thread
-  %41 = tail call double @llvm.fabs.f64(double %31)
-  %42 = fcmp ueq double %41, 0x7FF0000000000000
-  br i1 %42, label %.critedge, label %_ZN5boost8geometry4math6equalsIdiEEbRKT_RKT0_.exit32
+39:                                               ; preds = %_ZN5boost8geometry4math6equalsIdiEEbRKT_RKT0_.exit29.thread
+  %40 = tail call double @llvm.fabs.f64(double %30)
+  %41 = fcmp ueq double %40, 0x7FF0000000000000
+  br i1 %41, label %.critedge, label %_ZN5boost8geometry4math6equalsIdiEEbRKT_RKT0_.exit32
 
-_ZN5boost8geometry4math6equalsIdiEEbRKT_RKT0_.exit32: ; preds = %40
-  %43 = fcmp olt double %41, 1.000000e+00
-  %.sroa.speculated.i.i.i30 = select i1 %43, double 1.000000e+00, double %41
-  %44 = fmul double %.sroa.speculated.i.i.i30, 0x3CB0000000000000
-  %45 = fcmp ugt double %41, %44
-  br i1 %45, label %.critedge, label %_ZN5boost8geometry4math6equalsIdiEEbRKT_RKT0_.exit.thread
+_ZN5boost8geometry4math6equalsIdiEEbRKT_RKT0_.exit32: ; preds = %39
+  %42 = fcmp olt double %40, 1.000000e+00
+  %.sroa.speculated.i.i.i30 = select i1 %42, double 1.000000e+00, double %40
+  %43 = fmul double %.sroa.speculated.i.i.i30, 0x3CB0000000000000
+  %44 = fcmp ugt double %40, %43
+  br i1 %44, label %.critedge, label %_ZN5boost8geometry4math6equalsIdiEEbRKT_RKT0_.exit.thread
 
-.critedge:                                        ; preds = %40, %33, %_ZN5boost8geometry4math6equalsIdiEEbRKT_RKT0_.exit29, %_ZN5boost8geometry4math6equalsIdiEEbRKT_RKT0_.exit32
-  %46 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %47 = load ptr, ptr %46, align 8, !tbaa !2463
-  %48 = load ptr, ptr %4, align 8, !tbaa !2426
+.critedge:                                        ; preds = %39, %32, %_ZN5boost8geometry4math6equalsIdiEEbRKT_RKT0_.exit29, %_ZN5boost8geometry4math6equalsIdiEEbRKT_RKT0_.exit32
+  %45 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %46 = load ptr, ptr %45, align 8, !tbaa !2463
+  %47 = load ptr, ptr %4, align 8, !tbaa !2426
+  %48 = ptrtoint ptr %46 to i64
   %49 = ptrtoint ptr %47 to i64
-  %50 = ptrtoint ptr %48 to i64
-  %51 = sub i64 %49, %50
-  %52 = ashr exact i64 %51, 4
-  %53 = icmp ult i64 %52, 2
-  br i1 %53, label %54, label %56
+  %50 = sub i64 %48, %49
+  %51 = ashr exact i64 %50, 4
+  %52 = icmp ult i64 %51, 2
+  br i1 %52, label %53, label %55
 
-54:                                               ; preds = %.critedge
-  %55 = sub nuw nsw i64 2, %52
-  tail call void @_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs9cartesianEEESaIS6_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %4, i64 noundef %55)
+53:                                               ; preds = %.critedge
+  %54 = sub nuw nsw i64 2, %51
+  tail call void @_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs9cartesianEEESaIS6_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %4, i64 noundef %54)
   %.pre = load ptr, ptr %4, align 8, !tbaa !174
   %.pre54 = load double, ptr %0, align 8, !tbaa !2338
-  %.pre55 = load ptr, ptr %46, align 8, !tbaa !174
+  %.pre55 = load ptr, ptr %45, align 8, !tbaa !174
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs9cartesianEEESaIS6_EE6resizeEm.exit
 
-56:                                               ; preds = %.critedge
-  %.not = icmp eq i64 %51, 32
-  br i1 %.not, label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs9cartesianEEESaIS6_EE6resizeEm.exit, label %57
+55:                                               ; preds = %.critedge
+  %.not = icmp eq i64 %50, 32
+  br i1 %.not, label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs9cartesianEEESaIS6_EE6resizeEm.exit, label %56
 
-57:                                               ; preds = %56
-  %58 = getelementptr inbounds nuw i8, ptr %48, i64 32
-  %.not.i.i = icmp eq ptr %47, %58
-  br i1 %.not.i.i, label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs9cartesianEEESaIS6_EE6resizeEm.exit, label %59
+56:                                               ; preds = %55
+  %57 = getelementptr inbounds nuw i8, ptr %47, i64 32
+  %.not.i.i = icmp eq ptr %46, %57
+  br i1 %.not.i.i, label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs9cartesianEEESaIS6_EE6resizeEm.exit, label %58
 
-59:                                               ; preds = %57
-  store ptr %58, ptr %46, align 8, !tbaa !2463
+58:                                               ; preds = %56
+  store ptr %57, ptr %45, align 8, !tbaa !2463
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs9cartesianEEESaIS6_EE6resizeEm.exit
 
-_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs9cartesianEEESaIS6_EE6resizeEm.exit: ; preds = %54, %56, %57, %59
-  %60 = phi ptr [ %.pre55, %54 ], [ %47, %56 ], [ %47, %57 ], [ %58, %59 ]
-  %61 = phi double [ %.pre54, %54 ], [ %7, %56 ], [ %7, %57 ], [ %7, %59 ]
-  %62 = phi ptr [ %.pre, %54 ], [ %48, %56 ], [ %48, %57 ], [ %48, %59 ]
-  %63 = tail call double @llvm.fmuladd.f64(double %30, double %28, double %61)
-  store double %63, ptr %62, align 8, !tbaa !2338
-  %64 = load double, ptr %11, align 8, !tbaa !2338
-  %65 = tail call double @llvm.fmuladd.f64(double %31, double %28, double %64)
-  %66 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  store double %65, ptr %66, align 8, !tbaa !2338
-  %67 = getelementptr inbounds i8, ptr %60, i64 -16
-  %68 = load double, ptr %1, align 8, !tbaa !2338
-  %69 = tail call double @llvm.fmuladd.f64(double %30, double %28, double %68)
-  store double %69, ptr %67, align 8, !tbaa !2338
-  %70 = load double, ptr %9, align 8, !tbaa !2338
-  %71 = tail call double @llvm.fmuladd.f64(double %31, double %28, double %70)
-  %72 = getelementptr inbounds i8, ptr %60, i64 -8
-  store double %71, ptr %72, align 8, !tbaa !2338
+_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs9cartesianEEESaIS6_EE6resizeEm.exit: ; preds = %53, %55, %56, %58
+  %59 = phi ptr [ %.pre55, %53 ], [ %46, %55 ], [ %46, %56 ], [ %57, %58 ]
+  %60 = phi double [ %.pre54, %53 ], [ %7, %55 ], [ %7, %56 ], [ %7, %58 ]
+  %61 = phi ptr [ %.pre, %53 ], [ %47, %55 ], [ %47, %56 ], [ %47, %58 ]
+  %62 = tail call double @llvm.fmuladd.f64(double %29, double %27, double %60)
+  store double %62, ptr %61, align 8, !tbaa !2338
+  %63 = load double, ptr %11, align 8, !tbaa !2338
+  %64 = tail call double @llvm.fmuladd.f64(double %30, double %27, double %63)
+  %65 = getelementptr inbounds nuw i8, ptr %61, i64 8
+  store double %64, ptr %65, align 8, !tbaa !2338
+  %66 = getelementptr inbounds i8, ptr %59, i64 -16
+  %67 = load double, ptr %1, align 8, !tbaa !2338
+  %68 = tail call double @llvm.fmuladd.f64(double %29, double %27, double %67)
+  store double %68, ptr %66, align 8, !tbaa !2338
+  %69 = load double, ptr %9, align 8, !tbaa !2338
+  %70 = tail call double @llvm.fmuladd.f64(double %30, double %27, double %69)
+  %71 = getelementptr inbounds i8, ptr %59, i64 -8
+  store double %70, ptr %71, align 8, !tbaa !2338
   br label %_ZN5boost8geometry4math6equalsIdiEEbRKT_RKT0_.exit.thread
 
-_ZN5boost8geometry4math6equalsIdiEEbRKT_RKT0_.exit.thread: ; preds = %_ZN5boost8geometry4math6equalsIdiEEbRKT_RKT0_.exit29.thread, %19, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs9cartesianEEESaIS6_EE6resizeEm.exit, %_ZN5boost8geometry4math6equalsIdiEEbRKT_RKT0_.exit32, %_ZN5boost8geometry4math6equalsIdiEEbRKT_RKT0_.exit, %5
-  %.0 = phi i32 [ 1, %5 ], [ 2, %19 ], [ 2, %_ZN5boost8geometry4math6equalsIdiEEbRKT_RKT0_.exit ], [ 0, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs9cartesianEEESaIS6_EE6resizeEm.exit ], [ 2, %_ZN5boost8geometry4math6equalsIdiEEbRKT_RKT0_.exit32 ], [ 2, %_ZN5boost8geometry4math6equalsIdiEEbRKT_RKT0_.exit29.thread ]
+_ZN5boost8geometry4math6equalsIdiEEbRKT_RKT0_.exit.thread: ; preds = %_ZN5boost8geometry4math6equalsIdiEEbRKT_RKT0_.exit29.thread, %18, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs9cartesianEEESaIS6_EE6resizeEm.exit, %_ZN5boost8geometry4math6equalsIdiEEbRKT_RKT0_.exit32, %_ZN5boost8geometry4math6equalsIdiEEbRKT_RKT0_.exit, %5
+  %.0 = phi i32 [ 1, %5 ], [ 2, %18 ], [ 2, %_ZN5boost8geometry4math6equalsIdiEEbRKT_RKT0_.exit ], [ 0, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs9cartesianEEESaIS6_EE6resizeEm.exit ], [ 2, %_ZN5boost8geometry4math6equalsIdiEEbRKT_RKT0_.exit32 ], [ 2, %_ZN5boost8geometry4math6equalsIdiEEbRKT_RKT0_.exit29.thread ]
   ret i32 %.0
 }
-
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @sqrt(double noundef) local_unnamed_addr #50
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(256) ptr @_ZN5boost8geometry6detail6buffer25buffered_piece_collectionINS0_5model4ringINS4_5pointIdLm2ENS0_2cs9cartesianEEELb1ELb1ESt6vectorSaEENS0_10strategies6buffer9cartesianIvEENS0_8strategy6buffer18distance_symmetricIdEENS1_17no_rescale_policyEE12create_pieceENSH_10piece_typeEb(ptr noundef nonnull align 8 dereferenceable(296) %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #4 comdat align 2 {
@@ -207078,6 +207075,9 @@ declare i64 @llvm.smax.i64(i64, i64) #54
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #54
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.sqrt.f64(double) #54
 
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

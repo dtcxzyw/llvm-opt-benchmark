@@ -279,7 +279,7 @@ define dso_local { <2 x float>, <2 x float> } @_ZNK21btConvexInternalShape24loca
   %9 = load ptr, ptr %8, align 8
   %10 = tail call noundef float %9(ptr noundef nonnull align 8 dereferenceable(72) %0)
   %11 = fcmp une float %10, 0.000000e+00
-  br i1 %11, label %12, label %39
+  br i1 %11, label %12, label %38
 
 12:                                               ; preds = %2
   %13 = extractvalue { <2 x float>, <2 x float> } %6, 1
@@ -299,33 +299,33 @@ define dso_local { <2 x float>, <2 x float> } @_ZNK21btConvexInternalShape24loca
   %19 = fmul float %.sroa.8.0, %.sroa.8.0
   %20 = tail call float @llvm.fmuladd.f32(float %.sroa.06.0, float %.sroa.06.0, float %19)
   %21 = tail call noundef float @llvm.fmuladd.f32(float %.sroa.13.0, float %.sroa.13.0, float %20)
-  %22 = tail call noundef float @sqrtf(float noundef %21) #14, !tbaa !20
-  %23 = fdiv float 1.000000e+00, %22
-  %24 = fmul float %23, %.sroa.06.0
-  %25 = fmul float %23, %.sroa.8.0
-  %26 = fmul float %23, %.sroa.13.0
-  %27 = load ptr, ptr %0, align 8, !tbaa !4
-  %28 = getelementptr inbounds nuw i8, ptr %27, i64 96
-  %29 = load ptr, ptr %28, align 8
-  %30 = tail call noundef float %29(ptr noundef nonnull align 8 dereferenceable(72) %0)
-  %31 = fmul float %30, %24
-  %32 = fmul float %30, %25
-  %33 = fmul float %30, %26
+  %sqrt.i.i = tail call noundef float @llvm.sqrt.f32(float %21)
+  %22 = fdiv float 1.000000e+00, %sqrt.i.i
+  %23 = fmul float %.sroa.06.0, %22
+  %24 = fmul float %.sroa.8.0, %22
+  %25 = fmul float %.sroa.13.0, %22
+  %26 = load ptr, ptr %0, align 8, !tbaa !4
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 96
+  %28 = load ptr, ptr %27, align 8
+  %29 = tail call noundef float %28(ptr noundef nonnull align 8 dereferenceable(72) %0)
+  %30 = fmul float %29, %23
+  %31 = fmul float %29, %24
+  %32 = fmul float %29, %25
   %.sroa.013.0.vec.extract = extractelement <2 x float> %14, i64 0
-  %34 = fadd float %.sroa.013.0.vec.extract, %31
-  %.sroa.013.0.vec.insert = insertelement <2 x float> poison, float %34, i64 0
+  %33 = fadd float %.sroa.013.0.vec.extract, %30
+  %.sroa.013.0.vec.insert = insertelement <2 x float> poison, float %33, i64 0
   %.sroa.013.4.vec.extract = extractelement <2 x float> %14, i64 1
-  %35 = fadd float %.sroa.013.4.vec.extract, %32
-  %.sroa.013.4.vec.insert = insertelement <2 x float> %.sroa.013.0.vec.insert, float %35, i64 1
+  %34 = fadd float %.sroa.013.4.vec.extract, %31
+  %.sroa.013.4.vec.insert = insertelement <2 x float> %.sroa.013.0.vec.insert, float %34, i64 1
   %.sroa.6.8.vec.extract = extractelement <2 x float> %13, i64 0
-  %36 = fadd float %.sroa.6.8.vec.extract, %33
-  %.sroa.6.8.vec.insert = insertelement <2 x float> %13, float %36, i64 0
-  %37 = insertvalue { <2 x float>, <2 x float> } poison, <2 x float> %.sroa.013.4.vec.insert, 0
-  %38 = insertvalue { <2 x float>, <2 x float> } %37, <2 x float> %.sroa.6.8.vec.insert, 1
-  br label %39
+  %35 = fadd float %.sroa.6.8.vec.extract, %32
+  %.sroa.6.8.vec.insert = insertelement <2 x float> %13, float %35, i64 0
+  %36 = insertvalue { <2 x float>, <2 x float> } poison, <2 x float> %.sroa.013.4.vec.insert, 0
+  %37 = insertvalue { <2 x float>, <2 x float> } %36, <2 x float> %.sroa.6.8.vec.insert, 1
+  br label %38
 
-39:                                               ; preds = %12, %2
-  %.fca.1.insert.merged = phi { <2 x float>, <2 x float> } [ %38, %12 ], [ %6, %2 ]
+38:                                               ; preds = %12, %2
+  %.fca.1.insert.merged = phi { <2 x float>, <2 x float> } [ %37, %12 ], [ %6, %2 ]
   ret { <2 x float>, <2 x float> } %.fca.1.insert.merged
 }
 
@@ -360,7 +360,7 @@ define dso_local void @_ZN32btConvexInternalAabbCachingShapeC2Ev(ptr noundef non
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 100
   store float 0.000000e+00, ptr %14, align 4, !tbaa !7
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store i8 0, ptr %15, align 8, !tbaa !21
+  store i8 0, ptr %15, align 8, !tbaa !20
   ret void
 }
 
@@ -397,31 +397,31 @@ define dso_local void @_ZNK32btConvexInternalAabbCachingShape7getAabbERK11btTran
   %33 = fmul float %30, 5.000000e-01
   %34 = fmul float %31, 5.000000e-01
   %35 = fmul float %32, 5.000000e-01
-  %36 = load float, ptr %1, align 4, !tbaa !7, !noalias !24
+  %36 = load float, ptr %1, align 4, !tbaa !7, !noalias !23
   %37 = tail call noundef float @llvm.fabs.f32(float %36)
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %39 = load float, ptr %38, align 4, !tbaa !7, !noalias !24
+  %39 = load float, ptr %38, align 4, !tbaa !7, !noalias !23
   %40 = tail call noundef float @llvm.fabs.f32(float %39)
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %42 = load float, ptr %41, align 4, !tbaa !7, !noalias !24
+  %42 = load float, ptr %41, align 4, !tbaa !7, !noalias !23
   %43 = tail call noundef float @llvm.fabs.f32(float %42)
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %45 = load float, ptr %44, align 4, !tbaa !7, !noalias !24
+  %45 = load float, ptr %44, align 4, !tbaa !7, !noalias !23
   %46 = tail call noundef float @llvm.fabs.f32(float %45)
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %48 = load float, ptr %47, align 4, !tbaa !7, !noalias !24
+  %48 = load float, ptr %47, align 4, !tbaa !7, !noalias !23
   %49 = tail call noundef float @llvm.fabs.f32(float %48)
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %51 = load float, ptr %50, align 4, !tbaa !7, !noalias !24
+  %51 = load float, ptr %50, align 4, !tbaa !7, !noalias !23
   %52 = tail call noundef float @llvm.fabs.f32(float %51)
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %54 = load float, ptr %53, align 4, !tbaa !7, !noalias !24
+  %54 = load float, ptr %53, align 4, !tbaa !7, !noalias !23
   %55 = tail call noundef float @llvm.fabs.f32(float %54)
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  %57 = load float, ptr %56, align 4, !tbaa !7, !noalias !24
+  %57 = load float, ptr %56, align 4, !tbaa !7, !noalias !23
   %58 = tail call noundef float @llvm.fabs.f32(float %57)
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %60 = load float, ptr %59, align 4, !tbaa !7, !noalias !24
+  %60 = load float, ptr %59, align 4, !tbaa !7, !noalias !23
   %61 = tail call noundef float @llvm.fabs.f32(float %60)
   %62 = fmul float %34, %39
   %63 = tail call float @llvm.fmuladd.f32(float %33, float %36, float %62)
@@ -490,10 +490,10 @@ define dso_local void @_ZN32btConvexInternalAabbCachingShape15setLocalScalingERK
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 40
   store <2 x float> %.sroa.3.12.vec.insert.i.i, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !17
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store i8 1, ptr %13, align 8, !tbaa !21
+  store i8 1, ptr %13, align 8, !tbaa !20
   %14 = load atomic i8, ptr @_ZGVZN32btConvexInternalAabbCachingShape15recalcLocalAabbEvE11_directions acquire, align 8
   %15 = icmp eq i8 %14, 0
-  br i1 %15, label %16, label %20, !prof !27
+  br i1 %15, label %16, label %20, !prof !26
 
 16:                                               ; preds = %2
   %17 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN32btConvexInternalAabbCachingShape15recalcLocalAabbEvE11_directions) #14
@@ -546,7 +546,7 @@ define dso_local void @_ZN32btConvexInternalAabbCachingShape15setLocalScalingERK
   store float %37, ptr %38, align 4, !tbaa !7
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.not.i, label %_ZN32btConvexInternalAabbCachingShape15recalcLocalAabbEv.exit, label %28, !llvm.loop !28
+  br i1 %exitcond.not.i, label %_ZN32btConvexInternalAabbCachingShape15recalcLocalAabbEv.exit, label %28, !llvm.loop !27
 
 _ZN32btConvexInternalAabbCachingShape15recalcLocalAabbEv.exit: ; preds = %28
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -557,10 +557,10 @@ _ZN32btConvexInternalAabbCachingShape15recalcLocalAabbEv.exit: ; preds = %28
 define dso_local void @_ZN32btConvexInternalAabbCachingShape15recalcLocalAabbEv(ptr noundef nonnull align 8 dereferenceable(105) initializes((104, 105)) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca [6 x %class.btVector3], align 16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store i8 1, ptr %3, align 8, !tbaa !21
+  store i8 1, ptr %3, align 8, !tbaa !20
   %4 = load atomic i8, ptr @_ZGVZN32btConvexInternalAabbCachingShape15recalcLocalAabbEvE11_directions acquire, align 8
   %5 = icmp eq i8 %4, 0
-  br i1 %5, label %6, label %10, !prof !27
+  br i1 %5, label %6, label %10, !prof !26
 
 6:                                                ; preds = %1
   %7 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN32btConvexInternalAabbCachingShape15recalcLocalAabbEvE11_directions) #14
@@ -617,7 +617,7 @@ define dso_local void @_ZN32btConvexInternalAabbCachingShape15recalcLocalAabbEv(
   store float %28, ptr %29, align 4, !tbaa !7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %18, label %19, !llvm.loop !28
+  br i1 %exitcond.not, label %18, label %19, !llvm.loop !27
 }
 
 ; Function Attrs: nofree nounwind
@@ -697,7 +697,7 @@ define linkonce_odr dso_local noundef ptr @_ZNK21btConvexInternalShape9serialize
   store float %9, ptr %10, align 4, !tbaa !7
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %_ZNK9btVector314serializeFloatER18btVector3FloatData.exit, label %7, !llvm.loop !29
+  br i1 %exitcond.not.i, label %_ZNK9btVector314serializeFloatER18btVector3FloatData.exit, label %7, !llvm.loop !28
 
 _ZNK9btVector314serializeFloatER18btVector3FloatData.exit: ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -712,15 +712,15 @@ _ZNK9btVector314serializeFloatER18btVector3FloatData.exit: ; preds = %7
   store float %15, ptr %16, align 4, !tbaa !7
   %indvars.iv.next.i9 = add nuw nsw i64 %indvars.iv.i8, 1
   %exitcond.not.i10 = icmp eq i64 %indvars.iv.next.i9, 4
-  br i1 %exitcond.not.i10, label %_ZNK9btVector314serializeFloatER18btVector3FloatData.exit11, label %13, !llvm.loop !29
+  br i1 %exitcond.not.i10, label %_ZNK9btVector314serializeFloatER18btVector3FloatData.exit11, label %13, !llvm.loop !28
 
 _ZNK9btVector314serializeFloatER18btVector3FloatData.exit11: ; preds = %13
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %18 = load float, ptr %17, align 8, !tbaa !10
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  store float %18, ptr %19, align 8, !tbaa !30
+  store float %18, ptr %19, align 8, !tbaa !29
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 52
-  store i32 0, ptr %20, align 4, !tbaa !35
+  store i32 0, ptr %20, align 4, !tbaa !34
   ret ptr @.str
 }
 
@@ -753,11 +753,8 @@ declare float @llvm.fabs.f32(float) #10
 ; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fmuladd.f32(float, float, float) #10
 
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare float @sqrtf(float noundef) local_unnamed_addr #11
-
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write)
-declare void @llvm.trap() #12
+declare void @llvm.trap() #11
 
 declare noundef ptr @_ZNK16btCollisionShape9serializeEPvP12btSerializer(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, ptr noundef) unnamed_addr #1
 
@@ -768,7 +765,10 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.sqrt.f32(float) #13
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -781,9 +781,9 @@ attributes #7 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-wid
 attributes #8 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { cold noreturn nounwind memory(inaccessiblemem: write) }
-attributes #13 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #11 = { cold noreturn nounwind memory(inaccessiblemem: write) }
+attributes #12 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #13 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #14 = { nounwind }
 attributes #15 = { noreturn nounwind }
 
@@ -809,19 +809,18 @@ attributes #15 = { noreturn nounwind }
 !17 = !{!9, !9, i64 0}
 !18 = distinct !{!18, !19}
 !19 = !{!"llvm.loop.mustprogress"}
-!20 = !{!14, !14, i64 0}
-!21 = !{!22, !23, i64 104}
-!22 = !{!"_ZTS32btConvexInternalAabbCachingShape", !11, i64 0, !16, i64 72, !16, i64 88, !23, i64 104}
-!23 = !{!"bool", !9, i64 0}
-!24 = !{!25}
-!25 = distinct !{!25, !26, !"_ZNK11btMatrix3x38absoluteEv: argument 0"}
-!26 = distinct !{!26, !"_ZNK11btMatrix3x38absoluteEv"}
-!27 = !{!"branch_weights", i32 1, i32 1048575}
+!20 = !{!21, !22, i64 104}
+!21 = !{!"_ZTS32btConvexInternalAabbCachingShape", !11, i64 0, !16, i64 72, !16, i64 88, !22, i64 104}
+!22 = !{!"bool", !9, i64 0}
+!23 = !{!24}
+!24 = distinct !{!24, !25, !"_ZNK11btMatrix3x38absoluteEv: argument 0"}
+!25 = distinct !{!25, !"_ZNK11btMatrix3x38absoluteEv"}
+!26 = !{!"branch_weights", i32 1, i32 1048575}
+!27 = distinct !{!27, !19}
 !28 = distinct !{!28, !19}
-!29 = distinct !{!29, !19}
-!30 = !{!31, !8, i64 48}
-!31 = !{!"_ZTS25btConvexInternalShapeData", !32, i64 0, !34, i64 16, !34, i64 32, !8, i64 48, !14, i64 52}
-!32 = !{!"_ZTS20btCollisionShapeData", !33, i64 0, !14, i64 8, !9, i64 12}
-!33 = !{!"p1 omnipotent char", !15, i64 0}
-!34 = !{!"_ZTS18btVector3FloatData", !9, i64 0}
-!35 = !{!31, !14, i64 52}
+!29 = !{!30, !8, i64 48}
+!30 = !{!"_ZTS25btConvexInternalShapeData", !31, i64 0, !33, i64 16, !33, i64 32, !8, i64 48, !14, i64 52}
+!31 = !{!"_ZTS20btCollisionShapeData", !32, i64 0, !14, i64 8, !9, i64 12}
+!32 = !{!"p1 omnipotent char", !15, i64 0}
+!33 = !{!"_ZTS18btVector3FloatData", !9, i64 0}
+!34 = !{!30, !14, i64 52}

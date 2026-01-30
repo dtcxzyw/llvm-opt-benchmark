@@ -11533,8 +11533,8 @@ if.then30.i:                                      ; preds = %if.end25.i
   %fneg.i = fneg double %88
   %mul43.i = fmul double %84, %84
   %93 = tail call double @llvm.fmuladd.f64(double %88, double %88, double %mul43.i)
-  %call44.i = tail call double @sqrt(double noundef %93) #28, !tbaa !194
-  %94 = tail call double @llvm.fmuladd.f64(double %86, double %fneg.i, double %call44.i)
+  %sqrt.i = tail call double @llvm.sqrt.f64(double %93)
+  %94 = tail call double @llvm.fmuladd.f64(double %86, double %fneg.i, double %sqrt.i)
   %95 = fneg double %94
   %neg.i = fmul double %91, %95
   %96 = tail call double @llvm.fmuladd.f64(double %81, double 0x3FA47AE147AE147C, double %neg.i)
@@ -16421,6 +16421,9 @@ declare i64 @llvm.umin.i64(i64, i64) #26
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #27
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.sqrt.f64(double) #26
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #26

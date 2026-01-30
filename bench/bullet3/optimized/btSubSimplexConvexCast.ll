@@ -495,54 +495,54 @@ define dso_local noundef zeroext i1 @_ZN22btSubsimplexConvexCast16calcTimeOfImpa
   %.sroa.8.8.vec.extract = extractelement <2 x float> %.sroa.8.0.lcssa, i64 0
   %306 = call noundef float @llvm.fmuladd.f32(float %.sroa.8.8.vec.extract, float %.sroa.8.8.vec.extract, float %305)
   %307 = fcmp ult float %306, 0x3D10000000000000
-  br i1 %307, label %315, label %308
+  br i1 %307, label %314, label %308
 
 308:                                              ; preds = %.critedge
-  %309 = call noundef float @sqrtf(float noundef %306) #11, !tbaa !30
-  %310 = fdiv float 1.000000e+00, %309
-  %311 = fmul float %.sroa.0149.0.vec.extract, %310
-  %.sroa.0.0.vec.insert.i131 = insertelement <2 x float> poison, float %311, i64 0
-  %312 = fmul float %.sroa.0149.4.vec.extract, %310
-  %.sroa.0.4.vec.insert.i132 = insertelement <2 x float> %.sroa.0.0.vec.insert.i131, float %312, i64 1
-  %313 = fmul float %.sroa.8.8.vec.extract, %310
-  %.sroa.8.8.vec.insert.i = insertelement <2 x float> %.sroa.8.0.lcssa, float %313, i64 0
-  %314 = getelementptr inbounds nuw i8, ptr %5, i64 136
-  store <2 x float> %.sroa.0.4.vec.insert.i132, ptr %314, align 8
+  %sqrt.i.i.i = call noundef float @llvm.sqrt.f32(float %306)
+  %309 = fdiv float 1.000000e+00, %sqrt.i.i.i
+  %310 = fmul float %.sroa.0149.0.vec.extract, %309
+  %.sroa.0.0.vec.insert.i131 = insertelement <2 x float> poison, float %310, i64 0
+  %311 = fmul float %.sroa.0149.4.vec.extract, %309
+  %.sroa.0.4.vec.insert.i132 = insertelement <2 x float> %.sroa.0.0.vec.insert.i131, float %311, i64 1
+  %312 = fmul float %.sroa.8.8.vec.extract, %309
+  %.sroa.8.8.vec.insert.i = insertelement <2 x float> %.sroa.8.0.lcssa, float %312, i64 0
+  %313 = getelementptr inbounds nuw i8, ptr %5, i64 136
+  store <2 x float> %.sroa.0.4.vec.insert.i132, ptr %313, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 144
   store <2 x float> %.sroa.8.8.vec.insert.i, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !18
-  br label %317
+  br label %316
 
-315:                                              ; preds = %.critedge
-  %316 = getelementptr inbounds nuw i8, ptr %5, i64 136
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %316, i8 0, i64 16, i1 false)
-  br label %317
+314:                                              ; preds = %.critedge
+  %315 = getelementptr inbounds nuw i8, ptr %5, i64 136
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %315, i8 0, i64 16, i1 false)
+  br label %316
 
-317:                                              ; preds = %315, %308
-  %318 = phi float [ 0.000000e+00, %315 ], [ %313, %308 ]
-  %319 = phi float [ 0.000000e+00, %315 ], [ %312, %308 ]
-  %320 = phi float [ 0.000000e+00, %315 ], [ %311, %308 ]
-  %321 = fmul float %54, %319
-  %322 = call float @llvm.fmuladd.f32(float %320, float %53, float %321)
-  %323 = call noundef float @llvm.fmuladd.f32(float %318, float %55, float %322)
-  %324 = getelementptr inbounds nuw i8, ptr %5, i64 184
-  %325 = load float, ptr %324, align 8, !tbaa !31
-  %326 = fneg float %325
-  %327 = fcmp ult float %323, %326
-  br i1 %327, label %328, label %.critedge60
+316:                                              ; preds = %314, %308
+  %317 = phi float [ 0.000000e+00, %314 ], [ %312, %308 ]
+  %318 = phi float [ 0.000000e+00, %314 ], [ %311, %308 ]
+  %319 = phi float [ 0.000000e+00, %314 ], [ %310, %308 ]
+  %320 = fmul float %54, %318
+  %321 = call float @llvm.fmuladd.f32(float %319, float %53, float %320)
+  %322 = call noundef float @llvm.fmuladd.f32(float %317, float %55, float %321)
+  %323 = getelementptr inbounds nuw i8, ptr %5, i64 184
+  %324 = load float, ptr %323, align 8, !tbaa !30
+  %325 = fneg float %324
+  %326 = fcmp ult float %322, %325
+  br i1 %326, label %327, label %.critedge60
 
-328:                                              ; preds = %317
+327:                                              ; preds = %316
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
-  %329 = load ptr, ptr %17, align 8, !tbaa !7
-  call void @_ZN22btVoronoiSimplexSolver14compute_pointsER9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(357) %329, ptr noundef nonnull align 4 dereferenceable(16) %15, ptr noundef nonnull align 4 dereferenceable(16) %16)
-  %330 = getelementptr inbounds nuw i8, ptr %5, i64 152
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %330, ptr noundef nonnull align 4 dereferenceable(16) %16, i64 16, i1 false), !tbaa.struct !32
+  %328 = load ptr, ptr %17, align 8, !tbaa !7
+  call void @_ZN22btVoronoiSimplexSolver14compute_pointsER9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(357) %328, ptr noundef nonnull align 4 dereferenceable(16) %15, ptr noundef nonnull align 4 dereferenceable(16) %16)
+  %329 = getelementptr inbounds nuw i8, ptr %5, i64 152
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %329, ptr noundef nonnull align 4 dereferenceable(16) %16, i64 16, i1 false), !tbaa.struct !31
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %.critedge60
 
-.critedge60:                                      ; preds = %252, %171, %317, %328
-  %.2 = phi i1 [ false, %317 ], [ true, %328 ], [ false, %171 ], [ false, %252 ]
+.critedge60:                                      ; preds = %252, %171, %316, %327
+  %.2 = phi i1 [ false, %316 ], [ true, %327 ], [ false, %171 ], [ false, %252 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -576,17 +576,17 @@ define linkonce_odr dso_local void @_ZN22btSubsimplexConvexCastD0Ev(ptr noundef 
 ; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fmuladd.f32(float, float, float) #6
 
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare float @sqrtf(float noundef) local_unnamed_addr #7
-
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #8
+declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.sqrt.f32(float) #9
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
@@ -598,9 +598,9 @@ attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #4 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #9 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #11 = { nounwind }
 attributes #12 = { builtin nounwind }
@@ -637,6 +637,5 @@ attributes #12 = { builtin nounwind }
 !27 = distinct !{!27, !28}
 !28 = !{!"llvm.loop.mustprogress"}
 !29 = !{!20, !17, i64 168}
-!30 = !{!25, !25, i64 0}
-!31 = !{!20, !17, i64 184}
-!32 = !{i64 0, i64 16, !18}
+!30 = !{!20, !17, i64 184}
+!31 = !{i64 0, i64 16, !18}

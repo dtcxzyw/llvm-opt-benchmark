@@ -1212,8 +1212,8 @@ _ZNKSt6vectorIN2cv6Point_IiEESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i376: ; preds 
   %504 = sitofp i32 %502 to double
   %505 = fmul double %504, %504
   %506 = call double @llvm.fmuladd.f64(double %503, double %503, double %505)
-  %sqrt.i = call double @llvm.sqrt.f64(double %506)
-  %507 = fptosi double %sqrt.i to i32
+  %sqrt.i.i = call noundef double @llvm.sqrt.f64(double %506)
+  %507 = fptosi double %sqrt.i.i to i32
   %508 = call double @atan2(double noundef %504, double noundef %503) #26, !tbaa !85, !noalias !77
   %509 = sitofp i32 %507 to double
   %510 = icmp sgt i32 %507, 1
@@ -4201,13 +4201,13 @@ declare i64 @llvm.umin.i64(i64, i64) #21
 declare void @llvm.experimental.noalias.scope.decl(metadata) #22
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.sqrt.f64(double) #21
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #21
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #21
-
-; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.sqrt.f64(double) #21
 
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
