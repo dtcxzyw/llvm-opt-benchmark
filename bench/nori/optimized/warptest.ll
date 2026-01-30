@@ -6420,7 +6420,7 @@ declare void @_ZN7nanogui6Widget9add_childEiPS0_(ptr noundef nonnull align 8 der
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN14WarpTestScreen18mouse_button_eventERKN7nanogui5ArrayIiLm2EEEibi(ptr noundef nonnull align 8 dereferenceable(696) %0, ptr noundef nonnull align 4 dereferenceable(8) %1, i32 noundef %2, i1 noundef zeroext %3, i32 noundef %4) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %.sroa.0.i.i.i = alloca <4 x float>, align 16
+  %.sroa.0.i.i.i.sroa.0 = alloca ptr, align 16
   %6 = alloca %"class.Eigen::Quaternion.69", align 16
   br i1 %3, label %7, label %15
 
@@ -6436,13 +6436,13 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN14WarpTestScreen18mouse_button
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 600
   store i8 0, ptr %14, align 8
   store i8 1, ptr %10, align 8
-  br label %58
+  br label %57
 
 15:                                               ; preds = %7, %5
   %16 = tail call noundef zeroext i1 @_ZN7nanogui6Widget18mouse_button_eventERKNS_5ArrayIiLm2EEEibi(ptr noundef nonnull align 8 dereferenceable(140) %0, ptr noundef nonnull align 4 dereferenceable(8) %1, i32 noundef %2, i1 noundef zeroext %3, i32 noundef %4)
   %17 = icmp ne i32 %2, 0
   %or.cond.not = or i1 %17, %16
-  br i1 %or.cond.not, label %58, label %18
+  br i1 %or.cond.not, label %57, label %18
 
 18:                                               ; preds = %15
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 536
@@ -6480,7 +6480,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN14WarpTestScreen18mouse_button
   %45 = xor <4 x i32> %44, <i32 0, i32 0, i32 0, i32 -2147483648>
   %46 = bitcast <4 x i32> %45 to <4 x float>
   %47 = fadd <4 x float> %42, %46
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i.sroa.0)
   %48 = fmul <4 x float> %47, %47
   %49 = shufflevector <4 x float> %48, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %50 = fadd <4 x float> %48, %49
@@ -6491,28 +6491,26 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN14WarpTestScreen18mouse_button
   br i1 %52, label %53, label %_ZNK5Eigen14QuaternionBaseINS_10QuaternionIfLi0EEEE10normalizedEv.exit.i
 
 53:                                               ; preds = %26
-  %54 = tail call float @llvm.sqrt.f32(float %51)
-  store ptr %6, ptr %.sroa.0.i.i.i, align 16, !alias.scope !43, !noalias !46
-  %.sroa.0.i.i.i.12.i.i.i.12.i.i.i.12.i.i.12.i.i.12.i.12.i.12..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i.i, i64 12
-  store float %54, ptr %.sroa.0.i.i.i.12.i.i.i.12.i.i.i.12.i.i.12.i.i.12.i.12.i.12..sroa_idx, align 4, !alias.scope !43, !noalias !46
-  %.sroa.0.i.i.i.0..sroa.0.i.i.i.0..sroa.0.i.i.i.0..sroa.0.i.i.0..sroa.0.i.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..sroa.0.0..i.i.i = load <4 x float>, ptr %.sroa.0.i.i.i, align 16, !noalias !46
-  %55 = shufflevector <4 x float> %.sroa.0.i.i.i.0..sroa.0.i.i.i.0..sroa.0.i.i.i.0..sroa.0.i.i.0..sroa.0.i.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..sroa.0.0..i.i.i, <4 x float> poison, <4 x i32> <i32 3, i32 3, i32 3, i32 3>
-  %56 = fdiv <4 x float> %47, %55
+  store ptr %6, ptr %.sroa.0.i.i.i.sroa.0, align 16, !alias.scope !43, !noalias !46
+  %.sroa.0.i.i.i.sroa.0.3..sroa_idx14 = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i.i.sroa.0, i64 3
+  %.sroa.0.i.i.i.sroa.0.3..sroa.0.i.i.i.sroa.0.3. = load <1 x float>, ptr %.sroa.0.i.i.i.sroa.0.3..sroa_idx14, align 1, !noalias !46
+  %54 = shufflevector <1 x float> %.sroa.0.i.i.i.sroa.0.3..sroa.0.i.i.i.sroa.0.3., <1 x float> poison, <4 x i32> zeroinitializer
+  %55 = fdiv <4 x float> %47, %54
   br label %_ZNK5Eigen14QuaternionBaseINS_10QuaternionIfLi0EEEE10normalizedEv.exit.i
 
 _ZNK5Eigen14QuaternionBaseINS_10QuaternionIfLi0EEEE10normalizedEv.exit.i: ; preds = %53, %26
-  %.sroa.0.0.i.i = phi <4 x float> [ %56, %53 ], [ %47, %26 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i)
+  %.sroa.0.0.i.i = phi <4 x float> [ %55, %53 ], [ %47, %26 ]
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.sroa.0)
   store <4 x float> %.sroa.0.0.i.i, ptr %28, align 4
   br label %_ZN7Arcball6buttonEN4nori7TVectorIiLi2EEEb.exit
 
 _ZN7Arcball6buttonEN4nori7TVectorIiLi2EEEb.exit:  ; preds = %18, %_ZNK5Eigen14QuaternionBaseINS_10QuaternionIfLi0EEEE10normalizedEv.exit.i
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 572
-  store <4 x float> <float 0.000000e+00, float 0.000000e+00, float 0.000000e+00, float 1.000000e+00>, ptr %57, align 4
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 572
+  store <4 x float> <float 0.000000e+00, float 0.000000e+00, float 0.000000e+00, float 1.000000e+00>, ptr %56, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %58
+  br label %57
 
-58:                                               ; preds = %15, %_ZN7Arcball6buttonEN4nori7TVectorIiLi2EEEb.exit, %13
+57:                                               ; preds = %15, %_ZN7Arcball6buttonEN4nori7TVectorIiLi2EEEb.exit, %13
   ret i1 true
 }
 
