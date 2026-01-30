@@ -1358,7 +1358,7 @@ define hidden noundef i32 @_ZNK8G1Policy42calculate_desired_eden_length_before_m
   %umin = tail call i32 @llvm.umin.i32(i32 %26, i32 %27)
   br label %28
 
-28:                                               ; preds = %.lr.ph, %28
+28: ; preds = %.lr.ph, %28
   %.01019 = phi double [ %1, %.lr.ph ], [ %38, %28 ]
   %.sroa.2.018 = phi i32 [ 0, %.lr.ph ], [ %39, %28 ]
   %29 = load ptr, ptr %24, align 8
@@ -1372,7 +1372,7 @@ define hidden noundef i32 @_ZNK8G1Policy42calculate_desired_eden_length_before_m
   %37 = fadd double %33, %36
   %38 = fadd double %.01019, %37
   %39 = add nuw i32 %.sroa.2.018, 1
-  %exitcond = icmp eq i32 %.sroa.2.018, %umin
+  %39 = icmp eq i32 %.sroa.2.018, %umin
   br i1 %exitcond, label %._crit_edge, label %28
 
 ._crit_edge:                                      ; preds = %28, %4

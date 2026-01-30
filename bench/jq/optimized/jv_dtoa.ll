@@ -4246,7 +4246,7 @@ rv_alloc.exit:                                    ; preds = %153, %155
 
 .lr.ph912.preheader:                              ; preds = %.preheader
   %329 = icmp eq i32 %.0511701, 1
-  br i1 %329, label %.lr.ph912._crit_edge, label %.lr.ph1278
+  br i1 %329, label %.lr.ph912._crit_edge, label %.lr.ph1280
 
 330:                                              ; preds = %315
   %331 = icmp slt i32 %.0511701, 0
@@ -4258,23 +4258,23 @@ rv_alloc.exit:                                    ; preds = %153, %155
   %335 = fcmp ugt double %333, %334
   br i1 %335, label %cmp.exit638.thread721, label %cmp.exit638.thread
 
-.lr.ph912:                                        ; preds = %.lr.ph1278
-  %336 = add nuw nsw i32 %.75089101277, 1
+.lr.ph912:                                        ; preds = %.lr.ph1280
+  %336 = add nuw nsw i32 %.75089101279, 1
   %337 = icmp eq i32 %336, %.0511701
-  br i1 %337, label %.lr.ph912._crit_edge, label %.lr.ph1278
+  br i1 %337, label %.lr.ph912._crit_edge, label %.lr.ph1280
 
 .lr.ph912._crit_edge:                             ; preds = %.lr.ph912, %.lr.ph912.preheader
   %.8.add911.lcssa = phi i64 [ 5, %.lr.ph912.preheader ], [ %.8.add, %.lr.ph912 ]
-  %.lcssa1198 = phi double [ %325, %.lr.ph912.preheader ], [ %359, %.lr.ph912 ]
-  %.lcssa1196 = phi i32 [ %322, %.lr.ph912.preheader ], [ %356, %.lr.ph912 ]
-  %338 = fadd double %.lcssa1198, %.lcssa1198
+  %.lcssa1200 = phi double [ %325, %.lr.ph912.preheader ], [ %359, %.lr.ph912 ]
+  %.lcssa1198 = phi i32 [ %322, %.lr.ph912.preheader ], [ %356, %.lr.ph912 ]
+  %338 = fadd double %.lcssa1200, %.lcssa1200
   %339 = fcmp ogt double %338, %318
   br i1 %339, label %.loopexit761, label %340
 
 340:                                              ; preds = %.lr.ph912._crit_edge
   %.ptr752.le = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 %.8.add911.lcssa
   %341 = fcmp une double %338, %318
-  %342 = and i32 %.lcssa1196, 1
+  %342 = and i32 %.lcssa1198, 1
   %.not581 = icmp eq i32 %342, 0
   %or.cond591 = select i1 %341, i1 true, i1 %.not581
   br i1 %or.cond591, label %Bfree.exit692, label %.loopexit761
@@ -4315,12 +4315,12 @@ rv_alloc.exit:                                    ; preds = %153, %155
   store i8 %352, ptr %.ptr749767, align 1, !tbaa !19
   br label %Bfree.exit692
 
-.lr.ph1278:                                       ; preds = %.lr.ph912.preheader, %.lr.ph912
-  %.75089101277 = phi i32 [ %336, %.lr.ph912 ], [ 1, %.lr.ph912.preheader ]
+.lr.ph1280:                                       ; preds = %.lr.ph912.preheader, %.lr.ph912
+  %.75089101279 = phi i32 [ %336, %.lr.ph912 ], [ 1, %.lr.ph912.preheader ]
   %353 = phi double [ %359, %.lr.ph912 ], [ %325, %.lr.ph912.preheader ]
-  %.8.add9111276 = phi i64 [ %.8.add, %.lr.ph912 ], [ 5, %.lr.ph912.preheader ]
+  %.8.add9111278 = phi i64 [ %.8.add, %.lr.ph912 ], [ 5, %.lr.ph912.preheader ]
   %354 = fmul double %353, 1.000000e+01
-  %.8.ptr = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 %.8.add9111276
+  %.8.ptr = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 %.8.add9111278
   %355 = fdiv double %354, %318
   %356 = fptosi double %355 to i32
   %357 = sitofp i32 %356 to double
@@ -4328,7 +4328,7 @@ rv_alloc.exit:                                    ; preds = %153, %155
   %359 = tail call double @llvm.fmuladd.f64(double %358, double %318, double %354)
   %360 = trunc i32 %356 to i8
   %361 = add i8 %360, 48
-  %.8.add = add nuw nsw i64 %.8.add9111276, 1
+  %.8.add = add nuw nsw i64 %.8.add9111278, 1
   store i8 %361, ptr %.8.ptr, align 1, !tbaa !19
   %362 = fcmp une double %359, 0.000000e+00
   br i1 %362, label %.lr.ph912, label %Bfree.exit692.loopexit
@@ -5206,7 +5206,7 @@ Bfree.exit690:                                    ; preds = %708, %713, %714
   store ptr %.7431, ptr %724, align 8, !tbaa !14
   br label %Bfree.exit692
 
-Bfree.exit692.loopexit:                           ; preds = %.lr.ph1278, %.preheader
+Bfree.exit692.loopexit:                           ; preds = %.lr.ph1280, %.preheader
   %.8.add.lcssa905 = phi i64 [ 5, %.preheader ], [ %.8.add, %.lr.ph1278 ]
   %.ptr752.le904 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 %.8.add.lcssa905
   br label %Bfree.exit692
@@ -5248,9 +5248,9 @@ Bfree.exit694:                                    ; preds = %Bfree.exit692, %730
   br i1 %.not585, label %nrv_alloc.exit, label %nrv_alloc.exit.sink.split
 
 nrv_alloc.exit.sink.split:                        ; preds = %Bfree.exit694, %rv_alloc.exit.i608, %._crit_edge.i604, %._crit_edge.i
-  %.sink1188 = phi ptr [ %48, %._crit_edge.i604 ], [ %36, %._crit_edge.i ], [ %64, %rv_alloc.exit.i608 ], [ %.5, %Bfree.exit694 ]
+  %.sink1189 = phi ptr [ %48, %._crit_edge.i604 ], [ %36, %._crit_edge.i ], [ %64, %rv_alloc.exit.i608 ], [ %.5, %Bfree.exit694 ]
   %.0.ph = phi ptr [ %47, %._crit_edge.i604 ], [ %35, %._crit_edge.i ], [ %63, %rv_alloc.exit.i608 ], [ %.ptr747.ptr, %Bfree.exit694 ]
-  store ptr %.sink1188, ptr %6, align 8, !tbaa !43
+  store ptr %.sink1189, ptr %6, align 8, !tbaa !43
   br label %nrv_alloc.exit
 
 nrv_alloc.exit:                                   ; preds = %nrv_alloc.exit.sink.split, %rv_alloc.exit.i608, %._crit_edge.i604, %._crit_edge.i, %Bfree.exit694

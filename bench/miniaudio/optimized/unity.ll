@@ -125479,8 +125479,8 @@ ma_mix_pcm_frames_f32.exit.us:                    ; preds = %.lr.ph, %ma_mix_pcm
   %74 = icmp ne i32 %72, 0
   %75 = select i1 %.not76.us, i1 %74, i1 false
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %76 = icmp ult i32 %73, %2
-  %or.cond24 = select i1 %75, i1 %76, i1 false
+  %75 = icmp ult i32 %73, %2
+  %or.cond24 = select i1 %75, i1 %75, i1 false
   br i1 %or.cond24, label %ma_mix_pcm_frames_f32.exit.us, label %ma_mix_pcm_frames_f32.exit._crit_edge
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %ma_mix_pcm_frames_f32.exit
@@ -125526,8 +125526,8 @@ ma_mix_pcm_frames_f32.exit:                       ; preds = %.lr.ph34.i, %89, %.
   %99 = icmp ne i32 %.pre, 0
   %100 = select i1 %87, i1 %99, i1 false
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %101 = icmp ult i32 %98, %2
-  %or.cond25 = select i1 %100, i1 %101, i1 false
+  %100 = icmp ult i32 %98, %2
+  %or.cond25 = select i1 %100, i1 %100, i1 false
   br i1 %or.cond25, label %.lr.ph.split, label %ma_mix_pcm_frames_f32.exit._crit_edge
 
 ma_mix_pcm_frames_f32.exit._crit_edge:            ; preds = %ma_mix_pcm_frames_f32.exit, %ma_mix_pcm_frames_f32.exit.us

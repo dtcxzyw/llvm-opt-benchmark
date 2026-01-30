@@ -1421,13 +1421,13 @@ exp2f.i.noexc.i:                                  ; preds = %523
   %.not.i = icmp eq i64 %indvars.iv.i, 0
   %719 = add nuw nsw i64 %indvars.iv.i, 4294967295
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %720 = getelementptr inbounds nuw float, ptr %26, i64 %indvars.iv.i
-  %721 = load float, ptr %720, align 4, !tbaa !28
+  %719 = getelementptr inbounds nuw float, ptr %26, i64 %indvars.iv.i
+  %720 = load float, ptr %719, align 4, !tbaa !28
   %722 = and i64 %719, 4294967295
   %723 = select i1 %.not.i, i64 35, i64 %722
   %724 = getelementptr inbounds nuw float, ptr %26, i64 %723
   %725 = load float, ptr %724, align 4, !tbaa !28
-  %726 = fcmp ogt float %721, %725
+  %726 = fcmp ogt float %720, %725
   br i1 %726, label %727, label %_ZNSt6vectorIN2cv8KeyPointESaIS1_EE9push_backERKS1_.exit.i
 
 727:                                              ; preds = %718
@@ -1435,8 +1435,8 @@ exp2f.i.noexc.i:                                  ; preds = %523
   %728 = select i1 %.not170.i, i64 0, i64 %indvars.iv.next.i
   %729 = getelementptr inbounds nuw float, ptr %26, i64 %728
   %730 = load float, ptr %729, align 4, !tbaa !28
-  %731 = fcmp ule float %721, %730
-  %732 = fcmp ult float %721, %715
+  %731 = fcmp ule float %720, %730
+  %732 = fcmp ult float %720, %715
   %or.cond.i = or i1 %732, %731
   br i1 %or.cond.i, label %_ZNSt6vectorIN2cv8KeyPointESaIS1_EE9push_backERKS1_.exit.i, label %733
 
@@ -1445,7 +1445,7 @@ exp2f.i.noexc.i:                                  ; preds = %523
   %735 = uitofp nneg i32 %734 to float
   %736 = fsub float %725, %730
   %737 = fmul float %736, 5.000000e-01
-  %738 = call float @llvm.fmuladd.f32(float %721, float -2.000000e+00, float %725)
+  %738 = call float @llvm.fmuladd.f32(float %720, float -2.000000e+00, float %725)
   %739 = fadd float %738, %730
   %740 = fdiv float %737, %739
   %741 = fadd float %740, %735

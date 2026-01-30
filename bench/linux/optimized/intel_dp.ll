@@ -795,9 +795,9 @@ define dso_local noundef range(i32 0, 256) i32 @intel_dp_dsc_nearest_valid_bpp(p
   %40 = icmp eq ptr %0, null
   br i1 %40, label %44, label %41
 
-41:                                               ; preds = %37
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %43 = load ptr, ptr %42, align 8
+40:                                               ; preds = %37
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %42 = load ptr, ptr %41, align 8
   br label %44
 
 44:                                               ; preds = %41, %37
@@ -808,8 +808,8 @@ define dso_local noundef range(i32 0, 256) i32 @intel_dp_dsc_nearest_valid_bpp(p
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %45, i32 noundef 2, ptr noundef nonnull @.str.8, i32 noundef %1, i32 noundef %48) #16
   br label %49
 
-49:                                               ; preds = %44, %27, %25, %10
-  %50 = phi i32 [ 0, %10 ], [ 0, %25 ], [ %28, %27 ], [ %48, %44 ]
+43:                                               ; preds = %44, %27, %25, %10
+  %44 = phi i32 [ 0, %10 ], [ 0, %25 ], [ %28, %27 ], [ %48, %44 ]
   ret i32 %50
 }
 

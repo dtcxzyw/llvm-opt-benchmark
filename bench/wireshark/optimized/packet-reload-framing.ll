@@ -445,10 +445,10 @@ define internal fastcc i32 @dissect_reload_framing_message(ptr noundef %0, ptr n
   %145 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %146 = load i32, ptr %145, align 4
   %. = select i1 %51, i32 %146, i32 0
-  %.343 = select i1 %51, i32 0, i32 %146
+  %.344 = select i1 %51, i32 0, i32 %146
   store i32 %., ptr %144, align 8
   %147 = getelementptr inbounds nuw i8, ptr %144, i64 4
-  store i32 %.343, ptr %147, align 4
+  store i32 %.344, ptr %147, align 4
   %148 = getelementptr inbounds nuw i8, ptr %144, i64 8
   %149 = getelementptr inbounds nuw i8, ptr %1, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %148, ptr noundef nonnull align 8 dereferenceable(16) %149, i64 16, i1 false)
@@ -619,11 +619,11 @@ proto_item_set_generated.exit280:                 ; preds = %proto_item_set_gene
 
 .thread284:                                       ; preds = %221
   %238 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %152, ptr noundef nonnull @ei_reload_no_dissector)
-  br label %.sink.split346
+  br label %.sink.split347
 
 239:                                              ; preds = %221
   %240 = call i32 @call_dissector_only(ptr noundef nonnull %237, ptr noundef %236, ptr noundef %1, ptr noundef %2, ptr noundef null)
-  br label %.sink.split346
+  br label %.sink.split347
 
 241:                                              ; preds = %proto_item_set_generated.exit280, %proto_item_set_generated.exit274
   %242 = load i32, ptr @hf_reload_framing_type, align 4
@@ -635,7 +635,7 @@ proto_item_set_generated.exit280:                 ; preds = %proto_item_set_gene
   %248 = call ptr @proto_tree_add_item(ptr noundef %154, i32 noundef %247, ptr noundef %0, i32 noundef 5, i32 noundef 4, i32 noundef 0)
   %249 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 5)
   %.not303 = icmp eq i32 %249, 0
-  br i1 %.not303, label %.sink.split346, label %.lr.ph
+  br i1 %.not303, label %.sink.split347, label %.lr.ph
 
 .lr.ph:                                           ; preds = %241, %.outer
   %.0.ph299 = phi ptr [ %.2, %.outer ], [ null, %241 ]
@@ -762,7 +762,7 @@ proto_item_set_generated.exit280:                 ; preds = %proto_item_set_gene
   %.0.ph.lcssa = phi ptr [ %.0.ph299, %.backedge ], [ %.2, %.outer ]
   %.0223.lcssa = phi i32 [ %.0223.be, %.backedge ], [ %307, %.outer ]
   %312 = icmp sgt i32 %.0224.ph.lcssa, -1
-  br i1 %312, label %313, label %.sink.split346
+  br i1 %312, label %313, label %.sink.split347
 
 313:                                              ; preds = %.outer._crit_edge
   %314 = icmp ugt i32 %.0223.lcssa, 1
@@ -807,26 +807,26 @@ proto_item_set_generated.exit280:                 ; preds = %proto_item_set_gene
 332:                                              ; preds = %.sink.split, %319, %315, %313
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %.0.ph.lcssa, ptr noundef nonnull @.str.57)
   %.not.i281 = icmp eq ptr %.0.ph.lcssa, null
-  br i1 %.not.i281, label %.sink.split346, label %333
+  br i1 %.not.i281, label %.sink.split347, label %333
 
 333:                                              ; preds = %332
   %334 = getelementptr inbounds nuw i8, ptr %.0.ph.lcssa, i64 40
   %335 = load ptr, ptr %334, align 8
   %.not5.i282 = icmp eq ptr %335, null
-  br i1 %.not5.i282, label %.sink.split346, label %336
+  br i1 %.not5.i282, label %.sink.split347, label %336
 
 336:                                              ; preds = %333
   %337 = getelementptr inbounds nuw i8, ptr %335, i64 28
   %338 = load i32, ptr %337, align 4
   %339 = or i32 %338, 2
   store i32 %339, ptr %337, align 4
-  br label %.sink.split346
+  br label %.sink.split347
 
-.sink.split346:                                   ; preds = %.outer._crit_edge, %239, %332, %333, %336, %241, %.thread284
+.sink.split347:                                   ; preds = %.outer._crit_edge, %239, %332, %333, %336, %241, %.thread284
   %340 = call i32 @tvb_captured_length(ptr noundef %0)
   br label %341
 
-341:                                              ; preds = %.sink.split346, %23, %33, %30, %28, %26, %10, %14, %4
+341:                                              ; preds = %.sink.split347, %23, %33, %30, %28, %26, %10, %14, %4
   %.0226 = phi i32 [ 0, %4 ], [ 0, %33 ], [ 0, %10 ], [ 0, %26 ], [ 0, %28 ], [ 0, %14 ], [ 0, %23 ], [ 0, %30 ], [ %340, %.sink.split346 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

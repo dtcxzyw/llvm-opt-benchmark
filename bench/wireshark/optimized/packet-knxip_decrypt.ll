@@ -61,20 +61,20 @@ define hidden void @knx_ccm_calc_cbc_mac(ptr noundef %0, ptr noundef %1, ptr nou
   %25 = getelementptr inbounds nuw i8, ptr %10, i64 1
   store i8 %24, ptr %25, align 1
   %26 = or i32 %3, %5
-  %.not = icmp eq i32 %26, 0
-  br i1 %.not, label %._crit_edge60, label %.preheader40
+  %.not55 = icmp eq i32 %26, 0
+  br i1 %.not55, label %._crit_edge61, label %.preheader40
 
 .preheader40:                                     ; preds = %7, %._crit_edge
-  %.059 = phi i8 [ 0, %._crit_edge ], [ 2, %7 ]
-  %.03158 = phi ptr [ %.132.lcssa, %._crit_edge ], [ %2, %7 ]
-  %.03357 = phi i32 [ %.134.lcssa, %._crit_edge ], [ %5, %7 ]
-  %.03556 = phi ptr [ %.136.lcssa, %._crit_edge ], [ %4, %7 ]
-  %.03755 = phi i32 [ %.138.lcssa, %._crit_edge ], [ %3, %7 ]
-  %.not61 = icmp eq i32 %.03755, 0
-  br i1 %.not61, label %.preheader39, label %.lr.ph.preheader
+  %.060 = phi i8 [ 0, %._crit_edge ], [ 2, %7 ]
+  %.03159 = phi ptr [ %.132.lcssa, %._crit_edge ], [ %2, %7 ]
+  %.03358 = phi i32 [ %.134.lcssa, %._crit_edge ], [ %5, %7 ]
+  %.03557 = phi ptr [ %.136.lcssa, %._crit_edge ], [ %4, %7 ]
+  %.03756 = phi i32 [ %.138.lcssa, %._crit_edge ], [ %3, %7 ]
+  %.not62 = icmp eq i32 %.03756, 0
+  br i1 %.not62, label %.preheader39, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.preheader40
-  %27 = zext nneg i8 %.059 to i64
+  %27 = zext nneg i8 %.060 to i64
   br label %.lr.ph
 
 .preheader39.loopexit:                            ; preds = %.lr.ph
@@ -83,9 +83,9 @@ define hidden void @knx_ccm_calc_cbc_mac(ptr noundef %0, ptr noundef %1, ptr nou
 
 .preheader39:                                     ; preds = %.preheader39.loopexit, %.preheader40
   %.138.lcssa = phi i32 [ 0, %.preheader40 ], [ %39, %.preheader39.loopexit ]
-  %.132.lcssa = phi ptr [ %.03158, %.preheader40 ], [ %33, %.preheader39.loopexit ]
-  %.1.lcssa = phi i8 [ %.059, %.preheader40 ], [ %28, %.preheader39.loopexit ]
-  %29 = icmp ne i32 %.03357, 0
+  %.132.lcssa = phi ptr [ %.03159, %.preheader40 ], [ %33, %.preheader39.loopexit ]
+  %.1.lcssa = phi i8 [ %.060, %.preheader40 ], [ %28, %.preheader39.loopexit ]
+  %29 = icmp ne i32 %.03358, 0
   %30 = icmp samesign ult i8 %.1.lcssa, 16
   %31 = and i1 %29, %30
   br i1 %31, label %.lr.ph49.preheader, label %.preheader
@@ -96,8 +96,8 @@ define hidden void @knx_ccm_calc_cbc_mac(ptr noundef %0, ptr noundef %1, ptr nou
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %27, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.13242 = phi ptr [ %.03158, %.lr.ph.preheader ], [ %33, %.lr.ph ]
-  %.13841 = phi i32 [ %.03755, %.lr.ph.preheader ], [ %39, %.lr.ph ]
+  %.13242 = phi ptr [ %.03159, %.lr.ph.preheader ], [ %33, %.lr.ph ]
+  %.13841 = phi i32 [ %.03756, %.lr.ph.preheader ], [ %39, %.lr.ph ]
   %33 = getelementptr i8, ptr %.13242, i64 1
   %34 = load i8, ptr %.13242, align 1
   %35 = getelementptr i8, ptr %0, i64 %indvars.iv
@@ -113,12 +113,12 @@ define hidden void @knx_ccm_calc_cbc_mac(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %42, label %.lr.ph, label %.preheader39.loopexit, !llvm.loop !6
 
 .preheader.loopexit:                              ; preds = %.lr.ph49
-  %43 = trunc nuw nsw i64 %indvars.iv.next69 to i8
+  %43 = trunc nuw nsw i64 %indvars.iv.next70 to i8
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.loopexit, %.preheader39
-  %.136.lcssa = phi ptr [ %.03556, %.preheader39 ], [ %47, %.preheader.loopexit ]
-  %.134.lcssa = phi i32 [ %.03357, %.preheader39 ], [ %53, %.preheader.loopexit ]
+  %.136.lcssa = phi ptr [ %.03557, %.preheader39 ], [ %47, %.preheader.loopexit ]
+  %.134.lcssa = phi i32 [ %.03358, %.preheader39 ], [ %53, %.preheader.loopexit ]
   %.2.lcssa = phi i8 [ %.1.lcssa, %.preheader39 ], [ %43, %.preheader.loopexit ]
   %44 = icmp samesign ult i8 %.2.lcssa, 16
   br i1 %44, label %.lr.ph54.preheader, label %._crit_edge
@@ -126,27 +126,27 @@ define hidden void @knx_ccm_calc_cbc_mac(ptr noundef %0, ptr noundef %1, ptr nou
 .lr.ph54.preheader:                               ; preds = %.preheader
   %45 = zext nneg i8 %.2.lcssa to i64
   %scevgep = getelementptr i8, ptr %10, i64 %45
-  %scevgep71 = getelementptr i8, ptr %0, i64 %45
+  %scevgep72 = getelementptr i8, ptr %0, i64 %45
   %narrow = sub nuw nsw i8 16, %.2.lcssa
   %46 = zext nneg i8 %narrow to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %scevgep, ptr align 1 %scevgep71, i64 %46, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %scevgep, ptr align 1 %scevgep72, i64 %46, i1 false)
   br label %._crit_edge
 
 .lr.ph49:                                         ; preds = %.lr.ph49.preheader, %.lr.ph49
-  %indvars.iv68 = phi i64 [ %32, %.lr.ph49.preheader ], [ %indvars.iv.next69, %.lr.ph49 ]
-  %.13447 = phi i32 [ %.03357, %.lr.ph49.preheader ], [ %53, %.lr.ph49 ]
-  %.13646 = phi ptr [ %.03556, %.lr.ph49.preheader ], [ %47, %.lr.ph49 ]
+  %indvars.iv69 = phi i64 [ %32, %.lr.ph49.preheader ], [ %indvars.iv.next70, %.lr.ph49 ]
+  %.13447 = phi i32 [ %.03358, %.lr.ph49.preheader ], [ %53, %.lr.ph49 ]
+  %.13646 = phi ptr [ %.03557, %.lr.ph49.preheader ], [ %47, %.lr.ph49 ]
   %47 = getelementptr i8, ptr %.13646, i64 1
   %48 = load i8, ptr %.13646, align 1
-  %49 = getelementptr i8, ptr %0, i64 %indvars.iv68
+  %49 = getelementptr i8, ptr %0, i64 %indvars.iv69
   %50 = load i8, ptr %49, align 1
   %51 = xor i8 %50, %48
-  %52 = getelementptr i8, ptr %10, i64 %indvars.iv68
+  %52 = getelementptr i8, ptr %10, i64 %indvars.iv69
   store i8 %51, ptr %52, align 1
   %53 = add i32 %.13447, -1
-  %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
+  %indvars.iv.next70 = add nuw nsw i64 %indvars.iv69, 1
   %54 = icmp ne i32 %53, 0
-  %55 = icmp samesign ult i64 %indvars.iv68, 15
+  %55 = icmp samesign ult i64 %indvars.iv69, 15
   %56 = and i1 %54, %55
   br i1 %56, label %.lr.ph49, label %.preheader.loopexit, !llvm.loop !8
 
@@ -162,11 +162,11 @@ define hidden void @knx_ccm_calc_cbc_mac(ptr noundef %0, ptr noundef %1, ptr nou
   call void @gcry_cipher_close(ptr noundef %62)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %63 = icmp ne i32 %.138.lcssa, 0
-  %64 = icmp ne i32 %.134.lcssa, 0
+  %.not = icmp ne i32 %.134.lcssa, 0
   %65 = select i1 %63, i1 true, i1 %64
   br i1 %65, label %.preheader40, label %._crit_edge60, !llvm.loop !9
 
-._crit_edge60:                                    ; preds = %._crit_edge, %7
+._crit_edge61:                                    ; preds = %._crit_edge, %7
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret void
 }

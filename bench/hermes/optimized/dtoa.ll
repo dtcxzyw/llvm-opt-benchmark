@@ -3580,8 +3580,8 @@ for.cond327.preheader:                            ; preds = %if.then309
   br i1 %tobool335887, label %if.end337.preheader, label %ret1.loopexit
 
 if.end337.preheader:                              ; preds = %for.cond327.preheader
-  %cmp3381188 = icmp eq i32 %ilim.0689, 1
-  br i1 %cmp3381188, label %if.then340, label %for.inc367
+  %cmp3381190 = icmp eq i32 %ilim.0689, 1
+  br i1 %cmp3381190, label %if.then340, label %for.inc367
 
 if.then317:                                       ; preds = %if.then309
   %cmp318 = icmp slt i32 %ilim.0689, 0
@@ -3594,15 +3594,15 @@ lor.lhs.false320:                                 ; preds = %if.then317
   br i1 %cmp322, label %one_digit, label %no_digits
 
 if.end337:                                        ; preds = %for.inc367
-  %inc368 = add nuw nsw i32 %i.78881190, 1
+  %inc368 = add nuw nsw i32 %i.78881192, 1
   %cmp338 = icmp eq i32 %inc368, %ilim.0689
   br i1 %cmp338, label %if.then340, label %for.inc367
 
 if.then340:                                       ; preds = %if.end337, %if.end337.preheader
-  %.lcssa1119 = phi double [ %73, %if.end337.preheader ], [ %80, %if.end337 ]
+  %.lcssa1121 = phi double [ %73, %if.end337.preheader ], [ %80, %if.end337 ]
   %s.8.add890.lcssa = phi i64 [ 5, %if.end337.preheader ], [ %s.8.add, %if.end337 ]
   %conv329889.lcssa = phi i32 [ %conv329883, %if.end337.preheader ], [ %conv329, %if.end337 ]
-  %add341 = fadd double %.lcssa1119, %.lcssa1119
+  %add341 = fadd double %.lcssa1121, %.lcssa1121
   store double %add341, ptr %u, align 8
   %cmp342 = fcmp ogt double %add341, %69
   br i1 %cmp342, label %bump_up, label %lor.lhs.false344
@@ -3652,11 +3652,11 @@ while.end362:                                     ; preds = %while.end362.loopex
   br label %ret1
 
 for.inc367:                                       ; preds = %if.end337.preheader, %if.end337
-  %i.78881190 = phi i32 [ %inc368, %if.end337 ], [ 1, %if.end337.preheader ]
-  %s.8.add8901189 = phi i64 [ %s.8.add, %if.end337 ], [ 5, %if.end337.preheader ]
+  %i.78881192 = phi i32 [ %inc368, %if.end337 ], [ 1, %if.end337.preheader ]
+  %s.8.add8901191 = phi i64 [ %s.8.add, %if.end337 ], [ 5, %if.end337.preheader ]
   %77 = phi double [ %80, %if.end337 ], [ %73, %if.end337.preheader ]
   %mul369 = fmul double %77, 1.000000e+01
-  %s.8.ptr = getelementptr inbounds nuw i8, ptr %rv.0.i.i, i64 %s.8.add8901189
+  %s.8.ptr = getelementptr inbounds nuw i8, ptr %rv.0.i.i, i64 %s.8.add8901191
   %div328 = fdiv double %mul369, %69
   %conv329 = fptosi double %div328 to i32
   %conv330 = sitofp i32 %conv329 to double
@@ -3665,7 +3665,7 @@ for.inc367:                                       ; preds = %if.end337.preheader
   store double %78, ptr %u, align 8
   %79 = trunc i32 %conv329 to i8
   %conv333 = add i8 %79, 48
-  %s.8.add = add nuw nsw i64 %s.8.add8901189, 1
+  %s.8.add = add nuw nsw i64 %s.8.add8901191, 1
   store i8 %conv333, ptr %s.8.ptr, align 1
   %80 = load double, ptr %u, align 8
   %tobool335 = fcmp une double %80, 0.000000e+00

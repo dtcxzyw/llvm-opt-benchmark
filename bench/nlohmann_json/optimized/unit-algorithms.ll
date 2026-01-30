@@ -38080,7 +38080,7 @@ _ZSt8distanceIN8nlohmann16json_abi_v3_11_36detail9iter_implINS1_10basic_jsonISt3
   %34 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8nlohmann16json_abi_v3_11_36detail9iter_implINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEEdeEv(ptr noundef nonnull align 8 dereferenceable(32) %4)
   %35 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8nlohmann16json_abi_v3_11_36detail9iter_implINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEEdeEv(ptr noundef nonnull align 8 dereferenceable(32) %5)
   %36 = call noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_3ltERKNS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvEESF_(ptr noundef nonnull align 8 dereferenceable(16) %34, ptr noundef nonnull align 8 dereferenceable(16) %35) #28
-  br i1 %36, label %_ZSt15__is_heap_untilIN8nlohmann16json_abi_v3_11_36detail9iter_implINS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEElN9__gnu_cxx5__ops15_Iter_less_iterEET0_T_SL_RT1_.exit, label %37
+  br i1 %36, label %_ZSt15__is_heap_untilIN8nlohmann16json_abi_v3_11_36detail9iter_implINS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEElN9__gnu_cxx5__ops15_Iter_less_iterEET0_T_SL_RT1_.exit.loopexit, label %37
 
 37:                                               ; preds = %31
   %38 = and i64 %.01118.i, 1
@@ -38088,18 +38088,18 @@ _ZSt8distanceIN8nlohmann16json_abi_v3_11_36detail9iter_implINS1_10basic_jsonISt3
   %spec.select.i = add nuw nsw i64 %39, %.01217.i
   %40 = add nuw nsw i64 %.01118.i, 1
   %exitcond.not.i = icmp eq i64 %.01118.i, %.02.i.i
-  br i1 %exitcond.not.i, label %_ZSt15__is_heap_untilIN8nlohmann16json_abi_v3_11_36detail9iter_implINS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEElN9__gnu_cxx5__ops15_Iter_less_iterEET0_T_SL_RT1_.exit, label %31, !llvm.loop !1015
+  br i1 %exitcond.not.i, label %_ZSt15__is_heap_untilIN8nlohmann16json_abi_v3_11_36detail9iter_implINS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEElN9__gnu_cxx5__ops15_Iter_less_iterEET0_T_SL_RT1_.exit.loopexit, label %31, !llvm.loop !1015
 
-_ZSt15__is_heap_untilIN8nlohmann16json_abi_v3_11_36detail9iter_implINS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEElN9__gnu_cxx5__ops15_Iter_less_iterEET0_T_SL_RT1_.exit: ; preds = %31, %37, %_ZSt8distanceIN8nlohmann16json_abi_v3_11_36detail9iter_implINS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEEENSt15iterator_traitsIT_E15difference_typeESJ_SJ_.exit.thread, %_ZSt8distanceIN8nlohmann16json_abi_v3_11_36detail9iter_implINS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEEENSt15iterator_traitsIT_E15difference_typeESJ_SJ_.exit
-  %spec.select15.i = phi i64 [ 1, %_ZSt8distanceIN8nlohmann16json_abi_v3_11_36detail9iter_implINS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEEENSt15iterator_traitsIT_E15difference_typeESJ_SJ_.exit ], [ 0, %_ZSt8distanceIN8nlohmann16json_abi_v3_11_36detail9iter_implINS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEEENSt15iterator_traitsIT_E15difference_typeESJ_SJ_.exit.thread ], [ %27, %37 ], [ %.01118.i, %31 ]
+_ZSt15__is_heap_untilIN8nlohmann16json_abi_v3_11_36detail9iter_implINS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEElN9__gnu_cxx5__ops15_Iter_less_iterEET0_T_SL_RT1_.exit.loopexit: ; preds = %31, %37, %_ZSt8distanceIN8nlohmann16json_abi_v3_11_36detail9iter_implINS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEEENSt15iterator_traitsIT_E15difference_typeESJ_SJ_.exit.thread, %_ZSt8distanceIN8nlohmann16json_abi_v3_11_36detail9iter_implINS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEEENSt15iterator_traitsIT_E15difference_typeESJ_SJ_.exit
+  %.011.lcssa.i.ph = phi i64 [ 1, %_ZSt8distanceIN8nlohmann16json_abi_v3_11_36detail9iter_implINS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEEENSt15iterator_traitsIT_E15difference_typeESJ_SJ_.exit ], [ 0, %_ZSt8distanceIN8nlohmann16json_abi_v3_11_36detail9iter_implINS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEEENSt15iterator_traitsIT_E15difference_typeESJ_SJ_.exit.thread ], [ %27, %37 ], [ %.01118.i, %31 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.experimental.noalias.scope.decl(metadata !1016)
-  %41 = load ptr, ptr %1, align 8, !tbaa !25, !noalias !1016
-  store ptr %41, ptr %0, align 8, !tbaa !25, !alias.scope !1016
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %42, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false), !tbaa.struct !52
-  %43 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN8nlohmann16json_abi_v3_11_36detail9iter_implINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEEpLEl(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %spec.select15.i)
+  %42 = load ptr, ptr %1, align 8, !tbaa !25, !noalias !1016
+  store ptr %42, ptr %0, align 8, !tbaa !25, !alias.scope !1016
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %43, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false), !tbaa.struct !52
+  %44 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN8nlohmann16json_abi_v3_11_36detail9iter_implINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEEpLEl(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %.011.lcssa.i.ph)
   ret void
 }
 

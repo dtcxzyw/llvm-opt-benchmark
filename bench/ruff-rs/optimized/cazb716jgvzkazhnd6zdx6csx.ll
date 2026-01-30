@@ -64442,11 +64442,11 @@ define internal fastcc void @_ZN11ruff_linter5rules11pycodestyle5rules17lambda_a
   %11 = invoke { i64, ptr } @"_ZN15ruff_python_ast10expression154_$LT$impl$u20$core..convert..From$LT$$RF$alloc..boxed..Box$LT$ruff_python_ast..generated..Expr$GT$$GT$$u20$for$u20$ruff_python_ast..generated..ExprRef$GT$4from17h0d57f84169259fbfE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %2)
           to label %14 unwind label %12
 
-12:                                               ; preds = %.invoke24, %.invoke, %66, %.noexc5, %.noexc, %37, %167, %165, %30, %27, %24, %22, %18, %14, %4
+12:                                               ; preds = %.invoke24, %.invoke, %66, %.noexc5, %.noexc, %37, %168, %166, %30, %27, %24, %22, %18, %14, %4
   %13 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hba79b7f9900aea78E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1) #41
-          to label %172 unwind label %170
+          to label %172 unwind label %171
 
 14:                                               ; preds = %4
   %15 = extractvalue { i64, ptr } %11, 0
@@ -64730,48 +64730,48 @@ define internal fastcc void @_ZN11ruff_linter5rules11pycodestyle5rules17lambda_a
   br i1 %158, label %._crit_edge.thread.i, label %.lr.ph.i
 
 ._crit_edge.thread.i:                             ; preds = %"_ZN87_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17hfdd971b4e5c80bc6E.exit.i.i", %149, %._crit_edge.i
-  %.sroa.11.1.ph.i.i = phi i64 [ 0, %._crit_edge.i ], [ %99, %149 ], [ 0, %"_ZN87_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17hfdd971b4e5c80bc6E.exit.i.i" ]
-  %159 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 %.sroa.11.1.ph.i.i, ptr %159, align 8, !alias.scope !9228, !noalias !9247
+  %159 = phi i64 [ 0, %._crit_edge.i ], [ %99, %149 ], [ 0, %"_ZN87_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17hfdd971b4e5c80bc6E.exit.i.i" ]
+  %160 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store i64 %159, ptr %160, align 8, !alias.scope !9228, !noalias !9247
   br label %"_ZN87_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17hfdd971b4e5c80bc6E.exit.thread7.i.i"
 
 "_ZN87_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17hfdd971b4e5c80bc6E.exit.thread7.i.i": ; preds = %._crit_edge.thread.i, %._crit_edge.i, %.preheader.i.i
   %storemerge.i.i = phi i64 [ 1, %._crit_edge.thread.i ], [ 0, %.preheader.i.i ], [ 0, %._crit_edge.i ]
   store i64 %storemerge.i.i, ptr %6, align 8, !alias.scope !9228, !noalias !9247
-  br label %160
+  br label %161
 
-160:                                              ; preds = %.invoke, %"_ZN87_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17hfdd971b4e5c80bc6E.exit.thread7.i.i"
-  %161 = load i64, ptr %6, align 8, !range !233, !noalias !9225, !noundef !3
-  %162 = trunc nuw i64 %161 to i1
-  %163 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %164 = load i64, ptr %163, align 8, !noalias !9225
+161:                                              ; preds = %.invoke, %"_ZN87_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17hfdd971b4e5c80bc6E.exit.thread7.i.i"
+  %162 = load i64, ptr %6, align 8, !range !233, !noalias !9225, !noundef !3
+  %163 = trunc nuw i64 %162 to i1
+  %164 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %165 = load i64, ptr %164, align 8, !noalias !9225
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !9225
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !9225
-  br i1 %162, label %165, label %167, !prof !9
+  br i1 %163, label %166, label %168, !prof !9
 
-165:                                              ; preds = %160
-  %166 = add i64 %164, 3
-  invoke void @_ZN5alloc6string6String13replace_range17h5b847a4f92ad2ea1E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %164, i64 noundef %166, ptr noalias noundef nonnull readonly align 1 %67, i64 noundef %68)
+166:                                              ; preds = %161
+  %167 = add i64 %165, 3
+  invoke void @_ZN5alloc6string6String13replace_range17h5b847a4f92ad2ea1E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %165, i64 noundef %167, ptr noalias noundef nonnull readonly align 1 %67, i64 noundef %68)
           to label %169 unwind label %12
 
-167:                                              ; preds = %160
+168:                                              ; preds = %161
   invoke void @_ZN4core6option13unwrap_failed17haa1cd4d2df4f1dcbE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.814f0bdf02fb37ec5ace91213a028c11.563) #43
           to label %168 unwind label %12
 
-168:                                              ; preds = %167
+169:                                              ; preds = %168
   unreachable
 
-169:                                              ; preds = %165
+170:                                              ; preds = %166
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   ret void
 
-170:                                              ; preds = %12
-  %171 = landingpad { ptr, i32 }
+171:                                              ; preds = %12
+  %172 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #42
   unreachable
 
-172:                                              ; preds = %12
+173:                                              ; preds = %12
   resume { ptr, i32 } %13
 }
 

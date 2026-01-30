@@ -518,13 +518,13 @@ _ZN6icu_7712_GLOBAL__N_17moonAgeEd.exit:          ; preds = %7
   br i1 %37, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %_ZN6icu_7712_GLOBAL__N_17moonAgeEd.exit, %40
-  %.154 = phi i32 [ %41, %40 ], [ %spec.select, %_ZN6icu_7712_GLOBAL__N_17moonAgeEd.exit ]
+  %.152 = phi i32 [ %41, %40 ], [ %spec.select, %_ZN6icu_7712_GLOBAL__N_17moonAgeEd.exit ]
   %38 = load i32, ptr %2, align 4, !tbaa !9
   %39 = icmp slt i32 %38, 1
   br i1 %39, label %40, label %.loopexit
 
 40:                                               ; preds = %.lr.ph
-  %41 = add i32 %.154, -1
+  %41 = add i32 %.152, -1
   %42 = call fastcc noundef i32 @_ZN6icu_7712_GLOBAL__N_114trueMonthStartEiR10UErrorCode(i32 noundef %41, ptr noundef nonnull align 4 dereferenceable(4) %2)
   %43 = icmp sgt i32 %42, %12
   br i1 %43, label %.lr.ph, label %._crit_edge, !llvm.loop !27

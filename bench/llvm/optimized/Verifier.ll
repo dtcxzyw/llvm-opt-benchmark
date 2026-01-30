@@ -2715,13 +2715,13 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_18Verifier6verifyERKN
 
 142:                                              ; preds = %136, %2
   %143 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %.sroa.052.0131 = load ptr, ptr %143, align 8, !tbaa !289
-  %.not61132 = icmp eq ptr %.sroa.052.0131, %133
-  br i1 %.not61132, label %._crit_edge, label %.lr.ph
+  %.sroa.052.0132 = load ptr, ptr %143, align 8, !tbaa !289
+  %.not61133 = icmp eq ptr %.sroa.052.0132, %133
+  br i1 %.not61133, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %142, %_ZN4llvm11raw_ostreamlsEPKc.exit22
-  %.sroa.052.0133 = phi ptr [ %.sroa.052.0, %_ZN4llvm11raw_ostreamlsEPKc.exit22 ], [ %.sroa.052.0131, %142 ]
-  %144 = getelementptr inbounds nuw i8, ptr %.sroa.052.0133, i64 24
+  %.sroa.052.0134 = phi ptr [ %.sroa.052.0, %_ZN4llvm11raw_ostreamlsEPKc.exit22 ], [ %.sroa.052.0132, %142 ]
+  %144 = getelementptr inbounds nuw i8, ptr %.sroa.052.0134, i64 24
   %145 = load ptr, ptr %144, align 8, !tbaa !290
   %146 = icmp eq ptr %144, %145
   br i1 %146, label %152, label %147
@@ -2734,7 +2734,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_18Verifier6verifyERKN
   br i1 %151, label %_ZN4llvm11raw_ostreamlsEPKc.exit22, label %152
 
 152:                                              ; preds = %147, %.lr.ph
-  %153 = getelementptr inbounds i8, ptr %.sroa.052.0133, i64 -24
+  %153 = getelementptr inbounds i8, ptr %.sroa.052.0134, i64 -24
   %154 = load ptr, ptr %0, align 8, !tbaa !64
   %.not = icmp eq ptr %154, null
   br i1 %.not, label %1593, label %155
@@ -2840,7 +2840,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit19:               ; preds = %193, %195
   br label %1593
 
 _ZN4llvm11raw_ostreamlsEPKc.exit22:               ; preds = %147
-  %212 = getelementptr inbounds nuw i8, ptr %.sroa.052.0133, i64 8
+  %212 = getelementptr inbounds nuw i8, ptr %.sroa.052.0134, i64 8
   %.sroa.052.0 = load ptr, ptr %212, align 8, !tbaa !289
   %.not61 = icmp eq ptr %.sroa.052.0, %133
   br i1 %.not61, label %._crit_edge, label %.lr.ph

@@ -8784,7 +8784,7 @@ PyByteArray_AS_STRING.exit.i:                     ; preds = %34, %.thread59
   br i1 %.not64.i.i, label %.critedge.i.i, label %.critedge2.i.i, !llvm.loop !169
 
 .critedge2.i.i:                                   ; preds = %56, %.critedge.i.i
-  %.3.in.lcssa.i.i = phi i64 [ 0, %.critedge.i.i ], [ %.3.in.i.i, %56 ]
+  %.3.lcssa.i.i = phi i64 [ 0, %.critedge.i.i ], [ %.3.in.i.i, %56 ]
   %.3.lcssa.i.i = phi i64 [ -1, %.critedge.i.i ], [ %.3.i.i, %56 ]
   %63 = getelementptr i8, ptr %.0.i.i, i64 %.3.in.lcssa.i.i
   %64 = add nuw i64 %.214.i.i, 1

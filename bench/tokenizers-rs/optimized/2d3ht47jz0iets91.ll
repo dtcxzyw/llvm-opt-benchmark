@@ -7663,7 +7663,7 @@ define hidden { i64, i64 } @_ZN4core4iter6traits12double_ended19DoubleEndedItera
   br i1 %.not, label %12, label %5
 
 12:                                               ; preds = %5, %8
-  %.sroa.0.0 = phi i64 [ 1, %5 ], [ 0, %8 ]
+  %.sroa.3.0 = phi i64 [ 1, %5 ], [ 0, %8 ]
   %13 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %14 = insertvalue { i64, i64 } %13, i64 %.0, 1
   ret { i64, i64 } %14
@@ -17016,7 +17016,7 @@ define hidden { i64, i64 } @"_ZN98_$LT$core..iter..adapters..rev..Rev$LT$I$GT$$u
   br i1 %.not.i, label %_ZN4core4iter6traits12double_ended19DoubleEndedIterator9try_rfold17h16b26c099f5fee73E.llvm.14140520316429159617.exit, label %5
 
 _ZN4core4iter6traits12double_ended19DoubleEndedIterator9try_rfold17h16b26c099f5fee73E.llvm.14140520316429159617.exit: ; preds = %5, %8
-  %.sroa.0.0.i = phi i64 [ 1, %5 ], [ 0, %8 ]
+  %.sroa.3.0.i = phi i64 [ 1, %5 ], [ 0, %8 ]
   %12 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
   %13 = insertvalue { i64, i64 } %12, i64 %.0.i, 1
   ret { i64, i64 } %13

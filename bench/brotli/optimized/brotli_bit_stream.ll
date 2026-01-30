@@ -1094,8 +1094,8 @@ InitBlockEncoder.exit198:                         ; preds = %InitBlockEncoder.ex
   %117 = add i64 %96, 6
   store i64 %117, ptr %13, align 8, !tbaa !3, !alias.scope !208, !noalias !211
   %118 = load i64, ptr %12, align 8, !tbaa !171
-  %.not260 = icmp eq i64 %118, 0
-  br i1 %.not260, label %._crit_edge, label %.lr.ph
+  %.not258 = icmp eq i64 %118, 0
+  br i1 %.not258, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %InitBlockEncoder.exit198
   %119 = zext i32 %9 to i64
@@ -1103,7 +1103,7 @@ InitBlockEncoder.exit198:                         ; preds = %InitBlockEncoder.ex
 
 120:                                              ; preds = %.lr.ph, %120
   %121 = phi i64 [ %117, %.lr.ph ], [ %129, %120 ]
-  %.0186240 = phi i64 [ 0, %.lr.ph ], [ %130, %120 ]
+  %.0186238 = phi i64 [ 0, %.lr.ph ], [ %130, %120 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !213)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !216)
   %122 = lshr i64 %121, 3
@@ -1116,7 +1116,7 @@ InitBlockEncoder.exit198:                         ; preds = %InitBlockEncoder.ex
   store i64 %128, ptr %123, align 1, !noalias !213
   %129 = add i64 %121, 2
   store i64 %129, ptr %13, align 8, !tbaa !3, !alias.scope !213, !noalias !216
-  %130 = add nuw i64 %.0186240, 1
+  %130 = add nuw i64 %.0186238, 1
   %131 = load i64, ptr %12, align 8, !tbaa !171
   %132 = icmp ult i64 %130, %131
   br i1 %132, label %120, label %._crit_edge, !llvm.loop !218
@@ -1301,10 +1301,10 @@ BuildAndStoreEntropyCodesCommand.exit:            ; preds = %.lr.ph.i201, %195
 
 BuildAndStoreEntropyCodesDistance.exit:           ; preds = %.lr.ph.i207, %220
   tail call void @BrotliFree(ptr noundef %0, ptr noundef %24) #13
-  %.not261 = icmp eq i64 %11, 0
-  br i1 %.not261, label %._crit_edge259, label %.lr.ph258
+  %.not259 = icmp eq i64 %11, 0
+  br i1 %.not259, label %._crit_edge257, label %.lr.ph256
 
-.lr.ph258:                                        ; preds = %BuildAndStoreEntropyCodesDistance.exit
+.lr.ph256:                                        ; preds = %BuildAndStoreEntropyCodesDistance.exit
   %232 = getelementptr inbounds nuw i8, ptr %23, i64 256
   %233 = getelementptr inbounds nuw i8, ptr %12, i64 144
   %234 = getelementptr inbounds nuw i8, ptr %25, i64 56
@@ -1320,12 +1320,12 @@ BuildAndStoreEntropyCodesDistance.exit:           ; preds = %.lr.ph.i207, %220
   %244 = getelementptr inbounds nuw i8, ptr %25, i64 2840
   br label %245
 
-245:                                              ; preds = %.lr.ph258, %710
-  %.0257 = phi i8 [ %5, %.lr.ph258 ], [ %.3, %710 ]
-  %.0178256 = phi i8 [ %6, %.lr.ph258 ], [ %.3181, %710 ]
-  %.0182255 = phi i64 [ %2, %.lr.ph258 ], [ %561, %710 ]
-  %.1187254 = phi i64 [ 0, %.lr.ph258 ], [ %711, %710 ]
-  %246 = getelementptr inbounds nuw %struct.Command, ptr %10, i64 %.1187254
+245:                                              ; preds = %.lr.ph256, %710
+  %.0255 = phi i8 [ %5, %.lr.ph258 ], [ %.3, %710 ]
+  %.0178254 = phi i8 [ %6, %.lr.ph258 ], [ %.3181, %710 ]
+  %.0182253 = phi i64 [ %2, %.lr.ph258 ], [ %561, %710 ]
+  %.1187252 = phi i64 [ 0, %.lr.ph258 ], [ %711, %710 ]
+  %246 = getelementptr inbounds nuw %struct.Command, ptr %10, i64 %.1187252
   %.sroa.0.0.copyload = load i32, ptr %246, align 4, !tbaa !8
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %246, i64 4
   %.sroa.7.0.copyload = load i32, ptr %.sroa.7.0..sroa_idx, align 4, !tbaa !8
@@ -1361,8 +1361,8 @@ BuildAndStoreEntropyCodesDistance.exit:           ; preds = %.lr.ph.i207, %220
   %264 = shl nuw nsw i32 %263, 1
   %265 = zext nneg i32 %263 to i64
   %266 = lshr i64 %260, %265
-  %narrow262 = add nuw nsw i32 %264, 2
-  %267 = zext nneg i32 %narrow262 to i64
+  %narrow260 = add nuw nsw i32 %264, 2
+  %267 = zext nneg i32 %narrow260 to i64
   %268 = add nuw nsw i64 %266, %267
   br label %GetInsertLengthCode.exit
 
@@ -1393,8 +1393,8 @@ GetInsertLengthCode.exit:                         ; preds = %245, %259, %271, %2
   br i1 %280, label %281, label %283
 
 281:                                              ; preds = %GetInsertLengthCode.exit
-  %narrow236 = add nuw nsw i32 %254, 65534
-  %282 = zext nneg i32 %narrow236 to i64
+  %narrow234 = add nuw nsw i32 %254, 65534
+  %282 = zext nneg i32 %narrow234 to i64
   br label %GetCopyLengthCode.exit
 
 283:                                              ; preds = %GetInsertLengthCode.exit
@@ -1409,8 +1409,8 @@ GetInsertLengthCode.exit:                         ; preds = %245, %259, %271, %2
   %290 = shl nuw nsw i32 %289, 1
   %291 = zext nneg i32 %289 to i64
   %292 = lshr i64 %286, %291
-  %narrow263 = add nuw nsw i32 %290, 4
-  %293 = zext nneg i32 %narrow263 to i64
+  %narrow261 = add nuw nsw i32 %290, 4
+  %293 = zext nneg i32 %narrow261 to i64
   %294 = add nuw nsw i64 %292, %293
   br label %GetCopyLengthCode.exit
 
@@ -1421,8 +1421,8 @@ GetInsertLengthCode.exit:                         ; preds = %245, %259, %271, %2
 297:                                              ; preds = %295
   %298 = add nsw i32 %254, -70
   %299 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %298, i1 true)
-  %narrow237 = sub nuw nsw i32 43, %299
-  %300 = zext nneg i32 %narrow237 to i64
+  %narrow235 = sub nuw nsw i32 43, %299
+  %300 = zext nneg i32 %narrow235 to i64
   br label %GetCopyLengthCode.exit
 
 GetCopyLengthCode.exit:                           ; preds = %281, %285, %295, %297
@@ -1460,19 +1460,19 @@ GetCopyLengthCode.exit:                           ; preds = %281, %285, %295, %2
   store i64 %327, ptr %13, align 8, !tbaa !3, !alias.scope !234, !noalias !237
   %328 = load i64, ptr %133, align 8, !tbaa !219
   %329 = icmp eq i64 %328, 0
-  %.not193249 = icmp eq i32 %.sroa.0.0.copyload, 0
-  br i1 %329, label %.preheader, label %.preheader238
+  %.not193247 = icmp eq i32 %.sroa.0.0.copyload, 0
+  br i1 %329, label %.preheader, label %.preheader236
 
-.preheader238:                                    ; preds = %GetCopyLengthCode.exit
-  br i1 %.not193249, label %.loopexit, label %.lr.ph246
+.preheader236:                                    ; preds = %GetCopyLengthCode.exit
+  br i1 %.not193247, label %.loopexit, label %.lr.ph244
 
 .preheader:                                       ; preds = %GetCopyLengthCode.exit
-  br i1 %.not193249, label %.loopexit, label %.lr.ph252
+  br i1 %.not193247, label %.loopexit, label %.lr.ph250
 
-.lr.ph252:                                        ; preds = %.preheader, %StoreSymbol.exit
-  %.1183251 = phi i64 [ %436, %StoreSymbol.exit ], [ %.0182255, %.preheader ]
-  %.0189250 = phi i64 [ %437, %StoreSymbol.exit ], [ %255, %.preheader ]
-  %330 = and i64 %.1183251, %4
+.lr.ph250:                                        ; preds = %.preheader, %StoreSymbol.exit
+  %.1183249 = phi i64 [ %436, %StoreSymbol.exit ], [ %.0182253, %.preheader ]
+  %.0189248 = phi i64 [ %437, %StoreSymbol.exit ], [ %255, %.preheader ]
+  %330 = and i64 %.1183249, %4
   %331 = getelementptr inbounds nuw i8, ptr %1, i64 %330
   %332 = load i8, ptr %331, align 1, !tbaa !7
   %333 = zext i8 %332 to i64
@@ -1480,7 +1480,7 @@ GetCopyLengthCode.exit:                           ; preds = %281, %285, %295, %2
   %335 = icmp eq i64 %334, 0
   br i1 %335, label %336, label %StoreSymbol.exit
 
-336:                                              ; preds = %.lr.ph252
+336:                                              ; preds = %.lr.ph250
   %337 = load i64, ptr %41, align 8, !tbaa !191
   %338 = add i64 %337, 1
   store i64 %338, ptr %41, align 8, !tbaa !191
@@ -1596,7 +1596,7 @@ GetBlockLengthPrefixCode.exit.i:                  ; preds = %380, %379
   %.pre.i = load i64, ptr %47, align 8, !tbaa !192
   br label %StoreSymbol.exit
 
-StoreSymbol.exit:                                 ; preds = %.lr.ph252, %GetBlockLengthPrefixCode.exit.i
+StoreSymbol.exit:                                 ; preds = %.lr.ph250, %GetBlockLengthPrefixCode.exit.i
   %415 = phi i64 [ %.pre.i, %GetBlockLengthPrefixCode.exit.i ], [ %334, %.lr.ph252 ]
   %416 = add i64 %415, -1
   store i64 %416, ptr %47, align 8, !tbaa !192
@@ -1623,25 +1623,25 @@ StoreSymbol.exit:                                 ; preds = %.lr.ph252, %GetBloc
   store i64 %434, ptr %429, align 1, !noalias !259
   %435 = add i64 %427, %422
   store i64 %435, ptr %13, align 8, !tbaa !3, !alias.scope !259, !noalias !262
-  %436 = add i64 %.1183251, 1
-  %437 = add nsw i64 %.0189250, -1
+  %436 = add i64 %.1183249, 1
+  %437 = add nsw i64 %.0189248, -1
   %.not193 = icmp eq i64 %437, 0
-  br i1 %.not193, label %.loopexit, label %.lr.ph252, !llvm.loop !264
+  br i1 %.not193, label %.loopexit, label %.lr.ph250, !llvm.loop !264
 
-.lr.ph246:                                        ; preds = %.preheader238, %StoreSymbolWithContext.exit
-  %.2245 = phi i8 [ %448, %StoreSymbolWithContext.exit ], [ %.0257, %.preheader238 ]
-  %.2180244 = phi i8 [ %.2245, %StoreSymbolWithContext.exit ], [ %.0178256, %.preheader238 ]
-  %.3185243 = phi i64 [ %558, %StoreSymbolWithContext.exit ], [ %.0182255, %.preheader238 ]
-  %.0188242 = phi i64 [ %559, %StoreSymbolWithContext.exit ], [ %255, %.preheader238 ]
-  %438 = zext i8 %.2245 to i64
+.lr.ph244:                                        ; preds = %.preheader236, %StoreSymbolWithContext.exit
+  %.2243 = phi i8 [ %448, %StoreSymbolWithContext.exit ], [ %.0255, %.preheader238 ]
+  %.2180242 = phi i8 [ %.2243, %StoreSymbolWithContext.exit ], [ %.0178254, %.preheader238 ]
+  %.3185241 = phi i64 [ %558, %StoreSymbolWithContext.exit ], [ %.0182253, %.preheader238 ]
+  %.0188240 = phi i64 [ %559, %StoreSymbolWithContext.exit ], [ %255, %.preheader238 ]
+  %438 = zext i8 %.2243 to i64
   %439 = getelementptr inbounds nuw i8, ptr %23, i64 %438
   %440 = load i8, ptr %439, align 1, !tbaa !7
-  %441 = zext i8 %.2180244 to i64
+  %441 = zext i8 %.2180242 to i64
   %442 = getelementptr inbounds nuw i8, ptr %232, i64 %441
   %443 = load i8, ptr %442, align 1, !tbaa !7
   %444 = or i8 %443, %440
   %445 = zext i8 %444 to i64
-  %446 = and i64 %.3185243, %4
+  %446 = and i64 %.3185241, %4
   %447 = getelementptr inbounds nuw i8, ptr %1, i64 %446
   %448 = load i8, ptr %447, align 1, !tbaa !7
   %449 = zext i8 %448 to i64
@@ -1650,7 +1650,7 @@ StoreSymbol.exit:                                 ; preds = %.lr.ph252, %GetBloc
   %452 = icmp eq i64 %451, 0
   br i1 %452, label %453, label %StoreSymbolWithContext.exit
 
-453:                                              ; preds = %.lr.ph246
+453:                                              ; preds = %.lr.ph244
   %454 = load i64, ptr %41, align 8, !tbaa !191
   %455 = add i64 %454, 1
   store i64 %455, ptr %41, align 8, !tbaa !191
@@ -1762,11 +1762,11 @@ GetBlockLengthPrefixCode.exit.i217:               ; preds = %496, %495
   store i64 %529, ptr %524, align 1, !noalias !275
   %530 = add i64 %520, %521
   store i64 %530, ptr %13, align 8, !tbaa !3, !alias.scope !275, !noalias !278
-  %.pre.i219 = load i64, ptr %47, align 8, !tbaa !192
+  %.pre.i218 = load i64, ptr %47, align 8, !tbaa !192
   br label %StoreSymbolWithContext.exit
 
-StoreSymbolWithContext.exit:                      ; preds = %.lr.ph246, %GetBlockLengthPrefixCode.exit.i217
-  %531 = phi i64 [ %.pre.i219, %GetBlockLengthPrefixCode.exit.i217 ], [ %451, %.lr.ph246 ]
+StoreSymbolWithContext.exit:                      ; preds = %.lr.ph244, %GetBlockLengthPrefixCode.exit.i217
+  %531 = phi i64 [ %.pre.i218, %GetBlockLengthPrefixCode.exit.i217 ], [ %451, %.lr.ph246 ]
   %532 = add i64 %531, -1
   store i64 %532, ptr %47, align 8, !tbaa !192
   %533 = load i64, ptr %48, align 8, !tbaa !239
@@ -1798,15 +1798,15 @@ StoreSymbolWithContext.exit:                      ; preds = %.lr.ph246, %GetBloc
   store i64 %556, ptr %551, align 1, !noalias !280
   %557 = add i64 %549, %544
   store i64 %557, ptr %13, align 8, !tbaa !3, !alias.scope !280, !noalias !283
-  %558 = add i64 %.3185243, 1
-  %559 = add nsw i64 %.0188242, -1
+  %558 = add i64 %.3185241, 1
+  %559 = add nsw i64 %.0188240, -1
   %.not192 = icmp eq i64 %559, 0
-  br i1 %.not192, label %.loopexit, label %.lr.ph246, !llvm.loop !285
+  br i1 %.not192, label %.loopexit, label %.lr.ph244, !llvm.loop !285
 
-.loopexit:                                        ; preds = %StoreSymbolWithContext.exit, %StoreSymbol.exit, %.preheader238, %.preheader
-  %.2184 = phi i64 [ %436, %StoreSymbol.exit ], [ %.0182255, %.preheader ], [ %.0182255, %.preheader238 ], [ %558, %StoreSymbolWithContext.exit ]
-  %.1179 = phi i8 [ %.0178256, %StoreSymbol.exit ], [ %.0178256, %.preheader ], [ %.0178256, %.preheader238 ], [ %.2245, %StoreSymbolWithContext.exit ]
-  %.1 = phi i8 [ %.0257, %StoreSymbol.exit ], [ %.0257, %.preheader ], [ %.0257, %.preheader238 ], [ %448, %StoreSymbolWithContext.exit ]
+.loopexit:                                        ; preds = %StoreSymbolWithContext.exit, %StoreSymbol.exit, %.preheader236, %.preheader
+  %.2184 = phi i64 [ %436, %StoreSymbol.exit ], [ %.0182253, %.preheader ], [ %.0182253, %.preheader238 ], [ %558, %StoreSymbolWithContext.exit ]
+  %.1179 = phi i8 [ %.0178254, %StoreSymbol.exit ], [ %.0178254, %.preheader ], [ %.0178254, %.preheader238 ], [ %.2243, %StoreSymbolWithContext.exit ]
+  %.1 = phi i8 [ %.0255, %StoreSymbol.exit ], [ %.0255, %.preheader ], [ %.0255, %.preheader238 ], [ %448, %StoreSymbolWithContext.exit ]
   %560 = zext nneg i32 %253 to i64
   %561 = add i64 %.2184, %560
   %.not194 = icmp eq i32 %253, 0
@@ -1855,7 +1855,7 @@ StoreSymbolWithContext.exit:                      ; preds = %.lr.ph246, %GetBloc
   %591 = load ptr, ptr %239, align 8, !tbaa !224
   %592 = load i64, ptr %92, align 8, !tbaa !192
   %593 = icmp eq i64 %592, 0
-  br i1 %593, label %594, label %StoreSymbolWithContext.exit228
+  br i1 %593, label %594, label %StoreSymbolWithContext.exit226
 
 594:                                              ; preds = %581
   %595 = load i64, ptr %86, align 8, !tbaa !191
@@ -1875,16 +1875,16 @@ StoreSymbolWithContext.exit:                      ; preds = %.lr.ph246, %GetBloc
   %606 = load i64, ptr %84, align 8, !tbaa !189
   %607 = add i64 %606, 1
   %608 = icmp eq i64 %607, %604
-  br i1 %608, label %StoreBlockSwitch.exit.i220, label %609
+  br i1 %608, label %StoreBlockSwitch.exit.i219, label %609
 
 609:                                              ; preds = %594
   %610 = load i64, ptr %85, align 8, !tbaa !190
   %611 = icmp eq i64 %610, %604
   %612 = add nuw nsw i64 %604, 2
   %613 = select i1 %611, i64 0, i64 %612
-  br label %StoreBlockSwitch.exit.i220
+  br label %StoreBlockSwitch.exit.i219
 
-StoreBlockSwitch.exit.i220:                       ; preds = %609, %594
+StoreBlockSwitch.exit.i219:                       ; preds = %609, %594
   %614 = phi i64 [ %613, %609 ], [ 1, %594 ]
   store i64 %606, ptr %85, align 8, !tbaa !190
   store i64 %604, ptr %84, align 8, !tbaa !189
@@ -1915,21 +1915,21 @@ StoreBlockSwitch.exit.i220:                       ; preds = %609, %594
   %635 = select i1 %630, i64 %632, i64 %634
   br label %636
 
-636:                                              ; preds = %637, %StoreBlockSwitch.exit.i220
-  %indvars.iv.i221 = phi i64 [ %indvars.iv.next.i223, %637 ], [ %635, %StoreBlockSwitch.exit.i220 ]
-  %exitcond.not.i222 = icmp eq i64 %indvars.iv.i221, 25
-  br i1 %exitcond.not.i222, label %GetBlockLengthPrefixCode.exit.i225, label %637
+636:                                              ; preds = %637, %StoreBlockSwitch.exit.i219
+  %indvars.iv.i220 = phi i64 [ %indvars.iv.next.i222, %637 ], [ %635, %StoreBlockSwitch.exit.i220 ]
+  %exitcond.not.i221 = icmp eq i64 %indvars.iv.i220, 25
+  br i1 %exitcond.not.i221, label %GetBlockLengthPrefixCode.exit.i224, label %637
 
 637:                                              ; preds = %636
-  %indvars.iv.next.i223 = add nuw nsw i64 %indvars.iv.i221, 1
-  %638 = getelementptr inbounds nuw %struct.BrotliPrefixCodeRange, ptr @_kBrotliPrefixCodeRanges, i64 %indvars.iv.next.i223
+  %indvars.iv.next.i222 = add nuw nsw i64 %indvars.iv.i220, 1
+  %638 = getelementptr inbounds nuw %struct.BrotliPrefixCodeRange, ptr @_kBrotliPrefixCodeRanges, i64 %indvars.iv.next.i222
   %639 = load i16, ptr %638, align 4, !tbaa !245
   %640 = zext i16 %639 to i32
-  %.not.i.i.i224 = icmp ult i32 %599, %640
-  br i1 %.not.i.i.i224, label %GetBlockLengthPrefixCode.exit.i225, label %636, !llvm.loop !247
+  %.not.i.i.i223 = icmp ult i32 %599, %640
+  br i1 %.not.i.i.i223, label %GetBlockLengthPrefixCode.exit.i224, label %636, !llvm.loop !247
 
-GetBlockLengthPrefixCode.exit.i225:               ; preds = %637, %636
-  %.0.i.i.lcssa.i226 = phi i64 [ 25, %636 ], [ %indvars.iv.i221, %637 ]
+GetBlockLengthPrefixCode.exit.i224:               ; preds = %637, %636
+  %.0.i.i.lcssa.i226 = phi i64 [ 25, %636 ], [ %indvars.iv.i220, %637 ]
   %641 = and i64 %.0.i.i.lcssa.i226, 4294967295
   %642 = getelementptr inbounds nuw %struct.BrotliPrefixCodeRange, ptr @_kBrotliPrefixCodeRanges, i64 %641
   %643 = getelementptr inbounds nuw i8, ptr %642, i64 2
@@ -1969,11 +1969,11 @@ GetBlockLengthPrefixCode.exit.i225:               ; preds = %637, %636
   store i64 %670, ptr %665, align 1, !noalias !301
   %671 = add i64 %661, %662
   store i64 %671, ptr %13, align 8, !tbaa !3, !alias.scope !301, !noalias !304
-  %.pre.i227 = load i64, ptr %92, align 8, !tbaa !192
-  br label %StoreSymbolWithContext.exit228
+  %.pre.i225 = load i64, ptr %92, align 8, !tbaa !192
+  br label %StoreSymbolWithContext.exit226
 
-StoreSymbolWithContext.exit228:                   ; preds = %581, %GetBlockLengthPrefixCode.exit.i225
-  %672 = phi i64 [ %.pre.i227, %GetBlockLengthPrefixCode.exit.i225 ], [ %592, %581 ]
+StoreSymbolWithContext.exit226:                   ; preds = %581, %GetBlockLengthPrefixCode.exit.i224
+  %672 = phi i64 [ %.pre.i225, %GetBlockLengthPrefixCode.exit.i225 ], [ %592, %581 ]
   %673 = add i64 %672, -1
   store i64 %673, ptr %92, align 8, !tbaa !192
   %674 = load i64, ptr %93, align 8, !tbaa !239
@@ -2007,7 +2007,7 @@ StoreSymbolWithContext.exit228:                   ; preds = %581, %GetBlockLengt
   store i64 %698, ptr %13, align 8, !tbaa !3, !alias.scope !306, !noalias !309
   br label %699
 
-699:                                              ; preds = %StoreSymbolWithContext.exit228, %580
+699:                                              ; preds = %StoreSymbolWithContext.exit226, %580
   %700 = phi i64 [ %698, %StoreSymbolWithContext.exit228 ], [ %.pre, %580 ]
   %701 = zext nneg i32 %576 to i64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !286)
@@ -2027,11 +2027,11 @@ StoreSymbolWithContext.exit228:                   ; preds = %581, %GetBlockLengt
 710:                                              ; preds = %562, %699, %.loopexit
   %.3181 = phi i8 [ %566, %699 ], [ %566, %562 ], [ %.1179, %.loopexit ]
   %.3 = phi i8 [ %570, %699 ], [ %570, %562 ], [ %.1, %.loopexit ]
-  %711 = add nuw i64 %.1187254, 1
+  %711 = add nuw i64 %.1187252, 1
   %exitcond.not = icmp eq i64 %711, %11
-  br i1 %exitcond.not, label %._crit_edge259, label %245, !llvm.loop !311
+  br i1 %exitcond.not, label %._crit_edge257, label %245, !llvm.loop !311
 
-._crit_edge259:                                   ; preds = %710, %BuildAndStoreEntropyCodesDistance.exit
+._crit_edge257:                                   ; preds = %710, %BuildAndStoreEntropyCodesDistance.exit
   %712 = getelementptr inbounds nuw i8, ptr %25, i64 2840
   %713 = load ptr, ptr %712, align 8, !tbaa !226
   tail call void @BrotliFree(ptr noundef %0, ptr noundef %713) #13
@@ -2057,7 +2057,7 @@ StoreSymbolWithContext.exit228:                   ; preds = %581, %GetBlockLengt
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %727, label %721
 
-721:                                              ; preds = %._crit_edge259
+721:                                              ; preds = %._crit_edge257
   %722 = load i64, ptr %13, align 8, !tbaa !3
   %723 = add i64 %722, 7
   %724 = and i64 %723, 4294967288
@@ -2067,7 +2067,7 @@ StoreSymbolWithContext.exit228:                   ; preds = %581, %GetBlockLengt
   store i8 0, ptr %726, align 1, !tbaa !7
   br label %727
 
-727:                                              ; preds = %721, %._crit_edge259
+727:                                              ; preds = %721, %._crit_edge257
   ret void
 }
 

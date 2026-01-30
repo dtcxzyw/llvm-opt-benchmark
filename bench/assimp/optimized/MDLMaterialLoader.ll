@@ -1345,7 +1345,7 @@ _ZNSt10unique_ptrI9aiTextureSt14default_deleteIS0_EE5resetEPS0_.exit: ; preds = 
 50:                                               ; preds = %46
   store ptr %49, ptr %38, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %49, ptr nonnull align 1 %1, i64 %48, i1 false)
-  br label %.loopexit213
+  br label %.loopexit212
 
 51:                                               ; preds = %19
   %.not126 = icmp eq i32 %6, 1
@@ -1432,16 +1432,16 @@ _ZNSt10unique_ptrI9aiTextureSt14default_deleteIS0_EE5resetEPS0_.exit142: ; preds
   br label %.preheader
 
 .preheader:                                       ; preds = %85, %87
-  %indvars.iv169 = phi i64 [ 0, %85 ], [ %indvars.iv.next170, %87 ]
+  %indvars.iv168 = phi i64 [ 0, %85 ], [ %indvars.iv.next170, %87 ]
   %86 = trunc i64 %indvars.iv169 to i1
   br label %88
 
-87:                                               ; preds = %88
+87:; preds = %88
   %indvars.iv.next170 = add nuw nsw i64 %indvars.iv169, 1
   %exitcond172.not = icmp eq i64 %indvars.iv.next170, 8
   br i1 %exitcond172.not, label %.loopexit213, label %.preheader, !llvm.loop !14
 
-88:                                               ; preds = %.preheader, %88
+88: ; preds = %.preheader, %88
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %88 ]
   %89 = and i64 %indvars.iv, 1
   %90 = icmp ne i64 %89, 0
@@ -1450,7 +1450,7 @@ _ZNSt10unique_ptrI9aiTextureSt14default_deleteIS0_EE5resetEPS0_.exit142: ; preds
   %92 = load ptr, ptr %76, align 8
   %.idx = shl nuw nsw i64 %indvars.iv, 5
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 %.idx
-  %94 = getelementptr inbounds nuw %struct.aiTexel, ptr %93, i64 %indvars.iv169
+  %94 = getelementptr inbounds nuw %struct.aiTexel, ptr %93, i64 %indvars.iv168
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 1
   store i8 %91, ptr %95, align 1
   store i8 %91, ptr %94, align 1
@@ -1476,7 +1476,7 @@ _ZNSt10unique_ptrI9aiTextureSt14default_deleteIS0_EE5resetEPS0_.exit142: ; preds
   %102 = zext i32 %101 to i64
   %103 = getelementptr inbounds nuw i8, ptr %1, i64 %102
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br label %.loopexit213
+  br label %.loopexit212
 
 104:                                              ; preds = %98
   %105 = landingpad { ptr, i32 }
@@ -1484,7 +1484,7 @@ _ZNSt10unique_ptrI9aiTextureSt14default_deleteIS0_EE5resetEPS0_.exit142: ; preds
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %349
 
-.loopexit213:                                     ; preds = %87, %100, %50
+.loopexit212:                                     ; preds = %87, %100, %50
   %106 = phi ptr [ %75, %100 ], [ %37, %50 ], [ %75, %87 ]
   %.0107 = phi ptr [ %103, %100 ], [ %45, %50 ], [ %1, %87 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
@@ -1494,7 +1494,7 @@ _ZNSt10unique_ptrI9aiTextureSt14default_deleteIS0_EE5resetEPS0_.exit142: ; preds
   %.not.i = icmp eq i32 %108, 0
   br i1 %.not.i, label %.loopexit, label %109
 
-109:                                              ; preds = %.loopexit213
+109:                                              ; preds = %.loopexit212
   %110 = load i32, ptr %106, align 8
   %.not18.i = icmp eq i32 %110, 0
   br i1 %.not18.i, label %.loopexit, label %111
@@ -1570,7 +1570,7 @@ _ZNK7aiTexelneERKS_.exit.i:                       ; preds = %126
           cleanup
   br label %348
 
-.loopexit:                                        ; preds = %118, %121, %126, %_ZNK7aiTexelneERKS_.exit.i, %.loopexit213, %109, %.critedge.i
+.loopexit:                                        ; preds = %118, %121, %126, %_ZNK7aiTexelneERKS_.exit.i, %.loopexit212, %109, %.critedge.i
   %.sroa.5.0.i = phi <2 x float> [ zeroinitializer, %.loopexit213 ], [ zeroinitializer, %109 ], [ %.sroa.5.12.vec.insert.i, %.critedge.i ], [ zeroinitializer, %_ZNK7aiTexelneERKS_.exit.i ], [ zeroinitializer, %126 ], [ zeroinitializer, %121 ], [ zeroinitializer, %118 ]
   %.sroa.0.0.i = phi <2 x float> [ <float 0x7FF8000000000000, float 0.000000e+00>, %.loopexit213 ], [ <float 0x7FF8000000000000, float 0.000000e+00>, %109 ], [ %.sroa.0.4.vec.insert.i, %.critedge.i ], [ <float 0x7FF8000000000000, float 0.000000e+00>, %_ZNK7aiTexelneERKS_.exit.i ], [ <float 0x7FF8000000000000, float 0.000000e+00>, %126 ], [ <float 0x7FF8000000000000, float 0.000000e+00>, %121 ], [ <float 0x7FF8000000000000, float 0.000000e+00>, %118 ]
   store <2 x float> %.sroa.0.0.i, ptr %12, align 8
@@ -1587,12 +1587,12 @@ _ZNK7aiTexelneERKS_.exit.i:                       ; preds = %126
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %153, i8 0, i64 12, i1 false)
   store float 0x7FF8000000000000, ptr %12, align 8
   %154 = and i32 %4, 16
-  %.not128202 = icmp eq i32 %154, 0
-  br i1 %.not128202, label %_ZNSt10unique_ptrI9aiTextureSt14default_deleteIS0_EE5resetEPS0_.exit152, label %155
+  %.not128201 = icmp eq i32 %154, 0
+  br i1 %.not128201, label %_ZNSt10unique_ptrI9aiTextureSt14default_deleteIS0_EE5resetEPS0_.exit152, label %155
 
 155:                                              ; preds = %.thread, %.loopexit
-  %.0107199203 = phi ptr [ %.0107.ph, %.thread ], [ %.0107, %.loopexit ]
-  %156 = getelementptr inbounds nuw i8, ptr %.0107199203, i64 68
+  %.0107198202 = phi ptr [ %.0107.ph, %.thread ], [ %.0107, %.loopexit ]
+  %156 = getelementptr inbounds nuw i8, ptr %.0107198202, i64 68
   invoke void @_ZN6Assimp11MDLImporter9SizeCheckEPKv(ptr noundef nonnull align 8 dereferenceable(159) %0, ptr noundef nonnull %156)
           to label %157 unwind label %175
 
@@ -1603,12 +1603,12 @@ _ZNK7aiTexelneERKS_.exit.i:                       ; preds = %126
   store float 0.000000e+00, ptr %158, align 4
   %159 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store float 0.000000e+00, ptr %159, align 4
-  %160 = load float, ptr %.0107199203, align 1
+  %160 = load float, ptr %.0107198202, align 1
   store float %160, ptr %13, align 4
-  %161 = getelementptr inbounds nuw i8, ptr %.0107199203, i64 4
+  %161 = getelementptr inbounds nuw i8, ptr %.0107198202, i64 4
   %162 = load float, ptr %161, align 1
   store float %162, ptr %158, align 4
-  %163 = getelementptr inbounds nuw i8, ptr %.0107199203, i64 8
+  %163 = getelementptr inbounds nuw i8, ptr %.0107198202, i64 8
   %164 = load float, ptr %163, align 1
   store float %164, ptr %159, align 4
   %165 = load float, ptr %12, align 8
@@ -1643,13 +1643,13 @@ _ZNK7aiTexelneERKS_.exit.i:                       ; preds = %126
           to label %181 unwind label %177
 
 181:                                              ; preds = %179
-  %182 = getelementptr inbounds nuw i8, ptr %.0107199203, i64 32
+  %182 = getelementptr inbounds nuw i8, ptr %.0107198202, i64 32
   %183 = load float, ptr %182, align 1
   store float %183, ptr %13, align 4
-  %184 = getelementptr inbounds nuw i8, ptr %.0107199203, i64 36
+  %184 = getelementptr inbounds nuw i8, ptr %.0107198202, i64 36
   %185 = load float, ptr %184, align 1
   store float %185, ptr %158, align 4
-  %186 = getelementptr inbounds nuw i8, ptr %.0107199203, i64 40
+  %186 = getelementptr inbounds nuw i8, ptr %.0107198202, i64 40
   %187 = load float, ptr %186, align 1
   store float %187, ptr %159, align 4
   %188 = load float, ptr %12, align 8
@@ -1674,13 +1674,13 @@ _ZNK7aiTexelneERKS_.exit.i:                       ; preds = %126
           to label %200 unwind label %177
 
 200:                                              ; preds = %198
-  %201 = getelementptr inbounds nuw i8, ptr %.0107199203, i64 16
+  %201 = getelementptr inbounds nuw i8, ptr %.0107198202, i64 16
   %202 = load float, ptr %201, align 1
   store float %202, ptr %13, align 4
-  %203 = getelementptr inbounds nuw i8, ptr %.0107199203, i64 20
+  %203 = getelementptr inbounds nuw i8, ptr %.0107198202, i64 20
   %204 = load float, ptr %203, align 1
   store float %204, ptr %158, align 4
-  %205 = getelementptr inbounds nuw i8, ptr %.0107199203, i64 24
+  %205 = getelementptr inbounds nuw i8, ptr %.0107198202, i64 24
   %206 = load float, ptr %205, align 1
   store float %206, ptr %159, align 4
   %207 = load float, ptr %12, align 8
@@ -1705,20 +1705,20 @@ _ZNK7aiTexelneERKS_.exit.i:                       ; preds = %126
           to label %_ZN10aiMaterial11AddPropertyI9aiColor3DEE8aiReturnPKT_jPKcjj.exit145 unwind label %177
 
 _ZN10aiMaterial11AddPropertyI9aiColor3DEE8aiReturnPKT_jPKcjj.exit145: ; preds = %217
-  %219 = getelementptr inbounds nuw i8, ptr %.0107199203, i64 48
+  %219 = getelementptr inbounds nuw i8, ptr %.0107198202, i64 48
   %220 = load float, ptr %219, align 1
   store float %220, ptr %13, align 4
-  %221 = getelementptr inbounds nuw i8, ptr %.0107199203, i64 52
+  %221 = getelementptr inbounds nuw i8, ptr %.0107198202, i64 52
   %222 = load float, ptr %221, align 1
   store float %222, ptr %158, align 4
-  %223 = getelementptr inbounds nuw i8, ptr %.0107199203, i64 56
+  %223 = getelementptr inbounds nuw i8, ptr %.0107198202, i64 56
   %224 = load float, ptr %223, align 1
   store float %224, ptr %159, align 4
   %225 = invoke noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %13, i32 noundef 12, ptr noundef nonnull @.str.13, i32 noundef 0, i32 noundef 0, i32 noundef 1)
           to label %226 unwind label %177
 
 226:                                              ; preds = %_ZN10aiMaterial11AddPropertyI9aiColor3DEE8aiReturnPKT_jPKcjj.exit145
-  %227 = getelementptr inbounds nuw i8, ptr %.0107199203, i64 28
+  %227 = getelementptr inbounds nuw i8, ptr %.0107198202, i64 28
   %228 = load float, ptr %227, align 1
   store float %228, ptr %13, align 4
   %229 = load float, ptr %12, align 8
@@ -1739,7 +1739,7 @@ _ZN10aiMaterial11AddPropertyI9aiColor3DEE8aiReturnPKT_jPKcjj.exit145: ; preds = 
 _ZN10aiMaterial11AddPropertyIfEE8aiReturnPKT_jPKcjj.exit: ; preds = %235
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i32 2, ptr %14, align 4
-  %237 = getelementptr inbounds nuw i8, ptr %.0107199203, i64 64
+  %237 = getelementptr inbounds nuw i8, ptr %.0107198202, i64 64
   %238 = load float, ptr %237, align 1
   %239 = fcmp une float %238, 0.000000e+00
   br i1 %239, label %240, label %244
@@ -1830,19 +1830,19 @@ _ZNKSt14default_deleteI9aiTextureEclEPS0_.exit.i.i151: ; preds = %265, %261
   br label %_ZNSt10unique_ptrI9aiTextureSt14default_deleteIS0_EE5resetEPS0_.exit152
 
 _ZNSt10unique_ptrI9aiTextureSt14default_deleteIS0_EE5resetEPS0_.exit152: ; preds = %.thread, %_ZNKSt14default_deleteI9aiTextureEclEPS0_.exit.i.i151, %259, %256
-  %.1209 = phi ptr [ %.1, %256 ], [ %.1, %_ZNKSt14default_deleteI9aiTextureEclEPS0_.exit.i.i151 ], [ %.1, %259 ], [ %.0107.ph, %.thread ]
+  %.1208 = phi ptr [ %.1, %256 ], [ %.1, %_ZNKSt14default_deleteI9aiTextureEclEPS0_.exit.i.i151 ], [ %.1, %259 ], [ %.0107.ph, %.thread ]
   %266 = and i32 %4, 32
   %.not132 = icmp eq i32 %266, 0
   br i1 %.not132, label %275, label %267
 
 267:                                              ; preds = %_ZNSt10unique_ptrI9aiTextureSt14default_deleteIS0_EE5resetEPS0_.exit152
-  invoke void @_ZN6Assimp11MDLImporter9SizeCheckEPKv(ptr noundef nonnull align 8 dereferenceable(159) %0, ptr noundef %.1209)
+  invoke void @_ZN6Assimp11MDLImporter9SizeCheckEPKv(ptr noundef nonnull align 8 dereferenceable(159) %0, ptr noundef %.1208)
           to label %268 unwind label %150
 
 268:                                              ; preds = %267
-  %269 = load i32, ptr %.1209, align 4
+  %269 = load i32, ptr %.1208, align 4
   %270 = sext i32 %269 to i64
-  %271 = getelementptr i8, ptr %.1209, i64 %270
+  %271 = getelementptr i8, ptr %.1208, i64 %270
   %272 = getelementptr i8, ptr %271, i64 4
   invoke void @_ZN6Assimp11MDLImporter9SizeCheckEPKv(ptr noundef nonnull align 8 dereferenceable(159) %0, ptr noundef %272)
           to label %275 unwind label %273
@@ -1853,10 +1853,10 @@ _ZNSt10unique_ptrI9aiTextureSt14default_deleteIS0_EE5resetEPS0_.exit152: ; preds
   br label %348
 
 275:                                              ; preds = %268, %_ZNSt10unique_ptrI9aiTextureSt14default_deleteIS0_EE5resetEPS0_.exit152
-  %.2 = phi ptr [ %.1209, %_ZNSt10unique_ptrI9aiTextureSt14default_deleteIS0_EE5resetEPS0_.exit152 ], [ %272, %268 ]
+  %.2 = phi ptr [ %.1208, %_ZNSt10unique_ptrI9aiTextureSt14default_deleteIS0_EE5resetEPS0_.exit152 ], [ %272, %268 ]
   %276 = load ptr, ptr %8, align 8
-  %.not158 = icmp eq ptr %276, null
-  br i1 %.not158, label %341, label %277
+  %.not157 = icmp eq ptr %276, null
+  br i1 %.not157, label %341, label %277
 
 277:                                              ; preds = %275
   %278 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -1923,18 +1923,18 @@ _ZNSt10unique_ptrI9aiTextureSt14default_deleteIS0_EE5resetEPS0_.exit152: ; preds
   %313 = load ptr, ptr %278, align 8
   %314 = getelementptr inbounds nuw i8, ptr %313, i64 64
   %315 = load i32, ptr %314, align 8
-  %.not165 = icmp eq i32 %315, 0
-  br i1 %.not165, label %._crit_edge, label %.lr.ph
+  %.not164 = icmp eq i32 %315, 0
+  br i1 %.not164, label %._crit_edge, label %.lr.ph
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %316 = zext i32 %335 to i64
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %312, %._crit_edge.loopexit
-  %.lcssa160 = phi ptr [ %333, %._crit_edge.loopexit ], [ %313, %312 ]
+  %.lcssa159 = phi ptr [ %333, %._crit_edge.loopexit ], [ %313, %312 ]
   %.lcssa = phi i64 [ %316, %._crit_edge.loopexit ], [ 0, %312 ]
   store ptr null, ptr %8, align 8
-  %317 = getelementptr inbounds nuw i8, ptr %.lcssa160, i64 72
+  %317 = getelementptr inbounds nuw i8, ptr %.lcssa159, i64 72
   %318 = load ptr, ptr %317, align 8
   %319 = getelementptr inbounds nuw ptr, ptr %318, i64 %.lcssa
   store ptr %276, ptr %319, align 8
@@ -1952,20 +1952,20 @@ _ZNSt10unique_ptrI9aiTextureSt14default_deleteIS0_EE5resetEPS0_.exit152: ; preds
   br label %340
 
 .lr.ph:                                           ; preds = %312, %.lr.ph
-  %indvars.iv173 = phi i64 [ %indvars.iv.next174, %.lr.ph ], [ 0, %312 ]
+  %indvars.iv172 = phi i64 [ %indvars.iv.next173, %.lr.ph ], [ 0, %312 ]
   %327 = phi ptr [ %333, %.lr.ph ], [ %313, %312 ]
-  %328 = getelementptr inbounds nuw ptr, ptr %307, i64 %indvars.iv173
+  %328 = getelementptr inbounds nuw ptr, ptr %307, i64 %indvars.iv172
   %329 = load ptr, ptr %328, align 8
   %330 = getelementptr inbounds nuw i8, ptr %327, i64 72
   %331 = load ptr, ptr %330, align 8
-  %332 = getelementptr inbounds nuw ptr, ptr %331, i64 %indvars.iv173
+  %332 = getelementptr inbounds nuw ptr, ptr %331, i64 %indvars.iv172
   store ptr %329, ptr %332, align 8
-  %indvars.iv.next174 = add nuw nsw i64 %indvars.iv173, 1
+  %indvars.iv.next173 = add nuw nsw i64 %indvars.iv172, 1
   %333 = load ptr, ptr %278, align 8
   %334 = getelementptr inbounds nuw i8, ptr %333, i64 64
   %335 = load i32, ptr %334, align 8
   %336 = zext i32 %335 to i64
-  %337 = icmp samesign ult i64 %indvars.iv.next174, %336
+  %337 = icmp samesign ult i64 %indvars.iv.next173, %336
   br i1 %337, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !16
 
 338:                                              ; preds = %._crit_edge

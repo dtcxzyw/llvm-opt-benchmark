@@ -13032,7 +13032,7 @@ define linkonce_odr hidden noundef i64 @_ZNK4llvm10sampleprof15FunctionSamples22
   %5 = load i64, ptr %4, align 8
   %.not = icmp ne i64 %5, 0
   %or.cond.not = select i1 %3, i1 %.not, i1 false
-  br i1 %or.cond.not, label %51, label %6
+  br i1 %or.cond.not, label %46, label %6
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -13080,19 +13080,19 @@ _ZNK4llvm10sampleprof12LineLocationltERKS1_.exit: ; preds = %20
   br i1 %10, label %.thread, label %.critedge.thread
 
 .thread:                                          ; preds = %.critedge
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %31 = load i64, ptr %30, align 8
-  %32 = icmp ne i64 %31, 0
-  %33 = zext i1 %32 to i64
-  br label %51
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %30 = load i64, ptr %29, align 8
+  %31 = icmp ne i64 %30, 0
+  %32 = zext i1 %31 to i64
+  br label %46
 
 .critedge.thread:                                 ; preds = %_ZNK4llvm10sampleprof12LineLocationltERKS1_.exit, %20, %.critedge
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %35 = load ptr, ptr %34, align 8, !tbaa !93
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 64
-  %37 = load ptr, ptr %36, align 8, !tbaa !93
-  %38 = getelementptr inbounds nuw i8, ptr %35, i64 48
-  %.not2425 = icmp eq ptr %37, %38
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %34 = load ptr, ptr %33, align 8, !tbaa !93
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 64
+  %36 = load ptr, ptr %35, align 8, !tbaa !93
+  %37 = getelementptr inbounds nuw i8, ptr %34, i64 48
+  %.not2425 = icmp eq ptr %36, %37
   br i1 %.not2425, label %.loopexit.thread, label %.lr.ph
 
 .loopexit.thread:                                 ; preds = %.critedge.thread
@@ -13103,26 +13103,26 @@ _ZNK4llvm10sampleprof12LineLocationltERKS1_.exit: ; preds = %20
   br label %51
 
 .lr.ph:                                           ; preds = %.critedge.thread, %.lr.ph
-  %.127 = phi i64 [ %45, %.lr.ph ], [ 0, %.critedge.thread ]
-  %.sroa.011.026 = phi ptr [ %46, %.lr.ph ], [ %37, %.critedge.thread ]
-  %43 = getelementptr inbounds nuw i8, ptr %.sroa.011.026, i64 48
-  %44 = tail call noundef i64 @_ZNK4llvm10sampleprof15FunctionSamples22getHeadSamplesEstimateEv(ptr noundef nonnull align 8 dereferenceable(176) %43)
-  %45 = add i64 %44, %.127
-  %46 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.011.026) #22
-  %.not24 = icmp eq ptr %46, %38
+  %.127 = phi i64 [ %40, %.lr.ph ], [ 0, %.critedge.thread ]
+  %.sroa.011.026 = phi ptr [ %41, %.lr.ph ], [ %36, %.critedge.thread ]
+  %38 = getelementptr inbounds nuw i8, ptr %.sroa.011.026, i64 48
+  %39 = tail call noundef i64 @_ZNK4llvm10sampleprof15FunctionSamples22getHeadSamplesEstimateEv(ptr noundef nonnull align 8 dereferenceable(176) %38)
+  %40 = add i64 %39, %.127
+  %41 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.011.026) #22
+  %.not24 = icmp eq ptr %41, %37
   br i1 %.not24, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %.lr.ph, %.critedge2
-  %.09 = phi i64 [ %29, %.critedge2 ], [ %45, %.lr.ph ]
+  %.09 = phi i64 [ %29, %.critedge2 ], [ %40, %.lr.ph ]
   %.not10 = icmp eq i64 %.09, 0
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %48 = load i64, ptr %47, align 8
   %49 = icmp ne i64 %48, 0
   %50 = zext i1 %49 to i64
   %spec.select = select i1 %.not10, i64 %50, i64 %.09
-  br label %51
+  br label %46
 
-51:                                               ; preds = %.loopexit, %.loopexit.thread, %1, %.thread
+46:                                               ; preds = %.loopexit, %.loopexit.thread, %1, %.thread
   %.0 = phi i64 [ %5, %1 ], [ %33, %.thread ], [ %spec.select, %.loopexit ], [ %42, %.loopexit.thread ]
   ret i64 %.0
 }

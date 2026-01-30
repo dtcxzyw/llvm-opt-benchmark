@@ -54604,29 +54604,29 @@ define internal fastcc void @_ZN6yara_x7scanner7context11ScanContext19track_patt
   br i1 %98, label %95, label %89
 
 99:                                               ; preds = %90
-  br i1 %3, label %108, label %_ZN6yara_x7scanner7matches9MatchList3add17hce24528dc5329bf9E.exit23.i
+  br i1 %3, label %108, label %_ZN6yara_x7scanner7matches9MatchList3add17hce24528dc5329bf9E.exit22.i
 
 100:                                              ; preds = %95
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6insert17hd55a7ce90900866fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %79, i64 noundef %.sroa.0.0.lcssa.i20.i, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.50173b3802231cb0b0223069ffbbcabd.866)
-  br label %_ZN6yara_x7scanner7matches9MatchList3add17hce24528dc5329bf9E.exit23.i
+  br label %_ZN6yara_x7scanner7matches9MatchList3add17hce24528dc5329bf9E.exit22.i
 
 101:                                              ; preds = %95
   %102 = load i64, ptr %79, align 8, !range !89, !alias.scope !7042, !noalias !7045, !noundef !4
   %103 = icmp eq i64 %84, %102
-  br i1 %103, label %104, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17he6ebc7cb671de414E.exit.i21.i"
+  br i1 %103, label %104, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17he6ebc7cb671de414E.exit.i20.i"
 
 104:                                              ; preds = %101
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h43db9cb4b2a461afE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %79, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.50173b3802231cb0b0223069ffbbcabd.867), !noalias !7045
-  %.pre.i22.i = load ptr, ptr %86, align 8, !alias.scope !7042, !noalias !7045
-  br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17he6ebc7cb671de414E.exit.i21.i"
+  %.pre.i21.i = load ptr, ptr %86, align 8, !alias.scope !7042, !noalias !7045
+  br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17he6ebc7cb671de414E.exit.i20.i"
 
-"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17he6ebc7cb671de414E.exit.i21.i": ; preds = %104, %101
-  %105 = phi ptr [ %87, %101 ], [ %.pre.i22.i, %104 ]
+"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17he6ebc7cb671de414E.exit.i20.i": ; preds = %104, %101
+  %105 = phi ptr [ %87, %101 ], [ %.pre.i21.i, %104 ]
   %106 = getelementptr inbounds nuw { { i64, i64 }, { i8, [1 x i8] }, [6 x i8] }, ptr %105, i64 %84
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %106, ptr noundef nonnull readonly align 8 dereferenceable(24) %2, i64 24, i1 false)
   %107 = add nuw nsw i64 %84, 1
   store i64 %107, ptr %72, align 8, !alias.scope !7042, !noalias !7045
-  br label %_ZN6yara_x7scanner7matches9MatchList3add17hce24528dc5329bf9E.exit23.i
+  br label %_ZN6yara_x7scanner7matches9MatchList3add17hce24528dc5329bf9E.exit22.i
 
 108:                                              ; preds = %99
   %109 = getelementptr inbounds nuw i8, ptr %92, i64 8
@@ -54634,13 +54634,13 @@ define internal fastcc void @_ZN6yara_x7scanner7context11ScanContext19track_patt
   %111 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %112 = load i64, ptr %111, align 8, !alias.scope !7039, !noalias !7040, !noundef !4
   %113 = icmp ult i64 %110, %112
-  br i1 %113, label %114, label %_ZN6yara_x7scanner7matches9MatchList3add17hce24528dc5329bf9E.exit23.i
+  br i1 %113, label %114, label %_ZN6yara_x7scanner7matches9MatchList3add17hce24528dc5329bf9E.exit22.i
 
 114:                                              ; preds = %108
   store i64 %112, ptr %109, align 8, !noalias !7041
-  br label %_ZN6yara_x7scanner7matches9MatchList3add17hce24528dc5329bf9E.exit23.i
+  br label %_ZN6yara_x7scanner7matches9MatchList3add17hce24528dc5329bf9E.exit22.i
 
-_ZN6yara_x7scanner7matches9MatchList3add17hce24528dc5329bf9E.exit23.i: ; preds = %114, %108, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17he6ebc7cb671de414E.exit.i21.i", %100, %99
+_ZN6yara_x7scanner7matches9MatchList3add17hce24528dc5329bf9E.exit22.i: ; preds = %114, %108, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17he6ebc7cb671de414E.exit.i20.i", %100, %99
   %115 = load i64, ptr %79, align 8, !range !89, !noalias !7024, !noundef !4
   %116 = load i64, ptr %81, align 8, !alias.scope !7021, !noalias !7024, !noundef !4
   %117 = add i64 %116, %115
@@ -54681,7 +54681,7 @@ _ZN6yara_x7scanner7matches14PatternMatches3add17hcba8849b049a331eE.exit: ; preds
   %129 = call noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h00cc4614a132ef1fE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %128, i32 noundef %1)
   br label %_ZN6yara_x7scanner7matches14PatternMatches3add17hcba8849b049a331eE.exit.thread
 
-_ZN6yara_x7scanner7matches14PatternMatches3add17hcba8849b049a331eE.exit.thread: ; preds = %_ZN6yara_x7scanner7matches9MatchList3add17hce24528dc5329bf9E.exit23.i, %_ZN6yara_x7scanner7matches9MatchList3add17hce24528dc5329bf9E.exit.i, %_ZN6yara_x7scanner7matches14PatternMatches3add17hcba8849b049a331eE.exit
+_ZN6yara_x7scanner7matches14PatternMatches3add17hcba8849b049a331eE.exit.thread: ; preds = %_ZN6yara_x7scanner7matches9MatchList3add17hce24528dc5329bf9E.exit22.i, %_ZN6yara_x7scanner7matches9MatchList3add17hce24528dc5329bf9E.exit.i, %_ZN6yara_x7scanner7matches14PatternMatches3add17hcba8849b049a331eE.exit
   ret void
 }
 

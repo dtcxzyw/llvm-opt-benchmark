@@ -2101,19 +2101,19 @@ define internal i32 @H5FD_multi_cmp(ptr noundef readonly captures(none) %0, ptr 
   %3 = tail call i32 @H5Eclear2(i64 noundef 0) #15
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 344
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 344
-  br label %6
+  br label %.backedge
 
-6:                                                ; preds = %2, %.thread29
+.backedge:                                        ; preds = %2, %.thread29
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %.thread29 ]
-  %7 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
-  %8 = load ptr, ptr %7, align 8, !tbaa !15
-  %.not = icmp eq ptr %8, null
-  br i1 %.not, label %.thread29, label %9
+  %6 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
+  %7 = load ptr, ptr %6, align 8, !tbaa !15
+  %.not = icmp eq ptr %7, null
+  br i1 %.not, label %.thread29, label %8
 
-9:                                                ; preds = %6
-  %10 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
-  %11 = load ptr, ptr %10, align 8, !tbaa !15
-  %.not24 = icmp eq ptr %11, null
+8:                                                ; preds = %.backedge
+  %9 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
+  %10 = load ptr, ptr %9, align 8, !tbaa !15
+  %.not24 = icmp eq ptr %10, null
   br i1 %.not24, label %.thread29, label %12
 
 .thread29:                                        ; preds = %9, %6
@@ -2122,12 +2122,12 @@ define internal i32 @H5FD_multi_cmp(ptr noundef readonly captures(none) %0, ptr 
   br i1 %exitcond.not, label %12, label %6, !llvm.loop !52
 
 12:                                               ; preds = %9, %.thread29
-  %.032.lcssa = phi i64 [ %indvars.iv, %9 ], [ 6, %.thread29 ]
+  %.032.lcssa = phi i64 [ %indvars.iv, %9 ], [ .backedge, %.thread29 ]
   %13 = and i64 %.032.lcssa, 4294967295
   %14 = getelementptr inbounds nuw ptr, ptr %5, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !15
   %16 = getelementptr inbounds nuw ptr, ptr %4, i64 %13
-  %17 = load ptr, ptr %16, align 8, !tbaa !15
+  %17 = load ptr, ptr %1.backedge, align 8, !tbaa !15
   %18 = tail call i32 @H5FDcmp(ptr noundef %15, ptr noundef %17) #15
   ret i32 %18
 }

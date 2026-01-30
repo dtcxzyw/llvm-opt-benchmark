@@ -18390,7 +18390,7 @@ _ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i: ; preds = %180
   store i8 0, ptr %114, align 8, !tbaa !235
   %190 = sdiv i64 9223372036854775807, %162
   %191 = icmp slt i64 %190, %162
-  br i1 %191, label %.invoke339, label %.noexc32
+  br i1 %191, label %.invoke340, label %.noexc32
 
 .noexc32:                                         ; preds = %_ZN5Eigen6MatrixIdLin1ELin1ELi1ELin1ELin1EEC2IllEERKT_RKT0_.exit.i.thread, %189
   %192 = phi i1 [ true, %_ZN5Eigen6MatrixIdLin1ELin1ELi1ELin1ELin1EEC2IllEERKT_RKT0_.exit.i.thread ], [ false, %189 ]
@@ -18415,7 +18415,7 @@ _ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i: ; preds = %180
 200:                                              ; preds = %198
   %201 = sdiv i64 9223372036854775807, %.pre
   %202 = icmp slt i64 %201, %162
-  br i1 %202, label %.invoke339, label %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE6resizeEll.exit.i.i.i.i.i.i.i.i.i
+  br i1 %202, label %.invoke340, label %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE6resizeEll.exit.i.i.i.i.i.i.i.i.i
 
 _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE6resizeEll.exit.i.i.i.i.i.i.i.i.i: ; preds = %200, %198
   %203 = mul nsw i64 %.pre, %162
@@ -18429,21 +18429,21 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE6resizeEll.exi
 
 206:                                              ; preds = %204
   %207 = icmp samesign ugt i64 %203, 2305843009213693951
-  br i1 %207, label %.invoke339, label %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i48
+  br i1 %207, label %.invoke340, label %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i48
 
 _ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i48: ; preds = %206
   %208 = shl nuw i64 %203, 3
   %209 = call noalias ptr @malloc(i64 noundef %208) #37
   %210 = icmp eq ptr %209, null
-  br i1 %210, label %.invoke339, label %.sink.split.i46
+  br i1 %210, label %.invoke340, label %.sink.split.i46
 
-.invoke339:                                       ; preds = %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i48, %206, %200, %189
+.invoke340:                                       ; preds = %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i48, %206, %200, %189
   %211 = call ptr @__cxa_allocate_exception(i64 8) #33
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %211, align 8, !tbaa !3
   invoke void @__cxa_throw(ptr nonnull %211, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #36
           to label %.cont340 unwind label %.loopexit.split-lp.loopexit.split-lp
 
-.cont340:                                         ; preds = %.invoke339
+.cont341:                                         ; preds = %.invoke340
   unreachable
 
 .sink.split.i46:                                  ; preds = %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i48, %204
@@ -18732,9 +18732,9 @@ _ZN5Eigen6MatrixIdLin1ELin1ELi1ELin1ELin1EEaSINS_3MapIS1_Li0ENS_6StrideILi0ELi0E
 
 350:                                              ; preds = %343, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i.i, %315
   %.072.i.i.i.i.i.i.i.i.i.i.i.i = phi <2 x double> [ %318, %315 ], [ %349, %343 ], [ %327, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i.i ]
-  %shift367 = shufflevector <2 x double> %.072.i.i.i.i.i.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop368 = fadd <2 x double> %.072.i.i.i.i.i.i.i.i.i.i.i.i, %shift367
-  %351 = extractelement <2 x double> %foldExtExtBinop368, i64 0
+  %shift370 = shufflevector <2 x double> %.072.i.i.i.i.i.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop371 = fadd <2 x double> %.072.i.i.i.i.i.i.i.i.i.i.i.i, %shift370
+  %351 = extractelement <2 x double> %foldExtExtBinop371, i64 0
   %.not66.i = icmp eq i64 %314, %.03474.i
   br i1 %.not66.i, label %.thread92.i, label %.lr.ph85.i.i.i.i.i.i.i.i.i.i.i.i
 
@@ -19307,9 +19307,9 @@ _ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1
 
 616:                                              ; preds = %611, %._crit_edge.i.i.i.i.i.i, %590
   %.072.i.i.i.i.i.i = phi <2 x double> [ %592, %590 ], [ %615, %611 ], [ %599, %._crit_edge.i.i.i.i.i.i ]
-  %shift370 = shufflevector <2 x double> %.072.i.i.i.i.i.i, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop371 = fadd <2 x double> %.072.i.i.i.i.i.i, %shift370
-  %617 = extractelement <2 x double> %foldExtExtBinop371, i64 0
+  %shift373 = shufflevector <2 x double> %.072.i.i.i.i.i.i, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop374 = fadd <2 x double> %.072.i.i.i.i.i.i, %shift373
+  %617 = extractelement <2 x double> %foldExtExtBinop374, i64 0
   %.not.i30 = icmp eq i64 %589, %.052.i
   br i1 %.not.i30, label %_ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi1ELin1ELb1EEELi1ELin1ELb0EEEE6lpNormILi1EEEdv.exit.i, label %.lr.ph85.i.i.i.i.i.i
 
@@ -19355,7 +19355,7 @@ _ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi1E
           cleanup
   br label %.body.i
 
-.loopexit.split-lp.loopexit.split-lp:             ; preds = %.invoke339
+.loopexit.split-lp.loopexit.split-lp:             ; preds = %.invoke340
   %lpad.loopexit.split-lp157 = landingpad { ptr, i32 }
           cleanup
   br label %.body.i
