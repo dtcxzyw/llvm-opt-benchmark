@@ -11689,8 +11689,8 @@ _ZL24canRenameUntilSecondLoadRN4llvm12MachineInstrES1_RNS_12LiveRegUnitsERNS_15S
   %.sroa.610.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %12, i64 16
   %.sroa.811.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %12, i64 24
   %.sroa.10.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %12, i64 32
-  %.sroa.1112.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %12, i64 40
-  %.sroa.1314.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %12, i64 48
+  %.sroa.1113.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %12, i64 40
+  %.sroa.1315.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %12, i64 48
   %.sroa.14.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %12, i64 56
   %.sroa.17.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %12, i64 80
   %317 = getelementptr inbounds nuw i8, ptr %6, i64 20
@@ -11700,8 +11700,8 @@ _ZL24canRenameUntilSecondLoadRN4llvm12MachineInstrES1_RNS_12LiveRegUnitsERNS_15S
   %.sroa.610.0..sroa_idx.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %10, i64 16
   %.sroa.811.0..sroa_idx.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %10, i64 24
   %.sroa.10.0..sroa_idx.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %10, i64 32
-  %.sroa.1112.0..sroa_idx.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %10, i64 40
-  %.sroa.1314.0..sroa_idx.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %10, i64 48
+  %.sroa.1113.0..sroa_idx.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %10, i64 40
+  %.sroa.1315.0..sroa_idx.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %10, i64 48
   %.sroa.14.0..sroa_idx.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %10, i64 56
   %.sroa.17.0..sroa_idx.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %10, i64 80
   br label %320
@@ -11834,13 +11834,13 @@ _ZN4llvm17MCRegUnitIteratorppEv.exit.i38.i:       ; preds = %363
   store i16 %403, ptr %.sroa.610.0..sroa_idx.i.i, align 8
   store i32 %376, ptr %.sroa.811.0..sroa_idx.i.i, align 8
   store ptr %394, ptr %.sroa.10.0..sroa_idx.i.i, align 8
-  store i16 %321, ptr %.sroa.1112.0..sroa_idx.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.1314.0..sroa_idx.i.i, i8 0, i64 48, i1 false)
+  store i16 %321, ptr %.sroa.1113.0..sroa_idx.i.i, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.1315.0..sroa_idx.i.i, i8 0, i64 48, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !871
   br label %404
 
 404:                                              ; preds = %_ZN4llvm15concat_iteratorIKtJNS_16MCSubRegIteratorENS_18MCSuperRegIteratorEEEppEv.exit.i.i.i.i.i.i.i.i, %386
-  %405 = phi ptr [ %.pre18.i.i, %_ZN4llvm15concat_iteratorIKtJNS_16MCSubRegIteratorENS_18MCSuperRegIteratorEEEppEv.exit.i.i.i.i.i.i.i.i ], [ %spec.select.i.i.i.i, %386 ]
+  %405 = phi ptr [ %.pre20.i.i, %_ZN4llvm15concat_iteratorIKtJNS_16MCSubRegIteratorENS_18MCSuperRegIteratorEEEppEv.exit.i.i.i.i.i.i.i.i ], [ %spec.select.i.i.i.i, %386 ]
   %406 = phi ptr [ %.pre.i.i, %_ZN4llvm15concat_iteratorIKtJNS_16MCSubRegIteratorENS_18MCSuperRegIteratorEEEppEv.exit.i.i.i.i.i.i.i.i ], [ %394, %386 ]
   %407 = icmp eq ptr %406, null
   %408 = icmp eq ptr %405, null
@@ -11936,7 +11936,7 @@ _ZNK4llvm20iterator_facade_baseINS_15concat_iteratorIKtJNS_16MCSubRegIteratorENS
 
 _ZN4llvm15concat_iteratorIKtJNS_16MCSubRegIteratorENS_18MCSuperRegIteratorEEEppEv.exit.i.i.i.i.i.i.i.i: ; preds = %442
   %.pre.i.i = load ptr, ptr %.sroa.10.0..sroa_idx.i.i, align 8, !tbaa !874, !noalias !876
-  %.pre18.i.i = load ptr, ptr %.sroa.59.0..sroa_idx.i.i, align 8, !noalias !876
+  %.pre20.i.i = load ptr, ptr %.sroa.59.0..sroa_idx.i.i, align 8, !noalias !876
   br label %404, !llvm.loop !879
 
 "_ZZL25tryToFindRegisterToRenameRKN4llvm15MachineFunctionENS_8RegisterERNS_12LiveRegUnitsES5_RNS_15SmallPtrSetImplIPKNS_19TargetRegisterClassEEEPKNS_18TargetRegisterInfoEENK3$_0clEt.exit.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZZL25tryToFindRegisterToRenameRKN4llvm15MachineFunctionENS2_8RegisterERNS2_12LiveRegUnitsES8_RNS2_15SmallPtrSetImplIPKNS2_19TargetRegisterClassEEEPKNS2_18TargetRegisterInfoEENK3$_0clEtEUltE_EclINS2_15concat_iteratorIKtJNS2_16MCSubRegIteratorENS2_18MCSuperRegIteratorEEEEEEbT_.exit.i.i.i.i.i.i.i.i"
@@ -12018,13 +12018,13 @@ _ZN4llvm9adl_beginIRNS_15SmallPtrSetImplIPKNS_19TargetRegisterClassEEEEEDTclsr10
   store i16 %479, ptr %.sroa.610.0..sroa_idx.i.i.i.i.i.i.i.i.i, align 8
   store i32 %462, ptr %.sroa.811.0..sroa_idx.i.i.i.i.i.i.i.i.i, align 8
   store ptr %470, ptr %.sroa.10.0..sroa_idx.i.i.i.i.i.i.i.i.i, align 8
-  store i16 %452, ptr %.sroa.1112.0..sroa_idx.i.i.i.i.i.i.i.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.1314.0..sroa_idx.i.i.i.i.i.i.i.i.i, i8 0, i64 48, i1 false)
+  store i16 %452, ptr %.sroa.1113.0..sroa_idx.i.i.i.i.i.i.i.i.i, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.1315.0..sroa_idx.i.i.i.i.i.i.i.i.i, i8 0, i64 48, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !897
   br label %480
 
 480:                                              ; preds = %_ZN4llvm15concat_iteratorIKtJNS_16MCSubRegIteratorENS_18MCSuperRegIteratorEEEppEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %464
-  %481 = phi ptr [ %.pre18.i.i.i.i.i.i.i.i.i, %_ZN4llvm15concat_iteratorIKtJNS_16MCSubRegIteratorENS_18MCSuperRegIteratorEEEppEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %spec.select.i.i.i.i.i.i.i.i.i.i.i, %464 ]
+  %481 = phi ptr [ %.pre20.i.i.i.i.i.i.i.i.i, %_ZN4llvm15concat_iteratorIKtJNS_16MCSubRegIteratorENS_18MCSuperRegIteratorEEEppEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %spec.select.i.i.i.i.i.i.i.i.i.i.i, %464 ]
   %482 = phi ptr [ %.pre.i.i.i.i.i.i.i.i.i, %_ZN4llvm15concat_iteratorIKtJNS_16MCSubRegIteratorENS_18MCSuperRegIteratorEEEppEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %470, %464 ]
   %483 = icmp eq ptr %482, null
   %484 = icmp eq ptr %481, null
@@ -12142,7 +12142,7 @@ _ZNK4llvm15concat_iteratorIKtJNS_16MCSubRegIteratorENS_18MCSuperRegIteratorEEEde
 
 _ZN4llvm15concat_iteratorIKtJNS_16MCSubRegIteratorENS_18MCSuperRegIteratorEEEppEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %529
   %.pre.i.i.i.i.i.i.i.i.i = load ptr, ptr %.sroa.10.0..sroa_idx.i.i.i.i.i.i.i.i.i, align 8, !tbaa !874, !noalias !900
-  %.pre18.i.i.i.i.i.i.i.i.i = load ptr, ptr %.sroa.59.0..sroa_idx.i.i.i.i.i.i.i.i.i, align 8, !noalias !900
+  %.pre20.i.i.i.i.i.i.i.i.i = load ptr, ptr %.sroa.59.0..sroa_idx.i.i.i.i.i.i.i.i.i, align 8, !noalias !900
   br label %480, !llvm.loop !903
 
 "_ZN9__gnu_cxx5__ops12_Iter_negateIZZL25tryToFindRegisterToRenameRKN4llvm15MachineFunctionENS2_8RegisterERNS2_12LiveRegUnitsES8_RNS2_15SmallPtrSetImplIPKNS2_19TargetRegisterClassEEEPKNS2_18TargetRegisterInfoEENK3$_1clEtEUlSC_E_EclINS2_19SmallPtrSetIteratorISC_EEEEbT_.exit.i.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZZZL25tryToFindRegisterToRenameRKN4llvm15MachineFunctionENS2_8RegisterERNS2_12LiveRegUnitsES8_RNS2_15SmallPtrSetImplIPKNS2_19TargetRegisterClassEEEPKNS2_18TargetRegisterInfoEENK3$_1clEtENKUlSC_E_clESC_EUltE_EclINS2_15concat_iteratorIKtJNS2_16MCSubRegIteratorENS2_18MCSuperRegIteratorEEEEEEbT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i"
@@ -14071,8 +14071,8 @@ _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.i.i.i.i: ; preds = %9
   %105 = zext i8 %104 to i32
   %106 = shl nuw nsw i32 1, %99
   %107 = and i32 %106, %105
-  %.not22.i.i.i.i = icmp eq i32 %107, 0
-  br i1 %.not22.i.i.i.i, label %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.thread.i.i.i.i.preheader, label %"_ZZN12_GLOBAL__N_119AArch64LoadStoreOpt16mergePairedInsnsEN4llvm26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEES4_RKNS_13LdStPairFlagsEENK3$_1clEPKNS1_19TargetRegisterClassE.exit.i.i.i"
+  %.not21.i.i.i.i = icmp eq i32 %107, 0
+  br i1 %.not21.i.i.i.i, label %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.thread.i.i.i.i.preheader, label %"_ZZN12_GLOBAL__N_119AArch64LoadStoreOpt16mergePairedInsnsEN4llvm26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEES4_RKNS_13LdStPairFlagsEENK3$_1clEPKNS1_19TargetRegisterClassE.exit.i.i.i"
 
 _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.thread.i.i.i.i.preheader: ; preds = %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.i.i.i.i, %93, %_ZNK4llvm15concat_iteratorIKtJNS_16MCSubRegIteratorENS_18MCSuperRegIteratorEEEdeEv.exit.i.i.i.i
   br label %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.thread.i.i.i.i
@@ -14217,8 +14217,8 @@ _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.i104.i.i.i: ; preds =
   %172 = zext i8 %171 to i32
   %173 = shl nuw nsw i32 1, %166
   %174 = and i32 %173, %172
-  %.not22.i105.i.i.i = icmp eq i32 %174, 0
-  br i1 %.not22.i105.i.i.i, label %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.thread.i91.i.i.i.preheader, label %"_ZZN12_GLOBAL__N_119AArch64LoadStoreOpt16mergePairedInsnsEN4llvm26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEES4_RKNS_13LdStPairFlagsEENK3$_1clEPKNS1_19TargetRegisterClassE.exit108.i.i.i"
+  %.not21.i105.i.i.i = icmp eq i32 %174, 0
+  br i1 %.not21.i105.i.i.i, label %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.thread.i91.i.i.i.preheader, label %"_ZZN12_GLOBAL__N_119AArch64LoadStoreOpt16mergePairedInsnsEN4llvm26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEES4_RKNS_13LdStPairFlagsEENK3$_1clEPKNS1_19TargetRegisterClassE.exit108.i.i.i"
 
 _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.thread.i91.i.i.i.preheader: ; preds = %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.i104.i.i.i, %160, %_ZNK4llvm15concat_iteratorIKtJNS_16MCSubRegIteratorENS_18MCSuperRegIteratorEEEdeEv.exit.i88.i.i.i
   br label %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.thread.i91.i.i.i
@@ -14410,8 +14410,8 @@ _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.i146.i.i.i: ; preds =
   %258 = zext i8 %257 to i32
   %259 = shl nuw nsw i32 1, %252
   %260 = and i32 %259, %258
-  %.not22.i147.i.i.i = icmp eq i32 %260, 0
-  br i1 %.not22.i147.i.i.i, label %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.thread.i133.i.i.i.preheader, label %"_ZZN12_GLOBAL__N_119AArch64LoadStoreOpt16mergePairedInsnsEN4llvm26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEES4_RKNS_13LdStPairFlagsEENK3$_1clEPKNS1_19TargetRegisterClassE.exit150.i.i.i"
+  %.not21.i147.i.i.i = icmp eq i32 %260, 0
+  br i1 %.not21.i147.i.i.i, label %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.thread.i133.i.i.i.preheader, label %"_ZZN12_GLOBAL__N_119AArch64LoadStoreOpt16mergePairedInsnsEN4llvm26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEES4_RKNS_13LdStPairFlagsEENK3$_1clEPKNS1_19TargetRegisterClassE.exit150.i.i.i"
 
 _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.thread.i133.i.i.i.preheader: ; preds = %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.i146.i.i.i, %246, %_ZNK4llvm15concat_iteratorIKtJNS_16MCSubRegIteratorENS_18MCSuperRegIteratorEEEdeEv.exit.i130.i.i.i
   br label %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.thread.i133.i.i.i
@@ -14549,8 +14549,8 @@ _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.i185.i.i.i: ; preds =
   %323 = zext i8 %322 to i32
   %324 = shl nuw nsw i32 1, %317
   %325 = and i32 %324, %323
-  %.not22.i186.i.i.i = icmp eq i32 %325, 0
-  br i1 %.not22.i186.i.i.i, label %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.thread.i172.i.i.i.preheader, label %"_ZZN12_GLOBAL__N_119AArch64LoadStoreOpt16mergePairedInsnsEN4llvm26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEES4_RKNS_13LdStPairFlagsEENK3$_1clEPKNS1_19TargetRegisterClassE.exit189.i.i.i"
+  %.not21.i186.i.i.i = icmp eq i32 %325, 0
+  br i1 %.not21.i186.i.i.i, label %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.thread.i172.i.i.i.preheader, label %"_ZZN12_GLOBAL__N_119AArch64LoadStoreOpt16mergePairedInsnsEN4llvm26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEES4_RKNS_13LdStPairFlagsEENK3$_1clEPKNS1_19TargetRegisterClassE.exit189.i.i.i"
 
 _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.thread.i172.i.i.i.preheader: ; preds = %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.i185.i.i.i, %311, %_ZNK4llvm15concat_iteratorIKtJNS_16MCSubRegIteratorENS_18MCSuperRegIteratorEEEdeEv.exit.i169.i.i.i
   br label %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.thread.i172.i.i.i

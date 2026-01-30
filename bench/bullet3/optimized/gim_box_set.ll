@@ -432,80 +432,76 @@ _ZN12GIM_BOX_TREE30_sort_and_calc_splitting_indexER9gim_arrayI13GIM_AABB_DATAEjj
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN12GIM_BOX_TREE10build_treeER9gim_arrayI13GIM_AABB_DATAE(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 4)) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #5 align 2 {
-  %3 = alloca %struct.GIM_BOX_TREE_NODE, align 4
   store i32 0, ptr %0, align 8, !tbaa !26
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %6 = load i32, ptr %5, align 8, !tbaa !37
-  %7 = shl i32 %6, 1
-  call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %.32..32..32..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.32..32..32..sroa_idx, i8 0, i64 16, i1 false)
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %9 = load i32, ptr %8, align 8, !tbaa !38
-  %10 = icmp ugt i32 %7, %9
-  br i1 %10, label %11, label %35
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %5 = load i32, ptr %4, align 8, !tbaa !37
+  %6 = shl i32 %5, 1
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %8 = load i32, ptr %7, align 8, !tbaa !38
+  %9 = icmp ugt i32 %6, %8
+  br i1 %9, label %10, label %35
 
-11:                                               ; preds = %2
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %13 = load i32, ptr %12, align 4, !tbaa !39
-  %.not.i.i = icmp ult i32 %13, %7
-  br i1 %.not.i.i, label %14, label %_ZN9gim_arrayI17GIM_BOX_TREE_NODEE7reserveEj.exit.i
+10:                                               ; preds = %2
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %12 = load i32, ptr %11, align 4, !tbaa !39
+  %.not.i.i = icmp ult i32 %12, %6
+  br i1 %.not.i.i, label %13, label %_ZN9gim_arrayI17GIM_BOX_TREE_NODEE7reserveEj.exit.i
 
-14:                                               ; preds = %11
-  %.not.i.i.i = icmp eq i32 %9, 0
-  br i1 %.not.i.i.i, label %22, label %15
+13:                                               ; preds = %10
+  %.not.i.i.i = icmp eq i32 %8, 0
+  br i1 %.not.i.i.i, label %21, label %14
 
-15:                                               ; preds = %14
-  %16 = load ptr, ptr %4, align 8, !tbaa !30
-  %17 = zext i32 %9 to i64
-  %18 = mul nuw nsw i64 %17, 48
-  %19 = zext i32 %7 to i64
-  %20 = mul nuw nsw i64 %19, 48
-  %21 = tail call noundef ptr @_Z11gim_reallocPvmm(ptr noundef %16, i64 noundef %18, i64 noundef %20)
+14:                                               ; preds = %13
+  %15 = load ptr, ptr %3, align 8, !tbaa !30
+  %16 = zext i32 %8 to i64
+  %17 = mul nuw nsw i64 %16, 48
+  %18 = zext i32 %6 to i64
+  %19 = mul nuw nsw i64 %18, 48
+  %20 = tail call noundef ptr @_Z11gim_reallocPvmm(ptr noundef %15, i64 noundef %17, i64 noundef %19)
   br label %_ZN9gim_arrayI17GIM_BOX_TREE_NODEE10resizeDataEj.exit.i.i
 
-22:                                               ; preds = %14
-  %23 = zext i32 %7 to i64
-  %24 = mul nuw nsw i64 %23, 48
-  %25 = tail call noundef ptr @_Z9gim_allocm(i64 noundef %24)
+21:                                               ; preds = %13
+  %22 = zext i32 %6 to i64
+  %23 = mul nuw nsw i64 %22, 48
+  %24 = tail call noundef ptr @_Z9gim_allocm(i64 noundef %23)
   br label %_ZN9gim_arrayI17GIM_BOX_TREE_NODEE10resizeDataEj.exit.i.i
 
-_ZN9gim_arrayI17GIM_BOX_TREE_NODEE10resizeDataEj.exit.i.i: ; preds = %22, %15
-  %storemerge.i.i.i = phi ptr [ %25, %22 ], [ %21, %15 ]
-  store ptr %storemerge.i.i.i, ptr %4, align 8, !tbaa !30
-  store i32 %7, ptr %12, align 4, !tbaa !39
-  %.pre = load i32, ptr %8, align 8, !tbaa !38
+_ZN9gim_arrayI17GIM_BOX_TREE_NODEE10resizeDataEj.exit.i.i: ; preds = %21, %14
+  %storemerge.i.i.i = phi ptr [ %24, %21 ], [ %20, %14 ]
+  store ptr %storemerge.i.i.i, ptr %3, align 8, !tbaa !30
+  store i32 %6, ptr %11, align 4, !tbaa !39
+  %.pre = load i32, ptr %7, align 8, !tbaa !38
   br label %_ZN9gim_arrayI17GIM_BOX_TREE_NODEE7reserveEj.exit.i
 
-_ZN9gim_arrayI17GIM_BOX_TREE_NODEE7reserveEj.exit.i: ; preds = %_ZN9gim_arrayI17GIM_BOX_TREE_NODEE10resizeDataEj.exit.i.i, %11
-  %26 = phi i32 [ %.pre, %_ZN9gim_arrayI17GIM_BOX_TREE_NODEE10resizeDataEj.exit.i.i ], [ %9, %11 ]
-  %27 = icmp ult i32 %26, %7
-  br i1 %27, label %.lr.ph.i, label %_ZN9gim_arrayI17GIM_BOX_TREE_NODEE6resizeEjbRKS0_.exit
+_ZN9gim_arrayI17GIM_BOX_TREE_NODEE7reserveEj.exit.i: ; preds = %_ZN9gim_arrayI17GIM_BOX_TREE_NODEE10resizeDataEj.exit.i.i, %10
+  %25 = phi i32 [ %.pre, %_ZN9gim_arrayI17GIM_BOX_TREE_NODEE10resizeDataEj.exit.i.i ], [ %8, %10 ]
+  %26 = icmp ult i32 %25, %6
+  br i1 %26, label %.lr.ph.i, label %_ZN9gim_arrayI17GIM_BOX_TREE_NODEE6resizeEjbRKS0_.exit
 
 .lr.ph.i:                                         ; preds = %_ZN9gim_arrayI17GIM_BOX_TREE_NODEE7reserveEj.exit.i, %.lr.ph.i
-  %28 = phi i32 [ %33, %.lr.ph.i ], [ %26, %_ZN9gim_arrayI17GIM_BOX_TREE_NODEE7reserveEj.exit.i ]
-  %29 = load ptr, ptr %4, align 8, !tbaa !30
-  %30 = zext i32 %28 to i64
-  %31 = getelementptr inbounds nuw %struct.GIM_BOX_TREE_NODE, ptr %29, i64 %30
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %31, ptr noundef nonnull align 4 dereferenceable(48) %3, i64 48, i1 false), !tbaa.struct !40
-  %32 = load i32, ptr %8, align 8, !tbaa !38
+  %27 = phi i32 [ %33, %.lr.ph.i ], [ %25, %_ZN9gim_arrayI17GIM_BOX_TREE_NODEE7reserveEj.exit.i ]
+  %28 = load ptr, ptr %3, align 8, !tbaa !30
+  %29 = zext i32 %27 to i64
+  %30 = getelementptr inbounds nuw %struct.GIM_BOX_TREE_NODE, ptr %28, i64 %29
+  %31 = getelementptr i8, ptr %30, i64 32
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %31, i8 0, i64 16, i1 false)
+  %32 = load i32, ptr %7, align 8, !tbaa !38
   %33 = add i32 %32, 1
-  store i32 %33, ptr %8, align 8, !tbaa !38
-  %34 = icmp ult i32 %33, %7
-  br i1 %34, label %.lr.ph.i, label %_ZN9gim_arrayI17GIM_BOX_TREE_NODEE6resizeEjbRKS0_.exit, !llvm.loop !41
+  store i32 %33, ptr %7, align 8, !tbaa !38
+  %34 = icmp ult i32 %33, %6
+  br i1 %34, label %.lr.ph.i, label %_ZN9gim_arrayI17GIM_BOX_TREE_NODEE6resizeEjbRKS0_.exit, !llvm.loop !40
 
 35:                                               ; preds = %2
-  %36 = icmp ult i32 %7, %9
+  %36 = icmp ult i32 %6, %8
   br i1 %36, label %.loopexit.sink.split.i, label %_ZN9gim_arrayI17GIM_BOX_TREE_NODEE6resizeEjbRKS0_.exit
 
 .loopexit.sink.split.i:                           ; preds = %35
-  store i32 %7, ptr %8, align 8, !tbaa !38
+  store i32 %6, ptr %7, align 8, !tbaa !38
   br label %_ZN9gim_arrayI17GIM_BOX_TREE_NODEE6resizeEjbRKS0_.exit
 
 _ZN9gim_arrayI17GIM_BOX_TREE_NODEE6resizeEjbRKS0_.exit: ; preds = %.lr.ph.i, %_ZN9gim_arrayI17GIM_BOX_TREE_NODEE7reserveEj.exit.i, %35, %.loopexit.sink.split.i
-  call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %37 = load i32, ptr %5, align 8, !tbaa !37
+  %37 = load i32, ptr %4, align 8, !tbaa !37
   tail call void @_ZN12GIM_BOX_TREE15_build_sub_treeER9gim_arrayI13GIM_AABB_DATAEjj(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 0, i32 noundef %37)
   ret void
 }
@@ -575,5 +571,4 @@ attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 !37 = !{!5, !10, i64 8}
 !38 = !{!28, !10, i64 8}
 !39 = !{!28, !10, i64 12}
-!40 = !{i64 0, i64 16, !18, i64 16, i64 16, !18, i64 32, i64 4, !24, i64 36, i64 4, !24, i64 40, i64 4, !24, i64 44, i64 4, !24}
-!41 = distinct !{!41, !14}
+!40 = distinct !{!40, !14}

@@ -2366,34 +2366,26 @@ define void @_ZTv0_n48_N3nix29ValuePrintingTests_tPath_Test8TestBodyEv(ptr nound
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3nix29ValuePrintingTests_tNull_Test8TestBodyEv(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #4 align 2 {
-  %.sroa.22 = alloca [20 x i8], align 4
   %2 = alloca %"struct.nix::Value", align 8
-  %.sroa.22.4..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.22, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.22.4..sroa_idx, i8 0, i64 16, i1 false)
   store i32 5, ptr %2, align 8
-  %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.22.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.22, i64 20, i1 false)
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   tail call void @_ZN3nix18ValuePrintingTests4testIJEEEvNS_5ValueESt17basic_string_viewIcSt11char_traitsIcEEDpT_(ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef nonnull byval(%"struct.nix::Value") align 8 %2, i64 4, ptr nonnull @.str.22)
   ret void
 }
 
 ; Function Attrs: uwtable
 define void @_ZTv0_n48_N3nix29ValuePrintingTests_tNull_Test8TestBodyEv(ptr noundef %0) unnamed_addr #9 align 2 {
-  %.sroa.22.i = alloca [20 x i8], align 4
   %2 = alloca %"struct.nix::Value", align 8
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 -48
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 %5
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.22.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %.sroa.22.i.4.i.4.i.4..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.22.i, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.22.i.4.i.4.i.4..sroa_idx, i8 0, i64 16, i1 false)
   store i32 5, ptr %2, align 8
-  %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.22.0..sroa_idx.i, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.22.i, i64 20, i1 false)
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
   tail call void @_ZN3nix18ValuePrintingTests4testIJEEEvNS_5ValueESt17basic_string_viewIcSt11char_traitsIcEEDpT_(ptr noundef nonnull align 8 dereferenceable(1272) %6, ptr noundef nonnull byval(%"struct.nix::Value") align 8 %2, i64 4, ptr nonnull @.str.22)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.22.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
@@ -4919,59 +4911,51 @@ define void @_ZTv0_n48_N3nix38ValuePrintingTests_ansiColorsPath_Test8TestBodyEv(
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3nix38ValuePrintingTests_ansiColorsNull_Test8TestBodyEv(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #4 align 2 {
-  %.sroa.22 = alloca [20 x i8], align 4
   %2 = alloca %"struct.nix::Value", align 8
   %3 = alloca %"struct.nix::PrintOptions", align 8
-  %.sroa.22.4..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.22, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.22.4..sroa_idx, i8 0, i64 16, i1 false)
   store i32 5, ptr %2, align 8
-  %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.22.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.22, i64 20, i1 false)
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   store i8 1, ptr %3, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 1
-  store i8 0, ptr %4, align 1
-  %5 = getelementptr inbounds nuw i8, ptr %3, i64 2
-  store i8 0, ptr %5, align 2
-  %6 = getelementptr inbounds nuw i8, ptr %3, i64 3
-  store i8 1, ptr %6, align 1
-  %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %8 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 -1, i64 32, i1 false)
-  store i64 0, ptr %8, align 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 1
+  store i8 0, ptr %5, align 1
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 2
+  store i8 0, ptr %6, align 2
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 3
+  store i8 1, ptr %7, align 1
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, i8 -1, i64 32, i1 false)
+  store i64 0, ptr %9, align 8
   tail call void @_ZN3nix18ValuePrintingTests4testIJNS_12PrintOptionsEEEEvNS_5ValueESt17basic_string_viewIcSt11char_traitsIcEEDpT_(ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef nonnull byval(%"struct.nix::Value") align 8 %2, i64 15, ptr nonnull @.str.107, ptr noundef nonnull byval(%"struct.nix::PrintOptions") align 8 %3)
   ret void
 }
 
 ; Function Attrs: uwtable
 define void @_ZTv0_n48_N3nix38ValuePrintingTests_ansiColorsNull_Test8TestBodyEv(ptr noundef %0) unnamed_addr #9 align 2 {
-  %.sroa.22.i = alloca [20 x i8], align 4
   %2 = alloca %"struct.nix::Value", align 8
   %3 = alloca %"struct.nix::PrintOptions", align 8
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 -48
   %6 = load i64, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 %6
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.22.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %.sroa.22.i.4.i.4.i.4..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.22.i, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.22.i.4.i.4.i.4..sroa_idx, i8 0, i64 16, i1 false)
   store i32 5, ptr %2, align 8
-  %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.22.0..sroa_idx.i, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.22.i, i64 20, i1 false)
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   store i8 1, ptr %3, align 8
-  %8 = getelementptr inbounds nuw i8, ptr %3, i64 1
-  store i8 0, ptr %8, align 1
-  %9 = getelementptr inbounds nuw i8, ptr %3, i64 2
-  store i8 0, ptr %9, align 2
-  %10 = getelementptr inbounds nuw i8, ptr %3, i64 3
-  store i8 1, ptr %10, align 1
-  %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %12 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, i8 -1, i64 32, i1 false)
-  store i64 0, ptr %12, align 8
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 1
+  store i8 0, ptr %9, align 1
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 2
+  store i8 0, ptr %10, align 2
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 3
+  store i8 1, ptr %11, align 1
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, i8 -1, i64 32, i1 false)
+  store i64 0, ptr %13, align 8
   tail call void @_ZN3nix18ValuePrintingTests4testIJNS_12PrintOptionsEEEEvNS_5ValueESt17basic_string_viewIcSt11char_traitsIcEEDpT_(ptr noundef nonnull align 8 dereferenceable(1272) %7, ptr noundef nonnull byval(%"struct.nix::Value") align 8 %2, i64 15, ptr nonnull @.str.107, ptr noundef nonnull byval(%"struct.nix::PrintOptions") align 8 %3)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.22.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void

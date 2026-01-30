@@ -1789,7 +1789,6 @@ define void @_ZN5tokio2fs4file4File7options17had1ff39b07f098b2E(ptr noalias noun
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN5tokio2fs4file4File8from_std17h0d3c25c3b3f8d256E(ptr noalias noundef writeonly sret({ ptr, { { { {}, { { { i8 } }, [7 x i8], { { { ptr, ptr }, i8, [7 x i8] } } } }, { { { i64 } } } }, { { { i64, [3 x i64] }, i64, i8, [7 x i8] } } } }) align 8 captures(none) dereferenceable(96) %0, i32 noundef %1) unnamed_addr #3 personality ptr @rust_eh_personality {
-  %.sroa.2.i = alloca [24 x i8], align 1
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !278
@@ -1840,18 +1839,16 @@ common.resume:                                    ; preds = %18, %14, %8
 18:                                               ; preds = %14
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h559f80286cedb131E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %3)
-          to label %common.resume unwind label %23
+          to label %common.resume unwind label %24
 
 19:                                               ; preds = %"_ZN5alloc4sync12Arc$LT$T$GT$3new17hfd1c63fa251550a7E.exit"
   %20 = extractvalue { i64, ptr } %13, 0
   %21 = extractvalue { i64, ptr } %13, 1
-  %.sroa.2.i.7.i.7.i.7..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.2.i, i64 7
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %.sroa.2.i.7.i.7.i.7..sroa_idx, i8 0, i64 17, i1 false)
   store ptr %5, ptr %0, align 8
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 0, ptr %22, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %.sroa.4.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(24) %.sroa.2.i, i64 24, i1 false)
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %23, i8 0, i64 17, i1 false)
   %.sroa.53.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 2, ptr %.sroa.53.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -1865,8 +1862,8 @@ common.resume:                                    ; preds = %18, %14, %8
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
-23:                                               ; preds = %18
-  %24 = landingpad { ptr, i32 }
+24:                                               ; preds = %18
+  %25 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #33
   unreachable

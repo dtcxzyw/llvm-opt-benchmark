@@ -4907,7 +4907,7 @@ define hidden void @_ZN10MethodDataC2ERK12methodHandle(ptr noundef nonnull align
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10MethodData10initializeEv(ptr noundef nonnull align 8 dereferenceable(312) initializes((128, 208)) %0) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN10MethodData10initializeEv(ptr noundef nonnull align 8 dereferenceable(312) initializes((128, 140), (144, 208)) %0) local_unnamed_addr #2 align 2 {
   %2 = alloca %class.BytecodeStream, align 8
   %3 = alloca %class.methodHandle, align 8
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
@@ -5215,121 +5215,118 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %165, %167
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10MethodData4initEv(ptr noundef nonnull align 8 dereferenceable(312) initializes((128, 208)) %0) local_unnamed_addr #2 align 2 {
-  %.sroa.4 = alloca [68 x i8], align 4
+define hidden void @_ZN10MethodData4initEv(ptr noundef nonnull align 8 dereferenceable(312) initializes((128, 140), (144, 208)) %0) local_unnamed_addr #2 align 2 {
   %2 = alloca double, align 8
   %3 = alloca %class.methodHandle, align 8
-  %.sroa.4.4..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.4, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %.sroa.4.4..sroa_idx, i8 0, i64 64, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i32 0, ptr %4, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 132
   store i32 0, ptr %.sroa.2.0..sroa_idx, align 4
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 136
   store i32 0, ptr %.sroa.3.0..sroa_idx, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 140
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(68) %.sroa.4.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(68) %.sroa.4, i64 68, i1 false)
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 244
-  tail call void @_ZN17InvocationCounter4initEv(ptr noundef nonnull align 4 dereferenceable(4) %5) #21
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 248
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, i8 0, i64 64, i1 false)
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 244
   tail call void @_ZN17InvocationCounter4initEv(ptr noundef nonnull align 4 dereferenceable(4) %6) #21
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 252
-  store i32 0, ptr %7, align 4
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  store i32 0, ptr %8, align 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 248
+  tail call void @_ZN17InvocationCounter4initEv(ptr noundef nonnull align 4 dereferenceable(4) %7) #21
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 252
+  store i32 0, ptr %8, align 4
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  store i32 0, ptr %9, align 8
   store double 1.000000e+00, ptr %2, align 8
-  %9 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
-  %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %12 = load ptr, ptr %11, align 8
-  store ptr %12, ptr %3, align 8
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %10, ptr %13, align 8
-  %.not.i = icmp eq ptr %12, null
-  br i1 %.not.i, label %_ZN12methodHandleC2EP6ThreadP6Method.exit, label %14
+  %10 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
+  %11 = load ptr, ptr %10, align 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %13 = load ptr, ptr %12, align 8
+  store ptr %13, ptr %3, align 8
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr %11, ptr %14, align 8
+  %.not.i = icmp eq ptr %13, null
+  br i1 %.not.i, label %_ZN12methodHandleC2EP6ThreadP6Method.exit, label %15
 
-14:                                               ; preds = %1
-  %15 = getelementptr inbounds nuw i8, ptr %10, i64 816
-  %16 = load ptr, ptr %15, align 8
-  %17 = load i32, ptr %16, align 8
-  %18 = getelementptr inbounds nuw i8, ptr %16, i64 4
-  %19 = load i32, ptr %18, align 4
-  %20 = icmp eq i32 %17, %19
-  br i1 %20, label %21, label %_ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE4pushERKS1_.exit.i
+15:                                               ; preds = %1
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 816
+  %17 = load ptr, ptr %16, align 8
+  %18 = load i32, ptr %17, align 8
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 4
+  %20 = load i32, ptr %19, align 4
+  %21 = icmp eq i32 %18, %20
+  br i1 %21, label %22, label %_ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE4pushERKS1_.exit.i
 
-21:                                               ; preds = %14
-  %22 = add nsw i32 %17, 1
-  %23 = icmp sgt i32 %17, -1
-  %24 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %22)
-  %25 = icmp samesign ult i32 %24, 2
-  %or.cond.i.i.i.i.i.i = select i1 %23, i1 %25, i1 false
-  %26 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %22, i1 true)
-  %27 = sub nuw nsw i32 32, %26
-  %28 = shl nuw i32 1, %27
-  %.0.i.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i.i, i32 %22, i32 %28
-  tail call void @_ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %16, i32 noundef %.0.i.i.i.i.i.i)
-  %.pre.i.i.i = load i32, ptr %16, align 8
+22:                                               ; preds = %15
+  %23 = add nsw i32 %18, 1
+  %24 = icmp sgt i32 %18, -1
+  %25 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %23)
+  %26 = icmp samesign ult i32 %25, 2
+  %or.cond.i.i.i.i.i.i = select i1 %24, i1 %26, i1 false
+  %27 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %23, i1 true)
+  %28 = sub nuw nsw i32 32, %27
+  %29 = shl nuw i32 1, %28
+  %.0.i.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i.i, i32 %23, i32 %29
+  tail call void @_ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %17, i32 noundef %.0.i.i.i.i.i.i)
+  %.pre.i.i.i = load i32, ptr %17, align 8
   br label %_ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE4pushERKS1_.exit.i
 
-_ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE4pushERKS1_.exit.i: ; preds = %21, %14
-  %29 = phi i32 [ %.pre.i.i.i, %21 ], [ %17, %14 ]
-  %30 = add nsw i32 %29, 1
-  store i32 %30, ptr %16, align 8
-  %31 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %32 = load ptr, ptr %31, align 8
-  %33 = sext i32 %29 to i64
-  %34 = getelementptr inbounds ptr, ptr %32, i64 %33
-  store ptr %12, ptr %34, align 8
+_ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE4pushERKS1_.exit.i: ; preds = %22, %15
+  %30 = phi i32 [ %.pre.i.i.i, %22 ], [ %18, %15 ]
+  %31 = add nsw i32 %30, 1
+  store i32 %31, ptr %17, align 8
+  %32 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %33 = load ptr, ptr %32, align 8
+  %34 = sext i32 %30 to i64
+  %35 = getelementptr inbounds ptr, ptr %33, i64 %34
+  store ptr %13, ptr %35, align 8
   br label %_ZN12methodHandleC2EP6ThreadP6Method.exit
 
 _ZN12methodHandleC2EP6ThreadP6Method.exit:        ; preds = %1, %_ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE4pushERKS1_.exit.i
-  %35 = call noundef zeroext i1 @_ZN14CompilerOracle16has_option_valueIdEEbRK12methodHandle18CompileCommandEnumRT_(ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 28, ptr noundef nonnull align 8 dereferenceable(8) %2) #21
-  %36 = load i64, ptr @Tier0InvokeNotifyFreqLog, align 8
-  %37 = load double, ptr %2, align 8
-  %38 = call noundef i64 @_ZN14CompilerConfig15scaled_freq_logEld(i64 noundef %36, double noundef %37) #21
-  %39 = icmp sgt i64 %38, 63
-  br i1 %39, label %47, label %40
+  %36 = call noundef zeroext i1 @_ZN14CompilerOracle16has_option_valueIdEEbRK12methodHandle18CompileCommandEnumRT_(ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 28, ptr noundef nonnull align 8 dereferenceable(8) %2) #21
+  %37 = load i64, ptr @Tier0InvokeNotifyFreqLog, align 8
+  %38 = load double, ptr %2, align 8
+  %39 = call noundef i64 @_ZN14CompilerConfig15scaled_freq_logEld(i64 noundef %37, double noundef %38) #21
+  %40 = icmp sgt i64 %39, 63
+  br i1 %40, label %48, label %41
 
-40:                                               ; preds = %_ZN12methodHandleC2EP6ThreadP6Method.exit
-  %41 = load i64, ptr @Tier0InvokeNotifyFreqLog, align 8
-  %42 = load double, ptr %2, align 8
-  %43 = call noundef i64 @_ZN14CompilerConfig15scaled_freq_logEld(i64 noundef %41, double noundef %42) #21
-  %notmask = shl nsw i64 -1, %43
-  %44 = trunc i64 %notmask to i32
-  %45 = xor i32 %44, -1
-  %46 = shl i32 %45, 1
-  br label %47
+41:                                               ; preds = %_ZN12methodHandleC2EP6ThreadP6Method.exit
+  %42 = load i64, ptr @Tier0InvokeNotifyFreqLog, align 8
+  %43 = load double, ptr %2, align 8
+  %44 = call noundef i64 @_ZN14CompilerConfig15scaled_freq_logEld(i64 noundef %42, double noundef %43) #21
+  %notmask = shl nsw i64 -1, %44
+  %45 = trunc i64 %notmask to i32
+  %46 = xor i32 %45, -1
+  %47 = shl i32 %46, 1
+  br label %48
 
-47:                                               ; preds = %_ZN12methodHandleC2EP6ThreadP6Method.exit, %40
-  %48 = phi i32 [ %46, %40 ], [ -2, %_ZN12methodHandleC2EP6ThreadP6Method.exit ]
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  store i32 %48, ptr %49, align 8
-  %50 = load i64, ptr @Tier0BackedgeNotifyFreqLog, align 8
-  %51 = load double, ptr %2, align 8
-  %52 = call noundef i64 @_ZN14CompilerConfig15scaled_freq_logEld(i64 noundef %50, double noundef %51) #21
-  %53 = icmp sgt i64 %52, 63
-  br i1 %53, label %61, label %54
+48:                                               ; preds = %_ZN12methodHandleC2EP6ThreadP6Method.exit, %41
+  %49 = phi i32 [ %47, %41 ], [ -2, %_ZN12methodHandleC2EP6ThreadP6Method.exit ]
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  store i32 %49, ptr %50, align 8
+  %51 = load i64, ptr @Tier0BackedgeNotifyFreqLog, align 8
+  %52 = load double, ptr %2, align 8
+  %53 = call noundef i64 @_ZN14CompilerConfig15scaled_freq_logEld(i64 noundef %51, double noundef %52) #21
+  %54 = icmp sgt i64 %53, 63
+  br i1 %54, label %62, label %55
 
-54:                                               ; preds = %47
-  %55 = load i64, ptr @Tier0BackedgeNotifyFreqLog, align 8
-  %56 = load double, ptr %2, align 8
-  %57 = call noundef i64 @_ZN14CompilerConfig15scaled_freq_logEld(i64 noundef %55, double noundef %56) #21
-  %notmask1 = shl nsw i64 -1, %57
-  %58 = trunc i64 %notmask1 to i32
-  %59 = xor i32 %58, -1
-  %60 = shl i32 %59, 1
-  br label %61
+55:                                               ; preds = %48
+  %56 = load i64, ptr @Tier0BackedgeNotifyFreqLog, align 8
+  %57 = load double, ptr %2, align 8
+  %58 = call noundef i64 @_ZN14CompilerConfig15scaled_freq_logEld(i64 noundef %56, double noundef %57) #21
+  %notmask1 = shl nsw i64 -1, %58
+  %59 = trunc i64 %notmask1 to i32
+  %60 = xor i32 %59, -1
+  %61 = shl i32 %60, 1
+  br label %62
 
-61:                                               ; preds = %47, %54
-  %62 = phi i32 [ %60, %54 ], [ -2, %47 ]
-  %63 = getelementptr inbounds nuw i8, ptr %0, i64 268
-  store i32 %62, ptr %63, align 4
-  %64 = getelementptr inbounds nuw i8, ptr %0, i64 260
-  store i32 0, ptr %64, align 4
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 272
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %66, i8 0, i64 32, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %65, i8 0, i64 20, i1 false)
+62:                                               ; preds = %48, %55
+  %63 = phi i32 [ %61, %55 ], [ -2, %48 ]
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 268
+  store i32 %63, ptr %64, align 4
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 260
+  store i32 0, ptr %65, align 4
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 272
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 208
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %67, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %66, i8 0, i64 20, i1 false)
   call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #21
   ret void
 }

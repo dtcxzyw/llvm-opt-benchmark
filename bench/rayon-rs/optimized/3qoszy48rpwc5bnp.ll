@@ -852,15 +852,11 @@ define void @_ZN10rayon_core17ThreadPoolBuilder3new17h53d32402ed6f1c1dE(ptr noal
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN10rayon_core13Configuration3new17h9767e0aa9e049915E(ptr noalias noundef writeonly sret({ { { i64, i64 }, i64, { ptr, ptr }, { ptr, ptr }, { ptr, ptr }, { ptr, ptr }, i8, i8, {}, [6 x i8] } }) align 8 captures(none) dereferenceable(96) initializes((0, 32), (40, 48), (56, 64), (72, 80), (88, 90)) %0) unnamed_addr #7 {
-  %.sroa.4 = alloca [24 x i8], align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4)
-  %.sroa.4.8..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.4, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4.8..sroa_idx, i8 0, i64 16, i1 false), !alias.scope !24
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
+define void @_ZN10rayon_core13Configuration3new17h9767e0aa9e049915E(ptr noalias noundef writeonly sret({ { { i64, i64 }, i64, { ptr, ptr }, { ptr, ptr }, { ptr, ptr }, { ptr, ptr }, i8, i8, {}, [6 x i8] } }) align 8 captures(none) dereferenceable(96) initializes((0, 8), (16, 32), (40, 48), (56, 64), (72, 80), (88, 90)) %0) unnamed_addr #4 {
   store i64 0, ptr %0, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.4.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.4, i64 24, i1 false)
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   %.sroa.51.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr null, ptr %.sroa.51.0..sroa_idx, align 8
   %.sroa.62.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -871,7 +867,6 @@ define void @_ZN10rayon_core13Configuration3new17h9767e0aa9e049915E(ptr noalias 
   store i8 0, ptr %.sroa.84.0..sroa_idx, align 8
   %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 89
   store i8 0, ptr %.sroa.9.0..sroa_idx, align 1
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4)
   ret void
 }
 
@@ -882,14 +877,14 @@ define void @_ZN10rayon_core13Configuration5build17hf14be27695a59629E(ptr noalia
   %5 = alloca { { i64, i64 }, i64, { ptr, ptr }, { ptr, ptr }, { ptr, ptr }, { ptr, ptr }, i8, i8, {}, [6 x i8] }, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %5, ptr noundef nonnull align 8 dereferenceable(96) %1, i64 96, i1 false)
-  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !29
-  call void @_ZN10rayon_core8registry8Registry3new17h48fd43abfedc4925E(ptr noalias noundef nonnull sret({ i64, [1 x i64] }) align 8 captures(none) dereferenceable(16) %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(96) %5), !noalias !33
-  %6 = load i64, ptr %4, align 8, !range !16, !noalias !29, !noundef !4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !24
+  call void @_ZN10rayon_core8registry8Registry3new17h48fd43abfedc4925E(ptr noalias noundef nonnull sret({ i64, [1 x i64] }) align 8 captures(none) dereferenceable(16) %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(96) %5), !noalias !28
+  %6 = load i64, ptr %4, align 8, !range !16, !noalias !24, !noundef !4
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %8 = load ptr, ptr %7, align 8, !noalias !29
-  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !29
+  %8 = load ptr, ptr %7, align 8, !noalias !24
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !24
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !34)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !29)
   %9 = icmp eq i64 %6, 3
   br i1 %9, label %10, label %13
 
@@ -897,17 +892,17 @@ define void @_ZN10rayon_core13Configuration5build17hf14be27695a59629E(ptr noalia
   %11 = icmp ne ptr %8, null
   tail call void @llvm.assume(i1 %11)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %8, ptr %12, align 8, !alias.scope !34
-  store ptr null, ptr %0, align 8, !alias.scope !34
+  store ptr %8, ptr %12, align 8, !alias.scope !29
+  store ptr null, ptr %0, align 8, !alias.scope !29
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hb3bf448315eccb40E.exit"
 
 13:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !34
-  store i64 %6, ptr %3, align 8, !noalias !34
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !29
+  store i64 %6, ptr %3, align 8, !noalias !29
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %8, ptr %14, align 8, !noalias !34
+  store ptr %8, ptr %14, align 8, !noalias !29
   %15 = invoke { ptr, i64 } @_ZN5alloc5alloc6Global10alloc_impl17h9ea66fc1ee45e506E.llvm.15921019618450389372(ptr noalias noundef nonnull readonly align 1 @anon.1fd5bbe7596668135067d9d0e8796b2b.2.llvm.15921019618450389372, i64 noundef 8, i64 noundef 16, i1 noundef zeroext false)
-          to label %.noexc.i.i.i unwind label %18, !noalias !34
+          to label %.noexc.i.i.i unwind label %18, !noalias !29
 
 .noexc.i.i.i:                                     ; preds = %13
   %.fca.0.extract.i.i.i.i = extractvalue { ptr, i64 } %15, 0
@@ -916,7 +911,7 @@ define void @_ZN10rayon_core13Configuration5build17hf14be27695a59629E(ptr noalia
 
 17:                                               ; preds = %.noexc.i.i.i
   invoke void @_ZN5alloc5alloc18handle_alloc_error17h81706c48453a6249E(i64 noundef 8, i64 noundef 16) #18
-          to label %.noexc1.i.i.i unwind label %18, !noalias !34
+          to label %.noexc1.i.i.i unwind label %18, !noalias !29
 
 .noexc1.i.i.i:                                    ; preds = %17
   unreachable
@@ -925,25 +920,25 @@ define void @_ZN10rayon_core13Configuration5build17hf14be27695a59629E(ptr noalia
   %19 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr53drop_in_place$LT$rayon_core..ThreadPoolBuildError$GT$17hbb2d3a620775973bE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %3) #19
-          to label %22 unwind label %20, !noalias !34
+          to label %22 unwind label %20, !noalias !29
 
 20:                                               ; preds = %18
   %21 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #20, !noalias !34
+  call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #20, !noalias !29
   unreachable
 
 22:                                               ; preds = %18
   resume { ptr, i32 } %19
 
 _ZN4core3ops8function6FnOnce9call_once17ha69dc50a72a6dd05E.exit.i: ; preds = %.noexc.i.i.i
-  store i64 %6, ptr %.fca.0.extract.i.i.i.i, align 8, !noalias !34
+  store i64 %6, ptr %.fca.0.extract.i.i.i.i, align 8, !noalias !29
   %23 = getelementptr inbounds nuw i8, ptr %.fca.0.extract.i.i.i.i, i64 8
-  store ptr %8, ptr %23, align 8, !noalias !34
-  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !34
-  store ptr %.fca.0.extract.i.i.i.i, ptr %0, align 8, !alias.scope !34
+  store ptr %8, ptr %23, align 8, !noalias !29
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !29
+  store ptr %.fca.0.extract.i.i.i.i, ptr %0, align 8, !alias.scope !29
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr @anon.1fd5bbe7596668135067d9d0e8796b2b.1.llvm.15921019618450389372, ptr %24, align 8, !alias.scope !34
+  store ptr @anon.1fd5bbe7596668135067d9d0e8796b2b.1.llvm.15921019618450389372, ptr %24, align 8, !alias.scope !29
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hb3bf448315eccb40E.exit"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hb3bf448315eccb40E.exit": ; preds = %10, %_ZN4core3ops8function6FnOnce9call_once17ha69dc50a72a6dd05E.exit.i
@@ -990,8 +985,8 @@ define hidden noundef zeroext i1 @_ZN10rayon_core20ThreadPoolBuildError14is_unsu
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !37)
-  %6 = load ptr, ptr %5, align 8, !alias.scope !37, !nonnull !4, !noundef !4
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !32)
+  %6 = load ptr, ptr %5, align 8, !alias.scope !32, !nonnull !4, !noundef !4
   %7 = ptrtoint ptr %6 to i64
   %8 = and i64 %7, 3
   switch i64 %8, label %default.unreachable [
@@ -1021,12 +1016,12 @@ default.unreachable:                              ; preds = %4
 
 17:                                               ; preds = %4
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %19 = load i8, ptr %18, align 8, !range !5, !noalias !37, !noundef !4
+  %19 = load i8, ptr %18, align 8, !range !5, !noalias !32, !noundef !4
   br label %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.5181935572193958862.exit
 
 20:                                               ; preds = %4
   %21 = getelementptr i8, ptr %6, i64 15
-  %22 = load i8, ptr %21, align 8, !range !5, !noalias !37, !noundef !4
+  %22 = load i8, ptr %21, align 8, !range !5, !noalias !32, !noundef !4
   br label %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.5181935572193958862.exit
 
 _ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.5181935572193958862.exit: ; preds = %9, %13, %17, %20
@@ -1115,7 +1110,7 @@ define { ptr, ptr } @_ZN10rayon_core10initialize17haa8250a0046a29e0E(ptr noalias
   %2 = alloca { i64, ptr }, align 8
   %3 = alloca { { i64, i64 }, i64, { ptr, ptr }, { ptr, ptr }, { ptr, ptr }, { ptr, ptr }, i8, i8, {}, [6 x i8] }, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %3, ptr noundef nonnull readonly align 8 dereferenceable(96) %0, i64 96, i1 false), !alias.scope !40
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %3, ptr noundef nonnull readonly align 8 dereferenceable(96) %0, i64 96, i1 false), !alias.scope !35
   %4 = call { i64, ptr } @"_ZN10rayon_core26ThreadPoolBuilder$LT$S$GT$12build_global17h5d3228484e1346bbE"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(96) %3)
   %5 = extractvalue { i64, ptr } %4, 0
   %6 = extractvalue { i64, ptr } %4, 1
@@ -1361,22 +1356,17 @@ attributes #20 = { cold noreturn nounwind }
 !22 = distinct !{!22, !23, !"_ZN72_$LT$rayon_core..ThreadPoolBuilder$u20$as$u20$core..default..Default$GT$7default17h981617e4cf037b06E: argument 0"}
 !23 = distinct !{!23, !"_ZN72_$LT$rayon_core..ThreadPoolBuilder$u20$as$u20$core..default..Default$GT$7default17h981617e4cf037b06E"}
 !24 = !{!25, !27}
-!25 = distinct !{!25, !26, !"_ZN72_$LT$rayon_core..ThreadPoolBuilder$u20$as$u20$core..default..Default$GT$7default17h981617e4cf037b06E: argument 0"}
-!26 = distinct !{!26, !"_ZN72_$LT$rayon_core..ThreadPoolBuilder$u20$as$u20$core..default..Default$GT$7default17h981617e4cf037b06E"}
-!27 = distinct !{!27, !28, !"_ZN10rayon_core17ThreadPoolBuilder3new17h53d32402ed6f1c1dE: argument 0"}
-!28 = distinct !{!28, !"_ZN10rayon_core17ThreadPoolBuilder3new17h53d32402ed6f1c1dE"}
-!29 = !{!30, !32}
-!30 = distinct !{!30, !31, !"_ZN10rayon_core11thread_pool10ThreadPool5build17hcd99165cbd7a3634E: argument 0"}
-!31 = distinct !{!31, !"_ZN10rayon_core11thread_pool10ThreadPool5build17hcd99165cbd7a3634E"}
-!32 = distinct !{!32, !31, !"_ZN10rayon_core11thread_pool10ThreadPool5build17hcd99165cbd7a3634E: argument 1"}
-!33 = !{!30}
-!34 = !{!35}
-!35 = distinct !{!35, !36, !"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hb3bf448315eccb40E: argument 0"}
-!36 = distinct !{!36, !"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hb3bf448315eccb40E"}
-!37 = !{!38}
-!38 = distinct !{!38, !39, !"_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.5181935572193958862: argument 0"}
-!39 = distinct !{!39, !"_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.5181935572193958862"}
-!40 = !{!41, !43}
-!41 = distinct !{!41, !42, !"_ZN10rayon_core13Configuration12into_builder17he1f2ba36107e1a7dE: argument 0"}
-!42 = distinct !{!42, !"_ZN10rayon_core13Configuration12into_builder17he1f2ba36107e1a7dE"}
-!43 = distinct !{!43, !42, !"_ZN10rayon_core13Configuration12into_builder17he1f2ba36107e1a7dE: argument 1"}
+!25 = distinct !{!25, !26, !"_ZN10rayon_core11thread_pool10ThreadPool5build17hcd99165cbd7a3634E: argument 0"}
+!26 = distinct !{!26, !"_ZN10rayon_core11thread_pool10ThreadPool5build17hcd99165cbd7a3634E"}
+!27 = distinct !{!27, !26, !"_ZN10rayon_core11thread_pool10ThreadPool5build17hcd99165cbd7a3634E: argument 1"}
+!28 = !{!25}
+!29 = !{!30}
+!30 = distinct !{!30, !31, !"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hb3bf448315eccb40E: argument 0"}
+!31 = distinct !{!31, !"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hb3bf448315eccb40E"}
+!32 = !{!33}
+!33 = distinct !{!33, !34, !"_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.5181935572193958862: argument 0"}
+!34 = distinct !{!34, !"_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.5181935572193958862"}
+!35 = !{!36, !38}
+!36 = distinct !{!36, !37, !"_ZN10rayon_core13Configuration12into_builder17he1f2ba36107e1a7dE: argument 0"}
+!37 = distinct !{!37, !"_ZN10rayon_core13Configuration12into_builder17he1f2ba36107e1a7dE"}
+!38 = distinct !{!38, !37, !"_ZN10rayon_core13Configuration12into_builder17he1f2ba36107e1a7dE: argument 1"}

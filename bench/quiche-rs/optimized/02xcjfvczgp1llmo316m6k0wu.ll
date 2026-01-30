@@ -1113,7 +1113,6 @@ define hidden void @_ZN6quiche8recovery8Recovery15new_with_config17h65c91eaa3e16
   %4 = alloca [1488 x i8], align 8
   %.sroa.13.i = alloca [100 x i8], align 4
   %5 = alloca [432 x i8], align 8
-  %.sroa.13 = alloca [28 x i8], align 4
   %6 = alloca [1952 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN6quiche8recovery11gcongestion8recovery9GRecovery3new17hbd5c9e1e3073a50cE(ptr noalias noundef nonnull sret([1952 x i8]) align 8 captures(none) dereferenceable(1952) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(176) %1)
@@ -1128,19 +1127,17 @@ define hidden void @_ZN6quiche8recovery8Recovery15new_with_config17h65c91eaa3e16
   br label %29
 
 .noexc:                                           ; preds = %2
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.13)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !51)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !54)
-  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !56
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !54
   call void @"_ZN4core5array75_$LT$impl$u20$core..default..Default$u20$for$u20$$u5b$T$u3b$$u20$3$u5d$$GT$7default17h4928c4f1712c8508E"(ptr noalias noundef nonnull sret([432 x i8]) align 8 captures(none) dereferenceable(432) %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.13.i)
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 136
-  %11 = load i64, ptr %10, align 8, !alias.scope !54, !noalias !51, !noundef !3
+  %11 = load i64, ptr %10, align 8, !alias.scope !51, !noalias !56, !noundef !3
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 144
-  %13 = load i32, ptr %12, align 8, !range !13, !alias.scope !54, !noalias !51, !noundef !3
-  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !56
+  %13 = load i32, ptr %12, align 8, !range !13, !alias.scope !51, !noalias !56, !noundef !3
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !54
   %14 = invoke { i64, i32 } @_ZN3std4time7Instant3now17hd46d520c1ad33f9eE()
-          to label %.noexc.i unwind label %21, !noalias !56
+          to label %.noexc.i unwind label %21, !noalias !54
 
 .noexc.i:                                         ; preds = %.noexc
   %15 = extractvalue { i64, i32 } %14, 0
@@ -1165,30 +1162,30 @@ define hidden void @_ZN6quiche8recovery8Recovery15new_with_config17h65c91eaa3e16
   %22 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr95drop_in_place$LT$$u5b$quiche..recovery..congestion..recovery..RecoveryEpoch$u3b$$u20$3$u5d$$GT$17hd4a74c24f3568a3fE"(ptr noalias noundef align 8 dereferenceable(432) %5) #18
-          to label %.body unwind label %26, !noalias !51
+          to label %.body unwind label %26, !noalias !56
 
 23:                                               ; preds = %17
   %.sroa.13.80..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.13.i, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(96) %.sroa.13.80..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(96) %3, i64 96, i1 false), !noalias !56
-  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !56
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(96) %.sroa.13.80..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(96) %3, i64 96, i1 false), !noalias !54
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !54
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 152
-  %25 = load i64, ptr %24, align 8, !alias.scope !54, !noalias !51, !noundef !3
-  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !56
+  %25 = load i64, ptr %24, align 8, !alias.scope !51, !noalias !56, !noundef !3
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !54
   invoke void @_ZN6quiche8recovery10congestion10Congestion11from_config17hb4d4a8c686be239cE(ptr noalias noundef nonnull sret([1488 x i8]) align 8 captures(none) dereferenceable(1488) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(176) %1)
-          to label %30 unwind label %21, !noalias !51
+          to label %30 unwind label %21, !noalias !56
 
 26:                                               ; preds = %21
   %27 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #19, !noalias !51
+  call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #19, !noalias !56
   unreachable
 
 .body:                                            ; preds = %21
   %.pre = load i64, ptr %6, align 8, !range !45
   %28 = icmp eq i64 %.pre, 2
-  br i1 %28, label %33, label %34
+  br i1 %28, label %34, label %35
 
-29:                                               ; preds = %8, %32, %30
+29:                                               ; preds = %8, %33, %30
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 
@@ -1198,13 +1195,11 @@ define hidden void @_ZN6quiche8recovery8Recovery15new_with_config17h65c91eaa3e16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(100) %.sroa.28.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(100) %.sroa.13.i, i64 100, i1 false)
   %.sroa.34.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 2272
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.34.0..sroa_idx, i8 0, i64 24, i1 false)
-  %.sroa.13.4..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.13, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %.sroa.13.4..sroa_idx, i8 0, i64 24, i1 false), !alias.scope !51, !noalias !54
   %.sroa.14.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 536
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1488) %.sroa.14.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(1488) %4, i64 1488, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !56
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !54
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.13.i)
-  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !56
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !54
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 432
   store i64 0, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !60
   %.sroa.58.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 448
@@ -1223,8 +1218,8 @@ define hidden void @_ZN6quiche8recovery8Recovery15new_with_config17h65c91eaa3e16
   store i64 0, ptr %.sroa.1111.0..sroa_idx, align 8, !alias.scope !60
   %.sroa.12.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 504
   store i32 0, ptr %.sroa.12.0..sroa_idx, align 8, !alias.scope !60
-  %.sroa.13.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 508
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.13.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.13, i64 28, i1 false), !alias.scope !60
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 512
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %31, i8 0, i64 24, i1 false)
   %.sroa.15.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 2024
   store i64 0, ptr %.sroa.15.0..sroa_idx, align 8, !alias.scope !60
   %.sroa.16.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 2032
@@ -1263,24 +1258,23 @@ define hidden void @_ZN6quiche8recovery8Recovery15new_with_config17h65c91eaa3e16
   store i64 0, ptr %.sroa.36.0..sroa_idx, align 8, !alias.scope !60
   %.sroa.37.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 2312
   store i32 0, ptr %.sroa.37.0..sroa_idx, align 8, !alias.scope !60
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.13)
-  %31 = load i64, ptr %6, align 8, !range !45, !noundef !3
-  %.not7 = icmp eq i64 %31, 2
-  br i1 %.not7, label %29, label %32
+  %32 = load i64, ptr %6, align 8, !range !45, !noundef !3
+  %.not7 = icmp eq i64 %32, 2
+  br i1 %.not7, label %29, label %33
 
-32:                                               ; preds = %30
+33:                                               ; preds = %30
   call void @"_ZN4core3ptr71drop_in_place$LT$quiche..recovery..gcongestion..recovery..GRecovery$GT$17h0215cbe79a3e56eeE"(ptr noalias noundef nonnull align 8 dereferenceable(1952) %6)
   br label %29
 
-33:                                               ; preds = %34, %.body
+34:                                               ; preds = %35, %.body
   resume { ptr, i32 } %22
 
-34:                                               ; preds = %.body
+35:                                               ; preds = %.body
   invoke void @"_ZN4core3ptr71drop_in_place$LT$quiche..recovery..gcongestion..recovery..GRecovery$GT$17h0215cbe79a3e56eeE"(ptr noalias noundef nonnull align 8 dereferenceable(1952) %6) #18
-          to label %33 unwind label %35
+          to label %34 unwind label %36
 
-35:                                               ; preds = %34
-  %36 = landingpad { ptr, i32 }
+36:                                               ; preds = %35
+  %37 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #19
   unreachable
@@ -9608,12 +9602,12 @@ attributes #19 = { cold noreturn nounwind }
 !49 = !{!50}
 !50 = distinct !{!50, !48, !"_ZN124_$LT$quiche..recovery..Recovery$u20$as$u20$core..convert..From$LT$quiche..recovery..gcongestion..recovery..GRecovery$GT$$GT$4from17h3bfeab009409ff6bE: argument 1"}
 !51 = !{!52}
-!52 = distinct !{!52, !53, !"_ZN6quiche8recovery10congestion8recovery14LegacyRecovery15new_with_config17h5e9bbe1ab84a6e16E: argument 0"}
+!52 = distinct !{!52, !53, !"_ZN6quiche8recovery10congestion8recovery14LegacyRecovery15new_with_config17h5e9bbe1ab84a6e16E: argument 1"}
 !53 = distinct !{!53, !"_ZN6quiche8recovery10congestion8recovery14LegacyRecovery15new_with_config17h5e9bbe1ab84a6e16E"}
-!54 = !{!55}
-!55 = distinct !{!55, !53, !"_ZN6quiche8recovery10congestion8recovery14LegacyRecovery15new_with_config17h5e9bbe1ab84a6e16E: argument 1"}
-!56 = !{!52, !55}
-!57 = !{!58, !52, !55}
+!54 = !{!55, !52}
+!55 = distinct !{!55, !53, !"_ZN6quiche8recovery10congestion8recovery14LegacyRecovery15new_with_config17h5e9bbe1ab84a6e16E: argument 0"}
+!56 = !{!55}
+!57 = !{!58, !55, !52}
 !58 = distinct !{!58, !59, !"_ZN6quiche8recovery3rtt8RttStats3new17haba15fdc3beb7f12E: argument 0"}
 !59 = distinct !{!59, !"_ZN6quiche8recovery3rtt8RttStats3new17haba15fdc3beb7f12E"}
 !60 = !{!61, !63}
