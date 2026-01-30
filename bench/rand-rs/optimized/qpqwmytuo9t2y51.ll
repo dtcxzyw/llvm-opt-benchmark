@@ -499,10 +499,12 @@ define hidden void @_ZN10ppv_lite865types7Machine3vec17h43cd1b53772c4fb7E.llvm.1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !30)
   %3 = load i64, ptr %1, align 8, !alias.scope !30, !noalias !27, !noundef !25
   %.8.vec.insert.i = insertelement <2 x i64> <i64 poison, i64 0>, i64 %3, i64 0
-  %4 = load <2 x i64>, ptr %1, align 8
-  %5 = insertelement <2 x i64> %4, i64 0, i64 0
-  %6 = or <2 x i64> %.8.vec.insert.i, %5
-  store <2 x i64> %6, ptr %0, align 16, !alias.scope !27, !noalias !30
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  %5 = load <1 x i64>, ptr %4, align 8
+  %.8.vec.insert.i1 = shufflevector <1 x i64> %5, <1 x i64> poison, <2 x i32> <i32 0, i32 poison>
+  %6 = shufflevector <2 x i64> <i64 poison, i64 0>, <2 x i64> %.8.vec.insert.i1, <2 x i32> <i32 1, i32 2>
+  %7 = or <2 x i64> %.8.vec.insert.i, %6
+  store <2 x i64> %7, ptr %0, align 16, !alias.scope !27, !noalias !30
   ret void
 }
 
@@ -511,11 +513,13 @@ define hidden void @_ZN10ppv_lite865types7Machine3vec17h690605792b95a5d8E.llvm.1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !32)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !35)
   %3 = load i64, ptr %1, align 4, !alias.scope !35, !noalias !32
-  %4 = load <2 x i64>, ptr %1, align 4
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  %5 = load <1 x i64>, ptr %4, align 4
+  %.8.vec.insert.i1 = shufflevector <1 x i64> %5, <1 x i64> poison, <2 x i32> <i32 0, i32 poison>
   %.8.vec.insert.i = insertelement <2 x i64> <i64 poison, i64 0>, i64 %3, i64 0
-  %5 = insertelement <2 x i64> %4, i64 0, i64 0
-  %6 = or <2 x i64> %.8.vec.insert.i, %5
-  store <2 x i64> %6, ptr %0, align 16, !alias.scope !32, !noalias !35
+  %6 = shufflevector <2 x i64> <i64 poison, i64 0>, <2 x i64> %.8.vec.insert.i1, <2 x i32> <i32 1, i32 2>
+  %7 = or <2 x i64> %.8.vec.insert.i, %6
+  store <2 x i64> %7, ptr %0, align 16, !alias.scope !32, !noalias !35
   ret void
 }
 
@@ -525,10 +529,12 @@ define hidden void @_ZN10ppv_lite865types7Machine3vec17h84d63c4293d59abcE.llvm.1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !40)
   %3 = load i64, ptr %1, align 8, !alias.scope !40, !noalias !37, !noundef !25
   %.8.vec.insert.i = insertelement <2 x i64> <i64 poison, i64 0>, i64 %3, i64 0
-  %4 = load <2 x i64>, ptr %1, align 8
-  %5 = insertelement <2 x i64> %4, i64 0, i64 0
-  %6 = or <2 x i64> %.8.vec.insert.i, %5
-  store <2 x i64> %6, ptr %0, align 16, !alias.scope !37, !noalias !40
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  %5 = load <1 x i64>, ptr %4, align 8
+  %.8.vec.insert.i1 = shufflevector <1 x i64> %5, <1 x i64> poison, <2 x i32> <i32 0, i32 poison>
+  %6 = shufflevector <2 x i64> <i64 poison, i64 0>, <2 x i64> %.8.vec.insert.i1, <2 x i32> <i32 1, i32 2>
+  %7 = or <2 x i64> %.8.vec.insert.i, %6
+  store <2 x i64> %7, ptr %0, align 16, !alias.scope !37, !noalias !40
   ret void
 }
 
@@ -579,11 +585,13 @@ define hidden void @_ZN10ppv_lite865types7Machine3vec17he14c3203da894492E.llvm.1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !54)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !57)
   %3 = load i64, ptr %1, align 4, !alias.scope !57, !noalias !54
-  %4 = load <2 x i64>, ptr %1, align 4
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  %5 = load <1 x i64>, ptr %4, align 4
+  %.8.vec.insert.i1 = shufflevector <1 x i64> %5, <1 x i64> poison, <2 x i32> <i32 0, i32 poison>
   %.8.vec.insert.i = insertelement <2 x i64> <i64 poison, i64 0>, i64 %3, i64 0
-  %5 = insertelement <2 x i64> %4, i64 0, i64 0
-  %6 = or <2 x i64> %.8.vec.insert.i, %5
-  store <2 x i64> %6, ptr %0, align 16, !alias.scope !54, !noalias !57
+  %6 = shufflevector <2 x i64> <i64 poison, i64 0>, <2 x i64> %.8.vec.insert.i1, <2 x i32> <i32 1, i32 2>
+  %7 = or <2 x i64> %.8.vec.insert.i, %6
+  store <2 x i64> %7, ptr %0, align 16, !alias.scope !54, !noalias !57
   ret void
 }
 
@@ -1585,22 +1593,26 @@ define hidden void @"_ZN143_$LT$ppv_lite86..x86_64..sse2..u64x2_sse2$LT$S3$C$S4$
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden void @"_ZN159_$LT$ppv_lite86..x86_64..sse2..u32x4_sse2$LT$S3$C$ppv_lite86..x86_64..NoS4$C$NI$GT$$u20$as$u20$ppv_lite86..types..MultiLane$LT$$u5b$u32$u3b$$u20$4$u5d$$GT$$GT$10from_lanes17h6fa3bca303b8e011E.llvm.17720110283109806325"(ptr noalias noundef writeonly sret(<2 x i64>) align 16 captures(none) dereferenceable(16) initializes((0, 16)) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %1) unnamed_addr #0 {
   %3 = load i64, ptr %1, align 4
-  %4 = load <2 x i64>, ptr %1, align 4
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  %5 = load <1 x i64>, ptr %4, align 4
+  %.8.vec.insert.i1 = shufflevector <1 x i64> %5, <1 x i64> poison, <2 x i32> <i32 0, i32 poison>
   %.8.vec.insert.i = insertelement <2 x i64> <i64 poison, i64 0>, i64 %3, i64 0
-  %5 = insertelement <2 x i64> %4, i64 0, i64 0
-  %6 = or <2 x i64> %.8.vec.insert.i, %5
-  store <2 x i64> %6, ptr %0, align 16
+  %6 = shufflevector <2 x i64> <i64 poison, i64 0>, <2 x i64> %.8.vec.insert.i1, <2 x i32> <i32 1, i32 2>
+  %7 = or <2 x i64> %.8.vec.insert.i, %6
+  store <2 x i64> %7, ptr %0, align 16
   ret void
 }
 
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden void @"_ZN159_$LT$ppv_lite86..x86_64..sse2..u32x4_sse2$LT$S3$C$ppv_lite86..x86_64..NoS4$C$NI$GT$$u20$as$u20$ppv_lite86..types..MultiLane$LT$$u5b$u32$u3b$$u20$4$u5d$$GT$$GT$10from_lanes17h886ce3ff1d01f15eE.llvm.17720110283109806325"(ptr noalias noundef writeonly sret(<2 x i64>) align 16 captures(none) dereferenceable(16) initializes((0, 16)) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %1) unnamed_addr #0 {
   %3 = load i64, ptr %1, align 4
-  %4 = load <2 x i64>, ptr %1, align 4
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  %5 = load <1 x i64>, ptr %4, align 4
+  %.8.vec.insert.i1 = shufflevector <1 x i64> %5, <1 x i64> poison, <2 x i32> <i32 0, i32 poison>
   %.8.vec.insert.i = insertelement <2 x i64> <i64 poison, i64 0>, i64 %3, i64 0
-  %5 = insertelement <2 x i64> %4, i64 0, i64 0
-  %6 = or <2 x i64> %.8.vec.insert.i, %5
-  store <2 x i64> %6, ptr %0, align 16
+  %6 = shufflevector <2 x i64> <i64 poison, i64 0>, <2 x i64> %.8.vec.insert.i1, <2 x i32> <i32 1, i32 2>
+  %7 = or <2 x i64> %.8.vec.insert.i, %6
+  store <2 x i64> %7, ptr %0, align 16
   ret void
 }
 
@@ -1627,10 +1639,12 @@ define hidden void @"_ZN159_$LT$ppv_lite86..x86_64..sse2..u32x4_sse2$LT$S3$C$ppv
 define hidden void @"_ZN159_$LT$ppv_lite86..x86_64..sse2..u64x2_sse2$LT$S3$C$ppv_lite86..x86_64..NoS4$C$NI$GT$$u20$as$u20$ppv_lite86..types..MultiLane$LT$$u5b$u64$u3b$$u20$2$u5d$$GT$$GT$10from_lanes17hb100f388c3f11116E.llvm.17720110283109806325"(ptr noalias noundef writeonly sret(<2 x i64>) align 16 captures(none) dereferenceable(16) initializes((0, 16)) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %1) unnamed_addr #0 {
   %3 = load i64, ptr %1, align 8, !noundef !25
   %.8.vec.insert.i = insertelement <2 x i64> <i64 poison, i64 0>, i64 %3, i64 0
-  %4 = load <2 x i64>, ptr %1, align 8
-  %5 = insertelement <2 x i64> %4, i64 0, i64 0
-  %6 = or <2 x i64> %.8.vec.insert.i, %5
-  store <2 x i64> %6, ptr %0, align 16
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  %5 = load <1 x i64>, ptr %4, align 8
+  %.8.vec.insert.i1 = shufflevector <1 x i64> %5, <1 x i64> poison, <2 x i32> <i32 0, i32 poison>
+  %6 = shufflevector <2 x i64> <i64 poison, i64 0>, <2 x i64> %.8.vec.insert.i1, <2 x i32> <i32 1, i32 2>
+  %7 = or <2 x i64> %.8.vec.insert.i, %6
+  store <2 x i64> %7, ptr %0, align 16
   ret void
 }
 
@@ -1638,10 +1652,12 @@ define hidden void @"_ZN159_$LT$ppv_lite86..x86_64..sse2..u64x2_sse2$LT$S3$C$ppv
 define hidden void @"_ZN159_$LT$ppv_lite86..x86_64..sse2..u64x2_sse2$LT$S3$C$ppv_lite86..x86_64..NoS4$C$NI$GT$$u20$as$u20$ppv_lite86..types..MultiLane$LT$$u5b$u64$u3b$$u20$2$u5d$$GT$$GT$10from_lanes17hb85dfc82a534dd3dE.llvm.17720110283109806325"(ptr noalias noundef writeonly sret(<2 x i64>) align 16 captures(none) dereferenceable(16) initializes((0, 16)) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %1) unnamed_addr #0 {
   %3 = load i64, ptr %1, align 8, !noundef !25
   %.8.vec.insert.i = insertelement <2 x i64> <i64 poison, i64 0>, i64 %3, i64 0
-  %4 = load <2 x i64>, ptr %1, align 8
-  %5 = insertelement <2 x i64> %4, i64 0, i64 0
-  %6 = or <2 x i64> %.8.vec.insert.i, %5
-  store <2 x i64> %6, ptr %0, align 16
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  %5 = load <1 x i64>, ptr %4, align 8
+  %.8.vec.insert.i1 = shufflevector <1 x i64> %5, <1 x i64> poison, <2 x i32> <i32 0, i32 poison>
+  %6 = shufflevector <2 x i64> <i64 poison, i64 0>, <2 x i64> %.8.vec.insert.i1, <2 x i32> <i32 1, i32 2>
+  %7 = or <2 x i64> %.8.vec.insert.i, %6
+  store <2 x i64> %7, ptr %0, align 16
   ret void
 }
 
@@ -1896,8 +1912,8 @@ define hidden void @_ZN4core9core_arch3x864avx220_mm256_shuffle_epi3217hd8209158
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZN4core9core_arch3x864avx224_mm256_extracti128_si25617h4bf5b7d814c121ecE.llvm.17720110283109806325(ptr noalias noundef writeonly sret(<2 x i64>) align 16 captures(none) dereferenceable(16) initializes((0, 16)) %0, ptr noalias noundef readonly align 32 captures(none) dereferenceable(32) %1) unnamed_addr #10 {
-  %3 = load <4 x i64>, ptr %1, align 32
-  %4 = shufflevector <4 x i64> %3, <4 x i64> poison, <2 x i32> <i32 2, i32 3>
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 2
+  %4 = load <2 x i64>, ptr %3, align 32
   store <2 x i64> %4, ptr %0, align 16
   ret void
 }
@@ -2125,9 +2141,10 @@ define hidden void @_ZN4core9core_arch3x864sse217_mm_shuffle_epi3217h97d50e81ae2
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZN4core9core_arch3x864sse217_mm_shuffle_epi3217he9fafe58b706753eE.llvm.17720110283109806325(ptr noalias noundef writeonly sret(<2 x i64>) align 16 captures(none) dereferenceable(16) initializes((0, 16)) %0, ptr noalias noundef readonly align 16 captures(none) dereferenceable(16) %1) unnamed_addr #11 {
-  %3 = load <4 x i32>, ptr %1, align 16
-  %4 = shufflevector <4 x i32> %3, <4 x i32> poison, <4 x i32> <i32 2, i32 3, i32 2, i32 3>
-  store <4 x i32> %4, ptr %0, align 16
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 2
+  %4 = load <2 x i32>, ptr %3, align 16
+  %5 = shufflevector <2 x i32> %4, <2 x i32> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
+  store <4 x i32> %5, ptr %0, align 16
   ret void
 }
 
