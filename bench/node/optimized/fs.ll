@@ -456,12 +456,15 @@ if.then79.i:                                      ; preds = %if.end75.i
 
 if.end83.i:                                       ; preds = %if.end75.i, %if.end63.i
   %33 = load i64, ptr %st_size84.i, align 8
-  %cond512 = icmp eq i64 %33, 0
-  br i1 %cond512, label %out.i.thread, label %if.end90.i
+  br label %while.cond.i
 
-if.end90.i:                                       ; preds = %if.end83.i, %if.end97.i
-  %in_offset.0.i514 = phi i64 [ %add.i, %if.end97.i ], [ 0, %if.end83.i ]
-  %bytes_to_send.0.i513 = phi i64 [ %sub98.i, %if.end97.i ], [ %33, %if.end83.i ]
+while.cond.i:                                     ; preds = %if.end97.i, %if.end83.i
+  %bytes_to_send.0.i = phi i64 [ %33, %if.end83.i ], [ %sub98.i, %if.end97.i ]
+  %in_offset.0.i = phi i64 [ 0, %if.end83.i ], [ %add.i, %if.end97.i ]
+  %cond = icmp eq i64 %bytes_to_send.0.i, 0
+  br i1 %cond, label %out.i.thread, label %if.end90.i
+
+if.end90.i:                                       ; preds = %while.cond.i
   store i32 6, ptr %type.i414, align 8
   store i32 5, ptr %fs_type.i415, align 8
   store ptr null, ptr %new_path.i420, align 8
@@ -469,8 +472,8 @@ if.end90.i:                                       ; preds = %if.end83.i, %if.end
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %loop2.i418, i8 0, i64 40, i1 false)
   store i32 %conv.i426, ptr %flags17.i423, align 4
   store i32 %conv.i410, ptr %file.i396, align 8
-  store i64 %in_offset.0.i514, ptr %off5.i, align 8
-  store i64 %bytes_to_send.0.i513, ptr %len6.i, align 8
+  store i64 %in_offset.0.i, ptr %off5.i, align 8
+  store i64 %bytes_to_send.0.i, ptr %len6.i, align 8
   call void @uv__fs_work(ptr noundef nonnull %work_req31.i425)
   %34 = load i64, ptr %result.i416, align 8
   call void @uv_fs_req_cleanup(ptr noundef nonnull %fs_req.i)
@@ -482,10 +485,9 @@ if.then95.i:                                      ; preds = %if.end90.i
   br label %out.i
 
 if.end97.i:                                       ; preds = %if.end90.i
-  %sub98.i = sub nsw i64 %bytes_to_send.0.i513, %34
-  %add.i = add nuw nsw i64 %34, %in_offset.0.i514
-  %cond = icmp eq i64 %sub98.i, 0
-  br i1 %cond, label %out.i.thread, label %if.end90.i
+  %sub98.i = sub nsw i64 %bytes_to_send.0.i, %34
+  %add.i = add nuw nsw i64 %34, %in_offset.0.i
+  br label %while.cond.i
 
 out.i:                                            ; preds = %if.then95.i, %if.then79.i, %if.then52.i, %if.then35.i, %if.then20.i, %if.then2.i
   %dstfd.0.i = phi i32 [ -1, %if.then2.i ], [ %conv.i410, %if.then79.i ], [ %conv.i410, %if.then20.i ], [ %conv.i410, %if.then95.i ], [ %conv.i410, %if.then35.i ], [ %conv.i410, %if.then52.i ]
@@ -494,9 +496,9 @@ out.i:                                            ; preds = %if.then95.i, %if.th
   %spec.select462 = call i32 @llvm.smin.i32(i32 %err.0.i.fr, i32 0)
   br label %out.i.thread
 
-out.i.thread:                                     ; preds = %if.end97.i, %if.end83.i, %out.i, %if.end4.i, %if.end58.i, %if.then70.i, %land.lhs.true.i
-  %dstfd.0.i432 = phi i32 [ %conv.i410, %if.end4.i ], [ %dstfd.0.i, %out.i ], [ %conv.i410, %if.end58.i ], [ %conv.i410, %land.lhs.true.i ], [ %conv.i410, %if.then70.i ], [ %conv.i410, %if.end83.i ], [ %conv.i410, %if.end97.i ]
-  %35 = phi i32 [ %conv.i410, %if.end4.i ], [ %spec.select462, %out.i ], [ -1, %if.end58.i ], [ 0, %land.lhs.true.i ], [ 0, %if.then70.i ], [ 0, %if.end83.i ], [ 0, %if.end97.i ]
+out.i.thread:                                     ; preds = %while.cond.i, %out.i, %if.end4.i, %if.end58.i, %if.then70.i, %land.lhs.true.i
+  %dstfd.0.i432 = phi i32 [ %conv.i410, %if.end4.i ], [ %dstfd.0.i, %out.i ], [ %conv.i410, %if.end58.i ], [ %conv.i410, %land.lhs.true.i ], [ %conv.i410, %if.then70.i ], [ %conv.i410, %while.cond.i ]
+  %35 = phi i32 [ %conv.i410, %if.end4.i ], [ %spec.select462, %out.i ], [ -1, %if.end58.i ], [ 0, %land.lhs.true.i ], [ 0, %if.then70.i ], [ 0, %while.cond.i ]
   %call103.i = call i32 @uv__close_nocheckstdio(i32 noundef %conv.i426) #15
   %cmp104.i = icmp ne i32 %call103.i, 0
   %cmp107.i = icmp eq i32 %35, 0

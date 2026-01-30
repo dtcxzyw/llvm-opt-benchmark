@@ -8784,10 +8784,11 @@ PyByteArray_AS_STRING.exit.i:                     ; preds = %34, %.thread59
   br i1 %.not64.i.i, label %.critedge.i.i, label %.critedge2.i.i, !llvm.loop !169
 
 .critedge2.i.i:                                   ; preds = %56, %.critedge.i.i
-  %.3.lcssa.i.i = phi i64 [ %.3.i.i, %56 ], [ -1, %.critedge.i.i ]
-  %63 = getelementptr i8, ptr %.0.i.i, i64 %.3.in.i.i
+  %.3.in.lcssa.i.i = phi i64 [ 0, %.critedge.i.i ], [ %.3.in.i.i, %56 ]
+  %.3.lcssa.i.i = phi i64 [ -1, %.critedge.i.i ], [ %.3.i.i, %56 ]
+  %63 = getelementptr i8, ptr %.0.i.i, i64 %.3.in.lcssa.i.i
   %64 = add nuw i64 %.214.i.i, 1
-  %65 = sub i64 %64, %.3.in.i.i
+  %65 = sub i64 %64, %.3.in.lcssa.i.i
   %66 = call ptr @PyByteArray_FromStringAndSize(ptr noundef readonly %63, i64 noundef %65)
   %67 = icmp eq ptr %66, null
   br i1 %67, label %Py_DECREF.exit76.i.i, label %68
@@ -11647,7 +11648,7 @@ define internal fastcc i64 @stringlib__two_way_find(ptr noundef readonly %0, i64
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
-define internal fastcc i64 @stringlib__two_way_count(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef range(i64 6, -9223372036854775808) %3, i64 noundef %4) unnamed_addr #9 {
+define internal fastcc noundef i64 @stringlib__two_way_count(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef range(i64 6, -9223372036854775808) %3, i64 noundef %4) unnamed_addr #9 {
   %6 = alloca %struct.stringlib__pre, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call fastcc void @stringlib__preprocess(ptr noundef %2, i64 noundef %3, ptr noundef %6)

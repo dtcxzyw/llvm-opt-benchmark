@@ -5150,8 +5150,9 @@ define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix3aux14light_functionI
   br i1 %13, label %_ZNK5boost3log11v2_mt_posix11expressions3aux9anonymous21named_scope_formatterIcE9file_nameclERNS1_24basic_formatting_ostreamIcSt11char_traitsIcESaIcEEERKNS1_10attributes17named_scope_entryE.exit, label %8, !llvm.loop !156
 
 _ZNK5boost3log11v2_mt_posix11expressions3aux9anonymous21named_scope_formatterIcE9file_nameclERNS1_24basic_formatting_ostreamIcSt11char_traitsIcESaIcEEERKNS1_10attributes17named_scope_entryE.exit: ; preds = %8, %9
-  %14 = getelementptr inbounds nuw i8, ptr %7, i64 %.012.i
-  %15 = sub i64 %6, %.012.i
+  %.012.lcssa.i = phi i64 [ %.012.i, %9 ], [ 0, %8 ]
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 %.012.lcssa.i
+  %15 = sub i64 %6, %.012.lcssa.i
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %17 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef %14, i64 noundef %15)
   ret void
@@ -7853,8 +7854,9 @@ define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix3aux14light_functionI
   br i1 %13, label %_ZNK5boost3log11v2_mt_posix11expressions3aux9anonymous21named_scope_formatterIwE9file_nameclERNS1_24basic_formatting_ostreamIwSt11char_traitsIwESaIwEEERKNS1_10attributes17named_scope_entryE.exit, label %8, !llvm.loop !237
 
 _ZNK5boost3log11v2_mt_posix11expressions3aux9anonymous21named_scope_formatterIwE9file_nameclERNS1_24basic_formatting_ostreamIwSt11char_traitsIwESaIwEEERKNS1_10attributes17named_scope_entryE.exit: ; preds = %8, %9
-  %14 = getelementptr inbounds nuw i8, ptr %7, i64 %.012.i
-  %15 = sub i64 %6, %.012.i
+  %.012.lcssa.i = phi i64 [ %.012.i, %9 ], [ 0, %8 ]
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 %.012.lcssa.i
+  %15 = sub i64 %6, %.012.lcssa.i
   %16 = tail call noundef nonnull align 8 dereferenceable(424) ptr @_ZN5boost3log11v2_mt_posix24basic_formatting_ostreamIwSt11char_traitsIwESaIwEE5writeIcEENS1_3aux30enable_if_streamable_char_typeIT_RS6_E4typeEPKSA_l(ptr noundef nonnull align 8 dereferenceable(424) %1, ptr noundef %14, i64 noundef %15)
   ret void
 }

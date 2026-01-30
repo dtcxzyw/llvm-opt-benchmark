@@ -5822,7 +5822,7 @@ thread-pre-split134.i:                            ; preds = %198, %193
   %.not111.i = icmp eq i32 %.sroa.24.2, %223
   %or.cond = select i1 %.not110.i, i1 %.not111.i, i1 false
   %.not112.i = icmp eq i64 %.sroa.11.2, 0
-  %or.cond147 = select i1 %or.cond, i1 true, i1 %.not112.i
+  %or.cond147 = or i1 %.not112.i, %or.cond
   %.sroa.38.6 = select i1 %or.cond147, i16 %.sroa.38.2, i16 0
   %224 = load i32, ptr %29, align 4, !tbaa !137
   %225 = load i32, ptr %30, align 8, !tbaa !138
@@ -5940,7 +5940,7 @@ LZ4IO_skipBlocksData.exit.i:                      ; preds = %238, %237, %230
   store i32 1, ptr %25, align 8, !tbaa !141
   %.not98.i = icmp eq i32 %.sroa.2967.2, 1
   %.not99.i = icmp eq i64 %.sroa.11.2, 0
-  %or.cond148 = select i1 %.not98.i, i1 true, i1 %.not99.i
+  %or.cond148 = or i1 %.not99.i, %.not98.i
   %.sroa.3371.5 = select i1 %or.cond148, i16 %.sroa.3371.2, i16 0
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br label %283
@@ -6109,7 +6109,7 @@ LZ4IO_skipLegacyBlocksData.exit.i:                ; preds = %291, %285
   store i32 2, ptr %25, align 8, !tbaa !141
   %.not93.i = icmp eq i32 %.sroa.2967.2, 2
   %.not94.i = icmp eq i64 %.sroa.11.2, 0
-  %or.cond149 = select i1 %.not93.i, i1 true, i1 %.not94.i
+  %or.cond149 = or i1 %.not94.i, %.not93.i
   %.sroa.3371.3 = select i1 %or.cond149, i16 %.sroa.3371.2, i16 0
   %366 = call i64 @fread(ptr noundef nonnull %7, i64 noundef 1, i64 noundef 4, ptr noundef nonnull %80)
   %.not95.i = icmp eq i64 %366, 4

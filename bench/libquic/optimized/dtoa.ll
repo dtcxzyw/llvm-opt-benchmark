@@ -4473,9 +4473,10 @@ _ZN6dmg_fpL8rv_allocEi.exit:                      ; preds = %181, %209
 
 383:                                              ; preds = %.loopexit, %380
   %384 = phi i8 [ 49, %380 ], [ %382, %.loopexit ]
+  %.9.idx872 = phi i64 [ 5, %380 ], [ %.9.idx, %.loopexit ]
   %.ptr716734 = phi ptr [ %.ptr714.ptr, %380 ], [ %.ptr716.le, %.loopexit ]
   %.8445 = phi i32 [ %381, %380 ], [ %.7444, %.loopexit ]
-  %.9.ptr736 = getelementptr inbounds i8, ptr %.0.i.i, i64 %.9.idx
+  %.9.ptr736 = getelementptr inbounds i8, ptr %.0.i.i, i64 %.9.idx872
   store i8 %384, ptr %.ptr716734, align 1, !tbaa !3
   br label %_ZN6dmg_fpL5BfreeEPNS_6BigintE.exit655
 
@@ -5474,9 +5475,9 @@ _ZN6dmg_fpL5BfreeEPNS_6BigintE.exit657:           ; preds = %_ZN6dmg_fpL5BfreeEP
   br i1 %.not536, label %_ZN6dmg_fpL9nrv_allocEPKcPPci.exit, label %_ZN6dmg_fpL9nrv_allocEPKcPPci.exit.sink.split
 
 _ZN6dmg_fpL9nrv_allocEPKcPPci.exit.sink.split:    ; preds = %_ZN6dmg_fpL5BfreeEPNS_6BigintE.exit657, %_ZN6dmg_fpL8rv_allocEi.exit.i561, %._crit_edge.i556, %._crit_edge.i
-  %.sink1131 = phi ptr [ %77, %._crit_edge.i556 ], [ %57, %._crit_edge.i ], [ %101, %_ZN6dmg_fpL8rv_allocEi.exit.i561 ], [ %.4, %_ZN6dmg_fpL5BfreeEPNS_6BigintE.exit657 ]
+  %.sink1130 = phi ptr [ %77, %._crit_edge.i556 ], [ %57, %._crit_edge.i ], [ %101, %_ZN6dmg_fpL8rv_allocEi.exit.i561 ], [ %.4, %_ZN6dmg_fpL5BfreeEPNS_6BigintE.exit657 ]
   %.0.ph = phi ptr [ %76, %._crit_edge.i556 ], [ %56, %._crit_edge.i ], [ %100, %_ZN6dmg_fpL8rv_allocEi.exit.i561 ], [ %.ptr714.ptr, %_ZN6dmg_fpL5BfreeEPNS_6BigintE.exit657 ]
-  store ptr %.sink1131, ptr %5, align 8, !tbaa !6
+  store ptr %.sink1130, ptr %5, align 8, !tbaa !6
   br label %_ZN6dmg_fpL9nrv_allocEPKcPPci.exit
 
 _ZN6dmg_fpL9nrv_allocEPKcPPci.exit:               ; preds = %_ZN6dmg_fpL9nrv_allocEPKcPPci.exit.sink.split, %_ZN6dmg_fpL8rv_allocEi.exit.i561, %._crit_edge.i556, %._crit_edge.i, %_ZN6dmg_fpL5BfreeEPNS_6BigintE.exit657

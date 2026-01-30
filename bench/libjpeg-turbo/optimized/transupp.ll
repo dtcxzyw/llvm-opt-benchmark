@@ -3447,17 +3447,18 @@ define dso_local void @jtransform_execute_transform(ptr noundef %0, ptr noundef 
 483:                                              ; preds = %._crit_edge.i162, %.lr.ph225.i
   %484 = phi i32 [ %.fr231.i, %.lr.ph225.i ], [ %630, %._crit_edge.i162 ]
   %.0171223.i = phi i32 [ 0, %.lr.ph225.i ], [ %631, %._crit_edge.i162 ]
+  %.0171223.fr.i = freeze i32 %.0171223.i
   %485 = load ptr, ptr %465, align 8, !tbaa !83
   %486 = getelementptr inbounds nuw i8, ptr %485, i64 64
   %487 = load ptr, ptr %486, align 8, !tbaa !118
   %488 = load ptr, ptr %480, align 8, !tbaa !87
-  %489 = tail call ptr %487(ptr noundef %0, ptr noundef %488, i32 noundef %.0171223.i, i32 noundef %484, i32 noundef 1) #8
+  %489 = tail call ptr %487(ptr noundef %0, ptr noundef %488, i32 noundef %.0171223.fr.i, i32 noundef %484, i32 noundef 1) #8
   %490 = load i32, ptr %473, align 4, !tbaa !77
   %491 = icmp sgt i32 %490, 0
   br i1 %491, label %.preheader195.lr.ph.i, label %._crit_edge.i162
 
 .preheader195.lr.ph.i:                            ; preds = %483
-  %492 = add i32 %.0171223.i, %477
+  %492 = add i32 %.0171223.fr.i, %477
   %493 = load i32, ptr %481, align 4, !tbaa !119
   %.not235.i = icmp eq i32 %493, 0
   br i1 %.not235.i, label %._crit_edge.i162, label %.preheader195.i.preheader
@@ -3826,7 +3827,7 @@ define dso_local void @jtransform_execute_transform(ptr noundef %0, ptr noundef 
 
 ._crit_edge.i162:                                 ; preds = %._crit_edge216.i, %._crit_edge216.i.us, %.preheader195.lr.ph.i, %483
   %630 = phi i32 [ %490, %483 ], [ %490, %.preheader195.lr.ph.i ], [ %565, %._crit_edge216.i.us ], [ %626, %._crit_edge216.i ]
-  %631 = add i32 %630, %.0171223.i
+  %631 = add i32 %630, %.0171223.fr.i
   %632 = load i32, ptr %478, align 8, !tbaa !117
   %633 = icmp ult i32 %631, %632
   br i1 %633, label %483, label %._crit_edge226.loopexit.i, !llvm.loop !177
@@ -4456,17 +4457,18 @@ define dso_local void @jtransform_execute_transform(ptr noundef %0, ptr noundef 
 947:                                              ; preds = %._crit_edge.i197, %.lr.ph112.i
   %948 = phi i32 [ %.fr118.i, %.lr.ph112.i ], [ %1033, %._crit_edge.i197 ]
   %.084110.i = phi i32 [ 0, %.lr.ph112.i ], [ %1034, %._crit_edge.i197 ]
+  %.084110.fr.i = freeze i32 %.084110.i
   %949 = load ptr, ptr %930, align 8, !tbaa !83
   %950 = getelementptr inbounds nuw i8, ptr %949, i64 64
   %951 = load ptr, ptr %950, align 8, !tbaa !118
   %952 = load ptr, ptr %944, align 8, !tbaa !87
-  %953 = tail call ptr %951(ptr noundef %0, ptr noundef %952, i32 noundef %.084110.i, i32 noundef %948, i32 noundef 1) #8
+  %953 = tail call ptr %951(ptr noundef %0, ptr noundef %952, i32 noundef %.084110.fr.i, i32 noundef %948, i32 noundef 1) #8
   %954 = load i32, ptr %935, align 4, !tbaa !77
   %955 = icmp sgt i32 %954, 0
   br i1 %955, label %.preheader96.lr.ph.i, label %._crit_edge.i197
 
 .preheader96.lr.ph.i:                             ; preds = %947
-  %956 = add i32 %.084110.i, %941
+  %956 = add i32 %.084110.fr.i, %941
   %957 = load i32, ptr %945, align 4, !tbaa !119
   %.not122.i = icmp eq i32 %957, 0
   br i1 %.not122.i, label %._crit_edge.i197, label %.preheader96.i.preheader
@@ -4666,7 +4668,7 @@ define dso_local void @jtransform_execute_transform(ptr noundef %0, ptr noundef 
 
 ._crit_edge.i197:                                 ; preds = %._crit_edge106.i, %._crit_edge106.i.us, %.preheader96.lr.ph.i, %947
   %1033 = phi i32 [ %954, %947 ], [ %954, %.preheader96.lr.ph.i ], [ %995, %._crit_edge106.i.us ], [ %1029, %._crit_edge106.i ]
-  %1034 = add i32 %1033, %.084110.i
+  %1034 = add i32 %1033, %.084110.fr.i
   %1035 = load i32, ptr %942, align 8, !tbaa !117
   %1036 = icmp ult i32 %1034, %1035
   br i1 %1036, label %947, label %._crit_edge113.loopexit.i, !llvm.loop !209
@@ -5344,7 +5346,7 @@ define internal fastcc void @do_crop_ext_reflect(ptr noundef %0, ptr noundef rea
   %100 = add i32 %.1116141.us, -1
   %101 = icmp ne i32 %99, 0
   %102 = icmp ne i32 %100, 0
-  %103 = select i1 %101, i1 %102, i1 false
+  %103 = and i1 %102, %101
   br i1 %103, label %.preheader132.us.backedge, label %..loopexit133_crit_edge.us
 
 .preheader132.us.backedge:                        ; preds = %97, %..loopexit133_crit_edge.us
@@ -5409,7 +5411,7 @@ define internal fastcc void @do_crop_ext_reflect(ptr noundef %0, ptr noundef rea
   %125 = add i32 %.3118151.us, -1
   %126 = icmp ne i32 %124, 0
   %127 = icmp ne i32 %125, 0
-  %128 = select i1 %126, i1 %127, i1 false
+  %128 = and i1 %127, %126
   br i1 %128, label %.preheader.us.backedge, label %..loopexit_crit_edge.us
 
 .preheader.us.backedge:                           ; preds = %122, %..loopexit_crit_edge.us
@@ -6168,7 +6170,7 @@ define internal fastcc void @do_reflect(ptr noundef %0, ptr noundef readonly cap
   %55 = add i32 %.388110.us.us.us, -1
   %56 = icmp ne i32 %54, 0
   %57 = icmp ne i32 %55, 0
-  %58 = select i1 %56, i1 %57, i1 false
+  %58 = and i1 %57, %56
   br i1 %58, label %.lr.ph.us.us.us.backedge, label %..loopexit_crit_edge.us.us.us
 
 .lr.ph.us.us.us.backedge:                         ; preds = %52, %..loopexit_crit_edge.us.us.us
@@ -6301,7 +6303,7 @@ define internal fastcc void @do_reflect(ptr noundef %0, ptr noundef readonly cap
   %112 = add i32 %.186100, -1
   %113 = icmp ne i32 %111, 0
   %114 = icmp ne i32 %112, 0
-  %115 = select i1 %113, i1 %114, i1 false
+  %115 = and i1 %114, %113
   br i1 %115, label %.preheader.backedge, label %.loopexit94
 
 .preheader.backedge:                              ; preds = %109, %.loopexit94

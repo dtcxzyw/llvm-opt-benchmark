@@ -20800,9 +20800,10 @@ define hidden { i64, i64 } @_ZN4core4iter6traits12double_ended19DoubleEndedItera
   br i1 %.not, label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h02339972496453b9E.exit.thread", label %8
 
 "_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h02339972496453b9E.exit.thread": ; preds = %8, %"_ZN5image5utils13expand_packed28_$u7b$$u7b$closure$u7d$$u7d$17h8f06c05eeaacf4d3E.exit.i", %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h02339972496453b9E.exit", %18
+  %.sroa.3.0 = phi i64 [ undef, %18 ], [ undef, %"_ZN5image5utils13expand_packed28_$u7b$$u7b$closure$u7d$$u7d$17h8f06c05eeaacf4d3E.exit.i" ], [ undef, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h02339972496453b9E.exit" ], [ %.0, %8 ]
   %.sroa.0.0 = phi i64 [ 1, %18 ], [ 1, %"_ZN5image5utils13expand_packed28_$u7b$$u7b$closure$u7d$$u7d$17h8f06c05eeaacf4d3E.exit.i" ], [ 1, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h02339972496453b9E.exit" ], [ 0, %8 ]
   %21 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
-  %22 = insertvalue { i64, i64 } %21, i64 %.0, 1
+  %22 = insertvalue { i64, i64 } %21, i64 %.sroa.3.0, 1
   ret { i64, i64 } %22
 }
 
@@ -32351,9 +32352,10 @@ define hidden { i64, i64 } @"_ZN98_$LT$core..iter..adapters..rev..Rev$LT$I$GT$$u
   br i1 %.not.i, label %_ZN4core4iter6traits12double_ended19DoubleEndedIterator9try_rfold17h758d893f2e813e6dE.llvm.15361875792781664197.exit, label %8
 
 _ZN4core4iter6traits12double_ended19DoubleEndedIterator9try_rfold17h758d893f2e813e6dE.llvm.15361875792781664197.exit: ; preds = %8, %"_ZN5image5utils13expand_packed28_$u7b$$u7b$closure$u7d$$u7d$17h8f06c05eeaacf4d3E.exit.i.i", %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h02339972496453b9E.exit.i", %18
-  %.sroa.0.0.i = phi i64 [ 1, %18 ], [ 1, %"_ZN5image5utils13expand_packed28_$u7b$$u7b$closure$u7d$$u7d$17h8f06c05eeaacf4d3E.exit.i.i" ], [ 1, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h02339972496453b9E.exit.i" ], [ 0, %8 ]
+  %.sroa.3.0.i = phi i64 [ undef, %18 ], [ undef, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h02339972496453b9E.exit.i" ], [ undef, %"_ZN5image5utils13expand_packed28_$u7b$$u7b$closure$u7d$$u7d$17h8f06c05eeaacf4d3E.exit.i.i" ], [ %.0.i, %8 ]
+  %.sroa.0.0.i = phi i64 [ 1, %18 ], [ 1, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h02339972496453b9E.exit.i" ], [ 1, %"_ZN5image5utils13expand_packed28_$u7b$$u7b$closure$u7d$$u7d$17h8f06c05eeaacf4d3E.exit.i.i" ], [ 0, %8 ]
   %21 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
-  %22 = insertvalue { i64, i64 } %21, i64 %.0.i, 1
+  %22 = insertvalue { i64, i64 } %21, i64 %.sroa.3.0.i, 1
   ret { i64, i64 } %22
 }
 

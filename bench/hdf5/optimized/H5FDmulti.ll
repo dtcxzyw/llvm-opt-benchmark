@@ -2101,41 +2101,35 @@ define internal i32 @H5FD_multi_cmp(ptr noundef readonly captures(none) %0, ptr 
   %3 = tail call i32 @H5Eclear2(i64 noundef 0) #15
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 344
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 344
-  br label %.backedge
+  br label %6
 
-.backedge:                                        ; preds = %.backedge.backedge, %2
-  %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.be, %.backedge.backedge ]
-  %6 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
-  %7 = load ptr, ptr %6, align 8, !tbaa !15
-  %.not = icmp eq ptr %7, null
-  br i1 %.not, label %.thread29, label %8
+6:                                                ; preds = %2, %.thread29
+  %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %.thread29 ]
+  %7 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
+  %8 = load ptr, ptr %7, align 8, !tbaa !15
+  %.not = icmp eq ptr %8, null
+  br i1 %.not, label %.thread29, label %9
 
-8:                                                ; preds = %.backedge
-  %9 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
-  %10 = load ptr, ptr %9, align 8, !tbaa !15
-  %.not24 = icmp ne ptr %10, null
+9:                                                ; preds = %6
+  %10 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
+  %11 = load ptr, ptr %10, align 8, !tbaa !15
+  %.not24 = icmp eq ptr %11, null
+  br i1 %.not24, label %.thread29, label %12
+
+.thread29:                                        ; preds = %9, %6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 7
-  %or.cond = select i1 %.not24, i1 true, i1 %exitcond.not
-  br i1 %or.cond, label %11, label %.backedge.backedge
+  br i1 %exitcond.not, label %12, label %6, !llvm.loop !52
 
-.thread29:                                        ; preds = %.backedge
-  %indvars.iv.next.old = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not.old = icmp eq i64 %indvars.iv.next.old, 7
-  br i1 %exitcond.not.old, label %11, label %.backedge.backedge
-
-.backedge.backedge:                               ; preds = %.thread29, %8
-  %indvars.iv.be = phi i64 [ %indvars.iv.next.old, %.thread29 ], [ %indvars.iv.next, %8 ]
-  br label %.backedge, !llvm.loop !52
-
-11:                                               ; preds = %8, %.thread29
-  %12 = and i64 %indvars.iv, 4294967295
-  %13 = getelementptr inbounds nuw ptr, ptr %5, i64 %12
-  %14 = load ptr, ptr %13, align 8, !tbaa !15
-  %15 = getelementptr inbounds nuw ptr, ptr %4, i64 %12
-  %16 = load ptr, ptr %15, align 8, !tbaa !15
-  %17 = tail call i32 @H5FDcmp(ptr noundef %14, ptr noundef %16) #15
-  ret i32 %17
+12:                                               ; preds = %9, %.thread29
+  %.032.lcssa = phi i64 [ %indvars.iv, %9 ], [ 6, %.thread29 ]
+  %13 = and i64 %.032.lcssa, 4294967295
+  %14 = getelementptr inbounds nuw ptr, ptr %5, i64 %13
+  %15 = load ptr, ptr %14, align 8, !tbaa !15
+  %16 = getelementptr inbounds nuw ptr, ptr %4, i64 %13
+  %17 = load ptr, ptr %16, align 8, !tbaa !15
+  %18 = tail call i32 @H5FDcmp(ptr noundef %15, ptr noundef %17) #15
+  ret i32 %18
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable

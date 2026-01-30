@@ -7968,7 +7968,8 @@ define hidden void @_ZN4jiff2tz12concatenated10IndexEntry4name17h0001e9a51665983
 
 _ZN4jiff2tz12concatenated10IndexEntry10name_bytes17h72b0fb526a5dc0e1E.exit: ; preds = %13, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h3d0deea6cfc1c6d6E.exit.i._ZN4jiff2tz12concatenated10IndexEntry10name_bytes17h72b0fb526a5dc0e1E.exit_crit_edge"
   %.pre-phi = phi ptr [ %.pre, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h3d0deea6cfc1c6d6E.exit.i._ZN4jiff2tz12concatenated10IndexEntry10name_bytes17h72b0fb526a5dc0e1E.exit_crit_edge" ], [ %.sroa.0.0.i, %13 ]
-  call void @_ZN4core3str8converts9from_utf817h34c91f7db7a649f7E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 1 %.pre-phi, i64 noundef %.pn12.i)
+  %.pn12.i.lcssa = phi i64 [ 0, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h3d0deea6cfc1c6d6E.exit.i._ZN4jiff2tz12concatenated10IndexEntry10name_bytes17h72b0fb526a5dc0e1E.exit_crit_edge" ], [ %.pn12.i, %13 ]
+  call void @_ZN4core3str8converts9from_utf817h34c91f7db7a649f7E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 1 %.pre-phi, i64 noundef %.pn12.i.lcssa)
   %18 = load i64, ptr %6, align 8, !range !436, !noundef !3
   %19 = trunc nuw i64 %18 to i1
   br i1 %19, label %20, label %31, !prof !43
@@ -8139,9 +8140,10 @@ define noundef zeroext i1 @"_ZN71_$LT$jiff..tz..concatenated..IndexEntry$u20$as$
 
 _ZN4jiff2tz12concatenated10IndexEntry10name_bytes17h72b0fb526a5dc0e1E.exit: ; preds = %13, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h3d0deea6cfc1c6d6E.exit.i._ZN4jiff2tz12concatenated10IndexEntry10name_bytes17h72b0fb526a5dc0e1E.exit_crit_edge"
   %.pre-phi = phi ptr [ %.pre, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h3d0deea6cfc1c6d6E.exit.i._ZN4jiff2tz12concatenated10IndexEntry10name_bytes17h72b0fb526a5dc0e1E.exit_crit_edge" ], [ %.sroa.0.0.i, %13 ]
+  %.pn12.i.lcssa = phi i64 [ 0, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h3d0deea6cfc1c6d6E.exit.i._ZN4jiff2tz12concatenated10IndexEntry10name_bytes17h72b0fb526a5dc0e1E.exit_crit_edge" ], [ %.pn12.i, %13 ]
   store ptr %.pre-phi, ptr %5, align 8
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 %.pn12.i, ptr %18, align 8
+  store i64 %.pn12.i.lcssa, ptr %18, align 8
   %19 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders11DebugStruct5field17h507e615d61eec06eE(ptr noalias noundef nonnull align 8 dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 1 @anon.9232167ce54e458d8940b51d93e63128.170, i64 noundef 4, ptr noundef nonnull align 1 %5, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.9232167ce54e458d8940b51d93e63128.169)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %20 = icmp ult i64 %8, 44

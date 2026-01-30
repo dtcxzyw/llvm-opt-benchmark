@@ -1453,7 +1453,7 @@ if.then14:                                        ; preds = %if.else
   %call = tail call noundef zeroext i1 @_ZN2EA4StdC20GetAssertionsEnabledEv()
   %tobool17.not = icmp ne ptr %pDest.addr.062, null
   %cmp19 = icmp ult i64 %destCount.061, %nDestCapacity
-  %or.cond42 = select i1 %tobool17.not, i1 %cmp19, i1 false
+  %or.cond42 = and i1 %cmp19, %tobool17.not
   br i1 %or.cond42, label %return.sink.split, label %return
 
 for.body:                                         ; preds = %for.body.preheader, %if.end41
@@ -1468,7 +1468,7 @@ if.then31:                                        ; preds = %for.body
   %call32 = tail call noundef zeroext i1 @_ZN2EA4StdC20GetAssertionsEnabledEv()
   %tobool35.not = icmp ne ptr %pDest.addr.062, null
   %cmp37 = icmp ult i64 %destCount.061, %nDestCapacity
-  %or.cond43 = select i1 %tobool35.not, i1 %cmp37, i1 false
+  %or.cond43 = and i1 %cmp37, %tobool35.not
   br i1 %or.cond43, label %return.sink.split, label %return
 
 if.end41:                                         ; preds = %for.body
@@ -1611,7 +1611,7 @@ if.then13:                                        ; preds = %if.else
   %call = tail call noundef zeroext i1 @_ZN2EA4StdC20GetAssertionsEnabledEv()
   %tobool16.not = icmp ne ptr %pDest.addr.062, null
   %cmp18 = icmp ult i64 %destCount.061, %nDestCapacity
-  %or.cond42 = select i1 %tobool16.not, i1 %cmp18, i1 false
+  %or.cond42 = and i1 %cmp18, %tobool16.not
   br i1 %or.cond42, label %return.sink.split, label %return
 
 for.body:                                         ; preds = %for.body.preheader, %if.end40
@@ -1626,7 +1626,7 @@ if.then30:                                        ; preds = %for.body
   %call31 = tail call noundef zeroext i1 @_ZN2EA4StdC20GetAssertionsEnabledEv()
   %tobool34.not = icmp ne ptr %pDest.addr.062, null
   %cmp36 = icmp ult i64 %destCount.061, %nDestCapacity
-  %or.cond43 = select i1 %tobool34.not, i1 %cmp36, i1 false
+  %or.cond43 = and i1 %cmp36, %tobool34.not
   br i1 %or.cond43, label %return.sink.split, label %return
 
 if.end40:                                         ; preds = %for.body
@@ -3998,7 +3998,7 @@ if.end:                                           ; preds = %while.body
   %cmp3 = icmp eq i8 %0, 0
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %pString.addr.06, i64 1
   %cmp.not = icmp eq i64 %dec7, 0
-  %or.cond = select i1 %cmp3, i1 true, i1 %cmp.not
+  %or.cond = or i1 %cmp3, %cmp.not
   br i1 %or.cond, label %return, label %while.body, !llvm.loop !68
 
 return:                                           ; preds = %while.body, %if.end, %entry
@@ -4024,7 +4024,7 @@ if.end:                                           ; preds = %while.body
   %cmp4 = icmp eq i16 %0, 0
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %pString.addr.06, i64 2
   %cmp.not = icmp eq i64 %dec7, 0
-  %or.cond = select i1 %cmp4, i1 true, i1 %cmp.not
+  %or.cond = or i1 %cmp4, %cmp.not
   br i1 %or.cond, label %return, label %while.body, !llvm.loop !69
 
 return:                                           ; preds = %while.body, %if.end, %entry
@@ -4050,7 +4050,7 @@ if.end:                                           ; preds = %while.body
   %cmp2 = icmp eq i32 %0, 0
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %pString.addr.06, i64 4
   %cmp.not = icmp eq i64 %dec7, 0
-  %or.cond = select i1 %cmp2, i1 true, i1 %cmp.not
+  %or.cond = or i1 %cmp2, %cmp.not
   br i1 %or.cond, label %return, label %while.body, !llvm.loop !70
 
 return:                                           ; preds = %while.body, %if.end, %entry
@@ -6872,7 +6872,7 @@ entry:
   %0 = load i8, ptr %pString, align 1
   %tobool4 = icmp ne i8 %0, 0
   %cmp5 = icmp ne i64 %n, 0
-  %1 = and i1 %tobool4, %cmp5
+  %1 = and i1 %cmp5, %tobool4
   br i1 %1, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
@@ -6888,7 +6888,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %2 = load i8, ptr %incdec.ptr, align 1
   %tobool = icmp ne i8 %2, 0
   %cmp = icmp ult i64 %inc, %n
-  %3 = select i1 %tobool, i1 %cmp, i1 false
+  %3 = and i1 %cmp, %tobool
   br i1 %3, label %for.body, label %for.end, !llvm.loop !151
 
 for.end:                                          ; preds = %for.body, %entry
@@ -6901,7 +6901,7 @@ entry:
   %0 = load i16, ptr %pString, align 2
   %tobool4 = icmp ne i16 %0, 0
   %cmp5 = icmp ne i64 %n, 0
-  %1 = and i1 %tobool4, %cmp5
+  %1 = and i1 %cmp5, %tobool4
   br i1 %1, label %for.body, label %for.end
 
 for.body:                                         ; preds = %entry, %for.body
@@ -6913,7 +6913,7 @@ for.body:                                         ; preds = %entry, %for.body
   %2 = load i16, ptr %incdec.ptr, align 2
   %tobool = icmp ne i16 %2, 0
   %cmp = icmp ult i64 %inc, %n
-  %3 = select i1 %tobool, i1 %cmp, i1 false
+  %3 = and i1 %cmp, %tobool
   br i1 %3, label %for.body, label %for.end, !llvm.loop !152
 
 for.end:                                          ; preds = %for.body, %entry
@@ -6926,7 +6926,7 @@ entry:
   %0 = load i32, ptr %pString, align 4
   %tobool4 = icmp ne i32 %0, 0
   %cmp5 = icmp ne i64 %n, 0
-  %1 = and i1 %tobool4, %cmp5
+  %1 = and i1 %cmp5, %tobool4
   br i1 %1, label %for.body, label %for.end
 
 for.body:                                         ; preds = %entry, %for.body
@@ -6938,7 +6938,7 @@ for.body:                                         ; preds = %entry, %for.body
   %2 = load i32, ptr %incdec.ptr, align 4
   %tobool = icmp ne i32 %2, 0
   %cmp = icmp ult i64 %inc, %n
-  %3 = select i1 %tobool, i1 %cmp, i1 false
+  %3 = and i1 %cmp, %tobool
   br i1 %3, label %for.body, label %for.end, !llvm.loop !153
 
 for.end:                                          ; preds = %for.body, %entry
@@ -9331,15 +9331,14 @@ if.end48:                                         ; preds = %for.body44, %if.end
   %expcnt.084 = phi i32 [ 0, %if.end19.thread ], [ %inc, %if.end40 ], [ %inc, %for.body44 ]
   %fract.0 = phi double [ %call12, %if.end19.thread ], [ %fract.1, %if.end40 ], [ %fract.1, %for.body44 ]
   %t.1.idx = phi i64 [ 1, %if.end19.thread ], [ 1, %if.end40 ], [ %t.2.add, %for.body44 ]
-  %sub86.fr = freeze i32 %sub86
   %incdec.ptr20.ptr85 = getelementptr inbounds nuw i8, ptr %buffer, i64 1
   %sub.ptr.rhs.cast = ptrtoint ptr %incdec.ptr20.ptr85 to i64
   %9 = trunc i64 %t.1.idx to i32
   %conv51 = add i32 %9, -1
-  %cmp4987 = icmp slt i32 %sub86.fr, 0
+  %cmp4987 = icmp slt i32 %sub86, 0
   %storemerge = select i1 %cmp4987, i32 %expcnt.084, i32 %conv51
   store i32 %storemerge, ptr %decimalPos, align 4
-  %cmp55123 = icmp sgt i32 %sub86.fr, 0
+  %cmp55123 = icmp sgt i32 %sub86, 0
   %tobool5699124 = fcmp une double %fract.0, 0.000000e+00
   %10 = select i1 %cmp55123, i1 %tobool5699124, i1 false
   br i1 %10, label %while.body.lr.ph.preheader, label %while.end
@@ -9352,7 +9351,7 @@ while.body.preheader:                             ; preds = %if.else64, %while.b
   %leading.0.ph130 = phi i1 [ false, %if.else64 ], [ %cmp54, %while.body.lr.ph.preheader ]
   %t.3.idx.ph128 = phi i64 [ %t.3.add76, %if.else64 ], [ %t.1.idx, %while.body.lr.ph.preheader ]
   %fract.2.ph127 = phi double [ %call58, %if.else64 ], [ %fract.0, %while.body.lr.ph.preheader ]
-  %nDigitCountAfterDecimal.0.ph125 = phi i32 [ %sub69, %if.else64 ], [ %sub86.fr, %while.body.lr.ph.preheader ]
+  %nDigitCountAfterDecimal.0.ph125 = phi i32 [ %sub69, %if.else64 ], [ %sub86, %while.body.lr.ph.preheader ]
   br label %while.body
 
 while.body:                                       ; preds = %while.body.preheader, %if.then62
@@ -9388,7 +9387,7 @@ if.else64:                                        ; preds = %while.body
 
 while.end:                                        ; preds = %if.else64, %if.end48
   %t.3.idx.ph.lcssa98 = phi i64 [ %t.1.idx, %if.end48 ], [ %t.3.add76, %if.else64 ]
-  %nDigitCountAfterDecimal.0.ph.lcssa = phi i32 [ %sub86.fr, %if.end48 ], [ %sub69, %if.else64 ]
+  %nDigitCountAfterDecimal.0.ph.lcssa = phi i32 [ %sub86, %if.end48 ], [ %sub69, %if.else64 ]
   %fract.2.lcssa = phi double [ %fract.0, %if.end48 ], [ %call58, %if.else64 ]
   %tobool56.lcssa = phi i1 [ %tobool5699124, %if.end48 ], [ %tobool5699, %if.else64 ]
   br i1 %tobool56.lcssa, label %if.then72, label %if.end122
@@ -13242,7 +13241,7 @@ for.body:                                         ; preds = %entry, %for.body
   %2 = load i16, ptr %incdec.ptr, align 2
   %tobool = icmp ne i16 %2, 0
   %cmp1 = icmp ult i64 %inc, %spec.store.select
-  %3 = select i1 %tobool, i1 %cmp1, i1 false
+  %3 = and i1 %cmp1, %tobool
   br i1 %3, label %for.body, label %for.end, !llvm.loop !236
 
 for.end:                                          ; preds = %for.body, %entry
@@ -13294,7 +13293,7 @@ for.body:                                         ; preds = %entry, %for.body
   %2 = load i32, ptr %incdec.ptr, align 4
   %tobool = icmp ne i32 %2, 0
   %cmp1 = icmp ult i64 %inc, %spec.store.select
-  %3 = select i1 %tobool, i1 %cmp1, i1 false
+  %3 = and i1 %cmp1, %tobool
   br i1 %3, label %for.body, label %for.end, !llvm.loop !238
 
 for.end:                                          ; preds = %for.body, %entry

@@ -2140,7 +2140,7 @@ define internal fastcc noundef ptr @_ZL25SymbolizeStackConsumptionPvPi(ptr nound
 .critedge93:                                      ; preds = %.critedge90, %.critedge92
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %61 = call fastcc noundef zeroext i1 @_ZL14StackGrowsDownPi(ptr noundef %4)
-  br i1 %61, label %.preheader.i, label %.preheader19.i
+  br i1 %61, label %.preheader.i, label %.preheader21.i
 
 .preheader.i:                                     ; preds = %.critedge93, %64
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %64 ], [ 0, %.critedge93 ]
@@ -2159,21 +2159,21 @@ define internal fastcc noundef ptr @_ZL25SymbolizeStackConsumptionPvPi(ptr nound
   %67 = sub nuw nsw i32 8096, %66
   br label %_ZL19GetStackConsumptionPKc.exit
 
-.preheader19.i:                                   ; preds = %.critedge93, %71
-  %.022.i = phi i32 [ %72, %71 ], [ 8095, %.critedge93 ]
-  %68 = zext nneg i32 %.022.i to i64
+.preheader21.i:                                   ; preds = %.critedge93, %71
+  %.024.i = phi i32 [ %72, %71 ], [ 8095, %.critedge93 ]
+  %68 = zext nneg i32 %.024.i to i64
   %69 = getelementptr inbounds nuw i8, ptr %5, i64 %68
   %70 = load i8, ptr %69, align 1, !tbaa !81
   %.not.i = icmp eq i8 %70, 85
   br i1 %.not.i, label %71, label %_ZL19GetStackConsumptionPKc.exit
 
-71:                                               ; preds = %.preheader19.i
-  %72 = add nsw i32 %.022.i, -1
-  %73 = icmp eq i32 %.022.i, 0
-  br i1 %73, label %_ZL19GetStackConsumptionPKc.exit, label %.preheader19.i, !llvm.loop !87
+71:                                               ; preds = %.preheader21.i
+  %72 = add nsw i32 %.024.i, -1
+  %73 = icmp eq i32 %.024.i, 0
+  br i1 %73, label %_ZL19GetStackConsumptionPKc.exit, label %.preheader21.i, !llvm.loop !87
 
-_ZL19GetStackConsumptionPKc.exit:                 ; preds = %.preheader19.i, %71, %64, %65
-  %.116.i = phi i32 [ -1, %64 ], [ %67, %65 ], [ -1, %71 ], [ %.022.i, %.preheader19.i ]
+_ZL19GetStackConsumptionPKc.exit:                 ; preds = %.preheader21.i, %71, %64, %65
+  %.116.i = phi i32 [ -1, %64 ], [ %67, %65 ], [ -1, %71 ], [ %.024.i, %.preheader21.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %74 = call i32 @getpid() #32
   %75 = call i32 @kill(i32 noundef %74, i32 noundef 12) #32
@@ -2203,7 +2203,7 @@ _ZL19GetStackConsumptionPKc.exit:                 ; preds = %.preheader19.i, %71
 .critedge96:                                      ; preds = %_ZL19GetStackConsumptionPKc.exit, %.critedge95
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %81 = call fastcc noundef zeroext i1 @_ZL14StackGrowsDownPi(ptr noundef %3)
-  br i1 %81, label %.preheader.i114, label %.preheader19.i110
+  br i1 %81, label %.preheader.i114, label %.preheader21.i110
 
 .preheader.i114:                                  ; preds = %.critedge96, %84
   %indvars.iv.i115 = phi i64 [ %indvars.iv.next.i117, %84 ], [ 0, %.critedge96 ]
@@ -2222,21 +2222,21 @@ _ZL19GetStackConsumptionPKc.exit:                 ; preds = %.preheader19.i, %71
   %87 = sub nuw nsw i32 8096, %86
   br label %_ZL19GetStackConsumptionPKc.exit119
 
-.preheader19.i110:                                ; preds = %.critedge96, %91
-  %.022.i111 = phi i32 [ %92, %91 ], [ 8095, %.critedge96 ]
-  %88 = zext nneg i32 %.022.i111 to i64
+.preheader21.i110:                                ; preds = %.critedge96, %91
+  %.024.i111 = phi i32 [ %92, %91 ], [ 8095, %.critedge96 ]
+  %88 = zext nneg i32 %.024.i111 to i64
   %89 = getelementptr inbounds nuw i8, ptr %5, i64 %88
   %90 = load i8, ptr %89, align 1, !tbaa !81
   %.not.i112 = icmp eq i8 %90, 85
   br i1 %.not.i112, label %91, label %_ZL19GetStackConsumptionPKc.exit119
 
-91:                                               ; preds = %.preheader19.i110
-  %92 = add nsw i32 %.022.i111, -1
-  %93 = icmp eq i32 %.022.i111, 0
-  br i1 %93, label %_ZL19GetStackConsumptionPKc.exit119, label %.preheader19.i110, !llvm.loop !87
+91:                                               ; preds = %.preheader21.i110
+  %92 = add nsw i32 %.024.i111, -1
+  %93 = icmp eq i32 %.024.i111, 0
+  br i1 %93, label %_ZL19GetStackConsumptionPKc.exit119, label %.preheader21.i110, !llvm.loop !87
 
-_ZL19GetStackConsumptionPKc.exit119:              ; preds = %.preheader19.i110, %91, %84, %85
-  %.116.i113 = phi i32 [ -1, %84 ], [ %87, %85 ], [ -1, %91 ], [ %.022.i111, %.preheader19.i110 ]
+_ZL19GetStackConsumptionPKc.exit119:              ; preds = %.preheader21.i110, %91, %84, %85
+  %.116.i113 = phi i32 [ -1, %84 ], [ %87, %85 ], [ -1, %91 ], [ %.024.i111, %.preheader21.i110 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %94 = icmp ne i32 %.116.i, -1
   %95 = icmp ne i32 %.116.i113, -1

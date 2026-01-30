@@ -11437,7 +11437,7 @@ define dso_local i64 @rb_int_parse_cstr(ptr noundef %0, i64 noundef %1, ptr noun
   %37 = load i8, ptr %.1164, align 1, !tbaa !13
   %38 = icmp eq i8 %37, 48
   %39 = icmp sgt i64 %.0255, 1
-  %or.cond7 = and i1 %38, %39
+  %or.cond7 = and i1 %39, %38
   br i1 %or.cond7, label %40, label %59
 
 40:                                               ; preds = %36
@@ -14480,17 +14480,18 @@ BIGNUM_DIGITS.exit.i:                             ; preds = %26, %8
   br i1 %.not17.i, label %.preheader.i, label %.critedge.i, !llvm.loop !138
 
 .critedge.i:                                      ; preds = %34, %.preheader.i
+  %.1.lcssa.i = phi i64 [ 0, %.preheader.i ], [ %.1.i, %34 ]
   br i1 %.not.i.i, label %42, label %38
 
 38:                                               ; preds = %.critedge.i
   %39 = and i64 %24, -229377
-  %40 = shl nuw nsw i64 %.1.i, 15
+  %40 = shl nuw nsw i64 %.1.lcssa.i, 15
   %41 = or i64 %40, %39
   store i64 %41, ptr %13, align 8, !tbaa !11
   br label %rb_ull2big.exit
 
 42:                                               ; preds = %.critedge.i
-  store i64 %.1.i, ptr %16, align 8, !tbaa !13
+  store i64 %.1.lcssa.i, ptr %16, align 8, !tbaa !13
   br label %rb_ull2big.exit
 
 rb_ull2big.exit:                                  ; preds = %42, %38, %5
@@ -14581,17 +14582,18 @@ BIGNUM_DIGITS.exit.i.i:                           ; preds = %27, %8
   br i1 %.not17.i.i, label %.preheader.i.i, label %.critedge.i.i, !llvm.loop !138
 
 .critedge.i.i:                                    ; preds = %35, %.preheader.i.i
+  %.1.lcssa.i.i = phi i64 [ 0, %.preheader.i.i ], [ %.1.i.i, %35 ]
   br i1 %.not.i.i.i, label %43, label %39
 
 39:                                               ; preds = %.critedge.i.i
   %40 = and i64 %25, -229377
-  %41 = shl nuw nsw i64 %.1.i.i, 15
+  %41 = shl nuw nsw i64 %.1.lcssa.i.i, 15
   %42 = or i64 %41, %40
   store i64 %42, ptr %14, align 8, !tbaa !11
   br label %rb_ull2big.exit.i
 
 43:                                               ; preds = %.critedge.i.i
-  store i64 %.1.i.i, ptr %17, align 8, !tbaa !13
+  store i64 %.1.lcssa.i.i, ptr %17, align 8, !tbaa !13
   br label %rb_ull2big.exit.i
 
 rb_ull2big.exit.i:                                ; preds = %43, %39
@@ -14697,17 +14699,18 @@ BIGNUM_DIGITS.exit.i:                             ; preds = %24, %2
   br i1 %.not16.i, label %.preheader.i, label %.critedge.i, !llvm.loop !140
 
 .critedge.i:                                      ; preds = %34, %.preheader.i
+  %.1.lcssa.i = phi i64 [ 0, %.preheader.i ], [ %.1.i, %34 ]
   br i1 %.not.i.i, label %42, label %38
 
 38:                                               ; preds = %.critedge.i
   %39 = and i64 %22, -229377
-  %40 = shl i64 %.1.i, 15
+  %40 = shl i64 %.1.lcssa.i, 15
   %41 = or i64 %40, %39
   store i64 %41, ptr %11, align 8, !tbaa !11
   br label %rb_uint128t2big.exit
 
 42:                                               ; preds = %.critedge.i
-  store i64 %.1.i, ptr %14, align 8, !tbaa !13
+  store i64 %.1.lcssa.i, ptr %14, align 8, !tbaa !13
   br label %rb_uint128t2big.exit
 
 rb_uint128t2big.exit:                             ; preds = %38, %42
@@ -21380,7 +21383,7 @@ rb_uint2big.exit:                                 ; preds = %.critedge8, %BIGNUM
 206:                                              ; preds = %100
   %207 = icmp eq i64 %.0101.lcssa, 2
   %208 = icmp eq i64 %.0102190, 2
-  %or.cond = and i1 %208, %207
+  %or.cond = select i1 %207, i1 %208, i1 false
   br i1 %or.cond, label %209, label %264
 
 209:                                              ; preds = %206
@@ -23319,7 +23322,7 @@ BIGNUM_DIGITS.exit64.i:                           ; preds = %76, %74
   %79 = icmp slt i64 %29, 1
   %80 = add nsw i64 %30, 1
   %or.cond381.i = icmp ult i64 %80, 2
-  %or.cond82.i = select i1 %79, i1 true, i1 %or.cond381.i
+  %or.cond82.i = or i1 %or.cond381.i, %79
   br i1 %or.cond82.i, label %.preheader73.i, label %.lr.ph.i
 
 .preheader73.i:                                   ; preds = %.lr.ph.i, %BIGNUM_DIGITS.exit64.i
@@ -23328,7 +23331,7 @@ BIGNUM_DIGITS.exit64.i:                           ; preds = %76, %74
   %.056.lcssa.i = phi i64 [ %30, %BIGNUM_DIGITS.exit64.i ], [ %87, %.lr.ph.i ]
   %81 = icmp sge i64 %.057.lcssa.i, %spec.store.select.i
   %or.cond586.i = icmp ult i64 %.pre-phi.i, 2
-  %or.cond6187.i = select i1 %81, i1 true, i1 %or.cond586.i
+  %or.cond6187.i = or i1 %or.cond586.i, %81
   br i1 %or.cond6187.i, label %.preheader72.i, label %.lr.ph90.i
 
 .lr.ph.i:                                         ; preds = %BIGNUM_DIGITS.exit64.i, %.lr.ph.i
@@ -23345,7 +23348,7 @@ BIGNUM_DIGITS.exit64.i:                           ; preds = %76, %74
   %89 = icmp sge i64 %88, %29
   %90 = add nsw i64 %87, 1
   %or.cond3.i = icmp ult i64 %90, 2
-  %or.cond.i = select i1 %89, i1 true, i1 %or.cond3.i
+  %or.cond.i = or i1 %89, %or.cond3.i
   br i1 %or.cond.i, label %.preheader73.i, label %.lr.ph.i, !llvm.loop !224
 
 .preheader72.i:                                   ; preds = %.lr.ph90.i, %.preheader73.i
@@ -23365,7 +23368,7 @@ BIGNUM_DIGITS.exit64.i:                           ; preds = %76, %74
   %97 = icmp sge i64 %96, %spec.store.select.i
   %98 = add nsw i64 %95, 1
   %or.cond5.i = icmp ult i64 %98, 2
-  %or.cond61.i = select i1 %97, i1 true, i1 %or.cond5.i
+  %or.cond61.i = or i1 %97, %or.cond5.i
   br i1 %or.cond61.i, label %.preheader72.i, label %.lr.ph90.i, !llvm.loop !225
 
 .preheader.i:                                     ; preds = %.lr.ph93.i, %.preheader72.i

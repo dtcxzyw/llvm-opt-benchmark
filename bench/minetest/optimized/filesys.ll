@@ -3939,10 +3939,11 @@ land.rhs.us.i:                                    ; preds = %while.cond.us.i
   br i1 %cmp.i.us.i, label %while.cond.us.i, label %while.cond4.us.i.preheader, !llvm.loop !104
 
 while.cond4.us.i.preheader:                       ; preds = %land.rhs.us.i, %while.cond.us.i
+  %remaining.2.us.i.ph = phi i64 [ 0, %while.cond.us.i ], [ %remaining.1.us.i, %land.rhs.us.i ]
   br label %while.cond4.us.i
 
 while.cond4.us.i:                                 ; preds = %while.cond4.us.i.preheader, %land.rhs6.us.i
-  %remaining.2.us.i = phi i64 [ %sub7.us.i, %land.rhs6.us.i ], [ %remaining.1.us.i, %while.cond4.us.i.preheader ]
+  %remaining.2.us.i = phi i64 [ %sub7.us.i, %land.rhs6.us.i ], [ %remaining.2.us.i.ph, %while.cond4.us.i.preheader ]
   %cmp5.not.us.i = icmp eq i64 %remaining.2.us.i, 0
   br i1 %cmp5.not.us.i, label %while.cond14.us.i.preheader, label %land.rhs6.us.i
 
@@ -3954,10 +3955,11 @@ land.rhs6.us.i:                                   ; preds = %while.cond4.us.i
   br i1 %cmp.i74.us.i, label %while.cond14.us.i.preheader, label %while.cond4.us.i, !llvm.loop !105
 
 while.cond14.us.i.preheader:                      ; preds = %land.rhs6.us.i, %while.cond4.us.i
+  %remaining.3.us.i.ph = phi i64 [ 0, %while.cond4.us.i ], [ %remaining.2.us.i, %land.rhs6.us.i ]
   br label %while.cond14.us.i
 
 while.cond14.us.i:                                ; preds = %while.cond14.us.i.preheader, %land.rhs16.us.i
-  %remaining.3.us.i = phi i64 [ %sub17.us.i, %land.rhs16.us.i ], [ %remaining.2.us.i, %while.cond14.us.i.preheader ]
+  %remaining.3.us.i = phi i64 [ %sub17.us.i, %land.rhs16.us.i ], [ %remaining.3.us.i.ph, %while.cond14.us.i.preheader ]
   %cmp15.not.us.i = icmp eq i64 %remaining.3.us.i, 0
   br i1 %cmp15.not.us.i, label %while.end23.us.i, label %land.rhs16.us.i
 
@@ -3969,9 +3971,10 @@ land.rhs16.us.i:                                  ; preds = %while.cond14.us.i
   br i1 %cmp.i76.us.i, label %while.cond14.us.i, label %while.end23.us.i, !llvm.loop !106
 
 while.end23.us.i:                                 ; preds = %land.rhs16.us.i, %while.cond14.us.i
+  %remaining.3.us.i.lcssa = phi i64 [ %remaining.3.us.i, %land.rhs16.us.i ], [ 0, %while.cond14.us.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !107)
   store ptr %8, ptr %ref.tmp, align 8, !tbaa !11, !alias.scope !110
-  %spec.select.i.i.i.i = call noundef i64 @llvm.umin.i64(i64 %21, i64 %remaining.3.us.i)
+  %spec.select.i.i.i.i = call noundef i64 @llvm.umin.i64(i64 %21, i64 %remaining.3.us.i.lcssa)
   call void @llvm.lifetime.start.p0(ptr nonnull %__dnew.i.i.i.i)
   store i64 %spec.select.i.i.i.i, ptr %__dnew.i.i.i.i, align 8, !tbaa !20, !noalias !110
   %cmp.i15.i.i.i = icmp ugt i64 %spec.select.i.i.i.i, 15
@@ -4254,7 +4257,7 @@ while.cond.preheader.lr.ph.split.us:              ; preds = %if.end
   br label %while.cond.preheader.us
 
 while.cond.preheader.us:                          ; preds = %while.end23.us, %while.cond.preheader.lr.ph.split.us
-  %remaining.0185.us = phi i64 [ %0, %while.cond.preheader.lr.ph.split.us ], [ %remaining.3.us, %while.end23.us ]
+  %remaining.0185.us = phi i64 [ %0, %while.cond.preheader.lr.ph.split.us ], [ %remaining.3.us.lcssa, %while.end23.us ]
   %i.0184.us = phi i32 [ 0, %while.cond.preheader.lr.ph.split.us ], [ %inc.us, %while.end23.us ]
   br label %while.cond.us
 
@@ -4271,10 +4274,11 @@ land.rhs.us:                                      ; preds = %while.cond.us
   br i1 %cmp.i.us, label %while.cond.us, label %while.cond4.us.preheader, !llvm.loop !104
 
 while.cond4.us.preheader:                         ; preds = %land.rhs.us, %while.cond.us
+  %remaining.2.us.ph = phi i64 [ 0, %while.cond.us ], [ %remaining.1.us, %land.rhs.us ]
   br label %while.cond4.us
 
 while.cond4.us:                                   ; preds = %while.cond4.us.preheader, %land.rhs6.us
-  %remaining.2.us = phi i64 [ %sub7.us, %land.rhs6.us ], [ %remaining.1.us, %while.cond4.us.preheader ]
+  %remaining.2.us = phi i64 [ %sub7.us, %land.rhs6.us ], [ %remaining.2.us.ph, %while.cond4.us.preheader ]
   %cmp5.not.us = icmp eq i64 %remaining.2.us, 0
   br i1 %cmp5.not.us, label %while.cond14.us.preheader, label %land.rhs6.us
 
@@ -4286,10 +4290,11 @@ land.rhs6.us:                                     ; preds = %while.cond4.us
   br i1 %cmp.i74.us, label %while.cond14.us.preheader, label %while.cond4.us, !llvm.loop !105
 
 while.cond14.us.preheader:                        ; preds = %land.rhs6.us, %while.cond4.us
+  %remaining.3.us.ph = phi i64 [ 0, %while.cond4.us ], [ %remaining.2.us, %land.rhs6.us ]
   br label %while.cond14.us
 
 while.cond14.us:                                  ; preds = %while.cond14.us.preheader, %land.rhs16.us
-  %remaining.3.us = phi i64 [ %sub17.us, %land.rhs16.us ], [ %remaining.2.us, %while.cond14.us.preheader ]
+  %remaining.3.us = phi i64 [ %sub17.us, %land.rhs16.us ], [ %remaining.3.us.ph, %while.cond14.us.preheader ]
   %cmp15.not.us = icmp eq i64 %remaining.3.us, 0
   br i1 %cmp15.not.us, label %while.end23.us, label %land.rhs16.us
 
@@ -4301,12 +4306,13 @@ land.rhs16.us:                                    ; preds = %while.cond14.us
   br i1 %cmp.i76.us, label %while.cond14.us, label %while.end23.us, !llvm.loop !106
 
 while.end23.us:                                   ; preds = %land.rhs16.us, %while.cond14.us
+  %remaining.3.us.lcssa = phi i64 [ %remaining.3.us, %land.rhs16.us ], [ 0, %while.cond14.us ]
   %inc.us = add nuw nsw i32 %i.0184.us, 1
   %exitcond208.not = icmp eq i32 %inc.us, %count
   br i1 %exitcond208.not, label %for.cond.cleanup, label %while.cond.preheader.us, !llvm.loop !113
 
 while.cond.preheader:                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit129, %while.cond.preheader.preheader
-  %remaining.0185 = phi i64 [ %remaining.3, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit129 ], [ %2, %while.cond.preheader.preheader ]
+  %remaining.0185 = phi i64 [ %remaining.3.lcssa, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit129 ], [ %2, %while.cond.preheader.preheader ]
   %i.0184 = phi i32 [ %inc, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit129 ], [ 0, %while.cond.preheader.preheader ]
   %11 = load ptr, ptr %path, align 8
   br label %while.cond
@@ -4317,7 +4323,7 @@ for.cond.cleanup.loopexit186:                     ; preds = %_ZNSt7__cxx1112basi
 
 for.cond.cleanup:                                 ; preds = %while.end23.us, %for.cond.cleanup.loopexit186, %if.end.thread, %if.end
   %12 = phi i64 [ %0, %if.end ], [ %.pre, %for.cond.cleanup.loopexit186 ], [ %2, %if.end.thread ], [ %0, %while.end23.us ]
-  %remaining.0.lcssa = phi i64 [ %0, %if.end ], [ %remaining.3, %for.cond.cleanup.loopexit186 ], [ %2, %if.end.thread ], [ %remaining.3.us, %while.end23.us ]
+  %remaining.0.lcssa = phi i64 [ %0, %if.end ], [ %remaining.3.lcssa, %for.cond.cleanup.loopexit186 ], [ %2, %if.end.thread ], [ %remaining.3.us.lcssa, %while.end23.us ]
   call void @llvm.experimental.noalias.scope.decl(metadata !114)
   %13 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr %13, ptr %agg.result, align 8, !tbaa !11, !alias.scope !114
@@ -4374,10 +4380,11 @@ land.rhs:                                         ; preds = %while.cond
   br i1 %cmp.i, label %while.cond, label %while.cond4.preheader, !llvm.loop !104
 
 while.cond4.preheader:                            ; preds = %land.rhs, %while.cond
+  %remaining.1.lcssa = phi i64 [ %remaining.1, %land.rhs ], [ 0, %while.cond ]
   br label %while.cond4
 
-while.cond4:                                      ; preds = %while.cond4.preheader, %land.rhs6
-  %remaining.2 = phi i64 [ %sub7, %land.rhs6 ], [ %remaining.1, %while.cond4.preheader ]
+while.cond4:                                      ; preds = %land.rhs6, %while.cond4.preheader
+  %remaining.2 = phi i64 [ %sub7, %land.rhs6 ], [ %remaining.1.lcssa, %while.cond4.preheader ]
   %cmp5.not = icmp eq i64 %remaining.2, 0
   br i1 %cmp5.not, label %while.cond14.preheader, label %land.rhs6
 
@@ -4389,10 +4396,11 @@ land.rhs6:                                        ; preds = %while.cond4
   br i1 %cmp.i74, label %while.cond14.preheader, label %while.cond4, !llvm.loop !105
 
 while.cond14.preheader:                           ; preds = %land.rhs6, %while.cond4
+  %remaining.2.lcssa = phi i64 [ %remaining.2, %land.rhs6 ], [ 0, %while.cond4 ]
   br label %while.cond14
 
-while.cond14:                                     ; preds = %while.cond14.preheader, %land.rhs16
-  %remaining.3 = phi i64 [ %sub17, %land.rhs16 ], [ %remaining.2, %while.cond14.preheader ]
+while.cond14:                                     ; preds = %land.rhs16, %while.cond14.preheader
+  %remaining.3 = phi i64 [ %sub17, %land.rhs16 ], [ %remaining.2.lcssa, %while.cond14.preheader ]
   %cmp15.not = icmp eq i64 %remaining.3, 0
   br i1 %cmp15.not, label %while.end23, label %land.rhs16
 
@@ -4404,21 +4412,22 @@ land.rhs16:                                       ; preds = %while.cond14
   br i1 %cmp.i76, label %while.cond14, label %while.end23, !llvm.loop !106
 
 while.end23:                                      ; preds = %land.rhs16, %while.cond14
+  %remaining.3.lcssa = phi i64 [ %remaining.3, %land.rhs16 ], [ 0, %while.cond14 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %component)
   call void @llvm.experimental.noalias.scope.decl(metadata !117)
   %23 = load i64, ptr %_M_string_length.i209, align 8, !tbaa !12, !noalias !117
-  %cmp.i.i = icmp ult i64 %23, %remaining.2
+  %cmp.i.i = icmp ult i64 %23, %remaining.2.lcssa
   br i1 %cmp.i.i, label %if.then.i.i, label %invoke.cont4.i.i
 
 if.then.i.i:                                      ; preds = %while.end23
-  call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.41, i64 noundef %remaining.2, i64 noundef %23) #34, !noalias !117
+  call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.41, i64 noundef %remaining.2.lcssa, i64 noundef %23) #34, !noalias !117
   unreachable
 
 invoke.cont4.i.i:                                 ; preds = %while.end23
-  %sub26 = sub i64 %remaining.1, %remaining.2
+  %sub26 = sub i64 %remaining.1.lcssa, %remaining.2.lcssa
   store ptr %3, ptr %component, align 8, !tbaa !11, !alias.scope !117
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %11, i64 %remaining.2
-  %sub.i.i.i = sub nuw i64 %23, %remaining.2
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %11, i64 %remaining.2.lcssa
+  %sub.i.i.i = sub nuw i64 %23, %remaining.2.lcssa
   %spec.select.i.i.i79 = call noundef i64 @llvm.umin.i64(i64 %sub.i.i.i, i64 %sub26)
   call void @llvm.lifetime.start.p0(ptr nonnull %__dnew.i.i.i77)
   store i64 %spec.select.i.i.i79, ptr %__dnew.i.i.i77, align 8, !tbaa !20, !noalias !117
@@ -5752,10 +5761,11 @@ land.rhs:                                         ; preds = %while.cond1
   br i1 %cmp.i, label %while.cond1, label %while.cond6.preheader, !llvm.loop !143
 
 while.cond6.preheader:                            ; preds = %land.rhs, %while.cond1
+  %pos.1.lcssa = phi i64 [ %pos.1, %land.rhs ], [ 0, %while.cond1 ]
   br label %while.cond6
 
-while.cond6:                                      ; preds = %while.cond6.preheader, %land.rhs8
-  %pos.2 = phi i64 [ %sub9, %land.rhs8 ], [ %pos.1, %while.cond6.preheader ]
+while.cond6:                                      ; preds = %land.rhs8, %while.cond6.preheader
+  %pos.2 = phi i64 [ %sub9, %land.rhs8 ], [ %pos.1.lcssa, %while.cond6.preheader ]
   %cmp7.not = icmp eq i64 %pos.2, 0
   br i1 %cmp7.not, label %while.cond6.split, label %land.rhs8
 
@@ -5765,7 +5775,7 @@ while.cond6.split:                                ; preds = %while.cond6
   %10 = load i64, ptr %_M_string_length.i, align 8, !tbaa !12, !noalias !144
   store ptr %1, ptr %component, align 8, !tbaa !11, !alias.scope !144
   %11 = load ptr, ptr %path, align 8, !tbaa !4, !noalias !144
-  %spec.select.i.i.i = call noundef i64 @llvm.umin.i64(i64 %10, i64 %pos.1)
+  %spec.select.i.i.i = call noundef i64 @llvm.umin.i64(i64 %10, i64 %pos.1.lcssa)
   call void @llvm.lifetime.start.p0(ptr nonnull %__dnew.i.i.i)
   store i64 %spec.select.i.i.i, ptr %__dnew.i.i.i, align 8, !tbaa !20, !noalias !144
   %cmp.i15.i.i = icmp ugt i64 %spec.select.i.i.i, 15
@@ -5823,7 +5833,7 @@ if.then.i.i:                                      ; preds = %land.rhs8.split
   unreachable
 
 invoke.cont4.i.i:                                 ; preds = %land.rhs8.split
-  %sub16123 = sub i64 %pos.1, %pos.2
+  %sub16123 = sub i64 %pos.1.lcssa, %pos.2
   store ptr %1, ptr %component, align 8, !tbaa !11, !alias.scope !148
   %add.ptr.i.i = getelementptr inbounds i8, ptr %17, i64 %pos.2
   %sub.i.i.i = sub nuw i64 %19, %pos.2
@@ -5866,6 +5876,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm.exit146: ; pred
   br label %while.end15
 
 while.end15:                                      ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm.exit146, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm.exit
+  %pos.264 = phi i64 [ %pos.2, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm.exit146 ], [ 0, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm.exit ]
   %call.i = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %component, ptr noundef nonnull @.str) #33
   %cmp.i147 = icmp eq i32 %call.i, 0
   br i1 %cmp.i147, label %while.cond28.preheader, label %if.else
@@ -5889,7 +5900,7 @@ while.cond28.preheader:                           ; preds = %if.else21, %if.then
   br label %while.cond28
 
 while.cond28:                                     ; preds = %land.rhs30, %while.cond28.preheader
-  %pos.3 = phi i64 [ %sub31, %land.rhs30 ], [ %pos.2, %while.cond28.preheader ]
+  %pos.3 = phi i64 [ %sub31, %land.rhs30 ], [ %pos.264, %while.cond28.preheader ]
   %cmp29.not = icmp eq i64 %pos.3, 0
   br i1 %cmp29.not, label %while.end38, label %land.rhs30
 
@@ -5902,6 +5913,7 @@ land.rhs30:                                       ; preds = %while.cond28
   br i1 %cmp.i151, label %while.cond28, label %while.end38, !llvm.loop !151
 
 while.end38:                                      ; preds = %land.rhs30, %while.cond28
+  %pos.3.lcssa = phi i64 [ %pos.3, %land.rhs30 ], [ 0, %while.cond28 ]
   br i1 %cmp7.not, label %if.then40, label %if.else44
 
 if.then40:                                        ; preds = %while.end38
@@ -6065,7 +6077,7 @@ if.else44:                                        ; preds = %while.end38
   %45 = load i64, ptr %_M_string_length.i, align 8, !tbaa !12, !noalias !155
   store ptr %2, ptr %ref.tmp47, align 8, !tbaa !11, !alias.scope !155
   %46 = load ptr, ptr %path, align 8, !tbaa !4, !noalias !155
-  %spec.select.i.i.i176 = call noundef i64 @llvm.umin.i64(i64 %45, i64 %pos.3)
+  %spec.select.i.i.i176 = call noundef i64 @llvm.umin.i64(i64 %45, i64 %pos.3.lcssa)
   call void @llvm.lifetime.start.p0(ptr nonnull %__dnew.i.i.i173)
   store i64 %spec.select.i.i.i176, ptr %__dnew.i.i.i173, align 8, !tbaa !20, !noalias !155
   %cmp.i15.i.i177 = icmp ugt i64 %spec.select.i.i.i176, 15
@@ -6511,13 +6523,13 @@ ehcleanup60:                                      ; preds = %ehcleanup59, %if.th
   br label %ehcleanup68
 
 if.end63:                                         ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit280, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %inc = add i64 %pos.3, 1
+  %inc = add i64 %pos.3.lcssa, 1
   %spec.select132 = select i1 %cmp29.not, i64 0, i64 %inc
   br label %if.end67
 
 if.end67:                                         ; preds = %if.end63, %if.else21
   %dotdot_count.1339 = phi i64 [ %dotdot_count.1340.ph, %if.end63 ], [ %spec.select, %if.else21 ]
-  %pos.4 = phi i64 [ %spec.select132, %if.end63 ], [ %pos.2, %if.else21 ]
+  %pos.4 = phi i64 [ %spec.select132, %if.end63 ], [ %pos.264, %if.else21 ]
   %100 = load ptr, ptr %component, align 8, !tbaa !4
   %cmp.i.i.i299 = icmp eq ptr %100, %1
   br i1 %cmp.i.i.i299, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit304, label %if.then.i.i300
@@ -7351,10 +7363,11 @@ land.rhs.us.i:                                    ; preds = %while.cond.us.i
   br i1 %cmp.i.us.i, label %while.cond.us.i, label %while.cond4.us.i.preheader, !llvm.loop !104
 
 while.cond4.us.i.preheader:                       ; preds = %land.rhs.us.i, %while.cond.us.i
+  %remaining.2.us.i.ph = phi i64 [ 0, %while.cond.us.i ], [ %remaining.1.us.i, %land.rhs.us.i ]
   br label %while.cond4.us.i
 
 while.cond4.us.i:                                 ; preds = %while.cond4.us.i.preheader, %land.rhs6.us.i
-  %remaining.2.us.i = phi i64 [ %sub7.us.i, %land.rhs6.us.i ], [ %remaining.1.us.i, %while.cond4.us.i.preheader ]
+  %remaining.2.us.i = phi i64 [ %sub7.us.i, %land.rhs6.us.i ], [ %remaining.2.us.i.ph, %while.cond4.us.i.preheader ]
   %cmp5.not.us.i = icmp eq i64 %remaining.2.us.i, 0
   br i1 %cmp5.not.us.i, label %while.cond14.us.i.preheader, label %land.rhs6.us.i
 
@@ -7366,10 +7379,11 @@ land.rhs6.us.i:                                   ; preds = %while.cond4.us.i
   br i1 %cmp.i74.us.i, label %while.cond14.us.i.preheader, label %while.cond4.us.i, !llvm.loop !105
 
 while.cond14.us.i.preheader:                      ; preds = %land.rhs6.us.i, %while.cond4.us.i
+  %remaining.3.us.i.ph = phi i64 [ 0, %while.cond4.us.i ], [ %remaining.2.us.i, %land.rhs6.us.i ]
   br label %while.cond14.us.i
 
 while.cond14.us.i:                                ; preds = %while.cond14.us.i.preheader, %land.rhs16.us.i
-  %remaining.3.us.i = phi i64 [ %sub17.us.i, %land.rhs16.us.i ], [ %remaining.2.us.i, %while.cond14.us.i.preheader ]
+  %remaining.3.us.i = phi i64 [ %sub17.us.i, %land.rhs16.us.i ], [ %remaining.3.us.i.ph, %while.cond14.us.i.preheader ]
   %cmp15.not.us.i = icmp eq i64 %remaining.3.us.i, 0
   br i1 %cmp15.not.us.i, label %while.end23.us.i, label %land.rhs16.us.i
 
@@ -7381,9 +7395,10 @@ land.rhs16.us.i:                                  ; preds = %while.cond14.us.i
   br i1 %cmp.i76.us.i, label %while.cond14.us.i, label %while.end23.us.i, !llvm.loop !106
 
 while.end23.us.i:                                 ; preds = %land.rhs16.us.i, %while.cond14.us.i
+  %remaining.3.us.i.lcssa = phi i64 [ %remaining.3.us.i, %land.rhs16.us.i ], [ 0, %while.cond14.us.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !185)
   store ptr %19, ptr %fullpath_dir, align 8, !tbaa !11, !alias.scope !188
-  %spec.select.i.i.i.i = call noundef i64 @llvm.umin.i64(i64 %38, i64 %remaining.3.us.i)
+  %spec.select.i.i.i.i = call noundef i64 @llvm.umin.i64(i64 %38, i64 %remaining.3.us.i.lcssa)
   call void @llvm.lifetime.start.p0(ptr nonnull %__dnew.i.i.i.i)
   store i64 %spec.select.i.i.i.i, ptr %__dnew.i.i.i.i, align 8, !tbaa !20, !noalias !188
   %cmp.i15.i.i.i = icmp ugt i64 %spec.select.i.i.i.i, 15

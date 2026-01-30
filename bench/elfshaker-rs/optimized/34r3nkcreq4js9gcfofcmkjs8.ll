@@ -1764,11 +1764,11 @@ define hidden { i64, i64 } @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %.promoted16 = load i64, ptr %9, align 8
+  %.promoted17 = load i64, ptr %9, align 8
   br label %10
 
 10:                                               ; preds = %15, %3
-  %.val10 = phi i64 [ %.promoted16, %3 ], [ %22, %15 ]
+  %.val10 = phi i64 [ %.promoted17, %3 ], [ %22, %15 ]
   %11 = phi ptr [ %.promoted, %3 ], [ %19, %15 ]
   %.sroa.0.0 = phi i64 [ %1, %3 ], [ %24, %15 ]
   %.not = icmp eq ptr %11, %5
@@ -1776,12 +1776,11 @@ define hidden { i64, i64 } @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A
 
 12:                                               ; preds = %10, %15
   %.val10.lcssa.sink = phi i64 [ %22, %15 ], [ %.val10, %10 ]
-  %.sroa.3.0 = phi i64 [ undef, %15 ], [ %.sroa.0.0, %10 ]
   %.sroa.02.0 = phi i64 [ 0, %15 ], [ 1, %10 ]
   %.val = load ptr, ptr %2, align 8, !nonnull !3, !align !14, !noundef !3
   store i64 %.val10.lcssa.sink, ptr %.val, align 8
   %13 = insertvalue { i64, i64 } poison, i64 %.sroa.02.0, 0
-  %14 = insertvalue { i64, i64 } %13, i64 %.sroa.3.0, 1
+  %14 = insertvalue { i64, i64 } %13, i64 %.sroa.0.0, 1
   ret { i64, i64 } %14
 
 15:                                               ; preds = %10
@@ -1812,11 +1811,11 @@ define hidden { i64, i64 } @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %.promoted14 = load i64, ptr %9, align 8
+  %.promoted15 = load i64, ptr %9, align 8
   br label %10
 
 10:                                               ; preds = %15, %3
-  %.val8 = phi i64 [ %.promoted14, %3 ], [ %18, %15 ]
+  %.val8 = phi i64 [ %.promoted15, %3 ], [ %18, %15 ]
   %11 = phi ptr [ %.promoted, %3 ], [ %16, %15 ]
   %.sroa.0.0 = phi i64 [ %1, %3 ], [ %20, %15 ]
   %.not = icmp eq ptr %11, %5
@@ -1824,12 +1823,11 @@ define hidden { i64, i64 } @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A
 
 12:                                               ; preds = %10, %15
   %.val8.lcssa.sink = phi i64 [ %18, %15 ], [ %.val8, %10 ]
-  %.sroa.3.0 = phi i64 [ undef, %15 ], [ %.sroa.0.0, %10 ]
   %.sroa.02.0 = phi i64 [ 0, %15 ], [ 1, %10 ]
   %.val = load ptr, ptr %2, align 8, !nonnull !3, !align !14, !noundef !3
   store i64 %.val8.lcssa.sink, ptr %.val, align 8
   %13 = insertvalue { i64, i64 } poison, i64 %.sroa.02.0, 0
-  %14 = insertvalue { i64, i64 } %13, i64 %.sroa.3.0, 1
+  %14 = insertvalue { i64, i64 } %13, i64 %.sroa.0.0, 1
   ret { i64, i64 } %14
 
 15:                                               ; preds = %10

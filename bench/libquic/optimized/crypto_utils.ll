@@ -356,16 +356,17 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %20, %
   resume { ptr, i32 } %21
 
 .critedge:                                        ; preds = %14, %15
-  %.not9 = icmp eq i64 %.0, %12
+  %.0.lcssa = phi i64 [ 0, %14 ], [ %.0, %15 ]
+  %.not9 = icmp eq i64 %.0.lcssa, %12
   br i1 %.not9, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit, label %25
 
 25:                                               ; preds = %.critedge
-  %26 = sub i64 %12, %.0
-  %27 = icmp ugt i64 %.0, %12
+  %26 = sub i64 %12, %.0.lcssa
+  %27 = icmp ugt i64 %.0.lcssa, %12
   br i1 %27, label %28, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit.i
 
 28:                                               ; preds = %25
-  invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.38, i64 noundef %.0, i64 noundef %12) #12
+  invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.38, i64 noundef %.0.lcssa, i64 noundef %12) #12
           to label %.noexc unwind label %20
 
 .noexc:                                           ; preds = %28
@@ -378,13 +379,13 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit.i: ; p
   ]
 
 29:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit.i
-  store i64 %.0, ptr %11, align 8, !tbaa !26
-  %30 = getelementptr inbounds nuw i8, ptr %13, i64 %.0
+  store i64 %.0.lcssa, ptr %11, align 8, !tbaa !26
+  %30 = getelementptr inbounds nuw i8, ptr %13, i64 %.0.lcssa
   store i8 0, ptr %30, align 1, !tbaa !11
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit
 
 31:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit.i
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_eraseEmm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %.0, i64 noundef %26)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_eraseEmm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %.0.lcssa, i64 noundef %26)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit unwind label %20
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit: ; preds = %29, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit.i, %31, %.critedge

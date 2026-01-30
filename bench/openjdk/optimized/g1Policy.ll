@@ -1353,31 +1353,30 @@ define hidden noundef i32 @_ZNK8G1Policy42calculate_desired_eden_length_before_m
 .lr.ph:                                           ; preds = %4
   %24 = getelementptr inbounds nuw i8, ptr %20, i64 32
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  br label %26
+  %26 = add i32 %22, -1
+  %27 = add i32 %19, -1
+  %umin = tail call i32 @llvm.umin.i32(i32 %26, i32 %27)
+  br label %28
 
-26:                                               ; preds = %.lr.ph, %26
-  %.020 = phi i32 [ %19, %.lr.ph ], [ %37, %26 ]
-  %.01019 = phi double [ %1, %.lr.ph ], [ %36, %26 ]
-  %.sroa.2.018 = phi i32 [ 0, %.lr.ph ], [ %38, %26 ]
-  %27 = load ptr, ptr %24, align 8
-  %28 = sext i32 %.sroa.2.018 to i64
-  %29 = getelementptr inbounds %struct.G1CollectionSetCandidateInfo, ptr %27, i64 %28
-  %30 = load ptr, ptr %29, align 8
-  %31 = tail call noundef double @_ZNK8G1Policy31predict_region_non_copy_time_msEP12G1HeapRegionb(ptr noundef nonnull readonly align 8 dereferenceable(552) %0, ptr noundef %30, i1 noundef zeroext false)
-  %32 = tail call noundef i64 @_ZNK8G1Policy21predict_bytes_to_copyEP12G1HeapRegion(ptr noundef nonnull readonly align 8 dereferenceable(552) %0, ptr noundef %30)
-  %33 = load ptr, ptr %25, align 8
-  %34 = tail call noundef double @_ZNK11G1Analytics27predict_object_copy_time_msEmb(ptr noundef nonnull align 8 dereferenceable(2048) %33, i64 noundef %32, i1 noundef zeroext false) #19
-  %35 = fadd double %31, %34
-  %36 = fadd double %.01019, %35
-  %37 = add i32 %.020, -1
-  %38 = add nuw i32 %.sroa.2.018, 1
-  %.not = icmp eq i32 %38, %22
-  %39 = icmp eq i32 %37, 0
-  %or.cond = select i1 %.not, i1 true, i1 %39
-  br i1 %or.cond, label %._crit_edge, label %26
+28:                                               ; preds = %.lr.ph, %28
+  %.01019 = phi double [ %1, %.lr.ph ], [ %38, %28 ]
+  %.sroa.2.018 = phi i32 [ 0, %.lr.ph ], [ %39, %28 ]
+  %29 = load ptr, ptr %24, align 8
+  %30 = sext i32 %.sroa.2.018 to i64
+  %31 = getelementptr inbounds %struct.G1CollectionSetCandidateInfo, ptr %29, i64 %30
+  %32 = load ptr, ptr %31, align 8
+  %33 = tail call noundef double @_ZNK8G1Policy31predict_region_non_copy_time_msEP12G1HeapRegionb(ptr noundef nonnull readonly align 8 dereferenceable(552) %0, ptr noundef %32, i1 noundef zeroext false)
+  %34 = tail call noundef i64 @_ZNK8G1Policy21predict_bytes_to_copyEP12G1HeapRegion(ptr noundef nonnull readonly align 8 dereferenceable(552) %0, ptr noundef %32)
+  %35 = load ptr, ptr %25, align 8
+  %36 = tail call noundef double @_ZNK11G1Analytics27predict_object_copy_time_msEmb(ptr noundef nonnull align 8 dereferenceable(2048) %35, i64 noundef %34, i1 noundef zeroext false) #19
+  %37 = fadd double %33, %36
+  %38 = fadd double %.01019, %37
+  %39 = add nuw i32 %.sroa.2.018, 1
+  %exitcond = icmp eq i32 %.sroa.2.018, %umin
+  br i1 %exitcond, label %._crit_edge, label %28
 
-._crit_edge:                                      ; preds = %26, %4
-  %.010.lcssa = phi double [ %1, %4 ], [ %36, %26 ]
+._crit_edge:                                      ; preds = %28, %4
+  %.010.lcssa = phi double [ %1, %4 ], [ %38, %28 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %41 = load i32, ptr %40, align 8

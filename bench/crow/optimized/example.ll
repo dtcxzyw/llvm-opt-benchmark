@@ -104363,7 +104363,7 @@ _ZN4asio6detail17consuming_buffersINS_12const_bufferESt6vectorIS2_SaIS2_EEN9__gn
   %37 = getelementptr inbounds nuw i8, ptr %.sroa.018.025.i, i64 16
   %38 = icmp ne ptr %.sroa.018.025.i, %.09.i.i.i.i.i.i
   %39 = icmp ne i64 %32, 0
-  %or.cond.i = select i1 %38, i1 %39, i1 false
+  %or.cond.i = and i1 %38, %39
   %40 = icmp ult i64 %36, 16
   %or.cond4.i = select i1 %or.cond.i, i1 %40, i1 false
   br i1 %or.cond4.i, label %.lr.ph.i, label %_ZN4asio6detail17consuming_buffersINS_12const_bufferESt6vectorIS2_SaIS2_EEN9__gnu_cxx17__normal_iteratorIPKS2_S5_EEE7prepareEm.exit, !llvm.loop !2285
@@ -104859,7 +104859,7 @@ _ZN4asio6detail17consuming_buffersINS_12const_bufferESt6vectorIS2_SaIS2_EEN9__gn
   %42 = getelementptr inbounds nuw i8, ptr %.sroa.018.025.i, i64 16
   %43 = icmp ne ptr %.sroa.018.025.i, %.09.i.i.i.i.i.i
   %44 = icmp ne i64 %37, 0
-  %or.cond.i = select i1 %43, i1 %44, i1 false
+  %or.cond.i = and i1 %43, %44
   %45 = icmp ult i64 %41, 16
   %or.cond4.i = select i1 %or.cond.i, i1 %45, i1 false
   br i1 %or.cond4.i, label %.lr.ph.i, label %_ZN4asio6detail17consuming_buffersINS_12const_bufferESt6vectorIS2_SaIS2_EEN9__gnu_cxx17__normal_iteratorIPKS2_S5_EEE7prepareEm.exit, !llvm.loop !2285

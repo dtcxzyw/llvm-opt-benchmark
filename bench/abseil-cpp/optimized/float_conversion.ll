@@ -3511,74 +3511,75 @@ define internal void @_ZN4absl19functional_internal12InvokeObjectIZNS_19str_form
   %36 = lshr i128 %.sroa.01.0.insert.insert.i.i33.i.i.i.i.i, 32
   %.sroa.0.0.extract.trunc.i.i34.i.i.i.i.i = trunc i128 %36 to i64
   %.sroa.2.0.extract.shift.i.i35.i.i.i.i.i = lshr i64 %.sroa.8.049.i.i.i.i.i, 32
-  %37 = or i64 %.sroa.2.0.extract.shift.i.i35.i.i.i.i.i, %.sroa.0.0.extract.trunc.i.i34.i.i.i.i.i
-  %.not60.i.i.i.i.i = icmp eq i64 %37, 0
-  br i1 %.not60.i.i.i.i.i, label %.preheader46.i.i.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !100
+  %.not.i.i.i.i.i.i = icmp ne i64 %.sroa.0.0.extract.trunc.i.i34.i.i.i.i.i, 0
+  %37 = icmp ne i64 %.sroa.2.0.extract.shift.i.i35.i.i.i.i.i, 0
+  %38 = select i1 %.not.i.i.i.i.i.i, i1 true, i1 %37
+  br i1 %38, label %.lr.ph.i.i.i.i.i, label %.preheader46.i.i.i.i.i, !llvm.loop !100
 
-.preheader.i.i.i.i.i:                             ; preds = %.preheader46.i.i.i.i.i, %39
-  %.154.i.i.i.i.i = phi i64 [ %spec.select.i.i.i.i.i, %39 ], [ %.022.lcssa.i.i.i.i.i, %.preheader46.i.i.i.i.i ]
-  %38 = phi i64 [ %45, %39 ], [ %19, %.preheader46.i.i.i.i.i ]
-  br label %47
+.preheader.i.i.i.i.i:                             ; preds = %.preheader46.i.i.i.i.i, %40
+  %.154.i.i.i.i.i = phi i64 [ %spec.select.i.i.i.i.i, %40 ], [ %.022.lcssa.i.i.i.i.i, %.preheader46.i.i.i.i.i ]
+  %39 = phi i64 [ %46, %40 ], [ %19, %.preheader46.i.i.i.i.i ]
+  br label %48
 
-39:                                               ; preds = %47
-  %40 = trunc nuw nsw i64 %56 to i32
-  %41 = add i64 %.154.i.i.i.i.i, -1
-  %42 = getelementptr inbounds nuw i32, ptr %1, i64 %41
-  %43 = load i32, ptr %42, align 4, !tbaa !16
-  %44 = icmp eq i32 %43, 0
-  %spec.select.i.i.i.i.i = select i1 %44, i64 %41, i64 %.154.i.i.i.i.i
-  %45 = add i64 %38, -1
-  %46 = getelementptr inbounds nuw i32, ptr %1, i64 %45
-  store i32 %40, ptr %46, align 4, !tbaa !16
+40:                                               ; preds = %48
+  %41 = trunc nuw nsw i64 %57 to i32
+  %42 = add i64 %.154.i.i.i.i.i, -1
+  %43 = getelementptr inbounds nuw i32, ptr %1, i64 %42
+  %44 = load i32, ptr %43, align 4, !tbaa !16
+  %45 = icmp eq i32 %44, 0
+  %spec.select.i.i.i.i.i = select i1 %45, i64 %42, i64 %.154.i.i.i.i.i
+  %46 = add i64 %39, -1
+  %47 = getelementptr inbounds nuw i32, ptr %1, i64 %46
+  store i32 %41, ptr %47, align 4, !tbaa !16
   %.not.i.i.i.i.i = icmp eq i64 %spec.select.i.i.i.i.i, 0
   br i1 %.not.i.i.i.i.i, label %._crit_edge.i.i.i.i.i, label %.preheader.i.i.i.i.i, !llvm.loop !101
 
-47:                                               ; preds = %47, %.preheader.i.i.i.i.i
-  %.02352.i.i.i.i.i = phi i64 [ %.154.i.i.i.i.i, %.preheader.i.i.i.i.i ], [ %48, %47 ]
-  %.02451.i.i.i.i.i = phi i64 [ 0, %.preheader.i.i.i.i.i ], [ %56, %47 ]
-  %48 = add i64 %.02352.i.i.i.i.i, -1
-  %49 = getelementptr inbounds nuw i32, ptr %1, i64 %48
-  %50 = load i32, ptr %49, align 4, !tbaa !16
-  %51 = zext i32 %50 to i64
-  %52 = shl nuw nsw i64 %.02451.i.i.i.i.i, 32
-  %53 = or disjoint i64 %52, %51
-  %54 = udiv i64 %53, 1000000000
-  %55 = trunc nuw i64 %54 to i32
-  store i32 %55, ptr %49, align 4, !tbaa !16
-  %56 = urem i64 %53, 1000000000
-  %.not26.i.i.i.i.i = icmp eq i64 %48, 0
-  br i1 %.not26.i.i.i.i.i, label %39, label %47, !llvm.loop !102
+48:                                               ; preds = %48, %.preheader.i.i.i.i.i
+  %.02352.i.i.i.i.i = phi i64 [ %.154.i.i.i.i.i, %.preheader.i.i.i.i.i ], [ %49, %48 ]
+  %.02451.i.i.i.i.i = phi i64 [ 0, %.preheader.i.i.i.i.i ], [ %57, %48 ]
+  %49 = add i64 %.02352.i.i.i.i.i, -1
+  %50 = getelementptr inbounds nuw i32, ptr %1, i64 %49
+  %51 = load i32, ptr %50, align 4, !tbaa !16
+  %52 = zext i32 %51 to i64
+  %53 = shl nuw nsw i64 %.02451.i.i.i.i.i, 32
+  %54 = or disjoint i64 %53, %52
+  %55 = udiv i64 %54, 1000000000
+  %56 = trunc nuw i64 %55 to i32
+  store i32 %56, ptr %50, align 4, !tbaa !16
+  %57 = urem i64 %54, 1000000000
+  %.not26.i.i.i.i.i = icmp eq i64 %49, 0
+  br i1 %.not26.i.i.i.i.i, label %40, label %48, !llvm.loop !102
 
-._crit_edge.i.i.i.i.i:                            ; preds = %39, %.preheader46._crit_edge.i.i.i.i.i
-  %57 = phi i32 [ %.pre.i.i.i.i.i, %.preheader46._crit_edge.i.i.i.i.i ], [ %40, %39 ]
-  %58 = phi i64 [ %32, %.preheader46._crit_edge.i.i.i.i.i ], [ %38, %39 ]
-  store i64 %58, ptr %5, align 8, !tbaa !103
-  %.not2555.i.i.i.i.i = icmp eq i32 %57, 0
+._crit_edge.i.i.i.i.i:                            ; preds = %40, %.preheader46._crit_edge.i.i.i.i.i
+  %58 = phi i32 [ %.pre.i.i.i.i.i, %.preheader46._crit_edge.i.i.i.i.i ], [ %41, %40 ]
+  %59 = phi i64 [ %32, %.preheader46._crit_edge.i.i.i.i.i ], [ %39, %40 ]
+  store i64 %59, ptr %5, align 8, !tbaa !103
+  %.not2555.i.i.i.i.i = icmp eq i32 %58, 0
   br i1 %.not2555.i.i.i.i.i, label %_ZSt6invokeIRKZN4absl19str_format_internal12_GLOBAL__N_115BinaryToDecimal13RunConversionENS0_7uint128EiNS0_11FunctionRefIFvS3_EEEEUlNS0_4SpanIjEEE_JS9_EENSt13invoke_resultIT_JDpT0_EE4typeEOSE_DpOSF_.exit, label %.lr.ph58.i.i.i.i.i
 
 .lr.ph58.i.i.i.i.i:                               ; preds = %._crit_edge.i.i.i.i.i
-  %59 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  br label %60
+  %60 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  br label %61
 
-60:                                               ; preds = %60, %.lr.ph58.i.i.i.i.i
-  %.056.i.i.i.i.i = phi i32 [ %57, %.lr.ph58.i.i.i.i.i ], [ %68, %60 ]
-  %61 = urem i32 %.056.i.i.i.i.i, 10
-  %62 = trunc nuw nsw i32 %61 to i8
-  %63 = or disjoint i8 %62, 48
-  %64 = load i64, ptr %9, align 8, !tbaa !92
-  %65 = add i64 %64, 1
-  store i64 %65, ptr %9, align 8, !tbaa !92
-  %66 = sub i64 8, %64
-  %67 = getelementptr inbounds nuw i8, ptr %59, i64 %66
-  store i8 %63, ptr %67, align 1, !tbaa !12
-  %68 = udiv i32 %.056.i.i.i.i.i, 10
+61:                                               ; preds = %61, %.lr.ph58.i.i.i.i.i
+  %.056.i.i.i.i.i = phi i32 [ %58, %.lr.ph58.i.i.i.i.i ], [ %69, %61 ]
+  %62 = urem i32 %.056.i.i.i.i.i, 10
+  %63 = trunc nuw nsw i32 %62 to i8
+  %64 = or disjoint i8 %63, 48
+  %65 = load i64, ptr %9, align 8, !tbaa !92
+  %66 = add i64 %65, 1
+  store i64 %66, ptr %9, align 8, !tbaa !92
+  %67 = sub i64 8, %65
+  %68 = getelementptr inbounds nuw i8, ptr %60, i64 %67
+  store i8 %64, ptr %68, align 1, !tbaa !12
+  %69 = udiv i32 %.056.i.i.i.i.i, 10
   %.not25.i.i.i.i.i = icmp ult i32 %.056.i.i.i.i.i, 10
-  br i1 %.not25.i.i.i.i.i, label %_ZSt6invokeIRKZN4absl19str_format_internal12_GLOBAL__N_115BinaryToDecimal13RunConversionENS0_7uint128EiNS0_11FunctionRefIFvS3_EEEEUlNS0_4SpanIjEEE_JS9_EENSt13invoke_resultIT_JDpT0_EE4typeEOSE_DpOSF_.exit, label %60, !llvm.loop !104
+  br i1 %.not25.i.i.i.i.i, label %_ZSt6invokeIRKZN4absl19str_format_internal12_GLOBAL__N_115BinaryToDecimal13RunConversionENS0_7uint128EiNS0_11FunctionRefIFvS3_EEEEUlNS0_4SpanIjEEE_JS9_EENSt13invoke_resultIT_JDpT0_EE4typeEOSE_DpOSF_.exit, label %61, !llvm.loop !104
 
-_ZSt6invokeIRKZN4absl19str_format_internal12_GLOBAL__N_115BinaryToDecimal13RunConversionENS0_7uint128EiNS0_11FunctionRefIFvS3_EEEEUlNS0_4SpanIjEEE_JS9_EENSt13invoke_resultIT_JDpT0_EE4typeEOSE_DpOSF_.exit: ; preds = %60, %._crit_edge.i.i.i.i.i
+_ZSt6invokeIRKZN4absl19str_format_internal12_GLOBAL__N_115BinaryToDecimal13RunConversionENS0_7uint128EiNS0_11FunctionRefIFvS3_EEEEUlNS0_4SpanIjEEE_JS9_EENSt13invoke_resultIT_JDpT0_EE4typeEOSE_DpOSF_.exit: ; preds = %61, %._crit_edge.i.i.i.i.i
   %.val.i.i.i.i = load ptr, ptr %0, align 8, !tbaa !12
-  %69 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.val5.i.i.i.i = load ptr, ptr %69, align 8, !tbaa !105
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.val5.i.i.i.i = load ptr, ptr %70, align 8, !tbaa !105
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(56) %5, i64 56, i1 false)
   call void %.val5.i.i.i.i(ptr %.val.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %4)
@@ -4148,16 +4149,17 @@ define internal void @_ZN4absl19functional_internal12InvokeObjectIZNS_19str_form
   %37 = lshr i128 %.sroa.01.0.insert.insert.i.i12.i.i.i.i.i, 32
   %.sroa.0.0.extract.trunc.i.i13.i.i.i.i.i = trunc i128 %37 to i64
   %.sroa.2.0.extract.shift.i.i14.i.i.i.i.i = lshr i64 %.sroa.8.027.i.i.i.i.i, 32
-  %38 = or i64 %.sroa.2.0.extract.shift.i.i14.i.i.i.i.i, %.sroa.0.0.extract.trunc.i.i13.i.i.i.i.i
-  %.not.i.i.i.i.i = icmp eq i64 %38, 0
-  br i1 %.not.i.i.i.i.i, label %._crit_edge.i.i.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !113
+  %.not.i.i.i.i.i.i = icmp ne i64 %.sroa.0.0.extract.trunc.i.i13.i.i.i.i.i, 0
+  %38 = icmp ne i64 %.sroa.2.0.extract.shift.i.i14.i.i.i.i.i, 0
+  %39 = select i1 %.not.i.i.i.i.i.i, i1 true, i1 %38
+  br i1 %39, label %.lr.ph.i.i.i.i.i, label %._crit_edge.i.i.i.i.i, !llvm.loop !113
 
 _ZSt6invokeIRKZN4absl19str_format_internal12_GLOBAL__N_124FractionalDigitGenerator13RunConversionENS0_7uint128EiNS0_11FunctionRefIFvS3_EEEEUlNS0_4SpanIjEEE_JS9_EENSt13invoke_resultIT_JDpT0_EE4typeEOSE_DpOSF_.exit: ; preds = %._crit_edge.i.i.i.i.i, %22
   %.sroa.28.0.i.i.i.i = phi i64 [ 0, %._crit_edge.i.i.i.i.i ], [ %spec.select.i.i.i.i, %22 ]
   %.07.i.i.i.i.i.i = phi i8 [ 0, %._crit_edge.i.i.i.i.i ], [ %23, %22 ]
   %.val.i.i.i.i = load ptr, ptr %0, align 8, !tbaa !12
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.val5.i.i.i.i = load ptr, ptr %39, align 8, !tbaa !114
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.val5.i.i.i.i = load ptr, ptr %40, align 8, !tbaa !114
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 %.07.i.i.i.i.i.i, ptr %4, align 8
   %.sroa.28.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8

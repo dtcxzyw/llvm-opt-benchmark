@@ -5426,6 +5426,7 @@ _ZN11duckdb_zstdL31ZSTD_execSequenceSplitLitBufferEPhS0_PKhNS_5seq_tEPS2_S2_S2_S
   br i1 %561, label %.thread387.i, label %.thread236.i
 
 .thread387.i:                                     ; preds = %_ZN11duckdb_zstdL19ZSTD_decodeSequenceEPNS_10seqState_tENS_17ZSTD_longOffset_eEi.exit199.i.thread.i, %560
+  %.0135.i287.i80 = phi i32 [ %.0135.i287.i, %560 ], [ 1, %_ZN11duckdb_zstdL19ZSTD_decodeSequenceEPNS_10seqState_tENS_17ZSTD_longOffset_eEi.exit199.i.thread.i ]
   %562 = phi ptr [ %438, %560 ], [ %442, %_ZN11duckdb_zstdL19ZSTD_decodeSequenceEPNS_10seqState_tENS_17ZSTD_longOffset_eEi.exit199.i.thread.i ]
   %563 = phi ptr [ %440, %560 ], [ %444, %_ZN11duckdb_zstdL19ZSTD_decodeSequenceEPNS_10seqState_tENS_17ZSTD_longOffset_eEi.exit199.i.thread.i ]
   %564 = ptrtoint ptr %563 to i64
@@ -5739,7 +5740,7 @@ _ZN11duckdb_zstdL17ZSTD_overlapCopy8EPPhPPKhm.exit297.i.i: ; preds = %690, %668
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %717 = icmp ult i64 %.0.i203.i.i, -119
   %718 = getelementptr inbounds nuw i8, ptr %.6148.i.i, i64 %.0.i203.i.i
-  %719 = add nsw i32 %.0135.i287.i, -1
+  %719 = add nsw i32 %.0135.i287.i80, -1
   br i1 %717, label %720, label %.thread236.i
 
 720:                                              ; preds = %.loopexit.i

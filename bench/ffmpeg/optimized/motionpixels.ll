@@ -1180,85 +1180,86 @@ define internal void @motionpixels_tableinit() #3 {
 define internal fastcc void @mp_build_rgb_yuv_table() unnamed_addr #4 {
   br label %.preheader4
 
-.preheader4:                                      ; preds = %0, %35
-  %.0307 = phi i32 [ 0, %0 ], [ %36, %35 ]
+.preheader4:                                      ; preds = %0, %36
+  %.0307 = phi i32 [ 0, %0 ], [ %37, %36 ]
   %1 = mul nuw nsw i32 %.0307, 1000
   %2 = trunc nuw nsw i32 %.0307 to i8
   br label %.preheader3
 
-.preheader3:                                      ; preds = %.preheader4, %33
-  %.0296 = phi i32 [ -31, %.preheader4 ], [ %34, %33 ]
+.preheader3:                                      ; preds = %.preheader4, %34
+  %.0296 = phi i32 [ -31, %.preheader4 ], [ %35, %34 ]
   %3 = mul nsw i32 %.0296, 701
   %4 = add nsw i32 %3, %1
   %5 = sdiv i32 %4, 1000
   %.neg.i = mul nsw i32 %.0296, -357
   %6 = add nsw i32 %.neg.i, %1
-  %7 = shl nuw nsw i32 %5, 10
-  %8 = trunc i32 %.0296 to i8
-  br label %9
+  %7 = icmp ult i32 %5, 32
+  %8 = shl nuw nsw i32 %5, 10
+  %9 = trunc i32 %.0296 to i8
+  br label %10
 
-9:                                                ; preds = %.preheader3, %mp_yuv_to_rgb.exit
-  %.0285 = phi i32 [ -31, %.preheader3 ], [ %32, %mp_yuv_to_rgb.exit ]
+10:                                               ; preds = %.preheader3, %mp_yuv_to_rgb.exit
+  %.0285 = phi i32 [ -31, %.preheader3 ], [ %33, %mp_yuv_to_rgb.exit ]
   %.neg26.i = mul nsw i32 %.0285, -172
-  %10 = add nsw i32 %6, %.neg26.i
-  %11 = sdiv i32 %10, 1000
-  %12 = mul nsw i32 %.0285, 886
-  %13 = add nsw i32 %12, %1
-  %14 = sdiv i32 %13, 1000
-  %15 = or i32 %11, %5
-  %or.cond.i = icmp ult i32 %15, 32
-  %16 = icmp ult i32 %14, 32
-  %or.cond3.i = select i1 %or.cond.i, i1 %16, i1 false
-  br i1 %or.cond3.i, label %17, label %mp_yuv_to_rgb.exit
+  %11 = add nsw i32 %6, %.neg26.i
+  %12 = sdiv i32 %11, 1000
+  %13 = mul nsw i32 %.0285, 886
+  %14 = add nsw i32 %13, %1
+  %15 = sdiv i32 %14, 1000
+  %16 = icmp ult i32 %12, 32
+  %or.cond.i = select i1 %7, i1 %16, i1 false
+  %17 = icmp ult i32 %15, 32
+  %or.cond3.i = select i1 %or.cond.i, i1 %17, i1 false
+  br i1 %or.cond3.i, label %18, label %mp_yuv_to_rgb.exit
 
-17:                                               ; preds = %9
-  %18 = shl nuw nsw i32 %11, 5
-  %19 = or disjoint i32 %18, %7
-  %20 = or disjoint i32 %19, %14
-  %21 = zext nneg i32 %20 to i64
-  %22 = getelementptr inbounds nuw %struct.YuvPixel, ptr @mp_rgb_yuv_table, i64 %21
-  %23 = getelementptr inbounds nuw i8, ptr %22, i64 2
-  %24 = load i8, ptr %23, align 1, !tbaa !74
-  %25 = getelementptr inbounds nuw i8, ptr %22, i64 1
-  %26 = load i8, ptr %25, align 1, !tbaa !72
-  %27 = or i8 %26, %24
-  %28 = load i8, ptr %22, align 1, !tbaa !78
-  %29 = or i8 %27, %28
-  %.not = icmp eq i8 %29, 0
-  br i1 %.not, label %30, label %mp_yuv_to_rgb.exit
+18:                                               ; preds = %10
+  %19 = shl nuw nsw i32 %12, 5
+  %20 = or disjoint i32 %19, %8
+  %21 = or disjoint i32 %20, %15
+  %22 = zext nneg i32 %21 to i64
+  %23 = getelementptr inbounds nuw %struct.YuvPixel, ptr @mp_rgb_yuv_table, i64 %22
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 2
+  %25 = load i8, ptr %24, align 1, !tbaa !74
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 1
+  %27 = load i8, ptr %26, align 1, !tbaa !72
+  %28 = or i8 %27, %25
+  %29 = load i8, ptr %23, align 1, !tbaa !78
+  %30 = or i8 %28, %29
+  %.not = icmp eq i8 %30, 0
+  br i1 %.not, label %31, label %mp_yuv_to_rgb.exit
 
-30:                                               ; preds = %17
-  store i8 %2, ptr %22, align 1, !tbaa !78
-  store i8 %8, ptr %25, align 1, !tbaa !72
-  %31 = trunc i32 %.0285 to i8
-  store i8 %31, ptr %23, align 1, !tbaa !74
+31:                                               ; preds = %18
+  store i8 %2, ptr %23, align 1, !tbaa !78
+  store i8 %9, ptr %26, align 1, !tbaa !72
+  %32 = trunc i32 %.0285 to i8
+  store i8 %32, ptr %24, align 1, !tbaa !74
   br label %mp_yuv_to_rgb.exit
 
-mp_yuv_to_rgb.exit:                               ; preds = %9, %17, %30
-  %32 = add nsw i32 %.0285, 1
-  %exitcond.not = icmp eq i32 %32, 32
-  br i1 %exitcond.not, label %33, label %9, !llvm.loop !79
+mp_yuv_to_rgb.exit:                               ; preds = %10, %18, %31
+  %33 = add nsw i32 %.0285, 1
+  %exitcond.not = icmp eq i32 %33, 32
+  br i1 %exitcond.not, label %34, label %10, !llvm.loop !79
 
-33:                                               ; preds = %mp_yuv_to_rgb.exit
-  %34 = add nsw i32 %.0296, 1
-  %exitcond9.not = icmp eq i32 %34, 32
-  br i1 %exitcond9.not, label %35, label %.preheader3, !llvm.loop !80
+34:                                               ; preds = %mp_yuv_to_rgb.exit
+  %35 = add nsw i32 %.0296, 1
+  %exitcond9.not = icmp eq i32 %35, 32
+  br i1 %exitcond9.not, label %36, label %.preheader3, !llvm.loop !80
 
-35:                                               ; preds = %33
-  %36 = add nuw nsw i32 %.0307, 1
-  %exitcond10.not = icmp eq i32 %36, 32
+36:                                               ; preds = %34
+  %37 = add nuw nsw i32 %.0307, 1
+  %exitcond10.not = icmp eq i32 %37, 32
   br i1 %exitcond10.not, label %.preheader, label %.preheader4, !llvm.loop !81
 
-.preheader:                                       ; preds = %35, %.preheader
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %35 ]
+.preheader:                                       ; preds = %36, %.preheader
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %36 ]
   %.idx = mul nuw nsw i64 %indvars.iv, 96
-  %37 = getelementptr inbounds nuw i8, ptr @mp_rgb_yuv_table, i64 %.idx
-  tail call fastcc void @mp_set_zero_yuv(ptr noundef nonnull %37) #12
+  %38 = getelementptr inbounds nuw i8, ptr @mp_rgb_yuv_table, i64 %.idx
+  tail call fastcc void @mp_set_zero_yuv(ptr noundef nonnull %38) #12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond12.not = icmp eq i64 %indvars.iv.next, 1024
-  br i1 %exitcond12.not, label %38, label %.preheader, !llvm.loop !82
+  br i1 %exitcond12.not, label %39, label %.preheader, !llvm.loop !82
 
-38:                                               ; preds = %.preheader
+39:                                               ; preds = %.preheader
   ret void
 }
 

@@ -11084,7 +11084,7 @@ land.rhs:                                         ; preds = %if.end26, %land.rhs
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %target.049, i64 4
   %dec = add i32 %n.051, -1
   %tobool30.not = icmp ne i32 %dec, 0
-  %or.cond55.not = select i1 %cmp.i, i1 %tobool30.not, i1 false
+  %or.cond55.not = and i1 %tobool30.not, %cmp.i
   br i1 %or.cond55.not, label %land.rhs, label %return, !llvm.loop !34
 
 return:                                           ; preds = %land.rhs, %if.end26, %if.end21, %_ZNK7openvdb5v11_06points19TypedAttributeArrayIfNS1_9NullCodecEE6doLoadEv.exit46, %if.end, %lor.lhs.false, %lor.lhs.false5, %_ZN7openvdb5v11_06points19TypedAttributeArrayIfNS1_9NullCodecEE13attributeTypeB5cxx11Ev.exit21, %entry
@@ -15479,7 +15479,7 @@ land.rhs:                                         ; preds = %if.end26, %land.rhs
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %target.049, i64 8
   %dec = add i32 %n.051, -1
   %tobool30.not = icmp ne i32 %dec, 0
-  %or.cond55.not = select i1 %cmp.i, i1 %tobool30.not, i1 false
+  %or.cond55.not = and i1 %tobool30.not, %cmp.i
   br i1 %or.cond55.not, label %land.rhs, label %return, !llvm.loop !56
 
 return:                                           ; preds = %land.rhs, %if.end26, %if.end21, %_ZNK7openvdb5v11_06points19TypedAttributeArrayIdNS1_9NullCodecEE6doLoadEv.exit46, %if.end, %lor.lhs.false, %lor.lhs.false5, %_ZN7openvdb5v11_06points19TypedAttributeArrayIdNS1_9NullCodecEE13attributeTypeB5cxx11Ev.exit21, %entry
@@ -19683,7 +19683,7 @@ _ZN7openvdb5v11_04math14isExactlyEqualINS1_8internal4halfES4_EEbRKT_RKT0_.exit: 
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %target.049, i64 2
   %dec = add i32 %n.051, -1
   %tobool30.not = icmp ne i32 %dec, 0
-  %or.cond55.not = select i1 %cmp.i, i1 %tobool30.not, i1 false
+  %or.cond55.not = and i1 %tobool30.not, %cmp.i
   br i1 %or.cond55.not, label %land.rhs, label %return, !llvm.loop !78
 
 return:                                           ; preds = %_ZN7openvdb5v11_04math14isExactlyEqualINS1_8internal4halfES4_EEbRKT_RKT0_.exit, %if.end26, %if.end21, %_ZNK7openvdb5v11_06points19TypedAttributeArrayIfNS1_13TruncateCodecEE6doLoadEv.exit46, %if.end, %lor.lhs.false, %lor.lhs.false5, %_ZN7openvdb5v11_06points19TypedAttributeArrayIfNS1_13TruncateCodecEE13attributeTypeB5cxx11Ev.exit21, %entry
@@ -24035,7 +24035,7 @@ land.rhs:                                         ; preds = %if.end26, %land.rhs
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %target.048, i64 1
   %dec = add i32 %n.050, -1
   %tobool30.not = icmp ne i32 %dec, 0
-  %or.cond54.not = select i1 %cmp.i, i1 %tobool30.not, i1 false
+  %or.cond54.not = and i1 %tobool30.not, %cmp.i
   br i1 %or.cond54.not, label %land.rhs, label %return, !llvm.loop !88
 
 return:                                           ; preds = %land.rhs, %if.end26, %if.end21, %_ZNK7openvdb5v11_06points19TypedAttributeArrayIfNS1_15FixedPointCodecILb1ENS1_9UnitRangeEEEE6doLoadEv.exit45, %if.end, %lor.lhs.false, %lor.lhs.false5, %_ZN7openvdb5v11_06points19TypedAttributeArrayIfNS1_15FixedPointCodecILb1ENS1_9UnitRangeEEEE13attributeTypeB5cxx11Ev.exit20, %entry
@@ -28079,7 +28079,7 @@ land.rhs:                                         ; preds = %if.end26, %land.rhs
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %target.048, i64 2
   %dec = add i32 %n.050, -1
   %tobool30.not = icmp ne i32 %dec, 0
-  %or.cond54.not = select i1 %cmp.i, i1 %tobool30.not, i1 false
+  %or.cond54.not = and i1 %tobool30.not, %cmp.i
   br i1 %or.cond54.not, label %land.rhs, label %return, !llvm.loop !98
 
 return:                                           ; preds = %land.rhs, %if.end26, %if.end21, %_ZNK7openvdb5v11_06points19TypedAttributeArrayIfNS1_15FixedPointCodecILb0ENS1_9UnitRangeEEEE6doLoadEv.exit45, %if.end, %lor.lhs.false, %lor.lhs.false5, %_ZN7openvdb5v11_06points19TypedAttributeArrayIfNS1_15FixedPointCodecILb0ENS1_9UnitRangeEEEE13attributeTypeB5cxx11Ev.exit20, %entry
@@ -32222,7 +32222,7 @@ land.rhs:                                         ; preds = %if.end26, %land.rhs
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %target.049, i64 1
   %dec = add i32 %n.051, -1
   %tobool30.not = icmp ne i32 %dec, 0
-  %or.cond55.not = select i1 %cmp.i, i1 %tobool30.not, i1 false
+  %or.cond55.not = and i1 %tobool30.not, %cmp.i
   br i1 %or.cond55.not, label %land.rhs, label %return, !llvm.loop !120
 
 return:                                           ; preds = %land.rhs, %if.end26, %if.end21, %_ZNK7openvdb5v11_06points19TypedAttributeArrayIaNS1_9NullCodecEE6doLoadEv.exit46, %if.end, %lor.lhs.false, %lor.lhs.false5, %_ZN7openvdb5v11_06points19TypedAttributeArrayIaNS1_9NullCodecEE13attributeTypeB5cxx11Ev.exit21, %entry
@@ -36376,7 +36376,7 @@ land.rhs:                                         ; preds = %if.end26, %land.rhs
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %target.049, i64 2
   %dec = add i32 %n.051, -1
   %tobool30.not = icmp ne i32 %dec, 0
-  %or.cond55.not = select i1 %cmp.i, i1 %tobool30.not, i1 false
+  %or.cond55.not = and i1 %tobool30.not, %cmp.i
   br i1 %or.cond55.not, label %land.rhs, label %return, !llvm.loop !142
 
 return:                                           ; preds = %land.rhs, %if.end26, %if.end21, %_ZNK7openvdb5v11_06points19TypedAttributeArrayIsNS1_9NullCodecEE6doLoadEv.exit46, %if.end, %lor.lhs.false, %lor.lhs.false5, %_ZN7openvdb5v11_06points19TypedAttributeArrayIsNS1_9NullCodecEE13attributeTypeB5cxx11Ev.exit21, %entry
@@ -40533,7 +40533,7 @@ land.rhs:                                         ; preds = %if.end26, %land.rhs
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %target.049, i64 4
   %dec = add i32 %n.051, -1
   %tobool30.not = icmp ne i32 %dec, 0
-  %or.cond55.not = select i1 %cmp.i, i1 %tobool30.not, i1 false
+  %or.cond55.not = and i1 %tobool30.not, %cmp.i
   br i1 %or.cond55.not, label %land.rhs, label %return, !llvm.loop !164
 
 return:                                           ; preds = %land.rhs, %if.end26, %if.end21, %_ZNK7openvdb5v11_06points19TypedAttributeArrayIiNS1_9NullCodecEE6doLoadEv.exit46, %if.end, %lor.lhs.false, %lor.lhs.false5, %_ZN7openvdb5v11_06points19TypedAttributeArrayIiNS1_9NullCodecEE13attributeTypeB5cxx11Ev.exit21, %entry
@@ -44690,7 +44690,7 @@ land.rhs:                                         ; preds = %if.end26, %land.rhs
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %target.049, i64 8
   %dec = add i32 %n.051, -1
   %tobool30.not = icmp ne i32 %dec, 0
-  %or.cond55.not = select i1 %cmp.i, i1 %tobool30.not, i1 false
+  %or.cond55.not = and i1 %tobool30.not, %cmp.i
   br i1 %or.cond55.not, label %land.rhs, label %return, !llvm.loop !186
 
 return:                                           ; preds = %land.rhs, %if.end26, %if.end21, %_ZNK7openvdb5v11_06points19TypedAttributeArrayIlNS1_9NullCodecEE6doLoadEv.exit46, %if.end, %lor.lhs.false, %lor.lhs.false5, %_ZN7openvdb5v11_06points19TypedAttributeArrayIlNS1_9NullCodecEE13attributeTypeB5cxx11Ev.exit21, %entry
@@ -61373,7 +61373,7 @@ land.rhs:                                         ; preds = %if.end26, %land.rhs
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %target.050, i64 6
   %dec = add i32 %n.052, -1
   %tobool30.not = icmp ne i32 %dec, 0
-  %or.cond56.not = select i1 %call.i48, i1 %tobool30.not, i1 false
+  %or.cond56.not = and i1 %tobool30.not, %call.i48
   br i1 %or.cond56.not, label %land.rhs, label %return, !llvm.loop !286
 
 return:                                           ; preds = %land.rhs, %if.end26, %if.end21, %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IfEENS1_13TruncateCodecEE6doLoadEv.exit46, %if.end, %lor.lhs.false, %lor.lhs.false5, %_ZN7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IfEENS1_13TruncateCodecEE13attributeTypeB5cxx11Ev.exit21, %entry
@@ -83196,7 +83196,7 @@ land.rhs:                                         ; preds = %if.end26, %land.rhs
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %target.049, i64 2
   %dec = add i32 %n.051, -1
   %tobool30.not = icmp ne i32 %dec, 0
-  %or.cond55.not = select i1 %cmp.i, i1 %tobool30.not, i1 false
+  %or.cond55.not = and i1 %tobool30.not, %cmp.i
   br i1 %or.cond55.not, label %land.rhs, label %return, !llvm.loop !348
 
 return:                                           ; preds = %land.rhs, %if.end26, %if.end21, %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IfEENS1_12UnitVecCodecEE6doLoadEv.exit46, %if.end, %lor.lhs.false, %lor.lhs.false5, %_ZN7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IfEENS1_12UnitVecCodecEE13attributeTypeB5cxx11Ev.exit21, %entry
@@ -87581,7 +87581,7 @@ _ZN7openvdb5v11_04math14isExactlyEqualINS1_4Mat3IfEES4_EEbRKT_RKT0_.exit: ; pred
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %target.049, i64 36
   %dec = add i32 %n.051, -1
   %tobool30.not = icmp ne i32 %dec, 0
-  %or.cond55.not = select i1 %cmp.i.i.i, i1 %tobool30.not, i1 false
+  %or.cond55.not = and i1 %tobool30.not, %cmp.i.i.i
   br i1 %or.cond55.not, label %for.body.i.i.preheader, label %return, !llvm.loop !377
 
 return:                                           ; preds = %_ZN7openvdb5v11_04math14isExactlyEqualINS1_4Mat3IfEES4_EEbRKT_RKT0_.exit, %if.end26, %if.end21, %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat3IfEENS1_9NullCodecEE6doLoadEv.exit46, %if.end, %lor.lhs.false, %lor.lhs.false5, %_ZN7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat3IfEENS1_9NullCodecEE13attributeTypeB5cxx11Ev.exit21, %entry
@@ -91799,7 +91799,7 @@ _ZN7openvdb5v11_04math14isExactlyEqualINS1_4Mat3IdEES4_EEbRKT_RKT0_.exit: ; pred
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %target.049, i64 72
   %dec = add i32 %n.051, -1
   %tobool30.not = icmp ne i32 %dec, 0
-  %or.cond55.not = select i1 %cmp.i.i.i, i1 %tobool30.not, i1 false
+  %or.cond55.not = and i1 %tobool30.not, %cmp.i.i.i
   br i1 %or.cond55.not, label %for.body.i.i.preheader, label %return, !llvm.loop !412
 
 return:                                           ; preds = %_ZN7openvdb5v11_04math14isExactlyEqualINS1_4Mat3IdEES4_EEbRKT_RKT0_.exit, %if.end26, %if.end21, %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat3IdEENS1_9NullCodecEE6doLoadEv.exit46, %if.end, %lor.lhs.false, %lor.lhs.false5, %_ZN7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat3IdEENS1_9NullCodecEE13attributeTypeB5cxx11Ev.exit21, %entry
@@ -96017,7 +96017,7 @@ _ZN7openvdb5v11_04math14isExactlyEqualINS1_4Mat4IfEES4_EEbRKT_RKT0_.exit: ; pred
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %target.049, i64 64
   %dec = add i32 %n.051, -1
   %tobool30.not = icmp ne i32 %dec, 0
-  %or.cond55.not = select i1 %cmp.i.i.i, i1 %tobool30.not, i1 false
+  %or.cond55.not = and i1 %tobool30.not, %cmp.i.i.i
   br i1 %or.cond55.not, label %for.body.i.i.preheader, label %return, !llvm.loop !447
 
 return:                                           ; preds = %_ZN7openvdb5v11_04math14isExactlyEqualINS1_4Mat4IfEES4_EEbRKT_RKT0_.exit, %if.end26, %if.end21, %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat4IfEENS1_9NullCodecEE6doLoadEv.exit46, %if.end, %lor.lhs.false, %lor.lhs.false5, %_ZN7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat4IfEENS1_9NullCodecEE13attributeTypeB5cxx11Ev.exit21, %entry
@@ -100235,7 +100235,7 @@ _ZN7openvdb5v11_04math14isExactlyEqualINS1_4Mat4IdEES4_EEbRKT_RKT0_.exit: ; pred
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %target.049, i64 128
   %dec = add i32 %n.051, -1
   %tobool30.not = icmp ne i32 %dec, 0
-  %or.cond55.not = select i1 %cmp.i.i.i, i1 %tobool30.not, i1 false
+  %or.cond55.not = and i1 %tobool30.not, %cmp.i.i.i
   br i1 %or.cond55.not, label %for.body.i.i.preheader, label %return, !llvm.loop !482
 
 return:                                           ; preds = %_ZN7openvdb5v11_04math14isExactlyEqualINS1_4Mat4IdEES4_EEbRKT_RKT0_.exit, %if.end26, %if.end21, %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat4IdEENS1_9NullCodecEE6doLoadEv.exit46, %if.end, %lor.lhs.false, %lor.lhs.false5, %_ZN7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat4IdEENS1_9NullCodecEE13attributeTypeB5cxx11Ev.exit21, %entry
@@ -112811,7 +112811,7 @@ land.rhs:                                         ; preds = %if.end26, %land.rhs
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %target.049, i64 1
   %dec = add i32 %n.051, -1
   %tobool30.not = icmp ne i32 %dec, 0
-  %or.cond55.not = select i1 %cmp.i, i1 %tobool30.not, i1 false
+  %or.cond55.not = and i1 %tobool30.not, %cmp.i
   br i1 %or.cond55.not, label %land.rhs, label %return, !llvm.loop !570
 
 return:                                           ; preds = %land.rhs, %if.end26, %if.end21, %_ZNK7openvdb5v11_06points19TypedAttributeArrayIhNS1_10GroupCodecEE6doLoadEv.exit46, %if.end, %lor.lhs.false, %lor.lhs.false5, %_ZN7openvdb5v11_06points19TypedAttributeArrayIhNS1_10GroupCodecEE13attributeTypeB5cxx11Ev.exit21, %entry
@@ -116965,7 +116965,7 @@ land.rhs:                                         ; preds = %if.end26, %land.rhs
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %target.049, i64 4
   %dec = add i32 %n.051, -1
   %tobool30.not = icmp ne i32 %dec, 0
-  %or.cond55.not = select i1 %cmp.i, i1 %tobool30.not, i1 false
+  %or.cond55.not = and i1 %tobool30.not, %cmp.i
   br i1 %or.cond55.not, label %land.rhs, label %return, !llvm.loop !592
 
 return:                                           ; preds = %land.rhs, %if.end26, %if.end21, %_ZNK7openvdb5v11_06points19TypedAttributeArrayIjNS1_11StringCodecILb0EEEE6doLoadEv.exit46, %if.end, %lor.lhs.false, %lor.lhs.false5, %_ZN7openvdb5v11_06points19TypedAttributeArrayIjNS1_11StringCodecILb0EEEE13attributeTypeB5cxx11Ev.exit21, %entry
@@ -121119,7 +121119,7 @@ land.rhs:                                         ; preds = %if.end26, %land.rhs
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %target.049, i64 1
   %dec = add i32 %n.051, -1
   %tobool30.not = icmp ne i32 %dec, 0
-  %or.cond55.not = select i1 %cmp.i, i1 %tobool30.not, i1 false
+  %or.cond55.not = and i1 %tobool30.not, %cmp.i
   br i1 %or.cond55.not, label %land.rhs, label %return, !llvm.loop !614
 
 return:                                           ; preds = %land.rhs, %if.end26, %if.end21, %_ZNK7openvdb5v11_06points19TypedAttributeArrayIbNS1_9NullCodecEE6doLoadEv.exit46, %if.end, %lor.lhs.false, %lor.lhs.false5, %_ZN7openvdb5v11_06points19TypedAttributeArrayIbNS1_9NullCodecEE13attributeTypeB5cxx11Ev.exit21, %entry

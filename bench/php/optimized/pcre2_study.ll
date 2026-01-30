@@ -118,9 +118,8 @@ define hidden range(i32 0, 4) i32 @_pcre2_study_8(ptr noundef %0) local_unnamed_
 
 46:                                               ; preds = %28, %44, %42, %40, %38, %36, %34, %32, %.split
   %.089 = phi i32 [ %.090149, %.split ], [ %45, %44 ], [ %33, %32 ], [ %35, %34 ], [ %37, %36 ], [ %39, %38 ], [ %41, %40 ], [ %43, %42 ], [ %.090149, %28 ]
-  %.089.frozen = freeze i32 %.089
-  %47 = icmp ugt i32 %.089.frozen, 127
-  %or.cond = and i1 %8, %47
+  %47 = icmp samesign ugt i32 %.089, 127
+  %or.cond = select i1 %8, i1 %47, i1 false
   br i1 %or.cond, label %.thread126.loopexit, label %48
 
 48:                                               ; preds = %46
@@ -134,7 +133,7 @@ define hidden range(i32 0, 4) i32 @_pcre2_study_8(ptr noundef %0) local_unnamed_
 52:                                               ; preds = %50
   %53 = load ptr, ptr %21, align 8, !tbaa !18
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 256
-  %55 = zext nneg i32 %.089.frozen to i64
+  %55 = zext nneg i32 %.089 to i64
   %56 = getelementptr inbounds nuw i8, ptr %54, i64 %55
   %57 = load i8, ptr %56, align 1, !tbaa !17
   %58 = zext i8 %57 to i32
@@ -146,12 +145,12 @@ define hidden range(i32 0, 4) i32 @_pcre2_study_8(ptr noundef %0) local_unnamed_
   %62 = load i16, ptr %61, align 2, !tbaa !19
   %63 = zext i16 %62 to i32
   %64 = shl nuw nsw i32 %63, 7
-  %.urem = add i32 %.089.frozen, -128
-  %.cmp141 = icmp ult i32 %.089.frozen, 128
-  %65 = select i1 %.cmp141, i32 %.089.frozen, i32 %.urem
-  %66 = add nsw i32 %64, %65
-  %67 = sext i32 %66 to i64
-  %68 = getelementptr inbounds i16, ptr @_pcre2_ucd_stage2_8, i64 %67
+  %.urem = add nsw i32 %.089, -128
+  %.cmp141 = icmp samesign ult i32 %.089, 128
+  %65 = select i1 %.cmp141, i32 %.089, i32 %.urem
+  %66 = add nuw nsw i32 %64, %65
+  %67 = zext nneg i32 %66 to i64
+  %68 = getelementptr inbounds nuw i16, ptr @_pcre2_ucd_stage2_8, i64 %67
   %69 = load i16, ptr %68, align 2, !tbaa !19
   %70 = zext i16 %69 to i64
   %71 = getelementptr inbounds nuw %struct.ucd_record, ptr @_pcre2_ucd_records_8, i64 %70
@@ -166,7 +165,7 @@ define hidden range(i32 0, 4) i32 @_pcre2_study_8(ptr noundef %0) local_unnamed_
 75:                                               ; preds = %74
   %76 = getelementptr inbounds nuw i8, ptr %71, i64 4
   %77 = load i32, ptr %76, align 4, !tbaa !22
-  %78 = add nsw i32 %77, %.089.frozen
+  %78 = add nsw i32 %77, %.089
   br label %79
 
 79:                                               ; preds = %52, %75, %74
@@ -176,8 +175,8 @@ define hidden range(i32 0, 4) i32 @_pcre2_study_8(ptr noundef %0) local_unnamed_
   br i1 %.not109, label %.thread120, label %.thread126.loopexit
 
 .thread120:                                       ; preds = %79, %48, %23
-  %.5125 = phi i32 [ %.093147, %23 ], [ %.089.frozen, %79 ], [ %.093147, %48 ]
-  %.4102124 = phi i32 [ %.098146, %23 ], [ %.098146, %79 ], [ %.089.frozen, %48 ]
+  %.5125 = phi i32 [ %.093147, %23 ], [ %.089, %79 ], [ %.093147, %48 ]
+  %.4102124 = phi i32 [ %.098146, %23 ], [ %.098146, %79 ], [ %.089, %48 ]
   %80 = getelementptr inbounds nuw i8, ptr %.092148, i64 1
   %81 = add nuw nsw i32 %.090149, 8
   %82 = icmp samesign ult i32 %.090149, 248

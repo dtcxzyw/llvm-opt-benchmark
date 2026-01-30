@@ -471,13 +471,14 @@ define void @_ZN6icu_7715IslamicCalendar19handleComputeFieldsEiR10UErrorCode(ptr
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 464
   %10 = load ptr, ptr %9, align 8
   %11 = tail call noundef i32 %10(ptr noundef nonnull align 8 dereferenceable(192) %0)
-  %12 = sub nsw i32 %1, %11
+  %12 = sub i32 %1, %11
   %13 = sitofp i32 %12 to double
   %14 = load double, ptr @_ZN6icu_7718CalendarAstronomer13SYNODIC_MONTHE, align 8, !tbaa !11
   %15 = fdiv double %13, %14
   %16 = tail call double @uprv_floor_77(double noundef %15)
   %17 = fptosi double %16 to i32
-  %18 = sitofp i32 %17 to double
+  %.fr = freeze i32 %17
+  %18 = sitofp i32 %.fr to double
   %19 = fmul double %14, %18
   %20 = tail call double @uprv_floor_77(double noundef %19)
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -498,30 +499,32 @@ _ZN6icu_7712_GLOBAL__N_17moonAgeEd.exit:          ; preds = %7
   %26 = fptosi double %20 to i32
   %27 = fmul double %23, 1.800000e+02
   %28 = load double, ptr @_ZN6icu_7718CalendarAstronomer2PIE, align 8, !tbaa !11
-  %29 = fdiv double %27, %28
+  %.fr52 = freeze double %28
+  %29 = fdiv double %27, %.fr52
   call void @_ZN6icu_7718CalendarAstronomerD1Ev(ptr noundef nonnull align 8 dereferenceable(57) %4) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %30 = fcmp ogt double %29, 1.800000e+02
   %31 = fadd double %29, -3.600000e+02
   %.0.i = select i1 %30, double %31, double %29
-  %32 = sub nsw i32 %12, %26
+  %.fr51 = freeze i32 %26
+  %32 = sub i32 %12, %.fr51
   %33 = icmp sgt i32 %32, 24
   %34 = fcmp ogt double %.0.i, 0.000000e+00
   %or.cond = and i1 %33, %34
   %35 = zext i1 %or.cond to i32
-  %spec.select = add nsw i32 %35, %17
+  %spec.select = add i32 %.fr, %35
   %36 = call fastcc noundef i32 @_ZN6icu_7712_GLOBAL__N_114trueMonthStartEiR10UErrorCode(i32 noundef %spec.select, ptr noundef nonnull align 4 dereferenceable(4) %2)
   %37 = icmp sgt i32 %36, %12
   br i1 %37, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %_ZN6icu_7712_GLOBAL__N_17moonAgeEd.exit, %40
-  %.152 = phi i32 [ %41, %40 ], [ %spec.select, %_ZN6icu_7712_GLOBAL__N_17moonAgeEd.exit ]
+  %.154 = phi i32 [ %41, %40 ], [ %spec.select, %_ZN6icu_7712_GLOBAL__N_17moonAgeEd.exit ]
   %38 = load i32, ptr %2, align 4, !tbaa !9
   %39 = icmp slt i32 %38, 1
   br i1 %39, label %40, label %.loopexit
 
 40:                                               ; preds = %.lr.ph
-  %41 = add nsw i32 %.152, -1
+  %41 = add i32 %.154, -1
   %42 = call fastcc noundef i32 @_ZN6icu_7712_GLOBAL__N_114trueMonthStartEiR10UErrorCode(i32 noundef %41, ptr noundef nonnull align 4 dereferenceable(4) %2)
   %43 = icmp sgt i32 %42, %12
   br i1 %43, label %.lr.ph, label %._crit_edge, !llvm.loop !27

@@ -26741,7 +26741,7 @@ define internal fastcc i64 @sbuf_find_word_end(ptr readonly captures(address_is_
   %2 = icmp eq ptr %.0.val, null
   %3 = icmp slt i64 %.16.val, 0
   %or.cond.i.i = or i1 %2, %3
-  br i1 %or.cond.i.i, label %str_find_word_end.exit, label %4
+  br i1 %or.cond.i.i, label %str_find_forward.exit.thread.i, label %4
 
 4:                                                ; preds = %1
   %spec.select.i.i = tail call i64 @llvm.smin.i64(i64 %0, i64 %.16.val)
@@ -26787,40 +26787,48 @@ ic_char_is_idletter.exit17.thread.i:              ; preds = %switch.early.test.i
 
 .loopexit45.i.i:                                  ; preds = %.loopexit45.i.i.preheader, %ic_char_is_idletter.exit.thread22.i
   %.2.i.i = phi i64 [ %25, %ic_char_is_idletter.exit.thread22.i ], [ %.2.i.i.ph, %.loopexit45.i.i.preheader ]
-  %16 = tail call fastcc i64 @str_next_ofs(ptr noundef nonnull readonly %.0.val, i64 noundef %.16.val, i64 noundef %.2.i.i, ptr noundef null)
+  %.2.i.fr.i = freeze i64 %.2.i.i
+  %16 = tail call fastcc i64 @str_next_ofs(ptr noundef nonnull readonly %.0.val, i64 noundef %.16.val, i64 noundef %.2.i.fr.i, ptr noundef null)
   %17 = icmp slt i64 %16, 1
-  br i1 %17, label %str_find_word_end.exit, label %18
+  br i1 %17, label %str_find_forward.exit.thread.i, label %18
 
 18:                                               ; preds = %.loopexit45.i.i
-  %19 = getelementptr inbounds nuw i8, ptr %.0.val, i64 %.2.i.i
+  %19 = getelementptr inbounds nuw i8, ptr %.0.val, i64 %.2.i.fr.i
   %20 = load i8, ptr %19, align 1, !tbaa !4
-  %.fr26.i = freeze i8 %20
-  %21 = icmp slt i8 %.fr26.i, 0
-  %22 = add nsw i8 %.fr26.i, -65
+  %.fr27.i = freeze i8 %20
+  %21 = icmp slt i8 %.fr27.i, 0
+  %22 = add nsw i8 %.fr27.i, -65
   %or.cond4.i.i = icmp ult i8 %22, 26
   %or.cond27.i.i = select i1 %21, i1 true, i1 %or.cond4.i.i
-  %23 = add nsw i8 %.fr26.i, -97
+  %23 = add nsw i8 %.fr27.i, -97
   %or.cond7.i.i = icmp ult i8 %23, 26
   %or.cond28.i.i = select i1 %or.cond27.i.i, i1 true, i1 %or.cond7.i.i
-  %24 = add nsw i8 %.fr26.i, -48
+  %24 = add nsw i8 %.fr27.i, -48
   %or.cond10.i.i = icmp ult i8 %24, 10
-  %or.cond27.i = select i1 %or.cond28.i.i, i1 true, i1 %or.cond10.i.i
-  br i1 %or.cond27.i, label %str_find_word_end.exit, label %switch.early.test25.i
+  %or.cond28.i = select i1 %or.cond28.i.i, i1 true, i1 %or.cond10.i.i
+  br i1 %or.cond28.i, label %str_find_forward.exit.i, label %switch.early.test26.i
 
-switch.early.test25.i:                            ; preds = %18
-  switch i8 %.fr26.i, label %ic_char_is_idletter.exit.thread22.i [
-    i8 95, label %str_find_word_end.exit
-    i8 45, label %str_find_word_end.exit
+switch.early.test26.i:                            ; preds = %18
+  switch i8 %.fr27.i, label %ic_char_is_idletter.exit.thread22.i [
+    i8 95, label %str_find_forward.exit.i
+    i8 45, label %str_find_forward.exit.i
   ]
 
-ic_char_is_idletter.exit.thread22.i:              ; preds = %switch.early.test25.i
-  %25 = add nuw nsw i64 %16, %.2.i.i
+ic_char_is_idletter.exit.thread22.i:              ; preds = %switch.early.test26.i
+  %25 = add nuw nsw i64 %16, %.2.i.fr.i
   %26 = icmp slt i64 %25, %.16.val
-  br i1 %26, label %.loopexit45.i.i, label %str_find_word_end.exit, !llvm.loop !291
+  br i1 %26, label %.loopexit45.i.i, label %str_find_forward.exit.thread.i, !llvm.loop !291
 
-str_find_word_end.exit:                           ; preds = %.loopexit45.i.i, %18, %switch.early.test25.i, %switch.early.test25.i, %ic_char_is_idletter.exit.thread22.i, %1
-  %27 = phi i64 [ %.16.val, %1 ], [ %.2.i.i, %18 ], [ %.2.i.i, %switch.early.test25.i ], [ %.2.i.i, %switch.early.test25.i ], [ %.16.val, %.loopexit45.i.i ], [ %.16.val, %ic_char_is_idletter.exit.thread22.i ]
-  ret i64 %27
+str_find_forward.exit.i:                          ; preds = %switch.early.test26.i, %switch.early.test26.i, %18
+  %27 = icmp slt i64 %.2.i.fr.i, 0
+  br i1 %27, label %str_find_forward.exit.thread.i, label %str_find_word_end.exit
+
+str_find_forward.exit.thread.i:                   ; preds = %ic_char_is_idletter.exit.thread22.i, %.loopexit45.i.i, %str_find_forward.exit.i, %1
+  br label %str_find_word_end.exit
+
+str_find_word_end.exit:                           ; preds = %str_find_forward.exit.i, %str_find_forward.exit.thread.i
+  %28 = phi i64 [ %.16.val, %str_find_forward.exit.thread.i ], [ %.2.i.fr.i, %str_find_forward.exit.i ]
+  ret i64 %28
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite) uwtable

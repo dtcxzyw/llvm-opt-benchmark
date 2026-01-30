@@ -411,8 +411,8 @@ define internal noundef i32 @f(double noundef %0, ptr noundef %1, ptr noundef %2
   %26 = load double, ptr %25, align 8, !tbaa !17
   br label %27
 
-27:                                               ; preds = %18, %127
-  %indvars.iv127 = phi i64 [ 0, %18 ], [ %indvars.iv.next128, %127 ]
+27:                                               ; preds = %18, %128
+  %indvars.iv127 = phi i64 [ 0, %18 ], [ %indvars.iv.next128, %128 ]
   %28 = trunc nuw nsw i64 %indvars.iv127 to i32
   %29 = uitofp nneg i32 %28 to double
   %30 = fadd double %29, -5.000000e-01
@@ -439,104 +439,105 @@ define internal noundef i32 @f(double noundef %0, ptr noundef %1, ptr noundef %2
   %invariant.gep133 = getelementptr double, ptr %5, i64 %47
   %invariant.gep135 = getelementptr double, ptr %5, i64 %46
   %invariant.gep137 = getelementptr double, ptr %5, i64 %46
-  %48 = getelementptr double, ptr %5, i64 %43
+  %48 = trunc nuw nsw i64 %43 to i32
   %49 = trunc i64 %43 to i32
   %50 = or disjoint i32 %49, 1
-  %51 = getelementptr double, ptr %5, i64 %43
-  br label %52
+  br label %51
 
-52:                                               ; preds = %27, %52
-  %indvars.iv = phi i64 [ 0, %27 ], [ %indvars.iv.next, %52 ]
-  %53 = shl nuw nsw i64 %indvars.iv, 1
-  %54 = add nuw nsw i64 %53, %43
-  %55 = getelementptr inbounds nuw double, ptr %5, i64 %54
-  %56 = load double, ptr %55, align 8, !tbaa !19
-  %57 = or disjoint i64 %53, 1
-  %58 = add nuw nsw i64 %57, %43
-  %59 = getelementptr inbounds nuw double, ptr %5, i64 %58
-  %60 = load double, ptr %59, align 8, !tbaa !19
-  %61 = fmul double %56, 1.630000e-16
-  %62 = fmul double %61, 3.700000e+16
-  %63 = fmul double %56, 4.660000e-16
-  %64 = fmul double %63, %60
-  %65 = fmul double %storemerge, %60
-  %66 = fneg double %62
-  %67 = fsub double %66, %64
-  %68 = tail call double @llvm.fmuladd.f64(double %.0, double 2.000000e+00, double %67)
-  %69 = fadd double %65, %68
-  %70 = fsub double %62, %64
-  %71 = fsub double %70, %65
-  %gep = getelementptr double, ptr %invariant.gep, i64 %53
-  %72 = load double, ptr %gep, align 8, !tbaa !19
-  %gep134 = getelementptr double, ptr %invariant.gep133, i64 %57
-  %73 = load double, ptr %gep134, align 8, !tbaa !19
-  %gep136 = getelementptr double, ptr %invariant.gep135, i64 %53
-  %74 = load double, ptr %gep136, align 8, !tbaa !19
-  %gep138 = getelementptr double, ptr %invariant.gep137, i64 %57
-  %75 = load double, ptr %gep138, align 8, !tbaa !19
-  %76 = fsub double %74, %56
-  %77 = fsub double %56, %72
-  %78 = fneg double %77
-  %79 = fmul double %35, %78
-  %80 = tail call double @llvm.fmuladd.f64(double %38, double %76, double %79)
-  %81 = fsub double %75, %60
-  %82 = fsub double %60, %73
-  %83 = fneg double %82
-  %84 = fmul double %35, %83
-  %85 = tail call double @llvm.fmuladd.f64(double %38, double %81, double %84)
-  %86 = icmp eq i64 %indvars.iv, 0
-  %87 = select i1 %86, i32 1, i32 -1
-  %88 = icmp eq i64 %indvars.iv, 9
-  %89 = select i1 %88, i32 -1, i32 1
-  %90 = trunc nuw nsw i64 %indvars.iv to i32
-  %91 = add nsw i32 %87, %90
-  %92 = shl nsw i32 %91, 1
-  %93 = sext i32 %92 to i64
-  %94 = getelementptr double, ptr %48, i64 %93
+51:                                               ; preds = %27, %51
+  %indvars.iv = phi i64 [ 0, %27 ], [ %indvars.iv.next, %51 ]
+  %52 = shl nuw nsw i64 %indvars.iv, 1
+  %53 = add nuw nsw i64 %52, %43
+  %54 = getelementptr inbounds nuw double, ptr %5, i64 %53
+  %55 = load double, ptr %54, align 8, !tbaa !19
+  %56 = or disjoint i64 %52, 1
+  %57 = add nuw nsw i64 %56, %43
+  %58 = getelementptr inbounds nuw double, ptr %5, i64 %57
+  %59 = load double, ptr %58, align 8, !tbaa !19
+  %60 = fmul double %55, 1.630000e-16
+  %61 = fmul double %60, 3.700000e+16
+  %62 = fmul double %55, 4.660000e-16
+  %63 = fmul double %62, %59
+  %64 = fmul double %storemerge, %59
+  %65 = fneg double %61
+  %66 = fsub double %65, %63
+  %67 = tail call double @llvm.fmuladd.f64(double %.0, double 2.000000e+00, double %66)
+  %68 = fadd double %64, %67
+  %69 = fsub double %61, %63
+  %70 = fsub double %69, %64
+  %gep = getelementptr double, ptr %invariant.gep, i64 %52
+  %71 = load double, ptr %gep, align 8, !tbaa !19
+  %gep134 = getelementptr double, ptr %invariant.gep133, i64 %56
+  %72 = load double, ptr %gep134, align 8, !tbaa !19
+  %gep136 = getelementptr double, ptr %invariant.gep135, i64 %52
+  %73 = load double, ptr %gep136, align 8, !tbaa !19
+  %gep138 = getelementptr double, ptr %invariant.gep137, i64 %56
+  %74 = load double, ptr %gep138, align 8, !tbaa !19
+  %75 = fsub double %73, %55
+  %76 = fsub double %55, %71
+  %77 = fneg double %76
+  %78 = fmul double %35, %77
+  %79 = tail call double @llvm.fmuladd.f64(double %38, double %75, double %78)
+  %80 = fsub double %74, %59
+  %81 = fsub double %59, %72
+  %82 = fneg double %81
+  %83 = fmul double %35, %82
+  %84 = tail call double @llvm.fmuladd.f64(double %38, double %80, double %83)
+  %85 = icmp eq i64 %indvars.iv, 0
+  %86 = select i1 %85, i32 1, i32 -1
+  %87 = icmp eq i64 %indvars.iv, 9
+  %88 = select i1 %87, i32 -1, i32 1
+  %89 = trunc nuw nsw i64 %indvars.iv to i32
+  %90 = add nsw i32 %86, %89
+  %91 = shl nuw nsw i32 %90, 1
+  %92 = add nuw nsw i32 %91, %48
+  %93 = zext nneg i32 %92 to i64
+  %94 = getelementptr inbounds nuw double, ptr %5, i64 %93
   %95 = load double, ptr %94, align 8, !tbaa !19
-  %96 = add i32 %50, %92
-  %97 = sext i32 %96 to i64
-  %98 = getelementptr inbounds double, ptr %5, i64 %97
+  %96 = add nuw nsw i32 %50, %91
+  %97 = zext nneg i32 %96 to i64
+  %98 = getelementptr inbounds nuw double, ptr %5, i64 %97
   %99 = load double, ptr %98, align 8, !tbaa !19
-  %100 = add nsw i32 %89, %90
-  %101 = shl nsw i32 %100, 1
-  %102 = sext i32 %101 to i64
-  %103 = getelementptr double, ptr %51, i64 %102
-  %104 = load double, ptr %103, align 8, !tbaa !19
-  %105 = add i32 %50, %101
-  %106 = sext i32 %105 to i64
-  %107 = getelementptr inbounds double, ptr %5, i64 %106
-  %108 = load double, ptr %107, align 8, !tbaa !19
-  %109 = tail call double @llvm.fmuladd.f64(double %56, double -2.000000e+00, double %104)
-  %110 = fadd double %95, %109
-  %111 = fmul double %24, %110
-  %112 = tail call double @llvm.fmuladd.f64(double %60, double -2.000000e+00, double %108)
-  %113 = fadd double %99, %112
-  %114 = fmul double %24, %113
-  %115 = fsub double %104, %95
-  %116 = fmul double %26, %115
-  %117 = fsub double %108, %99
-  %118 = fmul double %26, %117
-  %119 = fadd double %80, %111
-  %120 = fadd double %116, %119
-  %121 = fadd double %69, %120
-  %122 = getelementptr inbounds nuw double, ptr %6, i64 %54
-  store double %121, ptr %122, align 8, !tbaa !19
-  %123 = fadd double %85, %114
-  %124 = fadd double %118, %123
-  %125 = fadd double %71, %124
-  %126 = getelementptr inbounds nuw double, ptr %6, i64 %58
-  store double %125, ptr %126, align 8, !tbaa !19
+  %100 = add nsw i32 %88, %89
+  %101 = shl nuw nsw i32 %100, 1
+  %102 = add nuw nsw i32 %101, %48
+  %103 = zext nneg i32 %102 to i64
+  %104 = getelementptr inbounds nuw double, ptr %5, i64 %103
+  %105 = load double, ptr %104, align 8, !tbaa !19
+  %106 = add nuw nsw i32 %50, %101
+  %107 = zext nneg i32 %106 to i64
+  %108 = getelementptr inbounds nuw double, ptr %5, i64 %107
+  %109 = load double, ptr %108, align 8, !tbaa !19
+  %110 = tail call double @llvm.fmuladd.f64(double %55, double -2.000000e+00, double %105)
+  %111 = fadd double %95, %110
+  %112 = fmul double %24, %111
+  %113 = tail call double @llvm.fmuladd.f64(double %59, double -2.000000e+00, double %109)
+  %114 = fadd double %99, %113
+  %115 = fmul double %24, %114
+  %116 = fsub double %105, %95
+  %117 = fmul double %26, %116
+  %118 = fsub double %109, %99
+  %119 = fmul double %26, %118
+  %120 = fadd double %79, %112
+  %121 = fadd double %117, %120
+  %122 = fadd double %68, %121
+  %123 = getelementptr inbounds nuw double, ptr %6, i64 %53
+  store double %122, ptr %123, align 8, !tbaa !19
+  %124 = fadd double %84, %115
+  %125 = fadd double %119, %124
+  %126 = fadd double %70, %125
+  %127 = getelementptr inbounds nuw double, ptr %6, i64 %57
+  store double %126, ptr %127, align 8, !tbaa !19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 10
-  br i1 %exitcond.not, label %127, label %52
+  br i1 %exitcond.not, label %128, label %51
 
-127:                                              ; preds = %52
+128:                                              ; preds = %51
   %indvars.iv.next128 = add nuw nsw i64 %indvars.iv127, 1
   %exitcond130.not = icmp eq i64 %indvars.iv.next128, 10
-  br i1 %exitcond130.not, label %128, label %27
+  br i1 %exitcond130.not, label %129, label %27
 
-128:                                              ; preds = %127
+129:                                              ; preds = %128
   ret i32 0
 }
 

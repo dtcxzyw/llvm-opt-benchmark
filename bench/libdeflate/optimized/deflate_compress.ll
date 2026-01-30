@@ -1423,7 +1423,7 @@ lz_extend.exit163.i:                              ; preds = %175, %lz_extend.exi
   %.not133.i = icmp sle i16 %187, %103
   %188 = add i32 %.0101.i, -1
   %.not134.i = icmp eq i32 %188, 0
-  %or.cond141.i = select i1 %.not133.i, i1 true, i1 %.not134.i
+  %or.cond141.i = or i1 %.not134.i, %.not133.i
   br i1 %or.cond141.i, label %hc_matchfinder_longest_match.exit, label %190
 
 189:                                              ; preds = %105
@@ -2391,7 +2391,7 @@ lz_extend.exit163.i323.i:                         ; preds = %216, %lz_extend.exi
   %.not133.i326.i = icmp sle i16 %228, %143
   %229 = add i32 %.0101.i310.i, -1
   %.not134.i327.i = icmp eq i32 %229, 0
-  %or.cond141.i328.i = select i1 %.not133.i326.i, i1 true, i1 %.not134.i327.i
+  %or.cond141.i328.i = or i1 %.not134.i327.i, %.not133.i326.i
   br i1 %or.cond141.i328.i, label %hc_matchfinder_longest_match.exit342.i, label %231
 
 230:                                              ; preds = %145
@@ -3020,7 +3020,7 @@ lz_extend.exit163.i228.i:                         ; preds = %514, %lz_extend.exi
   %.not133.i231.i = icmp sle i16 %526, %442
   %527 = add i32 %.0101.i215.i, -1
   %.not134.i232.i = icmp eq i32 %527, 0
-  %or.cond141.i233.i = select i1 %.not133.i231.i, i1 true, i1 %.not134.i232.i
+  %or.cond141.i233.i = or i1 %.not134.i232.i, %.not133.i231.i
   br i1 %or.cond141.i233.i, label %hc_matchfinder_longest_match.exit247.i, label %529
 
 528:                                              ; preds = %444
@@ -3997,7 +3997,7 @@ lz_extend.exit163.i323.i:                         ; preds = %216, %lz_extend.exi
   %.not133.i326.i = icmp sle i16 %228, %143
   %229 = add i32 %.0101.i310.i, -1
   %.not134.i327.i = icmp eq i32 %229, 0
-  %or.cond141.i328.i = select i1 %.not133.i326.i, i1 true, i1 %.not134.i327.i
+  %or.cond141.i328.i = or i1 %.not134.i327.i, %.not133.i326.i
   br i1 %or.cond141.i328.i, label %hc_matchfinder_longest_match.exit342.i, label %231
 
 230:                                              ; preds = %145
@@ -4626,7 +4626,7 @@ lz_extend.exit163.i228.i:                         ; preds = %514, %lz_extend.exi
   %.not133.i231.i = icmp sle i16 %526, %442
   %527 = add i32 %.0101.i215.i, -1
   %.not134.i232.i = icmp eq i32 %527, 0
-  %or.cond141.i233.i = select i1 %.not133.i231.i, i1 true, i1 %.not134.i232.i
+  %or.cond141.i233.i = or i1 %.not134.i232.i, %.not133.i231.i
   br i1 %or.cond141.i233.i, label %hc_matchfinder_longest_match.exit247.i, label %529
 
 528:                                              ; preds = %444
@@ -5111,7 +5111,7 @@ lz_extend.exit163.i.i:                            ; preds = %727, %lz_extend.exi
   %.not133.i.i = icmp sle i16 %739, %655
   %740 = add i32 %.0101.i.i, -1
   %.not134.i.i = icmp eq i32 %740, 0
-  %or.cond141.i.i = select i1 %.not133.i.i, i1 true, i1 %.not134.i.i
+  %or.cond141.i.i = or i1 %.not134.i.i, %.not133.i.i
   br i1 %or.cond141.i.i, label %hc_matchfinder_longest_match.exit.i, label %742
 
 741:                                              ; preds = %657

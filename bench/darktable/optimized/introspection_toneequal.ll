@@ -8811,7 +8811,7 @@ define internal fastcc void @update_histogram(ptr noundef %0) unnamed_addr #13 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 704
   %4 = load ptr, ptr %3, align 16, !tbaa !96
   %5 = icmp eq ptr %4, null
-  br i1 %5, label %89, label %6
+  br i1 %5, label %90, label %6
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 712
@@ -8819,13 +8819,13 @@ define internal fastcc void @update_histogram(ptr noundef %0) unnamed_addr #13 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 3004
   %10 = load i32, ptr %9, align 4, !tbaa !157
   %.not = icmp eq i32 %10, 0
-  br i1 %.not, label %11, label %87
+  br i1 %.not, label %11, label %88
 
 11:                                               ; preds = %6
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 3000
   %13 = load i32, ptr %12, align 8, !tbaa !156
   %.not17 = icmp eq i32 %13, 0
-  br i1 %.not17, label %87, label %14
+  br i1 %.not17, label %88, label %14
 
 14:                                               ; preds = %11
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 2544
@@ -8901,71 +8901,74 @@ define internal fastcc void @update_histogram(ptr noundef %0) unnamed_addr #13 {
   %54 = phi float [ %53, %.split.loop.exit92.i ], [ -1.000000e+01, %48 ]
   br label %55
 
-55:                                               ; preds = %55, %.split.loop.exit.i
-  %.185.i = phi i32 [ 0, %.split.loop.exit.i ], [ %59, %55 ]
-  %.05984.i = phi i32 [ 511, %.split.loop.exit.i ], [ %61, %55 ]
+55:                                               ; preds = %61, %.split.loop.exit.i
+  %.185.i = phi i32 [ 0, %.split.loop.exit.i ], [ %59, %61 ]
+  %.05984.i = phi i32 [ 511, %.split.loop.exit.i ], [ %62, %61 ]
   %56 = zext nneg i32 %.05984.i to i64
   %57 = getelementptr inbounds nuw i32, ptr %2, i64 %56
   %58 = load i32, ptr %57, align 4, !tbaa !49, !noalias !639
   %59 = add nsw i32 %58, %.185.i
-  %60 = icmp ult i32 %.185.i, %30
-  %.not71.i = icmp sge i32 %59, %30
-  %or.cond72.not96.i = select i1 %60, i1 %.not71.i, i1 false
-  %61 = add nsw i32 %.05984.i, -1
+  %60 = icmp uge i32 %.185.i, %30
+  %.not71.i = icmp slt i32 %59, %30
+  %or.cond72.i = select i1 %60, i1 true, i1 %.not71.i
+  br i1 %or.cond72.i, label %61, label %63
+
+61:                                               ; preds = %55
+  %62 = add nsw i32 %.05984.i, -1
   %.not91.i = icmp eq i32 %.05984.i, 0
-  %or.cond94.i = or i1 %.not91.i, %or.cond72.not96.i
-  br i1 %or.cond94.i, label %62, label %55
+  br i1 %.not91.i, label %63, label %55
 
-62:                                               ; preds = %55
+63:                                               ; preds = %61, %55
+  %.161.i = phi i32 [ %.05984.i, %55 ], [ 0, %61 ]
   store float %54, ptr %24, align 4, !tbaa !6, !noalias !639
-  %63 = uitofp nneg i32 %.05984.i to float
-  %64 = fpext reassoc nsz arcp contract afn float %63 to double
-  %65 = fmul reassoc nsz arcp contract afn double %64, 0x3FA0080402010080
-  %66 = fadd reassoc nsz arcp contract afn double %65, -1.000000e+01
-  %67 = fptrunc reassoc nsz arcp contract afn double %66 to float
-  store float %67, ptr %25, align 4, !tbaa !6, !noalias !639
+  %64 = uitofp nneg i32 %.161.i to float
+  %65 = fpext reassoc nsz arcp contract afn float %64 to double
+  %66 = fmul reassoc nsz arcp contract afn double %65, 0x3FA0080402010080
+  %67 = fadd reassoc nsz arcp contract afn double %66, -1.000000e+01
+  %68 = fptrunc reassoc nsz arcp contract afn double %67 to float
+  store float %68, ptr %25, align 4, !tbaa !6, !noalias !639
   %.promoted = load i32, ptr %23, align 4, !tbaa !49, !noalias !639
-  br label %68
+  br label %69
 
-68:                                               ; preds = %68, %62
-  %..i19 = phi i32 [ %.promoted, %62 ], [ %..i, %68 ]
-  %.05686.i = phi i64 [ 0, %62 ], [ %83, %68 ]
-  %69 = uitofp nneg i64 %.05686.i to double
-  %70 = fmul reassoc nsz arcp contract afn double %69, 0x3FA0080402010080
-  %71 = fadd reassoc nsz arcp contract afn double %70, -1.000000e+01
-  %72 = fptrunc reassoc nsz arcp contract afn double %71 to float
-  %73 = fmul reassoc nsz arcp contract afn float %72, 3.200000e+01
-  %74 = fadd reassoc nsz arcp contract afn float %73, 2.560000e+02
-  %75 = fptosi float %74 to i32
-  %narrow.i = tail call i32 @llvm.smax.i32(i32 %75, i32 0)
-  %76 = tail call i32 @llvm.umin.i32(i32 %narrow.i, i32 255)
-  %77 = zext nneg i32 %76 to i64
-  %78 = getelementptr inbounds nuw i32, ptr %2, i64 %.05686.i
-  %79 = load i32, ptr %78, align 4, !tbaa !49, !noalias !639
-  %80 = getelementptr inbounds nuw i32, ptr %22, i64 %77
-  %81 = load i32, ptr %80, align 4, !tbaa !49, !noalias !639
-  %82 = add nsw i32 %81, %79
-  store i32 %82, ptr %80, align 4, !tbaa !49, !noalias !639
-  %..i = tail call i32 @llvm.smax.i32(i32 %82, i32 %..i19)
-  %83 = add nuw nsw i64 %.05686.i, 1
-  %exitcond90.not.i = icmp eq i64 %83, 512
-  br i1 %exitcond90.not.i, label %compute_log_histogram_and_stats.exit, label %68
+69:                                               ; preds = %69, %63
+  %..i19 = phi i32 [ %.promoted, %63 ], [ %..i, %69 ]
+  %.05686.i = phi i64 [ 0, %63 ], [ %84, %69 ]
+  %70 = uitofp nneg i64 %.05686.i to double
+  %71 = fmul reassoc nsz arcp contract afn double %70, 0x3FA0080402010080
+  %72 = fadd reassoc nsz arcp contract afn double %71, -1.000000e+01
+  %73 = fptrunc reassoc nsz arcp contract afn double %72 to float
+  %74 = fmul reassoc nsz arcp contract afn float %73, 3.200000e+01
+  %75 = fadd reassoc nsz arcp contract afn float %74, 2.560000e+02
+  %76 = fptosi float %75 to i32
+  %narrow.i = tail call i32 @llvm.smax.i32(i32 %76, i32 0)
+  %77 = tail call i32 @llvm.umin.i32(i32 %narrow.i, i32 255)
+  %78 = zext nneg i32 %77 to i64
+  %79 = getelementptr inbounds nuw i32, ptr %2, i64 %.05686.i
+  %80 = load i32, ptr %79, align 4, !tbaa !49, !noalias !639
+  %81 = getelementptr inbounds nuw i32, ptr %22, i64 %78
+  %82 = load i32, ptr %81, align 4, !tbaa !49, !noalias !639
+  %83 = add nsw i32 %82, %80
+  store i32 %83, ptr %81, align 4, !tbaa !49, !noalias !639
+  %..i = tail call i32 @llvm.smax.i32(i32 %83, i32 %..i19)
+  %84 = add nuw nsw i64 %.05686.i, 1
+  %exitcond90.not.i = icmp eq i64 %84, 512
+  br i1 %exitcond90.not.i, label %compute_log_histogram_and_stats.exit, label %69
 
-compute_log_histogram_and_stats.exit:             ; preds = %68
+compute_log_histogram_and_stats.exit:             ; preds = %69
   store i32 %..i, ptr %23, align 4, !tbaa !49, !noalias !639
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !639
-  %84 = fadd reassoc nsz arcp contract afn float %54, %67
-  %85 = fmul reassoc nsz arcp contract afn float %84, 5.000000e-01
-  %86 = getelementptr inbounds nuw i8, ptr %4, i64 2560
-  store float %85, ptr %86, align 64, !tbaa !485
+  %85 = fadd reassoc nsz arcp contract afn float %54, %68
+  %86 = fmul reassoc nsz arcp contract afn float %85, 5.000000e-01
+  %87 = getelementptr inbounds nuw i8, ptr %4, i64 2560
+  store float %86, ptr %87, align 64, !tbaa !485
   store i32 1, ptr %9, align 4, !tbaa !157
-  br label %87
+  br label %88
 
-87:                                               ; preds = %compute_log_histogram_and_stats.exit, %11, %6
-  %88 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %7) #28
-  br label %89
+88:                                               ; preds = %compute_log_histogram_and_stats.exit, %11, %6
+  %89 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %7) #28
+  br label %90
 
-89:                                               ; preds = %1, %87
+90:                                               ; preds = %1, %88
   ret void
 }
 

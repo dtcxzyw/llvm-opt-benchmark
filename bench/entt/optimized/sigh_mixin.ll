@@ -126131,6 +126131,7 @@ define linkonce_odr hidden void @_ZN4entt16basic_sparse_setINS_6entityEN4test18t
   br i1 %21, label %16, label %.critedge, !llvm.loop !1947
 
 .critedge:                                        ; preds = %16, %17
+  %.0.lcssa = phi i64 [ 0, %16 ], [ %.0, %17 ]
   %.not2131 = icmp eq i64 %15, 1048575
   br i1 %.not2131, label %._crit_edge, label %.lr.ph
 
@@ -126140,7 +126141,7 @@ define linkonce_odr hidden void @_ZN4entt16basic_sparse_setINS_6entityEN4test18t
 
 23:                                               ; preds = %.lr.ph, %.critedge2
   %24 = phi ptr [ %9, %.lr.ph ], [ %57, %.critedge2 ]
-  %.133 = phi i64 [ %.0, %.lr.ph ], [ %.2, %.critedge2 ]
+  %.133 = phi i64 [ %.0.lcssa, %.lr.ph ], [ %.2, %.critedge2 ]
   %.03032 = phi i64 [ %15, %.lr.ph ], [ %28, %.critedge2 ]
   %25 = getelementptr inbounds nuw i32, ptr %24, i64 %.03032
   %26 = load i32, ptr %25, align 4, !tbaa !68
@@ -126201,7 +126202,7 @@ define linkonce_odr hidden void @_ZN4entt16basic_sparse_setINS_6entityEN4test18t
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.critedge
   %58 = phi ptr [ %8, %.critedge ], [ %.pre34, %._crit_edge.loopexit ]
   %59 = phi ptr [ %9, %.critedge ], [ %.pre, %._crit_edge.loopexit ]
-  %.1.lcssa = phi i64 [ %.0, %.critedge ], [ %.2, %._crit_edge.loopexit ]
+  %.1.lcssa = phi i64 [ %.0.lcssa, %.critedge ], [ %.2, %._crit_edge.loopexit ]
   %60 = getelementptr inbounds i32, ptr %59, i64 %.1.lcssa
   %.not.i.i = icmp eq ptr %60, %58
   br i1 %.not.i.i, label %_ZNSt6vectorIN4entt6entityEN4test18throwing_allocatorIS1_EEE5eraseEN9__gnu_cxx17__normal_iteratorIPKS1_S5_EESA_.exit, label %._crit_edge.i.i

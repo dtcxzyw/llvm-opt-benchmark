@@ -744,7 +744,7 @@ define dso_local noundef range(i32 0, 256) i32 @intel_dp_dsc_nearest_valid_bpp(p
 10:                                               ; preds = %7, %5
   %11 = phi ptr [ %9, %7 ], [ null, %5 ]
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %11, i32 noundef 2, ptr noundef nonnull @.str.6, i32 noundef %1, i32 noundef 6) #16
-  br label %48
+  br label %49
 
 12:                                               ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 2632
@@ -770,11 +770,11 @@ define dso_local noundef range(i32 0, 256) i32 @intel_dp_dsc_nearest_valid_bpp(p
 25:                                               ; preds = %22, %20
   %26 = phi ptr [ %24, %22 ], [ null, %20 ]
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %26, i32 noundef 2, ptr noundef nonnull @.str.7, i32 noundef %18) #16
-  br label %48
+  br label %49
 
 27:                                               ; preds = %16
   %28 = tail call i32 @llvm.umin.i32(i32 %18, i32 27)
-  br label %48
+  br label %49
 
 .preheader:                                       ; preds = %12, %31
   %29 = phi i64 [ %32, %31 ], [ 0, %12 ]
@@ -790,26 +790,27 @@ define dso_local noundef range(i32 0, 256) i32 @intel_dp_dsc_nearest_valid_bpp(p
   br i1 %36, label %37, label %.preheader, !llvm.loop !23
 
 37:                                               ; preds = %31, %.preheader
-  %38 = and i64 %29, 4294967295
-  %39 = icmp eq ptr %0, null
-  br i1 %39, label %43, label %40
+  %38 = phi i64 [ %29, %31 ], [ 4, %.preheader ]
+  %39 = and i64 %38, 4294967295
+  %40 = icmp eq ptr %0, null
+  br i1 %40, label %44, label %41
 
-40:                                               ; preds = %37
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %42 = load ptr, ptr %41, align 8
-  br label %43
+41:                                               ; preds = %37
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %43 = load ptr, ptr %42, align 8
+  br label %44
 
-43:                                               ; preds = %40, %37
-  %44 = phi ptr [ %42, %40 ], [ null, %37 ]
-  %45 = getelementptr i8, ptr @valid_dsc_bpp, i64 %38
-  %46 = load i8, ptr %45, align 1
-  %47 = zext i8 %46 to i32
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %44, i32 noundef 2, ptr noundef nonnull @.str.8, i32 noundef %1, i32 noundef %47) #16
-  br label %48
+44:                                               ; preds = %41, %37
+  %45 = phi ptr [ %43, %41 ], [ null, %37 ]
+  %46 = getelementptr i8, ptr @valid_dsc_bpp, i64 %39
+  %47 = load i8, ptr %46, align 1
+  %48 = zext i8 %47 to i32
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %45, i32 noundef 2, ptr noundef nonnull @.str.8, i32 noundef %1, i32 noundef %48) #16
+  br label %49
 
-48:                                               ; preds = %43, %27, %25, %10
-  %49 = phi i32 [ 0, %10 ], [ 0, %25 ], [ %28, %27 ], [ %47, %43 ]
-  ret i32 %49
+49:                                               ; preds = %44, %27, %25, %10
+  %50 = phi i32 [ 0, %10 ], [ 0, %25 ], [ %28, %27 ], [ %48, %44 ]
+  ret i32 %50
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

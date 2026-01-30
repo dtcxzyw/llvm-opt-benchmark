@@ -14271,11 +14271,9 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17h01866a7398cf9cc4E.exit.loopexi
 _ZN4core4iter6traits8iterator8Iterator8try_fold17h01866a7398cf9cc4E.exit: ; preds = %_ZN4core4iter6traits8iterator8Iterator8try_fold17h01866a7398cf9cc4E.exit.loopexit, %4
   %.sroa.3.0.i = phi ptr [ null, %4 ], [ %.sroa.3.0.i.ph, %_ZN4core4iter6traits8iterator8Iterator8try_fold17h01866a7398cf9cc4E.exit.loopexit ]
   %.sroa.0.0.i = phi i64 [ undef, %4 ], [ %22, %_ZN4core4iter6traits8iterator8Iterator8try_fold17h01866a7398cf9cc4E.exit.loopexit ]
-  %23 = icmp eq ptr %.sroa.3.0.i, null
-  %.sroa.0.0 = select i1 %23, i64 undef, i64 %.sroa.0.0.i
-  %24 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %25 = insertvalue { i64, ptr } %24, ptr %.sroa.3.0.i, 1
-  ret { i64, ptr } %25
+  %23 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0.i, 0
+  %24 = insertvalue { i64, ptr } %23, ptr %.sroa.3.0.i, 1
+  ret { i64, ptr } %24
 }
 
 ; Function Attrs: nonlazybind uwtable

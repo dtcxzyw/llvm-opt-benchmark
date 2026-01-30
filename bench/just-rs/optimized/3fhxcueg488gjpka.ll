@@ -10600,7 +10600,7 @@ define internal fastcc { i64, i64 } @"_ZN4just8justfile8Justfile14public_recipes
   br label %28
 
 28:                                               ; preds = %69, %.lr.ph.i
-  %.015.i = phi i64 [ 0, %.lr.ph.i ], [ %70, %69 ]
+  %.016.i = phi i64 [ 0, %.lr.ph.i ], [ %70, %69 ]
   %29 = phi ptr [ %8, %.lr.ph.i ], [ %30, %69 ]
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 24
   %31 = getelementptr i8, ptr %29, i64 8
@@ -10636,11 +10636,11 @@ define internal fastcc { i64, i64 } @"_ZN4just8justfile8Justfile14public_recipes
   %44 = load i8, ptr %23, align 1, !range !1607, !alias.scope !1597, !noalias !1600
   %45 = icmp eq i8 %44, 2
   %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 %45, i1 false
-  %.pre19.i = load i8, ptr %24, align 8, !range !1601, !alias.scope !1602, !noalias !1605
+  %.pre20.i = load i8, ptr %24, align 8, !range !1601, !alias.scope !1602, !noalias !1605
   br i1 %or.cond7.i.i.i.i, label %64, label %46
 
 46:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h03a4955529edbd10E.exit.i.i.i.i", %64, %38, %._crit_edge.i
-  %47 = phi i8 [ %.pre.i, %._crit_edge.i ], [ %.pre19.i, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h03a4955529edbd10E.exit.i.i.i.i" ], [ %.pre19.i, %64 ], [ %.pre19.i, %38 ]
+  %47 = phi i8 [ %.pre.i, %._crit_edge.i ], [ %.pre20.i, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h03a4955529edbd10E.exit.i.i.i.i" ], [ %.pre20.i, %64 ], [ %.pre20.i, %38 ]
   %48 = icmp eq i8 %47, 6
   br i1 %48, label %"_ZN60_$LT$std..path..Components$u20$as$u20$core..clone..Clone$GT$5clone17h223e8afa40ab5202E.exit.i.i.i.i", label %49
 
@@ -10694,7 +10694,7 @@ define internal fastcc { i64, i64 } @"_ZN4just8justfile8Justfile14public_recipes
   br label %"_ZN4just8justfile8Justfile14public_recipes28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17ha57ba717d115f1d3E.exit.i"
 
 64:                                               ; preds = %38
-  %switch.i.i.i.i.i.i.i = icmp samesign ult i8 %.pre19.i, 3
+  %switch.i.i.i.i.i.i.i = icmp samesign ult i8 %.pre20.i, 3
   %65 = load i8, ptr %25, align 8, !range !1601, !alias.scope !1632, !noalias !1600, !noundef !9
   %switch.i.i.i14.i.i.i.i = icmp samesign ult i8 %65, 3
   %66 = xor i1 %switch.i.i.i.i.i.i.i, %switch.i.i.i14.i.i.i.i
@@ -10724,7 +10724,7 @@ define internal fastcc { i64, i64 } @"_ZN4just8justfile8Justfile14public_recipes
   br i1 %68, label %.loopexit, label %69
 
 69:                                               ; preds = %"_ZN4just8justfile8Justfile14public_recipes28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17ha57ba717d115f1d3E.exit.i"
-  %70 = add nuw nsw i64 %.015.i, 1
+  %70 = add nuw nsw i64 %.016.i, 1
   %71 = icmp eq ptr %30, %11
   br i1 %71, label %.loopexit5, label %28
 
@@ -10733,11 +10733,11 @@ define internal fastcc { i64, i64 } @"_ZN4just8justfile8Justfile14public_recipes
   unreachable
 
 .loopexit:                                        ; preds = %"_ZN4just8justfile8Justfile14public_recipes28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17ha57ba717d115f1d3E.exit.i", %"_ZN4just8justfile8Justfile14public_recipes28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17ha57ba717d115f1d3E.exit.thread.i"
-  %72 = icmp ult i64 %.015.i, %10
+  %72 = icmp ult i64 %.016.i, %10
   call void @llvm.assume(i1 %72)
   %73 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 200
   %74 = load i64, ptr %73, align 8, !noundef !9
-  %75 = insertvalue { i64, i64 } poison, i64 %.015.i, 0
+  %75 = insertvalue { i64, i64 } poison, i64 %.016.i, 0
   %76 = insertvalue { i64, i64 } %75, i64 %74, 1
   ret { i64, i64 } %76
 }

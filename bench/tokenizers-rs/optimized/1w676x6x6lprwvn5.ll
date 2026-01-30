@@ -1502,10 +1502,10 @@ default.unreachable:                              ; preds = %.lr.ph.i.i
   br i1 %exitcond.not.i.i.i, label %_ZN4core5slice6memchr12memchr_naive17h89d8dd2667be9f97E.exit.i.i, label %.lr.ph.i.i.i
 
 _ZN4core5slice6memchr12memchr_naive17h89d8dd2667be9f97E.exit.i.i: ; preds = %36, %.lr.ph.i.i.i, %32
-  %.0.lcssa.i.i.i = phi i64 [ 0, %32 ], [ %16, %36 ], [ %.05.i.i.i, %.lr.ph.i.i.i ]
+  %.sroa.3.0.i.i.i = phi i64 [ undef, %32 ], [ undef, %36 ], [ %.05.i.i.i, %.lr.ph.i.i.i ]
   %.sroa.0.0.i.i.i = phi i64 [ 0, %32 ], [ 0, %36 ], [ 1, %.lr.ph.i.i.i ]
   %38 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i.i.i, 0
-  %39 = insertvalue { i64, i64 } %38, i64 %.0.lcssa.i.i.i, 1
+  %39 = insertvalue { i64, i64 } %38, i64 %.sroa.3.0.i.i.i, 1
   br label %.noexc17
 
 .noexc17:                                         ; preds = %30, %_ZN4core5slice6memchr12memchr_naive17h89d8dd2667be9f97E.exit.i.i
@@ -21522,25 +21522,25 @@ define { i64, i64 } @_ZN10tokenizers9tokenizer8encoding8Encoding13char_to_token1
   %9 = icmp ugt i64 %5, %6
   %10 = icmp ugt i64 %6, %8
   %or.cond.i = or i1 %9, %10
-  br i1 %or.cond.i, label %.loopexit, label %11
+  br i1 %or.cond.i, label %28, label %11
 
 11:                                               ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %13 = load ptr, ptr %12, align 8, !alias.scope !4735, !nonnull !9, !noundef !9
-  %.idx17 = shl nsw i64 %5, 4
+  %.idx12 = shl nsw i64 %5, 4
   %.idx = shl nsw i64 %6, 4
   %14 = getelementptr inbounds i8, ptr %13, i64 %.idx
-  %gepdiff = sub nsw i64 %.idx, %.idx17
+  %gepdiff = sub nsw i64 %.idx, %.idx12
   %15 = lshr exact i64 %gepdiff, 4
-  %16 = icmp eq i64 %.idx17, %.idx
-  br i1 %16, label %.loopexit, label %.lr.ph.i.preheader
+  %16 = icmp eq i64 %.idx12, %.idx
+  br i1 %16, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17hf0d3d6f66a6c7382E.exit", label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %11
-  %17 = getelementptr inbounds i8, ptr %13, i64 %.idx17
+  %17 = getelementptr inbounds i8, ptr %13, i64 %.idx12
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %21
-  %.012.i = phi i64 [ %23, %21 ], [ 0, %.lr.ph.i.preheader ]
+  %.013.i = phi i64 [ %23, %21 ], [ 0, %.lr.ph.i.preheader ]
   %18 = phi ptr [ %22, %21 ], [ %17, %.lr.ph.i.preheader ]
   %.val7.i = load i64, ptr %18, align 8, !noalias !4738, !noundef !9
   %19 = getelementptr i8, ptr %18, i64 8
@@ -21548,26 +21548,31 @@ define { i64, i64 } @_ZN10tokenizers9tokenizer8encoding8Encoding13char_to_token1
   %.not.i.i = icmp uge i64 %1, %.val7.i
   %20 = icmp ult i64 %1, %.val8.i
   %.0.i9.i = select i1 %.not.i.i, i1 %20, i1 false
-  br i1 %.0.i9.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17hf0d3d6f66a6c7382E.exit", label %21
+  br i1 %.0.i9.i, label %25, label %21
 
 21:                                               ; preds = %.lr.ph.i
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  %23 = add nuw nsw i64 %.012.i, 1
+  %23 = add nuw nsw i64 %.013.i, 1
   %24 = icmp eq ptr %22, %14
-  br i1 %24, label %.loopexit, label %.lr.ph.i
+  br i1 %24, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17hf0d3d6f66a6c7382E.exit", label %.lr.ph.i
 
-"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17hf0d3d6f66a6c7382E.exit": ; preds = %.lr.ph.i
-  %25 = icmp samesign ult i64 %.012.i, %15
-  tail call void @llvm.assume(i1 %25)
-  %26 = add i64 %.012.i, %5
-  br label %.loopexit
+25:                                               ; preds = %.lr.ph.i
+  %26 = icmp samesign ult i64 %.013.i, %15
+  tail call void @llvm.assume(i1 %26)
+  br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17hf0d3d6f66a6c7382E.exit"
 
-.loopexit:                                        ; preds = %21, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17hf0d3d6f66a6c7382E.exit", %11, %3
-  %.sroa.4.0 = phi i64 [ undef, %3 ], [ %26, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17hf0d3d6f66a6c7382E.exit" ], [ undef, %11 ], [ undef, %21 ]
-  %.sroa.0.0 = phi i64 [ 0, %3 ], [ 1, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17hf0d3d6f66a6c7382E.exit" ], [ 0, %11 ], [ 0, %21 ]
-  %27 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
-  %28 = insertvalue { i64, i64 } %27, i64 %.sroa.4.0, 1
-  ret { i64, i64 } %28
+"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17hf0d3d6f66a6c7382E.exit": ; preds = %21, %11, %25
+  %.012.i = phi i64 [ %.013.i, %25 ], [ 0, %11 ], [ %23, %21 ]
+  %.sroa.0.0.i9 = phi i64 [ 1, %25 ], [ 0, %11 ], [ 0, %21 ]
+  %27 = add i64 %.012.i, %5
+  br label %28
+
+28:                                               ; preds = %3, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17hf0d3d6f66a6c7382E.exit"
+  %.sroa.4.0 = phi i64 [ %27, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17hf0d3d6f66a6c7382E.exit" ], [ undef, %3 ]
+  %.sroa.0.0 = phi i64 [ %.sroa.0.0.i9, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17hf0d3d6f66a6c7382E.exit" ], [ 0, %3 ]
+  %29 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
+  %30 = insertvalue { i64, i64 } %29, i64 %.sroa.4.0, 1
+  ret { i64, i64 } %30
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -21582,25 +21587,25 @@ define { i32, i32 } @_ZN10tokenizers9tokenizer8encoding8Encoding12char_to_word17
   %10 = icmp ugt i64 %6, %7
   %11 = icmp ugt i64 %7, %9
   %or.cond.i.i = or i1 %10, %11
-  br i1 %or.cond.i.i, label %_ZN10tokenizers9tokenizer8encoding8Encoding13token_to_word17h150b709a80de6e66E.exit.thread, label %12
+  br i1 %or.cond.i.i, label %_ZN10tokenizers9tokenizer8encoding8Encoding13char_to_token17h174533c7ba0e86e5E.exit.thread, label %12
 
 12:                                               ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %14 = load ptr, ptr %13, align 8, !alias.scope !4745, !nonnull !9, !noundef !9
-  %.idx17.i = shl nsw i64 %6, 4
+  %.idx12.i = shl nsw i64 %6, 4
   %.idx.i = shl nsw i64 %7, 4
   %15 = getelementptr inbounds i8, ptr %14, i64 %.idx.i
-  %gepdiff.i = sub nsw i64 %.idx.i, %.idx17.i
+  %gepdiff.i = sub nsw i64 %.idx.i, %.idx12.i
   %16 = lshr exact i64 %gepdiff.i, 4
-  %17 = icmp eq i64 %.idx17.i, %.idx.i
-  br i1 %17, label %_ZN10tokenizers9tokenizer8encoding8Encoding13token_to_word17h150b709a80de6e66E.exit.thread, label %.lr.ph.i.preheader.i
+  %17 = icmp eq i64 %.idx12.i, %.idx.i
+  br i1 %17, label %_ZN10tokenizers9tokenizer8encoding8Encoding13char_to_token17h174533c7ba0e86e5E.exit.thread, label %.lr.ph.i.preheader.i
 
 .lr.ph.i.preheader.i:                             ; preds = %12
-  %18 = getelementptr inbounds i8, ptr %14, i64 %.idx17.i
+  %18 = getelementptr inbounds i8, ptr %14, i64 %.idx12.i
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %22, %.lr.ph.i.preheader.i
-  %.012.i.i = phi i64 [ %24, %22 ], [ 0, %.lr.ph.i.preheader.i ]
+  %.013.i.i = phi i64 [ %24, %22 ], [ 0, %.lr.ph.i.preheader.i ]
   %19 = phi ptr [ %23, %22 ], [ %18, %.lr.ph.i.preheader.i ]
   %.val7.i.i = load i64, ptr %19, align 8, !noalias !4748, !noundef !9
   %20 = getelementptr i8, ptr %19, i64 8
@@ -21612,20 +21617,20 @@ define { i32, i32 } @_ZN10tokenizers9tokenizer8encoding8Encoding12char_to_word17
 
 22:                                               ; preds = %.lr.ph.i.i
   %23 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  %24 = add nuw nsw i64 %.012.i.i, 1
+  %24 = add nuw nsw i64 %.013.i.i, 1
   %25 = icmp eq ptr %23, %15
-  br i1 %25, label %_ZN10tokenizers9tokenizer8encoding8Encoding13token_to_word17h150b709a80de6e66E.exit.thread, label %.lr.ph.i.i
+  br i1 %25, label %_ZN10tokenizers9tokenizer8encoding8Encoding13char_to_token17h174533c7ba0e86e5E.exit.thread, label %.lr.ph.i.i
 
 26:                                               ; preds = %.lr.ph.i.i
-  %27 = icmp samesign ult i64 %.012.i.i, %16
+  %27 = icmp samesign ult i64 %.013.i.i, %16
   tail call void @llvm.assume(i1 %27)
-  %28 = add i64 %.012.i.i, %6
+  %28 = add i64 %.013.i.i, %6
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4752)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4755)
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load i64, ptr %29, align 8, !alias.scope !4758, !noalias !4761, !noundef !9
   %31 = icmp ugt i64 %28, %30
-  br i1 %31, label %_ZN10tokenizers9tokenizer8encoding8Encoding13token_to_word17h150b709a80de6e66E.exit.thread, label %32
+  br i1 %31, label %_ZN10tokenizers9tokenizer8encoding8Encoding13char_to_token17h174533c7ba0e86e5E.exit.thread, label %32
 
 32:                                               ; preds = %26
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 216
@@ -21681,7 +21686,7 @@ define { i32, i32 } @_ZN10tokenizers9tokenizer8encoding8Encoding12char_to_word17
 
 _ZN10tokenizers9tokenizer8encoding8Encoding17token_to_sequence17h0cb3b7c611a0292dE.exit.thread16.i: ; preds = %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h665fc21b89a389a6E.exit.i.i.i", %46
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !4764
-  br label %_ZN10tokenizers9tokenizer8encoding8Encoding13token_to_word17h150b709a80de6e66E.exit.thread
+  br label %_ZN10tokenizers9tokenizer8encoding8Encoding13char_to_token17h174533c7ba0e86e5E.exit.thread
 
 _ZN10tokenizers9tokenizer8encoding8Encoding17token_to_sequence17h0cb3b7c611a0292dE.exit.i: ; preds = %53
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !4764
@@ -21694,21 +21699,21 @@ _ZN10tokenizers9tokenizer8encoding8Encoding17token_to_sequence17h0cb3b7c611a0292
   %60 = load i64, ptr %59, align 8, !alias.scope !4795, !noalias !4761, !noundef !9
   %.not.i = icmp ult i64 %28, %60
   %61 = getelementptr inbounds { i32, [1 x i32] }, ptr %58, i64 %28
-  br i1 %.not.i, label %62, label %_ZN10tokenizers9tokenizer8encoding8Encoding13token_to_word17h150b709a80de6e66E.exit.thread
+  br i1 %.not.i, label %62, label %_ZN10tokenizers9tokenizer8encoding8Encoding13char_to_token17h174533c7ba0e86e5E.exit.thread
 
 62:                                               ; preds = %_ZN10tokenizers9tokenizer8encoding8Encoding17token_to_sequence17h0cb3b7c611a0292dE.exit.thread12.i
   %63 = load i32, ptr %61, align 4, !range !42, !noalias !4798, !noundef !9
   %trunc.i = trunc nuw i32 %63 to i1
-  br i1 %trunc.i, label %64, label %_ZN10tokenizers9tokenizer8encoding8Encoding13token_to_word17h150b709a80de6e66E.exit.thread
+  br i1 %trunc.i, label %64, label %_ZN10tokenizers9tokenizer8encoding8Encoding13char_to_token17h174533c7ba0e86e5E.exit.thread
 
 64:                                               ; preds = %62
   %65 = getelementptr inbounds nuw i8, ptr %61, i64 4
   %66 = load i32, ptr %65, align 4, !noalias !4798
-  br label %_ZN10tokenizers9tokenizer8encoding8Encoding13token_to_word17h150b709a80de6e66E.exit.thread
+  br label %_ZN10tokenizers9tokenizer8encoding8Encoding13char_to_token17h174533c7ba0e86e5E.exit.thread
 
-_ZN10tokenizers9tokenizer8encoding8Encoding13token_to_word17h150b709a80de6e66E.exit.thread: ; preds = %22, %26, %_ZN10tokenizers9tokenizer8encoding8Encoding17token_to_sequence17h0cb3b7c611a0292dE.exit.thread12.i, %62, %_ZN10tokenizers9tokenizer8encoding8Encoding17token_to_sequence17h0cb3b7c611a0292dE.exit.thread16.i, %3, %12, %64
-  %.sroa.0.0 = phi i32 [ 1, %64 ], [ 0, %3 ], [ 0, %26 ], [ 0, %12 ], [ 0, %_ZN10tokenizers9tokenizer8encoding8Encoding17token_to_sequence17h0cb3b7c611a0292dE.exit.thread16.i ], [ 0, %62 ], [ 0, %_ZN10tokenizers9tokenizer8encoding8Encoding17token_to_sequence17h0cb3b7c611a0292dE.exit.thread12.i ], [ 0, %22 ]
-  %.sroa.3.0 = phi i32 [ %66, %64 ], [ undef, %3 ], [ undef, %26 ], [ undef, %12 ], [ undef, %_ZN10tokenizers9tokenizer8encoding8Encoding17token_to_sequence17h0cb3b7c611a0292dE.exit.thread16.i ], [ undef, %62 ], [ undef, %_ZN10tokenizers9tokenizer8encoding8Encoding17token_to_sequence17h0cb3b7c611a0292dE.exit.thread12.i ], [ undef, %22 ]
+_ZN10tokenizers9tokenizer8encoding8Encoding13char_to_token17h174533c7ba0e86e5E.exit.thread: ; preds = %22, %26, %_ZN10tokenizers9tokenizer8encoding8Encoding17token_to_sequence17h0cb3b7c611a0292dE.exit.thread12.i, %62, %_ZN10tokenizers9tokenizer8encoding8Encoding17token_to_sequence17h0cb3b7c611a0292dE.exit.thread16.i, %12, %3, %64
+  %.sroa.0.0 = phi i32 [ 1, %64 ], [ 0, %26 ], [ 0, %3 ], [ 0, %12 ], [ 0, %_ZN10tokenizers9tokenizer8encoding8Encoding17token_to_sequence17h0cb3b7c611a0292dE.exit.thread16.i ], [ 0, %62 ], [ 0, %_ZN10tokenizers9tokenizer8encoding8Encoding17token_to_sequence17h0cb3b7c611a0292dE.exit.thread12.i ], [ 0, %22 ]
+  %.sroa.3.0 = phi i32 [ %66, %64 ], [ undef, %26 ], [ undef, %3 ], [ undef, %12 ], [ undef, %_ZN10tokenizers9tokenizer8encoding8Encoding17token_to_sequence17h0cb3b7c611a0292dE.exit.thread16.i ], [ undef, %62 ], [ undef, %_ZN10tokenizers9tokenizer8encoding8Encoding17token_to_sequence17h0cb3b7c611a0292dE.exit.thread12.i ], [ undef, %22 ]
   %67 = insertvalue { i32, i32 } poison, i32 %.sroa.0.0, 0
   %68 = insertvalue { i32, i32 } %67, i32 %.sroa.3.0, 1
   ret { i32, i32 } %68

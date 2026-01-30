@@ -11429,7 +11429,7 @@ define void @_ZN6icu_7712RegexCompile27findCaseInsensitiveStartersEiPNS_10Unicod
 4:                                                ; preds = %2
   %5 = tail call signext i8 @u_hasBinaryProperty_77(i32 noundef %0, i32 noundef 34)
   %.not = icmp eq i8 %5, 0
-  br i1 %.not, label %41, label %6
+  br i1 %.not, label %42, label %6
 
 6:                                                ; preds = %4
   %7 = tail call i32 @u_foldCase_77(i32 noundef %0, i32 noundef 0)
@@ -11445,60 +11445,62 @@ define void @_ZN6icu_7712RegexCompile27findCaseInsensitiveStartersEiPNS_10Unicod
   br i1 %12, label %9, label %13, !llvm.loop !159
 
 13:                                               ; preds = %9
-  %.not42 = icmp eq i32 %11, %0
-  br i1 %.not42, label %.lr.ph.preheader, label %.loopexit
+  %14 = icmp ne i32 %11, %0
+  %.not36 = icmp eq i64 %indvars.iv, 49
+  %or.cond41 = select i1 %14, i1 true, i1 %.not36
+  br i1 %or.cond41, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %13
-  %14 = getelementptr inbounds nuw i16, ptr @_ZZN6icu_7712RegexCompile27findCaseInsensitiveStartersEiPNS_10UnicodeSetEE15RECaseFixCounts, i64 %indvars.iv
-  %15 = load i16, ptr %14, align 2, !tbaa !60
-  %16 = getelementptr inbounds nuw i16, ptr @_ZZN6icu_7712RegexCompile27findCaseInsensitiveStartersEiPNS_10UnicodeSetEE22RECaseFixStringOffsets, i64 %indvars.iv
-  %17 = load i16, ptr %16, align 2, !tbaa !60
-  %18 = sext i16 %17 to i32
-  %19 = tail call i16 @llvm.smax.i16(i16 %15, i16 1)
-  %smax = zext nneg i16 %19 to i32
+  %15 = getelementptr inbounds nuw i16, ptr @_ZZN6icu_7712RegexCompile27findCaseInsensitiveStartersEiPNS_10UnicodeSetEE15RECaseFixCounts, i64 %indvars.iv
+  %16 = load i16, ptr %15, align 2, !tbaa !60
+  %17 = getelementptr inbounds nuw i16, ptr @_ZZN6icu_7712RegexCompile27findCaseInsensitiveStartersEiPNS_10UnicodeSetEE22RECaseFixStringOffsets, i64 %indvars.iv
+  %18 = load i16, ptr %17, align 2, !tbaa !60
+  %19 = sext i16 %18 to i32
+  %20 = tail call i16 @llvm.smax.i16(i16 %16, i16 1)
+  %smax = zext nneg i16 %20 to i32
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %36
-  %.035 = phi i32 [ %38, %36 ], [ 0, %.lr.ph.preheader ]
-  %.03034 = phi i32 [ %.1, %36 ], [ %18, %.lr.ph.preheader ]
-  %20 = add nsw i32 %.03034, 1
-  %21 = sext i32 %.03034 to i64
-  %22 = getelementptr inbounds i16, ptr @_ZZN6icu_7712RegexCompile27findCaseInsensitiveStartersEiPNS_10UnicodeSetEE13RECaseFixData, i64 %21
-  %23 = load i16, ptr %22, align 2, !tbaa !100
-  %24 = zext i16 %23 to i32
-  %25 = and i32 %24, 64512
-  %26 = icmp eq i32 %25, 55296
-  br i1 %26, label %27, label %36
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %37
+  %.035 = phi i32 [ %39, %37 ], [ 0, %.lr.ph.preheader ]
+  %.03034 = phi i32 [ %.1, %37 ], [ %19, %.lr.ph.preheader ]
+  %21 = add nsw i32 %.03034, 1
+  %22 = sext i32 %.03034 to i64
+  %23 = getelementptr inbounds i16, ptr @_ZZN6icu_7712RegexCompile27findCaseInsensitiveStartersEiPNS_10UnicodeSetEE13RECaseFixData, i64 %22
+  %24 = load i16, ptr %23, align 2, !tbaa !100
+  %25 = zext i16 %24 to i32
+  %26 = and i32 %25, 64512
+  %27 = icmp eq i32 %26, 55296
+  br i1 %27, label %28, label %37
 
-27:                                               ; preds = %.lr.ph
-  %28 = shl nuw nsw i32 %24, 10
-  %29 = add nsw i32 %.03034, 2
-  %30 = sext i32 %20 to i64
-  %31 = getelementptr inbounds i16, ptr @_ZZN6icu_7712RegexCompile27findCaseInsensitiveStartersEiPNS_10UnicodeSetEE13RECaseFixData, i64 %30
-  %32 = load i16, ptr %31, align 2, !tbaa !100
-  %33 = zext i16 %32 to i32
-  %34 = add nsw i32 %28, -56613888
-  %35 = add nuw nsw i32 %34, %33
-  br label %36
+28:                                               ; preds = %.lr.ph
+  %29 = shl nuw nsw i32 %25, 10
+  %30 = add nsw i32 %.03034, 2
+  %31 = sext i32 %21 to i64
+  %32 = getelementptr inbounds i16, ptr @_ZZN6icu_7712RegexCompile27findCaseInsensitiveStartersEiPNS_10UnicodeSetEE13RECaseFixData, i64 %31
+  %33 = load i16, ptr %32, align 2, !tbaa !100
+  %34 = zext i16 %33 to i32
+  %35 = add nsw i32 %29, -56613888
+  %36 = add nuw nsw i32 %35, %34
+  br label %37
 
-36:                                               ; preds = %27, %.lr.ph
-  %.1 = phi i32 [ %29, %27 ], [ %20, %.lr.ph ]
-  %.028 = phi i32 [ %35, %27 ], [ %24, %.lr.ph ]
-  %37 = tail call noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7710UnicodeSet3addEi(ptr noundef nonnull align 8 dereferenceable(200) %1, i32 noundef %.028)
-  %38 = add nuw nsw i32 %.035, 1
-  %exitcond.not = icmp eq i32 %38, %smax
+37:                                               ; preds = %28, %.lr.ph
+  %.1 = phi i32 [ %30, %28 ], [ %21, %.lr.ph ]
+  %.028 = phi i32 [ %36, %28 ], [ %25, %.lr.ph ]
+  %38 = tail call noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7710UnicodeSet3addEi(ptr noundef nonnull align 8 dereferenceable(200) %1, i32 noundef %.028)
+  %39 = add nuw nsw i32 %.035, 1
+  %exitcond.not = icmp eq i32 %39, %smax
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !160
 
-.loopexit:                                        ; preds = %36, %13
-  %39 = tail call noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7710UnicodeSet9closeOverEi(ptr noundef nonnull align 8 dereferenceable(200) %1, i32 noundef 2)
-  %40 = tail call noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7710UnicodeSet16removeAllStringsEv(ptr noundef nonnull align 8 dereferenceable(200) %1)
-  br label %43
+.loopexit:                                        ; preds = %37, %13
+  %40 = tail call noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7710UnicodeSet9closeOverEi(ptr noundef nonnull align 8 dereferenceable(200) %1, i32 noundef 2)
+  %41 = tail call noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7710UnicodeSet16removeAllStringsEv(ptr noundef nonnull align 8 dereferenceable(200) %1)
+  br label %44
 
-41:                                               ; preds = %4
-  %42 = tail call noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7710UnicodeSet3setEii(ptr noundef nonnull align 8 dereferenceable(200) %1, i32 noundef %0, i32 noundef %0)
-  br label %43
+42:                                               ; preds = %4
+  %43 = tail call noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7710UnicodeSet3setEii(ptr noundef nonnull align 8 dereferenceable(200) %1, i32 noundef %0, i32 noundef %0)
+  br label %44
 
-43:                                               ; preds = %.loopexit, %41
+44:                                               ; preds = %.loopexit, %42
   ret void
 }
 

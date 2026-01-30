@@ -5835,7 +5835,7 @@ nk_utf_decode.exit:                               ; preds = %14, %nk_utf_decode_
   %.023.i = phi i32 [ 1, %nk_utf_decode_byte.exit.i ], [ %indvars83.le103.i, %nk_utf_validate.exit.loopexit.i ], [ %15, %48 ], [ %15, %43 ], [ %indvars83.le.i, %nk_utf_validate.exit.loopexit92.i ], [ 1, %14 ]
   %49 = icmp ne i32 %.1, 0
   %50 = icmp ne i32 %.023.i, 0
-  %51 = and i1 %49, %50
+  %51 = select i1 %49, i1 %50, i1 false
   br i1 %51, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %nk_utf_decode.exit, %nk_utf_decode.exit53
@@ -5963,7 +5963,7 @@ nk_utf_decode.exit53:                             ; preds = %62, %nk_utf_decode_
   %99 = add nuw nsw i32 %.01576, 1
   %100 = icmp ne i32 %.2, 0
   %101 = icmp ne i32 %.023.i25, 0
-  %102 = and i1 %100, %101
+  %102 = select i1 %100, i1 %101, i1 false
   br i1 %102, label %.lr.ph, label %._crit_edge, !llvm.loop !72
 
 ._crit_edge:                                      ; preds = %nk_utf_decode.exit53, %nk_utf_decode.exit53.thread, %nk_utf_decode.exit
@@ -6979,7 +6979,7 @@ nk_utf_decode.exit:                               ; preds = %15, %nk_utf_decode_
   %.023.i = phi i32 [ 1, %nk_utf_decode_byte.exit.i ], [ %indvars83.le103.i, %nk_utf_validate.exit.loopexit.i ], [ %16, %49 ], [ %16, %44 ], [ %indvars83.le.i, %nk_utf_validate.exit.loopexit92.i ], [ 1, %15 ]
   %50 = icmp ne i32 %.1, 0
   %51 = icmp ne i32 %.023.i, 0
-  %52 = and i1 %50, %51
+  %52 = select i1 %50, i1 %51, i1 false
   br i1 %52, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %nk_utf_decode.exit, %nk_utf_decode.exit54
@@ -7107,7 +7107,7 @@ nk_utf_decode.exit54:                             ; preds = %63, %nk_utf_decode_
   %100 = add nuw nsw i32 %.01676, 1
   %101 = icmp ne i32 %.2, 0
   %102 = icmp ne i32 %.023.i26, 0
-  %103 = and i1 %101, %102
+  %103 = select i1 %101, i1 %102, i1 false
   br i1 %103, label %.lr.ph, label %._crit_edge, !llvm.loop !82
 
 ._crit_edge:                                      ; preds = %nk_utf_decode.exit54, %._crit_edge.loopexit.i, %nk_utf_decode.exit54.thread, %nk_utf_decode.exit
@@ -7600,7 +7600,7 @@ nk_str_at_rune.exit52:                            ; preds = %.lr.ph.i41, %.loope
   store ptr %16, ptr %15, align 8, !tbaa !78
   %.not59 = icmp eq i32 %.0334362.i50, 0
   %46 = icmp ult i64 %20, %31
-  %or.cond = or i1 %.not59, %46
+  %or.cond = select i1 %.not59, i1 true, i1 %46
   br i1 %or.cond, label %nk_str_delete_chars.exit, label %47
 
 47:                                               ; preds = %nk_str_at_rune.exit52
@@ -13905,7 +13905,7 @@ nk_utf_decode.exit99.thread:                      ; preds = %108, %136, %140, %n
   %161 = fadd float %.0161, %155
   %162 = icmp sge i32 %160, %5
   %163 = icmp eq i32 %.023.i71125, 0
-  %.not137 = or i1 %163, %162
+  %.not137 = select i1 %162, i1 true, i1 %163
   %164 = icmp eq i32 %.2123, 65533
   %or.cond134 = or i1 %.not137, %164
   br i1 %or.cond134, label %nk_utf_decode.exit.thread, label %94
@@ -58180,7 +58180,7 @@ nk_utf_decode.exit:                               ; preds = %20, %nk_utf_decode_
   %.023.i = phi i32 [ 1, %nk_utf_decode_byte.exit.i ], [ %indvars83.le103.i, %nk_utf_validate.exit.loopexit.i ], [ %21, %57 ], [ %21, %52 ], [ %indvars83.le.i, %nk_utf_validate.exit.loopexit92.i ], [ 1, %20 ]
   %58 = icmp sgt i32 %2, 0
   %59 = icmp ne i32 %.023.i, 0
-  %60 = and i1 %59, %58
+  %60 = select i1 %58, i1 %59, i1 false
   br i1 %60, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %nk_utf_decode.exit
@@ -59016,7 +59016,7 @@ nk_utf_decode.exit174:                            ; preds = %347, %nk_utf_decode
   %.023.i146 = phi i32 [ %indvars83.le103.i165, %nk_utf_validate.exit.loopexit.i164 ], [ 1, %nk_utf_decode_byte.exit.i147 ], [ %348, %384 ], [ %348, %379 ], [ %indvars83.le.i169, %nk_utf_validate.exit.loopexit92.i168 ], [ 1, %347 ]
   %385 = icmp slt i32 %334, %2
   %386 = icmp ne i32 %.023.i146, 0
-  %387 = and i1 %386, %385
+  %387 = select i1 %385, i1 %386, i1 false
   br i1 %387, label %77, label %.loopexit, !llvm.loop !1172
 
 .loopexit:                                        ; preds = %._crit_edge.i150, %._crit_edge.loopexit.i172, %333, %nk_utf_decode.exit174, %._crit_edge.i, %._crit_edge.loopexit.i, %nk_utf_decode.exit, %3, %7
@@ -75822,7 +75822,7 @@ nk_utf_decode_byte.exit34.i73:                    ; preds = %119
   %143 = add nsw i32 %.027123, %107
   %144 = icmp sgt i32 %143, %3
   %145 = icmp eq i64 %indvars.iv.i.i49, 0
-  %.not97 = or i1 %145, %144
+  %.not97 = or i1 %144, %145
   %146 = icmp eq i32 %.0.lcssa91.i58, 65533
   %or.cond94 = or i1 %.not97, %146
   br i1 %or.cond94, label %nk_utf_decode.exit.thread, label %66
@@ -79325,7 +79325,7 @@ nk_utf_decode.exit132:                            ; preds = %94, %nk_utf_decode_
   %.023.i104 = phi i32 [ %indvars83.le103.i123, %nk_utf_validate.exit.loopexit.i122 ], [ 1, %nk_utf_decode_byte.exit.i105 ], [ %95, %133 ], [ %95, %128 ], [ %indvars83.le.i127, %nk_utf_validate.exit.loopexit92.i126 ], [ 1, %94 ]
   %134 = icmp slt i64 %indvars.iv.next279, %66
   %135 = icmp ne i32 %.023.i104, 0
-  %136 = and i1 %135, %134
+  %136 = select i1 %134, i1 %135, i1 false
   %indvars.iv.next = add i32 %indvars.iv, -1
   %indvars.iv.next284 = add i32 %indvars.iv283, -1
   br i1 %136, label %71, label %.loopexit, !llvm.loop !1309
@@ -79469,7 +79469,7 @@ nk_utf_decode.exit168:                            ; preds = %155, %137, %nk_utf_
   %198 = tail call float %195(ptr %197, float noundef %196, ptr noundef nonnull %144, i32 noundef %.023.i140) #56
   %199 = icmp slt i32 %141, %2
   %200 = icmp ne i32 %.023.i140, 0
-  %201 = and i1 %200, %199
+  %201 = and i1 %199, %200
   br i1 %201, label %.lr.ph, label %.loopexit, !llvm.loop !1309
 
 .loopexit:                                        ; preds = %nk_utf_decode.exit168, %._crit_edge.i108, %._crit_edge.loopexit.i130, %79, %nk_utf_decode.exit132, %72
@@ -79914,7 +79914,7 @@ nk_utf_decode.exit171:                            ; preds = %147, %nk_utf_decode
   %.023.i143 = phi i32 [ %indvars83.le103.i162, %nk_utf_validate.exit.loopexit.i161 ], [ 1, %nk_utf_decode_byte.exit.i144 ], [ %148, %185 ], [ %148, %180 ], [ %indvars83.le.i166, %nk_utf_validate.exit.loopexit92.i165 ], [ 1, %147 ]
   %186 = icmp slt i32 %132, %6
   %187 = icmp ne i32 %.023.i143, 0
-  %188 = and i1 %186, %187
+  %188 = select i1 %186, i1 %187, i1 false
   br i1 %188, label %.lr.ph.lr.ph, label %nk_utf_decode.exit.thread
 
 189:                                              ; preds = %92
@@ -80047,7 +80047,7 @@ nk_utf_decode.exit207:                            ; preds = %202, %nk_utf_decode
   %.023.i179 = phi i32 [ %indvars83.le103.i198, %nk_utf_validate.exit.loopexit.i197 ], [ 1, %nk_utf_decode_byte.exit.i180 ], [ %203, %241 ], [ %203, %236 ], [ %indvars83.le.i202, %nk_utf_validate.exit.loopexit92.i201 ], [ 1, %202 ]
   %242 = icmp slt i64 %indvars.iv.next413, %87
   %243 = icmp ne i32 %.023.i179, 0
-  %244 = and i1 %242, %243
+  %244 = select i1 %242, i1 %243, i1 false
   %indvars.iv.next = add i32 %indvars.iv, -1
   %indvars.iv.next418 = add i32 %indvars.iv417, -1
   br i1 %244, label %92, label %.outer._crit_edge, !llvm.loop !1310
@@ -80191,7 +80191,7 @@ nk_utf_decode.exit243:                            ; preds = %267, %nk_utf_decode
   %.023.i215 = phi i32 [ %indvars83.le103.i234, %nk_utf_validate.exit.loopexit.i233 ], [ 1, %nk_utf_decode_byte.exit.i216 ], [ %268, %306 ], [ %268, %301 ], [ %indvars83.le.i238, %nk_utf_validate.exit.loopexit92.i237 ], [ 1, %267 ]
   %307 = icmp slt i32 %254, %6
   %308 = icmp ne i32 %.023.i215, 0
-  %309 = and i1 %307, %308
+  %309 = select i1 %307, i1 %308, i1 false
   br i1 %309, label %.lr.ph, label %.outer._crit_edge, !llvm.loop !1310
 
 .outer._crit_edge:                                ; preds = %._crit_edge.i219, %._crit_edge.loopexit.i241, %245, %nk_utf_decode.exit243, %._crit_edge.i183, %._crit_edge.loopexit.i205, %189, %nk_utf_decode.exit207
@@ -81133,7 +81133,7 @@ nk_pow.exit112:                                   ; preds = %.lr.ph.i104, %34
   %60 = add nsw i32 %.389123, -1
   %61 = fcmp ogt double %.3, 0x3D06849B86A12B9B
   %62 = icmp sgt i32 %.389123, 0
-  %63 = or i1 %61, %62
+  %63 = select i1 %61, i1 true, i1 %62
   br i1 %63, label %34, label %64, !llvm.loop !1324
 
 64:                                               ; preds = %59

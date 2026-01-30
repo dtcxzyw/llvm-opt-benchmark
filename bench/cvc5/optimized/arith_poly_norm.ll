@@ -5442,8 +5442,7 @@ _ZNSt13unordered_mapIN4cvc58internal12NodeTemplateILb0EEENS1_6theory5arith8PolyN
   %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %77 ], [ %89, %88 ], [ %103, %97 ]
   %377 = getelementptr inbounds nuw i8, ptr %376, i64 8
   %378 = load i64, ptr %377, align 8
-  %.fr = freeze i64 %378
-  %379 = trunc i64 %.fr to i32
+  %379 = trunc i64 %378 to i32
   %380 = and i32 %379, 1023
   %381 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 56
   %382 = load i64, ptr %381, align 8, !tbaa !40

@@ -2715,13 +2715,13 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_18Verifier6verifyERKN
 
 142:                                              ; preds = %136, %2
   %143 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %.sroa.052.0132 = load ptr, ptr %143, align 8, !tbaa !289
-  %.not61133 = icmp eq ptr %.sroa.052.0132, %133
-  br i1 %.not61133, label %._crit_edge, label %.lr.ph
+  %.sroa.052.0131 = load ptr, ptr %143, align 8, !tbaa !289
+  %.not61132 = icmp eq ptr %.sroa.052.0131, %133
+  br i1 %.not61132, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %142, %_ZN4llvm11raw_ostreamlsEPKc.exit22
-  %.sroa.052.0134 = phi ptr [ %.sroa.052.0, %_ZN4llvm11raw_ostreamlsEPKc.exit22 ], [ %.sroa.052.0132, %142 ]
-  %144 = getelementptr inbounds nuw i8, ptr %.sroa.052.0134, i64 24
+  %.sroa.052.0133 = phi ptr [ %.sroa.052.0, %_ZN4llvm11raw_ostreamlsEPKc.exit22 ], [ %.sroa.052.0131, %142 ]
+  %144 = getelementptr inbounds nuw i8, ptr %.sroa.052.0133, i64 24
   %145 = load ptr, ptr %144, align 8, !tbaa !290
   %146 = icmp eq ptr %144, %145
   br i1 %146, label %152, label %147
@@ -2734,7 +2734,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_18Verifier6verifyERKN
   br i1 %151, label %_ZN4llvm11raw_ostreamlsEPKc.exit22, label %152
 
 152:                                              ; preds = %147, %.lr.ph
-  %153 = getelementptr inbounds i8, ptr %.sroa.052.0134, i64 -24
+  %153 = getelementptr inbounds i8, ptr %.sroa.052.0133, i64 -24
   %154 = load ptr, ptr %0, align 8, !tbaa !64
   %.not = icmp eq ptr %154, null
   br i1 %.not, label %1593, label %155
@@ -2840,7 +2840,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit19:               ; preds = %193, %195
   br label %1593
 
 _ZN4llvm11raw_ostreamlsEPKc.exit22:               ; preds = %147
-  %212 = getelementptr inbounds nuw i8, ptr %.sroa.052.0134, i64 8
+  %212 = getelementptr inbounds nuw i8, ptr %.sroa.052.0133, i64 8
   %.sroa.052.0 = load ptr, ptr %212, align 8, !tbaa !289
   %.not61 = icmp eq ptr %.sroa.052.0, %133
   br i1 %.not61, label %._crit_edge, label %.lr.ph
@@ -4820,15 +4820,16 @@ _ZN4llvm15VerifierSupport11CheckFailedIPKNS_7PHINodeEJPNS_10BasicBlockEPNS_5Valu
   br label %.thread.i.i.i.i
 
 952:                                              ; preds = %932, %927, %._crit_edge182.i.i.i.i
+  %.pre-phi.i.i.i.i = phi i64 [ 0, %._crit_edge182.i.i.i.i ], [ %indvars.iv.i.i.i, %927 ], [ %indvars.iv.i.i.i, %932 ]
   %953 = phi ptr [ %.pre184.i.i.i.i, %._crit_edge182.i.i.i.i ], [ %929, %927 ], [ %929, %932 ]
-  %954 = getelementptr inbounds nuw ptr, ptr %902, i64 %indvars.iv.i.i.i
+  %954 = getelementptr inbounds nuw ptr, ptr %902, i64 %.pre-phi.i.i.i.i
   %955 = load ptr, ptr %954, align 8, !tbaa !331
   %956 = icmp eq ptr %953, %955
   br i1 %956, label %924, label %957
 
 957:                                              ; preds = %952
-  %958 = getelementptr inbounds nuw ptr, ptr %902, i64 %indvars.iv.i.i.i
-  %959 = getelementptr inbounds nuw %"struct.std::pair.504", ptr %901, i64 %indvars.iv.i.i.i
+  %958 = getelementptr inbounds nuw ptr, ptr %902, i64 %.pre-phi.i.i.i.i
+  %959 = getelementptr inbounds nuw %"struct.std::pair.504", ptr %901, i64 %.pre-phi.i.i.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   store i8 1, ptr %765, align 1, !tbaa !95
   store ptr @.str.377, ptr %21, align 8, !tbaa !96

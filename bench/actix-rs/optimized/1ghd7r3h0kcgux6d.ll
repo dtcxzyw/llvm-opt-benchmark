@@ -10618,7 +10618,7 @@ define internal fastcc { ptr, i64 } @_ZN6brotli3enc6encode20GetHashTableInternal
 11:                                               ; preds = %9
   %12 = and i64 %.0, 698880
   %13 = icmp eq i64 %12, 0
-  %or.cond23 = and i1 %8, %13
+  %or.cond23 = select i1 %8, i1 %13, i1 false
   %14 = zext i1 %or.cond23 to i64
   %.1 = shl i64 %.0, %14
   %15 = icmp ult i64 %.1, 1025

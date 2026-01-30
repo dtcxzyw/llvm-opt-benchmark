@@ -2257,7 +2257,7 @@ define hidden noundef zeroext i1 @_ZNK4cvc58internal6String10isRepeatedEv(ptr no
   %16 = add i32 %.0711, 1
   %17 = zext i32 %16 to i64
   %.not10 = icmp ugt i64 %8, %17
-  %or.cond = select i1 %.not, i1 %.not10, i1 false
+  %or.cond = and i1 %.not, %.not10
   br i1 %or.cond, label %12, label %.thread, !llvm.loop !103
 
 .thread:                                          ; preds = %12, %1
@@ -2273,52 +2273,47 @@ define hidden noundef zeroext i1 @_ZNK4cvc58internal6String7tailcmpERKS1_Ri(ptr 
   %7 = ptrtoint ptr %5 to i64
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
-  %10 = lshr i64 %9, 2
-  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %12 = load ptr, ptr %11, align 8, !tbaa !22
-  %13 = load ptr, ptr %1, align 8, !tbaa !12
-  %14 = ptrtoint ptr %12 to i64
+  %10 = lshr exact i64 %9, 2
+  %11 = trunc i64 %10 to i32
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %13 = load ptr, ptr %12, align 8, !tbaa !22
+  %14 = load ptr, ptr %1, align 8, !tbaa !12
   %15 = ptrtoint ptr %13 to i64
-  %16 = sub i64 %14, %15
-  %17 = lshr i64 %16, 2
-  %18 = and i64 %10, 4294967295
-  %19 = and i64 %17, 4294967295
+  %16 = ptrtoint ptr %14 to i64
+  %17 = sub i64 %15, %16
+  %18 = lshr exact i64 %17, 2
+  %19 = trunc i64 %18 to i32
   br label %20
 
-20:                                               ; preds = %24, %3
-  %indvars.iv30 = phi i64 [ %indvars.iv.next31, %24 ], [ %19, %3 ]
-  %indvars.iv = phi i64 [ %indvars.iv.next, %24 ], [ %18, %3 ]
-  %indvars.iv.next31 = add nsw i64 %indvars.iv30, -1
-  %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %indvars = trunc i64 %indvars.iv.next to i32
-  %21 = icmp slt i32 %indvars, 0
-  %22 = and i64 %indvars.iv.next31, 2147483648
-  %23 = icmp ne i64 %22, 0
-  %.not19 = select i1 %21, i1 true, i1 %23
-  br i1 %.not19, label %31, label %24
+20:                                               ; preds = %23, %3
+  %.015.in = phi i32 [ %11, %3 ], [ %.015, %23 ]
+  %.0.in = phi i32 [ %19, %3 ], [ %.0, %23 ]
+  %.0 = add i32 %.0.in, -1
+  %.015 = add i32 %.015.in, -1
+  %21 = or i32 %.0, %.015
+  %22 = icmp slt i32 %21, 0
+  br i1 %22, label %30, label %23
 
-24:                                               ; preds = %20
-  %25 = and i64 %indvars.iv.next, 2147483647
-  %26 = getelementptr inbounds nuw i32, ptr %6, i64 %25
-  %27 = load i32, ptr %26, align 4, !tbaa !18
-  %28 = and i64 %indvars.iv.next31, 2147483647
-  %29 = getelementptr inbounds nuw i32, ptr %13, i64 %28
-  %30 = load i32, ptr %29, align 4, !tbaa !18
-  %.not = icmp eq i32 %27, %30
+23:                                               ; preds = %20
+  %24 = zext nneg i32 %.015 to i64
+  %25 = getelementptr inbounds nuw i32, ptr %6, i64 %24
+  %26 = load i32, ptr %25, align 4, !tbaa !18
+  %27 = zext nneg i32 %.0 to i64
+  %28 = getelementptr inbounds nuw i32, ptr %14, i64 %27
+  %29 = load i32, ptr %28, align 4, !tbaa !18
+  %.not = icmp eq i32 %26, %29
   br i1 %.not, label %20, label %.loopexit, !llvm.loop !104
 
-31:                                               ; preds = %20
-  %32 = trunc nuw i64 %indvars.iv30 to i32
-  %33 = trunc nuw i64 %indvars.iv to i32
-  %34 = icmp eq i64 %indvars.iv, 0
-  %35 = sub nsw i32 0, %32
-  %36 = select i1 %34, i32 %35, i32 %33
+30:                                               ; preds = %20
+  %31 = icmp eq i32 %.015.in, 0
+  %32 = sub nsw i32 0, %.0.in
+  %33 = select i1 %31, i32 %32, i32 %.015.in
   br label %.loopexit
 
-.loopexit:                                        ; preds = %24, %31
-  %storemerge = phi i32 [ %36, %31 ], [ %indvars, %24 ]
+.loopexit:                                        ; preds = %23, %30
+  %storemerge = phi i32 [ %33, %30 ], [ %.015, %23 ]
   store i32 %storemerge, ptr %2, align 4, !tbaa !18
-  ret i1 %.not19
+  ret i1 %22
 }
 
 ; Function Attrs: mustprogress uwtable

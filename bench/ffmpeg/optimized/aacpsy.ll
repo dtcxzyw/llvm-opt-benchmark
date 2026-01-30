@@ -2016,8 +2016,8 @@ define internal fastcc void @lame_window_init(ptr noundef nonnull readonly captu
   br label %13
 
 13:                                               ; preds = %.lr.ph, %37
-  %indvars.iv25 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next26, %37 ]
-  %14 = getelementptr inbounds nuw %struct.AacPsyChannel, ptr %7, i64 %indvars.iv25
+  %indvars.iv23 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next24, %37 ]
+  %14 = getelementptr inbounds nuw %struct.AacPsyChannel, ptr %7, i64 %indvars.iv23
   br i1 %.not, label %15, label %32
 
 15:                                               ; preds = %13
@@ -2049,12 +2049,13 @@ define internal fastcc void @lame_window_init(ptr noundef nonnull readonly captu
 
 lame_calc_attack_threshold.exit:                  ; preds = %28, %23
   %.020.i = phi i64 [ %25, %23 ], [ 12, %28 ]
+  %.019.i = phi i64 [ %indvars.iv.i, %23 ], [ 12, %28 ]
   %.018.i = phi i32 [ %27, %23 ], [ 160, %28 ]
   %.017.i = phi i32 [ %22, %23 ], [ 160, %28 ]
   %29 = sub nsw i32 %.017.i, %19
   %30 = sub nsw i32 %19, %.018.i
   %31 = icmp sgt i32 %29, %30
-  %.020..019.i = select i1 %31, i64 %.020.i, i64 %indvars.iv.i
+  %.020..019.i = select i1 %31, i64 %.020.i, i64 %.019.i
   %.pn.i = getelementptr inbounds %struct.PsyLamePreset, ptr @psy_abr_map, i64 %.020..019.i
   %.021.in.i = getelementptr inbounds nuw i8, ptr %.pn.i, i64 4
   %.021.i = load float, ptr %.021.in.i, align 4, !tbaa !135
@@ -2076,9 +2077,9 @@ lame_calc_attack_threshold.exit:                  ; preds = %28, %23
   br i1 %exitcond.not, label %37, label %35, !llvm.loop !136
 
 37:                                               ; preds = %35
-  %indvars.iv.next26 = add nuw nsw i64 %indvars.iv25, 1
-  %exitcond28.not = icmp eq i64 %indvars.iv.next26, %12
-  br i1 %exitcond28.not, label %._crit_edge, label %13, !llvm.loop !137
+  %indvars.iv.next24 = add nuw nsw i64 %indvars.iv23, 1
+  %exitcond26.not = icmp eq i64 %indvars.iv.next24, %12
+  br i1 %exitcond26.not, label %._crit_edge, label %13, !llvm.loop !137
 
 ._crit_edge:                                      ; preds = %37, %2
   ret void

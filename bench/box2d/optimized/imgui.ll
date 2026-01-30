@@ -3659,7 +3659,7 @@ define dso_local noundef range(i32 -255, 256) i32 @_Z10ImStrnicmpPKcS0_m(ptr nou
   %18 = getelementptr inbounds nuw i8, ptr %.0816, i64 1
   %19 = add i64 %.0717, -1
   %.not = icmp eq i64 %19, 0
-  %or.cond = select i1 %.not12, i1 true, i1 %.not
+  %or.cond = or i1 %.not12, %.not
   br i1 %or.cond, label %.critedge, label %.lr.ph, !llvm.loop !244
 
 .critedge:                                        ; preds = %16, %.lr.ph, %3
@@ -12712,16 +12712,16 @@ _ZN8ImVectorIcE6resizeEiRKc.exit:                 ; preds = %90, %85
   %93 = getelementptr inbounds nuw i8, ptr %3, i64 5136
   br label %95
 
-94:                                               ; preds = %120
+94:                                               ; preds = %125
   store i8 1, ptr %3, align 8, !tbaa !504
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
-95:                                               ; preds = %_ZN8ImVectorIcE6resizeEiRKc.exit, %120
-  %.084 = phi i32 [ 512, %_ZN8ImVectorIcE6resizeEiRKc.exit ], [ %121, %120 ]
+95:                                               ; preds = %_ZN8ImVectorIcE6resizeEiRKc.exit, %125
+  %.084 = phi i32 [ 512, %_ZN8ImVectorIcE6resizeEiRKc.exit ], [ %126, %125 ]
   %96 = add nsw i32 %.084, -536
   %or.cond77 = icmp ult i32 %96, 36
-  br i1 %or.cond77, label %111, label %97
+  br i1 %or.cond77, label %116, label %97
 
 97:                                               ; preds = %95
   %98 = add nsw i32 %.084, -612
@@ -12731,39 +12731,42 @@ _ZN8ImVectorIcE6resizeEiRKc.exit:                 ; preds = %90, %85
   %100 = icmp eq i32 %.084, 524
   %or.cond9 = or i1 %100, %or.cond7
   %101 = and i32 %.084, 1022
-  %102 = and i32 %.084, 1020
-  %103 = icmp eq i32 %102, 596
-  %or.cond17 = or i1 %103, %or.cond9
-  %104 = icmp eq i32 %102, 600
-  %or.cond25 = or i1 %104, %or.cond17
-  %105 = add nsw i32 %.084, -605
-  %106 = icmp ult i32 %105, 2
-  %or.cond29 = or i1 %106, %or.cond25
-  %107 = icmp eq i32 %101, 622
-  %or.cond33 = or i1 %107, %or.cond29
-  %108 = icmp eq i32 %101, 624
-  %or.cond37 = or i1 %108, %or.cond33
-  %109 = icmp eq i32 %.084, 626
-  %or.cond39 = or i1 %109, %or.cond37
-  %110 = icmp eq i32 %.084, 628
-  %or.cond41 = or i1 %110, %or.cond39
-  br i1 %or.cond41, label %111, label %120
+  %102 = icmp eq i32 %101, 596
+  %or.cond13 = or i1 %102, %or.cond9
+  %103 = icmp eq i32 %101, 598
+  %104 = icmp eq i32 %101, 600
+  %105 = or i1 %103, %104
+  %or.cond21 = or i1 %105, %or.cond13
+  %106 = icmp eq i32 %101, 602
+  %107 = add nsw i32 %.084, -605
+  %108 = icmp ult i32 %107, 2
+  %109 = or i1 %106, %108
+  %or.cond29 = select i1 %or.cond21, i1 true, i1 %109
+  %110 = icmp eq i32 %101, 622
+  %111 = icmp eq i32 %101, 624
+  %112 = or i1 %110, %111
+  %or.cond37 = or i1 %112, %or.cond29
+  %113 = icmp eq i32 %.084, 626
+  %114 = icmp eq i32 %.084, 628
+  %115 = or i1 %113, %114
+  %or.cond41 = select i1 %or.cond37, i1 true, i1 %115
+  br i1 %or.cond41, label %116, label %125
 
-111:                                              ; preds = %97, %95
-  %112 = add nsw i32 %.084, -512
-  %113 = and i32 %.084, 31
-  %114 = shl nuw i32 1, %113
-  %115 = ashr i32 %112, 5
-  %116 = sext i32 %115 to i64
-  %117 = getelementptr inbounds i32, ptr %93, i64 %116
-  %118 = load i32, ptr %117, align 4, !tbaa !221
-  %119 = or i32 %118, %114
-  store i32 %119, ptr %117, align 4, !tbaa !221
-  br label %120
+116:                                              ; preds = %97, %95
+  %117 = add nsw i32 %.084, -512
+  %118 = and i32 %.084, 31
+  %119 = shl nuw i32 1, %118
+  %120 = ashr i32 %117, 5
+  %121 = sext i32 %120 to i64
+  %122 = getelementptr inbounds i32, ptr %93, i64 %121
+  %123 = load i32, ptr %122, align 4, !tbaa !221
+  %124 = or i32 %123, %119
+  store i32 %124, ptr %122, align 4, !tbaa !221
+  br label %125
 
-120:                                              ; preds = %111, %97
-  %121 = add nuw nsw i32 %.084, 1
-  %exitcond85.not = icmp eq i32 %121, 666
+125:                                              ; preds = %116, %97
+  %126 = add nuw nsw i32 %.084, 1
+  %exitcond85.not = icmp eq i32 %126, 666
   br i1 %exitcond85.not, label %94, label %95, !llvm.loop !505
 }
 
