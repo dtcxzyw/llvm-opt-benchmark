@@ -51526,34 +51526,32 @@ define { i32, i32 } @_ZN7hir_def8generics13GenericParams21find_trait_self_param1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !alias.scope !13556, !noalias !13559, !noundef !13
   %6 = getelementptr inbounds { i8, [63 x i8] }, ptr %3, i64 %5
-  br label %7
+  %7 = trunc i64 %5 to i32
+  br label %8
 
-7:                                                ; preds = %11, %1
-  %8 = phi i32 [ %16, %11 ], [ 0, %1 ]
-  %9 = phi ptr [ %12, %11 ], [ %3, %1 ]
-  %10 = icmp eq ptr %9, %6
-  br i1 %10, label %.loopexit, label %11
+8:                                                ; preds = %12, %1
+  %9 = phi i32 [ %17, %12 ], [ 0, %1 ]
+  %10 = phi ptr [ %13, %12 ], [ %3, %1 ]
+  %11 = icmp eq ptr %10, %6
+  br i1 %11, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h6615e8e0bcbc2ecaE.exit, label %12
 
-11:                                               ; preds = %7
-  %12 = getelementptr inbounds nuw i8, ptr %9, i64 64
-  %.val5.i = load i8, ptr %9, align 16, !range !1335, !alias.scope !13561, !noalias !13564, !noundef !13
-  %13 = getelementptr i8, ptr %9, i64 40
-  %.val6.i = load i8, ptr %13, align 8, !alias.scope !13561, !noalias !13564
-  %14 = icmp ne i8 %.val5.i, 8
-  %15 = icmp ne i8 %.val6.i, 1
-  %.0.i.i.i.i.not.i = select i1 %14, i1 true, i1 %15
-  %16 = add i32 %8, 1
-  br i1 %.0.i.i.i.i.not.i, label %7, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h6615e8e0bcbc2ecaE.exit
+12:                                               ; preds = %8
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 64
+  %.val5.i = load i8, ptr %10, align 16, !range !1335, !alias.scope !13561, !noalias !13564, !noundef !13
+  %14 = getelementptr i8, ptr %10, i64 40
+  %.val6.i = load i8, ptr %14, align 8, !alias.scope !13561, !noalias !13564
+  %15 = icmp ne i8 %.val5.i, 8
+  %16 = icmp ne i8 %.val6.i, 1
+  %.0.i.i.i.i.not.i = select i1 %15, i1 true, i1 %16
+  %17 = add i32 %9, 1
+  br i1 %.0.i.i.i.i.not.i, label %8, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h6615e8e0bcbc2ecaE.exit
 
-_ZN4core4iter6traits8iterator8Iterator8try_fold17h6615e8e0bcbc2ecaE.exit: ; preds = %11
-  %17 = insertvalue { i32, i32 } { i32 1, i32 poison }, i32 %8, 1
-  br label %.loopexit
-
-.loopexit:                                        ; preds = %7, %_ZN4core4iter6traits8iterator8Iterator8try_fold17h6615e8e0bcbc2ecaE.exit
-  %18 = phi { i32, i32 } [ %17, %_ZN4core4iter6traits8iterator8Iterator8try_fold17h6615e8e0bcbc2ecaE.exit ], [ { i32 0, i32 undef }, %7 ]
-  %19 = phi i32 [ %8, %_ZN4core4iter6traits8iterator8Iterator8try_fold17h6615e8e0bcbc2ecaE.exit ], [ undef, %7 ]
-  %20 = insertvalue { i32, i32 } %18, i32 %19, 1
-  ret { i32, i32 } %20
+_ZN4core4iter6traits8iterator8Iterator8try_fold17h6615e8e0bcbc2ecaE.exit: ; preds = %12, %8
+  %.lcssa = phi i32 [ %9, %12 ], [ %7, %8 ]
+  %.sroa.0.0.i = phi i32 [ 1, %12 ], [ 0, %8 ]
+  %18 = insertvalue { i32, i32 } poison, i32 %.sroa.0.0.i, 0
+  %19 = insertvalue { i32, i32 } %18, i32 %.lcssa, 1
+  ret { i32, i32 } %19
 }
 
 ; Function Attrs: nonlazybind uwtable

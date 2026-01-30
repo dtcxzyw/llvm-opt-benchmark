@@ -358,26 +358,26 @@ _ZN5boost8charconv6detail3ryuL22generic_computeInvPow5EjPm.exit.i: ; preds = %62
   %.sroa.2.0.insert.shift.i.i.i = shl nuw nsw i128 %.sroa.2.0.insert.ext.i.i.i, 64
   %.sroa.0.0.insert.ext.i.i.i = and i128 %27, 18446744073709551612
   %.sroa.0.0.insert.insert.i.i.i = or disjoint i128 %.sroa.2.0.insert.shift.i.i.i, %.sroa.0.0.insert.ext.i.i.i
-  %.not13.i.i.i = icmp eq i128 %.sroa.0.0.insert.insert.i.i.i, 0
-  br i1 %.not13.i.i.i, label %_ZN5boost8charconv6detail3ryuL18multipleOfPowerOf5Eoj.exit.i, label %.lr.ph.i.i.i
+  %.not12.i.i.i = icmp eq i128 %.sroa.0.0.insert.insert.i.i.i, 0
+  br i1 %.not12.i.i.i, label %_ZN5boost8charconv6detail3ryuL18multipleOfPowerOf5Eoj.exit.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %98, %102
-  %.0715.i.i.i = phi i32 [ %103, %102 ], [ 0, %98 ]
-  %.0814.i.i.i = phi i128 [ %100, %102 ], [ %.sroa.0.0.insert.insert.i.i.i, %98 ]
-  %.0814.i.i.i.frozen = freeze i128 %.0814.i.i.i
-  %100 = udiv i128 %.0814.i.i.i.frozen, 5
+  %.0714.i.i.i = phi i32 [ %103, %102 ], [ 0, %98 ]
+  %.0813.i.i.i = phi i128 [ %100, %102 ], [ %.sroa.0.0.insert.insert.i.i.i, %98 ]
+  %.0813.i.i.i.frozen = freeze i128 %.0813.i.i.i
+  %100 = udiv i128 %.0813.i.i.i.frozen, 5
   %101 = mul i128 %100, 5
-  %.decomposed = sub i128 %.0814.i.i.i.frozen, %101
+  %.decomposed = sub i128 %.0813.i.i.i.frozen, %101
   %.not10.i.i.i = icmp eq i128 %.decomposed, 0
   br i1 %.not10.i.i.i, label %102, label %_ZN5boost8charconv6detail3ryuL18multipleOfPowerOf5Eoj.exit.i
 
 102:                                              ; preds = %.lr.ph.i.i.i
-  %103 = add i32 %.0715.i.i.i, 1
-  %.not.i.i.i = icmp samesign ult i128 %.0814.i.i.i, 5
+  %103 = add i32 %.0714.i.i.i, 1
+  %.not.i.i.i = icmp samesign ult i128 %.0813.i.i.i, 5
   br i1 %.not.i.i.i, label %_ZN5boost8charconv6detail3ryuL18multipleOfPowerOf5Eoj.exit.i, label %.lr.ph.i.i.i, !llvm.loop !16
 
 _ZN5boost8charconv6detail3ryuL18multipleOfPowerOf5Eoj.exit.i: ; preds = %102, %.lr.ph.i.i.i, %98
-  %104 = phi i32 [ 0, %98 ], [ %.0715.i.i.i, %.lr.ph.i.i.i ], [ 0, %102 ]
+  %104 = phi i32 [ 0, %98 ], [ %.0714.i.i.i, %.lr.ph.i.i.i ], [ 0, %102 ]
   %105 = icmp uge i32 %104, %99
   %106 = zext i1 %105 to i8
   br label %123
@@ -386,26 +386,26 @@ _ZN5boost8charconv6detail3ryuL18multipleOfPowerOf5Eoj.exit.i: ; preds = %102, %.
   br i1 %26, label %108, label %115
 
 108:                                              ; preds = %107
-  %.not13.i.i214.i = icmp eq i128 %90, 0
-  br i1 %.not13.i.i214.i, label %_ZN5boost8charconv6detail3ryuL18multipleOfPowerOf5Eoj.exit220.i, label %.lr.ph.i.i215.i
+  %.not12.i.i214.i = icmp eq i128 %90, 0
+  br i1 %.not12.i.i214.i, label %_ZN5boost8charconv6detail3ryuL18multipleOfPowerOf5Eoj.exit220.i, label %.lr.ph.i.i215.i
 
 .lr.ph.i.i215.i:                                  ; preds = %108, %111
-  %.0715.i.i216.i = phi i32 [ %112, %111 ], [ 0, %108 ]
-  %.0814.i.i217.i = phi i128 [ %109, %111 ], [ %90, %108 ]
-  %.0814.i.i217.i.frozen = freeze i128 %.0814.i.i217.i
-  %109 = udiv i128 %.0814.i.i217.i.frozen, 5
+  %.0714.i.i216.i = phi i32 [ %112, %111 ], [ 0, %108 ]
+  %.0813.i.i217.i = phi i128 [ %109, %111 ], [ %90, %108 ]
+  %.0813.i.i217.i.frozen = freeze i128 %.0813.i.i217.i
+  %109 = udiv i128 %.0813.i.i217.i.frozen, 5
   %110 = mul i128 %109, 5
-  %.decomposed80 = sub i128 %.0814.i.i217.i.frozen, %110
+  %.decomposed80 = sub i128 %.0813.i.i217.i.frozen, %110
   %.not10.i.i218.i = icmp eq i128 %.decomposed80, 0
   br i1 %.not10.i.i218.i, label %111, label %_ZN5boost8charconv6detail3ryuL18multipleOfPowerOf5Eoj.exit220.i
 
 111:                                              ; preds = %.lr.ph.i.i215.i
-  %112 = add i32 %.0715.i.i216.i, 1
-  %.not.i.i219.i = icmp ult i128 %.0814.i.i217.i, 5
+  %112 = add i32 %.0714.i.i216.i, 1
+  %.not.i.i219.i = icmp ult i128 %.0813.i.i217.i, 5
   br i1 %.not.i.i219.i, label %_ZN5boost8charconv6detail3ryuL18multipleOfPowerOf5Eoj.exit220.i, label %.lr.ph.i.i215.i, !llvm.loop !16
 
 _ZN5boost8charconv6detail3ryuL18multipleOfPowerOf5Eoj.exit220.i: ; preds = %111, %.lr.ph.i.i215.i, %108
-  %113 = phi i32 [ 0, %108 ], [ %.0715.i.i216.i, %.lr.ph.i.i215.i ], [ 0, %111 ]
+  %113 = phi i32 [ 0, %108 ], [ %.0714.i.i216.i, %.lr.ph.i.i215.i ], [ 0, %111 ]
   %114 = icmp uge i32 %113, %37
   br label %123
 
@@ -417,22 +417,22 @@ _ZN5boost8charconv6detail3ryuL18multipleOfPowerOf5Eoj.exit220.i: ; preds = %111,
   br label %.lr.ph.i.i226.i
 
 .lr.ph.i.i226.i:                                  ; preds = %118, %115
-  %.0715.i.i227.i = phi i32 [ %119, %118 ], [ 0, %115 ]
-  %.0814.i.i228.i = phi i128 [ %116, %118 ], [ %.sroa.0.0.insert.insert.i.i224.i, %115 ]
-  %.0814.i.i228.i.frozen = freeze i128 %.0814.i.i228.i
-  %116 = udiv i128 %.0814.i.i228.i.frozen, 5
+  %.0714.i.i227.i = phi i32 [ %119, %118 ], [ 0, %115 ]
+  %.0813.i.i228.i = phi i128 [ %116, %118 ], [ %.sroa.0.0.insert.insert.i.i224.i, %115 ]
+  %.0813.i.i228.i.frozen = freeze i128 %.0813.i.i228.i
+  %116 = udiv i128 %.0813.i.i228.i.frozen, 5
   %117 = mul i128 %116, 5
-  %.decomposed81 = sub i128 %.0814.i.i228.i.frozen, %117
+  %.decomposed81 = sub i128 %.0813.i.i228.i.frozen, %117
   %.not10.i.i229.i = icmp eq i128 %.decomposed81, 0
   br i1 %.not10.i.i229.i, label %118, label %_ZN5boost8charconv6detail3ryuL18multipleOfPowerOf5Eoj.exit231.i
 
 118:                                              ; preds = %.lr.ph.i.i226.i
-  %119 = add i32 %.0715.i.i227.i, 1
-  %.not.i.i230.i = icmp samesign ult i128 %.0814.i.i228.i, 5
+  %119 = add i32 %.0714.i.i227.i, 1
+  %.not.i.i230.i = icmp samesign ult i128 %.0813.i.i228.i, 5
   br i1 %.not.i.i230.i, label %_ZN5boost8charconv6detail3ryuL18multipleOfPowerOf5Eoj.exit231.i, label %.lr.ph.i.i226.i, !llvm.loop !16
 
 _ZN5boost8charconv6detail3ryuL18multipleOfPowerOf5Eoj.exit231.i: ; preds = %118, %.lr.ph.i.i226.i
-  %120 = phi i32 [ 0, %118 ], [ %.0715.i.i227.i, %.lr.ph.i.i226.i ]
+  %120 = phi i32 [ 0, %118 ], [ %.0714.i.i227.i, %.lr.ph.i.i226.i ]
   %121 = icmp uge i32 %120, %37
   %.neg202.i = sext i1 %121 to i128
   %122 = add i128 %.sroa.049.0.insert.insert.i, %.neg202.i
@@ -3449,10 +3449,9 @@ define linkonce_odr hidden { ptr, i32 } @_ZN5boost8charconv6detail24to_chars_128
 22:                                               ; preds = %21, %_ZN5boost8charconv6detail11decompose32EjPc.exit
   %indvars.iv = phi i64 [ 0, %21 ], [ %indvars.iv.next, %_ZN5boost8charconv6detail11decompose32EjPc.exit ]
   %.04449 = phi i128 [ %.sroa.039.0.insert.insert, %21 ], [ %23, %_ZN5boost8charconv6detail11decompose32EjPc.exit ]
-  %.04449.frozen = freeze i128 %.04449
-  %23 = udiv i128 %.04449.frozen, 1000000000
+  %23 = udiv i128 %.04449, 1000000000
   %24 = mul i128 %23, 1000000000
-  %.decomposed = sub i128 %.04449.frozen, %24
+  %.decomposed = sub i128 %.04449, %24
   %25 = trunc nuw nsw i128 %.decomposed to i32
   %26 = icmp samesign ugt i32 %25, 9999
   br i1 %26, label %27, label %35

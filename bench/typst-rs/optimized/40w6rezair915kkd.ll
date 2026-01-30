@@ -1927,21 +1927,21 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   br label %13
 
 13:                                               ; preds = %16, %.lr.ph.i.i
-  %.010.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %18, %16 ]
+  %.011.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %18, %16 ]
   %14 = phi ptr [ %7, %.lr.ph.i.i ], [ %17, %16 ]
   %15 = tail call noundef zeroext i1 @_ZN5typst4eval3ops5equal17h0cd31bf8c0e10bf5E(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %14, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %.val.i.i.i), !noalias !304
   br i1 %15, label %20, label %16
 
 16:                                               ; preds = %13
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  %18 = add nuw nsw i64 %.010.i.i, 1
+  %18 = add nuw nsw i64 %.011.i.i, 1
   %19 = icmp eq ptr %17, %10
   br i1 %19, label %.loopexit.i, label %13
 
 20:                                               ; preds = %13
-  %21 = icmp ult i64 %.010.i.i, %9
+  %21 = icmp ult i64 %.011.i.i, %9
   tail call void @llvm.assume(i1 %21)
-  %22 = add nuw i64 %.010.i.i, 1
+  %22 = add nuw i64 %.011.i.i, 1
   %23 = sub nuw i64 %9, %22
   %24 = getelementptr inbounds { i8, [31 x i8] }, ptr %7, i64 %22
   store ptr %24, ptr %1, align 8, !alias.scope !293
@@ -1957,7 +1957,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   br label %32
 
 26:                                               ; preds = %20, %.loopexit.i
-  %.sroa.5.0.i.ph = phi i64 [ %9, %.loopexit.i ], [ %.010.i.i, %20 ]
+  %.sroa.5.0.i.ph = phi i64 [ %9, %.loopexit.i ], [ %.011.i.i, %20 ]
   %27 = getelementptr inbounds { i8, [31 x i8] }, ptr %7, i64 %.sroa.5.0.i.ph
   %28 = tail call { ptr, i64 } @"_ZN97_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$T$GT$$GT$9from_iter17h095238048f20c201E"(ptr noundef nonnull readonly align 8 %7, ptr noundef nonnull readonly %27), !noalias !305
   %29 = extractvalue { ptr, i64 } %28, 0
@@ -69165,21 +69165,21 @@ define hidden void @"_ZN91_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$core..iter.
   br label %10
 
 10:                                               ; preds = %13, %.lr.ph.i.i.i
-  %.010.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %15, %13 ]
+  %.011.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %15, %13 ]
   %11 = phi ptr [ %.sroa.0.023, %.lr.ph.i.i.i ], [ %14, %13 ]
   %12 = tail call noundef zeroext i1 @_ZN5typst4eval3ops5equal17h0cd31bf8c0e10bf5E(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %.sroa.5.0.copyload6), !noalias !19973
   br i1 %12, label %17, label %13
 
 13:                                               ; preds = %10
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  %15 = add nuw nsw i64 %.010.i.i.i, 1
+  %15 = add nuw nsw i64 %.011.i.i.i, 1
   %16 = icmp eq ptr %14, %8
   br i1 %16, label %.loopexit, label %10
 
 17:                                               ; preds = %10
-  %18 = icmp ult i64 %.010.i.i.i, %.sroa.512.024
+  %18 = icmp ult i64 %.011.i.i.i, %.sroa.512.024
   tail call void @llvm.assume(i1 %18)
-  %19 = add nuw i64 %.010.i.i.i, 1
+  %19 = add nuw i64 %.011.i.i.i, 1
   %20 = sub nuw i64 %.sroa.512.024, %19
   %21 = getelementptr inbounds { i8, [31 x i8] }, ptr %.sroa.0.023, i64 %19
   br label %.loopexit
@@ -69191,7 +69191,7 @@ define hidden void @"_ZN91_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$core..iter.
   %.sroa.0.1 = phi ptr [ %21, %17 ], [ %.sroa.0.023, %6 ], [ %.sroa.0.023, %13 ]
   %.sroa.512.1 = phi i64 [ %20, %17 ], [ 0, %6 ], [ %.sroa.512.024, %13 ]
   %.sroa.10.1 = phi i1 [ false, %17 ], [ true, %6 ], [ true, %13 ]
-  %.sroa.5.0.i.ph.i = phi i64 [ %.010.i.i.i, %17 ], [ 0, %6 ], [ %.sroa.512.024, %13 ]
+  %.sroa.5.0.i.ph.i = phi i64 [ %.011.i.i.i, %17 ], [ 0, %6 ], [ %.sroa.512.024, %13 ]
   %22 = getelementptr inbounds { i8, [31 x i8] }, ptr %.sroa.0.023, i64 %.sroa.5.0.i.ph.i
   %23 = tail call { ptr, i64 } @"_ZN97_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$T$GT$$GT$9from_iter17h095238048f20c201E"(ptr noundef nonnull readonly align 8 %.sroa.0.023, ptr noundef nonnull readonly %22), !noalias !19982
   %24 = extractvalue { ptr, i64 } %23, 0
@@ -75241,21 +75241,21 @@ define hidden { ptr, i64 } @"_ZN96_$LT$core..slice..iter..Split$LT$T$C$P$GT$$u20
   br label %12
 
 12:                                               ; preds = %15, %.lr.ph.i
-  %.010.i = phi i64 [ 0, %.lr.ph.i ], [ %17, %15 ]
+  %.011.i = phi i64 [ 0, %.lr.ph.i ], [ %17, %15 ]
   %13 = phi ptr [ %6, %.lr.ph.i ], [ %16, %15 ]
   %14 = tail call noundef zeroext i1 @_ZN5typst4eval3ops5equal17h0cd31bf8c0e10bf5E(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %.val.i.i), !noalias !21749
   br i1 %14, label %19, label %15
 
 15:                                               ; preds = %12
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 32
-  %17 = add nuw nsw i64 %.010.i, 1
+  %17 = add nuw nsw i64 %.011.i, 1
   %18 = icmp eq ptr %16, %9
   br i1 %18, label %.loopexit, label %12
 
 19:                                               ; preds = %12
-  %20 = icmp ult i64 %.010.i, %8
+  %20 = icmp ult i64 %.011.i, %8
   tail call void @llvm.assume(i1 %20)
-  %21 = add nuw i64 %.010.i, 1
+  %21 = add nuw i64 %.011.i, 1
   %22 = sub nuw i64 %8, %21
   %23 = getelementptr inbounds { i8, [31 x i8] }, ptr %6, i64 %21
   store ptr %23, ptr %0, align 8
@@ -75267,7 +75267,7 @@ define hidden { ptr, i64 } @"_ZN96_$LT$core..slice..iter..Split$LT$T$C$P$GT$$u20
   br label %24
 
 24:                                               ; preds = %19, %.loopexit, %1
-  %.sroa.5.0 = phi i64 [ undef, %1 ], [ %.010.i, %19 ], [ %8, %.loopexit ]
+  %.sroa.5.0 = phi i64 [ undef, %1 ], [ %.011.i, %19 ], [ %8, %.loopexit ]
   %.sroa.0.0 = phi ptr [ null, %1 ], [ %6, %19 ], [ %6, %.loopexit ]
   %25 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %26 = insertvalue { ptr, i64 } %25, i64 %.sroa.5.0, 1

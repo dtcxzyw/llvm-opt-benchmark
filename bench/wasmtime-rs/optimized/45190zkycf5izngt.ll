@@ -5924,8 +5924,8 @@ _ZN6object4read3elf4file10FileHeader12is_supported17ha5edaf9c516ee3b4E.llvm.5281
 
 "_ZN6object4read3elf7section27SectionTable$LT$Elf$C$R$GT$7symbols17hfe9b6b3e44702e72E.exit": ; preds = %56, %50
   %.us-phi.i = phi i64 [ %.sroa.8.0.us.i, %50 ], [ %.sroa.8.0.i, %56 ]
-  %.us-phi31.i = phi ptr [ %48, %50 ], [ %54, %56 ]
-  call void @"_ZN6object4read3elf6symbol26SymbolTable$LT$Elf$C$R$GT$5parse17h425a7acd74a466e4E"(ptr noalias noundef nonnull sret({ ptr, [10 x i64] }) align 8 captures(none) dereferenceable(88) %7, i1 noundef zeroext %28, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %9, i64 noundef %.us-phi.i, ptr noalias noundef nonnull readonly align 4 dereferenceable(40) %.us-phi31.i)
+  %.us-phi29.i = phi ptr [ %48, %50 ], [ %54, %56 ]
+  call void @"_ZN6object4read3elf6symbol26SymbolTable$LT$Elf$C$R$GT$5parse17h425a7acd74a466e4E"(ptr noalias noundef nonnull sret({ ptr, [10 x i64] }) align 8 captures(none) dereferenceable(88) %7, i1 noundef zeroext %28, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %9, i64 noundef %.us-phi.i, ptr noalias noundef nonnull readonly align 4 dereferenceable(40) %.us-phi29.i)
   %.pre = load ptr, ptr %7, align 8
   %60 = icmp eq ptr %.pre, null
   br i1 %60, label %80, label %62
@@ -5996,8 +5996,8 @@ _ZN6object4read3elf4file10FileHeader12is_supported17ha5edaf9c516ee3b4E.llvm.5281
 
 "_ZN6object4read3elf7section27SectionTable$LT$Elf$C$R$GT$7symbols17hfe9b6b3e44702e72E.exit140": ; preds = %75, %69
   %.us-phi.i129 = phi i64 [ %.sroa.8.0.us.i137, %69 ], [ %.sroa.8.0.i125, %75 ]
-  %.us-phi31.i130 = phi ptr [ %67, %69 ], [ %73, %75 ]
-  call void @"_ZN6object4read3elf6symbol26SymbolTable$LT$Elf$C$R$GT$5parse17h425a7acd74a466e4E"(ptr noalias noundef nonnull sret({ ptr, [10 x i64] }) align 8 captures(none) dereferenceable(88) %6, i1 noundef zeroext %28, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %9, i64 noundef %.us-phi.i129, ptr noalias noundef nonnull readonly align 4 dereferenceable(40) %.us-phi31.i130)
+  %.us-phi29.i130 = phi ptr [ %67, %69 ], [ %73, %75 ]
+  call void @"_ZN6object4read3elf6symbol26SymbolTable$LT$Elf$C$R$GT$5parse17h425a7acd74a466e4E"(ptr noalias noundef nonnull sret({ ptr, [10 x i64] }) align 8 captures(none) dereferenceable(88) %6, i1 noundef zeroext %28, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %9, i64 noundef %.us-phi.i129, ptr noalias noundef nonnull readonly align 4 dereferenceable(40) %.us-phi29.i130)
   %.pre193 = load ptr, ptr %6, align 8
   %79 = icmp eq ptr %.pre193, null
   br i1 %79, label %93, label %85
@@ -6238,8 +6238,8 @@ _ZN6object4read3elf4file10FileHeader12is_supported17h1b0c3c6464cb8d5aE.llvm.5281
 
 "_ZN6object4read3elf7section27SectionTable$LT$Elf$C$R$GT$7symbols17he6bf627becf5521cE.exit": ; preds = %56, %50
   %.us-phi.i = phi i64 [ %.sroa.8.0.us.i, %50 ], [ %.sroa.8.0.i, %56 ]
-  %.us-phi31.i = phi ptr [ %48, %50 ], [ %54, %56 ]
-  call void @"_ZN6object4read3elf6symbol26SymbolTable$LT$Elf$C$R$GT$5parse17h36c6cc8beb607388E"(ptr noalias noundef nonnull sret({ ptr, [10 x i64] }) align 8 captures(none) dereferenceable(88) %7, i1 noundef zeroext %28, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %9, i64 noundef %.us-phi.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %.us-phi31.i)
+  %.us-phi29.i = phi ptr [ %48, %50 ], [ %54, %56 ]
+  call void @"_ZN6object4read3elf6symbol26SymbolTable$LT$Elf$C$R$GT$5parse17h36c6cc8beb607388E"(ptr noalias noundef nonnull sret({ ptr, [10 x i64] }) align 8 captures(none) dereferenceable(88) %7, i1 noundef zeroext %28, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %9, i64 noundef %.us-phi.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %.us-phi29.i)
   %.pre = load ptr, ptr %7, align 8
   %60 = icmp eq ptr %.pre, null
   br i1 %60, label %80, label %62
@@ -6310,8 +6310,8 @@ _ZN6object4read3elf4file10FileHeader12is_supported17h1b0c3c6464cb8d5aE.llvm.5281
 
 "_ZN6object4read3elf7section27SectionTable$LT$Elf$C$R$GT$7symbols17he6bf627becf5521cE.exit140": ; preds = %75, %69
   %.us-phi.i129 = phi i64 [ %.sroa.8.0.us.i137, %69 ], [ %.sroa.8.0.i125, %75 ]
-  %.us-phi31.i130 = phi ptr [ %67, %69 ], [ %73, %75 ]
-  call void @"_ZN6object4read3elf6symbol26SymbolTable$LT$Elf$C$R$GT$5parse17h36c6cc8beb607388E"(ptr noalias noundef nonnull sret({ ptr, [10 x i64] }) align 8 captures(none) dereferenceable(88) %6, i1 noundef zeroext %28, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %9, i64 noundef %.us-phi.i129, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %.us-phi31.i130)
+  %.us-phi29.i130 = phi ptr [ %67, %69 ], [ %73, %75 ]
+  call void @"_ZN6object4read3elf6symbol26SymbolTable$LT$Elf$C$R$GT$5parse17h36c6cc8beb607388E"(ptr noalias noundef nonnull sret({ ptr, [10 x i64] }) align 8 captures(none) dereferenceable(88) %6, i1 noundef zeroext %28, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %9, i64 noundef %.us-phi.i129, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %.us-phi29.i130)
   %.pre193 = load ptr, ptr %6, align 8
   %79 = icmp eq ptr %.pre193, null
   br i1 %79, label %93, label %85
@@ -6598,11 +6598,9 @@ define hidden { i64, ptr } @"_ZN6object4read3elf7section27SectionTable$LT$Elf$C$
 _ZN4core4iter6traits8iterator8Iterator8try_fold17h39dccd23ee462340E.llvm.6452179527160401088.exit: ; preds = %"_ZN6object4read3elf7section27SectionTable$LT$Elf$C$R$GT$15section_by_name28_$u7b$$u7b$closure$u7d$$u7d$17haff34359beaf7345E.exit.i.i.i", %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h9ab1ae2df93d38d0E.exit.i", %3
   %.sroa.3.0.i = phi ptr [ null, %3 ], [ %11, %"_ZN6object4read3elf7section27SectionTable$LT$Elf$C$R$GT$15section_by_name28_$u7b$$u7b$closure$u7d$$u7d$17haff34359beaf7345E.exit.i.i.i" ], [ null, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h9ab1ae2df93d38d0E.exit.i" ]
   %.sroa.0.0.i = phi i64 [ undef, %3 ], [ %.sroa.7.0, %"_ZN6object4read3elf7section27SectionTable$LT$Elf$C$R$GT$15section_by_name28_$u7b$$u7b$closure$u7d$$u7d$17haff34359beaf7345E.exit.i.i.i" ], [ undef, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h9ab1ae2df93d38d0E.exit.i" ]
-  %21 = icmp eq ptr %.sroa.3.0.i, null
-  %.sroa.0.0 = select i1 %21, i64 undef, i64 %.sroa.0.0.i
-  %22 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %23 = insertvalue { i64, ptr } %22, ptr %.sroa.3.0.i, 1
-  ret { i64, ptr } %23
+  %21 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0.i, 0
+  %22 = insertvalue { i64, ptr } %21, ptr %.sroa.3.0.i, 1
+  ret { i64, ptr } %22
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -6684,11 +6682,9 @@ define hidden { i64, ptr } @"_ZN6object4read3elf7section27SectionTable$LT$Elf$C$
 _ZN4core4iter6traits8iterator8Iterator8try_fold17h407c5d629778c02eE.exit: ; preds = %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h0118d60f0001cc0dE.exit.i", %"_ZN6object4read3elf7section27SectionTable$LT$Elf$C$R$GT$15section_by_name28_$u7b$$u7b$closure$u7d$$u7d$17hc4fbc0daae1a0fadE.exit.i.i.i", %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h0118d60f0001cc0dE.exit.i.us", %"_ZN6object4read3elf7section27SectionTable$LT$Elf$C$R$GT$15section_by_name28_$u7b$$u7b$closure$u7d$$u7d$17hc4fbc0daae1a0fadE.exit.i.i.i.us", %4
   %.sroa.3.0.i = phi ptr [ null, %4 ], [ null, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h0118d60f0001cc0dE.exit.i.us" ], [ %12, %"_ZN6object4read3elf7section27SectionTable$LT$Elf$C$R$GT$15section_by_name28_$u7b$$u7b$closure$u7d$$u7d$17hc4fbc0daae1a0fadE.exit.i.i.i.us" ], [ %23, %"_ZN6object4read3elf7section27SectionTable$LT$Elf$C$R$GT$15section_by_name28_$u7b$$u7b$closure$u7d$$u7d$17hc4fbc0daae1a0fadE.exit.i.i.i" ], [ null, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h0118d60f0001cc0dE.exit.i" ]
   %.sroa.0.0.i = phi i64 [ undef, %4 ], [ undef, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h0118d60f0001cc0dE.exit.i.us" ], [ %.sroa.7.0.us, %"_ZN6object4read3elf7section27SectionTable$LT$Elf$C$R$GT$15section_by_name28_$u7b$$u7b$closure$u7d$$u7d$17hc4fbc0daae1a0fadE.exit.i.i.i.us" ], [ %.sroa.7.0, %"_ZN6object4read3elf7section27SectionTable$LT$Elf$C$R$GT$15section_by_name28_$u7b$$u7b$closure$u7d$$u7d$17hc4fbc0daae1a0fadE.exit.i.i.i" ], [ undef, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h0118d60f0001cc0dE.exit.i" ]
-  %33 = icmp eq ptr %.sroa.3.0.i, null
-  %.sroa.0.0 = select i1 %33, i64 undef, i64 %.sroa.0.0.i
-  %34 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %35 = insertvalue { i64, ptr } %34, ptr %.sroa.3.0.i, 1
-  ret { i64, ptr } %35
+  %33 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0.i, 0
+  %34 = insertvalue { i64, ptr } %33, ptr %.sroa.3.0.i, 1
+  ret { i64, ptr } %34
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -6740,11 +6736,9 @@ define hidden { i64, ptr } @"_ZN6object4read3elf7section27SectionTable$LT$Elf$C$
 _ZN4core4iter6traits8iterator8Iterator8try_fold17he5e8ff4e124bfaf5E.llvm.6452179527160401088.exit: ; preds = %"_ZN6object4read3elf7section27SectionTable$LT$Elf$C$R$GT$15section_by_name28_$u7b$$u7b$closure$u7d$$u7d$17h230bfff67dfb277cE.exit.i.i.i", %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h8ddfd2e5b39d4d60E.exit.i", %3
   %.sroa.3.0.i = phi ptr [ null, %3 ], [ %11, %"_ZN6object4read3elf7section27SectionTable$LT$Elf$C$R$GT$15section_by_name28_$u7b$$u7b$closure$u7d$$u7d$17h230bfff67dfb277cE.exit.i.i.i" ], [ null, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h8ddfd2e5b39d4d60E.exit.i" ]
   %.sroa.0.0.i = phi i64 [ undef, %3 ], [ %.sroa.7.0, %"_ZN6object4read3elf7section27SectionTable$LT$Elf$C$R$GT$15section_by_name28_$u7b$$u7b$closure$u7d$$u7d$17h230bfff67dfb277cE.exit.i.i.i" ], [ undef, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h8ddfd2e5b39d4d60E.exit.i" ]
-  %22 = icmp eq ptr %.sroa.3.0.i, null
-  %.sroa.0.0 = select i1 %22, i64 undef, i64 %.sroa.0.0.i
-  %23 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %24 = insertvalue { i64, ptr } %23, ptr %.sroa.3.0.i, 1
-  ret { i64, ptr } %24
+  %22 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0.i, 0
+  %23 = insertvalue { i64, ptr } %22, ptr %.sroa.3.0.i, 1
+  ret { i64, ptr } %23
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -6826,11 +6820,9 @@ define hidden { i64, ptr } @"_ZN6object4read3elf7section27SectionTable$LT$Elf$C$
 _ZN4core4iter6traits8iterator8Iterator8try_fold17h98fb7629c700714fE.exit: ; preds = %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h2071dde69ac680e0E.exit.i", %"_ZN6object4read3elf7section27SectionTable$LT$Elf$C$R$GT$15section_by_name28_$u7b$$u7b$closure$u7d$$u7d$17h613df7380becc9ceE.exit.i.i.i", %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h2071dde69ac680e0E.exit.i.us", %"_ZN6object4read3elf7section27SectionTable$LT$Elf$C$R$GT$15section_by_name28_$u7b$$u7b$closure$u7d$$u7d$17h613df7380becc9ceE.exit.i.i.i.us", %4
   %.sroa.3.0.i = phi ptr [ null, %4 ], [ null, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h2071dde69ac680e0E.exit.i.us" ], [ %12, %"_ZN6object4read3elf7section27SectionTable$LT$Elf$C$R$GT$15section_by_name28_$u7b$$u7b$closure$u7d$$u7d$17h613df7380becc9ceE.exit.i.i.i.us" ], [ %23, %"_ZN6object4read3elf7section27SectionTable$LT$Elf$C$R$GT$15section_by_name28_$u7b$$u7b$closure$u7d$$u7d$17h613df7380becc9ceE.exit.i.i.i" ], [ null, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h2071dde69ac680e0E.exit.i" ]
   %.sroa.0.0.i = phi i64 [ undef, %4 ], [ undef, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h2071dde69ac680e0E.exit.i.us" ], [ %.sroa.7.0.us, %"_ZN6object4read3elf7section27SectionTable$LT$Elf$C$R$GT$15section_by_name28_$u7b$$u7b$closure$u7d$$u7d$17h613df7380becc9ceE.exit.i.i.i.us" ], [ %.sroa.7.0, %"_ZN6object4read3elf7section27SectionTable$LT$Elf$C$R$GT$15section_by_name28_$u7b$$u7b$closure$u7d$$u7d$17h613df7380becc9ceE.exit.i.i.i" ], [ undef, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h2071dde69ac680e0E.exit.i" ]
-  %33 = icmp eq ptr %.sroa.3.0.i, null
-  %.sroa.0.0 = select i1 %33, i64 undef, i64 %.sroa.0.0.i
-  %34 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %35 = insertvalue { i64, ptr } %34, ptr %.sroa.3.0.i, 1
-  ret { i64, ptr } %35
+  %33 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0.i, 0
+  %34 = insertvalue { i64, ptr } %33, ptr %.sroa.3.0.i, 1
+  ret { i64, ptr } %34
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable

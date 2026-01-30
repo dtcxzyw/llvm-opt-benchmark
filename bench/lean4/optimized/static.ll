@@ -8668,13 +8668,12 @@ _Z20_mi_bitmap_try_claimPSt6atomicImEmmm.exit.i:  ; preds = %.lr.ph.i.i
 
 .critedge.i.i:                                    ; preds = %103, %99
   %.022.lcssa.i.i = phi i64 [ %104, %103 ], [ %.02227.i.i, %99 ]
-  %.022.lcssa.i.fr.i = freeze i64 %.022.lcssa.i.i
-  %.not26.i.i = icmp eq i64 %.022.lcssa.i.fr.i, 0
+  %.not26.i.i = icmp eq i64 %.022.lcssa.i.i, 0
   br i1 %.not26.i.i, label %373, label %107
 
 107:                                              ; preds = %.critedge.i.i
   %108 = add i64 %.029.i.i, %73
-  %109 = shl i64 %.022.lcssa.i.fr.i, 25
+  %109 = shl i64 %.022.lcssa.i.i, 25
   %110 = load atomic i64, ptr %66 seq_cst, align 8
   %.0.i.i.i.i.i.i = inttoptr i64 %110 to ptr
   %111 = shl i64 %108, 25
@@ -8682,16 +8681,16 @@ _Z20_mi_bitmap_try_claimPSt6atomicImEmmm.exit.i:  ; preds = %.lr.ph.i.i
   %113 = load ptr, ptr %67, align 8, !tbaa !142
   %114 = lshr i64 %108, 6
   %115 = and i64 %.029.i.i, 63
-  %116 = add i64 %.022.lcssa.i.fr.i, %115
+  %116 = add i64 %.022.lcssa.i.i, %115
   %117 = icmp ult i64 %116, 65
   br i1 %117, label %118, label %_ZL15mi_bitmap_mask_mm.exit24.i.i.i, !prof !23
 
 118:                                              ; preds = %107
-  %119 = icmp ugt i64 %.022.lcssa.i.fr.i, 63
+  %119 = icmp ugt i64 %.022.lcssa.i.i, 63
   br i1 %119, label %_ZL21mi_bitmap_mask_acrossmmmPmS_S_.exit.i.i, label %120
 
 120:                                              ; preds = %118
-  %notmask.i.i.i.i = shl nsw i64 -1, %.022.lcssa.i.fr.i
+  %notmask.i.i.i.i = shl nsw i64 -1, %.022.lcssa.i.i
   %121 = xor i64 %notmask.i.i.i.i, -1
   %122 = shl i64 %121, %115
   br label %_ZL21mi_bitmap_mask_acrossmmmPmS_S_.exit.i.i
@@ -8703,7 +8702,7 @@ _ZL15mi_bitmap_mask_mm.exit24.i.i.i:              ; preds = %107
   %125 = xor i64 %notmask.i22.i.i.i, -1
   %126 = shl i64 %125, %115
   %.0.i23.i.i.i = select i1 %124, i64 -1, i64 %126
-  %127 = sub i64 %.022.lcssa.i.fr.i, %123
+  %127 = sub i64 %.022.lcssa.i.i, %123
   %128 = lshr i64 %127, 6
   %129 = and i64 %127, 63
   %130 = icmp eq i64 %129, 0
@@ -9200,11 +9199,11 @@ _Z15_mi_os_purge_exPvmbm.exit84.i:                ; preds = %257, %_ZL12unix_mad
   br i1 %117, label %338, label %_ZL15mi_bitmap_mask_mm.exit24.i.i.i.i, !prof !23
 
 338:                                              ; preds = %_Z15_mi_os_purge_exPvmbm.exit84.i
-  %339 = icmp ugt i64 %.022.lcssa.i.fr.i, 63
+  %339 = icmp ugt i64 %.022.lcssa.i.i, 63
   br i1 %339, label %_Z25_mi_bitmap_unclaim_acrossPSt6atomicImEmmm.exit.thread.thread.i.i, label %_Z25_mi_bitmap_unclaim_acrossPSt6atomicImEmmm.exit.thread.i.i
 
 _Z25_mi_bitmap_unclaim_acrossPSt6atomicImEmmm.exit.thread.i.i: ; preds = %338
-  %notmask.i.i.i.i.i = shl nsw i64 -1, %.022.lcssa.i.fr.i
+  %notmask.i.i.i.i.i = shl nsw i64 -1, %.022.lcssa.i.i
   %340 = xor i64 %notmask.i.i.i.i.i, -1
   %341 = shl i64 %340, %115
   %342 = xor i64 %341, -1
@@ -9218,7 +9217,7 @@ _ZL15mi_bitmap_mask_mm.exit24.i.i.i.i:            ; preds = %_Z15_mi_os_purge_ex
   %notmask.i22.i.i.i.i = shl nsw i64 -1, %345
   %347 = xor i64 %notmask.i22.i.i.i.i, -1
   %348 = shl i64 %347, %115
-  %349 = sub i64 %.022.lcssa.i.fr.i, %345
+  %349 = sub i64 %.022.lcssa.i.i, %345
   %350 = lshr i64 %349, 6
   %351 = and i64 %349, 63
   %notmask.i25.i.i.i.i = shl nsw i64 -1, %351
@@ -9288,14 +9287,14 @@ _ZL15mi_bitmap_mask_mm.exit24.i.i19.i.i:          ; preds = %_Z25_mi_bitmap_uncl
   br label %_ZL14mi_arena_purgeP10mi_arena_smm.exit.i
 
 _ZL14mi_arena_purgeP10mi_arena_smm.exit.i:        ; preds = %370, %._crit_edge.i34.i.i, %._crit_edge.thread.i42.i.i, %_Z25_mi_bitmap_unclaim_acrossPSt6atomicImEmmm.exit.thread.thread.i.i, %_Z25_mi_bitmap_unclaim_acrossPSt6atomicImEmmm.exit.i.i, %_Z25_mi_bitmap_unclaim_acrossPSt6atomicImEmmm.exit.thread.i.i
-  %372 = icmp eq i64 %.022.lcssa.i.fr.i, %.145144.i
+  %372 = icmp eq i64 %.022.lcssa.i.i, %.145144.i
   %spec.select.i.i = select i1 %372, i1 true, i1 %.02328.i.i
   br label %373
 
 373:                                              ; preds = %_ZL14mi_arena_purgeP10mi_arena_smm.exit.i, %.critedge.i.i
   %.1.i.i = phi i1 [ %spec.select.i.i, %_ZL14mi_arena_purgeP10mi_arena_smm.exit.i ], [ %.02328.i.i, %.critedge.i.i ]
   %374 = add i64 %.029.i.i, 1
-  %375 = add i64 %374, %.022.lcssa.i.fr.i
+  %375 = add i64 %374, %.022.lcssa.i.i
   %376 = icmp ult i64 %375, %97
   br i1 %376, label %.preheader.i.i, label %_ZL20mi_arena_purge_rangeP10mi_arena_smmmm.exit.i, !llvm.loop !158
 
@@ -16348,7 +16347,7 @@ define hidden noundef range(i32 -255, 256) i32 @_Z12_mi_strnicmpPKcS0_m(ptr noun
   %7 = load i8, ptr %.01326, align 1, !tbaa !25
   %8 = icmp ne i8 %7, 0
   %9 = icmp ne i64 %.027, 0
-  %or.cond = select i1 %8, i1 %9, i1 false
+  %or.cond = and i1 %9, %8
   br i1 %or.cond, label %10, label %.critedge
 
 10:                                               ; preds = %.lr.ph
@@ -16410,7 +16409,7 @@ define hidden void @_Z11_mi_strlcpyPcPKcm(ptr noundef writeonly captures(address
   %7 = load i8, ptr %1, align 1, !tbaa !25
   %8 = icmp ne i8 %7, 0
   %9 = icmp ugt i64 %2, 1
-  %10 = and i1 %8, %9
+  %10 = and i1 %9, %8
   br i1 %10, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
@@ -16425,7 +16424,7 @@ define hidden void @_Z11_mi_strlcpyPcPKcm(ptr noundef writeonly captures(address
   %15 = load i8, ptr %12, align 1, !tbaa !25
   %16 = icmp ne i8 %15, 0
   %17 = icmp ugt i64 %14, 1
-  %18 = select i1 %16, i1 %17, i1 false
+  %18 = and i1 %17, %16
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !242
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
@@ -16450,7 +16449,7 @@ define hidden void @_Z11_mi_strlcatPcPKcm(ptr noundef captures(address_is_null) 
   %8 = load i8, ptr %0, align 1, !tbaa !25
   %9 = icmp ne i8 %8, 0
   %10 = icmp ugt i64 %2, 1
-  %11 = and i1 %9, %10
+  %11 = and i1 %10, %9
   br i1 %11, label %.lr.ph, label %.preheader.i
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
@@ -16461,7 +16460,7 @@ define hidden void @_Z11_mi_strlcatPcPKcm(ptr noundef captures(address_is_null) 
   %14 = load i8, ptr %12, align 1, !tbaa !25
   %15 = icmp ne i8 %14, 0
   %16 = icmp ugt i64 %13, 1
-  %17 = select i1 %15, i1 %16, i1 false
+  %17 = and i1 %16, %15
   br i1 %17, label %.lr.ph, label %.preheader.i, !llvm.loop !243
 
 .preheader.i:                                     ; preds = %.lr.ph, %.preheader
@@ -16485,7 +16484,7 @@ define hidden void @_Z11_mi_strlcatPcPKcm(ptr noundef captures(address_is_null) 
   %25 = load i8, ptr %22, align 1, !tbaa !25
   %26 = icmp ne i8 %25, 0
   %27 = icmp ugt i64 %24, 1
-  %28 = select i1 %26, i1 %27, i1 false
+  %28 = and i1 %27, %26
   br i1 %28, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !242
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader.i
@@ -16550,7 +16549,7 @@ _Z10_mi_strlenPKc.exit:                           ; preds = %3
   %13 = load i8, ptr %.01326.i, align 1, !tbaa !25
   %14 = icmp ne i8 %13, 0
   %15 = icmp ne i64 %.027.i, 0
-  %or.cond.i = select i1 %14, i1 %15, i1 false
+  %or.cond.i = and i1 %15, %14
   br i1 %or.cond.i, label %16, label %.critedge.i
 
 16:                                               ; preds = %.lr.ph.i
@@ -16625,7 +16624,7 @@ _Z12_mi_strnicmpPKcS0_m.exit.thread:              ; preds = %.critedge.i, %_Z12_
   %45 = load i8, ptr %42, align 1, !tbaa !25
   %46 = icmp ne i8 %45, 0
   %47 = icmp ugt i64 %44, 1
-  %48 = select i1 %46, i1 %47, i1 false
+  %48 = and i1 %47, %46
   br i1 %48, label %.lr.ph.i32, label %._crit_edge.i, !llvm.loop !242
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i32, %.preheader.i31
@@ -17616,7 +17615,7 @@ _Z11_mi_strlcpyPcPKcm.exit:                       ; preds = %.lr.ph.i
   %14 = load i8, ptr %12, align 1, !tbaa !25
   %15 = icmp ne i8 %14, 0
   %16 = icmp samesign ugt i64 %.017.i, 2
-  %17 = select i1 %15, i1 %16, i1 false
+  %17 = and i1 %16, %15
   br i1 %17, label %.lr.ph.i39, label %.preheader.i.i, !llvm.loop !243
 
 .preheader.i.i:                                   ; preds = %.lr.ph.i39, %.preheader.i
@@ -17640,7 +17639,7 @@ _Z11_mi_strlcpyPcPKcm.exit:                       ; preds = %.lr.ph.i
   %25 = load i8, ptr %22, align 1, !tbaa !25
   %26 = icmp ne i8 %25, 0
   %27 = icmp ugt i64 %24, 1
-  %28 = select i1 %26, i1 %27, i1 false
+  %28 = and i1 %27, %26
   br i1 %28, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !242
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %.preheader.i.i
@@ -17684,7 +17683,7 @@ _Z11_mi_strlcatPcPKcm.exit:                       ; preds = %_Z11_mi_strlcpyPcPK
   %39 = load i8, ptr %37, align 1, !tbaa !25
   %40 = icmp ne i8 %39, 0
   %41 = icmp samesign ugt i64 %.017.i60, 2
-  %42 = select i1 %40, i1 %41, i1 false
+  %42 = and i1 %41, %40
   br i1 %42, label %.lr.ph.i59, label %.preheader.i.i49, !llvm.loop !243
 
 .preheader.i.i49:                                 ; preds = %.lr.ph.i59, %.preheader.i48
@@ -17708,7 +17707,7 @@ _Z11_mi_strlcatPcPKcm.exit:                       ; preds = %_Z11_mi_strlcpyPcPK
   %50 = load i8, ptr %47, align 1, !tbaa !25
   %51 = icmp ne i8 %50, 0
   %52 = icmp ugt i64 %49, 1
-  %53 = select i1 %51, i1 %52, i1 false
+  %53 = and i1 %52, %51
   br i1 %53, label %.lr.ph.i.i55, label %_Z11_mi_strlcatPcPKcm.exit62, !llvm.loop !242
 
 _Z11_mi_strlcatPcPKcm.exit62:                     ; preds = %.lr.ph.i.i55, %.preheader.i.i49

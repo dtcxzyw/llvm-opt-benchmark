@@ -25935,7 +25935,7 @@ GroupGenerator_next.exit:                         ; preds = %20, %23
   %29 = sub i64 %28, %.0100
   %30 = tail call i64 @llvm.smax.i64(i64 %29, i64 0)
   %31 = icmp slt i64 %.0100, 0
-  %32 = tail call i64 @llvm.smin.i64(i64 %.0100, i64 %28)
+  %32 = tail call i64 @llvm.umin.i64(i64 %.0100, i64 %28)
   %33 = select i1 %31, i64 0, i64 %32
   %34 = select i1 %.not116, i64 0, i64 %.val
   %35 = add i64 %34, %.0105
@@ -25956,17 +25956,19 @@ GroupGenerator_next.exit.thread:                  ; preds = %20, %GroupGenerator
   %spec.select120 = tail call i64 @llvm.smax.i64(i64 %44, i64 1)
   %45 = sub i64 %spec.select120, %.0100
   %46 = tail call i64 @llvm.smax.i64(i64 %45, i64 0)
-  %47 = tail call i64 @llvm.smax.i64(i64 %.0100, i64 0)
-  %48 = select i1 %.not116, i64 0, i64 %.val
-  %49 = add i64 %48, %.0105
-  %50 = add i64 %49, %46
-  %51 = add i64 %50, %47
-  %52 = select i1 %.not116, ptr null, ptr %7
-  call fastcc void @InsertThousandsGrouping_fill(ptr noundef %0, ptr noundef %10, ptr noundef %2, ptr noundef %11, i64 noundef %47, i64 noundef %46, ptr noundef %52, i64 noundef %.val, ptr noundef %8)
+  %47 = icmp slt i64 %.0100, 0
+  %48 = tail call i64 @llvm.umin.i64(i64 %.0100, i64 %spec.select120)
+  %49 = select i1 %47, i64 0, i64 %48
+  %50 = select i1 %.not116, i64 0, i64 %.val
+  %51 = add i64 %50, %.0105
+  %52 = add i64 %51, %46
+  %53 = add i64 %52, %49
+  %54 = select i1 %.not116, ptr null, ptr %7
+  call fastcc void @InsertThousandsGrouping_fill(ptr noundef %0, ptr noundef %10, ptr noundef %2, ptr noundef %11, i64 noundef %49, i64 noundef %46, ptr noundef %54, i64 noundef %.val, ptr noundef %8)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %26, %GroupGenerator_next.exit.thread
-  %.2 = phi i64 [ %51, %GroupGenerator_next.exit.thread ], [ %37, %26 ]
+  %.2 = phi i64 [ %53, %GroupGenerator_next.exit.thread ], [ %37, %26 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i64 %.2
@@ -53653,7 +53655,7 @@ define internal fastcc i64 @ucs1lib__two_way_find(ptr noundef readonly %0, i64 n
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
-define internal fastcc i64 @ucs1lib__two_way_count(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef range(i64 6, -9223372036854775808) %3, i64 noundef %4) unnamed_addr #30 {
+define internal fastcc noundef i64 @ucs1lib__two_way_count(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef range(i64 6, -9223372036854775808) %3, i64 noundef %4) unnamed_addr #30 {
   %6 = alloca %struct.ucs1lib__pre, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call fastcc void @ucs1lib__preprocess(ptr noundef %2, i64 noundef %3, ptr noundef %6)
@@ -54840,7 +54842,7 @@ define internal fastcc range(i64 -4611686018427387904, 4611686018427387904) i64 
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
-define internal fastcc i64 @ucs2lib__two_way_count(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef range(i64 6, -9223372036854775808) %3, i64 noundef %4) unnamed_addr #30 {
+define internal fastcc noundef i64 @ucs2lib__two_way_count(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef range(i64 6, -9223372036854775808) %3, i64 noundef %4) unnamed_addr #30 {
   %6 = alloca %struct.ucs2lib__pre, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call fastcc void @ucs2lib__preprocess(ptr noundef %2, i64 noundef %3, ptr noundef %6)
@@ -55962,7 +55964,7 @@ define internal fastcc range(i64 -2305843009213693952, 2305843009213693952) i64 
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
-define internal fastcc i64 @ucs4lib__two_way_count(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef range(i64 6, -9223372036854775808) %3, i64 noundef %4) unnamed_addr #30 {
+define internal fastcc noundef i64 @ucs4lib__two_way_count(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef range(i64 6, -9223372036854775808) %3, i64 noundef %4) unnamed_addr #30 {
   %6 = alloca %struct.ucs4lib__pre, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call fastcc void @ucs4lib__preprocess(ptr noundef %2, i64 noundef %3, ptr noundef %6)

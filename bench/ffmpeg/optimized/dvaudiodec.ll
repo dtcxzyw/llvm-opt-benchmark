@@ -66,42 +66,44 @@ define internal range(i32 -22, 1) i32 @decode_init(ptr noundef %0) #0 {
   %24 = load i32, ptr %16, align 4, !tbaa !31
   %.not = icmp eq i32 %24, 0
   %25 = select i1 %.not, i32 15, i32 18
+  %26 = mul nuw nsw i32 %25, 3
   %.rhs.trunc = trunc nuw nsw i32 %25 to i16
-  %26 = trunc nuw nsw i32 %25 to i16
-  %.rhs.trunc41 = mul nuw nsw i16 %26, 3
   %27 = load i32, ptr %21, align 4, !tbaa !33
-  %28 = trunc i32 %27 to i16
-  %29 = add i16 %28, 2
-  %30 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  br label %31
+  %28 = add nsw i32 %27, 2
+  %.rhs.trunc39 = trunc nuw nsw i32 %26 to i16
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  br label %30
 
-31:                                               ; preds = %14, %31
-  %indvars.iv = phi i64 [ 0, %14 ], [ %indvars.iv.next, %31 ]
+30:                                               ; preds = %14, %30
+  %indvars.iv = phi i64 [ 0, %14 ], [ %indvars.iv.next, %30 ]
   %.lhs.trunc = trunc i64 %indvars.iv to i16
-  %32 = urem i16 %.lhs.trunc, 3
-  %narrow = mul nuw nsw i16 %32, 21
-  %33 = udiv i16 %.lhs.trunc, 3
-  %narrow46 = mul nuw nsw i16 %33, 9
-  %narrow47 = add nuw nsw i16 %narrow, %narrow46
-  %34 = udiv i16 %.lhs.trunc, %.rhs.trunc
-  %.lhs.trunc38 = trunc i16 %34 to i8
-  %35 = urem i8 %.lhs.trunc38, 3
-  %.zext39 = zext nneg i8 %35 to i16
-  %.lhs.trunc40 = add nuw i16 %narrow47, %.zext39
-  %36 = urem i16 %.lhs.trunc40, %.rhs.trunc41
-  %narrow48 = mul nuw nsw i16 %36, 80
-  %37 = udiv i16 %.lhs.trunc, %.rhs.trunc41
-  %38 = mul i16 %29, %37
-  %39 = or disjoint i16 %narrow48, 8
-  %40 = add i16 %39, %38
-  %41 = getelementptr inbounds nuw i16, ptr %30, i64 %indvars.iv
-  store i16 %40, ptr %41, align 2, !tbaa !38
+  %31 = udiv i16 %.lhs.trunc, 3
+  %.zext = zext nneg i16 %31 to i32
+  %32 = mul nsw i32 %.zext, -54
+  %33 = trunc i64 %indvars.iv to i32
+  %34 = mul i32 %33, 21
+  %35 = add nsw i32 %32, %34
+  %36 = udiv i16 %.lhs.trunc, %.rhs.trunc
+  %.lhs.trunc36 = trunc i16 %36 to i8
+  %37 = urem i8 %.lhs.trunc36, 3
+  %.zext37 = zext nneg i8 %37 to i32
+  %38 = add nsw i32 %35, %.zext37
+  %39 = urem i32 %38, %26
+  %40 = mul nuw nsw i32 %39, 80
+  %41 = udiv i16 %.lhs.trunc, %.rhs.trunc39
+  %.zext40 = zext nneg i16 %41 to i32
+  %42 = mul i32 %28, %.zext40
+  %43 = add i32 %42, %40
+  %44 = trunc i32 %43 to i16
+  %45 = add i16 %44, 8
+  %46 = getelementptr inbounds nuw i16, ptr %29, i64 %indvars.iv
+  store i16 %45, ptr %46, align 2, !tbaa !38
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 2000
-  br i1 %exitcond.not, label %.loopexit, label %31, !llvm.loop !40
+  br i1 %exitcond.not, label %.loopexit, label %30, !llvm.loop !40
 
-.loopexit:                                        ; preds = %31, %8
-  %.0 = phi i32 [ -22, %8 ], [ 0, %31 ]
+.loopexit:                                        ; preds = %30, %8
+  %.0 = phi i32 [ -22, %8 ], [ 0, %30 ]
   ret i32 %.0
 }
 

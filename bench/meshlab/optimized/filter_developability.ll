@@ -17897,7 +17897,7 @@ _Z21regionNormalDeviationI6CMeshOEdRK16StarPartitioningIT_EbRS2_.exit34: ; preds
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_Z25regionNormalDeviationGradI6CMeshOEvNT_13VertexPointerER16StarPartitioningIS1_EbRS1_RNS1_22PerFaceAttributeHandleIdEERNS1_24PerVertexAttributeHandleISt6vectorINS1_11FacePointerESaISC_EEEERNSA_IN3vcg6Point3IdEEEE(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i1 noundef zeroext %2, ptr noundef nonnull align 8 dereferenceable(1196) %3, ptr noundef nonnull align 8 dereferenceable(12) %4, ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(12) %6) local_unnamed_addr #16 comdat {
-._crit_edge134:
+._crit_edge131:
   %7 = alloca %"class.vcg::Point3.175", align 8
   %8 = alloca %"class.vcg::Point3.175", align 8
   %9 = alloca %"class.vcg::Point3.175", align 8
@@ -17924,9 +17924,9 @@ define linkonce_odr void @_Z25regionNormalDeviationGradI6CMeshOEvNT_13VertexPoin
   %29 = add nsw i32 %28, %18
   %30 = add nsw i32 %29, -1
   %31 = icmp slt i32 %18, %30
-  br i1 %31, label %.lr.ph124, label %._crit_edge
+  br i1 %31, label %.lr.ph121, label %._crit_edge
 
-.lr.ph124:                                        ; preds = %._crit_edge134
+.lr.ph121:                                        ; preds = %._crit_edge131
   %32 = ptrtoint ptr %0 to i64
   %33 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %34 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -17941,7 +17941,7 @@ define linkonce_odr void @_Z25regionNormalDeviationGradI6CMeshOEvNT_13VertexPoin
   %.sroa.1889.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 56
   %.sroa.2191.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 64
   %37 = sitofp i32 %28 to double
-  %square119 = fmul double %37, %37
+  %square116 = fmul double %37, %37
   %38 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %39 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %40 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -17957,22 +17957,22 @@ define linkonce_odr void @_Z25regionNormalDeviationGradI6CMeshOEvNT_13VertexPoin
   br label %42
 
 .loopexit:                                        ; preds = %293, %42
-  %exitcond133.not = icmp eq i32 %43, %30
-  br i1 %exitcond133.not, label %._crit_edge, label %42, !llvm.loop !205
+  %exitcond130.not = icmp eq i32 %43, %30
+  br i1 %exitcond130.not, label %._crit_edge, label %42, !llvm.loop !205
 
-42:                                               ; preds = %.lr.ph124, %.loopexit
-  %.048123 = phi i32 [ %18, %.lr.ph124 ], [ %43, %.loopexit ]
-  %43 = add nsw i32 %.048123, 1
+42:                                               ; preds = %.lr.ph121, %.loopexit
+  %.048120 = phi i32 [ %18, %.lr.ph121 ], [ %43, %.loopexit ]
+  %43 = add nsw i32 %.048120, 1
   %44 = icmp slt i32 %43, %29
   br i1 %44, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %42
-  %45 = srem i32 %.048123, %26
+  %45 = srem i32 %.048120, %26
   %46 = sext i32 %45 to i64
   br label %47
 
 47:                                               ; preds = %.lr.ph, %293
-  %.047122 = phi i32 [ %43, %.lr.ph ], [ %294, %293 ]
+  %.047119 = phi i32 [ %43, %.lr.ph ], [ %294, %293 ]
   %48 = load ptr, ptr %5, align 8
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 16
   %50 = getelementptr inbounds nuw i8, ptr %48, i64 8
@@ -17986,7 +17986,7 @@ define linkonce_odr void @_Z25regionNormalDeviationGradI6CMeshOEvNT_13VertexPoin
   %58 = load ptr, ptr %57, align 8
   %59 = getelementptr inbounds ptr, ptr %58, i64 %46
   %60 = load ptr, ptr %59, align 8
-  %61 = srem i32 %.047122, %26
+  %61 = srem i32 %.047119, %26
   %62 = sext i32 %61 to i64
   %63 = getelementptr inbounds ptr, ptr %58, i64 %62
   %64 = load ptr, ptr %63, align 8
@@ -18025,17 +18025,16 @@ define linkonce_odr void @_Z25regionNormalDeviationGradI6CMeshOEvNT_13VertexPoin
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %.cmp = icmp eq i64 %indvars.iv, 0
-  %90 = shl i64 %indvars.iv, 32
-  %sext = add i64 %90, -4294967296
-  %91 = ashr exact i64 %sext, 32
+  %90 = add nuw i64 %indvars.iv, 4294967295
+  %91 = and i64 %90, 4294967295
   %92 = select i1 %.cmp, i64 2, i64 %91
-  %93 = getelementptr inbounds ptr, ptr %83, i64 %92
+  %93 = getelementptr inbounds nuw ptr, ptr %83, i64 %92
   %94 = load ptr, ptr %93, align 8, !noalias !206
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %.cmp112.not = icmp eq i64 %indvars.iv, 2
+  %.cmp111.not = icmp eq i64 %indvars.iv, 2
   %96 = and i64 %indvars.iv.next, 4294967295
-  %97 = select i1 %.cmp112.not, i64 0, i64 %96
+  %97 = select i1 %.cmp111.not, i64 0, i64 %96
   %98 = getelementptr inbounds nuw ptr, ptr %83, i64 %97
   %99 = load ptr, ptr %98, align 8, !noalias !206
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 8
@@ -18150,9 +18149,9 @@ _Z14faceNormalGradI6CMeshOEN3vcg8Matrix33IdEENT_11FacePointerEiRS4_RNS4_22PerFac
   %165 = fmul double %158, 2.000000e+00
   %166 = fmul double %161, 2.000000e+00
   %167 = fmul double %164, 2.000000e+00
-  %168 = fdiv double %165, %square119
-  %169 = fdiv double %166, %square119
-  %170 = fdiv double %167, %square119
+  %168 = fdiv double %165, %square116
+  %169 = fdiv double %166, %square116
+  %170 = fdiv double %167, %square116
   %171 = load ptr, ptr %6, align 8
   %172 = getelementptr inbounds nuw i8, ptr %171, i64 16
   %173 = getelementptr inbounds nuw i8, ptr %171, i64 8
@@ -18179,24 +18178,23 @@ _Z14faceNormalGradI6CMeshOEN3vcg8Matrix33IdEENT_11FacePointerEiRS4_RNS4_22PerFac
   br i1 %exitcond.not, label %.preheader, label %87, !llvm.loop !215
 
 190:                                              ; preds = %.preheader, %_Z14faceNormalGradI6CMeshOEN3vcg8Matrix33IdEENT_11FacePointerEiRS4_RNS4_22PerFaceAttributeHandleIdEE.exit61
-  %indvars.iv127 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next128, %_Z14faceNormalGradI6CMeshOEN3vcg8Matrix33IdEENT_11FacePointerEiRS4_RNS4_22PerFaceAttributeHandleIdEE.exit61 ]
-  %191 = getelementptr inbounds nuw ptr, ptr %85, i64 %indvars.iv127
+  %indvars.iv124 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next125, %_Z14faceNormalGradI6CMeshOEN3vcg8Matrix33IdEENT_11FacePointerEiRS4_RNS4_22PerFaceAttributeHandleIdEE.exit61 ]
+  %191 = getelementptr inbounds nuw ptr, ptr %85, i64 %indvars.iv124
   %192 = load ptr, ptr %191, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !216)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %.cmp115 = icmp eq i64 %indvars.iv127, 0
-  %193 = shl i64 %indvars.iv127, 32
-  %sext150 = add i64 %193, -4294967296
-  %194 = ashr exact i64 %sext150, 32
-  %195 = select i1 %.cmp115, i64 2, i64 %194
-  %196 = getelementptr inbounds ptr, ptr %85, i64 %195
+  %.cmp113 = icmp eq i64 %indvars.iv124, 0
+  %193 = add nuw i64 %indvars.iv124, 4294967295
+  %194 = and i64 %193, 4294967295
+  %195 = select i1 %.cmp113, i64 2, i64 %194
+  %196 = getelementptr inbounds nuw ptr, ptr %85, i64 %195
   %197 = load ptr, ptr %196, align 8, !noalias !216
   %198 = getelementptr inbounds nuw i8, ptr %197, i64 8
-  %indvars.iv.next128 = add nuw nsw i64 %indvars.iv127, 1
-  %.cmp118.not = icmp eq i64 %indvars.iv127, 2
-  %199 = and i64 %indvars.iv.next128, 4294967295
-  %200 = select i1 %.cmp118.not, i64 0, i64 %199
+  %indvars.iv.next125 = add nuw nsw i64 %indvars.iv124, 1
+  %.cmp115.not = icmp eq i64 %indvars.iv124, 2
+  %199 = and i64 %indvars.iv.next125, 4294967295
+  %200 = select i1 %.cmp115.not, i64 0, i64 %199
   %201 = getelementptr inbounds nuw ptr, ptr %85, i64 %200
   %202 = load ptr, ptr %201, align 8, !noalias !216
   %203 = getelementptr inbounds nuw i8, ptr %202, i64 8
@@ -18311,9 +18309,9 @@ _Z14faceNormalGradI6CMeshOEN3vcg8Matrix33IdEENT_11FacePointerEiRS4_RNS4_22PerFac
   %268 = fmul double %261, 2.000000e+00
   %269 = fmul double %264, 2.000000e+00
   %270 = fmul double %267, 2.000000e+00
-  %271 = fdiv double %268, %square119
-  %272 = fdiv double %269, %square119
-  %273 = fdiv double %270, %square119
+  %271 = fdiv double %268, %square116
+  %272 = fdiv double %269, %square116
+  %273 = fdiv double %270, %square116
   %274 = load ptr, ptr %6, align 8
   %275 = getelementptr inbounds nuw i8, ptr %274, i64 16
   %276 = getelementptr inbounds nuw i8, ptr %274, i64 8
@@ -18336,15 +18334,15 @@ _Z14faceNormalGradI6CMeshOEN3vcg8Matrix33IdEENT_11FacePointerEiRS4_RNS4_22PerFac
   %291 = load double, ptr %290, align 8
   %292 = fsub double %291, %273
   store double %292, ptr %290, align 8
-  %exitcond131.not = icmp eq i64 %indvars.iv.next128, 3
-  br i1 %exitcond131.not, label %293, label %190, !llvm.loop !222
+  %exitcond128.not = icmp eq i64 %indvars.iv.next125, 3
+  br i1 %exitcond128.not, label %293, label %190, !llvm.loop !222
 
 293:                                              ; preds = %_Z14faceNormalGradI6CMeshOEN3vcg8Matrix33IdEENT_11FacePointerEiRS4_RNS4_22PerFaceAttributeHandleIdEE.exit61
-  %294 = add nsw i32 %.047122, 1
-  %exitcond132.not = icmp eq i32 %294, %29
-  br i1 %exitcond132.not, label %.loopexit, label %47, !llvm.loop !223
+  %294 = add nsw i32 %.047119, 1
+  %exitcond129.not = icmp eq i32 %294, %29
+  br i1 %exitcond129.not, label %.loopexit, label %47, !llvm.loop !223
 
-._crit_edge:                                      ; preds = %.loopexit, %._crit_edge134
+._crit_edge:                                      ; preds = %.loopexit, %._crit_edge131
   ret void
 }
 

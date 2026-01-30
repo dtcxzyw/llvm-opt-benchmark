@@ -107,7 +107,7 @@ define noundef range(i64 0, 6) i64 @"_ZN57_$LT$log..Level$u20$as$u20$core..str..
   br label %9
 
 9:                                                ; preds = %.loopexit.i, %.lr.ph.i
-  %.014.i = phi i64 [ 0, %.lr.ph.i ], [ %31, %.loopexit.i ]
+  %.015.i = phi i64 [ 0, %.lr.ph.i ], [ %31, %.loopexit.i ]
   %.idx = phi i64 [ 0, %.lr.ph.i ], [ %.add, %.loopexit.i ]
   %.ptr = getelementptr inbounds nuw i8, ptr @_ZN3log15LOG_LEVEL_NAMES17h19681b37bc026262E, i64 %.idx
   %.add = add nuw nsw i64 %.idx, 16
@@ -143,7 +143,7 @@ define noundef range(i64 0, 6) i64 @"_ZN57_$LT$log..Level$u20$as$u20$core..str..
 19:                                               ; preds = %21, %12
   %20 = phi i64 [ %22, %21 ], [ 0, %12 ]
   %exitcond.not.i.i.i = icmp eq i64 %20, %16
-  br i1 %exitcond.not.i.i.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17hedc9a746eb35aaffE.exit.thread", label %21
+  br i1 %exitcond.not.i.i.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17hedc9a746eb35aaffE.exit", label %21
 
 21:                                               ; preds = %19
   %22 = add i64 %20, 1
@@ -163,21 +163,17 @@ define noundef range(i64 0, 6) i64 @"_ZN57_$LT$log..Level$u20$as$u20$core..str..
   br i1 %.not.i.i.i.i, label %19, label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %21, %9
-  %31 = add i64 %.014.i, 1
+  %31 = add nuw nsw i64 %.015.i, 1
   %32 = icmp eq i64 %.add, 96
-  br i1 %32, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h19ce84a97ce69529E.exit.loopexit", label %9
+  br i1 %32, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h19ce84a97ce69529E.exit", label %9
 
-"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17hedc9a746eb35aaffE.exit.thread": ; preds = %19
-  %33 = icmp samesign ult i64 %.014.i, 6
+"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17hedc9a746eb35aaffE.exit": ; preds = %19
+  %33 = icmp samesign ult i64 %.015.i, 6
   call void @llvm.assume(i1 %33)
-  %.not.i.not.i.i.i.i17 = icmp eq i64 %.014.i, 0
-  br i1 %.not.i.not.i.i.i.i17, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h19ce84a97ce69529E.exit.loopexit", label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h19ce84a97ce69529E.exit"
-
-"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h19ce84a97ce69529E.exit.loopexit": ; preds = %.loopexit.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17hedc9a746eb35aaffE.exit.thread"
   br label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h19ce84a97ce69529E.exit"
 
-"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h19ce84a97ce69529E.exit": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17hedc9a746eb35aaffE.exit.thread", %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h19ce84a97ce69529E.exit.loopexit"
-  %.0.i = phi i64 [ 0, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h19ce84a97ce69529E.exit.loopexit" ], [ %.014.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17hedc9a746eb35aaffE.exit.thread" ]
+"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h19ce84a97ce69529E.exit": ; preds = %.loopexit.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17hedc9a746eb35aaffE.exit"
+  %.0.i = phi i64 [ %.015.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17hedc9a746eb35aaffE.exit" ], [ 0, %.loopexit.i ]
   ret i64 %.0.i
 }
 
@@ -232,7 +228,7 @@ define noundef range(i64 0, 7) i64 @"_ZN63_$LT$log..LevelFilter$u20$as$u20$core.
   br label %9
 
 9:                                                ; preds = %.loopexit.i, %.lr.ph.i
-  %.014.i = phi i64 [ 0, %.lr.ph.i ], [ %31, %.loopexit.i ]
+  %.015.i = phi i64 [ 0, %.lr.ph.i ], [ %31, %.loopexit.i ]
   %.idx = phi i64 [ 0, %.lr.ph.i ], [ %.add, %.loopexit.i ]
   %.ptr = getelementptr inbounds nuw i8, ptr @_ZN3log15LOG_LEVEL_NAMES17h19681b37bc026262E, i64 %.idx
   %.add = add nuw nsw i64 %.idx, 16
@@ -288,17 +284,17 @@ define noundef range(i64 0, 7) i64 @"_ZN63_$LT$log..LevelFilter$u20$as$u20$core.
   br i1 %.not.i.i.i.i, label %19, label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %21, %9
-  %31 = add nuw nsw i64 %.014.i, 1
+  %31 = add nuw nsw i64 %.015.i, 1
   %32 = icmp eq i64 %.add, 96
   br i1 %32, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h45c01db3aff8e53eE.exit.thread", label %9
 
 33:                                               ; preds = %19
-  %34 = icmp samesign ult i64 %.014.i, 6
+  %34 = icmp samesign ult i64 %.015.i, 6
   call void @llvm.assume(i1 %34)
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h45c01db3aff8e53eE.exit.thread"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h45c01db3aff8e53eE.exit.thread": ; preds = %.loopexit.i, %33
-  %.07 = phi i64 [ %.014.i, %33 ], [ 6, %.loopexit.i ]
+  %.07 = phi i64 [ %.015.i, %33 ], [ 6, %.loopexit.i ]
   ret i64 %.07
 }
 

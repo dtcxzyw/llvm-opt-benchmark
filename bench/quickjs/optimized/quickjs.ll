@@ -59458,10 +59458,9 @@ JS_DupValue.exit296:                              ; preds = %105, %116, %JS_DupV
 
 JS_NewInt64.exit:                                 ; preds = %147
   %154 = icmp samesign ult i64 %.024243, 2147483648
-  %.sroa.0.0.insert.ext.i.i = and i64 %.024243, 4294967295
   %155 = uitofp nneg i64 %.024243 to double
   %156 = bitcast double %155 to i64
-  %.sroa.0.0.insert.ext.i.i.pn = select i1 %154, i64 %.sroa.0.0.insert.ext.i.i, i64 %156
+  %.sroa.0.0.insert.ext.i.i.pn = select i1 %154, i64 %.024243, i64 %156
   %.sroa.3.0.i = select i1 %154, i64 0, i64 7
   %157 = call fastcc { i64, i64 } @JS_ToStringFree(ptr noundef %0, i64 %.sroa.0.0.insert.ext.i.i.pn, i64 %.sroa.3.0.i)
   %158 = extractvalue { i64, i64 } %157, 0
@@ -192138,10 +192137,9 @@ JS_DupValue.exit:                                 ; preds = %156, %163
   store i64 %158, ptr %10, align 8
   store i64 %160, ptr %155, align 8
   %167 = icmp ult i64 %.1160240, 2147483648
-  %.sroa.0.0.insert.ext.i.i.i = and i64 %.1160240, 4294967295
   %168 = sitofp i64 %.1160240 to double
   %169 = bitcast double %168 to i64
-  %.sroa.0.0.insert.ext.i.i.pn.i = select i1 %167, i64 %.sroa.0.0.insert.ext.i.i.i, i64 %169
+  %.sroa.0.0.insert.ext.i.i.pn.i = select i1 %167, i64 %.1160240, i64 %169
   %.sroa.3.0.i.i = select i1 %167, i64 0, i64 7
   %170 = call i32 @JS_DefinePropertyValueValue(ptr noundef %0, i64 %119, i64 %120, i64 %.sroa.0.0.insert.ext.i.i.pn.i, i64 %.sroa.3.0.i.i, ptr noundef nonnull byval(%struct.JSValue) align 8 %10, i32 noundef 16391)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -209314,7 +209312,7 @@ JS_FreeValue.exit65:                              ; preds = %JS_FreeValue.exit64
   br label %JS_FreeValue.exit68
 
 77:                                               ; preds = %43
-  %78 = zext i32 %.092 to i64
+  %78 = zext nneg i32 %.092 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 %45, ptr %7, align 8
   store i64 %44, ptr %42, align 8

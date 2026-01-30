@@ -5140,7 +5140,7 @@ define hidden noundef i64 @_ZN6brotli3enc19backward_references19hash_to_binary_t
   %111 = icmp ugt i64 %109, %6
   %or.cond = or i1 %110, %111
   %112 = icmp eq i64 %108, 0
-  %or.cond2 = select i1 %or.cond, i1 true, i1 %112
+  %or.cond2 = or i1 %112, %or.cond
   br i1 %or.cond2, label %._crit_edge, label %.lr.ph
 
 113:                                              ; preds = %120, %96

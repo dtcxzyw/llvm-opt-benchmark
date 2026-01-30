@@ -75780,7 +75780,7 @@ _ZNSt6vectorIcSaIcEE7reserveEm.exit.i.i:          ; preds = %_ZNSt12_Vector_base
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %54, i8 0, i64 16, i1 false)
   %55 = icmp ne i32 %25, 0
   %56 = icmp ne i32 %30, 0
-  %57 = select i1 %55, i1 %56, i1 false
+  %57 = and i1 %55, %56
   br i1 %57, label %.lr.ph.i.i, label %._crit_edge.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZNSt6vectorIcSaIcEE7reserveEm.exit.i.i
@@ -75947,7 +75947,7 @@ _ZNSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
 .loopexit178.i.i:                                 ; preds = %89, %73, %.loopexit175.i.i, %84
   %121 = icmp ult i64 %65, %29
   %122 = icmp ult i64 %71, %36
-  %123 = select i1 %121, i1 %122, i1 false
+  %123 = and i1 %121, %122
   br i1 %123, label %59, label %._crit_edge.i.i, !llvm.loop !1726
 
 ._crit_edge.i.i:                                  ; preds = %.loopexit178.i.i, %_ZNSt6vectorIcSaIcEE7reserveEm.exit.i.i
@@ -109151,10 +109151,9 @@ define linkonce_odr noundef ptr @_ZN10duckdb_fmt2v68internal14format_decimalIocZ
 13:                                               ; preds = %.lr.ph, %_ZZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE10int_writerInNS0_18basic_format_specsIcEEE10num_writerclIRPcEEvOT_ENKUlSD_E_clESD_.exit18
   %.01332 = phi i128 [ %.sroa.0.0.insert.insert, %.lr.ph ], [ %14, %_ZZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE10int_writerInNS0_18basic_format_specsIcEEE10num_writerclIRPcEEvOT_ENKUlSD_E_clESD_.exit18 ]
   %.031 = phi ptr [ %7, %.lr.ph ], [ %.2, %_ZZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE10int_writerInNS0_18basic_format_specsIcEEE10num_writerclIRPcEEvOT_ENKUlSD_E_clESD_.exit18 ]
-  %.01332.frozen = freeze i128 %.01332
-  %14 = udiv i128 %.01332.frozen, 100
+  %14 = udiv i128 %.01332, 100
   %15 = mul i128 %14, 100
-  %.decomposed = sub i128 %.01332.frozen, %15
+  %.decomposed = sub i128 %.01332, %15
   %.tr = trunc nuw nsw i128 %.decomposed to i64
   %16 = shl nuw nsw i64 %.tr, 1
   %17 = getelementptr inbounds nuw i8, ptr @_ZN10duckdb_fmt2v68internal10basic_dataIvE6digitsE, i64 %16
@@ -111096,10 +111095,9 @@ _ZN10duckdb_fmt2v68internal12count_digitsEo.exit.i.i: ; preds = %33, %31, %27, %
 .lr.ph.i.i.i.i.i:                                 ; preds = %47, %.lr.ph.i.i.i.i.i
   %.02326.i.i.i.i.i = phi ptr [ %60, %.lr.ph.i.i.i.i.i ], [ %50, %47 ]
   %.02425.i.i.i.i.i = phi i128 [ %52, %.lr.ph.i.i.i.i.i ], [ %.sroa.0.0.insert.insert.i.i.i, %47 ]
-  %.02425.i.i.i.i.i.frozen = freeze i128 %.02425.i.i.i.i.i
-  %52 = udiv i128 %.02425.i.i.i.i.i.frozen, 100
+  %52 = udiv i128 %.02425.i.i.i.i.i, 100
   %53 = mul i128 %52, 100
-  %.decomposed = sub i128 %.02425.i.i.i.i.i.frozen, %53
+  %.decomposed = sub i128 %.02425.i.i.i.i.i, %53
   %.tr.i.i.i.i.i = trunc nuw nsw i128 %.decomposed to i64
   %54 = shl nuw nsw i64 %.tr.i.i.i.i.i, 1
   %55 = getelementptr inbounds nuw i8, ptr @_ZN10duckdb_fmt2v68internal10basic_dataIvE6digitsE, i64 %54
@@ -112409,10 +112407,9 @@ define linkonce_odr noundef ptr @_ZN10duckdb_fmt2v68internal14format_decimalIocZ
 13:                                               ; preds = %.lr.ph, %_ZZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE10int_writerIoNS0_18basic_format_specsIcEEE10num_writerclIRPcEEvOT_ENKUlSD_E_clESD_.exit18
   %.01332 = phi i128 [ %.sroa.0.0.insert.insert, %.lr.ph ], [ %14, %_ZZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE10int_writerIoNS0_18basic_format_specsIcEEE10num_writerclIRPcEEvOT_ENKUlSD_E_clESD_.exit18 ]
   %.031 = phi ptr [ %7, %.lr.ph ], [ %.2, %_ZZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE10int_writerIoNS0_18basic_format_specsIcEEE10num_writerclIRPcEEvOT_ENKUlSD_E_clESD_.exit18 ]
-  %.01332.frozen = freeze i128 %.01332
-  %14 = udiv i128 %.01332.frozen, 100
+  %14 = udiv i128 %.01332, 100
   %15 = mul i128 %14, 100
-  %.decomposed = sub i128 %.01332.frozen, %15
+  %.decomposed = sub i128 %.01332, %15
   %.tr = trunc nuw nsw i128 %.decomposed to i64
   %16 = shl nuw nsw i64 %.tr, 1
   %17 = getelementptr inbounds nuw i8, ptr @_ZN10duckdb_fmt2v68internal10basic_dataIvE6digitsE, i64 %16

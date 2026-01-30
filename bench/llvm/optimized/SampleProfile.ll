@@ -17927,7 +17927,7 @@ define linkonce_odr hidden noundef i64 @_ZNK4llvm10sampleprof15FunctionSamples22
   %5 = load i64, ptr %4, align 8
   %.not = icmp ne i64 %5, 0
   %or.cond.not = select i1 %3, i1 %.not, i1 false
-  br i1 %or.cond.not, label %46, label %6
+  br i1 %or.cond.not, label %51, label %6
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -17968,50 +17968,57 @@ _ZNK4llvm10sampleprof12LineLocationltERKS1_.exit: ; preds = %20
 .critedge2:                                       ; preds = %11, %12, %_ZNK4llvm10sampleprof12LineLocationltERKS1_.exit
   %27 = getelementptr inbounds nuw i8, ptr %.pre, i64 40
   %28 = load i64, ptr %27, align 8, !tbaa !843
+  %29 = freeze i64 %28
   br label %.loopexit
 
 .critedge:                                        ; preds = %6
   br i1 %10, label %.thread, label %.critedge.thread
 
 .thread:                                          ; preds = %.critedge
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %30 = load i64, ptr %29, align 8
-  %31 = icmp ne i64 %30, 0
-  %32 = zext i1 %31 to i64
-  br label %46
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %31 = load i64, ptr %30, align 8
+  %32 = icmp ne i64 %31, 0
+  %33 = zext i1 %32 to i64
+  br label %51
 
 .critedge.thread:                                 ; preds = %_ZNK4llvm10sampleprof12LineLocationltERKS1_.exit, %20, %.critedge
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %34 = load ptr, ptr %33, align 8, !tbaa !615
-  %35 = getelementptr inbounds nuw i8, ptr %34, i64 64
-  %36 = load ptr, ptr %35, align 8, !tbaa !615
-  %37 = getelementptr inbounds nuw i8, ptr %34, i64 48
-  %.not2425 = icmp eq ptr %36, %37
-  br i1 %.not2425, label %.loopexit, label %.lr.ph
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %35 = load ptr, ptr %34, align 8, !tbaa !615
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 64
+  %37 = load ptr, ptr %36, align 8, !tbaa !615
+  %38 = getelementptr inbounds nuw i8, ptr %35, i64 48
+  %.not2425 = icmp eq ptr %37, %38
+  br i1 %.not2425, label %.loopexit.thread, label %.lr.ph
+
+.loopexit.thread:                                 ; preds = %.critedge.thread
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %40 = load i64, ptr %39, align 8
+  %41 = icmp ne i64 %40, 0
+  %42 = zext i1 %41 to i64
+  br label %51
 
 .lr.ph:                                           ; preds = %.critedge.thread, %.lr.ph
-  %.127 = phi i64 [ %40, %.lr.ph ], [ 0, %.critedge.thread ]
-  %.sroa.011.026 = phi ptr [ %41, %.lr.ph ], [ %36, %.critedge.thread ]
-  %38 = getelementptr inbounds nuw i8, ptr %.sroa.011.026, i64 48
-  %39 = tail call noundef i64 @_ZNK4llvm10sampleprof15FunctionSamples22getHeadSamplesEstimateEv(ptr noundef nonnull align 8 dereferenceable(176) %38)
-  %40 = add i64 %39, %.127
-  %41 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.011.026) #29
-  %.not24 = icmp eq ptr %41, %37
+  %.127 = phi i64 [ %45, %.lr.ph ], [ 0, %.critedge.thread ]
+  %.sroa.011.026 = phi ptr [ %46, %.lr.ph ], [ %37, %.critedge.thread ]
+  %43 = getelementptr inbounds nuw i8, ptr %.sroa.011.026, i64 48
+  %44 = tail call noundef i64 @_ZNK4llvm10sampleprof15FunctionSamples22getHeadSamplesEstimateEv(ptr noundef nonnull align 8 dereferenceable(176) %43)
+  %45 = add i64 %44, %.127
+  %46 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.011.026) #29
+  %.not24 = icmp eq ptr %46, %38
   br i1 %.not24, label %.loopexit, label %.lr.ph
 
-.loopexit:                                        ; preds = %.lr.ph, %.critedge.thread, %.critedge2
-  %.09 = phi i64 [ %28, %.critedge2 ], [ 0, %.critedge.thread ], [ %40, %.lr.ph ]
-  %.09.fr = freeze i64 %.09
-  %.not10 = icmp eq i64 %.09.fr, 0
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %43 = load i64, ptr %42, align 8
-  %44 = icmp ne i64 %43, 0
-  %45 = zext i1 %44 to i64
-  %spec.select = select i1 %.not10, i64 %45, i64 %.09.fr
-  br label %46
+.loopexit:                                        ; preds = %.lr.ph, %.critedge2
+  %.09 = phi i64 [ %29, %.critedge2 ], [ %45, %.lr.ph ]
+  %.not10 = icmp eq i64 %.09, 0
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %48 = load i64, ptr %47, align 8
+  %49 = icmp ne i64 %48, 0
+  %50 = zext i1 %49 to i64
+  %spec.select = select i1 %.not10, i64 %50, i64 %.09
+  br label %51
 
-46:                                               ; preds = %.loopexit, %1, %.thread
-  %.0 = phi i64 [ %5, %1 ], [ %spec.select, %.loopexit ], [ %32, %.thread ]
+51:                                               ; preds = %.loopexit, %.loopexit.thread, %1, %.thread
+  %.0 = phi i64 [ %5, %1 ], [ %33, %.thread ], [ %spec.select, %.loopexit ], [ %42, %.loopexit.thread ]
   ret i64 %.0
 }
 
@@ -52390,7 +52397,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIPKNS_10BasicBlockES4_ELb1EE9push_backE
 _ZN4llvm8SmallSetISt4pairIPKNS_10BasicBlockES4_ELj32ESt4lessIS5_EE10insertImplIRKS5_EES1_INS_16SmallSetIteratorIS5_Lj32ES7_EEbEOT_.exit881: ; preds = %_ZN4llvm8SmallSetISt4pairIPKNS_10BasicBlockES4_ELj32ESt4lessIS5_EE10insertImplIRKS5_EES1_INS_16SmallSetIteratorIS5_Lj32ES7_EEbEOT_.exit822, %_ZN4llvm8SmallSetISt4pairIPKNS_10BasicBlockES4_ELj32ESt4lessIS5_EE10insertImplIRKS5_EES1_INS_16SmallSetIteratorIS5_Lj32ES7_EEbEOT_.exit765, %2357, %1218, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockENS_11SmallVectorIS4_Lj8EEENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_EixERKS4_.exit399, %1716, %_ZNSt8_Rb_treeISt4pairIPKN4llvm10BasicBlockES4_ES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE10_M_insert_IRKS5_NSB_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS5_EPSt18_Rb_tree_node_baseSJ_OT_RT0_.exit.i1031, %_ZNKSt4lessISt4pairIPKN4llvm10BasicBlockES4_EEclERKS5_S8_.exit5.i.i1025, %2747, %2352, %1213, %2792, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPKNS_10BasicBlockES4_ELb1EE9push_backES5_.exit.i878, %_ZNK4llvm8SmallSetISt4pairIPKNS_10BasicBlockES4_ELj32ESt4lessIS5_EE5vfindERKS5_.exit.i869, %_ZNK4llvm15SmallPtrSetImplIPKNS_10BasicBlockEE5countES3_.exit.thread1109, %1202, %1208, %_ZNK4llvm15SmallPtrSetImplIPKNS_10BasicBlockEE5countES3_.exit.thread, %1201, %_ZN4llvm8SmallSetISt4pairIPKNS_10BasicBlockES4_ELj32ESt4lessIS5_EE10insertImplIRKS5_EES1_INS_16SmallSetIteratorIS5_Lj32ES7_EEbEOT_.exit, %_ZNK4llvm15SmallPtrSetImplIPKNS_10BasicBlockEE5countES3_.exit259, %_ZNK4llvm15SmallPtrSetImplIPKNS_10BasicBlockEE5countES3_.exit429, %_ZNK4llvm15SmallPtrSetImplIPKNS_10BasicBlockEE5countES3_.exit330.thread
   %.3 = phi i1 [ %.11362, %_ZNK4llvm15SmallPtrSetImplIPKNS_10BasicBlockEE5countES3_.exit330.thread ], [ %.11362, %1716 ], [ %.11362, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockENS_11SmallVectorIS4_Lj8EEENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_EixERKS4_.exit399 ], [ true, %_ZNSt8_Rb_treeISt4pairIPKN4llvm10BasicBlockES4_ES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE10_M_insert_IRKS5_NSB_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS5_EPSt18_Rb_tree_node_baseSJ_OT_RT0_.exit.i1031 ], [ %.11362, %_ZNK4llvm15SmallPtrSetImplIPKNS_10BasicBlockEE5countES3_.exit429 ], [ true, %1208 ], [ %.11362, %1202 ], [ %.11362, %_ZNK4llvm15SmallPtrSetImplIPKNS_10BasicBlockEE5countES3_.exit.thread1109 ], [ true, %1201 ], [ %.11362, %_ZNK4llvm15SmallPtrSetImplIPKNS_10BasicBlockEE5countES3_.exit.thread ], [ true, %_ZN4llvm8SmallSetISt4pairIPKNS_10BasicBlockES4_ELj32ESt4lessIS5_EE10insertImplIRKS5_EES1_INS_16SmallSetIteratorIS5_Lj32ES7_EEbEOT_.exit ], [ %.11362, %_ZNK4llvm15SmallPtrSetImplIPKNS_10BasicBlockEE5countES3_.exit259 ], [ %.11362, %_ZN4llvm8SmallSetISt4pairIPKNS_10BasicBlockES4_ELj32ESt4lessIS5_EE10insertImplIRKS5_EES1_INS_16SmallSetIteratorIS5_Lj32ES7_EEbEOT_.exit765 ], [ true, %2792 ], [ %.11362, %2352 ], [ true, %_ZNK4llvm8SmallSetISt4pairIPKNS_10BasicBlockES4_ELj32ESt4lessIS5_EE5vfindERKS5_.exit.i869 ], [ true, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPKNS_10BasicBlockES4_ELb1EE9push_backES5_.exit.i878 ], [ %.11362, %1213 ], [ true, %2747 ], [ true, %_ZNKSt4lessISt4pairIPKN4llvm10BasicBlockES4_EEclERKS5_S8_.exit5.i.i1025 ], [ %.11362, %1218 ], [ %.11362, %2357 ], [ %.11362, %_ZN4llvm8SmallSetISt4pairIPKNS_10BasicBlockES4_ELj32ESt4lessIS5_EE10insertImplIRKS5_EES1_INS_16SmallSetIteratorIS5_Lj32ES7_EEbEOT_.exit822 ]
   %2794 = icmp ne i64 %.161, 0
-  %or.cond = select i1 %2, i1 %2794, i1 false
+  %or.cond = and i1 %2, %2794
   br i1 %or.cond, label %2795, label %.critedge
 
 2795:                                             ; preds = %_ZN4llvm8SmallSetISt4pairIPKNS_10BasicBlockES4_ELj32ESt4lessIS5_EE10insertImplIRKS5_EES1_INS_16SmallSetIteratorIS5_Lj32ES7_EEbEOT_.exit881

@@ -8803,21 +8803,20 @@ _mi_bitmap_try_claim.exit.i:                      ; preds = %74
 
 .critedge.i.i:                                    ; preds = %92, %88
   %.023.lcssa.i.i = phi i64 [ %93, %92 ], [ %.02328.i.i, %88 ]
-  %.023.lcssa.i.fr.i = freeze i64 %.023.lcssa.i.i
-  %.not27.i.i = icmp eq i64 %.023.lcssa.i.fr.i, 0
+  %.not27.i.i = icmp eq i64 %.023.lcssa.i.i, 0
   br i1 %.not27.i.i, label %99, label %96
 
 96:                                               ; preds = %.critedge.i.i
   %97 = add i64 %.030.i.i, %60
-  call fastcc void @mi_arena_purge(ptr noundef nonnull readonly %37, i64 noundef %97, i64 noundef %.023.lcssa.i.fr.i, ptr noundef %2)
-  %98 = icmp eq i64 %.023.lcssa.i.fr.i, %.16288.i
+  call fastcc void @mi_arena_purge(ptr noundef nonnull readonly %37, i64 noundef %97, i64 noundef %.023.lcssa.i.i, ptr noundef %2)
+  %98 = icmp eq i64 %.023.lcssa.i.i, %.16288.i
   %spec.select.i.i = select i1 %98, i1 true, i1 %.02429.i.i
   br label %99
 
 99:                                               ; preds = %96, %.critedge.i.i
   %.1.i.i = phi i1 [ %spec.select.i.i, %96 ], [ %.02429.i.i, %.critedge.i.i ]
   %100 = add i64 %.030.i.i, 1
-  %101 = add i64 %100, %.023.lcssa.i.fr.i
+  %101 = add i64 %100, %.023.lcssa.i.i
   %102 = icmp ult i64 %101, %86
   br i1 %102, label %.preheader.i.i, label %mi_arena_purge_range.exit.i, !llvm.loop !136
 
@@ -15279,7 +15278,7 @@ _mi_strlcpy.exit:                                 ; preds = %.lr.ph.i
   %15 = load i8, ptr %13, align 1, !tbaa !54
   %16 = icmp ne i8 %15, 0
   %17 = icmp samesign ugt i64 %.017.i, 2
-  %18 = select i1 %16, i1 %17, i1 false
+  %18 = and i1 %17, %16
   br i1 %18, label %.lr.ph.i40, label %.preheader.i.i, !llvm.loop !221
 
 .preheader.i.i:                                   ; preds = %.lr.ph.i40, %.preheader.i
@@ -15303,7 +15302,7 @@ _mi_strlcpy.exit:                                 ; preds = %.lr.ph.i
   %26 = load i8, ptr %23, align 1, !tbaa !54
   %27 = icmp ne i8 %26, 0
   %28 = icmp ugt i64 %25, 1
-  %29 = select i1 %27, i1 %28, i1 false
+  %29 = and i1 %28, %27
   br i1 %29, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !220
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %.preheader.i.i
@@ -15346,7 +15345,7 @@ _mi_strlcat.exit:                                 ; preds = %_mi_strlcpy.exit, %
   %41 = load i8, ptr %39, align 1, !tbaa !54
   %42 = icmp ne i8 %41, 0
   %43 = icmp samesign ugt i64 %.017.i61, 2
-  %44 = select i1 %42, i1 %43, i1 false
+  %44 = and i1 %43, %42
   br i1 %44, label %.lr.ph.i60, label %.preheader.i.i50, !llvm.loop !221
 
 .preheader.i.i50:                                 ; preds = %.lr.ph.i60, %.preheader.i49
@@ -15370,7 +15369,7 @@ _mi_strlcat.exit:                                 ; preds = %_mi_strlcpy.exit, %
   %52 = load i8, ptr %49, align 1, !tbaa !54
   %53 = icmp ne i8 %52, 0
   %54 = icmp ugt i64 %51, 1
-  %55 = select i1 %53, i1 %54, i1 false
+  %55 = and i1 %54, %53
   br i1 %55, label %.lr.ph.i.i56, label %_mi_strlcat.exit63, !llvm.loop !220
 
 _mi_strlcat.exit63:                               ; preds = %.lr.ph.i.i56, %.preheader.i.i50
@@ -16015,7 +16014,7 @@ define hidden range(i32 -255, 256) i32 @_mi_strnicmp(ptr noundef readonly captur
   %7 = load i8, ptr %.01326, align 1, !tbaa !54
   %8 = icmp ne i8 %7, 0
   %9 = icmp ne i64 %.027, 0
-  %or.cond = select i1 %8, i1 %9, i1 false
+  %or.cond = and i1 %9, %8
   br i1 %or.cond, label %10, label %.critedge
 
 10:                                               ; preds = %.lr.ph
@@ -16077,7 +16076,7 @@ define hidden void @_mi_strlcpy(ptr noundef writeonly captures(address_is_null) 
   %7 = load i8, ptr %1, align 1, !tbaa !54
   %8 = icmp ne i8 %7, 0
   %9 = icmp ugt i64 %2, 1
-  %10 = and i1 %8, %9
+  %10 = and i1 %9, %8
   br i1 %10, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
@@ -16092,7 +16091,7 @@ define hidden void @_mi_strlcpy(ptr noundef writeonly captures(address_is_null) 
   %15 = load i8, ptr %12, align 1, !tbaa !54
   %16 = icmp ne i8 %15, 0
   %17 = icmp ugt i64 %14, 1
-  %18 = select i1 %16, i1 %17, i1 false
+  %18 = and i1 %17, %16
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !220
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
@@ -16117,7 +16116,7 @@ define hidden void @_mi_strlcat(ptr noundef captures(address_is_null) %0, ptr no
   %8 = load i8, ptr %0, align 1, !tbaa !54
   %9 = icmp ne i8 %8, 0
   %10 = icmp ugt i64 %2, 1
-  %11 = and i1 %9, %10
+  %11 = and i1 %10, %9
   br i1 %11, label %.lr.ph, label %.preheader.i
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
@@ -16128,7 +16127,7 @@ define hidden void @_mi_strlcat(ptr noundef captures(address_is_null) %0, ptr no
   %14 = load i8, ptr %12, align 1, !tbaa !54
   %15 = icmp ne i8 %14, 0
   %16 = icmp ugt i64 %13, 1
-  %17 = select i1 %15, i1 %16, i1 false
+  %17 = and i1 %16, %15
   br i1 %17, label %.lr.ph, label %.preheader.i, !llvm.loop !221
 
 .preheader.i:                                     ; preds = %.lr.ph, %.preheader
@@ -16152,7 +16151,7 @@ define hidden void @_mi_strlcat(ptr noundef captures(address_is_null) %0, ptr no
   %25 = load i8, ptr %22, align 1, !tbaa !54
   %26 = icmp ne i8 %25, 0
   %27 = icmp ugt i64 %24, 1
-  %28 = select i1 %26, i1 %27, i1 false
+  %28 = and i1 %27, %26
   br i1 %28, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !220
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader.i
@@ -17783,7 +17782,7 @@ define hidden i64 @_mi_bin_size(i8 noundef zeroext %0) local_unnamed_addr #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i64 @_mi_page_queue_append(ptr noundef %0, ptr noundef captures(address) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #1 {
+define hidden noundef i64 @_mi_page_queue_append(ptr noundef %0, ptr noundef captures(address) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #1 {
   %4 = load ptr, ptr %2, align 8, !tbaa !58
   %5 = icmp eq ptr %4, null
   br i1 %5, label %mi_heap_queue_first_update.exit, label %.preheader
@@ -24227,7 +24226,7 @@ _mi_strlen.exit:                                  ; preds = %3
   %13 = load i8, ptr %.01326.i, align 1, !tbaa !54
   %14 = icmp ne i8 %13, 0
   %15 = icmp ne i64 %.027.i, 0
-  %or.cond.i = select i1 %14, i1 %15, i1 false
+  %or.cond.i = and i1 %15, %14
   br i1 %or.cond.i, label %16, label %.critedge.i
 
 16:                                               ; preds = %.lr.ph.i
@@ -24304,7 +24303,7 @@ _mi_strnicmp.exit.thread:                         ; preds = %.critedge.i, %_mi_s
   %46 = load i8, ptr %43, align 1, !tbaa !54
   %47 = icmp ne i8 %46, 0
   %48 = icmp ugt i64 %45, 1
-  %49 = select i1 %47, i1 %48, i1 false
+  %49 = and i1 %48, %47
   br i1 %49, label %.lr.ph.i32, label %._crit_edge.i, !llvm.loop !220
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i32, %.preheader.i31
@@ -27844,10 +27843,10 @@ define internal fastcc noundef i64 @printone(ptr noundef captures(none) %0, ptr 
   store i8 10, ptr %13, align 1, !tbaa !54
   br label %14
 
-14:                                               ; preds = %30, %._crit_edge
-  %.030 = phi i32 [ 3, %._crit_edge ], [ %.131, %30 ]
-  %.1 = phi i32 [ 20, %._crit_edge ], [ %.2, %30 ]
-  %.0 = phi i64 [ %2, %._crit_edge ], [ %15, %30 ]
+14:                                               ; preds = %31, %._crit_edge
+  %.030 = phi i32 [ 3, %._crit_edge ], [ %.131, %31 ]
+  %.1 = phi i32 [ 20, %._crit_edge ], [ %.2, %31 ]
+  %.0 = phi i64 [ %2, %._crit_edge ], [ %15, %31 ]
   %15 = udiv i64 %.0, 10
   %.neg = mul i64 %15, 246
   %16 = add i64 %.neg, %.0
@@ -27860,36 +27859,36 @@ define internal fastcc noundef i64 @printone(ptr noundef captures(none) %0, ptr 
   %22 = add i32 %.030, -1
   %23 = icmp eq i32 %22, 0
   %24 = icmp ugt i64 %.0, 9
-  %or.cond = select i1 %23, i1 %24, i1 false
   %25 = icmp ne i32 %.1, 0
-  %or.cond3 = and i1 %25, %or.cond
-  br i1 %or.cond3, label %26, label %30
+  %26 = and i1 %23, %25
+  %or.cond3 = and i1 %26, %24
+  br i1 %or.cond3, label %27, label %31
 
-26:                                               ; preds = %14
-  %27 = add nsw i32 %.1, -2
-  %28 = zext nneg i32 %19 to i64
-  %29 = getelementptr i8, ptr %4, i64 %28
-  store i8 44, ptr %29, align 1, !tbaa !54
-  br label %30
+27:                                               ; preds = %14
+  %28 = add nsw i32 %.1, -2
+  %29 = zext nneg i32 %19 to i64
+  %30 = getelementptr i8, ptr %4, i64 %29
+  store i8 44, ptr %30, align 1, !tbaa !54
+  br label %31
 
-30:                                               ; preds = %26, %14
-  %.131 = phi i32 [ 3, %26 ], [ %22, %14 ]
-  %.2 = phi i32 [ %27, %26 ], [ %19, %14 ]
-  %31 = icmp sgt i32 %.2, -1
-  %32 = and i1 %24, %31
-  br i1 %32, label %14, label %.preheader, !llvm.loop !552
+31:                                               ; preds = %27, %14
+  %.131 = phi i32 [ 3, %27 ], [ %22, %14 ]
+  %.2 = phi i32 [ %28, %27 ], [ %19, %14 ]
+  %32 = icmp sgt i32 %.2, -1
+  %33 = and i1 %24, %32
+  br i1 %33, label %14, label %.preheader, !llvm.loop !552
 
-.preheader:                                       ; preds = %30
-  br i1 %31, label %.lr.ph36.preheader, label %._crit_edge37
+.preheader:                                       ; preds = %31
+  br i1 %32, label %.lr.ph36.preheader, label %._crit_edge37
 
 .lr.ph36.preheader:                               ; preds = %.preheader
-  %33 = add nuw i32 %.2, 1
-  %34 = zext i32 %33 to i64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %4, i8 32, i64 %34, i1 false), !tbaa !54
+  %34 = add nuw i32 %.2, 1
+  %35 = zext i32 %34 to i64
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %4, i8 32, i64 %35, i1 false), !tbaa !54
   br label %._crit_edge37
 
 ._crit_edge37:                                    ; preds = %.lr.ph36.preheader, %.preheader
-  %35 = call i32 @fputs(ptr noundef nonnull %4, ptr noundef %0)
+  %36 = call i32 @fputs(ptr noundef nonnull %4, ptr noundef %0)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %2
 }

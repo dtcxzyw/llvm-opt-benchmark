@@ -5086,7 +5086,7 @@ define internal fastcc void @_ZN11tree_sitter5Query14from_raw_parts17h66b686352c
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %279
-  %.010.i.i = phi i64 [ %281, %279 ], [ 0, %.lr.ph.i.i.preheader ]
+  %.011.i.i = phi i64 [ %281, %279 ], [ 0, %.lr.ph.i.i.preheader ]
   %278 = phi ptr [ %280, %279 ], [ %.sroa.0781.017392449, %.lr.ph.i.i.preheader ]
   %.val.i.i = load i32, ptr %278, align 4, !noalias !580, !noundef !4
   %.not2029.not.not = icmp eq i32 %.val.i.i, 0
@@ -5094,14 +5094,14 @@ define internal fastcc void @_ZN11tree_sitter5Query14from_raw_parts17h66b686352c
 
 279:                                              ; preds = %.lr.ph.i.i
   %280 = getelementptr inbounds nuw i8, ptr %278, i64 8
-  %281 = add nuw nsw i64 %.010.i.i, 1
+  %281 = add nuw nsw i64 %.011.i.i, 1
   %282 = icmp eq ptr %280, %277
   br i1 %282, label %.loopexit1378, label %.lr.ph.i.i
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hbe5937620b926c5fE.exit.i": ; preds = %.lr.ph.i.i
-  %283 = icmp ult i64 %.010.i.i, %.sroa.6782.017382450
+  %283 = icmp ult i64 %.011.i.i, %.sroa.6782.017382450
   call void @llvm.assume(i1 %283)
-  %284 = add nuw nsw i64 %.010.i.i, 1
+  %284 = add nuw nsw i64 %.011.i.i, 1
   %285 = sub nuw nsw i64 %.sroa.6782.017382450, %284
   %286 = getelementptr inbounds nuw { i32, i32 }, ptr %.sroa.0781.017392449, i64 %284
   br label %.loopexit1378
@@ -5131,7 +5131,7 @@ define internal fastcc void @_ZN11tree_sitter5Query14from_raw_parts17h66b686352c
 .loopexit1378:                                    ; preds = %279, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hbe5937620b926c5fE.exit.i"
   %.sroa.6782.1 = phi i64 [ %285, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hbe5937620b926c5fE.exit.i" ], [ %.sroa.6782.017382450, %279 ]
   %.sroa.0781.1 = phi ptr [ %286, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hbe5937620b926c5fE.exit.i" ], [ %.sroa.0781.017392449, %279 ]
-  %.sroa.5.0.i = phi i64 [ %.010.i.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hbe5937620b926c5fE.exit.i" ], [ %.sroa.6782.017382450, %279 ]
+  %.sroa.5.0.i = phi i64 [ %.011.i.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hbe5937620b926c5fE.exit.i" ], [ %.sroa.6782.017382450, %279 ]
   %288 = icmp eq ptr %.sroa.0781.017392449, null
   br i1 %288, label %.thread1034, label %.thread1040
 
@@ -7215,43 +7215,49 @@ define { i32, i32 } @_ZN11tree_sitter5Query22capture_index_for_name17h279651024a
   %5 = load ptr, ptr %4, align 8, !nonnull !4, !align !155, !noundef !4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8, !noundef !4
-  %.idx = shl nsw i64 %7, 4
+  %.idx = shl i64 %7, 4
   %8 = getelementptr inbounds i8, ptr %5, i64 %.idx
   %9 = icmp eq i64 %7, 0
-  br i1 %9, label %.loopexit, label %.lr.ph.i
+  br i1 %9, label %.loopexit, label %.lr.ph.i.preheader
 
-.lr.ph.i:                                         ; preds = %3, %"_ZN11tree_sitter5Query22capture_index_for_name28_$u7b$$u7b$closure$u7d$$u7d$17h52eb6d30c78842f0E.exit.thread.i"
-  %.013.i = phi i64 [ %14, %"_ZN11tree_sitter5Query22capture_index_for_name28_$u7b$$u7b$closure$u7d$$u7d$17h52eb6d30c78842f0E.exit.thread.i" ], [ 0, %3 ]
-  %10 = phi ptr [ %11, %"_ZN11tree_sitter5Query22capture_index_for_name28_$u7b$$u7b$closure$u7d$$u7d$17h52eb6d30c78842f0E.exit.thread.i" ], [ %5, %3 ]
-  %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %12 = getelementptr i8, ptr %10, i64 8
-  %.val8.i = load i64, ptr %12, align 8, !noalias !967, !noundef !4
+.lr.ph.i.preheader:                               ; preds = %3
+  %10 = add i64 %.idx, -16
+  %11 = lshr exact i64 %10, 4
+  %12 = add nuw nsw i64 %11, 1
+  br label %.lr.ph.i
+
+.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %"_ZN11tree_sitter5Query22capture_index_for_name28_$u7b$$u7b$closure$u7d$$u7d$17h52eb6d30c78842f0E.exit.thread.i"
+  %.014.i = phi i64 [ %17, %"_ZN11tree_sitter5Query22capture_index_for_name28_$u7b$$u7b$closure$u7d$$u7d$17h52eb6d30c78842f0E.exit.thread.i" ], [ 0, %.lr.ph.i.preheader ]
+  %13 = phi ptr [ %14, %"_ZN11tree_sitter5Query22capture_index_for_name28_$u7b$$u7b$closure$u7d$$u7d$17h52eb6d30c78842f0E.exit.thread.i" ], [ %5, %.lr.ph.i.preheader ]
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %15 = getelementptr i8, ptr %13, i64 8
+  %.val8.i = load i64, ptr %15, align 8, !noalias !967, !noundef !4
   %.not.i.i.i = icmp eq i64 %.val8.i, %2
   br i1 %.not.i.i.i, label %"_ZN11tree_sitter5Query22capture_index_for_name28_$u7b$$u7b$closure$u7d$$u7d$17h52eb6d30c78842f0E.exit.i", label %"_ZN11tree_sitter5Query22capture_index_for_name28_$u7b$$u7b$closure$u7d$$u7d$17h52eb6d30c78842f0E.exit.thread.i"
 
 "_ZN11tree_sitter5Query22capture_index_for_name28_$u7b$$u7b$closure$u7d$$u7d$17h52eb6d30c78842f0E.exit.i": ; preds = %.lr.ph.i
-  %.val7.i = load ptr, ptr %10, align 8, !noalias !967, !nonnull !4, !align !182, !noundef !4
+  %.val7.i = load ptr, ptr %13, align 8, !noalias !967, !nonnull !4, !align !182, !noundef !4
   %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.val7.i, ptr nonnull readonly align 1 %1, i64 %2), !alias.scope !971, !noalias !967
-  %13 = icmp eq i32 %bcmp.i.i.i, 0
-  br i1 %13, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h04b565f330143a28E.exit", label %"_ZN11tree_sitter5Query22capture_index_for_name28_$u7b$$u7b$closure$u7d$$u7d$17h52eb6d30c78842f0E.exit.thread.i"
+  %16 = icmp eq i32 %bcmp.i.i.i, 0
+  br i1 %16, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h04b565f330143a28E.exit", label %"_ZN11tree_sitter5Query22capture_index_for_name28_$u7b$$u7b$closure$u7d$$u7d$17h52eb6d30c78842f0E.exit.thread.i"
 
 "_ZN11tree_sitter5Query22capture_index_for_name28_$u7b$$u7b$closure$u7d$$u7d$17h52eb6d30c78842f0E.exit.thread.i": ; preds = %"_ZN11tree_sitter5Query22capture_index_for_name28_$u7b$$u7b$closure$u7d$$u7d$17h52eb6d30c78842f0E.exit.i", %.lr.ph.i
-  %14 = add nuw nsw i64 %.013.i, 1
-  %15 = icmp eq ptr %11, %8
-  br i1 %15, label %.loopexit, label %.lr.ph.i
+  %17 = add nuw nsw i64 %.014.i, 1
+  %18 = icmp eq ptr %14, %8
+  br i1 %18, label %.loopexit, label %.lr.ph.i
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h04b565f330143a28E.exit": ; preds = %"_ZN11tree_sitter5Query22capture_index_for_name28_$u7b$$u7b$closure$u7d$$u7d$17h52eb6d30c78842f0E.exit.i"
-  %16 = icmp ult i64 %.013.i, %7
-  tail call void @llvm.assume(i1 %16)
-  %17 = trunc i64 %.013.i to i32
+  %19 = icmp ult i64 %.014.i, %7
+  tail call void @llvm.assume(i1 %19)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %"_ZN11tree_sitter5Query22capture_index_for_name28_$u7b$$u7b$closure$u7d$$u7d$17h52eb6d30c78842f0E.exit.thread.i", %3, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h04b565f330143a28E.exit"
-  %not. = phi i32 [ 1, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h04b565f330143a28E.exit" ], [ 0, %3 ], [ 0, %"_ZN11tree_sitter5Query22capture_index_for_name28_$u7b$$u7b$closure$u7d$$u7d$17h52eb6d30c78842f0E.exit.thread.i" ]
-  %18 = phi i32 [ %17, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h04b565f330143a28E.exit" ], [ undef, %3 ], [ undef, %"_ZN11tree_sitter5Query22capture_index_for_name28_$u7b$$u7b$closure$u7d$$u7d$17h52eb6d30c78842f0E.exit.thread.i" ]
-  %19 = insertvalue { i32, i32 } poison, i32 %not., 0
-  %20 = insertvalue { i32, i32 } %19, i32 %18, 1
-  ret { i32, i32 } %20
+  %.in = phi i64 [ %.014.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h04b565f330143a28E.exit" ], [ 0, %3 ], [ %12, %"_ZN11tree_sitter5Query22capture_index_for_name28_$u7b$$u7b$closure$u7d$$u7d$17h52eb6d30c78842f0E.exit.thread.i" ]
+  %20 = phi i32 [ 1, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h04b565f330143a28E.exit" ], [ 0, %3 ], [ 0, %"_ZN11tree_sitter5Query22capture_index_for_name28_$u7b$$u7b$closure$u7d$$u7d$17h52eb6d30c78842f0E.exit.thread.i" ]
+  %21 = trunc i64 %.in to i32
+  %22 = insertvalue { i32, i32 } poison, i32 %20, 0
+  %23 = insertvalue { i32, i32 } %22, i32 %21, 1
+  ret { i32, i32 } %23
 }
 
 ; Function Attrs: nonlazybind uwtable

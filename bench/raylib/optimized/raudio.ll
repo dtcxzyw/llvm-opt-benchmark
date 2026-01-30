@@ -1163,7 +1163,7 @@ define hidden range(i32 0, 35) i32 @ma_strncat_s(ptr noundef captures(address_is
   %16 = load i8, ptr %.02544, align 1
   %17 = icmp ne i8 %16, 0
   %18 = icmp ne i64 %.145, 0
-  %or.cond = select i1 %17, i1 %18, i1 false
+  %or.cond = and i1 %18, %17
   br i1 %or.cond, label %19, label %.loopexit.sink.split
 
 19:                                               ; preds = %15
@@ -4600,7 +4600,7 @@ ma_device_get_info.exit:                          ; preds = %110, %ma_context_ge
   %178 = add nuw nsw i32 %.024.i.i, 1
   %179 = icmp uge i32 %178, %155
   %180 = icmp eq i64 %177, 0
-  %or.cond5.i.i = select i1 %179, i1 true, i1 %180
+  %or.cond5.i.i = or i1 %179, %180
   br i1 %or.cond5.i.i, label %ma_channel_map_copy.exit.i, label %.preheader.i.i
 
 ma_channel_map_copy.exit.i:                       ; preds = %.preheader.i.i, %174, %172, %171, %164, %163, %154, %139
@@ -4682,7 +4682,7 @@ ma_channel_map_copy.exit.i:                       ; preds = %.preheader.i.i, %17
   %219 = add nuw nsw i32 %.024.i169.i, 1
   %220 = icmp uge i32 %219, %196
   %221 = icmp eq i64 %218, 0
-  %or.cond5.i172.i = select i1 %220, i1 true, i1 %221
+  %or.cond5.i172.i = or i1 %220, %221
   br i1 %or.cond5.i172.i, label %ma_channel_map_copy.exit165.i, label %.preheader.i168.i
 
 ma_channel_map_copy.exit165.i:                    ; preds = %.preheader.i168.i, %215, %213, %212, %205, %204, %195, %ma_channel_map_copy.exit.i
@@ -8917,7 +8917,7 @@ ma__is_channel_map_valid.exit366.thread:          ; preds = %.critedge.loopexit.
   %134 = add nuw nsw i32 %.024.i.i, 1
   %135 = icmp uge i32 %134, %122
   %136 = icmp eq i64 %133, 0
-  %or.cond5.i.i = select i1 %135, i1 true, i1 %136
+  %or.cond5.i.i = or i1 %135, %136
   br i1 %or.cond5.i.i, label %ma_channel_map_copy_or_default.exit, label %.preheader.i.i
 
 ma_channel_map_copy_or_default.exit:              ; preds = %.preheader.i.i, %83, %129
@@ -8967,7 +8967,7 @@ ma_channel_map_copy_or_default.exit:              ; preds = %.preheader.i.i, %83
   %162 = add nuw nsw i32 %.024.i.i370, 1
   %163 = icmp uge i32 %162, %150
   %164 = icmp eq i64 %161, 0
-  %or.cond5.i.i373 = select i1 %163, i1 true, i1 %164
+  %or.cond5.i.i373 = or i1 %163, %164
   br i1 %or.cond5.i.i373, label %ma_channel_map_copy_or_default.exit374, label %.preheader.i.i369
 
 ma_channel_map_copy_or_default.exit374:           ; preds = %.preheader.i.i369, %ma_channel_map_copy_or_default.exit, %157
@@ -10122,7 +10122,7 @@ define hidden void @ma_channel_map_copy_or_default(ptr noundef writeonly capture
   %15 = add nuw i32 %.024.i, 1
   %16 = icmp uge i32 %15, %3
   %17 = icmp eq i64 %14, 0
-  %or.cond5.i = select i1 %16, i1 true, i1 %17
+  %or.cond5.i = or i1 %16, %17
   br i1 %or.cond5.i, label %ma_channel_map_copy.exit, label %.preheader.i
 
 ma_channel_map_copy.exit:                         ; preds = %.preheader.i, %10, %8, %4
@@ -29271,7 +29271,7 @@ ma_spatializer_listener_set_direction.exit:       ; preds = %.loopexit.i.i.i72, 
   %58 = add nuw i32 %.024.i.i, 1
   %59 = icmp uge i32 %58, %47
   %60 = icmp eq i64 %57, 0
-  %or.cond5.i.i = select i1 %59, i1 true, i1 %60
+  %or.cond5.i.i = or i1 %59, %60
   br i1 %or.cond5.i.i, label %ma_get_default_channel_map_for_spatializer.exit, label %.preheader.i.i
 
 61:                                               ; preds = %42
@@ -30117,7 +30117,7 @@ ma_spatializer_set_direction.exit:                ; preds = %.loopexit.i.i.i117,
   %115 = add nuw i32 %.024.i.i, 1
   %116 = icmp uge i32 %115, %106
   %117 = icmp eq i64 %114, 0
-  %or.cond5.i.i = select i1 %116, i1 true, i1 %117
+  %or.cond5.i.i = or i1 %116, %117
   br i1 %or.cond5.i.i, label %ma_channel_map_copy_or_default.exit, label %.preheader.i.i
 
 ma_channel_map_copy_or_default.exit:              ; preds = %.preheader.i.i, %111, %103, %101
@@ -36464,7 +36464,7 @@ ma_zero_memory_default.exit:                      ; preds = %8, %13
   %41 = add nuw i32 %.024.i.i, 1
   %42 = icmp uge i32 %41, %31
   %43 = icmp eq i64 %40, 0
-  %or.cond5.i.i = select i1 %42, i1 true, i1 %43
+  %or.cond5.i.i = or i1 %42, %43
   br i1 %or.cond5.i.i, label %ma_channel_map_copy_or_default.exit, label %.preheader.i.i
 
 44:                                               ; preds = %ma_zero_memory_default.exit
@@ -36511,7 +36511,7 @@ ma_channel_map_copy_or_default.exit:              ; preds = %.preheader.i.i, %37
   %63 = add nuw i32 %.024.i.i261, 1
   %64 = icmp uge i32 %63, %53
   %65 = icmp eq i64 %62, 0
-  %or.cond5.i.i264 = select i1 %64, i1 true, i1 %65
+  %or.cond5.i.i264 = or i1 %64, %65
   br i1 %or.cond5.i.i264, label %ma_channel_map_copy_or_default.exit265, label %.preheader.i.i260
 
 66:                                               ; preds = %ma_channel_map_copy_or_default.exit
@@ -39489,7 +39489,7 @@ define hidden range(i32 -2, 1) i32 @ma_channel_converter_get_input_channel_map(p
   %20 = add nuw i32 %.024.i.i, 1
   %21 = icmp uge i32 %20, %10
   %22 = icmp eq i64 %19, 0
-  %or.cond5.i.i = select i1 %21, i1 true, i1 %22
+  %or.cond5.i.i = or i1 %21, %22
   br i1 %or.cond5.i.i, label %ma_channel_map_copy_or_default.exit, label %.preheader.i.i
 
 ma_channel_map_copy_or_default.exit:              ; preds = %.preheader.i.i, %15, %13, %6, %3
@@ -39536,7 +39536,7 @@ define hidden range(i32 -2, 1) i32 @ma_channel_converter_get_output_channel_map(
   %20 = add nuw i32 %.024.i.i, 1
   %21 = icmp uge i32 %20, %10
   %22 = icmp eq i64 %19, 0
-  %or.cond5.i.i = select i1 %21, i1 true, i1 %22
+  %or.cond5.i.i = or i1 %21, %22
   br i1 %or.cond5.i.i, label %ma_channel_map_copy_or_default.exit, label %.preheader.i.i
 
 ma_channel_map_copy_or_default.exit:              ; preds = %.preheader.i.i, %15, %13, %6, %3
@@ -41273,7 +41273,7 @@ ma_resampler_process_pcm_frames.exit.i:           ; preds = %434
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %460 = icmp ult i64 %458, %.085.i45
-  %or.cond = select i1 %459, i1 %460, i1 false
+  %or.cond = and i1 %459, %460
   br i1 %or.cond, label %371, label %.loopexit.i52
 
 .thread.i:                                        ; preds = %442, %ma_resampler_process_pcm_frames.exit.i, %434, %431
@@ -41546,7 +41546,7 @@ ma_resampler_process_pcm_frames.exit.i72:         ; preds = %575
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %600 = icmp ult i64 %598, %.088.i
-  %or.cond198 = select i1 %599, i1 %600, i1 false
+  %or.cond198 = and i1 %599, %600
   br i1 %or.cond198, label %507, label %.loopexit.i75
 
 .thread.i68:                                      ; preds = %ma_resampler_process_pcm_frames.exit.i72, %575, %571, %568
@@ -41894,7 +41894,7 @@ define hidden range(i32 -2, 1) i32 @ma_data_converter_get_input_channel_map(ptr 
   %23 = add nuw i32 %.024.i.i.i, 1
   %24 = icmp uge i32 %23, %13
   %25 = icmp eq i64 %22, 0
-  %or.cond5.i.i.i = select i1 %24, i1 true, i1 %25
+  %or.cond5.i.i.i = or i1 %24, %25
   br i1 %or.cond5.i.i.i, label %ma_channel_converter_get_output_channel_map.exit, label %.preheader.i.i.i
 
 26:                                               ; preds = %6
@@ -41916,7 +41916,7 @@ define hidden range(i32 -2, 1) i32 @ma_data_converter_get_input_channel_map(ptr 
   %34 = add nuw i32 %.024.i, 1
   %35 = icmp uge i32 %34, %28
   %36 = icmp eq i64 %33, 0
-  %or.cond5.i = select i1 %35, i1 true, i1 %36
+  %or.cond5.i = or i1 %35, %36
   br i1 %or.cond5.i, label %ma_channel_converter_get_output_channel_map.exit, label %.preheader.i
 
 ma_channel_converter_get_output_channel_map.exit: ; preds = %.preheader.i.i.i, %.preheader.i, %26, %18, %16, %9, %3
@@ -41944,7 +41944,7 @@ define hidden void @ma_channel_map_init_standard(i32 noundef %0, ptr noundef wri
   %11 = add nuw i32 %.024, 1
   %12 = icmp uge i32 %11, %3
   %13 = icmp eq i64 %10, 0
-  %or.cond5 = select i1 %12, i1 true, i1 %13
+  %or.cond5 = or i1 %13, %12
   br i1 %or.cond5, label %.loopexit, label %.preheader
 
 .loopexit:                                        ; preds = %.preheader, %4
@@ -41996,7 +41996,7 @@ define hidden range(i32 -2, 1) i32 @ma_data_converter_get_output_channel_map(ptr
   %23 = add nuw i32 %.024.i.i.i, 1
   %24 = icmp uge i32 %23, %13
   %25 = icmp eq i64 %22, 0
-  %or.cond5.i.i.i = select i1 %24, i1 true, i1 %25
+  %or.cond5.i.i.i = or i1 %24, %25
   br i1 %or.cond5.i.i.i, label %ma_channel_converter_get_input_channel_map.exit, label %.preheader.i.i.i
 
 26:                                               ; preds = %6
@@ -42018,7 +42018,7 @@ define hidden range(i32 -2, 1) i32 @ma_data_converter_get_output_channel_map(ptr
   %34 = add nuw i32 %.024.i, 1
   %35 = icmp uge i32 %34, %28
   %36 = icmp eq i64 %33, 0
-  %or.cond5.i = select i1 %35, i1 true, i1 %36
+  %or.cond5.i = or i1 %35, %36
   br i1 %or.cond5.i, label %ma_channel_converter_get_input_channel_map.exit, label %.preheader.i
 
 ma_channel_converter_get_input_channel_map.exit:  ; preds = %.preheader.i.i.i, %.preheader.i, %26, %18, %16, %9, %3
@@ -52683,7 +52683,7 @@ define hidden range(i32 -2, 1) i32 @ma_decoder_get_data_format(ptr noundef reado
   %38 = add nuw i32 %.024.i.i.i.i, 1
   %39 = icmp uge i32 %38, %28
   %40 = icmp eq i64 %37, 0
-  %or.cond5.i.i.i.i = select i1 %39, i1 true, i1 %40
+  %or.cond5.i.i.i.i = or i1 %39, %40
   br i1 %or.cond5.i.i.i.i, label %ma_data_converter_get_output_channel_map.exit, label %.preheader.i.i.i.i
 
 41:                                               ; preds = %21
@@ -52705,7 +52705,7 @@ define hidden range(i32 -2, 1) i32 @ma_decoder_get_data_format(ptr noundef reado
   %49 = add nuw i32 %.024.i.i, 1
   %50 = icmp uge i32 %49, %43
   %51 = icmp eq i64 %48, 0
-  %or.cond5.i.i = select i1 %50, i1 true, i1 %51
+  %or.cond5.i.i = or i1 %50, %51
   br i1 %or.cond5.i.i, label %ma_data_converter_get_output_channel_map.exit, label %.preheader.i.i
 
 ma_data_converter_get_output_channel_map.exit:    ; preds = %.preheader.i.i.i.i, %.preheader.i.i, %41, %33, %31, %24, %20, %6
@@ -101619,7 +101619,7 @@ ma_device_get_state.exit:                         ; preds = %3
   %21 = load atomic i32, ptr %7 seq_cst, align 8
   %22 = icmp eq i32 %21, 2
   %23 = icmp uge i64 %1, %19
-  %24 = and i1 %22, %23
+  %24 = and i1 %23, %22
   br i1 %24, label %.lr.ph, label %ma_device_get_state.exit.thread
 
 .lr.ph:                                           ; preds = %10, %ma_device_get_state.exit31
@@ -101684,7 +101684,7 @@ ma_device_get_state.exit31:                       ; preds = %44
   %51 = load atomic i32, ptr %7 seq_cst, align 4
   %52 = icmp eq i32 %51, 2
   %53 = icmp ult i64 %50, %20
-  %54 = select i1 %52, i1 %53, i1 false
+  %54 = and i1 %53, %52
   br i1 %54, label %.lr.ph, label %ma_device_get_state.exit.thread
 
 ma_device_get_state.exit.thread:                  ; preds = %ma_device_get_state.exit31, %10, %3, %.thread, %ma_device_get_state.exit
@@ -105461,7 +105461,7 @@ ma_channel_map_init_standard.exit:                ; preds = %.lr.ph560, %ma_chan
   %627 = add nuw nsw i32 %.024.i480, 1
   %628 = icmp uge i32 %627, %290
   %629 = icmp eq i64 %626, 0
-  %or.cond5.i483 = select i1 %628, i1 true, i1 %629
+  %or.cond5.i483 = or i1 %628, %629
   br i1 %or.cond5.i483, label %ma_channel_map_init_standard.exit484, label %.preheader.i479
 
 ma_channel_map_init_standard.exit484:             ; preds = %602, %._crit_edge, %.preheader.i479, %.preheader, %.preheader554
@@ -106167,7 +106167,7 @@ define internal range(i32 -201, 1) i32 @ma_device_init__null(ptr noundef initial
   %22 = add nuw nsw i32 %.024.i, 1
   %23 = icmp uge i32 %22, %12
   %24 = icmp eq i64 %21, 0
-  %or.cond5.i = select i1 %23, i1 true, i1 %24
+  %or.cond5.i = or i1 %23, %24
   br i1 %or.cond5.i, label %25, label %.preheader.i
 
 25:                                               ; preds = %.preheader.i
@@ -106255,7 +106255,7 @@ ma_calculate_buffer_size_in_frames_from_descriptor.exit: ; preds = %.thread92, %
   %64 = add nuw nsw i32 %.024.i76, 1
   %65 = icmp uge i32 %64, %54
   %66 = icmp eq i64 %63, 0
-  %or.cond5.i79 = select i1 %65, i1 true, i1 %66
+  %or.cond5.i79 = or i1 %65, %66
   br i1 %or.cond5.i79, label %67, label %.preheader.i75
 
 67:                                               ; preds = %.preheader.i75
@@ -108102,7 +108102,7 @@ define internal noundef i32 @ma_pcm_rb_data_source__on_get_data_format(ptr nound
   %27 = add nuw i32 %.024.i, 1
   %28 = icmp uge i32 %27, %21
   %29 = icmp eq i64 %26, 0
-  %or.cond5.i = select i1 %28, i1 true, i1 %29
+  %or.cond5.i = or i1 %28, %29
   br i1 %or.cond5.i, label %ma_channel_map_init_standard.exit, label %.preheader.i
 
 ma_channel_map_init_standard.exit:                ; preds = %.preheader.i, %19, %18
@@ -108265,7 +108265,7 @@ define internal noundef i32 @ma_audio_buffer_ref__data_source_on_get_data_format
   %20 = add nuw i32 %.024.i, 1
   %21 = icmp uge i32 %20, %13
   %22 = icmp eq i64 %19, 0
-  %or.cond5.i = select i1 %21, i1 true, i1 %22
+  %or.cond5.i = or i1 %21, %22
   br i1 %or.cond5.i, label %ma_channel_map_init_standard.exit, label %.preheader.i
 
 ma_channel_map_init_standard.exit:                ; preds = %.preheader.i, %6
@@ -108525,7 +108525,7 @@ define internal noundef i32 @ma_paged_audio_buffer__data_source_on_get_data_form
   %22 = add nuw i32 %.024.i, 1
   %23 = icmp uge i32 %22, %15
   %24 = icmp eq i64 %21, 0
-  %or.cond5.i = select i1 %23, i1 true, i1 %24
+  %or.cond5.i = or i1 %23, %24
   br i1 %or.cond5.i, label %ma_channel_map_init_standard.exit, label %.preheader.i
 
 ma_channel_map_init_standard.exit:                ; preds = %.preheader.i, %6

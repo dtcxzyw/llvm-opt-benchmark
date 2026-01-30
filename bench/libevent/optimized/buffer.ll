@@ -1882,7 +1882,7 @@ define i32 @evbuffer_reserve_space(ptr noundef %0, i64 noundef %1, ptr noundef w
   %indvars.iv.next60.i = add nuw nsw i64 %indvars.iv59.i, 1
   %88 = icmp samesign ult i64 %indvars.iv.next60.i, %64
   %89 = icmp ult i64 %87, %1
-  %90 = select i1 %88, i1 %89, i1 false
+  %90 = and i1 %88, %89
   br i1 %90, label %.lr.ph.split.us.i, label %._crit_edge.loopexit.i, !llvm.loop !14
 
 ._crit_edge.loopexit.i:                           ; preds = %77
@@ -2189,7 +2189,7 @@ define hidden i32 @evbuffer_read_setup_vecs_(ptr noundef readonly captures(none)
   %.043 = phi ptr [ %11, %.critedge ], [ %10, %15 ]
   %25 = icmp sgt i32 %3, 0
   %26 = icmp ne i64 %1, 0
-  %27 = and i1 %25, %26
+  %27 = and i1 %26, %25
   br i1 %27, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %24
@@ -2243,7 +2243,7 @@ define hidden i32 @evbuffer_read_setup_vecs_(ptr noundef readonly captures(none)
   %.044.us = load ptr, ptr %.04455.us, align 8
   %52 = icmp samesign ult i64 %indvars.iv.next60, %28
   %53 = icmp ult i64 %51, %1
-  %54 = select i1 %52, i1 %53, i1 false
+  %54 = and i1 %53, %52
   br i1 %54, label %.lr.ph.split.us, label %._crit_edge.loopexit, !llvm.loop !14
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %67
@@ -2293,7 +2293,7 @@ define hidden i32 @evbuffer_read_setup_vecs_(ptr noundef readonly captures(none)
   %.044 = load ptr, ptr %.04455, align 8
   %80 = icmp samesign ult i64 %indvars.iv.next, %28
   %81 = icmp ult i64 %79, %1
-  %82 = select i1 %80, i1 %81, i1 false
+  %82 = and i1 %81, %80
   br i1 %82, label %.lr.ph.split, label %._crit_edge.loopexit56, !llvm.loop !14
 
 ._crit_edge.loopexit:                             ; preds = %41
@@ -5424,7 +5424,7 @@ define noundef i32 @evbuffer_read(ptr noundef %0, i32 noundef %1, i32 noundef %2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %69 = icmp samesign ult i64 %indvars.iv.i, 3
   %70 = icmp ult i64 %68, %22
-  %71 = select i1 %69, i1 %70, i1 false
+  %71 = and i1 %69, %70
   br i1 %71, label %.lr.ph.split.i, label %evbuffer_read_setup_vecs_.exit, !llvm.loop !14
 
 evbuffer_read_setup_vecs_.exit:                   ; preds = %56
