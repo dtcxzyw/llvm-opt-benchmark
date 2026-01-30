@@ -1171,7 +1171,7 @@ define internal range(i32 0, 8) i32 @_slabs_locked_cb(ptr noundef captures(none)
   %12 = getelementptr inbounds nuw i8, ptr %.025, i64 38
   %13 = zext i16 %11 to i32
   %.not28 = icmp eq i16 %11, 12
-  br i1 %.not28, label %45, label %14
+  br i1 %.not28, label %44, label %14
 
 14:                                               ; preds = %10
   %15 = and i32 %13, 4
@@ -1183,12 +1183,12 @@ define internal range(i32 0, 8) i32 @_slabs_locked_cb(ptr noundef captures(none)
   %18 = load i32, ptr %17, align 4, !tbaa !70
   tail call void @do_slabs_unlink_free_chunk(i32 noundef %18, ptr noundef nonnull %.025) #11
   store i16 0, ptr %12, align 2, !tbaa !62
-  br label %45
+  br label %44
 
 19:                                               ; preds = %14
   %20 = and i32 %13, 1
   %.not30 = icmp eq i32 %20, 0
-  br i1 %.not30, label %45, label %21
+  br i1 %.not30, label %44, label %21
 
 21:                                               ; preds = %19
   %22 = load ptr, ptr @hash, align 8, !tbaa !93
@@ -1207,25 +1207,24 @@ define internal range(i32 0, 8) i32 @_slabs_locked_cb(ptr noundef captures(none)
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %33, ptr %34, align 8, !tbaa !81
   %35 = icmp eq ptr %33, null
-  br i1 %35, label %45, label %36
+  br i1 %35, label %44, label %36
 
 36:                                               ; preds = %21
   %37 = load i16, ptr %12, align 2, !tbaa !62
-  %38 = and i16 %37, 1
-  %39 = icmp ne i16 %38, 0
-  %40 = getelementptr inbounds nuw i8, ptr %.025, i64 36
-  %41 = load i16, ptr %40, align 4, !tbaa !62
-  %42 = add i16 %41, 1
-  store i16 %42, ptr %40, align 4, !tbaa !62
-  %43 = icmp eq i16 %42, 2
-  %. = select i1 %39, i32 2, i32 4
-  %44 = icmp ugt i16 %42, 2
-  %or.cond = select i1 %44, i1 %39, i1 false
+  %38 = trunc i16 %37 to i1
+  %39 = getelementptr inbounds nuw i8, ptr %.025, i64 36
+  %40 = load i16, ptr %39, align 4, !tbaa !62
+  %41 = add i16 %40, 1
+  store i16 %41, ptr %39, align 4, !tbaa !62
+  %42 = icmp eq i16 %41, 2
+  %. = select i1 %38, i32 2, i32 4
+  %43 = icmp ugt i16 %41, 2
+  %or.cond = select i1 %43, i1 %38, i1 false
   %.32 = select i1 %or.cond, i32 5, i32 3
-  %.2 = select i1 %43, i32 %., i32 %.32
-  br label %45
+  %.2 = select i1 %42, i32 %., i32 %.32
+  br label %44
 
-45:                                               ; preds = %16, %36, %21, %19, %10
+44:                                               ; preds = %16, %36, %21, %19, %10
   %.0 = phi i32 [ 0, %10 ], [ 1, %16 ], [ 7, %21 ], [ %.2, %36 ], [ 6, %19 ]
   ret i32 %.0
 }

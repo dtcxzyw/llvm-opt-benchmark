@@ -3034,13 +3034,11 @@ define noundef zeroext i1 @_ZN12clap_builder7builder7command7Command21is_no_bina
 define hidden noundef zeroext i1 @_ZN12clap_builder7builder7command7Command20is_ignore_errors_set17hfc7eacb6c92dd4f1E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(712) %0) unnamed_addr #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 700
   %3 = load i32, ptr %2, align 4, !alias.scope !703, !noundef !5
-  %4 = and i32 %3, 1
-  %.not = icmp ne i32 %4, 0
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 704
-  %6 = load i32, ptr %5, align 8
-  %7 = and i32 %6, 1
-  %8 = icmp ne i32 %7, 0
-  %.0 = select i1 %.not, i1 true, i1 %8
+  %.not = trunc i32 %3 to i1
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 704
+  %5 = load i32, ptr %4, align 8
+  %6 = trunc i32 %5 to i1
+  %.0 = select i1 %.not, i1 true, i1 %6
   ret i1 %.0
 }
 
@@ -9304,9 +9302,8 @@ define hidden void @_ZN12clap_builder7builder7command7Command14required_graph17h
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 552
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 544
   %19 = load i32, ptr %18, align 4, !alias.scope !2155, !noalias !2160, !noundef !5
-  %20 = and i32 %19, 1
-  %.not.i = icmp eq i32 %20, 0
-  br i1 %.not.i, label %.backedge, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17h6e522eaed5556385E.exit"
+  %20 = trunc i32 %19 to i1
+  br i1 %20, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17h6e522eaed5556385E.exit", label %.backedge
 
 .backedge:                                        ; preds = %16, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17h6e522eaed5556385E.exit"
   br label %13

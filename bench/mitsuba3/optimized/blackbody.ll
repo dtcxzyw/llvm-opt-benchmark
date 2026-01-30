@@ -942,17 +942,16 @@ _ZNSt3__1lsB8ne190000INS_11char_traitsIcEEEERNS_13basic_ostreamIcT_EES6_PKc.exit
 
 45:                                               ; preds = %_ZNSt3__1lsB8ne190000INS_11char_traitsIcEEEERNS_13basic_ostreamIcT_EES6_PKc.exit4
   %46 = load i8, ptr %6, align 8
-  %47 = and i8 %46, 1
-  %.not.i.i.i = icmp eq i8 %47, 0
+  %47 = trunc i8 %46 to i1
   %48 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %49 = load ptr, ptr %48, align 8
   %50 = getelementptr inbounds nuw i8, ptr %6, i64 1
-  %51 = select i1 %.not.i.i.i, ptr %50, ptr %49
+  %51 = select i1 %47, ptr %49, ptr %50
   %52 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %53 = load i64, ptr %52, align 8
   %54 = lshr i8 %46, 1
   %55 = zext nneg i8 %54 to i64
-  %56 = select i1 %.not.i.i.i, i64 %55, i64 %53
+  %56 = select i1 %47, i64 %53, i64 %55
   %57 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__124__put_character_sequenceB8ne190000IcNS_11char_traitsIcEEEERNS_13basic_ostreamIT_T0_EES7_PKS4_m(ptr noundef nonnull align 8 dereferenceable(8) %43, ptr noundef %51, i64 noundef %56)
           to label %_ZNSt3__1lsB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEERNS_13basic_ostreamIT_T0_EES9_RKNS_12basic_stringIS6_S7_T1_EE.exit unwind label %79
 
@@ -1582,12 +1581,11 @@ define linkonce_odr hidden ptr @_ZNSt3__116__pad_and_outputB8ne190000IcNS_11char
 25:                                               ; preds = %24
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6__initEmc(ptr noundef nonnull align 8 dereferenceable(24) %7, i64 noundef %15, i8 noundef signext %5)
   %26 = load i8, ptr %7, align 8
-  %27 = and i8 %26, 1
-  %.not.i.i = icmp eq i8 %27, 0
+  %27 = trunc i8 %26 to i1
   %28 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr inbounds nuw i8, ptr %7, i64 1
-  %31 = select i1 %.not.i.i, ptr %30, ptr %29
+  %31 = select i1 %27, ptr %29, ptr %30
   %32 = load ptr, ptr %0, align 8
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 96
   %34 = load ptr, ptr %33, align 8

@@ -2046,13 +2046,12 @@ define dso_local void @_ZN23btDiscreteDynamicsWorld12addRigidBodyEP11btRigidBody
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 200
   %14 = load ptr, ptr %13, align 8, !tbaa !161
   %.not4 = icmp eq ptr %14, null
-  br i1 %.not4, label %63, label %15
+  br i1 %.not4, label %62, label %15
 
 15:                                               ; preds = %12
   %16 = load i32, ptr %3, align 8, !tbaa !127
-  %17 = and i32 %16, 1
-  %.not19 = icmp eq i32 %17, 0
-  br i1 %.not19, label %18, label %52
+  %17 = trunc i32 %16 to i1
+  br i1 %17, label %52, label %18
 
 18:                                               ; preds = %15
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 372
@@ -2147,21 +2146,20 @@ _ZN20btAlignedObjectArrayIP11btRigidBodyE9push_backERKS1_.exit: ; preds = %18, %
 .thread15:                                        ; preds = %52, %_ZN20btAlignedObjectArrayIP11btRigidBodyE9push_backERKS1_.exit
   %53 = load i32, ptr %3, align 8, !tbaa !127
   %.fr = freeze i32 %53
-  %54 = and i32 %.fr, 1
-  %.not20 = icmp eq i32 %54, 0
+  %54 = trunc i32 %.fr to i1
   %55 = and i32 %.fr, 2
-  %spec.select22 = xor i32 %55, -1
+  %spec.select20 = xor i32 %55, -1
   %56 = and i32 %.fr, 3
-  %57 = icmp eq i32 %56, 0
-  %58 = select i1 %57, i32 1, i32 2
-  %59 = select i1 %.not20, i32 %spec.select22, i32 -3
-  %60 = load ptr, ptr %0, align 8, !tbaa !43
-  %61 = getelementptr inbounds nuw i8, ptr %60, i64 72
-  %62 = load ptr, ptr %61, align 8
-  tail call void %62(ptr noundef nonnull align 8 dereferenceable(508) %0, ptr noundef nonnull %1, i32 noundef %58, i32 noundef %59)
-  br label %63
+  %.not21 = icmp eq i32 %56, 0
+  %57 = select i1 %.not21, i32 1, i32 2
+  %58 = select i1 %54, i32 -3, i32 %spec.select20
+  %59 = load ptr, ptr %0, align 8, !tbaa !43
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 72
+  %61 = load ptr, ptr %60, align 8
+  tail call void %61(ptr noundef nonnull align 8 dereferenceable(508) %0, ptr noundef nonnull %1, i32 noundef %57, i32 noundef %58)
+  br label %62
 
-63:                                               ; preds = %.thread15, %12
+62:                                               ; preds = %.thread15, %12
   ret void
 }
 
@@ -2195,9 +2193,8 @@ define dso_local void @_ZN23btDiscreteDynamicsWorld12addRigidBodyEP11btRigidBody
 
 17:                                               ; preds = %14
   %18 = load i32, ptr %5, align 8, !tbaa !127
-  %19 = and i32 %18, 1
-  %.not10 = icmp eq i32 %19, 0
-  br i1 %.not10, label %20, label %54
+  %19 = trunc i32 %18 to i1
+  br i1 %19, label %54, label %20
 
 20:                                               ; preds = %17
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 372

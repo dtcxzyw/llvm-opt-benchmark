@@ -319,9 +319,8 @@ define void @_ZN3net18SourceAddressToken9MergeFromERKS0_(ptr noundef nonnull ali
   br i1 %.not, label %51, label %9
 
 9:                                                ; preds = %5
-  %10 = and i32 %7, 1
-  %.not11 = icmp eq i32 %10, 0
-  br i1 %.not11, label %18, label %11
+  %10 = trunc i32 %7 to i1
+  br i1 %10, label %11, label %18
 
 11:                                               ; preds = %9
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -339,8 +338,8 @@ define void @_ZN3net18SourceAddressToken9MergeFromERKS0_(ptr noundef nonnull ali
 18:                                               ; preds = %11, %9
   %19 = phi i32 [ %.pre, %11 ], [ %7, %9 ]
   %20 = and i32 %19, 2
-  %.not12 = icmp eq i32 %20, 0
-  br i1 %.not12, label %28, label %21
+  %.not11 = icmp eq i32 %20, 0
+  br i1 %.not11, label %28, label %21
 
 21:                                               ; preds = %18
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -351,14 +350,14 @@ define void @_ZN3net18SourceAddressToken9MergeFromERKS0_(ptr noundef nonnull ali
   store i32 %26, ptr %24, align 8, !tbaa !26
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %23, ptr %27, align 8, !tbaa !27
-  %.pre14 = load i32, ptr %6, align 8, !tbaa !26
+  %.pre13 = load i32, ptr %6, align 8, !tbaa !26
   br label %28
 
 28:                                               ; preds = %21, %18
-  %29 = phi i32 [ %.pre14, %21 ], [ %19, %18 ]
+  %29 = phi i32 [ %.pre13, %21 ], [ %19, %18 ]
   %30 = and i32 %29, 4
-  %.not13 = icmp eq i32 %30, 0
-  br i1 %.not13, label %51, label %31
+  %.not12 = icmp eq i32 %30, 0
+  br i1 %.not12, label %51, label %31
 
 31:                                               ; preds = %28
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -605,9 +604,8 @@ define void @_ZN3net18SourceAddressToken5ClearEv(ptr noundef nonnull align 8 cap
   br i1 %.not, label %22, label %5
 
 5:                                                ; preds = %1
-  %6 = and i32 %3, 1
-  %.not3 = icmp eq i32 %6, 0
-  br i1 %.not3, label %_ZN6google8protobuf8internal14ArenaStringPtr19ClearToEmptyNoArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %7
+  %6 = trunc i32 %3 to i1
+  br i1 %6, label %7, label %_ZN6google8protobuf8internal14ArenaStringPtr19ClearToEmptyNoArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
 7:                                                ; preds = %5
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -629,8 +627,8 @@ _ZN6google8protobuf8internal14ArenaStringPtr19ClearToEmptyNoArenaEPKNSt7__cxx111
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %16, align 8, !tbaa !27
   %17 = and i32 %15, 4
-  %.not4 = icmp eq i32 %17, 0
-  br i1 %.not4, label %22, label %18
+  %.not3 = icmp eq i32 %17, 0
+  br i1 %.not3, label %22, label %18
 
 18:                                               ; preds = %_ZN6google8protobuf8internal14ArenaStringPtr19ClearToEmptyNoArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -1033,9 +1031,8 @@ declare void @_ZN6google8protobuf2io22LazyStringOutputStreamD1Ev(ptr noundef non
 define void @_ZNK3net18SourceAddressToken24SerializeWithCachedSizesEPN6google8protobuf2io17CodedOutputStreamE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, ptr noundef %1) unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i32, ptr %3, align 8, !tbaa !26
-  %5 = and i32 %4, 1
-  %.not = icmp eq i32 %5, 0
-  br i1 %.not, label %9, label %6
+  %5 = trunc i32 %4 to i1
+  br i1 %5, label %6, label %9
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1047,21 +1044,21 @@ define void @_ZNK3net18SourceAddressToken24SerializeWithCachedSizesEPN6google8pr
 9:                                                ; preds = %6, %2
   %10 = phi i32 [ %.pre, %6 ], [ %4, %2 ]
   %11 = and i32 %10, 2
-  %.not5 = icmp eq i32 %11, 0
-  br i1 %.not5, label %15, label %12
+  %.not = icmp eq i32 %11, 0
+  br i1 %.not, label %15, label %12
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %14 = load i64, ptr %13, align 8, !tbaa !27
   tail call void @_ZN6google8protobuf8internal14WireFormatLite10WriteInt64EilPNS0_2io17CodedOutputStreamE(i32 noundef 2, i64 noundef %14, ptr noundef %1)
-  %.pre7 = load i32, ptr %3, align 8, !tbaa !26
+  %.pre6 = load i32, ptr %3, align 8, !tbaa !26
   br label %15
 
 15:                                               ; preds = %12, %9
-  %16 = phi i32 [ %.pre7, %12 ], [ %10, %9 ]
+  %16 = phi i32 [ %.pre6, %12 ], [ %10, %9 ]
   %17 = and i32 %16, 4
-  %.not6 = icmp eq i32 %17, 0
-  br i1 %.not6, label %21, label %18
+  %.not5 = icmp eq i32 %17, 0
+  br i1 %.not5, label %21, label %18
 
 18:                                               ; preds = %15
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -1092,9 +1089,8 @@ declare void @_ZN6google8protobuf2io17CodedOutputStream8WriteRawEPKvi(ptr nounde
 define noundef i32 @_ZNK3net18SourceAddressToken30RequiredFieldsByteSizeFallbackEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 8, !tbaa !26
-  %4 = and i32 %3, 1
-  %.not = icmp eq i32 %4, 0
-  br i1 %.not, label %16, label %5
+  %4 = trunc i32 %3 to i1
+  br i1 %4, label %5, label %16
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1124,8 +1120,8 @@ _ZN6google8protobuf8internal14WireFormatLite9BytesSizeERKNSt7__cxx1112basic_stri
   %17 = phi i32 [ %.pre, %_ZN6google8protobuf8internal14WireFormatLite9BytesSizeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ %3, %1 ]
   %.0 = phi i32 [ %15, %_ZN6google8protobuf8internal14WireFormatLite9BytesSizeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ 0, %1 ]
   %18 = and i32 %17, 2
-  %.not3 = icmp eq i32 %18, 0
-  br i1 %.not3, label %25, label %19
+  %.not = icmp eq i32 %18, 0
+  br i1 %.not, label %25, label %19
 
 19:                                               ; preds = %16
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -1175,9 +1171,8 @@ _ZN6google8protobuf8internal14WireFormatLite9BytesSizeERKNSt7__cxx1112basic_stri
   br label %_ZNK3net18SourceAddressToken30RequiredFieldsByteSizeFallbackEv.exit
 
 21:                                               ; preds = %1
-  %22 = and i32 %3, 1
-  %.not.i = icmp eq i32 %22, 0
-  br i1 %.not.i, label %34, label %23
+  %22 = trunc i32 %3 to i1
+  br i1 %22, label %23, label %34
 
 23:                                               ; preds = %21
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1207,8 +1202,8 @@ _ZN6google8protobuf8internal14WireFormatLite9BytesSizeERKNSt7__cxx1112basic_stri
   %35 = phi i32 [ %.pre.i7, %_ZN6google8protobuf8internal14WireFormatLite9BytesSizeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i ], [ %3, %21 ]
   %.0.i = phi i32 [ %33, %_ZN6google8protobuf8internal14WireFormatLite9BytesSizeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i ], [ 0, %21 ]
   %36 = and i32 %35, 2
-  %.not3.i = icmp eq i32 %36, 0
-  br i1 %.not3.i, label %_ZNK3net18SourceAddressToken30RequiredFieldsByteSizeFallbackEv.exit, label %37
+  %.not.i = icmp eq i32 %36, 0
+  br i1 %.not.i, label %_ZNK3net18SourceAddressToken30RequiredFieldsByteSizeFallbackEv.exit, label %37
 
 37:                                               ; preds = %34
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 40

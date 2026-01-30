@@ -861,52 +861,51 @@ _ZN3re23NFA11AllocThreadEv.exit:                  ; preds = %if.then.i, %_ZNSt5d
 sw.bb85:                                          ; preds = %_ZN3re211SparseArrayIPNS_3NFA6ThreadEE7set_newEiRKS3_.exit
   %hint_foldcase_.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i70, i64 6
   %48 = load i16, ptr %hint_foldcase_.i.i, align 2
-  %49 = and i16 %48, 1
-  %tobool.i = icmp ne i16 %49, 0
+  %tobool.i = trunc i16 %48 to i1
   %or.cond1.i = and i1 %2, %tobool.i
   %spec.select.i = select i1 %or.cond1.i, i32 %add.i, i32 %c
-  %50 = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i70, i64 4
-  %51 = load i8, ptr %50, align 4
-  %conv.i88 = zext i8 %51 to i32
+  %49 = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i70, i64 4
+  %50 = load i8, ptr %49, align 4
+  %conv.i88 = zext i8 %50 to i32
   %cmp4.not.i = icmp sge i32 %spec.select.i, %conv.i88
   %hi_.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i70, i64 5
-  %52 = load i8, ptr %hi_.i, align 1
-  %conv5.i = zext i8 %52 to i32
+  %51 = load i8, ptr %hi_.i, align 1
+  %conv5.i = zext i8 %51 to i32
   %cmp6.i = icmp sle i32 %spec.select.i, %conv5.i
-  %53 = select i1 %cmp4.not.i, i1 %cmp6.i, i1 false
-  br i1 %53, label %if.end88, label %Next
+  %52 = select i1 %cmp4.not.i, i1 %cmp6.i, i1 false
+  br i1 %52, label %if.end88, label %Next
 
 if.end88:                                         ; preds = %sw.bb85
-  %54 = load i32, ptr %t0.addr.2, align 8
-  %inc.i89 = add nsw i32 %54, 1
+  %53 = load i32, ptr %t0.addr.2, align 8
+  %inc.i89 = add nsw i32 %53, 1
   store i32 %inc.i89, ptr %t0.addr.2, align 8
   store ptr %t0.addr.2, ptr %value_.i, align 8
-  %55 = load i16, ptr %hint_foldcase_.i.i, align 2
-  %56 = lshr i16 %55, 1
-  %cmp91 = icmp eq i16 %56, 0
+  %54 = load i16, ptr %hint_foldcase_.i.i, align 2
+  %55 = lshr i16 %54, 1
+  %cmp91 = icmp eq i16 %55, 0
   br i1 %cmp91, label %while.cond.backedge, label %if.end93
 
 if.end93:                                         ; preds = %if.end88
-  %shr.i90 = zext nneg i16 %56 to i32
+  %shr.i90 = zext nneg i16 %55 to i32
   br label %Loop.backedge
 
 sw.bb99:                                          ; preds = %_ZN3re211SparseArrayIPNS_3NFA6ThreadEE7set_newEiRKS3_.exit
-  %57 = load i32, ptr %t0.addr.2, align 8
-  %inc.i93 = add nsw i32 %57, 1
+  %56 = load i32, ptr %t0.addr.2, align 8
+  %inc.i93 = add nsw i32 %56, 1
   store i32 %inc.i93, ptr %t0.addr.2, align 8
   store ptr %t0.addr.2, ptr %value_.i, align 8
   %.pre160 = load i32, ptr %arrayidx.i.i.i70, align 4
   br label %Next
 
 Next:                                             ; preds = %sw.bb85, %sw.bb99
-  %58 = phi i32 [ %20, %sw.bb85 ], [ %.pre160, %sw.bb99 ]
-  %59 = and i32 %58, 8
-  %tobool102.not = icmp eq i32 %59, 0
+  %57 = phi i32 [ %20, %sw.bb85 ], [ %.pre160, %sw.bb99 ]
+  %58 = and i32 %57, 8
+  %tobool102.not = icmp eq i32 %58, 0
   br i1 %tobool102.not, label %Loop.backedge, label %while.cond.backedge
 
 sw.bb109:                                         ; preds = %_ZN3re211SparseArrayIPNS_3NFA6ThreadEE7set_newEiRKS3_.exit
-  %60 = and i32 %20, 8
-  %tobool111.not = icmp eq i32 %60, 0
+  %59 = and i32 %20, 8
+  %tobool111.not = icmp eq i32 %59, 0
   br i1 %tobool111.not, label %if.then112, label %if.end120
 
 if.then112:                                       ; preds = %sw.bb109
@@ -921,11 +920,11 @@ if.then112:                                       ; preds = %sw.bb109
 
 if.end120:                                        ; preds = %if.then112, %sw.bb109
   %nstk.6 = phi i32 [ %nstk.1.ph, %sw.bb109 ], [ %inc117, %if.then112 ]
-  %61 = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i70, i64 4
-  %62 = load i32, ptr %61, align 4
+  %60 = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i70, i64 4
+  %61 = load i32, ptr %60, align 4
   %call122 = call noundef i32 @_ZN3re24Prog10EmptyFlagsEN4absl7debian211string_viewEPKc(ptr %context.coerce0, i64 %context.coerce1, ptr noundef %p)
   %not = xor i32 %call122, -1
-  %and = and i32 %62, %not
+  %and = and i32 %61, %not
   %tobool123.not = icmp eq i32 %and, 0
   br i1 %tobool123.not, label %Loop.outer.backedge, label %while.cond.backedge
 

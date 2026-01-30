@@ -3062,29 +3062,26 @@ define void @validateHamilFilePauliCode(i32 noundef %0, ptr noundef readonly byv
 
 ; Function Attrs: nounwind uwtable
 define void @validateTrotterParams(i32 noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #3 {
-  %4 = icmp sgt i32 %0, 0
-  br i1 %4, label %5, label %.thread
+  %4 = icmp slt i32 %0, 1
+  %5 = trunc i32 %0 to i1
+  %6 = icmp ne i32 %0, 1
+  %.not10 = and i1 %6, %5
+  %or.cond = or i1 %4, %.not10
+  br i1 %or.cond, label %.thread, label %QuESTAssert.exit
 
-5:                                                ; preds = %3
-  %6 = and i32 %0, 1
-  %7 = icmp ne i32 %6, 0
-  %8 = icmp ne i32 %0, 1
-  %.not10 = and i1 %8, %7
-  br i1 %.not10, label %.thread, label %QuESTAssert.exit
-
-.thread:                                          ; preds = %3, %5
+.thread:                                          ; preds = %3
   tail call void @invalidQuESTInputError(ptr noundef nonnull @.str.66, ptr noundef %2)
   br label %QuESTAssert.exit
 
-QuESTAssert.exit:                                 ; preds = %5, %.thread
-  %9 = icmp slt i32 %1, 1
-  br i1 %9, label %10, label %QuESTAssert.exit7
+QuESTAssert.exit:                                 ; preds = %3, %.thread
+  %7 = icmp slt i32 %1, 1
+  br i1 %7, label %8, label %QuESTAssert.exit7
 
-10:                                               ; preds = %QuESTAssert.exit
+8:                                                ; preds = %QuESTAssert.exit
   tail call void @invalidQuESTInputError(ptr noundef nonnull @.str.67, ptr noundef %2)
   br label %QuESTAssert.exit7
 
-QuESTAssert.exit7:                                ; preds = %QuESTAssert.exit, %10
+QuESTAssert.exit7:                                ; preds = %QuESTAssert.exit, %8
   ret void
 }
 

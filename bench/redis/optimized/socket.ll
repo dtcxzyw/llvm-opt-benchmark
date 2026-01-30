@@ -354,17 +354,16 @@ callHandler.exit58:                               ; preds = %80
   %97 = phi i16 [ %.pre81, %94 ], [ %88, %87 ]
   %98 = phi i16 [ %95, %94 ], [ %89, %87 ]
   store i16 %98, ptr %92, align 2, !tbaa !20
-  %99 = and i16 %97, 1
-  %.not9.i61 = icmp ne i16 %99, 0
+  %.not9.i61 = trunc i16 %97 to i1
   %.not10.i62 = icmp eq i16 %98, 0
   %or.cond75 = select i1 %.not9.i61, i1 %.not10.i62, i1 false
   br i1 %or.cond75, label %.critedge.sink.split, label %.critedge
 
 .critedge.sink.split:                             ; preds = %96, %84, %69, %37
-  %100 = load ptr, ptr %2, align 8, !tbaa !22
-  %101 = getelementptr inbounds nuw i8, ptr %100, i64 96
-  %102 = load ptr, ptr %101, align 8, !tbaa !23
-  tail call void %102(ptr noundef nonnull %2) #11
+  %99 = load ptr, ptr %2, align 8, !tbaa !22
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 96
+  %101 = load ptr, ptr %100, align 8, !tbaa !23
+  tail call void %101(ptr noundef nonnull %2) #11
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.sink.split, %84, %69, %37, %96, %callHandler.exit58, %86

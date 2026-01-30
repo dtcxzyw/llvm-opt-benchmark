@@ -195,9 +195,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %.
 30:                                               ; preds = %9
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %32 = load i64, ptr %31, align 8, !tbaa !18
-  %33 = and i64 %32, 1
-  %.not.i = icmp eq i64 %33, 0
-  br i1 %.not.i, label %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit, label %34, !prof !26
+  %33 = trunc i64 %32 to i1
+  br i1 %33, label %34, label %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit, !prof !26
 
 34:                                               ; preds = %30
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -323,9 +322,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %15
 24:                                               ; preds = %7
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %26 = load i64, ptr %25, align 8, !tbaa !18
-  %27 = and i64 %26, 1
-  %.not.i = icmp eq i64 %27, 0
-  br i1 %.not.i, label %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit, label %28, !prof !26
+  %27 = trunc i64 %26 to i1
+  br i1 %27, label %28, label %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit, !prof !26
 
 28:                                               ; preds = %24
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -380,21 +378,21 @@ _ZN6google8protobuf5Arena14CreateInternalINSt7__cxx1112basic_stringIcSt11char_tr
   %54 = load ptr, ptr %2, align 8, !tbaa !12
   %55 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %56 = icmp eq ptr %54, %55
-  br i1 %53, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i19, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i
+  br i1 %53, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i18, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i19: ; preds = %50
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i18: ; preds = %50
   br i1 %56, label %57, label %.thread.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i: ; preds = %50
   br i1 %56, label %57, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i
 
-57:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i19
+57:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i18
   %58 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %59 = load i64, ptr %58, align 8, !tbaa !15
   %60 = icmp ult i64 %59, 16
   tail call void @llvm.assume(i1 %60)
   %.not22.i = icmp eq ptr %2, %5
-  br i1 %.not22.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit, label %61, !prof !33
+  br i1 %.not22.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit, label %61, !prof !26
 
 61:                                               ; preds = %57
   switch i64 %59, label %64 [
@@ -421,7 +419,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit.i: ; p
   %.pre.i = load ptr, ptr %2, align 8, !tbaa !12
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit
 
-.thread.i:                                        ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i19
+.thread.i:                                        ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i18
   %69 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %54, ptr %5, align 8, !tbaa !12
   %70 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -440,8 +438,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thr
   store i64 %75, ptr %76, align 8, !tbaa !15
   %77 = load i64, ptr %55, align 8, !tbaa !14
   store i64 %77, ptr %52, align 8, !tbaa !14
-  %.not.i18 = icmp eq ptr %51, null
-  br i1 %.not.i18, label %79, label %78
+  %.not.i = icmp eq ptr %51, null
+  br i1 %.not.i, label %79, label %78
 
 78:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i
   store ptr %51, ptr %2, align 8, !tbaa !12
@@ -507,9 +505,8 @@ define noundef ptr @_ZN6google8protobuf8internal14ArenaStringPtr7MutableB5cxx11E
 9:                                                ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %11 = load i64, ptr %10, align 8, !tbaa !18
-  %12 = and i64 %11, 1
-  %.not.i.i = icmp eq i64 %12, 0
-  br i1 %.not.i.i, label %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i, label %13, !prof !26
+  %12 = trunc i64 %11 to i1
+  br i1 %12, label %13, label %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i, !prof !26
 
 13:                                               ; preds = %9
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -564,7 +561,7 @@ define linkonce_odr noundef ptr @_ZN6google8protobuf8internal14ArenaStringPtr11M
   %7 = load atomic i64, ptr %6 acquire, align 8
   %.0.i.i.i = inttoptr i64 %7 to ptr
   %8 = icmp eq i64 %7, 0
-  br i1 %8, label %9, label %_ZNK6google8protobuf8internal10LazyString3getB5cxx11Ev.exit, !prof !33
+  br i1 %8, label %9, label %_ZNK6google8protobuf8internal10LazyString3getB5cxx11Ev.exit, !prof !26
 
 9:                                                ; preds = %3
   %10 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6google8protobuf8internal10LazyString4InitB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(40) %2)
@@ -632,9 +629,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %.
 31:                                               ; preds = %_ZNK6google8protobuf8internal10LazyString3getB5cxx11Ev.exit
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %33 = load i64, ptr %32, align 8, !tbaa !18
-  %34 = and i64 %33, 1
-  %.not.i = icmp eq i64 %34, 0
-  br i1 %.not.i, label %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit, label %35, !prof !26
+  %34 = trunc i64 %33 to i1
+  br i1 %34, label %35, label %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit, !prof !26
 
 35:                                               ; preds = %31
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -715,9 +711,8 @@ define noundef ptr @_ZN6google8protobuf8internal14ArenaStringPtr13MutableNoCopyE
 10:                                               ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %12 = load i64, ptr %11, align 8, !tbaa !18
-  %13 = and i64 %12, 1
-  %.not.i = icmp eq i64 %13, 0
-  br i1 %.not.i, label %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit, label %14, !prof !26
+  %13 = trunc i64 %12 to i1
+  br i1 %13, label %14, label %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit, !prof !26
 
 14:                                               ; preds = %10
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 32
@@ -996,7 +991,7 @@ define void @_ZN6google8protobuf8internal14ArenaStringPtr14ClearToDefaultERKNS1_
   %8 = load atomic i64, ptr %7 acquire, align 8
   %.0.i.i.i = inttoptr i64 %8 to ptr
   %9 = icmp eq i64 %8, 0
-  br i1 %9, label %10, label %_ZNK6google8protobuf8internal10LazyString3getB5cxx11Ev.exit, !prof !33
+  br i1 %9, label %10, label %_ZNK6google8protobuf8internal10LazyString3getB5cxx11Ev.exit, !prof !26
 
 10:                                               ; preds = %6
   %11 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6google8protobuf8internal10LazyString4InitB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(40) %1)
@@ -1138,11 +1133,10 @@ attributes #17 = { builtin nounwind }
 !23 = !{!"_ZTSSt6atomicImE", !24, i64 0}
 !24 = !{!"_ZTSSt13__atomic_baseImE", !9, i64 0}
 !25 = !{!"p1 _ZTSN6google8protobuf8internal9ArenaImpl7OptionsE", !5, i64 0}
-!26 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!26 = !{!"branch_weights", !"expected", i32 1, i32 2000}
 !27 = !{!19, !25, i64 32}
 !28 = !{!29, !30, i64 32}
 !29 = !{!"_ZTSN6google8protobuf8internal9ArenaImpl7OptionsE", !9, i64 0, !9, i64 8, !5, i64 16, !5, i64 24, !30, i64 32}
 !30 = !{!"p1 _ZTSN6google8protobuf8internal21ArenaMetricsCollectorE", !5, i64 0}
 !31 = !{!32, !32, i64 0}
 !32 = !{!"vtable pointer", !7, i64 0}
-!33 = !{!"branch_weights", !"expected", i32 1, i32 2000}

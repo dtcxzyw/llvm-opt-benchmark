@@ -2374,7 +2374,7 @@ _ZN8WasmEdge9Configure22removeHostRegistrationENS_16HostRegistrationE.exit: ; pr
 ; Function Attrs: mustprogress nounwind uwtable
 define zeroext i1 @WasmEdge_ConfigureHasHostRegistration(ptr noundef %0, i32 noundef %1) local_unnamed_addr #10 personality ptr @__gxx_personality_v0 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %16, label %.preheader
+  br i1 %.not, label %15, label %.preheader
 
 .preheader:                                       ; preds = %2, %.preheader
   %3 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull align 8 dereferenceable(160) %0) #39
@@ -2413,13 +2413,12 @@ _ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i: ; preds = %.preheader
 _ZNK8WasmEdge9Configure19hasHostRegistrationENS_16HostRegistrationE.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %12 = load i64, ptr %11, align 8
-  %13 = and i64 %12, 1
-  %14 = icmp ne i64 %13, 0
-  %15 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(160) %0) #39
-  br label %16
+  %13 = trunc i64 %12 to i1
+  %14 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(160) %0) #39
+  br label %15
 
-16:                                               ; preds = %2, %_ZNK8WasmEdge9Configure19hasHostRegistrationENS_16HostRegistrationE.exit
-  %.0 = phi i1 [ %14, %_ZNK8WasmEdge9Configure19hasHostRegistrationENS_16HostRegistrationE.exit ], [ false, %2 ]
+15:                                               ; preds = %2, %_ZNK8WasmEdge9Configure19hasHostRegistrationENS_16HostRegistrationE.exit
+  %.0 = phi i1 [ %13, %_ZNK8WasmEdge9Configure19hasHostRegistrationENS_16HostRegistrationE.exit ], [ false, %2 ]
   ret i1 %.0
 }
 

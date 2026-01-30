@@ -246,75 +246,74 @@ define noundef zeroext i1 @_ZN4File4OpenEPKwj(ptr noundef nonnull align 8 derefe
   %9 = and i32 %2, 4
   %10 = icmp ne i32 %9, 0
   %11 = or i1 %10, %8
-  %12 = and i32 %2, 1
-  %13 = icmp ne i32 %12, 0
-  %14 = lshr i32 %2, 1
-  %.lobit = and i32 %14, 1
-  %15 = select i1 %13, i32 2, i32 %.lobit
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 35
-  %17 = load i8, ptr %16, align 1, !tbaa !27, !range !31, !noundef !32
-  %18 = zext nneg i8 %17 to i32
-  %19 = shl nuw nsw i32 %18, 18
-  %spec.select = or disjoint i32 %19, %15
+  %12 = trunc i32 %2 to i1
+  %13 = lshr i32 %2, 1
+  %.lobit = and i32 %13, 1
+  %14 = select i1 %12, i32 2, i32 %.lobit
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 35
+  %16 = load i8, ptr %15, align 1, !tbaa !27, !range !31, !noundef !32
+  %17 = zext nneg i8 %16 to i32
+  %18 = shl nuw nsw i32 %17, 18
+  %spec.select = or disjoint i32 %18, %14
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %20 = call noundef zeroext i1 @_Z10WideToCharPKwPcm(ptr noundef %1, ptr noundef nonnull %4, i64 noundef 2048)
-  %21 = call i32 (ptr, i32, ...) @open64(ptr noundef nonnull %4, i32 noundef %spec.select)
+  %19 = call noundef zeroext i1 @_Z10WideToCharPKwPcm(ptr noundef %1, ptr noundef nonnull %4, i64 noundef 2048)
+  %20 = call i32 (ptr, i32, ...) @open64(ptr noundef nonnull %4, i32 noundef %spec.select)
   %.not = xor i1 %11, true
-  %22 = icmp sgt i32 %21, -1
-  %23 = and i1 %22, %.not
-  %or.cond3 = and i1 %13, %23
-  br i1 %or.cond3, label %24, label %29
+  %21 = icmp sgt i32 %20, -1
+  %22 = and i1 %21, %.not
+  %or.cond3 = and i1 %22, %12
+  br i1 %or.cond3, label %23, label %28
 
-24:                                               ; preds = %3
-  %25 = call i32 @flock(i32 noundef %21, i32 noundef 6) #19
-  %26 = icmp eq i32 %25, -1
-  br i1 %26, label %27, label %.thread30
+23:                                               ; preds = %3
+  %24 = call i32 @flock(i32 noundef %20, i32 noundef 6) #19
+  %25 = icmp eq i32 %24, -1
+  br i1 %25, label %26, label %.thread30
 
-27:                                               ; preds = %24
-  %28 = call i32 @close(i32 noundef %21)
-  br label %46
+26:                                               ; preds = %23
+  %27 = call i32 @close(i32 noundef %20)
+  br label %45
 
-29:                                               ; preds = %3
-  %30 = icmp eq i32 %21, -1
-  br i1 %30, label %31, label %.thread30
+28:                                               ; preds = %3
+  %29 = icmp eq i32 %20, -1
+  br i1 %29, label %30, label %.thread30
 
-31:                                               ; preds = %29
-  %32 = tail call ptr @__errno_location() #21
-  %33 = load i32, ptr %32, align 4, !tbaa !33
-  %34 = icmp eq i32 %33, 2
-  br i1 %34, label %35, label %.thread
+30:                                               ; preds = %28
+  %31 = tail call ptr @__errno_location() #21
+  %32 = load i32, ptr %31, align 4, !tbaa !33
+  %33 = icmp eq i32 %32, 2
+  br i1 %33, label %34, label %.thread
 
-35:                                               ; preds = %31
+34:                                               ; preds = %30
   store i32 1, ptr %5, align 4, !tbaa !23
   br label %.thread
 
-.thread:                                          ; preds = %35, %31
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i8 0, ptr %36, align 8, !tbaa !18
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 0, ptr %37, align 4, !tbaa !20
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 25
-  store i8 0, ptr %38, align 1, !tbaa !22
-  br label %46
+.thread:                                          ; preds = %34, %30
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i8 0, ptr %35, align 8, !tbaa !18
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i32 0, ptr %36, align 4, !tbaa !20
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 25
+  store i8 0, ptr %37, align 1, !tbaa !22
+  br label %45
 
-.thread30:                                        ; preds = %24, %29
-  %39 = sext i32 %21 to i64
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i8 0, ptr %40, align 8, !tbaa !18
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 0, ptr %41, align 4, !tbaa !20
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 25
-  store i8 0, ptr %42, align 1, !tbaa !22
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %39, ptr %43, align 8, !tbaa !6
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  call void @_Z8wcsncpyzPwPKwm(ptr noundef nonnull %44, ptr noundef %1, i64 noundef 2048)
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  store i8 0, ptr %45, align 4, !tbaa !29
-  br label %46
+.thread30:                                        ; preds = %23, %28
+  %38 = sext i32 %20 to i64
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i8 0, ptr %39, align 8, !tbaa !18
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i32 0, ptr %40, align 4, !tbaa !20
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 25
+  store i8 0, ptr %41, align 1, !tbaa !22
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %38, ptr %42, align 8, !tbaa !6
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  call void @_Z8wcsncpyzPwPKwm(ptr noundef nonnull %43, ptr noundef %1, i64 noundef 2048)
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  store i8 0, ptr %44, align 4, !tbaa !29
+  br label %45
 
-46:                                               ; preds = %.thread, %.thread30, %27
-  %.0 = phi i1 [ false, %27 ], [ true, %.thread30 ], [ false, %.thread ]
+45:                                               ; preds = %.thread, %.thread30, %26
+  %.0 = phi i1 [ false, %26 ], [ true, %.thread30 ], [ false, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.0
 }

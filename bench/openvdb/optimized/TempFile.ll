@@ -703,8 +703,7 @@ entry:
   %0 = load ptr, ptr %mImpl, align 8
   %flags_.i.i = getelementptr inbounds nuw i8, ptr %0, i64 176
   %1 = load i32, ptr %flags_.i.i, align 8
-  %and.i.i = and i32 %1, 1
-  %cmp.i.i = icmp ne i32 %and.i.i, 0
+  %cmp.i.i = trunc i32 %1 to i1
   ret i1 %cmp.i.i
 }
 
@@ -1289,9 +1288,8 @@ entry:
   %agg.tmp.ensured = alloca %"class.std::locale", align 8
   %flags_.i = getelementptr inbounds nuw i8, ptr %this, i64 128
   %0 = load i32, ptr %flags_.i, align 8
-  %and.i = and i32 %0, 1
-  %cmp.i.not = icmp eq i32 %and.i, 0
-  br i1 %cmp.i.not, label %if.end5, label %if.then
+  %cmp.i = trunc i32 %0 to i1
+  br i1 %cmp.i, label %if.then, label %if.end5
 
 if.then:                                          ; preds = %entry
   %next_ = getelementptr inbounds nuw i8, ptr %this, i64 96
@@ -2908,9 +2906,8 @@ entry:
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp2.i)
   %flags_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 128
   %0 = load i32, ptr %flags_.i.i, align 8
-  %and.i.i = and i32 %0, 1
-  %cmp.i.not.i = icmp eq i32 %and.i.i, 0
-  br i1 %cmp.i.not.i, label %if.end.i, label %if.then.i
+  %cmp.i.i = trunc i32 %0 to i1
+  br i1 %cmp.i.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
   %call.i.i.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt17iostream_categoryv() #30

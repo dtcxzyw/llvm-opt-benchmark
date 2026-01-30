@@ -1118,10 +1118,9 @@ define internal zeroext i1 @cf_socket_data_pending(ptr noundef readonly captures
   %6 = load i32, ptr %5, align 8, !tbaa !118
   %7 = tail call i32 @Curl_socket_check(i32 noundef %6, i32 noundef -1, i32 noundef -1, i64 noundef 0) #13
   %8 = icmp sgt i32 %7, 0
-  %9 = and i32 %7, 1
-  %10 = icmp ne i32 %9, 0
-  %11 = and i1 %8, %10
-  ret i1 %11
+  %9 = trunc i32 %7 to i1
+  %10 = and i1 %8, %9
+  ret i1 %10
 }
 
 ; Function Attrs: nounwind uwtable

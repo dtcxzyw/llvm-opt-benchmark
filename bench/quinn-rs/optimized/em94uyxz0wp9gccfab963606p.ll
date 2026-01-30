@@ -6277,17 +6277,16 @@ _ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit:
   %6 = alloca [16 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i64, ptr %0, align 8, !noundef !3
-  %8 = and i64 %7, 1
-  %.not = icmp eq i64 %8, 0
-  %spec.select = select i1 %.not, ptr @anon.dc71d0a5682d3db708e0e7797e95149f.213, ptr @anon.dc71d0a5682d3db708e0e7797e95149f.214
+  %8 = trunc i64 %7 to i1
+  %spec.select = select i1 %8, ptr @anon.dc71d0a5682d3db708e0e7797e95149f.214, ptr @anon.dc71d0a5682d3db708e0e7797e95149f.213
   store ptr %spec.select, ptr %6, align 8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 6, ptr %9, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %10 = and i64 %7, 2
-  %.not12 = icmp eq i64 %10, 0
-  %anon.dc71d0a5682d3db708e0e7797e95149f.216.sink = select i1 %.not12, ptr @anon.dc71d0a5682d3db708e0e7797e95149f.215, ptr @anon.dc71d0a5682d3db708e0e7797e95149f.216
-  %.sink = select i1 %.not12, i64 2, i64 3
+  %.not = icmp eq i64 %10, 0
+  %anon.dc71d0a5682d3db708e0e7797e95149f.216.sink = select i1 %.not, ptr @anon.dc71d0a5682d3db708e0e7797e95149f.215, ptr @anon.dc71d0a5682d3db708e0e7797e95149f.216
+  %.sink = select i1 %.not, i64 2, i64 3
   store ptr %anon.dc71d0a5682d3db708e0e7797e95149f.216.sink, ptr %5, align 8
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %.sink, ptr %11, align 8
@@ -6340,9 +6339,8 @@ define noundef i64 @_ZN11quinn_proto8StreamId3new17h90c97eba7d8f786fE(i1 noundef
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define noundef zeroext i1 @_ZN11quinn_proto8StreamId9initiator17hf98d2dc8db25c1baE(i64 noundef %0) unnamed_addr #5 {
-  %2 = and i64 %0, 1
-  %3 = icmp ne i64 %2, 0
-  ret i1 %3
+  %2 = trunc i64 %0 to i1
+  ret i1 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable

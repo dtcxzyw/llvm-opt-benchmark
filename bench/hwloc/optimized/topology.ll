@@ -9487,124 +9487,123 @@ define range(i32 -1, 1) i32 @hwloc_topology_allow(ptr noundef %0, ptr noundef %1
   %6 = load i64, ptr %5, align 8, !tbaa !90
   %7 = and i64 %6, 2
   %.not = icmp eq i64 %7, 0
-  br i1 %.not, label %72, label %8
+  br i1 %.not, label %71, label %8
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load i64, ptr %9, align 8, !tbaa !92
-  %11 = and i64 %10, 1
-  %.not40 = icmp ne i64 %11, 0
+  %.not40 = trunc i64 %10 to i1
   %.not41 = icmp ult i64 %3, 8
   %or.cond48 = and i1 %.not41, %.not40
-  br i1 %or.cond48, label %12, label %72
+  br i1 %or.cond48, label %11, label %71
 
-12:                                               ; preds = %8
-  switch i64 %3, label %72 [
-    i64 1, label %13
-    i64 2, label %29
-    i64 4, label %52
+11:                                               ; preds = %8
+  switch i64 %3, label %71 [
+    i64 1, label %12
+    i64 2, label %28
+    i64 4, label %51
   ]
 
-13:                                               ; preds = %12
-  %14 = icmp ne ptr %1, null
-  %15 = icmp ne ptr %2, null
-  %or.cond = or i1 %14, %15
-  br i1 %or.cond, label %72, label %16
+12:                                               ; preds = %11
+  %13 = icmp ne ptr %1, null
+  %14 = icmp ne ptr %2, null
+  %or.cond = or i1 %13, %14
+  br i1 %or.cond, label %71, label %15
 
-16:                                               ; preds = %13
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 448
-  %18 = load ptr, ptr %17, align 8, !tbaa !100
-  %19 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef nonnull readonly %0, i32 noundef 0, i32 noundef 0) #38
-  %20 = getelementptr inbounds nuw i8, ptr %19, i64 192
-  %21 = load ptr, ptr %20, align 8, !tbaa !54
-  %22 = tail call i32 @hwloc_bitmap_copy(ptr noundef %18, ptr noundef %21) #36
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 456
-  %24 = load ptr, ptr %23, align 8, !tbaa !101
-  %25 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef nonnull readonly %0, i32 noundef 0, i32 noundef 0) #38
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 208
-  %27 = load ptr, ptr %26, align 8, !tbaa !84
-  %28 = tail call i32 @hwloc_bitmap_copy(ptr noundef %24, ptr noundef %27) #36
-  br label %74
+15:                                               ; preds = %12
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 448
+  %17 = load ptr, ptr %16, align 8, !tbaa !100
+  %18 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef nonnull readonly %0, i32 noundef 0, i32 noundef 0) #38
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 192
+  %20 = load ptr, ptr %19, align 8, !tbaa !54
+  %21 = tail call i32 @hwloc_bitmap_copy(ptr noundef %17, ptr noundef %20) #36
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 456
+  %23 = load ptr, ptr %22, align 8, !tbaa !101
+  %24 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef nonnull readonly %0, i32 noundef 0, i32 noundef 0) #38
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 208
+  %26 = load ptr, ptr %25, align 8, !tbaa !84
+  %27 = tail call i32 @hwloc_bitmap_copy(ptr noundef %23, ptr noundef %26) #36
+  br label %73
 
-29:                                               ; preds = %12
-  %30 = icmp ne ptr %1, null
-  %31 = icmp ne ptr %2, null
-  %or.cond3 = or i1 %30, %31
-  %32 = and i64 %6, 1
-  %.not46 = icmp eq i64 %32, 0
+28:                                               ; preds = %11
+  %29 = icmp ne ptr %1, null
+  %30 = icmp ne ptr %2, null
+  %or.cond3 = or i1 %29, %30
+  %31 = and i64 %6, 1
+  %.not46 = icmp eq i64 %31, 0
   %or.cond49 = or i1 %or.cond3, %.not46
-  br i1 %or.cond49, label %72, label %33
+  br i1 %or.cond49, label %71, label %32
 
-33:                                               ; preds = %29
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 648
-  %35 = load ptr, ptr %34, align 8, !tbaa !209
-  %.not47 = icmp eq ptr %35, null
-  br i1 %.not47, label %36, label %38
+32:                                               ; preds = %28
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 648
+  %34 = load ptr, ptr %33, align 8, !tbaa !209
+  %.not47 = icmp eq ptr %34, null
+  br i1 %.not47, label %35, label %37
 
-36:                                               ; preds = %33
-  %37 = tail call ptr @__errno_location() #39
-  store i32 38, ptr %37, align 4, !tbaa !31
-  br label %74
+35:                                               ; preds = %32
+  %36 = tail call ptr @__errno_location() #39
+  store i32 38, ptr %36, align 4, !tbaa !31
+  br label %73
 
-38:                                               ; preds = %33
-  %39 = tail call i32 %35(ptr noundef nonnull %0) #36
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 448
-  %41 = load ptr, ptr %40, align 8, !tbaa !100
-  %42 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef nonnull readonly %0, i32 noundef 0, i32 noundef 0) #38
-  %43 = getelementptr inbounds nuw i8, ptr %42, i64 184
-  %44 = load ptr, ptr %43, align 8, !tbaa !45
-  %45 = tail call i32 @hwloc_bitmap_and(ptr noundef %41, ptr noundef %41, ptr noundef %44) #36
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 456
-  %47 = load ptr, ptr %46, align 8, !tbaa !101
-  %48 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef nonnull readonly %0, i32 noundef 0, i32 noundef 0) #38
-  %49 = getelementptr inbounds nuw i8, ptr %48, i64 200
-  %50 = load ptr, ptr %49, align 8, !tbaa !83
-  %51 = tail call i32 @hwloc_bitmap_and(ptr noundef %47, ptr noundef %47, ptr noundef %50) #36
-  br label %74
+37:                                               ; preds = %32
+  %38 = tail call i32 %34(ptr noundef nonnull %0) #36
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 448
+  %40 = load ptr, ptr %39, align 8, !tbaa !100
+  %41 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef nonnull readonly %0, i32 noundef 0, i32 noundef 0) #38
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 184
+  %43 = load ptr, ptr %42, align 8, !tbaa !45
+  %44 = tail call i32 @hwloc_bitmap_and(ptr noundef %40, ptr noundef %40, ptr noundef %43) #36
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 456
+  %46 = load ptr, ptr %45, align 8, !tbaa !101
+  %47 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef nonnull readonly %0, i32 noundef 0, i32 noundef 0) #38
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 200
+  %49 = load ptr, ptr %48, align 8, !tbaa !83
+  %50 = tail call i32 @hwloc_bitmap_and(ptr noundef %46, ptr noundef %46, ptr noundef %49) #36
+  br label %73
 
-52:                                               ; preds = %12
+51:                                               ; preds = %11
   %.not42 = icmp eq ptr %1, null
-  br i1 %.not42, label %62, label %53
+  br i1 %.not42, label %61, label %52
 
-53:                                               ; preds = %52
-  %54 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef nonnull readonly %0, i32 noundef 0, i32 noundef 0) #38
-  %55 = getelementptr inbounds nuw i8, ptr %54, i64 184
-  %56 = load ptr, ptr %55, align 8, !tbaa !45
-  %57 = tail call i32 @hwloc_bitmap_intersects(ptr noundef %56, ptr noundef nonnull %1) #38
-  %.not43 = icmp eq i32 %57, 0
-  br i1 %.not43, label %72, label %58
+52:                                               ; preds = %51
+  %53 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef nonnull readonly %0, i32 noundef 0, i32 noundef 0) #38
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 184
+  %55 = load ptr, ptr %54, align 8, !tbaa !45
+  %56 = tail call i32 @hwloc_bitmap_intersects(ptr noundef %55, ptr noundef nonnull %1) #38
+  %.not43 = icmp eq i32 %56, 0
+  br i1 %.not43, label %71, label %57
 
-58:                                               ; preds = %53
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 448
-  %60 = load ptr, ptr %59, align 8, !tbaa !100
-  %61 = tail call i32 @hwloc_bitmap_and(ptr noundef %60, ptr noundef %56, ptr noundef nonnull %1) #36
-  br label %62
+57:                                               ; preds = %52
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 448
+  %59 = load ptr, ptr %58, align 8, !tbaa !100
+  %60 = tail call i32 @hwloc_bitmap_and(ptr noundef %59, ptr noundef %55, ptr noundef nonnull %1) #36
+  br label %61
 
-62:                                               ; preds = %58, %52
+61:                                               ; preds = %57, %51
   %.not44 = icmp eq ptr %2, null
-  br i1 %.not44, label %74, label %63
+  br i1 %.not44, label %73, label %62
 
-63:                                               ; preds = %62
-  %64 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef nonnull readonly %0, i32 noundef 0, i32 noundef 0) #38
-  %65 = getelementptr inbounds nuw i8, ptr %64, i64 200
-  %66 = load ptr, ptr %65, align 8, !tbaa !83
-  %67 = tail call i32 @hwloc_bitmap_intersects(ptr noundef %66, ptr noundef nonnull %2) #38
-  %.not45 = icmp eq i32 %67, 0
-  br i1 %.not45, label %72, label %68
+62:                                               ; preds = %61
+  %63 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef nonnull readonly %0, i32 noundef 0, i32 noundef 0) #38
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 200
+  %65 = load ptr, ptr %64, align 8, !tbaa !83
+  %66 = tail call i32 @hwloc_bitmap_intersects(ptr noundef %65, ptr noundef nonnull %2) #38
+  %.not45 = icmp eq i32 %66, 0
+  br i1 %.not45, label %71, label %67
 
-68:                                               ; preds = %63
-  %69 = getelementptr inbounds nuw i8, ptr %0, i64 456
-  %70 = load ptr, ptr %69, align 8, !tbaa !101
-  %71 = tail call i32 @hwloc_bitmap_and(ptr noundef %70, ptr noundef %66, ptr noundef nonnull %2) #36
-  br label %74
+67:                                               ; preds = %62
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 456
+  %69 = load ptr, ptr %68, align 8, !tbaa !101
+  %70 = tail call i32 @hwloc_bitmap_and(ptr noundef %69, ptr noundef %65, ptr noundef nonnull %2) #36
+  br label %73
 
-72:                                               ; preds = %12, %63, %53, %29, %13, %8, %4
-  %73 = tail call ptr @__errno_location() #39
-  store i32 22, ptr %73, align 4, !tbaa !31
-  br label %74
+71:                                               ; preds = %11, %62, %52, %28, %12, %8, %4
+  %72 = tail call ptr @__errno_location() #39
+  store i32 22, ptr %72, align 4, !tbaa !31
+  br label %73
 
-74:                                               ; preds = %36, %72, %16, %38, %68, %62
-  %.0 = phi i32 [ 0, %16 ], [ 0, %62 ], [ 0, %68 ], [ 0, %38 ], [ -1, %72 ], [ -1, %36 ]
+73:                                               ; preds = %35, %71, %15, %37, %67, %61
+  %.0 = phi i32 [ 0, %15 ], [ 0, %61 ], [ 0, %67 ], [ 0, %37 ], [ -1, %71 ], [ -1, %35 ]
   ret i32 %.0
 }
 

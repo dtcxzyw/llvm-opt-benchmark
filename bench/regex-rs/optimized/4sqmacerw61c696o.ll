@@ -11671,9 +11671,8 @@ _ZN14regex_automata4util11determinize5state4Repr8is_match17h421a4728e22c4e36E.ll
   %5 = load ptr, ptr %0, align 8, !alias.scope !2178, !nonnull !4, !noundef !4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load i8, ptr %6, align 1, !noalias !2181, !noundef !4
-  %8 = and i8 %7, 1
-  %9 = icmp ne i8 %8, 0
-  ret i1 %9
+  %8 = trunc i8 %7 to i1
+  ret i1 %8
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -11787,14 +11786,13 @@ define noundef range(i64 0, 4294967296) i64 @_ZN14regex_automata4util11determini
 _ZN14regex_automata4util11determinize5state4Repr8is_match17h421a4728e22c4e36E.llvm.7032729871794229628.exit.i: ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %7 = load i8, ptr %6, align 1, !noalias !2233, !noundef !4
-  %8 = and i8 %7, 1
-  %.not.i = icmp eq i8 %8, 0
-  br i1 %.not.i, label %_ZN14regex_automata4util11determinize5state4Repr9match_len17h676100bb735ad9b5E.llvm.7032729871794229628.exit, label %_ZN14regex_automata4util11determinize5state4Repr15has_pattern_ids17h1fd9a150873f9a9cE.llvm.7032729871794229628.exit.i
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %_ZN14regex_automata4util11determinize5state4Repr15has_pattern_ids17h1fd9a150873f9a9cE.llvm.7032729871794229628.exit.i, label %_ZN14regex_automata4util11determinize5state4Repr9match_len17h676100bb735ad9b5E.llvm.7032729871794229628.exit
 
 _ZN14regex_automata4util11determinize5state4Repr15has_pattern_ids17h1fd9a150873f9a9cE.llvm.7032729871794229628.exit.i: ; preds = %_ZN14regex_automata4util11determinize5state4Repr8is_match17h421a4728e22c4e36E.llvm.7032729871794229628.exit.i
   %9 = and i8 %7, 2
-  %.not3.i = icmp eq i8 %9, 0
-  br i1 %.not3.i, label %_ZN14regex_automata4util11determinize5state4Repr9match_len17h676100bb735ad9b5E.llvm.7032729871794229628.exit, label %10
+  %.not.i = icmp eq i8 %9, 0
+  br i1 %.not.i, label %_ZN14regex_automata4util11determinize5state4Repr9match_len17h676100bb735ad9b5E.llvm.7032729871794229628.exit, label %10
 
 10:                                               ; preds = %_ZN14regex_automata4util11determinize5state4Repr15has_pattern_ids17h1fd9a150873f9a9cE.llvm.7032729871794229628.exit.i
   %11 = icmp ult i64 %4, 13
@@ -13106,16 +13104,15 @@ define hidden noundef zeroext i1 @_ZN14regex_automata4util11determinize5state4Re
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8, !noundef !4
   %.not = icmp eq i64 %3, 0
-  br i1 %.not, label %9, label %4, !prof !1886
+  br i1 %.not, label %8, label %4, !prof !1886
 
 4:                                                ; preds = %1
   %5 = load ptr, ptr %0, align 8, !nonnull !4, !align !420, !noundef !4
   %6 = load i8, ptr %5, align 1, !noundef !4
-  %7 = and i8 %6, 1
-  %8 = icmp ne i8 %7, 0
-  ret i1 %8
+  %7 = trunc i8 %6 to i1
+  ret i1 %7
 
-9:                                                ; preds = %1
+8:                                                ; preds = %1
   tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef 0, i64 noundef 0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ba51361bcc0ea5fd4636dffa08bd088c.168.llvm.7032729871794229628) #34
   unreachable
 }
@@ -13248,14 +13245,13 @@ define hidden noundef range(i64 0, 4294967296) i64 @_ZN14regex_automata4util11de
 _ZN14regex_automata4util11determinize5state4Repr8is_match17h421a4728e22c4e36E.llvm.7032729871794229628.exit: ; preds = %1
   %5 = load ptr, ptr %0, align 8, !alias.scope !2847, !nonnull !4, !align !420, !noundef !4
   %6 = load i8, ptr %5, align 1, !noalias !2847, !noundef !4
-  %7 = and i8 %6, 1
-  %.not = icmp eq i8 %7, 0
-  br i1 %.not, label %9, label %_ZN14regex_automata4util11determinize5state4Repr15has_pattern_ids17h1fd9a150873f9a9cE.llvm.7032729871794229628.exit
+  %7 = trunc i8 %6 to i1
+  br i1 %7, label %_ZN14regex_automata4util11determinize5state4Repr15has_pattern_ids17h1fd9a150873f9a9cE.llvm.7032729871794229628.exit, label %9
 
 _ZN14regex_automata4util11determinize5state4Repr15has_pattern_ids17h1fd9a150873f9a9cE.llvm.7032729871794229628.exit: ; preds = %_ZN14regex_automata4util11determinize5state4Repr8is_match17h421a4728e22c4e36E.llvm.7032729871794229628.exit
   %8 = and i8 %6, 2
-  %.not3 = icmp eq i8 %8, 0
-  br i1 %.not3, label %9, label %10
+  %.not = icmp eq i8 %8, 0
+  br i1 %.not, label %9, label %10
 
 9:                                                ; preds = %_ZN14regex_automata4util11determinize5state4Repr15has_pattern_ids17h1fd9a150873f9a9cE.llvm.7032729871794229628.exit, %_ZN14regex_automata4util11determinize5state4Repr8is_match17h421a4728e22c4e36E.llvm.7032729871794229628.exit, %_ZN14regex_automata4util11determinize5state4Repr19encoded_pattern_len17ha4dfc4550e3dc647E.llvm.7032729871794229628.exit
   %.0 = phi i64 [ %15, %_ZN14regex_automata4util11determinize5state4Repr19encoded_pattern_len17ha4dfc4550e3dc647E.llvm.7032729871794229628.exit ], [ 0, %_ZN14regex_automata4util11determinize5state4Repr8is_match17h421a4728e22c4e36E.llvm.7032729871794229628.exit ], [ 1, %_ZN14regex_automata4util11determinize5state4Repr15has_pattern_ids17h1fd9a150873f9a9cE.llvm.7032729871794229628.exit ]
@@ -13771,8 +13767,8 @@ _ZN14regex_automata4util11determinize5state4Repr18iter_nfa_state_ids17h54cfee130
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %82 = load i8, ptr %.val, align 1, !noalias !2951, !noundef !4
   %83 = lshr i8 %82, 3
-  %.lobit25 = and i8 %83, 1
-  store i8 %.lobit25, ptr %9, align 1
+  %.lobit24 = and i8 %83, 1
+  store i8 %.lobit24, ptr %9, align 1
   %84 = invoke noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders11DebugStruct5field17h0ae9bd404677e494E(ptr noalias noundef nonnull align 8 dereferenceable(16) %80, ptr noalias noundef nonnull readonly align 1 @anon.ba51361bcc0ea5fd4636dffa08bd088c.188, i64 noundef 12, ptr noundef nonnull align 1 %9, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ba51361bcc0ea5fd4636dffa08bd088c.186)
           to label %85 unwind label %.loopexit.split-lp
 
@@ -13796,9 +13792,8 @@ _ZN14regex_automata4util11determinize5state4Repr8is_match17h421a4728e22c4e36E.ll
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.experimental.noalias.scope.decl(metadata !2974)
   %93 = load i8, ptr %.val, align 1, !noalias !2977, !noundef !4
-  %94 = and i8 %93, 1
-  %.not.i19 = icmp eq i8 %94, 0
-  br i1 %.not.i19, label %95, label %_ZN14regex_automata4util11determinize5state4Repr15has_pattern_ids17h1fd9a150873f9a9cE.llvm.7032729871794229628.exit.i.i
+  %94 = trunc i8 %93 to i1
+  br i1 %94, label %_ZN14regex_automata4util11determinize5state4Repr15has_pattern_ids17h1fd9a150873f9a9cE.llvm.7032729871794229628.exit.i.i, label %95
 
 95:                                               ; preds = %_ZN14regex_automata4util11determinize5state4Repr8is_match17h421a4728e22c4e36E.llvm.7032729871794229628.exit.i
   store i64 -9223372036854775808, ptr %6, align 8, !alias.scope !2974
@@ -13813,8 +13808,8 @@ _ZN14regex_automata4util11determinize5state4Repr15has_pattern_ids17h1fd9a150873f
   store i64 0, ptr %97, align 8, !noalias !2974
   call void @llvm.experimental.noalias.scope.decl(metadata !2980)
   %98 = and i8 %93, 2
-  %.not3.i.i = icmp eq i8 %98, 0
-  br i1 %.not3.i.i, label %99, label %_ZN14regex_automata4util11determinize5state4Repr15has_pattern_ids17h1fd9a150873f9a9cE.llvm.7032729871794229628.exit.i.i.i.i
+  %.not.i2.i = icmp eq i8 %98, 0
+  br i1 %.not.i2.i, label %99, label %_ZN14regex_automata4util11determinize5state4Repr15has_pattern_ids17h1fd9a150873f9a9cE.llvm.7032729871794229628.exit.i.i.i.i
 
 99:                                               ; preds = %_ZN14regex_automata4util11determinize5state4Repr15has_pattern_ids17h1fd9a150873f9a9cE.llvm.7032729871794229628.exit.i.i
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h95e2c895552e079aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5, i64 noundef 0)
@@ -13869,11 +13864,11 @@ _ZN14regex_automata4util11determinize5state4Repr18pattern_offset_end17he4051b6a5
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17h05367c8bc47ad30aE.llvm.7032729871794229628.exit.i.i": ; preds = %"_ZN14regex_automata4util11determinize5state4Repr17match_pattern_ids28_$u7b$$u7b$closure$u7d$$u7d$17h6f4e40f98b803a7dE.exit26.i.i", %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h364e2176bd393ad4E.llvm.7032729871794229628.exit.i.i"
   %115 = phi i64 [ 0, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h364e2176bd393ad4E.llvm.7032729871794229628.exit.i.i" ], [ %126, %"_ZN14regex_automata4util11determinize5state4Repr17match_pattern_ids28_$u7b$$u7b$closure$u7d$$u7d$17h6f4e40f98b803a7dE.exit26.i.i" ]
-  %.sroa.43.05.i.i = phi i64 [ %111, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h364e2176bd393ad4E.llvm.7032729871794229628.exit.i.i" ], [ %117, %"_ZN14regex_automata4util11determinize5state4Repr17match_pattern_ids28_$u7b$$u7b$closure$u7d$$u7d$17h6f4e40f98b803a7dE.exit26.i.i" ]
-  %.sroa.01.04.i.i = phi ptr [ %114, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h364e2176bd393ad4E.llvm.7032729871794229628.exit.i.i" ], [ %118, %"_ZN14regex_automata4util11determinize5state4Repr17match_pattern_ids28_$u7b$$u7b$closure$u7d$$u7d$17h6f4e40f98b803a7dE.exit26.i.i" ]
-  %116 = load i32, ptr %.sroa.01.04.i.i, align 1, !alias.scope !2994, !noalias !2999
-  %117 = add nsw i64 %.sroa.43.05.i.i, -4
-  %118 = getelementptr inbounds nuw i8, ptr %.sroa.01.04.i.i, i64 4
+  %.sroa.43.04.i.i = phi i64 [ %111, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h364e2176bd393ad4E.llvm.7032729871794229628.exit.i.i" ], [ %117, %"_ZN14regex_automata4util11determinize5state4Repr17match_pattern_ids28_$u7b$$u7b$closure$u7d$$u7d$17h6f4e40f98b803a7dE.exit26.i.i" ]
+  %.sroa.01.03.i.i = phi ptr [ %114, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h364e2176bd393ad4E.llvm.7032729871794229628.exit.i.i" ], [ %118, %"_ZN14regex_automata4util11determinize5state4Repr17match_pattern_ids28_$u7b$$u7b$closure$u7d$$u7d$17h6f4e40f98b803a7dE.exit26.i.i" ]
+  %116 = load i32, ptr %.sroa.01.03.i.i, align 1, !alias.scope !2994, !noalias !2999
+  %117 = add nsw i64 %.sroa.43.04.i.i, -4
+  %118 = getelementptr inbounds nuw i8, ptr %.sroa.01.03.i.i, i64 4
   %119 = load i64, ptr %5, align 8, !alias.scope !3000, !noalias !2974, !noundef !4
   %120 = icmp eq i64 %115, %119
   br i1 %120, label %121, label %"_ZN14regex_automata4util11determinize5state4Repr17match_pattern_ids28_$u7b$$u7b$closure$u7d$$u7d$17h6f4e40f98b803a7dE.exit26.i.i"
@@ -13944,15 +13939,15 @@ _ZN14regex_automata4util11determinize5state4Repr17match_pattern_ids17h64c6c5fbad
 138:                                              ; preds = %136
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !3003
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hbc02d8b7a64a90d3E.llvm.17425413886787028408"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %13)
-          to label %.noexc22 unwind label %146
+          to label %.noexc21 unwind label %146
 
-.noexc22:                                         ; preds = %138
+.noexc21:                                         ; preds = %138
   %139 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %140 = load i64, ptr %139, align 8, !range !8, !noalias !3003, !noundef !4
-  %.not.i.i.i21 = icmp eq i64 %140, 0
-  br i1 %.not.i.i.i21, label %148, label %141
+  %.not.i.i.i20 = icmp eq i64 %140, 0
+  br i1 %.not.i.i.i20, label %148, label %141
 
-141:                                              ; preds = %.noexc22
+141:                                              ; preds = %.noexc21
   %142 = load ptr, ptr %4, align 8, !noalias !3003, !nonnull !4, !noundef !4
   %143 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %144 = load i64, ptr %143, align 8, !noalias !3003, !noundef !4
@@ -13969,7 +13964,7 @@ _ZN14regex_automata4util11determinize5state4Repr17match_pattern_ids17h64c6c5fbad
           cleanup
   br label %145
 
-148:                                              ; preds = %.noexc22, %141
+148:                                              ; preds = %.noexc21, %141
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !3003
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.experimental.noalias.scope.decl(metadata !3010)
@@ -13982,8 +13977,8 @@ _ZN14regex_automata4util11determinize5state4Repr17match_pattern_ids17h64c6c5fbad
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h91529db43fba84adE.llvm.17425413886787028408"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
   %152 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %153 = load i64, ptr %152, align 8, !range !8, !noalias !3013, !noundef !4
-  %.not.i.i.i.i24 = icmp eq i64 %153, 0
-  br i1 %.not.i.i.i.i24, label %"_ZN4core3ptr87drop_in_place$LT$alloc..vec..Vec$LT$regex_automata..util..primitives..PatternID$GT$$GT$17h48a76c5541570eafE.exit.i", label %154
+  %.not.i.i.i.i23 = icmp eq i64 %153, 0
+  br i1 %.not.i.i.i.i23, label %"_ZN4core3ptr87drop_in_place$LT$alloc..vec..Vec$LT$regex_automata..util..primitives..PatternID$GT$$GT$17h48a76c5541570eafE.exit.i", label %154
 
 154:                                              ; preds = %151
   %155 = load ptr, ptr %3, align 8, !noalias !3013, !nonnull !4, !noundef !4
@@ -15032,9 +15027,8 @@ _ZN14regex_automata4util11determinize5state7ReprVec19set_has_pattern_ids17h2bf34
 
 _ZN14regex_automata4util11determinize5state4Repr8is_match17h421a4728e22c4e36E.llvm.7032729871794229628.exit: ; preds = %_ZN14regex_automata4util11determinize5state7ReprVec19set_has_pattern_ids17h2bf3442479f80789E.llvm.7032729871794229628.exit
   %23 = load i8, ptr %20, align 1, !noalias !3535, !noundef !4
-  %24 = and i8 %23, 1
-  %.not15 = icmp eq i8 %24, 0
-  br i1 %.not15, label %_ZN14regex_automata4util11determinize5state7ReprVec12set_is_match17h55bdd3642bcceec9E.llvm.7032729871794229628.exit10, label %27
+  %24 = trunc i8 %23 to i1
+  br i1 %24, label %27, label %_ZN14regex_automata4util11determinize5state7ReprVec12set_is_match17h55bdd3642bcceec9E.llvm.7032729871794229628.exit10
 
 25:                                               ; preds = %_ZN14regex_automata4util11determinize5state9write_u3217h3ed162b25ed1f346E.llvm.7032729871794229628.exit12, %_ZN14regex_automata4util11determinize5state7ReprVec12set_is_match17h55bdd3642bcceec9E.llvm.7032729871794229628.exit
   ret void

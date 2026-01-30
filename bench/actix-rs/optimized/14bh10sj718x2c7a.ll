@@ -6208,7 +6208,7 @@ define void @"_ZN92_$LT$actix_web..http..header..range..ByteRangeSpec$u20$as$u20
   %.sroa.251.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr inttoptr (i64 5 to ptr), ptr %.sroa.251.0..sroa_idx, align 8
   store i64 3, ptr %0, align 8
-  br label %39
+  br label %37
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb277773516156c9aE.exit.thread": ; preds = %21
   %.not.i62 = icmp eq i64 %2, %20
@@ -6217,7 +6217,7 @@ define void @"_ZN92_$LT$actix_web..http..header..range..ByteRangeSpec$u20$as$u20
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb277773516156c9aE.exit65": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb277773516156c9aE.exit.thread"
   %bcmp.i64 = tail call i32 @bcmp(ptr nonnull readonly align 1 %22, ptr nonnull @anon.5ecb3d2e9f1ae0be30078354766074af.11.llvm.13174028157338022411, i64 %23), !alias.scope !1023
   %25 = icmp eq i32 %bcmp.i64, 0
-  br i1 %25, label %33, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb277773516156c9aE.exit65.thread"
+  br i1 %25, label %31, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb277773516156c9aE.exit65.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb277773516156c9aE.exit": ; preds = %21
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -6244,7 +6244,7 @@ define void @"_ZN92_$LT$actix_web..http..header..range..ByteRangeSpec$u20$as$u20
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17hbc6098e1fdff5640E.exit": ; preds = %26, %28
   %.sink.i67 = phi i64 [ 2, %26 ], [ 3, %28 ]
   store i64 %.sink.i67, ptr %0, align 8, !alias.scope !1027, !noalias !1030
-  br label %39
+  br label %37
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb277773516156c9aE.exit65.thread": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb277773516156c9aE.exit.thread", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb277773516156c9aE.exit65"
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -6259,57 +6259,55 @@ define void @"_ZN92_$LT$actix_web..http..header..range..ByteRangeSpec$u20$as$u20
   %.sroa.821.16.copyload = load i64, ptr %.sroa.821.16..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %29 = and i8 %.sroa.015.0.copyload, 1
-  %30 = icmp ne i8 %29, 0
-  %31 = and i8 %.sroa.619.16.copyload, 1
-  %32 = icmp ne i8 %31, 0
-  %or.cond.not135 = select i1 %30, i1 true, i1 %32
+  %29 = trunc i8 %.sroa.015.0.copyload to i1
+  %30 = trunc i8 %.sroa.619.16.copyload to i1
+  %or.cond.not135 = select i1 %29, i1 true, i1 %30
   %.not56 = icmp ugt i64 %.sroa.417.0.copyload, %.sroa.821.16.copyload
   %or.cond58 = select i1 %or.cond.not135, i1 true, i1 %.not56
-  br i1 %or.cond58, label %37, label %38
+  br i1 %or.cond58, label %35, label %36
 
-33:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb277773516156c9aE.exit65"
+31:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb277773516156c9aE.exit65"
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @"_ZN4core3num60_$LT$impl$u20$core..str..traits..FromStr$u20$for$u20$u64$GT$8from_str17h7509471f3f4642f9E"(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %8, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %18)
   %.val = load i8, ptr %8, align 8, !range !196, !noundef !7
   %trunc.i69 = trunc nuw i8 %.val to i1
-  br i1 %trunc.i69, label %36, label %34
+  br i1 %trunc.i69, label %34, label %32
 
-34:                                               ; preds = %33
-  %35 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %.val59 = load i64, ptr %35, align 8
+32:                                               ; preds = %31
+  %33 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %.val59 = load i64, ptr %33, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.sroa.4.0..sroa_idx.i77 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.val59, ptr %.sroa.4.0..sroa_idx.i77, align 8, !alias.scope !1033, !noalias !1036
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17ha683d5f7c4c7b50fE.exit"
 
-36:                                               ; preds = %33
+34:                                               ; preds = %31
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1036)
   %.sroa.692.0..sroa_idx93 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 5, ptr %.sroa.692.0..sroa_idx93, align 8, !alias.scope !1038
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17ha683d5f7c4c7b50fE.exit"
 
-"_ZN4core6result19Result$LT$T$C$E$GT$3map17ha683d5f7c4c7b50fE.exit": ; preds = %34, %36
-  %.sink.i76 = phi i64 [ 1, %34 ], [ 3, %36 ]
+"_ZN4core6result19Result$LT$T$C$E$GT$3map17ha683d5f7c4c7b50fE.exit": ; preds = %32, %34
+  %.sink.i76 = phi i64 [ 1, %32 ], [ 3, %34 ]
   store i64 %.sink.i76, ptr %0, align 8, !alias.scope !1033, !noalias !1036
-  br label %39
+  br label %37
 
-37:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb277773516156c9aE.exit65.thread"
+35:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb277773516156c9aE.exit65.thread"
   %.sroa.326.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 5, ptr %.sroa.326.0..sroa_idx, align 8
   store i64 3, ptr %0, align 8
-  br label %39
+  br label %37
 
-38:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb277773516156c9aE.exit65.thread"
+36:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb277773516156c9aE.exit65.thread"
   store i64 0, ptr %0, align 8
   %.sroa.424.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.417.0.copyload, ptr %.sroa.424.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %.sroa.821.16.copyload, ptr %.sroa.5.0..sroa_idx, align 8
-  br label %39
+  br label %37
 
-39:                                               ; preds = %37, %38, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17ha683d5f7c4c7b50fE.exit", %"_ZN4core6result19Result$LT$T$C$E$GT$3map17hbc6098e1fdff5640E.exit", %24
+37:                                               ; preds = %35, %36, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17ha683d5f7c4c7b50fE.exit", %"_ZN4core6result19Result$LT$T$C$E$GT$3map17hbc6098e1fdff5640E.exit", %24
   ret void
 }
 

@@ -141,12 +141,11 @@ define noundef range(i32 0, 201) i32 @_ZN5boost21prg_exec_monitor_mainEPFiiPPcEi
 
 23:                                               ; preds = %.loopexit
   %24 = load ptr, ptr %5, align 8, !tbaa !11
-  %.not.i.i = icmp ne ptr %24, null
+  %.not.i.i = icmp eq ptr %24, null
   %25 = ptrtoint ptr %24 to i64
-  %26 = and i64 %25, 1
-  %.not1.i.i = icmp eq i64 %26, 0
-  %or.cond = and i1 %.not.i.i, %.not1.i.i
-  br i1 %or.cond, label %27, label %_ZN5boost10function_nIiJEED2Ev.exit
+  %26 = trunc i64 %25 to i1
+  %or.cond = or i1 %.not.i.i, %26
+  br i1 %or.cond, label %_ZN5boost10function_nIiJEED2Ev.exit, label %27
 
 27:                                               ; preds = %23
   %28 = load ptr, ptr %24, align 8, !tbaa !14
@@ -564,9 +563,8 @@ define linkonce_odr hidden void @_ZN5boost10function_nIiJEED2Ev(ptr noundef nonn
 
 3:                                                ; preds = %1
   %4 = ptrtoint ptr %2 to i64
-  %5 = and i64 %4, 1
-  %.not1.i = icmp eq i64 %5, 0
-  br i1 %.not1.i, label %6, label %_ZNK5boost6detail8function12basic_vtableIiJEE5clearERNS1_15function_bufferE.exit.i
+  %5 = trunc i64 %4 to i1
+  br i1 %5, label %_ZNK5boost6detail8function12basic_vtableIiJEE5clearERNS1_15function_bufferE.exit.i, label %6
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr %2, align 8, !tbaa !14

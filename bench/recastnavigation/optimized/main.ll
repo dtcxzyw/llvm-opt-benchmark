@@ -2458,10 +2458,11 @@ _ZN9rcContext8resetLogEv.exit661:                 ; preds = %.thread747, %843
 
 920:                                              ; preds = %919, %905
   %.10507 = phi i1 [ %spec.select601, %919 ], [ %.8505, %905 ]
-  %921 = and i8 %.1495, %.1480
-  %922 = icmp eq i8 %921, 0
-  %or.cond35.not = select i1 %.3457, i1 true, i1 %922
-  br i1 %or.cond35.not, label %931, label %923
+  %.not = xor i1 %.3457, true
+  %921 = and i8 %.1480, %.1495
+  %922 = trunc nuw i8 %921 to i1
+  %or.cond35 = select i1 %.not, i1 %922, i1 false
+  br i1 %or.cond35, label %923, label %931
 
 923:                                              ; preds = %920
   %924 = invoke noundef zeroext i1 @_Z20imguiBeginScrollAreaPKciiiiPi(ptr noundef nonnull @.str.30, i32 noundef 10, i32 noundef 10, i32 noundef 250, i32 noundef %132, ptr noundef nonnull %10)
@@ -2469,8 +2470,8 @@ _ZN9rcContext8resetLogEv.exit661:                 ; preds = %.thread747, %843
 
 925:                                              ; preds = %923
   %spec.select602 = select i1 %924, i1 true, i1 %.10507
-  %.not = icmp eq ptr %.7421, null
-  br i1 %.not, label %930, label %926
+  %.not575 = icmp eq ptr %.7421, null
+  br i1 %.not575, label %930, label %926
 
 926:                                              ; preds = %925
   %927 = load ptr, ptr %.7421, align 8

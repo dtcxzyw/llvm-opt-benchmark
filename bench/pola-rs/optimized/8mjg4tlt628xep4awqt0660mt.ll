@@ -559,8 +559,7 @@ define hidden noundef zeroext i1 @"_ZN106_$LT$core..iter..adapters..GenericShunt
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8, !alias.scope !15, !nonnull !3, !align !18, !noundef !3
   %5 = call noundef i8 @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h352fc6f8da4f8286E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %0, ptr noalias noundef nonnull align 1 %2, ptr noalias noundef nonnull align 8 dereferenceable(64) %4)
-  %6 = and i8 %5, 1
-  %spec.select.i = icmp ne i8 %6, 0
+  %spec.select.i = trunc i8 %5 to i1
   ret i1 %spec.select.i
 }
 
@@ -774,8 +773,7 @@ define hidden noundef zeroext i1 @"_ZN106_$LT$core..iter..adapters..GenericShunt
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8, !alias.scope !55, !nonnull !3, !align !18, !noundef !3
   %5 = call noundef i8 @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h0bc1781ee0da5cc1E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %0, ptr noalias noundef nonnull align 1 %2, ptr noalias noundef nonnull align 8 dereferenceable(64) %4)
-  %6 = and i8 %5, 1
-  %spec.select.i = icmp ne i8 %6, 0
+  %spec.select.i = trunc i8 %5 to i1
   ret i1 %spec.select.i
 }
 
@@ -1043,12 +1041,12 @@ define hidden { i64, i64 } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   %5 = call { i64, i64 } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17ha3044111d33d04ffE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noalias noundef nonnull align 1 %2, ptr noalias noundef nonnull align 8 dereferenceable(64) %4)
   %6 = extractvalue { i64, i64 } %5, 0
   %7 = extractvalue { i64, i64 } %5, 1
-  %8 = and i64 %6, 1
-  %.not.not = icmp eq i64 %8, 0
-  %.sroa.3.0 = select i1 %.not.not, i64 undef, i64 %7
-  %9 = insertvalue { i64, i64 } poison, i64 %8, 0
-  %10 = insertvalue { i64, i64 } %9, i64 %.sroa.3.0, 1
-  ret { i64, i64 } %10
+  %.not = trunc i64 %6 to i1
+  %.sroa.3.0 = select i1 %.not, i64 %7, i64 undef
+  %.sroa.0.0 = and i64 %6, 1
+  %8 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
+  %9 = insertvalue { i64, i64 } %8, i64 %.sroa.3.0, 1
+  ret { i64, i64 } %9
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -1199,8 +1197,7 @@ define hidden noundef zeroext i1 @"_ZN106_$LT$core..iter..adapters..GenericShunt
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8, !alias.scope !124, !nonnull !3, !align !18, !noundef !3
   %5 = call noundef i8 @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h4d94f6ae538ca23cE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %0, ptr noalias noundef nonnull align 1 %2, ptr noalias noundef nonnull align 8 dereferenceable(64) %4)
-  %6 = and i8 %5, 1
-  %spec.select.i = icmp ne i8 %6, 0
+  %spec.select.i = trunc i8 %5 to i1
   ret i1 %spec.select.i
 }
 
@@ -10430,10 +10427,10 @@ default.unreachable38:                            ; preds = %27
   %43 = load i8, ptr %42, align 1, !noundef !3
   %44 = trunc i64 %39 to i8
   %45 = and i8 %44, 7
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %47 = lshr i8 %43, %45
-  %48 = and i8 %47, 1
-  store i8 %48, ptr %46, align 1
+  %46 = lshr i8 %43, %45
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  %48 = and i8 %46, 1
+  store i8 %48, ptr %47, align 1
   store i8 1, ptr %0, align 16
   br label %355
 

@@ -171,9 +171,8 @@ define dso_local void @_ZNSt3__112future_errorC2ENS_10error_codeE(ptr noundef no
 
 7:                                                ; preds = %3
   %8 = load i8, ptr %5, align 8
-  %9 = and i8 %8, 1
-  %.not.i = icmp eq i8 %9, 0
-  br i1 %.not.i, label %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED2Ev.exit, label %10
+  %9 = trunc i8 %8 to i1
+  br i1 %9, label %10, label %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED2Ev.exit
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -194,9 +193,8 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED2Ev.exit: ; pred
   %17 = landingpad { ptr, i32 }
           cleanup
   %18 = load i8, ptr %5, align 8
-  %19 = and i8 %18, 1
-  %.not.i2 = icmp eq i8 %19, 0
-  br i1 %.not.i2, label %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED2Ev.exit3, label %20
+  %19 = trunc i8 %18 to i1
+  br i1 %19, label %20, label %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED2Ev.exit2
 
 20:                                               ; preds = %16
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -204,9 +202,9 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED2Ev.exit: ; pred
   %23 = load i64, ptr %5, align 8
   %24 = and i64 %23, -2
   call void @_ZdlPvm(ptr noundef %22, i64 noundef %24) #22
-  br label %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED2Ev.exit3
+  br label %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED2Ev.exit2
 
-_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED2Ev.exit3: ; preds = %16, %20
+_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED2Ev.exit2: ; preds = %16, %20
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %17
 }
@@ -947,9 +945,8 @@ _ZNSt3__115make_error_codeB8ne210000ENS_11future_errcE.exit: ; preds = %2, %7, %
 
 11:                                               ; preds = %_ZNSt3__115make_error_codeB8ne210000ENS_11future_errcE.exit
   %12 = load i8, ptr %4, align 8
-  %13 = and i8 %12, 1
-  %.not.i.i1 = icmp eq i8 %13, 0
-  br i1 %.not.i.i1, label %_ZNSt3__112future_errorC2ENS_10error_codeE.exit, label %14
+  %13 = trunc i8 %12 to i1
+  br i1 %13, label %14, label %_ZNSt3__112future_errorC2ENS_10error_codeE.exit
 
 14:                                               ; preds = %11
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -963,9 +960,8 @@ _ZNSt3__115make_error_codeB8ne210000ENS_11future_errcE.exit: ; preds = %2, %7, %
   %20 = landingpad { ptr, i32 }
           cleanup
   %21 = load i8, ptr %4, align 8
-  %22 = and i8 %21, 1
-  %.not.i2.i = icmp eq i8 %22, 0
-  br i1 %.not.i2.i, label %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED2Ev.exit3.i, label %23
+  %22 = trunc i8 %21 to i1
+  br i1 %22, label %23, label %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED2Ev.exit2.i
 
 23:                                               ; preds = %19
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -973,9 +969,9 @@ _ZNSt3__115make_error_codeB8ne210000ENS_11future_errcE.exit: ; preds = %2, %7, %
   %26 = load i64, ptr %4, align 8
   %27 = and i64 %26, -2
   call void @_ZdlPvm(ptr noundef %25, i64 noundef %27) #22
-  br label %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED2Ev.exit3.i
+  br label %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED2Ev.exit2.i
 
-_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED2Ev.exit3.i: ; preds = %23, %19
+_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED2Ev.exit2.i: ; preds = %23, %19
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %20
 

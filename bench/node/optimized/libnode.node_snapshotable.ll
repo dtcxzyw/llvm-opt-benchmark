@@ -5873,17 +5873,14 @@ if.then16:                                        ; preds = %if.end13, %_ZStneIc
 
 if.end21:                                         ; preds = %land.rhs.i.i18, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit25
   %3 = load i8, ptr %metadata, align 8
-  %cmp = icmp eq i8 %3, 1
-  br i1 %cmp, label %land.lhs.true, label %return
-
-land.lhs.true:                                    ; preds = %if.end21
+  %cmp = icmp ne i8 %3, 1
   %flags = getelementptr inbounds nuw i8, ptr %this, i64 116
   %4 = load i32, ptr %flags, align 4
-  %and.i.i = and i32 %4, 1
-  %tobool.i.not = icmp eq i32 %and.i.i, 0
-  br i1 %tobool.i.not, label %if.then25, label %return
+  %tobool.i = trunc i32 %4 to i1
+  %or.cond = select i1 %cmp, i1 true, i1 %tobool.i
+  br i1 %or.cond, label %return, label %if.then25
 
-if.then25:                                        ; preds = %land.lhs.true
+if.then25:                                        ; preds = %if.end21
   %call26 = tail call noundef i32 @_ZN2v814ScriptCompiler20CachedDataVersionTagEv() #24
   %v8_cache_version_tag = getelementptr inbounds nuw i8, ptr %this, i64 112
   %5 = load i32, ptr %v8_cache_version_tag, align 8
@@ -5895,8 +5892,8 @@ if.then29:                                        ; preds = %if.then25
   %call32 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.113, i32 noundef %call26, i32 noundef %5) #25
   br label %return
 
-return:                                           ; preds = %if.end21, %land.lhs.true, %if.then25, %if.then29, %if.then16, %if.then8, %if.then
-  %retval.0 = phi i1 [ false, %if.then ], [ false, %if.then8 ], [ false, %if.then16 ], [ false, %if.then29 ], [ true, %if.then25 ], [ true, %land.lhs.true ], [ true, %if.end21 ]
+return:                                           ; preds = %if.end21, %if.then25, %if.then29, %if.then16, %if.then8, %if.then
+  %retval.0 = phi i1 [ false, %if.then ], [ false, %if.then8 ], [ false, %if.then16 ], [ false, %if.then29 ], [ true, %if.then25 ], [ true, %if.end21 ]
   ret i1 %retval.0
 }
 
@@ -6165,8 +6162,7 @@ declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly ca
 define dso_local noundef zeroext i1 @_ZN4node16WithoutCodeCacheERKNS_13SnapshotFlagsE(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %flags) local_unnamed_addr #8 {
 entry:
   %0 = load i32, ptr %flags, align 4
-  %and.i = and i32 %0, 1
-  %tobool = icmp ne i32 %and.i, 0
+  %tobool = trunc i32 %0 to i1
   ret i1 %tobool
 }
 
@@ -6890,8 +6886,7 @@ entry:
 define dso_local noundef zeroext i1 @_ZN4node16WithoutCodeCacheERKNS_14SnapshotConfigE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %config) local_unnamed_addr #8 {
 entry:
   %0 = load i32, ptr %config, align 8
-  %and.i.i = and i32 %0, 1
-  %tobool.i = icmp ne i32 %and.i.i, 0
+  %tobool.i = trunc i32 %0 to i1
   ret i1 %tobool.i
 }
 
@@ -7484,8 +7479,8 @@ cleanup.thread:                                   ; preds = %if.end47, %do.end34
 cleanup.cont:                                     ; preds = %do.end120
   call void @_ZN2v811HandleScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %scope) #24
   %23 = load i32, ptr %snapshot_config_.i, align 4
-  %and.i.i.i = and i32 %23, 1
-  %cond140 = xor i32 %and.i.i.i, 1
+  %not.call139 = and i32 %23, 1
+  %cond140 = xor i32 %not.call139, 1
   %call142 = call { ptr, i32 } @_ZN2v815SnapshotCreator10CreateBlobENS0_20FunctionCodeHandlingE(ptr noundef nonnull align 8 dereferenceable(8) %call5, i32 noundef %cond140) #24
   %24 = extractvalue { ptr, i32 } %call142, 0
   %25 = extractvalue { ptr, i32 } %call142, 1
@@ -7852,9 +7847,8 @@ entry:
 
 if.end:                                           ; preds = %entry
   %0 = load i32, ptr %snapshot_config, align 8
-  %and.i.i.i = and i32 %0, 1
-  %tobool.i.i.not = icmp eq i32 %and.i.i.i, 0
-  br i1 %tobool.i.i.not, label %if.then2, label %return
+  %tobool.i.i = trunc i32 %0 to i1
+  br i1 %tobool.i.i, label %return, label %if.then2
 
 if.then2:                                         ; preds = %if.end
   %call3 = tail call noundef i32 @_ZN4node26BuildCodeCacheFromSnapshotEPNS_12SnapshotDataERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EESC_(ptr noundef %out, ptr nonnull align 8 poison, ptr nonnull align 8 poison)
@@ -8191,9 +8185,8 @@ _ZN4node15SnapshotBuilder8GenerateEPNS_12SnapshotDataERKSt6vectorINSt7__cxx1112b
 
 if.end.i13:                                       ; preds = %if.end16
   %6 = load i32, ptr %config, align 8
-  %and.i.i.i.i = and i32 %6, 1
-  %tobool.i.i.not.i = icmp eq i32 %and.i.i.i.i, 0
-  br i1 %tobool.i.i.not.i, label %_ZN4node15SnapshotBuilder8GenerateEPNS_12SnapshotDataERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EESD_St8optionalISt17basic_string_viewIcS7_EERKNS_14SnapshotConfigE.exit, label %_ZN4node15SnapshotBuilder8GenerateEPNS_12SnapshotDataERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EESD_St8optionalISt17basic_string_viewIcS7_EERKNS_14SnapshotConfigE.exit.thread
+  %tobool.i.i.i = trunc i32 %6 to i1
+  br i1 %tobool.i.i.i, label %_ZN4node15SnapshotBuilder8GenerateEPNS_12SnapshotDataERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EESD_St8optionalISt17basic_string_viewIcS7_EERKNS_14SnapshotConfigE.exit.thread, label %_ZN4node15SnapshotBuilder8GenerateEPNS_12SnapshotDataERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EESD_St8optionalISt17basic_string_viewIcS7_EERKNS_14SnapshotConfigE.exit
 
 _ZN4node15SnapshotBuilder8GenerateEPNS_12SnapshotDataERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EESD_St8optionalISt17basic_string_viewIcS7_EERKNS_14SnapshotConfigE.exit.thread: ; preds = %if.end.i13
   call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp12)

@@ -974,28 +974,26 @@ define range(i32 0, 2) i32 @polyOverlap(double %0, double %1, ptr noundef readon
 44:                                               ; preds = %6
   %45 = getelementptr i8, ptr %2, i64 48
   %.val = load i32, ptr %45, align 8, !tbaa !35
-  %46 = and i32 %.val, 1
-  %.not = icmp eq i32 %46, 0
-  br i1 %.not, label %50, label %47
+  %46 = trunc i32 %.val to i1
+  br i1 %46, label %47, label %50
 
 47:                                               ; preds = %44
   %48 = getelementptr i8, ptr %5, i64 48
   %.val42 = load i32, ptr %48, align 8, !tbaa !35
-  %49 = and i32 %.val42, 1
-  %.not67 = icmp eq i32 %49, 0
-  br i1 %.not67, label %50, label %250
+  %49 = trunc i32 %.val42 to i1
+  br i1 %49, label %250, label %50
 
 50:                                               ; preds = %47, %44
   %51 = and i32 %.val, 2
-  %.not68 = icmp eq i32 %51, 0
-  br i1 %.not68, label %70, label %52
+  %.not = icmp eq i32 %51, 0
+  br i1 %.not, label %70, label %52
 
 52:                                               ; preds = %50
   %53 = getelementptr i8, ptr %5, i64 48
   %.val44 = load i32, ptr %53, align 8, !tbaa !35
   %54 = and i32 %.val44, 2
-  %.not69 = icmp eq i32 %54, 0
-  br i1 %.not69, label %70, label %55
+  %.not67 = icmp eq i32 %54, 0
+  br i1 %.not67, label %70, label %55
 
 55:                                               ; preds = %52
   %56 = load double, ptr %17, align 8, !tbaa !60

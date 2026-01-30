@@ -53,7 +53,7 @@ define internal fastcc void @lazy_init_name_hash(ptr noundef %0) unnamed_addr #0
   %4 = load i8, ptr %3, align 8
   %5 = and i8 %4, 1
   %.not = icmp eq i8 %5, 0
-  br i1 %.not, label %6, label %149
+  br i1 %.not, label %6, label %148
 
 6:                                                ; preds = %1
   %7 = tail call i64 @trace_performance_enter() #14
@@ -359,17 +359,16 @@ hash_index_entry.exit:                            ; preds = %.lr.ph.i.i23, %135,
   %144 = load i32, ptr getelementptr inbounds nuw (i8, ptr @trace_perf_key, i64 8), align 8, !tbaa !62
   %.not.i25 = icmp eq i32 %144, 0
   %145 = load i8, ptr getelementptr inbounds nuw (i8, ptr @trace_perf_key, i64 12), align 4
-  %146 = and i8 %145, 1
-  %.not1828 = icmp ne i8 %146, 0
+  %.not1828 = trunc i8 %145 to i1
   %.not18 = select i1 %.not.i25, i1 %.not1828, i1 false
-  br i1 %.not18, label %149, label %147
+  br i1 %.not18, label %148, label %146
 
-147:                                              ; preds = %.loopexit
-  %148 = call i64 @getnanotime() #14
-  call void (ptr, i32, i64, ptr, ...) @trace_performance_leave_fl(ptr noundef nonnull @.str, i32 noundef 617, i64 noundef %148, ptr noundef nonnull @.str.3) #14
-  br label %149
+146:                                              ; preds = %.loopexit
+  %147 = call i64 @getnanotime() #14
+  call void (ptr, i32, i64, ptr, ...) @trace_performance_leave_fl(ptr noundef nonnull @.str, i32 noundef 617, i64 noundef %147, ptr noundef nonnull @.str.3) #14
+  br label %148
 
-149:                                              ; preds = %.loopexit, %147, %1
+148:                                              ; preds = %.loopexit, %146, %1
   ret void
 }
 

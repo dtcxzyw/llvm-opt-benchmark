@@ -189,31 +189,32 @@ define i32 @ff_dnxhd_find_cid(ptr noundef %0, i32 noundef %1) local_unnamed_addr
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 20
   %19 = load i16, ptr %18, align 4, !tbaa !36
   %20 = zext i16 %19 to i32
-  %21 = getelementptr inbounds nuw i8, ptr %17, i64 4
-  %22 = load i32, ptr %21, align 4, !tbaa !37
-  %23 = load i32, ptr %12, align 8, !tbaa !38
-  %24 = icmp eq i32 %22, %23
-  br i1 %24, label %25, label %.loopexit
+  %21 = and i16 %19, 1
+  %22 = zext nneg i16 %21 to i32
+  %23 = getelementptr inbounds nuw i8, ptr %17, i64 4
+  %24 = load i32, ptr %23, align 4, !tbaa !37
+  %25 = load i32, ptr %12, align 8, !tbaa !38
+  %26 = icmp eq i32 %24, %25
+  br i1 %26, label %27, label %.loopexit
 
-25:                                               ; preds = %16
-  %26 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %27 = load i32, ptr %26, align 8, !tbaa !39
-  %28 = load i32, ptr %13, align 4, !tbaa !40
-  %29 = icmp eq i32 %27, %28
-  br i1 %29, label %30, label %.loopexit
+27:                                               ; preds = %16
+  %28 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %29 = load i32, ptr %28, align 8, !tbaa !39
+  %30 = load i32, ptr %13, align 4, !tbaa !40
+  %31 = icmp eq i32 %29, %30
+  br i1 %31, label %32, label %.loopexit
 
-30:                                               ; preds = %25
-  %31 = load i32, ptr %14, align 8, !tbaa !41
-  %32 = lshr i32 %31, 18
-  %33 = xor i32 %32, %20
-  %34 = and i32 %33, 1
-  %35 = icmp eq i32 %34, 0
+32:                                               ; preds = %27
+  %33 = load i32, ptr %14, align 8, !tbaa !41
+  %34 = lshr i32 %33, 18
+  %.lobit = and i32 %34, 1
+  %35 = icmp eq i32 %.lobit, %22
   %36 = and i32 %20, 4
   %.not35 = icmp eq i32 %36, 0
   %or.cond = select i1 %35, i1 %.not35, i1 false
   br i1 %or.cond, label %37, label %.loopexit
 
-37:                                               ; preds = %30
+37:                                               ; preds = %32
   %38 = getelementptr inbounds nuw i8, ptr %17, i64 28
   %39 = load i32, ptr %38, align 4, !tbaa !42
   %40 = icmp eq i32 %39, %1
@@ -251,7 +252,7 @@ define i32 @ff_dnxhd_find_cid(ptr noundef %0, i32 noundef %1) local_unnamed_addr
   %53 = load i32, ptr %17, align 8, !tbaa !6
   br label %.loopexit42
 
-.loopexit:                                        ; preds = %47, %46, %37, %30, %25, %16
+.loopexit:                                        ; preds = %47, %46, %37, %32, %27, %16
   %indvars.iv.next48 = add nuw nsw i64 %indvars.iv47, 1
   %exitcond50.not = icmp eq i64 %indvars.iv.next48, 20
   br i1 %exitcond50.not, label %.loopexit42, label %16, !llvm.loop !46

@@ -234,9 +234,8 @@ define dso_local void @_ZN4absl14flags_internal13MaskedPointer9ApplyMaskEm(ptr n
 define dso_local noundef zeroext i1 @_ZNK4absl14flags_internal13MaskedPointer26IsUnprotectedReadCandidateEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #3 align 2 {
   %2 = load ptr, ptr %0, align 8, !tbaa !18
   %3 = ptrtoint ptr %2 to i64
-  %4 = and i64 %3, 1
-  %5 = icmp ne i64 %4, 0
-  ret i1 %5
+  %4 = trunc i64 %3 to i1
+  ret i1 %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable

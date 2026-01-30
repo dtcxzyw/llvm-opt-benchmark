@@ -8220,7 +8220,7 @@ define internal void @evdns_getaddrinfo_gotresolve(i32 noundef %0, i8 noundef si
   %.0129.v = select i1 %11, i64 -88, i64 -104
   %.0129 = getelementptr inbounds i8, ptr %5, i64 %.0129.v
   %.not = icmp eq i32 %0, 68
-  br i1 %.not, label %.thread178, label %12
+  br i1 %.not, label %.thread177, label %12
 
 12:                                               ; preds = %6
   %13 = load ptr, ptr %.0129, align 8
@@ -8287,17 +8287,16 @@ evdns_result_is_answer.exit.thread:               ; preds = %19, %19, %19, %19, 
   br label %45
 
 45:                                               ; preds = %38, %42
-  %.0121.in = and i8 %33, 1
   store ptr null, ptr %5, align 8
   %46 = icmp ne i32 %0, 69
-  %47 = icmp ne i8 %.0121.in, 0
+  %47 = trunc i8 %33 to i1
   %or.cond = select i1 %46, i1 true, i1 %47
   br i1 %or.cond, label %63, label %48
 
 48:                                               ; preds = %45
   %49 = load ptr, ptr %.0130, align 8
   %50 = icmp eq ptr %49, null
-  br i1 %50, label %51, label %.thread202
+  br i1 %50, label %51, label %.thread201
 
 51:                                               ; preds = %48
   %52 = getelementptr inbounds nuw i8, ptr %.0129, i64 128
@@ -8326,7 +8325,7 @@ free_getaddrinfo_request.exit:                    ; preds = %55, %58
   %62 = load ptr, ptr %61, align 8
   tail call void @event_mm_free_(ptr noundef %62) #21
   tail call void @event_mm_free_(ptr noundef nonnull %.0129) #21
-  br label %.thread202
+  br label %.thread201
 
 63:                                               ; preds = %45
   %64 = getelementptr inbounds nuw i8, ptr %.0129, i64 64
@@ -8334,7 +8333,7 @@ free_getaddrinfo_request.exit:                    ; preds = %55, %58
   %66 = icmp eq ptr %65, null
   br i1 %66, label %72, label %84
 
-.thread178:                                       ; preds = %6
+.thread177:                                       ; preds = %6
   store ptr null, ptr %.0129, align 8
   %67 = getelementptr inbounds nuw i8, ptr %.0129, i64 268
   %68 = load i8, ptr %67, align 4
@@ -8344,7 +8343,7 @@ free_getaddrinfo_request.exit:                    ; preds = %55, %58
   %71 = icmp eq ptr %70, null
   br i1 %71, label %72, label %88
 
-72:                                               ; preds = %.thread178, %63
+72:                                               ; preds = %.thread177, %63
   %73 = getelementptr inbounds nuw i8, ptr %.0129, i64 128
   %74 = load ptr, ptr %73, align 8
   %.not.i159 = icmp eq ptr %74, null
@@ -8371,60 +8370,59 @@ free_getaddrinfo_request.exit161:                 ; preds = %76, %79
   %83 = load ptr, ptr %82, align 8
   tail call void @event_mm_free_(ptr noundef %83) #21
   tail call void @event_mm_free_(ptr noundef nonnull %.0129) #21
-  br label %.thread202
+  br label %.thread201
 
 84:                                               ; preds = %63
   %85 = icmp eq i32 %0, 0
-  br i1 %85, label %86, label %.thread204
+  br i1 %85, label %86, label %.thread203
 
 86:                                               ; preds = %84
   %87 = icmp eq i32 %2, 0
-  br i1 %87, label %.thread186, label %142
+  br i1 %87, label %.thread185, label %142
 
-88:                                               ; preds = %.thread178
-  %.0121.in176 = and i8 %68, 1
-  %89 = icmp ne i8 %.0121.in176, 0
+88:                                               ; preds = %.thread177
+  %89 = trunc i8 %68 to i1
   %90 = load ptr, ptr %.0130, align 8
   %.not154 = icmp eq ptr %90, null
   br i1 %.not154, label %100, label %98
 
-.thread204:                                       ; preds = %84
+.thread203:                                       ; preds = %84
   %91 = icmp eq i32 %0, 3
-  %.0.i205 = select i1 %91, i32 -2, i32 -4
+  %.0.i204 = select i1 %91, i32 -2, i32 -4
   %92 = load ptr, ptr %.0130, align 8
-  %.not154206 = icmp eq ptr %92, null
-  br i1 %.not154206, label %100, label %.thread197
+  %.not154205 = icmp eq ptr %92, null
+  br i1 %.not154205, label %100, label %.thread196
 
-.thread186:                                       ; preds = %86
+.thread185:                                       ; preds = %86
   %93 = load ptr, ptr %.0130, align 8
-  %.not154191 = icmp eq ptr %93, null
-  br i1 %.not154191, label %100, label %.thread197
+  %.not154190 = icmp eq ptr %93, null
+  br i1 %.not154190, label %100, label %.thread196
 
-.thread197:                                       ; preds = %.thread204, %.thread186
-  %.0122.ph196199 = phi i32 [ -5, %.thread186 ], [ %.0.i205, %.thread204 ]
+.thread196:                                       ; preds = %.thread203, %.thread185
+  %.0122.ph195198 = phi i32 [ -5, %.thread185 ], [ %.0.i204, %.thread203 ]
   %94 = load ptr, ptr %.0129, align 8
   %95 = getelementptr inbounds nuw i8, ptr %.0129, i64 144
   %96 = getelementptr inbounds nuw i8, ptr %94, i64 272
   %97 = tail call i32 @event_add(ptr noundef nonnull %95, ptr noundef nonnull %96) #21
   br label %98
 
-98:                                               ; preds = %88, %.thread197
-  %.0122.ph196200 = phi i32 [ %.0122.ph196199, %.thread197 ], [ -4, %88 ]
+98:                                               ; preds = %88, %.thread196
+  %.0122.ph195199 = phi i32 [ %.0122.ph195198, %.thread196 ], [ -4, %88 ]
   %99 = getelementptr inbounds nuw i8, ptr %.0129, i64 264
-  store i32 %.0122.ph196200, ptr %99, align 8
-  br label %.thread202
+  store i32 %.0122.ph195199, ptr %99, align 8
+  br label %.thread201
 
-100:                                              ; preds = %.thread204, %.thread186, %88
-  %.0122.ph195 = phi i32 [ -5, %.thread186 ], [ -4, %88 ], [ %.0.i205, %.thread204 ]
-  %.ph181194 = phi ptr [ %65, %.thread186 ], [ %70, %88 ], [ %65, %.thread204 ]
-  %.ph180193 = phi ptr [ %64, %.thread186 ], [ %69, %88 ], [ %64, %.thread204 ]
-  %.ph192 = phi i1 [ %47, %.thread186 ], [ %89, %88 ], [ %47, %.thread204 ]
-  br i1 %.ph192, label %101, label %104
+100:                                              ; preds = %.thread203, %.thread185, %88
+  %.0122.ph194 = phi i32 [ -5, %.thread185 ], [ -4, %88 ], [ %.0.i204, %.thread203 ]
+  %.ph180193 = phi ptr [ %65, %.thread185 ], [ %70, %88 ], [ %65, %.thread203 ]
+  %.ph179192 = phi ptr [ %64, %.thread185 ], [ %69, %88 ], [ %64, %.thread203 ]
+  %.ph191 = phi i1 [ %47, %.thread185 ], [ %89, %88 ], [ %47, %.thread203 ]
+  br i1 %.ph191, label %101, label %104
 
 101:                                              ; preds = %100
   %102 = getelementptr inbounds nuw i8, ptr %.0129, i64 72
   %103 = load ptr, ptr %102, align 8
-  tail call void %.ph181194(i32 noundef -90001, ptr noundef null, ptr noundef %103) #21
+  tail call void %.ph180193(i32 noundef -90001, ptr noundef null, ptr noundef %103) #21
   br label %130
 
 104:                                              ; preds = %100
@@ -8436,8 +8434,8 @@ free_getaddrinfo_request.exit161:                 ; preds = %76, %79
 107:                                              ; preds = %104
   %108 = getelementptr inbounds nuw i8, ptr %.0129, i64 120
   %109 = load ptr, ptr %108, align 8
-  %.not210 = icmp eq ptr %109, null
-  br i1 %.not210, label %add_cname_to_reply.exit, label %110
+  %.not209 = icmp eq ptr %109, null
+  br i1 %.not209, label %add_cname_to_reply.exit, label %110
 
 110:                                              ; preds = %107
   %111 = getelementptr inbounds nuw i8, ptr %106, i64 32
@@ -8466,7 +8464,7 @@ add_cname_to_reply.exit:                          ; preds = %107, %110
   br label %122
 
 122:                                              ; preds = %116, %113, %add_cname_to_reply.exit
-  %123 = load ptr, ptr %.ph180193, align 8
+  %123 = load ptr, ptr %.ph179192, align 8
   %124 = load ptr, ptr %105, align 8
   %125 = getelementptr inbounds nuw i8, ptr %.0129, i64 72
   %126 = load ptr, ptr %125, align 8
@@ -8477,7 +8475,7 @@ add_cname_to_reply.exit:                          ; preds = %107, %110
 127:                                              ; preds = %104
   %128 = getelementptr inbounds nuw i8, ptr %.0129, i64 72
   %129 = load ptr, ptr %128, align 8
-  tail call void %.ph181194(i32 noundef %.0122.ph195, ptr noundef null, ptr noundef %129) #21
+  tail call void %.ph180193(i32 noundef %.0122.ph194, ptr noundef null, ptr noundef %129) #21
   br label %130
 
 130:                                              ; preds = %122, %127, %101
@@ -8507,7 +8505,7 @@ free_getaddrinfo_request.exit164:                 ; preds = %134, %137
   %141 = load ptr, ptr %140, align 8
   tail call void @event_mm_free_(ptr noundef %141) #21
   tail call void @event_mm_free_(ptr noundef nonnull %.0129) #21
-  br label %.thread202
+  br label %.thread201
 
 142:                                              ; preds = %86
   br i1 %47, label %143, label %159
@@ -8515,7 +8513,7 @@ free_getaddrinfo_request.exit164:                 ; preds = %134, %137
 143:                                              ; preds = %142
   %144 = load ptr, ptr %.0130, align 8
   %.not153 = icmp eq ptr %144, null
-  br i1 %.not153, label %145, label %.thread202
+  br i1 %.not153, label %145, label %.thread201
 
 145:                                              ; preds = %143
   %146 = getelementptr inbounds nuw i8, ptr %.0129, i64 72
@@ -8547,7 +8545,7 @@ free_getaddrinfo_request.exit167:                 ; preds = %151, %154
   %158 = load ptr, ptr %157, align 8
   tail call void @event_mm_free_(ptr noundef %158) #21
   tail call void @event_mm_free_(ptr noundef nonnull %.0129) #21
-  br label %.thread202
+  br label %.thread201
 
 159:                                              ; preds = %142
   %160 = icmp eq i8 %1, 1
@@ -8591,7 +8589,7 @@ free_getaddrinfo_request.exit167:                 ; preds = %151, %154
 
 175:                                              ; preds = %.lr.ph, %202
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %202 ]
-  %.0127212 = phi ptr [ null, %.lr.ph ], [ %203, %202 ]
+  %.0127211 = phi ptr [ null, %.lr.ph ], [ %203, %202 ]
   %176 = mul nuw nsw i64 %indvars.iv, %.0124
   %177 = getelementptr inbounds nuw i8, ptr %4, i64 %176
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.0123, ptr noundef nonnull align 1 dereferenceable(1) %177, i64 %.0124, i1 false)
@@ -8613,17 +8611,17 @@ free_getaddrinfo_request.exit167:                 ; preds = %151, %154
   %184 = getelementptr inbounds nuw i8, ptr %.0129, i64 72
   %185 = load ptr, ptr %184, align 8
   call void %183(i32 noundef -10, ptr noundef null, ptr noundef %185) #21
-  %.not152 = icmp eq ptr %.0127212, null
+  %.not152 = icmp eq ptr %.0127211, null
   br i1 %.not152, label %187, label %186
 
 186:                                              ; preds = %182
-  call void @evutil_freeaddrinfo(ptr noundef nonnull %.0127212) #21
+  call void @evutil_freeaddrinfo(ptr noundef nonnull %.0127211) #21
   br label %187
 
 187:                                              ; preds = %186, %182
   %188 = load ptr, ptr %.0130, align 8
   %189 = icmp eq ptr %188, null
-  br i1 %189, label %190, label %.thread202
+  br i1 %189, label %190, label %.thread201
 
 190:                                              ; preds = %187
   %191 = getelementptr inbounds nuw i8, ptr %.0129, i64 128
@@ -8652,10 +8650,10 @@ free_getaddrinfo_request.exit171:                 ; preds = %194, %197
   %201 = load ptr, ptr %200, align 8
   call void @event_mm_free_(ptr noundef %201) #21
   call void @event_mm_free_(ptr noundef nonnull %.0129) #21
-  br label %.thread202
+  br label %.thread201
 
 202:                                              ; preds = %175
-  %203 = call ptr @evutil_addrinfo_append_(ptr noundef %.0127212, ptr noundef nonnull %178) #21
+  %203 = call ptr @evutil_addrinfo_append_(ptr noundef %.0127211, ptr noundef nonnull %178) #21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %175, !llvm.loop !41
@@ -8675,7 +8673,7 @@ free_getaddrinfo_request.exit171:                 ; preds = %194, %197
   store ptr %.0127.lcssa, ptr %210, align 8
   %211 = getelementptr inbounds nuw i8, ptr %.0129, i64 136
   store i32 %3, ptr %211, align 8
-  br label %.thread202
+  br label %.thread201
 
 212:                                              ; preds = %._crit_edge
   %213 = getelementptr inbounds nuw i8, ptr %.0129, i64 128
@@ -8742,9 +8740,9 @@ add_cname_to_reply.exit173:                       ; preds = %225, %230
   %242 = load ptr, ptr %241, align 8
   call void %240(i32 noundef 0, ptr noundef %.2, ptr noundef %242) #21
   call fastcc void @free_getaddrinfo_request(ptr noundef nonnull %.0129)
-  br label %.thread202
+  br label %.thread201
 
-.thread202:                                       ; preds = %free_getaddrinfo_request.exit171, %187, %143, %48, %free_getaddrinfo_request.exit, %239, %205, %free_getaddrinfo_request.exit167, %free_getaddrinfo_request.exit164, %98, %free_getaddrinfo_request.exit161
+.thread201:                                       ; preds = %free_getaddrinfo_request.exit171, %187, %143, %48, %free_getaddrinfo_request.exit, %239, %205, %free_getaddrinfo_request.exit167, %free_getaddrinfo_request.exit164, %98, %free_getaddrinfo_request.exit161
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void

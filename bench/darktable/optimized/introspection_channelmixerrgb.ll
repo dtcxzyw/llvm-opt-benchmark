@@ -6375,19 +6375,18 @@ dt_introspection_get_enum_name.exit:              ; preds = %.lr.ph.i, %.lr.ph, 
 
 326:                                              ; preds = %321, %324
   %327 = phi i32 [ %325, %324 ], [ 0, %321 ]
-  br i1 %263, label %328, label %335
+  br i1 %263, label %328, label %334
 
 328:                                              ; preds = %326
-  %329 = and i32 %327, 1
-  %330 = icmp ne i32 %329, 0
-  %331 = icmp ugt i32 %327, 1
-  %332 = and i1 %331, %330
-  %333 = zext i1 %332 to i32
-  %334 = getelementptr inbounds nuw i8, ptr %11, i64 544
-  store i32 %333, ptr %334, align 32, !tbaa !167
-  br label %335
+  %329 = icmp ugt i32 %327, 1
+  %330 = trunc i32 %327 to i1
+  %331 = and i1 %329, %330
+  %332 = zext i1 %331 to i32
+  %333 = getelementptr inbounds nuw i8, ptr %11, i64 544
+  store i32 %332, ptr %333, align 32, !tbaa !167
+  br label %334
 
-335:                                              ; preds = %328, %326
+334:                                              ; preds = %328, %326
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

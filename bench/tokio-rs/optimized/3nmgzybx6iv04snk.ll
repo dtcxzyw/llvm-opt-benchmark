@@ -5461,9 +5461,8 @@ define noundef i64 @_ZN5tokio2fs8read_dir8DirEntry3ino17hd170f5e2b8494bc2E(ptr n
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define noundef zeroext i1 @_ZN5tokio2io8interest8Interest11is_readable17h2b29bdfc9ba55b96E(i64 noundef %0) unnamed_addr #9 {
-  %2 = and i64 %0, 1
-  %3 = icmp ne i64 %2, 0
-  ret i1 %3
+  %2 = trunc i64 %0 to i1
+  ret i1 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -5554,15 +5553,14 @@ define noundef zeroext i1 @"_ZN66_$LT$tokio..io..interest..Interest$u20$as$u20$c
   %8 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %9 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %10 = load i64, ptr %0, align 8, !noundef !53
-  %11 = and i64 %10, 1
-  %.not = icmp eq i64 %11, 0
-  br i1 %.not, label %12, label %14
+  %11 = trunc i64 %10 to i1
+  br i1 %11, label %14, label %12
 
 12:                                               ; preds = %14, %2
   %.040 = phi i8 [ 0, %2 ], [ 1, %14 ]
   %13 = and i64 %10, 2
-  %.not56 = icmp eq i64 %13, 0
-  br i1 %.not56, label %22, label %20
+  %.not = icmp eq i64 %13, 0
+  br i1 %.not, label %22, label %20
 
 14:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -5586,8 +5584,8 @@ define noundef zeroext i1 @"_ZN66_$LT$tokio..io..interest..Interest$u20$as$u20$c
 22:                                               ; preds = %24, %12
   %.1 = phi i8 [ %.040, %12 ], [ 1, %24 ]
   %23 = and i64 %10, 16
-  %.not57 = icmp eq i64 %23, 0
-  br i1 %.not57, label %38, label %36
+  %.not56 = icmp eq i64 %23, 0
+  br i1 %.not56, label %38, label %36
 
 24:                                               ; preds = %30, %20
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -5626,8 +5624,8 @@ define noundef zeroext i1 @"_ZN66_$LT$tokio..io..interest..Interest$u20$as$u20$c
 38:                                               ; preds = %40, %22
   %.2 = phi i8 [ %.1, %22 ], [ 1, %40 ]
   %39 = and i64 %10, 32
-  %.not58 = icmp eq i64 %39, 0
-  br i1 %.not58, label %66, label %52
+  %.not57 = icmp eq i64 %39, 0
+  br i1 %.not57, label %66, label %52
 
 40:                                               ; preds = %46, %36
   call void @llvm.lifetime.start.p0(ptr nonnull %5)

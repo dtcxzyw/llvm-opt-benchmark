@@ -91,20 +91,19 @@ define internal void @be_socket_destruct(ptr noundef %0) #0 {
   %3 = tail call i32 @event_get_fd(ptr noundef nonnull %2) #10
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %5 = load i32, ptr %4, align 8
-  %6 = and i32 %5, 1
-  %7 = icmp ne i32 %6, 0
-  %8 = icmp sgt i32 %3, -1
-  %or.cond = select i1 %7, i1 %8, i1 false
-  br i1 %or.cond, label %9, label %11
+  %6 = trunc i32 %5 to i1
+  %7 = icmp sgt i32 %3, -1
+  %or.cond = select i1 %6, i1 %7, i1 false
+  br i1 %or.cond, label %8, label %10
 
-9:                                                ; preds = %1
-  %10 = tail call i32 @evutil_closesocket(i32 noundef %3) #10
-  br label %11
+8:                                                ; preds = %1
+  %9 = tail call i32 @evutil_closesocket(i32 noundef %3) #10
+  br label %10
 
-11:                                               ; preds = %9, %1
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 512
-  %13 = load ptr, ptr %12, align 8
-  tail call void @evutil_getaddrinfo_cancel_async_(ptr noundef %13) #10
+10:                                               ; preds = %8, %1
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 512
+  %12 = load ptr, ptr %11, align 8
+  tail call void @evutil_getaddrinfo_cancel_async_(ptr noundef %12) #10
   ret void
 }
 

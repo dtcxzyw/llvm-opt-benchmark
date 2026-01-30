@@ -5441,9 +5441,10 @@ Abc_TtExpand.exit113:                             ; preds = %381, %Abc_TtExpand.
 
 Abc_TtMux.exit:                                   ; preds = %.lr.ph.i116
   %396 = load i64, ptr %10, align 16, !tbaa !117
-  %397 = and i64 %396, 1
-  %.not.not = icmp eq i64 %397, 0
-  br i1 %.not.not, label %Abc_TtNot.exit, label %.lr.ph.i122
+  %.not = trunc i64 %396 to i1
+  %397 = trunc i64 %396 to i32
+  %.mux = and i32 %397, 1
+  br i1 %.not, label %.lr.ph.i122, label %Abc_TtNot.exit
 
 .lr.ph.i122:                                      ; preds = %Abc_TtMux.exit, %.lr.ph.i122
   %indvars.iv.i123 = phi i64 [ %indvars.iv.next.i124, %.lr.ph.i122 ], [ 0, %Abc_TtMux.exit ]
@@ -5456,7 +5457,7 @@ Abc_TtMux.exit:                                   ; preds = %.lr.ph.i116
   br i1 %exitcond.not.i125, label %Abc_TtNot.exit, label %.lr.ph.i122, !llvm.loop !139
 
 Abc_TtNot.exit:                                   ; preds = %.lr.ph.i122, %Abc_TtExpand.exit113, %Abc_TtMux.exit
-  %401 = phi i32 [ 0, %Abc_TtExpand.exit113 ], [ 0, %Abc_TtMux.exit ], [ 1, %.lr.ph.i122 ]
+  %401 = phi i32 [ 0, %Abc_TtExpand.exit113 ], [ %.mux, %Abc_TtMux.exit ], [ 1, %.lr.ph.i122 ]
   %402 = call fastcc i32 @Abc_TtMinBase(ptr noundef %10, ptr noundef nonnull %315, i32 noundef %252, i32 noundef %16)
   %403 = load i32, ptr %250, align 4
   %404 = shl i32 %402, 24

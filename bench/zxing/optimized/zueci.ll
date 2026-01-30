@@ -3753,37 +3753,36 @@ zueci_is_valid_utf8.exit.thread:                  ; preds = %zueci_decode_utf8.e
 define internal range(i32 0, 2) i32 @zueci_ascii_inv_u(ptr noundef readonly captures(none) %0, i32 %1, i32 noundef %2, ptr noundef writeonly captures(none) %3) unnamed_addr #5 {
   %5 = load i8, ptr %0, align 1, !tbaa !3
   %.fr = freeze i8 %5
-  %6 = and i32 %2, 1
-  %7 = icmp ne i32 %6, 0
-  %8 = zext i8 %.fr to i32
-  %9 = icmp eq i8 %.fr, 127
-  %or.cond = or i1 %7, %9
-  br i1 %or.cond, label %16, label %10
+  %6 = trunc i32 %2 to i1
+  %7 = zext i8 %.fr to i32
+  %8 = icmp eq i8 %.fr, 127
+  %or.cond = or i1 %8, %6
+  br i1 %or.cond, label %15, label %9
 
-10:                                               ; preds = %4
-  %11 = icmp ult i8 %.fr, 123
-  br i1 %11, label %switch.early.test, label %17
+9:                                                ; preds = %4
+  %10 = icmp ult i8 %.fr, 123
+  br i1 %10, label %switch.early.test, label %16
 
-switch.early.test:                                ; preds = %10
-  switch i8 %.fr, label %12 [
-    i8 64, label %17
-    i8 36, label %17
-    i8 35, label %17
+switch.early.test:                                ; preds = %9
+  switch i8 %.fr, label %11 [
+    i8 64, label %16
+    i8 36, label %16
+    i8 35, label %16
   ]
 
-12:                                               ; preds = %switch.early.test
-  %13 = icmp eq i8 %.fr, 95
-  %14 = add nsw i8 %.fr, -97
-  %15 = icmp ult i8 %14, -6
-  %or.cond17 = or i1 %13, %15
-  br i1 %or.cond17, label %16, label %17
+11:                                               ; preds = %switch.early.test
+  %12 = icmp eq i8 %.fr, 95
+  %13 = add nsw i8 %.fr, -97
+  %14 = icmp ult i8 %13, -6
+  %or.cond17 = or i1 %12, %14
+  br i1 %or.cond17, label %15, label %16
 
-16:                                               ; preds = %12, %4
-  store i32 %8, ptr %3, align 4, !tbaa !12
-  br label %17
+15:                                               ; preds = %11, %4
+  store i32 %7, ptr %3, align 4, !tbaa !12
+  br label %16
 
-17:                                               ; preds = %12, %10, %switch.early.test, %switch.early.test, %switch.early.test, %16
-  %.0 = phi i32 [ 1, %16 ], [ 0, %switch.early.test ], [ 0, %switch.early.test ], [ 0, %switch.early.test ], [ 0, %10 ], [ 0, %12 ]
+16:                                               ; preds = %11, %9, %switch.early.test, %switch.early.test, %switch.early.test, %15
+  %.0 = phi i32 [ 1, %15 ], [ 0, %switch.early.test ], [ 0, %switch.early.test ], [ 0, %switch.early.test ], [ 0, %9 ], [ 0, %11 ]
   ret i32 %.0
 }
 

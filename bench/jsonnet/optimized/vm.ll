@@ -68858,9 +68858,8 @@ define linkonce_odr void @_ZN2c43yml7EmitterINS0_13WriterOStreamINSt7__cxx1118ba
   %18 = phi ptr [ %.pre13, %10 ], [ %5, %2 ]
   %19 = getelementptr inbounds nuw %"struct.c4::yml::NodeData", ptr %18, i64 %1
   %20 = load i64, ptr %19, align 8, !tbaa !521
-  %21 = and i64 %20, 1
-  %.not = icmp eq i64 %21, 0
-  br i1 %.not, label %22, label %99
+  %21 = trunc i64 %20 to i1
+  br i1 %21, label %99, label %22
 
 22:                                               ; preds = %17
   %23 = and i64 %20, 2048
@@ -68884,12 +68883,12 @@ define linkonce_odr void @_ZN2c43yml7EmitterINS0_13WriterOStreamINSt7__cxx1118ba
   %36 = load i64, ptr %35, align 8, !tbaa !526
   %37 = add i64 %36, 1
   store i64 %37, ptr %35, align 8, !tbaa !526
-  %.pre17 = load ptr, ptr %3, align 8, !tbaa !529
-  %.pre18 = load ptr, ptr %.pre17, align 8, !tbaa !520
+  %.pre14 = load ptr, ptr %3, align 8, !tbaa !529
+  %.pre15 = load ptr, ptr %.pre14, align 8, !tbaa !520
   br label %38
 
 38:                                               ; preds = %31, %27
-  %39 = phi ptr [ %.pre18, %31 ], [ %18, %27 ]
+  %39 = phi ptr [ %.pre15, %31 ], [ %18, %27 ]
   %40 = getelementptr inbounds nuw %"struct.c4::yml::NodeData", ptr %39, i64 %1
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 56
   %.sroa.01.0.copyload = load ptr, ptr %41, align 8, !tbaa !781
@@ -68999,15 +68998,15 @@ _ZN2c43yml7EmitterINS0_13WriterOStreamINSt7__cxx1118basic_stringstreamIcSt11char
   %108 = load i64, ptr %107, align 8, !tbaa !526
   %109 = add i64 %108, 1
   store i64 %109, ptr %107, align 8, !tbaa !526
-  %.pre14 = load ptr, ptr %3, align 8, !tbaa !529
-  %.pre15 = load ptr, ptr %.pre14, align 8, !tbaa !520
-  %.phi.trans.insert = getelementptr inbounds nuw %"struct.c4::yml::NodeData", ptr %.pre15, i64 %1
-  %.pre16 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !1041
+  %.pre16 = load ptr, ptr %3, align 8, !tbaa !529
+  %.pre17 = load ptr, ptr %.pre16, align 8, !tbaa !520
+  %.phi.trans.insert = getelementptr inbounds nuw %"struct.c4::yml::NodeData", ptr %.pre17, i64 %1
+  %.pre18 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !1041
   br label %110
 
 110:                                              ; preds = %103, %99
-  %111 = phi i64 [ %.pre16, %103 ], [ %20, %99 ]
-  %112 = phi ptr [ %.pre15, %103 ], [ %18, %99 ]
+  %111 = phi i64 [ %.pre18, %103 ], [ %20, %99 ]
+  %112 = phi ptr [ %.pre17, %103 ], [ %18, %99 ]
   %113 = getelementptr inbounds nuw %"struct.c4::yml::NodeData", ptr %112, i64 %1
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 56
   %115 = and i64 %111, 89395841

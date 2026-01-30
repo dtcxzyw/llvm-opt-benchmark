@@ -723,10 +723,8 @@ define internal range(i32 -2147483648, 1) i32 @asf_read_header(ptr noundef %0) #
   %328 = call i32 @avio_rl16(ptr noundef %311) #15
   %.not31.i = icmp eq i32 %327, 0
   %329 = and i32 %328, 1
-  %.not32.i = icmp ne i32 %329, 0
-  %or.cond.not.i = select i1 %.not31.i, i1 %.not32.i, i1 false
-  %330 = zext i1 %or.cond.not.i to i32
-  %.0.i180 = add nsw i32 %328, %330
+  %330 = select i1 %.not31.i, i32 %329, i32 0
+  %.0.i180 = add nsw i32 %330, %328
   %bcmp.i181 = call i32 @bcmp(ptr noundef nonnull dereferenceable(13) %4, ptr noundef nonnull dereferenceable(13) @.str.26, i64 13)
   %.not33.i = icmp eq i32 %bcmp.i181, 0
   br i1 %.not33.i, label %331, label %342

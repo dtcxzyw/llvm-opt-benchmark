@@ -617,7 +617,7 @@ define hidden noundef range(i32 0, 3) i32 @_ZN7nanogui10ColorWheel15adjust_posit
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %48 = load ptr, ptr %47, align 8
   %.not.i.i.not = icmp eq ptr %48, null
-  br i1 %.not.i.i.not, label %106, label %.sink.split
+  br i1 %.not.i.i.not, label %105, label %.sink.split
 
 49:                                               ; preds = %36, %39, %3
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 140
@@ -656,56 +656,55 @@ define hidden noundef range(i32 0, 3) i32 @_ZN7nanogui10ColorWheel15adjust_posit
   %81 = fcmp ole float %74, 1.000000e+00
   %82 = and i1 %80, %81
   %spec.select = select i1 %or.cond10, i1 %82, i1 false
-  %83 = and i32 %2, 1
-  %.not67 = icmp ne i32 %83, 0
-  %84 = icmp eq i32 %2, 1
-  %or.cond16 = or i1 %84, %spec.select
+  %.not67 = trunc i32 %2 to i1
+  %83 = icmp eq i32 %2, 1
+  %or.cond16 = or i1 %83, %spec.select
   %or.cond68 = select i1 %.not67, i1 %or.cond16, i1 false
-  br i1 %or.cond68, label %85, label %106
+  br i1 %or.cond68, label %84, label %105
 
-85:                                               ; preds = %49
-  %86 = fcmp ogt float %69, 0.000000e+00
-  %.sroa.speculated96 = select i1 %86, float %69, float 0.000000e+00
-  %87 = fcmp ogt float %.sroa.speculated96, 1.000000e+00
-  %.sroa.speculated91 = select i1 %87, float 1.000000e+00, float %.sroa.speculated96
-  %88 = fcmp ogt float %72, 0.000000e+00
-  %.sroa.speculated86 = select i1 %88, float %72, float 0.000000e+00
-  %89 = fcmp ogt float %.sroa.speculated86, 1.000000e+00
-  %.sroa.speculated81 = select i1 %89, float 1.000000e+00, float %.sroa.speculated86
-  %90 = fcmp ogt float %74, 0.000000e+00
-  %.sroa.speculated78 = select i1 %90, float %74, float 0.000000e+00
-  %91 = fcmp ogt float %.sroa.speculated78, 1.000000e+00
-  %.sroa.speculated = select i1 %91, float 1.000000e+00, float %.sroa.speculated78
-  %92 = fadd float %.sroa.speculated91, %.sroa.speculated81
-  %93 = fadd float %92, %.sroa.speculated
-  %94 = fdiv float %.sroa.speculated91, %93
-  %95 = fdiv float %.sroa.speculated81, %93
-  %96 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store float %94, ptr %96, align 8
-  %97 = getelementptr inbounds nuw i8, ptr %0, i64 148
-  store float %95, ptr %97, align 4
-  %98 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %99 = load ptr, ptr %98, align 8
-  %.not.i.i75.not = icmp eq ptr %99, null
-  br i1 %.not.i.i75.not, label %106, label %.sink.split
+84:                                               ; preds = %49
+  %85 = fcmp ogt float %69, 0.000000e+00
+  %.sroa.speculated96 = select i1 %85, float %69, float 0.000000e+00
+  %86 = fcmp ogt float %.sroa.speculated96, 1.000000e+00
+  %.sroa.speculated91 = select i1 %86, float 1.000000e+00, float %.sroa.speculated96
+  %87 = fcmp ogt float %72, 0.000000e+00
+  %.sroa.speculated86 = select i1 %87, float %72, float 0.000000e+00
+  %88 = fcmp ogt float %.sroa.speculated86, 1.000000e+00
+  %.sroa.speculated81 = select i1 %88, float 1.000000e+00, float %.sroa.speculated86
+  %89 = fcmp ogt float %74, 0.000000e+00
+  %.sroa.speculated78 = select i1 %89, float %74, float 0.000000e+00
+  %90 = fcmp ogt float %.sroa.speculated78, 1.000000e+00
+  %.sroa.speculated = select i1 %90, float 1.000000e+00, float %.sroa.speculated78
+  %91 = fadd float %.sroa.speculated91, %.sroa.speculated81
+  %92 = fadd float %91, %.sroa.speculated
+  %93 = fdiv float %.sroa.speculated91, %92
+  %94 = fdiv float %.sroa.speculated81, %92
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  store float %93, ptr %95, align 8
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 148
+  store float %94, ptr %96, align 4
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %98 = load ptr, ptr %97, align 8
+  %.not.i.i75.not = icmp eq ptr %98, null
+  br i1 %.not.i.i75.not, label %105, label %.sink.split
 
-.sink.split:                                      ; preds = %85, %40
-  %.sink117.sroa.phi = phi ptr [ %.sink117.sroa.gep, %40 ], [ %.sink117.sroa.gep119, %85 ]
-  %.sink117 = phi ptr [ %4, %40 ], [ %5, %85 ]
-  %.0.ph = phi i32 [ 2, %40 ], [ 1, %85 ]
-  %100 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %101 = tail call { <2 x float>, <2 x float> } @_ZNK7nanogui10ColorWheel5colorEv(ptr noundef nonnull align 8 dereferenceable(192) %0)
-  %102 = extractvalue { <2 x float>, <2 x float> } %101, 0
-  store <2 x float> %102, ptr %.sink117, align 4
-  %103 = extractvalue { <2 x float>, <2 x float> } %101, 1
-  store <2 x float> %103, ptr %.sink117.sroa.phi, align 4
-  %104 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %105 = load ptr, ptr %104, align 8
-  call void %105(ptr noundef nonnull align 8 dereferenceable(32) %100, ptr noundef nonnull align 4 dereferenceable(16) %.sink117)
-  br label %106
+.sink.split:                                      ; preds = %84, %40
+  %.sink117.sroa.phi = phi ptr [ %.sink117.sroa.gep, %40 ], [ %.sink117.sroa.gep119, %84 ]
+  %.sink117 = phi ptr [ %4, %40 ], [ %5, %84 ]
+  %.0.ph = phi i32 [ 2, %40 ], [ 1, %84 ]
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %100 = tail call { <2 x float>, <2 x float> } @_ZNK7nanogui10ColorWheel5colorEv(ptr noundef nonnull align 8 dereferenceable(192) %0)
+  %101 = extractvalue { <2 x float>, <2 x float> } %100, 0
+  store <2 x float> %101, ptr %.sink117, align 4
+  %102 = extractvalue { <2 x float>, <2 x float> } %100, 1
+  store <2 x float> %102, ptr %.sink117.sroa.phi, align 4
+  %103 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %104 = load ptr, ptr %103, align 8
+  call void %104(ptr noundef nonnull align 8 dereferenceable(32) %99, ptr noundef nonnull align 4 dereferenceable(16) %.sink117)
+  br label %105
 
-106:                                              ; preds = %.sink.split, %49, %85, %40
-  %.0 = phi i32 [ 2, %40 ], [ 1, %85 ], [ 0, %49 ], [ %.0.ph, %.sink.split ]
+105:                                              ; preds = %.sink.split, %49, %84, %40
+  %.0 = phi i32 [ 2, %40 ], [ 1, %84 ], [ 0, %49 ], [ %.0.ph, %.sink.split ]
   ret i32 %.0
 }
 

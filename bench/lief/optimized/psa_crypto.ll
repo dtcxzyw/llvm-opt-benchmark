@@ -10199,118 +10199,117 @@ mbedtls_psa_crypto_init_subsystem.exit14.mbedtls_psa_crypto_init_subsystem.exit1
 mbedtls_psa_crypto_init_subsystem.exit14.thread:  ; preds = %mbedtls_psa_crypto_init_subsystem.exit14.mbedtls_psa_crypto_init_subsystem.exit14.thread_crit_edge, %mbedtls_psa_crypto_init_subsystem.exit
   %15 = phi i8 [ %2, %mbedtls_psa_crypto_init_subsystem.exit ], [ %.pre, %mbedtls_psa_crypto_init_subsystem.exit14.mbedtls_psa_crypto_init_subsystem.exit14.thread_crit_edge ]
   %16 = phi i8 [ %10, %mbedtls_psa_crypto_init_subsystem.exit ], [ %14, %mbedtls_psa_crypto_init_subsystem.exit14.mbedtls_psa_crypto_init_subsystem.exit14.thread_crit_edge ]
-  %17 = and i8 %16, 1
-  %18 = icmp eq i8 %15, 0
-  %19 = icmp ne i8 %17, 0
-  %or.cond.i = select i1 %18, i1 %19, i1 false
-  br i1 %or.cond.i, label %20, label %33
+  %17 = icmp eq i8 %15, 0
+  %18 = trunc i8 %16 to i1
+  %or.cond.i = select i1 %17, i1 %18, i1 false
+  br i1 %or.cond.i, label %19, label %32
 
-20:                                               ; preds = %mbedtls_psa_crypto_init_subsystem.exit14.thread
-  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_data, i64 8), align 8, !tbaa !109
-  %22 = icmp eq ptr %21, null
-  br i1 %22, label %23, label %24
+19:                                               ; preds = %mbedtls_psa_crypto_init_subsystem.exit14.thread
+  %20 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_data, i64 8), align 8, !tbaa !109
+  %21 = icmp eq ptr %20, null
+  br i1 %21, label %22, label %23
 
-23:                                               ; preds = %20
+22:                                               ; preds = %19
   store ptr @mbedtls_entropy_init, ptr getelementptr inbounds nuw (i8, ptr @global_data, i64 8), align 8, !tbaa !109
-  br label %24
+  br label %23
 
-24:                                               ; preds = %23, %20
-  %25 = phi ptr [ @mbedtls_entropy_init, %23 ], [ %21, %20 ]
-  %26 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_data, i64 16), align 8, !tbaa !108
-  %27 = icmp eq ptr %26, null
-  br i1 %27, label %28, label %mbedtls_psa_random_init.exit.i
+23:                                               ; preds = %22, %19
+  %24 = phi ptr [ @mbedtls_entropy_init, %22 ], [ %20, %19 ]
+  %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_data, i64 16), align 8, !tbaa !108
+  %26 = icmp eq ptr %25, null
+  br i1 %26, label %27, label %mbedtls_psa_random_init.exit.i
 
-28:                                               ; preds = %24
+27:                                               ; preds = %23
   store ptr @mbedtls_entropy_free, ptr getelementptr inbounds nuw (i8, ptr @global_data, i64 16), align 8, !tbaa !108
   br label %mbedtls_psa_random_init.exit.i
 
-mbedtls_psa_random_init.exit.i:                   ; preds = %28, %24
-  tail call void %25(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @global_data, i64 24)) #22
+mbedtls_psa_random_init.exit.i:                   ; preds = %27, %23
+  tail call void %24(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @global_data, i64 24)) #22
   tail call void @mbedtls_ctr_drbg_init(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @global_data, i64 856)) #22
   store i8 1, ptr getelementptr inbounds nuw (i8, ptr @global_data, i64 1), align 1, !tbaa !67
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store i32 4281168, ptr %1, align 4
-  %29 = call i32 @mbedtls_ctr_drbg_seed(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @global_data, i64 856), ptr noundef nonnull @mbedtls_entropy_func, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @global_data, i64 24), ptr noundef nonnull %1, i64 noundef 3) #22
-  %30 = call range(i32 -151, 1) i32 @mbedtls_to_psa_error(i32 noundef %29)
+  %28 = call i32 @mbedtls_ctr_drbg_seed(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @global_data, i64 856), ptr noundef nonnull @mbedtls_entropy_func, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @global_data, i64 24), ptr noundef nonnull %1, i64 noundef 3) #22
+  %29 = call range(i32 -151, 1) i32 @mbedtls_to_psa_error(i32 noundef %28)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
-  %31 = icmp eq i32 %30, 0
-  br i1 %31, label %32, label %mbedtls_psa_random_init.exit.i.mbedtls_psa_crypto_init_subsystem.exit16_crit_edge
+  %30 = icmp eq i32 %29, 0
+  br i1 %30, label %31, label %mbedtls_psa_random_init.exit.i.mbedtls_psa_crypto_init_subsystem.exit16_crit_edge
 
 mbedtls_psa_random_init.exit.i.mbedtls_psa_crypto_init_subsystem.exit16_crit_edge: ; preds = %mbedtls_psa_random_init.exit.i
   %.pre31 = load i8, ptr @global_data, align 8, !tbaa !3
   br label %mbedtls_psa_crypto_init_subsystem.exit16
 
-32:                                               ; preds = %mbedtls_psa_random_init.exit.i
+31:                                               ; preds = %mbedtls_psa_random_init.exit.i
   store i8 2, ptr getelementptr inbounds nuw (i8, ptr @global_data, i64 1), align 1, !tbaa !67
   %.pre32 = load i8, ptr @global_data, align 8, !tbaa !3
-  br label %33
+  br label %32
 
-33:                                               ; preds = %mbedtls_psa_crypto_init_subsystem.exit14.thread, %32
-  %34 = phi i8 [ %16, %mbedtls_psa_crypto_init_subsystem.exit14.thread ], [ %.pre32, %32 ]
-  %35 = and i8 %34, 4
-  %.not.i = icmp eq i8 %35, 0
-  br i1 %.not.i, label %36, label %mbedtls_psa_crypto_free.exit
+32:                                               ; preds = %mbedtls_psa_crypto_init_subsystem.exit14.thread, %31
+  %33 = phi i8 [ %16, %mbedtls_psa_crypto_init_subsystem.exit14.thread ], [ %.pre32, %31 ]
+  %34 = and i8 %33, 4
+  %.not.i = icmp eq i8 %34, 0
+  br i1 %.not.i, label %35, label %mbedtls_psa_crypto_free.exit
 
-36:                                               ; preds = %33
-  %37 = or disjoint i8 %34, 4
+35:                                               ; preds = %32
+  %36 = or disjoint i8 %33, 4
   br label %mbedtls_psa_crypto_free.exit.sink.split
 
 mbedtls_psa_crypto_init_subsystem.exit16:         ; preds = %mbedtls_psa_random_init.exit.i.mbedtls_psa_crypto_init_subsystem.exit16_crit_edge, %mbedtls_psa_crypto_init_subsystem.exit14
-  %38 = phi i8 [ %.pre31, %mbedtls_psa_random_init.exit.i.mbedtls_psa_crypto_init_subsystem.exit16_crit_edge ], [ %14, %mbedtls_psa_crypto_init_subsystem.exit14 ]
-  %.0 = phi i32 [ %30, %mbedtls_psa_random_init.exit.i.mbedtls_psa_crypto_init_subsystem.exit16_crit_edge ], [ %12, %mbedtls_psa_crypto_init_subsystem.exit14 ]
-  %39 = and i8 %38, 4
-  %.not.i19 = icmp eq i8 %39, 0
-  br i1 %.not.i19, label %42, label %40
+  %37 = phi i8 [ %.pre31, %mbedtls_psa_random_init.exit.i.mbedtls_psa_crypto_init_subsystem.exit16_crit_edge ], [ %14, %mbedtls_psa_crypto_init_subsystem.exit14 ]
+  %.0 = phi i32 [ %29, %mbedtls_psa_random_init.exit.i.mbedtls_psa_crypto_init_subsystem.exit16_crit_edge ], [ %12, %mbedtls_psa_crypto_init_subsystem.exit14 ]
+  %38 = and i8 %37, 4
+  %.not.i19 = icmp eq i8 %38, 0
+  br i1 %.not.i19, label %41, label %39
 
-40:                                               ; preds = %mbedtls_psa_crypto_init_subsystem.exit16
-  %41 = and i8 %38, -5
-  store i8 %41, ptr @global_data, align 8, !tbaa !3
-  br label %42
+39:                                               ; preds = %mbedtls_psa_crypto_init_subsystem.exit16
+  %40 = and i8 %37, -5
+  store i8 %40, ptr @global_data, align 8, !tbaa !3
+  br label %41
 
-42:                                               ; preds = %40, %mbedtls_psa_crypto_init_subsystem.exit16
-  %43 = phi i8 [ %41, %40 ], [ %38, %mbedtls_psa_crypto_init_subsystem.exit16 ]
-  %44 = and i8 %43, 2
-  %.not1.i = icmp eq i8 %44, 0
-  br i1 %.not1.i, label %48, label %45
+41:                                               ; preds = %39, %mbedtls_psa_crypto_init_subsystem.exit16
+  %42 = phi i8 [ %40, %39 ], [ %37, %mbedtls_psa_crypto_init_subsystem.exit16 ]
+  %43 = and i8 %42, 2
+  %.not1.i = icmp eq i8 %43, 0
+  br i1 %.not1.i, label %47, label %44
 
-45:                                               ; preds = %42
+44:                                               ; preds = %41
   call void @psa_wipe_all_key_slots() #22
-  %46 = load i8, ptr @global_data, align 8, !tbaa !3
-  %47 = and i8 %46, -3
-  store i8 %47, ptr @global_data, align 8, !tbaa !3
-  br label %48
+  %45 = load i8, ptr @global_data, align 8, !tbaa !3
+  %46 = and i8 %45, -3
+  store i8 %46, ptr @global_data, align 8, !tbaa !3
+  br label %47
 
-48:                                               ; preds = %45, %42
-  %49 = load i8, ptr getelementptr inbounds nuw (i8, ptr @global_data, i64 1), align 1, !tbaa !67
-  %.not2.i = icmp eq i8 %49, 0
-  br i1 %.not2.i, label %52, label %50
+47:                                               ; preds = %44, %41
+  %48 = load i8, ptr getelementptr inbounds nuw (i8, ptr @global_data, i64 1), align 1, !tbaa !67
+  %.not2.i = icmp eq i8 %48, 0
+  br i1 %.not2.i, label %51, label %49
 
-50:                                               ; preds = %48
+49:                                               ; preds = %47
   call void @mbedtls_ctr_drbg_free(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @global_data, i64 856)) #22
-  %51 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_data, i64 16), align 8, !tbaa !108
-  call void %51(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @global_data, i64 24)) #22
-  br label %52
+  %50 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_data, i64 16), align 8, !tbaa !108
+  call void %50(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @global_data, i64 24)) #22
+  br label %51
 
-52:                                               ; preds = %50, %48
+51:                                               ; preds = %49, %47
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @global_data, i64 1), align 1, !tbaa !67
   call void @mbedtls_platform_zeroize(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @global_data, i64 8), i64 noundef 1192) #22
-  %53 = load i8, ptr @global_data, align 8, !tbaa !3
-  %54 = and i8 %53, 1
-  %.not3.i = icmp eq i8 %54, 0
-  br i1 %.not3.i, label %mbedtls_psa_crypto_free.exit, label %55
+  %52 = load i8, ptr @global_data, align 8, !tbaa !3
+  %53 = and i8 %52, 1
+  %.not3.i = icmp eq i8 %53, 0
+  br i1 %.not3.i, label %mbedtls_psa_crypto_free.exit, label %54
 
-55:                                               ; preds = %52
-  %56 = and i8 %53, -2
+54:                                               ; preds = %51
+  %55 = and i8 %52, -2
   br label %mbedtls_psa_crypto_free.exit.sink.split
 
-mbedtls_psa_crypto_free.exit.sink.split:          ; preds = %55, %36
-  %.sink = phi i8 [ %37, %36 ], [ %56, %55 ]
-  %.06.ph = phi i32 [ 0, %36 ], [ %.0, %55 ]
+mbedtls_psa_crypto_free.exit.sink.split:          ; preds = %54, %35
+  %.sink = phi i8 [ %36, %35 ], [ %55, %54 ]
+  %.06.ph = phi i32 [ 0, %35 ], [ %.0, %54 ]
   store i8 %.sink, ptr @global_data, align 8, !tbaa !3
   br label %mbedtls_psa_crypto_free.exit
 
-mbedtls_psa_crypto_free.exit:                     ; preds = %mbedtls_psa_crypto_free.exit.sink.split, %33, %52, %0
-  %.06 = phi i32 [ 0, %0 ], [ 0, %33 ], [ %.0, %52 ], [ %.06.ph, %mbedtls_psa_crypto_free.exit.sink.split ]
+mbedtls_psa_crypto_free.exit:                     ; preds = %mbedtls_psa_crypto_free.exit.sink.split, %32, %51, %0
+  %.06 = phi i32 [ 0, %0 ], [ 0, %32 ], [ %.0, %51 ], [ %.06.ph, %mbedtls_psa_crypto_free.exit.sink.split ]
   ret i32 %.06
 }
 

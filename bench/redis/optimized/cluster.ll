@@ -4020,46 +4020,45 @@ keyHashSlot.exit:                                 ; preds = %._crit_edge.thread.
   %191 = getelementptr inbounds nuw i8, ptr %190, i64 96
   %192 = load ptr, ptr %191, align 8, !tbaa !118
   %193 = icmp eq ptr %192, @execCommand
-  br i1 %193, label %194, label %199
+  br i1 %193, label %194, label %198
 
 194:                                              ; preds = %188
   %195 = getelementptr inbounds nuw i8, ptr %0, i64 452
   %196 = load i32, ptr %195, align 4, !tbaa !140
-  %197 = and i32 %196, 1
-  %198 = icmp ne i32 %197, 0
-  br label %199
+  %197 = trunc i32 %196 to i1
+  br label %198
 
-199:                                              ; preds = %188, %194
-  %200 = phi i1 [ %198, %194 ], [ false, %188 ]
-  %201 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %202 = load i64, ptr %201, align 8, !tbaa !124
-  %203 = and i64 %202, 131072
-  %204 = icmp eq i64 %203, 0
-  %or.cond14.not194 = and i1 %141, %204
-  %or.cond16 = select i1 %or.cond14.not194, i1 true, i1 %200
-  br i1 %or.cond16, label %.thread233, label %205
+198:                                              ; preds = %188, %194
+  %199 = phi i1 [ %197, %194 ], [ false, %188 ]
+  %200 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %201 = load i64, ptr %200, align 8, !tbaa !124
+  %202 = and i64 %201, 131072
+  %203 = icmp eq i64 %202, 0
+  %or.cond14.not194 = and i1 %141, %203
+  %or.cond16 = select i1 %or.cond14.not194, i1 true, i1 %199
+  br i1 %or.cond16, label %.thread233, label %204
 
-205:                                              ; preds = %199
-  %206 = call i32 @clusterNodeIsSlave(ptr noundef %10) #16
-  %.not195 = icmp eq i32 %206, 0
-  br i1 %.not195, label %.thread233, label %207
+204:                                              ; preds = %198
+  %205 = call i32 @clusterNodeIsSlave(ptr noundef %10) #16
+  %.not195 = icmp eq i32 %205, 0
+  br i1 %.not195, label %.thread233, label %206
 
-207:                                              ; preds = %205
-  %208 = call ptr @clusterNodeGetSlaveof(ptr noundef %10) #16
-  %209 = icmp eq ptr %208, %.1127.lcssa
-  br i1 %209, label %._crit_edge.thread, label %.thread233
+206:                                              ; preds = %204
+  %207 = call ptr @clusterNodeGetSlaveof(ptr noundef %10) #16
+  %208 = icmp eq ptr %207, %.1127.lcssa
+  br i1 %208, label %._crit_edge.thread, label %.thread233
 
-.thread233:                                       ; preds = %.thread232, %199, %207, %205
-  %210 = icmp ne ptr %.1127.lcssa, %10
-  %or.cond18 = and i1 %14, %210
-  br i1 %or.cond18, label %211, label %._crit_edge.thread
+.thread233:                                       ; preds = %.thread232, %198, %206, %204
+  %209 = icmp ne ptr %.1127.lcssa, %10
+  %or.cond18 = and i1 %14, %209
+  br i1 %or.cond18, label %210, label %._crit_edge.thread
 
-211:                                              ; preds = %.thread233
+210:                                              ; preds = %.thread233
   store i32 4, ptr %6, align 4, !tbaa !44
   br label %._crit_edge.thread
 
-._crit_edge.thread:                               ; preds = %26, %140, %185, %207, %211, %.thread233, %186, %172, %173, %167, %162, %163, %158, %159, %154, %155, %._crit_edge, %20, %7, %176
-  %.0 = phi ptr [ %10, %7 ], [ null, %140 ], [ %10, %20 ], [ null, %162 ], [ %10, %167 ], [ %177, %176 ], [ null, %172 ], [ %.1127.lcssa, %.thread233 ], [ %.mux, %185 ], [ %10, %._crit_edge ], [ null, %158 ], [ null, %154 ], [ null, %155 ], [ null, %159 ], [ null, %163 ], [ null, %173 ], [ null, %186 ], [ %10, %207 ], [ %.1127.lcssa, %211 ], [ %10, %26 ]
+._crit_edge.thread:                               ; preds = %26, %140, %185, %206, %210, %.thread233, %186, %172, %173, %167, %162, %163, %158, %159, %154, %155, %._crit_edge, %20, %7, %176
+  %.0 = phi ptr [ %10, %7 ], [ null, %140 ], [ %10, %20 ], [ null, %162 ], [ %10, %167 ], [ %177, %176 ], [ null, %172 ], [ %.1127.lcssa, %.thread233 ], [ %.mux, %185 ], [ %10, %._crit_edge ], [ null, %158 ], [ null, %154 ], [ null, %155 ], [ null, %159 ], [ null, %163 ], [ null, %173 ], [ null, %186 ], [ %10, %206 ], [ %.1127.lcssa, %210 ], [ %10, %26 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4)

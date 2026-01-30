@@ -630,13 +630,13 @@ _ZN6google8protobuf8internal9ArenaImpl11CleanupListEv.exit: ; preds = %_ZN6googl
   br label %45
 
 .loopexit.i:                                      ; preds = %"_ZZN6google8protobuf8internal9ArenaImpl5ResetEvENK3$_0clEPNS1_11SerialArena5BlockE.exit.i", %45
-  %.219 = phi i64 [ %.017, %45 ], [ %55, %"_ZZN6google8protobuf8internal9ArenaImpl5ResetEvENK3$_0clEPNS1_11SerialArena5BlockE.exit.i" ]
+  %.218 = phi i64 [ %.016, %45 ], [ %55, %"_ZZN6google8protobuf8internal9ArenaImpl5ResetEvENK3$_0clEPNS1_11SerialArena5BlockE.exit.i" ]
   %.3 = phi ptr [ %.0, %45 ], [ %.2, %"_ZZN6google8protobuf8internal9ArenaImpl5ResetEvENK3$_0clEPNS1_11SerialArena5BlockE.exit.i" ]
-  %.not.i12 = icmp eq ptr %47, null
-  br i1 %.not.i12, label %"_ZN6google8protobuf8internal9ArenaImpl8PerBlockIZNS2_5ResetEvE3$_0EEvT_.exit", label %45, !llvm.loop !67
+  %.not.i11 = icmp eq ptr %47, null
+  br i1 %.not.i11, label %"_ZN6google8protobuf8internal9ArenaImpl8PerBlockIZNS2_5ResetEvE3$_0EEvT_.exit", label %45, !llvm.loop !67
 
 45:                                               ; preds = %.loopexit.i, %.lr.ph15.i
-  %.017 = phi i64 [ 0, %.lr.ph15.i ], [ %.219, %.loopexit.i ]
+  %.016 = phi i64 [ 0, %.lr.ph15.i ], [ %.218, %.loopexit.i ]
   %.0 = phi ptr [ null, %.lr.ph15.i ], [ %.3, %.loopexit.i ]
   %.014.i = phi ptr [ %.0.i.i.i9, %.lr.ph15.i ], [ %47, %.loopexit.i ]
   %46 = getelementptr inbounds nuw i8, ptr %.014.i, i64 32
@@ -647,7 +647,7 @@ _ZN6google8protobuf8internal9ArenaImpl11CleanupListEv.exit: ; preds = %_ZN6googl
   br i1 %.not1011.i, label %.loopexit.i, label %.lr.ph.i10
 
 .lr.ph.i10:                                       ; preds = %45, %"_ZZN6google8protobuf8internal9ArenaImpl5ResetEvENK3$_0clEPNS1_11SerialArena5BlockE.exit.i"
-  %.118 = phi i64 [ %55, %"_ZZN6google8protobuf8internal9ArenaImpl5ResetEvENK3$_0clEPNS1_11SerialArena5BlockE.exit.i" ], [ %.017, %45 ]
+  %.117 = phi i64 [ %55, %"_ZZN6google8protobuf8internal9ArenaImpl5ResetEvENK3$_0clEPNS1_11SerialArena5BlockE.exit.i" ], [ %.016, %45 ]
   %.1 = phi ptr [ %.2, %"_ZZN6google8protobuf8internal9ArenaImpl5ResetEvENK3$_0clEPNS1_11SerialArena5BlockE.exit.i" ], [ %.0, %45 ]
   %.0912.i = phi ptr [ %52, %"_ZZN6google8protobuf8internal9ArenaImpl5ResetEvENK3$_0clEPNS1_11SerialArena5BlockE.exit.i" ], [ %49, %45 ]
   %50 = load i64, ptr %.0912.i, align 8, !tbaa !23
@@ -655,10 +655,9 @@ _ZN6google8protobuf8internal9ArenaImpl11CleanupListEv.exit: ; preds = %_ZN6googl
   %52 = inttoptr i64 %51 to ptr
   %53 = getelementptr inbounds nuw i8, ptr %.0912.i, i64 16
   %54 = load i64, ptr %53, align 8, !tbaa !25
-  %55 = add i64 %54, %.118
-  %56 = and i64 %50, 1
-  %.not.i.i11 = icmp eq i64 %56, 0
-  br i1 %.not.i.i11, label %57, label %"_ZZN6google8protobuf8internal9ArenaImpl5ResetEvENK3$_0clEPNS1_11SerialArena5BlockE.exit.i"
+  %55 = add i64 %54, %.117
+  %56 = trunc i64 %50 to i1
+  br i1 %56, label %"_ZZN6google8protobuf8internal9ArenaImpl5ResetEvENK3$_0clEPNS1_11SerialArena5BlockE.exit.i", label %57
 
 57:                                               ; preds = %.lr.ph.i10
   tail call void %43(ptr noundef nonnull %.0912.i, i64 noundef %54)
@@ -670,26 +669,26 @@ _ZN6google8protobuf8internal9ArenaImpl11CleanupListEv.exit: ; preds = %_ZN6googl
   br i1 %.not10.i, label %.loopexit.i, label %.lr.ph.i10, !llvm.loop !68
 
 "_ZN6google8protobuf8internal9ArenaImpl8PerBlockIZNS2_5ResetEvE3$_0EEvT_.exit": ; preds = %.loopexit.i, %42
-  %.320 = phi i64 [ 0, %42 ], [ %.219, %.loopexit.i ]
+  %.319 = phi i64 [ 0, %42 ], [ %.218, %.loopexit.i ]
   %.4 = phi ptr [ null, %42 ], [ %.3, %.loopexit.i ]
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %59 = load i64, ptr %58, align 8, !tbaa !40
-  %60 = and i64 %59, 1
-  %61 = tail call noundef nonnull align 64 dereferenceable(64) ptr @llvm.threadlocal.address.p0(ptr align 64 @_ZN6google8protobuf8internal9ArenaImpl13thread_cache_E)
-  %62 = load i64, ptr %61, align 64, !tbaa !37
-  %63 = and i64 %62, 511
-  %64 = icmp eq i64 %63, 0
-  br i1 %64, label %65, label %_ZN6google8protobuf8internal9ArenaImpl4InitEb.exit, !prof !39
+  %60 = tail call noundef nonnull align 64 dereferenceable(64) ptr @llvm.threadlocal.address.p0(ptr align 64 @_ZN6google8protobuf8internal9ArenaImpl13thread_cache_E)
+  %61 = load i64, ptr %60, align 64, !tbaa !37
+  %62 = and i64 %61, 511
+  %63 = icmp eq i64 %62, 0
+  br i1 %63, label %64, label %_ZN6google8protobuf8internal9ArenaImpl4InitEb.exit, !prof !39
 
-65:                                               ; preds = %"_ZN6google8protobuf8internal9ArenaImpl8PerBlockIZNS2_5ResetEvE3$_0EEvT_.exit"
-  %66 = atomicrmw add ptr @_ZN6google8protobuf8internal9ArenaImpl23lifecycle_id_generator_E, i64 512 monotonic, align 8
+64:                                               ; preds = %"_ZN6google8protobuf8internal9ArenaImpl8PerBlockIZNS2_5ResetEvE3$_0EEvT_.exit"
+  %65 = atomicrmw add ptr @_ZN6google8protobuf8internal9ArenaImpl23lifecycle_id_generator_E, i64 512 monotonic, align 8
   br label %_ZN6google8protobuf8internal9ArenaImpl4InitEb.exit
 
-_ZN6google8protobuf8internal9ArenaImpl4InitEb.exit: ; preds = %"_ZN6google8protobuf8internal9ArenaImpl8PerBlockIZNS2_5ResetEvE3$_0EEvT_.exit", %65
-  %.0.i = phi i64 [ %66, %65 ], [ %62, %"_ZN6google8protobuf8internal9ArenaImpl8PerBlockIZNS2_5ResetEvE3$_0EEvT_.exit" ]
-  %67 = add i64 %.0.i, 2
-  store i64 %67, ptr %61, align 64, !tbaa !37
-  %68 = or i64 %.0.i, %60
+_ZN6google8protobuf8internal9ArenaImpl4InitEb.exit: ; preds = %"_ZN6google8protobuf8internal9ArenaImpl8PerBlockIZNS2_5ResetEvE3$_0EEvT_.exit", %64
+  %.0.i = phi i64 [ %65, %64 ], [ %61, %"_ZN6google8protobuf8internal9ArenaImpl8PerBlockIZNS2_5ResetEvE3$_0EEvT_.exit" ]
+  %66 = add i64 %.0.i, 2
+  store i64 %66, ptr %60, align 64, !tbaa !37
+  %67 = and i64 %59, 1
+  %68 = or i64 %.0.i, %67
   store i64 %68, ptr %58, align 8, !tbaa !40
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store atomic i64 0, ptr %69 monotonic, align 8
@@ -712,7 +711,7 @@ _ZN6google8protobuf8internal9ArenaImpl4InitEb.exit: ; preds = %"_ZN6google8proto
   store i64 %78, ptr %76, align 8, !tbaa !36
   store ptr %0, ptr %77, align 8, !tbaa !41
   %79 = getelementptr inbounds nuw i8, ptr %77, i64 8
-  store ptr %61, ptr %79, align 8, !tbaa !47
+  store ptr %60, ptr %79, align 8, !tbaa !47
   %80 = getelementptr inbounds nuw i8, ptr %77, i64 16
   store ptr %.4, ptr %80, align 8, !tbaa !48
   %81 = getelementptr inbounds nuw i8, ptr %.4, i64 %78
@@ -731,16 +730,16 @@ _ZN6google8protobuf8internal9ArenaImpl4InitEb.exit: ; preds = %"_ZN6google8proto
   store atomic i64 %89, ptr %0 monotonic, align 8
   %90 = load i64, ptr %83, align 8, !tbaa !25
   store atomic i64 %90, ptr %70 monotonic, align 8
-  %91 = getelementptr inbounds nuw i8, ptr %61, i64 16
+  %91 = getelementptr inbounds nuw i8, ptr %60, i64 16
   store ptr %77, ptr %91, align 16, !tbaa !51
   %92 = load i64, ptr %58, align 8, !tbaa !40
-  %93 = getelementptr inbounds nuw i8, ptr %61, i64 8
+  %93 = getelementptr inbounds nuw i8, ptr %60, i64 8
   store i64 %92, ptr %93, align 8, !tbaa !52
   store atomic i64 %89, ptr %69 release, align 8
   br label %94
 
 94:                                               ; preds = %71, %_ZN6google8protobuf8internal9ArenaImpl4InitEb.exit
-  ret i64 %.320
+  ret i64 %.319
 }
 
 ; Function Attrs: mustprogress uwtable

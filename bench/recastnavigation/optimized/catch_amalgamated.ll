@@ -7882,9 +7882,8 @@ define dso_local noundef zeroext i1 @_ZNK5Catch6Config24includeSuccessfulResults
 define dso_local noundef zeroext i1 @_ZNK5Catch6Config26warnAboutMissingAssertionsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(353) %0) unnamed_addr #9 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %3 = load i32, ptr %2, align 4
-  %4 = and i32 %3, 1
-  %5 = icmp ne i32 %4, 0
-  ret i1 %5
+  %4 = trunc i32 %3 to i1
+  ret i1 %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
@@ -52622,9 +52621,8 @@ define dso_local noundef nonnull align 8 dereferenceable(72) ptr @_ZN5Catch9XmlW
   br label %_ZN5Catch9XmlWriter18newlineIfNecessaryEv.exit
 
 _ZN5Catch9XmlWriter18newlineIfNecessaryEv.exit:   ; preds = %14, %18
-  %23 = and i32 %1, 1
-  %.not = icmp eq i32 %23, 0
-  br i1 %.not, label %28, label %24
+  %23 = trunc i32 %1 to i1
+  br i1 %23, label %24, label %28
 
 24:                                               ; preds = %_ZN5Catch9XmlWriter18newlineIfNecessaryEv.exit
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -52764,9 +52762,8 @@ _ZNK5Catch20ReusableStringStream3strB5cxx11Ev.exit: ; preds = %_ZN5Catch20Reusab
 
 40:                                               ; preds = %28, %36
   store i8 0, ptr %0, align 8
-  %41 = and i32 %3, 1
-  %.not = icmp eq i32 %41, 0
-  br i1 %.not, label %_ZN5Catch9XmlWriter15ensureTagClosedEv.exit, label %42
+  %41 = trunc i32 %3 to i1
+  br i1 %41, label %42, label %_ZN5Catch9XmlWriter15ensureTagClosedEv.exit
 
 42:                                               ; preds = %40
   %43 = load ptr, ptr %29, align 8
@@ -53040,9 +53037,8 @@ _ZN5Catch9XmlWriter15ensureTagClosedEv.exit:      ; preds = %._ZN5Catch9XmlWrite
   br label %_ZN5Catch9XmlWriter18newlineIfNecessaryEv.exit
 
 _ZN5Catch9XmlWriter18newlineIfNecessaryEv.exit:   ; preds = %_ZN5Catch9XmlWriter15ensureTagClosedEv.exit, %22
-  %27 = and i32 %2, 1
-  %.not = icmp eq i32 %27, 0
-  br i1 %.not, label %34, label %28
+  %27 = trunc i32 %2 to i1
+  br i1 %27, label %28, label %34
 
 28:                                               ; preds = %_ZN5Catch9XmlWriter18newlineIfNecessaryEv.exit
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -53231,9 +53227,8 @@ _ZN5Catch9XmlWriter18newlineIfNecessaryEv.exit.i: ; preds = %15, %7
   br label %_ZN5Catch9XmlWriter15ensureTagClosedEv.exit
 
 _ZN5Catch9XmlWriter15ensureTagClosedEv.exit:      ; preds = %4, %_ZN5Catch9XmlWriter18newlineIfNecessaryEv.exit.i
-  %19 = and i32 %3, 1
-  %.not = icmp eq i32 %19, 0
-  br i1 %.not, label %25, label %20
+  %19 = trunc i32 %3 to i1
+  br i1 %19, label %20, label %25
 
 20:                                               ; preds = %_ZN5Catch9XmlWriter15ensureTagClosedEv.exit
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -130568,14 +130563,14 @@ define linkonce_odr dso_local void @_ZNSt8__detail9_ExecutorIN9__gnu_cxx17__norm
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %32 = load ptr, ptr %31, align 8
   %33 = load i32, ptr %32, align 8
-  %34 = getelementptr inbounds nuw i8, ptr %32, i64 16
-  %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 80
-  %37 = trunc i32 %33 to i8
-  %38 = and i8 %37, 1
+  %34 = trunc i32 %33 to i8
+  %35 = getelementptr inbounds nuw i8, ptr %32, i64 16
+  %36 = load ptr, ptr %35, align 8
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 80
+  %38 = and i8 %34, 1
   store i8 %38, ptr %4, align 8
   %39 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %36, ptr %39, align 8
+  store ptr %37, ptr %39, align 8
   %40 = call noundef zeroext i1 @_ZNSt8__detail16_Backref_matcherIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS5_12regex_traitsIcEEE8_M_applyESB_SB_SB_SB_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr %.sroa.05.0.copyload, ptr %.sroa.04.0.copyload, ptr %20, ptr %.sroa.017.0.lcssa)
   br i1 %40, label %41, label %50
 
@@ -131990,14 +131985,14 @@ define linkonce_odr dso_local void @_ZNSt8__detail9_ExecutorIN9__gnu_cxx17__norm
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %32 = load ptr, ptr %31, align 8
   %33 = load i32, ptr %32, align 8
-  %34 = getelementptr inbounds nuw i8, ptr %32, i64 16
-  %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 80
-  %37 = trunc i32 %33 to i8
-  %38 = and i8 %37, 1
+  %34 = trunc i32 %33 to i8
+  %35 = getelementptr inbounds nuw i8, ptr %32, i64 16
+  %36 = load ptr, ptr %35, align 8
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 80
+  %38 = and i8 %34, 1
   store i8 %38, ptr %4, align 8
   %39 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %36, ptr %39, align 8
+  store ptr %37, ptr %39, align 8
   %40 = call noundef zeroext i1 @_ZNSt8__detail16_Backref_matcherIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS5_12regex_traitsIcEEE8_M_applyESB_SB_SB_SB_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr %.sroa.05.0.copyload, ptr %.sroa.04.0.copyload, ptr %20, ptr %.sroa.017.0.lcssa)
   br i1 %40, label %41, label %50
 

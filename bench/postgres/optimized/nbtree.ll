@@ -1440,8 +1440,10 @@ BufferGetPage.exit.i:                             ; preds = %68, %62
 
 83:                                               ; preds = %76
   %84 = zext i16 %.pre.i to i32
-  %85 = and i32 %84, 17
-  %or.cond170.i = icmp eq i32 %85, 1
+  %.not156.i = trunc i16 %.pre.i to i1
+  %85 = and i32 %84, 16
+  %.not157.i = icmp eq i32 %85, 0
+  %or.cond170.i = and i1 %.not157.i, %.not156.i
   br i1 %or.cond170.i, label %93, label %.thread191.i
 
 .thread191.i:                                     ; preds = %83, %.thread.i

@@ -299,13 +299,14 @@ define noundef range(i32 -19, 2) i32 @_Z18SolveBoardInternalP10ThreadDataRK4deal
   store i8 0, ptr %100, align 4
   %101 = and i32 %63, 1
   %spec.select601 = xor i32 %101, 1
+  %spec.select602 = and i32 %63, 1
   store i32 %spec.select601, ptr %0, align 8
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %101, ptr %102, align 4
+  store i32 %spec.select602, ptr %102, align 4
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %spec.select601, ptr %103, align 8
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %101, ptr %104, align 4
+  store i32 %spec.select602, ptr %104, align 4
   %105 = icmp sgt i32 %46, 0
   br i1 %105, label %.lr.ph, label %._crit_edge
 
@@ -1469,13 +1470,14 @@ define noundef i32 @_Z17AnalyseLaterBoardP10ThreadDataiPK8moveTypeiiP12futureTri
   %17 = add nsw i32 %14, %1
   %18 = and i32 %17, 1
   %spec.select = xor i32 %18, 1
+  %spec.select88 = and i32 %17, 1
   store i32 %spec.select, ptr %0, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %18, ptr %19, align 4
+  store i32 %spec.select88, ptr %19, align 4
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %spec.select, ptr %20, align 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %18, ptr %21, align 4
+  store i32 %spec.select88, ptr %21, align 4
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 987992
   switch i32 %14, label %30 [
     i32 0, label %23

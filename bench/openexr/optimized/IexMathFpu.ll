@@ -245,7 +245,7 @@ define hidden void @_ZN7Iex_3_430handleExceptionsSetInRegistersEv() local_unname
   %4 = alloca i32, align 4
   %5 = load volatile ptr, ptr @_ZN7Iex_3_412_GLOBAL__N_110fpeHandlerE, align 8, !tbaa !25
   %6 = icmp eq ptr %5, null
-  br i1 %6, label %41, label %7
+  br i1 %6, label %40, label %7
 
 7:                                                ; preds = %0
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -280,7 +280,7 @@ define hidden void @_ZN7Iex_3_430handleExceptionsSetInRegistersEv() local_unname
 20:                                               ; preds = %7
   %21 = load volatile ptr, ptr @_ZN7Iex_3_412_GLOBAL__N_110fpeHandlerE, align 8, !tbaa !25
   call void %21(i32 noundef 4, ptr noundef nonnull @.str.1)
-  br label %41
+  br label %40
 
 22:                                               ; preds = %7
   %23 = and i32 %13, 8
@@ -293,7 +293,7 @@ define hidden void @_ZN7Iex_3_430handleExceptionsSetInRegistersEv() local_unname
 25:                                               ; preds = %22
   %26 = load volatile ptr, ptr @_ZN7Iex_3_412_GLOBAL__N_110fpeHandlerE, align 8, !tbaa !25
   call void %26(i32 noundef 1, ptr noundef nonnull @.str.2)
-  br label %41
+  br label %40
 
 27:                                               ; preds = %22
   %28 = and i32 %13, 16
@@ -306,7 +306,7 @@ define hidden void @_ZN7Iex_3_430handleExceptionsSetInRegistersEv() local_unname
 30:                                               ; preds = %27
   %31 = load volatile ptr, ptr @_ZN7Iex_3_412_GLOBAL__N_110fpeHandlerE, align 8, !tbaa !25
   call void %31(i32 noundef 2, ptr noundef nonnull @.str.3)
-  br label %41
+  br label %40
 
 32:                                               ; preds = %27
   %.not15 = icmp samesign ugt i32 %13, 31
@@ -318,22 +318,21 @@ define hidden void @_ZN7Iex_3_430handleExceptionsSetInRegistersEv() local_unname
 34:                                               ; preds = %32
   %35 = load volatile ptr, ptr @_ZN7Iex_3_412_GLOBAL__N_110fpeHandlerE, align 8, !tbaa !25
   call void %35(i32 noundef 8, ptr noundef nonnull @.str.4)
-  br label %41
+  br label %40
 
 36:                                               ; preds = %32
-  %37 = and i32 %13, 1
-  %.not17 = icmp ne i32 %37, 0
-  %38 = and i32 %17, 1
-  %.not18 = icmp eq i32 %38, 0
-  %or.cond22 = or i1 %.not17, %.not18
-  br i1 %or.cond22, label %41, label %39
+  %.not17 = trunc i32 %13 to i1
+  %37 = and i32 %17, 1
+  %.not18 = icmp eq i32 %37, 0
+  %or.cond22 = or i1 %.not18, %.not17
+  br i1 %or.cond22, label %40, label %38
 
-39:                                               ; preds = %36
-  %40 = load volatile ptr, ptr @_ZN7Iex_3_412_GLOBAL__N_110fpeHandlerE, align 8, !tbaa !25
-  call void %40(i32 noundef 16, ptr noundef nonnull @.str.5)
-  br label %41
+38:                                               ; preds = %36
+  %39 = load volatile ptr, ptr @_ZN7Iex_3_412_GLOBAL__N_110fpeHandlerE, align 8, !tbaa !25
+  call void %39(i32 noundef 16, ptr noundef nonnull @.str.5)
+  br label %40
 
-41:                                               ; preds = %20, %25, %30, %34, %39, %36, %0
+40:                                               ; preds = %20, %25, %30, %34, %38, %36, %0
   ret void
 }
 

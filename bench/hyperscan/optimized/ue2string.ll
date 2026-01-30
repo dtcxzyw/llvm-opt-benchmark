@@ -2716,18 +2716,21 @@ define hidden noundef zeroext i1 @_ZN3ue28is_floodERKNS_11ue2_literalE(ptr nound
   %13 = load i64, ptr %12, align 8
   %14 = and i64 %.sroa.6.021, 63
   %15 = lshr i64 %13, %14
-  %.not.i = icmp eq i8 %10, %5
+  %.not.i = icmp ne i8 %10, %5
   %16 = xor i64 %15, %8
-  %17 = and i64 %16, 1
-  %18 = icmp eq i64 %17, 0
-  %.not27 = select i1 %.not.i, i1 %18, i1 false
+  %17 = trunc i64 %16 to i1
+  %18 = select i1 %.not.i, i1 true, i1 %17
   %19 = add i64 %.sroa.6.021, 1
-  %.not = icmp ne i64 %19, %3
-  %or.cond.not = and i1 %.not, %.not27
-  br i1 %or.cond.not, label %.lr.ph, label %._crit_edge, !llvm.loop !32
+  %.not = icmp eq i64 %19, %3
+  %or.cond = or i1 %18, %.not
+  br i1 %or.cond, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !32
 
-._crit_edge:                                      ; preds = %.lr.ph, %1
-  %.not.lcssa = phi i1 [ true, %1 ], [ %.not27, %.lr.ph ]
+._crit_edge.loopexit:                             ; preds = %.lr.ph
+  %.not.lcssa.ph = xor i1 %18, true
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %1
+  %.not.lcssa = phi i1 [ true, %1 ], [ %.not.lcssa.ph, %._crit_edge.loopexit ]
   ret i1 %.not.lcssa
 }
 

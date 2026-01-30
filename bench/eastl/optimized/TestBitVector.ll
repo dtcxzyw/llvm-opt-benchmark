@@ -1900,8 +1900,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK5eastl9bitvectorINS_9allocator
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load i64, ptr %0, align 8
-  %and.i = and i64 %1, 1
-  %cmp.i = icmp ne i64 %and.i, 0
+  %cmp.i = trunc i64 %1 to i1
   ret i1 %cmp.i
 }
 
@@ -4080,8 +4079,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK5eastl9bitvectorI15MallocAlloc
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load i64, ptr %0, align 8
-  %and.i = and i64 %1, 1
-  %cmp.i = icmp ne i64 %and.i, 0
+  %cmp.i = trunc i64 %1 to i1
   ret i1 %cmp.i
 }
 
@@ -6234,8 +6232,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK5eastl9bitvectorINS_9allocator
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load i8, ptr %0, align 1
-  %2 = and i8 %1, 1
-  %cmp.i = icmp ne i8 %2, 0
+  %cmp.i = trunc i8 %1 to i1
   ret i1 %cmp.i
 }
 
@@ -8598,8 +8595,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK5eastl9bitvectorINS_9allocator
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load i16, ptr %0, align 2
-  %2 = and i16 %1, 1
-  %cmp.i = icmp ne i16 %2, 0
+  %cmp.i = trunc i16 %1 to i1
   ret i1 %cmp.i
 }
 
@@ -10790,8 +10786,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK5eastl9bitvectorINS_9allocator
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load i32, ptr %0, align 4
-  %and.i = and i32 %1, 1
-  %cmp.i = icmp ne i32 %and.i, 0
+  %cmp.i = trunc i32 %1 to i1
   ret i1 %cmp.i
 }
 
@@ -13009,8 +13004,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK5eastl9bitvectorINS_9allocator
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load i64, ptr %0, align 8
-  %and.i = and i64 %1, 1
-  %cmp.i = icmp ne i64 %and.i, 0
+  %cmp.i = trunc i64 %1 to i1
   ret i1 %cmp.i
 }
 
@@ -17377,8 +17371,7 @@ _ZN5eastl9bitvectorI15MallocAllocatormNS_6vectorImS1_EEE3endEv.exit.i: ; preds =
 invoke.cont739:                                   ; preds = %.noexc1703
   %442 = load ptr, ptr %bv0678, align 8
   %443 = load i64, ptr %442, align 8
-  %and.i1709 = and i64 %443, 1
-  %cmp.i1710 = icmp ne i64 %and.i1709, 0
+  %cmp.i1710 = trunc i64 %443 to i1
   %call746 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp.i1710, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.1, i32 noundef 315, ptr noundef nonnull @.str.48)
           to label %invoke.cont745 unwind label %lpad680.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -18215,8 +18208,7 @@ invoke.cont873:                                   ; preds = %while.end.i2131.thr
   call void @llvm.lifetime.end.p0(ptr nonnull %element.i2118)
   %549 = load ptr, ptr %bv0678, align 8
   %550 = load i64, ptr %549, align 8
-  %and.i.i.i2170 = and i64 %550, 1
-  %cmp.i.i4.i = icmp ne i64 %and.i.i.i2170, 0
+  %cmp.i.i4.i = trunc i64 %550 to i1
   %call878 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp.i.i4.i, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.1, i32 noundef 378, ptr noundef nonnull @.str.59)
           to label %invoke.cont877 unwind label %lpad680.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 

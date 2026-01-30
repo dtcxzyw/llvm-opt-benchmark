@@ -951,62 +951,61 @@ _ZN9softposit5p32e25P32E217separate_bits_tmp17hdc27d662c293f752E.llvm.1728913642
   %78 = lshr i64 %75, %77
   %79 = trunc nuw nsw i64 %78 to i32
   %80 = icmp samesign ult i32 %.069, 29
-  br i1 %80, label %83, label %92
+  br i1 %80, label %89, label %83
 
-81:                                               ; preds = %.thread99, %69, %62, %105, %92
-  %.060 = phi i32 [ 2147483647, %62 ], [ %111, %105 ], [ %98, %92 ], [ 1, %69 ], [ %91, %.thread99 ]
+81:                                               ; preds = %69, %62, %105, %97
+  %.060 = phi i32 [ 2147483647, %62 ], [ %110, %105 ], [ %99, %97 ], [ 1, %69 ]
   %82 = sub i32 0, %.060
   %.0.i = select i1 %10, i32 %82, i32 %.060
   br label %41
 
 83:                                               ; preds = %74
-  %84 = add nuw nsw i32 %.069, 1
-  %85 = zext nneg i32 %84 to i64
-  %86 = shl nuw nsw i64 1, %85
-  %87 = and i64 %86, %75
-  %.not104 = icmp eq i64 %87, 0
-  %88 = sub nuw nsw i32 28, %.069
-  %89 = shl nsw i32 %.165, %88
-  br i1 %.not104, label %.thread99, label %.thread
-
-.thread99:                                        ; preds = %83
-  %90 = add i32 %89, %.068
-  %91 = add i32 %90, %79
-  br label %81
-
-92:                                               ; preds = %74
-  %93 = icmp eq i32 %.069, 30
-  %94 = trunc nsw i32 %.165 to i8
-  %95 = trunc i32 %.165 to i1
-  %96 = ashr i32 %.165, 1
-  %.3 = select i1 %93, i32 0, i32 %96
-  %.058 = select i1 %93, i1 %95, i1 false
-  %97 = zext i1 %93 to i8
-  %.057.in = lshr i8 %94, %97
+  %84 = icmp eq i32 %.069, 30
+  %85 = trunc nsw i32 %.165 to i8
+  %86 = trunc i32 %.165 to i1
+  %87 = ashr i32 %.165, 1
+  %.3 = select i1 %84, i32 0, i32 %87
+  %.058 = select i1 %84, i1 %86, i1 false
+  %88 = zext i1 %84 to i8
+  %.057.in = lshr i8 %85, %88
   %.not = icmp ne i64 %75, 0
   %spec.select79 = select i1 %.not, i1 true, i1 %.058
-  %98 = add i32 %.3, %.068
-  %99 = trunc i8 %.057.in to i1
-  br i1 %99, label %105, label %81
+  br label %97
 
-.thread:                                          ; preds = %83
-  %notmask = shl nsw i64 -1, %85
-  %100 = xor i64 %notmask, -1
-  %101 = and i64 %75, %100
-  %102 = icmp ne i64 %101, 0
-  %103 = add i32 %89, %.068
-  %104 = add i32 %103, %79
-  br label %105
+89:                                               ; preds = %74
+  %90 = add nuw nsw i32 %.069, 1
+  %91 = zext nneg i32 %90 to i64
+  %92 = lshr i64 %75, %91
+  %93 = trunc i64 %92 to i1
+  %94 = trunc i64 %92 to i8
+  %95 = sub nuw nsw i32 28, %.069
+  %96 = shl nsw i32 %.165, %95
+  br i1 %93, label %101, label %97
 
-105:                                              ; preds = %.thread, %92
-  %106 = phi i32 [ %104, %.thread ], [ %98, %92 ]
-  %.15998 = phi i1 [ %102, %.thread ], [ %spec.select79, %92 ]
-  %107 = icmp ne i64 %50, 0
-  %spec.select77 = select i1 %107, i1 true, i1 %.15998
-  %108 = and i32 %106, 1
-  %109 = zext i1 %spec.select77 to i32
-  %110 = or i32 %108, %109
-  %111 = add i32 %110, %106
+97:                                               ; preds = %83, %89, %101
+  %.067 = phi i32 [ %79, %101 ], [ %79, %89 ], [ 0, %83 ]
+  %.4 = phi i32 [ %96, %101 ], [ %96, %89 ], [ %.3, %83 ]
+  %.159 = phi i1 [ %104, %101 ], [ false, %89 ], [ %spec.select79, %83 ]
+  %.1.in = phi i8 [ %94, %101 ], [ %94, %89 ], [ %.057.in, %83 ]
+  %98 = add nuw i32 %.067, %.068
+  %99 = add i32 %98, %.4
+  %100 = trunc i8 %.1.in to i1
+  br i1 %100, label %105, label %81
+
+101:                                              ; preds = %89
+  %notmask = shl nsw i64 -1, %91
+  %102 = xor i64 %notmask, -1
+  %103 = and i64 %75, %102
+  %104 = icmp ne i64 %103, 0
+  br label %97
+
+105:                                              ; preds = %97
+  %106 = icmp ne i64 %50, 0
+  %spec.select77 = select i1 %106, i1 true, i1 %.159
+  %107 = and i32 %99, 1
+  %108 = zext i1 %spec.select77 to i32
+  %109 = or i32 %107, %108
+  %110 = add i32 %109, %99
   br label %81
 }
 

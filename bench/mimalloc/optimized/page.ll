@@ -847,9 +847,8 @@ declare zeroext i1 @_mi_free_delayed_block(ptr noundef) local_unnamed_addr #2
 define hidden void @_mi_page_unfull(ptr noundef %0) local_unnamed_addr #4 {
   %2 = getelementptr i8, ptr %0, i64 6
   %.val = load i8, ptr %2, align 2
-  %3 = and i8 %.val, 1
-  %.not = icmp eq i8 %3, 0
-  br i1 %.not, label %35, label %4
+  %3 = trunc i8 %.val to i1
+  br i1 %3, label %4, label %35
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -859,8 +858,8 @@ define hidden void @_mi_page_unfull(ptr noundef %0) local_unnamed_addr #4 {
   %9 = getelementptr i8, ptr %0, i64 1
   %.val6.i = load i8, ptr %9, align 1
   %10 = and i8 %.val6.i, 8
-  %.not7.i = icmp eq i8 %10, 0
-  br i1 %.not7.i, label %11, label %mi_heap_page_queue_of.exit
+  %.not.i = icmp eq i8 %10, 0
+  br i1 %.not.i, label %11, label %mi_heap_page_queue_of.exit
 
 11:                                               ; preds = %4
   %12 = getelementptr i8, ptr %0, i64 32
@@ -1203,16 +1202,15 @@ _mi_heap_delayed_free_all.exit:                   ; preds = %.critedge.i.i11, %_
 39:                                               ; preds = %_mi_heap_delayed_free_all.exit
   %40 = getelementptr i8, ptr %0, i64 6
   %.val5.i = load i8, ptr %40, align 2
-  %41 = and i8 %.val5.i, 1
-  %.not.i = icmp eq i8 %41, 0
-  br i1 %.not.i, label %42, label %mi_heap_page_queue_of.exit
+  %41 = trunc i8 %.val5.i to i1
+  br i1 %41, label %mi_heap_page_queue_of.exit, label %42
 
 42:                                               ; preds = %39
   %43 = getelementptr i8, ptr %0, i64 1
   %.val6.i = load i8, ptr %43, align 1
   %44 = and i8 %.val6.i, 8
-  %.not7.i = icmp eq i8 %44, 0
-  br i1 %.not7.i, label %45, label %mi_heap_page_queue_of.exit
+  %.not.i = icmp eq i8 %44, 0
+  br i1 %.not.i, label %45, label %mi_heap_page_queue_of.exit
 
 45:                                               ; preds = %42
   %46 = getelementptr i8, ptr %0, i64 32
@@ -1307,16 +1305,15 @@ define hidden void @_mi_page_retire(ptr noundef %0) local_unnamed_addr #1 {
   store i8 %4, ptr %2, align 2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = load atomic i64, ptr %5 monotonic, align 8
-  %7 = and i8 %3, 1
-  %.not.i.i = icmp eq i8 %7, 0
-  br i1 %.not.i.i, label %8, label %mi_page_queue_of.exit
+  %7 = trunc i8 %3 to i1
+  br i1 %7, label %mi_page_queue_of.exit, label %8
 
 8:                                                ; preds = %1
   %9 = getelementptr i8, ptr %0, i64 1
   %.val6.i.i = load i8, ptr %9, align 1
   %10 = and i8 %.val6.i.i, 8
-  %.not7.i.i = icmp eq i8 %10, 0
-  br i1 %.not7.i.i, label %11, label %mi_page_queue_of.exit
+  %.not.i.i = icmp eq i8 %10, 0
+  br i1 %.not.i.i, label %11, label %mi_page_queue_of.exit
 
 11:                                               ; preds = %8
   %12 = getelementptr i8, ptr %0, i64 32
@@ -1738,16 +1735,15 @@ _mi_heap_delayed_free_partial.exit:               ; preds = %.loopexit.i, %_mi_d
   %67 = load atomic i64, ptr %66 monotonic, align 8
   %68 = getelementptr i8, ptr %.03238, i64 6
   %.val5.i.i = load i8, ptr %68, align 2
-  %69 = and i8 %.val5.i.i, 1
-  %.not.i.i = icmp eq i8 %69, 0
-  br i1 %.not.i.i, label %70, label %mi_page_queue_of.exit
+  %69 = trunc i8 %.val5.i.i to i1
+  br i1 %69, label %mi_page_queue_of.exit, label %70
 
 70:                                               ; preds = %65
   %71 = getelementptr i8, ptr %.03238, i64 1
   %.val6.i.i = load i8, ptr %71, align 1
   %72 = and i8 %.val6.i.i, 8
-  %.not7.i.i = icmp eq i8 %72, 0
-  br i1 %.not7.i.i, label %73, label %mi_page_queue_of.exit
+  %.not.i.i = icmp eq i8 %72, 0
+  br i1 %.not.i.i, label %73, label %mi_page_queue_of.exit
 
 73:                                               ; preds = %70
   %74 = getelementptr i8, ptr %.03238, i64 32
@@ -2282,9 +2278,8 @@ declare ptr @_mi_page_malloc_zero(ptr noundef, ptr noundef, i64 noundef, i1 noun
 define internal fastcc void @mi_page_to_full(ptr noundef nonnull %0, ptr noundef captures(address) %1) unnamed_addr #1 {
   %3 = getelementptr i8, ptr %0, i64 6
   %.val = load i8, ptr %3, align 2
-  %4 = and i8 %.val, 1
-  %.not = icmp eq i8 %4, 0
-  br i1 %.not, label %5, label %_mi_page_free_collect.exit
+  %4 = trunc i8 %.val to i1
+  br i1 %4, label %_mi_page_free_collect.exit, label %5
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 56

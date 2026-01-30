@@ -610,11 +610,10 @@ define void @_ZN3gmx22AnalysisDataPlotModule11pointsAddedERKNS_23AnalysisDataPoi
   %16 = getelementptr inbounds nuw %"class.gmx::AnalysisDataValue", ptr %.ptr, i64 %indvars.iv
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load i64, ptr %17, align 8, !tbaa !52
-  %19 = and i64 %18, 1
-  %.not.i = icmp eq i64 %19, 0
+  %19 = trunc i64 %18 to i1
   %20 = load float, ptr %16, align 8
   %21 = fpext float %20 to double
-  %22 = select i1 %.not.i, double 0.000000e+00, double %21
+  %22 = select i1 %19, double %21, double 0.000000e+00
   %23 = load ptr, ptr %3, align 8, !tbaa !4
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 48
   %25 = load ptr, ptr %24, align 8, !tbaa !32
@@ -629,12 +628,11 @@ define void @_ZN3gmx22AnalysisDataPlotModule11pointsAddedERKNS_23AnalysisDataPoi
 
 33:                                               ; preds = %.lr.ph
   %34 = load i64, ptr %17, align 8, !tbaa !52
-  %35 = and i64 %34, 1
-  %.not7.i = icmp eq i64 %35, 0
+  %35 = trunc i64 %34 to i1
   %36 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %37 = load float, ptr %36, align 4
   %38 = fpext float %37 to double
-  %39 = select i1 %.not7.i, double 0.000000e+00, double %38
+  %39 = select i1 %35, double %38, double 0.000000e+00
   %40 = getelementptr inbounds nuw i8, ptr %29, i64 48
   %41 = load ptr, ptr %40, align 8, !tbaa !32
   %42 = getelementptr inbounds nuw i8, ptr %29, i64 248
@@ -727,7 +725,7 @@ define void @_ZN3gmx28AnalysisDataVectorPlotModule11pointsAddedERKNS_23AnalysisD
 
 21:                                               ; preds = %19
   invoke void @_ZN3gmx16GromacsExceptionC2ERKNS_20ExceptionInitializerE(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(56) %4)
-          to label %22 unwind label %.thread44
+          to label %22 unwind label %.thread42
 
 22:                                               ; preds = %21
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN3gmx8APIErrorE, i64 16), ptr %3, align 8, !tbaa !47
@@ -735,8 +733,8 @@ define void @_ZN3gmx28AnalysisDataVectorPlotModule11pointsAddedERKNS_23AnalysisD
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %5, align 8, !tbaa !47
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @__PRETTY_FUNCTION__._ZN3gmx28AnalysisDataVectorPlotModule11pointsAddedERKNS_23AnalysisDataPointSetRefE, ptr %23, align 8, !tbaa !31
-  %.sroa.438.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr @.str.15, ptr %.sroa.438.0..sroa_idx, align 8, !tbaa !31
+  %.sroa.436.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store ptr @.str.15, ptr %.sroa.436.0..sroa_idx, align 8, !tbaa !31
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i32 465, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !60
   invoke void @_ZN3gmxlsINS_8APIErrorENS_22ExceptionInfoLocation_ENS_13ThrowLocationEEENSt9enable_ifIXsr3stdE12is_base_of_vINS_16GromacsExceptionET_EES6_E4typeES6_RKNS_13ExceptionInfoIT0_T1_EE(ptr dead_on_unwind writable sret(%"class.gmx::APIError") align 8 %20, ptr noundef nonnull %3, ptr noundef nonnull align 8 dereferenceable(32) %5)
@@ -751,7 +749,7 @@ define void @_ZN3gmx28AnalysisDataVectorPlotModule11pointsAddedERKNS_23AnalysisD
           cleanup
   br label %.sink.split
 
-.thread44:                                        ; preds = %21
+.thread42:                                        ; preds = %21
   %26 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #35
@@ -768,13 +766,13 @@ define void @_ZN3gmx28AnalysisDataVectorPlotModule11pointsAddedERKNS_23AnalysisD
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %.021, label %29, label %115
 
-.sink.split:                                      ; preds = %.thread, %.thread44
-  %.pn.pn43.ph = phi { ptr, i32 } [ %26, %.thread44 ], [ %25, %.thread ]
+.sink.split:                                      ; preds = %.thread, %.thread42
+  %.pn.pn41.ph = phi { ptr, i32 } [ %26, %.thread42 ], [ %25, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %29
 
 29:                                               ; preds = %.sink.split, %27
-  %.pn.pn43 = phi { ptr, i32 } [ %28, %27 ], [ %.pn.pn43.ph, %.sink.split ]
+  %.pn.pn41 = phi { ptr, i32 } [ %28, %27 ], [ %.pn.pn41.ph, %.sink.split ]
   call void @__cxa_free_exception(ptr %20) #35
   br label %115
 
@@ -783,9 +781,9 @@ define void @_ZN3gmx28AnalysisDataVectorPlotModule11pointsAddedERKNS_23AnalysisD
   %32 = load ptr, ptr %31, align 8, !tbaa !4
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 48
   %34 = load ptr, ptr %33, align 8, !tbaa !32
-  %.not47 = icmp ne ptr %34, null
+  %.not45 = icmp ne ptr %34, null
   %35 = icmp sgt i32 %17, 0
-  %or.cond = and i1 %.not47, %35
+  %or.cond = and i1 %.not45, %35
   br i1 %or.cond, label %.preheader.lr.ph, label %.loopexit
 
 .preheader.lr.ph:                                 ; preds = %30
@@ -793,14 +791,14 @@ define void @_ZN3gmx28AnalysisDataVectorPlotModule11pointsAddedERKNS_23AnalysisD
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 19
   br label %.preheader
 
-.preheader:                                       ; preds = %.preheader.lr.ph, %_ZNK3gmx18AbstractPlotModule10writeValueERKNS_17AnalysisDataValueE.exit32
-  %indvars.iv53 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next54, %_ZNK3gmx18AbstractPlotModule10writeValueERKNS_17AnalysisDataValueE.exit32 ]
+.preheader:                                       ; preds = %.preheader.lr.ph, %_ZNK3gmx18AbstractPlotModule10writeValueERKNS_17AnalysisDataValueE.exit30
+  %indvars.iv51 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next52, %_ZNK3gmx18AbstractPlotModule10writeValueERKNS_17AnalysisDataValueE.exit30 ]
   br label %41
 
 38:                                               ; preds = %_ZNK3gmx18AbstractPlotModule10writeValueERKNS_17AnalysisDataValueE.exit
   %39 = load i8, ptr %37, align 1, !tbaa !61, !range !28, !noundef !29
   %40 = trunc nuw i8 %39 to i1
-  br i1 %40, label %78, label %_ZNK3gmx18AbstractPlotModule10writeValueERKNS_17AnalysisDataValueE.exit32
+  br i1 %40, label %78, label %_ZNK3gmx18AbstractPlotModule10writeValueERKNS_17AnalysisDataValueE.exit30
 
 41:                                               ; preds = %.preheader, %_ZNK3gmx18AbstractPlotModule10writeValueERKNS_17AnalysisDataValueE.exit
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %_ZNK3gmx18AbstractPlotModule10writeValueERKNS_17AnalysisDataValueE.exit ]
@@ -813,14 +811,13 @@ define void @_ZN3gmx28AnalysisDataVectorPlotModule11pointsAddedERKNS_23AnalysisD
   %46 = load i64, ptr %10, align 8
   %47 = inttoptr i64 %46 to ptr
   %48 = getelementptr inbounds nuw %"class.gmx::AnalysisDataValue", ptr %47, i64 %indvars.iv
-  %49 = getelementptr inbounds nuw %"class.gmx::AnalysisDataValue", ptr %48, i64 %indvars.iv53
+  %49 = getelementptr inbounds nuw %"class.gmx::AnalysisDataValue", ptr %48, i64 %indvars.iv51
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %51 = load i64, ptr %50, align 8, !tbaa !52
-  %52 = and i64 %51, 1
-  %.not.i = icmp eq i64 %52, 0
+  %52 = trunc i64 %51 to i1
   %53 = load float, ptr %49, align 8
   %54 = fpext float %53 to double
-  %55 = select i1 %.not.i, double 0.000000e+00, double %54
+  %55 = select i1 %52, double %54, double 0.000000e+00
   %56 = load ptr, ptr %31, align 8, !tbaa !4
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 48
   %58 = load ptr, ptr %57, align 8, !tbaa !32
@@ -835,12 +832,11 @@ define void @_ZN3gmx28AnalysisDataVectorPlotModule11pointsAddedERKNS_23AnalysisD
 
 66:                                               ; preds = %45
   %67 = load i64, ptr %50, align 8, !tbaa !52
-  %68 = and i64 %67, 1
-  %.not7.i = icmp eq i64 %68, 0
+  %68 = trunc i64 %67 to i1
   %69 = getelementptr inbounds nuw i8, ptr %49, i64 4
   %70 = load float, ptr %69, align 4
   %71 = fpext float %70 to double
-  %72 = select i1 %.not7.i, double 0.000000e+00, double %71
+  %72 = select i1 %68, double %71, double 0.000000e+00
   %73 = getelementptr inbounds nuw i8, ptr %62, i64 48
   %74 = load ptr, ptr %73, align 8, !tbaa !32
   %75 = getelementptr inbounds nuw i8, ptr %62, i64 248
@@ -856,7 +852,7 @@ _ZNK3gmx18AbstractPlotModule10writeValueERKNS_17AnalysisDataValueE.exit: ; preds
 78:                                               ; preds = %38
   %79 = load i64, ptr %10, align 8
   %80 = inttoptr i64 %79 to ptr
-  %81 = getelementptr inbounds nuw %"class.gmx::AnalysisDataValue", ptr %80, i64 %indvars.iv53
+  %81 = getelementptr inbounds nuw %"class.gmx::AnalysisDataValue", ptr %80, i64 %indvars.iv51
   %82 = load float, ptr %81, align 8, !tbaa !63
   %83 = getelementptr inbounds nuw i8, ptr %81, i64 16
   %84 = load float, ptr %83, align 8, !tbaa !63
@@ -877,7 +873,7 @@ _ZNK3gmx18AbstractPlotModule10writeValueERKNS_17AnalysisDataValueE.exit: ; preds
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 58
   %99 = load i8, ptr %98, align 2, !tbaa !54, !range !28, !noundef !29
   %100 = trunc nuw i8 %99 to i1
-  br i1 %100, label %101, label %_ZNK3gmx18AbstractPlotModule10writeValueERKNS_17AnalysisDataValueE.exit32
+  br i1 %100, label %101, label %_ZNK3gmx18AbstractPlotModule10writeValueERKNS_17AnalysisDataValueE.exit30
 
 101:                                              ; preds = %78
   %102 = getelementptr inbounds nuw i8, ptr %97, i64 48
@@ -885,10 +881,10 @@ _ZNK3gmx18AbstractPlotModule10writeValueERKNS_17AnalysisDataValueE.exit: ; preds
   %104 = getelementptr inbounds nuw i8, ptr %97, i64 248
   %105 = load ptr, ptr %104, align 8, !tbaa !30
   %106 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %103, ptr noundef %105, double noundef 0.000000e+00) #35
-  br label %_ZNK3gmx18AbstractPlotModule10writeValueERKNS_17AnalysisDataValueE.exit32
+  br label %_ZNK3gmx18AbstractPlotModule10writeValueERKNS_17AnalysisDataValueE.exit30
 
-_ZNK3gmx18AbstractPlotModule10writeValueERKNS_17AnalysisDataValueE.exit32: ; preds = %101, %78, %38
-  %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 3
+_ZNK3gmx18AbstractPlotModule10writeValueERKNS_17AnalysisDataValueE.exit30: ; preds = %101, %78, %38
+  %indvars.iv.next52 = add nuw nsw i64 %indvars.iv51, 3
   %.sroa.0.0.copyload.i.i.i29 = load ptr, ptr %10, align 8
   %107 = load ptr, ptr %11, align 8, !tbaa !49
   %108 = ptrtoint ptr %107 to i64
@@ -896,16 +892,16 @@ _ZNK3gmx18AbstractPlotModule10writeValueERKNS_17AnalysisDataValueE.exit32: ; pre
   %110 = sub i64 %108, %109
   %111 = lshr exact i64 %110, 4
   %112 = trunc i64 %111 to i32
-  %113 = trunc nuw i64 %indvars.iv.next54 to i32
+  %113 = trunc nuw i64 %indvars.iv.next52 to i32
   %114 = icmp slt i32 %113, %112
   br i1 %114, label %.preheader, label %.loopexit, !llvm.loop !65
 
-.loopexit:                                        ; preds = %_ZNK3gmx18AbstractPlotModule10writeValueERKNS_17AnalysisDataValueE.exit32, %30
+.loopexit:                                        ; preds = %_ZNK3gmx18AbstractPlotModule10writeValueERKNS_17AnalysisDataValueE.exit30, %30
   ret void
 
 115:                                              ; preds = %27, %29
-  %.pn.pn42 = phi { ptr, i32 } [ %28, %27 ], [ %.pn.pn43, %29 ]
-  resume { ptr, i32 } %.pn.pn42
+  %.pn.pn40 = phi { ptr, i32 } [ %28, %27 ], [ %.pn.pn41, %29 ]
+  resume { ptr, i32 } %.pn.pn40
 
 116:                                              ; preds = %24
   unreachable
@@ -3370,11 +3366,10 @@ declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly ca
 define void @_ZNK3gmx18AbstractPlotModule10writeValueERKNS_17AnalysisDataValueE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8, !tbaa !52
-  %5 = and i64 %4, 1
-  %.not = icmp eq i64 %5, 0
+  %5 = trunc i64 %4 to i1
   %6 = load float, ptr %1, align 8
   %7 = fpext float %6 to double
-  %8 = select i1 %.not, double 0.000000e+00, double %7
+  %8 = select i1 %5, double %7, double 0.000000e+00
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !4
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 48
@@ -3390,12 +3385,11 @@ define void @_ZNK3gmx18AbstractPlotModule10writeValueERKNS_17AnalysisDataValueE(
 
 20:                                               ; preds = %2
   %21 = load i64, ptr %3, align 8, !tbaa !52
-  %22 = and i64 %21, 1
-  %.not7 = icmp eq i64 %22, 0
+  %22 = trunc i64 %21 to i1
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %24 = load float, ptr %23, align 4
   %25 = fpext float %24 to double
-  %26 = select i1 %.not7, double 0.000000e+00, double %25
+  %26 = select i1 %22, double %25, double 0.000000e+00
   %27 = getelementptr inbounds nuw i8, ptr %16, i64 48
   %28 = load ptr, ptr %27, align 8, !tbaa !32
   %29 = getelementptr inbounds nuw i8, ptr %16, i64 248

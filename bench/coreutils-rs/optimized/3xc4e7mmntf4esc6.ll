@@ -1472,9 +1472,8 @@ _ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit.i: ; preds 
   br label %43
 
 41:                                               ; preds = %35
-  %42 = and i64 %36, 1
-  %.not47.i = icmp eq i64 %42, 0
-  br i1 %.not47.i, label %"_ZN3std4sync4mpmc4list16Channel$LT$T$GT$10start_recv17h76e87194a3dd0875E.exit", label %.thread
+  %42 = trunc i64 %36 to i1
+  br i1 %42, label %.thread, label %"_ZN3std4sync4mpmc4list16Channel$LT$T$GT$10start_recv17h76e87194a3dd0875E.exit"
 
 43:                                               ; preds = %39, %24
   %.018.i = phi i64 [ %25, %24 ], [ %spec.select.i, %39 ]
@@ -1939,9 +1938,8 @@ _ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit.i: ; preds 
   br label %43
 
 41:                                               ; preds = %35
-  %42 = and i64 %36, 1
-  %.not47.i = icmp eq i64 %42, 0
-  br i1 %.not47.i, label %"_ZN3std4sync4mpmc4list16Channel$LT$T$GT$10start_recv17h1c40412a74ee489aE.exit", label %.thread
+  %42 = trunc i64 %36 to i1
+  br i1 %42, label %.thread, label %"_ZN3std4sync4mpmc4list16Channel$LT$T$GT$10start_recv17h1c40412a74ee489aE.exit"
 
 43:                                               ; preds = %39, %24
   %.018.i = phi i64 [ %25, %24 ], [ %spec.select.i, %39 ]
@@ -2402,9 +2400,8 @@ _ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit.i: ; preds 
   br label %43
 
 41:                                               ; preds = %35
-  %42 = and i64 %36, 1
-  %.not47.i = icmp eq i64 %42, 0
-  br i1 %.not47.i, label %"_ZN3std4sync4mpmc4list16Channel$LT$T$GT$10start_recv17h61fbc66839446a60E.exit", label %.thread
+  %42 = trunc i64 %36 to i1
+  br i1 %42, label %.thread, label %"_ZN3std4sync4mpmc4list16Channel$LT$T$GT$10start_recv17h61fbc66839446a60E.exit"
 
 43:                                               ; preds = %39, %24
   %.018.i = phi i64 [ %25, %24 ], [ %spec.select.i, %39 ]
@@ -2799,9 +2796,8 @@ define internal fastcc void @"_ZN3std4sync4mpmc4list16Channel$LT$T$GT$4recv28_$u
 
 17:                                               ; preds = %2
   %18 = load atomic i64, ptr %11 seq_cst, align 128
-  %19 = and i64 %18, 1
-  %.not = icmp eq i64 %19, 0
-  br i1 %.not, label %20, label %14
+  %19 = trunc i64 %18 to i1
+  br i1 %19, label %14, label %20
 
 20:                                               ; preds = %17, %14
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2934,9 +2930,8 @@ define internal fastcc void @"_ZN3std4sync4mpmc4list16Channel$LT$T$GT$4recv28_$u
 
 17:                                               ; preds = %2
   %18 = load atomic i64, ptr %11 seq_cst, align 128
-  %19 = and i64 %18, 1
-  %.not = icmp eq i64 %19, 0
-  br i1 %.not, label %20, label %14
+  %19 = trunc i64 %18 to i1
+  br i1 %19, label %14, label %20
 
 20:                                               ; preds = %17, %14
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -3069,9 +3064,8 @@ define internal fastcc void @"_ZN3std4sync4mpmc4list16Channel$LT$T$GT$4recv28_$u
 
 17:                                               ; preds = %2
   %18 = load atomic i64, ptr %11 seq_cst, align 128
-  %19 = and i64 %18, 1
-  %.not = icmp eq i64 %19, 0
-  br i1 %.not, label %20, label %14
+  %19 = trunc i64 %18 to i1
+  br i1 %19, label %14, label %20
 
 20:                                               ; preds = %17, %14
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16

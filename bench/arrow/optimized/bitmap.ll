@@ -346,29 +346,27 @@ define void @_ZNK5arrow8internal6Bitmap8ToStringB5cxx11Ev(ptr dead_on_unwind noa
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; preds = %.lr.ph, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit
-  %.011 = phi i64 [ 0, %.lr.ph ], [ %28, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit ]
+  %.011 = phi i64 [ 0, %.lr.ph ], [ %27, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit ]
   %12 = load ptr, ptr %1, align 8, !tbaa !38
   %13 = load i64, ptr %11, align 8, !tbaa !39
   %14 = add nsw i64 %13, %.011
   %15 = lshr i64 %14, 3
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 %15
   %17 = load i8, ptr %16, align 1, !tbaa !40
-  %18 = zext i8 %17 to i32
-  %19 = trunc i64 %14 to i32
-  %20 = and i32 %19, 7
-  %21 = shl nuw nsw i32 1, %20
-  %22 = and i32 %21, %18
-  %.not = icmp eq i32 %22, 0
-  %23 = select i1 %.not, i8 48, i8 49
-  %24 = lshr i64 %.011, 3
-  %25 = load ptr, ptr %0, align 8, !tbaa !41
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 %.011
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 %24
-  store i8 %23, ptr %27, align 1, !tbaa !40
-  %28 = add nuw nsw i64 %.011, 1
-  %29 = load i64, ptr %3, align 8, !tbaa !32
-  %30 = icmp slt i64 %28, %29
-  br i1 %30, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit._crit_edge, !llvm.loop !43
+  %18 = trunc i64 %14 to i8
+  %19 = and i8 %18, 7
+  %20 = lshr i8 %17, %19
+  %21 = and i8 %20, 1
+  %22 = or disjoint i8 %21, 48
+  %23 = lshr i64 %.011, 3
+  %24 = load ptr, ptr %0, align 8, !tbaa !41
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 %.011
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 %23
+  store i8 %22, ptr %26, align 1, !tbaa !40
+  %27 = add nuw nsw i64 %.011, 1
+  %28 = load i64, ptr %3, align 8, !tbaa !32
+  %29 = icmp slt i64 %27, %28
+  br i1 %29, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit._crit_edge, !llvm.loop !43
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit._crit_edge: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit, %2
   ret void

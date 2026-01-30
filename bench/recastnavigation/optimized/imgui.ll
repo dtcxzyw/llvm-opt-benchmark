@@ -26,23 +26,19 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local void @_Z15imguiBeginFrameiihi(i32 noundef %0, i32 noundef %1, i8 noundef zeroext %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = and i8 %2, 1
-  %6 = icmp ne i8 %5, 0
   store i32 %0, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 4), align 4
   store i32 %1, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 8), align 4
-  %7 = load i8, ptr @_ZL7g_state, align 4
-  %8 = trunc i8 %7 to i1
-  %not..i = xor i1 %8, true
-  %9 = and i1 %6, %not..i
-  %10 = zext i1 %9 to i8
-  store i8 %10, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 1), align 1
-  %11 = xor i1 %6, true
-  %12 = and i1 %11, %8
-  %13 = zext i1 %12 to i8
-  store i8 %13, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 2), align 2
+  %6 = load i8, ptr @_ZL7g_state, align 4
+  %not..i = xor i8 %6, -1
+  %7 = and i8 %5, %not..i
+  store i8 %7, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 1), align 1
+  %8 = xor i8 %5, 1
+  %9 = and i8 %6, %8
+  store i8 %9, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 2), align 2
   store i8 %5, ptr @_ZL7g_state, align 4
   store i32 %3, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 12), align 4
-  %14 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 24), align 4
-  store i32 %14, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 20), align 4
+  %10 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 24), align 4
+  store i32 %10, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 20), align 4
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 44), align 4
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 48), align 4
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 52), align 4

@@ -2060,12 +2060,11 @@ define internal range(i32 0, 2) i32 @xorhmacsig_to_PrivateKeyInfo_der_does_selec
   br i1 %.not.i, label %4, label %.loopexit.split.loop.exit.i
 
 .loopexit.split.loop.exit.i:                      ; preds = %.preheader.i
-  %9 = icmp eq i64 %.01117.i, 0
-  %10 = zext i1 %9 to i32
+  %9 = and i32 %7, 1
   br label %key2any_check_selection.exit
 
 key2any_check_selection.exit:                     ; preds = %4, %2, %.loopexit.split.loop.exit.i
-  %.0.i = phi i32 [ 1, %2 ], [ %10, %.loopexit.split.loop.exit.i ], [ 0, %4 ]
+  %.0.i = phi i32 [ 1, %2 ], [ %9, %.loopexit.split.loop.exit.i ], [ 0, %4 ]
   ret i32 %.0.i
 }
 
@@ -2600,12 +2599,11 @@ define internal range(i32 0, 2) i32 @xorhmacsig_to_PrivateKeyInfo_pem_does_selec
   br i1 %.not.i, label %4, label %.loopexit.split.loop.exit.i
 
 .loopexit.split.loop.exit.i:                      ; preds = %.preheader.i
-  %9 = icmp eq i64 %.01117.i, 0
-  %10 = zext i1 %9 to i32
+  %9 = and i32 %7, 1
   br label %key2any_check_selection.exit
 
 key2any_check_selection.exit:                     ; preds = %4, %2, %.loopexit.split.loop.exit.i
-  %.0.i = phi i32 [ 1, %2 ], [ %10, %.loopexit.split.loop.exit.i ], [ 0, %4 ]
+  %.0.i = phi i32 [ 1, %2 ], [ %9, %.loopexit.split.loop.exit.i ], [ 0, %4 ]
   ret i32 %.0.i
 }
 
@@ -2894,12 +2892,11 @@ define internal range(i32 0, 2) i32 @xorhmacsig_to_EncryptedPrivateKeyInfo_der_d
   br i1 %.not.i, label %4, label %.loopexit.split.loop.exit.i
 
 .loopexit.split.loop.exit.i:                      ; preds = %.preheader.i
-  %9 = icmp eq i64 %.01117.i, 0
-  %10 = zext i1 %9 to i32
+  %9 = and i32 %7, 1
   br label %key2any_check_selection.exit
 
 key2any_check_selection.exit:                     ; preds = %4, %2, %.loopexit.split.loop.exit.i
-  %.0.i = phi i32 [ 1, %2 ], [ %10, %.loopexit.split.loop.exit.i ], [ 0, %4 ]
+  %.0.i = phi i32 [ 1, %2 ], [ %9, %.loopexit.split.loop.exit.i ], [ 0, %4 ]
   ret i32 %.0.i
 }
 
@@ -3114,12 +3111,11 @@ define internal range(i32 0, 2) i32 @xorhmacsig_to_EncryptedPrivateKeyInfo_pem_d
   br i1 %.not.i, label %4, label %.loopexit.split.loop.exit.i
 
 .loopexit.split.loop.exit.i:                      ; preds = %.preheader.i
-  %9 = icmp eq i64 %.01117.i, 0
-  %10 = zext i1 %9 to i32
+  %9 = and i32 %7, 1
   br label %key2any_check_selection.exit
 
 key2any_check_selection.exit:                     ; preds = %4, %2, %.loopexit.split.loop.exit.i
-  %.0.i = phi i32 [ 1, %2 ], [ %10, %.loopexit.split.loop.exit.i ], [ 0, %4 ]
+  %.0.i = phi i32 [ 1, %2 ], [ %9, %.loopexit.split.loop.exit.i ], [ 0, %4 ]
   ret i32 %.0.i
 }
 
@@ -3853,12 +3849,11 @@ define internal range(i32 0, 2) i32 @xorhmacsha2sig_to_PrivateKeyInfo_der_does_s
   br i1 %.not.i, label %4, label %.loopexit.split.loop.exit.i
 
 .loopexit.split.loop.exit.i:                      ; preds = %.preheader.i
-  %9 = icmp eq i64 %.01117.i, 0
-  %10 = zext i1 %9 to i32
+  %9 = and i32 %7, 1
   br label %key2any_check_selection.exit
 
 key2any_check_selection.exit:                     ; preds = %4, %2, %.loopexit.split.loop.exit.i
-  %.0.i = phi i32 [ 1, %2 ], [ %10, %.loopexit.split.loop.exit.i ], [ 0, %4 ]
+  %.0.i = phi i32 [ 1, %2 ], [ %9, %.loopexit.split.loop.exit.i ], [ 0, %4 ]
   ret i32 %.0.i
 }
 
@@ -4038,12 +4033,11 @@ define internal range(i32 0, 2) i32 @xorhmacsha2sig_to_PrivateKeyInfo_pem_does_s
   br i1 %.not.i, label %4, label %.loopexit.split.loop.exit.i
 
 .loopexit.split.loop.exit.i:                      ; preds = %.preheader.i
-  %9 = icmp eq i64 %.01117.i, 0
-  %10 = zext i1 %9 to i32
+  %9 = and i32 %7, 1
   br label %key2any_check_selection.exit
 
 key2any_check_selection.exit:                     ; preds = %4, %2, %.loopexit.split.loop.exit.i
-  %.0.i = phi i32 [ 1, %2 ], [ %10, %.loopexit.split.loop.exit.i ], [ 0, %4 ]
+  %.0.i = phi i32 [ 1, %2 ], [ %9, %.loopexit.split.loop.exit.i ], [ 0, %4 ]
   ret i32 %.0.i
 }
 
@@ -4223,12 +4217,11 @@ define internal range(i32 0, 2) i32 @xorhmacsha2sig_to_EncryptedPrivateKeyInfo_d
   br i1 %.not.i, label %4, label %.loopexit.split.loop.exit.i
 
 .loopexit.split.loop.exit.i:                      ; preds = %.preheader.i
-  %9 = icmp eq i64 %.01117.i, 0
-  %10 = zext i1 %9 to i32
+  %9 = and i32 %7, 1
   br label %key2any_check_selection.exit
 
 key2any_check_selection.exit:                     ; preds = %4, %2, %.loopexit.split.loop.exit.i
-  %.0.i = phi i32 [ 1, %2 ], [ %10, %.loopexit.split.loop.exit.i ], [ 0, %4 ]
+  %.0.i = phi i32 [ 1, %2 ], [ %9, %.loopexit.split.loop.exit.i ], [ 0, %4 ]
   ret i32 %.0.i
 }
 
@@ -4443,12 +4436,11 @@ define internal range(i32 0, 2) i32 @xorhmacsha2sig_to_EncryptedPrivateKeyInfo_p
   br i1 %.not.i, label %4, label %.loopexit.split.loop.exit.i
 
 .loopexit.split.loop.exit.i:                      ; preds = %.preheader.i
-  %9 = icmp eq i64 %.01117.i, 0
-  %10 = zext i1 %9 to i32
+  %9 = and i32 %7, 1
   br label %key2any_check_selection.exit
 
 key2any_check_selection.exit:                     ; preds = %4, %2, %.loopexit.split.loop.exit.i
-  %.0.i = phi i32 [ 1, %2 ], [ %10, %.loopexit.split.loop.exit.i ], [ 0, %4 ]
+  %.0.i = phi i32 [ 1, %2 ], [ %9, %.loopexit.split.loop.exit.i ], [ 0, %4 ]
   ret i32 %.0.i
 }
 
