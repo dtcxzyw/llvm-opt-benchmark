@@ -17742,7 +17742,7 @@ _ZN4fish8builtins3set7Options5scope17hac79886ae95d44f5E.exit: ; preds = %"_ZN4co
   invoke void @"_ZN4core3ptr50drop_in_place$LT$fish..builtins..set..SplitVar$GT$17hbe47dbc1c031a80fE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %75) #31
           to label %109 unwind label %107
 
-117:                                              ; preds = %.invoke, %"_ZN4core3ptr63drop_in_place$LT$$u5b$fish_printf..arg..Arg$u3b$$u20$2$u5d$$GT$17h6fede06249a5c22cE.exit.i", %"_ZN4core3ptr71drop_in_place$LT$core..option..Option$LT$fish..env..var..EnvVar$GT$$GT$17hd8612a3c8a027095E.exit.i", %.noexc120, %444, %442, %.noexc111, %436, %434, %.split.i.i, %"_ZN4core3ptr63drop_in_place$LT$$u5b$fish_printf..arg..Arg$u3b$$u20$1$u5d$$GT$17hb3555a6f2166fa7aE.exit132", %"_ZN4core3ptr63drop_in_place$LT$$u5b$fish_printf..arg..Arg$u3b$$u20$1$u5d$$GT$17hb3555a6f2166fa7aE.exit", %512, %.thread5, %245, %"_ZN4core3ptr63drop_in_place$LT$$u5b$fish_printf..arg..Arg$u3b$$u20$2$u5d$$GT$17h6fede06249a5c22cE.exit", %110
+117:                                              ; preds = %.invoke, %"_ZN4core3ptr63drop_in_place$LT$$u5b$fish_printf..arg..Arg$u3b$$u20$2$u5d$$GT$17h6fede06249a5c22cE.exit.i", %"_ZN4core3ptr71drop_in_place$LT$core..option..Option$LT$fish..env..var..EnvVar$GT$$GT$17hd8612a3c8a027095E.exit.i", %.noexc120, %444, %442, %.noexc111, %436, %434, %.split.i.i, %"_ZN4core3ptr63drop_in_place$LT$$u5b$fish_printf..arg..Arg$u3b$$u20$1$u5d$$GT$17hb3555a6f2166fa7aE.exit132", %"_ZN4core3ptr63drop_in_place$LT$$u5b$fish_printf..arg..Arg$u3b$$u20$1$u5d$$GT$17hb3555a6f2166fa7aE.exit", %512, %.thread6, %245, %"_ZN4core3ptr63drop_in_place$LT$$u5b$fish_printf..arg..Arg$u3b$$u20$2$u5d$$GT$17h6fede06249a5c22cE.exit", %110
   %118 = landingpad { ptr, i32 }
           cleanup
   br label %.body96
@@ -17770,7 +17770,7 @@ _ZN4fish8builtins3set7Options5scope17hac79886ae95d44f5E.exit: ; preds = %"_ZN4co
   %126 = icmp ult i64 %125, 1152921504606846976
   call void @llvm.assume(i1 %126)
   %127 = icmp eq i64 %125, 0
-  br i1 %127, label %.thread5, label %250
+  br i1 %127, label %.thread6, label %250
 
 .body:                                            ; preds = %157, %155, %128, %139, %136
   %.pn = phi { ptr, i32 } [ %137, %136 ], [ %140, %139 ], [ %129, %128 ], [ %156, %155 ], [ %156, %157 ]
@@ -17994,8 +17994,8 @@ _ZN4fish8builtins3set7Options5scope17hac79886ae95d44f5E.exit: ; preds = %"_ZN4co
   call void @llvm.lifetime.start.p0(ptr nonnull %60)
   call void @llvm.lifetime.start.p0(ptr nonnull %59)
   %199 = load i64, ptr %113, align 8, !noundef !7
-  %.not80 = icmp ugt i64 %199, %167
-  br i1 %.not80, label %200, label %205, !prof !219
+  %.not81 = icmp ugt i64 %199, %167
+  br i1 %.not81, label %200, label %205, !prof !219
 
 200:                                              ; preds = %198
   %201 = add nuw i64 %167, 1
@@ -18214,7 +18214,7 @@ _ZN4fish8builtins3set7Options5scope17hac79886ae95d44f5E.exit: ; preds = %"_ZN4co
   %272 = invoke { ptr, i64 } @_ZN4fish5wutil7gettext19wgettext_static_str17h75ad7378645c7566E(ptr noalias noundef nonnull readonly align 4 @anon.b79614b915bd431dbec577eb9a448f58.444, i64 noundef 36)
           to label %488 unwind label %486
 
-.thread5:                                         ; preds = %123
+.thread6:                                         ; preds = %123
   %273 = load ptr, ptr %111, align 8, !nonnull !7, !align !118, !noundef !7
   %274 = load i64, ptr %113, align 8, !noundef !7
   %275 = invoke noundef nonnull align 8 ptr @_ZN4fish6parser6Parser4vars17h2696952738b98311E(ptr noundef nonnull align 8 %3)
@@ -18511,7 +18511,7 @@ _ZN4fish8builtins3set23new_var_values_by_index17h34aebec9c8851ad5E.exit: ; preds
   call void @llvm.lifetime.end.p0(ptr nonnull %33), !noalias !1432
   br label %428
 
-367:                                              ; preds = %.thread5
+367:                                              ; preds = %.thread6
   %368 = getelementptr inbounds nuw i8, ptr %2, i64 14
   %.val83 = load i8, ptr %368, align 1
   %369 = getelementptr inbounds nuw i8, ptr %2, i64 15
@@ -38971,7 +38971,7 @@ define noundef zeroext i1 @_ZN4fish8complete23complete_remove_wrapper17h57ec0752
   br label %.thread
 
 .lr.ph.i:                                         ; preds = %47, %60
-  %.sroa.02.014.i = phi i64 [ %61, %60 ], [ 0, %47 ]
+  %.sroa.02.013.i = phi i64 [ %61, %60 ], [ 0, %47 ]
   %55 = phi ptr [ %56, %60 ], [ %50, %47 ]
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 24
   %57 = getelementptr i8, ptr %55, i64 8
@@ -38985,7 +38985,7 @@ define noundef zeroext i1 @_ZN4fish8complete23complete_remove_wrapper17h57ec0752
   br i1 %59, label %75, label %60
 
 60:                                               ; preds = %.noexc
-  %61 = add nuw nsw i64 %.sroa.02.014.i, 1
+  %61 = add nuw nsw i64 %.sroa.02.013.i, 1
   %62 = icmp eq ptr %56, %53
   br i1 %62, label %.thread.backedge, label %.lr.ph.i
 
@@ -39025,10 +39025,10 @@ _ZN3std4sync6poison4Flag4done17h5bd12da882ef54a3E.exit.i.i: ; preds = %71, %.noe
   br label %17
 
 75:                                               ; preds = %.noexc
-  %76 = icmp ult i64 %.sroa.02.014.i, %52
+  %76 = icmp ult i64 %.sroa.02.013.i, %52
   call void @llvm.assume(i1 %76)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6remove17h745a379406482250E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %6, ptr noalias noundef nonnull align 8 dereferenceable(24) %46, i64 noundef %.sroa.02.014.i, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b79614b915bd431dbec577eb9a448f58.627)
+  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6remove17h745a379406482250E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %6, ptr noalias noundef nonnull align 8 dereferenceable(24) %46, i64 noundef %.sroa.02.013.i, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b79614b915bd431dbec577eb9a448f58.627)
           to label %77 unwind label %.loopexit.split-lp.loopexit.loopexit.split-lp
 
 77:                                               ; preds = %75

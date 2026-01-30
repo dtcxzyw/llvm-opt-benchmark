@@ -6544,7 +6544,7 @@ define internal void @_ZN4ncnn12LSTM_x86_avx15create_pipelineERKNS_6OptionE.omp_
   %9 = alloca i32, align 4
   %10 = load i32, ptr %2, align 4, !tbaa !35
   %11 = icmp sgt i32 %10, 0
-  br i1 %11, label %12, label %290
+  br i1 %11, label %12, label %292
 
 12:                                               ; preds = %5
   %13 = add nsw i32 %10, -1
@@ -6909,8 +6909,8 @@ define internal void @_ZN4ncnn12LSTM_x86_avx15create_pipelineERKNS_6OptionE.omp_
   br i1 %82, label %.lr.ph402.preheader, label %.preheader
 
 .lr.ph402.preheader:                              ; preds = %227
-  %264 = mul i64 %79, %261
-  %265 = getelementptr inbounds nuw i8, ptr %95, i64 %264
+  %266 = mul i64 %79, %261
+  %267 = getelementptr inbounds nuw i8, ptr %95, i64 %266
   br label %.lr.ph402
 
 .preheader:                                       ; preds = %.lr.ph402, %227
@@ -6918,8 +6918,8 @@ define internal void @_ZN4ncnn12LSTM_x86_avx15create_pipelineERKNS_6OptionE.omp_
 
 .lr.ph402:                                        ; preds = %.lr.ph402.preheader, %.lr.ph402
   %indvars.iv433 = phi i64 [ 0, %.lr.ph402.preheader ], [ %indvars.iv.next434, %.lr.ph402 ]
-  %.0176399 = phi ptr [ %265, %.lr.ph402.preheader ], [ %277, %.lr.ph402 ]
-  %266 = getelementptr inbounds nuw float, ptr %241, i64 %indvars.iv433
+  %.0176399 = phi ptr [ %267, %.lr.ph402.preheader ], [ %277, %.lr.ph402 ]
+  %268 = getelementptr inbounds nuw float, ptr %241, i64 %indvars.iv433
   %267 = load float, ptr %266, align 4, !tbaa !53
   store float %267, ptr %.0176399, align 4, !tbaa !53
   %268 = getelementptr inbounds nuw float, ptr %244, i64 %indvars.iv433
@@ -6947,7 +6947,7 @@ define internal void @_ZN4ncnn12LSTM_x86_avx15create_pipelineERKNS_6OptionE.omp_
 .lr.ph405:                                        ; preds = %.preheader, %.lr.ph405
   %indvars.iv438 = phi i64 [ %indvars.iv.next439, %.lr.ph405 ], [ 0, %.preheader ]
   %.0175403 = phi ptr [ %289, %.lr.ph405 ], [ %263, %.preheader ]
-  %278 = getelementptr inbounds nuw float, ptr %252, i64 %indvars.iv438
+  %280 = getelementptr inbounds nuw float, ptr %252, i64 %indvars.iv438
   %279 = load float, ptr %278, align 4, !tbaa !53
   store float %279, ptr %.0175403, align 4, !tbaa !53
   %280 = getelementptr inbounds nuw float, ptr %254, i64 %indvars.iv438
@@ -6979,9 +6979,9 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %._crit_edge406, %.p
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %290
+  br label %292
 
-290:                                              ; preds = %._crit_edge412, %5
+292:                                              ; preds = %._crit_edge412, %5
   ret void
 }
 

@@ -51529,13 +51529,13 @@ define { i32, i32 } @_ZN7hir_def8generics13GenericParams21find_trait_self_param1
   %7 = trunc i64 %5 to i32
   br label %8
 
-8:                                                ; preds = %12, %1
+11:                                               ; preds = %12, %1
   %9 = phi i32 [ %17, %12 ], [ 0, %1 ]
   %10 = phi ptr [ %13, %12 ], [ %3, %1 ]
   %11 = icmp eq ptr %10, %6
   br i1 %11, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h6615e8e0bcbc2ecaE.exit, label %12
 
-12:                                               ; preds = %8
+.loopexit:                                        ; preds = %11
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 64
   %.val5.i = load i8, ptr %10, align 16, !range !1335, !alias.scope !13561, !noalias !13564, !noundef !13
   %14 = getelementptr i8, ptr %10, i64 40

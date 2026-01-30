@@ -1221,14 +1221,14 @@ _ZN20btAlignedObjectArrayI27btMultiBodySolverConstraintE21expandNonInitializingE
   %549 = load float, ptr %546, align 4, !tbaa !28
   %.sroa.0.0.vec.insert.i106 = insertelement <2 x float> poison, float %549, i64 0
   %550 = load float, ptr %547, align 4, !tbaa !28
-  %.sroa.0.4.vec.insert.i107 = insertelement <2 x float> %.sroa.0.0.vec.insert.i106, float %550, i64 1
+  %.sroa.0.0.vec.insert.i106 = insertelement <2 x float> %.sroa.0.0.vec.insert.i106, float %550, i64 1
   %551 = load float, ptr %548, align 4, !tbaa !28
-  %.sroa.3.12.vec.insert.i108 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %551, i64 0
+  %.sroa.0.4.vec.insert.i107 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %551, i64 0
   store <2 x float> %.sroa.0.4.vec.insert.i107, ptr %14, align 8
   store <2 x float> %.sroa.3.12.vec.insert.i108, ptr %469, align 8, !tbaa !24
   %552 = getelementptr inbounds nuw float, ptr %12, i64 %545
   %553 = load float, ptr %552, align 4, !tbaa !28
-  %554 = load float, ptr %470, align 4, !tbaa !102
+  %555 = load float, ptr %470, align 4, !tbaa !102
   %555 = fneg float %554
   %556 = call noundef float @_ZN21btMultiBodyConstraint23fillMultiBodyConstraintER27btMultiBodySolverConstraintR23btMultiBodyJacobianDataPfS4_RK9btVector3S7_S7_S7_fRK19btContactSolverInfoffbfbfff(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(220) %503, ptr noundef nonnull align 8 dereferenceable(204) %2, ptr noundef null, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(16) %14, ptr noundef nonnull align 4 dereferenceable(16) %13, ptr noundef nonnull align 4 dereferenceable(16) %5, ptr noundef nonnull align 4 dereferenceable(16) %8, float noundef %553, ptr noundef nonnull align 4 dereferenceable(128) %3, float noundef %555, float noundef %554, i1 noundef zeroext true, float noundef 1.000000e+00, i1 noundef zeroext false, float noundef 0.000000e+00, float noundef 0.000000e+00, float noundef 1.000000e+00)
   br label %557

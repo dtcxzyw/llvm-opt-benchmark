@@ -17269,35 +17269,35 @@ define linkonce_odr void @_ZNK8XForm4x4IfE7inverseEv(ptr dead_on_unwind noalias 
   br label %.preheader
 
 .preheader:                                       ; preds = %2, %126
-  %indvars.iv43 = phi i64 [ 0, %2 ], [ %indvars.iv.next44, %126 ]
-  %indvars.iv.next44 = add nuw nsw i64 %indvars.iv43, 1
-  %34 = trunc nuw nsw i64 %indvars.iv.next44 to i32
+  %indvars.iv48 = phi i64 [ 0, %2 ], [ %indvars.iv.next49, %126 ]
+  %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
+  %34 = trunc nuw nsw i64 %indvars.iv.next49 to i32
   %35 = and i32 %34, 3
-  %36 = trunc nuw nsw i64 %indvars.iv43 to i32
+  %36 = trunc nuw nsw i64 %indvars.iv48 to i32
   %37 = xor i32 %36, 2
-  %38 = trunc i64 %indvars.iv43 to i32
+  %38 = trunc i64 %indvars.iv48 to i32
   %39 = add i32 %38, 3
   %40 = and i32 %39, 3
-  %invariant.gep = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv43
+  %invariant.gep = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv48
   br label %41
 
 41:                                               ; preds = %.preheader, %124
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %45, %124 ]
-  %42 = add nuw nsw i64 %indvars.iv, %indvars.iv43
+  %42 = add nuw nsw i64 %indvars.iv, %indvars.iv48
   %43 = and i64 %42, 1
   %44 = icmp eq i64 %43, 0
   %45 = add nuw nsw i64 %indvars.iv, 1
   %.cmp.not = icmp eq i64 %indvars.iv, 3
   %46 = trunc nuw nsw i64 %45 to i32
   %47 = select i1 %.cmp.not, i32 0, i32 %46
-  %.cmp26 = icmp samesign ult i64 %indvars.iv, 2
-  %.v35 = select i1 %.cmp26, i32 2, i32 -2
+  %.cmp27 = icmp samesign ult i64 %indvars.iv, 2
+  %.v40 = select i1 %.cmp27, i32 2, i32 -2
   %48 = trunc nuw nsw i64 %indvars.iv to i32
-  %49 = add nsw i32 %.v35, %48
-  %.cmp28 = icmp eq i64 %indvars.iv, 0
+  %49 = add nsw i32 %.v40, %48
+  %.cmp30 = icmp eq i64 %indvars.iv, 0
   %50 = trunc i64 %indvars.iv to i32
   %51 = add i32 %50, -1
-  %52 = select i1 %.cmp28, i32 3, i32 %51
+  %52 = select i1 %.cmp30, i32 3, i32 %51
   br i1 %44, label %53, label %88
 
 53:                                               ; preds = %41
@@ -17436,16 +17436,16 @@ _ZNK8XForm4x4IfE14subDeterminantEii.exit24:       ; preds = %101
   br label %124
 
 124:                                              ; preds = %_ZNK8XForm4x4IfE14subDeterminantEii.exit, %_ZNK8XForm4x4IfE14subDeterminantEii.exit24
-  %.sink47 = phi float [ %87, %_ZNK8XForm4x4IfE14subDeterminantEii.exit ], [ %123, %_ZNK8XForm4x4IfE14subDeterminantEii.exit24 ]
-  %125 = fdiv float %.sink47, %9
-  %gep38 = getelementptr inbounds nuw [4 x float], ptr %invariant.gep, i64 %indvars.iv
-  store float %125, ptr %gep38, align 4
+  %.sink52 = phi float [ %87, %_ZNK8XForm4x4IfE14subDeterminantEii.exit ], [ %123, %_ZNK8XForm4x4IfE14subDeterminantEii.exit24 ]
+  %125 = fdiv float %.sink52, %9
+  %gep43 = getelementptr inbounds nuw [4 x float], ptr %invariant.gep, i64 %indvars.iv
+  store float %125, ptr %gep43, align 4
   %exitcond.not = icmp eq i64 %45, 4
   br i1 %exitcond.not, label %126, label %41, !llvm.loop !223
 
 126:                                              ; preds = %124
-  %exitcond46.not = icmp eq i64 %indvars.iv.next44, 4
-  br i1 %exitcond46.not, label %127, label %.preheader, !llvm.loop !224
+  %exitcond51.not = icmp eq i64 %indvars.iv.next49, 4
+  br i1 %exitcond51.not, label %127, label %.preheader, !llvm.loop !224
 
 127:                                              ; preds = %126
   ret void
@@ -17873,24 +17873,24 @@ _ZNK8XForm3x3IfE9transposeEv.exit:                ; preds = %21
   br label %.preheader.i12
 
 .preheader.i12:                                   ; preds = %76, %_ZNK8XForm3x3IfE9transposeEv.exit
-  %indvars.iv16.i = phi i64 [ 0, %_ZNK8XForm3x3IfE9transposeEv.exit ], [ %indvars.iv.next17.i, %76 ]
-  %indvars.iv.next17.i = add nuw nsw i64 %indvars.iv16.i, 1
-  %51 = icmp eq i64 %indvars.iv.next17.i, 3
-  %52 = trunc nuw nsw i64 %indvars.iv16.i to i32
+  %indvars.iv17.i = phi i64 [ 0, %_ZNK8XForm3x3IfE9transposeEv.exit ], [ %indvars.iv.next18.i, %76 ]
+  %indvars.iv.next18.i = add nuw nsw i64 %indvars.iv17.i, 1
+  %51 = icmp eq i64 %indvars.iv.next18.i, 3
+  %52 = trunc nuw nsw i64 %indvars.iv17.i to i32
   %53 = add nuw nsw i32 %52, 2
   %54 = urem i32 %53, 3
-  %55 = select i1 %51, i64 0, i64 %indvars.iv.next17.i
+  %55 = select i1 %51, i64 0, i64 %indvars.iv.next18.i
   %56 = getelementptr inbounds nuw [3 x float], ptr %5, i64 %55
   %57 = zext nneg i32 %54 to i64
   %58 = getelementptr inbounds nuw [3 x float], ptr %5, i64 %57
-  %invariant.gep.i13 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv16.i
+  %invariant.gep.i13 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv17.i
   br label %59
 
 59:                                               ; preds = %59, %.preheader.i12
   %indvars.iv.i14 = phi i64 [ 0, %.preheader.i12 ], [ %indvars.iv.next.i15, %59 ]
   %indvars.iv.next.i15 = add nuw nsw i64 %indvars.iv.i14, 1
   %.cmp.not.i = icmp eq i64 %indvars.iv.i14, 2
-  %.cmp11.i = icmp eq i64 %indvars.iv.i14, 0
+  %.cmp12.i = icmp eq i64 %indvars.iv.i14, 0
   %60 = add nuw nsw i64 %indvars.iv.i14, 4294967295
   %61 = select i1 %.cmp.not.i, i64 0, i64 %indvars.iv.next.i15
   %62 = getelementptr inbounds nuw float, ptr %56, i64 %61
@@ -59769,33 +59769,33 @@ define linkonce_odr void @_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE18Set
   br label %.preheader
 
 .preheader:                                       ; preds = %2, %.split43.us
-  %indvars.iv72 = phi i64 [ 0, %2 ], [ %indvars.iv.next73, %.split43.us ]
-  %.not = icmp eq i64 %indvars.iv72, 2
+  %indvars.iv73 = phi i64 [ 0, %2 ], [ %indvars.iv.next74, %.split43.us ]
+  %.not = icmp eq i64 %indvars.iv73, 2
   %9 = select i1 %.not, i32 %5, i32 0
-  %10 = trunc nuw nsw i64 %indvars.iv72 to i32
+  %10 = trunc nuw nsw i64 %indvars.iv73 to i32
   %11 = add i32 %9, %10
   %12 = sitofp i32 %11 to double
   %13 = fadd double %12, 5.000000e-01
   %14 = icmp slt i32 %11, 0
   %15 = icmp sge i32 %11, %.fr45
   %16 = or i1 %14, %15
-  %invariant.gep = getelementptr [3 x double], ptr %0, i64 %indvars.iv72
+  %invariant.gep = getelementptr [3 x double], ptr %0, i64 %indvars.iv73
   br i1 %16, label %.preheader.split.us, label %.preheader.split
 
 .preheader.split.us:                              ; preds = %.preheader, %.preheader.split.us
-  %indvars.iv68 = phi i64 [ %indvars.iv.next69, %.preheader.split.us ], [ -1, %.preheader ]
-  %invariant.gep25.us = getelementptr double, ptr %invariant.gep, i64 %indvars.iv68
+  %indvars.iv69 = phi i64 [ %indvars.iv.next70, %.preheader.split.us ], [ -1, %.preheader ]
+  %invariant.gep25.us = getelementptr double, ptr %invariant.gep, i64 %indvars.iv69
   %17 = getelementptr i8, ptr %invariant.gep25.us, i64 16
   store double 0.000000e+00, ptr %17, align 8
   %18 = getelementptr i8, ptr %invariant.gep25.us, i64 88
   store double 0.000000e+00, ptr %18, align 8
-  %indvars.iv.next69 = add nsw i64 %indvars.iv68, 1
-  %exitcond71.not = icmp eq i64 %indvars.iv.next69, 2
-  br i1 %exitcond71.not, label %.split43.us, label %.preheader.split.us, !llvm.loop !818
+  %indvars.iv.next70 = add nsw i64 %indvars.iv69, 1
+  %exitcond72.not = icmp eq i64 %indvars.iv.next70, 2
+  br i1 %exitcond72.not, label %.split43.us, label %.preheader.split.us, !llvm.loop !818
 
 .preheader.split:                                 ; preds = %.preheader, %.split28.us
-  %indvars.iv59 = phi i64 [ %indvars.iv.next60, %.split28.us ], [ -1, %.preheader ]
-  %19 = trunc nsw i64 %indvars.iv59 to i32
+  %indvars.iv60 = phi i64 [ %indvars.iv.next61, %.split28.us ], [ -1, %.preheader ]
+  %19 = trunc nsw i64 %indvars.iv60 to i32
   %20 = sitofp i32 %19 to double
   %21 = fadd double %13, %20
   %22 = fdiv double %21, %6
@@ -59814,7 +59814,7 @@ define linkonce_odr void @_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE18Set
   %32 = getelementptr i8, ptr %31, i64 24
   %33 = getelementptr i8, ptr %31, i64 32
   %34 = getelementptr i8, ptr %31, i64 40
-  %invariant.gep25 = getelementptr double, ptr %invariant.gep, i64 %indvars.iv59
+  %invariant.gep25 = getelementptr double, ptr %invariant.gep, i64 %indvars.iv60
   br i1 %or.cond.i, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE5ValueEiidb.exit.us, label %.split
 
 _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE5ValueEiidb.exit.us: ; preds = %.preheader.split
@@ -59865,14 +59865,14 @@ _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE5ValueEiidb.exit.us36: ; preds 
   br label %.split28.us
 
 .split28.us:                                      ; preds = %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE5ValueEiidb.exit.us36, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE5ValueEiidb.exit.us, %.split.split.split.preheader
-  %indvars.iv.next60 = add nsw i64 %indvars.iv59, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next60, 2
+  %indvars.iv.next61 = add nsw i64 %indvars.iv60, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next61, 2
   br i1 %exitcond.not, label %.split43.us, label %.preheader.split, !llvm.loop !818
 
 .split43.us:                                      ; preds = %.split28.us, %.preheader.split.us
-  %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
-  %exitcond75.not = icmp eq i64 %indvars.iv.next73, 3
-  br i1 %exitcond75.not, label %53, label %.preheader, !llvm.loop !819
+  %indvars.iv.next74 = add nuw nsw i64 %indvars.iv73, 1
+  %exitcond76.not = icmp eq i64 %indvars.iv.next74, 3
+  br i1 %exitcond76.not, label %53, label %.preheader, !llvm.loop !819
 
 53:                                               ; preds = %.split43.us
   ret void
@@ -59892,15 +59892,15 @@ define linkonce_odr void @_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE18Set
   br label %.preheader
 
 .preheader:                                       ; preds = %2, %.split43.us
-  %indvars.iv71 = phi i64 [ 0, %2 ], [ %indvars.iv.next72, %.split43.us ]
-  %.not = icmp eq i64 %indvars.iv71, 2
+  %indvars.iv72 = phi i64 [ 0, %2 ], [ %indvars.iv.next73, %.split43.us ]
+  %.not = icmp eq i64 %indvars.iv72, 2
   %10 = select i1 %.not, i32 %5, i32 0
-  %11 = trunc nuw nsw i64 %indvars.iv71 to i32
+  %11 = trunc nuw nsw i64 %indvars.iv72 to i32
   %12 = add i32 %10, %11
   %13 = icmp slt i32 %12, 0
   %14 = icmp sge i32 %12, %.fr45
   %15 = or i1 %13, %14
-  %invariant.gep = getelementptr inbounds nuw [2 x double], ptr %9, i64 %indvars.iv71
+  %invariant.gep = getelementptr inbounds nuw [2 x double], ptr %9, i64 %indvars.iv72
   br i1 %15, label %.preheader.split.us, label %.preheader.split
 
 .preheader.split.us:                              ; preds = %.preheader
@@ -59915,8 +59915,8 @@ define linkonce_odr void @_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE18Set
 
 .preheader.split:                                 ; preds = %.preheader, %.split28.us
   %16 = phi i1 [ false, %.split28.us ], [ true, %.preheader ]
-  %indvars.iv59 = phi i64 [ 1, %.split28.us ], [ 0, %.preheader ]
-  %17 = trunc nuw nsw i64 %indvars.iv59 to i32
+  %indvars.iv60 = phi i64 [ 1, %.split28.us ], [ 0, %.preheader ]
+  %17 = trunc nuw nsw i64 %indvars.iv60 to i32
   %18 = add nuw i32 %12, %17
   %19 = sitofp i32 %18 to double
   %20 = fdiv double %19, %6
@@ -59935,7 +59935,7 @@ define linkonce_odr void @_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE18Set
   %30 = getelementptr i8, ptr %29, i64 24
   %31 = getelementptr i8, ptr %29, i64 32
   %32 = getelementptr i8, ptr %29, i64 40
-  %invariant.gep25 = getelementptr inbounds nuw double, ptr %invariant.gep, i64 %indvars.iv59
+  %invariant.gep25 = getelementptr inbounds nuw double, ptr %invariant.gep, i64 %indvars.iv60
   br i1 %or.cond.i, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE5ValueEiidb.exit.us, label %.split
 
 _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE5ValueEiidb.exit.us: ; preds = %.preheader.split
@@ -59968,8 +59968,8 @@ _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE5ValueEiidb.exit.us: ; preds = 
   %43 = fmul double %42, 2.000000e+00
   %44 = call noundef double @llvm.fmuladd.f64(double %43, double %20, double %40)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %gep2676 = getelementptr inbounds nuw i8, ptr %invariant.gep25, i64 48
-  store double %44, ptr %gep2676, align 8
+  %gep2677 = getelementptr inbounds nuw i8, ptr %invariant.gep25, i64 48
+  store double %44, ptr %gep2677, align 8
   br label %.split28.us
 
 _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE5ValueEiidb.exit.us36: ; preds = %.split
@@ -59986,8 +59986,8 @@ _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE5ValueEiidb.exit.us36: ; preds 
   br i1 %16, label %.preheader.split, label %.split43.us, !llvm.loop !820
 
 .split43.us:                                      ; preds = %.split28.us, %.preheader.split.us
-  %indvars.iv.next72 = add nuw nsw i64 %indvars.iv71, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next72, 3
+  %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next73, 3
   br i1 %exitcond.not, label %45, label %.preheader, !llvm.loop !821
 
 45:                                               ; preds = %.split43.us
@@ -60012,10 +60012,10 @@ define linkonce_odr void @_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE23Set
   br label %.preheader
 
 .preheader:                                       ; preds = %2, %.split43.us
-  %indvars.iv72 = phi i64 [ 0, %2 ], [ %indvars.iv.next73, %.split43.us ]
-  %.not = icmp eq i64 %indvars.iv72, 2
+  %indvars.iv73 = phi i64 [ 0, %2 ], [ %indvars.iv.next74, %.split43.us ]
+  %.not = icmp eq i64 %indvars.iv73, 2
   %11 = select i1 %.not, i32 %7, i32 0
-  %12 = trunc nuw nsw i64 %indvars.iv72 to i32
+  %12 = trunc nuw nsw i64 %indvars.iv73 to i32
   %13 = add i32 %11, %12
   %14 = shl nsw i32 %13, 1
   %15 = sitofp i32 %14 to double
@@ -60023,23 +60023,23 @@ define linkonce_odr void @_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE23Set
   %17 = icmp slt i32 %13, 0
   %18 = icmp sge i32 %13, %.fr45
   %19 = or i1 %17, %18
-  %invariant.gep = getelementptr [6 x double], ptr %0, i64 %indvars.iv72
+  %invariant.gep = getelementptr [6 x double], ptr %0, i64 %indvars.iv73
   br i1 %19, label %.preheader.split.us, label %.preheader.split
 
 .preheader.split.us:                              ; preds = %.preheader, %.preheader.split.us
-  %indvars.iv68 = phi i64 [ %indvars.iv.next69, %.preheader.split.us ], [ -2, %.preheader ]
-  %invariant.gep25.us = getelementptr double, ptr %invariant.gep, i64 %indvars.iv68
+  %indvars.iv69 = phi i64 [ %indvars.iv.next70, %.preheader.split.us ], [ -2, %.preheader ]
+  %invariant.gep25.us = getelementptr double, ptr %invariant.gep, i64 %indvars.iv69
   %20 = getelementptr i8, ptr %invariant.gep25.us, i64 24
   store double 0.000000e+00, ptr %20, align 8
   %21 = getelementptr i8, ptr %invariant.gep25.us, i64 168
   store double 0.000000e+00, ptr %21, align 8
-  %indvars.iv.next69 = add nsw i64 %indvars.iv68, 1
-  %exitcond71.not = icmp eq i64 %indvars.iv.next69, 4
-  br i1 %exitcond71.not, label %.split43.us, label %.preheader.split.us, !llvm.loop !822
+  %indvars.iv.next70 = add nsw i64 %indvars.iv69, 1
+  %exitcond72.not = icmp eq i64 %indvars.iv.next70, 4
+  br i1 %exitcond72.not, label %.split43.us, label %.preheader.split.us, !llvm.loop !822
 
 .preheader.split:                                 ; preds = %.preheader, %.split28.us
-  %indvars.iv59 = phi i64 [ %indvars.iv.next60, %.split28.us ], [ -2, %.preheader ]
-  %22 = trunc nsw i64 %indvars.iv59 to i32
+  %indvars.iv60 = phi i64 [ %indvars.iv.next61, %.split28.us ], [ -2, %.preheader ]
+  %22 = trunc nsw i64 %indvars.iv60 to i32
   %23 = sitofp i32 %22 to double
   %24 = fadd double %16, %23
   %25 = fdiv double %24, %8
@@ -60058,7 +60058,7 @@ define linkonce_odr void @_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE23Set
   %35 = getelementptr i8, ptr %34, i64 24
   %36 = getelementptr i8, ptr %34, i64 32
   %37 = getelementptr i8, ptr %34, i64 40
-  %invariant.gep25 = getelementptr double, ptr %invariant.gep, i64 %indvars.iv59
+  %invariant.gep25 = getelementptr double, ptr %invariant.gep, i64 %indvars.iv60
   br i1 %or.cond.i, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE5ValueEiidb.exit.us, label %.split
 
 _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE5ValueEiidb.exit.us: ; preds = %.preheader.split
@@ -60109,14 +60109,14 @@ _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE5ValueEiidb.exit.us36: ; preds 
   br label %.split28.us
 
 .split28.us:                                      ; preds = %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE5ValueEiidb.exit.us36, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE5ValueEiidb.exit.us, %.split.split.split.preheader
-  %indvars.iv.next60 = add nsw i64 %indvars.iv59, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next60, 4
+  %indvars.iv.next61 = add nsw i64 %indvars.iv60, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next61, 4
   br i1 %exitcond.not, label %.split43.us, label %.preheader.split, !llvm.loop !822
 
 .split43.us:                                      ; preds = %.split28.us, %.preheader.split.us
-  %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
-  %exitcond75.not = icmp eq i64 %indvars.iv.next73, 3
-  br i1 %exitcond75.not, label %56, label %.preheader, !llvm.loop !823
+  %indvars.iv.next74 = add nuw nsw i64 %indvars.iv73, 1
+  %exitcond76.not = icmp eq i64 %indvars.iv.next74, 3
+  br i1 %exitcond76.not, label %56, label %.preheader, !llvm.loop !823
 
 56:                                               ; preds = %.split43.us
   ret void
@@ -60137,32 +60137,32 @@ define linkonce_odr void @_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE23Set
   br label %.preheader
 
 .preheader:                                       ; preds = %2, %.split43.us
-  %indvars.iv72 = phi i64 [ 0, %2 ], [ %indvars.iv.next73, %.split43.us ]
-  %.not = icmp eq i64 %indvars.iv72, 2
+  %indvars.iv73 = phi i64 [ 0, %2 ], [ %indvars.iv.next74, %.split43.us ]
+  %.not = icmp eq i64 %indvars.iv73, 2
   %11 = select i1 %.not, i32 %7, i32 0
-  %12 = trunc nuw nsw i64 %indvars.iv72 to i32
+  %12 = trunc nuw nsw i64 %indvars.iv73 to i32
   %13 = add i32 %11, %12
   %14 = shl nsw i32 %13, 1
   %15 = icmp slt i32 %13, 0
   %16 = icmp sge i32 %13, %.fr45
   %17 = or i1 %15, %16
-  %invariant.gep = getelementptr [5 x double], ptr %0, i64 %indvars.iv72
+  %invariant.gep = getelementptr [5 x double], ptr %0, i64 %indvars.iv73
   br i1 %17, label %.preheader.split.us, label %.preheader.split
 
 .preheader.split.us:                              ; preds = %.preheader, %.preheader.split.us
-  %indvars.iv68 = phi i64 [ %indvars.iv.next69, %.preheader.split.us ], [ -1, %.preheader ]
-  %invariant.gep25.us = getelementptr double, ptr %invariant.gep, i64 %indvars.iv68
+  %indvars.iv69 = phi i64 [ %indvars.iv.next70, %.preheader.split.us ], [ -1, %.preheader ]
+  %invariant.gep25.us = getelementptr double, ptr %invariant.gep, i64 %indvars.iv69
   %18 = getelementptr i8, ptr %invariant.gep25.us, i64 16
   store double 0.000000e+00, ptr %18, align 8
   %19 = getelementptr i8, ptr %invariant.gep25.us, i64 136
   store double 0.000000e+00, ptr %19, align 8
-  %indvars.iv.next69 = add nsw i64 %indvars.iv68, 1
-  %exitcond71.not = icmp eq i64 %indvars.iv.next69, 4
-  br i1 %exitcond71.not, label %.split43.us, label %.preheader.split.us, !llvm.loop !824
+  %indvars.iv.next70 = add nsw i64 %indvars.iv69, 1
+  %exitcond72.not = icmp eq i64 %indvars.iv.next70, 4
+  br i1 %exitcond72.not, label %.split43.us, label %.preheader.split.us, !llvm.loop !824
 
 .preheader.split:                                 ; preds = %.preheader, %.split28.us
-  %indvars.iv59 = phi i64 [ %indvars.iv.next60, %.split28.us ], [ -1, %.preheader ]
-  %20 = trunc i64 %indvars.iv59 to i32
+  %indvars.iv60 = phi i64 [ %indvars.iv.next61, %.split28.us ], [ -1, %.preheader ]
+  %20 = trunc i64 %indvars.iv60 to i32
   %21 = add i32 %14, %20
   %22 = sitofp i32 %21 to double
   %23 = fdiv double %22, %8
@@ -60181,7 +60181,7 @@ define linkonce_odr void @_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE23Set
   %33 = getelementptr i8, ptr %32, i64 24
   %34 = getelementptr i8, ptr %32, i64 32
   %35 = getelementptr i8, ptr %32, i64 40
-  %invariant.gep25 = getelementptr double, ptr %invariant.gep, i64 %indvars.iv59
+  %invariant.gep25 = getelementptr double, ptr %invariant.gep, i64 %indvars.iv60
   br i1 %or.cond.i, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE5ValueEiidb.exit.us, label %.split
 
 _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE5ValueEiidb.exit.us: ; preds = %.preheader.split
@@ -60232,14 +60232,14 @@ _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE5ValueEiidb.exit.us36: ; preds 
   br label %.split28.us
 
 .split28.us:                                      ; preds = %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE5ValueEiidb.exit.us36, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE5ValueEiidb.exit.us, %.split.split.split.preheader
-  %indvars.iv.next60 = add nsw i64 %indvars.iv59, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next60, 4
+  %indvars.iv.next61 = add nsw i64 %indvars.iv60, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next61, 4
   br i1 %exitcond.not, label %.split43.us, label %.preheader.split, !llvm.loop !824
 
 .split43.us:                                      ; preds = %.split28.us, %.preheader.split.us
-  %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
-  %exitcond75.not = icmp eq i64 %indvars.iv.next73, 3
-  br i1 %exitcond75.not, label %54, label %.preheader, !llvm.loop !825
+  %indvars.iv.next74 = add nuw nsw i64 %indvars.iv73, 1
+  %exitcond76.not = icmp eq i64 %indvars.iv.next74, 3
+  br i1 %exitcond76.not, label %54, label %.preheader, !llvm.loop !825
 
 54:                                               ; preds = %.split43.us
   ret void

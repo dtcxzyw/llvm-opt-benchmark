@@ -2286,34 +2286,34 @@ define hidden noundef zeroext i1 @_ZNK4cvc58internal6String7tailcmpERKS1_Ri(ptr 
   br label %20
 
 20:                                               ; preds = %23, %3
-  %.015.in = phi i32 [ %11, %3 ], [ %.015, %23 ]
-  %.0.in = phi i32 [ %19, %3 ], [ %.0, %23 ]
-  %.0 = add i32 %.0.in, -1
-  %.015 = add i32 %.015.in, -1
-  %21 = or i32 %.0, %.015
-  %22 = icmp slt i32 %21, 0
-  br i1 %22, label %30, label %23
+  %indvars.iv30 = phi i32 [ %11, %3 ], [ %.015, %23 ]
+  %indvars.iv = phi i32 [ %19, %3 ], [ %indvars.iv.next31, %23 ]
+  %indvars.iv.next31 = add i32 %indvars.iv, -1
+  %indvars.iv.next = add i32 %indvars.iv30, -1
+  %21 = or i32 %indvars.iv.next31, %.015
+  %21 = icmp slt i32 %21, 0
+  br i1 %21, label %31, label %23
 
-23:                                               ; preds = %20
+23:; preds = %20
   %24 = zext nneg i32 %.015 to i64
   %25 = getelementptr inbounds nuw i32, ptr %6, i64 %24
   %26 = load i32, ptr %25, align 4, !tbaa !18
-  %27 = zext nneg i32 %.0 to i64
-  %28 = getelementptr inbounds nuw i32, ptr %14, i64 %27
-  %29 = load i32, ptr %28, align 4, !tbaa !18
-  %.not = icmp eq i32 %26, %29
+  %27 = zext nneg i32 %indvars.iv.next31 to i64
+  %26 = getelementptr inbounds nuw i32, ptr %14, i64 %27
+  %27 = load i32, ptr %26, align 4, !tbaa !18
+  %.not = icmp eq i32 %26, %27
   br i1 %.not, label %20, label %.loopexit, !llvm.loop !104
 
-30:                                               ; preds = %20
-  %31 = icmp eq i32 %.015.in, 0
-  %32 = sub nsw i32 0, %.0.in
-  %33 = select i1 %31, i32 %32, i32 %.015.in
+31:                                               ; preds = %20
+  %31 = icmp eq i32 %indvars.iv30, 0
+  %32 = sub nsw i32 0, %indvars.iv
+  %33 = select i1 %31, i32 %32, i32 %indvars.iv30
   br label %.loopexit
 
-.loopexit:                                        ; preds = %23, %30
-  %storemerge = phi i32 [ %33, %30 ], [ %.015, %23 ]
+.loopexit:                                        ; preds = %23, %31
+  %storemerge = phi i32 [ %33, %30 ], [ %indvars.iv.next, %23 ]
   store i32 %storemerge, ptr %2, align 4, !tbaa !18
-  ret i1 %22
+  ret i1 %21
 }
 
 ; Function Attrs: mustprogress uwtable

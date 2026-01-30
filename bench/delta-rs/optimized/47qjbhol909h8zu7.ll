@@ -99389,8 +99389,8 @@ define internal fastcc void @_ZN17datafusion_common6scalar16dict_from_values17h5
   %142 = getelementptr inbounds nuw i8, ptr %29, i64 56
   %143 = getelementptr inbounds nuw i8, ptr %29, i64 72
   %144 = load ptr, ptr %140, align 8, !alias.scope !16491, !noalias !16515
-  %.fr57.i = freeze ptr %144
-  %145 = icmp eq ptr %.fr57.i, null
+  %.fr58.i = freeze ptr %144
+  %145 = icmp eq ptr %.fr58.i, null
   %146 = load i64, ptr %141, align 8, !alias.scope !16491, !noalias !16515
   %147 = load ptr, ptr %142, align 8, !alias.scope !16491, !noalias !16515
   %148 = load i64, ptr %143, align 8, !alias.scope !16491, !noalias !16515
@@ -99454,11 +99454,11 @@ define internal fastcc void @_ZN17datafusion_common6scalar16dict_from_values17h5
 
 .split.i:                                         ; preds = %"_ZN11arrow_array5array16dictionary_array24DictionaryArray$LT$K$GT$7try_new28_$u7b$$u7b$closure$u7d$$u7d$17h33c5c471749f30daE.exit.i.i.i.i", %.lr.ph.i.split.us.i
   %.us-phi.i = phi i64 [ %149, %.lr.ph.i.split.us.i ], [ %155, %"_ZN11arrow_array5array16dictionary_array24DictionaryArray$LT$K$GT$7try_new28_$u7b$$u7b$closure$u7d$$u7d$17h33c5c471749f30daE.exit.i.i.i.i" ]
-  %.us-phi52.i = phi ptr [ %150, %.lr.ph.i.split.us.i ], [ %156, %"_ZN11arrow_array5array16dictionary_array24DictionaryArray$LT$K$GT$7try_new28_$u7b$$u7b$closure$u7d$$u7d$17h33c5c471749f30daE.exit.i.i.i.i" ]
+  %.us-phi53.i = phi ptr [ %150, %.lr.ph.i.split.us.i ], [ %156, %"_ZN11arrow_array5array16dictionary_array24DictionaryArray$LT$K$GT$7try_new28_$u7b$$u7b$closure$u7d$$u7d$17h33c5c471749f30daE.exit.i.i.i.i" ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !16494
   store i64 %.us-phi.i, ptr %9, align 8, !noalias !16494
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !16494
-  store ptr %.us-phi52.i, ptr %8, align 8, !noalias !16494
+  store ptr %.us-phi53.i, ptr %8, align 8, !noalias !16494
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !16494
   store ptr %8, ptr %6, align 8, !noalias !16494
   %172 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -100047,8 +100047,8 @@ define internal fastcc void @_ZN17datafusion_common6scalar16dict_from_values17h5
   %142 = getelementptr inbounds nuw i8, ptr %29, i64 56
   %143 = getelementptr inbounds nuw i8, ptr %29, i64 72
   %144 = load ptr, ptr %140, align 8, !alias.scope !16605, !noalias !16629
-  %.fr57.i = freeze ptr %144
-  %145 = icmp eq ptr %.fr57.i, null
+  %.fr58.i = freeze ptr %144
+  %145 = icmp eq ptr %.fr58.i, null
   %146 = load i64, ptr %141, align 8, !alias.scope !16605, !noalias !16629
   %147 = load ptr, ptr %142, align 8, !alias.scope !16605, !noalias !16629
   %148 = load i64, ptr %143, align 8, !alias.scope !16605, !noalias !16629
@@ -100118,11 +100118,11 @@ define internal fastcc void @_ZN17datafusion_common6scalar16dict_from_values17h5
 
 .split.i:                                         ; preds = %"_ZN11arrow_array5array16dictionary_array24DictionaryArray$LT$K$GT$7try_new28_$u7b$$u7b$closure$u7d$$u7d$17hf2438b580cda48bbE.exit.i.i.i.i", %.lr.ph.i.split.us.i
   %.us-phi.i = phi i64 [ %149, %.lr.ph.i.split.us.i ], [ %157, %"_ZN11arrow_array5array16dictionary_array24DictionaryArray$LT$K$GT$7try_new28_$u7b$$u7b$closure$u7d$$u7d$17hf2438b580cda48bbE.exit.i.i.i.i" ]
-  %.us-phi52.i = phi ptr [ %150, %.lr.ph.i.split.us.i ], [ %158, %"_ZN11arrow_array5array16dictionary_array24DictionaryArray$LT$K$GT$7try_new28_$u7b$$u7b$closure$u7d$$u7d$17hf2438b580cda48bbE.exit.i.i.i.i" ]
+  %.us-phi53.i = phi ptr [ %150, %.lr.ph.i.split.us.i ], [ %158, %"_ZN11arrow_array5array16dictionary_array24DictionaryArray$LT$K$GT$7try_new28_$u7b$$u7b$closure$u7d$$u7d$17hf2438b580cda48bbE.exit.i.i.i.i" ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !16608
   store i64 %.us-phi.i, ptr %9, align 8, !noalias !16608
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !16608
-  store ptr %.us-phi52.i, ptr %8, align 8, !noalias !16608
+  store ptr %.us-phi53.i, ptr %8, align 8, !noalias !16608
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !16608
   store ptr %8, ptr %6, align 8, !noalias !16608
   %176 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -100710,8 +100710,8 @@ define internal fastcc void @_ZN17datafusion_common6scalar16dict_from_values17h8
   %142 = getelementptr inbounds nuw i8, ptr %29, i64 56
   %143 = getelementptr inbounds nuw i8, ptr %29, i64 72
   %144 = load ptr, ptr %140, align 8, !alias.scope !16719, !noalias !16743
-  %.fr57.i = freeze ptr %144
-  %145 = icmp eq ptr %.fr57.i, null
+  %.fr58.i = freeze ptr %144
+  %145 = icmp eq ptr %.fr58.i, null
   %146 = load i64, ptr %141, align 8, !alias.scope !16719, !noalias !16743
   %147 = load ptr, ptr %142, align 8, !alias.scope !16719, !noalias !16743
   %148 = load i64, ptr %143, align 8, !alias.scope !16719, !noalias !16743
@@ -100777,11 +100777,11 @@ define internal fastcc void @_ZN17datafusion_common6scalar16dict_from_values17h8
 
 .split.i:                                         ; preds = %"_ZN11arrow_array5array16dictionary_array24DictionaryArray$LT$K$GT$7try_new28_$u7b$$u7b$closure$u7d$$u7d$17hc0523d206826c1a5E.exit.i.i.i.i", %.lr.ph.i.split.us.i
   %.us-phi.i = phi i64 [ %149, %.lr.ph.i.split.us.i ], [ %156, %"_ZN11arrow_array5array16dictionary_array24DictionaryArray$LT$K$GT$7try_new28_$u7b$$u7b$closure$u7d$$u7d$17hc0523d206826c1a5E.exit.i.i.i.i" ]
-  %.us-phi52.i = phi ptr [ %150, %.lr.ph.i.split.us.i ], [ %157, %"_ZN11arrow_array5array16dictionary_array24DictionaryArray$LT$K$GT$7try_new28_$u7b$$u7b$closure$u7d$$u7d$17hc0523d206826c1a5E.exit.i.i.i.i" ]
+  %.us-phi53.i = phi ptr [ %150, %.lr.ph.i.split.us.i ], [ %157, %"_ZN11arrow_array5array16dictionary_array24DictionaryArray$LT$K$GT$7try_new28_$u7b$$u7b$closure$u7d$$u7d$17hc0523d206826c1a5E.exit.i.i.i.i" ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !16722
   store i64 %.us-phi.i, ptr %9, align 8, !noalias !16722
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !16722
-  store ptr %.us-phi52.i, ptr %8, align 8, !noalias !16722
+  store ptr %.us-phi53.i, ptr %8, align 8, !noalias !16722
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !16722
   store ptr %8, ptr %6, align 8, !noalias !16722
   %174 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -101370,8 +101370,8 @@ define internal fastcc void @_ZN17datafusion_common6scalar16dict_from_values17h9
   %142 = getelementptr inbounds nuw i8, ptr %29, i64 56
   %143 = getelementptr inbounds nuw i8, ptr %29, i64 72
   %144 = load ptr, ptr %140, align 8, !alias.scope !16833, !noalias !16857
-  %.fr57.i = freeze ptr %144
-  %145 = icmp eq ptr %.fr57.i, null
+  %.fr58.i = freeze ptr %144
+  %145 = icmp eq ptr %.fr58.i, null
   %146 = load i64, ptr %141, align 8, !alias.scope !16833, !noalias !16857
   %147 = load ptr, ptr %142, align 8, !alias.scope !16833, !noalias !16857
   %148 = load i64, ptr %143, align 8, !alias.scope !16833, !noalias !16857
@@ -101439,11 +101439,11 @@ define internal fastcc void @_ZN17datafusion_common6scalar16dict_from_values17h9
 
 .split.i:                                         ; preds = %"_ZN11arrow_array5array16dictionary_array24DictionaryArray$LT$K$GT$7try_new28_$u7b$$u7b$closure$u7d$$u7d$17hc92d72c9621137baE.exit.i.i.i.i", %.lr.ph.i.split.us.i
   %.us-phi.i = phi i64 [ %149, %.lr.ph.i.split.us.i ], [ %156, %"_ZN11arrow_array5array16dictionary_array24DictionaryArray$LT$K$GT$7try_new28_$u7b$$u7b$closure$u7d$$u7d$17hc92d72c9621137baE.exit.i.i.i.i" ]
-  %.us-phi52.i = phi ptr [ %150, %.lr.ph.i.split.us.i ], [ %157, %"_ZN11arrow_array5array16dictionary_array24DictionaryArray$LT$K$GT$7try_new28_$u7b$$u7b$closure$u7d$$u7d$17hc92d72c9621137baE.exit.i.i.i.i" ]
+  %.us-phi53.i = phi ptr [ %150, %.lr.ph.i.split.us.i ], [ %157, %"_ZN11arrow_array5array16dictionary_array24DictionaryArray$LT$K$GT$7try_new28_$u7b$$u7b$closure$u7d$$u7d$17hc92d72c9621137baE.exit.i.i.i.i" ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !16836
   store i64 %.us-phi.i, ptr %9, align 8, !noalias !16836
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !16836
-  store ptr %.us-phi52.i, ptr %8, align 8, !noalias !16836
+  store ptr %.us-phi53.i, ptr %8, align 8, !noalias !16836
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !16836
   store ptr %8, ptr %6, align 8, !noalias !16836
   %174 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -102032,8 +102032,8 @@ define internal fastcc void @_ZN17datafusion_common6scalar16dict_from_values17h9
   %142 = getelementptr inbounds nuw i8, ptr %29, i64 56
   %143 = getelementptr inbounds nuw i8, ptr %29, i64 72
   %144 = load ptr, ptr %140, align 8, !alias.scope !16947, !noalias !16971
-  %.fr57.i = freeze ptr %144
-  %145 = icmp eq ptr %.fr57.i, null
+  %.fr58.i = freeze ptr %144
+  %145 = icmp eq ptr %.fr58.i, null
   %146 = load i64, ptr %141, align 8, !alias.scope !16947, !noalias !16971
   %147 = load ptr, ptr %142, align 8, !alias.scope !16947, !noalias !16971
   %148 = load i64, ptr %143, align 8, !alias.scope !16947, !noalias !16971
@@ -102099,11 +102099,11 @@ define internal fastcc void @_ZN17datafusion_common6scalar16dict_from_values17h9
 
 .split.i:                                         ; preds = %"_ZN11arrow_array5array16dictionary_array24DictionaryArray$LT$K$GT$7try_new28_$u7b$$u7b$closure$u7d$$u7d$17h73c62dd5cfbfc20cE.exit.i.i.i.i", %.lr.ph.i.split.us.i
   %.us-phi.i = phi i64 [ %149, %.lr.ph.i.split.us.i ], [ %156, %"_ZN11arrow_array5array16dictionary_array24DictionaryArray$LT$K$GT$7try_new28_$u7b$$u7b$closure$u7d$$u7d$17h73c62dd5cfbfc20cE.exit.i.i.i.i" ]
-  %.us-phi52.i = phi ptr [ %150, %.lr.ph.i.split.us.i ], [ %157, %"_ZN11arrow_array5array16dictionary_array24DictionaryArray$LT$K$GT$7try_new28_$u7b$$u7b$closure$u7d$$u7d$17h73c62dd5cfbfc20cE.exit.i.i.i.i" ]
+  %.us-phi53.i = phi ptr [ %150, %.lr.ph.i.split.us.i ], [ %157, %"_ZN11arrow_array5array16dictionary_array24DictionaryArray$LT$K$GT$7try_new28_$u7b$$u7b$closure$u7d$$u7d$17h73c62dd5cfbfc20cE.exit.i.i.i.i" ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !16950
   store i64 %.us-phi.i, ptr %9, align 8, !noalias !16950
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !16950
-  store ptr %.us-phi52.i, ptr %8, align 8, !noalias !16950
+  store ptr %.us-phi53.i, ptr %8, align 8, !noalias !16950
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !16950
   store ptr %8, ptr %6, align 8, !noalias !16950
   %174 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -102692,8 +102692,8 @@ define internal fastcc void @_ZN17datafusion_common6scalar16dict_from_values17he
   %142 = getelementptr inbounds nuw i8, ptr %29, i64 56
   %143 = getelementptr inbounds nuw i8, ptr %29, i64 72
   %144 = load ptr, ptr %140, align 8, !alias.scope !17061, !noalias !17085
-  %.fr57.i = freeze ptr %144
-  %145 = icmp eq ptr %.fr57.i, null
+  %.fr58.i = freeze ptr %144
+  %145 = icmp eq ptr %.fr58.i, null
   %146 = load i64, ptr %141, align 8, !alias.scope !17061, !noalias !17085
   %147 = load ptr, ptr %142, align 8, !alias.scope !17061, !noalias !17085
   %148 = load i64, ptr %143, align 8, !alias.scope !17061, !noalias !17085
@@ -102763,11 +102763,11 @@ define internal fastcc void @_ZN17datafusion_common6scalar16dict_from_values17he
 
 .split.i:                                         ; preds = %"_ZN11arrow_array5array16dictionary_array24DictionaryArray$LT$K$GT$7try_new28_$u7b$$u7b$closure$u7d$$u7d$17h4fe3a52577b74360E.exit.i.i.i.i", %.lr.ph.i.split.us.i
   %.us-phi.i = phi i64 [ %149, %.lr.ph.i.split.us.i ], [ %157, %"_ZN11arrow_array5array16dictionary_array24DictionaryArray$LT$K$GT$7try_new28_$u7b$$u7b$closure$u7d$$u7d$17h4fe3a52577b74360E.exit.i.i.i.i" ]
-  %.us-phi52.i = phi ptr [ %150, %.lr.ph.i.split.us.i ], [ %158, %"_ZN11arrow_array5array16dictionary_array24DictionaryArray$LT$K$GT$7try_new28_$u7b$$u7b$closure$u7d$$u7d$17h4fe3a52577b74360E.exit.i.i.i.i" ]
+  %.us-phi53.i = phi ptr [ %150, %.lr.ph.i.split.us.i ], [ %158, %"_ZN11arrow_array5array16dictionary_array24DictionaryArray$LT$K$GT$7try_new28_$u7b$$u7b$closure$u7d$$u7d$17h4fe3a52577b74360E.exit.i.i.i.i" ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !17064
   store i64 %.us-phi.i, ptr %9, align 8, !noalias !17064
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !17064
-  store ptr %.us-phi52.i, ptr %8, align 8, !noalias !17064
+  store ptr %.us-phi53.i, ptr %8, align 8, !noalias !17064
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !17064
   store ptr %8, ptr %6, align 8, !noalias !17064
   %176 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -103355,8 +103355,8 @@ define internal fastcc void @_ZN17datafusion_common6scalar16dict_from_values17he
   %142 = getelementptr inbounds nuw i8, ptr %29, i64 56
   %143 = getelementptr inbounds nuw i8, ptr %29, i64 72
   %144 = load ptr, ptr %140, align 8, !alias.scope !17175, !noalias !17199
-  %.fr57.i = freeze ptr %144
-  %145 = icmp eq ptr %.fr57.i, null
+  %.fr58.i = freeze ptr %144
+  %145 = icmp eq ptr %.fr58.i, null
   %146 = load i64, ptr %141, align 8, !alias.scope !17175, !noalias !17199
   %147 = load ptr, ptr %142, align 8, !alias.scope !17175, !noalias !17199
   %148 = load i64, ptr %143, align 8, !alias.scope !17175, !noalias !17199
@@ -103426,11 +103426,11 @@ define internal fastcc void @_ZN17datafusion_common6scalar16dict_from_values17he
 
 .split.i:                                         ; preds = %"_ZN11arrow_array5array16dictionary_array24DictionaryArray$LT$K$GT$7try_new28_$u7b$$u7b$closure$u7d$$u7d$17hb333e8b86fdda0bcE.exit.i.i.i.i", %.lr.ph.i.split.us.i
   %.us-phi.i = phi i64 [ %149, %.lr.ph.i.split.us.i ], [ %157, %"_ZN11arrow_array5array16dictionary_array24DictionaryArray$LT$K$GT$7try_new28_$u7b$$u7b$closure$u7d$$u7d$17hb333e8b86fdda0bcE.exit.i.i.i.i" ]
-  %.us-phi52.i = phi ptr [ %150, %.lr.ph.i.split.us.i ], [ %158, %"_ZN11arrow_array5array16dictionary_array24DictionaryArray$LT$K$GT$7try_new28_$u7b$$u7b$closure$u7d$$u7d$17hb333e8b86fdda0bcE.exit.i.i.i.i" ]
+  %.us-phi53.i = phi ptr [ %150, %.lr.ph.i.split.us.i ], [ %158, %"_ZN11arrow_array5array16dictionary_array24DictionaryArray$LT$K$GT$7try_new28_$u7b$$u7b$closure$u7d$$u7d$17hb333e8b86fdda0bcE.exit.i.i.i.i" ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !17178
   store i64 %.us-phi.i, ptr %9, align 8, !noalias !17178
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !17178
-  store ptr %.us-phi52.i, ptr %8, align 8, !noalias !17178
+  store ptr %.us-phi53.i, ptr %8, align 8, !noalias !17178
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !17178
   store ptr %8, ptr %6, align 8, !noalias !17178
   %176 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -104019,8 +104019,8 @@ define internal fastcc void @_ZN17datafusion_common6scalar16dict_from_values17hf
   %142 = getelementptr inbounds nuw i8, ptr %29, i64 56
   %143 = getelementptr inbounds nuw i8, ptr %29, i64 72
   %144 = load ptr, ptr %140, align 8, !alias.scope !17289, !noalias !17313
-  %.fr57.i = freeze ptr %144
-  %145 = icmp eq ptr %.fr57.i, null
+  %.fr58.i = freeze ptr %144
+  %145 = icmp eq ptr %.fr58.i, null
   %146 = load i64, ptr %141, align 8, !alias.scope !17289, !noalias !17313
   %147 = load ptr, ptr %142, align 8, !alias.scope !17289, !noalias !17313
   %148 = load i64, ptr %143, align 8, !alias.scope !17289, !noalias !17313
@@ -104086,11 +104086,11 @@ define internal fastcc void @_ZN17datafusion_common6scalar16dict_from_values17hf
 
 .split.i:                                         ; preds = %"_ZN11arrow_array5array16dictionary_array24DictionaryArray$LT$K$GT$7try_new28_$u7b$$u7b$closure$u7d$$u7d$17h07ae494e711bff05E.exit.i.i.i.i", %.lr.ph.i.split.us.i
   %.us-phi.i = phi i64 [ %149, %.lr.ph.i.split.us.i ], [ %156, %"_ZN11arrow_array5array16dictionary_array24DictionaryArray$LT$K$GT$7try_new28_$u7b$$u7b$closure$u7d$$u7d$17h07ae494e711bff05E.exit.i.i.i.i" ]
-  %.us-phi52.i = phi ptr [ %150, %.lr.ph.i.split.us.i ], [ %157, %"_ZN11arrow_array5array16dictionary_array24DictionaryArray$LT$K$GT$7try_new28_$u7b$$u7b$closure$u7d$$u7d$17h07ae494e711bff05E.exit.i.i.i.i" ]
+  %.us-phi53.i = phi ptr [ %150, %.lr.ph.i.split.us.i ], [ %157, %"_ZN11arrow_array5array16dictionary_array24DictionaryArray$LT$K$GT$7try_new28_$u7b$$u7b$closure$u7d$$u7d$17h07ae494e711bff05E.exit.i.i.i.i" ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !17292
   store i64 %.us-phi.i, ptr %9, align 8, !noalias !17292
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !17292
-  store ptr %.us-phi52.i, ptr %8, align 8, !noalias !17292
+  store ptr %.us-phi53.i, ptr %8, align 8, !noalias !17292
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !17292
   store ptr %8, ptr %6, align 8, !noalias !17292
   %174 = getelementptr inbounds nuw i8, ptr %6, i64 8

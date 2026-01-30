@@ -264,20 +264,20 @@ _ZN5Eigen5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEaSINS1_IdLi1
   %67 = load ptr, ptr %29, align 8, !tbaa !33
   %68 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %69 = load ptr, ptr %68, align 8, !tbaa !33
-  %.not185195 = icmp eq ptr %67, %69
-  br i1 %.not185195, label %._crit_edge, label %.lr.ph
+  %.not186196 = icmp eq ptr %67, %69
+  br i1 %.not186196, label %._crit_edge, label %.lr.ph
 
 70:                                               ; preds = %132, %_ZN5Eigen5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEaSINS1_IdLi1ELin1ELi1ELi1ELin1EEEEERS3_RKNS_9DenseBaseIT_EE.exit162
   %71 = phi i1 [ true, %_ZN5Eigen5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEaSINS1_IdLi1ELin1ELi1ELi1ELin1EEEEERS3_RKNS_9DenseBaseIT_EE.exit162 ], [ false, %132 ]
   %indvars.iv = phi i64 [ 0, %_ZN5Eigen5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEaSINS1_IdLi1ELin1ELi1ELi1ELin1EEEEERS3_RKNS_9DenseBaseIT_EE.exit162 ], [ 1, %132 ]
-  %indvars202 = trunc nuw nsw i64 %indvars.iv to i32
+  %indvars203 = trunc nuw nsw i64 %indvars.iv to i32
   %72 = mul nuw nsw i64 %56, %indvars.iv
   %73 = getelementptr i32, ptr %57, i64 %72
   %74 = load i32, ptr %73, align 4, !tbaa !14
   %75 = mul nuw nsw i64 %60, %indvars.iv
   %76 = getelementptr i32, ptr %61, i64 %75
   %77 = load i32, ptr %76, align 4, !tbaa !14
-  %78 = shl nuw nsw i32 %indvars202, 1
+  %78 = shl nuw nsw i32 %indvars203, 1
   %.neg = add nsw i32 %78, -1
   %indvars.iv.tr = trunc nuw nsw i64 %indvars.iv to i32
   %79 = shl nuw nsw i32 %indvars.iv.tr, 1
@@ -304,11 +304,11 @@ _ZN5Eigen5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEaSINS1_IdLi1
   %100 = getelementptr i32, ptr %99, i64 %56
   %101 = load i32, ptr %100, align 4, !tbaa !14
   %102 = icmp eq i32 %101, %74
-  %.in187 = select i1 %102, ptr %99, ptr %100
+  %.in188 = select i1 %102, ptr %99, ptr %100
   %.in158.v.idx = select i1 %102, i64 0, i64 %60
   %.in158.v = getelementptr i32, ptr %58, i64 %.in158.v.idx
   %.in158 = getelementptr i32, ptr %.in158.v, i64 %98
-  %103 = load i32, ptr %.in187, align 4, !tbaa !14
+  %103 = load i32, ptr %.in188, align 4, !tbaa !14
   %104 = load i32, ptr %.in158, align 4, !tbaa !14
   %105 = getelementptr i32, ptr %63, i64 %98
   store i32 0, ptr %105, align 4, !tbaa !14
@@ -335,11 +335,11 @@ _ZN5Eigen5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEaSINS1_IdLi1
   %117 = sext i32 %97 to i64
   %118 = getelementptr i32, ptr %54, i64 %117
   %119 = load i32, ptr %118, align 4, !tbaa !14
-  %.not188 = icmp eq i32 %119, %74
-  %120 = select i1 %.not188, i64 0, i64 %56
+  %.not189 = icmp eq i32 %119, %74
+  %120 = select i1 %.not189, i64 0, i64 %56
   %121 = getelementptr i32, ptr %118, i64 %120
   store i32 %103, ptr %121, align 4, !tbaa !14
-  %122 = select i1 %.not188, i64 0, i64 %60
+  %122 = select i1 %.not189, i64 0, i64 %60
   %123 = getelementptr i32, ptr %58, i64 %117
   %124 = getelementptr i32, ptr %123, i64 %122
   store i32 %104, ptr %124, align 4, !tbaa !14
@@ -374,16 +374,16 @@ _ZN5Eigen5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEaSINS1_IdLi1
   br label %178
 
 .lr.ph:                                           ; preds = %66, %.loopexit
-  %.0152197 = phi i32 [ %.1, %.loopexit ], [ -1, %66 ]
-  %.sroa.0163.0196 = phi ptr [ %177, %.loopexit ], [ %67, %66 ]
-  %137 = load i32, ptr %.sroa.0163.0196, align 4, !tbaa !14
+  %.0152198 = phi i32 [ %.1, %.loopexit ], [ -1, %66 ]
+  %.sroa.0163.0197 = phi ptr [ %177, %.loopexit ], [ %67, %66 ]
+  %137 = load i32, ptr %.sroa.0163.0197, align 4, !tbaa !14
   %138 = sext i32 %137 to i64
   %139 = getelementptr i32, ptr %65, i64 %138
   br label %140
 
 140:                                              ; preds = %.lr.ph, %176
-  %indvars.iv203 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next204, %176 ]
-  %141 = mul nsw i64 %52, %indvars.iv203
+  %indvars.iv204 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next205, %176 ]
+  %141 = mul nsw i64 %52, %indvars.iv204
   %142 = getelementptr i32, ptr %139, i64 %141
   %143 = load i32, ptr %142, align 4, !tbaa !14
   %144 = icmp eq i32 %143, %26
@@ -391,9 +391,9 @@ _ZN5Eigen5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEaSINS1_IdLi1
 
 145:                                              ; preds = %140
   %146 = getelementptr i32, ptr %139, i64 %141
-  %147 = trunc nuw nsw i64 %indvars.iv203 to i32
+  %147 = trunc nuw nsw i64 %indvars.iv204 to i32
   %148 = add nuw nsw i32 %147, 1
-  %.cmp.not = icmp eq i64 %indvars.iv203, 2
+  %.cmp.not = icmp eq i64 %indvars.iv204, 2
   %149 = select i1 %.cmp.not, i32 0, i32 %148
   %150 = mul nsw i32 %149, %53
   %151 = add nsw i32 %150, %137
@@ -408,23 +408,23 @@ _ZN5Eigen5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEaSINS1_IdLi1
   %160 = getelementptr i32, ptr %63, i64 %155
   %161 = getelementptr i32, ptr %160, i64 %159
   store i32 %25, ptr %161, align 4, !tbaa !14
-  %.urem183 = add nsw i32 %147, -1
-  %.cmp184 = icmp eq i64 %indvars.iv203, 0
-  %162 = select i1 %.cmp184, i32 2, i32 %.urem183
+  %.urem184 = add nsw i32 %147, -1
+  %.cmp185 = icmp eq i64 %indvars.iv204, 0
+  %162 = select i1 %.cmp185, i32 2, i32 %.urem184
   %163 = mul nsw i32 %162, %53
   %164 = add nsw i32 %163, %137
   %165 = sext i32 %164 to i64
   %166 = getelementptr inbounds i32, ptr %62, i64 %165
   %167 = load i32, ptr %166, align 4, !tbaa !14
-  %.not = icmp eq i32 %167, %.0152197
+  %.not = icmp eq i32 %167, %.0152198
   br i1 %.not, label %175, label %168
 
 168:                                              ; preds = %145
   %169 = sext i32 %167 to i64
   %170 = getelementptr i32, ptr %54, i64 %169
   %171 = load i32, ptr %170, align 4, !tbaa !14
-  %.not186 = icmp eq i32 %171, %137
-  %172 = select i1 %.not186, i64 0, i64 %64
+  %.not187 = icmp eq i32 %171, %137
+  %172 = select i1 %.not187, i64 0, i64 %64
   %173 = getelementptr i32, ptr %63, i64 %169
   %174 = getelementptr i32, ptr %173, i64 %172
   store i32 %25, ptr %174, align 4, !tbaa !14
@@ -435,15 +435,15 @@ _ZN5Eigen5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEaSINS1_IdLi1
   br label %.loopexit
 
 176:                                              ; preds = %140
-  %indvars.iv.next204 = add nuw nsw i64 %indvars.iv203, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next204, 3
+  %indvars.iv.next205 = add nuw nsw i64 %indvars.iv204, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next205, 3
   br i1 %exitcond.not, label %.loopexit, label %140, !llvm.loop !35
 
 .loopexit:                                        ; preds = %176, %175
-  %.1 = phi i32 [ %154, %175 ], [ %.0152197, %176 ]
-  %177 = getelementptr inbounds nuw i8, ptr %.sroa.0163.0196, i64 4
-  %.not185 = icmp eq ptr %177, %69
-  br i1 %.not185, label %._crit_edge, label %.lr.ph
+  %.1 = phi i32 [ %154, %175 ], [ %.0152198, %176 ]
+  %177 = getelementptr inbounds nuw i8, ptr %.sroa.0163.0197, i64 4
+  %.not186 = icmp eq ptr %177, %69
+  br i1 %.not186, label %._crit_edge, label %.lr.ph
 
 178:                                              ; preds = %16, %._crit_edge
   ret i1 %27
@@ -536,20 +536,20 @@ _ZN5Eigen10MatrixBaseINS_5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1EL
   %73 = load ptr, ptr %29, align 8, !tbaa !33
   %74 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %75 = load ptr, ptr %74, align 8, !tbaa !33
-  %.not185195 = icmp eq ptr %73, %75
-  br i1 %.not185195, label %._crit_edge, label %.lr.ph
+  %.not186196 = icmp eq ptr %73, %75
+  br i1 %.not186196, label %._crit_edge, label %.lr.ph
 
 76:                                               ; preds = %138, %_ZN5Eigen10MatrixBaseINS_5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEEaSERKS5_.exit162
   %77 = phi i1 [ true, %_ZN5Eigen10MatrixBaseINS_5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEEaSERKS5_.exit162 ], [ false, %138 ]
   %indvars.iv = phi i64 [ 0, %_ZN5Eigen10MatrixBaseINS_5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEEaSERKS5_.exit162 ], [ 1, %138 ]
-  %indvars202 = trunc nuw nsw i64 %indvars.iv to i32
+  %indvars203 = trunc nuw nsw i64 %indvars.iv to i32
   %78 = mul nuw nsw i64 %62, %indvars.iv
   %79 = getelementptr i32, ptr %63, i64 %78
   %80 = load i32, ptr %79, align 4, !tbaa !14
   %81 = mul nuw nsw i64 %66, %indvars.iv
   %82 = getelementptr i32, ptr %67, i64 %81
   %83 = load i32, ptr %82, align 4, !tbaa !14
-  %84 = shl nuw nsw i32 %indvars202, 1
+  %84 = shl nuw nsw i32 %indvars203, 1
   %.neg = add nsw i32 %84, -1
   %indvars.iv.tr = trunc nuw nsw i64 %indvars.iv to i32
   %85 = shl nuw nsw i32 %indvars.iv.tr, 1
@@ -576,11 +576,11 @@ _ZN5Eigen10MatrixBaseINS_5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1EL
   %106 = getelementptr i32, ptr %105, i64 %62
   %107 = load i32, ptr %106, align 4, !tbaa !14
   %108 = icmp eq i32 %107, %80
-  %.in187 = select i1 %108, ptr %105, ptr %106
+  %.in188 = select i1 %108, ptr %105, ptr %106
   %.in158.v.idx = select i1 %108, i64 0, i64 %66
   %.in158.v = getelementptr i32, ptr %64, i64 %.in158.v.idx
   %.in158 = getelementptr i32, ptr %.in158.v, i64 %104
-  %109 = load i32, ptr %.in187, align 4, !tbaa !14
+  %109 = load i32, ptr %.in188, align 4, !tbaa !14
   %110 = load i32, ptr %.in158, align 4, !tbaa !14
   %111 = getelementptr i32, ptr %69, i64 %104
   store i32 0, ptr %111, align 4, !tbaa !14
@@ -607,11 +607,11 @@ _ZN5Eigen10MatrixBaseINS_5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1EL
   %123 = sext i32 %103 to i64
   %124 = getelementptr i32, ptr %60, i64 %123
   %125 = load i32, ptr %124, align 4, !tbaa !14
-  %.not188 = icmp eq i32 %125, %80
-  %126 = select i1 %.not188, i64 0, i64 %62
+  %.not189 = icmp eq i32 %125, %80
+  %126 = select i1 %.not189, i64 0, i64 %62
   %127 = getelementptr i32, ptr %124, i64 %126
   store i32 %109, ptr %127, align 4, !tbaa !14
-  %128 = select i1 %.not188, i64 0, i64 %66
+  %128 = select i1 %.not189, i64 0, i64 %66
   %129 = getelementptr i32, ptr %64, i64 %123
   %130 = getelementptr i32, ptr %129, i64 %128
   store i32 %110, ptr %130, align 4, !tbaa !14
@@ -646,16 +646,16 @@ _ZN5Eigen10MatrixBaseINS_5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1EL
   br label %184
 
 .lr.ph:                                           ; preds = %72, %.loopexit
-  %.0152197 = phi i32 [ %.1, %.loopexit ], [ -1, %72 ]
-  %.sroa.0163.0196 = phi ptr [ %183, %.loopexit ], [ %73, %72 ]
-  %143 = load i32, ptr %.sroa.0163.0196, align 4, !tbaa !14
+  %.0152198 = phi i32 [ %.1, %.loopexit ], [ -1, %72 ]
+  %.sroa.0163.0197 = phi ptr [ %183, %.loopexit ], [ %73, %72 ]
+  %143 = load i32, ptr %.sroa.0163.0197, align 4, !tbaa !14
   %144 = sext i32 %143 to i64
   %145 = getelementptr i32, ptr %71, i64 %144
   br label %146
 
 146:                                              ; preds = %.lr.ph, %182
-  %indvars.iv203 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next204, %182 ]
-  %147 = mul nsw i64 %58, %indvars.iv203
+  %indvars.iv204 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next205, %182 ]
+  %147 = mul nsw i64 %58, %indvars.iv204
   %148 = getelementptr i32, ptr %145, i64 %147
   %149 = load i32, ptr %148, align 4, !tbaa !14
   %150 = icmp eq i32 %149, %26
@@ -663,9 +663,9 @@ _ZN5Eigen10MatrixBaseINS_5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1EL
 
 151:                                              ; preds = %146
   %152 = getelementptr i32, ptr %145, i64 %147
-  %153 = trunc nuw nsw i64 %indvars.iv203 to i32
+  %153 = trunc nuw nsw i64 %indvars.iv204 to i32
   %154 = add nuw nsw i32 %153, 1
-  %.cmp.not = icmp eq i64 %indvars.iv203, 2
+  %.cmp.not = icmp eq i64 %indvars.iv204, 2
   %155 = select i1 %.cmp.not, i32 0, i32 %154
   %156 = mul nsw i32 %155, %59
   %157 = add nsw i32 %156, %143
@@ -680,23 +680,23 @@ _ZN5Eigen10MatrixBaseINS_5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1EL
   %166 = getelementptr i32, ptr %69, i64 %161
   %167 = getelementptr i32, ptr %166, i64 %165
   store i32 %25, ptr %167, align 4, !tbaa !14
-  %.urem183 = add nsw i32 %153, -1
-  %.cmp184 = icmp eq i64 %indvars.iv203, 0
-  %168 = select i1 %.cmp184, i32 2, i32 %.urem183
+  %.urem184 = add nsw i32 %153, -1
+  %.cmp185 = icmp eq i64 %indvars.iv204, 0
+  %168 = select i1 %.cmp185, i32 2, i32 %.urem184
   %169 = mul nsw i32 %168, %59
   %170 = add nsw i32 %169, %143
   %171 = sext i32 %170 to i64
   %172 = getelementptr inbounds i32, ptr %68, i64 %171
   %173 = load i32, ptr %172, align 4, !tbaa !14
-  %.not = icmp eq i32 %173, %.0152197
+  %.not = icmp eq i32 %173, %.0152198
   br i1 %.not, label %181, label %174
 
 174:                                              ; preds = %151
   %175 = sext i32 %173 to i64
   %176 = getelementptr i32, ptr %60, i64 %175
   %177 = load i32, ptr %176, align 4, !tbaa !14
-  %.not186 = icmp eq i32 %177, %143
-  %178 = select i1 %.not186, i64 0, i64 %70
+  %.not187 = icmp eq i32 %177, %143
+  %178 = select i1 %.not187, i64 0, i64 %70
   %179 = getelementptr i32, ptr %69, i64 %175
   %180 = getelementptr i32, ptr %179, i64 %178
   store i32 %25, ptr %180, align 4, !tbaa !14
@@ -707,15 +707,15 @@ _ZN5Eigen10MatrixBaseINS_5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1EL
   br label %.loopexit
 
 182:                                              ; preds = %146
-  %indvars.iv.next204 = add nuw nsw i64 %indvars.iv203, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next204, 3
+  %indvars.iv.next205 = add nuw nsw i64 %indvars.iv204, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next205, 3
   br i1 %exitcond.not, label %.loopexit, label %146, !llvm.loop !49
 
 .loopexit:                                        ; preds = %182, %181
-  %.1 = phi i32 [ %160, %181 ], [ %.0152197, %182 ]
-  %183 = getelementptr inbounds nuw i8, ptr %.sroa.0163.0196, i64 4
-  %.not185 = icmp eq ptr %183, %75
-  br i1 %.not185, label %._crit_edge, label %.lr.ph
+  %.1 = phi i32 [ %160, %181 ], [ %.0152198, %182 ]
+  %183 = getelementptr inbounds nuw i8, ptr %.sroa.0163.0197, i64 4
+  %.not186 = icmp eq ptr %183, %75
+  br i1 %.not186, label %._crit_edge, label %.lr.ph
 
 184:                                              ; preds = %16, %._crit_edge
   ret i1 %27

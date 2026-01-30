@@ -111645,8 +111645,8 @@ define internal noundef i32 @_ZN12_GLOBAL__N_133AAFoldRuntimeCallCallSiteReturne
   switch i32 %9, label %216 [
     i32 186, label %10
     i32 185, label %124
-    i32 15, label %210
-    i32 14, label %213
+    i32 15, label %211
+    i32 14, label %214
   ]
 
 10:                                               ; preds = %2
@@ -111914,7 +111914,7 @@ _ZSteqIPN4llvm5ValueES2_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declval
 _ZN12_GLOBAL__N_133AAFoldRuntimeCallCallSiteReturned18foldIsSPMDExecModeERN4llvm10AttributorE.exit: ; preds = %34, %77, %84, %_ZSteqIPN4llvm5ValueES2_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS4_ERKSD_IS7_E.exit.i
   %.0.i = phi i32 [ %88, %84 ], [ %122, %_ZSteqIPN4llvm5ValueES2_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS4_ERKSD_IS7_E.exit.i ], [ %81, %77 ], [ %38, %34 ]
   %123 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN4llvmoRERNS_12ChangeStatusES0_(ptr noundef nonnull align 4 dereferenceable(4) %7, i32 noundef %.0.i) #30
-  br label %217
+  br label %218
 
 124:                                              ; preds = %2
   %125 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -112070,7 +112070,7 @@ _ZNK4llvm10IRPosition14getAnchorValueEv.exit.i19: ; preds = %190, %._crit_edge.i
   %.0.i75.i = phi ptr [ %192, %190 ], [ %189, %._crit_edge.i17 ]
   %193 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4llvm5Value10getContextEv(ptr noundef nonnull align 8 dereferenceable(24) %.0.i75.i) #30
   %194 = or i32 %.242.ph.i16, %.246.ph.i15
-  %or.cond.not.i20 = icmp eq i32 %194, 0
+  %195 = icmp eq i32 %194, 0
   %195 = call noundef ptr @_ZN4llvm4Type9getInt8TyERNS_11LLVMContextE(ptr noundef nonnull align 8 dereferenceable(8) %193) #30
   br i1 %or.cond.not.i20, label %200, label %196
 
@@ -112089,43 +112089,43 @@ _ZNK4llvm10IRPosition14getAnchorValueEv.exit.i19: ; preds = %190, %._crit_edge.i
 _ZNSt8optionalIPN4llvm5ValueEEaSIPNS0_11ConstantIntEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS3_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES8_ISt6__and_IJSt9is_scalarIS2_ES9_IS2_NSt5decayISC_E4typeEEEEESt16is_constructibleIS2_JSC_EESt13is_assignableIRS2_SC_EEERS3_E4typeEOSC_.exit.sink.split.i: ; preds = %200, %196
   %.ph.i = phi ptr [ %197, %196 ], [ %201, %200 ]
   store i8 1, ptr %.sroa.481.0..sroa_idx.i, align 8, !tbaa !2678
-  br label %_ZNSt8optionalIPN4llvm5ValueEEaSIPNS0_11ConstantIntEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS3_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES8_ISt6__and_IJSt9is_scalarIS2_ES9_IS2_NSt5decayISC_E4typeEEEEESt16is_constructibleIS2_JSC_EESt13is_assignableIRS2_SC_EEERS3_E4typeEOSC_.exit.i21
+  br label %_ZNSt8optionalIPN4llvm5ValueEEaSIPNS0_11ConstantIntEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS3_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES8_ISt6__and_IJSt9is_scalarIS2_ES9_IS2_NSt5decayISC_E4typeEEEEESt16is_constructibleIS2_JSC_EESt13is_assignableIRS2_SC_EEERS3_E4typeEOSC_.exit.i20
 
-_ZNSt8optionalIPN4llvm5ValueEEaSIPNS0_11ConstantIntEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS3_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES8_ISt6__and_IJSt9is_scalarIS2_ES9_IS2_NSt5decayISC_E4typeEEEEESt16is_constructibleIS2_JSC_EESt13is_assignableIRS2_SC_EEERS3_E4typeEOSC_.exit.i21: ; preds = %_ZNSt8optionalIPN4llvm5ValueEEaSIPNS0_11ConstantIntEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS3_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES8_ISt6__and_IJSt9is_scalarIS2_ES9_IS2_NSt5decayISC_E4typeEEEEESt16is_constructibleIS2_JSC_EESt13is_assignableIRS2_SC_EEERS3_E4typeEOSC_.exit.sink.split.i, %200, %196
-  %204 = phi ptr [ %201, %200 ], [ %197, %196 ], [ %.ph.i, %_ZNSt8optionalIPN4llvm5ValueEEaSIPNS0_11ConstantIntEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS3_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES8_ISt6__and_IJSt9is_scalarIS2_ES9_IS2_NSt5decayISC_E4typeEEEEESt16is_constructibleIS2_JSC_EESt13is_assignableIRS2_SC_EEERS3_E4typeEOSC_.exit.sink.split.i ]
-  store ptr %204, ptr %125, align 8, !tbaa !1310
-  %205 = icmp eq i8 %.sroa.481.0.copyload.i, 1
-  br i1 %205, label %206, label %_ZN12_GLOBAL__N_133AAFoldRuntimeCallCallSiteReturned17foldParallelLevelERN4llvm10AttributorE.exit
+_ZNSt8optionalIPN4llvm5ValueEEaSIPNS0_11ConstantIntEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS3_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES8_ISt6__and_IJSt9is_scalarIS2_ES9_IS2_NSt5decayISC_E4typeEEEEESt16is_constructibleIS2_JSC_EESt13is_assignableIRS2_SC_EEERS3_E4typeEOSC_.exit.i20: ; preds = %_ZNSt8optionalIPN4llvm5ValueEEaSIPNS0_11ConstantIntEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS3_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES8_ISt6__and_IJSt9is_scalarIS2_ES9_IS2_NSt5decayISC_E4typeEEEEESt16is_constructibleIS2_JSC_EESt13is_assignableIRS2_SC_EEERS3_E4typeEOSC_.exit.sink.split.i, %200, %196
+  %205 = phi ptr [ %201, %200 ], [ %197, %196 ], [ %.ph.i, %_ZNSt8optionalIPN4llvm5ValueEEaSIPNS0_11ConstantIntEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS3_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES8_ISt6__and_IJSt9is_scalarIS2_ES9_IS2_NSt5decayISC_E4typeEEEEESt16is_constructibleIS2_JSC_EESt13is_assignableIRS2_SC_EEERS3_E4typeEOSC_.exit.sink.split.i ]
+  store ptr %205, ptr %125, align 8, !tbaa !1310
+  %206 = icmp eq i8 %.sroa.481.0.copyload.i, 1
+  br i1 %206, label %207, label %_ZN12_GLOBAL__N_133AAFoldRuntimeCallCallSiteReturned17foldParallelLevelERN4llvm10AttributorE.exit
 
-206:                                              ; preds = %_ZNSt8optionalIPN4llvm5ValueEEaSIPNS0_11ConstantIntEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS3_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES8_ISt6__and_IJSt9is_scalarIS2_ES9_IS2_NSt5decayISC_E4typeEEEEESt16is_constructibleIS2_JSC_EESt13is_assignableIRS2_SC_EEERS3_E4typeEOSC_.exit.i21
-  %207 = icmp eq ptr %204, %.sroa.080.0.copyload.i
-  %208 = zext i1 %207 to i32
+207:                                              ; preds = %_ZNSt8optionalIPN4llvm5ValueEEaSIPNS0_11ConstantIntEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS3_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES8_ISt6__and_IJSt9is_scalarIS2_ES9_IS2_NSt5decayISC_E4typeEEEEESt16is_constructibleIS2_JSC_EESt13is_assignableIRS2_SC_EEERS3_E4typeEOSC_.exit.i20
+  %208 = icmp eq ptr %205, %.sroa.080.0.copyload.i
+  %209 = zext i1 %208 to i32
   br label %_ZN12_GLOBAL__N_133AAFoldRuntimeCallCallSiteReturned17foldParallelLevelERN4llvm10AttributorE.exit
 
-_ZN12_GLOBAL__N_133AAFoldRuntimeCallCallSiteReturned17foldParallelLevelERN4llvm10AttributorE.exit: ; preds = %148, %156, %161, %181, %_ZNSt8optionalIPN4llvm5ValueEEaSIPNS0_11ConstantIntEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS3_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES8_ISt6__and_IJSt9is_scalarIS2_ES9_IS2_NSt5decayISC_E4typeEEEEESt16is_constructibleIS2_JSC_EESt13is_assignableIRS2_SC_EEERS3_E4typeEOSC_.exit.i21, %206
-  %.0.i23 = phi i32 [ %152, %148 ], [ 1, %161 ], [ %160, %156 ], [ %185, %181 ], [ 0, %_ZNSt8optionalIPN4llvm5ValueEEaSIPNS0_11ConstantIntEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS3_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES8_ISt6__and_IJSt9is_scalarIS2_ES9_IS2_NSt5decayISC_E4typeEEEEESt16is_constructibleIS2_JSC_EESt13is_assignableIRS2_SC_EEERS3_E4typeEOSC_.exit.i21 ], [ %208, %206 ]
-  %209 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN4llvmoRERNS_12ChangeStatusES0_(ptr noundef nonnull align 4 dereferenceable(4) %7, i32 noundef %.0.i23) #30
-  br label %217
+_ZN12_GLOBAL__N_133AAFoldRuntimeCallCallSiteReturned17foldParallelLevelERN4llvm10AttributorE.exit: ; preds = %148, %156, %161, %181, %_ZNSt8optionalIPN4llvm5ValueEEaSIPNS0_11ConstantIntEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS3_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES8_ISt6__and_IJSt9is_scalarIS2_ES9_IS2_NSt5decayISC_E4typeEEEEESt16is_constructibleIS2_JSC_EESt13is_assignableIRS2_SC_EEERS3_E4typeEOSC_.exit.i20, %207
+  %.0.i22 = phi i32 [ %152, %148 ], [ 1, %161 ], [ %160, %156 ], [ %185, %181 ], [ 0, %_ZNSt8optionalIPN4llvm5ValueEEaSIPNS0_11ConstantIntEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS3_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES8_ISt6__and_IJSt9is_scalarIS2_ES9_IS2_NSt5decayISC_E4typeEEEEESt16is_constructibleIS2_JSC_EESt13is_assignableIRS2_SC_EEERS3_E4typeEOSC_.exit.i21 ], [ %209, %206 ]
+  %210 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN4llvmoRERNS_12ChangeStatusES0_(ptr noundef nonnull align 4 dereferenceable(4) %7, i32 noundef %.0.i22) #30
+  br label %218
 
-210:                                              ; preds = %2
-  %211 = tail call fastcc noundef i32 @_ZN12_GLOBAL__N_133AAFoldRuntimeCallCallSiteReturned21foldKernelFnAttributeERN4llvm10AttributorENS1_9StringRefE(ptr noundef nonnull align 8 dereferenceable(116) %0, ptr noundef nonnull align 8 dereferenceable(4304) %1, ptr nonnull @.str.407, i64 23)
-  %212 = tail call noundef i32 @_ZN4llvmorENS_12ChangeStatusES0_(i32 noundef 1, i32 noundef %211) #30
-  store i32 %212, ptr %7, align 4, !tbaa !967
-  br label %217
+211:                                              ; preds = %2
+  %212 = tail call fastcc noundef i32 @_ZN12_GLOBAL__N_133AAFoldRuntimeCallCallSiteReturned21foldKernelFnAttributeERN4llvm10AttributorENS1_9StringRefE(ptr noundef nonnull align 8 dereferenceable(116) %0, ptr noundef nonnull align 8 dereferenceable(4304) %1, ptr nonnull @.str.407, i64 23)
+  %213 = tail call noundef i32 @_ZN4llvmorENS_12ChangeStatusES0_(i32 noundef 1, i32 noundef %212) #30
+  store i32 %213, ptr %7, align 4, !tbaa !967
+  br label %218
 
-213:                                              ; preds = %2
-  %214 = tail call fastcc noundef i32 @_ZN12_GLOBAL__N_133AAFoldRuntimeCallCallSiteReturned21foldKernelFnAttributeERN4llvm10AttributorENS1_9StringRefE(ptr noundef nonnull align 8 dereferenceable(116) %0, ptr noundef nonnull align 8 dereferenceable(4304) %1, ptr nonnull @.str.408, i64 20)
-  %215 = tail call noundef i32 @_ZN4llvmorENS_12ChangeStatusES0_(i32 noundef 1, i32 noundef %214) #30
-  store i32 %215, ptr %7, align 4, !tbaa !967
-  br label %217
+214:                                              ; preds = %2
+  %215 = tail call fastcc noundef i32 @_ZN12_GLOBAL__N_133AAFoldRuntimeCallCallSiteReturned21foldKernelFnAttributeERN4llvm10AttributorENS1_9StringRefE(ptr noundef nonnull align 8 dereferenceable(116) %0, ptr noundef nonnull align 8 dereferenceable(4304) %1, ptr nonnull @.str.408, i64 20)
+  %216 = tail call noundef i32 @_ZN4llvmorENS_12ChangeStatusES0_(i32 noundef 1, i32 noundef %215) #30
+  store i32 %216, ptr %7, align 4, !tbaa !967
+  br label %218
 
-216:                                              ; preds = %2
+217:                                              ; preds = %2
   unreachable
 
-217:                                              ; preds = %213, %210, %_ZN12_GLOBAL__N_133AAFoldRuntimeCallCallSiteReturned17foldParallelLevelERN4llvm10AttributorE.exit, %_ZN12_GLOBAL__N_133AAFoldRuntimeCallCallSiteReturned18foldIsSPMDExecModeERN4llvm10AttributorE.exit
-  %218 = load i32, ptr %7, align 4, !tbaa !967
+218:                                              ; preds = %214, %211, %_ZN12_GLOBAL__N_133AAFoldRuntimeCallCallSiteReturned17foldParallelLevelERN4llvm10AttributorE.exit, %_ZN12_GLOBAL__N_133AAFoldRuntimeCallCallSiteReturned18foldIsSPMDExecModeERN4llvm10AttributorE.exit
+  %219 = load i32, ptr %7, align 4, !tbaa !967
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  ret i32 %218
+  ret i32 %219
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
