@@ -218,7 +218,7 @@ declare noundef i32 @ferror(ptr noundef captures(none)) local_unnamed_addr #3
 define linkonce_odr hidden void @_ZNSt10unique_ptrISt6vectorIhN8rawspeed27DefaultInitAllocatorAdaptorIhNS1_16AlignedAllocatorIhLi16EEEEEESt14default_deleteIS6_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !19
   %.not = icmp eq ptr %2, null
-  br i1 %.not, label %10, label %3
+  br i1 %.not, label %13, label %3
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -229,17 +229,20 @@ define linkonce_odr hidden void @_ZNSt10unique_ptrISt6vectorIhN8rawspeed27Defaul
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %8 = load ptr, ptr %7, align 8, !tbaa !17
-  %9 = icmp ne ptr %8, %5
-  tail call void @llvm.assume(i1 %9)
-  call void @llvm.assume(i1 true) [ "align"(ptr %5, i64 16) ]
+  %9 = ptrtoint ptr %5 to i64
+  %10 = icmp ne ptr %8, %5
+  tail call void @llvm.assume(i1 %10)
+  %11 = and i64 %9, 15
+  %12 = icmp eq i64 %11, 0
+  tail call void @llvm.assume(i1 %12)
   tail call void @_ZdlPvSt11align_val_t(ptr noundef nonnull %5, i64 noundef 16) #21
   br label %_ZNKSt14default_deleteISt6vectorIhN8rawspeed27DefaultInitAllocatorAdaptorIhNS1_16AlignedAllocatorIhLi16EEEEEEEclEPS6_.exit
 
 _ZNKSt14default_deleteISt6vectorIhN8rawspeed27DefaultInitAllocatorAdaptorIhNS1_16AlignedAllocatorIhLi16EEEEEEEclEPS6_.exit: ; preds = %3, %6
   tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 32) #20
-  br label %10
+  br label %13
 
-10:                                               ; preds = %_ZNKSt14default_deleteISt6vectorIhN8rawspeed27DefaultInitAllocatorAdaptorIhNS1_16AlignedAllocatorIhLi16EEEEEEEclEPS6_.exit, %1
+13:                                               ; preds = %_ZNKSt14default_deleteISt6vectorIhN8rawspeed27DefaultInitAllocatorAdaptorIhNS1_16AlignedAllocatorIhLi16EEEEEEEclEPS6_.exit, %1
   store ptr null, ptr %0, align 8, !tbaa !19
   ret void
 }
